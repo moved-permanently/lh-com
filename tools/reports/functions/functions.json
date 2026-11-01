@@ -1,0 +1,1725 @@
+{
+  "updated": "2026-11-01",
+  "change": "First version generated from git. Since the first canvas: Lufthansa's chat assistant is covered elsewhere, because it doesn't run on AEM; Air Dolomiti's chat needs Air Dolomiti; the notes cover the shared code and the live tests of 1 November.",
+  "legend": {
+    "done": {
+      "label": "works on our replica",
+      "note": "The function works on the replica today, with the same data or hand-off as on the airline's current site."
+    },
+    "wip": {
+      "label": "planned or in progress",
+      "note": "The replica doesn't have this yet, or only in part; the work is planned or under way."
+    },
+    "elsewhere": {
+      "label": "covered elsewhere",
+      "note": "The function runs on another system that stays after the switch, such as a check-in app or a partner shop; the replica links to it as the current site does."
+    },
+    "stays": {
+      "label": "stays on the old platform",
+      "note": "By decision, this stays on the airline's current platform, and the new site links to it."
+    },
+    "lh": {
+      "label": "needs LH",
+      "note": "This can't work on the replica until Lufthansa, or the airline itself, changes a setting or decides."
+    },
+    "see": {
+      "label": "covered in another row",
+      "note": "The airline offers this as part of another function; that row has the rating."
+    },
+    "none": {
+      "label": "no such function",
+      "note": "The airline's current website has no such function."
+    }
+  },
+  "footnotes": {
+    "adbooking": "Air Dolomiti sells through its own booking engine, not Lufthansa's shop. The hand-off is in the shared flight search since 1 November, and a test search from our preview site reached the engine's flight selection; its bot check then showed a captcha to the automated test browser, which a person can pass. The pages still need the search form; until then the replica links to Air Dolomiti's booking page.",
+    "picker": "The picker for adults, children, infants and cabin is in the shared code since 1 November. Each brand's pages still have to switch it on; until then the search sends the travellers and cabin set on the page.",
+    "status": "Since 1 November the flight status form passes a search on in the parameters the airline's status page reads, and posts it to Air Dolomiti's own engine. The four brands on Lufthansa's AEM count as working after a check on each replica; Air Dolomiti's pages still need the form.",
+    "lhbooking": "Lufthansa's manage booking and hotel tabs hand over to two services that run in AEM today. Their replacements already answer on lufthansa.turnsthe.page with test data; next, the tabs post to them.",
+    "signin": "On Discover, ITA and Austrian, manage booking and sign-in end on login and profile pages that AEM serves today. We're building those pages on the new platform; until then the replicas link to the airline's current pages.",
+    "lhpages": "Five Lufthansa pages with these functions aren't on the replica yet: check-in deadlines, security waiting times, the compensation claim, the newsletter and eJournals. They come next. The two airport searches get blocks of their own, and Lufthansa's live data for them answers our addresses. Until then our pages link to www.",
+    "travelidapps": "The help center and culinary hub apps are in the shared code and load on our pages, but their data comes from the airline's Travel ID service, which refuses our test addresses. They work once the site runs on the airline's own address, or once Lufthansa allows ours.",
+    "adown": "Switching off Air Dolomiti's current website is a goal, so its timetable, manage booking, newsletter and eSIM pages get versions of their own. Its booking service answers our addresses, so timetable and manage booking can work as on www; the newsletter becomes a form on our own forms service.",
+    "cargostays": "Cargo's booking, schedules, customer portal, station finder and eServices stay on Cargo's current systems; the new site links to them.",
+    "cargomoves": "Cargo's public pages move completely: contact forms, notifications, help and contact search, the newsletter page and the tracking entry form get versions on the new platform.",
+    "oschat": "Austrian's chat assistant is loaded from Austrian's website, outside AEM, and it worked on our address in a test. The chat button is switched on for Austrian only after a check on its preview.",
+    "adchat": "Air Dolomiti's chat assistant is built into the replica, but its switch stays off: the chat vendor sends no chat to our address until Air Dolomiti or the vendor adds a rule for it.",
+    "travelid": "Personal content for signed-in customers needs Lufthansa: Travel ID, the group's login, accepts only the airline's own website as the address to return to and as the site allowed to call it. The replicas can't sign anyone in until they run on the airline's address, or Lufthansa allows ours."
+  },
+  "brands": [
+    {
+      "id": "lufthansa",
+      "name": "Lufthansa",
+      "host": "https://lufthansa.turnsthe.page",
+      "www": "https://www.lufthansa.com",
+      "note": "The lufthansa.com replica, built page by page from www.lufthansa.com, which runs on Lufthansa's AEM today."
+    },
+    {
+      "id": "discover",
+      "name": "Discover",
+      "host": "https://discover.turnsthe.page",
+      "www": "https://www.discover-airlines.com",
+      "note": "The Discover Airlines replica, on the lufthansa.com code with Discover's theme; Discover runs on Lufthansa's AEM today."
+    },
+    {
+      "id": "ita",
+      "name": "ITA",
+      "host": "https://ita.turnsthe.page",
+      "www": "https://www.ita-airways.com",
+      "note": "The ITA Airways replica, on the lufthansa.com code with ITA's theme; ITA runs on Lufthansa's AEM today."
+    },
+    {
+      "id": "austrian",
+      "name": "Austrian",
+      "host": "https://austrian.turnsthe.page",
+      "www": "https://www.austrian.com",
+      "note": "The Austrian Airlines replica, on the lufthansa.com code with Austrian's theme; Austrian runs on Lufthansa's AEM today."
+    },
+    {
+      "id": "cargo",
+      "name": "Cargo",
+      "host": "https://cargo.turnsthe.page",
+      "www": "https://www.lufthansa-cargo.com",
+      "note": "The Lufthansa Cargo replica, on the lufthansa.com code; Cargo's current site runs on Liferay, not on Lufthansa's AEM."
+    },
+    {
+      "id": "airdolomiti",
+      "name": "Air Dolomiti",
+      "host": "https://airdolomiti.turnsthe.page",
+      "www": "https://www.airdolomiti.it",
+      "note": "The Air Dolomiti replica, on the lufthansa.com code with Air Dolomiti's theme; its current site runs on Next.js and WordPress, not on Lufthansa's AEM."
+    }
+  ],
+  "functions": [
+    {
+      "id": "flight-search",
+      "name": "Flight search",
+      "about": "The search form on the homepage and booking pages that sends travellers to the airline's booking shop with route, dates and travellers.",
+      "cells": {
+        "lufthansa": {
+          "status": "done",
+          "note": "The search form hands route, dates and travellers to Lufthansa's booking shop, as on www; a test search reached the shop's flight selection.",
+          "page": "/de/en/homepage",
+          "evidence": "functions scan 2026-10-31: FRA-VIE from the replica reached shop.lufthansa.com flight selection"
+        },
+        "discover": {
+          "status": "done",
+          "note": "The search form hands searches to Lufthansa's booking shop, which sells Discover's flights, as www does.",
+          "page": "/de/en/homepage",
+          "evidence": "functions scan 2026-10-31: replica FRA-HRG built the POST to shop.lufthansa.com (captured, not sent)"
+        },
+        "ita": {
+          "status": "done",
+          "note": "The search form is set up to hand searches to ITA's own booking shop, as www does.",
+          "page": "/it/en/homepage",
+          "evidence": "functions scan 2026-10-31: Shop row shop.ita-airways.com/booking/availability; not submitted"
+        },
+        "austrian": {
+          "status": "done",
+          "note": "The search form is set up to hand searches to Austrian's own booking shop, as www does.",
+          "page": "/at/en/homepage",
+          "evidence": "functions scan 2026-10-31: Shop row shop.austrian.com/booking/availability; not submitted"
+        },
+        "cargo": {
+          "status": "see",
+          "note": "Cargo has no passenger flight search; its booking starts in eBooking.",
+          "see": "ebooking",
+          "evidence": "fill check 2026-11-01: homepage Booking tab posts to /en/ebooking"
+        },
+        "airdolomiti": {
+          "status": "wip",
+          "note": "Air Dolomiti sells through its own booking engine; the hand-off is built and reached the engine in a test, and the replica links to Air Dolomiti's booking page until its pages get the form.",
+          "footnote": "adbooking",
+          "page": "/",
+          "evidence": "fa987004 shop-handoff DES format; M1 2026-11-01: one POST from the preview host reached flight selection, then an hCaptcha for the headless browser"
+        }
+      }
+    },
+    {
+      "id": "travellers-picker",
+      "name": "Travellers and cabin picker",
+      "short": "Travellers",
+      "about": "The part of the flight search where travellers choose how many adults, children and infants fly, and in which cabin.",
+      "cells": {
+        "lufthansa": {
+          "status": "wip",
+          "note": "The picker for adults, children, infants and cabin is in the shared code since 1 November but not switched on in the pages yet, so the search still sends the travellers and cabin set on the page.",
+          "footnote": "picker",
+          "page": "/de/en/homepage",
+          "evidence": "052ba383; functions scan 2026-10-31: static label, hand-off sends ADT only"
+        },
+        "discover": {
+          "status": "wip",
+          "note": "The picker for adults, children, infants and cabin is in the shared code since 1 November but not switched on in the pages yet, so the search still sends the travellers and cabin set on the page.",
+          "footnote": "picker",
+          "page": "/de/en/homepage",
+          "evidence": "052ba383; functions scan 2026-10-31"
+        },
+        "ita": {
+          "status": "wip",
+          "note": "The picker for adults, children, infants and cabin is in the shared code since 1 November but not switched on in the pages yet, so the search still sends the travellers and cabin set on the page.",
+          "footnote": "picker",
+          "page": "/it/en/homepage",
+          "evidence": "052ba383; functions scan 2026-10-31"
+        },
+        "austrian": {
+          "status": "wip",
+          "note": "The picker for adults, children, infants and cabin is in the shared code since 1 November but not switched on in the pages yet, so the search still sends the travellers and cabin set on the page.",
+          "footnote": "picker",
+          "page": "/at/en/homepage",
+          "evidence": "052ba383; functions scan 2026-10-31"
+        },
+        "cargo": {
+          "status": "none",
+          "note": "Cargo bookings have no travellers or cabin; pieces, weight and volume are entered in eBooking.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "airdolomiti": {
+          "status": "see",
+          "note": "Air Dolomiti's flight search has its own picker for adults, children and infants and no cabin choice, so the Flight search row rates it.",
+          "see": "flight-search",
+          "evidence": "functions scan 2026-10-31: Air Dolomiti widget"
+        }
+      }
+    },
+    {
+      "id": "flight-status",
+      "name": "Flight status",
+      "about": "The form that finds a flight's current status by flight number, route or airport.",
+      "cells": {
+        "lufthansa": {
+          "status": "wip",
+          "note": "The form is on the replica; since 1 November it hands the flight to Lufthansa's status page in the parameters that page reads, and it counts as working after a check on the replica.",
+          "footnote": "status",
+          "page": "/de/en/timetable-and-flight-status",
+          "evidence": "88d6a6dd; functions scan 2026-10-31: www ignored tab/flightNumber/date; brief 189 report 2026-11-01: the four brands use the same parameter names"
+        },
+        "discover": {
+          "status": "wip",
+          "note": "The form is on the replica; since 1 November it hands the flight to Discover's status page in the parameters that page reads, and it counts as working after a check on the replica.",
+          "footnote": "status",
+          "page": "/de/en/my-bookings/flight-status",
+          "evidence": "88d6a6dd; functions scan 2026-10-31: www ignored tab/flightNumber/date; brief 189 report 2026-11-01: the four brands use the same parameter names"
+        },
+        "ita": {
+          "status": "wip",
+          "note": "The form is on the replica; since 1 November it hands the flight to ITA's status page in the parameters that page reads, and it counts as working after a check on the replica.",
+          "footnote": "status",
+          "page": "/it/en/manage-my-bookings/manage/flight-status",
+          "evidence": "88d6a6dd; functions scan 2026-10-31: www ignored tab/flightNumber/date; brief 189 report 2026-11-01: the four brands use the same parameter names"
+        },
+        "austrian": {
+          "status": "wip",
+          "note": "The form is on the replica; since 1 November it hands the flight to Austrian's status page in the parameters that page reads, and it counts as working after a check on the replica.",
+          "footnote": "status",
+          "page": "/at/en/flight-status-and-timetable",
+          "evidence": "88d6a6dd; functions scan 2026-10-31: www ignored tab/flightNumber/date; brief 189 report 2026-11-01: the four brands use the same parameter names"
+        },
+        "cargo": {
+          "status": "see",
+          "note": "Cargo's flight status is part of its eTracking service behind login, rated under eServices.",
+          "see": "eservices",
+          "evidence": "fill check 2026-11-01: /en/eservices/etracking/flight-status needs login"
+        },
+        "airdolomiti": {
+          "status": "wip",
+          "note": "Since 1 November the shared code can post a flight status search to Air Dolomiti's own engine; the replica's pages don't have the form yet and link to Air Dolomiti's status page.",
+          "footnote": "status",
+          "evidence": "88d6a6dd POST mode; functions scan 2026-10-31: link to www /stato-volo"
+        }
+      }
+    },
+    {
+      "id": "online-check-in",
+      "name": "Online check-in",
+      "short": "Check-in",
+      "about": "The form that takes a booking code and name and opens the airline's check-in app.",
+      "cells": {
+        "lufthansa": {
+          "status": "elsewhere",
+          "note": "The form opens Lufthansa's check-in app, which stays after the switch; travellers type their booking code again in the app.",
+          "page": "/de/en/online-check-in",
+          "evidence": "functions scan 2026-10-31: booking-lookup opens once.lufthansa.com without the entered data"
+        },
+        "discover": {
+          "status": "elsewhere",
+          "note": "The form opens Discover's check-in app, which stays after the switch; travellers type their booking code again in the app.",
+          "page": "/de/en/my-bookings/check-in/online-check-in",
+          "evidence": "functions scan 2026-10-31: Submit URL once.discover-airlines.com TENANT=4Y"
+        },
+        "ita": {
+          "status": "wip",
+          "note": "ITA's check-in form asks a service in AEM where to send the traveller; ours opens www's page instead, and will post to the replacement service on ITA's own address.",
+          "evidence": "M1 2026-11-01: www posts to an AEM endpoint that returns the target; ours opens www's page"
+        },
+        "austrian": {
+          "status": "elsewhere",
+          "note": "The form opens Austrian's check-in app, which stays after the switch; travellers type their booking code again in the app.",
+          "page": "/at/en/online-check-in",
+          "evidence": "functions scan 2026-10-31: /at/en/online-check-in links once.austrian.com"
+        },
+        "cargo": {
+          "status": "none",
+          "note": "Cargo has no passenger check-in; drop-off and pick-up are eServices.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "airdolomiti": {
+          "status": "elsewhere",
+          "note": "Air Dolomiti's check-in is Lufthansa's; the replica links to it as www does.",
+          "evidence": "functions scan 2026-10-31: link to lufthansa.com/it/it/online-check-in"
+        }
+      }
+    },
+    {
+      "id": "manage-booking",
+      "name": "Manage booking",
+      "about": "Where travellers look up an existing booking to change it or add services.",
+      "cells": {
+        "lufthansa": {
+          "status": "wip",
+          "note": "The tab opens the same page on www today; its replacement service already answers on lufthansa.turnsthe.page with test data, and the tab posts to it next.",
+          "footnote": "lhbooking",
+          "evidence": "functions scan 2026-10-31; M2 2026-11-01: bookingdetailslink answers through the backend Worker on the main host"
+        },
+        "discover": {
+          "status": "wip",
+          "note": "\"Edit booking\" leads through a deep link to Discover's login page, which AEM serves today; we build that page on the new platform.",
+          "footnote": "signin",
+          "page": "/de/en/my-bookings/manage",
+          "evidence": "fill check 2026-11-01: /deeplink/cockpit ends on /content/four_y/.../profile/login; M2 app shell plan"
+        },
+        "ita": {
+          "status": "wip",
+          "note": "Manage booking ends on ITA's login page, which AEM serves today; we build that page, and until then the replica links to ITA's current one.",
+          "footnote": "signin",
+          "page": "/it/en/manage-my-bookings",
+          "evidence": "functions scan 2026-10-31; M2 app shell plan"
+        },
+        "austrian": {
+          "status": "wip",
+          "note": "\"Manage bookings\" ends on Austrian's login page, which AEM serves today; we build that page, and until then the replica links to it on www.",
+          "footnote": "signin",
+          "evidence": "fill check 2026-11-01: nav links www /at/en/login; M2 app shell plan"
+        },
+        "cargo": {
+          "status": "see",
+          "note": "Cargo bookings are updated in eBooking.",
+          "see": "ebooking",
+          "evidence": "fill check 2026-11-01: Update booking posts to /en/ebooking"
+        },
+        "airdolomiti": {
+          "status": "wip",
+          "note": "Air Dolomiti's booking lookup asks its own booking service, which answers our addresses; the replica gets the form and links to Air Dolomiti's page until then.",
+          "footnote": "adown",
+          "evidence": "M1 2026-11-01: api.airdolomiti.it retrieve-pnr allows any origin"
+        }
+      }
+    },
+    {
+      "id": "timetable",
+      "name": "Timetable / schedule search",
+      "short": "Timetable",
+      "about": "A search for scheduled flights on a route, where the airline has one apart from flight status.",
+      "cells": {
+        "lufthansa": {
+          "status": "see",
+          "note": "Lufthansa's timetable is the route tab of the flight status form.",
+          "see": "flight-status",
+          "evidence": "fill check 2026-11-01: one dcep-flight-status with three tabs"
+        },
+        "discover": {
+          "status": "elsewhere",
+          "note": "Discover's timetable is a separate service that stays; the replica links to it.",
+          "evidence": "tools/reports/discover-full.md: rms.discover-airlines.com"
+        },
+        "ita": {
+          "status": "none",
+          "note": "ITA's website has no timetable apart from flight status.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "austrian": {
+          "status": "see",
+          "note": "Austrian's timetable is the route tab of its flight status form.",
+          "see": "flight-status",
+          "evidence": "fill check 2026-11-01: flightstatustimetable with three tabs"
+        },
+        "cargo": {
+          "status": "stays",
+          "note": "Cargo's schedule search stays on Cargo's current system, and the new site links to it.",
+          "footnote": "cargostays",
+          "evidence": "decision 2026-11-01 (Cargo); functions scan 2026-10-31"
+        },
+        "airdolomiti": {
+          "status": "wip",
+          "note": "Air Dolomiti's timetable form gets a version on the replica that asks Air Dolomiti's booking service, which answers our addresses; until then the replica links to Air Dolomiti's page.",
+          "footnote": "adown",
+          "evidence": "M1 2026-11-01: api.airdolomiti.it timetable allows any origin"
+        }
+      }
+    },
+    {
+      "id": "hotel-search",
+      "name": "Hotel search tab",
+      "short": "Hotel tab",
+      "about": "A tab in the flight search that hands a hotel search over to a partner.",
+      "cells": {
+        "lufthansa": {
+          "status": "wip",
+          "note": "A hotel search opens www's hotel page today; the tab will post to the replacement service that already answers on lufthansa.turnsthe.page with test data.",
+          "footnote": "lhbooking",
+          "page": "/de/en/homepage",
+          "evidence": "functions scan 2026-10-31; M2 2026-11-01: /service/secured/api/booking/hotel routed on the main host"
+        },
+        "discover": {
+          "status": "none",
+          "note": "Discover's flight search has no hotel tab.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "ita": {
+          "status": "none",
+          "note": "ITA's flight search has no hotel tab; a partner page links to Booking.com.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "austrian": {
+          "status": "none",
+          "note": "Austrian's flight search has no hotel tab; the menu links to Booking.com.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "cargo": {
+          "status": "none",
+          "note": "Cargo's website has no hotel search.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "airdolomiti": {
+          "status": "none",
+          "note": "Air Dolomiti's booking form offers flights only.",
+          "evidence": "fill check 2026-11-01"
+        }
+      }
+    },
+    {
+      "id": "car-rental",
+      "name": "Car rental",
+      "about": "Car rental booking, as an app on the page or as a link to a rental partner.",
+      "cells": {
+        "lufthansa": {
+          "status": "done",
+          "note": "The car rental app is on the replica's car rental page, as on www.",
+          "page": "/de/en/lh-rentalcar",
+          "evidence": "functions scan 2026-10-31: car-rental block present, not exercised"
+        },
+        "discover": {
+          "status": "none",
+          "note": "Discover's website offers no car rental.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "ita": {
+          "status": "done",
+          "note": "The car rental app is on the replica's car rental page, as on www.",
+          "page": "/it/en/manage-my-bookings/partners/car-rental",
+          "evidence": "functions scan 2026-10-31: car-rental block present"
+        },
+        "austrian": {
+          "status": "elsewhere",
+          "note": "Austrian links to its rental partner, which stays; the replica has the same links.",
+          "evidence": "fill check 2026-11-01: CarTrawler links 200"
+        },
+        "cargo": {
+          "status": "none",
+          "note": "Cargo's website has no car rental.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "airdolomiti": {
+          "status": "elsewhere",
+          "note": "Air Dolomiti links to its rental partner's booking site, which stays; the replica has the same link.",
+          "evidence": "functions scan 2026-10-31: airdolomiti.carsbookingengine.com"
+        }
+      }
+    },
+    {
+      "id": "trip-management",
+      "name": "Trip management app",
+      "short": "Trip management",
+      "about": "Lufthansa's app on the website for upcoming trips: booking, trip details and help.",
+      "cells": {
+        "lufthansa": {
+          "status": "done",
+          "note": "Lufthansa's trip management app loads on the replica from Lufthansa's app server, as on www.",
+          "page": "/de/en/book-and-manage/trip-management",
+          "evidence": "functions scan 2026-10-31: /de/en/book-and-manage/trip-management shows My Booking, Your trip, Help"
+        },
+        "discover": {
+          "status": "see",
+          "note": "Discover has no trip management app; \"My flights\" leads to the login and the travel cockpit, rated under Login.",
+          "see": "login",
+          "evidence": "fill check 2026-11-01"
+        },
+        "ita": {
+          "status": "none",
+          "note": "ITA's website has no trip management app; bookings are looked up under Manage booking.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "austrian": {
+          "status": "none",
+          "note": "Austrian's website has no trip management app; \"My flights\" leads to the login page.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "cargo": {
+          "status": "none",
+          "note": "Cargo's website has no trip management.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "airdolomiti": {
+          "status": "see",
+          "note": "Air Dolomiti's trips are managed through its booking lookup, rated under Manage booking.",
+          "see": "manage-booking",
+          "evidence": "fill check 2026-11-01"
+        }
+      }
+    },
+    {
+      "id": "lounge-finder",
+      "name": "Lounge finder",
+      "about": "The search for lounges by airport and travel class or status.",
+      "cells": {
+        "lufthansa": {
+          "status": "done",
+          "note": "The lounge finder lists lounges by airport and class with live data from Lufthansa's lounge service.",
+          "page": "/de/en/lounges",
+          "evidence": "functions scan 2026-10-31: same code tested on Austrian"
+        },
+        "discover": {
+          "status": "done",
+          "note": "The lounge finder lists lounges with live data; Frankfurt and Business Class showed 7 lounges.",
+          "page": "/de/en/book/travel-information/lounges",
+          "evidence": "fill check 2026-11-01: Results (7)"
+        },
+        "ita": {
+          "status": "done",
+          "note": "The lounge finder runs the same code as Austrian's, with live data.",
+          "page": "/it/en/book-and-prepare/travel-information/at-the-airport/lounges",
+          "evidence": "functions scan 2026-10-31"
+        },
+        "austrian": {
+          "status": "done",
+          "note": "The lounge finder lists lounges with live data; Vienna and Business Class showed 3 lounges.",
+          "page": "/at/en/international-lounges",
+          "evidence": "functions scan 2026-10-31: catalogs/lounges/BUS/VIE"
+        },
+        "cargo": {
+          "status": "none",
+          "note": "Cargo has no lounges.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "airdolomiti": {
+          "status": "none",
+          "note": "Air Dolomiti's lounge page is text with a link to Lufthansa's lounges, without a search.",
+          "evidence": "fill check 2026-11-01"
+        }
+      }
+    },
+    {
+      "id": "security-waiting",
+      "name": "Security waiting times",
+      "short": "Security waiting",
+      "about": "Current waiting times at airport security checks, by airport.",
+      "cells": {
+        "lufthansa": {
+          "status": "wip",
+          "note": "Lufthansa's waiting time page isn't on the replica yet; it comes with a block that reads Lufthansa's live data, which answers our addresses, and our pages link to www's page until then.",
+          "footnote": "lhpages",
+          "page": "/de/en/security-fast-lanes",
+          "evidence": "M2 scope addition; M1 2026-11-01: www.lufthansa.com security-waiting-time answers lufthansa.turnsthe.page"
+        },
+        "discover": {
+          "status": "wip",
+          "note": "Discover's page has the text and a link to the waiting times on www; the search comes with a block of its own that reads Lufthansa's live data.",
+          "page": "/de/en/book/travel-information/airport-info/security-check-time-slot",
+          "evidence": "fill check 2026-11-01: www security-check-time-slot page with dcep-security-waiting-time (12 airports); M1 found no such page in the sitemap (open); www.lufthansa.com answers discover.turnsthe.page with X-Portal FOUR_Y"
+        },
+        "ita": {
+          "status": "wip",
+          "note": "ITA's page has the heading but no waiting time search; it comes with a block of its own that reads the live data from Lufthansa's service.",
+          "page": "/it/en/book-and-prepare/travel-information/at-the-airport/security-waiting-times",
+          "evidence": "functions scan 2026-10-31; M1 2026-11-01: www.ita-airways.com refuses other origins, www.lufthansa.com answers with X-Portal ITA"
+        },
+        "austrian": {
+          "status": "none",
+          "note": "Austrian's website shows no waiting times; its security slot page is a table of airports, which the replica has.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "cargo": {
+          "status": "none",
+          "note": "Cargo has no passenger security check.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "airdolomiti": {
+          "status": "none",
+          "note": "Air Dolomiti covers airport security only in a travel tip article.",
+          "evidence": "fill check 2026-11-01"
+        }
+      }
+    },
+    {
+      "id": "checkin-deadlines",
+      "name": "Check-in deadline search",
+      "short": "Check-in deadlines",
+      "about": "The search that shows the check-in deadline at an airport.",
+      "cells": {
+        "lufthansa": {
+          "status": "wip",
+          "note": "Lufthansa's check-in deadline page isn't on the replica yet; it comes with a search block that reads Lufthansa's live data, and our pages link to www's page until then.",
+          "footnote": "lhpages",
+          "page": "/de/en/all-check-in",
+          "evidence": "M2 scope addition; M1 2026-11-01: catalogs/checkin/info answers lufthansa.turnsthe.page"
+        },
+        "discover": {
+          "status": "none",
+          "note": "Discover gives check-in times as text, which the replica has.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "ita": {
+          "status": "none",
+          "note": "ITA gives check-in deadlines as text, which the replica has.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "austrian": {
+          "status": "wip",
+          "note": "Austrian's page has the text but not the airport search; the search comes with a block of its own that reads Austrian's live data, which answers our addresses.",
+          "page": "/at/en/check-in-deadlines",
+          "evidence": "functions scan 2026-10-31; M1 2026-11-01: www.austrian.com catalogs/checkin/info answers austrian.turnsthe.page"
+        },
+        "cargo": {
+          "status": "none",
+          "note": "Cargo's acceptance times are part of its station details.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "airdolomiti": {
+          "status": "none",
+          "note": "Air Dolomiti gives check-in times as text.",
+          "evidence": "fill check 2026-11-01"
+        }
+      }
+    },
+    {
+      "id": "group-booking",
+      "name": "Group booking",
+      "about": "How groups of ten or more travellers book: a request form, a portal or a link.",
+      "cells": {
+        "lufthansa": {
+          "status": "see",
+          "note": "Lufthansa's group requests use a form on the replica, rated under Forms.",
+          "see": "forms",
+          "evidence": "fill check 2026-11-01: /de/en/group-travel form core"
+        },
+        "discover": {
+          "status": "none",
+          "note": "Discover has no group booking; the group link in its search leads to the homepage.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "ita": {
+          "status": "wip",
+          "note": "ITA's group travel and charter page isn't on the replica yet; it comes with the next ITA content update.",
+          "evidence": "fill check 2026-11-01: /it/en/book-and-prepare/group-travel-and-charter 404"
+        },
+        "austrian": {
+          "status": "see",
+          "note": "Austrian's group requests use a form on the replica, rated under Forms.",
+          "see": "forms",
+          "evidence": "fill check 2026-11-01: austrian-anfrage-gruppenreisen"
+        },
+        "cargo": {
+          "status": "none",
+          "note": "Cargo has no group booking; allotment requests are contact topics.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "airdolomiti": {
+          "status": "elsewhere",
+          "note": "Air Dolomiti sends groups to the Lufthansa Group's group booking portal, which stays; the replica has the same link.",
+          "evidence": "functions scan 2026-10-31: bookagroup.ic.dlh.de"
+        }
+      }
+    },
+    {
+      "id": "esim",
+      "name": "eSIM shop",
+      "about": "A partner shop for mobile data abroad (eSIM).",
+      "cells": {
+        "lufthansa": {
+          "status": "elsewhere",
+          "note": "Lufthansa's eSIM comes from a partner shop, which stays; the replica links to it.",
+          "page": "/de/en/additional-services",
+          "evidence": "fill check 2026-11-01: lufthansa.breezesim.com 200"
+        },
+        "discover": {
+          "status": "none",
+          "note": "Discover offers no eSIM.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "ita": {
+          "status": "elsewhere",
+          "note": "ITA's eSIM comes from a partner shop, which stays; the replica links to it.",
+          "page": "/it/en/manage-my-bookings/partners/e-sim",
+          "evidence": "fill check 2026-11-01: itaairways.mozio.com/esim 200"
+        },
+        "austrian": {
+          "status": "none",
+          "note": "Austrian offers no eSIM.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "cargo": {
+          "status": "none",
+          "note": "Cargo offers no eSIM.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "airdolomiti": {
+          "status": "wip",
+          "note": "Air Dolomiti's eSIM widget comes to the replica, switched on for Air Dolomiti after a check; its service answers our addresses, and the replica links to www until then.",
+          "footnote": "adown",
+          "evidence": "M1 2026-11-01: Breeze script and API answer our origin; token on our host not tested"
+        }
+      }
+    },
+    {
+      "id": "fare-teaser",
+      "name": "Fare teaser (live prices)",
+      "short": "Fare teaser",
+      "about": "Teasers for fixed routes that show today's lowest fare from the airline's price service.",
+      "cells": {
+        "lufthansa": {
+          "status": "done",
+          "note": "Fare teasers show today's lowest fares, loaded live.",
+          "page": "/de/en/homepage",
+          "evidence": "functions scan 2026-10-31: Frankfurt-Chicago from 582 EUR, data-lh-source live"
+        },
+        "discover": {
+          "status": "done",
+          "note": "Fare teasers show live fares for Discover's routes.",
+          "page": "/de/en/homepage",
+          "evidence": "functions scan 2026-10-31: Frankfurt-Hurghada, live"
+        },
+        "ita": {
+          "status": "wip",
+          "note": "Five ITA market pages have fare teasers on www; the replica's copies of those pages don't have them yet.",
+          "page": "/be/it/homepage-new",
+          "evidence": "fill check 2026-11-01: be/it, al/it, ch/it homepage-new; nl/nl, jp/ja spring-offer"
+        },
+        "austrian": {
+          "status": "done",
+          "note": "Fare teasers show live fares for Austrian's routes.",
+          "page": "/at/en/homepage",
+          "evidence": "functions scan 2026-10-31: Vienna-Los Angeles, live"
+        },
+        "cargo": {
+          "status": "none",
+          "note": "Cargo shows no public prices.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "airdolomiti": {
+          "status": "see",
+          "note": "Air Dolomiti's prices are typed in by authors, rated under Offers with fixed prices.",
+          "see": "fixed-offers",
+          "evidence": "fill check 2026-11-01"
+        }
+      }
+    },
+    {
+      "id": "destination-slider",
+      "name": "Destination finder (homepage slider)",
+      "short": "Destination slider",
+      "about": "The homepage slider of destinations with live prices from the traveller's departure airport.",
+      "cells": {
+        "lufthansa": {
+          "status": "done",
+          "note": "The homepage slider lists destinations with live prices from the traveller's airport.",
+          "page": "/de/en/homepage",
+          "evidence": "functions scan 2026-10-31: 15 destinations from FRA, live"
+        },
+        "discover": {
+          "status": "done",
+          "note": "The slider lists the flights Discover operates itself, with live prices.",
+          "page": "/de/en/homepage",
+          "evidence": "functions scan 2026-10-31; cb96345a"
+        },
+        "ita": {
+          "status": "wip",
+          "note": "Prices load live, but the cards link to a destination page that ITA's site doesn't have; the fix points them at ITA's own page.",
+          "page": "/it/en/homepage",
+          "evidence": "matrix note 7; functions scan 2026-10-31"
+        },
+        "austrian": {
+          "status": "done",
+          "note": "The homepage slider lists destinations with live prices from Vienna.",
+          "page": "/at/en/homepage",
+          "evidence": "functions scan 2026-10-31: Vienna-Valencia, live"
+        },
+        "cargo": {
+          "status": "none",
+          "note": "Cargo has no offers slider.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "airdolomiti": {
+          "status": "see",
+          "note": "Air Dolomiti's homepage slider shows route cards with typed-in prices, rated under Offers with fixed prices.",
+          "see": "fixed-offers",
+          "evidence": "fill check 2026-11-01"
+        }
+      }
+    },
+    {
+      "id": "destination-grid",
+      "name": "Destination finder grid (offers page)",
+      "short": "Destination grid",
+      "about": "The offers page with filters and a grid of destinations with live prices.",
+      "cells": {
+        "lufthansa": {
+          "status": "done",
+          "note": "The offers page shows destinations with live prices and filters.",
+          "page": "/de/en/flights",
+          "evidence": "fill check 2026-11-01: /de/en/flights data-lh-source live"
+        },
+        "discover": {
+          "status": "done",
+          "note": "The offers page shows Discover's destinations with live prices and filters.",
+          "page": "/de/en/book/flights/offers",
+          "evidence": "fill check 2026-11-01"
+        },
+        "ita": {
+          "status": "done",
+          "note": "The offers page shows destinations with live prices and filters.",
+          "page": "/it/en/book-and-prepare/offers-and-destinations",
+          "evidence": "fill check 2026-11-01: 97 cards"
+        },
+        "austrian": {
+          "status": "done",
+          "note": "The offers page shows destinations with live prices; it was added after the first check and hasn't been tested end to end.",
+          "page": "/at/en/offers-destinations",
+          "evidence": "brief 190; live check 2026-11-01: destination-finder on the published page"
+        },
+        "cargo": {
+          "status": "none",
+          "note": "Cargo has no offers page.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "airdolomiti": {
+          "status": "none",
+          "note": "Air Dolomiti has no offers grid; its promotions page has two cards, which the replica has.",
+          "evidence": "fill check 2026-11-01"
+        }
+      }
+    },
+    {
+      "id": "fixed-offers",
+      "name": "Offers with fixed prices (route cards)",
+      "short": "Offers fixed",
+      "about": "Route cards whose prices are typed in by authors instead of loaded live.",
+      "cells": {
+        "lufthansa": {
+          "status": "see",
+          "note": "Lufthansa's route prices are live, rated under Fare teaser.",
+          "see": "fare-teaser",
+          "evidence": "fill check 2026-11-01"
+        },
+        "discover": {
+          "status": "see",
+          "note": "Discover's route prices are live, rated under Fare teaser.",
+          "see": "fare-teaser",
+          "evidence": "fill check 2026-11-01"
+        },
+        "ita": {
+          "status": "done",
+          "note": "Homepage cards with typed-in \"from\" prices link into the offers page, as on www.",
+          "page": "/it/en/homepage",
+          "evidence": "fill check 2026-11-01"
+        },
+        "austrian": {
+          "status": "see",
+          "note": "Austrian's route prices are live, rated under Fare teaser.",
+          "see": "fare-teaser",
+          "evidence": "fill check 2026-11-01"
+        },
+        "cargo": {
+          "status": "none",
+          "note": "Cargo shows no route prices.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "airdolomiti": {
+          "status": "done",
+          "note": "Route cards with prices typed in by authors, as on www.",
+          "page": "/",
+          "evidence": "functions scan 2026-10-31: Milano Malpensa-Francoforte 112 EUR"
+        }
+      }
+    },
+    {
+      "id": "destinations-map",
+      "name": "New destinations map",
+      "short": "Map",
+      "about": "A map with pins for destinations.",
+      "cells": {
+        "lufthansa": {
+          "status": "done",
+          "note": "Maps with destination pins show on the replica's destination pages.",
+          "page": "/de/en/100-years/destinations",
+          "evidence": "fill check 2026-11-01: poi-map, 12 pins, recorded points"
+        },
+        "discover": {
+          "status": "none",
+          "note": "Discover's new destinations page is a list of route cards without a map.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "ita": {
+          "status": "none",
+          "note": "ITA's website has no destination map.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "austrian": {
+          "status": "done",
+          "note": "The new destinations page shows its map; it was added after the first check and hasn't been tested end to end.",
+          "page": "/at/en/book/flights/new-destinations",
+          "evidence": "brief 190; live check 2026-11-01: poi-map on the published page"
+        },
+        "cargo": {
+          "status": "see",
+          "note": "Cargo's map shows its stations, rated under Station finder.",
+          "see": "station-finder",
+          "evidence": "fill check 2026-11-01"
+        },
+        "airdolomiti": {
+          "status": "none",
+          "note": "Air Dolomiti's new routes are a list without a map.",
+          "evidence": "fill check 2026-11-01"
+        }
+      }
+    },
+    {
+      "id": "stage-countdown",
+      "name": "Homepage stage countdown",
+      "short": "Countdown",
+      "about": "A countdown in the homepage's main teaser for an offer that ends soon.",
+      "cells": {
+        "lufthansa": {
+          "status": "wip",
+          "note": "Lufthansa's homepage teaser can count down to an offer's end; the replica's teaser gets the timer.",
+          "page": "/de/en/homepage",
+          "evidence": "functions scan 2026-10-31: FLYZA countdown on www, none on the replica"
+        },
+        "discover": {
+          "status": "none",
+          "note": "Discover's homepage teaser has no countdown.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "ita": {
+          "status": "none",
+          "note": "ITA's homepage teaser has no countdown.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "austrian": {
+          "status": "wip",
+          "note": "Austrian's homepage teaser counts down in some markets; the replica's teaser gets the timer.",
+          "page": "/us/en/homepage",
+          "evidence": "fill check 2026-11-01: us/en countdown on www 2026-10-31"
+        },
+        "cargo": {
+          "status": "none",
+          "note": "Cargo's homepage has no countdown.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "airdolomiti": {
+          "status": "none",
+          "note": "Air Dolomiti's homepage has no countdown.",
+          "evidence": "fill check 2026-11-01"
+        }
+      }
+    },
+    {
+      "id": "message-center",
+      "name": "Flash teaser / Message Center",
+      "short": "Message Center",
+      "about": "Short notices about disruptions or news at the top of pages, with a page of current travel information.",
+      "cells": {
+        "lufthansa": {
+          "status": "done",
+          "note": "Disruption and flash notices are written as messages and show on the homepages and the current travel information page.",
+          "page": "/de/en/prepare-for-your-trip/current-travel-information",
+          "evidence": "functions scan 2026-10-31: Information on flights to Dubai"
+        },
+        "discover": {
+          "status": "done",
+          "note": "Discover's notices work the same way; there are none to show today.",
+          "page": "/de/en/homepage",
+          "evidence": "functions scan 2026-10-31"
+        },
+        "ita": {
+          "status": "done",
+          "note": "ITA's notices show from its own messages.",
+          "page": "/it/en/homepage",
+          "evidence": "functions scan 2026-10-31: lh-ita message-center index has messages"
+        },
+        "austrian": {
+          "status": "done",
+          "note": "Austrian's notices show from its own messages.",
+          "page": "/at/en/homepage",
+          "evidence": "functions scan 2026-10-31: rail services notice"
+        },
+        "cargo": {
+          "status": "wip",
+          "note": "Cargo's notifications, the header bell and their list page, move to the replica as messages.",
+          "footnote": "cargomoves",
+          "evidence": "fill check 2026-11-01: bell and /notification-overview on www, 404 on ours"
+        },
+        "airdolomiti": {
+          "status": "wip",
+          "note": "Air Dolomiti's notice strip comes to the replica as messages; its travel information page is already there.",
+          "page": "/informazioni-aggiornate",
+          "evidence": "fill check 2026-11-01: navbar-alert inactive"
+        }
+      }
+    },
+    {
+      "id": "culinary-hub",
+      "name": "Culinary hub",
+      "short": "Culinary hub",
+      "about": "The app for viewing and pre-ordering meals for a booked flight.",
+      "cells": {
+        "lufthansa": {
+          "status": "wip",
+          "note": "The culinary hub app is in the shared code since 1 November, but the replica's page doesn't have it yet.",
+          "page": "/de/en/culinaryjourney",
+          "evidence": "e74d57f2; fill check 2026-11-01: page has only Need help"
+        },
+        "discover": {
+          "status": "wip",
+          "note": "Discover's \"Pre-order food\" page is empty on the replica; the app is in the shared code since 1 November and still has to go on the page.",
+          "page": "/de/en/culinaryjourney",
+          "evidence": "e74d57f2; fill check 2026-11-01"
+        },
+        "ita": {
+          "status": "none",
+          "note": "ITA has no culinary hub; its catering pages are text, which the replica has.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "austrian": {
+          "status": "wip",
+          "note": "The app is in the shared code, but Austrian's Travel ID service refuses our addresses, so the replica's page links to www for now.",
+          "footnote": "travelidapps",
+          "page": "/at/en/culinaryjourney",
+          "evidence": "e74d57f2; brief 189 report 2026-11-01: api.travelid.austrian.com preflight 401 from our hosts"
+        },
+        "cargo": {
+          "status": "none",
+          "note": "Cargo has no culinary hub.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "airdolomiti": {
+          "status": "none",
+          "note": "Air Dolomiti's on-board food page is text with a menu PDF, which the replica has.",
+          "evidence": "fill check 2026-11-01"
+        }
+      }
+    },
+    {
+      "id": "ejournals",
+      "name": "eJournals",
+      "about": "Free newspapers and magazines that booked travellers download with their booking code or ticket number.",
+      "cells": {
+        "lufthansa": {
+          "status": "wip",
+          "note": "The eJournals page that Lufthansa links travellers to isn't on the replica yet; the block on the entertainment page shows the lookup and sends travellers to www to use it.",
+          "footnote": "lhpages",
+          "page": "/de/en/unterhaltung-an-bord",
+          "evidence": "M2 scope addition /de/en/lufthansa-ejournals; M1 2026-11-01: lookup works without login on www"
+        },
+        "discover": {
+          "status": "none",
+          "note": "Discover's magazines are available on board only, in its onboard portal.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "ita": {
+          "status": "wip",
+          "note": "The replica shows the eJournals lookup but sends travellers to www's page to use it; the lookup on our own site is planned.",
+          "page": "/it/en/book-and-prepare/travel-information/at-the-airport/digital-newsstand",
+          "evidence": "M1 2026-11-01"
+        },
+        "austrian": {
+          "status": "wip",
+          "note": "The replica shows the eJournals lookup but sends travellers to www's page to use it; the lookup on our own site is planned.",
+          "page": "/at/en/unterhaltung-an-bord",
+          "evidence": "M1 2026-11-01"
+        },
+        "cargo": {
+          "status": "none",
+          "note": "Cargo has no digital newsstand.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "airdolomiti": {
+          "status": "none",
+          "note": "Air Dolomiti sends eJournals by booking e-mail; its website only describes them.",
+          "evidence": "fill check 2026-11-01"
+        }
+      }
+    },
+    {
+      "id": "newsroom",
+      "name": "Newsroom",
+      "about": "Press releases and news for journalists.",
+      "cells": {
+        "lufthansa": {
+          "status": "elsewhere",
+          "note": "Lufthansa's press pages are on the Lufthansa Group's website, which stays; the replica links to it.",
+          "evidence": "fill check 2026-11-01: footer Press"
+        },
+        "discover": {
+          "status": "elsewhere",
+          "note": "Discover's newsroom runs on a separate press platform that stays; the replica links to it.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "ita": {
+          "status": "done",
+          "note": "ITA's press releases are on the replica, with their PDFs served from it.",
+          "page": "/it/en/world-of-ita-airways/discover-ita-airways/corporate/press-release",
+          "evidence": "fill check 2026-11-01: 34 PDF links"
+        },
+        "austrian": {
+          "status": "elsewhere",
+          "note": "Austrian's press pages are on its corporate website, which stays; the replica links to it.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "cargo": {
+          "status": "elsewhere",
+          "note": "Cargo's newsroom runs on a separate press platform that stays; the replica links to it.",
+          "evidence": "functions scan 2026-10-31"
+        },
+        "airdolomiti": {
+          "status": "done",
+          "note": "Air Dolomiti's press releases are on the replica in Italian and English.",
+          "page": "/comunicati-stampa",
+          "evidence": "fill check 2026-11-01"
+        }
+      }
+    },
+    {
+      "id": "site-search",
+      "name": "Site search",
+      "about": "The search field and results page for the website's own pages.",
+      "cells": {
+        "lufthansa": {
+          "status": "done",
+          "note": "The search page finds the replica's pages from a search index; 37 of 42 test answers matched www.",
+          "page": "/de/en/support/search/search-result?query=lounge",
+          "evidence": "functions scan 2026-10-31; /migration-status site search row"
+        },
+        "discover": {
+          "status": "wip",
+          "note": "The replica's own results page works, but the footer search still sends to a www page that doesn't exist.",
+          "page": "/de/en/help/search-result",
+          "evidence": "matrix note 6; footer.plain.html 2026-11-01"
+        },
+        "ita": {
+          "status": "none",
+          "note": "ITA's website has no site search.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "austrian": {
+          "status": "done",
+          "note": "The search page finds the replica's pages from a search index; it was added after the first check and hasn't been tested end to end.",
+          "page": "/at/en/support/search/search-result",
+          "evidence": "brief 190; live check 2026-11-01: search-results on the published page"
+        },
+        "cargo": {
+          "status": "wip",
+          "note": "Cargo's search page and its search index come to the replica.",
+          "footnote": "cargomoves",
+          "evidence": "functions scan 2026-10-31"
+        },
+        "airdolomiti": {
+          "status": "wip",
+          "note": "Air Dolomiti's search comes to the replica as a search page with an index of its own.",
+          "evidence": "functions scan 2026-10-31"
+        }
+      }
+    },
+    {
+      "id": "help-contact",
+      "name": "Help and contact app",
+      "short": "Help and contact",
+      "about": "The help center app that searches help topics and leads to the right contact.",
+      "cells": {
+        "lufthansa": {
+          "status": "wip",
+          "note": "The help center app is in the shared code since 1 November; the replica's help page still shows a fixed list of topics without search.",
+          "page": "/de/en/help-and-contact",
+          "evidence": "e74d57f2; fill check 2026-11-01"
+        },
+        "discover": {
+          "status": "none",
+          "note": "Discover has no help center app; its customer service page with questions and answers is on the replica.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "ita": {
+          "status": "wip",
+          "note": "The app is in the shared code, but ITA's Travel ID service refuses our addresses; the replica's help page shows a fixed list of topics.",
+          "footnote": "travelidapps",
+          "page": "/it/en/help-and-contact",
+          "evidence": "e74d57f2; brief 189 report 2026-11-01: api.travelid.ita-airways.com preflight 401"
+        },
+        "austrian": {
+          "status": "wip",
+          "note": "The app is in the shared code, but Austrian's Travel ID service refuses our addresses; the replica's help page shows a fixed list of topics.",
+          "footnote": "travelidapps",
+          "page": "/at/en/help-center",
+          "evidence": "e74d57f2; brief 189 report 2026-11-01: api.travelid.austrian.com preflight 401"
+        },
+        "cargo": {
+          "status": "wip",
+          "note": "Cargo's support page is on the replica as a fixed list of topics; the topic search comes next.",
+          "footnote": "cargomoves",
+          "page": "/en/support-and-contact",
+          "evidence": "fill check 2026-11-01"
+        },
+        "airdolomiti": {
+          "status": "none",
+          "note": "Air Dolomiti has no help center app; its support pages are on the replica.",
+          "evidence": "fill check 2026-11-01"
+        }
+      }
+    },
+    {
+      "id": "live-chat",
+      "name": "Live chat and digital assistant",
+      "short": "Chat",
+      "about": "Chat with a digital assistant or an agent.",
+      "cells": {
+        "lufthansa": {
+          "status": "elsewhere",
+          "note": "Lufthansa's chat assistant doesn't run on AEM and stays where it is; the replica links to it as www does.",
+          "page": "/de/en/flight-disruptions",
+          "evidence": "M2 2026-11-01: /digitalassistant/support/webchat.html answers without AEM headers (static page)"
+        },
+        "discover": {
+          "status": "none",
+          "note": "Discover has no chat on its website; it offers WhatsApp, which the replica shows.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "ita": {
+          "status": "none",
+          "note": "ITA's website has no chat.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "austrian": {
+          "status": "wip",
+          "note": "Links to Austrian's chat assistant work; the chat button that www shows on about 76 pages comes back after a check.",
+          "footnote": "oschat",
+          "page": "/at/en/fly/flight-information/flight-disruptions",
+          "evidence": "M1 2026-11-01: Cognigy webchat from www.austrian.com works on our host"
+        },
+        "cargo": {
+          "status": "none",
+          "note": "Cargo shows no chat to visitors who aren't signed in.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "airdolomiti": {
+          "status": "lh",
+          "note": "Air Dolomiti's chat is built into the replica but stays switched off until Air Dolomiti or its chat vendor adds a rule for our address.",
+          "footnote": "adchat",
+          "evidence": "M1 2026-11-01: Engagent scripts load, no widget for our host (rules per page); decision 2026-11-01: embeds that need an outside change stay off"
+        }
+      }
+    },
+    {
+      "id": "forms",
+      "name": "Forms",
+      "about": "Contact, feedback and request forms that send their entries by mail.",
+      "cells": {
+        "lufthansa": {
+          "status": "done",
+          "note": "Lufthansa's forms send their entries by mail, behind a bot check; for now to a test mailbox.",
+          "page": "/de/en/feedback",
+          "evidence": "AGENTS.md: 66 form pages live"
+        },
+        "discover": {
+          "status": "done",
+          "note": "Discover's forms work like Lufthansa's; a test entry arrived.",
+          "page": "/de/en/my-bookings/manage/customer-service/contact-form/other-concerns",
+          "evidence": "AGENTS.md: test submission passed"
+        },
+        "ita": {
+          "status": "done",
+          "note": "ITA's forms work like Lufthansa's; a test entry arrived.",
+          "page": "/it/en/book-and-prepare/offers/mice",
+          "evidence": "AGENTS.md: 13 ITA form pages live"
+        },
+        "austrian": {
+          "status": "done",
+          "note": "Austrian's forms work like Lufthansa's, among them group, refund and baggage forms; a test entry arrived.",
+          "page": "/at/en/anfrage-gruppenreisen",
+          "evidence": "AGENTS.md: 185 form pages live"
+        },
+        "cargo": {
+          "status": "wip",
+          "note": "Cargo's contact forms move to the same forms service as the other airlines; until then the replica links to Cargo's current forms.",
+          "footnote": "cargomoves",
+          "evidence": "decision 2026-11-01 (Cargo forms to lh-forms)"
+        },
+        "airdolomiti": {
+          "status": "elsewhere",
+          "note": "Air Dolomiti's customer service forms are on its separate customer portal, which stays; the replica links to it.",
+          "page": "/supporto-e-contatti/customer-relations",
+          "evidence": "fill check 2026-11-01: hda_s_form.airdolomiti.it"
+        }
+      }
+    },
+    {
+      "id": "claims",
+      "name": "Claims form",
+      "short": "Claims",
+      "about": "The form for compensation and refund claims after a disruption.",
+      "cells": {
+        "lufthansa": {
+          "status": "wip",
+          "note": "Lufthansa's compensation claim page isn't on the replica yet; it comes with the claim app, and our pages link to www's until then.",
+          "footnote": "lhpages",
+          "page": "/de/en/flight-disruptions",
+          "evidence": "M2 scope addition (fast-compensation)"
+        },
+        "discover": {
+          "status": "elsewhere",
+          "note": "Discover's claims run on a separate claims portal that stays; the replica links to it.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "ita": {
+          "status": "elsewhere",
+          "note": "ITA's complaints and claims run on a separate portal that stays; the replica links to it.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "austrian": {
+          "status": "see",
+          "note": "Austrian's claims are forms on the replica, rated under Forms.",
+          "see": "forms",
+          "evidence": "fill check 2026-11-01"
+        },
+        "cargo": {
+          "status": "see",
+          "note": "Cargo's claims are eServices behind login.",
+          "see": "eservices",
+          "evidence": "fill check 2026-11-01"
+        },
+        "airdolomiti": {
+          "status": "see",
+          "note": "Air Dolomiti's claims go through its customer portal, rated under Forms.",
+          "see": "forms",
+          "evidence": "fill check 2026-11-01"
+        }
+      }
+    },
+    {
+      "id": "newsletter",
+      "name": "Newsletter sign-up",
+      "short": "Newsletter",
+      "about": "Signing up for the airline's newsletter.",
+      "cells": {
+        "lufthansa": {
+          "status": "wip",
+          "note": "Lufthansa's newsletter page isn't on the replica yet; the footer links to www's until it is.",
+          "footnote": "lhpages",
+          "evidence": "M2 scope addition (register-newsletter)"
+        },
+        "discover": {
+          "status": "none",
+          "note": "Discover has no newsletter.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "ita": {
+          "status": "none",
+          "note": "ITA has no newsletter for travellers.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "austrian": {
+          "status": "elsewhere",
+          "note": "Austrian's newsletter page is on the replica; sign-up runs through Miles & More registration, which stays.",
+          "page": "/at/en/footer-pages/subscribe-newsletter",
+          "evidence": "fill check 2026-11-01"
+        },
+        "cargo": {
+          "status": "wip",
+          "note": "Cargo's newsletter page is on the replica with a link to the form on Cargo's site; the form itself loads on our address and is switched on after a check.",
+          "footnote": "cargomoves",
+          "page": "/en/ci/newsletter",
+          "evidence": "M1 2026-11-01: Dynamics form renders on our host; submit not tested"
+        },
+        "airdolomiti": {
+          "status": "wip",
+          "note": "Air Dolomiti's sign-up becomes a form of our own on the same forms service as the other airlines; until then the replica links to www.",
+          "footnote": "adown",
+          "evidence": "M1 2026-11-01: www posts to its own /api/subscribe, which refuses other origins"
+        }
+      }
+    },
+    {
+      "id": "login",
+      "name": "Login, My flights, cart",
+      "short": "Login",
+      "about": "Signing in with the airline's account, and the pages for signed-in travellers: their flights and the shopping cart.",
+      "cells": {
+        "lufthansa": {
+          "status": "elsewhere",
+          "note": "Login goes to Lufthansa's Travel ID, which stays; the login and profile pages for visitors who aren't signed in are on the replica.",
+          "page": "/de/en/login",
+          "evidence": "functions scan 2026-10-31: header Login to api.travelid.lufthansa.com"
+        },
+        "discover": {
+          "status": "wip",
+          "note": "Discover's login and travel cockpit pages are served by AEM today; we build them on the new platform, and the replica links to www until then.",
+          "footnote": "signin",
+          "evidence": "M2 app shell plan"
+        },
+        "ita": {
+          "status": "wip",
+          "note": "ITA's login pages are served by AEM today; we build them on the new platform.",
+          "footnote": "signin",
+          "evidence": "M2 app shell plan"
+        },
+        "austrian": {
+          "status": "wip",
+          "note": "Austrian's login page is served by AEM today; we build it on the new platform.",
+          "footnote": "signin",
+          "evidence": "M2 app shell plan"
+        },
+        "cargo": {
+          "status": "stays",
+          "note": "Cargo's customer login stays on Cargo's current system, and the new site links to it.",
+          "footnote": "cargostays",
+          "evidence": "decision 2026-11-01 (Cargo)"
+        },
+        "airdolomiti": {
+          "status": "none",
+          "note": "Air Dolomiti's website has no login or cart.",
+          "evidence": "fill check 2026-11-01"
+        }
+      }
+    },
+    {
+      "id": "personalised",
+      "name": "Personalised content",
+      "about": "Parts of pages that only signed-in travellers see, such as personal offers.",
+      "cells": {
+        "lufthansa": {
+          "status": "lh",
+          "note": "Personal content needs a sign-in, and Lufthansa's Travel ID accepts only www.lufthansa.com; this needs Lufthansa.",
+          "footnote": "travelid",
+          "evidence": "M3 2026-11-01: Travel ID redirect_uri and CORS origin www only; /migration-status says so"
+        },
+        "discover": {
+          "status": "lh",
+          "note": "Personal content needs a Travel ID sign-in, and Travel ID accepts only the airline's own website; this needs Lufthansa.",
+          "footnote": "travelid",
+          "evidence": "M3 2026-11-01"
+        },
+        "ita": {
+          "status": "lh",
+          "note": "Personal content needs a Travel ID sign-in, and Travel ID accepts only the airline's own website; this needs Lufthansa.",
+          "footnote": "travelid",
+          "evidence": "M3 2026-11-01"
+        },
+        "austrian": {
+          "status": "lh",
+          "note": "Personal content needs a Travel ID sign-in, and Travel ID accepts only the airline's own website; this needs Lufthansa.",
+          "footnote": "travelid",
+          "evidence": "M3 2026-11-01"
+        },
+        "cargo": {
+          "status": "none",
+          "note": "Cargo shows no personal content outside its customer portal.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "airdolomiti": {
+          "status": "none",
+          "note": "Air Dolomiti's website has no login, so no personal content.",
+          "evidence": "fill check 2026-11-01"
+        }
+      }
+    },
+    {
+      "id": "locale-selector",
+      "name": "Country / language selector",
+      "short": "Country and language",
+      "about": "The dialog to switch country and language.",
+      "cells": {
+        "lufthansa": {
+          "status": "done",
+          "note": "The country and language dialog leads to the replica's market and language versions.",
+          "page": "/de/en/homepage",
+          "evidence": "functions scan 2026-10-31"
+        },
+        "discover": {
+          "status": "done",
+          "note": "The dialog lists Discover's 9 versions, and each answers on the replica.",
+          "page": "/de/en/homepage",
+          "evidence": "fill check 2026-11-01"
+        },
+        "ita": {
+          "status": "done",
+          "note": "The dialog lists ITA's language versions, and each answers on the replica.",
+          "page": "/it/en/homepage",
+          "evidence": "fill check 2026-11-01"
+        },
+        "austrian": {
+          "status": "done",
+          "note": "The dialog lists 64 country and language versions, and each answers on the replica.",
+          "page": "/at/en/homepage",
+          "evidence": "fill check 2026-11-01"
+        },
+        "cargo": {
+          "status": "done",
+          "note": "The switch between English and German works.",
+          "page": "/en/home",
+          "evidence": "functions scan 2026-10-31"
+        },
+        "airdolomiti": {
+          "status": "done",
+          "note": "The switch between Italian and English works; the German pages are being added.",
+          "page": "/",
+          "evidence": "functions scan 2026-10-31"
+        }
+      }
+    },
+    {
+      "id": "cookie-consent",
+      "name": "Cookie consent",
+      "short": "Consent",
+      "about": "The banner and settings that ask visitors which cookies and tags they allow.",
+      "cells": {
+        "lufthansa": {
+          "status": "done",
+          "note": "The consent banner works as on www.",
+          "page": "/de/en/homepage",
+          "evidence": "functions scan 2026-10-31"
+        },
+        "discover": {
+          "status": "done",
+          "note": "Discover's consent banner works as on www.",
+          "page": "/de/en/homepage",
+          "evidence": "functions scan 2026-10-31"
+        },
+        "ita": {
+          "status": "done",
+          "note": "ITA's consent banner works as on www.",
+          "page": "/it/en/homepage",
+          "evidence": "functions scan 2026-10-31"
+        },
+        "austrian": {
+          "status": "done",
+          "note": "Austrian's consent banner works as on www.",
+          "page": "/at/en/homepage",
+          "evidence": "functions scan 2026-10-31"
+        },
+        "cargo": {
+          "status": "wip",
+          "note": "The replica loads nothing for Cargo that needs consent, but its \"Cookie Settings\" link does nothing; the link gets hidden until a tag manager runs there.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "airdolomiti": {
+          "status": "done",
+          "note": "The replica loads nothing for Air Dolomiti that needs consent, so it needs no consent tool.",
+          "page": "/",
+          "evidence": "matrix note 4; brands.js"
+        }
+      }
+    },
+    {
+      "id": "accessibility-toolbar",
+      "name": "Accessibility toolbar",
+      "short": "Accessibility",
+      "about": "Controls in the header for contrast and text size.",
+      "cells": {
+        "lufthansa": {
+          "status": "none",
+          "note": "Lufthansa's header has no contrast or text size controls.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "discover": {
+          "status": "none",
+          "note": "Discover's header has no contrast or text size controls; its accessibility link leads to a travel page.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "ita": {
+          "status": "none",
+          "note": "ITA's header has no contrast or text size controls; its wheelchair icon leads to a travel page.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "austrian": {
+          "status": "none",
+          "note": "Austrian's header has no contrast or text size controls; its wheelchair icon leads to a travel page.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "cargo": {
+          "status": "none",
+          "note": "Cargo's header has no contrast or text size controls.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "airdolomiti": {
+          "status": "wip",
+          "note": "Air Dolomiti's header has controls for contrast and text size; the replica gets them.",
+          "evidence": "functions scan 2026-10-31: Configura accessibilità"
+        }
+      }
+    },
+    {
+      "id": "shipment-tracking",
+      "name": "Shipment tracking",
+      "short": "Tracking",
+      "about": "Tracking a cargo shipment by its air waybill number.",
+      "cells": {
+        "lufthansa": {
+          "status": "none",
+          "note": "Lufthansa's website has no freight tracking.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "discover": {
+          "status": "none",
+          "note": "Discover's website has no freight tracking.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "ita": {
+          "status": "none",
+          "note": "ITA's website has no freight tracking.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "austrian": {
+          "status": "none",
+          "note": "Austrian's website has no freight tracking.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "cargo": {
+          "status": "wip",
+          "note": "The tracking form is in the shared code since 1 November; Cargo's homepage still links to Cargo's tracking page.",
+          "footnote": "cargomoves",
+          "page": "/en/home",
+          "evidence": "51b98549; functions scan 2026-10-31"
+        },
+        "airdolomiti": {
+          "status": "none",
+          "note": "Air Dolomiti's website has no freight tracking.",
+          "evidence": "fill check 2026-11-01"
+        }
+      }
+    },
+    {
+      "id": "ebooking",
+      "name": "eBooking quick start",
+      "short": "eBooking",
+      "about": "The start of Cargo's freight booking: origin and destination, then the booking portal after login.",
+      "cells": {
+        "lufthansa": {
+          "status": "none",
+          "note": "Lufthansa's website has no freight booking.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "discover": {
+          "status": "none",
+          "note": "Discover's website has no freight booking.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "ita": {
+          "status": "none",
+          "note": "ITA's website has no freight booking.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "austrian": {
+          "status": "none",
+          "note": "Austrian's website has no freight booking.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "cargo": {
+          "status": "stays",
+          "note": "Cargo's eBooking stays on Cargo's current system, and the new site links to it.",
+          "footnote": "cargostays",
+          "evidence": "decision 2026-11-01 (Cargo)"
+        },
+        "airdolomiti": {
+          "status": "none",
+          "note": "Air Dolomiti's website has no freight booking.",
+          "evidence": "fill check 2026-11-01"
+        }
+      }
+    },
+    {
+      "id": "station-finder",
+      "name": "Station finder",
+      "short": "Stations",
+      "about": "Cargo's map and details of its stations.",
+      "cells": {
+        "lufthansa": {
+          "status": "none",
+          "note": "Lufthansa's website has no cargo station finder.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "discover": {
+          "status": "none",
+          "note": "Discover's website has no cargo station finder.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "ita": {
+          "status": "none",
+          "note": "ITA's website has no cargo station finder.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "austrian": {
+          "status": "none",
+          "note": "Austrian's website has no cargo station finder.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "cargo": {
+          "status": "stays",
+          "note": "Cargo's station finder and map stay on Cargo's current system, and the new site links to them.",
+          "footnote": "cargostays",
+          "evidence": "decision 2026-11-01 (Cargo)"
+        },
+        "airdolomiti": {
+          "status": "none",
+          "note": "Air Dolomiti's website has no cargo station finder; its airport pages are text.",
+          "evidence": "fill check 2026-11-01"
+        }
+      }
+    },
+    {
+      "id": "eservices",
+      "name": "eServices (DGR, AWB stock, rates, ...)",
+      "short": "eServices",
+      "about": "Cargo's customer services, most behind login: dangerous goods, air waybill stock, rates, claims and more.",
+      "cells": {
+        "lufthansa": {
+          "status": "none",
+          "note": "Lufthansa's website has no cargo eServices.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "discover": {
+          "status": "none",
+          "note": "Discover's website has no cargo eServices.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "ita": {
+          "status": "none",
+          "note": "ITA's website has no cargo eServices.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "austrian": {
+          "status": "none",
+          "note": "Austrian's website has no cargo eServices.",
+          "evidence": "fill check 2026-11-01"
+        },
+        "cargo": {
+          "status": "stays",
+          "note": "Cargo's eServices stay on Cargo's current system, and the new site links to them.",
+          "footnote": "cargostays",
+          "evidence": "decision 2026-11-01 (Cargo)"
+        },
+        "airdolomiti": {
+          "status": "none",
+          "note": "Air Dolomiti's website has no cargo eServices.",
+          "evidence": "fill check 2026-11-01"
+        }
+      }
+    }
+  ]
+}
