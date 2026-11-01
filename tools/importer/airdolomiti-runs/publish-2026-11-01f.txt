@@ -1,0 +1,8 @@
+# lh-airdolomiti (2026-11-01, brief 231: flight status by route and airport): uploaded to DA moved-permanently/lh-airdolomiti and previewed on main--lh-airdolomiti--moved-permanently.aem.page; not published.
+# Code (on main): 5c9f6757 flight-status in the format airdolomiti (route and airport through api.airdolomiti.it, www's result cards), scripts/airdolomiti-api.js, tests on recorded answers; 55a6b9bc importer (the three tabs, Format | airdolomiti); acf91481 www's weekday abbreviations in the results heading. Rollback: git revert of these three.
+# www (recorded 2026-11-01): route GET /v1/flights/by-route/<ORIG>-<DEST>?date=dd/mm/yyyy, airport GET /v1/flights/by-airport/<CODE>?date=dd/mm/yyyy&type=departure|destination; result cards; a card POST /v1/bookings/flight-status {flight_date, flight_number} -> form to digital.airdolomiti.it/booking/flight-status (airlineCode, flightNumber, departureDate). The number search keeps its direct post (www ends with the same fields). www's homepages have no flight status form.
+# Checked once from the preview host: route MUC-VRN (EN2156) and airport MUC arrivals (EN1861): API 200/201 with CORS *, the form to the engine; the engine answered the headless browser with Imperva's challenge (403): stopped there.
+# documents (3):
+/stato-volo
+/en/flight-status
+/de/flug-status
