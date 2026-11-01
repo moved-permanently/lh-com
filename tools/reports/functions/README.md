@@ -98,8 +98,10 @@ web client in a browser tab signed in to Slack:
    `node -p 'JSON.stringify(require("fs").readFileSync("tools/reports/functions/out/canvas.html", "utf8"))'` prints the
    HTML as a JavaScript string to put in place of the comment.
 
-6. The first `<h1>` becomes the canvas title; tables, links, bold and lists come through.
+6. The first `<h1>` becomes the canvas title; tables, links, bold and lists come through. A canvas table holds at most
+   300 cells and Slack drops the rows past that without a message, so `render.mjs` splits the table into even tables of
+   at most 300 cells, each with the header row (with 7 airlines: two tables of 20 and 19 functions).
 7. Check the result with a screenshot of the canvas, not with the DOM: in a background tab the editor DOM keeps stale
-   sections. Scroll through it: title and date, legend, the table (it scrolls sideways for Cargo and Air Dolomiti),
-   totals and the numbered notes.
+   sections. Scroll through it: title and date, legend, the tables (they scroll sideways for the last airlines; the
+   last row is eServices), totals and the numbered notes.
 8. If Slack asks "Set yourself to active?", answer it first; the dialog sits over the canvas tab.

@@ -22,6 +22,7 @@ const ICON = /(?<!(?:https?|urn)[^\s]*):(#?[a-z_-]+[a-z\d]*):/i;
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 const MD_URL = 'https://github.com/moved-permanently/lh-com/blob/main/tools/reports/functions/functions.md';
 const PAGE_URL = 'https://lufthansa.turnsthe.page/migration-status/functions';
+const SLACK_TABLE_CELLS = 300;
 
 const ESC = {
   '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;',
@@ -204,12 +205,16 @@ export function renderCanvas(doc) {
     const cell = f.cells[b.id];
     return `<td>${esc(cellText(doc, cell))}${cell.footnote ? sup(numbers[cell.footnote]) : ''}</td>`;
   }).join('')}</tr>`);
+  // a Slack canvas table holds at most 300 cells (a pasted table is cut there): split into even tables, header in each
+  const perTable = Math.floor(SLACK_TABLE_CELLS / (doc.brands.length + 1)) - 1;
+  const size = Math.ceil(rows.length / Math.ceil(rows.length / perTable));
+  const tables = Array.from({ length: Math.ceil(rows.length / size) }, (_, i) => `<table>${head}${rows.slice(i * size, (i + 1) * size).join('')}</table>`);
   return [
     '<h1>Lufthansa POC: functions by brand</h1>',
     `<p>What works on each airline's replica and what's still ahead. Updated ${day(doc.updated)}: ${esc(doc.change)} Generated from <a href="${MD_URL}">git</a>, also as a <a href="${PAGE_URL}">page</a>; edits here get overwritten at the next update, so please ask in the channel.</p>`,
     `<p><b>Legend:</b> ${legend}</p>`,
     `<p><b>Replicas:</b> ${doc.brands.map((b) => `<a href="${esc(b.host)}/">${esc(b.name)}</a>`).join(' · ')}</p>`,
-    `<table>${head}${rows.join('')}</table>`,
+    ...tables,
     `<p><b>Totals</b> (${totalsLabel}): ${doc.brands.map((b, i) => `${esc(b.name)} ${totals(doc)[i]}`).join(' · ')}</p>`,
     '<h2>Notes</h2>',
     `<ol>${Object.keys(numbers).map((key) => `<li>${esc(doc.footnotes[key])}</li>`).join('')}</ol>`,
