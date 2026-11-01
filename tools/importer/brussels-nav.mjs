@@ -24,7 +24,9 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseHTML } from 'linkedom';
-import { ownPages, ownAliases, withOwnLinks } from './own-links.mjs';
+import {
+  ownPages, ownAliases, ownServed, withOwnLinks,
+} from './own-links.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const HOST = 'www.brusselsairlines.com';
@@ -204,7 +206,10 @@ export function navDocument(document, key, sitePaths) {
   ].filter(Boolean);
   const menuLabel = clean(document.querySelector('.header-and-flyout-burger-menu')?.getAttribute('aria-label')) || visible(document.querySelector('.header-and-flyout-burger-menu')) || 'Menu';
   const toolsSection = `<div><ul>\n${tools.join('\n')}\n</ul><p>${esc(menuLabel)}</p></div>`;
-  return `${[brand, quickList, menu, toolsSection].join('\n')}\n`;
+  // "My flights" and "Manage bookings" (www's cockpit deep link): the root's own login page, as the
+  // menus on DA since 2026-11-01 (lh-app's login and profile pages, lh-com b8253346 + 19a5cd63)
+  return `${[brand, quickList, menu, toolsSection].join('\n')}\n`
+    .replace(/href="https:\/\/www\.brusselsairlines\.com\/deeplink\/cockpit\/?(?:\?[^"#]*)?"/g, `href="/${key}/profile/login"`);
 }
 
 /** The footer document of a root (Brussels': no country selector in the footer, no wordmark). */
@@ -245,7 +250,9 @@ if (isMain) {
   // links to the site's pages relative (own-links.mjs), as the page importer does
   const pages = ownPages('lh-brussels');
   const aliases = ownAliases('lh-brussels');
-  const own = (doc) => withOwnLinks(doc, 'www.brusselsairlines.com', pages, aliases).doc;
+  // the login and profile pages and the cockpit deep link the replica serves (lh-brussels.json served)
+  const served = ownServed('lh-brussels');
+  const own = (doc) => withOwnLinks(doc, 'www.brusselsairlines.com', pages, aliases, { served }).doc;
   fs.writeFileSync(path.join(dir, 'nav.plain.html'), own(navDocument(document, key, sitePaths)));
   fs.writeFileSync(path.join(dir, 'footer.plain.html'), own(footerDocument(document, sitePaths)));
   const { items } = menuOf(document);

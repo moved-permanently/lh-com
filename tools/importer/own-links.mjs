@@ -126,6 +126,26 @@ export function ownLinkOuts(site) {
   return new Set(fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, 'utf8')).linkOuts || [] : []);
 }
 
+/**
+ * The paths the site's host serves without a document of the site (an app's pages, a deep link
+ * lh-edge answers): tools/importer/sites/<site>.json served, e.g. "/deeplink/cockpit",
+ * "/{root}/profile/login", "/{root}/profile/my-account/**" ({root}: one of the brand's roots,
+ * scripts/brands.js; /**: the path and every path under it). A www link to one becomes relative
+ * (the same path, query and fragment). None: an empty list, links as before.
+ * @returns {RegExp[]}
+ */
+export function ownServed(site) {
+  const f = path.join(root, 'tools/importer/sites', `${site}.json`);
+  const list = fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, 'utf8')).served || [] : [];
+  const roots = Object.keys((BRAND_SITES[BRAND_OF[site]] || { rows: {} }).rows);
+  const esc = (x) => x.replace(/[.*+?^${}()|[\]\\]/g, (c) => `\\${c}`);
+  return list.map((p) => {
+    const under = p.endsWith('/**');
+    const body = esc(under ? p.slice(0, -3) : p).split(esc('{root}')).join(`(?:${roots.map(esc).join('|')})`);
+    return new RegExp(`^${body}${under ? '(?:/.*)?' : ''}$`);
+  });
+}
+
 /** The site path of a www URL's path (.html and a trailing slash dropped), or ''. */
 export function sitePath(pathname) {
   let p = pathname;
@@ -157,8 +177,10 @@ const LINK_OUT = 'the page\'s own link out to www (its app or widget)';
  * linkOut: the document's own path when it is one of the allowlist's linkOuts (www runs an app
  * or widget there and the document links to it, as site-postprocess.mjs keeps it): its link to
  * that page stays on www, and one an earlier run made relative goes back.
+ * served: ownServed's patterns, paths the host serves without a document (relative too).
  */
-export function withOwnLinks(doc, host, pages, aliases = new Map(), { linkOut = null } = {}) {
+export function withOwnLinks(doc, host, pages, aliases = new Map(), { linkOut = null, served = [] } = {}) {
+  const isServed = (p) => served.some((re) => re.test(p));
   const made = {
     href: 0, text: 0, back: 0, alias: 0,
   };
@@ -171,7 +193,7 @@ export function withOwnLinks(doc, host, pages, aliases = new Map(), { linkOut = 
     const p = sitePath(u.pathname);
     // a path that stands for another page (an alias): that page, when the site has it
     const to = !pages.has(p) && aliases.has(p) && pages.has(aliases.get(p)) ? aliases.get(p) : p;
-    return pages.has(to) ? {
+    return pages.has(to) || isServed(to) ? {
       rel: `${to}${u.search}${u.hash}`.replace(/&/g, '&amp;'), p, alias: to !== p,
     } : { p };
   };
@@ -196,7 +218,7 @@ export function withOwnLinks(doc, host, pages, aliases = new Map(), { linkOut = 
   out = out.replace(/href="(\/[a-z]{2}\/[a-z]{2}\/[^"#?]*)([^"]*)"/g, (m, rel, rest) => {
     const p = sitePath(rel);
     const self = linkOut && p === linkOut && !rest;
-    if ((pages.has(p) && !self) || !/^\/[a-z]{2}\/[a-z]{2}\//.test(p)) return m;
+    if (((pages.has(p) || isServed(p)) && !self) || !/^\/[a-z]{2}\/[a-z]{2}\//.test(p)) return m;
     made.back = (made.back || 0) + 1;
     return `href="https://${host}${rel}${rest}"`;
   });
@@ -225,6 +247,7 @@ if (isMain) {
   const pages = ownPages(site);
   const aliases = ownAliases(site);
   const linkOuts = ownLinkOuts(site);
+  const served = ownServed(site);
   const dir = path.join(root, 'content-sites', site, 'content');
   const total = {
     href: 0, text: 0, back: 0, alias: 0,
@@ -235,7 +258,7 @@ if (isMain) {
   walk(dir).filter((f) => f.endsWith('.plain.html')).forEach((f) => {
     const before = fs.readFileSync(f, 'utf8');
     const p = `/${path.relative(dir, f).replace(/\.plain\.html$/, '')}`;
-    const r = withOwnLinks(before, host, pages, aliases, { linkOut: linkOuts.has(p) ? p : null });
+    const r = withOwnLinks(before, host, pages, aliases, { linkOut: linkOuts.has(p) ? p : null, served });
     total.href += r.made.href;
     total.text += r.made.text;
     total.back += r.made.back;

@@ -1,6 +1,14 @@
 {
  "site": "moved-permanently/lh-brussels",
  "source": "www.brusselsairlines.com (option B: one document per language page; market roots hold their own pages and homepages)",
+ "servedNote": "served: paths brussels.turnsthe.page answers without a Brussels document (lh-app's login and profile pages, lh-com b8253346 + 19a5cd63; /deeplink/cockpit, lh-backends 594d7fd, lh-com 35b15b65; each 200 on 2026-11-01); own-links.mjs links them relative",
+ "served": [
+  "/deeplink/cockpit",
+  "/{root}/profile/login",
+  "/{root}/profile/travel-cockpit",
+  "/{root}/profile/my-account/**",
+  "/{root}/profile/travel-id/**"
+ ],
  "paths": [
   "/be/en/homepage",
   "/be/fr/homepage",

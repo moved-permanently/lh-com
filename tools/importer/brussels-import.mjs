@@ -34,7 +34,7 @@ import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { parseHTML } from 'linkedom';
 import {
-  ownPages, ownAliases, withOwnLinks, onlyBatch,
+  ownPages, ownAliases, ownServed, withOwnLinks, onlyBatch,
 } from './own-links.mjs';
 import { relativeDamLinks } from './brussels-dam.mjs';
 import { withLocalImages } from './brussels-nav.mjs';
@@ -390,12 +390,14 @@ if (isMain) {
     // imported so far)
     const pages = ownPages('lh-brussels');
     const aliases = ownAliases('lh-brussels');
+    // the login and profile pages and the cockpit deep link the replica serves (lh-brussels.json served)
+    const served = ownServed('lh-brussels');
     // a link-out document keeps its link to its own page on www
     const linkOutDocs = new Set(allow.linkOuts || []);
     made.forEach((p) => {
       const f = path.join(W, 'content', `${p}.plain.html`);
       const doc = fs.readFileSync(f, 'utf8');
-      const next = withOwnLinks(withLocalImages(relativeDamLinks(doc.split(`https://${LINK_OUT}`).join(`https://${HOST}`))), HOST, pages, aliases, { linkOut: linkOutDocs.has(p) ? p : null }).doc;
+      const next = withOwnLinks(withLocalImages(relativeDamLinks(doc.split(`https://${LINK_OUT}`).join(`https://${HOST}`))), HOST, pages, aliases, { linkOut: linkOutDocs.has(p) ? p : null, served }).doc;
       if (next !== doc) fs.writeFileSync(f, next);
     });
     fs.writeFileSync(path.join(W, 'runs', `${name}-import.json`), `${JSON.stringify({ templates: out, documents: made, missing }, null, 1)}\n`);

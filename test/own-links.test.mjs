@@ -82,3 +82,47 @@ test('a link-out document (the allowlist\'s linkOuts: www runs an app there) kee
   // without linkOut the same document links to itself
   assert.ok(withOwnLinks(doc, HOST, pages).doc.startsWith('<p><a href="/it/en/book-and-prepare/offers">Offers</a>'));
 });
+
+// Brussels Airlines (2026-11-01): its login and profile pages are lh-app's on the replica (lh-com
+// b8253346, 19a5cd63) for every root, and brussels.turnsthe.page answers /deeplink/cockpit
+// (lh-backends 594d7fd): links to them go to our own pages, the same path, query and fragment
+// eslint-disable-next-line import/extensions
+const { ownServed } = await import('../tools/importer/own-links.mjs');
+const BRU = 'www.brusselsairlines.com';
+const bruPages = new Set(['/be/en/homepage', '/be/en/my-bookings', '/sn/fr/homepage']);
+
+test('served paths (app pages, deep links): relative with their query and fragment, only on the site\'s roots', () => {
+  const served = ownServed('lh-brussels');
+  assert.ok(served.length, 'lh-brussels.json lists what the replica serves without a document');
+  const doc = [
+    '<a href="https://www.brusselsairlines.com/deeplink/cockpit?country=BE&amp;language=EN">My flights</a>',
+    '<a href="https://www.brusselsairlines.com/be/en/profile/login">Log in</a>',
+    '<a href="https://www.brusselsairlines.com/sn/fr/profile/travel-id">Travel ID</a>',
+    '<a href="https://www.brusselsairlines.com/be/nl/profile/travel-id/travel-id-data-protection">Privacy</a>',
+    '<a href="https://www.brusselsairlines.com/be/en/profile/my-account/cug-verification#cug-student">Students</a>',
+    '<a href="https://www.brusselsairlines.com/be/en/profile/travel-cockpit">Cockpit</a>',
+    '<a href="https://www.brusselsairlines.com/qq/en/profile/login">no such root</a>',
+    '<a href="https://www.brusselsairlines.com/deeplink/booking?x=1">another deep link</a>',
+  ].join(' ');
+  const r = withOwnLinks(doc, BRU, bruPages, new Map(), { served });
+  assert.match(r.doc, /href="\/deeplink\/cockpit\?country=BE&amp;language=EN">My flights/);
+  assert.match(r.doc, /href="\/be\/en\/profile\/login">Log in/);
+  assert.match(r.doc, /href="\/sn\/fr\/profile\/travel-id">Travel ID/);
+  assert.match(r.doc, /href="\/be\/nl\/profile\/travel-id\/travel-id-data-protection">Privacy/);
+  assert.match(r.doc, /href="\/be\/en\/profile\/my-account\/cug-verification#cug-student">Students/);
+  assert.match(r.doc, /href="\/be\/en\/profile\/travel-cockpit">Cockpit/);
+  assert.match(r.doc, /href="https:\/\/www\.brusselsairlines\.com\/qq\/en\/profile\/login">no such root/, 'a root the site lacks stays on www');
+  assert.match(r.doc, /href="https:\/\/www\.brusselsairlines\.com\/deeplink\/booking\?x=1">another deep link/, 'only the served deep links');
+  assert.equal(r.made.href, 6);
+});
+
+test('served paths: the back-to-www step leaves them relative; without the option as before', () => {
+  const served = ownServed('lh-brussels');
+  const doc = '<a href="/be/en/profile/login">Log in</a> <a href="/be/en/no-such-page">x</a>';
+  const r = withOwnLinks(doc, BRU, bruPages, new Map(), { served });
+  assert.match(r.doc, /href="\/be\/en\/profile\/login"/);
+  assert.match(r.doc, /href="https:\/\/www\.brusselsairlines\.com\/be\/en\/no-such-page"/);
+  const before = withOwnLinks('<a href="https://www.brusselsairlines.com/be/en/profile/login">Log in</a>', BRU, bruPages);
+  assert.match(before.doc, /href="https:\/\/www\.brusselsairlines\.com\/be\/en\/profile\/login"/, 'no served list: www, as before');
+  assert.deepEqual(ownServed('lh-no-such-site'), []);
+});
