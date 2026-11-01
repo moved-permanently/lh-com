@@ -1,6 +1,6 @@
 {
   "updated": "2026-11-01",
-  "change": "ITA's homepage slider now opens ITA's own destination pages. Cargo's newsletter needs Lufthansa Cargo: its Microsoft Dynamics form accepts sign-ups only from Cargo's own website, so ours links there until Cargo allows our address.",
+  "change": "Austrian's chat button is built, checked and switched on; it reaches its pages with their next update. ITA's homepage slider now opens ITA's own destination pages.",
   "legend": {
     "done": {
       "label": "works on our replica",
@@ -43,7 +43,7 @@
     "cargostays": "Cargo's booking, schedules, customer portal, station finder and eServices stay on Cargo's current systems; the new site links to them.",
     "cargomoves": "Cargo's public pages move completely: contact forms, notifications, help and contact search, the newsletter page and the tracking entry form get versions on the new platform.",
     "cargonews": "Cargo's newsletter form loads from Lufthansa Cargo's Microsoft Dynamics, which takes sign-ups only from sites Cargo allows. Lufthansa Cargo has to allow our address for form hosting in its Dynamics settings; until then the embed stays off and the page links to Cargo's own newsletter page.",
-    "oschat": "Austrian's chat assistant is loaded from Austrian's website, outside AEM, and it worked on our address in a test. The chat button is switched on for Austrian only after a check on its preview.",
+    "oschat": "Austrian's chat assistant is loaded from Austrian's website, outside AEM. Its button is built, checked on our preview and switched on for Austrian; it appears page by page as the 78 pages that show it on www get their next update.",
     "adchat": "Air Dolomiti's chat assistant is built into the replica, but its switch stays off: the chat vendor sends no chat to our address until Air Dolomiti or the vendor adds a rule for it.",
     "travelid": "Personal content for signed-in customers needs Lufthansa: Travel ID, the group's login, accepts only the airline's own website as the address to return to and as the site allowed to call it. The replicas can't sign anyone in until they run on the airline's address, or Lufthansa allows ours."
   },
@@ -746,7 +746,7 @@
           "status": "done",
           "note": "The homepage slider lists destinations with live prices from Rome, and each card opens ITA's own destination page.",
           "page": "/it/en/homepage",
-          "evidence": "brief 196, e60259ee; check 2026-11-01 02:35 CET: /it/en/homepage 17 cards link to www.ita-airways.com/it/en/book-and-prepare/destination, which shows Rome-New York from 519 EUR"
+          "evidence": "brief 196, e60259ee; check 2026-11-01 02:19 CET: /it/en/homepage 17 cards link to www.ita-airways.com/it/en/book-and-prepare/destination, which shows Rome-New York from 519 EUR"
         },
         "austrian": {
           "status": "done",
@@ -1209,10 +1209,10 @@
         },
         "austrian": {
           "status": "wip",
-          "note": "Links to Austrian's chat assistant work; the chat button that www shows on about 76 pages comes back after a check.",
+          "note": "The chat button is built and switched on for Austrian; it appears on the about 78 pages that have it on www once their next content update is live.",
           "footnote": "oschat",
           "page": "/at/en/fly/flight-information/flight-disruptions",
-          "evidence": "M1 2026-11-01: Cognigy webchat from www.austrian.com works on our host"
+          "evidence": "brief 197 (3b3c7e2, flag module d57e489); check 2026-11-01 04:31 CET on an aem.page test page: button renders, Maria opens with the baggage start; lh-austrian /config/flags.json chat-button on, published 04:3x; page metadata in held brief 210"
         },
         "cargo": {
           "status": "none",
