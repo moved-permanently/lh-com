@@ -1,4 +1,4 @@
-import { getLocale, LIVE_ORIGIN } from '../../scripts/locale.js';
+import { getLocale, siteOrigin } from '../../scripts/locale.js';
 import {
   readConfigRows, pick, resolveLabels, cleanText, toConfigKey, decorateExternalLinks,
 } from '../../scripts/block-config.js';
@@ -385,9 +385,9 @@ const MY_BOOKINGS_LABELS = {
   },
 };
 
-/** The live page of the current replica page (same path on www.lufthansa.com). */
+/** The live page of the current replica page (same path on the site's www, a brand's own). */
 function livePageUrl() {
-  return `${LIVE_ORIGIN}${window.location.pathname.replace(/^\/content\//, '/')}`;
+  return `${siteOrigin()}${window.location.pathname.replace(/^\/content\//, '/')}`;
 }
 
 /**
