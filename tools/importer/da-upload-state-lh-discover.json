@@ -1,14 +1,14 @@
 {
  "docs": {
   "/de/en/homepage": {
-   "uploaded": "2026-10-27T09:24:13.305Z",
-   "mtime": 1793092453855,
-   "preview": "2026-10-27T09:24:15.781Z"
+   "uploaded": "2026-11-01T18:46:42.837Z",
+   "mtime": 1793557134188,
+   "preview": "2026-11-01T18:46:44.676Z"
   },
   "/de/de/homepage": {
-   "uploaded": "2026-10-27T09:24:16.840Z",
-   "mtime": 1793092453753,
-   "preview": "2026-10-27T09:24:18.618Z"
+   "uploaded": "2026-11-01T18:46:26.594Z",
+   "mtime": 1793557133948,
+   "preview": "2026-11-01T18:46:29.421Z"
   },
   "/de/en/nav": {
    "uploaded": "2026-10-27T09:24:19.772Z",
@@ -21,19 +21,19 @@
    "preview": "2026-10-27T09:24:24.507Z"
   },
   "/de/en/footer": {
-   "uploaded": "2026-10-27T09:24:25.628Z",
-   "mtime": 1793092453831,
-   "preview": "2026-10-27T09:24:27.250Z"
+   "uploaded": "2026-11-01T18:44:57.060Z",
+   "mtime": 1793556494142,
+   "preview": "2026-11-01T18:44:59.206Z"
   },
   "/de/de/footer": {
-   "uploaded": "2026-10-27T09:24:28.330Z",
-   "mtime": 1793092453731,
-   "preview": "2026-10-27T09:24:29.879Z"
+   "uploaded": "2026-11-01T18:45:00.849Z",
+   "mtime": 1793556494202,
+   "preview": "2026-11-01T18:45:02.833Z"
   },
   "/de/en/new-destinations": {
-   "uploaded": "2026-10-27T09:30:14.161Z",
-   "mtime": 1793092424361,
-   "preview": "2026-10-27T09:30:16.932Z"
+   "uploaded": "2026-11-01T18:45:26.293Z",
+   "mtime": 1793556929256,
+   "preview": "2026-11-01T18:45:30.011Z"
   },
   "/de/en/discover/ocean-blue": {
    "uploaded": "2026-10-27T09:30:17.928Z",
@@ -61,14 +61,14 @@
    "preview": "2026-10-27T09:30:33.035Z"
   },
   "/de/en/my-bookings/manage/customer-service": {
-   "uploaded": "2026-10-27T09:30:34.142Z",
-   "mtime": 1793092424296,
-   "preview": "2026-10-27T09:30:35.986Z"
+   "uploaded": "2026-11-01T18:45:12.166Z",
+   "mtime": 1793556929192,
+   "preview": "2026-11-01T18:45:14.639Z"
   },
   "/de/de/new-destinations": {
-   "uploaded": "2026-10-27T09:30:37.110Z",
-   "mtime": 1793092424140,
-   "preview": "2026-10-27T09:30:38.740Z"
+   "uploaded": "2026-11-01T18:45:31.666Z",
+   "mtime": 1793556928434,
+   "preview": "2026-11-01T18:45:33.478Z"
   },
   "/de/de/discover/ocean-blue": {
    "uploaded": "2026-10-27T09:30:39.797Z",
@@ -96,9 +96,124 @@
    "preview": "2026-10-27T09:30:52.430Z"
   },
   "/de/de/my-bookings/manage/customer-service": {
-   "uploaded": "2026-10-27T09:30:53.443Z",
-   "mtime": 1793092424054,
-   "preview": "2026-10-27T09:30:54.958Z"
+   "uploaded": "2026-11-01T18:45:16.617Z",
+   "mtime": 1793556928366,
+   "preview": "2026-11-01T18:45:18.989Z"
+  },
+  "/de/en/culinaryjourney": {
+   "uploaded": "2026-11-01T18:37:29.217Z",
+   "mtime": 1793556253083,
+   "preview": "2026-11-01T18:37:31.228Z"
+  },
+  "/de/de/culinaryjourney": {
+   "uploaded": "2026-11-01T18:37:32.950Z",
+   "mtime": 1793556254924,
+   "preview": "2026-11-01T18:37:34.803Z"
+  },
+  "/xx/fr/culinaryjourney": {
+   "uploaded": "2026-11-01T18:37:36.556Z",
+   "mtime": 1793556256998,
+   "preview": "2026-11-01T18:37:38.235Z"
+  },
+  "/xx/fr/footer": {
+   "uploaded": "2026-11-01T18:45:04.790Z",
+   "mtime": 1793556494255,
+   "preview": "2026-11-01T18:45:06.646Z"
+  },
+  "/xx/fr/my-bookings/manage/customer-service": {
+   "uploaded": "2026-11-01T18:45:20.575Z",
+   "mtime": 1793556929869,
+   "preview": "2026-11-01T18:45:22.494Z"
+  },
+  "/de/en/book/travel-information/airport-info/security-check-time-slot": {
+   "uploaded": "2026-11-01T18:45:38.063Z",
+   "mtime": 1793556928964,
+   "preview": "2026-11-01T18:45:39.750Z"
+  },
+  "/de/de/book/travel-information/airport-info/security-check-time-slot": {
+   "uploaded": "2026-11-01T18:45:41.411Z",
+   "mtime": 1793556928136,
+   "preview": "2026-11-01T18:45:43.072Z"
+  },
+  "/xx/fr/book/travel-information/airport-info/security-check-time-slot": {
+   "uploaded": "2026-11-01T18:45:44.622Z",
+   "mtime": 1793556929625,
+   "preview": "2026-11-01T18:45:46.430Z"
+  },
+  "/ca/en/homepage": {
+   "uploaded": "2026-11-01T18:46:10.872Z",
+   "mtime": 1793557133692,
+   "preview": "2026-11-01T18:46:12.713Z"
+  },
+  "/ca/fr/homepage": {
+   "uploaded": "2026-11-01T18:46:14.330Z",
+   "mtime": 1793557133758,
+   "preview": "2026-11-01T18:46:16.578Z"
+  },
+  "/de/de/book/flights/flight-search": {
+   "uploaded": "2026-11-01T18:46:18.145Z",
+   "mtime": 1793557133826,
+   "preview": "2026-11-01T18:46:20.111Z"
+  },
+  "/de/de/cancun-promotion": {
+   "uploaded": "2026-11-01T18:46:21.700Z",
+   "mtime": 1793557133887,
+   "preview": "2026-11-01T18:46:24.879Z"
+  },
+  "/de/de/wildlife-and-nature": {
+   "uploaded": "2026-11-01T18:46:31.140Z",
+   "mtime": 1793557134007,
+   "preview": "2026-11-01T18:46:33.942Z"
+  },
+  "/de/en/book/flights/flight-search": {
+   "uploaded": "2026-11-01T18:46:35.512Z",
+   "mtime": 1793557134070,
+   "preview": "2026-11-01T18:46:37.367Z"
+  },
+  "/de/en/cancun-promotion": {
+   "uploaded": "2026-11-01T18:46:38.995Z",
+   "mtime": 1793557134128,
+   "preview": "2026-11-01T18:46:41.269Z"
+  },
+  "/de/en/wildlife-and-nature": {
+   "uploaded": "2026-11-01T18:46:46.112Z",
+   "mtime": 1793557134251,
+   "preview": "2026-11-01T18:46:47.849Z"
+  },
+  "/us/de/homepage": {
+   "uploaded": "2026-11-01T18:46:49.310Z",
+   "mtime": 1793557134326,
+   "preview": "2026-11-01T18:46:52.578Z"
+  },
+  "/us/en/homepage": {
+   "uploaded": "2026-11-01T18:46:54.242Z",
+   "mtime": 1793557134391,
+   "preview": "2026-11-01T18:46:56.637Z"
+  },
+  "/xx/de/homepage": {
+   "uploaded": "2026-11-01T18:46:58.179Z",
+   "mtime": 1793557134455,
+   "preview": "2026-11-01T18:47:00.809Z"
+  },
+  "/xx/en/homepage": {
+   "uploaded": "2026-11-01T18:47:02.568Z",
+   "mtime": 1793557134517,
+   "preview": "2026-11-01T18:47:05.298Z"
+  },
+  "/xx/fr/book/flights/flight-search": {
+   "uploaded": "2026-11-01T18:47:06.928Z",
+   "mtime": 1793557134580,
+   "preview": "2026-11-01T18:47:08.887Z"
+  },
+  "/xx/fr/cancun-promotion": {
+   "uploaded": "2026-11-01T18:47:10.505Z",
+   "mtime": 1793557134637,
+   "preview": "2026-11-01T18:47:12.499Z"
+  },
+  "/xx/fr/homepage": {
+   "uploaded": "2026-11-01T18:47:14.205Z",
+   "mtime": 1793557134695,
+   "preview": "2026-11-01T18:47:16.803Z"
   }
  },
  "media": {}
