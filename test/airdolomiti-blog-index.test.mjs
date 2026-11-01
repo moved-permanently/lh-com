@@ -109,9 +109,10 @@ test('loadArticles: a brand\'s own index (every row a post); lufthansa.com\'s as
   const lh = await loadArticles({ key: 'de/en', lang: 'en' });
   assert.deepEqual(lh.map((a) => a.path), ['/de/en/articles/highlights/a'], 'page-type article only');
   assert.ok(calls.some((c) => c.startsWith('/de/en/articles/query-index.json')));
-  // a brand language without an index: lufthansa.com's way (the locale's index)
+  // a brand language without an index (fr; German has one since articles-airdolomiti-de):
+  // lufthansa.com's way (the locale's index)
   calls = [];
-  await loadArticles({ key: 'de/en', lang: 'de' }, BRANDS.airdolomiti);
+  await loadArticles({ key: 'de/en', lang: 'fr' }, BRANDS.airdolomiti);
   assert.ok(calls.every((c) => !c.startsWith('/articoli/')));
 });
 

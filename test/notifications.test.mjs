@@ -88,7 +88,9 @@ test('helix-query.yaml: the notifications index appended; the Message Center ind
   assert.deepEqual(Object.keys(ix.properties), ['headline', 'category', 'teaser', 'tenants', 'details', 'from', 'to', 'internal-title', 'lastModified']);
   assert.equal(ix.properties.category.select, 'div > div > div:has(#category) > div:last-child');
   assert.equal(ix.properties.tenants.select, 'div > div > div:has(#tenants) > div:last-child li');
-  assert.equal(Object.keys(now).pop(), 'message-center-notifications', 'appended at the end');
+  // appended: after the indexes before it (indexes appended later follow: articles-airdolomiti-de)
+  const keys = Object.keys(now);
+  assert.ok(keys.indexOf('message-center-notifications') > keys.indexOf('articles-airdolomiti-en'), 'appended');
   const before = yaml.load(execFileSync('git', ['show', 'HEAD:helix-query.yaml'], { encoding: 'utf8' })).indices;
   Object.keys(before).filter((k) => k !== 'message-center-notifications').forEach((k) => {
     assert.equal(JSON.stringify(now[k]), JSON.stringify(before[k]), k);

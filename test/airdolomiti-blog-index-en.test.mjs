@@ -75,7 +75,8 @@ test('helix-query.yaml: the English posts index after the Italian one, the same 
 });
 
 test('brands.js: Air Dolomiti\'s English posts index; loadArticles reads it for English', async () => {
-  assert.deepEqual(BRANDS.airdolomiti.articleIndex, { it: '/articoli/query-index.json', en: '/en/articles/query-index.json' });
+  // (German: test/airdolomiti-blog-index-de)
+  assert.equal(BRANDS.airdolomiti.articleIndex.en, '/en/articles/query-index.json');
   const posts = await loadArticles({ key: 'en', lang: 'en' }, BRANDS.airdolomiti);
   assert.deepEqual(posts.map((p) => p.path), ['/en/articles/avgeek-en/aeroplane-tails', '/en/articles/dyk/5-apps-for-travellers'], 'newest first');
   assert.ok(calls.some((c) => c.startsWith('/en/articles/query-index.json')));

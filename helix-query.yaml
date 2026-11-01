@@ -3514,3 +3514,32 @@ indices:
       lastModified:
         select: none
         value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+  articles-airdolomiti-de:
+    include:
+      - /de/artikel/*/*
+    target: /de/artikel/query-index.json
+    properties:
+      title:
+        select: main .article-header h1
+        value: textContent(el)
+      description:
+        select: head > meta[name="description"]
+        value: attribute(el, "content")
+      image:
+        select: head > meta[property="og:image"]
+        value: match(attribute(el, "content"), "https:\/\/[^/]+(/.*)")
+      image-alt:
+        select: head > meta[property="og:image:alt"]
+        value: attribute(el, "content")
+      category:
+        select: head > meta[name="category"]
+        value: attribute(el, "content")
+      publication-date:
+        select: head > meta[name="publication-date"]
+        value: attribute(el, "content")
+      reading-time:
+        select: head > meta[name="reading-time"]
+        value: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
