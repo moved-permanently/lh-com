@@ -65,13 +65,14 @@ export const LIVE = {
 };
 
 /**
- * The posts list (blog-overview over the language's posts index; Italian only: /articoli/query-index.json):
+ * The posts list (blog-overview (grid), as www's cards with Load more, over the language's posts
+ * index: /articoli, /en/articles, /de/artikel query-index.json):
  * www's page size and no filter (www links its categories instead), the labels in the language.
  * www's /articoli has "Categorie" and its "Carica altri articoli" only; the other labels are ours.
  */
 const BLOG = {
   it: [
-    ['Page size', '9'], ['Hide filter', 'yes'],
+    ['Page size', '9'], ['Hide filter', 'true'], ['Load more label', 'Carica altri articoli'],
     ['Results label', '{TOTAL} articoli trovati'], ['Search label', 'Cerca negli articoli'],
     ['Categories label', 'Categorie'], ['All categories label', 'Tutte le categorie'],
     ['Read label', 'Leggi l’articolo'], ['Read screen reader label', 'Leggi l’articolo {TITLE}'],
@@ -81,7 +82,7 @@ const BLOG = {
   ],
   // /en/articles/query-index.json; www's /articles has "Categories" (and "Load More Posts")
   en: [
-    ['Page size', '9'], ['Hide filter', 'yes'],
+    ['Page size', '9'], ['Hide filter', 'true'], ['Load more label', 'Load More Posts'],
     ['Results label', '{TOTAL} articles found'], ['Search label', 'Search the articles'],
     ['Categories label', 'Categories'], ['All categories label', 'All categories'],
     ['Read label', 'Read the article'], ['Read screen reader label', 'Read the article {TITLE}'],
@@ -91,7 +92,7 @@ const BLOG = {
   ],
   // /de/artikel/query-index.json; www's /artikel has "Kategorien" (and "Weitere Beiträge laden")
   de: [
-    ['Page size', '9'], ['Hide filter', 'yes'],
+    ['Page size', '9'], ['Hide filter', 'true'], ['Load more label', 'Weitere Beiträge laden'],
     ['Results label', '{TOTAL} Beiträge gefunden'], ['Search label', 'In den Beiträgen suchen'],
     ['Categories label', 'Kategorien'], ['All categories label', 'Alle Kategorien'],
     ['Read label', 'Beitrag lesen'], ['Read screen reader label', 'Beitrag lesen: {TITLE}'],
@@ -841,7 +842,7 @@ const HANDLERS = {
     page.add(`<ul>${cats.map(([h, t]) => `<li>${page.link(h, t).replace(/^<p>|<\/p>$/g, '')}</li>`).join('')}</ul>`);
     if (BLOG[page.lang]) {
       // www's list of posts: blog-overview over the posts index
-      page.block('blog-overview', BLOG[page.lang].map(([k, v]) => [k, esc(v)]));
+      page.block('blog-overview (grid)', BLOG[page.lang].map(([k, v]) => [k, esc(v)]));
       page.note(`blog list: www's ${cats.length} category links and blog-overview over the posts index`);
     } else page.note(`blog list (www's live list of posts; no posts index for ${page.lang}): its ${cats.length} category links`);
   },
@@ -1020,7 +1021,9 @@ export function convert(rendered, sourceUrl) {
     page.add(`<h1>${esc(plain(post.name))}</h1>`);
     if (post.description) page.add(page.heading('h2', post.description));
     // the index's category is the posts' Category metadata, in lower case ("#didyouknow")
-    if (BLOG[lang]) page.block('blog-overview', [['Category', esc(plain(post.name).toLowerCase())], ...BLOG[lang].map(([k, v]) => [k, esc(v)])]);
+    // the category by the page's own folder (dyk, avgeek-en, reiseziele: the posts' folder)
+    const folder = new URL(sourceUrl).pathname.split('/').filter(Boolean).pop();
+    if (BLOG[lang]) page.block('blog-overview (grid)', [['Category', esc(folder)], ...BLOG[lang].map(([k, v]) => [k, esc(v)])]);
   }
   // eslint-disable-next-line no-underscore-dangle -- WPGraphQL's type name
   page.isRoute = post.__typename === 'Route';

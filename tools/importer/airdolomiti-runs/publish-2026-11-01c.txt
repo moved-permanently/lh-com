@@ -1,0 +1,25 @@
+# lh-airdolomiti and lh-cargo (2026-11-01, third list, 222): uploaded to DA and previewed on main--lh-airdolomiti--moved-permanently.aem.page and main--lh-cargo--moved-permanently.aem.page; not published. Publish these
+# - Air Dolomiti's posts lists as Blog Overview (grid): Hide filter true, Load more label as www (Carica altri articoli, Load More Posts, Weitere Beiträge laden), 9 cards then load more; the category pages' Category is the page's own folder (didyouknow, dyk, did-you-know, avgeek-en, reiseziele ...)
+# - Cargo's tracking form (Booking Lookup (tracking)): Default prefix 020, as www prefills it
+# lh-airdolomiti documents (18):
+/articoli
+/en/articles
+/de/artikel
+/articoli/didyouknow
+/articoli/avgeek
+/articoli/destinazioni
+/articoli/throwback
+/articoli/travellers
+/en/articles/dyk
+/en/articles/avgeek-en
+/en/articles/destinations
+/en/articles/throwback-en
+/en/articles/travellers-en
+/de/artikel/did-you-know
+/de/artikel/avgeek-de
+/de/artikel/throwback-de
+/de/artikel/reiseziele
+/de/artikel/travellers-de
+# lh-cargo documents (2):
+/en/home
+/de/home

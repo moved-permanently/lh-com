@@ -655,6 +655,8 @@ function serviceWidget(c, page) {
   if (tab) rows.push(['Tab', tab]);
   const prefix = form.querySelector('#etrk_awbp');
   if (prefix && prefix.getAttribute('aria-label')) rows.push(['Prefix label', prefix.getAttribute('aria-label')]);
+  // www prefills the prefix (Lufthansa Cargo's 020)
+  if (prefix && /^\d{3}$/.test(prefix.getAttribute('value') || '')) rows.push(['Default prefix', prefix.getAttribute('value')]);
   const serialLabel = text(form.querySelector('label.control-label'));
   if (serialLabel) rows.push(['Serial label', serialLabel]);
   const prefixError = text(form.querySelector('#awbPrefixError'));
