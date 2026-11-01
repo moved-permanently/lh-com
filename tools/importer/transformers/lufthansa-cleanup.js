@@ -441,7 +441,7 @@ const VIDEO_CONFIG = '[data-dcep*="videoSrc"]';
 // loading or missing: the three Frankfurt articles, destination FRA) is still the price bar;
 // a component a brand's importer marks data-import-keep (ita-import.mjs: www's static fare teaser,
 // unrendered in the snapshot, its routes in data-dcep) is kept for its parser
-const WIDGET_CONFIG = '.dcep-poi-mapping[data-dcep], .dcep-meili-car-rental[data-dcep], .dcep-flash-teaser, .messagecenterwrapper, .dcep-blog-overview[data-dcep], .dcep-author-slider, .dcep-blog-cookie[data-dcep], .dcep-sticky-price[data-dcep], .dcep-search-results-aem, [data-import-keep]';
+const WIDGET_CONFIG = '.dcep-poi-mapping[data-dcep], .dcep-meili-car-rental[data-dcep], .dcep-flash-teaser, .messagecenterwrapper, .dcep-blog-overview[data-dcep], .dcep-author-slider, .dcep-blog-cookie[data-dcep], .dcep-sticky-price[data-dcep], .dcep-search-results-aem, [data-import-keep], culinary-hub';
 const ALWAYS_EMPTY = ['.separator', '.dcep-react-wrapper:empty', 'ppfi-web-component'];
 
 function isEmpty(el) {

@@ -41,6 +41,15 @@ export function footerPlain(element) {
   }).join('\n')}\n`;
 }
 
+/**
+ * The footer's search row to the site's own search page: www's footer sends to
+ * /<root>/support/search/search-result (404 on www.discover-airlines.com, 2026-11-01), Discover's
+ * search page is /<root>/help/search-result (its search-results block reads ?query=).
+ */
+export function ownSearch(html, key) {
+  return html.split(`https://${HOST}/${key}/support/search/search-result`).join(`/${key}/help/search-result`);
+}
+
 /** The footer document of a root from its homepage snapshot. */
 export async function footerDocument(key, list) {
   globalThis.WebImporter ||= { DOMUtils: { remove: () => {} }, Blocks: {} };
@@ -52,7 +61,7 @@ export async function footerDocument(key, list) {
   const r = postprocess(footerPlain(out.element), {
     sourceHost: HOST, sitePaths: new Set(list.paths), marketRoots: list.marketRoots,
   });
-  return r.html.split(`https://${PLACEHOLDER}`).join('https://www.lufthansa.com');
+  return ownSearch(r.html.split(`https://${PLACEHOLDER}`).join('https://www.lufthansa.com'), key);
 }
 
 const isMain = process.argv[1] && fs.realpathSync(process.argv[1]) === fileURLToPath(import.meta.url);

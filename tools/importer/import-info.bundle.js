@@ -4294,7 +4294,7 @@ var CustomImportScript = (() => {
   }
   var MEDIA = 'img, picture, video, audio, iframe, svg, object, embed, canvas, input, select, textarea, button, form, hr, maui-icon, [style*="background-image"]';
   var VIDEO_CONFIG = '[data-dcep*="videoSrc"]';
-  var WIDGET_CONFIG = ".dcep-poi-mapping[data-dcep], .dcep-meili-car-rental[data-dcep], .dcep-flash-teaser, .messagecenterwrapper, .dcep-blog-overview[data-dcep], .dcep-author-slider, .dcep-blog-cookie[data-dcep], .dcep-sticky-price[data-dcep], .dcep-search-results-aem, [data-import-keep]";
+  var WIDGET_CONFIG = ".dcep-poi-mapping[data-dcep], .dcep-meili-car-rental[data-dcep], .dcep-flash-teaser, .messagecenterwrapper, .dcep-blog-overview[data-dcep], .dcep-author-slider, .dcep-blog-cookie[data-dcep], .dcep-sticky-price[data-dcep], .dcep-search-results-aem, [data-import-keep], culinary-hub";
   function isEmpty(el) {
     if (el.textContent.replace(/\u00A0/g, " ").trim()) return false;
     return !el.matches(`${VIDEO_CONFIG}, ${WIDGET_CONFIG}`) && !el.querySelector(`${MEDIA}, ${VIDEO_CONFIG}, ${WIDGET_CONFIG}`);

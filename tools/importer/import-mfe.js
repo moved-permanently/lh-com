@@ -8,7 +8,7 @@ import lufthansaSectionsTransformer from './transformers/lufthansa-sections.js';
 
 const PAGE_TEMPLATE = {
   "name": "mfe",
-  "description": "Pages that host one of www's micro-frontends (book-and-manage/trip-management); other systems POST <page>.mfe.html to them",
+  "description": "Pages that host one of www's micro-frontends (book-and-manage/trip-management; Discover's culinaryjourney: culinary-hub); other systems POST <page>.mfe.html to trip-management",
   "urls": [
     "https://www.lufthansa.com/de/en/book-and-manage/trip-management"
   ],
@@ -16,7 +16,8 @@ const PAGE_TEMPLATE = {
     {
       "name": "micro-frontend",
       "instances": [
-        "trip-management"
+        "trip-management",
+        "culinary-hub"
       ]
     }
   ],

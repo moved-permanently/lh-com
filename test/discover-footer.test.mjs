@@ -90,3 +90,14 @@ test('the logo row: Discover\'s inverted logo graphic as its icon token before t
   assert.match(svg, /fill="#fff"/);
   assert.match(fs.readFileSync(new URL('../styles/themes/discover.css', import.meta.url), 'utf8'), /--footer-logos-surface: var\(--lh-deepblue\);/);
 });
+
+// brief 209: the search row of www's footer goes to /<root>/support/search/search-result (404 on
+// www.discover-airlines.com, 2026-11-01); Discover's search page is the site's own
+// /<root>/help/search-result (its search-results block reads ?query=)
+test('the footer\'s search row: to the site\'s own /<root>/help/search-result, the query parameter kept', async () => {
+  const { ownSearch } = await import('../tools/importer/discover-footer.mjs');
+  const html = '<p><a href="https://www.discover-airlines.com/de/en/support/search/search-result?query=">Enter search term</a> <a href="/de/en/help/search-result#faq">Search</a></p>';
+  assert.equal(ownSearch(html, 'de/en'), '<p><a href="/de/en/help/search-result?query=">Enter search term</a> <a href="/de/en/help/search-result#faq">Search</a></p>');
+  assert.equal(ownSearch('<a href="https://www.discover-airlines.com/xx/fr/support/search/search-result?query=">Rechercher</a>', 'xx/fr'), '<a href="/xx/fr/help/search-result?query=">Rechercher</a>');
+  assert.equal(ownSearch('<a href="https://www.discover-airlines.com/de/en/support/faq">FAQ</a>', 'de/en'), '<a href="https://www.discover-airlines.com/de/en/support/faq">FAQ</a>');
+});

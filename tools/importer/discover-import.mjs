@@ -5,11 +5,13 @@
  * content-sites/lh-discover/content, as the demo did (brief 95): per page the template whose
  * components it has (articles: insights; the destination finder grid: hub; feedback forms: form;
  * the timetable: flight-status; the aircraft slideshow: fleet; check-in and booking entries:
- * app-entry; homepages: homepage; everything else: info), then site-postprocess.mjs (the
+ * app-entry; the culinary hub: mfe; homepages: homepage; everything else: info), then site-postprocess.mjs (the
  * www.lufthansa.com URLs of lh-com's importers back to www.discover-airlines.com, links between
  * the site's pages relative), after adding the batch's documents to the allowlist
- * tools/importer/sites/lh-discover.json. Live widgets the importers would flatten into text (the
- * security waiting times) become a link to the page on www.discover-airlines.com (withLinkOuts).
+ * tools/importer/sites/lh-discover.json. Live widgets the importers would flatten into text (iframes the
+ * embed block does not play) become a link to the page on www.discover-airlines.com
+ * (withLinkOuts); the security waiting times are the security-waiting-time block, www's in-page
+ * search bar is dropped.
  * Discover's forms get their lh-forms id, the same root's thank-you and error pages and www's
  * maxlengths (withDiscoverForm), noindex pages www's robots value (withRobots), www's visually hidden
  * H1 (the homepages': "Discover") an H1 of the first section, hidden by its section style
@@ -56,16 +58,40 @@ export const LINK_OUT = 'link-out.invalid';
 const EMBEDDED = /^https:\/\/(?:www\.)?(?:youtube(?:-nocookie)?\.com|lufthansa-inflightentertainment\.com)\//;
 const text = (h) => h.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
 
+/** The end (index after its closing tag) of the div that opens at `start`, by div depth. */
+function divEnd(html, start) {
+  const re = /<div\b|<\/div>/g;
+  re.lastIndex = start;
+  let depth = 0;
+  let m = re.exec(html);
+  while (m) {
+    depth += m[0] === '</div>' ? -1 : 1;
+    if (depth === 0) return m.index + m[0].length;
+    m = re.exec(html);
+  }
+  return html.length;
+}
+
+/** The html without the divs whose opening tag starts with `open`. */
+function withoutDivs(html, open) {
+  let out = html;
+  let i = out.indexOf(open);
+  while (i >= 0) {
+    out = out.slice(0, i) + out.slice(divEnd(out, i));
+    i = out.indexOf(open, i);
+  }
+  return out;
+}
+
 /**
  * A snapshot whose live widgets are a link to the page on www (the importers flatten them into
- * text or drop them): the security waiting times (an airport select), labelled with the select's
- * own label; an iframe component the embed block doesn't play (the timetable, the claims form),
- * labelled with the iframe's title, else the page's H1.
+ * text or drop them): an iframe component the embed block doesn't play (the timetable, the claims
+ * form), labelled with the iframe's title, else the page's H1. The security waiting times are
+ * the info template's security-waiting-time block (brief 209; a link out before). www's in-page
+ * search bar (the customer-service pages, after the FAQ) is dropped: its label and placeholder
+ * came out as two "Enter search term" lines.
  */
-export const withLinkOuts = (html, p) => html.replace(/<div class="securitywaitingtime">[\s\S]*?<\/maui-select><\/form><\/div><\/div><\/div>/g, (m) => {
-  const label = (m.match(/buttontriggerlabel="([^"]+)"/) || [])[1] || HOST;
-  return `<div class="securitywaitingtime"><p><a href="https://${LINK_OUT}${p}">${label}</a></p></div>`;
-}).replace(/<div class="iframe[ "][^>]*>\s*<div class="iframe-wrapper[^>]*>\s*<iframe\b([^>]*)>[\s\S]*?<\/iframe>\s*<\/div>\s*<\/div>/g, (m, attrs) => {
+export const withLinkOuts = (html, p) => withoutDivs(html, '<div class="searchbar">').replace(/<div class="iframe[ "][^>]*>\s*<div class="iframe-wrapper[^>]*>\s*<iframe\b([^>]*)>[\s\S]*?<\/iframe>\s*<\/div>\s*<\/div>/g, (m, attrs) => {
   const src = (attrs.match(/\ssrc="([^"]+)"/) || [])[1] || '';
   if (EMBEDDED.test(src)) return m;
   const label = (attrs.match(/\stitle="([^"]+)"/) || [])[1] || text((html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/) || [])[1] || '') || HOST;
@@ -200,6 +226,8 @@ export function templateOf(p, html) {
   if (/class="flightstatustimetable/.test(html)) return 'flight-status';
   if (/class="slideshow/.test(html)) return 'fleet';
   if (/checkinpassengerreceiptentry|class="[^"]*dcep-quick-actions/.test(html)) return 'app-entry';
+  // the culinary journey (www's <culinary-hub> micro-frontend): the micro-frontend block
+  if (/<culinary-hub[\s>]/.test(html)) return 'mfe';
   return 'info';
 }
 
