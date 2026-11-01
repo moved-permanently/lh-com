@@ -293,6 +293,19 @@ function decorateTextStyles(main) {
 }
 
 /**
+ * DA writes ":name:" inside an app configuration ("dmc:https://www…", the culinary hub) as an
+ * icon span: inside micro-frontend blocks the spans are their :name: text again, before
+ * decorateIcons would request /icons/<name>.svg (other icons are decorated as before).
+ * @param {Element} main
+ */
+function restoreAppConfigText(main) {
+  main.querySelectorAll('div.micro-frontend span.icon').forEach((icon) => {
+    const name = [...icon.classList].find((c) => c.startsWith('icon-'));
+    icon.replaceWith(name ? `:${name.slice(5)}:` : '');
+  });
+}
+
+/**
  * Decorates the main element.
  * @param {Element} main The main element
  */
@@ -301,6 +314,7 @@ export function decorateMain(main) {
   // no consent tool on the site (a brand without OneTrust: Cargo, Air Dolomiti): no "Change
   // privacy settings" links, they would open nothing
   hidePrivacySettings(main);
+  restoreAppConfigText(main);
   decorateIcons(main);
   decorateTextStyles(main);
   buildAutoBlocks(main);
