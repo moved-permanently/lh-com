@@ -1,0 +1,64 @@
+{
+  "name": "Lufthansa (lh-com)",
+  "source": "https://main--lh-com--moved-permanently.aem.page/de/en/homepage",
+  "provenance": "Read from lh-com's deployed tokens (styles/styles.css :root, which follow the Lufthansa design system) and the rendered preview; the OF1 block and the CTA template use these values.",
+  "colors": {
+    "primary": "#05164d",
+    "secondary": "#52627c",
+    "accent": "#ffad00",
+    "accentHover": "#ffbd32",
+    "background": "#ffffff",
+    "surface": "#f5f5f5",
+    "surfaceDark": "#05164d",
+    "text": "#05164d",
+    "muted": "#52627c",
+    "border": "#cccccc",
+    "focus": "#0968f6",
+    "error": "#cc0000",
+    "success": "#417505"
+  },
+  "typography": {
+    "heading": {
+      "family": "lufthansahead, arial, helvetica, sans-serif",
+      "weight": 700,
+      "lineHeight": 1.1,
+      "letterSpacing": "normal",
+      "sizes": { "xxl": "36px to 48px", "xl": "28px to 36px", "l": "22px to 28px", "m": "20px to 24px", "s": "16px to 18px" }
+    },
+    "body": {
+      "family": "lufthansatext, arial, helvetica, sans-serif",
+      "weight": 400,
+      "lineHeight": 1.5,
+      "letterSpacing": "normal",
+      "sizes": { "m": "18px", "s": "16px", "xs": "14px", "xxs": "12px" }
+    }
+  },
+  "rounded": { "s": "4px", "m": "6px", "l": "8px", "pill": "24px" },
+  "spacing": {
+    "component": "24px",
+    "section": "48px",
+    "gutter": "20px",
+    "layoutMargin": "10px to 88px",
+    "contentMaxWidth": "1440px"
+  },
+  "components": {
+    "button": {
+      "radius": "4px",
+      "padding": "11px 30px",
+      "minHeight": "50px",
+      "weight": 700,
+      "textTransform": "none",
+      "primary": { "background": "#ffad00", "text": "#05164d", "hover": "#ffbd32" },
+      "secondary": { "background": "#ffffff", "text": "#05164d", "border": "#05164d" },
+      "accent": { "background": "#05164d", "text": "#ffffff" }
+    },
+    "card": { "radius": "8px", "shadow": "0 2px 4px #05164d1a" },
+    "hero": { "style": "full-width photo with a white or deep blue text card", "overlay": "none" },
+    "input": { "radius": "4px", "border": "1px solid #cccccc", "minHeight": "50px" }
+  },
+  "extensions": {
+    "componentStyle": ["flat surfaces with light elevation", "yellow call to action on deep blue text", "photography of cabins, lounges and destinations"],
+    "motifs": ["deep blue and white", "yellow accent for the main action", "generous white space"],
+    "voice": ["calm", "precise", "service-minded", "premium without superlatives"]
+  }
+}

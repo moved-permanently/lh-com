@@ -3727,6 +3727,27 @@ indices:
         select: none
         value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
 
+  # OF1 (of1.live generative page /of1, tenant moved-permanently/lh-com): the knowledge pages the
+  # OF1 worker ingests (/of1/knowledge/**, de/en copies for retrieval) and the page templates it
+  # composes generated pages from (/templates/**). The worker reads the paths from this index
+  # (/of1/config/config contentIngestion.indexPath); no sitemap or site search reads it. Placed
+  # before Brussels' indexes, which test/brussels-indexes.test.mjs expects at the end.
+  of1-knowledge:
+    include:
+      - /of1/knowledge/**
+      - /templates/**
+    target: /of1/query-index.json
+    properties:
+      title:
+        select: head > title
+        value: textContent(el)
+      description:
+        select: head > meta[name="description"]
+        value: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+
   # lh-brussels (repoless on this code): the search indexes of its language versions be/en, be/fr,
   # be/nl (lh-edge's market route reads them and their lean indexes, src/sites.js), copies of
   # search-at-en's definition (de/de, it/it, es/es: lh-com's and lh-ita's above); and its posts

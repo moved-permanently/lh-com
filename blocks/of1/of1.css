@@ -1,0 +1,393 @@
+/*
+ * OF1 generative block, Lufthansa design (lh-com tokens from styles/styles.css; the brand themes of
+ * the repoless sites override the same tokens). Styles the block's own UI only: search landing
+ * (title, input, chips), loading skeleton, follow-up controls and the entrance of each generated
+ * section. The generated sections are lh-com's own blocks, styled by their own CSS.
+ */
+
+/* ─── Brand Token Mapping ─── */
+.of1,
+.generated-section,
+.generative-suggestions,
+.generative-breadcrumb {
+  --primary: var(--lh-yellow, #ffad00);
+  --primary-hover: var(--lh-sunglow-yellow, #ffbd32);
+  --text: var(--text-color, #05164d);
+  --text-secondary: var(--lh-whale-blue, #52627c);
+  --surface: var(--background-color, #fff);
+  --surface-muted: var(--light-color, #f5f5f5);
+  --surface-dark: var(--lh-deepblue, #05164d);
+  --accent: var(--focus-color, #0968f6);
+  --border: var(--border-color, #ccc);
+  --radius: var(--radius-s, 4px);
+  --radius-card: var(--radius-l, 8px);
+  --radius-pill: 24px;
+  --font-heading: var(--heading-font-family);
+  --font-body: var(--body-font-family);
+  --font-mono: 'SF Mono', 'Fira Code', monospace;
+  --shadow-card: var(--shadow-1);
+  --shadow-lift: var(--shadow-2);
+  --transition: 0.2s ease-out;
+}
+
+/* ─── Container & Layout ─── */
+.section.of1-container {
+  padding: 0;
+}
+
+.section.of1-container > .of1-wrapper {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* ─── Search Landing UI ─── */
+.of1-search-ui {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - var(--nav-height, 122px));
+  padding: 80px var(--layout-margin, 24px) 64px;
+  background: var(--surface-muted);
+  text-align: center;
+}
+
+.of1-title {
+  width: 100%;
+  margin: 0 auto 12px;
+  color: var(--text);
+  font-family: var(--font-heading);
+  font-size: var(--heading-font-size-xxl);
+  font-weight: 700;
+  line-height: var(--heading-line-height, 1.1);
+  text-align: center;
+}
+
+.of1-subtitle {
+  max-width: 640px;
+  margin: 0 auto 40px;
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: var(--body-font-size-m, 18px);
+  line-height: var(--body-line-height, 1.5);
+  text-align: center;
+}
+
+/* ─── Input & Submit ─── */
+.of1-input-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.of1-input {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 56px;
+  padding: 14px 72px 14px 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: var(--body-font-size-s, 16px);
+  line-height: 1.4;
+  box-shadow: var(--shadow-card);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.of1-input::placeholder {
+  color: var(--lh-grey-7, #666);
+}
+
+.of1-input:focus {
+  outline: none;
+  border-color: var(--text);
+  box-shadow: 0 0 0 2px var(--accent);
+}
+
+.of1-submit {
+  position: absolute;
+  top: 50%;
+  right: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 44px;
+  border: none;
+  border-radius: var(--radius);
+  background: var(--primary);
+  color: var(--text);
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition: background var(--transition);
+}
+
+.of1-submit:hover,
+.of1-submit:focus-visible {
+  background: var(--primary-hover);
+}
+
+/* ─── Quick Suggestion Chips ─── */
+.of1-chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  max-width: 760px;
+  margin-top: 28px;
+}
+
+.of1-chip {
+  padding: 9px 20px;
+  border: 1px solid var(--text);
+  border-radius: var(--radius-pill);
+  background: var(--surface);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: var(--body-font-size-xs, 14px);
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+}
+
+.of1-chip:hover,
+.of1-chip:focus-visible {
+  background: var(--surface-dark);
+  color: var(--surface);
+}
+
+/* ─── Loading Skeleton ─── */
+.of1-skeleton-wrap {
+  max-width: var(--content-max-width, 1440px);
+  margin: 0 auto;
+  padding: 48px var(--layout-margin, 24px);
+}
+
+.of1-skeleton {
+  border-radius: var(--radius-card);
+  background: var(--lh-grey-2, #ebebeb);
+  animation: of1-shimmer 1.5s ease-in-out infinite;
+}
+
+.of1-skeleton-hero {
+  width: 100%;
+  height: 360px;
+  margin-bottom: 32px;
+}
+
+.of1-skeleton-heading {
+  width: 60%;
+  height: 28px;
+  margin-bottom: 16px;
+}
+
+.of1-skeleton-text {
+  width: 90%;
+  height: 16px;
+  margin-bottom: 12px;
+}
+
+.of1-skeleton-text.short {
+  width: 45%;
+}
+
+.of1-skeleton-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--grid-gutter, 20px);
+  margin-top: 32px;
+}
+
+.of1-skeleton-card {
+  height: 220px;
+}
+
+@keyframes of1-shimmer {
+  0% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+  100% { opacity: 0.4; }
+}
+
+/* ─── Generated Sections (container + fade-in only) ─── */
+.generated-section {
+  animation: of1-fade-in 0.4s ease-out both;
+}
+
+@keyframes of1-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ─── Follow-up Suggestions ─── */
+.generative-suggestions {
+  padding: 48px var(--layout-margin, 24px);
+  background: var(--surface-muted);
+  text-align: center;
+}
+
+.generative-suggestions.dimmed {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.suggestion-input-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+}
+
+.suggestions-header {
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: var(--body-font-size-xxs, 12px);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.suggestion-custom {
+  position: relative;
+  width: 720px;
+  max-width: 100%;
+}
+
+.suggestion-input {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 52px;
+  padding: 14px 64px 14px 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  outline: none;
+  background: var(--surface);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: var(--body-font-size-s, 16px);
+  line-height: 1.4;
+  appearance: none;
+  transition: border-color var(--transition);
+}
+
+.suggestion-input::placeholder {
+  color: var(--lh-grey-7, #666);
+}
+
+.suggestion-input:focus {
+  border-color: var(--text);
+}
+
+.suggestion-submit {
+  position: absolute;
+  top: 50%;
+  right: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 40px;
+  border: none;
+  border-radius: var(--radius);
+  background: var(--primary);
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition: background var(--transition);
+}
+
+.suggestion-submit:hover,
+.suggestion-submit:focus-visible {
+  background: var(--primary-hover);
+}
+
+.suggestion-submit svg {
+  width: 18px;
+  height: 18px;
+  stroke: var(--text);
+}
+
+.suggestions-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.suggestion-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 18px;
+  border: 1px solid var(--text);
+  border-radius: var(--radius-pill);
+  background: var(--surface);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: var(--body-font-size-xs, 14px);
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+}
+
+.suggestion-btn:hover,
+.suggestion-btn:focus-visible {
+  background: var(--surface-dark);
+  color: var(--surface);
+}
+
+.suggestion-restart {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border: none;
+  background: none;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: var(--body-font-size-xs, 14px);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* ─── lh-com: note on hosts without OF1's API route ─── */
+.of1-host-note {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 64px var(--layout-margin, 24px);
+  color: var(--text);
+  text-align: center;
+}
+
+.of1-host-note ul {
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.of1-host-note li + li {
+  margin-top: 8px;
+}
+
+/* ─── Responsive ─── */
+@media (width < 768px) {
+  .of1-search-ui {
+    padding: 56px var(--layout-margin, 16px) 40px;
+  }
+
+  .of1-skeleton-card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .of1-skeleton-hero {
+    height: 200px;
+  }
+}
