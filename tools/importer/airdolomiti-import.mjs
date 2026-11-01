@@ -208,9 +208,10 @@ function placeSearch(page) {
 }
 
 /**
- * The flight-status block's rows for an Air Dolomiti status page: a flight number search posted to
- * its engine (digital.airdolomiti.it), the texts of www's form on the page. www's route and
- * airport tabs are not offered: the POST mode sends a flight number search only.
+ * The flight-status block's rows for an Air Dolomiti status page: the number search posted to its
+ * engine (digital.airdolomiti.it), the route and airport searches in the format airdolomiti (the
+ * day's flights from api.airdolomiti.it, a flight's card handed to the engine; www's texts are the
+ * block's defaults), the texts of www's form on the page (its three tabs, the number tab's labels).
  */
 function flightStatusRows(page) {
   const lang = { it: 'it-IT', en: 'en-GB', de: 'de-DE' }[page.lang];
@@ -221,8 +222,9 @@ function flightStatusRows(page) {
   ];
   const { document } = parseHTML(page.rendered);
   const t = (n) => plain(n ? n.textContent : '');
-  const tab = t(document.querySelector('[class*="StatusVoli_tabButton"]'));
-  if (tab) rows.unshift(['Tabs', tab]);
+  const tabs = [...document.querySelectorAll('[class*="StatusVoli_tabButton"]')].map(t).filter(Boolean);
+  if (tabs.length) rows.unshift(['Tabs', tabs.join(', ')]);
+  rows.push(['Format', 'airdolomiti']);
   const box = document.querySelector('[class*="StatusVoli_controllers"]');
   const form = box ? box.parentElement : document;
   const labels = [...form.querySelectorAll('label')].map(t).filter(Boolean);
