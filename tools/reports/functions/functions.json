@@ -1,6 +1,6 @@
 {
   "updated": "2026-11-01",
-  "change": "Brussels Airlines is live in all six languages and 92 markets, with forms, search and live fares; Cargo's contact form and Air Dolomiti's accessibility settings work on the replica.",
+  "change": "Flight status works on Lufthansa, Discover, ITA, Austrian and Brussels Airlines; ITA's passenger picker, Air Dolomiti's timetable and manage booking, and Cargo's topic search are live.",
   "legend": {
     "done": {
       "label": "works on our replica",
@@ -34,7 +34,7 @@
   "footnotes": {
     "adbooking": "Air Dolomiti sells through its own booking engine, not Lufthansa's shop. Since 1 November the search form is on the replica's homepages, route pages and booking pages and hands the trip to that engine, as www does; the engine's bot check can show a captcha, as it can on www.",
     "picker": "The picker for adults, children, infants and cabin is in the shared code since 1 November. Each brand's pages still have to switch it on; until then the search sends the travellers and cabin set on the page.",
-    "status": "Since 1 November the flight status form passes a search on in the parameters the airline's status page reads, and posts it to Air Dolomiti's own engine. The four brands on Lufthansa's AEM count as working after a check on each replica; Air Dolomiti's pages have the form since 1 November for searches by flight number; searches by route or airport follow.",
+    "status": "Air Dolomiti's flight status pages search by flight number since 1 November and hand the search to Air Dolomiti's own engine; searches by route or airport follow.",
     "lhbooking": "Lufthansa's manage booking and hotel tabs hand over to two services that run in AEM today. Their replacements already answer on lufthansa.turnsthe.page with test data; next, the tabs post to them.",
     "signin": "On Discover, ITA and Austrian, manage booking goes through a deep link to the login and profile pages, which are on the new platform since 1 November; Brussels Airlines' login and profile pages come next. The services behind the deep link answer with test data, and until the airlines' replica addresses route the deep link to them, the replicas link to the airline's current pages.",
     "lhpages": "Five Lufthansa pages with these functions aren't on the replica yet: check-in deadlines, security waiting times, the compensation claim, the newsletter and eJournals. They come next. The two airport searches get blocks of their own, and Lufthansa's live data for them answers our addresses. Until then our pages link to www.",
@@ -172,11 +172,10 @@
           "evidence": "052ba383; functions scan 2026-10-31"
         },
         "ita": {
-          "status": "wip",
-          "note": "The picker for adults, children, infants and cabin is in the shared code since 1 November but not switched on in the pages yet, so the search still sends the travellers and cabin set on the page.",
-          "footnote": "picker",
+          "status": "done",
+          "note": "ITA's flight searches have the picker for adults, children, infants and cabin, with www's link to group bookings from 10 travellers.",
           "page": "/it/en/homepage",
-          "evidence": "052ba383; functions scan 2026-10-31"
+          "evidence": "ema-test 230 (154 documents, 126 with the group link; 3fa82926 overflow fix); published 2026-11-01 job-2026-11-01-11-51-13-30001be0 + job-2026-11-01-12-09-24-1a09c3ec; checked live it/it and gr/el"
         },
         "austrian": {
           "status": "wip",
@@ -211,32 +210,28 @@
       "about": "The form that finds a flight's current status by flight number, route or airport.",
       "cells": {
         "lufthansa": {
-          "status": "wip",
-          "note": "The form is on the replica; since 1 November it hands the flight to Lufthansa's status page in the parameters that page reads, and it counts as working after a check on the replica.",
-          "footnote": "status",
+          "status": "done",
+          "note": "The form hands searches by flight number, route and airport to Lufthansa's status page, which opens with the search already run, as a search started on www does.",
           "page": "/de/en/timetable-and-flight-status",
-          "evidence": "88d6a6dd; functions scan 2026-10-31: www ignored tab/flightNumber/date; brief 189 report 2026-11-01: the four brands use the same parameter names"
+          "evidence": "hand-off check 2026-11-01 ~14:00 CET (child p_mvxu85vo7t): number, route and airport -> www's status page with the search run (number tab without data where the flight doesn't fly today)"
         },
         "discover": {
-          "status": "wip",
-          "note": "The form is on the replica; since 1 November it hands the flight to Discover's status page in the parameters that page reads, and it counts as working after a check on the replica.",
-          "footnote": "status",
+          "status": "done",
+          "note": "The form hands searches by flight number, route and airport to Discover's status page, which opens with the search already run, as a search started on www does.",
           "page": "/de/en/my-bookings/flight-status",
-          "evidence": "88d6a6dd; functions scan 2026-10-31: www ignored tab/flightNumber/date; brief 189 report 2026-11-01: the four brands use the same parameter names"
+          "evidence": "hand-off check 2026-11-01 ~14:00 CET (child p_mvxu85vo7t): number, route and airport -> www's status page with the search run (number tab without data where the flight doesn't fly today)"
         },
         "ita": {
-          "status": "wip",
-          "note": "The form is on the replica; since 1 November it hands the flight to ITA's status page in the parameters that page reads, and it counts as working after a check on the replica.",
-          "footnote": "status",
+          "status": "done",
+          "note": "The form hands searches by flight number, route and airport to ITA's status page, which opens with the search already run, as a search started on www does.",
           "page": "/it/en/manage-my-bookings/manage/flight-status",
-          "evidence": "88d6a6dd; functions scan 2026-10-31: www ignored tab/flightNumber/date; brief 189 report 2026-11-01: the four brands use the same parameter names"
+          "evidence": "hand-off check 2026-11-01 ~14:00 CET (child p_mvxu85vo7t): number, route and airport -> www's status page with the search run (number tab without data where the flight doesn't fly today)"
         },
         "austrian": {
-          "status": "wip",
-          "note": "The form is on the replica; since 1 November it hands the flight to Austrian's status page in the parameters that page reads, and it counts as working after a check on the replica.",
-          "footnote": "status",
+          "status": "done",
+          "note": "The form hands searches by flight number, route and airport to Austrian's status page, which opens with the search already run, as a search started on www does.",
           "page": "/at/en/flight-status-and-timetable",
-          "evidence": "88d6a6dd; functions scan 2026-10-31: www ignored tab/flightNumber/date; brief 189 report 2026-11-01: the four brands use the same parameter names"
+          "evidence": "hand-off check 2026-11-01 ~14:00 CET (child p_mvxu85vo7t): number, route and airport -> www's status page with the search run (number tab without data where the flight doesn't fly today)"
         },
         "cargo": {
           "status": "see",
@@ -252,11 +247,10 @@
           "page": "/stato-volo"
         },
         "brussels": {
-          "status": "wip",
-          "note": "The form is on the replica and hands the flight to Brussels Airlines' status page in the parameters that page reads; it counts as working after a check on the replica.",
+          "status": "done",
+          "note": "The form hands searches by flight number, route and airport to Brussels Airlines' status page, which opens with the search already run, as a search started on www does.",
           "page": "/be/en/plan-your-trip/arrivals-and-departures",
-          "footnote": "status",
-          "evidence": "2026-11-01: www /be/en/plan-your-trip/arrivals-and-departures dcep-flight-status (defaultCarrier SN); replica same path, flight-status block loaded, tabs Flight number/Flight route/Airport, default airline SN; brand pages hand off to the brand's www (blocks/flight-status siteOrigin); not submitted"
+          "evidence": "hand-off check 2026-11-01 ~14:00 CET (child p_mvxu85vo7t): number, route and airport -> www's status page with the search run (number tab without data where the flight doesn't fly today)"
         }
       }
     },
@@ -345,10 +339,11 @@
           "evidence": "fill check 2026-11-01: Update booking posts to /en/ebooking"
         },
         "airdolomiti": {
-          "status": "wip",
-          "note": "Air Dolomiti's booking lookup asks its own booking service, which answers our addresses; the replica gets the form and links to Air Dolomiti's page until then.",
+          "status": "done",
+          "note": "Air Dolomiti's manage booking pages ask its booking service with surname and booking code and hand over to its engine, as www does.",
           "footnote": "adown",
-          "evidence": "M1 2026-11-01: api.airdolomiti.it retrieve-pnr allows any origin"
+          "evidence": "ema-cashub 206 (f2a3ce70); API retrieve-pnr 201 from the preview host; published 2026-11-01 ~13:50",
+          "page": "/gestione-prenotazione-volo"
         },
         "brussels": {
           "status": "wip",
@@ -394,10 +389,11 @@
           "evidence": "decision 2026-11-01 (Cargo); functions scan 2026-10-31"
         },
         "airdolomiti": {
-          "status": "wip",
-          "note": "Air Dolomiti's timetable form gets a version on the replica that asks Air Dolomiti's booking service, which answers our addresses; until then the replica links to Air Dolomiti's page.",
+          "status": "done",
+          "note": "Air Dolomiti's timetable pages ask Air Dolomiti's booking service for airports and dates and hand the search to its engine, as www does.",
           "footnote": "adown",
-          "evidence": "M1 2026-11-01: api.airdolomiti.it timetable allows any origin"
+          "evidence": "ema-cashub 206 (f2a3ce70, d7d87567); published 2026-11-01 ~13:50 (6 pages); checked live: 28 origin airports from the API",
+          "page": "/orario-voli"
         },
         "brussels": {
           "status": "see",
@@ -1330,11 +1326,10 @@
           "evidence": "e74d57f2; brief 189 report 2026-11-01: api.travelid.austrian.com preflight 401"
         },
         "cargo": {
-          "status": "wip",
-          "note": "Cargo's support page is on the replica as a fixed list of topics; the topic search comes next.",
-          "footnote": "cargomoves",
+          "status": "done",
+          "note": "Cargo's support page lists every topic and narrows them as you type, as www's topic search does; its contact form is our own.",
           "page": "/en/support-and-contact",
-          "evidence": "fill check 2026-11-01"
+          "evidence": "ema-adobe 203 (40e5f10) + ema-cashub 227 (e63bd32d); published 2026-11-01 ~14:05; filter narrows topic groups"
         },
         "airdolomiti": {
           "status": "none",
