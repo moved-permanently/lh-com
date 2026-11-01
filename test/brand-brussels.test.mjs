@@ -22,6 +22,7 @@ const {
   BRANDS, brandOf, brandName, oneTrustId, brandIcons, destinationImageBase, brandWwwHost, isOwnWwwHost, isSitePreviewHost,
 } = await import('../scripts/brand.js');
 const { portalHeaders } = await import('../scripts/lh-data.js');
+globalThis.brandSites = await import('../scripts/brands.js');
 const { bannerLinks } = await import('../scripts/consent-banner.js');
 
 const meta = (values) => (name) => values[name] || '';
@@ -51,9 +52,23 @@ test('the entry: name, OneTrust, www, portal, hub, airline, destination images',
   assert.equal(BRANDS.brussels.hub, 'BRU');
   assert.equal(BRANDS.brussels.airline, 'SN');
   assert.equal(BRANDS.brussels.messageCenter, undefined, 'no Message Center tenant yet: no messages');
-  // the X-Portal of a root comes from its row: Brussels' roots (BRAND_SITES) arrive with the
-  // groundwork; until then be/en is lh-com's row
-  assert.equal(onPage({ brand: 'brussels' }, () => portalHeaders('be/en'))['X-Portal'], 'LH');
+  // the X-Portal of a root comes from its row (BRAND_SITES.brussels)
+  assert.equal(onPage({ brand: 'brussels' }, () => portalHeaders('be/en'))['X-Portal'], 'SN');
+  assert.equal(onPage({ brand: 'brussels' }, () => portalHeaders('sn/fr'))['X-Portal-Site'], 'SN', 'Senegal: the country, not the tenant');
+});
+
+test('the roots: six reference roots with their own documents, 92 market roots from their language, no xx', () => {
+  const { BRAND_SITES } = globalThis.brandSites;
+  const site = BRAND_SITES.brussels;
+  assert.equal(Object.keys(site.rows).length, 98);
+  assert.deepEqual(Object.keys(site.rows).filter((r) => site.rows[r].documents === 'own'), ['be/en', 'be/fr', 'be/nl', 'de/de', 'it/it', 'es/es']);
+  assert.deepEqual(site.versions, {
+    en: 'be/en', fr: 'be/fr', nl: 'be/nl', de: 'de/de', it: 'it/it', es: 'es/es',
+  });
+  assert.ok(!Object.keys(site.rows).some((r) => r.startsWith('xx/')));
+  Object.keys(site.rows).forEach((r) => assert.ok(site.names[r], `name ${r}`));
+  assert.equal(site.names['be/en'], 'Belgium | English');
+  assert.equal(site.names['sn/fr'], 'Senegal | Français', 'www\'s French selector writes Senegal');
 });
 
 test('the cookie banner\'s links: www\'s OneTrust banner links (xx/en, xx/fr)', () => {

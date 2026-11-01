@@ -155,8 +155,9 @@
   margin: 0 calc(-1 * var(--footer-margin));
 }
 
-/* a brand theme may set --footer-heading-size, --footer-toggle-weight (the accordion rows below
-   768px), --footer-heading-transform, --footer-title-line and --footer-column-indent (the column
+/* a brand theme may set --footer-heading-size, --footer-toggle-weight and --footer-toggle-line
+   (the accordion rows below 768px), --footer-divider-color (above the legal row),
+   --footer-logo-home-height (the logo row), --footer-heading-transform, --footer-title-line and --footer-column-indent (the column
    titles and links from 768px), --footer-link-size, --footer-link-weight, --footer-link-gap and
    --footer-link-line-height (the column links; weight, gap and line height also the legal row's);
    defaults as before */
@@ -178,7 +179,7 @@
   margin: 0;
   padding: 13px 20px;
   border: 0;
-  border-bottom: 1px solid rgb(255 255 255 / 30%);
+  border-bottom: 1px solid var(--footer-toggle-line, rgb(255 255 255 / 30%));
   background: none;
   color: var(--footer-text);
   font: inherit;
@@ -246,7 +247,7 @@
   height: 0;
   margin: 0;
   border: 0;
-  border-top: 1px solid var(--footer-text);
+  border-top: 1px solid var(--footer-divider-color, var(--footer-text));
 }
 
 .footer .footer-legal {
@@ -346,6 +347,38 @@
   height: 32px;
 }
 
+/* badges as a link column (Style "badges, in-columns"): heading and icons in the column grid; a
+   brand theme may set --footer-badge-heading-size, --footer-badge-gap, --footer-badge-width and
+   --footer-badge-size (the icons' height) */
+.footer .footer-column-badges {
+  padding: 24px 20px 0;
+}
+
+.footer .footer-column-badges .footer-badge-heading {
+  font-size: var(--footer-badge-heading-size, 16px);
+  text-transform: var(--footer-heading-transform, none);
+}
+
+.footer .footer-column-badges ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--footer-badge-gap, 12px 16px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer .footer-column-badges a {
+  display: block;
+  line-height: 0;
+}
+
+.footer .footer-column-badges img {
+  display: block;
+  width: var(--footer-badge-width, auto);
+  height: var(--footer-badge-size, 32px);
+}
+
 .footer .footer-note {
   grid-area: note;
   margin: 24px 0 0;
@@ -408,11 +441,15 @@
 }
 
 /* live: crane logo 116.7x20, "Member of Lufthansa Group" 160x8, Star Alliance 20px high
- * (147x20 horizontal graphic) */
-.footer .footer-logos .footer-logo-star-alliance img,
-.footer .footer-logos li:first-child img {
+ * (147x20 horizontal graphic); a brand theme may set --footer-logo-home-height (its own logo) */
+.footer .footer-logos .footer-logo-star-alliance img {
   width: auto;
   height: 20px;
+}
+
+.footer .footer-logos li:first-child img {
+  width: auto;
+  height: var(--footer-logo-home-height, 20px);
 }
 
 /* --footer-star-alliance-filter: a dark logo row (styles/themes/*.css) shows the graphic white */
@@ -518,6 +555,10 @@
   .footer .footer-column-links,
   .footer .footer-column.is-open .footer-column-links {
     display: block;
+    padding: 0 0 0 var(--footer-column-indent, 12px);
+  }
+
+  .footer .footer-column-badges {
     padding: 0 0 0 var(--footer-column-indent, 12px);
   }
 

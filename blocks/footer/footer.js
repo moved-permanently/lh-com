@@ -18,7 +18,8 @@ import { isOwnWwwHost } from '../../scripts/brand.js';
  *  - badges: rows of a heading and a list of linked images (payment methods, social links) or
  *    icon links (":facebook:", ":youtube:", ":instagram:", ":linkedin:"; lh-cargo), or images
  *    without a link (lh-airdolomiti's payment logos), shown between the link columns and the legal
- *    row
+ *    row; with Style "badges, in-columns" each group is one more link column instead (lh-brussels'
+ *    "Social media")
  *  - note: a paragraph below the legal row (the company's registration line)
  *  - wordmark: an image at the top of the link area (austrian's "servus"; beside the link columns
  *    from 1025px)
@@ -400,9 +401,18 @@ export default async function decorate(block) {
     buildSearch(top, labels),
     buildLocale(top, labels),
   ]);
-  const columnsEl = buildColumns(columns, labels);
+  // badges with Style "badges, in-columns" (lh-brussels' social links) are one more link column
+  const inColumns = badges.filter((s) => s.classList.contains('in-columns'));
+  let columnsEl = buildColumns(columns, labels);
+  const columnBadges = buildBadges(inColumns, labels);
+  if (columnBadges) {
+    columnsEl ||= el('div', { className: 'footer-columns' });
+    columnBadges.querySelectorAll(':scope > .footer-badge-group').forEach((group) => {
+      columnsEl.append(el('div', { className: 'footer-column footer-column-badges' }, group));
+    });
+  }
   const legalEl = buildLegal(legal, labels);
-  const badgesEl = buildBadges(badges, labels);
+  const badgesEl = buildBadges(badges.filter((s) => !inColumns.includes(s)), labels);
   const noteEl = buildNotes(notes);
   const wordmarkEl = buildWordmark(wordmarks);
   inner.append(...[wordmarkEl, search, localeEl, columnsEl, badgesEl].filter(Boolean));

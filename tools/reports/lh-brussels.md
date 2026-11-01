@@ -49,6 +49,61 @@ lufthansa.com's 19 comparison pages and the homepages of Discover, ITA, Austrian
 Dolomiti equal except the head's stylesheet order (showcase-notice.css, the known timing noise;
 the same elements as a set). `test/brand-brussels.test.mjs`.
 
-Left for the import: the footer's fourth column (Social media beside the link columns on www, a
-badges row below them here), the logo row's Member of Lufthansa Group image and Star Alliance
-size, the header's tool icons: content of the nav and footer documents.
+Left for the import (done 2026-11-01, below): the footer's fourth column, the logo row's Member of
+Lufthansa Group image and Star Alliance size, the header's tool icons.
+
+## Roots (2026-11-01)
+
+`scripts/brands.js` `BRAND_SITES.brussels`: the six reference roots (be/en, be/fr, be/nl, de/de,
+it/it, es/es) with their own documents, the 92 market roots answered from their language's, no xx
+roots (www sends `/xx/<ll>/*` to `/be/<ll>/*`). Names: www's country and language selector (be/en
+in English, be/fr in French, as www writes them: "Senegal | Français"); those of the nl, de, it
+and es roots ("België | Nederlands" ...) until their homepages are captured. No airports listed:
+the hub BRU. lh-edge builds a table from it but no host serves it until the brussels.turnsthe.page
+entry.
+
+## Import tooling
+
+As Austrian's (`tools/importer/austrian-*.mjs`), Brussels' own copies:
+`brussels-studio.mjs` (the Studio's archives checked against their manifest and placed, cleaned
+pages offline), `brussels-scope.mjs` (option B from the lists: the reference roots above, the
+leave-out column of `urls-all.tsv` and the same rules for pages outside the sitemap, the two www
+redirects `/extra-services/baggage/baggage-calculator` and the refund enquiry form; linked pages
+outside the sitemap one level deep once their snapshot is there; own pages on the first root
+with a snapshot), `brussels-plan.mjs` (the Studio's 27 batches), `brussels-import.mjs`,
+`brussels-nav.mjs`, `brussels-dam.mjs`, `brussels-check.mjs`, `brussels-batch.mjs` (capture only
+with `--capture`: the pages come as the Studio's archives). Import, Brussels-specific:
+
+- two-column views: Austrian's solution (lh-com's columns-media selectors in the browser import,
+  teaser rows as carousel-cards, `withTeaserColumns`), no new block;
+- articles (template `article`) and the article hub with lh-com's insights template
+  (article-header, price-bar), slideshows with fleet (carousel-lightbox);
+- the phone-number widget (`dcep-hotline-number-display`) as plain content: per contact its
+  heading, the number as a tel: link, notes, opening hours, e-mail (`withHotlines`);
+- the payment methods iframe (webv4.brusselsairlines.com, a Cloudflare challenge to plain
+  requests; not in the snapshots) as plain content once its page is at hand, else a link to the
+  page on www (`withPaymentTable`, `withLinkOuts`);
+- the help centre (`/contact`): the snapshot's content (accordion-columns), as on Austrian;
+- the forms' jQuery UI date picker (`#ui-datepicker-div`, appended to the body, hidden on www)
+  left out (it imported as a calendar on the feedback form; ITA's xx/en group-travel and
+  emergency-contact documents have the same leak);
+- forms: a form row `brussels-<page>` and the success row (www's `:redirect`), preview only;
+- the flight search hands off to shop.brusselsairlines.com from Brussels (BRU).
+
+DAM (`brussels-dam.mjs`): PDFs are sized with a one-byte range request like the videos before
+they are downloaded (www's 101.5 MB comic PDF read whole inside the page closed the remote
+browser twice); the groundwork's AEM sandbox set (14 mp4, 2 .vtt, `Total BD.pdf`) is recorded for
+AEM with its measured size, not requested.
+
+## Nav and footer (be/en, be/fr)
+
+`brussels-nav.mjs` from the homepage snapshots, 1:1: `brussel-logo.svg`, the quick actions (Book,
+My flights, Check-in, Flight status), the menu (3 top items, 8 columns, 43 links), accessible
+travel, help, login, the country and language (the selector's 68 countries; the Austrian tool
+also listed the three languages as countries, fixed here). Footer: the three link lists, "Social
+media" / "Réseaux sociaux" as a fourth column (Style `badges, in-columns`), the legal row (cookie
+settings `#privacy-settings`), the logo row (small logo 130×30, Member of Lufthansa Group,
+Star Alliance 147×20). Footer block, additive: a badges section with `in-columns` is one more
+link column; hooks `--footer-badge-heading-size`, `--footer-badge-gap`, `--footer-badge-width`,
+`--footer-badge-size`, `--footer-divider-color`, `--footer-toggle-line`,
+`--footer-logo-home-height` (each default today's value).

@@ -106,4 +106,11 @@
   --footer-link-gap: 15px;
   --footer-column-indent: 0; /* the titles flush left, no line under them */
   --footer-title-line: transparent;
+  --footer-badge-heading-size: 14px; /* "Social media", the fourth column: 14 px, icons 30 px wide */
+  --footer-badge-width: 30px;
+  --footer-badge-size: auto;
+  --footer-badge-gap: 10px;
+  --footer-divider-color: transparent; /* no line above the legal row, none between the rows */
+  --footer-toggle-line: transparent;
+  --footer-logo-home-height: 30px; /* the logo row: small-logo.svg 130x30 */
 }

@@ -26,7 +26,9 @@ const walk = (d) => (fs.existsSync(d) ? fs.readdirSync(d, { withFileTypes: true 
   .flatMap((e) => (e.isDirectory() ? walk(path.join(d, e.name)) : [path.join(d, e.name)])) : []);
 
 // the brand of each site (scripts/brands.js BRAND_SITES: its roots and language versions)
-const BRAND_OF = { 'lh-ita': 'ita', 'lh-austrian': 'austrian', 'lh-discover': 'discover' };
+const BRAND_OF = {
+  'lh-ita': 'ita', 'lh-austrian': 'austrian', 'lh-discover': 'discover', 'lh-brussels': 'brussels',
+};
 
 /**
  * The site's pages: its documents, and the market roots' pages lh-edge answers from a language
