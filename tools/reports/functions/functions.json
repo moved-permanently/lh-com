@@ -1,6 +1,6 @@
 {
   "updated": "2026-11-01",
-  "change": "Air Dolomiti's flight search and site search work on the replica, and so do Cargo's shipment tracking and site search. ITA's group travel pages and Austrian's chat button on 78 pages are live.",
+  "change": "Air Dolomiti's flight search and site search work on the replica, and so do Cargo's shipment tracking and site search. ITA's group travel pages are live, Austrian's chat button is on 213 pages, and Brussels Airlines has its own address, brussels.turnsthe.page.",
   "legend": {
     "done": {
       "label": "works on our replica",
@@ -43,7 +43,7 @@
     "cargostays": "Cargo's booking, schedules, customer portal, station finder and eServices stay on Cargo's current systems; the new site links to them.",
     "cargomoves": "Cargo's public pages move completely: contact forms, notifications, help and contact search, the newsletter page and the tracking entry form get versions on the new platform.",
     "cargonews": "Cargo's newsletter form loads from Lufthansa Cargo's Microsoft Dynamics, which takes sign-ups only from sites Cargo allows. Lufthansa Cargo has to allow our address for form hosting in its Dynamics settings; until then the embed stays off and the page links to Cargo's own newsletter page.",
-    "oschat": "Austrian's chat assistant is loaded from Austrian's website, outside AEM. Since 1 November its button shows on the 78 English and German pages that have it on www; the French, Spanish and Italian pages follow.",
+    "oschat": "Austrian's chat assistant is loaded from Austrian's website, outside AEM. Since 1 November its button shows on the 213 pages that have it on www, in English, German, French, Spanish and Italian.",
     "adchat": "Air Dolomiti's chat assistant is built into the replica, but its switch stays off: the chat vendor sends no chat to our address until Air Dolomiti or the vendor adds a rule for it.",
     "travelid": "Personal content for signed-in customers needs Lufthansa: Travel ID, the group's login, accepts only the airline's own website as the address to return to and as the site allowed to call it. The replicas can't sign anyone in until they run on the airline's address, or Lufthansa allows ours.",
     "sndest": "Brussels Airlines' fare teasers, homepage slider and offers grid load live prices, but their cards open a destination page address the replica doesn't have. Brussels Airlines' own destination page works on the replica, and one brand setting points the cards at it.",
@@ -95,7 +95,7 @@
     {
       "id": "brussels",
       "name": "Brussels",
-      "host": "https://main--lh-brussels--moved-permanently.aem.live",
+      "host": "https://brussels.turnsthe.page",
       "www": "https://www.brusselsairlines.com",
       "note": "The Brussels Airlines replica, on the lufthansa.com code with Brussels Airlines' theme; Brussels Airlines runs on Lufthansa's AEM today."
     }
@@ -1377,10 +1377,10 @@
         },
         "austrian": {
           "status": "done",
-          "note": "The chat button opens Austrian's chat assistant on the 78 pages that show it on www.",
+          "note": "The chat button opens Austrian's chat assistant on the 213 pages that show it on www.",
           "footnote": "oschat",
           "page": "/at/en/baggage",
-          "evidence": "brief 197 + ema-test 210 metadata, published 2026-11-01 job-2026-11-01-06-56-16-040c5a53; check: chat-button meta live on /at/en/baggage, /at/de/gepaeck, /at/en/check-in; flag chat-button on"
+          "evidence": "brief 197 + ema-test 210 metadata, published 2026-11-01 job-2026-11-01-06-56-16-040c5a53; check: chat-button meta live on /at/en/baggage, /at/de/gepaeck, /at/en/check-in; flag chat-button on; 217 published 2026-11-01 job-2026-11-01-07-49-56-de975a87: 213 pages incl. fr/es/it"
         },
         "cargo": {
           "status": "none",
