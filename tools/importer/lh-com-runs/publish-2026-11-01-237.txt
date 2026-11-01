@@ -1,0 +1,32 @@
+# lh-com (2026-11-01, brief 237: the functions work's lufthansa.com part): uploaded to DA moved-permanently/lh-com and previewed on main--lh-com--moved-permanently.aem.page; not published.
+# Code: 9576724f (scope rows, importer: checkin-deadlines parser, micro-frontend parser's claim-form-entry Fallback, help-center-web around help-and-contact; micro-frontend: claim-form-entry, module apps from the host's own /digitalhangar/; checkin-deadlines: lufthansa.com's field). State: 95237246. Rollback: git revert for the code; the documents' DA versions before this upload (the 12 new ones did not exist; the 16 others equalled their DA versions before, apart from the block or link changed).
+# - new: check-in-deadlines (checkin-deadlines block), support/fast-compensation/compensation-flight-disruptions (micro-frontend claim-form-entry with www's first step as its Fallback), discover-lufthansa/register-newsletter (www's text, its two Travel ID links)
+# - changed: culinaryjourney and lufthansa-city/culinaryjourney (www's culinary-hub app with its configuration, before missing), help-and-contact (help-center-web with www's headline, subline and list title as its Fallback; the topic list as before), footer (the newsletter link to our page)
+/de/en/check-in-deadlines
+/de/de/check-in-deadlines
+/at/de/check-in-deadlines
+/gb/en/check-in-deadlines
+/de/en/support/fast-compensation/compensation-flight-disruptions
+/de/de/support/fast-compensation/compensation-flight-disruptions
+/at/de/support/fast-compensation/compensation-flight-disruptions
+/gb/en/support/fast-compensation/compensation-flight-disruptions
+/de/en/discover-lufthansa/register-newsletter
+/de/de/discover-lufthansa/register-newsletter
+/at/de/discover-lufthansa/register-newsletter
+/gb/en/discover-lufthansa/register-newsletter
+/de/en/culinaryjourney
+/de/de/culinaryjourney
+/at/de/culinaryjourney
+/gb/en/culinaryjourney
+/de/en/lufthansa-city/culinaryjourney
+/de/de/lufthansa-city/culinaryjourney
+/at/de/lufthansa-city/culinaryjourney
+/gb/en/lufthansa-city/culinaryjourney
+/de/en/help-and-contact
+/de/de/help-and-contact
+/at/de/help-and-contact
+/gb/en/help-and-contact
+/de/en/footer
+/de/de/footer
+/at/de/footer
+/gb/en/footer
