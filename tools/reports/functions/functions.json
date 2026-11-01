@@ -1,6 +1,6 @@
 {
   "updated": "2026-11-01",
-  "change": "eJournals works on Lufthansa, ITA, Austrian and Brussels Airlines, Brussels Airlines has its chat assistant and its login and profile pages.",
+  "change": "Lufthansa's flight searches have the travellers and cabin picker, and Brussels Airlines' deep link to the travel cockpit works on the replica.",
   "legend": {
     "done": {
       "label": "works on our replica",
@@ -35,7 +35,7 @@
     "adbooking": "Air Dolomiti sells through its own booking engine, not Lufthansa's shop. Since 1 November the search form is on the replica's homepages, route pages and booking pages and hands the trip to that engine, as www does; the engine's bot check can show a captcha, as it can on www.",
     "picker": "The picker for adults, children, infants and cabin is in the shared code since 1 November. Each brand's pages still have to switch it on; until then the search sends the travellers and cabin set on the page.",
     "lhbooking": "Lufthansa's manage booking and hotel tabs hand over to two services that run in AEM today. Their replacements answer with test data, and since 1 November the tabs post to them on the airline's own address; on the replica's addresses they keep opening www, so no real booking reaches test data.",
-    "signin": "On Discover, ITA, Austrian and Brussels Airlines, manage booking goes through a deep link to the login and profile pages, which are on the new platform since 1 November. The services behind the deep link answer with test data, and until the airlines' replica addresses route the deep link to them, the replicas link to the airline's current pages.",
+    "signin": "On Discover, ITA, Austrian and Brussels Airlines, manage booking goes through a deep link to the login and profile pages, which are on the new platform since 1 November. The services behind the deep link answer with test data, and since 1 November the replicas' addresses route the deep link to them, so it ends on the replica's login page.",
     "lhpages": "Three Lufthansa pages with these functions aren't on the replica yet: check-in deadlines, the compensation claim and the newsletter. They are being imported now, the check-in page with the search block that is live on Austrian and Brussels Airlines. Until then our pages link to www.",
     "travelidapps": "The help center and culinary hub apps are in the shared code and load on our pages, but their data comes from the airline's Travel ID service, which refuses our test addresses. They work once the site runs on the airline's own address, or once Lufthansa allows ours.",
     "adown": "Switching off Air Dolomiti's current website is a goal, so its timetable, manage booking, newsletter and eSIM pages get versions of their own. Its booking service answers our addresses, so timetable and manage booking can work as on www; the newsletter becomes a form on our own forms service.",
@@ -158,11 +158,10 @@
       "about": "The part of the flight search where travellers choose how many adults, children and infants fly, and in which cabin.",
       "cells": {
         "lufthansa": {
-          "status": "wip",
-          "note": "The picker for adults, children, infants and cabin is in the shared code since 1 November but not switched on in the pages yet, so the search still sends the travellers and cabin set on the page.",
-          "footnote": "picker",
+          "status": "done",
+          "note": "Lufthansa's flight searches in de/en, de/de, at/de and gb/en have the picker for adults, children, infants and cabin, with www's link to group bookings from 10 travellers; gb/en's row for young adults comes next.",
           "page": "/de/en/homepage",
-          "evidence": "052ba383; functions scan 2026-10-31: static label, hand-off sends ADT only"
+          "evidence": "ema-cashub 238 (34d5af32 importer + apply script, f43ba457 upload record; 23 documents); published 2026-11-01 job-2026-11-01-18-36-11-35ab3b70; checked preview /de/de/flugsuche at 1440; 240 sent for gb/en young adults, adults hint, alternative fare selection"
         },
         "discover": {
           "status": "wip",
@@ -344,10 +343,10 @@
         },
         "brussels": {
           "status": "wip",
-          "note": "\"Manage bookings\" and \"My flights\" lead to Brussels Airlines' login page, which is on the replica since 1 November on all roots.",
+          "note": "\"Manage bookings\" and \"My flights\" lead to Brussels Airlines' login page, which is on the replica since 1 November on all roots; the deep link to the travel cockpit also ends there now.",
           "page": "/be/en/my-bookings",
           "footnote": "signin",
-          "evidence": "Brussels app shells 2026-11-01: menus of all 98 roots (job 18-05-11-74cfe277); the my-bookings pages still link www's deep link"
+          "evidence": "Brussels app shells 2026-11-01: menus of all 98 roots (job 18-05-11-74cfe277); the my-bookings pages still link www's deep link; backends 2026-11-01 evening: lh-backends 26f0e26/594d7fd (tenant SN), lh-com 498c8ca7/35b15b65 (brands.js backends + aemContent bel), smoke 0 diffs; my curl: GET /deeplink/cockpit 200, POST 302 -> /be/en/profile/login"
         }
       }
     },
