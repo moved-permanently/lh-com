@@ -222,6 +222,9 @@ export const BRANDS = {
         baseUrl: 'https://engagent.h-care.eu/webplayer/latest/',
         htmlId: 'da_airdolomiti_support',
       },
+      // the eSIM plans widget (Breeze) as www's /en/extra-services/plans-esim embeds it
+      // (2026-11-01); its token, products and colours are the block's rows (blocks/esim-widget)
+      'esim-widget': { script: 'https://widgets.breezesim.com/v1/embed.js' },
     },
   },
 };

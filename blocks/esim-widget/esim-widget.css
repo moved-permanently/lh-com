@@ -1,0 +1,10 @@
+/* the widget styles itself (its shadow root, the colours of its attributes) */
+.esim-widget .esim-widget-frame breeze-widget {
+  display: block;
+  width: 100%;
+}
+
+.esim-widget .esim-widget-frame[hidden],
+.esim-widget .esim-widget-fallback[hidden] {
+  display: none;
+}
