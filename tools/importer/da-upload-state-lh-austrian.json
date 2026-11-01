@@ -276,9 +276,9 @@
    "preview": "2026-10-31T20:48:14.614Z"
   },
   "/at/en/contact": {
-   "uploaded": "2026-11-01T05:58:36.477Z",
-   "mtime": 1793511547735,
-   "preview": "2026-11-01T05:58:37.908Z"
+   "uploaded": "2026-11-01T07:04:14.373Z",
+   "mtime": 1793516618723,
+   "preview": "2026-11-01T07:04:16.058Z"
   },
   "/at/en/service-charges": {
    "uploaded": "2026-10-31T12:20:05.051Z",
@@ -396,9 +396,9 @@
    "preview": "2026-10-31T12:20:47.138Z"
   },
   "/at/en/nav": {
-   "uploaded": "2026-10-31T17:16:41.449Z",
-   "mtime": 1793466935117,
-   "preview": "2026-10-31T17:16:43.466Z"
+   "uploaded": "2026-11-01T07:04:27.644Z",
+   "mtime": 1793516146713,
+   "preview": "2026-11-01T07:04:29.468Z"
   },
   "/at/en/footer": {
    "uploaded": "2026-10-31T20:48:15.876Z",
@@ -406,9 +406,9 @@
    "preview": "2026-10-31T20:48:18.306Z"
   },
   "/at/de/nav": {
-   "uploaded": "2026-10-31T17:16:34.416Z",
-   "mtime": 1793466934169,
-   "preview": "2026-10-31T17:16:36.195Z"
+   "uploaded": "2026-11-01T07:04:11.081Z",
+   "mtime": 1793516146653,
+   "preview": "2026-11-01T07:04:12.960Z"
   },
   "/at/de/footer": {
    "uploaded": "2026-10-31T20:47:52.631Z",
@@ -656,9 +656,9 @@
    "preview": "2026-10-31T20:47:51.232Z"
   },
   "/at/de/contact": {
-   "uploaded": "2026-11-01T05:55:27.714Z",
-   "mtime": 1793511548047,
-   "preview": "2026-11-01T05:55:29.405Z"
+   "uploaded": "2026-11-01T07:03:54.694Z",
+   "mtime": 1793516618702,
+   "preview": "2026-11-01T07:03:56.847Z"
   },
   "/at/de/bearbeitungsgebuehren": {
    "uploaded": "2026-10-31T12:04:58.274Z",
@@ -936,9 +936,9 @@
    "preview": "2026-11-01T05:58:43.958Z"
   },
   "/at/en/contact-form-booking-confirmation": {
-   "uploaded": "2026-10-31T12:13:08.414Z",
-   "mtime": 1793447476008,
-   "preview": "2026-10-31T12:13:10.118Z"
+   "uploaded": "2026-11-01T07:04:17.496Z",
+   "mtime": 1793516614427,
+   "preview": "2026-11-01T07:04:19.605Z"
   },
   "/at/en/contact-form-charter": {
    "uploaded": "2026-11-01T05:58:45.146Z",
@@ -2201,9 +2201,9 @@
    "preview": "2026-10-31T04:51:55.617Z"
   },
   "/at/de/footer-pages/help-and-contact/contact-form-refund/refund-form": {
-   "uploaded": "2026-10-31T12:08:00.227Z",
-   "mtime": 1793447473512,
-   "preview": "2026-10-31T12:08:02.141Z"
+   "uploaded": "2026-11-01T07:04:04.816Z",
+   "mtime": 1793516614276,
+   "preview": "2026-11-01T07:04:06.578Z"
   },
   "/at/de/book/overview-manage/manage-my-bookings": {
    "uploaded": "2026-10-31T04:51:59.580Z",
@@ -2281,14 +2281,14 @@
    "preview": "2026-10-31T12:08:54.657Z"
   },
   "/at/de/fly/check-in/emergency-contact/confirmation": {
-   "uploaded": "2026-10-31T04:55:06.338Z",
-   "mtime": 1793422418574,
-   "preview": "2026-10-31T04:55:07.850Z"
+   "uploaded": "2026-11-01T07:03:58.225Z",
+   "mtime": 1793516614218,
+   "preview": "2026-11-01T07:03:59.911Z"
   },
   "/at/de/fly/check-in/private-check-in-counter/confirmation-private-check-in-counter": {
-   "uploaded": "2026-11-01T05:55:55.665Z",
-   "mtime": 1793511548718,
-   "preview": "2026-11-01T05:55:57.185Z"
+   "uploaded": "2026-11-01T07:04:01.219Z",
+   "mtime": 1793516614241,
+   "preview": "2026-11-01T07:04:03.162Z"
   },
   "/at/de/footer-pages/help-and-contact/form-confirmation": {
    "uploaded": "2026-10-31T04:55:11.869Z",
@@ -2296,14 +2296,14 @@
    "preview": "2026-10-31T04:55:13.410Z"
   },
   "/at/en/fly/check-in/emergency-contact/confirmation": {
-   "uploaded": "2026-10-31T04:55:14.648Z",
-   "mtime": 1793422424129,
-   "preview": "2026-10-31T04:55:16.272Z"
+   "uploaded": "2026-11-01T07:04:21.027Z",
+   "mtime": 1793516614517,
+   "preview": "2026-11-01T07:04:22.642Z"
   },
   "/at/en/fly/check-in/private-check-in-counter/confirmation-private-check-in-counter": {
-   "uploaded": "2026-11-01T05:59:44.521Z",
-   "mtime": 1793511548657,
-   "preview": "2026-11-01T05:59:46.107Z"
+   "uploaded": "2026-11-01T07:04:24.230Z",
+   "mtime": 1793516614542,
+   "preview": "2026-11-01T07:04:26.065Z"
   },
   "/at/en/form-confirmation": {
    "uploaded": "2026-10-31T04:55:20.040Z",
@@ -2311,9 +2311,9 @@
    "preview": "2026-10-31T04:55:21.589Z"
   },
   "/fr/fr/accessible-travel": {
-   "uploaded": "2026-10-31T17:17:57.971Z",
-   "mtime": 1793466938424,
-   "preview": "2026-10-31T17:17:59.711Z"
+   "uploaded": "2026-11-01T07:08:18.050Z",
+   "mtime": 1793516615937,
+   "preview": "2026-11-01T07:08:20.004Z"
   },
   "/fr/fr/additional-baggage": {
    "uploaded": "2026-10-31T12:44:44.642Z",
@@ -2371,9 +2371,9 @@
    "preview": "2026-10-31T12:45:18.210Z"
   },
   "/fr/fr/anfrage-rueckerstattung": {
-   "uploaded": "2026-10-31T12:45:19.379Z",
-   "mtime": 1793447491223,
-   "preview": "2026-10-31T12:45:21.083Z"
+   "uploaded": "2026-11-01T07:08:21.328Z",
+   "mtime": 1793516615964,
+   "preview": "2026-11-01T07:08:23.111Z"
   },
   "/fr/fr/arrival-departure": {
    "uploaded": "2026-10-31T12:45:22.269Z",
@@ -2391,9 +2391,9 @@
    "preview": "2026-10-31T12:45:30.778Z"
   },
   "/fr/fr/at-the-airport": {
-   "uploaded": "2026-10-31T12:45:31.957Z",
-   "mtime": 1793447491320,
-   "preview": "2026-10-31T12:45:33.813Z"
+   "uploaded": "2026-11-01T07:08:24.648Z",
+   "mtime": 1793516615993,
+   "preview": "2026-11-01T07:08:26.359Z"
   },
   "/fr/fr/austrian-app": {
    "uploaded": "2026-10-31T12:45:35.000Z",
@@ -2411,14 +2411,14 @@
    "preview": "2026-10-31T12:45:42.963Z"
   },
   "/fr/fr/baggage": {
-   "uploaded": "2026-10-31T12:45:46.877Z",
-   "mtime": 1793447491432,
-   "preview": "2026-10-31T12:45:48.911Z"
+   "uploaded": "2026-11-01T07:08:27.836Z",
+   "mtime": 1793516616018,
+   "preview": "2026-11-01T07:08:29.860Z"
   },
   "/fr/fr/baggage-conditions": {
-   "uploaded": "2026-10-31T12:45:44.076Z",
-   "mtime": 1793447491412,
-   "preview": "2026-10-31T12:45:45.695Z"
+   "uploaded": "2026-11-01T07:08:31.290Z",
+   "mtime": 1793516616044,
+   "preview": "2026-11-01T07:08:32.987Z"
   },
   "/fr/fr/bangkok-airways": {
    "uploaded": "2026-10-31T18:53:18.008Z",
@@ -2551,19 +2551,19 @@
    "preview": "2026-10-31T12:47:07.322Z"
   },
   "/fr/fr/check-in": {
-   "uploaded": "2026-10-31T12:47:14.556Z",
-   "mtime": 1793447492105,
-   "preview": "2026-10-31T12:47:16.304Z"
+   "uploaded": "2026-11-01T07:08:34.681Z",
+   "mtime": 1793516616063,
+   "preview": "2026-11-01T07:08:36.407Z"
   },
   "/fr/fr/check-in-airport": {
-   "uploaded": "2026-10-31T12:47:08.508Z",
-   "mtime": 1793447492061,
-   "preview": "2026-10-31T12:47:10.306Z"
+   "uploaded": "2026-11-01T07:08:38.184Z",
+   "mtime": 1793516616090,
+   "preview": "2026-11-01T07:08:40.288Z"
   },
   "/fr/fr/check-in-deadlines": {
-   "uploaded": "2026-10-31T20:51:02.336Z",
-   "mtime": 1793479537144,
-   "preview": "2026-10-31T20:51:04.072Z"
+   "uploaded": "2026-11-01T07:08:41.523Z",
+   "mtime": 1793516616111,
+   "preview": "2026-11-01T07:08:43.497Z"
   },
   "/fr/fr/coc-lobbyists": {
    "uploaded": "2026-10-31T12:47:17.572Z",
@@ -2571,9 +2571,9 @@
    "preview": "2026-10-31T12:47:19.153Z"
   },
   "/fr/fr/nav": {
-   "uploaded": "2026-10-31T18:53:42.170Z",
-   "mtime": 1793472508766,
-   "preview": "2026-10-31T18:53:43.874Z"
+   "uploaded": "2026-11-01T07:10:18.645Z",
+   "mtime": 1793516148148,
+   "preview": "2026-11-01T07:10:20.621Z"
   },
   "/fr/fr/footer": {
    "uploaded": "2026-10-31T20:51:11.750Z",
@@ -2586,59 +2586,59 @@
    "preview": "2026-10-31T13:57:12.489Z"
   },
   "/fr/fr/contact-form-baggage": {
-   "uploaded": "2026-10-31T12:47:20.328Z",
-   "mtime": 1793447492159,
-   "preview": "2026-10-31T12:47:22.088Z"
+   "uploaded": "2026-11-01T07:08:44.893Z",
+   "mtime": 1793516616144,
+   "preview": "2026-11-01T07:08:46.936Z"
   },
   "/fr/fr/contact-form-booking": {
-   "uploaded": "2026-10-31T12:47:26.740Z",
-   "mtime": 1793447492207,
-   "preview": "2026-10-31T12:47:28.533Z"
+   "uploaded": "2026-11-01T07:08:48.577Z",
+   "mtime": 1793516616175,
+   "preview": "2026-11-01T07:08:50.356Z"
   },
   "/fr/fr/contact-form-booking-confirmation": {
-   "uploaded": "2026-10-31T12:47:23.445Z",
-   "mtime": 1793447492184,
-   "preview": "2026-10-31T12:47:25.223Z"
+   "uploaded": "2026-11-01T07:08:51.696Z",
+   "mtime": 1793516616205,
+   "preview": "2026-11-01T07:08:53.622Z"
   },
   "/fr/fr/contact-form-charter": {
-   "uploaded": "2026-10-31T12:47:29.811Z",
-   "mtime": 1793447492231,
-   "preview": "2026-10-31T12:47:31.486Z"
+   "uploaded": "2026-11-01T07:08:55.340Z",
+   "mtime": 1793516616234,
+   "preview": "2026-11-01T07:08:56.968Z"
   },
   "/fr/fr/contact-form-medical-request": {
-   "uploaded": "2026-10-31T12:47:32.740Z",
-   "mtime": 1793447492255,
-   "preview": "2026-10-31T12:47:34.456Z"
+   "uploaded": "2026-11-01T07:08:58.427Z",
+   "mtime": 1793516616267,
+   "preview": "2026-11-01T07:09:00.519Z"
   },
   "/fr/fr/contact-form-other": {
-   "uploaded": "2026-10-31T12:47:35.682Z",
-   "mtime": 1793447492278,
-   "preview": "2026-10-31T12:47:37.469Z"
+   "uploaded": "2026-11-01T07:09:01.956Z",
+   "mtime": 1793516616296,
+   "preview": "2026-11-01T07:09:03.905Z"
   },
   "/fr/fr/contact-form-passenger-receipt": {
-   "uploaded": "2026-10-31T12:47:38.911Z",
-   "mtime": 1793447492300,
-   "preview": "2026-10-31T12:47:40.627Z"
+   "uploaded": "2026-11-01T07:09:05.221Z",
+   "mtime": 1793516616327,
+   "preview": "2026-11-01T07:09:07.139Z"
   },
   "/fr/fr/contact-form-rebooking": {
-   "uploaded": "2026-10-31T12:47:41.939Z",
-   "mtime": 1793447492324,
-   "preview": "2026-10-31T12:47:43.923Z"
+   "uploaded": "2026-11-01T07:09:08.924Z",
+   "mtime": 1793516616358,
+   "preview": "2026-11-01T07:09:10.628Z"
   },
   "/fr/fr/contact-form-refund-seat-reservation": {
-   "uploaded": "2026-10-31T12:47:45.386Z",
-   "mtime": 1793447492346,
-   "preview": "2026-10-31T12:47:47.227Z"
+   "uploaded": "2026-11-01T07:09:12.277Z",
+   "mtime": 1793516616389,
+   "preview": "2026-11-01T07:09:14.187Z"
   },
   "/fr/fr/contact-form-requested-documents": {
-   "uploaded": "2026-10-31T12:47:48.455Z",
-   "mtime": 1793447492368,
-   "preview": "2026-10-31T12:47:50.310Z"
+   "uploaded": "2026-11-01T07:09:15.683Z",
+   "mtime": 1793516616416,
+   "preview": "2026-11-01T07:09:17.478Z"
   },
   "/fr/fr/contact-form-seat-meal-requests": {
-   "uploaded": "2026-10-31T12:47:51.800Z",
-   "mtime": 1793447492394,
-   "preview": "2026-10-31T12:47:53.534Z"
+   "uploaded": "2026-11-01T07:09:18.916Z",
+   "mtime": 1793516616446,
+   "preview": "2026-11-01T07:09:20.473Z"
   },
   "/fr/fr/contingency-plan-lengthy-tarmac-delays": {
    "uploaded": "2026-10-31T12:47:55.057Z",
@@ -2651,9 +2651,9 @@
    "preview": "2026-11-01T06:00:52.848Z"
   },
   "/fr/fr/dangerous-goods": {
-   "uploaded": "2026-10-31T12:48:00.661Z",
-   "mtime": 1793447492483,
-   "preview": "2026-10-31T12:48:02.583Z"
+   "uploaded": "2026-11-01T07:09:21.898Z",
+   "mtime": 1793516616496,
+   "preview": "2026-11-01T07:09:23.953Z"
   },
   "/fr/fr/data-protection-chatbot": {
    "uploaded": "2026-10-31T12:48:03.872Z",
@@ -2696,9 +2696,9 @@
    "preview": "2026-10-31T12:48:25.925Z"
   },
   "/fr/fr/electronic-devices-and-batteries": {
-   "uploaded": "2026-10-31T12:48:27.104Z",
-   "mtime": 1793447492689,
-   "preview": "2026-10-31T12:48:29.093Z"
+   "uploaded": "2026-11-01T07:09:25.543Z",
+   "mtime": 1793516616533,
+   "preview": "2026-11-01T07:09:27.523Z"
   },
   "/fr/fr/embraer-195": {
    "uploaded": "2026-10-31T12:48:30.513Z",
@@ -2716,24 +2716,24 @@
    "preview": "2026-10-31T12:48:38.411Z"
   },
   "/fr/fr/excess-baggage": {
-   "uploaded": "2026-10-31T12:48:39.879Z",
-   "mtime": 1793447492779,
-   "preview": "2026-10-31T12:48:41.993Z"
+   "uploaded": "2026-11-01T07:09:28.884Z",
+   "mtime": 1793516616566,
+   "preview": "2026-11-01T07:09:30.731Z"
   },
   "/fr/fr/families": {
-   "uploaded": "2026-10-31T12:48:49.552Z",
-   "mtime": 1793447492849,
-   "preview": "2026-10-31T12:48:51.423Z"
+   "uploaded": "2026-11-01T07:09:32.185Z",
+   "mtime": 1793516616585,
+   "preview": "2026-11-01T07:09:33.877Z"
   },
   "/fr/fr/families-at-the-airport": {
-   "uploaded": "2026-10-31T12:48:43.182Z",
-   "mtime": 1793447492801,
-   "preview": "2026-10-31T12:48:45.095Z"
+   "uploaded": "2026-11-01T07:09:35.295Z",
+   "mtime": 1793516616617,
+   "preview": "2026-11-01T07:09:37.225Z"
   },
   "/fr/fr/families-travel-preparations": {
-   "uploaded": "2026-10-31T12:48:46.492Z",
-   "mtime": 1793447492827,
-   "preview": "2026-10-31T12:48:48.374Z"
+   "uploaded": "2026-11-01T07:09:38.628Z",
+   "mtime": 1793516616651,
+   "preview": "2026-11-01T07:09:40.618Z"
   },
   "/fr/fr/family-promotion": {
    "uploaded": "2026-10-31T18:53:28.629Z",
@@ -2831,24 +2831,24 @@
    "preview": "2026-10-31T12:49:46.623Z"
   },
   "/fr/fr/fly/at-the-airport/orientation-at-airports/boarding": {
-   "uploaded": "2026-10-31T12:49:47.839Z",
-   "mtime": 1793447493300,
-   "preview": "2026-10-31T12:49:49.837Z"
+   "uploaded": "2026-11-01T07:09:42.217Z",
+   "mtime": 1793516616676,
+   "preview": "2026-11-01T07:09:43.805Z"
   },
   "/fr/fr/fly/at-the-airport/orientation-at-airports/security-fast-lanes": {
-   "uploaded": "2026-10-31T12:49:51.076Z",
-   "mtime": 1793447493322,
-   "preview": "2026-10-31T12:49:53.067Z"
+   "uploaded": "2026-11-01T07:09:45.681Z",
+   "mtime": 1793516616708,
+   "preview": "2026-11-01T07:09:47.643Z"
   },
   "/fr/fr/fly/at-the-airport/star-alliance-biometrics/faq": {
-   "uploaded": "2026-10-31T12:49:54.450Z",
-   "mtime": 1793447493343,
-   "preview": "2026-10-31T12:49:56.078Z"
+   "uploaded": "2026-11-01T07:09:49.138Z",
+   "mtime": 1793516616737,
+   "preview": "2026-11-01T07:09:50.642Z"
   },
   "/fr/fr/fly/check-in/private-check-in-counter": {
-   "uploaded": "2026-10-31T12:49:57.510Z",
-   "mtime": 1793447493373,
-   "preview": "2026-10-31T12:49:59.508Z"
+   "uploaded": "2026-11-01T07:09:55.037Z",
+   "mtime": 1793516616814,
+   "preview": "2026-11-01T07:09:56.747Z"
   },
   "/fr/fr/fly/flight-information/flight-disruptions": {
    "uploaded": "2026-10-31T12:50:00.834Z",
@@ -2916,9 +2916,9 @@
    "preview": "2026-10-31T12:50:30.970Z"
   },
   "/fr/fr/footer-pages/faq/faq-missing-baggage": {
-   "uploaded": "2026-10-31T12:50:32.295Z",
-   "mtime": 1793447493655,
-   "preview": "2026-10-31T12:50:34.139Z"
+   "uploaded": "2026-11-01T07:10:01.119Z",
+   "mtime": 1793516616869,
+   "preview": "2026-11-01T07:10:03.105Z"
   },
   "/fr/fr/footer-pages/faq/faq-seat-reservation/economy-light-fare": {
    "uploaded": "2026-10-31T12:50:35.384Z",
@@ -2966,14 +2966,14 @@
    "preview": "2026-10-31T12:51:01.162Z"
   },
   "/fr/fr/handgepaeck": {
-   "uploaded": "2026-10-31T12:51:02.356Z",
-   "mtime": 1793447493896,
-   "preview": "2026-10-31T12:51:04.846Z"
+   "uploaded": "2026-11-01T07:10:04.621Z",
+   "mtime": 1793516616901,
+   "preview": "2026-11-01T07:10:06.775Z"
   },
   "/fr/fr/healthy-travel": {
-   "uploaded": "2026-10-31T12:51:06.262Z",
-   "mtime": 1793447493920,
-   "preview": "2026-10-31T12:51:08.089Z"
+   "uploaded": "2026-11-01T07:10:08.298Z",
+   "mtime": 1793516616933,
+   "preview": "2026-11-01T07:10:10.087Z"
   },
   "/fr/fr/homepage": {
    "uploaded": "2026-10-31T13:57:19.807Z",
@@ -2991,9 +2991,9 @@
    "preview": "2026-10-31T12:51:13.760Z"
   },
   "/fr/fr/international-lounges": {
-   "uploaded": "2026-10-31T12:51:15.303Z",
-   "mtime": 1793447493992,
-   "preview": "2026-10-31T12:51:16.912Z"
+   "uploaded": "2026-11-01T07:10:11.520Z",
+   "mtime": 1793516616970,
+   "preview": "2026-11-01T07:10:13.461Z"
   },
   "/fr/fr/internet-on-board": {
    "uploaded": "2026-10-31T13:57:22.428Z",
@@ -3081,9 +3081,9 @@
    "preview": "2026-10-31T18:53:37.663Z"
   },
   "/fr/fr/missing-baggage": {
-   "uploaded": "2026-10-31T12:52:00.278Z",
-   "mtime": 1793447494376,
-   "preview": "2026-10-31T12:52:02.210Z"
+   "uploaded": "2026-11-01T07:10:15.029Z",
+   "mtime": 1793516617004,
+   "preview": "2026-11-01T07:10:17.098Z"
   },
   "/fr/fr/multistop": {
    "uploaded": "2026-10-31T18:53:39.273Z",
@@ -3106,14 +3106,14 @@
    "preview": "2026-10-31T12:52:19.630Z"
   },
   "/fr/fr/on-board-with-the-family": {
-   "uploaded": "2026-10-31T20:51:17.829Z",
-   "mtime": 1793479537865,
-   "preview": "2026-10-31T20:51:19.700Z"
+   "uploaded": "2026-11-01T07:10:22.085Z",
+   "mtime": 1793516617034,
+   "preview": "2026-11-01T07:10:24.090Z"
   },
   "/fr/fr/online-check-in": {
-   "uploaded": "2026-10-31T12:52:20.757Z",
-   "mtime": 1793447494574,
-   "preview": "2026-10-31T12:52:22.549Z"
+   "uploaded": "2026-11-01T07:10:25.571Z",
+   "mtime": 1793516617065,
+   "preview": "2026-11-01T07:10:27.307Z"
   },
   "/fr/fr/parking-vienna-airport": {
    "uploaded": "2026-10-31T12:52:24.073Z",
@@ -3161,19 +3161,19 @@
    "preview": "2026-10-31T12:52:45.926Z"
   },
   "/fr/fr/plan/special-requirements/healthy-travel/doctor-on-board": {
-   "uploaded": "2026-10-31T12:52:47.069Z",
-   "mtime": 1793447494793,
-   "preview": "2026-10-31T12:52:48.829Z"
+   "uploaded": "2026-11-01T07:10:28.898Z",
+   "mtime": 1793516617094,
+   "preview": "2026-11-01T07:10:30.855Z"
   },
   "/fr/fr/plan/special-requirements/healthy-travel/medical-travel-companions": {
-   "uploaded": "2026-10-31T12:52:49.947Z",
-   "mtime": 1793447494817,
-   "preview": "2026-10-31T12:52:51.696Z"
+   "uploaded": "2026-11-01T07:10:32.435Z",
+   "mtime": 1793516617119,
+   "preview": "2026-11-01T07:10:34.082Z"
   },
   "/fr/fr/plan/special-requirements/travelling-with-animals": {
-   "uploaded": "2026-10-31T18:53:45.375Z",
-   "mtime": 1793472508868,
-   "preview": "2026-10-31T18:53:47.241Z"
+   "uploaded": "2026-11-01T07:10:35.682Z",
+   "mtime": 1793516617159,
+   "preview": "2026-11-01T07:10:38.075Z"
   },
   "/fr/fr/plan/tariffs/economy-basic": {
    "uploaded": "2026-10-31T12:52:56.171Z",
@@ -3181,9 +3181,9 @@
    "preview": "2026-10-31T12:52:57.919Z"
   },
   "/fr/fr/pre-order-food": {
-   "uploaded": "2026-10-31T12:52:59.157Z",
-   "mtime": 1793447494888,
-   "preview": "2026-10-31T12:53:00.954Z"
+   "uploaded": "2026-11-01T07:10:39.651Z",
+   "mtime": 1793516617188,
+   "preview": "2026-11-01T07:10:41.408Z"
   },
   "/fr/fr/pregnant-women": {
    "uploaded": "2026-10-31T12:53:02.208Z",
@@ -3251,9 +3251,9 @@
    "preview": "2026-10-31T12:53:39.240Z"
   },
   "/fr/fr/sports-baggage": {
-   "uploaded": "2026-10-31T12:53:40.467Z",
-   "mtime": 1793447495209,
-   "preview": "2026-10-31T12:53:42.202Z"
+   "uploaded": "2026-11-01T07:10:42.780Z",
+   "mtime": 1793516617220,
+   "preview": "2026-11-01T07:10:44.780Z"
   },
   "/fr/fr/star-alliance-biometrics": {
    "uploaded": "2026-10-31T12:53:43.414Z",
@@ -3321,9 +3321,9 @@
    "preview": "2026-10-31T12:54:19.948Z"
   },
   "/fr/fr/unaccompanied-minors": {
-   "uploaded": "2026-10-31T12:54:21.227Z",
-   "mtime": 1793447495542,
-   "preview": "2026-10-31T12:54:22.995Z"
+   "uploaded": "2026-11-01T07:10:46.149Z",
+   "mtime": 1793516617252,
+   "preview": "2026-11-01T07:10:48.054Z"
   },
   "/fr/fr/unterhaltung-an-bord": {
    "uploaded": "2026-10-31T20:51:24.134Z",
@@ -3341,9 +3341,9 @@
    "preview": "2026-10-31T12:54:31.952Z"
   },
   "/it/it/accessible-travel": {
-   "uploaded": "2026-10-31T17:18:39.330Z",
-   "mtime": 1793466940942,
-   "preview": "2026-10-31T17:18:41.510Z"
+   "uploaded": "2026-11-01T07:11:23.133Z",
+   "mtime": 1793516617284,
+   "preview": "2026-11-01T07:11:25.280Z"
   },
   "/it/it/additional-baggage": {
    "uploaded": "2026-10-31T13:06:07.208Z",
@@ -3401,9 +3401,9 @@
    "preview": "2026-10-31T13:06:40.174Z"
   },
   "/it/it/anfrage-rueckerstattung": {
-   "uploaded": "2026-10-31T13:06:41.507Z",
-   "mtime": 1793447501870,
-   "preview": "2026-10-31T13:06:43.190Z"
+   "uploaded": "2026-11-01T07:11:26.867Z",
+   "mtime": 1793516617309,
+   "preview": "2026-11-01T07:11:28.571Z"
   },
   "/it/it/arrival-departure": {
    "uploaded": "2026-10-31T13:06:44.376Z",
@@ -3421,9 +3421,9 @@
    "preview": "2026-10-31T13:06:51.966Z"
   },
   "/it/it/at-the-airport": {
-   "uploaded": "2026-10-31T13:06:53.173Z",
-   "mtime": 1793447501963,
-   "preview": "2026-10-31T13:06:54.911Z"
+   "uploaded": "2026-11-01T07:11:30.189Z",
+   "mtime": 1793516617334,
+   "preview": "2026-11-01T07:11:32.130Z"
   },
   "/it/it/austrian-app": {
    "uploaded": "2026-10-31T13:06:56.077Z",
@@ -3441,14 +3441,14 @@
    "preview": "2026-10-31T13:07:04.091Z"
   },
   "/it/it/baggage": {
-   "uploaded": "2026-10-31T13:07:08.168Z",
-   "mtime": 1793447502089,
-   "preview": "2026-10-31T13:07:10.071Z"
+   "uploaded": "2026-11-01T07:11:33.700Z",
+   "mtime": 1793516617362,
+   "preview": "2026-11-01T07:11:35.820Z"
   },
   "/it/it/baggage-conditions": {
-   "uploaded": "2026-10-31T13:07:05.363Z",
-   "mtime": 1793447502065,
-   "preview": "2026-10-31T13:07:06.818Z"
+   "uploaded": "2026-11-01T07:11:37.503Z",
+   "mtime": 1793516617387,
+   "preview": "2026-11-01T07:11:39.324Z"
   },
   "/it/it/bangkok-airways": {
    "uploaded": "2026-10-31T18:54:24.442Z",
@@ -3586,19 +3586,19 @@
    "preview": "2026-10-31T13:08:30.882Z"
   },
   "/it/it/check-in": {
-   "uploaded": "2026-10-31T13:08:38.008Z",
-   "mtime": 1793447502802,
-   "preview": "2026-10-31T13:08:39.523Z"
+   "uploaded": "2026-11-01T07:11:40.870Z",
+   "mtime": 1793516617408,
+   "preview": "2026-11-01T07:11:42.743Z"
   },
   "/it/it/check-in-airport": {
-   "uploaded": "2026-10-31T13:08:32.027Z",
-   "mtime": 1793447502759,
-   "preview": "2026-10-31T13:08:33.841Z"
+   "uploaded": "2026-11-01T07:11:44.318Z",
+   "mtime": 1793516617438,
+   "preview": "2026-11-01T07:11:46.157Z"
   },
   "/it/it/nav": {
-   "uploaded": "2026-10-31T18:54:47.383Z",
-   "mtime": 1793472512413,
-   "preview": "2026-10-31T18:54:48.981Z"
+   "uploaded": "2026-11-01T07:13:25.197Z",
+   "mtime": 1793516149101,
+   "preview": "2026-11-01T07:13:26.684Z"
   },
   "/it/it/footer": {
    "uploaded": "2026-10-31T20:52:34.586Z",
@@ -3606,9 +3606,9 @@
    "preview": "2026-10-31T20:52:36.341Z"
   },
   "/it/it/check-in-deadlines": {
-   "uploaded": "2026-10-31T20:52:24.918Z",
-   "mtime": 1793479540851,
-   "preview": "2026-10-31T20:52:26.631Z"
+   "uploaded": "2026-11-01T07:11:47.558Z",
+   "mtime": 1793516617459,
+   "preview": "2026-11-01T07:11:49.654Z"
   },
   "/it/it/coc-lobbyists": {
    "uploaded": "2026-10-31T13:08:40.920Z",
@@ -3621,59 +3621,59 @@
    "preview": "2026-10-31T13:58:06.675Z"
   },
   "/it/it/contact-form-baggage": {
-   "uploaded": "2026-10-31T13:08:43.891Z",
-   "mtime": 1793447502851,
-   "preview": "2026-10-31T13:08:45.627Z"
+   "uploaded": "2026-11-01T07:11:51.255Z",
+   "mtime": 1793516617491,
+   "preview": "2026-11-01T07:11:53.161Z"
   },
   "/it/it/contact-form-booking": {
-   "uploaded": "2026-10-31T13:08:49.965Z",
-   "mtime": 1793447502901,
-   "preview": "2026-10-31T13:08:52.411Z"
+   "uploaded": "2026-11-01T07:11:54.701Z",
+   "mtime": 1793516617523,
+   "preview": "2026-11-01T07:11:56.629Z"
   },
   "/it/it/contact-form-booking-confirmation": {
-   "uploaded": "2026-10-31T13:08:47.029Z",
-   "mtime": 1793447502878,
-   "preview": "2026-10-31T13:08:48.582Z"
+   "uploaded": "2026-11-01T07:11:58.242Z",
+   "mtime": 1793516617551,
+   "preview": "2026-11-01T07:12:00.119Z"
   },
   "/it/it/contact-form-charter": {
-   "uploaded": "2026-10-31T13:08:53.724Z",
-   "mtime": 1793447502927,
-   "preview": "2026-10-31T13:08:55.418Z"
+   "uploaded": "2026-11-01T07:12:01.695Z",
+   "mtime": 1793516617582,
+   "preview": "2026-11-01T07:12:03.648Z"
   },
   "/it/it/contact-form-medical-request": {
-   "uploaded": "2026-10-31T13:08:56.838Z",
-   "mtime": 1793447502950,
-   "preview": "2026-10-31T13:08:58.455Z"
+   "uploaded": "2026-11-01T07:12:05.279Z",
+   "mtime": 1793516617615,
+   "preview": "2026-11-01T07:12:07.070Z"
   },
   "/it/it/contact-form-other": {
-   "uploaded": "2026-10-31T13:08:59.833Z",
-   "mtime": 1793447502977,
-   "preview": "2026-10-31T13:09:01.569Z"
+   "uploaded": "2026-11-01T07:12:08.412Z",
+   "mtime": 1793516617644,
+   "preview": "2026-11-01T07:12:10.119Z"
   },
   "/it/it/contact-form-passenger-receipt": {
-   "uploaded": "2026-10-31T13:09:03.134Z",
-   "mtime": 1793447503003,
-   "preview": "2026-10-31T13:09:04.774Z"
+   "uploaded": "2026-11-01T07:12:11.647Z",
+   "mtime": 1793516617794,
+   "preview": "2026-11-01T07:12:13.302Z"
   },
   "/it/it/contact-form-rebooking": {
-   "uploaded": "2026-10-31T13:09:06.095Z",
-   "mtime": 1793447503028,
-   "preview": "2026-10-31T13:09:07.900Z"
+   "uploaded": "2026-11-01T07:12:14.807Z",
+   "mtime": 1793516617827,
+   "preview": "2026-11-01T07:12:16.765Z"
   },
   "/it/it/contact-form-refund-seat-reservation": {
-   "uploaded": "2026-10-31T13:09:09.191Z",
-   "mtime": 1793447503052,
-   "preview": "2026-10-31T13:09:10.811Z"
+   "uploaded": "2026-11-01T07:12:18.252Z",
+   "mtime": 1793516617857,
+   "preview": "2026-11-01T07:12:20.090Z"
   },
   "/it/it/contact-form-requested-documents": {
-   "uploaded": "2026-10-31T13:09:12.661Z",
-   "mtime": 1793447503076,
-   "preview": "2026-10-31T13:09:14.480Z"
+   "uploaded": "2026-11-01T07:12:21.529Z",
+   "mtime": 1793516617886,
+   "preview": "2026-11-01T07:12:23.312Z"
   },
   "/it/it/contact-form-seat-meal-requests": {
-   "uploaded": "2026-10-31T13:09:15.798Z",
-   "mtime": 1793447503103,
-   "preview": "2026-10-31T13:09:17.917Z"
+   "uploaded": "2026-11-01T07:12:24.711Z",
+   "mtime": 1793516617918,
+   "preview": "2026-11-01T07:12:26.505Z"
   },
   "/it/it/contingency-plan-lengthy-tarmac-delays": {
    "uploaded": "2026-10-31T13:09:19.067Z",
@@ -3686,9 +3686,9 @@
    "preview": "2026-11-01T06:01:05.645Z"
   },
   "/it/it/dangerous-goods": {
-   "uploaded": "2026-10-31T13:09:25.077Z",
-   "mtime": 1793447503171,
-   "preview": "2026-10-31T13:09:27.150Z"
+   "uploaded": "2026-11-01T07:12:27.864Z",
+   "mtime": 1793516617955,
+   "preview": "2026-11-01T07:12:30.094Z"
   },
   "/it/it/data-protection-chatbot": {
    "uploaded": "2026-10-31T13:09:28.378Z",
@@ -3731,9 +3731,9 @@
    "preview": "2026-10-31T13:09:48.727Z"
   },
   "/it/it/electronic-devices-and-batteries": {
-   "uploaded": "2026-10-31T13:09:49.980Z",
-   "mtime": 1793447503383,
-   "preview": "2026-10-31T13:09:51.675Z"
+   "uploaded": "2026-11-01T07:12:31.424Z",
+   "mtime": 1793516617993,
+   "preview": "2026-11-01T07:12:33.459Z"
   },
   "/it/it/embraer-195": {
    "uploaded": "2026-10-31T13:09:52.898Z",
@@ -3751,24 +3751,24 @@
    "preview": "2026-10-31T13:10:00.247Z"
   },
   "/it/it/excess-baggage": {
-   "uploaded": "2026-10-31T13:10:01.473Z",
-   "mtime": 1793447503478,
-   "preview": "2026-10-31T13:10:03.432Z"
+   "uploaded": "2026-11-01T07:12:34.819Z",
+   "mtime": 1793516618024,
+   "preview": "2026-11-01T07:12:37.090Z"
   },
   "/it/it/families": {
-   "uploaded": "2026-10-31T13:10:10.848Z",
-   "mtime": 1793447503544,
-   "preview": "2026-10-31T13:10:12.726Z"
+   "uploaded": "2026-11-01T07:12:38.468Z",
+   "mtime": 1793516618044,
+   "preview": "2026-11-01T07:12:40.414Z"
   },
   "/it/it/families-at-the-airport": {
-   "uploaded": "2026-10-31T13:10:04.666Z",
-   "mtime": 1793447503500,
-   "preview": "2026-10-31T13:10:06.563Z"
+   "uploaded": "2026-11-01T07:12:41.823Z",
+   "mtime": 1793516618069,
+   "preview": "2026-11-01T07:12:43.687Z"
   },
   "/it/it/families-travel-preparations": {
-   "uploaded": "2026-10-31T13:10:07.691Z",
-   "mtime": 1793447503525,
-   "preview": "2026-10-31T13:10:09.390Z"
+   "uploaded": "2026-11-01T07:12:45.144Z",
+   "mtime": 1793516618103,
+   "preview": "2026-11-01T07:12:46.980Z"
   },
   "/it/it/family-promotion": {
    "uploaded": "2026-10-31T18:54:35.031Z",
@@ -3866,24 +3866,24 @@
    "preview": "2026-10-31T13:11:07.747Z"
   },
   "/it/it/fly/at-the-airport/orientation-at-airports/boarding": {
-   "uploaded": "2026-10-31T13:11:08.948Z",
-   "mtime": 1793447504027,
-   "preview": "2026-10-31T13:11:10.603Z"
+   "uploaded": "2026-11-01T07:12:48.477Z",
+   "mtime": 1793516618129,
+   "preview": "2026-11-01T07:12:50.221Z"
   },
   "/it/it/fly/at-the-airport/orientation-at-airports/security-fast-lanes": {
-   "uploaded": "2026-10-31T13:11:12.041Z",
-   "mtime": 1793447504051,
-   "preview": "2026-10-31T13:11:13.838Z"
+   "uploaded": "2026-11-01T07:12:51.720Z",
+   "mtime": 1793516618160,
+   "preview": "2026-11-01T07:12:53.445Z"
   },
   "/it/it/fly/at-the-airport/star-alliance-biometrics/faq": {
-   "uploaded": "2026-10-31T13:11:15.138Z",
-   "mtime": 1793447504074,
-   "preview": "2026-10-31T13:11:16.743Z"
+   "uploaded": "2026-11-01T07:12:55.202Z",
+   "mtime": 1793516618188,
+   "preview": "2026-11-01T07:12:56.886Z"
   },
   "/it/it/fly/check-in/private-check-in-counter": {
-   "uploaded": "2026-10-31T13:11:17.970Z",
-   "mtime": 1793447504106,
-   "preview": "2026-10-31T13:11:19.913Z"
+   "uploaded": "2026-11-01T07:13:01.695Z",
+   "mtime": 1793516618238,
+   "preview": "2026-11-01T07:13:03.696Z"
   },
   "/it/it/fly/flight-information/flight-disruptions": {
    "uploaded": "2026-10-31T13:11:21.158Z",
@@ -3951,9 +3951,9 @@
    "preview": "2026-10-31T13:11:50.133Z"
   },
   "/it/it/footer-pages/faq/faq-missing-baggage": {
-   "uploaded": "2026-10-31T13:11:51.563Z",
-   "mtime": 1793447504388,
-   "preview": "2026-10-31T13:11:53.388Z"
+   "uploaded": "2026-11-01T07:13:08.174Z",
+   "mtime": 1793516618298,
+   "preview": "2026-11-01T07:13:09.808Z"
   },
   "/it/it/footer-pages/faq/faq-seat-reservation/economy-light-fare": {
    "uploaded": "2026-10-31T13:11:54.644Z",
@@ -4001,14 +4001,14 @@
    "preview": "2026-10-31T13:12:19.230Z"
   },
   "/it/it/handgepaeck": {
-   "uploaded": "2026-10-31T13:12:20.644Z",
-   "mtime": 1793447504643,
-   "preview": "2026-10-31T13:12:22.828Z"
+   "uploaded": "2026-11-01T07:13:11.287Z",
+   "mtime": 1793516618330,
+   "preview": "2026-11-01T07:13:13.403Z"
   },
   "/it/it/healthy-travel": {
-   "uploaded": "2026-10-31T13:12:23.983Z",
-   "mtime": 1793447504666,
-   "preview": "2026-10-31T13:12:25.658Z"
+   "uploaded": "2026-11-01T07:13:14.824Z",
+   "mtime": 1793516618363,
+   "preview": "2026-11-01T07:13:16.802Z"
   },
   "/it/it/homepage": {
    "uploaded": "2026-10-31T13:58:14.080Z",
@@ -4026,9 +4026,9 @@
    "preview": "2026-10-31T13:12:31.326Z"
   },
   "/it/it/international-lounges": {
-   "uploaded": "2026-10-31T13:12:32.506Z",
-   "mtime": 1793447504753,
-   "preview": "2026-10-31T13:12:34.104Z"
+   "uploaded": "2026-11-01T07:13:18.532Z",
+   "mtime": 1793516618388,
+   "preview": "2026-11-01T07:13:20.146Z"
   },
   "/it/it/internet-on-board": {
    "uploaded": "2026-10-31T13:58:17.030Z",
@@ -4106,9 +4106,9 @@
    "preview": "2026-10-31T18:54:43.015Z"
   },
   "/it/it/missing-baggage": {
-   "uploaded": "2026-10-31T13:13:11.455Z",
-   "mtime": 1793447505091,
-   "preview": "2026-10-31T13:13:13.260Z"
+   "uploaded": "2026-11-01T07:13:21.547Z",
+   "mtime": 1793516618420,
+   "preview": "2026-11-01T07:13:23.690Z"
   },
   "/it/it/multistop": {
    "uploaded": "2026-10-31T18:54:44.454Z",
@@ -4136,14 +4136,14 @@
    "preview": "2026-10-31T13:13:34.382Z"
   },
   "/it/it/on-board-with-the-family": {
-   "uploaded": "2026-10-31T20:52:37.668Z",
-   "mtime": 1793479541561,
-   "preview": "2026-10-31T20:52:39.388Z"
+   "uploaded": "2026-11-01T07:13:28.258Z",
+   "mtime": 1793516618448,
+   "preview": "2026-11-01T07:13:29.878Z"
   },
   "/it/it/online-check-in": {
-   "uploaded": "2026-10-31T13:13:35.509Z",
-   "mtime": 1793447505328,
-   "preview": "2026-10-31T13:13:37.632Z"
+   "uploaded": "2026-11-01T07:13:31.389Z",
+   "mtime": 1793516618478,
+   "preview": "2026-11-01T07:13:33.097Z"
   },
   "/it/it/parking-vienna-airport": {
    "uploaded": "2026-10-31T13:13:38.877Z",
@@ -4191,19 +4191,19 @@
    "preview": "2026-10-31T13:14:00.833Z"
   },
   "/it/it/plan/special-requirements/healthy-travel/doctor-on-board": {
-   "uploaded": "2026-10-31T13:14:02.203Z",
-   "mtime": 1793447505539,
-   "preview": "2026-10-31T13:14:03.872Z"
+   "uploaded": "2026-11-01T07:13:34.614Z",
+   "mtime": 1793516618519,
+   "preview": "2026-11-01T07:13:36.446Z"
   },
   "/it/it/plan/special-requirements/healthy-travel/medical-travel-companions": {
-   "uploaded": "2026-10-31T13:14:05.273Z",
-   "mtime": 1793447505561,
-   "preview": "2026-10-31T13:14:06.905Z"
+   "uploaded": "2026-11-01T07:13:37.936Z",
+   "mtime": 1793516618545,
+   "preview": "2026-11-01T07:13:40.017Z"
   },
   "/it/it/plan/special-requirements/travelling-with-animals": {
-   "uploaded": "2026-10-31T18:54:50.316Z",
-   "mtime": 1793472512528,
-   "preview": "2026-10-31T18:54:52.064Z"
+   "uploaded": "2026-11-01T07:13:41.413Z",
+   "mtime": 1793516618582,
+   "preview": "2026-11-01T07:13:43.600Z"
   },
   "/it/it/plan/tariffs/economy-basic": {
    "uploaded": "2026-10-31T13:14:11.813Z",
@@ -4211,9 +4211,9 @@
    "preview": "2026-10-31T13:14:13.549Z"
   },
   "/it/it/pre-order-food": {
-   "uploaded": "2026-10-31T13:14:14.740Z",
-   "mtime": 1793447505639,
-   "preview": "2026-10-31T13:14:16.559Z"
+   "uploaded": "2026-11-01T07:13:45.159Z",
+   "mtime": 1793516618614,
+   "preview": "2026-11-01T07:13:46.785Z"
   },
   "/it/it/pregnant-women": {
    "uploaded": "2026-10-31T13:14:17.860Z",
@@ -4281,9 +4281,9 @@
    "preview": "2026-10-31T13:14:55.369Z"
   },
   "/it/it/sports-baggage": {
-   "uploaded": "2026-10-31T13:14:56.616Z",
-   "mtime": 1793447505971,
-   "preview": "2026-10-31T13:14:58.756Z"
+   "uploaded": "2026-11-01T07:13:48.213Z",
+   "mtime": 1793516618648,
+   "preview": "2026-11-01T07:13:50.346Z"
   },
   "/it/it/star-alliance-biometrics": {
    "uploaded": "2026-10-31T13:14:59.946Z",
@@ -4346,9 +4346,9 @@
    "preview": "2026-10-31T13:15:35.406Z"
   },
   "/it/it/unaccompanied-minors": {
-   "uploaded": "2026-10-31T13:15:36.674Z",
-   "mtime": 1793447506284,
-   "preview": "2026-10-31T13:15:39.003Z"
+   "uploaded": "2026-11-01T07:13:51.707Z",
+   "mtime": 1793516618680,
+   "preview": "2026-11-01T07:13:53.470Z"
   },
   "/it/it/unterhaltung-an-bord": {
    "uploaded": "2026-10-31T20:52:43.479Z",
@@ -4616,9 +4616,9 @@
    "preview": "2026-10-31T20:54:25.790Z"
   },
   "/ru/ru/nav": {
-   "uploaded": "2026-10-31T19:38:52.297Z",
-   "mtime": 1793475503341,
-   "preview": "2026-10-31T19:38:54.127Z"
+   "uploaded": "2026-11-01T07:14:44.146Z",
+   "mtime": 1793516149885,
+   "preview": "2026-11-01T07:14:45.854Z"
   },
   "/ru/ru/footer": {
    "uploaded": "2026-10-31T20:54:33.445Z",
@@ -5371,9 +5371,9 @@
    "preview": "2026-10-31T13:47:33.048Z"
   },
   "/es/es/accessible-travel": {
-   "uploaded": "2026-10-31T17:17:48.969Z",
-   "mtime": 1793466937332,
-   "preview": "2026-10-31T17:17:50.612Z"
+   "uploaded": "2026-11-01T07:05:40.656Z",
+   "mtime": 1793516614634,
+   "preview": "2026-11-01T07:05:42.743Z"
   },
   "/es/es/additional-baggage": {
    "uploaded": "2026-10-31T12:34:49.635Z",
@@ -5431,9 +5431,9 @@
    "preview": "2026-10-31T12:35:22.224Z"
   },
   "/es/es/anfrage-rueckerstattung": {
-   "uploaded": "2026-10-31T12:35:23.398Z",
-   "mtime": 1793447486542,
-   "preview": "2026-10-31T12:35:25.179Z"
+   "uploaded": "2026-11-01T07:05:44.351Z",
+   "mtime": 1793516614660,
+   "preview": "2026-11-01T07:05:46.090Z"
   },
   "/es/es/arrival-departure": {
    "uploaded": "2026-10-31T12:35:26.388Z",
@@ -5451,9 +5451,9 @@
    "preview": "2026-10-31T12:35:34.177Z"
   },
   "/es/es/at-the-airport": {
-   "uploaded": "2026-10-31T12:35:35.350Z",
-   "mtime": 1793447486638,
-   "preview": "2026-10-31T12:35:37.035Z"
+   "uploaded": "2026-11-01T07:05:47.466Z",
+   "mtime": 1793516614692,
+   "preview": "2026-11-01T07:05:49.360Z"
   },
   "/es/es/austrian-app": {
    "uploaded": "2026-10-31T12:35:38.309Z",
@@ -5471,14 +5471,14 @@
    "preview": "2026-10-31T12:35:46.447Z"
   },
   "/es/es/baggage": {
-   "uploaded": "2026-10-31T12:35:50.701Z",
-   "mtime": 1793447486761,
-   "preview": "2026-10-31T12:35:52.470Z"
+   "uploaded": "2026-11-01T07:05:50.884Z",
+   "mtime": 1793516614719,
+   "preview": "2026-11-01T07:05:52.709Z"
   },
   "/es/es/baggage-conditions": {
-   "uploaded": "2026-10-31T12:35:47.772Z",
-   "mtime": 1793447486732,
-   "preview": "2026-10-31T12:35:49.305Z"
+   "uploaded": "2026-11-01T07:05:54.268Z",
+   "mtime": 1793516614744,
+   "preview": "2026-11-01T07:05:55.867Z"
   },
   "/es/es/bangkok-airways": {
    "uploaded": "2026-10-31T18:52:43.529Z",
@@ -5611,24 +5611,24 @@
    "preview": "2026-10-31T12:37:12.165Z"
   },
   "/es/es/check-in": {
-   "uploaded": "2026-10-31T12:37:19.278Z",
-   "mtime": 1793447487440,
-   "preview": "2026-10-31T12:37:21.104Z"
+   "uploaded": "2026-11-01T07:05:57.475Z",
+   "mtime": 1793516614765,
+   "preview": "2026-11-01T07:05:59.787Z"
   },
   "/es/es/check-in-airport": {
-   "uploaded": "2026-10-31T12:37:13.406Z",
-   "mtime": 1793447487398,
-   "preview": "2026-10-31T12:37:15.213Z"
+   "uploaded": "2026-11-01T07:06:01.359Z",
+   "mtime": 1793516614796,
+   "preview": "2026-11-01T07:06:03.324Z"
   },
   "/es/es/check-in-deadlines": {
-   "uploaded": "2026-10-31T20:50:33.767Z",
-   "mtime": 1793479535730,
-   "preview": "2026-10-31T20:50:35.519Z"
+   "uploaded": "2026-11-01T07:06:04.721Z",
+   "mtime": 1793516614817,
+   "preview": "2026-11-01T07:06:06.485Z"
   },
   "/es/es/nav": {
-   "uploaded": "2026-10-31T18:53:07.941Z",
-   "mtime": 1793472507350,
-   "preview": "2026-10-31T18:53:09.632Z"
+   "uploaded": "2026-11-01T07:07:43.124Z",
+   "mtime": 1793516148045,
+   "preview": "2026-11-01T07:07:44.885Z"
   },
   "/es/es/footer": {
    "uploaded": "2026-10-31T20:50:43.157Z",
@@ -5646,59 +5646,59 @@
    "preview": "2026-10-31T13:56:49.252Z"
   },
   "/es/es/contact-form-baggage": {
-   "uploaded": "2026-10-31T12:37:25.277Z",
-   "mtime": 1793447487490,
-   "preview": "2026-10-31T12:37:27.042Z"
+   "uploaded": "2026-11-01T07:06:07.887Z",
+   "mtime": 1793516614848,
+   "preview": "2026-11-01T07:06:09.651Z"
   },
   "/es/es/contact-form-booking": {
-   "uploaded": "2026-10-31T12:37:31.360Z",
-   "mtime": 1793447487537,
-   "preview": "2026-10-31T12:37:33.128Z"
+   "uploaded": "2026-11-01T07:06:11.087Z",
+   "mtime": 1793516614878,
+   "preview": "2026-11-01T07:06:13.131Z"
   },
   "/es/es/contact-form-booking-confirmation": {
-   "uploaded": "2026-10-31T12:37:28.344Z",
-   "mtime": 1793447487514,
-   "preview": "2026-10-31T12:37:30.067Z"
+   "uploaded": "2026-11-01T07:06:14.572Z",
+   "mtime": 1793516614906,
+   "preview": "2026-11-01T07:06:16.302Z"
   },
   "/es/es/contact-form-charter": {
-   "uploaded": "2026-10-31T12:37:34.451Z",
-   "mtime": 1793447487560,
-   "preview": "2026-10-31T12:37:36.113Z"
+   "uploaded": "2026-11-01T07:06:17.634Z",
+   "mtime": 1793516614935,
+   "preview": "2026-11-01T07:06:19.599Z"
   },
   "/es/es/contact-form-medical-request": {
-   "uploaded": "2026-10-31T12:37:37.482Z",
-   "mtime": 1793447487584,
-   "preview": "2026-10-31T12:37:39.120Z"
+   "uploaded": "2026-11-01T07:06:21.161Z",
+   "mtime": 1793516614977,
+   "preview": "2026-11-01T07:06:23.078Z"
   },
   "/es/es/contact-form-other": {
-   "uploaded": "2026-10-31T12:37:40.390Z",
-   "mtime": 1793447487607,
-   "preview": "2026-10-31T12:37:42.119Z"
+   "uploaded": "2026-11-01T07:06:24.687Z",
+   "mtime": 1793516615010,
+   "preview": "2026-11-01T07:06:26.691Z"
   },
   "/es/es/contact-form-passenger-receipt": {
-   "uploaded": "2026-10-31T12:37:43.328Z",
-   "mtime": 1793447487631,
-   "preview": "2026-10-31T12:37:45.078Z"
+   "uploaded": "2026-11-01T07:06:28.062Z",
+   "mtime": 1793516615039,
+   "preview": "2026-11-01T07:06:30.051Z"
   },
   "/es/es/contact-form-rebooking": {
-   "uploaded": "2026-10-31T12:37:46.503Z",
-   "mtime": 1793447487655,
-   "preview": "2026-10-31T12:37:48.154Z"
+   "uploaded": "2026-11-01T07:06:31.653Z",
+   "mtime": 1793516615069,
+   "preview": "2026-11-01T07:06:33.488Z"
   },
   "/es/es/contact-form-refund-seat-reservation": {
-   "uploaded": "2026-10-31T12:37:49.340Z",
-   "mtime": 1793447487680,
-   "preview": "2026-10-31T12:37:51.253Z"
+   "uploaded": "2026-11-01T07:06:35.059Z",
+   "mtime": 1793516615100,
+   "preview": "2026-11-01T07:06:36.910Z"
   },
   "/es/es/contact-form-requested-documents": {
-   "uploaded": "2026-10-31T12:37:52.520Z",
-   "mtime": 1793447487703,
-   "preview": "2026-10-31T12:37:54.189Z"
+   "uploaded": "2026-11-01T07:06:38.324Z",
+   "mtime": 1793516615128,
+   "preview": "2026-11-01T07:06:40.003Z"
   },
   "/es/es/contact-form-seat-meal-requests": {
-   "uploaded": "2026-10-31T12:37:55.661Z",
-   "mtime": 1793447487726,
-   "preview": "2026-10-31T12:37:57.310Z"
+   "uploaded": "2026-11-01T07:06:41.561Z",
+   "mtime": 1793516615157,
+   "preview": "2026-11-01T07:06:43.337Z"
   },
   "/es/es/contingency-plan-lengthy-tarmac-delays": {
    "uploaded": "2026-10-31T12:37:58.590Z",
@@ -5711,9 +5711,9 @@
    "preview": "2026-11-01T06:00:46.610Z"
   },
   "/es/es/dangerous-goods": {
-   "uploaded": "2026-10-31T12:38:04.419Z",
-   "mtime": 1793447487797,
-   "preview": "2026-10-31T12:38:06.470Z"
+   "uploaded": "2026-11-01T07:06:44.685Z",
+   "mtime": 1793516615198,
+   "preview": "2026-11-01T07:06:46.770Z"
   },
   "/es/es/data-protection-chatbot": {
    "uploaded": "2026-10-31T12:38:07.652Z",
@@ -5756,9 +5756,9 @@
    "preview": "2026-10-31T12:38:27.647Z"
   },
   "/es/es/electronic-devices-and-batteries": {
-   "uploaded": "2026-10-31T12:38:28.953Z",
-   "mtime": 1793447488003,
-   "preview": "2026-10-31T12:38:31.255Z"
+   "uploaded": "2026-11-01T07:06:48.450Z",
+   "mtime": 1793516615235,
+   "preview": "2026-11-01T07:06:50.689Z"
   },
   "/es/es/embraer-195": {
    "uploaded": "2026-10-31T12:38:32.485Z",
@@ -5776,24 +5776,24 @@
    "preview": "2026-10-31T12:38:40.325Z"
   },
   "/es/es/excess-baggage": {
-   "uploaded": "2026-10-31T12:38:41.680Z",
-   "mtime": 1793447488093,
-   "preview": "2026-10-31T12:38:43.736Z"
+   "uploaded": "2026-11-01T07:06:52.129Z",
+   "mtime": 1793516615266,
+   "preview": "2026-11-01T07:06:54.276Z"
   },
   "/es/es/families": {
-   "uploaded": "2026-10-31T12:38:51.110Z",
-   "mtime": 1793447488161,
-   "preview": "2026-10-31T12:38:52.754Z"
+   "uploaded": "2026-11-01T07:06:55.618Z",
+   "mtime": 1793516615289,
+   "preview": "2026-11-01T07:06:57.492Z"
   },
   "/es/es/families-at-the-airport": {
-   "uploaded": "2026-10-31T12:38:45.017Z",
-   "mtime": 1793447488115,
-   "preview": "2026-10-31T12:38:46.860Z"
+   "uploaded": "2026-11-01T07:06:59.254Z",
+   "mtime": 1793516615315,
+   "preview": "2026-11-01T07:07:01.140Z"
   },
   "/es/es/families-travel-preparations": {
-   "uploaded": "2026-10-31T12:38:48.071Z",
-   "mtime": 1793447488143,
-   "preview": "2026-10-31T12:38:49.930Z"
+   "uploaded": "2026-11-01T07:07:02.725Z",
+   "mtime": 1793516615347,
+   "preview": "2026-11-01T07:07:04.713Z"
   },
   "/es/es/family-promotion": {
    "uploaded": "2026-10-31T18:52:54.376Z",
@@ -5891,24 +5891,24 @@
    "preview": "2026-10-31T12:39:47.950Z"
   },
   "/es/es/fly/at-the-airport/orientation-at-airports/boarding": {
-   "uploaded": "2026-10-31T12:39:49.198Z",
-   "mtime": 1793447488622,
-   "preview": "2026-10-31T12:39:50.947Z"
+   "uploaded": "2026-11-01T07:07:06.226Z",
+   "mtime": 1793516615372,
+   "preview": "2026-11-01T07:07:08.013Z"
   },
   "/es/es/fly/at-the-airport/orientation-at-airports/security-fast-lanes": {
-   "uploaded": "2026-10-31T12:39:52.075Z",
-   "mtime": 1793447488646,
-   "preview": "2026-10-31T12:39:53.895Z"
+   "uploaded": "2026-11-01T07:07:09.448Z",
+   "mtime": 1793516615402,
+   "preview": "2026-11-01T07:07:11.225Z"
   },
   "/es/es/fly/at-the-airport/star-alliance-biometrics/faq": {
-   "uploaded": "2026-10-31T12:39:55.117Z",
-   "mtime": 1793447488669,
-   "preview": "2026-10-31T12:39:56.966Z"
+   "uploaded": "2026-11-01T07:07:12.966Z",
+   "mtime": 1793516615430,
+   "preview": "2026-11-01T07:07:14.663Z"
   },
   "/es/es/fly/check-in/private-check-in-counter": {
-   "uploaded": "2026-10-31T12:39:58.205Z",
-   "mtime": 1793447488700,
-   "preview": "2026-10-31T12:40:00.289Z"
+   "uploaded": "2026-11-01T07:07:19.501Z",
+   "mtime": 1793516615481,
+   "preview": "2026-11-01T07:07:21.298Z"
   },
   "/es/es/fly/flight-information/flight-disruptions": {
    "uploaded": "2026-10-31T12:40:01.495Z",
@@ -5976,9 +5976,9 @@
    "preview": "2026-10-31T12:40:31.857Z"
   },
   "/es/es/footer-pages/faq/faq-missing-baggage": {
-   "uploaded": "2026-10-31T12:40:33.164Z",
-   "mtime": 1793447488970,
-   "preview": "2026-10-31T12:40:35.013Z"
+   "uploaded": "2026-11-01T07:07:26.401Z",
+   "mtime": 1793516615537,
+   "preview": "2026-11-01T07:07:28.105Z"
   },
   "/es/es/footer-pages/faq/faq-seat-reservation/economy-light-fare": {
    "uploaded": "2026-10-31T12:40:36.227Z",
@@ -6026,14 +6026,14 @@
    "preview": "2026-10-31T12:41:02.117Z"
   },
   "/es/es/handgepaeck": {
-   "uploaded": "2026-10-31T12:41:03.442Z",
-   "mtime": 1793447489210,
-   "preview": "2026-10-31T12:41:05.547Z"
+   "uploaded": "2026-11-01T07:07:29.453Z",
+   "mtime": 1793516615570,
+   "preview": "2026-11-01T07:07:31.565Z"
   },
   "/es/es/healthy-travel": {
-   "uploaded": "2026-10-31T12:41:07.041Z",
-   "mtime": 1793447489236,
-   "preview": "2026-10-31T12:41:09.028Z"
+   "uploaded": "2026-11-01T07:07:32.890Z",
+   "mtime": 1793516615602,
+   "preview": "2026-11-01T07:07:34.778Z"
   },
   "/es/es/homepage": {
    "uploaded": "2026-10-31T13:56:56.483Z",
@@ -6051,9 +6051,9 @@
    "preview": "2026-10-31T12:41:14.735Z"
   },
   "/es/es/international-lounges": {
-   "uploaded": "2026-10-31T12:41:15.942Z",
-   "mtime": 1793447489308,
-   "preview": "2026-10-31T12:41:17.729Z"
+   "uploaded": "2026-11-01T07:07:36.222Z",
+   "mtime": 1793516615628,
+   "preview": "2026-11-01T07:07:37.969Z"
   },
   "/es/es/internet-on-board": {
    "uploaded": "2026-10-31T13:56:59.250Z",
@@ -6131,9 +6131,9 @@
    "preview": "2026-10-31T18:53:03.089Z"
   },
   "/es/es/missing-baggage": {
-   "uploaded": "2026-10-31T12:41:55.027Z",
-   "mtime": 1793447489629,
-   "preview": "2026-10-31T12:41:57.413Z"
+   "uploaded": "2026-11-01T07:07:39.548Z",
+   "mtime": 1793516615661,
+   "preview": "2026-11-01T07:07:41.762Z"
   },
   "/es/es/multistop": {
    "uploaded": "2026-10-31T18:53:04.784Z",
@@ -6156,14 +6156,14 @@
    "preview": "2026-10-31T12:42:15.951Z"
   },
   "/es/es/on-board-with-the-family": {
-   "uploaded": "2026-10-31T20:50:46.294Z",
-   "mtime": 1793479536450,
-   "preview": "2026-10-31T20:50:47.991Z"
+   "uploaded": "2026-11-01T07:07:46.436Z",
+   "mtime": 1793516615691,
+   "preview": "2026-11-01T07:07:48.151Z"
   },
   "/es/es/online-check-in": {
-   "uploaded": "2026-10-31T12:42:17.160Z",
-   "mtime": 1793447489840,
-   "preview": "2026-10-31T12:42:18.916Z"
+   "uploaded": "2026-11-01T07:07:49.620Z",
+   "mtime": 1793516615720,
+   "preview": "2026-11-01T07:07:51.610Z"
   },
   "/es/es/parking-vienna-airport": {
    "uploaded": "2026-10-31T12:42:20.215Z",
@@ -6211,19 +6211,19 @@
    "preview": "2026-10-31T12:42:43.823Z"
   },
   "/es/es/plan/special-requirements/healthy-travel/doctor-on-board": {
-   "uploaded": "2026-10-31T12:42:45.061Z",
-   "mtime": 1793447490066,
-   "preview": "2026-10-31T12:42:47.049Z"
+   "uploaded": "2026-11-01T07:07:53.192Z",
+   "mtime": 1793516615748,
+   "preview": "2026-11-01T07:07:55.072Z"
   },
   "/es/es/plan/special-requirements/healthy-travel/medical-travel-companions": {
-   "uploaded": "2026-10-31T12:42:48.278Z",
-   "mtime": 1793447490090,
-   "preview": "2026-10-31T12:42:49.902Z"
+   "uploaded": "2026-11-01T07:07:56.503Z",
+   "mtime": 1793516615775,
+   "preview": "2026-11-01T07:07:58.592Z"
   },
   "/es/es/plan/special-requirements/travelling-with-animals": {
-   "uploaded": "2026-10-31T18:53:11.034Z",
-   "mtime": 1793472507459,
-   "preview": "2026-10-31T18:53:13.227Z"
+   "uploaded": "2026-11-01T07:08:00.175Z",
+   "mtime": 1793516615814,
+   "preview": "2026-11-01T07:08:02.372Z"
   },
   "/es/es/plan/tariffs/economy-basic": {
    "uploaded": "2026-10-31T12:42:54.445Z",
@@ -6231,9 +6231,9 @@
    "preview": "2026-10-31T12:42:56.227Z"
   },
   "/es/es/pre-order-food": {
-   "uploaded": "2026-10-31T12:42:57.513Z",
-   "mtime": 1793447490163,
-   "preview": "2026-10-31T12:42:59.283Z"
+   "uploaded": "2026-11-01T07:08:03.844Z",
+   "mtime": 1793516615842,
+   "preview": "2026-11-01T07:08:05.907Z"
   },
   "/es/es/pregnant-women": {
    "uploaded": "2026-10-31T12:43:00.506Z",
@@ -6301,9 +6301,9 @@
    "preview": "2026-10-31T12:43:38.865Z"
   },
   "/es/es/sports-baggage": {
-   "uploaded": "2026-10-31T12:43:40.002Z",
-   "mtime": 1793447490478,
-   "preview": "2026-10-31T12:43:42.142Z"
+   "uploaded": "2026-11-01T07:08:07.353Z",
+   "mtime": 1793516615874,
+   "preview": "2026-11-01T07:08:09.647Z"
   },
   "/es/es/star-alliance-biometrics": {
    "uploaded": "2026-10-31T12:43:43.361Z",
@@ -6366,9 +6366,9 @@
    "preview": "2026-10-31T12:44:18.506Z"
   },
   "/es/es/unaccompanied-minors": {
-   "uploaded": "2026-10-31T12:44:19.730Z",
-   "mtime": 1793447490788,
-   "preview": "2026-10-31T12:44:21.597Z"
+   "uploaded": "2026-11-01T07:08:11.211Z",
+   "mtime": 1793516615903,
+   "preview": "2026-11-01T07:08:13.281Z"
   },
   "/es/es/unterhaltung-an-bord": {
    "uploaded": "2026-10-31T20:50:52.174Z",
@@ -6641,9 +6641,9 @@
    "preview": "2026-10-31T12:57:37.657Z"
   },
   "/gr/el/nav": {
-   "uploaded": "2026-10-31T18:54:14.641Z",
-   "mtime": 1793472510369,
-   "preview": "2026-10-31T18:54:16.184Z"
+   "uploaded": "2026-11-01T07:10:56.403Z",
+   "mtime": 1793516148394,
+   "preview": "2026-11-01T07:10:58.202Z"
   },
   "/gr/el/footer": {
    "uploaded": "2026-10-31T20:51:46.272Z",
@@ -7666,9 +7666,9 @@
    "preview": "2026-10-31T13:18:51.402Z"
   },
   "/jp/ja/nav": {
-   "uploaded": "2026-10-31T18:55:23.528Z",
-   "mtime": 1793472513962,
-   "preview": "2026-10-31T18:55:25.153Z"
+   "uploaded": "2026-11-01T07:14:01.748Z",
+   "mtime": 1793516149250,
+   "preview": "2026-11-01T07:14:03.622Z"
   },
   "/jp/ja/footer": {
    "uploaded": "2026-10-31T20:53:07.826Z",
@@ -8696,9 +8696,9 @@
    "preview": "2026-10-31T13:29:41.420Z"
   },
   "/pl/pl/nav": {
-   "uploaded": "2026-10-31T18:55:59.047Z",
-   "mtime": 1793472515810,
-   "preview": "2026-10-31T18:56:00.766Z"
+   "uploaded": "2026-11-01T07:14:28.113Z",
+   "mtime": 1793516149644,
+   "preview": "2026-11-01T07:14:29.833Z"
   },
   "/pl/pl/footer": {
    "uploaded": "2026-10-31T20:53:55.337Z",
@@ -9731,9 +9731,9 @@
    "preview": "2026-10-31T12:26:16.479Z"
   },
   "/cn/zh/nav": {
-   "uploaded": "2026-10-31T21:58:29.798Z",
-   "mtime": 1793483875438,
-   "preview": "2026-10-31T21:58:31.697Z"
+   "uploaded": "2026-11-01T07:05:14.221Z",
+   "mtime": 1793516147556,
+   "preview": "2026-11-01T07:05:16.061Z"
   },
   "/cn/zh/footer": {
    "uploaded": "2026-10-31T20:49:34.681Z",
@@ -10671,9 +10671,9 @@
    "preview": "2026-10-31T13:48:34.907Z"
   },
   "/al/en/nav": {
-   "uploaded": "2026-10-31T17:16:24.116Z",
-   "mtime": 1793466933259,
-   "preview": "2026-10-31T17:16:25.924Z"
+   "uploaded": "2026-11-01T07:03:47.947Z",
+   "mtime": 1793516146495,
+   "preview": "2026-11-01T07:03:49.813Z"
   },
   "/al/en/footer": {
    "uploaded": "2026-10-31T20:47:24.754Z",
@@ -10681,9 +10681,9 @@
    "preview": "2026-10-31T20:47:26.915Z"
   },
   "/au/en/nav": {
-   "uploaded": "2026-10-31T17:16:44.789Z",
-   "mtime": 1793466935363,
-   "preview": "2026-10-31T17:16:46.569Z"
+   "uploaded": "2026-11-01T07:04:30.813Z",
+   "mtime": 1793516146765,
+   "preview": "2026-11-01T07:04:32.531Z"
   },
   "/au/en/footer": {
    "uploaded": "2026-10-31T20:48:32.762Z",
@@ -10691,9 +10691,9 @@
    "preview": "2026-10-31T20:48:35.051Z"
   },
   "/ca/en/nav": {
-   "uploaded": "2026-10-31T17:17:03.882Z",
-   "mtime": 1793466935611,
-   "preview": "2026-10-31T17:17:05.621Z"
+   "uploaded": "2026-11-01T07:04:50.460Z",
+   "mtime": 1793516147108,
+   "preview": "2026-11-01T07:04:52.122Z"
   },
   "/ca/en/footer": {
    "uploaded": "2026-10-31T20:48:52.903Z",
@@ -10701,9 +10701,9 @@
    "preview": "2026-10-31T20:48:54.518Z"
   },
   "/ca/fr/nav": {
-   "uploaded": "2026-10-31T18:52:27.770Z",
-   "mtime": 1793472503870,
-   "preview": "2026-10-31T18:52:29.442Z"
+   "uploaded": "2026-11-01T07:04:53.578Z",
+   "mtime": 1793516147186,
+   "preview": "2026-11-01T07:04:55.245Z"
   },
   "/ca/fr/footer": {
    "uploaded": "2026-10-31T20:48:55.869Z",
@@ -10711,9 +10711,9 @@
    "preview": "2026-10-31T20:48:57.477Z"
   },
   "/ch/de/nav": {
-   "uploaded": "2026-10-31T17:17:10.781Z",
-   "mtime": 1793466935776,
-   "preview": "2026-10-31T17:17:12.385Z"
+   "uploaded": "2026-11-01T07:04:56.758Z",
+   "mtime": 1793516147271,
+   "preview": "2026-11-01T07:04:58.742Z"
   },
   "/ch/de/footer": {
    "uploaded": "2026-10-31T20:48:58.889Z",
@@ -10721,9 +10721,9 @@
    "preview": "2026-10-31T20:49:00.641Z"
   },
   "/cn/en/nav": {
-   "uploaded": "2026-10-31T19:38:32.498Z",
-   "mtime": 1793475494302,
-   "preview": "2026-10-31T19:38:34.300Z"
+   "uploaded": "2026-11-01T07:05:10.994Z",
+   "mtime": 1793516147473,
+   "preview": "2026-11-01T07:05:12.836Z"
   },
   "/cn/en/footer": {
    "uploaded": "2026-10-31T20:49:11.677Z",
@@ -10731,9 +10731,9 @@
    "preview": "2026-10-31T20:49:13.560Z"
   },
   "/cz/en/nav": {
-   "uploaded": "2026-10-31T17:17:29.682Z",
-   "mtime": 1793466937104,
-   "preview": "2026-10-31T17:17:31.401Z"
+   "uploaded": "2026-11-01T07:05:20.598Z",
+   "mtime": 1793516147652,
+   "preview": "2026-11-01T07:05:22.692Z"
   },
   "/cz/en/footer": {
    "uploaded": "2026-10-31T20:50:10.503Z",
@@ -10741,9 +10741,9 @@
    "preview": "2026-10-31T20:50:12.235Z"
   },
   "/de/en/nav": {
-   "uploaded": "2026-10-31T17:17:36.281Z",
-   "mtime": 1793466937207,
-   "preview": "2026-10-31T17:17:38.207Z"
+   "uploaded": "2026-11-01T07:05:27.215Z",
+   "mtime": 1793516147757,
+   "preview": "2026-11-01T07:05:29.139Z"
   },
   "/de/en/footer": {
    "uploaded": "2026-10-31T20:50:17.179Z",
@@ -10751,9 +10751,9 @@
    "preview": "2026-10-31T20:50:19.328Z"
   },
   "/es/en/nav": {
-   "uploaded": "2026-10-31T17:17:45.836Z",
-   "mtime": 1793466937301,
-   "preview": "2026-10-31T17:17:47.474Z"
+   "uploaded": "2026-11-01T07:05:37.093Z",
+   "mtime": 1793516147970,
+   "preview": "2026-11-01T07:05:38.989Z"
   },
   "/es/en/footer": {
    "uploaded": "2026-10-31T20:50:26.978Z",
@@ -10761,9 +10761,9 @@
    "preview": "2026-10-31T20:50:28.508Z"
   },
   "/gb/en/nav": {
-   "uploaded": "2026-10-31T17:18:04.521Z",
-   "mtime": 1793466939498,
-   "preview": "2026-10-31T17:18:06.241Z"
+   "uploaded": "2026-11-01T07:10:49.456Z",
+   "mtime": 1793516148200,
+   "preview": "2026-11-01T07:10:51.623Z"
   },
   "/gb/en/footer": {
    "uploaded": "2026-10-31T20:51:27.121Z",
@@ -10771,9 +10771,9 @@
    "preview": "2026-10-31T20:51:28.693Z"
   },
   "/ge/en/nav": {
-   "uploaded": "2026-10-31T17:18:07.857Z",
-   "mtime": 1793466939551,
-   "preview": "2026-10-31T17:18:09.867Z"
+   "uploaded": "2026-11-01T07:10:53.040Z",
+   "mtime": 1793516148248,
+   "preview": "2026-11-01T07:10:54.677Z"
   },
   "/ge/en/footer": {
    "uploaded": "2026-10-31T20:51:29.944Z",
@@ -10781,9 +10781,9 @@
    "preview": "2026-10-31T20:51:31.735Z"
   },
   "/hr/en/nav": {
-   "uploaded": "2026-10-31T17:18:20.975Z",
-   "mtime": 1793466940728,
-   "preview": "2026-10-31T17:18:22.639Z"
+   "uploaded": "2026-11-01T07:11:03.347Z",
+   "mtime": 1793516148499,
+   "preview": "2026-11-01T07:11:05.234Z"
   },
   "/hr/en/footer": {
    "uploaded": "2026-10-31T20:52:02.744Z",
@@ -10791,9 +10791,9 @@
    "preview": "2026-10-31T20:52:04.574Z"
   },
   "/hu/en/nav": {
-   "uploaded": "2026-10-31T17:18:24.238Z",
-   "mtime": 1793466940771,
-   "preview": "2026-10-31T17:18:25.766Z"
+   "uploaded": "2026-11-01T07:11:06.696Z",
+   "mtime": 1793516148550,
+   "preview": "2026-11-01T07:11:08.348Z"
   },
   "/hu/en/footer": {
    "uploaded": "2026-10-31T20:52:05.809Z",
@@ -10801,9 +10801,9 @@
    "preview": "2026-10-31T20:52:07.540Z"
   },
   "/il/en/nav": {
-   "uploaded": "2026-10-31T17:18:27.100Z",
-   "mtime": 1793466940810,
-   "preview": "2026-10-31T17:18:28.852Z"
+   "uploaded": "2026-11-01T07:11:09.870Z",
+   "mtime": 1793516148602,
+   "preview": "2026-11-01T07:11:11.588Z"
   },
   "/il/en/footer": {
    "uploaded": "2026-10-31T20:52:09.051Z",
@@ -10811,9 +10811,9 @@
    "preview": "2026-10-31T20:52:10.877Z"
   },
   "/jp/en/nav": {
-   "uploaded": "2026-10-31T17:18:48.971Z",
-   "mtime": 1793466942090,
-   "preview": "2026-10-31T17:18:50.660Z"
+   "uploaded": "2026-11-01T07:13:58.505Z",
+   "mtime": 1793516149199,
+   "preview": "2026-11-01T07:14:00.201Z"
   },
   "/jp/en/footer": {
    "uploaded": "2026-10-31T20:52:49.680Z",
@@ -10821,9 +10821,9 @@
    "preview": "2026-10-31T20:52:51.367Z"
   },
   "/nl/en/nav": {
-   "uploaded": "2026-10-31T17:19:11.397Z",
-   "mtime": 1793466943361,
-   "preview": "2026-10-31T17:19:13.113Z"
+   "uploaded": "2026-11-01T07:14:18.222Z",
+   "mtime": 1793516149496,
+   "preview": "2026-11-01T07:14:19.979Z"
   },
   "/nl/en/footer": {
    "uploaded": "2026-10-31T20:53:33.214Z",
@@ -10831,9 +10831,9 @@
    "preview": "2026-10-31T20:53:34.884Z"
   },
   "/th/en/nav": {
-   "uploaded": "2026-10-31T19:39:04.799Z",
-   "mtime": 1793475503742,
-   "preview": "2026-10-31T19:39:06.556Z"
+   "uploaded": "2026-11-01T07:14:57.373Z",
+   "mtime": 1793516150119,
+   "preview": "2026-11-01T07:14:59.305Z"
   },
   "/th/en/footer": {
    "uploaded": "2026-10-31T20:54:54.903Z",
@@ -10841,9 +10841,9 @@
    "preview": "2026-10-31T20:54:56.730Z"
   },
   "/us/en/nav": {
-   "uploaded": "2026-10-31T19:39:14.368Z",
-   "mtime": 1793475503856,
-   "preview": "2026-10-31T19:39:15.965Z"
+   "uploaded": "2026-11-01T07:15:08.096Z",
+   "mtime": 1793516150332,
+   "preview": "2026-11-01T07:15:09.823Z"
   },
   "/us/en/footer": {
    "uploaded": "2026-10-31T20:55:04.832Z",
@@ -11011,9 +11011,9 @@
    "preview": "2026-10-31T13:05:59.903Z"
   },
   "/am/en/nav": {
-   "uploaded": "2026-10-31T17:16:27.429Z",
-   "mtime": 1793466933293,
-   "preview": "2026-10-31T17:16:29.380Z"
+   "uploaded": "2026-11-01T07:03:51.314Z",
+   "mtime": 1793516146562,
+   "preview": "2026-11-01T07:03:53.263Z"
   },
   "/am/en/footer": {
    "uploaded": "2026-10-31T20:47:28.176Z",
@@ -11021,9 +11021,9 @@
    "preview": "2026-10-31T20:47:30.436Z"
   },
   "/ba/en/nav": {
-   "uploaded": "2026-10-31T17:16:47.841Z",
-   "mtime": 1793466935395,
-   "preview": "2026-10-31T17:16:49.422Z"
+   "uploaded": "2026-11-01T07:04:33.958Z",
+   "mtime": 1793516146831,
+   "preview": "2026-11-01T07:04:35.650Z"
   },
   "/ba/en/footer": {
    "uploaded": "2026-10-31T20:48:36.365Z",
@@ -11031,9 +11031,9 @@
    "preview": "2026-10-31T20:48:38.163Z"
   },
   "/be/en/nav": {
-   "uploaded": "2026-10-31T17:16:50.643Z",
-   "mtime": 1793466935426,
-   "preview": "2026-10-31T17:16:52.393Z"
+   "uploaded": "2026-11-01T07:04:37.047Z",
+   "mtime": 1793516146902,
+   "preview": "2026-11-01T07:04:38.691Z"
   },
   "/be/en/footer": {
    "uploaded": "2026-10-31T20:48:39.439Z",
@@ -11041,9 +11041,9 @@
    "preview": "2026-10-31T20:48:41.553Z"
   },
   "/bg/en/nav": {
-   "uploaded": "2026-10-31T17:16:53.741Z",
-   "mtime": 1793466935457,
-   "preview": "2026-10-31T17:16:55.560Z"
+   "uploaded": "2026-11-01T07:04:40.315Z",
+   "mtime": 1793516146953,
+   "preview": "2026-11-01T07:04:42.100Z"
   },
   "/bg/en/footer": {
    "uploaded": "2026-10-31T20:48:42.838Z",
@@ -11051,9 +11051,9 @@
    "preview": "2026-10-31T20:48:45.113Z"
   },
   "/by/en/nav": {
-   "uploaded": "2026-10-31T17:16:56.912Z",
-   "mtime": 1793466935489,
-   "preview": "2026-10-31T17:16:58.820Z"
+   "uploaded": "2026-11-01T07:04:43.537Z",
+   "mtime": 1793516147005,
+   "preview": "2026-11-01T07:04:45.226Z"
   },
   "/by/en/footer": {
    "uploaded": "2026-10-31T20:48:46.397Z",
@@ -11061,9 +11061,9 @@
    "preview": "2026-10-31T20:48:48.283Z"
   },
   "/by/ru/nav": {
-   "uploaded": "2026-10-31T18:52:15.492Z",
-   "mtime": 1793472503553,
-   "preview": "2026-10-31T18:52:17.362Z"
+   "uploaded": "2026-11-01T07:04:47.035Z",
+   "mtime": 1793516147058,
+   "preview": "2026-11-01T07:04:48.926Z"
   },
   "/by/ru/footer": {
    "uploaded": "2026-10-31T20:48:49.762Z",
@@ -11071,9 +11071,9 @@
    "preview": "2026-10-31T20:48:51.438Z"
   },
   "/ch/en/nav": {
-   "uploaded": "2026-10-31T17:17:13.869Z",
-   "mtime": 1793466935810,
-   "preview": "2026-10-31T17:17:15.890Z"
+   "uploaded": "2026-11-01T07:05:00.240Z",
+   "mtime": 1793516147319,
+   "preview": "2026-11-01T07:05:02.351Z"
   },
   "/ch/en/footer": {
    "uploaded": "2026-10-31T20:49:02.061Z",
@@ -11081,9 +11081,9 @@
    "preview": "2026-10-31T20:49:03.887Z"
   },
   "/ch/fr/nav": {
-   "uploaded": "2026-10-31T18:52:34.068Z",
-   "mtime": 1793472504210,
-   "preview": "2026-10-31T18:52:35.696Z"
+   "uploaded": "2026-11-01T07:05:03.779Z",
+   "mtime": 1793516147371,
+   "preview": "2026-11-01T07:05:05.805Z"
   },
   "/ch/fr/footer": {
    "uploaded": "2026-10-31T20:49:05.261Z",
@@ -11091,9 +11091,9 @@
    "preview": "2026-10-31T20:49:07.183Z"
   },
   "/ch/it/nav": {
-   "uploaded": "2026-10-31T18:52:40.566Z",
-   "mtime": 1793472504340,
-   "preview": "2026-10-31T18:52:42.229Z"
+   "uploaded": "2026-11-01T07:05:07.484Z",
+   "mtime": 1793516147422,
+   "preview": "2026-11-01T07:05:09.426Z"
   },
   "/ch/it/footer": {
    "uploaded": "2026-10-31T20:49:08.436Z",
@@ -11101,9 +11101,9 @@
    "preview": "2026-10-31T20:49:10.081Z"
   },
   "/cy/en/nav": {
-   "uploaded": "2026-10-31T17:17:26.476Z",
-   "mtime": 1793466937068,
-   "preview": "2026-10-31T17:17:28.273Z"
+   "uploaded": "2026-11-01T07:05:17.483Z",
+   "mtime": 1793516147604,
+   "preview": "2026-11-01T07:05:19.226Z"
   },
   "/cy/en/footer": {
    "uploaded": "2026-10-31T20:50:07.515Z",
@@ -11111,9 +11111,9 @@
    "preview": "2026-10-31T20:50:09.265Z"
   },
   "/de/de/nav": {
-   "uploaded": "2026-10-31T17:17:33.207Z",
-   "mtime": 1793466937172,
-   "preview": "2026-10-31T17:17:34.902Z"
+   "uploaded": "2026-11-01T07:05:24.023Z",
+   "mtime": 1793516147707,
+   "preview": "2026-11-01T07:05:25.832Z"
   },
   "/de/de/footer": {
    "uploaded": "2026-10-31T20:50:13.498Z",
@@ -11121,9 +11121,9 @@
    "preview": "2026-10-31T20:50:15.676Z"
   },
   "/dk/en/nav": {
-   "uploaded": "2026-10-31T17:17:39.606Z",
-   "mtime": 1793466937237,
-   "preview": "2026-10-31T17:17:41.278Z"
+   "uploaded": "2026-11-01T07:05:30.699Z",
+   "mtime": 1793516147809,
+   "preview": "2026-11-01T07:05:32.510Z"
   },
   "/dk/en/footer": {
    "uploaded": "2026-10-31T20:50:20.790Z",
@@ -11131,9 +11131,9 @@
    "preview": "2026-10-31T20:50:22.492Z"
   },
   "/eg/en/nav": {
-   "uploaded": "2026-10-31T17:17:42.687Z",
-   "mtime": 1793466937270,
-   "preview": "2026-10-31T17:17:44.490Z"
+   "uploaded": "2026-11-01T07:05:33.980Z",
+   "mtime": 1793516147920,
+   "preview": "2026-11-01T07:05:35.750Z"
   },
   "/eg/en/footer": {
    "uploaded": "2026-10-31T20:50:23.828Z",
@@ -11141,9 +11141,9 @@
    "preview": "2026-10-31T20:50:25.637Z"
   },
   "/fr/en/nav": {
-   "uploaded": "2026-10-31T17:17:55.075Z",
-   "mtime": 1793466938400,
-   "preview": "2026-10-31T17:17:56.700Z"
+   "uploaded": "2026-11-01T07:08:14.583Z",
+   "mtime": 1793516148095,
+   "preview": "2026-11-01T07:08:16.442Z"
   },
   "/fr/en/footer": {
    "uploaded": "2026-10-31T20:50:55.409Z",
@@ -11151,9 +11151,9 @@
    "preview": "2026-10-31T20:50:57.142Z"
   },
   "/gr/en/nav": {
-   "uploaded": "2026-10-31T17:18:17.859Z",
-   "mtime": 1793466940695,
-   "preview": "2026-10-31T17:18:19.483Z"
+   "uploaded": "2026-11-01T07:10:59.652Z",
+   "mtime": 1793516148445,
+   "preview": "2026-11-01T07:11:01.541Z"
   },
   "/gr/en/footer": {
    "uploaded": "2026-10-31T20:51:59.377Z",
@@ -11161,9 +11161,9 @@
    "preview": "2026-10-31T20:52:01.238Z"
   },
   "/iq/en/nav": {
-   "uploaded": "2026-10-31T17:18:30.164Z",
-   "mtime": 1793466940851,
-   "preview": "2026-10-31T17:18:31.723Z"
+   "uploaded": "2026-11-01T07:11:13.063Z",
+   "mtime": 1793516148655,
+   "preview": "2026-11-01T07:11:14.604Z"
   },
   "/iq/en/footer": {
    "uploaded": "2026-10-31T20:52:12.232Z",
@@ -11171,9 +11171,9 @@
    "preview": "2026-10-31T20:52:13.913Z"
   },
   "/ir/en/nav": {
-   "uploaded": "2026-10-31T17:18:33.129Z",
-   "mtime": 1793466940883,
-   "preview": "2026-10-31T17:18:34.750Z"
+   "uploaded": "2026-11-01T07:11:16.043Z",
+   "mtime": 1793516148708,
+   "preview": "2026-11-01T07:11:18.020Z"
   },
   "/ir/en/footer": {
    "uploaded": "2026-10-31T20:52:15.215Z",
@@ -11181,9 +11181,9 @@
    "preview": "2026-10-31T20:52:16.813Z"
   },
   "/it/en/nav": {
-   "uploaded": "2026-10-31T17:18:36.051Z",
-   "mtime": 1793466940916,
-   "preview": "2026-10-31T17:18:37.770Z"
+   "uploaded": "2026-11-01T07:11:19.556Z",
+   "mtime": 1793516148759,
+   "preview": "2026-11-01T07:11:21.635Z"
   },
   "/it/en/footer": {
    "uploaded": "2026-10-31T20:52:18.116Z",
@@ -11301,9 +11301,9 @@
    "preview": "2026-10-31T13:48:58.256Z"
   },
   "/jo/en/nav": {
-   "uploaded": "2026-10-31T17:18:45.871Z",
-   "mtime": 1793466942058,
-   "preview": "2026-10-31T17:18:47.715Z"
+   "uploaded": "2026-11-01T07:13:55.151Z",
+   "mtime": 1793516149151,
+   "preview": "2026-11-01T07:13:57.086Z"
   },
   "/jo/en/footer": {
    "uploaded": "2026-10-31T20:52:46.591Z",
@@ -11311,9 +11311,9 @@
    "preview": "2026-10-31T20:52:48.311Z"
   },
   "/lt/en/nav": {
-   "uploaded": "2026-10-31T17:18:58.789Z",
-   "mtime": 1793466943218,
-   "preview": "2026-10-31T17:19:00.429Z"
+   "uploaded": "2026-11-01T07:14:05.139Z",
+   "mtime": 1793516149300,
+   "preview": "2026-11-01T07:14:06.750Z"
   },
   "/lt/en/footer": {
    "uploaded": "2026-10-31T20:53:20.132Z",
@@ -11321,9 +11321,9 @@
    "preview": "2026-10-31T20:53:22.075Z"
   },
   "/md/en/nav": {
-   "uploaded": "2026-10-31T17:19:01.913Z",
-   "mtime": 1793466943251,
-   "preview": "2026-10-31T17:19:03.485Z"
+   "uploaded": "2026-11-01T07:14:08.492Z",
+   "mtime": 1793516149350,
+   "preview": "2026-11-01T07:14:10.035Z"
   },
   "/md/en/footer": {
    "uploaded": "2026-10-31T20:53:23.299Z",
@@ -11331,9 +11331,9 @@
    "preview": "2026-10-31T20:53:25.309Z"
   },
   "/me/en/nav": {
-   "uploaded": "2026-10-31T17:19:04.837Z",
-   "mtime": 1793466943285,
-   "preview": "2026-10-31T17:19:06.768Z"
+   "uploaded": "2026-11-01T07:14:11.437Z",
+   "mtime": 1793516149401,
+   "preview": "2026-11-01T07:14:13.276Z"
   },
   "/me/en/footer": {
    "uploaded": "2026-10-31T20:53:27.017Z",
@@ -11341,9 +11341,9 @@
    "preview": "2026-10-31T20:53:28.728Z"
   },
   "/mk/en/nav": {
-   "uploaded": "2026-10-31T17:19:08.437Z",
-   "mtime": 1793466943317,
-   "preview": "2026-10-31T17:19:10.084Z"
+   "uploaded": "2026-11-01T07:14:14.936Z",
+   "mtime": 1793516149448,
+   "preview": "2026-11-01T07:14:16.740Z"
   },
   "/mk/en/footer": {
    "uploaded": "2026-10-31T20:53:30.278Z",
@@ -11351,9 +11351,9 @@
    "preview": "2026-10-31T20:53:31.978Z"
   },
   "/no/en/nav": {
-   "uploaded": "2026-10-31T17:19:14.614Z",
-   "mtime": 1793466943393,
-   "preview": "2026-10-31T17:19:16.384Z"
+   "uploaded": "2026-11-01T07:14:21.551Z",
+   "mtime": 1793516149545,
+   "preview": "2026-11-01T07:14:23.288Z"
   },
   "/no/en/footer": {
    "uploaded": "2026-10-31T20:53:36.164Z",
@@ -11361,9 +11361,9 @@
    "preview": "2026-10-31T20:53:37.784Z"
   },
   "/pl/en/nav": {
-   "uploaded": "2026-10-31T17:19:17.760Z",
-   "mtime": 1793466943425,
-   "preview": "2026-10-31T17:19:19.390Z"
+   "uploaded": "2026-11-01T07:14:24.766Z",
+   "mtime": 1793516149592,
+   "preview": "2026-11-01T07:14:26.552Z"
   },
   "/pl/en/footer": {
    "uploaded": "2026-10-31T20:53:39.456Z",
@@ -11371,9 +11371,9 @@
    "preview": "2026-10-31T20:53:41.188Z"
   },
   "/pt/en/nav": {
-   "uploaded": "2026-10-31T17:19:27.233Z",
-   "mtime": 1793466944563,
-   "preview": "2026-10-31T17:19:28.843Z"
+   "uploaded": "2026-11-01T07:14:31.130Z",
+   "mtime": 1793516149697,
+   "preview": "2026-11-01T07:14:33.007Z"
   },
   "/pt/en/footer": {
    "uploaded": "2026-10-31T20:54:07.945Z",
@@ -11381,9 +11381,9 @@
    "preview": "2026-10-31T20:54:09.919Z"
   },
   "/ro/en/nav": {
-   "uploaded": "2026-10-31T17:19:30.232Z",
-   "mtime": 1793466944596,
-   "preview": "2026-10-31T17:19:31.989Z"
+   "uploaded": "2026-11-01T07:14:34.405Z",
+   "mtime": 1793516149745,
+   "preview": "2026-11-01T07:14:36.199Z"
   },
   "/ro/en/footer": {
    "uploaded": "2026-10-31T20:54:11.283Z",
@@ -11391,9 +11391,9 @@
    "preview": "2026-10-31T20:54:12.982Z"
   },
   "/rs/en/nav": {
-   "uploaded": "2026-10-31T19:38:42.305Z",
-   "mtime": 1793475502420,
-   "preview": "2026-10-31T19:38:44.271Z"
+   "uploaded": "2026-11-01T07:14:37.559Z",
+   "mtime": 1793516149790,
+   "preview": "2026-11-01T07:14:39.606Z"
   },
   "/rs/en/footer": {
    "uploaded": "2026-10-31T20:54:14.201Z",
@@ -11401,9 +11401,9 @@
    "preview": "2026-10-31T20:54:16.038Z"
   },
   "/ru/en/nav": {
-   "uploaded": "2026-10-31T19:38:45.894Z",
-   "mtime": 1793475502455,
-   "preview": "2026-10-31T19:38:47.718Z"
+   "uploaded": "2026-11-01T07:14:41.004Z",
+   "mtime": 1793516149837,
+   "preview": "2026-11-01T07:14:42.652Z"
   },
   "/ru/en/footer": {
    "uploaded": "2026-10-31T20:54:17.404Z",
@@ -11411,9 +11411,9 @@
    "preview": "2026-10-31T20:54:19.229Z"
   },
   "/se/en/nav": {
-   "uploaded": "2026-10-31T19:38:55.350Z",
-   "mtime": 1793475503619,
-   "preview": "2026-10-31T19:38:57.097Z"
+   "uploaded": "2026-11-01T07:14:47.507Z",
+   "mtime": 1793516149964,
+   "preview": "2026-11-01T07:14:49.259Z"
   },
   "/se/en/footer": {
    "uploaded": "2026-10-31T20:54:45.575Z",
@@ -11421,9 +11421,9 @@
    "preview": "2026-10-31T20:54:47.341Z"
   },
   "/si/en/nav": {
-   "uploaded": "2026-10-31T19:38:58.533Z",
-   "mtime": 1793475503668,
-   "preview": "2026-10-31T19:39:00.522Z"
+   "uploaded": "2026-11-01T07:14:50.811Z",
+   "mtime": 1793516150014,
+   "preview": "2026-11-01T07:14:52.472Z"
   },
   "/si/en/footer": {
    "uploaded": "2026-10-31T20:54:48.824Z",
@@ -11431,9 +11431,9 @@
    "preview": "2026-10-31T20:54:50.743Z"
   },
   "/sk/en/nav": {
-   "uploaded": "2026-10-31T19:39:01.860Z",
-   "mtime": 1793475503704,
-   "preview": "2026-10-31T19:39:03.540Z"
+   "uploaded": "2026-11-01T07:14:53.971Z",
+   "mtime": 1793516150069,
+   "preview": "2026-11-01T07:14:55.875Z"
   },
   "/sk/en/footer": {
    "uploaded": "2026-10-31T20:54:52.032Z",
@@ -11441,9 +11441,9 @@
    "preview": "2026-10-31T20:54:53.649Z"
   },
   "/tr/en/nav": {
-   "uploaded": "2026-10-31T19:39:07.955Z",
-   "mtime": 1793475503780,
-   "preview": "2026-10-31T19:39:09.583Z"
+   "uploaded": "2026-11-01T07:15:00.719Z",
+   "mtime": 1793516150172,
+   "preview": "2026-11-01T07:15:02.365Z"
   },
   "/tr/en/footer": {
    "uploaded": "2026-10-31T20:54:58.202Z",
@@ -11451,9 +11451,9 @@
    "preview": "2026-10-31T20:55:00.000Z"
   },
   "/ua/en/nav": {
-   "uploaded": "2026-10-31T19:39:11.169Z",
-   "mtime": 1793475503816,
-   "preview": "2026-10-31T19:39:12.970Z"
+   "uploaded": "2026-11-01T07:15:03.977Z",
+   "mtime": 1793516150221,
+   "preview": "2026-11-01T07:15:05.664Z"
   },
   "/ua/en/footer": {
    "uploaded": "2026-10-31T20:55:01.500Z",
@@ -11461,9 +11461,9 @@
    "preview": "2026-10-31T20:55:03.462Z"
   },
   "/xk/en/nav": {
-   "uploaded": "2026-10-31T19:39:17.236Z",
-   "mtime": 1793475503892,
-   "preview": "2026-10-31T19:39:19.201Z"
+   "uploaded": "2026-11-01T07:15:11.380Z",
+   "mtime": 1793516150381,
+   "preview": "2026-11-01T07:15:13.109Z"
   },
   "/xk/en/footer": {
    "uploaded": "2026-10-31T20:55:08.088Z",
@@ -11471,9 +11471,9 @@
    "preview": "2026-10-31T20:55:09.789Z"
   },
   "/xx/en/nav": {
-   "uploaded": "2026-10-31T19:39:20.415Z",
-   "mtime": 1793475503927,
-   "preview": "2026-10-31T19:39:22.257Z"
+   "uploaded": "2026-11-01T07:15:15.017Z",
+   "mtime": 1793516150439,
+   "preview": "2026-11-01T07:15:16.740Z"
   },
   "/xx/en/footer": {
    "uploaded": "2026-10-31T20:55:11.071Z",
@@ -11481,9 +11481,9 @@
    "preview": "2026-10-31T20:55:12.710Z"
   },
   "/at/de/footer-pages/help-and-contact/contact-form-refund/refund-form/refunds-success": {
-   "uploaded": "2026-10-31T11:01:19.458Z",
-   "mtime": 1793444333091,
-   "preview": "2026-10-31T11:01:21.075Z"
+   "uploaded": "2026-11-01T07:04:07.979Z",
+   "mtime": 1793516614298,
+   "preview": "2026-11-01T07:04:09.689Z"
   },
   "/cn/zh/fly/check-in/emergency-contact/confirmation": {
    "uploaded": "2026-10-31T11:01:22.384Z",
@@ -11501,14 +11501,14 @@
    "preview": "2026-10-31T11:01:29.336Z"
   },
   "/es/es/fly/check-in/emergency-contact/confirmation": {
-   "uploaded": "2026-10-31T11:01:30.399Z",
-   "mtime": 1793444388442,
-   "preview": "2026-10-31T11:01:31.915Z"
+   "uploaded": "2026-11-01T07:07:16.187Z",
+   "mtime": 1793516615451,
+   "preview": "2026-11-01T07:07:18.065Z"
   },
   "/es/es/fly/check-in/private-check-in-counter/confirmation-private-check-in-counter": {
-   "uploaded": "2026-10-31T11:01:33.060Z",
-   "mtime": 1793444333279,
-   "preview": "2026-10-31T11:01:34.647Z"
+   "uploaded": "2026-11-01T07:07:22.870Z",
+   "mtime": 1793516615503,
+   "preview": "2026-11-01T07:07:24.455Z"
   },
   "/es/es/footer-pages/help-and-contact/form-confirmation": {
    "uploaded": "2026-10-31T11:01:35.847Z",
@@ -11516,14 +11516,14 @@
    "preview": "2026-10-31T11:01:37.330Z"
   },
   "/fr/fr/fly/check-in/emergency-contact/confirmation": {
-   "uploaded": "2026-10-31T11:01:38.321Z",
-   "mtime": 1793444389641,
-   "preview": "2026-10-31T11:01:39.731Z"
+   "uploaded": "2026-11-01T07:09:51.959Z",
+   "mtime": 1793516616771,
+   "preview": "2026-11-01T07:09:53.572Z"
   },
   "/fr/fr/fly/check-in/private-check-in-counter/confirmation-private-check-in-counter": {
-   "uploaded": "2026-10-31T11:01:40.834Z",
-   "mtime": 1793444333397,
-   "preview": "2026-10-31T11:01:42.463Z"
+   "uploaded": "2026-11-01T07:09:58.103Z",
+   "mtime": 1793516616835,
+   "preview": "2026-11-01T07:09:59.741Z"
   },
   "/fr/fr/footer-pages/help-and-contact/form-confirmation": {
    "uploaded": "2026-10-31T11:01:43.523Z",
@@ -11546,14 +11546,14 @@
    "preview": "2026-10-31T11:01:53.315Z"
   },
   "/it/it/fly/check-in/emergency-contact/confirmation": {
-   "uploaded": "2026-10-31T11:01:54.371Z",
-   "mtime": 1793444392278,
-   "preview": "2026-10-31T11:01:55.973Z"
+   "uploaded": "2026-11-01T07:12:58.294Z",
+   "mtime": 1793516618208,
+   "preview": "2026-11-01T07:13:00.088Z"
   },
   "/it/it/fly/check-in/private-check-in-counter/confirmation-private-check-in-counter": {
-   "uploaded": "2026-10-31T11:01:57.120Z",
-   "mtime": 1793444333628,
-   "preview": "2026-10-31T11:01:58.843Z"
+   "uploaded": "2026-11-01T07:13:05.108Z",
+   "mtime": 1793516618259,
+   "preview": "2026-11-01T07:13:06.628Z"
   },
   "/it/it/footer-pages/help-and-contact/form-confirmation": {
    "uploaded": "2026-10-31T11:02:00.197Z",
