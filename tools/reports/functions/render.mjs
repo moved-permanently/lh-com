@@ -216,7 +216,7 @@ export function renderCanvas(doc) {
   ].join('\n');
 }
 
-/** Problems of a served .plain.html of the page: lost titled links, missing anchors, an older version. */
+/** Problems of a served .plain.html of the page: lost titled links, missing anchors, an older version (date or change). */
 export function verifyPlain(doc, html) {
   const errors = [];
   const links = titledItemLinks(html).length;
@@ -224,7 +224,10 @@ export function verifyPlain(doc, html) {
   ['legend', 'functions', ...doc.brands.map((b) => slug(b.name))].forEach((id) => {
     if (!html.includes(`id="${id}"`)) errors.push(`no heading id "${id}"`);
   });
-  if (!html.includes(`Updated ${day(doc.updated)}:`)) errors.push(`no "Updated ${day(doc.updated)}" line`);
+  const text = html.replace(/<[^>]+>/g, '').replace(/&#39;|&#x27;|&apos;/g, "'").replace(/&quot;/g, '"').replace(/&amp;/g, '&');
+  const line = `Updated ${day(doc.updated)}: ${doc.change}`;
+  if (!text.includes(`Updated ${day(doc.updated)}:`)) errors.push(`no "Updated ${day(doc.updated)}" line`);
+  else if (!text.includes(line)) errors.push(`no "${line}" line: the page is an older version of the same day`);
   return errors;
 }
 

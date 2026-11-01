@@ -83,7 +83,8 @@ web client in a browser tab signed in to Slack:
 3. Press Meta+A twice, then Backspace. This empties the canvas, title included; Meta+A once selects only a section.
 4. Click the empty title line.
 5. In the page, dispatch a paste with the HTML of `out/canvas.html`, on the node the selection is in (its parent element
-   when it is a text node; the editor root ignores the event):
+   when it is a text node; the editor root ignores the event). Put only `text/html` on it: with a `text/plain` part as
+   well, Slack pastes the plain text, and the table, links and list are lost.
 
    ```js
    const html = /* contents of out/canvas.html */;
@@ -91,10 +92,14 @@ web client in a browser tab signed in to Slack:
    const node = sel.anchorNode.nodeType === 3 ? sel.anchorNode.parentElement : sel.anchorNode;
    const data = new DataTransfer();
    data.setData('text/html', html);
-   data.setData('text/plain', html.replace(/<[^>]+>/g, ' '));
    node.dispatchEvent(new ClipboardEvent('paste', { clipboardData: data, bubbles: true, cancelable: true }));
    ```
 
+   `node -p 'JSON.stringify(require("fs").readFileSync("tools/reports/functions/out/canvas.html", "utf8"))'` prints the
+   HTML as a JavaScript string to put in place of the comment.
+
 6. The first `<h1>` becomes the canvas title; tables, links, bold and lists come through.
 7. Check the result with a screenshot of the canvas, not with the DOM: in a background tab the editor DOM keeps stale
-   sections.
+   sections. Scroll through it: title and date, legend, the table (it scrolls sideways for Cargo and Air Dolomiti),
+   totals and the numbered notes.
+8. If Slack asks "Set yourself to active?", answer it first; the dialog sits over the canvas tab.

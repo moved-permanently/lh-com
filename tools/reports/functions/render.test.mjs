@@ -183,7 +183,7 @@ test('markdown: legend, table with brand columns and every note', () => {
   assert.match(md, /Built, not on the pages yet\./);
 });
 
-test('verify: the served page has every titled item link, the brand and section anchors and the update line', () => {
+test('verify: the served page has every titled item link, the brand and section anchors and the current update line', () => {
   const doc = fixture();
   const served = renderPage(doc)
     .replace('<h3>Air Dolomiti</h3>', '<h3 id="air-dolomiti">Air Dolomiti</h3>')
@@ -195,6 +195,10 @@ test('verify: the served page has every titled item link, the brand and section 
   assert.match(errors, /17 titled item links, expected 18/);
   assert.match(errors, /no heading id "air-dolomiti"/);
   assert.match(verifyPlain({ ...doc, updated: '2026-11-02' }, served).join('\n'), /no "Updated 2 November 2026"/);
+  assert.match(verifyPlain({ ...doc, change: 'Cargo moved too.' }, served).join('\n'), /no "Updated 1 November 2026: Cargo moved too\." line/);
+  const quoted = { ...doc, change: 'Cargo\'s newsletter needs Cargo & Dynamics.' };
+  assert.deepEqual(verifyPlain(quoted, served.replace('Flight status moved.', 'Cargo&#39;s newsletter needs Cargo &amp; Dynamics.')), []);
+  assert.deepEqual(verifyPlain(quoted, served.replace('Flight status moved.', 'Cargo\'s newsletter needs Cargo &amp; Dynamics.')), []);
 });
 
 test('the committed functions.json is valid and functions.md is current', () => {
