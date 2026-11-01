@@ -1,6 +1,6 @@
 {
   "updated": "2026-11-01",
-  "change": "Discover has the travellers and cabin picker, live security waiting times and its own site search, and its pre-order food page carries the culinary app.",
+  "change": "Lufthansa's check-in deadline search, compensation claim page and newsletter page are on the replica, and its culinary and help center apps are on their pages.",
   "legend": {
     "done": {
       "label": "works on our replica",
@@ -35,8 +35,7 @@
     "adbooking": "Air Dolomiti sells through its own booking engine, not Lufthansa's shop. Since 1 November the search form is on the replica's homepages, route pages and booking pages and hands the trip to that engine, as www does; the engine's bot check can show a captcha, as it can on www.",
     "lhbooking": "Lufthansa's manage booking and hotel tabs hand over to two services that run in AEM today. Their replacements answer with test data, and since 1 November the tabs post to them on the airline's own address; on the replica's addresses they keep opening www, so no real booking reaches test data.",
     "signin": "On Discover, ITA, Austrian and Brussels Airlines, manage booking goes through a deep link to the login and profile pages, which are on the new platform since 1 November. The services behind the deep link answer with test data, and since 1 November the replicas' addresses route the deep link to them, so it ends on the replica's login page.",
-    "lhpages": "Three Lufthansa pages with these functions aren't on the replica yet: check-in deadlines, the compensation claim and the newsletter. They are being imported now, the check-in page with the search block that is live on Austrian and Brussels Airlines. Until then our pages link to www.",
-    "travelidapps": "The help center and culinary hub apps are in the shared code and load on our pages, but their data comes from the airline's Travel ID service, which refuses our test addresses. They work once the site runs on the airline's own address, or once Lufthansa allows ours.",
+    "travelidapps": "The help center, culinary hub and compensation claim apps are in the shared code and load on our pages, but their data comes from the airline's Travel ID service (and, for the claim, Miles & More's booking service), which refuses our test addresses. They work once the site runs on the airline's own address, or once Lufthansa allows ours.",
     "adown": "Switching off Air Dolomiti's current website is a goal, so its timetable, manage booking, newsletter and eSIM pages get versions of their own. Its booking service answers our addresses, so timetable and manage booking can work as on www; the newsletter becomes a form on our own forms service.",
     "cargostays": "Cargo's booking, schedules, customer portal, station finder and eServices stay on Cargo's current systems; the new site links to them.",
     "cargomoves": "Cargo's public pages move completely: contact forms, notifications, help and contact search, the newsletter page and the tracking entry form get versions on the new platform.",
@@ -633,11 +632,10 @@
       "about": "The search that shows the check-in deadline at an airport.",
       "cells": {
         "lufthansa": {
-          "status": "wip",
-          "note": "The search block is built and live on Austrian and Brussels Airlines; Lufthansa's own check-in deadline page comes next, and until then our pages link to www's page.",
-          "footnote": "lhpages",
-          "page": "/de/en/all-check-in",
-          "evidence": "M2 scope addition; M1 2026-11-01: catalogs/checkin/info answers lufthansa.turnsthe.page"
+          "status": "done",
+          "note": "Lufthansa's check-in deadline page is on the replica with the search block, in four markets; it shows www's live counters and deadlines.",
+          "page": "/de/en/check-in-deadlines",
+          "evidence": "ema-test 237 (9576724f, 95237246, dd6c60c5; 28 documents); published 2026-11-01 lh-com job-2026-11-01-19-38-07-299b35cc; my preview check de/de: 120 countries, Frankfurt Terminal 1 Hall B 60 minutes"
         },
         "discover": {
           "status": "none",
@@ -1109,9 +1107,10 @@
       "cells": {
         "lufthansa": {
           "status": "wip",
-          "note": "The culinary hub app is in the shared code since 1 November, but the replica's page doesn't have it yet.",
+          "note": "Lufthansa's culinary journey pages carry the app since 1 November; the parts that need a booking come from Lufthansa's Travel ID service, which refuses our addresses.",
+          "footnote": "travelidapps",
           "page": "/de/en/culinaryjourney",
-          "evidence": "e74d57f2; fill check 2026-11-01: page has only Need help"
+          "evidence": "ema-test 237 (9576724f, 95237246, dd6c60c5; 28 documents); published 2026-11-01 lh-com job-2026-11-01-19-38-07-299b35cc; live /de/de/culinaryjourney has culinary-hub"
         },
         "discover": {
           "status": "wip",
@@ -1295,9 +1294,9 @@
       "cells": {
         "lufthansa": {
           "status": "wip",
-          "note": "The help center app is in the shared code since 1 November; the replica's help page still shows a fixed list of topics without search.",
+          "note": "The help center app runs on lufthansa.turnsthe.page since 1 November with search and topics; the fixed topic list still shows under it and goes next.",
           "page": "/de/en/help-and-contact",
-          "evidence": "e74d57f2; fill check 2026-11-01"
+          "evidence": "ema-test 237 (9576724f, 95237246, dd6c60c5; 28 documents); published 2026-11-01 lh-com job-2026-11-01-19-38-07-299b35cc; live check 20:4x: help-center-web 4.3.1 renders, accordion list duplicated below (239 item 3)"
         },
         "discover": {
           "status": "none",
@@ -1444,10 +1443,10 @@
       "cells": {
         "lufthansa": {
           "status": "wip",
-          "note": "Lufthansa's compensation claim page isn't on the replica yet; it comes with the claim app, and our pages link to www's until then.",
-          "footnote": "lhpages",
-          "page": "/de/en/flight-disruptions",
-          "evidence": "M2 scope addition (fast-compensation)"
+          "note": "Lufthansa's compensation claim page is on the replica with the claim app since 1 November; looking up a booking needs Lufthansa's Travel ID and Miles & More services, which refuse our addresses.",
+          "footnote": "travelidapps",
+          "page": "/de/en/support/fast-compensation/compensation-flight-disruptions",
+          "evidence": "ema-test 237 (9576724f, 95237246, dd6c60c5; 28 documents); published 2026-11-01 lh-com job-2026-11-01-19-38-07-299b35cc; claim-form-entry 0.11.16 loads from lufthansa.turnsthe.page/digitalhangar; loginstatus and bookingdetails preflight 401 from our hosts (ema-test); 8 fast-compensation redirects 301"
         },
         "discover": {
           "status": "elsewhere",
@@ -1492,10 +1491,10 @@
       "about": "Signing up for the airline's newsletter.",
       "cells": {
         "lufthansa": {
-          "status": "wip",
-          "note": "Lufthansa's newsletter page isn't on the replica yet; the footer links to www's until it is.",
-          "footnote": "lhpages",
-          "evidence": "M2 scope addition (register-newsletter)"
+          "status": "elsewhere",
+          "note": "Lufthansa's newsletter page is on the replica; sign-up runs through Travel ID registration, which stays.",
+          "page": "/de/en/discover-lufthansa/register-newsletter",
+          "evidence": "ema-test 237 (9576724f, 95237246, dd6c60c5; 28 documents); published 2026-11-01 lh-com job-2026-11-01-19-38-07-299b35cc; footers link our page"
         },
         "discover": {
           "status": "none",
