@@ -11,14 +11,14 @@
    "preview": "2026-11-01T18:46:29.421Z"
   },
   "/de/en/nav": {
-   "uploaded": "2026-10-27T09:24:19.772Z",
-   "mtime": 1793092453885,
-   "preview": "2026-10-27T09:24:21.741Z"
+   "uploaded": "2026-10-30T08:09:58.630Z",
+   "mtime": 1793347662927,
+   "preview": "2026-10-30T08:10:00.319Z"
   },
   "/de/de/nav": {
-   "uploaded": "2026-10-27T09:24:22.853Z",
-   "mtime": 1793092453789,
-   "preview": "2026-10-27T09:24:24.507Z"
+   "uploaded": "2026-10-30T14:27:04.639Z",
+   "mtime": 1793370423759,
+   "preview": "2026-10-30T14:27:06.446Z"
   },
   "/de/en/footer": {
    "uploaded": "2026-11-01T18:44:57.060Z",
@@ -36,29 +36,29 @@
    "preview": "2026-11-01T18:45:30.011Z"
   },
   "/de/en/discover/ocean-blue": {
-   "uploaded": "2026-10-27T09:30:17.928Z",
-   "mtime": 1793092424227,
-   "preview": "2026-10-27T09:30:20.857Z"
+   "uploaded": "2026-10-30T02:12:38.683Z",
+   "mtime": 1793325991162,
+   "preview": "2026-10-30T02:12:40.559Z"
   },
   "/de/en/book/special-requests/pets": {
-   "uploaded": "2026-10-27T09:30:21.939Z",
-   "mtime": 1793092424203,
-   "preview": "2026-10-27T09:30:23.986Z"
+   "uploaded": "2026-10-30T05:32:21.381Z",
+   "mtime": 1793337923631,
+   "preview": "2026-10-30T05:32:23.386Z"
   },
   "/de/en/book/baggage": {
-   "uploaded": "2026-10-27T09:30:25.139Z",
-   "mtime": 1793092424182,
-   "preview": "2026-10-27T09:30:27.102Z"
+   "uploaded": "2026-10-29T14:54:00.087Z",
+   "mtime": 1793285298233,
+   "preview": "2026-10-29T14:54:02.125Z"
   },
   "/de/en/my-bookings/services/upgrades": {
-   "uploaded": "2026-10-27T09:30:28.163Z",
-   "mtime": 1793092424318,
-   "preview": "2026-10-27T09:30:30.305Z"
+   "uploaded": "2026-10-29T14:54:03.941Z",
+   "mtime": 1793285299477,
+   "preview": "2026-10-29T14:54:05.964Z"
   },
   "/de/en/book/assistance-requirements/accessible-travel": {
-   "uploaded": "2026-10-27T09:30:31.337Z",
-   "mtime": 1793092424160,
-   "preview": "2026-10-27T09:30:33.035Z"
+   "uploaded": "2026-10-29T20:57:19.641Z",
+   "mtime": 1793307371456,
+   "preview": "2026-10-29T20:57:21.474Z"
   },
   "/de/en/my-bookings/manage/customer-service": {
    "uploaded": "2026-11-01T18:45:12.166Z",
@@ -71,104 +71,859 @@
    "preview": "2026-11-01T18:45:33.478Z"
   },
   "/de/de/discover/ocean-blue": {
-   "uploaded": "2026-10-27T09:30:39.797Z",
-   "mtime": 1793092423976,
-   "preview": "2026-10-27T09:30:41.345Z"
+   "uploaded": "2026-10-30T02:12:34.705Z",
+   "mtime": 1793325990259,
+   "preview": "2026-10-30T02:12:37.238Z"
   },
   "/de/de/my-bookings/services/additional-services/europ-assistance": {
-   "uploaded": "2026-10-27T09:30:42.422Z",
-   "mtime": 1793092424074,
-   "preview": "2026-10-27T09:30:44.810Z"
+   "uploaded": "2026-10-30T05:10:52.708Z",
+   "mtime": 1793336275571,
+   "preview": "2026-10-30T05:10:54.992Z"
   },
   "/de/de/book/baggage": {
-   "uploaded": "2026-10-27T09:30:45.874Z",
-   "mtime": 1793092423950,
-   "preview": "2026-10-27T09:30:47.375Z"
+   "uploaded": "2026-10-30T05:12:20.210Z",
+   "mtime": 1793335929046,
+   "preview": "2026-10-30T05:12:22.008Z"
   },
   "/de/de/my-bookings/services/upgrades": {
-   "uploaded": "2026-10-27T09:30:48.431Z",
-   "mtime": 1793092424097,
-   "preview": "2026-10-27T09:30:49.818Z"
+   "uploaded": "2026-10-30T05:11:09.497Z",
+   "mtime": 1793336275797,
+   "preview": "2026-10-30T05:11:11.226Z"
   },
   "/de/de/book/assistance-requirements/accessible-travel": {
-   "uploaded": "2026-10-27T09:30:50.883Z",
-   "mtime": 1793092423923,
-   "preview": "2026-10-27T09:30:52.430Z"
+   "uploaded": "2026-10-30T05:12:23.235Z",
+   "mtime": 1793335928720,
+   "preview": "2026-10-30T05:12:25.029Z"
   },
   "/de/de/my-bookings/manage/customer-service": {
    "uploaded": "2026-11-01T18:45:16.617Z",
    "mtime": 1793556928366,
    "preview": "2026-11-01T18:45:18.989Z"
   },
-  "/de/en/culinaryjourney": {
-   "uploaded": "2026-11-01T18:37:29.217Z",
-   "mtime": 1793556253083,
-   "preview": "2026-11-01T18:37:31.228Z"
+  "/de/en/book/assistance-requirements": {
+   "uploaded": "2026-10-29T12:02:37.838Z",
+   "mtime": 1793275320089,
+   "preview": "2026-10-29T12:02:40.257Z"
   },
-  "/de/de/culinaryjourney": {
-   "uploaded": "2026-11-01T18:37:32.950Z",
-   "mtime": 1793556254924,
-   "preview": "2026-11-01T18:37:34.803Z"
+  "/de/en/book/assistance-requirements/accessible-travel/accessibility-plan-canada": {
+   "uploaded": "2026-10-29T20:57:04.364Z",
+   "mtime": 1793307371255,
+   "preview": "2026-10-29T20:57:06.490Z"
   },
-  "/xx/fr/culinaryjourney": {
-   "uploaded": "2026-11-01T18:37:36.556Z",
-   "mtime": 1793556256998,
-   "preview": "2026-11-01T18:37:38.235Z"
+  "/de/en/book/assistance-requirements/accessible-travel/accessible-travel-usa": {
+   "uploaded": "2026-10-30T05:32:28.069Z",
+   "mtime": 1793337924204,
+   "preview": "2026-10-30T05:32:29.837Z"
   },
-  "/xx/fr/footer": {
-   "uploaded": "2026-11-01T18:45:04.790Z",
-   "mtime": 1793556494255,
-   "preview": "2026-11-01T18:45:06.646Z"
+  "/de/en/book/assistance-requirements/accessible-travel/health": {
+   "uploaded": "2026-10-29T12:02:47.803Z",
+   "mtime": 1793275319950,
+   "preview": "2026-10-29T12:02:50.210Z"
   },
-  "/xx/fr/my-bookings/manage/customer-service": {
-   "uploaded": "2026-11-01T18:45:20.575Z",
-   "mtime": 1793556929869,
-   "preview": "2026-11-01T18:45:22.494Z"
+  "/de/en/book/assistance-requirements/accessible-travel/register-assistance-requirements-online": {
+   "uploaded": "2026-10-30T05:12:26.776Z",
+   "mtime": 1793336400349,
+   "preview": "2026-10-30T05:12:28.459Z"
+  },
+  "/de/en/book/assistance-requirements/accessible-travel/sensory-impairment": {
+   "uploaded": "2026-10-29T12:02:54.634Z",
+   "mtime": 1793275320004,
+   "preview": "2026-10-29T12:02:57.133Z"
+  },
+  "/de/en/book/assistance-requirements/accessible-travel/wheelchairs": {
+   "uploaded": "2026-10-29T20:57:16.115Z",
+   "mtime": 1793307371413,
+   "preview": "2026-10-29T20:57:18.216Z"
+  },
+  "/de/en/book/baggage/airportr": {
+   "uploaded": "2026-10-29T12:03:01.247Z",
+   "mtime": 1793275320110,
+   "preview": "2026-10-29T12:03:03.436Z"
+  },
+  "/de/en/book/baggage/baggage-irregularities": {
+   "uploaded": "2026-10-29T14:54:17.868Z",
+   "mtime": 1793285297936,
+   "preview": "2026-10-29T14:54:19.727Z"
+  },
+  "/de/en/book/baggage/baggage-irregularities/faq-damaged-baggage": {
+   "uploaded": "2026-10-29T14:54:21.120Z",
+   "mtime": 1793285297899,
+   "preview": "2026-10-29T14:54:22.905Z"
+  },
+  "/de/en/book/baggage/carry-on-baggage": {
+   "uploaded": "2026-10-30T05:32:31.391Z",
+   "mtime": 1793337923339,
+   "preview": "2026-10-30T05:32:33.030Z"
+  },
+  "/de/en/book/baggage/dangerous-goods": {
+   "uploaded": "2026-10-29T20:57:27.036Z",
+   "mtime": 1793307371627,
+   "preview": "2026-10-29T20:57:29.188Z"
+  },
+  "/de/en/book/baggage/dangerous-goods/electronic-devices-and-batteries": {
+   "uploaded": "2026-10-30T05:32:34.468Z",
+   "mtime": 1793337924228,
+   "preview": "2026-10-30T05:32:36.559Z"
+  },
+  "/de/en/book/baggage/electronic-bag-tags": {
+   "uploaded": "2026-10-29T14:54:31.957Z",
+   "mtime": 1793285298030,
+   "preview": "2026-10-29T14:54:34.071Z"
+  },
+  "/de/en/book/baggage/excess-baggage": {
+   "uploaded": "2026-10-30T05:32:38.042Z",
+   "mtime": 1793337923398,
+   "preview": "2026-10-30T05:32:39.675Z"
+  },
+  "/de/en/book/baggage/sports-baggage-and-special-baggage": {
+   "uploaded": "2026-10-30T05:32:41.089Z",
+   "mtime": 1793337923474,
+   "preview": "2026-10-30T05:32:43.152Z"
+  },
+  "/de/en/book/baggage/sports-baggage-and-special-baggage/add-sports-baggage": {
+   "uploaded": "2026-10-30T05:12:29.892Z",
+   "mtime": 1793336399478,
+   "preview": "2026-10-30T05:12:32.025Z"
+  },
+  "/de/en/book/baggage/sports-baggage-and-special-baggage/register-ammunition": {
+   "uploaded": "2026-10-30T05:12:33.343Z",
+   "mtime": 1793336399510,
+   "preview": "2026-10-30T05:12:34.820Z"
+  },
+  "/de/en/book/baggage/sports-baggage-and-special-baggage/register-ammunition/thank-you": {
+   "uploaded": "2026-10-30T14:27:15.053Z",
+   "mtime": 1793369275491,
+   "preview": "2026-10-30T14:27:16.854Z"
+  },
+  "/de/en/book/baggage/sports-baggage-and-special-baggage/register-hunting-firearm": {
+   "uploaded": "2026-10-30T05:12:36.220Z",
+   "mtime": 1793336399542,
+   "preview": "2026-10-30T05:12:37.926Z"
+  },
+  "/de/en/book/baggage/sports-baggage-and-special-baggage/register-hunting-firearm/thank-you": {
+   "uploaded": "2026-10-29T18:18:35.446Z",
+   "mtime": 1793297785159,
+   "preview": "2026-10-29T18:18:37.256Z"
+  },
+  "/de/en/book/baggage/sports-baggage-and-special-baggage/register-sporting-firearm": {
+   "uploaded": "2026-10-30T05:12:39.488Z",
+   "mtime": 1793336399572,
+   "preview": "2026-10-30T05:12:41.679Z"
+  },
+  "/de/en/book/baggage/sports-baggage-and-special-baggage/register-sporting-firearm/thank-you": {
+   "uploaded": "2026-10-29T18:18:41.750Z",
+   "mtime": 1793297785226,
+   "preview": "2026-10-29T18:18:43.624Z"
+  },
+  "/de/en/book/flights/flight-search": {
+   "uploaded": "2026-11-01T18:46:35.512Z",
+   "mtime": 1793557134070,
+   "preview": "2026-11-01T18:46:37.367Z"
+  },
+  "/de/en/book/flights/gift-voucher": {
+   "uploaded": "2026-10-29T14:25:11.577Z",
+   "mtime": 1793283831615,
+   "preview": "2026-10-29T14:25:13.931Z"
+  },
+  "/de/en/book/flights/offers": {
+   "uploaded": "2026-10-29T12:04:00.719Z",
+   "mtime": 1793275320608,
+   "preview": "2026-10-29T12:04:02.486Z"
+  },
+  "/de/en/book/flights/smart-destination-search": {
+   "uploaded": "2026-10-29T12:04:03.747Z",
+   "mtime": 1793275320630,
+   "preview": "2026-10-29T12:04:07.012Z"
+  },
+  "/de/en/book/flights/timetable": {
+   "uploaded": "2026-10-29T15:15:16.575Z",
+   "mtime": 1793286890352,
+   "preview": "2026-10-29T15:15:18.479Z"
+  },
+  "/de/en/book/north-america-promotion": {
+   "uploaded": "2026-10-30T14:27:11.627Z",
+   "mtime": 1793369275463,
+   "preview": "2026-10-30T14:27:13.600Z"
+  },
+  "/de/en/book/special-requests": {
+   "uploaded": "2026-10-29T12:04:14.777Z",
+   "mtime": 1793275320938,
+   "preview": "2026-10-29T12:04:17.308Z"
+  },
+  "/de/en/book/special-requests/families": {
+   "uploaded": "2026-10-30T07:19:45.905Z",
+   "mtime": 1793344749214,
+   "preview": "2026-10-30T07:19:48.104Z"
+  },
+  "/de/en/book/special-requests/pets/animal-cargo-hold": {
+   "uploaded": "2026-10-30T05:32:47.692Z",
+   "mtime": 1793337924279,
+   "preview": "2026-10-30T05:32:49.277Z"
+  },
+  "/de/en/book/special-requests/pets/animal-cargo-hold/register-animal-cargo-hold": {
+   "uploaded": "2026-10-30T05:12:43.284Z",
+   "mtime": 1793336400320,
+   "preview": "2026-10-30T05:12:44.893Z"
+  },
+  "/de/en/book/special-requests/pets/animal-in-cabin": {
+   "uploaded": "2026-10-30T05:32:50.910Z",
+   "mtime": 1793337924300,
+   "preview": "2026-10-30T05:32:52.580Z"
+  },
+  "/de/en/book/special-requests/pets/animal-in-cabin/register-animal-cabin": {
+   "uploaded": "2026-10-30T05:12:46.477Z",
+   "mtime": 1793336400293,
+   "preview": "2026-10-30T05:12:48.318Z"
+  },
+  "/de/en/book/special-requests/pets/assistance-dogs": {
+   "uploaded": "2026-10-29T20:57:48.465Z",
+   "mtime": 1793307372169,
+   "preview": "2026-10-29T20:57:50.241Z"
+  },
+  "/de/en/book/special-requests/pets/fighting-dog-breeds-snub-nosed-animals": {
+   "uploaded": "2026-10-30T05:32:53.906Z",
+   "mtime": 1793337923611,
+   "preview": "2026-10-30T05:32:55.625Z"
+  },
+  "/de/en/book/special-requests/special-meals": {
+   "uploaded": "2026-10-30T02:11:43.205Z",
+   "mtime": 1793325667696,
+   "preview": "2026-10-30T02:11:45.480Z"
+  },
+  "/de/en/book/travel-information": {
+   "uploaded": "2026-10-29T14:55:09.860Z",
+   "mtime": 1793285298684,
+   "preview": "2026-10-29T14:55:11.649Z"
+  },
+  "/de/en/book/travel-information/airport-info": {
+   "uploaded": "2026-10-29T14:55:13.360Z",
+   "mtime": 1793285298476,
+   "preview": "2026-10-29T14:55:15.297Z"
   },
   "/de/en/book/travel-information/airport-info/security-check-time-slot": {
    "uploaded": "2026-11-01T18:45:38.063Z",
    "mtime": 1793556928964,
    "preview": "2026-11-01T18:45:39.750Z"
   },
-  "/de/de/book/travel-information/airport-info/security-check-time-slot": {
-   "uploaded": "2026-11-01T18:45:41.411Z",
-   "mtime": 1793556928136,
-   "preview": "2026-11-01T18:45:43.072Z"
+  "/de/en/book/travel-information/discover-canada": {
+   "uploaded": "2026-10-30T02:11:46.812Z",
+   "mtime": 1793325667745,
+   "preview": "2026-10-30T02:11:49.403Z"
   },
-  "/xx/fr/book/travel-information/airport-info/security-check-time-slot": {
-   "uploaded": "2026-11-01T18:45:44.622Z",
-   "mtime": 1793556929625,
-   "preview": "2026-11-01T18:45:46.430Z"
+  "/de/en/book/travel-information/discover-canada/cta-general-rule": {
+   "uploaded": "2026-10-29T20:57:51.782Z",
+   "mtime": 1793307372289,
+   "preview": "2026-10-29T20:57:53.590Z"
   },
-  "/ca/en/homepage": {
-   "uploaded": "2026-11-01T18:46:10.872Z",
-   "mtime": 1793557133692,
-   "preview": "2026-11-01T18:46:12.713Z"
+  "/de/en/book/travel-information/discover-canada/tarmac-delay-contingency-plan-canada": {
+   "uploaded": "2026-10-29T14:55:20.227Z",
+   "mtime": 1793285298506,
+   "preview": "2026-10-29T14:55:22.081Z"
   },
-  "/ca/fr/homepage": {
-   "uploaded": "2026-11-01T18:46:14.330Z",
-   "mtime": 1793557133758,
-   "preview": "2026-11-01T18:46:16.578Z"
+  "/de/en/book/travel-information/discover-usa": {
+   "uploaded": "2026-10-29T20:58:01.962Z",
+   "mtime": 1793307372460,
+   "preview": "2026-10-29T20:58:03.820Z"
   },
-  "/de/de/book/flights/flight-search": {
-   "uploaded": "2026-11-01T18:46:18.145Z",
-   "mtime": 1793557133826,
-   "preview": "2026-11-01T18:46:20.111Z"
+  "/de/en/book/travel-information/discover-usa/current-fees": {
+   "uploaded": "2026-10-29T14:55:23.890Z",
+   "mtime": 1793285298538,
+   "preview": "2026-10-29T14:55:25.569Z"
   },
-  "/de/de/cancun-promotion": {
-   "uploaded": "2026-11-01T18:46:21.700Z",
-   "mtime": 1793557133887,
-   "preview": "2026-11-01T18:46:24.879Z"
+  "/de/en/book/travel-information/discover-usa/customer-relations-usa": {
+   "uploaded": "2026-10-30T02:11:51.220Z",
+   "mtime": 1793325667776,
+   "preview": "2026-10-30T02:11:53.298Z"
   },
-  "/de/de/wildlife-and-nature": {
-   "uploaded": "2026-11-01T18:46:31.140Z",
-   "mtime": 1793557134007,
-   "preview": "2026-11-01T18:46:33.942Z"
+  "/de/en/book/travel-information/discover-usa/customer-service-plan": {
+   "uploaded": "2026-10-29T12:21:03.495Z",
+   "mtime": 1793276435757,
+   "preview": "2026-10-29T12:21:05.189Z"
   },
-  "/de/en/book/flights/flight-search": {
-   "uploaded": "2026-11-01T18:46:35.512Z",
-   "mtime": 1793557134070,
-   "preview": "2026-11-01T18:46:37.367Z"
+  "/de/en/book/travel-information/discover-usa/refund": {
+   "uploaded": "2026-10-29T14:55:30.440Z",
+   "mtime": 1793285298595,
+   "preview": "2026-10-29T14:55:31.993Z"
+  },
+  "/de/en/book/travel-information/discover-usa/tarmac-delay-contingency-plan-usa": {
+   "uploaded": "2026-10-29T12:21:09.567Z",
+   "mtime": 1793276435808,
+   "preview": "2026-10-29T12:21:11.645Z"
+  },
+  "/de/en/book/travel-information/frequent-flyers": {
+   "uploaded": "2026-10-29T12:21:12.923Z",
+   "mtime": 1793276435855,
+   "preview": "2026-10-29T12:21:14.956Z"
+  },
+  "/de/en/book/travel-information/lounges": {
+   "uploaded": "2026-10-29T12:21:16.341Z",
+   "mtime": 1793276435876,
+   "preview": "2026-10-29T12:21:18.343Z"
+  },
+  "/de/en/book/travel-information/travel-tips": {
+   "uploaded": "2026-10-29T14:55:33.641Z",
+   "mtime": 1793285298638,
+   "preview": "2026-10-29T14:55:35.779Z"
+  },
+  "/de/en/book/travel-information/wetlease": {
+   "uploaded": "2026-10-29T14:55:37.301Z",
+   "mtime": 1793285298664,
+   "preview": "2026-10-29T14:55:39.591Z"
+  },
+  "/de/en/travel-inspiration/beach": {
+   "uploaded": "2026-10-29T12:21:26.747Z",
+   "mtime": 1793276436098,
+   "preview": "2026-10-29T12:21:31.152Z"
+  },
+  "/de/en/travel-inspiration/best-time-to-travel": {
+   "uploaded": "2026-10-29T14:55:41.289Z",
+   "mtime": 1793285299554,
+   "preview": "2026-10-29T14:55:43.094Z"
+  },
+  "/de/en/travel-inspiration/city-breaks": {
+   "uploaded": "2026-10-29T14:55:44.679Z",
+   "mtime": 1793285299581,
+   "preview": "2026-10-29T14:55:46.965Z"
+  },
+  "/de/en/travel-inspiration/cultural-trips": {
+   "uploaded": "2026-10-29T14:55:48.453Z",
+   "mtime": 1793285299601,
+   "preview": "2026-10-29T14:55:50.352Z"
+  },
+  "/de/en/travel-inspiration/diving": {
+   "uploaded": "2026-10-29T14:55:51.692Z",
+   "mtime": 1793285299622,
+   "preview": "2026-10-29T14:55:53.732Z"
+  },
+  "/de/en/travel-inspiration/family": {
+   "uploaded": "2026-10-29T14:55:55.308Z",
+   "mtime": 1793285299648,
+   "preview": "2026-10-29T14:55:57.603Z"
+  },
+  "/de/en/travel-inspiration/hiking": {
+   "uploaded": "2026-10-29T12:21:55.872Z",
+   "mtime": 1793276436251,
+   "preview": "2026-10-29T12:21:59.444Z"
+  },
+  "/de/en/travel-inspiration/inspiration/destinations/alta": {
+   "uploaded": "2026-10-29T12:22:00.546Z",
+   "mtime": 1793276436275,
+   "preview": "2026-10-29T12:22:03.835Z"
+  },
+  "/de/en/travel-inspiration/inspiration/destinations/atlantic-canada": {
+   "uploaded": "2026-10-29T12:22:05.417Z",
+   "mtime": 1793276436300,
+   "preview": "2026-10-29T12:22:09.613Z"
+  },
+  "/de/en/travel-inspiration/inspiration/destinations/calgary": {
+   "uploaded": "2026-10-29T12:22:10.815Z",
+   "mtime": 1793276436325,
+   "preview": "2026-10-29T12:22:14.063Z"
+  },
+  "/de/en/travel-inspiration/inspiration/destinations/corfu": {
+   "uploaded": "2026-10-29T12:22:15.359Z",
+   "mtime": 1793276436352,
+   "preview": "2026-10-29T12:22:19.703Z"
+  },
+  "/de/en/travel-inspiration/inspiration/destinations/crete": {
+   "uploaded": "2026-10-29T12:22:21.088Z",
+   "mtime": 1793276436378,
+   "preview": "2026-10-29T12:22:25.840Z"
+  },
+  "/de/en/travel-inspiration/inspiration/destinations/dubrovnik": {
+   "uploaded": "2026-10-29T12:22:26.956Z",
+   "mtime": 1793276436406,
+   "preview": "2026-10-29T12:22:31.682Z"
+  },
+  "/de/en/travel-inspiration/inspiration/destinations/fort-myers": {
+   "uploaded": "2026-10-29T14:55:59.323Z",
+   "mtime": 1793285299706,
+   "preview": "2026-10-29T14:56:01.776Z"
+  },
+  "/de/en/travel-inspiration/inspiration/destinations/ibiza": {
+   "uploaded": "2026-10-29T12:22:37.670Z",
+   "mtime": 1793276436459,
+   "preview": "2026-10-29T12:22:42.644Z"
+  },
+  "/de/en/travel-inspiration/inspiration/destinations/las-vegas": {
+   "uploaded": "2026-10-29T12:22:43.850Z",
+   "mtime": 1793276436488,
+   "preview": "2026-10-29T12:22:47.099Z"
+  },
+  "/de/en/travel-inspiration/inspiration/destinations/lofoten": {
+   "uploaded": "2026-10-29T12:22:48.331Z",
+   "mtime": 1793276436519,
+   "preview": "2026-10-29T12:22:53.302Z"
+  },
+  "/de/en/travel-inspiration/inspiration/destinations/mallorca": {
+   "uploaded": "2026-10-29T12:22:54.604Z",
+   "mtime": 1793276436546,
+   "preview": "2026-10-29T12:23:00.108Z"
+  },
+  "/de/en/travel-inspiration/inspiration/destinations/marrakech": {
+   "uploaded": "2026-10-29T12:23:01.394Z",
+   "mtime": 1793276436582,
+   "preview": "2026-10-29T12:23:06.143Z"
+  },
+  "/de/en/travel-inspiration/inspiration/destinations/orlando": {
+   "uploaded": "2026-10-29T12:23:07.362Z",
+   "mtime": 1793276436608,
+   "preview": "2026-10-29T12:23:10.931Z"
+  },
+  "/de/en/travel-inspiration/inspiration/destinations/punta-cana": {
+   "uploaded": "2026-10-29T12:23:12.033Z",
+   "mtime": 1793276436633,
+   "preview": "2026-10-29T12:23:15.517Z"
+  },
+  "/de/en/travel-inspiration/inspiration/destinations/santorini": {
+   "uploaded": "2026-10-29T12:23:16.805Z",
+   "mtime": 1793276436657,
+   "preview": "2026-10-29T12:23:20.718Z"
+  },
+  "/de/en/travel-inspiration/inspiration/destinations/tampa": {
+   "uploaded": "2026-10-29T12:23:22.004Z",
+   "mtime": 1793276436681,
+   "preview": "2026-10-29T12:23:25.775Z"
+  },
+  "/de/en/travel-inspiration/inspiration/destinations/windhoek": {
+   "uploaded": "2026-10-29T12:23:26.945Z",
+   "mtime": 1793276436708,
+   "preview": "2026-10-29T12:23:30.496Z"
+  },
+  "/de/en/travel-inspiration/inspiration/long-haul-destinations": {
+   "uploaded": "2026-10-29T12:23:31.640Z",
+   "mtime": 1793276436751,
+   "preview": "2026-10-29T12:23:34.712Z"
+  },
+  "/de/en/travel-inspiration/inspiration/long-haul-destinations-from-munich": {
+   "uploaded": "2026-10-29T12:23:36.138Z",
+   "mtime": 1793276436731,
+   "preview": "2026-10-29T12:23:38.907Z"
+  },
+  "/de/en/travel-inspiration/inspiration/short-haul-destinations": {
+   "uploaded": "2026-10-29T14:51:02.206Z",
+   "mtime": 1793285299776,
+   "preview": "2026-10-29T14:51:05.355Z"
+  },
+  "/de/en/travel-inspiration/island-hopping": {
+   "uploaded": "2026-10-29T14:51:06.814Z",
+   "mtime": 1793285299797,
+   "preview": "2026-10-29T14:51:10.327Z"
+  },
+  "/de/en/travel-inspiration/music": {
+   "uploaded": "2026-10-29T14:51:11.643Z",
+   "mtime": 1793285299819,
+   "preview": "2026-10-29T14:51:14.646Z"
+  },
+  "/de/en/travel-inspiration/nature": {
+   "uploaded": "2026-10-29T14:51:15.934Z",
+   "mtime": 1793285299839,
+   "preview": "2026-10-29T14:51:19.021Z"
+  },
+  "/de/en/travel-inspiration/romantic-getaway": {
+   "uploaded": "2026-10-29T14:51:20.292Z",
+   "mtime": 1793285299860,
+   "preview": "2026-10-29T14:51:23.094Z"
+  },
+  "/de/en/travel-inspiration/shopping": {
+   "uploaded": "2026-10-29T14:51:24.383Z",
+   "mtime": 1793285299880,
+   "preview": "2026-10-29T14:51:27.832Z"
+  },
+  "/de/en/travel-inspiration/theme-parks": {
+   "uploaded": "2026-10-29T14:51:29.169Z",
+   "mtime": 1793285299901,
+   "preview": "2026-10-29T14:51:32.872Z"
+  },
+  "/de/en/travel-inspiration/volcano-hikes": {
+   "uploaded": "2026-10-29T14:51:34.237Z",
+   "mtime": 1793285299921,
+   "preview": "2026-10-29T14:51:37.798Z"
+  },
+  "/de/en/travel-inspiration/winter-destinations": {
+   "uploaded": "2026-10-29T14:51:38.965Z",
+   "mtime": 1793285299943,
+   "preview": "2026-10-29T14:51:41.903Z"
+  },
+  "/de/en/my-bookings/check-in": {
+   "uploaded": "2026-10-29T14:51:43.274Z",
+   "mtime": 1793285299033,
+   "preview": "2026-10-29T14:51:45.463Z"
+  },
+  "/de/en/my-bookings/check-in/check-in-at-the-airport": {
+   "uploaded": "2026-10-29T20:58:12.957Z",
+   "mtime": 1793307372785,
+   "preview": "2026-10-29T20:58:15.404Z"
+  },
+  "/de/en/my-bookings/check-in/online-check-in": {
+   "uploaded": "2026-10-31T10:19:38.457Z",
+   "mtime": 1793441961857,
+   "preview": "2026-10-31T10:19:40.091Z"
+  },
+  "/de/en/my-bookings/flight-status": {
+   "uploaded": "2026-10-31T10:19:47.184Z",
+   "mtime": 1793441961928,
+   "preview": "2026-10-31T10:19:48.978Z"
+  },
+  "/de/en/my-bookings/manage": {
+   "uploaded": "2026-10-29T14:51:57.196Z",
+   "mtime": 1793285299249,
+   "preview": "2026-10-29T14:52:00.015Z"
+  },
+  "/de/en/my-bookings/manage/customer-service/contact-form": {
+   "uploaded": "2026-10-29T14:52:01.529Z",
+   "mtime": 1793285299128,
+   "preview": "2026-10-29T14:52:03.337Z"
+  },
+  "/de/en/my-bookings/manage/customer-service/contact-form/compensation-baggage": {
+   "uploaded": "2026-10-30T05:12:49.881Z",
+   "mtime": 1793336400422,
+   "preview": "2026-10-30T05:12:51.720Z"
+  },
+  "/de/en/my-bookings/manage/customer-service/contact-form/compensation-flight-irregularities": {
+   "uploaded": "2026-10-29T15:15:20.189Z",
+   "mtime": 1793286890372,
+   "preview": "2026-10-29T15:15:22.061Z"
+  },
+  "/de/en/my-bookings/manage/customer-service/contact-form/other-concerns": {
+   "uploaded": "2026-10-30T05:12:52.937Z",
+   "mtime": 1793336400451,
+   "preview": "2026-10-30T05:12:54.659Z"
+  },
+  "/de/en/my-bookings/manage/customer-service/flight-disruptions": {
+   "uploaded": "2026-10-30T02:11:54.752Z",
+   "mtime": 1793325991723,
+   "preview": "2026-10-30T02:11:57.248Z"
+  },
+  "/de/en/my-bookings/manage/customer-service/service-center": {
+   "uploaded": "2026-10-29T14:52:19.188Z",
+   "mtime": 1793285299175,
+   "preview": "2026-10-29T14:52:20.664Z"
+  },
+  "/de/en/my-bookings/manage/seat-reservation": {
+   "uploaded": "2026-10-30T05:32:56.938Z",
+   "mtime": 1793337924331,
+   "preview": "2026-10-30T05:32:58.915Z"
+  },
+  "/de/en/my-bookings/services": {
+   "uploaded": "2026-10-30T02:11:58.985Z",
+   "mtime": 1793325668954,
+   "preview": "2026-10-30T02:12:01.284Z"
+  },
+  "/de/en/my-bookings/services/additional-services": {
+   "uploaded": "2026-10-30T02:12:03.086Z",
+   "mtime": 1793325668885,
+   "preview": "2026-10-30T02:12:05.715Z"
+  },
+  "/de/en/my-bookings/services/additional-services/express-rail": {
+   "uploaded": "2026-10-29T14:52:34.738Z",
+   "mtime": 1793285299277,
+   "preview": "2026-10-29T14:52:37.813Z"
+  },
+  "/de/en/my-bookings/services/additional-services/rail-and-fly": {
+   "uploaded": "2026-10-29T14:52:39.019Z",
+   "mtime": 1793285299302,
+   "preview": "2026-10-29T14:52:41.287Z"
+  },
+  "/de/en/my-bookings/services/additional-services/uptrip": {
+   "uploaded": "2026-10-29T14:52:42.554Z",
+   "mtime": 1793285299323,
+   "preview": "2026-10-29T14:52:45.000Z"
+  },
+  "/de/en/my-bookings/services/upgrades/bid-upgrade": {
+   "uploaded": "2026-10-29T14:52:46.143Z",
+   "mtime": 1793285299374,
+   "preview": "2026-10-29T14:52:48.479Z"
+  },
+  "/de/en/my-bookings/services/upgrades/upgrade-business-class-long-haul": {
+   "uploaded": "2026-10-29T14:52:49.687Z",
+   "mtime": 1793285299400,
+   "preview": "2026-10-29T14:52:51.974Z"
+  },
+  "/de/en/my-bookings/services/upgrades/upgrade-business-class-short-haul": {
+   "uploaded": "2026-10-29T14:52:53.072Z",
+   "mtime": 1793285299425,
+   "preview": "2026-10-29T14:52:56.108Z"
+  },
+  "/de/en/my-bookings/services/upgrades/upgrade-premium-economy-long-haul": {
+   "uploaded": "2026-10-30T02:12:07.394Z",
+   "mtime": 1793325668928,
+   "preview": "2026-10-30T02:12:09.970Z"
+  },
+  "/de/en/discover/services-on-board": {
+   "uploaded": "2026-10-29T14:53:00.830Z",
+   "mtime": 1793285298809,
+   "preview": "2026-10-29T14:53:04.180Z"
+  },
+  "/de/en/discover/services-on-board/culinary-services": {
+   "uploaded": "2026-10-30T02:12:11.402Z",
+   "mtime": 1793325667879,
+   "preview": "2026-10-30T02:12:13.548Z"
+  },
+  "/de/en/discover/services-on-board/entertainment": {
+   "uploaded": "2026-10-30T02:12:14.995Z",
+   "mtime": 1793325667912,
+   "preview": "2026-10-30T02:12:17.748Z"
+  },
+  "/de/en/discover/services-on-board/entertainment/inflight-entertainment": {
+   "uploaded": "2026-10-29T14:53:13.243Z",
+   "mtime": 1793285298741,
+   "preview": "2026-10-29T14:53:15.655Z"
+  },
+  "/de/en/discover/services-on-board/internet/flynet": {
+   "uploaded": "2026-10-29T14:53:17.002Z",
+   "mtime": 1793285298789,
+   "preview": "2026-10-29T14:53:20.383Z"
+  },
+  "/de/en/discover/travel-classes": {
+   "uploaded": "2026-10-30T05:33:00.409Z",
+   "mtime": 1793337923818,
+   "preview": "2026-10-30T05:33:02.335Z"
+  },
+  "/de/en/discover/travel-classes/business-class": {
+   "uploaded": "2026-10-29T14:53:26.402Z",
+   "mtime": 1793285298878,
+   "preview": "2026-10-29T14:53:28.822Z"
+  },
+  "/de/en/discover/travel-classes/business-class/services-long-haul": {
+   "uploaded": "2026-10-30T02:12:23.046Z",
+   "mtime": 1793325667958,
+   "preview": "2026-10-30T02:12:25.583Z"
+  },
+  "/de/en/discover/travel-classes/business-class/services-short-haul": {
+   "uploaded": "2026-10-30T02:12:27.268Z",
+   "mtime": 1793325667983,
+   "preview": "2026-10-30T02:12:29.234Z"
+  },
+  "/de/en/discover/travel-classes/economy-class": {
+   "uploaded": "2026-10-30T02:12:30.712Z",
+   "mtime": 1793325668087,
+   "preview": "2026-10-30T02:12:33.127Z"
+  },
+  "/de/en/book/baggage/sports-baggage-and-special-baggage/add-sports-baggage/thank-you": {
+   "uploaded": "2026-10-29T18:18:23.131Z",
+   "mtime": 1793297785009,
+   "preview": "2026-10-29T18:18:24.851Z"
+  },
+  "/de/en/book/baggage/sports-baggage-and-special-baggage/add-sports-baggage/error": {
+   "uploaded": "2026-10-29T18:18:26.266Z",
+   "mtime": 1793297784989,
+   "preview": "2026-10-29T18:18:28.107Z"
+  },
+  "/de/en/book/baggage/sports-baggage-and-special-baggage/register-ammunition/error": {
+   "uploaded": "2026-10-30T14:27:18.154Z",
+   "mtime": 1793369275514,
+   "preview": "2026-10-30T14:27:19.883Z"
+  },
+  "/de/en/book/baggage/sports-baggage-and-special-baggage/register-hunting-firearm/error": {
+   "uploaded": "2026-10-29T18:18:38.548Z",
+   "mtime": 1793297785136,
+   "preview": "2026-10-29T18:18:40.224Z"
+  },
+  "/de/en/book/baggage/sports-baggage-and-special-baggage/register-sporting-firearm/error": {
+   "uploaded": "2026-10-29T18:18:44.835Z",
+   "mtime": 1793297785206,
+   "preview": "2026-10-29T18:18:46.603Z"
+  },
+  "/de/en/book/special-requests/pets/animal-cargo-hold/register-animal-cargo-hold/thank-you": {
+   "uploaded": "2026-10-29T18:18:47.695Z",
+   "mtime": 1793297782881,
+   "preview": "2026-10-29T18:18:49.477Z"
+  },
+  "/de/en/book/special-requests/pets/animal-cargo-hold/register-animal-cargo-hold/error": {
+   "uploaded": "2026-10-29T18:18:50.776Z",
+   "mtime": 1793297785313,
+   "preview": "2026-10-29T18:18:52.318Z"
+  },
+  "/de/en/my-bookings/manage/customer-service/contact-form/thank-you": {
+   "uploaded": "2026-10-29T18:18:53.608Z",
+   "mtime": 1793297785643,
+   "preview": "2026-10-29T18:18:55.457Z"
+  },
+  "/de/en/my-bookings/manage/customer-service/contact-form/error": {
+   "uploaded": "2026-10-29T18:18:56.800Z",
+   "mtime": 1793297785599,
+   "preview": "2026-10-29T18:18:58.525Z"
+  },
+  "/de/de/my-bookings/manage/customer-service/contact-form/error": {
+   "uploaded": "2026-10-30T05:12:56.162Z",
+   "mtime": 1793335929899,
+   "preview": "2026-10-30T05:12:57.802Z"
+  },
+  "/us/de/buccaneers-season-kickoff": {
+   "uploaded": "2026-10-30T03:39:41.709Z",
+   "mtime": 1793331565203,
+   "preview": "2026-10-30T03:39:44.447Z"
+  },
+  "/xx/de/buccaneers-season-kickoff": {
+   "uploaded": "2026-10-30T03:39:45.755Z",
+   "mtime": 1793331565240,
+   "preview": "2026-10-30T03:39:48.137Z"
+  },
+  "/de/en/discover/travel-classes/economy-class/services-long-haul": {
+   "uploaded": "2026-10-30T02:09:07.468Z",
+   "mtime": 1793325669197,
+   "preview": "2026-10-30T02:09:10.336Z"
+  },
+  "/de/en/discover/travel-classes/economy-class/services-short-haul": {
+   "uploaded": "2026-10-30T02:09:11.507Z",
+   "mtime": 1793325669218,
+   "preview": "2026-10-30T02:09:14.351Z"
+  },
+  "/de/en/discover/travel-classes/economy-class/sunny-seat": {
+   "uploaded": "2026-10-30T02:09:15.553Z",
+   "mtime": 1793325668056,
+   "preview": "2026-10-30T02:09:18.972Z"
+  },
+  "/de/en/discover/travel-classes/fleet": {
+   "uploaded": "2026-10-30T02:09:20.211Z",
+   "mtime": 1793325668183,
+   "preview": "2026-10-30T02:09:22.774Z"
+  },
+  "/de/en/discover/travel-classes/fleet/a320-200": {
+   "uploaded": "2026-10-30T02:09:23.851Z",
+   "mtime": 1793325669250,
+   "preview": "2026-10-30T02:09:26.191Z"
+  },
+  "/de/en/discover/travel-classes/fleet/a330-300": {
+   "uploaded": "2026-10-30T02:09:27.282Z",
+   "mtime": 1793325669278,
+   "preview": "2026-10-30T02:09:30.060Z"
+  },
+  "/de/en/discover/travel-classes/fleet/a350-900": {
+   "uploaded": "2026-10-30T02:09:31.260Z",
+   "mtime": 1793325668163,
+   "preview": "2026-10-30T02:09:33.770Z"
+  },
+  "/de/en/discover/travel-classes/green-fares": {
+   "uploaded": "2026-10-30T02:09:35.061Z",
+   "mtime": 1793325668229,
+   "preview": "2026-10-30T02:09:38.425Z"
+  },
+  "/de/en/discover/travel-classes/green-fares/faq-saf": {
+   "uploaded": "2026-10-30T02:09:39.540Z",
+   "mtime": 1793325668207,
+   "preview": "2026-10-30T02:09:41.912Z"
+  },
+  "/de/en/discover/travel-classes/premium-economy-class": {
+   "uploaded": "2026-10-30T02:09:43.079Z",
+   "mtime": 1793325668275,
+   "preview": "2026-10-30T02:09:45.730Z"
+  },
+  "/de/en/discover/travel-classes/premium-economy-class/services-long-haul": {
+   "uploaded": "2026-10-30T02:09:46.916Z",
+   "mtime": 1793325669317,
+   "preview": "2026-10-30T02:09:49.413Z"
+  },
+  "/de/en/legal/accessibility-statement": {
+   "uploaded": "2026-10-30T02:09:50.617Z",
+   "mtime": 1793325668505,
+   "preview": "2026-10-30T02:09:52.763Z"
+  },
+  "/de/en/legal/arbitration": {
+   "uploaded": "2026-10-30T02:09:54.104Z",
+   "mtime": 1793325602026,
+   "preview": "2026-10-30T02:09:55.932Z"
+  },
+  "/de/en/legal/conditions-of-carriage": {
+   "uploaded": "2026-10-30T02:09:57.113Z",
+   "mtime": 1793325669359,
+   "preview": "2026-10-30T02:09:59.326Z"
+  },
+  "/de/en/legal/data-protection-information": {
+   "uploaded": "2026-10-30T02:10:00.517Z",
+   "mtime": 1793325668631,
+   "preview": "2026-10-30T02:10:02.444Z"
+  },
+  "/de/en/legal/data-protection-information/cookie-policy": {
+   "uploaded": "2026-10-30T02:10:03.487Z",
+   "mtime": 1793325668564,
+   "preview": "2026-10-30T02:10:05.990Z"
+  },
+  "/de/en/legal/data-protection-information/privacy-policy-of-discover-airlines": {
+   "uploaded": "2026-10-30T02:10:07.180Z",
+   "mtime": 1793325668611,
+   "preview": "2026-10-30T02:10:09.292Z"
+  },
+  "/de/en/legal/data-protection-information/privacy-policy-of-discover-airlines-facebook-page": {
+   "uploaded": "2026-10-30T02:10:10.566Z",
+   "mtime": 1793325668587,
+   "preview": "2026-10-30T02:10:12.558Z"
+  },
+  "/de/en/legal/imprint": {
+   "uploaded": "2026-10-30T02:10:13.637Z",
+   "mtime": 1793325668653,
+   "preview": "2026-10-30T02:10:16.853Z"
+  },
+  "/de/en/legal/insolvency-protection": {
+   "uploaded": "2026-10-30T02:10:17.999Z",
+   "mtime": 1793325623229,
+   "preview": "2026-10-30T02:10:19.858Z"
+  },
+  "/de/en/legal/passenger-rights": {
+   "uploaded": "2026-10-30T02:10:20.890Z",
+   "mtime": 1793325668679,
+   "preview": "2026-10-30T02:10:23.328Z"
+  },
+  "/de/en/legal/terms-of-online-check-in-services": {
+   "uploaded": "2026-10-30T02:10:24.711Z",
+   "mtime": 1793325732210,
+   "preview": "2026-10-30T02:10:26.592Z"
+  },
+  "/de/en/legal/terms-of-online-check-in-services/conditions-seat": {
+   "uploaded": "2026-10-30T02:10:27.886Z",
+   "mtime": 1793325732245,
+   "preview": "2026-10-30T02:10:30.323Z"
+  },
+  "/de/en/about-us/career": {
+   "uploaded": "2026-10-30T05:59:43.358Z",
+   "mtime": 1793339965825,
+   "preview": "2026-10-30T05:59:45.185Z"
+  },
+  "/de/en/about-us/career/admin": {
+   "uploaded": "2026-10-30T02:10:35.780Z",
+   "mtime": 1793325667296,
+   "preview": "2026-10-30T02:10:38.507Z"
+  },
+  "/de/en/about-us/career/cabin": {
+   "uploaded": "2026-10-30T02:10:39.773Z",
+   "mtime": 1793325667319,
+   "preview": "2026-10-30T02:10:42.673Z"
+  },
+  "/de/en/about-us/career/cockpit": {
+   "uploaded": "2026-10-30T02:10:43.963Z",
+   "mtime": 1793325667340,
+   "preview": "2026-10-30T02:10:46.398Z"
+  },
+  "/de/en/about-us/company": {
+   "uploaded": "2026-10-30T02:10:47.675Z",
+   "mtime": 1793325669651,
+   "preview": "2026-10-30T02:10:50.336Z"
+  },
+  "/de/en/about-us/company/beach-volleyball": {
+   "uploaded": "2026-10-30T02:10:51.546Z",
+   "mtime": 1793325667384,
+   "preview": "2026-10-30T02:10:54.810Z"
+  },
+  "/de/en/about-us/company/tampa-bay-buccaneers": {
+   "uploaded": "2026-10-30T02:10:55.917Z",
+   "mtime": 1793325667409,
+   "preview": "2026-10-30T02:10:58.918Z"
+  },
+  "/de/en/help/feedback": {
+   "uploaded": "2026-10-30T02:11:00.079Z",
+   "mtime": 1793325668347,
+   "preview": "2026-10-30T02:11:02.832Z"
+  },
+  "/de/en/help/search-result": {
+   "uploaded": "2026-10-30T02:11:03.989Z",
+   "mtime": 1793325655397,
+   "preview": "2026-10-30T02:11:05.817Z"
+  },
+  "/de/en/feedback": {
+   "uploaded": "2026-10-30T02:11:06.989Z",
+   "mtime": 1793325657297,
+   "preview": "2026-10-30T02:11:09.167Z"
   },
   "/de/en/cancun-promotion": {
    "uploaded": "2026-11-01T18:46:38.995Z",
@@ -180,40 +935,1820 @@
    "mtime": 1793557134251,
    "preview": "2026-11-01T18:46:47.849Z"
   },
-  "/us/de/homepage": {
-   "uploaded": "2026-11-01T18:46:49.310Z",
-   "mtime": 1793557134326,
-   "preview": "2026-11-01T18:46:52.578Z"
+  "/de/en/culinaryjourney": {
+   "uploaded": "2026-11-01T18:37:29.217Z",
+   "mtime": 1793556253083,
+   "preview": "2026-11-01T18:37:31.228Z"
+  },
+  "/de/de/book/special-requests/families": {
+   "uploaded": "2026-10-30T07:19:42.593Z",
+   "mtime": 1793344749188,
+   "preview": "2026-10-30T07:19:44.525Z"
+  },
+  "/de/de/book/assistance-requirements": {
+   "uploaded": "2026-10-30T04:22:32.314Z",
+   "mtime": 1793333961582,
+   "preview": "2026-10-30T04:22:34.013Z"
+  },
+  "/de/de/book/assistance-requirements/accessible-travel/accessibility-plan-canada": {
+   "uploaded": "2026-10-30T04:22:35.458Z",
+   "mtime": 1793333963828,
+   "preview": "2026-10-30T04:22:37.908Z"
+  },
+  "/de/de/book/assistance-requirements/accessible-travel/accessible-travel-usa": {
+   "uploaded": "2026-10-30T05:13:02.529Z",
+   "mtime": 1793335928653,
+   "preview": "2026-10-30T05:13:04.323Z"
+  },
+  "/de/de/book/assistance-requirements/accessible-travel/health": {
+   "uploaded": "2026-10-30T05:13:05.665Z",
+   "mtime": 1793335928678,
+   "preview": "2026-10-30T05:13:07.443Z"
+  },
+  "/de/de/book/assistance-requirements/accessible-travel/register-assistance-requirements-online": {
+   "uploaded": "2026-10-30T05:33:03.713Z",
+   "mtime": 1793337879287,
+   "preview": "2026-10-30T05:33:05.362Z"
+  },
+  "/de/de/book/assistance-requirements/accessible-travel/sensory-impairment": {
+   "uploaded": "2026-10-30T04:22:49.059Z",
+   "mtime": 1793333961531,
+   "preview": "2026-10-30T04:22:50.940Z"
+  },
+  "/de/de/book/assistance-requirements/accessible-travel/wheelchairs": {
+   "uploaded": "2026-10-30T04:22:52.025Z",
+   "mtime": 1793333963908,
+   "preview": "2026-10-30T04:22:53.772Z"
+  },
+  "/de/de/book/baggage/airportr": {
+   "uploaded": "2026-10-30T04:22:58.368Z",
+   "mtime": 1793333961603,
+   "preview": "2026-10-30T04:23:00.087Z"
+  },
+  "/de/de/book/baggage/baggage-irregularities": {
+   "uploaded": "2026-10-30T05:13:11.968Z",
+   "mtime": 1793335928774,
+   "preview": "2026-10-30T05:13:13.557Z"
+  },
+  "/de/de/book/baggage/baggage-irregularities/faq-damaged-baggage": {
+   "uploaded": "2026-10-30T05:13:14.927Z",
+   "mtime": 1793335928750,
+   "preview": "2026-10-30T05:13:16.863Z"
+  },
+  "/de/de/book/baggage/carry-on-baggage": {
+   "uploaded": "2026-10-30T04:23:07.387Z",
+   "mtime": 1793333961815,
+   "preview": "2026-10-30T04:23:09.260Z"
+  },
+  "/de/de/book/baggage/dangerous-goods": {
+   "uploaded": "2026-10-30T05:13:18.365Z",
+   "mtime": 1793335928829,
+   "preview": "2026-10-30T05:13:20.308Z"
+  },
+  "/de/de/book/baggage/dangerous-goods/electronic-devices-and-batteries": {
+   "uploaded": "2026-10-30T05:13:21.672Z",
+   "mtime": 1793335928803,
+   "preview": "2026-10-30T05:13:23.675Z"
+  },
+  "/de/de/book/baggage/electronic-bag-tags": {
+   "uploaded": "2026-10-30T05:13:24.988Z",
+   "mtime": 1793335928852,
+   "preview": "2026-10-30T05:13:26.683Z"
+  },
+  "/de/de/book/baggage/excess-baggage": {
+   "uploaded": "2026-10-30T05:13:27.971Z",
+   "mtime": 1793335928877,
+   "preview": "2026-10-30T05:13:29.729Z"
+  },
+  "/de/de/book/baggage/sports-baggage-and-special-baggage": {
+   "uploaded": "2026-10-30T05:13:30.956Z",
+   "mtime": 1793335929024,
+   "preview": "2026-10-30T05:13:32.561Z"
+  },
+  "/de/de/book/baggage/sports-baggage-and-special-baggage/add-sports-baggage": {
+   "uploaded": "2026-10-30T05:13:33.855Z",
+   "mtime": 1793336398764,
+   "preview": "2026-10-30T05:13:35.720Z"
+  },
+  "/de/de/book/baggage/sports-baggage-and-special-baggage/register-ammunition": {
+   "uploaded": "2026-10-30T05:13:36.992Z",
+   "mtime": 1793336398794,
+   "preview": "2026-10-30T05:13:38.554Z"
+  },
+  "/de/de/book/baggage/sports-baggage-and-special-baggage/register-ammunition/thank-you": {
+   "uploaded": "2026-10-30T04:23:33.073Z",
+   "mtime": 1793333962040,
+   "preview": "2026-10-30T04:23:34.752Z"
+  },
+  "/de/de/book/baggage/sports-baggage-and-special-baggage/register-hunting-firearm": {
+   "uploaded": "2026-10-30T05:13:39.847Z",
+   "mtime": 1793336398826,
+   "preview": "2026-10-30T05:13:41.600Z"
+  },
+  "/de/de/book/baggage/sports-baggage-and-special-baggage/register-hunting-firearm/thank-you": {
+   "uploaded": "2026-10-30T04:23:39.014Z",
+   "mtime": 1793333962106,
+   "preview": "2026-10-30T04:23:40.822Z"
+  },
+  "/de/de/book/baggage/sports-baggage-and-special-baggage/register-sporting-firearm": {
+   "uploaded": "2026-10-30T05:13:42.999Z",
+   "mtime": 1793336398856,
+   "preview": "2026-10-30T05:13:44.530Z"
+  },
+  "/de/de/book/baggage/sports-baggage-and-special-baggage/register-sporting-firearm/thank-you": {
+   "uploaded": "2026-10-30T04:23:45.146Z",
+   "mtime": 1793333962179,
+   "preview": "2026-10-30T04:23:46.677Z"
+  },
+  "/de/de/book/flights/flight-search": {
+   "uploaded": "2026-11-01T18:46:18.145Z",
+   "mtime": 1793557133826,
+   "preview": "2026-11-01T18:46:20.111Z"
+  },
+  "/de/de/book/flights/gift-voucher": {
+   "uploaded": "2026-10-30T04:23:50.533Z",
+   "mtime": 1793333962305,
+   "preview": "2026-10-30T04:23:52.199Z"
+  },
+  "/de/de/book/flights/offers": {
+   "uploaded": "2026-10-30T04:23:53.292Z",
+   "mtime": 1793333962327,
+   "preview": "2026-10-30T04:23:54.955Z"
+  },
+  "/de/de/book/flights/smart-destination-search": {
+   "uploaded": "2026-10-30T04:23:56.043Z",
+   "mtime": 1793333962347,
+   "preview": "2026-10-30T04:23:57.593Z"
+  },
+  "/de/de/book/flights/timetable": {
+   "uploaded": "2026-10-30T05:13:45.775Z",
+   "mtime": 1793335929081,
+   "preview": "2026-10-30T05:13:47.213Z"
+  },
+  "/de/de/book/special-requests": {
+   "uploaded": "2026-10-30T04:24:01.155Z",
+   "mtime": 1793333962770,
+   "preview": "2026-10-30T04:24:02.849Z"
+  },
+  "/de/de/book/special-requests/pets": {
+   "uploaded": "2026-10-30T05:13:48.626Z",
+   "mtime": 1793335929203,
+   "preview": "2026-10-30T05:13:50.540Z"
+  },
+  "/de/de/book/special-requests/pets/animal-cargo-hold": {
+   "uploaded": "2026-10-30T05:13:51.864Z",
+   "mtime": 1793335929141,
+   "preview": "2026-10-30T05:13:53.392Z"
+  },
+  "/de/de/book/special-requests/pets/animal-cargo-hold/register-animal-cargo-hold": {
+   "uploaded": "2026-10-30T05:13:54.769Z",
+   "mtime": 1793336400375,
+   "preview": "2026-10-30T05:13:56.644Z"
+  },
+  "/de/de/book/special-requests/pets/animal-in-cabin": {
+   "uploaded": "2026-10-30T05:13:57.851Z",
+   "mtime": 1793335929175,
+   "preview": "2026-10-30T05:13:59.486Z"
+  },
+  "/de/de/book/special-requests/pets/animal-in-cabin/register-animal-cabin": {
+   "uploaded": "2026-10-30T05:14:00.804Z",
+   "mtime": 1793336400399,
+   "preview": "2026-10-30T05:14:02.339Z"
+  },
+  "/de/de/book/special-requests/pets/assistance-dogs": {
+   "uploaded": "2026-10-30T04:24:19.752Z",
+   "mtime": 1793333964389,
+   "preview": "2026-10-30T04:24:21.468Z"
+  },
+  "/de/de/book/special-requests/pets/fighting-dog-breeds-snub-nosed-animals": {
+   "uploaded": "2026-10-30T04:24:22.584Z",
+   "mtime": 1793333962704,
+   "preview": "2026-10-30T04:24:24.600Z"
+  },
+  "/de/de/book/special-requests/special-meals": {
+   "uploaded": "2026-10-30T05:33:06.808Z",
+   "mtime": 1793337879480,
+   "preview": "2026-10-30T05:33:08.451Z"
+  },
+  "/de/de/book/travel-information": {
+   "uploaded": "2026-10-30T05:14:06.877Z",
+   "mtime": 1793335929430,
+   "preview": "2026-10-30T05:14:08.444Z"
+  },
+  "/de/de/book/travel-information/airport-info": {
+   "uploaded": "2026-10-30T05:14:09.971Z",
+   "mtime": 1793335929258,
+   "preview": "2026-10-30T05:14:11.645Z"
+  },
+  "/de/de/book/travel-information/airport-info/security-check-time-slot": {
+   "uploaded": "2026-11-01T18:45:41.411Z",
+   "mtime": 1793556928136,
+   "preview": "2026-11-01T18:45:43.072Z"
+  },
+  "/de/de/book/travel-information/discover-canada": {
+   "uploaded": "2026-10-30T05:33:09.875Z",
+   "mtime": 1793337879524,
+   "preview": "2026-10-30T05:33:11.467Z"
+  },
+  "/de/de/book/travel-information/discover-canada/cta-general-rule": {
+   "uploaded": "2026-10-30T04:24:40.300Z",
+   "mtime": 1793333964474,
+   "preview": "2026-10-30T04:24:42.025Z"
+  },
+  "/de/de/book/travel-information/discover-canada/tarmac-delay-contingency-plan-canada": {
+   "uploaded": "2026-10-30T05:14:13.060Z",
+   "mtime": 1793335929284,
+   "preview": "2026-10-30T05:14:14.725Z"
+  },
+  "/de/de/book/assistance-requirements/accessible-travel/register-assistance-requirements-online/thank-you": {
+   "uploaded": "2026-10-30T04:24:46.133Z",
+   "mtime": 1793333959142,
+   "preview": "2026-10-30T04:24:47.729Z"
+  },
+  "/de/de/book/assistance-requirements/accessible-travel/register-assistance-requirements-online/error": {
+   "uploaded": "2026-10-30T04:24:48.810Z",
+   "mtime": 1793333961471,
+   "preview": "2026-10-30T04:24:50.369Z"
+  },
+  "/de/de/book/baggage/sports-baggage-and-special-baggage/add-sports-baggage/thank-you": {
+   "uploaded": "2026-10-30T04:24:51.544Z",
+   "mtime": 1793333961966,
+   "preview": "2026-10-30T04:24:53.127Z"
+  },
+  "/de/de/book/baggage/sports-baggage-and-special-baggage/add-sports-baggage/error": {
+   "uploaded": "2026-10-30T04:24:54.372Z",
+   "mtime": 1793333961944,
+   "preview": "2026-10-30T04:24:55.894Z"
+  },
+  "/de/de/book/baggage/sports-baggage-and-special-baggage/register-ammunition/error": {
+   "uploaded": "2026-10-30T04:24:57.280Z",
+   "mtime": 1793333962018,
+   "preview": "2026-10-30T04:24:58.873Z"
+  },
+  "/de/de/book/baggage/sports-baggage-and-special-baggage/register-hunting-firearm/error": {
+   "uploaded": "2026-10-30T04:25:00.019Z",
+   "mtime": 1793333962085,
+   "preview": "2026-10-30T04:25:01.849Z"
+  },
+  "/de/de/book/baggage/sports-baggage-and-special-baggage/register-sporting-firearm/error": {
+   "uploaded": "2026-10-30T04:25:02.933Z",
+   "mtime": 1793333962156,
+   "preview": "2026-10-30T04:25:04.679Z"
+  },
+  "/de/de/book/special-requests/pets/animal-cargo-hold/register-animal-cargo-hold/thank-you": {
+   "uploaded": "2026-10-30T04:25:05.776Z",
+   "mtime": 1793333959274,
+   "preview": "2026-10-30T04:25:07.249Z"
+  },
+  "/de/de/book/special-requests/pets/animal-cargo-hold/register-animal-cargo-hold/error": {
+   "uploaded": "2026-10-30T04:25:08.355Z",
+   "mtime": 1793333962525,
+   "preview": "2026-10-30T04:25:09.908Z"
+  },
+  "/de/de/book/special-requests/pets/animal-in-cabin/register-animal-cabin/thank-you": {
+   "uploaded": "2026-10-30T04:25:11.039Z",
+   "mtime": 1793333959315,
+   "preview": "2026-10-30T04:25:12.865Z"
+  },
+  "/de/de/book/special-requests/pets/animal-in-cabin/register-animal-cabin/error": {
+   "uploaded": "2026-10-30T04:25:13.988Z",
+   "mtime": 1793333962601,
+   "preview": "2026-10-30T04:25:15.765Z"
+  },
+  "/de/de/book/travel-information/discover-usa": {
+   "uploaded": "2026-10-30T04:40:45.937Z",
+   "mtime": 1793335203286,
+   "preview": "2026-10-30T04:40:47.574Z"
+  },
+  "/de/de/book/travel-information/discover-usa/current-fees": {
+   "uploaded": "2026-10-30T05:14:16.204Z",
+   "mtime": 1793335929314,
+   "preview": "2026-10-30T05:14:17.793Z"
+  },
+  "/de/de/book/travel-information/discover-usa/customer-relations-usa": {
+   "uploaded": "2026-10-30T05:33:12.733Z",
+   "mtime": 1793337879552,
+   "preview": "2026-10-30T05:33:14.356Z"
+  },
+  "/de/de/book/travel-information/discover-usa/customer-service-plan": {
+   "uploaded": "2026-10-30T04:40:54.695Z",
+   "mtime": 1793335201061,
+   "preview": "2026-10-30T04:40:56.148Z"
+  },
+  "/de/de/book/travel-information/discover-usa/tarmac-delay-contingency-plan-usa": {
+   "uploaded": "2026-10-30T04:40:57.262Z",
+   "mtime": 1793335201092,
+   "preview": "2026-10-30T04:40:58.779Z"
+  },
+  "/de/de/book/travel-information/frequent-flyers": {
+   "uploaded": "2026-10-30T04:40:59.880Z",
+   "mtime": 1793335201137,
+   "preview": "2026-10-30T04:41:02.027Z"
+  },
+  "/de/de/book/travel-information/lounges": {
+   "uploaded": "2026-10-30T04:41:03.179Z",
+   "mtime": 1793335201159,
+   "preview": "2026-10-30T04:41:04.872Z"
+  },
+  "/de/de/book/travel-information/travel-tips": {
+   "uploaded": "2026-10-30T05:14:21.877Z",
+   "mtime": 1793335929383,
+   "preview": "2026-10-30T05:14:23.678Z"
+  },
+  "/de/de/book/travel-information/wetlease": {
+   "uploaded": "2026-10-30T05:14:25.068Z",
+   "mtime": 1793335929409,
+   "preview": "2026-10-30T05:14:26.973Z"
+  },
+  "/de/de/travel-inspiration/beach": {
+   "uploaded": "2026-10-30T04:41:12.197Z",
+   "mtime": 1793335201393,
+   "preview": "2026-10-30T04:41:15.208Z"
+  },
+  "/de/de/travel-inspiration/best-time-to-travel": {
+   "uploaded": "2026-10-30T05:14:28.281Z",
+   "mtime": 1793335930376,
+   "preview": "2026-10-30T05:14:29.936Z"
+  },
+  "/de/de/travel-inspiration/city-breaks": {
+   "uploaded": "2026-10-30T05:14:31.234Z",
+   "mtime": 1793335930399,
+   "preview": "2026-10-30T05:14:32.902Z"
+  },
+  "/de/de/travel-inspiration/cultural-trips": {
+   "uploaded": "2026-10-30T05:14:34.415Z",
+   "mtime": 1793335930418,
+   "preview": "2026-10-30T05:14:35.968Z"
+  },
+  "/de/de/travel-inspiration/diving": {
+   "uploaded": "2026-10-30T04:41:25.090Z",
+   "mtime": 1793335201482,
+   "preview": "2026-10-30T04:41:28.366Z"
+  },
+  "/de/de/travel-inspiration/family": {
+   "uploaded": "2026-10-30T05:14:37.506Z",
+   "mtime": 1793335930444,
+   "preview": "2026-10-30T05:14:39.175Z"
+  },
+  "/de/de/travel-inspiration/hiking": {
+   "uploaded": "2026-10-30T04:41:32.928Z",
+   "mtime": 1793335201537,
+   "preview": "2026-10-30T04:41:36.513Z"
+  },
+  "/de/de/travel-inspiration/inspiration/destinations/alta": {
+   "uploaded": "2026-10-30T04:41:37.647Z",
+   "mtime": 1793335201566,
+   "preview": "2026-10-30T04:41:39.463Z"
+  },
+  "/de/de/travel-inspiration/inspiration/destinations/atlantic-canada": {
+   "uploaded": "2026-10-30T04:41:40.581Z",
+   "mtime": 1793335201594,
+   "preview": "2026-10-30T04:41:42.820Z"
+  },
+  "/de/de/travel-inspiration/inspiration/destinations/calgary": {
+   "uploaded": "2026-10-30T04:41:43.949Z",
+   "mtime": 1793335201623,
+   "preview": "2026-10-30T04:41:45.713Z"
+  },
+  "/de/de/travel-inspiration/inspiration/destinations/corfu": {
+   "uploaded": "2026-10-30T04:41:46.771Z",
+   "mtime": 1793335201652,
+   "preview": "2026-10-30T04:41:49.003Z"
+  },
+  "/de/de/travel-inspiration/inspiration/destinations/crete": {
+   "uploaded": "2026-10-30T04:41:50.204Z",
+   "mtime": 1793335201680,
+   "preview": "2026-10-30T04:41:52.959Z"
+  },
+  "/de/de/travel-inspiration/inspiration/destinations/dubrovnik": {
+   "uploaded": "2026-10-30T04:41:54.074Z",
+   "mtime": 1793335201707,
+   "preview": "2026-10-30T04:41:55.991Z"
+  },
+  "/de/de/travel-inspiration/inspiration/destinations/fort-myers": {
+   "uploaded": "2026-10-30T05:14:40.405Z",
+   "mtime": 1793335930495,
+   "preview": "2026-10-30T05:14:42.495Z"
+  },
+  "/de/de/travel-inspiration/inspiration/destinations/ibiza": {
+   "uploaded": "2026-10-30T04:42:00.170Z",
+   "mtime": 1793335201774,
+   "preview": "2026-10-30T04:42:02.707Z"
+  },
+  "/de/de/travel-inspiration/inspiration/destinations/las-vegas": {
+   "uploaded": "2026-10-30T04:42:03.888Z",
+   "mtime": 1793335201801,
+   "preview": "2026-10-30T04:42:05.730Z"
+  },
+  "/de/de/travel-inspiration/inspiration/destinations/lofoten": {
+   "uploaded": "2026-10-30T04:42:06.901Z",
+   "mtime": 1793335201827,
+   "preview": "2026-10-30T04:42:09.714Z"
+  },
+  "/de/de/travel-inspiration/inspiration/destinations/mallorca": {
+   "uploaded": "2026-10-30T04:42:10.784Z",
+   "mtime": 1793335201858,
+   "preview": "2026-10-30T04:42:13.148Z"
+  },
+  "/de/de/travel-inspiration/inspiration/destinations/marrakech": {
+   "uploaded": "2026-10-30T04:42:14.413Z",
+   "mtime": 1793335201889,
+   "preview": "2026-10-30T04:42:16.411Z"
+  },
+  "/de/de/travel-inspiration/inspiration/destinations/orlando": {
+   "uploaded": "2026-10-30T04:42:17.526Z",
+   "mtime": 1793335201917,
+   "preview": "2026-10-30T04:42:19.315Z"
+  },
+  "/de/de/travel-inspiration/inspiration/destinations/punta-cana": {
+   "uploaded": "2026-10-30T04:42:20.413Z",
+   "mtime": 1793335201946,
+   "preview": "2026-10-30T04:42:22.217Z"
+  },
+  "/de/de/travel-inspiration/inspiration/destinations/santorini": {
+   "uploaded": "2026-10-30T04:42:23.256Z",
+   "mtime": 1793335201973,
+   "preview": "2026-10-30T04:42:25.472Z"
+  },
+  "/de/de/travel-inspiration/inspiration/destinations/tampa": {
+   "uploaded": "2026-10-30T04:42:26.533Z",
+   "mtime": 1793335202002,
+   "preview": "2026-10-30T04:42:28.843Z"
+  },
+  "/de/de/travel-inspiration/inspiration/destinations/windhoek": {
+   "uploaded": "2026-10-30T04:42:29.939Z",
+   "mtime": 1793335202037,
+   "preview": "2026-10-30T04:42:31.866Z"
+  },
+  "/de/de/travel-inspiration/inspiration/long-haul-destinations": {
+   "uploaded": "2026-10-30T04:42:33.001Z",
+   "mtime": 1793335202087,
+   "preview": "2026-10-30T04:42:35.101Z"
+  },
+  "/de/de/travel-inspiration/inspiration/long-haul-destinations-from-munich": {
+   "uploaded": "2026-10-30T04:42:36.260Z",
+   "mtime": 1793335202064,
+   "preview": "2026-10-30T04:42:38.063Z"
+  },
+  "/de/de/travel-inspiration/inspiration/short-haul-destinations": {
+   "uploaded": "2026-10-30T04:42:39.264Z",
+   "mtime": 1793335202111,
+   "preview": "2026-10-30T04:42:41.169Z"
+  },
+  "/de/de/travel-inspiration/island-hopping": {
+   "uploaded": "2026-10-30T04:42:42.341Z",
+   "mtime": 1793335202134,
+   "preview": "2026-10-30T04:42:45.507Z"
+  },
+  "/de/de/travel-inspiration/music": {
+   "uploaded": "2026-10-30T04:42:46.670Z",
+   "mtime": 1793335202311,
+   "preview": "2026-10-30T04:42:48.704Z"
+  },
+  "/de/de/travel-inspiration/nature": {
+   "uploaded": "2026-10-30T04:42:49.861Z",
+   "mtime": 1793335202331,
+   "preview": "2026-10-30T04:42:52.713Z"
+  },
+  "/de/de/travel-inspiration/romantic-getaway": {
+   "uploaded": "2026-10-30T04:42:53.967Z",
+   "mtime": 1793335202355,
+   "preview": "2026-10-30T04:42:56.820Z"
+  },
+  "/de/de/travel-inspiration/shopping": {
+   "uploaded": "2026-10-30T05:09:54.180Z",
+   "mtime": 1793336275970,
+   "preview": "2026-10-30T05:09:56.140Z"
+  },
+  "/de/de/travel-inspiration/theme-parks": {
+   "uploaded": "2026-10-30T05:09:57.209Z",
+   "mtime": 1793336275992,
+   "preview": "2026-10-30T05:09:58.900Z"
+  },
+  "/de/de/travel-inspiration/volcano-hikes": {
+   "uploaded": "2026-10-30T05:10:00.092Z",
+   "mtime": 1793336276011,
+   "preview": "2026-10-30T05:10:03.397Z"
+  },
+  "/de/de/travel-inspiration/winter-destinations": {
+   "uploaded": "2026-10-30T05:10:04.495Z",
+   "mtime": 1793336276035,
+   "preview": "2026-10-30T05:10:06.251Z"
+  },
+  "/de/de/my-bookings/check-in": {
+   "uploaded": "2026-10-30T05:10:07.482Z",
+   "mtime": 1793336275285,
+   "preview": "2026-10-30T05:10:09.221Z"
+  },
+  "/de/de/my-bookings/check-in/check-in-at-the-airport": {
+   "uploaded": "2026-10-30T05:10:10.355Z",
+   "mtime": 1793336918580,
+   "preview": "2026-10-30T05:10:12.290Z"
+  },
+  "/de/de/my-bookings/check-in/online-check-in": {
+   "uploaded": "2026-10-31T10:19:35.373Z",
+   "mtime": 1793441961832,
+   "preview": "2026-10-31T10:19:37.086Z"
+  },
+  "/de/de/my-bookings/flight-status": {
+   "uploaded": "2026-10-31T10:19:44.433Z",
+   "mtime": 1793441961908,
+   "preview": "2026-10-31T10:19:45.904Z"
+  },
+  "/de/de/my-bookings/manage": {
+   "uploaded": "2026-10-30T05:10:18.888Z",
+   "mtime": 1793336275549,
+   "preview": "2026-10-30T05:10:20.935Z"
+  },
+  "/de/de/my-bookings/manage/customer-service/contact-form": {
+   "uploaded": "2026-10-30T05:10:25.269Z",
+   "mtime": 1793336275391,
+   "preview": "2026-10-30T05:10:26.826Z"
+  },
+  "/de/de/my-bookings/manage/customer-service/contact-form/compensation-baggage": {
+   "uploaded": "2026-10-30T05:10:28.031Z",
+   "mtime": 1793336276794,
+   "preview": "2026-10-30T05:10:30.084Z"
+  },
+  "/de/de/my-bookings/manage/customer-service/contact-form/compensation-flight-irregularities": {
+   "uploaded": "2026-10-30T05:10:31.235Z",
+   "mtime": 1793336276814,
+   "preview": "2026-10-30T05:10:32.863Z"
+  },
+  "/de/de/my-bookings/manage/customer-service/contact-form/other-concerns": {
+   "uploaded": "2026-10-30T05:10:33.956Z",
+   "mtime": 1793336276985,
+   "preview": "2026-10-30T05:10:35.537Z"
+  },
+  "/de/de/my-bookings/manage/customer-service/flight-disruptions": {
+   "uploaded": "2026-10-30T05:33:15.752Z",
+   "mtime": 1793337880593,
+   "preview": "2026-10-30T05:33:17.738Z"
+  },
+  "/de/de/my-bookings/manage/customer-service/service-center": {
+   "uploaded": "2026-10-30T05:10:39.922Z",
+   "mtime": 1793336275479,
+   "preview": "2026-10-30T05:10:41.570Z"
+  },
+  "/de/de/my-bookings/manage/seat-reservation": {
+   "uploaded": "2026-10-30T05:10:42.707Z",
+   "mtime": 1793336277034,
+   "preview": "2026-10-30T05:10:44.628Z"
+  },
+  "/de/de/my-bookings/services": {
+   "uploaded": "2026-10-30T05:33:19.352Z",
+   "mtime": 1793337880731,
+   "preview": "2026-10-30T05:33:20.922Z"
+  },
+  "/de/de/my-bookings/services/additional-services": {
+   "uploaded": "2026-10-30T05:33:22.179Z",
+   "mtime": 1793337880671,
+   "preview": "2026-10-30T05:33:24.078Z"
+  },
+  "/de/de/my-bookings/services/additional-services/express-rail": {
+   "uploaded": "2026-10-30T05:10:56.077Z",
+   "mtime": 1793336275595,
+   "preview": "2026-10-30T05:10:57.745Z"
+  },
+  "/de/de/my-bookings/services/additional-services/medication-transport": {
+   "uploaded": "2026-10-30T05:10:58.953Z",
+   "mtime": 1793336275614,
+   "preview": "2026-10-30T05:11:01.743Z"
+  },
+  "/de/de/my-bookings/services/additional-services/rail-and-fly": {
+   "uploaded": "2026-10-30T05:11:02.931Z",
+   "mtime": 1793336275637,
+   "preview": "2026-10-30T05:11:05.098Z"
+  },
+  "/de/de/my-bookings/services/additional-services/uptrip": {
+   "uploaded": "2026-10-30T05:11:06.213Z",
+   "mtime": 1793336275658,
+   "preview": "2026-10-30T05:11:08.259Z"
+  },
+  "/de/de/my-bookings/services/upgrades/bid-upgrade": {
+   "uploaded": "2026-10-30T05:11:12.434Z",
+   "mtime": 1793336275706,
+   "preview": "2026-10-30T05:11:14.168Z"
+  },
+  "/de/de/my-bookings/services/upgrades/upgrade-business-class-long-haul": {
+   "uploaded": "2026-10-30T05:11:15.364Z",
+   "mtime": 1793336275730,
+   "preview": "2026-10-30T05:11:17.074Z"
+  },
+  "/de/de/my-bookings/services/upgrades/upgrade-business-class-short-haul": {
+   "uploaded": "2026-10-30T05:11:18.063Z",
+   "mtime": 1793336275752,
+   "preview": "2026-10-30T05:11:20.534Z"
+  },
+  "/de/de/my-bookings/services/upgrades/upgrade-premium-economy-long-haul": {
+   "uploaded": "2026-10-30T05:33:25.491Z",
+   "mtime": 1793337880705,
+   "preview": "2026-10-30T05:33:27.262Z"
+  },
+  "/de/de/discover/b2b-information": {
+   "uploaded": "2026-10-30T05:11:25.050Z",
+   "mtime": 1793336277083,
+   "preview": "2026-10-30T05:11:28.778Z"
+  },
+  "/de/de/discover/services-on-board": {
+   "uploaded": "2026-10-30T05:11:29.800Z",
+   "mtime": 1793336274913,
+   "preview": "2026-10-30T05:11:31.711Z"
+  },
+  "/de/de/discover/services-on-board/culinary-services": {
+   "uploaded": "2026-10-30T05:33:28.594Z",
+   "mtime": 1793337879642,
+   "preview": "2026-10-30T05:33:30.227Z"
+  },
+  "/de/de/discover/services-on-board/entertainment": {
+   "uploaded": "2026-10-30T05:33:31.652Z",
+   "mtime": 1793337879667,
+   "preview": "2026-10-30T05:33:33.653Z"
+  },
+  "/de/de/discover/services-on-board/entertainment/inflight-entertainment": {
+   "uploaded": "2026-10-30T05:11:39.238Z",
+   "mtime": 1793336274848,
+   "preview": "2026-10-30T05:11:41.488Z"
+  },
+  "/de/de/discover/services-on-board/internet/flynet": {
+   "uploaded": "2026-10-30T05:11:42.585Z",
+   "mtime": 1793336274892,
+   "preview": "2026-10-30T05:11:44.315Z"
+  },
+  "/de/de/discover/travel-classes": {
+   "uploaded": "2026-10-30T05:33:34.871Z",
+   "mtime": 1793337880002,
+   "preview": "2026-10-30T05:33:36.910Z"
+  },
+  "/de/de/discover/travel-classes/business-class": {
+   "uploaded": "2026-10-30T05:11:48.851Z",
+   "mtime": 1793336275102,
+   "preview": "2026-10-30T05:11:51.042Z"
+  },
+  "/de/de/discover/travel-classes/business-class/services-long-haul": {
+   "uploaded": "2026-10-30T05:33:38.217Z",
+   "mtime": 1793337879697,
+   "preview": "2026-10-30T05:33:40.092Z"
+  },
+  "/de/de/discover/travel-classes/business-class/services-short-haul": {
+   "uploaded": "2026-10-30T05:33:41.342Z",
+   "mtime": 1793337879717,
+   "preview": "2026-10-30T05:33:43.043Z"
+  },
+  "/de/de/discover/travel-classes/economy-class": {
+   "uploaded": "2026-10-30T05:33:44.507Z",
+   "mtime": 1793337879793,
+   "preview": "2026-10-30T05:33:46.318Z"
+  },
+  "/de/de/discover/travel-classes/economy-class/services-long-haul": {
+   "uploaded": "2026-10-30T05:33:47.901Z",
+   "mtime": 1793337879744,
+   "preview": "2026-10-30T05:33:49.477Z"
+  },
+  "/de/de/discover/travel-classes/economy-class/services-short-haul": {
+   "uploaded": "2026-10-30T05:33:50.739Z",
+   "mtime": 1793337879767,
+   "preview": "2026-10-30T05:33:52.327Z"
+  },
+  "/de/de/discover/travel-classes/economy-class/sunny-seat": {
+   "uploaded": "2026-10-30T05:12:07.623Z",
+   "mtime": 1793336275176,
+   "preview": "2026-10-30T05:12:09.163Z"
+  },
+  "/de/de/my-bookings/manage/customer-service/contact-form/thank-you": {
+   "uploaded": "2026-10-30T05:12:10.267Z",
+   "mtime": 1793336275372,
+   "preview": "2026-10-30T05:12:12.061Z"
+  },
+  "/de/de/discover/travel-classes/fleet": {
+   "uploaded": "2026-10-30T05:29:16.717Z",
+   "mtime": 1793337879882,
+   "preview": "2026-10-30T05:29:18.484Z"
+  },
+  "/de/de/discover/travel-classes/fleet/a320-200": {
+   "uploaded": "2026-10-30T05:29:19.738Z",
+   "mtime": 1793337881715,
+   "preview": "2026-10-30T05:29:21.566Z"
+  },
+  "/de/de/discover/travel-classes/fleet/a330-300": {
+   "uploaded": "2026-10-30T05:29:22.779Z",
+   "mtime": 1793337881911,
+   "preview": "2026-10-30T05:29:24.875Z"
+  },
+  "/de/de/discover/travel-classes/fleet/a350-900": {
+   "uploaded": "2026-10-30T05:29:26.035Z",
+   "mtime": 1793337879861,
+   "preview": "2026-10-30T05:29:27.742Z"
+  },
+  "/de/de/discover/travel-classes/green-fares": {
+   "uploaded": "2026-10-30T05:29:28.875Z",
+   "mtime": 1793337879931,
+   "preview": "2026-10-30T05:29:31.403Z"
+  },
+  "/de/de/discover/travel-classes/green-fares/faq-saf": {
+   "uploaded": "2026-10-30T05:29:32.630Z",
+   "mtime": 1793337879906,
+   "preview": "2026-10-30T05:29:34.228Z"
+  },
+  "/de/de/discover/travel-classes/premium-economy-class": {
+   "uploaded": "2026-10-30T05:29:35.428Z",
+   "mtime": 1793337879978,
+   "preview": "2026-10-30T05:29:37.168Z"
+  },
+  "/de/de/discover/travel-classes/premium-economy-class/services-long-haul": {
+   "uploaded": "2026-10-30T05:29:38.300Z",
+   "mtime": 1793337881950,
+   "preview": "2026-10-30T05:29:39.874Z"
+  },
+  "/de/de/legal/accessibility-statement": {
+   "uploaded": "2026-10-30T05:29:40.996Z",
+   "mtime": 1793337880094,
+   "preview": "2026-10-30T05:29:42.682Z"
+  },
+  "/de/de/legal/arbitration": {
+   "uploaded": "2026-10-30T05:29:43.716Z",
+   "mtime": 1793337756697,
+   "preview": "2026-10-30T05:29:45.122Z"
+  },
+  "/de/de/legal/conditions-of-carriage": {
+   "uploaded": "2026-10-30T05:29:46.279Z",
+   "mtime": 1793337881979,
+   "preview": "2026-10-30T05:29:48.034Z"
+  },
+  "/de/de/legal/data-protection-information": {
+   "uploaded": "2026-10-30T05:29:49.255Z",
+   "mtime": 1793337880419,
+   "preview": "2026-10-30T05:29:50.768Z"
+  },
+  "/de/de/legal/data-protection-information/cookie-policy": {
+   "uploaded": "2026-10-30T05:29:51.916Z",
+   "mtime": 1793337880148,
+   "preview": "2026-10-30T05:29:53.454Z"
+  },
+  "/de/de/legal/data-protection-information/privacy-policy-of-discover-airlines": {
+   "uploaded": "2026-10-30T05:29:54.730Z",
+   "mtime": 1793337880395,
+   "preview": "2026-10-30T05:29:56.321Z"
+  },
+  "/de/de/legal/data-protection-information/privacy-policy-of-discover-airlines-facebook-page": {
+   "uploaded": "2026-10-30T05:29:57.462Z",
+   "mtime": 1793337880369,
+   "preview": "2026-10-30T05:29:59.123Z"
+  },
+  "/de/de/legal/imprint": {
+   "uploaded": "2026-10-30T05:30:00.414Z",
+   "mtime": 1793337880442,
+   "preview": "2026-10-30T05:30:02.184Z"
+  },
+  "/de/de/legal/insolvency-protection": {
+   "uploaded": "2026-10-30T05:30:03.466Z",
+   "mtime": 1793337775581,
+   "preview": "2026-10-30T05:30:05.093Z"
+  },
+  "/de/de/legal/passenger-rights": {
+   "uploaded": "2026-10-30T08:26:04.003Z",
+   "mtime": 1793348520185,
+   "preview": "2026-10-30T08:26:05.525Z"
+  },
+  "/de/de/legal/terms-of-online-check-in-services": {
+   "uploaded": "2026-10-30T05:30:09.187Z",
+   "mtime": 1793337880531,
+   "preview": "2026-10-30T05:30:10.999Z"
+  },
+  "/de/de/legal/terms-of-online-check-in-services/conditions-baggage": {
+   "uploaded": "2026-10-30T05:30:12.259Z",
+   "mtime": 1793337880491,
+   "preview": "2026-10-30T05:30:13.803Z"
+  },
+  "/de/de/legal/terms-of-online-check-in-services/conditions-seat": {
+   "uploaded": "2026-10-30T05:30:14.909Z",
+   "mtime": 1793337880511,
+   "preview": "2026-10-30T05:30:16.501Z"
+  },
+  "/de/de/about-us/career": {
+   "uploaded": "2026-10-30T05:59:40.338Z",
+   "mtime": 1793339964884,
+   "preview": "2026-10-30T05:59:42.102Z"
+  },
+  "/de/de/about-us/career/admin": {
+   "uploaded": "2026-10-30T05:30:20.653Z",
+   "mtime": 1793337878705,
+   "preview": "2026-10-30T05:30:22.234Z"
+  },
+  "/de/de/about-us/career/cabin": {
+   "uploaded": "2026-10-30T05:30:23.467Z",
+   "mtime": 1793337878729,
+   "preview": "2026-10-30T05:30:25.253Z"
+  },
+  "/de/de/about-us/career/cockpit": {
+   "uploaded": "2026-10-30T05:30:26.369Z",
+   "mtime": 1793337878753,
+   "preview": "2026-10-30T05:30:28.008Z"
+  },
+  "/de/de/about-us/company": {
+   "uploaded": "2026-10-30T05:30:29.155Z",
+   "mtime": 1793337882054,
+   "preview": "2026-10-30T05:30:30.868Z"
+  },
+  "/de/de/about-us/company/beach-volleyball": {
+   "uploaded": "2026-10-30T05:30:31.928Z",
+   "mtime": 1793337878798,
+   "preview": "2026-10-30T05:30:33.620Z"
+  },
+  "/de/de/about-us/company/tampa-bay-buccaneers": {
+   "uploaded": "2026-10-30T05:30:34.806Z",
+   "mtime": 1793337878821,
+   "preview": "2026-10-30T05:30:36.713Z"
+  },
+  "/de/de/help/feedback": {
+   "uploaded": "2026-10-30T05:30:37.898Z",
+   "mtime": 1793337880046,
+   "preview": "2026-10-30T05:30:39.609Z"
+  },
+  "/de/de/help/search-result": {
+   "uploaded": "2026-10-30T05:30:40.755Z",
+   "mtime": 1793337808815,
+   "preview": "2026-10-30T05:30:42.532Z"
+  },
+  "/de/de/feedback": {
+   "uploaded": "2026-10-30T05:30:43.650Z",
+   "mtime": 1793337811244,
+   "preview": "2026-10-30T05:30:45.619Z"
+  },
+  "/de/de/cancun-promotion": {
+   "uploaded": "2026-11-01T18:46:21.700Z",
+   "mtime": 1793557133887,
+   "preview": "2026-11-01T18:46:24.879Z"
+  },
+  "/de/de/wildlife-and-nature": {
+   "uploaded": "2026-11-01T18:46:31.140Z",
+   "mtime": 1793557134007,
+   "preview": "2026-11-01T18:46:33.942Z"
+  },
+  "/de/de/culinaryjourney": {
+   "uploaded": "2026-11-01T18:37:32.950Z",
+   "mtime": 1793556254924,
+   "preview": "2026-11-01T18:37:34.803Z"
+  },
+  "/de/de/articles": {
+   "uploaded": "2026-10-30T05:31:02.731Z",
+   "mtime": 1793337879229,
+   "preview": "2026-10-30T05:31:07.082Z"
+  },
+  "/de/de/articles/discover-the-world/apulia-hidden-treasures": {
+   "uploaded": "2026-10-30T05:31:08.302Z",
+   "mtime": 1793337878874,
+   "preview": "2026-10-30T05:31:14.851Z"
+  },
+  "/de/de/articles/discover-the-world/backpacking-punta-cana": {
+   "uploaded": "2026-10-30T05:31:15.915Z",
+   "mtime": 1793337878899,
+   "preview": "2026-10-30T05:31:18.806Z"
+  },
+  "/de/de/articles/discover-the-world/beaches-zakynthos": {
+   "uploaded": "2026-10-30T05:59:46.521Z",
+   "mtime": 1793339964932,
+   "preview": "2026-10-30T05:59:48.848Z"
+  },
+  "/de/de/articles/discover-the-world/explore-zanzibar": {
+   "uploaded": "2026-10-30T05:31:24.336Z",
+   "mtime": 1793337878944,
+   "preview": "2026-10-30T05:31:27.362Z"
+  },
+  "/de/de/articles/discover-the-world/football-tampa": {
+   "uploaded": "2026-10-30T05:59:50.045Z",
+   "mtime": 1793339964960,
+   "preview": "2026-10-30T05:59:51.783Z"
+  },
+  "/de/de/articles/discover-the-world/hiking-in-tenerife": {
+   "uploaded": "2026-10-30T05:31:32.644Z",
+   "mtime": 1793337878990,
+   "preview": "2026-10-30T05:31:35.791Z"
+  },
+  "/de/de/articles/discover-the-world/las-vegas-surprises": {
+   "uploaded": "2026-10-30T05:31:36.860Z",
+   "mtime": 1793337879010,
+   "preview": "2026-10-30T05:31:39.567Z"
+  },
+  "/de/de/articles/discover-the-world/perfect-day-in-palma": {
+   "uploaded": "2026-10-30T05:31:40.615Z",
+   "mtime": 1793337879032,
+   "preview": "2026-10-30T05:31:43.612Z"
+  },
+  "/de/de/articles/discover-the-world/riviera-maya": {
+   "uploaded": "2026-10-30T05:31:44.713Z",
+   "mtime": 1793337879056,
+   "preview": "2026-10-30T05:31:48.081Z"
+  },
+  "/de/de/articles/discover-the-world/roadtrip-from-halifax": {
+   "uploaded": "2026-10-30T05:31:49.201Z",
+   "mtime": 1793337879078,
+   "preview": "2026-10-30T05:31:52.103Z"
+  },
+  "/de/de/articles/discover-the-world/roadtrip-namibia": {
+   "uploaded": "2026-10-30T05:31:53.175Z",
+   "mtime": 1793337879101,
+   "preview": "2026-10-30T05:31:57.076Z"
+  },
+  "/de/de/articles/discover-the-world/santorini-off-the-tourist-trail": {
+   "uploaded": "2026-10-30T05:31:58.089Z",
+   "mtime": 1793337879125,
+   "preview": "2026-10-30T05:32:01.072Z"
+  },
+  "/de/de/articles/discover-the-world/solo-trip-djerba": {
+   "uploaded": "2026-10-30T05:32:02.268Z",
+   "mtime": 1793337879160,
+   "preview": "2026-10-30T05:32:05.361Z"
+  },
+  "/de/de/articles/discover-the-world/tips-seychelles": {
+   "uploaded": "2026-10-30T05:32:06.593Z",
+   "mtime": 1793337879181,
+   "preview": "2026-10-30T05:32:09.621Z"
+  },
+  "/de/de/articles/discover-the-world/winter-in-alta": {
+   "uploaded": "2026-10-30T05:32:10.893Z",
+   "mtime": 1793337879204,
+   "preview": "2026-10-30T05:32:13.988Z"
   },
   "/us/en/homepage": {
    "uploaded": "2026-11-01T18:46:54.242Z",
    "mtime": 1793557134391,
    "preview": "2026-11-01T18:46:56.637Z"
   },
-  "/xx/de/homepage": {
-   "uploaded": "2026-11-01T18:46:58.179Z",
-   "mtime": 1793557134455,
-   "preview": "2026-11-01T18:47:00.809Z"
+  "/ca/en/homepage": {
+   "uploaded": "2026-11-01T18:46:10.872Z",
+   "mtime": 1793557133692,
+   "preview": "2026-11-01T18:46:12.713Z"
   },
   "/xx/en/homepage": {
    "uploaded": "2026-11-01T18:47:02.568Z",
    "mtime": 1793557134517,
    "preview": "2026-11-01T18:47:05.298Z"
   },
+  "/xx/en/book/new-destinations": {
+   "uploaded": "2026-10-30T08:09:44.343Z",
+   "mtime": 1793347663379,
+   "preview": "2026-10-30T08:09:48.393Z"
+  },
+  "/us/de/homepage": {
+   "uploaded": "2026-11-01T18:46:49.310Z",
+   "mtime": 1793557134326,
+   "preview": "2026-11-01T18:46:52.578Z"
+  },
+  "/xx/de/homepage": {
+   "uploaded": "2026-11-01T18:46:58.179Z",
+   "mtime": 1793557134455,
+   "preview": "2026-11-01T18:47:00.809Z"
+  },
+  "/xx/de/book/new-destinations": {
+   "uploaded": "2026-10-30T08:09:55.364Z",
+   "mtime": 1793347663453,
+   "preview": "2026-10-30T08:09:57.229Z"
+  },
+  "/xx/fr/nav": {
+   "uploaded": "2026-10-30T15:50:19.844Z",
+   "mtime": 1793375281125,
+   "preview": "2026-10-30T15:50:21.947Z"
+  },
+  "/xx/fr/footer": {
+   "uploaded": "2026-11-01T18:45:04.790Z",
+   "mtime": 1793556494255,
+   "preview": "2026-11-01T18:45:06.646Z"
+  },
+  "/ca/fr/homepage": {
+   "uploaded": "2026-11-01T18:46:14.330Z",
+   "mtime": 1793557133758,
+   "preview": "2026-11-01T18:46:16.578Z"
+  },
+  "/xx/fr/book/assistance-requirements": {
+   "uploaded": "2026-10-30T10:07:40.029Z",
+   "mtime": 1793354593093,
+   "preview": "2026-10-30T10:07:42.150Z"
+  },
+  "/xx/fr/book/assistance-requirements/accessible-travel": {
+   "uploaded": "2026-10-30T10:07:43.581Z",
+   "mtime": 1793354593073,
+   "preview": "2026-10-30T10:07:45.271Z"
+  },
+  "/xx/fr/book/assistance-requirements/accessible-travel/accessibility-plan-canada": {
+   "uploaded": "2026-10-30T10:07:46.870Z",
+   "mtime": 1793354592923,
+   "preview": "2026-10-30T10:07:48.302Z"
+  },
+  "/xx/fr/book/assistance-requirements/accessible-travel/accessible-travel-usa": {
+   "uploaded": "2026-10-30T10:07:49.766Z",
+   "mtime": 1793354592945,
+   "preview": "2026-10-30T10:07:51.264Z"
+  },
+  "/xx/fr/book/assistance-requirements/accessible-travel/health": {
+   "uploaded": "2026-10-30T10:07:52.727Z",
+   "mtime": 1793354592969,
+   "preview": "2026-10-30T10:07:54.755Z"
+  },
+  "/xx/fr/book/assistance-requirements/accessible-travel/register-assistance-requirements-online": {
+   "uploaded": "2026-10-30T10:07:56.021Z",
+   "mtime": 1793354592999,
+   "preview": "2026-10-30T10:07:57.728Z"
+  },
+  "/xx/fr/book/assistance-requirements/accessible-travel/sensory-impairment": {
+   "uploaded": "2026-10-30T10:07:59.093Z",
+   "mtime": 1793354593021,
+   "preview": "2026-10-30T10:08:00.964Z"
+  },
+  "/xx/fr/book/assistance-requirements/accessible-travel/wheelchairs": {
+   "uploaded": "2026-10-30T10:08:02.267Z",
+   "mtime": 1793354593045,
+   "preview": "2026-10-30T10:08:04.062Z"
+  },
+  "/xx/fr/book/baggage": {
+   "uploaded": "2026-10-30T10:08:05.566Z",
+   "mtime": 1793354593557,
+   "preview": "2026-10-30T10:08:07.236Z"
+  },
+  "/xx/fr/book/baggage/baggage-irregularities": {
+   "uploaded": "2026-10-30T10:08:08.785Z",
+   "mtime": 1793354593141,
+   "preview": "2026-10-30T10:08:10.892Z"
+  },
+  "/xx/fr/book/baggage/baggage-irregularities/faq-damaged-baggage": {
+   "uploaded": "2026-10-30T10:08:12.162Z",
+   "mtime": 1793354593118,
+   "preview": "2026-10-30T10:08:13.782Z"
+  },
+  "/xx/fr/book/baggage/carry-on-baggage": {
+   "uploaded": "2026-10-30T10:08:15.091Z",
+   "mtime": 1793354593164,
+   "preview": "2026-10-30T10:08:16.783Z"
+  },
+  "/xx/fr/book/baggage/dangerous-goods": {
+   "uploaded": "2026-10-30T10:08:18.136Z",
+   "mtime": 1793354593213,
+   "preview": "2026-10-30T10:08:19.936Z"
+  },
+  "/xx/fr/book/baggage/dangerous-goods/electronic-devices-and-batteries": {
+   "uploaded": "2026-10-30T10:08:21.734Z",
+   "mtime": 1793354593188,
+   "preview": "2026-10-30T10:08:23.954Z"
+  },
+  "/xx/fr/book/baggage/electronic-bag-tags": {
+   "uploaded": "2026-10-30T10:08:25.236Z",
+   "mtime": 1793354593237,
+   "preview": "2026-10-30T10:08:27.038Z"
+  },
+  "/xx/fr/book/baggage/excess-baggage": {
+   "uploaded": "2026-10-30T10:08:28.429Z",
+   "mtime": 1793354593258,
+   "preview": "2026-10-30T10:08:30.287Z"
+  },
+  "/xx/fr/book/baggage/sports-baggage-and-special-baggage": {
+   "uploaded": "2026-10-30T10:08:31.629Z",
+   "mtime": 1793354593534,
+   "preview": "2026-10-30T10:08:33.465Z"
+  },
+  "/xx/fr/book/baggage/sports-baggage-and-special-baggage/add-sports-baggage": {
+   "uploaded": "2026-10-30T10:08:34.843Z",
+   "mtime": 1793354593319,
+   "preview": "2026-10-30T10:08:36.955Z"
+  },
+  "/xx/fr/book/baggage/sports-baggage-and-special-baggage/register-ammunition": {
+   "uploaded": "2026-10-30T10:08:43.971Z",
+   "mtime": 1793354593379,
+   "preview": "2026-10-30T10:08:45.664Z"
+  },
+  "/xx/fr/book/baggage/sports-baggage-and-special-baggage/register-ammunition/thank-you": {
+   "uploaded": "2026-10-30T10:08:50.509Z",
+   "mtime": 1793354593358,
+   "preview": "2026-10-30T10:08:51.982Z"
+  },
+  "/xx/fr/book/baggage/sports-baggage-and-special-baggage/register-hunting-firearm": {
+   "uploaded": "2026-10-30T10:08:53.733Z",
+   "mtime": 1793354593445,
+   "preview": "2026-10-30T10:08:55.587Z"
+  },
+  "/xx/fr/book/baggage/sports-baggage-and-special-baggage/register-hunting-firearm/thank-you": {
+   "uploaded": "2026-10-30T10:09:00.022Z",
+   "mtime": 1793354593420,
+   "preview": "2026-10-30T10:09:01.566Z"
+  },
+  "/xx/fr/book/baggage/sports-baggage-and-special-baggage/register-sporting-firearm": {
+   "uploaded": "2026-10-30T10:09:03.080Z",
+   "mtime": 1793354593509,
+   "preview": "2026-10-30T10:09:04.762Z"
+  },
+  "/xx/fr/book/baggage/sports-baggage-and-special-baggage/register-sporting-firearm/thank-you": {
+   "uploaded": "2026-10-30T10:09:09.333Z",
+   "mtime": 1793354593486,
+   "preview": "2026-10-30T10:09:10.723Z"
+  },
   "/xx/fr/book/flights/flight-search": {
    "uploaded": "2026-11-01T18:47:06.928Z",
    "mtime": 1793557134580,
    "preview": "2026-11-01T18:47:08.887Z"
+  },
+  "/xx/fr/book/flights/gift-voucher": {
+   "uploaded": "2026-10-30T10:09:16.308Z",
+   "mtime": 1793354593600,
+   "preview": "2026-10-30T10:09:18.099Z"
+  },
+  "/xx/fr/book/flights/offers": {
+   "uploaded": "2026-10-30T10:09:19.469Z",
+   "mtime": 1793354593621,
+   "preview": "2026-10-30T10:09:21.131Z"
+  },
+  "/xx/fr/book/flights/timetable": {
+   "uploaded": "2026-10-30T10:09:22.383Z",
+   "mtime": 1793354593643,
+   "preview": "2026-10-30T10:09:23.801Z"
+  },
+  "/xx/fr/book/new-destinations": {
+   "uploaded": "2026-10-30T10:09:25.065Z",
+   "mtime": 1793354593665,
+   "preview": "2026-10-30T10:09:27.063Z"
+  },
+  "/xx/fr/book/special-requests": {
+   "uploaded": "2026-10-30T10:09:28.444Z",
+   "mtime": 1793354593948,
+   "preview": "2026-10-30T10:09:30.195Z"
+  },
+  "/xx/fr/book/special-requests/families": {
+   "uploaded": "2026-10-30T10:09:31.464Z",
+   "mtime": 1793354593689,
+   "preview": "2026-10-30T10:09:33.279Z"
+  },
+  "/xx/fr/book/special-requests/pets": {
+   "uploaded": "2026-10-30T10:09:34.450Z",
+   "mtime": 1793354593900,
+   "preview": "2026-10-30T10:09:36.205Z"
+  },
+  "/xx/fr/book/special-requests/pets/animal-cargo-hold": {
+   "uploaded": "2026-10-30T10:09:37.557Z",
+   "mtime": 1793354593773,
+   "preview": "2026-10-30T10:09:39.351Z"
+  },
+  "/xx/fr/book/special-requests/pets/animal-cargo-hold/register-animal-cargo-hold": {
+   "uploaded": "2026-10-30T10:09:40.680Z",
+   "mtime": 1793354593741,
+   "preview": "2026-10-30T10:09:42.515Z"
+  },
+  "/xx/fr/book/special-requests/pets/animal-in-cabin": {
+   "uploaded": "2026-10-30T10:09:46.729Z",
+   "mtime": 1793354593826,
+   "preview": "2026-10-30T10:09:48.371Z"
+  },
+  "/xx/fr/book/special-requests/pets/animal-in-cabin/register-animal-cabin": {
+   "uploaded": "2026-10-30T10:09:49.780Z",
+   "mtime": 1793354593801,
+   "preview": "2026-10-30T10:09:51.325Z"
+  },
+  "/xx/fr/book/special-requests/pets/assistance-dogs": {
+   "uploaded": "2026-10-30T10:09:52.850Z",
+   "mtime": 1793354593849,
+   "preview": "2026-10-30T10:09:54.535Z"
+  },
+  "/xx/fr/book/assistance-requirements/accessible-travel/register-assistance-requirements-online/thank-you": {
+   "uploaded": "2026-10-30T08:52:09.088Z",
+   "mtime": 1793350022181,
+   "preview": "2026-10-30T08:52:10.589Z"
+  },
+  "/xx/fr/book/assistance-requirements/accessible-travel/register-assistance-requirements-online/error": {
+   "uploaded": "2026-10-30T08:52:11.754Z",
+   "mtime": 1793350027413,
+   "preview": "2026-10-30T08:52:13.257Z"
+  },
+  "/xx/fr/book/baggage/sports-baggage-and-special-baggage/add-sports-baggage/thank-you": {
+   "uploaded": "2026-10-30T10:08:41.146Z",
+   "mtime": 1793354593297,
+   "preview": "2026-10-30T10:08:42.617Z"
+  },
+  "/xx/fr/book/baggage/sports-baggage-and-special-baggage/add-sports-baggage/error": {
+   "uploaded": "2026-10-30T10:08:38.361Z",
+   "mtime": 1793354593278,
+   "preview": "2026-10-30T10:08:39.841Z"
+  },
+  "/xx/fr/book/baggage/sports-baggage-and-special-baggage/register-ammunition/error": {
+   "uploaded": "2026-10-30T10:08:47.443Z",
+   "mtime": 1793354593339,
+   "preview": "2026-10-30T10:08:49.197Z"
+  },
+  "/xx/fr/book/baggage/sports-baggage-and-special-baggage/register-hunting-firearm/error": {
+   "uploaded": "2026-10-30T10:08:57.019Z",
+   "mtime": 1793354593398,
+   "preview": "2026-10-30T10:08:58.692Z"
+  },
+  "/xx/fr/book/baggage/sports-baggage-and-special-baggage/register-sporting-firearm/error": {
+   "uploaded": "2026-10-30T10:09:06.164Z",
+   "mtime": 1793354593466,
+   "preview": "2026-10-30T10:09:07.677Z"
+  },
+  "/xx/fr/book/special-requests/pets/animal-cargo-hold/register-animal-cargo-hold/thank-you": {
+   "uploaded": "2026-10-30T08:52:27.593Z",
+   "mtime": 1793350022321,
+   "preview": "2026-10-30T08:52:29.116Z"
+  },
+  "/xx/fr/book/special-requests/pets/animal-cargo-hold/register-animal-cargo-hold/error": {
+   "uploaded": "2026-10-30T10:09:43.962Z",
+   "mtime": 1793354593709,
+   "preview": "2026-10-30T10:09:45.381Z"
+  },
+  "/xx/fr/book/special-requests/pets/fighting-dog-breeds-snub-nosed-animals": {
+   "uploaded": "2026-10-30T10:09:56.036Z",
+   "mtime": 1793354593872,
+   "preview": "2026-10-30T10:09:57.960Z"
+  },
+  "/xx/fr/book/special-requests/special-meals": {
+   "uploaded": "2026-10-30T10:09:59.177Z",
+   "mtime": 1793354593922,
+   "preview": "2026-10-30T10:10:00.763Z"
+  },
+  "/xx/fr/book/travel-information": {
+   "uploaded": "2026-10-30T10:10:02.167Z",
+   "mtime": 1793354594283,
+   "preview": "2026-10-30T10:10:03.820Z"
+  },
+  "/xx/fr/book/travel-information/airport-info": {
+   "uploaded": "2026-10-30T10:10:05.099Z",
+   "mtime": 1793354593991,
+   "preview": "2026-10-30T10:10:06.711Z"
+  },
+  "/xx/fr/book/travel-information/airport-info/security-check-time-slot": {
+   "uploaded": "2026-11-01T18:45:44.622Z",
+   "mtime": 1793556929625,
+   "preview": "2026-11-01T18:45:46.430Z"
+  },
+  "/xx/fr/book/travel-information/discover-canada": {
+   "uploaded": "2026-10-30T10:10:11.377Z",
+   "mtime": 1793354594058,
+   "preview": "2026-10-30T10:10:13.202Z"
+  },
+  "/xx/fr/book/travel-information/discover-canada/cta-general-rule": {
+   "uploaded": "2026-10-30T10:10:14.465Z",
+   "mtime": 1793354594013,
+   "preview": "2026-10-30T10:10:16.024Z"
+  },
+  "/xx/fr/book/travel-information/discover-canada/tarmac-delay-contingency-plan-canada": {
+   "uploaded": "2026-10-30T10:10:17.497Z",
+   "mtime": 1793354594034,
+   "preview": "2026-10-30T10:10:19.063Z"
+  },
+  "/xx/fr/book/travel-information/discover-usa": {
+   "uploaded": "2026-10-30T10:10:20.800Z",
+   "mtime": 1793354594201,
+   "preview": "2026-10-30T10:10:22.713Z"
+  },
+  "/xx/fr/book/travel-information/discover-usa/current-fees": {
+   "uploaded": "2026-10-30T10:10:24.006Z",
+   "mtime": 1793354594081,
+   "preview": "2026-10-30T10:10:25.518Z"
+  },
+  "/xx/fr/book/travel-information/discover-usa/customer-relations-usa": {
+   "uploaded": "2026-10-30T10:10:26.845Z",
+   "mtime": 1793354594102,
+   "preview": "2026-10-30T10:10:28.424Z"
+  },
+  "/xx/fr/book/travel-information/discover-usa/customer-service-plan": {
+   "uploaded": "2026-10-30T10:10:29.759Z",
+   "mtime": 1793354594128,
+   "preview": "2026-10-30T10:10:31.245Z"
+  },
+  "/xx/fr/book/travel-information/discover-usa/refund": {
+   "uploaded": "2026-10-30T10:10:32.800Z",
+   "mtime": 1793354594152,
+   "preview": "2026-10-30T10:10:34.266Z"
+  },
+  "/xx/fr/book/travel-information/discover-usa/tarmac-delay-contingency-plan-usa": {
+   "uploaded": "2026-10-30T10:10:35.949Z",
+   "mtime": 1793354594177,
+   "preview": "2026-10-30T10:10:37.393Z"
+  },
+  "/xx/fr/book/travel-information/frequent-flyers": {
+   "uploaded": "2026-10-30T10:10:38.640Z",
+   "mtime": 1793354594223,
+   "preview": "2026-10-30T10:10:40.269Z"
+  },
+  "/xx/fr/book/travel-information/lounges": {
+   "uploaded": "2026-10-30T10:10:41.900Z",
+   "mtime": 1793354594242,
+   "preview": "2026-10-30T10:10:43.892Z"
+  },
+  "/xx/fr/book/travel-information/travel-tips": {
+   "uploaded": "2026-10-30T10:10:45.216Z",
+   "mtime": 1793354594263,
+   "preview": "2026-10-30T10:10:47.178Z"
+  },
+  "/xx/fr/travel-inspiration/beach": {
+   "uploaded": "2026-10-30T10:13:54.536Z",
+   "mtime": 1793354595681,
+   "preview": "2026-10-30T10:13:56.117Z"
+  },
+  "/xx/fr/travel-inspiration/best-time-to-travel": {
+   "uploaded": "2026-10-30T10:13:57.377Z",
+   "mtime": 1793354595701,
+   "preview": "2026-10-30T10:13:58.974Z"
+  },
+  "/xx/fr/travel-inspiration/city-breaks": {
+   "uploaded": "2026-10-30T10:14:00.286Z",
+   "mtime": 1793354595724,
+   "preview": "2026-10-30T10:14:03.064Z"
+  },
+  "/xx/fr/travel-inspiration/cultural-trips": {
+   "uploaded": "2026-10-30T10:14:04.546Z",
+   "mtime": 1793354595742,
+   "preview": "2026-10-30T10:14:06.417Z"
+  },
+  "/xx/fr/travel-inspiration/diving": {
+   "uploaded": "2026-10-30T10:14:07.638Z",
+   "mtime": 1793354595762,
+   "preview": "2026-10-30T10:14:09.188Z"
+  },
+  "/xx/fr/travel-inspiration/family": {
+   "uploaded": "2026-10-30T10:14:10.442Z",
+   "mtime": 1793354595785,
+   "preview": "2026-10-30T10:14:12.374Z"
+  },
+  "/xx/fr/travel-inspiration/hiking": {
+   "uploaded": "2026-10-30T10:14:13.789Z",
+   "mtime": 1793354595807,
+   "preview": "2026-10-30T10:14:15.448Z"
+  },
+  "/xx/fr/travel-inspiration/inspiration/destinations/alta": {
+   "uploaded": "2026-10-30T10:14:16.843Z",
+   "mtime": 1793354595841,
+   "preview": "2026-10-30T10:14:18.640Z"
+  },
+  "/xx/fr/travel-inspiration/inspiration/destinations/atlantic-canada": {
+   "uploaded": "2026-10-30T10:14:20.127Z",
+   "mtime": 1793354595864,
+   "preview": "2026-10-30T10:14:21.889Z"
+  },
+  "/xx/fr/travel-inspiration/inspiration/destinations/calgary": {
+   "uploaded": "2026-10-30T10:14:23.384Z",
+   "mtime": 1793354595888,
+   "preview": "2026-10-30T10:14:25.081Z"
+  },
+  "/xx/fr/travel-inspiration/inspiration/destinations/corfu": {
+   "uploaded": "2026-10-30T10:14:26.485Z",
+   "mtime": 1793354595911,
+   "preview": "2026-10-30T10:14:28.313Z"
+  },
+  "/xx/fr/travel-inspiration/inspiration/destinations/crete": {
+   "uploaded": "2026-10-30T10:14:29.678Z",
+   "mtime": 1793354595934,
+   "preview": "2026-10-30T10:14:31.637Z"
+  },
+  "/xx/fr/travel-inspiration/inspiration/destinations/dubrovnik": {
+   "uploaded": "2026-10-30T10:14:33.085Z",
+   "mtime": 1793354595958,
+   "preview": "2026-10-30T10:14:34.791Z"
+  },
+  "/xx/fr/travel-inspiration/inspiration/destinations/fort-myers": {
+   "uploaded": "2026-10-30T10:14:36.216Z",
+   "mtime": 1793354595984,
+   "preview": "2026-10-30T10:14:37.992Z"
+  },
+  "/xx/fr/travel-inspiration/inspiration/destinations/ibiza": {
+   "uploaded": "2026-10-30T10:14:39.371Z",
+   "mtime": 1793354596008,
+   "preview": "2026-10-30T10:14:41.239Z"
+  },
+  "/xx/fr/travel-inspiration/inspiration/destinations/las-vegas": {
+   "uploaded": "2026-10-30T10:14:42.697Z",
+   "mtime": 1793354596033,
+   "preview": "2026-10-30T10:14:44.420Z"
+  },
+  "/xx/fr/travel-inspiration/inspiration/destinations/lofoten": {
+   "uploaded": "2026-10-30T10:14:45.760Z",
+   "mtime": 1793354596061,
+   "preview": "2026-10-30T10:14:47.614Z"
+  },
+  "/xx/fr/travel-inspiration/inspiration/destinations/mallorca": {
+   "uploaded": "2026-10-30T10:14:48.930Z",
+   "mtime": 1793354596085,
+   "preview": "2026-10-30T10:14:51.055Z"
+  },
+  "/xx/fr/travel-inspiration/inspiration/destinations/marrakech": {
+   "uploaded": "2026-10-30T10:14:52.401Z",
+   "mtime": 1793354596109,
+   "preview": "2026-10-30T10:14:54.611Z"
+  },
+  "/xx/fr/travel-inspiration/inspiration/destinations/orlando": {
+   "uploaded": "2026-10-30T10:14:56.029Z",
+   "mtime": 1793354596135,
+   "preview": "2026-10-30T10:14:57.956Z"
+  },
+  "/xx/fr/travel-inspiration/inspiration/destinations/punta-cana": {
+   "uploaded": "2026-10-30T10:14:59.284Z",
+   "mtime": 1793354596157,
+   "preview": "2026-10-30T10:15:01.047Z"
+  },
+  "/xx/fr/travel-inspiration/inspiration/destinations/santorini": {
+   "uploaded": "2026-10-30T10:15:02.576Z",
+   "mtime": 1793354596181,
+   "preview": "2026-10-30T10:15:04.871Z"
+  },
+  "/xx/fr/travel-inspiration/inspiration/destinations/tampa": {
+   "uploaded": "2026-10-30T10:15:06.439Z",
+   "mtime": 1793354596204,
+   "preview": "2026-10-30T10:15:08.556Z"
+  },
+  "/xx/fr/discover/services-on-board": {
+   "uploaded": "2026-10-30T10:10:54.175Z",
+   "mtime": 1793354594424,
+   "preview": "2026-10-30T10:10:55.884Z"
+  },
+  "/xx/fr/discover/services-on-board/culinary-services": {
+   "uploaded": "2026-10-30T10:10:57.170Z",
+   "mtime": 1793354594334,
+   "preview": "2026-10-30T10:10:58.959Z"
+  },
+  "/xx/fr/discover/services-on-board/entertainment": {
+   "uploaded": "2026-10-30T10:11:00.427Z",
+   "mtime": 1793354594380,
+   "preview": "2026-10-30T10:11:02.177Z"
+  },
+  "/xx/fr/discover/services-on-board/entertainment/inflight-entertainment": {
+   "uploaded": "2026-10-30T10:11:03.623Z",
+   "mtime": 1793354594357,
+   "preview": "2026-10-30T10:11:05.439Z"
+  },
+  "/xx/fr/discover/services-on-board/internet/flynet": {
+   "uploaded": "2026-10-30T10:11:06.899Z",
+   "mtime": 1793354594404,
+   "preview": "2026-10-30T10:11:08.479Z"
+  },
+  "/xx/fr/discover/travel-classes": {
+   "uploaded": "2026-10-30T15:50:26.957Z",
+   "mtime": 1793375280919,
+   "preview": "2026-10-30T15:50:29.281Z"
+  },
+  "/xx/fr/my-bookings/check-in": {
+   "uploaded": "2026-10-30T10:12:36.978Z",
+   "mtime": 1793354595166,
+   "preview": "2026-10-30T10:12:38.558Z"
+  },
+  "/xx/fr/my-bookings/check-in/check-in-at-the-airport": {
+   "uploaded": "2026-10-30T10:12:40.207Z",
+   "mtime": 1793354595119,
+   "preview": "2026-10-30T10:12:42.884Z"
+  },
+  "/xx/fr/my-bookings/check-in/online-check-in": {
+   "uploaded": "2026-10-31T10:19:41.421Z",
+   "mtime": 1793441961885,
+   "preview": "2026-10-31T10:19:43.074Z"
+  },
+  "/xx/fr/my-bookings/flight-status": {
+   "uploaded": "2026-10-31T10:19:50.144Z",
+   "mtime": 1793441961948,
+   "preview": "2026-10-31T10:19:51.642Z"
+  },
+  "/xx/fr/my-bookings/manage": {
+   "uploaded": "2026-10-30T10:12:50.353Z",
+   "mtime": 1793354595403,
+   "preview": "2026-10-30T10:12:52.046Z"
+  },
+  "/xx/fr/my-bookings/manage/customer-service": {
+   "uploaded": "2026-11-01T18:45:20.575Z",
+   "mtime": 1793556929869,
+   "preview": "2026-11-01T18:45:22.494Z"
+  },
+  "/xx/fr/my-bookings/manage/customer-service/contact-form": {
+   "uploaded": "2026-10-30T10:12:56.802Z",
+   "mtime": 1793354595310,
+   "preview": "2026-10-30T10:12:58.284Z"
+  },
+  "/xx/fr/my-bookings/manage/customer-service/contact-form/compensation-baggage": {
+   "uploaded": "2026-10-30T10:12:59.753Z",
+   "mtime": 1793354595208,
+   "preview": "2026-10-30T10:13:01.455Z"
+  },
+  "/xx/fr/my-bookings/manage/customer-service/contact-form/compensation-flight-irregularities": {
+   "uploaded": "2026-10-30T10:13:02.965Z",
+   "mtime": 1793354595228,
+   "preview": "2026-10-30T10:13:04.418Z"
+  },
+  "/xx/fr/my-bookings/manage/customer-service/contact-form/error": {
+   "uploaded": "2026-10-30T10:13:05.617Z",
+   "mtime": 1793354595248,
+   "preview": "2026-10-30T10:13:07.225Z"
+  },
+  "/xx/fr/my-bookings/manage/customer-service/contact-form/other-concerns": {
+   "uploaded": "2026-10-30T10:13:08.732Z",
+   "mtime": 1793354595271,
+   "preview": "2026-10-30T10:13:10.280Z"
+  },
+  "/xx/fr/my-bookings/manage/customer-service/contact-form/thank-you": {
+   "uploaded": "2026-10-30T10:13:11.605Z",
+   "mtime": 1793354595290,
+   "preview": "2026-10-30T10:13:13.158Z"
+  },
+  "/xx/fr/my-bookings/manage/customer-service/service-center": {
+   "uploaded": "2026-10-30T10:13:14.672Z",
+   "mtime": 1793354595333,
+   "preview": "2026-10-30T10:13:16.080Z"
+  },
+  "/xx/fr/my-bookings/manage/seat-reservation": {
+   "uploaded": "2026-10-30T10:13:17.400Z",
+   "mtime": 1793354595382,
+   "preview": "2026-10-30T10:13:19.180Z"
+  },
+  "/xx/fr/my-bookings/services": {
+   "uploaded": "2026-10-30T10:13:20.459Z",
+   "mtime": 1793354595624,
+   "preview": "2026-10-30T10:13:22.184Z"
+  },
+  "/xx/fr/my-bookings/services/additional-services": {
+   "uploaded": "2026-10-30T10:13:23.379Z",
+   "mtime": 1793354595493,
+   "preview": "2026-10-30T10:13:24.985Z"
+  },
+  "/xx/fr/my-bookings/services/additional-services/express-rail": {
+   "uploaded": "2026-10-30T10:13:26.251Z",
+   "mtime": 1793354595425,
+   "preview": "2026-10-30T10:13:28.036Z"
+  },
+  "/xx/fr/my-bookings/services/additional-services/rail-and-fly": {
+   "uploaded": "2026-10-30T10:13:29.593Z",
+   "mtime": 1793354595451,
+   "preview": "2026-10-30T10:13:31.362Z"
+  },
+  "/xx/fr/my-bookings/services/additional-services/uptrip": {
+   "uploaded": "2026-10-30T10:13:33.135Z",
+   "mtime": 1793354595471,
+   "preview": "2026-10-30T10:13:35.306Z"
+  },
+  "/xx/fr/my-bookings/services/upgrades": {
+   "uploaded": "2026-10-30T10:13:36.624Z",
+   "mtime": 1793354595603,
+   "preview": "2026-10-30T10:13:38.305Z"
+  },
+  "/xx/fr/my-bookings/services/upgrades/bid-upgrade": {
+   "uploaded": "2026-10-30T10:13:39.853Z",
+   "mtime": 1793354595515,
+   "preview": "2026-10-30T10:13:41.711Z"
+  },
+  "/xx/fr/my-bookings/services/upgrades/upgrade-business-class-long-haul": {
+   "uploaded": "2026-10-30T10:13:43.019Z",
+   "mtime": 1793354595537,
+   "preview": "2026-10-30T10:13:44.496Z"
+  },
+  "/xx/fr/my-bookings/services/upgrades/upgrade-business-class-short-haul": {
+   "uploaded": "2026-10-30T10:13:45.794Z",
+   "mtime": 1793354595558,
+   "preview": "2026-10-30T10:13:47.384Z"
+  },
+  "/xx/fr/my-bookings/services/upgrades/upgrade-premium-economy-long-haul": {
+   "uploaded": "2026-10-30T10:13:48.688Z",
+   "mtime": 1793354595580,
+   "preview": "2026-10-30T10:13:50.406Z"
+  },
+  "/xx/fr/travel-inspiration/inspiration/destinations/windhoek": {
+   "uploaded": "2026-10-30T10:15:09.809Z",
+   "mtime": 1793354596229,
+   "preview": "2026-10-30T10:15:11.825Z"
+  },
+  "/xx/fr/travel-inspiration/inspiration/long-haul-destinations": {
+   "uploaded": "2026-10-30T10:15:13.131Z",
+   "mtime": 1793354596272,
+   "preview": "2026-10-30T10:15:15.075Z"
+  },
+  "/xx/fr/travel-inspiration/inspiration/long-haul-destinations-from-munich": {
+   "uploaded": "2026-10-30T10:15:16.358Z",
+   "mtime": 1793354596252,
+   "preview": "2026-10-30T10:15:18.293Z"
+  },
+  "/xx/fr/travel-inspiration/inspiration/short-haul-destinations": {
+   "uploaded": "2026-10-30T10:15:19.680Z",
+   "mtime": 1793354596291,
+   "preview": "2026-10-30T10:15:21.251Z"
+  },
+  "/xx/fr/travel-inspiration/island-hopping": {
+   "uploaded": "2026-10-30T10:15:22.705Z",
+   "mtime": 1793354596312,
+   "preview": "2026-10-30T10:15:24.243Z"
+  },
+  "/xx/fr/travel-inspiration/music": {
+   "uploaded": "2026-10-30T10:15:25.622Z",
+   "mtime": 1793354596332,
+   "preview": "2026-10-30T10:15:27.133Z"
+  },
+  "/xx/fr/travel-inspiration/nature": {
+   "uploaded": "2026-10-30T10:15:28.414Z",
+   "mtime": 1793354596352,
+   "preview": "2026-10-30T10:15:29.976Z"
+  },
+  "/xx/fr/travel-inspiration/romantic-getaway": {
+   "uploaded": "2026-10-30T10:15:31.168Z",
+   "mtime": 1793354596374,
+   "preview": "2026-10-30T10:15:32.793Z"
+  },
+  "/xx/fr/travel-inspiration/shopping": {
+   "uploaded": "2026-10-30T10:15:34.034Z",
+   "mtime": 1793354596395,
+   "preview": "2026-10-30T10:15:35.678Z"
+  },
+  "/xx/fr/travel-inspiration/theme-parks": {
+   "uploaded": "2026-10-30T10:15:37.270Z",
+   "mtime": 1793354596415,
+   "preview": "2026-10-30T10:15:39.001Z"
+  },
+  "/xx/fr/travel-inspiration/volcano-hikes": {
+   "uploaded": "2026-10-30T10:15:40.546Z",
+   "mtime": 1793354596433,
+   "preview": "2026-10-30T10:15:42.144Z"
+  },
+  "/xx/fr/travel-inspiration/winter-destinations": {
+   "uploaded": "2026-10-30T10:15:43.429Z",
+   "mtime": 1793354596455,
+   "preview": "2026-10-30T10:15:45.165Z"
+  },
+  "/xx/fr/about-us/career": {
+   "uploaded": "2026-10-30T10:07:19.749Z",
+   "mtime": 1793354592833,
+   "preview": "2026-10-30T10:07:21.723Z"
+  },
+  "/xx/fr/about-us/career/admin": {
+   "uploaded": "2026-10-30T10:07:22.854Z",
+   "mtime": 1793354592763,
+   "preview": "2026-10-30T10:07:24.617Z"
+  },
+  "/xx/fr/about-us/career/cabin": {
+   "uploaded": "2026-10-30T10:07:25.698Z",
+   "mtime": 1793354592791,
+   "preview": "2026-10-30T10:07:27.422Z"
+  },
+  "/xx/fr/about-us/career/cockpit": {
+   "uploaded": "2026-10-30T10:07:28.487Z",
+   "mtime": 1793354592812,
+   "preview": "2026-10-30T10:07:30.144Z"
+  },
+  "/xx/fr/about-us/company": {
+   "uploaded": "2026-10-30T10:07:31.181Z",
+   "mtime": 1793354596755,
+   "preview": "2026-10-30T10:07:33.020Z"
+  },
+  "/xx/fr/about-us/company/beach-volleyball": {
+   "uploaded": "2026-10-30T10:07:34.082Z",
+   "mtime": 1793354592854,
+   "preview": "2026-10-30T10:07:35.829Z"
+  },
+  "/xx/fr/about-us/company/tampa-bay-buccaneers": {
+   "uploaded": "2026-10-30T10:07:36.887Z",
+   "mtime": 1793354592879,
+   "preview": "2026-10-30T10:07:38.651Z"
   },
   "/xx/fr/cancun-promotion": {
    "uploaded": "2026-11-01T18:47:10.505Z",
    "mtime": 1793557134637,
    "preview": "2026-11-01T18:47:12.499Z"
   },
+  "/xx/fr/culinaryjourney": {
+   "uploaded": "2026-11-01T18:37:36.556Z",
+   "mtime": 1793556256998,
+   "preview": "2026-11-01T18:37:38.235Z"
+  },
+  "/xx/fr/discover/travel-classes/business-class": {
+   "uploaded": "2026-10-30T10:11:12.988Z",
+   "mtime": 1793354594487,
+   "preview": "2026-10-30T10:11:14.811Z"
+  },
+  "/xx/fr/discover/travel-classes/business-class/services-long-haul": {
+   "uploaded": "2026-10-30T10:11:16.352Z",
+   "mtime": 1793354596487,
+   "preview": "2026-10-30T10:11:18.303Z"
+  },
+  "/xx/fr/discover/travel-classes/business-class/services-short-haul": {
+   "uploaded": "2026-10-30T10:11:19.315Z",
+   "mtime": 1793354594465,
+   "preview": "2026-10-30T10:11:21.109Z"
+  },
+  "/xx/fr/discover/travel-classes/economy-class": {
+   "uploaded": "2026-10-30T10:11:22.177Z",
+   "mtime": 1793354594555,
+   "preview": "2026-10-30T10:11:24.420Z"
+  },
+  "/xx/fr/discover/travel-classes/economy-class/services-long-haul": {
+   "uploaded": "2026-10-30T10:11:25.700Z",
+   "mtime": 1793354596515,
+   "preview": "2026-10-30T10:11:27.474Z"
+  },
+  "/xx/fr/discover/travel-classes/economy-class/services-short-haul": {
+   "uploaded": "2026-10-30T10:11:28.549Z",
+   "mtime": 1793354596537,
+   "preview": "2026-10-30T10:11:30.113Z"
+  },
+  "/xx/fr/discover/travel-classes/fleet": {
+   "uploaded": "2026-10-30T10:11:31.492Z",
+   "mtime": 1793354594644,
+   "preview": "2026-10-30T10:11:33.075Z"
+  },
+  "/xx/fr/discover/travel-classes/fleet/a320-200": {
+   "uploaded": "2026-10-30T10:11:34.325Z",
+   "mtime": 1793354596560,
+   "preview": "2026-10-30T10:11:35.944Z"
+  },
+  "/xx/fr/discover/travel-classes/fleet/a330-300": {
+   "uploaded": "2026-10-30T10:11:37.151Z",
+   "mtime": 1793354596583,
+   "preview": "2026-10-30T10:11:38.722Z"
+  },
+  "/xx/fr/discover/travel-classes/fleet/a350-900": {
+   "uploaded": "2026-10-30T10:11:39.985Z",
+   "mtime": 1793354594626,
+   "preview": "2026-10-30T10:11:41.642Z"
+  },
+  "/xx/fr/discover/travel-classes/green-fares": {
+   "uploaded": "2026-10-30T10:11:42.637Z",
+   "mtime": 1793354594690,
+   "preview": "2026-10-30T10:11:44.988Z"
+  },
+  "/xx/fr/discover/travel-classes/green-fares/faq-saf": {
+   "uploaded": "2026-10-30T10:11:46.166Z",
+   "mtime": 1793354594667,
+   "preview": "2026-10-30T10:11:47.622Z"
+  },
+  "/xx/fr/discover/travel-classes/premium-economy-class": {
+   "uploaded": "2026-10-30T10:11:48.800Z",
+   "mtime": 1793354594736,
+   "preview": "2026-10-30T10:11:50.471Z"
+  },
+  "/xx/fr/discover/travel-classes/premium-economy-class/services-long-haul": {
+   "uploaded": "2026-10-30T10:11:51.631Z",
+   "mtime": 1793354596618,
+   "preview": "2026-10-30T10:11:53.338Z"
+  },
+  "/xx/fr/feedback": {
+   "uploaded": "2026-10-30T10:11:54.410Z",
+   "mtime": 1793354594778,
+   "preview": "2026-10-30T10:11:55.689Z"
+  },
+  "/xx/fr/help/feedback": {
+   "uploaded": "2026-10-30T10:11:59.874Z",
+   "mtime": 1793354594817,
+   "preview": "2026-10-30T10:12:01.380Z"
+  },
+  "/xx/fr/help/search-result": {
+   "uploaded": "2026-10-30T10:12:02.558Z",
+   "mtime": 1793354594837,
+   "preview": "2026-10-30T10:12:04.025Z"
+  },
   "/xx/fr/homepage": {
    "uploaded": "2026-11-01T18:47:14.205Z",
    "mtime": 1793557134695,
    "preview": "2026-11-01T18:47:16.803Z"
+  },
+  "/xx/fr/legal/accessibility-statement": {
+   "uploaded": "2026-10-30T10:12:09.557Z",
+   "mtime": 1793354594891,
+   "preview": "2026-10-30T10:12:11.162Z"
+  },
+  "/xx/fr/legal/arbitration": {
+   "uploaded": "2026-10-30T10:12:12.333Z",
+   "mtime": 1793354594911,
+   "preview": "2026-10-30T10:12:13.821Z"
+  },
+  "/xx/fr/legal/conditions-of-carriage": {
+   "uploaded": "2026-10-30T10:12:14.881Z",
+   "mtime": 1793354596650,
+   "preview": "2026-10-30T10:12:16.761Z"
+  },
+  "/xx/fr/legal/data-protection-information": {
+   "uploaded": "2026-10-30T10:12:17.964Z",
+   "mtime": 1793354595034,
+   "preview": "2026-10-30T10:12:19.346Z"
+  },
+  "/xx/fr/legal/data-protection-information/cookie-policy": {
+   "uploaded": "2026-10-30T10:12:20.571Z",
+   "mtime": 1793354594961,
+   "preview": "2026-10-30T10:12:22.207Z"
+  },
+  "/xx/fr/legal/data-protection-information/privacy-policy-of-discover-airlines": {
+   "uploaded": "2026-10-30T10:12:23.209Z",
+   "mtime": 1793354595012,
+   "preview": "2026-10-30T10:12:24.759Z"
+  },
+  "/xx/fr/legal/data-protection-information/privacy-policy-of-discover-airlines-facebook-page": {
+   "uploaded": "2026-10-30T10:12:25.962Z",
+   "mtime": 1793354594985,
+   "preview": "2026-10-30T10:12:27.466Z"
+  },
+  "/xx/fr/legal/imprint": {
+   "uploaded": "2026-10-30T10:12:28.504Z",
+   "mtime": 1793354595056,
+   "preview": "2026-10-30T10:12:30.002Z"
+  },
+  "/xx/fr/legal/insolvency-protection": {
+   "uploaded": "2026-10-30T10:12:31.169Z",
+   "mtime": 1793354595074,
+   "preview": "2026-10-30T10:12:32.656Z"
+  },
+  "/xx/fr/legal/passenger-rights": {
+   "uploaded": "2026-10-30T10:12:33.825Z",
+   "mtime": 1793354595097,
+   "preview": "2026-10-30T10:12:35.234Z"
+  },
+  "/xx/fr/discover/ocean-blue": {
+   "uploaded": "2026-10-31T05:57:37.021Z",
+   "mtime": 1793426232502,
+   "preview": "2026-10-31T05:57:38.930Z"
   }
  },
  "media": {}
