@@ -75,6 +75,9 @@ export function geolocationOf(cookie = document.cookie) {
 export const NECESSARY = 'C0001';
 export const ALL_GROUPS = ['C0001', 'C0002', 'C0004', 'C0005'];
 
+/** OF1's edge proxy in front of the site (*.of1.live): OF1's own banner governs consent there */
+const OF1_HOST = /\.of1\.live$/i;
+
 /** DA preview pane, DA quick edit, Universal Editor (also stage-* and da.page variants) */
 const AUTHORING_HOST = /\.(stage-)?(preview|ue)\.da\.(live|page)$/;
 const AUTHORING_PARAMS = ['dapreview', 'quick-edit', 'controller', 'daexperiment'];
@@ -358,6 +361,12 @@ export function initConsent() {
   if (isAuthoringContext()) {
     state.suppressed = true;
     announce([NECESSARY], 'authoring');
+    return;
+  }
+  // *.of1.live: OF1's banner, not ours (one banner only); our side: necessary only
+  if (OF1_HOST.test(window.location.hostname)) {
+    state.suppressed = true;
+    announce([NECESSARY], 'of1-host');
     return;
   }
   // a brand without a OneTrust id: no banner (not another brand's), no preferences, necessary only

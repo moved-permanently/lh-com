@@ -35,6 +35,15 @@ import {
 import { FALLBACK_LANGUAGE_VERSION } from './locale-table.js';
 import { isDemoHost } from './demo.js';
 
+// the lh-com tenant's OF1 hosts (OF1's edge proxy in front of the site and its preview): the
+// widgets call www there as on the demo hosts; elsewhere they stay production (scripts/demo.js)
+const OF1_TENANT_HOST = /^(prev--)?main--lh-com--moved-permanently\.of1\.live$/;
+
+/** Whether the widgets' data treats a host as a demo host (default: the page's). */
+export function isWidgetDemoHost(hostname = window.location.hostname) {
+  return isDemoHost(hostname) || OF1_TENANT_HOST.test(String(hostname || '').toLowerCase());
+}
+
 // Origin of the deployed lh-proxy worker (see tools/workers/DEPLOY-PROMPT.md)
 export const PROXY_ORIGIN = 'https://lh-proxy.benpeter.workers.dev';
 const defaultProxy = () => PROXY_ORIGIN;
@@ -454,7 +463,7 @@ async function fetchRecorded(market, key, exact) {
  */
 export async function lhRecorded(pathPrefix, { method = 'GET', market = getLocale().key } = {}) {
   // recordings are the demo's (shown when www can't be called): none on a production host
-  if (!isDemoHost()) return [];
+  if (!isWidgetDemoHost()) return [];
   const { entries = {} } = await loadRecordedIndex();
   const listOf = (m) => {
     const prefix = `${m}|${method.toUpperCase()} ${pathPrefix}`;
@@ -543,7 +552,7 @@ export async function lhFetch(route, {
 } = {}) {
   // a production host (scripts/demo.js) is www itself: every route same-origin with the market's
   // X-Portal-* headers, no proxy, no tester overrides, no recorded answers (a failing call fails)
-  if (!isDemoHost()) {
+  if (!isWidgetDemoHost()) {
     const init = { method, credentials: 'same-origin', headers: portalHeaders(market) };
     if (body !== undefined && body !== null) {
       init.body = bodyText(body);

@@ -118,6 +118,12 @@ function brandLocale(site, root, prefix) {
 }
 
 /**
+ * lh-com's pages at the site root that are pages of one locale: OF1's generative page /of1 is an
+ * English page (its fare widgets: English labels and conditions), de/en like the 404 page.
+ */
+const ROOT_PAGE_LOCALES = { '/of1': 'de/en' };
+
+/**
  * Resolves the locale of a path.
  * @param {string} [pathname] Page path, defaults to the current page
  * @returns {Object} locale: the table row (country, lang, homeAirport, currency …), key (the
@@ -139,6 +145,12 @@ export function getLocale(pathname = window.location.pathname) {
   if (!match) {
     const plain = brandSiteLocale(prefix);
     if (plain) return plain;
+    const own = ROOT_PAGE_LOCALES[rest.replace(/(.)\/$/, '$1')];
+    if (own) {
+      return {
+        ...LOCALE_TABLE[own], key: own, base: `${prefix}/${own}`, root: own,
+      };
+    }
     return {
       ...LOCALE_TABLE[DEFAULT_LOCALE], key: DEFAULT_LOCALE, base: `${prefix}/${DEFAULT_LOCALE}`, root: DEFAULT_LOCALE,
     };
