@@ -123,6 +123,9 @@ export async function loadFinderContext(locale) {
   const sources = {};
   const settle = (name, mapper, fallback) => fetchRequest(requests[name], locale)
     .then(({ data, source }) => {
+      // a brand root has no recording of its own: recorded conditions are another market's
+      // (lh-com's at/de, in German), none instead (resolveOrigin the same)
+      if (name === 'conditions' && locale.brand && source === 'recorded') throw new Error('another market\'s recording');
       sources[name] = source;
       return mapper(data);
     })

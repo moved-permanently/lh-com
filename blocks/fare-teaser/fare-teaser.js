@@ -162,7 +162,12 @@ export async function loadFareTeaserData(settings, locale) {
   }
   const [live, conditions, localeData] = await Promise.all([
     fetchLabels(LABEL_BUNDLES, locale),
-    settle('conditions', fetchRequest(requests.conditions, locale), mapConditions, mapConditions()),
+    // a brand root has no recording of its own: a recorded answer is another market's conditions
+    // (lh-com's at/de, in German), none instead (resolveOrigin the same)
+    settle('conditions', fetchRequest(requests.conditions, locale).then((r) => {
+      if (locale.brand && r.source === 'recorded') throw new Error('another market\'s recording');
+      return r;
+    }), mapConditions, mapConditions()),
     settle('localeData', fetchRequest(requests.localeData, locale), mapLocaleData, {}),
   ]);
   Object.entries(live.sources).forEach(([bundle, source]) => { sources[`labels/${bundle}`] = source; });
