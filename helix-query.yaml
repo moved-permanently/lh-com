@@ -3584,10 +3584,18 @@ indices:
       description:
         select: head > meta[name="description"]
         value: attribute(el, "content")
+      # the post's featured photo (its article-header's first image; media resolve under any path),
+      # the share image (og:image) for a post without one (scripts/articles.js share-image)
       image:
+        select: main .article-header img
+        value: match(attribute(el, "src"), "^\.(/media_[^?]+)")
+      image-alt:
+        select: main .article-header img
+        value: attribute(el, "alt")
+      share-image:
         select: head > meta[property="og:image"]
         value: match(attribute(el, "content"), "https:\/\/[^/]+(/.*)")
-      image-alt:
+      share-image-alt:
         select: head > meta[property="og:image:alt"]
         value: attribute(el, "content")
       category:
@@ -3613,10 +3621,18 @@ indices:
       description:
         select: head > meta[name="description"]
         value: attribute(el, "content")
+      # the post's featured photo (its article-header's first image; media resolve under any path),
+      # the share image (og:image) for a post without one (scripts/articles.js share-image)
       image:
+        select: main .article-header img
+        value: match(attribute(el, "src"), "^\.(/media_[^?]+)")
+      image-alt:
+        select: main .article-header img
+        value: attribute(el, "alt")
+      share-image:
         select: head > meta[property="og:image"]
         value: match(attribute(el, "content"), "https:\/\/[^/]+(/.*)")
-      image-alt:
+      share-image-alt:
         select: head > meta[property="og:image:alt"]
         value: attribute(el, "content")
       category:
@@ -3681,10 +3697,18 @@ indices:
       description:
         select: head > meta[name="description"]
         value: attribute(el, "content")
+      # the post's featured photo (its article-header's first image; media resolve under any path),
+      # the share image (og:image) for a post without one (scripts/articles.js share-image)
       image:
+        select: main .article-header img
+        value: match(attribute(el, "src"), "^\.(/media_[^?]+)")
+      image-alt:
+        select: main .article-header img
+        value: attribute(el, "alt")
+      share-image:
         select: head > meta[property="og:image"]
         value: match(attribute(el, "content"), "https:\/\/[^/]+(/.*)")
-      image-alt:
+      share-image-alt:
         select: head > meta[property="og:image:alt"]
         value: attribute(el, "content")
       category:

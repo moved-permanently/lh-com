@@ -97,8 +97,10 @@ export function toArticle(row) {
     path: row.path,
     title: String(row.title || '').trim() || row.path,
     description: String(row.description || '').trim(),
-    image: String(row.image || '').trim(),
-    imageAlt: String(row['image-alt'] || '').trim(),
+    // a brand's posts index: the post's header image, else its share image (Air Dolomiti's
+    // share-image, og:image); lufthansa.com's indexes have no share-image
+    image: String(row.image || row['share-image'] || '').trim(),
+    imageAlt: String((row.image ? row['image-alt'] : row['share-image-alt'] ?? row['image-alt']) || '').trim(),
     category: normalizeCategory(row.category),
     categoryName: String(row.category || '').trim(),
     tags,
