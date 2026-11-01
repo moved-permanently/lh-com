@@ -158,7 +158,9 @@ body {
   color: var(--text-color);
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-m);
-  font-weight: 400;
+
+  /* --body-font-weight: a brand theme's copy weight (styles/themes/*.css); lh-com's 400 */
+  font-weight: var(--body-font-weight, 400);
   line-height: var(--body-line-height);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -218,9 +220,13 @@ h6 {
   }
 }
 
+/* --heading-large-weight, --heading-large-transform: a brand theme's headline (b2b: LufthansaHead
+   200 uppercase); lh-com's 700, none */
 h1 {
   margin-bottom: var(--heading-margin-xxl);
   font-size: var(--heading-font-size-xxl);
+  font-weight: var(--heading-large-weight, 700);
+  text-transform: var(--heading-large-transform, none);
 }
 
 /* --heading-light-weight: a brand theme whose headings are all bold (styles/themes/*.css) */
@@ -247,7 +253,8 @@ h6 {
 main :is(h1, h2, h3, h4, h5, h6).heading-large {
   margin-bottom: var(--heading-margin-xxl);
   font-size: var(--heading-font-size-xxl);
-  font-weight: 700;
+  font-weight: var(--heading-large-weight, 700);
+  text-transform: var(--heading-large-transform, none);
 }
 
 main :is(h1, h2, h3, h4, h5, h6).heading-medium {
@@ -564,11 +571,12 @@ button.button.secondary:focus-visible {
   color: var(--lh-white);
 }
 
-/* high-impact call-to-action: --maui-color-interaction-buttonsecondary(hover) as a filled button */
+/* high-impact call-to-action: --maui-color-interaction-buttonsecondary(hover) as a filled button;
+   --button-accent-color, --button-accent-hover: a brand theme's buttonsecondary (b2b: b2b-blue) */
 a.button.accent,
 button.button.accent {
-  border-color: var(--lh-deepblue);
-  background-color: var(--lh-deepblue);
+  border-color: var(--button-accent-color, var(--lh-deepblue));
+  background-color: var(--button-accent-color, var(--lh-deepblue));
   color: var(--lh-white);
 }
 
@@ -576,8 +584,8 @@ a.button.accent:hover,
 a.button.accent:focus-visible,
 button.button.accent:hover,
 button.button.accent:focus-visible {
-  border-color: var(--lh-marble-blue);
-  background-color: var(--lh-marble-blue);
+  border-color: var(--button-accent-hover, var(--lh-marble-blue));
+  background-color: var(--button-accent-hover, var(--lh-marble-blue));
   color: var(--lh-white);
 }
 

@@ -4,7 +4,8 @@
    sideways (www.lufthansa.com, www.ita-airways.com and www.discover-airlines.com do too,
    2026-11-01). Headings break a word only when it doesn't fit its line (overflow-wrap:
    break-word, every width); below 768px words of 14+ characters hyphenate at a syllable (the
-   page's lang) first. The sizes stay; the brand themes set none of their own.
+   page's lang) first. The sizes stay; a brand theme sets no wrapping, and no heading size above
+   lh-com's on phones (b2b: www's smaller scale).
    Run: node --max-old-space-size=512 --test test/heading-wrap.test.mjs */
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -29,11 +30,17 @@ test('below 768px long words hyphenate at a syllable first; not on larger screen
   assert.doesNotMatch(outside, /hyphens: auto/, 'no hyphenation outside the phone rule');
 });
 
-test('the heading sizes as before; no brand theme sets heading sizes or wrapping', () => {
+test('the heading sizes as before; no brand theme sets wrapping, nor heading sizes above lh-com\'s on phones', () => {
   assert.match(css, /--heading-font-size-xxl: calc\(36px \+ 12 \* \(100vw - 375px\) \/ 1065\);/);
   assert.match(css, /--heading-font-size-xl: calc\(28px \+ 8 \* \(100vw - 375px\) \/ 1065\);/);
+  // b2b sets www's scale (h1 32, h2 28, h3 24 at 375 px): no size above lh-com's h1 (36) and h2
+  // (28) there, so a long word fits no worse than on lh-com
+  const phone = { xxl: 36, xl: 28, l: 28 };
   fs.readdirSync('styles/themes').forEach((f) => {
     const theme = fs.readFileSync(`styles/themes/${f}`, 'utf8');
-    assert.doesNotMatch(theme, /--heading-font-size|hyphens|overflow-wrap|word-break/, f);
+    assert.doesNotMatch(theme, /hyphens|overflow-wrap|word-break/, f);
+    [...theme.matchAll(/--heading-font-size-(xxl|xl|l):\s*calc\((\d+)px/g)].forEach(([, size, px]) => {
+      assert.ok(Number(px) <= phone[size], `${f}: ${size} ${px}px at 375 px`);
+    });
   });
 });

@@ -14,6 +14,8 @@ export const BRAND_ICONS = {
   ita: { icon: '/etc/designs/ita/favicon.ico', type: 'image/ico', manifest: '/etc/designs/ita/manifest.json' },
   austrian: { icon: '/etc/designs/os/favicon.ico', type: 'image/ico', manifest: '/etc/designs/os/manifest.json' },
   brussels: { icon: '/etc/designs/sn/favicon.ico', type: 'image/ico', manifest: '/etc/designs/sn/manifest.json' },
+  // business.lufthansagroup.com links no manifest
+  b2b: { icon: '/etc/designs/b2b-neo/favicon.ico', type: 'image/ico', manifest: '' },
   cargo: { icon: '/o/eportal-theme/images/favicon.ico', type: 'image/x-icon', manifest: '' },
   // www.airdolomiti.it's favicon.ico is a PNG
   airdolomiti: { icon: '/favicon/favicon.ico', type: 'image/png', manifest: '' },

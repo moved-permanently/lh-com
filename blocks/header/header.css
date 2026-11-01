@@ -15,16 +15,20 @@
   --nav-ease: cubic-bezier(0.5, 0, 0, 1);
 }
 
+/* --header-bar-inset, --header-bar-radius, --header-bar-shadow: a brand theme's floating bar
+   (b2b: 15 px from the top and the sides, rounded, a shadow); lh-com's full-width bar by default */
 .header .nav-wrapper {
   position: fixed;
-  inset: 0 0 auto;
+  inset: var(--header-bar-inset, 0) var(--header-bar-inset, 0) auto;
   z-index: 1001;
+  border-radius: var(--header-bar-radius, 0);
   background-color: var(--nav-bar-surface);
+  box-shadow: var(--header-bar-shadow, none);
   transition: transform 0.36s cubic-bezier(0.36, 0, 0.15, 1);
 }
 
 .header .nav-wrapper.is-hidden {
-  transform: translateY(-100%);
+  transform: translateY(calc(-100% - var(--header-bar-inset, 0px)));
 }
 
 .header nav {
@@ -69,7 +73,10 @@
   box-sizing: border-box;
   max-width: 1440px;
   margin: 0 auto;
-  padding: 24px 22px 10px;
+
+  /* --header-bar-padding: a brand theme's bar padding on every width (b2b: 23px 24px, the logo
+     24 px inside its floating bar); lh-com's per breakpoint by default */
+  padding: var(--header-bar-padding, 24px 22px 10px);
 }
 
 .header .nav-brand {
@@ -105,13 +112,16 @@
   gap: 5px;
   justify-content: space-between;
   margin: 0;
-  padding: 12px 0 6px 6px;
+
+  /* --nav-quick-list-padding, --nav-quick-link-padding: a brand theme's quick links (b2b: www's
+     40 px menu items in an 81 px bar); lh-com's by default */
+  padding: var(--nav-quick-list-padding, 12px 0 6px 6px);
   list-style: none;
 }
 
 .header .nav-quick-link {
   display: block;
-  padding: 15px 20px;
+  padding: var(--nav-quick-link-padding, 15px 20px);
   color: var(--nav-bar-text);
   font-size: var(--nav-bar-font-size, 14px);
   font-weight: var(--nav-bar-font-weight, 700);
@@ -227,7 +237,7 @@
 @media (width >= 768px) {
   .header .nav-bar {
     flex-wrap: nowrap;
-    padding: 23px 24px;
+    padding: var(--header-bar-padding, 23px 24px);
   }
 
   .header .nav-brand {
@@ -247,7 +257,7 @@
   }
 
   .header .nav-quick-link {
-    padding: 20px;
+    padding: var(--nav-quick-link-padding, 20px);
   }
 
   .header .nav-tools {
@@ -257,7 +267,7 @@
 
 @media (width >= 1025px) {
   .header .nav-bar {
-    padding: 23px 80px;
+    padding: var(--header-bar-padding, 23px 80px);
   }
 
   .header .nav-tool-login {
@@ -289,7 +299,7 @@
 
 @media (width >= 1281px) {
   .header .nav-bar {
-    padding: 23px 88px;
+    padding: var(--header-bar-padding, 23px 88px);
   }
 
   .header .nav-brand img {

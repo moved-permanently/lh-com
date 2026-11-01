@@ -229,6 +229,16 @@ export const BRANDS = {
       },
     },
   },
+  // Lufthansa Group for Business (lh-b2b): business.lufthansagroup.com's de/en and de/de homepages
+  // (2026-11-01): OneTrust's data-domain-script, meta X-Portal B2BNEO, the design system's theme
+  // maui-theme-b2b (styles/themes/b2b.css); its Message Center tenant b2b
+  b2b: {
+    name: 'Lufthansa Group for Business',
+    oneTrust: '01a08598-d052-711c-9ff4-2def82055cba',
+    messageCenter: 'b2b',
+    www: 'business.lufthansagroup.com',
+    portal: 'B2BNEO',
+  },
   // Lufthansa Cargo (lh-cargo): Lufthansa's look; www.lufthansa-cargo.com shows no cookie banner;
   // its notifications (www's own CMS, switched off) move to the site's Message Center, tenant cargo
   cargo: {

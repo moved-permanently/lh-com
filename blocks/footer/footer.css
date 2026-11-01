@@ -12,6 +12,9 @@
   --footer-logos-bg: var(--footer-logos-surface, #fff);
   --footer-margin: var(--layout-margin, 22px);
 
+  /* --footer-surface-image: a brand theme's gradient behind the whole footer (b2b; its link area
+     and logo row then transparent); none by default */
+  background-image: var(--footer-surface-image, none);
   font-family: var(--body-font-family);
 }
 

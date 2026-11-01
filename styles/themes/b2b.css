@@ -1,0 +1,119 @@
+/*
+ * Lufthansa Group for Business (business.lufthansagroup.com): design tokens only, loaded by
+ * scripts/brand.js on a site whose metadata sets `brand: b2b` (lh-b2b's /metadata.json). Values
+ * from the group design system's B2B stylesheet (/digitalhangar/design-system/releases/v1.38.0/
+ * standalone/css/b2b.css, theme maui-theme-b2b, the release www's de/en and de/de homepages load,
+ * 2026-11-01) and those pages' computed styles: Lufthansa's palette and families (LufthansaHead,
+ * LufthansaText); text and headings lhdeepblue #05164d; primary buttons deep blue with white text
+ * (buttonprimary #05164d, hover lhdarkblue #000245) instead of Lufthansa's yellow; interaction
+ * whale blue #52627c (hover marble blue #414e63); buttonsecondary b2b-blue #4d7b93; the h1 Thin
+ * and uppercase (LufthansaHead 200: www's b2b.css maps 100 to LufthansaHeadWeb-Thin), h2 and h3
+ * LufthansaHead 400, copy LufthansaText 300 18/24; a floating white header bar (fixed, 15 px from
+ * the top and the sides, radius 12 px); the footer on a blue gradient with white text.
+ * Fonts: lh-com's faces (styles/fonts.css, the same files) and the Thin face below, woff2, at www's
+ * own path from the site's own host where lh-edge serves it, else www.lufthansa.com's absolute
+ * URL of the same file (access-control-allow-origin: *; business.lufthansagroup.com sends its
+ * fonts without CORS). The logos are images in the site's nav and footer documents (www's
+ * /content/dam/b2bneo/b2b-logo-icons/). lh-com's own pages never load this file.
+ */
+@font-face {
+  font-family: LufthansaHead;
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+  src:
+    url('/digitalhangar/design-system/releases/v1.38.0/standalone/fonts/lufthansa/LufthansaHeadWeb-Thin.woff2') format('woff2'),
+    url('https://www.lufthansa.com/digitalhangar/design-system/releases/v1.38.0/standalone/fonts/lufthansa/LufthansaHeadWeb-Thin.woff2') format('woff2');
+}
+
+:root {
+  /* palette: Lufthansa's (lh-com's defaults), the primary action deep blue */
+  --lh-deepblue: #05164d;
+  --lh-midnight: #031029; /* brand-dark */
+  --lh-whale-blue: #52627c; /* interaction */
+  --lh-marble-blue: #414e63; /* interaction hover */
+  --lh-electric-blue: #0968f6; /* focus */
+  --lh-yellow: #05164d; /* buttonprimary: lhdeepblue */
+  --lh-sunglow-yellow: #000245; /* buttonprimaryhover: lhdarkblue */
+  --lh-red: #c00;
+  --lh-green: #417505;
+
+  /* roles */
+  --text-color: #05164d;
+  --heading-color: #05164d;
+  --link-color: #52627c;
+  --link-hover-color: #414e63;
+  --focus-color: #0968f6;
+  --brand-color: #05164d;
+
+  /* type: LufthansaHead headlines (h1 200 uppercase: the Thin face; h2, h3 400: Light), copy
+     LufthansaText 300 18/24 */
+  --heading-large-weight: 200;
+  --heading-large-transform: uppercase;
+  --heading-light-weight: 400;
+  --heading-line-height: 1.15;
+  --body-font-weight: 300;
+  --body-font-size-m: 18px;
+  --body-line-height: 1.3334;
+
+  /* sizes: www's at 390 and 1440 px (h1 32/42, h2 28/32, h3 24/28, the teaser titles 18),
+     fluid between 375 and 1281 px as lh-com's */
+  --heading-font-size-xxl: calc(32px + 10 * (100vw - 375px) / 906);
+  --heading-font-size-xl: calc(28px + 4 * (100vw - 375px) / 906);
+  --heading-font-size-l: calc(24px + 4 * (100vw - 375px) / 906);
+  --heading-font-size-m: 18px;
+  --heading-font-size-s: 16px;
+
+  /* buttons: primary white on deep blue (lh-com's 4 px radius, 50 px); buttonsecondary b2b-blue */
+  --button-primary-text: #fff;
+  --button-accent-color: #4d7b93;
+  --button-accent-hover: #4d7b93;
+
+  /* the hero card's headline (hero-card-overlay light) */
+  --hero-card-heading-color: #05164d;
+
+  /* header: a white bar floating 15 px from the top and the sides, radius 12 px, www's shadow;
+     its links deep blue 16 px regular; the logo 32 px, 35 px wide screens; the page below it */
+  --header-bar-surface: #fff;
+  --header-bar-text: #05164d;
+  --header-bar-text-hover: #52627c;
+  --header-bar-line: #ebebeb;
+  --header-bar-inset: 15px;
+  --header-bar-radius: 12px;
+  --header-bar-shadow: rgb(0 0 0 / 10%) 0 2px 8px;
+  --header-bar-padding: 23px 24px;
+  --nav-quick-list-padding: 0;
+  --nav-quick-link-padding: 11px 12px;
+  --nav-bar-font-size: 16px;
+  --nav-bar-font-weight: 400;
+  --nav-logo-height: 32px;
+  --nav-logo-height-wide: 35px;
+  --nav-height: 115px;
+
+  /* footer: the gradient behind the whole footer (link area and logo row transparent), white
+     text, the legal links 15 px bold, a light line between the rows */
+  --footer-surface-image: linear-gradient(135deg, #2254bb 0%, #021959 100%);
+  --footer-surface: transparent;
+  --footer-logos-surface: transparent;
+  --footer-muted-text: #fff;
+  --footer-line-color: rgb(255 255 255 / 30%);
+  --footer-field-color: #fff;
+  --footer-link-size: 15px;
+  --footer-link-weight: 700;
+}
+
+@media (width >= 768px) {
+  :root {
+    --nav-height: 135px;
+  }
+}
+
+@media (width >= 1281px) {
+  :root {
+    --heading-font-size-xxl: 42px;
+    --heading-font-size-xl: 32px;
+    --heading-font-size-l: 28px;
+    --heading-font-size-m: 18px;
+    --heading-font-size-s: 16px;
+  }
+}

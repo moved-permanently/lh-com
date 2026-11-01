@@ -19,7 +19,9 @@ test('brandWwwHost: each brand\'s www host, none for lh-com', () => {
   assert.equal(brandWwwHost(meta('airdolomiti')), 'www.airdolomiti.it');
   assert.equal(brandWwwHost(meta('')), '');
   assert.equal(brandWwwHost(), '', 'no page');
-  Object.entries(BRANDS).forEach(([key, b]) => assert.match(b.www, /^www\.[a-z0-9.-]+$/, key));
+  // a host name each (www.<domain>, or the brand's own subdomain: b2b's business.lufthansagroup.com)
+  Object.entries(BRANDS).forEach(([key, b]) => assert.match(b.www, /^[a-z0-9-]+\.[a-z0-9.-]+$/, key));
+  assert.equal(brandWwwHost(meta('b2b')), 'business.lufthansagroup.com');
 });
 
 test('isOwnWwwHost: lufthansa.com everywhere (as before); the brand\'s domain on its site only', () => {
