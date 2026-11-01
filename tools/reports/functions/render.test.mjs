@@ -159,7 +159,7 @@ test('page: a cell\'s website page gets a link and the PageSpeed before and afte
 
 test('page: one striped table with a header row, and the metadata of the other meta pages', () => {
   const html = renderPage(fixture());
-  assert.equal(html.match(/class="table-striped header"/g).length, 1);
+  assert.equal(html.match(/class="table-striped header matrix"/g).length, 1);
   assert.match(html, /<div class="metadata">.*<div><div>nav<\/div><div>\/de\/en\/nav<\/div><\/div><div><div>footer<\/div><div>\/de\/en\/footer<\/div><\/div><div><div>language<\/div><div>en<\/div><\/div>/);
   assert.match(html, /Updated 1 November 2026: Flight status moved\./);
 });

@@ -170,7 +170,7 @@ export function renderPage(doc) {
     `<ul>${Object.entries(SYMBOLS).map(([s, sym]) => `<li>${titled('#legend', doc.legend[s].note, sym)} ${esc(doc.legend[s].label)}: ${esc(doc.legend[s].note)}</li>`).join('')}</ul>`,
     '<p>:landing:\u00a0next to links: PageSpeed on the airline&#39;s current site, :takeoff:: PageSpeed on the replica</p>',
   ].join('');
-  const table = `<div class="table-striped header">${[
+  const table = `<div class="table-striped header matrix">${[
     row(['Function', ...doc.brands.map((b) => titled(`#${slug(b.name)}`, b.note, b.name))]),
     ...doc.functions.map((f) => row([
       titled('#functions', f.about, f.name),
