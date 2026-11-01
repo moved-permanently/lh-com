@@ -1,6 +1,6 @@
 {
   "updated": "2026-11-01",
-  "change": "Austrian's chat button is built, checked and switched on; it reaches its pages with their next update. ITA's homepage slider now opens ITA's own destination pages.",
+  "change": "The login and profile pages of Discover, ITA and Austrian, and Lufthansa's account pages, are on the replicas. Austrian's chat button is built, checked and switched on; it reaches its pages with their next update.",
   "legend": {
     "done": {
       "label": "works on our replica",
@@ -36,7 +36,7 @@
     "picker": "The picker for adults, children, infants and cabin is in the shared code since 1 November. Each brand's pages still have to switch it on; until then the search sends the travellers and cabin set on the page.",
     "status": "Since 1 November the flight status form passes a search on in the parameters the airline's status page reads, and posts it to Air Dolomiti's own engine. The four brands on Lufthansa's AEM count as working after a check on each replica; Air Dolomiti's pages still need the form.",
     "lhbooking": "Lufthansa's manage booking and hotel tabs hand over to two services that run in AEM today. Their replacements already answer on lufthansa.turnsthe.page with test data; next, the tabs post to them.",
-    "signin": "On Discover, ITA and Austrian, manage booking and sign-in end on login and profile pages that AEM serves today. We're building those pages on the new platform, and the services behind them already answer with test data; until the airlines' addresses route to them, the replicas link to the airline's current pages.",
+    "signin": "On Discover, ITA and Austrian, manage booking goes through a deep link to the login and profile pages. Those pages are on the new platform since 1 November, and the services behind the deep link answer with test data; next, the airlines' replica addresses route the deep link to them. Until then the replicas link to the airline's current pages.",
     "lhpages": "Five Lufthansa pages with these functions aren't on the replica yet: check-in deadlines, security waiting times, the compensation claim, the newsletter and eJournals. They come next. The two airport searches get blocks of their own, and Lufthansa's live data for them answers our addresses. Until then our pages link to www.",
     "travelidapps": "The help center and culinary hub apps are in the shared code and load on our pages, but their data comes from the airline's Travel ID service, which refuses our test addresses. They work once the site runs on the airline's own address, or once Lufthansa allows ours.",
     "adown": "Switching off Air Dolomiti's current website is a goal, so its timetable, manage booking, newsletter and eSIM pages get versions of their own. Its booking service answers our addresses, so timetable and manage booking can work as on www; the newsletter becomes a form on our own forms service.",
@@ -284,23 +284,23 @@
         },
         "discover": {
           "status": "wip",
-          "note": "\"Edit booking\" leads through a deep link to Discover's login page, which AEM serves today; we build that page on the new platform.",
+          "note": "\"Edit booking\" goes through a deep link to Discover's login page; the page is on the replica since 1 November, and the deep link moves to the new platform next.",
           "footnote": "signin",
           "page": "/de/en/my-bookings/manage",
-          "evidence": "fill check 2026-11-01: /deeplink/cockpit ends on /content/four_y/.../profile/login; M2 app shell plan ; backend Worker 2026-11-01 ~02:00: booking, check-in, deeplink and sign-in routes answer per brand (Austrian, Discover, ITA) on test data; lh-edge does not route them on the brand hosts yet"
+          "evidence": "fill check 2026-11-01: /deeplink/cockpit ends on /content/four_y/.../profile/login; M2 app shell plan ; backend Worker 2026-11-01 ~02:00: booking, check-in, deeplink and sign-in routes answer per brand (Austrian, Discover, ITA) on test data; lh-edge does not route them on the brand hosts yet; app-shells child p_mvx3nkru5y 2026-11-01 (lh-com 8c847d06, be6e30c6, bfdc50b3, b037757f; 445 published entries, rollback lists in work/brand-app-shells/published-*.json); curl 04:5x: login and cockpit pages 200 on each host"
         },
         "ita": {
           "status": "wip",
-          "note": "Manage booking ends on ITA's login page, which AEM serves today; we build that page, and until then the replica links to ITA's current one.",
+          "note": "Manage booking ends on ITA's login page; the page is on the replica since 1 November, and the hand-off moves to the new platform next.",
           "footnote": "signin",
           "page": "/it/en/manage-my-bookings",
-          "evidence": "functions scan 2026-10-31; M2 app shell plan ; backend Worker 2026-11-01 ~02:00: booking, check-in, deeplink and sign-in routes answer per brand (Austrian, Discover, ITA) on test data; lh-edge does not route them on the brand hosts yet"
+          "evidence": "functions scan 2026-10-31; M2 app shell plan ; backend Worker 2026-11-01 ~02:00: booking, check-in, deeplink and sign-in routes answer per brand (Austrian, Discover, ITA) on test data; lh-edge does not route them on the brand hosts yet; app-shells child p_mvx3nkru5y 2026-11-01 (lh-com 8c847d06, be6e30c6, bfdc50b3, b037757f; 445 published entries, rollback lists in work/brand-app-shells/published-*.json); curl 04:5x: login and cockpit pages 200 on each host"
         },
         "austrian": {
           "status": "wip",
-          "note": "\"Manage bookings\" ends on Austrian's login page, which AEM serves today; we build that page, and until then the replica links to it on www.",
+          "note": "\"Manage bookings\" leads to Austrian's login page, which is on the replica since 1 November; the menus of at/en and at/de already link to it.",
           "footnote": "signin",
-          "evidence": "fill check 2026-11-01: nav links www /at/en/login; M2 app shell plan ; backend Worker 2026-11-01 ~02:00: booking, check-in, deeplink and sign-in routes answer per brand (Austrian, Discover, ITA) on test data; lh-edge does not route them on the brand hosts yet"
+          "evidence": "fill check 2026-11-01: nav links www /at/en/login; M2 app shell plan ; backend Worker 2026-11-01 ~02:00: booking, check-in, deeplink and sign-in routes answer per brand (Austrian, Discover, ITA) on test data; lh-edge does not route them on the brand hosts yet; app-shells child p_mvx3nkru5y 2026-11-01 (lh-com 8c847d06, be6e30c6, bfdc50b3, b037757f; 445 published entries, rollback lists in work/brand-app-shells/published-*.json); curl 04:5x: login and cockpit pages 200 on each host"
         },
         "cargo": {
           "status": "see",
@@ -1212,7 +1212,7 @@
           "note": "The chat button is built and switched on for Austrian; it appears on the about 78 pages that have it on www once their next content update is live.",
           "footnote": "oschat",
           "page": "/at/en/fly/flight-information/flight-disruptions",
-          "evidence": "brief 197 (3b3c7e2, flag module d57e489); check 2026-11-01 04:31 CET on an aem.page test page: button renders, Maria opens with the baggage start; lh-austrian /config/flags.json chat-button on, published 04:3x; page metadata in held brief 210"
+          "evidence": "brief 197 (3b3c7e2, flag module d57e489); check 2026-11-01 04:29 CET on an aem.page test page: button renders, Maria opens with the baggage start; lh-austrian /config/flags.json chat-button on, published 04:3x; page metadata in held brief 210"
         },
         "cargo": {
           "status": "none",
@@ -1369,22 +1369,19 @@
           "evidence": "functions scan 2026-10-31: header Login to api.travelid.lufthansa.com"
         },
         "discover": {
-          "status": "wip",
-          "note": "Discover's login and travel cockpit pages are served by AEM today; we build them on the new platform, and the replica links to www until then.",
-          "footnote": "signin",
-          "evidence": "M2 app shell plan ; backend Worker 2026-11-01 ~02:00: booking, check-in, deeplink and sign-in routes answer per brand (Austrian, Discover, ITA) on test data; lh-edge does not route them on the brand hosts yet"
+          "status": "elsewhere",
+          "note": "Login goes to Discover's Travel ID, which stays; the login, travel cockpit and profile pages for visitors who aren't signed in are on the replica since 1 November.",
+          "evidence": "app-shells child p_mvx3nkru5y 2026-11-01 (lh-com 8c847d06, be6e30c6, bfdc50b3, b037757f; 445 published entries, rollback lists in work/brand-app-shells/published-*.json); curl 04:5x: login and cockpit pages 200 on each host"
         },
         "ita": {
-          "status": "wip",
-          "note": "ITA's login pages are served by AEM today; we build them on the new platform.",
-          "footnote": "signin",
-          "evidence": "M2 app shell plan ; backend Worker 2026-11-01 ~02:00: booking, check-in, deeplink and sign-in routes answer per brand (Austrian, Discover, ITA) on test data; lh-edge does not route them on the brand hosts yet"
+          "status": "elsewhere",
+          "note": "Login goes to ITA's Travel ID, which stays; the login, travel cockpit and profile pages for visitors who aren't signed in are on the replica since 1 November.",
+          "evidence": "app-shells child p_mvx3nkru5y 2026-11-01 (lh-com 8c847d06, be6e30c6, bfdc50b3, b037757f; 445 published entries, rollback lists in work/brand-app-shells/published-*.json); curl 04:5x: login and cockpit pages 200 on each host"
         },
         "austrian": {
-          "status": "wip",
-          "note": "Austrian's login page is served by AEM today; we build it on the new platform.",
-          "footnote": "signin",
-          "evidence": "M2 app shell plan ; backend Worker 2026-11-01 ~02:00: booking, check-in, deeplink and sign-in routes answer per brand (Austrian, Discover, ITA) on test data; lh-edge does not route them on the brand hosts yet"
+          "status": "elsewhere",
+          "note": "Login goes to Austrian's Travel ID, which stays; the login and profile pages for visitors who aren't signed in are on the replica since 1 November.",
+          "evidence": "app-shells child p_mvx3nkru5y 2026-11-01 (lh-com 8c847d06, be6e30c6, bfdc50b3, b037757f; 445 published entries, rollback lists in work/brand-app-shells/published-*.json); curl 04:5x: login and cockpit pages 200 on each host"
         },
         "cargo": {
           "status": "stays",
