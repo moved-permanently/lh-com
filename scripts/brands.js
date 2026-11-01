@@ -33,7 +33,9 @@
  * that sends visitors or their data into the airline's live systems (scripts/embeds.js: its script
  * URL and vendor ids, as www's page source has them; loaded only with the site's flag on). The
  * brands' favicons and manifests: scripts/brand-icons.js. The languages of the sites without
- * <cc>/<ll> roots (Cargo, Air Dolomiti): scripts/site-languages.js.
+ * <cc>/<ll> roots (Cargo, Air Dolomiti): scripts/site-languages.js. accessibility: the header's
+ * accessibility settings (text size and contrast as www.airdolomiti.it's,
+ * scripts/accessibility.js); the other brands render nothing of them.
  */
 export const BRANDS = {
   discover: {
@@ -235,6 +237,9 @@ export const BRANDS = {
     // Message Center, tenant airdolomiti
     messageCenter: 'airdolomiti',
     airline: 'EN',
+    // accessibility: www's header settings "Configura accessibilità" (text size, contrast;
+    // scripts/accessibility.js), the visitor's choice kept in their browser
+    accessibility: true,
     // booking: its own Amadeus engine, not shop.lufthansa.com (scripts/shop-handoff.js): a POST
     // form as www.airdolomiti.it's widget posts it (captured 2026-10-31 on .it, .eu and .de)
     booking: {

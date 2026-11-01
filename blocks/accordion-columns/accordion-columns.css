@@ -21,9 +21,11 @@
   padding: 13px 48px 13px 12px;
   color: var(--lh-deepblue);
   font-family: var(--heading-font-family);
-  font-size: 18px;
+
+  /* --a11y-scale: the accessibility settings' text size (styles/accessibility.css), else 1 */
+  font-size: calc(18px * var(--a11y-scale, 1));
   font-weight: 700;
-  line-height: 24px;
+  line-height: calc(24px * var(--a11y-scale, 1));
   list-style: none;
   cursor: pointer;
 }
@@ -420,9 +422,9 @@ main > .section > .accordion-columns-row > .accordion-columns-wrapper {
     background: none;
     color: var(--lh-deepblue);
     font-family: var(--heading-font-family);
-    font-size: 18px;
+    font-size: calc(18px * var(--a11y-scale, 1));
     font-weight: 700;
-    line-height: 24px;
+    line-height: calc(24px * var(--a11y-scale, 1));
     cursor: pointer;
   }
 

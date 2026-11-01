@@ -851,6 +851,16 @@ export default async function decorate(block) {
     return tool && tool.href ? toolLink(tool, className, false) : null;
   }));
   barLinks.filter(Boolean).forEach((a) => toolsEl.append(a));
+  // accessibility settings: on a brand with them (scripts/brands.js: Air Dolomiti) www's button and
+  // panel (text size, contrast; scripts/accessibility.js) after the bar's links; other brands none
+  const pageBrand = brandEntry();
+  let a11y = null;
+  if (pageBrand && pageBrand.accessibility) {
+    const { buildAccessibility } = await import('../../scripts/accessibility.js');
+    a11y = buildAccessibility({ lang: locale.lang, icon: await inlineIcon('accessibility-settings') });
+    await a11y.styles;
+    toolsEl.append(a11y.root);
+  }
   // notifications: on a brand with notifications (scripts/brands.js: Cargo) the nav's bell tool is
   // www's bell and panel; any other brand's bell tool stays what it was (a link in the menu)
   const bellTool = byRole('notifications');
@@ -944,6 +954,7 @@ export default async function decorate(block) {
   const nav = el('nav', { id: 'nav', 'aria-label': labels.nav }, bar, bell ? bell.panel : null, flyout.flyout);
   // the menu and the notifications panel: one at a time
   if (bell) menuButton.addEventListener('click', () => bell.close());
+  if (a11y) menuButton.addEventListener('click', () => a11y.close());
   const navWrapper = el('div', { className: 'nav-wrapper' }, nav);
   const flight = flightBar ? await flightBar : null;
   if (flight) navWrapper.append(flight);
@@ -952,7 +963,8 @@ export default async function decorate(block) {
   let lastY = window.scrollY;
   window.addEventListener('scroll', () => {
     const y = window.scrollY;
-    if (flyout.flyout.hidden && !navWrapper.contains(document.activeElement)) {
+    if (flyout.flyout.hidden && !(a11y && !a11y.panel.hidden)
+      && !navWrapper.contains(document.activeElement)) {
       navWrapper.classList.toggle('is-hidden', y > lastY && y > navWrapper.offsetHeight);
       navWrapper.classList.toggle('is-scrolled', y > 0);
     }

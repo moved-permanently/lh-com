@@ -366,8 +366,14 @@ async function loadEager(doc) {
   // pages outside the locale trees (e.g. /demo/channels) may name their language in metadata
   document.documentElement.lang = getMetadata('language') || locale.lang;
   decorateTemplateAndTheme();
-  // a brand site (metadata brand, e.g. lh-discover): its design tokens before the first section
-  await loadBrandTheme();
+  // a brand site (metadata brand, e.g. lh-discover): its design tokens before the first section;
+  // on a brand with accessibility settings (scripts/brands.js: Air Dolomiti) the visitor's stored
+  // text size and contrast with them, while the body is still hidden (no layout shift)
+  const brand = brandEntry();
+  await Promise.all([
+    loadBrandTheme(),
+    brand && brand.accessibility ? import('./accessibility.js').then((m) => m.restoreAccessibility(brand)) : null,
+  ]);
   const main = doc.querySelector('main');
   // channel (website, flynet by page metadata, app by ?channel=app): see scripts/channel.js
   let channel = 'website';

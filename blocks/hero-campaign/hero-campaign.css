@@ -306,8 +306,9 @@
     max-width: 421px;
   }
 
+  /* --a11y-scale: the accessibility settings' text size (styles/accessibility.css), else 1 */
   .hero-campaign .hero-campaign-content :is(h1, h2, h3, h4, h5, h6) {
-    font-size: 42px;
+    font-size: calc(42px * var(--a11y-scale, 1));
   }
 
   /* .campaign-information .information { padding-left: 6.4rem } (border-box, max 48.5rem) */

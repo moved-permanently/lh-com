@@ -1,0 +1,278 @@
+/*
+ * Accessibility settings (scripts/accessibility.js; a brand with `accessibility` in
+ * scripts/brands.js: Air Dolomiti), loaded only on such a brand: with the header's button, and
+ * before the page shows when the visitor has a choice stored. Every rule is keyed on the choice on
+ * <html> or on the header's panel, so the file changes nothing until a setting is chosen.
+ */
+
+/*
+ * Text size (Dimensione): www.airdolomiti.it sets html font-size 67.5 % (Normale), 72.5 % (Grande)
+ * and 77.5 % (Molto Grande) under its rem-based page: everything 1.074 and 1.148 times as large.
+ * Our pages are set in px (a zoom of the page widens it past the screen: full-bleed blocks are
+ * 100vw wide), so the type tokens scale by those factors: <html> keeps a copy of each token (its
+ * value at the current width, the theme's included), <body> sets the token to the copy times the
+ * factor. The header's bar and the footer, set in px of their own, are zoomed instead (nothing
+ * full-bleed in them; their tokens back at the copies, so nothing grows twice), the header's
+ * reserved height with them. The menu panel keeps its size (its heights are viewport heights, a
+ * zoom would push its end off the screen).
+ */
+html[data-a11y-size] {
+  --a11y-body-m: var(--body-font-size-m);
+  --a11y-body-s: var(--body-font-size-s);
+  --a11y-body-xs: var(--body-font-size-xs);
+  --a11y-body-xxs: var(--body-font-size-xxs);
+  --a11y-heading-xxl: var(--heading-font-size-xxl);
+  --a11y-heading-xl: var(--heading-font-size-xl);
+  --a11y-heading-l: var(--heading-font-size-l);
+  --a11y-heading-m: var(--heading-font-size-m);
+  --a11y-heading-s: var(--heading-font-size-s);
+  --a11y-heading-xs: var(--heading-font-size-xs);
+}
+
+html[data-a11y-size="medium"] {
+  --a11y-scale: 1.074;
+}
+
+html[data-a11y-size="large"] {
+  --a11y-scale: 1.148;
+}
+
+html[data-a11y-size] body {
+  --body-font-size-m: calc(var(--a11y-body-m) * var(--a11y-scale));
+  --body-font-size-s: calc(var(--a11y-body-s) * var(--a11y-scale));
+  --body-font-size-xs: calc(var(--a11y-body-xs) * var(--a11y-scale));
+  --body-font-size-xxs: calc(var(--a11y-body-xxs) * var(--a11y-scale));
+  --heading-font-size-xxl: calc(var(--a11y-heading-xxl) * var(--a11y-scale));
+  --heading-font-size-xl: calc(var(--a11y-heading-xl) * var(--a11y-scale));
+  --heading-font-size-l: calc(var(--a11y-heading-l) * var(--a11y-scale));
+  --heading-font-size-m: calc(var(--a11y-heading-m) * var(--a11y-scale));
+  --heading-font-size-s: calc(var(--a11y-heading-s) * var(--a11y-scale));
+  --heading-font-size-xs: calc(var(--a11y-heading-xs) * var(--a11y-scale));
+}
+
+html[data-a11y-size] header {
+  height: calc(var(--nav-height) * var(--a11y-scale));
+}
+
+html[data-a11y-size] header .nav-bar,
+html[data-a11y-size] footer {
+  --body-font-size-m: var(--a11y-body-m);
+  --body-font-size-s: var(--a11y-body-s);
+  --body-font-size-xs: var(--a11y-body-xs);
+  --body-font-size-xxs: var(--a11y-body-xxs);
+  --heading-font-size-xxl: var(--a11y-heading-xxl);
+  --heading-font-size-xl: var(--a11y-heading-xl);
+  --heading-font-size-l: var(--a11y-heading-l);
+  --heading-font-size-m: var(--a11y-heading-m);
+  --heading-font-size-s: var(--a11y-heading-s);
+  --heading-font-size-xs: var(--a11y-heading-xs);
+
+  zoom: var(--a11y-scale);
+}
+
+/*
+ * Contrasto: www (2026-11-01, homepage and /flotta) darkens its low-contrast colours: the teal of
+ * radios, checkboxes and small accents #00798a to #00616d, placeholder grey #808080 to #1f1f1f,
+ * outlined buttons over images white-filled with navy text, and fills its header button navy. The
+ * same here through the theme's tokens (primary and secondary buttons, link and header hovers,
+ * muted text) and form accents; the large teal bands stay as on www.
+ */
+html.a11y-contrast {
+  --lh-yellow: #00616d;
+  --lh-sunglow-yellow: #002e54;
+  --button-secondary-color: #00616d;
+  --button-secondary-hover: #002e54;
+  --link-hover-color: #00616d;
+  --header-bar-text-hover: #00616d;
+  --lh-grey-6: #1f1f1f;
+  --lh-grey-7: #1f1f1f;
+
+  accent-color: #00616d;
+}
+
+html.a11y-contrast ::placeholder {
+  color: #1f1f1f;
+  opacity: 1;
+}
+
+/* the outlined buttons on the stage image (homepage: Check In, Gestione Prenotazione, ...) */
+html.a11y-contrast .hero-campaign:not(.card, .hero-campaign-no-image) .hero-campaign-cta a.button.secondary {
+  background-color: #fff;
+  color: #040f32;
+}
+
+/*
+ * The header's button and panel, as www's at 1440 (2026-11-01): a 20 px icon in the bar; the panel
+ * under the button, right-aligned with it, 230 px wide, white, 10 px radius, shadow 0 12px 25px
+ * 10 %, padding 20px 15px; "Dimensione" 15 px / 20 px; per size an 18 px radio, 15 px gap, and the
+ * label at the size it stands for (17 px / 400, 19 px / 600, 24 px / 600), 12 px apart; under a
+ * 1 px #757575 rule (20 px above the row) "Contrasto" and a 50 x 24 switch (track #4d4d4d, on
+ * #19ab27, a 22 px #fafafa thumb). Text #040f32.
+ */
+.header .nav-accessibility-wrapper {
+  position: relative;
+  display: inline-flex;
+}
+
+.header .nav-accessibility-wrapper > .nav-tool {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 4px;
+  background: none;
+  cursor: pointer;
+}
+
+.header .nav-accessibility-wrapper > .nav-tool svg {
+  width: 20px;
+  height: 20px;
+}
+
+.header .nav-accessibility-wrapper > .nav-tool[aria-expanded="true"] {
+  box-shadow: inset 0 0 0 2px currentcolor;
+}
+
+html.a11y-contrast .header .nav-accessibility-wrapper > .nav-tool {
+  background-color: #040f32;
+  color: #fff;
+}
+
+.header .nav-accessibility {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 9;
+  box-sizing: border-box;
+  width: 230px;
+  padding: 20px 15px;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 12px 25px 0 rgb(0 0 0 / 10%);
+  color: #040f32;
+  font-family: var(--body-font-family);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: left;
+}
+
+.header .nav-accessibility[hidden] {
+  display: none;
+}
+
+.header .nav-accessibility label {
+  cursor: pointer;
+}
+
+.header .nav-accessibility-sizes {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.header .nav-accessibility-sizes legend {
+  padding: 0;
+}
+
+.header .nav-accessibility-size {
+  display: flex;
+  align-items: center;
+  margin: 0 0 12px;
+}
+
+.header .nav-accessibility-size input {
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  margin: 0 15px 0 0;
+  accent-color: var(--brand-color, #00798a);
+  cursor: pointer;
+}
+
+.header .nav-accessibility-size label {
+  font-size: 17px;
+  line-height: 24px;
+}
+
+.header .nav-accessibility-size[data-size="medium"] label {
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 30px;
+}
+
+.header .nav-accessibility-size[data-size="large"] label {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 33px;
+}
+
+.header .nav-accessibility-contrast {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 20px;
+  border-top: 1px solid #757575;
+}
+
+.header .nav-accessibility-toggle {
+  position: relative;
+  display: inline-block;
+  flex: 0 0 auto;
+  width: 50px;
+  height: 24px;
+}
+
+.header .nav-accessibility-toggle input {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.header .nav-accessibility-track {
+  position: absolute;
+  inset: 0;
+  border-radius: 30px;
+  background-color: #4d4d4d;
+  transition: background-color 0.2s;
+}
+
+.header .nav-accessibility-track::before {
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  box-sizing: border-box;
+  width: 22px;
+  height: 22px;
+  border: 1px solid #4d4d4d;
+  border-radius: 50%;
+  background-color: #fafafa;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.header .nav-accessibility-toggle input:checked + .nav-accessibility-track {
+  background-color: #19ab27;
+}
+
+.header .nav-accessibility-toggle input:checked + .nav-accessibility-track::before {
+  border-color: #19ab27;
+  transform: translateX(26px);
+}
+
+.header .nav-accessibility-toggle input:focus-visible + .nav-accessibility-track {
+  outline: 2px solid #0099e0;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header .nav-accessibility-track,
+  .header .nav-accessibility-track::before {
+    transition: none;
+  }
+}
