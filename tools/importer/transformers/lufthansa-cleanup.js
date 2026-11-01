@@ -438,8 +438,10 @@ const VIDEO_CONFIG = '[data-dcep*="videoSrc"]';
 // or an empty slider becomes the block, also where the snapshot shows "Loading...") and the
 // article's destination config (.dcep-blog-cookie, read by article-header and price-bar; removed
 // after the parsers); a sticky price the snapshot shows empty (www hides it while its price is
-// loading or missing: the three Frankfurt articles, destination FRA) is still the price bar
-const WIDGET_CONFIG = '.dcep-poi-mapping[data-dcep], .dcep-meili-car-rental[data-dcep], .dcep-flash-teaser, .messagecenterwrapper, .dcep-blog-overview[data-dcep], .dcep-author-slider, .dcep-blog-cookie[data-dcep], .dcep-sticky-price[data-dcep], .dcep-search-results-aem';
+// loading or missing: the three Frankfurt articles, destination FRA) is still the price bar;
+// a component a brand's importer marks data-import-keep (ita-import.mjs: www's static fare teaser,
+// unrendered in the snapshot, its routes in data-dcep) is kept for its parser
+const WIDGET_CONFIG = '.dcep-poi-mapping[data-dcep], .dcep-meili-car-rental[data-dcep], .dcep-flash-teaser, .messagecenterwrapper, .dcep-blog-overview[data-dcep], .dcep-author-slider, .dcep-blog-cookie[data-dcep], .dcep-sticky-price[data-dcep], .dcep-search-results-aem, [data-import-keep]';
 const ALWAYS_EMPTY = ['.separator', '.dcep-react-wrapper:empty', 'ppfi-web-component'];
 
 function isEmpty(el) {

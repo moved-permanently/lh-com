@@ -2486,7 +2486,14 @@
   "/xx/pt/support",
   "/xx/pt/support/utilities",
   "/xx/pt/nav",
-  "/xx/pt/footer"
+  "/xx/pt/footer",
+  "/it/en/book-and-prepare/group-travel-and-charter",
+  "/it/it/book-and-prepare/group-travel-and-charter",
+  "/fr/fr/book-and-prepare/group-travel-and-charter",
+  "/es/es/book-and-prepare/group-travel-and-charter",
+  "/nl/nl/book-and-prepare/group-travel-and-charter",
+  "/br/pt/book-and-prepare/group-travel-and-charter",
+  "/jp/ja/book-and-prepare/group-travel-and-charter"
  ],
  "linkOuts": [
   "/it/en/manage-my-bookings/manage/manage-my-bookings",

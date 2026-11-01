@@ -71,6 +71,13 @@ export const withLinkOuts = (html, p) => html.replace(/<div class="securitywaiti
  * www.ita-airways.com URLs): a Content-Security-Policy meta tag refuses every subresource and allows
  * only the importer's inline script; the URLs stay in the markup (austrian-import.mjs the same).
  */
+/**
+ * www's static fare teaser renders its tiles client-side: in the snapshot it is its data-dcep only
+ * (headline, cabin, trip duration, travel months, the manual routes), which lh-com's cleanup
+ * removes as an empty component before the fare-teaser parser reads it; data-import-keep keeps it.
+ */
+export const withFareTeaserConfig = (html) => html.replace(/<div class="dcep-fare-teaser-static"(?![^>]*data-import-keep)/g, '$& data-import-keep');
+
 export const OFFLINE_CSP = "default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval'; style-src 'unsafe-inline'; img-src data: blob:; font-src data:";
 export const withoutLoads = (html) => html.replace(/<head(\s[^>]*)?>/i, (m) => `${m}<meta http-equiv="Content-Security-Policy" content="${OFFLINE_CSP}">`);
 
@@ -221,8 +228,11 @@ if (isMain) {
     const copy = path.join(MAPPED, HOST, `${p}.html`);
     fs.mkdirSync(path.dirname(copy), { recursive: true });
     // (the help centre app's screen-reader announcement "Help page loaded." is no page text;
-    // the Studio's snapshots keep www's scripts, which must not run in the import browser)
-    const mapped = withoutLoads(withTeaserColumns(withCheckinTabs(withLinkOuts(withPlaceholder(stripScripts(html)), p))))
+    // the Studio's snapshots keep www's scripts, which must not run in the import browser; the
+    // forms' jQuery UI date picker, appended to the body and hidden on www, is no content: it
+    // imported as a calendar on xx/en's group-travel and emergency-contact)
+    const noPicker = editDivs(stripScripts(html), '<div id="ui-datepicker-div"', () => '');
+    const mapped = withoutLoads(withFareTeaserConfig(withTeaserColumns(withCheckinTabs(withLinkOuts(withPlaceholder(noPicker), p)))))
       .replace(/<output[^>]*class="screen-reader-announcer"[^>]*>[\s\S]*?<\/output>/g, '');
     if (mapped.includes(`https://${LINK_OUT}`)) linkOuts.push(p);
     fs.writeFileSync(copy, mapped);
