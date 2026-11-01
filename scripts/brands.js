@@ -176,7 +176,21 @@ export const BRANDS = {
   },
   // Lufthansa Cargo (lh-cargo): Lufthansa's look; www.lufthansa-cargo.com shows no cookie banner;
   // no Message Center tenant (nor Air Dolomiti's): their blocks show nothing
-  cargo: { name: 'Lufthansa Cargo', theme: false, www: 'www.lufthansa-cargo.com' },
+  cargo: {
+    name: 'Lufthansa Cargo',
+    theme: false,
+    www: 'www.lufthansa-cargo.com',
+    embeds: {
+      // the newsletter form (Dynamics 365 Customer Insights) as www's /en/ci/newsletter embeds it
+      // (2026-11-01): Microsoft's form loader; the form's ids are the block's rows
+      // (blocks/newsletter-form), their URLs on formHost. Dynamics allows external form hosting
+      // only on www.lufthansa-cargo.com: the flag stays off until Cargo's admin allows our host
+      'newsletter-form': {
+        script: 'https://cxppusa1formui01cdnsa01-endpoint.azureedge.net/eur/FormLoader/FormLoader.bundle.js',
+        formHost: '.mkt.dynamics.com',
+      },
+    },
+  },
   // Air Dolomiti (lh-airdolomiti): its own theme (styles/themes/airdolomiti.css, the Air Dolomiti
   // session's; until it exists the pages keep Lufthansa's look); www.airdolomiti.it loads no
   // OneTrust (2026-10-30)

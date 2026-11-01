@@ -1,0 +1,6 @@
+/* the form brings its own styles (Dynamics' marketing form markup); the link to www's form until
+   it is there */
+.newsletter-form [data-form-id][hidden],
+.newsletter-form .newsletter-form-fallback[hidden] {
+  display: none;
+}
