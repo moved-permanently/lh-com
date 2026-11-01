@@ -176,6 +176,18 @@ test('canvas: title, date line, legend, replica links, table with footnote marks
   assert.match(html, /<ol><li>The picker is in the shared code\.<\/li><li>Travel ID accepts only the airline's own website\.<\/li><\/ol>/);
 });
 
+test('canvas: a table stays within Slack\'s 300 cells; a longer one splits into even tables, each with the header row', () => {
+  assert.equal(renderCanvas(fixture()).match(/<table>/g).length, 1);
+  const doc = fixture();
+  doc.functions = Array.from({ length: 150 }, (_, i) => ({ ...structuredClone(doc.functions[0]), id: `f${i}`, name: `Function ${i}` }));
+  const tables = renderCanvas(doc).match(/<table>.*?<\/table>/g);
+  assert.equal(tables.length, 2);
+  assert.deepEqual(tables.map((t) => t.match(/<tr>/g).length), [76, 76]);
+  assert.ok(tables.every((t) => t.startsWith('<table><tr><th>Function</th><th>Lufthansa</th><th>Air Dolomiti</th></tr>')));
+  assert.match(tables[0], /<tr><td>Function 74<\/td>.*<\/table>$/);
+  assert.match(tables[1], /^<table><tr><th>Function<\/th>.*?<\/tr><tr><td>Function 75<\/td>/);
+});
+
 test('markdown: legend, table with brand columns and every note', () => {
   const md = renderMarkdown(fixture());
   assert.match(md, /\| Function \| Lufthansa \| Air Dolomiti \|/);
