@@ -119,3 +119,94 @@
 .table-striped.header tbody th {
   font-weight: 700;
 }
+
+/* option matrix: wide comparison tables (the functions table, /migration-status/functions). The
+   table keeps its columns readable and scrolls sideways inside the block; the first column (the
+   row names) stays in place, its cells opaque in their row's stripe so the columns scrolling under
+   them do not show through; the header row as option header's */
+.table-striped.matrix {
+  --matrix-first: 9.5rem;
+
+  position: relative;
+}
+
+@media (width >= 768px) {
+  .table-striped.matrix {
+    --matrix-first: 14rem;
+  }
+}
+
+/* the table fills its box; it scrolls once the box is narrower than its columns need (the first
+   9.5rem below 768px, else 14rem; every other 7.5rem: --matrix-columns, set by
+   table-striped-matrix.js) */
+.table-striped.matrix table {
+  width: 100%;
+  min-width: calc(var(--matrix-first) + (var(--matrix-columns, 1) - 1) * 7.5rem);
+}
+
+/* the header row keeps option header's padding and type; the body cells are a little tighter */
+.table-striped.matrix tbody th,
+.table-striped.matrix tbody td {
+  padding: 20px 16px;
+}
+
+.table-striped.matrix .table-striped-sticky {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  width: var(--matrix-first);
+  background-color: var(--background-color);
+  box-shadow: 1px 0 0 var(--lh-grey-4);
+}
+
+.table-striped.matrix thead .table-striped-sticky {
+  z-index: 2;
+}
+
+.table-striped.matrix tbody tr:nth-child(odd) > .table-striped-sticky {
+  background-color: var(--light-color);
+}
+
+.table-striped.matrix:not(.header) tbody tr:nth-child(even) > .table-striped-sticky {
+  background-color: var(--background-color);
+}
+
+/* the link titles as a tooltip: a small dark box with white text and an arrow, next to the link,
+   inside the block's scrolling area */
+.table-striped .table-striped-tooltip {
+  position: absolute;
+  z-index: 3;
+  box-sizing: border-box;
+  width: max-content;
+  max-width: min(28rem, calc(100vw - 32px));
+  padding: 8px 12px;
+  border-radius: 4px;
+  background: var(--lh-deepblue, #05164d);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: left;
+  pointer-events: none;
+}
+
+.table-striped .table-striped-tooltip[hidden] {
+  display: none;
+}
+
+.table-striped .table-striped-tooltip::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: calc(var(--arrow-x, 50%) - 6px);
+  border-right: 6px solid transparent;
+  border-bottom: 6px solid var(--lh-deepblue, #05164d);
+  border-left: 6px solid transparent;
+}
+
+.table-striped .table-striped-tooltip.table-striped-tooltip-above::before {
+  top: auto;
+  bottom: -6px;
+  border-top: 6px solid var(--lh-deepblue, #05164d);
+  border-bottom: 0;
+}

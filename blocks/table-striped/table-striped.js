@@ -23,10 +23,10 @@ function cleanTextNodes(root) {
  * Striped table, any number of columns. A short text first cell becomes a row header.
  * Option "header": the first authored row is the column header row (thead, th scope col),
  * drawn white with a line under it as the Lufthansa maui-table-head (/green-fare); else every
- * authored row is a data row.
+ * authored row is a data row. Option "matrix": wide comparison tables (table-striped-matrix.js).
  * @param {Element} block
  */
-export default function decorate(block) {
+export default async function decorate(block) {
   const rows = [...block.children]
     .map((row) => [...row.children])
     .filter((cells) => cells.some((c) => cleanText(c) || c.querySelector('img')));
@@ -74,4 +74,10 @@ export default function decorate(block) {
   block.replaceChildren(table);
   cleanTextNodes(table);
   decorateExternalLinks(table);
+  // option matrix (wide comparison tables): sticky first column, the link titles as tooltips;
+  // its own file, loaded only by the tables that ask for it
+  if (block.classList.contains('matrix')) {
+    const { default: decorateMatrix } = await import('./table-striped-matrix.js');
+    decorateMatrix(block);
+  }
 }
