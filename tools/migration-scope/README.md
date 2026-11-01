@@ -43,6 +43,11 @@ the security-waiting-time block.
 After it (2026-11-01) the eJournals page `lufthansa-ejournals`: the same slug in all four locales (200 on
 www, 2026-11-01); its live component is the ejournals block (the search). www's page has no
 newsstand iframe; ours gets the one of unterhaltung-an-bord after the block (brief 208).
+Three rows added 2026-11-01 (round 237, the same slug in all four locales, 200 on www):
+`check-in-deadlines` (info; www's check-in deadline search is the checkin-deadlines block),
+`support/fast-compensation/compensation-flight-disruptions` (mfe; www's compensation claim app,
+the micro-frontend block's `claim-form-entry`) and `discover-lufthansa/register-newsletter` (info;
+plain content, its Travel ID links as on www; the footers link to it).
 
 | template_group | pages | what it is |
 |---|---|---|

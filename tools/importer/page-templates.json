@@ -1150,7 +1150,15 @@
         "https://www.lufthansa.com/de/en/lufthansa-ejournals",
         "https://www.lufthansa.com/de/de/lufthansa-ejournals",
         "https://www.lufthansa.com/at/de/lufthansa-ejournals",
-        "https://www.lufthansa.com/gb/en/lufthansa-ejournals"
+        "https://www.lufthansa.com/gb/en/lufthansa-ejournals",
+        "https://www.lufthansa.com/de/en/check-in-deadlines",
+        "https://www.lufthansa.com/de/de/check-in-deadlines",
+        "https://www.lufthansa.com/at/de/check-in-deadlines",
+        "https://www.lufthansa.com/gb/en/check-in-deadlines",
+        "https://www.lufthansa.com/de/en/discover-lufthansa/register-newsletter",
+        "https://www.lufthansa.com/de/de/discover-lufthansa/register-newsletter",
+        "https://www.lufthansa.com/at/de/discover-lufthansa/register-newsletter",
+        "https://www.lufthansa.com/gb/en/discover-lufthansa/register-newsletter"
       ],
       "blocks": [
         {
@@ -1296,6 +1304,12 @@
           "name": "security-waiting-time",
           "instances": [
             ".securitywaitingtime:has(> .dcep-security-waiting-time)"
+          ]
+        },
+        {
+          "name": "checkin-deadlines",
+          "instances": [
+            ".checkindeadlinesearch:has(> .dcep-checkin-deadline-search)"
           ]
         },
         {
@@ -1500,6 +1514,12 @@
             ".threecolumn:has(a.teaser.card)",
             ".fourcolumn:has(a.teaser.card)",
             ".carousel:has(.swiper-multi-slide a.teaser.card)"
+          ]
+        },
+        {
+          "name": "micro-frontend",
+          "instances": [
+            "culinary-hub"
           ]
         }
       ],
@@ -5343,19 +5363,24 @@
     },
     {
       "name": "mfe",
-      "description": "Pages that host one of www's micro-frontends (book-and-manage/trip-management; Discover's culinaryjourney: culinary-hub); other systems POST <page>.mfe.html to trip-management",
+      "description": "Pages that host one of www's micro-frontends (book-and-manage/trip-management; support/fast-compensation/compensation-flight-disruptions: claim-form-entry); other systems POST <page>.mfe.html to them",
       "urls": [
         "https://www.lufthansa.com/de/en/book-and-manage/trip-management",
         "https://www.lufthansa.com/de/de/book-and-manage/trip-management",
         "https://www.lufthansa.com/at/de/book-and-manage/trip-management",
-        "https://www.lufthansa.com/gb/en/book-and-manage/trip-management"
+        "https://www.lufthansa.com/gb/en/book-and-manage/trip-management",
+        "https://www.lufthansa.com/de/en/support/fast-compensation/compensation-flight-disruptions",
+        "https://www.lufthansa.com/de/de/support/fast-compensation/compensation-flight-disruptions",
+        "https://www.lufthansa.com/at/de/support/fast-compensation/compensation-flight-disruptions",
+        "https://www.lufthansa.com/gb/en/support/fast-compensation/compensation-flight-disruptions"
       ],
       "blocks": [
         {
           "name": "micro-frontend",
           "instances": [
             "trip-management",
-            "culinary-hub"
+            "culinary-hub",
+            "claim-form-entry"
           ]
         }
       ],

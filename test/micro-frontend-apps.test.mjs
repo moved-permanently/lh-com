@@ -98,3 +98,44 @@ test('culinary-hub on Discover: www.discover-airlines.com, its design system v1.
   assert.equal(plan.meta['X-Portal'], 'FOUR_Y');
   assert.equal(plan.attributes['data-api-gateway'], 'https://api.travelid.lufthansa.com/one-catering/v1');
 });
+
+// www.lufthansa.com/de/en/support/fast-compensation/compensation-flight-disruptions (2026-11-01):
+// <claim-form-entry id="undefined" data-public-endpoint=""> in a dcep-react-wrapper, the module
+// script claim-automation/production/claim-form-entry/claim-form-entry-0.11.16.js (its chunks
+// next to it), design system mausy-v1.40.1 with lufthansa.css
+const CLAIM = '/digitalhangar/claim-automation/production/claim-form-entry/claim-form-entry-0.11.16.js';
+const MAUSY = 'https://www.lufthansa.com/digitalhangar/design-system/releases/mausy-v1.40.1/standalone';
+
+test('claim-form-entry (lufthansa.com\'s compensation claim): its module script, www\'s design system release', () => {
+  const plan = mountPlan(blockOf([['claim-form-entry']]), null, { country: 'de', lang: 'en' }, 'main--lh-com--moved-permanently.aem.page');
+  assert.deepEqual(plan, {
+    tag: 'claim-form-entry',
+    className: '',
+    css: `${MAUSY}/css/lufthansa.css`,
+    scripts: [{ src: `${MAUSY}/packages/maui-design-system.js`, module: true }, { src: `https://www.lufthansa.com${CLAIM}`, module: true }],
+    attributes: { 'data-public-endpoint': '' },
+    meta: {},
+  });
+});
+
+test('lufthansa.com\'s module apps from the page\'s own /digitalhangar/ where the host serves it (lh-edge, www itself)', () => {
+  // www.lufthansa.com sends no Access-Control-Allow-Origin for these scripts: a module from there is
+  // refused on our hosts; lufthansa.turnsthe.page (lh-edge) serves the same files at /digitalhangar/
+  const edge = mountPlan(blockOf([['claim-form-entry']]), null, { country: 'de', lang: 'en' }, 'lufthansa.turnsthe.page');
+  assert.equal(edge.scripts[1].src, `https://lufthansa.turnsthe.page${CLAIM}`);
+  const hc = mountPlan(blockOf([['help-center-web']]), null, { country: 'de', lang: 'en' }, 'lufthansa-edge.turnsthe.page');
+  assert.equal(hc.scripts[1].src, 'https://lufthansa-edge.turnsthe.page/digitalhangar/cs-help-center/help-center-web/help-center-web-4.3.1.js');
+  const own = mountPlan(blockOf([['claim-form-entry']]), null, { country: 'de', lang: 'en' }, 'www.lufthansa.com');
+  assert.equal(own.scripts[1].src, `https://www.lufthansa.com${CLAIM}`);
+  // the design system stays www's (its files allow every origin), classic scripts as before
+  assert.equal(edge.scripts[0].src, `${MAUSY}/packages/maui-design-system.js`);
+  const trip = mountPlan(blockOf([['trip-management']]), null, { country: 'de', lang: 'en' }, 'lufthansa.turnsthe.page');
+  assert.equal(trip.scripts[1].src, 'https://www.lufthansa.com/digitalhangar/trip-management/trip-management/trip-management-latest.js');
+  const cul = mountPlan(blockOf([['culinary-hub']]), null, { country: 'de', lang: 'en' }, 'lufthansa.turnsthe.page');
+  assert.equal(cul.scripts[1].src, 'https://www.lufthansa.com/digitalhangar/onecatering/culinary-hub/culinary-hub-latest.js');
+  // a brand's pages as before: its www
+  const aua = mountPlan(blockOf([['help-center-web']]), BRANDS.austrian, { country: 'at', lang: 'en', brand: 'austrian' }, 'austrian.turnsthe.page');
+  assert.equal(aua.scripts[1].src, 'https://www.austrian.com/digitalhangar/cs-help-center/help-center-web/help-center-web-4.3.1.js');
+  // without a host: the page's (main--lh-com…aem.page here, which serves no /digitalhangar/)
+  assert.equal(mountPlan(blockOf([['claim-form-entry']]), null, { country: 'de', lang: 'en' }).scripts[1].src, `https://www.lufthansa.com${CLAIM}`);
+});

@@ -10,6 +10,7 @@ import columnsMediaParser from './parsers/columns-media.js';
 import cardsTeaserParser from './parsers/cards-teaser.js';
 import carouselImagesParser from './parsers/carousel-images.js';
 import carouselCardsParser from './parsers/carousel-cards.js';
+import microFrontendParser from './parsers/micro-frontend.js';
 import lufthansaCleanupTransformer from './transformers/lufthansa-cleanup.js';
 import lufthansaSectionsTransformer from './transformers/lufthansa-sections.js';
 
@@ -71,6 +72,12 @@ const PAGE_TEMPLATE = {
         ".threecolumn:has(a.teaser.card)",
         ".fourcolumn:has(a.teaser.card)",
         ".carousel:has(.swiper-multi-slide a.teaser.card)"
+      ]
+    },
+    {
+      "name": "micro-frontend",
+      "instances": [
+        "culinary-hub"
       ]
     }
   ],
@@ -226,6 +233,7 @@ const parsers = {
   'cards-teaser': cardsTeaserParser,
   'carousel-images': carouselImagesParser,
   'carousel-cards': carouselCardsParser,
+  'micro-frontend': microFrontendParser,
 };
 const transformers = [lufthansaCleanupTransformer, lufthansaSectionsTransformer];
 

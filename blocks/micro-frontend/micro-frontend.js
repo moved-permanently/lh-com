@@ -2,6 +2,7 @@ import {
   loadCSS, loadScript, decorateBlock, loadBlock,
 } from '../../scripts/aem.js';
 import { getLocale, brandEntry, portalOf } from '../../scripts/locale.js';
+import { isDemoHost, isTurnsThePageHost } from '../../scripts/demo.js';
 
 /*
  * Micro Frontend: one of the Lufthansa Group's micro-frontends on the page (AMS rest A4 part 2).
@@ -42,7 +43,8 @@ const BRAND_DESIGN_SYSTEMS = {
  * The apps the block knows: name (the block's first cell) -> element, script and www's classes.
  * script: an absolute URL (www.lufthansa.com's app), or path: the app on the page's brand www
  * (www.lufthansa.com without a brand); module: a module script; attributes: the element's own;
- * portalMeta: the app reads the page's X-Portal, X-Portal-Site, X-Portal-Language meta tags.
+ * portalMeta: the app reads the page's X-Portal, X-Portal-Site, X-Portal-Language meta tags;
+ * release: www's design system release the app's page loads (else DESIGN_SYSTEM_VERSION).
  */
 export const APPS = {
   'trip-management': {
@@ -58,6 +60,16 @@ export const APPS = {
     attributes: { 'data-public-endpoint': '' },
     portalMeta: true,
     brandDesign: true,
+  },
+  // lufthansa.com's compensation claim (support/fast-compensation/compensation-flight-disruptions,
+  // 2026-11-01): a module with chunks next to it, on www's mausy-v1.40.1; its APIs
+  // (api.travelid.lufthansa.com, api.miles-and-more.com/claim) allow www.lufthansa.com only
+  'claim-form-entry': {
+    tag: 'claim-form-entry',
+    path: '/digitalhangar/claim-automation/production/claim-form-entry/claim-form-entry-0.11.16.js',
+    module: true,
+    attributes: { 'data-public-endpoint': '' },
+    release: 'mausy-v1.40.1',
   },
   // Austrian's culinary journey (rows: Configuration, API gateway); its theme from X-Portal
   // (without it the app's class is maui-theme-undefined, its inputs unstyled), www's classes
@@ -88,6 +100,12 @@ function cellText(cell) {
   return (copy.textContent || '').trim();
 }
 
+/**
+ * Whether a host serves www's /digitalhangar/ itself: the airline's own host (www) and the
+ * turnsthe.page hosts (lh-edge's route); not aem.page, aem.live or localhost.
+ */
+const servesDigitalHangar = (hostname) => isTurnsThePageHost(hostname) || !isDemoHost(hostname);
+
 /** The block's rows as [first cell text, second cell text]. */
 const rowsOf = (block) => [...block.children].map((row) => [...row.children].map(cellText));
 
@@ -112,14 +130,24 @@ export function configOf(block) {
 
 /**
  * What the block loads and renders: {tag, className, css, scripts: [{src, module}], attributes,
- * meta} for the page's brand entry and locale, or null for an unknown app.
+ * meta} for the page's brand entry, locale and host, or null for an unknown app. A lufthansa.com
+ * page's module app (www.lufthansa.com sends its scripts without Access-Control-Allow-Origin, so
+ * a module from there is refused on our hosts) loads from the page's own /digitalhangar/ where the
+ * host serves it; the brands' apps from their www, the classic scripts from www, as before.
  */
-export function mountPlan(block, brand, locale) {
+export function mountPlan(block, brand, locale, hostname = window.location.hostname) {
   const app = appOf(block);
   if (!app) return null;
-  const www = app.path && brand && brand.www ? `https://${brand.www}` : WWW;
+  const ownHost = app.path && app.module && !brand && servesDigitalHangar(hostname);
+  const brandWww = app.path && brand && brand.www ? `https://${brand.www}` : WWW;
+  const www = ownHost ? `https://${hostname}` : brandWww;
   const design = app.brandDesign && brand ? BRAND_DESIGN_SYSTEMS[brand.www] : null;
-  const base = design ? `${www}/digitalhangar/design-system/releases/${design.release}/standalone` : null;
+  // the brand's design system from its www; a lufthansa.com app's own release from www
+  const releases = (origin) => `${origin}/digitalhangar/design-system/releases`;
+  let base = null;
+  if (design) base = `${releases(brandWww)}/${design.release}/standalone`;
+  else if (app.release) base = `${releases(WWW)}/${app.release}/standalone`;
+  const theme = design ? design.theme : 'lufthansa';
   const attributes = { ...(app.attributes || {}) };
   rowsOf(block).slice(1).forEach(([key, value]) => {
     const name = String(key || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
@@ -129,7 +157,7 @@ export function mountPlan(block, brand, locale) {
   return {
     tag: app.tag,
     className: app.className || '',
-    css: base ? `${base}/css/${design.theme}.css` : DESIGN_SYSTEM_CSS,
+    css: base ? `${base}/css/${theme}.css` : DESIGN_SYSTEM_CSS,
     scripts: [
       { src: base ? `${base}/packages/maui-design-system.js` : DESIGN_SYSTEM_JS, module: true },
       { src: app.script || `${www}${app.path}`, module: Boolean(app.module) },

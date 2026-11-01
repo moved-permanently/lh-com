@@ -24,6 +24,7 @@ import columnsMediaParser from './parsers/columns-media.js';
 import embedParser from './parsers/embed.js';
 import loungeFinderParser from './parsers/lounge-finder.js';
 import securityWaitingTimeParser from './parsers/security-waiting-time.js';
+import checkinDeadlinesParser from './parsers/checkin-deadlines.js';
 import ejournalsParser from './parsers/ejournals.js';
 import fareTeaserParser from './parsers/fare-teaser.js';
 import lufthansaCleanupTransformer from './transformers/lufthansa-cleanup.js';
@@ -182,6 +183,12 @@ const PAGE_TEMPLATE = {
       ]
     },
     {
+      "name": "checkin-deadlines",
+      "instances": [
+        ".checkindeadlinesearch:has(> .dcep-checkin-deadline-search)"
+      ]
+    },
+    {
       "name": "ejournals",
       "instances": [
         ".ejournals:has(> .dcep-ejournals)"
@@ -262,6 +269,7 @@ const parsers = {
   'embed': embedParser,
   'lounge-finder': loungeFinderParser,
   'security-waiting-time': securityWaitingTimeParser,
+  'checkin-deadlines': checkinDeadlinesParser,
   'ejournals': ejournalsParser,
   'fare-teaser': fareTeaserParser,
 };

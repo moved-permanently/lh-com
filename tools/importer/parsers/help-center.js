@@ -79,6 +79,15 @@ export default function parse(element, { document, url }) {
     if (rows.length) out.push(WebImporter.Blocks.createBlock(document, { name: 'accordion-columns', variants: ['faq'], cells: rows }));
   }
   if (!out.length) return;
+  // www's app itself (help-center-web, blocks/micro-frontend) in front, the headline, subline and
+  // list title as its Fallback (shown until the app renders, and where it does not); the topic list
+  // follows the block (a block in a cell does not survive Edge Delivery), as on ITA's and Austrian's
+  // contact pages
+  const intro = out.filter((n) => /^H[12]$|^P$/.test(n.tagName));
+  if (element.closest('#help-center-web, help-center-web') || element.querySelector('#help-center-web, help-center-web')) {
+    const app = WebImporter.Blocks.createBlock(document, { name: 'micro-frontend', cells: [['help-center-web'], ['Fallback', intro]] });
+    out.splice(0, intro.length, app);
+  }
   // the feedback questionnaire of the app (already a Feedback block, cleanup) follows the list
   element.querySelectorAll('table').forEach((t) => out.push(t));
   element.replaceWith(...out);

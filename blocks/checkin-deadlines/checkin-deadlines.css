@@ -2,11 +2,33 @@
    summary table.table-unstyled and the services maui-table). Sizes from www.austrian.com at 1440
    and 390 (2026-11-01): fields and button 50px high in a row of four (col-md-3, 20px gutters) from
    768px, stacked below with 24px between; summary rows 70px, th 18px/500, 10px padding; services
-   cells 200px wide at least, header white, rows grey, the table scrolling sideways when narrow. */
+   cells 200px wide at least, header white, rows grey, the table scrolling sideways when narrow.
+   The field: lufthansa.com's maui-select is a line under the value with a small label above
+   (www.lufthansa.com/de/en/check-in-deadlines, 2026-11-01), Austrian's and Brussels' a grey box
+   with a border (body.brand-austrian, body.brand-brussels). */
 .checkin-deadlines {
-  --checkin-deadlines-field-surface: var(--lh-grey-1);
+  --checkin-deadlines-field-surface: transparent;
   --checkin-deadlines-field-line: var(--text-color, var(--lh-deepblue));
+  --checkin-deadlines-field-border: 0;
+  --checkin-deadlines-field-radius: 0;
+  --checkin-deadlines-field-padding: 22px 32px 4px 0;
+  --checkin-deadlines-label-left: 0;
+  --checkin-deadlines-label-right: 32px;
+  --checkin-deadlines-chevron-right: 4px;
+  --checkin-deadlines-disabled-surface: transparent;
   --checkin-deadlines-row-surface: var(--lh-grey-1);
+}
+
+body.brand-austrian .checkin-deadlines,
+body.brand-brussels .checkin-deadlines {
+  --checkin-deadlines-field-surface: var(--lh-grey-1);
+  --checkin-deadlines-field-border: 1px solid var(--checkin-deadlines-field-line);
+  --checkin-deadlines-field-radius: 6px;
+  --checkin-deadlines-field-padding: 20px 44px 4px 12px;
+  --checkin-deadlines-label-left: 13px;
+  --checkin-deadlines-label-right: 44px;
+  --checkin-deadlines-chevron-right: 16px;
+  --checkin-deadlines-disabled-surface: var(--lh-grey-2);
 }
 
 .checkin-deadlines .checkin-deadlines-sr-only {
@@ -39,8 +61,8 @@
   position: absolute;
   z-index: 1;
   top: 6px;
-  left: 13px;
-  right: 44px;
+  left: var(--checkin-deadlines-label-left);
+  right: var(--checkin-deadlines-label-right);
   overflow: hidden;
   color: var(--text-color, var(--lh-deepblue));
   font-size: var(--body-font-size-xs);
@@ -70,9 +92,10 @@
   width: 100%;
   height: 50px;
   margin: 0;
-  padding: 20px 44px 4px 12px;
-  border: 1px solid var(--checkin-deadlines-field-line);
-  border-radius: 6px;
+  padding: var(--checkin-deadlines-field-padding);
+  border: var(--checkin-deadlines-field-border);
+  border-bottom: 1px solid var(--checkin-deadlines-field-line);
+  border-radius: var(--checkin-deadlines-field-radius);
   background: var(--checkin-deadlines-field-surface);
   color: var(--text-color, var(--lh-deepblue));
   font-family: var(--body-font-family);
@@ -84,7 +107,7 @@
 
 .checkin-deadlines .checkin-deadlines-select select:disabled {
   border-color: var(--lh-grey-2);
-  background: var(--lh-grey-2);
+  background: var(--checkin-deadlines-disabled-surface);
   color: var(--lh-grey-5);
   cursor: default;
 }
@@ -98,7 +121,7 @@
   content: "";
   position: absolute;
   top: 50%;
-  right: 16px;
+  right: var(--checkin-deadlines-chevron-right);
   width: 16px;
   height: 16px;
   margin-top: -8px;
