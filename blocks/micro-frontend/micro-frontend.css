@@ -6,3 +6,17 @@
 .micro-frontend > * {
   display: block;
 }
+
+/* row Fallback: the fallback in the flow (no reserved room), the app laid out out of sight on top of
+   it (visibility, not display: its height counts) until it shows something and replaces it */
+.micro-frontend:has(> .micro-frontend-fallback) {
+  position: relative;
+  min-height: 0;
+}
+
+.micro-frontend > .micro-frontend-pending {
+  position: absolute;
+  inset: 0 0 auto;
+  visibility: hidden;
+  pointer-events: none;
+}

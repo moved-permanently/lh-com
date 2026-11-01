@@ -1,4 +1,6 @@
-import { loadCSS, loadScript } from '../../scripts/aem.js';
+import {
+  loadCSS, loadScript, decorateBlock, loadBlock,
+} from '../../scripts/aem.js';
 import { getLocale, brandEntry, portalOf } from '../../scripts/locale.js';
 
 /*
@@ -9,6 +11,12 @@ import { getLocale, brandEntry, portalOf } from '../../scripts/locale.js';
  * data-config before it is attached (the app reads it on connect). Rows after the app's name
  * ("Configuration | ...", "API gateway | ...") become the element's data- attributes
  * (data-configuration, data-api-gateway).
+ * Row Fallback (optional): its cell's content (www's text around the app: headings, text, lists,
+ * links, a nested block such as an accordion) is shown at once and the app is mounted next to it,
+ * hidden; once the app's element shows something (a height and text, in its shadow root or light
+ * DOM: hasRendered) it replaces the fallback, else after FALLBACK_TIMING.wait the fallback stays
+ * and the element is removed. ITA's and Austrian's help-center-web renders nothing on our hosts
+ * (its data come from the airline's Travel ID service, which refuses them).
  */
 
 /** www's design system release the apps are built against: change it here only. */
@@ -62,6 +70,9 @@ export const APPS = {
 };
 const DEFAULT_APP = 'trip-management';
 
+/** How long an app has to render before its fallback stays, and how often it is looked at (ms). */
+export const FALLBACK_TIMING = { wait: 8000, every: 250 };
+
 /** The block's rows as [first cell text, second cell text]. */
 const rowsOf = (block) => [...block.children].map((row) => [...row.children].map((c) => (c.textContent || '').trim()));
 
@@ -97,7 +108,8 @@ export function mountPlan(block, brand, locale) {
   const attributes = { ...(app.attributes || {}) };
   rowsOf(block).slice(1).forEach(([key, value]) => {
     const name = String(key || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-    if (name) attributes[`data-${name}`] = value || '';
+    // the Fallback row is the block's content, not the app's
+    if (name && name !== 'fallback') attributes[`data-${name}`] = value || '';
   });
   return {
     tag: app.tag,
@@ -116,9 +128,78 @@ export function mountPlan(block, brand, locale) {
   };
 }
 
+/** The text a node shows: its text nodes, its shadow roots', not styles or scripts. */
+function shownText(node, depth = 0) {
+  if (!node || depth > 30) return '';
+  if (node.nodeType === 3) return node.nodeValue.trim();
+  if (node.nodeType === 1 && /^(STYLE|SCRIPT|TEMPLATE|NOSCRIPT)$/.test(node.tagName)) return '';
+  const parts = [];
+  if (node.shadowRoot) parts.push(node.shadowRoot);
+  parts.push(...node.childNodes);
+  let text = '';
+  parts.some((child) => {
+    text = shownText(child, depth + 1);
+    return Boolean(text);
+  });
+  return text;
+}
+
+/**
+ * Whether an app's element shows something: on the page, a height, and text in its shadow root
+ * (or one nested in it) or its light DOM.
+ * @param {Element} element
+ * @returns {boolean}
+ */
+export function hasRendered(element) {
+  if (!element || !element.isConnected) return false;
+  const { height } = element.getBoundingClientRect();
+  return height > 0 && Boolean(shownText(element));
+}
+
+/** The Fallback row's content (its second cell), taken out of the block; null without one. */
+function takeFallback(block) {
+  const row = [...block.children].find((r) => /^fallback$/i.test((r.children[0]?.textContent || '').trim()));
+  if (!row) return null;
+  const fallback = document.createElement('div');
+  fallback.className = 'micro-frontend-fallback';
+  if (row.children[1]) fallback.append(...row.children[1].childNodes);
+  // nested blocks (an accordion): each in its own wrapper, decorated and loaded as a block
+  [...fallback.children].filter((c) => c.tagName === 'DIV' && c.classList.length).forEach((nested) => {
+    const wrapper = document.createElement('div');
+    nested.replaceWith(wrapper);
+    wrapper.append(nested);
+    decorateBlock(nested);
+    loadBlock(nested);
+  });
+  return fallback;
+}
+
+/** Shows the app in place of the fallback once it renders, else removes it at the deadline. */
+function watchApp(element, fallback, deadline) {
+  const check = () => {
+    if (!element.isConnected) return;
+    if (hasRendered(element)) {
+      element.classList.remove('micro-frontend-pending');
+      element.removeAttribute('aria-hidden');
+      element.removeAttribute('inert');
+      fallback.remove();
+      return;
+    }
+    if (Date.now() >= deadline) {
+      element.remove();
+      return;
+    }
+    setTimeout(check, FALLBACK_TIMING.every);
+  };
+  check();
+}
+
 export default async function decorate(block) {
+  const deadline = Date.now() + FALLBACK_TIMING.wait;
+  const fallback = takeFallback(block);
   const plan = mountPlan(block, brandEntry(), getLocale());
   block.replaceChildren();
+  if (fallback) block.append(fallback);
   if (!plan) return;
   // the meta tags the app reads, where the page has none
   Object.entries(plan.meta).forEach(([name, content]) => {
@@ -129,17 +210,31 @@ export default async function decorate(block) {
     document.head.append(meta);
   });
   const config = configOf(block);
-  try {
-    await Promise.all([
-      loadCSS(plan.css),
-      ...plan.scripts.map(({ src, module }) => loadScript(src, module ? { type: 'module' } : {})),
-    ]);
-  } catch (e) {
-    // a script that does not load: the element stays empty, as on www
-  }
-  const element = document.createElement(plan.tag);
-  if (plan.className) element.className = plan.className;
-  Object.entries(plan.attributes).forEach(([name, value]) => element.setAttribute(name, value));
-  if (config) element.setAttribute('data-config', JSON.stringify(config));
-  block.append(element);
+  const mount = async () => {
+    try {
+      await Promise.all([
+        loadCSS(plan.css),
+        ...plan.scripts.map(({ src, module }) => loadScript(src, module ? { type: 'module' } : {})),
+      ]);
+    } catch (e) {
+      // a script that does not load: the element stays empty, as on www
+    }
+    // with a fallback: too late, the fallback stays
+    if (fallback && Date.now() >= deadline) return;
+    const element = document.createElement(plan.tag);
+    if (plan.className) element.className = plan.className;
+    Object.entries(plan.attributes).forEach(([name, value]) => element.setAttribute(name, value));
+    if (config) element.setAttribute('data-config', JSON.stringify(config));
+    if (fallback) {
+      // mounted out of sight (laid out, so its height counts) until it shows something
+      element.classList.add('micro-frontend-pending');
+      element.setAttribute('aria-hidden', 'true');
+      element.setAttribute('inert', '');
+    }
+    block.append(element);
+    if (fallback) watchApp(element, fallback, deadline);
+  };
+  // without a fallback as before: the block waits for the app; with one the fallback shows at once
+  if (fallback) mount();
+  else await mount();
 }

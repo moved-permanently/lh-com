@@ -6,7 +6,22 @@ Custom **micro-frontend** block. Purpose: one of www.lufthansa.com's micro-front
 
 Model: `standalone`
 
-One cell: the app's name, `trip-management` (the default when the cell is empty). An unknown name renders nothing. The page needs the metadata `post-handler: true` when other systems post booking data to it (`<page>.mfe.html`, below).
+First row, one cell: the app's name, `trip-management` (the default when the cell is empty), `help-center-web` or `culinary-hub`. An unknown name renders nothing (but its `Fallback`). Further rows `Name | value` become the app element's `data-` attributes (`Configuration | ...` → `data-configuration`). The page needs the metadata `post-handler: true` when other systems post booking data to it (`<page>.mfe.html`, below).
+
+Optional row `Fallback | <content>`: normal content in the second cell (headings, text, lists, links, a nested block such as an accordion). Use it where the app can't render on our hosts today (ITA's and Austrian's help-center-web: its data come from the airline's Travel ID service, which refuses them), with the content www shows around the app.
+
+| micro-frontend | |
+| --- | --- |
+| help-center-web | |
+| Fallback | *H1, the help topics, links …* |
+
+## Fallback
+
+- The fallback is shown at once (the page does not wait for the app); the app is mounted next to it, laid out but hidden (`micro-frontend-pending`: `visibility: hidden`, `aria-hidden`, `inert`).
+- When the app's element shows something within `FALLBACK_TIMING.wait` (8 s; looked at every 250 ms): a height and text in its shadow root (or one nested in it) or its light DOM, not styles alone (`hasRendered`), it replaces the fallback.
+- Otherwise the fallback stays and the app's element is removed (also when its scripts load after the wait).
+- Nested blocks in the fallback (direct children with a class, e.g. `accordion`) are decorated and loaded as blocks, each in its own wrapper.
+- No `Fallback` row: as before, the block waits for the app and shows its element.
 
 ## Behaviour
 
