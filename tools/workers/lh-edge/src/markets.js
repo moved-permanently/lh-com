@@ -438,10 +438,34 @@ function hrefPattern(www, from) {
   return hrefPatterns.get(key);
 }
 
+/**
+ * A Travel ID login link (https://api.travelid.<airline>/oauth2/...) of a language document for
+ * the market root, or null to leave it: www writes the page to return to (state) and the market
+ * (country) of the address the visitor is on (www.austrian.com/al/en/login: state=/al/en/login,
+ * country=AL; xx roots country=XX), lang as it is. A state in the language version becomes the
+ * market root's (also %2F-encoded, as the nav's login links have it), the language version's
+ * country the market's; the rest of the URL stays as it is. The state is a path on the airline's
+ * www (the redirect URI), which has every market root, so it does not depend on what the market
+ * serves here. Parameters are separated by & or, in an attribute as HTMLRewriter reads it (not
+ * decoded), &amp; or &#x26; (Edge Delivery's HTML).
+ */
+const TRAVEL_ID = /^https:\/\/api\.travelid\.[a-z0-9.-]+\/oauth2\//i;
+function travelIdHref(raw, from, to) {
+  const [fromCountry, lang] = from.split('/');
+  const [toCountry] = to.split('/');
+  const next = raw
+    .replace(/((?:[?&]|&amp;|&#x26;)state=)(\/|%2F)([a-z]{2})(\/|%2F)([a-z]{2})(?=\/|%2F|[?#&]|%3F|%23|$)/i, (m, key, s1, cc, s2, ll) => (
+      cc.toLowerCase() === fromCountry && ll.toLowerCase() === lang ? `${key}${s1}${toCountry}${s2}${ll}` : m))
+    .replace(/((?:[?&]|&amp;|&#x26;)country=)([a-z]{2})(?=[&#]|$)/i, (m, key, cc) => (
+      cc.toLowerCase() === fromCountry ? `${key}${toCountry.toUpperCase()}` : m));
+  return next === raw ? null : next;
+}
+
 export function marketHref(href, {
   from, to, allowed, hosts, www = 'www.lufthansa.com',
 }) {
   const raw = String(href || '');
+  if (raw.startsWith('https://api.travelid.') && TRAVEL_ID.test(raw)) return travelIdHref(raw, from, to);
   // a path into the language version (most links, every path value of a sheet): no host to
   // strip, not on www; the local pattern by slicing (the same groups; with a line break, which
   // the pattern's `.` does not take, the pattern itself)
