@@ -7,9 +7,10 @@
  * lh-com's importers back to www.ita-airways.com, links between the site's pages relative), after
  * adding the batch's documents to the allowlist tools/importer/sites/lh-ita.json.
  * Per document (one per language page):
- * - live widgets the importers would flatten (the security waiting times; the booking login of
- *   the manage-my-bookings page) become a link to the page on www.ita-airways.com (withLinkOuts;
- *   the login widget's cards are lh-com's carousel-cards, its booking-code card links to www);
+ * - live widgets the importers would flatten (the booking login of the manage-my-bookings page)
+ *   become a link to the page on www.ita-airways.com (withLinkOuts; the login widget's cards are
+ *   lh-com's carousel-cards, its booking-code card links to www); the security waiting times
+ *   become lh-com's security-waiting-time block (the info import's parser);
  * - the forms get their lh-forms ids (ITA_FORMS: ita-mice, ita-group-travel, ita-voglia-di-volare,
  *   ita-emergency-contact; withItaForm);
  * - the flight search hands off to shop.ita-airways.com from the market's airport (withFlightSearch);
@@ -54,14 +55,13 @@ const text = (h) => h.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
 const h1Of = (html) => text((html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/g) || []).map((x) => x).find((x) => !/sr-only/.test(x)) || '');
 
 /**
- * A snapshot whose live widgets are a link to the page on www: the security waiting times (an
- * airport select, labelled with its own label), the booking login widget (labelled with its
- * headline), iframes the embed block doesn't play (labelled with their title, else the H1).
+ * A snapshot whose live widgets are a link to the page on www: the booking login widget (labelled
+ * with its headline), iframes the embed block doesn't play (labelled with their title, else the
+ * H1). The security waiting times (.securitywaitingtime > .dcep-security-waiting-time) stay as they
+ * are: lh-com's info import makes them the security-waiting-time block (parsers/
+ * security-waiting-time.js), whose labels, X-Portal and link to the page on www are ITA's.
  */
-export const withLinkOuts = (html, p) => html.replace(/<div class="securitywaitingtime(?: section)?">[\s\S]*?<\/maui-select><\/form><\/div><\/div><\/div>/g, (m) => {
-  const label = (m.match(/buttontriggerlabel="([^"]+)"/) || [])[1] || HOST;
-  return `<div class="securitywaitingtime"><p><a href="https://${LINK_OUT}${p}">${label}</a></p></div>`;
-}).replace(/<div class="iframe[ "][^>]*>\s*<div class="iframe-wrapper[^>]*>\s*<iframe\b([^>]*)>[\s\S]*?<\/iframe>\s*<\/div>\s*<\/div>/g, (m, attrs) => {
+export const withLinkOuts = (html, p) => html.replace(/<div class="iframe[ "][^>]*>\s*<div class="iframe-wrapper[^>]*>\s*<iframe\b([^>]*)>[\s\S]*?<\/iframe>\s*<\/div>\s*<\/div>/g, (m, attrs) => {
   const src = (attrs.match(/\ssrc="([^"]+)"/) || [])[1] || '';
   if (EMBEDDED.test(src)) return m;
   const label = (attrs.match(/\stitle="([^"]+)"/) || [])[1] || h1Of(html) || HOST;
