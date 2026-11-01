@@ -135,6 +135,7 @@
   align-items: center;
   justify-content: center;
   gap: 12px;
+  width: auto;
   min-width: 137px;
   height: 56px;
   margin: 0;

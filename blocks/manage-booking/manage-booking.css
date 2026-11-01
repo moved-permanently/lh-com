@@ -3,8 +3,14 @@
    720px wide and centred, its heading and introduction centred above the form */
 
 main .section.manage-booking-container > div {
+  box-sizing: border-box;
   max-width: 720px;
   margin-inline: auto;
+}
+
+/* the column is the page's text width (www: 720px): no narrower measure inside it */
+main .section.manage-booking-container p {
+  max-width: none;
 }
 
 main .section.manage-booking-container > .default-content-wrapper:first-child {
@@ -101,6 +107,12 @@ main .section.manage-booking-container > .default-content-wrapper:first-child {
   color: #c00;
   font-size: 14px;
   text-align: center;
+}
+
+@media (width >= 768px) {
+  main .section.manage-booking-container > div {
+    padding-inline: 0;
+  }
 }
 
 @media (width < 768px) {
