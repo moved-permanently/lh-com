@@ -1037,6 +1037,14 @@ main > .section > .flight-search-wrapper.flight-search-band {
   display: none;
 }
 
+/* the standalone card's picker opens 20px further in (its padding): below 768px the panel keeps
+   inside the screen (at 390 it ran 14px past the edge: 42 + 362); 320px wherever it fits */
+@media (width < 768px) {
+  .flight-search.standalone .flight-search-passengers-panel {
+    width: min(320px, calc(100vw - 86px));
+  }
+}
+
 .flight-search .flight-search-passenger {
   display: grid;
   grid-template-columns: 1fr 36px 28px 36px;
