@@ -32,6 +32,8 @@ export const REDIRECT_ONLY = {
   '/de/': '/de/home',
   '/en/newsroom': '/en/ci/newsroom',
   '/en/footer/bottomnav/privacy': '/en/data-protection',
+  // www's German Support & Contact is the English page (its contact form too)
+  '/de/support-and-contact': '/en/support-and-contact',
 };
 
 /** Language-less addresses of the source (logo, footer links) -> the English page. */
@@ -44,6 +46,23 @@ export const LANGUAGE_LESS = {
   // the German header's Support & Contact (www's /de/support-and-contact is the English page)
   '/support-and-contact': '/en/support-and-contact',
 };
+
+/**
+ * Cargo's contact form (www: the "Contact us" form of /<lang>/support-and-contact, a modal, English
+ * on both languages' pages, as that page): our form page, sent by lh-forms as cargo-contact-us
+ * (tools/importer/cargo-contact-form.mjs). The German pages link to it as to Support & Contact.
+ */
+export const CONTACT_FORM = '/en/contact-us';
+
+/**
+ * The form page's address for www's contact form links: /support-and-contact?reason=&subreason=
+ * (www opens the form with both chosen) and the entries that open it with them; without both,
+ * the plain address.
+ */
+export function contactFormHref(reason, subreason) {
+  if (!reason || !subreason) return CONTACT_FORM;
+  return `${CONTACT_FORM}?${new URLSearchParams({ reason, subreason }).toString().replace(/\+/g, '%20')}`;
+}
 
 const GERMAN = {
   ä: 'ae', ö: 'oe', ü: 'ue', Ä: 'ae', Ö: 'oe', Ü: 'ue', ß: 'ss',

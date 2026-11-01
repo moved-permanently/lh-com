@@ -43,7 +43,7 @@ import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { parseHTML } from 'linkedom';
 import {
-  HOST, sourcePath, REDIRECT_ONLY, LANGUAGE_LESS,
+  HOST, sourcePath, REDIRECT_ONLY, LANGUAGE_LESS, CONTACT_FORM, contactFormHref,
 } from './cargo-paths.mjs';
 import { fileKey, edsName } from './cargo-assets.mjs';
 
@@ -189,6 +189,11 @@ export class Page {
     const { paths, alternates, capture } = loadSite();
     // Liferay's default site prefix (/en/web/guest/x) is the same page as /en/x
     const p = webGuest(sourcePath(u.href));
+    // our contact form page (no page on www; supportTopics links its entries to it)
+    if (p === CONTACT_FORM) return `${CONTACT_FORM}${u.search}`;
+    // www's contact form links: /support-and-contact?reason=&subreason= opens the form with both
+    const q = u.searchParams;
+    if (/^(\/[a-z]{2})?\/support-and-contact$/.test(p) && q.get('reason') && q.get('subreason')) return contactFormHref(q.get('reason'), q.get('subreason'));
     const local = (sp) => {
       // a page in scope that answers 404 on www stays a link to www
       if (capture[sp] && capture[sp].status === 'not-found') return null;
@@ -494,6 +499,24 @@ function dynamicsForm(c, page, mode) {
   })];
 }
 
+/**
+ * Support & Contact's contact portlet: www's "Contact us" card (heading, text, the "Open contact
+ * form" button that opens its form) with the button as a link to our form page; the form itself
+ * is that page (cargo-contact-form.mjs).
+ */
+function contactCard(c, page) {
+  page.formLinked = true;
+  const card = c.querySelector('.contactSupportWrapper .contactBox');
+  if (!card) return;
+  const h = text(card.querySelector('h1, h2, h3, h4'));
+  const p = text(card.querySelector('p'));
+  const label = text(card.querySelector('.contactBtn .lfr-btn-label, .contactBtn, button'));
+  if (h) page.add(`<h2>${esc(h)}</h2>`);
+  if (p) page.add(`<p>${esc(p)}</p>`);
+  if (label) page.add(`<p><strong><a href="${CONTACT_FORM}">${esc(label)}</a></strong></p>`);
+  page.note(`contact form: www's card, its button a link to ${CONTACT_FORM} (cargo-contact-us)`);
+}
+
 function mapLink(page) {
   if (page.mapLinked) return [];
   page.mapLinked = true;
@@ -621,8 +644,16 @@ function component(c, page) {
   if (/(^|\s)LHCTabs(\s|$)/.test(k)) { lhcTabs(c, page); return true; }
   if (/(^|\s)(owl-carousel|flexslider|swiper)(\s|$)/.test(k) && isImageSlider(c)) { carousel(c, page); return true; }
   if (/portlet_com_lhcargo_eportal_maps_of_networks/.test(c.id || '')) { mapLink(page).forEach((h) => page.add(h)); return true; }
+  if (/portlet_com_lhcargo_eportal_contact_support_web/.test(c.id || '')) { contactCard(c, page); return true; }
+  if (/portlet_com_lhcargo_eportal_contact_support_(topic|station)_search/.test(c.id || '')) {
+    // the topic search's page heading (Support & Contact's H1); its search and the station
+    // search need www (the topics are the tabs, the stations the topics' station link)
+    const h1 = c.querySelector('.rHeaderBlock h1');
+    if (h1) page.add(`<h1>${esc(text(h1))}</h1>`);
+    page.formLinked = true;
+    return true;
+  }
   if (/portlet_com_lhcargo_eportal_(contact_support|routing)/.test(c.id || '')) {
-    // the portlet's page heading (Support & Contact's H1 is in its topic search portlet)
     const h1 = c.querySelector('.rHeaderBlock h1');
     if (h1) page.add(`<h1>${esc(text(h1))}</h1>`);
     formLink(page).forEach((h) => page.add(h));
@@ -984,6 +1015,26 @@ function metadata(document, page) {
  * the link's portal parameters p_p_id=...) left out.
  */
 function supportTopics(content, page) {
+  // entries without a link: www's script opens its contact form with the entry's reason and
+  // subreason (.faqReason / .faqSubreason beside it): links to our form page with both
+  let linked = 0;
+  content.querySelectorAll('.faqEntryTitle').forEach((e) => {
+    const a = e.querySelector('a[href]');
+    if (a && !/^javascript:/i.test(a.getAttribute('href'))) return;
+    let box = e.parentElement;
+    while (box && box !== content && !(box.querySelectorAll('.faqEntryTitle').length === 1 && box.querySelector('.faqReason'))) box = box.parentElement;
+    if (!box || box === content) return;
+    const reason = text(box.querySelector('.faqReason'));
+    const subreason = text(box.querySelector('.faqSubreason'));
+    if (!reason || !subreason) return;
+    const h = e.querySelector('h1, h2, h3, h4, h5, h6') || e;
+    const link = content.ownerDocument.createElement('a');
+    link.setAttribute('href', contactFormHref(reason, subreason));
+    link.append(...[...(a || h).childNodes]);
+    if (a) a.replaceWith(link); else h.replaceChildren(link);
+    linked += 1;
+  });
+  if (linked) page.note(`support topics: ${linked} entries opening www's contact form linked to ${CONTACT_FORM} with their reason and subreason`);
   content.querySelectorAll('.requiresLogin, .faqReason, .faqSubreason').forEach((x) => x.remove());
   // the topic search's section: the .topicSection outside the tabs (a category heading in each
   // .topicSearchTriggerContainer, its entries the .faqEntryTitle after it)

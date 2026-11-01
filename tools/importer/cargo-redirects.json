@@ -2988,6 +2988,10 @@
   "Destination": "/en/data-protection"
  },
  {
+  "Source": "/de/support-and-contact",
+  "Destination": "/en/support-and-contact"
+ },
+ {
   "Source": "/en",
   "Destination": "/en/home"
  },
