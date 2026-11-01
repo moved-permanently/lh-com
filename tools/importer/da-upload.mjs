@@ -30,6 +30,7 @@ import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { siteSettings, APP_SHELL } from './da-upload-sites.mjs';
+import { linksTakenBack } from './own-links.mjs';
 
 const started = Date.now();
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
@@ -135,6 +136,17 @@ for (const p of paths) {
   html = html.replace(/(["(])\/media-da\//g, `$1https://content.da.live/${ORG}/${SITE}/media-da/`);
 
   if (!fresh || has('force')) {
+    // a brand site's document whose DA version links a site page relative that the local one
+    // links on www (another session changed it in DA, e.g. ITA's footers' /<root>/profile/...):
+    // not uploaded, the local copy is older than DA (lh-com as before, no check)
+    if (SITE !== 'lh-com') {
+      const current = curl([`https://admin.da.live/source/${ORG}/${SITE}${p}.html`]);
+      const back = current.status === 200 ? linksTakenBack(current.body, html) : [];
+      if (back.length) {
+        problem(`${p}: would take ${back.length} link(s) DA has relative back to www (${back[0]}): local copy older than DA, not uploaded`);
+        continue;
+      }
+    }
     const doc = path.join(tmp, 'doc.html');
     fs.writeFileSync(doc, `<body><header></header><main>${html}</main><footer></footer></body>`);
     if (has('dry-run')) {

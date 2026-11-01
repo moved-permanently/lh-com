@@ -31,6 +31,57 @@ const BRAND_OF = {
 };
 
 /**
+ * Whether a document's change only made links relative (every href that differs went from an
+ * absolute URL to a site path), nothing else.
+ */
+export function onlyMadeRelative(before, after) {
+  const hrefs = (h) => [...h.matchAll(/href="([^"]*)"/g)].map((m) => m[1]);
+  const a = hrefs(before);
+  const b = hrefs(after);
+  if (a.length !== b.length) return false;
+  const rest = (h) => h.replace(/href="[^"]*"/g, 'href=""');
+  return rest(before) === rest(after) && a.every((x, i) => x === b[i] || (/^https?:\/\//.test(x) && b[i].startsWith('/')));
+}
+
+/**
+ * The site paths DA's version of a document links relative that the local version links on a
+ * www host instead (an upload would take them back to www: links another session changed in DA,
+ * e.g. ITA's footers' /<root>/profile/travel-id, Austrian's navs' /<root>/login).
+ */
+export function linksTakenBack(daHtml, localHtml) {
+  const hrefs = (h) => [...h.matchAll(/href="([^"]*)"/g)].map((m) => m[1].replace(/&amp;|&#x26;/g, '&'));
+  const local = hrefs(localHtml);
+  const localSet = new Set(local);
+  return [...new Set(hrefs(daHtml).filter((h) => h.startsWith('/') && !h.startsWith('//')))]
+    .filter((h) => !localSet.has(h) && local.some((l) => /^https?:\/\/[^/]+\//.test(l) && l.replace(/^https?:\/\/[^/]+/, '') === h));
+}
+
+/**
+ * Runs a step over a site's documents (site-postprocess.mjs's step 3 rewrites every document) and
+ * puts back each document outside `keep` (an import batch's paths) that it changed in any other
+ * way than making links relative (links to the batch's new pages): an import never takes a link of
+ * an earlier run or of another session back to www (a footer's /<root>/profile/... links, a nav's
+ * /<root>/login, which DA has relative and the step made www links again).
+ * Returns the step's result and the paths put back.
+ */
+export function onlyBatch(site, keep, step) {
+  const dir = path.join(root, 'content-sites', site, 'content');
+  const before = new Map(walk(dir).filter((f) => f.endsWith('.plain.html'))
+    .map((f) => [`/${path.relative(dir, f).replace(/\.plain\.html$/, '')}`, fs.readFileSync(f, 'utf8')])
+    .filter(([p]) => !keep.has(p)));
+  const result = step();
+  const restored = [];
+  before.forEach((doc, p) => {
+    const f = path.join(dir, `${p}.plain.html`);
+    const now = fs.readFileSync(f, 'utf8');
+    if (now === doc || onlyMadeRelative(doc, now)) return;
+    fs.writeFileSync(f, doc);
+    restored.push(p);
+  });
+  return { result, restored };
+}
+
+/**
  * The site's pages: its documents, and the market roots' pages lh-edge answers from a language
  * version's document, by lh-edge's rule (scripts/market-rules.js marketAllows: the document's
  * `markets` row lists the root or its country; no row or an empty one: every market root of the
