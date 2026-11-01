@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-02 00:03",
-  "change": "Lufthansa's help center app shows its topic list once, as on www. The update time now shows next to the date.",
+  "updated": "2026-11-02 00:25",
+  "change": "Lufthansa's UK flight searches also have www's row for young adults and the alternative fare selection.",
   "legend": {
     "done": {
       "label": "works on our replica",
@@ -157,9 +157,9 @@
       "cells": {
         "lufthansa": {
           "status": "done",
-          "note": "Lufthansa's flight searches in de/en, de/de, at/de and gb/en have the picker for adults, children, infants and cabin, with www's link to group bookings from 10 travellers; gb/en's row for young adults comes next.",
+          "note": "Lufthansa's flight searches in de/en, de/de, at/de and gb/en have the picker for adults, children, infants and cabin, with www's link to group bookings from 10 travellers; gb/en also has www's row for young adults (12-15) and the alternative fare selection.",
           "page": "/de/en/homepage",
-          "evidence": "ema-cashub 238 (34d5af32 importer + apply script, f43ba457 upload record; 23 documents); published 2026-11-01 job-2026-11-01-18-36-11-35ab3b70; checked preview /de/de/flugsuche at 1440; 240 sent for gb/en young adults, adults hint, alternative fare selection"
+          "evidence": "ema-cashub 238 (34d5af32 importer + apply script, f43ba457 upload record; 23 documents); published 2026-11-01 job-2026-11-01-18-36-11-35ab3b70; checked preview /de/de/flugsuche at 1440; 240 sent for gb/en young adults, adults hint, alternative fare selection; 240 (ema-cashub 94a075bb young adults on gb/en, fare preference) published 2026-11-01 job-2026-11-01-20-57-12-7d0c1a3b; live gb/en .plain has the rows"
         },
         "discover": {
           "status": "done",
