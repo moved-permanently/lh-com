@@ -1,6 +1,6 @@
 {
   "updated": "2026-11-01",
-  "change": "Air Dolomiti's flight search and site search work on the replica, and so do Cargo's shipment tracking and site search. ITA's group travel pages are live, Austrian's chat button is on 213 pages, and Brussels Airlines has its own address, brussels.turnsthe.page.",
+  "change": "ITA's fare teasers show live fares, the homepage stage can count down to an offer's end, Cargo's notifications are live and Air Dolomiti's newsletter sign-up works on the replica.",
   "legend": {
     "done": {
       "label": "works on our replica",
@@ -795,10 +795,10 @@
           "evidence": "functions scan 2026-10-31: Frankfurt-Hurghada, live"
         },
         "ita": {
-          "status": "wip",
-          "note": "Five ITA market pages have fare teasers on www; the replica's copies of those pages don't have them yet.",
+          "status": "done",
+          "note": "Fare teasers on the five ITA market pages that have them on www show live fares.",
           "page": "/be/it/homepage-new",
-          "evidence": "fill check 2026-11-01: be/it, al/it, ch/it homepage-new; nl/nl, jp/ja spring-offer"
+          "evidence": "ema-test 210 published 2026-11-01 job-2026-11-01-06-55-29-e3b2a140; investigation p_mvxkmclz6n 09:39: /be/it/homepage-new Roma-Dubai 599 EUR live"
         },
         "austrian": {
           "status": "done",
@@ -890,9 +890,9 @@
         },
         "discover": {
           "status": "done",
-          "note": "The offers page shows Discover's destinations with live prices and filters.",
+          "note": "The offers page shows destinations with live prices and filters; from the menu link it preselects Discover's own flights, as on www.",
           "page": "/de/en/book/flights/offers",
-          "evidence": "fill check 2026-11-01"
+          "evidence": "fill check 2026-11-01; cb96345a (?PartnerFlights=one); investigation p_mvxkmclz6n 09:35: 49 live prices"
         },
         "ita": {
           "status": "done",
@@ -1027,10 +1027,10 @@
       "about": "A countdown in the homepage's main teaser for an offer that ends soon.",
       "cells": {
         "lufthansa": {
-          "status": "wip",
-          "note": "Lufthansa's homepage teaser can count down to an offer's end; the replica's teaser gets the timer.",
+          "status": "done",
+          "note": "Promotion teasers on the homepage stage count down to an end time, as on www; no teaser on www has a running countdown today.",
           "page": "/de/en/homepage",
-          "evidence": "functions scan 2026-10-31: FLYZA countdown on www, none on the replica"
+          "evidence": "ema-adobe 199 cc3dfee (hero-card-overlay End time row; 8 tests; checked at 1440/390 on a test page)"
         },
         "discover": {
           "status": "none",
@@ -1043,10 +1043,10 @@
           "evidence": "fill check 2026-11-01"
         },
         "austrian": {
-          "status": "wip",
-          "note": "Austrian's homepage teaser counts down in some markets; the replica's teaser gets the timer.",
+          "status": "done",
+          "note": "Promotion teasers on the homepage stage count down to an end time, as on www; no teaser on www has a running countdown today.",
           "page": "/us/en/homepage",
-          "evidence": "fill check 2026-11-01: us/en countdown on www 2026-10-31"
+          "evidence": "ema-adobe 199 cc3dfee; www's us/en countdown ended 2026-11-02 05:59 CET"
         },
         "cargo": {
           "status": "none",
@@ -1096,16 +1096,16 @@
           "evidence": "functions scan 2026-10-31: rail services notice"
         },
         "cargo": {
-          "status": "wip",
-          "note": "Cargo's notifications, the header bell and their list page, move to the replica as messages.",
-          "footnote": "cargomoves",
-          "evidence": "fill check 2026-11-01: bell and /notification-overview on www, 404 on ours"
+          "status": "done",
+          "note": "Cargo's header bell and notification page list Cargo's current notifications, as on www.",
+          "evidence": "ema-cashub 211 published 2026-11-01 job-2026-11-01-08-51-44-8e041bb5; /message-center/notifications.json 1 row; checked on cargo.turnsthe.page: bell + overview with category filter",
+          "page": "/en/notification-overview"
         },
         "airdolomiti": {
           "status": "wip",
-          "note": "Air Dolomiti's notice strip comes to the replica as messages; its travel information page is already there.",
+          "note": "The notice strip and the travel information pages are ready on the replica and show Air Dolomiti's notices once there is one; www has none today.",
           "page": "/informazioni-aggiornate",
-          "evidence": "fill check 2026-11-01: navbar-alert inactive"
+          "evidence": "ema-cashub 211 published 2026-11-01 job-2026-11-01-08-51-14-b85dc939 (flash teaser on homepages, message center on travel information pages); cti-pages sheet live 2026-11-01"
         },
         "brussels": {
           "status": "wip",
@@ -1536,10 +1536,11 @@
           "evidence": "M1 2026-11-01: Dynamics form renders on our host; Cargo newsletter test 2026-11-01 01:47-02:06: CORS preflight from cargo.turnsthe.page answered without allow-origin on visits and submit, loader shows 'domain hasn't been allowed for external form hosting', no mail; only www.lufthansa-cargo.com allowed; decision 2026-11-01: embeds that need an outside change stay off"
         },
         "airdolomiti": {
-          "status": "wip",
-          "note": "Air Dolomiti's sign-up becomes a form of our own on the same forms service as the other airlines; until then the replica links to www.",
+          "status": "done",
+          "note": "Air Dolomiti's newsletter sign-up is a form on our own forms service, in Italian, English and German.",
           "footnote": "adown",
-          "evidence": "M1 2026-11-01: www posts to its own /api/subscribe, which refuses other origins"
+          "evidence": "ema-cashub 211 (65886202 lh-forms ids); test sign-up 2026-11-01 09:51 on preview: lh-forms 200, mail in Inbox; published 10:14",
+          "page": "/iscrizione-newsletter"
         },
         "brussels": {
           "status": "elsewhere",
@@ -1811,9 +1812,9 @@
         },
         "cargo": {
           "status": "done",
-          "note": "The tracking form on Cargo's homepage hands the air waybill number to Cargo's tracking platform, as on www.",
+          "note": "The tracking form on Cargo's homepage hands the air waybill number to Cargo's tracking platform, with Cargo's prefix 020 filled in, as on www.",
           "page": "/en/home",
-          "evidence": "ema-cashub 191 published 2026-11-01 (job-2026-11-01-06-44-26-1adda04a); check: 020-12345675 opened Cargo's eTracking with the number filled in"
+          "evidence": "ema-cashub 191 published 2026-11-01 (job-2026-11-01-06-44-26-1adda04a); check: 020-12345675 opened Cargo's eTracking with the number filled in; 216 b52abf7 + 222 Default prefix 020 live 2026-11-01 (checked: 020 prefilled, fields side by side)"
         },
         "airdolomiti": {
           "status": "none",
