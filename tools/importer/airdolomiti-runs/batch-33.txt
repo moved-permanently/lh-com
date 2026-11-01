@@ -1,0 +1,53 @@
+# lh-airdolomiti batch-33 (de): uploaded to DA moved-permanently/lh-airdolomiti and previewed on main--lh-airdolomiti--moved-permanently.aem.page on 2026-11-01T02:17Z; not published
+# documents (38 + /de/nav, /de/footer):
+/de/reiseziele/kattowitz/was-essen/schlesische-gerichte
+/de/reiseziele/kattowitz/was-machen/schlesisches-museum
+/de/reiseziele/kattowitz/was-sehen/spodek-arena-de
+/de/reiseziele/london/was-machen
+/de/reiseziele/london/was-sehen
+/de/reiseziele/london/was-sehen/filme-die-in-london-spielen
+/de/reiseziele/mailand-de/essen/mailaender-kueche
+/de/reiseziele/mailand-de/sehenswuerdigkeiten
+/de/reiseziele/mailand-de/sehenswuerdigkeiten/das-castello-sforzesco
+/de/reiseziele/mailand-de/was-machen/galleria-vittorio-emanuele-ii-air-dolomiti
+/de/reiseziele/pisa-de/was-essen
+/de/reiseziele/pisa-de/was-essen/pisa-toskanische-kueche
+/de/reiseziele/pisa-de/was-essen/wein-toskana-pisa
+/de/reiseziele/pisa-de/was-machen
+/de/reiseziele/pisa-de/was-machen/pisa-neujahr-capodanno-pisano
+/de/reiseziele/pisa-de/was-machen/straende-pisa-toskana
+/de/reiseziele/pisa-de/was-machen/umland-pisa-toskana
+/de/reiseziele/pisa-de/was-sehen
+/de/reiseziele/pisa-de/was-sehen/camposanto-monumentale
+/de/reiseziele/pisa-de/was-sehen/dom-baptisterium-pisa
+/de/reiseziele/pisa-de/was-sehen/pisa-altstadt-borgo-stretto
+/de/reiseziele/pisa-de/was-sehen/schiefer-turm-von-pisa
+/de/reiseziele/triest/was-essen/die-triester-kueche
+/de/reiseziele/triest/was-machen/schloss-miramare
+/de/reiseziele/triest/was-sehen/piazza-unita-ditalia-de
+/de/reiseziele/turin-de/was-essen
+/de/reiseziele/turin-de/was-essen/agnolotti-del-plin-das-traditionelle-turiner-gericht
+/de/reiseziele/turin-de/was-essen/bagna-cauda-eine-alte-gastronomische-tradition
+/de/reiseziele/turin-de/was-essen/eine-genuss-tour-mit-den-traditionellen-turiner-gianduiottis-und-anderen-schokoladen
+/de/reiseziele/turin-de/was-machen
+/de/reiseziele/turin-de/was-machen/turin-bei-nacht
+/de/reiseziele/turin-de/was-machen/valentino-park-turin
+/de/reiseziele/turin-de/was-sehen
+/de/reiseziele/turin-de/was-sehen/besuchen-sie-das-kinomuseum-eine-in-der-welt-einzigartige-vertikale-ausstellungshalle
+/de/reiseziele/turin-de/was-sehen/entdecken-sie-die-mole-antonelliana-das-wahrzeichen-turins
+/de/reiseziele/turin-de/was-sehen/museum-fuer-aegyptische-kunst-und-kultur-turin
+/de/reiseziele/venedig/was-essen
+/de/reiseziele/venedig/was-essen/die-typischen-fischgerichte
+/de/nav
+/de/footer
+# not imported (1):
+#   https://www.airdolomiti.de/reiseziele/turin-de/was-machen/ausflug-piemont-turin: error on the source (HTTP undefined)
+# blocks without a handler (their content generically): none
+# render check: all 38 documents render
+# check against www (text, images, links):
+#   https://www.airdolomiti.de/reiseziele/kattowitz/was-essen/schlesische-gerichte -> /de/reiseziele/kattowitz/was-essen/schlesische-gerichte: text 5/5, images 1/1 (+0), links 0/0 (+0)
+#   https://www.airdolomiti.de/reiseziele/pisa-de/was-sehen/dom-baptisterium-pisa -> /de/reiseziele/pisa-de/was-sehen/dom-baptisterium-pisa: text 13/13, images 1/1 (+3), links 3/3 (+0)
+#   https://www.airdolomiti.de/reiseziele/venedig/was-essen/die-typischen-fischgerichte -> /de/reiseziele/venedig/was-essen/die-typischen-fischgerichte: text 10/10, images 1/1 (+2), links 2/2 (+0)
+#   https://www.airdolomiti.de/reiseziele/kattowitz/was-essen/schlesische-gerichte: no text, image or link of www's missing
+#   https://www.airdolomiti.de/reiseziele/pisa-de/was-sehen/dom-baptisterium-pisa: no text, image or link of www's missing
+#   https://www.airdolomiti.de/reiseziele/venedig/was-essen/die-typischen-fischgerichte: no text, image or link of www's missing
