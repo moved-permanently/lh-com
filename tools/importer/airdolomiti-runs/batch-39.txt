@@ -1,0 +1,52 @@
+# lh-airdolomiti batch-39 (de): uploaded to DA moved-permanently/lh-airdolomiti and previewed on main--lh-airdolomiti--moved-permanently.aem.page on 2026-11-01T03:47Z; not published
+# documents (38 + /de/nav, /de/footer):
+/de/artikel/did-you-know/flugzeugszenen-in-tv-serien
+/de/artikel/did-you-know/nel-blu-dipinto-di-blu-oder-volare-von-domenico-modugno
+/de/artikel/did-you-know/5-apps-fuer-aktivurlauber
+/de/artikel/did-you-know/was-sind-planespotter
+/de/artikel/avgeek-de/das-flugzeugleitwerk
+/de/artikel/did-you-know/hoer-podcasts-fuer-das-flugzeug
+/de/artikel/did-you-know/5-apps-fuer-reisende
+/de/artikel/travellers-de/wieder-reisen-in-zeiten-von-covid-19
+/de/artikel/travellers-de/flughafen-muenchen-muc-corona-sicherheits-und-hygienemassnahmen
+/de/artikel/reiseziele/aarhus-das-umland
+/de/artikel/avgeek-de/die-klimatisierung-von-flugzeugen
+/de/artikel/did-you-know/was-bedeutet-es-wenn-wir-vom-fliegen-traeumen
+/de/artikel/did-you-know/in-den-flugzeugen-der-superreichen
+/de/artikel/travellers-de/flughafen-muenchen-franz-josef-strauss-muc-der-fuenf-sterne-flughafen
+/de/artikel/avgeek-de/die-flugzeugbeleuchtung
+/de/artikel/did-you-know/luftbildfotografie-heute
+/de/artikel/avgeek-de/wie-funktionieren-eigentlich-flugzeugtueren
+/de/artikel/did-you-know/5-dinge-die-ihr-noch-nicht-ueber-flugzeuge-wusstet
+/de/artikel/did-you-know/wenn-piloten-schreiben-drei-buchempfehlungen-fuer-flugzeugliebhaber
+/de/artikel/did-you-know/warum-hat-der-steuerknueppel-auf-italienisch-eigentlich-einen-franzoesischen-namen
+/de/artikel/throwback-de/james-stewart-3
+/de/artikel/reiseziele/aperitivo-unsere-heissen-tipps-fuer-fuenf-italienische-staedte
+/de/artikel/throwback-de/als-es-noch-kein-gps-gab
+/de/artikel/avgeek-de/landung-bei-wind
+/de/artikel/travellers-de/weihnachten-mit-der-familie-geschenke
+/de/artikel/travellers-de/achtung-gefahrgut
+/de/artikel/did-you-know/guinness-buch-der-rekorde
+/de/artikel/throwback-de/erfinder-von-flugmaschinen
+/de/artikel/did-you-know/romane-als-urlaubslektuere
+/de/artikel/did-you-know/lieder-zum-fliegen
+/de/artikel/travellers-de/gepack-verloren
+/de/artikel/travellers-de/schoenheitstipps
+/de/artikel/travellers-de/tippstricks-vier-ratschlaege-die-flugs-genutzt-werden-sollten
+/de/artikel/did-you-know/hollywood-zeigt-wie-es-geht-terminal
+/de/artikel/travellers-de/geschaeftlich-fliegen
+/de/artikel/travellers-de/fliegen-mit-kindern
+/de/artikel/throwback-de/raymonde-de-laroche-3
+/de/artikel/avgeek-de/mit-einer-keramikbeschichtung-koennte-das-hyperschallflugzeug-wirklichkeit-werden-2
+/de/nav
+/de/footer
+# not imported (0):
+# blocks without a handler (their content generically): none
+# render check: all 38 documents render
+# check against www (text, images, links):
+#   https://www.airdolomiti.de/artikel/did-you-know/flugzeugszenen-in-tv-serien -> /de/artikel/did-you-know/flugzeugszenen-in-tv-serien: text 8/8, images 0/0 (+0), links 1/1 (+3)
+#   https://www.airdolomiti.de/artikel/did-you-know/warum-hat-der-steuerknueppel-auf-italienisch-eigentlich-einen-franzoesischen-namen -> /de/artikel/did-you-know/warum-hat-der-steuerknueppel-auf-italienisch-eigentlich-einen-franzoesischen-namen: text 7/8, images 0/0 (+0), links 0/0 (+0)
+#   https://www.airdolomiti.de/artikel/avgeek-de/mit-einer-keramikbeschichtung-koennte-das-hyperschallflugzeug-wirklichkeit-werden-2 -> /de/artikel/avgeek-de/mit-einer-keramikbeschichtung-koennte-das-hyperschallflugzeug-wirklichkeit-werden-2: text 8/8, images 1/1 (+0), links 1/1 (+0)
+#   https://www.airdolomiti.de/artikel/did-you-know/flugzeugszenen-in-tv-serien: no text, image or link of www's missing
+#   https://www.airdolomiti.de/artikel/did-you-know/warum-hat-der-steuerknueppel-auf-italienisch-eigentlich-einen-franzoesischen-namen: text missing: "lesezeit: 1 minuten"
+#   https://www.airdolomiti.de/artikel/avgeek-de/mit-einer-keramikbeschichtung-koennte-das-hyperschallflugzeug-wirklichkeit-werden-2: no text, image or link of www's missing
