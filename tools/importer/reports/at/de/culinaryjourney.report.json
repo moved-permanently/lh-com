@@ -2,8 +2,10 @@
   "status": "success",
   "url": "https://www.lufthansa.com/at/de/culinaryjourney",
   "path": "at/de/culinaryjourney",
-  "timestamp": "2026-10-24T01:00:29.933Z",
+  "timestamp": "2026-11-01T19:08:45.050Z",
   "title": "Culinary Journey | Lufthansa",
   "template": "campaign",
-  "blocks": []
+  "blocks": [
+    "micro-frontend"
+  ]
 }

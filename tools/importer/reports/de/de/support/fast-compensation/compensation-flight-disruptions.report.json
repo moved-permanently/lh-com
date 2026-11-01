@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/support/fast-compensation/compensation-flight-disruptions",
+  "path": "de/de/support/fast-compensation/compensation-flight-disruptions",
+  "timestamp": "2026-11-01T19:08:12.711Z",
+  "title": "Entschädigung bei Flugverspätung und Ausfall | Lufthansa",
+  "template": "mfe",
+  "blocks": [
+    "micro-frontend"
+  ]
+}

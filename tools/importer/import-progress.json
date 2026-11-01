@@ -1152,7 +1152,7 @@
  "https://www.lufthansa.com/de/en/culinaryjourney": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-24T01:03:11.710Z"
+  "at": "2026-11-01T19:09:13.155Z"
  },
  "https://www.lufthansa.com/de/en/discover-lufthansa/take-off": {
   "template": "campaign",
@@ -1167,7 +1167,7 @@
  "https://www.lufthansa.com/de/en/lufthansa-city/culinaryjourney": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:33:31.756Z"
+  "at": "2026-11-01T19:09:13.158Z"
  },
  "https://www.lufthansa.com/de/en/most-significant-route": {
   "template": "campaign",
@@ -2502,7 +2502,7 @@
  "https://www.lufthansa.com/de/de/culinaryjourney": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-24T01:01:24.875Z"
+  "at": "2026-11-01T19:09:13.156Z"
  },
  "https://www.lufthansa.com/de/de/discover-lufthansa/take-off": {
   "template": "campaign",
@@ -2517,7 +2517,7 @@
  "https://www.lufthansa.com/de/de/lufthansa-city/culinaryjourney": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:33:31.756Z"
+  "at": "2026-11-01T19:09:13.158Z"
  },
  "https://www.lufthansa.com/de/de/bedeutsamste-strecken": {
   "template": "campaign",
@@ -3957,7 +3957,7 @@
  "https://www.lufthansa.com/at/de/culinaryjourney": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-24T01:01:24.874Z"
+  "at": "2026-11-01T19:09:13.158Z"
  },
  "https://www.lufthansa.com/at/de/discover-lufthansa/new-onboard-experience": {
   "template": "campaign",
@@ -3977,7 +3977,7 @@
  "https://www.lufthansa.com/at/de/lufthansa-city/culinaryjourney": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:33:31.756Z"
+  "at": "2026-11-01T19:09:13.158Z"
  },
  "https://www.lufthansa.com/at/de/bedeutsamste-strecken": {
   "template": "campaign",
@@ -5417,7 +5417,7 @@
  "https://www.lufthansa.com/gb/en/culinaryjourney": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-24T01:03:11.711Z"
+  "at": "2026-11-01T19:09:13.158Z"
  },
  "https://www.lufthansa.com/gb/en/discover-lufthansa/new-onboard-experience": {
   "template": "campaign",
@@ -5437,7 +5437,7 @@
  "https://www.lufthansa.com/gb/en/lufthansa-city/culinaryjourney": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:33:31.756Z"
+  "at": "2026-11-01T19:09:13.158Z"
  },
  "https://www.lufthansa.com/gb/en/most-significant-route": {
   "template": "campaign",
@@ -6707,22 +6707,22 @@
  "https://www.lufthansa.com/de/en/help-and-contact": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-25T23:19:05.916Z"
+  "at": "2026-11-01T19:08:05.799Z"
  },
  "https://www.lufthansa.com/de/de/help-and-contact": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-25T23:19:05.920Z"
+  "at": "2026-11-01T19:08:05.799Z"
  },
  "https://www.lufthansa.com/at/de/help-and-contact": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-25T23:19:05.924Z"
+  "at": "2026-11-01T19:08:05.799Z"
  },
  "https://www.lufthansa.com/gb/en/help-and-contact": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-25T23:19:05.927Z"
+  "at": "2026-11-01T19:08:05.799Z"
  },
  "https://www.lufthansa.com/de/en/articles/explore-the-world/a-perfect-day-toronto-in-one-day": {
   "template": "insights",
@@ -20053,5 +20053,65 @@
   "template": "info",
   "status": "ok",
   "at": "2026-10-27T16:54:32.270Z"
+ },
+ "https://www.lufthansa.com/de/en/check-in-deadlines": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-11-01T19:08:05.798Z"
+ },
+ "https://www.lufthansa.com/de/de/check-in-deadlines": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-11-01T19:08:05.798Z"
+ },
+ "https://www.lufthansa.com/at/de/check-in-deadlines": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-11-01T19:08:05.798Z"
+ },
+ "https://www.lufthansa.com/gb/en/check-in-deadlines": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-11-01T19:08:05.798Z"
+ },
+ "https://www.lufthansa.com/de/en/discover-lufthansa/register-newsletter": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-11-01T19:08:05.798Z"
+ },
+ "https://www.lufthansa.com/de/de/discover-lufthansa/register-newsletter": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-11-01T19:08:05.798Z"
+ },
+ "https://www.lufthansa.com/at/de/discover-lufthansa/register-newsletter": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-11-01T19:08:05.798Z"
+ },
+ "https://www.lufthansa.com/gb/en/discover-lufthansa/register-newsletter": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-11-01T19:08:05.798Z"
+ },
+ "https://www.lufthansa.com/de/en/support/fast-compensation/compensation-flight-disruptions": {
+  "template": "mfe",
+  "status": "ok",
+  "at": "2026-11-01T19:08:35.455Z"
+ },
+ "https://www.lufthansa.com/de/de/support/fast-compensation/compensation-flight-disruptions": {
+  "template": "mfe",
+  "status": "ok",
+  "at": "2026-11-01T19:08:35.457Z"
+ },
+ "https://www.lufthansa.com/at/de/support/fast-compensation/compensation-flight-disruptions": {
+  "template": "mfe",
+  "status": "ok",
+  "at": "2026-11-01T19:08:35.457Z"
+ },
+ "https://www.lufthansa.com/gb/en/support/fast-compensation/compensation-flight-disruptions": {
+  "template": "mfe",
+  "status": "ok",
+  "at": "2026-11-01T19:08:35.458Z"
  }
 }

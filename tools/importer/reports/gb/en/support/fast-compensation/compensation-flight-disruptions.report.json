@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/support/fast-compensation/compensation-flight-disruptions",
+  "path": "gb/en/support/fast-compensation/compensation-flight-disruptions",
+  "timestamp": "2026-11-01T19:08:16.928Z",
+  "title": "Compensation in the event of flight delay and cancellation | Lufthansa",
+  "template": "mfe",
+  "blocks": [
+    "micro-frontend"
+  ]
+}

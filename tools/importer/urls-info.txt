@@ -1,4 +1,12 @@
-https://www.lufthansa.com/de/en/support/search/search-result
-https://www.lufthansa.com/de/de/support/search/search-result
-https://www.lufthansa.com/at/de/support/search/search-result
-https://www.lufthansa.com/gb/en/support/search/search-result
+https://www.lufthansa.com/de/en/check-in-deadlines
+https://www.lufthansa.com/de/de/check-in-deadlines
+https://www.lufthansa.com/at/de/check-in-deadlines
+https://www.lufthansa.com/gb/en/check-in-deadlines
+https://www.lufthansa.com/de/en/discover-lufthansa/register-newsletter
+https://www.lufthansa.com/de/de/discover-lufthansa/register-newsletter
+https://www.lufthansa.com/at/de/discover-lufthansa/register-newsletter
+https://www.lufthansa.com/gb/en/discover-lufthansa/register-newsletter
+https://www.lufthansa.com/de/en/help-and-contact
+https://www.lufthansa.com/de/de/help-and-contact
+https://www.lufthansa.com/at/de/help-and-contact
+https://www.lufthansa.com/gb/en/help-and-contact

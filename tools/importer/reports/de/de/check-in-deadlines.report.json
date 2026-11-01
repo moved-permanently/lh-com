@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/check-in-deadlines",
+  "path": "de/de/check-in-deadlines",
+  "timestamp": "2026-11-01T19:07:12.085Z",
+  "title": "",
+  "template": "info",
+  "blocks": [
+    "checkin-deadlines"
+  ]
+}
