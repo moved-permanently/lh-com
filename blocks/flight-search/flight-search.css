@@ -1098,3 +1098,29 @@ main > .section > .flight-search-wrapper.flight-search-band {
   justify-self: end;
   margin: 0;
 }
+
+/* the Group booking row's link (www: maui-navigation-link.group-booking-link under the
+   passengers): bold, the site's right arrow before it (styles.css navigation links) */
+.flight-search .flight-search-passengers-group {
+  justify-self: start;
+  color: var(--link-color, #05164d);
+  font-size: var(--body-font-size-xs);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.flight-search .flight-search-passengers-group:hover,
+.flight-search .flight-search-passengers-group:focus-visible {
+  text-decoration: underline;
+}
+
+.flight-search .flight-search-passengers-group::before {
+  content: "";
+  display: inline-block;
+  width: 9px;
+  height: 8px;
+  margin: 0 5px 0 0;
+  background-color: currentcolor;
+  vertical-align: 1px;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 16'%3E%3Cpath d='M0 8h15.5M9.5 1.5 16 8l-6.5 6.5' fill='none' stroke='%23000' stroke-width='2.4'/%3E%3C/svg%3E") center / contain no-repeat;
+}

@@ -279,7 +279,9 @@ function el(tag, className, text) {
  * @param {{adults: number, cabin: string}} options.value the block's starting values
  * @returns {{element: Element, getValue: () => Object}}
  */
-export function createPassengerPicker({ labels, cabins, value }) {
+export function createPassengerPicker({
+  labels, cabins, value, groupBooking = null,
+}) {
   const offered = PICKER_CABINS.filter(([code]) => cabins.includes(code));
   const list = offered.length ? offered : PICKER_CABINS.slice(0, 1);
   let counts = clampPassengers({ adults: value.adults });
@@ -339,6 +341,12 @@ export function createPassengerPicker({ labels, cabins, value }) {
     select.addEventListener('change', () => { cabin = select.value; update(); });
     cabinWrap.append(select);
     panel.append(cabinWrap);
+  }
+  // the Group booking row: www's .group-booking-link under the passengers
+  if (groupBooking) {
+    const group = el('a', 'flight-search-passengers-group', groupBooking.text);
+    group.href = groupBooking.href;
+    panel.append(group);
   }
   const done = el('button', 'flight-search-passengers-done button secondary', labels['done label']);
   done.type = 'button';

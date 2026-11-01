@@ -188,6 +188,82 @@ export function buildTabs(block, items, media = window.matchMedia(TABS_MEDIA)) {
   return { bar, select };
 }
 
+// option filter: the built-in texts per page language (rows Filter label and No results win)
+export const FILTER_LABELS = {
+  en: { label: 'Find topic by typing', empty: 'No topics found.', clear: 'Remove' },
+  de: { label: 'Thema durch Eingabe finden', empty: 'Keine Themen gefunden.', clear: 'Entfernen' },
+  it: { label: 'Trova un argomento digitando', empty: 'Nessun argomento trovato.', clear: 'Rimuovi' },
+};
+// rows of option filter: their first cell (lower case) -> the text they set
+const FILTER_ROWS = { 'filter label': 'label', 'no results': 'empty' };
+let filterCount = 0;
+
+/** Lower case without accents and with single spaces: what the filter compares. */
+const searchable = (value) => String(value).normalize('NFD').replace(/\p{M}/gu, '')
+  .toLowerCase()
+  .replace(/\s+/g, ' ')
+  .trim();
+
+/**
+ * Option filter (www.lufthansa-cargo.com's "Find topic by typing", /en/support-and-contact): a
+ * search field over the items; typing narrows them to those whose title or text holds every typed
+ * word (case and accents ignored), none left: the no-results line (a polite live region). Remove
+ * empties the field and shows every item again.
+ * @param {Element} block
+ * @param {HTMLDetailsElement[]} items
+ * @param {{label: string, empty: string, clear: string}} texts
+ */
+export function buildFilter(block, items, texts) {
+  filterCount += 1;
+  const id = `accordion-columns-filter-${filterCount}`;
+  if (!block.id) block.id = `${id}-items`;
+  const wrap = document.createElement('div');
+  wrap.className = 'accordion-columns-filter';
+  const label = document.createElement('label');
+  label.setAttribute('for', id);
+  label.textContent = texts.label;
+  const field = document.createElement('div');
+  field.className = 'accordion-columns-filter-field';
+  const input = document.createElement('input');
+  input.type = 'search';
+  input.id = id;
+  input.autocomplete = 'off';
+  input.setAttribute('aria-controls', block.id);
+  const clear = document.createElement('button');
+  clear.type = 'button';
+  clear.className = 'accordion-columns-filter-clear';
+  clear.textContent = texts.clear;
+  clear.hidden = true;
+  field.append(input, clear);
+  const status = document.createElement('p');
+  status.className = 'accordion-columns-filter-status';
+  status.setAttribute('aria-live', 'polite');
+  wrap.append(label, field, status);
+
+  // read on the first input: after decorate has cleaned the texts
+  let haystacks = null;
+  const apply = () => {
+    haystacks = haystacks || items.map((item) => searchable(item.textContent));
+    const words = searchable(input.value).split(' ').filter(Boolean);
+    let shown = 0;
+    items.forEach((item, i) => {
+      const match = words.every((w) => haystacks[i].includes(w));
+      item.hidden = !match;
+      if (match) shown += 1;
+    });
+    clear.hidden = !input.value;
+    status.textContent = shown ? '' : texts.empty;
+  };
+  input.addEventListener('input', apply);
+  clear.addEventListener('click', () => {
+    input.value = '';
+    apply();
+    input.focus();
+  });
+  block.prepend(wrap);
+  return { input, apply };
+}
+
 /**
  * Accordion whose panels split their content into columns at each heading.
  * One row per item: cell 1 title, cell 2 content. A single-cell row uses its first element
@@ -208,10 +284,20 @@ export default async function decorate(block) {
   if (block.classList.contains('column')) groupColumns(block);
   // faq: questions and answers (headings inside an answer stay in the one text column)
   const single = block.classList.contains('faq');
+  // filter: a type-to-filter field over the items (not with tabs); its rows set its texts
+  const filter = block.classList.contains('filter') && !block.classList.contains('tabs');
+  const lang = (document.documentElement.lang || 'en').slice(0, 2).toLowerCase();
+  const filterTexts = { ...(FILTER_LABELS[lang] || FILTER_LABELS.en) };
   const items = [];
   [...block.children].forEach((row) => {
     const cells = [...row.children].filter((c) => c.textContent.trim() || c.querySelector('img'));
     if (!cells.length) return;
+    const filterRow = filter && cells.length >= 2
+      && FILTER_ROWS[cells[0].textContent.trim().toLowerCase()];
+    if (filterRow) {
+      filterTexts[filterRow] = cells[1].textContent.trim();
+      return;
+    }
     let titleNodes;
     let panelNodes;
     if (cells.length >= 2) {
@@ -247,6 +333,7 @@ export default async function decorate(block) {
 
   block.replaceChildren(...items);
   if (block.classList.contains('tabs')) buildTabs(block, items);
+  if (filter) buildFilter(block, items, filterTexts);
   // item grids first (one-row tables of pictures), then the data tables that are left
   block.querySelectorAll('.accordion-columns-panel').forEach(buildGrids);
   // tables in a panel (Discover's fee and rule tables) scroll sideways in their own box

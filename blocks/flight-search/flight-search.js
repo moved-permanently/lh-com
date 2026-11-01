@@ -43,6 +43,13 @@ function codesOf(value, form) {
   return String(value || '').split(/[\s,;]+/).map((c) => c.trim().toUpperCase()).filter((c) => form.test(c));
 }
 
+/** The Group booking row's link: { href, text }, or null. */
+function groupBookingOf(entry) {
+  const link = entry && entry.link;
+  if (!link) return null;
+  return { href: link.getAttribute('href'), text: link.textContent.replace(/\s+/g, ' ').trim() };
+}
+
 /**
  * Settings of an authored block.
  * @param {Object} config result of readConfigRows
@@ -77,6 +84,9 @@ export function readFlightSearchSettings(config, locale) {
     // Airports row: the origin and destination suggestions only these codes (Air Dolomiti's
     // own airports); without it every airport
     airports: codesOf(text('airports'), /^[A-Z]{3}$/),
+    // Group booking row: a link in the passenger picker (ITA's and lufthansa.com's "Booking from
+    // 10 persons" to the group travel page); none without a link
+    groupBooking: groupBookingOf(pick(config, 'group-booking')),
   };
 }
 
@@ -723,6 +733,7 @@ export default function decorate(block) {
       labels: resolveLabels(PASSENGER_LABELS, config, locale.lang),
       cabins: settings.cabins,
       value: { adults: settings.adults, cabin: settings.cabin },
+      groupBooking: settings.groupBooking,
     });
     optionsRow.append(passengers.element);
   } else if (settings.travellerLabel) {

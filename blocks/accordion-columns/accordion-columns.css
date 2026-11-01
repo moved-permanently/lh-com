@@ -393,6 +393,79 @@ main > .section > .accordion-columns-row > .accordion-columns-wrapper {
   }
 }
 
+/* option filter (www.lufthansa-cargo.com's "Find topic by typing", /en/support-and-contact, 1440):
+   the label over a full-width field (max 480px, 1px grey border, 4px radius), Remove inside it on
+   the right while the field holds text; the no-results line under it; filtered-out items hidden */
+.accordion-columns .accordion-columns-filter {
+  display: grid;
+  gap: 8px;
+  max-width: 480px;
+  margin: 0 0 24px;
+}
+
+.accordion-columns .accordion-columns-filter label {
+  color: var(--lh-deepblue);
+  font-size: var(--body-font-size-xs);
+  line-height: 1.5;
+}
+
+.accordion-columns .accordion-columns-filter-field {
+  position: relative;
+  display: flex;
+}
+
+.accordion-columns .accordion-columns-filter input {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 96px 12px 12px;
+  border: 1px solid var(--lh-grey-3, #ccc);
+  border-radius: 4px;
+  background: #fff;
+  color: var(--text-color);
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-s);
+}
+
+.accordion-columns .accordion-columns-filter input:focus-visible {
+  outline: 2px solid var(--focus-color, #05164d);
+  outline-offset: 2px;
+}
+
+.accordion-columns .accordion-columns-filter input::-webkit-search-cancel-button {
+  appearance: none;
+}
+
+.accordion-columns .accordion-columns-filter-clear {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  padding: 4px 8px;
+  border: 0;
+  background: none;
+  color: var(--lh-deepblue);
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-xs);
+  text-decoration: underline;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+
+.accordion-columns .accordion-columns-filter-clear[hidden],
+.accordion-columns .accordion-columns-item[hidden] {
+  display: none;
+}
+
+.accordion-columns .accordion-columns-filter-status {
+  margin: 8px 0 0;
+  color: var(--lh-deepblue);
+  font-size: var(--body-font-size-s);
+}
+
+.accordion-columns .accordion-columns-filter-status:empty {
+  display: none;
+}
+
 /* ------------------------------------------------------------------ option tabs ------- */
 
 /* tabs: the accordion below 1025px (the tab bar hidden, its first item has the top border); from
