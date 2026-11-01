@@ -706,7 +706,15 @@ function tabs(c, page) {
   const heavy = items.some(({ body }) => [...body.querySelectorAll('table')].some((t) => t.querySelector('tr') && [...t.querySelector('tr').children].length > 2)
     || body.querySelector('.gallerySlider, .owl-carousel, .swiper, .flexslider, .component-tabs, .lfr-layout-structure-item-gallery---cf15'));
   if (!heavy) {
-    page.block('accordion-columns (faq)', items.map(({ title, body }) => [esc(title), flow(body, page, 'cell').join('')]));
+    const rows = items.map(({ title, body }) => [esc(title), flow(body, page, 'cell').join('')]);
+    // Support & Contact's topics: www's topic search becomes the accordion's filter (once)
+    const filter = page.topicFilter && !page.topicFiltered;
+    if (filter) {
+      page.topicFiltered = true;
+      rows.push(['Filter label', esc(page.topicFilter.label)], ['No results', esc(page.topicFilter.noResults)]);
+      page.note('support topics: accordion-columns (faq, filter), www\'s "Find topic by typing"');
+    }
+    page.block(filter ? 'accordion-columns (faq, filter)' : 'accordion-columns (faq)', rows);
     return;
   }
   page.note('tabs with a wide table, gallery or carousel: one section per tab (H2 = tab title)');
@@ -1014,7 +1022,14 @@ function metadata(document, page) {
  * entries as a list; the search's list and each entry's hidden fields (requiresLogin true/false,
  * the link's portal parameters p_p_id=...) left out.
  */
+// www's topic search answers no match with no line; its screen readers hear jQuery UI's own
+// "No search results." (www.lufthansa-cargo.com/en/support-and-contact, typed 2026-11-01)
+const TOPIC_NO_RESULTS = 'No search results.';
+
 function supportTopics(content, page) {
+  // www's "Find topic by typing" (its topic search's field label): the topics' accordion filters
+  const topicLabel = text(content.querySelector('label[for$="_topicSearch"]'));
+  if (topicLabel) page.topicFilter = { label: topicLabel, noResults: TOPIC_NO_RESULTS };
   // entries without a link: www's script opens its contact form with the entry's reason and
   // subreason (.faqReason / .faqSubreason beside it): links to our form page with both
   let linked = 0;

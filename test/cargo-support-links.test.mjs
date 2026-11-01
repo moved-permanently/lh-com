@@ -11,10 +11,12 @@ import { convert, Page } from '../tools/importer/cargo-import.mjs';
 
 const entry = (title, reason = '', subreason = '') => `<div class="lfr-layout-structure-item"><div class="faqEntryTitle"><h4 class="component-heading">${title}</h4></div><div class="faqReason">${reason}</div><div class="faqSubreason">${subreason}</div></div>`;
 const PAGE = `<!DOCTYPE html><html><head><title>Support &amp; Contact - Lufthansa Cargo</title></head><body><div id="main-content">
-<div id="portlet_com_lhcargo_eportal_contact_support_topic_search"><div class="rHeaderBlock"><h1>Support &amp; Contact</h1></div><form><input name="q"></form>
+<div id="portlet_com_lhcargo_eportal_contact_support_topic_search"><div class="rHeaderBlock"><h1>Support &amp; Contact</h1></div><form><div class="topicSearchWrapper"><label class="control-label" for="_com_lhcargo_eportal_contact_support_topic_search_topicSearch">
+  Find topic by typing
+</label><input id="_com_lhcargo_eportal_contact_support_topic_search_topicSearch" name="_com_lhcargo_eportal_contact_support_topic_search_topicSearch"></div></form>
 <a href="javascript:void(0)" class="lcagChip contactLink" onclick="openContactUsDialog('General request', 'Feedback / Complaints');">Feedback/Complaints</a></div>
-<ul class="nav nav-tabs"><li><a href="#tab-1">Bookings &amp; Shipments</a></li></ul>
-<div class="tab-content"><div class="card tab-pane fade active show" id="tab-1"><div class="card-body"><div class="topicSection"><h4>Booking</h4><h5>Get assistance in booking or updating your shipment information.</h5></div></div></div></div>
+<div class="component-tabs"><ul class="nav nav-tabs"><li><a href="#tab-1">Bookings &amp; Shipments</a></li></ul>
+<div class="tab-content"><div class="card tab-pane fade active show" id="tab-1"><div class="card-body"><div class="topicSection"><h4>Booking</h4><h5>Get assistance in booking or updating your shipment information.</h5></div></div></div></div></div>
 <div class="topicSection"><div class="topicSearchTriggerContainer"><h4>Booking</h4></div>
 ${entry('Get technical support from our service team with eBooking.', 'Technical support', 'Technical support / Issue with a particular service')}
 ${entry('<a href="https://www.lufthansa-cargo.com/en/contact-cst?reason=Damaged cargo">Get support with damaged cargo.</a>', 'reason=Damaged cargo')}
@@ -42,6 +44,19 @@ test('Support & Contact: the H1, www\'s contact card with its button linking to 
   assert.match(html, /<h2>Contact us<\/h2><p>Do you have a question\? Fill out the form and we'll get back to you shortly\.<\/p><p><strong><a href="\/en\/contact-us">Open contact form<\/a><\/strong><\/p>/);
   assert.ok(!/Go to the form on www/.test(html));
   assert.ok(!/Station search/.test(html));
+});
+
+test('Support & Contact: the topics as accordion-columns (faq, filter) with www\'s field label and www\'s no-results text', () => {
+  const { html } = convert(PAGE, '/en/support-and-contact', 'en');
+  assert.match(html, /<div class="accordion-columns faq filter">/);
+  assert.match(html, /<div><div>Filter label<\/div><div>Find topic by typing<\/div><\/div>/);
+  // www's topic search shows no line for no match; its screen readers hear jQuery UI's "No search results."
+  assert.match(html, /<div><div>No results<\/div><div>No search results\.<\/div><\/div>/);
+  assert.equal((html.match(/Filter label/g) || []).length, 1);
+  // a page without www's topic search field: the plain faq accordion
+  const other = convert(PAGE.replace(/<div class="topicSearchWrapper">[\s\S]*?<\/div><\/form>/, '</form>'), '/en/support-and-contact', 'en');
+  assert.match(other.html, /<div class="accordion-columns faq">/);
+  assert.ok(!/Filter label/.test(other.html));
 });
 
 test('links: /support-and-contact?reason=&subreason= to the form page; plain and German Support & Contact to our page; the form page itself', () => {
