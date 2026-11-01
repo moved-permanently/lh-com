@@ -334,7 +334,8 @@
           "common.misc.loader.label": "Loading …",
           "farealertprofileoverview.farealertprofileoverview.default.headline": "Your Best price alerts",
           "farealertprofileoverview.farealertprofileoverview.default.loginRequest": "Please login or register to overview and manage Best price alerts.",
-          "farealertprofileoverview.farealertprofileoverview.default.loginAndRegistration": "Login & Registration"
+          "farealertprofileoverview.farealertprofileoverview.default.loginAndRegistration": "Login & Registration",
+          "common.misc.buttons.loginAndRegistration": "Login & Registration"
         },
         "it": {
           "common.misc.loader.forcedOneIdLoginText": "Please log in to view this page",
@@ -342,7 +343,8 @@
           "common.misc.loader.label": "Caricamento…",
           "farealertprofileoverview.farealertprofileoverview.default.headline": "Best price alerts",
           "farealertprofileoverview.farealertprofileoverview.default.loginRequest": "Accedi o registrati per visualizzare e gestire le Best price alerts.",
-          "farealertprofileoverview.farealertprofileoverview.default.loginAndRegistration": "Login e registrazione"
+          "farealertprofileoverview.farealertprofileoverview.default.loginAndRegistration": "Login e registrazione",
+          "common.misc.buttons.loginAndRegistration": "Login e registrazione"
         },
         "fr": {
           "common.misc.loader.forcedOneIdLoginText": "Please log in to view this page",
@@ -350,7 +352,8 @@
           "common.misc.loader.label": "Chargement en cours…",
           "farealertprofileoverview.farealertprofileoverview.default.headline": "Best price alerts",
           "farealertprofileoverview.farealertprofileoverview.default.loginRequest": "Veuillez vous identifier ou vous inscrire pour consulter et gérer les Best price alerts.",
-          "farealertprofileoverview.farealertprofileoverview.default.loginAndRegistration": "Login & Registration"
+          "farealertprofileoverview.farealertprofileoverview.default.loginAndRegistration": "Connexion & Inscription",
+          "common.misc.buttons.loginAndRegistration": "Login & Registration"
         },
         "es": {
           "common.misc.loader.forcedOneIdLoginText": "Please log in to view this page",
@@ -358,7 +361,8 @@
           "common.misc.loader.label": "Cargando…",
           "farealertprofileoverview.farealertprofileoverview.default.headline": "Your Best price alerts",
           "farealertprofileoverview.farealertprofileoverview.default.loginRequest": "Please login or register to overview and manage Best price alerts.",
-          "farealertprofileoverview.farealertprofileoverview.default.loginAndRegistration": "Login & Registration"
+          "farealertprofileoverview.farealertprofileoverview.default.loginAndRegistration": "Login & Registration",
+          "common.misc.buttons.loginAndRegistration": "Login & Registration"
         },
         "pt": {
           "common.misc.loader.forcedOneIdLoginText": "Please log in to view this page",
@@ -371,7 +375,8 @@
           "common.misc.loader.label": "Wird geladen...",
           "farealertprofileoverview.farealertprofileoverview.default.headline": "Best price alerts",
           "farealertprofileoverview.farealertprofileoverview.default.loginRequest": "Bitte melden Sie sich an oder registrieren Sie sich, um eine Übersicht zu erhalten und den Best price alerts zu verwalten.",
-          "farealertprofileoverview.farealertprofileoverview.default.loginAndRegistration": "Login & Registration"
+          "farealertprofileoverview.farealertprofileoverview.default.loginAndRegistration": "Login und Registrierung",
+          "common.misc.buttons.loginAndRegistration": "Login & Registration"
         },
         "nl": {
           "common.misc.loader.forcedOneIdLoginText": "Log in om deze pagina te bekijken",
@@ -379,7 +384,8 @@
           "common.misc.loader.label": "Aan het laden …",
           "farealertprofileoverview.farealertprofileoverview.default.headline": "Best price alerts",
           "farealertprofileoverview.farealertprofileoverview.default.loginRequest": "Log in of registreer je voor een overzicht en beheer van Best price alerts.",
-          "farealertprofileoverview.farealertprofileoverview.default.loginAndRegistration": "Inloggen en registreren"
+          "farealertprofileoverview.farealertprofileoverview.default.loginAndRegistration": "Login & registratie",
+          "common.misc.buttons.loginAndRegistration": "Inloggen en registreren"
         },
         "el": {
           "common.misc.loader.forcedOneIdLoginText": "Please log in to view this page",
@@ -387,7 +393,8 @@
           "common.misc.loader.label": "Φορτώνει…",
           "farealertprofileoverview.farealertprofileoverview.default.headline": "Your Best price alerts",
           "farealertprofileoverview.farealertprofileoverview.default.loginRequest": "Please login or register to overview and manage Best price alerts.",
-          "farealertprofileoverview.farealertprofileoverview.default.loginAndRegistration": "Login & Registration"
+          "farealertprofileoverview.farealertprofileoverview.default.loginAndRegistration": "Login & Registration",
+          "common.misc.buttons.loginAndRegistration": "Login & Registration"
         },
         "ja": {
           "common.misc.loader.forcedOneIdLoginText": "Please log in to view this page",
@@ -400,7 +407,15 @@
         "my-trips": { "script": "/digitalhangar/travel-insights/my-trips/my-trips-0.17.10.js" },
         "web-self-service": { "script": "/digitalhangar/customer-cockpit/web-self-service/web-self-service-2.0.3.js" },
         "sdui-profile": { "attributes": { "data-translation-labels": "{scriptOrigin}/service/api/labels/common" } },
-        "sdui-statement": { "id": "test6", "attributes": { "options": "{\"customerHeaders\":{\"X-Language-Country\":\"{languageCountry}\"}}" } }
+        "sdui-statement": { "id": "test6", "attributes": { "options": "{\"customerHeaders\":{\"X-Language-Country\":\"{languageCountry}\"}}" } },
+        "best-price-alert": {
+          "prompt": {
+            "bundle": "farealertprofileoverview",
+            "headline": "farealertprofileoverview.farealertprofileoverview.default.headline",
+            "text": "farealertprofileoverview.farealertprofileoverview.default.loginRequest",
+            "button": "common.misc.buttons.loginAndRegistration"
+          }
+        }
       }
     }
   }
