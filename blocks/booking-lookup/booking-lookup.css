@@ -480,3 +480,19 @@
     transform: none;
   }
 }
+
+/* variant tracking (Lufthansa Cargo's homepage, www.lufthansa-cargo.com): the air waybill's prefix
+   (3 digits, 120px) and number side by side from 768px, the submit button after them; stacked on
+   phones as the other forms */
+@media (width >= 768px) {
+  .booking-lookup.tracking .booking-lookup-tracking-form {
+    flex-flow: row wrap;
+    gap: 0 20px;
+    align-items: flex-start;
+  }
+
+  .booking-lookup.tracking .booking-lookup-tracking-form .booking-lookup-field:first-child {
+    max-width: 120px;
+    margin-bottom: 0;
+  }
+}

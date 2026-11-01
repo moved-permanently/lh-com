@@ -515,7 +515,8 @@ const TRACKING_LABELS = {
 
 /**
  * The tracking variant (Lufthansa Cargo): no name fields, the air waybill's prefix and serial,
- * eTracking (buildTrackingUrl); tabs and notice as the booking lookup.
+ * eTracking (buildTrackingUrl); tabs and notice as the booking lookup. Row Default prefix: the
+ * prefix prefilled (www.lufthansa-cargo.com: "020", Lufthansa Cargo's code), 3 digits only.
  */
 function decorateTracking(block, id, locale, config) {
   const labels = resolveLabels(TRACKING_LABELS, config, locale.lang);
@@ -539,6 +540,8 @@ function decorateTracking(block, id, locale, config) {
   const serial = createField(id, {
     name: 'serial', label: labels['serial label'], autocomplete: 'off', maxLength: 8, error: labels['serial error'], numeric: true,
   });
+  const preset = pick(config, 'default-prefix');
+  if (preset && /^\d{3}$/.test(preset.text)) prefix.input.value = preset.text;
   // a whole number pasted into the prefix field fills both
   prefix.input.addEventListener('paste', (e) => {
     const parts = splitAwb((e.clipboardData || window.clipboardData || { getData: () => '' }).getData('text'));
