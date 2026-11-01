@@ -84,7 +84,8 @@ test('every language has every key of en, with the same placeholders', () => {
   const ph = (s) => (s.match(/\{[A-Z]+\}/g) || []).sort().join();
   Object.entries(PASSENGER_LABELS).forEach(([lang, t]) => {
     Object.entries(PASSENGER_LABELS.en).forEach(([k, v]) => {
-      assert.ok(t[k], `${lang} ${k}`);
+      // the adults' hint: none in every language (test/flight-search-adults-hint.test.mjs)
+      assert.ok(k === 'adults hint' ? t[k] === '' : t[k], `${lang} ${k}`);
       assert.equal(ph(t[k]), ph(v), `${lang} ${k}`);
     });
   });

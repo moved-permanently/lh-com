@@ -104,12 +104,13 @@ test('de/de with the same rows: no young adults (GB only), the fare selection', 
   assert.ok(block.querySelector('.flight-search-fare'));
 });
 
-test('without the rows: the panel and the handoff as before', async () => {
+test('without the rows: no young adults, no fare selection, the handoff as before', async () => {
   at('main--lh-com--moved-permanently.aem.page', '/gb/en/homepage');
   const { block, handoff } = await search([], (b) => more(b, 'children').click());
   assert.equal(block.querySelector('.flight-search-passenger-young-adults'), null);
   assert.equal(block.querySelector('.flight-search-fare'), null);
-  assert.ok(block.querySelector('.flight-search-passenger-adults .flight-search-passenger-hint'));
+  assert.equal(block.querySelector('.flight-search-passenger-adults .flight-search-passenger-hint'), null, 'no adults hint by default');
+  assert.ok(block.querySelector('.flight-search-passenger-children .flight-search-passenger-hint'));
   const s = JSON.parse(handoff.fields.search);
   assert.deepEqual(s.travelers.map((t) => t.passengerTypeCode), ['ADT', 'CHD']);
   assert.deepEqual(Object.keys(s), ['itineraries', 'travelers', 'cabin', 'portalFacts']);

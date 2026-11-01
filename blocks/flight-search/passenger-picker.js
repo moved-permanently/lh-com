@@ -8,12 +8,16 @@
 
 import { FARE_PREFERENCES } from './picker-options.js';
 
-/** Built-in texts, per language ({CABIN}, {COUNT}, {TYPE} are filled). */
+/**
+ * Built-in texts, per language ({CABIN}, {COUNT}, {TYPE} are filled). No adults hint: www shows
+ * none on lufthansa.com, ITA, Austrian, Brussels, Discover and Air Dolomiti (an Adults hint row
+ * adds one).
+ */
 export const PASSENGER_LABELS = {
   en: {
     'passengers label': 'Passengers and travel class',
     'adults label': 'Adults',
-    'adults hint': '12 years and older',
+    'adults hint': '',
     'children label': 'Children',
     'children hint': '2 to 11 years',
     'infants label': 'Infants',
@@ -32,7 +36,7 @@ export const PASSENGER_LABELS = {
   de: {
     'passengers label': 'Reisende und Reiseklasse',
     'adults label': 'Erwachsene',
-    'adults hint': 'Ab 12 Jahren',
+    'adults hint': '',
     'children label': 'Kinder',
     'children hint': '2 bis 11 Jahre',
     'infants label': 'Kleinkinder',
@@ -51,7 +55,7 @@ export const PASSENGER_LABELS = {
   it: {
     'passengers label': 'Passeggeri e classe di viaggio',
     'adults label': 'Adulti',
-    'adults hint': 'Dai 12 anni in su',
+    'adults hint': '',
     'children label': 'Bambini',
     'children hint': 'Da 2 a 11 anni',
     'infants label': 'Neonati',
@@ -70,7 +74,7 @@ export const PASSENGER_LABELS = {
   fr: {
     'passengers label': 'Passagers et classe de voyage',
     'adults label': 'Adultes',
-    'adults hint': '12 ans et plus',
+    'adults hint': '',
     'children label': 'Enfants',
     'children hint': 'De 2 à 11 ans',
     'infants label': 'Bébés',
@@ -89,7 +93,7 @@ export const PASSENGER_LABELS = {
   es: {
     'passengers label': 'Pasajeros y clase de viaje',
     'adults label': 'Adultos',
-    'adults hint': 'A partir de 12 años',
+    'adults hint': '',
     'children label': 'Niños',
     'children hint': 'De 2 a 11 años',
     'infants label': 'Bebés',
@@ -108,7 +112,7 @@ export const PASSENGER_LABELS = {
   nl: {
     'passengers label': 'Reizigers en reisklasse',
     'adults label': 'Volwassenen',
-    'adults hint': '12 jaar en ouder',
+    'adults hint': '',
     'children label': 'Kinderen',
     'children hint': '2 tot en met 11 jaar',
     'infants label': 'Baby’s',
@@ -127,7 +131,7 @@ export const PASSENGER_LABELS = {
   pt: {
     'passengers label': 'Passageiros e classe de viagem',
     'adults label': 'Adultos',
-    'adults hint': '12 anos ou mais',
+    'adults hint': '',
     'children label': 'Crianças',
     'children hint': 'De 2 a 11 anos',
     'infants label': 'Bebés',
@@ -146,7 +150,7 @@ export const PASSENGER_LABELS = {
   el: {
     'passengers label': 'Επιβάτες και θέση ταξιδιού',
     'adults label': 'Ενήλικες',
-    'adults hint': '12 ετών και άνω',
+    'adults hint': '',
     'children label': 'Παιδιά',
     'children hint': '2 έως 11 ετών',
     'infants label': 'Βρέφη',
@@ -165,7 +169,7 @@ export const PASSENGER_LABELS = {
   ja: {
     'passengers label': '搭乗者と搭乗クラス',
     'adults label': '大人',
-    'adults hint': '12歳以上',
+    'adults hint': '',
     'children label': '小児',
     'children hint': '2歳～11歳',
     'infants label': '幼児',
@@ -184,7 +188,7 @@ export const PASSENGER_LABELS = {
   ru: {
     'passengers label': 'Пассажиры и класс обслуживания',
     'adults label': 'Взрослые',
-    'adults hint': 'От 12 лет',
+    'adults hint': '',
     'children label': 'Дети',
     'children hint': 'От 2 до 11 лет',
     'infants label': 'Младенцы',
@@ -203,7 +207,7 @@ export const PASSENGER_LABELS = {
   zh: {
     'passengers label': '乘客和舱位',
     'adults label': '成人',
-    'adults hint': '12岁及以上',
+    'adults hint': '',
     'children label': '儿童',
     'children hint': '2至11岁',
     'infants label': '婴儿',
@@ -222,7 +226,7 @@ export const PASSENGER_LABELS = {
   pl: {
     'passengers label': 'Pasażerowie i klasa podróży',
     'adults label': 'Dorośli',
-    'adults hint': '12 lat i więcej',
+    'adults hint': '',
     'children label': 'Dzieci',
     'children hint': 'Od 2 do 11 lat',
     'infants label': 'Niemowlęta',

@@ -181,7 +181,7 @@ test('without the options: the picker\'s markup and value as before', () => {
   assert.deepEqual(plain.getValue(), {
     adults: 1, children: 0, infants: 0, cabin: 'E',
   });
-  assert.equal(plain.element.querySelectorAll('.flight-search-passenger-hint').length, 3);
+  assert.equal(plain.element.querySelectorAll('.flight-search-passenger-hint').length, 2, 'children and infants (no adults hint by default)');
 });
 
 test('the handoff: one young adult on gb/en as www sends it (B15 after the adult)', () => {

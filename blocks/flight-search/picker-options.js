@@ -4,8 +4,8 @@
  *   (`GB`, a list of countries) or everywhere (`yes`); handed off as B15 after the adults.
  * - `Fare preference`: www's "Alternative fare selection" (best price, coupon, high); handed off
  *   as farePreference after the cabin, none for best price (www sends none either).
- * - a hint row left empty, or without its value cell (`Adults hint`): no hint (www shows none
- *   under the adults).
+ * - a hint row left empty, or without its value cell (`Children hint`): no hint (the adults
+ *   have none by default, passenger-picker.js).
  * The handoff's additions live here, not in scripts/shop-handoff.js: a visitor with that script
  * cached from before still hands off what the picker shows.
  */
