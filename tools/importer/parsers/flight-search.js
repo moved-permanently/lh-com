@@ -13,7 +13,10 @@
  *   .tab-nav .tab-link                         -> Tabs
  *   .triptype-dropdown-wrapper button          -> Trip types (rendered options, else the selected
  *                                                 one) / Default trip type
- *   .travel-details-opener                     -> Traveller label
+ *   .travel-details-opener                     -> Traveller label; with it the picker rows
+ *                                                 (flight-search-picker.js: Passenger picker, www's
+ *                                                 panel texts, Group booking from
+ *                                                 data-dcep.groupBookingsUrl)
  *   .btn-nonstop-only .custom-control-description -> Nonstop label
  *   origin input value or data-dcep.prefilledOrigin (only when it contains an IATA code)
  *   .flma-where-we-fly-wrapper link            -> Where we fly
@@ -27,6 +30,8 @@
  * Not authored: From/To/Date/Submit labels and the date error (the snapshot shows the built-in
  * texts, the live site and the block use labels/flightmanager and labels/common).
  */
+import { pickerRows } from './flight-search-picker.js';
+
 export default function parse(element, { document }) {
   const SR_ONLY = '.sr-only, .visually-hidden, maui-screen-reader-label';
 
@@ -75,6 +80,19 @@ export default function parse(element, { document }) {
   if (tripTypes.length > 1) addRow('Default trip type', selectedTrip);
 
   addRow('Traveller label', visibleText(element.querySelector('.travel-details-opener')));
+  // the passengers and cabin picker (www's travel details panel behind the traveller line, its
+  // texts and the group booking link to the root's group travel page: flight-search-picker.js)
+  if (element.querySelector('.travel-details-opener')) {
+    const market = String(props.groupBookingsUrl || '').match(/\/markets\/[a-z]{2}\/([a-z]{2})\//);
+    const lang = (market && market[1]) || clean(document.documentElement.getAttribute('lang')).slice(0, 2);
+    pickerRows({ lang, groupBookingsUrl: props.groupBookingsUrl }).forEach(([key, value]) => {
+      if (typeof value === 'string') { addRow(key, value); return; }
+      const a = document.createElement('a');
+      a.href = value.href;
+      a.textContent = value.text;
+      addRow(key, a);
+    });
+  }
   addRow('Nonstop label', visibleText(element.querySelector('.btn-nonstop-only .custom-control-description')));
 
   // Origin / destination fields.

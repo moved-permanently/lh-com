@@ -2326,6 +2326,47 @@ var CustomImportScript = (() => {
     outer.replaceWith(block);
   }
 
+  // tools/importer/parsers/flight-search-picker.js
+  var TEXTS = {
+    en: {
+      "Children label": "Children",
+      "Children hint": "(2-11 years)",
+      "Infants label": "Infants without seat",
+      "Infants hint": "(0-23 months)",
+      group: "Group bookings for 10 or more passengers."
+    },
+    de: {
+      "Children label": "Kinder",
+      "Children hint": "(2-11 Jahre)",
+      "Infants label": "Kleinkinder ohne Sitzplatz",
+      "Infants hint": "(0-23 Monate)",
+      // www's traveller line: "Economy, 1 Reisende(r)" (the block's default: "1 Reisender")
+      "Traveller summary": "{CABIN}, {COUNT} Reisende(r)",
+      group: "Gruppenbuchungen f\xFCr zehn oder mehr Passagiere."
+    }
+  };
+  function groupTravelPath(url) {
+    let p = String(url || "").trim();
+    if (!p) return "";
+    try {
+      p = new URL(p, "https://www.lufthansa.com").pathname;
+    } catch (e) {
+      return "";
+    }
+    p = p.replace(/^\/content\/lh\/markets(?=\/)/, "").replace(/\.html$/, "");
+    return p.replace(/^(\/[a-z]{2}\/[a-z]{2})\/book-and-manage\/group-travel$/, "$1/group-travel");
+  }
+  function pickerRows({ lang, groupBookingsUrl } = {}) {
+    const t = TEXTS[lang] || TEXTS.en;
+    const rows = [["Passenger picker", "yes"]];
+    Object.entries(t).forEach(([k, v]) => {
+      if (k !== "group") rows.push([k, v]);
+    });
+    const href = groupTravelPath(groupBookingsUrl);
+    if (href) rows.push(["Group booking", { href, text: t.group }]);
+    return rows;
+  }
+
   // tools/importer/parsers/flight-search.js
   function parse11(element, { document }) {
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
@@ -2362,6 +2403,20 @@ var CustomImportScript = (() => {
     addRow("Trip types", [...new Set(tripTypes)].join(", "));
     if (tripTypes.length > 1) addRow("Default trip type", selectedTrip);
     addRow("Traveller label", visibleText(element.querySelector(".travel-details-opener")));
+    if (element.querySelector(".travel-details-opener")) {
+      const market = String(props.groupBookingsUrl || "").match(/\/markets\/[a-z]{2}\/([a-z]{2})\//);
+      const lang = market && market[1] || clean2(document.documentElement.getAttribute("lang")).slice(0, 2);
+      pickerRows({ lang, groupBookingsUrl: props.groupBookingsUrl }).forEach(([key, value]) => {
+        if (typeof value === "string") {
+          addRow(key, value);
+          return;
+        }
+        const a = document.createElement("a");
+        a.href = value.href;
+        a.textContent = value.text;
+        addRow(key, a);
+      });
+    }
     addRow("Nonstop label", visibleText(element.querySelector(".btn-nonstop-only .custom-control-description")));
     const airportFields = [...element.querySelectorAll(".autocomplete-airport")];
     const originField = element.querySelector(".retracted-field-origin .autocomplete-airport") || airportFields[0];
