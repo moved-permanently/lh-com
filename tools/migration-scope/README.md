@@ -36,6 +36,10 @@ sitemap: `book-and-manage/trip-management` (200 in all four locales on 2026-10-2
 loads www's `/digitalhangar/` design system (CSS and module script, CORS allowed) and
 `trip-management-latest.js`, then renders `<trip-management>`; tested on aem.page, it renders.
 Other systems post booking data to it as `<page>.mfe.html` (lh-edge).
+The last `info` row (added 2026-11-01) is the security waiting times page,
+`prepare-for-your-trip/airport-information/services-at-the-airport/security-waiting-time`: not in
+the sitemap, the same slug in all four locales (200 on www, 2026-11-01); its live component is
+the security-waiting-time block.
 
 | template_group | pages | what it is |
 |---|---|---|

@@ -23,6 +23,7 @@ import cardsTeaserParser from './parsers/cards-teaser.js';
 import columnsMediaParser from './parsers/columns-media.js';
 import embedParser from './parsers/embed.js';
 import loungeFinderParser from './parsers/lounge-finder.js';
+import securityWaitingTimeParser from './parsers/security-waiting-time.js';
 import ejournalsParser from './parsers/ejournals.js';
 import fareTeaserParser from './parsers/fare-teaser.js';
 import lufthansaCleanupTransformer from './transformers/lufthansa-cleanup.js';
@@ -174,6 +175,12 @@ const PAGE_TEMPLATE = {
       ]
     },
     {
+      "name": "security-waiting-time",
+      "instances": [
+        ".securitywaitingtime:has(> .dcep-security-waiting-time)"
+      ]
+    },
+    {
       "name": "ejournals",
       "instances": [
         ".ejournals:has(> .dcep-ejournals)"
@@ -253,6 +260,7 @@ const parsers = {
   'columns-media': columnsMediaParser,
   'embed': embedParser,
   'lounge-finder': loungeFinderParser,
+  'security-waiting-time': securityWaitingTimeParser,
   'ejournals': ejournalsParser,
   'fare-teaser': fareTeaserParser,
 };
