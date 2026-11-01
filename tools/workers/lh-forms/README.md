@@ -99,6 +99,9 @@ Brussels' forms with a drop zone (10 ids) follow the file row of their lh-brusse
 feedback topic forms `application/pdf, image/jpeg` (and image/jpg), at most 5 files of 2,000,000
 bytes; `brussels-request-for-proposal` also `image/png`, 5 files of 2,048,000 bytes; the full
 `not-allowed=#$%^*()[]` set (the feedback rows had `#`).
+Lufthansa Cargo's `cargo-contact-us`: `application/pdf, image/jpeg, image/png` (and image/jpg), 5
+files of 3,700,000 bytes. www's form also takes .doc, .docx, .xls and .xlsx up to 10 MB; this worker
+only reads PDF, JPEG and PNG (and Office files can carry macros), so its drop zone names these three.
 The 5 x 5 MB forms can exceed the total: their drop zone names it, and the block refuses a
 selection over it before sending.
 

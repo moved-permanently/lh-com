@@ -1056,6 +1056,38 @@ test('brand sites: Lufthansa Cargo (lh-cargo): its hosts and its cargo- ids; the
   assert.equal(sent.length, 3);
 });
 
+test('Cargo file rules: cargo-contact-us takes PDF, JPEG and PNG, 5 x 3,700,000 (www\'s Office types and 10 MB not); attached to the mail', async () => {
+  const cargo = { origin: 'https://cargo.turnsthe.page', locale: 'de-en', form: 'cargo-contact-us' };
+  const env = makeEnv({ FORM_CONFIG: JSON.stringify({ default: { to: 'only@example.com' } }) });
+  const pdf = (name, size = 0) => {
+    const bytes = new Uint8Array(Math.max(size, PDF.length));
+    bytes.set(PDF);
+    return ['Attachments', file(bytes, name, 'application/pdf')];
+  };
+  const png = (name = 'a.png') => ['Attachments', file(PNG, name, 'image/png')];
+  const jpg = (name = 'a.jpeg') => ['Attachments', file(JPG, name, 'image/jpeg')];
+  // a .docx is a ZIP (PK\x03\x04), a .xls an OLE2 file: neither is a type the worker reads
+  const docx = ['Attachments', file(new Uint8Array([0x50, 0x4b, 0x03, 0x04, 1, 2]), 'a.docx', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document')];
+  const xls = ['Attachments', file(new Uint8Array([0xd0, 0xcf, 0x11, 0xe0, 0xa1, 0xb1, 0x1a, 0xe1]), 'a.xls', 'application/vnd.ms-excel')];
+  const cases = [
+    [[pdf('a.pdf', 3700000), png(), jpg()], 200, null],
+    [[1, 2, 3, 4, 5].map((n) => pdf(`${n}.pdf`, 3700000)), 200, null],
+    [[1, 2, 3, 4, 5, 6].map((n) => pdf(`${n}.pdf`)), 400, 'too-many-files'],
+    [[pdf('a.pdf', 3700001)], 413, 'file-too-large'],
+    [[docx], 400, 'invalid-file-type'],
+    [[xls], 400, 'invalid-file-type'],
+    [[pdf('a#1.pdf')], 400, 'invalid-file-name'],
+  ];
+  const results = await Promise.all(cases.map(([files], i) => post({ ...cargo, files, ip: `198.51.100.${200 + i}` }, env)));
+  results.forEach(({ res, body }, i) => {
+    const [, status, error] = cases[i];
+    assert.equal(res.status, status, `case ${i}`);
+    assert.deepEqual(body, error ? { ok: false, error } : { ok: true }, `case ${i}`);
+  });
+  assert.equal(sent.length, 2);
+  assert.deepEqual(sent[0].attachments.map((a) => [a.filename, a.type]), [['a.pdf', 'application/pdf'], ['a.png', 'image/png'], ['a.jpeg', 'image/jpeg']]);
+});
+
 test('brand sites: Air Dolomiti\'s newsletter forms are accepted from its site, each with its page\'s title', async () => {
   const ids = ['airdolomiti-iscrizione-newsletter', 'airdolomiti-newsletter-subscription', 'airdolomiti-newsletter-anmeldung'];
   const origins = ['https://airdolomiti.turnsthe.page', 'https://main--lh-airdolomiti--moved-permanently.aem.page', 'https://main--lh-airdolomiti--moved-permanently.aem.live'];

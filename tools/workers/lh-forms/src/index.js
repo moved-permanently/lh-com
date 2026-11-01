@@ -313,6 +313,15 @@ const FILE_RULES = {
   'discover-other-concerns': DISCOVER_CONTACT_FILES,
   ...austrianFileRules(),
   ...brusselsFileRules(),
+  // Lufthansa Cargo's contact form (www: pdf, xlsx, xls, docx, doc, jpg, png up to 10 MB): the
+  // types this worker reads (PDF, JPEG, PNG), 5 x 3.7 MB as the others; no Office files
+  'cargo-contact-us': {
+    types: ['application/pdf', 'image/jpeg', 'image/jpg', 'image/png'],
+    extensions: ['.pdf', '.jpg', '.jpeg', '.png'],
+    maxFiles: 5,
+    maxSize: 3700000,
+    ...MAIL_FILES,
+  },
 };
 
 const HONEYPOT = 'lh_hp';
