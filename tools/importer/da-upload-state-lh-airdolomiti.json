@@ -5144,6 +5144,201 @@
    "uploaded": "2026-10-31T23:56:33.336Z",
    "mtime": 1793490786541,
    "preview": "2026-10-31T23:56:35.049Z"
+  },
+  "/de/flughaefen/ljubljana": {
+   "uploaded": "2026-11-01T00:11:01.514Z",
+   "mtime": 1793491669270,
+   "preview": "2026-11-01T00:11:03.602Z"
+  },
+  "/de/flughaefen/birmingham": {
+   "uploaded": "2026-11-01T00:11:04.682Z",
+   "mtime": 1793491669300,
+   "preview": "2026-11-01T00:11:06.568Z"
+  },
+  "/de/flughaefen/rijeka-de": {
+   "uploaded": "2026-11-01T00:11:08.522Z",
+   "mtime": 1793491857023,
+   "preview": "2026-11-01T00:11:10.521Z"
+  },
+  "/de/flughaefen/bordeaux-de": {
+   "uploaded": "2026-11-01T00:11:11.776Z",
+   "mtime": 1793491669356,
+   "preview": "2026-11-01T00:11:14.203Z"
+  },
+  "/de/flughaefen/biarritz-de": {
+   "uploaded": "2026-11-01T00:11:15.348Z",
+   "mtime": 1793491669385,
+   "preview": "2026-11-01T00:11:17.164Z"
+  },
+  "/de/flughaefen/zuerich": {
+   "uploaded": "2026-11-01T00:11:18.335Z",
+   "mtime": 1793491669413,
+   "preview": "2026-11-01T00:11:20.313Z"
+  },
+  "/de/flughaefen/figari-de": {
+   "uploaded": "2026-11-01T00:11:21.504Z",
+   "mtime": 1793491669441,
+   "preview": "2026-11-01T00:11:23.509Z"
+  },
+  "/de/flughaefen/basel-de": {
+   "uploaded": "2026-11-01T00:11:24.635Z",
+   "mtime": 1793491669468,
+   "preview": "2026-11-01T00:11:26.460Z"
+  },
+  "/de/flughaefen/graz-de": {
+   "uploaded": "2026-11-01T00:11:28.775Z",
+   "mtime": 1793491857248,
+   "preview": "2026-11-01T00:11:30.577Z"
+  },
+  "/de/flughaefen/jersey-de": {
+   "uploaded": "2026-11-01T00:11:31.700Z",
+   "mtime": 1793491669528,
+   "preview": "2026-11-01T00:11:33.620Z"
+  },
+  "/de/flughaefen/innsbruck-de": {
+   "uploaded": "2026-11-01T00:11:34.943Z",
+   "mtime": 1793491669558,
+   "preview": "2026-11-01T00:11:36.691Z"
+  },
+  "/de/flughaefen/billund-de": {
+   "uploaded": "2026-11-01T00:11:37.873Z",
+   "mtime": 1793491669584,
+   "preview": "2026-11-01T00:11:39.844Z"
+  },
+  "/de/flughaefen/cagliari-de": {
+   "uploaded": "2026-11-01T00:11:41.009Z",
+   "mtime": 1793491669612,
+   "preview": "2026-11-01T00:11:42.800Z"
+  },
+  "/de/flughaefen/pula-de": {
+   "uploaded": "2026-11-01T00:11:44.783Z",
+   "mtime": 1793491857392,
+   "preview": "2026-11-01T00:11:46.668Z"
+  },
+  "/de/flughaefen/palermo": {
+   "uploaded": "2026-11-01T00:11:48.342Z",
+   "mtime": 1793491857479,
+   "preview": "2026-11-01T00:11:50.461Z"
+  },
+  "/de/flughaefen/krakau": {
+   "uploaded": "2026-11-01T00:11:52.972Z",
+   "mtime": 1793491857619,
+   "preview": "2026-11-01T00:11:54.772Z"
+  },
+  "/de/flughaefen/amsterdam-de": {
+   "uploaded": "2026-11-01T00:11:55.812Z",
+   "mtime": 1793491669726,
+   "preview": "2026-11-01T00:11:57.781Z"
+  },
+  "/de/flughaefen/ancona-de": {
+   "uploaded": "2026-11-01T00:11:59.854Z",
+   "mtime": 1793491857723,
+   "preview": "2026-11-01T00:12:01.801Z"
+  },
+  "/de/flughaefen/london-city-de": {
+   "uploaded": "2026-11-01T00:12:03.049Z",
+   "mtime": 1793491669782,
+   "preview": "2026-11-01T00:12:04.857Z"
+  },
+  "/de/flughaefen/lyon-de": {
+   "uploaded": "2026-11-01T00:12:06.983Z",
+   "mtime": 1793491857826,
+   "preview": "2026-11-01T00:12:08.816Z"
+  },
+  "/de/flughaefen/genf": {
+   "uploaded": "2026-11-01T00:12:11.375Z",
+   "mtime": 1793491857964,
+   "preview": "2026-11-01T00:12:13.083Z"
+  },
+  "/de/flughaefen/breslau": {
+   "uploaded": "2026-11-01T00:12:14.883Z",
+   "mtime": 1793491858048,
+   "preview": "2026-11-01T00:12:16.717Z"
+  },
+  "/de/flughaefen/luxemburg": {
+   "uploaded": "2026-11-01T00:12:17.968Z",
+   "mtime": 1793491669892,
+   "preview": "2026-11-01T00:12:19.955Z"
+  },
+  "/de/flughaefen/kattowitz": {
+   "uploaded": "2026-11-01T00:12:21.199Z",
+   "mtime": 1793491669920,
+   "preview": "2026-11-01T00:12:23.252Z"
+  },
+  "/de/flughaefen/genua-de": {
+   "uploaded": "2026-11-01T00:12:24.934Z",
+   "mtime": 1793491858171,
+   "preview": "2026-11-01T00:12:26.845Z"
+  },
+  "/de/flughaefen/triest-de": {
+   "uploaded": "2026-11-01T00:12:28.470Z",
+   "mtime": 1793491858265,
+   "preview": "2026-11-01T00:12:30.220Z"
+  },
+  "/de/flughaefen/olbia-de": {
+   "uploaded": "2026-11-01T00:12:32.052Z",
+   "mtime": 1793491858350,
+   "preview": "2026-11-01T00:12:33.849Z"
+  },
+  "/de/flughaefen/brindisi": {
+   "uploaded": "2026-11-01T00:12:35.034Z",
+   "mtime": 1793491670032,
+   "preview": "2026-11-01T00:12:36.844Z"
+  },
+  "/de/flughaefen/bologna-de": {
+   "uploaded": "2026-11-01T00:12:38.768Z",
+   "mtime": 1793491858463,
+   "preview": "2026-11-01T00:12:40.583Z"
+  },
+  "/de/flughaefen/mailand-malpensa-de": {
+   "uploaded": "2026-11-01T00:12:41.812Z",
+   "mtime": 1793491670092,
+   "preview": "2026-11-01T00:12:43.765Z"
+  },
+  "/de/flughaefen/mailand-linate": {
+   "uploaded": "2026-11-01T00:12:44.842Z",
+   "mtime": 1793491670124,
+   "preview": "2026-11-01T00:12:46.766Z"
+  },
+  "/de/flughaefen/florenz": {
+   "uploaded": "2026-11-01T00:12:48.391Z",
+   "mtime": 1793491858611,
+   "preview": "2026-11-01T00:12:50.723Z"
+  },
+  "/de/flughaefen/bari-de": {
+   "uploaded": "2026-11-01T00:12:51.888Z",
+   "mtime": 1793491670186,
+   "preview": "2026-11-01T00:12:53.863Z"
+  },
+  "/de/flughaefen/frankfurt-de": {
+   "uploaded": "2026-11-01T00:12:56.449Z",
+   "mtime": 1793491858804,
+   "preview": "2026-11-01T00:12:58.961Z"
+  },
+  "/de/flughaefen/muenchen": {
+   "uploaded": "2026-11-01T00:13:00.159Z",
+   "mtime": 1793491670258,
+   "preview": "2026-11-01T00:13:01.968Z"
+  },
+  "/de/flughaefen/pisa-de": {
+   "uploaded": "2026-11-01T00:13:04.357Z",
+   "mtime": 1793491858952,
+   "preview": "2026-11-01T00:13:06.263Z"
+  },
+  "/de/flughaefen/turin-de": {
+   "uploaded": "2026-11-01T00:13:08.151Z",
+   "mtime": 1793491859033,
+   "preview": "2026-11-01T00:13:09.981Z"
+  },
+  "/de/flughaefen/verona-de": {
+   "uploaded": "2026-11-01T00:13:11.910Z",
+   "mtime": 1793491859123,
+   "preview": "2026-11-01T00:13:13.880Z"
+  },
+  "/de/flughaefen/venedig": {
+   "uploaded": "2026-11-01T00:13:15.050Z",
+   "mtime": 1793491670384,
+   "preview": "2026-11-01T00:13:17.282Z"
   }
  },
  "media": {
@@ -9529,6 +9724,75 @@
   },
   "/media-da/airdolomiti/foto-x-donne-in-gravidanza-1-cb7c4c5a.jpg": {
    "at": "2026-10-31T23:56:26.904Z"
+  },
+  "/media-da/airdolomiti/rijeka-see-54b2136f.jpg": {
+   "at": "2026-11-01T00:11:07.629Z"
+  },
+  "/media-da/airdolomiti/graz-main-banner-d-1-347c6f39.jpg": {
+   "at": "2026-11-01T00:11:27.501Z"
+  },
+  "/media-da/airdolomiti/graz-airport-370x442-thumbnail-dcc0635f.jpg": {
+   "at": "2026-11-01T00:11:28.055Z"
+  },
+  "/media-da/airdolomiti/strand-istrien-kroatien-1270x660-1-248a77d9.jpg": {
+   "at": "2026-11-01T00:11:43.917Z"
+  },
+  "/media-da/airdolomiti/palermo-sizilien-1270x660-1-4858d100.jpg": {
+   "at": "2026-11-01T00:11:47.619Z"
+  },
+  "/media-da/airdolomiti/krakau-wellenberg-1270x660-1-9ddde486.jpg": {
+   "at": "2026-11-01T00:11:51.499Z"
+  },
+  "/media-da/airdolomiti/krakau-wellenberg-1012x740-1-e1aa9e20.jpg": {
+   "at": "2026-11-01T00:11:52.171Z"
+  },
+  "/media-da/airdolomiti/ancona-monument-am-meer-1270x660-1-ae8c96d2.webp": {
+   "at": "2026-11-01T00:11:58.974Z"
+  },
+  "/media-da/airdolomiti/lyon-flights-from-munich-768x1024-1-afedb385.jpg": {
+   "at": "2026-11-01T00:12:05.755Z"
+  },
+  "/media-da/airdolomiti/genfersee-montreaux-1270x660-1-fdda8155.jpg": {
+   "at": "2026-11-01T00:12:09.966Z"
+  },
+  "/media-da/airdolomiti/genfer-daemmerung-1012x740-1-eb1aca2a.jpg": {
+   "at": "2026-11-01T00:12:10.552Z"
+  },
+  "/media-da/airdolomiti/breslau-wroclaw-historisches-zentrum-1270x660-1-88975690.jpg": {
+   "at": "2026-11-01T00:12:14.112Z"
+  },
+  "/media-da/airdolomiti/genua-flughafen-1270x660-1-a9337c2e.jpg": {
+   "at": "2026-11-01T00:12:24.222Z"
+  },
+  "/media-da/airdolomiti/flughafen-triest-1270x660-1-d930dde4.jpg": {
+   "at": "2026-11-01T00:12:27.774Z"
+  },
+  "/media-da/airdolomiti/olbia-tavolara-insel-1270x660-1-e7a9c423.jpg": {
+   "at": "2026-11-01T00:12:31.238Z"
+  },
+  "/media-da/airdolomiti/bologna-mainbanner-d-1-61603ae1.jpg": {
+   "at": "2026-11-01T00:12:37.958Z"
+  },
+  "/media-da/airdolomiti/florence-scaled-1087f9c0.jpg": {
+   "at": "2026-11-01T00:12:47.714Z"
+  },
+  "/media-da/airdolomiti/francoforte-mainbanner-d-6-25edd390.jpg": {
+   "at": "2026-11-01T00:12:54.886Z"
+  },
+  "/media-da/airdolomiti/fra-hp-inverno-91d018da.jpg": {
+   "at": "2026-11-01T00:12:55.603Z"
+  },
+  "/media-da/airdolomiti/pisa-mainbanner-d-4-5bbcc4d2.jpg": {
+   "at": "2026-11-01T00:13:02.951Z"
+  },
+  "/media-da/airdolomiti/leaning-tower-of-pisa-370x442-thumbnail-9d02ce0f.jpg": {
+   "at": "2026-11-01T00:13:03.599Z"
+  },
+  "/media-da/airdolomiti/turin-mainbanner-d-6-72ecae04.jpg": {
+   "at": "2026-11-01T00:13:07.290Z"
+  },
+  "/media-da/airdolomiti/verona-mainbanner-d-6-3e6d2842.jpg": {
+   "at": "2026-11-01T00:13:10.954Z"
   }
  }
 }
