@@ -1,5 +1,6 @@
 /*
- * Discover Airlines (brief 95): design tokens only, loaded by scripts/brand.js on a site whose
+ * Discover Airlines (brief 95): design tokens, and www's field look (brief 210, the fields
+ * section at the end), loaded by scripts/brand.js on a site whose
  * metadata sets `brand: discover` (lh-discover's /metadata.json). Values from www's design system
  * release v1.38.0 (/digitalhangar/design-system/releases/v1.38.0/standalone/css/discover.css,
  * --maui-color-brand-*) and the Discover site's own stylesheet: headlines sky blue, text and links
@@ -56,4 +57,230 @@
   /* spacing: Discover's grid unit is 12px (Lufthansa 10px): a fifth more space between blocks */
   --spacing-default: 28px;
   --section-gap: 56px;
+}
+
+/* fields (brief 210): www's maui-select / maui-input as Discover draws them, measured on
+   www.discover-airlines.com (2026-11-01): 50px high, pill radius, 1px rgb(0 62 123 / 80%) border,
+   #e9f2fb fill, value 18px/24px dark sky blue 18px from the left, the label inside the field (a
+   filled field's label 12px at the top); 400px wide (the airport select), the form column 335px.
+   Scoped to body.brand-discover (set by scripts/brand.js), which also outranks the blocks' own
+   rules that load after this file; Lufthansa's underlined fields stay on every other site. */
+body.brand-discover {
+  --discover-field-height: 50px;
+  --discover-field-border: 1px solid rgb(0 62 123 / 80%);
+  --discover-field-fill: #e9f2fb;
+  --discover-field-radius: 9999px;
+  --discover-field-inline: 18px;
+}
+
+/* the security waiting times' airport select: the label is the select's own first option, as
+   www's trigger ("Select Airport"); the visible label stays for screen readers only */
+body.brand-discover .security-waiting-time .security-waiting-time-form {
+  max-width: 400px;
+}
+
+body.brand-discover .security-waiting-time .security-waiting-time-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+body.brand-discover .security-waiting-time .security-waiting-time-select,
+body.brand-discover .security-waiting-time .security-waiting-time-select:has(option[value=""]:checked) {
+  min-height: var(--discover-field-height);
+  padding: 0 48px 0 var(--discover-field-inline);
+  border: var(--discover-field-border);
+  border-radius: var(--discover-field-radius);
+  background-color: var(--discover-field-fill);
+  color: var(--lh-deepblue);
+  font-size: var(--body-font-size-m);
+  line-height: 24px;
+}
+
+body.brand-discover .security-waiting-time .security-waiting-time-form::after {
+  right: 22px;
+  bottom: 22px;
+}
+
+/* the site search box: one pill with the search icon inside */
+body.brand-discover .search-results .search-results-form {
+  align-items: center;
+  box-sizing: border-box;
+  max-width: 824px;
+  height: var(--discover-field-height);
+  padding: 0 6px 0 var(--discover-field-inline);
+  border: var(--discover-field-border);
+  border-radius: var(--discover-field-radius);
+  background-color: var(--discover-field-fill);
+}
+
+body.brand-discover .search-results .search-results-input {
+  height: 48px;
+}
+
+body.brand-discover .search-results .search-results-input::placeholder {
+  color: var(--lh-deepblue);
+}
+
+/* stylelint-disable no-descending-specificity -- the flight search's own order (base, focus, the
+   destination's room for the swap button), as blocks/flight-search */
+
+/* the flight search: origin and destination pills with the label inside (12px at the top once a
+   value is in, in the field while empty), the two dates one pill with the calendar icon */
+body.brand-discover .flight-search .airport-combobox {
+  padding-top: 0;
+}
+
+body.brand-discover .flight-search .airport-combobox input,
+body.brand-discover .flight-search .airport-combobox input:focus {
+  height: var(--discover-field-height);
+  padding: 19px var(--discover-field-inline) 5px;
+  border: var(--discover-field-border);
+  border-radius: var(--discover-field-radius);
+  background-color: var(--discover-field-fill);
+  line-height: 24px;
+}
+
+body.brand-discover .flight-search .flight-search-destination input,
+body.brand-discover .flight-search .flight-search-destination input:focus {
+  padding-right: 48px;
+}
+
+body.brand-discover .flight-search .airport-combobox label,
+body.brand-discover .flight-search .flight-search-dates legend {
+  top: 6px;
+  left: 19px;
+  max-width: calc(100% - 38px);
+  color: var(--lh-deepblue);
+  font-size: var(--body-font-size-xxs);
+  line-height: 14px;
+}
+
+body.brand-discover .flight-search .airport-combobox[data-code=""]:not(:focus-within) label,
+body.brand-discover .flight-search .flight-search-dates:not(:focus-within, :has(input:valid)) legend {
+  top: 12px;
+  font-size: var(--body-font-size-m);
+  line-height: 24px;
+}
+
+body.brand-discover .flight-search .flight-search-dates {
+  box-sizing: border-box;
+  height: var(--discover-field-height);
+  padding: 19px 48px 5px var(--discover-field-inline);
+  border: var(--discover-field-border);
+  border-radius: var(--discover-field-radius);
+  background-color: var(--discover-field-fill);
+}
+
+body.brand-discover .flight-search .flight-search-date input,
+body.brand-discover .flight-search .flight-search-date input:focus {
+  height: 24px;
+  padding: 0;
+  outline: 0;
+  line-height: 24px;
+}
+
+body.brand-discover .flight-search .flight-search-dates:focus-within {
+  outline: 2px solid var(--lh-deepblue);
+  outline-offset: 0;
+}
+
+body.brand-discover .flight-search .flight-search-dates::after {
+  right: 20px;
+  bottom: 16px;
+}
+
+/* the swap button at the end of the destination pill (mobile) */
+body.brand-discover .flight-search .flight-search-swap {
+  margin: 0 5px 5px 0;
+}
+
+@media (width >= 768px) {
+  /* between the two pills, no half-border tick */
+  body.brand-discover .flight-search .flight-search-swap {
+    margin: 0 0 5px;
+  }
+
+  body.brand-discover .flight-search .airport-combobox[data-code=""]:not(:focus-within)::after {
+    content: none;
+  }
+
+  body.brand-discover .flight-search .flight-search-destination input,
+  body.brand-discover .flight-search .flight-search-destination input:focus {
+    padding-right: var(--discover-field-inline);
+  }
+}
+
+/* stylelint-enable no-descending-specificity */
+
+/* forms: inputs and selects pills in the 335px column, the label inside; textareas a box */
+body.brand-discover .form {
+  --form-field-height: 50px;
+}
+
+body.brand-discover .form :is(.form-field-text, .form-field-email, .form-field-tel, .form-field-number, .form-field-date, .form-field-select, .form-field-region, .form-field-autocomplete) > .form-control {
+  padding: 19px var(--discover-field-inline) 5px;
+  border: var(--discover-field-border);
+  border-radius: var(--discover-field-radius);
+  background-color: var(--discover-field-fill);
+  line-height: 24px;
+}
+
+body.brand-discover .form :is(.form-field-text, .form-field-email, .form-field-tel, .form-field-number, .form-field-date, .form-field-select, .form-field-region, .form-field-autocomplete) > .form-label {
+  top: 6px;
+  left: 19px;
+  right: 19px;
+  color: var(--lh-deepblue);
+  font-size: var(--body-font-size-xxs);
+  line-height: 14px;
+}
+
+body.brand-discover .form .form-field:where(:has(> .form-control[placeholder=" "]:placeholder-shown:not(:focus))) > .form-label {
+  top: 13px;
+  font-size: var(--body-font-size-m);
+  line-height: 24px;
+}
+
+/* a select without a value: its label in the field, as www's trigger */
+body.brand-discover .form.core .form-field-empty > .form-label {
+  top: 13px;
+  font-size: var(--body-font-size-m);
+  line-height: 24px;
+}
+
+body.brand-discover .form.core .form-field-has-optional > .form-label {
+  right: 70px;
+}
+
+body.brand-discover .form.core .form-optional {
+  top: 13px;
+}
+
+body.brand-discover .form select.form-control {
+  padding-right: 48px;
+  background-position: right 20px center;
+}
+
+body.brand-discover .form :is(.form-field-text, .form-field-email, .form-field-tel, .form-field-number)::after {
+  content: none;
+}
+
+body.brand-discover .form textarea.form-control,
+body.brand-discover .form.core .form-field-textarea > textarea.form-control {
+  border: var(--discover-field-border);
+  border-radius: 4px;
+  background-color: var(--discover-field-fill);
+}
+
+body.brand-discover .form.core .form-field-textarea > .form-label {
+  color: var(--lh-deepblue);
+}
+
+body.brand-discover .form .form-field-invalid .form-control,
+body.brand-discover .form .form-control:user-invalid,
+body.brand-discover .form.core .form-field-invalid > textarea.form-control {
+  border-color: var(--lh-red);
 }

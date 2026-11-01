@@ -9,6 +9,23 @@ import {
 
 const meta = (values) => (name) => values[name] || '';
 
+/** The selectors of a selector list, split on the commas outside parentheses. */
+function selectorList(list) {
+  const out = [];
+  let depth = 0;
+  let cur = '';
+  [...list].forEach((c) => {
+    if (c === '(') depth += 1;
+    if (c === ')') depth -= 1;
+    if (c === ',' && depth === 0) {
+      out.push(cur.trim());
+      cur = '';
+    } else cur += c;
+  });
+  out.push(cur.trim());
+  return out.filter(Boolean);
+}
+
 test('brand: only known keys count; lh-com (no key) is Lufthansa', () => {
   assert.equal(brandOf(meta({})), '');
   assert.equal(brandName(meta({})), 'Lufthansa');
@@ -22,7 +39,7 @@ test('brand: only known keys count; lh-com (no key) is Lufthansa', () => {
   assert.equal(brandOf(meta({ brand: 'toString' })), '');
 });
 
-test('brand: lh-com loads no theme; the theme files are tokens only (Discover\'s and ITA\'s exist)', async () => {
+test('brand: lh-com loads no theme; the theme files are tokens, font faces and rules under the brand\'s body class only (Discover\'s and ITA\'s exist)', async () => {
   assert.equal(await loadBrandTheme(meta({})), '');
   ['discover', 'ita'].forEach((key) => assert.ok(fs.existsSync(new URL(`../styles/themes/${key}.css`, import.meta.url)), key));
   assert.equal(BRANDS.cargo.theme, false, 'Cargo: Lufthansa\'s look, no theme file');
@@ -32,9 +49,15 @@ test('brand: lh-com loads no theme; the theme files are tokens only (Discover\'s
     if (!fs.existsSync(file)) return;
     const css = fs.readFileSync(file, 'utf8');
     assert.match(css, /^:root \{/m, `${key}: tokens on :root`);
-    // tokens and the brand's own font faces (@font-face, ita), no rules
-    const rules = css.replace(/\/\*[\s\S]*?\*\//g, '').replace(/@font-face\s*\{[^}]*\}/g, '');
-    assert.ok(!/^\s*(?!:root)[.#a-z][^{]*\{/m.test(rules), `${key}: nothing but tokens`);
+    // tokens and the brand's own font faces (@font-face, ita); rules only under the brand's body
+    // class (Discover's fields, brief 210), so a theme reaches no other brand
+    const rules = css.replace(/\/\*[\s\S]*?\*\//g, '').replace(/@font-face\s*\{[^}]*\}/g, '')
+      .replace(/@media[^{]*\{/g, '');
+    const selectors = rules.split('}').map((r) => r.split('{')[0].trim()).filter(Boolean)
+      .filter((s) => s !== ':root')
+      .flatMap(selectorList);
+    const scope = `body.brand-${key}`;
+    selectors.forEach((s) => assert.ok(s === scope || s.startsWith(`${scope} `), `${key}: ${s} outside ${scope}`));
   });
 });
 
