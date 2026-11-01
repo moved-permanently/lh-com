@@ -59,17 +59,25 @@ function rootEntries(rows, aliases = {}) {
   return entries;
 }
 
-/**
- * A site's entry paths besides / (which goes to its first language version's homepage): path ->
- * the path it redirects to (302), as on the source. Austrian: www sends /xx/en to /at/en/homepage
- * and /at to a 404 (/at/at/en/homepage), here to /at/en/homepage too.
- */
-export const SITE_ENTRIES = {
+// alias countries of a site's roots (Brussels: www sends /xx/<ll>/* to /be/<ll>/*)
+const ENTRY_ALIASES = { brussels: { xx: 'be' } };
+// entry paths besides its roots', as on the source: Austrian's www sends /xx/en to
+// /at/en/homepage and /at to a 404 (/at/at/en/homepage), here to /at/en/homepage too
+const ENTRY_EXTRAS = {
   austrian: {
     '/xx/en': '/at/en/homepage', '/xx/en/': '/at/en/homepage', '/at': '/at/en/homepage', '/at/': '/at/en/homepage',
   },
-  brussels: rootEntries(BRAND_SITES.brussels.rows, { xx: 'be' }),
 };
+
+/**
+ * A site's entry paths besides / (which goes to its first language version's homepage): path ->
+ * the path it redirects to (302), as on the source (www.ita-airways.com /it/en ->
+ * /it/en/homepage): every root of BRAND_SITES (/<cc>/<ll>[/], /<cc>[/]) to its homepage, plus the
+ * aliases and extras above.
+ */
+export const SITE_ENTRIES = Object.fromEntries(Object.entries(BRAND_SITES).map(([name, site]) => [
+  name, { ...rootEntries(site.rows, ENTRY_ALIASES[name]), ...(ENTRY_EXTRAS[name] || {}) },
+]));
 
 /**
  * The sites without <cc>/<ll> roots (no locale table, no market roots): every path passes through
@@ -84,8 +92,9 @@ export const PLAIN_SITES = {
     },
   },
   // Air Dolomiti (DA moved-permanently/lh-airdolomiti, www.airdolomiti.it): Italian at /, English
-  // at /en/..., German at /de/..., as on the source: no redirects
-  airdolomiti: { entry: {} },
+  // at /en/..., German at /de/...; www answers /en and /de as its English and German homepages
+  // (200, 2026-11-01): here the 302 to /en/ and /de/
+  airdolomiti: { entry: { '/en': '/en/', '/de': '/de/' } },
 };
 
 const pairs = (value) => {

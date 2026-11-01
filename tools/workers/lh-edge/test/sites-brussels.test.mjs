@@ -123,8 +123,11 @@ test('brussels: entry paths: /, /be, /be/en and www\'s /xx/<ll> to a homepage (3
   // Austrian's host: its entries as before, none of Brussels'
   assert.equal((await get('https://austrian.example/')).headers.get('location'), '/at/en/homepage');
   assert.equal((await get('https://austrian.example/xx/en')).headers.get('location'), '/at/en/homepage');
-  assert.notEqual((await get('https://austrian.example/be/en')).status, 302);
-  assert.deepEqual(Object.keys(SITE_ENTRIES.austrian), ['/xx/en', '/xx/en/', '/at', '/at/']);
+  // be/fr is Brussels' root, not Austrian's (Austrian's own be/en root has its entry, brief 212)
+  assert.notEqual((await get('https://austrian.example/be/fr')).status, 302);
+  // Austrian's: its roots' (brief 212) and www's /xx/en, /at; no Brussels path
+  ['/xx/en', '/xx/en/', '/at', '/at/', '/at/en', '/at/en/'].forEach((p) => assert.ok(SITE_ENTRIES.austrian[p], p));
+  assert.equal(Object.keys(SITE_ENTRIES.austrian).some((p) => p.startsWith('/be/fr') || p.startsWith('/be/nl')), false);
 });
 
 test('brussels: market roots from their language document where the markets row lists them', async () => {

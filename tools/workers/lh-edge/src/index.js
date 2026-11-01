@@ -50,7 +50,11 @@ import { referrerRefusal } from './referrer.js';
 import { frontDoorOf, frontDoorTarget, withPublicHost } from './front-door.js';
 import { headUrlHost, rewriteHeadUrls } from './head-urls.js';
 import { rewriteBrandIcons } from './brand-icons.js';
-import { urlForm, urlFormUnlessPage, isLongPagePath } from './url-forms.js';
+import {
+  urlForm, urlFormUnlessPage, isLongPagePath, brandLongPathTarget,
+} from './url-forms.js';
+/* eslint-disable-next-line import/no-relative-packages */
+import { BRANDS } from '../../../../scripts/brands.js';
 import {
   onetrust, isOnetrustPath, fonts, isFontsPath, withGeoCookie,
 } from './onetrust.js';
@@ -383,6 +387,19 @@ async function siteRespond(incoming, env, site, ctx) {
     }
     return finish(await passThrough(incoming, senv), incoming, senv, 'site');
   }
+  const brand = BRANDS[site.name] || {};
+  // www's long AEM paths of the brand (/content/aua/markets/at/en/login.html): 301 to the short
+  // path, as /content/lh/markets/... on lh-com's hosts
+  const long = read && brandLongPathTarget(url, brand.aemContent);
+  if (long) {
+    return finish(new Response(null, { status: 301, headers: { location: long, 'cache-control': 'public, max-age=3600', 'x-lh-edge-route': 'url-form' } }), incoming, senv, 'url-form');
+  }
+  // a brand whose tenant lh-backends has (scripts/brands.js backends): the sign-in return and
+  // lh-backends' paths as on lh-com's hosts, the request (its host) unchanged: lh-backends picks
+  // the brand from the host or X-Portal. lh-edge's own four API answers (Lufthansa's) are not
+  // routed here (isBackendsPath leaves them out)
+  if (brand.backends && isLoginReturn(url, incoming)) return finish(await backends(incoming, env), incoming, senv, 'login-return');
+  if (brand.backends && isBackendsPath(url.pathname)) return finish(await backends(incoming, env), incoming, senv, 'backends');
   // www's DAM URLs: lh-com's DAM route with the site's origin (its DA copies), then AEM
   if (isDamPath(url.pathname)) return finish(await dam(incoming, senv, ctx), incoming, senv, 'dam');
   // / to the first language version's homepage, the site's other entry paths (SITE_ENTRIES) as

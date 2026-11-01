@@ -152,8 +152,8 @@ Austrian Airlines (`austrian`, DA `moved-permanently/lh-austrian`): the ten refe
 ru/ru, cn/zh, es/es, gr/el, jp/ja, pl/pl hold the language documents; 54 market roots (48 English, ch/de, de/de, ca/fr,
 ch/fr, ch/it, by/ru) get them where the document's `markets` row lists the root and hold their own homepage, nav,
 footer and own pages (www's sitemaps name 73 roots: the nine xx homepages that answer 404 on www and the roots only
-hreflang links name are none). Entry paths besides `/` (`SITE_ENTRIES` in `src/sites.js`, 302 as on www): `/xx/en`
-and `/at` (www: a 404) to `/at/en/homepage`. Its fonts (`/digitalhangar/`) come from www.lufthansa.com, which has the
+hreflang links name are none). Entry paths besides `/` (`SITE_ENTRIES` in `src/sites.js`, 302 as on www): its roots' (below),
+and `/xx/en` and `/at` (www: a 404) to `/at/en/homepage`. Its fonts (`/digitalhangar/`) come from www.lufthansa.com, which has the
 same design-system release with `fonts/austrian/` (www.austrian.com refuses plain requests).
 
 Brussels Airlines (`brussels`, DA `moved-permanently/lh-brussels`): the six reference roots be/en, be/fr, be/nl, de/de,
@@ -163,13 +163,28 @@ and hold their own homepage, nav and footer (no xx roots: www sends `/xx/<ll>/*`
 (`/be`: be/en), `/xx` and `/xx/en`, `/xx/fr`, `/xx/nl` to the be homepages. Its fonts (Intelo, `fonts/brussels/`)
 come from www.lufthansa.com's same design-system release.
 
+Every site with roots (brief 212): `SITE_ENTRIES` holds every root of `BRAND_SITES` (scripts/brands.js, no list here):
+`/<cc>/<ll>` and `/<cc>/<ll>/` to the root's homepage, `/<cc>` and `/<cc>/` to the country's first root's, as www
+does (www.ita-airways.com `/it/en` -> `/it/en/homepage`); a site's aliases and extra paths on top (Brussels' `xx`,
+Austrian's `/xx/en`, `/at`).
+
+A brand whose tenant lh-backends has (`backends` in scripts/brands.js: Austrian, Discover, ITA; not Brussels yet) gets
+lh-backends' paths (`isBackendsPath`: `/deeplink/*`, `/apps/dcep/deeplink/*`, `/sso/*`, `/loginservice`, `/seatmap/*`,
+`/_lh-backends/*`, `/service/secured/api/*`) and the sign-in return (`/` or `/<cc>/<ll>/…` with `code` and `state`) on its
+host, as lufthansa.turnsthe.page: the request goes to the binding unchanged, its host too (lh-backends picks the brand
+from the host or from `X-Portal`; a rewritten host would make it Lufthansa). lh-edge's own four answers under
+`/service/secured/api/` (search, defaultairport, bookinglist, loginPageUrl) are Lufthansa's and stay off the brand hosts
+(their origin's 404). www's long AEM paths of the brand (`aemContent` in scripts/brands.js: `/content/aua/…`,
+`/content/four_y/…`, `/content/ita/…` + `/markets/<cc>/<ll>/<page>[.html]`) answer a 301 to the short path, as
+`/content/lh/markets/…` on lh-com's hosts ("URL forms"; until the brand's page exists the 301 lands on a 404).
+
 Sites without `<cc>/<ll>` roots (`PLAIN_SITES` in `src/sites.js`, brief 162) have no locale table and no market
 route: every path passes through to the site's origin as it is (the site's `/redirects` sheet answers there), only the
 site's `entry` paths redirect (302, `cache-control: max-age=60`). OneTrust and the immutable fonts as on every host.
 Lufthansa Cargo (`cargo`, DA `moved-permanently/lh-cargo`, www.lufthansa-cargo.com): `/`, `/en`, `/en/` to `/en/home`,
 `/de`, `/de/` to `/de/home` (the source redirects `/` to `/en/home` and serves the homepage at `/en/` and `/de/`).
 Air Dolomiti (`airdolomiti`, DA `moved-permanently/lh-airdolomiti`, www.airdolomiti.it): Italian at `/`, English at
-`/en/...`, German at `/de/...`, no redirects.
+`/en/...`, German at `/de/...`; `/en` and `/de` (www: its English and German homepages, 200) to `/en/` and `/de/`.
 
 `/digitalhangar/*` (www's design-system files, the brand fonts) on a site's host comes from its `SITE_DESIGN_HOSTS`
 host; a site without one gets its origin's answer (Air Dolomiti, until its theme brings its own fonts: 404). Cargo's is
@@ -368,7 +383,8 @@ The copies are served from `ORIGIN` (aem.live): a copy answers once it is publis
 
 ## lh-backends (`src/backends.js`)
 
-www answers a set of server endpoints that are not pages: REST calls of its own front end, partner and app deeplinks, the Travel ID return and logout, Amadeus' late login, the seat map. Another Worker, lh-backends, answers them for the replica; lh-edge hands them over unchanged through the service binding `BACKENDS` (method, path, query, headers and body, any method) and returns its answer as it is, `Set-Cookie` included and nothing cached here. The `backends` route comes after every route of lh-edge, so the endpoints lh-edge answers itself (search, default airport, booking list, login link, the Good for Train kiosk) stay here; the login return (`/` or a page with `code` and a page path in `state`) is checked before the entry redirects. Without the binding: 503 `{"error":"backends-not-bound"}`. The same binding answers the synced Frontify brand assets first (`/content/dam/<tenant>/(images|videos)/frontify/...`, see "DAM URLs").
+www answers a set of server endpoints that are not pages: REST calls of its own front end, partner and app deeplinks, the Travel ID return and logout, Amadeus' late login, the seat map. Another Worker, lh-backends, answers them for the replica; lh-edge hands them over unchanged through the service binding `BACKENDS` (method, path, query, headers and body, any method) and returns its answer as it is, `Set-Cookie` included and nothing cached here. The `backends` route comes after every route of lh-edge, so the endpoints lh-edge answers itself (search, default airport, booking list, login link, the Good for Train kiosk) stay here; the login return (`/` or a page with `code` and a page path in `state`) is checked before the entry redirects. The brand hosts
+with a tenant in lh-backends get the same routes ("Other sites"). Without the binding: 503 `{"error":"backends-not-bound"}`. The same binding answers the synced Frontify brand assets first (`/content/dam/<tenant>/(images|videos)/frontify/...`, see "DAM URLs").
 
 ## Entry redirects (`src/entry.js`)
 

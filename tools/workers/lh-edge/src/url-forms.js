@@ -30,12 +30,17 @@ import { originFetch } from './edge.js';
 const EXCLUDED = /^\/(blocks|scripts|styles|icons|fonts|tools|library|drafts|service|deeplink|graphql|api|etc|sitemap[^/]*|\.well-known|migration-status[^/]*|_lh-auth|_lh|_lh-backends|sso|apps|loginservice|seatmap|cdn-cgi|content\/(dam|mobile|experience-fragments))(\/|$)/i;
 const LONG = /^\/content\/lh\/markets\/([a-z]{2})\/([a-z]{2})(\/.*)?$/i;
 const SHORT = /^\/([a-z]{2})\/([a-z]{2})(\/.*)?$/i;
+// another AEM content root's long paths (a brand's: /content/aua/markets/<cc>/<ll>/...)
+const longOf = (root) => (root === 'lh' ? LONG : new RegExp(`^/content/${root}/markets/([a-z]{2})/([a-z]{2})(/.*)?$`, 'i'));
 
-/** The page URL of another spelling (path and query), or null when the path is none. */
-export function urlFormTarget(url) {
+/**
+ * The page URL of another spelling (path and query), or null when the path is none. root: the AEM
+ * content root of the long paths (lh-com: lh).
+ */
+export function urlFormTarget(url, root = 'lh') {
   const { pathname, search } = url;
   if (EXCLUDED.test(pathname)) return null;
-  const long = pathname.match(LONG);
+  const long = pathname.match(longOf(root));
   const m = long || pathname.match(SHORT);
   if (!m || !COUNTRIES.has(m[1].toLowerCase())) return null;
   let [, cc, ll, rest = ''] = m;
@@ -59,6 +64,16 @@ export function urlFormTarget(url) {
   ll = ll.toLowerCase();
   const target = `/${cc}/${ll}${rest}`;
   return target === pathname ? null : `${target}${search}`;
+}
+
+/**
+ * A brand host's long AEM path (/content/<root>/markets/<cc>/<ll>/<page>[.html]): the short path
+ * it redirects to (301, query kept), else null. Only the long paths: the brand hosts have none of
+ * lh-com's other URL forms.
+ */
+export function brandLongPathTarget(url, root) {
+  if (!root || !/^[a-z0-9_]+$/.test(root) || !longOf(root).test(url.pathname)) return null;
+  return urlFormTarget(url, root);
 }
 
 /**

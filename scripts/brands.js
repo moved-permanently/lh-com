@@ -38,7 +38,10 @@
  * brands' favicons and manifests: scripts/brand-icons.js. The languages of the sites without
  * <cc>/<ll> roots (Cargo, Air Dolomiti): scripts/site-languages.js. accessibility: the header's
  * accessibility settings (text size and contrast as www.airdolomiti.it's,
- * scripts/accessibility.js); the other brands render nothing of them.
+ * scripts/accessibility.js); the other brands render nothing of them. backends: lh-backends (the
+ * backend Worker) has the brand's tenant, so lh-edge sends its host's deeplink, sign-in, booking
+ * and check-in paths there (tools/workers/lh-edge, brief 212); aemContent: the root of www's AEM
+ * paths (/content/<aemContent>/markets/<cc>/<ll>/...), which lh-edge redirects to the short path.
  */
 export const BRANDS = {
   discover: {
@@ -51,6 +54,8 @@ export const BRANDS = {
     messageCenter: 'four_y',
     destinationImages: '/content/dam/four_y/images/offers/destination',
     www: 'www.discover-airlines.com',
+    backends: true,
+    aemContent: 'four_y',
     portal: 'FOUR_Y',
     hub: 'FRA',
     airline: '4Y',
@@ -69,6 +74,8 @@ export const BRANDS = {
     messageCenter: 'ita',
     destinationImages: '/content/dam/ita/images/offers/destination',
     www: 'www.ita-airways.com',
+    backends: true,
+    aemContent: 'ita',
     portal: 'ITA',
     hub: 'ROM',
     airline: 'AZ',
@@ -95,6 +102,8 @@ export const BRANDS = {
     // its /service/api answers our hosts cross-origin (Access-Control-Allow-Origin *, checked
     // 2026-11-01): the check-in deadline search calls it
     serviceOrigin: 'www.austrian.com',
+    backends: true,
+    aemContent: 'aua',
     // www.austrian.com's snapshots (2026-10-30): its pages' meta X-Portal OS, the at roots' origin
     // Vienna, the flight status' selected airline OS; the banner's links: each own root's footer
     // (Datenschutz, Imprint) and the Cookie Policy its data protection page links

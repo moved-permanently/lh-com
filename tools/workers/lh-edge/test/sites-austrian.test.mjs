@@ -128,9 +128,10 @@ test('austrian: entry paths: /, /xx/en and /at to /at/en/homepage (302); xx/en\'
   });
   assert.equal((await get('https://austrian.example/xx/en?x=1')).headers.get('location'), '/at/en/homepage?x=1');
   assert.match(await (await get('https://austrian.example/xx/en/homepage')).text(), /xx\/en own homepage/);
-  // ITA's host: its / as before, no Austrian entry path
+  // ITA's host: its / as before, no Austrian entry path: /xx/en is ITA's own root (brief 212:
+  // every root's entry redirect)
   assert.equal((await worker.fetch(new Request('https://ita.example/'), env(), { waitUntil() {} })).headers.get('location'), '/it/en/homepage');
-  assert.notEqual((await worker.fetch(new Request('https://ita.example/xx/en'), env(), { waitUntil() {} })).status, 302);
+  assert.equal((await worker.fetch(new Request('https://ita.example/xx/en'), env(), { waitUntil() {} })).headers.get('location'), '/xx/en/homepage');
 });
 
 test('austrian: a market root from its language document where the markets row lists the root', async () => {
