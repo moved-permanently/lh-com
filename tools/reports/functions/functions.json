@@ -1,6 +1,6 @@
 {
   "updated": "2026-11-01",
-  "change": "First version generated from git. Since the first canvas: Lufthansa's chat assistant is covered elsewhere, because it doesn't run on AEM; Air Dolomiti's chat needs Air Dolomiti; the notes cover the shared code and the live tests of 1 November.",
+  "change": "Cargo's newsletter now needs Lufthansa Cargo: its Microsoft Dynamics form accepts sign-ups only from Cargo's own website, so ours links there until Cargo allows our address. The services behind manage booking, check-in and sign-in for Discover, ITA and Austrian already answer with test data.",
   "legend": {
     "done": {
       "label": "works on our replica",
@@ -36,12 +36,13 @@
     "picker": "The picker for adults, children, infants and cabin is in the shared code since 1 November. Each brand's pages still have to switch it on; until then the search sends the travellers and cabin set on the page.",
     "status": "Since 1 November the flight status form passes a search on in the parameters the airline's status page reads, and posts it to Air Dolomiti's own engine. The four brands on Lufthansa's AEM count as working after a check on each replica; Air Dolomiti's pages still need the form.",
     "lhbooking": "Lufthansa's manage booking and hotel tabs hand over to two services that run in AEM today. Their replacements already answer on lufthansa.turnsthe.page with test data; next, the tabs post to them.",
-    "signin": "On Discover, ITA and Austrian, manage booking and sign-in end on login and profile pages that AEM serves today. We're building those pages on the new platform; until then the replicas link to the airline's current pages.",
+    "signin": "On Discover, ITA and Austrian, manage booking and sign-in end on login and profile pages that AEM serves today. We're building those pages on the new platform, and the services behind them already answer with test data; until the airlines' addresses route to them, the replicas link to the airline's current pages.",
     "lhpages": "Five Lufthansa pages with these functions aren't on the replica yet: check-in deadlines, security waiting times, the compensation claim, the newsletter and eJournals. They come next. The two airport searches get blocks of their own, and Lufthansa's live data for them answers our addresses. Until then our pages link to www.",
     "travelidapps": "The help center and culinary hub apps are in the shared code and load on our pages, but their data comes from the airline's Travel ID service, which refuses our test addresses. They work once the site runs on the airline's own address, or once Lufthansa allows ours.",
     "adown": "Switching off Air Dolomiti's current website is a goal, so its timetable, manage booking, newsletter and eSIM pages get versions of their own. Its booking service answers our addresses, so timetable and manage booking can work as on www; the newsletter becomes a form on our own forms service.",
     "cargostays": "Cargo's booking, schedules, customer portal, station finder and eServices stay on Cargo's current systems; the new site links to them.",
     "cargomoves": "Cargo's public pages move completely: contact forms, notifications, help and contact search, the newsletter page and the tracking entry form get versions on the new platform.",
+    "cargonews": "Cargo's newsletter form loads from Lufthansa Cargo's Microsoft Dynamics, which takes sign-ups only from sites Cargo allows. Lufthansa Cargo has to allow our address for form hosting in its Dynamics settings; until then the embed stays off and the page links to Cargo's own newsletter page.",
     "oschat": "Austrian's chat assistant is loaded from Austrian's website, outside AEM, and it worked on our address in a test. The chat button is switched on for Austrian only after a check on its preview.",
     "adchat": "Air Dolomiti's chat assistant is built into the replica, but its switch stays off: the chat vendor sends no chat to our address until Air Dolomiti or the vendor adds a rule for it.",
     "travelid": "Personal content for signed-in customers needs Lufthansa: Travel ID, the group's login, accepts only the airline's own website as the address to return to and as the site allowed to call it. The replicas can't sign anyone in until they run on the airline's address, or Lufthansa allows ours."
@@ -245,18 +246,18 @@
           "status": "elsewhere",
           "note": "The form opens Discover's check-in app, which stays after the switch; travellers type their booking code again in the app.",
           "page": "/de/en/my-bookings/check-in/online-check-in",
-          "evidence": "functions scan 2026-10-31: Submit URL once.discover-airlines.com TENANT=4Y"
+          "evidence": "functions scan 2026-10-31: Submit URL once.discover-airlines.com TENANT=4Y ; backend Worker 2026-11-01: AEM has no online check-in provider for Discover, so the link stays"
         },
         "ita": {
           "status": "wip",
-          "note": "ITA's check-in form asks a service in AEM where to send the traveller; ours opens www's page instead, and will post to the replacement service on ITA's own address.",
-          "evidence": "M1 2026-11-01: www posts to an AEM endpoint that returns the target; ours opens www's page"
+          "note": "ITA's check-in form asks a service in AEM where to send the traveller; its replacement already answers with test data, and until ITA's address routes to it, ours opens www's page.",
+          "evidence": "M1 2026-11-01: www posts to an AEM endpoint that returns the target; ours opens www's page ; backend Worker 2026-11-01 ~02:00: the ITA check-in route answers on test data and hands off to the group check-in system; not routed on ita.turnsthe.page yet"
         },
         "austrian": {
           "status": "elsewhere",
           "note": "The form opens Austrian's check-in app, which stays after the switch; travellers type their booking code again in the app.",
           "page": "/at/en/online-check-in",
-          "evidence": "functions scan 2026-10-31: /at/en/online-check-in links once.austrian.com"
+          "evidence": "functions scan 2026-10-31: /at/en/online-check-in links once.austrian.com ; backend Worker 2026-11-01 ~02:00: an Austrian check-in hand-off route exists (group check-in system, via the airline host) although our scan saw the page link once.austrian.com; status kept, see report"
         },
         "cargo": {
           "status": "none",
@@ -286,20 +287,20 @@
           "note": "\"Edit booking\" leads through a deep link to Discover's login page, which AEM serves today; we build that page on the new platform.",
           "footnote": "signin",
           "page": "/de/en/my-bookings/manage",
-          "evidence": "fill check 2026-11-01: /deeplink/cockpit ends on /content/four_y/.../profile/login; M2 app shell plan"
+          "evidence": "fill check 2026-11-01: /deeplink/cockpit ends on /content/four_y/.../profile/login; M2 app shell plan ; backend Worker 2026-11-01 ~02:00: booking, check-in, deeplink and sign-in routes answer per brand (Austrian, Discover, ITA) on test data; lh-edge does not route them on the brand hosts yet"
         },
         "ita": {
           "status": "wip",
           "note": "Manage booking ends on ITA's login page, which AEM serves today; we build that page, and until then the replica links to ITA's current one.",
           "footnote": "signin",
           "page": "/it/en/manage-my-bookings",
-          "evidence": "functions scan 2026-10-31; M2 app shell plan"
+          "evidence": "functions scan 2026-10-31; M2 app shell plan ; backend Worker 2026-11-01 ~02:00: booking, check-in, deeplink and sign-in routes answer per brand (Austrian, Discover, ITA) on test data; lh-edge does not route them on the brand hosts yet"
         },
         "austrian": {
           "status": "wip",
           "note": "\"Manage bookings\" ends on Austrian's login page, which AEM serves today; we build that page, and until then the replica links to it on www.",
           "footnote": "signin",
-          "evidence": "fill check 2026-11-01: nav links www /at/en/login; M2 app shell plan"
+          "evidence": "fill check 2026-11-01: nav links www /at/en/login; M2 app shell plan ; backend Worker 2026-11-01 ~02:00: booking, check-in, deeplink and sign-in routes answer per brand (Austrian, Discover, ITA) on test data; lh-edge does not route them on the brand hosts yet"
         },
         "cargo": {
           "status": "see",
@@ -373,17 +374,17 @@
         "discover": {
           "status": "none",
           "note": "Discover's flight search has no hotel tab.",
-          "evidence": "fill check 2026-11-01"
+          "evidence": "fill check 2026-11-01 ; backend Worker 2026-11-01: AEM has no hotel search for this brand (Lufthansa only)"
         },
         "ita": {
           "status": "none",
           "note": "ITA's flight search has no hotel tab; a partner page links to Booking.com.",
-          "evidence": "fill check 2026-11-01"
+          "evidence": "fill check 2026-11-01 ; backend Worker 2026-11-01: AEM has no hotel search for this brand (Lufthansa only)"
         },
         "austrian": {
           "status": "none",
           "note": "Austrian's flight search has no hotel tab; the menu links to Booking.com.",
-          "evidence": "fill check 2026-11-01"
+          "evidence": "fill check 2026-11-01 ; backend Worker 2026-11-01: AEM has no hotel search for this brand (Lufthansa only)"
         },
         "cargo": {
           "status": "none",
@@ -1341,11 +1342,11 @@
           "evidence": "fill check 2026-11-01"
         },
         "cargo": {
-          "status": "wip",
-          "note": "Cargo's newsletter page is on the replica with a link to the form on Cargo's site; the form itself loads on our address and is switched on after a check.",
-          "footnote": "cargomoves",
+          "status": "lh",
+          "note": "Cargo's sign-up form comes from Cargo's Microsoft Dynamics, which accepts sign-ups only from addresses Cargo allows; until Lufthansa Cargo adds ours, the page links to Cargo's own newsletter page.",
+          "footnote": "cargonews",
           "page": "/en/ci/newsletter",
-          "evidence": "M1 2026-11-01: Dynamics form renders on our host; submit not tested"
+          "evidence": "M1 2026-11-01: Dynamics form renders on our host; Cargo newsletter test 2026-11-01 01:47-02:06: CORS preflight from cargo.turnsthe.page answered without allow-origin on visits and submit, loader shows 'domain hasn't been allowed for external form hosting', no mail; only www.lufthansa-cargo.com allowed; decision 2026-11-01: embeds that need an outside change stay off"
         },
         "airdolomiti": {
           "status": "wip",
@@ -1371,19 +1372,19 @@
           "status": "wip",
           "note": "Discover's login and travel cockpit pages are served by AEM today; we build them on the new platform, and the replica links to www until then.",
           "footnote": "signin",
-          "evidence": "M2 app shell plan"
+          "evidence": "M2 app shell plan ; backend Worker 2026-11-01 ~02:00: booking, check-in, deeplink and sign-in routes answer per brand (Austrian, Discover, ITA) on test data; lh-edge does not route them on the brand hosts yet"
         },
         "ita": {
           "status": "wip",
           "note": "ITA's login pages are served by AEM today; we build them on the new platform.",
           "footnote": "signin",
-          "evidence": "M2 app shell plan"
+          "evidence": "M2 app shell plan ; backend Worker 2026-11-01 ~02:00: booking, check-in, deeplink and sign-in routes answer per brand (Austrian, Discover, ITA) on test data; lh-edge does not route them on the brand hosts yet"
         },
         "austrian": {
           "status": "wip",
           "note": "Austrian's login page is served by AEM today; we build it on the new platform.",
           "footnote": "signin",
-          "evidence": "M2 app shell plan"
+          "evidence": "M2 app shell plan ; backend Worker 2026-11-01 ~02:00: booking, check-in, deeplink and sign-in routes answer per brand (Austrian, Discover, ITA) on test data; lh-edge does not route them on the brand hosts yet"
         },
         "cargo": {
           "status": "stays",
