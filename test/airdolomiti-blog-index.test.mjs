@@ -90,14 +90,15 @@ test('helix-query.yaml: the posts index appended, every other index as before', 
   assert.equal(ad.properties.title.select, 'main .article-header h1');
   assert.equal(ad.properties.category.select, 'head > meta[name="category"]');
   const before = yaml.load(execFileSync('git', ['show', 'HEAD:helix-query.yaml'], { encoding: 'utf8' })).indices;
-  Object.keys(before).filter((k) => k !== 'articles-airdolomiti-it').forEach((k) => {
+  Object.keys(before).filter((k) => !k.startsWith('articles-airdolomiti-')).forEach((k) => {
     assert.equal(JSON.stringify(now[k]), JSON.stringify(before[k]), k);
   });
-  assert.equal(Object.keys(now).pop(), 'articles-airdolomiti-it', 'appended at the end');
+  // appended at the end (the English posts' index after it: test/airdolomiti-blog-index-en)
+  assert.ok(Object.keys(now).slice(-2).includes('articles-airdolomiti-it'), 'appended at the end');
 });
 
 test('loadArticles: a brand\'s own index (every row a post); lufthansa.com\'s as before', async () => {
-  assert.deepEqual(BRANDS.airdolomiti.articleIndex, { it: '/articoli/query-index.json' });
+  assert.equal(BRANDS.airdolomiti.articleIndex.it, '/articoli/query-index.json');
   const posts = await loadArticles({ key: 'de/en', lang: 'it' }, BRANDS.airdolomiti);
   assert.deepEqual(posts.map((p) => p.path), ['/articoli/destinazioni/verona', '/articoli/avgeek/i-flap', '/articoli/didyouknow/x'], 'newest first');
   assert.deepEqual(posts.map((p) => [p.category, p.categoryName]), [['destinazioni', 'Destinazioni'], ['avgeek', 'AvGeek'], ['#didyouknow', '#DidYouKnow']]);
@@ -107,7 +108,7 @@ test('loadArticles: a brand\'s own index (every row a post); lufthansa.com\'s as
   assert.ok(calls.some((c) => c.startsWith('/de/en/articles/query-index.json')));
   // a brand language without an index: lufthansa.com's way (the locale's index)
   calls = [];
-  await loadArticles({ key: 'de/en', lang: 'en' }, BRANDS.airdolomiti);
+  await loadArticles({ key: 'de/en', lang: 'de' }, BRANDS.airdolomiti);
   assert.ok(calls.every((c) => !c.startsWith('/articoli/')));
 });
 
