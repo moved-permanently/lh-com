@@ -8,6 +8,7 @@ import { createAirportCombobox } from '../../scripts/airport-combobox.js';
 import { searchAirportsWithSource, resolveOrigin } from '../../scripts/lh-api.js';
 import { markSource } from '../../scripts/lh-data.js';
 import { isHandoffUrl, submitShopHandoff } from '../../scripts/shop-handoff.js';
+import { isAirdolomitiFormat, airdolomitiBuilders } from './airdolomiti-status.js';
 
 /* ---------------------------------------------------------------------------------------------
  * Data contract. Request building, response mapping and the hand-off URL live here so a
@@ -585,7 +586,10 @@ export default async function decorate(block) {
   // authored airport, else the market default airport (defaultAirport), else the home airport
   const authoredAirport = parseAirportCode(airportValue)
     ? { code: parseAirportCode(airportValue), name: parseAirportName(airportValue) } : null;
-  const resolved = await resolveOrigin(authoredAirport, locale);
+  // Air Dolomiti's format (rows Submit method post and Format airdolomiti, its brand): route and
+  // airport from its own API (airdolomiti-status.js), no lufthansa.com airport lookup
+  const adFormat = isAirdolomitiFormat(text, brandEntry());
+  const resolved = adFormat ? {} : await resolveOrigin(authoredAirport, locale);
   const home = { code: resolved.code, name: resolved.name };
 
   // the POST mode's rows (Air Dolomiti's engine); without them the GET link as before
@@ -711,6 +715,12 @@ export default async function decorate(block) {
       return form;
     },
   };
+
+  if (adFormat) {
+    Object.assign(builders, airdolomitiBuilders({
+      id, config, dateField, makeSubmit,
+    }));
+  }
 
   const panels = tabs.map((tab) => {
     const panel = el('div', `flight-status-panel flight-status-panel-${tab.key}`);

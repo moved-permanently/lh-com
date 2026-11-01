@@ -325,3 +325,141 @@ main > .section.flight-status-container + .section {
     padding-top: 40px;
   }
 }
+
+/* Air Dolomiti's route and airport searches (airdolomiti-status.js): its airport selects, the swap
+   button, and www's result cards below the form (white cards with a soft shadow: the cities and
+   codes, a plane between them, the flight number and a teal chevron) */
+.flight-status .flight-status-ad-airport select.flight-status-select {
+  width: 100%;
+}
+
+.flight-status .flight-status-ad-airport.is-invalid select {
+  border-color: #c00;
+}
+
+.flight-status .flight-status-swap {
+  align-self: end;
+  width: 40px;
+  height: 40px;
+  margin: 0 0 8px;
+  padding: 0;
+  border: 0;
+  background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2300798A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 4 3 8l4 4M3 8h14M17 20l4-4-4-4M21 16H7'/%3E%3C/svg%3E") no-repeat center;
+  cursor: pointer;
+}
+
+.flight-status .flight-status-results {
+  margin-top: 24px;
+}
+
+.flight-status .flight-status-results:empty {
+  display: none;
+}
+
+.flight-status .flight-status-results-heading {
+  margin: 0 0 20px;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.flight-status .flight-status-result-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 712px;
+}
+
+.flight-status .flight-status-result {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  padding: 20px;
+  border: 0;
+  border-radius: 6px;
+  background: #fff;
+  box-shadow: 0 4px 20px rgb(0 0 0 / 8%);
+  color: var(--text-color, #002e54);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.flight-status .flight-status-result:hover,
+.flight-status .flight-status-result:focus-visible {
+  box-shadow: 0 4px 20px rgb(0 0 0 / 16%);
+}
+
+.flight-status .flight-status-result[aria-busy='true'] {
+  opacity: 0.6;
+}
+
+.flight-status .flight-status-result-route {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.flight-status .flight-status-result-end {
+  display: flex;
+  flex-direction: column;
+}
+
+.flight-status .flight-status-result-city,
+.flight-status .flight-status-result-label {
+  font-size: 12px;
+}
+
+.flight-status .flight-status-result-code,
+.flight-status .flight-status-result-flight {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.flight-status .flight-status-result-plane {
+  width: 24px;
+  height: 24px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2300a0b0' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 22h20M6.4 17.4 3 14l2-1 3 1 4-3-6-5 2-1 8 3 3-1.5a2 2 0 0 1 2 3.4L7 17.6a2 2 0 0 1-.6-.2Z'/%3E%3C/svg%3E") no-repeat center / contain;
+}
+
+.flight-status .flight-status-result-number {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.flight-status .flight-status-result-number::after {
+  content: '';
+  align-self: center;
+  width: 24px;
+  height: 24px;
+  margin-left: auto;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M3 2h8l10 10-10 10H3l10-10Z' fill='%2300a0b0'/%3E%3C/svg%3E") no-repeat center / contain;
+}
+
+@media (width >= 900px) {
+  .flight-status .flight-status-result {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .flight-status .flight-status-result-route {
+    flex: 0 1 300px;
+  }
+
+  .flight-status .flight-status-result-number {
+    flex-direction: column;
+    gap: 2px;
+    padding-right: 48px;
+    position: relative;
+  }
+
+  .flight-status .flight-status-result-number::after {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+  }
+}

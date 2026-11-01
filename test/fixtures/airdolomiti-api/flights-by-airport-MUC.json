@@ -1,0 +1,80 @@
+{
+ "departure": {
+  "method": "GET",
+  "url": "https://api.airdolomiti.it/v1/flights/by-airport/MUC?date=01/11/2026&type=departure",
+  "headers": {
+   "accept-language": "it",
+   "content-type": "application/json"
+  },
+  "body": null,
+  "status": 200,
+  "answer": [
+   {
+    "date": "2026-11-01T00:00:00",
+    "flight_number": "2170",
+    "airline_code": "EN",
+    "airport_from_iata_code": "MUC",
+    "airport_from": "Monaco",
+    "airport_to_iata_code": "BLQ",
+    "airport_to": "Bologna"
+   },
+   {
+    "date": "2026-11-01T00:00:00",
+    "flight_number": "1932",
+    "airline_code": "EN",
+    "airport_from_iata_code": "MUC",
+    "airport_from": "Monaco",
+    "airport_to_iata_code": "FLR",
+    "airport_to": "Firenze"
+   },
+   {
+    "date": "2026-11-01T00:00:00",
+    "flight_number": "2340",
+    "airline_code": "EN",
+    "airport_from_iata_code": "MUC",
+    "airport_from": "Monaco",
+    "airport_to_iata_code": "GRZ",
+    "airport_to": "Graz"
+   },
+   {
+    "date": "2026-11-01T00:00:00",
+    "flight_number": "2382",
+    "airline_code": "EN",
+    "airport_from_iata_code": "MUC",
+    "airport_from": "Monaco",
+    "airport_to_iata_code": "GVA",
+    "airport_to": "Ginevra"
+   }
+  ]
+ },
+ "destination": {
+  "method": "GET",
+  "url": "https://api.airdolomiti.it/v1/flights/by-airport/MUC?date=01/11/2026&type=destination",
+  "headers": {
+   "accept-language": "de",
+   "content-type": "application/json"
+  },
+  "body": null,
+  "status": 200,
+  "answer": [
+   {
+    "date": "2026-11-01T00:00:00",
+    "flight_number": "1861",
+    "airline_code": "EN",
+    "airport_from_iata_code": "MXP",
+    "airport_from": "Malpensa",
+    "airport_to_iata_code": "MUC",
+    "airport_to": "Monaco"
+   },
+   {
+    "date": "2026-11-01T00:00:00",
+    "flight_number": "2161",
+    "airline_code": "EN",
+    "airport_from_iata_code": "VRN",
+    "airport_from": "Verona",
+    "airport_to_iata_code": "MUC",
+    "airport_to": "Monaco"
+   }
+  ]
+ }
+}

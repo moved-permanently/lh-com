@@ -1,0 +1,42 @@
+{
+ "request": {
+  "method": "POST",
+  "url": "https://api.airdolomiti.it/v1/bookings/flight-status",
+  "headers": {
+   "accept-language": "it",
+   "content-type": "application/json"
+  },
+  "body": {
+   "flight_date": "01/11/2026",
+   "flight_number": "EN2156"
+  },
+  "status": 201,
+  "answer": {
+   "url": "https://digital.airdolomiti.it/booking/flight-status?lang=it-IT",
+   "payload": {
+    "airlineCode": "EN",
+    "flightNumber": "2156",
+    "departureDate": "2026-11-01"
+   }
+  }
+ },
+ "handoff": {
+  "action": "https://digital.airdolomiti.it/booking/flight-status?lang=it-IT&_gl=1*1p50nzm*_ga*ODYzMzEwMzc1LjE3OTM1MzgwMTE.*_ga_EF4BM4MYG1*czE3OTM1MzgwMTAkbzEkZzAkdDE3OTM1MzgwMTQkajYwJGwwJGgw",
+  "method": "post",
+  "target": "",
+  "fields": [
+   [
+    "airlineCode",
+    "EN"
+   ],
+   [
+    "flightNumber",
+    "2156"
+   ],
+   [
+    "departureDate",
+    "2026-11-01"
+   ]
+  ]
+ }
+}

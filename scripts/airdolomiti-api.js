@@ -151,3 +151,51 @@ export async function requestManage(q, lang, fetchImpl = fetch, now = new Date()
     },
   };
 }
+
+/* ---------- flight status (www.airdolomiti.it/stato-volo, recorded 2026-11-01) ---------- */
+
+const jsonHeaders = (lang) => ({ 'Content-Type': 'application/json', 'Accept-Language': lang });
+
+/** GET /flights/by-route/<ORIG>-<DEST>?date=dd/mm/yyyy: the route's flights that day. */
+export async function fetchFlightsByRoute(origin, destination, date, lang, fetchImpl = fetch) {
+  if (!CODE.test(origin) || !CODE.test(destination)) throw new Error('airport code expected');
+  const url = `${AD_API}/flights/by-route/${origin}-${destination}?date=${apiDate(date)}`;
+  return json(await fetchImpl(url, { headers: jsonHeaders(lang) }), 'flights by route');
+}
+
+/**
+ * GET /flights/by-airport/<CODE>?date=dd/mm/yyyy&type=departure|destination: an airport's
+ * departures or arrivals that day (www calls arrivals "destination").
+ */
+export async function fetchFlightsByAirport(code, date, direction, lang, fetchImpl = fetch) {
+  if (!CODE.test(code)) throw new Error('airport code expected');
+  const type = { departure: 'departure', arrival: 'destination' }[direction];
+  if (!type) throw new Error('direction departure or arrival expected');
+  const url = `${AD_API}/flights/by-airport/${code}?date=${apiDate(date)}&type=${type}`;
+  return json(await fetchImpl(url, { headers: jsonHeaders(lang) }), 'flights by airport');
+}
+
+/** The flight status request of one flight (EN2156, yyyy-mm-dd), as www posts it. */
+export function flightStatusRequest({ flightNumber, date }, lang) {
+  const number = String(flightNumber || '').replace(/\s+/g, '').toUpperCase();
+  if (!number) throw new Error('flight number expected');
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(date || '')) throw new Error('date expected');
+  return {
+    url: `${AD_API}/bookings/flight-status`,
+    init: {
+      method: 'POST',
+      headers: jsonHeaders(lang),
+      body: JSON.stringify({ flight_date: apiDate(date), flight_number: number }),
+    },
+  };
+}
+
+/** POSTs a flight's status request; the hand-off: its url, the payload's fields as they come. */
+export async function requestFlightStatus(q, lang, fetchImpl = fetch) {
+  const { url, init } = flightStatusRequest(q, lang);
+  const answer = await json(await fetchImpl(url, init), 'flight-status');
+  const action = engineUrl(answer);
+  const p = answer.payload;
+  if (!p || typeof p !== 'object') throw new Error('no payload in the answer');
+  return { action, fields: Object.fromEntries(Object.entries(p).map(([k, v]) => [k, String(v ?? '')])) };
+}

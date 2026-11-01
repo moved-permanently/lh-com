@@ -1,0 +1,30 @@
+{
+ "method": "GET",
+ "url": "https://api.airdolomiti.it/v1/flights/by-route/MUC-VRN?date=01/11/2026",
+ "headers": {
+  "accept-language": "it",
+  "content-type": "application/json"
+ },
+ "body": null,
+ "status": 200,
+ "answer": [
+  {
+   "date": "2026-11-01T00:00:00",
+   "flight_number": "2156",
+   "airline_code": "EN",
+   "airport_from_iata_code": "MUC",
+   "airport_from": "Monaco",
+   "airport_to_iata_code": "VRN",
+   "airport_to": "Verona"
+  },
+  {
+   "date": "2026-11-01T00:00:00",
+   "flight_number": "2160",
+   "airline_code": "EN",
+   "airport_from_iata_code": "MUC",
+   "airport_from": "Monaco",
+   "airport_to_iata_code": "VRN",
+   "airport_to": "Verona"
+  }
+ ]
+}
