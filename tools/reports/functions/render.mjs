@@ -31,13 +31,16 @@ const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ESC[c]);
 const slug = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 const blank = (s) => typeof s !== 'string' || !s.trim();
 const sup = (n) => [...String(n)].map((d) => SUP[d]).join('');
+const UPDATED = /^\d{4}-\d{2}-\d{2}( \d{2}:\d{2})?$/;
 const day = (iso) => {
-  const [y, m, d] = iso.split('-').map(Number);
-  return `${d} ${MONTHS[m - 1]} ${y}`;
+  const [date, time] = iso.split(' ');
+  const [y, m, d] = date.split('-').map(Number);
+  return time ? `${d} ${MONTHS[m - 1]} ${y}, ${time} CET` : `${d} ${MONTHS[m - 1]} ${y}`;
 };
 
 export function validate(doc) {
   const errors = [];
+  if (!UPDATED.test(doc.updated || '')) errors.push(`updated "${doc.updated}" is not YYYY-MM-DD or YYYY-MM-DD HH:MM`);
   const text = (where, value, field = 'note') => {
     if (blank(value)) errors.push(`${where}: no ${field}`);
     else if (ICON.test(value)) errors.push(`${where}: ${field} has icon syntax (:name:), which Edge Delivery turns into an icon`);

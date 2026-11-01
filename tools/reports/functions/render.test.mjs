@@ -125,6 +125,21 @@ test('validate: a note with :word: text, which Edge Delivery would turn into an 
   assert.match(validate(doc).join('\n'), /flight-search.*lufthansa.*icon syntax/);
 });
 
+test('validate: an updated value that is neither a date nor a date with a time', () => {
+  const doc = fixture();
+  doc.updated = '1 Nov';
+  assert.match(validate(doc).join('\n'), /updated "1 Nov" is not YYYY-MM-DD or YYYY-MM-DD HH:MM/);
+  doc.updated = '2026-11-02 00:15';
+  assert.deepEqual(validate(doc), []);
+});
+
+test('updated with a time: markdown, page and canvas show the time after the date', () => {
+  const doc = { ...fixture(), updated: '2026-11-02 00:15' };
+  assert.match(renderMarkdown(doc), /Updated 2 November 2026, 00:15 CET: Flight status moved\./);
+  assert.match(renderPage(doc), /Updated 2 November 2026, 00:15 CET: Flight status moved\./);
+  assert.match(renderCanvas(doc), /Updated 2 November 2026, 00:15 CET: Flight status moved\./);
+});
+
 test('check: a stale functions.md fails, a current one passes', () => {
   const doc = fixture();
   assert.deepEqual(check(doc, renderMarkdown(doc)), []);

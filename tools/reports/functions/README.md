@@ -13,7 +13,7 @@ Never edit the page in DA or the canvas in Slack: the next update overwrites bot
 
 ## functions.json
 
-- `updated` (YYYY-MM-DD) and `change`: the date and one or two sentences on what changed. Both show at the top of the page and
+- `updated` (YYYY-MM-DD, or YYYY-MM-DD HH:MM in CET, shown as "2 November 2026, 00:15 CET") and `change`: the date and one or two sentences on what changed. Both show at the top of the page and
   the canvas.
 - `legend`: label and note for each status.
 - `footnotes`: canvas notes by key, for the account team, 1-2 sentences. A cell points to one with `footnote`; the canvas
