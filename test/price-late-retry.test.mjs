@@ -161,12 +161,20 @@ test('destination finder slider: every attempt challenged, the late try fills th
   await advance(3000);
   assert.equal(el.dataset.lhSource, 'none');
   assert.equal(el.querySelectorAll('.destination-finder-price').length, 0);
-  await advance(priceBackoffMs(1) + 500);
-  assert.equal(finderCalls, 4);
+  // the late try is quiet: the list is not marked busy while it runs (its first attempt
+  // challenged, its retry 250 ms later answers)
+  plan = ['challenge'];
+  while (finderCalls < 4) {
+    // eslint-disable-next-line no-await-in-loop
+    await advance(100);
+  }
+  assert.equal(el.querySelector('.destination-finder-list').hasAttribute('aria-busy'), false, 'in flight, not busy');
+  await advance(2000);
+  assert.equal(finderCalls, 5);
   assert.equal(el.dataset.lhSource, 'live');
   assert.ok(el.querySelectorAll('.destination-finder-price').length >= 1);
   await advance(60000);
-  assert.equal(finderCalls, 4, 'nothing more');
+  assert.equal(finderCalls, 5, 'nothing more');
 });
 
 test('destination finder grid: every attempt challenged, the late try fills the grid', async () => {

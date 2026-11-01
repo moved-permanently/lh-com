@@ -1930,13 +1930,14 @@ async function decorateGrid(block, uid) {
     const { route } = destinationFinderOffersRequest(forQuery);
     lateTimer = setTimeout(() => {
       lateDone = true;
-      reload();
+      reload(true);
     }, priceRetryDelay([route]));
   };
-  reload = async () => {
+  // quiet: the late try (the grid stays as it is, not busy, until prices arrive)
+  reload = async (quiet = false) => {
     requestId += 1;
     const mine = requestId;
-    grid.setAttribute('aria-busy', 'true');
+    if (!quiet) grid.setAttribute('aria-busy', 'true');
     const forQuery = query();
     const result = await loadGridOffers(forQuery, locale);
     if (mine !== requestId) return;
@@ -2230,10 +2231,11 @@ export default async function decorate(block) {
   // newer one moves it; a live answer cancels it)
   let lateTimer = 0;
   let lateDone = false;
-  async function load() {
+  // quiet: the late try (the list stays as it is, not busy, until prices arrive)
+  async function load(quiet = false) {
     requestId += 1;
     const mine = requestId;
-    list.setAttribute('aria-busy', 'true');
+    if (!quiet) list.setAttribute('aria-busy', 'true');
     const [context, { destinations, source }] = await Promise.all([
       contextPromise, loadDestinations(state, locale),
     ]);
@@ -2243,7 +2245,7 @@ export default async function decorate(block) {
       const { route } = destinationFinderRequests(state, locale).offers;
       lateTimer = setTimeout(() => {
         lateDone = true;
-        load();
+        load(true);
       }, priceRetryDelay([route]));
     }
     markSource(block, { offers: source, ...context.sources }, ['offers']);
