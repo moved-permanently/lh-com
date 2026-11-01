@@ -1,6 +1,6 @@
-# translate.json against the localisation app (adobe/da-nx f0c63255)
+# translate.json against the localisation app (adobe/da-nx 69006f3b)
 
-2026-10-27T16:43:04.590Z
+2026-11-01T22:59:31.116Z
 
 All checks pass.
 
@@ -14,19 +14,24 @@ All checks pass.
 - OK   copy.conflict.behavior default: merge
 - OK   sync.conflict.behavior default: merge
 - OK   service: {"name":"Google","envs":{"prod":{"origin":"https://translate.da.live/google","link":"https://cloud.google.com/translate/docs/overview"}}}
-- OK   source.language.detect is not read at this commit (da-nx #793 + #870 open)
+- OK   source.language.detect is read and on (isSourceDetectEnabled, da-nx #793 + #870, release 1.29.1)
+- OK   /de/en URLs: source /de/en (resolveSourceLang), English Skip|Rollout, German Skip|Translate|Rollout
+- OK   /de/de URLs: source /de/de (resolveSourceLang)
+- OK   filterLangsBySource for /de/de: only German, with Skip and Rollout (Skip preselected)
+- OK   mixed /de/en and /de/de URLs: refused, the message names the URL to uncheck
+- OK   /de/de project, German Rollout -> rollout view (no Sync)
+- OK   German rollout of /de/de/kinder-an-bord reads /de/de/kinder-an-bord.html -> /at/de/kinder-an-bord.html (own German slugs roll out 1:1)
 - OK   English: Skip first (preselected), then Rollout; locale /gb/en
 - OK   German: Skip first (preselected), then Translate, Rollout; locale /at/de
 - OK   no waiting languages (no "source language" column)
 - OK   unique codes (options.js, rollout.js match languages by code)
 - OK   /de/en URLs, English rollout + German translate -> translate view first
 - OK   /de/en URLs, German rollout only -> rollout view
-- OK   a /de/de URL in a project -> sync view (it would be copied into /de/en: do not add such URLs today)
 - OK   translate /de/en/baggage -> /de/de/baggage.html
 - OK   translate /de/en/flight-search -> /de/de/flight-search.html (the slug step moves it to /de/de/flugsuche)
 - OK   English rollout /de/en/baggage -> /gb/en/baggage.html
 - OK   German rollout of /de/en/baggage reads /de/de/baggage.html -> /at/de/baggage.html
-- OK   German rollout of /de/en/flight-search reads /de/de/flight-search.html (not /de/de/flugsuche): own German slugs cannot be rolled out today
+- OK   German rollout in a /de/en project reads /de/de/<English path> (/de/de/flight-search.html, not /de/de/flugsuche): click /at/de off there, roll out German from a /de/de project
 - OK   rules on a poi-map table: tr/no/tr | no/tr | ROW | no/tr (expected tr/no/tr | no/tr | ROW | no/tr)
 - OK   rules on a hero-banner table: tr/tr | ROW (expected tr/tr | ROW)
 - OK   rules on a carousel-lightbox table: tr/tr | no/tr (expected tr/tr | no/tr)

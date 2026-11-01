@@ -8,7 +8,8 @@
  * - formatLangs and finalizeOptions: actions per row, locales, the view a project goes to;
  * - convertPath (utils/utils.js) with the arguments validate, translate and rollout pass: where
  *   a translation and each rollout land;
- * - addDnt (dnt/dnt.js): which cells of lh-com's blocks reach the translation service.
+ * - addDnt (dnt/dnt.js): which cells of lh-com's blocks reach the translation service;
+ * - sourceChecks: the project's source folder from its URLs (source.language.detect, 1.29.1).
  * Usage: node tools/loc/check-config.mjs [--page /de/en/feedback-past-flight ...]
  * Exit 1 when a check fails. Report: tools/reports/loc-config-check.md
  */
@@ -16,7 +17,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseHTML } from 'linkedom';
-import { loadApp, DA_NX_COMMIT, CACHE as cache } from './da-nx.mjs';
+import { loadApp, DA_NX_COMMIT } from './da-nx.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 
@@ -43,6 +44,65 @@ function translatable(html, blockClass) {
   return out;
 }
 
+/**
+ * A project's source folder, as the released app takes it from the project's URLs (da-nx
+ * 69006f3b, release 1.29.1: views/options/options.js detectSource 72-93 with getProjectSource,
+ * views/options/utils/utils.js 152-161; resolveSourceLang, utils/utils.js 362-389;
+ * filterLangsBySource, views/options/utils/utils.js 167-188; the rollout's paths,
+ * views/rollout/index.js formatLangUrls/formatRolloutUrls 112-145): the checks as
+ * [{name, ok, detail}], the app's own functions on translate.json.
+ * @param {Object} app the app's modules (loadApp)
+ * @param {Object} config translate.json
+ */
+export function sourceChecks(app, config) {
+  const out = [];
+  const add = (name, ok, detail = '') => out.push({ name, ok: Boolean(ok), detail });
+  const { options: opts, config: conf } = app.options.formatConfig(config);
+  const enabled = app.utils.isSourceDetectEnabled(conf['source.language.detect']);
+  add('source.language.detect is read and on (isSourceDetectEnabled, da-nx #793 + #870, release 1.29.1)', enabled, String(conf['source.language.detect']));
+  const formatted = () => app.options.formatLangs(structuredClone(config.languages.data), conf);
+  // the options view for a project with these URLs (options.js detectSource, updateOptions)
+  const project = (urls) => {
+    const options = { ...opts };
+    const defaultSourceLang = options['source.language'];
+    let langs = formatted();
+    const res = app.options.getProjectSource({
+      project: { urls: urls.map((u) => ({ suppliedPath: u })) }, enabled, langs, defaultSourceLang,
+    });
+    if (!res.error && res.detected) {
+      options['source.language'] = res.sourceLang;
+      langs = app.options.filterLangsBySource({ langs, sourceLocation: res.sourceLang.location, defaultLocation: defaultSourceLang?.location });
+    }
+    return { ...res, options, langs };
+  };
+  const acts = (langs) => langs.map((l) => `${l.name}:${l.orderedActions.map((a) => a.value).join('|')}`).join(', ');
+
+  const en = project(['/de/en/baggage', '/de/en/flight-search']);
+  add('/de/en URLs: source /de/en (resolveSourceLang), English Skip|Rollout, German Skip|Translate|Rollout', en.detected && en.sourceLang?.location === '/de/en'
+    && acts(en.langs) === 'English:skip|rollout, German:skip|translate|rollout', `${en.sourceLang?.location}; ${acts(en.langs)}`);
+  const de = project(['/de/de/gepaeck', '/de/de/kinder-an-bord']);
+  add('/de/de URLs: source /de/de (resolveSourceLang)', de.detected && de.sourceLang?.location === '/de/de', JSON.stringify(de.sourceLang));
+  add('filterLangsBySource for /de/de: only German, with Skip and Rollout (Skip preselected)', acts(de.langs) === 'German:skip|rollout' && de.langs[0].activeAction.value === 'skip', acts(de.langs));
+  const mixed = project(['/de/en/baggage', '/de/en/flight-search', '/de/de/gepaeck']);
+  add('mixed /de/en and /de/de URLs: refused, the message names the URL to uncheck', Boolean(mixed.error) && mixed.error.includes('/de/de/gepaeck') && mixed.error.includes('more than one source root'), mixed.error);
+
+  // the view of a /de/de project with German rollout (finalizeOptions; the source locations as
+  // validate persists them, getSourceLocations)
+  const pickDe = de.langs.map((l) => ({ ...l, activeAction: { value: 'rollout' } }));
+  const urlsDe = [{ suppliedPath: '/de/de/kinder-an-bord' }];
+  const locs = app.utils.getSourceLocations({ options: de.options, langs: pickDe });
+  const fin = app.options.finalizeOptions(conf, de.options, pickDe, urlsDe, locs);
+  add('/de/de project, German Rollout -> rollout view (no Sync)', fin.view === 'rollout', `${fin.view}; source locations ${locs.join(',')}`);
+
+  // the rollout's paths (views/rollout/index.js 112-145): from the URL's own source folder 1:1
+  const { convertPath, findSourceLocation } = app.utils;
+  const german = de.langs[0];
+  const src = convertPath({ path: '/de/de/kinder-an-bord', sourcePrefix: findSourceLocation({ path: '/de/de/kinder-an-bord', locations: locs }), destPrefix: german.location });
+  const dest = convertPath({ path: src.aemBasePath, sourcePrefix: '', destPrefix: '/at/de' });
+  add('German rollout of /de/de/kinder-an-bord reads /de/de/kinder-an-bord.html -> /at/de/kinder-an-bord.html (own German slugs roll out 1:1)', src.daDestPath === '/de/de/kinder-an-bord.html' && dest.daDestPath === '/at/de/kinder-an-bord.html', `${src.daDestPath} -> ${dest.daDestPath}`);
+  return out;
+}
+
 export async function run({ pages = [] } = {}) {
   const app = await loadApp();
   const config = JSON.parse(fs.readFileSync(path.join(root, 'tools/loc/translate.json'), 'utf8'));
@@ -55,7 +115,8 @@ export async function run({ pages = [] } = {}) {
   check('source.language -> the English row', JSON.stringify(options['source.language']) === JSON.stringify({ name: 'English', code: 'en', location: '/de/en' }), JSON.stringify(options['source.language']));
   ['translate', 'rollout', 'copy', 'sync'].forEach((k) => check(`${k}.conflict.behavior default`, options[`${k}.conflict.behavior`] === 'merge', options[`${k}.conflict.behavior`]));
   check('service', conf.service.name === 'Google' && options['translation.service.all.env'] === 'prod' && conf.service.envs.prod.origin === 'https://translate.da.live/google', JSON.stringify(conf.service));
-  check('source.language.detect is not read at this commit (da-nx #793 + #870 open)', !fs.readFileSync(path.join(cache, 'views/options/utils/utils.js'), 'utf8').includes('detect'));
+  // the project's source folder from its URLs (released in 1.29.1)
+  sourceChecks(app, config).forEach((c) => check(c.name, c.ok, c.ok ? '' : c.detail));
 
   // formatLangs: actions, locales
   const langs = app.options.formatLangs(structuredClone(config.languages.data), conf);
@@ -71,7 +132,6 @@ export async function run({ pages = [] } = {}) {
   const view = (en, de, urls) => app.options.finalizeOptions(conf, options, pick(en, de), urls.map((u) => ({ suppliedPath: u }))).view;
   check('/de/en URLs, English rollout + German translate -> translate view first', view('rollout', 'translate', ['/de/en/baggage']) === 'translate');
   check('/de/en URLs, German rollout only -> rollout view', view('skip', 'rollout', ['/de/en/baggage']) === 'rollout');
-  check('a /de/de URL in a project -> sync view (it would be copied into /de/en: do not add such URLs today)', view('skip', 'rollout', ['/de/de/gepaeck']) === 'sync');
 
   // paths: validate (basePath), translate (saveLang), rollout (formatLangUrls, formatRolloutUrls)
   const { convertPath } = app.utils;
@@ -86,7 +146,7 @@ export async function run({ pages = [] } = {}) {
   check('translate /de/en/flight-search -> /de/de/flight-search.html (the slug step moves it to /de/de/flugsuche)', translateDest('/de/en/flight-search') === '/de/de/flight-search.html');
   check('English rollout /de/en/baggage -> /gb/en/baggage.html', JSON.stringify(rollout('/de/en/baggage', by.English, '/gb/en')) === JSON.stringify(['/de/en/baggage.html', '/gb/en/baggage.html']));
   check('German rollout of /de/en/baggage reads /de/de/baggage.html -> /at/de/baggage.html', JSON.stringify(rollout('/de/en/baggage', by.German, '/at/de')) === JSON.stringify(['/de/de/baggage.html', '/at/de/baggage.html']));
-  check('German rollout of /de/en/flight-search reads /de/de/flight-search.html (not /de/de/flugsuche): own German slugs cannot be rolled out today', rollout('/de/en/flight-search', by.German, '/at/de')[0] === '/de/de/flight-search.html');
+  check('German rollout in a /de/en project reads /de/de/<English path> (/de/de/flight-search.html, not /de/de/flugsuche): click /at/de off there, roll out German from a /de/de project', rollout('/de/en/flight-search', by.German, '/at/de')[0] === '/de/de/flight-search.html');
 
   // DNT rules on small tables (decorateTable, dnt/decorateTable.js): every rule shape the config uses
   const synthetic = [

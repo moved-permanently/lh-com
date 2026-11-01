@@ -12,7 +12,7 @@ import { createRequire } from 'node:module';
 import { pathToFileURL } from 'node:url';
 import { parseHTML, DOMParser } from 'linkedom';
 
-export const DA_NX_COMMIT = 'f0c63255bc8ce34f79d6908d98351bb3d426e927';
+export const DA_NX_COMMIT = '69006f3b54984630e06f77e287e329bde12738d0';
 const FILES = ['views/options/utils/utils.js', 'utils/utils.js', 'dnt/dnt.js', 'dnt/decorateTable.js', 'dnt/parseQuery.js',
   'dnt/processAltText.js', 'dnt/json2html.js', 'regional-diff/regional-diff.js', 'regional-diff/object_hash.js'];
 export const CACHE = path.join(os.tmpdir(), `da-nx-${DA_NX_COMMIT.slice(0, 8)}`, 'loc');
