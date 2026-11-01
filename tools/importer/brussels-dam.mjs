@@ -105,7 +105,9 @@ function list() {
     const tracks = tracksOf(snapHtml);
     linked.filter(([www]) => /\.mp4$/i.test(www)).forEach(([www]) => {
       const t = tracks[www] || Object.entries(tracks).find(([v]) => edsDamPath(v) === edsDamPath(www))?.[1];
-      if (t) [t.cc, t.ad].filter(Boolean).forEach((v) => add(v, p, 'track'));
+      // (a video without subtitles names Lufthansa's global tree, /content/sn/gc/<ll>: no file;
+      // its nl one answered 403, 2026-11-01)
+      if (t) [t.cc, t.ad].filter((v) => v && /^\/content\/dam\/.+\.vtt$/i.test(v)).forEach((v) => add(v, p, 'track'));
     });
   });
   all('extra').forEach((www) => add(www, null, 'extra'));

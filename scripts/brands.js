@@ -282,10 +282,10 @@ const rowsOf = (documents, roots) => Object.fromEntries(roots.map((r) => {
  * roots (be/en, be/fr, be/nl, de/de, it/it, es/es: tools/importer/brussels-scope.mjs
  * LANGUAGE_VERSIONS) hold the language documents, the 92 market roots get them where the
  * document's `markets` row lists the root and hold their own homepage and own pages; the six xx
- * roots redirect to be on www and are none; names: www's country and language selector (the be/en
- * and be/fr homepages, 2026-11-01; those of the nl, de, it and es roots until their homepages are
- * captured: the country in the language); no airports listed: the hub BRU
- * (tools/reports/lh-brussels.md).
+ * roots redirect to be on www and are none; names: www's country and language selector (the be/en,
+ * be/fr and be/nl homepages, 2026-11-01: be/nl's "Belgium | Nederlands"; the other nl, de, it and
+ * es roots' the country in the language until their homepages are captured); no airports listed:
+ * the hub BRU (tools/reports/lh-brussels.md).
  */
 export const BRAND_SITES = {
   discover: {
@@ -579,7 +579,7 @@ export const BRAND_SITES = {
       'at/en': 'Austria | English',
       'be/en': 'Belgium | English',
       'be/fr': 'Belgique | Français',
-      'be/nl': 'België | Nederlands',
+      'be/nl': 'Belgium | Nederlands',
       'bf/en': 'Burkina Faso | English',
       'bf/fr': 'Burkina Faso | Français',
       'bg/en': 'Bulgaria | English',

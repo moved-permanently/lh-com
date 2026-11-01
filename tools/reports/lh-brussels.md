@@ -103,7 +103,48 @@ travel, help, login, the country and language (the selector's 68 countries; the 
 also listed the three languages as countries, fixed here). Footer: the three link lists, "Social
 media" / "Réseaux sociaux" as a fourth column (Style `badges, in-columns`), the legal row (cookie
 settings `#privacy-settings`), the logo row (small logo 130×30, Member of Lufthansa Group,
-Star Alliance 147×20). Footer block, additive: a badges section with `in-columns` is one more
+Star Alliance 20 px high: 205×20 on the preview, www 147×20). Footer block, additive: a badges section with `in-columns` is one more
 link column; hooks `--footer-badge-heading-size`, `--footer-badge-gap`, `--footer-badge-width`,
 `--footer-badge-size`, `--footer-divider-color`, `--footer-toggle-line`,
 `--footer-logo-home-height` (each default today's value).
+
+## Batches (2026-11-01, previewed, not published)
+
+| batch | root | documents previewed | for AEM |
+| --- | --- | ---: | ---: |
+| 1 | be/en (+ be/en, be/fr nav and footer) | 85 | 12 |
+| 2 | be/fr | 80 | 12 |
+| 3-5 | be/en | 69, 67, 62 | 0, 5, 0 |
+| 6-8 | be/fr | 63, 63, 62 | 0, 5, 0 |
+| 9-12 | be/nl | 63, 61, 63, 63 | 3, 7, 7, 1 |
+| 13 | de/de | 53 | 0 |
+
+`content-sites/lh-brussels/runs/batch-NN.txt` (the pages), `batch-NN-preview.txt` (what was
+uploaded and previewed), `batch-NN-aem.tsv` (the files for the AEM sandbox). The two
+sensory-impairment pages (be/en, be/fr) got a 409 at preview from the Sunflower logo SVG (198 KB
+with an embedded raster image): a PNG rendering of it (`/media-da/brussels/`,
+`LOCAL_IMAGES`), both previewed. `lh_inlay_baggage_contact.pdf` (a Lufthansa PDF, 40 KB) answers
+409 at preview: its links stay on www.
+
+## Forms (preview only)
+
+8 kinds on the pilot pages, ids `brussels-<page>`, success rows from www's `:redirect`:
+the feedback form (9 topic pages per language, about 140 fields with the repeating groups, a
+5 × 2 MB drop zone), charter (12), group travel request (35), request for proposal (55, 5 × 2 MB),
+PPB registration (25), emergency contact (14), invoice request (13; be/en's GUID copy has no
+success page: its redirect goes to /content/bel/gc/), DSAR (6). lh-forms takes all of them by
+its limits (400 fields, files up to 3.7 MB each and 18.5 MB together; Austrian's 5 × 2 MB forms
+use it): each needs its form id and recipients, the drop zones' FILE_RULES (pdf and jpeg; the
+request for proposal also png) and lh-brussels in ALLOWED_ORIGIN_PATTERN and
+brussels.turnsthe.page in EXTRA_ALLOWED_ORIGINS (tools/workers/lh-forms, not changed here).
+
+## Needs outside this site's files
+
+- tools/workers/lh-edge: the brussels.turnsthe.page entry (SITE_HOSTS, SITE_ORIGINS, entry paths
+  /xx/en, /xx/fr, /xx/nl to the be homepages, /be to /be/en/homepage).
+- tools/workers/lh-forms: the origins and form rows above.
+- helix-query.yaml: search indexes for be/en, be/fr, be/nl (de/de, it/it, es/es exist).
+- .migration/project.json: an lh-brussels site entry (the file's site list belongs to another
+  service; its top-level botProtected applies).
+- The payment methods table (webv4.brusselsairlines.com, a per-country widget): not in the
+  snapshots; a link to the page on www for now.
