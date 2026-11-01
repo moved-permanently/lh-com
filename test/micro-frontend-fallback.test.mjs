@@ -144,3 +144,62 @@ test('Fallback: a nested block (an accordion the importer writes) is decorated a
 test('README: the Fallback row', () => {
   assert.match(fs.readFileSync('blocks/micro-frontend/README.md', 'utf8'), /`Fallback`/);
 });
+
+// lufthansa.com's help-and-contact (2026-11-01): the importer writes www's topic list as an
+// accordion-columns block after the block (a block in a cell does not survive Edge Delivery); www
+// shows the list once, in the app. Once help-center-web renders, the section's list goes; where it
+// cannot (aem.page, the brand hosts) the list stays as the fallback.
+const sectionOf = (rows, after = '<div class="accordion-columns-wrapper"><div class="accordion-columns faq block"><div><div>Gepäck</div><div><ul><li>Gepäckregeln</li></ul></div></div></div></div><div class="feedback-wrapper"><div class="feedback block"></div></div>') => {
+  const section = document.createElement('div');
+  section.className = 'section';
+  section.innerHTML = `<div class="micro-frontend-wrapper"><div class="micro-frontend">${rows.map((cells) => `<div>${cells.map((c) => `<div>${c}</div>`).join('')}</div>`).join('')}</div></div>${after}`;
+  const next = document.createElement('div');
+  next.className = 'section';
+  next.innerHTML = '<div class="accordion-columns-wrapper"><div class="accordion-columns block"><div><div>Andere</div><div>Liste</div></div></div></div>';
+  document.body.replaceChildren(section, next);
+  return { block: section.querySelector('.micro-frontend'), section, next };
+};
+const render = (app) => {
+  app.getBoundingClientRect = () => ({ height: 900, width: 1200 });
+  app.attachShadow({ mode: 'open' }).innerHTML = '<section><h1>Wie können wir helfen?</h1><h2>Wählen Sie Ihr Anliegen</h2></section>';
+};
+
+test('help-center-web renders: the topic list after it in its section goes; the other blocks and sections stay', async () => {
+  page();
+  const { block, section, next } = sectionOf([['help-center-web'], ['Fallback', FALLBACK]]);
+  preload(block);
+  await mf.default(block);
+  await sleep(10);
+  assert.equal(Boolean(section.querySelector('.accordion-columns')), true, 'the list while the app has not rendered');
+  render(block.querySelector('help-center-web'));
+  await sleep(60);
+  // booleans: a failing assertion on a linkedom node prints the whole document
+  assert.equal(Boolean(section.querySelector('.accordion-columns')), false, 'the list is gone');
+  assert.equal(Boolean(section.querySelector('.accordion-columns-wrapper')), false, 'with its wrapper');
+  assert.equal(Boolean(section.querySelector('.feedback')), true, 'the feedback block stays');
+  assert.equal(Boolean(next.querySelector('.accordion-columns')), true, 'another section\'s list stays');
+});
+
+test('help-center-web renders nothing (aem.page, the brand hosts): the topic list stays with the fallback', async () => {
+  page();
+  const { block, section } = sectionOf([['help-center-web'], ['Fallback', FALLBACK]]);
+  preload(block);
+  await mf.default(block);
+  await sleep(10);
+  block.querySelector('help-center-web').attachShadow({ mode: 'open' }).innerHTML = '<style>:host{display:block}</style>';
+  await sleep(400);
+  assert.equal(Boolean(section.querySelector('.accordion-columns')), true, 'the list stays');
+  assert.equal(Boolean(block.querySelector('.micro-frontend-fallback')), true, 'the fallback stays');
+});
+
+test('another app that renders: the list after it stays (only help-center-web shows www\'s topic list itself)', async () => {
+  page();
+  const { block, section } = sectionOf([['culinary-hub'], ['Fallback', FALLBACK]]);
+  preload(block);
+  await mf.default(block);
+  await sleep(10);
+  render(block.querySelector('culinary-hub'));
+  await sleep(60);
+  assert.equal(Boolean(block.querySelector('.micro-frontend-fallback')), false, 'its fallback is gone');
+  assert.equal(Boolean(section.querySelector('.accordion-columns')), true, 'the list stays');
+});

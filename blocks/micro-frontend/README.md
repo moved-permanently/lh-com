@@ -21,6 +21,7 @@ Optional row `Fallback | <content>`: normal content in the second cell (headings
 - When the app's element shows something within `FALLBACK_TIMING.wait` (8 s; looked at every 250 ms): a height and text in its shadow root (or one nested in it) or its light DOM, not styles alone (`hasRendered`), it replaces the fallback.
 - Otherwise the fallback stays and the app's element is removed (also when its scripts load after the wait).
 - Nested blocks in the fallback (direct children with a class, e.g. `accordion`) are decorated and loaded as blocks, each in its own wrapper.
+- `help-center-web`: www's topic list is part of the app; the importer writes it after the block as an `accordion-columns` block (a block in a cell does not survive Edge Delivery). When the app replaces the fallback, the `accordion-columns` blocks after it in its section are removed too, so the list shows once, as on www; where the app does not render (aem.page, the brand hosts) the list stays. Other blocks (the feedback questionnaire) and other sections stay (`APPS[...].shows`).
 - No `Fallback` row: as before, the block waits for the app and shows its element.
 
 ## Behaviour

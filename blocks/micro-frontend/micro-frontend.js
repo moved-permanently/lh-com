@@ -45,6 +45,8 @@ const BRAND_DESIGN_SYSTEMS = {
  * (www.lufthansa.com without a brand); module: a module script; attributes: the element's own;
  * portalMeta: the app reads the page's X-Portal, X-Portal-Site, X-Portal-Language meta tags;
  * release: www's design system release the app's page loads (else DESIGN_SYSTEM_VERSION).
+ * shows: blocks after the app in its section that show what the app shows itself (a fallback the
+ * importer writes outside the block): removed once the app renders, kept where it does not.
  */
 export const APPS = {
   'trip-management': {
@@ -60,6 +62,8 @@ export const APPS = {
     attributes: { 'data-public-endpoint': '' },
     portalMeta: true,
     brandDesign: true,
+    // www's topic list is the app's own; the importer writes it after the block as the fallback
+    shows: ['accordion-columns'],
   },
   // lufthansa.com's compensation claim (support/fast-compensation/compensation-flight-disruptions,
   // 2026-11-01): a module with chunks next to it, on www's mausy-v1.40.1; its APIs
@@ -217,14 +221,27 @@ function takeFallback(block) {
   return fallback;
 }
 
-/** Shows the app in place of the fallback once it renders, else removes it at the deadline. */
-function watchApp(element, fallback, deadline) {
+/** The blocks after the block in its section named in shows (their wrappers). */
+function shownAfter(block, shows = []) {
+  const wrapper = block.parentElement;
+  const section = wrapper && wrapper.parentElement;
+  if (!section || !shows.length) return [];
+  const after = [...section.children].slice([...section.children].indexOf(wrapper) + 1);
+  return after.filter((w) => shows.some((name) => w.querySelector(`:scope > .${name}`)));
+}
+
+/**
+ * Shows the app in place of the fallback once it renders (and removes the blocks after it that
+ * show the same, shows), else removes it at the deadline.
+ */
+function watchApp(element, fallback, deadline, shows) {
   const check = () => {
     if (!element.isConnected) return;
     if (hasRendered(element)) {
       element.classList.remove('micro-frontend-pending');
       element.removeAttribute('aria-hidden');
       element.removeAttribute('inert');
+      shownAfter(fallback.parentElement, shows).forEach((w) => w.remove());
       fallback.remove();
       return;
     }
@@ -241,6 +258,7 @@ export default async function decorate(block) {
   const deadline = Date.now() + FALLBACK_TIMING.wait;
   const fallback = takeFallback(block);
   const plan = mountPlan(block, brandEntry(), getLocale());
+  const { shows } = appOf(block) || {};
   block.replaceChildren();
   if (fallback) block.append(fallback);
   if (!plan) return;
@@ -275,7 +293,7 @@ export default async function decorate(block) {
       element.setAttribute('inert', '');
     }
     block.append(element);
-    if (fallback) watchApp(element, fallback, deadline);
+    if (fallback) watchApp(element, fallback, deadline, shows);
   };
   // without a fallback as before: the block waits for the app; with one the fallback shows at once
   if (fallback) mount();
