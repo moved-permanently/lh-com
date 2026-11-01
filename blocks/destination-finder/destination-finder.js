@@ -144,7 +144,10 @@ export async function loadFinderContext(locale) {
  * Link of one recommended destination: the destination page (authored, else on a brand site
  * without one of its own the airline's www page, scripts/brands.js destinationPath, else
  * lufthansa.com's page under this locale) with OriginCode, tripType, DestinationCode and, for
- * round trips, TripDuration.
+ * round trips, TripDuration. The tripType written here (RETURN) is not what the page ends up
+ * with: updateAuthoredLinks, run after the cards are built, sets the offers page's value
+ * (offersPageTripType: ROUNDTRIP or ONEWAY); the destination pages of www.ita-airways.com,
+ * www.discover-airlines.com and www.austrian.com accept it (a 14-day round trip, 2026-11-01).
  * @param {string} [base] authored destination page URL
  * @param {Object} [brand] the page's brand entry (scripts/locale.js brandEntry)
  */
