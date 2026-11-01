@@ -1,0 +1,53 @@
+# lh-airdolomiti batch-38 (de): uploaded to DA moved-permanently/lh-airdolomiti and previewed on main--lh-airdolomiti--moved-permanently.aem.page on 2026-11-01T03:31Z; not published
+# documents (39 + /de/nav, /de/footer):
+/de/artikel/did-you-know/comics-und-fliegen
+/de/artikel/avgeek-de/einstieg-links
+/de/artikel/did-you-know/top-gun-von-tony-scott
+/de/artikel/throwback-de/ellen-church-2
+/de/artikel/did-you-know/prominente-flugzeuge
+/de/artikel/avgeek-de/flugzeugtriebwerke
+/de/artikel/throwback-de/die-geschichte-der-flugbegleiteruniformen
+/de/artikel/avgeek-de/redundanz
+/de/artikel/avgeek-de/plane-speaking-2
+/de/artikel/throwback-de/heinrich-kubis-der-erste-flugbegleiter
+/de/artikel/travellers-de/als-gruppe-verreisen
+/de/artikel/did-you-know/antoine-de-saint-exupery
+/de/artikel/did-you-know/casablanca
+/de/artikel/travellers-de/blogger-leben
+/de/artikel/avgeek-de/roger-oder-romeo
+/de/artikel/avgeek-de/das-pitotrohr
+/de/artikel/travellers-de/der-feinschmecker
+/de/artikel/avgeek-de/black-box
+/de/artikel/did-you-know/aeropittura-und-futurismus
+/de/artikel/travellers-de/anspruchsvolle-reisende
+/de/artikel/avgeek-de/die-fluginstrumente
+/de/artikel/did-you-know/kevin-allein-zu-haus
+/de/artikel/travellers-de/mit-tieren-fliegen
+/de/artikel/travellers-de/vollkommen-entspannt-fliegen
+/de/artikel/avgeek-de/wie-ist-ein-flugzeugfenster-gebaut
+/de/artikel/travellers-de/tippstricks-fuer-bequemes-reisen
+/de/artikel/did-you-know/hollywood-zeigt-uns-wie-es-geht
+/de/artikel/avgeek-de/wie-fliegen-aerostaten
+/de/artikel/did-you-know/die-besten-memes-aus-dem-bereich-luftfahrt
+/de/artikel/travellers-de/5-moeglichkeiten-beim-fliegen-eure-fertigkeiten-zu-verbessern
+/de/artikel/avgeek-de/wasserflugzeuge-und-ihre-flughaefen-geschichte-und-wissenswertes-fuer-echte-geeks
+/de/artikel/travellers-de/yoga-und-achtsamkeit-beim-fliegen
+/de/artikel/avgeek-de/wie-fliegt-eigentlich-ein-segelflugzeug
+/de/artikel/did-you-know/wer-hat-eigentlich-den-rollkoffer-erfunden
+/de/artikel/avgeek-de/wie-fliegen-hubschrauber
+/de/artikel/reiseziele/reiseversicherungsschutz
+/de/artikel/did-you-know/die-flughafencodes
+/de/artikel/throwback-de/rosina-ferrario-3
+/de/artikel/avgeek-de/das-automatische-bremssystem-autobrake
+/de/nav
+/de/footer
+# not imported (0):
+# blocks without a handler (their content generically): none
+# render check: all 39 documents render
+# check against www (text, images, links):
+#   https://www.airdolomiti.de/artikel/did-you-know/comics-und-fliegen -> /de/artikel/did-you-know/comics-und-fliegen: text 11/11, images 1/1 (+1), links 1/1 (+0)
+#   https://www.airdolomiti.de/artikel/travellers-de/anspruchsvolle-reisende -> /de/artikel/travellers-de/anspruchsvolle-reisende: text 9/9, images 0/0 (+1), links 3/3 (+0)
+#   https://www.airdolomiti.de/artikel/avgeek-de/das-automatische-bremssystem-autobrake -> /de/artikel/avgeek-de/das-automatische-bremssystem-autobrake: text 8/9, images 0/0 (+0), links 3/3 (+0)
+#   https://www.airdolomiti.de/artikel/did-you-know/comics-und-fliegen: no text, image or link of www's missing
+#   https://www.airdolomiti.de/artikel/travellers-de/anspruchsvolle-reisende: no text, image or link of www's missing
+#   https://www.airdolomiti.de/artikel/avgeek-de/das-automatische-bremssystem-autobrake: text missing: "lesezeit: 1 minuten"
