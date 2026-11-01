@@ -75,3 +75,26 @@ test('culinary-hub: the rows after its name as data- attributes (Austrian\'s con
   assert.equal(plan.className, 'full-width-bg px-0');
   assert.ok(appOf(blockOf([['no-such-app']])) === null);
 });
+
+// DA turns ":https:" of a configuration ("dmc:https://www…") into an icon (<span class="icon
+// icon-https"></span>): Austrian's /at/en/culinaryjourney on preview (2026-11-01) read
+// "dmc//www.austrian.com/…". The block reads an icon span back as its :name: text.
+test('a row value with DA\'s icon span reads as its :name: text (culinary-hub configurations with dmc:https://)', () => {
+  const plan = mountPlan(blockOf([['culinary-hub'], ['Configuration', 'apiKey:abc;dmc<span class="icon icon-https"></span>//www.austrian.com/at/en/fly/on-board/menu-card.html;tmc:13806']]), BRANDS.austrian, { country: 'at', lang: 'en', brand: 'austrian' });
+  assert.equal(plan.attributes['data-configuration'], 'apiKey:abc;dmc:https://www.austrian.com/at/en/fly/on-board/menu-card.html;tmc:13806');
+});
+
+// Discover's /de/en/culinaryjourney (www, 2026-10-27): <culinary-hub data-configuration
+// data-api-gateway class="full-width-bg px-0 maui-theme-four_y">, its design system v1.38.0
+// discover.css (200 from www.discover-airlines.com, as maui-design-system.js and
+// culinary-hub-latest.js), X-Portal FOUR_Y
+test('culinary-hub on Discover: www.discover-airlines.com, its design system v1.38.0 (discover.css), X-Portal FOUR_Y', () => {
+  const plan = mountPlan(blockOf([['culinary-hub'], ['Configuration', 'apiKey:k;tmc:13806'], ['API gateway', 'https://api.travelid.lufthansa.com/one-catering/v1']]), BRANDS.discover, { country: 'de', lang: 'en', brand: 'discover' });
+  assert.equal(plan.css, 'https://www.discover-airlines.com/digitalhangar/design-system/releases/v1.38.0/standalone/css/discover.css');
+  assert.deepEqual(plan.scripts, [
+    { src: 'https://www.discover-airlines.com/digitalhangar/design-system/releases/v1.38.0/standalone/packages/maui-design-system.js', module: true },
+    { src: 'https://www.discover-airlines.com/digitalhangar/onecatering/culinary-hub/culinary-hub-latest.js', module: false },
+  ]);
+  assert.equal(plan.meta['X-Portal'], 'FOUR_Y');
+  assert.equal(plan.attributes['data-api-gateway'], 'https://api.travelid.lufthansa.com/one-catering/v1');
+});

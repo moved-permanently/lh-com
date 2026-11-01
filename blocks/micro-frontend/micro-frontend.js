@@ -34,6 +34,8 @@ export const DESIGN_SYSTEM_JS = `${DESIGN_SYSTEM}/packages/maui-design-system.js
 const BRAND_DESIGN_SYSTEMS = {
   'www.austrian.com': { release: 'mausy-v1.40.1', theme: 'austrian' },
   'www.ita-airways.com': { release: 'mausy-v1.40.1', theme: 'ita' },
+  // www's culinaryjourney pages (2026-10-27): v1.38.0, discover.css
+  'www.discover-airlines.com': { release: 'v1.38.0', theme: 'discover' },
 };
 
 /**
@@ -73,8 +75,21 @@ const DEFAULT_APP = 'trip-management';
 /** How long an app has to render before its fallback stays, and how often it is looked at (ms). */
 export const FALLBACK_TIMING = { wait: 8000, every: 250 };
 
+/**
+ * A cell's text; an icon span is its :name: text again (DA writes ":https:" of a value such as
+ * "dmc:https://www…" as <span class="icon icon-https">).
+ */
+function cellText(cell) {
+  const copy = cell.cloneNode(true);
+  copy.querySelectorAll('span.icon').forEach((icon) => {
+    const name = [...icon.classList].find((c) => c.startsWith('icon-'));
+    icon.replaceWith(name ? `:${name.slice(5)}:` : '');
+  });
+  return (copy.textContent || '').trim();
+}
+
 /** The block's rows as [first cell text, second cell text]. */
-const rowsOf = (block) => [...block.children].map((row) => [...row.children].map((c) => (c.textContent || '').trim()));
+const rowsOf = (block) => [...block.children].map((row) => [...row.children].map(cellText));
 
 /** The app named in the block (its first cell), else the default; null for an unknown name. */
 export function appOf(block) {

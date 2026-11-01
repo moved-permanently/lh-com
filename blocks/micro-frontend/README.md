@@ -6,7 +6,7 @@ Custom **micro-frontend** block. Purpose: one of www.lufthansa.com's micro-front
 
 Model: `standalone`
 
-First row, one cell: the app's name, `trip-management` (the default when the cell is empty), `help-center-web` or `culinary-hub`. An unknown name renders nothing (but its `Fallback`). Further rows `Name | value` become the app element's `data-` attributes (`Configuration | ...` → `data-configuration`). The page needs the metadata `post-handler: true` when other systems post booking data to it (`<page>.mfe.html`, below).
+First row, one cell: the app's name, `trip-management` (the default when the cell is empty), `help-center-web` or `culinary-hub`. An unknown name renders nothing (but its `Fallback`). Further rows `Name | value` become the app element's `data-` attributes (`Configuration | ...` → `data-configuration`); a value DA shows with an icon (`dmc:https://…` becomes `dmc` + `<span class="icon icon-https">` + `//…`) is read as its text again. `culinary-hub` (Austrian's and Discover's culinaryjourney: rows `Configuration` and `API gateway`, written by the importer from www's element) loads from the brand's www with its design system (Discover: v1.38.0, discover.css). The page needs the metadata `post-handler: true` when other systems post booking data to it (`<page>.mfe.html`, below).
 
 Optional row `Fallback | <content>`: normal content in the second cell (headings, text, lists, links, a nested block such as an accordion). Use it where the app can't render on our hosts today (ITA's and Austrian's help-center-web: its data come from the airline's Travel ID service, which refuses them), with the content www shows around the app.
 
