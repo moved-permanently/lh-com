@@ -108,7 +108,8 @@
   background-color: #000;
 }
 
-.media-embed-inflight-entertainment {
+.media-embed-inflight-entertainment,
+.media-embed-newsstand {
   max-width: 1240px;
   height: 520px;
 }

@@ -2,7 +2,7 @@
 /* The built-in labels in the brand sites' languages (it, fr, es, nl, pt, el, ja: ITA's roots,
    Discover's xx/fr; the tenants' label bundles have no answer on the replica): every label table
    a visitor of a brand homepage, offers page or flight status meets has them, with every key of
-   its en entry and the same {placeholders}; en and de exactly as before. The finder's airline
+   its en entry and the same {placeholders}; en and de texts exactly as before (new keys allowed). The finder's airline
    filter names the brand ("Solo ITA Airways"), lh-com's "Lufthansa only" stays.
    Run: node --max-old-space-size=512 --test test/brand-labels.test.mjs */
 import test from 'node:test';
@@ -80,7 +80,13 @@ test('en and de exactly as before', () => {
     const now = fs.readFileSync(path.join(root, file), 'utf8');
     const before = previous(file);
     names.forEach((name) => {
-      ['en', 'de'].forEach((l) => assert.deepEqual(table(now, name)[l], table(before, name)[l], `${file} ${name} ${l}`));
+      // every en and de text of then unchanged; keys added since (media.js newsstand, brief 208) may be new
+      ['en', 'de'].forEach((l) => {
+        const then = table(before, name)[l];
+        const kept = then && typeof then === 'object' && !Array.isArray(then)
+          ? Object.fromEntries(Object.keys(then).map((k) => [k, table(now, name)[l][k]])) : table(now, name)[l];
+        assert.deepEqual(kept, then, `${file} ${name} ${l}`);
+      });
     });
   });
 });

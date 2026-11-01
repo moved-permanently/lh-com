@@ -88,3 +88,23 @@ test('YouTube as before: a lazy iframe at once, no button', () => {
   assert.match(iframe.getAttribute('src'), /^https:\/\/www\.youtube-nocookie\.com\/embed\/abc123/);
   assert.ok(el.querySelector('button') === null, 'no button');
 });
+
+// www's eJournals newsstand (unterhaltung-an-bord, lufthansa-ejournals: .iframe > .iframe-wrapper
+// [max-width 1240px, height 520px] > iframe src=https://box.media-carrier.de/home?b=77745&l=de;
+// the box sends no X-Frame-Options or frame-ancestors, 2026-11-01): a lazy iframe as the
+// in-flight entertainment widget
+test('the eJournals newsstand (box.media-carrier.de): a lazy iframe, 520px as www\'s; the importer writes it', async () => {
+  assert.deepEqual(embedFor('https://box.media-carrier.de/home?b=77745&l=de'), { type: 'newsstand', src: 'https://box.media-carrier.de/home?b=77745&l=de' });
+  ['http://box.media-carrier.de/home?b=77745', 'https://media-carrier.de.example.org/home?b=1', 'https://box.media-carrier.de/admin?b=1']
+    .forEach((h) => assert.equal(embedFor(h), null, h));
+  const el = buildEmbed(link('https://box.media-carrier.de/home?b=77745&l=de'));
+  assert.equal(el.className, 'media-embed media-embed-newsstand');
+  const iframe = el.querySelector('iframe');
+  assert.equal(iframe.getAttribute('loading'), 'lazy');
+  assert.equal(iframe.getAttribute('title'), 'eJournals newsstand');
+  const { embedUrl } = await import('../tools/importer/parsers/media-nodes.js');
+  const comp = document.createElement('div');
+  comp.className = 'iframe';
+  comp.innerHTML = '<div class="iframe-wrapper text-left" style="max-width: 1240px; height: 520px;"><iframe src="https://box.media-carrier.de/home?b=77745&amp;l=de"></iframe></div>';
+  assert.equal(embedUrl(comp), 'https://box.media-carrier.de/home?b=77745&l=de');
+});

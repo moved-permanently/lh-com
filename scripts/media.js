@@ -8,7 +8,9 @@
  * Embed: a link alone in its paragraph to a YouTube video (shown as a youtube-nocookie.com
  * player, 16:9) or to a Lufthansa in-flight entertainment widget
  * (www.lufthansa-inflightentertainment.com/.../widgets/?id=…&type=…&lang=…, 520px high, at most
- * 1240px wide, as the Lufthansa iframe component). Both load lazily, as the page scrolls to them.
+ * 1240px wide, as the Lufthansa iframe component) or to www's eJournals newsstand
+ * (https://box.media-carrier.de/home?b=…&l=…, the same size). They load lazily, as the page
+ * scrolls to them.
  * Loaded on click (a button first, the player after it; no consent layer of its own): a Matterport
  * tour (my.matterport.com/show/?m=…, 16:9; Lufthansa Cargo) and a Mynewsdesk newsroom
  * (<newsroom>.mynewsdesk.com or www.mynewsdesk.com/…, 800px high; Cargo's newsroom). Google Maps
@@ -28,10 +30,10 @@ export const VIDEO_MARKERS = new RegExp(VIDEO_MARKER.source.slice(0, -1), 'g');
 
 const LABELS = {
   en: {
-    video: 'Play video', youtube: 'YouTube video', 'inflight-entertainment': 'In-flight entertainment', matterport: 'Start the virtual tour', mynewsdesk: 'Show the newsroom',
+    video: 'Play video', youtube: 'YouTube video', 'inflight-entertainment': 'In-flight entertainment', newsstand: 'eJournals newsstand', matterport: 'Start the virtual tour', mynewsdesk: 'Show the newsroom',
   },
   de: {
-    video: 'Video abspielen', youtube: 'YouTube-Video', 'inflight-entertainment': 'Bordunterhaltung', matterport: 'Virtuelle Tour starten', mynewsdesk: 'Newsroom anzeigen',
+    video: 'Video abspielen', youtube: 'YouTube-Video', 'inflight-entertainment': 'Bordunterhaltung', newsstand: 'eJournals-Kiosk', matterport: 'Virtuelle Tour starten', mynewsdesk: 'Newsroom anzeigen',
   },
   it: {
     video: 'Riproduci video',
@@ -39,6 +41,7 @@ const LABELS = {
     'inflight-entertainment': 'Intrattenimento a bordo',
     matterport: 'Avvia il tour virtuale',
     mynewsdesk: 'Mostra la newsroom',
+    newsstand: 'Edicola eJournals',
   },
   fr: {
     video: 'Lire la vidéo',
@@ -46,6 +49,7 @@ const LABELS = {
     'inflight-entertainment': 'Divertissement à bord',
     matterport: 'Démarrer la visite virtuelle',
     mynewsdesk: 'Afficher la salle de presse',
+    newsstand: 'Kiosque eJournals',
   },
   es: {
     video: 'Reproducir vídeo',
@@ -53,6 +57,7 @@ const LABELS = {
     'inflight-entertainment': 'Entretenimiento a bordo',
     matterport: 'Iniciar el recorrido virtual',
     mynewsdesk: 'Mostrar la sala de prensa',
+    newsstand: 'Quiosco de eJournals',
   },
   nl: {
     video: 'Video afspelen',
@@ -60,6 +65,7 @@ const LABELS = {
     'inflight-entertainment': 'Entertainment aan boord',
     matterport: 'Virtuele rondleiding starten',
     mynewsdesk: 'Nieuwsruimte tonen',
+    newsstand: 'eJournals-kiosk',
   },
   pt: {
     video: 'Reproduzir vídeo',
@@ -67,6 +73,7 @@ const LABELS = {
     'inflight-entertainment': 'Entretenimento a bordo',
     matterport: 'Iniciar o tour virtual',
     mynewsdesk: 'Mostrar a sala de imprensa',
+    newsstand: 'Banca de eJournals',
   },
   el: {
     video: 'Αναπαραγωγή βίντεο',
@@ -74,6 +81,7 @@ const LABELS = {
     'inflight-entertainment': 'Ψυχαγωγία εν πτήσει',
     matterport: 'Έναρξη εικονικής περιήγησης',
     mynewsdesk: 'Εμφάνιση αίθουσας τύπου',
+    newsstand: 'Περίπτερο eJournals',
   },
   ja: {
     video: '動画を再生',
@@ -81,6 +89,7 @@ const LABELS = {
     'inflight-entertainment': '機内エンターテインメント',
     matterport: 'バーチャルツアーを開始',
     mynewsdesk: 'ニュースルームを表示',
+    newsstand: 'eJournals ニューススタンド',
   },
   ru: {
     video: 'Воспроизвести видео',
@@ -88,6 +97,7 @@ const LABELS = {
     'inflight-entertainment': 'Развлечения на борту',
     matterport: 'Начать виртуальный тур',
     mynewsdesk: 'Показать пресс-центр',
+    newsstand: 'Киоск eJournals',
   },
   zh: {
     video: '播放视频',
@@ -95,6 +105,7 @@ const LABELS = {
     'inflight-entertainment': '机上娱乐',
     matterport: '开始虚拟游览',
     mynewsdesk: '显示新闻中心',
+    newsstand: 'eJournals 报刊亭',
   },
   pl: {
     video: 'Odtwórz film',
@@ -102,13 +113,14 @@ const LABELS = {
     'inflight-entertainment': 'Rozrywka na pokładzie',
     matterport: 'Rozpocznij wirtualną wycieczkę',
     mynewsdesk: 'Pokaż newsroom',
+    newsstand: 'Kiosk eJournals',
   },
 };
 
 let mediaCount = 0;
 
 function label(key) {
-  return (LABELS[getLocale().lang] || LABELS.en)[key];
+  return (LABELS[getLocale().lang] || LABELS.en)[key] || LABELS.en[key];
 }
 
 function toUrl(href) {
@@ -185,6 +197,10 @@ export function embedFor(href) {
   }
   if (url.hostname === 'www.lufthansa-inflightentertainment.com' && /\/widgets\/?$/.test(url.pathname)) {
     return { type: 'inflight-entertainment', src: url.href };
+  }
+  // www's eJournals newsstand (unterhaltung-an-bord, lufthansa-ejournals)
+  if (url.hostname === 'box.media-carrier.de' && url.protocol === 'https:' && /^\/(home)?\/?$/.test(url.pathname)) {
+    return { type: 'newsstand', src: url.href };
   }
   // a Matterport tour: the player starts at once after the click (play=1)
   const tour = url.hostname === 'my.matterport.com' && /^\/show\/?$/.test(url.pathname)

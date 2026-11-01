@@ -2,10 +2,10 @@ import { cleanText } from '../../scripts/block-config.js';
 import { buildEmbed, embedFor, loadMediaStyles } from '../../scripts/media.js';
 
 /**
- * Embed: a YouTube video (youtube-nocookie.com player, 16:9 over the content width) or a
- * Lufthansa in-flight entertainment widget (520px high, at most 1240px wide); loaded on click (a
- * button with the link's text first): a Matterport tour (16:9) or a Mynewsdesk newsroom (800px
- * high).
+ * Embed: a YouTube video (youtube-nocookie.com player, 16:9 over the content width), a
+ * Lufthansa in-flight entertainment widget or www's eJournals newsstand (box.media-carrier.de;
+ * 520px high, at most 1240px wide); loaded on click (a button with the link's text first): a
+ * Matterport tour (16:9) or a Mynewsdesk newsroom (800px high).
  * Content: one row, one cell with the link (watch, share or embed URL for YouTube; the widget
  * URL with id, type and lang; my.matterport.com/show/?m=…; https://<newsroom>.mynewsdesk.com).
  * A link text other than the URL is the player's title (and the button's text).

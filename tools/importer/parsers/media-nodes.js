@@ -58,7 +58,8 @@ export function viewerNodes(comp, document) {
  * component (.iframe .iframe-wrapper: in-flight entertainment widget); '' for other iframes.
  * YouTube: https://www.youtube-nocookie.com/embed/{id} (start kept when not 0; the live player
  * parameters color/rel are the block's defaults, origin is the live site's). In-flight
- * entertainment: the widget URL as on live (id, type, lang).
+ * entertainment: the widget URL as on live (id, type, lang); the eJournals newsstand
+ * (box.media-carrier.de/home?b=…&l=…) as on live.
  */
 export function embedUrl(comp) {
   const iframe = comp.matches('iframe') ? comp : comp.querySelector('iframe[src]');
@@ -74,6 +75,8 @@ export function embedUrl(comp) {
     return out.href;
   }
   if (url.hostname === 'www.lufthansa-inflightentertainment.com' && /\/widgets\/?$/.test(url.pathname)) return url.href;
+  // www's eJournals newsstand (unterhaltung-an-bord, lufthansa-ejournals)
+  if (url.hostname === 'box.media-carrier.de' && url.protocol === 'https:' && /^\/(home)?\/?$/.test(url.pathname)) return url.href;
   return '';
 }
 
