@@ -245,3 +245,55 @@ main > .section > .hero-card-overlay-wrapper {
     aspect-ratio: auto;
   }
 }
+
+/* the countdown (row End time), as www's main stage teaser (.campaign-wrapper .count-down,
+   www.austrian.com 2026-11-01): after the text, before the link, 24px below (30px from 1025px);
+   numbers and colons 28px (36px from 768px) / 110% bold in the heading font, labels 14px / 150%,
+   8px under the number, 8px between the columns; the card's text colour (www: dark on light
+   cards, white on inverted ones) */
+.hero-card-overlay .hero-card-overlay-countdown {
+  margin-bottom: 24px;
+}
+
+.hero-card-overlay .hero-card-overlay-countdown-row {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+}
+
+.hero-card-overlay .hero-card-overlay-countdown-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-card-overlay .hero-card-overlay-countdown-num,
+.hero-card-overlay .hero-card-overlay-countdown-sep {
+  color: inherit;
+  font-family: var(--heading-font-family);
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 110%;
+  letter-spacing: 0.32px;
+}
+
+.hero-card-overlay .hero-card-overlay-countdown-label {
+  margin-top: 8px;
+  color: inherit;
+  font-size: 14px;
+  line-height: 150%;
+}
+
+@media (width >= 768px) {
+  .hero-card-overlay .hero-card-overlay-countdown-num,
+  .hero-card-overlay .hero-card-overlay-countdown-sep {
+    font-size: 36px;
+    letter-spacing: 0;
+  }
+}
+
+@media (width >= 1025px) {
+  .hero-card-overlay .hero-card-overlay-countdown {
+    margin-bottom: 30px;
+  }
+}

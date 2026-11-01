@@ -1,7 +1,144 @@
 import { createOptimizedPicture } from '../../scripts/aem.js';
 import { keepImageSize } from '../../scripts/block-config.js';
+import { getLocale } from '../../scripts/locale.js';
+import { now as clockNow, parseLocalTime, MARKET_TIME_ZONES } from '../../scripts/clock.js';
 
 let instanceCount = 0;
+
+/*
+ * Countdown (row End time, optional): www's main stage teaser counts down to its campaign's end
+ * (linkModeConfig.campaignConfig: campaignType "running", campaignEndTime; www.austrian.com
+ * us/en, 2026-11-01). Its component: the time left, every second; with a day or more left days :
+ * hours : minutes, else hours : minutes : seconds, two digits each, labels from labels/countdown;
+ * at the end the countdown is gone, the teaser stays. An end time without an offset is the
+ * market's local time (scripts/clock.js parseLocalTime).
+ */
+
+/** www's labels/countdown (www.austrian.com en, 2026-11-01; de: not readable from our hosts). */
+const COUNTDOWN_LABELS = {
+  en: {
+    days: 'Days', hours: 'Hours', minutes: 'Minutes', seconds: 'Seconds',
+  },
+  de: {
+    days: 'Tage', hours: 'Stunden', minutes: 'Minuten', seconds: 'Sekunden',
+  },
+};
+const LIVE_COUNTDOWN_LABELS = {
+  days: 'countdown.common.default.dayLabelText',
+  hours: 'countdown.common.default.hourLabelText',
+  minutes: 'countdown.common.default.minuteLabelText',
+  seconds: 'countdown.common.default.secondLabelText',
+};
+
+/**
+ * The parts www's countdown shows for the time left.
+ * @param {number} end ms since the epoch
+ * @param {number} nowTs ms since the epoch
+ * @returns {{completed: boolean, units: Array<[string, string]>}}
+ */
+export function countdownParts(end, nowTs) {
+  const left = Math.floor((end - nowTs) / 1000);
+  if (left <= 0) return { completed: true, units: [] };
+  const days = Math.floor(left / 86400);
+  const hours = Math.floor((left % 86400) / 3600);
+  const minutes = Math.floor((left % 3600) / 60);
+  const seconds = left % 60;
+  const two = (n) => String(n).padStart(2, '0');
+  const units = days > 0
+    ? [['days', two(days)], ['hours', two(hours)], ['minutes', two(minutes)]]
+    : [['hours', two(hours)], ['minutes', two(minutes)], ['seconds', two(seconds)]];
+  return { completed: false, units };
+}
+
+/** Whether an authored date and time names a real one (Date.UTC would roll 2026-13-45 over). */
+function plausible(text) {
+  const iso = text.match(/^(\d{4})-(\d{1,2})-(\d{1,2})(?:[T\s]+(\d{1,2}):(\d{2})(?::(\d{2}))?)?/);
+  const de = text.match(/^(\d{1,2})\.(\d{1,2})\.(\d{4})(?:,?\s+(\d{1,2}):(\d{2})(?::(\d{2}))?)?/);
+  let parts = null;
+  if (iso) parts = [iso[1], iso[2], iso[3], iso[4], iso[5], iso[6]];
+  else if (de) parts = [de[3], de[2], de[1], de[4], de[5], de[6]];
+  if (!parts) return false;
+  const [y, mo, d, h = 0, mi = 0, sec = 0] = parts.map((v) => Number(v || 0));
+  const days = new Date(Date.UTC(y, mo, 0)).getUTCDate();
+  return mo >= 1 && mo <= 12 && d >= 1 && d <= days && h <= 23 && mi <= 59 && sec <= 59;
+}
+
+/**
+ * The end of the countdown: an authored time (www's "2026-11-01T23:59:00.000-05:00", "2026-11-02
+ * 05:59+01:00"; without an offset the market's local time), else null (empty or unreadable, or
+ * a local time where the market's time zone is unknown: Austrian's and ITA's markets lufthansa.com
+ * has no row for, e.g. us).
+ * @param {string} value
+ * @param {string|null} timeZone the page's market's time zone
+ * @returns {number|null}
+ */
+export function readEndTime(value, timeZone) {
+  // www's values carry milliseconds ("23:59:00.000-05:00"): whole seconds are enough
+  const text = String(value || '').trim().replace(/(\d{1,2}:\d{2}:\d{2})\.\d+/, '$1');
+  if (!text || !plausible(text)) return null;
+  if (!timeZone && !/(z|[+-]\d{2}:?\d{2})$/i.test(text)) return null;
+  const ts = parseLocalTime(text, timeZone);
+  return Number.isFinite(ts) ? ts : null;
+}
+
+/** The value cell of a two-cell "End time | ..." row, else null. */
+function endTimeRow(row) {
+  const cells = [...row.children];
+  if (cells.length !== 2) return null;
+  return /^(end time|endzeit)$/i.test(cells[0].textContent.trim()) ? cells[1] : null;
+}
+
+/** The countdown (www's .count-down .countdown-row), ticking until the end; null when over. */
+function buildCountdown(end, labels) {
+  if (countdownParts(end, clockNow()).completed) return null;
+  const timer = document.createElement('div');
+  timer.className = 'hero-card-overlay-countdown';
+  timer.setAttribute('role', 'timer');
+  const row = document.createElement('div');
+  row.className = 'hero-card-overlay-countdown-row';
+  timer.append(row);
+  const render = () => {
+    const { completed, units } = countdownParts(end, clockNow());
+    if (completed) return false;
+    const children = [];
+    units.forEach(([unit, value], i) => {
+      if (i) {
+        const sep = document.createElement('span');
+        sep.className = 'hero-card-overlay-countdown-sep';
+        sep.setAttribute('aria-hidden', 'true');
+        sep.textContent = ':';
+        children.push(sep);
+      }
+      const col = document.createElement('span');
+      col.className = 'hero-card-overlay-countdown-col';
+      col.dataset.unit = unit;
+      const num = document.createElement('span');
+      num.className = 'hero-card-overlay-countdown-num';
+      num.textContent = value;
+      const label = document.createElement('span');
+      label.className = 'hero-card-overlay-countdown-label';
+      label.textContent = labels[unit];
+      col.append(num, label);
+      children.push(col);
+    });
+    row.replaceChildren(...children);
+    return true;
+  };
+  render();
+  const interval = setInterval(() => {
+    if (render()) return;
+    clearInterval(interval);
+    timer.remove();
+  }, 1000);
+  // www's live labels where its label service answers (the built-in copies otherwise)
+  timer.relabel = (live) => {
+    Object.entries(LIVE_COUNTDOWN_LABELS).forEach(([unit, key]) => {
+      if (live[key]) labels[unit] = live[key];
+    });
+    render();
+  };
+  return timer;
+}
 
 /**
  * The value cell of a two-cell "Conditions | title + text" row, else null.
@@ -70,7 +207,13 @@ export default function decorate(block) {
   const card = document.createElement('div');
   card.className = 'hero-card-overlay-card';
   let conditions = null;
+  let endTime = null;
   [...block.children].forEach((row) => {
+    const endCell = endTimeRow(row);
+    if (endCell) {
+      endTime = endCell.textContent;
+      return;
+    }
     const conditionsCell = conditionsRow(row);
     if (conditionsCell) {
       conditions = buildConditions(conditionsCell) || conditions;
@@ -106,6 +249,22 @@ export default function decorate(block) {
       p.classList.add('hero-card-overlay-cta');
     }
   });
+
+  // the countdown (row End time): after the text, before the link (www's campaign-wrapper)
+  if (endTime !== null) {
+    const locale = getLocale();
+    const zone = locale.timeZone || MARKET_TIME_ZONES[locale.country] || null;
+    const end = readEndTime(endTime, zone);
+    const labels = { ...(COUNTDOWN_LABELS[locale.lang] || COUNTDOWN_LABELS.en) };
+    const timer = end === null ? null : buildCountdown(end, labels);
+    if (timer) {
+      const cta = card.querySelector(':scope > .hero-card-overlay-cta');
+      card.insertBefore(timer, cta || null);
+      import('../../scripts/lh-api.js').then(({ fetchLabels }) => fetchLabels(['countdown'], locale))
+        .then((live) => timer.relabel(live.labels || {}))
+        .catch(() => {});
+    }
+  }
 
   if (conditions) card.append(conditions);
 
