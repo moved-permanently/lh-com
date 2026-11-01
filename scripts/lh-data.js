@@ -18,7 +18,9 @@
  *    the first ones of a fresh tab, and the next attempt usually passes. A price call is retried
  *    twice (PRICE_RETRY_MS); when all attempts fail the next render tries again after a short
  *    backoff (priceBackoffMs: 5 s doubling to 60 s, sessionStorage lh-price-backoff, reset by a
- *    live answer), never 10 minutes; a timeout is never remembered.
+ *    live answer), never 10 minutes; a timeout is never remembered. The check-in deadline routes
+ *    (CHECKIN_ROUTES) are called the same way (isLiveOnlyRoute). A caller may name another www
+ *    origin for its direct calls (lhFetch's origin option: a brand's own www).
  * 2. lh-proxy: the other routes (lhg-fare-teaser/*, which answers 403 "Invalid CORS request" to
  *    foreign origins) go through the worker.
  *    The recorded answer is looked up at the same time, so a refused proxy (502
@@ -58,6 +60,19 @@ const PRICE_ROUTES = /^\/service\/api\/(lhg-fare-teaser\/fareteaser\/(?!recommen
 /** Whether the recordings may answer for a route (not for prices). */
 export function isPriceRoute(route) {
   return PRICE_ROUTES.test(route);
+}
+
+/**
+ * www's check-in deadline search (blocks/checkin-deadlines): its labels and
+ * catalogs/checkin/info/{countries,airports,deadlines}. Nothing recorded; a fresh tab's first
+ * call can be challenged like a price call, so they are called as the price routes are: two
+ * retries, the short backoff, the widget's one late try (priceRetryDelay), live or nothing.
+ */
+const CHECKIN_ROUTES = /^\/service\/api\/(catalogs\/checkin\/info\/|labels\/checkindeadlinesearch\/)/;
+
+/** Whether a route answers live or not at all, with the price routes' retries and backoff. */
+export function isLiveOnlyRoute(route) {
+  return PRICE_ROUTES.test(route) || CHECKIN_ROUTES.test(route);
 }
 
 /**
@@ -102,14 +117,16 @@ function proxyOrigin() {
 }
 
 /**
- * Origin of the direct calls: www.lufthansa.com; a tester may point a page at a mock server
+ * Origin of the direct calls: www.lufthansa.com, or the caller's (lhFetch's origin option, e.g. a
+ * brand's own www: scripts/locale.js serviceOrigin); a tester may point a page at a mock server
  * (localStorage 'lh-live-origin', like 'lh-proxy') to try answers www does not give them.
+ * @param {string} [origin] the caller's www origin
  */
-function liveOrigin() {
+function liveOrigin(origin) {
   try {
-    return window.localStorage.getItem('lh-live-origin') || LIVE_ORIGIN;
+    return window.localStorage.getItem('lh-live-origin') || origin || LIVE_ORIGIN;
   } catch (e) {
-    return LIVE_ORIGIN;
+    return origin || LIVE_ORIGIN;
   }
 }
 
@@ -245,7 +262,7 @@ function clearPriceFailure(route) {
  * skipped); a price route only within its short backoff.
  */
 export function isDirectRouteBlocked(route, origin) {
-  if (isPriceRoute(route)) return priceRouteWaiting(route, origin);
+  if (isLiveOnlyRoute(route)) return priceRouteWaiting(route, origin);
   const hit = readDirectMemo().routes[routePath(route)];
   return Boolean(hit && hit.origin === origin && hit.until > Date.now());
 }
@@ -457,11 +474,13 @@ function acceptLanguage(market) {
 const bodyText = (body) => (typeof body === 'string' ? body : JSON.stringify(body));
 
 /**
- * The direct request to www.lufthansa.com: the live URL and the market's X-Portal-* headers,
- * no cookies. Exported for tools/importer/test-widgets.mjs.
+ * The direct request to www.lufthansa.com (or the origin option's www): the live URL and the
+ * market's X-Portal-* headers, no cookies. Exported for tools/importer/test-widgets.mjs.
  * @returns {{url: string, init: RequestInit}}
  */
-export function directRequest(route, { method = 'GET', body, market } = {}) {
+export function directRequest(route, {
+  method = 'GET', body, market, origin,
+} = {}) {
   const init = {
     method, mode: 'cors', credentials: 'omit', headers: portalHeaders(market),
   };
@@ -469,7 +488,7 @@ export function directRequest(route, { method = 'GET', body, market } = {}) {
     init.body = bodyText(body);
     init.headers['Content-Type'] = 'application/json';
   }
-  return { url: `${liveOrigin()}${route}`, init };
+  return { url: `${liveOrigin(origin)}${route}`, init };
 }
 
 // the tenant headers lh-proxy forwards to www (not X-Portal-Taxonomy, -CountryId)
@@ -506,11 +525,13 @@ function proxyRequest(origin, route, { method, body, market }) {
  * @param {string} [options.market] locale key, defaults to the current page's locale
  * @param {boolean} [options.exact] recorded fallback only for this exact request (no answer
  *   of the same route for other parameters, e.g. another search term)
+ * @param {string} [options.origin] the www origin of a direct call (default www.lufthansa.com),
+ *   e.g. a brand's own www that answers our hosts (scripts/locale.js serviceOrigin)
  * @returns {Promise<{data: *, source: 'live'|'recorded', via: 'direct'|'proxy'|'recording',
  *   recordedAt?: string}>}
  */
 export async function lhFetch(route, {
-  method = 'GET', body, market = getLocale().key, exact = false,
+  method = 'GET', body, market = getLocale().key, exact = false, origin: wwwOrigin,
 } = {}) {
   // a production host (scripts/demo.js) is www itself: every route same-origin with the market's
   // X-Portal-* headers, no proxy, no tester overrides, no recorded answers (a failing call fails)
@@ -525,8 +546,11 @@ export async function lhFetch(route, {
     return { data, source: 'live', via: 'same-origin' };
   }
   const key = requestKey(method, route, body);
-  const options = { method, body, market };
-  const priceRoute = isPriceRoute(route);
+  const options = {
+    method, body, market, origin: wwwOrigin,
+  };
+  // prices and the other live-only routes: never a recorded answer, retries and a short backoff
+  const priceRoute = isLiveOnlyRoute(route);
   // the recorded answer is looked up right away: a failing live call costs no extra wait
   let recordedLookup;
   const recorded = () => {
@@ -537,7 +561,7 @@ export async function lhFetch(route, {
     return recordedLookup;
   };
   const fromRecording = async () => {
-    if (isPriceRoute(route)) throw new Error(`no live answer for ${route} (prices are never recorded answers)`);
+    if (priceRoute) throw new Error(`no live answer for ${route} (prices and live-only routes are never recorded answers)`);
     const { value, error } = await recorded();
     if (error) throw error;
     return { ...value, via: 'recording' };
@@ -546,7 +570,7 @@ export async function lhFetch(route, {
   if (RECORDED_ONLY_ROUTES.test(route)) return fromRecording();
 
   if (isDirectRoute(route)) {
-    const live = liveOrigin();
+    const live = liveOrigin(wwwOrigin);
     if (isDirectRouteBlocked(route, live)) return fromRecording();
     if (!priceRoute) recorded();
     const { url, init } = directRequest(route, options);

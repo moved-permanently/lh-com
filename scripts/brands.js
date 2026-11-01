@@ -24,7 +24,10 @@
  * folder of the destination images of the brand's fare widgets on www (its imageBaseUrl; the
  * site's own copies under that path); Lufthansa's without one. www: the brand's own www host (its
  * links open like lufthansa.com's on lh-com: isOwnWwwHost; its pages replace www.lufthansa.com's
- * in links: scripts/locale.js siteOrigin). portal: www's X-Portal of the brand's pages (their
+ * in links: scripts/locale.js siteOrigin). serviceOrigin: the brand's www host whose /service/api
+ * answers our hosts cross-origin, called instead of www.lufthansa.com by the widgets that ask for
+ * it (scripts/locale.js serviceOrigin; www.brusselsairlines.com sends no CORS headers, so
+ * Brussels has none). portal: www's X-Portal of the brand's pages (their
  * meta X-Portal: Discover FOUR_Y; ITA ITA), the tenant of its /service/api calls and label
  * bundles (lowercase); hub: the home airport of a root without one; airline: its IATA code (the
  * flight status' default airline); consentLinks: the privacy, cookie and imprint pages of the
@@ -89,6 +92,9 @@ export const BRANDS = {
     messageCenter: 'os',
     destinationImages: '/content/dam/austrian/global/images/offers/destination',
     www: 'www.austrian.com',
+    // its /service/api answers our hosts cross-origin (Access-Control-Allow-Origin *, checked
+    // 2026-11-01): the check-in deadline search calls it
+    serviceOrigin: 'www.austrian.com',
     // www.austrian.com's snapshots (2026-10-30): its pages' meta X-Portal OS, the at roots' origin
     // Vienna, the flight status' selected airline OS; the banner's links: each own root's footer
     // (Datenschutz, Imprint) and the Cookie Policy its data protection page links

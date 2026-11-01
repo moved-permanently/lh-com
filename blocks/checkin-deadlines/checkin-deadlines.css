@@ -1,0 +1,223 @@
+/* checkin-deadlines: www's .dcep-checkin-deadline-search (maui-select fields, maui-button, the
+   summary table.table-unstyled and the services maui-table). Sizes from www.austrian.com at 1440
+   and 390 (2026-11-01): fields and button 50px high in a row of four (col-md-3, 20px gutters) from
+   768px, stacked below with 24px between; summary rows 70px, th 18px/500, 10px padding; services
+   cells 200px wide at least, header white, rows grey, the table scrolling sideways when narrow. */
+.checkin-deadlines {
+  --checkin-deadlines-field-surface: var(--lh-grey-1);
+  --checkin-deadlines-field-line: var(--text-color, var(--lh-deepblue));
+  --checkin-deadlines-row-surface: var(--lh-grey-1);
+}
+
+.checkin-deadlines .checkin-deadlines-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.checkin-deadlines .checkin-deadlines-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+  margin: 0 0 18px;
+}
+
+.checkin-deadlines .checkin-deadlines-form[hidden],
+.checkin-deadlines [hidden] {
+  display: none;
+}
+
+/* maui-select: the label on the field, small once the field has a value (as www's floating label) */
+.checkin-deadlines .checkin-deadlines-field {
+  position: relative;
+}
+
+.checkin-deadlines .checkin-deadlines-label {
+  position: absolute;
+  z-index: 1;
+  top: 6px;
+  left: 13px;
+  right: 44px;
+  overflow: hidden;
+  color: var(--text-color, var(--lh-deepblue));
+  font-size: var(--body-font-size-xs);
+  line-height: 1.2;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  pointer-events: none;
+}
+
+.checkin-deadlines .checkin-deadlines-field:has(select:disabled) .checkin-deadlines-label {
+  color: var(--lh-grey-5);
+}
+
+.checkin-deadlines .checkin-deadlines-field:has(option[value=""]:checked) .checkin-deadlines-label {
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: var(--body-font-size-s);
+}
+
+.checkin-deadlines .checkin-deadlines-select {
+  position: relative;
+}
+
+.checkin-deadlines .checkin-deadlines-select select {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: 50px;
+  margin: 0;
+  padding: 20px 44px 4px 12px;
+  border: 1px solid var(--checkin-deadlines-field-line);
+  border-radius: 6px;
+  background: var(--checkin-deadlines-field-surface);
+  color: var(--text-color, var(--lh-deepblue));
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-s);
+  line-height: 1.4;
+  appearance: none;
+  cursor: pointer;
+}
+
+.checkin-deadlines .checkin-deadlines-select select:disabled {
+  border-color: var(--lh-grey-2);
+  background: var(--lh-grey-2);
+  color: var(--lh-grey-5);
+  cursor: default;
+}
+
+.checkin-deadlines .checkin-deadlines-select select:focus-visible {
+  outline: 2px solid var(--focus-color, var(--lh-deepblue));
+  outline-offset: 2px;
+}
+
+.checkin-deadlines .checkin-deadlines-select::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  width: 16px;
+  height: 16px;
+  margin-top: -8px;
+  background-color: var(--text-color, var(--lh-deepblue));
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 8l8 8 8-8' fill='none' stroke='%23000' stroke-width='1.6'/%3E%3C/svg%3E") center / contain no-repeat;
+  pointer-events: none;
+}
+
+.checkin-deadlines .checkin-deadlines-select:has(select:disabled)::after {
+  background-color: var(--lh-grey-5);
+}
+
+/* maui-button: the column's width below 768px, its own from there (www: 143px for Search) */
+.checkin-deadlines .checkin-deadlines-actions {
+  display: flex;
+  align-items: flex-start;
+}
+
+.checkin-deadlines .checkin-deadlines-submit {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 50px;
+  margin: 0;
+}
+
+/* summary: label column and value column, no lines (table-unstyled) */
+.checkin-deadlines .checkin-deadlines-heading {
+  margin: 0 0 18px;
+}
+
+.checkin-deadlines .checkin-deadlines-summary {
+  margin: 0 0 36px;
+  border-collapse: collapse;
+}
+
+.checkin-deadlines .checkin-deadlines-summary th,
+.checkin-deadlines .checkin-deadlines-summary td {
+  height: 50px;
+  padding: 10px;
+  border: 0;
+  background: none;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.checkin-deadlines .checkin-deadlines-summary th {
+  font-size: var(--heading-font-size-xs, 18px);
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.checkin-deadlines .checkin-deadlines-summary td {
+  font-size: var(--body-font-size-s);
+  line-height: 1.5;
+}
+
+.checkin-deadlines .checkin-deadlines-services h3 {
+  margin: 0 0 24px;
+}
+
+.checkin-deadlines .checkin-deadlines-services + .checkin-deadlines-services {
+  margin-top: 36px;
+}
+
+/* maui-table: a scroll box of its own on a narrow screen (cells at least 200px) */
+.checkin-deadlines .checkin-deadlines-table-wrap {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.checkin-deadlines .checkin-deadlines-table {
+  width: 100%;
+  min-width: 1200px;
+  margin: 0;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.checkin-deadlines .checkin-deadlines-table th,
+.checkin-deadlines .checkin-deadlines-table td {
+  padding: 18px;
+  border: 0;
+  text-align: left;
+  vertical-align: top;
+  overflow-wrap: anywhere;
+}
+
+.checkin-deadlines .checkin-deadlines-table thead th {
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--lh-grey-3);
+  background: var(--background-color, #fff);
+  font-size: var(--heading-font-size-xs, 18px);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.checkin-deadlines .checkin-deadlines-table tbody td {
+  padding-block: 28px;
+  background: var(--checkin-deadlines-row-surface);
+  font-size: var(--body-font-size-xs);
+  line-height: 1.6;
+}
+
+.checkin-deadlines .checkin-deadlines-message,
+.checkin-deadlines .checkin-deadlines-fallback {
+  margin: 0 0 18px;
+}
+
+@media (width >= 768px) {
+  .checkin-deadlines .checkin-deadlines-form {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .checkin-deadlines .checkin-deadlines-submit {
+    width: auto;
+  }
+
+  .checkin-deadlines .checkin-deadlines-summary th {
+    min-width: 200px;
+  }
+}

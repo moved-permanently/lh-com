@@ -1,0 +1,21 @@
+{
+  "variantName": "checkin-deadlines",
+  "baseBlock": "checkin-deadlines",
+  "canonicalModel": "standalone",
+  "sourceUrl": "https://www.austrian.com/at/en/check-in-deadlines",
+  "visualCharacteristics": {
+    "purpose": "live check-in deadline search: travel class, country and airport selects and a search button; the airport's terminal, counter, deadline and check-in services",
+    "traits": [
+      "four 50px boxes in a row from 768px (three grey selects with floating labels, the primary button), stacked below",
+      "results: 'Airport {name}' heading, a label/value summary table, then off-airport and on-airport service tables with grey rows",
+      "the service tables scroll sideways on a narrow screen"
+    ]
+  },
+  "contentPattern": {
+    "structure": "2 columns, label | value, all rows optional: Check-in link | www's checkinLink; Fallback | link to the airline's page (shown when www cannot be reached); any UI string by name (Submit label, Result heading, ...). Calls: labels/checkindeadlinesearch/{portal}/{lang}, catalogs/checkin/info/countries, .../airports?country=, .../deadlines?airport=&isEconomy="
+  },
+  "options": [],
+  "memberVariantIds": [],
+  "usage": "Lufthansa /{de/de,de/en,at/de,gb/en}/check-in-deadlines; Austrian /{root}/check-in-deadlines (/at/de/check-in-annahmeschlusszeiten); Brussels Airlines /{root}/check-in-options-and-info/check-in-times: in the place of www's .checkindeadlinesearch.",
+  "reuseGuidance": "Reuse unchanged. Requests and mappers in scripts/lh-api.js (checkinCountriesRequest, checkinAirportsRequest, checkinDeadlinesRequest, mapCheckinCountries, mapCheckinAirports, mapCheckinDeadlines); the block exports checkinLabels, serviceRows and readCheckinSettings."
+}

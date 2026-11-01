@@ -181,6 +181,17 @@ export function siteOrigin(read = pageMeta) {
 }
 
 /**
+ * The www origin a widget's /service/api calls go to from our hosts: the brand's serviceOrigin
+ * (its own www, which answers cross-origin), else www.lufthansa.com (LIVE_ORIGIN), as lh-com.
+ * @param {Function} [read] metadata reader
+ * @returns {string}
+ */
+export function serviceOrigin(read = pageMeta) {
+  const key = brandKey(read);
+  return key && BRANDS[key].serviceOrigin ? `https://${BRANDS[key].serviceOrigin}` : LIVE_ORIGIN;
+}
+
+/**
  * The site's locales by key: a brand site's roots (with their names and home airports), else
  * lh-com's migrated locales (LOCALES itself).
  * @param {Function} [read] metadata reader

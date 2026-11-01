@@ -898,3 +898,84 @@ export async function resolveOrigin(authored, locale) {
   }
   return { code: locale.homeAirport, name: '', from: 'home' };
 }
+
+/* ------------------------------------------------------------------------------------------- */
+/* Check-in deadlines (blocks/checkin-deadlines; www's CheckinDeadlineSearch)                  */
+/* ------------------------------------------------------------------------------------------- */
+
+/**
+ * The travel class choices of www's search (cabinClassTypes): ECE Economy/Premium Economy, FBE
+ * Business/First; ECE is preselected.
+ */
+export const CHECKIN_CABINS = ['ECE', 'FBE'];
+
+const CHECKIN_INFO = '/service/api/catalogs/checkin/info';
+
+/** The countries of the search: GET /service/api/catalogs/checkin/info/countries */
+export function checkinCountriesRequest() {
+  return { method: 'GET', route: `${CHECKIN_INFO}/countries` };
+}
+
+/** A country's airports: GET /service/api/catalogs/checkin/info/airports?country=AT */
+export function checkinAirportsRequest(country) {
+  return { method: 'GET', route: `${CHECKIN_INFO}/airports?country=${encodeURIComponent(String(country || '').toUpperCase())}` };
+}
+
+/**
+ * An airport's check-in information for a class:
+ * GET /service/api/catalogs/checkin/info/deadlines?airport=VIE&isEconomy=true; isEconomy is
+ * cabin === 'ECE', as www's onSubmit (Business/First: false).
+ */
+export function checkinDeadlinesRequest({ airport, cabin = 'ECE' }) {
+  const params = new URLSearchParams({ airport: String(airport || '').toUpperCase(), isEconomy: String(cabin === 'ECE') });
+  return { method: 'GET', route: `${CHECKIN_INFO}/deadlines?${params}` };
+}
+
+const str = (v) => (v === undefined || v === null ? '' : String(v).trim());
+
+/** {"countries":[{"code":"AT","name":"Austria"}]} → [{ code, name }], www's order, one per code. */
+export function mapCheckinCountries(data) {
+  const seen = new Set();
+  const first = (e) => e && str(e.code) && !seen.has(str(e.code)) && seen.add(str(e.code));
+  return ((data && data.countries) || []).filter(first)
+    .map((c) => ({ code: str(c.code), name: str(c.name) || str(c.code) }));
+}
+
+/**
+ * {"airports":[{"code":"VIE","airport":"Vienna International"}, …]} → [{ code, name }]: www
+ * lists an airport several times (Austria: 18 entries, 6 airports); one per code, in the order
+ * of its first entry.
+ */
+export function mapCheckinAirports(data) {
+  const seen = new Set();
+  const first = (e) => e && str(e.code) && !seen.has(str(e.code)) && seen.add(str(e.code));
+  return ((data && data.airports) || []).filter(first)
+    .map((a) => ({ code: str(a.code), name: str(a.airport) || str(a.code) }));
+}
+
+const mapCheckinService = (s) => ({
+  service: str(s.serviceName),
+  availability: str(s.availability),
+  deadline: str(s.deadline),
+  link: str(s.link),
+  linkText: str(s.linktext),
+  dropOffDeadline: str(s.pickupDeadline),
+  dropOffLocation: str(s.pickupLocation),
+});
+
+/**
+ * {"checkinInfos":[{terminal, counter, deadline, explanation, checkinAtAirportServices,
+ * checkinOffAirportServices}]} → [{ terminal, counter, deadline, explanation, offAirport,
+ * atAirport }], the services as { service (CIS_Label_* name), availability (0, 1, 2), deadline,
+ * link, linkText, dropOffDeadline, dropOffLocation }.
+ */
+export function mapCheckinDeadlines(data) {
+  return ((data && data.checkinInfos) || []).filter((i) => i && typeof i === 'object').map((i) => ({
+    terminal: str(i.terminal),
+    counter: str(i.counter),
+    deadline: str(i.deadline),
+    explanation: str(i.explanation),
+    offAirport: (i.checkinOffAirportServices || []).filter(Boolean).map(mapCheckinService),
+    atAirport: (i.checkinAtAirportServices || []).filter(Boolean).map(mapCheckinService),
+  }));
+}
