@@ -330,3 +330,33 @@ test('link rule: site hosts stripped, links into the language version only where
   assert.equal(marketHref('https://www.lufthansa.com/de/en/x?a=1', ctx), 'https://www.lufthansa.com/ch/en/x?a=1', 'www pages that were not migrated: www\'s market root');
   assert.equal(marketHref('https://www.lufthansa.com/de/de/x', ctx), null);
 });
+
+test('Travel ID login links: the market root\'s return path (state) and country, as www writes them on a market root', () => {
+  const ctx = {
+    from: 'de/en', to: 'ch/en', allowed: () => false, hosts: /^https:\/\/(lufthansa\.turnsthe\.page)(?=\/|$)/,
+  };
+  const login = (state, country) => `https://api.travelid.lufthansa.com/oauth2/authorize?client_id=c&response_type=code&redirect_uri=https://www.lufthansa.com&scope=AUTHENTICATED%20IDENTIFIED&state=${state}&principal_type=EMAIL&reduced_state=NONE&view=login&prompt=login&country=${country}&lang=en`;
+  assert.equal(marketHref(login('/de/en/login', 'DE'), ctx), login('/ch/en/login', 'CH'), 'www.lufthansa.com/ch/en/login: state=/ch/en/login, country=CH');
+  assert.equal(marketHref(login('/de/en', 'DE'), ctx), login('/ch/en', 'CH'));
+  assert.equal(marketHref('https://api.travelid.austrian.com/oauth2/userAuthorize?client_id=c&state=%2Fde%2Fen%2Fhomepage', ctx), 'https://api.travelid.austrian.com/oauth2/userAuthorize?client_id=c&state=%2Fch%2Fen%2Fhomepage', 'an encoded state');
+  assert.equal(marketHref(login('/de/de/anmeldung', 'AT'), ctx), null, 'another root\'s state and country stay');
+  assert.equal(marketHref(login('/de/enx/a', 'de'), ctx), login('/de/enx/a', 'CH'));
+  assert.equal(marketHref('https://travelid.example.com/oauth2/authorize?state=/de/en/login&country=DE', ctx), null, 'not a Travel ID host');
+  const xx = { ...ctx, from: 'it/en', to: 'xx/en' };
+  assert.equal(marketHref(login('/it/en/profile/login', 'IT'), xx), login('/xx/en/profile/login', 'XX'), 'www.ita-airways.com/xx/en/profile/login: country=XX');
+});
+
+test('a market root\'s login page: the Travel ID link returns to the market page with its country; the language version\'s as before', async () => {
+  const link = (state, country) => `https://api.travelid.lufthansa.com/oauth2/authorize?client_id=c&amp;response_type=code&amp;state=${state}&amp;country=${country}&amp;lang=en`;
+  INDEX['/de/en/search-index.json'].data.push(row('/de/en/login'));
+  DOCS['/de/en/login'] = page('/de/en/login').replace('<h1>Baggage</h1>', `<h1>Login</h1><a href="${link('/de/en/login', 'DE')}">Login</a>`);
+  try {
+    const html = await (await get('/ch/en/login')).text();
+    assert.ok(html.includes(`<a href="${link('/ch/en/login', 'CH')}">Login</a>`), 'ch/en\'s login link');
+    const own = await (await get('/de/en/login')).text();
+    assert.ok(own.includes(`<a href="${link('/de/en/login', 'DE')}">Login</a>`), 'de/en\'s login link as the document has it');
+  } finally {
+    INDEX['/de/en/search-index.json'].data.pop();
+    delete DOCS['/de/en/login'];
+  }
+});

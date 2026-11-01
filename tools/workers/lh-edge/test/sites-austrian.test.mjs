@@ -40,14 +40,17 @@ const FILES = {
     row('/at/en/baggage', { markets: 'ch/en, gb/en, us/en, xx/en' }),
     row('/at/en/legal/imprint', { markets: 'ch/en, gb/en, us/en, xx/en' }),
     row('/at/en/fly/vienna-transfer', { markets: 'gb/en' }),
+    row('/at/en/login'),
   ]),
-  '/at/de/search-index.json': sheet([row('/at/de/gepaeck', { markets: 'ch/de, de/de, xx/de' })]),
+  '/at/de/search-index.json': sheet([row('/at/de/gepaeck', { markets: 'ch/de, de/de, xx/de' }), row('/at/de/anmeldung')]),
   '/market-pages.json': sheet([row('/ca/en/local-page/austrian-in-canada'), row('/xx/en/homepage')]),
   '/at/en/homepage': page('/at/en/homepage', '<h1>at/en homepage</h1>'),
   '/at/de/homepage': page('/at/de/homepage', '<h1>at/de Startseite</h1>'),
   '/at/en/baggage': page('/at/en/baggage', '<h1>Baggage</h1><a href="/at/en/legal/imprint">Imprint</a> <a href="/at/en/fly/vienna-transfer">Transfer</a>'),
   '/at/en/fly/vienna-transfer': page('/at/en/fly/vienna-transfer', '<h1>Transfer</h1>'),
   '/at/de/gepaeck': page('/at/de/gepaeck', '<h1>Gepäck</h1>'),
+  '/at/en/login': page('/at/en/login', '<h1>Login</h1><a href="https://api.travelid.austrian.com/oauth2/authorize?client_id=c&amp;response_type=code&amp;state=/at/en/login&amp;principal_type=EMAIL&amp;country=AT&amp;lang=en">Login</a>'),
+  '/at/de/anmeldung': page('/at/de/anmeldung', '<h1>Login</h1><a href="https://api.travelid.austrian.com/oauth2/authorize?client_id=c&#x26;response_type=code&#x26;state=/at/de/anmeldung&#x26;principal_type=EMAIL&#x26;country=AT&#x26;lang=de">Login</a>'),
   '/ca/en/local-page/austrian-in-canada': page('/ca/en/local-page/austrian-in-canada', '<h1>ca/en own page</h1>'),
   '/xx/en/homepage': page('/xx/en/homepage', '<h1>xx/en own homepage</h1>'),
 };
@@ -144,6 +147,15 @@ test('austrian: a market root from its language document where the markets row l
   assert.equal((await get('https://austrian.example/gb/en/fly/vienna-transfer')).status, 200);
   // German: de/de from at/de
   assert.match(await (await get('https://austrian.example/de/de/gepaeck')).text(), /<h1>Gepäck<\/h1>/);
+});
+
+test('austrian: a market root\'s login page: Travel ID returns to the market page with the market\'s country (www: /al/en/login AL, /ch/de/anmeldung CH)', async () => {
+  const al = await (await get('https://austrian.example/al/en/login')).text();
+  assert.match(al, /href="https:\/\/api\.travelid\.austrian\.com\/oauth2\/authorize\?client_id=c&amp;response_type=code&amp;state=\/al\/en\/login&amp;principal_type=EMAIL&amp;country=AL&amp;lang=en"/);
+  const ch = await (await get('https://austrian.example/ch/de/anmeldung')).text();
+  assert.match(ch, /href="https:\/\/api\.travelid\.austrian\.com\/oauth2\/authorize\?client_id=c&#x26;response_type=code&#x26;state=\/ch\/de\/anmeldung&#x26;principal_type=EMAIL&#x26;country=CH&#x26;lang=de"/, 'the origin\'s &#x26; entities');
+  const at = await (await get('https://austrian.example/at/en/login')).text();
+  assert.match(at, /state=\/at\/en\/login&amp;principal_type=EMAIL&amp;country=AT&amp;lang=en"/, 'the language version as its document has it');
 });
 
 test('austrian: a market root\'s own page from its own document', async () => {
