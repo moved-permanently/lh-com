@@ -161,6 +161,25 @@ export function navTargets(html) {
   return [...new Set(hrefs.map(wwwPath).filter((p) => p && /^\/[a-z]{2}\/[a-z]{2}\//.test(p)))].sort();
 }
 
+/**
+ * The country list of the nav's locale item (as austrian-nav.mjs's): the selector's first select
+ * only (its second lists the languages, which had become countries: "English" /en/en/homepage; the
+ * site's roots are the dialog's own list), each country to the site's homepage in the page's
+ * language, else in English, else the country's first root, else www's page in the page's language.
+ */
+export function countryLinks(document, lang, sitePaths) {
+  const select = document.querySelector('maui-modal.country-language-selector-modal maui-select');
+  const options = [...(select ? select.querySelectorAll('maui-option[optionvalue]') : [])]
+    .map((o) => ({ code: clean(o.getAttribute('optionvalue')).toLowerCase(), name: visible(o) })).filter((o) => o.code && o.name);
+  const seen = new Set();
+  const homes = [...sitePaths].filter((p) => /^\/[a-z]{2}\/[a-z]{2}\/homepage$/.test(p)).sort();
+  return options.filter((o) => !seen.has(o.code) && seen.add(o.code)).map((o) => {
+    const own = [`/${o.code}/${lang}/homepage`, `/${o.code}/en/homepage`].find((p) => homes.includes(p))
+      || homes.find((p) => p.startsWith(`/${o.code}/`));
+    return { code: o.code, name: o.name, href: own || `${ORIGIN}/${o.code}/${lang}/homepage` };
+  });
+}
+
 /** The nav document (four sections) of a root. */
 export function navDocument(document, key, sitePaths) {
   const { data, items } = menuOf(document);
@@ -171,11 +190,7 @@ export function navDocument(document, key, sitePaths) {
   const brand = `<div><p><a href="/${key}/homepage">${img(HEADER_LOGO, logoAlt)}</a></p></div>`;
   const quickList = `<div><ul>\n${quick.map((l) => `<li>${a(l.url, clean(l.label), sitePaths)}</li>`).join('\n')}\n</ul></div>`;
   const menu = `<div><ul>\n${items.map((t) => `<li>\n<p>${esc(t.label)}</p>\n<ul>\n${t.columns.map((c) => `<li>\n<p>${c.href ? a(c.href, c.label, sitePaths) : esc(c.label)}</p>\n<ul>\n${c.links.map((l) => `<li>${a(l.href, l.label, sitePaths)}</li>`).join('\n')}\n</ul>\n</li>`).join('\n')}\n</ul>\n</li>`).join('\n')}\n</ul></div>`;
-  const options = [...document.querySelectorAll('maui-modal.country-language-selector-modal maui-select maui-option[optionvalue]')]
-    .map((o) => ({ code: clean(o.getAttribute('optionvalue')).toLowerCase(), name: visible(o) })).filter((o) => o.code && o.name);
-  const seen = new Set();
-  const countries = options.filter((o) => !seen.has(o.code) && seen.add(o.code));
-  const lang = key.split('/')[1];
+  const countries = countryLinks(document, key.split('/')[1], sitePaths);
   const localeLabel = visible(document.querySelector('header .dcep-country-and-language-selection .country-language-text'))
     || visible(document.querySelector('.dcep-country-and-language-selection .country-language-text')) || key;
   const tools = [
@@ -185,7 +200,7 @@ export function navDocument(document, key, sitePaths) {
     document.querySelector('.dcep-shopping-cart') ? `<li>:cart: <a href="${ORIGIN}/${key}/homepage">${esc(clean(document.querySelector('.dcep-shopping-cart [name]')?.getAttribute('name')) || 'Shopping cart')}</a></li>` : '',
     // the login is www's (Travel ID); the login and profile app shells are not on the site
     login.userAuthorizeUrl ? `<li>:login: <a href="${esc(login.userAuthorizeUrl.replace(/state=[^&]*/, `state=${encodeURIComponent(`/${key}/homepage`)}`))}">${esc(visible(document.querySelector('.dcep-login-portlet .login-portlet-link')) || 'Login')}</a></li>` : '',
-    `<li>:globe: ${esc(localeLabel)}${countries.length ? `\n<ul>\n${countries.map((c) => `<li><a href="${ORIGIN}/${c.code}/${lang}/homepage">${esc(c.name)}</a></li>`).join('\n')}\n</ul>` : ''}</li>`,
+    `<li>:globe: ${esc(localeLabel)}${countries.length ? `\n<ul>\n${countries.map((c) => `<li><a href="${esc(c.href)}">${esc(c.name)}</a></li>`).join('\n')}\n</ul>` : ''}</li>`,
   ].filter(Boolean);
   const menuLabel = clean(document.querySelector('.header-and-flyout-burger-menu')?.getAttribute('aria-label')) || visible(document.querySelector('.header-and-flyout-burger-menu')) || 'Menu';
   const toolsSection = `<div><ul>\n${tools.join('\n')}\n</ul><p>${esc(menuLabel)}</p></div>`;
