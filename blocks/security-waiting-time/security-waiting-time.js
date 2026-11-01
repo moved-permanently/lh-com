@@ -1,7 +1,7 @@
 import { getLocale, LIVE_ORIGIN } from '../../scripts/locale.js';
 import { readConfigRows, pick, resolveLabels } from '../../scripts/block-config.js';
 import {
-  catalogRequest, fetchRequest, fetchLabels, pickLabels, fillLabel, mapAirportNames,
+  fetchRequest, fetchLabels, pickLabels, fillLabel, mapAirportNames,
   securityWaitingTimeAirportsRequest, securityWaitingTimeRequest,
 } from '../../scripts/lh-api.js';
 import { markSource, priceRetryDelay } from '../../scripts/lh-data.js';
@@ -13,7 +13,9 @@ import { brandWwwHost } from '../../scripts/brand.js';
  * security-waiting-time, ITA's /it/en/book-and-prepare/travel-information/at-the-airport/
  * security-waiting-times, Discover's /de/en/book/travel-information/airport-info/
  * security-check-time-slot): an airport select (GET /service/api/security-waiting-time/airports,
- * named from the airport names catalog), then per terminal (tabs) and area the waiting time
+ * named as www's saga asks: POST /service/api/catalogs/airportnames with the codes,
+ * {"airports":[{"code":"MUC"},…]}, in the portal's language; a code without a name shows the
+ * code), then per terminal (tabs) and area the waiting time
  * ("5 - 10 min"), "open" or "closed", a dot in the area's workload colour and "Last update: 3
  * minutes ago" (GET /service/api/security-waiting-time/<IATA>/security). The page's ?airport=
  * (as www) or the Airport row preselects one. Live or nothing (scripts/lh-data.js handles the
@@ -66,6 +68,17 @@ const LIVE_LABELS = {
   'status label': 'securityWaitingTime.default.default.srSecurityGateStatus',
 };
 const BUNDLE = 'securitywaitingtime';
+
+/**
+ * The airports' names as www's widget asks for them (its saga translateAirports, 2026-11-01): POST
+ * /service/api/catalogs/airportnames with the codes; the GET without codes answers one airport
+ * only (lh-com Frankfurt, ITA Rome).
+ */
+const airportNamesRequest = (codes) => ({
+  method: 'POST',
+  route: '/service/api/catalogs/airportnames',
+  body: { airports: codes.map((code) => ({ code })) },
+});
 // www's badge types (SWT-<workload>): the dot's colour (CSS)
 const WORKLOADS = ['LOW', 'MEDIUM', 'FULL', 'OPEN', 'CLOSED'];
 
@@ -253,7 +266,8 @@ export default async function decorate(block) {
       [locale.lang]: { ...builtIn, ...pickLabels(live.labels, LIVE_LABELS) },
     }, config, locale.lang);
   });
-  const namesPromise = fetchRequest(catalogRequest('airportnames'), locale)
+  // no names (the call failed, after lh-data's retry of a direct route): the codes, as before
+  const loadNames = (codes) => fetchRequest(airportNamesRequest(codes), locale, { exact: true })
     .then(({ data }) => new Map(mapAirportNames(data).map((a) => [a.code, a.name])))
     .catch(() => new Map());
   const loadAirports = () => fetchRequest(securityWaitingTimeAirportsRequest(), locale)
@@ -309,7 +323,7 @@ export default async function decorate(block) {
   };
 
   const buildForm = async (codes) => {
-    const names = await namesPromise;
+    const names = await loadNames(codes);
     const form = el('div', 'security-waiting-time-form');
     const label = el('label', 'security-waiting-time-label', labels['select label']);
     const select = el('select', 'security-waiting-time-select');
