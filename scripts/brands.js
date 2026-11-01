@@ -183,6 +183,10 @@ export const BRANDS = {
     theme: false,
     www: 'www.lufthansa-cargo.com',
     messageCenter: 'cargo',
+    // notifications: the header's bell tool opens www's notification panel (the nav's :bell: tool,
+    // blocks/header/header-notifications.js; other brands keep it a link), its overview page
+    // per language (blocks/notifications)
+    notifications: { page: '/{ll}/notification-overview' },
     embeds: {
       // the newsletter form (Dynamics 365 Customer Insights) as www's /en/ci/newsletter embeds it
       // (2026-11-01): Microsoft's form loader; the form's ids are the block's rows

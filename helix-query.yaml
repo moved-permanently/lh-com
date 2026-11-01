@@ -3475,3 +3475,42 @@ indices:
       lastModified:
         select: none
         value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+
+  # Message Center notifications (Lufthansa Cargo's header bell and notification overview, as
+  # www.lufthansa-cargo.com showed them before its CMS was switched off): one row per notification
+  # and language, from the structured content documents /message-center/notification/<id>/<lang>
+  # (the Message Center's field keys plus category and teaser; the full text is the details page,
+  # /message-center/details/<id>/<lang>). An index of its own, so /message-center/index.json and
+  # its readers (the flash teaser, lh-messages, the apps) stay as they are.
+  message-center-notifications:
+    include:
+      - /message-center/notification/**
+    target: /message-center/notifications.json
+    properties:
+      headline:
+        select: div > div > div:has(#headline) > div:last-child
+        value: textContent(el)
+      category:
+        select: div > div > div:has(#category) > div:last-child
+        value: textContent(el)
+      teaser:
+        select: div > div > div:has(#teaser) > div:last-child
+        value: textContent(el)
+      tenants:
+        select: div > div > div:has(#tenants) > div:last-child li
+        values: textContent(el)
+      details:
+        select: div > div > div:has(#details) > div:last-child
+        value: textContent(el)
+      from:
+        select: div > div > div:has(#from) > div:last-child
+        value: textContent(el)
+      to:
+        select: div > div > div:has(#to) > div:last-child
+        value: textContent(el)
+      internal-title:
+        select: div > div > div:has(#internal-title) > div:last-child
+        value: textContent(el)
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")

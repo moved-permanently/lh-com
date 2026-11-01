@@ -2,8 +2,9 @@ import { getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
 import {
   getLocale, LOCALE_TABLE, getCounterpartPath, getHomepageUrl,
-  isMigratedLocale, portalOf, ownRoots, siteLocales, siteOrigin,
+  isMigratedLocale, portalOf, ownRoots, siteLocales, siteOrigin, brandEntry,
 } from '../../scripts/locale.js';
+import { messageLocale, notificationsPage } from '../../scripts/message-center.js';
 import { languageSwitch, switchTarget } from '../../scripts/site-languages.js';
 import { uiIcon, inlineIcon, takeIconName } from '../../scripts/lh-icons.js';
 import { getChannel, isFlynetHiddenLink, FLYNET_LOCALES } from '../../scripts/channel.js';
@@ -229,6 +230,10 @@ const TOOL_ROLES = {
   user: 'login',
   globe: 'locale',
   earth: 'locale',
+  // the notifications bell (a brand with notifications: the panel, ./header-notifications.js)
+  bell: 'notifications',
+  notification: 'notifications',
+  notifications: 'notifications',
 };
 
 /* ------------------------------------------------------------------ content ---------- */
@@ -846,6 +851,19 @@ export default async function decorate(block) {
     return tool && tool.href ? toolLink(tool, className, false) : null;
   }));
   barLinks.filter(Boolean).forEach((a) => toolsEl.append(a));
+  // notifications: on a brand with notifications (scripts/brands.js: Cargo) the nav's bell tool is
+  // www's bell and panel; any other brand's bell tool stays what it was (a link in the menu)
+  const bellTool = byRole('notifications');
+  const bellLang = messageLocale({ locale }).lang;
+  const bellPage = bellTool ? notificationsPage(brandEntry(), bellLang) : '';
+  let bell = null;
+  if (bellPage) {
+    const { default: buildNotifications } = await import('./header-notifications.js');
+    bell = buildNotifications({
+      label: bellTool.label, lang: bellLang, page: bellPage, icon: await inlineIcon(bellTool.icon),
+    });
+    toolsEl.append(bell.button);
+  }
   const loginTool = byRole('login');
   if (loginTool && loginTool.href) {
     toolsEl.append(el('span', { className: 'nav-divider', 'aria-hidden': 'true' }));
@@ -923,7 +941,9 @@ export default async function decorate(block) {
   });
 
   const bar = el('div', { className: 'nav-bar' }, brandEl, quickEl, toolsEl);
-  const nav = el('nav', { id: 'nav', 'aria-label': labels.nav }, bar, flyout.flyout);
+  const nav = el('nav', { id: 'nav', 'aria-label': labels.nav }, bar, bell ? bell.panel : null, flyout.flyout);
+  // the menu and the notifications panel: one at a time
+  if (bell) menuButton.addEventListener('click', () => bell.close());
   const navWrapper = el('div', { className: 'nav-wrapper' }, nav);
   const flight = flightBar ? await flightBar : null;
   if (flight) navWrapper.append(flight);

@@ -252,3 +252,126 @@ export function iconOf(msg) {
   if (msg.type === 'promo') return 'sale';
   return msg.criticality === 'high' ? 'warning' : 'info';
 }
+
+/* ------------------------------------------------------------------- notifications -- */
+/*
+ * Notifications (Lufthansa Cargo's header bell and notification overview, as
+ * www.lufthansa-cargo.com shows them): one document per notification and language at
+ * /message-center/notification/<id>/<lang> (headline, category, teaser, tenants, details, from,
+ * to, internal-title), listed in their own query index /message-center/notifications.json
+ * (helix-query.yaml message-center-notifications), so the Message Center index above and its
+ * readers stay as they are. The full text is the details page (as a message's).
+ */
+
+export const NOTIFICATIONS_PATH = '/message-center/notifications.json';
+const NOTIFICATION_ZONE = 'Europe/Berlin';
+
+/** One notifications index row (/message-center/notification/<id>/<lang>), else null. */
+export function parseNotification(row) {
+  const m = String(row.path || '').match(/^\/message-center\/notification\/([^/]+)\/([a-z]{2})$/);
+  if (!m) return null;
+  return {
+    path: row.path,
+    id: m[1],
+    lang: m[2],
+    headline: String(row.headline || '').trim(),
+    category: String(row.category || '').trim(),
+    teaser: String(row.teaser || '').trim(),
+    tenants: listField(row.tenants),
+    details: String(row.details || '').trim(),
+    from: time(row.from),
+    to: time(row.to),
+    lastModified: Number(row.lastModified) || 0,
+  };
+}
+
+/**
+ * The notifications a page shows, newest first: the site's tenant, one per notification (the
+ * page's language, else English), inside their from/to window.
+ * @param {Object[]} rows rows of /message-center/notifications.json
+ * @param {{lang: string, now?: number, tenant?: string}} options
+ * @returns {Object[]}
+ */
+export function selectNotifications(rows, { lang, now = clockNow(), tenant = siteTenant() } = {}) {
+  const byId = new Map();
+  (rows || []).map(parseNotification).filter(Boolean).forEach((n) => {
+    const current = byId.get(n.id);
+    if (n.lang === lang) byId.set(n.id, n);
+    else if (n.lang === 'en' && (!current || current.lang !== lang)) byId.set(n.id, n);
+  });
+  return [...byId.values()]
+    .filter((n) => n.headline && tenant && n.tenants.includes(tenant)
+      && (n.from === null || n.from <= now) && (n.to === null || now < n.to))
+    .sort((a, b) => recency(b) - recency(a));
+}
+
+/** The categories of notifications, in the order they first appear (the overview's filter). */
+export function notificationCategories(list) {
+  return [...new Set(list.map((n) => n.category).filter(Boolean))];
+}
+
+/**
+ * www's date and time of a notification (Berlin time): "16 Sep 26" and "11:07"; German months as
+ * www.lufthansa-cargo.com writes them ("16 Sept. 26", "20 Okt. 26").
+ * @param {number} ms
+ * @param {string} lang
+ * @returns {{date: string, time: string}}
+ */
+export function notificationDate(ms, lang) {
+  const parts = Object.fromEntries(new Intl.DateTimeFormat(lang === 'de' ? 'de-DE' : 'en-US', {
+    day: '2-digit', month: 'short', year: '2-digit', timeZone: NOTIFICATION_ZONE,
+  }).formatToParts(ms).map((p) => [p.type, p.value]));
+  const clock = new Intl.DateTimeFormat('en-GB', {
+    hour: '2-digit', minute: '2-digit', hourCycle: 'h23', timeZone: NOTIFICATION_ZONE,
+  }).format(ms);
+  return { date: `${parts.day} ${parts.month} ${parts.year}`, time: clock };
+}
+
+/** When a notification is dated: its window's start, else its last modification. */
+export const notificationTime = (n) => recency(n);
+
+/** www's shortening (headlines 70, texts 190 characters): the start and " ...". */
+export function clip(text, max) {
+  return text.length > max ? `${text.slice(0, max)} ...` : text;
+}
+
+/** The brand's notifications page in a language (scripts/brands.js notifications), else ''. */
+export function notificationsPage(brand, lang) {
+  const page = brand && brand.notifications && brand.notifications.page;
+  return page ? page.replace(/\{ll\}/g, lang) : '';
+}
+
+let notificationsRequest;
+
+/** Starts loading the notifications index (once per page). */
+export function loadNotifications() {
+  if (!notificationsRequest) notificationsRequest = fetchSheet(NOTIFICATIONS_PATH);
+  return notificationsRequest;
+}
+
+/**
+ * The long text of a message or notification: the content of its details page (no metadata),
+ * as nodes; null without one (the message-center and notifications blocks).
+ * @param {string} path the details page (/message-center/details/<id>/<lang>)
+ * @returns {Promise<Node[]|null>}
+ */
+export async function loadDetails(path) {
+  if (!path || !path.startsWith('/')) return null;
+  try {
+    const resp = await fetch(`${path.replace(/\.(plain\.)?html$/, '')}.plain.html`, { cache: 'no-cache' });
+    if (!resp.ok) return null;
+    const doc = document.createElement('div');
+    doc.innerHTML = await resp.text();
+    doc.querySelectorAll('.metadata, .section-metadata').forEach((m) => m.remove());
+    // media of the details page are relative to it (./media_…)
+    [['img', 'src'], ['source', 'srcset']].forEach(([tag, attr]) => {
+      doc.querySelectorAll(`${tag}[${attr}^="./media_"]`).forEach((node) => {
+        node[attr] = new URL(node.getAttribute(attr), new URL(path, window.location)).href;
+      });
+    });
+    const nodes = [...doc.children].flatMap((section) => [...section.childNodes]);
+    return nodes.some((n) => n.textContent.trim() || n.querySelector?.('img')) ? nodes : null;
+  } catch (e) {
+    return null;
+  }
+}

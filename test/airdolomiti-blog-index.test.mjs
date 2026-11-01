@@ -93,8 +93,11 @@ test('helix-query.yaml: the posts index appended, every other index as before', 
   Object.keys(before).filter((k) => !k.startsWith('articles-airdolomiti-')).forEach((k) => {
     assert.equal(JSON.stringify(now[k]), JSON.stringify(before[k]), k);
   });
-  // appended at the end (the English posts' index after it: test/airdolomiti-blog-index-en)
-  assert.ok(Object.keys(now).slice(-2).includes('articles-airdolomiti-it'), 'appended at the end');
+  // appended (the English posts' index after it: test/airdolomiti-blog-index-en; indexes appended
+  // later follow: message-center-notifications)
+  const keys = Object.keys(now);
+  assert.ok(keys.indexOf('articles-airdolomiti-it') > keys.indexOf('app-screens'), 'appended');
+  assert.ok(keys.indexOf('articles-airdolomiti-it') < keys.indexOf('message-center-notifications'));
 });
 
 test('loadArticles: a brand\'s own index (every row a post); lufthansa.com\'s as before', async () => {

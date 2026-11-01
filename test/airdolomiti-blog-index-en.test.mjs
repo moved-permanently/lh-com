@@ -67,7 +67,11 @@ test('helix-query.yaml: the English posts index after the Italian one, the same 
   assert.deepEqual(en.include, ['/en/articles/*/*']);
   assert.equal(en.target, '/en/articles/query-index.json');
   assert.equal(JSON.stringify(en.properties), JSON.stringify(it.properties));
-  assert.deepEqual(Object.keys(indices).slice(-2), ['articles-airdolomiti-it', 'articles-airdolomiti-en'], 'appended at the end');
+  // appended: the English index right after the Italian one, both after the indexes before them
+  // (indexes appended later follow: message-center-notifications)
+  const keys = Object.keys(indices);
+  assert.equal(keys.indexOf('articles-airdolomiti-en'), keys.indexOf('articles-airdolomiti-it') + 1);
+  assert.ok(keys.indexOf('articles-airdolomiti-en') < keys.indexOf('message-center-notifications'));
 });
 
 test('brands.js: Air Dolomiti\'s English posts index; loadArticles reads it for English', async () => {

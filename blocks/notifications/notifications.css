@@ -1,0 +1,111 @@
+/* notifications: www.lufthansa-cargo.com's notification overview (2026-11-01): the filter (a
+   labelled select, a quarter of the width from 1025px), the list on a grey (#f5f5f5) band; per
+   item the date line (12px, #666, upper case), the headline (Head 18px / 24px), the text (14px /
+   18px) collapsed to four lines with Read more */
+.notifications {
+  color: #05164d;
+}
+
+.notifications .notifications-filter {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 320px;
+  margin: 20px 0;
+}
+
+.notifications .notifications-filter label {
+  color: #666;
+  font-size: 12px;
+}
+
+.notifications .notifications-filter select {
+  padding: 10px 0;
+  border: 0;
+  border-bottom: 1px solid #05164d;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+}
+
+.notifications .notifications-list {
+  margin: 0;
+  padding: 20px;
+  list-style: none;
+  background-color: #f5f5f5;
+}
+
+.notifications .notifications-item {
+  padding: 20px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.notifications .notifications-item:last-child {
+  border-bottom: 0;
+}
+
+.notifications .notifications-item[hidden] {
+  display: none;
+}
+
+.notifications .notifications-date {
+  margin: 0 0 10px;
+  color: #666;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.notifications .notifications-when {
+  text-transform: uppercase;
+}
+
+.notifications .notifications-headline {
+  margin: 0 0 10px;
+  font-family: var(--heading-font-family);
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.notifications .notifications-detail {
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.notifications .notifications-detail > :first-child {
+  margin-top: 0;
+}
+
+.notifications .notifications-item:has(.notifications-more) .notifications-detail {
+  max-height: 72px;
+  overflow: hidden;
+}
+
+.notifications .notifications-item.is-open .notifications-detail {
+  max-height: none;
+}
+
+.notifications .notifications-more {
+  margin-top: 10px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.notifications .notifications-more::before {
+  content: "\2193";
+  margin-right: 8px;
+}
+
+.notifications .notifications-item.is-open .notifications-more {
+  display: none;
+}
+
+@media (width >= 1025px) {
+  .notifications .notifications-list {
+    padding: 20px 40px;
+  }
+}

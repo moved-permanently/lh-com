@@ -1019,3 +1019,153 @@ body.channel-flynet .header .nav-bar {
     padding: 10px 88px;
   }
 }
+
+/* notifications (a brand with notifications, header-notifications.js): www.lufthansa-cargo.com's
+   bell and its panel (2026-11-01, 1440): grey (#f5f5f5) under the bar, the full width, 30px
+   padding, shadow 0 1px 4px; Close top right; the title (Head 18px) over a 1px #ccc rule; per item
+   the date line (12px, #666), the headline (Head 18px / 24px) and the text (14px / 18px) side by
+   side from 1025px, Read more under the headline; Read all on small screens only */
+.header .nav-tool-notifications {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 4px;
+  background: none;
+  cursor: pointer;
+}
+
+.header .nav-tool-notifications[aria-expanded="true"] {
+  box-shadow: inset 0 0 0 2px currentcolor;
+}
+
+.header .nav-notifications {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  z-index: 9;
+  max-height: calc(100vh - 100%);
+  overflow-y: auto;
+  padding: 30px 20px;
+  background-color: #f5f5f5;
+  box-shadow: 0 1px 4px 0 rgb(0 0 0 / 20%);
+  color: #05164d;
+}
+
+.header .nav-notifications[hidden] {
+  display: none;
+}
+
+.header .nav-notifications-close {
+  display: block;
+  margin: 0 0 10px auto;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font-family: var(--heading-font-family);
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.header .nav-notifications-close::after {
+  content: "\00d7";
+  margin-left: 8px;
+  font-size: 24px;
+  line-height: 1;
+  vertical-align: -2px;
+}
+
+.header .nav-notifications-title {
+  margin: 0 0 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+  font-family: var(--heading-font-family);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+.header .nav-notifications-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.header .nav-notifications-item {
+  margin: 0 0 20px;
+}
+
+.header .nav-notifications-date {
+  margin: 0 0 10px;
+  color: #666;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.header .nav-notifications-when {
+  text-transform: uppercase;
+}
+
+.header .nav-notifications-headline {
+  margin: 0 0 10px;
+  font-family: var(--heading-font-family);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+.header .nav-notifications-teaser {
+  margin: 0 0 10px;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.header .nav-notifications-more,
+.header .nav-notifications-all {
+  color: inherit;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.header .nav-notifications-more::before,
+.header .nav-notifications-all::before {
+  content: "\2192";
+  margin-right: 8px;
+}
+
+@media (width >= 1025px) {
+  .header .nav-notifications {
+    padding: 30px 75px;
+  }
+
+  .header .nav-notifications-item {
+    display: grid;
+    grid-template-areas: "date date" "headline teaser" "more teaser";
+    grid-template-columns: 1fr 1fr;
+    column-gap: 24px;
+    padding-right: 24px;
+  }
+
+  .header .nav-notifications-date {
+    grid-area: date;
+  }
+
+  .header .nav-notifications-headline {
+    grid-area: headline;
+  }
+
+  .header .nav-notifications-teaser {
+    grid-area: teaser;
+    margin-left: 24px;
+  }
+
+  .header .nav-notifications-more {
+    grid-area: more;
+    align-self: start;
+  }
+
+  .header .nav-notifications-all {
+    display: none;
+  }
+}

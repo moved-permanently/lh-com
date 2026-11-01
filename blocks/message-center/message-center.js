@@ -5,7 +5,7 @@
  * message-center-item-<id> and opens when the URL hash is #<id> (the flash teaser links there).
  */
 import {
-  messageLocale, loadIndex, selectMessages, readTypes, ICONS,
+  messageLocale, loadIndex, selectMessages, readTypes, ICONS, loadDetails,
 } from '../../scripts/message-center.js';
 
 const DEFAULT_TYPES = ['irreg', 'tech-outage'];
@@ -16,28 +16,6 @@ const el = (tag, className, text) => {
   if (text !== undefined) node.textContent = text;
   return node;
 };
-
-/** The long text of a message: the content of its details page (no metadata). */
-async function loadDetails(path) {
-  if (!path || !path.startsWith('/')) return null;
-  try {
-    const resp = await fetch(`${path.replace(/\.(plain\.)?html$/, '')}.plain.html`, { cache: 'no-cache' });
-    if (!resp.ok) return null;
-    const doc = document.createElement('div');
-    doc.innerHTML = await resp.text();
-    doc.querySelectorAll('.metadata, .section-metadata').forEach((m) => m.remove());
-    // media of the details page are relative to it (./media_…)
-    [['img', 'src'], ['source', 'srcset']].forEach(([tag, attr]) => {
-      doc.querySelectorAll(`${tag}[${attr}^="./media_"]`).forEach((node) => {
-        node[attr] = new URL(node.getAttribute(attr), new URL(path, window.location)).href;
-      });
-    });
-    const nodes = [...doc.children].flatMap((section) => [...section.childNodes]);
-    return nodes.some((n) => n.textContent.trim() || n.querySelector?.('img')) ? nodes : null;
-  } catch (e) {
-    return null;
-  }
-}
 
 function openFromHash(block) {
   const id = decodeURIComponent(window.location.hash.replace(/^#/, ''));
