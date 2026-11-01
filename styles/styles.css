@@ -198,6 +198,24 @@ h6 {
   font-weight: 700;
   line-height: var(--heading-line-height);
   scroll-margin: 40px;
+
+  /* a word longer than the line breaks instead of pushing the page sideways (phones: a 36px h1
+     or 28px h2 holds no "Datenschutzerklärung"; www scrolls sideways there, 2026-11-01); a no-op
+     for every word that fits */
+  overflow-wrap: break-word;
+}
+
+/* phones: long words (14+ characters) break at a syllable of the page's language first */
+@media (width < 768px) {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    hyphens: auto;
+    hyphenate-limit-chars: 14 6 6;
+  }
 }
 
 h1 {
