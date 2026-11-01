@@ -202,6 +202,9 @@ export const BRANDS = {
     },
     www: 'www.brusselsairlines.com',
     travelId: { host: 'api.travelid.brusselsairlines.com', clientId: 'FuBoxl39ln5fAfvIAX18xIi2BI4d6rny' },
+    // lh-backends has tenant SN (its 594d7fd); www's AEM paths: /content/bel/markets/<cc>/<ll>/...
+    backends: true,
+    aemContent: 'bel',
     portal: 'SN',
     hub: 'BRU',
     airline: 'SN',
