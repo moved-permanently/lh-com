@@ -2,12 +2,11 @@
 /**
  * The pure parts of clear-review.mjs and block-check.mjs (tests: test/loc-review.test.mjs).
  *
- * Why: DA's editor keeps the hashes of rejected incoming blocks in the target's `da-metadata`
- * block (rejectedHashes). When an incoming block equals one of the page's own blocks apart from
- * its id (a heading), both have the same hash, and the next merge drops the page's own block
- * without a mark (adobe/da-nx nx/blocks/loc/regional-diff/regional-diff.js 434-438: a local
- * block whose hash is rejected is skipped). Clearing the block after each review, and checking
- * every target after every app step, keeps that from going unnoticed.
+ * Why: before da-nx 1.29.1 a rejected incoming block with the same hash as one of the page's own
+ * blocks (a heading, only the id differs) made the next merge drop the page's own block without a
+ * mark; #930 fixed it (adobe/da-nx 69006f3b nx/blocks/loc/regional-diff/regional-diff.js 434-443).
+ * Checking every target after every app step still catches what a step loses; the linked-image
+ * marks no editor action resolves go before a rollout (removeLinkedImageMarks).
  */
 import { parseHTML } from 'linkedom';
 

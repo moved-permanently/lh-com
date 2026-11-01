@@ -1,11 +1,10 @@
 /* eslint-disable no-console, max-len, no-await-in-loop, no-restricted-syntax, import/extensions, import/prefer-default-export -- dev tooling */
 /**
- * Clears a target page's review record after a review (tools/loc/README.md): removes its
- * `da-metadata` block, where DA's editor keeps the hashes of accepted and rejected incoming
- * blocks. A rejected hash that equals one of the page's own blocks (the same heading, only the id
- * differs) makes the next merge drop that block without a mark (da-nx regional-diff.js 434-438),
- * so the record goes before anything is sent into the page again. Blocks the author kept local
- * are marked again in the next round (that already happens).
+ * Drops a page's review record on purpose (tools/loc/README.md): removes its `da-metadata` block,
+ * where DA's editor keeps the hashes of accepted and rejected incoming blocks. Since da-nx 1.29.1
+ * (69006f3b, #930) a rejected hash no longer drops the page's own block (regional-diff.js
+ * 434-443), and the next save in the DA editor writes the earlier decisions back, so the clear
+ * doesn't stick on a page the editor has seen.
  *
  * Dry run by default: lists the rows it would remove. --apply: a labelled DA version first
  * ("before clear-review <date>"), then the page without the block, then a read-back that must
