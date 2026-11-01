@@ -1,0 +1,5 @@
+# lh-cargo (2026-11-01, brief 227): uploaded to DA moved-permanently/lh-cargo and previewed on main--lh-cargo--moved-permanently.aem.page; not published. Code: e63bd32d (importer).
+# - /en/support-and-contact: the topics as accordion-columns (faq, filter): Filter label "Find topic by typing" (www's field label), No results "No search results." (www shows no line; its screen readers hear jQuery UI's text). /de/support-and-contact has no document of its own (it redirects to the English page).
+# - /en/contact-us unchanged: www's form shows "Please sign in to access the platform's full functionality." when not logged in (225's capture), so it stays; the country list as www's.
+# documents (1):
+/en/support-and-contact
