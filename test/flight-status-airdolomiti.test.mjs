@@ -32,6 +32,7 @@ globalThis.Event = window.Event;
 globalThis.CSS = { escape: (v) => String(v) };
 const api = await import('../scripts/airdolomiti-api.js');
 const block = await import('../blocks/flight-status/flight-status.js');
+const { resultDate } = await import('../blocks/flight-status/airdolomiti-status.js');
 
 const tick = () => new Promise((r) => { setTimeout(r, 0); });
 const settle = async () => { for (let i = 0; i < 8; i += 1) await tick(); };
@@ -72,6 +73,14 @@ test('API: www\'s requests byte for byte (route, airport departure and destinati
   await assert.rejects(api.fetchFlightsByRoute('MUC', 'VRN', '2026-11-01', 'it', recorded(500, []).fetchImpl), /500/);
   assert.throws(() => api.flightStatusRequest({ flightNumber: '', date: '2026-11-01' }, 'it'), /flight number/);
   await assert.rejects(api.fetchFlightsByAirport('MUC', '2026-11-01', 'sideways', 'it', d.fetchImpl), /direction/);
+});
+
+test('the results heading\'s date as www writes it: dom / Sun / So. and dd/mm/yyyy', () => {
+  assert.equal(resultDate('2026-11-01', 'it'), 'dom 01/11/2026');
+  assert.equal(resultDate('2026-11-01', 'en'), 'Sun 01/11/2026');
+  assert.equal(resultDate('2026-11-01', 'de'), 'So. 01/11/2026');
+  assert.equal(resultDate('2026-11-02', 'de'), 'Mo. 02/11/2026');
+  assert.equal(resultDate('2026-11-07', 'it'), 'sab 07/11/2026');
 });
 
 const ROWS = [

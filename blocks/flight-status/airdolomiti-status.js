@@ -57,6 +57,20 @@ const LABELS = {
   },
 };
 
+/** www's weekday abbreviations in the results heading, Monday first ("dom", "Sun", "So."). */
+const WEEKDAYS = {
+  it: ['lun', 'mar', 'mer', 'gio', 'ven', 'sab', 'dom'],
+  en: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+  de: ['Mo.', 'Di.', 'Mi.', 'Do.', 'Fr.', 'Sa.', 'So.'],
+};
+
+/** A day (yyyy-mm-dd) as www's results heading writes it: "dom 01/11/2026". */
+export function resultDate(iso, lang) {
+  const [y, m, d] = iso.split('-').map(Number);
+  const day = (new Date(Date.UTC(y, m - 1, d)).getUTCDay() + 6) % 7;
+  return `${(WEEKDAYS[lang] || WEEKDAYS.it)[day]} ${iso.split('-').reverse().join('/')}`;
+}
+
 /** Whether a block's rows and the page's brand ask for Air Dolomiti's format. */
 export function isAirdolomitiFormat(text, brand) {
   return /^post$/i.test(text('submit-method', 'method'))
@@ -99,11 +113,7 @@ export function airdolomitiBuilders({
   const name = (a) => a[`name_${lang}`] || a.name_en || a.iata_code;
   const byName = (a, b) => a[1].localeCompare(b[1], lang);
   const airports = fetchAirports().catch(() => []);
-  const weekday = new Intl.DateTimeFormat(lang, { weekday: 'short', timeZone: 'UTC' });
-  const dateText = (iso) => {
-    const [y, m, d] = iso.split('-').map(Number);
-    return `${weekday.format(new Date(Date.UTC(y, m - 1, d)))} ${iso.split('-').reverse().join('/')}`;
-  };
+  const dateText = (iso) => resultDate(iso, lang);
 
   const selectField = (key, labelText) => {
     const wrap = el('div', 'flight-status-field flight-status-ad-airport');
