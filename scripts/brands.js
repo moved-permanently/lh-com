@@ -91,6 +91,12 @@ export const BRANDS = {
     portal: 'OS',
     hub: 'VIE',
     airline: 'OS',
+    embeds: {
+      // the floating chat button (Cognigy webchat, served by www.austrian.com outside AEM) as www's
+      // tag manager loads it (Tealium os-main tag 110, 2026-11-01): scripts/site-embeds.js, on the
+      // pages with the metadata chat-button
+      'chat-button': { script: 'https://www.austrian.com/digitalassistant/support/webchat_init.js' },
+    },
     consentLinks: {
       en: {
         privacy: 'https://www.austrian.com/at/en/datenschutz',
