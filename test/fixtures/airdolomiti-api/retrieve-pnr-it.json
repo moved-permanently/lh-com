@@ -1,0 +1,53 @@
+{
+ "request": {
+  "method": "POST",
+  "url": "https://api.airdolomiti.it/v1/bookings/retrieve-pnr",
+  "headers": {
+   "accept-language": "it",
+   "accept": "application/json",
+   "content-type": "application/json"
+  },
+  "body": {
+   "surname": "Rossi",
+   "booking_code": "ABC123"
+  },
+  "status": 201,
+  "answer": {
+   "url": "https://digital.airdolomiti.it/booking/manage-booking/retrieve?lang=it-IT",
+   "payload": {
+    "recLoc": "ABC123",
+    "lastName": "Rossi",
+    "dxMMBTripFlow": "https://book.en.amadeus.com/plnext/AirDolomitiDX/Override.action?ENCT=1&EMBEDDED_TRANSACTION=RetrievePNR&SITE=BAPRBNDX&LANGUAGE=IT&ENC=76f47729f0edf6b8e9cfbed0f041a478cbea8e3bb17656c97e4f777bea299f38fb2995c8cd2ea084b9e2a0835957e7de5104976e8dfa521e6022c5d9b3b0c7a478b5161b08a3e95ef1cce1823cda5ed37aea571536dbfcbab00a3a05bf379ad2bbbde98565af8c312f1cd7d4d61d2d9d61bbafef5f67d8d6f0bea9c3babbb54984c3ac45a1e886e05d20cf6df1627864b029689942a862a4197cfdc9d1d05ca4a9bb091e01fb57c86acaf125b63fa21b226f4580fd71c1903b6d6ef6502af3d2bad37910c8edbb78dac66f4cf358fc9d97e9fdd6e3827e16739083a147976e4cc77c3d4245a5276d3b027c93a4d14d5ad55dd6caf34a37260793590b000105be00a466946233976871c61343aa137d4dd4f1fb7cd05f3a34a09fbc4a860bde0df580f09d60ef2ff08d315b84d9e3ad07ef82ebdcef36631c008ac869e79bd14d00cd57166bb4bbd5b70735cba5325c44362027372be2c67b04f71b9cf1af62c4c5947ddcdaadcd8553ac23f22e16e7c4142aefbeb646646ef7466bf45e06dc5cf078cd404e5b633394ac3afd042f9d9dabef92087cdb44b8d21a8dc12580c62ef361196926975ed5a8d99410b9e3668cea197d160ac5424c2a6b19384a361a48e6ac27ba3325a48a257fb0070a537551d00a67a250b9e4ac44863b62e2f6660abccdbde3a37a11943aae7290ca92f1290f0986e27cfd22a31c4230e13ce6fc18e12fe507413872b3eff84aab670c55bd445f25abf8888bef4ad70590d52faa98dc6379a11ae3b1e2842fabf0f7f1f2394aab943248c728b075b035cf01eeee1823ed07e0388fa4ff4dc00b194f4e488f656d89661fe68ff020711cf1a3543f57&DIRECT_RETRIEVE_LASTNAME=Rossi&REC_LOC=ABC123",
+    "portalFacts": [
+     {
+      "key": "carsDateandTime",
+      "value": "2026-11-03T07:15:20+01:00"
+     }
+    ]
+   }
+  }
+ },
+ "handoff": {
+  "action": "https://digital.airdolomiti.it/booking/manage-booking/retrieve?lang=it-IT&_gl=1*7wuuip*_ga*MjEzMzUyMTU5NS4xNzkzNTMxNjg4*_ga_EF4BM4MYG1*czE3OTM1MzE2ODckbzEkZzEkdDE3OTM1MzE3MTUkajQyJGwwJGgw*_ga_PBLV949WK8*czE3OTM1MzE3MTIkbzEkZzAkdDE3OTM1MzE3MTUkajU3JGwwJGgw",
+  "method": "post",
+  "target": "",
+  "fields": [
+   [
+    "recLoc",
+    "ABC123"
+   ],
+   [
+    "lastName",
+    "Rossi"
+   ],
+   [
+    "dxMMBTripFlow",
+    "https://book.en.amadeus.com/plnext/AirDolomitiDX/Override.action?ENCT=1&EMBEDDED_TRANSACTION=RetrievePNR&SITE=BAPRBNDX&LANGUAGE=IT&ENC=76f47729f0edf6b8e9cfbed0f041a478cbea8e3bb17656c97e4f777bea299f38fb2995c8cd2ea084b9e2a0835957e7de5104976e8dfa521e6022c5d9b3b0c7a478b5161b08a3e95ef1cce1823cda5ed37aea571536dbfcbab00a3a05bf379ad2bbbde98565af8c312f1cd7d4d61d2d9d61bbafef5f67d8d6f0bea9c3babbb54984c3ac45a1e886e05d20cf6df1627864b029689942a862a4197cfdc9d1d05ca4a9bb091e01fb57c86acaf125b63fa21b226f4580fd71c1903b6d6ef6502af3d2bad37910c8edbb78dac66f4cf358fc9d97e9fdd6e3827e16739083a147976e4cc77c3d4245a5276d3b027c93a4d14d5ad55dd6caf34a37260793590b000105be00a466946233976871c61343aa137d4dd4f1fb7cd05f3a34a09fbc4a860bde0df580f09d60ef2ff08d315b84d9e3ad07ef82ebdcef36631c008ac869e79bd14d00cd57166bb4bbd5b70735cba5325c44362027372be2c67b04f71b9cf1af62c4c5947ddcdaadcd8553ac23f22e16e7c4142aefbeb646646ef7466bf45e06dc5cf078cd404e5b633394ac3afd042f9d9dabef92087cdb44b8d21a8dc12580c62ef361196926975ed5a8d99410b9e3668cea197d160ac5424c2a6b19384a361a48e6ac27ba3325a48a257fb0070a537551d00a67a250b9e4ac44863b62e2f6660abccdbde3a37a11943aae7290ca92f1290f0986e27cfd22a31c4230e13ce6fc18e12fe507413872b3eff84aab670c55bd445f25abf8888bef4ad70590d52faa98dc6379a11ae3b1e2842fabf0f7f1f2394aab943248c728b075b035cf01eeee1823ed07e0388fa4ff4dc00b194f4e488f656d89661fe68ff020711cf1a3543f57&DIRECT_RETRIEVE_LASTNAME=Rossi&REC_LOC=ABC123"
+   ],
+   [
+    "portalFacts",
+    "[{\"key\":\"carsDateandTime\",\"value\":\"2026-11-03T07:15:20+01:00\"}]"
+   ]
+  ]
+ }
+}

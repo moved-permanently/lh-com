@@ -1,0 +1,21 @@
+{
+  "variantName": "manage-booking",
+  "baseBlock": "manage-booking",
+  "canonicalModel": "standalone",
+  "sourceUrl": "https://www.airdolomiti.it/gestione-prenotazione-volo",
+  "visualCharacteristics": {
+    "purpose": "Air Dolomiti manage booking: surname and booking code, retrieved through api.airdolomiti.it and handed to its booking engine",
+    "traits": [
+      "beige box in a centred 720px column",
+      "bold labels above boxed fields",
+      "teal centred button with a chevron"
+    ]
+  },
+  "contentPattern": {
+    "structure": "2 columns, label | value, every row optional: Surname label, Surname placeholder, Booking code label, Booking code placeholder, Submit label, Error, Live page (link)"
+  },
+  "options": [],
+  "memberVariantIds": [],
+  "usage": "Air Dolomiti manage booking pages: /gestione-prenotazione-volo, /en/manage-flight-booking, /de/bearbeitung-ihrer-buchungen",
+  "reuseGuidance": "Air Dolomiti only (brand airdolomiti); change labels only. The API calls and the hand-off are in scripts/airdolomiti-api.js."
+}

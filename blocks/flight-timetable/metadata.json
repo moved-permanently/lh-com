@@ -1,0 +1,22 @@
+{
+  "variantName": "flight-timetable",
+  "baseBlock": "flight-timetable",
+  "canonicalModel": "standalone",
+  "sourceUrl": "https://www.airdolomiti.it/orario-voli",
+  "visualCharacteristics": {
+    "purpose": "Air Dolomiti timetable search: trip type, airports and route dates from api.airdolomiti.it, handed to its booking engine",
+    "traits": [
+      "white card with a soft shadow, the trip types stacked",
+      "four boxed fields (pin and calendar icons), labels above",
+      "calendars offering only the route's flight dates",
+      "teal Search button with a chevron below the fields"
+    ]
+  },
+  "contentPattern": {
+    "structure": "2 columns, label | value, every row optional: Trip types, From label, From placeholder, To label, To placeholder, Departure label, Return label, Submit label, Submit aria label, Open calendar, Previous month, Next month, Trip type label, Error, Live page (link)"
+  },
+  "options": [],
+  "memberVariantIds": [],
+  "usage": "Air Dolomiti timetable pages: /orario-voli, /en/flight-timetables, /de/flugplan",
+  "reuseGuidance": "Air Dolomiti only (brand airdolomiti); change labels only. The API calls and the hand-off are in scripts/airdolomiti-api.js."
+}

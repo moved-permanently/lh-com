@@ -1,0 +1,50 @@
+{
+ "request": {
+  "method": "POST",
+  "url": "https://api.airdolomiti.it/v1/bookings/timetable",
+  "headers": {
+   "accept-language": "it",
+   "content-type": "application/json"
+  },
+  "body": {
+   "departure_date": "15/11/2026",
+   "return_date": "01/01/1970",
+   "departure_airport": "MUC",
+   "destination_airport": "VRN",
+   "trip_type": "O",
+   "consent": {
+    "statistics_consent": false,
+    "marketing_consent": false,
+    "experience_consent": false,
+    "consent_date": null,
+    "consent_id": null
+   }
+  },
+  "status": 201,
+  "answer": {
+   "url": "https://digital.airdolomiti.it/booking/timetable?lang=it-IT",
+   "payload": {
+    "search": {
+     "itineraries": [
+      {
+       "originLocationCode": "MUC",
+       "destinationLocationCode": "VRN",
+       "departureDateTime": "2026-11-15"
+      }
+     ]
+    }
+   }
+  }
+ },
+ "handoff": {
+  "action": "https://digital.airdolomiti.it/booking/timetable?lang=it-IT&_gl=1*102e7eg*_ga*MTI0NDk4OTkzOC4xNzkzNTMxMjE0*_ga_EF4BM4MYG1*czE3OTM1MzEyMTMkbzEkZzAkdDE3OTM1MzEyMTQkajU5JGwwJGgw",
+  "method": "post",
+  "target": "",
+  "fields": [
+   [
+    "search",
+    "{\"itineraries\":[{\"originLocationCode\":\"MUC\",\"destinationLocationCode\":\"VRN\",\"departureDateTime\":\"2026-11-15\"}]}"
+   ]
+  ]
+ }
+}

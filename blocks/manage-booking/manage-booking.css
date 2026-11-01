@@ -1,0 +1,110 @@
+/* manage-booking: www.airdolomiti.it's manage booking form (2026-11-01): a beige box, the labels
+   bold above boxed fields, the teal button with its chevron centred below; the page's column
+   720px wide and centred, its heading and introduction centred above the form */
+
+main .section.manage-booking-container > div {
+  max-width: 720px;
+  margin-inline: auto;
+}
+
+main .section.manage-booking-container > .default-content-wrapper:first-child {
+  text-align: center;
+}
+
+.manage-booking {
+  --mb-teal: var(--brand-color, #00798a);
+  --mb-chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M3 2h8l10 10-10 10H3l10-10Z' fill='%23fff'/%3E%3C/svg%3E");
+
+  margin: 32px 0 48px;
+}
+
+.manage-booking .manage-booking-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 54px 50px;
+  background: var(--lh-grey-1, #f6f2ef);
+  color: var(--text-color, #002e54);
+}
+
+.manage-booking .manage-booking-field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  max-width: 496px;
+}
+
+.manage-booking .manage-booking-field label {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.manage-booking .manage-booking-field input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 60px;
+  padding: 0 20px;
+  border: 1px solid var(--lh-grey-6, #808080);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--text-color, #002e54);
+  font: inherit;
+  font-size: 16px;
+}
+
+.manage-booking .manage-booking-field input:focus-visible {
+  outline: 2px solid var(--mb-teal);
+  outline-offset: 2px;
+}
+
+.manage-booking .manage-booking-field.is-invalid input {
+  border-color: #c00;
+}
+
+.manage-booking .manage-booking-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  width: 100%;
+  max-width: 274px;
+  height: 64px;
+  margin: 0;
+  padding: 0 24px;
+  border: 0;
+  border-radius: 6px;
+  background: var(--mb-teal);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.manage-booking .manage-booking-submit::after {
+  content: '';
+  width: 26px;
+  height: 26px;
+  background: var(--mb-chevron) no-repeat center / contain;
+}
+
+.manage-booking .manage-booking-submit:hover {
+  background: var(--button-secondary-hover, #0093a8);
+}
+
+.manage-booking .manage-booking-submit[aria-busy='true'] {
+  opacity: 0.7;
+}
+
+.manage-booking .manage-booking-error {
+  margin: 0;
+  color: #c00;
+  font-size: 14px;
+  text-align: center;
+}
+
+@media (width < 768px) {
+  .manage-booking .manage-booking-form {
+    padding: 54px 30px;
+  }
+}
