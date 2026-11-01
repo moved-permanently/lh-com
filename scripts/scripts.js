@@ -22,7 +22,7 @@ import {
 } from './consent.js';
 import { applyChannel } from './channel.js';
 import { loadBrandTheme } from './brand.js';
-import { isDemoHost } from './demo.js';
+import { isDemoHost, turnsThePageBrandOf } from './demo.js';
 import prioritizeSecondSectionImage from './lcp-image.js';
 import decorateHeadingIcons from './heading-icon.js';
 
@@ -503,6 +503,11 @@ function loadDelayed() {
   const brand = brandEntry();
   if (brand && brand.embeds) {
     import('./site-embeds.js').then(({ default: loadSiteEmbeds }) => loadSiteEmbeds());
+  }
+  // OF1's "the site notices you" (scripts/of1/index.js: off without the site flag of1): lh-com's
+  // pages on Lufthansa's turnsthe.page hosts only, so other pages load neither it nor the flags
+  if (!brand && turnsThePageBrandOf(window.location.hostname) === 'lufthansa') {
+    import('./of1/index.js').then(({ default: startOf1 }) => startOf1());
   }
 }
 

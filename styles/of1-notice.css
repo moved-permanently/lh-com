@@ -1,0 +1,9 @@
+/* OF1's button on the de/en homepage (scripts/of1/homepage.js): default content in the site's
+   grey band (main > .section.grey), the site's primary button */
+main > .section.of1-notice-container .of1-notice > h2 {
+  margin-top: 0;
+}
+
+main > .section.of1-notice-container .of1-notice > .button-container {
+  margin-bottom: 0;
+}

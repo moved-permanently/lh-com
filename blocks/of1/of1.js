@@ -75,6 +75,10 @@ export default async function decorate(block) {
 
   block.textContent = '';
 
+  // lh-com: OF1's consent API from our banner and our profile answer (scripts/of1/index.js, off
+  // without the site flag of1) before OF1's client starts
+  await import('../../scripts/of1/index.js').then(({ of1Ready }) => of1Ready()).catch(() => {});
+
   // Load the OF1 client SDK from the worker
   const sdkUrl = `${config['api-endpoint']}/sdk/of1-client.js`;
   const { init } = await import(/* webpackIgnore: true */ sdkUrl);
