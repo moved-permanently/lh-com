@@ -983,13 +983,14 @@ const preflight = (origin) => worker.fetch(new Request(`${BASE}/submit`, {
   method: 'OPTIONS', headers: { Origin: origin, 'Access-Control-Request-Method': 'POST' },
 }), makeEnv());
 
-test('brand sites: their hosts and Edge Delivery hosts are allowed origins; lh-cargo and look-alikes are not', async () => {
+test('brand sites: their hosts and Edge Delivery hosts are allowed origins; look-alikes are not', async () => {
   const allowed = ['https://ita.turnsthe.page', 'https://austrian.turnsthe.page', 'https://airdolomiti.turnsthe.page',
     'https://main--lh-ita--moved-permanently.aem.page', 'https://main--lh-ita--moved-permanently.aem.live',
     'https://main--lh-austrian--moved-permanently.aem.page', 'https://main--lh-austrian--moved-permanently.aem.live',
     'https://main--lh-airdolomiti--moved-permanently.aem.page', 'https://main--lh-discover--moved-permanently.aem.page',
-    'https://discover.turnsthe.page', 'https://lufthansa.turnsthe.page', ORIGIN];
-  const refused = ['https://main--lh-cargo--moved-permanently.aem.page', 'https://cargo.turnsthe.page',
+    'https://discover.turnsthe.page', 'https://lufthansa.turnsthe.page', ORIGIN,
+    'https://main--lh-cargo--moved-permanently.aem.page', 'https://main--lh-cargo--moved-permanently.aem.live', 'https://cargo.turnsthe.page'];
+  const refused = ['https://main--lh-cargo--moved-permanently.aem.page.example.com', 'https://cargo.turnsthe.page.example.com', 'http://cargo.turnsthe.page',
     'https://main--lh-austrian--moved-permanently.aem.page.example.com', 'https://main--lh-austria--moved-permanently.aem.page',
     'https://austrian.turnsthe.page.example.com', 'http://austrian.turnsthe.page'];
   const ok = await Promise.all(allowed.map(preflight));
@@ -1003,7 +1004,7 @@ test('brand sites: their hosts and Edge Delivery hosts are allowed origins; lh-c
     assert.equal(res.headers.get('access-control-allow-origin'), null);
   });
   // a submission from a refused origin: nothing read, nothing sent
-  const { res, body } = await post({ form: 'austrian-emergency-contact', locale: 'at-en', origin: 'https://main--lh-cargo--moved-permanently.aem.page' });
+  const { res, body } = await post({ form: 'austrian-emergency-contact', locale: 'at-en', origin: 'https://main--lh-cargo--moved-permanently.aem.page.example.com' });
   assert.equal(res.status, 403);
   assert.deepEqual(body, { ok: false, error: 'origin-not-allowed' });
   assert.equal(sent.length, 0);
@@ -1026,6 +1027,33 @@ test('brand sites: every ITA and Austrian form id is accepted from its site; an 
     assert.deepEqual(body, { ok: false, error: 'unknown-form' });
   });
   assert.equal(sent.length, ids.length);
+});
+
+test('brand sites: Lufthansa Cargo (lh-cargo): its hosts and its cargo- ids; the subject [lh-cargo]; others refused', async () => {
+  const origins = ['https://cargo.turnsthe.page', 'https://main--lh-cargo--moved-permanently.aem.page', 'https://main--lh-cargo--moved-permanently.aem.live'];
+  const env = makeEnv({ FORM_CONFIG: JSON.stringify({ default: { to: 'only@example.com' } }) });
+  // Cargo's pages have no country root: English sends de-en, German de-de
+  const results = await Promise.all(origins.map((origin, i) => post({
+    form: 'cargo-contact-us', locale: i === 1 ? 'de-de' : 'de-en', origin, ip: `198.51.100.${170 + i}`,
+  }, env)));
+  results.forEach(({ res, body }, i) => {
+    assert.equal(res.status, 200, origins[i]);
+    assert.deepEqual(body, { ok: true }, origins[i]);
+  });
+  assert.equal(sent.length, 3);
+  assert.equal(sent[0].subject, '[lh-cargo] Contact us (de-en)');
+  assert.equal(sent[1].subject, '[lh-cargo] Contact us (de-de)');
+  assert.match(sent[0].html, /<h1>Contact us<\/h1>/);
+  // an id the worker does not know: refused; a Cargo id from an unknown origin: refused
+  const unknown = await post({ form: 'cargo-unknown-form', origin: origins[0], ip: '198.51.100.180' });
+  assert.equal(unknown.res.status, 400);
+  assert.deepEqual(unknown.body, { ok: false, error: 'unknown-form' });
+  const foreign = await post({
+    form: 'cargo-contact-us', locale: 'de-en', origin: 'https://cargo.example.com', ip: '198.51.100.181',
+  });
+  assert.equal(foreign.res.status, 403);
+  assert.deepEqual(foreign.body, { ok: false, error: 'origin-not-allowed' });
+  assert.equal(sent.length, 3);
 });
 
 test('brand sites: Air Dolomiti\'s newsletter forms are accepted from its site, each with its page\'s title', async () => {

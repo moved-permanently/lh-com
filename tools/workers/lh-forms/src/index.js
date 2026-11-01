@@ -118,6 +118,9 @@ const FORMS = {
   'airdolomiti-iscrizione-newsletter': { en: 'Iscrizione newsletter', de: 'Iscrizione newsletter' },
   'airdolomiti-newsletter-subscription': { en: 'Newsletter subscription', de: 'Newsletter subscription' },
   'airdolomiti-newsletter-anmeldung': { en: 'Newsletter Anmeldung', de: 'Newsletter Anmeldung' },
+  // Lufthansa Cargo (lh-cargo): one id per form, cargo-<form name>; its contact form (www's
+  // Support & Contact: "Contact us", Open contact form; the page is English in both languages)
+  'cargo-contact-us': { en: 'Contact us', de: 'Contact us' },
   // Austrian Airlines (lh-austrian): the h1 of its at/en (else another English root's) and at/de
   // pages (2026-10-31); an id with one language has that title for both; austrian-newsletter
   // has no en or de page (cn/zh, it/it, jp/ja, pl/pl, ru/ru): it/it's and pl/pl's h1
@@ -189,8 +192,8 @@ const FORMS = {
 const LOCALE = /^[a-z]{2}-[a-z]{2}$/;
 
 const DEFAULTS = {
-  ALLOWED_ORIGIN_PATTERN: '^https://[a-z0-9-]+--(lh-com|lh-flynet|lh-discover|lh-ita|lh-austrian|lh-airdolomiti|lh-brussels)--moved-permanently\\.(aem\\.(page|live)|(stage-)?(preview|ue)\\.da\\.(live|page))$',
-  EXTRA_ALLOWED_ORIGINS: 'https://lufthansa.turnsthe.page,https://discover.turnsthe.page,https://ita.turnsthe.page,https://austrian.turnsthe.page,https://airdolomiti.turnsthe.page,https://brussels.turnsthe.page,http://localhost:3000',
+  ALLOWED_ORIGIN_PATTERN: '^https://[a-z0-9-]+--(lh-com|lh-flynet|lh-discover|lh-ita|lh-austrian|lh-airdolomiti|lh-brussels|lh-cargo)--moved-permanently\\.(aem\\.(page|live)|(stage-)?(preview|ue)\\.da\\.(live|page))$',
+  EXTRA_ALLOWED_ORIGINS: 'https://lufthansa.turnsthe.page,https://discover.turnsthe.page,https://ita.turnsthe.page,https://austrian.turnsthe.page,https://airdolomiti.turnsthe.page,https://brussels.turnsthe.page,https://cargo.turnsthe.page,http://localhost:3000',
 };
 
 const MB = 1000 * 1000;
@@ -644,9 +647,9 @@ async function validateFiles(files, form) {
 
 // the brand sites by their turnsthe.page host label and form id prefix (lh-com: neither)
 const BRAND_TAGS = {
-  discover: 'lh-discover', ita: 'lh-ita', austrian: 'lh-austrian', airdolomiti: 'lh-airdolomiti', brussels: 'lh-brussels',
+  discover: 'lh-discover', ita: 'lh-ita', austrian: 'lh-austrian', airdolomiti: 'lh-airdolomiti', brussels: 'lh-brussels', cargo: 'lh-cargo',
 };
-const BRAND_ORIGIN = /^https:\/\/[a-z0-9-]+--(lh-discover|lh-ita|lh-austrian|lh-airdolomiti|lh-brussels)--/;
+const BRAND_ORIGIN = /^https:\/\/[a-z0-9-]+--(lh-discover|lh-ita|lh-austrian|lh-airdolomiti|lh-brussels|lh-cargo)--/;
 
 /** The site of a submission (the subject's tag): its origin's, else its form id's, else lh-com. */
 export function siteTag(origin, form) {
