@@ -496,3 +496,14 @@
     margin-bottom: 0;
   }
 }
+
+/* the post mode's failure (scripts/handoff.js): www's text above the button */
+.booking-lookup .booking-lookup-handoff-error {
+  margin: 0 0 16px;
+  color: var(--lh-red, #c00);
+  font-size: var(--body-font-size-s);
+}
+
+.booking-lookup .booking-lookup-handoff-error[hidden] {
+  display: none;
+}

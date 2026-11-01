@@ -16,6 +16,8 @@ Hotel tab (Booking.com, /de/en/hotel-offers, the hotel tab on /de/en/cash-and-mi
 
 Passengers: `Passenger picker | yes` turns the traveller line into a picker (adults, children 2-11, infants under 2, the cabins of `Cabins | E, P, B, F`; default all four); `Airports | VRN, MUC` limits the origin and destination suggestions to those codes. `Group booking | [Booking from 10 persons](/it/en/book-and-prepare/group-travel-and-charter)` (a link) puts a link under the passengers in the picker, as ITA's and lufthansa.com's ("Booking from 10 persons" to the group travel page); it needs the Passenger picker row (without the picker there is no panel to hold it).
 
+Hotel tab hand-off (scripts/handoff.js, brief 207): on the airline's own www host the search posts `/service/secured/api/core/booking/hotel` with X-Portal, X-Portal-Site, X-Portal-Language and JSON `{"cityName","checkInDate","checkOutDate"}` (the dates as midnight UTC, `2026-12-01T00:00:00.000Z`, as www) and opens the answer's target as www does (a form with a field per value, GET when `methodGet`, a new window when `newWindow`); a failure shows `Hotel handoff error` under the button. Every other host opens the live page in a new tab as before; `?handoff=post` on turnsthe.page and aem.page for a test.
+
 ## Supported variations
 
 - `standalone`: the flight manager outside the homepage stage (`.flm-standalone`: flight search, stopover, cash-and-miles, hotel offers): a white card with a shadow and the tab bar, the form 20px inside.

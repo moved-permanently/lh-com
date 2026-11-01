@@ -1,5 +1,8 @@
 import { getLocale, siteOrigin } from '../../scripts/locale.js';
 import {
+  postHandoffOn, isOwnWww, bookingTarget, checkinTarget, openTarget, errorText,
+} from '../../scripts/handoff.js';
+import {
   readConfigRows, pick, resolveLabels, cleanText, toConfigKey, decorateExternalLinks,
 } from '../../scripts/block-config.js';
 
@@ -385,6 +388,35 @@ const MY_BOOKINGS_LABELS = {
   },
 };
 
+/** The hand-off's error line, before the form's actions (hidden until it has a message). */
+function handoffError(form, actions) {
+  const p = el('p', 'booking-lookup-handoff-error');
+  p.setAttribute('role', 'alert');
+  p.hidden = true;
+  form.insertBefore(p, actions);
+  return p;
+}
+
+/**
+ * The post mode's hand-off (scripts/handoff.js): the endpoint's link target opened as www does;
+ * a failure shows www's text of its error code above the button, the entries kept.
+ */
+async function postHandoff(run, { submit, error, locale }) {
+  error.hidden = true;
+  error.textContent = '';
+  submit.disabled = true;
+  submit.setAttribute('aria-busy', 'true');
+  try {
+    openTarget(await run());
+  } catch (e) {
+    error.textContent = await errorText(e.code, locale);
+    error.hidden = false;
+  } finally {
+    submit.disabled = false;
+    submit.removeAttribute('aria-busy');
+  }
+}
+
 /** The live page of the current replica page (same path on the site's www, a brand's own). */
 function livePageUrl() {
   return `${siteOrigin()}${window.location.pathname.replace(/^\/content\//, '/')}`;
@@ -395,8 +427,10 @@ function livePageUrl() {
  * login link, booking code + last name, the tour operator checkbox (switches to last name,
  * first name and tour operator trip code) and "Find Bookings". The live tab logs in with the
  * booking code and last name and posts to the booking deeplink its booking service returns
- * (tour operator: the Travel ID upcoming-trips API); neither can be called from here, so a
- * valid search opens the live page, without any of the entered data in the URL.
+ * (tour operator: the Travel ID upcoming-trips API). On the airline's own host (scripts/handoff.js
+ * post mode) the booking search does the same: the file key login, the booking deeplink, its
+ * target opened; elsewhere, and for the tour operator search, a valid search opens the live page,
+ * without any of the entered data in the URL.
  */
 function decorateMyBookings(block, id, locale, config) {
   const labels = resolveLabels(MY_BOOKINGS_LABELS, config, locale.lang);
@@ -450,6 +484,7 @@ function decorateMyBookings(block, id, locale, config) {
   const actions = el('div', 'booking-lookup-actions');
   actions.append(submit);
   form.append(bookingFields, tourFields, checkboxLabel, actions);
+  const error = handoffError(form, actions);
   panel.append(form);
 
   const filled = (f) => () => f.input.value.trim() !== '';
@@ -477,6 +512,13 @@ function decorateMyBookings(block, id, locale, config) {
     });
     if (firstInvalid) {
       firstInvalid.focus();
+      return;
+    }
+    if (!checkbox.checked && postHandoffOn()) {
+      postHandoff(() => bookingTarget({
+        reference: reference.input.value.replace(/\s+/g, '').toUpperCase(),
+        lastName: lastName.input.value.trim(),
+      }, locale), { submit, error, locale });
       return;
     }
     window.location.assign(livePageUrl());
@@ -662,6 +704,7 @@ export default function decorate(block) {
   const actions = el('div', 'booking-lookup-actions');
   actions.append(submit);
   form.append(reference.wrap, firstName.wrap, lastName.wrap, actions);
+  const error = handoffError(form, actions);
   formPanel.append(form);
 
   const normalizeReference = (value) => value.replace(/\s+/g, '').toUpperCase();
@@ -689,11 +732,19 @@ export default function decorate(block) {
       firstInvalid.focus();
       return;
     }
-    window.location.assign(buildHandoffUrl({
+    const values = {
       reference: normalizeReference(reference.input.value),
       firstName: firstName.input.value.trim(),
       lastName: lastName.input.value.trim(),
-    }, locale, submitUrl));
+    };
+    const handoffUrl = buildHandoffUrl(values, locale, submitUrl);
+    // the airline's own host, whose check-in page this hand-off would open again (ITA's): www's
+    // check-in call (scripts/handoff.js); every other host and hand-off as before
+    if (postHandoffOn() && isOwnWww(handoffUrl)) {
+      postHandoff(() => checkinTarget(values, locale), { submit, error, locale });
+      return;
+    }
+    window.location.assign(handoffUrl);
   });
 
   // extra tabs: authored rich content panels

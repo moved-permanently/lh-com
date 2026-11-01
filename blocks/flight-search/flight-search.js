@@ -9,6 +9,9 @@ import {
 } from '../../scripts/lh-api.js';
 import { markSource } from '../../scripts/lh-data.js';
 import { buildShopHandoff, submitShopHandoff } from '../../scripts/shop-handoff.js';
+import {
+  postHandoffOn, isOwnWww, hotelTarget, openTarget,
+} from '../../scripts/handoff.js';
 import { createPassengerPicker, PASSENGER_LABELS, PICKER_CABINS } from './passenger-picker.js';
 
 /* ---------------------------------------------------------------------------------------------
@@ -423,6 +426,8 @@ const HOTEL_LABELS_EN = {
   'hotel submit label': 'Search hotel',
   'hotel external note': 'Please note that with this link you are visiting an external website that may not follow the same privacy, security or accessibility policies.',
   'close label': 'Close',
+  // the post mode's failure (scripts/handoff.js; www's tab shows no text of its own)
+  'hotel handoff error': 'The hotel search could not be started. Please try again later.',
 };
 /** Hotel tab texts taken from the live label bundle (labels/flightmanager), by label key. */
 const HOTEL_LIVE_LABELS = {
@@ -434,6 +439,7 @@ const HOTEL_LABELS = {
     ...HOTEL_LABELS_EN,
     'hotel external note': 'Bitte beachten Sie, dass Sie mit diesem Link eine externe Website besuchen, die möglicherweise nicht den gleichen Datenschutz-, Sicherheits- oder Barrierefreiheitsrichtlinien folgt.',
     'close label': 'Schließen',
+    'hotel handoff error': 'Die Hotelsuche konnte nicht gestartet werden. Bitte versuchen Sie es später noch einmal.',
   },
 };
 
@@ -557,8 +563,9 @@ const DAY_MS = 86400000;
 /**
  * Hotel tab: Location, Check-In (today), Check-Out (tomorrow), like the live tab's initial
  * values; footnote and "Search hotel". The live tab posts the search to its booking service,
- * which answers with the Booking.com address for a new window; that service is not reachable
- * from here, so a valid search opens the live page in a new tab (nothing is sent).
+ * which answers with the Booking.com address; on the airline's own host (scripts/handoff.js post
+ * mode) the tab does the same, elsewhere a valid search opens the live page in a new tab (nothing
+ * is sent).
  * @param {Object} config result of readConfigRows
  * @param {Object} locale result of getLocale()
  * @param {function} onClose the close button's handler
@@ -626,6 +633,10 @@ function buildHotelPanel(config, locale, onClose) {
   note.id = `flight-search-hotel-note-${uid}`;
   submit.setAttribute('aria-describedby', note.id);
   footer.append(submit, note);
+  const handoffError = el('p', 'flight-search-hotel-handoff-error', '');
+  handoffError.setAttribute('role', 'alert');
+  handoffError.hidden = true;
+  footer.append(handoffError);
   form.append(footer);
   // the button text of the live label bundle (labels/flightmanager), as the flight tab gets its
   // labels: de "Hotelsuche", en "Search hotel"; a "Hotel submit label" row other than the
@@ -663,6 +674,20 @@ function buildHotelPanel(config, locale, onClose) {
     const invalid = checks.find(([, message]) => message);
     if (invalid) {
       invalid[0].input.focus();
+      return;
+    }
+    // the airline's own host, whose page this would open again: www's hotel call, its target
+    if (postHandoffOn() && isOwnWww(livePageUrl(config))) {
+      handoffError.hidden = true;
+      submit.disabled = true;
+      hotelTarget({
+        cityName: cityInput.value.trim(),
+        checkIn: checkIn.input.value,
+        checkOut: checkOut.input.value,
+      }, locale).then(openTarget).catch(() => {
+        handoffError.textContent = labels['hotel handoff error'];
+        handoffError.hidden = false;
+      }).finally(() => { submit.disabled = false; });
       return;
     }
     window.open(livePageUrl(config), '_blank', 'noopener');
