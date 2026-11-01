@@ -5339,6 +5339,201 @@
    "uploaded": "2026-11-01T00:13:15.050Z",
    "mtime": 1793491670384,
    "preview": "2026-11-01T00:13:17.282Z"
+  },
+  "/de/routen/munchen-graz": {
+   "uploaded": "2026-11-01T00:25:59.185Z",
+   "mtime": 1793492661622,
+   "preview": "2026-11-01T00:26:01.051Z"
+  },
+  "/de/routen/graz-munchen": {
+   "uploaded": "2026-11-01T00:26:02.288Z",
+   "mtime": 1793492661649,
+   "preview": "2026-11-01T00:26:04.199Z"
+  },
+  "/de/routen/flug-von-frankfurt-nach-graz": {
+   "uploaded": "2026-11-01T00:26:06.879Z",
+   "mtime": 1793492755694,
+   "preview": "2026-11-01T00:26:08.726Z"
+  },
+  "/de/routen/graz-frankfurt-de": {
+   "uploaded": "2026-11-01T00:26:09.805Z",
+   "mtime": 1793492661707,
+   "preview": "2026-11-01T00:26:11.624Z"
+  },
+  "/de/routen/flug-von-muenchen-nach-olbia": {
+   "uploaded": "2026-11-01T00:26:12.703Z",
+   "mtime": 1793492661734,
+   "preview": "2026-11-01T00:26:14.403Z"
+  },
+  "/de/routen/flug-von-munchen-genua": {
+   "uploaded": "2026-11-01T00:26:16.363Z",
+   "mtime": 1793492755817,
+   "preview": "2026-11-01T00:26:18.632Z"
+  },
+  "/de/routen/flug-von-muenchen-nach-brindisi": {
+   "uploaded": "2026-11-01T00:26:19.840Z",
+   "mtime": 1793492661789,
+   "preview": "2026-11-01T00:26:21.619Z"
+  },
+  "/de/routen/muenchen-basel": {
+   "uploaded": "2026-11-01T00:26:22.824Z",
+   "mtime": 1793492755866,
+   "preview": "2026-11-01T00:26:24.758Z"
+  },
+  "/de/routen/muenchen-zuerich": {
+   "uploaded": "2026-11-01T00:26:25.985Z",
+   "mtime": 1793492755901,
+   "preview": "2026-11-01T00:26:27.777Z"
+  },
+  "/de/routen/muenchen-luxemburg": {
+   "uploaded": "2026-11-01T00:26:28.854Z",
+   "mtime": 1793492755932,
+   "preview": "2026-11-01T00:26:30.721Z"
+  },
+  "/de/routen/frankfurt-amsterdam-de": {
+   "uploaded": "2026-11-01T00:26:31.975Z",
+   "mtime": 1793492661903,
+   "preview": "2026-11-01T00:26:33.676Z"
+  },
+  "/de/routen/muenchen-ljubljana-laibach": {
+   "uploaded": "2026-11-01T00:26:34.797Z",
+   "mtime": 1793492755978,
+   "preview": "2026-11-01T00:26:36.619Z"
+  },
+  "/de/routen/frankfurt-prag": {
+   "uploaded": "2026-11-01T00:26:37.780Z",
+   "mtime": 1793492756010,
+   "preview": "2026-11-01T00:26:39.557Z"
+  },
+  "/de/routen/frankfurt-birmingham": {
+   "uploaded": "2026-11-01T00:26:40.679Z",
+   "mtime": 1793492756041,
+   "preview": "2026-11-01T00:26:42.372Z"
+  },
+  "/de/routen/frankfurt-billund": {
+   "uploaded": "2026-11-01T00:26:43.534Z",
+   "mtime": 1793492756072,
+   "preview": "2026-11-01T00:26:45.310Z"
+  },
+  "/de/routen/flug-muenchen-rijeka": {
+   "uploaded": "2026-11-01T00:26:46.491Z",
+   "mtime": 1793492756101,
+   "preview": "2026-11-01T00:26:48.250Z"
+  },
+  "/de/routen/flug-von-frankfurt-nach-bordeaux": {
+   "uploaded": "2026-11-01T00:26:49.416Z",
+   "mtime": 1793492662071,
+   "preview": "2026-11-01T00:26:51.240Z"
+  },
+  "/de/routen/flug-von-frankfurt-nach-biarritz": {
+   "uploaded": "2026-11-01T00:26:52.565Z",
+   "mtime": 1793492662101,
+   "preview": "2026-11-01T00:26:54.280Z"
+  },
+  "/de/routen/flug-von-frankfurt-nach-zuerich": {
+   "uploaded": "2026-11-01T00:26:56.289Z",
+   "mtime": 1793492756222,
+   "preview": "2026-11-01T00:26:58.267Z"
+  },
+  "/de/routen/flug-von-frankfurt-nach-figari": {
+   "uploaded": "2026-11-01T00:26:59.333Z",
+   "mtime": 1793492756251,
+   "preview": "2026-11-01T00:27:01.206Z"
+  },
+  "/de/routen/munchen-billund": {
+   "uploaded": "2026-11-01T00:27:02.438Z",
+   "mtime": 1793492756281,
+   "preview": "2026-11-01T00:27:04.284Z"
+  },
+  "/de/routen/lyon-frankfurt": {
+   "uploaded": "2026-11-01T00:27:05.504Z",
+   "mtime": 1793492756311,
+   "preview": "2026-11-01T00:27:07.476Z"
+  },
+  "/de/routen/frankfurt-bologna": {
+   "uploaded": "2026-11-01T00:27:09.369Z",
+   "mtime": 1793492756397,
+   "preview": "2026-11-01T00:27:11.591Z"
+  },
+  "/de/routen/frankfurt-lyon": {
+   "uploaded": "2026-11-01T00:27:12.762Z",
+   "mtime": 1793492756427,
+   "preview": "2026-11-01T00:27:14.760Z"
+  },
+  "/de/routen/flug-von-frankfurt-nach-basel": {
+   "uploaded": "2026-11-01T00:27:15.970Z",
+   "mtime": 1793492756457,
+   "preview": "2026-11-01T00:27:17.767Z"
+  },
+  "/de/routen/flug-von-frankfurt-nach-cagliari": {
+   "uploaded": "2026-11-01T00:27:18.818Z",
+   "mtime": 1793492756488,
+   "preview": "2026-11-01T00:27:20.515Z"
+  },
+  "/de/routen/flug-von-pula-nach-frankfurt": {
+   "uploaded": "2026-11-01T00:27:21.857Z",
+   "mtime": 1793492756518,
+   "preview": "2026-11-01T00:27:23.609Z"
+  },
+  "/de/routen/flug-von-frankfurt-nach-pula": {
+   "uploaded": "2026-11-01T00:27:24.730Z",
+   "mtime": 1793492756548,
+   "preview": "2026-11-01T00:27:26.394Z"
+  },
+  "/de/routen/flug-von-pula-nach-muenchen": {
+   "uploaded": "2026-11-01T00:27:28.651Z",
+   "mtime": 1793492756635,
+   "preview": "2026-11-01T00:27:30.525Z"
+  },
+  "/de/routen/flug-von-muenchen-nach-pula": {
+   "uploaded": "2026-11-01T00:27:32.535Z",
+   "mtime": 1793492756725,
+   "preview": "2026-11-01T00:27:34.444Z"
+  },
+  "/de/routen/flug-von-muenchen-nach-palermo": {
+   "uploaded": "2026-11-01T00:27:36.259Z",
+   "mtime": 1793492756828,
+   "preview": "2026-11-01T00:27:38.201Z"
+  },
+  "/de/routen/flug-von-muenchen-nach-ancona": {
+   "uploaded": "2026-11-01T00:27:39.500Z",
+   "mtime": 1793492756858,
+   "preview": "2026-11-01T00:27:41.308Z"
+  },
+  "/de/routen/flug-von-amsterdam-nach-muenchen": {
+   "uploaded": "2026-11-01T00:27:42.406Z",
+   "mtime": 1793492662524,
+   "preview": "2026-11-01T00:27:44.179Z"
+  },
+  "/de/routen/flug-von-muenchen-nach-amsterdam": {
+   "uploaded": "2026-11-01T00:27:45.853Z",
+   "mtime": 1793492756973,
+   "preview": "2026-11-01T00:27:47.760Z"
+  },
+  "/de/routen/flug-von-genf-nach-frankfurt": {
+   "uploaded": "2026-11-01T00:27:48.886Z",
+   "mtime": 1793492662578,
+   "preview": "2026-11-01T00:27:50.515Z"
+  },
+  "/de/routen/flug-von-frankfurt-nach-genf": {
+   "uploaded": "2026-11-01T00:27:52.303Z",
+   "mtime": 1793492757081,
+   "preview": "2026-11-01T00:27:53.957Z"
+  },
+  "/de/routen/flug-von-london-city-airport-nach-frankfurt": {
+   "uploaded": "2026-11-01T00:27:55.224Z",
+   "mtime": 1793492662633,
+   "preview": "2026-11-01T00:27:57.173Z"
+  },
+  "/de/routen/flug-von-frankfurt-nach-london-city": {
+   "uploaded": "2026-11-01T00:27:58.830Z",
+   "mtime": 1793492757185,
+   "preview": "2026-11-01T00:28:00.532Z"
+  },
+  "/de/routen/flug-von-genf-nach-muenchen": {
+   "uploaded": "2026-11-01T00:28:01.646Z",
+   "mtime": 1793492662687,
+   "preview": "2026-11-01T00:28:03.645Z"
   }
  },
  "media": {
@@ -9793,6 +9988,39 @@
   },
   "/media-da/airdolomiti/verona-mainbanner-d-6-3e6d2842.jpg": {
    "at": "2026-11-01T00:13:10.954Z"
+  },
+  "/media-da/airdolomiti/graz-main-banner-d-447da6c7.jpg": {
+   "at": "2026-11-01T00:26:05.373Z"
+  },
+  "/media-da/airdolomiti/embraer195-air-dolomiti-neue-sitze-d17b98e1.jpg": {
+   "at": "2026-11-01T00:26:06.026Z"
+  },
+  "/media-da/airdolomiti/genova-def-0af42239.jpg": {
+   "at": "2026-11-01T00:26:15.489Z"
+  },
+  "/media-da/airdolomiti/zurich-stadt-b67f7410.jpg": {
+   "at": "2026-11-01T00:26:55.297Z"
+  },
+  "/media-da/airdolomiti/bologna-mainbanner-d-2-5480777f.jpg": {
+   "at": "2026-11-01T00:27:08.630Z"
+  },
+  "/media-da/airdolomiti/muenchen-marienplatz-788ce6e3.jpg": {
+   "at": "2026-11-01T00:27:27.859Z"
+  },
+  "/media-da/airdolomiti/pula-kroatien-amphitheater-1920x1080-1-e345be10.jpg": {
+   "at": "2026-11-01T00:27:31.635Z"
+  },
+  "/media-da/airdolomiti/palermo-pretoria-brunnen-1920x1080-1-b6ed309c.jpg": {
+   "at": "2026-11-01T00:27:35.531Z"
+  },
+  "/media-da/airdolomiti/amsterdam-kanal-1920x1080-1-9bf450e4.jpg": {
+   "at": "2026-11-01T00:27:45.112Z"
+  },
+  "/media-da/airdolomiti/genf-gebaeude-am-ufer-der-rhone-1920x1080-1-93f24117.jpg": {
+   "at": "2026-11-01T00:27:51.513Z"
+  },
+  "/media-da/airdolomiti/fluege-nach-london-1920x1080-1-375aff67.jpg": {
+   "at": "2026-11-01T00:27:58.150Z"
   }
  }
 }
