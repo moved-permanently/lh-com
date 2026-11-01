@@ -1,0 +1,30 @@
+# lh-com (2026-11-01, brief 239: young adults, the alternative fare selection, no adults hint): uploaded to DA moved-permanently/lh-com and previewed on main--lh-com--moved-permanently.aem.page; not published.
+# Code: 94a075bb (blocks/flight-search: picker-options.js, passenger-picker.js, flight-search.js and .css; importer: parsers/flight-search-picker.js, the flight-search parser, the rebuilt import bundles, lh-picker-apply.mjs). Rollback: the documents' DA versions before this upload (the 238 versions); git revert for the code. Until the code is on main the new rows change nothing on the pages (the block before 239 ignores them).
+# - every lh-com document of de/en, de/de, at/de and gb/en with a flight search (23, as in 238; the 4 hotel offer pages: unchanged): an empty Adults hint row (www shows no adults hint), Fare preference yes (www's Alternative fare selection); Young adults GB on the gb/en documents and the de/de documents (these serve gb/de, where www shows them; de/de itself shows none). Only those rows changed (checked: each document against its last preview before, against its local copy after).
+# - checked on the branch preview at 1440 and 390, all 23: no adults hint, Young Adults (12-15 years) on gb/en only, the fare selection, the panel inside the screen; one young adult, one child and coupon handed off to shop.lufthansa.com/booking/availability as ADT,B15,CHD with farePreference COUPON after the cabin (gb/en), ADT,CHD with COUPON elsewhere (caught in the page, nothing sent).
+# - lufthansa.com's 19 comparison pages, main against the branch after the upload: the 4 homepages differ only in the passenger panel (no adults hint, the fare selection before Done, on gb/en the young adults' row); /de/de/unterhaltung-an-bord: its head's stylesheets in another order (the same 34); the other 14 are equal.
+# - ITA /it/en/homepage, Austrian /at/de/homepage, Brussels /be/en/homepage on main and on the branch at 1440 and 390: the same panel, the same hand-off, pixel-identical screenshots.
+# documents (23):
+/de/en/book-and-manage/stopover
+/de/en/cash-and-miles
+/de/en/event/dghm-2026
+/de/en/flight-search
+/de/en/homepage
+/de/en/local-page/south-africa-winter-promotion
+/de/de/book-and-manage/stopover
+/de/de/cash-and-miles
+/de/de/event/dghm-2026
+/de/de/flugsuche
+/de/de/homepage
+/de/de/local-page/south-africa-winter-promotion
+/at/de/book-and-manage/stopover
+/at/de/cash-and-miles
+/at/de/event/esorics-2027
+/at/de/flugsuche
+/at/de/homepage
+/at/de/local-page/black-friday
+/gb/en/book-and-manage/stopover
+/gb/en/cash-and-miles
+/gb/en/flight-search
+/gb/en/homepage
+/gb/en/local-page/ski-campaign-2026
