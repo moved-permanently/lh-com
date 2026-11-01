@@ -43,15 +43,17 @@ const defaultProxy = () => PROXY_ORIGIN;
  * X-Portal-Language: en and credentials 'omit' answers 200 JSON readable from
  * main--lh-com--moved-permanently.aem.page (tested by Ben, 2026-10-22).
  */
-const DIRECT_ROUTES = /^\/service\/api\/(suggestions\/airports|labels\/|catalogs\/|defaultAirport(?:[/?]|$)|core\/feature\/list\/|destinationfinder\/|flight-prices\/|teaser\/price\/)/;
+const DIRECT_ROUTES = /^\/service\/api\/(suggestions\/airports|labels\/|catalogs\/|defaultAirport(?:[/?]|$)|core\/feature\/list\/|destinationfinder\/|flight-prices\/|teaser\/price\/|security-waiting-time\/)/;
 
 /**
  * Price routes: their recorded answers are never used (a recorded price is a price of another
  * day). Live or nothing: a failing call fails, the widget shows no price. The fare teaser's
  * origin list (fareteaser/recommend) holds no prices and keeps its recording, like labels,
- * catalogs and suggestions.
+ * catalogs and suggestions. The security waiting times (security-waiting-time/airports and
+ * /<IATA>/security: numbers of the minute) are handled the same way: live or nothing, the retries
+ * and the short backoff below.
  */
-const PRICE_ROUTES = /^\/service\/api\/(lhg-fare-teaser\/fareteaser\/(?!recommend)|destinationfinder\/destination\/finder\/|flight-prices\/|teaser\/price\/)/;
+const PRICE_ROUTES = /^\/service\/api\/(lhg-fare-teaser\/fareteaser\/(?!recommend)|destinationfinder\/destination\/finder\/|flight-prices\/|teaser\/price\/|security-waiting-time\/)/;
 
 /** Whether the recordings may answer for a route (not for prices). */
 export function isPriceRoute(route) {

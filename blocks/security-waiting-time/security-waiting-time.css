@@ -1,0 +1,204 @@
+/* Security waiting times, as www's .swt-tab-wrapper (app.5ad288dc.css): the airport select
+   (maui-select, underlined, at most 350px), the terminal tabs, per area a 20px padded row (every
+   odd row #ebebeb) with the badge (a 28px dot in the workload's colour 10px before the text: 16px
+   navy, 28px high, at least 180px wide) and the details (area name 18px bold, "Last update" 14px);
+   from 768px badge and details side by side, 50px apart */
+.security-waiting-time {
+  --swt-low: #417505;
+  --swt-medium: #ffad00;
+  --swt-full: #c00;
+  --swt-open: #ccc;
+  --swt-closed: #05164d;
+
+  color: var(--lh-deepblue);
+}
+
+.security-waiting-time .security-waiting-time-form {
+  position: relative;
+  max-width: 350px;
+  margin: 0 0 30px;
+}
+
+.security-waiting-time .security-waiting-time-label {
+  display: block;
+  color: var(--lh-grey-7);
+  font-size: var(--body-font-size-xs);
+  line-height: 1.5;
+}
+
+.security-waiting-time .security-waiting-time-form::after {
+  content: "";
+  position: absolute;
+  right: 4px;
+  bottom: 16px;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid var(--lh-deepblue);
+  border-bottom: 2px solid var(--lh-deepblue);
+  transform: rotate(45deg);
+  pointer-events: none;
+}
+
+.security-waiting-time .security-waiting-time-select {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 40px;
+  margin: 0;
+  padding: 6px 30px 6px 0;
+  border: 0;
+  border-bottom: 1px solid var(--lh-deepblue);
+  border-radius: 0;
+  background: none;
+  color: var(--lh-deepblue);
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-s);
+  line-height: 1.5;
+  appearance: none;
+  cursor: pointer;
+}
+
+.security-waiting-time .security-waiting-time-select:focus-visible {
+  outline: 2px solid var(--focus-color, var(--lh-deepblue));
+  outline-offset: 2px;
+}
+
+.security-waiting-time .security-waiting-time-select:has(option[value=""]:checked) {
+  color: var(--lh-grey-7);
+}
+
+/* terminal tabs: www's tab control (grey background, the selected tab underlined) */
+.security-waiting-time .security-waiting-time-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 30px;
+  margin: 0 0 20px;
+  border-bottom: 1px solid var(--lh-grey-3, #ccc);
+}
+
+.security-waiting-time .security-waiting-time-tab {
+  margin: 0 0 -1px;
+  padding: 12px 0;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  background: none;
+  color: var(--lh-deepblue);
+  font-family: var(--heading-font-family);
+  font-size: var(--body-font-size-m);
+  font-weight: 700;
+  line-height: 1.33;
+  cursor: pointer;
+}
+
+.security-waiting-time .security-waiting-time-tab[aria-selected="true"] {
+  border-bottom-color: var(--brand-color, var(--lh-deepblue));
+}
+
+.security-waiting-time .security-waiting-time-tab:focus-visible {
+  outline: 2px solid var(--focus-color, var(--lh-deepblue));
+  outline-offset: 2px;
+}
+
+.security-waiting-time .security-waiting-time-panel[hidden] {
+  display: none;
+}
+
+.security-waiting-time .security-waiting-time-areas {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.security-waiting-time .security-waiting-time-area {
+  margin: 0;
+  padding: 20px;
+}
+
+.security-waiting-time .security-waiting-time-area:nth-of-type(odd) {
+  background: #ebebeb;
+}
+
+.security-waiting-time .security-waiting-time-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.security-waiting-time .security-waiting-time-badge {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: fit-content;
+  min-width: 180px;
+  height: 28px;
+  padding: 2px 6px 2px 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+.security-waiting-time .security-waiting-time-badge::before {
+  content: "";
+  width: 28px;
+  height: 28px;
+  margin-right: 10px;
+  border-radius: 50%;
+  background: var(--swt-open);
+}
+
+.security-waiting-time [data-workload="LOW"] .security-waiting-time-badge::before {
+  background: var(--swt-low);
+}
+
+.security-waiting-time [data-workload="MEDIUM"] .security-waiting-time-badge::before {
+  background: var(--swt-medium);
+}
+
+.security-waiting-time [data-workload="FULL"] .security-waiting-time-badge::before {
+  background: var(--swt-full);
+}
+
+.security-waiting-time [data-workload="CLOSED"] .security-waiting-time-badge::before {
+  background: var(--swt-closed);
+}
+
+.security-waiting-time .security-waiting-time-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.security-waiting-time .security-waiting-time-area-name {
+  padding: 10px 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.security-waiting-time .security-waiting-time-update {
+  font-size: 14px;
+}
+
+.security-waiting-time .security-waiting-time-error {
+  margin: 0 0 10px;
+  color: var(--lh-red, #c00);
+}
+
+.security-waiting-time .security-waiting-time-fallback {
+  margin: 0;
+}
+
+@media (width >= 768px) {
+  .security-waiting-time .security-waiting-time-visual {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .security-waiting-time .security-waiting-time-badge {
+    padding-right: 50px;
+  }
+
+  .security-waiting-time .security-waiting-time-area-name {
+    padding: 5px 0 10px;
+  }
+}

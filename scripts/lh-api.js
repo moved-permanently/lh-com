@@ -64,6 +64,22 @@ export function labelsRequest(bundle, locale) {
   return { method: 'GET', route: `/service/api/labels/${bundle}/${labelTenant(locale)}/${locale.lang}` };
 }
 
+/**
+ * The airports with security waiting times (www's dcep-security-waiting-time):
+ * GET /service/api/security-waiting-time/airports → {"airports":["BGO","BER",...]}
+ */
+export function securityWaitingTimeAirportsRequest() {
+  return { method: 'GET', route: '/service/api/security-waiting-time/airports' };
+}
+
+/**
+ * An airport's current waiting times: GET /service/api/security-waiting-time/<IATA>/security →
+ * {name, code, terminals: [{name, areas: [{name, minTime, maxTime, workload, lastupdate}]}]}
+ */
+export function securityWaitingTimeRequest(code) {
+  return { method: 'GET', route: `/service/api/security-waiting-time/${encodeURIComponent(code)}/security` };
+}
+
 /** Default origin of the market (by geo on the live site): GET /service/api/defaultAirport */
 export function defaultAirportRequest() {
   return { method: 'GET', route: '/service/api/defaultAirport' };

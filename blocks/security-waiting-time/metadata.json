@@ -1,0 +1,21 @@
+{
+  "variantName": "security-waiting-time",
+  "baseBlock": "security-waiting-time",
+  "canonicalModel": "standalone",
+  "sourceUrl": "https://www.lufthansa.com/de/en/prepare-for-your-trip/airport-information/services-at-the-airport/security-waiting-time",
+  "visualCharacteristics": {
+    "purpose": "live security waiting times: an airport select, then per terminal (tabs) and area the waiting time or open/closed with a workload dot and the last update",
+    "traits": [
+      "an underlined 'Select Airport' select, at most 350px wide",
+      "terminal tabs; per area a 20px padded row, odd rows light grey",
+      "a 28px coloured dot before '5 - 10 min', the area name in bold and 'Last update: 3 minutes ago' beside it from 768px"
+    ]
+  },
+  "contentPattern": {
+    "structure": "2 columns, label | value, all rows optional: Airport | FRA (else ?airport=); Live page | link (the fallback when the data cannot be loaded; default this page on the brand's www); label rows (Select label, Last update label, Open label, Closed label, Minutes label, Error label, Status label, Live page label). Data: GET /service/api/security-waiting-time/airports and /<IATA>/security; labels GET /service/api/labels/securitywaitingtime/<tenant>/<lang>."
+  },
+  "options": [],
+  "memberVariantIds": [],
+  "usage": "lufthansa.com /{cc}/{ll}/prepare-for-your-trip/airport-information/services-at-the-airport/security-waiting-time; ITA /it/en/book-and-prepare/travel-information/at-the-airport/security-waiting-times; Discover's security-check-time-slot page carries the same component.",
+  "reuseGuidance": "Reuse unchanged; author an empty block. Requests in scripts/lh-api.js (securityWaitingTimeAirportsRequest, securityWaitingTimeRequest); the routes are live-only in scripts/lh-data.js (as the price routes)."
+}
