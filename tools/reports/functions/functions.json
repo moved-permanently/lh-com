@@ -1,6 +1,6 @@
 {
   "updated": "2026-11-01",
-  "change": "Cargo's newsletter now needs Lufthansa Cargo: its Microsoft Dynamics form accepts sign-ups only from Cargo's own website, so ours links there until Cargo allows our address. The services behind manage booking, check-in and sign-in for Discover, ITA and Austrian already answer with test data.",
+  "change": "ITA's homepage slider now opens ITA's own destination pages. Cargo's newsletter needs Lufthansa Cargo: its Microsoft Dynamics form accepts sign-ups only from Cargo's own website, so ours links there until Cargo allows our address.",
   "legend": {
     "done": {
       "label": "works on our replica",
@@ -743,10 +743,10 @@
           "evidence": "functions scan 2026-10-31; cb96345a"
         },
         "ita": {
-          "status": "wip",
-          "note": "Prices load live, but the cards link to a destination page that ITA's site doesn't have; the fix points them at ITA's own page.",
+          "status": "done",
+          "note": "The homepage slider lists destinations with live prices from Rome, and each card opens ITA's own destination page.",
           "page": "/it/en/homepage",
-          "evidence": "matrix note 7; functions scan 2026-10-31"
+          "evidence": "brief 196, e60259ee; check 2026-11-01 02:35 CET: /it/en/homepage 17 cards link to www.ita-airways.com/it/en/book-and-prepare/destination, which shows Rome-New York from 519 EUR"
         },
         "austrian": {
           "status": "done",
