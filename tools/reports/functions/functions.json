@@ -1,6 +1,6 @@
 {
   "updated": "2026-11-01",
-  "change": "Lufthansa's flight searches have the travellers and cabin picker, and Brussels Airlines' deep link to the travel cockpit works on the replica.",
+  "change": "Discover has the travellers and cabin picker, live security waiting times and its own site search, and its pre-order food page carries the culinary app.",
   "legend": {
     "done": {
       "label": "works on our replica",
@@ -33,7 +33,6 @@
   },
   "footnotes": {
     "adbooking": "Air Dolomiti sells through its own booking engine, not Lufthansa's shop. Since 1 November the search form is on the replica's homepages, route pages and booking pages and hands the trip to that engine, as www does; the engine's bot check can show a captcha, as it can on www.",
-    "picker": "The picker for adults, children, infants and cabin is in the shared code since 1 November. Each brand's pages still have to switch it on; until then the search sends the travellers and cabin set on the page.",
     "lhbooking": "Lufthansa's manage booking and hotel tabs hand over to two services that run in AEM today. Their replacements answer with test data, and since 1 November the tabs post to them on the airline's own address; on the replica's addresses they keep opening www, so no real booking reaches test data.",
     "signin": "On Discover, ITA, Austrian and Brussels Airlines, manage booking goes through a deep link to the login and profile pages, which are on the new platform since 1 November. The services behind the deep link answer with test data, and since 1 November the replicas' addresses route the deep link to them, so it ends on the replica's login page.",
     "lhpages": "Three Lufthansa pages with these functions aren't on the replica yet: check-in deadlines, the compensation claim and the newsletter. They are being imported now, the check-in page with the search block that is live on Austrian and Brussels Airlines. Until then our pages link to www.",
@@ -164,11 +163,10 @@
           "evidence": "ema-cashub 238 (34d5af32 importer + apply script, f43ba457 upload record; 23 documents); published 2026-11-01 job-2026-11-01-18-36-11-35ab3b70; checked preview /de/de/flugsuche at 1440; 240 sent for gb/en young adults, adults hint, alternative fare selection"
         },
         "discover": {
-          "status": "wip",
-          "note": "The picker for adults, children, infants and cabin is in the shared code since 1 November but not switched on in the pages yet, so the search still sends the travellers and cabin set on the page.",
-          "footnote": "picker",
+          "status": "done",
+          "note": "Discover's flight searches have the picker for adults, children, infants and cabin, as on www.",
           "page": "/de/en/homepage",
-          "evidence": "052ba383; functions scan 2026-10-31"
+          "evidence": "ema-adobe 209 (5b81c83, 5d4c302, 99036b8; state 554747cb; 31 documents); published 2026-11-01 lh-discover job-2026-11-01-19-00-37-f64b8c33; my preview check /de/en/homepage panel (adults, children, infants, four cabins)"
         },
         "ita": {
           "status": "done",
@@ -595,10 +593,10 @@
           "evidence": "204 (a97500b) published 2026-11-01; browser check lufthansa.turnsthe.page de/de ?airport=MUC: 2 terminals, live times and a closed area"
         },
         "discover": {
-          "status": "wip",
-          "note": "Discover's page has the text and a link to the waiting times on www; the search comes with a block of its own that reads Lufthansa's live data.",
+          "status": "done",
+          "note": "Discover's waiting times page shows the live waiting times for Discover's 12 airports, as www does.",
           "page": "/de/en/book/travel-information/airport-info/security-check-time-slot",
-          "evidence": "fill check 2026-11-01: www security-check-time-slot page with dcep-security-waiting-time (12 airports); M1 found no such page in the sitemap (open); www.lufthansa.com answers discover.turnsthe.page with X-Portal FOUR_Y"
+          "evidence": "ema-adobe 209 (5b81c83, 5d4c302, 99036b8; state 554747cb; 31 documents); published 2026-11-01 lh-discover job-2026-11-01-19-00-37-f64b8c33; my preview check: 12 airports, Frankfurt Terminal 1 areas open, live update"
         },
         "ita": {
           "status": "done",
@@ -1117,9 +1115,10 @@
         },
         "discover": {
           "status": "wip",
-          "note": "Discover's \"Pre-order food\" page is empty on the replica; the app is in the shared code since 1 November and still has to go on the page.",
+          "note": "Discover's \"Pre-order food\" page carries the app since 1 November; the parts that need a booking come from Discover's Travel ID service, which refuses our addresses.",
+          "footnote": "travelidapps",
           "page": "/de/en/culinaryjourney",
-          "evidence": "e74d57f2; fill check 2026-11-01"
+          "evidence": "ema-adobe 209 (5b81c83, 5d4c302, 99036b8; state 554747cb; 31 documents); published 2026-11-01 lh-discover job-2026-11-01-19-00-37-f64b8c33; live /de/de/culinaryjourney has the micro-frontend block"
         },
         "ita": {
           "status": "none",
@@ -1252,10 +1251,10 @@
           "evidence": "functions scan 2026-10-31; /migration-status site search row"
         },
         "discover": {
-          "status": "wip",
-          "note": "The replica's own results page works, but the footer search still sends to a www page that doesn't exist.",
+          "status": "done",
+          "note": "The footer search and the replica's own results page work: searching \"baggage\" finds Discover's pages.",
           "page": "/de/en/help/search-result",
-          "evidence": "matrix note 6; footer.plain.html 2026-11-01"
+          "evidence": "ema-adobe 209 (5b81c83, 5d4c302, 99036b8; state 554747cb; 31 documents); published 2026-11-01 lh-discover job-2026-11-01-19-00-37-f64b8c33; live footer links /de/en/help/search-result?query=; search-index.json live de/en 191, de/de 213 rows"
         },
         "ita": {
           "status": "none",
