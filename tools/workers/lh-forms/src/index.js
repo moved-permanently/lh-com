@@ -112,6 +112,12 @@ const FORMS = {
     de: 'Form di registrazione al corso Voglia di Volare',
   },
   'ita-emergency-contact': { en: 'Emergency contact', de: 'Emergency contact' },
+  // Air Dolomiti (lh-airdolomiti): its newsletter sign-up, one form per language (the page names of
+  // www's /iscrizione-newsletter, /newsletter-subscription, /newsletter-anmeldung, 2026-11-01);
+  // its pages have no country root (an Italian page sends de-de): one title for both
+  'airdolomiti-iscrizione-newsletter': { en: 'Iscrizione newsletter', de: 'Iscrizione newsletter' },
+  'airdolomiti-newsletter-subscription': { en: 'Newsletter subscription', de: 'Newsletter subscription' },
+  'airdolomiti-newsletter-anmeldung': { en: 'Newsletter Anmeldung', de: 'Newsletter Anmeldung' },
   // Austrian Airlines (lh-austrian): the h1 of its at/en (else another English root's) and at/de
   // pages (2026-10-31); an id with one language has that title for both; austrian-newsletter
   // has no en or de page (cn/zh, it/it, jp/ja, pl/pl, ru/ru): it/it's and pl/pl's h1

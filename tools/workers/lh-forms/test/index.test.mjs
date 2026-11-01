@@ -1028,6 +1028,29 @@ test('brand sites: every ITA and Austrian form id is accepted from its site; an 
   assert.equal(sent.length, ids.length);
 });
 
+test('brand sites: Air Dolomiti\'s newsletter forms are accepted from its site, each with its page\'s title', async () => {
+  const ids = ['airdolomiti-iscrizione-newsletter', 'airdolomiti-newsletter-subscription', 'airdolomiti-newsletter-anmeldung'];
+  const origins = ['https://airdolomiti.turnsthe.page', 'https://main--lh-airdolomiti--moved-permanently.aem.page', 'https://main--lh-airdolomiti--moved-permanently.aem.live'];
+  const env = makeEnv({ FORM_CONFIG: JSON.stringify({ default: { to: 'only@example.com' } }) });
+  // an Italian page sends the default root (de-de), an English page de-en, a German page de-de
+  const results = await Promise.all(ids.map((form, i) => post({
+    form, locale: i === 1 ? 'de-en' : 'de-de', origin: origins[i], ip: `198.51.100.${150 + i}`,
+  }, env)));
+  results.forEach(({ res, body }, i) => {
+    assert.equal(res.status, 200, ids[i]);
+    assert.deepEqual(body, { ok: true }, ids[i]);
+  });
+  assert.equal(sent.length, ids.length);
+  assert.match(sent[0].html, /<h1>Iscrizione newsletter<\/h1>/);
+  assert.match(sent[1].html, /<h1>Newsletter subscription<\/h1>/);
+  assert.match(sent[2].html, /<h1>Newsletter Anmeldung<\/h1>/);
+  assert.equal(sent[0].subject, '[lh-airdolomiti] Iscrizione newsletter (de-de)');
+  assert.equal(sent[1].subject, '[lh-airdolomiti] Newsletter subscription (de-en)');
+  const unknown = await post({ form: 'airdolomiti-newsletter', origin: origins[0], ip: '198.51.100.160' });
+  assert.equal(unknown.res.status, 400);
+  assert.deepEqual(unknown.body, { ok: false, error: 'unknown-form' });
+});
+
 test('brand sites: the title is the form\'s, German on a -de root, English elsewhere', async () => {
   await post({ form: 'austrian-bagdamage', locale: 'at-de', origin: 'https://austrian.turnsthe.page' });
   await post({ form: 'austrian-bagdamage', locale: 'gb-en', origin: 'https://austrian.turnsthe.page' });
