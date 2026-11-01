@@ -551,7 +551,7 @@ main > .section > .columns-media-wrapper:has(> .columns-media.sidebar) + .defaul
    (.maui-link margin 2.4rem + item margin 2rem; /de/en/travelling-with-special-requirements at
    768: images at x24 and x388, the third item under the first) */
 @media (width >= 768px) and (width < 1025px) {
-  .columns-media:not(.sidebar, .media-first) .columns-media-row:has(> :nth-child(3)) {
+  .columns-media:not(.sidebar, .media-first, .gallery) .columns-media-row:has(> :nth-child(3)) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     row-gap: 44px;
   }
@@ -627,5 +627,24 @@ main > .section > .columns-media-wrapper:has(> .columns-media.sidebar) + .defaul
   .columns-media .columns-media-text > :is(p, ul, ol).limited-width {
     box-sizing: border-box;
     max-width: 66%;
+  }
+}
+
+/* option gallery (www.airdolomiti.it articoli/didyouknow: four images in a row): the images of a
+   row (one cell's strip, or one image per cell) as a grid, 2 columns on phones, up to 4 from 768px */
+.columns-media.gallery .columns-media-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--grid-gutter);
+  align-items: start;
+}
+
+.columns-media.gallery .columns-media-row.columns-media-gallery > .columns-media-media {
+  margin-bottom: 0;
+}
+
+@media (width >= 768px) {
+  .columns-media.gallery .columns-media-gallery {
+    grid-template-columns: repeat(var(--columns-media-gallery-cols, 4), minmax(0, 1fr));
   }
 }

@@ -8,6 +8,8 @@ import {
   loadMediaStyles,
 } from '../../scripts/media.js';
 
+const GALLERY_COLS = 4;
+
 const DEFAULT_LABELS = {
   en: { 'play video': 'Play video', 'show image': 'Show image', 'show slide': 'Show slide' },
   de: { 'play video': 'Video abspielen', 'show image': 'Bild anzeigen', 'show slide': 'Folie anzeigen' },
@@ -156,9 +158,17 @@ function buildSlider(strip, labels, label = 'show image') {
  * cell, any other cell is a text cell (image captions, p.caption, count as media). Media cells
  * accept several images (shown side by side, option stacked: one under the other),
  * a linked image, or a poster image plus an .mp4 link (click-to-play video).
+ * Option gallery (www.airdolomiti.it articoli: four images in a row): a row's images as a grid,
+ * GALLERY_COLS at most, 2 on phones; the grid is the strip of a cell's images or, with one image
+ * per cell, the row.
  * @param {Element} block
  */
 export default async function decorate(block) {
+  const gallery = block.classList.contains('gallery') && !block.classList.contains('slider');
+  const toGallery = (grid, count) => {
+    grid.classList.add('columns-media-gallery');
+    grid.style.setProperty('--columns-media-gallery-cols', String(Math.min(count, GALLERY_COLS)));
+  };
   const labels = resolveLabels(DEFAULT_LABELS, {}, getLocale().lang);
 
   // an icon heading (C8, hrefless a.teaser): the document keeps the heading's SVG icon as a
@@ -211,6 +221,7 @@ export default async function decorate(block) {
           });
           cell.prepend(strip);
           if (block.classList.contains('slider')) buildSlider(strip, labels);
+          if (gallery) toGallery(strip, strip.children.length);
         }
       } else {
         cell.classList.add('columns-media-text');
@@ -223,6 +234,9 @@ export default async function decorate(block) {
 
     if (cells.length === 2 && mediaIndex >= 0 && cells.some((c) => c.classList.contains('columns-media-text'))) {
       row.classList.add(mediaIndex === 0 ? 'columns-media-media-first' : 'columns-media-media-last');
+    }
+    if (gallery && cells.length > 1 && cells.every((c) => c.classList.contains('columns-media-media'))) {
+      toGallery(row, cells.length);
     }
   });
 
