@@ -1,0 +1,29 @@
+# lh-com (2026-11-01, brief 238: the passengers and cabin picker): uploaded to DA moved-permanently/lh-com and previewed on main--lh-com--moved-permanently.aem.page; not published.
+# Code: 34d5af32 (importer: parsers/flight-search-picker.js, the flight-search parser, the rebuilt import bundles, lh-picker-apply.mjs). Rollback: the documents' DA versions before this upload; git revert for the code.
+# - every lh-com document of de/en, de/de, at/de and gb/en with a flight search (23; the 4 hotel offer pages have only the hotel tab: unchanged): Passenger picker yes, www's panel texts (children, infants without seat, their hints; the German traveller line), Group booking to the root's group-travel page; only the block changed (checked: each document against its last preview before, against its local copy after).
+# - checked at 1440 and 390 on /de/en/homepage, /de/de/flugsuche, /at/de/homepage, /gb/en/homepage, /de/de/cash-and-miles: the panel opens inside the screen, the group link, the hand-off to shop.lufthansa.com/booking/availability with ADT,ADT,CHD,INF and BUSINESS (caught in the page, nothing sent).
+# - lufthansa.com's 19 comparison pages: the 4 homepages differ (their flight search gains the picker), the other 15 are equal.
+# documents (23):
+/de/en/book-and-manage/stopover
+/de/en/cash-and-miles
+/de/en/event/dghm-2026
+/de/en/flight-search
+/de/en/homepage
+/de/en/local-page/south-africa-winter-promotion
+/de/de/book-and-manage/stopover
+/de/de/cash-and-miles
+/de/de/event/dghm-2026
+/de/de/flugsuche
+/de/de/homepage
+/de/de/local-page/south-africa-winter-promotion
+/at/de/book-and-manage/stopover
+/at/de/cash-and-miles
+/at/de/event/esorics-2027
+/at/de/flugsuche
+/at/de/homepage
+/at/de/local-page/black-friday
+/gb/en/book-and-manage/stopover
+/gb/en/cash-and-miles
+/gb/en/flight-search
+/gb/en/homepage
+/gb/en/local-page/ski-campaign-2026
