@@ -41,6 +41,8 @@ export const LANGUAGE_LESS = {
   '/data-protection': '/en/data-protection',
   '/footer/bottomnav/terms-of-use': '/en/footer/bottomnav/terms-of-use',
   '/meta/meta/company/general-terms': '/en/meta/meta/company/general-terms',
+  // the German header's Support & Contact (www's /de/support-and-contact is the English page)
+  '/support-and-contact': '/en/support-and-contact',
 };
 
 const GERMAN = {

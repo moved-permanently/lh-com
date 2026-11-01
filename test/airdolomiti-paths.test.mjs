@@ -6,7 +6,9 @@ import {
 } from '../tools/importer/airdolomiti-paths.mjs';
 
 test('the posts\' category pages are pages of the site, path for path', () => {
-  assert.equal(BLOG_CATEGORIES.length, 10);
+  assert.equal(BLOG_CATEGORIES.length, 15);
+  assert.ok(BLOG_CATEGORIES.map(edsPath).includes('/de/artikel/reiseziele'));
+  assert.equal(BLOG_CATEGORIES.filter((u) => langOf(u) === 'de').length, 5);
   assert.ok(BLOG_CATEGORIES.map(edsPath).includes('/articoli/avgeek'));
   assert.ok(BLOG_CATEGORIES.map(edsPath).includes('/articoli/didyouknow'));
   assert.ok(BLOG_CATEGORIES.map(edsPath).includes('/en/articles/dyk'));

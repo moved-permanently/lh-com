@@ -29,6 +29,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { Page, dec, loadSite } from './airdolomiti-import.mjs';
 import { snapshotFile } from './airdolomiti-capture.mjs';
+import { NEWSLETTER } from './airdolomiti-paths.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const W = path.join(root, 'content-sites/lh-airdolomiti');
@@ -156,9 +157,18 @@ const searchRows = [[`${SETUP.prefix}/search-index.json`], ['Input label', SEARC
 const searchMeta = [['Title', `${SEARCH.heading} | Air Dolomiti`], ['Robots', 'noindex, nofollow'], ['Nav', `${SETUP.prefix}/nav`], ['Footer', `${SETUP.prefix}/footer`], ['Language', lang]];
 const table = (name, rows) => `<div class="${name}">${rows.map((r) => `<div>${r.map((c) => `<div>${esc(c)}</div>`).join('')}</div>`).join('')}</div>`;
 write(`${SETUP.prefix}/search.plain.html`, `<div><h1>${esc(SEARCH.heading)}</h1>${table('search-results', searchRows)}${table('metadata', searchMeta)}</div>\n`);
+// the newsletter sign-up's confirmation page (the form's success page; www confirms in place, the
+// texts are ours), out of the site search
+const CONFIRM = {
+  it: { title: 'Grazie per la tua iscrizione', text: 'Abbiamo ricevuto la tua richiesta di iscrizione alla newsletter di Air Dolomiti.', back: 'Torna alla homepage' },
+  en: { title: 'Thank you for subscribing', text: 'We have received your request to subscribe to the Air Dolomiti newsletter.', back: 'Back to the homepage' },
+  de: { title: 'Vielen Dank für Ihre Anmeldung', text: 'Wir haben Ihre Anmeldung zum Newsletter von Air Dolomiti erhalten.', back: 'Zurück zur Startseite' },
+}[lang];
+const confirmMeta = [['Title', `${CONFIRM.title} | Air Dolomiti`], ['Robots', 'noindex, nofollow'], ['Hide in search', 'true'], ['Nav', `${SETUP.prefix}/nav`], ['Footer', `${SETUP.prefix}/footer`], ['Language', lang]];
+write(`${NEWSLETTER[lang].confirmation}.plain.html`, `<div><h1>${esc(CONFIRM.title)}</h1><p>${esc(CONFIRM.text)}</p><p><a href="${SETUP.prefix || ''}/">${esc(CONFIRM.back)}</a></p>${table('metadata', confirmMeta)}</div>\n`);
 // the files the nav and footer use, for airdolomiti-assets.mjs
 const filesPath = path.join(W, 'assets/files.json');
 const all = JSON.parse(fs.existsSync(filesPath) ? fs.readFileSync(filesPath, 'utf8') : '{}');
 const { files } = loadSite();
 fs.writeFileSync(filesPath, `${JSON.stringify({ ...all, ...files }, null, 1)}\n`);
-console.log(`written: ${SETUP.prefix}/nav ${SETUP.prefix}/footer ${SETUP.prefix}/search (${page.missing.size} files not downloaded yet)`);
+console.log(`written: ${SETUP.prefix}/nav ${SETUP.prefix}/footer ${SETUP.prefix}/search ${NEWSLETTER[lang].confirmation} (${page.missing.size} files not downloaded yet)`);

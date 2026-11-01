@@ -2676,6 +2676,10 @@
   "Destination": "/de/news/masterpieces-51"
  },
  {
+  "Source": "/de/-/mister-fresh.-53",
+  "Destination": "/de/news/mister-fresh-53"
+ },
+ {
   "Source": "/de/-/mobile-sendungsverfolgung-mit-der-neuen-app-%E2%80%9Elufthansa-cargo-eservices-",
   "Destination": "/de/news/mobile-sendungsverfolgung-mit-der-neuen-app-lufthansa-cargo-eservices"
  },
@@ -2912,6 +2916,10 @@
   "Destination": "/de/news/when-logistics-saves-lives-96"
  },
  {
+  "Source": "/de/-/wine-on-wings.-94",
+  "Destination": "/de/news/wine-on-wings-94"
+ },
+ {
   "Source": "/de/-/zweiter-hilfsflug-aus-frankfurt-f%C3%BCr-katastrophenopfer-auf-den-philippinen",
   "Destination": "/de/news/zweiter-hilfsflug-aus-frankfurt-fuer-katastrophenopfer-auf-den-philippinen"
  },
@@ -3010,5 +3018,9 @@
  {
   "Source": "/meta/meta/company/general-terms",
   "Destination": "/en/meta/meta/company/general-terms"
+ },
+ {
+  "Source": "/support-and-contact",
+  "Destination": "/en/support-and-contact"
  }
 ]

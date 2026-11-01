@@ -916,6 +916,8 @@
   "/en/vulnerables"
  ],
  "patterns": [
-  "^/(en|de)/(nav|footer|search)$"
+  "^/(en|de)/(nav|footer|search)$",
+  "^/message-center/(notification|details)/[a-z0-9-]+/(en|de)$",
+  "^/(en|de)/notification-overview$"
  ]
 }

@@ -40,7 +40,7 @@ import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { parseHTML } from 'linkedom';
 import {
-  docOf, sourceKey, langOf, allRows, targetOf, LIVE_TOOLS,
+  docOf, sourceKey, langOf, allRows, targetOf, LIVE_TOOLS, NEWSLETTER,
 } from './airdolomiti-paths.mjs';
 import { snapshotFile, urlKey } from './airdolomiti-capture.mjs';
 
@@ -88,6 +88,16 @@ const BLOG = {
     ['No results label', 'There are no articles on this topic yet.'],
     ['Current page label', 'You are on page {CURRENT_PAGE} of the results'], ['Pagination label', 'Article pages'],
     ['Previous label', 'Previous page'], ['Next label', 'Next page'], ['Page label', 'Page {PAGE}'],
+  ],
+  // /de/artikel/query-index.json; www's /artikel has "Kategorien" (and "Weitere Beiträge laden")
+  de: [
+    ['Page size', '9'], ['Hide filter', 'yes'],
+    ['Results label', '{TOTAL} Beiträge gefunden'], ['Search label', 'In den Beiträgen suchen'],
+    ['Categories label', 'Kategorien'], ['All categories label', 'Alle Kategorien'],
+    ['Read label', 'Beitrag lesen'], ['Read screen reader label', 'Beitrag lesen: {TITLE}'],
+    ['No results label', 'Zu diesem Thema gibt es noch keine Beiträge.'],
+    ['Current page label', 'Sie sind auf Seite {CURRENT_PAGE} der Ergebnisse'], ['Pagination label', 'Seiten der Beiträge'],
+    ['Previous label', 'Vorherige Seite'], ['Next label', 'Nächste Seite'], ['Page label', 'Seite {PAGE}'],
   ],
 };
 
@@ -221,6 +231,46 @@ function flightStatusRows(page) {
   if (submit) rows.push(['Submit label', submit]);
   return rows;
 }
+
+/**
+ * The newsletter sign-up page's form (www's form posts to its own server, which refuses other
+ * origins): a Form (core) block sent by lh-forms, its fields as www's form shows them once an
+ * address is typed (content-sites/lh-airdolomiti/newsletter-<lang>.json, read through the source
+ * session: e-mail, the consent with its Privacy Policy link, the button), the page's language as
+ * a preselected choice (www sends it with the sign-up), the confirmation page on success.
+ */
+const NEWSLETTER_LANGUAGES = { label: { it: 'Lingua', en: 'Language', de: 'Sprache' }, options: [['it', 'Italiano'], ['en', 'English'], ['de', 'Deutsch']] };
+function newsletterForm(page) {
+  const { document } = parseHTML(page.rendered);
+  const box = document.querySelector('[class*="CenteredBlock_news_letter"]');
+  if (box) {
+    page.add(page.heading('h2', (box.querySelector('h2') || {}).textContent));
+    const intro = plain((box.querySelector('[class*="RichText"]') || {}).textContent);
+    if (intro) page.add(`<p>${esc(intro)}</p>`);
+  }
+  const probe = readJson(path.join(W, `newsletter-${page.lang}.json`), { fields: [], texts: [] });
+  const field = (type) => probe.fields.find((f) => f.type === type) || {};
+  const privacy = (probe.texts.find((t) => /^a\[/.test(t)) || '').match(/^a\[([^\]]+)\]: (.*)$/);
+  let consent = esc(field('checkbox').label || '');
+  if (privacy && consent.includes(esc(privacy[2]))) consent = consent.replace(esc(privacy[2]), `<a href="${attr(page.href(privacy[1]))}">${esc(privacy[2])}</a>`);
+  const { form, confirmation } = NEWSLETTER[page.lang];
+  const header = ['Label', 'Type', 'Name', 'Required', 'Options'];
+  const rows = [
+    header,
+    [esc(field('email').label || 'Email'), 'email', 'email', 'yes', ''],
+    [consent, 'checkbox', 'privacy', 'yes', ''],
+    [esc(NEWSLETTER_LANGUAGES.label[page.lang]), 'select', 'language', 'yes',
+      NEWSLETTER_LANGUAGES.options.map(([v, l]) => `<p>${v}=${esc(l)}${v === page.lang ? '{selected}' : ''}</p>`).join('')],
+    [esc(field('submit').text || 'Submit'), 'submit', '', '', ''],
+    [esc(form), 'config', 'form', '', ''],
+    [`<a href="${attr(confirmation)}">${esc(confirmation)}</a>`, 'config', 'success', '', ''],
+  ];
+  page.block('form (core)', rows);
+  page.note(`newsletter form: form (core) sent by lh-forms (${form}), success ${confirmation}`);
+}
+
+// Air Dolomiti's current travel information pages (the Message Center's cti-pages.json rows)
+const CTI_PAGES = ['www.airdolomiti.it/informazioni-aggiornate', 'www.airdolomiti.eu/current-flight-information', 'www.airdolomiti.de/fluginformationen'];
 
 /* ------------------------------------------------------------------ site data ---------- */
 
@@ -605,6 +655,9 @@ const LIST_BLOCKS = /^lazyblock\/(tariffe-list|tariffe-table|news-list-grid|sele
 
 const HANDLERS = {
   'lazyblock/herohome': (a, page) => {
+    // the Message Center's flash teaser at the top (www's navbar alert: the site's notices)
+    page.section();
+    page.block('flash-teaser', [['Types', 'irreg, tech-outage, promo']]);
     page.section('hidden-heading');
     page.add(`<h1>${esc(page.live.h1)}</h1>`);
     const buttons = (a.buttons || []).map((b) => page.link(b.url, b.text)).join('');
@@ -766,6 +819,7 @@ const HANDLERS = {
     else page.add(page.booking());
   },
   'lazyblock/newsletter': (a, page) => {
+    if (page.tool === 'newsletter') { newsletterForm(page); return; }
     if (page.newsletterLinked) return;
     page.newsletterLinked = true;
     page.note('newsletter form: a link to the subscription page on the live site');
@@ -799,7 +853,18 @@ const HANDLERS = {
   'lazyblock/breeze-esim-widget': (a, page) => {
     // www's eSIM shop (Breeze widget, a live tool): a link to the page on the live site
     const label = { it: 'Scopri le offerte eSIM', en: 'Find your eSIM plan', de: 'eSIM-Tarif finden' }[page.lang];
-    page.add(`<p><strong><a href="${attr(page.source)}">${esc(label)}</a></strong></p>`);
+    const link = `<p><strong><a href="${attr(page.source)}">${esc(label)}</a></strong></p>`;
+    // www's <breeze-widget>: the esim-widget block, its attributes as rows (names only, no on*
+    // handlers), then the link (all the page shows while the site flag esim-widget is off)
+    const { document } = parseHTML(page.rendered);
+    const widget = document.querySelector('breeze-widget');
+    const rows = widget ? [...widget.attributes].filter((x) => !/^on/i.test(x.name)).map((x) => [esc(x.name), esc(x.value)]) : [];
+    if (rows.some(([n]) => n === 'widget-token') && rows.some(([n]) => n === 'products')) {
+      page.block('esim-widget', [...rows, [link]]);
+      page.note('eSIM widget: esim-widget (www\'s breeze-widget attributes; flag esim-widget, the link while off)');
+      return;
+    }
+    page.add(link);
     page.note('eSIM widget (live tool): a link to the page on www');
   },
   'lazyblock/margin-top': () => {},
@@ -807,7 +872,18 @@ const HANDLERS = {
   // flight-status block (flightStatusRows)
   'lazyblock/status-voli': () => {},
   'lazyblock/html-content': (a, page) => { page.add(rich(a.content || a.html || a.text, page, 'top')); },
-  'core/paragraph': (a, page) => { page.add(rich(a.content ? `<p>${a.content}</p>` : '', page, 'top')); },
+  'core/paragraph': (a, page) => {
+    // the chat page's empty paragraph #chat (Engagent's container): the live-chat block, its link
+    // to www's chat page (all the page shows while the site flag live-chat is off)
+    if (page.tool === 'chat' && a.anchor === 'chat' && !page.chatPlaced) {
+      const label = { it: 'Vai alla chat su www.airdolomiti.it', en: 'Go to the chat on www.airdolomiti.eu', de: 'Zum Chat auf www.airdolomiti.de' }[page.lang];
+      page.block('live-chat', [[`<p><a href="${attr(page.source)}">${esc(label)}</a></p>`]]);
+      page.chatPlaced = true;
+      page.note('chat: live-chat (flag live-chat; the link to www\'s chat page while off)');
+      return;
+    }
+    page.add(rich(a.content ? `<p>${a.content}</p>` : '', page, 'top'));
+  },
   'core/heading': (a, page) => { page.add(page.heading(`h${a.level || 2}`, a.content)); },
   'core/list': (a, page, b) => { page.add(rich(b.originalContent || b.saveContent || a.values || '', page, 'top')); },
   'core/image': (a, page) => { page.add(`<p>${page.img({ url: a.url, alt: a.alt })}</p>`); },
@@ -949,7 +1025,16 @@ export function convert(rendered, sourceUrl) {
   // eslint-disable-next-line no-underscore-dangle -- WPGraphQL's type name
   page.isRoute = post.__typename === 'Route';
   page.tool = LIVE_TOOLS[`https://${sourceKey(sourceUrl)}`] || null;
-  (post.blocks || []).forEach((b) => render(b, page, 'top'));
+  // the current travel information pages (cti-pages.json): the Message Center's notices above
+  // their accordion
+  const cti = CTI_PAGES.includes(sourceKey(sourceUrl));
+  (post.blocks || []).forEach((b) => {
+    if (cti && !page.messagesPlaced && b.name === 'lazyblock/tariffe-list') {
+      page.block('message-center', [['Types', 'irreg, tech-outage']]);
+      page.messagesPlaced = true;
+    }
+    render(b, page, 'top');
+  });
   placeSearch(page);
   // a post's own fields when it has no blocks (title, content)
   if (!(post.blocks || []).length && post.content) page.add(rich(post.content, page, 'top'));

@@ -12,7 +12,7 @@
  * --resolve <file>: addresses only resolved (where does www send them: finalUrl), no snapshot
  * (www's shortcut addresses such as /products-general-cargo).
  *
- * Usage: node tools/importer/cargo-capture.mjs (--list <urls.txt> | --resolve <urls.txt>) [--max 120]
+ * Usage: node tools/importer/cargo-capture.mjs (--list <urls.txt> | --resolve <urls.txt>) [--max 120] [--again]
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -45,9 +45,11 @@ async function main() {
   const state = captureState();
   const urls = fs.readFileSync(path.resolve(root, listFile), 'utf8').split(/\r?\n/).map((l) => l.trim()).filter(Boolean)
     .map((u) => new URL(u, `${HOST}/`).href);
+  // --again: the listed pages captured once more (www changed them)
+  const again = process.argv.includes('--again');
   const todo = urls.filter((u) => {
     const s = state[sourcePath(u)];
-    return !s || s.status === 'error' || (resolveOnly ? false : s.status === 'resolved');
+    return again || !s || s.status === 'error' || (resolveOnly ? false : s.status === 'resolved');
   }).slice(0, Number(opt('max', 1000)));
   console.log(`to ${resolveOnly ? 'resolve' : 'capture'}: ${todo.length} of ${urls.length}`);
   if (!todo.length) return 0;

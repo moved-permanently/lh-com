@@ -42,6 +42,7 @@ export function edsPath(url) {
 export const BLOG_CATEGORIES = [
   ...['didyouknow', 'avgeek', 'destinazioni', 'throwback', 'travellers'].map((c) => `https://www.airdolomiti.it/articoli/${c}`),
   ...['dyk', 'avgeek-en', 'destinations', 'throwback-en', 'travellers-en'].map((c) => `https://www.airdolomiti.eu/articles/${c}`),
+  ...['did-you-know', 'avgeek-de', 'throwback-de', 'reiseziele', 'travellers-de'].map((c) => `https://www.airdolomiti.de/artikel/${c}`),
 ];
 
 /**
@@ -55,6 +56,21 @@ export const LIVE_TOOLS = {
   'https://www.airdolomiti.it/stato-volo': 'status',
   'https://www.airdolomiti.eu/flight-status': 'status',
   'https://www.airdolomiti.de/flug-status': 'status',
+  // the newsletter sign-up (www's form posts to its own server): the lh-forms form
+  'https://www.airdolomiti.it/iscrizione-newsletter': 'newsletter',
+  'https://www.airdolomiti.eu/newsletter-subscription': 'newsletter',
+  'https://www.airdolomiti.de/newsletter-anmeldung': 'newsletter',
+  // the chat page (Engagent's digital assistant): the live-chat block
+  'https://www.airdolomiti.it/hai-bisogno-di-aiuto/live-chat-supporto': 'chat',
+  'https://www.airdolomiti.eu/do-you-need-help/live-chat-support': 'chat',
+  'https://www.airdolomiti.de/unterstutzung-und-kontakte/live-chat-unterstuetzung': 'chat',
+};
+
+/** The newsletter's lh-forms form ids and confirmation pages, per language. */
+export const NEWSLETTER = {
+  it: { form: 'airdolomiti-iscrizione-newsletter', confirmation: '/iscrizione-newsletter-conferma' },
+  en: { form: 'airdolomiti-newsletter-subscription', confirmation: '/en/newsletter-subscription-confirmation' },
+  de: { form: 'airdolomiti-newsletter-anmeldung', confirmation: '/de/newsletter-anmeldung-bestaetigung' },
 };
 
 /** The document of an Edge Delivery path (/ -> /index, /en/ -> /en/index). */

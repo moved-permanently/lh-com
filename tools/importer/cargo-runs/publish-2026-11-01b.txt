@@ -1,0 +1,18 @@
+# lh-cargo (2026-11-01, second list): uploaded to DA moved-permanently/lh-cargo and previewed on main--lh-cargo--moved-permanently.aem.page; not published. Publish the documents and their details before the pages that show them
+# - www's one current notification (16 Sep 26, 11:07 Berlin; category Services & Support): /message-center/notification/guaranteed-uplift-for-your-most-critical-shipments/en and /de, their details pages
+# - /en/notification-overview, /de/notification-overview (H1, Notifications block with our no-notifications text: www shows none while one is current); /en/nav, /de/nav with the :bell: tool after Support & Contact (the German nav's Support & Contact now our English page, as www's)
+# - /en/support-and-contact: H1 Support & Contact, the three topic tabs with every category's entries; the topic search's hidden list, the true/false login flags and the p_p_id strings gone
+# - /en/ci/newsletter, /de/ci/newsletter: newsletter-form (www's Dynamics forms e6c5cd32-425b-f011-bec1-6045bd8f3223 and 4aa2e3f5-0f5d-f011-bec2-6045bd8bfcef; flag off: the link)
+# - redirects for the DA /redirects sheet (tools/importer/cargo-redirects.json): 3 new rows, /support-and-contact to /en/support-and-contact, /de/-/mister-fresh.-53 to /de/news/mister-fresh-53, /de/-/wine-on-wings.-94 to /de/news/wine-on-wings-94
+# documents (11):
+/message-center/notification/guaranteed-uplift-for-your-most-critical-shipments/en
+/message-center/notification/guaranteed-uplift-for-your-most-critical-shipments/de
+/message-center/details/guaranteed-uplift-for-your-most-critical-shipments/en
+/message-center/details/guaranteed-uplift-for-your-most-critical-shipments/de
+/en/notification-overview
+/de/notification-overview
+/en/nav
+/de/nav
+/en/support-and-contact
+/en/ci/newsletter
+/de/ci/newsletter

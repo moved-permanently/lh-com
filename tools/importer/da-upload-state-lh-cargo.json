@@ -1,9 +1,9 @@
 {
  "docs": {
   "/en/nav": {
-   "uploaded": "2026-10-30T15:32:58.370Z",
-   "mtime": 1793373922951,
-   "preview": "2026-10-30T15:33:00.346Z"
+   "uploaded": "2026-11-01T07:36:54.293Z",
+   "mtime": 1793518582898,
+   "preview": "2026-11-01T07:36:56.363Z"
   },
   "/en/footer": {
    "uploaded": "2026-11-01T06:02:04.905Z",
@@ -11,9 +11,9 @@
    "preview": "2026-11-01T06:02:06.581Z"
   },
   "/de/nav": {
-   "uploaded": "2026-10-30T15:33:09.074Z",
-   "mtime": 1793373923035,
-   "preview": "2026-10-30T15:33:10.969Z"
+   "uploaded": "2026-11-01T07:36:57.655Z",
+   "mtime": 1793518582984,
+   "preview": "2026-11-01T07:36:59.414Z"
   },
   "/de/footer": {
    "uploaded": "2026-11-01T06:02:07.809Z",
@@ -31,9 +31,9 @@
    "preview": "2026-11-01T06:02:03.459Z"
   },
   "/en/support-and-contact": {
-   "uploaded": "2026-10-30T15:36:32.520Z",
-   "mtime": 1793374570321,
-   "preview": "2026-10-30T15:36:34.084Z"
+   "uploaded": "2026-11-01T07:04:41.371Z",
+   "mtime": 1793516663214,
+   "preview": "2026-11-01T07:04:43.002Z"
   },
   "/en/portfolio": {
    "uploaded": "2026-10-30T15:36:35.370Z",
@@ -91,9 +91,9 @@
    "preview": "2026-10-30T15:37:12.906Z"
   },
   "/en/ci/newsletter": {
-   "uploaded": "2026-10-30T15:37:14.165Z",
-   "mtime": 1793374571013,
-   "preview": "2026-10-30T15:37:16.123Z"
+   "uploaded": "2026-11-01T07:41:25.376Z",
+   "mtime": 1793518854842,
+   "preview": "2026-11-01T07:41:27.296Z"
   },
   "/en/ci/facts-figures": {
    "uploaded": "2026-10-30T15:37:17.435Z",
@@ -596,9 +596,9 @@
    "preview": "2026-10-31T04:04:52.917Z"
   },
   "/de/ci/newsletter": {
-   "uploaded": "2026-10-31T04:04:53.939Z",
-   "mtime": 1793418477698,
-   "preview": "2026-10-31T04:04:55.732Z"
+   "uploaded": "2026-11-01T07:41:28.665Z",
+   "mtime": 1793518854901,
+   "preview": "2026-11-01T07:41:30.624Z"
   },
   "/de/ci/newsroom": {
    "uploaded": "2026-10-31T04:04:56.828Z",
@@ -4589,6 +4589,36 @@
    "uploaded": "2026-11-01T06:02:13.407Z",
    "mtime": 1793508991493,
    "preview": "2026-11-01T06:02:14.790Z"
+  },
+  "/message-center/notification/guaranteed-uplift-for-your-most-critical-shipments/en": {
+   "uploaded": "2026-11-01T07:36:38.838Z",
+   "mtime": 1793518475745,
+   "preview": "2026-11-01T07:36:40.214Z"
+  },
+  "/message-center/notification/guaranteed-uplift-for-your-most-critical-shipments/de": {
+   "uploaded": "2026-11-01T07:36:41.217Z",
+   "mtime": 1793518475891,
+   "preview": "2026-11-01T07:36:42.677Z"
+  },
+  "/message-center/details/guaranteed-uplift-for-your-most-critical-shipments/en": {
+   "uploaded": "2026-11-01T07:36:43.815Z",
+   "mtime": 1793518475824,
+   "preview": "2026-11-01T07:36:45.223Z"
+  },
+  "/message-center/details/guaranteed-uplift-for-your-most-critical-shipments/de": {
+   "uploaded": "2026-11-01T07:36:46.344Z",
+   "mtime": 1793518475911,
+   "preview": "2026-11-01T07:36:47.802Z"
+  },
+  "/en/notification-overview": {
+   "uploaded": "2026-11-01T07:36:48.958Z",
+   "mtime": 1793518475846,
+   "preview": "2026-11-01T07:36:50.395Z"
+  },
+  "/de/notification-overview": {
+   "uploaded": "2026-11-01T07:36:51.575Z",
+   "mtime": 1793518475933,
+   "preview": "2026-11-01T07:36:53.035Z"
   }
  },
  "media": {

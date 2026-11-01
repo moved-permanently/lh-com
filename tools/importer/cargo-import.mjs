@@ -321,6 +321,8 @@ function flow(node, page, mode = 'cell') {
       return;
     }
     if (isSkipped(c)) return;
+    // the newsletter's Dynamics 365 form (/en/ci/newsletter, /de/ci/newsletter): newsletter-form
+    if (c.getAttribute('data-form-id') && c.getAttribute('data-cached-form-url')) { flush(); out.push(...dynamicsForm(c, page, mode)); return; }
     const t = c.tagName;
     if (/^(STRONG|B|EM|I|SUP|SUB|BR|SMALL|U|FONT|ABBR|CODE)$/.test(t)) { run += inline({ childNodes: [c] }, page); return; }
     if (t === 'SPAN' && !c.querySelector('p, div, h1, h2, h3, h4, h5, h6, ul, ol, table, img')) { run += inline(c, page); return; }
@@ -469,6 +471,29 @@ function formLink(page) {
   return [`<p><a href="${HOST}${page.source}">${esc(page.labels.form)}</a></p>`];
 }
 
+/**
+ * www's Dynamics 365 marketing form (its div's data-form-id, data-form-api-url,
+ * data-cached-form-url): the newsletter-form block (rows Form ID, Form API URL, Cached Form URL,
+ * then the link to the form on www, all the page shows while the site flag newsletter-form is
+ * off); in a cell the link.
+ */
+function dynamicsForm(c, page, mode) {
+  if (mode !== 'top') return formLink(page);
+  page.formLinked = true;
+  page.blocks['newsletter-form'] = (page.blocks['newsletter-form'] || 0) + 1;
+  page.note('newsletter: the Dynamics form as newsletter-form (flag newsletter-form; the link to www while off)');
+  // in the flow's order (where www has the form), not before the text around it
+  return [blockHtml({
+    block: 'newsletter-form',
+    rows: [
+      ['Form ID', esc(c.getAttribute('data-form-id'))],
+      ['Form API URL', esc(c.getAttribute('data-form-api-url') || '')],
+      ['Cached Form URL', esc(c.getAttribute('data-cached-form-url'))],
+      [`<p><a href="${HOST}${page.source}">${esc(page.labels.form)}</a></p>`],
+    ],
+  })];
+}
+
 function mapLink(page) {
   if (page.mapLinked) return [];
   page.mapLinked = true;
@@ -596,7 +621,13 @@ function component(c, page) {
   if (/(^|\s)LHCTabs(\s|$)/.test(k)) { lhcTabs(c, page); return true; }
   if (/(^|\s)(owl-carousel|flexslider|swiper)(\s|$)/.test(k) && isImageSlider(c)) { carousel(c, page); return true; }
   if (/portlet_com_lhcargo_eportal_maps_of_networks/.test(c.id || '')) { mapLink(page).forEach((h) => page.add(h)); return true; }
-  if (/portlet_com_lhcargo_eportal_(contact_support|routing)/.test(c.id || '')) { formLink(page).forEach((h) => page.add(h)); return true; }
+  if (/portlet_com_lhcargo_eportal_(contact_support|routing)/.test(c.id || '')) {
+    // the portlet's page heading (Support & Contact's H1 is in its topic search portlet)
+    const h1 = c.querySelector('.rHeaderBlock h1');
+    if (h1) page.add(`<h1>${esc(text(h1))}</h1>`);
+    formLink(page).forEach((h) => page.add(h));
+    return true;
+  }
   if (/portlet_com_liferay_(site_navigation_breadcrumb|login)/.test(c.id || '')) return true;
   return false;
 }
@@ -943,12 +974,77 @@ function metadata(document, page) {
 }
 
 /** Converts one snapshot to the document's HTML; returns { html, report }. */
+/**
+ * Support & Contact's topics (www: tabs of categories, each category's entries in a panel beside
+ * the list for the one selected; the topic search's list .topicSearchTriggerContainer has every
+ * category with all its entries): each tab's categories, their one-line description and their
+ * entries as a list; the search's list and each entry's hidden fields (requiresLogin true/false,
+ * the link's portal parameters p_p_id=...) left out.
+ */
+function supportTopics(content, page) {
+  content.querySelectorAll('.requiresLogin, .faqReason, .faqSubreason').forEach((x) => x.remove());
+  // the topic search's section: the .topicSection outside the tabs (a category heading in each
+  // .topicSearchTriggerContainer, its entries the .faqEntryTitle after it)
+  const search = [...content.querySelectorAll('.topicSection')].find((s) => !s.closest('.tab-pane'));
+  if (!search) return;
+  const doc = content.ownerDocument;
+  const entries = {};
+  let current = null;
+  search.querySelectorAll('.topicSearchTriggerContainer, .faqEntryTitle').forEach((e) => {
+    // (the heading's own text: the first container also holds a <style>)
+    if (e.matches('.topicSearchTriggerContainer')) {
+      // a name can come again (each tab's "Other service requests"): its groups in their order
+      current = [];
+      const name = text(e.querySelector('h1, h2, h3, h4, h5, h6') || e);
+      (entries[name] = entries[name] || []).push(current);
+      return;
+    }
+    if (current) current.push(e.querySelector('h1, h2, h3, h4, h5, h6') || e);
+  });
+  let rebuilt = 0;
+  const used = {};
+  [...content.querySelectorAll('.tab-pane')].filter((p) => p.querySelector('.topicSection')).forEach((pane) => {
+    const tabTitle = text(content.querySelector(`a[href="#${pane.id}"]`)).toLowerCase();
+    // the tab's categories: a heading named as one of the list's categories, its description the next heading
+    const heads = [...pane.querySelectorAll('h3, h4, h5')];
+    const cats = [];
+    heads.forEach((h, i) => {
+      const name = text(h);
+      if (!entries[name] || cats.some((c) => c.name === name)) return;
+      const next = heads[i + 1];
+      cats.push({ name, description: next && /^H[56]$/.test(next.tagName) && !entries[text(next)] ? text(next) : '' });
+    });
+    if (!cats.length) return;
+    const body = doc.createElement('div');
+    cats.forEach((c) => {
+      const h = doc.createElement('h3');
+      h.textContent = c.name;
+      body.append(h);
+      if (c.description) { const p = doc.createElement('p'); p.textContent = c.description; body.append(p); }
+      const ul = doc.createElement('ul');
+      // a name in several tabs: the group naming the tab ("... with your general request"), else in order
+      const groups = entries[c.name];
+      const own = groups.length > 1 && tabTitle ? groups.find((g) => g.some((e) => text(e).toLowerCase().includes(tabTitle))) : null;
+      const group = own || groups[Math.min(used[c.name] || 0, groups.length - 1)];
+      used[c.name] = (used[c.name] || 0) + 1;
+      group.forEach((e) => { const li = doc.createElement('li'); li.append(...[...e.childNodes].map((n) => n.cloneNode(true))); ul.append(li); });
+      body.append(ul);
+    });
+    const box = pane.querySelector('.card-body') || pane;
+    box.replaceChildren(body);
+    rebuilt += 1;
+  });
+  search.remove();
+  page.note(`support topics: ${rebuilt} tabs of categories with their entries; the topic search's list and the hidden login flags and link parameters left out`);
+}
+
 export function convert(html, source, lang) {
   const { document } = parseHTML(html);
   const page = new Page(source, lang, html);
   // #content: the layout (#main-content) and, on the homepage, the tile rows next to it
   const content = document.querySelector('#content.pagebody') || document.querySelector('#main-content') || document.querySelector('#content');
   if (!content) throw new Error(`${source}: no #main-content`);
+  supportTopics(content, page);
   flow(content, page, 'top').forEach((h) => page.add(h));
   // exactly one H1: the first heading when the page has none
   let docs = page.sections.filter((s) => s.items.length);

@@ -7,7 +7,8 @@
  * - nav: 1. the "Lufthansa Cargo" logo (www's brand-logo.svg, white, as a PNG: lh-com's nav logo is
  *   a PNG) linking the homepage; 2. quick actions: book, track and schedule (portal, on www);
  *   3. the mega menu: Book & Track, Info-Hub, Cargo inside with their columns and links; 4. tools:
- *   support and contact, the other language, login (www's sign-in), the menu label.
+ *   support and contact, the notifications (:bell:, /<lang>/notification-overview), the other
+ *   language, login (www's sign-in), the menu label.
  * - footer: the search row (www's search bar: :search: and a link to /<lang>/search?query=), the
  *   three link columns, the legal row (Cookie Settings: #privacy-settings), the social
  *   links (badges, text links: www draws the icons from its stylesheet), the logos (Lufthansa Cargo, a dark copy of the same logo for the white row;
@@ -48,13 +49,14 @@ const LABELS = {
   },
 };
 
-// www's search page (www.lufthansa-cargo.com/<lang>/search): its title, heading and texts
+// www's search page (www.lufthansa-cargo.com/<lang>/search): its title, heading and texts; the
+// header's bell (www's bell has no label: "Notification", in German its panel's heading)
 const SEARCH = {
   en: {
-    search: 'Search', searchButton: 'Search', searchFor: 'Your search for {QUERY}', searchHeading: 'Search Results', searchTitle: 'Search - Lufthansa Cargo',
+    bell: 'Notification', search: 'Search', searchButton: 'Search', searchFor: 'Your search for {QUERY}', searchHeading: 'Search Results', searchTitle: 'Search - Lufthansa Cargo',
   },
   de: {
-    search: 'Suchen', searchButton: 'Suchen', searchFor: 'Ihre Suche nach {QUERY}', searchHeading: 'Suchergebnisse', searchTitle: 'Suche - Lufthansa Cargo',
+    bell: 'Benachrichtigungen', search: 'Suchen', searchButton: 'Suchen', searchFor: 'Ihre Suche nach {QUERY}', searchHeading: 'Suchergebnisse', searchTitle: 'Suche - Lufthansa Cargo',
   },
 };
 
@@ -92,7 +94,7 @@ function nav(document, page, L) {
   }).join('');
   const support = document.querySelector('#banner .headerComponents > a[href*="support-and-contact"]');
   const supportLabel = text(document.querySelector('#banner .smallText a')) || 'Support & Contact';
-  const tools = `<div><ul><li>:help: <a href="${attr(page.href(support ? support.getAttribute('href') : '/support-and-contact'))}">${esc(supportLabel)}</a></li><li><a href="${L.otherHome}">${esc(L.other)}</a></li><li>:login: <a href="${attr(LOGIN(lang))}">${esc(L.login)}</a></li></ul><p>${esc(L.menu)}</p></div>`;
+  const tools = `<div><ul><li>:help: <a href="${attr(page.href(support ? support.getAttribute('href') : '/support-and-contact'))}">${esc(supportLabel)}</a></li><li>:bell: <a href="/${lang}/notification-overview">${esc(L.bell)}</a></li><li><a href="${L.otherHome}">${esc(L.other)}</a></li><li>:login: <a href="${attr(LOGIN(lang))}">${esc(L.login)}</a></li></ul><p>${esc(L.menu)}</p></div>`;
   return `${brand}\n${quick}\n<div><ul>${menu}</ul></div>\n${tools}\n`;
 }
 
