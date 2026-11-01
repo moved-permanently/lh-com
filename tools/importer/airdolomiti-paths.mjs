@@ -60,6 +60,14 @@ export const LIVE_TOOLS = {
   'https://www.airdolomiti.it/iscrizione-newsletter': 'newsletter',
   'https://www.airdolomiti.eu/newsletter-subscription': 'newsletter',
   'https://www.airdolomiti.de/newsletter-anmeldung': 'newsletter',
+  // the timetable (www's widget: api.airdolomiti.it to its engine): the flight-timetable block
+  'https://www.airdolomiti.it/orario-voli': 'timetable',
+  'https://www.airdolomiti.eu/flight-timetables': 'timetable',
+  'https://www.airdolomiti.de/flugplan': 'timetable',
+  // manage booking (surname and booking code, retrieved through api.airdolomiti.it): manage-booking
+  'https://www.airdolomiti.it/gestione-prenotazione-volo': 'manage',
+  'https://www.airdolomiti.eu/manage-flight-booking': 'manage',
+  'https://www.airdolomiti.de/bearbeitung-ihrer-buchungen': 'manage',
   // the chat page (Engagent's digital assistant): the live-chat block
   'https://www.airdolomiti.it/hai-bisogno-di-aiuto/live-chat-supporto': 'chat',
   'https://www.airdolomiti.eu/do-you-need-help/live-chat-support': 'chat',

@@ -234,6 +234,54 @@ function flightStatusRows(page) {
 }
 
 /**
+ * The flight-timetable block's rows for an Air Dolomiti timetable page: the texts of www's widget
+ * on the page (trip types, the desktop fields' labels and placeholders, the calendar button's
+ * "open calendar", Search and its accessible name). Airports, dates and the hand-off come from
+ * api.airdolomiti.it in the browser (scripts/airdolomiti-api.js).
+ */
+function timetableRows(page) {
+  const { document } = parseHTML(page.rendered);
+  const form = document.querySelector('form[class*="bookingWidget"]');
+  const rows = [];
+  if (!form) return rows;
+  const t = (n) => plain(n ? n.textContent : '');
+  const trips = [...form.querySelectorAll('[class*="bookingWidgetTop"] label')].map(t).filter(Boolean);
+  if (trips.length) rows.push(['Trip types', trips.slice(0, 2).join(', ')]);
+  const byId = (id) => t(form.querySelector(`#${id}`));
+  [['From label', 'booking-widget-departure-desktop-label'], ['From placeholder', 'react-select-booking-widget-departure-desktop-placeholder'],
+    ['To label', 'booking-widget-arrival-desktop-label'], ['To placeholder', 'react-select-booking-widget-arrival-desktop-placeholder'],
+    ['Departure label', 'booking-widget-departure-date-desktop-label'], ['Return label', 'booking-widget-return-date-desktop-label']]
+    .forEach(([k, id]) => { if (byId(id)) rows.push([k, byId(id)]); });
+  // "Data partenza: apri calendario": the part after the label
+  const date = form.querySelector('#booking-widget-departure-date-desktop');
+  const open = date ? (date.getAttribute('aria-label') || '').split(':').slice(1).join(':').trim() : '';
+  if (open) rows.push(['Open calendar', open]);
+  const submit = [...form.querySelectorAll('[class*="bookingWidgetBottomIn"] button[type="submit"]')].find((x) => t(x));
+  if (submit) {
+    rows.push(['Submit label', t(submit)]);
+    if (submit.getAttribute('aria-label')) rows.push(['Submit aria label', plain(submit.getAttribute('aria-label'))]);
+  }
+  return rows;
+}
+
+/**
+ * The manage-booking block's rows for an Air Dolomiti manage booking page: www's form (lazyblock
+ * form-pnr: its placeholders and button; the labels from the rendered form). The retrieval and the
+ * hand-off come from api.airdolomiti.it in the browser.
+ */
+function manageRows(a, page) {
+  const { document } = parseHTML(page.rendered);
+  const labels = [...document.querySelectorAll('form[class*="FormPnr"] label')].map((n) => plain(n.textContent)).filter(Boolean);
+  const rows = [];
+  if (labels[0]) rows.push(['Surname label', labels[0]]);
+  if (a.placeholderFirst) rows.push(['Surname placeholder', plain(a.placeholderFirst)]);
+  if (labels[1]) rows.push(['Booking code label', labels[1]]);
+  if (a.placeholderSecond) rows.push(['Booking code placeholder', plain(a.placeholderSecond)]);
+  if (a.textBtn) rows.push(['Submit label', plain(a.textBtn)]);
+  return rows;
+}
+
+/**
  * The newsletter sign-up page's form (www's form posts to its own server, which refuses other
  * origins): a Form (core) block sent by lh-forms, its fields as www's form shows them once an
  * address is typed (content-sites/lh-airdolomiti/newsletter-<lang>.json, read through the source
@@ -820,6 +868,24 @@ const HANDLERS = {
     // block (after the page's hero, else where the page's blocks end); elsewhere the booking link
     if (page.isRoute || page.tool === 'booking') page.search = page.search || flightSearchRows(page, page.isRoute ? routeAirports(page.source) : {});
     else page.add(page.booking());
+  },
+  // the timetable page's widget: flight-timetable (elsewhere the booking link)
+  'lazyblock/widget-full-page': (a, page) => {
+    if (page.tool !== 'timetable') { page.add(page.booking()); return; }
+    page.block('flight-timetable', timetableRows(page).map(([k, v]) => [k, esc(v)]));
+    page.note('timetable: flight-timetable (airports, dates and the hand-off from api.airdolomiti.it)');
+  },
+  // manage booking: the heading (H1), the introduction and, after the form, the text (one section:
+  // the block's centred column)
+  'lazyblock/title-description-pnr': (a, page) => {
+    if (a.title) page.add(page.heading('h1', a.title));
+    if (a.subtitle) page.add(`<p>${esc(plain(a.subtitle))}</p>`);
+    if (a.description) page.add(rich(a.description, page, 'top'));
+  },
+  'lazyblock/form-pnr': (a, page) => {
+    if (page.tool !== 'manage') { page.add(page.link(page.source, a.textBtn, 'primary')); return; }
+    page.block('manage-booking', manageRows(a, page).map(([k, v]) => [k, esc(v)]));
+    page.note('manage booking: manage-booking (the retrieval and the hand-off from api.airdolomiti.it)');
   },
   'lazyblock/newsletter': (a, page) => {
     if (page.tool === 'newsletter') { newsletterForm(page); return; }

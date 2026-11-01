@@ -3511,6 +3511,7 @@ indices:
       - /faq
       - /faq/**
       - /flotta
+      - /gestione-prenotazione-volo
       - /hai-bisogno-di-aiuto/**
       - /informazioni-aggiornate
       - /iscrizione-newsletter
@@ -3518,6 +3519,7 @@ indices:
       - /informazioni-per-il-viaggio/**
       - /leisure
       - /miles-and-more-it
+      - /orario-voli
       - /podcast
       - /prenotazioni
       - /promozioni
