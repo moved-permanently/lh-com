@@ -53,7 +53,7 @@ const { default: loadSiteEmbeds, webchatInit } = await import('../scripts/site-e
 
 test('brands.js: Austrian\'s webchat script, no other brand has one', () => {
   assert.deepEqual(BRANDS.austrian.embeds['chat-button'], { script: INIT });
-  Object.entries(BRANDS).filter(([k]) => k !== 'austrian').forEach(([k, b]) => assert.ok(!(b.embeds && b.embeds['chat-button']), k));
+  Object.entries(BRANDS).filter(([k]) => !['austrian', 'brussels'].includes(k)).forEach(([k, b]) => assert.ok(!(b.embeds && b.embeds['chat-button']), k));
 });
 
 test('webchatInit: www\'s tag 110, the script URL and config per page', () => {

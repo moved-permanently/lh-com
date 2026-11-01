@@ -31,10 +31,18 @@ async function liveChat() {
  * @param {string} value the page's chat-button metadata: a start id or "open"
  * @param {string} pathname
  * @param {string} lang the page's language
+ * @param {Object} [embed] the brand's chat-button entry: with languages (Brussels) www's other
+ *   rule: ?language=<LL> on every page in those languages, &start= with a start id (one with a
+ *   space too, as www's), "button" for none (the window closed)
  * @returns {{src: string, config: Object}|null} null where www shows no chat (rule 207: en, de,
  *   es, it, fr) or for a value that is not a start id
  */
-export function webchatInit(script, value, pathname, lang) {
+export function webchatInit(script, value, pathname, lang, embed = null) {
+  if (embed && embed.languages) {
+    if (!embed.languages.includes(lang) || !/^[A-Za-z0-9_-]+(?: [A-Za-z0-9_-]+)*$/.test(value)) return null;
+    const start = value === 'button' ? '' : `&start=DYNAMIC_web-${encodeURIComponent(value)}`;
+    return { src: `${script}?language=${lang.toUpperCase()}${start}`, config: { loadTealiumScripts: false, isInitiallyOpened: false } };
+  }
   if (!/^(en|de|es|it|fr)$/.test(lang) || !/^[A-Za-z0-9_-]+$/.test(value)) return null;
   const roots = [['/de/de', 'DE'], ['/fr/fr', 'fr'], ['/es/es', 'es'], ['/it/it', 'it']];
   const root = roots.find(([path]) => pathname.includes(path));
@@ -50,7 +58,7 @@ async function chatButton() {
   const config = await embedWanted('chat-button');
   if (!config) return;
   const lang = (document.documentElement.lang || getMetadata('language')).slice(0, 2).toLowerCase();
-  const init = webchatInit(config.script, value, window.location.pathname, lang);
+  const init = webchatInit(config.script, value, window.location.pathname, lang, config);
   if (!init) return;
   // webchat_init.js reads (and freezes) the global config before it loads the chat
   window.webchatConfig = init.config;

@@ -179,14 +179,14 @@ const ITA_ORDER = ['naples-operational-update', 'az-runway-maintenance-works-at-
 const BOTH = [...INDEX, ...ITA];
 const LATER = Date.parse('2026-10-31T06:00:00.000Z');
 
-test('siteTenant: the brand\'s tenant (ita, four_y, cargo, airdolomiti), none for Brussels, lh without a brand', () => {
+test('siteTenant: the brand\'s tenant (ita, four_y, cargo, airdolomiti), sn for Brussels, lh without a brand', () => {
   const meta = (brand) => (name) => (name === 'brand' ? brand : '');
   assert.equal(siteTenant(meta('ita')), 'ita');
   assert.equal(siteTenant(meta(' Discover ')), 'four_y');
   // Cargo and Air Dolomiti: their own tenants (brief 205; not tenants of www's Message Center)
   assert.equal(siteTenant(meta('cargo')), 'cargo');
   assert.equal(siteTenant(meta('airdolomiti')), 'airdolomiti');
-  assert.equal(siteTenant(meta('brussels')), '');
+  assert.equal(siteTenant(meta('brussels')), 'sn');
   assert.equal(siteTenant(meta('')), 'lh');
   assert.equal(siteTenant(meta('toString')), 'lh', 'unknown brands are lh-com');
   assert.equal(siteTenant(), 'lh', 'no page (node): lh');
@@ -202,7 +202,7 @@ test('brand ita: only the ita rows, irreg high before low, newest first by from'
   assert.equal(onPage('ita', () => messageHref(shown[0], cti, { country: 'it', lang: 'en' })), 'https://www.ita-airways.com/it/en/book-and-prepare/current-information#naples-operational-update');
 });
 
-test('a brand without a tenant (brussels): no messages, no current information link', () => {
+test('Brussels (tenant sn): none of the other tenants\' messages, no other tenant\'s information page', () => {
   assert.deepEqual(onPage('brussels', () => selectMessages(BOTH, { market: 'de', lang: 'en', now: LATER })), []);
   const msg = parseRow(ITA[3]);
   assert.equal(onPage('brussels', () => messageHref(msg, [{ tenant: '', webPath: '/x' }, { tenant: 'ita', webPath: '/y' }], { country: 'de', lang: 'en' })), '');

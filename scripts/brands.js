@@ -154,11 +154,29 @@ export const BRANDS = {
   },
   // Brussels Airlines (lh-brussels): www.brusselsairlines.com's be/en and be/fr homepages
   // (2026-10-31): meta X-Portal SN, the fare widgets' origin BRU and imageBaseUrl, the OneTrust
-  // banner's links (xx/en, xx/fr); no Message Center tenant yet
+  // banner's links (xx/en, xx/fr); www's Message Center tenant sn (its current travel information
+  // page /<root>/plan-your-trip/flight-information, lh-brussels' cti-pages row)
   brussels: {
     name: 'Brussels Airlines',
     oneTrust: '01994cb3-c7a3-7096-82a3-ae642c99e85e',
     destinationImages: '/content/dam/bel/images/offers/destination',
+    // destinationPath: a destination's page under a root; destinationOnSite: on the site itself
+    // (lh-brussels has it, with live prices), not on www: the fare teaser, the homepage slider and
+    // the offers grid open /<root>/book-a-flight/destination
+    destinationPath: '/book-a-flight/destination',
+    destinationOnSite: true,
+    messageCenter: 'sn',
+    embeds: {
+      // the floating chat button (Cognigy webchat, served by www.brusselsairlines.com outside
+      // AEM) as www's pages load it (Tealium, the snapshots of 2026-11-01): webchat_init.js
+      // ?language=<LL> in the six languages, &start=DYNAMIC_web-<id> with a start id;
+      // scripts/site-embeds.js, on the pages with the metadata chat-button (the flag off until
+      // checked on brussels.turnsthe.page)
+      'chat-button': {
+        script: 'https://www.brusselsairlines.com/digitalassistant/support/webchat_init.js',
+        languages: ['en', 'fr', 'nl', 'de', 'it', 'es'],
+      },
+    },
     www: 'www.brusselsairlines.com',
     portal: 'SN',
     hub: 'BRU',

@@ -1,4 +1,4 @@
-import { getLocale } from '../../scripts/locale.js';
+import { getLocale, brandEntry } from '../../scripts/locale.js';
 import {
   readConfigRows, pick, resolveLabels, parseAirportCode, parseAirportName,
 } from '../../scripts/block-config.js';
@@ -178,11 +178,14 @@ export async function loadFareTeaserData(settings, locale) {
 
 /**
  * Link of one route. An authored link pattern may use {origin}, {destination}, {duration}
- * and {cabin}; otherwise the live site's destination page under the current locale is used.
+ * and {cabin}; otherwise the destination page under the current locale: a brand's own on its
+ * site (scripts/brands.js destinationOnSite: Brussels' /<root>/book-a-flight/destination), else
+ * /<root>/book-and-manage/destination as before.
+ * @param {Object} [brand] the page's brand entry (scripts/locale.js brandEntry)
  */
-function buildDestinationLink({
+export function fareTeaserLink({
   origin, destination, tripDuration, cabin,
-}, locale, pattern) {
+}, locale, pattern, brand = null) {
   if (pattern) {
     return decodeURIComponent(pattern)
       .replace(/\{origin\}/g, encodeURIComponent(origin))
@@ -193,7 +196,9 @@ function buildDestinationLink({
   const params = new URLSearchParams({
     OriginCode: origin, DestinationCode: destination, TripDuration: tripDuration, Cabin: cabin,
   });
-  return `${locale.base}/book-and-manage/destination?${params}`;
+  const page = brand && brand.destinationOnSite && brand.destinationPath
+    ? brand.destinationPath : '/book-and-manage/destination';
+  return `${locale.base}${page}?${params}`;
 }
 
 /* ------------------------------------------------------------------------------------------- */
@@ -313,7 +318,7 @@ function renderItem(route, labels, locale, pattern) {
   li.append(imageWrap);
 
   const link = el('a', 'fare-teaser-route');
-  link.href = buildDestinationLink(route, locale, pattern);
+  link.href = fareTeaserLink(route, locale, pattern, brandEntry());
   // in the app's web view the app books (OfferBookingRequest, scripts/app-bridge.js)
   bookInApp(link, 'OfferBookingRequest');
   link.append(

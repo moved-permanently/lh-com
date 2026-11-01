@@ -140,3 +140,17 @@ test('flash-teaser on Air Dolomiti\'s Italian homepage: the Italian notice, link
   assert.equal(links[0].getAttribute('href'), '/informazioni-aggiornate#strike-2026-09-30');
   assert.match(links[0].textContent, /sciopero nazionale ENAV/);
 });
+
+test('Brussels: tenant sn (www\'s), its current travel information page from lh-brussels\' cti-pages row', () => {
+  assert.equal(BRANDS.brussels.messageCenter, 'sn');
+  at('/be/fr/homepage', { brand: 'brussels' });
+  assert.equal(siteTenant(), 'sn');
+  const SN = [{ tenant: 'sn', webPath: '/{cc}/{ll}/plan-your-trip/flight-information', contentPath: '/content/bel/gc/en/plan-your-trip/flight-information' }];
+  assert.equal(messageHref({ id: 'strike', link: '' }, SN, getLocale()), '/be/fr/plan-your-trip/flight-information#strike');
+  // a message for sn only: shown on Brussels' pages, not on lh-com's
+  const rows = [row('/message-center/irreg/sn-only/en', { tenants: ['sn'], markets: [] })];
+  at('/be/en/homepage', { brand: 'brussels' });
+  assert.equal(selectMessages(rows, { market: 'be', lang: 'en', now: NOW }).length, 1);
+  at('/de/en/homepage');
+  assert.equal(selectMessages(rows, { market: 'de', lang: 'en', now: NOW }).length, 0);
+});

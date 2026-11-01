@@ -51,7 +51,7 @@ test('the entry: name, OneTrust, www, portal, hub, airline, destination images',
   assert.equal(BRANDS.brussels.portal, 'SN');
   assert.equal(BRANDS.brussels.hub, 'BRU');
   assert.equal(BRANDS.brussels.airline, 'SN');
-  assert.equal(BRANDS.brussels.messageCenter, undefined, 'no Message Center tenant yet: no messages');
+  assert.equal(BRANDS.brussels.messageCenter, 'sn', 'www\'s Message Center tenant');
   // the X-Portal of a root comes from its row (BRAND_SITES.brussels)
   assert.equal(onPage({ brand: 'brussels' }, () => portalHeaders('be/en'))['X-Portal'], 'SN');
   assert.equal(onPage({ brand: 'brussels' }, () => portalHeaders('sn/fr'))['X-Portal-Site'], 'SN', 'Senegal: the country, not the tenant');

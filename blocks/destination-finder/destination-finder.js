@@ -161,8 +161,11 @@ export function buildDestinationLink({
     OriginCode: origin, tripType, DestinationCode: destination,
   });
   if (tripType === 'RETURN') params.set('TripDuration', tripDuration);
-  const own = brand && brand.destinationPath && brand.www
-    ? `https://${brand.www}${locale.base}${brand.destinationPath}` : '';
+  // a brand whose destination page is on its site (destinationOnSite: Brussels'
+  // /<root>/book-a-flight/destination) links it there, the others their www page
+  let own = '';
+  if (brand && brand.destinationPath && brand.destinationOnSite) own = `${locale.base}${brand.destinationPath}`;
+  else if (brand && brand.destinationPath && brand.www) own = `https://${brand.www}${locale.base}${brand.destinationPath}`;
   const page = base || own || `${locale.base}/book-and-manage/destination`;
   return `${page}${page.includes('?') ? '&' : '?'}${params}`;
 }
