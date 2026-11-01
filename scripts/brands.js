@@ -30,7 +30,9 @@
  * Brussels has none). portal: www's X-Portal of the brand's pages (their
  * meta X-Portal: Discover FOUR_Y; ITA ITA), the tenant of its /service/api calls and label
  * bundles (lowercase); hub: the home airport of a root without one; airline: its IATA code (the
- * flight status' default airline); consentLinks: the privacy, cookie and imprint pages of the
+ * flight status' default airline, the eJournals trips' tenant); travelId: the brand's Travel ID
+ * login (host, client_id of www's login links, 2026-11-01; redirect_uri its www, the scope as
+ * Lufthansa's: blocks/ejournals); consentLinks: the privacy, cookie and imprint pages of the
  * fallback cookie banner per language (www's, the brand's OneTrust banner or footer; en for the
  * others); embeds: per site flag (scripts/flags.js) the configuration of a widget www embeds
  * that sends visitors or their data into the airline's live systems (scripts/embeds.js: its script
@@ -54,6 +56,7 @@ export const BRANDS = {
     messageCenter: 'four_y',
     destinationImages: '/content/dam/four_y/images/offers/destination',
     www: 'www.discover-airlines.com',
+    travelId: { host: 'api.travelid.discover-airlines.com', clientId: 'NqkvGG8MB6OeCkb66a02D0ORHOFhQWJ4' },
     backends: true,
     aemContent: 'four_y',
     portal: 'FOUR_Y',
@@ -74,6 +77,7 @@ export const BRANDS = {
     messageCenter: 'ita',
     destinationImages: '/content/dam/ita/images/offers/destination',
     www: 'www.ita-airways.com',
+    travelId: { host: 'api.travelid.ita-airways.com', clientId: '14eKnYUwomcAimITtmaa2GqBM5mhO8kAS3GjTyE6RDsFaWrI' },
     backends: true,
     aemContent: 'ita',
     portal: 'ITA',
@@ -99,6 +103,7 @@ export const BRANDS = {
     messageCenter: 'os',
     destinationImages: '/content/dam/austrian/global/images/offers/destination',
     www: 'www.austrian.com',
+    travelId: { host: 'api.travelid.austrian.com', clientId: 'dFquxAQT637lrYALS9UKBMieeibyGaVQ' },
     // its /service/api answers our hosts cross-origin (Access-Control-Allow-Origin *, checked
     // 2026-11-01): the check-in deadline search calls it
     serviceOrigin: 'www.austrian.com',
@@ -196,6 +201,7 @@ export const BRANDS = {
       },
     },
     www: 'www.brusselsairlines.com',
+    travelId: { host: 'api.travelid.brusselsairlines.com', clientId: 'FuBoxl39ln5fAfvIAX18xIi2BI4d6rny' },
     portal: 'SN',
     hub: 'BRU',
     airline: 'SN',

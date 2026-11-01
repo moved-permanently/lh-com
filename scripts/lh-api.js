@@ -979,3 +979,98 @@ export function mapCheckinDeadlines(data) {
     atAirport: (i.checkinAtAirportServices || []).filter(Boolean).map(mapCheckinService),
   }));
 }
+
+/* ------------------------------------------------------------------------------------------- */
+/* eJournals                                                                                   */
+/* ------------------------------------------------------------------------------------------- */
+
+/**
+ * www's normalisation of "Booking code or ticket number" (@core/containers-ejournals): no dashes
+ * or spaces, upper case.
+ */
+export function ejournalsReference(value) {
+  return String(value || '').replace(/-/g, '').replace(/\s+/g, '').toUpperCase();
+}
+
+/** www's pattern of the field: a ticket number (13 digits) or a booking code (6 characters). */
+export const EJOURNALS_REFERENCE = /^[0-9]{13}$|^[A-Z0-9]{6}$/;
+
+/**
+ * The eJournals search: POST /service/api/ejournals {ticketNumber, lastName} for 13 digits,
+ * {bookingCode, lastName} for 6 characters (www's rule); null for anything else.
+ */
+export function ejournalsRequest({ reference, lastName }) {
+  const ref = ejournalsReference(reference);
+  if (!EJOURNALS_REFERENCE.test(ref)) return null;
+  const key = /^[0-9]{13}$/.test(ref) ? 'ticketNumber' : 'bookingCode';
+  return { method: 'POST', route: '/service/api/ejournals', body: { [key]: ref, lastName: str(lastName) } };
+}
+
+/**
+ * A link target of www ({targetURL, parameters: [{key, values}], newWindow}) as www's eJournals
+ * results open it: the parameters as the query (each value encoded), a new window if newWindow.
+ */
+export function deepLinkHref(link) {
+  if (!link || !str(link.targetURL)) return null;
+  const params = (Array.isArray(link.parameters) ? link.parameters : [])
+    .filter((p) => p && str(p.key))
+    .flatMap((p) => (Array.isArray(p.values) ? p.values : [p.values])
+      .filter((v) => v !== undefined && v !== null)
+      .map((v) => `${p.key}=${encodeURIComponent(v)}`));
+  let url;
+  try {
+    url = new URL(str(link.targetURL));
+  } catch (e) {
+    return null;
+  }
+  if (!/^https?:$/.test(url.protocol)) return null;
+  if (params.length) url.search = params.join('&');
+  return { url: url.href, target: link.newWindow ? '_blank' : '' };
+}
+
+/**
+ * {"bookingCode":"ABC123","tickets":[{"segments":[{carrier, flightNumber, departureDate,
+ *  origin: {code, airport}, destination: {code, airport}}], "deepLink": {targetURL, parameters,
+ *  newWindow}}]} → { bookingCode, tickets: [{ segments: [{ carrier, flightNumber, date
+ *  (YYYY-MM-DD), origin, originName, destination, destinationName }], download: {url, target} }] };
+ * an unknown booking: {"tickets":[]} (www, 2026-11-01).
+ */
+export function mapEjournals(data) {
+  const tickets = ((data && data.tickets) || []).filter((t) => t && typeof t === 'object').map((t) => ({
+    segments: (t.segments || []).filter(Boolean).map((s) => ({
+      carrier: str(s.carrier),
+      flightNumber: str(s.flightNumber),
+      date: (str(s.departureDate).match(/^\d{4}-\d{2}-\d{2}/) || [''])[0],
+      origin: str(s.origin && s.origin.code),
+      originName: str(s.origin && s.origin.airport) || str(s.origin && s.origin.code),
+      destination: str(s.destination && s.destination.code),
+      destinationName: str(s.destination && s.destination.airport)
+        || str(s.destination && s.destination.code),
+    })),
+    download: deepLinkHref(t.deepLink),
+  }));
+  return { bookingCode: str(data && data.bookingCode), tickets };
+}
+
+/**
+ * The signed-in traveller's bookings (Travel ID, www's MY_BOOKING_LIST_FETCH): GET
+ * <endpoint>/flights/v3/me/upcoming-trips {content: [{meta: {bookingCode, identifyingPassenger:
+ * {lastName}}, departure: {airportCode, cityName, localDate dd.mm.yyyy}, arrival}]} → [{ filekey,
+ * name, date (YYYY-MM-DD), origin, originName, destination, destinationName }] (www's mapping).
+ */
+export function mapUpcomingTrips(data) {
+  const list = Array.isArray(data) ? data : (data && data.content) || [];
+  const isoDate = (d) => {
+    const m = str(d).match(/^(\d{2})\.(\d{2})\.(\d{4})$/);
+    return m ? `${m[3]}-${m[2]}-${m[1]}` : str(d);
+  };
+  return list.filter((t) => t && t.meta && str(t.meta.bookingCode)).map((t) => ({
+    filekey: str(t.meta.bookingCode),
+    name: str(t.meta.identifyingPassenger && t.meta.identifyingPassenger.lastName),
+    date: isoDate(t.departure && t.departure.localDate),
+    origin: str(t.departure && t.departure.airportCode),
+    originName: str(t.departure && t.departure.cityName),
+    destination: str(t.arrival && t.arrival.airportCode),
+    destinationName: str(t.arrival && t.arrival.cityName),
+  }));
+}

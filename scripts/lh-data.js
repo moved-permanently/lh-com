@@ -45,7 +45,7 @@ const defaultProxy = () => PROXY_ORIGIN;
  * X-Portal-Language: en and credentials 'omit' answers 200 JSON readable from
  * main--lh-com--moved-permanently.aem.page (tested by Ben, 2026-10-22).
  */
-const DIRECT_ROUTES = /^\/service\/api\/(suggestions\/airports|labels\/|catalogs\/|defaultAirport(?:[/?]|$)|core\/feature\/list\/|destinationfinder\/|flight-prices\/|teaser\/price\/|security-waiting-time\/)/;
+const DIRECT_ROUTES = /^\/service\/api\/(suggestions\/airports|labels\/|catalogs\/|defaultAirport(?:[/?]|$)|core\/feature\/list\/|destinationfinder\/|flight-prices\/|teaser\/price\/|security-waiting-time\/|ejournals$)/;
 
 /**
  * Price routes: their recorded answers are never used (a recorded price is a price of another
@@ -70,9 +70,16 @@ export function isPriceRoute(route) {
  */
 const CHECKIN_ROUTES = /^\/service\/api\/(catalogs\/checkin\/info\/|labels\/checkindeadlinesearch\/)/;
 
-/** Whether a route answers live or not at all, with the price routes' retries and backoff. */
+/**
+ * Searches with a visitor's data (blocks/ejournals: POST /service/api/ejournals): never recorded,
+ * the price routes' two retries, but no backoff: each search is the visitor's own action and is
+ * always sent (a failure is not remembered).
+ */
+const SEARCH_ROUTES = /^\/service\/api\/ejournals$/;
+
+/** Whether a route answers live or not at all, with the price routes' retries (and backoff). */
 export function isLiveOnlyRoute(route) {
-  return PRICE_ROUTES.test(route) || CHECKIN_ROUTES.test(route);
+  return PRICE_ROUTES.test(route) || CHECKIN_ROUTES.test(route) || SEARCH_ROUTES.test(route);
 }
 
 /**
@@ -262,6 +269,7 @@ function clearPriceFailure(route) {
  * skipped); a price route only within its short backoff.
  */
 export function isDirectRouteBlocked(route, origin) {
+  if (SEARCH_ROUTES.test(route)) return false;
   if (isLiveOnlyRoute(route)) return priceRouteWaiting(route, origin);
   const hit = readDirectMemo().routes[routePath(route)];
   return Boolean(hit && hit.origin === origin && hit.until > Date.now());
@@ -588,6 +596,7 @@ export async function lhFetch(route, {
     if (result.error && retriable(result)) {
       // failed every time: a price route waits a short backoff, any other is skipped (not the
       // others) for a while
+      if (SEARCH_ROUTES.test(route)) return fromRecording();
       if (priceRoute) notePriceFailure(route, live, result.error);
       else blockDirectRoute(route, live, result.error);
     }

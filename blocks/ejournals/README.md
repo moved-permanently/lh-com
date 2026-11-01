@@ -1,6 +1,6 @@
 # ejournals
 
-Custom **ejournals** block. Purpose: the logged-out view of the live eJournals download (`.ejournals > .dcep-ejournals`) as content: an info box "Log in with your profile to select a booking." with "Go to login", the field "Booking code or ticket number" and the yellow "To free download" button. Render-only: the login link and the button lead to lufthansa.com, nothing is sent.
+Custom **ejournals** block. Purpose: www's eJournals download (`@core/containers-ejournals`, the same component on Lufthansa, ITA, Austrian and Brussels): the login notice, the manual search by booking code or ticket number and last name, the tickets with their flights and the download link; signed in on the airline's own host, the traveller's bookings.
 
 ## Authoring (Document Authoring)
 
@@ -8,36 +8,48 @@ Model: `standalone`. 2 columns, label | value, all rows optional (an empty block
 
 | Row | Value | Default |
 | --- | --- | --- |
-| Login link | link | the live Travel ID login (`https://api.travelid.lufthansa.com/oauth2/authorize?client_id=…&state=/{cc}/{ll}/unterhaltung-an-bord&…&country={CC}&lang={ll}`, the URL of the live page's own login links; after the login Travel ID returns to the page on www.lufthansa.com) |
-| Live page | link (the form action) | https://www.lufthansa.com + page path + `#login` |
-| Notice label, Login label, Field label, Submit label | text | see below |
+| Login link | link | the brand's Travel ID login (`scripts/brands.js` `travelId`: host and client_id of www's own login links; Lufthansa's `api.travelid.lufthansa.com` on lh-com) with `redirect_uri` = the brand's www, `state` = the page path, `country`, `lang` |
+| Live page | link | the page on the brand's www (`scripts/locale.js` siteOrigin + page path): the link of the error message |
+| Trips endpoint | link | none: without it the signed-in bookings stay off. www's component config (`hallwayUrl`/`dataProviderUrl`), not in its public files |
+| any label below | text | live label, then the built-in copy |
 
-Texts: authored row, then the live labels (GET /service/api/labels/common/lh/{lang}: `common.bookingcodeselection.container.messageBoxTitle`, `…loginLinkText`; GET /service/api/labels/ejournals/lh/{lang}: `ejournals.searchmask.default.pnrOrTicketNumber.label`, `…submitSearch`), then the built-in copies:
+Texts: authored row, then the live labels (GET /service/api/labels/common/{tenant}/{lang}: `common.bookingcodeselection.container.messageBoxTitle`, `…loginLinkText`; GET /service/api/labels/ejournals/{tenant}/{lang}: `ejournals.searchmask.default.*`, `ejournals.searchresults.default.*`, `ejournals.common.default.{search,empty}`), then the built-in copies (en, de: www's live labels of 2026-11-01 where they have a text, else the component's defaults):
 
-| | en | de |
+| Row | Live key | en |
 | --- | --- | --- |
-| Notice | Log in with your profile to select a booking. (recorded) | Melden Sie sich mit Ihrem Profil an, um eine Buchung auszuwählen. (recorded) |
-| Login | Go to login (recorded) | Zum Login (recorded) |
-| Field | Booking code or ticket number (bundle default of chunk 2d00a8ef) | Buchungscode oder Ticketnummer (unverified) |
-| Submit | To free download (live) | Zum kostenlosen Download (unverified) |
-
-The German field and button texts are not in any snapshot or recording (all four snapshots caught the component at "Loading..."); they are replaced by the live text as soon as labels/ejournals/lh/de is recorded (or answers directly).
+| Notice label | common…messageBoxTitle | Log in with your profile to select a booking. |
+| Login label | common…loginLinkText | Go to login |
+| Field label, Field hint | pnrOrTicketNumber.label, .hint | Booking code or ticket number; e.g. ABC123 or 2201234567890 |
+| Field required, Field invalid | pnrOrTicketNumber.errorRequired, .errorPattern | Please enter your booking code or ticket number; Invalid booking code or ticket number |
+| Name label, Name hint | lastName.label, .hint | Last name; as on your ticket |
+| Name required, Name too long | lastName.errorRequired, .errorMaxLength | Please enter your last name as booked.; Name is too long |
+| Submit label | submitSearch | To free download |
+| Booking code label | searchresults.bookingcode | Booking code (www's label has no `{CODE}`: the code follows after a colon; with `{CODE}` it is filled in) |
+| Flights label, Download label | searchresults.flights, .download | Flights; Download (component defaults: "Your flights:", "Download eJournals") |
+| Route label, Date format | searchresults.screenreaderod, .dateformat | {ORIGIN} to {DESTINATION}; {ddd}, {DD}.{MM}.{Y} |
+| Search again label, Empty label | common.default.search, .empty | New search; Unfortunately, no tickets could be found for your search. Please check your input for spelling errors |
+| Not displayed label | myFlightNotDisplayed | My flight is not displayed |
+| Bookings error title, Bookings error message, Retry label | bookingFetchError.* | We could not load your bookings; Please try again, or enter your booking code manually below.; Try again |
+| Error label, Error link label | (none) | Your eJournals could not be loaded. Please try again later.; Search on {HOST} |
+| Bookings label | (none) | Your bookings (the list's accessible name) |
 
 ## Behaviour
 
-- Look of the dcep booking selection container (as online-check-in renders it, same CSS as booking-lookup): #f5f5f5 info box with icon, the copy and the 14px bold "Go to login" link with arrow; below, the 335px underlined field (label inside, moving up on focus, max 13 characters) and the primary button (full width below 768px).
-- The field has no name and the form is a GET to the live page: pressing the button opens the live page at its Login heading, where the real component looks the booking up (POST /service/api/ejournals, which needs the live session). Nothing typed here leaves the page.
+- Notice: #f5f5f5 info box with the copy and the "Go to login" link (the brand's Travel ID, back to the page on the brand's www).
+- Manual search: two underlined fields (label inside, hint and error below) and the primary button. www's rules: the reference loses dashes and spaces and is upper-cased; 13 digits = `{ticketNumber, lastName}`, 6 characters = `{bookingCode, lastName}`, anything else "Field invalid"; the last name is required, at most 31 characters. Nothing is sent while a field is wrong.
+- The search: `POST /service/api/ejournals` with the page's X-Portal headers (`scripts/lh-data.js`, live only: never a recorded answer, the price routes' two retries, no backoff). On a demo host directly on the brand's `serviceOrigin` (www.austrian.com), else www.lufthansa.com (both answer our hosts with ACAO *, 2026-11-01); on the airline's own host same-origin.
+- Answers: tickets → the form gives way to "Booking code: …", "Flights", a row per flight (carrier and number, date, origin – destination, the airport names for screen readers) and per ticket the "Download" button to its deep link (`targetURL` with its `parameters` as the query; a new window when `newWindow`), then "New search". `{"tickets":[]}` (also www's answer to an unknown booking) → the empty text below the form. Any other answer (www: 400 text/html, Tomcat's error page, for a request it refuses; 5xx; network) → the error text and a link to the page on the brand's www (not on the airline's own host).
+- Partner links: `?lastname=…&pnrfilekey=…` (www's names, any case) prefill the fields; both present → the search is sent at once.
+- Signed in (Travel ID answers the airline's own host only): on the brand's own www host (`scripts/handoff.js` hosts) with a Trips endpoint row, GET `<endpoint>/flights/v3/me/upcoming-trips` with credentials, `tenant` (the brand's airline code, LH) and `lang` (`en-DE`). Bookings → the notice and the form give way to a button per booking (route, date, booking code); choosing one searches its booking code and last name; "My flight is not displayed" opens the manual entry. 401/403 or a network error → the manual entry as signed out; 5xx → www's "We could not load your bookings" with "Try again" above the manual entry. On every other host (turnsthe.page, aem.page, aem.live) and without the row this part makes no call.
 - `data-lh-source`: live / recorded / none of the two label bundles.
-- Left out (logged-in states of the live app): the booking list of a logged-in profile, the last-name step, the result list with the download link, the error messages.
 
 ## Import
 
-Source: `.ejournals > .dcep-ejournals` on /{de/de,de/en,at/de,gb/en}/unterhaltung-an-bord (no data-dcep).
+Source: `.ejournals > .dcep-ejournals` (lh-com /{de/de,de/en,at/de,gb/en}/unterhaltung-an-bord and /lufthansa-ejournals; ITA's digital-newsstand pages; Brussels' extra-services/inflight-services/ejournals).
 
-- Replace the rendered component (today: the paragraph "Loading..." after the "Login {heading-small}" heading) with one empty `ejournals` block. Write none of its text.
-- Keep the heading "Login" before it (id `login`: the later "Go to login" / "Zum Login" text link of the page points to `#login`).
-- Also missing from today's import of these pages, right after "Browse the available titles … / Stöbern Sie unten durch die verfügbaren Titel …": the iframe `https://box.media-carrier.de/home?b=77745&l={de|en}` (`.iframe-wrapper`, max-width 1240px, height 520px), as the faq-ejournals imports already carry it.
-- Record (browser agent): GET https://www.lufthansa.com/service/api/labels/ejournals/lh/de and …/lh/en (from the de/de and de/en unterhaltung-an-bord pages, with their X-Portal-* headers); labels/common is recorded already.
+- Replace the rendered component with one empty `ejournals` block. Write none of its text.
+- Keep the heading before it (id `login` on unterhaltung-an-bord: the page's "To login" link points to `#login`).
+- www's newsstand iframe (`https://box.media-carrier.de/home?b=77745&l={de|en}`, `.iframe-wrapper`) is an embed of its own on the page.
 
 ## Universal Editor fields
 

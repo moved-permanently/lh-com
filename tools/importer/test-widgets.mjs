@@ -1442,7 +1442,7 @@ const textOf = (node) => (node ? node.textContent : '');
 }
 
 /* ------------------------------------------------------------------------------------------- */
-/* eJournals (logged-out view, render-only): labels per language, live login and live page      */
+/* eJournals (logged out): labels per language, the live login, the search form's fields         */
 /* ------------------------------------------------------------------------------------------- */
 
 {
@@ -1457,8 +1457,8 @@ const textOf = (node) => (node ? node.textContent : '');
   };
   const expected = {
     'de/en': ['Log in with your profile to select a booking.', 'Go to login', 'Booking code or ticket number', 'To free download'],
-    'de/de': ['Melden Sie sich mit Ihrem Profil an, um eine Buchung auszuwählen.', 'Zum Login', 'Buchungscode oder Ticketnummer', 'Zum kostenlosen Download'],
-    'at/de': ['Melden Sie sich mit Ihrem Profil an, um eine Buchung auszuwählen.', 'Zum Login', 'Buchungscode oder Ticketnummer', 'Zum kostenlosen Download'],
+    'de/de': ['Melden Sie sich mit Ihrem Profil an, um eine Buchung auszuwählen.', 'Zum Login', 'Buchungscode oder Ticketnummer', 'Zum Gratis Download'],
+    'at/de': ['Melden Sie sich mit Ihrem Profil an, um eine Buchung auszuwählen.', 'Zum Login', 'Buchungscode oder Ticketnummer', 'Zum Gratis Download'],
     'gb/en': ['Log in with your profile to select a booking.', 'Go to login', 'Booking code or ticket number', 'To free download'],
   };
   await inSequence(Object.keys(expected).map((market) => async () => {
@@ -1469,12 +1469,13 @@ const textOf = (node) => (node ? node.textContent : '');
     const texts = [textOf(block.querySelector('.ejournals-notice-copy')), textOf(login), textOf(block.querySelector('label')), textOf(block.querySelector('.ejournals-submit'))];
     const [cc, ll] = market.split('/');
     record(
-      { run: 'J', locale: market, block: 'ejournals', check: 'logged-out view: labels, live login, live page' },
+      { run: 'J', locale: market, block: 'ejournals', check: 'logged out: labels, live login, the search fields' },
       JSON.stringify(texts) === JSON.stringify(expected[market])
         && login.href.includes(`state=/${market}/unterhaltung-an-bord&`) && login.href.endsWith(`country=${cc.toUpperCase()}&lang=${ll}`)
         && (market !== 'de/en' || login.href === LIVE_LOGIN_DE_EN)
-        && block.querySelector('form').getAttribute('action') === `${LIVE_ORIGIN}/${market}/unterhaltung-an-bord#login`
-        && !input.hasAttribute('name') && input.maxLength === 13,
+        && !block.querySelector('form').hasAttribute('action')
+        && input.name === 'pnrOrTicketNumber' && input.maxLength === 13
+        && block.querySelector('input[name="lastName"]') !== null,
       true,
       `${texts.join(' | ')}; ${block.getAttribute('data-lh-sources')}`,
     );

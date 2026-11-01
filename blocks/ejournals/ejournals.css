@@ -1,5 +1,6 @@
 /* ejournals: the booking selection container of the dcep apps as online-check-in shows it
-   (maui-notification info, the .input field, maui-button primary); same look as booking-lookup */
+   (maui-notification info, the .input field, maui-button primary); same look as booking-lookup;
+   the search's results as www's .ejournals-search-results */
 .ejournals {
   --ejournals-field-height: 58px;
   --ejournals-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13.3 4.3 12 5.6l5.4 5.5H3v1.8h14.4L12 18.4l1.3 1.3L21 12z'/%3E%3C/svg%3E");
@@ -73,7 +74,7 @@
   box-sizing: border-box;
   width: 100%;
   max-width: 335px;
-  margin-bottom: 43px;
+  margin-bottom: 24px;
 }
 
 .ejournals .ejournals-field::after {
@@ -140,6 +141,172 @@
 
 .ejournals input:focus-visible,
 .ejournals .ejournals-submit:focus-visible {
+  outline: 2px solid var(--focus-color);
+  outline-offset: 2px;
+}
+
+.ejournals [hidden],
+.ejournals .ejournals-form[hidden] {
+  display: none;
+}
+
+/* the field's hint and error below the underline */
+.ejournals .ejournals-hint,
+.ejournals .ejournals-error {
+  margin: 7px 0 0;
+  font-size: var(--body-font-size-xxs);
+  line-height: 14px;
+}
+
+.ejournals .ejournals-hint {
+  color: var(--lh-grey-7);
+}
+
+.ejournals .ejournals-error {
+  color: var(--lh-red);
+}
+
+.ejournals .ejournals-field input[aria-invalid="true"] {
+  border-bottom-color: var(--lh-red);
+}
+
+.ejournals .ejournals-field:has(input[aria-invalid="true"])::after {
+  background-color: var(--lh-red);
+}
+
+.ejournals .ejournals-submit:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+/* no tickets, an error: the copy below the form */
+.ejournals .ejournals-message {
+  margin-top: 24px;
+  font-size: var(--body-font-size-s);
+  line-height: 24px;
+}
+
+.ejournals .ejournals-message p {
+  margin: 0;
+}
+
+.ejournals .ejournals-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* the results: the booking code (h3 look), Flights (h4 look), a row per flight, the download */
+.ejournals .ejournals-results {
+  max-width: 820px;
+}
+
+.ejournals .ejournals-results h2 {
+  margin: 0 0 16px;
+  font-size: var(--heading-font-size-s);
+}
+
+.ejournals .ejournals-results h3 {
+  margin: 0 0 12px;
+  font-size: var(--heading-font-size-xs);
+}
+
+.ejournals .ejournals-ticket {
+  margin-bottom: 32px;
+}
+
+.ejournals .ejournals-flights,
+.ejournals .ejournals-bookings {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ejournals .ejournals-flight {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 24px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--lh-grey-3);
+}
+
+.ejournals .ejournals-flight-number {
+  min-width: 72px;
+  font-weight: 700;
+}
+
+.ejournals .ejournals-flight-date {
+  min-width: 140px;
+}
+
+.ejournals .ejournals-ticket .button-container {
+  margin: 16px 0 0;
+}
+
+/* the signed-in bookings (own host only): one button per booking */
+.ejournals .ejournals-bookings li + li {
+  margin-top: 8px;
+}
+
+.ejournals .ejournals-booking {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 24px;
+  width: 100%;
+  max-width: 600px;
+  padding: 16px;
+  border: 1px solid var(--lh-grey-4);
+  border-radius: 4px;
+  background: var(--background-color, #fff);
+  color: var(--lh-deepblue);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.ejournals .ejournals-booking:hover {
+  border-color: var(--lh-deepblue);
+}
+
+.ejournals .ejournals-booking-route {
+  font-weight: 700;
+}
+
+.ejournals .ejournals-not-displayed {
+  margin: 16px 0 24px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--link-color);
+  font: inherit;
+  font-size: var(--body-font-size-xs);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.ejournals .ejournals-bookings-error {
+  margin-bottom: 24px;
+  padding: 16px 18px;
+  background-color: var(--lh-grey-1);
+}
+
+.ejournals .ejournals-bookings-error p {
+  margin: 0 0 8px;
+}
+
+.ejournals .ejournals-bookings-error-title {
+  font-weight: 700;
+}
+
+.ejournals .ejournals-booking:focus-visible,
+.ejournals .ejournals-not-displayed:focus-visible,
+.ejournals .ejournals-download:focus-visible,
+.ejournals .ejournals-search-again:focus-visible {
   outline: 2px solid var(--focus-color);
   outline-offset: 2px;
 }
