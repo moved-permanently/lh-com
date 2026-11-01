@@ -188,8 +188,9 @@ const FORMS = {
     'special-assistance': ['Special assistance', 'Besondere Unterstützung'],
   }),
 };
-// any country-language pair (the site's roots: de-en, de-de, at-de, gb-en, and the next ones)
-const LOCALE = /^[a-z]{2}-[a-z]{2}$/;
+// any country-language pair (the site's roots: de-en, de-de, at-de, gb-en, and the next ones),
+// or the language alone on the sites without roots (Cargo, Air Dolomiti: it, en, de)
+const LOCALE = /^([a-z]{2}-)?[a-z]{2}$/;
 
 const DEFAULTS = {
   ALLOWED_ORIGIN_PATTERN: '^https://[a-z0-9-]+--(lh-com|lh-flynet|lh-discover|lh-ita|lh-austrian|lh-airdolomiti|lh-brussels|lh-cargo)--moved-permanently\\.(aem\\.(page|live)|(stage-)?(preview|ue)\\.da\\.(live|page))$',
@@ -866,7 +867,7 @@ async function submit(request, env, origin) {
   const recipients = resolveRecipients(parseConfig(env.FORM_CONFIG), form, locale);
   if (!recipients) return fail(500, 'no-recipients', origin);
 
-  const title = FORMS[form][locale.endsWith('-de') ? 'de' : 'en'];
+  const title = FORMS[form][locale === 'de' || locale.endsWith('-de') ? 'de' : 'en'];
   const { fields } = checked;
   const { attachments } = filesChecked;
   const { html, text: plain } = buildMail({

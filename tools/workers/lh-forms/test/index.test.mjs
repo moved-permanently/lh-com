@@ -1140,6 +1140,31 @@ test('brand sites: Air Dolomiti\'s newsletter forms are accepted from its site, 
   assert.deepEqual(unknown.body, { ok: false, error: 'unknown-form' });
 });
 
+test('sites without roots (Cargo, Air Dolomiti) send the page\'s language alone: accepted, German title on de', async () => {
+  const env = makeEnv({ FORM_CONFIG: JSON.stringify({ default: { to: 'only@example.com' } }) });
+  const it = await post({
+    form: 'airdolomiti-iscrizione-newsletter', locale: 'it', origin: 'https://airdolomiti.turnsthe.page', ip: '198.51.100.170',
+  }, env);
+  const de = await post({
+    form: 'airdolomiti-newsletter-anmeldung', locale: 'de', origin: 'https://airdolomiti.turnsthe.page', ip: '198.51.100.171',
+  }, env);
+  const en = await post({
+    form: 'cargo-contact-us', locale: 'en', origin: 'https://cargo.turnsthe.page', ip: '198.51.100.172',
+  }, env);
+  assert.equal(it.res.status, 200);
+  assert.equal(de.res.status, 200);
+  assert.equal(en.res.status, 200);
+  assert.equal(sent[0].subject, '[lh-airdolomiti] Iscrizione newsletter (it)');
+  assert.equal(sent[1].subject, '[lh-airdolomiti] Newsletter Anmeldung (de)');
+  assert.match(sent[1].html, /<h1>Newsletter Anmeldung<\/h1>/);
+  assert.equal(sent[2].subject, '[lh-cargo] Contact us (en)');
+  const bad = await post({
+    form: 'cargo-contact-us', locale: 'deu', origin: 'https://cargo.turnsthe.page', ip: '198.51.100.173',
+  }, env);
+  assert.equal(bad.res.status, 400);
+  assert.deepEqual(bad.body, { ok: false, error: 'unknown-locale' });
+});
+
 test('brand sites: the title is the form\'s, German on a -de root, English elsewhere', async () => {
   await post({ form: 'austrian-bagdamage', locale: 'at-de', origin: 'https://austrian.turnsthe.page' });
   await post({ form: 'austrian-bagdamage', locale: 'gb-en', origin: 'https://austrian.turnsthe.page' });
