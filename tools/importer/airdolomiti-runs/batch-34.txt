@@ -1,0 +1,53 @@
+# lh-airdolomiti batch-34 (de): uploaded to DA moved-permanently/lh-airdolomiti and previewed on main--lh-airdolomiti--moved-permanently.aem.page on 2026-11-01T02:34Z; not published
+# documents (39 + /de/nav, /de/footer):
+/de/reiseziele/venedig/was-essen/fegato-alla-veneziana-ein-typisches-fleischgericht
+/de/reiseziele/venedig/was-machen
+/de/reiseziele/venedig/was-machen/hochwasser
+/de/reiseziele/venedig/was-machen/venedig-geheimtipps
+/de/reiseziele/venedig/was-sehen
+/de/reiseziele/venedig/was-sehen/venedig-inseln
+/de/reiseziele/verona-de/was-essen
+/de/reiseziele/verona-de/was-essen/traditionelle-feine-backwaren-aus-verona
+/de/reiseziele/verona-de/was-machen
+/de/reiseziele/verona-de/was-machen/arena-opernfestival
+/de/reiseziele/verona-de/was-machen/cantine-aperte-verona-venetien
+/de/reiseziele/verona-de/was-machen/funparks-in-verona
+/de/reiseziele/verona-de/was-machen/sonnenuntergang-auf-castel-san-pietro
+/de/reiseziele/verona-de/was-machen/valentinstag-in-verona-buchen-sie-ihren-flug-mit-air-dolomiti
+/de/reiseziele/verona-de/was-machen/vinitaly-verona
+/de/reiseziele/verona-de/was-sehen
+/de/reiseziele/verona-de/was-sehen/die-schoensten-straende-am-gardasee
+/de/reiseziele/verona-de/was-sehen/verona-reisefuehrer
+/de/reiseziele/genua-de/was-sehen
+/de/reiseziele/graz-de/was-sehen
+/de/reiseziele/innsbruck-de/was-sehen
+/de/reiseziele/jersey-de/was-machen
+/de/reiseziele/kattowitz/was-essen
+/de/reiseziele/kattowitz/was-machen
+/de/reiseziele/kattowitz/was-sehen
+/de/reiseziele/mailand-de/essen
+/de/reiseziele/mailand-de/was-machen
+/de/reiseziele/triest/was-essen
+/de/reiseziele/triest/was-machen
+/de/reiseziele/triest/was-sehen
+/de/artikel/reiseziele/die-wilde-seite-der-adria
+/de/artikel/avgeek-de/air-dolomiti-hangars-moderne-flugzeugwartung
+/de/artikel/reiseziele/der-karneval-von-venedig
+/de/artikel/reiseziele/auf-entdeckungsreise-durch-das-maerchenland-deutschland
+/de/artikel/reiseziele/geheimes-bologna
+/de/artikel/avgeek-de/im-cockpit-eines-air-dolomiti-flugzeugs
+/de/artikel/reiseziele/entdecke-streetfood-in-muenchen
+/de/artikel/reiseziele/die-barcolana-in-triest
+/de/artikel/avgeek-de/ein-tag-an-der-seite-eines-air-dolomiti-kapitaens
+/de/nav
+/de/footer
+# not imported (0):
+# blocks without a handler (their content generically): none
+# render check: all 39 documents render
+# check against www (text, images, links):
+#   https://www.airdolomiti.de/reiseziele/venedig/was-essen/fegato-alla-veneziana-ein-typisches-fleischgericht -> /de/reiseziele/venedig/was-essen/fegato-alla-veneziana-ein-typisches-fleischgericht: text 8/8, images 1/1 (+2), links 2/2 (+0)
+#   https://www.airdolomiti.de/reiseziele/graz-de/was-sehen -> /de/reiseziele/graz-de/was-sehen: text 4/4, images 0/0 (+1), links 1/1 (+0)
+#   https://www.airdolomiti.de/artikel/avgeek-de/ein-tag-an-der-seite-eines-air-dolomiti-kapitaens -> /de/artikel/avgeek-de/ein-tag-an-der-seite-eines-air-dolomiti-kapitaens: text 40/41, images 2/2 (+2), links 3/3 (+2)
+#   https://www.airdolomiti.de/reiseziele/venedig/was-essen/fegato-alla-veneziana-ein-typisches-fleischgericht: no text, image or link of www's missing
+#   https://www.airdolomiti.de/reiseziele/graz-de/was-sehen: no text, image or link of www's missing
+#   https://www.airdolomiti.de/artikel/avgeek-de/ein-tag-an-der-seite-eines-air-dolomiti-kapitaens: text missing: "lesezeit: 6 minuten"

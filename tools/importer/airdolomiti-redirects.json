@@ -252,6 +252,10 @@
   "Destination": "/de/reiseziele"
  },
  {
+  "Source": "/de/reiseziele/jersey/was-machen",
+  "Destination": "/de/reiseziele/jersey-de/was-machen"
+ },
+ {
   "Source": "/de/reiseziele/bologna/was-essen/tortellini-lasagne-und-tagliatelle-mit-eiernudelteig",
   "Destination": "/de/reiseziele/bologna-de/was-essen/tortellini-lasagne-und-tagliatelle-mit-eiernudelteig"
  },
