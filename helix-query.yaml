@@ -3413,6 +3413,162 @@ indices:
       ai-guidance:
         select: head > meta[name="ai-guidance"]
         value: attribute(el, "content")
+  # Site search of the brand sites with language roots (lh-cargo: /en, /de; lh-airdolomiti:
+  # Italian at the root, /en, /de), read by the search-results block of their search pages
+  # (/search, /en/search, /de/search) with the search-index-1 columns of lh-com. This file serves
+  # every site: no other site has /en; lh-com, ITA, Austrian and Discover have /de/de and /de/en,
+  # which the German index leaves out, so on those sites it stays empty; the Italian index names
+  # Air Dolomiti's own folders and pages (none is a country root). A new top-level Italian page
+  # needs its entry here (test/brand-search-index.test.mjs checks every page of both sites).
+  search-brand-en:
+    include:
+      - /en/**
+    exclude:
+      - /en/nav
+      - /en/footer
+      - /en/search
+    target: /en/search-index.json
+    properties:
+      title:
+        select: head > title
+        value: textContent(el)
+      description:
+        select: head > meta[name="description"]
+        value: attribute(el, "content")
+      image:
+        select: head > meta[property="og:image"]
+        value: match(attribute(el, "content"), "https:\/\/[^/]+(/.*)")
+      headings:
+        select: main h1, main h2, main h3
+        values: textContent(el)
+      content:
+        select: main p, main li, main div > a
+        values: textContent(el)
+      parent:
+        select: head > meta[name="parent"]
+        value: attribute(el, "content")
+      hide-in-search:
+        select: head > meta[name="hide-in-search"]
+        value: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+  search-brand-de:
+    include:
+      - /de/**
+    exclude:
+      - /de/de/**
+      - /de/en/**
+      - /de/nav
+      - /de/footer
+      - /de/search
+    target: /de/search-index.json
+    properties:
+      title:
+        select: head > title
+        value: textContent(el)
+      description:
+        select: head > meta[name="description"]
+        value: attribute(el, "content")
+      image:
+        select: head > meta[property="og:image"]
+        value: match(attribute(el, "content"), "https:\/\/[^/]+(/.*)")
+      headings:
+        select: main h1, main h2, main h3
+        values: textContent(el)
+      content:
+        select: main p, main li, main div > a
+        values: textContent(el)
+      parent:
+        select: head > meta[name="parent"]
+        value: attribute(el, "content")
+      hide-in-search:
+        select: head > meta[name="hide-in-search"]
+        value: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+  search-airdolomiti-it:
+    include:
+      - /aeroporti
+      - /aeroporti/**
+      - /articoli
+      - /articoli/**
+      - /assistenza
+      - /azienda/**
+      - /bagagli
+      - /bagaglio/**
+      - /business
+      - /check-in-online-istruzioni-per-l-uso
+      - /comunicati-stampa
+      - /consigli-di-viaggio
+      - /consigli-di-viaggio/**
+      - /contatti/**
+      - /destinazioni
+      - /destinazioni/**
+      - /dichiarazione-accessibilita
+      - /eu-cont-tariffe
+      - /faq
+      - /faq/**
+      - /flotta
+      - /hai-bisogno-di-aiuto/**
+      - /informazioni-aggiornate
+      - /informazioni-legali/**
+      - /informazioni-per-il-viaggio/**
+      - /leisure
+      - /miles-and-more-it
+      - /podcast
+      - /prenotazioni
+      - /promozioni
+      - /promozioni/**
+      - /recruiting-day-piloti
+      - /requisiti-d-ingresso
+      - /servizi/**
+      - /servizi-a-bordo/**
+      - /servizi-digitali
+      - /servizi-extra
+      - /servizi-extra/**
+      - /stato-volo
+      - /supplemento-per-costi-ambientali
+      - /supporto-e-contatti
+      - /supporto-e-contatti/**
+      - /tariffa-economy-basic
+      - /tariffe
+      - /tratte
+      - /tratte/**
+      - /viaggi-di-gruppo
+      - /voli-europa
+      - /whistleblowing-it
+    exclude:
+      - /nav
+      - /footer
+      - /search
+    target: /search-index.json
+    properties:
+      title:
+        select: head > title
+        value: textContent(el)
+      description:
+        select: head > meta[name="description"]
+        value: attribute(el, "content")
+      image:
+        select: head > meta[property="og:image"]
+        value: match(attribute(el, "content"), "https:\/\/[^/]+(/.*)")
+      headings:
+        select: main h1, main h2, main h3
+        values: textContent(el)
+      content:
+        select: main p, main li, main div > a
+        values: textContent(el)
+      parent:
+        select: head > meta[name="parent"]
+        value: attribute(el, "content")
+      hide-in-search:
+        select: head > meta[name="hide-in-search"]
+        value: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
   # lh-airdolomiti (Air Dolomiti, Italian): its posts /articoli/<category>/<post> for the posts list
   # on /articoli (blocks/blog-overview, scripts/brands.js articleIndex). No other site has an
   # /articoli folder (DA, 2026-10-31). The post's header (article-header) has the title only:
