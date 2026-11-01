@@ -1,0 +1,13 @@
+# lh-airdolomiti (2026-11-01, brief 206: timetable and manage booking hand-offs): uploaded to DA moved-permanently/lh-airdolomiti and previewed on main--lh-airdolomiti--moved-permanently.aem.page; not published.
+# Code (on main, deployed with it): f2a3ce70 blocks flight-timetable and manage-booking, scripts/airdolomiti-api.js, tests on recorded answers; fccc8e2b importer pages, allowlist, helix-query.yaml (/orario-voli and /gestione-prenotazione-volo in search-airdolomiti-it); d7d87567 the 720px column and the mobile Search button. Rollback: git revert of these three.
+# - timetable (flight-timetable): trip type, origin and destination from api.airdolomiti.it/v1/airports, calendars with the route's dates (/v1/flights/dates), Search -> POST /v1/bookings/timetable -> POST form to digital.airdolomiti.it (field search); consent sent as not given
+# - manage booking (manage-booking): surname and booking code -> POST /v1/bookings/retrieve-pnr -> POST form to digital.airdolomiti.it (recLoc, lastName, dxMMBTripFlow, portalFacts); www's texts below the form
+# Checked once from the preview host (2026-11-01): one timetable hand-off (MUC-VRN, one way, 15/11/2026) and one lookup (Rossi / ABC123, made up): API 201 with CORS *, the form posted to the engine; the engine answered the headless browser with Imperva's bot challenge (403): stopped there, nothing clicked
+# The search index (search-airdolomiti-it, search-brand-en, search-brand-de) lists the pages once published.
+# documents (6):
+/orario-voli
+/en/flight-timetables
+/de/flugplan
+/gestione-prenotazione-volo
+/en/manage-flight-booking
+/de/bearbeitung-ihrer-buchungen
