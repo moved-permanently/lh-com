@@ -80,6 +80,25 @@ const fill = (template, values) => Object.entries(values)
 
 const fold = (s) => String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
 
+/** A post's folder: the path segment before the post (/articoli/didyouknow/x: didyouknow). */
+const folderOf = (path) => String(path || '').split('/').filter(Boolean).slice(-2, -1)[0] || '';
+
+/**
+ * The category the block's Category row names: a post's category (with or without its #, any
+ * case: #didyouknow, didyouknow, DidYouKnow), else a post's folder (Air Dolomiti's dyk,
+ * avgeek-en: a category page can name its folder); a category match wins. No post: the row's
+ * value as it is.
+ */
+function resolveCategory(wanted, articles) {
+  const bare = (c) => String(c || '').replace(/^#/, '');
+  const value = bare(wanted);
+  if (!value) return wanted;
+  const byCategory = articles.find((a) => bare(a.category) === value);
+  if (byCategory) return byCategory.category;
+  const byFolder = articles.find((a) => folderOf(a.path).toLowerCase() === value);
+  return byFolder ? byFolder.category : wanted;
+}
+
 /** The options of the block (www's widget configuration). */
 function readOptions(block) {
   const config = readConfigRows(block);
@@ -226,7 +245,7 @@ export default async function decorate(block) {
     && (!options.author || a.authorId === options.author));
   const saved = (window.history.state && window.history.state[uid]) || {};
   const state = {
-    category: saved.category ?? options.category,
+    category: saved.category ?? resolveCategory(options.category, articlesResult.list || []),
     query: saved.query || '',
     page: saved.page || 1,
   };
