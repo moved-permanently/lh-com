@@ -109,3 +109,27 @@ export function missingItems(beforeHtml, afterHtml) {
   });
   return missing;
 }
+
+/**
+ * A link around a picture (`<a …><picture>…</picture></a>` in a section) gets `da-diff-added=""`
+ * on the `<a>` after a merge (da-nx 1.29.1, 69006f3b; checked on a test site 2026-11-01). No
+ * editor action (a block's Local/Upstream, Keep All Local/Upstream) resolves it, and the rollout
+ * then refuses the page as having unmerged changes. The document without that mark on those
+ * links only: {html, removed: [{href, image}], changed}. Every other mark stays (marked
+ * paragraphs, marked text links, merge blocks, the da-metadata block); the attribute is cut out of
+ * the link's opening tag, the rest of the document is kept byte for byte.
+ */
+export function removeLinkedImageMarks(html) {
+  const removed = [];
+  // an <a> whose whole content is one picture (whitespace around it allowed)
+  const re = /<a\b([^>]*)>(\s*<picture\b(?:(?!<\/picture>)[\s\S])*<\/picture>\s*)<\/a>/g;
+  const out = html.replace(re, (whole, attrs, inner) => {
+    if (!/\sda-diff-added(?:="[^"]*")?(?=[\s>]|$)/.test(attrs)) return whole;
+    const kept = attrs.replace(/\s+da-diff-added(?:="[^"]*")?(?=[\s>]|$)/, '');
+    const href = (kept.match(/\shref="([^"]*)"/) || [])[1] || '';
+    const image = (inner.match(/<img\b[^>]*\ssrc="([^"]*)"/) || [])[1] || '';
+    removed.push({ href, image });
+    return `<a${kept}>${inner}</a>`;
+  });
+  return { html: out, removed, changed: removed.length > 0 };
+}

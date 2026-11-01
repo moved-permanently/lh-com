@@ -7,7 +7,9 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { spawnSync } from 'node:child_process';
-import { removeDaMetadata, blockItems, missingItems } from '../tools/loc/review-lib.mjs';
+import {
+  removeDaMetadata, removeLinkedImageMarks, blockItems, missingItems,
+} from '../tools/loc/review-lib.mjs';
 import { clearReview } from '../tools/loc/clear-review.mjs';
 import { daClient } from '../tools/loc/slug-step.mjs';
 
@@ -99,4 +101,57 @@ test('block-check CLI on files: exit 1 and the missing heading; exit 0 for the c
   const ok = run('merged-control.html');
   assert.equal(ok.status, 0, ok.stderr);
   assert.match(ok.stdout, /^ok/);
+});
+
+// a picture inside a link gets da-diff-added="" on the <a> after a merge; no editor action resolves
+// it and the rollout then refuses the page as having unmerged changes (checked on a test site with
+// da-nx 1.29.1, 2026-11-01): --linked-images removes that mark, and only that one
+const LINKED = '<body><header></header><main><div><p>Intro</p>'
+  + '<a href="/de/de/angebote" da-diff-added=""><picture><source srcset="./media_1.jpg"><img src="./media_1.jpg" alt=""></picture></a>'
+  + '<p da-diff-added="">A marked paragraph</p>'
+  + '<p><a href="/de/de/x" da-diff-added="">A marked text link</a></p>'
+  + '<a href="/de/de/y"><picture><img src="./media_2.jpg" alt=""></picture></a>'
+  + '</div></main><div class="da-metadata"><div><div>rejectedhashes</div><div>1a2b3c</div></div></div><footer></footer></body>';
+
+test('removeLinkedImageMarks: an <a da-diff-added=""><picture> loses the mark; a marked paragraph and a marked text link keep theirs; the rest byte for byte', () => {
+  const r = removeLinkedImageMarks(LINKED);
+  assert.ok(r.changed);
+  assert.equal(r.html, LINKED.replace('<a href="/de/de/angebote" da-diff-added="">', '<a href="/de/de/angebote">'));
+  assert.deepEqual(r.removed, [{ href: '/de/de/angebote', image: './media_1.jpg' }]);
+  assert.ok(r.html.includes('<p da-diff-added="">A marked paragraph</p>'));
+  assert.ok(r.html.includes('<a href="/de/de/x" da-diff-added="">A marked text link</a>'));
+  assert.ok(r.html.includes('class="da-metadata"'), 'the review record stays');
+  assert.deepEqual(removeLinkedImageMarks(BEFORE), { html: BEFORE, removed: [], changed: false });
+  // the mark written as a bare attribute, as an editor may save it
+  const bare = '<main><div><a da-diff-added href="/a"><picture><img src="./m.jpg"></picture></a></div></main>';
+  assert.equal(removeLinkedImageMarks(bare).html, '<main><div><a href="/a"><picture><img src="./m.jpg"></picture></a></div></main>');
+});
+
+test('clearReview --linked-images: dry run lists; --apply: labelled version, write, read-back; the da-metadata block stays', async () => {
+  const dry = fakeDa({ '/de/de/x': LINKED });
+  const d = await clearReview('/de/de/x', { da: dry, linkedImages: true });
+  assert.equal(d.status, 'would unmark');
+  assert.deepEqual(d.removed, [{ href: '/de/de/angebote', image: './media_1.jpg' }]);
+  assert.deepEqual(dry.calls, [['GET', '/de/de/x']]);
+
+  const da = fakeDa({ '/de/de/x': LINKED });
+  const r = await clearReview('/de/de/x', {
+    da, apply: true, linkedImages: true, today: '2026-11-01',
+  });
+  assert.equal(r.status, 'unmarked');
+  assert.deepEqual(da.calls.map((c) => c.slice(0, 3)), [
+    ['GET', '/de/de/x'], ['VERSION', '/de/de/x', 'before clear-review --linked-images 2026-11-01'], ['POST', '/de/de/x'], ['GET', '/de/de/x']]);
+  assert.ok(da.docs['/de/de/x'].includes('class="da-metadata"'));
+  assert.ok(da.docs['/de/de/x'].includes('<p da-diff-added="">'));
+  assert.equal((await clearReview('/de/de/y', { da: fakeDa({ '/de/de/y': BEFORE }), apply: true, linkedImages: true })).status, 'no marked linked image');
+  assert.equal((await clearReview('/de/de/profile/x', { da: fakeDa({}), linkedImages: true })).status, 'refused (lhg, login or profile)');
+});
+
+test('removeLinkedImageMarks: a marked link with a picture and text keeps its mark, also when a linked picture follows', () => {
+  const html = '<main><div><a href="/a" da-diff-added=""><picture><img src="./1.jpg"></picture> Caption</a>'
+    + '<a href="/b" da-diff-added=""><picture><img src="./2.jpg"></picture></a></div></main>';
+  const r = removeLinkedImageMarks(html);
+  assert.deepEqual(r.removed, [{ href: '/b', image: './2.jpg' }]);
+  assert.ok(r.html.includes('<a href="/a" da-diff-added=""><picture><img src="./1.jpg"></picture> Caption</a>'));
+  assert.ok(r.html.includes('<a href="/b"><picture>'));
 });
