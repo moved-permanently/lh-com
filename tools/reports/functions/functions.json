@@ -1,6 +1,6 @@
 {
   "updated": "2026-11-01",
-  "change": "Lufthansa's security waiting times are live with live data, and Austrian and Brussels Airlines have the check-in deadline search.",
+  "change": "ITA's security waiting times are live, Brussels Airlines and Air Dolomiti show notices like the other airlines, and the manage booking, hotel and check-in hand-offs are ready for the airlines' own addresses.",
   "legend": {
     "done": {
       "label": "works on our replica",
@@ -34,7 +34,7 @@
   "footnotes": {
     "adbooking": "Air Dolomiti sells through its own booking engine, not Lufthansa's shop. Since 1 November the search form is on the replica's homepages, route pages and booking pages and hands the trip to that engine, as www does; the engine's bot check can show a captcha, as it can on www.",
     "picker": "The picker for adults, children, infants and cabin is in the shared code since 1 November. Each brand's pages still have to switch it on; until then the search sends the travellers and cabin set on the page.",
-    "lhbooking": "Lufthansa's manage booking and hotel tabs hand over to two services that run in AEM today. Their replacements already answer on lufthansa.turnsthe.page with test data; next, the tabs post to them.",
+    "lhbooking": "Lufthansa's manage booking and hotel tabs hand over to two services that run in AEM today. Their replacements answer with test data, and since 1 November the tabs post to them on the airline's own address; on the replica's addresses they keep opening www, so no real booking reaches test data.",
     "signin": "On Discover, ITA and Austrian, manage booking goes through a deep link to the login and profile pages, which are on the new platform since 1 November; Brussels Airlines' login and profile pages come next. The services behind the deep link answer with test data, and until the airlines' replica addresses route the deep link to them, the replicas link to the airline's current pages.",
     "lhpages": "Four Lufthansa pages with these functions aren't on the replica yet: check-in deadlines, the compensation claim, the newsletter and eJournals. They come next. The check-in deadline search block is built and live on Austrian and Brussels Airlines. Until then our pages link to www.",
     "travelidapps": "The help center and culinary hub apps are in the shared code and load on our pages, but their data comes from the airline's Travel ID service, which refuses our test addresses. They work once the site runs on the airline's own address, or once Lufthansa allows ours.",
@@ -271,8 +271,8 @@
         },
         "ita": {
           "status": "wip",
-          "note": "ITA's check-in form asks a service in AEM where to send the traveller; its replacement already answers with test data, and until ITA's address routes to it, ours opens www's page.",
-          "evidence": "M1 2026-11-01: www posts to an AEM endpoint that returns the target; ours opens www's page ; backend Worker 2026-11-01 ~02:00: the ITA check-in route answers on test data and hands off to the group check-in system; not routed on ita.turnsthe.page yet"
+          "note": "The check-in form posts to the replacement service once the site runs on ITA's own address (built 1 November); on the replica it opens www's page as today, so no real booking reaches test data.",
+          "evidence": "M1 2026-11-01: www posts to an AEM endpoint that returns the target; ours opens www's page ; backend Worker 2026-11-01 ~02:00: the ITA check-in route answers on test data and hands off to the group check-in system; not routed on ita.turnsthe.page yet; 207 (1e7f178) 2026-11-01: POST fktn with ITA's portal on www.ita-airways.com only; not-found answer checked with the test switch"
         },
         "austrian": {
           "status": "elsewhere",
@@ -305,9 +305,9 @@
       "cells": {
         "lufthansa": {
           "status": "wip",
-          "note": "The tab opens the same page on www today; its replacement service already answers on lufthansa.turnsthe.page with test data, and the tab posts to it next.",
+          "note": "The tab posts to the replacement service once the site runs on www.lufthansa.com (built 1 November); on the replica's addresses it opens www's page as today, so no real booking reaches test data.",
           "footnote": "lhbooking",
-          "evidence": "functions scan 2026-10-31; M2 2026-11-01: bookingdetailslink answers through the backend Worker on the main host"
+          "evidence": "functions scan 2026-10-31; M2 2026-11-01: bookingdetailslink answers through the backend Worker on the main host; 207 (1e7f178) 2026-11-01: post mode on the airline's www host, test switch checked end to end on lufthansa.turnsthe.page"
         },
         "discover": {
           "status": "wip",
@@ -408,10 +408,10 @@
       "cells": {
         "lufthansa": {
           "status": "wip",
-          "note": "A hotel search opens www's hotel page today; the tab will post to the replacement service that already answers on lufthansa.turnsthe.page with test data.",
+          "note": "The hotel tab posts to the replacement service once the site runs on www.lufthansa.com (built 1 November); on the replica's addresses it opens www's hotel page as today.",
           "footnote": "lhbooking",
           "page": "/de/en/homepage",
-          "evidence": "functions scan 2026-10-31; M2 2026-11-01: /service/secured/api/booking/hotel routed on the main host"
+          "evidence": "functions scan 2026-10-31; M2 2026-11-01: /service/secured/api/booking/hotel routed on the main host; 207 (1e7f178) 2026-11-01: post mode on the airline's www host"
         },
         "discover": {
           "status": "none",
@@ -602,10 +602,10 @@
           "evidence": "fill check 2026-11-01: www security-check-time-slot page with dcep-security-waiting-time (12 airports); M1 found no such page in the sitemap (open); www.lufthansa.com answers discover.turnsthe.page with X-Portal FOUR_Y"
         },
         "ita": {
-          "status": "wip",
-          "note": "ITA's page has the heading but no waiting time search; it comes with a block of its own that reads the live data from Lufthansa's service.",
+          "status": "done",
+          "note": "The waiting time search is on all nine ITA language pages with live data from Lufthansa's service and the airport names in the page's language, as on www.",
           "page": "/it/en/book-and-prepare/travel-information/at-the-airport/security-waiting-times",
-          "evidence": "functions scan 2026-10-31; M1 2026-11-01: www.ita-airways.com refuses other origins, www.lufthansa.com answers with X-Portal ITA"
+          "evidence": "235 (36bf0e2e) published 2026-11-01, 236 (8a40005b) airport names; browser check it/it: live times with ITA's portal"
         },
         "austrian": {
           "status": "none",
@@ -1091,16 +1091,16 @@
           "page": "/en/notification-overview"
         },
         "airdolomiti": {
-          "status": "wip",
-          "note": "The notice strip and the travel information pages are ready on the replica and show Air Dolomiti's notices once there is one; www has none today.",
+          "status": "done",
+          "note": "Air Dolomiti's notices work the same way, written on our side because Air Dolomiti's website has no Message Center; there are none to show today.",
           "page": "/informazioni-aggiornate",
-          "evidence": "ema-cashub 211 published 2026-11-01 job-2026-11-01-08-51-14-b85dc939 (flash teaser on homepages, message center on travel information pages); cti-pages sheet live 2026-11-01"
+          "evidence": "ema-cashub 211 published 2026-11-01 job-2026-11-01-08-51-14-b85dc939 (flash teaser on homepages, message center on travel information pages); cti-pages sheet live"
         },
         "brussels": {
-          "status": "wip",
-          "note": "The notice strip and the current information page are ready on the replica and show Brussels Airlines' notices once there is one; www has none today.",
+          "status": "done",
+          "note": "Brussels Airlines' notices work the same way; the twice-daily sync copies them from www, which has none to show today.",
           "page": "/be/en/plan-your-trip/flight-information",
-          "evidence": "ema-test 218 (tenant sn), cti-pages sheet live 2026-11-01"
+          "evidence": "Message Center sync 2026-11-01b: sn -> lh-brussels; brands.js messageCenter sn; cti-pages sheet live"
         }
       }
     },
@@ -1711,9 +1711,9 @@
           "evidence": "functions scan 2026-10-31"
         },
         "cargo": {
-          "status": "wip",
-          "note": "The replica loads nothing for Cargo that needs consent, but its \"Cookie Settings\" link does nothing; the link gets hidden until a tag manager runs there.",
-          "evidence": "fill check 2026-11-01"
+          "status": "done",
+          "note": "The replica loads nothing for Cargo that needs consent, so it shows no banner and no cookie settings link until a tag manager runs there.",
+          "evidence": "f020a58; browser check 2026-11-01 cargo.turnsthe.page/en/home: no settings link, no OneTrust"
         },
         "airdolomiti": {
           "status": "done",
