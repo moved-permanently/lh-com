@@ -43,10 +43,10 @@ Any other path answers `404 {"ok":false,"error":"not-found"}`. A wrong method an
 ## CORS and Origin
 
 An `Origin` is allowed if it matches `ALLOWED_ORIGIN_PATTERN` (the same pattern as lh-proxy:
-`{branch}--lh-com|lh-flynet|lh-discover|lh-ita|lh-austrian|lh-airdolomiti--moved-permanently` on
+`{branch}--lh-com|lh-flynet|lh-discover|lh-ita|lh-austrian|lh-airdolomiti|lh-brussels--moved-permanently` on
 aem.page/live and the DA preview, Quick Edit and UE hosts) or is listed in `EXTRA_ALLOWED_ORIGINS` (
 `https://lufthansa.turnsthe.page`, `https://discover.turnsthe.page`, `https://ita.turnsthe.page`,
-`https://austrian.turnsthe.page`, `https://airdolomiti.turnsthe.page`, `http://localhost:3000`).
+`https://austrian.turnsthe.page`, `https://airdolomiti.turnsthe.page`, `https://brussels.turnsthe.page`, `http://localhost:3000`).
 Air Dolomiti has no forms yet; lh-cargo is not allowed (its forms link to its live site). Both are `[vars]` in `wrangler.toml`. The worker echoes the allowed
 origin and sets `Vary: Origin`. Any other origin gets `403 {"ok":false,"error":"origin-not-allowed"}`,
 and so does a `POST /submit` with no `Origin` header. `GET /health` works without an `Origin`
@@ -58,7 +58,7 @@ The body is `multipart/form-data` (for example a `FormData`). It has these parts
 
 | Part | Content |
 | --- | --- |
-| `form` | the form id, one of: `anmeldung-tiere-frachtraum`, `refund-form`, `feedback-past-flight`, `register-ammunition`, `register-animal-cabin`, `special-needs`, `add-sports-baggage`, `group-travel`, `passenger-receipt-90`; Discover Airlines (lh-discover): `discover-assistance`, `discover-add-sports-baggage`, `discover-register-ammunition`, `discover-register-hunting-firearm`, `discover-register-sporting-firearm`, `discover-register-animal-cargo-hold`, `discover-register-animal-cabin`, `discover-compensation-baggage`, `discover-other-concerns`, `discover-buccaneers-season-kickoff`; ITA Airways (lh-ita): `ita-mice`, `ita-group-travel`, `ita-voglia-di-volare`, `ita-emergency-contact`; Austrian Airlines (lh-austrian): the 39 ids `austrian-<page name>` of its form pages (`FORMS` in `src/index.js`) |
+| `form` | the form id, one of: `anmeldung-tiere-frachtraum`, `refund-form`, `feedback-past-flight`, `register-ammunition`, `register-animal-cabin`, `special-needs`, `add-sports-baggage`, `group-travel`, `passenger-receipt-90`; Discover Airlines (lh-discover): `discover-assistance`, `discover-add-sports-baggage`, `discover-register-ammunition`, `discover-register-hunting-firearm`, `discover-register-sporting-firearm`, `discover-register-animal-cargo-hold`, `discover-register-animal-cabin`, `discover-compensation-baggage`, `discover-other-concerns`, `discover-buccaneers-season-kickoff`; ITA Airways (lh-ita): `ita-mice`, `ita-group-travel`, `ita-voglia-di-volare`, `ita-emergency-contact`; Austrian Airlines (lh-austrian): the 39 ids `austrian-<page name>` of its form pages (`FORMS` in `src/index.js`); Brussels Airlines (lh-brussels): the 17 ids `brussels-<page name>` of its form pages (8 kinds: the nine feedback topics, charter, group travel request, request for proposal, PPB registration, emergency contact, invoice request and its be/en GUID copy, DSAR) |
 | `locale` | the page's root as `<cc>-<ll>` (`de-en`, `at-de`, `it-it`, `cn-zh` ...) |
 | `page` | the page URL (`http:` or `https:`, at most 2000 characters) |
 | `fields` | a JSON array in page order: `[{"section":"...","label":"...","name":"...","value":"..."}]`. All four keys are required and must be strings (`""` is allowed). |
@@ -94,6 +94,11 @@ image types; private-check-in-counter: one JPEG), at most 5 files of 2,048,000, 
 5,000,000 bytes (betroffenenrechte-anfrage, data-protection-contact), `not-allowed=#$%^*()[]`.
 `contact-form-booking`, `anfrage-flugbuchung` and `th-requested-documents` had "pdf, png, jpg" as
 their accept list (and `not-allowed=#`) on the page: the four types and the full set here and there.
+
+Brussels' forms with a drop zone (10 ids) follow the file row of their lh-brussels page: the nine
+feedback topic forms `application/pdf, image/jpeg` (and image/jpg), at most 5 files of 2,000,000
+bytes; `brussels-request-for-proposal` also `image/png`, 5 files of 2,048,000 bytes; the full
+`not-allowed=#$%^*()[]` set (the feedback rows had `#`).
 The 5 x 5 MB forms can exceed the total: their drop zone names it, and the block refuses a
 selection over it before sending.
 
@@ -125,8 +130,9 @@ Without a `Content-Length`, the cap is enforced while the body is read.
 - From: `FORM_SENDER`. To: from `FORM_CONFIG` (see below).
 - Subject: the subject from the config. Without one, `[<site>] <form title> (<locale>)`: the site
   the mail came from, by its origin (`--lh-discover--`, `--lh-ita--`, `--lh-austrian--`,
-  `--lh-airdolomiti--` hosts and `discover`, `ita`, `austrian`, `airdolomiti.turnsthe.page`), else
-  by the form id's prefix (`discover-`, `ita-`, `austrian-`), else `lh-com`. The form title is the
+  `--lh-airdolomiti--`, `--lh-brussels--` hosts and `discover`, `ita`, `austrian`, `airdolomiti`,
+  `brussels.turnsthe.page`), else by the form id's prefix (`discover-`, `ita-`, `austrian-`,
+  `brussels-`), else `lh-com`. The form title is the
   page h1 in German on a `-de` root, in English on every other. The
   table is `FORMS` in `src/index.js`. `special-needs` and `add-sports-baggage` have no German
   page, so they use the English title.
@@ -143,7 +149,8 @@ Without a `Content-Length`, the cap is enforced while the body is read.
 
 Cloudflare Turnstile widget "lh-com forms (lh-forms)", managed mode. It accepts only
 lh-com's and lh-discover's `main--…--moved-permanently.aem.page` and `.aem.live` hosts, lh-ita's
-and lh-austrian's, lh-airdolomiti's aem.page host and the turnsthe.page brand hosts; branch previews and localhost cannot render it (use Cloudflare's test keys there, see the form block).
+and lh-austrian's, lh-airdolomiti's aem.page host and the turnsthe.page brand hosts (lh-brussels'
+aem.page and aem.live hosts: to be added to the widget's hostnames in the Cloudflare dashboard); branch previews and localhost cannot render it (use Cloudflare's test keys there, see the form block).
 
 - `TURNSTILE_SITE_KEY` (`[vars]`, public): served to the block by `GET /config`, never hard-coded
   in the block.

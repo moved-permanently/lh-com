@@ -19,10 +19,14 @@
 // eslint-disable-next-line import/no-unresolved -- Workers runtime module (tests: a shim)
 import { WorkerEntrypoint } from 'cloudflare:workers';
 
+/** A brand's ids (<brand>-<page name>) and titles: [en, de], one title for both languages. */
+function brandForms(brand, titles) {
+  return Object.fromEntries(Object.entries(titles)
+    .map(([name, [en, de = en]]) => [`${brand}-${name}`, { en, de }]));
+}
 /** Austrian's ids (austrian-<page name>) and titles: [en, de], one title for both languages. */
 function austrianForms(titles) {
-  return Object.fromEntries(Object.entries(titles)
-    .map(([name, [en, de = en]]) => [`austrian-${name}`, { en, de }]));
+  return brandForms('austrian', titles);
 }
 
 /*
@@ -152,13 +156,35 @@ const FORMS = {
     'request-traveling-with-animals': ['Enquiry about travelling with pets'],
     'th-requested-documents': ['Form for uploading requested documents'],
   }),
+  // Brussels Airlines (lh-brussels): the h1 of its be/en and de/de pages (2026-11-01; tokens
+  // like {column-start-outer} dropped); be/en only: the GUID copy of the invoice request; be/en
+  // and be/fr only: group travel, PPB registration, request for proposal
+  ...brandForms('brussels', {
+    'ask-invoice': ['INVOICE REQUEST', 'Rechnungsanforderung'],
+    baggage: ['BAGGAGE ISSUES', 'PROBLEME MIT DEM GEPÄCK'],
+    'baggage-allowances-rules': ['BAGGAGE still missing', 'GEPÄCK noch immer unauffindbar'],
+    'cabin-comfort': ['SERVICE ON BOARD', 'SERVICE-LEISTUNGEN AN BORD'],
+    charter: ['Rent a plane', 'Ein Flugzeug mieten'],
+    'delays-and-cancellation': ['delays and cancellations', 'Verspätungen und Stornierungen'],
+    'denied-boarding': ['Denied boarding', 'Nichtbeförderung'],
+    'dsar-start': ['Data Subject Request Form', 'Formular für den Antrag auf Auskunftserteilung über personenbezogene Daten'],
+    'emergency-contact': ['Person to contact in an emergency', 'Kontaktperson im Notfall'],
+    'fc8552d5-c1e8-4576-8b35-0d588d828b10': ['INVOICE REQUEST'],
+    'group-travel-request': ['Group travel - Request form'],
+    'loyalty-programs': ['LOYALTY PROGRAMMES', 'TREUEPROGRAMME'],
+    other: ['Other', 'Sonstiges'],
+    'personal-injury': ['Personal injury', 'Personenschaden'],
+    'register-ppb': ['Your registration'],
+    'request-for-proposal': ['Your enquiry for a Lufthansa Group Meetings & Events cooperation'],
+    'special-assistance': ['Special assistance', 'Besondere Unterstützung'],
+  }),
 };
 // any country-language pair (the site's roots: de-en, de-de, at-de, gb-en, and the next ones)
 const LOCALE = /^[a-z]{2}-[a-z]{2}$/;
 
 const DEFAULTS = {
-  ALLOWED_ORIGIN_PATTERN: '^https://[a-z0-9-]+--(lh-com|lh-flynet|lh-discover|lh-ita|lh-austrian|lh-airdolomiti)--moved-permanently\\.(aem\\.(page|live)|(stage-)?(preview|ue)\\.da\\.(live|page))$',
-  EXTRA_ALLOWED_ORIGINS: 'https://lufthansa.turnsthe.page,https://discover.turnsthe.page,https://ita.turnsthe.page,https://austrian.turnsthe.page,https://airdolomiti.turnsthe.page,http://localhost:3000',
+  ALLOWED_ORIGIN_PATTERN: '^https://[a-z0-9-]+--(lh-com|lh-flynet|lh-discover|lh-ita|lh-austrian|lh-airdolomiti|lh-brussels)--moved-permanently\\.(aem\\.(page|live)|(stage-)?(preview|ue)\\.da\\.(live|page))$',
+  EXTRA_ALLOWED_ORIGINS: 'https://lufthansa.turnsthe.page,https://discover.turnsthe.page,https://ita.turnsthe.page,https://austrian.turnsthe.page,https://airdolomiti.turnsthe.page,https://brussels.turnsthe.page,http://localhost:3000',
 };
 
 const MB = 1000 * 1000;
@@ -243,6 +269,27 @@ function austrianFileRules() {
   };
   return Object.fromEntries(Object.entries(byForm).map(([name, r]) => [`austrian-${name}`, r]));
 }
+/*
+ * Brussels' drop zones (the file rows of lh-brussels' form pages, as www's: accept, max-files,
+ * max-size): the nine feedback topic forms application/pdf, image/jpeg, 5 x 2,000,000 (not-allowed
+ * "#" there: the full set, as Austrian's); the request for proposal also image/png, 5 x 2,048,000.
+ */
+function brusselsFileRules() {
+  const rules = (types, maxSize) => ({
+    types,
+    extensions: types.flatMap((t) => ({ 'image/png': ['.png'], 'application/pdf': ['.pdf'] }[t] || ['.jpg', '.jpeg'])),
+    maxFiles: 5,
+    maxSize,
+    ...MAIL_FILES,
+  });
+  const feedback = rules(['application/pdf', 'image/jpeg', 'image/jpg'], 2000000);
+  return {
+    ...Object.fromEntries(['baggage', 'baggage-allowances-rules', 'cabin-comfort', 'delays-and-cancellation',
+      'denied-boarding', 'loyalty-programs', 'other', 'personal-injury', 'special-assistance']
+      .map((name) => [`brussels-${name}`, feedback])),
+    'brussels-request-for-proposal': rules(['application/pdf', 'image/jpeg', 'image/jpg', 'image/png'], 2048000),
+  };
+}
 const FILE_RULES = {
   // content/de/en/feedback-past-flight: accept=image/png, image/jpeg, image/jpg, application/pdf;
   // max-files=5; max-size=3700000; not-allowed=#$%^*()[]
@@ -256,6 +303,7 @@ const FILE_RULES = {
   'discover-compensation-baggage': DISCOVER_CONTACT_FILES,
   'discover-other-concerns': DISCOVER_CONTACT_FILES,
   ...austrianFileRules(),
+  ...brusselsFileRules(),
 };
 
 const HONEYPOT = 'lh_hp';
@@ -590,9 +638,9 @@ async function validateFiles(files, form) {
 
 // the brand sites by their turnsthe.page host label and form id prefix (lh-com: neither)
 const BRAND_TAGS = {
-  discover: 'lh-discover', ita: 'lh-ita', austrian: 'lh-austrian', airdolomiti: 'lh-airdolomiti',
+  discover: 'lh-discover', ita: 'lh-ita', austrian: 'lh-austrian', airdolomiti: 'lh-airdolomiti', brussels: 'lh-brussels',
 };
-const BRAND_ORIGIN = /^https:\/\/[a-z0-9-]+--(lh-discover|lh-ita|lh-austrian|lh-airdolomiti)--/;
+const BRAND_ORIGIN = /^https:\/\/[a-z0-9-]+--(lh-discover|lh-ita|lh-austrian|lh-airdolomiti|lh-brussels)--/;
 
 /** The site of a submission (the subject's tag): its origin's, else its form id's, else lh-com. */
 export function siteTag(origin, form) {

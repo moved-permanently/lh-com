@@ -1109,3 +1109,90 @@ test('Austrian file rules: types, per-file size, count, the 18.5 MB total', asyn
   });
   assert.equal(sent.length, cases.filter((c) => !c[3]).length);
 });
+
+/* ---------- Brussels Airlines (lh-brussels) ---------- */
+
+const BRUSSELS_IDS = ['ask-invoice', 'baggage', 'baggage-allowances-rules', 'cabin-comfort', 'charter',
+  'delays-and-cancellation', 'denied-boarding', 'dsar-start', 'emergency-contact',
+  'fc8552d5-c1e8-4576-8b35-0d588d828b10', 'group-travel-request', 'loyalty-programs', 'other',
+  'personal-injury', 'register-ppb', 'request-for-proposal', 'special-assistance'].map((n) => `brussels-${n}`);
+const BRU = 'https://brussels.turnsthe.page';
+
+test('Brussels: its host and Edge Delivery hosts are allowed origins; look-alikes are not', async () => {
+  const allowed = [BRU, 'https://main--lh-brussels--moved-permanently.aem.page', 'https://main--lh-brussels--moved-permanently.aem.live',
+    'https://branch--lh-brussels--moved-permanently.aem.page'];
+  const refused = ['https://main--lh-brussel--moved-permanently.aem.page', 'https://brussels.turnsthe.page.example.com',
+    'http://brussels.turnsthe.page', 'https://main--lh-brussels--moved-permanently.aem.page.example.com'];
+  const ok = await Promise.all(allowed.map(preflight));
+  ok.forEach((res, i) => {
+    assert.equal(res.status, 204, allowed[i]);
+    assert.equal(res.headers.get('access-control-allow-origin'), allowed[i]);
+  });
+  const no = await Promise.all(refused.map(preflight));
+  no.forEach((res, i) => assert.equal(res.status, 403, refused[i]));
+});
+
+test('Brussels: every form id is accepted from its site, to the default recipient; an unknown id is not', async () => {
+  assert.equal(BRUSSELS_IDS.length, 17);
+  const results = await Promise.all(BRUSSELS_IDS.map((form, i) => post({
+    form, locale: 'be-fr', origin: BRU, ip: `198.51.100.${i + 50}`,
+  })));
+  results.forEach(({ res, body }, i) => {
+    assert.equal(res.status, 200, BRUSSELS_IDS[i]);
+    assert.deepEqual(body, { ok: true }, BRUSSELS_IDS[i]);
+  });
+  assert.equal(sent.length, BRUSSELS_IDS.length);
+  const unknown = await Promise.all(['brussels-unknown', 'brussels', 'baggage-brussels'].map((form, i) => post({
+    form, locale: 'be-en', origin: BRU, ip: `198.51.100.${220 + i}`,
+  })));
+  unknown.forEach(({ res, body }) => {
+    assert.equal(res.status, 400);
+    assert.deepEqual(body, { ok: false, error: 'unknown-form' });
+  });
+});
+
+test('Brussels: titles from the be/en and de/de pages; the subject names lh-brussels (origin, else form id)', async () => {
+  const env = makeEnv({ FORM_CONFIG: JSON.stringify({ default: { to: 'only@example.com' } }) });
+  const cases = [
+    [{ form: 'brussels-charter', locale: 'be-en', origin: BRU }, '[lh-brussels] Rent a plane (be-en)'],
+    [{ form: 'brussels-charter', locale: 'de-de', origin: 'https://main--lh-brussels--moved-permanently.aem.live' }, '[lh-brussels] Ein Flugzeug mieten (de-de)'],
+    [{ form: 'brussels-baggage', locale: 'be-nl', origin: 'https://main--lh-brussels--moved-permanently.aem.page' }, '[lh-brussels] BAGGAGE ISSUES (be-nl)'],
+    [{ form: 'brussels-request-for-proposal', locale: 'be-fr', origin: ORIGIN }, '[lh-brussels] Your enquiry for a Lufthansa Group Meetings & Events cooperation (be-fr)'],
+  ];
+  const results = await Promise.all(cases.map(([opts], i) => post({ ...opts, ip: `203.0.113.${150 + i}` }, env)));
+  results.forEach(({ res }, i) => assert.equal(res.status, 200, cases[i][1]));
+  assert.deepEqual(sent.map((m) => m.subject).sort(), cases.map((c) => c[1]).sort());
+});
+
+test('Brussels file rules: the feedback forms 5 x 2,000,000 PDF or JPEG; the request for proposal also PNG, 5 x 2,048,000; others none', async () => {
+  const be = { origin: BRU, locale: 'be-en' };
+  const pdf = (name, size = 0) => {
+    const bytes = new Uint8Array(Math.max(size, PDF.length));
+    bytes.set(PDF);
+    return ['Attachments', file(bytes, name, 'application/pdf')];
+  };
+  const png = (name = 'a.png') => ['Attachments', file(PNG, name, 'image/png')];
+  const jpg = (name = 'a.jpg') => ['Attachments', file(JPG, name, 'image/jpeg')];
+  const feedback = ['baggage', 'baggage-allowances-rules', 'cabin-comfort', 'delays-and-cancellation', 'denied-boarding',
+    'loyalty-programs', 'other', 'personal-injury', 'special-assistance'].map((n) => `brussels-${n}`);
+  const cases = [
+    ...feedback.map((form) => [form, [pdf('a.pdf', 2000000), jpg()], 200, null]),
+    ['brussels-baggage', [1, 2, 3, 4, 5].map((n) => pdf(`${n}.pdf`, 2000000)), 200, null],
+    ['brussels-baggage', [pdf('a.pdf', 2000001)], 413, 'file-too-large'],
+    ['brussels-baggage', [png()], 400, 'invalid-file-type'],
+    ['brussels-other', [1, 2, 3, 4, 5, 6].map((n) => pdf(`${n}.pdf`)), 400, 'too-many-files'],
+    ['brussels-other', [pdf('a#1.pdf')], 400, 'invalid-file-name'],
+    ['brussels-request-for-proposal', [png(), jpg(), pdf('a.pdf', 2048000)], 200, null],
+    ['brussels-request-for-proposal', [pdf('a.pdf', 2048001)], 413, 'file-too-large'],
+    ['brussels-charter', [pdf('a.pdf')], 400, 'files-not-allowed'],
+    ['brussels-ask-invoice', [pdf('a.pdf')], 400, 'files-not-allowed'],
+  ];
+  const results = await Promise.all(cases.map(([form, files], i) => post({
+    ...be, form, files, ip: `192.0.2.${100 + i}`,
+  })));
+  results.forEach(({ res, body }, i) => {
+    const [form, , status, error] = cases[i];
+    assert.equal(res.status, status, `${form} ${i}`);
+    assert.deepEqual(body, error ? { ok: false, error } : { ok: true }, `${form} ${i}`);
+  });
+});
