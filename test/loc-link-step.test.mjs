@@ -13,7 +13,7 @@ const ROWS = scopeRows();
 const TRANSLATED = fs.readFileSync(new URL('./fixtures/loc/translated-flight-search.html', import.meta.url), 'utf8');
 const ROLLED_OUT = `<body><header></header><main><div><h1>Baggage</h1>
 <p><a href="/de/en/freigepaeck-regeln">Free baggage</a>, <a href="/de/en/baggage?x=1#top">baggage</a>, <a href="/gb/en/carry-on-baggage">carry-on</a></p>
-<p><a href="https://main--lh-com--moved-permanently.aem.live/de/en/flight-search">search</a> <a href="https://lhcom.bbird.live/de/en/homepage">home</a> <a href="/de/en/no-such-page">gone</a></p>
+<p><a href="https://main--lh-com--moved-permanently.aem.live/de/en/flight-search">search</a> <a href="https://lufthansa.turnsthe.page/de/en/homepage">home</a> <a href="/de/en/no-such-page">gone</a></p>
 <p><a href="https://www.lufthansa.com/de/en/flights">www</a> <a href="#types">anchor</a> <a href="mailto:x@example.com">mail</a></p>
 <div class="metadata"><div><div>Parent</div><div><a href="/de/en/homepage">/de/en/homepage</a></div></div></div></div></main><footer></footer></body>`;
 
@@ -33,6 +33,8 @@ test('rollout de/en -> gb/en: source-locale links become gb/en ones, site hosts 
   const r = (h) => localizeHref(h, map, (p) => unmapped.push(p));
   assert.equal(r('/de/en/baggage?x=1#top'), '/gb/en/baggage?x=1#top');
   assert.equal(r('https://main--lh-com--moved-permanently.aem.page/de/en/flight-search'), '/gb/en/flight-search');
+  assert.equal(r('https://lufthansa.turnsthe.page/de/en/baggage'), '/gb/en/baggage', 'the main demo host');
+  assert.equal(r('https://lhcom.bbird.live/de/en/baggage'), null, 'the retired host is no site host any more');
   assert.equal(r('/gb/en/carry-on-baggage'), null, 'already the target locale');
   assert.equal(r('https://www.lufthansa.com/de/en/flights'), null, 'other hosts stay');
   assert.equal(r('/de/en/no-such-page'), null);

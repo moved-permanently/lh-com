@@ -35,7 +35,7 @@ test('German links: the site hosts become root-relative, /de/en/<x> the German p
   const r = (h) => germanHref(h, MAP, (p) => unmapped.push(p));
   assert.equal(r('https://main--lh-com--moved-permanently.aem.page/de/en/flight-search'), '/de/de/flugsuche');
   assert.equal(r('https://main--lh-com--moved-permanently.aem.live/de/en/baggage?x=1#top'), '/de/de/gepaeck?x=1#top');
-  assert.equal(r('https://lhcom.bbird.live/de/en/homepage'), '/de/de/homepage');
+  assert.equal(r('https://lufthansa.turnsthe.page/de/en/homepage'), '/de/de/homepage');
   assert.equal(r('/de/en/flight-search.html'), '/de/de/flugsuche');
   assert.equal(r('/de/en'), '/de/de');
   assert.equal(r('https://main--lh-com--moved-permanently.aem.page/content/dam/lh/x.pdf'), '/content/dam/lh/x.pdf');
