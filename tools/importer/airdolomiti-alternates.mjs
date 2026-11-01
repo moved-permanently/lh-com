@@ -49,7 +49,8 @@ export function alternateRows(sourceUrl, site) {
     // the counterpart names this page for this page's language
     const back = hreflangOf(site.headOf(own[l]))[lang];
     if (!back || sourceKey(back) !== key) return null;
-    return [`Alternate ${l}`, eds];
+    // the English and German homepages answer at /en/ and /de/ (without the slash: 404)
+    return [`Alternate ${l}`, /^\/(en|de)$/.test(eds) ? `${eds}/` : eds];
   }).filter(Boolean);
 }
 

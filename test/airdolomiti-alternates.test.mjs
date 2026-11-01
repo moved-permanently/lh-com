@@ -44,7 +44,9 @@ test('hreflang links: the language and the href (bare hosts as https URLs)', () 
 test('the other languages\' counterparts as our paths, each linking back', () => {
   assert.deepEqual(alternateRows('https://www.airdolomiti.it/orario-voli', site), [['Alternate en', '/en/flight-timetables'], ['Alternate de', '/de/flugplan']]);
   assert.deepEqual(alternateRows('https://www.airdolomiti.eu/flight-timetables', site), [['Alternate it', '/orario-voli'], ['Alternate de', '/de/flugplan']]);
-  assert.deepEqual(alternateRows('https://www.airdolomiti.it', site), [['Alternate en', '/en']], 'the German homepage names no counterpart back: no German row');
+  // the English and German homepages answer at /en/ and /de/ (/en and /de: 404)
+  assert.deepEqual(alternateRows('https://www.airdolomiti.it', site), [['Alternate en', '/en/']], 'the German homepage names no counterpart back: no German row');
+  assert.deepEqual(alternateRows('https://www.airdolomiti.eu', site), [['Alternate it', '/']]);
 });
 
 test('no rows: a one-way link, a counterpart out of scope or not imported, no hreflang', () => {
