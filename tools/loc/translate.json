@@ -56,7 +56,7 @@
       },
       {
         "key": "source.fragment.hostnames",
-        "value": "main--lh-com--moved-permanently.aem.live, lhcom.bbird.live",
+        "value": "main--lh-com--moved-permanently.aem.live, lufthansa.turnsthe.page",
         "description": "Absolute fragment links on these hosts are added to a project with their page (relative /fragments/ links are not: add them yourself)."
       }
     ]

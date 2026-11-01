@@ -5,7 +5,8 @@
  *
  * - The site's own hosts (the app makes every root-relative link an absolute aem.page link on
  *   translation, dnt/dnt.js resetHrefs 46-52; a merge makes them aem.live, regional-diff.js
- *   normalizeLinks 103-117; authors paste lhcom.bbird.live links) become root-relative.
+ *   normalizeLinks 103-117; authors paste links from the demo host lufthansa.turnsthe.page) become
+ *   root-relative.
  * - A link into the source locale (/<from>/<x>) becomes the target locale's page of <x>: the row
  *   of tools/migration-scope/pages.csv that holds /<from>/<x> names it (own German slugs
  *   included). A link without a counterpart in the target locale stays as it is and is listed.
@@ -13,7 +14,7 @@
  */
 import { parseHTML } from 'linkedom';
 
-export const SITE_HOSTS = /^https:\/\/(main--lh-com--moved-permanently\.aem\.(page|live)|lhcom\.bbird\.live|lhedge\.bbird\.live)(?=\/|$)/;
+export const SITE_HOSTS = /^https:\/\/(main--lh-com--moved-permanently\.aem\.(page|live)|lufthansa\.turnsthe\.page|lhedge\.bbird\.live)(?=\/|$)/;
 export const COLUMN = {
   'de/en': 'de_en', 'de/de': 'de_de', 'at/de': 'at_de', 'gb/en': 'gb_en',
 };
