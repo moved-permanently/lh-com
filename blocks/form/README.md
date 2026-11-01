@@ -62,7 +62,11 @@ Row types:
   DD/MM/YYYY in English, DD.MM.YYYY in German) stands in the field, separators are typed for you,
   only complete real dates are valid. In `Form` a native date input.
 - `textarea`: Rules `rows=7`.
-- `select`: Options; Label = the trigger label shown in the empty field.
+- `select`: Options; Label = the trigger label shown in the empty field. Rules `toggles=key1, key2`:
+  the sub-section whose key is the chosen option's value shows, the other listed ones hide (cleared,
+  not validated, not sent); with no option chosen all of them are hidden (Lufthansa Cargo's
+  "Reason for contact": one hidden `fieldset` per reason, keyed by the reason's option value, each
+  with its "Subreason" select).
 - `region`: the state / region select of a country (live `forms-country`): Rules `country=` the Name
   of the country select; hidden until a country with regions is chosen, then filled from
   `catalogs/countries` (AU, BR, CA, CN, JP, US); Placeholder = its empty option.
@@ -101,7 +105,14 @@ Row types:
 Rules keys: `pattern=` (whole value, live `pattern` / `data-cmp-pattern`), `maxlength=`,
 `minlength=`, `inputmode=` (numeric, tel, email), `uppercase` (booking codes), `mask=`, `rows=`,
 `min=`, `max=`, `value=`, `step=`, `toggles=`, `hidden`, `country=`, `accept=`, `max-files=`,
-`max-size=`, `not-allowed=`, `max-total=`, and for repeatable sections `repeat=`, `add=`, `remove=`, `remaining=`.
+`max-size=`, `not-allowed=`, `max-total=`, `prefill=`, and for repeatable sections `repeat=`, `add=`, `remove=`, `remaining=`.
+
+`prefill=<param>` (text, email, tel, textarea, select): at load the field takes the value of that
+query parameter of the page address: a select the option whose value or text it is (no match:
+nothing chosen), other fields the text (up to their `maxlength`). A field in a hidden sub-section
+is filled when its section shows at load (a select's toggles), else not at all. Lufthansa Cargo's
+links `/en/contact-us?reason=General%20request&subreason=Feedback%20%2F%20Complaints` (www's
+`/support-and-contact?reason=…&subreason=…`) open the form with reason and subreason chosen.
 
 Repeatable section (live `forms-repeatable-section`, e.g. Flight 1–4, Person 1–7): one `fieldset`
 row with Rules `repeat=4` (copies in total), `add=add another flight` (link text),

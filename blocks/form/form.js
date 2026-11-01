@@ -813,7 +813,7 @@ function resetControls(root) {
       const before = control.value;
       const preset = [...control.options].find((o) => o.defaultSelected);
       if (preset) preset.selected = true;
-      else control.selectedIndex = 0;
+      else if (control.options.length) control.options[0].selected = true;
       if (before !== control.value) control.dispatchEvent(new Event('change', { bubbles: true }));
     } else {
       control.value = control.defaultValue;
@@ -930,14 +930,31 @@ function renderRepeat(row, template, ctx, renderRow) {
   return host;
 }
 
-/** Checkbox rows with "toggles": checking shows (or, for sections shown at load, hides) them. */
+/**
+ * Rows with "toggles". Checkboxes: checking shows (or, for sections shown at load, hides) them.
+ * Selects: the section named as the chosen option's value shows, the others listed hide.
+ */
 function setupToggles(form, ctx) {
+  const sections = (name) => form.querySelectorAll(`fieldset[data-section="${CSS.escape(name)}"]`);
   ctx.toggles.forEach(({ wrapper, targets }) => {
+    const select = wrapper.querySelector('select');
+    if (select) {
+      const choose = () => {
+        const chosen = [...select.options].find((o) => o.selected);
+        const value = chosen ? chosen.value : '';
+        targets.forEach((name) => {
+          sections(name).forEach((section) => setSectionVisible(section, name === value));
+        });
+      };
+      select.addEventListener('change', choose);
+      choose();
+      return;
+    }
     const boxes = [...wrapper.querySelectorAll('input[type="checkbox"]')];
     const apply = () => {
       const on = boxes.some((b) => b.checked);
       targets.forEach((name) => {
-        form.querySelectorAll(`fieldset[data-section="${CSS.escape(name)}"]`).forEach((section) => {
+        sections(name).forEach((section) => {
           const startsHidden = section.dataset.initialHidden === 'true';
           setSectionVisible(section, startsHidden ? on : !on);
         });
@@ -945,6 +962,33 @@ function setupToggles(form, ctx) {
     };
     boxes.forEach((b) => b.addEventListener('change', apply));
     apply();
+  });
+}
+
+/**
+ * Rows with "prefill=<param>": the field's value from the page address's query (www's
+ * /support-and-contact?reason=...&subreason=...): a select the option whose value or text it is,
+ * other fields the text (up to their maxlength). Fields in a hidden section wait until it shows
+ * (called before and after the toggles); each field once, at load.
+ */
+function setupPrefill(form, ctx) {
+  if (!ctx.prefills.length) return;
+  const params = new URLSearchParams(window.location.search || '');
+  ctx.prefills = ctx.prefills.filter(({ wrapper, key }) => {
+    if (wrapper.closest('fieldset[hidden]')) return true;
+    const wanted = (params.get(key) || '').trim();
+    const control = wrapper.querySelector('select, textarea, input');
+    if (!wanted || !control) return false;
+    if (control.tagName === 'SELECT') {
+      const option = [...control.options]
+        .find((o) => o.value && (o.value === wanted || o.textContent.trim() === wanted));
+      if (!option) return false;
+      option.selected = true;
+    } else if (!['checkbox', 'radio', 'file', 'hidden'].includes(control.type)) {
+      control.value = control.maxLength > 0 ? wanted.slice(0, control.maxLength) : wanted;
+    } else return false;
+    control.dispatchEvent(new Event('change', { bubbles: true }));
+    return false;
   });
 }
 
@@ -1488,6 +1532,7 @@ export default function decorate(block) {
     fields: 0,
     entries: new Map(),
     toggles: [],
+    prefills: [],
     regions: [],
     submitted: false,
     sending: false,
@@ -1538,9 +1583,10 @@ export default function decorate(block) {
       return;
     }
     into.append(field);
-    if (row.type === 'checkbox' && row.rules.toggles) {
+    if ((row.type === 'checkbox' || row.type === 'select') && row.rules.toggles) {
       ctx.toggles.push({ wrapper: field, targets: row.rules.toggles });
     }
+    if (row.rules.prefill) ctx.prefills.push({ wrapper: field, key: row.rules.prefill });
     if (row.type === 'region') ctx.regions.push({ wrapper: field, row: named });
   };
 
@@ -1654,7 +1700,9 @@ export default function decorate(block) {
   }
 
   block.replaceChildren(form);
+  setupPrefill(form, ctx);
   setupToggles(form, ctx);
+  setupPrefill(form, ctx);
   setupRegions(form, block, ctx);
   moduleHosts.forEach(([host, name]) => setupFeedbackModules(form, host, name, ctx));
 }
