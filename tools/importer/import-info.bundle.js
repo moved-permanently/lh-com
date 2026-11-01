@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-info.js
-  var tmp_bundle_info_720670_exports = {};
-  __export(tmp_bundle_info_720670_exports, {
-    default: () => tmp_bundle_info_720670_default
+  var import_info_exports = {};
+  __export(import_info_exports, {
+    default: () => import_info_default
   });
 
   // tools/importer/parsers/search-results.js
@@ -2361,14 +2361,19 @@ var CustomImportScript = (() => {
     p = p.replace(/^\/content\/lh\/markets(?=\/)/, "").replace(/\.html$/, "");
     return p.replace(/^(\/[a-z]{2}\/[a-z]{2})\/book-and-manage\/group-travel$/, "$1/group-travel");
   }
+  var YOUNG_ADULTS = { "gb/en": "GB", "gb/de": "GB", "de/de": "GB" };
   function pickerRows({ lang, groupBookingsUrl } = {}) {
     const t = TEXTS[lang] || TEXTS.en;
-    const rows = [["Passenger picker", "yes"]];
+    const market = String(groupBookingsUrl || "").match(/\/markets\/([a-z]{2})\/([a-z]{2})\//);
+    const young = market && YOUNG_ADULTS[`${market[1]}/${market[2]}`];
+    const rows = [["Passenger picker", "yes"], ["Adults hint", ""]];
+    if (young) rows.push(["Young adults", young]);
     Object.entries(t).forEach(([k, v]) => {
       if (k !== "group") rows.push([k, v]);
     });
     const href = groupTravelPath(groupBookingsUrl);
     if (href) rows.push(["Group booking", { href, text: t.group }]);
+    rows.push(["Fare preference", "yes"]);
     return rows;
   }
 
@@ -2412,6 +2417,10 @@ var CustomImportScript = (() => {
       const market = String(props.groupBookingsUrl || "").match(/\/markets\/[a-z]{2}\/([a-z]{2})\//);
       const lang = market && market[1] || clean2(document.documentElement.getAttribute("lang")).slice(0, 2);
       pickerRows({ lang, groupBookingsUrl: props.groupBookingsUrl }).forEach(([key, value]) => {
+        if (value === "") {
+          cells.push([key, ""]);
+          return;
+        }
         if (typeof value === "string") {
           addRow(key, value);
           return;
@@ -5716,7 +5725,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_info_720670_default = {
+  var import_info_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -5746,5 +5755,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_info_720670_exports);
+  return __toCommonJS(import_info_exports);
 })();

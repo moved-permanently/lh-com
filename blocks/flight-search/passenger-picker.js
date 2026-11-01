@@ -2,8 +2,11 @@
  * The flight search's passenger and cabin picker (the block's `Passenger picker` row): the
  * "Economy, 1 Traveller" line opens adults, children (2 to 11), infants (under 2) and the cabin,
  * as www.airdolomiti.it's and the live flight manager's travel details. Rules: 1 to 9 adults, at
- * most 9 adults and children together, at most one infant per adult.
+ * most 9 adults and children together, at most one infant per adult. lufthansa.com's options
+ * (young adults, the fare preference, hints left out) come from picker-options.js.
  */
+
+import { FARE_PREFERENCES } from './picker-options.js';
 
 /** Built-in texts, per language ({CABIN}, {COUNT}, {TYPE} are filled). */
 export const PASSENGER_LABELS = {
@@ -242,16 +245,27 @@ export const PICKER_CABINS = [['E', 'economy label'], ['P', 'premium economy lab
 
 export const MAX_TRAVELLERS = 9;
 
-/** The counts kept within the rules: 1-9 adults, adults + children <= 9, infants <= adults. */
-export function clampPassengers({ adults = 1, children = 0, infants = 0 } = {}) {
+/**
+ * The counts kept within the rules: 1-9 adults, adults + children <= 9, infants <= adults. Young
+ * adults (when given) take seats too: adults + young adults + children <= 9.
+ */
+export function clampPassengers({
+  adults = 1, youngAdults, children = 0, infants = 0,
+} = {}) {
   const n = (v, min, max) => {
     const x = Number.isFinite(Number(v)) ? Math.floor(Number(v)) : min;
     return Math.min(max, Math.max(min, x));
   };
   const a = n(adults, 1, MAX_TRAVELLERS);
-  const c = n(children, 0, MAX_TRAVELLERS - a);
-  const i = n(infants, 0, a);
-  return { adults: a, children: c, infants: i };
+  if (youngAdults === undefined) {
+    const c = n(children, 0, MAX_TRAVELLERS - a);
+    return { adults: a, children: c, infants: n(infants, 0, a) };
+  }
+  const y = n(youngAdults, 0, MAX_TRAVELLERS - a);
+  const c = n(children, 0, MAX_TRAVELLERS - a - y);
+  return {
+    adults: a, youngAdults: y, children: c, infants: n(infants, 0, a),
+  };
 }
 
 const fill = (template, values) => Object.entries(values)
@@ -259,7 +273,7 @@ const fill = (template, values) => Object.entries(values)
 
 /** The line's text: "Economy, 2 Travellers". */
 export function passengerSummary(labels, cabin, counts) {
-  const count = counts.adults + counts.children + counts.infants;
+  const count = counts.adults + (counts.youngAdults || 0) + counts.children + counts.infants;
   const name = labels[(PICKER_CABINS.find(([code]) => code === cabin) || PICKER_CABINS[0])[1]];
   return fill(labels[count === 1 ? 'traveller summary' : 'travellers summary'], { CABIN: name, COUNT: count });
 }
@@ -277,14 +291,19 @@ function el(tag, className, text) {
  * @param {Object} options.labels PASSENGER_LABELS of the language (authored rows applied)
  * @param {string[]} options.cabins the cabin codes to offer (E, P, B, F)
  * @param {{adults: number, cabin: string}} options.value the block's starting values
+ * @param {Object} [options.groupBooking] the Group booking row's link ({href, text})
+ * @param {boolean} [options.youngAdults] the young adults' stepper (picker-options.js)
+ * @param {boolean} [options.farePreference] the fare preference choices (picker-options.js)
  * @returns {{element: Element, getValue: () => Object}}
  */
 export function createPassengerPicker({
-  labels, cabins, value, groupBooking = null,
+  labels, cabins, value, groupBooking = null, youngAdults = false, farePreference = false,
 }) {
   const offered = PICKER_CABINS.filter(([code]) => cabins.includes(code));
   const list = offered.length ? offered : PICKER_CABINS.slice(0, 1);
-  let counts = clampPassengers({ adults: value.adults });
+  const start = youngAdults ? { adults: value.adults, youngAdults: 0 } : { adults: value.adults };
+  let counts = clampPassengers(start);
+  let fare = 'DEFAULT';
   let cabin = list.some(([code]) => code === value.cabin) ? value.cabin : list[0][0];
   const uid = Math.random().toString(36).slice(2, 8);
   const wrap = el('div', 'flight-search-passengers');
@@ -299,30 +318,41 @@ export function createPassengerPicker({
   panel.hidden = true;
 
   const rows = {};
+  // young adults take a seat the children keep (adults, as before, take the children's)
+  const seatsFull = () => counts.adults + counts.youngAdults + counts.children >= MAX_TRAVELLERS;
   const update = () => {
-    opener.textContent = passengerSummary(labels, cabin, counts);
+    const summary = passengerSummary(labels, cabin, counts);
+    opener.textContent = fare === 'DEFAULT' ? summary : `${summary}, ${labels['fare applied']}`;
     Object.entries(rows).forEach(([type, row]) => {
       row.output.textContent = String(counts[type]);
       const more = clampPassengers({ ...counts, [type]: counts[type] + 1 });
       const fewer = clampPassengers({ ...counts, [type]: counts[type] - 1 });
-      row.more.disabled = more[type] === counts[type];
+      row.more.disabled = more[type] === counts[type] || (type === 'youngAdults' && seatsFull());
       row.fewer.disabled = fewer[type] === counts[type];
     });
   };
-  ['adults', 'children', 'infants'].forEach((type) => {
-    const row = el('div', `flight-search-passenger flight-search-passenger-${type}`);
+  ['adults', ...(youngAdults ? ['youngAdults'] : []), 'children', 'infants'].forEach((type) => {
+    // youngAdults: class young-adults, labels 'young adults label' and 'young adults hint'
+    const name = type.replace(/[A-Z]/g, (c) => ` ${c.toLowerCase()}`);
+    const row = el('div', `flight-search-passenger flight-search-passenger-${name.replace(' ', '-')}`);
     const text = el('div', 'flight-search-passenger-text');
-    text.append(el('span', 'flight-search-passenger-label', labels[`${type} label`]), el('span', 'flight-search-passenger-hint', labels[`${type} hint`]));
+    text.append(el('span', 'flight-search-passenger-label', labels[`${name} label`]));
+    // a hint left out (''): none
+    if (labels[`${name} hint`] !== '') text.append(el('span', 'flight-search-passenger-hint', labels[`${name} hint`]));
     const fewer = el('button', 'flight-search-passenger-fewer', '−');
     fewer.type = 'button';
-    fewer.setAttribute('aria-label', fill(labels['fewer label'], { TYPE: labels[`${type} label`] }));
+    fewer.setAttribute('aria-label', fill(labels['fewer label'], { TYPE: labels[`${name} label`] }));
     const output = el('output', 'flight-search-passenger-count');
     output.setAttribute('aria-live', 'polite');
     const more = el('button', 'flight-search-passenger-more', '+');
     more.type = 'button';
-    more.setAttribute('aria-label', fill(labels['more label'], { TYPE: labels[`${type} label`] }));
+    more.setAttribute('aria-label', fill(labels['more label'], { TYPE: labels[`${name} label`] }));
     fewer.addEventListener('click', () => { counts = clampPassengers({ ...counts, [type]: counts[type] - 1 }); update(); });
-    more.addEventListener('click', () => { counts = clampPassengers({ ...counts, [type]: counts[type] + 1 }); update(); });
+    more.addEventListener('click', () => {
+      if (more.disabled) return;
+      counts = clampPassengers({ ...counts, [type]: counts[type] + 1 });
+      update();
+    });
     row.append(text, fewer, output, more);
     rows[type] = { output, more, fewer };
     panel.append(row);
@@ -348,6 +378,26 @@ export function createPassengerPicker({
     group.href = groupBooking.href;
     panel.append(group);
   }
+  // the Fare preference row: www's "Alternative fare selection", best price chosen
+  if (farePreference) {
+    const details = el('details', 'flight-search-fare');
+    details.append(el('summary', 'flight-search-fare-label', labels['fare label']));
+    const fieldset = el('fieldset', 'flight-search-fare-choices');
+    fieldset.append(el('legend', 'flight-search-fare-question', labels['fare question']));
+    FARE_PREFERENCES.forEach(([code, key]) => {
+      const choice = el('label', 'flight-search-fare-choice');
+      const radio = el('input', 'flight-search-fare-radio');
+      radio.type = 'radio';
+      radio.name = `flight-search-fare-${uid}`;
+      radio.value = code;
+      radio.checked = code === fare;
+      radio.addEventListener('change', () => { if (radio.checked) { fare = code; update(); } });
+      choice.append(radio, labels[key]);
+      fieldset.append(choice);
+    });
+    details.append(fieldset);
+    panel.append(details);
+  }
   const done = el('button', 'flight-search-passengers-done button secondary', labels['done label']);
   done.type = 'button';
   panel.append(done);
@@ -367,5 +417,8 @@ export function createPassengerPicker({
   document.addEventListener('click', (e) => { if (!wrap.contains(e.target)) close(false); });
   wrap.append(opener, panel);
   update();
-  return { element: wrap, getValue: () => ({ ...counts, cabin }) };
+  return {
+    element: wrap,
+    getValue: () => ({ ...counts, cabin, ...(farePreference ? { farePreference: fare } : {}) }),
+  };
 }

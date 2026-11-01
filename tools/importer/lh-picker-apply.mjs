@@ -2,9 +2,10 @@
 /**
  * Adds lufthansa.com's passengers and cabin picker rows (parsers/flight-search-picker.js, the
  * rows the flight-search parser writes on later imports) to documents imported before: in each
- * document only its flight-search block with a flights tab gets them, after its Traveller label
- * row, in the document's own cell format (cells with or without <p>); rows it has already are
- * kept as they are (run twice, changed once). The rest of the document stays byte for byte.
+ * document only its flight-search block with a flights tab gets them, each after the picker row
+ * before it (else after its Traveller label row), in the document's own cell format (cells with
+ * or without <p>; an empty value: an empty cell); rows it has already are kept as they are (run
+ * twice, changed once). The rest of the document stays byte for byte.
  * The group booking link: the root's group travel page (www's groupBookingsUrl on every root,
  * /content/lh/markets/<cc>/<ll>/book-and-manage/group-travel).
  *
@@ -45,7 +46,6 @@ export function applyPicker(html, docPath) {
   const block = html.slice(at.start, at.end);
   const rowRe = /<div><div>(?:<p>)?([^<]+?)(?:<\/p>)?<\/div><div>([\s\S]*?)<\/div><\/div>/g;
   const rows = [...block.matchAll(rowRe)];
-  const keys = rows.map((r) => r[1].trim());
   const tabs = rows.find((r) => r[1].trim() === 'Tabs');
   const tabText = tabs ? tabs[2].replace(/<[^>]+>/g, '').trim() : '';
   // a search with a flights tab (no Tabs row: the flight search only)
@@ -54,15 +54,31 @@ export function applyPicker(html, docPath) {
   const cell = (v) => (p ? `<p>${v}</p>` : v);
   const [, cc, ll] = docPath.match(/^\/([a-z]{2})\/([a-z]{2})(\/|$)/) || [];
   if (!cc) return html;
-  const add = pickerRows({ lang: ll, groupBookingsUrl: `/content/lh/markets/${cc}/${ll}/book-and-manage/group-travel` })
-    .filter(([k]) => !keys.includes(k))
-    .map(([k, v]) => `<div><div>${cell(esc(k))}</div><div>${cell(typeof v === 'string' ? esc(v) : `<a href="${esc(v.href)}">${esc(v.text)}</a>`)}</div></div>`)
-    .join('');
-  if (!add) return html;
-  // after the traveller line, else after the trip types, else at the block's end
-  const anchor = rows.find((r) => r[1].trim() === 'Traveller label') || rows.find((r) => r[1].trim() === 'Trip types');
-  const insertAt = anchor ? at.start + anchor.index + anchor[0].length : at.end - '</div>'.length;
-  return `${html.slice(0, insertAt)}${add}${html.slice(insertAt)}`;
+  const all = pickerRows({ lang: ll, groupBookingsUrl: `/content/lh/markets/${cc}/${ll}/book-and-manage/group-travel` });
+  // an empty value: an empty cell (a hint left out)
+  const rowHtml = ([k, v]) => {
+    let value = '';
+    if (typeof v !== 'string') value = cell(`<a href="${esc(v.href)}">${esc(v.text)}</a>`);
+    else if (v) value = cell(esc(v));
+    return `<div><div>${cell(esc(k))}</div><div>${value}</div></div>`;
+  };
+  // each missing row after the picker row before it in the document (a document with 238's rows
+  // gets 239's at their places), else after the traveller line, else after the trip types, else
+  // at the block's end
+  const byKey = Object.fromEntries(rows.map((r) => [r[1].trim(), r]));
+  const fallback = byKey['Traveller label'] || byKey['Trip types'];
+  const inserts = {};
+  let previous = null;
+  all.forEach((r) => {
+    const [k] = r;
+    if (byKey[k]) { previous = byKey[k]; return; }
+    const anchor = previous || fallback;
+    const insertAt = anchor ? at.start + anchor.index + anchor[0].length : at.end - '</div>'.length;
+    inserts[insertAt] = (inserts[insertAt] || '') + rowHtml(r);
+  });
+  const points = Object.keys(inserts).map(Number).sort((a, b) => b - a);
+  if (!points.length) return html;
+  return points.reduce((out, i) => `${out.slice(0, i)}${inserts[i]}${out.slice(i)}`, html);
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {

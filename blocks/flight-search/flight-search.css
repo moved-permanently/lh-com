@@ -1133,6 +1133,51 @@ main > .section > .flight-search-wrapper.flight-search-band {
   mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 16'%3E%3Cpath d='M0 8h15.5M9.5 1.5 16 8l-6.5 6.5' fill='none' stroke='%23000' stroke-width='2.4'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 
+/* the Fare preference row (picker-options.js): www's "Alternative fare selection" (a
+   maui-headline over a radio group; folded here, the panel is one column) */
+.flight-search .flight-search-fare {
+  padding: 12px 0 0;
+  border-top: 1px solid var(--lh-grey-3);
+}
+
+.flight-search .flight-search-fare-label {
+  cursor: pointer;
+  font-size: var(--body-font-size-s);
+  font-weight: 700;
+}
+
+.flight-search .flight-search-fare-choices {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+  margin: 12px 0 0;
+  padding: 0;
+  border: 0;
+}
+
+.flight-search .flight-search-fare-question {
+  margin: 0 0 2px;
+  padding: 0;
+  color: var(--lh-grey-7);
+  font-size: var(--body-font-size-xs);
+}
+
+.flight-search .flight-search-fare-choice {
+  display: grid;
+  grid-template-columns: 18px 1fr;
+  align-items: start;
+  gap: 8px;
+  cursor: pointer;
+  font-size: var(--body-font-size-xs);
+}
+
+.flight-search .flight-search-fare-radio {
+  width: 18px;
+  height: 18px;
+  margin: 1px 0 0;
+  accent-color: var(--link-color);
+}
+
 /* the hotel tab's post-mode failure (scripts/handoff.js), under the button */
 .flight-search .flight-search-hotel-handoff-error {
   flex-basis: 100%;

@@ -45,14 +45,29 @@ export function groupTravelPath(url) {
 }
 
 /**
- * The picker's rows: [key, value]; the group booking value is { href, text }.
- * @param {{lang: string, groupBookingsUrl?: string}} o lang en or de (others: English)
+ * The roots whose documents show www's Young Adults (12-15 years), by the countries the row names:
+ * www shows them on gb/en and gb/de (checked 2026-11-01; not on de/en, de/de, at/de, at/en, ie/en,
+ * ie/de, nl/en), and gb/de is served from the de/de documents.
+ */
+const YOUNG_ADULTS = { 'gb/en': 'GB', 'gb/de': 'GB', 'de/de': 'GB' };
+
+/**
+ * The picker's rows: [key, value]; the group booking value is { href, text }. Brief 239: no
+ * adults hint (an empty Adults hint row: www shows none), Young adults where www shows them,
+ * www's Alternative fare selection (Fare preference) on every root; the block's texts for them
+ * are www's (blocks/flight-search/picker-options.js).
+ * @param {{lang: string, groupBookingsUrl?: string}} o lang en or de (others: English); the
+ *   root is groupBookingsUrl's market (/content/lh/markets/<cc>/<ll>/)
  */
 export function pickerRows({ lang, groupBookingsUrl } = {}) {
   const t = TEXTS[lang] || TEXTS.en;
-  const rows = [['Passenger picker', 'yes']];
+  const market = String(groupBookingsUrl || '').match(/\/markets\/([a-z]{2})\/([a-z]{2})\//);
+  const young = market && YOUNG_ADULTS[`${market[1]}/${market[2]}`];
+  const rows = [['Passenger picker', 'yes'], ['Adults hint', '']];
+  if (young) rows.push(['Young adults', young]);
   Object.entries(t).forEach(([k, v]) => { if (k !== 'group') rows.push([k, v]); });
   const href = groupTravelPath(groupBookingsUrl);
   if (href) rows.push(['Group booking', { href, text: t.group }]);
+  rows.push(['Fare preference', 'yes']);
   return rows;
 }

@@ -16,6 +16,11 @@ Hotel tab (Booking.com, /de/en/hotel-offers, the hotel tab on /de/en/cash-and-mi
 
 Passengers: `Passenger picker | yes` turns the traveller line into a picker (adults, children 2-11, infants under 2, the cabins of `Cabins | E, P, B, F`; default all four); `Airports | VRN, MUC` limits the origin and destination suggestions to those codes. `Group booking | [Booking from 10 persons](/it/en/book-and-prepare/group-travel-and-charter)` (a link) puts a link under the passengers in the picker, as ITA's and lufthansa.com's ("Booking from 10 persons" to the group travel page); it needs the Passenger picker row (without the picker there is no panel to hold it).
 
+lufthansa.com's picker options (`picker-options.js`, each needs the Passenger picker row; none without its row):
+- `Young adults | GB`: www's "Young Adults (12-15 years)" stepper after the adults, on the roots of the listed countries (`yes`: everywhere); they take seats like the adults and children (nine in all) and are handed off as `B15` after the adults. Texts: `Young adults label`, `Young adults hint`.
+- `Fare preference | yes`: www's "Alternative fare selection" in the panel: best price (chosen, sends nothing), `COUPON` (change the sequence of the flights) or `HIGH` (flexibility, highest booking class), handed off as `farePreference` after the cabin; the traveller line then adds "Your fare selection is active.". Texts: `Fare label`, `Fare question`, `Fare default label`, `Fare coupon label`, `Fare high label`, `Fare applied`.
+- A hint row left empty, or with its key cell only (`Adults hint`, `Young adults hint`, `Children hint`, `Infants hint`): no hint under that passenger type (www shows none under the adults).
+
 Hotel tab hand-off (scripts/handoff.js, brief 207): on the airline's own www host the search posts `/service/secured/api/core/booking/hotel` with X-Portal, X-Portal-Site, X-Portal-Language and JSON `{"cityName","checkInDate","checkOutDate"}` (the dates as midnight UTC, `2026-12-01T00:00:00.000Z`, as www) and opens the answer's target as www does (a form with a field per value, GET when `methodGet`, a new window when `newWindow`); a failure shows `Hotel handoff error` under the button. Every other host opens the live page in a new tab as before; `?handoff=post` on turnsthe.page and aem.page for a test.
 
 ## Supported variations

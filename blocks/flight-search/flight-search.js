@@ -13,6 +13,7 @@ import {
   postHandoffOn, isOwnWww, hotelTarget, openTarget,
 } from '../../scripts/handoff.js';
 import { createPassengerPicker, PASSENGER_LABELS, PICKER_CABINS } from './passenger-picker.js';
+import { readPickerOptions, applyPickerChoices } from './picker-options.js';
 
 /* ---------------------------------------------------------------------------------------------
  * Data contract (see scripts/lh-api.js for the live request and response shapes). The live
@@ -754,11 +755,15 @@ export default function decorate(block) {
   }
   let passengers;
   if (settings.passengerPicker) {
+    // lufthansa.com's Young adults and Fare preference rows, hints left out (picker-options.js)
+    const options = readPickerOptions(block, config, locale);
     passengers = createPassengerPicker({
-      labels: resolveLabels(PASSENGER_LABELS, config, locale.lang),
+      labels: { ...resolveLabels(PASSENGER_LABELS, config, locale.lang), ...options.labels },
       cabins: settings.cabins,
       value: { adults: settings.adults, cabin: settings.cabin },
       groupBooking: settings.groupBooking,
+      youngAdults: options.youngAdults,
+      farePreference: options.farePreference,
     });
     optionsRow.append(passengers.element);
   } else if (settings.travellerLabel) {
@@ -908,7 +913,7 @@ export default function decorate(block) {
       adults: settings.adults,
       cabin: settings.cabin,
       nonstop: Boolean(nonstop && nonstop.checked),
-      // the picker's adults, children, infants and cabin
+      // the picker's adults, young adults, children, infants, cabin and fare preference
       ...(passengers ? passengers.getValue() : {}),
     };
     let message = '';
@@ -942,7 +947,7 @@ export default function decorate(block) {
       .then((consentGroups) => {
         const brand = brandEntry();
         const handoff = buildShopHandoff({ ...query, consentGroups }, locale, settings.shop, brand);
-        submitShopHandoff(handoff);
+        submitShopHandoff(applyPickerChoices(handoff, query));
       });
   });
 

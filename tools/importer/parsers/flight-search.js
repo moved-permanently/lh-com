@@ -86,6 +86,8 @@ export default function parse(element, { document }) {
     const market = String(props.groupBookingsUrl || '').match(/\/markets\/[a-z]{2}\/([a-z]{2})\//);
     const lang = (market && market[1]) || clean(document.documentElement.getAttribute('lang')).slice(0, 2);
     pickerRows({ lang, groupBookingsUrl: props.groupBookingsUrl }).forEach(([key, value]) => {
+      // an empty value (Adults hint): the row with an empty cell, the hint left out
+      if (value === '') { cells.push([key, '']); return; }
       if (typeof value === 'string') { addRow(key, value); return; }
       const a = document.createElement('a');
       a.href = value.href;

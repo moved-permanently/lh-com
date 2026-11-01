@@ -1,0 +1,32 @@
+{
+  "gb-en-young-adult": {
+    "page": "https://www.lufthansa.com/gb/en/homepage",
+    "capturedAt": "2026-11-01T18:53:03.718Z",
+    "action": "https://shop.lufthansa.com/booking/availability?lang=en-GB&portalCountry=GB",
+    "fields": {
+      "lang": "en-GB",
+      "portalCountry": "GB",
+      "search": "{\"itineraries\":[{\"departureDateTime\":\"2026-11-21\",\"originLocationCode\":\"LHR\",\"destinationLocationCode\":\"NYC\"}],\"travelers\":[{\"discounts\":[],\"passengerTypeCode\":\"ADT\"},{\"discounts\":[],\"passengerTypeCode\":\"B15\"}],\"cabin\":\"ECONOMY\",\"portalFacts\":{\"performance\":false,\"targeting\":false,\"functional\":false}}"
+    }
+  },
+  "gb-en-young-adult-child-coupon": {
+    "page": "https://www.lufthansa.com/gb/en/homepage",
+    "capturedAt": "2026-11-01T18:56:29.782Z",
+    "action": "https://shop.lufthansa.com/booking/availability?lang=en-GB&portalCountry=GB",
+    "fields": {
+      "lang": "en-GB",
+      "portalCountry": "GB",
+      "search": "{\"itineraries\":[{\"departureDateTime\":\"2026-11-21\",\"originLocationCode\":\"LHR\",\"destinationLocationCode\":\"NYC\"}],\"travelers\":[{\"discounts\":[],\"passengerTypeCode\":\"ADT\"},{\"discounts\":[],\"passengerTypeCode\":\"B15\"},{\"discounts\":[],\"passengerTypeCode\":\"CHD\"}],\"cabin\":\"ECONOMY\",\"farePreference\":\"COUPON\",\"portalFacts\":{\"performance\":false,\"targeting\":false,\"functional\":false}}"
+    }
+  },
+  "de-de-high": {
+    "page": "https://www.lufthansa.com/de/de/homepage",
+    "capturedAt": "2026-11-01T19:04:03.160Z",
+    "action": "https://shop.lufthansa.com/booking/availability?lang=de-DE&portalCountry=DE",
+    "fields": {
+      "lang": "de-DE",
+      "portalCountry": "DE",
+      "search": "{\"itineraries\":[{\"departureDateTime\":\"2026-11-21\",\"originLocationCode\":\"FRA\",\"destinationLocationCode\":\"NYC\"}],\"travelers\":[{\"discounts\":[],\"passengerTypeCode\":\"ADT\"}],\"cabin\":\"ECONOMY\",\"farePreference\":\"HIGH\",\"portalFacts\":{\"performance\":false,\"targeting\":false,\"functional\":false}}"
+    }
+  }
+}
