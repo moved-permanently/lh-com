@@ -22,6 +22,7 @@ import { applyChannel } from './channel.js';
 import { loadBrandTheme } from './brand.js';
 import { isDemoHost } from './demo.js';
 import prioritizeSecondSectionImage from './lcp-image.js';
+import decorateHeadingIcons from './heading-icon.js';
 
 if (window.trustedTypes && window.trustedTypes.createPolicy) {
   const innerTT = window.trustedTypes.createPolicy('tt-inner', {
@@ -301,6 +302,8 @@ export function decorateMain(main) {
   decorateSectionMetadata(main);
   dropOtherMarkets(main);
   decorateSections(main);
+  // section style heading-icon: a small picture inline before the next H2
+  decorateHeadingIcons(main);
   decorateBlocks(main);
   decorateButtons(main);
 }

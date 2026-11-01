@@ -1132,3 +1132,16 @@ main .section.hidden-heading .default-content-wrapper h1 {
   white-space: nowrap;
   border: 0;
 }
+
+/* section style heading-icon (scripts/heading-icon.js): the small picture inline before the H2 */
+main .section.heading-icon h2 .heading-icon-image {
+  display: inline-block;
+  margin-inline-end: 0.4em;
+  vertical-align: -0.2em;
+}
+
+main .section.heading-icon h2 .heading-icon-image img {
+  display: block;
+  width: auto;
+  height: 1.25em;
+}
