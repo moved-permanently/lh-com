@@ -250,9 +250,11 @@
   border-top: 1px solid var(--footer-divider-color, var(--footer-text));
 }
 
+/* --footer-legal-direction: a brand theme's legal links one per line below 768 px (Brussels:
+   column, as www); unset: a wrapping row */
 .footer .footer-legal {
   display: flex;
-  flex-wrap: wrap;
+  flex-flow: var(--footer-legal-direction, row) wrap;
   grid-area: legal;
   gap: 0 20px;
   margin: 0;
@@ -536,6 +538,7 @@
   }
 
   .footer .footer-legal {
+    flex-direction: row;
     padding-left: 12px;
   }
 
