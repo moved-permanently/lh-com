@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 /* The login and profile apps on the brand sites (widgets/lh-app): a page with `brand` metadata
-   (austrian, discover, ita) gets its brand's entry of lh-app.json `brands` over Lufthansa's
+   (austrian, brussels, discover, ita) gets its brand's entry of lh-app.json `brands` over Lufthansa's
    config: its Travel ID, login client and redirect URI (the gate's link equals the brand's www
    gate, captured 2026-11-01), its design system, portal and component versions. Only on the
    brand's own www domain (and its subdomains) does the page ask the brand's Travel ID whether
@@ -78,6 +78,7 @@ const WWW_GATE = {
   austrian: 'https://api.travelid.austrian.com/oauth2/authorize?client_id=dFquxAQT637lrYALS9UKBMieeibyGaVQ&response_type=code&redirect_uri=https://www.austrian.com&scope=AUTHENTICATED%20IDENTIFIED%20urn:milesandmore:tech:background:v1:active%20urn:milesandmore:oauth:multifactorauthentication&state=/at/en/profile/travel-cockpit&principal_type=EMAIL&reduced_state=NONE&view=login&prompt=login&country=AT&lang=en',
   discover: 'https://api.travelid.discover-airlines.com/oauth2/authorize?client_id=NqkvGG8MB6OeCkb66a02D0ORHOFhQWJ4&response_type=code&redirect_uri=https://www.discover-airlines.com&scope=AUTHENTICATED%20IDENTIFIED%20urn:milesandmore:tech:background:v1:active%20urn:milesandmore:oauth:multifactorauthentication&state=/de/en/profile/travel-cockpit&principal_type=EMAIL&reduced_state=NONE&view=login&prompt=login&country=DE&lang=en',
   ita: 'https://api.travelid.ita-airways.com/oauth2/authorize?client_id=14eKnYUwomcAimITtmaa2GqBM5mhO8kAS3GjTyE6RDsFaWrI&response_type=code&redirect_uri=https://www.ita-airways.com&scope=AUTHENTICATED%20IDENTIFIED%20urn:milesandmore:tech:background:v1:active%20urn:milesandmore:oauth:multifactorauthentication&state=/it/en/profile/travel-cockpit&principal_type=EMAIL&reduced_state=NONE&view=login&prompt=login&country=IT&lang=en',
+  brussels: 'https://api.travelid.brusselsairlines.com/oauth2/authorize?client_id=FuBoxl39ln5fAfvIAX18xIi2BI4d6rny&response_type=code&redirect_uri=https://www.brusselsairlines.com&scope=AUTHENTICATED%20IDENTIFIED%20urn:milesandmore:tech:background:v1:active%20urn:milesandmore:oauth:multifactorauthentication&state=/be/en/profile/travel-cockpit&principal_type=EMAIL&reduced_state=NONE&view=login&prompt=login&country=BE&lang=en',
 };
 const BRAND = {
   austrian: {
@@ -88,6 +89,9 @@ const BRAND = {
   },
   ita: {
     domain: 'ita-airways.com', www: 'www.ita-airways.com', root: 'it/en', country: 'it', travelId: 'https://api.travelid.ita-airways.com', portal: 'ITA', line: 'b', theme: 'maui-theme-az', css: 'ita.css',
+  },
+  brussels: {
+    domain: 'brusselsairlines.com', www: 'www.brusselsairlines.com', root: 'be/en', country: 'be', travelId: 'https://api.travelid.brusselsairlines.com', portal: 'SN', line: 'g', theme: 'maui-theme-sn', css: 'brussels.css',
   },
 };
 
@@ -343,4 +347,51 @@ test('ITA\'s best price alert: the button in the common bundle\'s words, as www 
   assert.equal(await button('nl/nl'), 'Inloggen en registreren');
   assert.equal(await button('it/it'), 'Login e registrazione');
   assert.equal(await button('it/en'), 'Login & Registration');
+});
+
+test('Brussels: the gate in www\'s words in its six languages, a market root\'s login link, its component versions', async () => {
+  // www.brusselsairlines.com's label bundles common/sn/<lang> and farealertprofileoverview/sn/<lang> and its rendered
+  // travel cockpits, bookinglists and logins of 2026-11-01 (es has no farealert bundle there)
+  const words = (lang) => Object.values(siteConfig(LH_APP, 'brussels').labels[lang]);
+  assert.deepEqual(words('en'), ['Please log in to view this page', 'Log in now', 'Loading …', 'Best price alerts', 'Please login or register to overview and manage Best price alerts.', 'Login & Registration']);
+  assert.deepEqual(words('fr'), ['Please log in to view this page', 'Log in now', 'Chargement en cours…', 'Best price alerts', 'Veuillez vous identifier ou vous inscrire pour consulter et gérer les Best price alerts.', 'Connexion & Inscription']);
+  assert.deepEqual(words('nl'), ['Log in om deze pagina te bekijken', 'Nu inloggen', 'Aan het laden …', 'Best price alerts', 'Log in of registreer je voor een overzicht en beheer van Best price alerts.', 'Login & registratie']);
+  assert.deepEqual(words('de'), ['Bitte loggen Sie sich ein.', 'Jetzt einloggen', 'Wird geladen\u00a0...', 'Best price alerts', 'Bitte melden Sie sich an oder registrieren Sie sich, um eine Übersicht zu erhalten und den Best price alerts zu verwalten.', 'Login und Registrierung']);
+  assert.deepEqual(words('it'), ['Please log in to view this page', 'Log in now', 'Caricamento in corso…', 'Best price alerts', 'Accedi o registrati per visualizzare e gestire le Best price alerts.', 'Login e registrazione']);
+  assert.deepEqual(words('es'), ['Conéctate para ver la página', 'Conéctate ahora', 'Cargando…']);
+  const nl = await run({
+    brand: 'brussels', host: 'brussels.turnsthe.page', path: '/be/nl/profile/my-account/wallet', app: 'payment-methods',
+  });
+  assert.equal(nl.widget.querySelector('.lh-app-gate-text').textContent, 'Log in om deze pagina te bekijken');
+  assert.equal(nl.widget.querySelector('.lh-app-gate a').textContent, 'Nu inloggen');
+  assert.equal(nl.widget.querySelector('.lh-app-gate a').href, WWW_GATE.brussels.replace('state=/be/en/profile/travel-cockpit', 'state=/be/nl/profile/my-account/wallet').replace('lang=en', 'lang=nl'));
+  // a market root (lu/fr from be/fr's document): www writes the market's path and country
+  const lu = await run({
+    brand: 'brussels', host: 'brussels.turnsthe.page', path: '/lu/fr/profile/travel-cockpit', app: 'login-gate',
+  });
+  assert.equal(lu.widget.querySelector('.lh-app-gate a').href, WWW_GATE.brussels.replace('state=/be/en/', 'state=/lu/fr/').replace('country=BE&lang=en', 'country=LU&lang=fr'));
+  const es = await run({
+    brand: 'brussels', host: 'main--lh-brussels--moved-permanently.aem.live', path: '/es/es/profile/bookinglist', app: 'login-gate',
+  });
+  assert.equal(es.widget.querySelector('.lh-app-gate-text').textContent, 'Conéctate para ver la página');
+  const travelId = [...nl.fetched, ...lu.fetched, ...es.fetched, ...nl.loaded, ...lu.loaded, ...es.loaded].filter((u) => /travelid/i.test(u));
+  assert.deepEqual(travelId, [], 'logged out off www, without a request');
+  // on www.brusselsairlines.com: Brussels' own loginstatus, never Lufthansa's
+  const www = await run({
+    brand: 'brussels', host: 'www.brusselsairlines.com', path: '/be/en/profile/my-account', app: 'login-gate',
+  });
+  assert.deepEqual(www.requests.filter((q) => /travelid/.test(q.url)).map((q) => q.url), ['https://api.travelid.brusselsairlines.com/v1/user/me/loginstatus']);
+  // the scripts www's travel cockpit and bookinglist load (2026-11-01)
+  const { resolveApp } = await import('../widgets/lh-app/lh-app.js');
+  const sn = siteConfig(LH_APP, 'brussels');
+  const beFr = { key: 'be/fr', country: 'be', lang: 'fr' };
+  assert.equal(resolveApp(sn, 'hero-banner', beFr).script, '/digitalhangar/customer-cockpit/hero-banner-react/hero-banner-react-2.0.2.js');
+  assert.equal(resolveApp(sn, 'my-trips', beFr).script, '/digitalhangar/travel-insights/my-trips/my-trips-0.17.10.js');
+  assert.equal(resolveApp(sn, 'web-self-service', beFr).script, '/digitalhangar/customer-cockpit/web-self-service/web-self-service-2.0.3.js');
+  assert.equal(resolveApp(sn, 'airport-services', beFr).script, '/digitalhangar/redemption-program/airport-services/airport-services-1.0.22.js');
+  assert.equal(resolveApp(sn, 'upgrade-alert', beFr).script, '/digitalhangar/redemption-program/upgrade-alert/upgrade-alert-3.0.18.js');
+  assert.equal(resolveApp(sn, 'past-trips', beFr).script, '/digitalhangar/travel-insights/past-trips/past-trips-1.4.7.js');
+  assert.equal(resolveApp(sn, 'my-trips', beFr).attributes['data-api-gateway'], 'https://api.travelid.brusselsairlines.com');
+  assert.equal(resolveApp(sn, 'sdui-profile', beFr).attributes['data-translation-labels'], 'https://www.brusselsairlines.com/service/api/labels/common');
+  assert.equal(resolveApp(sn, 'sdui-statement', beFr).attributes.options, '{"customerHeaders":{"X-Language-Country":"fr-be"}}');
 });
