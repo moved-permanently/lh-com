@@ -141,19 +141,23 @@ export async function loadFinderContext(locale) {
 }
 
 /**
- * Link of one recommended destination: the destination page (authored, else the live site's
- * page under this locale) with OriginCode, tripType, DestinationCode and, for round trips,
- * TripDuration.
+ * Link of one recommended destination: the destination page (authored, else on a brand site
+ * without one of its own the airline's www page, scripts/brands.js destinationPath, else
+ * lufthansa.com's page under this locale) with OriginCode, tripType, DestinationCode and, for
+ * round trips, TripDuration.
  * @param {string} [base] authored destination page URL
+ * @param {Object} [brand] the page's brand entry (scripts/locale.js brandEntry)
  */
 export function buildDestinationLink({
   origin, destination, tripType, tripDuration,
-}, locale, base) {
+}, locale, base, brand = null) {
   const params = new URLSearchParams({
     OriginCode: origin, tripType, DestinationCode: destination,
   });
   if (tripType === 'RETURN') params.set('TripDuration', tripDuration);
-  const page = base || `${locale.base}/book-and-manage/destination`;
+  const own = brand && brand.destinationPath && brand.www
+    ? `https://${brand.www}${locale.base}${brand.destinationPath}` : '';
+  const page = base || own || `${locale.base}/book-and-manage/destination`;
   return `${page}${page.includes('?') ? '&' : '?'}${params}`;
 }
 
@@ -339,7 +343,7 @@ function renderDestination(dest, state, labels, locale, context) {
     destination: dest.code,
     tripType: state.tripType,
     tripDuration: state.tripDuration,
-  }, locale);
+  }, locale, '', brandEntry());
   const imageWrap = el('div', 'destination-finder-image');
   if (dest.image) {
     const img = el('img');
@@ -1449,7 +1453,7 @@ function renderTile(offer, highlighted, view) {
     destination: offer.code,
     tripType: view.tripType,
     tripDuration: view.tripDuration,
-  }, view.locale, view.destinationPage);
+  }, view.locale, view.destinationPage, brandEntry());
 
   const imageWrap = el('div', 'destination-finder-tile-image');
   const src = destinationImageUrl(offer.code, 720);

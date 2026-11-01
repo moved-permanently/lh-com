@@ -34,6 +34,10 @@
 export const BRANDS = {
   discover: {
     name: 'Discover Airlines',
+    // destinationPath: the www page of a destination under a root, where the destination finder
+    // links (the site has none of its own); www's offers grid baseRedirectUrl:
+    // /de/de/book/destination
+    destinationPath: '/book/destination',
     oneTrust: '01994cb4-6d4f-7911-abbc-7117e4e6c370',
     messageCenter: 'four_y',
     destinationImages: '/content/dam/four_y/images/offers/destination',
@@ -48,6 +52,10 @@ export const BRANDS = {
   },
   ita: {
     name: 'ITA Airways',
+    // destinationPath: the www page of a destination under a root, where the destination finder
+    // links (the site has none of its own); www: /it/en/book-and-prepare/destination?...
+    // &tripType=RETURN
+    destinationPath: '/book-and-prepare/destination',
     oneTrust: '01994cb4-04ea-768d-baf8-f6ed09be97dd',
     messageCenter: 'ita',
     destinationImages: '/content/dam/ita/images/offers/destination',
@@ -67,6 +75,10 @@ export const BRANDS = {
   // the fare widgets' imageBaseUrl on www's homepage (2026-10-31)
   austrian: {
     name: 'Austrian Airlines',
+    // destinationPath: the www page of a destination under a root, where the destination finder
+    // links (the site has none of its own); www's offers grid baseRedirectUrl:
+    // /at/en/book/destination
+    destinationPath: '/book/destination',
     oneTrust: '01994cb3-6317-72f4-8589-1be98309c258',
     messageCenter: 'os',
     destinationImages: '/content/dam/austrian/global/images/offers/destination',
