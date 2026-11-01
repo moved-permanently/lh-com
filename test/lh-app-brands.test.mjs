@@ -296,16 +296,15 @@ test('best price alert (logged out): headline, text and the login link, in the b
 });
 
 test('the brands\' other languages: the gate and the best price alert in www\'s words', async () => {
-  // www's label bundles and rendered pages of 2026-11-01; the best price alert's button is the common bundle's
-  // loginAndRegistration there (ITA fr, de, nl: not the farealert bundle's); br/pt and jp/ja have no best price alert
+  // www's label bundles and rendered pages of 2026-11-01; br/pt and jp/ja have no best price alert
   const words = (brand, lang) => Object.values(siteConfig(LH_APP, brand).labels[lang]);
   assert.deepEqual(words('discover', 'fr'), ['Veuillez vous connecter pour consulter cette page', 'Se connecter maintenant', 'Chargement en cours…', 'Best price alerts', 'Veuillez vous identifier ou vous inscrire pour consulter et gérer les Best price alerts.', 'Connexion & Inscription']);
-  assert.deepEqual(words('ita', 'fr'), ['Please log in to view this page', 'Log in now', 'Chargement en cours…', 'Best price alerts', 'Veuillez vous identifier ou vous inscrire pour consulter et gérer les Best price alerts.', 'Login & Registration']);
-  assert.deepEqual(words('ita', 'es'), ['Please log in to view this page', 'Log in now', 'Cargando…', 'Your Best price alerts', 'Please login or register to overview and manage Best price alerts.', 'Login & Registration']);
+  assert.deepEqual(words('ita', 'fr'), ['Please log in to view this page', 'Log in now', 'Chargement en cours…', 'Best price alerts', 'Veuillez vous identifier ou vous inscrire pour consulter et gérer les Best price alerts.', 'Connexion & Inscription', 'Login & Registration']);
+  assert.deepEqual(words('ita', 'es'), ['Please log in to view this page', 'Log in now', 'Cargando…', 'Your Best price alerts', 'Please login or register to overview and manage Best price alerts.', 'Login & Registration', 'Login & Registration']);
   assert.deepEqual(words('ita', 'pt'), ['Please log in to view this page', 'Log in now', 'A carregar…']);
-  assert.deepEqual(words('ita', 'de'), ['Bitte loggen Sie sich ein.', 'Jetzt einloggen', 'Wird geladen...', 'Best price alerts', 'Bitte melden Sie sich an oder registrieren Sie sich, um eine Übersicht zu erhalten und den Best price alerts zu verwalten.', 'Login & Registration']);
-  assert.deepEqual(words('ita', 'nl'), ['Log in om deze pagina te bekijken', 'Log nu in', 'Aan het laden …', 'Best price alerts', 'Log in of registreer je voor een overzicht en beheer van Best price alerts.', 'Inloggen en registreren']);
-  assert.deepEqual(words('ita', 'el'), ['Please log in to view this page', 'Log in now', 'Φορτώνει…', 'Your Best price alerts', 'Please login or register to overview and manage Best price alerts.', 'Login & Registration']);
+  assert.deepEqual(words('ita', 'de'), ['Bitte loggen Sie sich ein.', 'Jetzt einloggen', 'Wird geladen...', 'Best price alerts', 'Bitte melden Sie sich an oder registrieren Sie sich, um eine Übersicht zu erhalten und den Best price alerts zu verwalten.', 'Login und Registrierung', 'Login & Registration']);
+  assert.deepEqual(words('ita', 'nl'), ['Log in om deze pagina te bekijken', 'Log nu in', 'Aan het laden …', 'Best price alerts', 'Log in of registreer je voor een overzicht en beheer van Best price alerts.', 'Login & registratie', 'Inloggen en registreren']);
+  assert.deepEqual(words('ita', 'el'), ['Please log in to view this page', 'Log in now', 'Φορτώνει…', 'Your Best price alerts', 'Please login or register to overview and manage Best price alerts.', 'Login & Registration', 'Login & Registration']);
   assert.deepEqual(words('ita', 'ja'), ['Please log in to view this page', 'Log in now', '読み込み中です・・・']);
   const gate = await run({
     brand: 'ita', host: 'ita.turnsthe.page', path: '/nl/nl/profile/my-account/wallet', app: 'payment-methods',
@@ -321,4 +320,27 @@ test('the brands\' other languages: the gate and the best price alert in www\'s 
   assert.equal(prompt.querySelector('a.button.secondary').textContent, 'Connexion & Inscription');
   const travelId = [...gate.fetched, ...bpa.fetched].filter((u) => /travelid/i.test(u));
   assert.deepEqual(travelId, []);
+});
+
+test('ITA\'s best price alert: the button in the common bundle\'s words, as www shows it', async () => {
+  // www's dcep-fare-alert-profile-overview labels its button with common.misc.buttons.loginAndRegistration, which
+  // differs from the farealert bundle's loginAndRegistration in fr, de and nl; the farealert bundle (live or
+  // recorded) has no common keys, so the brand's texts answer for it
+  const ita = siteConfig(LH_APP, 'ita');
+  assert.equal(ita.apps['best-price-alert'].view, 'prompt');
+  assert.equal(ita.apps['best-price-alert'].prompt.bundle, 'farealertprofileoverview');
+  assert.equal(ita.apps['best-price-alert'].prompt.button, 'common.misc.buttons.loginAndRegistration');
+  assert.equal(siteConfig(LH_APP, '').apps['best-price-alert'].prompt.button, 'farealertprofileoverview.farealertprofileoverview.default.loginAndRegistration', 'Lufthansa as before');
+  assert.equal(siteConfig(LH_APP, 'discover').apps['best-price-alert'].prompt.button, 'farealertprofileoverview.farealertprofileoverview.default.loginAndRegistration', 'Discover as before');
+  const button = async (root) => {
+    const r = await run({
+      brand: 'ita', host: 'ita.turnsthe.page', path: `/${root}/profile/best-price-alert`, app: 'best-price-alert',
+    });
+    return r.widget.querySelector('.lh-app-prompt a.button.secondary').textContent;
+  };
+  assert.equal(await button('fr/fr'), 'Login & Registration');
+  assert.equal(await button('de/de'), 'Login & Registration');
+  assert.equal(await button('nl/nl'), 'Inloggen en registreren');
+  assert.equal(await button('it/it'), 'Login e registrazione');
+  assert.equal(await button('it/en'), 'Login & Registration');
 });
