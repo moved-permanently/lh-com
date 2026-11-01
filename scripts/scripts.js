@@ -17,7 +17,9 @@ import {
 } from './aem.js';
 import { brandEntry, getLocale, rootRedirectPath } from './locale.js';
 import { marketAllows } from './market-rules.js';
-import { initConsent, isAuthoringContext, martechWanted } from './consent.js';
+import {
+  initConsent, isAuthoringContext, martechWanted, hidePrivacySettings,
+} from './consent.js';
 import { applyChannel } from './channel.js';
 import { loadBrandTheme } from './brand.js';
 import { isDemoHost } from './demo.js';
@@ -296,6 +298,9 @@ function decorateTextStyles(main) {
  */
 // eslint-disable-next-line import/prefer-default-export
 export function decorateMain(main) {
+  // no consent tool on the site (a brand without OneTrust: Cargo, Air Dolomiti): no "Change
+  // privacy settings" links, they would open nothing
+  hidePrivacySettings(main);
   decorateIcons(main);
   decorateTextStyles(main);
   buildAutoBlocks(main);

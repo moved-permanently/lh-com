@@ -24,6 +24,8 @@
  * - Tagging is scripts/martech.js's (the tag manager and www's data layer, waiting for a choice
  *   here): off by default, on only for a host in MARTECH_HOSTS below; consented.js stays an
  *   empty hook.
+ * - A site without a consent tool (a brand without a OneTrust id) shows no "Change privacy
+ *   settings" links (#privacy-settings): hidePrivacySettings.
  */
 
 import { loadCSS } from './aem.js';
@@ -283,6 +285,35 @@ function openPreferences() {
       if (window.OneTrust && window.OneTrust.ToggleInfoDisplay) window.OneTrust.ToggleInfoDisplay();
     },
   });
+}
+
+/**
+ * Whether the site runs a consent tool: a brand with a OneTrust id (lh-com: Lufthansa's). Cargo's
+ * own (Usercentrics through Tealium) comes with the martech switch.
+ * @param {Function} [read] metadata reader
+ * @returns {boolean}
+ */
+export function hasConsentTool(read) {
+  return Boolean(oneTrustId(read));
+}
+
+/**
+ * Without a consent tool the "Change privacy settings" links (#privacy-settings) open nothing:
+ * they go (a list item or paragraph holding only the link with it; a link in running text
+ * becomes its text). With one, nothing changes. scripts.js decorateMain: pages, nav, footer and
+ * fragments.
+ * @param {Element} root
+ * @returns {number} the links taken out
+ */
+export function hidePrivacySettings(root) {
+  if (hasConsentTool()) return 0;
+  const links = [...root.querySelectorAll('a[href="#privacy-settings"]')];
+  links.forEach((a) => {
+    const holder = a.closest('li, p');
+    if (holder && holder.textContent.trim() === a.textContent.trim()) holder.remove();
+    else a.replaceWith(document.createTextNode(a.textContent));
+  });
+  return links.length;
 }
 
 /* ------------------------------------------------------------ authoring overlay watch -- */
