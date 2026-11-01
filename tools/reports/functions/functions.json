@@ -1,6 +1,6 @@
 {
   "updated": "2026-11-01",
-  "change": "ITA's security waiting times are live, Brussels Airlines and Air Dolomiti show notices like the other airlines, and the manage booking, hotel and check-in hand-offs are ready for the airlines' own addresses.",
+  "change": "eJournals works on Lufthansa, ITA, Austrian and Brussels Airlines, Brussels Airlines has its chat assistant and its login and profile pages.",
   "legend": {
     "done": {
       "label": "works on our replica",
@@ -35,8 +35,8 @@
     "adbooking": "Air Dolomiti sells through its own booking engine, not Lufthansa's shop. Since 1 November the search form is on the replica's homepages, route pages and booking pages and hands the trip to that engine, as www does; the engine's bot check can show a captcha, as it can on www.",
     "picker": "The picker for adults, children, infants and cabin is in the shared code since 1 November. Each brand's pages still have to switch it on; until then the search sends the travellers and cabin set on the page.",
     "lhbooking": "Lufthansa's manage booking and hotel tabs hand over to two services that run in AEM today. Their replacements answer with test data, and since 1 November the tabs post to them on the airline's own address; on the replica's addresses they keep opening www, so no real booking reaches test data.",
-    "signin": "On Discover, ITA and Austrian, manage booking goes through a deep link to the login and profile pages, which are on the new platform since 1 November; Brussels Airlines' login and profile pages come next. The services behind the deep link answer with test data, and until the airlines' replica addresses route the deep link to them, the replicas link to the airline's current pages.",
-    "lhpages": "Four Lufthansa pages with these functions aren't on the replica yet: check-in deadlines, the compensation claim, the newsletter and eJournals. They come next. The check-in deadline search block is built and live on Austrian and Brussels Airlines. Until then our pages link to www.",
+    "signin": "On Discover, ITA, Austrian and Brussels Airlines, manage booking goes through a deep link to the login and profile pages, which are on the new platform since 1 November. The services behind the deep link answer with test data, and until the airlines' replica addresses route the deep link to them, the replicas link to the airline's current pages.",
+    "lhpages": "Three Lufthansa pages with these functions aren't on the replica yet: check-in deadlines, the compensation claim and the newsletter. They are being imported now, the check-in page with the search block that is live on Austrian and Brussels Airlines. Until then our pages link to www.",
     "travelidapps": "The help center and culinary hub apps are in the shared code and load on our pages, but their data comes from the airline's Travel ID service, which refuses our test addresses. They work once the site runs on the airline's own address, or once Lufthansa allows ours.",
     "adown": "Switching off Air Dolomiti's current website is a goal, so its timetable, manage booking, newsletter and eSIM pages get versions of their own. Its booking service answers our addresses, so timetable and manage booking can work as on www; the newsletter becomes a form on our own forms service.",
     "cargostays": "Cargo's booking, schedules, customer portal, station finder and eServices stay on Cargo's current systems; the new site links to them.",
@@ -46,7 +46,7 @@
     "adchat": "Air Dolomiti's chat assistant is built into the replica, but its switch stays off: the chat vendor sends no chat to our address until Air Dolomiti or the vendor adds a rule for it.",
     "travelid": "Personal content for signed-in customers needs Lufthansa: Travel ID, the group's login, accepts only the airline's own website as the address to return to and as the site allowed to call it. The replicas can't sign anyone in until they run on the airline's address, or Lufthansa allows ours.",
     "sndest": "Brussels Airlines' fare teasers, homepage slider and offers grid load live prices, but their cards open a destination page address the replica doesn't have. Brussels Airlines' own destination page works on the replica, and one brand setting points the cards at it.",
-    "snchat": "Brussels Airlines' chat assistant loads from Brussels Airlines' website, outside AEM, as Austrian's does. The chat button built for Austrian can be switched on for Brussels Airlines once its pages carry the chat settings www uses.",
+    "snchat": "Brussels Airlines' chat assistant loads from Brussels Airlines' website, outside AEM, as Austrian's does. Since 1 November its button shows on the pages that have it on www, in all six languages.",
     "adesim": "Air Dolomiti's eSIM shop (from the vendor Breeze) is built into the replica, but its switch stays off: Breeze answers every call from our address with 403, because the widget's key belongs to Air Dolomiti's site. It works once Air Dolomiti or Breeze allows our address."
   },
   "brands": [
@@ -344,10 +344,10 @@
         },
         "brussels": {
           "status": "wip",
-          "note": "'Manage bookings' leads to www's login page for now; Brussels Airlines' login pages come to the replica as they did for Austrian, ITA and Discover.",
+          "note": "\"Manage bookings\" and \"My flights\" lead to Brussels Airlines' login page, which is on the replica since 1 November on all roots.",
           "page": "/be/en/my-bookings",
           "footnote": "signin",
-          "evidence": "2026-11-01: replica /be/en/nav and /be/en/my-bookings link www /deeplink/cockpit and www /be/en/profile/login; /be/en/my-bookings/retrieve-booking 'Enter booking data' links to itself; /be/en/login and /be/en/profile/my-account 404 on aem.page and aem.live (login and profile shells left out of the import, built outside it)"
+          "evidence": "Brussels app shells 2026-11-01: menus of all 98 roots (job 18-05-11-74cfe277); the my-bookings pages still link www's deep link"
         }
       }
     },
@@ -1157,11 +1157,10 @@
       "about": "Free newspapers and magazines that booked travellers download with their booking code or ticket number.",
       "cells": {
         "lufthansa": {
-          "status": "wip",
-          "note": "The eJournals page that Lufthansa links travellers to isn't on the replica yet; the block on the entertainment page shows the lookup and sends travellers to www to use it.",
-          "footnote": "lhpages",
-          "page": "/de/en/unterhaltung-an-bord",
-          "evidence": "M2 scope addition /de/en/lufthansa-ejournals; M1 2026-11-01: lookup works without login on www"
+          "status": "done",
+          "note": "The eJournals page and the entertainment page have the lookup with live answers from Lufthansa's service, and the entertainment page has www's newsstand.",
+          "page": "/de/en/lufthansa-ejournals",
+          "evidence": "208 (71e28f9, 04ff2fc, 5e4b083) 2026-11-01; browser check with a made-up booking: live answer from the airline's service; 8 lh-com pages published"
         },
         "discover": {
           "status": "none",
@@ -1169,16 +1168,16 @@
           "evidence": "fill check 2026-11-01"
         },
         "ita": {
-          "status": "wip",
-          "note": "The replica shows the eJournals lookup but sends travellers to www's page to use it; the lookup on our own site is planned.",
+          "status": "done",
+          "note": "The lookup on ITA's digital newsstand pages searches with live answers and links to ITA's own Travel ID, as on www.",
           "page": "/it/en/book-and-prepare/travel-information/at-the-airport/digital-newsstand",
-          "evidence": "M1 2026-11-01"
+          "evidence": "208 (71e28f9, 04ff2fc, 5e4b083) 2026-11-01; browser check with a made-up booking: live answer from the airline's service (ita.turnsthe.page)"
         },
         "austrian": {
-          "status": "wip",
-          "note": "The replica shows the eJournals lookup but sends travellers to www's page to use it; the lookup on our own site is planned.",
+          "status": "done",
+          "note": "The lookup on Austrian's entertainment pages searches Austrian's own service and links to Austrian's Travel ID, as on www.",
           "page": "/at/en/unterhaltung-an-bord",
-          "evidence": "M1 2026-11-01"
+          "evidence": "208 (71e28f9, 04ff2fc, 5e4b083) 2026-11-01; browser check with a made-up booking: live answer from the airline's service (austrian.turnsthe.page: Austrian's own not-found text)"
         },
         "cargo": {
           "status": "none",
@@ -1191,10 +1190,10 @@
           "evidence": "fill check 2026-11-01"
         },
         "brussels": {
-          "status": "wip",
-          "note": "The replica shows the eJournals lookup, but it sends travellers to lufthansa.com instead of Brussels Airlines' page; the lookup on our own site is planned.",
+          "status": "done",
+          "note": "The lookup on Brussels Airlines' eJournals pages searches with live answers and links to Brussels Airlines' Travel ID, as on www.",
           "page": "/be/en/extra-services/inflight-services/ejournals",
-          "evidence": "2026-11-01: replica ejournals block form action https://www.lufthansa.com/be/en/extra-services/inflight-services/ejournals#login and login link api.travelid.lufthansa.com (blocks/ejournals uses LIVE_ORIGIN and Lufthansa's Travel ID, not the brand's); www same path has the ejournals component, which stayed on 'Loading...' in the hidden tab and in the capture; held brief 208 names Lufthansa, ITA, Austrian (add Brussels)"
+          "evidence": "208 (71e28f9, 04ff2fc, 5e4b083) 2026-11-01; browser check with a made-up booking: live answer from the airline's service (brussels.turnsthe.page)"
         }
       }
     },
@@ -1382,11 +1381,11 @@
           "evidence": "M1 2026-11-01: Engagent scripts load, no widget for our host (rules per page); decision 2026-11-01: embeds that need an outside change stay off"
         },
         "brussels": {
-          "status": "wip",
+          "status": "done",
           "footnote": "snchat",
-          "note": "The chat button is built in and knows every page's chat entry from www; its switch stays off until a check on brussels.turnsthe.page.",
+          "note": "The chat button opens Brussels Airlines' chat assistant on the pages that show it on www, in each page's language.",
           "page": "/be/en/my-bookings/rebooking-options",
-          "evidence": "2026-11-01: www Cognigy chat button (webchat_init.js from www.brusselsairlines.com/digitalassistant/support) on 128 of 255 be/en snapshots, live on homepage and online-check-in-options; replica keeps www webchat.html links (rebooking-options, problems-with-your-baggage, ...) but no button; brands.js brussels has no chat-button embed, no /config/flags.json on lh-brussels"
+          "evidence": "2026-11-01: lh-brussels /config/flags chat-button on (checked on preview: the assistant's window opens; no chat started), published; brussels.turnsthe.page be/fr loads it in French"
         }
       }
     },
@@ -1578,8 +1577,8 @@
         },
         "brussels": {
           "status": "elsewhere",
-          "note": "Login goes to Brussels Airlines' Travel ID, which stays; the login and profile pages for visitors who aren't signed in aren't on the replica yet.",
-          "evidence": "2026-11-01: replica header Login -> api.travelid.brusselsairlines.com/oauth2 (as www); /be/en/login and /be/en/profile/* 404 on the replica"
+          "note": "Login goes to Brussels Airlines' Travel ID, which stays; the login and profile pages for visitors who aren't signed in are on the replica since 1 November.",
+          "evidence": "Brussels app shells 2026-11-01 (lh-com b8253346, 19a5cd63; jobs 17-46-17-1ff03596, 18-03-02-61f61019; 104 pages 200 on brussels.turnsthe.page)"
         }
       }
     },
