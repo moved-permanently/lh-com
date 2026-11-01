@@ -17,8 +17,10 @@
  * Lufthansa's look). Unknown values are ignored. A brand without a oneTrust id gets no consent
  * banner (and nothing that needs consent runs on its pages). messageCenter: the brand's Message
  * Center tenant on www (its messages' tenant in the site's own /message-center/index.json and its
- * row of /message-center/config/cti-pages.json; scripts/message-center.js siteTenant); a brand
- * without one shows no messages, lh-com (no key) Lufthansa's ('lh'). destinationImages: the
+ * row of /message-center/config/cti-pages.json; scripts/message-center.js siteTenant), for Cargo
+ * and Air Dolomiti, no tenants of www's Message Center, their brand key (their documents come
+ * from their own sites); a brand without one shows no messages, lh-com (no key) Lufthansa's
+ * ('lh'). destinationImages: the
  * folder of the destination images of the brand's fare widgets on www (its imageBaseUrl; the
  * site's own copies under that path); Lufthansa's without one. www: the brand's own www host (its
  * links open like lufthansa.com's on lh-com: isOwnWwwHost; its pages replace www.lufthansa.com's
@@ -175,11 +177,12 @@ export const BRANDS = {
     },
   },
   // Lufthansa Cargo (lh-cargo): Lufthansa's look; www.lufthansa-cargo.com shows no cookie banner;
-  // no Message Center tenant (nor Air Dolomiti's): their blocks show nothing
+  // its notifications (www's own CMS, switched off) move to the site's Message Center, tenant cargo
   cargo: {
     name: 'Lufthansa Cargo',
     theme: false,
     www: 'www.lufthansa-cargo.com',
+    messageCenter: 'cargo',
     embeds: {
       // the newsletter form (Dynamics 365 Customer Insights) as www's /en/ci/newsletter embeds it
       // (2026-11-01): Microsoft's form loader; the form's ids are the block's rows
@@ -197,6 +200,9 @@ export const BRANDS = {
   airdolomiti: {
     name: 'Air Dolomiti',
     www: 'www.airdolomiti.it',
+    // its service notices (www's navbar alert, its own CMS, switched off) move to the site's
+    // Message Center, tenant airdolomiti
+    messageCenter: 'airdolomiti',
     airline: 'EN',
     // booking: its own Amadeus engine, not shop.lufthansa.com (scripts/shop-handoff.js): a POST
     // form as www.airdolomiti.it's widget posts it (captured 2026-10-31 on .it, .eu and .de)

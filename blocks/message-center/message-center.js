@@ -4,9 +4,8 @@
  * from the Message Center index (scripts/message-center.js). Each item has the id
  * message-center-item-<id> and opens when the URL hash is #<id> (the flash teaser links there).
  */
-import { getLocale } from '../../scripts/locale.js';
 import {
-  loadIndex, selectMessages, readTypes, ICONS,
+  messageLocale, loadIndex, selectMessages, readTypes, ICONS,
 } from '../../scripts/message-center.js';
 
 const DEFAULT_TYPES = ['irreg', 'tech-outage'];
@@ -51,7 +50,8 @@ function openFromHash(block) {
 }
 
 export default async function decorate(block) {
-  const locale = getLocale();
+  // lh-com and the sites with roots: getLocale(); the sites without: the page's language
+  const locale = messageLocale();
   const types = readTypes(block, DEFAULT_TYPES);
   block.textContent = '';
   const rows = await loadIndex();

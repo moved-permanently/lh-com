@@ -59,11 +59,12 @@ test('loadBrandTheme: Cargo marks the body and loads no theme; a missing theme f
   }
 });
 
-test('brand: the Message Center tenants (www\'s): ita, four_y; Cargo and Air Dolomiti none', () => {
+test('brand: the Message Center tenants: www\'s ita, four_y; Cargo and Air Dolomiti their own', () => {
   assert.equal(BRANDS.ita.messageCenter, 'ita');
   assert.equal(BRANDS.discover.messageCenter, 'four_y');
-  assert.equal(BRANDS.cargo.messageCenter, undefined);
-  assert.equal(BRANDS.airdolomiti.messageCenter, undefined);
+  assert.equal(BRANDS.cargo.messageCenter, 'cargo');
+  assert.equal(BRANDS.airdolomiti.messageCenter, 'airdolomiti');
+  assert.equal(BRANDS.brussels.messageCenter, undefined);
   // where the Austrian session adds its key: the comment names its tenant
   assert.match(fs.readFileSync(new URL('../scripts/brands.js', import.meta.url), 'utf8'), /messageCenter: 'os'/);
 });

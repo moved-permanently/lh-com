@@ -3,9 +3,8 @@
  * top of the homepage content (live .dcep-flash-teaser), from the Message Center index
  * (scripts/message-center.js). One message per slide; several rotate every 7 s.
  */
-import { getLocale } from '../../scripts/locale.js';
 import {
-  loadIndex, loadCtiPages, selectMessages, messageHref, readTypes, ICONS, iconOf,
+  messageLocale, loadIndex, loadCtiPages, selectMessages, messageHref, readTypes, ICONS, iconOf,
 } from '../../scripts/message-center.js';
 
 const ROTATION_MS = 7000;
@@ -323,7 +322,8 @@ function strip(messages, labels, ctiRows, locale) {
 }
 
 export default async function decorate(block) {
-  const locale = getLocale();
+  // lh-com and the sites with roots: getLocale(); the sites without: the page's language
+  const locale = messageLocale();
   const types = readTypes(block);
   block.textContent = '';
   const [rows, ctiRows] = await Promise.all([loadIndex(), loadCtiPages()]);

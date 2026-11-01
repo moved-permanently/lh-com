@@ -8,13 +8,17 @@
  * criticality (high/low), tenants, markets, touchpoints (lists; markets [] = all), link, details,
  * from, to (ISO UTC or ""), push, internal-title, lastModified (seconds).
  * The current travel information page per tenant: /message-center/config/cti-pages.json (tenant,
- * webPath with {cc}/{ll}, contentPath).
+ * webPath with {cc}/{ll}, contentPath; optionally language: a row for one language, before the
+ * tenant's row without one).
  * Each site reads its own index and sheet (same origin) and shows its own tenant's messages: the
  * tenant of its brand (scripts/brand.js BRANDS messageCenter), lh-com's 'lh' without a brand.
+ * The sites without <cc>/<ll> roots (Cargo, Air Dolomiti): messageLocale.
  */
 
 import { now as clockNow } from './clock.js';
 import { BRANDS, brandOf } from './brand.js';
+import { getLocale } from './locale.js';
+import { languageOfPath } from './site-languages.js';
 
 /** lh-com's tenant (a site without a brand key, and no page at all). */
 export const TENANT = 'lh';
@@ -33,6 +37,35 @@ export function siteTenant(read) {
   if (!read && typeof document === 'undefined') return TENANT;
   const key = brandOf(read);
   return key ? BRANDS[key].messageCenter || '' : TENANT;
+}
+
+/** A page metadata value (as scripts/brand.js reads it). */
+const metadata = (name) => {
+  if (typeof document === 'undefined' || !document.head) return '';
+  const meta = document.head.querySelector(`meta[name="${name}"], meta[property="${name}"]`);
+  return meta ? meta.content : '';
+};
+
+/**
+ * The locale the Message Center reads a page with: getLocale() as it is for lh-com and the sites
+ * with <cc>/<ll> roots; on a site without roots (Cargo /en/, /de/; Air Dolomiti / Italian, /en/,
+ * /de/) the page's language from its `language` metadata, else its first path segment (the
+ * site's languages, scripts/site-languages.js), and no country: such a site has no markets, so it
+ * shows the messages for all markets.
+ * @param {Object} [options]
+ * @param {Object} [options.locale] getLocale() result
+ * @param {Function} [options.read] metadata reader
+ * @param {string} [options.pathname]
+ * @returns {Object} the locale (country, lang, ...)
+ */
+export function messageLocale({
+  locale = getLocale(), read = metadata, pathname = window.location.pathname,
+} = {}) {
+  if (!locale.siteLanguages) return locale;
+  const authored = String(read('language') || '').trim().toLowerCase();
+  const own = locale.siteLanguages.find((l) => l.lang === authored)
+    || languageOfPath(pathname, locale.siteLanguages);
+  return { ...locale, lang: own ? own.lang : locale.lang, country: '' };
 }
 
 /** Display order: irreg high, tech-outage high, irreg low, tech-outage low, promo high, low. */
@@ -141,7 +174,8 @@ export function selectMessages(rows, {
 
 /**
  * The link of a message: its own link, else the tenant's current travel information page for
- * the page's locale; with #<id> (the message center item of that id opens).
+ * the page's locale (the tenant's row for the page's language, else its row without a language);
+ * with #<id> (the message center item of that id opens).
  * @param {Object} msg parseRow shape
  * @param {Object[]} ctiRows rows of /message-center/config/cti-pages.json
  * @param {Object} locale getLocale() result (country, lang)
@@ -151,8 +185,10 @@ export function selectMessages(rows, {
 export function messageHref(msg, ctiRows, locale, tenant = siteTenant()) {
   let href = msg.link;
   if (!href && tenant) {
-    const row = (ctiRows || [])
-      .find((r) => String(r.tenant || '').trim().toLowerCase() === tenant && r.webPath);
+    const rows = (ctiRows || [])
+      .filter((r) => String(r.tenant || '').trim().toLowerCase() === tenant && r.webPath);
+    const language = (r) => String(r.language || '').trim().toLowerCase();
+    const row = rows.find((r) => language(r) === locale.lang) || rows.find((r) => !language(r));
     if (row) {
       href = String(row.webPath).trim()
         .replace(/\{cc\}/g, locale.country)
