@@ -13,10 +13,17 @@
  *    network error or Cloudflare's block page is retried once after DIRECT_RETRY_MS; only when
  *    the retry fails too is that one route (its path) skipped for the session (BLOCKED_TTL_MS):
  *    one failing call never switches off the other direct routes of the page.
+ *    Price routes (PRICE_ROUTES) differ: www's Cloudflare challenges a share of the CORS
+ *    preflights (403 text/html, cf-mitigated: challenge, reported as "Failed to fetch"), often
+ *    the first ones of a fresh tab, and the next attempt usually passes. A price call is retried
+ *    twice (PRICE_RETRY_MS); when all attempts fail the next render tries again after a short
+ *    backoff (priceBackoffMs: 5 s doubling to 60 s, sessionStorage lh-price-backoff, reset by a
+ *    live answer), never 10 minutes; a timeout is never remembered.
  * 2. lh-proxy: the other routes (lhg-fare-teaser/*, which answers 403 "Invalid CORS request" to
  *    foreign origins) go through the worker.
  *    The recorded answer is looked up at the same time, so a refused proxy (502
- *    upstream-blocked) costs no extra wait; a refused proxy is remembered for the session.
+ *    upstream-blocked) costs no extra wait; a refused proxy is remembered for the session. Price
+ *    routes neither obey nor set that memo: their own backoff as above.
  * 3. Recorded: the responses recorded at import time under /data/recorded/ (never for prices:
  *    PRICE_ROUTES answer live or not at all).
  */
@@ -68,6 +75,19 @@ const PROXY_BLOCKED_KEY = 'lh-proxy-blocked';
 const DIRECT_BLOCKED_KEY = 'lh-direct-blocked';
 /** Pause before the one retry of a direct call that failed on the network (ms). */
 export const DIRECT_RETRY_MS = 250;
+/** Price routes: the pauses before the two retries of a failed attempt within one render (ms). */
+export const PRICE_RETRY_MS = [250, 1000];
+// { routes: { [path]: { origin, failures, reason, until } } }: price routes that failed lately
+const PRICE_BACKOFF_KEY = 'lh-price-backoff';
+
+/**
+ * How long a price route waits after its n-th failure in a row before a render tries again (ms):
+ * 5 s, doubling, at most 60 s.
+ * @param {number} failures
+ */
+export function priceBackoffMs(failures) {
+  return Math.min(5000 * 2 ** (Math.max(1, failures) - 1), 60000);
+}
 const RECORDED_BASE = '/data/recorded';
 
 function proxyOrigin() {
@@ -159,8 +179,55 @@ function readDirectMemo() {
   }
 }
 
-/** Whether this direct route failed twice in a row lately (only this route is skipped). */
+function readPriceMemo() {
+  try {
+    const memo = JSON.parse(storage().getItem(PRICE_BACKOFF_KEY) || 'null');
+    return memo && memo.routes && typeof memo.routes === 'object' ? memo : { routes: {} };
+  } catch (e) {
+    return { routes: {} };
+  }
+}
+
+function writePriceMemo(memo) {
+  try {
+    storage().setItem(PRICE_BACKOFF_KEY, JSON.stringify(memo));
+  } catch (e) {
+    // no sessionStorage: every render tries again
+  }
+}
+
+/** Whether a price route is within its backoff (a render skips it until then). */
+function priceRouteWaiting(route, origin) {
+  const hit = readPriceMemo().routes[routePath(route)];
+  return Boolean(hit && hit.origin === origin && hit.until > Date.now());
+}
+
+/** A price call failed on all attempts (not a timeout): the next try after the backoff. */
+function notePriceFailure(route, origin, reason) {
+  const memo = readPriceMemo();
+  const key = routePath(route);
+  const prev = memo.routes[key];
+  const failures = (prev && prev.origin === origin ? prev.failures : 0) + 1;
+  memo.routes[key] = {
+    origin, failures, reason, until: Date.now() + priceBackoffMs(failures),
+  };
+  writePriceMemo(memo);
+}
+
+/** A live price answer: the route's backoff starts over. */
+function clearPriceFailure(route) {
+  const memo = readPriceMemo();
+  if (!memo.routes[routePath(route)]) return;
+  delete memo.routes[routePath(route)];
+  writePriceMemo(memo);
+}
+
+/**
+ * Whether a direct route is skipped now: it failed twice in a row lately (only this route is
+ * skipped); a price route only within its short backoff.
+ */
 export function isDirectRouteBlocked(route, origin) {
+  if (isPriceRoute(route)) return priceRouteWaiting(route, origin);
   const hit = readDirectMemo().routes[routePath(route)];
   return Boolean(hit && hit.origin === origin && hit.until > Date.now());
 }
@@ -465,27 +532,47 @@ export async function lhFetch(route, {
     if (isDirectRouteBlocked(route, live)) return fromRecording();
     if (!priceRoute) recorded();
     const { url, init } = directRequest(route, options);
-    // a network (or CORS) error or Cloudflare's block page: once more after a short pause; a
-    // timeout is not repeated (it already cost DIRECT_TIMEOUT_MS), another status or a bad body
-    // only concerns this request
+    // a network (or CORS) error or Cloudflare's block page: once more after a short pause (a price
+    // route twice more); a timeout is not repeated (it already cost DIRECT_TIMEOUT_MS), another
+    // status or a bad body only concerns this request
     const retriable = (r) => (!r.resp && r.error !== 'timeout') || isEdgeBlock(r.resp);
-    let result = await timedFetch(url, init, DIRECT_TIMEOUT_MS);
+    const attempt = async (pauses) => {
+      const result = await timedFetch(url, init, DIRECT_TIMEOUT_MS);
+      if (!result.error || !retriable(result) || !pauses.length) return result;
+      await pause(pauses[0]);
+      return attempt(pauses.slice(1));
+    };
+    const result = await attempt(priceRoute ? PRICE_RETRY_MS : [DIRECT_RETRY_MS]);
     if (result.error && retriable(result)) {
-      await pause(DIRECT_RETRY_MS);
-      result = await timedFetch(url, init, DIRECT_TIMEOUT_MS);
-      // failed again: skip this route (not the others) for a while
-      if (result.error && retriable(result)) blockDirectRoute(route, live, result.error);
+      // failed every time: a price route waits a short backoff, any other is skipped (not the
+      // others) for a while
+      if (priceRoute) notePriceFailure(route, live, result.error);
+      else blockDirectRoute(route, live, result.error);
     }
-    if (!result.error) return { data: result.data, source: 'live', via: 'direct' };
+    if (!result.error) {
+      if (priceRoute) clearPriceFailure(route);
+      return { data: result.data, source: 'live', via: 'direct' };
+    }
     return fromRecording();
   }
 
   const origin = proxyOrigin();
-  if (!origin || isBlocked(PROXY_BLOCKED_KEY, origin)) return fromRecording();
+  // a price route: its own short backoff, not the proxy's memo (set by any refused route)
+  const skipped = priceRoute
+    ? priceRouteWaiting(route, origin) : isBlocked(PROXY_BLOCKED_KEY, origin);
+  if (!origin || skipped) return fromRecording();
   if (!priceRoute) recorded();
   const { url, init } = proxyRequest(origin, route, options);
   const { data, resp, error } = await timedFetch(url, init, PROXY_TIMEOUT_MS);
-  if (!error) return { data, source: 'live', via: 'proxy' };
+  if (!error) {
+    if (priceRoute) clearPriceFailure(route);
+    return { data, source: 'live', via: 'proxy' };
+  }
+  if (priceRoute) {
+    // never a timeout; the proxy stays on for the other routes
+    if (error !== 'timeout') notePriceFailure(route, origin, error);
+    return fromRecording();
+  }
   // 502 upstream-blocked (Cloudflare refuses the worker), 5xx, unreachable or too slow: skip
   // the proxy for a while; a 4xx (e.g. a route outside its allowlist) only concerns this route
   if (!resp || resp.status >= 500 || resp.status === 403 || resp.status === 429) {
