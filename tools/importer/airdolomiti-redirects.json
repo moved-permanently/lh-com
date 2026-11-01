@@ -252,6 +252,18 @@
   "Destination": "/de/reiseziele"
  },
  {
+  "Source": "/de/reiseziele/bologna/was-essen/tortellini-lasagne-und-tagliatelle-mit-eiernudelteig",
+  "Destination": "/de/reiseziele/bologna-de/was-essen/tortellini-lasagne-und-tagliatelle-mit-eiernudelteig"
+ },
+ {
+  "Source": "/de/reiseziele/jersey/was-machen/die-natur",
+  "Destination": "/de/reiseziele/jersey-de/was-machen/die-natur"
+ },
+ {
+  "Source": "/de/reiseziele/jersey/was-machen/saint-helier",
+  "Destination": "/de/reiseziele/jersey-de/was-machen/saint-helier"
+ },
+ {
   "Source": "/en/articles/dyk/up_in_the_air",
   "Destination": "/en/articles/dyk/up-in-the-air"
  }

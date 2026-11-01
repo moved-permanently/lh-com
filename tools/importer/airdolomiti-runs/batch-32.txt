@@ -1,0 +1,53 @@
+# lh-airdolomiti batch-32 (de): uploaded to DA moved-permanently/lh-airdolomiti and previewed on main--lh-airdolomiti--moved-permanently.aem.page on 2026-11-01T01:54Z; not published
+# documents (39 + /de/nav, /de/footer):
+/de/reiseziele/bari-de/was-sehen/sehenswertes-in-bari
+/de/reiseziele/bari-de/was-sehen/sommerferien-sonderangebote-nach-bari
+/de/reiseziele/bari-de/was-sehen/urlaub-apulien-sueditalien-bari
+/de/reiseziele/bologna-de/was-essen
+/de/reiseziele/bologna-de/was-essen/friggione-ein-arme-leute-gericht-unter-den-typischen-rezepten-bolognas
+/de/reiseziele/bologna-de/was-essen/ragu-alla-bolognese-steht-in-der-stadt-an-der-spitze-der-kulinarischen-tradition
+/de/reiseziele/bologna-de/was-essen/tortellini-lasagne-und-tagliatelle-mit-eiernudelteig
+/de/reiseziele/bologna-de/was-machen
+/de/reiseziele/bologna-de/was-machen/die-museen-von-bologna
+/de/reiseziele/bologna-de/was-machen/parks-gaerten-bologna
+/de/reiseziele/bologna-de/was-machen/wo-man-in-bologna-shoppen-sollte
+/de/reiseziele/bologna-de/was-sehen
+/de/reiseziele/bologna-de/was-sehen/bologna-sehenswertes
+/de/reiseziele/bologna-de/was-sehen/ducati-museum-und-ducati-werk
+/de/reiseziele/bologna-de/was-sehen/finestrella-di-via-piella-ein-blick-auf-bolognas-kleines-venedig
+/de/reiseziele/brindisi-de/die-straende-des-salento
+/de/reiseziele/brindisi-de/mesagne
+/de/reiseziele/florenz-de/was-essen
+/de/reiseziele/florenz-de/was-essen/florenz-deftige-kost
+/de/reiseziele/florenz-de/was-essen/was-man-in-florenz-probieren-sollte-trippa-und-lampredotto
+/de/reiseziele/florenz-de/was-machen
+/de/reiseziele/florenz-de/was-machen/chianti-weingut
+/de/reiseziele/florenz-de/was-machen/florenz-als-shopping-ziel
+/de/reiseziele/florenz-de/was-machen/sehenswertes-florentiner-huegelland
+/de/reiseziele/florenz-de/was-machen/straende-toskana
+/de/reiseziele/florenz-de/was-machen/tipps-umgebung-florenz
+/de/reiseziele/florenz-de/was-sehen
+/de/reiseziele/florenz-de/was-sehen/boboli-gaerten-park-florenz
+/de/reiseziele/florenz-de/was-sehen/david-von-michelangelo
+/de/reiseziele/florenz-de/was-sehen/die-kathedrale-von-florenz
+/de/reiseziele/florenz-de/was-sehen/florenz-sehenswertes-stadt
+/de/reiseziele/genua-de/was-sehen/das-aquarium-von-genua
+/de/reiseziele/genua-de/was-sehen/kathedrale-san-lorenzo
+/de/reiseziele/graz-de/was-machen
+/de/reiseziele/graz-de/was-sehen/kunsthaus-graz
+/de/reiseziele/innsbruck-de/was-sehen/schloss-ambras
+/de/reiseziele/innsbruck-de/was-sehen/swarovski-kristallwelten
+/de/reiseziele/jersey-de/was-machen/die-natur
+/de/reiseziele/jersey-de/was-machen/saint-helier
+/de/nav
+/de/footer
+# not imported (0):
+# blocks without a handler (their content generically): none
+# render check: all 39 documents render
+# check against www (text, images, links):
+#   https://www.airdolomiti.de/reiseziele/bari-de/was-sehen/sehenswertes-in-bari -> /de/reiseziele/bari-de/was-sehen/sehenswertes-in-bari: text 11/11, images 1/2 (+3), links 4/4 (+0)
+#   https://www.airdolomiti.de/reiseziele/florenz-de/was-essen/was-man-in-florenz-probieren-sollte-trippa-und-lampredotto -> /de/reiseziele/florenz-de/was-essen/was-man-in-florenz-probieren-sollte-trippa-und-lampredotto: text 8/8, images 1/1 (+3), links 3/3 (+1)
+#   https://www.airdolomiti.de/reiseziele/jersey-de/was-machen/saint-helier -> /de/reiseziele/jersey-de/was-machen/saint-helier: text 6/6, images 1/2 (+1), links 2/2 (+0)
+#   https://www.airdolomiti.de/reiseziele/bari-de/was-sehen/sehenswertes-in-bari: images missing: Schermata-2021-10-22-alle-16.08.02.png
+#   https://www.airdolomiti.de/reiseziele/florenz-de/was-essen/was-man-in-florenz-probieren-sollte-trippa-und-lampredotto: no text, image or link of www's missing
+#   https://www.airdolomiti.de/reiseziele/jersey-de/was-machen/saint-helier: images missing: Schermata-2021-10-22-alle-08.58.23.png
