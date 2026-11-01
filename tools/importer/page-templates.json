@@ -1146,7 +1146,11 @@
         "https://www.lufthansa.com/de/en/prepare-for-your-trip/airport-information/services-at-the-airport/security-waiting-time",
         "https://www.lufthansa.com/de/de/prepare-for-your-trip/airport-information/services-at-the-airport/security-waiting-time",
         "https://www.lufthansa.com/at/de/prepare-for-your-trip/airport-information/services-at-the-airport/security-waiting-time",
-        "https://www.lufthansa.com/gb/en/prepare-for-your-trip/airport-information/services-at-the-airport/security-waiting-time"
+        "https://www.lufthansa.com/gb/en/prepare-for-your-trip/airport-information/services-at-the-airport/security-waiting-time",
+        "https://www.lufthansa.com/de/en/lufthansa-ejournals",
+        "https://www.lufthansa.com/de/de/lufthansa-ejournals",
+        "https://www.lufthansa.com/at/de/lufthansa-ejournals",
+        "https://www.lufthansa.com/gb/en/lufthansa-ejournals"
       ],
       "blocks": [
         {
@@ -1278,7 +1282,8 @@
           "name": "embed",
           "instances": [
             ".video:has(> .video-player iframe)",
-            ".iframe:has(> .iframe-wrapper iframe[src*=\"lufthansa-inflightentertainment.com\"])"
+            ".iframe:has(> .iframe-wrapper iframe[src*=\"lufthansa-inflightentertainment.com\"])",
+            ".iframe:has(> .iframe-wrapper iframe[src*=\"box.media-carrier.de\"])"
           ]
         },
         {

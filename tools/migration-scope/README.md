@@ -40,12 +40,15 @@ The last `info` row (added 2026-11-01) is the security waiting times page,
 `prepare-for-your-trip/airport-information/services-at-the-airport/security-waiting-time`: not in
 the sitemap, the same slug in all four locales (200 on www, 2026-11-01); its live component is
 the security-waiting-time block.
+After it (2026-11-01) the eJournals page `lufthansa-ejournals`: the same slug in all four locales (200 on
+www, 2026-11-01); its live component is the ejournals block (the search). www's page has no
+newsstand iframe; ours gets the one of unterhaltung-an-bord after the block (brief 208).
 
 | template_group | pages | what it is |
 |---|---|---|
 | homepage | 1 | `/de/en/homepage` |
 | hub | 17 | overview pages such as `flights`, `overview-travel-information`, `baggage`, `lounges` |
-| info | 169 | service and information pages: baggage, check-in, airports, travel classes, onboard, families, animals, special needs, Miles & More, partners |
+| info | 170 | service and information pages: baggage, check-in, airports, travel classes, onboard, families, animals, special needs, Miles & More, partners |
 | campaign | 22 | long editorial pages: `100-years` and its sub-pages, stopover and three of its offers, trade fairs |
 | fleet | 8 | aircraft and seat-map pages (four of the 30 aircraft-type pages, which share one template) |
 | insights | 32 | the Insights magazine: overview, categories, tags, one author, 24 articles across all article formats |

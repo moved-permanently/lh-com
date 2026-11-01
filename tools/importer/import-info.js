@@ -165,7 +165,8 @@ const PAGE_TEMPLATE = {
       "name": "embed",
       "instances": [
         ".video:has(> .video-player iframe)",
-        ".iframe:has(> .iframe-wrapper iframe[src*=\"lufthansa-inflightentertainment.com\"])"
+        ".iframe:has(> .iframe-wrapper iframe[src*=\"lufthansa-inflightentertainment.com\"])",
+        ".iframe:has(> .iframe-wrapper iframe[src*=\"box.media-carrier.de\"])"
       ]
     },
     {
