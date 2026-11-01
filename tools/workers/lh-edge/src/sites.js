@@ -40,6 +40,26 @@ export const SITES = Object.fromEntries(Object.entries(BRAND_SITES)
   .map(([name, site]) => [name, tablesOf(site.rows, site.versions)]));
 
 /**
+ * Entry paths of a site's roots: /<cc>/<ll> (and with a slash) to the root's homepage, /<cc> to
+ * the country's first root's (the rows' order: its own roots first); alias countries (Brussels:
+ * www sends /xx/<ll>/* to /be/<ll>/*) as their target's, /<alias> to the target's first root.
+ */
+function rootEntries(rows, aliases = {}) {
+  const entries = {};
+  const add = (from, to) => { entries[from] = to; entries[`${from}/`] = to; };
+  Object.keys(rows).forEach((key) => {
+    const [cc] = key.split('/');
+    add(`/${key}`, `/${key}/homepage`);
+    if (!entries[`/${cc}`]) add(`/${cc}`, `/${key}/homepage`);
+  });
+  Object.entries(aliases).forEach(([alias, cc]) => {
+    Object.keys(rows).filter((k) => k.startsWith(`${cc}/`)).forEach((key) => add(`/${alias}/${key.split('/')[1]}`, `/${key}/homepage`));
+    add(`/${alias}`, entries[`/${cc}`]);
+  });
+  return entries;
+}
+
+/**
  * A site's entry paths besides / (which goes to its first language version's homepage): path ->
  * the path it redirects to (302), as on the source. Austrian: www sends /xx/en to /at/en/homepage
  * and /at to a 404 (/at/at/en/homepage), here to /at/en/homepage too.
@@ -48,6 +68,7 @@ export const SITE_ENTRIES = {
   austrian: {
     '/xx/en': '/at/en/homepage', '/xx/en/': '/at/en/homepage', '/at': '/at/en/homepage', '/at/': '/at/en/homepage',
   },
+  brussels: rootEntries(BRAND_SITES.brussels.rows, { xx: 'be' }),
 };
 
 /**

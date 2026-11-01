@@ -23,6 +23,7 @@ bbird.live hosts are retired. Hosts on turnsthe.page follow the brand pattern
 | discover.turnsthe.page | `SITE_HOSTS` ("Other sites") |
 | ita.turnsthe.page | `SITE_HOSTS` ("Other sites") |
 | austrian.turnsthe.page | `SITE_HOSTS` ("Other sites") |
+| brussels.turnsthe.page | `SITE_HOSTS` ("Other sites") |
 | lh-edge.benpeter.workers.dev | (none) |
 
 `ALIAS_REWRITE_HOSTS` also keeps the retired lhcom.bbird.live and lhedge.bbird.live: an old link
@@ -155,6 +156,13 @@ hreflang links name are none). Entry paths besides `/` (`SITE_ENTRIES` in `src/s
 and `/at` (www: a 404) to `/at/en/homepage`. Its fonts (`/digitalhangar/`) come from www.lufthansa.com, which has the
 same design-system release with `fonts/austrian/` (www.austrian.com refuses plain requests).
 
+Brussels Airlines (`brussels`, DA `moved-permanently/lh-brussels`): the six reference roots be/en, be/fr, be/nl, de/de,
+it/it, es/es hold the language documents; 92 market roots get them where the document's `markets` row lists the root
+and hold their own homepage, nav and footer (no xx roots: www sends `/xx/<ll>/*` to `/be/<ll>/*`). Entry paths besides
+`/` (`SITE_ENTRIES`, built from the roots): `/<cc>/<ll>` to the root's homepage, `/<cc>` to the country's first root's
+(`/be`: be/en), `/xx` and `/xx/en`, `/xx/fr`, `/xx/nl` to the be homepages. Its fonts (Intelo, `fonts/brussels/`)
+come from www.lufthansa.com's same design-system release.
+
 Sites without `<cc>/<ll>` roots (`PLAIN_SITES` in `src/sites.js`, brief 162) have no locale table and no market
 route: every path passes through to the site's origin as it is (the site's `/redirects` sheet answers there), only the
 site's `entry` paths redirect (302, `cache-control: max-age=60`). OneTrust and the immutable fonts as on every host.
@@ -169,10 +177,10 @@ www.lufthansa.com: it uses Lufthansa's fonts, and www.lufthansa-cargo.com doesn'
 scripts with a challenge), while its links still name www.lufthansa-cargo.com (`SITE_WWW_HOSTS`).
 
 ```toml
-SITE_HOSTS = "discover.turnsthe.page=discover; ita.turnsthe.page=ita; austrian.turnsthe.page=austrian; cargo.turnsthe.page=cargo; airdolomiti.turnsthe.page=airdolomiti"
-SITE_ORIGINS = "discover=main--lh-discover--moved-permanently.aem.live; ita=main--lh-ita--moved-permanently.aem.live; austrian=main--lh-austrian--moved-permanently.aem.live; cargo=main--lh-cargo--moved-permanently.aem.live; airdolomiti=main--lh-airdolomiti--moved-permanently.aem.live"
-SITE_WWW_HOSTS = "discover=www.discover-airlines.com; ita=www.ita-airways.com; austrian=www.austrian.com; cargo=www.lufthansa-cargo.com; airdolomiti=www.airdolomiti.it"
-SITE_DESIGN_HOSTS = "discover=www.discover-airlines.com; ita=www.ita-airways.com; austrian=www.lufthansa.com; cargo=www.lufthansa.com"
+SITE_HOSTS = "discover.turnsthe.page=discover; ita.turnsthe.page=ita; austrian.turnsthe.page=austrian; cargo.turnsthe.page=cargo; airdolomiti.turnsthe.page=airdolomiti; brussels.turnsthe.page=brussels"
+SITE_ORIGINS = "discover=main--lh-discover--moved-permanently.aem.live; ita=main--lh-ita--moved-permanently.aem.live; austrian=main--lh-austrian--moved-permanently.aem.live; cargo=main--lh-cargo--moved-permanently.aem.live; airdolomiti=main--lh-airdolomiti--moved-permanently.aem.live; brussels=main--lh-brussels--moved-permanently.aem.live"
+SITE_WWW_HOSTS = "discover=www.discover-airlines.com; ita=www.ita-airways.com; austrian=www.austrian.com; cargo=www.lufthansa-cargo.com; airdolomiti=www.airdolomiti.it; brussels=www.brusselsairlines.com"
+SITE_DESIGN_HOSTS = "discover=www.discover-airlines.com; ita=www.ita-airways.com; austrian=www.lufthansa.com; cargo=www.lufthansa.com; brussels=www.lufthansa.com"
 ```
 
 Check first against the preview origin (documents on preview only):
