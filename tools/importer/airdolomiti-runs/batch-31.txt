@@ -1,0 +1,53 @@
+# lh-airdolomiti batch-31 (de): uploaded to DA moved-permanently/lh-airdolomiti and previewed on main--lh-airdolomiti--moved-permanently.aem.page on 2026-11-01T01:33Z; not published
+# documents (39 + /de/nav, /de/footer):
+/de/reiseziele/verona-de
+/de/reiseziele/venedig
+/de/reiseziele/turin-de
+/de/reiseziele/pisa-de
+/de/reiseziele/bari-de
+/de/reiseziele/florenz-de
+/de/reiseziele/bologna-de
+/de/reiseziele/bari-de/was-essen/tiella-barese-ein-auflauf-aus-reis-kartoffeln-und-miesmuscheln
+/de/reiseziele/bologna-de/was-sehen/bologna-tuerme
+/de/reiseziele/florenz-de/was-essen/die-florentiner-kueche
+/de/reiseziele/florenz-de/was-essen/typische-feine-backwaren-aus-florenz-schiacciata-und-cantucci
+/de/reiseziele/florenz-de/was-sehen/florenz-die-uffizien
+/de/reiseziele/frankfurt-am-main/beste-aktivitaten-frankfurt
+/de/reiseziele/london/was-machen/deine-reise-nach-london
+/de/reiseziele/london/was-machen/ein-wochenende-in-london
+/de/reiseziele/london/was-machen/london-essen-gerichte
+/de/reiseziele/london/was-sehen/sehenswuerdigekeiten-in-london-unuebersehbare-attraktionen
+/de/reiseziele/london/was-sehen/stadtteile-london
+/de/reiseziele/mailand-de/sehenswuerdigkeiten/mailaender-dom
+/de/reiseziele/venedig/was-essen/aperitif-in-venedig-mit-charakteristischen-cicchetti
+/de/reiseziele/venedig/was-machen/per-gondel-durch-venedig
+/de/reiseziele/venedig/was-machen/spritz-zeit
+/de/reiseziele/venedig/was-sehen/der-lido-von-venedig
+/de/reiseziele/venedig/was-sehen/venedig-kunst-und-kultur
+/de/reiseziele/venedig/was-sehen/venedig-markusdom
+/de/reiseziele/venedig/was-sehen/venedig-sehenswertes
+/de/reiseziele/verona-de/was-essen/die-typischen-ersten-gaenge
+/de/reiseziele/verona-de/was-essen/die-zweiten-gaenge
+/de/reiseziele/verona-de/was-sehen/die-stadt-der-liebe
+/de/reiseziele/verona-de/was-sehen/verona-sehenswertes
+/de/reiseziele/bari-de/was-essen
+/de/reiseziele/bari-de/was-essen/probieren-sie-streetfood-in-bari
+/de/reiseziele/bari-de/was-machen
+/de/reiseziele/bari-de/was-machen/besuch-der-grotte-di-castellana
+/de/reiseziele/bari-de/was-machen/die-schoensten-straende-in-der-naehe-baris
+/de/reiseziele/bari-de/was-machen/im-herzen-apulien-das-valle-d-itria
+/de/reiseziele/bari-de/was-machen/wandern-apulien-cammino-federiciano
+/de/reiseziele/bari-de/was-sehen
+/de/reiseziele/bari-de/was-sehen/alberobello-und-seine-trulli-entdecken-sie-das-unesco-weltkulturerbe
+/de/nav
+/de/footer
+# not imported (0):
+# blocks without a handler (their content generically): none
+# render check: all 39 documents render
+# check against www (text, images, links):
+#   https://www.airdolomiti.de/reiseziele/verona-de -> /de/reiseziele/verona-de: text 51/51, images 4/7 (+14), links 26/27 (+1)
+#   https://www.airdolomiti.de/reiseziele/venedig/was-essen/aperitif-in-venedig-mit-charakteristischen-cicchetti -> /de/reiseziele/venedig/was-essen/aperitif-in-venedig-mit-charakteristischen-cicchetti: text 29/29, images 1/1 (+3), links 3/3 (+0)
+#   https://www.airdolomiti.de/reiseziele/bari-de/was-sehen/alberobello-und-seine-trulli-entdecken-sie-das-unesco-weltkulturerbe -> /de/reiseziele/bari-de/was-sehen/alberobello-und-seine-trulli-entdecken-sie-das-unesco-weltkulturerbe: text 11/11, images 1/2 (+3), links 4/4 (+0)
+#   https://www.airdolomiti.de/reiseziele/verona-de: images missing: Schermata-2021-10-22-alle-08.58.23.png, Schermata-2021-10-22-alle-16.08.02.png, Schermata-2021-10-22-alle-16.21.11.png | links missing: /de/artikel/reiseziele/von-verona-an-den-gardasee-in-nur-30-minuten
+#   https://www.airdolomiti.de/reiseziele/venedig/was-essen/aperitif-in-venedig-mit-charakteristischen-cicchetti: no text, image or link of www's missing
+#   https://www.airdolomiti.de/reiseziele/bari-de/was-sehen/alberobello-und-seine-trulli-entdecken-sie-das-unesco-weltkulturerbe: images missing: Schermata-2021-10-22-alle-16.08.02.png
