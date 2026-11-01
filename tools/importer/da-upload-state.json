@@ -381,9 +381,9 @@
    "preview": "2026-10-24T03:12:00.534Z"
   },
   "/de/en/unterhaltung-an-bord": {
-   "uploaded": "2026-10-25T04:57:53.501Z",
-   "mtime": 1792904252255,
-   "preview": "2026-10-25T04:57:55.249Z"
+   "uploaded": "2026-11-01T17:47:20.463Z",
+   "mtime": 1793554662432,
+   "preview": "2026-11-01T17:47:22.532Z"
   },
   "/de/de/doctor-on-board": {
    "uploaded": "2026-10-26T16:28:56.702Z",
@@ -411,9 +411,9 @@
    "preview": "2026-10-24T03:00:44.309Z"
   },
   "/de/de/unterhaltung-an-bord": {
-   "uploaded": "2026-10-25T04:57:56.752Z",
-   "mtime": 1792904238763,
-   "preview": "2026-10-25T04:57:58.708Z"
+   "uploaded": "2026-11-01T17:47:27.090Z",
+   "mtime": 1793554662465,
+   "preview": "2026-11-01T17:47:29.262Z"
   },
   "/de/en/100-years/history/menu-on-board": {
    "uploaded": "2026-10-26T17:48:57.409Z",
@@ -3927,9 +3927,9 @@
    "preview": "2026-10-26T16:25:03.447Z"
   },
   "/at/de/unterhaltung-an-bord": {
-   "uploaded": "2026-10-25T04:58:00.201Z",
-   "mtime": 1792904225492,
-   "preview": "2026-10-25T04:58:02.032Z"
+   "uploaded": "2026-11-01T17:47:33.635Z",
+   "mtime": 1793554662499,
+   "preview": "2026-11-01T17:47:35.265Z"
   },
   "/at/de/upgrade-business-class-langstrecke": {
    "uploaded": "2026-10-24T05:21:50.535Z",
@@ -5387,9 +5387,9 @@
    "preview": "2026-10-26T16:36:55.450Z"
   },
   "/gb/en/unterhaltung-an-bord": {
-   "uploaded": "2026-10-25T04:58:03.774Z",
-   "mtime": 1792904265425,
-   "preview": "2026-10-25T04:58:05.371Z"
+   "uploaded": "2026-11-01T17:47:39.721Z",
+   "mtime": 1793554662534,
+   "preview": "2026-11-01T17:47:41.681Z"
   },
   "/gb/en/upgrade-business-class-long-haul": {
    "uploaded": "2026-10-24T03:41:36.324Z",
@@ -27838,6 +27838,26 @@
    "uploaded": "2026-11-01T14:35:10.820Z",
    "mtime": 1793542221442,
    "preview": "2026-11-01T14:35:12.654Z"
+  },
+  "/de/en/lufthansa-ejournals": {
+   "uploaded": "2026-11-01T17:47:16.648Z",
+   "mtime": 1793554684233,
+   "preview": "2026-11-01T17:47:18.920Z"
+  },
+  "/de/de/lufthansa-ejournals": {
+   "uploaded": "2026-11-01T17:47:23.685Z",
+   "mtime": 1793554684254,
+   "preview": "2026-11-01T17:47:25.443Z"
+  },
+  "/at/de/lufthansa-ejournals": {
+   "uploaded": "2026-11-01T17:47:30.648Z",
+   "mtime": 1793554684273,
+   "preview": "2026-11-01T17:47:32.313Z"
+  },
+  "/gb/en/lufthansa-ejournals": {
+   "uploaded": "2026-11-01T17:47:36.395Z",
+   "mtime": 1793554684296,
+   "preview": "2026-11-01T17:47:38.131Z"
   }
  },
  "media": {
