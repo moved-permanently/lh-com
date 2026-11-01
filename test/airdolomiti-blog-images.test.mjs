@@ -42,7 +42,8 @@ test('the three posts indexes: image from the article-header, the share image ke
 });
 
 test('every other index as before, in its place', () => {
-  assert.deepEqual(Object.keys(now), Object.keys(before));
+  // in its place: the indexes before as they were, later ones only appended after them
+  assert.deepEqual(Object.keys(now).slice(0, Object.keys(before).length), Object.keys(before));
   Object.keys(before).filter((k) => !AD.includes(k)).forEach((k) => {
     assert.equal(JSON.stringify(now[k]), JSON.stringify(before[k]), k);
   });

@@ -163,6 +163,14 @@ export const BRANDS = {
     portal: 'SN',
     hub: 'BRU',
     airline: 'SN',
+    // articleIndex: per language, the query index of its posts (helix-query.yaml articles-be-en,
+    // -fr, -nl): the posts list reads its language version's on every root (a market root has no
+    // index of its own)
+    articleIndex: {
+      en: '/be/en/articles/query-index.json',
+      fr: '/be/fr/articles/query-index.json',
+      nl: '/be/nl/articles/query-index.json',
+    },
     consentLinks: {
       en: {
         privacy: 'https://www.brusselsairlines.com/xx/en/legal-notices/data-protection-and-privacy-notice?hidebanner=true',

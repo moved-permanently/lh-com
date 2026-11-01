@@ -85,7 +85,8 @@ test('helix-query.yaml: the German posts index appended, the English one\'s prop
   assert.deepEqual(de.include, ['/de/artikel/*/*']);
   assert.equal(de.target, '/de/artikel/query-index.json');
   assert.equal(JSON.stringify(de.properties), JSON.stringify(indices['articles-airdolomiti-en'].properties));
-  assert.equal(Object.keys(indices).pop(), 'articles-airdolomiti-de', 'appended at the end');
+  const keys = Object.keys(indices);
+  assert.equal(keys.indexOf('articles-airdolomiti-de'), keys.indexOf('message-center-notifications') + 1, 'appended after the indexes before it (later ones follow)');
   const before = yaml.load(execFileSync('git', ['show', 'HEAD:helix-query.yaml'], { encoding: 'utf8' })).indices;
   Object.keys(before).filter((k) => k !== 'articles-airdolomiti-de').forEach((k) => {
     assert.equal(JSON.stringify(indices[k]), JSON.stringify(before[k]), k);
@@ -96,7 +97,7 @@ test('brands.js: Air Dolomiti\'s German posts index; each language reads its own
   assert.deepEqual(BRANDS.airdolomiti.articleIndex, {
     it: '/articoli/query-index.json', en: '/en/articles/query-index.json', de: '/de/artikel/query-index.json',
   });
-  Object.entries(BRANDS).filter(([k]) => k !== 'airdolomiti').forEach(([k, b]) => assert.equal(b.articleIndex, undefined, k));
+  Object.entries(BRANDS).filter(([k]) => !['airdolomiti', 'brussels'].includes(k)).forEach(([k, b]) => assert.equal(b.articleIndex, undefined, k));
   const posts = await loadArticles({ key: 'de', lang: 'de' }, BRANDS.airdolomiti);
   assert.deepEqual(posts.map((p) => p.path.split('/')[3]), ['avgeek-de', 'travellers-de', 'did-you-know', 'reiseziele', 'throwback-de'], 'newest first');
   assert.ok(calls.some((c) => c.startsWith('/de/artikel/query-index.json')));
