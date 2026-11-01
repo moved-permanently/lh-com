@@ -570,6 +570,16 @@
   vertical-align: top;
 }
 
+/* the centred banner up to 425px: OneTrust's own CSS gives the content-box element width 95%,
+   max-width min(650px, 100vw - 2em) and padding 10px 15px !important, so at 390 it is 392px wide
+   (www too) and a mobile browser keeps the page that wide; border-box keeps it in its 1em margins */
+@media (width <= 425px) {
+  /* stylelint-disable-next-line selector-class-pattern -- OneTrust's own class name */
+  #onetrust-consent-sdk #onetrust-banner-sdk.otCenterRounded {
+    box-sizing: border-box;
+  }
+}
+
 /* ------------------------------------------------------------- hiding ---- */
 
 .lh-consent-fallback #onetrust-consent-sdk,
