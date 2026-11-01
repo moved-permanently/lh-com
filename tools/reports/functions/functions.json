@@ -1,6 +1,6 @@
 {
   "updated": "2026-11-01",
-  "change": "The login and profile pages of Discover, ITA and Austrian, and Lufthansa's account pages, are on the replicas. Austrian's chat button is built, checked and switched on; it reaches its pages with their next update.",
+  "change": "Brussels Airlines has its own column: its Belgian site in English and French is live since 1 November, 3 of its functions work on the replica and 15 are planned. Long words in page headings now wrap on phones on every brand.",
   "legend": {
     "done": {
       "label": "works on our replica",
@@ -36,7 +36,7 @@
     "picker": "The picker for adults, children, infants and cabin is in the shared code since 1 November. Each brand's pages still have to switch it on; until then the search sends the travellers and cabin set on the page.",
     "status": "Since 1 November the flight status form passes a search on in the parameters the airline's status page reads, and posts it to Air Dolomiti's own engine. The four brands on Lufthansa's AEM count as working after a check on each replica; Air Dolomiti's pages still need the form.",
     "lhbooking": "Lufthansa's manage booking and hotel tabs hand over to two services that run in AEM today. Their replacements already answer on lufthansa.turnsthe.page with test data; next, the tabs post to them.",
-    "signin": "On Discover, ITA and Austrian, manage booking goes through a deep link to the login and profile pages. Those pages are on the new platform since 1 November, and the services behind the deep link answer with test data; next, the airlines' replica addresses route the deep link to them. Until then the replicas link to the airline's current pages.",
+    "signin": "On Discover, ITA and Austrian, manage booking goes through a deep link to the login and profile pages, which are on the new platform since 1 November; Brussels Airlines' login and profile pages come next. The services behind the deep link answer with test data, and until the airlines' replica addresses route the deep link to them, the replicas link to the airline's current pages.",
     "lhpages": "Five Lufthansa pages with these functions aren't on the replica yet: check-in deadlines, security waiting times, the compensation claim, the newsletter and eJournals. They come next. The two airport searches get blocks of their own, and Lufthansa's live data for them answers our addresses. Until then our pages link to www.",
     "travelidapps": "The help center and culinary hub apps are in the shared code and load on our pages, but their data comes from the airline's Travel ID service, which refuses our test addresses. They work once the site runs on the airline's own address, or once Lufthansa allows ours.",
     "adown": "Switching off Air Dolomiti's current website is a goal, so its timetable, manage booking, newsletter and eSIM pages get versions of their own. Its booking service answers our addresses, so timetable and manage booking can work as on www; the newsletter becomes a form on our own forms service.",
@@ -45,7 +45,9 @@
     "cargonews": "Cargo's newsletter form loads from Lufthansa Cargo's Microsoft Dynamics, which takes sign-ups only from sites Cargo allows. Lufthansa Cargo has to allow our address for form hosting in its Dynamics settings; until then the embed stays off and the page links to Cargo's own newsletter page.",
     "oschat": "Austrian's chat assistant is loaded from Austrian's website, outside AEM. Its button is built, checked on our preview and switched on for Austrian; it appears page by page as the 78 pages that show it on www get their next update.",
     "adchat": "Air Dolomiti's chat assistant is built into the replica, but its switch stays off: the chat vendor sends no chat to our address until Air Dolomiti or the vendor adds a rule for it.",
-    "travelid": "Personal content for signed-in customers needs Lufthansa: Travel ID, the group's login, accepts only the airline's own website as the address to return to and as the site allowed to call it. The replicas can't sign anyone in until they run on the airline's address, or Lufthansa allows ours."
+    "travelid": "Personal content for signed-in customers needs Lufthansa: Travel ID, the group's login, accepts only the airline's own website as the address to return to and as the site allowed to call it. The replicas can't sign anyone in until they run on the airline's address, or Lufthansa allows ours.",
+    "sndest": "Brussels Airlines' fare teasers, homepage slider and offers grid load live prices, but their cards open a destination page address the replica doesn't have. Brussels Airlines' own destination page works on the replica, and one brand setting points the cards at it.",
+    "snchat": "Brussels Airlines' chat assistant loads from Brussels Airlines' website, outside AEM, as Austrian's does. The chat button built for Austrian can be switched on for Brussels Airlines once its pages carry the chat settings www uses."
   },
   "brands": [
     {
@@ -89,6 +91,13 @@
       "host": "https://airdolomiti.turnsthe.page",
       "www": "https://www.airdolomiti.it",
       "note": "The Air Dolomiti replica, on the lufthansa.com code with Air Dolomiti's theme; its current site runs on Next.js and WordPress, not on Lufthansa's AEM."
+    },
+    {
+      "id": "brussels",
+      "name": "Brussels",
+      "host": "https://main--lh-brussels--moved-permanently.aem.live",
+      "www": "https://www.brusselsairlines.com",
+      "note": "The Brussels Airlines replica, on the lufthansa.com code with Brussels Airlines' theme; Brussels Airlines runs on Lufthansa's AEM today."
     }
   ],
   "functions": [
@@ -133,6 +142,12 @@
           "footnote": "adbooking",
           "page": "/",
           "evidence": "fa987004 shop-handoff DES format; M1 2026-11-01: one POST from the preview host reached flight selection, then an hCaptcha for the headless browser"
+        },
+        "brussels": {
+          "status": "done",
+          "note": "The search form is set up to hand searches to Brussels Airlines' own booking shop, as www does.",
+          "page": "/be/en/homepage",
+          "evidence": "2026-11-01: www.brusselsairlines.com/be/en/homepage flight manager (tabs Flights, Travel details, Redeem miles); replica /be/en/homepage flight-search block loaded with live labels and airports, Shop row shop.brusselsairlines.com/booking/availability; not submitted"
         }
       }
     },
@@ -180,6 +195,13 @@
           "note": "Air Dolomiti's flight search has its own picker for adults, children and infants and no cabin choice, so the Flight search row rates it.",
           "see": "flight-search",
           "evidence": "functions scan 2026-10-31: Air Dolomiti widget"
+        },
+        "brussels": {
+          "status": "wip",
+          "note": "The picker for adults, children, infants and cabin is in the shared code since 1 November but not switched on in the pages yet, so the search still sends the travellers and cabin set on the page.",
+          "page": "/be/en/homepage",
+          "footnote": "picker",
+          "evidence": "2026-11-01: replica /be/en/homepage shows the label 'Economy, 1 traveller' as plain text, no picker element; www homepage has the picker (snapshot 2026-10-31)"
         }
       }
     },
@@ -227,6 +249,13 @@
           "note": "Since 1 November the shared code can post a flight status search to Air Dolomiti's own engine; the replica's pages don't have the form yet and link to Air Dolomiti's status page.",
           "footnote": "status",
           "evidence": "88d6a6dd POST mode; functions scan 2026-10-31: link to www /stato-volo"
+        },
+        "brussels": {
+          "status": "wip",
+          "note": "The form is on the replica and hands the flight to Brussels Airlines' status page in the parameters that page reads; it counts as working after a check on the replica.",
+          "page": "/be/en/plan-your-trip/arrivals-and-departures",
+          "footnote": "status",
+          "evidence": "2026-11-01: www /be/en/plan-your-trip/arrivals-and-departures dcep-flight-status (defaultCarrier SN); replica same path, flight-status block loaded, tabs Flight number/Flight route/Airport, default airline SN; brand pages hand off to the brand's www (blocks/flight-status siteOrigin); not submitted"
         }
       }
     },
@@ -268,6 +297,12 @@
           "status": "elsewhere",
           "note": "Air Dolomiti's check-in is Lufthansa's; the replica links to it as www does.",
           "evidence": "functions scan 2026-10-31: link to lufthansa.com/it/it/online-check-in"
+        },
+        "brussels": {
+          "status": "wip",
+          "note": "www's check-in page has a form for booking code and name that opens Brussels Airlines' check-in app; the replica's copy of the page doesn't have the form yet and links only to the check-in for tour operator passengers.",
+          "page": "/be/en/check-in-options-and-info/online-check-in-options",
+          "evidence": "2026-11-01: www /be/en/check-in-options-and-info/online-check-in-options live: tab Check-in with Booking code, First name, Last name (dcep-quick-actions hideCheckIn false, defaultCarrier SN); replica same path: text and the once.brusselsairlines.com tour-operator link, no booking-lookup block; not in held brief 218"
         }
       }
     },
@@ -313,6 +348,13 @@
           "note": "Air Dolomiti's booking lookup asks its own booking service, which answers our addresses; the replica gets the form and links to Air Dolomiti's page until then.",
           "footnote": "adown",
           "evidence": "M1 2026-11-01: api.airdolomiti.it retrieve-pnr allows any origin"
+        },
+        "brussels": {
+          "status": "wip",
+          "note": "'Manage bookings' leads to www's login page for now; Brussels Airlines' login pages come to the replica as they did for Austrian, ITA and Discover.",
+          "page": "/be/en/my-bookings",
+          "footnote": "signin",
+          "evidence": "2026-11-01: replica /be/en/nav and /be/en/my-bookings link www /deeplink/cockpit and www /be/en/profile/login; /be/en/my-bookings/retrieve-booking 'Enter booking data' links to itself; /be/en/login and /be/en/profile/my-account 404 on aem.page and aem.live (login and profile shells left out of the import, built outside it)"
         }
       }
     },
@@ -355,6 +397,12 @@
           "note": "Air Dolomiti's timetable form gets a version on the replica that asks Air Dolomiti's booking service, which answers our addresses; until then the replica links to Air Dolomiti's page.",
           "footnote": "adown",
           "evidence": "M1 2026-11-01: api.airdolomiti.it timetable allows any origin"
+        },
+        "brussels": {
+          "status": "see",
+          "see": "flight-status",
+          "note": "Brussels Airlines' timetable is the route tab of its flight status form.",
+          "evidence": "2026-11-01: www /be/en/plan-your-trip/arrivals-and-departures has tabs Flight number, Flight route, Airport; no separate timetable"
         }
       }
     },
@@ -395,6 +443,11 @@
           "status": "none",
           "note": "Air Dolomiti's booking form offers flights only.",
           "evidence": "fill check 2026-11-01"
+        },
+        "brussels": {
+          "status": "none",
+          "note": "Brussels Airlines' flight search has no hotel tab; the menu and homepage link to Booking.com, as the replica does.",
+          "evidence": "2026-11-01: www homepage flight manager hideHotel true, tabs Flights, Travel details, Redeem miles; replica nav and homepage cards-icon link booking.com aid=386441"
         }
       }
     },
@@ -434,6 +487,12 @@
           "status": "elsewhere",
           "note": "Air Dolomiti links to its rental partner's booking site, which stays; the replica has the same link.",
           "evidence": "functions scan 2026-10-31: airdolomiti.carsbookingengine.com"
+        },
+        "brussels": {
+          "status": "elsewhere",
+          "note": "Brussels Airlines links to its rental partner, which stays; the replica has the same links.",
+          "page": "/be/en/homepage",
+          "evidence": "2026-11-01: replica nav 'Book rental car' and homepage 'Rental car' -> cars.cartrawler.com/brusselsairlines (301 to brusselsairlines.cartrawler.com); www flight manager hideCar and hideMeiliCar true"
         }
       }
     },
@@ -475,6 +534,11 @@
           "note": "Air Dolomiti's trips are managed through its booking lookup, rated under Manage booking.",
           "see": "manage-booking",
           "evidence": "fill check 2026-11-01"
+        },
+        "brussels": {
+          "status": "none",
+          "note": "Brussels Airlines' website has no trip management app; 'My flights' leads to the login page.",
+          "evidence": "2026-11-01: www header 'My flights' -> /deeplink/cockpit?country=BE&language=EN (login); no trip management component in the 255 be/en snapshots"
         }
       }
     },
@@ -516,6 +580,12 @@
           "status": "none",
           "note": "Air Dolomiti's lounge page is text with a link to Lufthansa's lounges, without a search.",
           "evidence": "fill check 2026-11-01"
+        },
+        "brussels": {
+          "status": "done",
+          "note": "The lounge finder lists lounges with live data; Brussels and Business Class showed 4 lounges.",
+          "page": "/be/en/extra-services/lounges/worldwide-lounges",
+          "evidence": "2026-11-01 07:2x CET: replica /be/en/extra-services/lounges/worldwide-lounges, Brussels (BRU) + Business Class -> 'Results (4)', live catalogs/lounges/BUS/BRU; www same path dcep-lounge-finder"
         }
       }
     },
@@ -558,6 +628,11 @@
           "status": "none",
           "note": "Air Dolomiti covers airport security only in a travel tip article.",
           "evidence": "fill check 2026-11-01"
+        },
+        "brussels": {
+          "status": "none",
+          "note": "Brussels Airlines' website shows no waiting times; its security time slot page is a table of airports, which the replica has.",
+          "evidence": "2026-11-01: www /be/en/plan-your-trip/airport-info/security-control-service is a table with links to airports' slot booking; no waiting time component in the be/en and be/fr snapshots; replica has the page"
         }
       }
     },
@@ -599,6 +674,12 @@
           "status": "none",
           "note": "Air Dolomiti gives check-in times as text.",
           "evidence": "fill check 2026-11-01"
+        },
+        "brussels": {
+          "status": "wip",
+          "note": "Brussels Airlines' page has the text but not the airport search and links to www for it; the search comes with the block planned for Lufthansa and Austrian.",
+          "page": "/be/en/check-in-options-and-info/check-in-times",
+          "evidence": "2026-11-01: www /be/en/check-in-options-and-info/check-in-times has checkindeadlinesearch; replica same path links www's page; held brief 205 names Lufthansa and Austrian only (add Brussels); www.brusselsairlines.com and www.lufthansa.com catalogs/checkin refused the aem.live origin (CORS), brand host not attached yet, not tested there"
         }
       }
     },
@@ -638,6 +719,12 @@
           "status": "elsewhere",
           "note": "Air Dolomiti sends groups to the Lufthansa Group's group booking portal, which stays; the replica has the same link.",
           "evidence": "functions scan 2026-10-31: bookagroup.ic.dlh.de"
+        },
+        "brussels": {
+          "status": "see",
+          "see": "forms",
+          "note": "Brussels Airlines' group requests use a form on the replica, rated under Forms.",
+          "evidence": "2026-11-01: www /be/en/book-a-flight/groups-and-charter/groups/group-travel-request; replica same path on aem.page (form core), held from live"
         }
       }
     },
@@ -678,6 +765,12 @@
           "note": "Air Dolomiti's eSIM widget comes to the replica, switched on for Air Dolomiti after a check; its service answers our addresses, and the replica links to www until then.",
           "footnote": "adown",
           "evidence": "M1 2026-11-01: Breeze script and API answer our origin; token on our host not tested"
+        },
+        "brussels": {
+          "status": "elsewhere",
+          "note": "Brussels Airlines' eSIM comes from a partner shop, which stays; the replica's homepage links to it.",
+          "page": "/be/en/homepage",
+          "evidence": "2026-11-01: www homepage teaser 'eSIM by Breeze' -> brusselsairlines.breezesim.com (200); replica /be/en/homepage 'Book data bundle' -> same"
         }
       }
     },
@@ -721,6 +814,13 @@
           "note": "Air Dolomiti's prices are typed in by authors, rated under Offers with fixed prices.",
           "see": "fixed-offers",
           "evidence": "fill check 2026-11-01"
+        },
+        "brussels": {
+          "status": "wip",
+          "note": "Fare teasers show live fares from Brussels, and so do the price bars on travel articles, but the teaser links open a destination page address the replica doesn't have yet.",
+          "page": "/be/en/homepage",
+          "footnote": "sndest",
+          "evidence": "2026-11-01: replica /be/en/homepage fare-teaser Brussels-Washington 720 EUR etc. from www.lufthansa.com destinationfinder BRU/E (live); links /be/en/book-and-manage/destination?... 404 (brands.js brussels has no destinationPath; www uses /be/en/book-a-flight/destination, 200 on the replica); /be/en/articles/lyon price-bar 'Lyon Round trip from 128 EUR' live"
         }
       }
     },
@@ -764,6 +864,13 @@
           "note": "Air Dolomiti's homepage slider shows route cards with typed-in prices, rated under Offers with fixed prices.",
           "see": "fixed-offers",
           "evidence": "fill check 2026-11-01"
+        },
+        "brussels": {
+          "status": "wip",
+          "note": "The homepage slider lists destinations with live prices from Brussels, but each card opens a page address the replica doesn't have yet.",
+          "page": "/be/en/homepage",
+          "footnote": "sndest",
+          "evidence": "2026-11-01: replica /be/en/homepage destination-finder 15 cards (Milan from 88 EUR), offers live; cards -> /be/en/book-and-manage/destination 404; www cards -> /be/en/book-a-flight/destination; replica /be/en/book-a-flight/destination?...MIL works live (price calendar, Milan from 87 EUR)"
         }
       }
     },
@@ -806,6 +913,13 @@
           "status": "none",
           "note": "Air Dolomiti has no offers grid; its promotions page has two cards, which the replica has.",
           "evidence": "fill check 2026-11-01"
+        },
+        "brussels": {
+          "status": "wip",
+          "note": "The offers grid with filters and live prices works, but its cards open a page address the replica doesn't have yet, and the menu's offers page still shows the short slider instead of the grid.",
+          "page": "/be/en/offers",
+          "footnote": "sndest",
+          "evidence": "2026-11-01: replica /be/en/offers destination-finder grid 48 cards, filters (destination, budget, month, nonstop, class), live offers/affinities/regions; cards -> /book-and-manage/destination 404; replica /be/en/book-a-flight/our-destinations (nav 'Offers & destinations') block has no config and shows the 15-card slider; www same page loads the grid (finder + campaign APIs)"
         }
       }
     },
@@ -849,6 +963,12 @@
           "note": "Route cards with prices typed in by authors, as on www.",
           "page": "/",
           "evidence": "functions scan 2026-10-31: Milano Malpensa-Francoforte 112 EUR"
+        },
+        "brussels": {
+          "status": "see",
+          "see": "fare-teaser",
+          "note": "Brussels Airlines' route prices are live, rated under Fare teaser.",
+          "evidence": "2026-11-01: no typed-in route prices in the replica's be/en pages; www uses fare teasers and the destination finder"
         }
       }
     },
@@ -890,6 +1010,11 @@
           "status": "none",
           "note": "Air Dolomiti's new routes are a list without a map.",
           "evidence": "fill check 2026-11-01"
+        },
+        "brussels": {
+          "status": "none",
+          "note": "Brussels Airlines' new destinations page has no map.",
+          "evidence": "2026-11-01: www /be/en/flying-with-us/new-destinations snapshot has no map component; replica has the page as text and images"
         }
       }
     },
@@ -930,6 +1055,11 @@
           "status": "none",
           "note": "Air Dolomiti's homepage has no countdown.",
           "evidence": "fill check 2026-11-01"
+        },
+        "brussels": {
+          "status": "none",
+          "note": "Brussels Airlines' homepage teasers have no countdown.",
+          "evidence": "2026-11-01: no countdown in www be/en homepage live or in any of the 1,472 captured Brussels pages (all roots, 2026-10-31/11-01)"
         }
       }
     },
@@ -974,6 +1104,12 @@
           "note": "Air Dolomiti's notice strip comes to the replica as messages; its travel information page is already there.",
           "page": "/informazioni-aggiornate",
           "evidence": "fill check 2026-11-01: navbar-alert inactive"
+        },
+        "brussels": {
+          "status": "wip",
+          "note": "The notice strip and the current information page are on the replica but aren't connected to Brussels Airlines' messages yet; www has none to show today.",
+          "page": "/be/en/plan-your-trip/flight-information",
+          "evidence": "2026-11-01: www homepage flash teaser empty, /be/en/plan-your-trip/flight-information shows only 'CURRENT INFORMATION'; replica flash-teaser and message-center blocks load empty, /message-center/index.json 404 on lh-brussels; brands.js brussels has no messageCenter tenant; MC sync 2026-11-01a: sn 0 messages"
         }
       }
     },
@@ -1016,6 +1152,11 @@
           "status": "none",
           "note": "Air Dolomiti's on-board food page is text with a menu PDF, which the replica has.",
           "evidence": "fill check 2026-11-01"
+        },
+        "brussels": {
+          "status": "none",
+          "note": "Brussels Airlines has no culinary hub; its meal pages are text, which the replica has.",
+          "evidence": "2026-11-01: www /be/en/extra-services/meals and subpages (BON, Belgian Star Chefs) are text; no culinary component in the be/en and be/fr snapshots"
         }
       }
     },
@@ -1057,6 +1198,12 @@
           "status": "none",
           "note": "Air Dolomiti sends eJournals by booking e-mail; its website only describes them.",
           "evidence": "fill check 2026-11-01"
+        },
+        "brussels": {
+          "status": "wip",
+          "note": "The replica shows the eJournals lookup, but it sends travellers to lufthansa.com instead of Brussels Airlines' page; the lookup on our own site is planned.",
+          "page": "/be/en/extra-services/inflight-services/ejournals",
+          "evidence": "2026-11-01: replica ejournals block form action https://www.lufthansa.com/be/en/extra-services/inflight-services/ejournals#login and login link api.travelid.lufthansa.com (blocks/ejournals uses LIVE_ORIGIN and Lufthansa's Travel ID, not the brand's); www same path has the ejournals component, which stayed on 'Loading...' in the hidden tab and in the capture; held brief 208 names Lufthansa, ITA, Austrian (add Brussels)"
         }
       }
     },
@@ -1096,6 +1243,11 @@
           "note": "Air Dolomiti's press releases are on the replica in Italian and English.",
           "page": "/comunicati-stampa",
           "evidence": "fill check 2026-11-01"
+        },
+        "brussels": {
+          "status": "elsewhere",
+          "note": "Brussels Airlines' press room is a separate website, which stays; the replica links to it.",
+          "evidence": "2026-11-01: www and replica footer 'Press room' -> press.brusselsairlines.com (200)"
         }
       }
     },
@@ -1137,6 +1289,12 @@
           "status": "wip",
           "note": "Air Dolomiti's search comes to the replica as a search page with an index of its own.",
           "evidence": "functions scan 2026-10-31"
+        },
+        "brussels": {
+          "status": "wip",
+          "note": "The search page is on the replica, but its search index isn't set up yet, so it finds nothing.",
+          "page": "/be/en/search-results",
+          "evidence": "2026-11-01: replica /be/en/search-results?q=baggage 'Search results could not be loaded', /be/en/search-index.json 404; www /be/en/search-results dcep-search-results-aem; held brief 218 item 4"
         }
       }
     },
@@ -1182,6 +1340,13 @@
           "status": "none",
           "note": "Air Dolomiti has no help center app; its support pages are on the replica.",
           "evidence": "fill check 2026-11-01"
+        },
+        "brussels": {
+          "status": "wip",
+          "footnote": "travelidapps",
+          "note": "The app is in the shared code, but Brussels Airlines' Travel ID service refuses our addresses; the replica's help page shows a fixed list of topics.",
+          "page": "/be/en/contact",
+          "evidence": "2026-11-01: www /be/en/contact help-center-web 4.3.1 with topics from api.travelid.brusselsairlines.com/help-center-contact/v1/topics; replica /be/en/contact accordion-columns with fixed topics; GET to that topics URL from the aem.live origin blocked by CORS (brand host not attached, not tested there)"
         }
       }
     },
@@ -1224,6 +1389,13 @@
           "note": "Air Dolomiti's chat is built into the replica but stays switched off until Air Dolomiti or its chat vendor adds a rule for our address.",
           "footnote": "adchat",
           "evidence": "M1 2026-11-01: Engagent scripts load, no widget for our host (rules per page); decision 2026-11-01: embeds that need an outside change stay off"
+        },
+        "brussels": {
+          "status": "wip",
+          "footnote": "snchat",
+          "note": "The links to the chat assistant work as on www; the floating chat button www shows on about half its pages isn't switched on for Brussels Airlines yet.",
+          "page": "/be/en/my-bookings/rebooking-options",
+          "evidence": "2026-11-01: www Cognigy chat button (webchat_init.js from www.brusselsairlines.com/digitalassistant/support) on 128 of 255 be/en snapshots, live on homepage and online-check-in-options; replica keeps www webchat.html links (rebooking-options, problems-with-your-baggage, ...) but no button; brands.js brussels has no chat-button embed, no /config/flags.json on lh-brussels"
         }
       }
     },
@@ -1267,6 +1439,12 @@
           "note": "Air Dolomiti's customer service forms are on its separate customer portal, which stays; the replica links to it.",
           "page": "/supporto-e-contatti/customer-relations",
           "evidence": "fill check 2026-11-01: hda_s_form.airdolomiti.it"
+        },
+        "brussels": {
+          "status": "wip",
+          "note": "Brussels Airlines' 33 form pages are on our preview site and go live once our forms service accepts them, as it did for the other airlines.",
+          "page": "/be/en/book-a-flight/groups-and-charter/groups/group-travel-request",
+          "evidence": "2026-11-01: 33 form pages held from the be/en + be/fr publish (work/brussels-publish/held-2026-11-01-pilot.json); group-travel-request and delays-and-cancellation 200 on aem.page (form core), 404 on aem.live; forms service preflight from the lh-brussels origin 403; held brief 218 item 3"
         }
       }
     },
@@ -1310,6 +1488,12 @@
           "note": "Air Dolomiti's claims go through its customer portal, rated under Forms.",
           "see": "forms",
           "evidence": "fill check 2026-11-01"
+        },
+        "brussels": {
+          "status": "see",
+          "see": "forms",
+          "note": "Brussels Airlines' compensation claims use a feedback form, rated under Forms; refunds go to Brussels Airlines' refund portal, which stays.",
+          "evidence": "2026-11-01: www /be/en/contact/feedback/general/delays-and-cancellation (core form); refund-enquiry-form redirects to refund.brusselsairlines.com (200); redirect rows in held brief 218 item 1"
         }
       }
     },
@@ -1353,6 +1537,12 @@
           "note": "Air Dolomiti's sign-up becomes a form of our own on the same forms service as the other airlines; until then the replica links to www.",
           "footnote": "adown",
           "evidence": "M1 2026-11-01: www posts to its own /api/subscribe, which refuses other origins"
+        },
+        "brussels": {
+          "status": "elsewhere",
+          "note": "Brussels Airlines' newsletter page is on the replica; sign-up runs through Travel ID registration, which stays.",
+          "page": "/be/en/register-newsletter",
+          "evidence": "2026-11-01: www and replica /be/en/register-newsletter: 'To subscribe, simply register through Travel ID'; footer links it"
         }
       }
     },
@@ -1393,6 +1583,11 @@
           "status": "none",
           "note": "Air Dolomiti's website has no login or cart.",
           "evidence": "fill check 2026-11-01"
+        },
+        "brussels": {
+          "status": "elsewhere",
+          "note": "Login goes to Brussels Airlines' Travel ID, which stays; the login and profile pages for visitors who aren't signed in aren't on the replica yet.",
+          "evidence": "2026-11-01: replica header Login -> api.travelid.brusselsairlines.com/oauth2 (as www); /be/en/login and /be/en/profile/* 404 on the replica"
         }
       }
     },
@@ -1434,6 +1629,12 @@
           "status": "none",
           "note": "Air Dolomiti's website has no login, so no personal content.",
           "evidence": "fill check 2026-11-01"
+        },
+        "brussels": {
+          "status": "lh",
+          "footnote": "travelid",
+          "note": "Personal content needs a Travel ID sign-in, and Travel ID accepts only the airline's own website; this needs Lufthansa.",
+          "evidence": "2026-11-01: www be/en homepage has ppfi-web-component (live); not on the replica, as on the other brands"
         }
       }
     },
@@ -1478,6 +1679,12 @@
           "note": "The switch between Italian and English works; the German pages are being added.",
           "page": "/",
           "evidence": "functions scan 2026-10-31"
+        },
+        "brussels": {
+          "status": "wip",
+          "note": "The dialog lists Brussels Airlines' country and language versions, but only Belgium in English and French answer on the replica so far; the others follow with the next batches and the airline's own address.",
+          "page": "/be/en/homepage",
+          "evidence": "2026-11-01: replica header 'Country and language selection; currently: Belgium | English'; be/en nav lists 70 en homepages, be/fr 26 fr; /ao/en/homepage 404 on aem.live and aem.page; be/nl, de/de, it/it homepages 200 on aem.page only; market roots need the lh-edge site entry (brief 218 item 2)"
         }
       }
     },
@@ -1521,6 +1728,12 @@
           "note": "The replica loads nothing for Air Dolomiti that needs consent, so it needs no consent tool.",
           "page": "/",
           "evidence": "matrix note 4; brands.js"
+        },
+        "brussels": {
+          "status": "done",
+          "note": "Brussels Airlines' consent banner works as on www.",
+          "page": "/be/en/homepage",
+          "evidence": "2026-11-01: replica /be/en/homepage OneTrust 01994cb3-... banner with 'Only necessary' and 'Accept all'; 'Only necessary' closed it; footer 'Change privacy settings'"
         }
       }
     },
@@ -1559,6 +1772,11 @@
           "status": "wip",
           "note": "Air Dolomiti's header has controls for contrast and text size; the replica gets them.",
           "evidence": "functions scan 2026-10-31: Configura accessibilità"
+        },
+        "brussels": {
+          "status": "none",
+          "note": "Brussels Airlines' header has no contrast or text size controls; its wheelchair icon leads to a travel page.",
+          "evidence": "2026-11-01: www header wheelchair icon -> /be/en/special-care/special-assistance; replica the same"
         }
       }
     },
@@ -1599,6 +1817,11 @@
           "status": "none",
           "note": "Air Dolomiti's website has no freight tracking.",
           "evidence": "fill check 2026-11-01"
+        },
+        "brussels": {
+          "status": "none",
+          "note": "Brussels Airlines' website has no freight tracking.",
+          "evidence": "2026-11-01: be/en and be/fr nav, footer and snapshots"
         }
       }
     },
@@ -1638,6 +1861,11 @@
           "status": "none",
           "note": "Air Dolomiti's website has no freight booking.",
           "evidence": "fill check 2026-11-01"
+        },
+        "brussels": {
+          "status": "none",
+          "note": "Brussels Airlines' website has no freight booking.",
+          "evidence": "2026-11-01: be/en and be/fr nav, footer and snapshots"
         }
       }
     },
@@ -1677,6 +1905,11 @@
           "status": "none",
           "note": "Air Dolomiti's website has no cargo station finder; its airport pages are text.",
           "evidence": "fill check 2026-11-01"
+        },
+        "brussels": {
+          "status": "none",
+          "note": "Brussels Airlines' website has no cargo station finder.",
+          "evidence": "2026-11-01: be/en and be/fr nav, footer and snapshots"
         }
       }
     },
@@ -1716,6 +1949,11 @@
           "status": "none",
           "note": "Air Dolomiti's website has no cargo eServices.",
           "evidence": "fill check 2026-11-01"
+        },
+        "brussels": {
+          "status": "none",
+          "note": "Brussels Airlines' website has no cargo eServices.",
+          "evidence": "2026-11-01: be/en and be/fr nav, footer and snapshots"
         }
       }
     }

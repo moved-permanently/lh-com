@@ -205,5 +205,5 @@ test('the committed functions.json is valid and functions.md is current', () => 
   const doc = JSON.parse(fs.readFileSync(path.join(dir, 'functions.json'), 'utf8'));
   const md = fs.readFileSync(path.join(dir, 'functions.md'), 'utf8');
   assert.deepEqual(check(doc, md), []);
-  assert.deepEqual(doc.brands.map((b) => b.name), ['Lufthansa', 'Discover', 'ITA', 'Austrian', 'Cargo', 'Air Dolomiti']);
+  assert.deepEqual(doc.brands.map((b) => b.name), ['Lufthansa', 'Discover', 'ITA', 'Austrian', 'Cargo', 'Air Dolomiti', 'Brussels']);
 });

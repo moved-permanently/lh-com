@@ -48,8 +48,8 @@ brand, `:name:` text (Edge Delivery turns it into an icon) and a `functions.md` 
 ## Routine
 
 Run it after each change that moves a cell: function work done and checked, a publish that puts a function live on a brand,
-an answer from Lufthansa, a decision, a new brand (a new entry in `brands` and a cell in every function). Several changes in
-one round go into one update.
+an answer from Lufthansa, a decision, a new brand (a new entry in `brands`, a cell in every function, and the brand list in
+the last test of `render.test.mjs`). Several changes in one round go into one update.
 
 1. Edit `functions.json`: status, note, footnote, evidence, page; set `updated` and `change`.
 2. Render and check:
