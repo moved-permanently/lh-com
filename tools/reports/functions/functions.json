@@ -1,6 +1,6 @@
 {
   "updated": "2026-11-01",
-  "change": "Brussels Airlines has its own column: its Belgian site in English and French is live since 1 November, 3 of its functions work on the replica and 15 are planned. Long words in page headings now wrap on phones on every brand.",
+  "change": "Air Dolomiti's flight search and site search work on the replica, and so do Cargo's shipment tracking and site search. ITA's group travel pages and Austrian's chat button on 78 pages are live.",
   "legend": {
     "done": {
       "label": "works on our replica",
@@ -32,7 +32,7 @@
     }
   },
   "footnotes": {
-    "adbooking": "Air Dolomiti sells through its own booking engine, not Lufthansa's shop. The hand-off is in the shared flight search since 1 November, and a test search from our preview site reached the engine's flight selection; its bot check then showed a captcha to the automated test browser, which a person can pass. The pages still need the search form; until then the replica links to Air Dolomiti's booking page.",
+    "adbooking": "Air Dolomiti sells through its own booking engine, not Lufthansa's shop. Since 1 November the search form is on the replica's homepages, route pages and booking pages and hands the trip to that engine, as www does; the engine's bot check can show a captcha, as it can on www.",
     "picker": "The picker for adults, children, infants and cabin is in the shared code since 1 November. Each brand's pages still have to switch it on; until then the search sends the travellers and cabin set on the page.",
     "status": "Since 1 November the flight status form passes a search on in the parameters the airline's status page reads, and posts it to Air Dolomiti's own engine. The four brands on Lufthansa's AEM count as working after a check on each replica; Air Dolomiti's pages still need the form.",
     "lhbooking": "Lufthansa's manage booking and hotel tabs hand over to two services that run in AEM today. Their replacements already answer on lufthansa.turnsthe.page with test data; next, the tabs post to them.",
@@ -43,7 +43,7 @@
     "cargostays": "Cargo's booking, schedules, customer portal, station finder and eServices stay on Cargo's current systems; the new site links to them.",
     "cargomoves": "Cargo's public pages move completely: contact forms, notifications, help and contact search, the newsletter page and the tracking entry form get versions on the new platform.",
     "cargonews": "Cargo's newsletter form loads from Lufthansa Cargo's Microsoft Dynamics, which takes sign-ups only from sites Cargo allows. Lufthansa Cargo has to allow our address for form hosting in its Dynamics settings; until then the embed stays off and the page links to Cargo's own newsletter page.",
-    "oschat": "Austrian's chat assistant is loaded from Austrian's website, outside AEM. Its button is built, checked on our preview and switched on for Austrian; it appears page by page as the 78 pages that show it on www get their next update.",
+    "oschat": "Austrian's chat assistant is loaded from Austrian's website, outside AEM. Since 1 November its button shows on the 78 English and German pages that have it on www; the French, Spanish and Italian pages follow.",
     "adchat": "Air Dolomiti's chat assistant is built into the replica, but its switch stays off: the chat vendor sends no chat to our address until Air Dolomiti or the vendor adds a rule for it.",
     "travelid": "Personal content for signed-in customers needs Lufthansa: Travel ID, the group's login, accepts only the airline's own website as the address to return to and as the site allowed to call it. The replicas can't sign anyone in until they run on the airline's address, or Lufthansa allows ours.",
     "sndest": "Brussels Airlines' fare teasers, homepage slider and offers grid load live prices, but their cards open a destination page address the replica doesn't have. Brussels Airlines' own destination page works on the replica, and one brand setting points the cards at it.",
@@ -137,11 +137,11 @@
           "evidence": "fill check 2026-11-01: homepage Booking tab posts to /en/ebooking"
         },
         "airdolomiti": {
-          "status": "wip",
-          "note": "Air Dolomiti sells through its own booking engine; the hand-off is built and reached the engine in a test, and the replica links to Air Dolomiti's booking page until its pages get the form.",
+          "status": "done",
+          "note": "The search form on the homepages, the route pages and the booking pages hands the trip to Air Dolomiti's own booking engine, as on www.",
           "footnote": "adbooking",
-          "page": "/",
-          "evidence": "fa987004 shop-handoff DES format; M1 2026-11-01: one POST from the preview host reached flight selection, then an hCaptcha for the headless browser"
+          "page": "/prenotazioni",
+          "evidence": "ema-cashub 191 (af2b87be) published 2026-11-01 job-2026-11-01-06-50-03-fdfd0461: flight-search on 3 homepages, 192 route pages, /prenotazioni, /en/booking, /de/buchung; M1 2026-11-01: POST from our host reached the engine's flight selection"
         },
         "brussels": {
           "status": "done",
@@ -246,9 +246,10 @@
         },
         "airdolomiti": {
           "status": "wip",
-          "note": "Since 1 November the shared code can post a flight status search to Air Dolomiti's own engine; the replica's pages don't have the form yet and link to Air Dolomiti's status page.",
+          "note": "The replica has its own flight status pages since 1 November; the search by flight number goes to Air Dolomiti's status service, the search by route or airport is still to come.",
           "footnote": "status",
-          "evidence": "88d6a6dd POST mode; functions scan 2026-10-31: link to www /stato-volo"
+          "evidence": "ema-cashub 191 (af2b87be) published 2026-11-01: /stato-volo, /en/flight-status, /de/flug-status, POST mode (88d6a6dd), flight-number tab only",
+          "page": "/stato-volo"
         },
         "brussels": {
           "status": "wip",
@@ -700,9 +701,10 @@
           "evidence": "fill check 2026-11-01"
         },
         "ita": {
-          "status": "wip",
-          "note": "ITA's group travel and charter page isn't on the replica yet; it comes with the next ITA content update.",
-          "evidence": "fill check 2026-11-01: /it/en/book-and-prepare/group-travel-and-charter 404"
+          "status": "done",
+          "note": "ITA's group travel and charter pages are on the replica, and the group request form sends through our own forms service.",
+          "evidence": "ema-test 210 published 2026-11-01 job-2026-11-01-06-55-29-e3b2a140 (7 roots); form ita-group-travel live since 2026-10-31",
+          "page": "/it/en/book-and-prepare/group-travel-and-charter"
         },
         "austrian": {
           "status": "see",
@@ -1138,10 +1140,10 @@
         },
         "austrian": {
           "status": "wip",
-          "note": "The app is in the shared code, but Austrian's Travel ID service refuses our addresses, so the replica's page links to www for now.",
+          "note": "Austrian's culinary journey page carries the app since 1 November; the parts that need a booking come from Austrian's Travel ID service, which refuses our addresses.",
           "footnote": "travelidapps",
           "page": "/at/en/culinaryjourney",
-          "evidence": "e74d57f2; brief 189 report 2026-11-01: api.travelid.austrian.com preflight 401 from our hosts"
+          "evidence": "ema-test 210 (9303cf90 theme) published 2026-11-01 job-2026-11-01-06-56-16-040c5a53; Travel ID preflight 401 (brief 189)"
         },
         "cargo": {
           "status": "none",
@@ -1280,15 +1282,16 @@
           "evidence": "brief 190; live check 2026-11-01: search-results on the published page"
         },
         "cargo": {
-          "status": "wip",
-          "note": "Cargo's search page and its search index come to the replica.",
-          "footnote": "cargomoves",
-          "evidence": "functions scan 2026-10-31"
+          "status": "done",
+          "note": "Cargo's search page finds the replica's own pages in English and German.",
+          "evidence": "ddd12512 search-brand-en/-de; published 2026-11-01 job-2026-11-01-06-44-26-1adda04a; index jobs 497 + 422; check: 'dangerous goods' 30 results on cargo.turnsthe.page",
+          "page": "/en/search"
         },
         "airdolomiti": {
-          "status": "wip",
-          "note": "Air Dolomiti's search comes to the replica as a search page with an index of its own.",
-          "evidence": "functions scan 2026-10-31"
+          "status": "done",
+          "note": "Air Dolomiti's search page finds the replica's own pages in Italian, English and German.",
+          "evidence": "ddd12512 search-airdolomiti-it, search-brand-en/-de; published 2026-11-01; index jobs 373/582/586; check: 'bagaglio' 30 results on airdolomiti.turnsthe.page",
+          "page": "/search"
         },
         "brussels": {
           "status": "wip",
@@ -1373,11 +1376,11 @@
           "evidence": "fill check 2026-11-01"
         },
         "austrian": {
-          "status": "wip",
-          "note": "The chat button is built and switched on for Austrian; it appears on the about 78 pages that have it on www once their next content update is live.",
+          "status": "done",
+          "note": "The chat button opens Austrian's chat assistant on the 78 pages that show it on www.",
           "footnote": "oschat",
-          "page": "/at/en/fly/flight-information/flight-disruptions",
-          "evidence": "brief 197 (3b3c7e2, flag module d57e489); check 2026-11-01 04:29 CET on an aem.page test page: button renders, Maria opens with the baggage start; lh-austrian /config/flags.json chat-button on, published 04:3x; page metadata in held brief 210"
+          "page": "/at/en/baggage",
+          "evidence": "brief 197 + ema-test 210 metadata, published 2026-11-01 job-2026-11-01-06-56-16-040c5a53; check: chat-button meta live on /at/en/baggage, /at/de/gepaeck, /at/en/check-in; flag chat-button on"
         },
         "cargo": {
           "status": "none",
@@ -1807,11 +1810,10 @@
           "evidence": "fill check 2026-11-01"
         },
         "cargo": {
-          "status": "wip",
-          "note": "The tracking form is in the shared code since 1 November; Cargo's homepage still links to Cargo's tracking page.",
-          "footnote": "cargomoves",
+          "status": "done",
+          "note": "The tracking form on Cargo's homepage hands the air waybill number to Cargo's tracking platform, as on www.",
           "page": "/en/home",
-          "evidence": "51b98549; functions scan 2026-10-31"
+          "evidence": "ema-cashub 191 published 2026-11-01 (job-2026-11-01-06-44-26-1adda04a); check: 020-12345675 opened Cargo's eTracking with the number filled in"
         },
         "airdolomiti": {
           "status": "none",
