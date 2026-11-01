@@ -1,0 +1,29 @@
+# lh-cargo (2026-11-01, brief 225: Cargo's public contact forms on lh-forms): uploaded to DA moved-permanently/lh-cargo and previewed on main--lh-cargo--moved-permanently.aem.page; not published.
+# www's public (no login) contact forms: one, "Contact us" (Support & Contact's "Open contact form", its topic entries, the menus' Feedback/Complaints; the same English form on /en/ and /de/support-and-contact). Its form page is [FORM] below, sent by lh-forms as cargo-contact-us (code: e46311d2, 1031131b, b22f7aa1; worker deployed, run 41297776740).
+# Behind Cargo's login, links to www as before: /en|de/contact-cst (shipment support request: www answers with its Sign In page), the eServices forms (claims, AWB amendment, POD, written statement, temperature deviation, DGR booking, AWB stock), registration and password/username recovery (account forms of the portal).
+# Publish [FORM] first, then the pages linking to it.
+# - [FORM] /en/contact-us: H1 and text of www's card, Form (core) cargo-contact-us: company, first and last name, phone (optional), email, country of origin (www's 158), reason for contact, its subreason (www's lists, shown once a reason is chosen), AWB number (optional), request (hint, 1,500 characters), files (optional: PDF, JPEG, PNG, 5 x 3.7 MB), Submit; www's success text in place. ?reason=&subreason= choose both.
+#   Suggested test submission on cargo.turnsthe.page: /en/contact-us?reason=General%20request&subreason=Feedback%20%2F%20Complaints (reason and subreason prefilled; add one small PDF to test the attachment).
+# - /en/support-and-contact: the 8 entries that open www's form link to /en/contact-us with their reason and subreason; www's card "Contact us / Open contact form" links to it (the link "Go to the form on www.lufthansa-cargo.com" gone)
+# - /en/nav, /de/nav: Feedback/Complaints to /en/contact-us?reason=General%20request&subreason=Feedback%20%2F%20Complaints; the German nav's Support & Contact our English page
+# - 14 pages: their links to www's /de/support-and-contact and /support-and-contact now /en/support-and-contact
+# - redirects for the DA /redirects sheet (tools/importer/cargo-redirects.json): 1 new row, /de/support-and-contact to /en/support-and-contact
+# documents (18):
+/en/contact-us
+/en/support-and-contact
+/en/nav
+/de/nav
+/de/active-temp-control
+/de/add-on-services/insurance
+/de/add-on-services/personal-supervision
+/de/add-on-services/smartuld
+/de/add-on-services/sustainable-choice
+/de/add-on-services/todoor
+/de/dangerous-goods
+/de/emergency
+/de/live-animals
+/de/product-road-feeder-service
+/de/vulnerables
+/en/product-road-feeder-service
+/en/speed-flash
+/en/vulnerables
