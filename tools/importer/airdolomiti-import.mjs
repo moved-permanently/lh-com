@@ -40,7 +40,7 @@ import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { parseHTML } from 'linkedom';
 import {
-  docOf, sourceKey, langOf, allRows, targetOf,
+  docOf, sourceKey, langOf, allRows, targetOf, LIVE_TOOLS,
 } from './airdolomiti-paths.mjs';
 import { snapshotFile, urlKey } from './airdolomiti-capture.mjs';
 
@@ -79,7 +79,148 @@ const BLOG = {
     ['Current page label', 'Sei a pagina {CURRENT_PAGE} dei risultati'], ['Pagination label', 'Pagine degli articoli'],
     ['Previous label', 'Pagina precedente'], ['Next label', 'Pagina successiva'], ['Page label', 'Pagina {PAGE}'],
   ],
+  // /en/articles/query-index.json; www's /articles has "Categories" (and "Load More Posts")
+  en: [
+    ['Page size', '9'], ['Hide filter', 'yes'],
+    ['Results label', '{TOTAL} articles found'], ['Search label', 'Search the articles'],
+    ['Categories label', 'Categories'], ['All categories label', 'All categories'],
+    ['Read label', 'Read the article'], ['Read screen reader label', 'Read the article {TITLE}'],
+    ['No results label', 'There are no articles on this topic yet.'],
+    ['Current page label', 'You are on page {CURRENT_PAGE} of the results'], ['Pagination label', 'Article pages'],
+    ['Previous label', 'Previous page'], ['Next label', 'Next page'], ['Page label', 'Page {PAGE}'],
+  ],
 };
+
+/* ------------------------------------------------------------------ flight tools ------- */
+
+// Air Dolomiti's own airports (www's booking widget offers only these): tools/importer/airdolomiti-airports.json
+const AIRPORTS = JSON.parse(fs.readFileSync(path.join(path.dirname(fileURLToPath(import.meta.url)), 'airdolomiti-airports.json'), 'utf8')).airports;
+// German slugs with names the airport list does not have
+const EXONYMS = { KRK: ['krakau'], TRS: ['triest'] };
+const slugOf = (s) => s.toLowerCase().replace(/ü/g, 'ue').replace(/ö/g, 'oe').replace(/ä/g, 'ae')
+  .normalize('NFD')
+  .replace(/[\u0300-\u036f]/g, '')
+  .replace(/[^a-z0-9]+/g, '-')
+  .replace(/^-|-$/g, '');
+const NAMES = (() => {
+  const table = AIRPORTS.map((a) => {
+    const v = new Set(EXONYMS[a.code] || []);
+    [a.it, a.en, a.de].forEach((n) => [n, n.normalize('NFD').replace(/[\u0300-\u036f]/g, '')].forEach((x) => {
+      v.add(slugOf(x));
+      x.split(' - ').forEach((p) => v.add(slugOf(p).replace(/-airport$/, '')));
+    }));
+    return { code: a.code, names: [...v].filter((x) => x.length > 2) };
+  });
+  // a first word ("monaco", "londra") counts when one airport alone has it
+  const firsts = {};
+  table.forEach((a) => a.names.forEach((n) => { const f = n.split('-')[0]; (firsts[f] = firsts[f] || new Set()).add(a.code); }));
+  table.forEach((a) => a.names.slice().forEach((n) => { const f = n.split('-')[0]; if (f.length > 3 && firsts[f].size === 1 && !a.names.includes(f)) a.names.push(f); }));
+  return table;
+})();
+
+/**
+ * A route page's origin and destination (www's slug: volo-verona-monaco-di-baviera,
+ * flight-from-munich-to-brindisi, flug-von-genf-nach-muenchen), Air Dolomiti's airports only:
+ * { origin, destination } codes, null where the route's end is not one of them.
+ */
+export function routeAirports(sourceUrl) {
+  const s = new URL(sourceUrl).pathname.split('/').filter(Boolean).pop() || '';
+  const hits = [];
+  NAMES.forEach((a) => a.names.forEach((n) => {
+    const re = new RegExp(`(^|-)${n}(-|$)`, 'g');
+    let m = re.exec(s);
+    while (m) { hits.push({ code: a.code, at: m.index + m[1].length, len: n.length }); m = re.exec(s); }
+  }));
+  hits.sort((x, y) => x.at - y.at || y.len - x.len);
+  const found = [];
+  let end = -1;
+  hits.forEach((h) => { if (h.at >= end && !found.some((f) => f.code === h.code)) { found.push(h); end = h.at + h.len; } });
+  if (found.length >= 2) return { origin: found[0].code, destination: found[1].code };
+  if (!found.length) return { origin: null, destination: null };
+  // one end only: the origin when the slug starts with it (after volo, flight(s), flug, from, von, da)
+  const lead = s.replace(/^((volo|voli|flight|flights|flug|from|von|da)-)+/, '');
+  return lead.startsWith(s.slice(found[0].at, found[0].at + found[0].len))
+    ? { origin: found[0].code, destination: null } : { origin: null, destination: found[0].code };
+}
+
+const airportLabel = (code, lang) => { const a = AIRPORTS.find((x) => x.code === code); return a ? `${a[lang] || a.en} (${code})` : code; };
+
+/**
+ * The flight-search block's rows for an Air Dolomiti page: the passenger picker (www's widget has
+ * adults, children, infants and no cabin choice: one cabin, so none to choose), Air Dolomiti's
+ * airports, the route's airports, and the texts of www's widget on the page (labels, trip types,
+ * the passenger line). The booking engine comes from the page's brand and language.
+ */
+function flightSearchRows(page, route = {}) {
+  const rows = [['Passenger picker', 'yes'], ['Cabins', 'E'], ['Airports', AIRPORTS.map((a) => a.code).join(', ')]];
+  if (route.origin) rows.push(['Default origin', airportLabel(route.origin, page.lang)]);
+  if (route.destination) rows.push(['Default destination', airportLabel(route.destination, page.lang)]);
+  const { document } = parseHTML(page.rendered);
+  const form = document.querySelector('form[class*="bookingWidget"]');
+  if (!form) return rows;
+  const t = (n) => plain(n ? n.textContent : '');
+  const trips = [...form.querySelectorAll('[class*="bookingWidgetTop"] label')].map(t).filter(Boolean);
+  if (trips.length) rows.push(['Trip types', trips.slice(0, 2).join(', ')]);
+  const box = form.querySelector('[class*="bookingWidgetBottomIn"]') || form;
+  const fields = [...box.querySelectorAll('[class*="inputField"] > label')].map(t);
+  [['From label', 0], ['To label', 1], ['Departure label', 2], ['Return label', 3], ['Passengers label', 4]]
+    .forEach(([k, i]) => { if (fields[i]) rows.push([k, fields[i]]); });
+  // the date field's text (the block splits it at " - ": departure, return)
+  if (fields[2] && fields[3]) rows.push(['Date label', `${fields[2]} - ${fields[3]}`]);
+  // "1 Passeggero": the one-traveller line; the many-travellers line takes the field's label
+  const line = t(box.querySelector('[class*="multiCounterInput"]'));
+  if (/^1\s/.test(line)) rows.push(['Traveller summary', line.replace(/^1/, '{COUNT}')]);
+  if (fields[4]) rows.push(['Travellers summary', `{COUNT} ${fields[4]}`]);
+  const counters = [...box.querySelectorAll('[class*="singleCounter_"]')];
+  ['Adults', 'Children', 'Infants'].forEach((k, i) => {
+    const c = counters[i];
+    if (!c) return;
+    const label = c.querySelector('label');
+    const own = label ? [...label.childNodes].filter((x) => x.nodeType === 3).map((x) => x.textContent).join('').trim() : '';
+    if (own) rows.push([`${k} label`, own]);
+    const hint = t(c.querySelector('[class*="subtitle"]'));
+    if (hint) rows.push([`${k} hint`, hint]);
+  });
+  const submit = [...box.querySelectorAll('button[type="submit"]')].map(t).find(Boolean);
+  if (submit) rows.push(['Submit label', submit]);
+  return rows;
+}
+
+/** The flight-search block once per page, in a section of its own (after the page's hero). */
+function placeSearch(page) {
+  if (!page.search || page.searchPlaced) return;
+  page.section();
+  page.block('flight-search', page.search.map(([k, v]) => [k, esc(v)]));
+  page.section();
+  page.searchPlaced = true;
+  page.note('booking widget: flight-search (the booking engine by the page\'s brand and language)');
+}
+
+/**
+ * The flight-status block's rows for an Air Dolomiti status page: a flight number search posted to
+ * its engine (digital.airdolomiti.it), the texts of www's form on the page. www's route and
+ * airport tabs are not offered: the POST mode sends a flight number search only.
+ */
+function flightStatusRows(page) {
+  const lang = { it: 'it-IT', en: 'en-GB', de: 'de-DE' }[page.lang];
+  const rows = [
+    ['Airlines', 'EN'],
+    ['Submit URL', `https://digital.airdolomiti.it/booking/flight-status?lang=${lang}`],
+    ['Submit method', 'post'], ['Airline field', 'airlineCode'], ['Flight number field', 'flightNumber'], ['Date field', 'departureDate'],
+  ];
+  const { document } = parseHTML(page.rendered);
+  const t = (n) => plain(n ? n.textContent : '');
+  const tab = t(document.querySelector('[class*="StatusVoli_tabButton"]'));
+  if (tab) rows.unshift(['Tabs', tab]);
+  const box = document.querySelector('[class*="StatusVoli_controllers"]');
+  const form = box ? box.parentElement : document;
+  const labels = [...form.querySelectorAll('label')].map(t).filter(Boolean);
+  if (labels[0]) rows.push(['Flight number label', labels[0]]);
+  if (labels[1]) rows.push(['Date label', labels[1]]);
+  const submit = t(form.querySelector('button[type="submit"]'));
+  if (submit) rows.push(['Submit label', submit]);
+  return rows;
+}
 
 /* ------------------------------------------------------------------ site data ---------- */
 
@@ -120,12 +261,20 @@ export function dec(v) {
   return v;
 }
 
+// www's WordPress still names its old development hosts in a few places (the backend's uploads on
+// /de/reiseziele/mailand-de, a link to the German front end): their real hosts
+const DEV_HOSTS = [
+  [/^https?:\/\/airbackend\.sdch\.develondigital\.com\//, 'https://cms.airdolomiti.it/'],
+  [/^https?:\/\/airfront\.de\.sdch\.develondigital\.com\//, 'https://www.airdolomiti.de/'],
+];
+const realHost = (u) => DEV_HOSTS.reduce((s, [re, to]) => s.replace(re, to), String(u || ''));
+
 /** A WordPress image object (or URL string): { url, alt }, or null. */
 const imageOf = (v) => {
   if (!v) return null;
-  if (typeof v === 'string') return /^https?:\/\/.+\.(jpe?g|png|webp|gif|svg)(\?|$)/i.test(v) ? { url: v, alt: '' } : null;
+  if (typeof v === 'string') return /^https?:\/\/.+\.(jpe?g|png|webp|gif|svg)(\?|$)/i.test(v) ? { url: realHost(v), alt: '' } : null;
   if (Array.isArray(v)) return imageOf(v[0]);
-  if (typeof v === 'object' && v.url) return { url: v.url, alt: v.alt || '' };
+  if (typeof v === 'object' && v.url) return { url: realHost(v.url), alt: v.alt || '' };
   return null;
 };
 
@@ -174,7 +323,7 @@ export class Page {
 
   /** A link's target: the site's path for pages in scope, the live site for the rest. */
   href(raw) {
-    const h = String(raw || '').trim().replace(/&amp;/g, '&');
+    const h = realHost(String(raw || '').trim().replace(/&amp;/g, '&'));
     if (!h || /^javascript:|^\{\{/.test(h)) return null;
     if (/^(mailto|tel):/i.test(h)) return h;
     if (h.startsWith('#')) return h;
@@ -211,9 +360,15 @@ export class Page {
     return files[key].eds;
   }
 
-  img(image) {
+  /** An image (opts.maxWidth: its copy at most that wide, airdolomiti-assets.mjs --fit). */
+  img(image, opts = {}) {
     const im = imageOf(image);
     if (!im) return '';
+    if (opts.maxWidth) {
+      const { files } = loadSite();
+      const key = im.url.replace(/[?#].*$/, '');
+      files[key] = { ...(files[key] || { kind: 'image', pages: [] }), maxWidth: opts.maxWidth };
+    }
     let src = this.file(im.url, 'image');
     if (!src) {
       const key = im.url.replace(/[?#].*$/, '');
@@ -308,8 +463,13 @@ function shortcodeOf(kind, n, page, mode) {
     const { document } = parseHTML(page.rendered);
     const g = document.querySelectorAll('[class*="ImageGallery_gallery"]')[n];
     if (!g) return [];
-    page.note('gallery: its images one after another');
-    return [...g.querySelectorAll('img')].map((im) => page.img({ url: im.getAttribute('src'), alt: im.getAttribute('alt') || '' })).filter(Boolean).map((im) => `<p>${im}</p>`);
+    const imgs = [...g.querySelectorAll('img')].map((im) => page.img({ url: im.getAttribute('src'), alt: im.getAttribute('alt') || '' })).filter(Boolean);
+    // www's images side by side: one row of Columns Media (gallery), the images in one cell
+    if (mode === 'top' && imgs.length) {
+      page.note('gallery: Columns Media (gallery), its images in one row');
+      return [{ block: 'columns-media (gallery)', rows: [[imgs.join('')]] }];
+    }
+    return imgs.map((im) => `<p>${im}</p>`);
   }
   const rows = quizRows(page, n);
   if (!rows) return [];
@@ -448,13 +608,17 @@ const HANDLERS = {
     page.section('hidden-heading');
     page.add(`<h1>${esc(page.live.h1)}</h1>`);
     const buttons = (a.buttons || []).map((b) => page.link(b.url, b.text)).join('');
-    page.block('hero-campaign', [[page.img(a.backgroundImage)], [`${a.title ? page.heading('h2', a.title) : ''}${a.subtitle ? `<p>${esc(plain(a.subtitle))}</p>` : ''}${page.booking()}${a.settingText ? `<p>${esc(plain(a.settingText))}</p>` : ''}${buttons}`]]);
+    // www's booking widget on the hero: the flight-search block after it
+    page.search = page.search || flightSearchRows(page);
+    page.block('hero-campaign', [[page.img(a.backgroundImage)], [`${a.title ? page.heading('h2', a.title) : ''}${a.subtitle ? `<p>${esc(plain(a.subtitle))}</p>` : ''}${a.settingText ? `<p>${esc(plain(a.settingText))}</p>` : ''}${buttons}`]]);
+    placeSearch(page);
     page.section();
   },
   'lazyblock/hero': (a, page) => {
     page.section();
     const buttons = (a.buttons || []).map((b) => page.link(b.url, b.text, 'primary')).join('');
     page.block('hero-campaign (narrow)', [[page.img(a.backgroundimage || a.backgroundImage)], [`${page.heading('h1', a.title)}${a.subtitle ? `<p>${esc(plain(a.subtitle))}</p>` : ''}${buttons}`]]);
+    placeSearch(page);
     page.section();
   },
   'lazyblock/title': (a, page) => { page.add(page.heading(a.tag, a.title)); if (a.subtitle) page.add(`<p>${esc(plain(a.subtitle))}</p>`); },
@@ -507,12 +671,19 @@ const HANDLERS = {
     if (a.showMoreTextUrl && a.showMoreText) page.add(page.link(a.showMoreTextUrl, a.showMoreText));
   },
   'lazyblock/cosa-fare-carroussel': (a, page) => {
+    // www's small picture inline before the heading: a section of its own with the style
+    // heading-icon, the picture in a paragraph before the H2
+    const icon = imageOf(a.icon);
+    // (at most 200 px wide: the style moves only a small picture; www shows it at 40 px)
+    const iconHtml = icon ? page.img(icon, { maxWidth: 200 }) : '';
+    if (iconHtml) { page.section('heading-icon'); page.add(`<p>${iconHtml}</p>`); }
     page.add(page.heading(a.tag || 'h2', a.header || a.title));
     if (a.description) page.add(rich(a.description, page));
     page.block('carousel-cards', (a.cardList || []).map((c) => cardRow(page, {
       image: c.topImage || c.image, tag: a.tagCard, title: c.title, text: c.date, url: c.Url || c.url, label: c.ctaText || c.title,
     })));
     if (a.showMoreTextUrl && a.showMoreText) page.add(page.link(a.showMoreTextUrl, a.showMoreText));
+    if (iconHtml) page.section();
   },
   'lazyblock/gridtwocolumns': (a, page) => {
     page.block('cards-teaser', (a.cardList || []).map((c) => cardRow(page, {
@@ -569,6 +740,14 @@ const HANDLERS = {
   },
   'lazyblock/half-page': (a, page, b) => {
     const card = `${page.heading(a.tag || 'h3', a.cardTitle)}${a.cardSubtitle ? `<p>${esc(plain(a.cardSubtitle))}</p>` : ''}${a.urlBtn ? page.link(a.urlBtn, a.textBtn, 'primary') : ''}${a.urlLink ? page.link(a.urlLink, plain(a.textImage) || a.textLink) : ''}`;
+    // a flight status page: its title, the flight-status block (www's form), then the card
+    if (page.tool === 'status') {
+      (b.innerBlocks || []).forEach((x) => render(x, page, 'top'));
+      page.block('flight-status', flightStatusRows(page).map(([k, v]) => [k, esc(v)]));
+      if (a.img) page.block('columns-media', [[page.img(a.img), card]]); else page.add(card);
+      page.note('flight status form: flight-status (a flight number search posted to digital.airdolomiti.it)');
+      return true;
+    }
     // a column holding a list block (accordion, cards): its blocks on the page, then the card as
     // its own image | text row; else the column's texts beside the card
     if ((b.innerBlocks || []).some((x) => LIST_BLOCKS.test(x.name))) {
@@ -580,7 +759,12 @@ const HANDLERS = {
     page.block('columns-media', [[left, `${page.img(a.img)}${card}`]]);
     return true;
   },
-  'lazyblock/display-booking-widget': (a, page) => { page.add(page.booking()); },
+  'lazyblock/display-booking-widget': (a, page) => {
+    // the route pages (the route's airports prefilled) and the booking pages: the flight-search
+    // block (after the page's hero, else where the page's blocks end); elsewhere the booking link
+    if (page.isRoute || page.tool === 'booking') page.search = page.search || flightSearchRows(page, page.isRoute ? routeAirports(page.source) : {});
+    else page.add(page.booking());
+  },
   'lazyblock/newsletter': (a, page) => {
     if (page.newsletterLinked) return;
     page.newsletterLinked = true;
@@ -619,6 +803,9 @@ const HANDLERS = {
     page.note('eSIM widget (live tool): a link to the page on www');
   },
   'lazyblock/margin-top': () => {},
+  // www's flight status form (its tabs as attributes): the half-page around it writes the
+  // flight-status block (flightStatusRows)
+  'lazyblock/status-voli': () => {},
   'lazyblock/html-content': (a, page) => { page.add(rich(a.content || a.html || a.text, page, 'top')); },
   'core/paragraph': (a, page) => { page.add(rich(a.content ? `<p>${a.content}</p>` : '', page, 'top')); },
   'core/heading': (a, page) => { page.add(page.heading(`h${a.level || 2}`, a.content)); },
@@ -759,7 +946,11 @@ export function convert(rendered, sourceUrl) {
     // the index's category is the posts' Category metadata, in lower case ("#didyouknow")
     if (BLOG[lang]) page.block('blog-overview', [['Category', esc(plain(post.name).toLowerCase())], ...BLOG[lang].map(([k, v]) => [k, esc(v)])]);
   }
+  // eslint-disable-next-line no-underscore-dangle -- WPGraphQL's type name
+  page.isRoute = post.__typename === 'Route';
+  page.tool = LIVE_TOOLS[`https://${sourceKey(sourceUrl)}`] || null;
   (post.blocks || []).forEach((b) => render(b, page, 'top'));
+  placeSearch(page);
   // a post's own fields when it has no blocks (title, content)
   if (!(post.blocks || []).length && post.content) page.add(rich(post.content, page, 'top'));
   let docs = page.sections.filter((s) => s.items.length);
@@ -856,7 +1047,7 @@ function main() {
       site: 'moved-permanently/lh-airdolomiti',
       source: 'www.airdolomiti.it, www.airdolomiti.eu (/en/), www.airdolomiti.de (/de/): Air Dolomiti, plan content-sites/lh-airdolomiti/plan.md',
       paths: [],
-      patterns: ['^(/en|/de)?/(nav|footer)$'],
+      patterns: ['^(/en|/de)?/(nav|footer|search)$'],
     });
     allow.paths = [...new Set([...allow.paths, ...written])].sort();
     writeJson(listPath, allow);

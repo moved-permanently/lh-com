@@ -13,9 +13,11 @@
  *               source; SVG images become PNGs.
  *   --upload    documents to lh-airdolomiti's DA under /documents/<name>.<ext>, previewed (never
  *               published); images go with the pages that use them (da-upload.mjs, /media-da/airdolomiti/).
+ *   --fit       images an import marks with a width (maxWidth: heading icons) as local copies at
+ *               most that wide.
  * Cache content-sites/lh-airdolomiti/assets/cache/<sha1 of the URL>, state assets/state.json.
  *
- * Usage: node tools/importer/airdolomiti-assets.mjs --download | --upload
+ * Usage: node tools/importer/airdolomiti-assets.mjs --download | --upload | --fit
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -188,8 +190,34 @@ function upload() {
   writeJson(LIST, files);
 }
 
+/**
+ * --fit: the images an import marks with a width (files.json maxWidth: the carousels' small
+ * pictures before a heading, section style heading-icon) as local copies at most that wide
+ * (content-sites/lh-airdolomiti/content/media-da/...); the cache keeps www's file. Prints the
+ * copies it wrote (their pages need the image sent again: da-upload.mjs --force).
+ */
+async function fit() {
+  const sharp = (await import('sharp')).default;
+  const files = readJson(LIST, {});
+  const state = readJson(STATE, { done: {} });
+  const fitted = [];
+  for (const [key, f] of Object.entries(files)) {
+    if (!f.maxWidth || !f.eds || !state.done[key] || state.done[key].status !== 200) continue;
+    const local = path.join(W, 'content', f.eds);
+    const meta = await sharp(path.join(CACHE, sha1(key))).metadata();
+    const now = fs.existsSync(local) ? await sharp(local).metadata() : null;
+    if (meta.width <= f.maxWidth || (now && now.width <= f.maxWidth)) continue;
+    fs.mkdirSync(path.dirname(local), { recursive: true });
+    await sharp(path.join(CACHE, sha1(key))).resize({ width: f.maxWidth }).toFile(local);
+    fitted.push(f.eds);
+    console.log(`${f.eds}: ${meta.width} px -> ${f.maxWidth} px`);
+  }
+  console.log(`fitted: ${fitted.length}`);
+}
+
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   if (has('download')) process.exit(await download());
   else if (has('upload')) upload();
-  else console.log('usage: --download | --upload');
+  else if (has('fit')) await fit();
+  else console.log('usage: --download | --upload | --fit');
 }

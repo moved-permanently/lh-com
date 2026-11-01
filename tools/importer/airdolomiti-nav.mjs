@@ -11,13 +11,16 @@
  *   In viaggio) with their columns and links (the menu cards as one column each); 4. tools:
  *   assistance (:wheelchair:), the other languages' homepages (the header's language switch), the
  *   menu label.
- * - footer: the link columns (company, contacts, news, routes, assistance), a section with the
+ * - footer: the search row (:search: and a link to the search page), the link columns (company,
+ *   contacts, news, routes, assistance), a section with the
  *   style badges: the main buttons, the social links (:facebook:, :instagram:, :linkedin:,
  *   :youtube:, :x:, :tiktok: tokens) and www's payment logos under their heading (images without
  *   a link, as on www), the
  *   legal row (www's "change cookie settings" opens PrivacyLab's banner: left out, the site has
  *   no consent layer), the company line (note) and the logo row.
- * Booking, portal and live tools point at the live site; pages in scope become the site's paths.
+ * - search (/search, /en/search, /de/search): the search-results block over the language's index.
+ * Portal and live tools point at the live site; pages in scope (the booking and flight status
+ * pages too) become the site's paths.
  *
  * Usage: node tools/importer/airdolomiti-nav.mjs [--lang it|en|de]
  */
@@ -44,6 +47,22 @@ const SETUP = {
   },
 }[lang];
 const LOGO = 'https://www.airdolomiti.it/_next/static/media/logo-desktop.475ff090.png';
+// the search page (/search, /en/search, /de/search: the search-results block over the language's
+// search index, helix-query.yaml search-airdolomiti-it, search-brand-en, search-brand-de). www's
+// search is an overlay: its field's placeholder and button are www's, heading, title and the
+// Italian result texts ours (the block has English and German ones)
+const SEARCH = {
+  it: {
+    input: 'Inizia la ricerca...',
+    rows: [['Search button label', 'Cerca'], ['Search for label', 'La tua ricerca per {QUERY}'], ['Results label', '{NUMBER} risultati'],
+      ['No results label', 'Nessun risultato trovato. Modifica la ricerca e riprova.'], ['Failed label', 'Non è stato possibile caricare i risultati della ricerca.'],
+      ['Failed sr label', 'Non è stato possibile caricare i risultati della ricerca.'], ['Success sr label', 'Risultati della ricerca caricati.'],
+      ['Pagination label', 'Pagine dei risultati'], ['Previous label', 'Pagina precedente'], ['Next label', 'Pagina successiva'], ['Page label', 'Pagina {PAGE}']],
+    heading: 'Risultati della ricerca',
+  },
+  en: { input: 'Enter search term...', rows: [['Search button label', 'Search']], heading: 'Search results' },
+  de: { input: 'Suchbegriff eingeben...', rows: [['Search button label', 'Suche']], heading: 'Suchergebnisse' },
+}[lang];
 const OTHERS = {
   it: [['English', '/en/'], ['Deutsch', '/de/']], en: [['Italiano', '/'], ['Deutsch', '/de/']], de: [['Italiano', '/'], ['English', '/en/']],
 }[lang];
@@ -115,7 +134,10 @@ const payments = (fd.paymentImages || []).filter((p) => p.pic && p.pic.url).map(
 const legal = (fd.infoLegaliLinks || []).filter((l) => !/^\{\{/.test(l.url || '')).map((l) => li(l.url, l.text)).join('');
 const note = [fd.address, fd.copyright].filter(Boolean).map((t) => `<p>${esc(t.trim())}</p>`).join('');
 const section = (body, style) => `<div>${body}${style ? `<div class="section-metadata"><div><div>Style</div><div>${style}</div></div></div>` : ''}</div>`;
+// the search row (as lh-com's footers): www's search field ("Inizia la ricerca...") leading to the
+// site's search page with the term in its query parameter
 const footer = [
+  section(`<p>:search: <a href="${SETUP.prefix}/search?query=">${esc(SEARCH.input)}</a></p>`),
   section(columns),
   section(`<ul>${mainButtons}</ul><ul>${social}</ul>${payments ? `<h3>${esc(fd.metodoDiPagamento || SETUP.payments)}</h3><ul>${payments}</ul>` : ''}`, 'badges'),
   section(`<ul>${legal}</ul>`),
@@ -130,9 +152,13 @@ const write = (file, doc) => {
 };
 write(`${SETUP.prefix}/nav.plain.html`, `${nav}\n`);
 write(`${SETUP.prefix}/footer.plain.html`, `${footer}\n`);
+const searchRows = [[`${SETUP.prefix}/search-index.json`], ['Input label', SEARCH.input], ...SEARCH.rows];
+const searchMeta = [['Title', `${SEARCH.heading} | Air Dolomiti`], ['Robots', 'noindex, nofollow'], ['Nav', `${SETUP.prefix}/nav`], ['Footer', `${SETUP.prefix}/footer`], ['Language', lang]];
+const table = (name, rows) => `<div class="${name}">${rows.map((r) => `<div>${r.map((c) => `<div>${esc(c)}</div>`).join('')}</div>`).join('')}</div>`;
+write(`${SETUP.prefix}/search.plain.html`, `<div><h1>${esc(SEARCH.heading)}</h1>${table('search-results', searchRows)}${table('metadata', searchMeta)}</div>\n`);
 // the files the nav and footer use, for airdolomiti-assets.mjs
 const filesPath = path.join(W, 'assets/files.json');
 const all = JSON.parse(fs.existsSync(filesPath) ? fs.readFileSync(filesPath, 'utf8') : '{}');
 const { files } = loadSite();
 fs.writeFileSync(filesPath, `${JSON.stringify({ ...all, ...files }, null, 1)}\n`);
-console.log(`written: ${SETUP.prefix}/nav ${SETUP.prefix}/footer (${page.missing.size} files not downloaded yet)`);
+console.log(`written: ${SETUP.prefix}/nav ${SETUP.prefix}/footer ${SETUP.prefix}/search (${page.missing.size} files not downloaded yet)`);

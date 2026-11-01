@@ -613,6 +613,27 @@ function serviceWidget(c, page) {
   const labels = [...c.querySelectorAll('.nav-tabs .nav-link span')].map(text);
   page.block('cards-icon', tiles.map(([icon, label, href], i) => [`<p>${icon}</p>`, `<p><a href="${href}">${esc(labels[i] || label)}</a></p>`]));
   page.note('booking / track / schedule / stations widget (portal): cards-icon linking the portal on www');
+  // the Track tab's form (eTracking: prefix and serial of the air waybill): booking-lookup
+  // (tracking), its texts as www's form has them; the tab named as www's own link to eTracking
+  const form = c.querySelector('form[name="etrk-tracking-form"]');
+  if (!form) return;
+  const doc = c.ownerDocument;
+  // (the footer's "Frequently used" link: "Track your shipment", "Shipment tracken")
+  const tab = text(doc.querySelector(`.footerLinkSection a[href="/${page.lang}/eservices/etracking"]`));
+  const rows = [];
+  if (tab) rows.push(['Tab', tab]);
+  const prefix = form.querySelector('#etrk_awbp');
+  if (prefix && prefix.getAttribute('aria-label')) rows.push(['Prefix label', prefix.getAttribute('aria-label')]);
+  const serialLabel = text(form.querySelector('label.control-label'));
+  if (serialLabel) rows.push(['Serial label', serialLabel]);
+  const prefixError = text(form.querySelector('#awbPrefixError'));
+  if (prefixError) rows.push(['Prefix error', prefixError]);
+  const serialError = text(form.querySelector('#awbNumError'));
+  if (serialError) rows.push(['Serial error', serialError]);
+  const submit = text(form.querySelector('#etrk_awbsearch'));
+  if (submit) rows.push(['Submit label', submit]);
+  page.block('booking-lookup (tracking)', rows.map(([k, v]) => [k, esc(v)]));
+  page.note('shipment tracking form: booking-lookup (tracking), the air waybill handed to eTracking on www');
 }
 
 function tabs(c, page) {
@@ -1036,7 +1057,7 @@ async function main() {
       site: 'moved-permanently/lh-cargo',
       source: 'www.lufthansa-cargo.com (Lufthansa Cargo: en and de pages, nav and footer; plan content-sites/lh-cargo/plan.md)',
       paths: [],
-      patterns: ['^/(en|de)/(nav|footer)$'],
+      patterns: ['^/(en|de)/(nav|footer|search)$'],
     });
     allow.paths = [...new Set([...allow.paths, ...written])].sort();
     fs.writeFileSync(listPath, `${JSON.stringify(allow, null, 1)}\n`);

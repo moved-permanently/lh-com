@@ -2,14 +2,23 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  edsPath, docOf, langOf, sourceKey, targetOf, BLOG_CATEGORIES,
+  edsPath, docOf, langOf, sourceKey, targetOf, BLOG_CATEGORIES, LIVE_TOOLS,
 } from '../tools/importer/airdolomiti-paths.mjs';
 
 test('the posts\' category pages are pages of the site, path for path', () => {
-  assert.equal(BLOG_CATEGORIES.length, 5);
+  assert.equal(BLOG_CATEGORIES.length, 10);
   assert.ok(BLOG_CATEGORIES.map(edsPath).includes('/articoli/avgeek'));
   assert.ok(BLOG_CATEGORIES.map(edsPath).includes('/articoli/didyouknow'));
-  assert.ok(BLOG_CATEGORIES.every((u) => langOf(u) === 'it'));
+  assert.ok(BLOG_CATEGORIES.map(edsPath).includes('/en/articles/dyk'));
+  assert.ok(BLOG_CATEGORIES.map(edsPath).includes('/en/articles/avgeek-en'));
+  assert.equal(BLOG_CATEGORIES.filter((u) => langOf(u) === 'it').length, 5);
+  assert.equal(BLOG_CATEGORIES.filter((u) => langOf(u) === 'en').length, 5);
+});
+
+test('www\'s live tools pages are pages of the site: booking and flight status in three languages', () => {
+  assert.equal(edsPath(Object.keys(LIVE_TOOLS).find((u) => LIVE_TOOLS[u] === 'status' && langOf(u) === 'de')), '/de/flug-status');
+  assert.equal(Object.values(LIVE_TOOLS).filter((k) => k === 'booking').length, 3);
+  assert.ok(Object.keys(LIVE_TOOLS).map(edsPath).includes('/prenotazioni'));
 });
 
 test('the three language domains become one site, path for path', () => {

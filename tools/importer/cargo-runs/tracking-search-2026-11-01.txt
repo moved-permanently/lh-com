@@ -1,0 +1,11 @@
+# lh-cargo shipment tracking and site search (2026-11-01): uploaded to DA moved-permanently/lh-cargo and previewed on main--lh-cargo--moved-permanently.aem.page; not published. Publish these
+# - /en/home, /de/home: the Track tab's form as booking-lookup (tracking) after the service tiles, www's texts (Tab "Track your shipment" / "Shipment tracken", Prefix label "AWB Prefix", Serial label "Air waybill number", the two errors, Submit "Search" / "Suchen")
+# - /en/search, /de/search (new pages): search-results over /en/search-index.json, /de/search-index.json (helix-query.yaml search-brand-en, search-brand-de; they fill on publish), www's texts
+# - /en/footer, /de/footer: the search row (www's search bar at the bottom of its pages)
+# documents (6):
+/en/home
+/de/home
+/en/search
+/de/search
+/en/footer
+/de/footer

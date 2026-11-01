@@ -1,0 +1,173 @@
+{
+ "source": "https://api.airdolomiti.it/v1/airports (www.airdolomiti.it booking widget), read 2026-11-01 through the source session",
+ "airports": [
+  {
+   "code": "AOI",
+   "it": "Ancona",
+   "en": "Ancona",
+   "de": "Ancona"
+  },
+  {
+   "code": "BRI",
+   "it": "Bari",
+   "en": "Bari",
+   "de": "Bari"
+  },
+  {
+   "code": "BSL",
+   "it": "Basilea",
+   "en": "Basel",
+   "de": "Basel"
+  },
+  {
+   "code": "BHX",
+   "it": "Birmingham",
+   "en": "Birmingham",
+   "de": "Birmingham"
+  },
+  {
+   "code": "BLQ",
+   "it": "Bologna",
+   "en": "Bologna",
+   "de": "Bologna"
+  },
+  {
+   "code": "BDS",
+   "it": "Brindisi",
+   "en": "Brindisi",
+   "de": "Brindisi"
+  },
+  {
+   "code": "KRK",
+   "it": "Cracovia",
+   "en": "Krakow",
+   "de": "Krakow"
+  },
+  {
+   "code": "FLR",
+   "it": "Firenze",
+   "en": "Florence",
+   "de": "Florenz"
+  },
+  {
+   "code": "FRA",
+   "it": "Francoforte",
+   "en": "Frankfurt",
+   "de": "Frankfurt"
+  },
+  {
+   "code": "GOA",
+   "it": "Genova",
+   "en": "Genoa",
+   "de": "Genua"
+  },
+  {
+   "code": "GVA",
+   "it": "Ginevra",
+   "en": "Geneva",
+   "de": "Genf"
+  },
+  {
+   "code": "GRZ",
+   "it": "Graz",
+   "en": "Graz",
+   "de": "Graz"
+  },
+  {
+   "code": "LYS",
+   "it": "Lione - Saint Exupéry",
+   "en": "Lyon - Saint Exupéry",
+   "de": "Lyon - Saint Exupéry"
+  },
+  {
+   "code": "LCY",
+   "it": "Londra - London City Airport",
+   "en": "London City Airport",
+   "de": "London City Airport"
+  },
+  {
+   "code": "LUX",
+   "it": "Lussemburgo",
+   "en": "Luxembourg",
+   "de": "Luxemburg"
+  },
+  {
+   "code": "LIN",
+   "it": "Milano Linate",
+   "en": "Milan Linate",
+   "de": "Mailand Linate"
+  },
+  {
+   "code": "MXP",
+   "it": "Milano Malpensa",
+   "en": "Milan Malpensa",
+   "de": "Mailand Malpensa"
+  },
+  {
+   "code": "MUC",
+   "it": "Monaco di Baviera",
+   "en": "Munich",
+   "de": "München"
+  },
+  {
+   "code": "PSA",
+   "it": "Pisa",
+   "en": "Pisa",
+   "de": "Pisa"
+  },
+  {
+   "code": "PUY",
+   "it": "Pola",
+   "en": "Pula",
+   "de": "Pula"
+  },
+  {
+   "code": "PRG",
+   "it": "Praga",
+   "en": "Prague",
+   "de": "Prag"
+  },
+  {
+   "code": "TRN",
+   "it": "Torino",
+   "en": "Turin",
+   "de": "Turin"
+  },
+  {
+   "code": "TRS",
+   "it": "Trieste",
+   "en": "Trieste",
+   "de": "Trieste"
+  },
+  {
+   "code": "VCE",
+   "it": "Venezia",
+   "en": "Venice",
+   "de": "Venedig"
+  },
+  {
+   "code": "VRN",
+   "it": "Verona",
+   "en": "Verona",
+   "de": "Verona"
+  },
+  {
+   "code": "WRO",
+   "it": "Wroclaw",
+   "en": "Wroclaw",
+   "de": "Wroclaw"
+  },
+  {
+   "code": "ZAG",
+   "it": "Zagabria",
+   "en": "Zagreb",
+   "de": "Zagreb"
+  },
+  {
+   "code": "ZRH",
+   "it": "Zurigo",
+   "en": "Zurich",
+   "de": "Zürich"
+  }
+ ]
+}

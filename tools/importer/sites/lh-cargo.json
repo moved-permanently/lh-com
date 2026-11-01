@@ -916,6 +916,6 @@
   "/en/vulnerables"
  ],
  "patterns": [
-  "^/(en|de)/(nav|footer)$"
+  "^/(en|de)/(nav|footer|search)$"
  ]
 }

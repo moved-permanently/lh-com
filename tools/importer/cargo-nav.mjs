@@ -8,9 +8,12 @@
  *   a PNG) linking the homepage; 2. quick actions: book, track and schedule (portal, on www);
  *   3. the mega menu: Book & Track, Info-Hub, Cargo inside with their columns and links; 4. tools:
  *   support and contact, the other language, login (www's sign-in), the menu label.
- * - footer: the three link columns, the legal row (Cookie Settings: #privacy-settings), the social
+ * - footer: the search row (www's search bar: :search: and a link to /<lang>/search?query=), the
+ *   three link columns, the legal row (Cookie Settings: #privacy-settings), the social
  *   links (badges, text links: www draws the icons from its stylesheet), the logos (Lufthansa Cargo, a dark copy of the same logo for the white row;
  *   Lufthansa Group, IATA Cargo iQ as text links: www draws them from its stylesheet).
+ * - search (/<lang>/search): the search-results block over /<lang>/search-index.json
+ *   (helix-query.yaml search-brand-en, search-brand-de), www's search page texts.
  * Portal and sign-in links point at www.lufthansa-cargo.com; links to pages in scope become the
  * site's paths (cargo-import.mjs Page.href).
  *
@@ -42,6 +45,16 @@ const LABELS = {
   },
   de: {
     logo: 'Lufthansa Cargo Logo, zurück zur Startseite', book: 'Buchen', track: 'Tracking', schedule: 'Flugplan', other: 'English', otherHome: '/en/home', login: 'Login', menu: 'Menü', cookies: 'Cookie Einstellungen', group: 'Lufthansa Group', cargoiq: 'IATA Cargo iQ',
+  },
+};
+
+// www's search page (www.lufthansa-cargo.com/<lang>/search): its title, heading and texts
+const SEARCH = {
+  en: {
+    search: 'Search', searchButton: 'Search', searchFor: 'Your search for {QUERY}', searchHeading: 'Search Results', searchTitle: 'Search - Lufthansa Cargo',
+  },
+  de: {
+    search: 'Suchen', searchButton: 'Suchen', searchFor: 'Ihre Suche nach {QUERY}', searchHeading: 'Suchergebnisse', searchTitle: 'Suche - Lufthansa Cargo',
   },
 };
 
@@ -99,7 +112,23 @@ function footer(document, page, L) {
   const iq = f.querySelector('.partnerCargoiq');
   const logoRow = `<ul><li><a href="/${page.lang}/home"><picture><img src="${LOGO_BLUE}" alt="Lufthansa Cargo"></picture></a></li>${group ? `<li><a href="${attr(group.getAttribute('href'))}">${esc(L.group)}</a></li>` : ''}${iq ? `<li><a href="${attr(iq.getAttribute('href').replace(/^http:/, 'https:'))}">${esc(L.cargoiq)}</a></li>` : ''}</ul>`;
   const badges = `<ul>${social}</ul><div class="section-metadata"><div><div>Style</div><div>badges</div></div></div>`;
-  return `<div>${columns}</div>\n<div>${badges}</div>\n<div><ul>${legal}</ul></div>\n<div>${logoRow}</div>\n`;
+  // www's search bar at the bottom of its pages: the footer's search row (as lh-com's footers),
+  // leading to the site's search page with the term in its query parameter
+  const searchLabel = (f.querySelector('input.search-bar-keywords-input') || document.querySelector('input.search-bar-keywords-input'))?.getAttribute('aria-label') || L.search;
+  const search = `<p>:search: <a href="/${page.lang}/search?query=">${esc(searchLabel)}</a></p>`;
+  return `<div>${search}</div>\n<div>${columns}</div>\n<div>${badges}</div>\n<div><ul>${legal}</ul></div>\n<div>${logoRow}</div>\n`;
+}
+
+/**
+ * The search page (/<lang>/search): www's results heading, the search-results block over the
+ * language's search index (helix-query.yaml search-brand-en / search-brand-de) with www's texts.
+ */
+function searchPage(page, L) {
+  const { lang } = page;
+  const rows = [[`/${lang}/search-index.json`], ['Input label', L.search], ['Search button label', L.searchButton], ['Search for label', L.searchFor]];
+  const block = `<div class="search-results">${rows.map((r) => `<div>${r.map((c) => `<div>${esc(c)}</div>`).join('')}</div>`).join('')}</div>`;
+  const meta = [['Title', L.searchTitle], ['Robots', 'noindex, follow'], ['Nav', `/${lang}/nav`], ['Footer', `/${lang}/footer`], ['Language', lang]];
+  return `<div><h1>${esc(L.searchHeading)}</h1>${block}<div class="metadata">${meta.map(([k, v]) => `<div><div>${k}</div><div>${esc(v)}</div></div>`).join('')}</div></div>\n`;
 }
 
 await logos();
@@ -108,7 +137,7 @@ const written = [];
   const html = fs.readFileSync(path.join(SNAP, `${lang}/home.html`), 'utf8');
   const { document } = parseHTML(html);
   const page = new Page(`/${lang}/home`, lang, html);
-  const L = LABELS[lang];
+  const L = { ...LABELS[lang], ...SEARCH[lang] };
   // unchanged documents keep their file (and time): da-upload.mjs sends only changed ones
   const write = (file, doc) => {
     const out = path.join(OUT, file);
@@ -116,6 +145,7 @@ const written = [];
   };
   write(`${lang}/nav.plain.html`, nav(document, page, L));
   write(`${lang}/footer.plain.html`, footer(document, page, L));
-  written.push(`/${lang}/nav`, `/${lang}/footer`);
+  write(`${lang}/search.plain.html`, searchPage(page, L));
+  written.push(`/${lang}/nav`, `/${lang}/footer`, `/${lang}/search`);
 });
 console.log(`written: ${written.join(' ')}`);
