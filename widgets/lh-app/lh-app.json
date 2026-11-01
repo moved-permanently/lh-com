@@ -417,6 +417,72 @@
           }
         }
       }
+    },
+    "brussels": {
+      "loginHosts": ["brusselsairlines.com"],
+      "scriptOrigin": "https://www.brusselsairlines.com",
+      "travelIdApi": "https://api.travelid.brusselsairlines.com",
+      "authorize": { "clientId": "FuBoxl39ln5fAfvIAX18xIi2BI4d6rny", "redirectUri": "https://www.brusselsairlines.com" },
+      "maui": {
+        "css": "/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/css/brussels.css",
+        "js": "/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/packages/maui-design-system.js"
+      },
+      "portal": { "X-Portal": "SN", "X-Line": "g" },
+      "themeClass": "maui-theme-sn",
+      "labels": {
+        "en": {
+          "common.misc.loader.forcedOneIdLoginText": "Please log in to view this page",
+          "common.misc.loader.forcedOneIdLoginButton": "Log in now",
+          "common.misc.loader.label": "Loading …",
+          "farealertprofileoverview.farealertprofileoverview.default.headline": "Best price alerts",
+          "farealertprofileoverview.farealertprofileoverview.default.loginRequest": "Please login or register to overview and manage Best price alerts.",
+          "farealertprofileoverview.farealertprofileoverview.default.loginAndRegistration": "Login & Registration"
+        },
+        "fr": {
+          "common.misc.loader.forcedOneIdLoginText": "Please log in to view this page",
+          "common.misc.loader.forcedOneIdLoginButton": "Log in now",
+          "common.misc.loader.label": "Chargement en cours…",
+          "farealertprofileoverview.farealertprofileoverview.default.headline": "Best price alerts",
+          "farealertprofileoverview.farealertprofileoverview.default.loginRequest": "Veuillez vous identifier ou vous inscrire pour consulter et gérer les Best price alerts.",
+          "farealertprofileoverview.farealertprofileoverview.default.loginAndRegistration": "Connexion & Inscription"
+        },
+        "nl": {
+          "common.misc.loader.forcedOneIdLoginText": "Log in om deze pagina te bekijken",
+          "common.misc.loader.forcedOneIdLoginButton": "Nu inloggen",
+          "common.misc.loader.label": "Aan het laden …",
+          "farealertprofileoverview.farealertprofileoverview.default.headline": "Best price alerts",
+          "farealertprofileoverview.farealertprofileoverview.default.loginRequest": "Log in of registreer je voor een overzicht en beheer van Best price alerts.",
+          "farealertprofileoverview.farealertprofileoverview.default.loginAndRegistration": "Login & registratie"
+        },
+        "de": {
+          "common.misc.loader.forcedOneIdLoginText": "Bitte loggen Sie sich ein.",
+          "common.misc.loader.forcedOneIdLoginButton": "Jetzt einloggen",
+          "common.misc.loader.label": "Wird geladen ...",
+          "farealertprofileoverview.farealertprofileoverview.default.headline": "Best price alerts",
+          "farealertprofileoverview.farealertprofileoverview.default.loginRequest": "Bitte melden Sie sich an oder registrieren Sie sich, um eine Übersicht zu erhalten und den Best price alerts zu verwalten.",
+          "farealertprofileoverview.farealertprofileoverview.default.loginAndRegistration": "Login und Registrierung"
+        },
+        "it": {
+          "common.misc.loader.forcedOneIdLoginText": "Please log in to view this page",
+          "common.misc.loader.forcedOneIdLoginButton": "Log in now",
+          "common.misc.loader.label": "Caricamento in corso…",
+          "farealertprofileoverview.farealertprofileoverview.default.headline": "Best price alerts",
+          "farealertprofileoverview.farealertprofileoverview.default.loginRequest": "Accedi o registrati per visualizzare e gestire le Best price alerts.",
+          "farealertprofileoverview.farealertprofileoverview.default.loginAndRegistration": "Login e registrazione"
+        },
+        "es": {
+          "common.misc.loader.forcedOneIdLoginText": "Conéctate para ver la página",
+          "common.misc.loader.forcedOneIdLoginButton": "Conéctate ahora",
+          "common.misc.loader.label": "Cargando…"
+        }
+      },
+      "apps": {
+        "hero-banner": { "script": "/digitalhangar/customer-cockpit/hero-banner-react/hero-banner-react-2.0.2.js" },
+        "my-trips": { "script": "/digitalhangar/travel-insights/my-trips/my-trips-0.17.10.js" },
+        "web-self-service": { "script": "/digitalhangar/customer-cockpit/web-self-service/web-self-service-2.0.3.js" },
+        "sdui-profile": { "attributes": { "data-translation-labels": "{scriptOrigin}/service/api/labels/common" } },
+        "sdui-statement": { "attributes": { "options": "{\"customerHeaders\":{\"X-Language-Country\":\"{languageCountry}\"}}" } }
+      }
     }
   }
 }

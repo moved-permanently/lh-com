@@ -1,6 +1,6 @@
 # lh-app
 
-Widget for the login and profile apps of lufthansa.com (travel cockpit, bookings, profile, Miles & More account) and of the brand sites on www's platform (Austrian, Discover, ITA). The apps are the airlines' own web components; the widget loads them from `config.scriptOrigin` (www.lufthansa.com, or the brand's www), mounts them as the live page does, and renders the login gate where live shows it. No bundle of theirs is copied into this repo.
+Widget for the login and profile apps of lufthansa.com (travel cockpit, bookings, profile, Miles & More account) and of the brand sites on www's platform (Austrian, Brussels Airlines, Discover, ITA). The apps are the airlines' own web components; the widget loads them from `config.scriptOrigin` (www.lufthansa.com, or the brand's www), mounts them as the live page does, and renders the login gate where live shows it. No bundle of theirs is copied into this repo.
 
 ## Referencing an app
 
@@ -45,7 +45,7 @@ Values live derives from the market (`X-Language-Country` of the account stateme
 ## Hosts and the login check
 
 - `config.loginHosts` (`lufthansa.com`): on that host or a subdomain the widget asks Travel ID once per page view (`GET {travelIdApi}{loginStatusPath}`, cookies included; shared by all widgets of the page). 200 = logged in: gates render nothing, login apps mount and get the www profile (`config.profileApi`) as `state`. Anything else = logged out.
-- A brand site: its own www domain instead (`austrian.com`, `discover-airlines.com`, `ita-airways.com`) and its own Travel ID; never lufthansa.com's.
+- A brand site: its own www domain instead (`austrian.com`, `brusselsairlines.com`, `discover-airlines.com`, `ita-airways.com`) and its own Travel ID; never lufthansa.com's.
 - Any other host (aem.page, aem.live, turnsthe.page, localhost): logged out without a request. Only apps whose `loggedOut` is `public` are loaded; they were checked to make no Travel ID request while logged out. `lufthansa-host` apps load only on the site's login hosts (airport-services and upgrade-alert are module scripts, which www.lufthansa.com does not serve cross-origin).
 
 The logged-in path has only been tested with a mocked Travel ID (a lufthansa.com hostname mapped to the dev server), not against the real one.
@@ -54,7 +54,7 @@ The logged-in path has only been tested with a mocked Travel ID (a lufthansa.com
 
 - `config`: `loginHosts`, `scriptOrigin` (prefix of every script path; `""` loads from the page's own host, e.g. when a lufthansa.com host routes `/digitalhangar/`), `travelIdApi`, `loginStatusPath`, `profileApi`, `authorize` (URL, client, redirect URI, scope and fixed parameters of the login link; `state`, `country` and `lang` are added per page), `maui` (design system for apps that need it), `portal` (page meta tags the components read), `labels` (gate texts used when the common labels cannot be loaded).
 - `apps.<name>`: `tag`, `script` (path with version), `module` (load as ES module), `wrapper` (mounted like live's `dcep-react-wrapper`: allow-listed attributes, `data-public-endpoint` only when `loginRequired` is false, properties once the element is defined), `loginRequired`, `loggedOut` (`public` / `lufthansa-host`; default: only when logged in), `schema`, `id`, `attributes` (`{travelIdApi}`, `{scriptOrigin}` and `{languageCountry}`, e.g. `en-at`, are replaced), `locales` (per-locale overrides of any of these, `attributes` merged), `view` (`gate` / `none` for apps without a web component; `prompt` with `prompt.bundle` and the label keys of its headline, text and button).
-- `brands.<brand>`: the brand sites (page metadata `brand`, `scripts/brand.js`). Their entry replaces `config`'s values it names (`authorize`, `maui`, `portal` and `labels` per language merged), adds `themeClass` (the body class, live's `maui-theme-os`, `-four_y`, `-az`), and its `apps` are merged over `apps`. Lufthansa's `locales` overrides do not apply on a brand site (their keys are lufthansa.com's roots). A brand without an entry (Cargo, Air Dolomiti, ...) gets Lufthansa's config.
+- `brands.<brand>`: the brand sites (page metadata `brand`, `scripts/brand.js`). Their entry replaces `config`'s values it names (`authorize`, `maui`, `portal` and `labels` per language merged), adds `themeClass` (the body class, live's `maui-theme-os`, `-sn`, `-four_y`, `-az`), and its `apps` are merged over `apps`. Lufthansa's `locales` overrides do not apply on a brand site (their keys are lufthansa.com's roots). A brand without an entry (Cargo, Air Dolomiti, ...) gets Lufthansa's config.
 
 Another Travel ID environment or host needs only `config` changes.
 
