@@ -69,6 +69,22 @@ host):
   answers on lufthansa-edge but the main host leaves to the origin answer from the origin (the short
   `/<cc>/<ll>/<page>.sdui` 404, pilot roots other than ch, `/loginservice` from the origin).
 
+### OF1's generative search API (`src/of1.js`, `OF1_ORIGIN`)
+
+On the front door only, exactly `/api/generate`, `/api/suggest` and `/api/personalize` go to
+OF1's edge proxy (`OF1_ORIGIN`, `https://main--lh-com--moved-permanently.of1.live`, which sends
+CORS headers only for its own origin, so the browser calls our origin): POST and OPTIONS, the
+same path without its query (visitors don't pick models), only `Content-Type`, the body and the
+`of1_*` cookies (not `of1_model_overrides`; no Origin, no Authorization: the proxy adds OF1's
+credential). The answer's status and body pass through as a stream (NDJSON for generate and
+personalize, one JSON object per line; full-page generation can run past 60 s), with its
+`content-type`, `retry-after` and rate-limit headers, `cache-control: no-store`, no
+`access-control-*`, no `Set-Cookie`; no edge cache, no HTML rewriting. Other methods: 405. Other
+hosts (lufthansa-edge, lufthansa-cn, the brand hosts, aem.page/aem.live) and every other `/api/`
+path as before. OF1 limits generation to 30 calls a minute per IP: through lh-edge the visitors
+share lh-edge's addresses. Off: `OF1_ORIGIN = ""` (the paths go to the origin again); rollback:
+git revert and deploy.
+
 Freshness: pages within `EDGE_TTL` (60 s) as on every host; the pass-through sends
 `x-push-invalidation: enabled` and the origin's cache tags reach Cloudflare's cache, so once the
 site's push invalidation targets the turnsthe.page zone a publish shows within seconds.

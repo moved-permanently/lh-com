@@ -83,6 +83,8 @@ export const CHECKS = [
   {
     path: '/apps/dcep/deeplink/goodfortrain/stele', method: 'POST', body: 'Country=de&Language=en&Filekey=ABC123&Lastname=Test', headers: { 'content-type': 'application/x-www-form-urlencoded' },
   },
+  // OF1's API paths (src/of1.js; the main host only): GET only, so a smoke run never reaches OF1
+  ...['/api/generate', '/api/suggest', '/api/personalize', '/api/suggest/x'].map((p) => ({ path: p })),
 ];
 
 // the sites without roots (cargo.turnsthe.page, airdolomiti.turnsthe.page): their metadata and

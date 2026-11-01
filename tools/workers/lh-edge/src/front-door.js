@@ -9,7 +9,7 @@
  * - everything else: the Edge Delivery origin, as Adobe's reference Worker (the pass-through),
  *   so paths lh-edge answers on lufthansa-edge but the main host leaves to the origin (the short
  *   /<cc>/<ll>/<page>.sdui, pilot roots other than ch, ...) answer from the origin there.
- * A host lookup and up to eight regular expressions on the path: no parse, no subrequest.
+ * A host lookup and up to nine regular expressions on the path: no parse, no subrequest.
  */
 
 // the main host's paths for lh-edge's routes: solo pages, feeds, www's endpoints, the ch market,
@@ -24,6 +24,8 @@ export const EDGE_PATHS = [
   // OneTrust from the host (cdn.cookielaw.org) and the immutable brand fonts (src/onetrust.js),
   // www's design-system files with the brand fonts (src/digitalhangar.js)
   /^(\/onetrust\/.+|\/logos\/.+|\/fonts\/lufthansa\/v\d+(\.\d+)*\/[^/]+|\/digitalhangar\/.+)$/,
+  // OF1's generative search API, exactly these three (src/of1.js; /api/content/graphql above)
+  /^\/api\/(generate|suggest|personalize)$/,
 ];
 // the gate's paths (lh-backends)
 export const GATE_PATH = /^\/(migration-status.*|_lh-auth\/.*)$/;

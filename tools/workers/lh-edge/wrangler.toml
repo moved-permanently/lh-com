@@ -100,6 +100,8 @@ HEAD_URLS_FROM = ""
 # hosts where lh-edge is the front door (src/front-door.js, its own rules for the main host: the
 # gate's paths to lh-backends, lh-edge's paths to the routes, everything else to the origin)
 FRONT_DOOR_HOSTS = "lufthansa.turnsthe.page"
+# OF1's edge proxy for /api/generate, /api/suggest, /api/personalize on the front door (src/of1.js; empty: off)
+OF1_ORIGIN = "https://main--lh-com--moved-permanently.of1.live"
 # alias hosts (src/alias.js; www.lufthansa.cn for www.lufthansa.com): routed like the main host;
 # on their HTML, absolute links to the replica's own hosts (ALIAS_REWRITE_HOSTS) point at the alias
 # host (canonical and hreflang links stay), Cache-Control as ALIAS_HTML_CACHE_CONTROL
