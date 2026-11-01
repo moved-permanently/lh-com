@@ -483,6 +483,35 @@ test('files on feedback-past-flight become attachments', async () => {
   assert.ok(text.includes('== Attachments ==\nphoto.png'));
 });
 
+test('files a field already names (the form\'s file field, its own label) are listed once: not again under Attachments', async () => {
+  const fields = [...FIELDS, {
+    section: '', label: 'Uploaded files', name: 'attachments', value: 'photo.png, receipt.pdf',
+  }];
+  const { res } = await post({
+    fields,
+    files: [['file_1', file(PNG, 'photo.png', 'image/png')],
+      ['file_2', file(PDF, 'receipt.pdf', 'application/pdf')],
+      ['file_3', file(JPG, 'scan.JPEG', 'image/jpeg')]],
+  });
+  assert.equal(res.status, 200);
+  const { attachments, html, text } = sent[0];
+  assert.equal(attachments.length, 3, 'every file attached');
+  assert.equal((html.match(/photo\.png/g) || []).length, 1, 'photo.png once (its field)');
+  assert.equal((text.match(/receipt\.pdf/g) || []).length, 1);
+  assert.ok(html.includes('Uploaded files'));
+  // a file no field names: under Attachments as before
+  assert.ok(html.includes('<h2>Attachments</h2><ul><li>scan.JPEG</li></ul>'), html);
+  assert.ok(text.includes('== Attachments ==\nscan.JPEG'));
+  // every file named by a field: no Attachments heading
+  sent = [];
+  await post({
+    fields,
+    files: [['file_1', file(PNG, 'photo.png', 'image/png')], ['file_2', file(PDF, 'receipt.pdf', 'application/pdf')]],
+  });
+  assert.ok(!sent[0].html.includes('Attachments'));
+  assert.ok(!sent[0].text.includes('Attachments'));
+});
+
 test('an empty file input (browser: filename="") is ignored', async () => {
   const b = 'xBOUNDARYx';
   const part = (name, value, extra = '') => `--${b}\r\nContent-Disposition: form-data; name="${name}"${extra}\r\n\r\n${value}\r\n`;

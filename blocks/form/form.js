@@ -1,5 +1,6 @@
-import { loadScript } from '../../scripts/aem.js';
+import { loadScript, getMetadata } from '../../scripts/aem.js';
 import { getLocale } from '../../scripts/locale.js';
+import { languageOfPath } from '../../scripts/site-languages.js';
 import { outsideUrl } from '../../scripts/clock.js';
 import { brandWwwHost } from '../../scripts/brand.js';
 import {
@@ -24,9 +25,10 @@ import {
  * (shown from the first submit on, then while typing), the submit button below the last band.
  * A valid submit posts the entries to the lh-forms worker (scripts/lh-forms.js, multipart:
  * form, locale, page, fields JSON, honeypot lh_hp, the bot check token, files) and goes to the
- * success page; when sending fails, to the error page if the form names one on this site that
- * exists, else an error message above the submit button, the entries kept for another try (config
- * rows: Type "config", Name form / success / error). The bot check: a Cloudflare Turnstile
+ * success page (none: the success message takes the form's place, the form is emptied and gone:
+ * no second submission); when sending fails, to the error page if the form names one on this site
+ * that exists, else an error message above the submit button, the entries kept for another try
+ * (config rows: Type "config", Name form / success / error). The bot check: a Cloudflare Turnstile
  * widget above the submit button (managed, shown only when it needs the visitor), its site key
  * from lh-forms' configuration.
  */
@@ -1263,8 +1265,10 @@ function fieldSection(wrapper) {
 /** The label the user saw: field label, group question, else the checkbox text(s). */
 function fieldLabel(entry, ctx) {
   const { row, controls } = entry;
+  // a file field's label is its drop zone's prompt ("Drag file(s) here"): the list headline
+  // ("Uploaded files"), what the form shows over the chosen files
+  if (row.type === 'file') return ctx.labels['file list headline'];
   if (row.label) return row.label;
-  if (row.type === 'file') return ctx.labels['file prompt'];
   const texts = controls.filter((c) => c.type === 'checkbox' || c.type === 'radio')
     .map(optionText).filter(Boolean);
   return texts.join(' / ') || row.name;
@@ -1372,11 +1376,26 @@ function setupBotCheck(form, ctx) {
   };
 }
 
+/**
+ * The submission's locale: the page's root (de-en, it-en, at-de); on a site without <cc>/<ll>
+ * roots (Cargo, Air Dolomiti; scripts/site-languages.js) the page's language alone (en, it, de),
+ * as scripts/message-center.js messageLocale reads it: its `language` metadata, else its first
+ * path segment (getLocale() would name de/de or de/en there).
+ * @returns {string}
+ */
+export function submissionLocale(locale = getLocale(), pathname = window.location.pathname) {
+  if (!locale.siteLanguages) return locale.key.replace('/', '-');
+  const authored = String(getMetadata('language') || '').trim().toLowerCase();
+  const own = locale.siteLanguages.find((l) => l.lang === authored)
+    || languageOfPath(pathname, locale.siteLanguages);
+  return own ? own.lang : locale.lang;
+}
+
 /** The multipart body of POST /submit (tools/workers/lh-forms/README.md). */
 function buildSubmission(form, fieldWrappers, ctx, formId, token) {
   const data = new FormData();
   data.append('form', formId);
-  data.append('locale', getLocale().key.replace('/', '-'));
+  data.append('locale', submissionLocale());
   // without the preview's time-travel parameters (scripts/clock.js)
   data.append('page', outsideUrl(window.location.href));
   data.append('fields', JSON.stringify(collectFields(fieldWrappers, ctx)));
@@ -1440,6 +1459,26 @@ function showSendError(form, ctx, show) {
 }
 
 /**
+ * Sent, no success page: the success message takes the form's place (a card in the form's
+ * column, as the form's bands; announced and focused); the form is emptied and hidden, so it
+ * cannot be sent twice.
+ */
+function showSuccess(form, ctx, status) {
+  const done = el('div', 'form-step form-success');
+  done.setAttribute('role', 'status');
+  done.tabIndex = -1;
+  const card = el('div', 'form-step-card');
+  card.append(el('p', 'form-success-message', ctx.labels['success message']));
+  done.append(card);
+  status.textContent = '';
+  form.reset();
+  form.hidden = true;
+  form.before(done);
+  done.focus();
+  if (done.scrollIntoView) done.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+/**
  * Posts a valid core form once: ok -> the success page (no success row: the success message);
  * any failure (network, non-2xx, ok false) -> the error page when it exists on this site, else
  * the send error above the submit button, the entries kept (the visitor may try again).
@@ -1487,9 +1526,10 @@ export async function sendForm(form, fieldWrappers, ctx, button, status) {
     window.location.href = pageUrl(config.success);
     return;
   }
+  ctx.sent = true;
   ctx.sending = false;
   setBusy(button, false);
-  status.textContent = ctx.labels['success message'];
+  showSuccess(form, ctx, status);
 }
 
 /** Honeypot (lh_hp): a text input people never see or reach; bots fill it in. */
@@ -1652,7 +1692,8 @@ export default function decorate(block) {
     // no native submit: Form never sends; Form (core) posts with fetch once it is valid
     event.preventDefault();
     event.stopPropagation();
-    if (ctx.sending) return;
+    // sending, or sent (the success message in the form's place): nothing more
+    if (ctx.sending || ctx.sent) return;
     ctx.submitted = true;
     const results = wrappers().map((w) => ({ w, ok: checkField(w, ctx) }));
     const firstInvalid = results.find((r) => !r.ok);

@@ -691,9 +691,13 @@ function replyToFrom(fields) {
 }
 
 function buildMail({
-  title, page, time, fields, files,
+  title, page, time, fields, files: attached,
 }) {
   const groups = groupBySection(fields);
+  // a file a field already names (the form's file field lists its files under its own label) is
+  // not listed again under Attachments
+  const named = fields.map((f) => f.value).join('\n');
+  const files = attached.filter((n) => !named.includes(n));
   const cell = 'style="border:1px solid #ccc;padding:4px 8px;text-align:left;vertical-align:top"';
   const htmlValue = (v) => escapeHtml(v).replace(/\r?\n/g, '<br>');
   const html = [

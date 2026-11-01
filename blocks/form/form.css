@@ -366,6 +366,23 @@
   display: none;
 }
 
+/* sent without a success page: the message in the form's place (a band's card, form.js
+   showSuccess) */
+.form .form-success-message {
+  margin: 0;
+  color: var(--lh-deepblue);
+  font-size: var(--body-font-size-m);
+}
+
+.form .form-success:focus {
+  outline: none;
+}
+
+/* the sent form gives way to the message (its own display would keep it) */
+.form .form-form[hidden] {
+  display: none;
+}
+
 /* sending failed: above the submit button, the form keeps its entries */
 .form .form-send-error {
   margin: 0;
