@@ -1,6 +1,6 @@
 {
   "updated": "2026-11-01",
-  "change": "ITA's fare teasers show live fares, the homepage stage can count down to an offer's end, Cargo's notifications are live and Air Dolomiti's newsletter sign-up works on the replica.",
+  "change": "Brussels Airlines is live in all six languages and 92 markets, with forms, search and live fares; Cargo's contact form and Air Dolomiti's accessibility settings work on the replica.",
   "legend": {
     "done": {
       "label": "works on our replica",
@@ -300,10 +300,10 @@
           "evidence": "functions scan 2026-10-31: link to lufthansa.com/it/it/online-check-in"
         },
         "brussels": {
-          "status": "wip",
-          "note": "www's check-in page has a form for booking code and name that opens Brussels Airlines' check-in app; the replica's copy of the page doesn't have the form yet and links only to the check-in for tour operator passengers.",
+          "status": "elsewhere",
+          "note": "The check-in pages have the booking form and hand over to Brussels Airlines' check-in, which stays after the switch.",
           "page": "/be/en/check-in-options-and-info/online-check-in-options",
-          "evidence": "2026-11-01: www /be/en/check-in-options-and-info/online-check-in-options live: tab Check-in with Booking code, First name, Last name (dcep-quick-actions hideCheckIn false, defaultCarrier SN); replica same path: text and the once.brusselsairlines.com tour-operator link, no booking-lookup block; not in held brief 218"
+          "evidence": "ema-test 218 item 10 (booking-lookup on the six check-in pages), Brussels go-live 2026-11-01 (child p_mvxofhz36r: all six language roots and 92 market roots live)"
         }
       }
     },
@@ -818,11 +818,10 @@
           "evidence": "fill check 2026-11-01"
         },
         "brussels": {
-          "status": "wip",
-          "note": "Fare teasers show live fares from Brussels, and so do the price bars on travel articles, but the teaser links open a destination page address the replica doesn't have yet.",
+          "status": "done",
+          "note": "Fare teasers show live fares from Brussels and open our own destination page in English and French; the Dutch, German, Italian and Spanish versions open www's.",
           "page": "/be/en/homepage",
-          "footnote": "sndest",
-          "evidence": "2026-11-01: replica /be/en/homepage fare-teaser Brussels-Washington 720 EUR etc. from www.lufthansa.com destinationfinder BRU/E (live); links /be/en/book-and-manage/destination?... 404 (brands.js brussels has no destinationPath; www uses /be/en/book-a-flight/destination, 200 on the replica); /be/en/articles/lyon price-bar 'Lyon Round trip from 128 EUR' live"
+          "evidence": "Brussels go-live 2026-11-01 (child p_mvxofhz36r: all six language roots and 92 market roots live); checked 12:3x brussels.turnsthe.page/be/en/homepage: teaser -> /be/en/book-a-flight/destination?OriginCode=BRU&DestinationCode=WAS"
         }
       }
     },
@@ -868,11 +867,10 @@
           "evidence": "fill check 2026-11-01"
         },
         "brussels": {
-          "status": "wip",
-          "note": "The homepage slider lists destinations with live prices from Brussels, but each card opens a page address the replica doesn't have yet.",
+          "status": "done",
+          "note": "The homepage slider lists destinations with live prices from Brussels; its cards open our own destination page in English and French, www's in the other languages.",
           "page": "/be/en/homepage",
-          "footnote": "sndest",
-          "evidence": "2026-11-01: replica /be/en/homepage destination-finder 15 cards (Milan from 88 EUR), offers live; cards -> /be/en/book-and-manage/destination 404; www cards -> /be/en/book-a-flight/destination; replica /be/en/book-a-flight/destination?...MIL works live (price calendar, Milan from 87 EUR)"
+          "evidence": "Brussels go-live 2026-11-01 (child p_mvxofhz36r: all six language roots and 92 market roots live); checked: 17 cards, data-lh-source live, first card Milan -> /be/en/book-a-flight/destination"
         }
       }
     },
@@ -917,11 +915,10 @@
           "evidence": "fill check 2026-11-01"
         },
         "brussels": {
-          "status": "wip",
-          "note": "The offers grid with filters and live prices works, but its cards open a page address the replica doesn't have yet, and the menu's offers page still shows the short slider instead of the grid.",
+          "status": "done",
+          "note": "The offers page shows destinations with live prices and filters, as on www.",
           "page": "/be/en/offers",
-          "footnote": "sndest",
-          "evidence": "2026-11-01: replica /be/en/offers destination-finder grid 48 cards, filters (destination, budget, month, nonstop, class), live offers/affinities/regions; cards -> /book-and-manage/destination 404; replica /be/en/book-a-flight/our-destinations (nav 'Offers & destinations') block has no config and shows the 15-card slider; www same page loads the grid (finder + campaign APIs)"
+          "evidence": "Brussels go-live 2026-11-01 (child p_mvxofhz36r: all six language roots and 92 market roots live); ema-test 218 (offers page settings on the roots, destinationOnSite en/fr)"
         }
       }
     },
@@ -1109,9 +1106,9 @@
         },
         "brussels": {
           "status": "wip",
-          "note": "The notice strip and the current information page are on the replica but aren't connected to Brussels Airlines' messages yet; www has none to show today.",
+          "note": "The notice strip and the current information page are ready on the replica and show Brussels Airlines' notices once there is one; www has none today.",
           "page": "/be/en/plan-your-trip/flight-information",
-          "evidence": "2026-11-01: www homepage flash teaser empty, /be/en/plan-your-trip/flight-information shows only 'CURRENT INFORMATION'; replica flash-teaser and message-center blocks load empty, /message-center/index.json 404 on lh-brussels; brands.js brussels has no messageCenter tenant; MC sync 2026-11-01a: sn 0 messages"
+          "evidence": "ema-test 218 (tenant sn), cti-pages sheet live 2026-11-01"
         }
       }
     },
@@ -1294,10 +1291,10 @@
           "page": "/search"
         },
         "brussels": {
-          "status": "wip",
-          "note": "The search page is on the replica, but its search index isn't set up yet, so it finds nothing.",
+          "status": "done",
+          "note": "The search page finds Brussels Airlines' own pages in all six language versions.",
           "page": "/be/en/search-results",
-          "evidence": "2026-11-01: replica /be/en/search-results?q=baggage 'Search results could not be loaded', /be/en/search-index.json 404; www /be/en/search-results dcep-search-results-aem; held brief 218 item 4"
+          "evidence": "index job-2026-11-01-10-55-29-b877931d (search-index rows be/en 238 ... es/es 184); checked /be/en/search-results?query=baggage: 30 results, all on the replica"
         }
       }
     },
@@ -1396,7 +1393,7 @@
         "brussels": {
           "status": "wip",
           "footnote": "snchat",
-          "note": "The links to the chat assistant work as on www; the floating chat button www shows on about half its pages isn't switched on for Brussels Airlines yet.",
+          "note": "The chat button is built in and knows every page's chat entry from www; its switch stays off until a check on brussels.turnsthe.page.",
           "page": "/be/en/my-bookings/rebooking-options",
           "evidence": "2026-11-01: www Cognigy chat button (webchat_init.js from www.brusselsairlines.com/digitalassistant/support) on 128 of 255 be/en snapshots, live on homepage and online-check-in-options; replica keeps www webchat.html links (rebooking-options, problems-with-your-baggage, ...) but no button; brands.js brussels has no chat-button embed, no /config/flags.json on lh-brussels"
         }
@@ -1432,10 +1429,10 @@
           "evidence": "AGENTS.md: 185 form pages live"
         },
         "cargo": {
-          "status": "wip",
-          "note": "Cargo's contact forms move to the same forms service as the other airlines; until then the replica links to Cargo's current forms.",
-          "footnote": "cargomoves",
-          "evidence": "decision 2026-11-01 (Cargo forms to lh-forms)"
+          "status": "done",
+          "note": "Cargo's public contact form is a form on our own forms service, linked from Support & Contact and the menu; forms behind Cargo's login stay on Cargo's systems.",
+          "evidence": "ema-cashub 202 (8b1c1c7f) + 225; test submission 2026-11-01 11:55 on cargo.turnsthe.page (lh-forms 200, mail with PDF in Inbox); published 11:5x + job-2026-11-01-10-58-25-4929465c",
+          "page": "/en/contact-us"
         },
         "airdolomiti": {
           "status": "elsewhere",
@@ -1444,10 +1441,10 @@
           "evidence": "fill check 2026-11-01: hda_s_form.airdolomiti.it"
         },
         "brussels": {
-          "status": "wip",
-          "note": "Brussels Airlines' 33 form pages are on our preview site and go live once our forms service accepts them, as it did for the other airlines.",
+          "status": "done",
+          "note": "Brussels Airlines' 85 form pages in six languages send to our own forms service, like the other airlines'.",
           "page": "/be/en/book-a-flight/groups-and-charter/groups/group-travel-request",
-          "evidence": "2026-11-01: 33 form pages held from the be/en + be/fr publish (work/brussels-publish/held-2026-11-01-pilot.json); group-travel-request and delays-and-cancellation 200 on aem.page (form core), 404 on aem.live; forms service preflight from the lh-brussels origin 403; held brief 218 item 3"
+          "evidence": "test submission 2026-11-01 12:21 on brussels.turnsthe.page (lh-forms 200, mail in Inbox 12:22); published job-2026-11-01-11-25-38-5e538ac4"
         }
       }
     },
@@ -1685,10 +1682,10 @@
           "evidence": "functions scan 2026-10-31"
         },
         "brussels": {
-          "status": "wip",
-          "note": "The dialog lists Brussels Airlines' country and language versions, but only Belgium in English and French answer on the replica so far; the others follow with the next batches and the airline's own address.",
+          "status": "done",
+          "note": "The dialog lists Brussels Airlines' country and language versions, and every one of them answers on the replica.",
           "page": "/be/en/homepage",
-          "evidence": "2026-11-01: replica header 'Country and language selection; currently: Belgium | English'; be/en nav lists 70 en homepages, be/fr 26 fr; /ao/en/homepage 404 on aem.live and aem.page; be/nl, de/de, it/it homepages 200 on aem.page only; market roots need the lh-edge site entry (brief 218 item 2)"
+          "evidence": "Brussels go-live 2026-11-01 (child p_mvxofhz36r: all six language roots and 92 market roots live); lh-edge site entry with entry redirects (/, /be, /<cc>, /<cc>/<ll>)"
         }
       }
     },
@@ -1773,9 +1770,10 @@
           "evidence": "fill check 2026-11-01"
         },
         "airdolomiti": {
-          "status": "wip",
-          "note": "Air Dolomiti's header has controls for contrast and text size; the replica gets them.",
-          "evidence": "functions scan 2026-10-31: Configura accessibilità"
+          "status": "done",
+          "note": "The header's accessibility settings change text size and contrast as on www, and remember the choice.",
+          "evidence": "ema-adobe 200 f3e9c17; checked 2026-11-01 airdolomiti.turnsthe.page/flotta: Molto Grande 16 -> 18.4 px, stored",
+          "page": "/flotta"
         },
         "brussels": {
           "status": "none",
