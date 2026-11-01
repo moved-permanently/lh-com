@@ -1,6 +1,6 @@
 {
   "updated": "2026-11-01",
-  "change": "The passenger picker is live on Austrian and Brussels Airlines, Air Dolomiti's flight status searches by route and airport, and Air Dolomiti's eSIM shop waits for its vendor.",
+  "change": "Lufthansa's security waiting times are live with live data, and Austrian and Brussels Airlines have the check-in deadline search.",
   "legend": {
     "done": {
       "label": "works on our replica",
@@ -36,7 +36,7 @@
     "picker": "The picker for adults, children, infants and cabin is in the shared code since 1 November. Each brand's pages still have to switch it on; until then the search sends the travellers and cabin set on the page.",
     "lhbooking": "Lufthansa's manage booking and hotel tabs hand over to two services that run in AEM today. Their replacements already answer on lufthansa.turnsthe.page with test data; next, the tabs post to them.",
     "signin": "On Discover, ITA and Austrian, manage booking goes through a deep link to the login and profile pages, which are on the new platform since 1 November; Brussels Airlines' login and profile pages come next. The services behind the deep link answer with test data, and until the airlines' replica addresses route the deep link to them, the replicas link to the airline's current pages.",
-    "lhpages": "Five Lufthansa pages with these functions aren't on the replica yet: check-in deadlines, security waiting times, the compensation claim, the newsletter and eJournals. They come next. The two airport searches get blocks of their own, and Lufthansa's live data for them answers our addresses. Until then our pages link to www.",
+    "lhpages": "Four Lufthansa pages with these functions aren't on the replica yet: check-in deadlines, the compensation claim, the newsletter and eJournals. They come next. The check-in deadline search block is built and live on Austrian and Brussels Airlines. Until then our pages link to www.",
     "travelidapps": "The help center and culinary hub apps are in the shared code and load on our pages, but their data comes from the airline's Travel ID service, which refuses our test addresses. They work once the site runs on the airline's own address, or once Lufthansa allows ours.",
     "adown": "Switching off Air Dolomiti's current website is a goal, so its timetable, manage booking, newsletter and eSIM pages get versions of their own. Its booking service answers our addresses, so timetable and manage booking can work as on www; the newsletter becomes a form on our own forms service.",
     "cargostays": "Cargo's booking, schedules, customer portal, station finder and eServices stay on Cargo's current systems; the new site links to them.",
@@ -590,11 +590,10 @@
       "about": "Current waiting times at airport security checks, by airport.",
       "cells": {
         "lufthansa": {
-          "status": "wip",
-          "note": "Lufthansa's waiting time page isn't on the replica yet; it comes with a block that reads Lufthansa's live data, which answers our addresses, and our pages link to www's page until then.",
-          "footnote": "lhpages",
-          "page": "/de/en/security-fast-lanes",
-          "evidence": "M2 scope addition; M1 2026-11-01: www.lufthansa.com security-waiting-time answers lufthansa.turnsthe.page"
+          "status": "done",
+          "note": "The waiting time page is on the replica in all four Lufthansa locales and shows Lufthansa's live waiting times per airport, terminal and area, as on www; if the service doesn't answer, it links to www's page.",
+          "page": "/de/en/prepare-for-your-trip/airport-information/services-at-the-airport/security-waiting-time",
+          "evidence": "204 (a97500b) published 2026-11-01; browser check lufthansa.turnsthe.page de/de ?airport=MUC: 2 terminals, live times and a closed area"
         },
         "discover": {
           "status": "wip",
@@ -638,7 +637,7 @@
       "cells": {
         "lufthansa": {
           "status": "wip",
-          "note": "Lufthansa's check-in deadline page isn't on the replica yet; it comes with a search block that reads Lufthansa's live data, and our pages link to www's page until then.",
+          "note": "The search block is built and live on Austrian and Brussels Airlines; Lufthansa's own check-in deadline page comes next, and until then our pages link to www's page.",
           "footnote": "lhpages",
           "page": "/de/en/all-check-in",
           "evidence": "M2 scope addition; M1 2026-11-01: catalogs/checkin/info answers lufthansa.turnsthe.page"
@@ -654,10 +653,10 @@
           "evidence": "fill check 2026-11-01"
         },
         "austrian": {
-          "status": "wip",
-          "note": "Austrian's page has the text but not the airport search; the search comes with a block of its own that reads Austrian's live data, which answers our addresses.",
+          "status": "done",
+          "note": "The airport search is on all ten Austrian language pages, and the market pages that use them, with Austrian's live check-in deadlines, counters and services, as on www.",
           "page": "/at/en/check-in-deadlines",
-          "evidence": "functions scan 2026-10-31; M1 2026-11-01: www.austrian.com catalogs/checkin/info answers austrian.turnsthe.page"
+          "evidence": "205 (63525379) published 2026-11-01; browser check: Austria lists 6 airports, Vienna shows terminal 3, counters 332-361, 50 min"
         },
         "cargo": {
           "status": "none",
@@ -670,10 +669,10 @@
           "evidence": "fill check 2026-11-01"
         },
         "brussels": {
-          "status": "wip",
-          "note": "Brussels Airlines' page has the text but not the airport search and links to www for it; the search comes with the block planned for Lufthansa and Austrian.",
+          "status": "done",
+          "note": "The airport search is on the six check-in time pages with Brussels Airlines' live data, read through Lufthansa's service because Brussels Airlines' own site answers only itself.",
           "page": "/be/en/check-in-options-and-info/check-in-times",
-          "evidence": "2026-11-01: www /be/en/check-in-options-and-info/check-in-times has checkindeadlinesearch; replica same path links www's page; held brief 205 names Lufthansa and Austrian only (add Brussels); www.brusselsairlines.com and www.lufthansa.com catalogs/checkin refused the aem.live origin (CORS), brand host not attached yet, not tested there"
+          "evidence": "205 (63525379) published 2026-11-01; browser check: Brussels Airport, check-in row 4, 40 min, services tables"
         }
       }
     },
