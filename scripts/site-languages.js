@@ -2,7 +2,11 @@
  * Brand sites without <cc>/<ll> roots (metadata brand: cargo, airdolomiti): their languages, each
  * with its path prefix, its homepage and its own name. Their pages take the interface language
  * from the page's `language` metadata (scripts/locale.js), and the header switches between the
- * languages (blocks/header: the same path in the other language, else that language's homepage).
+ * languages (blocks/header): the page's counterpart its metadata names (`Alternate en |
+ * /en/newsletter-subscription`), else the same path in the other language when the site shares
+ * its slugs (probed), else that language's homepage. slugs 'own': a language whose pages have
+ * slugs of their own (Air Dolomiti: its Italian, English and German pages share none), so no
+ * same-path guess and no probe.
  * A module of its own, without imports: scripts/locale.js (which lh-edge bundles) reads it.
  * Tests: test/locale-brand-site.test.mjs, test/language-switch.test.mjs.
  */
@@ -16,16 +20,17 @@ export const SITE_LANGUAGES = {
       lang: 'de', path: '/de/', home: '/de/home', name: 'Deutsch',
     },
   ],
-  // Air Dolomiti (lh-airdolomiti): Italian at the root, English at /en/, German at /de/
+  // Air Dolomiti (lh-airdolomiti): Italian at the root, English at /en/, German at /de/, each
+  // with slugs of its own (/iscrizione-newsletter, /en/newsletter-subscription)
   airdolomiti: [
     {
-      lang: 'it', path: '/', home: '/', name: 'Italiano',
+      lang: 'it', path: '/', home: '/', name: 'Italiano', slugs: 'own',
     },
     {
-      lang: 'en', path: '/en/', home: '/en/', name: 'English',
+      lang: 'en', path: '/en/', home: '/en/', name: 'English', slugs: 'own',
     },
     {
-      lang: 'de', path: '/de/', home: '/de/', name: 'Deutsch',
+      lang: 'de', path: '/de/', home: '/de/', name: 'Deutsch', slugs: 'own',
     },
   ],
 };
@@ -50,6 +55,8 @@ export function counterpartPath(pathname, from, to) {
   if (!from || !to) return null;
   const isHome = (p, l) => p === l.home || p === l.home.replace(/\/$/, '') || p === l.path || p === l.path.replace(/\/$/, '');
   if (isHome(pathname, from)) return to.home;
+  // pages with slugs of their own: the same path in the other language does not exist
+  if (from.slugs === 'own' || to.slugs === 'own') return null;
   if (!pathname.startsWith(from.path)) return null;
   return `${to.path}${pathname.slice(from.path.length)}`;
 }
@@ -72,8 +79,10 @@ const pathOf = (href) => {
  * @param {string} pathname the current page's path
  * @param {string} lang the current page's language (its locale)
  * @param {Array} languages the site's languages (SITE_LANGUAGES)
+ * @param {Object<string, string>} [alternates] per language the page's counterpart its metadata
+ *   names (Alternate <lang>), taken without a probe
  */
-export function languageSwitch(tools, pathname, lang, languages) {
+export function languageSwitch(tools, pathname, lang, languages, alternates = {}) {
   const current = languages.find((l) => l.lang === lang) || languageOfPath(pathname, languages);
   const others = languages.filter((l) => l !== current);
   const homeOf = (href) => others.find((l) => [l.home, l.path, l.path.replace(/\/$/, '') || '/'].includes(pathOf(href)));
@@ -89,6 +98,7 @@ export function languageSwitch(tools, pathname, lang, languages) {
     label: authored.get(l.lang) || l.name,
     home: l.home,
     counterpart: counterpartPath(pathname, current, l),
+    ...(alternates[l.lang] ? { alternate: alternates[l.lang] } : {}),
   }));
   return { links, tools: rest };
 }
@@ -98,6 +108,8 @@ export function languageSwitch(tools, pathname, lang, languages) {
  * request of the path, true for a 2xx after redirects), else the language's homepage.
  */
 export async function switchTarget(link, exists) {
+  // named by the page (Alternate <lang>): as it is
+  if (link.alternate) return link.alternate;
   if (!link.counterpart || link.counterpart === link.home) return link.home;
   try {
     return (await exists(link.counterpart)) ? link.counterpart : link.home;

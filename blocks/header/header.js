@@ -822,9 +822,13 @@ export default async function decorate(block) {
   const navTools = (tools ? readTools(tools) : [])
     .filter((t) => !flynet || !['login', 'cart', 'search'].includes(t.role));
   // a brand site without <cc>/<ll> roots (scripts/site-languages.js): a switch between its
-  // languages (the nav's links to their homepages become it) instead of the country selector
+  // languages (the nav's links to their homepages become it) instead of the country selector;
+  // the page's own counterparts from its metadata (Alternate en | /en/newsletter-subscription)
+  const alternates = Object.fromEntries((locale.siteLanguages || [])
+    .map((l) => [l.lang, getMetadata(`alternate-${l.lang}`).trim()]).filter(([, href]) => href));
+  const { pathname } = window.location;
   const siteSwitch = locale.siteLanguages
-    ? languageSwitch(navTools, window.location.pathname, locale.lang, locale.siteLanguages) : null;
+    ? languageSwitch(navTools, pathname, locale.lang, locale.siteLanguages, alternates) : null;
   const toolItems = siteSwitch ? siteSwitch.tools : navTools;
   const menuLabel = text(tools && tools.querySelector('.default-content-wrapper > p')) || labels.menu;
   const byRole = (role) => toolItems.find((t) => t.role === role);

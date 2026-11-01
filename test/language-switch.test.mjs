@@ -31,9 +31,10 @@ test('languageOfPath and counterpartPath: the same slug under the other prefix, 
   assert.equal(counterpartPath('/en', en, de), '/de/home');
   assert.equal(counterpartPath('/de/ci/security', de, en), '/en/ci/security');
   assert.equal(counterpartPath('/', it, adEn), '/en/');
-  assert.equal(counterpartPath('/voli/monaco', it, adDe), '/de/voli/monaco');
+  // Air Dolomiti's languages have their own slugs: no same-path counterpart (test/language-switch-probes.test.mjs)
+  assert.equal(counterpartPath('/voli/monaco', it, adDe), null);
   assert.equal(counterpartPath('/en/', adEn, it), '/');
-  assert.equal(counterpartPath('/en/flights', adEn, it), '/flights');
+  assert.equal(counterpartPath('/en/flights', adEn, it), null);
   assert.equal(counterpartPath('/x/y', en, de), null, 'not under the language\'s prefix');
 });
 
@@ -54,7 +55,8 @@ test('languageSwitch: the nav\'s "Deutsch" link is the German entry (its label k
 
 test('languageSwitch: without authored links every other language with its own name (Air Dolomiti)', () => {
   const s = languageSwitch([{ href: '/contatti', label: 'Contatti' }], '/voli', 'it', AD);
-  assert.deepEqual(s.links.map((l) => [l.lang, l.label, l.home, l.counterpart]), [['en', 'English', '/en/', '/en/voli'], ['de', 'Deutsch', '/de/', '/de/voli']]);
+  // own slugs: no same-path counterpart (test/language-switch-probes.test.mjs)
+  assert.deepEqual(s.links.map((l) => [l.lang, l.label, l.home, l.counterpart]), [['en', 'English', '/en/', null], ['de', 'Deutsch', '/de/', null]]);
   assert.equal(s.tools.length, 1);
   const home = languageSwitch([], '/en/', 'en', AD);
   assert.deepEqual(home.links.map((l) => [l.lang, l.counterpart]), [['it', '/'], ['de', '/de/']]);
