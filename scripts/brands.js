@@ -160,11 +160,12 @@ export const BRANDS = {
     name: 'Brussels Airlines',
     oneTrust: '01994cb3-c7a3-7096-82a3-ae642c99e85e',
     destinationImages: '/content/dam/bel/images/offers/destination',
-    // destinationPath: a destination's page under a root; destinationOnSite: on the site itself
-    // (lh-brussels has it, with live prices), not on www: the fare teaser, the homepage slider and
-    // the offers grid open /<root>/book-a-flight/destination
+    // destinationPath: a destination's page under a root; destinationOnSite: the languages whose
+    // page is on the site itself (lh-brussels has be/en's and be/fr's, with live prices, for every
+    // English and French root): the fare teaser, the homepage slider and the offers grid open
+    // /<root>/book-a-flight/destination there, www's page in the other languages
     destinationPath: '/book-a-flight/destination',
-    destinationOnSite: true,
+    destinationOnSite: ['en', 'fr'],
     messageCenter: 'sn',
     embeds: {
       // the floating chat button (Cognigy webchat, served by www.brusselsairlines.com outside

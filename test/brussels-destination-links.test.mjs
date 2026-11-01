@@ -1,9 +1,10 @@
 /* eslint-disable max-len */
 /* Brussels' fare widgets link a destination to its own page on the site (scripts/brands.js
-   brussels: destinationPath /book-a-flight/destination, destinationOnSite): the destination
-   finder (homepage slider, offers grid: blocks/destination-finder buildDestinationLink) and the
-   fare teaser (blocks/fare-teaser fareTeaserLink) open /<root>/book-a-flight/destination, the
-   site's page with live prices (/be/en/book-and-manage/destination: a 404 there); ITA, Austrian
+   brussels: destinationPath /book-a-flight/destination, destinationOnSite en and fr, the languages
+   lh-brussels has the page in): the destination finder (homepage slider, offers grid:
+   blocks/destination-finder buildDestinationLink) and the fare teaser (blocks/fare-teaser
+   fareTeaserLink) open /<root>/book-a-flight/destination, the site's page with live prices
+   (/be/en/book-and-manage/destination: a 404 there), www's page in nl, de, it, es; ITA, Austrian
    and Discover keep their www page, lufthansa.com its /<root>/book-and-manage/destination; an
    authored Destination page row or Link pattern first, as before.
    Run: node --max-old-space-size=512 --test test/brussels-destination-links.test.mjs */
@@ -34,7 +35,7 @@ const route = {
 
 test('Brussels: the destination finder opens the site\'s own destination page', () => {
   assert.equal(BRANDS.brussels.destinationPath, '/book-a-flight/destination');
-  assert.equal(BRANDS.brussels.destinationOnSite, true);
+  assert.deepEqual(BRANDS.brussels.destinationOnSite, ['en', 'fr']);
   assert.equal(
     buildDestinationLink(ret, { base: '/be/en', brand: 'brussels' }, '', BRANDS.brussels),
     '/be/en/book-a-flight/destination?OriginCode=BRU&tripType=RETURN&DestinationCode=FIH&TripDuration=7',
@@ -43,6 +44,12 @@ test('Brussels: the destination finder opens the site\'s own destination page', 
     buildDestinationLink({ ...ret, tripType: 'ONEWAY' }, { base: '/gb/en', brand: 'brussels' }, '', BRANDS.brussels),
     '/gb/en/book-a-flight/destination?OriginCode=BRU&tripType=ONEWAY&DestinationCode=FIH',
   );
+  // a language without the site's page: www's
+  assert.equal(
+    buildDestinationLink(ret, { base: '/be/nl', brand: 'brussels' }, '', BRANDS.brussels),
+    'https://www.brusselsairlines.com/be/nl/book-a-flight/destination?OriginCode=BRU&tripType=RETURN&DestinationCode=FIH&TripDuration=7',
+  );
+  assert.match(buildDestinationLink(ret, { base: '/ch/de', lang: 'de' }, '', BRANDS.brussels), /^https:\/\/www\.brusselsairlines\.com\/ch\/de\/book-a-flight\/destination\?/);
   // an authored Destination page row wins
   assert.equal(
     buildDestinationLink(ret, { base: '/be/en' }, '/be/en/x', BRANDS.brussels),
@@ -59,6 +66,7 @@ test('the other brands and lufthansa.com: the destination finder as before', () 
 
 test('the fare teaser: Brussels\' own page; the others\' default as before; a Link pattern first', () => {
   assert.equal(fareTeaserLink(route, { base: '/be/fr' }, '', BRANDS.brussels), '/be/fr/book-a-flight/destination?OriginCode=BRU&DestinationCode=FIH&TripDuration=7&Cabin=E');
+  assert.equal(fareTeaserLink(route, { base: '/es/es' }, '', BRANDS.brussels), 'https://www.brusselsairlines.com/es/es/book-a-flight/destination?OriginCode=BRU&DestinationCode=FIH&TripDuration=7&Cabin=E');
   ['ita', 'austrian', 'discover'].forEach((b) => assert.equal(fareTeaserLink(route, { base: '/it/it' }, '', BRANDS[b]), '/it/it/book-and-manage/destination?OriginCode=BRU&DestinationCode=FIH&TripDuration=7&Cabin=E', b));
   assert.equal(fareTeaserLink(route, { base: '/de/en' }, ''), '/de/en/book-and-manage/destination?OriginCode=BRU&DestinationCode=FIH&TripDuration=7&Cabin=E');
   assert.equal(fareTeaserLink(route, { base: '/be/en' }, 'https://x.example/d?o={origin}&d={destination}', BRANDS.brussels), 'https://x.example/d?o=BRU&d=FIH');

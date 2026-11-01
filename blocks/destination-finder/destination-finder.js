@@ -161,10 +161,11 @@ export function buildDestinationLink({
     OriginCode: origin, tripType, DestinationCode: destination,
   });
   if (tripType === 'RETURN') params.set('TripDuration', tripDuration);
-  // a brand whose destination page is on its site (destinationOnSite: Brussels'
-  // /<root>/book-a-flight/destination) links it there, the others their www page
+  // a brand whose destination page is on its site in the page's language (destinationOnSite:
+  // Brussels' /<root>/book-a-flight/destination in en and fr) links it there, else its www page
+  const lang = locale.lang || String(locale.base || '').split('/')[2];
   let own = '';
-  if (brand && brand.destinationPath && brand.destinationOnSite) own = `${locale.base}${brand.destinationPath}`;
+  if (brand && brand.destinationPath && (brand.destinationOnSite || []).includes(lang)) own = `${locale.base}${brand.destinationPath}`;
   else if (brand && brand.destinationPath && brand.www) own = `https://${brand.www}${locale.base}${brand.destinationPath}`;
   const page = base || own || `${locale.base}/book-and-manage/destination`;
   return `${page}${page.includes('?') ? '&' : '?'}${params}`;

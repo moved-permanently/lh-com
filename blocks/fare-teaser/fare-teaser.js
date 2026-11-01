@@ -178,8 +178,9 @@ export async function loadFareTeaserData(settings, locale) {
 
 /**
  * Link of one route. An authored link pattern may use {origin}, {destination}, {duration}
- * and {cabin}; otherwise the destination page under the current locale: a brand's own on its
- * site (scripts/brands.js destinationOnSite: Brussels' /<root>/book-a-flight/destination), else
+ * and {cabin}; otherwise the destination page under the current locale: a brand with
+ * destinationOnSite (scripts/brands.js: Brussels) its own on the site in those languages
+ * (/<root>/book-a-flight/destination), its www page in the others; else
  * /<root>/book-and-manage/destination as before.
  * @param {Object} [brand] the page's brand entry (scripts/locale.js brandEntry)
  */
@@ -196,9 +197,12 @@ export function fareTeaserLink({
   const params = new URLSearchParams({
     OriginCode: origin, DestinationCode: destination, TripDuration: tripDuration, Cabin: cabin,
   });
-  const page = brand && brand.destinationOnSite && brand.destinationPath
-    ? brand.destinationPath : '/book-and-manage/destination';
-  return `${locale.base}${page}?${params}`;
+  if (brand && brand.destinationOnSite && brand.destinationPath) {
+    const lang = locale.lang || String(locale.base || '').split('/')[2];
+    const host = brand.destinationOnSite.includes(lang) || !brand.www ? '' : `https://${brand.www}`;
+    return `${host}${locale.base}${brand.destinationPath}?${params}`;
+  }
+  return `${locale.base}/book-and-manage/destination?${params}`;
 }
 
 /* ------------------------------------------------------------------------------------------- */
