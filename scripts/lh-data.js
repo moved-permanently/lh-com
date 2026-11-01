@@ -214,6 +214,22 @@ function notePriceFailure(route, origin, reason) {
   writePriceMemo(memo);
 }
 
+/**
+ * How long a price widget waits before its one late try (one per widget and page load: the fare
+ * teaser, the destination finder) of price routes whose call failed: until the last of their
+ * backoffs ends; a route with nothing remembered (a timeout, a refused answer) the first backoff.
+ * @param {string[]} routes the widget's price routes
+ * @returns {number} ms
+ */
+export function priceRetryDelay(routes) {
+  const memo = readPriceMemo();
+  const now = Date.now();
+  return Math.max(0, ...routes.map((route) => {
+    const hit = memo.routes[routePath(route)];
+    return hit ? Math.max(0, hit.until - now) : priceBackoffMs(1);
+  }));
+}
+
 /** A live price answer: the route's backoff starts over. */
 function clearPriceFailure(route) {
   const memo = readPriceMemo();

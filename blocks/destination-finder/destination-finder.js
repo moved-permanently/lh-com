@@ -13,7 +13,7 @@ import {
   fetchLabels, pickLabels, fillLabel,
 } from '../../scripts/lh-api.js';
 import { attachDamFallback } from '../../scripts/dam-path.js';
-import { markSource } from '../../scripts/lh-data.js';
+import { markSource, priceRetryDelay } from '../../scripts/lh-data.js';
 
 /* ---------------------------------------------------------------------------------------------
  * Data contract (see scripts/lh-api.js for the live request and response shapes). The live
@@ -1919,14 +1919,30 @@ async function decorateGrid(block, uid) {
   }
 
   let requestId = 0;
-  async function reload() {
+  // no live prices: one late try per page load after the route's backoff (as the slider), for
+  // the latest request
+  let lateTimer = 0;
+  let lateDone = false;
+  let reload;
+  const lateTry = (result, forQuery) => {
+    clearTimeout(lateTimer);
+    if (result.source === 'live' || lateDone) return;
+    const { route } = destinationFinderOffersRequest(forQuery);
+    lateTimer = setTimeout(() => {
+      lateDone = true;
+      reload();
+    }, priceRetryDelay([route]));
+  };
+  reload = async () => {
     requestId += 1;
     const mine = requestId;
     grid.setAttribute('aria-busy', 'true');
     const forQuery = query();
     const result = await loadGridOffers(forQuery, locale);
-    if (mine === requestId) apply(result, forQuery);
-  }
+    if (mine !== requestId) return;
+    lateTry(result, forQuery);
+    apply(result, forQuery);
+  };
 
   /* events */
   function changeOrigin(airport) {
@@ -2075,7 +2091,9 @@ async function decorateGrid(block, uid) {
   const mine = requestId;
   const first = await firstOffers;
   const result = await first.result;
-  if (mine === requestId) apply(result, first.query);
+  if (mine !== requestId) return;
+  lateTry(result, first.query);
+  apply(result, first.query);
 }
 
 export default async function decorate(block) {
@@ -2207,6 +2225,11 @@ export default async function decorate(block) {
   });
 
   let requestId = 0;
+  // no live prices (www's Cloudflare challenges a fresh tab's first preflights): one late try per
+  // page load when the route's backoff is over (scripts/lh-data.js), for the latest request (a
+  // newer one moves it; a live answer cancels it)
+  let lateTimer = 0;
+  let lateDone = false;
   async function load() {
     requestId += 1;
     const mine = requestId;
@@ -2215,6 +2238,14 @@ export default async function decorate(block) {
       contextPromise, loadDestinations(state, locale),
     ]);
     if (mine !== requestId) return;
+    clearTimeout(lateTimer);
+    if (source !== 'live' && !lateDone) {
+      const { route } = destinationFinderRequests(state, locale).offers;
+      lateTimer = setTimeout(() => {
+        lateDone = true;
+        load();
+      }, priceRetryDelay([route]));
+    }
     markSource(block, { offers: source, ...context.sources }, ['offers']);
     const hasDisclaimer = Boolean(disclaimer || context.conditions.footerText);
     const items = destinations.slice(0, MAX_DESTINATIONS)

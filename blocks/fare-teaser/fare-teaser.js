@@ -8,7 +8,7 @@ import {
   destinationImageUrl, fillLabel, htmlToParagraphs, resolveOrigin, knownAirports, damPathReady,
 } from '../../scripts/lh-api.js';
 import { attachDamFallback } from '../../scripts/dam-path.js';
-import { markSource } from '../../scripts/lh-data.js';
+import { markSource, priceRetryDelay } from '../../scripts/lh-data.js';
 import { bookInApp } from '../../scripts/app-bridge.js';
 
 /* ---------------------------------------------------------------------------------------------
@@ -121,25 +121,17 @@ const SERVICE_PICKS = 6;
  * @returns {Promise<{offers: Array, labels: Object, conditions: Object, localeData: Object,
  *   sources: Object<string, string>}>}
  */
-export async function loadFareTeaserData(settings, locale) {
+/**
+ * The prices alone (live only): the finder's offers of the block's origins.
+ * @returns {Promise<{offers: Array, source: string}>} source live when a finder answered
+ */
+export async function loadFares(settings, locale) {
   const requests = fareTeaserRequests(settings, locale);
-  const sources = {};
-  const settle = (name, promise, mapper, fallback) => promise
-    .then(({ data, source }) => {
-      sources[name] = source;
-      return mapper(data);
-    })
-    .catch(() => {
-      sources[name] = 'none';
-      return fallback;
-    });
   const groupResults = await Promise.all(requests.fares.map((g) => fetchRequest(g.request, locale)
     .then(({ data, source }) => ({ origin: g.origin, ...mapDestinationFinderOffers(data), source }))
     .catch(() => ({
       origin: g.origin, originName: '', offers: [], source: 'none',
     }))));
-  // live when a finder answered (the shown prices are live), else none
-  sources.fares = groupResults.some((r) => r.source === 'live') ? 'live' : 'none';
   const toOffer = (r, o) => ({
     origin: r.origin,
     originName: r.originName,
@@ -160,6 +152,25 @@ export async function loadFareTeaserData(settings, locale) {
       .slice(0, SERVICE_PICKS)
       .map((o) => toOffer(r, o)) : [];
   }
+  // live when a finder answered (the shown prices are live), else none
+  return { offers, source: groupResults.some((r) => r.source === 'live') ? 'live' : 'none' };
+}
+
+export async function loadFareTeaserData(settings, locale) {
+  const requests = fareTeaserRequests(settings, locale);
+  const sources = {};
+  const settle = (name, promise, mapper, fallback) => promise
+    .then(({ data, source }) => {
+      sources[name] = source;
+      return mapper(data);
+    })
+    .catch(() => {
+      sources[name] = 'none';
+      return fallback;
+    });
+  const fares = await loadFares(settings, locale);
+  sources.fares = fares.source;
+  const { offers } = fares;
   const [live, conditions, localeData] = await Promise.all([
     fetchLabels(LABEL_BUNDLES, locale),
     // a brand root has no recording of its own: a recorded answer is another market's conditions
@@ -407,29 +418,32 @@ export default async function decorate(block) {
     span.textContent = labels['price label'];
   });
 
-  if (!settings.destinations.length) {
-    // no authored routes: show what the service recommends
-    data.offers.forEach((offer) => {
-      const route = routeFor({ destination: offer.destination, destinationName: '' });
-      const li = renderItem(route, labels, locale, settings.pattern);
-      applyOffer(li, offer, route, labels, locale, data.localeData);
-      list.append(li);
+  // the offers into the cards (authored routes: their cards; none: the service's picks)
+  const fill = (offers) => {
+    if (!settings.destinations.length) {
+      // no authored routes: show what the service recommends
+      offers.forEach((offer) => {
+        const route = routeFor({ destination: offer.destination, destinationName: '' });
+        const li = renderItem(route, labels, locale, settings.pattern);
+        applyOffer(li, offer, route, labels, locale, data.localeData);
+        list.append(li);
+      });
+    } else {
+      settings.destinations.forEach((d, i) => {
+        const route = routeFor(d);
+        const offer = offers.find((o) => o.destination === d.destination
+          && o.origin === route.origin);
+        const li = list.children[i];
+        if (offer && li) applyOffer(li, offer, route, labels, locale, data.localeData);
+      });
+    }
+    // teasers without a fare still show the origin's name once the service names it
+    list.querySelectorAll('.fare-teaser-origin').forEach((span) => {
+      const named = offers.find((o) => o.origin === span.textContent && o.originName);
+      if (named) span.textContent = named.originName;
     });
-  } else {
-    settings.destinations.forEach((d, i) => {
-      const route = routeFor(d);
-      const offer = data.offers.find((o) => o.destination === d.destination
-        && o.origin === route.origin);
-      const li = list.children[i];
-      if (offer && li) applyOffer(li, offer, route, labels, locale, data.localeData);
-    });
-  }
-
-  // teasers without a fare still show the origin's name once the service names it
-  list.querySelectorAll('.fare-teaser-origin').forEach((span) => {
-    const named = data.offers.find((o) => o.origin === span.textContent && o.originName);
-    if (named) span.textContent = named.originName;
-  });
+  };
+  fill(data.offers);
 
   // routes still named by their codes (no live answer): the city names the site knows
   // (recorded suggestions and catalogs: names, never prices)
@@ -446,18 +460,34 @@ export default async function decorate(block) {
 
   fillConditions(footer, data.conditions);
 
-  if (list.children.length > MOBILE_VISIBLE) {
-    // small screens show the first routes only (CSS); the button reveals the rest
-    const more = el('button', 'fare-teaser-more', labels['show more']);
-    more.type = 'button';
-    more.addEventListener('click', () => {
-      block.classList.add('fare-teaser-expanded');
-      more.remove();
-      const next = list.children[MOBILE_VISIBLE];
-      if (next) next.querySelector('.fare-teaser-route').focus();
-    });
-    footer.append(more);
-  }
+  let more = null;
+  const finish = () => {
+    if (!more && list.children.length > MOBILE_VISIBLE) {
+      // small screens show the first routes only (CSS); the button reveals the rest
+      more = el('button', 'fare-teaser-more', labels['show more']);
+      more.type = 'button';
+      more.addEventListener('click', () => {
+        block.classList.add('fare-teaser-expanded');
+        more.remove();
+        const next = list.children[MOBILE_VISIBLE];
+        if (next) next.querySelector('.fare-teaser-route').focus();
+      });
+      footer.append(more);
+    }
+    block.classList.toggle('fare-teaser-empty', !list.children.length);
+  };
+  finish();
 
-  if (!list.children.length) block.classList.add('fare-teaser-empty');
+  // no live prices (www's Cloudflare challenges a fresh tab's first preflights): one late try
+  // per page load when the routes' backoff is over (scripts/lh-data.js), filled in place
+  if (data.sources.fares !== 'live') {
+    const routes = fareTeaserRequests(settings, locale).fares.map((g) => g.request.route);
+    setTimeout(async () => {
+      const fares = await loadFares(settings, locale);
+      if (fares.source !== 'live') return;
+      fill(fares.offers);
+      markSource(block, { ...data.sources, fares: 'live' }, ['fares']);
+      finish();
+    }, priceRetryDelay(routes));
+  }
 }
