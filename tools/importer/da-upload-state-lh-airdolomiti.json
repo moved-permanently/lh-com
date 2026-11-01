@@ -5534,6 +5534,201 @@
    "uploaded": "2026-11-01T00:28:01.646Z",
    "mtime": 1793492662687,
    "preview": "2026-11-01T00:28:03.645Z"
+  },
+  "/de/routen/flug-von-muenchen-nach-genf": {
+   "uploaded": "2026-11-01T00:43:16.865Z",
+   "mtime": 1793493684526,
+   "preview": "2026-11-01T00:43:18.771Z"
+  },
+  "/de/routen/flug-von-krakau-nach-muenchen": {
+   "uploaded": "2026-11-01T00:43:19.878Z",
+   "mtime": 1793493684553,
+   "preview": "2026-11-01T00:43:21.802Z"
+  },
+  "/de/routen/flug-von-muenchen-nach-krakau": {
+   "uploaded": "2026-11-01T00:43:22.789Z",
+   "mtime": 1793493684579,
+   "preview": "2026-11-01T00:43:24.486Z"
+  },
+  "/de/routen/flug-von-muenchen-nach-jersey": {
+   "uploaded": "2026-11-01T00:43:25.562Z",
+   "mtime": 1793493684607,
+   "preview": "2026-11-01T00:43:27.441Z"
+  },
+  "/de/routen/flug-von-jersey-nach-muenchen": {
+   "uploaded": "2026-11-01T00:43:28.557Z",
+   "mtime": 1793493684635,
+   "preview": "2026-11-01T00:43:30.379Z"
+  },
+  "/de/routen/flug-von-dresden-nach-muenchen": {
+   "uploaded": "2026-11-01T00:43:31.601Z",
+   "mtime": 1793493684661,
+   "preview": "2026-11-01T00:43:33.498Z"
+  },
+  "/de/routen/flug-von-muenchen-nach-dresden": {
+   "uploaded": "2026-11-01T00:43:34.613Z",
+   "mtime": 1793493684689,
+   "preview": "2026-11-01T00:43:36.275Z"
+  },
+  "/de/routen/flug-von-paris-orly-nach-muenchen": {
+   "uploaded": "2026-11-01T00:43:37.427Z",
+   "mtime": 1793493684717,
+   "preview": "2026-11-01T00:43:39.158Z"
+  },
+  "/de/routen/flug-von-muenchen-nach-paris-orly": {
+   "uploaded": "2026-11-01T00:43:40.342Z",
+   "mtime": 1793493684746,
+   "preview": "2026-11-01T00:43:42.118Z"
+  },
+  "/de/routen/flug-von-muenchen-nach-cluj": {
+   "uploaded": "2026-11-01T00:43:43.211Z",
+   "mtime": 1793493684773,
+   "preview": "2026-11-01T00:43:44.986Z"
+  },
+  "/de/routen/flug-von-cluj-nach-muenchen": {
+   "uploaded": "2026-11-01T00:43:46.117Z",
+   "mtime": 1793493684799,
+   "preview": "2026-11-01T00:43:48.164Z"
+  },
+  "/de/routen/flug-von-innsbruck-nach-frankfurt": {
+   "uploaded": "2026-11-01T00:43:49.321Z",
+   "mtime": 1793493684826,
+   "preview": "2026-11-01T00:43:51.005Z"
+  },
+  "/de/routen/flug-von-frankfurt-nach-luxemburg": {
+   "uploaded": "2026-11-01T00:43:52.153Z",
+   "mtime": 1793493684854,
+   "preview": "2026-11-01T00:43:54.017Z"
+  },
+  "/de/routen/flug-von-luxemburg-nach-frankfurt": {
+   "uploaded": "2026-11-01T00:43:55.167Z",
+   "mtime": 1793493684888,
+   "preview": "2026-11-01T00:43:57.132Z"
+  },
+  "/de/routen/flug-von-dresden-nach-frankfurt": {
+   "uploaded": "2026-11-01T00:43:58.350Z",
+   "mtime": 1793493684915,
+   "preview": "2026-11-01T00:44:00.070Z"
+  },
+  "/de/routen/flug-von-frankfurt-nach-dresden": {
+   "uploaded": "2026-11-01T00:44:01.182Z",
+   "mtime": 1793493684944,
+   "preview": "2026-11-01T00:44:02.862Z"
+  },
+  "/de/routen/flug-von-frankfurt-nach-wroclaw": {
+   "uploaded": "2026-11-01T00:44:04.052Z",
+   "mtime": 1793493684975,
+   "preview": "2026-11-01T00:44:05.954Z"
+  },
+  "/de/routen/flug-von-wroclaw-nach-frankfurt": {
+   "uploaded": "2026-11-01T00:44:07.039Z",
+   "mtime": 1793493685001,
+   "preview": "2026-11-01T00:44:09.092Z"
+  },
+  "/de/routen/flug-von-kattowitz-nach-frankfurt": {
+   "uploaded": "2026-11-01T00:44:10.315Z",
+   "mtime": 1793493685033,
+   "preview": "2026-11-01T00:44:11.985Z"
+  },
+  "/de/routen/flug-von-frankfurt-nach-kattowitz": {
+   "uploaded": "2026-11-01T00:44:13.021Z",
+   "mtime": 1793493685062,
+   "preview": "2026-11-01T00:44:14.900Z"
+  },
+  "/de/routen/flug-von-frankfurt-nach-triest": {
+   "uploaded": "2026-11-01T00:44:16.065Z",
+   "mtime": 1793493685089,
+   "preview": "2026-11-01T00:44:17.981Z"
+  },
+  "/de/routen/flug-von-frankfurt-nach-mailand-linate": {
+   "uploaded": "2026-11-01T00:44:19.148Z",
+   "mtime": 1793493685115,
+   "preview": "2026-11-01T00:44:20.882Z"
+  },
+  "/de/routen/flug-von-frankfurt-nach-mailand-malpensa": {
+   "uploaded": "2026-11-01T00:44:21.978Z",
+   "mtime": 1793493685143,
+   "preview": "2026-11-01T00:44:23.856Z"
+  },
+  "/de/routen/flug-von-frankfurt-nach-innsbruck": {
+   "uploaded": "2026-11-01T00:44:25.209Z",
+   "mtime": 1793493685171,
+   "preview": "2026-11-01T00:44:26.972Z"
+  },
+  "/de/routen/flug-von-frankfurt-nach-pisa": {
+   "uploaded": "2026-11-01T00:44:28.756Z",
+   "mtime": 1793493793348,
+   "preview": "2026-11-01T00:44:30.641Z"
+  },
+  "/de/routen/flug-von-frankfurt-nach-turin": {
+   "uploaded": "2026-11-01T00:44:32.308Z",
+   "mtime": 1793493793628,
+   "preview": "2026-11-01T00:44:34.432Z"
+  },
+  "/de/routen/flug-von-frankfurt-nach-florenz": {
+   "uploaded": "2026-11-01T00:44:36.427Z",
+   "mtime": 1793493793720,
+   "preview": "2026-11-01T00:44:38.480Z"
+  },
+  "/de/routen/flug-von-frankfurt-nach-verona": {
+   "uploaded": "2026-11-01T00:44:40.385Z",
+   "mtime": 1793493793820,
+   "preview": "2026-11-01T00:44:42.075Z"
+  },
+  "/de/routen/flug-von-muenchen-nach-verona": {
+   "uploaded": "2026-11-01T00:44:43.823Z",
+   "mtime": 1793493793923,
+   "preview": "2026-11-01T00:44:45.851Z"
+  },
+  "/de/routen/flug-von-muenchen-nach-venedig": {
+   "uploaded": "2026-11-01T00:44:47.594Z",
+   "mtime": 1793493794020,
+   "preview": "2026-11-01T00:44:49.385Z"
+  },
+  "/de/routen/flug-von-muenchen-nach-turin": {
+   "uploaded": "2026-11-01T00:44:51.243Z",
+   "mtime": 1793493794108,
+   "preview": "2026-11-01T00:44:53.125Z"
+  },
+  "/de/routen/flug-von-muenchen-nach-mailand-malpensa": {
+   "uploaded": "2026-11-01T00:44:54.217Z",
+   "mtime": 1793493685408,
+   "preview": "2026-11-01T00:44:56.082Z"
+  },
+  "/de/routen/flug-von-muenchen-nach-mailand-linate": {
+   "uploaded": "2026-11-01T00:44:57.208Z",
+   "mtime": 1793493685449,
+   "preview": "2026-11-01T00:44:59.045Z"
+  },
+  "/de/routen/flug-von-muenchen-nach-florenz": {
+   "uploaded": "2026-11-01T00:45:01.065Z",
+   "mtime": 1793493794229,
+   "preview": "2026-11-01T00:45:03.211Z"
+  },
+  "/de/routen/flug-von-muenchen-nach-bologna": {
+   "uploaded": "2026-11-01T00:45:04.512Z",
+   "mtime": 1793493685506,
+   "preview": "2026-11-01T00:45:06.602Z"
+  },
+  "/de/routen/flug-von-muenchen-nach-bari": {
+   "uploaded": "2026-11-01T00:45:07.911Z",
+   "mtime": 1793493685533,
+   "preview": "2026-11-01T00:45:09.860Z"
+  },
+  "/de/reiseziele/muenchen": {
+   "uploaded": "2026-11-01T00:45:12.220Z",
+   "mtime": 1793493794408,
+   "preview": "2026-11-01T00:45:14.175Z"
+  },
+  "/de/reiseziele/frankfurt-am-main": {
+   "uploaded": "2026-11-01T00:45:16.778Z",
+   "mtime": 1793493794553,
+   "preview": "2026-11-01T00:45:18.933Z"
+  },
+  "/de/reiseziele/frankfurt-am-main/messe-frankfurt": {
+   "uploaded": "2026-11-01T00:45:20.671Z",
+   "mtime": 1793493794637,
+   "preview": "2026-11-01T00:45:22.917Z"
   }
  },
  "media": {
@@ -10021,6 +10216,45 @@
   },
   "/media-da/airdolomiti/fluege-nach-london-1920x1080-1-375aff67.jpg": {
    "at": "2026-11-01T00:27:58.150Z"
+  },
+  "/media-da/airdolomiti/pisa-mainbanner-d-2-4a84b3be.jpg": {
+   "at": "2026-11-01T00:44:27.984Z"
+  },
+  "/media-da/airdolomiti/turin-mainbanner-d-2-cf152122.jpg": {
+   "at": "2026-11-01T00:44:31.644Z"
+  },
+  "/media-da/airdolomiti/firenze-mainbanner-d-6-64f450c9.jpg": {
+   "at": "2026-11-01T00:44:35.519Z"
+  },
+  "/media-da/airdolomiti/verona-mainbanner-d-2-e06694c6.jpg": {
+   "at": "2026-11-01T00:44:39.448Z"
+  },
+  "/media-da/airdolomiti/verona-mainbanner-d-1-c6726003.jpg": {
+   "at": "2026-11-01T00:44:43.114Z"
+  },
+  "/media-da/airdolomiti/venice-mainbanner-d-3-872433cc.jpg": {
+   "at": "2026-11-01T00:44:46.882Z"
+  },
+  "/media-da/airdolomiti/turin-mainbanner-d-3-4eda17b5.jpg": {
+   "at": "2026-11-01T00:44:50.453Z"
+  },
+  "/media-da/airdolomiti/firenze-mainbanner-d-7-5ccfeb04.jpg": {
+   "at": "2026-11-01T00:45:00.144Z"
+  },
+  "/media-da/airdolomiti/schloss-neuschwanstein-muenchen-1012x740-1-5ad25bc3.jpg": {
+   "at": "2026-11-01T00:45:10.829Z"
+  },
+  "/media-da/airdolomiti/olympiapark-muenchen-1012x740-1-a62b6154.jpg": {
+   "at": "2026-11-01T00:45:11.491Z"
+  },
+  "/media-da/airdolomiti/frankfurt-kaese-mit-musik-1012x740-1-33a194ba.jpg": {
+   "at": "2026-11-01T00:45:15.193Z"
+  },
+  "/media-da/airdolomiti/frankfurt-messe-1012x740-1-2fc199a9.jpg": {
+   "at": "2026-11-01T00:45:15.837Z"
+  },
+  "/media-da/airdolomiti/frankfurt-messe-6b31ac37.jpg": {
+   "at": "2026-11-01T00:45:19.893Z"
   }
  }
 }
