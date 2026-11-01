@@ -3,8 +3,9 @@
    help-center-web (ITA's and Austrian's contact pages) and culinary-hub (Austrian's culinary
    journey) from the brand's www with the brand's design system (www.austrian.com's capture:
    mausy-v1.40.1, austrian.css; www.ita-airways.com serves the same files, ita.css), rows after the
-   app's name as the element's data- attributes, and for the help center the page's X-Portal,
-   X-Portal-Site and X-Portal-Language meta tags it reads (else it runs as Lufthansa's).
+   app's name as the element's data- attributes, and for both the page's X-Portal, X-Portal-Site
+   and X-Portal-Language meta tags they read (else the help center runs as Lufthansa's, the
+   culinary hub without a theme).
    Run: node --max-old-space-size=512 --test test/micro-frontend-apps.test.mjs */
 /* global globalThis */
 import test from 'node:test';
@@ -68,6 +69,9 @@ test('culinary-hub: the rows after its name as data- attributes (Austrian\'s con
   assert.deepEqual(plan.attributes, {
     'data-public-endpoint': '', 'data-configuration': 'apiKey:abc;tmc:13806', 'data-api-gateway': 'https://api.travelid.austrian.com/one-catering/v1',
   });
-  assert.deepEqual(plan.meta, {});
+  // its theme from X-Portal (www's body maui-theme-os; without the meta maui-theme-undefined) and
+  // www's classes
+  assert.deepEqual(plan.meta, { 'X-Portal': 'OS', 'X-Portal-Site': 'AT', 'X-Portal-Language': 'de' });
+  assert.equal(plan.className, 'full-width-bg px-0');
   assert.ok(appOf(blockOf([['no-such-app']])) === null);
 });

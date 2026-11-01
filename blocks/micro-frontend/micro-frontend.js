@@ -49,11 +49,14 @@ export const APPS = {
     portalMeta: true,
     brandDesign: true,
   },
-  // Austrian's culinary journey (rows: Configuration, API gateway)
+  // Austrian's culinary journey (rows: Configuration, API gateway); its theme from X-Portal
+  // (without it the app's class is maui-theme-undefined, its inputs unstyled), www's classes
   'culinary-hub': {
     tag: 'culinary-hub',
     path: '/digitalhangar/onecatering/culinary-hub/culinary-hub-latest.js',
+    className: 'full-width-bg px-0',
     attributes: { 'data-public-endpoint': '' },
+    portalMeta: true,
     brandDesign: true,
   },
 };
