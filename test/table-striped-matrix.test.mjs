@@ -167,3 +167,18 @@ test('matrix on touch: the first tap shows, the second follows, a tap elsewhere 
   fire(second, 'pointerdown', { pointerType: 'touch' });
   assert.equal(fire(second, 'click').defaultPrevented, true);
 });
+
+test('matrix CSS: the column headings never break inside a word (390: "Lufthansa", not "Lufthan|sa")', () => {
+  const css = fs.readFileSync(new URL('../blocks/table-striped/table-striped.css', import.meta.url), 'utf8').replace(/\/\*[\s\S]*?\*\//g, '');
+  const rule = (selector) => {
+    const m = css.match(new RegExp(`(^|\\})\\s*${selector.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*\\{([^}]*)\\}`));
+    return m ? m[2] : '';
+  };
+  const head = rule('.table-striped.matrix thead th');
+  assert.match(head, /overflow-wrap:\s*normal/);
+  assert.match(head, /padding:\s*20px 16px 30px/);
+  // the columns: 8.5rem below 768px (the headings' longest word at 20px plus 32px of padding), 7.5rem from 768px
+  assert.match(rule('.table-striped.matrix'), /--matrix-col:\s*8\.5rem/);
+  assert.match(css, /@media \(width >= 768px\)\s*\{\s*\.table-striped\.matrix\s*\{[^}]*--matrix-col:\s*7\.5rem/);
+  assert.match(rule('.table-striped.matrix table'), /min-width:\s*calc\(var\(--matrix-first\) \+ \(var\(--matrix-columns, 1\) - 1\) \* var\(--matrix-col\)\)/);
+});

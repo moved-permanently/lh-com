@@ -126,6 +126,7 @@
    them do not show through; the header row as option header's */
 .table-striped.matrix {
   --matrix-first: 9.5rem;
+  --matrix-col: 8.5rem;
 
   position: relative;
 }
@@ -133,15 +134,22 @@
 @media (width >= 768px) {
   .table-striped.matrix {
     --matrix-first: 14rem;
+    --matrix-col: 7.5rem;
   }
 }
 
 /* the table fills its box; it scrolls once the box is narrower than its columns need (the first
-   9.5rem below 768px, else 14rem; every other 7.5rem: --matrix-columns, set by
-   table-striped-matrix.js) */
+   9.5rem below 768px, else 14rem; every other 8.5rem below 768px, else 7.5rem: room for the
+   headings' longest word, "Lufthansa", at 20px; --matrix-columns, set by table-striped-matrix.js) */
 .table-striped.matrix table {
   width: 100%;
-  min-width: calc(var(--matrix-first) + (var(--matrix-columns, 1) - 1) * 7.5rem);
+  min-width: calc(var(--matrix-first) + (var(--matrix-columns, 1) - 1) * var(--matrix-col));
+}
+
+/* the column headings: option header's type, tighter at the sides, never broken inside a word */
+.table-striped.matrix thead th {
+  padding: 20px 16px 30px;
+  overflow-wrap: normal;
 }
 
 /* the header row keeps option header's padding and type; the body cells are a little tighter */
