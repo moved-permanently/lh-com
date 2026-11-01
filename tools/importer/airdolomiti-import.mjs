@@ -43,6 +43,7 @@ import {
   docOf, sourceKey, langOf, allRows, targetOf, LIVE_TOOLS, NEWSLETTER,
 } from './airdolomiti-paths.mjs';
 import { snapshotFile, urlKey } from './airdolomiti-capture.mjs';
+import { alternateRows, snapshotHead } from './airdolomiti-alternates.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const W = path.join(root, 'content-sites/lh-airdolomiti');
@@ -1061,6 +1062,23 @@ function genericOf(a, page) {
 
 /* ------------------------------------------------------------------ the document ------- */
 
+let alternates;
+/** What alternateRows reads: the snapshots' heads (cached), paths.json, the imported documents. */
+function alternateSite() {
+  if (alternates) return alternates;
+  const heads = new Map();
+  const { paths } = loadSite();
+  alternates = {
+    headOf: (url) => {
+      if (!heads.has(url)) heads.set(url, snapshotHead(snapshotFile(url)));
+      return heads.get(url);
+    },
+    paths,
+    exists: (eds) => fs.existsSync(path.join(W, 'content', `${docOf(eds)}.plain.html`)),
+  };
+  return alternates;
+}
+
 function blockHtml(item) {
   const m = item.block.match(/^([a-z0-9-]+)(?: \(([^)]+)\))?$/);
   const classes = [m[1], ...(m[2] ? m[2].split(/,\s*/).map((o) => o.trim().replace(/\s+/g, '-')) : [])].join(' ');
@@ -1145,6 +1163,9 @@ export function convert(rendered, sourceUrl) {
     const cat = post.categories && post.categories.edges && post.categories.edges[0] && post.categories.edges[0].node;
     if (cat) meta.push(['Category', esc(cat.name)]);
   }
+  // the page's counterparts in the other languages (www's hreflang, both directions, our paths):
+  // the header's language switch goes there instead of the language's homepage
+  alternateRows(sourceUrl, alternateSite()).forEach(([k, v]) => meta.push([k, esc(v)]));
   meta.push(['Nav', `${prefix}/nav`], ['Footer', `${prefix}/footer`], ['Language', lang]);
   const out = docs.map((s, i) => {
     const body = s.items.map((it) => (it.block ? blockHtml(it) : it.html)).join('');
