@@ -785,10 +785,11 @@ export function convert(rendered, sourceUrl) {
   const prefix = lang === 'it' ? '' : `/${lang}`;
   if (isPost) {
     // www shows the post's date and its reading time ("Tempo di lettura: 2 minuti"): the words of
-    // the post's body (its html-content blocks) at 200 a minute, rounded (136 of 154 Italian posts)
+    // the post's body (its html-content blocks) at 190 a minute, rounded (as www for 136 of 155
+    // Italian, 191 of 206 English and 75 of 86 German posts)
     const body = (post.blocks || []).filter((b) => b.name === 'lazyblock/html-content').map((b) => plain(dec(b.attributes || {}).content)).join(' ');
     const words = (body || plain(docs.flatMap((x) => x.items).map((it) => it.html || (it.rows || []).flat().join(' ')).join(' '))).split(' ').filter(Boolean).length;
-    const min = Math.max(1, Math.round(words / 200));
+    const min = Math.max(1, Math.round(words / 190));
     const label = { it: `Tempo di lettura: ${min} ${min === 1 ? 'minuto' : 'minuti'}`, en: `Reading time: ${min} ${min === 1 ? 'minute' : 'minutes'}`, de: `Lesezeit: ${min} ${min === 1 ? 'Minute' : 'Minuten'}` }[lang];
     if (post.date) meta.push(['Publication Date', post.date.slice(0, 10)]);
     meta.push(['Reading Time', label]);

@@ -1,0 +1,53 @@
+# lh-airdolomiti batch-36 (de): uploaded to DA moved-permanently/lh-airdolomiti and previewed on main--lh-airdolomiti--moved-permanently.aem.page on 2026-11-01T03:02Z; not published
+# documents (39 + /de/nav, /de/footer):
+/de/artikel/avgeek-de/das-luftfahrzeugkennzeichen
+/de/artikel/travellers-de/leitfaden-fuer-barrierefreies-reisen
+/de/artikel/throwback-de/fiorenza-de-bernardi-3
+/de/artikel/avgeek-de/traumberuf-pilot-interview-mit-unserem-ersten-offizier-grigory-shevandin
+/de/artikel/avgeek-de/hangars-2
+/de/artikel/travellers-de/fliegen-mit-kontaktlinsen
+/de/artikel/throwback-de/harriet-quimby-3
+/de/artikel/avgeek-de/die-markierungen-auf-start-und-landebahnen
+/de/artikel/reiseziele/bologna-macht-laune-in-jedem-alter
+/de/artikel/did-you-know/fenster-oder-gang-eine-frage-der-persoenlichkeit
+/de/artikel/avgeek-de/beruf-pilot-interview-mit-kapitaen-marino-palla
+/de/artikel/reiseziele/muenchen-mal-anders
+/de/artikel/did-you-know/wer-hat-das-klapptischchen-im-flugzeug-erfunden
+/de/artikel/did-you-know/pride-den-regenbogen-gibt-es-auch-in-tuerkis
+/de/artikel/did-you-know/leonardo-da-vinci-und-die-fluggeraete
+/de/artikel/did-you-know/aeroporti-progettati-da-archistar-2
+/de/artikel/reiseziele/brindisi-fuer-geschichtsliebhaber-aber-nicht-nur
+/de/artikel/throwback-de/john-gillespie-magee-jr-flugpionier-und-dichter
+/de/artikel/did-you-know/als-blinde-pilotin-werden-die-technik-machts-moeglich
+/de/artikel/throwback-de/jacqueline-jackie-cochran-3
+/de/artikel/throwback-de/gabriella-gaby-angelini-3
+/de/artikel/throwback-de/helene-dutrieu-3
+/de/artikel/did-you-know/flugsimulatoren
+/de/artikel/travellers-de/fliegen-spielend-erklaert-fuer-kinder
+/de/artikel/did-you-know/flugzeugteile-als-designermoebel
+/de/artikel/throwback-de/amy-johnson-3
+/de/artikel/throwback-de/margot-duhalde-sotomayor-3
+/de/artikel/avgeek-de/der-flight-director
+/de/artikel/did-you-know/drohnen-und-die-luftbildfotografie-der-zukunft
+/de/artikel/throwback-de/louis-bleriot-3
+/de/artikel/avgeek-de/die-instandhaltung-von-flugzeugen
+/de/artikel/throwback-de/amalia-ercoli-finzi-die-mutter-der-raumsonde-rosetta
+/de/artikel/avgeek-de/aus-welchen-materialien-besteht-ein-flugzeug
+/de/artikel/did-you-know/die-geschichte-der-luftbildfotografie
+/de/artikel/throwback-de/mary-chance-vanscyoc-3
+/de/artikel/throwback-de/amelia-earhart-3
+/de/artikel/throwback-de/bessie-coleman-3
+/de/artikel/did-you-know/flugzeuge-in-der-modernen-kuns
+/de/artikel/reiseziele/m9-museum-mestre-venedig
+/de/nav
+/de/footer
+# not imported (0):
+# blocks without a handler (their content generically): none
+# render check: all 39 documents render
+# check against www (text, images, links):
+#   https://www.airdolomiti.de/artikel/avgeek-de/das-luftfahrzeugkennzeichen -> /de/artikel/avgeek-de/das-luftfahrzeugkennzeichen: text 17/17, images 0/0 (+1), links 0/0 (+0)
+#   https://www.airdolomiti.de/artikel/throwback-de/jacqueline-jackie-cochran-3 -> /de/artikel/throwback-de/jacqueline-jackie-cochran-3: text 11/11, images 1/1 (+1), links 1/1 (+0)
+#   https://www.airdolomiti.de/artikel/reiseziele/m9-museum-mestre-venedig -> /de/artikel/reiseziele/m9-museum-mestre-venedig: text 24/24, images 2/2 (+1), links 0/0 (+0)
+#   https://www.airdolomiti.de/artikel/avgeek-de/das-luftfahrzeugkennzeichen: no text, image or link of www's missing
+#   https://www.airdolomiti.de/artikel/throwback-de/jacqueline-jackie-cochran-3: no text, image or link of www's missing
+#   https://www.airdolomiti.de/artikel/reiseziele/m9-museum-mestre-venedig: no text, image or link of www's missing
