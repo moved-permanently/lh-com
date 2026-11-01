@@ -33,7 +33,9 @@ import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { parseHTML } from 'linkedom';
-import { ownPages, ownAliases, withOwnLinks } from './own-links.mjs';
+import {
+  ownPages, ownAliases, withOwnLinks, onlyBatch,
+} from './own-links.mjs';
 import { relativeDamLinks } from './brussels-dam.mjs';
 import { withLocalImages } from './brussels-nav.mjs';
 
@@ -377,8 +379,12 @@ if (isMain) {
     });
     const mapOnly = path.join(W, 'runs', `${name}-upload.txt`);
     fs.writeFileSync(mapOnly, `${made.join('\n')}\n`);
-    console.log(execFileSync('node', ['tools/importer/site-postprocess.mjs', '--site', 'lh-brussels', '--source-host', HOST, '--snapshots', path.join(MAPPED, HOST), '--real-placeholder', PLACEHOLDER, '--map-only', mapOnly], { cwd: root, encoding: 'utf8' }).trim().split('\n').slice(-3)
-      .join('\n'));
+    // site-postprocess's step 3 rewrites every document: outside the batch only links made
+    // relative stay (onlyBatch), so a run never takes an earlier or another session's link back
+    // to www
+    const post = onlyBatch('lh-brussels', new Set(made), () => execFileSync('node', ['tools/importer/site-postprocess.mjs', '--site', 'lh-brussels', '--source-host', HOST, '--snapshots', path.join(MAPPED, HOST), '--real-placeholder', PLACEHOLDER, '--map-only', mapOnly], { cwd: root, encoding: 'utf8' }));
+    console.log(post.result.trim().split('\n').slice(-3).join('\n'));
+    console.log(`site-postprocess: ${post.restored.length} documents outside the batch left as they were`);
     // links to the site's pages relative (own-links.mjs: its documents and the market roots'
     // pages lh-edge answers from them), after site-postprocess (which knows only the pages
     // imported so far)
