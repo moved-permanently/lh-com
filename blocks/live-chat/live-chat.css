@@ -1,0 +1,22 @@
+/* the chat container as www.airdolomiti.it's chat page styles #chat (its tag's style element):
+   450px high, a soft shadow and 14px corners; flat and square up to 768px. www's outer margins
+   place it in its own layout; here the section's width does */
+.live-chat .live-chat-frame {
+  position: relative;
+  display: block;
+  height: 450px;
+  box-shadow: 0 -2px 23px 0 rgb(0 0 0 / 18.8%);
+  border-radius: 14px;
+}
+
+.live-chat .live-chat-frame[hidden],
+.live-chat .live-chat-fallback[hidden] {
+  display: none;
+}
+
+@media (width <= 768px) {
+  .live-chat .live-chat-frame {
+    box-shadow: none;
+    border-radius: 0;
+  }
+}

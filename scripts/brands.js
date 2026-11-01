@@ -27,9 +27,11 @@
  * bundles (lowercase); hub: the home airport of a root without one; airline: its IATA code (the
  * flight status' default airline); consentLinks: the privacy, cookie and imprint pages of the
  * fallback cookie banner per language (www's, the brand's OneTrust banner or footer; en for the
- * others). The brands' favicons and
- * manifests: scripts/brand-icons.js. The languages of the sites without <cc>/<ll> roots (Cargo,
- * Air Dolomiti): scripts/site-languages.js.
+ * others); embeds: per site flag (scripts/flags.js) the configuration of a widget www embeds
+ * that sends visitors or their data into the airline's live systems (scripts/embeds.js: its script
+ * URL and vendor ids, as www's page source has them; loaded only with the site's flag on). The
+ * brands' favicons and manifests: scripts/brand-icons.js. The languages of the sites without
+ * <cc>/<ll> roots (Cargo, Air Dolomiti): scripts/site-languages.js.
  */
 export const BRANDS = {
   discover: {
@@ -188,6 +190,19 @@ export const BRANDS = {
     // articleIndex: per language, the query index of its posts (helix-query.yaml
     // articles-airdolomiti-it, -en) the posts list (blog-overview) reads instead of lh-com's
     articleIndex: { it: '/articoli/query-index.json', en: '/en/articles/query-index.json' },
+    embeds: {
+      // the digital assistant (Engagent) as www's tag manager loads it (GTM-SH94, 2026-11-01): site
+      // wide digital-assistant.js?cid=<cid>&view.mobileMode=detect, on the chat page DA.init into
+      // #<htmlId> (scripts/site-embeds.js, blocks/live-chat). Engagent picks the widget by rules on
+      // the page URL; none matches our hosts yet: the flag stays off until Air Dolomiti or
+      // Engagent adds one
+      'live-chat': {
+        script: 'https://engagent.h-care.eu/webplayer/latest/js/digital-assistant.js',
+        cid: 'c67b400ea554ae044b5da9a6ad05fd7b19e59cde',
+        baseUrl: 'https://engagent.h-care.eu/webplayer/latest/',
+        htmlId: 'da_airdolomiti_support',
+      },
+    },
   },
 };
 

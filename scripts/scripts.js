@@ -15,7 +15,7 @@ import {
   toCamelCase,
   toClassName,
 } from './aem.js';
-import { getLocale, rootRedirectPath } from './locale.js';
+import { brandEntry, getLocale, rootRedirectPath } from './locale.js';
 import { marketAllows } from './market-rules.js';
 import { initConsent, isAuthoringContext, martechWanted } from './consent.js';
 import { applyChannel } from './channel.js';
@@ -472,6 +472,12 @@ function loadDelayed() {
     window.setTimeout(() => {
       import('./martech.js').then(({ default: initMartech }) => initMartech());
     }, 3500);
+  }
+  // site-wide embeds behind a site flag (scripts/site-embeds.js): only on a brand with embeds, so
+  // other pages load neither the module nor the flags sheet
+  const brand = brandEntry();
+  if (brand && brand.embeds) {
+    import('./site-embeds.js').then(({ default: loadSiteEmbeds }) => loadSiteEmbeds());
   }
 }
 
