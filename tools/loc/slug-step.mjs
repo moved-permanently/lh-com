@@ -18,13 +18,16 @@
  * --simulate: where no translation exists yet, take the English page as the translation (with the
  *   app's absolute links, dnt.js resetHrefs) to show the link and merge work; never with --apply.
  * --page /de/en/x (repeatable): only these pages. --build-map: rewrite slug-map.json from pages.csv.
+ * --rollout-urls (with --page, dry run only, no DA call): prints the URLs of the at/de rollout
+ *   project, one per line: the German page of each English page (its own German slug, else the same
+ *   path), as https://main--lh-com--moved-permanently.aem.page/<path> (slug-lib.mjs rolloutUrls).
  * Report (dry run over all pages): tools/reports/loc-slug-step.md
  */
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
-  buildSlugMap, translationPath, germanize, plan,
+  buildSlugMap, translationPath, germanize, plan, rolloutUrls,
 } from './slug-lib.mjs';
 import { scopeRows } from './regional-diff.mjs';
 
@@ -157,6 +160,23 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.a
   }
   const map = loadMap();
   const listed = argv.flatMap((a, i) => (a === '--page' ? [argv[i + 1]] : []));
+  if (argv.includes('--rollout-urls')) {
+    if (argv.includes('--apply')) {
+      console.error('slug-step --rollout-urls is a dry run only (it prints URLs, it never writes)');
+      process.exit(1);
+    }
+    if (!listed.length) {
+      console.error('slug-step --rollout-urls: --page /de/en/<path> (one or more: the English pages of the translation project)');
+      process.exit(1);
+    }
+    try {
+      rolloutUrls(listed, map).forEach((u) => console.log(u));
+    } catch (e) {
+      console.error(e.message);
+      process.exit(1);
+    }
+    process.exit(0);
+  }
   const pages = listed.length ? listed : Object.keys(map.slugs);
   const { mergeLikeTheApp } = await import('./da-nx.mjs');
   const apply = argv.includes('--apply');

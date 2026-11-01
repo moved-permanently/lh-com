@@ -4,8 +4,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import { spawnSync } from 'node:child_process';
 import {
-  buildSlugMap, germanHref, germanize, plan, translationPath,
+  buildSlugMap, germanHref, germanize, plan, translationPath, rolloutUrls,
 } from '../tools/loc/slug-lib.mjs';
 import { runStep, daClient } from '../tools/loc/slug-step.mjs';
 import { scopeRows } from '../tools/loc/regional-diff.mjs';
@@ -217,4 +218,29 @@ test('--apply moves when there is no German page; overwrite replaces; --root pre
   await assert.rejects(runStep({
     pages: ['/de/en/flight-search'], map: MAP, da: fakeDa({}), merge: fakeMerge, apply: true, simulate: true,
   }), /dry run only/);
+});
+
+// --rollout-urls: the URLs of the at/de rollout project (a project of its own with the /de/de
+// pages: da-nx 1.29.1 takes the source folder from the URLs and rolls out 1:1)
+test('rolloutUrls: the German slug from slug-map.json, else the same path under /de/de; aem.page URLs', () => {
+  assert.deepEqual(rolloutUrls(['/de/en/flight-search', '/de/en/homepage', '/de/en/baggage'], MAP), [
+    'https://main--lh-com--moved-permanently.aem.page/de/de/flugsuche',
+    'https://main--lh-com--moved-permanently.aem.page/de/de/homepage',
+    'https://main--lh-com--moved-permanently.aem.page/de/de/gepaeck',
+  ]);
+  assert.throws(() => rolloutUrls(['/de/de/gepaeck'], MAP), /\/de\/en/);
+  assert.throws(() => rolloutUrls(['/gb/en/baggage'], MAP), /\/de\/en/);
+});
+
+test('slug-step --rollout-urls: one URL per line, no DA call; --apply and no --page refused', () => {
+  const cli = (...args) => spawnSync(process.execPath, [new URL('../tools/loc/slug-step.mjs', import.meta.url).pathname, ...args], { encoding: 'utf8', env: { ...process.env, DA_TOKEN: '' } });
+  const ok = cli('--rollout-urls', '--page', '/de/en/flight-search', '--page', '/de/en/homepage');
+  assert.equal(ok.status, 0, ok.stderr);
+  assert.equal(ok.stdout, 'https://main--lh-com--moved-permanently.aem.page/de/de/flugsuche\nhttps://main--lh-com--moved-permanently.aem.page/de/de/homepage\n');
+  const apply = cli('--rollout-urls', '--apply', '--page', '/de/en/flight-search');
+  assert.equal(apply.status, 1);
+  assert.match(apply.stderr, /dry run only/);
+  const none = cli('--rollout-urls');
+  assert.equal(none.status, 1);
+  assert.match(none.stderr, /--page/);
 });

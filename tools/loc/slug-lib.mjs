@@ -119,3 +119,20 @@ export function plan(enPath, map, { copyExists, targetExists }) {
     action: targetExists ? 'merge' : 'move', enPath, copy, target,
   };
 }
+
+/** The preview host the at/de rollout project's URLs are written for. */
+export const AEM_PAGE = 'https://main--lh-com--moved-permanently.aem.page';
+
+/**
+ * The URLs of the at/de rollout project for a list of English pages: since da-nx 1.29.1 (69006f3b)
+ * a project takes its source folder from its URLs, and a project of /de/de pages offers only
+ * German Rollout, to /at/de with the same path (views/rollout/index.js 112-145). Per page the
+ * German page: its own German slug (slug-map.json), else the same path under /de/de; as
+ * https://main--lh-com--moved-permanently.aem.page/<path>, one per page, in the given order.
+ */
+export function rolloutUrls(pages, map) {
+  return pages.map((p) => {
+    if (!/^\/de\/en(\/|$)/.test(p)) throw new Error(`rollout URLs: ${p} is no /de/en page (give the English pages, --page /de/en/…)`);
+    return `${AEM_PAGE}${map.slugs[p] || translationPath(p)}`;
+  });
+}
