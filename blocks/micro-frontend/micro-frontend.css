@@ -20,3 +20,11 @@
   visibility: hidden;
   pointer-events: none;
 }
+
+/* culinary-hub: below 1025px www's app spans the page (its own 20px inside, Discover's
+   culinaryjourney at 390 and 768): no layout margin around it */
+@media (width < 1025px) {
+  main > .section > .micro-frontend-wrapper:has(culinary-hub) {
+    padding-inline: 0;
+  }
+}
