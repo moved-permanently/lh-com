@@ -1,0 +1,9 @@
+# lh-airdolomiti (2026-11-01, 223, the newsletter pages): uploaded to DA moved-permanently/lh-airdolomiti and previewed on main--lh-airdolomiti--moved-permanently.aem.page; not published. Publish these
+# - the three pages' intro photo is now the site's own copy (/media-da/airdolomiti/img-lp-nl-airdolomiti-...jpg) instead of www's CMS address (they were imported before the file was downloaded); texts and form unchanged
+# - /de/newsletter-anmeldung: the button stays "Zeichnen", www's own label on its German page (checked again 2026-11-01 in the rendered form; kept as www's wording, the importer notes it)
+# - /en/newsletter-subscription: already as www's English page, on preview and live: "Discover Air Dolomiti's tips for your travels!" then "Subscribe to our newsletter to receive personalized content, insights, and useful suggestions to best organize your every trip." (both visible at 1440 and 390)
+# - the language switch: not authorable (blocks/header with scripts/site-languages.js: the same path in the other language, else that language's homepage; no page metadata or sheet names alternates), left as it is
+# documents (3):
+/iscrizione-newsletter
+/en/newsletter-subscription
+/de/newsletter-anmeldung

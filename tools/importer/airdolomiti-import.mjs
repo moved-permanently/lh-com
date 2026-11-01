@@ -262,6 +262,8 @@ function newsletterForm(page) {
     [consent, 'checkbox', 'privacy', 'yes', ''],
     [esc(NEWSLETTER_LANGUAGES.label[page.lang]), 'select', 'language', 'yes',
       NEWSLETTER_LANGUAGES.options.map(([v, l]) => `<p>${v}=${esc(l)}${v === page.lang ? '{selected}' : ''}</p>`).join('')],
+    // the button as www labels it, 1:1 (www's German page says "Zeichnen", checked 2026-11-01:
+    // kept as www's own wording)
     [esc(field('submit').text || 'Submit'), 'submit', '', '', ''],
     [esc(form), 'config', 'form', '', ''],
     [`<a href="${attr(confirmation)}">${esc(confirmation)}</a>`, 'config', 'success', '', ''],

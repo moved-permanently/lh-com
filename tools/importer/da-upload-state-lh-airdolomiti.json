@@ -7771,9 +7771,9 @@
    "preview": "2026-11-01T08:50:23.253Z"
   },
   "/de/newsletter-anmeldung": {
-   "uploaded": "2026-11-01T08:09:52.046Z",
-   "mtime": 1793517681853,
-   "preview": "2026-11-01T08:09:54.786Z"
+   "uploaded": "2026-11-01T09:29:52.345Z",
+   "mtime": 1793525140710,
+   "preview": "2026-11-01T09:29:54.081Z"
   },
   "/de/newsletter-anmeldung-bestaetigung": {
    "uploaded": "2026-11-01T08:09:55.982Z",
@@ -7791,9 +7791,9 @@
    "preview": "2026-11-01T08:10:02.599Z"
   },
   "/en/newsletter-subscription": {
-   "uploaded": "2026-11-01T08:10:06.947Z",
-   "mtime": 1793517681800,
-   "preview": "2026-11-01T08:10:08.932Z"
+   "uploaded": "2026-11-01T09:29:49.524Z",
+   "mtime": 1793525140661,
+   "preview": "2026-11-01T09:29:50.909Z"
   },
   "/en/newsletter-subscription-confirmation": {
    "uploaded": "2026-11-01T08:10:10.312Z",
@@ -7806,9 +7806,9 @@
    "preview": "2026-11-01T08:10:17.546Z"
   },
   "/iscrizione-newsletter": {
-   "uploaded": "2026-11-01T08:10:18.716Z",
-   "mtime": 1793517681752,
-   "preview": "2026-11-01T08:10:20.363Z"
+   "uploaded": "2026-11-01T09:29:46.492Z",
+   "mtime": 1793525140609,
+   "preview": "2026-11-01T09:29:48.081Z"
   },
   "/iscrizione-newsletter-conferma": {
    "uploaded": "2026-11-01T08:10:21.400Z",
@@ -13201,6 +13201,9 @@
   },
   "/media-da/airdolomiti/online-checkin-e141bc86.jpg": {
    "at": "2026-11-01T06:33:17.783Z"
+  },
+  "/media-da/airdolomiti/img-lp-nl-airdolomiti-e1744100945524-7ac7dac2.jpg": {
+   "at": "2026-11-01T09:29:45.391Z"
   }
  }
 }
