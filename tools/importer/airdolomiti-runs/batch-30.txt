@@ -1,0 +1,53 @@
+# lh-airdolomiti batch-30 (de): uploaded to DA moved-permanently/lh-airdolomiti and previewed on main--lh-airdolomiti--moved-permanently.aem.page on 2026-11-01T01:03Z; not published
+# documents (39 + /de/nav, /de/footer):
+/de/reiseziele/frankfurt-am-main/main-tower-de
+/de/reiseziele/frankfurt-am-main/typische-frankfurter-gerichte
+/de/reiseziele/muenchen/tour-zu-koenig-ludwigs-schloessern
+/de/reiseziele/muenchen/was-kann-man-in-muenchen-sehen
+/de/reiseziele/muenchen/olympiapark-muenchen
+/de/reiseziele/muenchen/glockenspiel-am-marienplatz
+/de/reiseziele/ljubljana-laibach
+/de/reiseziele/prag
+/de/reiseziele/birmingham-de
+/de/reiseziele/rijeka-de
+/de/reiseziele/bordeaux-de
+/de/reiseziele/biarritz-de
+/de/reiseziele/zuerich
+/de/reiseziele/figari-de
+/de/reiseziele/billund-de
+/de/reiseziele/lyon-de
+/de/reiseziele/basel-de
+/de/reiseziele/cagliari
+/de/reiseziele/palermo-de
+/de/reiseziele/krakau
+/de/reiseziele/amsterdam
+/de/reiseziele/pula
+/de/reiseziele/ancona
+/de/reiseziele/genf
+/de/reiseziele/london
+/de/reiseziele/paris
+/de/reiseziele/cluj
+/de/reiseziele/jersey-de
+/de/reiseziele/breslau
+/de/reiseziele/luxemburg
+/de/reiseziele/dresden
+/de/reiseziele/kattowitz
+/de/reiseziele/triest
+/de/reiseziele/mailand-de
+/de/reiseziele/innsbruck-de
+/de/reiseziele/brindisi-de
+/de/reiseziele/olbia-de
+/de/reiseziele/graz-de
+/de/reiseziele/genua-de
+/de/nav
+/de/footer
+# not imported (0):
+# blocks without a handler (their content generically): none
+# render check: all 39 documents render
+# check against www (text, images, links):
+#   https://www.airdolomiti.de/reiseziele/frankfurt-am-main/main-tower-de -> /de/reiseziele/frankfurt-am-main/main-tower-de: text 10/10, images 1/1 (+0), links 0/0 (+1)
+#   https://www.airdolomiti.de/reiseziele/krakau -> /de/reiseziele/krakau: text 16/16, images 1/1 (+1), links 2/2 (+0)
+#   https://www.airdolomiti.de/reiseziele/genua-de -> /de/reiseziele/genua-de: text 15/15, images 2/3 (+3), links 5/5 (+0)
+#   https://www.airdolomiti.de/reiseziele/frankfurt-am-main/main-tower-de: no text, image or link of www's missing
+#   https://www.airdolomiti.de/reiseziele/krakau: no text, image or link of www's missing
+#   https://www.airdolomiti.de/reiseziele/genua-de: images missing: Schermata-2021-10-22-alle-16.08.02.png
