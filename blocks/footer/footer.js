@@ -305,6 +305,8 @@ export function buildBadges(sections, labels) {
           img.loading = 'lazy';
           link.append(a.querySelector('picture') || img);
         } else {
+          // a text-only badge (Air Dolomiti's Check in, Cargo's social links): drawn as text
+          link.classList.add('footer-badge-text');
           link.textContent = text(a);
         }
         if (isExternal(link.href)) {

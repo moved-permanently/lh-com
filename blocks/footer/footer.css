@@ -347,6 +347,13 @@
   height: 32px;
 }
 
+/* text-only badges (Air Dolomiti's Check in, Gestione Prenotazione...; Cargo's social links): the
+   footer's text colour and a line-height of their own (the badge links' 0 is for images) */
+.footer .footer-badges a.footer-badge-text {
+  color: var(--footer-text);
+  line-height: 1.5;
+}
+
 /* badges as a link column (Style "badges, in-columns"): heading and icons in the column grid; a
    brand theme may set --footer-badge-heading-size, --footer-badge-gap, --footer-badge-width and
    --footer-badge-size (the icons' height) */
