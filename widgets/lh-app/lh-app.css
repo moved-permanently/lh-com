@@ -31,6 +31,12 @@ main > .section.lh-app-container:last-child {
   line-height: 18px;
 }
 
+/* prompt (best price alerts, logged out): headline, copy, then a maui-button-link secondary,
+   size medium, 24px under the copy */
+.lh-app .lh-app-prompt p {
+  margin: 0 0 24px;
+}
+
 /* hero-banner-react sizes its spacing in rem for live's 10px root font size (3.2rem = 32px) */
 .lh-app hero-banner-react .hero-banner {
   margin-bottom: 24px;

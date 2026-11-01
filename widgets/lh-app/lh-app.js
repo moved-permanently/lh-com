@@ -2,16 +2,18 @@
  * Login and profile apps of lufthansa.com (widget, see README.md): one widget link per app,
  * `/widgets/lh-app/lh-app.html?app=<name>`. Mounts the app's web component the way the live
  * page's dcep app does, renders the logged-out gate, or renders nothing, depending on the host
- * and the visitor's Travel ID session. Apps, versions and hosts are in lh-app.json.
+ * and the visitor's Travel ID session. Apps, versions and hosts are in lh-app.json; a brand
+ * site (page metadata `brand`) gets its entry of `brands` there over Lufthansa's config.
  *
- * Hosts: only on lufthansa.com (or a subdomain, config.loginHosts) does the page ask Travel ID
- * whether the visitor is logged in. Everywhere else the visitor counts as logged out without
- * any request to Travel ID, and only apps that make no Travel ID call while logged out are
- * mounted (loggedOut: "public").
+ * Hosts: only on lufthansa.com (or a subdomain, config.loginHosts; a brand's own www domain on
+ * its site) does the page ask Travel ID whether the visitor is logged in. Everywhere else the
+ * visitor counts as logged out without any request to Travel ID, and only apps that make no
+ * Travel ID call while logged out are mounted (loggedOut: "public").
  */
 import { loadCSS, loadScript } from '../../scripts/aem.js';
 import { getLocale } from '../../scripts/locale.js';
 import { fetchLabels } from '../../scripts/lh-api.js';
+import { brandOf } from '../../scripts/brand.js';
 
 const GATE_TEXT = 'common.misc.loader.forcedOneIdLoginText';
 const GATE_BUTTON = 'common.misc.loader.forcedOneIdLoginButton';
@@ -24,19 +26,60 @@ const WRAPPER_ATTRIBUTES = ['class', 'data-api-gateway', 'data-translation-label
 let configPromise;
 let sessionPromise;
 let labelsPromise;
+const promptLabels = {};
+
+/**
+ * The config of the page's site: Lufthansa's (no brand, or one without an entry in `brands`),
+ * else the brand's entry over it (its hosts, Travel ID, login client, design system, portal,
+ * labels by language) and its app entries over Lufthansa's, without Lufthansa's per-locale
+ * overrides (their keys are lufthansa.com's roots).
+ */
+export function siteConfig(json, brand = '') {
+  const entry = brand && json.brands && json.brands[brand];
+  if (!entry) return { ...json.config, apps: json.apps };
+  const { apps: own = {}, ...config } = entry;
+  const apps = {};
+  Object.keys({ ...json.apps, ...own }).forEach((name) => {
+    const { locales, ...base } = json.apps[name] || {};
+    const over = own[name] || {};
+    apps[name] = { ...base, ...over };
+    if (base.attributes || over.attributes) {
+      apps[name].attributes = { ...base.attributes, ...over.attributes };
+    }
+  });
+  const labels = { ...json.config.labels };
+  Object.entries(config.labels || {}).forEach(([lang, texts]) => {
+    labels[lang] = { ...json.config.labels[lang], ...texts };
+  });
+  return {
+    ...json.config,
+    ...config,
+    authorize: { ...json.config.authorize, ...config.authorize },
+    maui: { ...json.config.maui, ...config.maui },
+    portal: { ...json.config.portal, ...config.portal },
+    labels,
+    apps,
+  };
+}
 
 function loadConfig() {
   if (!configPromise) {
     configPromise = fetch(`${window.hlx.codeBasePath}/widgets/lh-app/lh-app.json`)
       .then((resp) => resp.json())
-      .then((json) => ({ ...json.config, apps: json.apps }));
+      .then((json) => siteConfig(json, brandOf()));
   }
   return configPromise;
 }
 
-/** Replaces {travelIdApi} and {scriptOrigin} with their config values. */
-function fill(value, config) {
-  return String(value).replace(/\{(travelIdApi|scriptOrigin)\}/g, (m, key) => config[key]);
+/**
+ * Replaces {travelIdApi} and {scriptOrigin} with their config values, {languageCountry} with
+ * the locale's language and country (en-at).
+ */
+function fill(value, config, locale) {
+  return String(value).replace(/\{(travelIdApi|scriptOrigin|languageCountry)\}/g, (m, key) => {
+    if (key !== 'languageCountry') return config[key];
+    return locale ? `${locale.lang}-${locale.country}` : m;
+  });
 }
 
 /** Whether a host is one of the login hosts or a subdomain of one. */
@@ -93,7 +136,10 @@ function gateLabels(config, locale) {
   return labelsPromise;
 }
 
-/** The app's entry with the locale's overrides and the link's class and id. */
+/**
+ * The app's entry with the locale's overrides and the link's class, id and version (a version
+ * number replaces the one in the script's file name).
+ */
 export function resolveApp(config, name, locale, params = {}) {
   const base = config.apps[name];
   if (!base) return null;
@@ -102,8 +148,11 @@ export function resolveApp(config, name, locale, params = {}) {
   const attributes = { ...base.attributes, ...over.attributes };
   if (params.class) attributes.class = params.class;
   if (params.id) app.id = params.id;
+  if (app.script && /^\d+\.\d+\.\d+$/.test(params.version || '')) {
+    app.script = app.script.replace(/-\d+\.\d+\.\d+\.js$/, `-${params.version}.js`);
+  }
   app.attributes = Object.fromEntries(Object.entries(attributes)
-    .map(([key, value]) => [key, fill(value, config)]));
+    .map(([key, value]) => [key, fill(value, config, locale)]));
   return app;
 }
 
@@ -129,7 +178,7 @@ function preparePage(config, locale) {
     tag.content = content;
     document.head.append(tag);
   });
-  document.body.classList.add('maui-theme-lh');
+  document.body.classList.add(config.themeClass || 'maui-theme-lh');
 }
 
 /**
@@ -168,6 +217,39 @@ function mount(app, container, config, session) {
     .catch(() => {});
 }
 
+/** Prompt texts (an app's own label bundle), the config's texts by language as fallback. */
+function promptTexts(config, locale, bundle) {
+  if (!promptLabels[bundle]) {
+    const fallback = config.labels[locale.lang] || config.labels.en;
+    promptLabels[bundle] = fetchLabels([bundle], locale)
+      .then(({ labels }) => ({ ...fallback, ...labels }))
+      .catch(() => fallback);
+  }
+  return promptLabels[bundle];
+}
+
+/**
+ * A logged-out prompt of a dcep app (live's best price alerts, full view): headline, text and a
+ * secondary button to the Travel ID login.
+ */
+function showPrompt(widget, prompt, labels, href) {
+  const box = document.createElement('div');
+  box.className = 'lh-app-prompt';
+  const headline = document.createElement('h1');
+  headline.textContent = labels[prompt.headline] || '';
+  const text = document.createElement('p');
+  text.textContent = labels[prompt.text] || '';
+  const action = document.createElement('p');
+  const button = document.createElement('a');
+  button.className = 'button secondary';
+  button.target = '_self';
+  button.href = href;
+  button.textContent = labels[prompt.button] || '';
+  action.append(button);
+  box.append(headline, text, action);
+  widget.prepend(box);
+}
+
 function showGate(gate, labels, href) {
   gate.querySelector('.lh-app-gate-text').textContent = labels[GATE_TEXT];
   const button = gate.querySelector('a');
@@ -197,6 +279,10 @@ export default async function decorate(widget) {
   if (app && app.view === 'gate' && !session.loggedIn) {
     const labels = await gateLabels(config, locale);
     showGate(gate, labels, authorizeUrl(config, locale, window.location.pathname));
+  }
+  if (app && app.view === 'prompt' && app.prompt && !session.loggedIn) {
+    const labels = await promptTexts(config, locale, app.prompt.bundle);
+    showPrompt(widget, app.prompt, labels, authorizeUrl(config, locale, window.location.pathname));
   }
   // logged in, account-statement and fare-alert-overview render nothing: their live views come
   // from the dcep bundle (not loadable on its own) and need a rebuild

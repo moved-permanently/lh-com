@@ -128,6 +128,222 @@
       "tag": "sfad-frontend",
       "script": "/digitalhangar/loyalty-20status/sfad-frontend/sfad-frontend-latest.js",
       "loggedOut": "public"
+    },
+    "web-student-verification-cug": {
+      "tag": "web-student-verification-cug",
+      "script": "/digitalhangar/customer-cockpit/web-student-verification-cug/web-student-verification-cug-1.118.5.js",
+      "wrapper": true,
+      "loginRequired": true,
+      "schema": "ProfilePPL",
+      "attributes": { "data-api-gateway": "{travelIdApi}" }
+    },
+    "personal-documents": {
+      "tag": "personal-documents",
+      "script": "/digitalhangar/doc-at-profile/personal-documents/personal-documents-2.99.0.js",
+      "wrapper": true,
+      "loginRequired": true,
+      "schema": "ProfilePPL",
+      "attributes": { "data-api-gateway": "{travelIdApi}" }
+    },
+    "star-alliance": {
+      "tag": "star-alliance",
+      "script": "/digitalhangar/redemption-program/star-alliance/star-alliance-1.1.6.js",
+      "module": true,
+      "loginRequired": true,
+      "attributes": { "data-login-required": "" }
+    },
+    "personal-information": { "view": "gate" },
+    "communication-settings": { "view": "gate" },
+    "flight-preferences": { "view": "gate" },
+    "frequent-flyer-program": { "view": "gate" },
+    "mfa-security": { "view": "gate" },
+    "payment-methods": { "view": "gate" },
+    "travel-partners": { "view": "gate" },
+    "best-price-alert": {
+      "view": "prompt",
+      "prompt": {
+        "bundle": "farealertprofileoverview",
+        "headline": "farealertprofileoverview.farealertprofileoverview.default.headline",
+        "text": "farealertprofileoverview.farealertprofileoverview.default.loginRequest",
+        "button": "farealertprofileoverview.farealertprofileoverview.default.loginAndRegistration"
+      }
+    }
+  },
+  "brands": {
+    "austrian": {
+      "loginHosts": ["austrian.com"],
+      "scriptOrigin": "https://www.austrian.com",
+      "travelIdApi": "https://api.travelid.austrian.com",
+      "authorize": { "clientId": "dFquxAQT637lrYALS9UKBMieeibyGaVQ", "redirectUri": "https://www.austrian.com" },
+      "maui": {
+        "css": "/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/css/austrian.css",
+        "js": "/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/packages/maui-design-system.js"
+      },
+      "portal": { "X-Portal": "OS", "X-Line": "g" },
+      "themeClass": "maui-theme-os",
+      "labels": {
+        "en": {
+          "common.misc.loader.forcedOneIdLoginText": "Please log in to view this page",
+          "common.misc.loader.forcedOneIdLoginButton": "Log in now",
+          "common.misc.loader.label": "Loading…",
+          "farealertprofileoverview.farealertprofileoverview.default.headline": "Best Price Alerts",
+          "farealertprofileoverview.farealertprofileoverview.default.loginRequest": "Please login or register to overview and manage Best Price Alerts.",
+          "farealertprofileoverview.farealertprofileoverview.default.loginAndRegistration": "Login & Registration"
+        },
+        "de": {
+          "common.misc.loader.forcedOneIdLoginText": "Bitte loggen Sie sich ein.",
+          "common.misc.loader.forcedOneIdLoginButton": "Log in now",
+          "common.misc.loader.label": "Wird geladen…",
+          "farealertprofileoverview.farealertprofileoverview.default.headline": "Best Price Alerts",
+          "farealertprofileoverview.farealertprofileoverview.default.loginRequest": "Bitte melden Sie sich an oder registrieren Sie sich, um eine Übersicht zu erhalten und den Best Price Alerts zu verwalten.",
+          "farealertprofileoverview.farealertprofileoverview.default.loginAndRegistration": "Login und Registrierung"
+        },
+        "fr": {
+          "common.misc.loader.forcedOneIdLoginText": "Please log in to view this page",
+          "common.misc.loader.forcedOneIdLoginButton": "Log in now",
+          "common.misc.loader.label": "Chargement en cours…",
+          "farealertprofileoverview.farealertprofileoverview.default.headline": "Best Price Alerts",
+          "farealertprofileoverview.farealertprofileoverview.default.loginRequest": "Veuillez vous identifier ou vous inscrire pour consulter et gérer les Best Price Alerts.",
+          "farealertprofileoverview.farealertprofileoverview.default.loginAndRegistration": "Connexion & Inscription"
+        },
+        "it": {
+          "common.misc.loader.forcedOneIdLoginText": "Please log in to view this page",
+          "common.misc.loader.forcedOneIdLoginButton": "Log in now",
+          "common.misc.loader.label": "Caricamento in corso…",
+          "farealertprofileoverview.farealertprofileoverview.default.headline": "Best price alerts",
+          "farealertprofileoverview.farealertprofileoverview.default.loginRequest": "Accedi o registrati per visualizzare e gestire le Best price alerts.",
+          "farealertprofileoverview.farealertprofileoverview.default.loginAndRegistration": "Login e registrazione"
+        },
+        "ru": {
+          "common.misc.loader.forcedOneIdLoginText": "Please log in to view this page",
+          "common.misc.loader.forcedOneIdLoginButton": "Log in now",
+          "common.misc.loader.label": "Загрузка",
+          "farealertprofileoverview.farealertprofileoverview.default.headline": "Your Best price alerts",
+          "farealertprofileoverview.farealertprofileoverview.default.loginRequest": "Please login or register to overview and manage Best price alerts.",
+          "farealertprofileoverview.farealertprofileoverview.default.loginAndRegistration": "Login & Registration"
+        },
+        "zh": {
+          "common.misc.loader.forcedOneIdLoginText": "Please log in to view this page",
+          "common.misc.loader.forcedOneIdLoginButton": "Log in now",
+          "common.misc.loader.label": "正在加载……",
+          "farealertprofileoverview.farealertprofileoverview.default.headline": "Your Best price alerts",
+          "farealertprofileoverview.farealertprofileoverview.default.loginRequest": "Please login or register to overview and manage Best price alerts.",
+          "farealertprofileoverview.farealertprofileoverview.default.loginAndRegistration": "Login & Registration"
+        },
+        "es": {
+          "common.misc.loader.forcedOneIdLoginText": "Please log in to view this page",
+          "common.misc.loader.forcedOneIdLoginButton": "Log in now",
+          "common.misc.loader.label": "Cargando…",
+          "farealertprofileoverview.farealertprofileoverview.default.headline": "Your Best price alerts",
+          "farealertprofileoverview.farealertprofileoverview.default.loginRequest": "Please login or register to overview and manage Best price alerts.",
+          "farealertprofileoverview.farealertprofileoverview.default.loginAndRegistration": "Login & Registration"
+        },
+        "el": {
+          "common.misc.loader.forcedOneIdLoginText": "Please log in to view this page",
+          "common.misc.loader.forcedOneIdLoginButton": "Log in now",
+          "common.misc.loader.label": "Φόρτωση…",
+          "farealertprofileoverview.farealertprofileoverview.default.headline": "Your Best price alerts",
+          "farealertprofileoverview.farealertprofileoverview.default.loginRequest": "Please login or register to overview and manage Best price alerts.",
+          "farealertprofileoverview.farealertprofileoverview.default.loginAndRegistration": "Login & Registration"
+        },
+        "ja": {
+          "common.misc.loader.forcedOneIdLoginText": "Please log in to view this page",
+          "common.misc.loader.forcedOneIdLoginButton": "Log in now",
+          "common.misc.loader.label": "読み込み中",
+          "farealertprofileoverview.farealertprofileoverview.default.headline": "Your Best price alerts",
+          "farealertprofileoverview.farealertprofileoverview.default.loginRequest": "Please login or register to overview and manage Best price alerts.",
+          "farealertprofileoverview.farealertprofileoverview.default.loginAndRegistration": "Login & Registration"
+        },
+        "pl": {
+          "common.misc.loader.forcedOneIdLoginText": "Please log in to view this page",
+          "common.misc.loader.forcedOneIdLoginButton": "Log in now",
+          "common.misc.loader.label": "Trwa wczytywanie…",
+          "farealertprofileoverview.farealertprofileoverview.default.headline": "Your Best price alerts",
+          "farealertprofileoverview.farealertprofileoverview.default.loginRequest": "Please login or register to overview and manage Best price alerts.",
+          "farealertprofileoverview.farealertprofileoverview.default.loginAndRegistration": "Login & Registration"
+        }
+      },
+      "apps": {
+        "hero-banner": { "script": "/digitalhangar/customer-cockpit/hero-banner-react/hero-banner-react-2.0.2.js" },
+        "my-trips": { "script": "/digitalhangar/travel-insights/my-trips/my-trips-0.17.10.js" },
+        "web-self-service": { "script": "/digitalhangar/customer-cockpit/web-self-service/web-self-service-2.0.3.js" },
+        "sdui-profile": { "attributes": { "data-translation-labels": "{scriptOrigin}/service/api/labels/common" } },
+        "sdui-statement": { "attributes": { "options": "{\"customerHeaders\":{\"X-Language-Country\":\"{languageCountry}\"}}" } }
+      }
+    },
+    "discover": {
+      "loginHosts": ["discover-airlines.com"],
+      "scriptOrigin": "https://www.discover-airlines.com",
+      "travelIdApi": "https://api.travelid.discover-airlines.com",
+      "authorize": { "clientId": "NqkvGG8MB6OeCkb66a02D0ORHOFhQWJ4", "redirectUri": "https://www.discover-airlines.com" },
+      "maui": {
+        "css": "/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/css/discover.css",
+        "js": "/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/packages/maui-design-system.js"
+      },
+      "portal": { "X-Portal": "FOUR_Y", "X-Line": "g" },
+      "themeClass": "maui-theme-four_y",
+      "labels": {
+        "en": {
+          "common.misc.loader.forcedOneIdLoginText": "Please log in to view this page",
+          "common.misc.loader.forcedOneIdLoginButton": "Log in now",
+          "common.misc.loader.label": "Loading …",
+          "farealertprofileoverview.farealertprofileoverview.default.headline": "Best price alerts",
+          "farealertprofileoverview.farealertprofileoverview.default.loginRequest": "Please login or register to overview and manage Best price alerts.",
+          "farealertprofileoverview.farealertprofileoverview.default.loginAndRegistration": "Login & Registration"
+        },
+        "de": {
+          "common.misc.loader.forcedOneIdLoginText": "Bitte loggen Sie sich ein.",
+          "common.misc.loader.forcedOneIdLoginButton": "Jetzt einloggen",
+          "common.misc.loader.label": "Wird geladen...",
+          "farealertprofileoverview.farealertprofileoverview.default.headline": "Best price alerts",
+          "farealertprofileoverview.farealertprofileoverview.default.loginRequest": "Bitte melden Sie sich an oder registrieren Sie sich, um eine Übersicht zu erhalten und den Best price alerts zu verwalten.",
+          "farealertprofileoverview.farealertprofileoverview.default.loginAndRegistration": "Login und Registrierung"
+        }
+      },
+      "apps": {
+        "hero-banner": { "script": "/digitalhangar/customer-cockpit/hero-banner-react/hero-banner-react-2.0.2.js" },
+        "my-trips": { "script": "/digitalhangar/travel-insights/my-trips/my-trips-0.17.10.js" },
+        "web-self-service": { "script": "/digitalhangar/customer-cockpit/web-self-service/web-self-service-2.0.3.js" },
+        "sdui-profile": { "attributes": { "data-translation-labels": "{scriptOrigin}/service/api/labels/common" } },
+        "sdui-statement": { "id": "test6", "attributes": { "options": "{\"customerHeaders\":{\"X-Language-Country\":\"{languageCountry}\"}}" } }
+      }
+    },
+    "ita": {
+      "loginHosts": ["ita-airways.com"],
+      "scriptOrigin": "https://www.ita-airways.com",
+      "travelIdApi": "https://api.travelid.ita-airways.com",
+      "authorize": { "clientId": "14eKnYUwomcAimITtmaa2GqBM5mhO8kAS3GjTyE6RDsFaWrI", "redirectUri": "https://www.ita-airways.com" },
+      "maui": {
+        "css": "/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/css/ita.css",
+        "js": "/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/packages/maui-design-system.js"
+      },
+      "portal": { "X-Portal": "ITA", "X-Line": "b" },
+      "themeClass": "maui-theme-az",
+      "labels": {
+        "en": {
+          "common.misc.loader.forcedOneIdLoginText": "Please log in to view this page",
+          "common.misc.loader.forcedOneIdLoginButton": "Log in now",
+          "common.misc.loader.label": "Loading …",
+          "farealertprofileoverview.farealertprofileoverview.default.headline": "Your Best price alerts",
+          "farealertprofileoverview.farealertprofileoverview.default.loginRequest": "Please login or register to overview and manage Best price alerts.",
+          "farealertprofileoverview.farealertprofileoverview.default.loginAndRegistration": "Login & Registration"
+        },
+        "it": {
+          "common.misc.loader.forcedOneIdLoginText": "Please log in to view this page",
+          "common.misc.loader.forcedOneIdLoginButton": "Log in now",
+          "common.misc.loader.label": "Caricamento…",
+          "farealertprofileoverview.farealertprofileoverview.default.headline": "Best price alerts",
+          "farealertprofileoverview.farealertprofileoverview.default.loginRequest": "Accedi o registrati per visualizzare e gestire le Best price alerts.",
+          "farealertprofileoverview.farealertprofileoverview.default.loginAndRegistration": "Login e registrazione"
+        }
+      },
+      "apps": {
+        "hero-banner": { "script": "/digitalhangar/customer-cockpit/hero-banner-react/hero-banner-react-2.0.2.js" },
+        "my-trips": { "script": "/digitalhangar/travel-insights/my-trips/my-trips-0.17.10.js" },
+        "web-self-service": { "script": "/digitalhangar/customer-cockpit/web-self-service/web-self-service-2.0.3.js" },
+        "sdui-profile": { "attributes": { "data-translation-labels": "{scriptOrigin}/service/api/labels/common" } },
+        "sdui-statement": { "id": "test6", "attributes": { "options": "{\"customerHeaders\":{\"X-Language-Country\":\"{languageCountry}\"}}" } }
+      }
     }
   }
 }
