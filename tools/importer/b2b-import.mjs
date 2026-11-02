@@ -12,7 +12,7 @@
  *   hero-campaign); the author quote as its text and name, after the import the shared quote
  *   block (withB2bQuotes);
  * - the phone list of the contact page (dcep-ppb-hotlinebox: rendered in the browser from
- *   Lufthansa's contact catalog) as plain content (withHotlines);
+ *   Lufthansa's contact catalog) as the hotline-finder block (withHotlines, withHotlineFinder);
  * - e-mail addresses Cloudflare obfuscated (/cdn-cgi/l/email-protection#..., __cf_email__) as
  *   mailto: links and their text (withEmails);
  * - the pre-login search: the search bar and the results widget as one search-results block
@@ -41,6 +41,7 @@ import {
 } from './brussels-import.mjs';
 import { docName, LANGUAGE_VERSIONS } from './b2b-scope.mjs';
 import { relativeDamLinks } from './b2b-dam.mjs';
+import { labelsOf, imageOf } from './b2b-hotlines.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const argv = process.argv.slice(2);
@@ -134,35 +135,47 @@ export function withB2bQuotes(doc, html = '') {
 }
 
 /**
- * The phone list (.hotlinenumberdisplay > .dcep-ppb-hotlinebox: a country select whose contact
- * www fills in the browser) as plain content: the box's heading, per rendered contact
- * (.support-contact) its phone (a tel: link), e-mail (a mailto: link), and opening hours.
+ * The phone box (.hotlinenumberdisplay > .dcep-ppb-hotlinebox: a country select whose contact www
+ * fetches in the browser) as a marker with the box's heading, "[hotline-finder] <heading>": after
+ * the import the hotline-finder block (withHotlineFinder), the countries from lh-b2b's
+ * /data/hotlines.json (tools/importer/b2b-hotlines.mjs).
  */
 export function withHotlines(html) {
   return editDivs(html, '<div class="hotlinenumberdisplay', (el) => {
     const { document } = parseHTML(`<html><body>${el}</body></html>`);
-    document.querySelectorAll('svg, maui-icon, maui-select, .sr-only, form').forEach((n) => n.remove());
-    const parts = [];
     const head = [...document.querySelectorAll('maui-headline')].find((h) => !h.closest('.support-contact') && clean(h.textContent));
-    if (head) parts.push(`<h3>${esc(clean(head.textContent))}</h3>`);
-    document.querySelectorAll('.support-contact').forEach((c) => {
-      c.querySelectorAll('a[href^="tel:"], a[href^="mailto:"]').forEach((a) => parts.push(`<p><a href="${esc(a.getAttribute('href'))}">${esc(clean(a.textContent))}</a></p>`));
-      c.querySelectorAll('table.service-hours').forEach((table) => {
-        const h = table.closest('div')?.querySelector('maui-headline');
-        if (h) parts.push(`<h4>${esc(clean(h.textContent))}</h4>`);
-        const rows = [...table.querySelectorAll('tr')].map((tr) => `${esc(clean(tr.querySelector('th')?.textContent))}: ${esc(clean(tr.querySelector('td')?.textContent))}`);
-        parts.push(`<p>${rows.join('<br>')}</p>`);
-      });
-    });
-    return parts.length ? `<div class="text section"><div class="richtext">${parts.join('')}</div></div>` : '';
+    return `<div class="text section"><div class="richtext"><p>[hotline-finder]${head ? ` ${esc(clean(head.textContent))}` : ''}</p></div></div>`;
   });
 }
 
+export const HOTLINE_SHEET = '/data/hotlines.json';
+
 /**
- * The pre-login search: the search bar (dcep-b2b-neo-search-bar) and the results widget as one
- * search-results block (its own field and results from the root's index): a page with the results
- * widget loses the bar; a page with the bar alone gets the results widget in its place.
+ * The phone box's marker as the hotline-finder block: the sheet, the box's heading, the labels
+ * of the document's language (b2b-hotlines.mjs labelsOf: the select's label, the contact's and the
+ * opening hours' headings, the day names), the box's image (its copy in DA); a row without a text
+ * is left out. Its section grey (www's full-width grey band) unless it has section metadata.
  */
+export function withHotlineFinder(doc, labels = {}, image = '') {
+  const m = doc.match(/<p>\[hotline-finder\]\s*([^<]*)<\/p>/);
+  if (!m) return doc;
+  const row = (k, v) => (v ? `<div><div>${k}</div><div>${v}</div></div>` : '');
+  const block = `<div class="hotline-finder">${row('Sheet', `<a href="${HOTLINE_SHEET}">${HOTLINE_SHEET}</a>`)}${row('Headline', m[1].trim())}${row('Select', esc(labels.select || ''))}${row('Contact', esc(labels.contact || ''))}${row('Hours', esc(labels.hours || ''))}${row('Days', esc((labels.days || []).join(', ')))}${row('Image', image ? `<picture><img src="${esc(image)}" alt=""></picture>` : '')}</div>`;
+  let out = `${doc.slice(0, m.index)}${block}${doc.slice(m.index + m[0].length)}`;
+  // the top-level div (the section) the block is in
+  for (let i = out.indexOf('<div'); i >= 0 && i <= m.index; i = out.indexOf('<div', divEnd(out, i))) {
+    const end = divEnd(out, i);
+    if (m.index < end) {
+      const section = out.slice(i, end);
+      if (!section.includes('class="section-metadata"')) {
+        out = `${out.slice(0, end - 6)}<div class="section-metadata"><div><div>style</div><div>grey</div></div></div>${out.slice(end - 6)}`;
+      }
+      break;
+    }
+  }
+  return out;
+}
+
 export function withSearch(html) {
   const hasResults = /class="dcep-b2b-neo-search-results-aem/.test(html);
   return editDivs(html, '<div class="searchbar', () => (hasResults ? '' : '<div class="onsitesearchresult"><div class="dcep-b2b-neo-search-results-aem"></div></div>'));
@@ -228,11 +241,20 @@ export const withLocalImages = (doc) => doc.replace(/<img src="(?:https:\/\/busi
   return LOCAL_IMAGES[www] ? `<img src="${LOCAL_IMAGES[www]}"` : m;
 });
 
+/**
+ * www's hidden helper links: a link holding only its screen-reader note ("The link will be opened
+ * in a new browser tab", pointing to /gc/en/...) and an empty link, as the de/de raffle's terms
+ * note has them before the real link; the import made the note the link's text. A link with an
+ * icon or an image keeps it.
+ */
+export const withoutHelperLinks = (html) => html
+  .replace(/<a\b[^>]*>(?:\s|&nbsp;|<span class="sr-only">[^<]*<\/span>)*<\/a>/g, '');
+
 /** The template of a page: lh-com's info template (B2B has no homepage widgets of lh-com's). */
 export const templateOf = () => 'info';
 
 /** A snapshot as the import reads it. */
-export const mappedOf = (html) => withoutLoads(withSearch(withB2bComponents(withHotlines(withEmails(withPlaceholder(stripScripts(html))))))
+export const mappedOf = (html) => withoutLoads(withSearch(withB2bComponents(withHotlines(withEmails(withoutHelperLinks(withPlaceholder(stripScripts(html)))))))
   .replace(/<output[^>]*class="screen-reader-announcer"[^>]*>[\s\S]*?<\/output>/g, ''));
 
 const isMain = process.argv[1] && fs.realpathSync(process.argv[1]) === fileURLToPath(import.meta.url);
@@ -242,6 +264,9 @@ if (isMain) {
   const name = path.basename(list).replace(/\.txt$/, '');
   const urls = fs.readFileSync(path.resolve(root, list), 'utf8').split('\n').map((u) => u.trim()).filter(Boolean);
   const scope = JSON.parse(fs.readFileSync(path.join(W, 'scope.json'), 'utf8'));
+  // the hotline finder's labels (b2b-hotlines.mjs --record)
+  const RECORD = path.join(W, 'runs/hotlines-record.json');
+  const hotlineRecord = fs.existsSync(RECORD) ? JSON.parse(fs.readFileSync(RECORD, 'utf8')) : {};
   const byTemplate = {};
   const missing = [];
   const out = {};
@@ -314,7 +339,7 @@ if (isMain) {
       const src = out[p].source;
       const html = fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8');
       const markets = scope.documents[src]?.markets || [];
-      const next = withB2bMetadata(withB2bQuotes(withB2bForm(doc, p, html), html), p, html, markets);
+      const next = withB2bMetadata(withHotlineFinder(withB2bQuotes(withB2bForm(doc, p, html), html), labelsOf(hotlineRecord, p.split('/')[2]), imageOf(hotlineRecord)), p, html, markets);
       if (next !== doc) fs.writeFileSync(f, next);
     });
     const mapOnly = path.join(W, 'runs', `${name}-upload.txt`);

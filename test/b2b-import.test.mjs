@@ -38,9 +38,37 @@ test('the B2B components get the classes the templates take; the author quote is
   assert.match(out, /<div class="stage section"><div class="other">/, 'a stage without a stage teaser as it was');
 });
 
-test('the phone list: the box\'s heading, the contact\'s phone and e-mail, the opening hours', () => {
-  const html = '<div class="hotlinenumberdisplay"><div class="dcep-ppb-hotlinebox"><maui-headline type="h3">Contacts for PartnerPlusBenefit</maui-headline><form><maui-select><maui-option>Albania</maui-option></maui-select></form><section><div class="support-contact"><a class="phone-number" href="tel:+49 69 86 799 500"><span class="sr-only">Contact Details</span>+49 69 86 799 500</a><a href="mailto:dach.ppb@dlh.de" class="contact-link">dach.ppb@dlh.de</a><div class="mb-9"><maui-headline class="service-hours-headline">Opening hours</maui-headline><table class="service-hours"><tr><th>Monday</th><td>08:00 - 18:00</td></tr><tr><th>Friday</th><td>08:00 - 18:00</td></tr></table></div></div></section></div></div>';
-  assert.equal(withHotlines(html), '<div class="text section"><div class="richtext"><h3>Contacts for PartnerPlusBenefit</h3><p><a href="tel:+49 69 86 799 500">+49 69 86 799 500</a></p><p><a href="mailto:dach.ppb@dlh.de">dach.ppb@dlh.de</a></p><h4>Opening hours</h4><p>Monday: 08:00 - 18:00<br>Friday: 08:00 - 18:00</p></div></div>');
+test('the phone box: a marker with its heading, then the hotline-finder block with the labels of the page\'s language', async () => {
+  const html = '<div class="hotlinenumberdisplay"><div class="dcep-ppb-hotlinebox"><maui-headline type="h3">Contacts for PartnerPlusBenefit</maui-headline><form><maui-select><maui-option>Albania</maui-option></maui-select></form><section><div class="support-contact"><a class="phone-number" href="tel:+49 69 86 799 500"><span class="sr-only">Contact Details</span>+49 69 86 799 500</a></div></section></div></div>';
+  assert.equal(withHotlines(html), '<div class="text section"><div class="richtext"><p>[hotline-finder] Contacts for PartnerPlusBenefit</p></div></div>');
+  const { withHotlineFinder } = await import('../tools/importer/b2b-import.mjs');
+  const labels = {
+    select: 'Please choose your country or region', contact: 'Contact Details', hours: 'Opening hours', days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+  };
+  const doc = '<div><h2>Contact</h2><p>[hotline-finder] Contacts for PartnerPlusBenefit</p><p>After</p><div class="section-metadata"><div><div>style</div><div>light</div></div></div></div>';
+  assert.equal(withHotlineFinder(doc, labels), '<div><h2>Contact</h2><div class="hotline-finder"><div><div>Sheet</div><div><a href="/data/hotlines.json">/data/hotlines.json</a></div></div><div><div>Headline</div><div>Contacts for PartnerPlusBenefit</div></div><div><div>Select</div><div>Please choose your country or region</div></div><div><div>Contact</div><div>Contact Details</div></div><div><div>Hours</div><div>Opening hours</div></div><div><div>Days</div><div>Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday</div></div></div><p>After</p><div class="section-metadata"><div><div>style</div><div>light</div></div></div></div>', 'a section with its own metadata keeps it');
+  assert.equal(withHotlineFinder('<div><p>x</p></div>', labels), '<div><p>x</p></div>', 'a page without the box as it was');
+  // its section grey (www's full-width grey band) unless it has section metadata; the box's image
+  const sections = '<div><h2>Before</h2></div>\n<div><p>[hotline-finder] Contacts</p></div>\n<div><h2>After</h2><div class="section-metadata"><div><div>style</div><div>grey</div></div></div></div>';
+  const out = withHotlineFinder(sections, { select: 'Pick' }, 'https://content.da.live/moved-permanently/lh-b2b/content/dam/b2bneo/images/customerservicekam.png');
+  assert.equal(out, '<div><h2>Before</h2></div>\n<div><div class="hotline-finder"><div><div>Sheet</div><div><a href="/data/hotlines.json">/data/hotlines.json</a></div></div><div><div>Headline</div><div>Contacts</div></div><div><div>Select</div><div>Pick</div></div><div><div>Image</div><div><picture><img src="https://content.da.live/moved-permanently/lh-b2b/content/dam/b2bneo/images/customerservicekam.png" alt=""></picture></div></div></div><div class="section-metadata"><div><div>style</div><div>grey</div></div></div></div>\n<div><h2>After</h2><div class="section-metadata"><div><div>style</div><div>grey</div></div></div></div>');
+  // the box's heading kept with entities; no labels: the rows that have a text
+  const amp = withHotlineFinder('<div><p>[hotline-finder] A &amp; B</p></div>', {});
+  assert.equal(amp, '<div><div class="hotline-finder"><div><div>Sheet</div><div><a href="/data/hotlines.json">/data/hotlines.json</a></div></div><div><div>Headline</div><div>A &amp; B</div></div></div><div class="section-metadata"><div><div>style</div><div>grey</div></div></div></div>');
+});
+
+test('the hotline labels of a language from the record (www\'s label services)', async () => {
+  const { labelsOf } = await import('../tools/importer/b2b-hotlines.mjs');
+  const rec = {
+    'labels-de': {
+      'hotlineNumberDisplay.fullApp.days.MO': 'Montag', 'hotlineNumberDisplay.fullApp.days.TU': 'Dienstag', 'hotlineNumberDisplay.fullApp.days.WE': 'Mittwoch', 'hotlineNumberDisplay.fullApp.days.TH': 'Donnerstag', 'hotlineNumberDisplay.fullApp.days.FR': 'Freitag', 'hotlineNumberDisplay.fullApp.days.SA': 'Samstag', 'hotlineNumberDisplay.fullApp.days.SU': 'Sonntag', 'hotlineNumberDisplay.fullApp.default.serviceHours': 'Öffnungszeiten', 'hotlineNumberDisplay.fullApp.default.phoneNumberLabel': 'Kontaktdaten',
+    },
+    'ppb-labels-de': { 'b2bHotlineNumberDisplay.fullApp.default.selectCountryLabel': 'Bitte wählen Sie Ihr Land' },
+  };
+  assert.deepEqual(labelsOf(rec, 'de'), {
+    select: 'Bitte wählen Sie Ihr Land', contact: 'Kontaktdaten', hours: 'Öffnungszeiten', days: ['Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag', 'Sonntag'],
+  });
+  assert.deepEqual(labelsOf({}, 'en'), {});
 });
 
 test('the search: the results widget once (the bar goes where the widget is, becomes it where it is not)', () => {
@@ -72,4 +100,38 @@ test('document names: no "--" (Edge Delivery refuses it in a segment), none at a
   assert.equal(docName('/de/en/news/business_flex_green_fare'), '/de/en/news/business-flex-green-fare');
   assert.equal(docName('/de/en/program/Book-A-Group'), '/de/en/program/book-a-group');
   assert.equal(docName('/de/en/program/experts/news/munich-airport-named--airport-of-the-year-'), '/de/en/program/experts/news/munich-airport-named-airport-of-the-year', 'no "-" at a segment\'s end');
+});
+
+test('www\'s hidden helper links (a link holding only its screen-reader note, an empty link) are dropped; real links keep their note out', async () => {
+  const { withoutHelperLinks } = await import('../tools/importer/b2b-import.mjs');
+  const raffle = '<p>Bitte lesen Sie die <a hreftemp="/content/B2Bneo/gc/en/x" href="/gc/en/partner-plus-benefit-raffle-terms-and-conditions" target="_blank" rel="noopener noreferrer"><span class="sr-only">The link will be opened in a new browser tab</span></a><a></a><a href="/de/de/partner-plus-benefit-raffle-terms-and-conditions" target="_blank">Teilnahmebedingungen<span class="sr-only">The link will be opened in a new browser tab</span></a>&nbsp;bevor Sie teilnehmen.</p>';
+  assert.equal(withoutHelperLinks(raffle), '<p>Bitte lesen Sie die <a href="/de/de/partner-plus-benefit-raffle-terms-and-conditions" target="_blank">Teilnahmebedingungen<span class="sr-only">The link will be opened in a new browser tab</span></a>&nbsp;bevor Sie teilnehmen.</p>');
+  // an icon link (its icon and its name for screen readers) and an image link stay
+  const icon = '<a href="https://www.linkedin.com/x"><i class="lh lh-linkedin"></i><span class="sr-only">LinkedIn</span></a><a href="/x"><img src="/a.png" alt="A"></a>';
+  assert.equal(withoutHelperLinks(icon), icon);
+  assert.equal(withoutHelperLinks('<a href="/x"> <span class="sr-only"> note </span> </a>'), '');
+});
+
+test('the hotline sheet from the record: one row per country with a contact, www\'s order, German names and notes', async () => {
+  const { sheetRows } = await import('../tools/importer/b2b-hotlines.mjs');
+  const office = (extra) => ({
+    phone1: '', phone2: '', email: '', link: '', openingComments: '', comments: '', serviceHours: [], ...extra,
+  });
+  const rec = {
+    'countries-en': { countries: [{ code: 'AT', name: 'Austria' }, { code: 'XK', name: 'Kosovo' }, { code: 'DE', name: 'Germany' }] },
+    'countries-de': { countries: [{ code: 'AT', name: 'Österreich' }, { code: 'DE', name: 'Deutschland' }] },
+    contacts: {
+      AT: { reservationOffices: [office({ phone1: '+43 0720 380 065', email: 'dach.ppb@dlh.de', serviceHours: [{ weekdayId: 'FR', from: '08:00', to: '16:00' }, { weekdayId: 'MO', from: '08:00', to: '18:00' }] })] },
+      XK: { reservationOffices: [] },
+      DE: { reservationOffices: [office({ phone1: '+49 69 86 799 500', comments: 'Free of charge' })], de: { reservationOffices: [office({ comments: 'Kostenfrei' })] } },
+    },
+  };
+  assert.deepEqual(sheetRows(rec), [
+    {
+      country: 'AT', 'name-en': 'Austria', 'name-de': 'Österreich', phone: '+43 0720 380 065', phone2: '', email: 'dach.ppb@dlh.de', link: '', hours: 'MO 08:00-18:00; FR 08:00-16:00', 'note-en': '', 'note-de': '',
+    },
+    {
+      country: 'DE', 'name-en': 'Germany', 'name-de': 'Deutschland', phone: '+49 69 86 799 500', phone2: '', email: '', link: '', hours: '', 'note-en': 'Free of charge', 'note-de': 'Kostenfrei',
+    },
+  ]);
 });

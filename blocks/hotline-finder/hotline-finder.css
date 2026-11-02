@@ -1,0 +1,104 @@
+/* Hotline finder: www's PartnerPlusBenefit box (business.lufthansagroup.com's contact pages,
+   .dcep-ppb-hotlinebox, measured 2026-11-02 at 1440 and 390): in its section's grey band; the
+   heading, 28 px to the select (335 x 58 px, the column's width on a phone; its label inside it,
+   for screen readers also as the label), 24 px to the contact: 18/24 light, the phone and the
+   e-mail bold in the interaction blue without an underline, 24 px apart ("Contact Details" for
+   screen readers only), the opening hours a table of 18/24; the teaser image 640 px wide at the
+   column's end from 1025 px, none below */
+.hotline-finder {
+  box-sizing: border-box;
+}
+
+.hotline-finder .hotline-finder-title {
+  margin: 0 0 28px;
+}
+
+.hotline-finder .hotline-finder-field {
+  max-width: 335px;
+  margin-bottom: 24px;
+}
+
+.hotline-finder .hotline-finder-field select {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 58px;
+  padding: 0 16px;
+  border: 1px solid #c4c4c4;
+  border-radius: 4px;
+  background-color: #fff;
+  color: var(--text-color);
+  font-family: var(--body-font-family);
+  font-size: 16px;
+}
+
+.hotline-finder .hotline-finder-field label,
+.hotline-finder .hotline-finder-heading.hotline-finder-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.hotline-finder .hotline-finder-contact {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 24px;
+}
+
+.hotline-finder .hotline-finder-contact p {
+  margin: 0 0 24px;
+}
+
+.hotline-finder .hotline-finder-contact a {
+  color: var(--link-color);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.hotline-finder .hotline-finder-contact a:hover {
+  color: var(--link-hover-color);
+  text-decoration: underline;
+}
+
+.hotline-finder .hotline-finder-heading {
+  margin: 0 0 16px;
+}
+
+.hotline-finder .hotline-finder-hours {
+  border-collapse: collapse;
+}
+
+.hotline-finder .hotline-finder-hours th,
+.hotline-finder .hotline-finder-hours td {
+  padding: 0 16px 0 0;
+  font-weight: 300;
+  text-align: left;
+}
+
+.hotline-finder .hotline-finder-media {
+  display: none;
+}
+
+@media (width >= 1025px) {
+  .hotline-finder {
+    display: grid;
+    grid-template-columns: minmax(0, 386px) minmax(0, 640px);
+    justify-content: space-between;
+    gap: 20px;
+    align-items: start;
+  }
+
+  .hotline-finder .hotline-finder-media {
+    display: block;
+  }
+
+  .hotline-finder .hotline-finder-media img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 640 / 427;
+    object-fit: cover;
+  }
+}
