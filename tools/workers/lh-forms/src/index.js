@@ -231,6 +231,9 @@ const FORMS = {
     'swiss-au-mondial-de-fondue': ['SWISS at the Fondue World Championship'],
     'swiss-nati-women': ["Swiss Women's National Football Team"],
     'womens-nations-league': ["Women's Nations League"],
+    // ch/fr's two raffles (ch/fr only, brief 276): their page's h1 (www's hockey page says 2024)
+    'swiss-ice-hockey-games-2025': ['Gagnez des billets pour les SWISS Ice Hockey Games 2024'],
+    'match-de-preparation-pour-les-championnats-europeens-2025': ['Match de préparation pour les Championnats européens 2025'],
     // the corporate site (/corporate/<ll>/, en de fr; the capture of 2026-11-02): the pages' h1;
     // the procurement inquiry has an English page only
     'media-permission': ['Application for permission to film for media creators', 'Antrag Drehgenehmigung für Medienschaffende', 'Demande d’autorisation de tournage pour les créateurs de médias'],

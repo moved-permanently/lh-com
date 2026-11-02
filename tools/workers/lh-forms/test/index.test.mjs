@@ -1402,7 +1402,9 @@ const SWISS_IDS = ['accessible-travel-form', 'ad-plattforms-contact', 'company-o
   'refund-form', 'register-animal-cargo-hold', 'register-animals', 'register-sports-baggage', 'rent-a-plane', 'request',
   'request-for-refund-of-expenses', 'technical-support',
   'a350-geneve', 'gewinnspiel-zermatt-unplugged-2024', 'preparations-for-the-2025-european-championships',
-  'swiss-au-mondial-de-fondue', 'swiss-nati-women', 'womens-nations-league'].map((n) => `swiss-${n}`);
+  'swiss-au-mondial-de-fondue', 'swiss-nati-women', 'womens-nations-league',
+  // ch/fr's two raffles (brief 276's import; ch/fr only)
+  'swiss-ice-hockey-games-2025', 'match-de-preparation-pour-les-championnats-europeens-2025'].map((n) => `swiss-${n}`);
 const LX = 'https://swiss.turnsthe.page';
 
 test('SWISS: its host and Edge Delivery hosts are allowed origins; look-alikes are not', async () => {
@@ -1419,9 +1421,9 @@ test('SWISS: its host and Edge Delivery hosts are allowed origins; look-alikes a
   no.forEach((res, i) => assert.equal(res.status, 403, refused[i]));
 });
 
-test('SWISS: its 23 form ids (17 service forms, 6 raffles) are accepted in en and de, to the default recipient; an unknown id is not', async () => {
-  assert.equal(SWISS_IDS.length, 23);
-  const cases = SWISS_IDS.flatMap((form) => ['ch-en', 'ch-de'].map((locale) => ({ form, locale })));
+test('SWISS: its 25 form ids (17 service forms, 8 raffles) are accepted in en, de and fr, to the default recipient; an unknown id is not', async () => {
+  assert.equal(SWISS_IDS.length, 25);
+  const cases = SWISS_IDS.flatMap((form) => ['ch-en', 'ch-de', 'ch-fr'].map((locale) => ({ form, locale })));
   const results = await Promise.all(cases.map((c, i) => post({ ...c, origin: LX, ip: `198.18.${Math.floor(i / 200)}.${(i % 200) + 1}` })));
   results.forEach(({ res, body }, i) => {
     assert.equal(res.status, 200, `${cases[i].form} ${cases[i].locale}`);
@@ -1445,6 +1447,9 @@ test('SWISS: titles from the ch/en and ch/de pages; the subject names lh-swiss (
     [{ form: 'swiss-general-request', locale: 'ch-de', origin: 'https://main--lh-swiss--moved-permanently.aem.live' }, '[lh-swiss] Kontakt: Allgemeine Anfrage und Buchungsanfragen (ch-de)'],
     [{ form: 'swiss-request-for-refund-of-expenses', locale: 'ch-de', origin: 'https://main--lh-swiss--moved-permanently.aem.page' }, '[lh-swiss] Erstattung bei verspätetem oder beschädigtem Gepäck (ch-de)'],
     [{ form: 'swiss-a350-geneve', locale: 'ch-de', origin: ORIGIN }, '[lh-swiss] Discover the new Airbus A350 (ch-de)'],
+    // ch/fr's raffles: their page's h1 (www's hockey page says 2024)
+    [{ form: 'swiss-swiss-ice-hockey-games-2025', locale: 'ch-fr', origin: LX }, '[lh-swiss] Gagnez des billets pour les SWISS Ice Hockey Games 2024 (ch-fr)'],
+    [{ form: 'swiss-match-de-preparation-pour-les-championnats-europeens-2025', locale: 'ch-fr', origin: LX }, '[lh-swiss] Match de préparation pour les Championnats européens 2025 (ch-fr)'],
   ];
   const results = await Promise.all(cases.map(([opts], i) => post({ ...opts, ip: `203.0.113.${190 + i}` }, env)));
   results.forEach(({ res }, i) => assert.equal(res.status, 200, cases[i][1]));
