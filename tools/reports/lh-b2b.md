@@ -107,10 +107,11 @@ archives (b2b-snapshots-001 to -007, sha256 checked, placed by `b2b-studio.mjs`)
   withoutHelperLinks; the same leftover is still in de/de and xx/de tips-and-services, Discover
   Airlines' meals on board and terms-and-conditions-traveller, until they are imported again).
 - Hotline finder (blocks/hotline-finder, tools/importer/b2b-hotlines.mjs): www's box lists 127
-  countries (GET /service/api/catalogs/contact/countries) and asks
-  /service/api/catalogs/contact/reservation?country=<CC>&withLocalContact=false for the picked
-  one. Recorded so far (only the page's own requests, 6-9 s apart): 54 countries (Albania to
-  Indonesia; Iran refused with 403), the English labels, the box's look and image; then
-  Cloudflare challenged the page's own requests twice, and the recording stopped for good. The
-  sheet (/data/hotlines.json) and the contact documents wait for the remaining 73 countries and
-  the German names and labels (`--record --skip IR` resumes).
+  countries (GET /service/api/catalogs/contact/countries, the language from X-Portal-Language)
+  and asks /service/api/catalogs/contact/reservation?country=<CC>&withLocalContact=false for the
+  picked one. The answers come from a recording in a browser tab (b2b-hotlines-001.tar.gz, 260
+  answers, all 200; `--from-archive`): the sheet /data/hotlines.json has all 127 countries with
+  their English and German names (78 differ) and each language's order, phone, e-mail and
+  opening hours (Iran with its office; Paraguay's two offices are the same). The block on de/en,
+  de/de, xx/en and xx/de (the market roots get xx's documents) in a grey section with the box's
+  image; the root's country picked first, none on xx and on ca, it and us (not in www's list).
