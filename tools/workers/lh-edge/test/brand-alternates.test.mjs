@@ -95,7 +95,8 @@ const get = (host, path) => worker.fetch(new Request(`https://${host}${path}`), 
 const tags = (html) => [...html.matchAll(/<link rel="alternate" hreflang="([^"]+)" href="([^"]+)">/g)].map((m) => `${m[1]} ${m[2]}`).filter((t) => !t.endsWith('/old')).sort();
 
 test('the sites whose www carries hreflang alternates (its sitemaps): Austrian, Brussels, ITA', () => {
-  assert.deepEqual([...ALTERNATES_SITES].sort(), ['austrian', 'brussels', 'ita']);
+  // (SWISS: its market roots behind scripts/brands.js's switch; none served until it is on)
+  assert.deepEqual([...ALTERNATES_SITES].sort(), ['austrian', 'brussels', 'ita', 'swiss']);
 });
 
 test('austrian: a reference root\'s page lists its language versions and market roots, the set its market copies list', async () => {

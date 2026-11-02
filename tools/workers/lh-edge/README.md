@@ -227,6 +227,13 @@ list none. The origin's own hreflang links are replaced, the hrefs name the cano
 austrian.turnsthe.page). B2B (www: no sitemap, no hreflang) and Discover (no snapshot of www) list none on their
 reference roots and own documents. `test/brand-alternates.test.mjs`.
 
+SWISS's language versions' index (`SITE_INDEX_PATHS` in `src/sites.js`): its reference roots are ch/<ll>, which on
+lh-com are market roots with documents of their own, and helix-query.yaml serves every site, so their index is
+`/ch/<ll>/language-index.json` (`language-ch-<ll>`), never `/ch/<ll>/search-index.json` (lh-com's origin would then hold
+one, and the market route answers an origin's file before building ch's from de/en). On SWISS's hosts `originFetch`
+reads it for `/<version>/search-index.json` (siteEnv `INDEX_PATHS`): the market model, the market roots' search
+indexes, a visitor's request. `test/swiss-markets.test.mjs`.
+
 A brand whose tenant lh-backends has (`backends` in scripts/brands.js: Austrian, Discover, ITA, Brussels, SWISS) gets
 lh-backends' paths (`isBackendsPath`: `/deeplink/*`, `/apps/dcep/deeplink/*`, `/sso/*`, `/loginservice`, `/seatmap/*`,
 `/_lh-backends/*`, `/service/secured/api/*`) and the sign-in return (`/` or `/<cc>/<ll>/…` with `code` and `state`) on its

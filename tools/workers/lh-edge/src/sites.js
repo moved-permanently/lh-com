@@ -100,7 +100,9 @@ export const SITE_ENTRIES = Object.fromEntries(Object.entries(BRAND_SITES).map((
  * 317; ITA's 128 market sitemap files). The market copies list them on every site; B2B's www has
  * no sitemap and no hreflang, Discover's www has no snapshot here.
  */
-export const ALTERNATES_SITES = new Set(['austrian', 'brussels', 'ita']);
+// (SWISS: www's sitemaps carry alternates as Austrian's; its market roots come behind
+// scripts/brands.js's switch: without them there is nothing to list)
+export const ALTERNATES_SITES = new Set(['austrian', 'brussels', 'ita', 'swiss']);
 
 /**
  * The sites without <cc>/<ll> roots (no locale table, no market roots): every path passes through
@@ -165,11 +167,28 @@ export function siteHostsOf(name, env = {}, except = '') {
 }
 
 /**
+ * The sites whose language versions' index is not /<version>/search-index.json: SWISS's reference
+ * roots are ch/<ll>, lh-com's market roots with documents of their own, and helix-query.yaml serves
+ * every site, so a search-ch-<ll> index would give lh-com's origin a /ch/<ll>/search-index.json
+ * too (its market route would answer that instead of ch's from de/en). SWISS's are
+ * /ch/<ll>/language-index.json (helix-query.yaml language-ch-<ll>); src/edge.js originFetch reads
+ * them for the search index on SWISS's hosts.
+ */
+export const SITE_INDEX_PATHS = {
+  swiss: (version) => `/${version}/language-index.json`,
+};
+
+/**
  * The env a site's request is answered with: its origin and www host, its tables (read by
- * src/markets.js tables(env)), every market root served on its host (no pilot rows).
+ * src/markets.js tables(env)), every market root served on its host (no pilot rows); INDEX_PATHS:
+ * its language versions' index paths where they are not their search-index.json (SITE_INDEX_PATHS).
  */
 export function siteEnv(env, site) {
+  const indexOf = SITE_INDEX_PATHS[site.name];
+  const indexPaths = indexOf && site.tables ? Object.fromEntries(Object.values(site.tables.versions)
+    .map((v) => [`/${v}/search-index.json`, indexOf(v)])) : undefined;
   return {
+    ...(indexPaths ? { INDEX_PATHS: indexPaths } : {}),
     ...env,
     ORIGIN: site.origin,
     WWW_HOST: site.www || env.WWW_HOST,

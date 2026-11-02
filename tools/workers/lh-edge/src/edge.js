@@ -129,6 +129,9 @@ function capBrowserCache(resp, env) {
  */
 export async function originFetch(request, env, target, options = {}) {
   const url = target ? new URL(target) : originUrl(request.url, env);
+  // a site's language versions' index under its own name (src/sites.js SITE_INDEX_PATHS: SWISS)
+  const indexPath = env.INDEX_PATHS && env.INDEX_PATHS[url.pathname];
+  if (indexPath) url.pathname = indexPath;
   // aem.page: a test against the preview origin (wrangler dev --var ORIGIN:main--…aem.page)
   if (!url.origin.match(/^https:\/\/main--.*--.*\.aem\.(live|page)$/)) {
     return new Response('Invalid ORIGIN', { status: 500 });
