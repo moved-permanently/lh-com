@@ -90,3 +90,16 @@ archives (b2b-snapshots-001 to -007, sha256 checked, placed by `b2b-studio.mjs`)
   Jägermeister).
 - Measured against www (390 and 1440): the bar 61 and 81 px (was 72 and 80), the open menu item
   `#e6f2ff` (was the estimate `#e8eef9`), the homepage intro at most 800 px (was the column).
+- Live since 2026-11-02 07:12 CET (726 paths, the 9 large films on AEM, the redirects sheet); the
+  smoke check's ninth host (`smoke.mjs` B2B_CHECKS, baseline `smoke/b2b.turnsthe.page.json`).
+- The four small videos www refuses to requests outside its pages, from the archive
+  b2b-media-001.tar.gz (sha256 checked per file), in DA under their Edge Delivery names (the PPB
+  25 years header, the brand film, DERTOUR's image film, the Wi-Fi timeline); 12 documents link the
+  copies.
+- Four PDFs www still links but answers 404 for (2026-11-02, one warm session, 7-9 s apart; as in
+  the groundwork): `LHG_GreenFares_Europe_EN.pdf`, `LHG_GreenFares_Intercont_EN.pdf`
+  (`/content/dam/b2b/experts/files/`), `LHG_Flyer_Network_Maps_Summer_2026_DE.pdf` and `_EN.pdf`
+  (`/content/dam/b2b/experts/files/network/`): the documents keep www's links.
+- Search on the host: a market root's index has the language rows its markets allow, the
+  rest-of-world documents of the de-only paths and its own documents (at/de: its own index's four
+  with de/de's rows, 311 rows; at/en: 227 de/en rows and 31 from xx/en).
