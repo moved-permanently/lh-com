@@ -320,6 +320,8 @@ function readTools(section) {
       href: a ? a.getAttribute('href') : null,
       label: text(li),
       countries: sub ? [...sub.querySelectorAll('a[href]')].map((c) => ({ name: text(c), href: c.getAttribute('href') })) : [],
+      // (a cart item's sub-list: its dialog's texts, header-cart.js)
+      list: sub,
     };
   }).filter((t) => t.label);
 }
@@ -854,6 +856,20 @@ export default async function decorate(block) {
   );
 
   const toolsEl = el('div', { className: 'nav-tools' });
+  // the shopping cart: a cart item with a sub-list is a button and its dialog (www.swiss.com's
+  // empty cart, header-cart.js, loaded then only); without one its link as before
+  const cartTool = byRole('cart');
+  let cart = null;
+  if (cartTool && cartTool.list) {
+    const { default: buildCart, cartItems } = await import('./header-cart.js');
+    const items = cartItems(cartTool.list);
+    if (items.length) {
+      const icon = cartTool.icon ? await inlineIcon(cartTool.icon) : null;
+      cart = buildCart({
+        label: cartTool.label, items, close: labels.close, icon,
+      });
+    }
+  }
   // live has no search button in the bar (search lives in the footer)
   const barTools = [
     ['accessibility', 'nav-tool nav-tool-accessibility'],
@@ -862,6 +878,7 @@ export default async function decorate(block) {
   ];
   const barLinks = await Promise.all(barTools.map(async ([role, className]) => {
     const tool = byRole(role);
+    if (role === 'cart' && cart) return cart.button;
     return tool && tool.href ? toolLink(tool, className, false) : null;
   }));
   barLinks.filter(Boolean).forEach((a) => toolsEl.append(a));
@@ -913,6 +930,17 @@ export default async function decorate(block) {
   await Promise.all(toolItems.map(async (tool) => {
     if (['login', 'locale'].includes(tool.role) || (tool.role === 'search' && headerStyle.search !== 'button')) return null;
     if (!tool.href) return null;
+    if (tool.role === 'cart' && cart) {
+      const icon = tool.icon ? await inlineIcon(tool.icon) : null;
+      const button = el(
+        'button',
+        { type: 'button', className: 'nav-flyout-extra' },
+        icon,
+        el('span', { className: 'nav-tool-label' }, tool.label),
+      );
+      cart.bind(button);
+      return button;
+    }
     return toolLink(tool, 'nav-flyout-extra', true);
   })).then((links) => links.filter(Boolean).forEach((a) => extras.push(el('li', {}, a))));
   if (siteSwitch) {
@@ -1001,4 +1029,5 @@ export default async function decorate(block) {
   block.textContent = '';
   block.append(navWrapper);
   if (!siteSwitch) block.append(dialog);
+  if (cart) block.append(cart.dialog);
 }

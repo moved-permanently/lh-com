@@ -711,6 +711,76 @@
   }
 }
 
+/* ------------------------------------------------------- shopping cart (header-cart.js) -- */
+
+/* the cart as a button (a nav cart item with a sub-list: www.swiss.com's dialog) */
+.header button.nav-tool-cart {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  cursor: pointer;
+}
+
+/* www's maui-modal (modal-size-l): title, copy, a secondary button to the offers */
+.header .nav-cart {
+  box-sizing: border-box;
+  width: min(100% - 32px, 600px);
+  max-height: calc(100dvh - 32px);
+  padding: 24px 20px;
+  border: 0;
+  border-radius: 4px;
+  background-color: #fff;
+  color: var(--nav-brand);
+  font-family: var(--body-font-family);
+  box-shadow: 0 12px 16px rgb(5 22 77 / 10%);
+}
+
+.header .nav-cart::backdrop {
+  background-color: rgb(0 0 0 / 40%);
+}
+
+.header .nav-cart-head {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.header .nav-cart-head h2 {
+  margin: 0;
+  color: var(--nav-brand);
+  font-family: var(--heading-font-family);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.header .nav-cart-close {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin: -8px -8px 0 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--nav-brand);
+  cursor: pointer;
+}
+
+.header .nav-cart-text {
+  margin: 16px 0 24px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.header .nav-cart-link {
+  margin: 0;
+}
+
 /* ------------------------------------------------------- country / language ------------ */
 
 .header .nav-locale {
