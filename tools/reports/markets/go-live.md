@@ -9,6 +9,10 @@ serves all of them; the main host serves ch only (`PILOT_COUNTRIES_BY_HOST`).
 Everything below comes from the repository, DA's upload state and lh-com's own origins
 (`main--lh-com--moved-permanently.aem.page` / `.aem.live`); no request to www.lufthansa.com.
 
+**Brief 264 (2026-11-02)**: the four form pages' forms on lh-forms (three; mk/en's has no fields on
+www), az/en's Allegris page under www's canonical, hreflang on the four live roots behind the same
+switch, and French as wave 11 (fr/fr the language version, 13 market roots; below).
+
 ## The switch
 
 One setting, `tools/markets/locale-data.json` `liveWaves` (e2439f0, deployed 10:41 UTC with
@@ -78,8 +82,13 @@ as before.
   (`/sitemap/sitemap_lh_<cc>_<ll>.xml(.gz)`, from the language index and the root's own pages);
   the stored index is rebuilt by its workflow for the new table.
 - **hreflang**: the market roots' pages (ch's and the wave's) list every root the host serves (25
-  with wave 1, 194 at the end); the four live roots' pages carry none today and keep none
-  (Edge Delivery writes no alternates there; open, below).
+  with wave 1, 194 at the end); the four live roots' pages (de/en, de/de, at/de, gb/en) carry none
+  today and, from the first wave on, list their language versions, own roots and the live market
+  roots that have the page (src/live-alternates.js, dcd4708: lh-edge adds them on the pass-through;
+  with `liveWaves: []` the answer is untouched). Rehearsal with wave 1: 23 alternates on
+  `/de/en/baggage`, `/de/de/gepaeck`, `/at/de/gepaeck`, `/gb/en/baggage` and `/de/en/homepage` (the
+  four and wave 1's 19), none on nav and fragments. With wave "ch" alone they list ch/en and ch/de.
+  The four roots' sitemap files (Edge Delivery's) keep their alternates among themselves.
 - **The country and language dialog**: the four roots; on a wave's page also its country's roots
   (ae/de, ae/en); "Other countries" and authored country links go to the local counterpart of a live
   root instead of www.
@@ -136,27 +145,37 @@ documents in that wave, as noted in rollout.md "The China host").
 | Wave | Roots | To publish | of which homepages, navs, footers / own pages and local versions | Already live | Left out |
 | --- | --- | --- | --- | --- | --- |
 | 0 (ch) | 2 | 0 | – | 16 (ch's documents) | – |
-| 1 | 19 | 69 | 57 / 12 | – | 2 |
+| 1 | 19 | 71 | 57 / 14 | – | – |
 | 2 | 19 | 70 | 57 / 13 | 3 (eg/en carbon-offsetting) | – |
-| 3 | 20 | 71 | 60 / 11 | – | 1 |
-| 4 | 20 | 76 | 60 / 16 | – | 2 |
+| 3 | 20 | 72 | 60 / 12 | – | – |
+| 4 | 20 | 77 | 60 / 17 | – | 1 |
 | 5 | 20 | 63 | 60 / 3 | – | – |
 | 6 | 22 | 80 | 66 / 14 | – | – |
 | 7 | 20 | 77 | 60 / 17 | – | – |
 | 8 | 20 | 78 | 60 / 18 | – | – |
 | 9 | 20 | 72 | 60 / 11, and `/redirects.json` | – | – |
 | 10 | 8 | 38 | 24 / 14 | 2 (us/en ccpa, dnsmpi) | – |
-| **all** | **190** | **694** (693 documents and the redirects sheet) | | 21 | 5 |
+| **1–10** | **190** | **698** (697 documents and the redirects sheet) | | 21 | 1 |
+| 11 (French) | 14 (fr/fr and 13 market roots) | 316 | fr/fr 276 (its homepage, nav, footer and 273 pages) / 13 × 3 and 1 own page | – | 1 |
 
 The lists hold every document of the wave's roots that is on preview and not live yet, homepages,
-navs and footers first per root. Left out:
-- **form pages whose form lh-forms does not have** (no form id in scripts/lh-forms.js FORM_IDS, none
-  in lh-forms' FORMS): `/bg/en/local-page/invoice-request-bg` (wave 1), `/il/en/cancellation-refund-webform`
-  (3), `/mk/de/formular-notfallkontakt`, `/mk/en/support/refund` (4). Their pages answer from the
-  origin's 404 on the main host until the forms are on lh-forms (www's own forms: a form id and
-  recipients each).
-- **not ready**: `/az/en/prepare-for-your-trip/travel-classes/fice` (wave 1) is in DA's upload state
-  but answers 404 on preview: preview it (or drop it) before it goes on a list.
+navs and footers first per root. Since brief 264 they also hold:
+- **the market roots' forms, now on lh-forms** (26ed4b1, deployed 12:15 UTC; ids by page name as
+  the other lh-com forms, recipients from FORM_CONFIG: its default unless the secret names the ids):
+  `/bg/en/local-page/invoice-request-bg` (wave 1, `invoice-request-bg`), `/il/en/cancellation-refund-webform`
+  (3, `cancellation-refund-webform`: www's five uploads, PDF, JPEG or PNG, 8,000,000 bytes each, 18.5
+  MB in all; the importer had dropped them, www's older file inputs are now read),
+  `/mk/de/formular-notfallkontakt` (4, `formular-notfallkontakt`). Their documents got the form id
+  row (il/en also the file row) and were previewed again. You test each once on the main host
+  after its wave is live.
+- **az/en's Allegris page**: www's `/az/en/prepare-for-your-trip/travel-classes/fice` names
+  `/az/en/discover-lufthansa/allegris` as canonical and the redirect sheet sends fice there, where
+  lh-com had no document (de/en has no Allegris landing page either): the fice capture is now the
+  document `/az/en/discover-lufthansa/allegris` (az/en's own; wave 1), fice stays the redirect row.
+
+Left out:
+- **`/mk/en/support/refund`** (wave 4): www's form there has no fields (a submit button without a
+  label, 2026-10-29 capture), so there is no form for lh-forms; its document is the same.
 - **the 36 demo documents** (5 November): none is in a wave (they are de/en, de/de, at/de, gb/en and
   /gc documents).
 
@@ -193,21 +212,21 @@ version (flights, airport information, additional services).
 | at/en | 1 | 3: book-and-manage/offers-and-destination/europe-offers1, book-and-manage/offers-and-destination/weltweite-angebote1, oneway-fares | – | – | – | – |
 | au/en | 1 | 2: local-page/au-multi-city, local-page/star-alliance-au | – | – | – | – |
 | az/de | 1 | 2: archived-contents/overview, articles/tags/destinations | – | – | – | – |
-| az/en | 1 | 1: prepare-for-your-trip/travel-classes/fice | – | – | prepare-for-your-trip/travel-classes/fice (not on preview) | – |
-| bg/en | 1 | 2: invoice-request, local-page/invoice-request-bg | – | – | local-page/invoice-request-bg (form not on lh-forms) | – |
+| az/en | 1 | 1: discover-lufthansa/allegris (the fice capture; fice a redirect row) | – | – | – | – |
+| bg/en | 1 | 2: invoice-request, local-page/invoice-request-bg (form on lh-forms) | – | – | – | – |
 | bh/en | 1 | 1: local-page/bahrain-airport-new-terminal | – | – | – | – |
 | dk/en | 2 | 1: yes | – | – | – | – |
 | eg/en | 2 | 13: discover-lufthansa/carbon-offsetting/carbon-offsetting/climate-protection-projects, discover-lufthansa/carbon-offsetting/carbon-offsetting/environmental-cost-surcharge, discover-lufthansa/carbon-offsetting/carbon-offsetting/faq-saf, discover-lufthansa/carbon-offsetting/carbon-offsetting/saf, … | – | 3 | – | – |
 | er/de | 2 | – | – | – | – | currency null (www shows none) |
 | fi/en | 2 | 2: book-and-manage/offers-and-destination/worldwide-offers1, worldwide-offers | – | – | – | – |
-| il/en | 3 | 4: cancellation-refund-webform, cancellation-rights, passenger-rights-israel, updated-cancellation-and-change-of-tickets | – | – | cancellation-refund-webform (form not on lh-forms) | – |
+| il/en | 3 | 4: cancellation-refund-webform (form on lh-forms), cancellation-rights, passenger-rights-israel, updated-cancellation-and-change-of-tickets | – | – | – | – |
 | in/en | 3 | 5: local-page/new-destinations, local-page/new-destinations-india, local-page/raffle-north-america-in/terms-and-conditions-in, local-page/upi, … | – | – | – | – |
 | ir/en | 3 | 2: local-page/new-payment-option, tehran-frankfurt-restart | – | – | – | – |
 | jo/en | 3 | 1: local-page/amm-relaunch-offer | – | – | – | – |
 | kw/en | 4 | 1: local-page/jarallah | – | – | – | – |
 | lb/en | 4 | – | flights | – | – | – |
-| mk/de | 4 | 12: articles/back-up-explore-the-worl-manual, articles/explore-flying/time-travel-ki-aviation1, articles/explore-the-world/be-picky-frankfurt-insider-tips1, articles/explore-the-world/what-i-learned-living-in-rome1, … | – | – | formular-notfallkontakt (form not on lh-forms) | – |
-| mk/en | 4 | 4: articles/back-up-explore-the-world-manual, articles/highlights/winter-destinations1, business-services/for-corporate-customers/meetings-and-events/exclusive-event-offer-dubai, support/refund | – | – | support/refund (form not on lh-forms) | – |
+| mk/de | 4 | 12: articles/back-up-explore-the-worl-manual, articles/explore-flying/time-travel-ki-aviation1, articles/explore-the-world/be-picky-frankfurt-insider-tips1, articles/explore-the-world/what-i-learned-living-in-rome1, … | – | – | – | – |
+| mk/en | 4 | 4: articles/back-up-explore-the-world-manual, articles/highlights/winter-destinations1, business-services/for-corporate-customers/meetings-and-events/exclusive-event-offer-dubai, support/refund | – | – | support/refund (www's form has no fields) | – |
 | my/en | 5 | 1: local-page/kul-promo-code-oct26 | – | – | – | – |
 | no/en | 5 | 1: worldwide-offers | – | – | – | – |
 | nz/en | 5 | 1: local-page/nz-multi-city | – | – | – | – |
@@ -253,16 +272,54 @@ Open per root besides the table: timeZone and shopLang are null for every pilot 
 homepage has neither: the site's defaults, Europe/Berlin and en-GB); the `unverified` fields of each
 row in locale-data.json list what www did not show.
 
+## Wave 11: French (prepared 2026-11-02, brief 264; not switched)
+
+fr/fr is French's language version (www's `xx/fr` has no pages; your choice: fr/fr, as de/en for
+English) and ar/fr be/fr ca/fr ch/fr cl/fr co/fr cr/fr dz/fr gq/fr lu/fr ma/fr tn/fr us/fr its 13
+market roots, all batch 11, `pilot` (rollout.md "Batch 11"). `publish-wave-11.txt`: **316 documents**
+(fr/fr 276: homepage, nav, footer first, then its pages; then per market root its homepage, nav and
+footer, dz/fr's own page). Left out: fr/fr's `…/register-ammunition1` (www's second copy of the
+ammunition form; no lh-forms id).
+
+**Release order for wave 11** (it differs from the en and de waves: the language version is new):
+1. Publish fr/fr's 276 lines first, then **wait until its indexes are filled**:
+   `main--lh-com--moved-permanently.aem.live/fr/fr/search-index.json` and `/market-model/fr-fr.json`
+   answer with the same `total` (about 275). The market roots answer every language page from these
+   indexes; before they are filled, every French market page but the root's own documents is 404
+   (as the preview check shows: rollout.md "Checks against the preview origin").
+2. Publish the 40 market-root lines.
+3. The switch: `"liveWaves": [ …, 11 ]`, build, tests, commit, push (as above). Wave 11 makes fr/fr
+   live together with its roots (build-locale-table.mjs: a market root goes live with its language
+   version only; the country wave "ch" alone leaves ch/fr pilot).
+4. The checks as for every wave; the route check for two French roots on the main host.
+
+**What changes on the main host with wave 11**:
+- `/fr/fr/...` is a live root with its own documents (as de/en): the front door passes it to the
+  origin (published documents), its pages get the hreflang alternates of the live roots
+  (src/live-alternates.js), and the country dialog lists France | Français with the four.
+- The 13 market roots as every wave's: entry addresses, market route, sitemap files, llms, the
+  dialog on their pages; ch/fr joins ch/en and ch/de on `/ch` (the table's order: de first).
+- Not yet: **fr/fr's own sitemap file** (`/sitemap/sitemap_lh_fr_fr.xml`) is not in
+  helix-sitemap.yaml, and the static sitemap index lists the four; adding both changes the main
+  host, so they wait for the switch (one commit with wave 11). The search API for French headers
+  answers from fr/fr's data once build-search-data includes the live root (LIVE_ROOTS).
+- The site's labels in French: the header, footer, forms and search texts the blocks bring for en
+  and de fall back to English on French pages (the content is French).
+
+**Rollback of wave 11**: as every wave (revert the switch commit; unpublish the list if wanted, the
+market roots' lines first).
+
 ## The other roots (neither en nor de)
 
 www has 46 roots in 11 other languages (own sitemaps; about 340 URLs each, a third of an en or de
-root): no capture for them in this brief, nothing of them in lh-com, and lh-com has language versions
-for en and de only (de/en, de/de; LANGUAGE_VERSIONS). The /gc tree (DA, brief 249) is en and de
-too. The brand sites hold other airlines' documents in some of these languages, not Lufthansa's.
+root). **French is prepared (wave 11, above).** The other ten languages have no capture, nothing in
+lh-com and no language version; next in the order of the number of roots: es (13), then pt, ru,
+zh-HK, zh, it, el, ja, ko, pl. The /gc tree (DA, brief 249) is en and de. The brand sites hold other
+airlines' documents in some of these languages, not Lufthansa's.
 
 | Language | Roots | Root with most URLs on www | Language version on Edge Delivery |
 | --- | --- | --- | --- |
-| fr | 14: ar/fr be/fr ca/fr ch/fr cl/fr co/fr cr/fr dz/fr fr/fr gq/fr lu/fr ma/fr tn/fr us/fr | ch/fr (351) | none |
+| fr | 14: ar/fr be/fr ca/fr ch/fr cl/fr co/fr cr/fr dz/fr fr/fr gq/fr lu/fr ma/fr tn/fr us/fr | ch/fr (351) | **fr/fr** (pilot, wave 11; www's xx/fr has no pages) |
 | es | 13: ar/es br/es ca/es cl/es co/es cr/es ec/es es/es mx/es pa/es pe/es us/es ve/es | es/es (357) | none |
 | pt | 3: ao/pt br/pt pt/pt | pt/pt (345) | none |
 | ru | 3: by/ru kz/ru ru/ru | ru/ru (338) | none |
@@ -274,34 +331,39 @@ too. The brand sites hold other airlines' documents in some of these languages, 
 | ko | 1: kr/ko | kr/ko (340) | none |
 | pl | 1: pl/pl | pl/pl (340) | none |
 
-What each language would need, in this order:
-1. **A language version**: one root with every page as its own document (e.g. fr/fr, es/es, it/it,
-   gr/el, jp/ja: the country's own root, where www's pages are written), imported from captures of www
-   (about 340 pages: about 3.5 hours of one Bright Data session) or translated from /gc/en with the
-   loc tools (tools/loc), then its nav and footer, its rows (`documents: own`, a `languageVersions`
-   entry), its search and market indexes (helix-query.yaml `search-<cc>-<ll>`, as de/en's) and its
-   live status.
-2. **Its market roots** (`documents: language` from that version), as the en and de rollout: a row
-   from each homepage capture, the homepage, nav and footer, own pages and local versions; then a wave
-   as above.
-3. The site's texts in the language: the labels the blocks bring for en and de only (header, footer,
-   forms, search) fall back to English; www's label bundles (labels/<bundle>/lh/<ll>) exist per
-   language for the live widgets.
+What each language needs, in this order (French's run: rollout.md "Batch 11"; about 3 hours of
+captures for the version's ~280 in-scope pages and the roots' ~4 pages each):
+1. **A language version**: one root with every page as its own document (the country's own root
+   where www has no language-only pages), imported from captures of www by the template of its de/en
+   counterpart, or translated from /gc/en with the loc tools (tools/loc); its nav and footer from
+   its homepage capture; its row (`documents: own`, pilot, the language's batch) and
+   `languageVersions`; its indexes are in helix-query.yaml already for es/es, it/it, gr/el, jp/ja,
+   ru/ru, cn/zh, pl/pl (shared with the brand sites; they fill on publish).
+2. **Its market roots** (`documents: language`), as the en and de rollout: a row from each homepage
+   capture, the homepage, nav and footer, own pages and local versions; a language batch in
+   rollout.mjs (LANGUAGE_BATCHES); then a wave.
+3. The site's texts in the language (labels fall back to English).
 4. Two zh languages (www's `hk` is zh-HK, `zh` zh-CN) and Korean, Japanese, Greek, Russian: the font
    and hyphenation checks of the site's styles in those scripts (CJK, Cyrillic, Greek).
 
 ## Open
 
-- **hreflang on the four live roots' pages**: none today (Edge Delivery writes none; lh-edge adds
-  alternates to the market roots' pages only), so de/en's pages do not name the 194 roots that name
-  them. www's pages carry their alternates. A change to lh-edge's answer for the live roots' pages
-  (not part of this switch).
-- **The five left out** (above): four forms for lh-forms, one document to preview.
+- **fr/fr's indexes fill on publish**: wave 11's market pages depend on them (release order above).
+- **fr/fr's sitemap file** and the static index entry: with the wave 11 switch.
+- **One left out of waves 1 to 10**: `/mk/en/support/refund` (www's form has no fields).
+- **Recipients**: the four new form ids (`invoice-request-bg`, `cancellation-refund-webform`,
+  `formular-notfallkontakt`, `emergency-contact`) go to FORM_CONFIG's default unless the secret names
+  them (it is yours; I cannot read it).
+- **Redirect rows for you** (rollout.md "Batch 11"): `/fr/fr/Yes`, `/fr/fr/smart-bags`,
+  `/ca/fr/lufthansa-id` (its target is not in the replica).
+- **The form confirmations of fr/fr** (`/fr/fr/support/contact/contact-form-confirmation`, the
+  animal confirmation) are not in fr/fr's sitemap and not imported: after a submit the form goes to
+  www's French confirmation page.
 - **The redirects sheet** (wave 9) brings all six rows on preview at once (pt for wave 9, us for wave
   10).
 - **The 12 app screens** of batch 7 (`/content/mobile/lh/{en,de}/content-pages/100-years-of-lufthansa/…`)
   stay with you (www refused this machine).
-- **ca and us**: no home airport (www's homepages preselect none); er/de no currency (www shows no
-  price).
+- **ca and us**: no home airport (www's homepages preselect none; also ca/fr, us/fr and fr/fr); er/de
+  and ca/fr no currency (www shows no price).
 - **The demo on Wednesday**: no wave touches its 36 documents; a wave that goes live before Thursday
   changes the main host's dialog and entry addresses for that wave's countries only.

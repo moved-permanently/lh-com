@@ -1430,3 +1430,125 @@ Against the nine hosts (b2b.turnsthe.page is the ninth since b564344) before and
   every checkout but the main repository directory, also on d2dfa7d without this batch: the decorated
   footer's Star Alliance icon carries the checkout's absolute file path in its `src`, so the recorded
   hashes only match there. Left to that session.
+
+## Batch 11 (2026-11-02): French, the language version fr/fr and 13 market roots
+
+The first language after en and de (brief 264). www's `xx/fr` has no pages (its homepage and
+baggage page answer 404; it is only an hreflang alternate in www's sitemaps, 351 of them), so the
+French language version is **fr/fr** (your choice of 2026-11-02, the plan's example): France's root
+with every page as its own document, as de/en is Germany's and the English version. Lufthansa's
+`gc/fr` can replace it later. `rollout.mjs` has language batches now (LANGUAGE_BATCHES: French is
+batch 11, after the ten en and de batches); every French row is `pilot`, served on
+lufthansa-edge.turnsthe.page only.
+
+### Captures
+
+- One warm Bright Data session at a time, one page every 5 to 10 s, 12:03 to 14:48 UTC (and fr/fr's
+  homepage again at 14:52 in a fresh session). **No 403.**
+- **The market roots** (homepages, own pages, the three compared pages): 55 URLs, 49 captured in
+  two sessions (one net error retried), 6 from 2026-10-27.
+- **fr/fr**: www's 353 URLs of fr/fr; 75 of them are pages lh-com has in no language version (the 24
+  aircraft-type pages, the AEM configuration and login/profile pages, the stopover partner offers,
+  …: the de/en scope decides, as for every root) and were not captured. 278 asked for, 276 captured
+  in five sessions (four ended when the browser closed; a new session after a minute each), 2 are
+  www's 404 (`/fr/fr/articles/tags/toronto`, `/fr/fr/lufthansa-city/menu-card`).
+- Canonicals: 322 own; 9 name another page (www's aliases): fr/fr's `business-class`,
+  `digital-travel-companion`, `flynet`, `freigepaeck-regeln`, `lounges`, `rechnungsbeleg`
+  (documents, as de/en has these aliases as documents too), `smart-bags` (no document: de/en has
+  none; a redirect row), `support/support` (a document: fr/fr has no `help-and-contact`), and
+  ca/fr's `lufthansa-id` (a redirect row).
+
+### Locale rows
+
+| Root | name | countryName en / de / fr | Airport | Currency |
+| --- | --- | --- | --- | --- |
+| fr/fr (version) | France \| Français | France / France / France | – | EUR |
+| ar/fr | Argentine \| Français | Argentinien / Argentina / Argentine | BUE | USD |
+| be/fr | Belgique \| Français | Belgium / Belgien / Belgique | BRU | EUR |
+| ca/fr | Canada \| Français | Canada / Kanada / Canada | – | – |
+| ch/fr | Suisse \| Français | Switzerland / Schweiz / Suisse | GVA | CHF |
+| cl/fr | Chili \| Français | Chile / Chile / Chili | SCL | USD |
+| co/fr | Colombie \| Français | Colombia / Kolumbien / Colombie | BOG | USD |
+| cr/fr | Costa Rica \| Français | Costa Rica (all three) | SJO | USD |
+| dz/fr | Algérie \| Français | DZ / Algerien / Algérie | ALG | DZD |
+| gq/fr | Guinée Equatoriale \| Français | Equatorial Guinea / Äquatorialguinea / Guinée Equatoriale | SSG | XAF |
+| lu/fr | Luxembourg \| Français | Luxembourg / Luxemburg / Luxembourg | LUX | EUR |
+| ma/fr | Maroc \| Français | Morocco / Marokko / Maroc | RAK | MAD |
+| tn/fr | Tunisie \| Français | Tunesien / Tunesien / Tunisie | TUN | TND |
+| us/fr | Etats-Unis d'Amérique \| Français | USA / USA / Etats-Unis d'Amérique | – | USD |
+
+- name and countryName.fr from www's French label; countryName en and de from the country's rows of
+  the en and de batches (www's own labels: ar/en's "Argentinien", dz/en's "DZ", taken as they are);
+  some labels end in spaces on www ("Algérie  | Français"), kept.
+- Not found (`–`): fr/fr, ca/fr and us/fr preselect no origin (as ca and us in en and de); ca/fr shows
+  no price (as ca/en, ca/de). timeZone and shopLang null, as before.
+- `languageVersions.fr = fr/fr`. A language version may be a pilot row now
+  (build-locale-table.mjs): it goes live with its wave, a market root only with its version (the
+  country wave "ch" leaves ch/fr pilot).
+- **The main host keeps ch/en and ch/de**: PILOT_COUNTRIES_BY_HOST names roots now
+  (`lufthansa.turnsthe.page=ch/en|ch/de`, 9c1985d), so the new ch/fr row is served on
+  lufthansa-edge only; `/ch/fr` on the main host still goes to www.
+
+### Documents
+
+Imported from the captures only, uploaded and previewed (not published): **317 documents**, 317 of
+317 answer 200 on preview.
+- **fr/fr, 277**: 275 pages by the template of their de/en counterpart (homepage 1, hub 17, campaign
+  21, fleet 8, info 169, legal 29, form 8, insights 12, app-entry 5, flight-status 1) and four
+  French-only pages (`yes`, `asia-specials`, `toutes-les-couleurs-a-bord`,
+  `prepare-for-your-trip/baggage/sport-baggage/register-ammunition1`); nav and footer from fr/fr's
+  homepage capture (the nav import: French labels, the footer's "France | Français"). Links into
+  fr/fr made relative where fr/fr has the document (root-docs.mjs --own-root); images to the
+  preview limits without downloads (postprocess-media.mjs --no-download: 34 documents changed).
+- **The forms**: fr/fr's form pages keep their ids (`anmeldung-tiere-frachtraum`,
+  `feedback-past-flight`, `register-ammunition`, `register-animal-cabin`: www's French pages use
+  these names) and fr/fr's emergency contact form is on lh-forms now (`emergency-contact`,
+  "Contact en cas d’urgence", b6ef25b). `register-ammunition1` (www's second copy of the ammunition
+  form) has no id: left out of the publish list.
+- **The 13 market roots, 40**: 13 homepages (homepage template, a large SVG rasterized on each),
+  dz/fr's own page `local-page/information-importante`, nav and footer of every root from fr/fr's
+  (root-docs.mjs: 59 nav and 17 footer links made the root's). ca/fr's `homepage/teasers/irreg_teaser`
+  (a homepage teaser component page) is left out.
+- fr/fr's documents are listed in `tools/importer/sites/lh-com.json`; the scope
+  (`tools/migration-scope/pages.csv`) is unchanged.
+- **None of the 36 demo documents** is touched.
+
+### Redirect rows for the redirect sheet
+
+| www URL | target |
+| --- | --- |
+| `/fr/fr/Yes` | `/fr/fr/yes` (the document: no upper case in names; www's canonical too) |
+| `/fr/fr/smart-bags` | `/fr/fr/electronic-bag-tags` (www's canonical; fr/fr has the document) |
+| `/ca/fr/lufthansa-id` | www's canonical `/ca/fr/travel-id`: **no such page in the replica** (fr/fr and de/en have no travel-id page); your choice |
+
+### Local versions
+
+`rollout-batch11-compare.json`, the three pages of each market root against fr/fr's capture of the
+same day (the one its document was imported from): **39 of 39 the same**. No root document.
+
+### Checks against the preview origin
+
+Local runtime (lh-edge with this batch, the preview origin, lufthansa-edge as the public host),
+`rollout-batch11-check.json`: per root 350 to 354 www URLs; **200: the root's homepage (and dz/fr's
+own page) only**; every other URL 404, 271 of them with the reason "fr/fr has the document, its index
+row is missing": **fr/fr's query indexes fill on publish** (helix-query.yaml `search-fr-fr`,
+`market-model-fr-fr`, `market-llms-fr-fr` exist already; preview does not fill them), and the market
+route answers a market root's page from its language index. 63 to 66 per root are pages fr/fr has
+not (out of scope), 16 login and profile pages; 7 answers of the local runtime were 500 (as in the
+earlier batches, its own). The homepages', navs' and footers' links: the same 404s (into fr/fr's
+pages) and 200 for the own documents. After fr/fr's publish the same check should look like the en
+and de batches'.
+
+lh-edge on lufthansa-edge (live origin) answers the French roots' entry addresses (`/ch/fr` → 302
+`/ch/fr/homepage`) and 404 for their pages until the publish.
+
+### The deploy
+
+300c8b9 (13:20 UTC): the rows, the language version rule, pilot roots by root, the empty lean
+source of an unpublished language version.
+- Smoke, nine hosts, before (13:05, after another session's lh-edge deploy) against after: 0
+  differences on lufthansa.turnsthe.page, lufthansa-cn and the six brand hosts and b2b;
+  lufthansa-edge differs in 5 rows (ch's llms.txt and two sitemap files, the sitemap index `.xml`
+  and `.gz`: the French roots); its baseline updated.
+- lufthansa.com's 19 comparison pages: 19 of 19 equal.
+- Every lh-edge and site test file passes (43 and 177).
