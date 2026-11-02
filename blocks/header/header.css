@@ -1377,3 +1377,21 @@ body.channel-flynet .header .nav-bar {
 .header .nav-wrapper.nav-has-bar-menu .nav-flyout-extra:hover {
   color: var(--nav-bar-text);
 }
+
+/* lh-b2b: the bar as high as www's (business.lufthansagroup.com, 2026-11-02): 61 px below 1025 px
+   (www's 32 px logo with 14.5 px above and below; here the 40 px menu button, 10.5 px), 81 px from
+   1025 px (the 48 px search button, 16 px above and 17 px below); the open menu item's fill
+   #e6f2ff (www's menu-1440-programs.png snapshot: the Programs button, 119 x 40 px) */
+body.brand-b2b .header {
+  --header-bar-padding: 10.5px 24px;
+}
+
+@media (width >= 1025px) {
+  body.brand-b2b .header {
+    --header-bar-padding: 16px 24px 17px;
+  }
+}
+
+body.brand-b2b .header .nav-bar-menu-button[aria-expanded="true"] {
+  background-color: #e6f2ff;
+}
