@@ -138,3 +138,17 @@ test('root documents: a group with two URLs of the target maps to the same path;
   assert.deepEqual(r.links, ['/ch/en/baggage']);
   assert.deepEqual(r.kept.sort(), ['/ch/en/gone', '/ch/en/payment-options']);
 });
+
+test('neutral documents (brief 267): markets from the market roots that show the page; links into the neutral root, else the language version, else www', async () => {
+  const { neutralMarkets, neutralLinks, marketCountries } = await import('../tools/markets/neutral-docs.mjs');
+  const all = ['ae', 'ch', 'hu', 'us'];
+  assert.equal(neutralMarkets(all, all), '', 'every market: no row');
+  assert.equal(neutralMarkets(['ae', 'ch', 'hu'], all), '-us', 'most: an exclude list');
+  assert.equal(neutralMarkets(['ch'], all), 'ch', 'few: an include list');
+  assert.equal(neutralMarkets([], all), '');
+  assert.ok(marketCountries('en').includes('ch') && !marketCountries('en').includes('de'));
+  const html = '<a href="https://www.lufthansa.com/xx/en/book-and-manage/stopover/rosewood">a</a> <a href="/xx/en/baggage?x=1&amp;y=2">b</a> <a href="https://www.lufthansa.com/xx/en/profile">c</a> <a href="https://www.lufthansa.com/de/en/x">d</a>';
+  const r = neutralLinks(html, 'xx/en', (p) => p === '/xx/en/book-and-manage/stopover/rosewood', (p) => (p === '/xx/en/baggage' ? '/de/en/baggage' : null));
+  assert.equal(r.html, '<a href="/xx/en/book-and-manage/stopover/rosewood">a</a> <a href="/de/en/baggage?x=1&amp;y=2">b</a> <a href="https://www.lufthansa.com/xx/en/profile">c</a> <a href="https://www.lufthansa.com/de/en/x">d</a>');
+  assert.deepEqual(r.counts, { own: 1, version: 1, www: 1 });
+});
