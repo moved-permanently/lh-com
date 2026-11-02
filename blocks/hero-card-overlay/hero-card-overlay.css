@@ -31,6 +31,21 @@ main > .section > .hero-card-overlay-wrapper {
   object-fit: cover;
 }
 
+/* a linked .mp4 (SWISS's moving image): over the picture, which shows until the video plays */
+.hero-card-overlay .hero-card-overlay-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.hero-card-overlay .hero-card-overlay-video.is-playing {
+  opacity: 1;
+}
+
 /* .mst-card { padding: 4rem 4.8rem; width: auto } .container-brand { background: #05164d; color: #fff } */
 .hero-card-overlay .hero-card-overlay-card {
   position: relative;

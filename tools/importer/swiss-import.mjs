@@ -39,6 +39,7 @@ import {
   ownPages, ownAliases, ownServed, withOwnLinks, onlyBatch,
 } from './own-links.mjs';
 import { relativeDamLinks } from './swiss-dam.mjs';
+import { edsDamPath } from '../../scripts/dam-path.js';
 import { withLocalImages } from './swiss-nav.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
@@ -268,6 +269,23 @@ export function withRedirects(paths) {
   fs.writeFileSync(REDIRECTS, `${['source\tdestination', ...rows.sort()].join('\n')}\n`);
 }
 
+/**
+ * The hero's video: www's moving image (data-dcep movingImage: imageUrl, videoUrl) of the hero's
+ * picture as a link after the picture (blocks/hero-card-overlay plays it), at its /content/dam
+ * path (scripts/dam-path.js edsDamPath: the AEM sandbox holds the large ones under that name).
+ * A hero with a video link already, or whose picture has no video on www: as it is.
+ */
+export function withHeroVideo(doc, html) {
+  const pairs = [...String(html || '').replace(/&quot;/g, '"').matchAll(/"imageUrl"\s*:\s*"([^"]+)"\s*,\s*"videoUrl"\s*:\s*"([^"]+\.mp4)"/g)]
+    .map((m) => [edsDamPath(m[1]), edsDamPath(m[2])]);
+  if (!pairs.length) return doc;
+  return doc.replace(/(<div class="hero-card-overlay(?: [^"]*)?"><div><div>)([\s\S]*?<\/picture>)(?!<p><a href="[^"]+\.mp4")/, (m, open, pic) => {
+    const src = (pic.match(/<img src="([^"]+)"/) || [])[1] || '';
+    const pair = pairs.find(([img]) => src.split('?')[0].endsWith(img));
+    return pair ? `${open}${pic}<p><a href="${pair[1]}">${pair[1]}</a></p>` : m;
+  });
+}
+
 /** The template of a page from its path and snapshot. */
 export function templateOf(p, html) {
   if (/^\/[a-z]{2}\/[a-z]{2}\/homepage$/.test(p)) return 'homepage';
@@ -376,7 +394,8 @@ if (isMain) {
       const doc = fs.readFileSync(f, 'utf8');
       const src = Object.keys(out).find((k) => docName(k) === p);
       const markets = scope.documents[src]?.markets || [];
-      const next = withItaMetadata(withCheckinHandoff(withFlightSearch(withItaForm(doc, p, fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8')), p), p), p, fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8'), markets);
+      const snapHtml = fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8');
+      const next = withHeroVideo(withItaMetadata(withCheckinHandoff(withFlightSearch(withItaForm(doc, p, snapHtml), p), p), p, snapHtml, markets), snapHtml);
       if (next !== doc) fs.writeFileSync(f, next);
     });
     const mapOnly = path.join(W, 'runs', `${name}-upload.txt`);

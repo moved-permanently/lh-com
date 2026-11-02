@@ -173,6 +173,45 @@ function buildConditions(cell) {
 }
 
 /**
+ * The block's link to an .mp4, taken out of the content (its paragraph too when it holds only the
+ * link), or ''.
+ * @param {Element} block
+ * @returns {string} the video's path
+ */
+function takeVideoLink(block) {
+  const a = [...block.querySelectorAll('a[href]')].find((x) => /\.mp4$/i.test((x.getAttribute('href') || '').split(/[?#]/)[0]));
+  if (!a) return '';
+  const href = a.getAttribute('href');
+  const p = a.closest('p');
+  (p && p.textContent.trim() === a.textContent.trim() ? p : a).remove();
+  return href;
+}
+
+/**
+ * The hero's video over its picture (the poster, shown until the video plays): muted, looped,
+ * inline, a decoration; none with prefers-reduced-motion (the picture alone).
+ * @param {string} src
+ * @param {HTMLImageElement|null} img
+ * @returns {HTMLVideoElement|null}
+ */
+function buildVideo(src, img) {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return null;
+  const video = document.createElement('video');
+  video.className = 'hero-card-overlay-video';
+  ['muted', 'loop', 'playsinline', 'autoplay'].forEach((a) => video.setAttribute(a, ''));
+  video.muted = true;
+  video.setAttribute('preload', 'metadata');
+  video.setAttribute('aria-hidden', 'true');
+  if (img && img.getAttribute('src')) video.setAttribute('poster', img.getAttribute('src'));
+  const source = document.createElement('source');
+  source.setAttribute('src', src);
+  source.setAttribute('type', 'video/mp4');
+  video.append(source);
+  video.addEventListener('playing', () => video.classList.add('is-playing'), { once: true });
+  return video;
+}
+
+/**
  * Full-bleed image with a text card overlaid on it.
  * Content: a background image (first picture anywhere in the block) and the card content
  * (optional eyebrow paragraph, heading, text, CTA links) in any other cell.
@@ -180,6 +219,8 @@ function buildConditions(cell) {
  */
 export default function decorate(block) {
   instanceCount += 1;
+  // a linked .mp4 (SWISS's main stage teaser, www's moving image): no card content
+  const videoLink = takeVideoLink(block);
   const picture = block.querySelector('picture');
   const media = document.createElement('div');
   media.className = 'hero-card-overlay-media';
@@ -202,6 +243,11 @@ export default function decorate(block) {
     // paragraphs left empty by the moved picture are dropped below
     picture.remove();
     media.append(optimized);
+    const video = videoLink && buildVideo(videoLink, media.querySelector('img'));
+    if (video) {
+      media.append(video);
+      block.classList.add('hero-card-overlay-has-video');
+    }
   }
 
   const card = document.createElement('div');

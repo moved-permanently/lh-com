@@ -105,6 +105,19 @@ test('an image switched to its place in DA is still one of the document\'s files
   assert.deepEqual(damFiles('<p><img src="https://content.da.live/moved-permanently/lh-other/content/dam/x.jpg"></p>'), []);
 });
 
+test('the hero\'s video: www\'s moving image of the hero picture linked in the hero, its /content/dam path', async () => {
+  // eslint-disable-next-line import/extensions
+  const { withHeroVideo } = await import('../tools/importer/swiss-import.mjs');
+  const snap = '<div class="mainstageteaser" data-dcep="{&quot;movingImage&quot;:{&quot;imageUrl&quot;:&quot;/content/dam/lx/images/frontify_variations/6/c-1455672767-478966716.jpg&quot;,&quot;videoUrl&quot;:&quot;/content/dam/lx/video/Bengaluru Header Video_8017471.mp4&quot;}}"></div>';
+  const doc = '<div><div class="hero-card-overlay light"><div><div><picture><img src="https://content.da.live/moved-permanently/lh-swiss/content/dam/lx/images/frontify_variations/6/c-1455672767-478966716.jpg" alt=""></picture></div></div><div><div><h2>Bengaluru</h2></div></div></div></div>';
+  const out = withHeroVideo(doc, snap);
+  assert.match(out, /<\/picture><p><a href="\/content\/dam\/lx\/video\/bengaluru-header-video-8017471\.mp4">\/content\/dam\/lx\/video\/bengaluru-header-video-8017471\.mp4<\/a><\/p><\/div>/);
+  assert.equal(withHeroVideo(out, snap), out, 'once');
+  assert.equal(withHeroVideo(doc, snap.replace('Bengaluru Header Video_8017471.mp4', '')), doc, 'no video: as it is');
+  const other = doc.replace('c-1455672767-478966716', 'c-1');
+  assert.equal(withHeroVideo(other, snap), other, 'another picture: as it is');
+});
+
 test('the scope leaves out AirCore, /lhg/, the shells, placeholders and www\'s redirects', () => {
   ['/lhg/ch/en', '/aircore/sitemaps/x', '/ch/en/null/x', '/ch/ko/homepage', '/xx/de/homepage', '/ch/en/profile/login', '/ch/en/enrollment', '/ch/en/homepage/teasers/x', '/ch/en/customer-support/chatbot', '/ch/en/book-and-manage/passenger-receipt', '/ch/en/customer-support/refund']
     .forEach((p) => assert.ok(leftOut(p), p));

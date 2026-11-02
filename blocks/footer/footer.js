@@ -386,6 +386,24 @@ function buildLogos(section, labels) {
   return list.children.length ? el('div', { className: 'footer-logos' }, el('div', { className: 'footer-logos-inner' }, list)) : null;
 }
 
+/**
+ * The sub-footer row (a document with its logos before its legal links: lh-swiss): the logo row's
+ * image logos (the brand's, member of Lufthansa Group), the legal links, its icon logos (Star
+ * Alliance), in one row from 1025px.
+ */
+function buildSubfooter(logosEl, legalEl) {
+  const items = [...logosEl.querySelectorAll('li')];
+  const isIcon = (li) => [...(li.querySelector('a')?.classList || [])].some((c) => c.startsWith('footer-logo-'));
+  const list = (lis) => el('ul', {}, ...lis);
+  return el(
+    'div',
+    { className: 'footer-subfooter' },
+    el('div', { className: 'footer-subfooter-logos' }, list(items.filter((li) => !isIcon(li)))),
+    legalEl,
+    el('div', { className: 'footer-subfooter-partner' }, list(items.filter(isIcon))),
+  );
+}
+
 /** On small screens the column lists are accordions; from 768px they are always open. */
 function syncAccordions(root) {
   root.querySelectorAll('.footer-column-toggle').forEach((toggle) => {
@@ -439,7 +457,17 @@ export default async function decorate(block) {
   const noteEl = buildNotes(notes);
   const wordmarkEl = buildWordmark(wordmarks);
   inner.append(...[wordmarkEl, search, localeEl, columnsEl, badgesEl].filter(Boolean));
-  if (legalEl) inner.append(el('hr', { className: 'footer-divider' }), legalEl);
+  // a document whose logos section comes before its legal section (lh-swiss, as www.swiss.com's
+  // sub-footer): the logo row in the legal row's place, its image logos left, the legal links in
+  // the middle, its icon logos (Star Alliance) right; other footers: the logo row below as before
+  const sectionsOf = [...fragment.querySelectorAll(':scope > .section')];
+  const logosFirst = logos && legal && sectionsOf.indexOf(logos) < sectionsOf.indexOf(legal);
+  const logosEl = buildLogos(logos, labels);
+  const subfooterEl = logosFirst && legalEl && logosEl ? buildSubfooter(logosEl, legalEl) : null;
+  if (subfooterEl) {
+    inner.append(el('hr', { className: 'footer-divider' }), subfooterEl);
+    inner.classList.add('has-subfooter');
+  } else if (legalEl) inner.append(el('hr', { className: 'footer-divider' }), legalEl);
   if (noteEl) inner.append(noteEl);
   // the grid with the optional rows (brand sites); without them the areas are as before
   if (badgesEl || noteEl || wordmarkEl) inner.classList.add('has-extras');
@@ -453,8 +481,7 @@ export default async function decorate(block) {
 
   block.textContent = '';
   block.append(el('div', { className: 'footer-main' }, inner));
-  const logosEl = buildLogos(logos, labels);
-  if (logosEl) block.append(logosEl);
+  if (logosEl && !subfooterEl) block.append(logosEl);
 
   syncAccordions(block);
   MOBILE.addEventListener('change', () => syncAccordions(block));

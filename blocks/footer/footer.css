@@ -760,3 +760,63 @@
     padding: 40px 0;
   }
 }
+
+/* ------------------------------------------------------------- sub-footer ----------- */
+
+/* a document with its logos before its legal links (lh-swiss, www.swiss.com's sub-footer): the
+   logo row in the legal row's place: the image logos, the legal links, the icon logos (Star
+   Alliance); stacked below 1025px, one row from there */
+.footer .footer-subfooter {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  grid-area: legal;
+  padding-bottom: 32px;
+}
+
+.footer .footer-subfooter ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- the sub-footer's own elements, no other row's */
+.footer .footer-subfooter a {
+  display: block;
+  line-height: 0;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- the sub-footer's own elements, no other row's */
+.footer .footer-subfooter img {
+  display: block;
+  width: auto;
+  height: var(--footer-logo-home-height, 20px);
+}
+
+.footer .footer-subfooter .footer-subfooter-logos li:nth-child(2) img {
+  width: 160px;
+  height: 8px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- the sub-footer's own elements, no other row's */
+.footer .footer-subfooter .footer-logo-star-alliance img {
+  height: 20px;
+  filter: var(--footer-star-alliance-filter, none);
+}
+
+@media (width >= 1025px) {
+  .footer .footer-subfooter {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer .footer-subfooter .footer-legal {
+    flex: 1;
+    justify-content: center;
+  }
+}
