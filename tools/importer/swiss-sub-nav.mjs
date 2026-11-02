@@ -69,6 +69,25 @@ export function subNavDocument(document, key, sitePaths, { search = null } = {})
   return `${[brand, quick, menu, toolsSection].join('\n')}\n`;
 }
 
+/**
+ * The footer document of a sub-site's language: the main site's (swiss-nav.mjs footerDocument)
+ * plus the Star Alliance link of the logo row, which the sub-sites write as a
+ * maui-navigation-link in the sub-footer's third column (the main site: .star-alliance-logo-wrapper).
+ */
+export function subFooterDocument(document, sitePaths) {
+  const doc = footerDocument(document, sitePaths);
+  if (doc.includes(':star-alliance:')) return doc;
+  const star = document.querySelector('.subfooter .grid-col-3 [href*="staralliance"]');
+  if (!star) return doc;
+  const label = clean(star.querySelector('.sr-only')?.textContent) || 'Star Alliance';
+  const item = `<li><a href="${esc(star.getAttribute('href'))}" title="${esc(label)}">:star-alliance:</a></li>`;
+  // the logo row: the section before the legal links (footerDocument's last)
+  const legal = doc.lastIndexOf('\n<div><ul>');
+  const end = doc.lastIndexOf('\n</ul></div>', legal);
+  if (legal < 0 || end < 0) return doc;
+  return `${doc.slice(0, end)}\n${item}${doc.slice(end)}`;
+}
+
 const isMain = process.argv[1] && fs.realpathSync(process.argv[1]) === fileURLToPath(import.meta.url);
 if (isMain) {
   const allow = JSON.parse(fs.readFileSync(path.join(root, 'tools/importer/sites/lh-swiss.json'), 'utf8'));
@@ -85,7 +104,7 @@ if (isMain) {
     const dir = path.join(W, 'content', key);
     fs.mkdirSync(dir, { recursive: true });
     fs.writeFileSync(path.join(dir, 'nav.plain.html'), subSiteLinks(subNavDocument(document, key, sitePaths, { search }), { subPages, sitePaths, mapHosts: false }));
-    fs.writeFileSync(path.join(dir, 'footer.plain.html'), subSiteLinks(footerDocument(document, sitePaths), { subPages, sitePaths, mapHosts: false }));
+    fs.writeFileSync(path.join(dir, 'footer.plain.html'), subSiteLinks(subFooterDocument(document, sitePaths), { subPages, sitePaths, mapHosts: false }));
     const items = subMenuOf(document);
     console.log(`${key}: nav ${items.length} top items, ${items.reduce((s, t) => s + t.columns.length, 0)} columns, ${items.reduce((s, t) => s + t.columns.reduce((x, c) => x + c.links.length, 0), 0)} links${search ? ', search' : ''}`);
   }));

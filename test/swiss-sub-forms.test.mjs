@@ -32,6 +32,20 @@ test('swiss-sub-dam.mjs withDaImages: www\'s sub-site-prefixed DAM paths (/corpo
   assert.deepEqual(files, ['/content/dam/lx/images/local_images/logo-lx-og.jpg', '/content/dam/lx/images/offers/fallback/generic-stage.jpg']);
 });
 
+test('swiss-sub-nav.mjs subFooterDocument: the main site\'s footer document plus the sub-sites\' Star Alliance link (www: a maui-navigation-link in the sub-footer\'s third column)', async () => {
+  const { parseHTML } = await import('linkedom');
+  const { subFooterDocument } = await import('../tools/importer/swiss-sub-nav.mjs');
+  const { document } = parseHTML(`<html><body><footer><div class="subfooter"><div class="grid-col-1"><a class="logo" href="https://www.swiss.com"><img src="/etc/designs/lx/clientlib-all/vite/img/swiss-logo.svg" alt="logo, back to homepage"></a>
+<a class="lhg-logo" href="https://www.lufthansagroup.com"><img src="/content/dam/lx/icons/lhg.svg" alt="Member of Lufthansa Group"></a></div>
+<div class="swiss-site-navigation grid-col-2"><ul><li><a href="/ch/de/terms-conditions/imprint">Impressum</a></li></ul></div>
+<div class="grid-col-3"><maui-navigation-link href="https://www.staralliance.com/"><div class="sr-only">Star Alliance</div><img src="/etc/designs/lx/clientlib-all/vite/img/star-alliance.svg" alt="Homepage"></maui-navigation-link></div></div></footer></body></html>`);
+  const doc = subFooterDocument(document, new Set());
+  assert.ok(doc.includes('<li><a href="https://www.staralliance.com/" title="Star Alliance">:star-alliance:</a></li>'), doc);
+  assert.equal((doc.match(/:star-alliance:/g) || []).length, 1);
+  const logoRow = doc.split('\n<div>').find((s) => s.includes('lhg.svg'));
+  assert.ok(logoRow.includes(':star-alliance:'), 'in the logo row');
+});
+
 test('withoutNullLinks: www\'s links to /<sub-site>/null/<ll>.html unwrapped, the content stays', () => {
   const doc = '<p><a href="https://www.swiss.com/medicalservices/null/de.html"><picture><img src="x.jpg"></picture></a></p><a href="/medicalservices/de/contact">ok</a>';
   assert.equal(withoutNullLinks(doc), '<p><picture><img src="x.jpg"></picture></p><a href="/medicalservices/de/contact">ok</a>');

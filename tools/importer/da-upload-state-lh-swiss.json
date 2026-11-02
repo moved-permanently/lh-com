@@ -3059,6 +3059,1271 @@
    "uploaded": "2026-11-02T14:30:47.868Z",
    "mtime": 1793629691890,
    "preview": "2026-11-02T14:30:49.853Z"
+  },
+  "/corporate/de/careers": {
+   "uploaded": "2026-11-02T18:56:20.410Z",
+   "mtime": 1793642900368,
+   "preview": "2026-11-02T18:56:22.628Z"
+  },
+  "/corporate/de/careers/information-events": {
+   "uploaded": "2026-11-02T18:56:24.418Z",
+   "mtime": 1793642899890,
+   "preview": "2026-11-02T18:56:26.638Z"
+  },
+  "/corporate/de/careers/information-events/cabin": {
+   "uploaded": "2026-11-02T18:56:28.150Z",
+   "mtime": 1793642899702,
+   "preview": "2026-11-02T18:56:29.934Z"
+  },
+  "/corporate/de/careers/information-events/cockpit": {
+   "uploaded": "2026-11-02T18:56:31.444Z",
+   "mtime": 1793642899727,
+   "preview": "2026-11-02T18:56:33.441Z"
+  },
+  "/corporate/de/careers/information-events/events": {
+   "uploaded": "2026-11-02T18:56:35.067Z",
+   "mtime": 1793642899825,
+   "preview": "2026-11-02T18:56:36.873Z"
+  },
+  "/corporate/de/careers/information-events/experience-day": {
+   "uploaded": "2026-11-02T18:56:38.326Z",
+   "mtime": 1793642899866,
+   "preview": "2026-11-02T18:56:40.481Z"
+  },
+  "/corporate/de/careers/job-vacancies": {
+   "uploaded": "2026-11-02T18:56:42.028Z",
+   "mtime": 1793642899910,
+   "preview": "2026-11-02T18:56:44.069Z"
+  },
+  "/corporate/de/careers/professional-fields": {
+   "uploaded": "2026-11-02T18:56:45.499Z",
+   "mtime": 1793642900152,
+   "preview": "2026-11-02T18:56:47.592Z"
+  },
+  "/corporate/de/careers/professional-fields/apprenticeships": {
+   "uploaded": "2026-11-02T18:56:49.114Z",
+   "mtime": 1793642899944,
+   "preview": "2026-11-02T18:56:51.262Z"
+  },
+  "/corporate/de/careers/professional-fields/cabin-crew-member": {
+   "uploaded": "2026-11-02T18:56:52.940Z",
+   "mtime": 1793642938276,
+   "preview": "2026-11-02T18:56:55.139Z"
+  },
+  "/corporate/de/careers/professional-fields/internships": {
+   "uploaded": "2026-11-02T18:56:57.176Z",
+   "mtime": 1793642900037,
+   "preview": "2026-11-02T18:56:59.026Z"
+  },
+  "/corporate/de/careers/professional-fields/pilots": {
+   "uploaded": "2026-11-02T18:57:00.516Z",
+   "mtime": 1793642900072,
+   "preview": "2026-11-02T18:57:02.963Z"
+  },
+  "/corporate/de/careers/professional-fields/professions-on-ground": {
+   "uploaded": "2026-11-02T18:57:04.589Z",
+   "mtime": 1793642900111,
+   "preview": "2026-11-02T18:57:06.747Z"
+  },
+  "/corporate/de/careers/professional-fields/techops": {
+   "uploaded": "2026-11-02T18:57:08.141Z",
+   "mtime": 1793642938339,
+   "preview": "2026-11-02T18:57:10.199Z"
+  },
+  "/corporate/de/careers/working-at-swiss": {
+   "uploaded": "2026-11-02T18:57:12.242Z",
+   "mtime": 1793642900341,
+   "preview": "2026-11-02T18:57:14.175Z"
+  },
+  "/corporate/de/careers/working-at-swiss/diversity": {
+   "uploaded": "2026-11-02T18:57:15.598Z",
+   "mtime": 1793642900177,
+   "preview": "2026-11-02T18:57:17.818Z"
+  },
+  "/corporate/de/careers/working-at-swiss/offers-for-employees": {
+   "uploaded": "2026-11-02T18:57:19.297Z",
+   "mtime": 1793642900210,
+   "preview": "2026-11-02T18:57:21.231Z"
+  },
+  "/corporate/de/careers/working-at-swiss/our-culture": {
+   "uploaded": "2026-11-02T18:57:22.942Z",
+   "mtime": 1793642900237,
+   "preview": "2026-11-02T18:57:25.140Z"
+  },
+  "/corporate/de/careers/working-at-swiss/work-environment": {
+   "uploaded": "2026-11-02T18:57:26.490Z",
+   "mtime": 1793642900268,
+   "preview": "2026-11-02T18:57:28.317Z"
+  },
+  "/corporate/de/company": {
+   "uploaded": "2026-11-02T18:57:29.969Z",
+   "mtime": 1793642900912,
+   "preview": "2026-11-02T18:57:32.243Z"
+  },
+  "/corporate/de/company/about-us": {
+   "uploaded": "2026-11-02T18:57:33.542Z",
+   "mtime": 1793642900527,
+   "preview": "2026-11-02T18:57:35.263Z"
+  },
+  "/corporate/de/company/about-us/board-of-directors": {
+   "uploaded": "2026-11-02T18:57:37.089Z",
+   "mtime": 1793642938431,
+   "preview": "2026-11-02T18:57:39.374Z"
+  },
+  "/corporate/de/company/about-us/company-profile": {
+   "uploaded": "2026-11-02T18:57:41.035Z",
+   "mtime": 1793642938461,
+   "preview": "2026-11-02T18:57:43.204Z"
+  },
+  "/corporate/de/company/about-us/lat-switzerland": {
+   "uploaded": "2026-11-02T18:57:44.663Z",
+   "mtime": 1793642900442,
+   "preview": "2026-11-02T18:57:46.771Z"
+  },
+  "/corporate/de/company/about-us/management-board": {
+   "uploaded": "2026-11-02T18:57:48.068Z",
+   "mtime": 1793642938495,
+   "preview": "2026-11-02T18:57:50.032Z"
+  },
+  "/corporate/de/company/about-us/procurement": {
+   "uploaded": "2026-11-02T18:57:51.652Z",
+   "mtime": 1793642938524,
+   "preview": "2026-11-02T18:57:53.554Z"
+  },
+  "/corporate/de/company/about-us/sponsoring": {
+   "uploaded": "2026-11-02T18:57:55.320Z",
+   "mtime": 1793642900510,
+   "preview": "2026-11-02T18:57:57.449Z"
+  },
+  "/corporate/de/company/aeropolitics": {
+   "uploaded": "2026-11-02T18:57:58.824Z",
+   "mtime": 1793642938572,
+   "preview": "2026-11-02T18:58:00.996Z"
+  },
+  "/corporate/de/company/corporate-responsibility": {
+   "uploaded": "2026-11-02T18:58:02.293Z",
+   "mtime": 1793642900873,
+   "preview": "2026-11-02T18:58:04.156Z"
+  },
+  "/corporate/de/company/corporate-responsibility/charity-partnerships": {
+   "uploaded": "2026-11-02T18:58:05.507Z",
+   "mtime": 1793642900572,
+   "preview": "2026-11-02T18:58:07.523Z"
+  },
+  "/corporate/de/company/corporate-responsibility/child-labour": {
+   "uploaded": "2026-11-02T18:58:09.159Z",
+   "mtime": 1793642938610,
+   "preview": "2026-11-02T18:58:10.830Z"
+  },
+  "/corporate/de/company/corporate-responsibility/compliance": {
+   "uploaded": "2026-11-02T18:58:12.330Z",
+   "mtime": 1793642938637,
+   "preview": "2026-11-02T18:58:14.027Z"
+  },
+  "/corporate/de/company/corporate-responsibility/corporate-citizenship": {
+   "uploaded": "2026-11-02T18:58:15.544Z",
+   "mtime": 1793642900643,
+   "preview": "2026-11-02T18:58:17.801Z"
+  },
+  "/corporate/de/company/corporate-responsibility/economic-sustainability": {
+   "uploaded": "2026-11-02T18:58:19.461Z",
+   "mtime": 1793642900665,
+   "preview": "2026-11-02T18:58:21.407Z"
+  },
+  "/corporate/de/company/corporate-responsibility/environmental-responsibility": {
+   "uploaded": "2026-11-02T18:58:22.715Z",
+   "mtime": 1793642938764,
+   "preview": "2026-11-02T18:58:24.835Z"
+  },
+  "/corporate/de/company/corporate-responsibility/environmental-responsibility/climate-projects": {
+   "uploaded": "2026-11-02T18:58:26.416Z",
+   "mtime": 1793642938685,
+   "preview": "2026-11-02T18:58:28.393Z"
+  },
+  "/corporate/de/company/corporate-responsibility/environmental-responsibility/fleet-renewal": {
+   "uploaded": "2026-11-02T18:58:29.970Z",
+   "mtime": 1793642900707,
+   "preview": "2026-11-02T18:58:31.849Z"
+  },
+  "/corporate/de/company/corporate-responsibility/environmental-responsibility/noise-emissions": {
+   "uploaded": "2026-11-02T18:58:33.490Z",
+   "mtime": 1793642900728,
+   "preview": "2026-11-02T18:58:35.346Z"
+  },
+  "/corporate/de/company/corporate-responsibility/environmental-responsibility/saf": {
+   "uploaded": "2026-11-02T18:58:36.916Z",
+   "mtime": 1793642938735,
+   "preview": "2026-11-02T18:58:38.870Z"
+  },
+  "/corporate/de/company/corporate-responsibility/product-responsibility": {
+   "uploaded": "2026-11-02T18:58:40.370Z",
+   "mtime": 1793642900789,
+   "preview": "2026-11-02T18:58:42.116Z"
+  },
+  "/corporate/de/company/corporate-responsibility/sdg": {
+   "uploaded": "2026-11-02T18:58:43.447Z",
+   "mtime": 1793642900810,
+   "preview": "2026-11-02T18:58:45.511Z"
+  },
+  "/corporate/de/company/corporate-responsibility/social-responsibility": {
+   "uploaded": "2026-11-02T18:58:46.924Z",
+   "mtime": 1793642938822,
+   "preview": "2026-11-02T18:58:48.823Z"
+  },
+  "/corporate/de/company/corporate-responsibility/social-responsibility/employer-responsibility": {
+   "uploaded": "2026-11-02T18:58:50.266Z",
+   "mtime": 1793642900831,
+   "preview": "2026-11-02T18:58:52.303Z"
+  },
+  "/corporate/de/company/partners-alliances/star-alliance": {
+   "uploaded": "2026-11-02T18:58:53.891Z",
+   "mtime": 1793642900894,
+   "preview": "2026-11-02T18:58:56.110Z"
+  },
+  "/corporate/de/footer": {
+   "uploaded": "2026-11-02T19:16:50.758Z",
+   "mtime": 1793646405096,
+   "preview": "2026-11-02T19:16:52.899Z"
+  },
+  "/corporate/de/homepage": {
+   "uploaded": "2026-11-02T18:59:00.956Z",
+   "mtime": 1793642900932,
+   "preview": "2026-11-02T18:59:02.856Z"
+  },
+  "/corporate/de/media": {
+   "uploaded": "2026-11-02T18:59:04.267Z",
+   "mtime": 1793642938914,
+   "preview": "2026-11-02T18:59:06.241Z"
+  },
+  "/corporate/de/media/media-permission": {
+   "uploaded": "2026-11-02T18:59:07.700Z",
+   "mtime": 1793642900953,
+   "preview": "2026-11-02T18:59:09.503Z"
+  },
+  "/corporate/de/media/media-request-form": {
+   "uploaded": "2026-11-02T18:59:10.980Z",
+   "mtime": 1793642900987,
+   "preview": "2026-11-02T18:59:12.587Z"
+  },
+  "/corporate/de/media/media-request-form/media-request-form-success": {
+   "uploaded": "2026-11-02T18:59:14.005Z",
+   "mtime": 1793642900971,
+   "preview": "2026-11-02T18:59:16.196Z"
+  },
+  "/corporate/de/nav": {
+   "uploaded": "2026-11-02T19:16:54.765Z",
+   "mtime": 1793646405118,
+   "preview": "2026-11-02T19:16:56.692Z"
+  },
+  "/corporate/de/search-results": {
+   "uploaded": "2026-11-02T18:59:20.781Z",
+   "mtime": 1793642901025,
+   "preview": "2026-11-02T18:59:22.337Z"
+  },
+  "/corporate/en/careers": {
+   "uploaded": "2026-11-02T18:59:24.172Z",
+   "mtime": 1793642901403,
+   "preview": "2026-11-02T18:59:26.199Z"
+  },
+  "/corporate/en/careers/information-events": {
+   "uploaded": "2026-11-02T18:59:27.654Z",
+   "mtime": 1793642901116,
+   "preview": "2026-11-02T18:59:29.583Z"
+  },
+  "/corporate/en/careers/information-events/cabin": {
+   "uploaded": "2026-11-02T18:59:31.116Z",
+   "mtime": 1793642901045,
+   "preview": "2026-11-02T18:59:32.912Z"
+  },
+  "/corporate/en/careers/information-events/cockpit": {
+   "uploaded": "2026-11-02T18:59:34.279Z",
+   "mtime": 1793642901062,
+   "preview": "2026-11-02T18:59:36.039Z"
+  },
+  "/corporate/en/careers/information-events/events": {
+   "uploaded": "2026-11-02T18:59:37.557Z",
+   "mtime": 1793642901079,
+   "preview": "2026-11-02T18:59:39.199Z"
+  },
+  "/corporate/en/careers/information-events/experience-day": {
+   "uploaded": "2026-11-02T18:59:40.577Z",
+   "mtime": 1793642901097,
+   "preview": "2026-11-02T18:59:42.309Z"
+  },
+  "/corporate/en/careers/job-vacancies": {
+   "uploaded": "2026-11-02T18:59:43.625Z",
+   "mtime": 1793642901133,
+   "preview": "2026-11-02T18:59:45.497Z"
+  },
+  "/corporate/en/careers/professional-fields": {
+   "uploaded": "2026-11-02T18:59:46.775Z",
+   "mtime": 1793642901287,
+   "preview": "2026-11-02T18:59:48.689Z"
+  },
+  "/corporate/en/careers/professional-fields/apprenticeships": {
+   "uploaded": "2026-11-02T18:59:50.204Z",
+   "mtime": 1793642901156,
+   "preview": "2026-11-02T18:59:51.977Z"
+  },
+  "/corporate/en/careers/professional-fields/cabin-crew-member": {
+   "uploaded": "2026-11-02T18:59:53.424Z",
+   "mtime": 1793642939019,
+   "preview": "2026-11-02T18:59:55.261Z"
+  },
+  "/corporate/en/careers/professional-fields/internships": {
+   "uploaded": "2026-11-02T18:59:56.926Z",
+   "mtime": 1793642901202,
+   "preview": "2026-11-02T18:59:58.677Z"
+  },
+  "/corporate/en/careers/professional-fields/pilots": {
+   "uploaded": "2026-11-02T19:00:00.216Z",
+   "mtime": 1793642901227,
+   "preview": "2026-11-02T19:00:02.587Z"
+  },
+  "/corporate/en/careers/professional-fields/professions-on-ground": {
+   "uploaded": "2026-11-02T19:00:04.612Z",
+   "mtime": 1793642901248,
+   "preview": "2026-11-02T19:00:06.859Z"
+  },
+  "/corporate/en/careers/professional-fields/techops": {
+   "uploaded": "2026-11-02T19:00:08.554Z",
+   "mtime": 1793642939085,
+   "preview": "2026-11-02T19:00:10.882Z"
+  },
+  "/corporate/en/careers/working-at-swiss": {
+   "uploaded": "2026-11-02T19:00:12.474Z",
+   "mtime": 1793642901385,
+   "preview": "2026-11-02T19:00:14.608Z"
+  },
+  "/corporate/en/careers/working-at-swiss/diversity": {
+   "uploaded": "2026-11-02T19:00:17.368Z",
+   "mtime": 1793642901308,
+   "preview": "2026-11-02T19:00:19.621Z"
+  },
+  "/corporate/en/careers/working-at-swiss/offers-for-employees": {
+   "uploaded": "2026-11-02T19:00:21.689Z",
+   "mtime": 1793642901327,
+   "preview": "2026-11-02T19:00:24.018Z"
+  },
+  "/corporate/en/careers/working-at-swiss/our-culture": {
+   "uploaded": "2026-11-02T19:00:25.851Z",
+   "mtime": 1793642901349,
+   "preview": "2026-11-02T19:00:28.625Z"
+  },
+  "/corporate/en/careers/working-at-swiss/work-environment": {
+   "uploaded": "2026-11-02T19:00:30.310Z",
+   "mtime": 1793642901369,
+   "preview": "2026-11-02T19:00:32.427Z"
+  },
+  "/corporate/en/company": {
+   "uploaded": "2026-11-02T19:00:34.214Z",
+   "mtime": 1793642902192,
+   "preview": "2026-11-02T19:00:36.296Z"
+  },
+  "/corporate/en/company/about-us": {
+   "uploaded": "2026-11-02T19:00:37.838Z",
+   "mtime": 1793642901569,
+   "preview": "2026-11-02T19:00:40.172Z"
+  },
+  "/corporate/en/company/about-us/board-of-directors": {
+   "uploaded": "2026-11-02T19:00:41.906Z",
+   "mtime": 1793642939170,
+   "preview": "2026-11-02T19:00:43.959Z"
+  },
+  "/corporate/en/company/about-us/company-profile": {
+   "uploaded": "2026-11-02T19:00:45.771Z",
+   "mtime": 1793642939198,
+   "preview": "2026-11-02T19:00:47.737Z"
+  },
+  "/corporate/en/company/about-us/lat-switzerland": {
+   "uploaded": "2026-11-02T19:00:49.448Z",
+   "mtime": 1793642901454,
+   "preview": "2026-11-02T19:00:51.458Z"
+  },
+  "/corporate/en/company/about-us/management-board": {
+   "uploaded": "2026-11-02T19:00:52.881Z",
+   "mtime": 1793642939242,
+   "preview": "2026-11-02T19:00:55.026Z"
+  },
+  "/corporate/en/company/about-us/procurement": {
+   "uploaded": "2026-11-02T19:00:56.708Z",
+   "mtime": 1793642939287,
+   "preview": "2026-11-02T19:00:59.393Z"
+  },
+  "/corporate/en/company/about-us/procurement/contact-corporate-procurement": {
+   "uploaded": "2026-11-02T19:01:01.229Z",
+   "mtime": 1793642901509,
+   "preview": "2026-11-02T19:01:03.461Z"
+  },
+  "/corporate/en/company/about-us/procurement/contact-corporate-procurement/contact-procurement-success": {
+   "uploaded": "2026-11-02T19:01:05.276Z",
+   "mtime": 1793642901490,
+   "preview": "2026-11-02T19:01:07.255Z"
+  },
+  "/corporate/en/company/about-us/sponsoring": {
+   "uploaded": "2026-11-02T19:01:08.894Z",
+   "mtime": 1793642901550,
+   "preview": "2026-11-02T19:01:11.532Z"
+  },
+  "/corporate/en/company/aeropolitics": {
+   "uploaded": "2026-11-02T19:01:13.079Z",
+   "mtime": 1793642939336,
+   "preview": "2026-11-02T19:01:15.118Z"
+  },
+  "/corporate/en/company/corporate-responsibility": {
+   "uploaded": "2026-11-02T19:01:16.824Z",
+   "mtime": 1793642902151,
+   "preview": "2026-11-02T19:01:23.620Z"
+  },
+  "/corporate/en/company/corporate-responsibility/charity-partnerships": {
+   "uploaded": "2026-11-02T19:01:30.492Z",
+   "mtime": 1793642901611,
+   "preview": "2026-11-02T19:01:32.502Z"
+  },
+  "/corporate/en/company/corporate-responsibility/child-labour": {
+   "uploaded": "2026-11-02T19:01:33.930Z",
+   "mtime": 1793642939373,
+   "preview": "2026-11-02T19:01:35.634Z"
+  },
+  "/corporate/en/company/corporate-responsibility/compliance": {
+   "uploaded": "2026-11-02T19:01:37.071Z",
+   "mtime": 1793642939402,
+   "preview": "2026-11-02T19:01:39.146Z"
+  },
+  "/corporate/en/company/corporate-responsibility/corporate-citizenship": {
+   "uploaded": "2026-11-02T19:01:40.727Z",
+   "mtime": 1793642901677,
+   "preview": "2026-11-02T19:01:42.891Z"
+  },
+  "/corporate/en/company/corporate-responsibility/economic-sustainability": {
+   "uploaded": "2026-11-02T19:01:44.307Z",
+   "mtime": 1793642901693,
+   "preview": "2026-11-02T19:01:46.464Z"
+  },
+  "/corporate/en/company/corporate-responsibility/environmental-responsibility": {
+   "uploaded": "2026-11-02T19:01:48.104Z",
+   "mtime": 1793642939520,
+   "preview": "2026-11-02T19:01:50.344Z"
+  },
+  "/corporate/en/company/corporate-responsibility/environmental-responsibility/climate-projects": {
+   "uploaded": "2026-11-02T19:01:51.679Z",
+   "mtime": 1793642939446,
+   "preview": "2026-11-02T19:01:53.538Z"
+  },
+  "/corporate/en/company/corporate-responsibility/environmental-responsibility/fleet-renewal": {
+   "uploaded": "2026-11-02T19:01:54.928Z",
+   "mtime": 1793642901971,
+   "preview": "2026-11-02T19:01:57.288Z"
+  },
+  "/corporate/en/company/corporate-responsibility/environmental-responsibility/noise-emissions": {
+   "uploaded": "2026-11-02T19:01:59.072Z",
+   "mtime": 1793642901992,
+   "preview": "2026-11-02T19:02:01.134Z"
+  },
+  "/corporate/en/company/corporate-responsibility/environmental-responsibility/saf": {
+   "uploaded": "2026-11-02T19:02:02.786Z",
+   "mtime": 1793642939491,
+   "preview": "2026-11-02T19:02:05.087Z"
+  },
+  "/corporate/en/company/corporate-responsibility/product-responsibility": {
+   "uploaded": "2026-11-02T19:02:06.653Z",
+   "mtime": 1793642902056,
+   "preview": "2026-11-02T19:02:08.625Z"
+  },
+  "/corporate/en/company/corporate-responsibility/sdg": {
+   "uploaded": "2026-11-02T19:02:10.038Z",
+   "mtime": 1793642902079,
+   "preview": "2026-11-02T19:02:12.289Z"
+  },
+  "/corporate/en/company/corporate-responsibility/social-responsibility": {
+   "uploaded": "2026-11-02T19:02:14.107Z",
+   "mtime": 1793642939571,
+   "preview": "2026-11-02T19:02:16.024Z"
+  },
+  "/corporate/en/company/corporate-responsibility/social-responsibility/employer-responsibility": {
+   "uploaded": "2026-11-02T19:02:17.388Z",
+   "mtime": 1793642902109,
+   "preview": "2026-11-02T19:02:19.325Z"
+  },
+  "/corporate/en/company/partners-alliances/star-alliance": {
+   "uploaded": "2026-11-02T19:02:20.880Z",
+   "mtime": 1793642902173,
+   "preview": "2026-11-02T19:02:23.352Z"
+  },
+  "/corporate/en/footer": {
+   "uploaded": "2026-11-02T19:16:58.226Z",
+   "mtime": 1793646405139,
+   "preview": "2026-11-02T19:17:00.270Z"
+  },
+  "/corporate/en/homepage": {
+   "uploaded": "2026-11-02T19:02:28.123Z",
+   "mtime": 1793642902211,
+   "preview": "2026-11-02T19:02:30.223Z"
+  },
+  "/corporate/en/media": {
+   "uploaded": "2026-11-02T19:02:31.862Z",
+   "mtime": 1793642939654,
+   "preview": "2026-11-02T19:02:33.895Z"
+  },
+  "/corporate/en/media/media-permission": {
+   "uploaded": "2026-11-02T19:02:35.391Z",
+   "mtime": 1793642902232,
+   "preview": "2026-11-02T19:02:37.278Z"
+  },
+  "/corporate/en/media/media-request-form": {
+   "uploaded": "2026-11-02T19:02:38.760Z",
+   "mtime": 1793642902266,
+   "preview": "2026-11-02T19:02:40.641Z"
+  },
+  "/corporate/en/media/media-request-form/media-request-form-success": {
+   "uploaded": "2026-11-02T19:02:42.087Z",
+   "mtime": 1793642902250,
+   "preview": "2026-11-02T19:02:43.879Z"
+  },
+  "/corporate/en/nav": {
+   "uploaded": "2026-11-02T19:17:01.781Z",
+   "mtime": 1793646405175,
+   "preview": "2026-11-02T19:17:03.822Z"
+  },
+  "/corporate/en/search-results": {
+   "uploaded": "2026-11-02T19:02:48.829Z",
+   "mtime": 1793642902305,
+   "preview": "2026-11-02T19:02:50.395Z"
+  },
+  "/corporate/fr/careers": {
+   "uploaded": "2026-11-02T19:02:51.714Z",
+   "mtime": 1793642902692,
+   "preview": "2026-11-02T19:02:54.114Z"
+  },
+  "/corporate/fr/careers/information-events": {
+   "uploaded": "2026-11-02T19:02:55.519Z",
+   "mtime": 1793642902388,
+   "preview": "2026-11-02T19:02:57.317Z"
+  },
+  "/corporate/fr/careers/information-events/cabin": {
+   "uploaded": "2026-11-02T19:02:58.875Z",
+   "mtime": 1793642902322,
+   "preview": "2026-11-02T19:03:00.713Z"
+  },
+  "/corporate/fr/careers/information-events/cockpit": {
+   "uploaded": "2026-11-02T19:03:02.259Z",
+   "mtime": 1793642902338,
+   "preview": "2026-11-02T19:03:04.047Z"
+  },
+  "/corporate/fr/careers/information-events/events": {
+   "uploaded": "2026-11-02T19:03:05.618Z",
+   "mtime": 1793642902354,
+   "preview": "2026-11-02T19:03:07.438Z"
+  },
+  "/corporate/fr/careers/information-events/experience-day": {
+   "uploaded": "2026-11-02T19:03:08.901Z",
+   "mtime": 1793642902370,
+   "preview": "2026-11-02T19:03:10.828Z"
+  },
+  "/corporate/fr/careers/job-vacancies": {
+   "uploaded": "2026-11-02T19:03:12.268Z",
+   "mtime": 1793642902406,
+   "preview": "2026-11-02T19:03:14.083Z"
+  },
+  "/corporate/fr/careers/professional-fields": {
+   "uploaded": "2026-11-02T19:03:15.521Z",
+   "mtime": 1793642902572,
+   "preview": "2026-11-02T19:03:17.831Z"
+  },
+  "/corporate/fr/careers/professional-fields/apprenticeships": {
+   "uploaded": "2026-11-02T19:03:19.338Z",
+   "mtime": 1793642902429,
+   "preview": "2026-11-02T19:03:21.661Z"
+  },
+  "/corporate/fr/careers/professional-fields/cabin-crew-member": {
+   "uploaded": "2026-11-02T19:03:23.225Z",
+   "mtime": 1793642939753,
+   "preview": "2026-11-02T19:03:25.251Z"
+  },
+  "/corporate/fr/careers/professional-fields/internships": {
+   "uploaded": "2026-11-02T19:03:26.714Z",
+   "mtime": 1793642902482,
+   "preview": "2026-11-02T19:03:28.706Z"
+  },
+  "/corporate/fr/careers/professional-fields/pilots": {
+   "uploaded": "2026-11-02T19:03:30.570Z",
+   "mtime": 1793642902507,
+   "preview": "2026-11-02T19:03:32.820Z"
+  },
+  "/corporate/fr/careers/professional-fields/professions-on-ground": {
+   "uploaded": "2026-11-02T19:03:34.194Z",
+   "mtime": 1793642902530,
+   "preview": "2026-11-02T19:03:36.156Z"
+  },
+  "/corporate/fr/careers/professional-fields/techops": {
+   "uploaded": "2026-11-02T19:03:37.791Z",
+   "mtime": 1793642939813,
+   "preview": "2026-11-02T19:03:39.937Z"
+  },
+  "/corporate/fr/careers/working-at-swiss": {
+   "uploaded": "2026-11-02T19:03:41.430Z",
+   "mtime": 1793642902667,
+   "preview": "2026-11-02T19:03:43.432Z"
+  },
+  "/corporate/fr/careers/working-at-swiss/diversity": {
+   "uploaded": "2026-11-02T19:03:44.985Z",
+   "mtime": 1793642902592,
+   "preview": "2026-11-02T19:03:46.840Z"
+  },
+  "/corporate/fr/careers/working-at-swiss/offers-for-employees": {
+   "uploaded": "2026-11-02T19:03:48.525Z",
+   "mtime": 1793642902608,
+   "preview": "2026-11-02T19:03:51.210Z"
+  },
+  "/corporate/fr/careers/working-at-swiss/our-culture": {
+   "uploaded": "2026-11-02T19:03:52.527Z",
+   "mtime": 1793642902628,
+   "preview": "2026-11-02T19:03:54.770Z"
+  },
+  "/corporate/fr/careers/working-at-swiss/work-environment": {
+   "uploaded": "2026-11-02T19:03:56.163Z",
+   "mtime": 1793642902650,
+   "preview": "2026-11-02T19:03:58.158Z"
+  },
+  "/corporate/fr/company": {
+   "uploaded": "2026-11-02T19:03:59.832Z",
+   "mtime": 1793642903183,
+   "preview": "2026-11-02T19:04:01.814Z"
+  },
+  "/corporate/fr/company/about-us": {
+   "uploaded": "2026-11-02T19:04:03.299Z",
+   "mtime": 1793642902835,
+   "preview": "2026-11-02T19:04:05.417Z"
+  },
+  "/corporate/fr/company/about-us/board-of-directors": {
+   "uploaded": "2026-11-02T19:04:06.988Z",
+   "mtime": 1793642939898,
+   "preview": "2026-11-02T19:04:09.120Z"
+  },
+  "/corporate/fr/company/about-us/company-profile": {
+   "uploaded": "2026-11-02T19:04:10.517Z",
+   "mtime": 1793642939927,
+   "preview": "2026-11-02T19:04:12.463Z"
+  },
+  "/corporate/fr/company/about-us/lat-switzerland": {
+   "uploaded": "2026-11-02T19:04:13.801Z",
+   "mtime": 1793642902749,
+   "preview": "2026-11-02T19:04:15.796Z"
+  },
+  "/corporate/fr/company/about-us/management-board": {
+   "uploaded": "2026-11-02T19:04:17.043Z",
+   "mtime": 1793642939962,
+   "preview": "2026-11-02T19:04:18.937Z"
+  },
+  "/corporate/fr/company/about-us/procurement": {
+   "uploaded": "2026-11-02T19:04:20.367Z",
+   "mtime": 1793642939992,
+   "preview": "2026-11-02T19:04:22.391Z"
+  },
+  "/corporate/fr/company/about-us/sponsoring": {
+   "uploaded": "2026-11-02T19:04:23.893Z",
+   "mtime": 1793642902810,
+   "preview": "2026-11-02T19:04:26.073Z"
+  },
+  "/corporate/fr/company/aeropolitics": {
+   "uploaded": "2026-11-02T19:04:27.447Z",
+   "mtime": 1793642940038,
+   "preview": "2026-11-02T19:04:29.351Z"
+  },
+  "/corporate/fr/company/corporate-responsibility": {
+   "uploaded": "2026-11-02T19:04:30.807Z",
+   "mtime": 1793642903144,
+   "preview": "2026-11-02T19:04:32.793Z"
+  },
+  "/corporate/fr/company/corporate-responsibility/child-labour": {
+   "uploaded": "2026-11-02T19:04:34.220Z",
+   "mtime": 1793642940067,
+   "preview": "2026-11-02T19:04:35.924Z"
+  },
+  "/corporate/fr/company/corporate-responsibility/compliance": {
+   "uploaded": "2026-11-02T19:04:37.425Z",
+   "mtime": 1793642940104,
+   "preview": "2026-11-02T19:04:39.220Z"
+  },
+  "/corporate/fr/company/corporate-responsibility/corporate-citizenship": {
+   "uploaded": "2026-11-02T19:04:40.712Z",
+   "mtime": 1793642902927,
+   "preview": "2026-11-02T19:04:42.767Z"
+  },
+  "/corporate/fr/company/corporate-responsibility/economic-sustainability": {
+   "uploaded": "2026-11-02T19:04:44.457Z",
+   "mtime": 1793642902943,
+   "preview": "2026-11-02T19:04:46.282Z"
+  },
+  "/corporate/fr/company/corporate-responsibility/environmental-responsibility": {
+   "uploaded": "2026-11-02T19:04:47.837Z",
+   "mtime": 1793642940234,
+   "preview": "2026-11-02T19:04:49.887Z"
+  },
+  "/corporate/fr/company/corporate-responsibility/environmental-responsibility/climate-projects": {
+   "uploaded": "2026-11-02T19:04:51.251Z",
+   "mtime": 1793642940151,
+   "preview": "2026-11-02T19:04:53.212Z"
+  },
+  "/corporate/fr/company/corporate-responsibility/environmental-responsibility/fleet-renewal": {
+   "uploaded": "2026-11-02T19:04:54.750Z",
+   "mtime": 1793642902982,
+   "preview": "2026-11-02T19:04:56.530Z"
+  },
+  "/corporate/fr/company/corporate-responsibility/environmental-responsibility/noise-emissions": {
+   "uploaded": "2026-11-02T19:04:58.203Z",
+   "mtime": 1793642903002,
+   "preview": "2026-11-02T19:05:00.079Z"
+  },
+  "/corporate/fr/company/corporate-responsibility/environmental-responsibility/saf": {
+   "uploaded": "2026-11-02T19:05:01.483Z",
+   "mtime": 1793642940198,
+   "preview": "2026-11-02T19:05:03.537Z"
+  },
+  "/corporate/fr/company/corporate-responsibility/product-responsibility": {
+   "uploaded": "2026-11-02T19:05:05.291Z",
+   "mtime": 1793642903061,
+   "preview": "2026-11-02T19:05:07.695Z"
+  },
+  "/corporate/fr/company/corporate-responsibility/sdg": {
+   "uploaded": "2026-11-02T19:05:09.008Z",
+   "mtime": 1793642903079,
+   "preview": "2026-11-02T19:05:11.216Z"
+  },
+  "/corporate/fr/company/corporate-responsibility/social-responsibility": {
+   "uploaded": "2026-11-02T19:05:12.485Z",
+   "mtime": 1793642940289,
+   "preview": "2026-11-02T19:05:14.786Z"
+  },
+  "/corporate/fr/company/corporate-responsibility/social-responsibility/employer-responsibility": {
+   "uploaded": "2026-11-02T19:05:16.244Z",
+   "mtime": 1793642903099,
+   "preview": "2026-11-02T19:05:18.291Z"
+  },
+  "/corporate/fr/company/partners-alliances/star-alliance": {
+   "uploaded": "2026-11-02T19:05:19.993Z",
+   "mtime": 1793642903166,
+   "preview": "2026-11-02T19:05:22.350Z"
+  },
+  "/corporate/fr/footer": {
+   "uploaded": "2026-11-02T19:17:05.571Z",
+   "mtime": 1793646405196,
+   "preview": "2026-11-02T19:17:07.761Z"
+  },
+  "/corporate/fr/homepage": {
+   "uploaded": "2026-11-02T19:05:27.351Z",
+   "mtime": 1793642903202,
+   "preview": "2026-11-02T19:05:29.180Z"
+  },
+  "/corporate/fr/media": {
+   "uploaded": "2026-11-02T19:05:30.879Z",
+   "mtime": 1793642940383,
+   "preview": "2026-11-02T19:05:33.094Z"
+  },
+  "/corporate/fr/media/media-permission": {
+   "uploaded": "2026-11-02T19:05:34.927Z",
+   "mtime": 1793642903225,
+   "preview": "2026-11-02T19:05:36.941Z"
+  },
+  "/corporate/fr/media/media-request-form": {
+   "uploaded": "2026-11-02T19:05:38.446Z",
+   "mtime": 1793642903260,
+   "preview": "2026-11-02T19:05:42.431Z"
+  },
+  "/corporate/fr/media/media-request-form/media-request-form-success": {
+   "uploaded": "2026-11-02T19:05:43.852Z",
+   "mtime": 1793642903241,
+   "preview": "2026-11-02T19:05:45.534Z"
+  },
+  "/corporate/fr/nav": {
+   "uploaded": "2026-11-02T19:17:10.464Z",
+   "mtime": 1793646405218,
+   "preview": "2026-11-02T19:17:12.173Z"
+  },
+  "/corporate/fr/search-results": {
+   "uploaded": "2026-11-02T19:05:50.790Z",
+   "mtime": 1793642903301,
+   "preview": "2026-11-02T19:05:52.766Z"
+  },
+  "/medicalservices/de/aviation/after-the-flight": {
+   "uploaded": "2026-11-02T19:05:54.215Z",
+   "mtime": 1793642903356,
+   "preview": "2026-11-02T19:05:56.093Z"
+  },
+  "/medicalservices/de/aviation/after-the-flight/changes-of-climate": {
+   "uploaded": "2026-11-02T19:05:57.492Z",
+   "mtime": 1793642903319,
+   "preview": "2026-11-02T19:05:59.457Z"
+  },
+  "/medicalservices/de/aviation/after-the-flight/jet-lag": {
+   "uploaded": "2026-11-02T19:06:01.109Z",
+   "mtime": 1793642903339,
+   "preview": "2026-11-02T19:06:03.057Z"
+  },
+  "/medicalservices/de/aviation/before-the-flight": {
+   "uploaded": "2026-11-02T19:06:04.442Z",
+   "mtime": 1793642903498,
+   "preview": "2026-11-02T19:06:06.076Z"
+  },
+  "/medicalservices/de/aviation/before-the-flight/deep-vein-thrombosis": {
+   "uploaded": "2026-11-02T19:06:07.959Z",
+   "mtime": 1793642903376,
+   "preview": "2026-11-02T19:06:09.688Z"
+  },
+  "/medicalservices/de/aviation/before-the-flight/diabetes-and-dialysis": {
+   "uploaded": "2026-11-02T19:06:11.245Z",
+   "mtime": 1793642903394,
+   "preview": "2026-11-02T19:06:13.165Z"
+  },
+  "/medicalservices/de/aviation/before-the-flight/fear-of-flying": {
+   "uploaded": "2026-11-02T19:06:14.800Z",
+   "mtime": 1793642903411,
+   "preview": "2026-11-02T19:06:16.804Z"
+  },
+  "/medicalservices/de/aviation/before-the-flight/flying-when-pregnant-and-with-children": {
+   "uploaded": "2026-11-02T19:06:18.265Z",
+   "mtime": 1793642903429,
+   "preview": "2026-11-02T19:06:20.098Z"
+  },
+  "/medicalservices/de/aviation/before-the-flight/pre-departure-tips": {
+   "uploaded": "2026-11-02T19:06:21.589Z",
+   "mtime": 1793642903447,
+   "preview": "2026-11-02T19:06:23.648Z"
+  },
+  "/medicalservices/de/aviation/before-the-flight/the-medif-form-and-medical-certificates": {
+   "uploaded": "2026-11-02T19:06:25.039Z",
+   "mtime": 1793642940482,
+   "preview": "2026-11-02T19:06:26.920Z"
+  },
+  "/medicalservices/de/aviation/before-the-flight/vaccinations": {
+   "uploaded": "2026-11-02T19:06:28.317Z",
+   "mtime": 1793642903481,
+   "preview": "2026-11-02T19:06:30.225Z"
+  },
+  "/medicalservices/de/aviation/during-the-flight": {
+   "uploaded": "2026-11-02T19:06:31.721Z",
+   "mtime": 1793642903601,
+   "preview": "2026-11-02T19:06:33.259Z"
+  },
+  "/medicalservices/de/aviation/during-the-flight/earache": {
+   "uploaded": "2026-11-02T19:06:34.807Z",
+   "mtime": 1793642903516,
+   "preview": "2026-11-02T19:06:37.030Z"
+  },
+  "/medicalservices/de/aviation/during-the-flight/feeling-well-inflight": {
+   "uploaded": "2026-11-02T19:06:38.438Z",
+   "mtime": 1793642903533,
+   "preview": "2026-11-02T19:06:40.353Z"
+  },
+  "/medicalservices/de/aviation/during-the-flight/motion-sickness": {
+   "uploaded": "2026-11-02T19:06:41.937Z",
+   "mtime": 1793642903552,
+   "preview": "2026-11-02T19:06:44.089Z"
+  },
+  "/medicalservices/de/aviation/during-the-flight/special-meals": {
+   "uploaded": "2026-11-02T19:06:45.843Z",
+   "mtime": 1793642903583,
+   "preview": "2026-11-02T19:06:47.877Z"
+  },
+  "/medicalservices/de/aviation/effects-of-flying": {
+   "uploaded": "2026-11-02T19:06:49.442Z",
+   "mtime": 1793642903664,
+   "preview": "2026-11-02T19:06:51.283Z"
+  },
+  "/medicalservices/de/aviation/effects-of-flying/different-air-pressure-in-the-cabin": {
+   "uploaded": "2026-11-02T19:06:52.669Z",
+   "mtime": 1793642903617,
+   "preview": "2026-11-02T19:06:54.485Z"
+  },
+  "/medicalservices/de/aviation/effects-of-flying/quality-of-cabin-air": {
+   "uploaded": "2026-11-02T19:06:55.930Z",
+   "mtime": 1793642903638,
+   "preview": "2026-11-02T19:06:57.852Z"
+  },
+  "/medicalservices/de/contact": {
+   "uploaded": "2026-11-02T19:06:59.607Z",
+   "mtime": 1793642903682,
+   "preview": "2026-11-02T19:07:01.470Z"
+  },
+  "/medicalservices/de/footer": {
+   "uploaded": "2026-11-02T19:07:03.067Z",
+   "mtime": 1793646405235,
+   "preview": "2026-11-02T19:07:05.120Z"
+  },
+  "/medicalservices/de/health/flying-with-a-medical-condition": {
+   "uploaded": "2026-11-02T19:07:07.185Z",
+   "mtime": 1793642903758,
+   "preview": "2026-11-02T19:07:08.910Z"
+  },
+  "/medicalservices/de/health/flying-with-a-medical-condition/flying-when-sick-or-after-an-operation": {
+   "uploaded": "2026-11-02T19:07:10.324Z",
+   "mtime": 1793642903700,
+   "preview": "2026-11-02T19:07:12.172Z"
+  },
+  "/medicalservices/de/health/flying-with-a-medical-condition/flying-with-a-peanut-allergy": {
+   "uploaded": "2026-11-02T19:07:13.782Z",
+   "mtime": 1793642903719,
+   "preview": "2026-11-02T19:07:16.199Z"
+  },
+  "/medicalservices/de/health/flying-with-a-medical-condition/flying-with-diabetes": {
+   "uploaded": "2026-11-02T19:07:17.603Z",
+   "mtime": 1793642903737,
+   "preview": "2026-11-02T19:07:19.664Z"
+  },
+  "/medicalservices/de/health/medical-clearance-to-fly": {
+   "uploaded": "2026-11-02T19:07:21.123Z",
+   "mtime": 1793642903819,
+   "preview": "2026-11-02T19:07:23.161Z"
+  },
+  "/medicalservices/de/health/medical-clearance-to-fly/fit-to-fly-requirements": {
+   "uploaded": "2026-11-02T19:07:24.555Z",
+   "mtime": 1793642940627,
+   "preview": "2026-11-02T19:07:26.500Z"
+  },
+  "/medicalservices/de/health/medical-clearance-to-fly/saf-medif-form-and-medical-certificates": {
+   "uploaded": "2026-11-02T19:07:28.228Z",
+   "mtime": 1793642940652,
+   "preview": "2026-11-02T19:07:30.158Z"
+  },
+  "/medicalservices/de/health/medical-equipment-and-care": {
+   "uploaded": "2026-11-02T19:07:32.097Z",
+   "mtime": 1793642903948,
+   "preview": "2026-11-02T19:07:34.057Z"
+  },
+  "/medicalservices/de/health/medical-equipment-and-care/cabin-crew-members-medical-training": {
+   "uploaded": "2026-11-02T19:07:35.537Z",
+   "mtime": 1793642903837,
+   "preview": "2026-11-02T19:07:37.863Z"
+  },
+  "/medicalservices/de/health/medical-equipment-and-care/cabin-disinsection": {
+   "uploaded": "2026-11-02T19:07:39.486Z",
+   "mtime": 1793642903854,
+   "preview": "2026-11-02T19:07:41.347Z"
+  },
+  "/medicalservices/de/health/medical-equipment-and-care/inflight-medical-support-from-ground": {
+   "uploaded": "2026-11-02T19:07:42.941Z",
+   "mtime": 1793642903872,
+   "preview": "2026-11-02T19:07:44.772Z"
+  },
+  "/medicalservices/de/health/medical-equipment-and-care/medical-devices": {
+   "uploaded": "2026-11-02T19:07:46.328Z",
+   "mtime": 1793642940710,
+   "preview": "2026-11-02T19:07:48.222Z"
+  },
+  "/medicalservices/de/health/medical-equipment-and-care/medication-pacemakers-and-implants": {
+   "uploaded": "2026-11-02T19:07:49.716Z",
+   "mtime": 1793642903913,
+   "preview": "2026-11-02T19:07:51.549Z"
+  },
+  "/medicalservices/de/health/medical-equipment-and-care/on-board-medical-equipment": {
+   "uploaded": "2026-11-02T19:07:53.079Z",
+   "mtime": 1793642903930,
+   "preview": "2026-11-02T19:07:54.929Z"
+  },
+  "/medicalservices/de/health/passengers-with-disabilities/extra-oxygen": {
+   "uploaded": "2026-11-02T19:07:56.389Z",
+   "mtime": 1793642940756,
+   "preview": "2026-11-02T19:07:58.312Z"
+  },
+  "/medicalservices/de/health/passengers-with-disabilities/seating-on-board": {
+   "uploaded": "2026-11-02T19:07:59.816Z",
+   "mtime": 1793642903983,
+   "preview": "2026-11-02T19:08:01.758Z"
+  },
+  "/medicalservices/de/health/passengers-with-disabilities/special-meals": {
+   "uploaded": "2026-11-02T19:08:03.293Z",
+   "mtime": 1793642903999,
+   "preview": "2026-11-02T19:08:05.330Z"
+  },
+  "/medicalservices/de/health/passengers-with-disabilities/visually-or-hearing-impaired-passengers": {
+   "uploaded": "2026-11-02T19:08:06.888Z",
+   "mtime": 1793642904017,
+   "preview": "2026-11-02T19:08:08.864Z"
+  },
+  "/medicalservices/de/health/passengers-with-disabilities/wheelchairs": {
+   "uploaded": "2026-11-02T19:08:10.436Z",
+   "mtime": 1793642940807,
+   "preview": "2026-11-02T19:08:12.497Z"
+  },
+  "/medicalservices/de/homepage": {
+   "uploaded": "2026-11-02T19:08:13.976Z",
+   "mtime": 1793642904056,
+   "preview": "2026-11-02T19:08:16.310Z"
+  },
+  "/medicalservices/de/important-forms": {
+   "uploaded": "2026-11-02T19:08:17.594Z",
+   "mtime": 1793642940842,
+   "preview": "2026-11-02T19:08:19.390Z"
+  },
+  "/medicalservices/de/nav": {
+   "uploaded": "2026-11-02T19:08:20.875Z",
+   "mtime": 1793646405255,
+   "preview": "2026-11-02T19:08:22.518Z"
+  },
+  "/medicalservices/de/occupation": {
+   "uploaded": "2026-11-02T19:08:24.066Z",
+   "mtime": 1793642904131,
+   "preview": "2026-11-02T19:08:26.140Z"
+  },
+  "/medicalservices/de/occupation/occupational-medicine": {
+   "uploaded": "2026-11-02T19:08:27.568Z",
+   "mtime": 1793642904113,
+   "preview": "2026-11-02T19:08:29.316Z"
+  },
+  "/medicalservices/de/occupation/occupational-medicine/our-services": {
+   "uploaded": "2026-11-02T19:08:30.844Z",
+   "mtime": 1793642904094,
+   "preview": "2026-11-02T19:08:32.675Z"
+  },
+  "/medicalservices/de/our-services": {
+   "uploaded": "2026-11-02T19:08:34.202Z",
+   "mtime": 1793642904149,
+   "preview": "2026-11-02T19:08:36.121Z"
+  },
+  "/medicalservices/de/travel/travel-medicine": {
+   "uploaded": "2026-11-02T19:08:37.938Z",
+   "mtime": 1793642904183,
+   "preview": "2026-11-02T19:08:39.566Z"
+  },
+  "/medicalservices/de/travel/travel-medicine/our-services": {
+   "uploaded": "2026-11-02T19:08:41.106Z",
+   "mtime": 1793642904166,
+   "preview": "2026-11-02T19:08:43.720Z"
+  },
+  "/medicalservices/en/aviation/after-the-flight": {
+   "uploaded": "2026-11-02T19:08:45.359Z",
+   "mtime": 1793642904245,
+   "preview": "2026-11-02T19:08:47.098Z"
+  },
+  "/medicalservices/en/aviation/after-the-flight/changes-of-climate": {
+   "uploaded": "2026-11-02T19:08:48.839Z",
+   "mtime": 1793642904203,
+   "preview": "2026-11-02T19:08:50.945Z"
+  },
+  "/medicalservices/en/aviation/after-the-flight/jet-lag": {
+   "uploaded": "2026-11-02T19:08:52.353Z",
+   "mtime": 1793642904226,
+   "preview": "2026-11-02T19:08:54.431Z"
+  },
+  "/medicalservices/en/aviation/before-the-flight": {
+   "uploaded": "2026-11-02T19:08:56.019Z",
+   "mtime": 1793642904391,
+   "preview": "2026-11-02T19:08:57.525Z"
+  },
+  "/medicalservices/en/aviation/before-the-flight/deep-vein-thrombosis": {
+   "uploaded": "2026-11-02T19:08:59.052Z",
+   "mtime": 1793642904264,
+   "preview": "2026-11-02T19:09:01.274Z"
+  },
+  "/medicalservices/en/aviation/before-the-flight/diabetes-and-dialysis": {
+   "uploaded": "2026-11-02T19:09:02.666Z",
+   "mtime": 1793642904281,
+   "preview": "2026-11-02T19:09:04.454Z"
+  },
+  "/medicalservices/en/aviation/before-the-flight/fear-of-flying": {
+   "uploaded": "2026-11-02T19:09:05.764Z",
+   "mtime": 1793642904300,
+   "preview": "2026-11-02T19:09:07.668Z"
+  },
+  "/medicalservices/en/aviation/before-the-flight/flying-when-pregnant-and-with-children": {
+   "uploaded": "2026-11-02T19:09:09.402Z",
+   "mtime": 1793642904319,
+   "preview": "2026-11-02T19:09:11.328Z"
+  },
+  "/medicalservices/en/aviation/before-the-flight/pre-departure-tips": {
+   "uploaded": "2026-11-02T19:09:13.148Z",
+   "mtime": 1793642904337,
+   "preview": "2026-11-02T19:09:15.125Z"
+  },
+  "/medicalservices/en/aviation/before-the-flight/the-medif-form-and-medical-certificates": {
+   "uploaded": "2026-11-02T19:09:16.907Z",
+   "mtime": 1793642940981,
+   "preview": "2026-11-02T19:09:18.722Z"
+  },
+  "/medicalservices/en/aviation/before-the-flight/vaccinations": {
+   "uploaded": "2026-11-02T19:09:20.271Z",
+   "mtime": 1793642904372,
+   "preview": "2026-11-02T19:09:22.476Z"
+  },
+  "/medicalservices/en/aviation/during-the-flight": {
+   "uploaded": "2026-11-02T19:09:23.941Z",
+   "mtime": 1793642904481,
+   "preview": "2026-11-02T19:09:25.579Z"
+  },
+  "/medicalservices/en/aviation/during-the-flight/earache": {
+   "uploaded": "2026-11-02T19:09:27.067Z",
+   "mtime": 1793642904407,
+   "preview": "2026-11-02T19:09:28.795Z"
+  },
+  "/medicalservices/en/aviation/during-the-flight/feeling-well-inflight": {
+   "uploaded": "2026-11-02T19:09:30.414Z",
+   "mtime": 1793642904425,
+   "preview": "2026-11-02T19:09:32.428Z"
+  },
+  "/medicalservices/en/aviation/during-the-flight/motion-sickness": {
+   "uploaded": "2026-11-02T19:09:33.942Z",
+   "mtime": 1793642904443,
+   "preview": "2026-11-02T19:09:35.689Z"
+  },
+  "/medicalservices/en/aviation/during-the-flight/special-meals": {
+   "uploaded": "2026-11-02T19:09:37.077Z",
+   "mtime": 1793642904462,
+   "preview": "2026-11-02T19:09:38.943Z"
+  },
+  "/medicalservices/en/aviation/effects-of-flying": {
+   "uploaded": "2026-11-02T19:09:40.886Z",
+   "mtime": 1793642904537,
+   "preview": "2026-11-02T19:09:42.713Z"
+  },
+  "/medicalservices/en/aviation/effects-of-flying/different-air-pressure-in-the-cabin": {
+   "uploaded": "2026-11-02T19:09:44.116Z",
+   "mtime": 1793642904500,
+   "preview": "2026-11-02T19:09:46.070Z"
+  },
+  "/medicalservices/en/aviation/effects-of-flying/quality-of-cabin-air": {
+   "uploaded": "2026-11-02T19:09:47.590Z",
+   "mtime": 1793642904519,
+   "preview": "2026-11-02T19:09:49.599Z"
+  },
+  "/medicalservices/en/contact": {
+   "uploaded": "2026-11-02T19:09:51.301Z",
+   "mtime": 1793642904554,
+   "preview": "2026-11-02T19:09:53.224Z"
+  },
+  "/medicalservices/en/footer": {
+   "uploaded": "2026-11-02T19:09:54.949Z",
+   "mtime": 1793646405273,
+   "preview": "2026-11-02T19:09:57.200Z"
+  },
+  "/medicalservices/en/health/flying-with-a-medical-condition": {
+   "uploaded": "2026-11-02T19:09:58.875Z",
+   "mtime": 1793642904626,
+   "preview": "2026-11-02T19:10:00.727Z"
+  },
+  "/medicalservices/en/health/flying-with-a-medical-condition/flying-when-sick-or-after-an-operation": {
+   "uploaded": "2026-11-02T19:10:02.869Z",
+   "mtime": 1793642904573,
+   "preview": "2026-11-02T19:10:05.238Z"
+  },
+  "/medicalservices/en/health/flying-with-a-medical-condition/flying-with-a-peanut-allergy": {
+   "uploaded": "2026-11-02T19:10:07.005Z",
+   "mtime": 1793642904592,
+   "preview": "2026-11-02T19:10:09.147Z"
+  },
+  "/medicalservices/en/health/flying-with-a-medical-condition/flying-with-diabetes": {
+   "uploaded": "2026-11-02T19:10:10.567Z",
+   "mtime": 1793642904610,
+   "preview": "2026-11-02T19:10:12.605Z"
+  },
+  "/medicalservices/en/health/medical-clearance-to-fly": {
+   "uploaded": "2026-11-02T19:10:14.447Z",
+   "mtime": 1793642904679,
+   "preview": "2026-11-02T19:10:16.082Z"
+  },
+  "/medicalservices/en/health/medical-clearance-to-fly/fit-to-fly-requirements": {
+   "uploaded": "2026-11-02T19:10:17.831Z",
+   "mtime": 1793642904642,
+   "preview": "2026-11-02T19:10:19.677Z"
+  },
+  "/medicalservices/en/health/medical-clearance-to-fly/saf-medif-form-and-medical-certificates": {
+   "uploaded": "2026-11-02T19:10:21.581Z",
+   "mtime": 1793642941133,
+   "preview": "2026-11-02T19:10:23.370Z"
+  },
+  "/medicalservices/en/health/medical-equipment-and-care": {
+   "uploaded": "2026-11-02T19:10:25.143Z",
+   "mtime": 1793642904815,
+   "preview": "2026-11-02T19:10:26.951Z"
+  },
+  "/medicalservices/en/health/medical-equipment-and-care/cabin-crew-members-medical-training": {
+   "uploaded": "2026-11-02T19:10:28.994Z",
+   "mtime": 1793642904699,
+   "preview": "2026-11-02T19:10:30.981Z"
+  },
+  "/medicalservices/en/health/medical-equipment-and-care/cabin-disinsection": {
+   "uploaded": "2026-11-02T19:10:32.398Z",
+   "mtime": 1793642904716,
+   "preview": "2026-11-02T19:10:34.450Z"
+  },
+  "/medicalservices/en/health/medical-equipment-and-care/inflight-medical-support-from-ground": {
+   "uploaded": "2026-11-02T19:10:36.056Z",
+   "mtime": 1793642904735,
+   "preview": "2026-11-02T19:10:37.829Z"
+  },
+  "/medicalservices/en/health/medical-equipment-and-care/medical-devices": {
+   "uploaded": "2026-11-02T19:10:39.155Z",
+   "mtime": 1793642941192,
+   "preview": "2026-11-02T19:10:42.204Z"
+  },
+  "/medicalservices/en/health/medical-equipment-and-care/medication-pacemakers-and-implants": {
+   "uploaded": "2026-11-02T19:10:43.904Z",
+   "mtime": 1793642904782,
+   "preview": "2026-11-02T19:10:45.870Z"
+  },
+  "/medicalservices/en/health/medical-equipment-and-care/on-board-medical-equipment": {
+   "uploaded": "2026-11-02T19:10:47.421Z",
+   "mtime": 1793642904797,
+   "preview": "2026-11-02T19:10:49.616Z"
+  },
+  "/medicalservices/en/health/passengers-with-disabilities/extra-oxygen": {
+   "uploaded": "2026-11-02T19:10:51.062Z",
+   "mtime": 1793642941240,
+   "preview": "2026-11-02T19:10:52.977Z"
+  },
+  "/medicalservices/en/health/passengers-with-disabilities/seating-on-board": {
+   "uploaded": "2026-11-02T19:10:54.489Z",
+   "mtime": 1793642904850,
+   "preview": "2026-11-02T19:10:56.921Z"
+  },
+  "/medicalservices/en/health/passengers-with-disabilities/special-meals": {
+   "uploaded": "2026-11-02T19:10:58.414Z",
+   "mtime": 1793642904868,
+   "preview": "2026-11-02T19:11:00.353Z"
+  },
+  "/medicalservices/en/health/passengers-with-disabilities/visually-or-hearing-impaired-passengers": {
+   "uploaded": "2026-11-02T19:11:02.202Z",
+   "mtime": 1793642904884,
+   "preview": "2026-11-02T19:11:04.193Z"
+  },
+  "/medicalservices/en/health/passengers-with-disabilities/wheelchairs": {
+   "uploaded": "2026-11-02T19:11:05.814Z",
+   "mtime": 1793642941293,
+   "preview": "2026-11-02T19:11:08.011Z"
+  },
+  "/medicalservices/en/homepage": {
+   "uploaded": "2026-11-02T19:11:09.478Z",
+   "mtime": 1793642904926,
+   "preview": "2026-11-02T19:11:11.577Z"
+  },
+  "/medicalservices/en/important-forms": {
+   "uploaded": "2026-11-02T19:11:13.159Z",
+   "mtime": 1793642941324,
+   "preview": "2026-11-02T19:11:15.108Z"
+  },
+  "/medicalservices/en/nav": {
+   "uploaded": "2026-11-02T19:11:16.910Z",
+   "mtime": 1793646405292,
+   "preview": "2026-11-02T19:11:19.021Z"
+  },
+  "/medicalservices/en/occupation/occupational-medicine/our-services": {
+   "uploaded": "2026-11-02T19:11:20.691Z",
+   "mtime": 1793642904964,
+   "preview": "2026-11-02T19:11:22.978Z"
+  },
+  "/medicalservices/en/our-services": {
+   "uploaded": "2026-11-02T19:11:24.465Z",
+   "mtime": 1793642904982,
+   "preview": "2026-11-02T19:11:26.492Z"
+  },
+  "/medicalservices/en/travel/travel-medicine": {
+   "uploaded": "2026-11-02T19:11:28.109Z",
+   "mtime": 1793642905018,
+   "preview": "2026-11-02T19:11:29.679Z"
+  },
+  "/medicalservices/en/travel/travel-medicine/our-services": {
+   "uploaded": "2026-11-02T19:11:31.150Z",
+   "mtime": 1793642904999,
+   "preview": "2026-11-02T19:11:33.097Z"
   }
  },
  "media": {
