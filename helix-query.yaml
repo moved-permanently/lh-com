@@ -4335,3 +4335,105 @@ indices:
       ai-guidance:
         select: head > meta[name="ai-guidance"]
         value: attribute(el, "content")
+
+  # SWISS's corporate site (lh-swiss /corporate/en/, scripts/site-languages.js SUB_SITES): the
+  # search-results page's index (www's on-site search, tools/importer/swiss-sub-import.mjs)
+  search-corporate-en:
+    include:
+      - /corporate/en/**
+    exclude:
+      - /corporate/en/nav
+      - /corporate/en/footer
+      - /corporate/en/search-results
+      - /corporate/en/**/*-success
+    target: /corporate/en/search-index.json
+    properties:
+      title:
+        select: head > title
+        value: textContent(el)
+      description:
+        select: head > meta[name="description"]
+        value: attribute(el, "content")
+      image:
+        select: head > meta[property="og:image"]
+        value: match(attribute(el, "content"), "https:\/\/[^/]+(/.*)")
+      headings:
+        select: main h1, main h2, main h3
+        values: textContent(el)
+      content:
+        select: main p, main li, main div > a
+        values: textContent(el)
+      hide-in-search:
+        select: head > meta[name="hide-in-search"]
+        value: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+
+  # SWISS's corporate site (lh-swiss /corporate/de/, scripts/site-languages.js SUB_SITES): the
+  # search-results page's index (www's on-site search, tools/importer/swiss-sub-import.mjs)
+  search-corporate-de:
+    include:
+      - /corporate/de/**
+    exclude:
+      - /corporate/de/nav
+      - /corporate/de/footer
+      - /corporate/de/search-results
+      - /corporate/de/**/*-success
+    target: /corporate/de/search-index.json
+    properties:
+      title:
+        select: head > title
+        value: textContent(el)
+      description:
+        select: head > meta[name="description"]
+        value: attribute(el, "content")
+      image:
+        select: head > meta[property="og:image"]
+        value: match(attribute(el, "content"), "https:\/\/[^/]+(/.*)")
+      headings:
+        select: main h1, main h2, main h3
+        values: textContent(el)
+      content:
+        select: main p, main li, main div > a
+        values: textContent(el)
+      hide-in-search:
+        select: head > meta[name="hide-in-search"]
+        value: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+
+  # SWISS's corporate site (lh-swiss /corporate/fr/, scripts/site-languages.js SUB_SITES): the
+  # search-results page's index (www's on-site search, tools/importer/swiss-sub-import.mjs)
+  search-corporate-fr:
+    include:
+      - /corporate/fr/**
+    exclude:
+      - /corporate/fr/nav
+      - /corporate/fr/footer
+      - /corporate/fr/search-results
+      - /corporate/fr/**/*-success
+    target: /corporate/fr/search-index.json
+    properties:
+      title:
+        select: head > title
+        value: textContent(el)
+      description:
+        select: head > meta[name="description"]
+        value: attribute(el, "content")
+      image:
+        select: head > meta[property="og:image"]
+        value: match(attribute(el, "content"), "https:\/\/[^/]+(/.*)")
+      headings:
+        select: main h1, main h2, main h3
+        values: textContent(el)
+      content:
+        select: main p, main li, main div > a
+        values: textContent(el)
+      hide-in-search:
+        select: head > meta[name="hide-in-search"]
+        value: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")

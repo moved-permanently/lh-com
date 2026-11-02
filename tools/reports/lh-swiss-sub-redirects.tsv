@@ -1,0 +1,8 @@
+Source	Destination
+/corporate	/corporate/en/homepage
+/corporate/en	/corporate/en/homepage
+/corporate/de	/corporate/de/homepage
+/corporate/fr	/corporate/fr/homepage
+/medicalservices	/medicalservices/en/homepage
+/medicalservices/en	/medicalservices/en/homepage
+/medicalservices/de	/medicalservices/de/homepage

@@ -17,13 +17,14 @@ const { indices } = yaml.load(fs.readFileSync('helix-query.yaml', 'utf8'));
 const NEW = ['search-be-en', 'search-be-fr', 'search-be-nl', 'articles-be-en', 'articles-be-fr', 'articles-be-nl',
   'market-model-be-en', 'market-llms-be-en', 'market-model-be-fr', 'market-llms-be-fr', 'market-model-be-nl', 'market-llms-be-nl'];
 
-test('helix-query.yaml: Brussels\' indexes appended at the end; every other index as before', () => {
-  assert.deepEqual(Object.keys(indices).slice(-NEW.length), NEW);
+test('helix-query.yaml: Brussels\' indexes appended together (later sites\' after them); every other index as before', () => {
+  const keys = Object.keys(indices);
+  const at = keys.indexOf(NEW[0]);
+  assert.deepEqual(keys.slice(at, at + NEW.length), NEW);
   const before = yaml.load(execFileSync('git', ['show', 'HEAD:helix-query.yaml'], { encoding: 'utf8' })).indices;
   Object.keys(before).filter((k) => !NEW.includes(k)).forEach((k) => {
     assert.equal(JSON.stringify(indices[k]), JSON.stringify(before[k]), k);
   });
-  assert.equal(Object.keys(indices).length, Object.keys(before).filter((k) => !NEW.includes(k)).length + NEW.length);
 });
 
 test('helix-query.yaml: the search indexes as search-at-en\'s for be/en, be/fr, be/nl; the posts one level under articles/', () => {

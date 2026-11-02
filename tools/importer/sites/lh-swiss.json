@@ -11,6 +11,7 @@
   "/{root}/profile/my-account/**",
   "/{root}/profile/travel-id/**"
  ],
+ "patterns": ["^/(corporate/(en|de|fr)|medicalservices/(en|de))/[a-z0-9/-]+$"],
  "paths": [
   "/ch/en/homepage",
   "/ch/de/homepage",
