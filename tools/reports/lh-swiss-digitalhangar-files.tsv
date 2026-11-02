@@ -1,0 +1,6 @@
+www url	path on our host	what
+https://www.swiss.com/digitalhangar/cs-help-center/feature-manager/LX/features.json	/digitalhangar/cs-help-center/feature-manager/LX/features.json	the help center app (help-center-web 4.3.1): its feature switches for SWISS (LX); www answers 403 to lh-edge (2026-11-02)
+https://www.swiss.com/digitalhangar/cs-help-center/translations/web/LX/en-CH.json	/digitalhangar/cs-help-center/translations/web/LX/en-CH.json	its texts, ch/en; www answers 403 to lh-edge (2026-11-02)
+https://www.swiss.com/digitalhangar/cs-help-center/translations/web/LX/en.json	/digitalhangar/cs-help-center/translations/web/LX/en.json	its texts, English fallback; www answers 403 to lh-edge (2026-11-02)
+https://www.swiss.com/digitalhangar/cs-help-center/translations/web/LX/de-CH.json	/digitalhangar/cs-help-center/translations/web/LX/de-CH.json	its texts, ch/de; www answers 403 to lh-edge (2026-11-02)
+https://www.swiss.com/digitalhangar/cs-help-center/translations/web/LX/de.json	/digitalhangar/cs-help-center/translations/web/LX/de.json	its texts, German fallback; www answers 403 to lh-edge (2026-11-02)

@@ -304,7 +304,9 @@ The showcase notice waits while a form field has the focus on every brand.
   own `/digitalhangar/` on the hosts that serve it (swiss.turnsthe.page: lh-edge answers it from
   www.swiss.com), with SWISS's release and theme as its www's app pages (mausy-v1.40.1,
   `swiss.css`); no visitor's browser asks www.swiss.com there. Preview hosts (aem.page) have no
-  `/digitalhangar/` and keep www's. No file only www has is missing.
+  `/digitalhangar/` and keep www's. The culinary hub runs from our host; the help center's script
+  does too, but www answers lh-edge 403 for its data files (features, texts), so it shows the
+  topics fallback: `lh-swiss-digitalhangar-files.tsv` for the capture.
 - lh-edge: a missing `/content/dam/lx/images/offers/*` image falls back on our own host
   (`/content/dam/lx/images/offers/fallback/generic-<suffix>.jpg`), never www.swiss.com; the
   generic square and panorama images are on the capture list (`lh-swiss-destination-images.tsv`).
