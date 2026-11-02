@@ -215,6 +215,20 @@ export const LOCALE_TABLE = {
   'ma/fr': { country: 'ma', lang: 'fr', hreflang: 'fr-MA', status: 'pilot', documents: 'language', name: 'Maroc  | Français', countryName: { en: 'Morocco', de: 'Marokko', fr: 'Maroc' }, homeAirport: 'RAK', currency: 'MAD', timeZone: null, shopLang: null },
   'tn/fr': { country: 'tn', lang: 'fr', hreflang: 'fr-TN', status: 'pilot', documents: 'language', name: 'Tunisie  | Français', countryName: { en: 'Tunesien', de: 'Tunesien', fr: 'Tunisie' }, homeAirport: 'TUN', currency: 'TND', timeZone: null, shopLang: null },
   'us/fr': { country: 'us', lang: 'fr', hreflang: 'fr-US', status: 'pilot', documents: 'language', name: 'Etats-Unis d\'Amérique  | Français', countryName: { en: 'USA', de: 'USA', fr: 'Etats-Unis d\'Amérique' }, homeAirport: null, currency: 'USD', timeZone: null, shopLang: null },
+  'xx/es': { country: 'xx', lang: 'es', hreflang: 'es', status: 'pilot', documents: 'own', name: 'Otros paises | Español', countryName: { en: null, de: null, es: 'Otros paises' }, homeAirport: 'FRA', currency: 'EUR', timeZone: null, shopLang: null },
+  'ar/es': { country: 'ar', lang: 'es', hreflang: 'es-AR', status: 'pilot', documents: 'language', name: 'Argentina | Español', countryName: { en: 'Argentinien', de: 'Argentina', es: 'Argentina' }, homeAirport: 'BUE', currency: 'USD', timeZone: null, shopLang: null },
+  'br/es': { country: 'br', lang: 'es', hreflang: 'es-BR', status: 'pilot', documents: 'language', name: 'Brasil | Español', countryName: { en: 'Brazil', de: 'Brazil', es: 'Brasil' }, homeAirport: 'SAO', currency: 'BRL', timeZone: null, shopLang: null },
+  'ca/es': { country: 'ca', lang: 'es', hreflang: 'es-CA', status: 'pilot', documents: 'language', name: 'Canadá | Español', countryName: { en: 'Canada', de: 'Kanada', es: 'Canadá' }, homeAirport: null, currency: null, timeZone: null, shopLang: null },
+  'cl/es': { country: 'cl', lang: 'es', hreflang: 'es-CL', status: 'pilot', documents: 'language', name: 'Chile | Español', countryName: { en: 'Chile', de: 'Chile', es: 'Chile' }, homeAirport: 'SCL', currency: 'USD', timeZone: null, shopLang: null },
+  'co/es': { country: 'co', lang: 'es', hreflang: 'es-CO', status: 'pilot', documents: 'language', name: 'Colombia | Español', countryName: { en: 'Colombia', de: 'Kolumbien', es: 'Colombia' }, homeAirport: 'BOG', currency: 'USD', timeZone: null, shopLang: null },
+  'cr/es': { country: 'cr', lang: 'es', hreflang: 'es-CR', status: 'pilot', documents: 'language', name: 'Costa Rica | Español', countryName: { en: 'Costa Rica', de: 'Costa Rica', es: 'Costa Rica' }, homeAirport: 'SJO', currency: 'USD', timeZone: null, shopLang: null },
+  'ec/es': { country: 'ec', lang: 'es', hreflang: 'es-EC', status: 'pilot', documents: 'language', name: 'Ecuador | Español', countryName: { en: 'Ecuador', de: 'Ecuador', es: 'Ecuador' }, homeAirport: 'UIO', currency: 'USD', timeZone: null, shopLang: null },
+  'es/es': { country: 'es', lang: 'es', hreflang: 'es-ES', status: 'pilot', documents: 'language', name: 'España | Español', countryName: { en: 'Spain', de: 'Spanien', es: 'España' }, homeAirport: null, currency: 'EUR', timeZone: null, shopLang: null },
+  'mx/es': { country: 'mx', lang: 'es', hreflang: 'es-MX', status: 'pilot', documents: 'language', name: 'México | Español', countryName: { en: 'Mexico', de: 'Mexiko', es: 'México' }, homeAirport: 'MEX', currency: 'MXN', timeZone: null, shopLang: null },
+  'pa/es': { country: 'pa', lang: 'es', hreflang: 'es-PA', status: 'pilot', documents: 'language', name: 'Panamá | Español', countryName: { en: 'Panama', de: 'Panama', es: 'Panamá' }, homeAirport: 'PTY', currency: 'USD', timeZone: null, shopLang: null },
+  'pe/es': { country: 'pe', lang: 'es', hreflang: 'es-PE', status: 'pilot', documents: 'language', name: 'Perú | Español', countryName: { en: 'Peru', de: 'Peru', es: 'Perú' }, homeAirport: 'LIM', currency: 'USD', timeZone: null, shopLang: null },
+  'us/es': { country: 'us', lang: 'es', hreflang: 'es-US', status: 'pilot', documents: 'language', name: 'Estados Unidos de América | Español', countryName: { en: 'USA', de: 'USA', es: 'Estados Unidos de América' }, homeAirport: null, currency: 'USD', timeZone: null, shopLang: null },
+  've/es': { country: 've', lang: 'es', hreflang: 'es-VE', status: 'pilot', documents: 'language', name: 'Venezuela | Español', countryName: { en: 'Venezuela', de: 'Venezuela', es: 'Venezuela' }, homeAirport: 'FRA', currency: 'EUR', timeZone: null, shopLang: null },
 };
 
 /** Every market-language root of www (its sitemap dataset), space-separated. */
@@ -228,6 +242,7 @@ export const LANGUAGE_VERSIONS = {
   en: 'de/en',
   de: 'de/de',
   fr: 'fr/fr',
+  es: 'xx/es',
 };
 
 /** A language without a version of its own (texts fall back to English). */
