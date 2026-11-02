@@ -196,7 +196,7 @@
   "status": 200,
   "location": "",
   "type": "application/json",
-  "hash": "686841741e76cf67",
+  "hash": "f387e18447c05374",
   "route": ""
  },
  {
@@ -206,7 +206,7 @@
   "status": 200,
   "location": "",
   "type": "application/json",
-  "hash": "bb3581b149b4298f",
+  "hash": "e89fccce732e843c",
   "route": ""
  },
  {
@@ -216,8 +216,8 @@
   "status": 200,
   "location": "",
   "type": "application/json",
-  "hash": "0dabd4648e015467",
-  "route": ""
+  "hash": "5c1e8cf2330dd348",
+  "route": "market"
  },
  {
   "key": "GET /at/en/search-index.json",
@@ -226,7 +226,7 @@
   "status": 200,
   "location": "",
   "type": "application/json",
-  "hash": "97ba815e34b151a6",
+  "hash": "dad08d0ea1136bf0",
   "route": "market"
  },
  {
@@ -236,7 +236,7 @@
   "status": 200,
   "location": "",
   "type": "application/json",
-  "hash": "9fd6fb5bcc1a0501",
+  "hash": "fc0a490881fe5bfe",
   "route": "market"
  },
  {
@@ -246,7 +246,7 @@
   "status": 200,
   "location": "",
   "type": "application/json",
-  "hash": "ebbc072aad92c4c2",
+  "hash": "5bbd2484d7692a0a",
   "route": "market"
  },
  {
