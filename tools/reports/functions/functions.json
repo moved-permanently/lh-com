@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-02 13:10",
-  "change": "Lufthansa Group for Business: the contact pages pick the hotline by country, as www does (127 countries, English and German).",
+  "updated": "2026-11-02 13:36",
+  "change": "SWISS: new column (Switzerland in English and German live since 2 November).",
   "legend": {
     "done": {
       "label": "works on our replica",
@@ -46,7 +46,9 @@
     "sndest": "Brussels Airlines' fare teasers, homepage slider and offers grid load live prices, but their cards open a destination page address the replica doesn't have. Brussels Airlines' own destination page works on the replica, and one brand setting points the cards at it.",
     "snchat": "Brussels Airlines' chat assistant loads from Brussels Airlines' website, outside AEM, as Austrian's does. Since 1 November its button shows on the pages that have it on www, in all six languages.",
     "adesim": "Air Dolomiti's eSIM shop (from the vendor Breeze) is built into the replica, but its switch stays off: Breeze answers every call from our address with 403, because the widget's key belongs to Air Dolomiti's site. It works once Air Dolomiti or Breeze allows our address.",
-    "b2bsignin": "Lufthansa Group for Business has two sign-ins in AEM today, one for companies and one for travel agencies (eXperts), each with a member area. Their replacement follows the other airlines' sign-ins, with test data first; showing real member data needs Lufthansa to let it reach its user and role systems. Until then the replica links to the current sign-ins."
+    "b2bsignin": "Lufthansa Group for Business has two sign-ins in AEM today, one for companies and one for travel agencies (eXperts), each with a member area. Their replacement follows the other airlines' sign-ins, with test data first; showing real member data needs Lufthansa to let it reach its user and role systems. Until then the replica links to the current sign-ins.",
+    "lxsignin": "SWISS's login, profile and travel cockpit pages, which the other airlines' replicas got on 1 November, aren't on the SWISS replica yet: \"My flights\", \"Manage bookings\" and the cart link to www.swiss.com, and the check-in form opens www's check-in page. The booking, check-in and deep link services that are rebuilt outside AEM answer for Austrian, Discover and ITA on test data, not yet for SWISS.",
+    "lxmarkets": "Only Switzerland in English and German is on the new platform so far. SWISS's other 51 countries, Switzerland's eight other languages and Korean follow root by root; until then the country dialog opens their homepage on www.swiss.com."
   },
   "brands": [
     {
@@ -104,6 +106,13 @@
       "host": "https://b2b.turnsthe.page",
       "www": "https://business.lufthansagroup.com",
       "note": "The Lufthansa Group for Business replica, the group's website for companies and travel agencies, on the lufthansa.com code with its own theme; it runs on Lufthansa's AEM today."
+    },
+    {
+      "id": "swiss",
+      "name": "SWISS",
+      "host": "https://swiss.turnsthe.page",
+      "www": "https://www.swiss.com",
+      "note": "The SWISS replica, on the lufthansa.com code with SWISS's theme; SWISS runs on Lufthansa's AEM today. So far only Switzerland in English and German is on the new platform, and the destination pictures of its fare teasers and homepage slider are still being added."
     }
   ],
   "functions": [
@@ -159,6 +168,12 @@
           "status": "none",
           "note": "Lufthansa Group for Business has no flight search; companies and travel agencies book through the airlines and their own tools.",
           "evidence": "2026-11-02 check: no search form on www's homepage; groundwork widget list (only image, video, country dialog, login, search, phone list)"
+        },
+        "swiss": {
+          "status": "done",
+          "note": "The search form is set up to hand searches to SWISS's own booking shop, as www does.",
+          "page": "/ch/en/homepage",
+          "evidence": "2026-11-02: replica /ch/en/homepage flight-search row Shop https://shop.swiss.com/booking/availability (POST hand-off, scripts/shop-handoff.js), default origin Zurich (ZRH); ch/de the same; from snapshot: www's flight manager (defaultCarrier LX) hands off to shop.swiss.com; not submitted (no request to shop.swiss.com while the capture runs)"
         }
       }
     },
@@ -213,6 +228,12 @@
           "status": "none",
           "note": "Lufthansa Group for Business has no flight search, so no travellers picker.",
           "evidence": "as flight-search"
+        },
+        "swiss": {
+          "status": "done",
+          "note": "SWISS's flight searches have the picker for adults, children, infants and cabin, with www's link to group bookings from 10 travellers.",
+          "page": "/ch/en/homepage",
+          "evidence": "2026-11-02: replica picker adults, children (2-11), infants without seat (0-23 months), Economy, Premium Economy, Business, First, 'Group bookings for 10 or more passengers', alternative fare selection; its group link goes to www's /content/lx/markets/ch/en/.../group-travel (as www's config has it)"
         }
       }
     },
@@ -267,6 +288,12 @@
           "status": "none",
           "note": "Lufthansa Group for Business has no flight status form; the setting in its search bar points to an address that doesn't exist.",
           "evidence": "groundwork raw: search bar data-dcep flightStatusUrl /gc/null/en; no flight status widget on the 569 pages"
+        },
+        "swiss": {
+          "status": "done",
+          "note": "The form hands searches by flight number, route and airport to SWISS's status page, with the same search fields as the other airlines' forms.",
+          "page": "/ch/en/fly/flight-information/arrival-departure",
+          "evidence": "2026-11-02: replica tabs flight number, route, airport, default airline LX; buildFlightStatusUrl gives https://www.swiss.com/ch/en/fly/flight-information/arrival-departure?flightStatus.flightStatusByFlightNumberRequest.airline=LX&...&flightStatus.activeTab=number; from snapshot: www's page has the same dcep-flight-status component (activeTab number); www's result page not opened (no request to www.swiss.com)"
         }
       }
     },
@@ -319,6 +346,13 @@
           "status": "none",
           "note": "Lufthansa Group for Business has no check-in; its travel agency pages describe the airlines' check-in as text, which the replica has.",
           "evidence": "groundwork widget list; check-in appears as text only"
+        },
+        "swiss": {
+          "status": "wip",
+          "note": "The check-in form opens www's check-in page, where travellers type their booking code again; on SWISS's own address it posts to www's check-in service, which runs in AEM and has no replacement for SWISS yet.",
+          "page": "/ch/en/fly/check-in/online-check-in",
+          "footnote": "lxsignin",
+          "evidence": "2026-11-02: replica booking-lookup row Submit URL https://www.swiss.com/ch/en/fly/check-in/online-check-in (no booking fields in the URL; post mode only on www.swiss.com, scripts/handoff.js); from snapshot: www's check-in tab is the flight manager's fktnCheckinRequest form (POST /service/secured/api/core/checkin/fktn, AEM); lh-backends entry test: tenants without a booking configuration (Swiss, Brussels) answer 500"
         }
       }
     },
@@ -377,6 +411,12 @@
           "status": "none",
           "note": "Lufthansa Group for Business has no booking lookup.",
           "evidence": "groundwork widget list"
+        },
+        "swiss": {
+          "status": "wip",
+          "note": "\"Manage bookings\" and \"My flights\" link to www's travel cockpit deep link, as on www; SWISS's login and cockpit pages aren't on the replica yet.",
+          "footnote": "lxsignin",
+          "evidence": "2026-11-02: replica header and menu link https://www.swiss.com/deeplink/cockpit?country=CH&language=EN; swiss.turnsthe.page /ch/en/login, /ch/en/profile/login, /ch/en/profile/my-account and /deeplink/cockpit answer 404"
         }
       }
     },
@@ -431,6 +471,12 @@
           "status": "none",
           "note": "Lufthansa Group for Business has no timetable search; its route network map is rated under New destinations map.",
           "evidence": "groundwork widget list; route network page has only the lhg-network.com map"
+        },
+        "swiss": {
+          "status": "see",
+          "note": "SWISS's timetable is the route tab of its flight status form.",
+          "see": "flight-status",
+          "evidence": "from snapshot: www's flightstatustimetable component, tabs flight number, route, airport; replica the same three tabs"
         }
       }
     },
@@ -481,6 +527,11 @@
           "status": "none",
           "note": "Lufthansa Group for Business has no hotel search.",
           "evidence": "groundwork widget list"
+        },
+        "swiss": {
+          "status": "none",
+          "note": "SWISS's flight search has no hotel tab; the menu and the extra services page link to Booking.com, as the replica does.",
+          "evidence": "from snapshot: www's flight manager config hideHotel true; menu 'Book hotel' https://www.booking.com/...; replica menu and /ch/en/book-and-manage/overview-extra-services the same link"
         }
       }
     },
@@ -531,6 +582,12 @@
           "status": "none",
           "note": "Lufthansa Group for Business offers no car rental.",
           "evidence": "groundwork widget list"
+        },
+        "swiss": {
+          "status": "elsewhere",
+          "note": "SWISS links to its rental partner, which stays; the replica has the same links.",
+          "page": "/ch/en/book-and-manage/overview-extra-services",
+          "evidence": "2026-11-02: replica menu and extra services page 'Book rental car' https://www.cars-swiss.com/en/ as www (snapshot); www's flight manager hideCar true"
         }
       }
     },
@@ -582,6 +639,11 @@
           "status": "none",
           "note": "Lufthansa Group for Business has no trip management app.",
           "evidence": "groundwork widget list"
+        },
+        "swiss": {
+          "status": "none",
+          "note": "SWISS's website has no trip management app; \"My flights\" leads to the travel cockpit, rated under Manage booking.",
+          "evidence": "from snapshot: no trip-management element on the 316 ch/en snapshot pages; 'My flights' = /deeplink/cockpit"
         }
       }
     },
@@ -634,6 +696,12 @@
           "status": "none",
           "note": "Lufthansa Group for Business describes lounges as text on its travel agency pages, which the replica has, without a search.",
           "evidence": "groundwork: 'lounge' on 89 pages, all text; no lounge widget"
+        },
+        "swiss": {
+          "status": "done",
+          "note": "The lounge finder lists lounges with live data; Zurich and Business Class showed 4 lounges.",
+          "page": "/ch/en/fly/airport/lounges/lounges-worldwide",
+          "evidence": "2026-11-02: replica search Zurich + Business Class: 4 results (SWISS Business Lounges A, E, D, ...) from www.lufthansa.com/service/api/catalogs/lounges/BUS/ZRH, labels loungefinder/lx/en"
         }
       }
     },
@@ -685,6 +753,11 @@
           "status": "none",
           "note": "Lufthansa Group for Business shows no waiting times.",
           "evidence": "groundwork widget list"
+        },
+        "swiss": {
+          "status": "none",
+          "note": "SWISS's website shows no waiting times.",
+          "evidence": "from snapshot: no waiting time widget on the 316 ch/en pages; 'waiting time' only in text"
         }
       }
     },
@@ -736,6 +809,12 @@
           "status": "none",
           "note": "Lufthansa Group for Business gives check-in information as text, which the replica has.",
           "evidence": "groundwork widget list; text only"
+        },
+        "swiss": {
+          "status": "done",
+          "note": "The airport search shows SWISS's live check-in deadlines, counters and services, as on www; Zurich showed them.",
+          "page": "/ch/en/fly/check-in/check-in-times",
+          "evidence": "2026-11-02: replica Switzerland > Zurich, Economy: deadline 40 min, counters, bag drop, from www.lufthansa.com/service/api/catalogs/checkin/info/deadlines?airport=ZRH; from snapshot: www's checkindeadlinesearch on the same page"
         }
       }
     },
@@ -788,6 +867,12 @@
           "note": "The Book-a-Group page links to the Lufthansa Group's group booking tool for travel agencies, which stays; the replica has the same link.",
           "page": "/de/en/program/book-a-group",
           "evidence": "2026-11-02: www page links https://lhg-bookagroup.com/lgt-web/login.htm (browser); replica /de/en/program/book-a-group 200 with the same link (old path /program/Book-A-Group 301s to it)"
+        },
+        "swiss": {
+          "status": "see",
+          "note": "SWISS's group requests use a form on the replica, rated under Forms.",
+          "see": "forms",
+          "evidence": "2026-11-02: replica group travel page links .../group-travel-request (form swiss-group-travel-request, live on aem.live); rent-a-plane form swiss-rent-a-plane too"
         }
       }
     },
@@ -839,6 +924,12 @@
           "status": "none",
           "note": "Lufthansa Group for Business offers no eSIM.",
           "evidence": "groundwork: no esim on the 569 pages"
+        },
+        "swiss": {
+          "status": "elsewhere",
+          "note": "SWISS's eSIM comes from a partner shop, which stays; the replica's extra services page links to it.",
+          "page": "/ch/en/book-and-manage/overview-extra-services",
+          "evidence": "2026-11-02: replica 'Stay connected' https://swiss.breezesim.com/?utm_source=LX_Homepage... as www (snapshot overview-extra-services)"
         }
       }
     },
@@ -893,6 +984,12 @@
           "status": "none",
           "note": "Lufthansa Group for Business shows no prices.",
           "evidence": "groundwork widget list"
+        },
+        "swiss": {
+          "status": "done",
+          "note": "Fare teasers show live fares from Zurich and open the replica's own destination page; their destination pictures are still being added.",
+          "page": "/ch/en/homepage",
+          "evidence": "2026-11-02 (Studio tab on swiss.turnsthe.page, en and de): 6 teasers, e.g. Zurich-Palma de Mallorca from CHF 110, Zurich-Vienna CHF 209; links /ch/en/book-and-manage/destination?OriginCode=ZRH&DestinationCode=...; the images /content/dam/lh/images/offers/destination/*-square.jpg answer 302 to a fallback that is 404"
         }
       }
     },
@@ -947,6 +1044,12 @@
           "status": "none",
           "note": "Lufthansa Group for Business has no destination slider.",
           "evidence": "groundwork widget list"
+        },
+        "swiss": {
+          "status": "done",
+          "note": "The homepage slider lists destinations with live prices from Zurich and opens the replica's own destination page; its destination pictures are still being added.",
+          "page": "/ch/en/homepage",
+          "evidence": "2026-11-02: slider 'Flight offers from Zurich', Geneva from CHF 109, Palma CHF 110, ... from www.lufthansa.com/service/api/destinationfinder/destination/finder/ZRH/E; destination page /ch/en/book-and-manage/destination (Barcelona from CHF 112, price calendar) works; images /content/dam/lufthansa-group/images/destination/*-square.jpg 404"
         }
       }
     },
@@ -1000,6 +1103,12 @@
           "status": "none",
           "note": "Lufthansa Group for Business has no offers page.",
           "evidence": "groundwork widget list"
+        },
+        "swiss": {
+          "status": "wip",
+          "note": "The offers page shows destinations with live prices, but as the homepage's slider without filters: its block lacks the grid setting the other airlines' offers pages have.",
+          "page": "/ch/en/offers",
+          "evidence": "2026-11-02: replica /ch/en/offers.plain.html 'destination-finder' (no variant), renders 15 cards with Previous/Next; lufthansa /de/en/flights, austrian /at/en/offers-destinations, brussels /be/en/offers have 'destination-finder grid'; from snapshot: www's /ch/en/offers is dcep-destination-finder (template alldestinations)"
         }
       }
     },
@@ -1054,6 +1163,12 @@
           "status": "none",
           "note": "Lufthansa Group for Business has no route offers; its European fares page explains the fare types, which the replica has.",
           "evidence": "groundwork raw: fare conditions table, no route prices"
+        },
+        "swiss": {
+          "status": "see",
+          "note": "SWISS's route prices are live, rated under Fare teaser.",
+          "see": "fare-teaser",
+          "evidence": "from snapshot: www's homepage and our-new-destinations use fareteaserstatic with live prices; replica fare-teaser loads them live"
         }
       }
     },
@@ -1106,6 +1221,11 @@
           "note": "The route network page shows the Lufthansa Group's interactive network map, embedded from its own site as on www.",
           "page": "/de/en/travel-management/route-network",
           "evidence": "2026-11-02: replica embed iframe https://lhg-network.com/ (1120x800) loaded the map app; lhg-network.com sends no X-Frame-Options or frame-ancestors; www embeds the same address"
+        },
+        "swiss": {
+          "status": "none",
+          "note": "SWISS's route network and new destinations pages have no map.",
+          "evidence": "from snapshot: discover/new-destinations and our-new-destinations have no map or iframe; the only map on the pilot pages is the city ticket office's Google Maps location (embedded on the replica)"
         }
       }
     },
@@ -1156,6 +1276,11 @@
           "status": "none",
           "note": "Lufthansa Group for Business' homepage has no countdown.",
           "evidence": "groundwork components: stage, inspirational stage, icon modules; no countdown"
+        },
+        "swiss": {
+          "status": "none",
+          "note": "SWISS's homepage teasers have no countdown.",
+          "evidence": "from snapshot: no countdown on the ch/en pages"
         }
       }
     },
@@ -1211,6 +1336,12 @@
           "status": "none",
           "note": "Lufthansa Group for Business' public pages show no notices; its notice feed is empty and only the sign-in area reads it.",
           "evidence": "groundwork: outage-b2b answers an empty list, no messagecenter component on 569 pages; lh-messages answers outage-b2b on lufthansa.turnsthe.page (2026-11-02: empty list, 200); b2b.turnsthe.page has no /graphql route (404)"
+        },
+        "swiss": {
+          "status": "wip",
+          "note": "The notice strip and the current information page are on the replica, but SWISS's messages aren't there yet: www showed two on 2 November, the replica none.",
+          "page": "/ch/en/fly/flight-information/current-information",
+          "evidence": "2026-11-02: swiss.turnsthe.page /message-center/index.json and /message-center/config/cti-pages.json answer 404; flash-teaser and message-center blocks load empty; brands.js messageCenter lx; from snapshot: www's homepage strip 2 messages (Dubai flights, Edelweiss booking service maintenance 3-4 Nov), current-information the Dubai message"
         }
       }
     },
@@ -1265,6 +1396,12 @@
           "status": "none",
           "note": "Lufthansa Group for Business has no culinary hub; its travel agency pages describe meals as text, which the replica has.",
           "evidence": "groundwork widget list"
+        },
+        "swiss": {
+          "status": "wip",
+          "note": "SWISS's culinary journey page carries the app, but its script still loads from www.swiss.com; the parts that need a booking come from SWISS's Travel ID service, which refuses our addresses.",
+          "page": "/ch/en/culinaryjourney",
+          "evidence": "2026-11-02: replica /ch/en/culinaryjourney.plain.html has micro-frontend culinary-hub; page not opened (blocks/micro-frontend loads the app's script from https://www.swiss.com/digitalhangar/... on brand pages); from snapshot: www's culinary-hub with SWISS's Travel ID client"
         }
       }
     },
@@ -1316,6 +1453,12 @@
           "status": "none",
           "note": "Lufthansa Group for Business has no newsstand lookup; its travel agency pages mention eJournals as text.",
           "evidence": "groundwork: 'eJournal' on 9 pages, all text"
+        },
+        "swiss": {
+          "status": "done",
+          "note": "The lookup on the entertainment page searches with live answers, as on www; its login link opens Lufthansa's Travel ID, where www's opens SWISS's.",
+          "page": "/ch/en/fly/on-board/entertainment-on-board",
+          "evidence": "2026-11-02: made-up booking ABC123/Test: 'no tickets could be found' from www.lufthansa.com/service/api/ejournals (200); login link api.travelid.lufthansa.com client yA8iz2...; www snapshot uses api.travelid.swiss.com client sAwlvr...; the SWISS film widget and the media-carrier newsstand embed load"
         }
       }
     },
@@ -1366,6 +1509,11 @@
           "note": "The news pages for companies and the product and service news for travel agencies are on the replica as pages, with their article lists.",
           "page": "/de/en/news",
           "evidence": "2026-11-02: replica /de/en/news lists 23 article links, /de/en/program/experts/news 18 (www raw 25 incl. menu links, 18); articles published 2026-11-02"
+        },
+        "swiss": {
+          "status": "wip",
+          "note": "SWISS's media pages (press contacts, enquiry and filming forms) are in its corporate section on the same AEM, which comes to the replica after the pilot; until then the footer links to www.",
+          "evidence": "groundwork section 10.1: corporate/<ll>/media, media-request-form, media-permission (en, de, fr), folder /corporate planned in lh-swiss after the pilot (decision 9); swiss.turnsthe.page /corporate/en/homepage 404; replica footer 'Media' -> https://www.swiss.com/corporate/en/media"
         }
       }
     },
@@ -1420,6 +1568,11 @@
           "note": "The search page finds the replica's own pages in English and German; \"baggage\" gave 30 results, as on www.",
           "page": "/de/en/lhg4b-search/lhg4b-search-prelogin",
           "evidence": "2026-11-02: replica 30 results from /de/en/search-index.json (256 rows; de/de 310), www 30 results from its search API; market roots use their language's index"
+        },
+        "swiss": {
+          "status": "wip",
+          "note": "SWISS's FAQ search leads to www's search; the replica's own search page and index aren't built yet.",
+          "evidence": "2026-11-02: replica /ch/en/customer-support/faq 'Search for topic' -> https://www.swiss.com/ch/en/customer-support/faq; /ch/en/search-results 404; lh-swiss.md: no search-ch-* index; from snapshot: www's searchbar on the FAQ hub (autosuggest searching.lufthansa.com), results /ch/en/search-results"
         }
       }
     },
@@ -1477,6 +1630,12 @@
           "note": "The contact pages pick the PartnerPlusBenefit hotline by country, as www does: 127 countries with phone, e-mail and opening hours in English and German (German names in German order); the German pages preselect Germany, the market-neutral ones wait for a pick.",
           "page": "/de/en/about-us/contact",
           "evidence": "Published 2026-11-02 13:03 CET (job-2026-11-02-12-03-02-f31eea31: /data/hotlines.json, the box image and /de/en, /de/de, /xx/en, /xx/de about-us/contact); checked on b2b.turnsthe.page/de/de/about-us/contact: 128 options (127 + prompt), Ägypten first, DE preselected, +49 69 86 799 500 with hours. Code: lh-com 887aef91 + 92bbd1de (block hotline-finder)."
+        },
+        "swiss": {
+          "status": "wip",
+          "note": "The help center app's script still loads from www.swiss.com, which refuses our address; the page shows a fixed list of topics.",
+          "page": "/ch/en/customer-support/contact-us",
+          "evidence": "2026-11-02: replica micro-frontend help-center-web loads https://www.swiss.com/digitalhangar/cs-help-center/help-center-web/help-center-web-4.3.1.js as a module: blocked by CORS (no Access-Control-Allow-Origin); fallback with 11 topics stays; from snapshot: help-center-web 4.3.1 on www"
         }
       }
     },
@@ -1531,6 +1690,11 @@
           "status": "none",
           "note": "Lufthansa Group for Business has no chat.",
           "evidence": "2026-11-02: no chat element on www's homepage; 'chatbot' only in images and news text"
+        },
+        "swiss": {
+          "status": "elsewhere",
+          "note": "SWISS's chat assistant doesn't run on AEM and stays where it is; the replica links to it as www does.",
+          "evidence": "2026-11-02: replica footer 'SWISS Chat Assistant' -> https://www.swiss.com/digitalassistant/support/webchat.html as www (snapshot, every page); www's /customer-support/chatbot redirect has no row on the replica (404)"
         }
       }
     },
@@ -1586,6 +1750,12 @@
           "note": "The BusinessToGo contact form and the PartnerPlusBenefit raffle send to our own forms service, like the other airlines' forms; a test entry arrived.",
           "page": "/de/en/program/businesstogo",
           "evidence": "6 form pages (BusinessToGo de/en, de/de, xx/en, xx/de; raffle de/en, de/de); 2026-11-02 07:30: BusinessToGo form on aem.live (fields Name, Email, Your-question), raffle on preview only; set done only after the test submission passes and the pages are live, else wip with the held note"
+        },
+        "swiss": {
+          "status": "done",
+          "note": "SWISS's 41 form pages (23 forms) send to our own forms service, behind a bot check, like the other airlines' forms; test entries arrived.",
+          "page": "/ch/en/customer-support/contact-us/general-request",
+          "evidence": "2026-11-02: 41 form pages live on aem.live (work/swiss-forms/form-map-2026-11-02.json, 23 ids swiss-*); general-request renders 12 fields with file drop, posts to lufthansa-forms.turnsthe.page, Turnstile loads; test submissions general request and Zermatt raffle passed (formtest-2026-11-02.json, mail in Inbox)"
         }
       }
     },
@@ -1640,6 +1810,11 @@
           "status": "none",
           "note": "Lufthansa Group for Business has no claims form; its flight disruption page sends travellers to the airlines.",
           "evidence": "groundwork forms.tsv: only BusinessToGo and raffle"
+        },
+        "swiss": {
+          "status": "wip",
+          "note": "SWISS's compensation and baggage claim apps aren't on the replica yet; their pages show only www's introduction, and the apps, like Lufthansa's claim app, need Travel ID and Miles & More services that refuse our addresses.",
+          "evidence": "2026-11-02: replica /ch/en/fast-compensation and /ch/en/baggage-reimbursement: text only, no block; from snapshot: www's claim-form-entry 0.11.16 and baggage-form-entry-latest (digitalhangar/claim-automation); lh-com micro-frontend knows claim-form-entry only; refund and expense forms are rated under Forms"
         }
       }
     },
@@ -1696,6 +1871,12 @@
           "note": "The travel agency newsletter is signed up for in the eXperts portal, which stays; the replica links to it as www does.",
           "page": "/de/en/program/experts",
           "evidence": "2026-11-02: replica /de/en/program/experts links https://auth.lufthansaexperts.com/profile/newsletter and /signup, as www raw"
+        },
+        "swiss": {
+          "status": "elsewhere",
+          "note": "SWISS's newsletter page is on the replica; sign-up runs through Travel ID registration, which stays.",
+          "page": "/ch/en/customer-support/newsletter",
+          "evidence": "2026-11-02: replica page 'Subscribe with Travel ID' -> swiss.miles-and-more.com enrolment, as www (groundwork: no form)"
         }
       }
     },
@@ -1747,6 +1928,12 @@
           "note": "The sign-ins for companies and travel agencies run in AEM today; the replica links to www's sign-in pages until their replacement is built.",
           "footnote": "b2bsignin",
           "evidence": "2026-11-02: replica header Login links www /de/en/login and /service/secured/api/experts/login?country=de&language=en (country=de on every market root; www carries the root's country); PartnerPlusBenefit portal link unchanged; AMS-rest inventory: B2B sign-in has no owner yet"
+        },
+        "swiss": {
+          "status": "wip",
+          "note": "Login goes to SWISS's Travel ID, which stays; the login, profile and cockpit pages for visitors who aren't signed in, and the cart, aren't on the replica yet.",
+          "footnote": "lxsignin",
+          "evidence": "2026-11-02: replica header Login -> https://api.travelid.swiss.com/oauth2/userAuthorize?client_id=sAwlvr... redirect_uri https://www.swiss.com; 'Shopping cart preview' links the homepage (www: dcep-shopping-cart); /ch/en/login, /ch/en/profile/* 404; groundwork: 3,906 login and profile shell URLs left out (built outside EMA)"
         }
       }
     },
@@ -1800,6 +1987,12 @@
           "note": "The member areas for companies and travel agencies show data from Lufthansa's user and role systems, which only AEM reaches today; this needs Lufthansa.",
           "footnote": "b2bsignin",
           "evidence": "groundwork leave-out.tsv: /home, /reports, /fund, /history, /usermanagement redirect to /login; /experts-members/** redirect to the eXperts sign-in host"
+        },
+        "swiss": {
+          "status": "lh",
+          "note": "Personal content needs a Travel ID sign-in, and Travel ID accepts only the airline's own website; this needs Lufthansa.",
+          "footnote": "travelid",
+          "evidence": "groundwork: ppfi-web-component on www's homepage, left out as on the other brands"
         }
       }
     },
@@ -1856,6 +2049,13 @@
           "note": "The dialog lists 187 country and language versions, and each answers on the replica; the three German versions www answers with an error are left out.",
           "page": "/de/en/homepage",
           "evidence": "2026-11-02: replica dialog 187 links (95 en, 92 de), all 187 /<cc>/<ll>/homepage answer 200 on b2b.turnsthe.page; www lists us/de, ca/de, mx/de, which answer 500"
+        },
+        "swiss": {
+          "status": "wip",
+          "note": "The dialog leads to Switzerland in English and German on the replica; the other countries open their homepage on www until their markets move.",
+          "page": "/ch/en/homepage",
+          "footnote": "lxmarkets",
+          "evidence": "2026-11-02: replica dialog: 'Switzerland | English', 'Switzerland | Deutsch' (own), 'Other countries' select with 53 entries -> https://www.swiss.com/<cc>/en/homepage; brands.js BRAND_SITES.swiss rows ch/en, ch/de"
         }
       }
     },
@@ -1911,6 +2111,12 @@
           "note": "Lufthansa Group for Business' consent banner works as on www, and the footer's privacy settings link opens it, where www's link leads to a missing page.",
           "page": "/de/en/homepage",
           "evidence": "2026-11-02: replica OneTrust banner (Privacy Settings, Only necessary / Accept all), window.OneTrust after choice; footer 'Change Privacy Settings' -> #privacy-settings; www /de/en/change-cookie-settings 404"
+        },
+        "swiss": {
+          "status": "done",
+          "note": "SWISS's consent banner works as on www, and the footer's privacy settings link opens its settings.",
+          "page": "/ch/en/homepage",
+          "evidence": "2026-11-02: OneTrust 01994cb2-f461-7489-80cc-e1ce655a86bc from the host's /onetrust/ path, banner shown, 'Change Privacy Settings' opens the preference center (www's link opens the same; groundwork decision 7)"
         }
       }
     },
@@ -1960,6 +2166,11 @@
           "status": "none",
           "note": "Lufthansa Group for Business' header has no contrast or text size controls.",
           "evidence": "2026-11-02 www homepage header: Login, News, Programs, Travel Solutions, About Us, search"
+        },
+        "swiss": {
+          "status": "none",
+          "note": "SWISS's header has no contrast or text size controls; its wheelchair icon leads to the accessible travel page.",
+          "evidence": "2026-11-02: replica header icon -> /ch/en/prepare/special-care/accessible-travel, as www (snapshot)"
         }
       }
     },
@@ -2009,6 +2220,11 @@
           "status": "none",
           "note": "Lufthansa Group for Business' website has no freight tracking.",
           "evidence": "groundwork widget list"
+        },
+        "swiss": {
+          "status": "none",
+          "note": "SWISS's website has no freight tracking.",
+          "evidence": "from snapshot; SWISS WorldCargo has its own website"
         }
       }
     },
@@ -2058,6 +2274,11 @@
           "status": "none",
           "note": "Lufthansa Group for Business' website has no freight booking.",
           "evidence": "groundwork widget list"
+        },
+        "swiss": {
+          "status": "none",
+          "note": "SWISS's website has no freight booking.",
+          "evidence": "from snapshot"
         }
       }
     },
@@ -2107,6 +2328,11 @@
           "status": "none",
           "note": "Lufthansa Group for Business' website has no cargo station finder.",
           "evidence": "groundwork widget list"
+        },
+        "swiss": {
+          "status": "none",
+          "note": "SWISS's website has no cargo station finder.",
+          "evidence": "from snapshot"
         }
       }
     },
@@ -2156,6 +2382,11 @@
           "status": "none",
           "note": "Lufthansa Group for Business' website has no cargo eServices.",
           "evidence": "groundwork widget list"
+        },
+        "swiss": {
+          "status": "none",
+          "note": "SWISS's website has no cargo eServices.",
+          "evidence": "from snapshot"
         }
       }
     }
