@@ -264,6 +264,10 @@ export const BRANDS = {
     messageCenter: 'lx',
     destinationImages: '/content/dam/lx/images/offers/destination',
     www: 'www.swiss.com',
+    travelId: { host: 'api.travelid.swiss.com', clientId: 'sAwlvrK8fb55GvHqM5Me9iAWpF9rchZL' },
+    // lh-backends has tenant LX (its cd329fe); www's AEM paths: /content/lx/markets/<cc>/<ll>/...
+    backends: true,
+    aemContent: 'lx',
     portal: 'LX',
     hub: 'ZRH',
     airline: 'LX',

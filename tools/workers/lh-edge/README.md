@@ -209,14 +209,14 @@ Every site with roots (brief 212): `SITE_ENTRIES` holds every root of `BRAND_SIT
 does (www.ita-airways.com `/it/en` -> `/it/en/homepage`); a site's aliases and extra paths on top (Brussels' `xx`,
 Austrian's `/xx/en`, `/at`).
 
-A brand whose tenant lh-backends has (`backends` in scripts/brands.js: Austrian, Discover, ITA, Brussels) gets
+A brand whose tenant lh-backends has (`backends` in scripts/brands.js: Austrian, Discover, ITA, Brussels, SWISS) gets
 lh-backends' paths (`isBackendsPath`: `/deeplink/*`, `/apps/dcep/deeplink/*`, `/sso/*`, `/loginservice`, `/seatmap/*`,
 `/_lh-backends/*`, `/service/secured/api/*`) and the sign-in return (`/` or `/<cc>/<ll>/…` with `code` and `state`) on its
 host, as lufthansa.turnsthe.page: the request goes to the binding unchanged, its host too (lh-backends picks the brand
 from the host or from `X-Portal`; a rewritten host would make it Lufthansa). lh-edge's own four answers under
 `/service/secured/api/` (search, defaultairport, bookinglist, loginPageUrl) are Lufthansa's and stay off the brand hosts
 (their origin's 404). www's long AEM paths of the brand (`aemContent` in scripts/brands.js: `/content/aua/…`,
-`/content/four_y/…`, `/content/ita/…`, `/content/bel/…` + `/markets/<cc>/<ll>/<page>[.html]`) answer a 301 to the short path, as
+`/content/four_y/…`, `/content/ita/…`, `/content/bel/…`, `/content/lx/…` + `/markets/<cc>/<ll>/<page>[.html]`) answer a 301 to the short path, as
 `/content/lh/markets/…` on lh-com's hosts ("URL forms"; until the brand's page exists the 301 lands on a 404).
 
 Sites without `<cc>/<ll>` roots (`PLAIN_SITES` in `src/sites.js`, brief 162) have no locale table and no market
