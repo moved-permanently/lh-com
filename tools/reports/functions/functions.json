@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-02 00:25",
-  "change": "Lufthansa's UK flight searches also have www's row for young adults and the alternative fare selection.",
+  "updated": "2026-11-02 07:33",
+  "change": "Lufthansa Group for Business is live at b2b.turnsthe.page and has its own column: its forms, site search, route network map and country selector work; its two sign-ins need Lufthansa.",
   "legend": {
     "done": {
       "label": "works on our replica",
@@ -45,7 +45,9 @@
     "travelid": "Personal content for signed-in customers needs Lufthansa: Travel ID, the group's login, accepts only the airline's own website as the address to return to and as the site allowed to call it. The replicas can't sign anyone in until they run on the airline's address, or Lufthansa allows ours.",
     "sndest": "Brussels Airlines' fare teasers, homepage slider and offers grid load live prices, but their cards open a destination page address the replica doesn't have. Brussels Airlines' own destination page works on the replica, and one brand setting points the cards at it.",
     "snchat": "Brussels Airlines' chat assistant loads from Brussels Airlines' website, outside AEM, as Austrian's does. Since 1 November its button shows on the pages that have it on www, in all six languages.",
-    "adesim": "Air Dolomiti's eSIM shop (from the vendor Breeze) is built into the replica, but its switch stays off: Breeze answers every call from our address with 403, because the widget's key belongs to Air Dolomiti's site. It works once Air Dolomiti or Breeze allows our address."
+    "adesim": "Air Dolomiti's eSIM shop (from the vendor Breeze) is built into the replica, but its switch stays off: Breeze answers every call from our address with 403, because the widget's key belongs to Air Dolomiti's site. It works once Air Dolomiti or Breeze allows our address.",
+    "b2bsignin": "Lufthansa Group for Business has two sign-ins in AEM today, one for companies and one for travel agencies (eXperts), each with a member area. Their replacement follows the other airlines' sign-ins, with test data first; showing real member data needs Lufthansa to let it reach its user and role systems. Until then the replica links to the current sign-ins.",
+    "b2bphone": "The contact page's hotline box finds the right phone number for a country from a Lufthansa service that runs in AEM today. On the replica the German pages show Germany's number as text; the list for the other countries is still to be rebuilt."
   },
   "brands": [
     {
@@ -96,6 +98,13 @@
       "host": "https://brussels.turnsthe.page",
       "www": "https://www.brusselsairlines.com",
       "note": "The Brussels Airlines replica, on the lufthansa.com code with Brussels Airlines' theme; Brussels Airlines runs on Lufthansa's AEM today."
+    },
+    {
+      "id": "b2b",
+      "name": "Group for Business",
+      "host": "https://b2b.turnsthe.page",
+      "www": "https://business.lufthansagroup.com",
+      "note": "The Lufthansa Group for Business replica, the group's website for companies and travel agencies, on the lufthansa.com code with its own theme; it runs on Lufthansa's AEM today."
     }
   ],
   "functions": [
@@ -146,6 +155,11 @@
           "note": "The search form is set up to hand searches to Brussels Airlines' own booking shop, as www does.",
           "page": "/be/en/homepage",
           "evidence": "2026-11-01: www.brusselsairlines.com/be/en/homepage flight manager (tabs Flights, Travel details, Redeem miles); replica /be/en/homepage flight-search block loaded with live labels and airports, Shop row shop.brusselsairlines.com/booking/availability; not submitted"
+        },
+        "b2b": {
+          "status": "none",
+          "note": "Lufthansa Group for Business has no flight search; companies and travel agencies book through the airlines and their own tools.",
+          "evidence": "2026-11-02 check: no search form on www's homepage; groundwork widget list (only image, video, country dialog, login, search, phone list)"
         }
       }
     },
@@ -195,6 +209,11 @@
           "note": "Brussels Airlines' flight searches have the picker for adults, children, infants and cabin, with www's link to group bookings from 10 travellers where www shows it.",
           "page": "/be/en/homepage",
           "evidence": "ema-test 232 (123 documents); published 2026-11-01 (Austrian job-2026-11-01-13-52-55-7168f7fd, Brussels job-2026-11-01-13-53-30-7b6ae1d7)"
+        },
+        "b2b": {
+          "status": "none",
+          "note": "Lufthansa Group for Business has no flight search, so no travellers picker.",
+          "evidence": "as flight-search"
         }
       }
     },
@@ -244,6 +263,11 @@
           "note": "The form hands searches by flight number, route and airport to Brussels Airlines' status page, which opens with the search already run, as a search started on www does.",
           "page": "/be/en/plan-your-trip/arrivals-and-departures",
           "evidence": "hand-off check 2026-11-01 ~14:00 CET (child p_mvxu85vo7t): number, route and airport -> www's status page with the search run (number tab without data where the flight doesn't fly today)"
+        },
+        "b2b": {
+          "status": "none",
+          "note": "Lufthansa Group for Business has no flight status form; the setting in its search bar points to an address that doesn't exist.",
+          "evidence": "groundwork raw: search bar data-dcep flightStatusUrl /gc/null/en; no flight status widget on the 569 pages"
         }
       }
     },
@@ -291,6 +315,11 @@
           "note": "The check-in pages have the booking form and hand over to Brussels Airlines' check-in, which stays after the switch.",
           "page": "/be/en/check-in-options-and-info/online-check-in-options",
           "evidence": "ema-test 218 item 10 (booking-lookup on the six check-in pages), Brussels go-live 2026-11-01 (child p_mvxofhz36r: all six language roots and 92 market roots live)"
+        },
+        "b2b": {
+          "status": "none",
+          "note": "Lufthansa Group for Business has no check-in; its travel agency pages describe the airlines' check-in as text, which the replica has.",
+          "evidence": "groundwork widget list; check-in appears as text only"
         }
       }
     },
@@ -344,6 +373,11 @@
           "page": "/be/en/my-bookings",
           "footnote": "signin",
           "evidence": "Brussels app shells 2026-11-01: menus of all 98 roots (job 18-05-11-74cfe277); the my-bookings pages still link www's deep link; backends 2026-11-01 evening: lh-backends 26f0e26/594d7fd (tenant SN), lh-com 498c8ca7/35b15b65 (brands.js backends + aemContent bel), smoke 0 diffs; my curl: GET /deeplink/cockpit 200, POST 302 -> /be/en/profile/login"
+        },
+        "b2b": {
+          "status": "none",
+          "note": "Lufthansa Group for Business has no booking lookup.",
+          "evidence": "groundwork widget list"
         }
       }
     },
@@ -393,6 +427,11 @@
           "see": "flight-status",
           "note": "Brussels Airlines' timetable is the route tab of its flight status form.",
           "evidence": "2026-11-01: www /be/en/plan-your-trip/arrivals-and-departures has tabs Flight number, Flight route, Airport; no separate timetable"
+        },
+        "b2b": {
+          "status": "none",
+          "note": "Lufthansa Group for Business has no timetable search; its route network map is rated under New destinations map.",
+          "evidence": "groundwork widget list; route network page has only the lhg-network.com map"
         }
       }
     },
@@ -438,6 +477,11 @@
           "status": "none",
           "note": "Brussels Airlines' flight search has no hotel tab; the menu and homepage link to Booking.com, as the replica does.",
           "evidence": "2026-11-01: www homepage flight manager hideHotel true, tabs Flights, Travel details, Redeem miles; replica nav and homepage cards-icon link booking.com aid=386441"
+        },
+        "b2b": {
+          "status": "none",
+          "note": "Lufthansa Group for Business has no hotel search.",
+          "evidence": "groundwork widget list"
         }
       }
     },
@@ -483,6 +527,11 @@
           "note": "Brussels Airlines links to its rental partner, which stays; the replica has the same links.",
           "page": "/be/en/homepage",
           "evidence": "2026-11-01: replica nav 'Book rental car' and homepage 'Rental car' -> cars.cartrawler.com/brusselsairlines (301 to brusselsairlines.cartrawler.com); www flight manager hideCar and hideMeiliCar true"
+        },
+        "b2b": {
+          "status": "none",
+          "note": "Lufthansa Group for Business offers no car rental.",
+          "evidence": "groundwork widget list"
         }
       }
     },
@@ -529,6 +578,11 @@
           "status": "none",
           "note": "Brussels Airlines' website has no trip management app; 'My flights' leads to the login page.",
           "evidence": "2026-11-01: www header 'My flights' -> /deeplink/cockpit?country=BE&language=EN (login); no trip management component in the 255 be/en snapshots"
+        },
+        "b2b": {
+          "status": "none",
+          "note": "Lufthansa Group for Business has no trip management app.",
+          "evidence": "groundwork widget list"
         }
       }
     },
@@ -576,6 +630,11 @@
           "note": "The lounge finder lists lounges with live data; Brussels and Business Class showed 4 lounges.",
           "page": "/be/en/extra-services/lounges/worldwide-lounges",
           "evidence": "2026-11-01 07:2x CET: replica /be/en/extra-services/lounges/worldwide-lounges, Brussels (BRU) + Business Class -> 'Results (4)', live catalogs/lounges/BUS/BRU; www same path dcep-lounge-finder"
+        },
+        "b2b": {
+          "status": "none",
+          "note": "Lufthansa Group for Business describes lounges as text on its travel agency pages, which the replica has, without a search.",
+          "evidence": "groundwork: 'lounge' on 89 pages, all text; no lounge widget"
         }
       }
     },
@@ -622,6 +681,11 @@
           "status": "none",
           "note": "Brussels Airlines' website shows no waiting times; its security time slot page is a table of airports, which the replica has.",
           "evidence": "2026-11-01: www /be/en/plan-your-trip/airport-info/security-control-service is a table with links to airports' slot booking; no waiting time component in the be/en and be/fr snapshots; replica has the page"
+        },
+        "b2b": {
+          "status": "none",
+          "note": "Lufthansa Group for Business shows no waiting times.",
+          "evidence": "groundwork widget list"
         }
       }
     },
@@ -668,6 +732,11 @@
           "note": "The airport search is on the six check-in time pages with Brussels Airlines' live data, read through Lufthansa's service because Brussels Airlines' own site answers only itself.",
           "page": "/be/en/check-in-options-and-info/check-in-times",
           "evidence": "205 (63525379) published 2026-11-01; browser check: Brussels Airport, check-in row 4, 40 min, services tables"
+        },
+        "b2b": {
+          "status": "none",
+          "note": "Lufthansa Group for Business gives check-in information as text, which the replica has.",
+          "evidence": "groundwork widget list; text only"
         }
       }
     },
@@ -714,6 +783,12 @@
           "see": "forms",
           "note": "Brussels Airlines' group requests use a form on the replica, rated under Forms.",
           "evidence": "2026-11-01: www /be/en/book-a-flight/groups-and-charter/groups/group-travel-request; replica same path on aem.page (form core), held from live"
+        },
+        "b2b": {
+          "status": "elsewhere",
+          "note": "The Book-a-Group page links to the Lufthansa Group's group booking tool for travel agencies, which stays; the replica has the same link.",
+          "page": "/de/en/program/book-a-group",
+          "evidence": "2026-11-02: www page links https://lhg-bookagroup.com/lgt-web/login.htm (browser); replica /de/en/program/book-a-group 200 with the same link (old path /program/Book-A-Group 301s to it)"
         }
       }
     },
@@ -760,6 +835,11 @@
           "note": "Brussels Airlines' eSIM comes from a partner shop, which stays; the replica's homepage links to it.",
           "page": "/be/en/homepage",
           "evidence": "2026-11-01: www homepage teaser 'eSIM by Breeze' -> brusselsairlines.breezesim.com (200); replica /be/en/homepage 'Book data bundle' -> same"
+        },
+        "b2b": {
+          "status": "none",
+          "note": "Lufthansa Group for Business offers no eSIM.",
+          "evidence": "groundwork: no esim on the 569 pages"
         }
       }
     },
@@ -809,6 +889,11 @@
           "note": "Fare teasers show live fares from Brussels and open our own destination page in English and French; the Dutch, German, Italian and Spanish versions open www's.",
           "page": "/be/en/homepage",
           "evidence": "Brussels go-live 2026-11-01 (child p_mvxofhz36r: all six language roots and 92 market roots live); checked 12:3x brussels.turnsthe.page/be/en/homepage: teaser -> /be/en/book-a-flight/destination?OriginCode=BRU&DestinationCode=WAS"
+        },
+        "b2b": {
+          "status": "none",
+          "note": "Lufthansa Group for Business shows no prices.",
+          "evidence": "groundwork widget list"
         }
       }
     },
@@ -858,6 +943,11 @@
           "note": "The homepage slider lists destinations with live prices from Brussels; its cards open our own destination page in English and French, www's in the other languages.",
           "page": "/be/en/homepage",
           "evidence": "Brussels go-live 2026-11-01 (child p_mvxofhz36r: all six language roots and 92 market roots live); checked: 17 cards, data-lh-source live, first card Milan -> /be/en/book-a-flight/destination"
+        },
+        "b2b": {
+          "status": "none",
+          "note": "Lufthansa Group for Business has no destination slider.",
+          "evidence": "groundwork widget list"
         }
       }
     },
@@ -906,6 +996,11 @@
           "note": "The offers page shows destinations with live prices and filters, as on www.",
           "page": "/be/en/offers",
           "evidence": "Brussels go-live 2026-11-01 (child p_mvxofhz36r: all six language roots and 92 market roots live); ema-test 218 (offers page settings on the roots, destinationOnSite en/fr)"
+        },
+        "b2b": {
+          "status": "none",
+          "note": "Lufthansa Group for Business has no offers page.",
+          "evidence": "groundwork widget list"
         }
       }
     },
@@ -955,6 +1050,11 @@
           "see": "fare-teaser",
           "note": "Brussels Airlines' route prices are live, rated under Fare teaser.",
           "evidence": "2026-11-01: no typed-in route prices in the replica's be/en pages; www uses fare teasers and the destination finder"
+        },
+        "b2b": {
+          "status": "none",
+          "note": "Lufthansa Group for Business has no route offers; its European fares page explains the fare types, which the replica has.",
+          "evidence": "groundwork raw: fare conditions table, no route prices"
         }
       }
     },
@@ -1001,6 +1101,12 @@
           "status": "none",
           "note": "Brussels Airlines' new destinations page has no map.",
           "evidence": "2026-11-01: www /be/en/flying-with-us/new-destinations snapshot has no map component; replica has the page as text and images"
+        },
+        "b2b": {
+          "status": "done",
+          "note": "The route network page shows the Lufthansa Group's interactive network map, embedded from its own site as on www.",
+          "page": "/de/en/travel-management/route-network",
+          "evidence": "2026-11-02: replica embed iframe https://lhg-network.com/ (1120x800) loaded the map app; lhg-network.com sends no X-Frame-Options or frame-ancestors; www embeds the same address"
         }
       }
     },
@@ -1046,6 +1152,11 @@
           "status": "none",
           "note": "Brussels Airlines' homepage teasers have no countdown.",
           "evidence": "2026-11-01: no countdown in www be/en homepage live or in any of the 1,472 captured Brussels pages (all roots, 2026-10-31/11-01)"
+        },
+        "b2b": {
+          "status": "none",
+          "note": "Lufthansa Group for Business' homepage has no countdown.",
+          "evidence": "groundwork components: stage, inspirational stage, icon modules; no countdown"
         }
       }
     },
@@ -1096,6 +1207,11 @@
           "note": "Brussels Airlines' notices work the same way; the twice-daily sync copies them from www, which has none to show today.",
           "page": "/be/en/plan-your-trip/flight-information",
           "evidence": "Message Center sync 2026-11-01b: sn -> lh-brussels; brands.js messageCenter sn; cti-pages sheet live"
+        },
+        "b2b": {
+          "status": "none",
+          "note": "Lufthansa Group for Business' public pages show no notices; its notice feed is empty and only the sign-in area reads it.",
+          "evidence": "groundwork: outage-b2b answers an empty list, no messagecenter component on 569 pages; lh-messages answers outage-b2b on lufthansa.turnsthe.page (2026-11-02: empty list, 200); b2b.turnsthe.page has no /graphql route (404)"
         }
       }
     },
@@ -1145,6 +1261,11 @@
           "status": "none",
           "note": "Brussels Airlines has no culinary hub; its meal pages are text, which the replica has.",
           "evidence": "2026-11-01: www /be/en/extra-services/meals and subpages (BON, Belgian Star Chefs) are text; no culinary component in the be/en and be/fr snapshots"
+        },
+        "b2b": {
+          "status": "none",
+          "note": "Lufthansa Group for Business has no culinary hub; its travel agency pages describe meals as text, which the replica has.",
+          "evidence": "groundwork widget list"
         }
       }
     },
@@ -1191,6 +1312,11 @@
           "note": "The lookup on Brussels Airlines' eJournals pages searches with live answers and links to Brussels Airlines' Travel ID, as on www.",
           "page": "/be/en/extra-services/inflight-services/ejournals",
           "evidence": "208 (71e28f9, 04ff2fc, 5e4b083) 2026-11-01; browser check with a made-up booking: live answer from the airline's service (brussels.turnsthe.page)"
+        },
+        "b2b": {
+          "status": "none",
+          "note": "Lufthansa Group for Business has no newsstand lookup; its travel agency pages mention eJournals as text.",
+          "evidence": "groundwork: 'eJournal' on 9 pages, all text"
         }
       }
     },
@@ -1235,6 +1361,12 @@
           "status": "elsewhere",
           "note": "Brussels Airlines' press room is a separate website, which stays; the replica links to it.",
           "evidence": "2026-11-01: www and replica footer 'Press room' -> press.brusselsairlines.com (200)"
+        },
+        "b2b": {
+          "status": "done",
+          "note": "The news pages for companies and the product and service news for travel agencies are on the replica as pages, with their article lists.",
+          "page": "/de/en/news",
+          "evidence": "2026-11-02: replica /de/en/news lists 23 article links, /de/en/program/experts/news 18 (www raw 25 incl. menu links, 18); articles published 2026-11-02"
         }
       }
     },
@@ -1283,6 +1415,12 @@
           "note": "The search page finds Brussels Airlines' own pages in all six language versions.",
           "page": "/be/en/search-results",
           "evidence": "index job-2026-11-01-10-55-29-b877931d (search-index rows be/en 238 ... es/es 184); checked /be/en/search-results?query=baggage: 30 results, all on the replica"
+        },
+        "b2b": {
+          "status": "done",
+          "note": "The search page finds the replica's own pages in English and German; \"baggage\" gave 30 results, as on www.",
+          "page": "/de/en/lhg4b-search/lhg4b-search-prelogin",
+          "evidence": "2026-11-02: replica 30 results from /de/en/search-index.json (256 rows; de/de 310), www 30 results from its search API; market roots use their language's index"
         }
       }
     },
@@ -1334,6 +1472,13 @@
           "note": "The app is in the shared code, but Brussels Airlines' Travel ID service refuses our addresses; the replica's help page shows a fixed list of topics.",
           "page": "/be/en/contact",
           "evidence": "2026-11-01: www /be/en/contact help-center-web 4.3.1 with topics from api.travelid.brusselsairlines.com/help-center-contact/v1/topics; replica /be/en/contact accordion-columns with fixed topics; GET to that topics URL from the aem.live origin blocked by CORS (brand host not attached, not tested there)"
+        },
+        "b2b": {
+          "status": "wip",
+          "note": "The contact page's phone list picks the hotline by country from a Lufthansa service in AEM; the replica shows Germany's number on the German pages and none on the other markets' contact pages yet.",
+          "page": "/de/en/about-us/contact",
+          "footnote": "b2bphone",
+          "evidence": "2026-11-02: www hotline box with a country select of 127 countries, data from /service/api/catalogs/*; replica de/en shows +49 69 86 799 500 as text, fr/en and ch/en contact pages show the heading without number"
         }
       }
     },
@@ -1383,6 +1528,11 @@
           "note": "The chat button opens Brussels Airlines' chat assistant on the pages that show it on www, in each page's language.",
           "page": "/be/en/my-bookings/rebooking-options",
           "evidence": "2026-11-01: lh-brussels /config/flags chat-button on (checked on preview: the assistant's window opens; no chat started), published; brussels.turnsthe.page be/fr loads it in French"
+        },
+        "b2b": {
+          "status": "none",
+          "note": "Lufthansa Group for Business has no chat.",
+          "evidence": "2026-11-02: no chat element on www's homepage; 'chatbot' only in images and news text"
         }
       }
     },
@@ -1432,6 +1582,12 @@
           "note": "Brussels Airlines' 85 form pages in six languages send to our own forms service, like the other airlines'.",
           "page": "/be/en/book-a-flight/groups-and-charter/groups/group-travel-request",
           "evidence": "test submission 2026-11-01 12:21 on brussels.turnsthe.page (lh-forms 200, mail in Inbox 12:22); published job-2026-11-01-11-25-38-5e538ac4"
+        },
+        "b2b": {
+          "status": "done",
+          "note": "The BusinessToGo contact form and the PartnerPlusBenefit raffle send to our own forms service, like the other airlines' forms; a test entry arrived.",
+          "page": "/de/en/program/businesstogo",
+          "evidence": "6 form pages (BusinessToGo de/en, de/de, xx/en, xx/de; raffle de/en, de/de); 2026-11-02 07:30: BusinessToGo form on aem.live (fields Name, Email, Your-question), raffle on preview only; set done only after the test submission passes and the pages are live, else wip with the held note"
         }
       }
     },
@@ -1481,6 +1637,11 @@
           "see": "forms",
           "note": "Brussels Airlines' compensation claims use a feedback form, rated under Forms; refunds go to Brussels Airlines' refund portal, which stays.",
           "evidence": "2026-11-01: www /be/en/contact/feedback/general/delays-and-cancellation (core form); refund-enquiry-form redirects to refund.brusselsairlines.com (200); redirect rows in held brief 218 item 1"
+        },
+        "b2b": {
+          "status": "none",
+          "note": "Lufthansa Group for Business has no claims form; its flight disruption page sends travellers to the airlines.",
+          "evidence": "groundwork forms.tsv: only BusinessToGo and raffle"
         }
       }
     },
@@ -1531,6 +1692,12 @@
           "note": "Brussels Airlines' newsletter page is on the replica; sign-up runs through Travel ID registration, which stays.",
           "page": "/be/en/register-newsletter",
           "evidence": "2026-11-01: www and replica /be/en/register-newsletter: 'To subscribe, simply register through Travel ID'; footer links it"
+        },
+        "b2b": {
+          "status": "elsewhere",
+          "note": "The travel agency newsletter is signed up for in the eXperts portal, which stays; the replica links to it as www does.",
+          "page": "/de/en/program/experts",
+          "evidence": "2026-11-02: replica /de/en/program/experts links https://auth.lufthansaexperts.com/profile/newsletter and /signup, as www raw"
         }
       }
     },
@@ -1576,6 +1743,12 @@
           "status": "elsewhere",
           "note": "Login goes to Brussels Airlines' Travel ID, which stays; the login and profile pages for visitors who aren't signed in are on the replica since 1 November.",
           "evidence": "Brussels app shells 2026-11-01 (lh-com b8253346, 19a5cd63; jobs 17-46-17-1ff03596, 18-03-02-61f61019; 104 pages 200 on brussels.turnsthe.page)"
+        },
+        "b2b": {
+          "status": "wip",
+          "note": "The sign-ins for companies and travel agencies run in AEM today; the replica links to www's sign-in pages until their replacement is built.",
+          "footnote": "b2bsignin",
+          "evidence": "2026-11-02: replica header Login links www /de/en/login and /service/secured/api/experts/login?country=de&language=en (country=de on every market root; www carries the root's country); PartnerPlusBenefit portal link unchanged; AMS-rest inventory: B2B sign-in has no owner yet"
         }
       }
     },
@@ -1623,6 +1796,12 @@
           "footnote": "travelid",
           "note": "Personal content needs a Travel ID sign-in, and Travel ID accepts only the airline's own website; this needs Lufthansa.",
           "evidence": "2026-11-01: www be/en homepage has ppfi-web-component (live); not on the replica, as on the other brands"
+        },
+        "b2b": {
+          "status": "lh",
+          "note": "The member areas for companies and travel agencies show data from Lufthansa's user and role systems, which only AEM reaches today; this needs Lufthansa.",
+          "footnote": "b2bsignin",
+          "evidence": "groundwork leave-out.tsv: /home, /reports, /fund, /history, /usermanagement redirect to /login; /experts-members/** redirect to the eXperts sign-in host"
         }
       }
     },
@@ -1673,6 +1852,12 @@
           "note": "The dialog lists Brussels Airlines' country and language versions, and every one of them answers on the replica.",
           "page": "/be/en/homepage",
           "evidence": "Brussels go-live 2026-11-01 (child p_mvxofhz36r: all six language roots and 92 market roots live); lh-edge site entry with entry redirects (/, /be, /<cc>, /<cc>/<ll>)"
+        },
+        "b2b": {
+          "status": "done",
+          "note": "The dialog lists 187 country and language versions, and each answers on the replica; the three German versions www answers with an error are left out.",
+          "page": "/de/en/homepage",
+          "evidence": "2026-11-02: replica dialog 187 links (95 en, 92 de), all 187 /<cc>/<ll>/homepage answer 200 on b2b.turnsthe.page; www lists us/de, ca/de, mx/de, which answer 500"
         }
       }
     },
@@ -1722,6 +1907,12 @@
           "note": "Brussels Airlines' consent banner works as on www.",
           "page": "/be/en/homepage",
           "evidence": "2026-11-01: replica /be/en/homepage OneTrust 01994cb3-... banner with 'Only necessary' and 'Accept all'; 'Only necessary' closed it; footer 'Change privacy settings'"
+        },
+        "b2b": {
+          "status": "done",
+          "note": "Lufthansa Group for Business' consent banner works as on www, and the footer's privacy settings link opens it, where www's link leads to a missing page.",
+          "page": "/de/en/homepage",
+          "evidence": "2026-11-02: replica OneTrust banner (Privacy Settings, Only necessary / Accept all), window.OneTrust after choice; footer 'Change Privacy Settings' -> #privacy-settings; www /de/en/change-cookie-settings 404"
         }
       }
     },
@@ -1766,6 +1957,11 @@
           "status": "none",
           "note": "Brussels Airlines' header has no contrast or text size controls; its wheelchair icon leads to a travel page.",
           "evidence": "2026-11-01: www header wheelchair icon -> /be/en/special-care/special-assistance; replica the same"
+        },
+        "b2b": {
+          "status": "none",
+          "note": "Lufthansa Group for Business' header has no contrast or text size controls.",
+          "evidence": "2026-11-02 www homepage header: Login, News, Programs, Travel Solutions, About Us, search"
         }
       }
     },
@@ -1810,6 +2006,11 @@
           "status": "none",
           "note": "Brussels Airlines' website has no freight tracking.",
           "evidence": "2026-11-01: be/en and be/fr nav, footer and snapshots"
+        },
+        "b2b": {
+          "status": "none",
+          "note": "Lufthansa Group for Business' website has no freight tracking.",
+          "evidence": "groundwork widget list"
         }
       }
     },
@@ -1854,6 +2055,11 @@
           "status": "none",
           "note": "Brussels Airlines' website has no freight booking.",
           "evidence": "2026-11-01: be/en and be/fr nav, footer and snapshots"
+        },
+        "b2b": {
+          "status": "none",
+          "note": "Lufthansa Group for Business' website has no freight booking.",
+          "evidence": "groundwork widget list"
         }
       }
     },
@@ -1898,6 +2104,11 @@
           "status": "none",
           "note": "Brussels Airlines' website has no cargo station finder.",
           "evidence": "2026-11-01: be/en and be/fr nav, footer and snapshots"
+        },
+        "b2b": {
+          "status": "none",
+          "note": "Lufthansa Group for Business' website has no cargo station finder.",
+          "evidence": "groundwork widget list"
         }
       }
     },
@@ -1942,6 +2153,11 @@
           "status": "none",
           "note": "Brussels Airlines' website has no cargo eServices.",
           "evidence": "2026-11-01: be/en and be/fr nav, footer and snapshots"
+        },
+        "b2b": {
+          "status": "none",
+          "note": "Lufthansa Group for Business' website has no cargo eServices.",
+          "evidence": "groundwork widget list"
         }
       }
     }
