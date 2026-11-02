@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 /* The login and profile apps on the brand sites (widgets/lh-app): a page with `brand` metadata
-   (austrian, brussels, discover, ita) gets its brand's entry of lh-app.json `brands` over Lufthansa's
+   (austrian, brussels, discover, ita, swiss) gets its brand's entry of lh-app.json `brands` over Lufthansa's
    config: its Travel ID, login client and redirect URI (the gate's link equals the brand's www
    gate, captured 2026-11-01), its design system, portal and component versions. Only on the
    brand's own www domain (and its subdomains) does the page ask the brand's Travel ID whether
@@ -79,6 +79,7 @@ const WWW_GATE = {
   discover: 'https://api.travelid.discover-airlines.com/oauth2/authorize?client_id=NqkvGG8MB6OeCkb66a02D0ORHOFhQWJ4&response_type=code&redirect_uri=https://www.discover-airlines.com&scope=AUTHENTICATED%20IDENTIFIED%20urn:milesandmore:tech:background:v1:active%20urn:milesandmore:oauth:multifactorauthentication&state=/de/en/profile/travel-cockpit&principal_type=EMAIL&reduced_state=NONE&view=login&prompt=login&country=DE&lang=en',
   ita: 'https://api.travelid.ita-airways.com/oauth2/authorize?client_id=14eKnYUwomcAimITtmaa2GqBM5mhO8kAS3GjTyE6RDsFaWrI&response_type=code&redirect_uri=https://www.ita-airways.com&scope=AUTHENTICATED%20IDENTIFIED%20urn:milesandmore:tech:background:v1:active%20urn:milesandmore:oauth:multifactorauthentication&state=/it/en/profile/travel-cockpit&principal_type=EMAIL&reduced_state=NONE&view=login&prompt=login&country=IT&lang=en',
   brussels: 'https://api.travelid.brusselsairlines.com/oauth2/authorize?client_id=FuBoxl39ln5fAfvIAX18xIi2BI4d6rny&response_type=code&redirect_uri=https://www.brusselsairlines.com&scope=AUTHENTICATED%20IDENTIFIED%20urn:milesandmore:tech:background:v1:active%20urn:milesandmore:oauth:multifactorauthentication&state=/be/en/profile/travel-cockpit&principal_type=EMAIL&reduced_state=NONE&view=login&prompt=login&country=BE&lang=en',
+  swiss: 'https://api.travelid.swiss.com/oauth2/authorize?client_id=sAwlvrK8fb55GvHqM5Me9iAWpF9rchZL&response_type=code&redirect_uri=https://www.swiss.com&scope=AUTHENTICATED%20IDENTIFIED%20urn:milesandmore:tech:background:v1:active%20urn:milesandmore:oauth:multifactorauthentication&state=/ch/en/profile/travel-cockpit&principal_type=EMAIL&reduced_state=NONE&view=login&prompt=login&country=CH&lang=en',
 };
 const BRAND = {
   austrian: {
@@ -92,6 +93,9 @@ const BRAND = {
   },
   brussels: {
     domain: 'brusselsairlines.com', www: 'www.brusselsairlines.com', root: 'be/en', country: 'be', travelId: 'https://api.travelid.brusselsairlines.com', portal: 'SN', line: 'g', theme: 'maui-theme-sn', css: 'brussels.css',
+  },
+  swiss: {
+    domain: 'swiss.com', www: 'www.swiss.com', root: 'ch/en', country: 'ch', travelId: 'https://api.travelid.swiss.com', portal: 'LX', line: 'g', theme: 'maui-theme-lx', css: 'swiss.css',
   },
 };
 
@@ -394,4 +398,42 @@ test('Brussels: the gate in www\'s words in its six languages, a market root\'s 
   assert.equal(resolveApp(sn, 'my-trips', beFr).attributes['data-api-gateway'], 'https://api.travelid.brusselsairlines.com');
   assert.equal(resolveApp(sn, 'sdui-profile', beFr).attributes['data-translation-labels'], 'https://www.brusselsairlines.com/service/api/labels/common');
   assert.equal(resolveApp(sn, 'sdui-statement', beFr).attributes.options, '{"customerHeaders":{"X-Language-Country":"fr-be"}}');
+});
+
+test('SWISS: the gate in www\'s words in English and German, the login link, its component versions', async () => {
+  // www.swiss.com's label bundles common/lx/<lang> and farealertprofileoverview/lx/<lang> and its rendered travel
+  // cockpits, bookinglists and logins of 2026-11-02 (capture swiss-appshells-001)
+  const words = (lang) => Object.values(siteConfig(LH_APP, 'swiss').labels[lang]);
+  assert.deepEqual(words('en'), ['Please log in to view this page', 'Log in now', 'Loading …', 'Best Price Alerts', 'Please login or register to overview and manage Best Price Alerts.', 'Login & Registration']);
+  assert.deepEqual(words('de'), ['Bitte loggen Sie sich ein.', 'Log in now', 'Wird geladen\u00a0...', 'Best Price Alerts ', 'Bitte melden Sie sich an oder registrieren Sie sich, um eine Übersicht zu erhalten und den Best Price Alerts zu verwalten.', 'Login und Registrierung']);
+  const de = await run({
+    brand: 'swiss', host: 'swiss.turnsthe.page', path: '/ch/de/profile/my-account/wallet', app: 'payment-methods',
+  });
+  assert.equal(de.widget.querySelector('.lh-app-gate-text').textContent, 'Bitte loggen Sie sich ein.');
+  assert.equal(de.widget.querySelector('.lh-app-gate a').textContent, 'Log in now');
+  assert.equal(de.widget.querySelector('.lh-app-gate a').href, WWW_GATE.swiss.replace('state=/ch/en/profile/travel-cockpit', 'state=/ch/de/profile/my-account/wallet').replace('lang=en', 'lang=de'));
+  const en = await run({
+    brand: 'swiss', host: 'main--lh-swiss--moved-permanently.aem.live', path: '/ch/en/profile/travel-cockpit', app: 'login-gate',
+  });
+  assert.equal(en.widget.querySelector('.lh-app-gate a').href, WWW_GATE.swiss);
+  const travelId = [...de.fetched, ...en.fetched, ...de.loaded, ...en.loaded].filter((u) => /travelid/i.test(u));
+  assert.deepEqual(travelId, [], 'logged out off www, without a request');
+  // on www.swiss.com: SWISS' own loginstatus, never Lufthansa's
+  const www = await run({
+    brand: 'swiss', host: 'www.swiss.com', path: '/ch/en/profile/my-account', app: 'login-gate',
+  });
+  assert.deepEqual(www.requests.filter((q) => /travelid/.test(q.url)).map((q) => q.url), ['https://api.travelid.swiss.com/v1/user/me/loginstatus']);
+  // the scripts www's travel cockpit and bookinglist load (2026-11-02)
+  const { resolveApp } = await import('../widgets/lh-app/lh-app.js');
+  const lx = siteConfig(LH_APP, 'swiss');
+  const chDe = { key: 'ch/de', country: 'ch', lang: 'de' };
+  assert.equal(resolveApp(lx, 'hero-banner', chDe).script, '/digitalhangar/customer-cockpit/hero-banner-react/hero-banner-react-2.0.2.js');
+  assert.equal(resolveApp(lx, 'my-trips', chDe).script, '/digitalhangar/travel-insights/my-trips/my-trips-0.17.10.js');
+  assert.equal(resolveApp(lx, 'web-self-service', chDe).script, '/digitalhangar/customer-cockpit/web-self-service/web-self-service-2.0.3.js');
+  assert.equal(resolveApp(lx, 'airport-services', chDe).script, '/digitalhangar/redemption-program/airport-services/airport-services-1.0.22.js');
+  assert.equal(resolveApp(lx, 'upgrade-alert', chDe).script, '/digitalhangar/redemption-program/upgrade-alert/upgrade-alert-3.0.18.js');
+  assert.equal(resolveApp(lx, 'past-trips', chDe).script, '/digitalhangar/travel-insights/past-trips/past-trips-1.4.7.js');
+  assert.equal(resolveApp(lx, 'my-trips', chDe).attributes['data-api-gateway'], 'https://api.travelid.swiss.com');
+  assert.equal(resolveApp(lx, 'sdui-profile', chDe).attributes['data-translation-labels'], 'https://www.swiss.com/service/api/labels/common');
+  assert.equal(resolveApp(lx, 'sdui-statement', chDe).attributes.options, '{"customerHeaders":{"X-Language-Country":"de-ch"}}');
 });
