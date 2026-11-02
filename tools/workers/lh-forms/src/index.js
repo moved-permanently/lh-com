@@ -187,14 +187,20 @@ const FORMS = {
     'request-for-proposal': ['Your enquiry for a Lufthansa Group Meetings & Events cooperation'],
     'special-assistance': ['Special assistance', 'Besondere Unterstützung'],
   }),
+  // Lufthansa Group for Business (lh-b2b): its de/en and de/de pages (2026-11-02); the raffle's
+  // h1; BusinessToGo's page has no h1 on www: its title without the site's name
+  ...brandForms('b2b', {
+    businesstogo: ['Lufthansa Group BusinessToGo'],
+    'partner-plus-benefit-raffle': ['LOYALTY PAYS OFF – WIN 1 MILLION BENEFIT POINTS', 'TREUE ZAHLT SICH AUS – GEWINNEN SIE 1 MILLION BENEFIT Punkte'],
+  }),
 };
 // any country-language pair (the site's roots: de-en, de-de, at-de, gb-en, and the next ones),
 // or the language alone on the sites without roots (Cargo, Air Dolomiti: it, en, de)
 const LOCALE = /^([a-z]{2}-)?[a-z]{2}$/;
 
 const DEFAULTS = {
-  ALLOWED_ORIGIN_PATTERN: '^https://[a-z0-9-]+--(lh-com|lh-flynet|lh-discover|lh-ita|lh-austrian|lh-airdolomiti|lh-brussels|lh-cargo)--moved-permanently\\.(aem\\.(page|live)|(stage-)?(preview|ue)\\.da\\.(live|page))$',
-  EXTRA_ALLOWED_ORIGINS: 'https://lufthansa.turnsthe.page,https://discover.turnsthe.page,https://ita.turnsthe.page,https://austrian.turnsthe.page,https://airdolomiti.turnsthe.page,https://brussels.turnsthe.page,https://cargo.turnsthe.page,http://localhost:3000',
+  ALLOWED_ORIGIN_PATTERN: '^https://[a-z0-9-]+--(lh-com|lh-flynet|lh-discover|lh-ita|lh-austrian|lh-airdolomiti|lh-brussels|lh-cargo|lh-b2b)--moved-permanently\\.(aem\\.(page|live)|(stage-)?(preview|ue)\\.da\\.(live|page))$',
+  EXTRA_ALLOWED_ORIGINS: 'https://lufthansa.turnsthe.page,https://discover.turnsthe.page,https://ita.turnsthe.page,https://austrian.turnsthe.page,https://airdolomiti.turnsthe.page,https://brussels.turnsthe.page,https://cargo.turnsthe.page,https://b2b.turnsthe.page,http://localhost:3000',
 };
 
 const MB = 1000 * 1000;
@@ -657,9 +663,9 @@ async function validateFiles(files, form) {
 
 // the brand sites by their turnsthe.page host label and form id prefix (lh-com: neither)
 const BRAND_TAGS = {
-  discover: 'lh-discover', ita: 'lh-ita', austrian: 'lh-austrian', airdolomiti: 'lh-airdolomiti', brussels: 'lh-brussels', cargo: 'lh-cargo',
+  discover: 'lh-discover', ita: 'lh-ita', austrian: 'lh-austrian', airdolomiti: 'lh-airdolomiti', brussels: 'lh-brussels', cargo: 'lh-cargo', b2b: 'lh-b2b',
 };
-const BRAND_ORIGIN = /^https:\/\/[a-z0-9-]+--(lh-discover|lh-ita|lh-austrian|lh-airdolomiti|lh-brussels|lh-cargo)--/;
+const BRAND_ORIGIN = /^https:\/\/[a-z0-9-]+--(lh-discover|lh-ita|lh-austrian|lh-airdolomiti|lh-brussels|lh-cargo|lh-b2b)--/;
 
 /** The site of a submission (the subject's tag): its origin's, else its form id's, else lh-com. */
 export function siteTag(origin, form) {
@@ -667,7 +673,7 @@ export function siteTag(origin, form) {
   if (site) return site[1];
   const host = String(origin || '').match(/^https:\/\/([a-z0-9]+)\.turnsthe\.page$/);
   if (host && BRAND_TAGS[host[1]]) return BRAND_TAGS[host[1]];
-  const prefix = String(form || '').match(/^([a-z]+)-/);
+  const prefix = String(form || '').match(/^([a-z0-9]+)-/);
   return (prefix && BRAND_TAGS[prefix[1]]) || 'lh-com';
 }
 

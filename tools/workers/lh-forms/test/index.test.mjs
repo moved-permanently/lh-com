@@ -1333,3 +1333,64 @@ test('Brussels file rules: the feedback forms 5 x 2,000,000 PDF or JPEG; the req
     assert.deepEqual(body, error ? { ok: false, error } : { ok: true }, `${form} ${i}`);
   });
 });
+
+/* ---------- Lufthansa Group for Business (lh-b2b) ---------- */
+
+const B2B_IDS = ['b2b-businesstogo', 'b2b-partner-plus-benefit-raffle'];
+const B2B = 'https://b2b.turnsthe.page';
+
+test('B2B: its host and Edge Delivery hosts are allowed origins; look-alikes are not', async () => {
+  const allowed = [B2B, 'https://main--lh-b2b--moved-permanently.aem.page', 'https://main--lh-b2b--moved-permanently.aem.live',
+    'https://branch--lh-b2b--moved-permanently.aem.page'];
+  const refused = ['https://main--lh-b2c--moved-permanently.aem.page', 'https://b2b.turnsthe.page.example.com',
+    'http://b2b.turnsthe.page', 'https://main--lh-b2b--moved-permanently.aem.live.example.com'];
+  const ok = await Promise.all(allowed.map(preflight));
+  ok.forEach((res, i) => {
+    assert.equal(res.status, 204, allowed[i]);
+    assert.equal(res.headers.get('access-control-allow-origin'), allowed[i]);
+  });
+  const no = await Promise.all(refused.map(preflight));
+  no.forEach((res, i) => assert.equal(res.status, 403, refused[i]));
+});
+
+test('B2B: both form ids are accepted in en and de, to the default recipient; an unknown id is not', async () => {
+  const cases = B2B_IDS.flatMap((form) => ['de-en', 'de-de', 'at-en', 'xx-de'].map((locale) => ({ form, locale })));
+  const results = await Promise.all(cases.map((c, i) => post({ ...c, origin: B2B, ip: `198.51.100.${i + 120}` })));
+  results.forEach(({ res, body }, i) => {
+    assert.equal(res.status, 200, `${cases[i].form} ${cases[i].locale}`);
+    assert.deepEqual(body, { ok: true });
+  });
+  assert.equal(sent.length, cases.length);
+  assert.ok(sent.every((m) => JSON.stringify(m.to) === JSON.stringify(sent[0].to)), 'one recipient set: the default');
+  const unknown = await Promise.all(['b2b-unknown', 'b2b', 'businesstogo'].map((form, i) => post({
+    form, locale: 'de-en', origin: B2B, ip: `198.51.100.${230 + i}`,
+  })));
+  unknown.forEach(({ res, body }) => {
+    assert.equal(res.status, 400);
+    assert.deepEqual(body, { ok: false, error: 'unknown-form' });
+  });
+});
+
+test('B2B: titles from the de/en and de/de pages; the subject names lh-b2b (origin, else form id)', async () => {
+  const env = makeEnv({ FORM_CONFIG: JSON.stringify({ default: { to: 'only@example.com' } }) });
+  const cases = [
+    [{ form: 'b2b-businesstogo', locale: 'de-en', origin: B2B }, '[lh-b2b] Lufthansa Group BusinessToGo (de-en)'],
+    [{ form: 'b2b-businesstogo', locale: 'de-de', origin: 'https://main--lh-b2b--moved-permanently.aem.live' }, '[lh-b2b] Lufthansa Group BusinessToGo (de-de)'],
+    [{ form: 'b2b-partner-plus-benefit-raffle', locale: 'at-en', origin: 'https://main--lh-b2b--moved-permanently.aem.page' }, '[lh-b2b] LOYALTY PAYS OFF – WIN 1 MILLION BENEFIT POINTS (at-en)'],
+    [{ form: 'b2b-partner-plus-benefit-raffle', locale: 'de-de', origin: ORIGIN }, '[lh-b2b] TREUE ZAHLT SICH AUS – GEWINNEN SIE 1 MILLION BENEFIT Punkte (de-de)'],
+  ];
+  const results = await Promise.all(cases.map(([opts], i) => post({ ...opts, ip: `203.0.113.${170 + i}` }, env)));
+  results.forEach(({ res }, i) => assert.equal(res.status, 200, cases[i][1]));
+  assert.deepEqual(sent.map((m) => m.subject).sort(), cases.map((c) => c[1]).sort());
+});
+
+test('B2B: its forms take no files (www\'s pages have no drop zone)', async () => {
+  const pdf = ['Attachments', file(PDF, 'a.pdf', 'application/pdf')];
+  const results = await Promise.all(B2B_IDS.map((form, i) => post({
+    form, locale: 'de-en', origin: B2B, files: [pdf], ip: `192.0.2.${200 + i}`,
+  })));
+  results.forEach(({ res, body }) => {
+    assert.equal(res.status, 400);
+    assert.deepEqual(body, { ok: false, error: 'files-not-allowed' });
+  });
+});
