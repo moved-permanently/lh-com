@@ -113,3 +113,39 @@ test('the readers of the table: time zones, shop language, portal headers (four 
   assert.equal(portalHeaders('ch/de')['X-Portal-Site'], 'CH');
   assert.deepEqual(portalHeaders('fr/fr'), {});
 });
+
+test('a language version still pilot (French, batch 11): allowed while its market roots are; a wave makes both live, a country wave not the root of a pilot version', () => {
+  const www = ['de/en', 'de/de', 'fr/fr', 'ch/en', 'ch/de', 'ch/fr', 'be/fr'].map((root) => ({ root, hreflang: [`${root.split('/')[1]}-${root.split('/')[0].toUpperCase()}`], ownSitemap: true }));
+  const data = (liveWaves, extra = {}) => ({
+    defaultLocale: 'de/en',
+    languageVersions: { en: 'de/en', de: 'de/de', fr: 'fr/fr' },
+    fallbackLanguageVersion: 'de/en',
+    liveWaves,
+    roots: {
+      'de/en': { status: 'live' },
+      'de/de': { status: 'live' },
+      'fr/fr': { status: 'pilot', documents: 'own', batch: 11 },
+      'ch/en': { status: 'pilot', documents: 'language' },
+      'ch/de': { status: 'pilot', documents: 'language' },
+      'ch/fr': { status: 'pilot', documents: 'language', batch: 11 },
+      'be/fr': { status: 'pilot', documents: 'language', batch: 11 },
+      ...extra,
+    },
+  });
+  const status = (t) => Object.fromEntries(Object.entries(t.rows).map(([k, r]) => [k, r.status]));
+  assert.deepEqual(status(buildTable(www, data([]))), {
+    'de/en': 'live', 'de/de': 'live', 'fr/fr': 'pilot', 'ch/en': 'pilot', 'ch/de': 'pilot', 'ch/fr': 'pilot', 'be/fr': 'pilot',
+  });
+  assert.deepEqual(buildTable(www, data([])).languageVersions, { en: 'de/en', de: 'de/de', fr: 'fr/fr' });
+  // ch first (wave "ch"): ch/en and ch/de; ch/fr waits for its language version's wave
+  assert.deepEqual(status(buildTable(www, data(['ch']))), {
+    'de/en': 'live', 'de/de': 'live', 'fr/fr': 'pilot', 'ch/en': 'live', 'ch/de': 'live', 'ch/fr': 'pilot', 'be/fr': 'pilot',
+  });
+  assert.deepEqual(status(buildTable(www, data([11]))), {
+    'de/en': 'live', 'de/de': 'live', 'fr/fr': 'live', 'ch/en': 'pilot', 'ch/de': 'pilot', 'ch/fr': 'live', 'be/fr': 'live',
+  });
+  assert.equal(status(buildTable(www, data(['ch', 11])))['ch/fr'], 'live');
+  // a live market root needs a live language version; the default and fallback stay live rows
+  assert.throws(() => buildTable(www, data([], { 'be/fr': { status: 'live', documents: 'language' } })), /be\/fr: a live market root needs a live language version \(fr\/fr is pilot\)/);
+  assert.throws(() => buildTable(www, { ...data([]), fallbackLanguageVersion: 'fr/fr' }), /fr\/fr: must be a live row/);
+});
