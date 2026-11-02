@@ -483,6 +483,43 @@
         "sdui-profile": { "attributes": { "data-translation-labels": "{scriptOrigin}/service/api/labels/common" } },
         "sdui-statement": { "attributes": { "options": "{\"customerHeaders\":{\"X-Language-Country\":\"{languageCountry}\"}}" } }
       }
+    },
+    "swiss": {
+      "loginHosts": ["swiss.com"],
+      "scriptOrigin": "https://www.swiss.com",
+      "travelIdApi": "https://api.travelid.swiss.com",
+      "authorize": { "clientId": "sAwlvrK8fb55GvHqM5Me9iAWpF9rchZL", "redirectUri": "https://www.swiss.com" },
+      "maui": {
+        "css": "/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/css/swiss.css",
+        "js": "/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/packages/maui-design-system.js"
+      },
+      "portal": { "X-Portal": "LX", "X-Line": "g" },
+      "themeClass": "maui-theme-lx",
+      "labels": {
+        "en": {
+          "common.misc.loader.forcedOneIdLoginText": "Please log in to view this page",
+          "common.misc.loader.forcedOneIdLoginButton": "Log in now",
+          "common.misc.loader.label": "Loading …",
+          "farealertprofileoverview.farealertprofileoverview.default.headline": "Best Price Alerts",
+          "farealertprofileoverview.farealertprofileoverview.default.loginRequest": "Please login or register to overview and manage Best Price Alerts.",
+          "farealertprofileoverview.farealertprofileoverview.default.loginAndRegistration": "Login & Registration"
+        },
+        "de": {
+          "common.misc.loader.forcedOneIdLoginText": "Bitte loggen Sie sich ein.",
+          "common.misc.loader.forcedOneIdLoginButton": "Log in now",
+          "common.misc.loader.label": "Wird geladen ...",
+          "farealertprofileoverview.farealertprofileoverview.default.headline": "Best Price Alerts ",
+          "farealertprofileoverview.farealertprofileoverview.default.loginRequest": "Bitte melden Sie sich an oder registrieren Sie sich, um eine Übersicht zu erhalten und den Best Price Alerts zu verwalten.",
+          "farealertprofileoverview.farealertprofileoverview.default.loginAndRegistration": "Login und Registrierung"
+        }
+      },
+      "apps": {
+        "hero-banner": { "script": "/digitalhangar/customer-cockpit/hero-banner-react/hero-banner-react-2.0.2.js" },
+        "my-trips": { "script": "/digitalhangar/travel-insights/my-trips/my-trips-0.17.10.js" },
+        "web-self-service": { "script": "/digitalhangar/customer-cockpit/web-self-service/web-self-service-2.0.3.js" },
+        "sdui-profile": { "attributes": { "data-translation-labels": "{scriptOrigin}/service/api/labels/common" } },
+        "sdui-statement": { "attributes": { "options": "{\"customerHeaders\":{\"X-Language-Country\":\"{languageCountry}\"}}" } }
+      }
     }
   }
 }
