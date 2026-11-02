@@ -169,3 +169,44 @@ test('scripts.js: decorateMain runs it after the sections; the styles exist', ()
   assert.match(fs.readFileSync('styles/themes/swiss.css', 'utf8'), /--section-tabs-bar: #c00;/);
   assert.match(fs.readFileSync('styles/themes/austrian.css', 'utf8'), /--section-tabs-bar: #d81e05;/);
 });
+
+// a panel of several sections (Austrian's austrian-app: a panel's text, then its image in a
+// full-bleed section; grey boxes inside a panel): consecutive sections with the same Tab label
+// and set are one panel, each keeping its own section style
+const PARTS = () => page([
+  ['<h1>Austrian App</h1>'],
+  ['<h3>Mobile check-in</h3>', { tab: 'Check-in', tabs: '1' }],
+  ['<p><picture><img src="/a.png" alt=""></picture></p>', { tab: 'Check-in', tabs: '1', style: 'full-bleed' }],
+  ['<h3>Your baggage</h3>', { tab: 'Baggage', tabs: '1' }],
+  ['<p>A grey box</p>', { tab: 'Baggage', tabs: '1', style: 'grey' }],
+  ['<p>After</p>'],
+]);
+
+test('a panel of several sections (the same Tab label in a row): one tab, its parts shown and hidden together, each its own style', () => {
+  const main = PARTS();
+  [...main.querySelectorAll('[data-style]')].forEach((s) => s.classList.add(s.dataset.style));
+  decorateSectionTabs(main);
+  const tabs = [...main.querySelectorAll('[role="tab"]')];
+  assert.deepEqual(tabs.map((t) => t.textContent), ['Check-in', 'Baggage'], 'one tab per label');
+  const sections = [...main.querySelectorAll(':scope > .section')];
+  const [check, checkImage, bags, bagsGrey] = sections.slice(2, 6);
+  assert.equal(check.getAttribute('role'), 'tabpanel');
+  assert.equal(checkImage.hasAttribute('role'), false, 'a part is no panel of its own');
+  assert.ok(checkImage.classList.contains('section-tab-part') && checkImage.classList.contains('full-bleed'), 'the part keeps its style');
+  assert.ok(bagsGrey.classList.contains('grey'));
+  assert.equal(tabs[0].getAttribute('aria-controls'), `${check.id} ${checkImage.id}`, 'the tab controls its panel and its parts');
+  assert.deepEqual([check.hidden, checkImage.hidden, bags.hidden, bagsGrey.hidden], [false, false, true, true]);
+  tabs[1].click();
+  assert.deepEqual([check.hidden, checkImage.hidden, bags.hidden, bagsGrey.hidden], [true, true, false, false]);
+  // below 768px: one toggle per panel (none over its parts), the parts open and close with it
+  desktop = false;
+  const phone = PARTS();
+  decorateSectionTabs(phone);
+  const toggles = [...phone.querySelectorAll('.section-tab-toggle')];
+  assert.deepEqual(toggles.map((t) => t.textContent), ['Check-in', 'Baggage']);
+  const parts = [...phone.querySelectorAll(':scope > .section')].slice(2, 6);
+  const shown = (s) => [...s.children].filter((c) => !c.classList.contains('section-tab-toggle')).every((c) => !c.hidden);
+  assert.deepEqual(parts.map(shown), [true, true, false, false], 'the first panel open, its part too');
+  toggles[1].click();
+  assert.deepEqual(parts.map(shown), [false, false, true, true]);
+});

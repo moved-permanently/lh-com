@@ -93,6 +93,12 @@ main .section.section-tab-panel[hidden],
   display: none;
 }
 
+/* a panel's parts (its later sections of the same label, each with its own style) */
+main .section.section-tab-part[hidden],
+.section-tab-part > [hidden] {
+  display: none;
+}
+
 /* an open item's content under its toggle */
 .section-tab-panel > .section-tab-toggle + div {
   margin-top: var(--spacing-default, 24px);
@@ -105,6 +111,11 @@ main .section.section-tab-panel[hidden],
   }
 
   main > .section.section-tab-panel:has(+ .section-tab-panel) {
+    margin-bottom: 0;
+  }
+
+  main > .section.section-tab-panel:has(+ .section-tab-part),
+  main > .section.section-tab-part:has(+ .section-tab-part, + .section-tab-panel) {
     margin-bottom: 0;
   }
 }

@@ -6,14 +6,14 @@
  * panel starts: the element after each marker (its tag and text, tokens aside; the nth of its
  * kind). The current document gets a clean marker before that element (tokens that open the panel,
  * {column-start} or a spacer, go with it; a {column-end} stays with the panel before), then
- * withAustrianTabs makes the Tab sections. Nothing else of the document changes (--check: the
+ * splitWithParts makes the Tab sections (a panel's later sections its parts, their own style kept). Nothing else of the document changes (--check: the
  * content with section boundaries and section metadata set aside is the same).
- * Usage: node tools/importer/austrian-tabs-apply.mjs --list paths.txt --marked <dir> [--dry-run]
+ * Usage: node tools/importer/austrian-tabs-apply.mjs --list paths.txt --marked <dir> [--docs <dir>] [--dry-run]
+ *   (--docs: another document tree, default content-sites/lh-austrian/content)
  */
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { withAustrianTabs } from './austrian-import.mjs';
 import { divEnd } from './brussels-import.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
@@ -125,60 +125,62 @@ export function withMarkers(doc, markers) {
   return { doc: out, missing };
 }
 
+const SECTION_META = '<div class="section-metadata">';
+const rowsOf = (html) => [...html.matchAll(/<div><div>([^<]*)<\/div><div>([^<]*)<\/div><\/div>/g)].map((r) => [r[1], r[2]]);
+const metaOf = (rows) => (rows.length ? `${SECTION_META}${rows.map(([k, v]) => `<div><div>${k}</div><div>${v}</div></div>`).join('')}</div>` : '');
+const MARK_P = /^<p>(?:@@tab@@(\d+)@@([^<]*?)@@|(@@tabs-end@@))<\/p>$/;
+
 /**
- * Each tab set over several sections as one section from its first marker to its end marker (the
- * documents keep a panel's image in a section of its own, e.g. austrian-app's full-bleed phone
- * images, which would break the set): the content before the set keeps its section and metadata,
- * the content after it too; the metadata of the sections inside the set goes (a panel is one
- * section; named in `dropped`). A set within one section as it is.
+ * The document's tab markers as sections: a section per panel (section metadata Tab, Tabs) and,
+ * where a panel goes on in the next sections (the documents keep a panel's image in a section of
+ * its own, austrian-app's full-bleed phone images; grey boxes), a section per part with the same
+ * Tab and Tabs and its own section style (scripts/section-tabs.js shows a part with its panel). A
+ * section's own metadata goes with its parts outside the set, or, when it holds only panel content,
+ * with those. `parts`: the parts made. A document without markers as it is.
  */
-export function joinSets(doc) {
-  const dropped = [];
-  let out = doc;
-  const START = /<p>@@tab@@(\d+)@@[^<]*?@@<\/p>/g;
-  for (let m = START.exec(out); m; m = START.exec(out)) {
-    const p0 = m.index;
-    const pe = out.indexOf('<p>@@tabs-end@@</p>', p0);
-    if (pe < 0) break;
-    const sections = children(out).filter((s) => s.tag === 'div');
-    const s0 = sections.findIndex((s) => s.start <= p0 && p0 < s.end);
-    const se = sections.findIndex((s) => s.start <= pe && pe < s.end);
-    if (s0 < 0 || se <= s0) { START.lastIndex = pe + 1; continue; }
-    // a section's inner html without its metadata, and the metadata
-    const split = (s) => {
-      const open = s.html.indexOf('>') + 1;
-      const inner = s.html.slice(open, -6);
-      const meta = children(inner).find((c) => c.html.startsWith('<div class="section-metadata">'));
-      return { start: s.start + open, inner: meta ? inner.slice(0, meta.start) + inner.slice(meta.end) : inner, meta: meta ? meta.html : '' };
-    };
-    const describe = (metaHtml) => [...metaHtml.matchAll(/<div><div>([^<]*)<\/div><div>([^<]*)<\/div><\/div>/g)].map((r) => `${r[1]}: ${r[2]}`);
-    const first = split(sections[s0]);
-    const last = split(sections[se]);
-    const firstInner = sections[s0].html.slice(sections[s0].html.indexOf('>') + 1, -6);
-    const cut0 = p0 - first.start - (firstInner.slice(0, p0 - first.start).includes('<div class="section-metadata">') ? first.meta.length : 0);
-    const before = first.inner.slice(0, cut0);
-    const rest0 = first.inner.slice(cut0);
-    const lastInner = sections[se].html.slice(sections[se].html.indexOf('>') + 1, -6);
-    const endAt = pe - last.start;
-    const cutE = endAt - (lastInner.slice(0, endAt).includes('<div class="section-metadata">') ? last.meta.length : 0) + '<p>@@tabs-end@@</p>'.length;
-    const upToEnd = last.inner.slice(0, cutE);
-    const after = last.inner.slice(cutE);
-    const middles = sections.slice(s0 + 1, se).map((s) => {
-      const x = split(s);
-      if (x.meta) dropped.push(...describe(x.meta));
-      return x.inner;
+export function splitWithParts(doc) {
+  if (!doc.includes('@@tab')) return { doc, parts: 0 };
+  let set = null;
+  let parts = 0;
+  const out = [];
+  children(doc).forEach((sec) => {
+    if (sec.tag !== 'div') { out.push(sec.html); return; }
+    const inner = sec.html.slice(sec.html.indexOf('>') + 1, -6);
+    const kids = children(inner);
+    const meta = kids.find((k) => k.html.startsWith(SECTION_META));
+    const own = meta ? rowsOf(meta.html) : [];
+    const body = kids.filter((k) => k !== meta);
+    const marked = body.some((k) => MARK_P.test(k.html));
+    if (!marked && !set) { out.push(sec.html); return; }
+    if (!marked) {
+      // a panel's part: its own style with the panel's Tab and Tabs
+      out.push(`<div>${body.map((k) => k.html).join('')}${metaOf([...own, ['Tab', set.label], ['Tabs', set.n]])}</div>`);
+      parts += 1;
+      return;
+    }
+    const chunks = [];
+    let cur = set ? { panel: true, ...set, html: [] } : { panel: false, html: [] };
+    body.forEach((k) => {
+      const m = k.html.match(MARK_P);
+      if (!m) { cur.html.push(k.html); return; }
+      chunks.push(cur);
+      if (m[3]) {
+        set = null;
+        cur = { panel: false, html: [] };
+      } else {
+        set = { n: m[1], label: m[2].trim() };
+        cur = { panel: true, ...set, html: [] };
+      }
     });
-    if (!before.trim() && first.meta) dropped.push(...describe(first.meta));
-    if (!after.trim() && last.meta) dropped.push(...describe(last.meta));
-    const parts = [
-      before.trim() ? `<div>${before}${first.meta}</div>` : '',
-      `<div>${rest0}${middles.join('')}${upToEnd}</div>`,
-      after.trim() ? `<div>${after}${last.meta}</div>` : '',
-    ].filter(Boolean).join('\n');
-    out = `${out.slice(0, sections[s0].start)}${parts}${out.slice(sections[se].end)}`;
-    START.lastIndex = sections[s0].start + parts.length;
-  }
-  return { doc: out, dropped };
+    chunks.push(cur);
+    const kept = chunks.filter((c) => c.html.join('').trim());
+    const outside = kept.some((c) => !c.panel);
+    kept.forEach((c) => {
+      const rows = c.panel ? [...(outside ? [] : own), ['Tab', c.label], ['Tabs', c.n]] : own;
+      out.push(`<div>${c.html.join('')}${metaOf(rows)}</div>`);
+    });
+  });
+  return { doc: out.join('\n'), parts };
 }
 
 const META = /<div class="section-metadata">(?:<div><div>[^<]*<\/div><div>[^<]*<\/div><\/div>)*<\/div>/g;
@@ -195,23 +197,26 @@ if (isMain) {
   const changed = [];
   let problems = 0;
   paths.forEach((p) => {
-    const file = path.join(DOCS, `${p}.plain.html`);
+    const file = path.join(opt('docs') || DOCS, `${p}.plain.html`);
     const doc = fs.readFileSync(file, 'utf8');
     // a document with Tab sections already (the check-in entry's tabs): as it is
     if (doc.includes('<div><div>Tab</div>')) { console.log(`${p}: Tab sections already, left as it is`); return; }
     const markers = markersOf(fs.readFileSync(path.join(opt('marked'), `${p}.plain.html`), 'utf8'));
     const { doc: marked, missing } = withMarkers(doc, markers);
-    const { doc: joined, dropped } = joinSets(marked);
-    const next = withAustrianTabs(joined);
+    const { doc: next, parts } = splitWithParts(marked);
+    // no section metadata lost: every row of the document's sections still in one (Tab rows aside)
+    const rowSet = (d) => new Set([...d.matchAll(/<div class="section-metadata">((?:<div><div>[^<]*<\/div><div>[^<]*<\/div><\/div>)*)<\/div>/g)]
+      .flatMap((m) => rowsOf(m[1])).filter(([k]) => !/^tabs?$/i.test(k)).map(([k, v]) => `${k.toLowerCase()}: ${v}`));
+    const lost = [...rowSet(doc)].filter((r) => !rowSet(next).has(r));
     const same = contentOf(next.replace(/\n/g, '')) === contentOf(doc.replace(/\n/g, ''));
     const tabs = (next.match(/<div><div>Tab<\/div>/g) || []).length;
     const left = (next.match(/@@tab/g) || []).length;
     // a set's Tab sections one after the other (a section between them would break the set)
     const kinds = children(next).filter((s) => s.tag === 'div').map((s) => s.html.includes('<div><div>Tab</div>'));
     const broken = kinds.filter((k, i) => !k && kinds.slice(0, i).includes(true) && kinds.slice(i + 1).includes(true)).length;
-    if (missing.length || !same || left || broken) problems += 1;
-    console.log(`${p}: ${markers.length} markers, ${tabs} Tab sections${dropped.length ? `, panel metadata dropped: ${dropped.join(', ')}` : ''}${missing.length ? `, ${missing.length} not placed (${missing[0].signature})` : ''}${same ? '' : ', CONTENT DIFFERS'}${left ? `, ${left} markers left` : ''}${broken ? `, ${broken} sections between Tab sections` : ''}`);
-    if (!argv.includes('--dry-run') && !missing.length && same && !left && !broken && next !== doc) {
+    if (missing.length || !same || left || broken || lost.length) problems += 1;
+    console.log(`${p}: ${markers.length} markers, ${tabs} Tab sections${parts ? `, ${parts} panel parts with their own style` : ''}${lost.length ? `, METADATA LOST: ${lost.join(', ')}` : ''}${missing.length ? `, ${missing.length} not placed (${missing[0].signature})` : ''}${same ? '' : ', CONTENT DIFFERS'}${left ? `, ${left} markers left` : ''}${broken ? `, ${broken} sections between Tab sections` : ''}`);
+    if (!argv.includes('--dry-run') && !missing.length && same && !left && !broken && !lost.length && next !== doc) {
       fs.writeFileSync(file, next);
       changed.push(p);
     }

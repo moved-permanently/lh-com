@@ -7,7 +7,10 @@
  * aria-controls and a roving tabindex; arrow keys, Home and End select and focus; the panels
  * role tabpanel, aria-labelledby, the others hidden), shown from 768px; below 768px each panel is
  * an accordion item (a toggle with aria-expanded over it, the first open). A deep link (#id) into
- * a panel selects its tab. Pages without such sections: nothing changes.
+ * a panel selects its tab. A section with the same `Tab` label (and set) as the one before it is a
+ * part of that panel (www.austrian.com's austrian-app: a panel's text, then its image in a
+ * full-bleed section; a grey box inside a panel): shown and hidden with the panel, its own section
+ * style kept. Pages without such sections: nothing changes.
  * Styles: styles/section-tabs.css (loaded with the first set).
  */
 import { loadCSS, toClassName } from './aem.js';
@@ -15,7 +18,10 @@ import { loadCSS, toClassName } from './aem.js';
 const DESKTOP = '(width >= 768px)';
 let setCount = 0;
 
-/** The tab sets of a main: [[section, ...], ...], consecutive Tab sections of one name. */
+/**
+ * The tab sets of a main: [[[panel, ...parts], ...], ...], consecutive Tab sections of one name;
+ * a section with the label of the one before it is a part of that panel.
+ */
 function setsOf(main) {
   const sets = [];
   let current = null;
@@ -24,12 +30,14 @@ function setsOf(main) {
     if (!label) { current = null; return; }
     const name = section.dataset.tabs || '';
     if (!current || current.name !== name) {
-      current = { name, sections: [] };
+      current = { name, panels: [] };
       sets.push(current);
     }
-    current.sections.push(section);
+    const last = current.panels[current.panels.length - 1];
+    if (last && String(last[0].dataset.tab).trim() === String(label).trim()) last.push(section);
+    else current.panels.push([section]);
   });
-  return sets.map((s) => s.sections);
+  return sets.map((s) => s.panels);
 }
 
 function button(className, text) {
@@ -41,7 +49,8 @@ function button(className, text) {
 }
 
 /** One tab set: the tab list section before its panels, the accordion toggles, the state. */
-function buildSet(panels) {
+function buildSet(groups) {
+  const panels = groups.map((g) => g[0]);
   setCount += 1;
   const base = `section-tabs-${setCount}`;
   const nav = document.createElement('div');
@@ -69,11 +78,21 @@ function buildSet(panels) {
     tab.setAttribute('role', 'tab');
     tab.setAttribute('aria-controls', panel.id);
     panel.setAttribute('aria-labelledby', tab.id);
+    // the panel's parts (its later sections of the same label): shown and hidden with it
+    const parts = groups[i].slice(1);
+    parts.forEach((part, k) => {
+      part.id = part.id || `${id}-part-${k + 1}`;
+      part.classList.add('section-tab-part');
+    });
+    const controls = [panel.id, ...parts.map((part) => part.id)].join(' ');
+    tab.setAttribute('aria-controls', controls);
     list.append(tab);
     const toggle = button('section-tab-toggle', label);
-    toggle.setAttribute('aria-controls', panel.id);
+    toggle.setAttribute('aria-controls', controls);
     panel.prepend(toggle);
-    return { tab, toggle, panel };
+    return {
+      tab, toggle, panel, parts,
+    };
   });
 
   const media = window.matchMedia(DESKTOP);
@@ -81,13 +100,19 @@ function buildSet(panels) {
   let open = 0;
   const render = () => {
     const desktop = media.matches;
-    tabs.forEach(({ tab, toggle, panel }, i) => {
+    tabs.forEach(({
+      tab, toggle, panel, parts,
+    }, i) => {
       tab.setAttribute('aria-selected', String(i === active));
       tab.setAttribute('tabindex', i === active ? '0' : '-1');
       toggle.setAttribute('aria-expanded', String(i === open));
       panel.hidden = desktop && i !== active;
       [...panel.children].filter((c) => c !== toggle)
         .forEach((c) => { c.hidden = !desktop && i !== open; });
+      parts.forEach((part) => {
+        part.hidden = desktop ? i !== active : i !== open;
+        [...part.children].forEach((c) => { c.hidden = !desktop && i !== open; });
+      });
     });
   };
   const select = (i, focus) => {
@@ -116,7 +141,8 @@ function buildSet(panels) {
 
   // a deep link into a panel selects its tab
   const hash = decodeURIComponent((window.location.hash || '').slice(1));
-  const target = hash && tabs.findIndex(({ panel }) => panel.id === hash || panel.querySelector(`[id="${hash.replace(/"/g, '')}"]`));
+  const inside = (el) => el.id === hash || el.querySelector(`[id="${hash.replace(/"/g, '')}"]`);
+  const target = hash && tabs.findIndex(({ panel, parts }) => [panel, ...parts].some(inside));
   if (target > 0) {
     active = target;
     open = target;
