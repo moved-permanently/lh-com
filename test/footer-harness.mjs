@@ -54,8 +54,16 @@ export async function footerOf(brand, file, pathname) {
   return block;
 }
 
-/** A short hash of a decorated footer's markup. */
-export const hashOf = (el) => crypto.createHash('sha256').update(el.outerHTML).digest('hex').slice(0, 16);
+/**
+ * A short hash of a decorated footer's markup, the checkout's directory left out (aem.js sets
+ * codeBasePath from its own URL: under node the checkout's path, in icons' src), so the hash is
+ * the same in every checkout.
+ */
+export const hashOf = (el) => {
+  const base = window.hlx.codeBasePath;
+  const html = base ? el.outerHTML.split(`${base}/`).join('/') : el.outerHTML;
+  return crypto.createHash('sha256').update(html).digest('hex').slice(0, 16);
+};
 
 // the brands' footers: brand metadata, fixture, page path
 export const FOOTERS = [

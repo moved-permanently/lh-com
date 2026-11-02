@@ -14,6 +14,18 @@ import fs from 'node:fs';
 const { footerOf, hashOf, FOOTERS } = await import('./footer-harness.mjs');
 const HASHES = JSON.parse(fs.readFileSync(new URL('./fixtures/footers/hashes.json', import.meta.url), 'utf8'));
 
+test('a footer\'s hash does not depend on where the checkout lives (aem.js: codeBasePath is its directory under node)', () => {
+  const base = globalThis.window.hlx.codeBasePath;
+  assert.ok(base, 'the checkout\'s directory');
+  const icon = (src) => {
+    const p = globalThis.document.createElement('p');
+    p.innerHTML = `<img src="${src}" alt="">`;
+    return p;
+  };
+  assert.equal(hashOf(icon(`${base}/icons/star-alliance.svg`)), hashOf(icon('/icons/star-alliance.svg')));
+  assert.notEqual(hashOf(icon('/icons/star-alliance.svg')), hashOf(icon('/icons/other.svg')));
+});
+
 FOOTERS.forEach(([brand, file, page]) => {
   test(`${file}'s footer decorates as before`, async () => {
     assert.equal(hashOf(await footerOf(brand, file, page)), HASHES[file]);
