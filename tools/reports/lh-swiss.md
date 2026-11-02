@@ -39,9 +39,13 @@ and `--heading-letter-spacing` (no fallback: unset, the property inherits as bef
 `--footer-link-hover-color` (default the footer text), `--footer-top-line` (default none),
 `--footer-locale-color` and `--footer-locale-hover-color` (defaults #ebebeb, #fff).
 
+`scripts/brand-icons.js` `swiss`: `/etc/designs/lx/favicon.ico` (image/ico) and
+`/etc/designs/lx/manifest.json` ("SWISS", short "LX"); `etc/designs/lx/` holds www's favicon, manifest,
+its three icons (`clientlib-all/img/icon_16x16.png`, `icon_32x32.png`, `icon_192x192.png`) and the logo
+`clientlib-all/vite/img/swiss-logo.svg`, byte for byte from swiss-assets-002.tar.gz (nothing hot-linked
+to www.swiss.com).
+
 Open:
-- `scripts/brand-icons.js` `swiss` and the copies of www's `/etc/designs/lx/favicon.ico`,
-  `/etc/designs/lx/manifest.json` (and `swiss-logo.svg` for the documents): swiss-assets-001.tar.gz.
 - Not this repository's part of lh-swiss: lh-edge's `swiss.turnsthe.page` entry (`SITE_HOSTS`,
   `SITE_ORIGINS`, `SITE_WWW_HOSTS`) and `SITE_DESIGN_HOSTS` `swiss=www.swiss.com`, so the CH Sans
   files and the design system answer from the site's own host (until then the fonts come from
