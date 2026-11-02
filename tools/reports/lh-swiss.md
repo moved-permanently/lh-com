@@ -370,3 +370,30 @@ loaded; DAM downloads stay stopped at the pilot's 403). DA and preview only, not
   `topics_en.json` (www refuses it to lh-edge; the copy step takes topics/ too).
 - Served links: 49 documents' links to www's cockpit, login and profile pages relative; 4 keep
   www's `/ch/<ll>/profile/profile-login` (404 on our host).
+
+## ch/es and ch/pt behind the language switch (brief 279, 2026-11-02)
+
+From the Studio's archives 011, 012 (Spanish) and 016, 017 (Portuguese) only (sha256 as the
+brief; no request to www.swiss.com; DAM downloads stay stopped at the pilot's 403). DA and
+preview only, not published.
+
+- The switch: `scripts/brands.js` SWISS_LANGUAGES (es: ch/es "Suiza | Español", pt: ch/pt
+  "Suiça | Português" as the homepages' footer line writes it; both Zurich) and
+  SWISS_LANGUAGES_LIVE (empty). Off, a language is a pilot (`BRAND_SITES.swiss.pilots`): its pages
+  render with their own row (lang, nav and footer, name, airport: `scripts/locale.js` withPilots),
+  while the rows and versions, the country dialog, the links to its homepage (www) and lh-edge's
+  entries and routes stay as before. To go live after publishing: add `'es'` (and/or `'pt'`) to
+  SWISS_LANGUAGES_LIVE; the root then joins as ch/fr and ch/it did (rows, versions, the `xx` and
+  language-only entry paths), and its market roots with SWISS_MARKETS_LIVE.
+- Scope: ch/es 272 documents, ch/pt 270; batches 19 to 22, p19, x19 (ch/es) and 27 to 30, p27, x27
+  (ch/pt), every page and both roots' nav and footer preview 200 (546 documents).
+- Nav and footer 1:1 from the homepages (3 items, 9 columns, 51 links; "Mis vuelos" / "Os meus
+  voos" the cockpit deep link, relative).
+- Flight search: "Zurich (ZRH)" on ch/es (www's field says Zurich), "Zurique (ZRH)" on ch/pt.
+- Forms: 32 (16 per root, all ids lh-forms knows; no raffles); 16 link their own confirmation
+  page; 8 keep the form's message (their confirmation is not in the capture). www's German (and
+  two English) messages on the technical support, general request and accessible travel forms:
+  SWISS's Spanish and Portuguese wording per field (6 documents).
+- For the capture: `lh-swiss-es-pt-capture.tsv` (31 DAM files, 14 pages without a snapshot, 8
+  confirmation pages); no new AEM files (the 35 the pages use are in `lh-swiss-aem-files.tsv`); no
+  new redirect rows.
