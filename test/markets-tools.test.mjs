@@ -8,7 +8,9 @@ import {
 } from '../tools/markets/seed-markets.mjs';
 import { wwwPaths, reason } from '../tools/markets/check-market-route.mjs';
 import { rootMap, ownRootLinks } from '../tools/markets/root-docs.mjs';
-import { batches, ownPages, homepageFacts } from '../tools/markets/rollout.mjs';
+import {
+  batches, ownPages, homepageFacts, docName,
+} from '../tools/markets/rollout.mjs';
 
 test('rollout: batches of about 10 countries (only en and de first), a small remainder joins the batch before', () => {
   const r = (root) => ({
@@ -51,6 +53,15 @@ test('rollout: prices shown with a currency sign only: their elements\' currency
 
 const ROOTS = ['de/en', 'gb/en', 'ch/en', 'at/en', 'us/en'].map((root) => ({ root, ll: 'en', ownSitemap: true }));
 const g = (paths) => ({ paths });
+
+test('rollout: document names as the importer writes them (lower case, no underscores, one dash, none at a name\'s end)', () => {
+  assert.equal(docName('/fi/en/offers/worldwide_offers1'), '/fi/en/offers/worldwide-offers1');
+  assert.equal(docName('/sa/en/local-page/companion-special-riyadh---munich-2025'), '/sa/en/local-page/companion-special-riyadh-munich-2025');
+  assert.equal(docName('/ru/en/local-page/DME-flights-information'), '/ru/en/local-page/dme-flights-information');
+  // www's us/en sweepstakes terms (batch 10): the importer's document has no trailing dash
+  assert.equal(docName('/us/en/local-page/terms---conditions-for-lufthansa-s--germany-jersey-sweepstakes--'), '/us/en/local-page/terms-conditions-for-lufthansa-s-germany-jersey-sweepstakes');
+  assert.equal(docName('/us/en/companion'), '/us/en/companion');
+});
 
 test('seed: pages most markets of the language lack get an include list, the rest is left alone', () => {
   const r = seed({
