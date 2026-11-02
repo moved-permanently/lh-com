@@ -93,6 +93,15 @@ export const SITE_ENTRIES = Object.fromEntries(Object.entries(BRAND_SITES).map((
 ]));
 
 /**
+ * The sites whose reference roots' pages list their alternates (src/live-alternates.js, as
+ * lh-com's live roots): the ones whose www carries hreflang alternates, in its sitemaps (none in a
+ * page head on www: content-sites/<site>/lists/hreflang-groups.tsv, Austrian 308 groups, Brussels
+ * 317; ITA's 128 market sitemap files). The market copies list them on every site; B2B's www has
+ * no sitemap and no hreflang, Discover's www has no snapshot here.
+ */
+export const ALTERNATES_SITES = new Set(['austrian', 'brussels', 'ita']);
+
+/**
  * The sites without <cc>/<ll> roots (no locale table, no market roots): every path passes through
  * to the site's origin as it is; entry: the paths that redirect (302) as on the source.
  */

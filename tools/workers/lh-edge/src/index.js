@@ -39,7 +39,9 @@ import { captchaVerify, CAPTCHA_PATH } from './captcha.js';
 import { mfe, isMfePath } from './mfe.js';
 import { csiOffline, isOfflinePath } from './offline.js';
 import { aliasHostOf, forAlias } from './alias.js';
-import { siteOf, siteEnv, siteHostsOf } from './sites.js';
+import {
+  siteOf, siteEnv, siteHostsOf, ALTERNATES_SITES,
+} from './sites.js';
 import {
   market, marketPath, marketSitemap, isMarketSitemapPath, withoutConditions,
 } from './markets.js';
@@ -432,7 +434,11 @@ async function siteRespond(incoming, env, site, ctx) {
     const target = `${entryTarget}${url.search}`;
     return finish(new Response(null, { status: 302, headers: { location: target, 'cache-control': 'max-age=60', 'x-lh-edge-route': 'site-entry' } }), incoming, senv, 'site-entry');
   }
-  return finish(await market(incoming, senv), incoming, senv, 'site');
+  // the reference roots' pages list the alternates their market copies list
+  // (src/live-alternates.js, as lh-com's live roots), on the sites whose www carries them
+  // (src/sites.js ALTERNATES_SITES)
+  const resp = await market(incoming, senv);
+  return finish(ALTERNATES_SITES.has(site.name) ? await withLiveAlternates(resp, incoming, senv) : resp, incoming, senv, 'site');
 }
 
 export default {
