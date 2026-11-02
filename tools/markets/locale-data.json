@@ -2978,6 +2978,366 @@
         "shopLang"
       ],
       "batch": 8
+    },
+    "kr/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Korea, Republik | Deutsch",
+      "countryName": {
+        "en": "Korea, Republic of",
+        "de": "Korea, Republik"
+      },
+      "homeAirport": "SEL",
+      "currency": "KRW",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 9
+    },
+    "kr/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Korea, Republic of | English",
+      "countryName": {
+        "en": "Korea, Republic of",
+        "de": "Korea, Republik"
+      },
+      "homeAirport": "SEL",
+      "currency": "KRW",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 9
+    },
+    "kz/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "KZ | DE",
+      "countryName": {
+        "en": "Kazakhstan",
+        "de": "KZ"
+      },
+      "homeAirport": "NQZ",
+      "currency": "KZT",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 9
+    },
+    "kz/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Kazakhstan | English",
+      "countryName": {
+        "en": "Kazakhstan",
+        "de": "KZ"
+      },
+      "homeAirport": "NQZ",
+      "currency": "KZT",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 9
+    },
+    "lu/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Luxemburg | Deutsch",
+      "countryName": {
+        "en": "Luxembourg",
+        "de": "Luxemburg"
+      },
+      "homeAirport": "LUX",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 9
+    },
+    "lu/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Luxembourg | English",
+      "countryName": {
+        "en": "Luxembourg",
+        "de": "Luxemburg"
+      },
+      "homeAirport": "LUX",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 9
+    },
+    "ma/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Marokko | Deutsch",
+      "countryName": {
+        "en": "Morocco",
+        "de": "Marokko"
+      },
+      "homeAirport": "RAK",
+      "currency": "MAD",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 9
+    },
+    "ma/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Morocco | English",
+      "countryName": {
+        "en": "Morocco",
+        "de": "Marokko"
+      },
+      "homeAirport": "RAK",
+      "currency": "MAD",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 9
+    },
+    "mx/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Mexiko | Deutsch",
+      "countryName": {
+        "en": "Mexico",
+        "de": "Mexiko"
+      },
+      "homeAirport": "MEX",
+      "currency": "MXN",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 9
+    },
+    "mx/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Mexico | English",
+      "countryName": {
+        "en": "Mexico",
+        "de": "Mexiko"
+      },
+      "homeAirport": "MEX",
+      "currency": "MXN",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 9
+    },
+    "pa/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Panama | Deutsch",
+      "countryName": {
+        "en": "Panama",
+        "de": "Panama"
+      },
+      "homeAirport": "PTY",
+      "currency": "USD",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 9
+    },
+    "pa/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Panama | English",
+      "countryName": {
+        "en": "Panama",
+        "de": "Panama"
+      },
+      "homeAirport": "PTY",
+      "currency": "USD",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 9
+    },
+    "pe/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Peru | Deutsch",
+      "countryName": {
+        "en": "Peru",
+        "de": "Peru"
+      },
+      "homeAirport": "LIM",
+      "currency": "USD",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 9
+    },
+    "pe/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Peru | English",
+      "countryName": {
+        "en": "Peru",
+        "de": "Peru"
+      },
+      "homeAirport": "LIM",
+      "currency": "USD",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 9
+    },
+    "pl/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Polen | Deutsch",
+      "countryName": {
+        "en": "Polen",
+        "de": "Polen"
+      },
+      "homeAirport": "WAW",
+      "currency": "PLN",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 9
+    },
+    "pl/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Polen | English",
+      "countryName": {
+        "en": "Polen",
+        "de": "Polen"
+      },
+      "homeAirport": "WAW",
+      "currency": "PLN",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 9
+    },
+    "pt/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Portugal | Deutsch",
+      "countryName": {
+        "en": "Portugal",
+        "de": "Portugal"
+      },
+      "homeAirport": "LIS",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 9
+    },
+    "pt/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Portugal | English",
+      "countryName": {
+        "en": "Portugal",
+        "de": "Portugal"
+      },
+      "homeAirport": "LIS",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 9
+    },
+    "ru/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Russische Föderation | Deutsch",
+      "countryName": {
+        "en": "Russian Federation",
+        "de": "Russische Föderation"
+      },
+      "homeAirport": "FRA",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 9
+    },
+    "ru/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Russian Federation | English",
+      "countryName": {
+        "en": "Russian Federation",
+        "de": "Russische Föderation"
+      },
+      "homeAirport": "FRA",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 9
     }
   }
 }
