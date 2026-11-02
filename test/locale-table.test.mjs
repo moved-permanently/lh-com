@@ -154,7 +154,7 @@ test('a language version still pilot (French, batch 11): allowed while its marke
 test('French (batch 11, pilot): fr/fr the language version with its own documents, 13 market roots from it; the four live roots as before', () => {
   const { liveWaves = [] } = JSON.parse(fs.readFileSync('tools/markets/locale-data.json', 'utf8'));
   assert.deepEqual(LIVE_ROOTS, ['de/en', 'de/de', 'at/de', 'gb/en']);
-  assert.deepEqual(LANGUAGE_VERSIONS, { en: 'de/en', de: 'de/de', fr: 'fr/fr' });
+  assert.deepEqual({ en: LANGUAGE_VERSIONS.en, de: LANGUAGE_VERSIONS.de, fr: LANGUAGE_VERSIONS.fr }, { en: 'de/en', de: 'de/de', fr: 'fr/fr' });
   const french = Object.entries(LOCALE_TABLE).filter(([, r]) => r.lang === 'fr');
   assert.equal(french.length, 14);
   assert.ok(french.every(([, r]) => r.status === (liveWaves.includes(11) ? 'live' : 'pilot')));
@@ -198,4 +198,19 @@ test('a market-neutral language version (Spanish, brief 268: www\'s xx/es has pa
   assert.equal(t.rows['mx/es'].hreflang, 'es-MX');
   // an alternate-only root that is no language version: no row
   assert.throws(() => buildTable(www, data({ 'de/en': { status: 'live' }, 'xx/it': { status: 'pilot', documents: 'own' } })), /xx\/it: not a root of www's sitemaps/);
+});
+
+test('Spanish (batch 12, pilot): xx/es the language version with its own documents, 13 market roots from it (es/es among them)', () => {
+  const { liveWaves = [] } = JSON.parse(fs.readFileSync('tools/markets/locale-data.json', 'utf8'));
+  assert.deepEqual(LIVE_ROOTS, ['de/en', 'de/de', 'at/de', 'gb/en']);
+  assert.equal(LANGUAGE_VERSIONS.es, 'xx/es');
+  const spanish = Object.entries(LOCALE_TABLE).filter(([, r]) => r.lang === 'es');
+  assert.equal(spanish.length, 14);
+  assert.ok(spanish.every(([, r]) => r.status === (liveWaves.includes(12) ? 'live' : 'pilot')));
+  assert.deepEqual(spanish.filter(([, r]) => r.documents === 'own').map(([k]) => k), ['xx/es']);
+  assert.equal(LOCALE_TABLE['xx/es'].hreflang, 'es');
+  assert.equal(getLocale('/xx/es/homepage').key, 'xx/es');
+  const mx = getLocale('/mx/es/equipaje');
+  assert.deepEqual({ key: mx.key, currency: mx.currency, versionBase: mx.versionBase }, { key: 'mx/es', currency: 'MXN', versionBase: '/xx/es' });
+  assert.equal(getLocale('/es/es/equipaje').versionBase, '/xx/es', 'Spain: a market root of xx/es');
 });
