@@ -1,0 +1,391 @@
+[
+ {
+  "key": "GET /de/en/homepage",
+  "path": "/de/en/homepage",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "4c13955e2a24d524",
+  "route": ""
+ },
+ {
+  "key": "GET /de/de/homepage",
+  "path": "/de/de/homepage",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "4a4c2391b0f937bf",
+  "route": ""
+ },
+ {
+  "key": "GET /de/en/homepage.plain.html",
+  "path": "/de/en/homepage.plain.html",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "e1eb85bb173503df",
+  "route": ""
+ },
+ {
+  "key": "GET /de/en/nav.plain.html",
+  "path": "/de/en/nav.plain.html",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "67e812612cbbc000",
+  "route": ""
+ },
+ {
+  "key": "GET /de/de/footer.plain.html",
+  "path": "/de/de/footer.plain.html",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "b3f6d46e3d3de80d",
+  "route": ""
+ },
+ {
+  "key": "GET /de/en/no-such-page",
+  "path": "/de/en/no-such-page",
+  "method": "GET",
+  "status": 404,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "24f492ec3f3ee16f",
+  "route": ""
+ },
+ {
+  "key": "GET /at/en/homepage",
+  "path": "/at/en/homepage",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "2f437d7474bf21ca",
+  "route": "market"
+ },
+ {
+  "key": "GET /at/de/homepage",
+  "path": "/at/de/homepage",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "1a33bca095c22309",
+  "route": "market"
+ },
+ {
+  "key": "GET /gb/en/homepage",
+  "path": "/gb/en/homepage",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "e6871e47b9022e4a",
+  "route": "market"
+ },
+ {
+  "key": "GET /xx/en/homepage",
+  "path": "/xx/en/homepage",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "45df5f19de8d0acc",
+  "route": "market"
+ },
+ {
+  "key": "GET /ch/en/homepage",
+  "path": "/ch/en/homepage",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "605e4e71e20e2724",
+  "route": "market"
+ },
+ {
+  "key": "GET /us/en/homepage",
+  "path": "/us/en/homepage",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "f9bcbff1f9ff9c96",
+  "route": ""
+ },
+ {
+  "key": "GET /ch/en/program/experts",
+  "path": "/ch/en/program/experts",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "9cd9f8c636c296e7",
+  "route": ""
+ },
+ {
+  "key": "GET /us/de/homepage",
+  "path": "/us/de/homepage",
+  "method": "GET",
+  "status": 404,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "24f492ec3f3ee16f",
+  "route": ""
+ },
+ {
+  "key": "GET /de/en/about-us/contact",
+  "path": "/de/en/about-us/contact",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "8b6b494e15f3a9f3",
+  "route": ""
+ },
+ {
+  "key": "GET /at/en/about-us/contact",
+  "path": "/at/en/about-us/contact",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "2b19a580491bc53b",
+  "route": "market"
+ },
+ {
+  "key": "GET /gb/en/about-us/contact",
+  "path": "/gb/en/about-us/contact",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "44578f7c662b619d",
+  "route": "market"
+ },
+ {
+  "key": "GET /at/de/about-us/contact",
+  "path": "/at/de/about-us/contact",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "1cce680bced9d511",
+  "route": "market"
+ },
+ {
+  "key": "GET /de/en/lhg4b-search/lhg4b-search-prelogin",
+  "path": "/de/en/lhg4b-search/lhg4b-search-prelogin",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "af9c4f40f2f3612b",
+  "route": ""
+ },
+ {
+  "key": "GET /de/en/search-index.json",
+  "path": "/de/en/search-index.json",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "application/json",
+  "hash": "686841741e76cf67",
+  "route": ""
+ },
+ {
+  "key": "GET /de/de/search-index.json",
+  "path": "/de/de/search-index.json",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "application/json",
+  "hash": "bb3581b149b4298f",
+  "route": ""
+ },
+ {
+  "key": "GET /at/de/search-index.json",
+  "path": "/at/de/search-index.json",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "application/json",
+  "hash": "0dabd4648e015467",
+  "route": ""
+ },
+ {
+  "key": "GET /at/en/search-index.json",
+  "path": "/at/en/search-index.json",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "application/json",
+  "hash": "97ba815e34b151a6",
+  "route": "market"
+ },
+ {
+  "key": "GET /gb/en/search-index.json",
+  "path": "/gb/en/search-index.json",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "application/json",
+  "hash": "9fd6fb5bcc1a0501",
+  "route": "market"
+ },
+ {
+  "key": "GET /xx/en/search-index.json",
+  "path": "/xx/en/search-index.json",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "application/json",
+  "hash": "ebbc072aad92c4c2",
+  "route": "market"
+ },
+ {
+  "key": "GET /de/en/news/LH-FRA-KUL",
+  "path": "/de/en/news/LH-FRA-KUL",
+  "method": "GET",
+  "status": 301,
+  "location": "/de/en/news/lh-fra-kul",
+  "type": "text/html; charset=utf-8",
+  "hash": "e3b0c44298fc1c14",
+  "route": ""
+ },
+ {
+  "key": "GET /metadata.json",
+  "path": "/metadata.json",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "application/json",
+  "hash": "ac10df7da4598be8",
+  "route": ""
+ },
+ {
+  "key": "GET /robots.txt",
+  "path": "/robots.txt",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "text/plain; charset=utf-8",
+  "hash": "331ea9090db0c9f6",
+  "route": ""
+ },
+ {
+  "key": "GET /etc/designs/b2b-neo/favicon.ico",
+  "path": "/etc/designs/b2b-neo/favicon.ico",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "image/vnd.microsoft.icon",
+  "length": 3625,
+  "hash": "049e1cc0354fe530",
+  "route": ""
+ },
+ {
+  "key": "GET /de/llms.txt",
+  "path": "/de/llms.txt",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "text/plain; charset=utf-8",
+  "hash": "d216d522cb7bbad3",
+  "route": ""
+ },
+ {
+  "key": "GET /digitalhangar/design-system/releases/v1.38.0/standalone/fonts/lufthansa/LufthansaHeadWeb-Thin.woff2",
+  "path": "/digitalhangar/design-system/releases/v1.38.0/standalone/fonts/lufthansa/LufthansaHeadWeb-Thin.woff2",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "font/woff2",
+  "length": 48580,
+  "hash": "ee904e1ab2e91a14",
+  "route": "digitalhangar"
+ },
+ {
+  "key": "GET /",
+  "path": "/",
+  "method": "GET",
+  "status": 302,
+  "location": "/de/en/homepage",
+  "type": "",
+  "length": 0,
+  "hash": "e3b0c44298fc1c14",
+  "route": "site-entry"
+ },
+ {
+  "key": "GET /de",
+  "path": "/de",
+  "method": "GET",
+  "status": 302,
+  "location": "/de/en/homepage",
+  "type": "",
+  "length": 0,
+  "hash": "e3b0c44298fc1c14",
+  "route": "site-entry"
+ },
+ {
+  "key": "GET /de/en",
+  "path": "/de/en",
+  "method": "GET",
+  "status": 302,
+  "location": "/de/en/homepage",
+  "type": "",
+  "length": 0,
+  "hash": "e3b0c44298fc1c14",
+  "route": "site-entry"
+ },
+ {
+  "key": "GET /us",
+  "path": "/us",
+  "method": "GET",
+  "status": 302,
+  "location": "/us/en/homepage",
+  "type": "",
+  "length": 0,
+  "hash": "e3b0c44298fc1c14",
+  "route": "site-entry"
+ },
+ {
+  "key": "GET /at/de",
+  "path": "/at/de",
+  "method": "GET",
+  "status": 302,
+  "location": "/at/de/homepage",
+  "type": "",
+  "length": 0,
+  "hash": "e3b0c44298fc1c14",
+  "route": "site-entry"
+ },
+ {
+  "key": "GET /xx/en",
+  "path": "/xx/en",
+  "method": "GET",
+  "status": 302,
+  "location": "/xx/en/homepage",
+  "type": "",
+  "length": 0,
+  "hash": "e3b0c44298fc1c14",
+  "route": "site-entry"
+ },
+ {
+  "key": "GET /ch/de",
+  "path": "/ch/de",
+  "method": "GET",
+  "status": 302,
+  "location": "/ch/de/homepage",
+  "type": "",
+  "length": 0,
+  "hash": "e3b0c44298fc1c14",
+  "route": "site-entry"
+ }
+]

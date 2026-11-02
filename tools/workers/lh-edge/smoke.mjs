@@ -17,7 +17,7 @@
  *   Range: bytes=0-99, and its subtitle file
  * The hosts of the sites without roots (src/sites.js PLAIN_SITES: cargo, airdolomiti) get their own
  * few checks (PLAIN_CHECKS; --set plain chooses them for another host, e.g. a wrangler dev run;
- * --name <host> names the baseline file then).
+ * --name <host> names the baseline file then). b2b.turnsthe.page gets B2B_CHECKS (--set b2b).
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -94,7 +94,26 @@ export const PLAIN_CHECKS = [
   { path: '/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/fonts/lufthansa/LufthansaTextWeb-Regular.woff2' },
 ];
 const PLAIN_HOSTS = /^(cargo|airdolomiti)\.turnsthe\.page$/;
-const checksOf = (host) => (opt('set') === 'plain' || PLAIN_HOSTS.test(new URL(host).hostname) ? PLAIN_CHECKS : CHECKS);
+
+// Lufthansa Group for Business (b2b.turnsthe.page, src/sites.js SITES.b2b): its language
+// versions, market roots (from de/<ll>, the rest-of-world documents from xx/<ll>), own documents,
+// a no-root (us/de), the entry paths, the search indexes, a redirect of its sheet, nav, footer,
+// metadata, robots, favicon, llms and a font
+export const B2B_CHECKS = [
+  ...['/de/en/homepage', '/de/de/homepage', '/de/en/homepage.plain.html', '/de/en/nav.plain.html', '/de/de/footer.plain.html', '/de/en/no-such-page',
+    '/at/en/homepage', '/at/de/homepage', '/gb/en/homepage', '/xx/en/homepage', '/ch/en/homepage', '/us/en/homepage', '/ch/en/program/experts', '/us/de/homepage',
+    '/de/en/about-us/contact', '/at/en/about-us/contact', '/gb/en/about-us/contact', '/at/de/about-us/contact', '/de/en/lhg4b-search/lhg4b-search-prelogin',
+    '/de/en/search-index.json', '/de/de/search-index.json', '/at/de/search-index.json', '/at/en/search-index.json', '/gb/en/search-index.json', '/xx/en/search-index.json',
+    '/de/en/news/LH-FRA-KUL', '/metadata.json', '/robots.txt', '/etc/designs/b2b-neo/favicon.ico', '/de/llms.txt',
+    '/digitalhangar/design-system/releases/v1.38.0/standalone/fonts/lufthansa/LufthansaHeadWeb-Thin.woff2'].map((p) => ({ path: p })),
+  ...['/', '/de', '/de/en', '/us', '/at/de', '/xx/en', '/ch/de'].map((p) => ({ path: p, headers: { 'cf-ipcountry': 'DE', 'accept-language': 'en' } })),
+];
+const B2B_HOSTS = /^b2b\.turnsthe\.page$/;
+const checksOf = (host) => {
+  if (opt('set') === 'plain' || PLAIN_HOSTS.test(new URL(host).hostname)) return PLAIN_CHECKS;
+  if (opt('set') === 'b2b' || B2B_HOSTS.test(new URL(host).hostname)) return B2B_CHECKS;
+  return CHECKS;
+};
 
 // the replica's host names in bodies and locations (the retired bbird.live names too: content and
 // recorded answers may still carry them), masked so a page answers the same on each host
