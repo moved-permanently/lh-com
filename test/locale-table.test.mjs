@@ -12,6 +12,7 @@ import {
 import { MARKET_TIME_ZONES, DEFAULT_TIME_ZONE } from '../scripts/clock.js';
 import { buildShopHandoff } from '../scripts/shop-handoff.js';
 import { portalHeaders } from '../scripts/lh-data.js';
+import { LANGUAGE_VERSIONS } from '../scripts/locale-table.js';
 
 // today's values of the four roots (scripts/locale.js before the table)
 const BEFORE = {
@@ -93,10 +94,10 @@ test('a root without a row: its own country and language, no home airport or cur
   }
   const de = rowless('de');
   if (de) assert.equal(getLocale(`/${de}/x`).key, 'de/de', `German: de/de's documents (${de})`);
-  const fr = getLocale('/fr/fr/homepage');
-  assert.deepEqual({ ...core(fr), key: fr.key }, {
-    country: 'fr', lang: 'fr', homeAirport: null, currency: null, key: 'de/en',
-  }, 'no French version yet: de/en\'s documents, French texts fall back to English');
+  const it = getLocale('/it/it/homepage');
+  assert.deepEqual({ ...core(it), key: it.key }, {
+    country: 'it', lang: 'it', homeAirport: null, currency: null, key: 'de/en',
+  }, 'no Italian version yet: de/en\'s documents, Italian texts fall back to English');
   assert.equal(languageDefaults('jp', 'ja').hreflang, 'ja-JP');
 });
 
@@ -111,7 +112,7 @@ test('the readers of the table: time zones, shop language, portal headers (four 
     'X-Portal': 'LH', 'X-Portal-Site': 'AT', 'X-Portal-Language': 'de', 'X-Portal-Taxonomy': '', 'X-Portal-CountryId': '',
   });
   assert.equal(portalHeaders('ch/de')['X-Portal-Site'], 'CH');
-  assert.deepEqual(portalHeaders('fr/fr'), {});
+  assert.deepEqual(portalHeaders('it/it'), {});
 });
 
 test('a language version still pilot (French, batch 11): allowed while its market roots are; a wave makes both live, a country wave not the root of a pilot version', () => {
@@ -148,4 +149,25 @@ test('a language version still pilot (French, batch 11): allowed while its marke
   // a live market root needs a live language version; the default and fallback stay live rows
   assert.throws(() => buildTable(www, data([], { 'be/fr': { status: 'live', documents: 'language' } })), /be\/fr: a live market root needs a live language version \(fr\/fr is pilot\)/);
   assert.throws(() => buildTable(www, { ...data([]), fallbackLanguageVersion: 'fr/fr' }), /fr\/fr: must be a live row/);
+});
+
+test('French (batch 11, pilot): fr/fr the language version with its own documents, 13 market roots from it; the four live roots as before', () => {
+  const { liveWaves = [] } = JSON.parse(fs.readFileSync('tools/markets/locale-data.json', 'utf8'));
+  assert.deepEqual(LIVE_ROOTS, ['de/en', 'de/de', 'at/de', 'gb/en']);
+  assert.deepEqual(LANGUAGE_VERSIONS, { en: 'de/en', de: 'de/de', fr: 'fr/fr' });
+  const french = Object.entries(LOCALE_TABLE).filter(([, r]) => r.lang === 'fr');
+  assert.equal(french.length, 14);
+  assert.ok(french.every(([, r]) => r.status === (liveWaves.includes(11) ? 'live' : 'pilot')));
+  assert.deepEqual(french.filter(([, r]) => r.documents === 'own').map(([k]) => k), ['fr/fr']);
+  const fr = getLocale('/fr/fr/homepage');
+  assert.deepEqual({ key: fr.key, lang: fr.lang, versionBase: fr.versionBase }, { key: 'fr/fr', lang: 'fr', versionBase: undefined });
+  const ch = getLocale('/ch/fr/bagages');
+  assert.deepEqual({ key: ch.key, currency: ch.currency, versionBase: ch.versionBase }, { key: 'ch/fr', currency: 'CHF', versionBase: '/fr/fr' });
+  if (!liveWaves.includes(11)) {
+    assert.ok(!isMigratedLocale('fr', 'fr'));
+    assert.equal(getHomepageUrl('ch', 'fr'), 'https://www.lufthansa.com/ch/fr/homepage');
+  }
+  assert.deepEqual(portalHeaders('fr/fr'), {
+    'X-Portal': 'LH', 'X-Portal-Site': 'FR', 'X-Portal-Language': 'fr', 'X-Portal-Taxonomy': '', 'X-Portal-CountryId': '',
+  });
 });

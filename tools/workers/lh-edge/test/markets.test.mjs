@@ -90,16 +90,20 @@ test('markets values: include and exclude lists, empty is every market', () => {
   assert.ok(MARKET_ROOTS.includes('ch/de') && MARKET_ROOTS.includes('ch/en'));
   assert.ok(!MARKET_ROOTS.some((k) => ['de/en', 'de/de', 'at/de', 'gb/en'].includes(k)));
   assert.deepEqual(marketPath('/ch/en/baggage'), { root: 'ch/en', rest: '/baggage' });
-  ['/de/en/baggage', '/at/de/x', '/gb/en/x', '/ch/fr/x', '/ch/en', '/content/mobile/lh/en/homepage'].forEach((p) => assert.equal(marketPath(p), null, p));
+  ['/de/en/baggage', '/at/de/x', '/gb/en/x', '/ch/it/x', '/ch/en', '/fr/fr/x', '/content/mobile/lh/en/homepage'].forEach((p) => assert.equal(marketPath(p), null, p));
+  // French (batch 11): ch/fr a market root of the language version fr/fr (a root with its own documents)
+  assert.deepEqual(marketPath('/ch/fr/x'), { root: 'ch/fr', rest: '/x' });
 });
 
 test('the four roots and other paths never reach the market route', () => {
-  // fr/fr: a root of www's without a row (us/en, the example before, has a pilot row since batch 10)
-  ['/de/en/baggage', '/de/de/gepaeck', '/at/de/homepage', '/gb/en/flights', '/fr/fr/homepage', '/ch/fr/homepage', '/ch/en'].forEach((p) => {
+  // it/it: a root of www's without a row (fr/fr, the example before, is French's language version
+  // since batch 11: its own documents, no market root)
+  ['/de/en/baggage', '/de/de/gepaeck', '/at/de/homepage', '/gb/en/flights', '/it/it/homepage', '/fr/fr/homepage', '/ch/it/homepage', '/ch/en'].forEach((p) => {
     assert.notEqual(routeOf(new Request(`https://lhedge.example${p}`)).name, 'market', p);
   });
   assert.equal(routeOf(new Request('https://lhedge.example/ch/en/baggage')).name, 'market');
   assert.equal(routeOf(new Request('https://lhedge.example/us/en/ccpa')).name, 'market', 'a pilot root of batch 10');
+  assert.equal(routeOf(new Request('https://lhedge.example/ch/fr/bagages')).name, 'market', 'a pilot root of batch 11');
 });
 
 test('a host without pilot roots: /ch/en/... passes through to the origin unchanged', async () => {
@@ -315,7 +319,8 @@ test('entry redirects: pilot roots to their homepages on pilot hosts, to www els
   assert.equal(await loc('/', 'lhedge.example', { 'cf-ipcountry': 'CH' }), '/ch/de/homepage');
   assert.equal(await loc('/ch', 'lhcom.example'), 'https://www.lufthansa.com/ch');
   assert.equal(await loc('/ch/en', 'lhcom.example'), 'https://www.lufthansa.com/ch/en/homepage');
-  assert.equal(await loc('/ch/fr', 'lhedge.example'), 'https://www.lufthansa.com/ch/fr/homepage');
+  assert.equal(await loc('/ch/it', 'lhedge.example'), 'https://www.lufthansa.com/ch/it/homepage');
+  assert.equal(await loc('/ch/fr', 'lhedge.example'), '/ch/fr/homepage', 'a pilot root of batch 11 on the pilot host');
   assert.equal(await loc('/de', 'lhedge.example', { 'accept-language': 'en' }), '/de/en/homepage');
 });
 
