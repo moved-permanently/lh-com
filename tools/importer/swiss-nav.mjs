@@ -233,9 +233,10 @@ export function navDocument(document, key, sitePaths) {
   ].filter(Boolean);
   const menuLabel = clean(document.querySelector('.header-and-flyout-burger-menu')?.getAttribute('aria-label')) || visible(document.querySelector('.header-and-flyout-burger-menu')) || 'Menu';
   const toolsSection = `<div><ul>\n${tools.join('\n')}\n</ul><p>${esc(menuLabel)}</p></div>`;
-  // ("My flights" and "Manage bookings", www's cockpit deep link, stay www links: no host of the
-  // site serves the login and profile pages yet)
-  return `${[brand, quickList, menu, toolsSection].join('\n')}\n`;
+  // "My flights" and "Manage bookings" (www's cockpit deep link): the root's own login page, as the
+  // menus on DA since 2026-11-02 (lh-app's login and profile pages, lh-com 126ecf05 + 552aefce)
+  return `${[brand, quickList, menu, toolsSection].join('\n')}\n`
+    .replace(/href="https:\/\/www\.swiss\.com\/deeplink\/cockpit\/?(?:\?[^"#]*)?"/g, `href="/${key}/login"`);
 }
 
 /**

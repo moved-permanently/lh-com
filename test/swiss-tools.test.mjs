@@ -34,7 +34,8 @@ test('the menu\'s "Flight vouchers" through urldefense.com is its target; other 
   const doc = navDocument(document, 'ch/en', new Set(['/ch/en/book-and-manage/offers/vouchers']));
   assert.match(doc, /<a href="\/ch\/en\/book-and-manage\/offers\/vouchers">Flight vouchers<\/a>/);
   assert.ok(!doc.includes('urldefense'));
-  assert.match(doc, /<a href="https:\/\/www\.swiss\.com\/deeplink\/cockpit\?country=CH&amp;language=EN">My flights<\/a>/, 'the cockpit stays on www (no host serves the login yet)');
+  assert.match(doc, /<a href="\/ch\/en\/login">My flights<\/a>/, 'www\'s cockpit deep link: the root\'s own login page (swiss.turnsthe.page serves it since 2026-11-02)');
+  assert.ok(!doc.includes('/deeplink/cockpit'));
   assert.match(doc, /<a href="https:\/\/swiss\.com\/magazine\/en">SWISS Magazine<\/a>/, 'an absolute link as www has it');
   assert.match(doc, /<a href="https:\/\/www\.swiss\.com\/magazine\/en\/travel">Travel<\/a>/, 'the magazine sub-site on www');
   assert.equal(linkFor('/corporate/en/careers', new Set()), 'https://www.swiss.com/corporate/en/careers');
@@ -50,6 +51,16 @@ test('the nav\'s cart: www\'s empty-cart dialog (title, text, link) as the cart 
   assert.match(doc, /<li>:cart: <a href="\/ch\/en\/offers">Shopping cart preview<\/a>\n<ul>\n<li>Your cart is empty<\/li>\n<li>Explore our offers and destinations to discover the incredible places we can take you\.<\/li>\n<li><a href="\/ch\/en\/offers">Explore all offers<\/a><\/li>\n<\/ul><\/li>/);
   const { document: bare } = parseHTML(`<html><body><header><div data-dcep="${dcepAttr({ menuItems: [] })}"></div><div class="dcep-shopping-cart"><maui-icon-button name="Shopping cart preview"></maui-icon-button></div></header></body></html>`);
   assert.match(navDocument(bare, 'ch/en', new Set()), /<li>:cart: <a href="https:\/\/www\.swiss\.com\/ch\/en\/homepage">Shopping cart preview<\/a><\/li>/, 'no dialog in the snapshot: as before');
+});
+
+test('lh-swiss.json served: the cockpit deep link, the login and profile pages of both roots (as Brussels\'), nothing else', async () => {
+  // eslint-disable-next-line import/extensions
+  const { ownServed } = await import('../tools/importer/own-links.mjs');
+  const served = ownServed('lh-swiss');
+  const ok = (x) => served.some((re) => re.test(x));
+  ['/deeplink/cockpit', '/ch/en/login', '/ch/de/login', '/ch/en/profile/travel-cockpit', '/ch/de/profile/bookinglist', '/ch/en/profile/account-statement', '/ch/en/profile/my-account', '/ch/de/profile/my-account/personal-data', '/ch/en/profile/travel-id/change-password']
+    .forEach((x) => assert.ok(ok(x), x));
+  ['/ch/fr/login', '/ch/en/profile', '/ch/en/profile/other', '/ch/en/homepage', '/deeplink/booking'].forEach((x) => assert.ok(!ok(x), `not ${x}`));
 });
 
 test('the footer document in www\'s order: columns, social row, logos, then the legal links', () => {

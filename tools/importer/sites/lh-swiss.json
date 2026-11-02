@@ -1,8 +1,16 @@
 {
  "site": "moved-permanently/lh-swiss",
  "source": "www.swiss.com (option B: one document per language page; market roots hold their own pages and homepages); the pilot: ch/en and ch/de",
- "servedNote": "served: none yet (swiss.turnsthe.page has no lh-edge entry): the login, profile, cart and /deeplink/cockpit links stay www links",
- "served": [],
+ "servedNote": "served: paths swiss.turnsthe.page answers without a SWISS document (lh-app's login and profile pages, lh-com 126ecf05 + 552aefce, lh-backends tenant LX; /deeplink/cockpit with www's query; each 200 on 2026-11-02; /<root>/profile/login redirects to /<root>/login); own-links.mjs links them relative",
+ "served": [
+  "/deeplink/cockpit",
+  "/{root}/login",
+  "/{root}/profile/travel-cockpit",
+  "/{root}/profile/bookinglist",
+  "/{root}/profile/account-statement",
+  "/{root}/profile/my-account/**",
+  "/{root}/profile/travel-id/**"
+ ],
  "paths": [
   "/ch/en/homepage",
   "/ch/de/homepage",
@@ -609,7 +617,13 @@
   "/ch/en/terms-conditions/eu-regulation",
   "/ch/en/terms-conditions/legal-notice",
   "/ch/en/terms-conditions/profile-conditions",
-  "/ch/en/terms-conditions/terms-conditions"
+  "/ch/en/terms-conditions/terms-conditions",
+  "/ch/de/book-and-manage/corporate-customers/group-travel-and-charter/group-travel/group-travel-request-success",
+  "/ch/de/customer-support/contact-us/data-protection-form/form-success",
+  "/ch/de/customer-support/refunds/confirmation",
+  "/ch/en/book-and-manage/corporate-customers/group-travel-and-charter/group-travel/group-travel-request-success",
+  "/ch/en/customer-support/contact-us/data-protection-form/form-success",
+  "/ch/en/customer-support/contact-us/technical-support/technical-support-success"
  ],
  "linkOuts": [
   "/ch/en/culinaryjourney",
