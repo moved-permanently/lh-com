@@ -22,6 +22,7 @@
 /il/en/homepage
 /il/en/nav
 /il/en/footer
+/il/en/cancellation-refund-webform
 /il/en/cancellation-rights
 /il/en/passenger-rights-israel
 /il/en/updated-cancellation-and-change-of-tickets

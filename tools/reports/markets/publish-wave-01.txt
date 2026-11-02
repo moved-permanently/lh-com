@@ -54,6 +54,7 @@
 /bg/en/nav
 /bg/en/footer
 /bg/en/invoice-request
+/bg/en/local-page/invoice-request-bg
 /bh/de/homepage
 /bh/de/nav
 /bh/de/footer

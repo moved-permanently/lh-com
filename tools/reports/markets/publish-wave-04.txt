@@ -49,6 +49,7 @@
 /mk/de/articles/tags/minneapolis-saint-paul
 /mk/de/articles/tags/raleigh
 /mk/de/articles/tags/sao-paulo
+/mk/de/formular-notfallkontakt
 /mk/de/support/form-emergency-contact/confirmation
 /mk/en/homepage
 /mk/en/nav

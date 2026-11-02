@@ -41,6 +41,10 @@ const FORM_IDS = {
   'sportgepaeck-hinzufuegen': 'add-sports-baggage',
   'group-travel': 'group-travel',
   'passenger-receipt-90': 'passenger-receipt-90',
+  // the market roots' own forms (bg/en, il/en, mk/de local pages)
+  'invoice-request-bg': 'invoice-request-bg',
+  'cancellation-refund-webform': 'cancellation-refund-webform',
+  'formular-notfallkontakt': 'formular-notfallkontakt',
 };
 const ERROR_PAGE = '/error.html';
 
@@ -272,6 +276,39 @@ export default function parse(element, { document, url, params }) {
     });
   }
 
+  /**
+   * www's older file upload (il/en's cancellation form): numbered single inputs
+   * (input.forms-file-upload, accept "PDF, JPEG,Image", data-forms-file-upload maximumFileSize),
+   * one file row: max-files = the inputs, required when the first is; not-allowed is lh-forms'.
+   */
+  function upload(box) {
+    const inputs = [...box.querySelectorAll('input.forms-file-upload')];
+    const first = inputs[0];
+    let config = {};
+    try { config = JSON.parse(first.getAttribute('data-forms-file-upload') || '{}') || {}; } catch (e) { config = {}; }
+    const TYPES = {
+      pdf: ['application/pdf'], jpeg: ['image/jpeg', 'image/jpg'], jpg: ['image/jpeg', 'image/jpg'], png: ['image/png'], image: ['image/jpeg', 'image/jpg', 'image/png'],
+    };
+    const types = [...new Set(attr(first, 'accept').split(',').flatMap((t) => TYPES[t.trim().toLowerCase()] || []))];
+    const order = ['application/pdf', 'image/jpeg', 'image/jpg', 'image/png'];
+    types.sort((a, b) => order.indexOf(a) - order.indexOf(b));
+    const rules = [];
+    if (types.length) rules.push(`accept=${types.join(', ')}`);
+    rules.push(`max-files=${inputs.length}`);
+    if (config.maximumFileSize) rules.push(`max-size=${clean(config.maximumFileSize)}`);
+    rules.push('not-allowed=#$%^*()[]');
+    const id = box.querySelector(`input.forms-file-id[data-fieldname]`);
+    add({
+      label: text(box.querySelector(`label[for="${first.id}"]`)),
+      type: 'file',
+      name: id ? attr(id, 'data-fieldname') : '',
+      required: has(first, 'required') ? 'yes' : 'optional',
+      placeholder: text(box.querySelector('.forms-file-select-btn')),
+      message: attr(first.closest('[data-cmp-required-message]'), 'data-cmp-required-message'),
+      rules,
+    });
+  }
+
   /** Rich text component: its HTML as the Label cell of a note row. */
   function note(rt) {
     const div = document.createElement('div');
@@ -387,6 +424,7 @@ export default function parse(element, { document, url, params }) {
     if (el.matches('.streetAddress')) { street(el); return; }
     if (el.matches('maui-input')) { input(el); return; }
     if (el.matches('section.forms-filedrop')) { file(el); return; }
+    if (el.matches('div.upload') && el.querySelector('input.forms-file-upload')) { upload(el); return; }
     if (el.matches('maui-checkbox') && !done.has(el.parentElement)) {
       done.add(el.parentElement);
       checkbox(el.parentElement);

@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-form.js
-  var tmp_bundle_form_677266_exports = {};
-  __export(tmp_bundle_form_677266_exports, {
-    default: () => tmp_bundle_form_677266_default
+  var tmp_bundle_form_52421_exports = {};
+  __export(tmp_bundle_form_52421_exports, {
+    default: () => tmp_bundle_form_52421_default
   });
 
   // tools/importer/parsers/form-core.js
@@ -77,7 +77,11 @@ var CustomImportScript = (() => {
     "add-sports-baggage": "add-sports-baggage",
     "sportgepaeck-hinzufuegen": "add-sports-baggage",
     "group-travel": "group-travel",
-    "passenger-receipt-90": "passenger-receipt-90"
+    "passenger-receipt-90": "passenger-receipt-90",
+    // the market roots' own forms (bg/en, il/en, mk/de local pages)
+    "invoice-request-bg": "invoice-request-bg",
+    "cancellation-refund-webform": "cancellation-refund-webform",
+    "formular-notfallkontakt": "formular-notfallkontakt"
   };
   var ERROR_PAGE = "/error.html";
   function parse(element, { document, url, params }) {
@@ -289,6 +293,41 @@ var CustomImportScript = (() => {
         rules
       });
     }
+    function upload(box) {
+      const inputs = [...box.querySelectorAll("input.forms-file-upload")];
+      const first = inputs[0];
+      let config2 = {};
+      try {
+        config2 = JSON.parse(first.getAttribute("data-forms-file-upload") || "{}") || {};
+      } catch (e) {
+        config2 = {};
+      }
+      const TYPES = {
+        pdf: ["application/pdf"],
+        jpeg: ["image/jpeg", "image/jpg"],
+        jpg: ["image/jpeg", "image/jpg"],
+        png: ["image/png"],
+        image: ["image/jpeg", "image/jpg", "image/png"]
+      };
+      const types = [...new Set(attr(first, "accept").split(",").flatMap((t) => TYPES[t.trim().toLowerCase()] || []))];
+      const order = ["application/pdf", "image/jpeg", "image/jpg", "image/png"];
+      types.sort((a, b) => order.indexOf(a) - order.indexOf(b));
+      const rules = [];
+      if (types.length) rules.push(`accept=${types.join(", ")}`);
+      rules.push(`max-files=${inputs.length}`);
+      if (config2.maximumFileSize) rules.push(`max-size=${clean2(config2.maximumFileSize)}`);
+      rules.push("not-allowed=#$%^*()[]");
+      const id = box.querySelector(`input.forms-file-id[data-fieldname]`);
+      add({
+        label: text(box.querySelector(`label[for="${first.id}"]`)),
+        type: "file",
+        name: id ? attr(id, "data-fieldname") : "",
+        required: has(first, "required") ? "yes" : "optional",
+        placeholder: text(box.querySelector(".forms-file-select-btn")),
+        message: attr(first.closest("[data-cmp-required-message]"), "data-cmp-required-message"),
+        rules
+      });
+    }
     function note(rt) {
       const div = document.createElement("div");
       const clone = rt.cloneNode(true);
@@ -437,6 +476,10 @@ var CustomImportScript = (() => {
       }
       if (el.matches("section.forms-filedrop")) {
         file(el);
+        return;
+      }
+      if (el.matches("div.upload") && el.querySelector("input.forms-file-upload")) {
+        upload(el);
         return;
       }
       if (el.matches("maui-checkbox") && !done.has(el.parentElement)) {
@@ -3065,7 +3108,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_form_677266_default = {
+  var tmp_bundle_form_52421_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -3095,5 +3138,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_form_677266_exports);
+  return __toCommonJS(tmp_bundle_form_52421_exports);
 })();

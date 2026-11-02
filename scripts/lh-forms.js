@@ -30,6 +30,10 @@ export const FORM_IDS = {
   'sportgepaeck-hinzufuegen': 'add-sports-baggage',
   'group-travel': 'group-travel',
   'passenger-receipt-90': 'passenger-receipt-90',
+  // the market roots' own forms (bg/en, il/en, mk/de local pages)
+  'invoice-request-bg': 'invoice-request-bg',
+  'cancellation-refund-webform': 'cancellation-refund-webform',
+  'formular-notfallkontakt': 'formular-notfallkontakt',
 };
 
 /** Worker origin; localStorage "lh-forms" lets a tester point a page at another worker. */

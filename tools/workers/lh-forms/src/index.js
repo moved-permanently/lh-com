@@ -61,6 +61,14 @@ const FORMS = {
     en: 'Enquiry about passenger receipt',
     de: 'Anfrage bezüglich einem Passagierbeleg',
   },
+  // lh-com's market roots' own forms (the h1 of www's bg/en, il/en and mk/de pages, 2026-10-29
+  // captures); each exists in one language: one title for both
+  'invoice-request-bg': { en: 'Invoice Request Bulgaria', de: 'Invoice Request Bulgaria' },
+  'cancellation-refund-webform': {
+    en: 'Request for cancellation and refund via webform',
+    de: 'Request for cancellation and refund via webform',
+  },
+  'formular-notfallkontakt': { en: 'Notfallkontakt', de: 'Notfallkontakt' },
   // Discover Airlines (lh-discover): the h1 of www.discover-airlines.com's /de/en/ and /de/de/
   // pages (2026-10-29); the sweepstake exists in German only (us/de, xx/de)
   'discover-assistance': {
@@ -365,6 +373,15 @@ const FILE_RULES = {
     extensions: ['.png', '.jpg', '.jpeg', '.pdf'],
     maxFiles: 5,
     maxSize: 3700000,
+    ...MAIL_FILES,
+  },
+  // il/en/cancellation-refund-webform: www's five file inputs (accept="PDF, JPEG,Image",
+  // maximumFileSize 8000000 each; "Image": the image type the worker reads besides JPEG, PNG)
+  'cancellation-refund-webform': {
+    types: ['application/pdf', 'image/jpeg', 'image/jpg', 'image/png'],
+    extensions: ['.pdf', '.jpg', '.jpeg', '.png'],
+    maxFiles: 5,
+    maxSize: 8000000,
     ...MAIL_FILES,
   },
   'discover-compensation-baggage': DISCOVER_CONTACT_FILES,
