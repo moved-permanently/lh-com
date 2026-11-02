@@ -37,7 +37,7 @@ test('every turnsthe.page host in a Worker\'s host lists is a brand host', () =>
       if (host) assert.ok(isTurnsThePageHost(host), `${w} ${k}: ${host}`);
     });
   }));
-  assert.ok(items(vars('lh-edge').PILOT_COUNTRIES_BY_HOST).includes('lufthansa.turnsthe.page=ch'));
+  assert.ok(items(vars('lh-edge').PILOT_COUNTRIES_BY_HOST).includes('lufthansa.turnsthe.page=ch/en|ch/de'));
 });
 
 test('the code defaults of the origin lists equal their wrangler.toml and name no retired host', () => {

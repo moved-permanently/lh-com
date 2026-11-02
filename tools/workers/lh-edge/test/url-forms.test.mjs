@@ -194,5 +194,5 @@ test('China hosts: / to /cn/en/homepage once the host serves cn/en; until then b
 test('wrangler.toml: lufthansa-cn serves no pilot country (cn waits for its published documents)', () => {
   const toml = fs.readFileSync(path.join(here, '../wrangler.toml'), 'utf8');
   const value = (toml.match(/^PILOT_COUNTRIES_BY_HOST = "([^"]*)"/m) || [])[1];
-  assert.equal(value, 'lufthansa.turnsthe.page=ch');
+  assert.equal(value, 'lufthansa.turnsthe.page=ch/en|ch/de');
 });
