@@ -1612,3 +1612,14 @@ test('austrian-cn.turnsthe.page (www.austrian.cn\'s alias host) is an allowed or
   const no = await Promise.all(['https://austrian-cn.turnsthe.page.example.com', 'http://austrian-cn.turnsthe.page'].map(preflight));
   no.forEach((res) => assert.equal(res.status, 403));
 });
+
+test('the emergency contact form of the French and Spanish versions (fr/fr, xx/es, es/es): its page\'s h1 per language', async () => {
+  const env = makeEnv({ FORM_CONFIG: JSON.stringify({ default: { to: 'only@example.com' } }) });
+  const cases = [['fr-fr', '[lh-com] Contact en cas d’urgence (fr-fr)'], ['xx-es', '[lh-com] Contacto en caso de emergencia (xx-es)'],
+    ['es-es', '[lh-com] Contacto en caso de emergencia (es-es)'], ['ch-fr', '[lh-com] Contact en cas d’urgence (ch-fr)']];
+  const results = await Promise.all(cases.map(([locale], i) => post({
+    form: 'emergency-contact', locale, origin: 'https://lufthansa.turnsthe.page', ip: `198.18.22.${i + 1}`,
+  }, env)));
+  results.forEach(({ res }, i) => assert.equal(res.status, 200, cases[i][0]));
+  assert.deepEqual(sent.map((m) => m.subject).sort(), cases.map((c) => c[1]).sort());
+});
