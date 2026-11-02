@@ -494,6 +494,36 @@ export function withFlightSearchTeaser(doc, html) {
   return doc.replace(video[0], `${video[0]}<div><div>Background teaser</div><div>${cell}</div></div>`);
 }
 
+/**
+ * The offers pages' grid (www's .dcep-destination-finder, drawn in the browser: empty in the
+ * snapshot), which lufthansa-cleanup removes as an empty component before the destination-finder
+ * parser reads its data-dcep; data-import-keep keeps it (as ita-import.mjs's fare teaser).
+ */
+export const withOffersGridConfig = (html) => html.replace(/<div class="dcep-destination-finder"(?![^>]*data-import-keep)/g, '$& data-import-keep');
+
+// the flight search's rows that www links to its own pages, and our page in the document's root
+// (www writes the group booking link as an AEM path, at times its market root only)
+const FLIGHT_SEARCH_OWN = {
+  'Group booking': (base) => `${base}/book-and-manage/corporate-customers/group-travel-and-charter/group-travel`,
+  'Where we fly': (base) => `${base}/offers`,
+};
+
+/** The flight search blocks' group booking and destinations links to our pages in p's root. */
+export function withOwnFlightSearchLinks(doc, p) {
+  const base = `/${p.split('/').slice(1, 3).join('/')}`;
+  let out = '';
+  let at = 0;
+  const open = /<div class="flight-search(?: [^"]*)?">/g;
+  for (let m = open.exec(doc); m; m = open.exec(doc)) {
+    const end = divEnd(doc, m.index);
+    const block = doc.slice(m.index, end).replace(/<div><div>(Group booking|Where we fly)<\/div><div><a href="[^"]*">/g, (row, key) => `<div><div>${key}</div><div><a href="${FLIGHT_SEARCH_OWN[key](base)}">`);
+    out += doc.slice(at, m.index) + block;
+    at = end;
+    open.lastIndex = end;
+  }
+  return out + doc.slice(at);
+}
+
 /** The template of a page from its path and snapshot. */
 export function templateOf(p, html) {
   if (/^\/[a-z]{2}\/[a-z]{2}\/homepage$/.test(p)) return 'homepage';
@@ -531,7 +561,7 @@ if (isMain) {
     // (the help centre app's screen-reader announcement "Help page loaded." is no page text;
     // the Studio's snapshots keep www's scripts, which must not run in the import browser)
     // (the form's jQuery UI date picker, appended to the body and hidden on www, is no content)
-    const mapped = withoutLoads(withTabMarkers(withTeaserColumns(withCheckinTabs(withLinkOuts(withoutPlaceholders(withPlaceholder(editDivs(stripScripts(html), '<div id="ui-datepicker-div"', () => ''))), p)))))
+    const mapped = withOffersGridConfig(withoutLoads(withTabMarkers(withTeaserColumns(withCheckinTabs(withLinkOuts(withoutPlaceholders(withPlaceholder(editDivs(stripScripts(html), '<div id="ui-datepicker-div"', () => ''))), p))))))
       .replace(/<output[^>]*class="screen-reader-announcer"[^>]*>[\s\S]*?<\/output>/g, '');
     if (mapped.includes(`https://${LINK_OUT}`)) linkOuts.push(p);
     fs.writeFileSync(copy, mapped);
@@ -628,7 +658,7 @@ if (isMain) {
       const doc = fs.readFileSync(f, 'utf8');
       const linked = withOwnLinks(withLocalImages(relativeDamLinks(doc.split(`https://${LINK_OUT}`).join(`https://${HOST}`))), HOST, pages, aliases, { linkOut: linkOutDocs.has(p) ? p : null, served }).doc;
       // a form sends the visitor to its confirmation page on the site, never to www's
-      const next = withOwnSuccess(linked, (t) => fs.existsSync(path.join(W, 'content', `${t}.plain.html`)));
+      const next = withOwnFlightSearchLinks(withOwnSuccess(linked, (t) => fs.existsSync(path.join(W, 'content', `${t}.plain.html`))), p);
       if (next !== doc) fs.writeFileSync(f, next);
     });
     fs.writeFileSync(path.join(W, 'runs', `${name}-import.json`), `${JSON.stringify({ templates: out, documents: made, missing }, null, 1)}\n`);

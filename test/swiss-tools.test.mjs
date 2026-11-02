@@ -40,6 +40,18 @@ test('the menu\'s "Flight vouchers" through urldefense.com is its target; other 
   assert.equal(linkFor('/corporate/en/careers', new Set()), 'https://www.swiss.com/corporate/en/careers');
 });
 
+test('the nav\'s cart: www\'s empty-cart dialog (title, text, link) as the cart item\'s sub-list, its link the offers', () => {
+  // (www's modal at the end of the body, outside the header, as maui-modal portals it)
+  const cart = '<div class="dcep-shopping-cart" role="presentation"><div class="shopping-cart-button"><maui-icon-button icon="shopping-cart" name="Shopping cart preview " behavior="button"></maui-icon-button></div></div>';
+  const modal = '<maui-modal class="modal-size-l" title="Your cart is empty" label="Your cart is empty"><maui-copy size="m">Explore our offers and destinations to discover the incredible places we can take you.</maui-copy><maui-button-link type="secondary" href="/ch/en/offers">Explore all offers</maui-button-link></maui-modal>';
+  const other = '<maui-modal class="modal-size-l" title="Country and language"><maui-button-link href="/ch/de/homepage">x</maui-button-link></maui-modal>';
+  const { document } = parseHTML(`<html><body><header><div data-dcep="${dcepAttr({ menuItems: [] })}"></div>${cart}</header><main></main>${other}${modal}</body></html>`);
+  const doc = navDocument(document, 'ch/en', new Set(['/ch/en/offers']));
+  assert.match(doc, /<li>:cart: <a href="\/ch\/en\/offers">Shopping cart preview<\/a>\n<ul>\n<li>Your cart is empty<\/li>\n<li>Explore our offers and destinations to discover the incredible places we can take you\.<\/li>\n<li><a href="\/ch\/en\/offers">Explore all offers<\/a><\/li>\n<\/ul><\/li>/);
+  const { document: bare } = parseHTML(`<html><body><header><div data-dcep="${dcepAttr({ menuItems: [] })}"></div><div class="dcep-shopping-cart"><maui-icon-button name="Shopping cart preview"></maui-icon-button></div></header></body></html>`);
+  assert.match(navDocument(bare, 'ch/en', new Set()), /<li>:cart: <a href="https:\/\/www\.swiss\.com\/ch\/en\/homepage">Shopping cart preview<\/a><\/li>/, 'no dialog in the snapshot: as before');
+});
+
 test('the footer document in www\'s order: columns, social row, logos, then the legal links', () => {
   const { document } = parseHTML(`<html><body><footer><div class="swiss-footer"><div class="swiss-link-content"><div class="link-list nav-link-list"><span class="hidden-sm-down"><h3>About us</h3></span><ul class="vertical"><li><a href="/corporate/en/careers">Careers</a></li><li><maui-tooltip><a href="https://business.lufthansagroup.com/">Lufthansa Group for Business<span class="sr-only"> new tab</span></a><div slot="box">note</div></maui-tooltip></li></ul></div></div>
     <div class="swiss-social-links"><div class="link-list"><ul class="horizontal"><li><a href="https://x.com/FlySWISS"><img src="/content/dam/lx/icons/footer-x.svg" alt="X"></a></li></ul></div></div></div>
@@ -183,6 +195,30 @@ test('the flight search\'s teaser text: a Background teaser row from www\'s prom
   assert.equal(withFlightSearchTeaser(doc, '<div></div>'), doc, 'no teaser: as it is');
   const amp = snap.replace('Discover India', 'Fly &amp; save');
   assert.match(withFlightSearchTeaser(doc, amp), /<p>Fly &amp; save<\/p>/, 'the text escaped once');
+});
+
+test('the offers grid unrendered in the snapshot kept for its parser (data-import-keep), once; others as they are', async () => {
+  // eslint-disable-next-line import/extensions
+  const { withOffersGridConfig } = await import('../tools/importer/swiss-import.mjs');
+  const html = '<div class="topoffersdestinationfinder"><div class="dcep-destination-finder" data-dcep="{}" role="presentation"></div></div>';
+  const out = withOffersGridConfig(html);
+  assert.equal(out, '<div class="topoffersdestinationfinder"><div class="dcep-destination-finder" data-import-keep data-dcep="{}" role="presentation"></div></div>');
+  assert.equal(withOffersGridConfig(out), out, 'once');
+  assert.equal(withOffersGridConfig('<div class="dcep-fare-teaser"></div>'), '<div class="dcep-fare-teaser"></div>');
+});
+
+test('the flight search\'s group booking and destinations links: our pages in the document\'s root, not www', async () => {
+  // eslint-disable-next-line import/extensions
+  const { withOwnFlightSearchLinks } = await import('../tools/importer/swiss-import.mjs');
+  const row = (k, href, label) => `<div><div>${k}</div><div><a href="${href}">${label}</a></div></div>`;
+  const doc = (g, w) => `<div class="flight-search standalone">${row('Shop', 'https://shop.swiss.com/booking/availability', 'x')}${row('Group booking', g, 'Gruppenbuchungen für zehn oder mehr Passagiere.')}${row('Where we fly', w, 'Entdecken Sie unsere Reiseziele.')}</div>`;
+  const GROUP = '/ch/de/book-and-manage/corporate-customers/group-travel-and-charter/group-travel';
+  assert.equal(withOwnFlightSearchLinks(doc('https://www.swiss.com/content/lx/gc/en/book-and-manage/corporate-customers/group-travel-and-charter/group-travel', 'https://www.swiss.com/xx/de/offers'), '/ch/de/book-and-manage/flights'), doc(GROUP, '/ch/de/offers'));
+  assert.equal(withOwnFlightSearchLinks(doc('https://www.swiss.com/content/lx/markets/xx/en', 'https://www.swiss.com/xx/de/offers'), '/ch/de/local-page/black-friday'), doc(GROUP, '/ch/de/offers'), 'www\'s market root only: the group travel page');
+  const done = doc(GROUP, '/ch/de/offers');
+  assert.equal(withOwnFlightSearchLinks(done, '/ch/de/homepage'), done, 'once');
+  const outside = `<p><a href="https://www.swiss.com/xx/de/offers">x</a></p>${row('Where we fly', 'https://www.swiss.com/xx/de/offers', 'x')}`;
+  assert.equal(withOwnFlightSearchLinks(outside, '/ch/de/homepage'), outside, 'outside a flight search: as it is');
 });
 
 test('a rendition of an asset without a file extension: its copy named with the rendition\'s', async () => {

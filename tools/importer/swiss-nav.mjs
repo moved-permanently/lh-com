@@ -92,6 +92,29 @@ export function linkFor(href, sitePaths) {
   return `${ORIGIN}${u.pathname.replace(/^\/content\/lx\/markets(?=\/)/, '')}${u.search}${u.hash}`;
 }
 
+/**
+ * The nav's cart item. www's cart is a button that opens a dialog; a visitor without a shop session
+ * gets its empty cart (title, text, a link to the offers): those as the item's sub-list
+ * (blocks/header/header-cart.js), the item's link the dialog's. Without the dialog in the snapshot:
+ * a link to www's homepage, as before (as lh-com's nav importer).
+ */
+function cartTool(document, key, sitePaths) {
+  const cart = document.querySelector('.dcep-shopping-cart');
+  if (!cart) return '';
+  const label = esc(clean(cart.querySelector('[name]')?.getAttribute('name')) || 'Shopping cart');
+  // the dialog: in the cart, or (maui-modal portals it) a modal at the body's end whose link is
+  // the root's offers page
+  const modal = cart.querySelector('maui-modal') || [...document.querySelectorAll('body > maui-modal')]
+    .find((m) => m.querySelector(`maui-button-link[href="/${key}/offers"], a[href="/${key}/offers"]`));
+  const title = clean(modal && (modal.getAttribute('title') || modal.getAttribute('label')));
+  const link = modal && modal.querySelector('maui-button-link[href], a[href]');
+  if (!title || !link) return `<li>:cart: <a href="${ORIGIN}/${key}/homepage">${label}</a></li>`;
+  const href = esc(linkFor(link.getAttribute('href'), sitePaths));
+  const copy = [...modal.querySelectorAll('maui-copy')].map((c) => clean(c.textContent)).filter(Boolean);
+  const items = [`<li>${esc(title)}</li>`, ...copy.map((c) => `<li>${esc(c)}</li>`), `<li><a href="${href}">${esc(clean(link.textContent))}</a></li>`];
+  return `<li>:cart: <a href="${href}">${label}</a>\n<ul>\n${items.join('\n')}\n</ul></li>`;
+}
+
 const a = (href, label, sitePaths) => `<a href="${esc(linkFor(href, sitePaths))}">${esc(label)}</a>`;
 // www images Edge Delivery refuses at preview (SVGs over its size limit, as Austrian's 400 KB
 // icons): a local rendering of the same drawing, uploaded to DA by da-upload.mjs (/media-da/)
@@ -203,8 +226,7 @@ export function navDocument(document, key, sitePaths) {
   const tools = [
     data.accessibilityUrl && data.accessibilityTextLabel ? `<li>:wheelchair: ${a(data.accessibilityUrl, clean(data.accessibilityTextLabel), sitePaths)}</li>` : '',
     data.supportUrl && data.supportTextLabel ? `<li>:help: ${a(data.supportUrl, clean(data.supportTextLabel), sitePaths)}</li>` : '',
-    // the cart is a session overlay on www: a link to www's homepage (as lh-com's nav importer)
-    document.querySelector('.dcep-shopping-cart') ? `<li>:cart: <a href="${ORIGIN}/${key}/homepage">${esc(clean(document.querySelector('.dcep-shopping-cart [name]')?.getAttribute('name')) || 'Shopping cart')}</a></li>` : '',
+    cartTool(document, key, sitePaths),
     // the login is www's (Travel ID); the login and profile app shells are not on the site
     login.userAuthorizeUrl ? `<li>:login: <a href="${esc(login.userAuthorizeUrl.replace(/state=[^&]*/, `state=${encodeURIComponent(`/${key}/homepage`)}`))}">${esc(visible(document.querySelector('.dcep-login-portlet .login-portlet-link')) || 'Login')}</a></li>` : '',
     `<li>:globe: ${esc(localeLabel)}${countries.length ? `\n<ul>\n${countries.map((c) => `<li><a href="${ORIGIN}/${c.code}/${lang}/homepage">${esc(c.name)}</a></li>`).join('\n')}\n</ul>` : ''}</li>`,
