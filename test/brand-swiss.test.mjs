@@ -158,3 +158,14 @@ test('"Change Privacy Settings" stays in SWISS\'s footer: the brand has a consen
     delete globalThis.document;
   }
 });
+
+test('favicon, manifest and logo: www\'s files at www\'s paths, copies in the code', async () => {
+  const { brandIcons } = await import('../scripts/brand.js');
+  assert.deepEqual(brandIcons(lx), { icon: '/etc/designs/lx/favicon.ico', type: 'image/ico', manifest: '/etc/designs/lx/manifest.json' });
+  const json = JSON.parse(read('etc/designs/lx/manifest.json'));
+  assert.equal(json.name, 'SWISS');
+  assert.equal(json.short_name, 'LX');
+  json.icons.forEach((icon) => assert.ok(fs.existsSync(new URL(`..${icon.src}`, import.meta.url)), icon.src));
+  ['etc/designs/lx/favicon.ico', 'etc/designs/lx/clientlib-all/vite/img/swiss-logo.svg'].forEach((f) => assert.ok(fs.existsSync(new URL(`../${f}`, import.meta.url)), f));
+  assert.ok(!/<script|javascript:/i.test(read('etc/designs/lx/clientlib-all/vite/img/swiss-logo.svg')), 'the logo is a plain SVG');
+});
