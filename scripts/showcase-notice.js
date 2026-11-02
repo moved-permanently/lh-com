@@ -15,10 +15,13 @@
  * - Never shown in DA authoring contexts (isAuthoringContext), inside iframes or under /tools/.
  * - Independent of the consent banner (scripts/consent.js): whichever shows first is handled
  *   first, the other works afterwards.
+ * - The brands in WAITS_FOR_TYPING (SWISS): not while a form field has the focus
+ *   (the modal would take the keys typed into it); it opens when the focus leaves the fields.
+ *   Other brands: at its time, as before.
  */
 import { loadCSS } from './aem.js';
 import { isAuthoringContext } from './consent.js';
-import { brandName } from './brand.js';
+import { brandName, brandOf } from './brand.js';
 
 export const STORAGE_KEY = 'lh-showcase-acknowledged';
 
@@ -29,6 +32,40 @@ const TEXT = {
 };
 
 let shown = false;
+
+// the controls a visitor types into
+const TYPING = 'input:not([type="button"], [type="submit"], [type="reset"], [type="checkbox"], [type="radio"], [type="file"], [type="hidden"], [type="image"], [type="range"], [type="color"]), textarea, select, [contenteditable=""], [contenteditable="true"]';
+
+/** Whether an element is a field the visitor types into. */
+export const isTypingIn = (node) => Boolean(node && node.matches && node.matches(TYPING));
+
+// the brands whose notice waits for the visitor's typing (here, not in scripts/brands.js, which
+// lh-edge bundles)
+const WAITS_FOR_TYPING = ['swiss'];
+
+/** Whether the brand's notice waits for the visitor's typing. */
+export const waitsForTyping = (read) => WAITS_FOR_TYPING.includes(brandOf(read));
+
+/**
+ * Resolves once no field has the focus: at once, or when the focus leaves the fields (from
+ * field to field it keeps waiting).
+ * @param {Document} doc
+ * @param {Function} [active] the focused element
+ */
+export function afterTyping(doc = document, active = () => doc.activeElement) {
+  return new Promise((resolve) => {
+    if (!isTypingIn(active())) {
+      resolve();
+      return;
+    }
+    const check = () => setTimeout(() => {
+      if (isTypingIn(active())) return;
+      doc.removeEventListener('focusout', check, true);
+      resolve();
+    }, 0);
+    doc.addEventListener('focusout', check, true);
+  });
+}
 
 function isAcknowledged() {
   try {
@@ -91,6 +128,7 @@ function buildDialog() {
 export default async function showShowcaseNotice() {
   if (shown || !shouldShowNotice()) return;
   shown = true;
+  if (waitsForTyping()) await afterTyping();
   await loadCSS(`${window.hlx.codeBasePath}/styles/showcase-notice.css`);
 
   const { dialog, button } = buildDialog();
