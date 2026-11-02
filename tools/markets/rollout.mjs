@@ -193,7 +193,9 @@ export function rowsOf(batchRoots, snapDir = SNAP, langs = LANGS) {
     // (a root of the country that already has a row: that row's name)
     const existing = read(path.join(root, 'tools/markets/locale-data.json')).roots;
     const countryOf = (l) => facts[`${cc}/${l}`]?.label?.split('|')[0].trim()
-      || Object.entries(existing).find(([key, r]) => key.startsWith(`${cc}/`) && !r.batch && r.countryName?.[l])?.[1].countryName[l] || null;
+      || Object.entries(existing).find(([key, r]) => key.startsWith(`${cc}/`) && !r.batch && r.countryName?.[l])?.[1].countryName[l]
+      // a language batch: the country's rows of the en and de batches
+      || (langs.length > LANGS.length ? Object.entries(existing).find(([key, r]) => key.startsWith(`${cc}/`) && key !== k && r.countryName?.[l])?.[1].countryName[l] : null) || null;
     const countryName = Object.fromEntries(langs.map((l) => [l, countryOf(l)]));
     const row = {
       status: 'pilot', documents: 'language', name: f.label, countryName, homeAirport: f.airport, currency: f.currency, timeZone: null, shopLang: null,

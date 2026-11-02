@@ -201,6 +201,20 @@ export const LOCALE_TABLE = {
   'us/en': { country: 'us', lang: 'en', hreflang: 'en-US', status: 'pilot', documents: 'language', name: 'USA | English', countryName: { en: 'USA', de: 'USA' }, homeAirport: null, currency: 'USD', timeZone: null, shopLang: null },
   've/de': { country: 've', lang: 'de', hreflang: 'de-VE', status: 'pilot', documents: 'language', name: 'Venezuela | Deutsch', countryName: { en: 'Venezuela', de: 'Venezuela' }, homeAirport: 'FRA', currency: 'EUR', timeZone: null, shopLang: null },
   've/en': { country: 've', lang: 'en', hreflang: 'en-VE', status: 'pilot', documents: 'language', name: 'Venezuela | English', countryName: { en: 'Venezuela', de: 'Venezuela' }, homeAirport: 'FRA', currency: 'EUR', timeZone: null, shopLang: null },
+  'fr/fr': { country: 'fr', lang: 'fr', hreflang: 'fr-FR', status: 'pilot', documents: 'own', name: 'France | Français', countryName: { en: 'France', de: 'France', fr: 'France' }, homeAirport: null, currency: 'EUR', timeZone: null, shopLang: null },
+  'ar/fr': { country: 'ar', lang: 'fr', hreflang: 'fr-AR', status: 'pilot', documents: 'language', name: 'Argentine | Français', countryName: { en: 'Argentinien', de: 'Argentina', fr: 'Argentine' }, homeAirport: 'BUE', currency: 'USD', timeZone: null, shopLang: null },
+  'be/fr': { country: 'be', lang: 'fr', hreflang: 'fr-BE', status: 'pilot', documents: 'language', name: 'Belgique | Français', countryName: { en: 'Belgium', de: 'Belgien', fr: 'Belgique' }, homeAirport: 'BRU', currency: 'EUR', timeZone: null, shopLang: null },
+  'ca/fr': { country: 'ca', lang: 'fr', hreflang: 'fr-CA', status: 'pilot', documents: 'language', name: 'Canada | Français', countryName: { en: 'Canada', de: 'Kanada', fr: 'Canada' }, homeAirport: null, currency: null, timeZone: null, shopLang: null },
+  'ch/fr': { country: 'ch', lang: 'fr', hreflang: 'fr-CH', status: 'pilot', documents: 'language', name: 'Suisse | Français', countryName: { en: 'Switzerland', de: 'Schweiz', fr: 'Suisse' }, homeAirport: 'GVA', currency: 'CHF', timeZone: null, shopLang: null },
+  'cl/fr': { country: 'cl', lang: 'fr', hreflang: 'fr-CL', status: 'pilot', documents: 'language', name: 'Chili | Français', countryName: { en: 'Chile', de: 'Chile', fr: 'Chili' }, homeAirport: 'SCL', currency: 'USD', timeZone: null, shopLang: null },
+  'co/fr': { country: 'co', lang: 'fr', hreflang: 'fr-CO', status: 'pilot', documents: 'language', name: 'Colombie | Français', countryName: { en: 'Colombia', de: 'Kolumbien', fr: 'Colombie' }, homeAirport: 'BOG', currency: 'USD', timeZone: null, shopLang: null },
+  'cr/fr': { country: 'cr', lang: 'fr', hreflang: 'fr-CR', status: 'pilot', documents: 'language', name: 'Costa Rica | Français', countryName: { en: 'Costa Rica', de: 'Costa Rica', fr: 'Costa Rica' }, homeAirport: 'SJO', currency: 'USD', timeZone: null, shopLang: null },
+  'dz/fr': { country: 'dz', lang: 'fr', hreflang: 'fr-DZ', status: 'pilot', documents: 'language', name: 'Algérie  | Français', countryName: { en: 'DZ', de: 'Algerien', fr: 'Algérie' }, homeAirport: 'ALG', currency: 'DZD', timeZone: null, shopLang: null },
+  'gq/fr': { country: 'gq', lang: 'fr', hreflang: 'fr-GQ', status: 'pilot', documents: 'language', name: 'Guinée Equatoriale  | Français', countryName: { en: 'Equatorial Guinea', de: 'Äquatorialguinea', fr: 'Guinée Equatoriale' }, homeAirport: 'SSG', currency: 'XAF', timeZone: null, shopLang: null },
+  'lu/fr': { country: 'lu', lang: 'fr', hreflang: 'fr-LU', status: 'pilot', documents: 'language', name: 'Luxembourg | Français', countryName: { en: 'Luxembourg', de: 'Luxemburg', fr: 'Luxembourg' }, homeAirport: 'LUX', currency: 'EUR', timeZone: null, shopLang: null },
+  'ma/fr': { country: 'ma', lang: 'fr', hreflang: 'fr-MA', status: 'pilot', documents: 'language', name: 'Maroc  | Français', countryName: { en: 'Morocco', de: 'Marokko', fr: 'Maroc' }, homeAirport: 'RAK', currency: 'MAD', timeZone: null, shopLang: null },
+  'tn/fr': { country: 'tn', lang: 'fr', hreflang: 'fr-TN', status: 'pilot', documents: 'language', name: 'Tunisie  | Français', countryName: { en: 'Tunesien', de: 'Tunesien', fr: 'Tunisie' }, homeAirport: 'TUN', currency: 'TND', timeZone: null, shopLang: null },
+  'us/fr': { country: 'us', lang: 'fr', hreflang: 'fr-US', status: 'pilot', documents: 'language', name: 'Etats-Unis d\'Amérique  | Français', countryName: { en: 'USA', de: 'USA', fr: 'Etats-Unis d\'Amérique' }, homeAirport: null, currency: 'USD', timeZone: null, shopLang: null },
 };
 
 /** Every market-language root of www (its sitemap dataset), space-separated. */
@@ -213,6 +227,7 @@ export const DEFAULT_LOCALE = 'de/de';
 export const LANGUAGE_VERSIONS = {
   en: 'de/en',
   de: 'de/de',
+  fr: 'fr/fr',
 };
 
 /** A language without a version of its own (texts fall back to English). */

@@ -27,7 +27,8 @@ export function liveRootPage(pathname, t) {
   const m = String(pathname).match(/^\/([a-z]{2}\/[a-z]{2})(\/[^.]+)$/);
   if (!m) return null;
   const [, root, suffix] = m;
-  const own = Object.values(t.versions).includes(root) || t.ownRoots.includes(root);
+  // a language version still pilot (fr/fr before its wave): none
+  const own = (Object.values(t.versions).includes(root) && t.table[root].status === 'live') || t.ownRoots.includes(root);
   if (!own || LANGUAGE_ONLY.test(suffix) || suffix.endsWith('/')) return null;
   return { root, lang: t.table[root].lang, suffix };
 }
