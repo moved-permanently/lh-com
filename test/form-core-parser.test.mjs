@@ -42,3 +42,36 @@ test('a stand-alone maui link between the fields becomes a note row with the lin
   assert.equal(link.textContent, 'Vollmacht herunterladen (PDF)');
   assert.ok(!document.querySelector('table[data-name]').textContent.includes('Sie verlassen diese Website'));
 });
+
+const LI = (n, required) => `<li class="file-upload-wrapper row py-0 mb-5"><div class="col-12 d-flex"><div class="input" data-cmp-required-message="Please attach proof of the right to canel your ticket."><div class="input-wrapper"><div class="position-relative"><label for="File_upload-${n}">File upload</label><div class="input-border-wrapper"><input id="File_upload-name-${n}" name="File_upload-name-${n}" placeholder="File upload" class="forms-file-name" type="text" value="" tabindex="-1"></div>
+  <input accept="PDF, JPEG,Image" class="forms-file-upload forms-input-enhancer" id="File_upload-${n}" type="file"${required ? ' required' : ''} data-forms-file-upload="{&quot;portal&quot;:&quot;lh&quot;, &quot;maximumFileSize&quot;: 8000000, &quot;fileSizeErrorMessage&quot;: &quot;Maximum size violation&quot;}"><input name="File_upload-id-${n}" class="forms-file-id" data-fieldname="File_upload"></div></div></div>
+  <div class="d-inline-flex"><div class="file-delete"><button class="btn-link" type="button"><span class="sr-only">Delete ${n}</span></button></div></div></div>
+  <div class="col-12"><button class="btn forms-file-select-btn" type="button"><span>Browse</span></button><button class="btn forms-file-upload-btn" type="button"><span>Upload</span></button></div></li>`;
+
+test('www\'s older file inputs (il/en\'s cancellation form: five numbered uploads) become one file row with their rules', () => {
+  const { document } = parseHTML(`<!DOCTYPE html><html><body><main><div class="form-wrapper"><form class="cmp-form" action="https://www.lufthansa.com/content/lh/markets/il/en/cancellation-refund-webform.html">
+    <div id="subsection-Personel_details"><fieldset><legend>Mandatory details</legend>
+      <div class="richtext"><p>Document references</p></div>
+      <div class="upload"><ul class="list-unstyled forms-repeatable-section">${[1, 2, 3, 4, 5].map((n) => LI(n, n === 1)).join('')}</ul></div>
+    </fieldset></div>
+    <maui-button id="submit-btn" behavior="submit">Send</maui-button>
+  </form></div></main></body></html>`);
+  parse(document.querySelector('.form-wrapper'), { document, url: 'https://www.lufthansa.com/il/en/cancellation-refund-webform' });
+  const rows = [...document.querySelectorAll('table[data-name] tr')].map((tr) => [...tr.children].map((td) => td.innerHTML));
+  const files = rows.filter((r) => r[1] === 'file');
+  assert.equal(files.length, 1);
+  assert.deepEqual(files[0], ['File upload', 'file', 'File_upload', 'yes', '', '', 'Browse', 'Please attach proof of the right to canel your ticket.', '',
+    'accept=application/pdf, image/jpeg, image/jpg, image/png<br>max-files=5<br>max-size=8000000<br>not-allowed=#$%^*()[]']);
+  assert.deepEqual(rows.map((r) => r[1]), ['Type', 'fieldset', 'note', 'file', 'end', 'submit', 'config', 'config']);
+  assert.deepEqual(rows.find((r) => r[2] === 'form'), ['cancellation-refund-webform', 'config', 'form', '', '', '', '', '', '', '']);
+  assert.ok(!document.querySelector('table[data-name]').textContent.includes('Delete 1'));
+});
+
+test('the market roots\' form pages get their lh-forms id; www\'s empty mk/en/support/refund none', () => {
+  [['bg/en/local-page/invoice-request-bg', 'invoice-request-bg'], ['mk/de/formular-notfallkontakt', 'formular-notfallkontakt'], ['mk/en/support/refund', null]].forEach(([path, id]) => {
+    const { document } = parseHTML(`<!DOCTYPE html><html><body><main><div class="form-wrapper"><form class="cmp-form" action="https://www.lufthansa.com/content/lh/markets/${path}.html"><maui-button id="submit-btn" behavior="submit">Send</maui-button></form></div></main></body></html>`);
+    parse(document.querySelector('.form-wrapper'), { document, url: `https://www.lufthansa.com/${path}` });
+    const form = [...document.querySelectorAll('table[data-name] tr')].find((tr) => tr.children[2] && tr.children[2].textContent === 'form');
+    assert.equal(form ? form.children[0].textContent : null, id, path);
+  });
+});

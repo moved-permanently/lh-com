@@ -1485,3 +1485,65 @@ test('SWISS file rules as www\'s: 5 x 3.7 MB (loss of personal item 2,048,000; d
     assert.deepEqual(body, error ? { ok: false, error } : { ok: true }, `${form} ${i}`);
   });
 });
+
+// lh-com's market roots' own forms (www's local pages: bg/en, il/en, mk/de); ids by page name, as
+// the other lh-com forms; mk/en's support/refund has no fields on www and no id
+const LH = 'https://lufthansa.turnsthe.page';
+const MARKET_FORMS = [
+  ['invoice-request-bg', 'bg-en', '[lh-com] Invoice Request Bulgaria (bg-en)'],
+  ['cancellation-refund-webform', 'il-en', '[lh-com] Request for cancellation and refund via webform (il-en)'],
+  ['formular-notfallkontakt', 'mk-de', '[lh-com] Notfallkontakt (mk-de)'],
+];
+
+test('lh-com market forms: bg/en, il/en and mk/de\'s ids accepted, their page\'s h1, the default recipient; refund is no id', async () => {
+  const env = makeEnv({ FORM_CONFIG: JSON.stringify({ default: { to: 'only@example.com' } }) });
+  const results = await Promise.all(MARKET_FORMS.map(([form, locale], i) => post({
+    form, locale, origin: i === 1 ? ORIGIN : LH, ip: `198.18.20.${i + 1}`,
+  }, env)));
+  results.forEach(({ res, body }, i) => {
+    assert.equal(res.status, 200, MARKET_FORMS[i][0]);
+    assert.deepEqual(body, { ok: true });
+  });
+  assert.deepEqual(sent.map((m) => m.subject).sort(), MARKET_FORMS.map((c) => c[2]).sort());
+  assert.ok(sent.every((m) => JSON.stringify(m.to) === '["only@example.com"]'));
+  // the German title on an English root too (the form exists in German only), the English on mk-de
+  const other = await Promise.all([['formular-notfallkontakt', 'mk-en'], ['invoice-request-bg', 'bg-de']].map(([form, locale], i) => post({
+    form, locale, origin: LH, ip: `198.18.20.${10 + i}`,
+  }, env)));
+  other.forEach(({ res }) => assert.equal(res.status, 200));
+  assert.deepEqual(sent.slice(3).map((m) => m.subject).sort(), ['[lh-com] Invoice Request Bulgaria (bg-de)', '[lh-com] Notfallkontakt (mk-en)']);
+  const unknown = await post({
+    form: 'refund', locale: 'mk-en', origin: LH, ip: '198.18.20.20',
+  }, env);
+  assert.equal(unknown.res.status, 400);
+  assert.deepEqual(unknown.body, { ok: false, error: 'unknown-form' });
+});
+
+test('il/en\'s cancellation form takes www\'s five uploads: PDF, JPEG and images (PNG), 8,000,000 bytes each, 18.5 MB in all; bg and mk none', async () => {
+  const il = { origin: LH, locale: 'il-en', form: 'cancellation-refund-webform' };
+  const pdf = (name, size = 0) => {
+    const bytes = new Uint8Array(Math.max(size, PDF.length));
+    bytes.set(PDF);
+    return ['File_upload', file(bytes, name, 'application/pdf')];
+  };
+  const png = (name = 'a.png') => ['File_upload', file(PNG, name, 'image/png')];
+  const jpg = (name = 'a.jpeg') => ['File_upload', file(JPG, name, 'image/jpeg')];
+  const cases = [
+    [il, [pdf('a.pdf', 8000000), png(), jpg()], 200, null],
+    [il, [1, 2, 3, 4, 5].map((n) => pdf(`${n}.pdf`)), 200, null],
+    [il, [1, 2, 3, 4, 5, 6].map((n) => pdf(`${n}.pdf`)), 400, 'too-many-files'],
+    [il, [pdf('a.pdf', 8000001)], 413, 'file-too-large'],
+    [il, [pdf('1.pdf', 8000000), pdf('2.pdf', 8000000), pdf('3.pdf', 2600000)], 413, 'files-too-large'],
+    [il, [pdf('a#1.pdf')], 400, 'invalid-file-name'],
+    [{ ...il, form: 'invoice-request-bg', locale: 'bg-en' }, [pdf('a.pdf')], 400, 'files-not-allowed'],
+    [{ ...il, form: 'formular-notfallkontakt', locale: 'mk-de' }, [pdf('a.pdf')], 400, 'files-not-allowed'],
+  ];
+  const results = await Promise.all(cases.map(([opts, files], i) => post({ ...opts, files, ip: `198.18.21.${i + 1}` })));
+  results.forEach(({ res, body }, i) => {
+    const [, , status, error] = cases[i];
+    assert.equal(res.status, status, `case ${i}`);
+    assert.deepEqual(body, error ? { ok: false, error } : { ok: true }, `case ${i}`);
+  });
+  assert.equal(sent.length, 2);
+  assert.deepEqual(sent[0].attachments.map((a) => [a.filename, a.type]), [['a.pdf', 'application/pdf'], ['a.png', 'image/png'], ['a.jpeg', 'image/jpeg']]);
+});

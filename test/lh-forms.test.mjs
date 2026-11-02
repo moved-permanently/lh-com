@@ -4,7 +4,7 @@
 import test, { beforeEach } from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  formsConfig, resetFormsConfig, turnstileSiteKey, FORMS_ENDPOINT,
+  formsConfig, resetFormsConfig, turnstileSiteKey, FORMS_ENDPOINT, formIdFromPath,
 } from '../scripts/lh-forms.js';
 
 const store = () => {
@@ -63,4 +63,12 @@ test('forms config: the tester\'s worker and test site key from localStorage', a
   assert.equal(turnstileSiteKey(null), '1x00000000000000000000AA');
   window.localStorage.removeItem('lh-forms-sitekey');
   assert.equal(turnstileSiteKey(null), '');
+});
+
+test('form ids: the market roots\' own forms by page name; mk/en\'s empty refund page none', () => {
+  assert.equal(formIdFromPath('/bg/en/local-page/invoice-request-bg'), 'invoice-request-bg');
+  assert.equal(formIdFromPath('/il/en/cancellation-refund-webform'), 'cancellation-refund-webform');
+  assert.equal(formIdFromPath('/mk/de/formular-notfallkontakt.plain.html'), 'formular-notfallkontakt');
+  assert.equal(formIdFromPath('/mk/en/support/refund'), '');
+  assert.equal(formIdFromPath('/bg/en/invoice-request'), '');
 });
