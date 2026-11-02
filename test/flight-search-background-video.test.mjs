@@ -83,3 +83,43 @@ test('flight-search.js reads the row; the CSS shows the video once it plays', ()
   assert.match(css, /\.flight-search-band > \.flight-search-background \.flight-search-video \{[^}]*position: absolute;[^}]*object-fit: cover;[^}]*opacity: 0;/);
   assert.match(css, /\.flight-search-video\.is-playing \{[^}]*opacity: 1;/);
 });
+
+/* The promotion teaser's card text (brief 263): a `Background teaser` row (eyebrow, heading, link:
+   www's promotionTeaser title, displayText and link) shows as a card in the band above the search,
+   as SWISS's main-stage teaser shows the same teaser on the homepage (light: isInverted false).
+   Without the row, or an empty one, the band as before. */
+const TEASER = '<p>Discover India</p><h2 id="from-27-october">From 27 October, fly from Zurich to vibrant Bengaluru</h2><p><a href="https://www.swiss.com/lhg/ch/en/dest/cy/bengaluru">Book your flight</a></p>';
+
+test('a Background teaser row: its card in the band, before the search, eyebrow, heading and link', () => {
+  reduced = false;
+  const b = block();
+  addBackground(b, cell(`<picture><img src="${POSTER}" alt=""></picture>`), null, cell(`<a href="${VIDEO}">${VIDEO}</a>`), cell(TEASER));
+  const wrapper = b.parentElement;
+  assert.deepEqual([...wrapper.children].map((c) => c.className), ['flight-search-background', 'flight-search-teaser', 'flight-search']);
+  assert.ok(wrapper.classList.contains('flight-search-band-has-teaser'));
+  const card = wrapper.querySelector('.flight-search-teaser');
+  assert.deepEqual([...card.children].map((c) => `${c.tagName.toLowerCase()}.${c.className}`), ['p.flight-search-teaser-eyebrow', 'h2.', 'p.flight-search-teaser-cta']);
+  assert.equal(card.querySelector('.flight-search-teaser-eyebrow').textContent, 'Discover India');
+  assert.equal(card.querySelector('h2').textContent, 'From 27 October, fly from Zurich to vibrant Bengaluru');
+  const link = card.querySelector('.flight-search-teaser-cta a');
+  assert.equal(link.getAttribute('href'), 'https://www.swiss.com/lhg/ch/en/dest/cy/bengaluru');
+  assert.equal(link.textContent, 'Book your flight');
+});
+
+test('an empty Background teaser row: the band as before', () => {
+  const plain = block();
+  addBackground(plain, cell(`<picture><img src="${POSTER}" alt=""></picture>`), null, cell(`<a href="${VIDEO}">x</a>`));
+  const before = plain.parentElement.outerHTML;
+  const empty = block();
+  addBackground(empty, cell(`<picture><img src="${POSTER}" alt=""></picture>`), null, cell(`<a href="${VIDEO}">x</a>`), cell(''));
+  assert.equal(empty.parentElement.outerHTML, before);
+});
+
+test('flight-search.js reads the teaser row; the CSS: the card above the search, white, 8px radius', () => {
+  const js = fs.readFileSync('blocks/flight-search/flight-search.js', 'utf8');
+  assert.match(js, /pick\(config, 'background-teaser'\)/);
+  const css = fs.readFileSync('blocks/flight-search/flight-search.css', 'utf8');
+  assert.match(css, /\.flight-search-band-has-teaser \{[^}]*justify-content: space-between;/);
+  assert.match(css, /\.flight-search-band > \.flight-search-teaser \{[^}]*background-color: var\(--lh-white\);/);
+  assert.match(css, /\.flight-search-band > \.flight-search-teaser \{[^}]*border-radius: var\(--radius-l\);/);
+});

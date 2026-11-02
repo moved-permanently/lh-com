@@ -557,18 +557,40 @@ function showAirportNames(combobox) {
 }
 
 /**
+ * The promotion teaser's card (www's flight manager: its title, displayText and link): the first
+ * paragraph before the heading its eyebrow, a paragraph with a link its call to action. An empty
+ * cell: none.
+ * @param {Element} [cell] the Background teaser cell
+ * @returns {Element|null}
+ */
+function teaserCard(cell) {
+  if (!cell || !cell.textContent.trim()) return null;
+  const card = el('div', 'flight-search-teaser');
+  let heading = false;
+  [...cell.children].forEach((node) => {
+    if (/^H[1-6]$/.test(node.tagName)) heading = true;
+    else if (node.tagName === 'P' && node.querySelector('a[href]')) node.className = 'flight-search-teaser-cta';
+    else if (node.tagName === 'P' && !heading) node.className = 'flight-search-teaser-eyebrow';
+    card.append(node);
+  });
+  return card;
+}
+
+/**
  * Background image (local promotion pages, live .flightmanager-container.full-width-bg): the
  * block's wrapper becomes a full-width band (min 500px) with the image as cover, and the card
  * sits at its bottom in the content column. The mobile image (if any) is used below 1025px. A
  * Background video (a link to an .mp4: www.swiss.com's flight manager with its promotion teaser's
  * moving image) plays over the picture, muted, looped and inline, the picture its poster until it
- * plays; with prefers-reduced-motion the picture alone.
+ * plays; with prefers-reduced-motion the picture alone. A Background teaser (the promotion
+ * teaser's eyebrow, heading and link) is a card in the band above the search.
  * @param {Element} block
  * @param {Element} cell the Background image cell
  * @param {Element} [mobileCell] the Background image mobile cell
  * @param {Element} [videoCell] the Background video cell
+ * @param {Element} [teaserCell] the Background teaser cell
  */
-export function addBackground(block, cell, mobileCell, videoCell) {
+export function addBackground(block, cell, mobileCell, videoCell, teaserCell) {
   const img = cell.querySelector('img');
   if (!img) return;
   const band = el('div', 'flight-search-background');
@@ -606,6 +628,11 @@ export function addBackground(block, cell, mobileCell, videoCell) {
   if (wrapper) {
     wrapper.classList.add('flight-search-band');
     wrapper.prepend(band);
+    const teaser = teaserCard(teaserCell);
+    if (teaser) {
+      wrapper.classList.add('flight-search-band-has-teaser');
+      band.after(teaser);
+    }
   }
 }
 
@@ -1072,10 +1099,13 @@ export default function decorate(block) {
   const background = pick(config, 'background-image');
   const backgroundMobile = pick(config, 'background-image-mobile');
   const backgroundVideo = pick(config, 'background-video');
+  const backgroundTeaser = pick(config, 'background-teaser');
   block.replaceChildren(content);
   if (background) {
     const mobileCell = backgroundMobile && backgroundMobile.cell;
-    addBackground(block, background.cell, mobileCell, backgroundVideo && backgroundVideo.cell);
+    const videoCell = backgroundVideo && backgroundVideo.cell;
+    const teaserCell = backgroundTeaser && backgroundTeaser.cell;
+    addBackground(block, background.cell, mobileCell, videoCell, teaserCell);
   }
 
   if (!hasFlight) {

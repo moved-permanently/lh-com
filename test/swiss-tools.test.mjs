@@ -170,6 +170,21 @@ test('the flight search\'s moving image: Background image and Background video r
   assert.equal(withFlightSearchVideo(homepage, snap), homepage, 'a page with a hero (the homepages): the hero plays it');
 });
 
+test('the flight search\'s teaser text: a Background teaser row from www\'s promotion teaser (title, text, link), once', async () => {
+  // eslint-disable-next-line import/extensions
+  const { withFlightSearchTeaser } = await import('../tools/importer/swiss-import.mjs');
+  const snap = '<div class="redesignedflightmanager" data-dcep="{&quot;promotionTeaser&quot;:{&quot;mode&quot;:&quot;link&quot;,&quot;alignment&quot;:&quot;left&quot;,&quot;displayText&quot;:&quot;From 27 October, fly from Zurich to vibrant Bengaluru&quot;,&quot;title&quot;:&quot;Discover India&quot;,&quot;linkModeConfig&quot;:{&quot;url&quot;:&quot;https://www.swiss.com/lhg/ch/en/dest/cy/bengaluru&quot;,&quot;label&quot;:&quot;Book your flight&quot;,&quot;movingImage&quot;:{&quot;imageUrl&quot;:&quot;/x.jpg&quot;,&quot;videoUrl&quot;:&quot;/x.mp4&quot;}},&quot;isInverted&quot;:false}}"></div>';
+  const doc = '<div><div class="flight-search standalone"><div><div>Background image</div><div>i</div></div><div><div>Background video</div><div>v</div></div><div><div>Shop</div><div>x</div></div></div></div>';
+  const out = withFlightSearchTeaser(doc, snap);
+  assert.equal(out, '<div><div class="flight-search standalone"><div><div>Background image</div><div>i</div></div><div><div>Background video</div><div>v</div></div><div><div>Background teaser</div><div><p>Discover India</p><h2>From 27 October, fly from Zurich to vibrant Bengaluru</h2><p><a href="https://www.swiss.com/lhg/ch/en/dest/cy/bengaluru">Book your flight</a></p></div></div><div><div>Shop</div><div>x</div></div></div></div>');
+  assert.equal(withFlightSearchTeaser(out, snap), out, 'once');
+  const noVideo = '<div><div class="flight-search standalone"><div><div>Shop</div><div>x</div></div></div></div>';
+  assert.equal(withFlightSearchTeaser(noVideo, snap), noVideo, 'no Background video row (a hero plays it, or none): as it is');
+  assert.equal(withFlightSearchTeaser(doc, '<div></div>'), doc, 'no teaser: as it is');
+  const amp = snap.replace('Discover India', 'Fly &amp; save');
+  assert.match(withFlightSearchTeaser(doc, amp), /<p>Fly &amp; save<\/p>/, 'the text escaped once');
+});
+
 test('a rendition of an asset without a file extension: its copy named with the rendition\'s', async () => {
   // eslint-disable-next-line import/extensions
   const { assetOf } = await import('../tools/importer/swiss-dam.mjs');

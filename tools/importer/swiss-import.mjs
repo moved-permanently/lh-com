@@ -447,6 +447,53 @@ export function withFlightSearchVideo(doc, html) {
   return doc.replace(/(<div class="flight-search(?: [^"]*)?">)(?!<div><div>Background image<\/div>)/, (open) => `${open}<div><div>Background image</div><div><picture><img src="https://${HOST}${m[1]}" alt=""></picture></div></div><div><div>Background video</div><div><a href="${video}">${video}</a></div></div>`);
 }
 
+// an attribute's text decoded once (the snapshots' data-dcep JSON)
+const decodeAttr = (s) => s.replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<')
+  .replace(/&gt;/g, '>')
+  .replace(/&amp;/g, '&');
+const escapeHtml = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+  .replace(/"/g, '&quot;');
+
+/** www's flight manager's promotionTeaser object in a snapshot, or null. */
+export function promotionTeaserOf(html) {
+  const json = decodeAttr(String(html || ''));
+  const at = json.indexOf('"promotionTeaser"');
+  const start = at < 0 ? -1 : json.indexOf('{', at);
+  if (start < 0) return null;
+  let depth = 0;
+  for (let i = start; i < json.length; i += 1) {
+    if (json[i] === '{') depth += 1;
+    else if (json[i] === '}') {
+      depth -= 1;
+      if (depth === 0) {
+        try {
+          return JSON.parse(json.slice(start, i + 1));
+        } catch (e) {
+          return null;
+        }
+      }
+    }
+  }
+  return null;
+}
+
+/**
+ * The flight search's Background teaser row after its Background video (www's flight manager
+ * shows its promotion teaser's card text over the moving image): the title as the eyebrow, the
+ * displayText as a heading, the link. A document without the video row, or a snapshot without a
+ * teaser text: as it is.
+ */
+export function withFlightSearchTeaser(doc, html) {
+  if (doc.includes('<div>Background teaser</div>')) return doc;
+  const video = doc.match(/<div><div>Background video<\/div><div>(?:(?!<\/div>)[\s\S])*<\/div><\/div>/);
+  const t = promotionTeaserOf(html);
+  if (!video || !t || !(t.title || t.displayText)) return doc;
+  const link = t.linkModeConfig && t.linkModeConfig.url && t.linkModeConfig.label
+    ? `<p><a href="${escapeHtml(t.linkModeConfig.url)}">${escapeHtml(t.linkModeConfig.label)}</a></p>` : '';
+  const cell = [t.title ? `<p>${escapeHtml(t.title)}</p>` : '', t.displayText ? `<h2>${escapeHtml(t.displayText)}</h2>` : '', link].join('');
+  return doc.replace(video[0], `${video[0]}<div><div>Background teaser</div><div>${cell}</div></div>`);
+}
+
 /** The template of a page from its path and snapshot. */
 export function templateOf(p, html) {
   if (/^\/[a-z]{2}\/[a-z]{2}\/homepage$/.test(p)) return 'homepage';
@@ -556,7 +603,7 @@ if (isMain) {
       const src = Object.keys(out).find((k) => docName(k) === p);
       const markets = scope.documents[src]?.markets || [];
       const snapHtml = fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8');
-      const next = splitTabSections(withFlightSearchVideo(withHeroVideo(withItaMetadata(withCheckinHandoff(withFlightSearch(withPageLanguageMessages(withItaForm(doc, p, snapHtml), p), p), p), p, snapHtml, markets), snapHtml), snapHtml));
+      const next = splitTabSections(withFlightSearchTeaser(withFlightSearchVideo(withHeroVideo(withItaMetadata(withCheckinHandoff(withFlightSearch(withPageLanguageMessages(withItaForm(doc, p, snapHtml), p), p), p), p, snapHtml, markets), snapHtml), snapHtml), snapHtml));
       if (next !== doc) fs.writeFileSync(f, next);
     });
     const mapOnly = path.join(W, 'runs', `${name}-upload.txt`);
