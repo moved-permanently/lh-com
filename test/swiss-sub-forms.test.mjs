@@ -46,6 +46,19 @@ test('swiss-sub-nav.mjs subFooterDocument: the main site\'s footer document plus
   assert.ok(logoRow.includes(':star-alliance:'), 'in the logo row');
 });
 
+test('swiss-sub-dam.mjs: an image whose source www answers 404 (GONE_IMAGES: sponsoring\'s Locarno picture) is left out, its paragraph with it; the list skips it', async () => {
+  const { withDaImages, GONE_IMAGES, filesOf } = await import('../tools/importer/swiss-sub-dam.mjs');
+  assert.ok(GONE_IMAGES.includes('/content/dam/lx/images/corporate/2.8. Piazza Grande.jpg'));
+  const doc = '<h2>Locarno</h2><p><picture><img src="https://content.da.live/moved-permanently/lh-swiss/content/dam/lx/images/corporate/2-8-piazza-grande.jpg" alt=""></picture></p><p>For 11 days every August Locarno is the film capital of Europe</p><p><picture><img src="https://content.da.live/moved-permanently/lh-swiss/content/dam/lx/images/corporate/other.jpg" alt=""></picture></p>';
+  const out = withDaImages(doc);
+  assert.ok(!out.includes('piazza-grande'), out);
+  assert.ok(out.startsWith('<h2>Locarno</h2><p>For 11 days'), 'its paragraph goes with it');
+  assert.ok(out.includes('corporate/other.jpg'), 'the other images stay');
+  const www = '<img src="https://www.swiss.com/content/dam/lx/images/corporate/2.8. Piazza Grande.jpg.transform/lh-dcep-transform-width-1440/img.jpg">';
+  assert.ok(!withDaImages(www).includes('<img'), 'www\'s rendition too');
+  assert.equal([...filesOf([{ p: '/corporate/en/x', doc: www, snap: '' }]).values()].length, 0, 'not on the capture list');
+});
+
 test('withoutNullLinks: www\'s links to /<sub-site>/null/<ll>.html unwrapped, the content stays', () => {
   const doc = '<p><a href="https://www.swiss.com/medicalservices/null/de.html"><picture><img src="x.jpg"></picture></a></p><a href="/medicalservices/de/contact">ok</a>';
   assert.equal(withoutNullLinks(doc), '<p><picture><img src="x.jpg"></picture></p><a href="/medicalservices/de/contact">ok</a>');

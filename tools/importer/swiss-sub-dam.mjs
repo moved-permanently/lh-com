@@ -20,7 +20,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { damFiles, assetOf } from './swiss-dam.mjs';
+import { damFiles, assetOf, withoutGoneImages } from './swiss-dam.mjs';
 import { edsDamPath } from '../../scripts/dam-path.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
@@ -50,11 +50,23 @@ export const withoutSubPrefix = (doc) => doc
   .replace(/(https:\/\/www\.swiss\.com)?\/(?:corporate|medicalservices)\/(content\/dam|etc\/designs)\//g, (m, host, dir) => `${host || ''}/${dir}/`);
 
 /**
+ * Images whose source www answers 404 itself (the capture's own 404s): left out of the documents
+ * (swiss-dam.mjs withoutGoneImages: the picture, and its paragraph when it held only the picture)
+ * and of the capture list. www paths.
+ */
+export const GONE_IMAGES = [
+  // corporate's sponsoring pages (en, de, fr): the Locarno picture (2026-11-02)
+  '/content/dam/lx/images/corporate/2.8. Piazza Grande.jpg',
+];
+const GONE = new Set(GONE_IMAGES.map((www) => edsDamPath(assetOf(www))));
+
+/**
  * The document's images shown from their place in lh-swiss's DA (content.da.live + the Edge
- * Delivery name of the asset), www's or already switched.
+ * Delivery name of the asset), www's or already switched; GONE_IMAGES left out.
  */
 export function withDaImages(doc) {
-  return withoutSubPrefix(doc).replace(/<img src="(?:https:\/\/www\.swiss\.com)?(\/(?:content\/dam|etc\/designs)\/[^"?]+)"/g, (m, src) => `<img src="${DA_CONTENT}${edsDamPath(assetOf(decode(src)))}"`);
+  const shown = withoutSubPrefix(doc).replace(/<img src="(?:https:\/\/www\.swiss\.com)?(\/(?:content\/dam|etc\/designs)\/[^"?]+)"/g, (m, src) => `<img src="${DA_CONTENT}${edsDamPath(assetOf(decode(src)))}"`);
+  return withoutGoneImages(shown, GONE);
 }
 
 /** The files of the documents: Map key -> {www, asset, eds, kind, pages}. */
@@ -73,6 +85,7 @@ export function filesOf(docs) {
       .forEach((m) => { const www = decode(m[1]); own.set(edsDamPath(assetOf(www)), www); });
     damFiles(withoutSubPrefix(doc)).forEach(([link, kind]) => {
       const www = own.get(edsDamPath(assetOf(link))) || link;
+      if (GONE.has(edsDamPath(assetOf(www)))) return;
       const key = kind === 'link' ? www : `image:${edsDamPath(assetOf(www))}`;
       const had = files.get(key);
       if (!had) {
