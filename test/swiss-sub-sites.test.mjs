@@ -67,9 +67,9 @@ test('a sub-site page: the language of its path, the main site\'s root of that l
     assert.deepEqual(pick(getLocale('/corporate/en/homepage')), {
       lang: 'en', key: 'ch/en', base: '/corporate/en', sub: 'corporate',
     });
-    // no ch/fr on lh-swiss: ch/en's rest, French texts
+    // French: lh-swiss's ch/fr since brief 276 (before it, ch/en's rest with French texts)
     assert.deepEqual(pick(getLocale('/corporate/fr/media')), {
-      lang: 'fr', key: 'ch/en', base: '/corporate/fr', sub: 'corporate',
+      lang: 'fr', key: 'ch/fr', base: '/corporate/fr', sub: 'corporate',
     });
     assert.deepEqual(pick(getLocale('/medicalservices/de/aviation/after-the-flight')), {
       lang: 'de', key: 'ch/de', base: '/medicalservices/de', sub: 'medicalservices',
