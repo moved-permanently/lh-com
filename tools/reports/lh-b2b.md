@@ -103,3 +103,14 @@ archives (b2b-snapshots-001 to -007, sha256 checked, placed by `b2b-studio.mjs`)
 - Search on the host: a market root's index has the language rows its markets allow, the
   rest-of-world documents of the de-only paths and its own documents (at/de: its own index's four
   with de/de's rows, 311 rows; at/en: 227 de/en rows and 31 from xx/en).
+- The de/de raffle's terms note without www's hidden helper link (b2b-import.mjs
+  withoutHelperLinks; the same leftover is still in de/de and xx/de tips-and-services, Discover
+  Airlines' meals on board and terms-and-conditions-traveller, until they are imported again).
+- Hotline finder (blocks/hotline-finder, tools/importer/b2b-hotlines.mjs): www's box lists 127
+  countries (GET /service/api/catalogs/contact/countries) and asks
+  /service/api/catalogs/contact/reservation?country=<CC>&withLocalContact=false for the picked
+  one. Recorded so far (only the page's own requests, 6-9 s apart): 54 countries (Albania to
+  Indonesia; Iran refused with 403), the English labels, the box's look and image; then
+  Cloudflare challenged the page's own requests twice, and the recording stopped for good. The
+  sheet (/data/hotlines.json) and the contact documents wait for the remaining 73 countries and
+  the German names and labels (`--record --skip IR` resumes).
