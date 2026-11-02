@@ -1,0 +1,501 @@
+{
+  "accentHint": "Buchstaben mit Sonderzeichen werden in andere Buchstaben umgewandelt. Das hat keinerlei Einfluss auf Ihre Buchung.",
+  "backBookingLink": {
+    "enter": "Andere Buchung eingeben",
+    "select": "Einen anderen Flug auswählen"
+  },
+  "backTopicList": "Zurück zur Themenübersicht",
+  "boardingPass": {
+    "cameraOption": "Scannen Sie die Bordkarte (Kamerazugriff ist erforderlich)",
+    "cameraTitle": "Richten Sie den Barcode oder QR-Code auf Ihrer Bordkarte mittig im Rahmen aus.",
+    "checking": "Bordkarte wird geprüft",
+    "closeAction": "Schließen",
+    "continue": "Weiter",
+    "continueWithoutBookingAction": "Ohne Buchung fortfahren",
+    "errors": {
+      "bookingNotFound": {
+        "message": "Wir konnten in unserem System keine passende Buchung finden.",
+        "title": "Buchungsdetails nicht verfügbar"
+      },
+      "bookingServiceUnavailable": {
+        "message": "Es liegt ein technischer Fehler vor. Bitte fahren Sie ohne Buchung fort.",
+        "title": "Die Buchungsdetails können nicht abgerufen werden."
+      },
+      "cameraAccessDenied": {
+        "message": "Erlauben Sie zum Scannen Ihrer Bordkarte den Kamerazugriff.",
+        "title": "Kamerazugriff verweigert"
+      },
+      "passNotDetected": {
+        "message": "Bitte laden Sie eine gültige Bordkarte hoch.",
+        "title": "Keine Bordkarte gefunden"
+      },
+      "uploadFailed": {
+        "message": "Ihre Datei konnte nicht hochgeladen werden. Bitte versuchen Sie es erneut.",
+        "title": "Upload fehlgeschlagen"
+      }
+    },
+    "methodSelectionTitle": "Fügen Sie Ihre Buchungsdetails hinzu",
+    "open": "Benutzen Sie Ihre Bordkarte",
+    "processing": "Datei wird hochgeladen",
+    "retryAction": "Erneut versuchen",
+    "selectDifferentFileAction": "Eine andere Datei auswählen",
+    "uploadOnlyAction": "Datei auswählen",
+    "uploadOnlySupportedFormats": "Unterstützte Dateitypen: jpg, jpeg, png, pdf ",
+    "uploadOption": "Bordkarte hochladen (jpg, jpeg, png, pdf)",
+    "uploadTitle": "Ihre Bordkarte hochladen"
+  },
+  "bookingInfo": {
+    "formTitle": "Buchungsdaten eingeben",
+    "loading": "Abrufen der Buchung",
+    "message": {
+      "internal": {
+        "message": "Aufgrund von technischen Problemen konnten wir Ihre Buchung nicht laden. Sie sind mit den von Ihnen angegebenen Informationen automatisch zu diesem Schritt weitergegangen.",
+        "title": "Buchung kann nicht abgerufen werden"
+      },
+      "notFound": {
+        "message": "Wir konnten Ihre angegebene Buchung nicht finden. Sie können trotzdem alle Hilfe- und Kontaktoptionen nutzen.",
+        "retryMessage": "Bitte prüfen Sie Ihre Angaben und versuchen Sie es erneut. Falls wir Ihre Buchung wieder nicht finden können, leiten wir Sie automatisch zum nächsten Schritt weiter.",
+        "title": "Buchung nicht gefunden"
+      },
+      "title": {
+        "withData": "Ok – wie können wir helfen?",
+        "withoutData": "Wie können wir Ihnen helfen?"
+      }
+    },
+    "title": "Bezieht sich Ihre Frage auf einen Flug?"
+  },
+  "bookingList": {
+    "anotherBooking": "Andere Buchung aufrufen",
+    "code": "Buchung: <sensitive>{{ code }}</sensitive>",
+    "error": {
+      "message": "Wir konnten Ihre Flugübersicht leider nicht automatisch laden. Wenn Sie Unterstützung zu einem bestimmten Flug benötigen, wählen Sie bitte „Eine andere Buchung aufrufen“. ",
+      "title": "Flugübersicht kann nicht angezeigt werden "
+    },
+    "select": {
+      "message": "Flug auswählen"
+    },
+    "wcag": {
+      "card": "Buchung {{ current }} von {{ total }}, Buchungscode {{ code }} von {{ origin }} nach {{ destination }} am {{ date }}",
+      "end": "Es können keine weiteren Buchungen geladen werden",
+      "next": "Nächste Buchungen",
+      "previous": "Vorherige Buchungen",
+      "slide": "Buchung"
+    }
+  },
+  "chatAssistant": {
+    "languageNotAvailable": "Dieser Service wird auf Englisch bereitgestellt, da die von Ihnen ausgewählte Sprache derzeit nicht verfügbar ist."
+  },
+  "continue": "Weiter",
+  "country": {
+    "AD": "Andorra",
+    "AE": "Vereinigte Arabische Emirate",
+    "AF": "Afghanistan",
+    "AG": "Antigua und Barbuda",
+    "AI": "Anguilla",
+    "AL": "Albanien",
+    "AM": "Armenien",
+    "AO": "Angola",
+    "AQ": "Antarktis",
+    "AR": "Argentinien",
+    "AT": "Österreich",
+    "AU": "Australien",
+    "AW": "Aruba",
+    "AZ": "Aserbaidschan",
+    "BA": "Bosnien und Herzegowina",
+    "BB": "Barbados",
+    "BD": "Bangladesch",
+    "BE": "Belgien",
+    "BF": "Burkina Faso",
+    "BG": "Bulgarien",
+    "BH": "Bahrain",
+    "BI": "Burundi",
+    "BJ": "Benin",
+    "BM": "Bermuda",
+    "BN": "Brunei",
+    "BO": "Bolivien",
+    "BR": "Brasilien",
+    "BS": "Bahamas",
+    "BT": "Bhutan",
+    "BW": "Botswana",
+    "BZ": "Belize",
+    "CA": "Kanada",
+    "CD": "Kongo (Demokratische Republik)",
+    "CF": "Zentralafrikanische Republik",
+    "CG": "Kongo",
+    "CH": "Schweiz",
+    "CI": "Côte d’Ivoire",
+    "CK": "Cookinseln",
+    "CL": "Chile",
+    "CM": "Kamerun",
+    "CN": "China",
+    "CO": "Kolumbien",
+    "CR": "Costa Rica",
+    "CU": "Kuba",
+    "CV": "Kap Verde",
+    "DE": "Deutschland",
+    "DJ": "Dschibuti",
+    "DK": "Dänemark",
+    "DM": "Dominica",
+    "DO": "Dominikanische Republik",
+    "DZ": "Algerien",
+    "EC": "Ecuador",
+    "EE": "Estland",
+    "EG": "Ägypten",
+    "EH": "Westsahara",
+    "ER": "Eritrea",
+    "ES": "Spanien",
+    "ET": "Äthiopien",
+    "FI": "Finnland",
+    "FJ": "Fidschi",
+    "FM": "Mikronesien",
+    "FR": "Frankreich",
+    "GA": "Gabun",
+    "GB": "Vereinigtes Königreich",
+    "GD": "Grenada",
+    "GE": "Georgien",
+    "GH": "Ghana",
+    "GI": "Gibraltar",
+    "GL": "Grönland",
+    "GM": "Gambia",
+    "GN": "Guinea",
+    "GP": "Guadeloupe",
+    "GQ": "Äquatorialguinea",
+    "GR": "Griechenland",
+    "GT": "Guatemala",
+    "GU": "Guam",
+    "GW": "Guinea-Bissau",
+    "GY": "Guyana",
+    "HK": "Hongkong",
+    "HN": "Honduras",
+    "HR": "Kroatien",
+    "HT": "Haiti",
+    "HU": "Ungarn",
+    "ID": "Indonesien",
+    "IE": "Irland",
+    "IL": "Israel",
+    "IN": "Indien",
+    "IQ": "Irak",
+    "IR": "Iran",
+    "IS": "Island",
+    "IT": "Italien",
+    "JE": "Jersey",
+    "JM": "Jamaika",
+    "JO": "Jordanien",
+    "JP": "Japan",
+    "KE": "Kenia",
+    "KG": "Kirgisistan",
+    "KH": "Kambodscha",
+    "KI": "Kiribati",
+    "KM": "Komoren",
+    "KW": "Kuwait",
+    "KZ": "Kasachstan",
+    "LA": "Laos",
+    "LB": "Libanon",
+    "LI": "Liechtenstein",
+    "LK": "Sri Lanka",
+    "LR": "Liberia",
+    "LS": "Lesotho",
+    "LT": "Litauen",
+    "LU": "Luxemburg",
+    "LV": "Lettland",
+    "LY": "Libyen",
+    "MA": "Marokko",
+    "MC": "Monaco",
+    "MD": "Moldawien",
+    "ME": "Montenegro",
+    "MG": "Madagaskar",
+    "MH": "Marshallinseln",
+    "MK": "Nordmazedonien",
+    "ML": "Mali",
+    "MM": "Myanmar",
+    "MN": "Mongolei",
+    "MO": "Macao",
+    "MQ": "Martinique",
+    "MR": "Mauretanien",
+    "MS": "Montserrat",
+    "MT": "Malta",
+    "MU": "Mauritius",
+    "MV": "Malediven",
+    "MW": "Malawi",
+    "MX": "Mexiko",
+    "MY": "Malaysia",
+    "MZ": "Mosambik",
+    "NA": "Namibia",
+    "NE": "Niger",
+    "NF": "Norfolkinsel",
+    "NG": "Nigeria",
+    "NI": "Nicaragua",
+    "NL": "Niederlande",
+    "NO": "Norwegen",
+    "NP": "Nepal",
+    "NR": "Nauru",
+    "NU": "Niue",
+    "NZ": "Neuseeland",
+    "OM": "Oman",
+    "PA": "Panama",
+    "PE": "Peru",
+    "PG": "Papua-Neuguinea",
+    "PH": "Philippinen",
+    "PK": "Pakistan",
+    "PL": "Polen",
+    "PR": "Puerto Rico",
+    "PS": "Palästina",
+    "PT": "Portugal",
+    "PW": "Palau",
+    "PY": "Paraguay",
+    "QA": "Katar",
+    "RE": "Réunion",
+    "RO": "Rumänien",
+    "RS": "Serbien",
+    "RU": "Russland",
+    "RW": "Ruanda",
+    "SA": "Saudi-Arabien",
+    "SC": "Seychellen",
+    "SD": "Sudan",
+    "SE": "Schweden",
+    "SG": "Singapur",
+    "SI": "Slowenien",
+    "SJ": "Svalbard und Jan Mayen",
+    "SK": "Slowakei",
+    "SL": "Sierra Leone",
+    "SM": "San Marino",
+    "SN": "Senegal",
+    "SO": "Somalia",
+    "SR": "Suriname",
+    "SS": "Südsudan",
+    "ST": "São Tomé und Príncipe",
+    "SV": "El Salvador",
+    "SY": "Syrien",
+    "SZ": "Eswatini",
+    "TC": "Turks- und Caicosinseln",
+    "TG": "Togo",
+    "TH": "Thailand",
+    "TJ": "Tadschikistan",
+    "TK": "Tokelau",
+    "TL": "Timor-Leste",
+    "TM": "Turkmenistan",
+    "TN": "Tunesien",
+    "TO": "Tonga",
+    "TR": "Türkei",
+    "TT": "Trinidad und Tobago",
+    "TV": "Tuvalu",
+    "TW": "Taiwan",
+    "TZ": "Tansania",
+    "UA": "Ukraine",
+    "UG": "Uganda",
+    "US": "Vereinigte Staaten",
+    "UY": "Uruguay",
+    "UZ": "Usbekistan",
+    "VE": "Venezuela",
+    "VN": "Vietnam",
+    "VU": "Vanuatu",
+    "WF": "Wallis und Futuna",
+    "WS": "Samoa",
+    "YE": "Jemen",
+    "YT": "Mayotte",
+    "ZA": "Südafrika",
+    "ZM": "Sambia",
+    "ZW": "Simbabwe"
+  },
+  "faqInfoCard": {
+    "imageAlt": "",
+    "link": "Zu den FAQs",
+    "text": "Hier finden Sie Antworten auf die häufigsten Fragen zu unseren Services, Richtlinien und mehr.",
+    "title": "FAQs"
+  },
+  "firstName": {
+    "invalid": "Bitte geben Sie Ihren Vornamen ein.",
+    "label": "Vorname"
+  },
+  "flightInfo": {
+    "booking": "Buchung <sensitive>{{ pnr }}</sensitive>",
+    "status": {
+      "cancelled": "Storniert",
+      "delayed": "Verspätet",
+      "onTime": "Pünktlich",
+      "pending": "Ausstehend",
+      "scheduled": "Geplant",
+      "standby": "Bereitschaft",
+      "waitlisted": "Warteliste"
+    },
+    "stops": "stops",
+    "travelClass": {
+      "business": "Business",
+      "default": "Mixed Class",
+      "eco": "Economy",
+      "first": "First",
+      "premium-eco": "Premium Economy"
+    },
+    "wcag": {
+      "card": "Karte {{ current }} von {{ total }}, Flug {{ flightNumber }} von {{ origin }} nach {{ destination }} am {{ date }} - {{ bookingClass }}. {{ numberOfStops }} Stopps. {{ originStatus }} Abflug um {{ originTime }}. Dauer {{ duration }}. {{ destinationStatus }} Ankunft um {{ destinationTime }}",
+      "cardWithoutFlightNumber": "Karte {{ current }} von {{ total }}. Von {{ origin }} nach {{ destination }} am {{ date }} - {{ bookingClass }}. {{ numberOfStops }} Stopps. {{ originStatus }} Abflug um {{ originTime }}. Dauer {{ duration }}. {{ destinationStatus }} Ankunft um {{ destinationTime }}"
+    }
+  },
+  "flightStatus": {
+    "inbound": "Rückflug",
+    "new": "Neu",
+    "notification": {
+      "success": "Alle Flüge verkehren planmäßig",
+      "warning": "Ihre Reiseroute hat sich geändert. Bitte prüfen Sie Ihre E-Mails für weitere Informationen."
+    },
+    "old": "Alt",
+    "outbound": "Hinflug",
+    "segment": "Flugsegment {{ number }}"
+  },
+  "helpCenter": {
+    "bootstrapping": "Einen Moment bitte"
+  },
+  "helpOptions": {
+    "back": "Zurück zu den Kontaktoptionen",
+    "phoneInfo": {
+      "full": "Ein Telefonkontakt ist für dieses Thema nicht verfügbar. Wenn dieser für Sie hilfreich wäre, hinterlassen Sie uns gern Feedback über die untenstehende Umfrage.",
+      "short": "Ein Telefonkontakt ist für dieses Thema nicht verfügbar."
+    },
+    "title": "Hilfe & Kontakt"
+  },
+  "identifier": {
+    "hint": "Der Buchungscode besteht aus einer 6-stelligen Kombination aus Buchstaben und Zahlen (z. B. ABCD12). Die Ticketnummer besteht aus 13 Ziffern (z. B. 7391538503519).",
+    "invalid": "Der Buchungscode besteht aus einer 6-stelligen Kombination aus Buchstaben und Zahlen (z. B. ABCD12). Die Ticketnummer besteht aus 13 Ziffern (z. B. 7391538503519).",
+    "label": "Buchungscode oder Ticketnummer"
+  },
+  "informationalMessage": "",
+  "lastName": {
+    "invalid": "Bitte geben Sie Ihren Nachnamen ein.",
+    "label": "Nachname"
+  },
+  "notBookingDetails": "Überspringen",
+  "notifications": {
+    "milesAndMore": {
+      "call": {
+        "message": "Die ersten beiden Minuten: 0.08 CHF pro Minute; die anschließenden zehn Minuten: 0,86 CHF pro Minute; Alle folgenden Minuten: 0,08 CHF pro Minute; Die Preise verstehen sich inklusive MwST."
+      }
+    }
+  },
+  "phoneHandover": {
+    "error": "Wir konnten Ihre Daten dieses Mal leider nicht bereitstellen. Bitte halten Sie sie beim Anruf bereit.",
+    "form": {
+      "buttons": {
+        "withSharing": "Bestätigen und anrufen"
+      },
+      "recording": {
+        "consent": "Ich bin damit einverstanden, dass mein Anruf zu Schulungs- und Qualitätszwecken aufgezeichnet wird. Ich kann meine Zustimmung jederzeit widerrufen.",
+        "privacyPolicy": "Datenschutz"
+      }
+    },
+    "message": "Unsere Mitarbeitenden können relevante Angaben (wie Ihren Namen und Ihren Miles & More Status) bereits sehen, sobald Sie anrufen – kein Wiederholen nötig.",
+    "title": "Bereit für Ihren Anruf"
+  },
+  "salutation": {
+    "female": "Frau",
+    "male": "Herr"
+  },
+  "searchInput": {
+    "button": "Suchen",
+    "error": {
+      "maxLengthExceeded": "{{ inputCount }}. Bitte geben Sie maximal {{ maxLength }} Zeichen ein.",
+      "minLengthNotMet": "{{ inputCount }}. Bitte geben Sie mindestens {{ minLength }} Zeichen ein."
+    },
+    "wcag": {
+      "clear": "Löschen",
+      "search": "Suchen"
+    }
+  },
+  "selectedTopicInfo": {
+    "link": "Anderes Anliegen auswählen"
+  },
+  "stepBreadcrumb": {
+    "home": "Home"
+  },
+  "steps": {
+    "bookingInfo": "Flugdaten (optional)",
+    "helpOptions": "Hilfeoptionen",
+    "screenReader": "{{ stepName }} Seite geladen.",
+    "topicSelection": "Hilfe"
+  },
+  "supportOptionCard": {
+    "recommended": "Empfohlen"
+  },
+  "supportOptions": {
+    "call": "Anruf beim Service Center",
+    "chat_assistant": "Chat Assistant",
+    "live_chat": "Live Chat",
+    "self_service": "Einfacher Self-Service"
+  },
+  "topicAirport": {
+    "listTitle": "Andere Hilfethemen",
+    "notification": {
+      "message": "Im Falle von Stornierungen buchen wir Sie automatisch auf einen neuen Flug um. Bitte schauen Sie in Ihren E-Mails nach einer Umbuchungsbestätigung.",
+      "title": "Wurde Ihr Flug storniert?"
+    },
+    "suggestedTitle": "Empfohlene Hilfethemen"
+  },
+  "topicSearch": {
+    "error": {
+      "description": "Ihre Suchergebnisse können derzeit nicht angezeigt werden. Bitte wählen Sie stattdessen eines unserer Hilfethemen.",
+      "title": "Ergebnisse für Ihre Suche"
+    },
+    "humanSupportRequest": {
+      "message": "Sie möchten uns kontaktieren? Sagen Sie uns, wobei Sie Hilfe benötigen, damit wir Ihnen die richtigen Kontakte nennen können."
+    },
+    "noResults": {
+      "action": "Chat beginnen",
+      "description": "Bitte ändern Sie Ihre Suche oder bitten Sie unseren Chat Assistant {{ chatAssistantName }} um Hilfe.",
+      "title": "Keine Ergebnisse gefunden"
+    },
+    "results": {
+      "title": "Ergebnisse für Ihre Suche",
+      "wcag": {
+        "list": "{{ resultsCount }} Ergebnisse für Ihre Suche."
+      }
+    },
+    "searching": {
+      "ariaLabel": "Ergebnisse werden geladen",
+      "title": "Ergebnisse für Ihre Suche"
+    }
+  },
+  "topicSelection": {
+    "list": {
+      "description": "Themen, bei denen wir Ihnen helfen können.",
+      "error": {
+        "action": "Kontaktoptionen ansehen",
+        "message": "Bitte versuchen Sie es später erneut oder kontaktieren Sie uns ohne Themenauswahl.",
+        "title": "Themenliste kann nicht geladen werden"
+      },
+      "title": "Wählen Sie Ihr Anliegen aus"
+    },
+    "loader": "Laden Ihrer Support-Optionen",
+    "searchBar": {
+      "label": "Thema suchen",
+      "placeholders": {
+        "default": [
+          "Mein Upgrade funktioniert nicht",
+          "Ich brauche meine Bordkarte"
+        ],
+        "desktop": [
+          "Wie erhalte ich meine Rechnung?"
+        ],
+        "mobile": [],
+        "tablet": []
+      },
+      "wcag": {
+        "clear": "Suche gelöscht."
+      }
+    },
+    "subtitle": "Finden Sie Antworten und Kontaktmöglichkeiten für Ihr Anliegen.",
+    "title": {
+      "loggedIn": "Wie können wir Ihnen helfen, <sensitive>{{ greet }}</sensitive>?",
+      "loggedOut": "Wie können wir Ihnen helfen?"
+    }
+  },
+  "wcag": {
+    "close": "Schließen",
+    "dialogOpened": "Öffnet in einem Dialog",
+    "modalOpened": "Öffnet sich in einem Modal",
+    "newTabOpened": "Öffnet in einem neuen Tab",
+    "overlayOpened": "Wird in einem Overlay-Dialog geöffnet",
+    "phoneCall": "Startet einen Anruf",
+    "samePageOpened": "Öffnet auf derselben Seite",
+    "selected": "ausgewählt",
+    "systemFolderOpened": "Öffnet den Systemordner in einem Dialog"
+  }
+}
