@@ -9,15 +9,20 @@
  * - convertPath (utils/utils.js) with the arguments validate, translate and rollout pass: where
  *   a translation and each rollout land;
  * - addDnt (dnt/dnt.js): which cells of lh-com's blocks reach the translation service;
- * - sourceChecks: the project's source folder from its URLs (source.language.detect, 1.29.1).
- * Usage: node tools/loc/check-config.mjs [--page /de/en/feedback-past-flight ...]
- * Exit 1 when a check fails. Report: tools/reports/loc-config-check.md
+ * - sourceChecks: the project's source folder from its URLs (source.language.detect, 1.29.1);
+ * - globalSourceChecks: the same for the global source's rows (/gc/en, /gc/de; README "Global
+ *   source (/gc)"), with the app's Sync, translate and rollout path functions.
+ * The checks follow the translate.json's rows (setup-lib.mjs): today's or the gc ones.
+ * Usage: node tools/loc/check-config.mjs [--config <file>|da] [--page /de/en/feedback-past-flight ...]
+ * Exit 1 when a check fails. Report: tools/reports/loc-config-check.md (today's rows),
+ * tools/reports/loc-config-check-gc.md (the gc rows)
  */
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseHTML } from 'linkedom';
 import { loadApp, DA_NX_COMMIT } from './da-nx.mjs';
+import { locSetup, readConfig } from './setup-lib.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 
@@ -45,6 +50,28 @@ function translatable(html, blockClass) {
 }
 
 /**
+ * The options view of a project with these URLs, as the app builds it (options.js detectSource
+ * 72-93, updateOptions): (urls) -> {sourceLang, detected, error, options, langs}.
+ */
+function projectView(app, config) {
+  const { options: opts, config: conf } = app.options.formatConfig(config);
+  const enabled = app.utils.isSourceDetectEnabled(conf['source.language.detect']);
+  return (urls) => {
+    const options = { ...opts };
+    const defaultSourceLang = options['source.language'];
+    let langs = app.options.formatLangs(structuredClone(config.languages.data), conf);
+    const res = app.options.getProjectSource({
+      project: { urls: urls.map((u) => ({ suppliedPath: u })) }, enabled, langs, defaultSourceLang,
+    });
+    if (!res.error && res.detected) {
+      options['source.language'] = res.sourceLang;
+      langs = app.options.filterLangsBySource({ langs, sourceLocation: res.sourceLang.location, defaultLocation: defaultSourceLang?.location });
+    }
+    return { ...res, options, langs };
+  };
+}
+
+/**
  * A project's source folder, as the released app takes it from the project's URLs (da-nx
  * 69006f3b, release 1.29.1: views/options/options.js detectSource 72-93 with getProjectSource,
  * views/options/utils/utils.js 152-161; resolveSourceLang, utils/utils.js 362-389;
@@ -57,24 +84,10 @@ function translatable(html, blockClass) {
 export function sourceChecks(app, config) {
   const out = [];
   const add = (name, ok, detail = '') => out.push({ name, ok: Boolean(ok), detail });
-  const { options: opts, config: conf } = app.options.formatConfig(config);
+  const { config: conf } = app.options.formatConfig(config);
   const enabled = app.utils.isSourceDetectEnabled(conf['source.language.detect']);
   add('source.language.detect is read and on (isSourceDetectEnabled, da-nx #793 + #870, release 1.29.1)', enabled, String(conf['source.language.detect']));
-  const formatted = () => app.options.formatLangs(structuredClone(config.languages.data), conf);
-  // the options view for a project with these URLs (options.js detectSource, updateOptions)
-  const project = (urls) => {
-    const options = { ...opts };
-    const defaultSourceLang = options['source.language'];
-    let langs = formatted();
-    const res = app.options.getProjectSource({
-      project: { urls: urls.map((u) => ({ suppliedPath: u })) }, enabled, langs, defaultSourceLang,
-    });
-    if (!res.error && res.detected) {
-      options['source.language'] = res.sourceLang;
-      langs = app.options.filterLangsBySource({ langs, sourceLocation: res.sourceLang.location, defaultLocation: defaultSourceLang?.location });
-    }
-    return { ...res, options, langs };
-  };
+  const project = projectView(app, config);
   const acts = (langs) => langs.map((l) => `${l.name}:${l.orderedActions.map((a) => a.value).join('|')}`).join(', ');
 
   const en = project(['/de/en/baggage', '/de/en/flight-search']);
@@ -103,18 +116,94 @@ export function sourceChecks(app, config) {
   return out;
 }
 
-export async function run({ pages = [] } = {}) {
-  const app = await loadApp();
-  const config = JSON.parse(fs.readFileSync(path.join(root, 'tools/loc/translate.json'), 'utf8'));
+/**
+ * The global source's rows (tools/loc/README.md "Global source (/gc)": English /gc/en ->
+ * /de/en, /gb/en; German /gc/en -> /gc/de -> /de/de, /at/de) against the released app (da-nx
+ * 69006f3b), with its own functions: the options view (formatConfig, formatLangs,
+ * getProjectSource, filterLangsBySource, finalizeOptions), validate's source locations
+ * (getSourceLocations, getProjectBasePath), Sync (views/sync/index.js getSyncUrls 7-34), the
+ * translation's destination (views/translate/index.js getSaveDestPath 107-117) and the rollout's
+ * source (views/rollout/index.js formatLangUrls 112-125; its destinations as formatRolloutUrls
+ * 127-147, not exported, does). [{name, ok, detail}]
+ * @param {Object} app the app's modules (loadApp)
+ * @param {Object} config translate.json with the gc rows
+ */
+function gcChecks(app, config) {
+  const out = [];
+  const add = (name, ok, detail = '') => out.push({ name, ok: Boolean(ok), detail });
+  const { options: opts, config: conf } = app.options.formatConfig(config);
+  const enabled = app.utils.isSourceDetectEnabled(conf['source.language.detect']);
+  add('source.language.detect is read and on (isSourceDetectEnabled)', enabled, String(conf['source.language.detect']));
+  add('source.language -> the English row at /gc/en (every project\'s default source)', JSON.stringify(opts['source.language']) === JSON.stringify({ name: 'English', code: 'en', location: '/gc/en' }), JSON.stringify(opts['source.language']));
+  const all = Object.fromEntries(app.options.formatLangs(structuredClone(config.languages.data), conf).map((l) => [l.name, l]));
+  const acts = (l) => l.orderedActions.map((a) => a.value).join('|');
+  const locs = (l) => (l.locales || []).map((x) => `${x.code}:${x.active}`).join();
+  add('English: Skip|Rollout, locales /de/en and /gb/en (both active: one rollout writes both)', all.English && acts(all.English) === 'skip|rollout' && locs(all.English) === '/de/en:true,/gb/en:true', all.English && `${acts(all.English)}; ${locs(all.English)}`);
+  add('German: Skip|Translate|Rollout, locales /de/de and /at/de (both active: one rollout writes both)', all.German && acts(all.German) === 'skip|translate|rollout' && locs(all.German) === '/de/de:true,/at/de:true', all.German && `${acts(all.German)}; ${locs(all.German)}`);
 
-  // the sheet: every :names entry exists, totals match
-  config[':names'].forEach((n) => check(`sheet ${n}`, Array.isArray(config[n]?.data) && config[n].total === config[n].data.length, `${config[n]?.data?.length} rows, total ${config[n]?.total}`));
+  const project = projectView(app, config);
+  const langActs = (langs) => langs.map((l) => `${l.name}:${acts(l)}`).join(', ');
+  // validate's source locations (getUpdates: the detected source, else the default; plus the rows' sources)
+  const sourceLocations = (p) => app.utils.getSourceLocations({ options: { 'source.language': { location: p.detected ? p.sourceLang.location : opts['source.language'].location } }, langs: config.languages.data });
+  const en = project(['/gc/en/baggage', '/gc/en/flights']);
+  add('/gc/en URLs: source /gc/en (resolveSourceLang), English Skip|Rollout, German Skip|Translate|Rollout', en.detected && en.sourceLang?.location === '/gc/en' && langActs(en.langs) === 'English:skip|rollout, German:skip|translate|rollout', `${en.sourceLang?.location}; ${langActs(en.langs)}`);
+  const de = project(['/gc/de/gepaeck', '/gc/de/fluege']);
+  add('/gc/de URLs: source /gc/de (resolveSourceLang); filterLangsBySource leaves only German, with Skip and Rollout', de.detected && de.sourceLang?.location === '/gc/de' && langActs(de.langs) === 'German:skip|rollout', `${de.sourceLang?.location}; ${langActs(de.langs)}`);
+  const mixed = project(['/gc/en/baggage', '/gc/en/flights', '/gc/de/gepaeck']);
+  add('mixed /gc/en and /gc/de URLs: refused, the message names the URL to uncheck', Boolean(mixed.error) && mixed.error.includes('/gc/de/gepaeck'), mixed.error);
 
-  // formatConfig (views/options/utils/utils.js formatConfig)
-  const { options, config: conf } = app.options.formatConfig(config);
+  // the hazard: market URLs match no source root, the project goes to Sync, which copies them
+  // under the default source with their full path (getSyncUrls: convertPath without a source prefix)
+  const marketUrls = ['/de/en/baggage', '/de/de/gepaeck', '/at/de/gepaeck', '/gb/en/baggage'];
+  const market = project(marketUrls);
+  const mLocs = sourceLocations(market);
+  const pick = (langs, value) => langs.map((l) => ({ ...l, activeAction: { value } }));
+  const marketView = app.options.finalizeOptions(conf, market.options, pick(market.langs.filter((l) => l.name === 'English'), 'rollout'), marketUrls.map((u) => ({ suppliedPath: u })), mLocs).view;
+  const synced = app.sync.getSyncUrls('moved-permanently', 'lh-com', market.options['source.language'].location, marketUrls.map((u) => ({ suppliedPath: u })), undefined, mLocs);
+  const dests = synced.map((u) => u.destination.replace('/moved-permanently/lh-com', '')).join(', ');
+  add('/de/en URLs match no source: Sync copies them into /gc/en/de/en/… (also /de/de, /at/de, /gb/en URLs): never put market URLs in a project', !market.detected && !market.error && marketView === 'sync'
+    && dests === '/gc/en/de/en/baggage.html, /gc/en/de/de/gepaeck.html, /gc/en/at/de/gepaeck.html, /gc/en/gb/en/baggage.html', `detected ${market.detected}; view ${marketView}; ${dests}`);
+
+  // the translation from a /gc/en project
+  const enLocs = sourceLocations(en);
+  const germanOfEn = en.langs.find((l) => l.name === 'German');
+  const basePath = app.utils.getProjectBasePath({ path: '/gc/en/flights', defaultLocation: '/gc/en', sourceLocations: enLocs });
+  const tdest = app.translate.getSaveDestPath({ url: { suppliedPath: '/gc/en/flights', basePath }, lang: germanOfEn, sourceLocations: enLocs });
+  add('translate /gc/en/flights -> /gc/de/flights.html (getSaveDestPath; the slug step moves it to /gc/de/fluege)', tdest === '/gc/de/flights.html', tdest);
+
+  // the rollouts: the source as formatLangUrls reads it, each active locale as formatRolloutUrls writes it
+  const rolloutOf = (p, lang, locations) => {
+    const [u] = app.rollout.formatLangUrls('o', 's', locations, lang, [{ suppliedPath: p }]);
+    const to = (lang.locales || []).filter((l) => l.active).map((l) => app.utils.convertPath({
+      path: u.aemBasePath, sourcePrefix: '', destPrefix: l.code, snapshotPrefix: '',
+    }).daDestPath);
+    return `${u.source.replace('/o/s', '')} -> ${to.join(' and ')}`;
+  };
+  const deLocs = sourceLocations(de);
+  const g = rolloutOf('/gc/de/fluege', de.langs[0], deLocs);
+  add('one German rollout of /gc/de/fluege reads /gc/de/fluege.html and writes /de/de/fluege.html and /at/de/fluege.html (own German slugs roll out 1:1)', g === '/gc/de/fluege.html -> /de/de/fluege.html and /at/de/fluege.html', g);
+  const e = rolloutOf('/gc/en/baggage', en.langs.find((l) => l.name === 'English'), enLocs);
+  add('one English rollout of /gc/en/baggage reads /gc/en/baggage.html and writes /de/en/baggage.html and /gb/en/baggage.html', e === '/gc/en/baggage.html -> /de/en/baggage.html and /gb/en/baggage.html', e);
+  const gInEn = rolloutOf('/gc/en/flights', germanOfEn, enLocs);
+  add('German Rollout in a /gc/en project reads /gc/de/<English path> (/gc/de/flights.html, not /gc/de/fluege) and writes /de/de and /at/de: click both German locales off there, roll out German from a /gc/de project', gInEn === '/gc/de/flights.html -> /de/de/flights.html and /at/de/flights.html', gInEn);
+
+  const fin = app.options.finalizeOptions(conf, de.options, pick(de.langs, 'rollout'), [{ suppliedPath: '/gc/de/fluege' }], deLocs);
+  add('/gc/de project, German Rollout -> rollout view (no Sync)', fin.view === 'rollout', `${fin.view}; source locations ${deLocs.join(',')}`);
+  return out;
+}
+
+export function globalSourceChecks(app, config) {
+  try {
+    return gcChecks(app, config);
+  } catch (e) {
+    // other rows (today's) leave the gc model without its rows: a failed check, not a crash
+    return [{ name: 'the gc rows as the app reads them', ok: false, detail: e.message }];
+  }
+}
+
+/** Today's rows (/de/en source): source language, actions, locales, views and paths. */
+function todayChecks(app, config, options, conf) {
   check('source.language -> the English row', JSON.stringify(options['source.language']) === JSON.stringify({ name: 'English', code: 'en', location: '/de/en' }), JSON.stringify(options['source.language']));
-  ['translate', 'rollout', 'copy', 'sync'].forEach((k) => check(`${k}.conflict.behavior default`, options[`${k}.conflict.behavior`] === 'merge', options[`${k}.conflict.behavior`]));
-  check('service', conf.service.name === 'Google' && options['translation.service.all.env'] === 'prod' && conf.service.envs.prod.origin === 'https://translate.da.live/google', JSON.stringify(conf.service));
   // the project's source folder from its URLs (released in 1.29.1)
   sourceChecks(app, config).forEach((c) => check(c.name, c.ok, c.ok ? '' : c.detail));
 
@@ -147,7 +236,12 @@ export async function run({ pages = [] } = {}) {
   check('English rollout /de/en/baggage -> /gb/en/baggage.html', JSON.stringify(rollout('/de/en/baggage', by.English, '/gb/en')) === JSON.stringify(['/de/en/baggage.html', '/gb/en/baggage.html']));
   check('German rollout of /de/en/baggage reads /de/de/baggage.html -> /at/de/baggage.html', JSON.stringify(rollout('/de/en/baggage', by.German, '/at/de')) === JSON.stringify(['/de/de/baggage.html', '/at/de/baggage.html']));
   check('German rollout in a /de/en project reads /de/de/<English path> (/de/de/flight-search.html, not /de/de/flugsuche): click /at/de off there, roll out German from a /de/de project', rollout('/de/en/flight-search', by.German, '/at/de')[0] === '/de/de/flight-search.html');
+}
 
+const dntRows = [];
+
+/** DNT: the rules on small tables, and what reaches the translation service on lh-com pages. */
+async function dntChecks(app, config, pages) {
   // DNT rules on small tables (decorateTable, dnt/decorateTable.js): every rule shape the config uses
   const synthetic = [
     ['poi-map', [['Casa Bacardi', '39.93, 116.45', '<a href="x">More Information</a>'], ['Caption', 'A caption, with a comma'], ['Source', 'abc=='], ['Zoom in label', 'Zoom in']],
@@ -171,7 +265,6 @@ export async function run({ pages = [] } = {}) {
   }
 
   // DNT on real pages: what reaches the translation service
-  const dntRows = [];
   const samples = pages.length ? pages : ['/de/en/feedback-past-flight', '/de/en/timetable-and-flight-status', '/de/en/homepage', '/de/en/articles/explore-the-world/a-perfect-day-beijing-in-one-day', '/de/en/320', '/de/en/flights', '/de/en/online-check-in', '/de/en/food-and-beverages', '/de/en/32n', '/de/en/articles/explore-the-world'];
   for (const p of samples) {
     const file = path.join(root, 'content', `${p}.plain.html`);
@@ -197,20 +290,44 @@ export async function run({ pages = [] } = {}) {
         && form.slice(1).some((row) => row.children[1]?.textContent.trim() !== 'config' && !cellNo(row, 1) && row.children[0].textContent.trim()));
     }
   }
+}
 
-  const report = [`# translate.json against the localisation app (adobe/da-nx ${DA_NX_COMMIT.slice(0, 8)})`, '', new Date().toISOString(), '',
+/** The report of the run (today's rows or the gc ones): {failed, lines}. */
+function report(which, global) {
+  const out = [`# translate.json against the localisation app (adobe/da-nx ${DA_NX_COMMIT.slice(0, 8)})`, '', new Date().toISOString(), '',
+    `translate.json: ${which === 'repo' ? 'tools/loc/translate.json' : which} (${global ? 'the global source\'s rows: /gc/en, /gc/de' : 'today\'s rows: /de/en, /de/de'}).`, '',
     `${failed ? `${failed} checks failed` : 'All checks pass'}.`, '', ...lines, '',
     '## What reaches the translation service (addDnt on lh-com pages)', '', 'row/col and text of the cells that stay translatable, per block (other blocks: everything but the block name is translated)', '',
     '| page | block | translatable cells |', '|---|---|---|', ...dntRows, ''];
   fs.mkdirSync(path.join(root, 'tools/reports'), { recursive: true });
-  fs.writeFileSync(path.join(root, 'tools/reports/loc-config-check.md'), report.join('\n'));
+  fs.writeFileSync(path.join(root, `tools/reports/loc-config-check${global ? '-gc' : ''}.md`), out.join('\n'));
   return { failed, lines };
+}
+
+export async function run({ pages = [], which = 'repo' } = {}) {
+  const app = await loadApp();
+  const config = await readConfig(which);
+  const { global } = locSetup(config);
+
+  // the sheet: every :names entry exists, totals match
+  config[':names'].forEach((n) => check(`sheet ${n}`, Array.isArray(config[n]?.data) && config[n].total === config[n].data.length, `${config[n]?.data?.length} rows, total ${config[n]?.total}`));
+
+  // formatConfig (views/options/utils/utils.js formatConfig)
+  const { options, config: conf } = app.options.formatConfig(config);
+  ['translate', 'rollout', 'copy', 'sync'].forEach((k) => check(`${k}.conflict.behavior default`, options[`${k}.conflict.behavior`] === 'merge', options[`${k}.conflict.behavior`]));
+  check('service', conf.service.name === 'Google' && options['translation.service.all.env'] === 'prod' && conf.service.envs.prod.origin === 'https://translate.da.live/google', JSON.stringify(conf.service));
+  // the global source: its own checks of the rows (sources, rollouts, the Sync hazard)
+  if (global) globalSourceChecks(app, config).forEach((c) => check(c.name, c.ok, c.ok ? '' : c.detail));
+  else todayChecks(app, config, options, conf);
+  await dntChecks(app, config, pages);
+  return report(which, global);
 }
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
   const argv = process.argv.slice(2);
   const pages = argv.flatMap((a, i) => (a === '--page' ? [argv[i + 1]] : []));
-  const { failed: n } = await run({ pages });
+  const which = argv.includes('--config') ? argv[argv.indexOf('--config') + 1] : 'repo';
+  const { failed: n } = await run({ pages, which });
   console.log(lines.join('\n'));
   process.exitCode = n ? 1 : 0;
 }

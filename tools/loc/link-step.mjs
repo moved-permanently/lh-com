@@ -1,11 +1,14 @@
 /* eslint-disable no-console, max-len, no-await-in-loop, no-restricted-syntax, import/extensions, import/prefer-default-export -- dev tooling */
 /**
  * Link step (tools/loc/README.md): after a rollout or a translation in the localisation app, the
- * links of the target locale's pages are made the target locale's (tools/loc/link-lib.mjs):
- *   rollout     --from de/de --to at/de   /de/de/<x> -> /at/de/<x>
- *               --from de/en --to gb/en   /de/en/<x> -> /gb/en/<x>
- *   translation --from de/en --to de/de   absolute aem.page/aem.live/lhcom links -> root-relative;
- *                                         /de/en/<x> -> /de/de/<German slug of x>
+ * links of the target locale's pages are made the target locale's (tools/loc/link-lib.mjs). The
+ * pairs are the translate.json's (its languages rows, setup-lib.mjs; --config <file>|da, default
+ * the repo copy):
+ *   today's rows   rollout     de/de -> at/de, de/en -> gb/en     /de/de/<x> -> /at/de/<x>
+ *                  translation de/en -> de/de                     /de/en/<x> -> /de/de/<German slug of x>
+ *   global source  rollout     gc/en -> de/en, gc/en -> gb/en, gc/de -> de/de, gc/de -> at/de
+ *                  translation gc/en -> gc/de                     /gc/en/<x> -> /gc/de/<German slug of x>
+ * Absolute aem.page/aem.live/demo-host links become root-relative in every pair.
  * Links to pages without a counterpart in the target locale stay as they are and are listed;
  * links to other hosts stay. Pages: --page /at/de/x ... (repeatable), else (dry run) every page
  * of the target locale in tools/migration-scope/pages.csv. Run the slug step first after a
@@ -15,14 +18,15 @@
  * with --page, or with --all-pages --yes (every page of the target locale: selectPages).
  * --root /drafts/loc-test: every DA path below that folder. Never previews or publishes.
  * Report (dry run over the scope, all three pairs with --all): tools/reports/loc-link-step.md
- * Usage: node tools/loc/link-step.mjs --from de/de --to at/de [--page …] [--apply] [--root …]
+ * Usage: node tools/loc/link-step.mjs --from de/de --to at/de [--page …] [--apply] [--root …] [--config …]
  *        node tools/loc/link-step.mjs --from de/de --to at/de --all-pages --apply [--yes]
- *        node tools/loc/link-step.mjs --all        (dry run of the three pairs, the report)
+ *        node tools/loc/link-step.mjs --all        (dry run of the setup's pairs, the report)
  */
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { pairMap, localizeDoc, PAIRS } from './link-lib.mjs';
+import { pairMap, localizeDoc, localePath } from './link-lib.mjs';
+import { locSetup, readConfig, setupFromArgs } from './setup-lib.mjs';
 import { scopeRows } from './regional-diff.mjs';
 import { daClient } from './slug-step.mjs';
 
@@ -62,12 +66,17 @@ export function selectPages({
   return { pages: scope };
 }
 
-/** Runs the step for one pair: [{page, links, unmapped, status}]. */
+/**
+ * Runs the step for one pair: [{page, links, unmapped, status}]. setup: the translate.json's
+ * (locSetup; default the repo copy): the pair must be one of its rollouts or its translation.
+ */
 export async function runLinkStep({
-  from, to, pages, rows, da, apply = false, rootDir = '', concurrency = 6,
+  from, to, pages, rows, da, apply = false, rootDir = '', concurrency = 6, setup,
 }) {
-  if (!PAIRS[`${from}>${to}`]) throw new Error(`--from ${from} --to ${to}: not a rollout or translation pair (${Object.keys(PAIRS).join(', ')})`);
-  const map = pairMap(rows, from, to);
+  const s = setup || locSetup(await readConfig());
+  if (!s.pairs[`${from}>${to}`]) throw new Error(`--from ${from} --to ${to}: not a rollout or translation pair of this translate.json (${Object.keys(s.pairs).join(', ')})`);
+  const others = [...new Set(s.rows.map((r) => r.location))];
+  const map = pairMap(rows, from, to, { others });
   return pool(pages, apply ? 1 : concurrency, async (page) => {
     if (!page.startsWith(`/${to}/`) && page !== `/${to}`) return { page, status: `not a /${to} page` };
     if (REFUSED.test(page)) return { page, status: 'refused (lhg, login or profile)' };
@@ -86,11 +95,11 @@ export async function runLinkStep({
   });
 }
 
-function summary(from, to, results) {
+function summary(from, to, results, kind) {
   const changed = results.filter((r) => r.links);
   const unmapped = new Map();
   results.forEach((r) => (r.unmapped || []).forEach((u) => unmapped.set(u, [...(unmapped.get(u) || []), r.page])));
-  const lines = [`## ${from} → ${to} (${PAIRS[`${from}>${to}`]})`, '',
+  const lines = [`## ${from} → ${to} (${kind})`, '',
     `${results.length} pages: ${changed.length} with links to change (${changed.reduce((n, r) => n + r.links, 0)} links), ${results.filter((r) => r.status === 'unchanged').length} unchanged, ${results.filter((r) => !['changes', 'unchanged', 'written'].includes(r.status)).length} skipped (${[...new Set(results.filter((r) => !['changes', 'unchanged', 'written'].includes(r.status)).map((r) => r.status))].join('; ') || 'none'}).`, '',
     `Links into /${from} without a counterpart in /${to} (left as they are): ${unmapped.size}`, ''];
   [...unmapped].sort((a, b) => b[1].length - a[1].length).forEach(([u, pages]) => lines.push(`- ${u} (${pages.length} page${pages.length > 1 ? 's' : ''}: ${pages.slice(0, 3).join(', ')}${pages.length > 3 ? ', …' : ''})`));
@@ -103,17 +112,19 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.a
   const opt = (name) => (argv.includes(`--${name}`) ? argv[argv.indexOf(`--${name}`) + 1] : undefined);
   const rows = scopeRows();
   const da = daClient();
+  const setup = await setupFromArgs(argv);
   const all = argv.includes('--all');
-  const pairs = all ? Object.keys(PAIRS).map((k) => k.split('>')) : [[opt('from'), opt('to')]];
+  const pairs = all ? Object.keys(setup.pairs).map((k) => k.split('>')) : [[opt('from'), opt('to')]];
+  if (!all && !setup.pairs[`${opt('from')}>${opt('to')}`]) {
+    console.error(`link-step: --from ${opt('from')} --to ${opt('to')}: not a rollout or translation pair of this translate.json (${Object.keys(setup.pairs).join(', ')})`);
+    process.exit(1);
+  }
   const listed = argv.flatMap((a, i) => (a === '--page' ? [argv[i + 1]] : []));
   const apply = argv.includes('--apply');
   if (all && apply) throw new Error('--all is a dry run only');
   const report = ['# Link step dry run over the scope (DA as it is)', '', new Date().toISOString(), ''];
   for (const [from, to] of pairs) {
-    const col = {
-      'de/en': 'de_en', 'de/de': 'de_de', 'at/de': 'at_de', 'gb/en': 'gb_en',
-    }[to];
-    const scope = [...new Set(rows.map((r) => r[col]).filter(Boolean))];
+    const scope = [...new Set(rows.map((r) => localePath(r, to)).filter(Boolean))];
     const { pages, stop } = selectPages({
       listed, scope, to, apply, allPages: argv.includes('--all-pages'), yes: argv.includes('--yes'),
     });
@@ -123,9 +134,9 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.a
     }
     if (apply) console.log(`link-step: writing ${pages.length} /${to} page${pages.length > 1 ? 's' : ''}`);
     const results = await runLinkStep({
-      from, to, pages, rows, da, apply, rootDir: opt('root') || '',
+      from, to, pages, rows, da, apply, rootDir: opt('root') || '', setup,
     });
-    const lines = summary(from, to, results);
+    const lines = summary(from, to, results, setup.pairs[`${from}>${to}`]);
     console.log(lines.slice(0, 3).join('\n'));
     if (!all) results.filter((r) => r.links || (r.unmapped || []).length).forEach((r) => console.log(`  ${r.status} ${r.page}: ${r.links} links${r.unmapped.length ? `; without counterpart: ${r.unmapped.join(', ')}` : ''}`));
     report.push(...lines, '');

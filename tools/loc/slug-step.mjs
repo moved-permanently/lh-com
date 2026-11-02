@@ -12,24 +12,30 @@
  *    metadata: the differences already accepted or rejected; --behavior overwrite replaces),
  * 5. removes the copy at /de/de/<english slug>.
  * Pages whose German slug equals the English one are never touched. Never previews or publishes.
+ * The translation is the translate.json's German row (setup-lib.mjs; --config <file>|da, default
+ * the repo copy): today /de/en -> /de/de; with the global source /gc/en -> /gc/de (the app writes
+ * /gc/de/<english slug>, the step moves it to /gc/de/<german slug>: /gc/en/flights -> /gc/de/fluege).
  *
  * Default: a dry run that lists what it would do. --apply writes (DA POST, then DELETE of the copy).
  * --root /drafts/loc-test: every DA path below that folder (copies to try the step on).
  * --simulate: where no translation exists yet, take the English page as the translation (with the
  *   app's absolute links, dnt.js resetHrefs) to show the link and merge work; never with --apply.
- * --page /de/en/x (repeatable): only these pages. --build-map: rewrite slug-map.json from pages.csv.
- * --rollout-urls (with --page, dry run only, no DA call): prints the URLs of the at/de rollout
+ * --page /de/en/x (repeatable; /gc/en/x with the global source): only these pages.
+ * --build-map: rewrite slug-map.json from pages.csv.
+ * --rollout-urls (with --page, dry run only, no DA call): prints the URLs of the German rollout
  *   project, one per line: the German page of each English page (its own German slug, else the same
- *   path), as https://main--lh-com--moved-permanently.aem.page/<path> (slug-lib.mjs rolloutUrls).
+ *   path), as https://main--lh-com--moved-permanently.aem.page/<path> (slug-lib.mjs rolloutUrls);
+ *   /de/de pages for the at/de rollout, /gc/de pages for the one rollout to /de/de and /at/de.
  * Report (dry run over all pages): tools/reports/loc-slug-step.md
  */
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
-  buildSlugMap, translationPath, germanize, plan, rolloutUrls,
+  buildSlugMap, translationPath, germanPath, germanize, plan, rolloutUrls, DEFAULT_TRANSLATION,
 } from './slug-lib.mjs';
 import { scopeRows } from './regional-diff.mjs';
+import { setupFromArgs } from './setup-lib.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const MAP_FILE = path.join(root, 'tools/loc/slug-map.json');
@@ -86,24 +92,28 @@ const asTranslated = (html) => html.replace(/href="\//g, `href="${AEM_PAGE}/`);
 
 /**
  * Runs the step for the given English pages. merge(translatedHtml, existingHtml) -> html|null
- * (the app's merge; injected so tests run without the app's code).
+ * (the app's merge; injected so tests run without the app's code). translation: the setup's
+ * German translation ({from, to}; default today's de/en -> de/de).
  */
 export async function runStep({
-  pages, map, da, merge, apply = false, behavior = 'merge', rootDir = '', simulate = false,
+  pages, map, da, merge, apply = false, behavior = 'merge', rootDir = '', simulate = false, translation = DEFAULT_TRANSLATION,
 }) {
   if (apply && simulate) throw new Error('--simulate is a dry run only');
+  const t = translation;
+  const outside = pages.find((p) => !new RegExp(`^/${t.from}(/|$)`).test(p));
+  if (outside) throw new Error(`slug step: ${outside} is no /${t.from} page (the translation of this translate.json reads /${t.from})`);
   const at = (p) => `${rootDir}${p}`;
   const results = [];
   for (const enPath of pages) {
-    const copyPath = translationPath(enPath);
-    const target = map.slugs[enPath];
+    const copyPath = translationPath(enPath, t);
+    const target = germanPath(enPath, map, t);
     if (!target) {
-      results.push(plan(enPath, map, {}));
+      results.push(plan(enPath, map, {}, t));
       continue; // eslint-disable-line no-continue
     }
     let copyHtml = await da.get(at(copyPath));
     const targetHtml = await da.get(at(target));
-    const p = plan(enPath, map, { copyExists: Boolean(copyHtml), targetExists: Boolean(targetHtml) });
+    const p = plan(enPath, map, { copyExists: Boolean(copyHtml), targetExists: Boolean(targetHtml) }, t);
     let simulated = false;
     if (p.action === 'no-translation' && simulate) {
       const source = await da.get(enPath);
@@ -114,7 +124,7 @@ export async function runStep({
       }
     }
     if (p.action === 'move' || p.action === 'merge') {
-      const g = germanize(copyHtml, enPath, map);
+      const g = germanize(copyHtml, enPath, map, t);
       Object.assign(p, {
         simulated, links: g.links, unmapped: g.unmapped, primary: g.primary,
       });
@@ -160,28 +170,32 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.a
   }
   const map = loadMap();
   const listed = argv.flatMap((a, i) => (a === '--page' ? [argv[i + 1]] : []));
+  const setup = await setupFromArgs(argv);
+  const t = setup.translation || DEFAULT_TRANSLATION;
   if (argv.includes('--rollout-urls')) {
     if (argv.includes('--apply')) {
       console.error('slug-step --rollout-urls is a dry run only (it prints URLs, it never writes)');
       process.exit(1);
     }
     if (!listed.length) {
-      console.error('slug-step --rollout-urls: --page /de/en/<path> (one or more: the English pages of the translation project)');
+      console.error(`slug-step --rollout-urls: --page /${t.from}/<path> (one or more: the English pages of the translation project)`);
       process.exit(1);
     }
     try {
-      rolloutUrls(listed, map).forEach((u) => console.log(u));
+      const urls = rolloutUrls(listed, map, t);
+      console.error(`German Rollout of these URLs writes ${(t.locales || []).map((l) => `/${l}`).join(' and ')} (one rollout)`);
+      urls.forEach((u) => console.log(u));
     } catch (e) {
       console.error(e.message);
       process.exit(1);
     }
     process.exit(0);
   }
-  const pages = listed.length ? listed : Object.keys(map.slugs);
+  const pages = listed.length ? listed : Object.keys(map.slugs).map((p) => p.replace(/^\/de\/en(?=\/|$)/, `/${t.from}`));
   const { mergeLikeTheApp } = await import('./da-nx.mjs');
   const apply = argv.includes('--apply');
   const results = await runStep({
-    pages, map, da: daClient(), merge: mergeLikeTheApp, apply, behavior: opt('behavior') || 'merge', rootDir: opt('root') || '', simulate: argv.includes('--simulate'),
+    pages, map, da: daClient(), merge: mergeLikeTheApp, apply, behavior: opt('behavior') || 'merge', rootDir: opt('root') || '', simulate: argv.includes('--simulate'), translation: t,
   });
   results.forEach((r) => console.log(line(r)));
   const count = (a) => results.filter((r) => r.action === a).length;

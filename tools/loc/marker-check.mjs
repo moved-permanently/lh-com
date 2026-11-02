@@ -16,14 +16,18 @@
  * /de/de/<english slug> while it sits there (before the slug step), else at the German page.
  * --root /drafts/loc-test: every DA path below that folder.
  * Report (all pages, no --root): tools/reports/loc-marker-check.md
- * Usage: node tools/loc/marker-check.mjs [--page /de/en/flight-search ...] [--root …]
+ * The translation is the translate.json's German row (setup-lib.mjs; --config <file>|da, default
+ * the repo copy): with the global source the English pages are /gc/en/x, the translations /gc/de/….
+ * Usage: node tools/loc/marker-check.mjs [--page /de/en/flight-search ...] [--root …] [--config …]
  */
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseHTML } from 'linkedom';
 import { scopeRows } from './regional-diff.mjs';
-import { translationPath } from './slug-lib.mjs';
+import { translationPath, DEFAULT_TRANSLATION } from './slug-lib.mjs';
+import { localePath } from './link-lib.mjs';
+import { setupFromArgs } from './setup-lib.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 
@@ -197,13 +201,16 @@ export function findingLine(f) {
   return `${f.status.padEnd(10)} ${f.marker} (${f.kind}) of <${f.tag}> "${f.text}": ${how} in <${f.nowTag}> "${f.nowText}"${WHERE[f.ctx] || ''}`;
 }
 
-/** The pages to check: [{source: /de/en/x, targets: [paths to try, in order]}]. */
-export function checkPairs(rows, listed = []) {
-  const german = new Map(rows.filter((r) => r.de_en && r.de_de).map((r) => [r.de_en, r.de_de]));
+/**
+ * The pages to check: [{source: /de/en/x, targets: [paths to try, in order]}]. t: the setup's
+ * translation (default today's de/en -> de/de; /gc/en -> /gc/de with the global source).
+ */
+export function checkPairs(rows, listed = [], t = DEFAULT_TRANSLATION) {
+  const german = new Map(rows.map((r) => [localePath(r, t.from), localePath(r, t.to)]).filter(([a, b]) => a && b));
   const pages = listed.length ? listed : [...german.keys()];
   return pages.map((source) => {
     const de = german.get(source);
-    const copy = translationPath(source);
+    const copy = translationPath(source, t);
     return { source, targets: [...new Set(de && de !== copy ? [copy, de] : [de || copy])] };
   });
 }
@@ -246,7 +253,8 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.a
   }
   const { daClient } = await import('./slug-step.mjs');
   const listed = argv.flatMap((a, i) => (a === '--page' ? [argv[i + 1]] : []));
-  const results = await runMarkerCheck({ pairs: checkPairs(scopeRows(), listed), da: daClient(), rootDir: opt('root') || '' });
+  const t = (await setupFromArgs(argv)).translation || DEFAULT_TRANSLATION;
+  const results = await runMarkerCheck({ pairs: checkPairs(scopeRows(), listed, t), da: daClient(), rootDir: opt('root') || '' });
   const checked = results.filter((r) => r.target);
   const broken = checked.filter((r) => r.findings.length);
   const lines = [];
@@ -259,7 +267,7 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.a
   lines.forEach((l) => console.log(l));
   if (listed.length) skipped.forEach((r) => console.log(`${r.source}: ${r.status}`));
   console.log(summary);
-  if (!listed.length && !opt('root')) {
+  if (!listed.length && !opt('root') && !opt('config')) {
     fs.writeFileSync(path.join(root, 'tools/reports/loc-marker-check.md'), ['# Style marker check (DA as it is)', '', new Date().toISOString(), '', `${summary}.`, '',
       'Before any translation project the German pages are www\'s own (imported): their markers differ from the English page where www\'s pages differ (other spacers, headings). Compare a run after a project with this one.', '',
       '```', ...lines, '```', '', `Not checked: ${[...new Set(skipped.map((r) => r.status.replace(/ \(.*/, '')))].map((s) => `${s} ${skipped.filter((r) => r.status.startsWith(s)).length}`).join(', ') || 'none'}.`, ''].join('\n'));

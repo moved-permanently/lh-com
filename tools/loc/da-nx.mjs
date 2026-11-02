@@ -3,7 +3,9 @@
  * The localisation app's own code (adobe/da-nx nx/blocks/loc at DA_NX_COMMIT), downloaded into a
  * temp folder (never into the repository) so lh-com's tools run exactly what the app runs:
  * the options, path and DNT functions (check-config.mjs) and the merge (regionalDiff,
- * removeLocTags; slug-step.mjs). The nx2 imports of utils/utils.js are stubbed (no DA calls).
+ * removeLocTags; slug-step.mjs) and the views' path functions (sync getSyncUrls, translate
+ * getSaveDestPath, rollout formatLangUrls). The nx2 imports of utils/utils.js and the views' DA
+ * imports are stubbed (no DA calls).
  */
 import fs from 'node:fs';
 import os from 'node:os';
@@ -14,7 +16,13 @@ import { parseHTML, DOMParser } from 'linkedom';
 
 export const DA_NX_COMMIT = '69006f3b54984630e06f77e287e329bde12738d0';
 const FILES = ['views/options/utils/utils.js', 'utils/utils.js', 'dnt/dnt.js', 'dnt/decorateTable.js', 'dnt/parseQuery.js',
-  'dnt/processAltText.js', 'dnt/json2html.js', 'regional-diff/regional-diff.js', 'regional-diff/object_hash.js'];
+  'dnt/processAltText.js', 'dnt/json2html.js', 'regional-diff/regional-diff.js', 'regional-diff/object_hash.js',
+  'views/sync/index.js', 'views/translate/index.js', 'views/rollout/index.js'];
+// the views' imports outside nx/blocks/loc (nx2: DA_ADMIN, Queue, daFetch) and of project/index.js
+// (DA reads and writes) are stubbed: the tools call only their path functions (getSyncUrls,
+// getSaveDestPath, formatLangUrls)
+const VIEW_STUBS = "const DA_ADMIN = 'https://admin.da.live'; class Queue {} const daFetch = async () => ({ ok: false });"
+  + ' const MAX_CONCURRENT_READS = 1; const MAX_CONCURRENT_WRITES = 1; const mergeCopy = async () => {}; const overwriteCopy = async () => {};\n';
 export const CACHE = path.join(os.tmpdir(), `da-nx-${DA_NX_COMMIT.slice(0, 8)}`, 'loc');
 
 let loaded;
@@ -45,6 +53,9 @@ export async function loadApp() {
         src = src.replace(/^import .*nx2\/utils\/.*$/gm, '')
           .replace(/^/, "const DA_ADMIN = 'https://admin.da.live'; const daFetch = async () => ({ ok: false }); const loadIms = async () => ({});\n");
       }
+      if (/^views\/(translate|rollout)\/index\.js$/.test(f)) {
+        src = src.replace(/^import \{[^}]*\} from '[^']*(nx2\/|project\/index\.js)[^']*';$/gm, '').replace(/^/, VIEW_STUBS);
+      }
       fs.mkdirSync(path.dirname(file), { recursive: true });
       fs.writeFileSync(file, src);
     }
@@ -59,6 +70,9 @@ export async function loadApp() {
     utils: await imp('utils/utils.js'),
     dnt: await imp('dnt/dnt.js'),
     diff: await imp('regional-diff/regional-diff.js'),
+    sync: await imp('views/sync/index.js'),
+    translate: await imp('views/translate/index.js'),
+    rollout: await imp('views/rollout/index.js'),
   };
   return loaded;
 }

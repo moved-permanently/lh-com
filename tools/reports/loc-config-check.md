@@ -1,6 +1,8 @@
 # translate.json against the localisation app (adobe/da-nx 69006f3b)
 
-2026-11-01T22:59:31.116Z
+2026-11-02T01:14:21.011Z
+
+translate.json: tools/loc/translate.json (today's rows: /de/en, /de/de).
 
 All checks pass.
 
@@ -8,12 +10,12 @@ All checks pass.
 - OK   sheet languages: 2 rows, total 2
 - OK   sheet custom-doc-rules: 18 rows, total 18
 - OK   sheet dnt-sheet-rules: 1 rows, total 1
-- OK   source.language -> the English row: {"name":"English","code":"en","location":"/de/en"}
 - OK   translate.conflict.behavior default: merge
 - OK   rollout.conflict.behavior default: merge
 - OK   copy.conflict.behavior default: merge
 - OK   sync.conflict.behavior default: merge
 - OK   service: {"name":"Google","envs":{"prod":{"origin":"https://translate.da.live/google","link":"https://cloud.google.com/translate/docs/overview"}}}
+- OK   source.language -> the English row: {"name":"English","code":"en","location":"/de/en"}
 - OK   source.language.detect is read and on (isSourceDetectEnabled, da-nx #793 + #870, release 1.29.1)
 - OK   /de/en URLs: source /de/en (resolveSourceLang), English Skip|Rollout, German Skip|Translate|Rollout
 - OK   /de/de URLs: source /de/de (resolveSourceLang)
