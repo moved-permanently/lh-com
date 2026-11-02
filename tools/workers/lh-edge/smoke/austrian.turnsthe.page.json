@@ -6,7 +6,7 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "5292270cdf19cd90",
+  "hash": "6ce95c33ed17a70a",
   "route": ""
  },
  {
@@ -16,7 +16,7 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "b5256e176d19956a",
+  "hash": "9a2b29450445b97e",
   "route": "market"
  },
  {
@@ -36,7 +36,7 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "0ee3d01d0ae0de8c",
+  "hash": "c433cff4b515c8e4",
   "route": ""
  },
  {
@@ -46,7 +46,7 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "fc001d7bfef22aee",
+  "hash": "082774ea2a1fc9c2",
   "route": "market"
  },
  {
@@ -56,7 +56,7 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "70b0bbe8f0791b36",
+  "hash": "12941fc29be1fbb3",
   "route": ""
  },
  {
@@ -76,7 +76,7 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "f759f9a7633e7a0c",
+  "hash": "bc831d483f2af80b",
   "route": ""
  },
  {
@@ -96,7 +96,7 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "d3899bc3352bc5c4",
+  "hash": "95ab476c63a2a8d9",
   "route": ""
  },
  {
@@ -116,7 +116,7 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "3b0c569d06d2f2fd",
+  "hash": "e1dd14ba7030336e",
   "route": ""
  },
  {
@@ -236,7 +236,7 @@
   "status": 200,
   "location": "",
   "type": "application/json",
-  "hash": "baa15a6238f62a76",
+  "hash": "b1856ea4385cad6e",
   "route": ""
  },
  {
@@ -369,21 +369,23 @@
   "key": "GET /de",
   "path": "/de",
   "method": "GET",
-  "status": 404,
-  "location": "",
-  "type": "text/html; charset=utf-8",
-  "hash": "24f492ec3f3ee16f",
-  "route": ""
+  "status": 302,
+  "location": "/de/en/homepage",
+  "type": "",
+  "length": 0,
+  "hash": "e3b0c44298fc1c14",
+  "route": "site-entry"
  },
  {
   "key": "GET /de/en",
   "path": "/de/en",
   "method": "GET",
-  "status": 404,
-  "location": "",
-  "type": "text/html; charset=utf-8",
-  "hash": "24f492ec3f3ee16f",
-  "route": ""
+  "status": 302,
+  "location": "/de/en/homepage",
+  "type": "",
+  "length": 0,
+  "hash": "e3b0c44298fc1c14",
+  "route": "site-entry"
  },
  {
   "key": "GET /at",
@@ -400,71 +402,78 @@
   "key": "GET /gb/en",
   "path": "/gb/en",
   "method": "GET",
-  "status": 404,
-  "location": "",
-  "type": "text/html; charset=utf-8",
-  "hash": "24f492ec3f3ee16f",
-  "route": ""
+  "status": 302,
+  "location": "/gb/en/homepage",
+  "type": "",
+  "length": 0,
+  "hash": "e3b0c44298fc1c14",
+  "route": "site-entry"
  },
  {
   "key": "GET /us",
   "path": "/us",
   "method": "GET",
-  "status": 404,
-  "location": "",
-  "type": "text/html; charset=utf-8",
-  "hash": "24f492ec3f3ee16f",
-  "route": ""
+  "status": 302,
+  "location": "/us/en/homepage",
+  "type": "",
+  "length": 0,
+  "hash": "e3b0c44298fc1c14",
+  "route": "site-entry"
  },
  {
   "key": "GET /xx",
   "path": "/xx",
   "method": "GET",
-  "status": 404,
-  "location": "",
-  "type": "text/html; charset=utf-8",
-  "hash": "24f492ec3f3ee16f",
-  "route": ""
+  "status": 302,
+  "location": "/xx/en/homepage",
+  "type": "",
+  "length": 0,
+  "hash": "e3b0c44298fc1c14",
+  "route": "site-entry"
  },
  {
   "key": "GET /fr/fr",
   "path": "/fr/fr",
   "method": "GET",
-  "status": 404,
-  "location": "",
-  "type": "text/html; charset=utf-8",
-  "hash": "24f492ec3f3ee16f",
-  "route": ""
+  "status": 302,
+  "location": "/fr/fr/homepage",
+  "type": "",
+  "length": 0,
+  "hash": "e3b0c44298fc1c14",
+  "route": "site-entry"
  },
  {
   "key": "GET /ch",
   "path": "/ch",
   "method": "GET",
-  "status": 404,
-  "location": "",
-  "type": "text/html; charset=utf-8",
-  "hash": "24f492ec3f3ee16f",
-  "route": ""
+  "status": 302,
+  "location": "/ch/en/homepage",
+  "type": "",
+  "length": 0,
+  "hash": "e3b0c44298fc1c14",
+  "route": "site-entry"
  },
  {
   "key": "GET /ch/en",
   "path": "/ch/en",
   "method": "GET",
-  "status": 404,
-  "location": "",
-  "type": "text/html; charset=utf-8",
-  "hash": "24f492ec3f3ee16f",
-  "route": ""
+  "status": 302,
+  "location": "/ch/en/homepage",
+  "type": "",
+  "length": 0,
+  "hash": "e3b0c44298fc1c14",
+  "route": "site-entry"
  },
  {
   "key": "GET /ch/de",
   "path": "/ch/de",
   "method": "GET",
-  "status": 404,
-  "location": "",
-  "type": "text/html; charset=utf-8",
-  "hash": "24f492ec3f3ee16f",
-  "route": ""
+  "status": 302,
+  "location": "/ch/de/homepage",
+  "type": "",
+  "length": 0,
+  "hash": "e3b0c44298fc1c14",
+  "route": "site-entry"
  },
  {
   "key": "GET /de/en/baggage.solo_continue",
@@ -673,7 +682,7 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "6756a39dae3f1115",
+  "hash": "4cf586e16a2eb029",
   "route": ""
  },
  {
@@ -683,7 +692,7 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "69db075769ab0a2d",
+  "hash": "0f952f6dc0195b98",
   "route": ""
  },
  {
@@ -693,7 +702,7 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "416d165542223a95",
+  "hash": "b1163b6cbdf11fb1",
   "route": "market"
  },
  {
@@ -703,7 +712,7 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "02711d9efb68d93d",
+  "hash": "4f8c856fe64104fb",
   "route": "market"
  },
  {
@@ -936,6 +945,46 @@
   "location": "",
   "type": "text/plain",
   "hash": "74bf058e89f4d51e",
+  "route": ""
+ },
+ {
+  "key": "GET /api/generate",
+  "path": "/api/generate",
+  "method": "GET",
+  "status": 404,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "24f492ec3f3ee16f",
+  "route": ""
+ },
+ {
+  "key": "GET /api/suggest",
+  "path": "/api/suggest",
+  "method": "GET",
+  "status": 404,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "24f492ec3f3ee16f",
+  "route": ""
+ },
+ {
+  "key": "GET /api/personalize",
+  "path": "/api/personalize",
+  "method": "GET",
+  "status": 404,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "24f492ec3f3ee16f",
+  "route": ""
+ },
+ {
+  "key": "GET /api/suggest/x",
+  "path": "/api/suggest/x",
+  "method": "GET",
+  "status": 404,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "24f492ec3f3ee16f",
   "route": ""
  }
 ]

@@ -6,7 +6,7 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "a8cff57f7b1bd8df",
+  "hash": "609fc4d9aa217ab9",
   "route": ""
  },
  {
@@ -36,7 +36,7 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "5b61fc1f275479f8",
+  "hash": "744ec57c65512376",
   "route": ""
  },
  {
@@ -56,7 +56,7 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "ee6a3d0cc3525145",
+  "hash": "6949beabcbe86428",
   "route": ""
  },
  {
@@ -76,7 +76,7 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "b9c7b29a1df164d9",
+  "hash": "827158b03bdb962c",
   "route": ""
  },
  {
@@ -106,7 +106,7 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "9c63978cb4416217",
+  "hash": "b8ef625db0d2a19c",
   "route": ""
  },
  {
@@ -116,7 +116,7 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "8dd8a14dd798bdd8",
+  "hash": "d1e1304806f00cb4",
   "route": ""
  },
  {
@@ -236,7 +236,7 @@
   "status": 200,
   "location": "",
   "type": "application/json",
-  "hash": "e4d827821145d845",
+  "hash": "a99d929b19efd4e9",
   "route": ""
  },
  {
@@ -513,7 +513,7 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "0725aee7e22022ad",
+  "hash": "24cb589dda8a2fbc",
   "route": "solo"
  },
  {
@@ -794,7 +794,7 @@
   "status": 200,
   "location": "",
   "type": "text/xml",
-  "hash": "779e7f67a1b5b67a",
+  "hash": "8a0dc0460c0958bc",
   "route": ""
  },
  {
@@ -804,8 +804,8 @@
   "status": 200,
   "location": "",
   "type": "application/octet-stream",
-  "length": 28252,
-  "hash": "1cbe3270af305166",
+  "length": 28764,
+  "hash": "87addf27e504d255",
   "route": "sitemap-gz"
  },
  {
@@ -897,7 +897,7 @@
   "status": 200,
   "location": "",
   "type": "application/json",
-  "hash": "26faef549c584ed3",
+  "hash": "9b90c5e9ec462d02",
   "route": "search"
  },
  {
@@ -950,5 +950,45 @@
   "type": "text/html; charset=utf-8",
   "hash": "a88c8e1b14695042",
   "route": "g4t-kiosk"
+ },
+ {
+  "key": "GET /api/generate",
+  "path": "/api/generate",
+  "method": "GET",
+  "status": 405,
+  "location": "",
+  "type": "text/plain; charset=utf-8",
+  "hash": "e3933184560739b7",
+  "route": "of1"
+ },
+ {
+  "key": "GET /api/suggest",
+  "path": "/api/suggest",
+  "method": "GET",
+  "status": 405,
+  "location": "",
+  "type": "text/plain; charset=utf-8",
+  "hash": "e3933184560739b7",
+  "route": "of1"
+ },
+ {
+  "key": "GET /api/personalize",
+  "path": "/api/personalize",
+  "method": "GET",
+  "status": 405,
+  "location": "",
+  "type": "text/plain; charset=utf-8",
+  "hash": "e3933184560739b7",
+  "route": "of1"
+ },
+ {
+  "key": "GET /api/suggest/x",
+  "path": "/api/suggest/x",
+  "method": "GET",
+  "status": 404,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "24f492ec3f3ee16f",
+  "route": ""
  }
 ]

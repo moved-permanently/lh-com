@@ -6,7 +6,7 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "c3ee2dbdd3120a35",
+  "hash": "37066949561f386e",
   "route": ""
  },
  {
@@ -36,7 +36,7 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "0aa0d7b4629441a5",
+  "hash": "4f600bd6b52ed7cc",
   "route": ""
  },
  {
@@ -106,7 +106,7 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "395343a02cf7a219",
+  "hash": "11085254d62ca6ff",
   "route": ""
  },
  {
@@ -116,7 +116,7 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "d678abef7718a810",
+  "hash": "27343e42f39b91cb",
   "route": ""
  },
  {
@@ -236,7 +236,7 @@
   "status": 200,
   "location": "",
   "type": "application/json",
-  "hash": "539bcf0e2274430d",
+  "hash": "68dfbc5d5ddf5224",
   "route": ""
  },
  {
@@ -368,21 +368,23 @@
   "key": "GET /de",
   "path": "/de",
   "method": "GET",
-  "status": 404,
-  "location": "",
-  "type": "text/html; charset=utf-8",
-  "hash": "24f492ec3f3ee16f",
-  "route": ""
+  "status": 302,
+  "location": "/de/en/homepage",
+  "type": "",
+  "length": 0,
+  "hash": "e3b0c44298fc1c14",
+  "route": "site-entry"
  },
  {
   "key": "GET /de/en",
   "path": "/de/en",
   "method": "GET",
-  "status": 404,
-  "location": "",
-  "type": "text/html; charset=utf-8",
-  "hash": "24f492ec3f3ee16f",
-  "route": ""
+  "status": 302,
+  "location": "/de/en/homepage",
+  "type": "",
+  "length": 0,
+  "hash": "e3b0c44298fc1c14",
+  "route": "site-entry"
  },
  {
   "key": "GET /at",
@@ -408,21 +410,23 @@
   "key": "GET /us",
   "path": "/us",
   "method": "GET",
-  "status": 404,
-  "location": "",
-  "type": "text/html; charset=utf-8",
-  "hash": "24f492ec3f3ee16f",
-  "route": ""
+  "status": 302,
+  "location": "/us/en/homepage",
+  "type": "",
+  "length": 0,
+  "hash": "e3b0c44298fc1c14",
+  "route": "site-entry"
  },
  {
   "key": "GET /xx",
   "path": "/xx",
   "method": "GET",
-  "status": 404,
-  "location": "",
-  "type": "text/html; charset=utf-8",
-  "hash": "24f492ec3f3ee16f",
-  "route": ""
+  "status": 302,
+  "location": "/xx/fr/homepage",
+  "type": "",
+  "length": 0,
+  "hash": "e3b0c44298fc1c14",
+  "route": "site-entry"
  },
  {
   "key": "GET /fr/fr",
@@ -934,6 +938,46 @@
   "location": "",
   "type": "text/plain",
   "hash": "74bf058e89f4d51e",
+  "route": ""
+ },
+ {
+  "key": "GET /api/generate",
+  "path": "/api/generate",
+  "method": "GET",
+  "status": 404,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "24f492ec3f3ee16f",
+  "route": ""
+ },
+ {
+  "key": "GET /api/suggest",
+  "path": "/api/suggest",
+  "method": "GET",
+  "status": 404,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "24f492ec3f3ee16f",
+  "route": ""
+ },
+ {
+  "key": "GET /api/personalize",
+  "path": "/api/personalize",
+  "method": "GET",
+  "status": 404,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "24f492ec3f3ee16f",
+  "route": ""
+ },
+ {
+  "key": "GET /api/suggest/x",
+  "path": "/api/suggest/x",
+  "method": "GET",
+  "status": 404,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "24f492ec3f3ee16f",
   "route": ""
  }
 ]

@@ -26,7 +26,7 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "1e83daff0e4e3c6f",
+  "hash": "467d9a99914f57ce",
   "route": ""
  },
  {
@@ -36,17 +36,17 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "25a11e8529050e16",
+  "hash": "7aaa1c103ff44a76",
   "route": ""
  },
  {
   "key": "GET /de/",
   "path": "/de/",
   "method": "GET",
-  "status": 404,
+  "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "24f492ec3f3ee16f",
+  "hash": "6cca92ceea1c5efd",
   "route": ""
  },
  {

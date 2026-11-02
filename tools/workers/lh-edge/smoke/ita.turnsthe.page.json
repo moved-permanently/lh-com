@@ -6,7 +6,7 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "39a4001a73833ecc",
+  "hash": "698b3d6c5b405f94",
   "route": ""
  },
  {
@@ -36,7 +36,7 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "9c3c39e75137329a",
+  "hash": "d9505443410a32a7",
   "route": ""
  },
  {
@@ -56,7 +56,7 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "4097499d63fa532e",
+  "hash": "fa070315b977d33c",
   "route": ""
  },
  {
@@ -76,7 +76,7 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "51fafd9c12049d0c",
+  "hash": "091ad9a4182829a6",
   "route": ""
  },
  {
@@ -96,7 +96,7 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "45b86415e6819d24",
+  "hash": "0d84ee9dfd217870",
   "route": ""
  },
  {
@@ -106,7 +106,7 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "eec2b7100d5fe327",
+  "hash": "749a3710c5401362",
   "route": ""
  },
  {
@@ -116,7 +116,7 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "dc2471455f1ec2e2",
+  "hash": "e9356bd6c721cee6",
   "route": ""
  },
  {
@@ -236,7 +236,7 @@
   "status": 200,
   "location": "",
   "type": "application/json",
-  "hash": "453d490bb61b5472",
+  "hash": "1ca33df1c7b2f48f",
   "route": ""
  },
  {
@@ -368,101 +368,111 @@
   "key": "GET /de",
   "path": "/de",
   "method": "GET",
-  "status": 404,
-  "location": "",
-  "type": "text/html; charset=utf-8",
-  "hash": "24f492ec3f3ee16f",
-  "route": ""
+  "status": 302,
+  "location": "/de/de/homepage",
+  "type": "",
+  "length": 0,
+  "hash": "e3b0c44298fc1c14",
+  "route": "site-entry"
  },
  {
   "key": "GET /de/en",
   "path": "/de/en",
   "method": "GET",
-  "status": 404,
-  "location": "",
-  "type": "text/html; charset=utf-8",
-  "hash": "24f492ec3f3ee16f",
-  "route": ""
+  "status": 302,
+  "location": "/de/en/homepage",
+  "type": "",
+  "length": 0,
+  "hash": "e3b0c44298fc1c14",
+  "route": "site-entry"
  },
  {
   "key": "GET /at",
   "path": "/at",
   "method": "GET",
-  "status": 404,
-  "location": "",
-  "type": "text/html; charset=utf-8",
-  "hash": "24f492ec3f3ee16f",
-  "route": ""
+  "status": 302,
+  "location": "/at/en/homepage",
+  "type": "",
+  "length": 0,
+  "hash": "e3b0c44298fc1c14",
+  "route": "site-entry"
  },
  {
   "key": "GET /gb/en",
   "path": "/gb/en",
   "method": "GET",
-  "status": 404,
-  "location": "",
-  "type": "text/html; charset=utf-8",
-  "hash": "24f492ec3f3ee16f",
-  "route": ""
+  "status": 302,
+  "location": "/gb/en/homepage",
+  "type": "",
+  "length": 0,
+  "hash": "e3b0c44298fc1c14",
+  "route": "site-entry"
  },
  {
   "key": "GET /us",
   "path": "/us",
   "method": "GET",
-  "status": 404,
-  "location": "",
-  "type": "text/html; charset=utf-8",
-  "hash": "24f492ec3f3ee16f",
-  "route": ""
+  "status": 302,
+  "location": "/us/en/homepage",
+  "type": "",
+  "length": 0,
+  "hash": "e3b0c44298fc1c14",
+  "route": "site-entry"
  },
  {
   "key": "GET /xx",
   "path": "/xx",
   "method": "GET",
-  "status": 404,
-  "location": "",
-  "type": "text/html; charset=utf-8",
-  "hash": "24f492ec3f3ee16f",
-  "route": ""
+  "status": 302,
+  "location": "/xx/en/homepage",
+  "type": "",
+  "length": 0,
+  "hash": "e3b0c44298fc1c14",
+  "route": "site-entry"
  },
  {
   "key": "GET /fr/fr",
   "path": "/fr/fr",
   "method": "GET",
-  "status": 404,
-  "location": "",
-  "type": "text/html; charset=utf-8",
-  "hash": "24f492ec3f3ee16f",
-  "route": ""
+  "status": 302,
+  "location": "/fr/fr/homepage",
+  "type": "",
+  "length": 0,
+  "hash": "e3b0c44298fc1c14",
+  "route": "site-entry"
  },
  {
   "key": "GET /ch",
   "path": "/ch",
   "method": "GET",
-  "status": 404,
-  "location": "",
-  "type": "text/html; charset=utf-8",
-  "hash": "24f492ec3f3ee16f",
-  "route": ""
+  "status": 302,
+  "location": "/ch/en/homepage",
+  "type": "",
+  "length": 0,
+  "hash": "e3b0c44298fc1c14",
+  "route": "site-entry"
  },
  {
   "key": "GET /ch/en",
   "path": "/ch/en",
   "method": "GET",
-  "status": 404,
-  "location": "",
-  "type": "text/html; charset=utf-8",
-  "hash": "24f492ec3f3ee16f",
-  "route": ""
+  "status": 302,
+  "location": "/ch/en/homepage",
+  "type": "",
+  "length": 0,
+  "hash": "e3b0c44298fc1c14",
+  "route": "site-entry"
  },
  {
   "key": "GET /ch/de",
   "path": "/ch/de",
   "method": "GET",
-  "status": 404,
-  "location": "",
-  "type": "text/html; charset=utf-8",
-  "hash": "24f492ec3f3ee16f",
-  "route": ""
+  "status": 302,
+  "location": "/ch/de/homepage",
+  "type": "",
+  "length": 0,
+  "hash": "e3b0c44298fc1c14",
+  "route": "site-entry"
  },
  {
   "key": "GET /de/en/baggage.solo_continue",
@@ -671,7 +681,7 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "698825ad82feb002",
+  "hash": "2ad4e2ccac5d9e3e",
   "route": ""
  },
  {
@@ -681,7 +691,7 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "0d474a889c2b5d5d",
+  "hash": "b30a1c1872d17b39",
   "route": ""
  },
  {
@@ -934,6 +944,46 @@
   "location": "",
   "type": "text/plain",
   "hash": "74bf058e89f4d51e",
+  "route": ""
+ },
+ {
+  "key": "GET /api/generate",
+  "path": "/api/generate",
+  "method": "GET",
+  "status": 404,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "24f492ec3f3ee16f",
+  "route": ""
+ },
+ {
+  "key": "GET /api/suggest",
+  "path": "/api/suggest",
+  "method": "GET",
+  "status": 404,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "24f492ec3f3ee16f",
+  "route": ""
+ },
+ {
+  "key": "GET /api/personalize",
+  "path": "/api/personalize",
+  "method": "GET",
+  "status": 404,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "24f492ec3f3ee16f",
+  "route": ""
+ },
+ {
+  "key": "GET /api/suggest/x",
+  "path": "/api/suggest/x",
+  "method": "GET",
+  "status": 404,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "24f492ec3f3ee16f",
   "route": ""
  }
 ]
