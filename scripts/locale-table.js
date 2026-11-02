@@ -232,3 +232,10 @@ export const LANGUAGE_VERSIONS = {
 
 /** A language without a version of its own (texts fall back to English). */
 export const FALLBACK_LANGUAGE_VERSION = 'de/en';
+
+/** www's market-neutral roots per language (no rows): the pages a market root shows that its
+    language version lacks (lh-edge's market route; tools/reports/markets/go-live.md). */
+export const NEUTRAL_VERSIONS = {
+  en: 'xx/en',
+  de: 'xx/de',
+};

@@ -1,4 +1,4 @@
-/* eslint-disable no-console, no-await-in-loop, no-restricted-syntax, max-len, import/no-unresolved, import/extensions */
+/* eslint-disable no-continue, no-console, no-await-in-loop, no-restricted-syntax, max-len, import/no-unresolved, import/extensions */
 /**
  * Captures www.lufthansa.com pages through ONE warm Bright Data browser session.
  *
@@ -40,6 +40,7 @@ const { snapshotPathFor } = await import(path.join(SCRAPE, 'bd-scrape.js'));
 const { extractCleanedHTML, extractMetadata, scrollToTriggerLazyLoad } = await import(path.join(UPSTREAM, 'analyze-webpage.js'));
 const { generateDocumentPathInfo } = await import(path.join(UPSTREAM, 'generate-path.js'));
 
+const { redirectedTo, countryOfRedirect } = await import('./bd-paths.mjs');
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const argv = process.argv.slice(2);
 const opt = (name, def) => (argv.includes(`--${name}`) ? argv[argv.indexOf(`--${name}`) + 1] : def);
@@ -50,11 +51,17 @@ const ANCHOR = opt('anchor', 'https://www.lufthansa.com/de/en/homepage');
 // network-idle and fonts waits after it still run
 const waitUntil = opt('wait-until', 'load');
 // ^blocked$: www.ita-airways.com's block page (403, title "Blocked")
-const CHALLENGE = /just a moment|checking your browser|attention required|verifying you are human|performing security verification|^blocked$/i;
+// "Nur einen Moment": Cloudflare's challenge in German (a session whose browser asks in German)
+const CHALLENGE = /just a moment|nur einen moment|checking your browser|attention required|verifying you are human|performing security verification|^blocked$/i;
 const MAX_HEIGHT = 8000;
 // --keep-error-pages: a 200 page that reads like an error page (a site's own /error page, e.g.
 // Discover's form error pages) is saved as captured; bot checks and 404s as without it
 const keepErrorPages = has('keep-error-pages');
+// --same-path: only the page asked for is saved; a redirect to another page is recorded
+// (state "redirected", its target) and not saved; two market-neutral pages (/xx/<ll>/...) in a
+// row sent into a country root (a German exit sends them to /de/<ll>) end the session (exit 3),
+// so the next session gets another exit (brief 267)
+const samePath = has('same-path');
 const batch = Number(opt('batch', 20));
 const minDelay = Number(opt('min-delay', 5000));
 const maxDelay = Number(opt('max-delay', 10000));
@@ -107,7 +114,10 @@ const saveState = () => {
   fs.renameSync(`${stateFile}.tmp`, stateFile);
 };
 const snapshotOf = (url) => snapshotPathFor(url, root, process.env.BD_SNAPSHOT_DIR);
+// a redirect to another page (an alias, --same-path) is done too; one into a country root (the
+// session's exit) is asked again
 const captured = (url) => fs.existsSync(snapshotOf(url)) || ['404', 'error-page'].includes(state.pages[url]?.status)
+  || (state.pages[url]?.status === 'redirected' && !state.pages[url].country)
   || (state.pages[url]?.status === 'net-error' && state.pages[url].attempts >= 3);
 // --since <ISO>: redo only pages whose last capture is older (e.g. after a capture fix), so a
 // long redo list advances instead of starting over
@@ -165,6 +175,8 @@ async function dismissCookies(page) {
 }
 
 let blocked = false;
+let countryRedirects = 0;
+let countryExit = null;
 let ok = 0;
 const browser = await connectBrowser('bd');
 try {
@@ -214,6 +226,22 @@ try {
     // /ie/de/homepage saved www's /ie/de/additional-services): not saved, retried like a net error
     const onPath = (() => { try { return new URL(page.url()).pathname === new URL(url).pathname; } catch (e) { return false; } })();
     const wrongPage = nav.status === null && !onPath;
+    const moved = samePath && !netError && !wrongPage ? redirectedTo(url, page.url()) : null;
+    if (moved) {
+      const cc = countryOfRedirect(url, page.url());
+      state.pages[url] = {
+        status: 'redirected', to: moved, ...(cc ? { country: cc } : {}), at: new Date().toISOString(),
+      };
+      console.log(`redirected ${url} -> ${moved} (not saved)`);
+      countryRedirects = cc ? countryRedirects + 1 : 0;
+      if (countryRedirects >= 2) {
+        countryExit = cc;
+        console.error(`bd-session: the exit sends market-neutral pages into the ${cc} root (a country exit); ending session`);
+        break;
+      }
+      continue;
+    }
+    countryRedirects = 0;
     if (netError || wrongPage) {
       state.pages[url] = { status: 'net-error', attempts: (state.pages[url]?.attempts || 0) + 1, at: new Date().toISOString() };
       console.log(`${wrongPage ? `wrong-page ${url} (still on ${page.url()})` : `net-error ${url}`} (not saved; retried in a later session)`);
@@ -351,4 +379,7 @@ try {
 }
 const left = urls.filter((u) => !captured(u)).length;
 console.log(`bd-session: ${ok}/${pending.length} captured, ${left} left${blocked ? ', BLOCKED' : ''}`);
-process.exit(blocked ? 2 : 0);
+let code = 0;
+if (blocked) code = 2;
+else if (countryExit) code = 3;
+process.exit(code);

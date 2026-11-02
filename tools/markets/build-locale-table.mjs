@@ -74,6 +74,12 @@ export function buildTable(
     const version = data.languageVersions[r.lang];
     if (r.documents === 'language' && (!version || rows[version].documents !== 'own')) throw new Error(`${k}: documents language needs a language version of ${r.lang} with its own documents`);
   });
+  // www's market-neutral roots (xx/en, xx/de: only hreflang alternates in www's sitemaps, no
+  // rows): their documents are the pages a market root shows that its language version lacks
+  Object.values(data.neutralVersions || {}).forEach((k) => {
+    if (!www.has(k)) throw new Error(`${k}: a neutral version must be a root of www's`);
+    if (rows[k]) throw new Error(`${k}: a neutral version has no row`);
+  });
   return {
     rows,
     // every root of www (own sitemaps or only alternates): a path whose first two segments are
@@ -82,6 +88,7 @@ export function buildTable(
     defaultLocale: data.defaultLocale,
     languageVersions: data.languageVersions,
     fallbackLanguageVersion: data.fallbackLanguageVersion,
+    neutralVersions: data.neutralVersions || {},
   };
 }
 
@@ -134,6 +141,10 @@ export const LANGUAGE_VERSIONS = ${literal(table.languageVersions)};
 
 /** A language without a version of its own (texts fall back to English). */
 export const FALLBACK_LANGUAGE_VERSION = ${literal(table.fallbackLanguageVersion)};
+
+/** www's market-neutral roots per language (no rows): the pages a market root shows that its
+    language version lacks (lh-edge's market route; tools/reports/markets/go-live.md). */
+export const NEUTRAL_VERSIONS = ${literal(table.neutralVersions)};
 `;
 }
 

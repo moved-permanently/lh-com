@@ -28,7 +28,8 @@ const row = (path, extra = {}) => ({
 const INDEX = {
   '/de/en/search-index.json': sheet([row('/de/en/homepage'), row('/de/en/baggage')]),
   '/de/de/search-index.json': sheet([row('/de/de/homepage'), row('/de/de/gepaeck')]),
-  '/market-pages.json': sheet([row('/ch/en/homepage')]),
+  // the market index has the neutral documents once they are published
+  '/market-pages.json': sheet([row('/ch/en/homepage'), row('/xx/en/book-and-manage/stopover/rosewood')]),
 };
 const page = (path, markets) => `<!DOCTYPE html><html><head><title>${path}</title>
 <link rel="canonical" href="https://${ORIGIN}${path}">${markets === undefined ? '' : `<meta name="markets" content="${markets}">`}</head>
@@ -69,6 +70,7 @@ test('a market root answers a page its language version lacks from the neutral d
   const html = await resp.text();
   assert.match(html, /<link rel="canonical" href="https:\/\/[^"]+\/ch\/en\/book-and-manage\/stopover\/munich-airport">/);
   assert.ok(html.includes('href="/ch/en/book-and-manage/stopover/rosewood"'), 'a link into the neutral version becomes the root\'s');
+  assert.ok(html.includes('href="/ch/en/baggage"'), 'a link into the language version too');
   // German: xx/de for ch/de
   assert.equal((await get('/ch/de/319')).status, 200);
 });

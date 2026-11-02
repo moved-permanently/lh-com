@@ -542,7 +542,10 @@ export function marketHtml(resp, ctx) {
         e.removeAttribute(KEEP);
         return;
       }
-      const next = marketHref(e.getAttribute(attr), ctx);
+      const value = e.getAttribute(attr);
+      // a neutral document (www's xx/<ll>) links into its own root and into the language version
+      const also = ctx.also ? marketHref(value, { ...ctx, ...ctx.also }) : null;
+      const next = marketHref(value, ctx) ?? also;
       if (next !== null) e.setAttribute(attr, next);
     },
   });
@@ -1031,7 +1034,11 @@ export async function market(request, env) {
   const v = model.versions[t.table[root].lang];
   const indexed = v.index.has(`/${from}${suffix}`);
   if (indexed && !serves(model, root, suffix)) return own;
-  if (!indexed && !LANGUAGE_ONLY.test(suffix)) {
+  // a page the language version lacks: www's market-neutral document of the path (lh-com's
+  // NEUTRAL_VERSIONS, xx/en and xx/de, brief 267) when its markets allow the country
+  const neutral = !indexed && !LANGUAGE_ONLY.test(suffix) && (t.neutral || {})[t.table[root].lang];
+  const neutralDoc = neutral ? await originFetch(versionRequest, env, `https://${env.ORIGIN}/${neutral}${rest}`) : null;
+  if (!indexed && !LANGUAGE_ONLY.test(suffix) && !(neutralDoc && neutralDoc.ok)) {
     // not a page of the language version: its redirect (redirect sheet), else the 404
     if (kind !== 'page') return own;
     const moved = await originFetch(versionRequest, env, `https://${env.ORIGIN}/${from}${rest}`);
@@ -1048,9 +1055,20 @@ export async function market(request, env) {
   const cc = root.split('/')[0];
   const rowOf = indexed ? v.index.get(`/${from}${suffix}`) : null;
   const leftOut = Boolean(rowOf && rowOf.markets && !marketAllows(rowOf.markets, cc));
-  const source = leftOut && restOfWorld && restOfWorld !== root ? restOfWorld : from;
+  let source = leftOut && restOfWorld && restOfWorld !== root ? restOfWorld : from;
+  if (neutralDoc && neutralDoc.ok) {
+    source = neutral;
+    // its links: into the neutral version where the market index has the document (it fills on
+    // publish) and its markets allow the country, else into the language version as every page's
+    const known = (x) => {
+      const r = model.own.get(`/${neutral}${x}`);
+      return Boolean(r) && (!r.markets || marketAllows(r.markets, root.split('/')[0]));
+    };
+    ctx.also = { from, allowed: ctx.allowed };
+    ctx.allowed = known;
+  }
   if (source !== from) ctx.from = source;
-  const doc = await originFetch(versionRequest, env, `https://${env.ORIGIN}/${source}${rest}`);
+  const doc = source === neutral ? neutralDoc : await originFetch(versionRequest, env, `https://${env.ORIGIN}/${source}${rest}`);
   if (!doc.ok) return own;
   const headers = new Headers(doc.headers);
   headers.set('x-lh-edge-route', 'market');
@@ -1062,7 +1080,8 @@ export async function market(request, env) {
   const meta = (kind === 'page' || source !== from) && (html.match(/<meta name="markets" content="([^"]*)"/)
     || html.match(/<div><div>markets<\/div><div>([^<]*)<\/div><\/div>/i));
   if (meta && !marketAllows(meta[1], cc)) return own;
-  if (source !== from && !meta) return own;
+  // a rest-of-world document names its markets; a neutral one without them is every market's
+  if (source !== from && source !== neutral && !meta) return own;
   // sections whose section metadata `markets` excludes the country are left out; the nav and
   // footer of a root with a label of its own (a site's row) name the root, not the language version
   // nav and footer name the root (a site's label, lh-com's name: www's label for the root) and the

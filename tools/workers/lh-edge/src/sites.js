@@ -12,27 +12,28 @@
  * lh-com's own table (scripts/locale-table.js) is LH_TABLES: every route reads it as before.
  */
 /* eslint-disable import/no-relative-packages */
-import { LOCALE_TABLE, LANGUAGE_VERSIONS } from '../../../../scripts/locale-table.js';
+import { LOCALE_TABLE, LANGUAGE_VERSIONS, NEUTRAL_VERSIONS } from '../../../../scripts/locale-table.js';
 import { BRAND_SITES } from '../../../../scripts/brands.js';
 /* eslint-enable import/no-relative-packages */
 
 /**
  * A site's tables: the locale rows, the language versions, the market roots, the own roots, the
- * rest-of-world roots by language (BRAND_SITES restOfWorld; none: {}).
+ * rest-of-world roots by language (BRAND_SITES restOfWorld; none: {}), the neutral versions by
+ * language (lh-com's NEUTRAL_VERSIONS: www's xx/en and xx/de; none: {}).
  */
-export function tablesOf(table, versions, restOfWorld = {}) {
+export function tablesOf(table, versions, restOfWorld = {}, neutral = {}) {
   const marketRoots = Object.keys(table).filter((k) => table[k].documents === 'language');
   // roots with every page as their own document besides the language versions (lh-com's at/de,
   // gb/en)
   const ownRoots = Object.keys(table).filter((k) => table[k].documents === 'own'
     && table[k].status === 'live' && !Object.values(versions).includes(k));
   return {
-    table, versions, marketRoots, ownRoots, restOfWorld,
+    table, versions, marketRoots, ownRoots, restOfWorld, neutral,
   };
 }
 
 /** lh-com's tables (scripts/locale-table.js). */
-export const LH_TABLES = tablesOf(LOCALE_TABLE, LANGUAGE_VERSIONS);
+export const LH_TABLES = tablesOf(LOCALE_TABLE, LANGUAGE_VERSIONS, {}, NEUTRAL_VERSIONS);
 
 /**
  * The sites with <cc>/<ll> roots: their tables, built from scripts/brands.js BRAND_SITES (the one
