@@ -122,6 +122,8 @@ test('brand sites: the live page and the login link are the brand\'s own www and
     [{ brand: 'ita' }, 'ita.turnsthe.page', '/it/en/book-and-prepare/travel-information/at-the-airport/digital-newsstand', 'www.ita-airways.com', 'api.travelid.ita-airways.com', '14eKnYUwomcAimITtmaa2GqBM5mhO8kAS3GjTyE6RDsFaWrI'],
     [{ brand: 'austrian' }, 'austrian.turnsthe.page', '/at/en/ejournals', 'www.austrian.com', 'api.travelid.austrian.com', 'dFquxAQT637lrYALS9UKBMieeibyGaVQ'],
     [{ brand: 'discover' }, 'discover.turnsthe.page', '/de/en/ejournals', 'www.discover-airlines.com', 'api.travelid.discover-airlines.com', 'NqkvGG8MB6OeCkb66a02D0ORHOFhQWJ4'],
+    // SWISS: www.swiss.com's login links (the snapshots of 2026-11-02), its ejournals component on the inflight entertainment page
+    [{ brand: 'swiss' }, 'swiss.turnsthe.page', '/ch/en/fly/on-board/entertainment-on-board', 'www.swiss.com', 'api.travelid.swiss.com', 'sAwlvrK8fb55GvHqM5Me9iAWpF9rchZL'],
   ];
   cases.forEach(([m, host, path, www, travelId, clientId]) => {
     meta(m);
@@ -135,7 +137,7 @@ test('brand sites: the live page and the login link are the brand\'s own www and
     assert.equal(login.searchParams.get('redirect_uri'), `https://${www}`);
     assert.equal(login.searchParams.get('state'), path);
   });
-  ['ita', 'austrian', 'brussels', 'discover'].forEach((k) => assert.ok(BRANDS[k].travelId && BRANDS[k].travelId.clientId, k));
+  ['ita', 'austrian', 'brussels', 'discover', 'swiss'].forEach((k) => assert.ok(BRANDS[k].travelId && BRANDS[k].travelId.clientId, k));
 });
 
 test('lh-data: /service/api/ejournals is direct and live only (never a recorded answer), a failure never refuses the next search', async () => {

@@ -1,12 +1,12 @@
 /* eslint-disable max-len */
 // The brand hosts' backend routes, sign-in return, long AEM paths and entry redirects (brief 212):
-// - austrian, discover, ita and brussels (scripts/brands.js `backends`: lh-backends has their tenant) send the
+// - austrian, discover, ita, brussels and swiss (scripts/brands.js `backends`: lh-backends has their tenant) send the
 //   paths lufthansa.turnsthe.page sends to lh-backends (isBackendsPath) there too, the host as it is
 //   (lh-backends picks the brand from it or from X-Portal); lh-edge's own four API answers
 //   (search, defaultairport, bookinglist, loginPageUrl: Lufthansa's) are left out, as is every plain
 //   site;
 // - a GET of / or /<cc>/<ll>/… with code and state is the sign-in return (lh-backends);
-// - /content/<aemContent>/markets/<cc>/<ll>/<page>[.html] (www's AEM paths: aua, four_y, ita, bel):
+// - /content/<aemContent>/markets/<cc>/<ll>/<page>[.html] (www's AEM paths: aua, four_y, ita, bel, lx):
 //   301 to /<cc>/<ll>/<page>;
 // - /<cc>/<ll>[/] and /<cc>[/] of every root in BRAND_SITES: 302 to the root's homepage;
 // - Air Dolomiti's /en and /de (www answers them as /en/ and /de/): 302 to /en/ and /de/.
@@ -26,6 +26,7 @@ const ORIGINS = {
   ita: 'main--lh-ita--moved-permanently.aem.live',
   austrian: 'main--lh-austrian--moved-permanently.aem.live',
   brussels: 'main--lh-brussels--moved-permanently.aem.live',
+  swiss: 'main--lh-swiss--moved-permanently.aem.live',
   cargo: 'main--lh-cargo--moved-permanently.aem.live',
   airdolomiti: 'main--lh-airdolomiti--moved-permanently.aem.live',
 };
@@ -78,17 +79,19 @@ const OWN_API = [
   '/service/secured/api/core/authenticate/loginPageUrl',
 ];
 
-test('brands.js: lh-backends\' tenants (Austrian, Discover, ITA, Brussels) and their AEM content roots', () => {
-  assert.deepEqual(Object.keys(BRANDS).filter((k) => BRANDS[k].backends).sort(), ['austrian', 'brussels', 'discover', 'ita']);
+test('brands.js: lh-backends\' tenants (Austrian, Discover, ITA, Brussels, SWISS) and their AEM content roots', () => {
+  assert.deepEqual(Object.keys(BRANDS).filter((k) => BRANDS[k].backends).sort(), ['austrian', 'brussels', 'discover', 'ita', 'swiss']);
   assert.equal(BRANDS.austrian.aemContent, 'aua');
   assert.equal(BRANDS.discover.aemContent, 'four_y');
   assert.equal(BRANDS.ita.aemContent, 'ita');
   // www.brusselsairlines.com's links: /content/bel/markets/<cc>/<ll>/... (lh-backends' cockpit login page too)
   assert.equal(BRANDS.brussels.aemContent, 'bel');
+  // www.swiss.com's links: /content/lx/markets/<cc>/<ll>/... (its homepage text's "My bookings", lh-backends' cockpit login page)
+  assert.equal(BRANDS.swiss.aemContent, 'lx');
 });
 
-test('austrian, discover, ita, brussels: the backend paths reach lh-backends, the host and request as they are', async () => {
-  await ['austrian', 'discover', 'ita', 'brussels'].reduce(async (prev, site) => {
+test('austrian, discover, ita, brussels, swiss: the backend paths reach lh-backends, the host and request as they are', async () => {
+  await ['austrian', 'discover', 'ita', 'brussels', 'swiss'].reduce(async (prev, site) => {
     await prev;
     backendCalls = [];
     const answers = await Promise.all(BACKEND_PATHS.map((p) => get(site, p)));
@@ -107,7 +110,7 @@ test('austrian, discover, ita, brussels: the backend paths reach lh-backends, th
 });
 
 test('lh-edge\'s own four API answers (Lufthansa\'s) stay off the brand hosts; the plain sites get no backend routes', async () => {
-  const own = ['austrian', 'discover', 'ita', 'brussels'].flatMap((site) => OWN_API.map((p) => [site, p]));
+  const own = ['austrian', 'discover', 'ita', 'brussels', 'swiss'].flatMap((site) => OWN_API.map((p) => [site, p]));
   (await Promise.all(own.map(([site, p]) => get(site, p)))).forEach((resp, i) => {
     assert.notEqual(resp.headers.get('x-lh-edge-route'), 'backends', own[i].join(' '));
     assert.notEqual(resp.headers.get('x-lh-edge-route'), 'login-url', own[i].join(' '));
@@ -126,7 +129,9 @@ test('the sign-in return: / or /<cc>/<ll>/… with code and state goes to lh-bac
   assert.equal(page.headers.get('x-lh-edge-route'), 'login-return');
   const sn = await get('brussels', '/be/en/homepage?code=abc&state=/be/en/homepage');
   assert.equal(sn.headers.get('x-lh-edge-route'), 'login-return');
-  assert.deepEqual(backendCalls.map((c) => c.url), ['https://austrian.example/?code=abc&state=/at/en/homepage', 'https://ita.example/it/en/homepage?code=abc&state=/it/en/homepage', 'https://brussels.example/be/en/homepage?code=abc&state=/be/en/homepage']);
+  const lx = await get('swiss', '/ch/de/homepage?code=abc&state=/ch/de/homepage');
+  assert.equal(lx.headers.get('x-lh-edge-route'), 'login-return');
+  assert.deepEqual(backendCalls.map((c) => c.url), ['https://austrian.example/?code=abc&state=/at/en/homepage', 'https://ita.example/it/en/homepage?code=abc&state=/it/en/homepage', 'https://brussels.example/be/en/homepage?code=abc&state=/be/en/homepage', 'https://swiss.example/ch/de/homepage?code=abc&state=/ch/de/homepage']);
   // without code and state, or a state that is no page path: as before
   assert.notEqual((await get('austrian', '/?state=/at/en/homepage')).headers.get('x-lh-edge-route'), 'login-return');
   assert.notEqual((await get('brussels', '/be/en/homepage?code=x&state=y')).headers.get('x-lh-edge-route'), 'login-return');
@@ -144,6 +149,8 @@ test('long AEM paths of the brand: 301 to the short path (as /content/lh/markets
     ['ita', '/content/ita/markets/it/it/area-personale/', '/it/it/area-personale'],
     ['brussels', '/content/bel/markets/be/en/profile/login.html?deeplinkRedirect=true', '/be/en/profile/login?deeplinkRedirect=true'],
     ['brussels', '/content/bel/markets/be/fr/contact', '/be/fr/contact'],
+    ['swiss', '/content/lx/markets/ch/en/profile/login?deeplinkRedirect=true', '/ch/en/profile/login?deeplinkRedirect=true'],
+    ['swiss', '/content/lx/markets/ch/de/fly/check-in.html', '/ch/de/fly/check-in'],
   ];
   (await Promise.all(cases.map(([site, from]) => get(site, from)))).forEach((resp, i) => {
     const [site, from, to] = cases[i];
@@ -155,6 +162,7 @@ test('long AEM paths of the brand: 301 to the short path (as /content/lh/markets
   assert.notEqual((await get('ita', '/content/lh/markets/de/en/login.html')).status, 301);
   assert.notEqual((await get('discover', '/content/four_y/markets/de/en/image.jpg')).status, 301);
   assert.notEqual((await get('brussels', '/content/aua/markets/at/en/login.html')).status, 301);
+  assert.notEqual((await get('swiss', '/content/bel/markets/be/en/profile/login.html')).status, 301);
 });
 
 test('entry redirects from every root of BRAND_SITES: /<cc>/<ll>[/] and /<cc>[/] to the root\'s homepage', async () => {
