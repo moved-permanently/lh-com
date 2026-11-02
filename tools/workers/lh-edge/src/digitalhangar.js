@@ -17,12 +17,23 @@
  * headers and is never stored (x-lh-edge-cache: pass). Without a Cache API (tests, local runs):
  * the request as before, with the year on 200, 206 and 304.
  * No request cookies go upstream; no upstream cookie comes back (www's bot cookies are for www).
+ * Files www refuses lh-edge (403: the help center's features and texts, COPIES) answer from our
+ * copy when there is one: the site's origin at /digitalhangar-copies/<the path below
+ * /digitalhangar/> (committed in the code repository), 200 with the origin's headers
+ * (x-lh-edge-copy: origin); without a copy (any other answer) www's answer as before.
  */
+import { originFetch } from './edge.js';
+
 export const DIGITALHANGAR = /^\/digitalhangar\/.+$/;
 export const DEFAULT_WWW = 'www.lufthansa.com';
 // a release folder: v<major>.<minor>.<patch>, optionally after a name (mausy-v1.40.1, v1.38.0)
 export const RELEASE = /^\/digitalhangar\/design-system\/releases\/(?:[a-z0-9]+-)*v\d+\.\d+\.\d+\/[^?#]+$/i;
 export const YEAR = 'public, max-age=31536000, immutable';
+// files www answers lh-edge with 403 (its WAF): the help center's feature switches and texts
+// (cs-help-center/feature-manager/<tenant>/, translations/web/<tenant>/; brief 270)
+export const COPIES = /^\/digitalhangar\/cs-help-center\/(?:feature-manager|translations)\/[^?#]+\.json$/;
+/** The path of our copy of a /digitalhangar/ file on the site's origin. */
+export const copyPath = (pathname) => `/digitalhangar-copies${pathname.slice('/digitalhangar'.length)}`;
 
 const CLIENT = ['accept', 'accept-encoding', 'accept-language', 'user-agent'];
 const CONDITIONS = ['if-modified-since', 'if-none-match', 'range'];
@@ -80,9 +91,27 @@ async function releaseFile(request, upstream, url, cache) {
   return toClient(request, again || stored, true, 'miss');
 }
 
-/** /digitalhangar/*: the brand www's answer. */
+/** Our copy of a COPIES file from the site's origin (200), else null. */
+async function ownCopy(request, env, url) {
+  if (!COPIES.test(url.pathname) || !env.ORIGIN) return null;
+  const get = new Request(request.url, { method: request.method === 'HEAD' ? 'HEAD' : 'GET', headers: pick(request, CLIENT) });
+  const resp = await originFetch(get, env, `https://${env.ORIGIN}${copyPath(url.pathname)}`);
+  if (resp.status !== 200) {
+    if (resp.body) resp.body.cancel().catch(() => {});
+    return null;
+  }
+  const out = new Response(request.method === 'HEAD' ? null : resp.body, resp);
+  out.headers.delete('set-cookie');
+  out.headers.set('x-lh-edge-route', 'digitalhangar');
+  out.headers.set('x-lh-edge-copy', 'origin');
+  return out;
+}
+
+/** /digitalhangar/*: our copy of a file www refuses lh-edge, else the brand www's answer. */
 export async function digitalhangar(request, env) {
   const url = new URL(request.url);
+  const copy = await ownCopy(request, env, url);
+  if (copy) return copy;
   const upstream = digitalhangarUpstream(url, env);
   const release = isReleasePath(url.pathname);
   const cache = typeof caches !== 'undefined' ? caches.default : null;

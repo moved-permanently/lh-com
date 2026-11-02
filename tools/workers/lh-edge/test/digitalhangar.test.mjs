@@ -92,3 +92,43 @@ test('/digitalhangar/*: www\'s 404 and 304 as they are, HEAD without a body, no 
   await get('lh-edge.example', `${FONTS}/mmg/LufthansaMAMTextWeb-Regular.woff`, {}, 'GET', env({ WWW_HOST: '' }));
   assert.equal(calls.at(-1).url, `https://www.lufthansa.com${FONTS}/mmg/LufthansaMAMTextWeb-Regular.woff`);
 });
+
+// brief 270: files www refuses lh-edge (403: the help center's features and texts) answer from our
+// copies, committed under /digitalhangar-copies/ (the site's origin), when one is there; without a
+// copy (origin 404) www's answer exactly as before; no other /digitalhangar/ path asks the origin
+const COPY = '/digitalhangar/cs-help-center/translations/web/LX/en-CH.json';
+test('a help center data file with our copy: the copy from the origin, www not asked', async () => {
+  const before = globalThis.fetch;
+  globalThis.fetch = async (input, init = {}) => {
+    const req = input instanceof Request ? input : new Request(input, init);
+    calls.push({ url: req.url });
+    const u = new URL(req.url);
+    if (u.hostname.endsWith('.aem.live') && u.pathname === '/digitalhangar-copies/cs-help-center/translations/web/LX/en-CH.json') {
+      return new Response('{"a":"b"}', { headers: { 'content-type': 'application/json', 'cache-control': 'max-age=7200' } });
+    }
+    return before(input, init);
+  };
+  const r = await get('lh-edge.example', COPY);
+  globalThis.fetch = before;
+  assert.equal(r.status, 200);
+  assert.equal(await r.text(), '{"a":"b"}');
+  assert.equal(r.headers.get('content-type'), 'application/json');
+  assert.equal(r.headers.get('x-lh-edge-route'), 'digitalhangar');
+  assert.equal(r.headers.get('x-lh-edge-copy'), 'origin');
+  assert.ok(calls.every((c) => !new URL(c.url).hostname.startsWith('www.')), 'www not asked');
+});
+
+test('a help center data file without our copy: www\'s answer as before', async () => {
+  const r = await get('lh-edge.example', COPY);
+  assert.equal(r.status, 404, 'www\'s answer (the stub\'s 404)');
+  assert.equal(r.headers.get('x-lh-edge-copy'), null);
+  const hosts = calls.map((c) => new URL(c.url).hostname);
+  assert.ok(hosts.some((h) => h.endsWith('.aem.live')), 'the origin asked for a copy first');
+  assert.equal(new URL(calls.at(-1).url).hostname, 'www.lufthansa.com', 'then www, as before');
+});
+
+test('other /digitalhangar/ paths: no copy asked, www as before', async () => {
+  await get('lh-edge.example', `${FONTS}/lufthansa/LufthansaTextWeb-Regular.woff2`);
+  await get('lh-edge.example', '/digitalhangar/cs-help-center/help-center-web/help-center-web-4.3.1.js');
+  assert.ok(calls.every((c) => !new URL(c.url).hostname.endsWith('.aem.live')), calls.map((c) => c.url).join(' '));
+});
