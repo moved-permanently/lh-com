@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-02 18:14",
-  "change": "SWISS: its notices are live, and its login and profile pages are on the replica; manage booking ends there.",
+  "updated": "2026-11-02 23:55",
+  "change": "SWISS: French and Italian, the 51 other countries and the corporate and medical services sites are live.",
   "legend": {
     "done": {
       "label": "works on our replica",
@@ -47,7 +47,7 @@
     "snchat": "Brussels Airlines' chat assistant loads from Brussels Airlines' website, outside AEM, as Austrian's does. Since 1 November its button shows on the pages that have it on www, in all six languages.",
     "adesim": "Air Dolomiti's eSIM shop (from the vendor Breeze) is built into the replica, but its switch stays off: Breeze answers every call from our address with 403, because the widget's key belongs to Air Dolomiti's site. It works once Air Dolomiti or Breeze allows our address.",
     "b2bsignin": "Lufthansa Group for Business has two sign-ins in AEM today, one for companies and one for travel agencies (eXperts), each with a member area. Their replacement follows the other airlines' sign-ins, with test data first; showing real member data needs Lufthansa to let it reach its user and role systems. Until then the replica links to the current sign-ins.",
-    "lxmarkets": "Only Switzerland in English and German is on the new platform so far. SWISS's other 51 countries, Switzerland's eight other languages and Korean follow root by root; until then the country dialog opens their homepage on www.swiss.com."
+    "lxmarkets": "Switzerland in English, German, French and Italian and SWISS's other 51 countries in those four languages are on the new platform since 2 November. Switzerland's other six languages (Spanish, Portuguese, Chinese, Greek, Japanese, Russian), the 12 countries in those languages and Korean follow root by root; until then the country dialog doesn't offer them."
   },
   "brands": [
     {
@@ -111,7 +111,7 @@
       "name": "SWISS",
       "host": "https://swiss.turnsthe.page",
       "www": "https://www.swiss.com",
-      "note": "The SWISS replica, on the lufthansa.com code with SWISS's theme; SWISS runs on Lufthansa's AEM today. So far only Switzerland in English and German is on the new platform, and the destination pictures of its fare teasers and homepage slider are still being added."
+      "note": "The SWISS replica, on the lufthansa.com code with SWISS's theme; SWISS runs on Lufthansa's AEM today. Switzerland in English, German, French and Italian, the 51 other countries in those languages and the corporate and medical services sites are on the new platform; the other languages and the magazine follow, and some destination pictures are still being added."
     }
   ],
   "functions": [
@@ -1510,8 +1510,8 @@
         },
         "swiss": {
           "status": "wip",
-          "note": "SWISS's media pages (press contacts, enquiry and filming forms) are in its corporate section on the same AEM, which comes to the replica after the pilot; until then the footer links to www.",
-          "evidence": "groundwork section 10.1: corporate/<ll>/media, media-request-form, media-permission (en, de, fr), folder /corporate planned in lh-swiss after the pilot (decision 9); swiss.turnsthe.page /corporate/en/homepage 404; replica footer 'Media' -> https://www.swiss.com/corporate/en/media"
+          "note": "SWISS's media pages (press contacts, media request and filming permission forms) are on the replica in the corporate section since 2 November; the press releases and agenda are on SWISS's separate newsroom site, which the media page links to, so the newsroom itself hasn't moved.",
+          "evidence": "2026-11-02 23:55 CET curl on swiss.turnsthe.page: 200 for /corporate/{en,de,fr}/media, /corporate/{en,de,fr}/media/media-request-form, /corporate/{en,de,fr}/media/media-permission, /content/dam/swiss/pdfs/corporate/geschaftsleitung/situation-maps-swiss.pdf; 3 forms tested 22:10-22:11 CET; media page links press releases and agenda to https://newsroom.swiss.com/en (not on our host), media gallery to brand.swiss.com"
         }
       }
     },
@@ -2048,11 +2048,11 @@
           "evidence": "2026-11-02: replica dialog 187 links (95 en, 92 de), all 187 /<cc>/<ll>/homepage answer 200 on b2b.turnsthe.page; www lists us/de, ca/de, mx/de, which answer 500"
         },
         "swiss": {
-          "status": "wip",
-          "note": "The dialog leads to Switzerland in English and German on the replica; the other countries open their homepage on www until their markets move.",
+          "status": "done",
+          "note": "The country dialog lists Switzerland in four languages and the 51 other countries in English, German, French and Italian (208 entries), all on the replica.",
           "page": "/ch/en/homepage",
           "footnote": "lxmarkets",
-          "evidence": "2026-11-02: replica dialog: 'Switzerland | English', 'Switzerland | Deutsch' (own), 'Other countries' select with 53 entries -> https://www.swiss.com/<cc>/en/homepage; brands.js BRAND_SITES.swiss rows ch/en, ch/de"
+          "evidence": "2026-11-02 23:5x: lh-com 5d92ffa; Studio tab on swiss.turnsthe.page at 1440 and 390: 208 entries, Allemagne | English opens /de/en/homepage; 204 market homepages 200"
         }
       }
     },
