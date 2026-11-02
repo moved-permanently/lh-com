@@ -40,13 +40,14 @@ const titleOf = (r) => clean(r['llms-title']) || clean(r.title).replace(/\s*\|\s
  * The locales of a request path: [cc/ll] or every locale of the market cc. served: the market
  * roots the host serves besides LOCALES (src/markets.js).
  */
-export function localesOf(pathname, served = []) {
+export function localesOf(pathname, served = [], locales = LOCALES) {
   const m = pathname.match(PATH);
   if (!m) return [];
   const [, cc, ll] = m;
-  const known = (k) => Boolean(LOCALES[k]) || served.includes(k);
-  // the market's locales in alphabetical order (de/de before de/en, as the curated /de/llms.txt)
-  const keys = ll ? [`${cc}/${ll}`] : [...Object.keys(LOCALES), ...served].filter((k) => k.startsWith(`${cc}/`)).sort();
+  const known = (k) => Boolean(locales[k]) || served.includes(k);
+  // the market's locales in alphabetical order (de/de before de/en, as the curated /de/llms.txt),
+  // each once (a live market root is in both lists)
+  const keys = ll ? [`${cc}/${ll}`] : [...new Set([...Object.keys(locales), ...served])].filter((k) => k.startsWith(`${cc}/`)).sort();
   return keys.filter(known);
 }
 

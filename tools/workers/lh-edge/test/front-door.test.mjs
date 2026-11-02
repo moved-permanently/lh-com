@@ -5,7 +5,7 @@
 import { test, beforeEach } from 'node:test';
 import assert from 'node:assert/strict';
 import worker from '../src/index.js';
-import { frontDoorTarget, frontDoorOf } from '../src/front-door.js';
+import { frontDoorTarget, frontDoorOf, frontDoorCountries } from '../src/front-door.js';
 import { resetRouterCache } from '../src/router.js';
 import { resetMarketCache } from '../src/markets.js';
 
@@ -69,9 +69,13 @@ const ORIGIN_PATHS = ['/de/en/homepage', '/de/en/baggage', '/de/en/addresses-wor
   '/sitemap/sitemap_lh_de_en.xml', '/llms.txt', '/robots.txt', '/scripts/aem.js', '/loginservice', '/seatmap/LH400', '/_lh-backends/health', '/migration', '/de/en/a.v1.sdui', '/chx/en/a'];
 
 test('the CDN rules: every sample path gets its target', () => {
-  EDGE.forEach((p) => assert.equal(frontDoorTarget(p), 'edge', p));
-  GATE.forEach((p) => assert.equal(frontDoorTarget(p), 'gate', p));
-  ORIGIN_PATHS.forEach((p) => assert.equal(frontDoorTarget(p), 'origin', p));
+  // the main host's countries today (frontDoorCountries: PILOT_COUNTRIES_BY_HOST's ch, no live
+  // market root)
+  const countries = frontDoorCountries('lufthansa.turnsthe.page', { PILOT_COUNTRIES_BY_HOST: 'lufthansa.turnsthe.page=ch' });
+  assert.deepEqual([...countries], ['ch']);
+  EDGE.forEach((p) => assert.equal(frontDoorTarget(p, countries), 'edge', p));
+  GATE.forEach((p) => assert.equal(frontDoorTarget(p, countries), 'gate', p));
+  ORIGIN_PATHS.forEach((p) => assert.equal(frontDoorTarget(p, countries), 'origin', p));
 });
 
 test('front-door hosts: FRONT_DOOR_HOSTS only (not lufthansa-edge, the China host or the rest of turnsthe.page)', () => {

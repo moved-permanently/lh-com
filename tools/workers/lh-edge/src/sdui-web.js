@@ -347,8 +347,9 @@ export async function sduiWeb(request, env) {
   const fullPath = spelling.path;
   const page = m[1].replace(/\.html$/, '');
   const locKey = page.split('/').slice(1, 3).join('/');
-  // the migrated locales, and the market roots this host serves (src/markets.js)
-  const locale = LOCALES[locKey] || servedLocale(request, env, locKey);
+  // the market roots this host serves (src/markets.js; live ones too, with their language
+  // version), and the migrated locales
+  const locale = servedLocale(request, env, locKey) || LOCALES[locKey];
   if (!locale) return json({ error: 'not-found' }, 404, 'no-store');
   // a market root's content pages are its language version's
   const version = locale.version || locKey;

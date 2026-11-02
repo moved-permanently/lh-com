@@ -22,8 +22,58 @@ export const LIVE_ORIGIN = 'https://www.lufthansa.com';
 export const LOCALES = Object.fromEntries(Object.entries(LOCALE_TABLE)
   .filter(([, row]) => row.status === 'live'));
 
-/** The keys of the migrated locales, e.g. for tools: ['de/en', 'de/de', 'at/de', 'gb/en']. */
-export const LIVE_ROOTS = Object.keys(LOCALES);
+/**
+ * The live roots with documents of their own (not a market root answered from its language
+ * version, tools/reports/markets/go-live.md): ['de/en', 'de/de', 'at/de', 'gb/en']. lh-edge's
+ * search data and the search tools read them; a live market root searches its language version's.
+ */
+export function liveOwnRoots(table = LOCALE_TABLE) {
+  return Object.keys(table)
+    .filter((k) => table[k].status === 'live' && table[k].documents !== 'language');
+}
+
+/** The migrated locales with their own documents (tools): ['de/en', 'de/de', 'at/de', 'gb/en']. */
+export const LIVE_ROOTS = liveOwnRoots();
+
+/**
+ * The roots of lh-com's country and language dialog: the live roots with documents of their own,
+ * and on a live market root's page (a wave of go-live.md) its country's live roots.
+ * @param {Object} locales the live rows (LOCALES)
+ * @param {string} current the page's root (ae/en)
+ */
+export function dialogRoots(locales, current) {
+  const own = Object.keys(locales).filter((k) => locales[k].documents !== 'language');
+  if (!locales[current] || locales[current].documents !== 'language') return own;
+  const cc = current.split('/')[0];
+  return [...own, ...Object.keys(locales).filter((k) => k.startsWith(`${cc}/`) && !own.includes(k)).sort()];
+}
+
+/**
+ * A page's counterpart in another live root from the locale map's rows ({de/en: path, ...}): a live
+ * market root's page (or target) through its language version's column; else the target's homepage.
+ * @param {Object[]} rows the locale map's pages
+ * @param {string} path the page (/ae/en/baggage)
+ * @param {string} targetKey the root to switch to
+ */
+export function counterpartIn(
+  rows,
+  path,
+  targetKey,
+  locales = LOCALES,
+  versions = LANGUAGE_VERSIONS,
+) {
+  const p = String(path).replace(/\.html$/, '').replace(/\/$/, '');
+  const market = (k) => Boolean(locales[k] && locales[k].documents === 'language');
+  const m = p.match(/^\/([a-z]{2}\/[a-z]{2})(\/.*|$)/);
+  const lookup = m && market(m[1]) ? `/${versions[locales[m[1]].lang]}${m[2]}` : p;
+  const row = (rows || []).find((r) => Object.values(r).includes(lookup));
+  if (market(targetKey)) {
+    const version = versions[locales[targetKey].lang];
+    const own = row && row[version];
+    return own ? `/${targetKey}${own.slice(version.length + 1)}` : `/${targetKey}/homepage`;
+  }
+  return (row && row[targetKey]) || `/${targetKey}/homepage`;
+}
 
 const wwwRoots = new Set(WWW_ROOTS.split(' '));
 
@@ -223,7 +273,10 @@ export function siteLocales(read = pageMeta) {
  */
 export function ownRoots(read = pageMeta) {
   const site = brandSite(read);
-  if (!site) return Object.keys(LOCALES);
+  if (!site) {
+    const here = typeof window !== 'undefined' && window.location ? (window.location.pathname.match(/^\/([a-z]{2}\/[a-z]{2})(\/|$)/) || [])[1] : '';
+    return dialogRoots(LOCALES, here || '');
+  }
   return Object.keys(site.rows).filter((root) => site.names[root] || site.rows[root].label);
 }
 
@@ -307,7 +360,5 @@ export async function getCounterpartPath(targetKey, pathname = window.location.p
       localeMap = [];
     }
   }
-  const path = pathname.replace(/\.html$/, '').replace(/\/$/, '');
-  const row = localeMap.find((r) => Object.values(r).includes(path));
-  return (row && row[targetKey]) || `/${targetKey}/homepage`;
+  return counterpartIn(localeMap, pathname, targetKey);
 }

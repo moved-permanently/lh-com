@@ -24,7 +24,8 @@ import { LIVE_ROOTS } from '../../../../scripts/locale.js';
 export const SEARCH_PATH = '/service/secured/api/search';
 export const isSearchPath = (pathname) => pathname === SEARCH_PATH;
 
-// the migrated locales, from the locale table (scripts/locale-table.js)
+// the migrated locales with search indexes of their own (scripts/locale.js LIVE_ROOTS: a live
+// market root searches its language version's, as a pilot root does)
 const LOCALES = LIVE_ROOTS;
 const INVALID = { error: 'Invalid input', errors: [], validationErrors: [] };
 const INDEX_TTL_MS = 60000;
@@ -36,14 +37,14 @@ const json = (body, status = 200) => new Response(JSON.stringify(body), {
   headers: { 'content-type': 'application/json', 'x-lh-edge-route': 'search' },
 });
 
-/** The replica locale of www's market headers, or null. */
-export function searchLocale(site, language) {
+/** The replica locale of www's market headers, or null. roots: the locales with search data. */
+export function searchLocale(site, language, roots = LOCALES) {
   const cc = String(site || '').trim().toLowerCase();
   const ll = String(language || '').trim().toLowerCase();
   if (!/^[a-z]{2}$/.test(cc) || !/^[a-z]{2}$/.test(ll)) return null;
   const key = `${cc}/${ll}`;
-  if (LOCALES.includes(key)) return key;
-  return LOCALES.find((l) => l.endsWith(`/${ll}`) && l.startsWith('de/')) || LOCALES.find((l) => l.endsWith(`/${ll}`)) || null;
+  if (roots.includes(key)) return key;
+  return roots.find((l) => l.endsWith(`/${ll}`) && l.startsWith('de/')) || roots.find((l) => l.endsWith(`/${ll}`)) || null;
 }
 
 /** The prepared rows of a locale's search index (kept for a minute per isolate). */

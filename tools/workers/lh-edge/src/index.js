@@ -47,7 +47,9 @@ import {
   routerConfig, choose, defaultOrigin, finish,
 } from './router.js';
 import { referrerRefusal } from './referrer.js';
-import { frontDoorOf, frontDoorTarget, withPublicHost } from './front-door.js';
+import {
+  frontDoorOf, frontDoorTarget, frontDoorCountries, withPublicHost,
+} from './front-door.js';
 import { headUrlHost, rewriteHeadUrls } from './head-urls.js';
 import { rewriteBrandIcons } from './brand-icons.js';
 import {
@@ -339,7 +341,7 @@ async function respond(incoming, env, ctx, forms = true) {
   const door = frontDoorOf(incoming, env);
   if (door) {
     request = withPublicHost(incoming, door);
-    const target = frontDoorTarget(new URL(request.url).pathname);
+    const target = frontDoorTarget(new URL(request.url).pathname, frontDoorCountries(door, env));
     if (target === 'gate') return finish(await backends(request, env), request, env, 'gate');
     if (target === 'origin') return finish(await passThrough(request, env), request, env, 'pass-through');
     // OF1's generative search API (src/of1.js): the front door only, never cached or rewritten

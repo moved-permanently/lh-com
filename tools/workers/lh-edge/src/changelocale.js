@@ -14,7 +14,7 @@
  * - Any other body: 400.
  */
 /* eslint-disable import/no-relative-packages */
-import { LOCALES, getHomepageUrl } from '../../../../scripts/locale.js';
+import { LOCALES, getHomepageUrl, counterpartIn } from '../../../../scripts/locale.js';
 /* eslint-enable import/no-relative-packages */
 import { readOrigin } from './sheet.js';
 
@@ -36,14 +36,14 @@ export function visitorCountry(request) {
 }
 
 /**
- * The target of a switch: the page's counterpart in `cc/ll` from the locale map rows, else the
+ * The target of a switch: the page's counterpart in `cc/ll` from the locale map rows (a live
+ * market root's through its language version's column, scripts/locale.js counterpartIn), else the
  * locale's homepage (www's for a market the replica does not have).
  */
-export function switchTarget(page, cc, ll, rows) {
+export function switchTarget(page, cc, ll, rows, locales = LOCALES) {
   const key = `${cc}/${ll}`;
-  if (!LOCALES[key]) return getHomepageUrl(cc, ll);
-  const row = (rows || []).find((r) => Object.values(r).includes(page));
-  return (row && row[key]) || `/${key}/homepage`;
+  if (!locales[key]) return getHomepageUrl(cc, ll);
+  return counterpartIn(rows || [], page, key, locales);
 }
 
 const json = (body, status = 200, extra = {}) => new Response(JSON.stringify(body), {

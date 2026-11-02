@@ -20,6 +20,14 @@ export function buildTable(
   data = JSON.parse(fs.readFileSync(path.join(root, 'tools/markets/locale-data.json'), 'utf8')),
 ) {
   const www = new Map(roots.map((r) => [r.root, r]));
+  // the go-live switch (tools/reports/markets/go-live.md): the pilot rows of these waves (a
+  // rollout batch by number, a country by its code: "ch") are live; [] or none: as they are
+  const waves = data.liveWaves || [];
+  const inWave = (key, row, w) => (typeof w === 'number' ? row.batch === w : key.startsWith(`${w}/`));
+  waves.forEach((w) => {
+    if (!Object.entries(data.roots).some(([k, r]) => r.status === 'pilot' && inWave(k, r, w))) throw new Error(`wave ${w}: no pilot rows`);
+  });
+  const liveNow = (key, row) => row.status === 'pilot' && waves.some((w) => inWave(key, row, w));
   const rows = {};
   Object.entries(data.roots).forEach(([key, row]) => {
     const r = www.get(key);
@@ -29,7 +37,7 @@ export function buildTable(
       country,
       lang,
       hreflang: r.hreflang.find((h) => h.includes('-')) || `${lang}-${country.toUpperCase()}`,
-      status: row.status,
+      status: liveNow(key, row) ? 'live' : row.status,
       documents: row.documents || 'own',
       name: row.name,
       countryName: row.countryName,
