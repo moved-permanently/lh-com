@@ -69,8 +69,8 @@ const ORIGIN_PATHS = ['/de/en/homepage', '/de/en/baggage', '/de/en/addresses-wor
   '/sitemap/sitemap_lh_de_en.xml', '/llms.txt', '/robots.txt', '/scripts/aem.js', '/loginservice', '/seatmap/LH400', '/_lh-backends/health', '/migration', '/de/en/a.v1.sdui', '/chx/en/a'];
 
 test('the CDN rules: every sample path gets its target', () => {
-  // the main host's countries today (frontDoorCountries: PILOT_COUNTRIES_BY_HOST's ch, no live
-  // market root)
+  // the main host's countries with no wave live (frontDoorCountries: PILOT_COUNTRIES_BY_HOST's ch;
+  // the tests load the table as with liveWaves [], test/cloudflare-workers-shim.mjs)
   const countries = frontDoorCountries('lufthansa.turnsthe.page', { PILOT_COUNTRIES_BY_HOST: 'lufthansa.turnsthe.page=ch' });
   assert.deepEqual([...countries], ['ch']);
   EDGE.forEach((p) => assert.equal(frontDoorTarget(p, countries), 'edge', p));

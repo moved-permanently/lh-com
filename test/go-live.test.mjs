@@ -21,14 +21,16 @@ const read = (u) => JSON.parse(fs.readFileSync(new URL(u, import.meta.url), 'utf
 const ROOTS = read('../tools/source-export/feeds/sitemaps/roots.json').roots;
 const DATA = read('../tools/markets/locale-data.json');
 
-test('liveWaves [] (today): the table as without the setting; every rollout row pilot', () => {
-  assert.deepEqual(DATA.liveWaves, [], 'no wave is live yet');
+test('liveWaves []: the table as without the setting, every rollout row pilot; the committed table follows the setting', () => {
+  assert.ok(Array.isArray(DATA.liveWaves), 'the setting is there');
   const none = buildTable(ROOTS, { ...DATA, liveWaves: [] });
   const without = { ...DATA };
   delete without.liveWaves;
   assert.deepEqual(none, buildTable(ROOTS, without));
   assert.equal(Object.values(none.rows).filter((r) => r.status === 'live').length, 4);
-  assert.ok(fs.readFileSync(OUT, 'utf8').includes("'ae/en': { country: 'ae', lang: 'en', hreflang: 'en-AE', status: 'pilot'"));
+  // ae/en (wave 1) in scripts/locale-table.js as the committed setting says
+  const ae = DATA.liveWaves.includes(1) ? 'live' : 'pilot';
+  assert.ok(fs.readFileSync(OUT, 'utf8').includes(`'ae/en': { country: 'ae', lang: 'en', hreflang: 'en-AE', status: '${ae}'`));
 });
 
 test('liveWaves [1]: batch 1\'s rows live, batch 2\'s and ch pilot; ["ch"]: ch\'s rows; an unknown wave is an error', () => {

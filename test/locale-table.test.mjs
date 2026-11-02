@@ -61,7 +61,7 @@ test('paths without a root keep the default locale de/de (app screens, fragments
   });
 });
 
-test('ch/en and ch/de: their own rows (CHF, ZRH, Europe/Zurich), not migrated (links to them stay on www)', () => {
+test('ch/en and ch/de: their own rows (CHF, ZRH, Europe/Zurich), not migrated until a go-live wave (links to them on www until then)', () => {
   const en = getLocale('/ch/en/homepage');
   assert.deepEqual({
     ...core(en), key: en.key, base: en.base, timeZone: en.timeZone,
@@ -69,9 +69,12 @@ test('ch/en and ch/de: their own rows (CHF, ZRH, Europe/Zurich), not migrated (l
     country: 'ch', lang: 'en', homeAirport: 'ZRH', currency: 'CHF', key: 'ch/en', base: '/ch/en', timeZone: 'Europe/Zurich',
   });
   assert.equal(getLocale('/ch/de/x').name, 'Schweiz | Deutsch');
-  assert.ok(!LOCALES['ch/en'] && !LOCALES['ch/de']);
-  assert.ok(!isMigratedLocale('ch', 'en'));
-  assert.equal(getHomepageUrl('ch', 'de'), 'https://www.lufthansa.com/ch/de/homepage');
+  // migrated once the go-live setting lists ch (tools/reports/markets/go-live.md), else pilot
+  const { liveWaves = [] } = JSON.parse(fs.readFileSync('tools/markets/locale-data.json', 'utf8'));
+  const live = liveWaves.includes('ch');
+  assert.equal(Boolean(LOCALES['ch/en'] && LOCALES['ch/de']), live);
+  assert.equal(isMigratedLocale('ch', 'en'), live);
+  assert.equal(getHomepageUrl('ch', 'de'), live ? '/ch/de/homepage' : 'https://www.lufthansa.com/ch/de/homepage');
 });
 
 test('a root without a row: its own country and language, no home airport or currency, its language version\'s documents', () => {

@@ -13,6 +13,9 @@ import { frontDoorTarget, frontDoorCountries } from '../src/front-door.js';
 import { searchLocale } from '../src/search.js';
 import { localesOf } from '../src/llms.js';
 import { switchTarget } from '../src/changelocale.js';
+/* eslint-disable import/no-relative-packages */
+import { LOCALE_TABLE } from '../../../../scripts/locale-table.js';
+/* eslint-enable import/no-relative-packages */
 
 const MAIN = 'lufthansa.turnsthe.page';
 const ENV = {
@@ -28,7 +31,9 @@ const WAVE1 = { ...TODAY, 'ae/en': row('ae', 'en', 'live', 'language'), 'ae/de':
 
 test('front door countries: today ch (the host\'s pilot countries); a wave adds its live market roots\' countries', () => {
   assert.deepEqual([...frontDoorCountries(MAIN, ENV, TODAY)], ['ch']);
-  assert.deepEqual([...frontDoorCountries(MAIN, ENV)].sort(), ['ch'], 'the real table: no live market root yet');
+  // the real table as the tests load it (liveWaves [], test/cloudflare-workers-shim.mjs): ch only
+  assert.equal(Object.values(LOCALE_TABLE).filter((r) => r.status === 'live' && r.documents === 'language').length, 0);
+  assert.deepEqual([...frontDoorCountries(MAIN, ENV)], ['ch']);
   assert.deepEqual([...frontDoorCountries(MAIN, ENV, WAVE1)].sort(), ['ae', 'ch']);
   assert.deepEqual([...frontDoorCountries('other.example', ENV, WAVE1)], ['ae'], 'another host: live ones only');
 });
@@ -63,5 +68,5 @@ test('the language switch endpoint: a live market root\'s counterpart through it
   const live = { 'de/en': row('de', 'en', 'live', 'own'), 'de/de': row('de', 'de', 'live', 'own'), 'ae/de': row('ae', 'de', 'live', 'language') };
   assert.equal(switchTarget('/de/en/baggage', 'de', 'de', rows), '/de/de/gepaeck', 'as before');
   assert.equal(switchTarget('/de/en/baggage', 'ae', 'de', rows, live), '/ae/de/gepaeck');
-  assert.match(switchTarget('/de/en/baggage', 'ae', 'de', rows), /^https:\/\/www\.lufthansa\.com\/ae\/de\/homepage$/, 'today: ae is not live, www');
+  assert.match(switchTarget('/de/en/baggage', 'fr', 'fr', rows), /^https:\/\/www\.lufthansa\.com\/fr\/fr\/homepage$/, 'a root without a row: www');
 });
