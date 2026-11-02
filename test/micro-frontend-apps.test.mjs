@@ -139,3 +139,23 @@ test('lufthansa.com\'s module apps from the page\'s own /digitalhangar/ where th
   // without a host: the page's (main--lh-com…aem.page here, which serves no /digitalhangar/)
   assert.equal(mountPlan(blockOf([['claim-form-entry']]), null, { country: 'de', lang: 'en' }).scripts[1].src, `https://www.lufthansa.com${CLAIM}`);
 });
+
+// brief 264: SWISS's apps (help center, culinary hub) and their design system from the page's own
+// /digitalhangar/ where the host serves it (lh-edge answers it from www.swiss.com): no visitor's
+// browser asks www.swiss.com; SWISS's release and theme as its www's app pages (mausy-v1.40.1,
+// swiss.css). The other brands as before.
+test('SWISS\'s apps and design system from the page\'s own /digitalhangar/ (swiss.turnsthe.page)', () => {
+  const locale = { country: 'ch', lang: 'en', brand: 'swiss' };
+  const hc = mountPlan(blockOf([['help-center-web']]), BRANDS.swiss, locale, 'swiss.turnsthe.page');
+  assert.equal(hc.css, 'https://swiss.turnsthe.page/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/css/swiss.css');
+  assert.deepEqual(hc.scripts, [
+    { src: 'https://swiss.turnsthe.page/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/packages/maui-design-system.js', module: true },
+    { src: 'https://swiss.turnsthe.page/digitalhangar/cs-help-center/help-center-web/help-center-web-4.3.1.js', module: true },
+  ]);
+  const cul = mountPlan(blockOf([['culinary-hub']]), BRANDS.swiss, { ...locale, lang: 'de' }, 'swiss.turnsthe.page');
+  assert.equal(cul.scripts[1].src, 'https://swiss.turnsthe.page/digitalhangar/onecatering/culinary-hub/culinary-hub-latest.js');
+  assert.equal(cul.css, 'https://swiss.turnsthe.page/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/css/swiss.css');
+  assert.ok([...hc.scripts, ...cul.scripts].every((s) => !s.src.includes('www.swiss.com')), 'nothing from www.swiss.com');
+  const aua = mountPlan(blockOf([['help-center-web']]), BRANDS.austrian, { country: 'at', lang: 'en', brand: 'austrian' }, 'austrian.turnsthe.page');
+  assert.equal(aua.scripts[1].src, 'https://www.austrian.com/digitalhangar/cs-help-center/help-center-web/help-center-web-4.3.1.js', 'Austrian as before');
+});

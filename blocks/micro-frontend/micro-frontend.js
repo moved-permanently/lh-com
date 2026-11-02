@@ -37,7 +37,13 @@ const BRAND_DESIGN_SYSTEMS = {
   'www.ita-airways.com': { release: 'mausy-v1.40.1', theme: 'ita' },
   // www's culinaryjourney pages (2026-10-27): v1.38.0, discover.css
   'www.discover-airlines.com': { release: 'v1.38.0', theme: 'discover' },
+  // www's help center and culinary journey pages (the snapshots): mausy-v1.40.1, swiss.css
+  'www.swiss.com': { release: 'mausy-v1.40.1', theme: 'swiss' },
 };
+
+// the brands whose apps and design system load from the page's own /digitalhangar/ where the host
+// serves it (lh-edge answers it from the brand's www): no visitor's browser asks their www
+const OWN_HOST_BRANDS = ['www.swiss.com'];
 
 /**
  * The apps the block knows: name (the block's first cell) -> element, script and www's classes.
@@ -137,13 +143,17 @@ export function configOf(block) {
  * meta} for the page's brand entry, locale and host, or null for an unknown app. A lufthansa.com
  * page's module app (www.lufthansa.com sends its scripts without Access-Control-Allow-Origin, so
  * a module from there is refused on our hosts) loads from the page's own /digitalhangar/ where the
- * host serves it; the brands' apps from their www, the classic scripts from www, as before.
+ * host serves it; the brands' apps from their www (SWISS's, OWN_HOST_BRANDS, from the page's own
+ * /digitalhangar/ where the host serves it), the classic scripts from www, as before.
  */
 export function mountPlan(block, brand, locale, hostname = window.location.hostname) {
   const app = appOf(block);
   if (!app) return null;
   const ownHost = app.path && app.module && !brand && servesDigitalHangar(hostname);
-  const brandWww = app.path && brand && brand.www ? `https://${brand.www}` : WWW;
+  const brandOwn = Boolean(brand && OWN_HOST_BRANDS.includes(brand.www))
+    && servesDigitalHangar(hostname);
+  let brandWww = app.path && brand && brand.www ? `https://${brand.www}` : WWW;
+  if (app.path && brandOwn) brandWww = `https://${hostname}`;
   const www = ownHost ? `https://${hostname}` : brandWww;
   const design = app.brandDesign && brand ? BRAND_DESIGN_SYSTEMS[brand.www] : null;
   // the brand's design system from its www; a lufthansa.com app's own release from www
