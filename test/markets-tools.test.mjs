@@ -20,8 +20,26 @@ test('rollout: batches of about 10 countries (only en and de first), a small rem
   const table = {
     'de/en': {}, 'de/de': {}, 'at/de': {}, 'aa/en': { batch: 1 },
   };
-  const b = batches(roots, table, 2);
+  const b = batches(roots, table, 2, []);
   assert.deepEqual(b.map((x) => x.roots), [['aa/en', 'at/en', 'bb/de'], ['cc/en', 'dd/de', 'dd/en']]);
+});
+
+test('rollout: a language batch after the en and de ones: French (batch 11), its market roots with its language version fr/fr', () => {
+  const r = (root) => ({
+    root, cc: root.slice(0, 2), ll: root.slice(3), ownSitemap: true,
+  });
+  const roots = ['de/en', 'de/de', 'aa/en', 'bb/de', 'fr/fr', 'ch/fr', 'be/fr', 'ch/en', 'xx/fr', 'dd/es'].map(r);
+  roots.find((x) => x.root === 'xx/fr').ownSitemap = false;
+  const table = { 'de/en': {}, 'de/de': {}, 'ch/en': {} };
+  const b = batches(roots, table, 10, [{ lang: 'fr', version: 'fr/fr' }]);
+  assert.deepEqual(b.map((x) => [x.n, x.roots, x.version || null]), [[1, ['aa/en', 'bb/de'], null], [2, ['be/fr', 'ch/fr'], 'fr/fr']]);
+  assert.deepEqual(b[1].countries, ['be', 'ch']);
+  assert.equal(b[1].lang, 'fr');
+  // the real data: batch 11, 13 French market roots
+  const fr = batches().find((x) => x.lang === 'fr');
+  assert.equal(fr.n, 11);
+  assert.deepEqual(fr.roots, ['ar/fr', 'be/fr', 'ca/fr', 'ch/fr', 'cl/fr', 'co/fr', 'cr/fr', 'dz/fr', 'gq/fr', 'lu/fr', 'ma/fr', 'tn/fr', 'us/fr']);
+  assert.equal(fr.version, 'fr/fr');
 });
 
 test('rollout: own pages without AEM configuration pages, stale-file URLs and test pages', () => {
