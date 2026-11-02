@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-02 13:36",
-  "change": "SWISS: new column (Switzerland in English and German live since 2 November).",
+  "updated": "2026-11-02 18:14",
+  "change": "SWISS: its notices are live, and its login and profile pages are on the replica; manage booking ends there.",
   "legend": {
     "done": {
       "label": "works on our replica",
@@ -34,7 +34,7 @@
   "footnotes": {
     "adbooking": "Air Dolomiti sells through its own booking engine, not Lufthansa's shop. Since 1 November the search form is on the replica's homepages, route pages and booking pages and hands the trip to that engine, as www does; the engine's bot check can show a captcha, as it can on www.",
     "lhbooking": "Lufthansa's manage booking and hotel tabs hand over to two services that run in AEM today. Their replacements answer with test data, and since 1 November the tabs post to them on the airline's own address; on the replica's addresses they keep opening www, so no real booking reaches test data.",
-    "signin": "On Discover, ITA, Austrian and Brussels Airlines, manage booking goes through a deep link to the login and profile pages, which are on the new platform since 1 November. The services behind the deep link answer with test data, and since 1 November the replicas' addresses route the deep link to them, so it ends on the replica's login page.",
+    "signin": "On Discover, ITA, Austrian, Brussels Airlines and SWISS, manage booking goes through a deep link to the login and profile pages, which are on the new platform since 1 November (SWISS's since 2 November). The services behind the deep link answer with test data, and the replicas' addresses route the deep link to them, so it ends on the replica's login page.",
     "travelidapps": "The help center, culinary hub and compensation claim apps are in the shared code and load on our pages, but their data comes from the airline's Travel ID service (and, for the claim, Miles & More's booking service), which refuses our test addresses. They work once the site runs on the airline's own address, or once Lufthansa allows ours.",
     "adown": "Switching off Air Dolomiti's current website is a goal, so its timetable, manage booking, newsletter and eSIM pages get versions of their own. Its booking service answers our addresses, so timetable and manage booking can work as on www; the newsletter becomes a form on our own forms service.",
     "cargostays": "Cargo's booking, schedules, customer portal, station finder and eServices stay on Cargo's current systems; the new site links to them.",
@@ -47,7 +47,6 @@
     "snchat": "Brussels Airlines' chat assistant loads from Brussels Airlines' website, outside AEM, as Austrian's does. Since 1 November its button shows on the pages that have it on www, in all six languages.",
     "adesim": "Air Dolomiti's eSIM shop (from the vendor Breeze) is built into the replica, but its switch stays off: Breeze answers every call from our address with 403, because the widget's key belongs to Air Dolomiti's site. It works once Air Dolomiti or Breeze allows our address.",
     "b2bsignin": "Lufthansa Group for Business has two sign-ins in AEM today, one for companies and one for travel agencies (eXperts), each with a member area. Their replacement follows the other airlines' sign-ins, with test data first; showing real member data needs Lufthansa to let it reach its user and role systems. Until then the replica links to the current sign-ins.",
-    "lxsignin": "SWISS's login, profile and travel cockpit pages, which the other airlines' replicas got on 1 November, aren't on the SWISS replica yet: \"My flights\", \"Manage bookings\" and the cart link to www.swiss.com, and the check-in form opens www's check-in page. The booking, check-in and deep link services that are rebuilt outside AEM answer for Austrian, Discover and ITA on test data, not yet for SWISS.",
     "lxmarkets": "Only Switzerland in English and German is on the new platform so far. SWISS's other 51 countries, Switzerland's eight other languages and Korean follow root by root; until then the country dialog opens their homepage on www.swiss.com."
   },
   "brands": [
@@ -349,10 +348,9 @@
         },
         "swiss": {
           "status": "wip",
-          "note": "The check-in form opens www's check-in page, where travellers type their booking code again; on SWISS's own address it posts to www's check-in service, which runs in AEM and has no replacement for SWISS yet.",
+          "note": "The check-in form still opens www's check-in page. The check-in service it uses on www.swiss.com runs in AEM; its rebuild outside AEM answers for SWISS on test data since 2 November, and the form doesn't use it yet.",
           "page": "/ch/en/fly/check-in/online-check-in",
-          "footnote": "lxsignin",
-          "evidence": "2026-11-02: replica booking-lookup row Submit URL https://www.swiss.com/ch/en/fly/check-in/online-check-in (no booking fields in the URL; post mode only on www.swiss.com, scripts/handoff.js); from snapshot: www's check-in tab is the flight manager's fktnCheckinRequest form (POST /service/secured/api/core/checkin/fktn, AEM); lh-backends entry test: tenants without a booking configuration (Swiss, Brussels) answer 500"
+          "evidence": "2026-11-02: lh-backends cd329fe, check-in with X-Portal LX on swiss.turnsthe.page 200 (OneBooking mock, tenant LX); 2026-11-02: replica booking-lookup row Submit URL https://www.swiss.com/ch/en/fly/check-in/online-check-in (no booking fields in the URL; post mode only on www.swiss.com, scripts/handoff.js); from snapshot: www's check-in tab is the flight manager's fktnCheckinRequest form (POST /service/secured/api/core/checkin/fktn, AEM); lh-backends entry test: tenants without a booking configuration (Swiss, Brussels) answer 500"
         }
       }
     },
@@ -414,9 +412,9 @@
         },
         "swiss": {
           "status": "wip",
-          "note": "\"Manage bookings\" and \"My flights\" link to www's travel cockpit deep link, as on www; SWISS's login and cockpit pages aren't on the replica yet.",
-          "footnote": "lxsignin",
-          "evidence": "2026-11-02: replica header and menu link https://www.swiss.com/deeplink/cockpit?country=CH&language=EN; swiss.turnsthe.page /ch/en/login, /ch/en/profile/login, /ch/en/profile/my-account and /deeplink/cockpit answer 404"
+          "note": "\"My flights\" and \"Manage bookings\" lead to SWISS's login page, which is on the replica since 2 November (ch/en, ch/de); the deep link to the travel cockpit also ends there now.",
+          "footnote": "signin",
+          "evidence": "2026-11-02: lh-backends cd329fe (tenant LX), lh-com 8d5f4a48; menu links job-2026-11-02-13-54-44-7ae5700f; POST /deeplink/cockpit -> 302 -> /ch/en/login 200"
         }
       }
     },
@@ -1338,10 +1336,10 @@
           "evidence": "groundwork: outage-b2b answers an empty list, no messagecenter component on 569 pages; lh-messages answers outage-b2b on lufthansa.turnsthe.page (2026-11-02: empty list, 200); b2b.turnsthe.page has no /graphql route (404)"
         },
         "swiss": {
-          "status": "wip",
-          "note": "The notice strip and the current information page are on the replica, but SWISS's messages aren't there yet: www showed two on 2 November, the replica none.",
+          "status": "done",
+          "note": "SWISS's notices show from its own messages; the twice-daily sync copies them from www, which showed two on 2 November (flights to Dubai, the Edelweiss booking outage).",
           "page": "/ch/en/fly/flight-information/current-information",
-          "evidence": "2026-11-02: swiss.turnsthe.page /message-center/index.json and /message-center/config/cti-pages.json answer 404; flash-teaser and message-center blocks load empty; brands.js messageCenter lx; from snapshot: www's homepage strip 2 messages (Dubai flights, Edelweiss booking service maintenance 3-4 Nov), current-information the Dubai message"
+          "evidence": "2026-11-02 17:13: swiss.turnsthe.page /message-center/index.json 5 rows; homepage strip 2 slides on ch/en and ch/de; Message Center sync 6th run, publish job-2026-11-02-16-12-48-809595d2"
         }
       }
     },
@@ -1930,10 +1928,9 @@
           "evidence": "2026-11-02: replica header Login links www /de/en/login and /service/secured/api/experts/login?country=de&language=en (country=de on every market root; www carries the root's country); PartnerPlusBenefit portal link unchanged; AMS-rest inventory: B2B sign-in has no owner yet"
         },
         "swiss": {
-          "status": "wip",
-          "note": "Login goes to SWISS's Travel ID, which stays; the login, profile and cockpit pages for visitors who aren't signed in, and the cart, aren't on the replica yet.",
-          "footnote": "lxsignin",
-          "evidence": "2026-11-02: replica header Login -> https://api.travelid.swiss.com/oauth2/userAuthorize?client_id=sAwlvr... redirect_uri https://www.swiss.com; 'Shopping cart preview' links the homepage (www: dcep-shopping-cart); /ch/en/login, /ch/en/profile/* 404; groundwork: 3,906 login and profile shell URLs left out (built outside EMA)"
+          "status": "elsewhere",
+          "note": "Login goes to SWISS's Travel ID, which stays; the login and profile pages for visitors who aren't signed in are on the replica since 2 November (ch/en, ch/de).",
+          "evidence": "2026-11-02: lh-com 126ecf05, 552aefce (lh-app SWISS entry); 32 login and profile pages published, job-2026-11-02-13-54-37-1adf15be; all 200 on swiss.turnsthe.page, login link to api.travelid.swiss.com with SWISS's client"
         }
       }
     },
