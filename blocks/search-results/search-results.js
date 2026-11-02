@@ -58,6 +58,22 @@ const DEFAULT_LABELS = {
     'next label': 'Page suivante',
     'page label': 'Page {PAGE}',
   },
+  // es: the search field of the Spanish footers of www (its searchBar text); the others in the
+  // same wording, the replica own
+  es: {
+    'input label': 'Término de búsqueda',
+    'search button label': 'Buscar',
+    'search for label': 'Su búsqueda: {QUERY}',
+    'results label': '{NUMBER} resultados',
+    'no results label': 'No se han encontrado resultados. Ajuste su búsqueda e inténtelo de nuevo.',
+    'failed label': 'No se han podido cargar sus resultados de búsqueda.',
+    'failed sr label': 'No se han podido cargar los resultados de búsqueda.',
+    'success sr label': 'Resultados de búsqueda cargados.',
+    'pagination label': 'Paginación inferior',
+    'previous label': 'Página anterior',
+    'next label': 'Página siguiente',
+    'page label': 'Página {PAGE}',
+  },
 };
 
 /** www's label keys (searchResultsAEM, searchBar) for the strings above. */

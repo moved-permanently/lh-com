@@ -126,6 +126,37 @@ const DEFAULT_LABELS = {
     'stepper increase': 'Augmenter',
     'repeat remove': 'Supprimer',
   },
+  // es: the texts of www on the Spanish form pages and in its Spanish label bundle common (the
+  // file drop zone), recorded 2026-11-02; the others in the same wording, the replica own
+  es: {
+    'sent message': 'Este es un formulario de vista previa. No se ha enviado nada.',
+    'success message': 'Gracias. Su solicitud ha sido enviada.',
+    sending: 'Enviando…',
+    yes: 'Sí',
+    no: 'No',
+    'submit label': 'Enviar',
+    'required marker': '*',
+    'required text': '(obligatorio)',
+    'file none label': 'Ningún archivo seleccionado',
+    'checkbox group error': 'Seleccione al menos una opción.',
+    'required error': 'Rellene este campo.',
+    'format error': 'Compruebe su entrada.',
+    'file prompt': 'Arrastre y suelte sus archivos aquí',
+    'file or': 'o',
+    'file select': 'Seleccionar archivo(s)',
+    'file list headline': 'Archivos cargados',
+    'file remove': 'Eliminar {NAME}',
+    'file required': 'La carga de archivos es obligatoria',
+    'file invalid type': 'Cargue un archivo de un tipo aceptado',
+    'file too big': 'Cargue un archivo de un tamaño aceptado',
+    'file invalid name': 'El nombre del archivo contiene un carácter no válido',
+    'file too many': 'No se pueden cargar más de {MAX}',
+    'file total': 'Todos los archivos juntos: máx. {TOTAL}',
+    'send error': 'Lo sentimos, su solicitud no se ha podido enviar. Inténtelo de nuevo.',
+    'stepper decrease': 'Disminuir',
+    'stepper increase': 'Aumentar',
+    'repeat remove': 'Eliminar',
+  },
 };
 
 /**
