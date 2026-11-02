@@ -271,3 +271,29 @@ itself when it opens (about 1.1 s on a first visit), covers the page and does no
 when it closes (OneTrust's behaviour, left as it is). The showcase notice opened over it at 1.8 s
 and took the focus too; on SWISS it now waits while a form field has the focus
 (`scripts/showcase-notice.js`; the other brands as before).
+
+## Destination images, large heroes, the flight search's teaser text (brief 263, 2026-11-02)
+
+Destination images: the fare teaser, slider and grid read SWISS's own folder
+`/content/dam/lx/images/offers/destination` (`scripts/brands.js` destinationImages; www's fare
+widgets' imageBaseUrl in the snapshots, `{code}-square.jpg` as Lufthansa's). For the capture:
+`lh-swiss-destination-images.tsv`, 732 codes: the 39 the snapshots' widgets show (SWISS also uses
+city codes: LON, NYC, ROM, SAO, BUH), 2 more with a stage image, the rest from lh-com's destination
+image lists; www does not have every code. Until the files are in DA the images stay missing.
+
+Large images: of the images shown full width (hero-card-overlay, hero-campaign, the flight
+search's background, carousel-images, stage sections) one was copied from a rendition under
+1,400 px while www offers a wider one: the Bengaluru picture
+(`frontify_variations/6/c-1455672767-478966716.jpg`), 720 px, www 2560 px, the hero of both
+homepages and the flight-search background of the 9 flight pages (`lh-swiss-large-images.tsv`).
+Black Friday's own header (1,395 px) is www's original; booking-lookup's and the sections' small
+pictures are www's 2560 rendition of small assets.
+
+The flight search's teaser text: a `Background teaser` row (eyebrow, heading, link) shows as a card
+in the band above the search, from www's flight manager's promotionTeaser (title, displayText,
+link; `swiss-import.mjs` withFlightSearchTeaser) on the 9 flight pages. The snapshots carry the
+teaser's data, not its rendered look (www's flight manager draws it in the browser), so the card
+is SWISS's main-stage teaser card for the same teaser (light, 8 px radius, 40/48 px). Pages
+without the row: the band as before.
+
+The showcase notice waits while a form field has the focus on every brand.
