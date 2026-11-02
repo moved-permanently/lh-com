@@ -76,8 +76,9 @@ export function resetMarketCache() {
 const listVar = (v) => String(v || '').split(',').map((h) => h.trim().toLowerCase()).filter(Boolean);
 
 /**
- * The pilot countries a host shows (var PILOT_COUNTRIES_BY_HOST: "host=cc|cc; host2=cc", e.g.
- * "lufthansa.turnsthe.page=ch"), parsed once per value: {host: Set of countries}.
+ * The pilot roots a host shows (var PILOT_COUNTRIES_BY_HOST: "host=cc|cc/ll; host2=cc", e.g.
+ * "lufthansa.turnsthe.page=ch/en|ch/de"): a country is all of its rows, a root that row only;
+ * parsed once per value: {host: Set of countries and roots}.
  */
 const pilotCountries = new Map();
 function pilotCountriesOf(value) {
@@ -95,15 +96,16 @@ function pilotCountriesOf(value) {
 
 /**
  * The market roots this request's host serves: live ones everywhere, pilot ones on PILOT_HOSTS
- * (all of them) and on the hosts of PILOT_COUNTRIES_BY_HOST (those countries' only).
+ * (all of them) and on the hosts of PILOT_COUNTRIES_BY_HOST (those countries' and roots' only);
+ * t: the tables (the request's site's unless given).
  */
-export function servedMarketRoots(request, env) {
+export function servedMarketRoots(request, env, t = tables(env)) {
   const host = publicHost(request, env).toLowerCase();
   const pilot = listVar(env.PILOT_HOSTS).includes(host);
-  const countries = pilot ? null : pilotCountriesOf(env.PILOT_COUNTRIES_BY_HOST)[host];
-  const { table, marketRoots } = tables(env);
+  const shown = pilot ? null : pilotCountriesOf(env.PILOT_COUNTRIES_BY_HOST)[host];
+  const { table, marketRoots } = t;
   return marketRoots.filter((k) => table[k].status === 'live'
-    || (table[k].status === 'pilot' && (pilot || Boolean(countries && countries.has(table[k].country)))));
+    || (table[k].status === 'pilot' && (pilot || Boolean(shown && (shown.has(table[k].country) || shown.has(k))))));
 }
 
 // the `markets` rule, shared with the site (page and section metadata)

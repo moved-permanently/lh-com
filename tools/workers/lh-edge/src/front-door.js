@@ -52,7 +52,8 @@ function liveCountriesOf(table) {
   }
   return liveMarketCountries.get(table);
 }
-// the var PILOT_COUNTRIES_BY_HOST ("host=cc|cc; host2=cc"), parsed once per value
+// the var PILOT_COUNTRIES_BY_HOST ("host=cc|cc/ll; host2=cc": countries and roots), the
+// countries per host, parsed once per value
 const pilotByHost = new Map();
 function pilotCountriesOf(value) {
   const key = String(value || '');
@@ -60,7 +61,7 @@ function pilotCountriesOf(value) {
     const map = {};
     key.split(';').forEach((entry) => {
       const [host, ccs] = entry.split('=').map((s) => (s || '').trim().toLowerCase());
-      if (host && ccs) map[host] = ccs.split('|').map((c) => c.trim()).filter(Boolean);
+      if (host && ccs) map[host] = [...new Set(ccs.split('|').map((c) => c.trim().split('/')[0]).filter(Boolean))];
     });
     pilotByHost.set(key, map);
   }
@@ -70,7 +71,7 @@ function pilotCountriesOf(value) {
 /**
  * The countries whose pages the front door sends to lh-edge's market route: the countries of the
  * live market roots (a wave of tools/reports/markets/go-live.md) and the host's pilot countries
- * (PILOT_COUNTRIES_BY_HOST: today ch).
+ * (PILOT_COUNTRIES_BY_HOST: today ch/en and ch/de, the country ch).
  */
 export function frontDoorCountries(host, env, table = LOCALE_TABLE) {
   const live = liveCountriesOf(table);

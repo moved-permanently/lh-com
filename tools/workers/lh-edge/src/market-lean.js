@@ -39,7 +39,7 @@ const headNumber = (text, name) => {
   return m ? Number(m[1]) : null;
 };
 
-/** The pages of a sheet as text, or null (missing, not a sheet). */
+/** The pages of a sheet as text, or null (missing, not a sheet); 404: {missing: true}. */
 async function sheetPages(request, env, path) {
   const get = new Request(request.url, { method: 'GET', headers: { accept: 'application/json' } });
   const parts = [];
@@ -47,6 +47,7 @@ async function sheetPages(request, env, path) {
   for (let offset = 0; offset < 50000;) {
     // eslint-disable-next-line no-await-in-loop
     const resp = await originFetch(get, env, `https://${env.ORIGIN}${path}?limit=${PAGE}&offset=${offset}`);
+    if (resp.status === 404 && !offset) return { missing: true };
     if (!resp.ok) return null;
     // eslint-disable-next-line no-await-in-loop
     const text = await resp.text();
@@ -60,10 +61,13 @@ async function sheetPages(request, env, path) {
   return { parts, total };
 }
 
-/** A full index's total, or null: read past its end (no rows, a few hundred bytes). */
+/**
+ * A full index's total, or null: read past its end (no rows, a few hundred bytes); 404: 'missing'.
+ */
 async function fullTotal(request, env, path) {
   const get = new Request(request.url, { method: 'GET', headers: { accept: 'application/json' } });
   const resp = await originFetch(get, env, `https://${env.ORIGIN}${path}?limit=1&offset=1000000`);
+  if (resp.status === 404) return 'missing';
   if (!resp.ok) return null;
   return headNumber(await resp.text(), 'total');
 }
@@ -209,7 +213,9 @@ export function leanSource(request, env, path, fullPath) {
     const [pages, total] = await Promise.all([
       sheetPages(request, env, path), fullTotal(request, env, fullPath),
     ]);
-    if (!pages || total === null || pages.total !== total) return null;
+    // neither there (a language version not published yet: its index fills on publish): no rows
+    if (pages && pages.missing && total === 'missing') return new LeanSource({ parts: [], total: 0 });
+    if (!pages || pages.missing || typeof total !== 'number' || pages.total !== total) return null;
     return new LeanSource(pages);
   })().catch(() => null);
   cache.set(key, { at: Date.now(), promise });

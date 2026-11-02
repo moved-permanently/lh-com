@@ -66,10 +66,11 @@ EDGE_CACHE_VERSION = "2026-10-25a"
 # language's documents, their sitemaps, /ch entry redirects), the public host (X-LH-Public-Host,
 # X-Forwarded-Host, PUBLIC_HOST, the request's host); elsewhere those paths pass through as before.
 PILOT_HOSTS = "lufthansa-edge.turnsthe.page"
-# hosts that show only some countries' pilot rows: "host=cc|cc; host2=cc" (the main host: ch);
+# hosts that show only some pilot rows: "host=cc|cc/ll; host2=cc", a country (all of its rows) or a
+# root (the main host: ch/en and ch/de, so a later row of ch, ch/fr of wave 11, stays off it);
 # empty: none. The China host gets cn ("; lufthansa-cn.turnsthe.page=cn") once cn's own documents
 # (homepage, nav, footer, own pages) are published: until then it answers as before
-PILOT_COUNTRIES_BY_HOST = "lufthansa.turnsthe.page=ch"
+PILOT_COUNTRIES_BY_HOST = "lufthansa.turnsthe.page=ch/en|ch/de"
 # Production mode (src/router.js, README "Production mode"): all off here, every request routed as
 # before. DEFAULT_ORIGIN: the host of paths no route claims ('' : Edge Delivery; production: the
 # current origin, e.g. origin-www.lufthansa.com, then Edge Delivery answers only the configured
