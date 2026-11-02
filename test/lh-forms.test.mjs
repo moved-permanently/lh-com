@@ -69,6 +69,7 @@ test('form ids: the market roots\' own forms by page name; mk/en\'s empty refund
   assert.equal(formIdFromPath('/bg/en/local-page/invoice-request-bg'), 'invoice-request-bg');
   assert.equal(formIdFromPath('/il/en/cancellation-refund-webform'), 'cancellation-refund-webform');
   assert.equal(formIdFromPath('/mk/de/formular-notfallkontakt.plain.html'), 'formular-notfallkontakt');
+  assert.equal(formIdFromPath('/fr/fr/emergency-contact'), 'emergency-contact');
   assert.equal(formIdFromPath('/mk/en/support/refund'), '');
   assert.equal(formIdFromPath('/bg/en/invoice-request'), '');
 });

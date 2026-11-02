@@ -1493,9 +1493,11 @@ const MARKET_FORMS = [
   ['invoice-request-bg', 'bg-en', '[lh-com] Invoice Request Bulgaria (bg-en)'],
   ['cancellation-refund-webform', 'il-en', '[lh-com] Request for cancellation and refund via webform (il-en)'],
   ['formular-notfallkontakt', 'mk-de', '[lh-com] Notfallkontakt (mk-de)'],
+  // fr/fr's emergency contact form (French, batch 11)
+  ['emergency-contact', 'fr-fr', '[lh-com] Contact en cas d’urgence (fr-fr)'],
 ];
 
-test('lh-com market forms: bg/en, il/en and mk/de\'s ids accepted, their page\'s h1, the default recipient; refund is no id', async () => {
+test('lh-com market forms: bg/en, il/en, mk/de and fr/fr\'s ids accepted, their page\'s h1, the default recipient; refund is no id', async () => {
   const env = makeEnv({ FORM_CONFIG: JSON.stringify({ default: { to: 'only@example.com' } }) });
   const results = await Promise.all(MARKET_FORMS.map(([form, locale], i) => post({
     form, locale, origin: i === 1 ? ORIGIN : LH, ip: `198.18.20.${i + 1}`,
@@ -1511,7 +1513,7 @@ test('lh-com market forms: bg/en, il/en and mk/de\'s ids accepted, their page\'s
     form, locale, origin: LH, ip: `198.18.20.${10 + i}`,
   }, env)));
   other.forEach(({ res }) => assert.equal(res.status, 200));
-  assert.deepEqual(sent.slice(3).map((m) => m.subject).sort(), ['[lh-com] Invoice Request Bulgaria (bg-de)', '[lh-com] Notfallkontakt (mk-en)']);
+  assert.deepEqual(sent.slice(4).map((m) => m.subject).sort(), ['[lh-com] Invoice Request Bulgaria (bg-de)', '[lh-com] Notfallkontakt (mk-en)']);
   const unknown = await post({
     form: 'refund', locale: 'mk-en', origin: LH, ip: '198.18.20.20',
   }, env);
@@ -1537,6 +1539,7 @@ test('il/en\'s cancellation form takes www\'s five uploads: PDF, JPEG and images
     [il, [pdf('a#1.pdf')], 400, 'invalid-file-name'],
     [{ ...il, form: 'invoice-request-bg', locale: 'bg-en' }, [pdf('a.pdf')], 400, 'files-not-allowed'],
     [{ ...il, form: 'formular-notfallkontakt', locale: 'mk-de' }, [pdf('a.pdf')], 400, 'files-not-allowed'],
+    [{ ...il, form: 'emergency-contact', locale: 'fr-fr' }, [pdf('a.pdf')], 400, 'files-not-allowed'],
   ];
   const results = await Promise.all(cases.map(([opts, files], i) => post({ ...opts, files, ip: `198.18.21.${i + 1}` })));
   results.forEach(({ res, body }, i) => {
