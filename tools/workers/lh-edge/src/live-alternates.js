@@ -21,27 +21,40 @@ export function liveMarketRoots(t) {
 /**
  * A page of a live root with its own documents: {root, lang, suffix}, or null (market roots,
  * entry paths, nav, footer, fragments and the other documents the language index leaves out,
- * files with an extension).
+ * files with an extension). marketOwn: a live market root's page too ({..., market: true}; its
+ * own documents, the brand sites: their homepages).
  */
-export function liveRootPage(pathname, t) {
+export function liveRootPage(pathname, t, marketOwn = false) {
   const m = String(pathname).match(/^\/([a-z]{2}\/[a-z]{2})(\/[^.]+)$/);
   if (!m) return null;
   const [, root, suffix] = m;
   // a language version still pilot (fr/fr before its wave): none
   const own = (Object.values(t.versions).includes(root) && t.table[root].status === 'live') || t.ownRoots.includes(root);
-  if (!own || LANGUAGE_ONLY.test(suffix) || suffix.endsWith('/')) return null;
-  return { root, lang: t.table[root].lang, suffix };
+  const market = !own && marketOwn && t.marketRoots.includes(root) && t.table[root].status === 'live';
+  if (!(own || market) || LANGUAGE_ONLY.test(suffix) || suffix.endsWith('/')) return null;
+  return market ? {
+    root, lang: t.table[root].lang, suffix, market,
+  } : { root, lang: t.table[root].lang, suffix };
 }
 
 /**
  * The answer with the alternates of a live root's page (roots: the live market roots; the
- * table's unless given), or the answer itself.
+ * table's unless given), or the answer itself. marketOwn (the brand sites, src/sites.js
+ * ALTERNATES_SITES): a market root's own document too, where the set names another page (its
+ * market copies have the market route's list already).
  */
-export async function withLiveAlternates(resp, request, env, roots = liveMarketRoots(tables(env))) {
+export async function withLiveAlternates(
+  resp,
+  request,
+  env,
+  roots = liveMarketRoots(tables(env)),
+  { marketOwn = false } = {},
+) {
   if (!roots.length || request.method !== 'GET' || resp.status !== 200) return resp;
   if (!/^text\/html/i.test(resp.headers.get('content-type') || '')) return resp;
-  const pg = liveRootPage(new URL(request.url).pathname, tables(env));
+  const pg = liveRootPage(new URL(request.url).pathname, tables(env), marketOwn);
   if (!pg) return resp;
+  if (pg.market && resp.headers.get('x-lh-edge-route') === 'market') return resp;
   let list;
   try {
     list = alternates(await marketModel(request, env, roots), pg.lang, pg.suffix);
@@ -53,6 +66,8 @@ export async function withLiveAlternates(resp, request, env, roots = liveMarketR
   const self = `/${pg.root}${pg.suffix}`;
   const live = list.some((a) => roots.includes(a.root));
   if (!live || !list.some((a) => a.path === self)) return resp;
+  // a market root's own page no other root has (ca/en's local page): none
+  if (pg.market && list.length < 2) return resp;
   return new HTMLRewriter()
     .on('link[href]', {
       element(e) {

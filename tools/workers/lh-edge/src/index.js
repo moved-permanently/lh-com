@@ -434,11 +434,12 @@ async function siteRespond(incoming, env, site, ctx) {
     const target = `${entryTarget}${url.search}`;
     return finish(new Response(null, { status: 302, headers: { location: target, 'cache-control': 'max-age=60', 'x-lh-edge-route': 'site-entry' } }), incoming, senv, 'site-entry');
   }
-  // the reference roots' pages list the alternates their market copies list
-  // (src/live-alternates.js, as lh-com's live roots), on the sites whose www carries them
-  // (src/sites.js ALTERNATES_SITES)
+  // the reference roots' pages and the market roots' own documents (their homepages) list the
+  // alternates the market copies list (src/live-alternates.js, as lh-com's live roots), on the
+  // sites whose www carries them (src/sites.js ALTERNATES_SITES)
   const resp = await market(incoming, senv);
-  return finish(ALTERNATES_SITES.has(site.name) ? await withLiveAlternates(resp, incoming, senv) : resp, incoming, senv, 'site');
+  const alternates = ALTERNATES_SITES.has(site.name);
+  return finish(alternates ? await withLiveAlternates(resp, incoming, senv, undefined, { marketOwn: true }) : resp, incoming, senv, 'site');
 }
 
 export default {

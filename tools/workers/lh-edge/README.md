@@ -221,10 +221,11 @@ Austrian's `/xx/en`, `/at`).
 hreflang on a site's hosts: the market copies list their language versions and the market roots that have the page
 (the market route, every site). On Austrian, Brussels and ITA (`ALTERNATES_SITES` in `src/sites.js`: their www carries
 hreflang alternates, in its sitemaps only; no www page head has any) a reference root's page lists the same set
-(`src/live-alternates.js`, as lh-com's live roots), so the two answer each other; the origin's own hreflang links are
-replaced, the hrefs name the canonical's host (on austrian-cn: austrian.turnsthe.page). B2B (www: no sitemap, no
-hreflang) and Discover (no snapshot of www) list none on their reference roots; a market root's own pages (its
-homepage, nav, footer) none on any site. `test/brand-alternates.test.mjs`.
+(`src/live-alternates.js`, as lh-com's live roots), and so does a market root's own document where the set names
+another page (its homepage: `marketOwn`), so they answer each other; an own page no other root has, nav and footer
+list none. The origin's own hreflang links are replaced, the hrefs name the canonical's host (on austrian-cn:
+austrian.turnsthe.page). B2B (www: no sitemap, no hreflang) and Discover (no snapshot of www) list none on their
+reference roots and own documents. `test/brand-alternates.test.mjs`.
 
 A brand whose tenant lh-backends has (`backends` in scripts/brands.js: Austrian, Discover, ITA, Brussels, SWISS) gets
 lh-backends' paths (`isBackendsPath`: `/deeplink/*`, `/apps/dcep/deeplink/*`, `/sso/*`, `/loginservice`, `/seatmap/*`,

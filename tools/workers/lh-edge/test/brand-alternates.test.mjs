@@ -47,19 +47,23 @@ const row = (path, extra = {}) => ({
 // the language)
 const FILES = {
   austrian: {
-    '/at/en/search-index.json': sheet([row('/at/en/homepage'), row('/at/en/baggage', { markets: 'ch/en, gb/en' })]),
+    '/at/en/search-index.json': sheet([row('/at/en/homepage', { markets: 'ch/en, xx/en' }), row('/at/en/baggage', { markets: 'ch/en, gb/en' })]),
     '/at/de/search-index.json': sheet([row('/at/de/baggage', { markets: 'de/de' })]),
-    '/market-pages.json': sheet([row('/xx/en/homepage')]),
+    // the market roots' own documents: xx/en's homepage, ca/en's own page (no other root has it)
+    '/market-pages.json': sheet([row('/xx/en/homepage'), row('/ca/en/local-page/austrian-in-canada')]),
+  },
+  brussels: {
+    '/be/en/search-index.json': sheet([row('/be/en/homepage', { markets: 'ae/en' }), row('/be/en/book-a-flight', { markets: 'cm/en, gb/en' })]),
+    '/market-pages.json': sheet([row('/ae/en/homepage')]),
   },
   ita: { '/it/en/search-index.json': sheet([row('/it/en/corporate-b2b', { markets: 'be/en, gb/en' })]) },
-  brussels: { '/be/en/search-index.json': sheet([row('/be/en/book-a-flight', { markets: 'cm/en, gb/en' })]) },
   b2b: { '/de/en/search-index.json': sheet([row('/de/en/travel-management', { markets: 'fr/en' })]) },
   discover: { '/de/en/search-index.json': sheet([row('/de/en/book/baggage', { markets: 'us/en' })]) },
 };
 // aem.live without a production host in the site's config: canonical, og:url and its hreflang name
 // the X-Forwarded-Host (alias-site.test.mjs)
 const page = (host, path) => `<!DOCTYPE html><html><head><title>${path}</title><link rel="canonical" href="https://${host}${path}"><meta property="og:url" content="https://${host}${path}"><link rel="alternate" hreflang="en" href="https://${host}/old"></head><body><main><h1>${path}</h1></main></body></html>`;
-const PAGES = new Set(['/at/en/homepage', '/at/en/baggage', '/at/de/baggage', '/xx/en/homepage', '/at/en/nav', '/at/en/not-indexed', '/it/en/corporate-b2b', '/be/en/book-a-flight', '/de/en/travel-management', '/de/en/book/baggage']);
+const PAGES = new Set(['/at/en/homepage', '/at/en/baggage', '/at/de/baggage', '/xx/en/homepage', '/ca/en/local-page/austrian-in-canada', '/be/en/homepage', '/ae/en/homepage', '/at/en/nav', '/at/en/not-indexed', '/it/en/corporate-b2b', '/be/en/book-a-flight', '/de/en/travel-management', '/de/en/book/baggage']);
 let calls;
 beforeEach(() => {
   resetMarketCache();
@@ -124,9 +128,25 @@ test('b2b and discover: a reference root\'s page as before (b2b\'s www has no hr
   }
 });
 
-test('austrian: other answers as they are (a market root\'s own homepage, nav, a page the index lacks, a 404, a POST)', async () => {
+test('homepages: a market root\'s own homepage lists the set the reference homepage and the market copies list', async () => {
+  for (const [site, ref, own, copy, expected] of [
+    ['austrian', '/at/en/homepage', '/xx/en/homepage', '/ch/en/homepage', ['en-AT /at/en', 'en-CH /ch/en', 'en /xx/en']],
+    ['brussels', '/be/en/homepage', '/ae/en/homepage', null, ['en-AE /ae/en', 'en-BE /be/en']],
+  ]) {
+    const H = HOSTS[site];
+    const set = expected.map((t) => `${t.replace(' /', ` https://${H}/`)}/homepage`).sort();
+    const ownHtml = await (await get(H, own)).text();
+    assert.deepEqual(tags(ownHtml), set, `${site} ${own}`);
+    assert.ok(ownHtml.includes(`<h1>${own}</h1>`), `${own}: its own document`);
+    assert.ok(!ownHtml.includes(`https://${H}/old`), `${own}: the origin's hreflang replaced`);
+    assert.deepEqual(tags(await (await get(H, ref)).text()), set, `${site} ${ref}`);
+    if (copy) assert.deepEqual(tags(await (await get(H, copy)).text()), set, `${site} ${copy}`);
+  }
+});
+
+test('austrian: other answers as they are (an own page no other root has, nav, a page the index lacks, a 404, a POST)', async () => {
   const H = HOSTS.austrian;
-  for (const path of ['/xx/en/homepage', '/at/en/nav', '/at/en/not-indexed', '/at/en/missing']) {
+  for (const path of ['/ca/en/local-page/austrian-in-canada', '/at/en/nav', '/at/en/not-indexed', '/at/en/missing']) {
     const html = await (await get(H, path)).text();
     assert.equal(tags(html).length, 0, path);
   }
