@@ -69,7 +69,10 @@ const widthOf = (www) => parseDamPath(www)?.rendition?.width || 0;
 /** The file's own path: a rendition (x.jpg.transform/.../img.jpg) is its asset's copy. */
 export const assetOf = (www) => {
   const parsed = parseDamPath(www);
-  return parsed && parsed.valid && parsed.rendition ? parsed.asset : www;
+  if (!(parsed && parsed.valid && parsed.rendition)) return www;
+  // an asset without a file extension (lh's LH-PETC-bag-illustration): named with its
+  // rendition's, as Edge Delivery serves images only with one
+  return /\.[a-z0-9]+$/i.test(parsed.asset.split('/').pop()) ? parsed.asset : `${parsed.asset}.${parsed.rendition.ext}`;
 };
 
 const decode = (s) => { try { return decodeURIComponent(s); } catch (e) { return s; } };
@@ -431,6 +434,26 @@ export function withTracks(doc, tracks, lang, accept = () => true) {
 }
 
 /**
+ * A document without the images www no longer has (gone: their Edge Delivery names; www answers
+ * 404, no other rendition of the picture at hand): the picture goes, and its paragraph when it
+ * held only the picture; a block's cell stays (empty).
+ */
+export function withoutGoneImages(doc, gone) {
+  if (!gone.size) return doc;
+  const isGone = (src) => {
+    let p = src.replace(/^https:\/\/(?:www\.swiss\.com|content\.da\.live\/moved-permanently\/lh-swiss)/, '').split('?')[0];
+    try { p = decodeURIComponent(p); } catch (e) { /* as it is */ }
+    return gone.has(p) || gone.has(edsDamPath(assetOf(p)));
+  };
+  const img = '<img src="([^"]+)"[^>]*>';
+  return doc
+    .replace(new RegExp(`<p><picture>(?:(?!</picture>)[\\s\\S])*?${img}</picture></p>`, 'g'), (m, src) => (isGone(src) ? '' : m))
+    .replace(new RegExp(`<picture>(?:(?!</picture>)[\\s\\S])*?${img}</picture>`, 'g'), (m, src) => (isGone(src) ? '' : m))
+    .replace(new RegExp(`<p>${img}</p>`, 'g'), (m, src) => (isGone(src) ? '' : m))
+    .replace(new RegExp(img, 'g'), (m, src) => (isGone(src) ? '' : m));
+}
+
+/**
  * The documents switched to the copies: links to www's DAM files that are in DA (previewed) or
  * for AEM become site-relative edsDamPath links; the posters in DA are taken from DA
  * (content.da.live); video links get their tracks recorded for AEM. Writes the changed documents
@@ -447,6 +470,7 @@ function switchLinks() {
   const pending = (www) => has('pending') && !state[www]?.status?.startsWith('www-') && state[www]?.status !== 'aem';
   const shown = new Map(files.filter((x) => ['image', 'poster'].includes(x.kind) && (inDa(x.www) || pending(x.www))).map((x) => [x.asset, x.eds]));
   const SNAP = path.join(root, 'tools/importer/bd-snapshots/www.swiss.com');
+  const gone = new Set(files.filter((x) => ['image', 'poster'].includes(x.kind) && state[x.www]?.status === 'www-404').map((x) => x.eds));
   const changed = [];
   walk(DOCS).filter((f) => f.endsWith('.plain.html')).forEach((f) => {
     const p = `/${path.relative(DOCS, f).replace(/\.plain\.html$/, '')}`;
@@ -460,6 +484,8 @@ function switchLinks() {
       const eds = shown.get(assetOf(decode(src)));
       return eds ? `<img src="${DA_CONTENT}${eds}"` : m;
     });
+    // the images www no longer has (a capture's not-fetched list: 404)
+    doc = withoutGoneImages(doc, gone);
     const snap = path.join(SNAP, `${p}.html`);
     if (fs.existsSync(snap)) doc = withTracks(doc, tracksOf(fs.readFileSync(snap, 'utf8')), p.split('/')[2], ready);
     if (doc === before) return;

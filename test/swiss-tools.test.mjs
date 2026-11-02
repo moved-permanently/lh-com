@@ -170,6 +170,79 @@ test('the flight search\'s moving image: Background image and Background video r
   assert.equal(withFlightSearchVideo(homepage, snap), homepage, 'a page with a hero (the homepages): the hero plays it');
 });
 
+test('a rendition of an asset without a file extension: its copy named with the rendition\'s', async () => {
+  // eslint-disable-next-line import/extensions
+  const { assetOf } = await import('../tools/importer/swiss-dam.mjs');
+  assert.equal(assetOf('/content/dam/lh/images/illustrations/LH-PETC-bag-illustration.transform/lh-dcep-transform-width-2560/img.jpg'), '/content/dam/lh/images/illustrations/LH-PETC-bag-illustration.jpg');
+  assert.equal(assetOf('/content/dam/lx/images/a.jpg.transform/lh-dcep-transform-width-2560/img.jpg'), '/content/dam/lx/images/a.jpg', 'as before');
+  assert.equal(assetOf('/content/dam/lx/icons/a.svg'), '/content/dam/lx/icons/a.svg', 'an original as it is');
+});
+
+test('images www no longer has: dropped (their paragraph when it holds only the picture), others as they are', async () => {
+  // eslint-disable-next-line import/extensions
+  const { withoutGoneImages } = await import('../tools/importer/swiss-dam.mjs');
+  const DA = 'https://content.da.live/moved-permanently/lh-swiss';
+  const gone = new Set(['/content/dam/lx/images/app/01-check-in-en-1440x720.png']);
+  const doc = `<div><p><picture><img src="${DA}/content/dam/lx/images/app/01-check-in-en-1440x720.png" alt=""></picture></p><p>Text <img src="https://www.swiss.com/content/dam/lx/images/app/01-check-in-en-1440x720.png" alt=""> after</p><div class="cards"><div><div><picture><img src="${DA}/content/dam/lx/images/app/01-check-in-en-1440x720.png" alt=""></picture></div><div>card</div></div></div><p><picture><img src="${DA}/content/dam/lx/images/kept.jpg" alt=""></picture></p></div>`;
+  const out = withoutGoneImages(doc, gone);
+  assert.equal(out, `<div><p>Text  after</p><div class="cards"><div><div></div><div>card</div></div></div><p><picture><img src="${DA}/content/dam/lx/images/kept.jpg" alt=""></picture></p></div>`);
+  assert.equal(withoutGoneImages(doc, new Set()), doc);
+});
+
+test('a form\'s confirmation page in its own root: www\'s :redirect at the form\'s root, also from ch/fr or gc', async () => {
+  // eslint-disable-next-line import/extensions
+  const { successOf } = await import('../tools/importer/swiss-import.mjs');
+  const form = (to) => `<form><input type="hidden" name=":redirect" value="${to}"></form>`;
+  assert.equal(successOf(form('/content/lx/markets/ch/de/customer-support/refunds/confirmation.html'), '/ch/de/customer-support/refunds/refund-form'), '/ch/de/customer-support/refunds/confirmation');
+  assert.equal(successOf(form('/content/lx/markets/ch/fr/local-page/swiss-nati-women/confirmation.html'), '/ch/en/local-page/swiss-nati-women'), '/ch/en/local-page/swiss-nati-women/confirmation', 'www\'s ch/fr page: the form\'s own root');
+  assert.equal(successOf(form('/content/lx/gc/de/book-and-manage/x/group-travel-request-success.html'), '/ch/de/local-page/group-travel/group-travel-request'), '/ch/de/book-and-manage/x/group-travel-request-success', 'the global content tree: the form\'s root');
+  assert.equal(successOf(form('/content/lx/markets/ch/en/a/confirmation.html')), '/ch/en/a/confirmation', 'no form path: www\'s root as before');
+  assert.equal(successOf('<form></form>', '/ch/en/a'), '');
+});
+
+test('a success row to a page the site does not have: dropped (the form shows its message), our pages kept', async () => {
+  // eslint-disable-next-line import/extensions
+  const { withOwnSuccess } = await import('../tools/importer/swiss-import.mjs');
+  const row = (href) => `<div><div><a href="${href}">${href.replace('https://www.swiss.com', '')}</a></div><div>config</div><div>success</div>${'<div></div>'.repeat(7)}</div>`;
+  const formRow = `<div><div>swiss-x</div><div>config</div><div>form</div>${'<div></div>'.repeat(7)}</div>`;
+  const doc = (href) => `<div class="form">${formRow}${row(href)}</div>`;
+  const own = (p) => p === '/ch/en/customer-support/refunds/confirmation';
+  assert.equal(withOwnSuccess(doc('/ch/en/customer-support/refunds/confirmation'), own), doc('/ch/en/customer-support/refunds/confirmation'), 'our page: kept');
+  assert.equal(withOwnSuccess(doc('https://www.swiss.com/ch/de/customer-support/refunds/confirmation'), own), `<div class="form">${formRow}</div>`, 'www: dropped');
+  assert.equal(withOwnSuccess(doc('/ch/de/customer-support/refunds/confirmation'), own), `<div class="form">${formRow}</div>`, 'a page not imported: dropped');
+  assert.equal(withOwnSuccess(doc('https://www.swiss.com/ch/en/customer-support/refunds/confirmation'), own), doc('/ch/en/customer-support/refunds/confirmation'), 'www\'s link to our page: made ours');
+  assert.equal(withOwnSuccess('<p>no form</p>', own), '<p>no form</p>');
+});
+
+test('form messages in the page\'s language: www\'s French or German ones on English pages (and others on German) by field, others as they are', async () => {
+  // eslint-disable-next-line import/extensions
+  const { withPageLanguageMessages } = await import('../tools/importer/swiss-import.mjs');
+  const row = (cells) => `<div>${cells.map((c) => `<div>${c}</div>`).join('')}</div>`;
+  const head = row(['Label', 'Type', 'Name', 'Required', 'Options', 'Help text', 'Placeholder', 'Validation message', 'Constraint message', 'Rules']);
+  const field = (label, type, name, msg, constraint = '') => row([label, type, name, 'yes', '', '', '', msg, constraint, '']);
+  const form = (...rows) => `<div class="form">${head}${rows.join('')}</div>`;
+  const doc = form(
+    field('First name', 'text', 'FirstName', 'Veuillez indiquer votre prénom'),
+    field('Last name', 'text', 'LastName', 'Veuillez indiquer votre adresse électronique'),
+    field('E-mail', 'email', 'Email', 'Please enter your e-mail address.', 'Please enter a valid e-mail address.'),
+    field('Date', 'date', 'IncidentDate', 'Geben Sie das Datum des Vorfalls an'),
+    field('', 'checkbox', 'termsconditions', 'Veuillez accepter les conditions de participation'),
+    field('Name*', 'text', 'Nachname', 'Veuillez indiquer votre nom'),
+  );
+  assert.equal(withPageLanguageMessages(doc, '/ch/en/local-page/x'), form(
+    field('First name', 'text', 'FirstName', 'Please enter your first name.'),
+    field('Last name', 'text', 'LastName', 'Please enter your surname.'),
+    field('E-mail', 'email', 'Email', 'Please enter your e-mail address.', 'Please enter a valid e-mail address.'),
+    field('Date', 'date', 'IncidentDate', 'Please fill in this field.'),
+    field('', 'checkbox', 'termsconditions', 'Please accept the terms and conditions.'),
+    field('Name*', 'text', 'Nachname', 'Please enter your surname.'),
+  ), 'by field name; a field without its wording: the form\'s own message');
+  const de = form(field('Vorname', 'text', 'FirstName', 'Geben Sie Ihren Vornamen an'), field('PartnerPlus', 'text', 'PartnerPlus', 'Please enter a phone number'));
+  assert.equal(withPageLanguageMessages(de, '/ch/de/x'), form(field('Vorname', 'text', 'FirstName', 'Geben Sie Ihren Vornamen an'), field('PartnerPlus', 'text', 'PartnerPlus', 'Bitte füllen Sie dieses Feld aus.')), 'German pages: German kept, English replaced');
+  assert.equal(withPageLanguageMessages(doc, '/ch/fr/x'), doc, 'a root without wording: as it is');
+  assert.equal(withPageLanguageMessages('<p>Veuillez</p>', '/ch/en/x'), '<p>Veuillez</p>');
+});
+
 test('the scope leaves out AirCore, /lhg/, the shells, placeholders and www\'s redirects', () => {
   ['/lhg/ch/en', '/aircore/sitemaps/x', '/ch/en/null/x', '/ch/ko/homepage', '/xx/de/homepage', '/ch/en/profile/login', '/ch/en/enrollment', '/ch/en/homepage/teasers/x', '/ch/en/customer-support/chatbot', '/ch/en/book-and-manage/passenger-receipt', '/ch/en/customer-support/refund']
     .forEach((p) => assert.ok(leftOut(p), p));

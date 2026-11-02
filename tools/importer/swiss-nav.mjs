@@ -95,8 +95,11 @@ export function linkFor(href, sitePaths) {
 const a = (href, label, sitePaths) => `<a href="${esc(linkFor(href, sitePaths))}">${esc(label)}</a>`;
 // www images Edge Delivery refuses at preview (SVGs over its size limit, as Austrian's 400 KB
 // icons): a local rendering of the same drawing, uploaded to DA by da-upload.mjs (/media-da/)
-// (none on SWISS's pages so far)
-export const LOCAL_IMAGES = {};
+export const LOCAL_IMAGES = {
+  // the voucher icon (66 KB, Illustrator's construction layers hidden; 409 at preview,
+  // /customer-support/faq): a PNG of its visible layers, 400x400
+  '/content/dam/lx/icons/product-voucher.svg': '/media-da/swiss/product-voucher.png',
+};
 
 /** A document's images Edge Delivery refuses (LOCAL_IMAGES) as their local renderings. */
 export const withLocalImages = (doc) => Object.entries(LOCAL_IMAGES).reduce((d, [www, own]) => d

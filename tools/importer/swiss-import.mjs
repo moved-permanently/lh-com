@@ -243,12 +243,25 @@ const ERROR_ROW = /<div><div>(?:(?!<\/div><div>)[\s\S])*?<\/div><div>config<\/di
 const configRow = (name, value) => `<div><div>${value}</div><div>config</div><div>${name}</div>${'<div></div>'.repeat(7)}</div>`;
 const linkRow = (name, href) => configRow(name, `<a href="${href}">${href}</a>`);
 
-/** www's confirmation page of a form (its :redirect) as the public path on the site. */
-export function successOf(html) {
+/**
+ * www's confirmation page of a form (its :redirect) as the public path on the site, in the form's
+ * root (p): www sends some forms to another root's page (ch/fr) or the global content tree (gc).
+ */
+export function successOf(html, p = '') {
   const redirect = (String(html || '').match(/name=":redirect"[^>]*value="([^"]+)"|value="([^"]+)"[^>]*name=":redirect"/) || []).slice(1).find(Boolean) || '';
-  const m = redirect.match(/^\/content\/lx\/markets(\/[a-z]{2}\/[a-z]{2})(\/.+?)(?:\.html)?$/);
-  return m ? `${m[1]}${m[2]}` : '';
+  const m = redirect.match(/^\/content\/lx\/(?:markets(\/[a-z]{2}\/[a-z]{2})|gc\/[a-z]{2})(\/.+?)(?:\.html)?$/);
+  const own = p ? `/${p.split('/').slice(1, 3).join('/')}` : m?.[1];
+  return m && own ? `${own}${m[2]}` : '';
 }
+
+// a form's success row (its link, relative or to www's page)
+const SUCCESS_ROW = /<div><div><a href="(?:https:\/\/www\.swiss\.com)?(\/[^"]*)">[^<]*<\/a><\/div><div>config<\/div><div>success<\/div>(?:<div><\/div>){7}<\/div>/g;
+
+/**
+ * The success row to a confirmation page the site has (own(path)), relative; to one it does not
+ * have (not imported, or www's only), dropped: the form shows its success message in its place.
+ */
+export const withOwnSuccess = (doc, own) => doc.replace(SUCCESS_ROW, (m, to) => (own(to) ? linkRow('success', to) : ''));
 
 /**
  * A SWISS form document with its form config row (the proposed lh-forms id) and its success
@@ -258,7 +271,7 @@ export function successOf(html) {
 export function withItaForm(doc, p, html = '') {
   if (!/<div class="form[ "]/.test(doc)) return doc;
   const id = formIdOf(p);
-  const success = successOf(html);
+  const success = successOf(html, p);
   const rows = [...doc.matchAll(CONFIG_ROW)].map((m) => m[0]);
   const has = (name) => rows.some((r) => r.includes(`<div>config</div><div>${name}</div>`));
   let out = doc;
@@ -272,6 +285,78 @@ export function withItaForm(doc, p, html = '') {
   return out.replace(ERROR_ROW, '')
     .replace(/accept=(?:Approved file formats: pdf, png and jpg\.|pdf, png, jpg)(?=<br>)/g, 'accept=image/png, image/jpeg, image/jpg, application/pdf')
     .replace(/(max-size=2048000<br> not-allowed=)#(?=<\/div>)/g, '$1#$$%^*()[]');
+}
+
+// the language of a form message (www's raffle forms on ch/en carry ch/fr's French ones, some
+// forms German ones)
+const MESSAGE_LANGUAGE = [['fr', /\b(?:Veuillez|votre|vos)\b/i], ['de', /\b(?:Bitte|Geben Sie|Ihre[nrs]?|Pflichtfeld)\b/], ['en', /\b(?:Please|your|required field)\b/i]];
+// SWISS's own wording per field name (its forms in the language), and the form block's
+// messages (DEFAULT_LABELS required / format error) for the other fields
+const FIELD_MESSAGES = {
+  en: {
+    salutation: 'Please select a title.',
+    firstname: 'Please enter your first name.',
+    lastname: 'Please enter your surname.',
+    nachname: 'Please enter your surname.',
+    email: 'Please enter your e-mail address.',
+    zip: 'Please enter a postcode.',
+    city: 'Please enter your town or city.',
+    street: 'Please enter a street name and a house number.',
+    adress: 'Please enter a street name and a house number.',
+    country: 'Please select your country.',
+    state: 'Please select your country.',
+    phone: 'Please enter your telephone number.',
+    termsconditions: 'Please accept the terms and conditions.',
+    'required error': 'Please fill in this field.',
+    'format error': 'Please check your entry.',
+    'email format': 'Please enter a valid e-mail address.',
+  },
+  de: {
+    salutation: 'Bitte wählen Sie einen Titel aus.',
+    firstname: 'Bitte geben Sie Ihren Vornamen ein.',
+    lastname: 'Bitte geben Sie Ihren Nachnamen ein.',
+    nachname: 'Bitte geben Sie Ihren Nachnamen ein.',
+    email: 'Bitte geben Sie Ihre E-Mail-Adresse an.',
+    zip: 'Bitte geben Sie eine Postleitzahl ein.',
+    city: 'Bitte geben Sie Ihre Ortschaft oder Stadt ein.',
+    street: 'Bitte geben Sie den Strassennamen und eine Hausnummer ein.',
+    adress: 'Bitte geben Sie den Strassennamen und eine Hausnummer ein.',
+    country: 'Land ist ein Pflichtfeld.',
+    state: 'Land ist ein Pflichtfeld.',
+    phone: 'Bitte geben Sie Ihre Telefonnummer ein.',
+    termsconditions: 'Bitte akzeptieren Sie die Teilnahmebedingungen.',
+    'required error': 'Bitte füllen Sie dieses Feld aus.',
+    'format error': 'Bitte überprüfen Sie Ihre Eingabe.',
+    'email format': 'Bitte geben Sie eine gültige E-Mail-Adresse an.',
+  },
+};
+// a row of a form block (cells without nested blocks)
+const FORM_ROW = /<div>(?:<div>(?:(?!<\/?div[ >])[\s\S])*<\/div>){8,}<\/div>/g;
+
+/**
+ * The form's validation and constraint messages in the page's language: one in another language
+ * becomes SWISS's wording for its field (by name), else the form block's message. Roots without
+ * wording as they are.
+ */
+export function withPageLanguageMessages(doc, p) {
+  const words = FIELD_MESSAGES[p.split('/')[2]];
+  if (!words || !/<div class="form[ "]/.test(doc)) return doc;
+  const lang = p.split('/')[2];
+  const foreign = (msg) => (MESSAGE_LANGUAGE.find(([, re]) => re.test(msg)) || [lang])[0] !== lang;
+  let col = { name: 2, validation: 7, constraint: 8 };
+  return doc.replace(FORM_ROW, (row) => {
+    const cells = [...row.slice(5, -6).matchAll(/<div>((?:(?!<\/?div[ >])[\s\S])*)<\/div>/g)].map((m) => m[1]);
+    if (cells[0] === 'Label' && cells[1] === 'Type') {
+      const at = (name, d) => (cells.indexOf(name) < 0 ? d : cells.indexOf(name));
+      col = { name: at('Name', 2), validation: at('Validation message', 7), constraint: at('Constraint message', 8) };
+      return row;
+    }
+    const name = String(cells[col.name] || '').toLowerCase();
+    const next = [...cells];
+    if (foreign(cells[col.validation] || '')) next[col.validation] = words[name] || words['required error'];
+    if (foreign(cells[col.constraint] || '')) next[col.constraint] = name === 'email' ? words['email format'] : words['format error'];
+    return next.some((c, i) => c !== cells[i]) ? `<div>${next.map((c) => `<div>${c}</div>`).join('')}</div>` : row;
+  });
 }
 
 /** Metadata rows (name, value) added to the document's metadata block (made when it has none). */
@@ -471,7 +556,7 @@ if (isMain) {
       const src = Object.keys(out).find((k) => docName(k) === p);
       const markets = scope.documents[src]?.markets || [];
       const snapHtml = fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8');
-      const next = splitTabSections(withFlightSearchVideo(withHeroVideo(withItaMetadata(withCheckinHandoff(withFlightSearch(withItaForm(doc, p, snapHtml), p), p), p, snapHtml, markets), snapHtml), snapHtml));
+      const next = splitTabSections(withFlightSearchVideo(withHeroVideo(withItaMetadata(withCheckinHandoff(withFlightSearch(withPageLanguageMessages(withItaForm(doc, p, snapHtml), p), p), p), p, snapHtml, markets), snapHtml), snapHtml));
       if (next !== doc) fs.writeFileSync(f, next);
     });
     const mapOnly = path.join(W, 'runs', `${name}-upload.txt`);
@@ -494,7 +579,9 @@ if (isMain) {
     made.forEach((p) => {
       const f = path.join(W, 'content', `${p}.plain.html`);
       const doc = fs.readFileSync(f, 'utf8');
-      const next = withOwnLinks(withLocalImages(relativeDamLinks(doc.split(`https://${LINK_OUT}`).join(`https://${HOST}`))), HOST, pages, aliases, { linkOut: linkOutDocs.has(p) ? p : null, served }).doc;
+      const linked = withOwnLinks(withLocalImages(relativeDamLinks(doc.split(`https://${LINK_OUT}`).join(`https://${HOST}`))), HOST, pages, aliases, { linkOut: linkOutDocs.has(p) ? p : null, served }).doc;
+      // a form sends the visitor to its confirmation page on the site, never to www's
+      const next = withOwnSuccess(linked, (t) => fs.existsSync(path.join(W, 'content', `${t}.plain.html`)));
       if (next !== doc) fs.writeFileSync(f, next);
     });
     fs.writeFileSync(path.join(W, 'runs', `${name}-import.json`), `${JSON.stringify({ templates: out, documents: made, missing }, null, 1)}\n`);

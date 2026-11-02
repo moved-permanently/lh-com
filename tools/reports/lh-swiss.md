@@ -231,3 +231,43 @@ ch/en and ch/de nav and footer. Austrian: no snapshots or documents in this work
 documents are as before; its theme has the bar colour, and austrian-import.mjs can take
 `withTabMarkers` and `splitTabSections` as they are.
 
+## DAM files from the capture, form fixes, footer test (brief 262, 2026-11-02)
+
+DAM: the archive `swiss-dam-001.tar.gz` (sha256 checked) placed its 527 files under their
+`/content/dam` paths; in lh-swiss's DA under their Edge Delivery names (`scripts/dam-path.js`)
+and previewed, the documents' images switched from www to them. Three needed a change:
+`/content/dam/lx/icons/product-voucher.svg` (409 at preview) is a PNG of its visible layers
+(`/media-da/swiss/product-voucher.png`, the two faq documents);
+`/content/dam/lh/images/illustrations/LH-PETC-bag-illustration` (an asset without an extension)
+is named with its rendition's (`.jpg`, `swiss-dam.mjs` assetOf); `A350_SWISS_First_21.mp4` (a
+QuickTime file, 409) and the 2 too large for Edge Delivery are on the AEM list
+(`lh-swiss-aem-files.tsv`, 78 files). The 30 www no longer has: 29 images without another size or
+crop in the capture, dropped from their documents (`swiss-dam.mjs` withoutGoneImages: swiss-app's
+18 screenshots, special-livery's St. Moritz, swiss-senses' 2024-061, swiss-business' amenity kit
+and continental meal, saf and overview-flights' 436555062 crops, tsa-pre-check's formular,
+the new-destinations teaser, lxmaswithyou's lxmas-2023, hold-the-booking's blurred image), and
+the PDF `lhg-power-of-attorney-form-en.pdf`, its link left to www. No document shows an image
+from www now. The held list's 231 pages: `lh-swiss-held-images-complete.tsv` (199 complete, 24
+wait for AEM files, 8 form pages).
+
+Success pages: a form whose confirmation page the site does not have (not in the capture) has no
+success row: the form shows its success message in the page's language in its place
+(`swiss-import.mjs` withOwnSuccess; the confirmation in the form's own root, successOf). For the
+capture: ch/de `.../ad-plattforms/ad-plattforms-contact/confirmation`, ch/en and ch/de
+`.../group-travel/group-travel-request-success`, ch/en and ch/de
+`customer-support/contact-us/data-protection-form/form-success`, ch/de
+`customer-support/refunds/confirmation`, ch/en
+`customer-support/contact-us/technical-support/technical-support-success`, ch/en
+`local-page/swiss-nati-women/confirmation` (www's form goes to ch/fr's). The loss-of-personal-item
+forms go to request-for-refund-of-expenses/confirmation as on www (www has no page of their own).
+
+Validation messages: www's ch/en raffle forms carry ch/fr's French messages (some on the wrong
+field), the ch/en technical-support and general-request forms German ones; a message in another
+language than the page's is SWISS's wording for its field, else the form block's own message
+(`swiss-import.mjs` withPageLanguageMessages; 10 documents).
+
+Typing before the dialogs close: what is typed stays; OneTrust's banner moves the focus into
+itself when it opens (about 1.1 s on a first visit), covers the page and does not give it back
+when it closes (OneTrust's behaviour, left as it is). The showcase notice opened over it at 1.8 s
+and took the focus too; on SWISS it now waits while a form field has the focus
+(`scripts/showcase-notice.js`; the other brands as before).
