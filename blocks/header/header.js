@@ -98,7 +98,8 @@ const LABELS = {
     location: 'Pays',
     continue: 'Continuer',
     newTab: 's’ouvre dans un nouvel onglet',
-    languageCurrent: 'language selection; currently:',
+    // the language list of the corporate site of www.swiss.com in French (the wording of www)
+    languageCurrent: 'sélection de la langue ; actuellement :',
   },
   es: {
     nav: 'Navegación',

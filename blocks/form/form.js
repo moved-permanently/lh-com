@@ -93,6 +93,39 @@ const DEFAULT_LABELS = {
     'stepper increase': 'Erhöhen',
     'repeat remove': 'Entfernen',
   },
+  // fr: the texts of www on the French form pages where they show them (the submit button, the
+  // file drop zone prompt, its or, the select button and the list headline, captures of
+  // 2026-11-02); the others in the same wording, the replica own (the French label bundles of
+  // www answered this machine with a challenge)
+  fr: {
+    'sent message': 'Ceci est un formulaire d’aperçu. Aucune donnée n’a été envoyée.',
+    'success message': 'Merci. Votre demande a été envoyée.',
+    sending: 'Envoi en cours…',
+    yes: 'Oui',
+    no: 'Non',
+    'submit label': 'Envoyer',
+    'required marker': '*',
+    'required text': '(obligatoire)',
+    'file none label': 'Aucun fichier sélectionné',
+    'checkbox group error': 'Veuillez sélectionner au moins une option.',
+    'required error': 'Veuillez remplir ce champ.',
+    'format error': 'Veuillez vérifier votre saisie.',
+    'file prompt': 'Veuillez faire glisser et déposer vos fichiers ici',
+    'file or': 'ou',
+    'file select': 'Sélectionner un ou plusieurs fichiers',
+    'file list headline': 'Fichiers téléchargés',
+    'file remove': 'Supprimer {NAME}',
+    'file required': 'Le téléchargement de fichier est obligatoire',
+    'file invalid type': 'Veuillez télécharger un fichier dans un format accepté',
+    'file too big': 'Veuillez télécharger un fichier d’une taille acceptée',
+    'file invalid name': 'Le nom du fichier contient un caractère non autorisé',
+    'file too many': 'Vous ne pouvez pas télécharger plus de {MAX}',
+    'file total': 'Tous les fichiers ensemble : max. {TOTAL}',
+    'send error': 'Désolé, votre demande n’a pas pu être envoyée. Veuillez réessayer.',
+    'stepper decrease': 'Diminuer',
+    'stepper increase': 'Augmenter',
+    'repeat remove': 'Supprimer',
+  },
 };
 
 /**

@@ -41,6 +41,23 @@ const DEFAULT_LABELS = {
     'next label': 'Nächste Seite',
     'page label': 'Seite {PAGE}',
   },
+  // fr: the search field of the French footers of www (its searchBar text); the others in the
+  // same wording, the replica own (the French label bundles of www answered this machine with a
+  // challenge; a recorded searchResultsAEM answer in French replaces them)
+  fr: {
+    'input label': 'Entrez un mot-clé',
+    'search button label': 'Rechercher',
+    'search for label': 'Votre recherche : {QUERY}',
+    'results label': '{NUMBER} résultats',
+    'no results label': 'Aucun résultat trouvé. Veuillez affiner votre recherche et réessayer.',
+    'failed label': 'Vos résultats de recherche n’ont pas pu être chargés.',
+    'failed sr label': 'Les résultats de recherche n’ont pas pu être chargés.',
+    'success sr label': 'Résultats de recherche chargés.',
+    'pagination label': 'Pagination en bas de page',
+    'previous label': 'Page précédente',
+    'next label': 'Page suivante',
+    'page label': 'Page {PAGE}',
+  },
 };
 
 /** www's label keys (searchResultsAEM, searchBar) for the strings above. */
