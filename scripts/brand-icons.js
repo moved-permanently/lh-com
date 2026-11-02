@@ -14,6 +14,8 @@ export const BRAND_ICONS = {
   ita: { icon: '/etc/designs/ita/favicon.ico', type: 'image/ico', manifest: '/etc/designs/ita/manifest.json' },
   austrian: { icon: '/etc/designs/os/favicon.ico', type: 'image/ico', manifest: '/etc/designs/os/manifest.json' },
   brussels: { icon: '/etc/designs/sn/favicon.ico', type: 'image/ico', manifest: '/etc/designs/sn/manifest.json' },
+  // www.swiss.com's (swiss-assets-002: favicon, manifest "SWISS"/"LX" and its three icons)
+  swiss: { icon: '/etc/designs/lx/favicon.ico', type: 'image/ico', manifest: '/etc/designs/lx/manifest.json' },
   // business.lufthansagroup.com links no manifest
   b2b: { icon: '/etc/designs/b2b-neo/favicon.ico', type: 'image/ico', manifest: '' },
   cargo: { icon: '/o/eportal-theme/images/favicon.ico', type: 'image/x-icon', manifest: '' },
