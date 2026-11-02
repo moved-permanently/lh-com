@@ -25,6 +25,7 @@ bbird.live hosts are retired. Hosts on turnsthe.page follow the brand pattern
 | austrian.turnsthe.page | `SITE_HOSTS` ("Other sites") |
 | brussels.turnsthe.page | `SITE_HOSTS` ("Other sites") |
 | b2b.turnsthe.page | `SITE_HOSTS` ("Other sites") |
+| swiss.turnsthe.page | `SITE_HOSTS` ("Other sites") |
 | lh-edge.benpeter.workers.dev | (none) |
 
 `ALIAS_REWRITE_HOSTS` also keeps the retired lhcom.bbird.live and lhedge.bbird.live: an old link
@@ -196,6 +197,13 @@ at/de's four documents), rewritten to the root. Entry paths
 from the roots (`/<cc>/<ll>`, `/<cc>`; `/de`: de/en). Its fonts are Lufthansa's (the theme's Thin face of release
 v1.38.0 too) from www.lufthansa.com (business.lufthansagroup.com sends its fonts without CORS).
 
+SWISS (`swiss`, DA `moved-permanently/lh-swiss`, www.swiss.com): the pilot's ch/en and ch/de hold their own documents
+(no market roots yet: the dialog's other countries link to www.swiss.com). Entry paths as www sends them: `/` and
+`/ch/en` to ch/en's homepage, `/ch` and `/ch/de` to ch/de's, `/xx/en`, `/xx/de` (and `/xx/<ll>/homepage`) and the
+sub-sites' `/en/homepage`, `/de/homepage` to `/ch/<ll>/homepage` (`ENTRY_EXTRAS.swiss`). Its fonts (CH Sans,
+`fonts/swiss/`) and the culinary hub come from www.lufthansa.com's same design-system release; `/content/dam/lx/...`:
+the DAM route on lh-swiss's copies, then AEM.
+
 Every site with roots (brief 212): `SITE_ENTRIES` holds every root of `BRAND_SITES` (scripts/brands.js, no list here):
 `/<cc>/<ll>` and `/<cc>/<ll>/` to the root's homepage, `/<cc>` and `/<cc>/` to the country's first root's, as www
 does (www.ita-airways.com `/it/en` -> `/it/en/homepage`); a site's aliases and extra paths on top (Brussels' `xx`,
@@ -225,10 +233,10 @@ www.lufthansa.com: it uses Lufthansa's fonts, and www.lufthansa-cargo.com doesn'
 scripts with a challenge), while its links still name www.lufthansa-cargo.com (`SITE_WWW_HOSTS`).
 
 ```toml
-SITE_HOSTS = "discover.turnsthe.page=discover; ita.turnsthe.page=ita; austrian.turnsthe.page=austrian; cargo.turnsthe.page=cargo; airdolomiti.turnsthe.page=airdolomiti; brussels.turnsthe.page=brussels; b2b.turnsthe.page=b2b"
-SITE_ORIGINS = "discover=main--lh-discover--moved-permanently.aem.live; ita=main--lh-ita--moved-permanently.aem.live; austrian=main--lh-austrian--moved-permanently.aem.live; cargo=main--lh-cargo--moved-permanently.aem.live; airdolomiti=main--lh-airdolomiti--moved-permanently.aem.live; brussels=main--lh-brussels--moved-permanently.aem.live; b2b=main--lh-b2b--moved-permanently.aem.live"
-SITE_WWW_HOSTS = "discover=www.discover-airlines.com; ita=www.ita-airways.com; austrian=www.austrian.com; cargo=www.lufthansa-cargo.com; airdolomiti=www.airdolomiti.it; brussels=www.brusselsairlines.com; b2b=business.lufthansagroup.com"
-SITE_DESIGN_HOSTS = "discover=www.discover-airlines.com; ita=www.ita-airways.com; austrian=www.lufthansa.com; cargo=www.lufthansa.com; brussels=www.lufthansa.com; b2b=www.lufthansa.com"
+SITE_HOSTS = "discover.turnsthe.page=discover; ita.turnsthe.page=ita; austrian.turnsthe.page=austrian; cargo.turnsthe.page=cargo; airdolomiti.turnsthe.page=airdolomiti; brussels.turnsthe.page=brussels; b2b.turnsthe.page=b2b; swiss.turnsthe.page=swiss"
+SITE_ORIGINS = "discover=main--lh-discover--moved-permanently.aem.live; ita=main--lh-ita--moved-permanently.aem.live; austrian=main--lh-austrian--moved-permanently.aem.live; cargo=main--lh-cargo--moved-permanently.aem.live; airdolomiti=main--lh-airdolomiti--moved-permanently.aem.live; brussels=main--lh-brussels--moved-permanently.aem.live; b2b=main--lh-b2b--moved-permanently.aem.live; swiss=main--lh-swiss--moved-permanently.aem.live"
+SITE_WWW_HOSTS = "discover=www.discover-airlines.com; ita=www.ita-airways.com; austrian=www.austrian.com; cargo=www.lufthansa-cargo.com; airdolomiti=www.airdolomiti.it; brussels=www.brusselsairlines.com; b2b=business.lufthansagroup.com; swiss=www.swiss.com"
+SITE_DESIGN_HOSTS = "discover=www.discover-airlines.com; ita=www.ita-airways.com; austrian=www.lufthansa.com; cargo=www.lufthansa.com; brussels=www.lufthansa.com; b2b=www.lufthansa.com; swiss=www.lufthansa.com"
 ```
 
 Check first against the preview origin (documents on preview only):

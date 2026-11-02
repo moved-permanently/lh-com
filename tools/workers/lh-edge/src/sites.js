@@ -66,10 +66,20 @@ function rootEntries(rows, aliases = {}) {
 const ENTRY_ALIASES = { brussels: { xx: 'be' } };
 // entry paths besides its roots', as on the source: Austrian's www sends /xx/en to
 // /at/en/homepage and /at to a 404 (/at/at/en/homepage), here to /at/en/homepage too
+// SWISS's www sends /ch to /ch/de/homepage, /xx/<ll>[/homepage] to /ch/<ll>/homepage and the
+// sub-sites' /<ll>/homepage to /ch/<ll>/homepage (the groundwork's 1.6; the pilot's en and de)
+const swissEntries = () => {
+  const out = { '/ch': '/ch/de/homepage', '/ch/': '/ch/de/homepage' };
+  ['en', 'de'].forEach((ll) => {
+    [`/xx/${ll}`, `/xx/${ll}/`, `/xx/${ll}/homepage`, `/${ll}/homepage`].forEach((p) => { out[p] = `/ch/${ll}/homepage`; });
+  });
+  return out;
+};
 const ENTRY_EXTRAS = {
   austrian: {
     '/xx/en': '/at/en/homepage', '/xx/en/': '/at/en/homepage', '/at': '/at/en/homepage', '/at/': '/at/en/homepage',
   },
+  swiss: swissEntries(),
 };
 
 /**
