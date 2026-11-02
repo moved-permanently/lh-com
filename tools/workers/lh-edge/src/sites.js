@@ -16,15 +16,18 @@ import { LOCALE_TABLE, LANGUAGE_VERSIONS } from '../../../../scripts/locale-tabl
 import { BRAND_SITES } from '../../../../scripts/brands.js';
 /* eslint-enable import/no-relative-packages */
 
-/** A site's tables: the locale rows, the language versions, the market roots, the own roots. */
-export function tablesOf(table, versions) {
+/**
+ * A site's tables: the locale rows, the language versions, the market roots, the own roots, the
+ * rest-of-world roots by language (BRAND_SITES restOfWorld; none: {}).
+ */
+export function tablesOf(table, versions, restOfWorld = {}) {
   const marketRoots = Object.keys(table).filter((k) => table[k].documents === 'language');
   // roots with every page as their own document besides the language versions (lh-com's at/de,
   // gb/en)
   const ownRoots = Object.keys(table).filter((k) => table[k].documents === 'own'
     && table[k].status === 'live' && !Object.values(versions).includes(k));
   return {
-    table, versions, marketRoots, ownRoots,
+    table, versions, marketRoots, ownRoots, restOfWorld,
   };
 }
 
@@ -37,7 +40,7 @@ export const LH_TABLES = tablesOf(LOCALE_TABLE, LANGUAGE_VERSIONS);
  * scripts/locale.js).
  */
 export const SITES = Object.fromEntries(Object.entries(BRAND_SITES)
-  .map(([name, site]) => [name, tablesOf(site.rows, site.versions)]));
+  .map(([name, site]) => [name, tablesOf(site.rows, site.versions, site.restOfWorld)]));
 
 /**
  * Entry paths of a site's roots: /<cc>/<ll> (and with a slash) to the root's homepage, /<cc> to

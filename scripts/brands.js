@@ -813,6 +813,9 @@ export const BRAND_SITES = {
       ]),
     },
     versions: { en: 'de/en', de: 'de/de' },
+    // the rest-of-world documents (lh-edge's market route): a root the language version's row
+    // leaves out (de's documents for de only) is answered from xx/<ll>'s document of the path
+    restOfWorld: { en: 'xx/en', de: 'xx/de' },
     names: {
       'ae/de': 'Verein. Arab. Emirate | Deutsch',
       'ae/en': 'United Arab Emirates | English',

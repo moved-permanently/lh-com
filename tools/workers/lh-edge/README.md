@@ -24,6 +24,7 @@ bbird.live hosts are retired. Hosts on turnsthe.page follow the brand pattern
 | ita.turnsthe.page | `SITE_HOSTS` ("Other sites") |
 | austrian.turnsthe.page | `SITE_HOSTS` ("Other sites") |
 | brussels.turnsthe.page | `SITE_HOSTS` ("Other sites") |
+| b2b.turnsthe.page | `SITE_HOSTS` ("Other sites") |
 | lh-edge.benpeter.workers.dev | (none) |
 
 `ALIAS_REWRITE_HOSTS` also keeps the retired lhcom.bbird.live and lhedge.bbird.live: an old link
@@ -179,6 +180,16 @@ and hold their own homepage, nav and footer (no xx roots: www sends `/xx/<ll>/*`
 (`/be`: be/en), `/xx` and `/xx/en`, `/xx/fr`, `/xx/nl` to the be homepages. Its fonts (Intelo, `fonts/brussels/`)
 come from www.lufthansa.com's same design-system release.
 
+Lufthansa Group for Business (`b2b`, DA `moved-permanently/lh-b2b`, business.lufthansagroup.com): de/en and de/de hold
+the language documents; 185 market roots get them where the document's `markets` row lists the root. Where de's row
+serves de only (a path where www's `xx/<ll>` differs from de: 86 paths), a market root is answered from the
+rest-of-world document of the same path on `xx/<ll>` (`restOfWorld` in `BRAND_SITES.b2b`: en `xx/en`, de `xx/de`),
+when that document's own `markets` row lists the root; its links into `xx/<ll>` become the market root's. ch/en's and
+at/de's own documents and the us/en and ca/en homepages are the root's own documents (answered first). us/de, ca/de and
+mx/de are no roots: www answers its not-found page there with a 500, here the site's not-found page (404). Entry paths
+from the roots (`/<cc>/<ll>`, `/<cc>`; `/de`: de/en). Its fonts are Lufthansa's (the theme's Thin face of release
+v1.38.0 too) from www.lufthansa.com (business.lufthansagroup.com sends its fonts without CORS).
+
 Every site with roots (brief 212): `SITE_ENTRIES` holds every root of `BRAND_SITES` (scripts/brands.js, no list here):
 `/<cc>/<ll>` and `/<cc>/<ll>/` to the root's homepage, `/<cc>` and `/<cc>/` to the country's first root's, as www
 does (www.ita-airways.com `/it/en` -> `/it/en/homepage`); a site's aliases and extra paths on top (Brussels' `xx`,
@@ -208,10 +219,10 @@ www.lufthansa.com: it uses Lufthansa's fonts, and www.lufthansa-cargo.com doesn'
 scripts with a challenge), while its links still name www.lufthansa-cargo.com (`SITE_WWW_HOSTS`).
 
 ```toml
-SITE_HOSTS = "discover.turnsthe.page=discover; ita.turnsthe.page=ita; austrian.turnsthe.page=austrian; cargo.turnsthe.page=cargo; airdolomiti.turnsthe.page=airdolomiti; brussels.turnsthe.page=brussels"
-SITE_ORIGINS = "discover=main--lh-discover--moved-permanently.aem.live; ita=main--lh-ita--moved-permanently.aem.live; austrian=main--lh-austrian--moved-permanently.aem.live; cargo=main--lh-cargo--moved-permanently.aem.live; airdolomiti=main--lh-airdolomiti--moved-permanently.aem.live; brussels=main--lh-brussels--moved-permanently.aem.live"
-SITE_WWW_HOSTS = "discover=www.discover-airlines.com; ita=www.ita-airways.com; austrian=www.austrian.com; cargo=www.lufthansa-cargo.com; airdolomiti=www.airdolomiti.it; brussels=www.brusselsairlines.com"
-SITE_DESIGN_HOSTS = "discover=www.discover-airlines.com; ita=www.ita-airways.com; austrian=www.lufthansa.com; cargo=www.lufthansa.com; brussels=www.lufthansa.com"
+SITE_HOSTS = "discover.turnsthe.page=discover; ita.turnsthe.page=ita; austrian.turnsthe.page=austrian; cargo.turnsthe.page=cargo; airdolomiti.turnsthe.page=airdolomiti; brussels.turnsthe.page=brussels; b2b.turnsthe.page=b2b"
+SITE_ORIGINS = "discover=main--lh-discover--moved-permanently.aem.live; ita=main--lh-ita--moved-permanently.aem.live; austrian=main--lh-austrian--moved-permanently.aem.live; cargo=main--lh-cargo--moved-permanently.aem.live; airdolomiti=main--lh-airdolomiti--moved-permanently.aem.live; brussels=main--lh-brussels--moved-permanently.aem.live; b2b=main--lh-b2b--moved-permanently.aem.live"
+SITE_WWW_HOSTS = "discover=www.discover-airlines.com; ita=www.ita-airways.com; austrian=www.austrian.com; cargo=www.lufthansa-cargo.com; airdolomiti=www.airdolomiti.it; brussels=www.brusselsairlines.com; b2b=business.lufthansagroup.com"
+SITE_DESIGN_HOSTS = "discover=www.discover-airlines.com; ita=www.ita-airways.com; austrian=www.lufthansa.com; cargo=www.lufthansa.com; brussels=www.lufthansa.com; b2b=www.lufthansa.com"
 ```
 
 Check first against the preview origin (documents on preview only):

@@ -22,6 +22,10 @@
  *   language version (the redirect sheet) redirects the market path into the market root; JSON
  *   (search-index.json, articles/query-index.json …) is the language version's, its rows filtered
  *   by `markets` and their paths rewritten, search-index.json with the root's own pages added;
+ * - a site with rest-of-world documents (BRAND_SITES restOfWorld, lh-b2b: xx/<ll>): where the
+ *   language version's row does not allow the country, the rest-of-world root's document of the
+ *   path, when its own `markets` metadata allows it (links into the rest-of-world root become the
+ *   market root's);
  * - else the origin's 404 for the market path, as www.
  * Cached like the pass-through (originFetch: EDGE_TTL, the origin's cache tags: a publish of the
  * language page purges every market copy). Media, code and other files pass through.
@@ -361,9 +365,15 @@ export function serves(model, root, suffix) {
   if (!suffix || suffix === '/') return true;
   if (lookups(model).ownBySuffix.get(suffix)?.has(root)) return true;
   if (LANGUAGE_ONLY.test(suffix)) return true;
-  const v = model.versions[tablesOfModel(model).table[root].lang];
+  const t = tablesOfModel(model);
+  const { lang } = t.table[root];
+  const v = model.versions[lang];
   const row = v && v.index.get(`/${v.root}${suffix}`);
-  return Boolean(row) && (!row.markets || marketAllows(row.markets, root.split('/')[0]));
+  if (!row) return false;
+  if (!row.markets || marketAllows(row.markets, root.split('/')[0])) return true;
+  // a root the row leaves out: the rest-of-world document of the path (its markets are checked
+  // when it is answered)
+  return Boolean((t.restOfWorld || {})[lang]);
 }
 
 /**
@@ -401,8 +411,9 @@ export function alternates(model, lang, suffix) {
     const always = !s || s === '/' || LANGUAGE_ONLY.test(s);
     const row = always ? null : model.versions[l].index.get(`/${version}${s}`);
     const own = ownBySuffix.get(s);
+    const restOfWorld = Boolean((tablesOfModel(model).restOfWorld || {})[l]);
     (rootsByLang.get(l) || []).forEach((r) => {
-      if (always || (own && own.has(r)) || (row && (!row.markets || marketAllows(row.markets, r.split('/')[0])))) {
+      if (always || (own && own.has(r)) || (row && (restOfWorld || !row.markets || marketAllows(row.markets, r.split('/')[0])))) {
         out.push(item(r));
       }
     });
@@ -980,16 +991,27 @@ export async function market(request, env) {
       headers: { location: target, 'cache-control': moved.headers.get('cache-control') || 'max-age=60', 'x-lh-edge-route': 'market' },
     });
   }
-  const doc = await originFetch(versionRequest, env, `https://${env.ORIGIN}/${from}${rest}`);
+  // the source: the language version's document, or where its row leaves the country out and the
+  // site has rest-of-world documents (lh-b2b), the rest-of-world root's
+  const cc = root.split('/')[0];
+  const rowOf = indexed ? v.index.get(`/${from}${suffix}`) : null;
+  const restOfWorld = (t.restOfWorld || {})[t.table[root].lang];
+  const leftOut = Boolean(rowOf && rowOf.markets && !marketAllows(rowOf.markets, cc));
+  const source = leftOut && restOfWorld && restOfWorld !== root ? restOfWorld : from;
+  if (source !== from) ctx.from = source;
+  const doc = await originFetch(versionRequest, env, `https://${env.ORIGIN}/${source}${rest}`);
   if (!doc.ok) return own;
   const headers = new Headers(doc.headers);
   headers.set('x-lh-edge-route', 'market');
   headers.delete('content-length');
   if (request.method === 'HEAD') return new Response(null, { status: doc.status, headers });
-  // the page's own markets metadata counts at once (the index takes it on publish)
+  // the page's own markets metadata counts at once (the index takes it on publish); the
+  // rest-of-world document's in its .plain.html too (its markets are in no index)
   const html = await doc.text();
-  const meta = kind === 'page' && html.match(/<meta name="markets" content="([^"]*)"/);
-  if (meta && !marketAllows(meta[1], root.split('/')[0])) return own;
+  const meta = (kind === 'page' || source !== from) && (html.match(/<meta name="markets" content="([^"]*)"/)
+    || html.match(/<div><div>markets<\/div><div>([^<]*)<\/div><\/div>/i));
+  if (meta && !marketAllows(meta[1], cc)) return own;
+  if (source !== from && !meta) return own;
   // sections whose section metadata `markets` excludes the country are left out; the nav and
   // footer of a root with a label of its own (a site's row) name the root, not the language version
   // nav and footer name the root (a site's label, lh-com's name: www's label for the root) and the
