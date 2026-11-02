@@ -132,3 +132,9 @@ test('other /digitalhangar/ paths: no copy asked, www as before', async () => {
   await get('lh-edge.example', '/digitalhangar/cs-help-center/help-center-web/help-center-web-4.3.1.js');
   assert.ok(calls.every((c) => !new URL(c.url).hostname.endsWith('.aem.live')), calls.map((c) => c.url).join(' '));
 });
+
+test('the help center\'s topics files (www refuses topics_en.json too, brief 272): our copy asked first', async () => {
+  await get('lh-edge.example', '/digitalhangar/cs-help-center/topics/LX/topics_en.json');
+  assert.ok(calls.some((c) => new URL(c.url).pathname === '/digitalhangar-copies/cs-help-center/topics/LX/topics_en.json'), calls.map((c) => c.url).join(' '));
+  assert.equal(new URL(calls.at(-1).url).hostname, 'www.lufthansa.com', 'no copy: www as before');
+});

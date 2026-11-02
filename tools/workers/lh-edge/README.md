@@ -350,7 +350,7 @@ Every HTML answer on every host also gets `lh-geo=<country>-<region>` (upper cas
 ### Our copies of files www refuses (`src/digitalhangar.js` COPIES)
 
 www answers lh-edge 403 for the help center's data (`/digitalhangar/cs-help-center/feature-manager/<tenant>/*.json`,
-`/digitalhangar/cs-help-center/translations/web/<tenant>/*.json`; SWISS's LX: `tools/reports/lh-swiss-digitalhangar-files.tsv`).
+`/digitalhangar/cs-help-center/translations/web/<tenant>/*.json`, `/digitalhangar/cs-help-center/topics/<tenant>/*.json`; SWISS's LX: `tools/reports/lh-swiss-digitalhangar-files.tsv`).
 For these paths the site's origin is asked first for our copy at `/digitalhangar-copies/<the path below /digitalhangar/>`
 (committed in this repository, served by the code bus); its 200 answers (`x-lh-edge-copy: origin`). Without a copy
 (any other answer) www's answer as before. Every other `/digitalhangar/` path never asks the origin.

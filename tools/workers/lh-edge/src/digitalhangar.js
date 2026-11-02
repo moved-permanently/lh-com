@@ -30,8 +30,9 @@ export const DEFAULT_WWW = 'www.lufthansa.com';
 export const RELEASE = /^\/digitalhangar\/design-system\/releases\/(?:[a-z0-9]+-)*v\d+\.\d+\.\d+\/[^?#]+$/i;
 export const YEAR = 'public, max-age=31536000, immutable';
 // files www answers lh-edge with 403 (its WAF): the help center's feature switches and texts
-// (cs-help-center/feature-manager/<tenant>/, translations/web/<tenant>/; brief 270)
-export const COPIES = /^\/digitalhangar\/cs-help-center\/(?:feature-manager|translations)\/[^?#]+\.json$/;
+// (cs-help-center/feature-manager/<tenant>/, translations/web/<tenant>/, topics/<tenant>/; briefs
+// 270, 272)
+export const COPIES = /^\/digitalhangar\/cs-help-center\/(?:feature-manager|translations|topics)\/[^?#]+\.json$/;
 /** The path of our copy of a /digitalhangar/ file on the site's origin. */
 export const copyPath = (pathname) => `/digitalhangar-copies${pathname.slice('/digitalhangar'.length)}`;
 
