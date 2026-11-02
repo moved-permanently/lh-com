@@ -602,6 +602,39 @@ export function withSwissMarkets(site, live = SWISS_MARKETS_LIVE) {
   };
 }
 
+// SWISS's languages still to publish, behind their switch (as lh-com's liveWaves, brief 279): a
+// language not in SWISS_LANGUAGES_LIVE is a pilot: its root's pages render with their own row
+// (scripts/locale.js), while the rows and versions, the country dialog, the links to its homepage
+// and lh-edge's entries and routes stay as before (swiss.turnsthe.page answers as before); once
+// its documents are published, its code in SWISS_LANGUAGES_LIVE makes it a root as ch/fr and ch/it.
+// name: the homepage's footer line; airport: its flight search's origin (swiss-snapshots-011, -016)
+export const SWISS_LANGUAGES = {
+  es: { root: 'ch/es', name: 'Suiza | Español', airport: 'ZRH' },
+  pt: { root: 'ch/pt', name: 'Suiça | Português', airport: 'ZRH' },
+};
+export const SWISS_LANGUAGES_LIVE = [];
+
+/** SWISS's site entry with the languages switched on as roots, the others as its pilots. */
+export function withSwissLanguages(site, live = SWISS_LANGUAGES_LIVE) {
+  const on = Object.keys(SWISS_LANGUAGES).filter((ll) => live.includes(ll));
+  const off = Object.keys(SWISS_LANGUAGES).filter((ll) => !live.includes(ll));
+  const roots = (lls) => lls.map((ll) => SWISS_LANGUAGES[ll].root);
+  const by = (lls, field) => Object.fromEntries(lls
+    .map((ll) => [SWISS_LANGUAGES[ll].root, SWISS_LANGUAGES[ll][field]]));
+  const pilots = rowsOf('own', roots(off));
+  Object.values(pilots).forEach((r) => { r.status = 'pilot'; });
+  return {
+    ...site,
+    rows: { ...site.rows, ...rowsOf('own', roots(on)) },
+    versions: {
+      ...site.versions, ...Object.fromEntries(on.map((ll) => [ll, SWISS_LANGUAGES[ll].root])),
+    },
+    names: { ...site.names, ...by(on, 'name') },
+    airports: { ...site.airports, ...by(on, 'airport') },
+    pilots: { rows: pilots, names: by(off, 'name'), airports: by(off, 'airport') },
+  };
+}
+
 /**
  * The brands with <cc>/<ll> roots. rows: the locale table (status, documents "own": the root's
  * own documents, "language": answered from its language version's); versions: the root of each
@@ -1250,9 +1283,10 @@ export const BRAND_SITES = {
     },
     airports: {},
   },
-  swiss: withSwissMarkets({
-    // the pilot's ch/en and ch/de; ch/fr and ch/it (brief 272); names: the homepages' line (ch/de's
-    // says Switzerland, ch/it's Suisse); airports: the homepages' flight search origin
+  swiss: withSwissMarkets(withSwissLanguages({
+    // the pilot's ch/en and ch/de; ch/fr and ch/it (brief 272); ch/es and ch/pt behind their
+    // switch (SWISS_LANGUAGES); names: the homepages' line (ch/de's says Switzerland, ch/it's
+    // Suisse); airports: the homepages' flight search origin
     rows: rowsOf('own', ['ch/en', 'ch/de', 'ch/fr', 'ch/it']),
     versions: {
       en: 'ch/en', de: 'ch/de', fr: 'ch/fr', it: 'ch/it',
@@ -1263,5 +1297,5 @@ export const BRAND_SITES = {
     airports: {
       'ch/en': 'ZRH', 'ch/de': 'ZRH', 'ch/fr': 'GVA', 'ch/it': 'ZRH',
     },
-  }),
+  })),
 };

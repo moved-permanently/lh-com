@@ -150,8 +150,22 @@ function brandRow(site, root) {
   };
 }
 
+// a brand site with its pilots' roots (scripts/brands.js withSwissLanguages: a language not live
+// yet): the rows its pages render with; the dialog and the links to a root read its rows alone
+function withPilots(site) {
+  const { pilots } = site;
+  if (!pilots) return site;
+  return {
+    ...site,
+    rows: { ...site.rows, ...pilots.rows },
+    names: { ...site.names, ...pilots.names },
+    airports: { ...site.airports, ...pilots.airports },
+  };
+}
+
 /** The locale of a path on a brand site with roots (getLocale's rules with the brand's table). */
-function brandLocale(site, root, prefix) {
+function brandLocale(brand, root, prefix) {
+  const site = withPilots(brand);
   if (root && site.rows[root]) {
     const row = brandRow(site, root);
     const version = row.documents === 'language' ? site.versions[row.lang] : null;
@@ -286,7 +300,8 @@ export function serviceOrigin(read = pageMeta) {
 export function siteLocales(read = pageMeta) {
   const site = brandSite(read);
   if (!site) return LOCALES;
-  return Object.fromEntries(Object.keys(site.rows).map((root) => [root, brandRow(site, root)]));
+  const all = withPilots(site);
+  return Object.fromEntries(Object.keys(all.rows).map((root) => [root, brandRow(all, root)]));
 }
 
 /**
@@ -347,7 +362,9 @@ export function labelTenant(locale) {
  * @returns {boolean}
  */
 export function isMigratedLocale(country, lang) {
-  return Boolean(siteLocales()[`${country.toLowerCase()}/${lang.toLowerCase()}`]);
+  // a brand's pilot root (status pilot) is not: links to it go to www until it is live
+  const row = siteLocales()[`${country.toLowerCase()}/${lang.toLowerCase()}`];
+  return Boolean(row && row.status === 'live');
 }
 
 /**
