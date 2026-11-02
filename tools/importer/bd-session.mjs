@@ -59,9 +59,21 @@ const MAX_HEIGHT = 8000;
 const keepErrorPages = has('keep-error-pages');
 // --same-path: only the page asked for is saved; a redirect to another page is recorded
 // (state "redirected", its target) and not saved; two market-neutral pages (/xx/<ll>/...) in a
-// row sent into a country root (a German exit sends them to /de/<ll>) end the session (exit 3),
+// row (--country-redirects) sent into a country root (a German exit sends them to /de/<ll>) end the session (exit 3),
 // so the next session gets another exit (brief 267)
 const samePath = has('same-path');
+// --country-redirects n: market-neutral pages in a row sent into a country root that end the
+// session (default 2)
+const countryLimit = Number(opt('country-redirects', 2));
+// --cookie name=value (repeatable): set on www before every page, e.g. HomepageMarket=xx: www
+// remembers the market of the last homepage seen in that cookie (on .lufthansa.com) and sends market-neutral pages
+// (/xx/<ll>/...) into that market's root (a session that saw /de/en/homepage gets /de/<ll>)
+const COOKIES = argv.flatMap((a, i) => (a === '--cookie' ? [argv[i + 1]] : [])).map((c) => {
+  const [name, ...v] = c.split('=');
+  return {
+    name, value: v.join('='), domain: `.${new URL(ANCHOR).hostname.replace(/^www\./, '')}`, path: '/',
+  };
+});
 const batch = Number(opt('batch', 20));
 const minDelay = Number(opt('min-delay', 5000));
 const maxDelay = Number(opt('max-delay', 10000));
@@ -194,11 +206,20 @@ try {
   });
 
   console.log(`bd-session: warming up on ${ANCHOR}`);
+  if (COOKIES.length) await page.context().addCookies(COOKIES).catch(() => {});
   const warm = await open(page, ANCHOR);
   if (CHALLENGE.test(warm.title)) throw new Error('warm-up page still behind the challenge');
+  console.log(`bd-session: warmed up on ${page.url()}`);
+  // --same-path with a market-neutral anchor (/xx/<ll>/homepage): www sends it into the exit's
+  // country root when the exit's country has one, and then every market-neutral page as well:
+  // the session ends at once (exit 3) instead of asking for each page
+  if (samePath && countryOfRedirect(ANCHOR, page.url())) {
+    countryExit = countryOfRedirect(ANCHOR, page.url());
+    console.error(`bd-session: the anchor went into the ${countryExit} root (a country exit); ending session`);
+  }
   await sleep(minDelay);
 
-  for (const url of pending) {
+  for (const url of countryExit ? [] : pending) {
     const navStart = Date.now();
     pageResponses = [];
     state.inflight = { url, startedAt: new Date().toISOString() };
@@ -207,6 +228,7 @@ try {
     // --shots-only without 1440: the page loads at its first width (one navigation per page)
     const firstWidth = shotsOnly && !widthsFor(url).includes(1440) ? widthsFor(url)[0] : 1440;
     if (firstWidth !== 1440) await page.setViewportSize({ width: firstWidth, height: 900 }).catch(() => {});
+    if (COOKIES.length) await page.context().addCookies(COOKIES).catch(() => {});
     const nav = await open(page, url);
     lap('open');
     const detection = await detectBlocked(page, { status: () => nav.status });
@@ -234,7 +256,7 @@ try {
       };
       console.log(`redirected ${url} -> ${moved} (not saved)`);
       countryRedirects = cc ? countryRedirects + 1 : 0;
-      if (countryRedirects >= 2) {
+      if (countryRedirects >= countryLimit) {
         countryExit = cc;
         console.error(`bd-session: the exit sends market-neutral pages into the ${cc} root (a country exit); ending session`);
         break;
