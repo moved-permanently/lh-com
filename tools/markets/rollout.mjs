@@ -84,6 +84,16 @@ export function counterpart(enPath, rootKey, list = groups()) {
   return same || first(urls) || null;
 }
 
+/**
+ * The importer's document name of a www path: Edge Delivery has no upper case or underscores in
+ * names (www's /fi/en/.../worldwide_offers1 is the document worldwide-offers1: a redirect row),
+ * dashes in a row are one (/sa/en/local-page/companion-special-riyadh---munich-2025) and none ends
+ * a name (us/en's terms---conditions-…-jersey-sweepstakes-- is …-jersey-sweepstakes).
+ */
+export function docName(p) {
+  return p.toLowerCase().replace(/_/g, '-').replace(/-{2,}/g, '-').replace(/-+(?=\/|$)/g, '');
+}
+
 /** The own pages of a root: {keep, left: [{path, why}]}. */
 export function ownPages(rootKey, marketOnly = read(path.join(DATA, 'market-only.json')).roots, stats = read(path.join(DATA, 'stats.json'))) {
   const stale = new Set(stats.urlsOnlyInStaleFiles || []);
@@ -254,10 +264,6 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.a
     const aliases = b.roots.flatMap((k) => ownPages(k).keep).filter(captured).filter((p) => canonicalOf(p) !== p);
     const own = b.roots.flatMap((k) => ownPages(k).keep).filter(captured).filter((p) => !aliases.includes(p));
     const restore = () => execFileSync('git', ['checkout', '--', 'tools/importer/import-progress.json', ...['homepage', 'info'].flatMap((t) => [`tools/importer/urls-${t}.txt`, `tools/importer/reports/import-${t}.report.xlsx`])], { cwd: root });
-    // the importer's document name: Edge Delivery has no upper case or underscores in names
-    // (www's /fi/en/.../worldwide_offers1 is the document worldwide-offers1: a redirect row), and
-    // dashes in a row are one (/sa/en/local-page/companion-special-riyadh---munich-2025)
-    const docName = (p) => p.toLowerCase().replace(/_/g, '-').replace(/-{2,}/g, '-');
     const renamed = own.filter((p) => docName(p) !== p);
     if (!argv.includes('--no-import')) {
       try {
