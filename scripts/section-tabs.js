@@ -50,7 +50,12 @@ function buildSet(panels) {
   const list = document.createElement('div');
   list.className = 'section-tabs-list';
   list.setAttribute('role', 'tablist');
-  nav.append(list);
+  // in a content wrapper as the sections' (main > .section > div: the content width), so the
+  // line under the tabs is as wide as the content
+  const inner = document.createElement('div');
+  inner.className = 'section-tabs-wrapper';
+  inner.append(list);
+  nav.append(inner);
   panels[0].before(nav);
 
   const tabs = panels.map((panel, i) => {

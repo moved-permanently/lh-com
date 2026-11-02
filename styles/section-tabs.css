@@ -10,10 +10,6 @@ main .section.section-tabs {
 
 .section-tabs .section-tabs-list {
   display: none;
-  box-sizing: border-box;
-  max-width: var(--content-max-width, 1200px);
-  margin: 0 auto;
-  padding: 0 var(--layout-margin, 22px);
 }
 
 .section-tabs [role="tab"] {

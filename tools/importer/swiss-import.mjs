@@ -119,8 +119,9 @@ export function withTabMarkers(html) {
   });
 }
 
-const TAB_MARK = /^@@tab@@(\d+)@@(.*)@@$/;
-const END_MARK = '@@tabs-end@@';
+// (the import's cleanup may write a text style after a marker: "@@tabs-end@@ {full-width}")
+const TAB_MARK = /^@@tab@@(\d+)@@(.*?)@@(?:\s*\{[^}]*\})?$/;
+const END_MARK = /^@@tabs-end@@(?:\s*\{[^}]*\})?$/;
 
 /**
  * The document's tab markers (withTabMarkers) as sections: the content before a set, a section
@@ -134,7 +135,7 @@ export function splitTabSections(doc) {
   const metaRows = (rows) => `<div class="section-metadata">${rows.map(([k, v]) => `<div><div>${k}</div><div>${v}</div></div>`).join('')}</div>`;
   const out = [...document.body.children].map((section) => {
     const kids = [...section.children];
-    const isMark = (c) => c.tagName === 'P' && (TAB_MARK.test(c.textContent.trim()) || c.textContent.trim() === END_MARK);
+    const isMark = (c) => c.tagName === 'P' && (TAB_MARK.test(c.textContent.trim()) || END_MARK.test(c.textContent.trim()));
     if (!kids.some(isMark)) return section.outerHTML;
     const own = kids.find((c) => c.classList.contains('section-metadata'));
     const parts = [{ tab: null, html: [] }];
@@ -142,7 +143,7 @@ export function splitTabSections(doc) {
       const line = c.tagName === 'P' ? c.textContent.trim() : '';
       const m = line.match(TAB_MARK);
       if (m) parts.push({ tab: m[2].trim(), set: m[1], html: [] });
-      else if (line === END_MARK) parts.push({ tab: null, html: [] });
+      else if (END_MARK.test(line)) parts.push({ tab: null, html: [] });
       else parts.at(-1).html.push(c.outerHTML);
     });
     return parts.filter((p) => p.tab || p.html.length).map((p) => {
@@ -152,7 +153,7 @@ export function splitTabSections(doc) {
     }).join('\n');
   }).join('\n');
   // markers inside a block (no split there): the text goes
-  return out.replace(/<p>@@tab@@\d+@@[^<]*@@<\/p>|<p>@@tabs-end@@<\/p>/g, '');
+  return out.replace(/<p>@@tab@@\d+@@[^<]*?@@(?:\s*\{[^}<]*\})?<\/p>|<p>@@tabs-end@@(?:\s*\{[^}<]*\})?<\/p>/g, '');
 }
 
 /**

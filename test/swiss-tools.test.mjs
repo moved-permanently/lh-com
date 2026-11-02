@@ -149,6 +149,10 @@ test('the markers become Tab sections: the content before, a section per panel w
   const styled = splitTabSections('<div><p>x</p><p>@@tab@@1@@A@@</p><p>a</p><p>@@tabs-end@@</p><p>y</p><div class="section-metadata"><div><div>Style</div><div>grey</div></div></div></div>');
   assert.equal(styled.split('\n').filter((s) => s.includes('<div>Style</div><div>grey</div>')).length, 2);
   assert.equal(splitTabSections('<div><p>plain</p></div>'), '<div><p>plain</p></div>', 'no markers: as it is');
+  // the import's cleanup writes the text style after the marker ("{full-width}")
+  const styledMarks = splitTabSections('<div><p>@@tab@@2@@A@@ {full-width}</p><p>a</p><p>@@tab@@2@@B@@ {full-width}</p><p>b</p><p>@@tabs-end@@ {full-width}</p></div>');
+  assert.equal(styledMarks, '<div><p>a</p><div class="section-metadata"><div><div>Tab</div><div>A</div></div><div><div>Tabs</div><div>2</div></div></div></div>\n<div><p>b</p><div class="section-metadata"><div><div>Tab</div><div>B</div></div><div><div>Tabs</div><div>2</div></div></div></div>');
+  assert.ok(!splitTabSections('<div><div class="columns-media"><div><div><p>@@tab@@1@@A@@ {full-width}</p></div></div></div></div>').includes('@@'), 'a marker inside a block goes');
 });
 
 test('the flight search\'s moving image: Background image and Background video rows, the video\'s /content/dam path', async () => {

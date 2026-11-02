@@ -62,6 +62,7 @@ test('consecutive Tab sections: one tab list before them, the labels, the panels
   assert.ok(nav.classList.contains('section-tabs'));
   const list = nav.querySelector('[role="tablist"]');
   assert.ok(list);
+  assert.ok(list.parentElement.parentElement === nav && list.parentElement.tagName === 'DIV', 'in the section\'s content wrapper (its width)');
   const tabs = [...list.querySelectorAll('[role="tab"]')];
   assert.deepEqual(tabs.map((t) => t.textContent), ['Europe', 'Intercontinental']);
   const panels = sections.slice(2, 4);
