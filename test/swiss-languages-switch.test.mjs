@@ -5,9 +5,11 @@
    BRAND_SITES.swiss's rows and versions, the country dialog, the links to its homepage and
    lh-edge's entries and routes stay as they were (swiss.turnsthe.page answers as before). Once
    its documents are published, its code in SWISS_LANGUAGES_LIVE makes it a root as ch/fr and
-   ch/it. Spanish and Portuguese (ch/es, ch/pt; the capture's swiss-snapshots-011, -012, -016,
-   -017: the homepages' "Suiza | Español", "Suiça | Português", the flight search from Zurich):
-   on since their documents are live (2026-11-03).
+   ch/it. Spanish and Portuguese (brief 279: swiss-snapshots-011, -012, -016, -017: "Suiza |
+   Español", "Suiça | Português"), Chinese and Japanese (brief 28x: -014, -015, -021, -022:
+   "瑞士 (Switzerland) | 简体中文", "Switzerland | 日本語"); the flight search from Zurich on all.
+   es and pt on since their documents are live (2026-11-03). The tests read SWISS_LANGUAGES_LIVE:
+   turning a language on needs no change here.
    Run: node --max-old-space-size=512 --test test/swiss-languages-switch.test.mjs */
 /* global globalThis */
 import test from 'node:test';
@@ -18,6 +20,9 @@ import {
 } from '../scripts/brands.js';
 
 const W = 'https://www.swiss.com';
+const NAMES = {
+  'ch/es': 'Suiza | Español', 'ch/pt': 'Suiça | Português', 'ch/zh': '瑞士 (Switzerland) | 简体中文', 'ch/ja': 'Switzerland | 日本語',
+};
 const onPage = (fn) => {
   const { document } = parseHTML('<!DOCTYPE html><html><head><meta name="brand" content="swiss"></head><body></body></html>');
   const saved = globalThis.document;
@@ -28,84 +33,104 @@ const onPage = (fn) => {
     globalThis.document = saved;
   }
 };
-
-// SWISS's rows as they were before the switch: ch's four, no market roots
-const offBase = () => {
-  const site = BRAND_SITES.swiss;
-  const four = ['ch/en', 'ch/de', 'ch/fr', 'ch/it'];
-  const pick = (map) => Object.fromEntries(Object.entries(map).filter(([k]) => four.includes(k)));
-  return {
-    rows: pick(site.rows),
-    versions: Object.fromEntries(Object.entries(site.versions).filter(([, r]) => four.includes(r))),
-    names: pick(site.names),
-    airports: pick(site.airports),
+const off = Object.keys(SWISS_LANGUAGES).filter((ll) => !SWISS_LANGUAGES_LIVE.includes(ll));
+const on = Object.keys(SWISS_LANGUAGES).filter((ll) => SWISS_LANGUAGES_LIVE.includes(ll));
+// SWISS's site without the switch's languages (as withSwissLanguages finds it)
+const base = (() => {
+  const roots = Object.values(SWISS_LANGUAGES).map((l) => l.root);
+  const without = (map) => Object.fromEntries(Object.entries(map).filter(([k]) => !roots.includes(k)));
+  const s = {
+    ...BRAND_SITES.swiss,
+    rows: without(BRAND_SITES.swiss.rows),
+    names: without(BRAND_SITES.swiss.names),
+    airports: without(BRAND_SITES.swiss.airports),
+    versions: Object.fromEntries(Object.entries(BRAND_SITES.swiss.versions).filter(([ll]) => !SWISS_LANGUAGES[ll])),
   };
-};
+  delete s.pilots;
+  return s;
+})();
 
-test('the switch is on for es and pt: ch/es and ch/pt are roots as ch/fr and ch/it, no pilots left', () => {
-  assert.deepEqual(SWISS_LANGUAGES_LIVE, ['es', 'pt']);
-  assert.deepEqual(Object.keys(SWISS_LANGUAGES), ['es', 'pt']);
+test('the languages behind the switch: es, pt, zh, ja (zh and ja off); www\'s names, Zurich', () => {
+  assert.deepEqual(Object.keys(SWISS_LANGUAGES), ['es', 'pt', 'zh', 'ja']);
+  assert.ok(!SWISS_LANGUAGES_LIVE.includes('zh') && !SWISS_LANGUAGES_LIVE.includes('ja'), 'zh and ja off until published');
+  assert.ok(SWISS_LANGUAGES_LIVE.every((ll) => SWISS_LANGUAGES[ll]), 'only languages of the table');
+  Object.entries(SWISS_LANGUAGES).forEach(([ll, { root, name, airport }]) => {
+    assert.equal(root, `ch/${ll}`);
+    assert.equal(name, NAMES[root]);
+    assert.equal(airport, 'ZRH');
+  });
+});
+
+test('BRAND_SITES.swiss: the languages off as pilots, the ones on as roots; ch\'s own four first', () => {
   const site = BRAND_SITES.swiss;
-  // ch's six with their own documents; the market roots (SWISS_MARKETS_LIVE) answered from them
-  assert.deepEqual(Object.keys(site.rows).filter((r) => site.rows[r].documents === 'own'), ['ch/en', 'ch/de', 'ch/fr', 'ch/it', 'ch/es', 'ch/pt']);
-  assert.deepEqual(Object.keys(site.versions), ['en', 'de', 'fr', 'it', 'es', 'pt']);
-  assert.deepEqual(site.rows['ch/es'], {
-    country: 'ch', lang: 'es', hreflang: 'es-CH', status: 'live', documents: 'own',
+  const own = Object.keys(site.rows).filter((r) => site.rows[r].documents === 'own');
+  assert.deepEqual(own, ['ch/en', 'ch/de', 'ch/fr', 'ch/it', ...on.map((ll) => `ch/${ll}`)]);
+  assert.deepEqual(Object.keys(site.versions), ['en', 'de', 'fr', 'it', ...on]);
+  assert.deepEqual(Object.keys(site.pilots.rows), off.map((ll) => `ch/${ll}`));
+  off.forEach((ll) => {
+    const root = `ch/${ll}`;
+    assert.deepEqual(site.pilots.rows[root], {
+      country: 'ch', lang: ll, hreflang: `${ll}-CH`, status: 'pilot', documents: 'own',
+    });
+    assert.equal(site.pilots.names[root], NAMES[root]);
+    assert.equal(site.pilots.airports[root], 'ZRH');
+    assert.equal(site.names[root], undefined);
+    assert.equal(site.rows[root], undefined);
   });
-  assert.equal(site.rows['ch/pt'].hreflang, 'pt-CH');
-  assert.equal(site.rows['ch/pt'].status, 'live');
-  assert.deepEqual(site.pilots.rows, {});
-  assert.equal(site.names['ch/es'], 'Suiza | Español');
-  assert.equal(site.names['ch/pt'], 'Suiça | Português');
-  assert.equal(site.airports['ch/es'], 'ZRH');
-  assert.equal(site.airports['ch/pt'], 'ZRH');
+  on.forEach((ll) => assert.equal(site.rows[`ch/${ll}`].status, 'live'));
 });
 
-test('on for a language: its root joins as ch/fr did (row, version, name, airport); the other stays a pilot', () => {
-  const base = offBase();
-  const on = withSwissLanguages(base, ['es']);
-  assert.deepEqual(Object.keys(on.rows).filter((r) => on.rows[r].documents === 'own'), ['ch/en', 'ch/de', 'ch/fr', 'ch/it', 'ch/es']);
-  assert.deepEqual(on.rows['ch/es'], {
+test('on for a language: its root joins as ch/fr did (row, version, name, airport); the others stay pilots', () => {
+  const es = withSwissLanguages(base, ['es']);
+  assert.deepEqual(Object.keys(es.rows).filter((r) => es.rows[r].documents === 'own'), ['ch/en', 'ch/de', 'ch/fr', 'ch/it', 'ch/es']);
+  assert.deepEqual(es.rows['ch/es'], {
     country: 'ch', lang: 'es', hreflang: 'es-CH', status: 'live', documents: 'own',
   });
-  assert.equal(on.versions.es, 'ch/es');
-  assert.equal(on.names['ch/es'], 'Suiza | Español');
-  assert.equal(on.airports['ch/es'], 'ZRH');
-  assert.deepEqual(Object.keys(on.pilots.rows), ['ch/pt']);
-  const both = withSwissLanguages(base, ['es', 'pt']);
-  assert.deepEqual(both.pilots.rows, {});
-  assert.equal(both.versions.pt, 'ch/pt');
-  // with the markets' switch on too: the markets of a language that is on (none in the capture yet)
-  const markets = withSwissMarkets(both, true);
-  assert.ok(Object.values(markets.rows).filter((r) => r.documents === 'language').every((r) => ['en', 'de', 'fr', 'it', 'es', 'pt'].includes(r.lang)));
-  assert.deepEqual(withSwissLanguages(base, []).rows, base.rows, 'off: the rows as they are');
-  assert.deepEqual(Object.keys(withSwissLanguages(base, []).pilots.rows), ['ch/es', 'ch/pt'], 'off: both pilots');
+  assert.equal(es.versions.es, 'ch/es');
+  assert.equal(es.names['ch/es'], 'Suiza | Español');
+  assert.equal(es.airports['ch/es'], 'ZRH');
+  assert.deepEqual(Object.keys(es.pilots.rows), ['ch/pt', 'ch/zh', 'ch/ja']);
+  const ja = withSwissLanguages(base, ['ja']);
+  assert.deepEqual(ja.rows['ch/ja'], {
+    country: 'ch', lang: 'ja', hreflang: 'ja-CH', status: 'live', documents: 'own',
+  });
+  assert.equal(ja.names['ch/ja'], 'Switzerland | 日本語');
+  const all = withSwissLanguages(base, ['es', 'pt', 'zh', 'ja']);
+  assert.deepEqual(all.pilots.rows, {});
+  assert.equal(all.versions.zh, 'ch/zh');
+  // with the markets' switch on too: the markets of the languages that are on only
+  const markets = withSwissMarkets(withSwissLanguages(base, ['es']), true);
+  assert.ok(Object.values(markets.rows).filter((r) => r.documents === 'language').every((r) => ['en', 'de', 'fr', 'it', 'es'].includes(r.lang)));
+  assert.deepEqual(withSwissLanguages(base, []).rows, base.rows, 'all off: the rows as they are');
 });
 
-test('on: the pages render with their root\'s row; the dialog, the links to them and the site\'s entry have them', async () => {
+test('a pilot\'s page renders with its own row; the dialog, the links to it and the site\'s entry leave it out', async () => {
   const {
     getLocale, ownRoots, siteLocales, isMigratedLocale, getHomepageUrl, rootRedirectPath,
   } = await import('../scripts/locale.js');
   onPage(() => {
-    const es = getLocale('/ch/es/fly/check-in');
-    assert.equal(es.key, 'ch/es');
-    assert.equal(es.lang, 'es');
-    assert.equal(es.base, '/ch/es');
-    assert.equal(es.name, 'Suiza | Español');
-    assert.equal(es.homeAirport, 'ZRH');
-    assert.equal(es.brand, 'swiss');
-    assert.equal(es.status, 'live');
-    assert.equal(getLocale('/content/ch/pt/homepage').base, '/content/ch/pt');
-    assert.equal(getLocale('/ch/pt/homepage').name, 'Suiça | Português');
-    assert.equal(siteLocales()['ch/es'].name, 'Suiza | Español', 'the header\'s globe label');
-    assert.deepEqual(ownRoots().filter((r) => r.startsWith('ch/')), ['ch/en', 'ch/de', 'ch/fr', 'ch/it', 'ch/es', 'ch/pt']);
-    assert.equal(isMigratedLocale('ch', 'es'), true);
-    assert.equal(isMigratedLocale('ch', 'pt'), true);
-    assert.equal(getHomepageUrl('ch', 'es'), '/ch/es/homepage');
-    assert.equal(getHomepageUrl('ch', 'pt'), '/ch/pt/homepage');
+    off.forEach((ll) => {
+      const root = `ch/${ll}`;
+      const l = getLocale(`/${root}/fly/check-in`);
+      assert.equal(l.key, root);
+      assert.equal(l.lang, ll);
+      assert.equal(l.base, `/${root}`);
+      assert.equal(l.name, NAMES[root]);
+      assert.equal(l.homeAirport, 'ZRH');
+      assert.equal(l.brand, 'swiss');
+      assert.equal(l.status, 'pilot');
+      assert.equal(getLocale(`/content/${root}/homepage`).base, `/content/${root}`);
+      assert.equal(siteLocales()[root].name, NAMES[root], 'the header\'s globe label');
+      assert.ok(!ownRoots().some((r) => r.endsWith(`/${ll}`)), `no ${ll} roots in the dialog`);
+      assert.equal(isMigratedLocale('ch', ll), false);
+      assert.equal(getHomepageUrl('ch', ll), `${W}/${root}/homepage`);
+    });
+    on.forEach((ll) => assert.equal(getHomepageUrl('ch', ll), `/ch/${ll}/homepage`));
+    assert.ok(['ch/en', 'ch/de', 'ch/fr', 'ch/it'].every((r) => ownRoots().includes(r)));
+    assert.equal(isMigratedLocale('ch', 'fr'), true);
     assert.equal(getHomepageUrl('ch', 'it'), '/ch/it/homepage');
     assert.equal(rootRedirectPath(), '/ch/en/homepage');
     // a language SWISS has no root for: ch/en's, as before
-    assert.equal(getLocale('/ch/ja/homepage').key, 'ch/en');
+    assert.equal(getLocale('/ch/ru/homepage').key, 'ch/en');
   });
 });

@@ -607,10 +607,13 @@ export function withSwissMarkets(site, live = SWISS_MARKETS_LIVE) {
 // (scripts/locale.js), while the rows and versions, the country dialog, the links to its homepage
 // and lh-edge's entries and routes stay as before (swiss.turnsthe.page answers as before); once
 // its documents are published, its code in SWISS_LANGUAGES_LIVE makes it a root as ch/fr and ch/it.
-// name: the homepage's footer line; airport: its flight search's origin (swiss-snapshots-011, -016)
+// name: the homepage's footer line; airport: its flight search's origin (swiss-snapshots-011, -016;
+// zh and ja: -014, -021)
 export const SWISS_LANGUAGES = {
   es: { root: 'ch/es', name: 'Suiza | Español', airport: 'ZRH' },
   pt: { root: 'ch/pt', name: 'Suiça | Português', airport: 'ZRH' },
+  zh: { root: 'ch/zh', name: '瑞士 (Switzerland) | 简体中文', airport: 'ZRH' },
+  ja: { root: 'ch/ja', name: 'Switzerland | 日本語', airport: 'ZRH' },
 };
 export const SWISS_LANGUAGES_LIVE = ['es', 'pt'];
 
