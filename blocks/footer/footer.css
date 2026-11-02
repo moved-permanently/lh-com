@@ -10,7 +10,7 @@
   --footer-line: var(--footer-line-color, #8696cb);
   --footer-field: var(--footer-field-color, #ccc);
   --footer-logos-bg: var(--footer-logos-surface, #fff);
-  --footer-margin: var(--layout-margin, 22px);
+  --footer-margin: var(--footer-side-margin, var(--layout-margin, 22px));
 
   /* --footer-surface-image: a brand theme's gradient behind the whole footer (b2b; its link area
      and logo row then transparent); none by default. --footer-text-color, --footer-link-color,
@@ -638,5 +638,125 @@
 @media (prefers-reduced-motion: reduce) {
   .footer .footer-column-toggle .lh-icon {
     transition: none;
+  }
+}
+
+/* ------------------------------------------------- the brand row (Style: brand-row) --- */
+
+/* lh-b2b (business.lufthansagroup.com, 2026-11-02): the logo (240x41) left of the tagline
+   (40px/52px) above the line (white at 20%), below it the © note (14px), the legal links, the
+   social badges (a 40px circle) and the country and language button in one row from 1025px;
+   stacked below, badges and locale side by side. Only footers with the section. */
+.footer .footer-inner.has-brand-row {
+  grid-template-areas:
+    'brandrow brandrow'
+    'divider divider'
+    'note note'
+    'legal legal'
+    'badges locale';
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: 20px;
+  align-items: center;
+  padding-top: 0;
+}
+
+.footer .footer-brand-row {
+  display: flex;
+  flex-wrap: wrap;
+  grid-area: brandrow;
+  gap: 24px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 48px 0 40px;
+}
+
+.footer .footer-brand-logo {
+  line-height: 0;
+}
+
+.footer .footer-inner .footer-brand-row .footer-brand-logo img {
+  width: auto;
+  max-width: 100%;
+  height: 41px;
+}
+
+.footer .footer-brand-tagline p {
+  margin: 0;
+  color: var(--footer-text);
+  font-family: var(--body-font-family);
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 52px;
+}
+
+.footer .footer-inner.has-brand-row .footer-divider {
+  border-top-color: rgb(255 255 255 / 20%);
+}
+
+.footer .footer-inner.has-brand-row .footer-note {
+  margin: 0;
+  padding: 32px 0 0;
+  border-top: 0;
+  font-size: 14px;
+  line-height: 19px;
+}
+
+.footer .footer-inner.has-brand-row .footer-legal {
+  padding: 16px 0 0;
+}
+
+.footer .footer-inner.has-brand-row .footer-legal .footer-link {
+  font-size: var(--footer-link-size, 15px);
+  font-weight: var(--footer-link-weight, 700);
+  line-height: 18px;
+}
+
+.footer .footer-inner.has-brand-row .footer-badges {
+  padding: 24px 0 40px;
+  border-top: 0;
+}
+
+.footer .footer-inner.has-brand-row .footer-badges a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgb(255 255 255 / 30%);
+  border-radius: 50%;
+}
+
+.footer .footer-inner.has-brand-row .footer-badges img {
+  width: 24px;
+  height: 24px;
+}
+
+.footer .footer-inner.has-brand-row .footer-locale {
+  justify-self: end;
+  margin: 24px 0 40px;
+}
+
+@media (width >= 1025px) {
+  .footer .footer-inner.has-brand-row {
+    grid-template-areas:
+      'brandrow brandrow brandrow brandrow'
+      'divider divider divider divider'
+      'note legal badges locale';
+    grid-template-columns: auto minmax(0, 1fr) auto auto;
+    column-gap: 32px;
+  }
+
+  .footer .footer-brand-row {
+    flex-wrap: nowrap;
+    padding: 80px 0 59px;
+  }
+
+  .footer .footer-inner.has-brand-row .footer-note,
+  .footer .footer-inner.has-brand-row .footer-legal,
+  .footer .footer-inner.has-brand-row .footer-badges,
+  .footer .footer-inner.has-brand-row .footer-locale {
+    margin: 0;
+    padding: 40px 0;
   }
 }

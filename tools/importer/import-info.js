@@ -13,6 +13,7 @@ import poiMapParser from './parsers/poi-map.js';
 import formCoreParser from './parsers/form-core.js';
 import carRentalParser from './parsers/car-rental.js';
 import flightSearchParser from './parsers/flight-search.js';
+import heroCardOverlayParser from './parsers/hero-card-overlay.js';
 import heroCampaignParser from './parsers/hero-campaign.js';
 import carouselImagesParser from './parsers/carousel-images.js';
 import accordionColumnsParser from './parsers/accordion-columns.js';
@@ -40,7 +41,8 @@ const PAGE_TEMPLATE = {
     {
       "name": "search-results",
       "instances": [
-        ".onsitesearchresult:has(> .dcep-search-results-aem)"
+        ".onsitesearchresult:has(> .dcep-search-results-aem)",
+        ".onsitesearchresult:has(> .dcep-b2b-neo-search-results-aem)"
       ]
     },
     {
@@ -106,9 +108,16 @@ const PAGE_TEMPLATE = {
       ]
     },
     {
+      "name": "hero-card-overlay",
+      "instances": [
+        ".b2b-stage"
+      ]
+    },
+    {
       "name": "hero-campaign",
       "instances": [
-        ".inspirationteaser"
+        ".inspirationteaser",
+        ".b2b-inspirationalstage"
       ]
     },
     {
@@ -132,7 +141,8 @@ const PAGE_TEMPLATE = {
     {
       "name": "cards-icon-text",
       "instances": [
-        ".threecolumn:has(> .column-view > .row > .column-view-item > .teaser > a.teaser.partner)"
+        ".threecolumn:has(> .column-view > .row > .column-view-item > .teaser > a.teaser.partner)",
+        ".b2b-iconmodules"
       ]
     },
     {
@@ -167,7 +177,8 @@ const PAGE_TEMPLATE = {
       "instances": [
         ".video:has(> .video-player iframe)",
         ".iframe:has(> .iframe-wrapper iframe[src*=\"lufthansa-inflightentertainment.com\"])",
-        ".iframe:has(> .iframe-wrapper iframe[src*=\"box.media-carrier.de\"])"
+        ".iframe:has(> .iframe-wrapper iframe[src*=\"box.media-carrier.de\"])",
+        ".iframe:has(> .iframe-wrapper iframe[src*=\"lhg-network.com\"])"
       ]
     },
     {
@@ -258,6 +269,7 @@ const parsers = {
   'form-core': formCoreParser,
   'car-rental': carRentalParser,
   'flight-search': flightSearchParser,
+  'hero-card-overlay': heroCardOverlayParser,
   'hero-campaign': heroCampaignParser,
   'carousel-images': carouselImagesParser,
   'accordion-columns': accordionColumnsParser,

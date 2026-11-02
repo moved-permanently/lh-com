@@ -648,3 +648,22 @@ main > .section > .columns-media-wrapper:has(> .columns-media.sidebar) + .defaul
     grid-template-columns: repeat(var(--columns-media-gallery-cols, 4), minmax(0, 1fr));
   }
 }
+
+/* lh-b2b (business.lufthansagroup.com's two-column teasers: heading, linked image, button): a
+   linked picture right under the cell's heading is the cell's picture, full width as www's, not
+   a badge */
+/* stylelint-disable-next-line no-descending-specificity -- a brand's rule after the shared ones */
+body.brand-b2b .columns-media .columns-media-text > :is(h2, h3) + p:has(> a > picture) {
+  display: block;
+  margin: 0 0 24px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- a brand's rule after the shared ones */
+body.brand-b2b .columns-media .columns-media-text > :is(h2, h3) + p > a:has(> picture) {
+  width: 100%;
+}
+
+body.brand-b2b .columns-media .columns-media-text > :is(h2, h3) + p > a > picture img {
+  width: 100%;
+  height: auto;
+}

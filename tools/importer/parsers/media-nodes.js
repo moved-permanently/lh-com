@@ -77,6 +77,8 @@ export function embedUrl(comp) {
   if (url.hostname === 'www.lufthansa-inflightentertainment.com' && /\/widgets\/?$/.test(url.pathname)) return url.href;
   // www's eJournals newsstand (unterhaltung-an-bord, lufthansa-ejournals)
   if (url.hostname === 'box.media-carrier.de' && url.protocol === 'https:' && /^\/(home)?\/?$/.test(url.pathname)) return url.href;
+  // Lufthansa Group for Business' route network map (travel-management/route-network)
+  if (url.hostname === 'lhg-network.com' && url.protocol === 'https:' && url.pathname === '/') return url.href;
   return '';
 }
 

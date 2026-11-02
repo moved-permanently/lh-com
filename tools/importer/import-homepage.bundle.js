@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-homepage.js
-  var import_homepage_exports = {};
-  __export(import_homepage_exports, {
-    default: () => import_homepage_default
+  var tmp_bundle_homepage_45786_exports = {};
+  __export(tmp_bundle_homepage_45786_exports, {
+    default: () => tmp_bundle_homepage_45786_default
   });
 
   // tools/importer/parsers/flash-teaser.js
@@ -209,6 +209,43 @@ var CustomImportScript = (() => {
     };
     const isBroken3 = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src);
     const cells = [];
+    const stage = element.querySelector(".stage-teaser");
+    const stageLink = stage && stage.querySelector("a.stage-teaser-link[href]");
+    if (stageLink) {
+      const img2 = [...stage.querySelectorAll("img")].find((i) => !isBroken3(i.getAttribute("src")));
+      let imageCell = "";
+      if (img2) {
+        imageCell = document.createElement("img");
+        imageCell.src = img2.getAttribute("src");
+        imageCell.alt = img2.getAttribute("alt") || "";
+      }
+      const content2 = [];
+      const heading = visibleText(stage.querySelector(".stage-teaser-headline"));
+      if (heading) {
+        const h2 = document.createElement("h2");
+        h2.textContent = heading;
+        content2.push(h2);
+      }
+      const sub = visibleText(stage.querySelector(".stage-teaser-subheadline"));
+      if (sub) {
+        const p = document.createElement("p");
+        p.textContent = sub;
+        content2.push(p);
+      }
+      const label = visibleText(stage.querySelector("maui-button-mimic")) || heading;
+      if (label) {
+        const p = document.createElement("p");
+        const em = document.createElement("em");
+        const a = document.createElement("a");
+        a.href = stageLink.getAttribute("href");
+        a.textContent = label;
+        em.append(a);
+        p.append(em);
+        content2.push(p);
+      }
+      element.replaceWith(WebImporter.Blocks.createBlock(document, { name: "hero-card-overlay", cells: [[imageCell], [content2]] }));
+      return;
+    }
     const img = [...element.querySelectorAll(".mst-bg-img img, .moving-image img, img")].find((i) => !isBroken3(i.getAttribute("src")) && !i.closest(".mst-card"));
     if (img) {
       const image = document.createElement("img");
@@ -449,6 +486,85 @@ var CustomImportScript = (() => {
     }
   }
 
+  // tools/importer/parsers/cards-icon-text.js
+  function parse5(element, { document }) {
+    const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
+    const modules = [...element.querySelectorAll(".icon-module")];
+    if (modules.length) {
+      const cards = [];
+      modules.forEach((m) => {
+        const img = m.querySelector("img.icon-module__icon");
+        if (!img || !img.getAttribute("src")) return;
+        const icon = document.createElement("img");
+        icon.src = img.getAttribute("src");
+        icon.alt = clean2(img.getAttribute("alt"));
+        const text = [];
+        const title = clean2((m.querySelector(".icon-module__heading") || {}).textContent);
+        if (title) {
+          const h3 = document.createElement("h3");
+          h3.textContent = title;
+          text.push(h3);
+        }
+        const description = clean2((m.querySelector(".icon-module__description") || {}).textContent);
+        if (description) {
+          const p = document.createElement("p");
+          p.textContent = description;
+          text.push(p);
+        }
+        const cta = m.querySelector("a.icon-module__cta[href]");
+        if (cta) {
+          const p = document.createElement("p");
+          const a = document.createElement("a");
+          a.href = cta.getAttribute("href");
+          a.textContent = clean2(cta.textContent) || title;
+          p.append(a);
+          text.push(p);
+        }
+        if (text.length) cards.push([icon, text]);
+      });
+      if (cards.length) element.replaceWith(WebImporter.Blocks.createBlock(document, { name: "cards-icon-text", variants: ["stacked"], cells: cards }));
+      return;
+    }
+    const partners = [...element.querySelectorAll("a.teaser.partner")];
+    if (!partners.length) return;
+    const rows = [];
+    partners.forEach((card) => {
+      let iconCell = "";
+      const img = card.querySelector("img.icon-svg, .image-wrapper img, img");
+      const src = img && img.getAttribute("src");
+      if (src && !/^(data|blob):/i.test(src)) {
+        iconCell = document.createElement("img");
+        iconCell.src = src;
+        iconCell.alt = clean2(img.getAttribute("alt"));
+      }
+      const content = [];
+      const title = clean2((card.querySelector(".teaser-heading-text") || card.querySelector(".teaser-heading, h1, h2, h3, h4, h5, h6") || {}).textContent);
+      const href = card.getAttribute("href");
+      if (title) {
+        const h3 = document.createElement("h3");
+        if (href) {
+          const a = document.createElement("a");
+          a.href = href;
+          a.textContent = title;
+          h3.append(a);
+        } else {
+          h3.textContent = title;
+        }
+        content.push(h3);
+      }
+      card.querySelectorAll(".teaser-description p").forEach((d) => {
+        const t = clean2(d.textContent);
+        if (!t || content.some((c) => c.textContent === t)) return;
+        const p = document.createElement("p");
+        p.textContent = t;
+        content.push(p);
+      });
+      if (!iconCell && !content.length) return;
+      rows.push([iconCell, content.length ? content : ""]);
+    });
+    element.replaceWith(WebImporter.Blocks.createBlock(document, { name: "cards-icon-text", variants: ["partner"], cells: rows }));
+  }
+
   // tools/importer/parsers/media-nodes.js
   var ZW = /[​-‍﻿]/g;
   var clean = (s) => (s || "").replace(ZW, "").replace(/\s+/g, " ").trim();
@@ -507,6 +623,7 @@ var CustomImportScript = (() => {
     }
     if (url.hostname === "www.lufthansa-inflightentertainment.com" && /\/widgets\/?$/.test(url.pathname)) return url.href;
     if (url.hostname === "box.media-carrier.de" && url.protocol === "https:" && /^\/(home)?\/?$/.test(url.pathname)) return url.href;
+    if (url.hostname === "lhg-network.com" && url.protocol === "https:" && url.pathname === "/") return url.href;
     return "";
   }
   function embedNodes(comp, document) {
@@ -521,7 +638,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/carousel-cards.js
-  function parse5(element, { document }) {
+  function parse6(element, { document }) {
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
     const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -791,7 +908,7 @@ var CustomImportScript = (() => {
     out.push(WebImporter.Blocks.createBlock(document, { name: "Destination Finder (grid)", cells }));
     element.replaceWith(...out);
   }
-  function parse6(element, { document }) {
+  function parse7(element, { document }) {
     const grid = element.matches(".dcep-destination-finder") ? element : element.querySelector(".dcep-destination-finder");
     if (grid) {
       parseGrid(element, grid, document);
@@ -927,7 +1044,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/cards-icon.js
-  function parse7(element, { document }) {
+  function parse8(element, { document }) {
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
     const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -977,7 +1094,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/columns-logos.js
-  function parse8(element, { document }) {
+  function parse9(element, { document }) {
     const SR_ONLY2 = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"]';
     const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -1038,7 +1155,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/accordion-columns.js
-  function parse9(element, { document }) {
+  function parse10(element, { document }) {
     const SR_ONLY2 = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"]';
     const ZW2 = /[​-‍﻿]/g;
     const clean2 = (s) => (s || "").replace(ZW2, "").replace(/\s+/g, " ").trim();
@@ -1339,7 +1456,7 @@ var CustomImportScript = (() => {
     "template"
   ];
   var TRACKING_URL = /(utag|tealium|tiqcdn|monetate|quantummetric|doubleclick|googletagmanager|google-analytics|googleadservices|facebook\.com\/tr|bat\.bing|demdex|omtrdc|\/b\/ss\/|adsrvr|criteo|cookielaw|onetrust|optanon|challenges\.cloudflare|shop\.lufthansa\.com\/preclearance|hotjar|contentsquare|linkedin\.com\/px|pinterest\.com\/ct|t\.co\/i\/adsct)/i;
-  var EMBED_URL = /(youtube\.com|youtube-nocookie\.com|youtu\.be|vimeo\.com|brightcove|players\.|maps\.google|google\.com\/maps|lufthansa\.com|lufthansa-inflightentertainment\.com|box\.media-carrier\.de)/i;
+  var EMBED_URL = /(youtube\.com|youtube-nocookie\.com|youtu\.be|vimeo\.com|brightcove|players\.|maps\.google|google\.com\/maps|lufthansa\.com|lufthansa-inflightentertainment\.com|box\.media-carrier\.de|lhg-network\.com)/i;
   function keepSubpageNavHeader(document, payload) {
     const template = payload && payload.template || {};
     if (!(template.blocks || []).some((b) => b.name === "subpage-nav")) return;
@@ -2726,13 +2843,20 @@ var CustomImportScript = (() => {
       {
         "name": "hero-card-overlay",
         "instances": [
-          ".mainstageteaser"
+          ".mainstageteaser",
+          ".b2b-stage"
         ]
       },
       {
         "name": "fare-teaser",
         "instances": [
           ".fareteaserstatic"
+        ]
+      },
+      {
+        "name": "cards-icon-text",
+        "instances": [
+          ".b2b-iconmodules"
         ]
       },
       {
@@ -2876,11 +3000,12 @@ var CustomImportScript = (() => {
     "flight-search": parse2,
     "hero-card-overlay": parse3,
     "fare-teaser": parse4,
-    "carousel-cards": parse5,
-    "destination-finder": parse6,
-    "cards-icon": parse7,
-    "columns-logos": parse8,
-    "accordion-columns": parse9
+    "cards-icon-text": parse5,
+    "carousel-cards": parse6,
+    "destination-finder": parse7,
+    "cards-icon": parse8,
+    "columns-logos": parse9,
+    "accordion-columns": parse10
   };
   var transformers = [transform, transform2];
   function executeTransformers(hookName, element, payload) {
@@ -2904,7 +3029,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var import_homepage_default = {
+  var tmp_bundle_homepage_45786_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -2934,5 +3059,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(import_homepage_exports);
+  return __toCommonJS(tmp_bundle_homepage_45786_exports);
 })();

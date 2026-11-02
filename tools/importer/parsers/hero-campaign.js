@@ -30,6 +30,54 @@ export default function parse(element, { document }) {
     while (el.firstChild && (isBr(el.firstChild) || isBlank(el.firstChild))) el.firstChild.remove();
   };
 
+  // Lufthansa Group for Business' inspirational stage (business.lufthansagroup.com: .promo-hero, an
+  // image panel (its background image) and a brand-colour panel with h2.promo-hero__headline,
+  // p.promo-hero__description and a.promo-hero__cta; marked b2b-inspirationalstage by
+  // b2b-import.mjs): 1 column, row 1 the background image, row 2 the title, the subheading text and
+  // the call-to-action (primaryBtn: bold link, else italic), option "right" when the text panel
+  // is on the right
+  const promo = element.querySelector('.promo-hero');
+  if (promo) {
+    const panel = promo.querySelector('.promo-hero__panel--image[style], .promo-hero__media[style]');
+    const bg = ((panel && panel.getAttribute('style')) || '').match(/url\(\s*['"]?([^'")]+)['"]?\s*\)/);
+    const pimg = promo.querySelector('.promo-hero__media img, .promo-hero__panel img');
+    const src = bg ? bg[1] : pimg && pimg.getAttribute('src');
+    let imageCell = '';
+    if (src && !isBroken(src)) {
+      imageCell = document.createElement('img');
+      imageCell.setAttribute('src', src);
+      imageCell.setAttribute('alt', (pimg && pimg.getAttribute('alt')) || '');
+    }
+    const textCell = [];
+    const headline = promo.querySelector('.promo-hero__headline');
+    if (visibleText(headline)) {
+      const h = document.createElement(/^H[1-6]$/.test(headline.tagName) ? headline.tagName.toLowerCase() : 'h2');
+      h.textContent = visibleText(headline);
+      textCell.push(h);
+    }
+    const description = visibleText(promo.querySelector('.promo-hero__description'));
+    if (description) {
+      const p = document.createElement('p');
+      p.textContent = description;
+      textCell.push(p);
+    }
+    promo.querySelectorAll('a.promo-hero__cta[href]').forEach((c) => {
+      const label = visibleText(c);
+      if (!label) return;
+      const a = document.createElement('a');
+      a.setAttribute('href', c.getAttribute('href'));
+      a.textContent = label;
+      const wrap = document.createElement(/primaryBtn/.test(c.className) ? 'strong' : 'em');
+      wrap.append(a);
+      const p = document.createElement('p');
+      p.append(wrap);
+      textCell.push(p);
+    });
+    const promoVariants = promo.classList.contains('promo-hero--right') ? ['right'] : [];
+    element.replaceWith(WebImporter.Blocks.createBlock(document, { name: 'hero-campaign', variants: promoVariants, cells: [[imageCell], [textCell]] }));
+    return;
+  }
+
   const info = element.querySelector('.campaign-information') || element;
 
   // --- row 1: media

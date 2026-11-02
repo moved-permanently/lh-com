@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-info.js
-  var import_info_exports = {};
-  __export(import_info_exports, {
-    default: () => import_info_default
+  var tmp_bundle_info_45786_exports = {};
+  __export(tmp_bundle_info_45786_exports, {
+    default: () => tmp_bundle_info_45786_default
   });
 
   // tools/importer/parsers/search-results.js
@@ -2481,8 +2481,151 @@ var CustomImportScript = (() => {
     element.replaceWith(block);
   }
 
-  // tools/importer/parsers/hero-campaign.js
+  // tools/importer/parsers/hero-card-overlay.js
   function parse12(element, { document }) {
+    const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
+    const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
+    const visibleText = (node) => {
+      if (!node) return "";
+      const clone = node.cloneNode(true);
+      clone.querySelectorAll(SR_ONLY2).forEach((n) => n.remove());
+      return clean2(clone.textContent);
+    };
+    const isBroken3 = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src);
+    const cells = [];
+    const stage = element.querySelector(".stage-teaser");
+    const stageLink = stage && stage.querySelector("a.stage-teaser-link[href]");
+    if (stageLink) {
+      const img2 = [...stage.querySelectorAll("img")].find((i) => !isBroken3(i.getAttribute("src")));
+      let imageCell = "";
+      if (img2) {
+        imageCell = document.createElement("img");
+        imageCell.src = img2.getAttribute("src");
+        imageCell.alt = img2.getAttribute("alt") || "";
+      }
+      const content2 = [];
+      const heading = visibleText(stage.querySelector(".stage-teaser-headline"));
+      if (heading) {
+        const h2 = document.createElement("h2");
+        h2.textContent = heading;
+        content2.push(h2);
+      }
+      const sub = visibleText(stage.querySelector(".stage-teaser-subheadline"));
+      if (sub) {
+        const p = document.createElement("p");
+        p.textContent = sub;
+        content2.push(p);
+      }
+      const label = visibleText(stage.querySelector("maui-button-mimic")) || heading;
+      if (label) {
+        const p = document.createElement("p");
+        const em = document.createElement("em");
+        const a = document.createElement("a");
+        a.href = stageLink.getAttribute("href");
+        a.textContent = label;
+        em.append(a);
+        p.append(em);
+        content2.push(p);
+      }
+      element.replaceWith(WebImporter.Blocks.createBlock(document, { name: "hero-card-overlay", cells: [[imageCell], [content2]] }));
+      return;
+    }
+    const img = [...element.querySelectorAll(".mst-bg-img img, .moving-image img, img")].find((i) => !isBroken3(i.getAttribute("src")) && !i.closest(".mst-card"));
+    if (img) {
+      const image = document.createElement("img");
+      image.src = img.getAttribute("src");
+      image.alt = img.getAttribute("alt") || "";
+      cells.push([image]);
+    }
+    const card = element.querySelector(".mst-card") || element;
+    const content = [];
+    const eyebrowText = visibleText(card.querySelector(".mst-title"));
+    if (eyebrowText) {
+      const p = document.createElement("p");
+      p.textContent = eyebrowText;
+      content.push(p);
+    }
+    const headingSource = card.querySelector(".display-text, h1, h2, h3");
+    const headingText = visibleText(headingSource);
+    if (headingText) {
+      const h = document.createElement(headingSource && /^H[1-3]$/.test(headingSource.tagName) ? headingSource.tagName : "h2");
+      h.textContent = headingText;
+      content.push(h);
+    }
+    card.querySelectorAll(".mst-text, .mst-description, .mst-card p").forEach((t) => {
+      const text = visibleText(t);
+      if (text && text !== eyebrowText && text !== headingText) {
+        const p = document.createElement("p");
+        p.textContent = text;
+        content.push(p);
+      }
+    });
+    const seen = /* @__PURE__ */ new Set();
+    card.querySelectorAll("maui-navigation-link[href], maui-button-link[href], maui-button[href], maui-link-button[href], a[href]").forEach((l) => {
+      if ([...seen].some((s) => s.contains(l))) return;
+      const label = visibleText(l);
+      const href = l.getAttribute("href");
+      if (!label || !href) return;
+      seen.add(l);
+      const p = document.createElement("p");
+      const a = document.createElement("a");
+      a.href = href;
+      a.textContent = label;
+      const type = (l.getAttribute("type") || "").toLowerCase();
+      let wrapped = a;
+      if (l.matches("maui-button-link, maui-button") && (type === "secondary" || type === "primary")) {
+        wrapped = document.createElement(type === "secondary" ? "em" : "strong");
+        wrapped.append(a);
+      }
+      p.append(wrapped);
+      content.push(p);
+    });
+    if (content.length) cells.push([content]);
+    let teaser = {};
+    const propsHost = element.matches("[data-dcep]") ? element : element.querySelector("[data-dcep]");
+    try {
+      teaser = (JSON.parse(propsHost ? propsHost.getAttribute("data-dcep") : "{}") || {}).promotionTeaser || {};
+    } catch (e) {
+      teaser = {};
+    }
+    const trigger = card.querySelector('.termsandcondition, maui-link-button[variant="dialog"]');
+    const terms = teaser.termsAndConditions || {};
+    const triggerLabel = visibleText(trigger);
+    if (triggerLabel && terms.content) {
+      const conditions = [];
+      const title = document.createElement("p");
+      const strong = document.createElement("strong");
+      strong.textContent = triggerLabel;
+      title.append(strong);
+      conditions.push(title);
+      if (clean2(terms.headline)) {
+        const headline = document.createElement("p");
+        const b = document.createElement("strong");
+        b.textContent = clean2(terms.headline);
+        headline.append(b);
+        conditions.push(headline);
+      }
+      const holder = document.createElement("div");
+      holder.innerHTML = terms.content;
+      holder.querySelectorAll("p, li").forEach((node) => {
+        if (!visibleText(node)) return;
+        const p = document.createElement("p");
+        p.innerHTML = node.innerHTML;
+        conditions.push(p);
+      });
+      cells.push(["Conditions", conditions]);
+    }
+    const variants = [];
+    if (card.classList.contains("align-self-end") || clean2(teaser.alignment).toLowerCase() === "right") variants.push("right");
+    if (teaser.displayImageOnMobile === false) variants.push("no mobile image");
+    if (card.classList.contains("non-inverted") || teaser.isInverted === false) variants.push("light");
+    const name = variants.length ? `Hero Card Overlay (${variants.join(", ")})` : "hero-card-overlay";
+    const block = WebImporter.Blocks.createBlock(document, { name, cells });
+    element.replaceWith(block);
+  }
+
+  // tools/importer/parsers/hero-campaign.js
+  function parse13(element, { document }) {
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style';
     const clean2 = (s) => (s || "").replace(/[\u200B-\u200D\uFEFF]/g, "").replace(/\u00A0/g, " ").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -2498,6 +2641,47 @@ var CustomImportScript = (() => {
       while (el.lastChild && (isBr2(el.lastChild) || isBlank(el.lastChild))) el.lastChild.remove();
       while (el.firstChild && (isBr2(el.firstChild) || isBlank(el.firstChild))) el.firstChild.remove();
     };
+    const promo = element.querySelector(".promo-hero");
+    if (promo) {
+      const panel = promo.querySelector(".promo-hero__panel--image[style], .promo-hero__media[style]");
+      const bg = (panel && panel.getAttribute("style") || "").match(/url\(\s*['"]?([^'")]+)['"]?\s*\)/);
+      const pimg = promo.querySelector(".promo-hero__media img, .promo-hero__panel img");
+      const src = bg ? bg[1] : pimg && pimg.getAttribute("src");
+      let imageCell = "";
+      if (src && !isBroken3(src)) {
+        imageCell = document.createElement("img");
+        imageCell.setAttribute("src", src);
+        imageCell.setAttribute("alt", pimg && pimg.getAttribute("alt") || "");
+      }
+      const textCell = [];
+      const headline = promo.querySelector(".promo-hero__headline");
+      if (visibleText(headline)) {
+        const h = document.createElement(/^H[1-6]$/.test(headline.tagName) ? headline.tagName.toLowerCase() : "h2");
+        h.textContent = visibleText(headline);
+        textCell.push(h);
+      }
+      const description = visibleText(promo.querySelector(".promo-hero__description"));
+      if (description) {
+        const p = document.createElement("p");
+        p.textContent = description;
+        textCell.push(p);
+      }
+      promo.querySelectorAll("a.promo-hero__cta[href]").forEach((c) => {
+        const label = visibleText(c);
+        if (!label) return;
+        const a = document.createElement("a");
+        a.setAttribute("href", c.getAttribute("href"));
+        a.textContent = label;
+        const wrap = document.createElement(/primaryBtn/.test(c.className) ? "strong" : "em");
+        wrap.append(a);
+        const p = document.createElement("p");
+        p.append(wrap);
+        textCell.push(p);
+      });
+      const promoVariants = promo.classList.contains("promo-hero--right") ? ["right"] : [];
+      element.replaceWith(WebImporter.Blocks.createBlock(document, { name: "hero-campaign", variants: promoVariants, cells: [[imageCell], [textCell]] }));
+      return;
+    }
     const info = element.querySelector(".campaign-information") || element;
     const media = [];
     const img = [...element.querySelectorAll("img")].find((i) => !isBroken3(i.getAttribute("src")) && !info.contains(i));
@@ -2576,7 +2760,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/carousel-images.js
-  function parse13(element, { document }) {
+  function parse14(element, { document }) {
     const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
     const isBroken3 = (src) => !src || /^(data|blob):/i.test(src) || /(^|\/)undefined(\.transform|$|\/)/.test(src);
     const slides = [...element.querySelectorAll(".swiper-slide")].filter((s) => !s.classList.contains("swiper-slide-duplicate"));
@@ -2670,6 +2854,7 @@ var CustomImportScript = (() => {
     }
     if (url.hostname === "www.lufthansa-inflightentertainment.com" && /\/widgets\/?$/.test(url.pathname)) return url.href;
     if (url.hostname === "box.media-carrier.de" && url.protocol === "https:" && /^\/(home)?\/?$/.test(url.pathname)) return url.href;
+    if (url.hostname === "lhg-network.com" && url.protocol === "https:" && url.pathname === "/") return url.href;
     return "";
   }
   function embedNodes(comp, document) {
@@ -2684,7 +2869,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/accordion-columns.js
-  function parse14(element, { document }) {
+  function parse15(element, { document }) {
     const SR_ONLY2 = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"]';
     const ZW2 = /[​-‍﻿]/g;
     const clean2 = (s) => (s || "").replace(ZW2, "").replace(/\s+/g, " ").trim();
@@ -2924,7 +3109,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/table-striped.js
-  function parse15(element, { document }) {
+  function parse16(element, { document }) {
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style';
     const clean2 = (s) => (s || "").replace(/[\u200B-\u200D\uFEFF]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
     const cellContent = (cell) => {
@@ -2955,8 +3140,44 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/cards-icon-text.js
-  function parse16(element, { document }) {
+  function parse17(element, { document }) {
     const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
+    const modules = [...element.querySelectorAll(".icon-module")];
+    if (modules.length) {
+      const cards = [];
+      modules.forEach((m) => {
+        const img = m.querySelector("img.icon-module__icon");
+        if (!img || !img.getAttribute("src")) return;
+        const icon = document.createElement("img");
+        icon.src = img.getAttribute("src");
+        icon.alt = clean2(img.getAttribute("alt"));
+        const text = [];
+        const title = clean2((m.querySelector(".icon-module__heading") || {}).textContent);
+        if (title) {
+          const h3 = document.createElement("h3");
+          h3.textContent = title;
+          text.push(h3);
+        }
+        const description = clean2((m.querySelector(".icon-module__description") || {}).textContent);
+        if (description) {
+          const p = document.createElement("p");
+          p.textContent = description;
+          text.push(p);
+        }
+        const cta = m.querySelector("a.icon-module__cta[href]");
+        if (cta) {
+          const p = document.createElement("p");
+          const a = document.createElement("a");
+          a.href = cta.getAttribute("href");
+          a.textContent = clean2(cta.textContent) || title;
+          p.append(a);
+          text.push(p);
+        }
+        if (text.length) cards.push([icon, text]);
+      });
+      if (cards.length) element.replaceWith(WebImporter.Blocks.createBlock(document, { name: "cards-icon-text", variants: ["stacked"], cells: cards }));
+      return;
+    }
     const partners = [...element.querySelectorAll("a.teaser.partner")];
     if (!partners.length) return;
     const rows = [];
@@ -2998,7 +3219,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/carousel-cards.js
-  function parse17(element, { document }) {
+  function parse18(element, { document }) {
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
     const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -3198,7 +3419,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/cards-teaser.js
-  function parse18(element, { document }) {
+  function parse19(element, { document }) {
     const BLOCK_TAGS = /^(P|UL|OL|H[1-6]|TABLE|DIV|BLOCKQUOTE|PRE|DL)$/;
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style';
     const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
@@ -3378,7 +3599,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/columns-media.js
-  function parse19(element, { document }) {
+  function parse20(element, { document }) {
     const BLOCK_TAGS = /^(P|UL|OL|H[1-6]|TABLE|DIV|BLOCKQUOTE|PRE|DL)$/;
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style, noscript';
     const SKIP_COMPONENTS = '.separator, .sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], .swiper-pagination, .swiper-button-prev, .swiper-button-next, .swiper-notification, .swiper-slide-duplicate, script, style, noscript';
@@ -3843,7 +4064,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/embed.js
-  function parse20(element, { document }) {
+  function parse21(element, { document }) {
     if (!element.isConnected || !element.parentElement || element.parentElement.closest("table")) return;
     const href = embedUrl(element);
     if (!href) return;
@@ -3855,7 +4076,7 @@ var CustomImportScript = (() => {
 
   // tools/importer/parsers/lounge-finder.js
   var DEFAULT_IMAGE_BASE = "/content/dam/lh/images/lounges";
-  function parse21(element, { document }) {
+  function parse22(element, { document }) {
     const host = element.matches(".dcep-lounge-finder") ? element : element.querySelector(".dcep-lounge-finder");
     let config = {};
     try {
@@ -3871,25 +4092,25 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/security-waiting-time.js
-  function parse22(element, { document }) {
+  function parse23(element, { document }) {
     const block = WebImporter.Blocks.createBlock(document, { name: "security-waiting-time", cells: [] });
     element.replaceWith(block);
   }
 
   // tools/importer/parsers/checkin-deadlines.js
-  function parse23(element, { document }) {
+  function parse24(element, { document }) {
     const block = WebImporter.Blocks.createBlock(document, { name: "checkin-deadlines", cells: [] });
     element.replaceWith(block);
   }
 
   // tools/importer/parsers/ejournals.js
-  function parse24(element, { document }) {
+  function parse25(element, { document }) {
     const block = WebImporter.Blocks.createBlock(document, { name: "ejournals", cells: [] });
     element.replaceWith(block);
   }
 
   // tools/importer/parsers/fare-teaser.js
-  function parse25(element, { document }) {
+  function parse26(element, { document }) {
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
     const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -4096,7 +4317,7 @@ var CustomImportScript = (() => {
     "template"
   ];
   var TRACKING_URL = /(utag|tealium|tiqcdn|monetate|quantummetric|doubleclick|googletagmanager|google-analytics|googleadservices|facebook\.com\/tr|bat\.bing|demdex|omtrdc|\/b\/ss\/|adsrvr|criteo|cookielaw|onetrust|optanon|challenges\.cloudflare|shop\.lufthansa\.com\/preclearance|hotjar|contentsquare|linkedin\.com\/px|pinterest\.com\/ct|t\.co\/i\/adsct)/i;
-  var EMBED_URL = /(youtube\.com|youtube-nocookie\.com|youtu\.be|vimeo\.com|brightcove|players\.|maps\.google|google\.com\/maps|lufthansa\.com|lufthansa-inflightentertainment\.com|box\.media-carrier\.de)/i;
+  var EMBED_URL = /(youtube\.com|youtube-nocookie\.com|youtu\.be|vimeo\.com|brightcove|players\.|maps\.google|google\.com\/maps|lufthansa\.com|lufthansa-inflightentertainment\.com|box\.media-carrier\.de|lhg-network\.com)/i;
   function keepSubpageNavHeader(document, payload) {
     const template = payload && payload.template || {};
     if (!(template.blocks || []).some((b) => b.name === "subpage-nav")) return;
@@ -5471,7 +5692,8 @@ var CustomImportScript = (() => {
       {
         "name": "search-results",
         "instances": [
-          ".onsitesearchresult:has(> .dcep-search-results-aem)"
+          ".onsitesearchresult:has(> .dcep-search-results-aem)",
+          ".onsitesearchresult:has(> .dcep-b2b-neo-search-results-aem)"
         ]
       },
       {
@@ -5537,9 +5759,16 @@ var CustomImportScript = (() => {
         ]
       },
       {
+        "name": "hero-card-overlay",
+        "instances": [
+          ".b2b-stage"
+        ]
+      },
+      {
         "name": "hero-campaign",
         "instances": [
-          ".inspirationteaser"
+          ".inspirationteaser",
+          ".b2b-inspirationalstage"
         ]
       },
       {
@@ -5563,7 +5792,8 @@ var CustomImportScript = (() => {
       {
         "name": "cards-icon-text",
         "instances": [
-          ".threecolumn:has(> .column-view > .row > .column-view-item > .teaser > a.teaser.partner)"
+          ".threecolumn:has(> .column-view > .row > .column-view-item > .teaser > a.teaser.partner)",
+          ".b2b-iconmodules"
         ]
       },
       {
@@ -5598,7 +5828,8 @@ var CustomImportScript = (() => {
         "instances": [
           ".video:has(> .video-player iframe)",
           '.iframe:has(> .iframe-wrapper iframe[src*="lufthansa-inflightentertainment.com"])',
-          '.iframe:has(> .iframe-wrapper iframe[src*="box.media-carrier.de"])'
+          '.iframe:has(> .iframe-wrapper iframe[src*="box.media-carrier.de"])',
+          '.iframe:has(> .iframe-wrapper iframe[src*="lhg-network.com"])'
         ]
       },
       {
@@ -5688,20 +5919,21 @@ var CustomImportScript = (() => {
     "form-core": parse9,
     "car-rental": parse10,
     "flight-search": parse11,
-    "hero-campaign": parse12,
-    "carousel-images": parse13,
-    "accordion-columns": parse14,
-    "table-striped": parse15,
-    "cards-icon-text": parse16,
-    "carousel-cards": parse17,
-    "cards-teaser": parse18,
-    "columns-media": parse19,
-    "embed": parse20,
-    "lounge-finder": parse21,
-    "security-waiting-time": parse22,
-    "checkin-deadlines": parse23,
-    "ejournals": parse24,
-    "fare-teaser": parse25
+    "hero-card-overlay": parse12,
+    "hero-campaign": parse13,
+    "carousel-images": parse14,
+    "accordion-columns": parse15,
+    "table-striped": parse16,
+    "cards-icon-text": parse17,
+    "carousel-cards": parse18,
+    "cards-teaser": parse19,
+    "columns-media": parse20,
+    "embed": parse21,
+    "lounge-finder": parse22,
+    "security-waiting-time": parse23,
+    "checkin-deadlines": parse24,
+    "ejournals": parse25,
+    "fare-teaser": parse26
   };
   var transformers = [transform, transform2];
   function executeTransformers(hookName, element, payload) {
@@ -5725,7 +5957,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var import_info_default = {
+  var tmp_bundle_info_45786_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -5755,5 +5987,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(import_info_exports);
+  return __toCommonJS(tmp_bundle_info_45786_exports);
 })();

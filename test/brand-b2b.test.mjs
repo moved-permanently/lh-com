@@ -90,7 +90,7 @@ test('the theme: the floating header bar, the footer\'s gradient with white text
   assert.equal(token('--header-bar-inset'), '15px');
   assert.equal(token('--header-bar-radius'), '12px');
   assert.equal(token('--header-bar-shadow'), 'rgb(0 0 0 / 10%) 0 2px 8px');
-  assert.equal(token('--header-bar-padding'), '23px 24px', 'the logo 24 px inside the bar, the bar 81 px high');
+  assert.equal(token('--header-bar-padding'), '16px 24px', 'the logo 24 px inside the bar, the bar 81 px high around the search button');
   assert.equal(token('--footer-surface-image'), 'linear-gradient(135deg, #2254bb 0%, #021959 100%)');
   assert.equal(token('--footer-surface'), 'transparent');
   assert.equal(token('--footer-logos-surface'), 'transparent');

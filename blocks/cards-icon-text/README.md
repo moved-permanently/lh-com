@@ -13,6 +13,7 @@ Single block table. Content: 2 columns, one row per card. Cell 1: icon (:icon-na
 | Variation | Option class |
 | --- | --- |
 | Partner tiles (Lufthansa a.teaser.partner, /digital-self-services): 48px icon image left of a deep-blue title (LufthansaHead bold 20px to 24px) and a 16px description, both 51px from the card edge; equal columns 20px apart: 1 per row, 2 from 768px, 3 from 1025px (a source row of 2 tiles fills the first two columns) | `partner` |
+| Stacked cards (Lufthansa Group for Business' icon modules, business.lufthansagroup.com homepages): an 80px icon above a light title (the h3 size), a 16px description and a bold link line with a chevron; 4 per row from 1025px, 2 from 768px, 20px apart | `stacked` |
 
 ## Universal Editor fields
 

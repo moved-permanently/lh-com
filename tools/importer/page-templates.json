@@ -25,13 +25,20 @@
         {
           "name": "hero-card-overlay",
           "instances": [
-            ".mainstageteaser"
+            ".mainstageteaser",
+            ".b2b-stage"
           ]
         },
         {
           "name": "fare-teaser",
           "instances": [
             ".fareteaserstatic"
+          ]
+        },
+        {
+          "name": "cards-icon-text",
+          "instances": [
+            ".b2b-iconmodules"
           ]
         },
         {
@@ -1164,7 +1171,8 @@
         {
           "name": "search-results",
           "instances": [
-            ".onsitesearchresult:has(> .dcep-search-results-aem)"
+            ".onsitesearchresult:has(> .dcep-search-results-aem)",
+            ".onsitesearchresult:has(> .dcep-b2b-neo-search-results-aem)"
           ]
         },
         {
@@ -1230,9 +1238,16 @@
           ]
         },
         {
+          "name": "hero-card-overlay",
+          "instances": [
+            ".b2b-stage"
+          ]
+        },
+        {
           "name": "hero-campaign",
           "instances": [
-            ".inspirationteaser"
+            ".inspirationteaser",
+            ".b2b-inspirationalstage"
           ]
         },
         {
@@ -1256,7 +1271,8 @@
         {
           "name": "cards-icon-text",
           "instances": [
-            ".threecolumn:has(> .column-view > .row > .column-view-item > .teaser > a.teaser.partner)"
+            ".threecolumn:has(> .column-view > .row > .column-view-item > .teaser > a.teaser.partner)",
+            ".b2b-iconmodules"
           ]
         },
         {
@@ -1291,7 +1307,8 @@
           "instances": [
             ".video:has(> .video-player iframe)",
             ".iframe:has(> .iframe-wrapper iframe[src*=\"lufthansa-inflightentertainment.com\"])",
-            ".iframe:has(> .iframe-wrapper iframe[src*=\"box.media-carrier.de\"])"
+            ".iframe:has(> .iframe-wrapper iframe[src*=\"box.media-carrier.de\"])",
+            ".iframe:has(> .iframe-wrapper iframe[src*=\"lhg-network.com\"])"
           ]
         },
         {

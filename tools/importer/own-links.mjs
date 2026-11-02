@@ -27,7 +27,7 @@ const walk = (d) => (fs.existsSync(d) ? fs.readdirSync(d, { withFileTypes: true 
 
 // the brand of each site (scripts/brands.js BRAND_SITES: its roots and language versions)
 const BRAND_OF = {
-  'lh-ita': 'ita', 'lh-austrian': 'austrian', 'lh-discover': 'discover', 'lh-brussels': 'brussels',
+  'lh-ita': 'ita', 'lh-austrian': 'austrian', 'lh-discover': 'discover', 'lh-brussels': 'brussels', 'lh-b2b': 'b2b',
 };
 
 /**
@@ -97,10 +97,16 @@ export function ownPages(site) {
     const p = `/${path.relative(dir, f).replace(/\.plain\.html$/, '')}`;
     pages.add(p);
     const m = p.match(/^\/([a-z]{2}\/[a-z]{2})(\/.*)$/);
-    const version = m && versions.find(([, r]) => r === m[1]);
-    if (!version || /^\/(nav|footer)$/.test(m[2])) return;
+    if (!m || /^\/(nav|footer)$/.test(m[2])) return;
+    const version = versions.find(([, r]) => r === m[1]);
     const html = fs.readFileSync(f, 'utf8');
     const row = html.match(/<div><div>markets<\/div><div>([^<]*)<\/div><\/div>/i);
+    if (!version) {
+      // a document of another root (lh-b2b's rest-of-world documents on xx/<ll>, a market root's
+      // own document) whose markets row lists roots: those roots' pages too
+      if (row) row[1].split(/[\s,;]+/).filter((x) => /^[a-z]{2}\/[a-z]{2}$/.test(x)).forEach((r) => pages.add(`/${r}${m[2]}`));
+      return;
+    }
     marketsOf(version[0]).filter((r) => marketAllows(row ? row[1] : '', r.split('/')[0]))
       .forEach((r) => pages.add(`/${r}${m[2]}`));
   });

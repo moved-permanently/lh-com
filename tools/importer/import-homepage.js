@@ -6,6 +6,7 @@ import flashTeaserParser from './parsers/flash-teaser.js';
 import flightSearchParser from './parsers/flight-search.js';
 import heroCardOverlayParser from './parsers/hero-card-overlay.js';
 import fareTeaserParser from './parsers/fare-teaser.js';
+import cardsIconTextParser from './parsers/cards-icon-text.js';
 import carouselCardsParser from './parsers/carousel-cards.js';
 import destinationFinderParser from './parsers/destination-finder.js';
 import cardsIconParser from './parsers/cards-icon.js';
@@ -36,13 +37,20 @@ const PAGE_TEMPLATE = {
     {
       "name": "hero-card-overlay",
       "instances": [
-        ".mainstageteaser"
+        ".mainstageteaser",
+        ".b2b-stage"
       ]
     },
     {
       "name": "fare-teaser",
       "instances": [
         ".fareteaserstatic"
+      ]
+    },
+    {
+      "name": "cards-icon-text",
+      "instances": [
+        ".b2b-iconmodules"
       ]
     },
     {
@@ -187,6 +195,7 @@ const parsers = {
   'flight-search': flightSearchParser,
   'hero-card-overlay': heroCardOverlayParser,
   'fare-teaser': fareTeaserParser,
+  'cards-icon-text': cardsIconTextParser,
   'carousel-cards': carouselCardsParser,
   'destination-finder': destinationFinderParser,
   'cards-icon': cardsIconParser,

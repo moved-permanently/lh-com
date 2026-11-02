@@ -12,9 +12,52 @@
  * Lufthansa partner teasers (hub /digital-self-services: .threecolumn / .twocolumn of
  * a.teaser.partner > h4.teaser-heading (img.icon-svg + .teaser-heading-text) +
  * .teaser-description .desc-inline): same rows, the icon kept as an <img>, option "partner".
+ *
+ * Lufthansa Group for Business' icon modules (business.lufthansagroup.com homepages: a column row
+ * of .iconmodule > .icon-module: img.icon-module__icon, h3.icon-module__heading,
+ * .icon-module__description, a.icon-module__cta; marked b2b-iconmodules by b2b-import.mjs): one
+ * card each (cell 1 the icon image, cell 2 title, description and the CTA as linked text at the
+ * bottom), option "stacked".
  */
 export default function parse(element, { document }) {
   const clean = (s) => (s || '').replace(/[​-‍﻿]/g, '').replace(/ /g, ' ').replace(/\s+/g, ' ').trim();
+
+  const modules = [...element.querySelectorAll('.icon-module')];
+  if (modules.length) {
+    const cards = [];
+    modules.forEach((m) => {
+      const img = m.querySelector('img.icon-module__icon');
+      if (!img || !img.getAttribute('src')) return;
+      const icon = document.createElement('img');
+      icon.src = img.getAttribute('src');
+      icon.alt = clean(img.getAttribute('alt'));
+      const text = [];
+      const title = clean((m.querySelector('.icon-module__heading') || {}).textContent);
+      if (title) {
+        const h3 = document.createElement('h3');
+        h3.textContent = title;
+        text.push(h3);
+      }
+      const description = clean((m.querySelector('.icon-module__description') || {}).textContent);
+      if (description) {
+        const p = document.createElement('p');
+        p.textContent = description;
+        text.push(p);
+      }
+      const cta = m.querySelector('a.icon-module__cta[href]');
+      if (cta) {
+        const p = document.createElement('p');
+        const a = document.createElement('a');
+        a.href = cta.getAttribute('href');
+        a.textContent = clean(cta.textContent) || title;
+        p.append(a);
+        text.push(p);
+      }
+      if (text.length) cards.push([icon, text]);
+    });
+    if (cards.length) element.replaceWith(WebImporter.Blocks.createBlock(document, { name: 'cards-icon-text', variants: ['stacked'], cells: cards }));
+    return;
+  }
 
   // Lufthansa partner teasers (hub /digital-self-services: .threecolumn of a.teaser.partner, the
   // whole tile is the link): img.icon-svg + .teaser-heading-text + .desc-inline. The icon stays

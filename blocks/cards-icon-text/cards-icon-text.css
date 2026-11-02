@@ -167,3 +167,95 @@
     font-size: 24px;
   }
 }
+
+/* option stacked (lh-b2b, business.lufthansagroup.com's icon modules on the homepages): the icon
+   (80px) above the title (LufthansaHead light, the h3 size), the description (16px/24px) and the
+   link line with a chevron (interaction colour, bold); 4 per row from 1025px, 2 from 768px, 20px
+   apart */
+.cards-icon-text.stacked > ul {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 40px 20px;
+}
+
+.cards-icon-text.stacked > ul > li {
+  margin: 0;
+}
+
+.cards-icon-text.stacked .cards-icon-text-card {
+  flex-direction: column;
+  color: var(--text-color);
+}
+
+.cards-icon-text.stacked a.cards-icon-text-card:hover {
+  color: var(--text-color);
+}
+
+.cards-icon-text.stacked .cards-icon-text-icon {
+  padding: 0 0 32px;
+}
+
+.cards-icon-text.stacked .cards-icon-text-icon picture,
+.cards-icon-text.stacked .cards-icon-text-icon img,
+.cards-icon-text.stacked .cards-icon-text-icon .icon {
+  width: 80px;
+  height: 80px;
+}
+
+.cards-icon-text.stacked .cards-icon-text-card .cards-icon-text-body > .cards-icon-text-title {
+  margin: 0 0 24px;
+  color: var(--heading-color);
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-l);
+  font-weight: var(--heading-light-weight, 300);
+  line-height: 1.15;
+}
+
+.cards-icon-text.stacked .cards-icon-text-body > p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.cards-icon-text.stacked .cards-icon-text-body {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+}
+
+/* the link lines of a row on one line, as www's (40px under the longest description) */
+.cards-icon-text.stacked .cards-icon-text-body > p.cards-icon-text-link {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 40px;
+  color: var(--link-color);
+  font-weight: 700;
+}
+
+.cards-icon-text.stacked .cards-icon-text-link::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-top: 1.5px solid currentcolor;
+  border-right: 1.5px solid currentcolor;
+  transform: rotate(45deg);
+}
+
+.cards-icon-text.stacked a.cards-icon-text-card:hover .cards-icon-text-link {
+  color: var(--link-hover-color);
+  text-decoration: underline;
+}
+
+@media (width >= 768px) {
+  .cards-icon-text.stacked > ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (width >= 1025px) {
+  .cards-icon-text.stacked > ul {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}

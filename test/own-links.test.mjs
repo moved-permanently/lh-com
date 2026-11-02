@@ -126,3 +126,29 @@ test('served paths: the back-to-www step leaves them relative; without the optio
   assert.match(before.doc, /href="https:\/\/www\.brusselsairlines\.com\/be\/en\/profile\/login"/, 'no served list: www, as before');
   assert.deepEqual(ownServed('lh-no-such-site'), []);
 });
+
+// Lufthansa Group for Business (2026-11-02): its rest-of-world documents live on xx/<ll> with a
+// `markets` row of the roots they serve (every root of the language but de), its own documents on
+// market roots: the pages of those roots are the site's pages too (lh-edge answers them from the
+// document), as a language version's are
+test('ownPages: a document outside the language versions with a markets row of roots: those roots\' pages too', async () => {
+  const fs = await import('node:fs');
+  const path = await import('node:path');
+  const { ownPages } = await import('../tools/importer/own-links.mjs');
+  const dir = path.join(process.cwd(), 'content-sites/lh-test-ownpages/content');
+  const write = (p, html) => {
+    fs.mkdirSync(path.dirname(path.join(dir, `${p}.plain.html`)), { recursive: true });
+    fs.writeFileSync(path.join(dir, `${p}.plain.html`), html);
+  };
+  try {
+    write('/xx/en/about-us/contact', '<div><p>x</p><div class="metadata"><div><div>markets</div><div>ae/en, at/en, ch/en</div></div></div></div>');
+    write('/ch/en/program/experts', '<div><p>own</p></div>');
+    write('/xx/en/nav', '<div><p>nav</p><div class="metadata"><div><div>markets</div><div>ae/en</div></div></div></div>');
+    const pages = ownPages('lh-test-ownpages');
+    ['/xx/en/about-us/contact', '/ae/en/about-us/contact', '/at/en/about-us/contact', '/ch/en/about-us/contact', '/ch/en/program/experts'].forEach((p) => assert.ok(pages.has(p), p));
+    assert.ok(!pages.has('/de/en/about-us/contact'), 'only the listed roots');
+    assert.ok(!pages.has('/ae/en/nav'), 'nav and footer stay their root\'s');
+  } finally {
+    fs.rmSync(path.join(process.cwd(), 'content-sites/lh-test-ownpages'), { recursive: true, force: true });
+  }
+});

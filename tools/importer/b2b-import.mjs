@@ -1,0 +1,312 @@
+/* eslint-disable no-console, max-len, no-bitwise, import/prefer-default-export, import/extensions, no-use-before-define, import/no-extraneous-dependencies -- tooling */
+/**
+ * Imports one batch of Lufthansa Group for Business' pages (lh-b2b) offline from their snapshots
+ * (tools/importer/bd-snapshots/business.lufthansagroup.com: the Studio's capture, b2b-studio.mjs)
+ * with lh-com's import scripts into content-sites/lh-b2b/content, as brussels-import.mjs: per
+ * page the template (templateOf: lh-com's info template; B2B's pages have none of lh-com's homepage
+ * widgets), then site-postprocess.mjs and own-links.mjs, after adding the batch's documents to the
+ * allowlist tools/importer/sites/lh-b2b.json. Per document (one per language page, option B):
+ * - B2B's own components get a class only this importer gives (withB2bComponents), which the
+ *   templates' B2B selectors take: the icon modules (b2b-iconmodules: cards-icon-text, stacked),
+ *   the stage (b2b-stage: hero-card-overlay), the inspirational stage (b2b-inspirationalstage:
+ *   hero-campaign); the author quote (no lh-com block) as its text and name;
+ * - the phone list of the contact page (dcep-ppb-hotlinebox: rendered in the browser from
+ *   Lufthansa's contact catalog) as plain content (withHotlines);
+ * - e-mail addresses Cloudflare obfuscated (/cdn-cgi/l/email-protection#..., __cf_email__) as
+ *   mailto: links and their text (withEmails);
+ * - the pre-login search: the search bar and the results widget as one search-results block
+ *   (the site search, /<root>/search-index.json);
+ * - the core forms get a form config row with the lh-forms id b2b-<page> and their success page
+ *   (www's :redirect; preview only until lh-forms knows them);
+ * - metadata: the nav and footer of the document's language version, `markets` (scope.json),
+ *   www's noindex;
+ * - document names without "--" (b2b-scope.mjs docName; runs/redirects.tsv);
+ * - links to www's DAM files become site-relative edsDamPath links (b2b-dam.mjs); SVG images Edge
+ *   Delivery refuses are their PNG renderings in DA (LOCAL_IMAGES).
+ * Writes content-sites/lh-b2b/runs/<name>-import.json: path -> template.
+ *
+ * Usage: node tools/importer/b2b-import.mjs --list content-sites/lh-b2b/runs/batch-01.txt [--dry-run]
+ */
+import fs from 'node:fs';
+import path from 'node:path';
+import { execFileSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
+import { parseHTML } from 'linkedom';
+import {
+  ownPages, ownAliases, withOwnLinks, onlyBatch,
+} from './own-links.mjs';
+import {
+  PLACEHOLDER, withPlaceholder, withoutLoads, divEnd, withMetadataRows,
+} from './brussels-import.mjs';
+import { docName, LANGUAGE_VERSIONS } from './b2b-scope.mjs';
+import { relativeDamLinks } from './b2b-dam.mjs';
+
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
+const argv = process.argv.slice(2);
+const opt = (n) => (argv.includes(`--${n}`) ? argv[argv.indexOf(`--${n}`) + 1] : null);
+export const HOST = 'business.lufthansagroup.com';
+const W = path.join(root, 'content-sites/lh-b2b');
+const SNAP = path.join(root, 'tools/importer/bd-snapshots', HOST);
+const CI = '/home/node/.excat-marketplaces/excat-marketplace/excat/skills/excat-content-import/scripts';
+const MAPPED = path.join(W, 'snapshots-mapped');
+const { stripScripts } = await import(path.join(CI, '../../excat-scrape-webpage/scripts/strip-scripts.js'));
+
+const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+const clean = (s) => String(s || '').replace(/[\u200B-\u200D\uFEFF]/g, '').replace(/\s+/g, ' ').trim();
+
+/** The html with each div whose opening tag starts with `open` given to `edit` (its outer html). */
+export function editDivs(html, open, edit) {
+  let out = '';
+  let from = 0;
+  let i = html.indexOf(open, from);
+  while (i >= 0) {
+    const end = divEnd(html, i);
+    out += html.slice(from, i) + edit(html.slice(i, end));
+    from = end;
+    i = html.indexOf(open, from);
+  }
+  return out + html.slice(from);
+}
+
+/** Cloudflare's e-mail obfuscation: the hex string decoded (the first byte is the XOR key). */
+export function decodeCfEmail(hex) {
+  const key = parseInt(hex.slice(0, 2), 16);
+  let out = '';
+  for (let i = 2; i < hex.length; i += 2) out += String.fromCharCode(parseInt(hex.slice(i, i + 2), 16) ^ key);
+  return out;
+}
+
+/** The obfuscated addresses as mailto: links and plain text, as www's readers see them. */
+export function withEmails(html) {
+  return html
+    .replace(/href="(?:https?:\/\/[^"/]+)?\/cdn-cgi\/l\/email-protection#([0-9a-f]+)"/gi, (m, hex) => `href="mailto:${esc(decodeCfEmail(hex))}"`)
+    .replace(/<span class="__cf_email__" data-cfemail="([0-9a-f]+)">[^<]*<\/span>/gi, (m, hex) => esc(decodeCfEmail(hex)))
+    .replace(/<a\b[^>]*href="(?:https?:\/\/[^"/]+)?\/cdn-cgi\/l\/email-protection"[^>]*>\s*\[email[^\]]*\]\s*<\/a>/gi, '');
+}
+
+/**
+ * B2B's components: the classes the templates' B2B selectors take (the column row of icon
+ * modules, the stage, the inspirational stage), the author quote as its text and name.
+ */
+export function withB2bComponents(html) {
+  let out = html;
+  // a column row whose items are icon modules (no column row nested in it): the row is the block
+  ['twocolumn', 'threecolumn', 'fourcolumn'].forEach((col) => {
+    out = editDivs(out, `<div class="${col}`, (el) => (/class="iconmodule\b/.test(el) && !/<div class="(?:two|three|four)column/.test(el.slice(1))
+      ? el.replace(`<div class="${col}`, `<div class="b2b-iconmodules ${col}`) : el));
+  });
+  out = editDivs(out, '<div class="stage ', (el) => (/class="stage-teaser"/.test(el) ? el.replace('<div class="stage ', '<div class="b2b-stage stage ') : el));
+  out = out.replace(/<div class="inspirationalstage(["\s])/g, '<div class="b2b-inspirationalstage inspirationalstage$1');
+  out = editDivs(out, '<div class="authorquote', (el) => {
+    const { document } = parseHTML(`<html><body>${el}</body></html>`);
+    const quote = clean(document.querySelector('.quote-text')?.textContent);
+    const name = clean(document.querySelector('.subline-text')?.textContent);
+    if (!quote) return '';
+    return `<div class="text section"><div class="richtext"><p>${esc(quote)}</p>${name ? `<p>${esc(name)}</p>` : ''}</div></div>`;
+  });
+  return out;
+}
+
+/**
+ * The phone list (.hotlinenumberdisplay > .dcep-ppb-hotlinebox: a country select whose contact
+ * www fills in the browser) as plain content: the box's heading, per rendered contact
+ * (.support-contact) its phone (a tel: link), e-mail (a mailto: link), and opening hours.
+ */
+export function withHotlines(html) {
+  return editDivs(html, '<div class="hotlinenumberdisplay', (el) => {
+    const { document } = parseHTML(`<html><body>${el}</body></html>`);
+    document.querySelectorAll('svg, maui-icon, maui-select, .sr-only, form').forEach((n) => n.remove());
+    const parts = [];
+    const head = [...document.querySelectorAll('maui-headline')].find((h) => !h.closest('.support-contact') && clean(h.textContent));
+    if (head) parts.push(`<h3>${esc(clean(head.textContent))}</h3>`);
+    document.querySelectorAll('.support-contact').forEach((c) => {
+      c.querySelectorAll('a[href^="tel:"], a[href^="mailto:"]').forEach((a) => parts.push(`<p><a href="${esc(a.getAttribute('href'))}">${esc(clean(a.textContent))}</a></p>`));
+      c.querySelectorAll('table.service-hours').forEach((table) => {
+        const h = table.closest('div')?.querySelector('maui-headline');
+        if (h) parts.push(`<h4>${esc(clean(h.textContent))}</h4>`);
+        const rows = [...table.querySelectorAll('tr')].map((tr) => `${esc(clean(tr.querySelector('th')?.textContent))}: ${esc(clean(tr.querySelector('td')?.textContent))}`);
+        parts.push(`<p>${rows.join('<br>')}</p>`);
+      });
+    });
+    return parts.length ? `<div class="text section"><div class="richtext">${parts.join('')}</div></div>` : '';
+  });
+}
+
+/**
+ * The pre-login search: the search bar (dcep-b2b-neo-search-bar) and the results widget as one
+ * search-results block (its own field and results from the root's index): a page with the results
+ * widget loses the bar; a page with the bar alone gets the results widget in its place.
+ */
+export function withSearch(html) {
+  const hasResults = /class="dcep-b2b-neo-search-results-aem/.test(html);
+  return editDivs(html, '<div class="searchbar', () => (hasResults ? '' : '<div class="onsitesearchresult"><div class="dcep-b2b-neo-search-results-aem"></div></div>'));
+}
+
+// the core forms: the lh-forms id per page name (b2b-<page>; preview only until lh-forms knows it)
+export const formIdOf = (p) => `b2b-${p.split('/').pop().replace(/[^a-z0-9-]/gi, '-').toLowerCase()}`;
+const CONFIG_ROW = /<div><div>(?:(?!<\/div><div>)[\s\S])*?<\/div><div>config<\/div><div>(?:form|success|error)<\/div>(?:<div><\/div>){7}<\/div>/g;
+const ERROR_ROW = /<div><div>(?:(?!<\/div><div>)[\s\S])*?<\/div><div>config<\/div><div>error<\/div>(?:<div><\/div>){7}<\/div>/g;
+const configRow = (name, value) => `<div><div>${value}</div><div>config</div><div>${name}</div>${'<div></div>'.repeat(7)}</div>`;
+const linkRow = (name, href) => configRow(name, `<a href="${href}">${href}</a>`);
+
+/** www's confirmation page of a form (its :redirect, /content/B2Bneo/markets/...) as the site path. */
+export function successOf(html) {
+  const redirect = (String(html || '').match(/name=":redirect"[^>]*value="([^"]+)"|value="([^"]+)"[^>]*name=":redirect"/) || []).slice(1).find(Boolean) || '';
+  const m = redirect.match(/^\/content\/B2Bneo\/markets(\/[a-z]{2}\/[a-z]{2})(\/.+?)(?:\.html)?$/i);
+  return m ? docName(`${m[1]}${m[2]}`) : '';
+}
+
+/** A form document with its form config row (the lh-forms id) and its success row; no error row. */
+export function withB2bForm(doc, p, html = '') {
+  if (!/<div class="form[ "]/.test(doc)) return doc;
+  const id = formIdOf(p);
+  const success = successOf(html);
+  const rows = [...doc.matchAll(CONFIG_ROW)].map((m) => m[0]);
+  const has = (name) => rows.some((r) => r.includes(`<div>config</div><div>${name}</div>`));
+  let out = doc;
+  if (has('form')) out = out.replace(rows.find((r) => r.includes('<div>config</div><div>form</div>')), configRow('form', id));
+  const add = [has('form') ? '' : configRow('form', id), success && !has('success') ? linkRow('success', success) : ''].join('');
+  const first = [...out.matchAll(CONFIG_ROW)][0];
+  if (add && first) out = `${out.slice(0, first.index)}${add}${out.slice(first.index)}`;
+  return out.replace(ERROR_ROW, '');
+}
+
+/**
+ * The document's metadata: nav and footer of its language version (a market root's documents, xx's
+ * and the own ones, have the menu of de/<ll>: www's is the same on every root), its markets, www's
+ * noindex.
+ */
+export function withB2bMetadata(doc, p, html, markets = []) {
+  const key = p.split('/').slice(1, 3).join('/');
+  const nav = LANGUAGE_VERSIONS[key.split('/')[1]] || key;
+  const rows = [['nav', `/${nav}/nav`], ['footer', `/${nav}/footer`]];
+  if (markets.length) rows.push(['markets', markets.join(', ')]);
+  const robots = ((html || '').match(/<meta name="robots" content="([^"]*)"/i) || [])[1] || '';
+  if (/noindex/i.test(robots)) rows.push(['Robots', robots.split(',').map((x) => x.trim()).filter(Boolean).join(', ')]);
+  return withMetadataRows(doc, rows);
+}
+
+// www's SVG images Edge Delivery refuses at preview (a raster picture embedded, 114 KB to 1 MB:
+// 409 from the content bus, /<root>/about-us/lhg-history/lhg-history-alliances-and-joint-ventures):
+// their rendering at the SVG's own size, a PNG in DA (da-upload.mjs uploads /media-da/)
+const WEBHUB = '/content/dam/b2b/100y_webhub/04-joint-ventures';
+export const LOCAL_IMAGES = Object.fromEntries([
+  '01_Founding Star Alliance_Teaser-1440x960', '02_Deepening ties-2010_Teaser-1440x512', '02_Deepening ties-2012_Teaser-1440x512',
+  '02_Deepening ties-2017_Teaser-1440x512', '02_Deepening ties-2017-2_Teaser-1440x512',
+].map((f) => [`${WEBHUB}/${f}.svg`, `/media-da/b2b/${f.replace(/ /g, '-').toLowerCase()}.png`]));
+
+/** A document's images Edge Delivery refuses (LOCAL_IMAGES) as their PNG renderings. */
+export const withLocalImages = (doc) => doc.replace(/<img src="(?:https:\/\/business\.lufthansagroup\.com)?(\/content\/dam\/[^"?]+\.svg)"/g, (m, src) => {
+  let www = src;
+  try { www = decodeURIComponent(src); } catch (e) { /* as it is */ }
+  return LOCAL_IMAGES[www] ? `<img src="${LOCAL_IMAGES[www]}"` : m;
+});
+
+/** The template of a page: lh-com's info template (B2B has no homepage widgets of lh-com's). */
+export const templateOf = () => 'info';
+
+/** A snapshot as the import reads it. */
+export const mappedOf = (html) => withoutLoads(withSearch(withB2bComponents(withHotlines(withEmails(withPlaceholder(stripScripts(html))))))
+  .replace(/<output[^>]*class="screen-reader-announcer"[^>]*>[\s\S]*?<\/output>/g, ''));
+
+const isMain = process.argv[1] && fs.realpathSync(process.argv[1]) === fileURLToPath(import.meta.url);
+if (isMain) {
+  const started = Date.now();
+  const list = opt('list');
+  const name = path.basename(list).replace(/\.txt$/, '');
+  const urls = fs.readFileSync(path.resolve(root, list), 'utf8').split('\n').map((u) => u.trim()).filter(Boolean);
+  const scope = JSON.parse(fs.readFileSync(path.join(W, 'scope.json'), 'utf8'));
+  const byTemplate = {};
+  const missing = [];
+  const out = {};
+  urls.forEach((u) => {
+    const p = new URL(u).pathname;
+    const f = path.join(SNAP, `${p}.html`);
+    if (!fs.existsSync(f)) { missing.push(p); return; }
+    const html = fs.readFileSync(f, 'utf8');
+    const t = templateOf(p, html);
+    // the mapped copy under the document's name (Edge Delivery's: no "--"): the import names the
+    // document after the URL it reads
+    const doc = docName(p);
+    const copy = path.join(MAPPED, HOST, `${doc}.html`);
+    fs.mkdirSync(path.dirname(copy), { recursive: true });
+    fs.writeFileSync(copy, mappedOf(html));
+    (byTemplate[t] ||= []).push(`https://${HOST}${doc}`);
+    out[doc] = { template: t, source: p };
+  });
+  console.log(`${name}: ${Object.entries(byTemplate).map(([t, l]) => `${t} ${l.length}`).join(', ')}; no snapshot: ${missing.length ? missing.join(' ') : 'none'}`);
+  if (!argv.includes('--dry-run')) {
+    // the bulk importer loads a page live unless its workspace is flagged protected: every page
+    // comes from its snapshot, nothing is requested from www
+    const flag = path.join(W, '.migration/project.json');
+    const flags = fs.existsSync(flag) ? JSON.parse(fs.readFileSync(flag, 'utf8')) : {};
+    if (flags.botProtected !== true) {
+      fs.mkdirSync(path.dirname(flag), { recursive: true });
+      fs.writeFileSync(flag, `${JSON.stringify({ ...flags, botProtected: true }, null, 2)}\n`);
+    }
+    // the bulk importer writes its reports into lh-com's tree (tools/importer/reports/<path>),
+    // where lh-com has reports at paths B2B has too (/de/en/...): set aside and put back
+    const REPORTS = path.join(root, 'tools/importer/reports');
+    const ASIDE = path.join(W, 'reports-aside');
+    const aside = Object.keys(out).filter((p) => fs.existsSync(path.join(REPORTS, `${p}.report.json`)));
+    aside.forEach((p) => {
+      fs.mkdirSync(path.dirname(path.join(ASIDE, `${p}.report.json`)), { recursive: true });
+      fs.copyFileSync(path.join(REPORTS, `${p}.report.json`), path.join(ASIDE, `${p}.report.json`));
+    });
+    Object.entries(byTemplate).forEach(([t, l]) => {
+      const listFile = path.join(W, `urls-${name}-${t}.txt`);
+      fs.writeFileSync(listFile, `${l.join('\n')}\n`);
+      const log = execFileSync('node', [`${CI}/run-bulk-import.js`, '--import-script', `tools/importer/import-${t}.bundle.js`, '--urls', listFile, '--force', '--html-dir', MAPPED], {
+        cwd: root, env: { ...process.env, WORKSPACE_PATH: W, BD_ENDPOINT: '' }, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'], maxBuffer: 64 * 1024 * 1024,
+      });
+      log.split('\n').filter((x) => /Snapshot import failed|falling through to live/i.test(x)).forEach((x) => console.log(`WARNING (live fallback): ${x.trim()}`));
+      const lines = log.split('\n').filter((x) => /imported|failed|error/i.test(x) && !/wss:|endpoint/i.test(x));
+      console.log(`${t}: ${lines.slice(-2).join(' | ')}`);
+    });
+    Object.keys(out).forEach((p) => {
+      const from = path.join(REPORTS, `${p}.report.json`);
+      if (fs.existsSync(from) && fs.statSync(from).mtimeMs >= started) {
+        const to = path.join(W, 'reports', `${p}.report.json`);
+        fs.mkdirSync(path.dirname(to), { recursive: true });
+        fs.renameSync(from, to);
+      }
+      if (aside.includes(p)) {
+        fs.mkdirSync(path.dirname(from), { recursive: true });
+        fs.renameSync(path.join(ASIDE, `${p}.report.json`), from);
+        return;
+      }
+      for (let d = path.dirname(from); d.startsWith(`${REPORTS}/`) && fs.existsSync(d) && !fs.readdirSync(d).length; d = path.dirname(d)) fs.rmdirSync(d);
+    });
+    const sites = path.join(root, 'tools/importer/sites/lh-b2b.json');
+    const allow = JSON.parse(fs.readFileSync(sites, 'utf8'));
+    const made = Object.keys(out).filter((p) => fs.existsSync(path.join(W, 'content', `${p}.plain.html`)));
+    allow.paths = [...new Set([...allow.paths, ...made])];
+    fs.writeFileSync(sites, `${JSON.stringify(allow, null, 1)}\n`);
+    made.forEach((p) => {
+      const f = path.join(W, 'content', `${p}.plain.html`);
+      const doc = fs.readFileSync(f, 'utf8');
+      const src = out[p].source;
+      const html = fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8');
+      const markets = scope.documents[src]?.markets || [];
+      const next = withB2bMetadata(withB2bForm(doc, p, html), p, html, markets);
+      if (next !== doc) fs.writeFileSync(f, next);
+    });
+    const mapOnly = path.join(W, 'runs', `${name}-upload.txt`);
+    fs.writeFileSync(mapOnly, `${made.join('\n')}\n`);
+    const post = onlyBatch('lh-b2b', new Set(made), () => execFileSync('node', ['tools/importer/site-postprocess.mjs', '--site', 'lh-b2b', '--source-host', HOST, '--snapshots', path.join(MAPPED, HOST), '--real-placeholder', PLACEHOLDER, '--map-only', mapOnly], { cwd: root, encoding: 'utf8' }));
+    console.log(post.result.trim().split('\n').slice(-3).join('\n'));
+    console.log(`site-postprocess: ${post.restored.length} documents outside the batch left as they were`);
+    const pages = ownPages('lh-b2b');
+    const aliases = ownAliases('lh-b2b');
+    made.forEach((p) => {
+      const f = path.join(W, 'content', `${p}.plain.html`);
+      const doc = fs.readFileSync(f, 'utf8');
+      const next = withOwnLinks(withLocalImages(relativeDamLinks(doc)), HOST, pages, aliases).doc;
+      if (next !== doc) fs.writeFileSync(f, next);
+    });
+    fs.writeFileSync(path.join(W, 'runs', `${name}-import.json`), `${JSON.stringify({
+      templates: Object.fromEntries(Object.entries(out).map(([k, v]) => [k, v.template])), sources: Object.fromEntries(Object.entries(out).map(([k, v]) => [k, v.source])), documents: made, missing,
+    }, null, 1)}\n`);
+    console.log(`${made.length} documents; upload list runs/${name}-upload.txt`);
+  }
+}

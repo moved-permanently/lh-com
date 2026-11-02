@@ -114,6 +114,12 @@
   height: 520px;
 }
 
+/* Lufthansa Group for Business' route network map (lhg-network.com): www's frame, 1440 x 800 */
+.media-embed-route-network {
+  max-width: 1440px;
+  height: 800px;
+}
+
 /* loaded on click (Matterport tour 16:9, Mynewsdesk newsroom 800px): a button over the player's
    area until then */
 .media-embed-matterport {

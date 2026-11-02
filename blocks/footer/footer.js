@@ -23,6 +23,8 @@ import { isOwnWwwHost } from '../../scripts/brand.js';
  *  - note: a paragraph below the legal row (the company's registration line)
  *  - wordmark: an image at the top of the link area (austrian's "servus"; beside the link columns
  *    from 1025px)
+ *  - brand-row: the brand's logo and tagline above the line, the note, legal links, badges and
+ *    country and language button below it in one row (lh-b2b, business.lufthansagroup.com)
  * Footers without them (lh-com) look as before.
  * FlyNet channel (scripts/channel.js): links that book, log in or search flights are left out.
  */
@@ -143,13 +145,15 @@ function classifySections(fragment) {
   const badges = marked('badges');
   const notes = marked('note');
   const wordmarks = marked('wordmark');
-  const sections = all.filter((s) => ![...badges, ...notes, ...wordmarks].includes(s));
+  const brandRows = marked('brand-row');
+  const marks = [...badges, ...notes, ...wordmarks, ...brandRows];
+  const sections = all.filter((s) => !marks.includes(s));
   const columns = sections.find((s) => s.querySelector('h2, h3, h4, h5, h6') && s.querySelector('ul'));
   const top = sections.find((s) => s !== columns && !s.querySelector('ul'));
   const logos = sections.find((s) => ![columns, top].includes(s) && s.querySelector('img, picture'));
   const legal = sections.find((s) => ![columns, top, logos].includes(s) && s.querySelector('ul'));
   return {
-    top, columns, legal, logos, badges, notes, wordmarks,
+    top, columns, legal, logos, badges, notes, wordmarks, brandRows,
   };
 }
 
@@ -327,6 +331,23 @@ function buildWordmark(sections) {
   return pic ? el('div', { className: 'footer-wordmark' }, pic) : null;
 }
 
+/**
+ * The brand row sections: the logo (the first picture or image) and the tagline (the paragraphs'
+ * text) above the line (lh-b2b: "Best choice for your business").
+ */
+export function buildBrandRow(sections) {
+  const pic = sections.map((s) => s.querySelector('picture') || s.querySelector('img')).find(Boolean);
+  const lines = sections.flatMap((s) => [...s.querySelectorAll('p')]).map((p) => text(p)).filter(Boolean);
+  if (!pic && !lines.length) return null;
+  if (pic) (pic.tagName === 'IMG' ? pic : pic.querySelector('img')).setAttribute('loading', 'lazy');
+  return el(
+    'div',
+    { className: 'footer-brand-row' },
+    pic ? el('div', { className: 'footer-brand-logo' }, pic) : null,
+    lines.length ? el('div', { className: 'footer-brand-tagline' }, ...lines.map((t) => el('p', {}, t))) : null,
+  );
+}
+
 function buildNotes(sections) {
   const paras = sections.flatMap((s) => [...s.querySelectorAll('p')]).map((p) => text(p)).filter(Boolean);
   return paras.length ? el('div', { className: 'footer-note' }, ...paras.map((t) => el('p', {}, t))) : null;
@@ -395,7 +416,7 @@ export default async function decorate(block) {
   }
 
   const {
-    top, columns, legal, logos, badges, notes, wordmarks,
+    top, columns, legal, logos, badges, notes, wordmarks, brandRows,
   } = classifySections(fragment);
 
   const inner = el('div', { className: 'footer-inner' });
@@ -423,6 +444,12 @@ export default async function decorate(block) {
   // the grid with the optional rows (brand sites); without them the areas are as before
   if (badgesEl || noteEl || wordmarkEl) inner.classList.add('has-extras');
   if (wordmarkEl) inner.classList.add('has-wordmark');
+  // the brand row first, www's rows below it (lh-b2b)
+  const brandRowEl = buildBrandRow(brandRows);
+  if (brandRowEl) {
+    inner.prepend(brandRowEl);
+    inner.classList.add('has-brand-row');
+  }
 
   block.textContent = '';
   block.append(el('div', { className: 'footer-main' }, inner));

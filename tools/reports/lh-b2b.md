@@ -37,3 +37,41 @@ About Us with drop-downs), the boxed search button to `/<root>/lhg4b-search/lhg4
 the logo without a link, one row with a burger below 1025 px; the footer's layout (logo and the
 tagline "Best choice for your business" at 40 px, then copyright, legal links, LinkedIn in a circle,
 "DE | EN" with the globe); the cookie banner's links (www's banner was rejected before it was read).
+Done on 2026-11-02 (below): the header options and the footer's brand row; the banner's links are
+B2B's Data protection page (its cookie categories) and Imprint.
+
+## Import (2026-11-02)
+
+Inputs: the Studio's lists (b2b-lists-001: groundwork.md, decisions in 10a) and seven snapshot
+archives (b2b-snapshots-001 to -007, sha256 checked, placed by `b2b-studio.mjs`), in
+`content-sites/lh-b2b/` (not in git).
+
+- `b2b-scope.mjs`: 187 roots (de/en, de/de own; 185 market roots; us/de, ca/de, mx/de answer 500),
+  674 documents: 571 language documents (de/en 259, de/de 312), 86 rest-of-world documents from
+  `xx/<ll>` (`markets`: every root of the language but de and the roots with an own page; the de
+  document of such a path serves de only), 15 own documents of ch/en and at/de (archive 007), the
+  own homepages us/en and ca/en; mx/en and al/* are served from the reference (decision 3). Paths
+  Edge Delivery can't name ("--", capitals, "_", a "-" at a segment's end) get the name `docName`
+  gives them: `content-sites/lh-b2b/runs/redirects.tsv` (www path, document path).
+- `b2b-plan.mjs`: the Studio's 16 batches; archive 007's own documents join batch 16.
+- `b2b-import.mjs`: lh-com's info template for every page; B2B's components get classes only this
+  importer gives, taken by B2B selectors in `page-templates.json` (icon modules: cards-icon-text
+  `stacked`; stage: hero-card-overlay; inspirational stage: hero-campaign right); the author quote
+  as its text and name (no lh-com block; a quote block is proposed, not built); the phone list
+  (`dcep-ppb-hotlinebox`) as plain content; Cloudflare's obfuscated e-mail addresses decoded; the
+  pre-login search as the search-results block (the root's search index); the route network map
+  (`lhg-network.com`) as an embed (decision 6); the forms with lh-forms ids `b2b-<page>`; the
+  metadata: the language version's nav and footer, `markets`, www's noindex; five SVG images Edge
+  Delivery refuses (409) as PNG renderings in DA (`/media-da/b2b/`).
+- `b2b-nav.mjs`: nav and footer of de/en and de/de from www's header JSON and footer, with the
+  brand's header options (`scripts/brands.js` b2b header: the menu in the bar, the logo without a
+  link, the boxed search, no country button) and the footer's brand row.
+- `b2b-dam.mjs`: the linked PDFs, small videos and posters as copies in DA; the mp4 over 36 MiB
+  (the groundwork's media.tsv) listed for AEM per batch (`runs/batch-NN-aem.tsv`).
+- `b2b-batch.mjs`: import, links (aliases for renamed documents:
+  `tools/importer/sites/lh-b2b-aliases.json`), DAM, upload and preview per batch.
+
+Needs outside this repo's B2B files: the search indexes of de/en and de/de (`helix-query.yaml`);
+lh-forms rows for `b2b-businesstogo` and `b2b-partner-plus-benefit-raffle` (both languages, origin
+`main--lh-b2b--moved-permanently.aem.page`, later `b2b.turnsthe.page`); the redirects sheet from
+`runs/redirects.tsv`; the lh-edge site entry for `b2b.turnsthe.page`.

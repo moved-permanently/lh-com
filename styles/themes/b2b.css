@@ -81,7 +81,7 @@
   --header-bar-inset: 15px;
   --header-bar-radius: 12px;
   --header-bar-shadow: rgb(0 0 0 / 10%) 0 2px 8px;
-  --header-bar-padding: 23px 24px;
+  --header-bar-padding: 16px 24px; /* www's 81 px bar around its 48 px search button */
   --nav-quick-list-padding: 0;
   --nav-quick-link-padding: 11px 12px;
   --nav-bar-font-size: 16px;
@@ -110,6 +110,7 @@
 
 @media (width >= 1281px) {
   :root {
+    --footer-side-margin: 120px; /* www's footer: 120 px from the sides at 1440 */
     --heading-font-size-xxl: 42px;
     --heading-font-size-xl: 32px;
     --heading-font-size-l: 28px;

@@ -30,10 +30,10 @@ export const VIDEO_MARKERS = new RegExp(VIDEO_MARKER.source.slice(0, -1), 'g');
 
 const LABELS = {
   en: {
-    video: 'Play video', youtube: 'YouTube video', 'inflight-entertainment': 'In-flight entertainment', newsstand: 'eJournals newsstand', matterport: 'Start the virtual tour', mynewsdesk: 'Show the newsroom',
+    video: 'Play video', youtube: 'YouTube video', 'inflight-entertainment': 'In-flight entertainment', newsstand: 'eJournals newsstand', matterport: 'Start the virtual tour', mynewsdesk: 'Show the newsroom', 'route-network': 'Route network',
   },
   de: {
-    video: 'Video abspielen', youtube: 'YouTube-Video', 'inflight-entertainment': 'Bordunterhaltung', newsstand: 'eJournals-Kiosk', matterport: 'Virtuelle Tour starten', mynewsdesk: 'Newsroom anzeigen',
+    video: 'Video abspielen', youtube: 'YouTube-Video', 'inflight-entertainment': 'Bordunterhaltung', newsstand: 'eJournals-Kiosk', matterport: 'Virtuelle Tour starten', mynewsdesk: 'Newsroom anzeigen', 'route-network': 'Streckennetz',
   },
   it: {
     video: 'Riproduci video',
@@ -41,6 +41,7 @@ const LABELS = {
     'inflight-entertainment': 'Intrattenimento a bordo',
     matterport: 'Avvia il tour virtuale',
     mynewsdesk: 'Mostra la newsroom',
+    'route-network': 'Rete delle rotte',
     newsstand: 'Edicola eJournals',
   },
   fr: {
@@ -49,6 +50,7 @@ const LABELS = {
     'inflight-entertainment': 'Divertissement à bord',
     matterport: 'Démarrer la visite virtuelle',
     mynewsdesk: 'Afficher la salle de presse',
+    'route-network': 'Réseau de lignes',
     newsstand: 'Kiosque eJournals',
   },
   es: {
@@ -57,6 +59,7 @@ const LABELS = {
     'inflight-entertainment': 'Entretenimiento a bordo',
     matterport: 'Iniciar el recorrido virtual',
     mynewsdesk: 'Mostrar la sala de prensa',
+    'route-network': 'Red de rutas',
     newsstand: 'Quiosco de eJournals',
   },
   nl: {
@@ -65,6 +68,7 @@ const LABELS = {
     'inflight-entertainment': 'Entertainment aan boord',
     matterport: 'Virtuele rondleiding starten',
     mynewsdesk: 'Nieuwsruimte tonen',
+    'route-network': 'Routenetwerk',
     newsstand: 'eJournals-kiosk',
   },
   pt: {
@@ -73,6 +77,7 @@ const LABELS = {
     'inflight-entertainment': 'Entretenimento a bordo',
     matterport: 'Iniciar o tour virtual',
     mynewsdesk: 'Mostrar a sala de imprensa',
+    'route-network': 'Rede de rotas',
     newsstand: 'Banca de eJournals',
   },
   el: {
@@ -81,6 +86,7 @@ const LABELS = {
     'inflight-entertainment': 'Ψυχαγωγία εν πτήσει',
     matterport: 'Έναρξη εικονικής περιήγησης',
     mynewsdesk: 'Εμφάνιση αίθουσας τύπου',
+    'route-network': 'Δίκτυο δρομολογίων',
     newsstand: 'Περίπτερο eJournals',
   },
   ja: {
@@ -89,6 +95,7 @@ const LABELS = {
     'inflight-entertainment': '機内エンターテインメント',
     matterport: 'バーチャルツアーを開始',
     mynewsdesk: 'ニュースルームを表示',
+    'route-network': '路線網',
     newsstand: 'eJournals ニューススタンド',
   },
   ru: {
@@ -97,6 +104,7 @@ const LABELS = {
     'inflight-entertainment': 'Развлечения на борту',
     matterport: 'Начать виртуальный тур',
     mynewsdesk: 'Показать пресс-центр',
+    'route-network': 'Маршрутная сеть',
     newsstand: 'Киоск eJournals',
   },
   zh: {
@@ -105,6 +113,7 @@ const LABELS = {
     'inflight-entertainment': '机上娱乐',
     matterport: '开始虚拟游览',
     mynewsdesk: '显示新闻中心',
+    'route-network': '航线网络',
     newsstand: 'eJournals 报刊亭',
   },
   pl: {
@@ -113,6 +122,7 @@ const LABELS = {
     'inflight-entertainment': 'Rozrywka na pokładzie',
     matterport: 'Rozpocznij wirtualną wycieczkę',
     mynewsdesk: 'Pokaż newsroom',
+    'route-network': 'Siatka połączeń',
     newsstand: 'Kiosk eJournals',
   },
 };
@@ -210,6 +220,11 @@ export function embedFor(href) {
   }
   if (/(^|\.)mynewsdesk\.com$/.test(url.hostname) && url.protocol === 'https:') {
     return { type: 'mynewsdesk', src: url.href, onClick: true };
+  }
+  // Lufthansa Group for Business' route network map (business.lufthansagroup.com
+  // /travel-management/route-network: an iframe of https://lhg-network.com/)
+  if (url.hostname === 'lhg-network.com' && url.protocol === 'https:' && url.pathname === '/') {
+    return { type: 'route-network', src: url.href };
   }
   return null;
 }

@@ -789,12 +789,22 @@ export default async function decorate(block) {
   const {
     brand, quick, menu, tools,
   } = classifySections(fragment);
+  // a brand's own header (scripts/brands.js header: Lufthansa Group for Business): the menu in the
+  // bar, the logo without a link, a search button; every other brand as before
+  const pageBrand = brandEntry();
+  const headerStyle = (pageBrand && pageBrand.header) || {};
 
   // brand
   const brandEl = el('div', { className: 'nav-brand' });
   const brandLink = brand && brand.querySelector('a[href]');
   const logo = brand && brand.querySelector('picture, img');
-  if (brandLink || logo) {
+  if (logo && headerStyle.logoLink === false) {
+    // the logo alone, as www's (not a link)
+    const span = el('span', { className: 'nav-brand-logo' }, logo);
+    const img = span.querySelector('img');
+    img.loading = 'eager';
+    brandEl.append(span);
+  } else if (brandLink || logo) {
     const a = el('a', { href: brandLink ? brandLink.getAttribute('href') : `${locale.base}/homepage` });
     if (logo) {
       a.append(logo);
@@ -857,7 +867,6 @@ export default async function decorate(block) {
   barLinks.filter(Boolean).forEach((a) => toolsEl.append(a));
   // accessibility settings: on a brand with them (scripts/brands.js: Air Dolomiti) www's button and
   // panel (text size, contrast; scripts/accessibility.js) after the bar's links; other brands none
-  const pageBrand = brandEntry();
   let a11y = null;
   if (pageBrand && pageBrand.accessibility) {
     const { buildAccessibility } = await import('../../scripts/accessibility.js');
@@ -883,6 +892,9 @@ export default async function decorate(block) {
     toolsEl.append(el('span', { className: 'nav-divider', 'aria-hidden': 'true' }));
     toolsEl.append(useLoginUrl(await toolLink(loginTool, 'nav-tool nav-tool-login', true)));
   }
+  // the search button (header.search 'button': www's boxed search icon to the search page)
+  const searchTool = headerStyle.search === 'button' ? byRole('search') : null;
+  if (searchTool && searchTool.href) toolsEl.append(await toolLink(searchTool, 'nav-tool nav-tool-search', false));
   if (toolsEl.children.length) toolsEl.append(el('span', { className: 'nav-divider', 'aria-hidden': 'true' }));
   const menuButton = el(
     'button',
@@ -899,7 +911,7 @@ export default async function decorate(block) {
   // (live additional links: wheelchair, question, shopping cart, country/language)
   const extras = [];
   await Promise.all(toolItems.map(async (tool) => {
-    if (['search', 'login', 'locale'].includes(tool.role)) return null;
+    if (['login', 'locale'].includes(tool.role) || (tool.role === 'search' && headerStyle.search !== 'button')) return null;
     if (!tool.href) return null;
     return toolLink(tool, 'nav-flyout-extra', true);
   })).then((links) => links.filter(Boolean).forEach((a) => extras.push(el('li', {}, a))));
@@ -917,7 +929,8 @@ export default async function decorate(block) {
       switchTarget(link, exists).then((href) => { a.href = href; });
       extras.push(el('li', {}, a));
     });
-  } else {
+  } else if (headerStyle.locale !== false) {
+    // (header.locale false: no country button in the menu, the footer's opens the dialog)
     const flyoutLocale = await localeButton(localeTool, 'nav-flyout-extra nav-flyout-locale', labels);
     flyoutLocale.addEventListener('click', () => openLocale(flyoutLocale));
     extras.push(el('li', {}, flyoutLocale));
@@ -954,12 +967,21 @@ export default async function decorate(block) {
     openLocale(e.detail && e.detail.trigger);
   });
 
-  const bar = el('div', { className: 'nav-bar' }, brandEl, quickEl, toolsEl);
+  // the menu in the bar (header.menu 'bar'): the top items with their drop-downs from 1025px
+  let barMenu = null;
+  if (headerStyle.menu === 'bar') {
+    const { default: buildBarMenu } = await import('./header-bar-menu.js');
+    barMenu = buildBarMenu(readMenu(menu), {
+      link: (href, label, className) => navLink(href, label, className, labels),
+    });
+    menuButton.addEventListener('click', () => barMenu.close());
+  }
+  const bar = el('div', { className: 'nav-bar' }, brandEl, barMenu ? barMenu.root : null, quickEl, toolsEl);
   const nav = el('nav', { id: 'nav', 'aria-label': labels.nav }, bar, bell ? bell.panel : null, flyout.flyout);
   // the menu and the notifications panel: one at a time
   if (bell) menuButton.addEventListener('click', () => bell.close());
   if (a11y) menuButton.addEventListener('click', () => a11y.close());
-  const navWrapper = el('div', { className: 'nav-wrapper' }, nav);
+  const navWrapper = el('div', { className: barMenu ? 'nav-wrapper nav-has-bar-menu' : 'nav-wrapper' }, nav);
   const flight = flightBar ? await flightBar : null;
   if (flight) navWrapper.append(flight);
 

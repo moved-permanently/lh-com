@@ -9,6 +9,12 @@
  *   Row 2: eyebrow <p> (.mst-title), heading <h2> (.display-text), optional text, CTA link(s)
  *
  * The CTA is a <maui-navigation-link href> custom element on the source; it is rebuilt as <a>.
+ *
+ * Lufthansa Group for Business' stage (business.lufthansagroup.com: .stage > .stage-teaser >
+ * a.stage-teaser-link around the image, h2.stage-teaser-headline, h3.stage-teaser-subheadline and
+ * a maui-button-mimic label; marked b2b-stage by b2b-import.mjs): row 1 the background image,
+ * row 2 the heading, the subheadline as a paragraph and the CTA (the stage's link with the
+ * button's label, a secondary button: italic link).
  */
 export default function parse(element, { document }) {
   const SR_ONLY = '.sr-only, .visually-hidden, maui-screen-reader-label';
@@ -22,6 +28,44 @@ export default function parse(element, { document }) {
   const isBroken = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src);
 
   const cells = [];
+
+  const stage = element.querySelector('.stage-teaser');
+  const stageLink = stage && stage.querySelector('a.stage-teaser-link[href]');
+  if (stageLink) {
+    const img = [...stage.querySelectorAll('img')].find((i) => !isBroken(i.getAttribute('src')));
+    let imageCell = '';
+    if (img) {
+      imageCell = document.createElement('img');
+      imageCell.src = img.getAttribute('src');
+      imageCell.alt = img.getAttribute('alt') || '';
+    }
+    const content = [];
+    const heading = visibleText(stage.querySelector('.stage-teaser-headline'));
+    if (heading) {
+      const h2 = document.createElement('h2');
+      h2.textContent = heading;
+      content.push(h2);
+    }
+    const sub = visibleText(stage.querySelector('.stage-teaser-subheadline'));
+    if (sub) {
+      const p = document.createElement('p');
+      p.textContent = sub;
+      content.push(p);
+    }
+    const label = visibleText(stage.querySelector('maui-button-mimic')) || heading;
+    if (label) {
+      const p = document.createElement('p');
+      const em = document.createElement('em');
+      const a = document.createElement('a');
+      a.href = stageLink.getAttribute('href');
+      a.textContent = label;
+      em.append(a);
+      p.append(em);
+      content.push(p);
+    }
+    element.replaceWith(WebImporter.Blocks.createBlock(document, { name: 'hero-card-overlay', cells: [[imageCell], [content]] }));
+    return;
+  }
 
   // Row 1: background image (first usable image of the stage media).
   const img = [...element.querySelectorAll('.mst-bg-img img, .moving-image img, img')]
