@@ -731,3 +731,5 @@ ZNZ	https://www.swiss.com/content/dam/lx/images/offers/destination/znz-square.jp
 ZRH	https://www.swiss.com/content/dam/lx/images/offers/destination/zrh-square.jpg	/content/dam/lx/images/offers/destination/zrh-square.jpg	lh-com list (not in the SWISS snapshots)
 ZTH	https://www.swiss.com/content/dam/lx/images/offers/destination/zth-square.jpg	/content/dam/lx/images/offers/destination/zth-square.jpg	lh-com list (not in the SWISS snapshots)
 ZZQ	https://www.swiss.com/content/dam/lx/images/offers/destination/zzq-square.jpg	/content/dam/lx/images/offers/destination/zzq-square.jpg	lh-com list (not in the SWISS snapshots)
+FALLBACK	https://www.swiss.com/content/dam/lx/images/offers/fallback/generic-square.jpg	/content/dam/lx/images/offers/fallback/generic-square.jpg	lh-edge fallback for a missing -square image (brief 264; on our host, not www)
+FALLBACK	https://www.swiss.com/content/dam/lx/images/offers/fallback/generic-panorama.jpg	/content/dam/lx/images/offers/fallback/generic-panorama.jpg	lh-edge fallback for a missing -panorama image (brief 264; on our host, not www)

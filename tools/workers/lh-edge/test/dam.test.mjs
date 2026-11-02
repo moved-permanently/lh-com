@@ -106,7 +106,12 @@ test('dam: missing offers images answer 302 as www', async () => {
   const own = await get('/content/dam/lh/images/offers/destination/zzq-square.jpg?width=180&format=jpeg&optimize=medium');
   assert.equal(own.headers.get('location'), `${HOST}/content/dam/lh/images/offers/fallback/generic-square.jpg?width=180&format=jpeg&optimize=medium`);
   const swiss = await get('/content/dam/lx/images/offers/destination/zzq-square.jpg');
-  assert.equal(swiss.headers.get('location'), 'https://www.swiss.com/content/dam/lx/images/offers/fallback/generic-square.jpg');
+  // SWISS (brief 264): its fallback on the request's own host, never www.swiss.com
+  assert.equal(swiss.headers.get('location'), `${HOST}/content/dam/lx/images/offers/fallback/generic-square.jpg`);
+  const swissRendition = await get('/content/dam/lx/images/offers/destination/zzq-square.jpg.transform/lh-dcep-transform-width-180/img.jpg');
+  assert.equal(swissRendition.headers.get('location'), `${HOST}/content/dam/lx/images/offers/fallback/generic-square.jpg.transform/lh-dcep-transform-width-180/img.jpg`);
+  const bel = await get('/content/dam/bel/images/offers/destination/zzq-square.jpg');
+  assert.equal(bel.headers.get('location'), 'https://www.brusselsairlines.com/content/dam/bel/images/offers/fallback/generic-square.jpg', 'the other airlines as before');
   // ita and four_y: no destination fallback
   const ita = await get('/content/dam/ita/images/offers/destination/adl-square.jpg');
   assert.equal(ita.headers.get('location'), 'https://www.ita-airways.com/content/dam/ita/images/offers/fallback/generic-square.jpg');

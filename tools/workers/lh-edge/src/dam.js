@@ -15,7 +15,8 @@
  *   <name>.jpg when that exists (not for ita and four_y), else to the tenant's
  *   images/offers/fallback/generic<suffix>.jpg (suffix: from the last "-" of the name,
  *   "zzq-square" -> "-square"), with the rendition kept. www sends the other airlines' fallbacks
- *   to their own sites (www.swiss.com ...); Lufthansa's stay on the request's host.
+ *   to their own sites (www.brusselsairlines.com ...); Lufthansa's and SWISS's stay on the
+ *   request's host.
  * - The synced brand assets (/content/dam/<tenant>/(images|videos)/frontify/...) go to
  *   lh-backends first (syncedAsset); its 404 falls through to the copies.
  * - DAM_STEPS run next (a step returns a Response or null): for paths another source answers.
@@ -68,9 +69,9 @@ const ASSET_CACHE = 'public, max-age=2592000';
 const NOT_FOUND_CACHE = 'public, max-age=60';
 const MEDIA_PARAMS = ['width', 'height', 'format', 'optimize'];
 const OFFERS = /^\/content\/dam\/(lh|lx|bel|four_y|ita|austrian\/global)\/images\/offers\/(?:(.+)\/)?([^/]+)\.jpg$/i;
-// where www sends a tenant's fallback image (lh: the request's own host)
+// where www sends a tenant's fallback image (lh, and lx since brief 264 for swiss.turnsthe.page:
+// the request's own host, never www.swiss.com)
 const TENANT_HOSTS = {
-  lx: 'www.swiss.com',
   bel: 'www.brusselsairlines.com',
   four_y: 'www.discover-airlines.com',
   ita: 'www.ita-airways.com',
