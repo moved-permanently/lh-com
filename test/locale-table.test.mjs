@@ -181,3 +181,21 @@ test('the neutral versions (brief 267): www\'s market-neutral roots xx/en and xx
     defaultLocale: 'de/en', languageVersions: { en: 'de/en' }, neutralVersions: { en: 'zz/en' }, fallbackLanguageVersion: 'de/en', roots: { 'de/en': { status: 'live' } },
   }), /zz\/en: a neutral version must be a root of www's/);
 });
+
+test('a market-neutral language version (Spanish, brief 268: www\'s xx/es has pages): a row of a root that is only an alternate, hreflang the language', () => {
+  const www = [
+    { root: 'de/en', hreflang: ['en-DE'], ownSitemap: true },
+    { root: 'xx/es', hreflang: ['es'], ownSitemap: false },
+    { root: 'mx/es', hreflang: ['es-MX'], ownSitemap: true },
+    { root: 'xx/it', hreflang: ['it'], ownSitemap: false },
+  ];
+  const data = (roots, versions = { en: 'de/en', es: 'xx/es' }) => ({
+    defaultLocale: 'de/en', languageVersions: versions, fallbackLanguageVersion: 'de/en', liveWaves: [], roots,
+  });
+  const t = buildTable(www, data({ 'de/en': { status: 'live' }, 'xx/es': { status: 'pilot', documents: 'own', batch: 12 }, 'mx/es': { status: 'pilot', documents: 'language', batch: 12 } }));
+  assert.equal(t.rows['xx/es'].hreflang, 'es');
+  assert.equal(t.rows['xx/es'].country, 'xx');
+  assert.equal(t.rows['mx/es'].hreflang, 'es-MX');
+  // an alternate-only root that is no language version: no row
+  assert.throws(() => buildTable(www, data({ 'de/en': { status: 'live' }, 'xx/it': { status: 'pilot', documents: 'own' } })), /xx\/it: not a root of www's sitemaps/);
+});

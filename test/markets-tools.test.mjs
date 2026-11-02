@@ -40,6 +40,12 @@ test('rollout: a language batch after the en and de ones: French (batch 11), its
   assert.equal(fr.n, 11);
   assert.deepEqual(fr.roots, ['ar/fr', 'be/fr', 'ca/fr', 'ch/fr', 'cl/fr', 'co/fr', 'cr/fr', 'dz/fr', 'gq/fr', 'lu/fr', 'ma/fr', 'tn/fr', 'us/fr']);
   assert.equal(fr.version, 'fr/fr');
+  // Spanish (batch 12, brief 268): www's xx/es has pages (2026-11-02), it is the version; es/es
+  // a market root like the others
+  const es = batches().find((x) => x.lang === 'es');
+  assert.equal(es.n, 12);
+  assert.deepEqual(es.roots, ['ar/es', 'br/es', 'ca/es', 'cl/es', 'co/es', 'cr/es', 'ec/es', 'es/es', 'mx/es', 'pa/es', 'pe/es', 'us/es', 've/es']);
+  assert.equal(es.version, 'xx/es');
 });
 
 test('rollout: own pages without AEM configuration pages, stale-file URLs and test pages', () => {
