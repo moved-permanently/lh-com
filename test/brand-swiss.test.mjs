@@ -1,0 +1,160 @@
+/* eslint-disable max-len */
+/* SWISS (lh-swiss, brand `swiss`) as a brand: the values of www.swiss.com's ch/en and ch/de
+   homepages (the snapshots of 2026-11-02: OneTrust's data-domain-script, meta X-Portal LX, the
+   footer's privacy statement and imprint under /terms-conditions) and the group design system's
+   swiss.css (mausy-v1.40.1, theme maui-theme-lx): its CH Sans faces (SwissHead 300/400/700,
+   SwissText 400/700, .woff only), lx-red #c00 for actions and links, berry-red #900 their
+   hover, warm-grey #6f6660 for the secondary button, the quick actions and the footer's links,
+   square buttons, a white header and a white footer. The shared tokens this needs keep today's
+   values as their defaults.
+   Run: node --max-old-space-size=512 --test test/brand-swiss.test.mjs */
+/* global globalThis */
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import { parseHTML } from 'linkedom';
+
+const { window } = parseHTML('<!DOCTYPE html><html><head></head><body></body></html>');
+window.location = {
+  hostname: 'main--lh-swiss--moved-permanently.aem.page', pathname: '/ch/en/homepage', search: '', href: 'https://main--lh-swiss--moved-permanently.aem.page/ch/en/homepage', origin: 'https://main--lh-swiss--moved-permanently.aem.page',
+};
+window.hlx = { codeBasePath: '' };
+Object.defineProperty(window, 'origin', { value: 'https://main--lh-swiss--moved-permanently.aem.page', configurable: true });
+globalThis.window = window;
+const {
+  BRANDS, brandOf, brandName, oneTrustId, brandWwwHost, isOwnWwwHost, isSitePreviewHost, siteTitleSuffix,
+} = await import('../scripts/brand.js');
+const { bannerLinks } = await import('../scripts/consent-banner.js');
+
+const meta = (values) => (name) => values[name] || '';
+const lx = meta({ brand: 'swiss' });
+const W = 'https://www.swiss.com';
+const FONTS = '/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/fonts/swiss';
+const read = (p) => fs.readFileSync(new URL(`../${p}`, import.meta.url), 'utf8');
+
+function onPage(values, fn) {
+  const rows = Object.entries(values).map(([k, v]) => `<meta name="${k}" content="${v}">`).join('');
+  const { document } = parseHTML(`<!DOCTYPE html><html><head>${rows}</head><body></body></html>`);
+  globalThis.document = document;
+  try {
+    return fn();
+  } finally {
+    delete globalThis.document;
+  }
+}
+
+test('the entry: name, OneTrust, Message Center tenant, www, portal, airline, hub', () => {
+  assert.equal(brandOf(lx), 'swiss');
+  assert.equal(brandName(lx), 'SWISS');
+  assert.ok(siteTitleSuffix(lx).test('Book flights | SWISS'));
+  assert.equal(oneTrustId(lx), '01994cb2-f461-7489-80cc-e1ce655a86bc');
+  assert.equal(BRANDS.swiss.messageCenter, 'lx');
+  assert.equal(brandWwwHost(lx), 'www.swiss.com');
+  assert.ok(isOwnWwwHost('www.swiss.com', lx));
+  assert.ok(!isOwnWwwHost('www.swiss.com', meta({})), 'not on lh-com');
+  assert.ok(isSitePreviewHost('main--lh-swiss--moved-permanently.aem.page', lx));
+  assert.equal(BRANDS.swiss.portal, 'LX');
+  assert.equal(BRANDS.swiss.airline, 'LX');
+  assert.equal(BRANDS.swiss.hub, 'ZRH');
+});
+
+test('the cookie banner\'s links: the privacy statement and the imprint under /terms-conditions', () => {
+  assert.deepEqual(onPage({ brand: 'swiss' }, () => bannerLinks('en')).map(([, h]) => h), [`${W}/ch/en/terms-conditions/privacy-statement`, `${W}/ch/en/terms-conditions/imprint`]);
+  assert.deepEqual(onPage({ brand: 'swiss' }, () => bannerLinks('de')).map(([, h]) => h), [`${W}/ch/de/terms-conditions/privacy-statement`, `${W}/ch/de/terms-conditions/imprint`]);
+});
+
+test('the theme: CH Sans at www\'s font path (own host first, www second), .woff only', () => {
+  const css = read('styles/themes/swiss.css');
+  [['SwissHead', '300', 'chsans-light-webfont.woff'], ['SwissHead', '400', 'chsans-regular-webfont.woff'], ['SwissHead', '700', 'chsans-bold-webfont.woff'], ['SwissText', '400', 'chsans-regular-webfont.woff'], ['SwissText', '700', 'chsans-bold-webfont.woff']].forEach(([family, weight, file]) => {
+    const face = css.split('@font-face').find((f) => f.includes(`font-family: ${family};`) && f.includes(`font-weight: ${weight};`));
+    assert.ok(face, `${family} ${weight}`);
+    const own = face.indexOf(`url('${FONTS}/${file}') format('woff')`);
+    const www = face.indexOf(`url('${W}${FONTS}/${file}') format('woff')`);
+    assert.ok(own > 0 && www > own, `${family} ${weight}: own host, then www`);
+  });
+  assert.ok(!/woff2|\.ttf|\.otf/.test(css), '.woff only');
+});
+
+test('the theme: SWISS\'s colours, type, buttons, header and footer on lh-com\'s token names', () => {
+  const css = read('styles/themes/swiss.css');
+  const token = (name) => (css.match(new RegExp(`^\\s*${name}:\\s*([^;]+);`, 'm')) || [])[1];
+  const expect = {
+    '--text-color': '#101010',
+    '--heading-color': '#101010',
+    '--lh-deepblue': '#101010',
+    '--lh-yellow': '#c00',
+    '--lh-sunglow-yellow': '#900',
+    '--link-color': '#c00',
+    '--link-hover-color': '#900',
+    '--lh-marble-blue': '#c00',
+    '--brand-color': '#c00',
+    '--focus-color': '#0968f6',
+    '--lh-electric-blue': '#0968f6',
+    '--lh-red': '#ab3b35',
+    '--lh-green': '#477c00',
+    '--lh-grey-1': '#f2f2f2',
+    '--lh-grey-8': '#101010',
+    '--body-font-size-m': '16px',
+    '--body-line-height': '1.375',
+    '--body-letter-spacing': '0.6px',
+    '--heading-letter-spacing': '0.7px',
+    '--heading-light-weight': '700',
+    '--heading-line-height': '1.1',
+    '--button-radius': '0',
+    '--button-font-size': '18px',
+    '--button-padding': '8px 30px',
+    '--button-min-height': '50px',
+    '--button-primary-text': '#fff',
+    '--button-accent-color': '#6f6660',
+    '--button-accent-hover': '#554e49',
+    '--button-secondary-color': '#6f6660',
+    '--button-secondary-hover': '#554e49',
+    '--header-bar-surface': '#fff',
+    '--header-bar-text': '#6f6660',
+    '--header-bar-text-hover': '#554e49',
+    '--header-bar-line': '#ccc',
+    '--header-bar-shadow': '0 1px 0 #ccc',
+    '--nav-logo-height': '28px',
+    '--nav-logo-height-wide': '28px',
+    '--footer-surface': '#fff',
+    '--footer-text-color': '#101010',
+    '--footer-link-color': '#6f6660',
+    '--footer-link-hover-color': '#554e49',
+    '--footer-top-line': '1px solid #ccc',
+    '--footer-heading-size': '18px',
+    '--footer-link-size': '16px',
+    '--footer-link-weight': '400',
+    '--footer-logo-home-height': '20px',
+  };
+  Object.entries(expect).forEach(([name, value]) => assert.equal(token(name), value, name));
+  assert.match(token('--body-font-family'), /^swisstext,/);
+  assert.match(token('--heading-font-family'), /^swisshead,/);
+});
+
+test('the shared tokens: today\'s values as their defaults', () => {
+  const styles = read('styles/styles.css').replace(/\s+/g, ' ');
+  assert.ok(styles.includes('font-size: var(--button-font-size, var(--body-font-size-m));'), 'button size: the body size');
+  assert.ok(styles.includes('padding: var(--button-padding, 11px 30px);'), 'button padding as before');
+  assert.ok(styles.includes('border-radius: var(--button-radius, var(--radius-s));'), 'button radius as before');
+  // a var() without a fallback that is not set: the property is unset, letter-spacing inherits as before
+  assert.ok(/body \{[^}]*letter-spacing: var\(--body-letter-spacing\);/.test(styles), 'body letter-spacing: unset unless a theme sets it');
+  assert.ok(/h6 \{[^}]*letter-spacing: var\(--heading-letter-spacing\);/.test(styles), 'headings: unset (inherited) unless a theme sets it');
+  const footer = read('blocks/footer/footer.css').replace(/\s+/g, ' ');
+  assert.ok(footer.includes('--footer-text: var(--footer-text-color, #fff);'), 'footer text white as before');
+  assert.ok(footer.includes('color: var(--footer-link-color, var(--footer-text));'), 'footer links the footer text as before');
+  assert.ok(footer.includes('border-top: var(--footer-top-line, none);'), 'no rule above the footer as before');
+  assert.ok(footer.includes('color: var(--footer-locale-color, #ebebeb);'), 'the locale button as before');
+  assert.ok(footer.includes('color: var(--footer-locale-hover-color, #fff);'), 'its hover as before');
+});
+
+test('"Change Privacy Settings" stays in SWISS\'s footer: the brand has a consent tool', async () => {
+  const { document } = parseHTML('<!DOCTYPE html><html><head><meta name="brand" content="swiss"></head><body><ul><li><a href="#privacy-settings">Change Privacy Settings</a></li></ul></body></html>');
+  globalThis.document = document;
+  try {
+    const { hidePrivacySettings } = await import('../scripts/consent.js');
+    assert.equal(hidePrivacySettings(document.body), 0);
+    assert.ok(document.querySelector('a[href="#privacy-settings"]'));
+  } finally {
+    delete globalThis.document;
+  }
+});
