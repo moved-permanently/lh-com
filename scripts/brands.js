@@ -580,7 +580,7 @@ const SWISS_MARKETS = {
 // as before and the country dialog sends the other countries to www.swiss.com; on (once their
 // documents are published), the roots of SWISS_MARKETS whose language lh-swiss has join the table:
 // the dialog lists them and lh-edge serves their pages.
-export const SWISS_MARKETS_LIVE = false;
+export const SWISS_MARKETS_LIVE = true;
 
 /** SWISS's site entry with its market roots when the switch is on (roots of its languages only). */
 export function withSwissMarkets(site, live = SWISS_MARKETS_LIVE) {

@@ -32,7 +32,8 @@ test('the switch is off for es and pt: SWISS\'s rows and versions as before, the
   assert.deepEqual(SWISS_LANGUAGES_LIVE, []);
   assert.deepEqual(Object.keys(SWISS_LANGUAGES), ['es', 'pt']);
   const site = BRAND_SITES.swiss;
-  assert.deepEqual(Object.keys(site.rows), ['ch/en', 'ch/de', 'ch/fr', 'ch/it']);
+  // ch's four with their own documents; the market roots (SWISS_MARKETS_LIVE) answered from them
+  assert.deepEqual(Object.keys(site.rows).filter((r) => site.rows[r].documents === 'own'), ['ch/en', 'ch/de', 'ch/fr', 'ch/it']);
   assert.deepEqual(Object.keys(site.versions), ['en', 'de', 'fr', 'it']);
   assert.deepEqual(Object.keys(site.pilots.rows), ['ch/es', 'ch/pt']);
   assert.deepEqual(site.pilots.rows['ch/es'], {
@@ -49,7 +50,7 @@ test('on for a language: its root joins as ch/fr did (row, version, name, airpor
   const base = { ...BRAND_SITES.swiss };
   delete base.pilots;
   const on = withSwissLanguages(base, ['es']);
-  assert.deepEqual(Object.keys(on.rows), ['ch/en', 'ch/de', 'ch/fr', 'ch/it', 'ch/es']);
+  assert.deepEqual(Object.keys(on.rows).filter((r) => on.rows[r].documents === 'own'), ['ch/en', 'ch/de', 'ch/fr', 'ch/it', 'ch/es']);
   assert.deepEqual(on.rows['ch/es'], {
     country: 'ch', lang: 'es', hreflang: 'es-CH', status: 'live', documents: 'own',
   });
@@ -82,7 +83,8 @@ test('a pilot\'s page renders with its own row; the dialog, the links to it and 
     assert.equal(getLocale('/content/ch/pt/homepage').base, '/content/ch/pt');
     assert.equal(getLocale('/ch/pt/homepage').name, 'Suiça | Português');
     assert.equal(siteLocales()['ch/es'].name, 'Suiza | Español', 'the header\'s globe label');
-    assert.deepEqual(ownRoots(), ['ch/en', 'ch/de', 'ch/fr', 'ch/it']);
+    assert.deepEqual(ownRoots().filter((r) => r.startsWith('ch/')), ['ch/en', 'ch/de', 'ch/fr', 'ch/it']);
+    assert.ok(!ownRoots().some((r) => r.endsWith('/es') || r.endsWith('/pt')), 'no es or pt roots in the dialog');
     assert.equal(isMigratedLocale('ch', 'es'), false);
     assert.equal(isMigratedLocale('ch', 'fr'), true);
     assert.equal(getHomepageUrl('ch', 'es'), `${W}/ch/es/homepage`);

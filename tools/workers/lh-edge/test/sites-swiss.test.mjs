@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 // SWISS (lh-swiss) on its host swiss.turnsthe.page: the site entry (src/sites.js SITES.swiss from
-// BRAND_SITES.swiss: the pilot's ch/en and ch/de, own documents, no market roots yet), its entry
+// BRAND_SITES.swiss: ch's four roots with own documents, the market roots answered from them), its entry
 // paths as www.swiss.com sends them (/ and /ch/en to ch/en's homepage, /ch to ch/de's, /xx/<ll>[/homepage]
 // and /<ll>/homepage to /ch/<ll>/homepage), its pages from lh-swiss's origin only, a DAM file from
 // its copies, the CH Sans fonts and the culinary hub from www.lufthansa.com (the same mausy
@@ -56,7 +56,7 @@ beforeEach(() => {
 });
 const get = (url, init) => worker.fetch(new Request(url, init), env(), { waitUntil() {} });
 
-test('swiss: the site on its host: ch/en and ch/de with their own documents, no market roots yet', () => {
+test('swiss: the site on its host: ch\'s four roots with their own documents, the 204 market roots (SWISS_MARKETS_LIVE) from them', () => {
   const site = siteOf(new Request('https://swiss.example/ch/en/homepage'), env());
   assert.equal(site.name, 'swiss');
   assert.equal(site.origin, SWISS);
@@ -65,8 +65,10 @@ test('swiss: the site on its host: ch/en and ch/de with their own documents, no 
   assert.deepEqual(site.tables.versions, {
     en: 'ch/en', de: 'ch/de', fr: 'ch/fr', it: 'ch/it',
   });
-  assert.deepEqual(Object.keys(site.tables.table), ['ch/en', 'ch/de', 'ch/fr', 'ch/it']);
-  assert.deepEqual(SITES.swiss.marketRoots, []);
+  assert.deepEqual(Object.keys(site.tables.table).slice(0, 4), ['ch/en', 'ch/de', 'ch/fr', 'ch/it']);
+  assert.deepEqual(Object.keys(site.tables.table).filter((r) => site.tables.table[r].documents === 'own'), ['ch/en', 'ch/de', 'ch/fr', 'ch/it']);
+  assert.equal(SITES.swiss.marketRoots.length, 204);
+  assert.ok(SITES.swiss.marketRoots.every((r) => site.tables.versions[r.split('/')[1]]), 'only languages lh-swiss has');
   assert.equal(siteOf(new Request('https://brussels.example/be/en/homepage'), env()).name, 'brussels');
 });
 

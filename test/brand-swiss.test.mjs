@@ -173,36 +173,39 @@ test('favicon, manifest and logo: www\'s files at www\'s paths, copies in the co
 test('the roots: the pilot\'s ch/en and ch/de, ch/fr and ch/it (brief 272) with their own documents, www\'s dialog names, their airports', async () => {
   const { BRAND_SITES } = await import('../scripts/brands.js');
   const site = BRAND_SITES.swiss;
-  assert.deepEqual(Object.keys(site.rows), ['ch/en', 'ch/de', 'ch/fr', 'ch/it']);
-  assert.deepEqual(Object.keys(site.rows).map((r) => site.rows[r].documents), ['own', 'own', 'own', 'own']);
-  assert.deepEqual(Object.keys(site.rows).map((r) => site.rows[r].hreflang), ['en-CH', 'de-CH', 'fr-CH', 'it-CH']);
+  // the market roots (SWISS_MARKETS_LIVE, test/swiss-markets-switch.test.mjs) come after ch's four
+  assert.deepEqual(Object.keys(site.rows).slice(0, 4), ['ch/en', 'ch/de', 'ch/fr', 'ch/it']);
+  assert.deepEqual(Object.keys(site.rows).filter((r) => site.rows[r].documents === 'own'), ['ch/en', 'ch/de', 'ch/fr', 'ch/it']);
+  assert.deepEqual(Object.keys(site.rows).slice(0, 4).map((r) => site.rows[r].hreflang), ['en-CH', 'de-CH', 'fr-CH', 'it-CH']);
   assert.deepEqual(site.versions, {
     en: 'ch/en', de: 'ch/de', fr: 'ch/fr', it: 'ch/it',
   });
   // the homepages' country and language line (.country-language-text): ch/de's says Switzerland
   // too, ch/it's Suisse
-  assert.deepEqual(site.names, {
+  const ch = (map) => Object.fromEntries(Object.entries(map).filter(([r]) => r.startsWith('ch/')));
+  assert.deepEqual(ch(site.names), {
     'ch/en': 'Switzerland | English', 'ch/de': 'Switzerland | Deutsch', 'ch/fr': 'Suisse | Français', 'ch/it': 'Suisse | Italiano',
   });
   // the homepages' flight search origin: Geneva on ch/fr, Zurich on the others
-  assert.deepEqual(site.airports, {
+  assert.deepEqual(ch(site.airports), {
     'ch/en': 'ZRH', 'ch/de': 'ZRH', 'ch/fr': 'GVA', 'ch/it': 'ZRH',
   });
 });
 
-test('the country dialog: the four roots; every other root links to its homepage on www.swiss.com', async () => {
+test('the country dialog: the four roots and the 204 market roots; every other root links to its homepage on www.swiss.com', async () => {
   const {
     ownRoots, getHomepageUrl, rootRedirectPath, siteLocales,
   } = await import('../scripts/locale.js');
   onPage({ brand: 'swiss' }, () => {
-    assert.deepEqual(ownRoots(), ['ch/en', 'ch/de', 'ch/fr', 'ch/it']);
+    assert.deepEqual(ownRoots().slice(0, 4), ['ch/en', 'ch/de', 'ch/fr', 'ch/it']);
+    assert.equal(ownRoots().length, 208, 'ch\'s four and the market roots (SWISS_MARKETS_LIVE)');
     assert.equal(getHomepageUrl('ch', 'en'), '/ch/en/homepage');
     assert.equal(getHomepageUrl('CH', 'DE'), '/ch/de/homepage');
     assert.equal(getHomepageUrl('ch', 'fr'), '/ch/fr/homepage');
     assert.equal(getHomepageUrl('ch', 'it'), '/ch/it/homepage');
     assert.equal(getHomepageUrl('ch', 'es'), `${W}/ch/es/homepage`, 'the languages still to come: www');
     assert.equal(getHomepageUrl('kr', 'ko'), `${W}/kr/ko/homepage`);
-    assert.equal(getHomepageUrl('de', 'de'), `${W}/de/de/homepage`);
+    assert.equal(getHomepageUrl('de', 'de'), '/de/de/homepage', 'a market root: its homepage here');
     assert.equal(rootRedirectPath(), '/ch/en/homepage');
     assert.equal(siteLocales()['ch/de'].homeAirport, 'ZRH');
     assert.equal(siteLocales()['ch/de'].name, 'Switzerland | Deutsch');
