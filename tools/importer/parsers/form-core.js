@@ -45,6 +45,8 @@ const FORM_IDS = {
   'invoice-request-bg': 'invoice-request-bg',
   'cancellation-refund-webform': 'cancellation-refund-webform',
   'formular-notfallkontakt': 'formular-notfallkontakt',
+  // fr/fr's emergency contact form (French)
+  'emergency-contact': 'emergency-contact',
 };
 const ERROR_PAGE = '/error.html';
 

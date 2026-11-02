@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-form.js
-  var tmp_bundle_form_52421_exports = {};
-  __export(tmp_bundle_form_52421_exports, {
-    default: () => tmp_bundle_form_52421_default
+  var tmp_bundle_form_101708_exports = {};
+  __export(tmp_bundle_form_101708_exports, {
+    default: () => tmp_bundle_form_101708_default
   });
 
   // tools/importer/parsers/form-core.js
@@ -81,7 +81,9 @@ var CustomImportScript = (() => {
     // the market roots' own forms (bg/en, il/en, mk/de local pages)
     "invoice-request-bg": "invoice-request-bg",
     "cancellation-refund-webform": "cancellation-refund-webform",
-    "formular-notfallkontakt": "formular-notfallkontakt"
+    "formular-notfallkontakt": "formular-notfallkontakt",
+    // fr/fr's emergency contact form (French)
+    "emergency-contact": "emergency-contact"
   };
   var ERROR_PAGE = "/error.html";
   function parse(element, { document, url, params }) {
@@ -3108,7 +3110,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_form_52421_default = {
+  var tmp_bundle_form_101708_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -3138,5 +3140,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_form_52421_exports);
+  return __toCommonJS(tmp_bundle_form_101708_exports);
 })();
