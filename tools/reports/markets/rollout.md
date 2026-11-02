@@ -6,9 +6,9 @@
 
 ## Batches
 
-- 11 batches. www has 187 en and de roots without a row:
+- 10 batches (planned: 11; see "The rollout's end" under batch 10). www had 187 en and de roots without a row:
   - 61 countries with only en and de, plus at/en (at already has a row) = 62 countries, in batches 1–6;
-  - the en and de roots of 35 countries with other languages too, in batches 7–11.
+  - the en and de roots of 34 countries with other languages too, in batches 7–10.
 - A remainder of one or two countries joins the batch before it (za in batch 6).
 - `node tools/markets/rollout.mjs --batches` lists them.
 
@@ -1262,3 +1262,171 @@ Against the eight hosts before and after the deploy of 8ebab70 (06:46 UTC):
   rows unchanged, the brand hosts unchanged; `/pl/de/homepage` answers 200 on lufthansa-edge
   (market route) and 404 on lufthansa.turnsthe.page.
 - lufthansa.com's 19 comparison pages: 19 of 19 equal (before the batch against after the deploy).
+
+## Batch 10 (2026-11-02): TN TW US VE, en and de, 8 roots
+
+The en and de roots of the last four countries with roots in other languages: `--batches` lists no
+batch after this one (the remainder rule of 11 planned batches left four countries for batch 10).
+190 pilot roots, all on lufthansa-edge.turnsthe.page only.
+
+### Captures
+
+- Plan: 48 pages (8 homepages, 16 own pages, 24 compared with the language version) and 6 same-day
+  references of de/en and de/de.
+- One warm session at a time, one page every 5 to 10 s, 07:07 to 08:03 UTC. **No 403.**
+- **The 48 pages**: all captured (22 before a crash at 07:42, the browser closed; a new session after
+  a minute, 26 more); no www error page.
+- **The references**: all six in one session (07:56 to 08:03).
+- Every homepage has its label (no skeleton).
+- **www's aliases**: two us/de own pages have another page as canonical (below: redirect rows).
+
+### Pages in the local language
+
+None. Every capture of these en and de roots has its root's language as `lang` and in its text (the
+US's local language is English: the en root's own). In www's sitemaps every path of these roots is
+the language version's, apart from one English name (us/en `best-price-search` for de/en's
+`book-and-manage/best-price`, as ca/en and pa/en) and tw/de's
+`discover-lufthansa/campaigns/inspiredby/inspiredby-nepal` (de/de: `/inspiredby-nepal`; German).
+us/de's sitemap lists 738 AEM configuration pages (`configuration/seo-pages/…`, left out as before)
+and 24 German pages shared with other markets that neither language version has (`delights-to-go`,
+`preiszonen`, `skigebiete`, `sommerziele`, `wandergebiete`, `europafluege`, `flug-kompensieren`, …):
+no document, as before.
+
+### Locale rows
+
+| Root | name | countryName en / de | Airport | Currency |
+| --- | --- | --- | --- | --- |
+| tn/de, tn/en | Tunesien \| Deutsch, Tunesien \| English | Tunesien / Tunesien | TUN | TND |
+| tw/de, tw/en | Taiwan, China \| Deutsch, Taiwan, China \| English | Taiwan, China (both) | TPE | TWD |
+| us/de, us/en | USA \| Deutsch, USA \| English | USA / USA | – | USD |
+| ve/de, ve/en | Venezuela \| Deutsch, Venezuela \| English | Venezuela / Venezuela | FRA | EUR |
+
+- Not found (`–`): us's homeAirport. www's us homepage preselects no origin and its fare teaser starts
+  from six cities (CLT, DTT, NYC, RDU, SEA, WAS): `null`, listed in `unverified` (as ca in batch 7).
+- www's own oddities, taken as they are: tn's English root the German name ("Tunesien | English"),
+  tw "Taiwan, China" in both languages, ve preselects FRA with EUR prices (as by, ru, sd, ua).
+- timeZone and shopLang: null for every root.
+- `test/locale-table.test.mjs` used us/en as a root without a row: it now takes an English root of
+  www's without a row, if any is left (none after this batch; fr/fr stays its fixed example).
+
+### Documents
+
+- 8 homepages, 14 own pages, nav and footer of every root: 38 documents uploaded and previewed (not
+  published). At most 23 images in a document. us/en's two existing documents (`/us/en/ccpa`,
+  `/us/en/dnsmpi`) are not part of the batch and stay as they are.
+- Own pages: us/de none of its own (its two are aliases); us/en `baggage-and-other-fees`,
+  `companion`, `current-fees`, `customer-service-plan` (www: `customer_service_plan`),
+  `event/jw-gb-wales-2027`, `local-page/customer-relations-usa`, `local-page/customer-service-plan`,
+  `local-page/sweepstakes-thankyou`, `local-page/terms-conditions-for-lufthansa-s-germany-jersey-sweepstakes`,
+  `local-page/the-art-of-slowing-down`, `lufthansa-in-munich`, `lufthansa-in-the-us`,
+  `terms-and-conditions-lh`, `traveling-with-disabilities`.
+- **The sweepstakes terms**: www's name `terms---conditions-for-lufthansa-s--germany-jersey-sweepstakes--`
+  ends in dashes; the importer's document has none, but rollout.mjs's name rule kept one, so the first
+  upload list missed the page. `docName` (now exported and tested, test/markets-tools.test.mjs) drops
+  dashes at a name's end too; batches 1 to 9 have no such name (checked), so no earlier page was
+  missed.
+- **None of the 36 demo documents** is in the batch: every document is under the 8 new roots.
+
+### Redirect rows for the redirect sheet
+
+| www URL | target |
+| --- | --- |
+| `/us/en/customer_service_plan` | `/us/en/customer-service-plan` (the document: no underscores in names) |
+| `/us/en/local-page/terms---conditions-for-lufthansa-s--germany-jersey-sweepstakes--` | `/us/en/local-page/terms-conditions-for-lufthansa-s-germany-jersey-sweepstakes` (the document) |
+| `/us/de/flynet-kurzstrecke` | www's canonical `/us/de/during-your-trip/internet-on-board`: **no such page in the replica**; nearest `/us/de/during-your-trip/internet-overview` (or `/us/de/flynet`); your choice, as with pt/en's in batch 9 |
+| `/us/de/flynet-langstrecke` | the same |
+
+### Local versions
+
+`rollout-batch10-compare.json`, against same-day de/en and de/de: 16 of 24 the same.
+- **No root documents**: no page has content of its own.
+- The de roots' flight offers page: the entry-rules teaser (section `markets` of `/de/de/fluege`), as
+  before.
+- The en roots' flight pages: only the destination offers differ (per origin).
+
+### Checks against the preview origin
+
+Local runtime, `rollout-batch10-check.json`:
+
+| Root | www URLs | 200 | 301 | 404 | 500 | in neither language version | login/profile |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| tn/de | 1,047 | 961 | 1 | 85 | | 80 | 5 |
+| tn/en | 1,055 | 963 | 1 | 88 | 3 | 83 | 6 |
+| tw/de | 1,046 | 960 | 1 | 83 | 2 | 79 | 5 |
+| tw/en | 1,055 | 965 | 1 | 88 | 1 | 83 | 6 |
+| us/de | 2,845 | 959 | 1,771 | 112 | 3 | 1,877 | 5 |
+| us/en | 1,070 | 977 | 1 | 92 | | 87 | 6 |
+| ve/de | 1,047 | 959 | 1 | 85 | 2 | 80 | 5 |
+| ve/en | 1,053 | 963 | 1 | 85 | 4 | 81 | 6 |
+
+- Every 200 has the root's canonical. The de roots' 301 is de/de's `support/support`, the en roots'
+  `profile/Best-price-alert` to lower case.
+- **us/de's 1,770 more 301s** are www's AEM configuration pages its sitemaps list
+  (`configuration/seo-pages/regions/AF` …, `…/destinations/<IATA>/<IATA>`: upper-case codes): the
+  url-form lowercases them, and they end at 404 like every configuration page (never documents, left
+  out of own pages as before). The other roots list none.
+- **The 500s (17 URLs with the links) are the local runtime's again** ("hung", 29 times in its log):
+  fetched again one at a time, 15 answer 200 through the market route and 2 answer 404 (tw/de's
+  `inspiredby-nepal` path and ve/en's `prepare-for-your-trip`, which neither language version has).
+- Every link on the 8 homepages, navs and footers (24 documents, 679 links) answers (ve/de's nav had
+  2 of the local runtime's 500s, answering 200 again).
+- **On lufthansa-edge.turnsthe.page after the deploy** (live origin): us/en 966 × 200, 1 × 301,
+  103 × 404 (its 14 own pages are on preview only); tn/de 961 × 200, 1 × 301, 85 × 404; no 500; the
+  two homepages' links answer 200.
+
+### The rollout's end
+
+Every en and de root of www with a sitemap of its own (194) has a row now: 188 from batches 1 to 10
+(19, 19, 20, 20, 20, 22, 20, 20, 20, 8), the four live roots (de/en, de/de, at/de, gb/en) and ch/en,
+ch/de. `--batches` lists nothing after batch 10: the "11 batches" planned above became 10 (the
+remainder rule put the last four countries into a batch of their own). Publishing and the main host
+come next.
+
+### CPU (Workers Paid)
+
+`bench-market.mjs` as lufthansa-edge.turnsthe.page, the same recorded origin answers, lean sources,
+medians of 25 runs, the code before batch 10 (182 pilot roots: scripts/locale-table.js stashed)
+against batch 10's 190, back to back twice, the sitemap index stored (ms of CPU, cold / warm; with
+190 roots the 187-root projection of earlier batches is passed: no projection):
+
+| Answer | 182 roots | 190 roots |
+| --- | --- | --- |
+| pilot page `/hu/en/baggage` | 5.6–6.2 / 1.8–2.1 | 5.7–6.3 / 1.9–2.3 |
+| pilot `search-index.json` (4.5 MB) | 84–87 / 20.1–20.5 | 87–96 / 20.5–20.8 |
+| pilot `articles/query-index.json` | 6.6–6.7 / 3.5–3.9 | 7.0–7.1 / 3.3–3.6 |
+| sitemap index `.xml` (stored) | 6.1–6.4 / 2.4–2.5 | 6.3–6.9 / 2.5–2.8 |
+| sitemap index `.gz` (stored) | 5.7–5.8 / 2.1 | 5.7–6.1 / 2.1–2.2 |
+| market sitemap file `.xml` | 11.8–11.9 / 6.8–6.9 | 11.3–12.6 / 6.7–7.0 |
+| market sitemap file `.gz` | 16.9–18.3 / 12.3–12.7 | 16.6–16.9 / 12.3–12.4 |
+
+- Between the code versions the numbers move within the noise.
+- **The sitemap index**: 474 KB → 529 KB with batch 10, stored on lufthansa-edge. Market sitemap
+  files get smaller as roots are added (709 → 694 KB).
+
+### Smoke
+
+Against the nine hosts (b2b.turnsthe.page is the ninth since b564344) before and after the deploy of
+195b40e (09:16 UTC):
+- Before, against the committed baselines: 0 differences on eight hosts; **b2b: 9 rows** (its
+  `/de/en` and `/de/de` homepages and the seven market roots' homepages served from them) differ
+  from its baseline of 07:13, before any change of this batch was deployed. Its homepages are of
+  06:31 and answer the same on every request now; the cause is not established (possibly the CDN's
+  copy from before the 06:30 publish in the 07:13 baseline). b2b's baseline is left to ema-test; for
+  this batch it was judged before against after.
+- After: only lufthansa-edge differs, in 9 rows: the ch pages' hreflang alternates (194 now;
+  lufthansa.turnsthe.page's ch pages keep their 6), ch's two sitemap files, the sitemap index, and
+  **`/` and `/us`**: on lufthansa-edge they now redirect to `/us/en/homepage` (this machine's
+  requests geolocate to the US, and us/en is one of lufthansa-edge's roots now) instead of
+  `https://www.lufthansa.com/us/en/homepage`; lufthansa.turnsthe.page's `/` still goes to www. Its
+  baseline updated (0 differences after). The other eight hosts, b2b included: 0 differences before
+  against after; lufthansa.turnsthe.page's rows and the brand hosts unchanged.
+- lufthansa.com's 19 comparison pages: 19 of 19 equal (before the batch against after the deploy).
+
+### Tests
+
+- lh-edge's `test/markets.test.mjs` took `/us/en/ccpa` as a path outside every pilot root: it now
+  takes fr/fr's homepage, and checks that `/us/en/ccpa` reaches the market route.
+- **Not this batch's**: `test/footer-logos-first.test.mjs` (SWISS's sub-footer, 14f7152) fails in
+  every checkout but the main repository directory, also on d2dfa7d without this batch: the decorated
+  footer's Star Alliance icon carries the checkout's absolute file path in its `src`, so the recorded
+  hashes only match there. Left to that session.

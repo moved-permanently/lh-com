@@ -360,7 +360,7 @@
   "path": "/",
   "method": "GET",
   "status": 302,
-  "location": "https://www.lufthansa.com/us/en/homepage",
+  "location": "/us/en/homepage",
   "type": "",
   "length": 0,
   "hash": "e3b0c44298fc1c14",
@@ -415,7 +415,7 @@
   "path": "/us",
   "method": "GET",
   "status": 302,
-  "location": "https://www.lufthansa.com/us/en/homepage",
+  "location": "/us/en/homepage",
   "type": "",
   "length": 0,
   "hash": "e3b0c44298fc1c14",
@@ -623,7 +623,7 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "f1a65ff33d6b3109",
+  "hash": "716d5f74102bdb49",
   "route": "solo"
  },
  {
@@ -703,7 +703,7 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "4ab862782852cb9e",
+  "hash": "020dadb3e9ff7674",
   "route": "market"
  },
  {
@@ -713,7 +713,7 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "72630b37b76e57e0",
+  "hash": "20b74f3b422b4f29",
   "route": "market"
  },
  {
@@ -723,7 +723,7 @@
   "status": 200,
   "location": "",
   "type": "application/xml",
-  "hash": "2e0d010145910fb7",
+  "hash": "17dc3fb91ba9de54",
   "route": "market-sitemap"
  },
  {
@@ -733,7 +733,7 @@
   "status": 200,
   "location": "",
   "type": "application/xml",
-  "hash": "2bbf988ae82067fb",
+  "hash": "e170166c49c49927",
   "route": "market-sitemap"
  },
  {
@@ -773,7 +773,7 @@
   "status": 200,
   "location": "",
   "type": "application/xml",
-  "hash": "291a94cae76e42f6",
+  "hash": "e65415be5387ed9e",
   "route": "market-sitemap"
  },
  {
@@ -783,8 +783,8 @@
   "status": 200,
   "location": "",
   "type": "application/octet-stream",
-  "length": 15841,
-  "hash": "c36e2eae6a47ef53",
+  "length": 17530,
+  "hash": "1051802ae660a5bf",
   "route": "market-sitemap"
  },
  {
