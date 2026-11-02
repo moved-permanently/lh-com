@@ -366,3 +366,13 @@ test('the scope leaves out AirCore, /lhg/, the shells, placeholders and www\'s r
   assert.equal(leftOut('/ch/de/customer-support/refund'), '', 'ch/de\'s refund is a page (the voucher exchange login)');
   assert.equal(leftOut('/ch/en/fly/check-in'), '');
 });
+
+test('a cockpit link without a query: the root\'s country and language as the other cockpit links (www\'s bare one is a 404 on our host)', async () => {
+  // eslint-disable-next-line import/extensions
+  const { withCockpitQuery } = await import('../tools/importer/swiss-import.mjs');
+  const doc = '<p><a href="/deeplink/cockpit">Mes vols</a> <a href="https://www.swiss.com/deeplink/cockpit/">Réservations</a> <a href="/deeplink/cockpit?country=CH&amp;language=EN">kept</a> <a href="/deeplink/cockpitx">other</a></p>';
+  assert.equal(withCockpitQuery(doc, '/ch/fr/book-and-manage/overview-manage'), '<p><a href="/deeplink/cockpit?country=CH&amp;language=FR">Mes vols</a> <a href="/deeplink/cockpit?country=CH&amp;language=FR">Réservations</a> <a href="/deeplink/cockpit?country=CH&amp;language=EN">kept</a> <a href="/deeplink/cockpitx">other</a></p>');
+  assert.match(withCockpitQuery(doc, '/ch/de/x'), /href="\/deeplink\/cockpit\?country=CH&amp;language=DE">Mes vols/);
+  assert.match(withCockpitQuery(doc, '/at/en/x'), /href="\/deeplink\/cockpit\?country=AT&amp;language=EN">Mes vols/, 'a market root: its country');
+  assert.equal(withCockpitQuery(doc, '/corporate/en/x'), doc, 'no <cc>/<ll> root: as it is');
+});

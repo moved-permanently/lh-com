@@ -607,6 +607,18 @@ const FLIGHT_SEARCH_OWN = {
   'Where we fly': (base) => `${base}/offers`,
 };
 
+/**
+ * The cockpit deep link without a query (www's overview-manage pages: www answers it, our host
+ * 404) with the root's country and language, as www's other cockpit links. A path without a
+ * <cc>/<ll> root as it is.
+ */
+export function withCockpitQuery(doc, p) {
+  const m = p.match(/^\/([a-z]{2})\/([a-z]{2})(?:\/|$)/);
+  if (!m) return doc;
+  const href = `/deeplink/cockpit?country=${m[1].toUpperCase()}&amp;language=${m[2].toUpperCase()}`;
+  return doc.replace(/href="(?:https:\/\/www\.swiss\.com)?\/deeplink\/cockpit\/?"/g, `href="${href}"`);
+}
+
 /** The flight search blocks' group booking and destinations links to our pages in p's root. */
 export function withOwnFlightSearchLinks(doc, p) {
   const base = `/${p.split('/').slice(1, 3).join('/')}`;
@@ -757,7 +769,7 @@ if (isMain) {
       const doc = fs.readFileSync(f, 'utf8');
       const linked = withOwnLinks(withLocalImages(relativeDamLinks(doc.split(`https://${LINK_OUT}`).join(`https://${HOST}`))), HOST, pages, aliases, { linkOut: linkOutDocs.has(p) ? p : null, served }).doc;
       // a form sends the visitor to its confirmation page on the site, never to www's
-      const next = withOwnFlightSearchLinks(withOwnSuccess(linked, (t) => fs.existsSync(path.join(W, 'content', `${t}.plain.html`))), p);
+      const next = withCockpitQuery(withOwnFlightSearchLinks(withOwnSuccess(linked, (t) => fs.existsSync(path.join(W, 'content', `${t}.plain.html`))), p), p);
       if (next !== doc) fs.writeFileSync(f, next);
     });
     fs.writeFileSync(path.join(W, 'runs', `${name}-import.json`), `${JSON.stringify({ templates: out, documents: made, missing }, null, 1)}\n`);
