@@ -27,7 +27,15 @@ export function buildTable(
   waves.forEach((w) => {
     if (!Object.entries(data.roots).some(([k, r]) => r.status === 'pilot' && inWave(k, r, w))) throw new Error(`wave ${w}: no pilot rows`);
   });
-  const liveNow = (key, row) => row.status === 'pilot' && waves.some((w) => inWave(key, row, w));
+  // a market root goes live with its language version only (a pilot version, French of batch 11,
+  // goes live in its own wave: a country wave "ch" leaves ch/fr pilot until then)
+  const inAnyWave = (key, row) => row.status === 'pilot' && waves.some((w) => inWave(key, row, w));
+  const versionOf = (key) => data.languageVersions[key.split('/')[1]];
+  const versionLive = (key) => {
+    const v = versionOf(key);
+    return Boolean(v && data.roots[v] && (data.roots[v].status === 'live' || inAnyWave(v, data.roots[v])));
+  };
+  const liveNow = (key, row) => inAnyWave(key, row) && ((row.documents || 'own') !== 'language' || versionLive(key));
   const rows = {};
   Object.entries(data.roots).forEach(([key, row]) => {
     const r = www.get(key);
@@ -47,8 +55,19 @@ export function buildTable(
       shopLang: row.shopLang,
     };
   });
-  [data.defaultLocale, data.fallbackLanguageVersion, ...Object.values(data.languageVersions)].forEach((k) => {
+  [data.defaultLocale, data.fallbackLanguageVersion].forEach((k) => {
     if (!rows[k] || rows[k].status !== 'live') throw new Error(`${k}: must be a live row`);
+  });
+  // a language version: a row with its own documents, live or (a language still on the test host)
+  // pilot; a live market root needs a live one
+  Object.values(data.languageVersions).forEach((k) => {
+    if (!rows[k]) throw new Error(`${k}: a language version must be a row`);
+  });
+  Object.entries(rows).forEach(([k, r]) => {
+    const v = data.languageVersions[r.lang];
+    if (r.documents === 'language' && r.status === 'live' && v && rows[v] && rows[v].status !== 'live') {
+      throw new Error(`${k}: a live market root needs a live language version (${v} is ${rows[v].status})`);
+    }
   });
   Object.entries(rows).forEach(([k, r]) => {
     if (!['own', 'language'].includes(r.documents)) throw new Error(`${k}: documents must be own or language`);
