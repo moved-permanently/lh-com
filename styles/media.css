@@ -120,6 +120,11 @@
   height: 800px;
 }
 
+/* a Google Maps embed: www's iframe height (SWISS's city ticket office) */
+.media-embed-google-maps {
+  height: 400px;
+}
+
 /* loaded on click (Matterport tour 16:9, Mynewsdesk newsroom 800px): a button over the player's
    area until then */
 .media-embed-matterport {

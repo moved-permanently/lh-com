@@ -108,3 +108,37 @@ test('the eJournals newsstand (box.media-carrier.de): a lazy iframe, 520px as ww
   comp.innerHTML = '<div class="iframe-wrapper text-left" style="max-width: 1240px; height: 520px;"><iframe src="https://box.media-carrier.de/home?b=77745&amp;l=de"></iframe></div>';
   assert.equal(embedUrl(comp), 'https://box.media-carrier.de/home?b=77745&l=de');
 });
+
+// SWISS (lh-swiss): www's iframe component plays its in-flight entertainment widget
+// (www.swiss-inflightentertainment.com/<ll>/widgets?id=…) and a Google Maps embed (/maps/embed?pb=…,
+// the city ticket office, 400px high on www); both lazy iframes as www has them; the importer
+// writes them. Maps links that are no embed stay links.
+test('SWISS\'s in-flight entertainment widget and the Google Maps embed: lazy iframes; the importer writes them', async () => {
+  const ife = 'https://www.swiss-inflightentertainment.com/en/widgets?id=6653&type=film-bucket&lang=en';
+  assert.deepEqual(embedFor(ife), { type: 'inflight-entertainment', src: ife });
+  const map = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2702.1!2d8.53!3d47.37!5e0';
+  assert.deepEqual(embedFor(map), { type: 'google-maps', src: map });
+  [
+    'https://swiss-inflightentertainment.com/en/widgets?id=1', 'https://www.swiss-inflightentertainment.com/en/films', 'http://www.swiss-inflightentertainment.com/en/widgets?id=1',
+    'https://www.google.com/maps/embed', 'https://www.google.com/maps/embed?q=ZRH', 'http://www.google.com/maps/embed?pb=!1m18', 'https://maps.google.com/maps/embed?pb=!1m18',
+    'https://www.google.com.example.org/maps/embed?pb=!1m18', 'https://www.google.com/maps/place/Zurich',
+  ].forEach((h) => assert.equal(embedFor(h), null, h));
+  const el = buildEmbed(link(map, map));
+  assert.equal(el.className, 'media-embed media-embed-google-maps');
+  const iframe = el.querySelector('iframe');
+  assert.equal(iframe.getAttribute('src'), map);
+  assert.equal(iframe.getAttribute('loading'), 'lazy');
+  assert.equal(iframe.getAttribute('title'), 'Map');
+  assert.equal(buildEmbed(link(map, 'SWISS City Ticket Office')).querySelector('iframe').getAttribute('title'), 'SWISS City Ticket Office');
+  assert.equal(buildEmbed(link(ife, ife)).className, 'media-embed media-embed-inflight-entertainment');
+  const { embedUrl } = await import('../tools/importer/parsers/media-nodes.js');
+  const comp = (src) => {
+    const c = document.createElement('div');
+    c.className = 'iframe';
+    c.innerHTML = `<div class="iframe-wrapper text-left" style="max-width: 790px; height: 520px;"><iframe src="${src}"></iframe></div>`;
+    return c;
+  };
+  assert.equal(embedUrl(comp(ife.split('&').join('&amp;'))), ife);
+  assert.equal(embedUrl(comp(map)), map);
+  assert.equal(embedUrl(comp('https://www.google.com/maps/place/Zurich')), '');
+});

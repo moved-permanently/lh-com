@@ -9,12 +9,14 @@
  * player, 16:9) or to a Lufthansa in-flight entertainment widget
  * (www.lufthansa-inflightentertainment.com/.../widgets/?id=…&type=…&lang=…, 520px high, at most
  * 1240px wide, as the Lufthansa iframe component) or to www's eJournals newsstand
- * (https://box.media-carrier.de/home?b=…&l=…, the same size). They load lazily, as the page
- * scrolls to them.
+ * (https://box.media-carrier.de/home?b=…&l=…, the same size), SWISS's in-flight entertainment
+ * widget (www.swiss-inflightentertainment.com/<ll>/widgets?id=…) or a Google Maps embed
+ * (https://www.google.com/maps/embed?pb=…, 400px high, as SWISS's city ticket office). They load
+ * lazily, as the page scrolls to them.
  * Loaded on click (a button first, the player after it; no consent layer of its own): a Matterport
  * tour (my.matterport.com/show/?m=…, 16:9; Lufthansa Cargo) and a Mynewsdesk newsroom
  * (<newsroom>.mynewsdesk.com or www.mynewsdesk.com/…, 800px high; Cargo's newsroom). Google Maps
- * links stay links.
+ * links other than an embed URL stay links.
  * The styles are in styles/media.css (loadMediaStyles()).
  */
 import { loadCSS } from './aem.js';
@@ -30,10 +32,10 @@ export const VIDEO_MARKERS = new RegExp(VIDEO_MARKER.source.slice(0, -1), 'g');
 
 const LABELS = {
   en: {
-    video: 'Play video', youtube: 'YouTube video', 'inflight-entertainment': 'In-flight entertainment', newsstand: 'eJournals newsstand', matterport: 'Start the virtual tour', mynewsdesk: 'Show the newsroom', 'route-network': 'Route network',
+    video: 'Play video', youtube: 'YouTube video', 'inflight-entertainment': 'In-flight entertainment', newsstand: 'eJournals newsstand', 'google-maps': 'Map', matterport: 'Start the virtual tour', mynewsdesk: 'Show the newsroom', 'route-network': 'Route network',
   },
   de: {
-    video: 'Video abspielen', youtube: 'YouTube-Video', 'inflight-entertainment': 'Bordunterhaltung', newsstand: 'eJournals-Kiosk', matterport: 'Virtuelle Tour starten', mynewsdesk: 'Newsroom anzeigen', 'route-network': 'Streckennetz',
+    video: 'Video abspielen', youtube: 'YouTube-Video', 'inflight-entertainment': 'Bordunterhaltung', newsstand: 'eJournals-Kiosk', 'google-maps': 'Karte', matterport: 'Virtuelle Tour starten', mynewsdesk: 'Newsroom anzeigen', 'route-network': 'Streckennetz',
   },
   it: {
     video: 'Riproduci video',
@@ -43,6 +45,7 @@ const LABELS = {
     mynewsdesk: 'Mostra la newsroom',
     'route-network': 'Rete delle rotte',
     newsstand: 'Edicola eJournals',
+    'google-maps': 'Mappa',
   },
   fr: {
     video: 'Lire la vidéo',
@@ -52,6 +55,7 @@ const LABELS = {
     mynewsdesk: 'Afficher la salle de presse',
     'route-network': 'Réseau de lignes',
     newsstand: 'Kiosque eJournals',
+    'google-maps': 'Carte',
   },
   es: {
     video: 'Reproducir vídeo',
@@ -61,6 +65,7 @@ const LABELS = {
     mynewsdesk: 'Mostrar la sala de prensa',
     'route-network': 'Red de rutas',
     newsstand: 'Quiosco de eJournals',
+    'google-maps': 'Mapa',
   },
   nl: {
     video: 'Video afspelen',
@@ -70,6 +75,7 @@ const LABELS = {
     mynewsdesk: 'Nieuwsruimte tonen',
     'route-network': 'Routenetwerk',
     newsstand: 'eJournals-kiosk',
+    'google-maps': 'Kaart',
   },
   pt: {
     video: 'Reproduzir vídeo',
@@ -79,6 +85,7 @@ const LABELS = {
     mynewsdesk: 'Mostrar a sala de imprensa',
     'route-network': 'Rede de rotas',
     newsstand: 'Banca de eJournals',
+    'google-maps': 'Mapa',
   },
   el: {
     video: 'Αναπαραγωγή βίντεο',
@@ -88,6 +95,7 @@ const LABELS = {
     mynewsdesk: 'Εμφάνιση αίθουσας τύπου',
     'route-network': 'Δίκτυο δρομολογίων',
     newsstand: 'Περίπτερο eJournals',
+    'google-maps': 'Χάρτης',
   },
   ja: {
     video: '動画を再生',
@@ -97,6 +105,7 @@ const LABELS = {
     mynewsdesk: 'ニュースルームを表示',
     'route-network': '路線網',
     newsstand: 'eJournals ニューススタンド',
+    'google-maps': '地図',
   },
   ru: {
     video: 'Воспроизвести видео',
@@ -106,6 +115,7 @@ const LABELS = {
     mynewsdesk: 'Показать пресс-центр',
     'route-network': 'Маршрутная сеть',
     newsstand: 'Киоск eJournals',
+    'google-maps': 'Карта',
   },
   zh: {
     video: '播放视频',
@@ -115,6 +125,7 @@ const LABELS = {
     mynewsdesk: '显示新闻中心',
     'route-network': '航线网络',
     newsstand: 'eJournals 报刊亭',
+    'google-maps': '地图',
   },
   pl: {
     video: 'Odtwórz film',
@@ -124,6 +135,7 @@ const LABELS = {
     mynewsdesk: 'Pokaż newsroom',
     'route-network': 'Siatka połączeń',
     newsstand: 'Kiosk eJournals',
+    'google-maps': 'Mapa',
   },
 };
 
@@ -181,6 +193,21 @@ export function isUrlText(a) {
   return Boolean(url && target) && url.href === target.href;
 }
 
+/**
+ * Whether a URL is an in-flight entertainment widget: Lufthansa's (as before) or SWISS's
+ * (https://www.swiss-inflightentertainment.com/<ll>/widgets?id=…).
+ */
+function isIfeWidget(url) {
+  if (!/\/widgets\/?$/.test(url.pathname)) return false;
+  return url.hostname === 'www.lufthansa-inflightentertainment.com'
+    || (url.hostname === 'www.swiss-inflightentertainment.com' && url.protocol === 'https:');
+}
+
+/** Whether a URL is a Google Maps embed (https://www.google.com/maps/embed?pb=…). */
+export function isMapsEmbed(url) {
+  return url.protocol === 'https:' && url.hostname === 'www.google.com' && url.pathname === '/maps/embed' && Boolean(url.searchParams.get('pb'));
+}
+
 /** YouTube video id of a watch, share or embed URL. */
 function youtubeId(url) {
   if (/(^|\.)youtu\.be$/.test(url.hostname)) return url.pathname.split('/')[1] || '';
@@ -205,9 +232,11 @@ export function embedFor(href) {
     src.searchParams.set('rel', '0');
     return { type: 'youtube', src: src.href };
   }
-  if (url.hostname === 'www.lufthansa-inflightentertainment.com' && /\/widgets\/?$/.test(url.pathname)) {
+  if (isIfeWidget(url)) {
     return { type: 'inflight-entertainment', src: url.href };
   }
+  // a Google Maps embed (SWISS's city ticket office: /maps/embed?pb=…), as www's iframe has it
+  if (isMapsEmbed(url)) return { type: 'google-maps', src: url.href };
   // www's eJournals newsstand (unterhaltung-an-bord, lufthansa-ejournals)
   if (url.hostname === 'box.media-carrier.de' && url.protocol === 'https:' && /^\/(home)?\/?$/.test(url.pathname)) {
     return { type: 'newsstand', src: url.href };

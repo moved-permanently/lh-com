@@ -169,3 +169,32 @@ test('favicon, manifest and logo: www\'s files at www\'s paths, copies in the co
   ['etc/designs/lx/favicon.ico', 'etc/designs/lx/clientlib-all/vite/img/swiss-logo.svg'].forEach((f) => assert.ok(fs.existsSync(new URL(`../${f}`, import.meta.url)), f));
   assert.ok(!/<script|javascript:/i.test(read('etc/designs/lx/clientlib-all/vite/img/swiss-logo.svg')), 'the logo is a plain SVG');
 });
+
+test('the roots: the pilot\'s ch/en and ch/de with their own documents, www\'s dialog names, airport ZRH', async () => {
+  const { BRAND_SITES } = await import('../scripts/brands.js');
+  const site = BRAND_SITES.swiss;
+  assert.deepEqual(Object.keys(site.rows), ['ch/en', 'ch/de']);
+  assert.deepEqual(Object.keys(site.rows).map((r) => site.rows[r].documents), ['own', 'own']);
+  assert.deepEqual(Object.keys(site.rows).map((r) => site.rows[r].hreflang), ['en-CH', 'de-CH']);
+  assert.deepEqual(site.versions, { en: 'ch/en', de: 'ch/de' });
+  // the homepages' country and language line (.country-language-text): ch/de's says Switzerland too
+  assert.deepEqual(site.names, { 'ch/en': 'Switzerland | English', 'ch/de': 'Switzerland | Deutsch' });
+  assert.deepEqual(site.airports, { 'ch/en': 'ZRH', 'ch/de': 'ZRH' });
+});
+
+test('the country dialog: the two roots; every other root links to its homepage on www.swiss.com', async () => {
+  const {
+    ownRoots, getHomepageUrl, rootRedirectPath, siteLocales,
+  } = await import('../scripts/locale.js');
+  onPage({ brand: 'swiss' }, () => {
+    assert.deepEqual(ownRoots(), ['ch/en', 'ch/de']);
+    assert.equal(getHomepageUrl('ch', 'en'), '/ch/en/homepage');
+    assert.equal(getHomepageUrl('CH', 'DE'), '/ch/de/homepage');
+    assert.equal(getHomepageUrl('ch', 'fr'), `${W}/ch/fr/homepage`);
+    assert.equal(getHomepageUrl('kr', 'ko'), `${W}/kr/ko/homepage`);
+    assert.equal(getHomepageUrl('de', 'de'), `${W}/de/de/homepage`);
+    assert.equal(rootRedirectPath(), '/ch/en/homepage');
+    assert.equal(siteLocales()['ch/de'].homeAirport, 'ZRH');
+    assert.equal(siteLocales()['ch/de'].name, 'Switzerland | Deutsch');
+  });
+});

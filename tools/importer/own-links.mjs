@@ -27,7 +27,7 @@ const walk = (d) => (fs.existsSync(d) ? fs.readdirSync(d, { withFileTypes: true 
 
 // the brand of each site (scripts/brands.js BRAND_SITES: its roots and language versions)
 const BRAND_OF = {
-  'lh-ita': 'ita', 'lh-austrian': 'austrian', 'lh-discover': 'discover', 'lh-brussels': 'brussels', 'lh-b2b': 'b2b',
+  'lh-ita': 'ita', 'lh-austrian': 'austrian', 'lh-discover': 'discover', 'lh-brussels': 'brussels', 'lh-b2b': 'b2b', 'lh-swiss': 'swiss',
 };
 
 /**

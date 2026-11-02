@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-app-entry.js
-  var import_app_entry_exports = {};
-  __export(import_app_entry_exports, {
-    default: () => import_app_entry_default
+  var tmp_bundle_app_entry_667160_exports = {};
+  __export(tmp_bundle_app_entry_667160_exports, {
+    default: () => tmp_bundle_app_entry_667160_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -1013,6 +1013,47 @@ var CustomImportScript = (() => {
       while (el.lastChild && (isBr2(el.lastChild) || isBlank(el.lastChild))) el.lastChild.remove();
       while (el.firstChild && (isBr2(el.firstChild) || isBlank(el.firstChild))) el.firstChild.remove();
     };
+    const promo = element.querySelector(".promo-hero");
+    if (promo) {
+      const panel = promo.querySelector(".promo-hero__panel--image[style], .promo-hero__media[style]");
+      const bg = (panel && panel.getAttribute("style") || "").match(/url\(\s*['"]?([^'")]+)['"]?\s*\)/);
+      const pimg = promo.querySelector(".promo-hero__media img, .promo-hero__panel img");
+      const src = bg ? bg[1] : pimg && pimg.getAttribute("src");
+      let imageCell = "";
+      if (src && !isBroken3(src)) {
+        imageCell = document.createElement("img");
+        imageCell.setAttribute("src", src);
+        imageCell.setAttribute("alt", pimg && pimg.getAttribute("alt") || "");
+      }
+      const textCell = [];
+      const headline = promo.querySelector(".promo-hero__headline");
+      if (visibleText(headline)) {
+        const h = document.createElement(/^H[1-6]$/.test(headline.tagName) ? headline.tagName.toLowerCase() : "h2");
+        h.textContent = visibleText(headline);
+        textCell.push(h);
+      }
+      const description = visibleText(promo.querySelector(".promo-hero__description"));
+      if (description) {
+        const p = document.createElement("p");
+        p.textContent = description;
+        textCell.push(p);
+      }
+      promo.querySelectorAll("a.promo-hero__cta[href]").forEach((c) => {
+        const label = visibleText(c);
+        if (!label) return;
+        const a = document.createElement("a");
+        a.setAttribute("href", c.getAttribute("href"));
+        a.textContent = label;
+        const wrap = document.createElement(/primaryBtn/.test(c.className) ? "strong" : "em");
+        wrap.append(a);
+        const p = document.createElement("p");
+        p.append(wrap);
+        textCell.push(p);
+      });
+      const promoVariants = promo.classList.contains("promo-hero--right") ? ["right"] : [];
+      element.replaceWith(WebImporter.Blocks.createBlock(document, { name: "hero-campaign", variants: promoVariants, cells: [[imageCell], [textCell]] }));
+      return;
+    }
     const info = element.querySelector(".campaign-information") || element;
     const media = [];
     const img = [...element.querySelectorAll("img")].find((i) => !isBroken3(i.getAttribute("src")) && !info.contains(i));
@@ -1146,8 +1187,10 @@ var CustomImportScript = (() => {
       if (start > 0) out.searchParams.set("start", start);
       return out.href;
     }
-    if (url.hostname === "www.lufthansa-inflightentertainment.com" && /\/widgets\/?$/.test(url.pathname)) return url.href;
+    if (/^www\.(lufthansa|swiss)-inflightentertainment\.com$/.test(url.hostname) && /\/widgets\/?$/.test(url.pathname)) return url.href;
+    if (url.protocol === "https:" && url.hostname === "www.google.com" && url.pathname === "/maps/embed" && url.searchParams.get("pb")) return url.href;
     if (url.hostname === "box.media-carrier.de" && url.protocol === "https:" && /^\/(home)?\/?$/.test(url.pathname)) return url.href;
+    if (url.hostname === "lhg-network.com" && url.protocol === "https:" && url.pathname === "/") return url.href;
     return "";
   }
   function embedNodes(comp, document) {
@@ -2390,7 +2433,7 @@ var CustomImportScript = (() => {
     "template"
   ];
   var TRACKING_URL = /(utag|tealium|tiqcdn|monetate|quantummetric|doubleclick|googletagmanager|google-analytics|googleadservices|facebook\.com\/tr|bat\.bing|demdex|omtrdc|\/b\/ss\/|adsrvr|criteo|cookielaw|onetrust|optanon|challenges\.cloudflare|shop\.lufthansa\.com\/preclearance|hotjar|contentsquare|linkedin\.com\/px|pinterest\.com\/ct|t\.co\/i\/adsct)/i;
-  var EMBED_URL = /(youtube\.com|youtube-nocookie\.com|youtu\.be|vimeo\.com|brightcove|players\.|maps\.google|google\.com\/maps|lufthansa\.com|lufthansa-inflightentertainment\.com|box\.media-carrier\.de)/i;
+  var EMBED_URL = /(youtube\.com|youtube-nocookie\.com|youtu\.be|vimeo\.com|brightcove|players\.|maps\.google|google\.com\/maps|lufthansa\.com|lufthansa-inflightentertainment\.com|box\.media-carrier\.de|lhg-network\.com)/i;
   function keepSubpageNavHeader(document, payload) {
     const template = payload && payload.template || {};
     if (!(template.blocks || []).some((b) => b.name === "subpage-nav")) return;
@@ -3930,7 +3973,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var import_app_entry_default = {
+  var tmp_bundle_app_entry_667160_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -3960,5 +4003,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(import_app_entry_exports);
+  return __toCommonJS(tmp_bundle_app_entry_667160_exports);
 })();

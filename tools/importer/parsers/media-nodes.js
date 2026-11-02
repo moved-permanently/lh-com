@@ -74,7 +74,10 @@ export function embedUrl(comp) {
     if (start > 0) out.searchParams.set('start', start);
     return out.href;
   }
-  if (url.hostname === 'www.lufthansa-inflightentertainment.com' && /\/widgets\/?$/.test(url.pathname)) return url.href;
+  // the in-flight entertainment widget: Lufthansa's and SWISS's
+  if (/^www\.(lufthansa|swiss)-inflightentertainment\.com$/.test(url.hostname) && /\/widgets\/?$/.test(url.pathname)) return url.href;
+  // a Google Maps embed (SWISS's city ticket office)
+  if (url.protocol === 'https:' && url.hostname === 'www.google.com' && url.pathname === '/maps/embed' && url.searchParams.get('pb')) return url.href;
   // www's eJournals newsstand (unterhaltung-an-bord, lufthansa-ejournals)
   if (url.hostname === 'box.media-carrier.de' && url.protocol === 'https:' && /^\/(home)?\/?$/.test(url.pathname)) return url.href;
   // Lufthansa Group for Business' route network map (travel-management/route-network)

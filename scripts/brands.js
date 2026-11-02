@@ -396,6 +396,11 @@ const rowsOf = (documents, roots) => Object.fromEntries(roots.map((r) => {
  * rest-of-world document) and hold their own pages (ch/en, at/de) and homepages (us/en, ca/en);
  * www's us/de, ca/de and mx/de answer 500 and are none; names: www's country and language dialog
  * (the de/en and de/de homepages, 2026-11-01); no airports (tools/reports/lh-b2b.md).
+ * SWISS (DA moved-permanently/lh-swiss, www.swiss.com): the pilot's two reference roots ch/en and
+ * ch/de (tools/importer/swiss-scope.mjs LANGUAGE_VERSIONS) hold their own documents; the other
+ * roots are not migrated yet, so the dialog's other countries go to www.swiss.com
+ * (getHomepageUrl); names: the homepages' country and language line (2026-11-02, ch/de's
+ * "Switzerland | Deutsch"); airports: the hub ZRH (tools/reports/lh-swiss.md).
  */
 export const BRAND_SITES = {
   discover: {
@@ -998,5 +1003,11 @@ export const BRAND_SITES = {
       'za/en': 'South Africa | English',
     },
     airports: {},
+  },
+  swiss: {
+    rows: rowsOf('own', ['ch/en', 'ch/de']),
+    versions: { en: 'ch/en', de: 'ch/de' },
+    names: { 'ch/en': 'Switzerland | English', 'ch/de': 'Switzerland | Deutsch' },
+    airports: { 'ch/en': 'ZRH', 'ch/de': 'ZRH' },
   },
 };

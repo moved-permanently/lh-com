@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-info.js
-  var tmp_bundle_info_45786_exports = {};
-  __export(tmp_bundle_info_45786_exports, {
-    default: () => tmp_bundle_info_45786_default
+  var tmp_bundle_info_667160_exports = {};
+  __export(tmp_bundle_info_667160_exports, {
+    default: () => tmp_bundle_info_667160_default
   });
 
   // tools/importer/parsers/search-results.js
@@ -2852,7 +2852,8 @@ var CustomImportScript = (() => {
       if (start > 0) out.searchParams.set("start", start);
       return out.href;
     }
-    if (url.hostname === "www.lufthansa-inflightentertainment.com" && /\/widgets\/?$/.test(url.pathname)) return url.href;
+    if (/^www\.(lufthansa|swiss)-inflightentertainment\.com$/.test(url.hostname) && /\/widgets\/?$/.test(url.pathname)) return url.href;
+    if (url.protocol === "https:" && url.hostname === "www.google.com" && url.pathname === "/maps/embed" && url.searchParams.get("pb")) return url.href;
     if (url.hostname === "box.media-carrier.de" && url.protocol === "https:" && /^\/(home)?\/?$/.test(url.pathname)) return url.href;
     if (url.hostname === "lhg-network.com" && url.protocol === "https:" && url.pathname === "/") return url.href;
     return "";
@@ -5957,7 +5958,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_info_45786_default = {
+  var tmp_bundle_info_667160_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -5987,5 +5988,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_info_45786_exports);
+  return __toCommonJS(tmp_bundle_info_667160_exports);
 })();
