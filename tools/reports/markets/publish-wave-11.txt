@@ -57,6 +57,7 @@
 /fr/fr/book-and-manage/flights/giftvoucher
 /fr/fr/book-and-manage/flights/helvetic
 /fr/fr/book-and-manage/flights/wetlease-hub
+/fr/fr/book-and-manage/passenger-receipt-90days/confirmation
 /fr/fr/book-and-manage/pax-receipt
 /fr/fr/book-and-manage/pax-receipt/invoices-different-countries
 /fr/fr/book-and-manage/rebook
@@ -209,6 +210,10 @@
 /fr/fr/prepare-for-your-trip/baggage/baggage-irregularities/faq-damaged-baggage
 /fr/fr/prepare-for-your-trip/baggage/electronic-devices-and-batteries
 /fr/fr/prepare-for-your-trip/baggage/sport-baggage/register-ammunition
+/fr/fr/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm1/confirmation
+/fr/fr/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation
+/fr/fr/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation
+/fr/fr/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation
 /fr/fr/prepare-for-your-trip/current-travel-information
 /fr/fr/prepare-for-your-trip/entry-regulations/entering-schengen/entry-exit-system
 /fr/fr/prepare-for-your-trip/entry-regulations/immigration-regulations-uk
@@ -217,6 +222,7 @@
 /fr/fr/prepare-for-your-trip/special-travel-needs/medical-travel-companions
 /fr/fr/prepare-for-your-trip/special-travel-needs/travel-with-needs/cognitive-impairment
 /fr/fr/prepare-for-your-trip/special-travel-needs/travel-with-needs/hearing-impairment
+/fr/fr/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation
 /fr/fr/prepare-for-your-trip/special-travel-needs/travel-with-needs/travel-companion
 /fr/fr/prepare-for-your-trip/special-travel-needs/travel-with-needs/visual-impairment
 /fr/fr/prepare-for-your-trip/travel-classes/economy-basic
@@ -244,6 +250,7 @@
 /fr/fr/speisen-und-getraenke
 /fr/fr/sportgepaeck-hinzufuegen
 /fr/fr/sports-baggage
+/fr/fr/support/contact/contact-form-confirmation
 /fr/fr/support/contact/passenger-duty-united-kingdom
 /fr/fr/support/feedback-and-contact-airlines
 /fr/fr/support/support

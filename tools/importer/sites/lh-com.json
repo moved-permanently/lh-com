@@ -1116,6 +1116,13 @@
     "/xx/de/inspiredby-nepal",
     "/xx/de/opc",
     "/xx/de/prepare-for-your-trip/all-check-in/group-check-in-counter",
-    "/xx/de/smart-bags"
+    "/xx/de/smart-bags",
+    "/fr/fr/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation",
+    "/fr/fr/book-and-manage/passenger-receipt-90days/confirmation",
+    "/fr/fr/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation",
+    "/fr/fr/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation",
+    "/fr/fr/support/contact/contact-form-confirmation",
+    "/fr/fr/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation",
+    "/fr/fr/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm1/confirmation"
   ]
 }

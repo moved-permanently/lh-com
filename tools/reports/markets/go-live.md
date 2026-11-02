@@ -157,7 +157,7 @@ documents in that wave, as noted in rollout.md "The China host").
 | 9 | 20 | 72 | 60 / 11, and `/redirects.json` | – | – |
 | 10 | 8 | 38 | 24 / 14 | 2 (us/en ccpa, dnsmpi) | – |
 | **1–10** | **190** | **698** (697 documents and the redirects sheet) | | 21 | 1 |
-| 11 (French) | 14 (fr/fr and 13 market roots) | 316 | fr/fr 276 (its homepage, nav, footer and 273 pages) / 13 × 3 and 1 own page | – | 1 |
+| 11 (French) | 14 (fr/fr and 13 market roots) | 323 | fr/fr 283 (its homepage, nav, footer, 273 pages and 7 form confirmations) / 13 × 3 and 1 own page | – | 1 |
 
 The lists hold every document of the wave's roots that is on preview and not live yet, homepages,
 navs and footers first per root. Since brief 264 they also hold:
@@ -314,10 +314,23 @@ confirmations), as for every root. No new redirect rows.
 
 fr/fr is French's language version (www's `xx/fr` has no pages; your choice: fr/fr, as de/en for
 English) and ar/fr be/fr ca/fr ch/fr cl/fr co/fr cr/fr dz/fr gq/fr lu/fr ma/fr tn/fr us/fr its 13
-market roots, all batch 11, `pilot` (rollout.md "Batch 11"). `publish-wave-11.txt`: **316 documents**
-(fr/fr 276: homepage, nav, footer first, then its pages; then per market root its homepage, nav and
+market roots, all batch 11, `pilot` (rollout.md "Batch 11"). `publish-wave-11.txt`: **323 documents**
+(fr/fr 283: homepage, nav, footer first, then its pages; then per market root its homepage, nav and
 footer, dz/fr's own page). Left out: fr/fr's `…/register-ammunition1` (www's second copy of the
 ammunition form; no lh-forms id).
+
+**Brief 268 for wave 11**: the **seven confirmation pages** fr/fr's forms go to on www (each form's
+redirect target: the contact form confirmation of the feedback, group travel and emergency contact
+forms, and those of the animal, sports baggage, firearm, assistance and passenger receipt forms),
+captured through the long AEM URLs on 2026-11-02, imported and previewed; the forms' documents link
+them (a submit lands on our page; the market roots' copies on the root's: confirmations are
+language documents); www's passenger receipt confirmation is headed in English on its French page,
+as here. fr/fr's feedback page (the feedback modules) shows its own success message, now in French.
+The **French texts** of the form and search blocks and the SWISS sub-site's language list label
+(4f10aaf, 56f4eb4; test/french-labels.test.mjs) go out with the code, before the wave: French pages
+of the brand sites show them where they showed the English fallback (Austrian fr/fr, Brussels be/fr,
+SWISS ch/fr: the file drop zone's "ou", "Fichiers téléchargés", the stepper buttons, Brussels' search
+page).
 
 **Release order for wave 11** (it differs from the en and de waves: the language version is new):
 1. Publish fr/fr's 276 lines first, then **wait until its indexes are filled**:
