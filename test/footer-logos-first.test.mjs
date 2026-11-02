@@ -63,3 +63,9 @@ test('footer.css: the sub-footer row: three columns from 1025px, stacked below',
   assert.match(css, /\.footer \.footer-subfooter \{[^}]*display: flex;/);
   assert.match(css, /@media \(width >= 1025px\) \{[^@]*\.footer \.footer-subfooter \{[^}]*justify-content: space-between;/);
 });
+
+test('footer.css: in the sub-footer only the logos\' links are blocks; the legal links keep their arrow beside the text (brief 264)', () => {
+  const css = fs.readFileSync('blocks/footer/footer.css', 'utf8');
+  assert.doesNotMatch(css, /\.footer \.footer-subfooter a \{/, 'no rule for every link of the row');
+  assert.match(css, /\.footer \.footer-subfooter :is\(\.footer-subfooter-logos, \.footer-subfooter-partner\) a \{[^}]*display: block;[^}]*line-height: 0;/);
+});

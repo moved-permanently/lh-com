@@ -784,8 +784,9 @@
   list-style: none;
 }
 
+/* the logos' links (not the legal links between them: their arrow beside the text, brief 264) */
 /* stylelint-disable-next-line no-descending-specificity -- the sub-footer's own elements, no other row's */
-.footer .footer-subfooter a {
+.footer .footer-subfooter :is(.footer-subfooter-logos, .footer-subfooter-partner) a {
   display: block;
   line-height: 0;
 }
