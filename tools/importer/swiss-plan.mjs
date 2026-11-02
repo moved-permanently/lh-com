@@ -3,8 +3,8 @@
  * SWISS's batches (lh-swiss): the Studio's proposal (content-sites/lh-swiss/lists:
  * batch-01.txt, batches.tsv; the snapshot archives follow it, manifest `list` = batch) and the
  * archives' two extra lists, c1 (the forms' confirmation pages) and x01 (the link scan's pages
- * outside the sitemaps), from the capture state (swiss-studio.mjs), pilot roots only: their other
- * roots' pages wait for those roots' batches
+ * outside the sitemaps; the language archives' p and x lists), from the capture state
+ * (swiss-studio.mjs), the roots imported so far only: their other roots' pages wait for those roots' batches
  * against the scope (content-sites/lh-swiss/scope.json, swiss-scope.mjs): each batch keeps
  * its pages that are documents of the scope (option B: language documents, market roots' own pages
  * and homepages); scope documents in no batch (the other reference roots' linked pages outside the sitemap the
@@ -25,15 +25,24 @@ const W = path.join(root, 'content-sites/lh-swiss');
 const LISTS = path.join(W, 'lists');
 const SNAP = path.join(root, 'tools/importer/bd-snapshots', HOST);
 
-// the pilot's roots: the extra lists' pages of other roots go with those roots' batches
-const PILOT = ['ch/en', 'ch/de'];
-const EXTRA = ['c1', 'x01'];
+// the roots imported so far (the pilot's ch/en and ch/de; ch/fr and ch/it, brief 272): the extra
+// lists' pages of other roots go with those roots' batches
+export const IMPORTED_ROOTS = ['ch/en', 'ch/de', 'ch/fr', 'ch/it'];
+// a Studio batch's list (01 to 53); every other list of the capture is an extra list (c1, x01, the
+// language archives' p11, x11, p15, x15 ...)
+const STUDIO_LIST = /^\d+$/;
 
-/** The archives' extra lists: { c1: [path, ...], x01: [...] }, pilot roots only. */
-export function extraBatches(pages) {
-  return Object.fromEntries(EXTRA.map((l) => [l, Object.keys(pages).filter((u) => pages[u].status === 'ok' && pages[u].list === l)
-    .map((u) => new URL(u).pathname.replace(/\.html$/, '').replace(/\/$/, ''))
-    .filter((p) => PILOT.some((r) => p.startsWith(`/${r}/`)))]));
+/** The archives' extra lists: { c1: [path, ...], x01: [...], p11: [...] }, the given roots only. */
+export function extraBatches(pages, roots = IMPORTED_ROOTS) {
+  const out = {};
+  Object.keys(pages).forEach((u) => {
+    const { status, list } = pages[u];
+    if (status !== 'ok' || !list || STUDIO_LIST.test(list)) return;
+    const p = new URL(u).pathname.replace(/\.html$/, '').replace(/\/$/, '');
+    if (!roots.some((r) => p.startsWith(`/${r}/`))) return;
+    (out[list] ||= []).push(p);
+  });
+  return out;
 }
 
 /** The Studio's batches: [[path, ...], ...] (batch 1 first). */

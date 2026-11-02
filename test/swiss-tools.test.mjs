@@ -36,6 +36,11 @@ test('the menu\'s "Flight vouchers" through urldefense.com is its target; other 
   assert.ok(!doc.includes('urldefense'));
   assert.match(doc, /<a href="\/ch\/en\/login">My flights<\/a>/, 'www\'s cockpit deep link: the root\'s own login page (swiss.turnsthe.page serves it since 2026-11-02)');
   assert.ok(!doc.includes('/deeplink/cockpit'));
+  // a root whose login page the site does not serve (ch/fr, ch/it): www's cockpit deep link stays
+  // (the served /deeplink/cockpit makes it relative)
+  const frMenu = { id: 'common-header-nav-horizontal', menuItems: [{ label: 'Mon voyage', menuItems: [{ label: 'Extra', href: '/ch/fr/x', menuItems: [{ label: 'Mes vols', href: '/deeplink/cockpit?country=CH&language=FR' }] }] }] };
+  const { document: fr } = parseHTML(`<html><body><header><div data-dcep="${dcepAttr(frMenu)}"></div></header></body></html>`);
+  assert.match(navDocument(fr, 'ch/fr', new Set()), /<a href="https:\/\/www\.swiss\.com\/deeplink\/cockpit\?country=CH&amp;language=FR">Mes vols<\/a>/);
   assert.match(doc, /<a href="https:\/\/swiss\.com\/magazine\/en">SWISS Magazine<\/a>/, 'an absolute link as www has it');
   assert.match(doc, /<a href="https:\/\/www\.swiss\.com\/magazine\/en\/travel">Travel<\/a>/, 'the magazine sub-site on www');
   assert.equal(linkFor('/corporate/en/careers', new Set()), 'https://www.swiss.com/corporate/en/careers');
@@ -230,6 +235,39 @@ test('the flight search\'s group booking and destinations links: our pages in th
   assert.equal(withOwnFlightSearchLinks(done, '/ch/de/homepage'), done, 'once');
   const outside = `<p><a href="https://www.swiss.com/xx/de/offers">x</a></p>${row('Where we fly', 'https://www.swiss.com/xx/de/offers', 'x')}`;
   assert.equal(withOwnFlightSearchLinks(outside, '/ch/de/homepage'), outside, 'outside a flight search: as it is');
+});
+
+test('the plan\'s extra lists: every list of the capture that is no Studio batch (c1, x01, p11, x11 ...), on the roots imported so far', async () => {
+  // eslint-disable-next-line import/extensions
+  const { extraBatches, IMPORTED_ROOTS } = await import('../tools/importer/swiss-plan.mjs');
+  assert.deepEqual(IMPORTED_ROOTS, ['ch/en', 'ch/de', 'ch/fr', 'ch/it']);
+  const page = (list, status = 'ok') => ({ status, list });
+  const pages = {
+    'https://www.swiss.com/ch/en/a/confirmation': page('c1'),
+    'https://www.swiss.com/ch/fr/b': page('p11'),
+    'https://www.swiss.com/ch/fr/c.html': page('x11'),
+    'https://www.swiss.com/ch/it/d/': page('p15'),
+    'https://www.swiss.com/ch/it/e': page('15'),
+    'https://www.swiss.com/ch/es/f': page('p19'),
+    'https://www.swiss.com/ch/fr/g': page('p11', 'failed'),
+  };
+  assert.deepEqual(extraBatches(pages), {
+    c1: ['/ch/en/a/confirmation'], p11: ['/ch/fr/b'], x11: ['/ch/fr/c'], p15: ['/ch/it/d'],
+  }, 'no Studio batch (15), no other root (ch/es), only pages captured ok');
+  assert.deepEqual(extraBatches(pages, ['ch/en']), { c1: ['/ch/en/a/confirmation'] });
+});
+
+test('the flight search\'s Shop row and the root\'s default origin: Zurich on ch/en, ch/de and ch/it, Geneva on ch/fr; none on other roots', async () => {
+  // eslint-disable-next-line import/extensions
+  const { withFlightSearch } = await import('../tools/importer/swiss-import.mjs');
+  const doc = '<div class="flight-search standalone"><div><div>Tabs</div><div>Flights</div></div></div>';
+  const origin = (p) => (withFlightSearch(doc, p).match(/<div>Default origin<\/div><div>([^<]*)<\/div>/) || [])[1] || '';
+  assert.equal(origin('/ch/en/homepage'), 'Zurich (ZRH)');
+  assert.equal(origin('/ch/de/homepage'), 'Zürich (ZRH)');
+  assert.equal(origin('/ch/fr/homepage'), 'Genève (GVA)', 'www\'s ch/fr homepage searches from Geneva');
+  assert.equal(origin('/ch/it/homepage'), 'Zurigo (ZRH)');
+  assert.equal(origin('/ch/es/homepage'), '');
+  assert.match(withFlightSearch(doc, '/ch/fr/homepage'), /<div>Shop<\/div><div><a href="https:\/\/shop\.swiss\.com\/booking\/availability">/);
 });
 
 test('a rendition of an asset without a file extension: its copy named with the rendition\'s', async () => {

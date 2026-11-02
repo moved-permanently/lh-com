@@ -379,10 +379,13 @@ export function withItaMetadata(doc, p, html, markets = []) {
 }
 
 // the flight search hands the search to SWISS's shop (www's flight manager hands off to
-// shop.swiss.com, the same booking platform as Lufthansa's) and starts from Zurich
+// shop.swiss.com, the same booking platform as Lufthansa's) and starts from Zurich (ch/fr: Geneva,
+// as its homepage's flight search)
 export const SHOP = 'https://shop.swiss.com/booking/availability';
 // the market's airport per root, named in the root's language (the homepages' flight search)
-const DEFAULT_ORIGIN = { 'ch/en': 'Zurich (ZRH)', 'ch/de': 'Zürich (ZRH)' };
+const DEFAULT_ORIGIN = {
+  'ch/en': 'Zurich (ZRH)', 'ch/de': 'Zürich (ZRH)', 'ch/fr': 'Genève (GVA)', 'ch/it': 'Zurigo (ZRH)',
+};
 
 /** The document's flight-search blocks with the Shop row and the market's default origin. */
 export function withFlightSearch(doc, p) {
