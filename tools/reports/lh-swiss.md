@@ -158,3 +158,48 @@ book-and-manage/digital-self-services, customer-support/travel-and-corona/travel
 customer-support/contact-us/application-for-compensation-in-the-event-of-flight-irregularities,
 customer-support/help-center, customer-support/travel-and-corona/travel-planning/current-destinations,
 discover/summer-timetable, local-page/montreux-jazz-festival-2023.
+
+## Host, forms, sub-footer, hero video (brief 255, 2026-11-02)
+
+No request to www.swiss.com in this step. Capture lists (df2e9dd6, `tools/reports/`):
+`lh-swiss-dam-not-fetched.tsv` (559: www URL, DA path, first batch, kind, pages; the two www PDFs
+`lhg-power-of-attorney-form-en.pdf` and `-form--en.pdf` share one DA path),
+`lh-swiss-aem-files.tsv` (75: www URL, the /content/dam path the documents link, bytes from the
+groundwork where it measured them), `lh-swiss-missing-pages.tsv` (21 with the pilot pages linking
+them), `lh-swiss-redirects.tsv` (2).
+
+lh-edge (24d9972a, deployed): `swiss.turnsthe.page` in `SITE_HOSTS`, origin
+`main--lh-swiss--moved-permanently.aem.live`, www `www.swiss.com`, design host `www.lufthansa.com`
+(the same mausy-v1.40.1 release has `fonts/swiss/`, CH Sans, byte for byte the sizes www serves,
+and the culinary hub's script); `swiss` in the demo host list; entry paths as www sends them: `/`,
+`/ch/en` to ch/en's homepage, `/ch`, `/ch/de` to ch/de's, `/xx/en`, `/xx/de` (and `/homepage`
+below them) and the sub-sites' `/en/homepage`, `/de/homepage` to `/ch/<ll>/homepage`; favicon and
+manifest from `/etc/designs/lx/`. Nine-host smoke before and after: 0 differences on every host.
+The host answers from aem.live: until lh-swiss is published it shows the origin's 404.
+
+lh-forms (1c96e03b, deployed): origins lh-swiss's aem.page, aem.live and DA hosts and
+`https://swiss.turnsthe.page` (preflights 204; a look-alike 403); 23 ids `swiss-<page name>`
+(17 service forms, 6 raffles), titles the pages' h1 (en, de), recipients the default one; file
+rules as www's: `swiss-general-request`, `swiss-feedback-past-flight`,
+`swiss-request-for-refund-of-expenses` PNG, JPEG, PDF 5 x 3,700,000; `swiss-loss-of-personal-item-form`
+5 x 2,048,000; `swiss-data-protection-form` PDF, JPEG, PNG 5 x 3,000,000; 18.5 MB in all as
+Austrian's; the other forms take no files. The three claim forms are as www has them: their
+flights (1 to 4) and passengers (1 to 7) are groups a visitor adds (the form block's repeatable
+sections, `repeat=4`, `repeat=7`). Turnstile: lh-swiss's hosts still to be added to the widget's
+hostnames in the dashboard. The 41 form documents previewed again (200); preview only.
+
+Footer (14f71525): a document with its logos before its legal links gets the logo row in the
+legal row's place: SWISS logo and member of Lufthansa Group left, the legal links in the middle,
+Star Alliance right from 1025 px, stacked below; every other brand's footer decorates to the
+markup of before (a test per brand).
+
+Hero (14f71525): a hero linking an .mp4 plays it muted, looped and inline over its picture (the
+poster until it plays), the picture alone with prefers-reduced-motion; every other hero as
+before. The ch/en and ch/de homepages link `/content/dam/lx/video/bengaluru-header-video-8017471.mp4`
+(uploaded and previewed); on the preview the video answers 404 and the poster stays, on the host
+lh-edge's dam-aem route serves it once it is on the AEM sandbox. The nine flight pages that show
+the same video behind www's flight manager have no hero: their flight search is as before.
+
+The 19 comparison pages and the seven brand homepages (main against the branch): equal apart from
+the head's stylesheet order.
+
