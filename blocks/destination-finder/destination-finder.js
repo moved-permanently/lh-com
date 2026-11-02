@@ -508,6 +508,29 @@ export function highlightedOffers(offers, max, priority = HIGHLIGHT_PRIORITY) {
 }
 
 /**
+ * The badge of each highlighted offer as www's Discover grid gives it (its component's
+ * badgeDisplayed and highlighted): the first entry of the priority list the offer matches,
+ * 'topDeal' ("Recommended") or 'kClass' ("Best price").
+ * @param {Array} picked result of highlightedOffers
+ * @param {string[]} [priority]
+ * @returns {Map} offer → 'topDeal' | 'kClass'
+ */
+export function highlightKinds(picked, priority = HIGHLIGHT_PRIORITY) {
+  const tests = { topdeal: (o) => o.topDeal, kclass: (o) => o.kClass };
+  const names = priority.map((name) => String(name).toLowerCase()).filter((name) => tests[name]);
+  return new Map(picked.map((o) => [o, names.find((name) => tests[name](o)) === 'kclass' ? 'kClass' : 'topDeal']));
+}
+
+/**
+ * Whether the grid orders and badges as www's grid of the page's brand (BRANDS gridBadges:
+ * Discover): www's sort "Recommended" lifts only the top deals, the other highlights keep their
+ * place by price with a "Best price" badge; the badges are given over the whole answer.
+ */
+export function gridBadges(brand = brandEntry()) {
+  return Boolean(brand && brand.gridBadges);
+}
+
+/**
  * Sort orders of the live grid: 'topDeal' (Recommended: the highlighted offers by price, then
  * all others by price), 'price' (ascending), 'alphabet' (city name in the page language).
  */
@@ -667,6 +690,17 @@ const GRID_LIVE_LABELS = Object.fromEntries(Object.entries({
   'more loaded label': 'resultSection.moreDestinationsLoaded',
   'all loaded label': 'resultSection.allOffersLoaded',
 }).map(([key, live]) => [key, `destinationFinder.destinationFinder.${live}`]));
+
+/** The tiles' badge texts of www's Discover grid (labels/common), on a gridBadges brand only. */
+const GRID_BADGE_LABELS = {
+  'recommended label': 'common.destinationFinderCard.badge.featured',
+  'best price label': 'common.destinationFinderCard.badge.kClass',
+};
+/**
+ * The "Best price" badge without labels/common: www's texts (labels/common/lh, recorded); other
+ * languages (Discover's fr) the English one.
+ */
+const GRID_BEST_PRICE_LABELS = { en: 'Best price', de: 'Bestpreis' };
 
 /**
  * Defaults of the grid's strings (the live English labels and German equivalents); the live
@@ -1419,17 +1453,22 @@ const GRID_DEFAULT_LABELS = {
   },
 };
 
-/** Labels and catalogs of the grid: live labels, activities and regions. */
-export async function loadGridContext(locale) {
+/**
+ * Labels and catalogs of the grid: live labels, activities and regions; badges (a gridBadges
+ * brand): the tiles' badge texts of labels/common as well.
+ */
+export async function loadGridContext(locale, { badges = false } = {}) {
   const sources = {};
   const [live, affinities, regions] = await Promise.all([
-    fetchLabels(['destinationFinder'], locale),
+    fetchLabels(badges ? ['destinationFinder', 'common'] : ['destinationFinder'], locale),
     settleRequest(sources, 'affinities', catalogRequest('affinities'), locale, mapAffinities, []),
     settleRequest(sources, 'regions', catalogRequest('regions'), locale, mapRegions, []),
   ]);
   Object.entries(live.sources).forEach(([bundle, source]) => { sources[`labels/${bundle}`] = source; });
+  const labels = pickLabels(live.labels, GRID_LIVE_LABELS);
+  if (badges) Object.assign(labels, pickLabels(live.labels, GRID_BADGE_LABELS));
   return {
-    labels: pickLabels(live.labels, GRID_LIVE_LABELS), affinities, regions, sources,
+    labels, affinities, regions, sources,
   };
 }
 
@@ -1453,7 +1492,8 @@ export async function loadGridOffers(query, locale) {
 
 const SPARKLE_ICON = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M10 2.5 11.8 8.2 17.5 10l-5.7 1.8L10 17.5l-1.8-5.7L2.5 10l5.7-1.8zM18 13l.9 2.6 2.6.9-2.6.9L18 20l-.9-2.6-2.6-.9 2.6-.9zM18.5 1.5l.6 1.9 1.9.6-1.9.6-.6 1.9-.6-1.9-1.9-.6 1.9-.6z"/></svg>';
 
-function renderTile(offer, highlighted, view) {
+/** One grid tile; badge: its badge text (a highlighted offer), else none. */
+function renderTile(offer, badge, view) {
   const li = el('li', 'destination-finder-tile');
   const link = el('a', 'destination-finder-tile-link');
   // in the app's web view the app books (DestinationFinderBookingRequest, scripts/app-bridge.js)
@@ -1479,7 +1519,7 @@ function renderTile(offer, highlighted, view) {
     attachDamFallback(img, () => img.remove());
     imageWrap.append(img);
   }
-  if (highlighted) imageWrap.append(el('span', 'destination-finder-tile-badge', view.labels['recommended label']));
+  if (badge) imageWrap.append(el('span', 'destination-finder-tile-badge', badge));
 
   const body = el('div', 'destination-finder-tile-body');
   body.append(el('h3', 'destination-finder-tile-city', offer.name || offer.code));
@@ -1589,7 +1629,8 @@ async function decorateGrid(block, uid) {
   };
   // every request starts now; the filters are built once the labels are there
   const contextPromise = loadFinderContext(locale);
-  const gridContextPromise = loadGridContext(locale);
+  const wwwBadges = gridBadges();
+  const gridContextPromise = loadGridContext(locale, { badges: wwwBadges });
   const cityOf = (origins, origin) => {
     const city = findOrigin(origins, origin.code);
     return city ? { code: city.code, name: origin.name || city.name } : origin;
@@ -1828,7 +1869,8 @@ async function decorateGrid(block, uid) {
     origin: state.origin.code, tripType: state.tripType, offers: [], source: 'none',
   };
   let sorted = [];
-  let highlighted = new Set();
+  // offer → its badge text
+  let badges = new Map();
   let shown = 0;
 
   const view = () => ({
@@ -1850,7 +1892,7 @@ async function decorateGrid(block, uid) {
   const showMore = (count = GRID_PAGE_SIZE) => {
     const next = sorted.slice(shown, shown + count);
     const current = view();
-    grid.append(...next.map((o) => renderTile(o, highlighted.has(o), current)));
+    grid.append(...next.map((o) => renderTile(o, badges.get(o), current)));
     shown += next.length;
     moreWrap.hidden = shown >= sorted.length;
     return next.length;
@@ -1863,9 +1905,21 @@ async function decorateGrid(block, uid) {
 
   function render() {
     const filtered = filterGridOffers(loaded.offers, state);
-    const picked = highlightedOffers(filtered, settings.maxHighlighted, settings.priority);
-    highlighted = new Set(picked);
-    sorted = sortGridOffers(filtered, state.sort, picked, locale.lang);
+    if (wwwBadges) {
+      // www's Discover grid: badges over the whole answer, only the top deals lifted
+      const picked = highlightedOffers(loaded.offers, settings.maxHighlighted, settings.priority);
+      const kinds = highlightKinds(picked, settings.priority);
+      const shownOffers = new Set(filtered);
+      const top = picked.filter((o) => kinds.get(o) === 'topDeal' && shownOffers.has(o));
+      const bestPrice = labels['best price label']
+        || GRID_BEST_PRICE_LABELS[locale.lang] || GRID_BEST_PRICE_LABELS.en;
+      badges = new Map(picked.map((o) => [o, kinds.get(o) === 'kClass' ? bestPrice : labels['recommended label']]));
+      sorted = sortGridOffers(filtered, state.sort, top, locale.lang);
+    } else {
+      const picked = highlightedOffers(filtered, settings.maxHighlighted, settings.priority);
+      badges = new Map(picked.map((o) => [o, labels['recommended label']]));
+      sorted = sortGridOffers(filtered, state.sort, picked, locale.lang);
+    }
     grid.replaceChildren();
     shown = 0;
     showMore();

@@ -59,6 +59,10 @@ export const BRANDS = {
     travelId: { host: 'api.travelid.discover-airlines.com', clientId: 'NqkvGG8MB6OeCkb66a02D0ORHOFhQWJ4' },
     backends: true,
     aemContent: 'four_y',
+    // gridBadges: the offers grid orders and badges as www's Discover grid (2026-11-02): only the
+    // top deals ("Recommended") first, k-class offers "Best price" where their price puts them
+    // (blocks/destination-finder gridBadges)
+    gridBadges: true,
     portal: 'FOUR_Y',
     hub: 'FRA',
     airline: '4Y',
