@@ -292,22 +292,25 @@ async function leanModel(request, env, roots) {
 async function fullModel(request, env, roots) {
   const t = tables(env);
   const langs = [...new Set(roots.map((r) => t.table[r].lang))];
+  // in the languages' order, whichever index arrives first (as leanModel): the alternates' order,
+  // one answer per page
+  const read = (lang) => compactIndex(request, env, `/${t.versions[lang]}/search-index.json`);
+  const langIndexes = await Promise.all(langs.map(read));
   const versions = {};
-  await Promise.all(langs.map(async (lang) => {
-    const root = t.versions[lang];
-    const index = await compactIndex(request, env, `/${root}/search-index.json`);
-    versions[lang] = { root, index, byPrimary: primaryMap(index) };
-  }));
+  langs.forEach((lang, i) => {
+    const index = langIndexes[i];
+    versions[lang] = { root: t.versions[lang], index, byPrimary: primaryMap(index) };
+  });
   let own;
   try {
     own = await compactIndex(request, env, MARKET_INDEX);
   } catch (e) {
     own = new Map();
   }
-  const others = {};
-  await Promise.all(t.ownRoots.filter((r) => langs.includes(t.table[r].lang)).map(async (r) => {
-    others[r] = await pathIndex(request, env, r).catch(() => new Set());
-  }));
+  const otherRoots = t.ownRoots.filter((r) => langs.includes(t.table[r].lang));
+  const pathsOf = (r) => pathIndex(request, env, r).catch(() => new Set());
+  const paths = await Promise.all(otherRoots.map(pathsOf));
+  const others = Object.fromEntries(otherRoots.map((r, i) => [r, paths[i]]));
   return {
     roots, versions, own, others, ...(t === LH_TABLES ? {} : { site: t }),
   };
