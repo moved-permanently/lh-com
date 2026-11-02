@@ -13,6 +13,8 @@
  *   --switch  the documents' images from their place in lh-swiss's DA (content.da.live; the ones DA
  *             lacks show once their copy is uploaded and the page previewed again), so the preview
  *             loads nothing from www: runs/dam-switch-upload.txt
+ * Options: --workspace <dir> (default content-sites/lh-swiss-sub; the market roots:
+ *   content-sites/lh-swiss-mk), --report <tsv under tools/reports> (default lh-swiss-sub-dam.tsv).
  * Usage: node tools/importer/swiss-sub-dam.mjs --list | --switch
  */
 import fs from 'node:fs';
@@ -22,7 +24,9 @@ import { damFiles, assetOf } from './swiss-dam.mjs';
 import { edsDamPath } from '../../scripts/dam-path.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
-const W = path.join(root, 'content-sites/lh-swiss-sub');
+const cli = process.argv.slice(2);
+const cliOpt = (n, d) => (cli.includes(`--${n}`) ? cli[cli.indexOf(`--${n}`) + 1] : d);
+const W = path.join(root, cliOpt('workspace', 'content-sites/lh-swiss-sub'));
 const DOCS = path.join(W, 'content');
 const SNAPS = path.join(W, 'snapshots-src/www.swiss.com');
 const LIST = path.join(W, 'runs/dam-files.json');
@@ -108,7 +112,7 @@ if (isMain) {
     const rows = need.sort((a, b) => a.www.localeCompare(b.www)).map((x) => [
       `https://www.swiss.com${x.www}`, x.eds, x.kind, /^(mp4|pdf)$/.test(extOf(x.www)) ? 'AEM if over the limit (mp4 36 MiB, PDF 20 MB)' : 'DA', x.pages.length, x.pages.slice(0, 3).join(' '),
     ].join('\t'));
-    fs.writeFileSync(path.join(root, 'tools/reports/lh-swiss-sub-dam.tsv'), `${['www url', 'da path', 'kind', 'where', 'pages', 'first pages'].join('\t')}\n${rows.join('\n')}\n`);
+    fs.writeFileSync(path.join(root, 'tools/reports', cliOpt('report', 'lh-swiss-sub-dam.tsv')), `${['www url', 'da path', 'kind', 'where', 'pages', 'first pages'].join('\t')}\n${rows.join('\n')}\n`);
     const kinds = (l) => Object.entries(l.reduce((a, x) => ({ ...a, [extOf(x.www)]: (a[extOf(x.www)] || 0) + 1 }), {})).map(([k, n]) => `${n} ${k}`).join(', ');
     console.log(`swiss-sub-dam list: ${out.length} files (${kinds(out)}); in lh-swiss's DA ${out.length - need.length}; for the capture ${need.length} (${kinds(need)})`);
   }

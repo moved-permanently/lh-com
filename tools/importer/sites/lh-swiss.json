@@ -17,7 +17,7 @@
   "/ch/en/profile/travel-id/**",
   "/ch/de/profile/travel-id/**"
  ],
- "patterns": ["^/(corporate/(en|de|fr)|medicalservices/(en|de))/[a-z0-9/-]+$"],
+ "patterns": ["^/(corporate/(en|de|fr)|medicalservices/(en|de))/[a-z0-9/-]+$", "^/(ae|al|ar|at|au|be|bg|br|ca|cn|cz|de|dk|ee|eg|es|fr|gb|ge|gr|hk|hr|hu|ie|il|in|it|jp|ke|kr|lt|lu|mk|mt|nl|no|om|pl|pt|ro|rs|ru|se|sg|si|th|tz|ua|us|xk|za)/(de|en|fr|it)/[a-z0-9/-]+$"],
  "paths": [
   "/ch/en/homepage",
   "/ch/de/homepage",

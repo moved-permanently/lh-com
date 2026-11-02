@@ -1,4 +1,4 @@
-/* eslint-disable no-console, max-len, import/extensions, import/no-extraneous-dependencies -- tooling */
+/* eslint-disable no-console, max-len, import/extensions, import/no-extraneous-dependencies, import/prefer-default-export -- tooling */
 /**
  * The nav and footer documents of SWISS's market roots (content-sites/lh-swiss-mk/content/<root>/
  * nav|footer.plain.html), next to swiss-nav.mjs (ema-cashub's: ch/<ll>) and with its builders as
@@ -36,7 +36,11 @@ if (isMain) {
   const imported = (r) => Object.prototype.hasOwnProperty.call(BRAND_SITES.swiss.versions, r.split('/')[1]);
   const walk = (d) => (fs.existsSync(d) ? fs.readdirSync(d, { withFileTypes: true }).flatMap((e) => (e.isDirectory() ? walk(path.join(d, e.name)) : [path.join(d, e.name)])) : []);
   const own = walk(SNAP).filter((f) => f.endsWith('.html')).map((f) => `/${path.relative(SNAP, f).replace(/\.html$/, '')}`).filter((p) => imported(p.slice(1)));
-  const served = servedPaths({ own, sitePaths: new Set(allow.paths), markets });
+  // the market roots: the imported languages' homepages
+  const marketRoots = own.filter((x) => x.endsWith('/homepage')).map((x) => x.split('/').slice(1, 3).join('/'));
+  const served = servedPaths({
+    own, sitePaths: new Set(allow.paths), markets, roots: marketRoots,
+  });
   const subPages = capturedPages(path.join(root, 'content-sites/lh-swiss-sub/snapshots-src/www.swiss.com'));
   const roots = own.filter((p) => p.endsWith('/homepage')).map((p) => p.split('/').slice(1, 3).join('/'));
   roots.forEach((key) => {

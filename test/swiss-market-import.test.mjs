@@ -10,12 +10,33 @@ import {
 } from '../tools/importer/swiss-market-import.mjs';
 import { withFlightSearch } from '../tools/importer/swiss-import.mjs';
 
-const HOME = '<input name="flightQuery.flightSegments[0].originCode" type="text" value="Frankfurt"><div data-dcep="{&quot;fareTeaserManualTravels&quot;:[{&quot;destination&quot;:&quot;ATL&quot;,&quot;origin&quot;:&quot;FRA&quot;},{&quot;destination&quot;:&quot;ATH&quot;,&quot;origin&quot;:&quot;FRA&quot;},{&quot;destination&quot;:&quot;NBO&quot;,&quot;origin&quot;:&quot;MUC&quot;}]}"></div>';
+// (www's origin field holds the capture session's airport, de/de's "Prague - Ruzyně Airport": not
+// the page's; the fare teaser's recommendations name the configured origin and its code)
+const teaser = (name, code) => `<a href="/de/de/book-and-manage/destination?OriginCode=${code}&amp;DestinationCode=ATL" class="fareteaser-recommendation-od-link"><div class="fareteaser-recommendation-origin">${name}</div></a>`;
+const HOME = `<input name="flightQuery.flightSegments[0].originCode" type="text" value="Prague - Ruzyně Airport">${teaser('Frankfurt', 'FRA')}${teaser('Frankfurt', 'FRA')}${teaser('München', 'MUC')}`;
 
-test('marketOriginOf: the origin field\'s city and the fare teasers\' most frequent origin code; none without both', () => {
+// (the destination finder configures no origin on www: lh-com's parser writes its list's first
+// airport, fr/fr's "Bastia (BIA)", us/en's "Albany (ALB)")
+const FINDER = '<div class="destination-finder"><div><div>Default origin</div><div>Bastia (BIA)</div></div></div>';
+
+// a fare teaser the browser draws (41 roots: no recommendations in the snapshot, its origin field
+// the list's first airport): its configured origin code alone ("FRA": the block names it)
+const DYNAMIC = '<input id="dcep-inlinetextautocompleteairport-fareteaser-origins" value="Aachen/Maastricht"><div data-dcep="{&quot;fareTeaserManualTravels&quot;:[{&quot;destination&quot;:&quot;ATL&quot;,&quot;origin&quot;:&quot;FRA&quot;},{&quot;destination&quot;:&quot;ATH&quot;,&quot;origin&quot;:&quot;FRA&quot;}]}"></div>';
+
+test('marketOriginOf: the fare teaser\'s most frequent origin (its name and code), else its configured code alone; never the destination finder\'s parsed value or the session\'s origin field', () => {
   assert.equal(marketOriginOf(HOME), 'Frankfurt (FRA)');
-  assert.equal(marketOriginOf('<input name="flightQuery.flightSegments[0].originCode" value="">'), '');
-  assert.equal(marketOriginOf('<p>no flight search</p>'), '');
+  assert.equal(marketOriginOf(HOME, FINDER), 'Frankfurt (FRA)');
+  assert.equal(marketOriginOf(DYNAMIC, FINDER), 'FRA', 'a dynamic fare teaser: its code');
+  assert.equal(marketOriginOf('<p>no fare teaser</p>', FINDER), '', 'the destination finder\'s first airport is none');
+  assert.equal(marketOriginOf('<input name="flightQuery.flightSegments[0].originCode" value="Prague">'), '');
+});
+
+test('withMarketOrigin: the destination finder\'s default origin as the root\'s too; without one the parsed row as it is', () => {
+  const doc = `${withFlightSearch('<div class="flight-search"></div>', '/fr/fr/homepage')}${FINDER}`;
+  const out = withMarketOrigin(doc, HOME);
+  assert.ok(out.includes('<div class="destination-finder"><div><div>Default origin</div><div>Frankfurt (FRA)</div></div></div>'), out);
+  assert.ok(withMarketOrigin(doc, DYNAMIC).includes('<div class="destination-finder"><div><div>Default origin</div><div>FRA</div></div></div>'));
+  assert.equal(withMarketOrigin(FINDER, '<p></p>'), FINDER, 'no origin: as parsed');
 });
 
 test('withMarketOrigin: after swiss-import.mjs\'s Shop row, once; a block with an origin (ch) as it is', () => {
@@ -28,14 +49,17 @@ test('withMarketOrigin: after swiss-import.mjs\'s Shop row, once; a block with a
   assert.equal(withMarketOrigin(doc, '<p></p>'), doc, 'no origin on the homepage: the hub');
 });
 
-test('servedPaths: the roots\' own documents, the language versions\' and ch/<ll>\'s pages for the roots their markets list (of that language)', () => {
+test('servedPaths: the roots\' own documents, the language versions\' and ch/<ll>\'s pages for the roots their markets list (of that language); an empty markets row every market root of the language (lh-edge\'s rule)', () => {
   const served = servedPaths({
     own: ['/de/en/homepage', '/al/fr/local-page/x'],
-    sitePaths: new Set(['/ch/en/prepare/baggage', '/ch/en/only-ch', '/ch/fr/bagages']),
-    markets: { '/ch/en/prepare/baggage': ['de/en', 'al/en', 'de/de'], '/ch/en/only-ch': [], '/ch/fr/bagages': ['al/fr'], '/ch/de/x': { status: 404 } },
+    sitePaths: new Set(['/ch/en/prepare/baggage', '/ch/en/only-de', '/ch/en/contact-us', '/ch/fr/bagages']),
+    markets: {
+      '/ch/en/prepare/baggage': ['de/en', 'al/en', 'de/de'], '/ch/en/only-de': ['de/en'], '/ch/en/contact-us': [], '/ch/fr/bagages': ['al/fr'], '/ch/de/x': { status: 404 },
+    },
+    roots: ['de/en', 'al/en', 'de/de', 'al/fr'],
   });
-  ['/de/en/homepage', '/al/fr/local-page/x', '/ch/en/prepare/baggage', '/de/en/prepare/baggage', '/al/en/prepare/baggage', '/al/fr/bagages'].forEach((p) => assert.ok(served.has(p), p));
-  ['/de/de/prepare/baggage', '/de/en/only-ch', '/ch/de/x'].forEach((p) => assert.ok(!served.has(p), p));
+  ['/de/en/homepage', '/al/fr/local-page/x', '/ch/en/prepare/baggage', '/de/en/prepare/baggage', '/al/en/prepare/baggage', '/al/fr/bagages', '/de/en/only-de', '/de/en/contact-us', '/al/en/contact-us'].forEach((p) => assert.ok(served.has(p), p));
+  ['/de/de/prepare/baggage', '/al/en/only-de', '/de/de/contact-us', '/al/fr/contact-us', '/ch/de/x'].forEach((p) => assert.ok(!served.has(p), p));
 });
 
 test('withoutDatepicker: the date picker div goes, the rest stays', () => {
