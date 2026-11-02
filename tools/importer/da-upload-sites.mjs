@@ -6,12 +6,16 @@
  * - lh-com (the default): documents from content/, state tools/importer/da-upload-state.json, the
  *   migration scope (transformers/scope-paths.js) plus its document families (nav, footer,
  *   fragments, app screens, feeds, xf, the Page check test page), plus the explicit paths of
- *   tools/importer/sites/lh-com.json (the ch pilot's pages), author-edits.json applied.
+ *   tools/importer/sites/lh-com.json (the ch pilot's pages), author-edits.json applied, and the
+ *   global tree /gc/en/** and /gc/de/** (Lufthansa's /content/lh/gc/<ll>, rebuilt for the
+ *   localisation demo), which is never previewed (mayPreview): on www it is internal too.
  * - any other site: documents from content-sites/<site>/content/ (or --content-dir), state
  *   tools/importer/da-upload-state-<site>.json, only the paths of its allowlist
  *   tools/importer/sites/<site>.json ({"paths": [...], "patterns": ["^/regex$"]}); no lh-com
  *   scope, no author edits.
  * For every site: nothing under /lhg/, never the login and profile app shells.
+ * Documents (readDocument): <path>.plain.html, sent wrapped as DA's source shape; else a full DA
+ * document <path>.html (<body>…</body>, as DA's source API serves it), sent byte for byte.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -40,9 +44,39 @@ const XF_DOC = /^\/xf\/lh\/[a-z0-9-]+(?:\/[a-z0-9-]+)+$/;
 // the Page check plugin's test page (AMS rest A11): one issue of each kind, under /drafts/
 const TEST_DOC = /^\/drafts\/page-check\/[a-z0-9-]+$/;
 
+// the global tree (Lufthansa's /content/lh/gc/<ll>): English and German documents
+export const GC_DOC = /^\/gc\/(en|de)(?:\/[a-z0-9-]+)+$/;
+// never previewed (nor published): the global tree is internal on www too
+const NO_PREVIEW = /^\/gc(?:\/|$)/;
+
+/** Whether da-upload may preview a path (never anything under /gc/). */
+export const mayPreview = (p) => !NO_PREVIEW.test(p);
+
 /** Is the path allowed for lh-com (its scope and document families)? */
 export const lhComAllowed = (scope) => (p) => !NEVER.test(p)
-  && (scope.has(p) || LOCALE_DOC.test(p) || APP_SCREEN.test(p) || FEED_DOC.test(p) || XF_DOC.test(p) || TEST_DOC.test(p));
+  && (scope.has(p) || LOCALE_DOC.test(p) || APP_SCREEN.test(p) || FEED_DOC.test(p) || XF_DOC.test(p) || TEST_DOC.test(p) || GC_DOC.test(p));
+
+// DA's source shape, as its source API serves a document
+const DA_DOCUMENT = /^\s*<body>[\s\S]*<\/body>\s*$/;
+
+/**
+ * A path's local document: { kind: 'plain', file, text } from <path>.plain.html (the main's
+ * content), else { kind: 'document', file, text } from <path>.html when it is a full DA document;
+ * null without either.
+ */
+export function readDocument(contentDir, p) {
+  const plain = path.join(contentDir, `${p}.plain.html`);
+  if (fs.existsSync(plain)) return { kind: 'plain', file: plain, text: fs.readFileSync(plain, 'utf8') };
+  const full = path.join(contentDir, `${p}.html`);
+  if (!fs.existsSync(full)) return null;
+  const text = fs.readFileSync(full, 'utf8');
+  return DA_DOCUMENT.test(text) ? { kind: 'document', file: full, text } : null;
+}
+
+/** What is sent to DA: a .plain.html in DA's source shape, a full DA document as it is. */
+export function uploadBody(kind, text) {
+  return kind === 'document' ? text : `<body><header></header><main>${text}</main><footer></footer></body>`;
+}
 
 /** Is the path allowed by another site's allowlist? */
 export const allowlistAllowed = (list) => {

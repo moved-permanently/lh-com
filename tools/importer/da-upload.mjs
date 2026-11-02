@@ -13,6 +13,9 @@
  * (tools/importer/transformers/scope-paths.js) and the per-locale nav, footer and
  * fragments (never anything under /lhg/, which left the replica). The login and profile app shells
  * (/{cc}/{ll}/login, /{cc}/{ll}/profile/...) are built elsewhere and always refused.
+ * A document is <path>.plain.html (sent in DA's source shape) or, without one, a full DA document
+ * <path>.html (sent byte for byte: the global tree /gc/<ll> comes so). Nothing under /gc/ is ever
+ * previewed, with or without --no-preview (da-upload-sites.mjs mayPreview).
  * Local images referenced as /media-da/... are uploaded once and linked from
  * content.da.live. State: tools/importer/da-upload-state.json (or $DA_UPLOAD_STATE).
  *
@@ -29,7 +32,9 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
-import { siteSettings, APP_SHELL } from './da-upload-sites.mjs';
+import {
+  siteSettings, APP_SHELL, mayPreview, readDocument, uploadBody,
+} from './da-upload-sites.mjs';
 import { linksTakenBack } from './own-links.mjs';
 
 const started = Date.now();
@@ -102,16 +107,16 @@ for (const p of paths) {
   done += 1;
   if (APP_SHELL.test(p)) { problem(`${p}: app shell (login/profile, built elsewhere), refused`); continue; }
   if (!allowed(p)) { problem(`${p}: not in scope, skipped`); continue; }
-  const file = path.join(contentDir, `${p}.plain.html`);
-  if (!fs.existsSync(file)) { problem(`${p}: no local document`); continue; }
+  const localDoc = readDocument(contentDir, p);
+  if (!localDoc) { problem(`${p}: no local document`); continue; }
   const edit = AUTHOR_EDITS[p];
   if (edit?.skip) { problem(`${p}: author-owned (author-edits.json), not uploaded`); continue; }
-  const stat = fs.statSync(file);
+  const stat = fs.statSync(localDoc.file);
   const known = state.docs[p];
   const editKey = edit ? JSON.stringify(edit.replace || []) : undefined;
   const fresh = known && known.uploaded && known.mtime === stat.mtimeMs && known.edits === editKey;
 
-  let html = fs.readFileSync(file, 'utf8');
+  let html = localDoc.text;
   if (edit) {
     const lost = (edit.replace || [])
       .filter(([from, to]) => !html.includes(from) && !html.includes(to));
@@ -148,7 +153,7 @@ for (const p of paths) {
       }
     }
     const doc = path.join(tmp, 'doc.html');
-    fs.writeFileSync(doc, `<body><header></header><main>${html}</main><footer></footer></body>`);
+    fs.writeFileSync(doc, uploadBody(localDoc.kind, html));
     if (has('dry-run')) {
       console.log(`would upload ${p} (${html.length} B, ${media.length} images)`);
     } else {
@@ -170,7 +175,7 @@ for (const p of paths) {
   // a preview is done only when it succeeded after the last upload
   const d = state.docs[p];
   const previewDone = d?.uploaded && d.preview && d.preview >= d.uploaded && !d.previewError;
-  if (!has('no-preview') && !has('dry-run') && d?.uploaded && (!previewDone || has('force'))) {
+  if (!has('no-preview') && mayPreview(p) && !has('dry-run') && d?.uploaded && (!previewDone || has('force'))) {
     const r = curl(['-X', 'POST', `https://admin.hlx.page/preview/${ORG}/${SITE}/main${p}`]);
     if (r.status < 200 || r.status >= 300) {
       const why = `${r.status} ${r.body.slice(0, 120)}`;
