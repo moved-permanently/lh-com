@@ -93,6 +93,22 @@ main .section.section-tab-panel[hidden],
   display: none;
 }
 
+/* an open item's content under its toggle */
+.section-tab-panel > .section-tab-toggle + div {
+  margin-top: var(--spacing-default, 24px);
+}
+
+@media (width < 768px) {
+  /* the tab list section is empty here; the items touch, the last keeps the section gap */
+  main > .section.section-tabs {
+    display: none;
+  }
+
+  main > .section.section-tab-panel:has(+ .section-tab-panel) {
+    margin-bottom: 0;
+  }
+}
+
 @media (width >= 768px) {
   .section-tabs .section-tabs-list {
     display: flex;

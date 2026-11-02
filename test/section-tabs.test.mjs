@@ -161,6 +161,10 @@ test('scripts.js: decorateMain runs it after the sections; the styles exist', ()
   assert.match(css, /\.section-tabs \[role="tab"\]\[aria-selected="true"\]/);
   assert.match(css, /@media \(width >= 768px\)/);
   assert.match(css, /background: var\(--section-tabs-bar, var\(--lh-deepblue\)\);/, 'Lufthansa\'s bar by default');
+  // below 768px the accordion's items touch (no section gap between them), the last keeps it
+  assert.match(css, /@media \(width < 768px\) \{[^@]*main > \.section\.section-tabs \{\s*display: none;/);
+  assert.match(css, /@media \(width < 768px\) \{[^@]*main > \.section\.section-tab-panel:has\(\+ \.section-tab-panel\) \{\s*margin-bottom: 0;/);
+  assert.match(css, /\.section-tab-panel > \.section-tab-toggle \+ div \{\s*margin-top: var\(--spacing-default/);
   // the design system's selection colour (mausy-v1.40.1 swiss.css lx-red, austrian.css os-red)
   assert.match(fs.readFileSync('styles/themes/swiss.css', 'utf8'), /--section-tabs-bar: #c00;/);
   assert.match(fs.readFileSync('styles/themes/austrian.css', 'utf8'), /--section-tabs-bar: #d81e05;/);
