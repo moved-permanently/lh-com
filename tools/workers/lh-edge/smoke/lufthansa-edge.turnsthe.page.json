@@ -723,7 +723,7 @@
   "status": 200,
   "location": "",
   "type": "application/xml",
-  "hash": "f878301ddd89e4d1",
+  "hash": "805185d63d6cdfd9",
   "route": "market-sitemap"
  },
  {
@@ -733,7 +733,7 @@
   "status": 200,
   "location": "",
   "type": "application/xml",
-  "hash": "979aa3fa7d81a7a9",
+  "hash": "119a0f424f50172d",
   "route": "market-sitemap"
  },
  {
@@ -773,7 +773,7 @@
   "status": 200,
   "location": "",
   "type": "application/xml",
-  "hash": "65c6adca7e7005b1",
+  "hash": "f1c7f65f4d189541",
   "route": "market-sitemap"
  },
  {
@@ -783,8 +783,8 @@
   "status": 200,
   "location": "",
   "type": "application/octet-stream",
-  "length": 18800,
-  "hash": "26ccf80de44b5432",
+  "length": 19948,
+  "hash": "c0bad174d863829e",
   "route": "market-sitemap"
  },
  {
