@@ -186,7 +186,13 @@ serves de only (a path where www's `xx/<ll>` differs from de: 86 paths), a marke
 rest-of-world document of the same path on `xx/<ll>` (`restOfWorld` in `BRAND_SITES.b2b`: en `xx/en`, de `xx/de`),
 when that document's own `markets` row lists the root; its links into `xx/<ll>` become the market root's. ch/en's and
 at/de's own documents and the us/en and ca/en homepages are the root's own documents (answered first). us/de, ca/de and
-mx/de are no roots: www answers its not-found page there with a 500, here the site's not-found page (404). Entry paths
+mx/de are no roots: www answers its not-found page there with a 500, here the site's not-found page (404). A market root's
+search index (`/<cc>/<ll>/search-index.json`, the search-results block's) has the language version's rows
+the root's markets allow, the rest-of-world documents of the paths de's row keeps for de (the market
+index's `xx/<ll>` rows: their markets are every root of the language but de/<ll> and the roots with their
+own document of the path, as b2b-scope.mjs gives them; the market index has no markets column), and the
+root's own documents (market index rows, and the root's own search index where the origin has one:
+at/de's four documents), rewritten to the root. Entry paths
 from the roots (`/<cc>/<ll>`, `/<cc>`; `/de`: de/en). Its fonts are Lufthansa's (the theme's Thin face of release
 v1.38.0 too) from www.lufthansa.com (business.lufthansagroup.com sends its fonts without CORS).
 

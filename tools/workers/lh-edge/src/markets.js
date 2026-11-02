@@ -884,6 +884,49 @@ async function marketJson(request, env, ctx, own404) {
 }
 
 /**
+ * A rest-of-world site's (lh-b2b) market root search index: the language version's rows the
+ * root's markets allow; for the paths the language version leaves the country out of (de's
+ * documents for de only), the rest-of-world root's documents (market index rows of xx/<ll>: their
+ * markets are every root of the language but de/<ll> and the roots with their own document of the
+ * path, b2b-scope.mjs; the index has no markets column); the root's own documents (market index
+ * rows, and its own search index where the origin has one: at/de), which replace a row of the same
+ * path. Values into the language version or the rest-of-world root become the root's.
+ */
+async function worldSearchIndex(request, env, ctx, own, restOfWorld) {
+  const url = new URL(request.url);
+  const all = await sheetRows(request, env, `/${ctx.from}${ctx.rest}`);
+  if (!all) return own;
+  const cc = ctx.to.split('/')[0];
+  const isPage = (r) => r && typeof r.path === 'string' && !NOT_PAGES.test(r.path);
+  const language = all.rows.filter(isPage);
+  const suffixOf = (r, root) => r.path.slice(root.length + 1);
+  const allowed = language.filter((r) => marketAllows(r.markets, cc));
+  const leftOut = new Set(language.filter((r) => !allowed.includes(r))
+    .map((r) => suffixOf(r, ctx.from)));
+  const marketIndex = await sheetRows(request, env, MARKET_INDEX).catch(() => null);
+  const pages = (marketIndex?.rows || []).filter(isPage);
+  const world = restOfWorld === ctx.to ? [] : pages
+    .filter((r) => r.path.startsWith(`/${restOfWorld}/`) && leftOut.has(suffixOf(r, restOfWorld)))
+    .map((r) => marketRow(r, { ...ctx, from: restOfWorld }));
+  const ownIndex = own.status === 200 ? ((await sheetRows(request, env, `/${ctx.to}${ctx.rest}`).catch(() => null))?.rows || []) : [];
+  const ownRows = [...pages, ...ownIndex.filter(isPage)].filter((r) => r.path.startsWith(`/${ctx.to}/`));
+  const byPath = new Map();
+  [...allowed.map((r) => marketRow(r, ctx)), ...world, ...ownRows]
+    .forEach((r) => byPath.set(r.path, r));
+  const rows = [...byPath.values()].sort((a, b) => String(a.path).localeCompare(String(b.path)));
+  const out = new Headers(all.first.headers);
+  out.delete('content-length');
+  out.set('content-type', 'application/json');
+  out.set('x-lh-edge-route', 'market');
+  const offset = Math.max(0, Number.parseInt(url.searchParams.get('offset'), 10) || 0);
+  const limit = Math.max(1, Number.parseInt(url.searchParams.get('limit'), 10) || PAGE);
+  const body = {
+    ...all.first.sheet, total: rows.length, offset, limit, data: rows.slice(offset, offset + limit),
+  };
+  return new Response(request.method === 'HEAD' ? null : JSON.stringify(body), { headers: out });
+}
+
+/**
  * What the site answers for an origin URL, for the routes ahead of this one (the app view, SDUI,
  * offline list, micro-frontend page, llms.txt): under a market root this host serves, the market
  * route's answer for that path (the root's own document, else the language version's,
@@ -945,10 +988,13 @@ export async function market(request, env) {
   if (!mp || !roots.includes(mp.root) || !['GET', 'HEAD'].includes(request.method) || isMediaRequest(url)) {
     return passThrough(request, env);
   }
-  // the root's own document (or redirect) first
+  // the root's own document (or redirect) first; a rest-of-world site's search index takes the
+  // root's own index in (at/de: four own documents, not its whole search)
   const own = await passThrough(request, env);
-  if (own.status !== 404) return own;
   const { root, rest } = mp;
+  const restOfWorld = (t.restOfWorld || {})[t.table[root].lang];
+  const worldSearch = Boolean(restOfWorld) && rest === '/search-index.json';
+  if (own.status !== 404 && !(worldSearch && own.status === 200)) return own;
   const from = t.versions[t.table[root].lang];
   // the language version's document in full (see withoutConditions)
   const versionRequest = withoutConditions(request);
@@ -966,6 +1012,7 @@ export async function market(request, env) {
   };
   if (kind === 'json') {
     try {
+      if (worldSearch) return await worldSearchIndex(request, env, ctx, own, restOfWorld);
       // the sheet's text when it is shaped as expected (var MARKET_MODEL=full: parsed as before)
       const fast = env.MARKET_MODEL !== 'full' ? await marketJsonBytes(request, env, ctx, own) : null;
       if (fast) return fast;
@@ -995,7 +1042,6 @@ export async function market(request, env) {
   // site has rest-of-world documents (lh-b2b), the rest-of-world root's
   const cc = root.split('/')[0];
   const rowOf = indexed ? v.index.get(`/${from}${suffix}`) : null;
-  const restOfWorld = (t.restOfWorld || {})[t.table[root].lang];
   const leftOut = Boolean(rowOf && rowOf.markets && !marketAllows(rowOf.markets, cc));
   const source = leftOut && restOfWorld && restOfWorld !== root ? restOfWorld : from;
   if (source !== from) ctx.from = source;
