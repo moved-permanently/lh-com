@@ -1,0 +1,4 @@
+# regional-diff --pages: one path per line (test/loc-regional-diff.test.mjs)
+/gc/en/baggage
+
+/gc/de/gepaeck
