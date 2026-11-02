@@ -41,6 +41,7 @@
 /az/en/homepage
 /az/en/nav
 /az/en/footer
+/az/en/discover-lufthansa/allegris
 /ba/de/homepage
 /ba/de/nav
 /ba/de/footer
