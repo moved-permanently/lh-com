@@ -487,6 +487,7 @@
     "swiss": {
       "loginHosts": ["swiss.com"],
       "scriptOrigin": "https://www.swiss.com",
+      "ownScriptHosts": ["swiss.turnsthe.page"],
       "travelIdApi": "https://api.travelid.swiss.com",
       "authorize": { "clientId": "sAwlvrK8fb55GvHqM5Me9iAWpF9rchZL", "redirectUri": "https://www.swiss.com" },
       "maui": {

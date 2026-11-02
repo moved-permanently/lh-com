@@ -437,3 +437,23 @@ test('SWISS: the gate in www\'s words in English and German, the login link, its
   assert.equal(resolveApp(lx, 'sdui-profile', chDe).attributes['data-translation-labels'], 'https://www.swiss.com/service/api/labels/common');
   assert.equal(resolveApp(lx, 'sdui-statement', chDe).attributes.options, '{"customerHeaders":{"X-Language-Country":"de-ch"}}');
 });
+
+// brief 270: SWISS's app scripts and design system from the page's own /digitalhangar/ on the hosts
+// that route it to www (lh-edge: swiss.turnsthe.page), so no visitor's browser asks www.swiss.com;
+// on the other hosts (aem.page) from www.swiss.com as before; the other brands as before
+test('SWISS on swiss.turnsthe.page: its apps and design system from the page\'s own host; on aem.page from www', async () => {
+  const own = await run({
+    brand: 'swiss', host: 'swiss.turnsthe.page', path: '/ch/en/profile/travel-cockpit', app: 'hero-banner',
+  });
+  assert.ok(own.loaded.length, 'the app loads');
+  assert.ok(own.loaded.every((u) => u.startsWith('/digitalhangar/')), own.loaded.join(' '));
+  assert.ok(own.loaded.some((u) => /hero-banner-react/.test(u)));
+  const preview = await run({
+    brand: 'swiss', host: 'main--lh-swiss--moved-permanently.aem.page', path: '/ch/en/profile/travel-cockpit', app: 'hero-banner',
+  });
+  assert.ok(preview.loaded.length && preview.loaded.every((u) => u.startsWith('https://www.swiss.com/digitalhangar/')), preview.loaded.join(' '));
+  const aua = await run({
+    brand: 'austrian', host: 'austrian.turnsthe.page', path: '/at/en/profile/travel-cockpit', app: 'hero-banner',
+  });
+  assert.ok(aua.loaded.length && aua.loaded.every((u) => u.startsWith('https://www.austrian.com/digitalhangar/')), `Austrian as before: ${aua.loaded.join(' ')}`);
+});

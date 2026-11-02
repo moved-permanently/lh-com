@@ -62,11 +62,20 @@ export function siteConfig(json, brand = '') {
   };
 }
 
+/**
+ * A brand's ownScriptHosts (hosts that route /digitalhangar/ to its www: lh-edge's
+ * swiss.turnsthe.page): there its apps and design system load from the page's own host
+ * (scriptOrigin ''), so no visitor's browser asks its www; elsewhere from its www, as before.
+ */
+export function ownScripts(config, hostname) {
+  return (config.ownScriptHosts || []).includes(hostname) ? { ...config, scriptOrigin: '' } : config;
+}
+
 function loadConfig() {
   if (!configPromise) {
     configPromise = fetch(`${window.hlx.codeBasePath}/widgets/lh-app/lh-app.json`)
       .then((resp) => resp.json())
-      .then((json) => siteConfig(json, brandOf()));
+      .then((json) => ownScripts(siteConfig(json, brandOf()), window.location.hostname));
   }
   return configPromise;
 }
