@@ -15,8 +15,13 @@
  *             the de/de contact page for the German names and labels; stops at the first 403, 429
  *             or challenge (exit 2).
  *             -> content-sites/lh-b2b/runs/hotlines-record.json
+ *   --from-archive <dir>  the record from a recording of www's app answers instead (an extracted
+ *             archive: business.lufthansagroup.com/service/api/..., the query string in the file name,
+ *             __lang-en / __lang-de for the X-Portal-Language it was asked with; manifest.json): no
+ *             request to www; the box's look and image of an earlier --record kept
  *   --sheet   the DA sheet from the record: one row per country with a contact (country, name-en,
- *             name-de, phone, phone2, email, link, hours, note-en, note-de)
+ *             name-de, order-en, order-de: www's position in each language's list, the German list
+ *             sorted in German; phone, phone2, email, link, hours, note-en, note-de)
  *             -> content-sites/lh-b2b/content/data/hotlines.json
  *   --upload  that sheet to lh-b2b's DA (/data/hotlines.json) and its preview (never live), and the
  *             box's image (kept from the page's own answer) under its Edge Delivery name
@@ -193,6 +198,30 @@ async function record() {
 }
 
 /**
+ * The record from a recording archive of www's app answers (see --from-archive): the country lists
+ * and labels of both languages, each country's reservation answer (the English one; the German
+ * one as `de`), the earlier record's look and image kept.
+ */
+export function recordFromArchive(dir, earlier = {}) {
+  const api = path.join(dir, 'business.lufthansagroup.com/service/api');
+  const read = (f) => JSON.parse(fs.readFileSync(path.join(api, f), 'utf8'));
+  const rec = {
+    look: earlier.look, lookContact: earlier.lookContact, image: earlier.image, source: path.basename(dir), contacts: {},
+  };
+  ['en', 'de'].forEach((ll) => {
+    rec[`countries-${ll}`] = read(`catalogs/contact/countries__lang-${ll}.json`);
+    rec[`labels-${ll}`] = read(`labels/hotlineNumberDisplay/b2bneo/${ll}.json`);
+    rec[`ppb-labels-${ll}`] = read(`labels/b2bHotlineNumberDisplay/b2bneo/${ll}.json`);
+  });
+  rec['countries-en'].countries.forEach(({ code }) => {
+    const file = (ll) => `catalogs/contact/reservation__country-${code}_withLocalContact-false__lang-${ll}.json`;
+    if (!fs.existsSync(path.join(api, file('en')))) return;
+    rec.contacts[code] = { ...read(file('en')), de: fs.existsSync(path.join(api, file('de'))) ? read(file('de')) : undefined };
+  });
+  return rec;
+}
+
+/**
  * The block's texts in a language from the record (www's label services): the select's label, the
  * contact's and the opening hours' headings, the day names Monday first; {} without labels.
  */
@@ -220,6 +249,9 @@ const hoursOf = (o) => (o.serviceHours || [])
 /** The sheet's rows: one per country with a contact (its first reservation office), www's order. */
 export function sheetRows(rec) {
   const de = new Map(((rec['countries-de'] || {}).countries || []).map((c) => [c.code, c.name]));
+  // www's position of each country in each language's list (the German one sorted in German)
+  const orderOf = (ll) => new Map(((rec[`countries-${ll}`] || {}).countries || []).map((c, i) => [c.code, i + 1]));
+  const [orderEn, orderDe] = [orderOf('en'), orderOf('de')];
   return ((rec['countries-en'] || {}).countries || []).flatMap((c) => {
     const o = (rec.contacts[c.code]?.reservationOffices || [])[0];
     if (!o || !(o.phone1 || o.phone2 || o.email)) return [];
@@ -229,6 +261,8 @@ export function sheetRows(rec) {
       country: c.code,
       'name-en': c.name,
       'name-de': de.get(c.code) || c.name,
+      'order-en': orderEn.get(c.code),
+      'order-de': orderDe.get(c.code) || orderEn.get(c.code),
       phone: o.phone1 || '',
       phone2: o.phone2 || '',
       email: o.email || '',
@@ -289,6 +323,12 @@ const isMain = process.argv[1] && fs.realpathSync(process.argv[1]) === fileURLTo
 if (isMain) {
   let code = 0;
   if (has('record')) code = await record();
+  const archive = argv.includes('--from-archive') ? argv[argv.indexOf('--from-archive') + 1] : '';
+  if (archive) {
+    const rec = recordFromArchive(path.resolve(archive), readJson(RECORD, {}));
+    fs.writeFileSync(RECORD, `${JSON.stringify(rec, null, 1)}\n`);
+    console.log(`b2b-hotlines: record from ${rec.source}: ${rec['countries-en'].countries.length} countries, ${Object.keys(rec.contacts).length} contacts`);
+  }
   if (!code && has('sheet')) sheet();
   if (!code && has('upload')) code = await upload();
   process.exit(code);

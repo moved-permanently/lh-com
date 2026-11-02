@@ -126,6 +126,20 @@ test('the box\'s image: beside the finder, the rest in the body', async () => {
   assert.equal(block.querySelector('select').value || '', 'DE');
 });
 
+test('the options in the page language\'s order (the sheet\'s order-<ll>, www\'s German list sorted in German)', async () => {
+  const saved = SHEET.data;
+  SHEET.data = saved.map((r, i) => ({ ...r, 'order-en': i + 1, 'order-de': saved.length - i }));
+  at('/xx/de/about-us/contact');
+  const block = blockOf('de');
+  await decorate(block);
+  assert.deepEqual(options(block).map(([v]) => v), ['', 'GB', 'DE', 'AT']);
+  at('/xx/en/about-us/contact');
+  const en = blockOf('en');
+  await decorate(en);
+  assert.deepEqual(options(en).map(([v]) => v), ['', 'AT', 'DE', 'GB']);
+  SHEET.data = saved;
+});
+
 test('no sheet (it answers 404): the headline stays, no select', async () => {
   at('/de/en/about-us/contact');
   const block = blockOf('en');

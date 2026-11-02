@@ -3,7 +3,8 @@ import { getLocale } from '../../scripts/locale.js';
 /*
  * Hotline finder: a country select and the hotline of the picked country (www's PartnerPlusBenefit
  * box on business.lufthansagroup.com's contact pages). Rows (key | value): Sheet (the countries'
- * sheet: country, name-<ll>, phone, phone2, email, link, hours "MO 08:00-18:00; ...", note-<ll>),
+ * sheet: country, name-<ll>, order-<ll>, phone, phone2, email, link, hours "MO 08:00-18:00; ...",
+ * note-<ll>),
  * Headline, Select (the select's label), Contact (the contact's heading), Hours (the opening
  * hours' heading), Days (Monday ... Sunday, comma-separated), Image (beside the finder from
  * 1025 px, as www's teaser image). The root's country is picked at
@@ -122,6 +123,10 @@ export default async function decorate(block) {
   const field = el('div', { class: 'hotline-finder-field' });
   const select = el('select', { id, name: 'country' });
   select.append(el('option', { value: '' }, labels.select));
+  // the page language's order (the sheet's order-<ll>: www's lists, the German one sorted in
+  // German), else the sheet's
+  const order = (r) => Number(r[`order-${lang}`]) || 0;
+  if (countries.every(order)) countries.sort((a, b) => order(a) - order(b));
   countries.forEach((row) => select.append(el('option', { value: row.country }, row[`name-${lang}`] || row['name-en'] || row.country)));
   field.append(el('label', { for: id }, labels.select), select);
   const contact = el('div', { class: 'hotline-finder-contact', 'aria-live': 'polite' });

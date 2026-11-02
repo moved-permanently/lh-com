@@ -52,6 +52,8 @@ test('the phone box: a marker with its heading, then the hotline-finder block wi
   const sections = '<div><h2>Before</h2></div>\n<div><p>[hotline-finder] Contacts</p></div>\n<div><h2>After</h2><div class="section-metadata"><div><div>style</div><div>grey</div></div></div></div>';
   const out = withHotlineFinder(sections, { select: 'Pick' }, 'https://content.da.live/moved-permanently/lh-b2b/content/dam/b2bneo/images/customerservicekam.png');
   assert.equal(out, '<div><h2>Before</h2></div>\n<div><div class="hotline-finder"><div><div>Sheet</div><div><a href="/data/hotlines.json">/data/hotlines.json</a></div></div><div><div>Headline</div><div>Contacts</div></div><div><div>Select</div><div>Pick</div></div><div><div>Image</div><div><picture><img src="https://content.da.live/moved-permanently/lh-b2b/content/dam/b2bneo/images/customerservicekam.png" alt=""></picture></div></div></div><div class="section-metadata"><div><div>style</div><div>grey</div></div></div></div>\n<div><h2>After</h2><div class="section-metadata"><div><div>style</div><div>grey</div></div></div></div>');
+  // the import's paragraph tokens on the marker are no part of the heading
+  assert.match(withHotlineFinder('<div><p>[hotline-finder] Contacts for PartnerPlusBenefit {full-width}</p></div>', labels), /<div><div>Headline<\/div><div>Contacts for PartnerPlusBenefit<\/div><\/div>/);
   // the box's heading kept with entities; no labels: the rows that have a text
   const amp = withHotlineFinder('<div><p>[hotline-finder] A &amp; B</p></div>', {});
   assert.equal(amp, '<div><div class="hotline-finder"><div><div>Sheet</div><div><a href="/data/hotlines.json">/data/hotlines.json</a></div></div><div><div>Headline</div><div>A &amp; B</div></div></div><div class="section-metadata"><div><div>style</div><div>grey</div></div></div></div>');
@@ -134,10 +136,37 @@ test('the hotline sheet from the record: one row per country with a contact, www
   };
   assert.deepEqual(sheetRows(rec), [
     {
-      country: 'AT', 'name-en': 'Austria', 'name-de': 'Österreich', phone: '+43 0720 380 065', phone2: '', email: 'dach.ppb@dlh.de', link: '', hours: 'MO 08:00-18:00; FR 08:00-16:00', 'note-en': '', 'note-de': '',
+      country: 'AT', 'name-en': 'Austria', 'name-de': 'Österreich', 'order-en': 1, 'order-de': 1, phone: '+43 0720 380 065', phone2: '', email: 'dach.ppb@dlh.de', link: '', hours: 'MO 08:00-18:00; FR 08:00-16:00', 'note-en': '', 'note-de': '',
     },
     {
-      country: 'DE', 'name-en': 'Germany', 'name-de': 'Deutschland', phone: '+49 69 86 799 500', phone2: '', email: '', link: '', hours: '', 'note-en': 'Free of charge', 'note-de': 'Kostenfrei',
+      country: 'DE', 'name-en': 'Germany', 'name-de': 'Deutschland', 'order-en': 3, 'order-de': 2, phone: '+49 69 86 799 500', phone2: '', email: '', link: '', hours: '', 'note-en': 'Free of charge', 'note-de': 'Kostenfrei',
     },
   ]);
+});
+
+test('the hotline record from a recording archive (the answers of www\'s app, both languages): no request to www', async () => {
+  const fs = await import('node:fs');
+  const os = await import('node:os');
+  const path = await import('node:path');
+  const { recordFromArchive } = await import('../tools/importer/b2b-hotlines.mjs');
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'hotlines-'));
+  const api = path.join(dir, 'business.lufthansagroup.com/service/api');
+  const put = (f, json) => { fs.mkdirSync(path.dirname(path.join(api, f)), { recursive: true }); fs.writeFileSync(path.join(api, f), JSON.stringify(json)); };
+  put('catalogs/contact/countries__lang-en.json', { countries: [{ code: 'AT', name: 'Austria', isDefault: false }, { code: 'DE', name: 'Germany', isDefault: true }] });
+  put('catalogs/contact/countries__lang-de.json', { countries: [{ code: 'DE', name: 'Deutschland', isDefault: true }, { code: 'AT', name: 'Österreich', isDefault: false }] });
+  ['en', 'de'].forEach((ll) => {
+    put(`labels/hotlineNumberDisplay/b2bneo/${ll}.json`, { 'hotlineNumberDisplay.fullApp.default.serviceHours': ll === 'de' ? 'Öffnungszeiten' : 'Opening hours' });
+    put(`labels/b2bHotlineNumberDisplay/b2bneo/${ll}.json`, { 'b2bHotlineNumberDisplay.fullApp.default.selectCountryLabel': ll === 'de' ? 'Bitte Land oder Region wählen' : 'Please choose your country or region' });
+    ['AT', 'DE'].forEach((cc) => put(`catalogs/contact/reservation__country-${cc}_withLocalContact-false__lang-${ll}.json`, { reservationOffices: [{ phone1: `+${cc}`, serviceHours: [] }], cityOffices: [], airportOffices: [] }));
+  });
+  fs.writeFileSync(path.join(dir, 'manifest.json'), JSON.stringify([{ file: 'x', status: 200 }]));
+  const rec = recordFromArchive(dir, { look: { 1440: {} }, image: { url: '/x.png' }, contacts: { AT: { status: 403 } } });
+  assert.deepEqual(rec['countries-de'].countries.map((c) => c.code), ['DE', 'AT'], 'the German list in its own order');
+  assert.equal(rec.contacts.AT.reservationOffices[0].phone1, '+AT', 'the archive\'s answer replaces the earlier refusal');
+  assert.equal(rec.contacts.DE.de.reservationOffices[0].phone1, '+DE', 'the German answer kept');
+  assert.equal(rec['labels-de']['hotlineNumberDisplay.fullApp.default.serviceHours'], 'Öffnungszeiten');
+  assert.equal(rec['ppb-labels-en']['b2bHotlineNumberDisplay.fullApp.default.selectCountryLabel'], 'Please choose your country or region');
+  assert.ok(rec.look && rec.image, 'the earlier look and image kept');
+  assert.equal(rec.source, path.basename(dir));
+  fs.rmSync(dir, { recursive: true });
 });

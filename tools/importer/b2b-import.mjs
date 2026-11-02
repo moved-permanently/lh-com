@@ -160,7 +160,7 @@ export function withHotlineFinder(doc, labels = {}, image = '') {
   const m = doc.match(/<p>\[hotline-finder\]\s*([^<]*)<\/p>/);
   if (!m) return doc;
   const row = (k, v) => (v ? `<div><div>${k}</div><div>${v}</div></div>` : '');
-  const block = `<div class="hotline-finder">${row('Sheet', `<a href="${HOTLINE_SHEET}">${HOTLINE_SHEET}</a>`)}${row('Headline', m[1].trim())}${row('Select', esc(labels.select || ''))}${row('Contact', esc(labels.contact || ''))}${row('Hours', esc(labels.hours || ''))}${row('Days', esc((labels.days || []).join(', ')))}${row('Image', image ? `<picture><img src="${esc(image)}" alt=""></picture>` : '')}</div>`;
+  const block = `<div class="hotline-finder">${row('Sheet', `<a href="${HOTLINE_SHEET}">${HOTLINE_SHEET}</a>`)}${row('Headline', m[1].replace(/\s*\{[^}]*\}\s*$/, '').trim())}${row('Select', esc(labels.select || ''))}${row('Contact', esc(labels.contact || ''))}${row('Hours', esc(labels.hours || ''))}${row('Days', esc((labels.days || []).join(', ')))}${row('Image', image ? `<picture><img src="${esc(image)}" alt=""></picture>` : '')}</div>`;
   let out = `${doc.slice(0, m.index)}${block}${doc.slice(m.index + m[0].length)}`;
   // the top-level div (the section) the block is in
   for (let i = out.indexOf('<div'); i >= 0 && i <= m.index; i = out.indexOf('<div', divEnd(out, i))) {
