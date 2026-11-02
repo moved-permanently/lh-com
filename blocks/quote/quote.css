@@ -1,0 +1,49 @@
+/* Quote: www's author quote (.author-quote: max-width 62.2rem, margin 6rem 0, 8rem from 768 px;
+   .quote-text LufthansaHead bold, 28/32 px at 375 and 32/38 px at 1440 on
+   business.lufthansagroup.com: the theme's xl heading size, 4 and 6 px of leading; .subline-text
+   LufthansaText light 14/18 px, 10 px above; 2026-11-02), at the start of the content column */
+.quote figure {
+  box-sizing: border-box;
+  max-width: 622px;
+  margin: 60px 0;
+  padding: 0;
+}
+
+.quote .quote-text {
+  margin: 0;
+  padding: 0;
+  color: var(--heading-color);
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-xl);
+  font-weight: 700;
+  line-height: calc(1em + 4px);
+}
+
+.quote .quote-text p {
+  margin: 0;
+}
+
+.quote .quote-text p + p {
+  margin-top: 10px;
+}
+
+.quote .quote-name {
+  margin: 10px 0 0;
+  color: var(--text-color);
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 18px;
+}
+
+@media (width >= 768px) {
+  .quote figure {
+    margin: 80px 0;
+  }
+}
+
+@media (width >= 1281px) {
+  .quote .quote-text {
+    line-height: calc(1em + 6px);
+  }
+}

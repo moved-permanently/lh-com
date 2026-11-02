@@ -9,7 +9,8 @@
  * - B2B's own components get a class only this importer gives (withB2bComponents), which the
  *   templates' B2B selectors take: the icon modules (b2b-iconmodules: cards-icon-text, stacked),
  *   the stage (b2b-stage: hero-card-overlay), the inspirational stage (b2b-inspirationalstage:
- *   hero-campaign); the author quote (no lh-com block) as its text and name;
+ *   hero-campaign); the author quote as its text and name, after the import the shared quote
+ *   block (withB2bQuotes);
  * - the phone list of the contact page (dcep-ppb-hotlinebox: rendered in the browser from
  *   Lufthansa's contact catalog) as plain content (withHotlines);
  * - e-mail addresses Cloudflare obfuscated (/cdn-cgi/l/email-protection#..., __cf_email__) as
@@ -105,6 +106,31 @@ export function withB2bComponents(html) {
     return `<div class="text section"><div class="richtext"><p>${esc(quote)}</p>${name ? `<p>${esc(name)}</p>` : ''}</div></div>`;
   });
   return out;
+}
+
+const reEscape = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+/**
+ * The author quotes of a document as the shared quote block (the quote, then the name): the two
+ * paragraphs withB2bComponents made of the page's .quote-text and .subline-text (a paragraph
+ * style token after each, as the import leaves it, dropped), where they are a section's content;
+ * a quote in a block's cell (Jägermeister's, beside an image in columns-media) stays as it is: a
+ * block in a block is not decorated. A page without one as it was.
+ */
+export function withB2bQuotes(doc, html = '') {
+  const { document } = parseHTML(`<html><body>${html}</body></html>`);
+  // the section's own content: one <div> open before it (the section's)
+  const inSection = (s, at) => (s.slice(0, at).match(/<div\b/g) || []).length - (s.slice(0, at).match(/<\/div>/g) || []).length === 1;
+  return [...document.querySelectorAll('.quote-text')].reduce((out, q) => {
+    const quote = esc(clean(q.textContent));
+    const name = esc(clean(q.parentElement.querySelector('.subline-text')?.textContent));
+    if (!quote) return out;
+    const token = '(?: \\{[^}<]*\\})?';
+    const m = out.match(new RegExp(`<p>${reEscape(quote)}${token}</p>${name ? `<p>${reEscape(name)}${token}</p>` : ''}`));
+    if (!m || !inSection(out, m.index)) return out;
+    const block = `<div class="quote"><div><div><p>${quote}</p></div></div>${name ? `<div><div><p>${name}</p></div></div>` : ''}</div>`;
+    return `${out.slice(0, m.index)}${block}${out.slice(m.index + m[0].length)}`;
+  }, doc);
 }
 
 /**
@@ -288,7 +314,7 @@ if (isMain) {
       const src = out[p].source;
       const html = fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8');
       const markets = scope.documents[src]?.markets || [];
-      const next = withB2bMetadata(withB2bForm(doc, p, html), p, html, markets);
+      const next = withB2bMetadata(withB2bQuotes(withB2bForm(doc, p, html), html), p, html, markets);
       if (next !== doc) fs.writeFileSync(f, next);
     });
     const mapOnly = path.join(W, 'runs', `${name}-upload.txt`);
