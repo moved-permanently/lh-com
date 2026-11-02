@@ -14,8 +14,9 @@ Files here:
 | File | What it is |
 |---|---|
 | `translate.json` | the app's configuration, to upload as the DA document `/.da/translate.json` of the site (an admin uploads it; tools never write site-wide documents) |
-| `check-config.mjs` | runs the app's own code (pinned commit, downloaded to a temp folder) on `translate.json` and on lh-com pages; report `tools/reports/loc-config-check.md` |
-| `regional-diff.mjs` | what a rollout would replace: DA sources of /at/de against /de/de and /gb/en against /de/en; report `tools/reports/loc-regional-diff.md` |
+| `check-config.mjs` | runs the app's own code (pinned commit, downloaded to a temp folder) on `translate.json` and on lh-com pages; report `tools/reports/loc-config-check.md` (`--config <file>`: the gc rows, `tools/reports/loc-config-check-gc.md`) |
+| `setup-lib.mjs` | the setup of a `translate.json` (its languages rows): the source, the German translation, the pairs of every rollout; the link, slug and marker steps and check-config take it with `--config <file>\|da` (default the repo copy; `da`: DA's `/.da/translate.json`, read only) |
+| `regional-diff.mjs` | what a rollout would replace: DA sources of /at/de against /de/de and /gb/en against /de/en (today's rows only); report `tools/reports/loc-regional-diff.md` |
 | `link-step.mjs`, `link-lib.mjs` | makes a target locale's links its own after a rollout or a translation; dry run report `tools/reports/loc-link-step.md` |
 | `slug-step.mjs`, `slug-lib.mjs`, `slug-map.json` | moves German translations onto the 72 pages with their own German slug; prints the at/de rollout project's URLs (`--rollout-urls`); dry run report `tools/reports/loc-slug-step.md` |
 | `clear-review.mjs` | with `--linked-images`: removes the mark of links around a picture before a rollout; without: removes a page's `da-metadata` block (the review record) on purpose. Labelled DA version first, read-back after, dry run by default |
@@ -248,7 +249,12 @@ node tools/loc/link-step.mjs --from de/de --to at/de --page /at/de/gepaeck --app
 node tools/loc/link-step.mjs --from de/en --to gb/en                     # dry run, all gb/en pages
 node tools/loc/link-step.mjs --from de/en --to de/de --page /de/de/x --apply   # after a translation
 node tools/loc/link-step.mjs --all                  # dry run of the three pairs: the report
+node tools/loc/link-step.mjs --config da --from gc/de --to at/de --page /at/de/gepaeck   # the gc rows
 ```
+
+The pairs are the `translate.json`'s (its languages rows, `setup-lib.mjs`): with today's rows the
+three above, with the global source's rows the five of "Global source (/gc)" (below). A pair the
+rows don't have is refused before anything is read.
 
 On each page of the target locale (the `--page` ones, else every page of that locale in
 `tools/migration-scope/pages.csv`). **`--apply` writes only the `--page` pages**: give the pages
@@ -307,8 +313,9 @@ For each page with a translation at `/de/de/<english slug>` it:
    regional-diff.js `normalizeLinks` 103-120) – the step makes them root-relative again and turns
    `/de/en/<x>` into `/de/de/<German slug of x>` (Parent row included); links to pages without a
    German page in the scope stay and are listed;
-2. sets `primary-language-url` to the English page (what `helix-sitemap.yaml` pairs translated
-   slugs by; the German pages carry it today);
+2. sets `primary-language-url` to the English page on /de/en (what `helix-sitemap.yaml` pairs
+   translated slugs by; the German pages carry it today; with the global source too, `/de/en/<x>`
+   for `/gc/en/<x>`, the page the market pages pair with);
 3. writes it to `/de/de/<german slug>`: moved when there is no German page yet, otherwise merged
    with **the app's own merge** (the same `regionalDiff` as above, downloaded at the pinned
    commit; the German page's DA metadata, its accepted and rejected differences, goes into the
@@ -321,6 +328,11 @@ page (the German slug from `slug-map.json`, else the same path under `/de/de`) a
 `https://main--lh-com--moved-permanently.aem.page/<path>`, e.g.
 `…/de/de/kinder-an-bord` and `…/de/de/gepaeck` for the two pages above. Paste them into the
 rollout project's URLs.
+
+With the global source's rows (`--config da` after the switch, or the file) the same runs under
+`/gc`: the app writes `/gc/de/<english slug>` from `/gc/en`, the step moves it to the de/de own
+slug under `/gc/de` (`/gc/en/flights` → `/gc/de/fluege`), and `--rollout-urls --page /gc/en/…`
+prints the `/gc/de` pages: one German rollout of them writes `/de/de` and `/at/de`.
 
 It never touches a page whose German slug equals the English one, never removes a path that is
 another page's German page (`conflict`), and never previews or publishes. `--root /drafts/loc-test`
@@ -349,11 +361,93 @@ while it sits there, else at its German page) and lists every marker of the Engl
 reads it) or **vanished**, and markers the translation has but the English page not (**added**).
 Markers inside merge marks count: an incoming block (`da-diff-deleted`, what you accept) is
 checked like the page; the page's own local blocks are left out. Read only (a dry run; `--apply`
-is refused); `--root /drafts/loc-test` for copies. Fix the markers in DA when you resolve the marks.
+is refused); `--root /drafts/loc-test` for copies; `--config` as the link step (the gc rows: `/gc/en`
+against `/gc/de`). Fix the markers in DA when you resolve the marks.
 
 Today's report (`tools/reports/loc-marker-check.md`, before any project) is a baseline: the German
 pages are still www's own, and 75 of 968 differ from the English page where www's pages differ
 (other spacers, an extra heading style). Compare a page's findings with it.
+
+## Global source (/gc)
+
+On www the English and German documents of the markets come from a global tree
+(`/content/lh/gc/<ll>`), which is never published. lh-com gets the same tree in DA (`/gc/en`,
+`/gc/de`: ema-cashub, brief 249) and can take its projects from there. Two setups, both only the
+languages rows of `/.da/translate.json`:
+
+| setup | name | code | source | location | locales | actions |
+|---|---|---|---|---|---|---|
+| today | English | en | | /de/en | /gb/en | Skip, Rollout |
+| today | German | de | /de/en | /de/de | /at/de | Skip, Translate, Rollout |
+| global source | English | en | | /gc/en | /de/en, /gb/en | Skip, Rollout |
+| global source | German | de | /gc/en | /gc/de | /de/de, /at/de | Skip, Translate, Rollout |
+
+With the global source a project edits `/gc/en`; German Translate writes `/gc/de` (the de/de own
+slugs, `slug-map.json`); **German Rollout writes `/de/de` and `/at/de` in one rollout**, English
+Rollout writes `/de/en` and `/gb/en` (merge, as before). `check-config --config <file>` checks the
+rows with the app's own functions (`tools/reports/loc-config-check-gc.md`; the rows of
+`test/fixtures/loc/translate-gc.json`).
+
+**Switching** (and back) is one upload of `/.da/translate.json` (the site's admin; no tool writes it):
+
+1. Download DA's `/.da/translate.json` and keep it as the backup (`translate-<date>.json`, outside
+   the repository).
+2. Replace only the two languages rows, run `node tools/loc/check-config.mjs --config <the new
+   file>` (all checks pass), upload it in one go; open the app in a fresh tab ("Before every run").
+3. Back: upload the backup, unchanged.
+
+The tools read the rows of the `translate.json` they are given: `--config da` (DA's, the one the
+app uses), a file, or the repo copy (default: today's rows). Run them with `--config da` after a
+switch.
+
+**The Sync hazard.** With the global source a `/de/en`, `/de/de`, `/at/de` or `/gb/en` URL matches
+no source root (resolveSourceLang knows `/gc/en` and `/gc/de` only, utils/utils.js 362-389): the
+project goes to **Sync**, which copies it under the default source with its full path
+(`/de/en/baggage` → `/gc/en/de/en/baggage`; views/sync/index.js getSyncUrls 7-34, options/utils/utils.js
+calculateView 27-32). **Never put market URLs in a project**: only `/gc/en` URLs (translation, English
+rollout) or `/gc/de` URLs (German rollout), one folder per project (a mix of `/gc/en` and `/gc/de`
+is refused).
+
+**Which rollout writes which locales:**
+
+| project URLs | action | reads | writes |
+|---|---|---|---|
+| `/gc/en/x` | German Translate | `/gc/en/x` | `/gc/de/x` (then the slug step: `/gc/de/<german slug>`) |
+| `/gc/en/x` | English Rollout | `/gc/en/x` | `/de/en/x` and `/gb/en/x` |
+| `/gc/de/y` | German Rollout | `/gc/de/y` | `/de/de/y` and `/at/de/y` (one rollout) |
+
+In the translation project click both German locales (`/de/de`, `/at/de`) off the German row: German
+Rollout there reads `/gc/de/<English path>` (before the slug step it would write the machine
+translation to `/de/de/<English path>` and `/at/de/<English path>`). Roll out German from a
+project of its own with the `/gc/de` URLs (`slug-step --config da --rollout-urls --page /gc/en/…`).
+Those are aem.page addresses of pages that are never previewed (they answer 404 there): the app
+takes only their path and checks it in DA (validate.js 106-124).
+
+How the app reports a rollout to two locales (views/rollout/rollout.js 140-179, rollout/index.js
+149-193): one row per language; its "Rolled out" count is pages × locales (2 for one page), each
+locale (expand the row) shows the project's page count and the language's status, not one of its
+own. The rollout first reads every source page and stops on one with marks (nothing written);
+then it writes both locales; a failed write in either returns the error list without "complete",
+the writes that succeeded stay, and the row stays "rolling out", so the Rollout buttons are gone
+(rollout.js 108-111, 127-129) until the project is opened again. Check both locales' pages after
+every run ("Before every run", the block check).
+
+**/gc is never previewed or published** and stays out of every publish sweep, as on www: no
+publish request, no bulk preview or publish of a folder above it; the migration's `da-upload` never
+previews a `/gc` path (249). Its pages exist in DA only; the markets' pages are what is published.
+
+**The link step's gc pairs** (`--config da` after the switch):
+
+| pair | kind | links |
+|---|---|---|
+| `gc/en > gc/de` | translation | `/gc/en/<x>` → `/gc/de/<German slug of x>` |
+| `gc/en > de/en`, `gc/en > gb/en` | rollout | `/gc/en/<x>` → `/de/en/<x>`, `/gb/en/<x>` |
+| `gc/de > de/de`, `gc/de > at/de` | rollout | `/gc/de/<y>` → `/de/de/<y>`, `/at/de/<y>`; a `/gc/en/<x>` link → `/de/en/<x>` in a `/de/de` page (listed in an `/at/de` page: no at/en) |
+
+The gc paths come from `pages.csv`: `/gc/en/x` is the de_en row's path with `/de/en` replaced,
+`/gc/de/y` the de_de row's (own slugs included). After a rollout from `/gc` the market page links
+`/de/de/…` (or `/at/de/…`, `/de/en/…`, `/gb/en/…`), never `/gc/…`: a link without a counterpart
+stays and is listed; a `primary-language-url` of `/gc/en/<x>` becomes `/de/en/<x>`.
 
 ## The configuration (`translate.json`) and the code it relies on
 
