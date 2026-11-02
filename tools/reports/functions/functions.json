@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-02 07:33",
-  "change": "Lufthansa Group for Business is live at b2b.turnsthe.page and has its own column: its forms, site search, route network map and country selector work; its two sign-ins need Lufthansa.",
+  "updated": "2026-11-02 13:10",
+  "change": "Lufthansa Group for Business: the contact pages pick the hotline by country, as www does (127 countries, English and German).",
   "legend": {
     "done": {
       "label": "works on our replica",
@@ -46,8 +46,7 @@
     "sndest": "Brussels Airlines' fare teasers, homepage slider and offers grid load live prices, but their cards open a destination page address the replica doesn't have. Brussels Airlines' own destination page works on the replica, and one brand setting points the cards at it.",
     "snchat": "Brussels Airlines' chat assistant loads from Brussels Airlines' website, outside AEM, as Austrian's does. Since 1 November its button shows on the pages that have it on www, in all six languages.",
     "adesim": "Air Dolomiti's eSIM shop (from the vendor Breeze) is built into the replica, but its switch stays off: Breeze answers every call from our address with 403, because the widget's key belongs to Air Dolomiti's site. It works once Air Dolomiti or Breeze allows our address.",
-    "b2bsignin": "Lufthansa Group for Business has two sign-ins in AEM today, one for companies and one for travel agencies (eXperts), each with a member area. Their replacement follows the other airlines' sign-ins, with test data first; showing real member data needs Lufthansa to let it reach its user and role systems. Until then the replica links to the current sign-ins.",
-    "b2bphone": "The contact page's hotline box finds the right phone number for a country from a Lufthansa service that runs in AEM today. On the replica the German pages show Germany's number as text; the list for the other countries is still to be rebuilt."
+    "b2bsignin": "Lufthansa Group for Business has two sign-ins in AEM today, one for companies and one for travel agencies (eXperts), each with a member area. Their replacement follows the other airlines' sign-ins, with test data first; showing real member data needs Lufthansa to let it reach its user and role systems. Until then the replica links to the current sign-ins."
   },
   "brands": [
     {
@@ -1474,11 +1473,10 @@
           "evidence": "2026-11-01: www /be/en/contact help-center-web 4.3.1 with topics from api.travelid.brusselsairlines.com/help-center-contact/v1/topics; replica /be/en/contact accordion-columns with fixed topics; GET to that topics URL from the aem.live origin blocked by CORS (brand host not attached, not tested there)"
         },
         "b2b": {
-          "status": "wip",
-          "note": "The contact page's phone list picks the hotline by country from a Lufthansa service in AEM; the replica shows Germany's number on the German pages and none on the other markets' contact pages yet.",
+          "status": "done",
+          "note": "The contact pages pick the PartnerPlusBenefit hotline by country, as www does: 127 countries with phone, e-mail and opening hours in English and German (German names in German order); the German pages preselect Germany, the market-neutral ones wait for a pick.",
           "page": "/de/en/about-us/contact",
-          "footnote": "b2bphone",
-          "evidence": "2026-11-02: www hotline box with a country select of 127 countries, data from /service/api/catalogs/*; replica de/en shows +49 69 86 799 500 as text, fr/en and ch/en contact pages show the heading without number"
+          "evidence": "Published 2026-11-02 13:03 CET (job-2026-11-02-12-03-02-f31eea31: /data/hotlines.json, the box image and /de/en, /de/de, /xx/en, /xx/de about-us/contact); checked on b2b.turnsthe.page/de/de/about-us/contact: 128 options (127 + prompt), Ägypten first, DE preselected, +49 69 86 799 500 with hours. Code: lh-com 887aef91 + 92bbd1de (block hotline-finder)."
         }
       }
     },
