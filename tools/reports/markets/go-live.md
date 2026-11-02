@@ -144,6 +144,7 @@ documents in that wave, as noted in rollout.md "The China host").
 
 | Wave | Roots | To publish | of which homepages, navs, footers / own pages and local versions | Already live | Left out |
 | --- | --- | --- | --- | --- | --- |
+| 00 (market-neutral pages) | – (xx/en, xx/de: every market root that shows them) | 109 | – / 109 | – | 35 (tools/reports/markets/neutral-pages.md) |
 | 0 (ch) | 2 | 0 | – | 16 (ch's documents) | – |
 | 1 | 19 | 71 | 57 / 14 | – | – |
 | 2 | 19 | 70 | 57 / 13 | 3 (eg/en carbon-offsetting) | – |
@@ -272,6 +273,43 @@ Open per root besides the table: timeZone and shopLang are null for every pilot 
 homepage has neither: the site's defaults, Europe/Berlin and en-GB); the `unverified` fields of each
 row in locale-data.json list what www did not show.
 
+## The market-neutral pages (wave 00, brief 267; before wave 1)
+
+www has 196 pages under `xx/en` (101) and `xx/de` (95) whose page group has no `de/en` or `de/de`
+page in the scope: the 25 aircraft type pages, the Munich stopover partners, a few articles, hubs,
+terms and service pages. Most market roots show them (194 to 240 of 240 per group), so a wave's
+roots would answer them 404 without this. **109 of them** are documents of lh-com's neutral
+versions now (`NEUTRAL_VERSIONS` in tools/markets/locale-data.json: en xx/en, de xx/de, no rows),
+imported from captures of 2026-11-02, uploaded and previewed (not published); the list, the
+`markets` values, what was left out and the global-tree question: tools/reports/markets/neutral-pages.md.
+
+**How they are served** (1928ee0, deployed 20:27 UTC): lh-edge's market route answers a market root's
+path its language version has no page for from the neutral document of the path, when the origin
+has it and its `markets` allows the country (102 have no row: every market root of the language
+shows them on www; 7 have a list). de/en and de/de themselves never answer them (www's de/<ll>
+roots don't show them either), the `/xx/<ll>/...` URLs pass through as www's own URLs. Links in
+them go to the root's pages where the neutral or language version has the document.
+Rehearsal on the local runtime against preview: ch/en 1,024 of 1,058 www URLs 200 (33 404), ae/en
+1,018 of 1,062 (batch 1: 960), hu/de 1,012 of 1,047, ch/de 1,017 of 1,054; `/de/en/319` 404.
+
+**Wave 00 does not need the switch**: publish `publish-wave-00.txt` (109 lines) before wave 1 (with
+or before ch). From the publish on, every host that serves a market root answers these pages for
+it: lufthansa-edge (all pilot roots), **the main host for ch** (its pilot rows: `/ch/en/319`,
+`/ch/de/book-and-manage/stopover/rosewood` … answer 200 instead of 404), and each later wave's roots
+the moment they go live; the main host also answers the `/xx/<ll>/...` URLs themselves (from the
+origin, as www's URLs; nothing links to them). Checks after the publish: the list's lines 200 on
+`main--lh-com--moved-permanently.aem.live`; `/ch/en/319` and `/ch/de/319` 200 on the main host
+with the root's canonical; the route check for ch/en on lufthansa-edge. Rollback: unpublish the
+list (the route then answers 404 as before; the code alone changes nothing), or `git revert
+1928ee0`.
+
+**Not served** (35): 34 xx URLs that are no pages of www's xx roots (their long AEM URL answers
+404, www sends the short one to the same path under de/<ll> from every exit; lh-com has none of
+those de/<ll> pages: adding them to the scope as de/en and de/de documents with `markets` is your
+decision) and one app page (`/xx/en/support/airport-assistant`); plus 52 left out of the 196 before
+the capture (AEM configuration, login, registration, profile and Travel ID app pages,
+confirmations), as for every root. No new redirect rows.
+
 ## Wave 11: French (prepared 2026-11-02, brief 264; not switched)
 
 fr/fr is French's language version (www's `xx/fr` has no pages; your choice: fr/fr, as de/en for
@@ -348,6 +386,9 @@ captures for the version's ~280 in-scope pages and the roots' ~4 pages each):
 
 ## Open
 
+- **Wave 00, the market-neutral pages**: publish before wave 1 (it changes ch's answers on the
+  main host at once); 34 xx URLs are www's de/<ll> pages out of scope (your decision); which of the
+  109 go to `/gc` (tools/reports/markets/neutral-pages.md), after 5 November.
 - **fr/fr's indexes fill on publish**: wave 11's market pages depend on them (release order above).
 - **fr/fr's sitemap file** and the static index entry: with the wave 11 switch.
 - **One left out of waves 1 to 10**: `/mk/en/support/refund` (www's form has no fields).
