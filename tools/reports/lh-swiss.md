@@ -321,3 +321,24 @@ The showcase notice waits while a form field has the focus on every brand.
   from the nav's cart sub-list (`blocks/header/header-cart.js`); other brands' cart links as before.
 - The sub-footer's legal links: the arrow beside the text (the logos' block rule no longer applies
   to them), 1440 and 390.
+
+## Destination squares, the large hero, confirmations, login pages, app scripts (brief 270, 2026-11-02)
+
+- `swiss-dam-002` (sha256 checked): the 41 destination squares and the 2560 px Bengaluru picture in
+  lh-swiss's DA under their `/content/dam` paths, previewed; the picture replaces the 720 px copy
+  (same DA name), the 11 documents of `lh-swiss-large-images.tsv` previewed again (2000 px on the
+  preview). The homepages' fare teaser shows its six squares on the preview; the slider and the grid
+  wait for the fares API, which the preview hosts can't reach.
+- `swiss-snapshots-020`: the 6 confirmation pages imported and previewed; 7 forms link them as their
+  success page (the ch/de local-page group travel form too, as www). ch/de ad-plattforms-contact and
+  ch/en swiss-nati-women keep the form's own message (no page of theirs: ch/en's and ch/fr's only).
+- `lh-swiss.json` served: `/deeplink/cockpit`, `/{root}/login`, `/{root}/profile/travel-cockpit`,
+  `bookinglist`, `account-statement`, `my-account/**`, `travel-id/**` (each 200 on
+  swiss.turnsthe.page; the deep link with www's query); `swiss-nav.mjs` writes the menu's cockpit
+  links as `/<root>/login`, as the menus on DA. 53 page documents still link www's cockpit, login or
+  profile pages: relative on their next import.
+- lh-app: SWISS's app scripts and design system load from the page's own `/digitalhangar/` on
+  swiss.turnsthe.page (`ownScriptHosts`; all 14 answer 200 there), from www.swiss.com on the
+  aem.page previews; the other brands as before.
+- lh-edge: the help center's data files (`COPIES`) answer from our copy at
+  `/digitalhangar-copies/...` when one is committed; without one www's answer as before.

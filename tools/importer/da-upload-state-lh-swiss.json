@@ -2846,9 +2846,9 @@
    "preview": "2026-11-02T06:18:09.977Z"
   },
   "/ch/de/book-and-manage/corporate-customers/group-travel-and-charter/group-travel/group-travel-request": {
-   "uploaded": "2026-11-02T11:20:09.172Z",
-   "mtime": 1793617726930,
-   "preview": "2026-11-02T11:20:11.176Z"
+   "uploaded": "2026-11-02T14:29:58.118Z",
+   "mtime": 1793629793866,
+   "preview": "2026-11-02T14:30:00.162Z"
   },
   "/ch/de/book-and-manage/destination": {
    "uploaded": "2026-11-02T06:22:51.644Z",
@@ -2861,14 +2861,14 @@
    "preview": "2026-11-02T06:22:55.782Z"
   },
   "/ch/de/customer-support/contact-us/data-protection-form": {
-   "uploaded": "2026-11-02T11:20:12.946Z",
-   "mtime": 1793617727146,
-   "preview": "2026-11-02T11:20:14.653Z"
+   "uploaded": "2026-11-02T14:30:06.170Z",
+   "mtime": 1793629794058,
+   "preview": "2026-11-02T14:30:08.435Z"
   },
   "/ch/de/customer-support/refunds/refund-form": {
-   "uploaded": "2026-11-02T11:20:16.434Z",
-   "mtime": 1793617727441,
-   "preview": "2026-11-02T11:20:18.014Z"
+   "uploaded": "2026-11-02T14:30:17.746Z",
+   "mtime": 1793629794279,
+   "preview": "2026-11-02T14:30:20.197Z"
   },
   "/ch/de/discover/a350/cabin": {
    "uploaded": "2026-11-02T06:46:12.844Z",
@@ -2901,9 +2901,9 @@
    "preview": "2026-11-02T10:06:19.359Z"
   },
   "/ch/de/local-page/group-travel/group-travel-request": {
-   "uploaded": "2026-11-02T06:23:25.397Z",
-   "mtime": 1793600560656,
-   "preview": "2026-11-02T06:23:27.438Z"
+   "uploaded": "2026-11-02T14:30:21.953Z",
+   "mtime": 1793629794721,
+   "preview": "2026-11-02T14:30:24.474Z"
   },
   "/ch/de/terms-conditions/conditions-of-carriage": {
    "uploaded": "2026-11-02T06:23:28.808Z",
@@ -2941,9 +2941,9 @@
    "preview": "2026-11-02T06:23:46.422Z"
   },
   "/ch/en/book-and-manage/corporate-customers/group-travel-and-charter/group-travel/group-travel-request": {
-   "uploaded": "2026-11-02T11:20:19.649Z",
-   "mtime": 1793617728530,
-   "preview": "2026-11-02T11:20:21.406Z"
+   "uploaded": "2026-11-02T14:30:26.919Z",
+   "mtime": 1793629795166,
+   "preview": "2026-11-02T14:30:29.454Z"
   },
   "/ch/en/book-and-manage/destination": {
    "uploaded": "2026-11-02T06:23:50.531Z",
@@ -2951,14 +2951,14 @@
    "preview": "2026-11-02T06:23:52.064Z"
   },
   "/ch/en/customer-support/contact-us/data-protection-form": {
-   "uploaded": "2026-11-02T11:20:23.469Z",
-   "mtime": 1793617728734,
-   "preview": "2026-11-02T11:20:25.167Z"
+   "uploaded": "2026-11-02T14:30:35.142Z",
+   "mtime": 1793629795349,
+   "preview": "2026-11-02T14:30:37.774Z"
   },
   "/ch/en/customer-support/contact-us/technical-support": {
-   "uploaded": "2026-11-02T11:20:30.739Z",
-   "mtime": 1793617916051,
-   "preview": "2026-11-02T11:20:32.288Z"
+   "uploaded": "2026-11-02T14:30:44.272Z",
+   "mtime": 1793629795425,
+   "preview": "2026-11-02T14:30:46.107Z"
   },
   "/ch/en/discover/a350/cabin": {
    "uploaded": "2026-11-02T06:49:53.034Z",
@@ -3029,6 +3029,36 @@
    "uploaded": "2026-11-02T06:24:35.390Z",
    "mtime": 1793600564957,
    "preview": "2026-11-02T06:24:36.835Z"
+  },
+  "/ch/de/book-and-manage/corporate-customers/group-travel-and-charter/group-travel/group-travel-request-success": {
+   "uploaded": "2026-11-02T14:30:01.925Z",
+   "mtime": 1793629691729,
+   "preview": "2026-11-02T14:30:04.125Z"
+  },
+  "/ch/de/customer-support/contact-us/data-protection-form/form-success": {
+   "uploaded": "2026-11-02T14:30:10.354Z",
+   "mtime": 1793629700801,
+   "preview": "2026-11-02T14:30:12.370Z"
+  },
+  "/ch/de/customer-support/refunds/confirmation": {
+   "uploaded": "2026-11-02T14:30:14.027Z",
+   "mtime": 1793629691796,
+   "preview": "2026-11-02T14:30:15.757Z"
+  },
+  "/ch/en/book-and-manage/corporate-customers/group-travel-and-charter/group-travel/group-travel-request-success": {
+   "uploaded": "2026-11-02T14:30:31.214Z",
+   "mtime": 1793629691825,
+   "preview": "2026-11-02T14:30:33.207Z"
+  },
+  "/ch/en/customer-support/contact-us/data-protection-form/form-success": {
+   "uploaded": "2026-11-02T14:30:39.953Z",
+   "mtime": 1793629701996,
+   "preview": "2026-11-02T14:30:42.475Z"
+  },
+  "/ch/en/customer-support/contact-us/technical-support/technical-support-success": {
+   "uploaded": "2026-11-02T14:30:47.868Z",
+   "mtime": 1793629691890,
+   "preview": "2026-11-02T14:30:49.853Z"
   }
  },
  "media": {
