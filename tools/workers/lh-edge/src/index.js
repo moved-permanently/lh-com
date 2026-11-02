@@ -62,6 +62,7 @@ import {
 } from './onetrust.js';
 import { digitalhangar, isDigitalhangarPath } from './digitalhangar.js';
 import { of1, isOf1Path } from './of1.js';
+import { withLiveAlternates } from './live-alternates.js';
 
 /**
  * /service-worker.js: www's file (the code repository's copy, served by the origin) with www's
@@ -295,9 +296,14 @@ export const ROUTES = [
     handle: market,
   },
   {
+    // the live roots' pages with their alternates once a wave is live (src/live-alternates.js)
     name: 'pass-through',
     match: () => true,
-    handle: passThrough,
+    handle: async (request, env) => withLiveAlternates(
+      await passThrough(request, env),
+      request,
+      env,
+    ),
   },
 ];
 
@@ -343,7 +349,7 @@ async function respond(incoming, env, ctx, forms = true) {
     request = withPublicHost(incoming, door);
     const target = frontDoorTarget(new URL(request.url).pathname, frontDoorCountries(door, env));
     if (target === 'gate') return finish(await backends(request, env), request, env, 'gate');
-    if (target === 'origin') return finish(await passThrough(request, env), request, env, 'pass-through');
+    if (target === 'origin') return finish(await withLiveAlternates(await passThrough(request, env), request, env), request, env, 'pass-through');
     // OF1's generative search API (src/of1.js): the front door only, never cached or rewritten
     if (String(env.OF1_ORIGIN || '').trim() && isOf1Path(new URL(request.url).pathname)) {
       return finish(await of1(request, env), request, env, 'of1');

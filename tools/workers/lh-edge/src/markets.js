@@ -60,9 +60,9 @@ export const MARKET_INDEX = '/market-pages.json';
 // documents the language index leaves out on purpose (helix-query.yaml search-<cc>-<ll>): nav,
 // footer, fragments, form confirmations, the search page, article config; a market root without
 // its own gets the language version's
-const LANGUAGE_ONLY = /^\/(nav|footer)$|^\/(fragments|support\/search|articles\/config)\/|\/(confirmation|[^/]*-confirmation)$/;
+export const LANGUAGE_ONLY = /^\/(nav|footer)$|^\/(fragments|support\/search|articles\/config)\/|\/(confirmation|[^/]*-confirmation)$/;
 // documents of a root that are no pages of it (not in its search index or sitemap)
-const NOT_PAGES = /\/(nav|footer)$|\/fragments\//;
+export const NOT_PAGES = /\/(nav|footer)$|\/fragments\//;
 const INDEX_TTL_MS = 60000;
 const PAGE = 1000;
 const indexes = new Map();
@@ -506,7 +506,7 @@ export function marketHref(href, {
   return v === raw ? null : v;
 }
 
-const escapeAttr = (s) => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+export const escapeAttr = (s) => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
 
 const KEEP = 'data-lh-market-keep';
 
