@@ -110,6 +110,12 @@ test('www\'s hidden helper links (a link holding only its screen-reader note, an
   const icon = '<a href="https://www.linkedin.com/x"><i class="lh lh-linkedin"></i><span class="sr-only">LinkedIn</span></a><a href="/x"><img src="/a.png" alt="A"></a>';
   assert.equal(withoutHelperLinks(icon), icon);
   assert.equal(withoutHelperLinks('<a href="/x"> <span class="sr-only"> note </span> </a>'), '');
+  // terms-and-conditions-traveller: the helper with www's "opens in a new tab" icon before the real link
+  const terms = 'E-Mail: <a linkmode="mailto:" href="mailto:support.business@lufthansa-group.com" target="_blank"><em class="lh lh-link-popup"></em><span class="sr-only">The link will be opened in a new browser tab</span></a><em class="lh lh-link-popup"><a href="mailto:support.business@lufthansa-group.com">support.business.vie@lufthansa-group.com</a></em>';
+  assert.equal(withoutHelperLinks(terms), 'E-Mail: <em class="lh lh-link-popup"><a href="mailto:support.business@lufthansa-group.com">support.business.vie@lufthansa-group.com</a></em>');
+  // another icon (a content icon) keeps its link
+  const social = '<a href="https://x.example"><em class="lh lh-linkedin"></em><span class="sr-only">LinkedIn</span></a>';
+  assert.equal(withoutHelperLinks(social), social);
 });
 
 test('the hotline sheet from the record: one row per country with a contact, www\'s order, German names and notes', async () => {

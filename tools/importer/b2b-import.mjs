@@ -244,11 +244,12 @@ export const withLocalImages = (doc) => doc.replace(/<img src="(?:https:\/\/busi
 /**
  * www's hidden helper links: a link holding only its screen-reader note ("The link will be opened
  * in a new browser tab", pointing to /gc/en/...) and an empty link, as the de/de raffle's terms
- * note has them before the real link; the import made the note the link's text. A link with an
- * icon or an image keeps it.
+ * note has them before the real link; the import made the note the link's text. www's "opens in
+ * a new tab" icon (lh-link-popup) counts as part of the helper (terms-and-conditions-traveller);
+ * a link with another icon or an image keeps it.
  */
 export const withoutHelperLinks = (html) => html
-  .replace(/<a\b[^>]*>(?:\s|&nbsp;|<span class="sr-only">[^<]*<\/span>)*<\/a>/g, '');
+  .replace(/<a\b[^>]*>(?:\s|&nbsp;|<span class="sr-only">[^<]*<\/span>|<(i|em) class="lh lh-link-popup"><\/\1>)*<\/a>/g, '');
 
 /** The template of a page: lh-com's info template (B2B has no homepage widgets of lh-com's). */
 export const templateOf = () => 'info';
