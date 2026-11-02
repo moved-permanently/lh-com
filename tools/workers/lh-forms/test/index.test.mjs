@@ -1486,6 +1486,55 @@ test('SWISS file rules as www\'s: 5 x 3.7 MB (loss of personal item 2,048,000; d
   });
 });
 
+// SWISS's corporate site (www.swiss.com/corporate/<ll>/, en de fr; the capture of 2026-11-02): its
+// three forms, ids swiss-<page name>; a sub-site page sends its language alone (blocks/form
+// submissionLocale: the site's languages); the subject the title in that language
+const CORPORATE = [
+  ['swiss-media-permission', ['Application for permission to film for media creators', 'Antrag Drehgenehmigung für Medienschaffende', 'Demande d’autorisation de tournage pour les créateurs de médias']],
+  ['swiss-media-request-form', ['Inquiries from media creators', 'Anfragen von Medienschaffenden', 'Demandes des professionnels des médias']],
+  ['swiss-contact-corporate-procurement', ['Corporate Procurement Inquiry']],
+];
+
+test('SWISS corporate: its three forms in en, de and fr (the language alone), the title in the page\'s language, else English; the others as before', async () => {
+  const env = makeEnv({ FORM_CONFIG: JSON.stringify({ default: { to: 'only@example.com' } }) });
+  const cases = CORPORATE.flatMap(([form, titles]) => ['en', 'de', 'fr'].map((locale, i) => [{ form, locale, origin: LX }, `[lh-swiss] ${titles[i] || titles[0]} (${locale})`]));
+  // as before: the ch roots' titles, lh-com's fr-fr form (its French title in en and de)
+  cases.push([{ form: 'swiss-general-request', locale: 'ch-de', origin: LX }, '[lh-swiss] Kontakt: Allgemeine Anfrage und Buchungsanfragen (ch-de)']);
+  cases.push([{ form: 'swiss-general-request', locale: 'fr', origin: LX }, '[lh-swiss] Contact: General request and booking enquiries (fr)']);
+  const results = await Promise.all(cases.map(([opts], i) => post({ ...opts, ip: `203.0.113.${100 + i}` }, env)));
+  results.forEach(({ res, body }, i) => {
+    assert.equal(res.status, 200, cases[i][1]);
+    assert.deepEqual(body, { ok: true });
+  });
+  assert.deepEqual(sent.map((m) => m.subject).sort(), cases.map((c) => c[1]).sort());
+});
+
+test('SWISS corporate file rules as www\'s: the permission to film 5 x 3,700,000 PDF or JPEG; the other two take no files', async () => {
+  const pdf = (name, size = 0) => {
+    const bytes = new Uint8Array(Math.max(size, PDF.length));
+    bytes.set(PDF);
+    return ['Attachments', file(bytes, name, 'application/pdf')];
+  };
+  const five = (size) => [1, 2, 3, 4, 5].map((n) => pdf(`${n}.pdf`, size));
+  const cases = [
+    ['swiss-media-permission', five(3700000), 200, null],
+    ['swiss-media-permission', [['Attachments', file(JPG, 'a.jpg', 'image/jpeg')]], 200, null],
+    ['swiss-media-permission', [['Attachments', file(PNG, 'a.png', 'image/png')]], 400, 'invalid-file-type'],
+    ['swiss-media-permission', [pdf('a.pdf', 3700001)], 413, 'file-too-large'],
+    ['swiss-media-permission', [...five(), pdf('6.pdf')], 400, 'too-many-files'],
+    ['swiss-media-request-form', [pdf('a.pdf')], 400, 'files-not-allowed'],
+    ['swiss-contact-corporate-procurement', [pdf('a.pdf')], 400, 'files-not-allowed'],
+  ];
+  const results = await Promise.all(cases.map(([form, files], i) => post({
+    origin: LX, locale: 'de', form, files, ip: `192.0.2.${120 + i}`,
+  })));
+  results.forEach(({ res, body }, i) => {
+    const [form, , status, error] = cases[i];
+    assert.equal(res.status, status, `${form} ${i}`);
+    assert.deepEqual(body, error ? { ok: false, error } : { ok: true }, `${form} ${i}`);
+  });
+});
+
 // lh-com's market roots' own forms (www's local pages: bg/en, il/en, mk/de); ids by page name, as
 // the other lh-com forms; mk/en's support/refund has no fields on www and no id
 const LH = 'https://lufthansa.turnsthe.page';

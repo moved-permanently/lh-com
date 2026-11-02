@@ -21,8 +21,9 @@ import { WorkerEntrypoint } from 'cloudflare:workers';
 
 /** A brand's ids (<brand>-<page name>) and titles: [en, de], one title for both languages. */
 function brandForms(brand, titles) {
+  // [en, de, fr]: a French title where the form has French pages (SWISS's corporate site)
   return Object.fromEntries(Object.entries(titles)
-    .map(([name, [en, de = en]]) => [`${brand}-${name}`, { en, de }]));
+    .map(([name, [en, de = en, fr]]) => [`${brand}-${name}`, fr ? { en, de, fr } : { en, de }]));
 }
 /** Austrian's ids (austrian-<page name>) and titles: [en, de], one title for both languages. */
 function austrianForms(titles) {
@@ -230,6 +231,11 @@ const FORMS = {
     'swiss-au-mondial-de-fondue': ['SWISS at the Fondue World Championship'],
     'swiss-nati-women': ["Swiss Women's National Football Team"],
     'womens-nations-league': ["Women's Nations League"],
+    // the corporate site (/corporate/<ll>/, en de fr; the capture of 2026-11-02): the pages' h1;
+    // the procurement inquiry has an English page only
+    'media-permission': ['Application for permission to film for media creators', 'Antrag Drehgenehmigung für Medienschaffende', 'Demande d’autorisation de tournage pour les créateurs de médias'],
+    'media-request-form': ['Inquiries from media creators', 'Anfragen von Medienschaffenden', 'Demandes des professionnels des médias'],
+    'contact-corporate-procurement': ['Corporate Procurement Inquiry'],
   }),
 };
 // any country-language pair (the site's roots: de-en, de-de, at-de, gb-en, and the next ones),
@@ -348,7 +354,8 @@ function brusselsFileRules() {
  * SWISS's drop zones (the file rows of lh-swiss' form pages, as www's forms-filedrop): the three
  * claim forms and the general request image/png, image/jpeg, application/pdf, 5 x 3,700,000 (18.5
  * MB in all: the total of MAIL_FILES); the loss of personal item form 5 x 2,048,000; the data
- * protection form application/pdf, image/jpeg, image/png, 5 x 3,000,000.
+ * protection form application/pdf, image/jpeg, image/png, 5 x 3,000,000; the corporate site's
+ * permission to film application/pdf, image/jpeg, 5 x 3,700,000.
  */
 function swissFileRules() {
   const rules = (types, maxSize) => ({
@@ -365,6 +372,8 @@ function swissFileRules() {
     'swiss-request-for-refund-of-expenses': rules(ALL, 3700000),
     'swiss-loss-of-personal-item-form': rules(ALL, 2048000),
     'swiss-data-protection-form': rules(['application/pdf', 'image/jpeg', 'image/png'], 3000000),
+    // the corporate site's permission to film (accept=application/pdf,image/jpeg, 5 x 3,700,000)
+    'swiss-media-permission': rules(['application/pdf', 'image/jpeg'], 3700000),
   };
 }
 const FILE_RULES = {
@@ -944,7 +953,9 @@ async function submit(request, env, origin) {
   const recipients = resolveRecipients(parseConfig(env.FORM_CONFIG), form, locale);
   if (!recipients) return fail(500, 'no-recipients', origin);
 
-  const title = FORMS[form][locale === 'de' || locale.endsWith('-de') ? 'de' : 'en'];
+  // the title in the submission's language where the form has one (fr: SWISS's corporate site),
+  // else German for German, English for the rest
+  const title = FORMS[form][locale.split('-').pop()] || FORMS[form][locale === 'de' || locale.endsWith('-de') ? 'de' : 'en'];
   const { fields } = checked;
   const { attachments } = filesChecked;
   const { html, text: plain } = buildMail({
