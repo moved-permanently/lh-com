@@ -262,6 +262,7 @@ export const BRANDS = {
     name: 'SWISS',
     oneTrust: '01994cb2-f461-7489-80cc-e1ce655a86bc',
     messageCenter: 'lx',
+    destinationImages: '/content/dam/lx/images/offers/destination',
     www: 'www.swiss.com',
     portal: 'LX',
     hub: 'ZRH',

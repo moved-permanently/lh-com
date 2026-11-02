@@ -2,7 +2,8 @@
 /* Destination images per brand (scripts/brand.js destinationImageBase, scripts/lh-api.js
    destinationImageUrl, blocks/destination-offer's panorama): www's imageBaseUrl of each brand
    (Discover /content/dam/four_y/images/offers/destination, its snapshots; ITA
-   /content/dam/ita/images/offers/destination), Lufthansa's folder for lh-com and the brands
+   /content/dam/ita/images/offers/destination; SWISS /content/dam/lx/images/offers/destination, its
+   fare widgets' imageBaseUrl in the snapshots), Lufthansa's folder for lh-com and the brands
    without one. Run: node --max-old-space-size=512 --test test/destination-images.test.mjs */
 /* global globalThis */
 import test from 'node:test';
@@ -35,6 +36,7 @@ test('destinationImageBase: the brand\'s folder on www, Lufthansa\'s otherwise',
   assert.equal(DEFAULT_DESTINATION_IMAGES, '/content/dam/lh/images/offers/destination');
   assert.equal(destinationImageBase(meta('ita')), '/content/dam/ita/images/offers/destination');
   assert.equal(destinationImageBase(meta('discover')), '/content/dam/four_y/images/offers/destination');
+  assert.equal(destinationImageBase(meta('swiss')), '/content/dam/lx/images/offers/destination');
   assert.equal(destinationImageBase(meta('cargo')), DEFAULT_DESTINATION_IMAGES);
   assert.equal(destinationImageBase(meta('')), DEFAULT_DESTINATION_IMAGES);
   assert.equal(destinationImageBase(), DEFAULT_DESTINATION_IMAGES, 'no page');
@@ -46,6 +48,7 @@ test('destinationImageUrl: the page\'s brand folder; lh-com exactly as before', 
   assert.equal(lh, '/content/dam/lh/images/offers/destination/cun-square.jpg?width=720&format=jpeg&optimize=medium');
   assert.equal(onPage('discover', () => destinationImageUrl('CUN', 720)), '/content/dam/four_y/images/offers/destination/cun-square.jpg?width=720&format=jpeg&optimize=medium');
   assert.equal(onPage('ita', () => destinationImageUrl('JFK', 180)), '/content/dam/ita/images/offers/destination/jfk-square.jpg?width=180&format=jpeg&optimize=medium');
+  assert.equal(onPage('swiss', () => destinationImageUrl('BCN', 180)), '/content/dam/lx/images/offers/destination/bcn-square.jpg?width=180&format=jpeg&optimize=medium');
   assert.equal(onPage('ita', () => destinationImageUrl('x1', 180)), '', 'not a code');
 });
 
