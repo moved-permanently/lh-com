@@ -23,4 +23,7 @@ test('countryOfRedirect: a market-neutral page sent into a country root names th
   assert.equal(countryOfRedirect(`${W}/xx/en/a`, `${W}/xx/en/b`), null, 'an alias inside xx');
   assert.equal(countryOfRedirect(`${W}/de/en/a`, `${W}/gb/en/a`), null, 'not a market-neutral page');
   assert.equal(countryOfRedirect(`${W}/xx/en/a`, `${W}/xx/en/a`), null);
+  // www's own alias into a country root (another page there): no country, an alias
+  assert.equal(countryOfRedirect(`${W}/xx/en/dcc`, `${W}/de/en/partner`), null);
+  assert.equal(countryOfRedirect(`${W}/xx/en/articles/tags/munich-travel-guide`, `${W}/de/en/articles/tags/munich`), null);
 });

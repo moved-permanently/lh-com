@@ -250,6 +250,8 @@ try {
     const wrongPage = nav.status === null && !onPath;
     const moved = samePath && !netError && !wrongPage ? redirectedTo(url, page.url()) : null;
     if (moved) {
+      // the same page in a country root: the exit's country (asked again); another page: www's
+      // own alias, done
       const cc = countryOfRedirect(url, page.url());
       state.pages[url] = {
         status: 'redirected', to: moved, ...(cc ? { country: cc } : {}), at: new Date().toISOString(),

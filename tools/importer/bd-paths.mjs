@@ -22,11 +22,13 @@ export function redirectedTo(requested, final) {
   return a === b ? null : new URL(final).pathname;
 }
 
-/** The country a market-neutral page (/xx/<ll>/...) went to ('de' for /de/en/...), or null. */
+/** The country a market-neutral page (/xx/<ll>/x) went to ('de' for /de/en/x), or null. */
 export function countryOfRedirect(requested, final) {
   const a = pathOf(requested);
   const b = pathOf(final);
   if (!a || !b || a === b || !/^\/xx\/[a-z]{2}(\/|$)/.test(a)) return null;
-  const m = b.match(/^\/([a-z]{2})\/[a-z]{2}(\/|$)/);
-  return m && m[1] !== 'xx' ? m[1] : null;
+  // the same page in a country root (the exit's country); another page there is www's own alias
+  const m = b.match(/^\/([a-z]{2})\/[a-z]{2}(\/.*|$)/);
+  const rest = a.replace(/^\/xx\/[a-z]{2}/, '');
+  return m && m[1] !== 'xx' && m[2] === rest ? m[1] : null;
 }
