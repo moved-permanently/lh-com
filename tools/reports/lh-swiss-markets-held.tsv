@@ -1,0 +1,13 @@
+root	language	www label	default origin	homepage	own pages	paths
+ar/es	es	Argentina | Español	BUE	https://www.swiss.com/ar/es/homepage	2	/ar/es/local-page/companion-special-swiss-business /ar/es/local-page/companion-special-swiss-premium-economy
+br/es	es	Brasil | Español	SAO	https://www.swiss.com/br/es/homepage	0	
+br/pt	pt	Brasile | Português	SAO	https://www.swiss.com/br/pt/homepage	4	/br/pt/customer-support/flight-voucher/flight-voucher-portal /br/pt/local-page/ski-campaign-2026 /br/pt/pix /br/pt/terminal-btg
+cn/zh	zh	Cina (Continentale) | 简体中文	BJS	https://www.swiss.com/cn/zh/homepage	4	/cn/zh/irreg-handling-plan /cn/zh/local-page/cnypromocode26 /cn/zh/local-page/lx-cn-zh-tarmac-delay-contingency-plan /cn/zh/local-page/promocode-pe-business-lx-in
+es/es	es	Spain | Español	MAD	https://www.swiss.com/es/es/homepage	4	/es/es/bizum /es/es/feedback /es/es/fly-friday22 /es/es/local-page/ski-campaign-2026
+gr/el	el	Griechenland | Ελληνικά	ATH	https://www.swiss.com/gr/el/homepage	1	/gr/el/family-promotion
+hk/zh	zh	Hong Kong, Cina | 简体中文	HKG	https://www.swiss.com/hk/zh/homepage	2	/hk/zh/compensation/flight-voucher /hk/zh/compensation/flight-voucher/terms-of-use
+jp/ja	ja	Giappone | 日本語	TYO	https://www.swiss.com/jp/ja/homepage	1	/jp/ja/local-page/japanese-meal
+pt/pt	pt	Portugal | Português	LIS	https://www.swiss.com/pt/pt/homepage	1	/pt/pt/feedback
+ru/ru	ru	Federazione Russa | Русский	ZRH	https://www.swiss.com/ru/ru/homepage	1	/ru/ru/family-promotion
+sg/zh	zh	新加坡 (Singapore) | 简体中文	SIN	https://www.swiss.com/sg/zh/homepage	0	
+us/es	es	Estados Unidos de América | Español	NYC	https://www.swiss.com/us/es/homepage	0	
