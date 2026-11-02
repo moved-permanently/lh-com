@@ -289,7 +289,14 @@ export function withItaForm(doc, p, html = '') {
 
 // the language of a form message (www's raffle forms on ch/en carry ch/fr's French ones, some
 // forms German ones)
-const MESSAGE_LANGUAGE = [['fr', /\b(?:Veuillez|votre|vos)\b/i], ['de', /\b(?:Bitte|Geben Sie|Ihre[nrs]?|Pflichtfeld)\b/], ['en', /\b(?:Please|your|required field)\b/i], ['it', /\b(?:Inserisca|Selezioni|Compili|campo obbligatorio)\b/i]];
+const MESSAGE_LANGUAGE = [
+  ['fr', /\b(?:Veuillez|votre|vos)\b/i],
+  ['de', /\b(?:Bitte|Geben Sie|Ihre[nrs]?|Pflichtfeld)\b/],
+  ['en', /\b(?:Please|your|required field|Choose a)\b/i],
+  ['it', /\b(?:Inserisca|Selezioni|Compili|campo obbligatorio)\b/i],
+  ['es', /\b(?:Introduzca|Seleccione|Rellene)\b/],
+  ['pt', /\b(?:Digite|Selecione|Informe|Preencha)\b/],
+];
 // SWISS's own wording per field name (its forms in the language), and the form block's
 // messages (DEFAULT_LABELS required / format error) for the other fields
 const FIELD_MESSAGES = {
@@ -370,6 +377,48 @@ const FIELD_MESSAGES = {
     'format error': 'Verifichi i dati inseriti.',
     'email format': 'Inserisca un indirizzo e-mail valido.',
   },
+  // ch/es and ch/pt (brief 279): SWISS's Spanish and Portuguese forms' most frequent wording per
+  // field, a Spanish or Portuguese required or format message for the others
+  es: {
+    salutation: 'Seleccione un tratamiento.',
+    gender: 'Seleccione una forma de saludo',
+    firstname: 'Introduzca su nombre.',
+    lastname: 'Introduzca sus apellidos.',
+    nachname: 'Introduzca sus apellidos.',
+    email: 'Introduzca su dirección de correo electrónico.',
+    zip: 'Introduzca su código postal.',
+    city: 'Introduzca su localidad.',
+    street: 'Introduzca su calle y número',
+    adress: 'Introduzca su calle y número',
+    country: 'El país es un campo obligatorio.',
+    state: 'El país es un campo obligatorio.',
+    phone: 'Introduzca su número de teléfono.',
+    outbounddate: 'Seleccione su fecha de salida.',
+    inbounddate: 'Seleccione su fecha de regreso.',
+    'required error': 'Rellene este campo.',
+    'format error': 'Compruebe los datos introducidos.',
+    'email format': 'Introduzca una dirección de correo electrónico válida.',
+  },
+  pt: {
+    salutation: 'Selecione um pronome de tratamento.',
+    gender: 'Escolha uma forma de tratamento',
+    firstname: 'Digite seu nome.',
+    lastname: 'Digite seu sobrenome.',
+    nachname: 'Digite seu sobrenome.',
+    email: 'Digite seu endereço de e-mail.',
+    zip: 'Digite seu código postal.',
+    city: 'Digite sua cidade.',
+    street: 'Digite o nome da rua e o número da residência',
+    adress: 'Digite o nome da rua e o número da residência',
+    country: 'O país é um campo obrigatório.',
+    state: 'O país é um campo obrigatório.',
+    phone: 'Digite seu número de telefone',
+    outbounddate: 'Selecione a data de partida',
+    inbounddate: 'Selecione a data de retorno',
+    'required error': 'Preencha este campo.',
+    'format error': 'Verifique os dados informados.',
+    'email format': 'Digite um e-mail válido.',
+  },
 };
 // a row of a form block (cells without nested blocks)
 const FORM_ROW = /<div>(?:<div>(?:(?!<\/?div[ >])[\s\S])*<\/div>){8,}<\/div>/g;
@@ -423,9 +472,15 @@ export function withItaMetadata(doc, p, html, markets = []) {
 // shop.swiss.com, the same booking platform as Lufthansa's) and starts from Zurich (ch/fr: Geneva,
 // as its homepage's flight search)
 export const SHOP = 'https://shop.swiss.com/booking/availability';
-// the market's airport per root, named in the root's language (the homepages' flight search)
+// the market's airport per root, named in the root's language (the homepages' flight search;
+// ch/es's writes Zurich)
 const DEFAULT_ORIGIN = {
-  'ch/en': 'Zurich (ZRH)', 'ch/de': 'Zürich (ZRH)', 'ch/fr': 'Genève (GVA)', 'ch/it': 'Zurigo (ZRH)',
+  'ch/en': 'Zurich (ZRH)',
+  'ch/de': 'Zürich (ZRH)',
+  'ch/fr': 'Genève (GVA)',
+  'ch/it': 'Zurigo (ZRH)',
+  'ch/es': 'Zurich (ZRH)',
+  'ch/pt': 'Zurique (ZRH)',
 };
 
 /** The document's flight-search blocks with the Shop row and the market's default origin. */

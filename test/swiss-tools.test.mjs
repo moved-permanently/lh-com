@@ -240,7 +240,7 @@ test('the flight search\'s group booking and destinations links: our pages in th
 test('the plan\'s extra lists: every list of the capture that is no Studio batch (c1, x01, p11, x11 ...), on the roots imported so far', async () => {
   // eslint-disable-next-line import/extensions
   const { extraBatches, IMPORTED_ROOTS } = await import('../tools/importer/swiss-plan.mjs');
-  assert.deepEqual(IMPORTED_ROOTS, ['ch/en', 'ch/de', 'ch/fr', 'ch/it']);
+  assert.deepEqual(IMPORTED_ROOTS, ['ch/en', 'ch/de', 'ch/fr', 'ch/it', 'ch/es', 'ch/pt']);
   const page = (list, status = 'ok') => ({ status, list });
   const pages = {
     'https://www.swiss.com/ch/en/a/confirmation': page('c1'),
@@ -249,15 +249,16 @@ test('the plan\'s extra lists: every list of the capture that is no Studio batch
     'https://www.swiss.com/ch/it/d/': page('p15'),
     'https://www.swiss.com/ch/it/e': page('15'),
     'https://www.swiss.com/ch/es/f': page('p19'),
+    'https://www.swiss.com/ch/zh/h': page('p31'),
     'https://www.swiss.com/ch/fr/g': page('p11', 'failed'),
   };
   assert.deepEqual(extraBatches(pages), {
-    c1: ['/ch/en/a/confirmation'], p11: ['/ch/fr/b'], x11: ['/ch/fr/c'], p15: ['/ch/it/d'],
-  }, 'no Studio batch (15), no other root (ch/es), only pages captured ok');
+    c1: ['/ch/en/a/confirmation'], p11: ['/ch/fr/b'], x11: ['/ch/fr/c'], p15: ['/ch/it/d'], p19: ['/ch/es/f'],
+  }, 'no Studio batch (15), no other root (ch/zh), only pages captured ok');
   assert.deepEqual(extraBatches(pages, ['ch/en']), { c1: ['/ch/en/a/confirmation'] });
 });
 
-test('the flight search\'s Shop row and the root\'s default origin: Zurich on ch/en, ch/de and ch/it, Geneva on ch/fr; none on other roots', async () => {
+test('the flight search\'s Shop row and the root\'s default origin: Zurich on ch/en, ch/de, ch/it, ch/es and ch/pt, Geneva on ch/fr; none on other roots', async () => {
   // eslint-disable-next-line import/extensions
   const { withFlightSearch } = await import('../tools/importer/swiss-import.mjs');
   const doc = '<div class="flight-search standalone"><div><div>Tabs</div><div>Flights</div></div></div>';
@@ -266,7 +267,10 @@ test('the flight search\'s Shop row and the root\'s default origin: Zurich on ch
   assert.equal(origin('/ch/de/homepage'), 'Zürich (ZRH)');
   assert.equal(origin('/ch/fr/homepage'), 'Genève (GVA)', 'www\'s ch/fr homepage searches from Geneva');
   assert.equal(origin('/ch/it/homepage'), 'Zurigo (ZRH)');
-  assert.equal(origin('/ch/es/homepage'), '');
+  // brief 279: the Spanish and Portuguese homepages' field (www writes Zurich on ch/es)
+  assert.equal(origin('/ch/es/homepage'), 'Zurich (ZRH)');
+  assert.equal(origin('/ch/pt/homepage'), 'Zurique (ZRH)');
+  assert.equal(origin('/ch/zh/homepage'), '');
   assert.match(withFlightSearch(doc, '/ch/fr/homepage'), /<div>Shop<\/div><div><a href="https:\/\/shop\.swiss\.com\/booking\/availability">/);
 });
 
@@ -346,7 +350,13 @@ test('form messages in the page\'s language: www\'s French or German ones on Eng
   const it = form(field('Nome', 'text', 'firstName', 'Inserisca il suo nome.'));
   assert.equal(withPageLanguageMessages(it, '/ch/it/x'), it, 'Italian on ch/it: as it is');
   assert.equal(withPageLanguageMessages(it, '/ch/en/x'), form(field('Nome', 'text', 'firstName', 'Please enter your first name.')), 'Italian on ch/en: English');
-  assert.equal(withPageLanguageMessages(doc, '/ch/es/x'), doc, 'a root without wording: as it is');
+  // brief 279: ch/es and ch/pt (the same forms' German messages; an English one on ch/pt)
+  const es = form(field('Nombre', 'text', 'firstName', 'Geben Sie Ihren Vornamen an'), field('Fecha', 'date', 'date', 'Geben Sie das Datum des Vorfalls an'), field('Apellidos', 'text', 'lastName', 'Introduzca sus apellidos'));
+  assert.equal(withPageLanguageMessages(es, '/ch/es/customer-support/contact-us/technical-support'), form(field('Nombre', 'text', 'firstName', 'Introduzca su nombre.'), field('Fecha', 'date', 'date', 'Rellene este campo.'), field('Apellidos', 'text', 'lastName', 'Introduzca sus apellidos')), 'Spanish kept, German as SWISS\'s Spanish');
+  const pt = form(field('Tratamento', 'text', 'gender', 'Choose a form of address'), field('Data', 'date', 'outboundDate', 'Geben Sie ein Abflugdatum an'), field('Nome', 'text', 'firstName', 'Digite seu nome'));
+  assert.equal(withPageLanguageMessages(pt, '/ch/pt/x'), form(field('Tratamento', 'text', 'gender', 'Escolha uma forma de tratamento'), field('Data', 'date', 'outboundDate', 'Selecione a data de partida'), field('Nome', 'text', 'firstName', 'Digite seu nome')), 'Portuguese kept, German and English as SWISS\'s Portuguese');
+  assert.equal(withPageLanguageMessages(es, '/ch/en/x').includes('Please enter your surname.'), true, 'Spanish on ch/en: English');
+  assert.equal(withPageLanguageMessages(doc, '/ch/zh/x'), doc, 'a root without wording: as it is');
   assert.equal(withPageLanguageMessages('<p>Veuillez</p>', '/ch/en/x'), '<p>Veuillez</p>');
 });
 
