@@ -8,7 +8,8 @@ const pathOf = (u) => {
   try {
     const { protocol, pathname } = new URL(u);
     if (!/^https?:$/.test(protocol)) return null;
-    return pathname.replace(/\/+$/, '').toLowerCase();
+    // www's long AEM path (/content/lh/markets/xx/en/x.html) is the page /xx/en/x
+    return pathname.replace(/^\/content\/lh\/markets(?=\/)/, '').replace(/\.html$/, '').replace(/\/+$/, '').toLowerCase();
   } catch (e) {
     return null;
   }
@@ -33,4 +34,10 @@ export function countryOfRedirect(requested, final) {
   // counts as www's own alias (a page that keeps doing it is left after the run's sessions)
   const m = b.match(/^\/([a-z]{2})\/[a-z]{2}(\/|$)/);
   return m && m[1] !== 'xx' ? m[1] : null;
+}
+
+/** www's long AEM URL of a page (/xx/en/x -> /content/lh/markets/xx/en/x): no vanity redirects. */
+export function longUrl(url) {
+  const u = new URL(url);
+  return `${u.origin}/content/lh/markets${u.pathname}${u.search}`;
 }

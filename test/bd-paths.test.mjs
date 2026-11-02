@@ -5,7 +5,7 @@
    Run: node --test test/*.test.mjs */
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { redirectedTo, countryOfRedirect } from '../tools/importer/bd-paths.mjs';
+import { redirectedTo, countryOfRedirect, longUrl } from '../tools/importer/bd-paths.mjs';
 
 const W = 'https://www.lufthansa.com';
 
@@ -26,4 +26,11 @@ test('countryOfRedirect: a market-neutral page sent into a country root names th
   // the counterpart's own slug in the country root counts too (an exit's redirect, not an alias)
   assert.equal(countryOfRedirect(`${W}/xx/en/dcc`, `${W}/de/en/partner`), 'de');
   assert.equal(countryOfRedirect(`${W}/xx/en/articles/tags/munich-travel-guide`, `${W}/de/en/articles/tags/munich`), 'de');
+});
+
+test('the long AEM path is the same page; its redirect into a country root names the country', () => {
+  assert.equal(longUrl(`${W}/xx/en/book-and-manage?x=1`), `${W}/content/lh/markets/xx/en/book-and-manage?x=1`);
+  assert.equal(redirectedTo(`${W}/xx/en/a`, `${W}/content/lh/markets/xx/en/a`), null);
+  assert.equal(redirectedTo(`${W}/xx/en/a`, `${W}/content/lh/markets/xx/en/a.html`), null);
+  assert.equal(countryOfRedirect(`${W}/xx/en/a`, `${W}/content/lh/markets/de/en/a`), 'de');
 });

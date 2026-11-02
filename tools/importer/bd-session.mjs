@@ -40,7 +40,7 @@ const { snapshotPathFor } = await import(path.join(SCRAPE, 'bd-scrape.js'));
 const { extractCleanedHTML, extractMetadata, scrollToTriggerLazyLoad } = await import(path.join(UPSTREAM, 'analyze-webpage.js'));
 const { generateDocumentPathInfo } = await import(path.join(UPSTREAM, 'generate-path.js'));
 
-const { redirectedTo, countryOfRedirect } = await import('./bd-paths.mjs');
+const { redirectedTo, countryOfRedirect, longUrl } = await import('./bd-paths.mjs');
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const argv = process.argv.slice(2);
 const opt = (name, def) => (argv.includes(`--${name}`) ? argv[argv.indexOf(`--${name}`) + 1] : def);
@@ -62,6 +62,11 @@ const keepErrorPages = has('keep-error-pages');
 // row (--country-redirects) sent into a country root (a German exit sends them to /de/<ll>) end the session (exit 3),
 // so the next session gets another exit (brief 267)
 const samePath = has('same-path');
+const bust = has('bust');
+// --long-path: www's long AEM URL of each page (/content/lh/markets/<path>), saved under the page's
+// own URL (www's vanity redirects, the market-neutral pages' geo redirect among them, are on the
+// short paths)
+const longPath = has('long-path');
 // --country-redirects n: market-neutral pages in a row sent into a country root that end the
 // session (default 2)
 const countryLimit = Number(opt('country-redirects', 2));
@@ -207,7 +212,7 @@ try {
 
   console.log(`bd-session: warming up on ${ANCHOR}`);
   if (COOKIES.length) await page.context().addCookies(COOKIES).catch(() => {});
-  const warm = await open(page, ANCHOR);
+  const warm = await open(page, bust ? `${ANCHOR}${ANCHOR.includes('?') ? '&' : '?'}lhq=${Date.now().toString(36)}` : ANCHOR);
   if (CHALLENGE.test(warm.title)) throw new Error('warm-up page still behind the challenge');
   console.log(`bd-session: warmed up on ${page.url()}`);
   // --same-path with a market-neutral anchor (/xx/<ll>/homepage): www sends it into the exit's
@@ -229,7 +234,10 @@ try {
     const firstWidth = shotsOnly && !widthsFor(url).includes(1440) ? widthsFor(url)[0] : 1440;
     if (firstWidth !== 1440) await page.setViewportSize({ width: firstWidth, height: 900 }).catch(() => {});
     if (COOKIES.length) await page.context().addCookies(COOKIES).catch(() => {});
-    const nav = await open(page, url);
+    // --bust: a query no cache has seen (Cloudflare keeps www's geo redirects of market-neutral
+    // pages and serves them to every visitor of that location); the page is saved under its URL
+    const asked = longPath ? longUrl(url) : url;
+    const nav = await open(page, bust ? `${asked}${asked.includes('?') ? '&' : '?'}lhq=${Date.now().toString(36)}` : asked);
     lap('open');
     const detection = await detectBlocked(page, { status: () => nav.status });
     if (detection.isBotProtection || CHALLENGE.test(nav.title)) {
@@ -246,25 +254,13 @@ try {
       || /ERR_[A-Z_]+/.test(document.body?.innerText || '')).catch(() => false);
     // a navigation that timed out without a response leaves the previous page open (batch 3:
     // /ie/de/homepage saved www's /ie/de/additional-services): not saved, retried like a net error
-    const onPath = (() => { try { return new URL(page.url()).pathname === new URL(url).pathname; } catch (e) { return false; } })();
+    const onPath = (() => { try { return redirectedTo(url, page.url()) === null; } catch (e) { return false; } })();
     const wrongPage = nav.status === null && !onPath;
     const moved = samePath && !netError && !wrongPage ? redirectedTo(url, page.url()) : null;
     if (moved) {
-      // into a country root: the anchor again tells the exit's country (it went there too: the
-      // session ends, the page is asked again later) from www's own redirect of the page (the
-      // anchor stays: a redirect like any alias, done); within the root or elsewhere: an alias
-      let cc = countryOfRedirect(url, page.url());
-      if (cc && /^\/xx\/[a-z]{2}\//.test(new URL(ANCHOR).pathname)) {
-        await sleep(minDelay);
-        await open(page, ANCHOR);
-        if (countryOfRedirect(ANCHOR, page.url())) {
-          countryExit = cc;
-          console.error(`bd-session: the anchor went into the ${countryOfRedirect(ANCHOR, page.url())} root after ${url} (the exit changed); ending session`);
-          break;
-        }
-        console.log(`  the anchor stayed: ${url} is www's own redirect into the ${cc} root`);
-        cc = null;
-      }
+      // into a country root: this request's exit (asked again later); within the root or
+      // elsewhere: www's alias, done
+      const cc = countryOfRedirect(url, page.url());
       state.pages[url] = {
         status: 'redirected', to: moved, ...(cc ? { country: cc } : {}), at: new Date().toISOString(),
       };
