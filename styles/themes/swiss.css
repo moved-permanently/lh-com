@@ -1,0 +1,165 @@
+/*
+ * SWISS: design tokens only, loaded by scripts/brand.js on a site whose metadata sets
+ * `brand: swiss` (lh-swiss' /metadata.json). Values from the group design system's SWISS
+ * stylesheet (/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/css/swiss.css, theme
+ * maui-theme-lx, 2026-11-02) and the measurements of www.swiss.com's ch/en and ch/de homepages:
+ * CH Sans for headings (SwissHead, Bold) and copy (SwissText 16/22, 0.6 px tracking); text and
+ * headings lxgrey8 #101010; lx-red #cc0000 (#c00) for actions, links and selection, berry-red #990000 (#900)
+ * their hover; warm-grey #6f6660 (pine-grey #554e49 on hover) for the secondary button, the
+ * header's quick actions and the footer's links; greys lxgrey1 to lxgrey8; square buttons (the
+ * theme's default radius 0); a white header bar with a 1 px #ccc rule and a white footer with a
+ * #ccc rule on top (lh-com's footer tokens' light variant). Fonts: .woff only, cleared for the
+ * demo, at www's own path /digitalhangar/design-system/releases/mausy-v1.40.1/standalone/fonts/swiss/:
+ * from the site's own host where lh-edge serves it, else www.swiss.com's absolute URL of the same
+ * file (the second src), as the austrian and brussels themes do. The logos are images in the
+ * site's nav and footer documents (www's /etc/designs/lx/clientlib-all/vite/img/swiss-logo.svg).
+ * lh-com's own pages never load this file.
+ */
+@font-face {
+  font-family: SwissHead;
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src:
+    url('/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/fonts/swiss/chsans-light-webfont.woff') format('woff'),
+    url('https://www.swiss.com/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/fonts/swiss/chsans-light-webfont.woff') format('woff');
+}
+
+@font-face {
+  font-family: SwissHead;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src:
+    url('/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/fonts/swiss/chsans-regular-webfont.woff') format('woff'),
+    url('https://www.swiss.com/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/fonts/swiss/chsans-regular-webfont.woff') format('woff');
+}
+
+@font-face {
+  font-family: SwissHead;
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src:
+    url('/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/fonts/swiss/chsans-bold-webfont.woff') format('woff'),
+    url('https://www.swiss.com/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/fonts/swiss/chsans-bold-webfont.woff') format('woff');
+}
+
+@font-face {
+  font-family: SwissText;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src:
+    url('/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/fonts/swiss/chsans-regular-webfont.woff') format('woff'),
+    url('https://www.swiss.com/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/fonts/swiss/chsans-regular-webfont.woff') format('woff');
+}
+
+@font-face {
+  font-family: SwissText;
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src:
+    url('/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/fonts/swiss/chsans-bold-webfont.woff') format('woff'),
+    url('https://www.swiss.com/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/fonts/swiss/chsans-bold-webfont.woff') format('woff');
+}
+
+:root {
+  /* palette: the --lh-* names lh-com's blocks read, with SWISS's values */
+  --lh-deepblue: #101010; /* lxgrey8: text, borders, dark surfaces */
+  --lh-deepblue-transparent: #1010101a;
+  --lh-midnight: #101010;
+  --lh-whale-blue: #c00; /* interaction: links in copy */
+  --lh-marble-blue: #c00; /* selection */
+  --lh-electric-blue: #0968f6; /* focus */
+  --lh-yellow: #c00; /* buttonprimary: lx-red */
+  --lh-sunglow-yellow: #900; /* buttonprimaryhover: berry-red */
+  --lh-red: #ab3b35; /* message error (carmine-red, on peach #f8ded6) */
+  --lh-green: #477c00; /* message success (spring-green, on frost-green #f2f5ee); info #2c6187 on
+                          #e8f5fc and warning #101010 on #feeea4: lh-com's blocks have no such colours */
+  --lh-grey-1: #f2f2f2; /* lxgrey1 */
+  --lh-grey-2: #f2f2f2;
+  --lh-grey-3: #ccc; /* lxgrey2 */
+  --lh-grey-4: #ccc;
+  --lh-grey-5: #929292; /* lxgrey3 */
+  --lh-grey-6: #929292;
+  --lh-grey-7: #666; /* lxgrey4 */
+  --lh-grey-8: #101010; /* lxgrey8 */
+
+  /* roles */
+  --text-color: #101010;
+  --heading-color: #101010;
+  --link-color: #c00;
+  --link-hover-color: #900;
+  --focus-color: #0968f6;
+  --brand-color: #c00;
+  --border-color: #929292; /* border-30: lxgrey3 */
+  --border-light-color: #ccc; /* border-10: lxgrey2 */
+
+  /* fonts: SwissHead for headings (Bold), SwissText for copy 16/22 px, tracked 0.6 px */
+  --body-font-family: swisstext, arial, helvetica, mammilessymbol, sans-serif;
+  --heading-font-family: swisshead, arial, helvetica, mammilessymbol, sans-serif;
+  --body-font-size-m: 16px;
+  --body-line-height: 1.375;
+  --body-letter-spacing: 0.6px;
+
+  /* headings: SwissHead 700, h2 36/39.6 px at 1440 (lh-com's fluid size reaches 36 px there),
+     tracked 0.7 px */
+  --heading-light-weight: 700;
+  --heading-line-height: 1.1;
+  --heading-letter-spacing: 0.7px;
+
+  /* buttons: square, 50 px, 18 px bold, 8 px 30 px; primary white on lx-red, secondary and the
+     buttonsecondary fill warm grey (pine grey on hover) */
+  --button-radius: 0;
+  --button-min-height: 50px;
+  --button-font-size: 18px;
+  --button-padding: 8px 30px;
+  --button-primary-text: #fff;
+  --button-secondary-color: #6f6660;
+  --button-secondary-hover: #554e49;
+  --button-accent-color: #6f6660;
+  --button-accent-hover: #554e49;
+
+  /* the hero card's headline (hero-card-overlay light: a white card, 8 px radius, 40/48 px) */
+  --hero-card-heading-color: #101010;
+
+  /* header: white bar with a 1 px #ccc rule; the quick actions warm grey, pine grey on hover;
+     the logo 121x28 */
+  --header-bar-surface: #fff;
+  --header-bar-text: #6f6660;
+  --header-bar-text-hover: #554e49;
+  --header-bar-line: #ccc;
+  --header-bar-shadow: 0 1px 0 #ccc; /* the 1 px rule under the bar (no layout shift) */
+  --nav-logo-height: 28px;
+  --nav-logo-height-wide: 28px;
+
+  /* footer: white, not dark: a 1 px #ccc rule on top, headings #101010 18 px bold, links warm
+     grey 16 px regular (pine grey on hover); the logo row white with the 80x20 logo */
+  --footer-surface: #fff;
+  --footer-text-color: #101010;
+  --footer-muted-text: #6f6660;
+  --footer-link-color: #6f6660;
+  --footer-link-hover-color: #554e49;
+  --footer-top-line: 1px solid #ccc;
+  --footer-line-color: #ccc;
+  --footer-field-color: #6f6660;
+  --footer-toggle-line: #ccc;
+  --footer-divider-color: #ccc;
+  --footer-title-line: transparent; /* the column headings without a rule under them */
+  --footer-locale-color: #6f6660;
+  --footer-locale-hover-color: #554e49;
+  --footer-heading-size: 18px;
+  --footer-link-size: 16px;
+  --footer-link-weight: 400;
+  --footer-link-line-height: 22px;
+  --footer-logo-home-height: 20px;
+}
+
+/* the header bar: 121 px from 768 px (www at 1280) */
+@media (width >= 768px) {
+  :root {
+    --nav-height: 121px;
+  }
+}

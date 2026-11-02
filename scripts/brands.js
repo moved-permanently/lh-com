@@ -243,6 +243,30 @@ export const BRANDS = {
     www: 'business.lufthansagroup.com',
     portal: 'B2BNEO',
   },
+  // SWISS (lh-swiss): www.swiss.com's ch/en and ch/de homepages (the snapshots of 2026-11-02):
+  // OneTrust's data-domain-script, meta X-Portal LX, the design system's theme maui-theme-lx
+  // (styles/themes/swiss.css); www's Message Center tenant lx; the hub Zurich (Geneva the second
+  // one; the roots' own airports come with BRAND_SITES); the cookie banner's links: the footer's
+  // privacy statement and imprint under /<root>/terms-conditions (no cookie page of its own)
+  swiss: {
+    name: 'SWISS',
+    oneTrust: '01994cb2-f461-7489-80cc-e1ce655a86bc',
+    messageCenter: 'lx',
+    www: 'www.swiss.com',
+    portal: 'LX',
+    hub: 'ZRH',
+    airline: 'LX',
+    consentLinks: {
+      en: {
+        privacy: 'https://www.swiss.com/ch/en/terms-conditions/privacy-statement',
+        imprint: 'https://www.swiss.com/ch/en/terms-conditions/imprint',
+      },
+      de: {
+        privacy: 'https://www.swiss.com/ch/de/terms-conditions/privacy-statement',
+        imprint: 'https://www.swiss.com/ch/de/terms-conditions/imprint',
+      },
+    },
+  },
   // Lufthansa Cargo (lh-cargo): Lufthansa's look; www.lufthansa-cargo.com shows no cookie banner;
   // its notifications (www's own CMS, switched off) move to the site's Message Center, tenant cargo
   cargo: {

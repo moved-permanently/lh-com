@@ -162,6 +162,9 @@ body {
   /* --body-font-weight: a brand theme's copy weight (styles/themes/*.css); lh-com's 400 */
   font-weight: var(--body-font-weight, 400);
   line-height: var(--body-line-height);
+
+  /* --body-letter-spacing: a brand theme's copy tracking (swiss: 0.6px); unset: as before */
+  letter-spacing: var(--body-letter-spacing);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-variant-numeric: proportional-nums;
@@ -199,6 +202,10 @@ h6 {
   font-family: var(--heading-font-family);
   font-weight: 700;
   line-height: var(--heading-line-height);
+
+  /* --heading-letter-spacing: a brand theme's headline tracking (swiss: 0.7px); unset: the
+     headings inherit theirs as before */
+  letter-spacing: var(--heading-letter-spacing);
   scroll-margin: 40px;
 
   /* a word longer than the line breaks instead of pushing the page sideways (phones: a 36px h1
@@ -503,9 +510,9 @@ button.button {
   margin: 0;
   border: 2px solid transparent;
   border-radius: var(--button-radius, var(--radius-s));
-  padding: 11px 30px;
+  padding: var(--button-padding, 11px 30px);
   font-family: var(--body-font-family);
-  font-size: var(--body-font-size-m);
+  font-size: var(--button-font-size, var(--body-font-size-m));
   font-weight: 700;
   line-height: 24px;
   text-align: center;
@@ -538,7 +545,8 @@ button.button:disabled {
 }
 
 /* --button-primary-text, --button-secondary-color, --button-secondary-hover, --button-radius,
-   --button-min-height: a brand theme's button (styles/themes/*.css); defaults as before */
+   --button-min-height, --button-padding, --button-font-size: a brand theme's button
+   (styles/themes/*.css); defaults as before */
 a.button.primary,
 button.button.primary {
   border-color: var(--lh-yellow);

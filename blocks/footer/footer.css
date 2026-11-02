@@ -5,7 +5,7 @@
 .footer {
   /* a brand theme may set the link area and the logo row (styles/themes/*.css); defaults as above */
   --footer-brand: var(--footer-surface, var(--lh-deepblue));
-  --footer-text: #fff;
+  --footer-text: var(--footer-text-color, #fff);
   --footer-muted: var(--footer-muted-text, #b4b4b4);
   --footer-line: var(--footer-line-color, #8696cb);
   --footer-field: var(--footer-field-color, #ccc);
@@ -13,7 +13,10 @@
   --footer-margin: var(--layout-margin, 22px);
 
   /* --footer-surface-image: a brand theme's gradient behind the whole footer (b2b; its link area
-     and logo row then transparent); none by default */
+     and logo row then transparent); none by default. --footer-text-color, --footer-link-color,
+     --footer-link-hover-color, --footer-top-line, --footer-locale-color and
+     --footer-locale-hover-color: a light footer (swiss: white, dark headings, warm grey links, a
+     grey rule on top); defaults: lh-com's dark footer */
   background-image: var(--footer-surface-image, none);
   font-family: var(--body-font-family);
 }
@@ -48,6 +51,7 @@
 /* ------------------------------------------------------------------ main ------------ */
 
 .footer .footer-main {
+  border-top: var(--footer-top-line, none);
   background-color: var(--footer-brand);
   color: var(--footer-muted);
 }
@@ -135,7 +139,7 @@
   padding: 8px 0;
   border: 0;
   background: none;
-  color: #ebebeb;
+  color: var(--footer-locale-color, #ebebeb);
   font-family: inherit;
   font-size: 16px;
   font-weight: 700;
@@ -144,7 +148,7 @@
 }
 
 .footer .footer-locale-button:hover {
-  color: #fff;
+  color: var(--footer-locale-hover-color, #fff);
 }
 
 .footer .footer-locale-button:hover span {
@@ -231,11 +235,15 @@
   gap: 8px;
   align-items: center;
   margin-bottom: var(--footer-link-gap, 20px);
-  color: var(--footer-text);
+  color: var(--footer-link-color, var(--footer-text));
   font-size: var(--footer-link-size, 18px);
   font-weight: var(--footer-link-weight, 700);
   line-height: var(--footer-link-line-height, 1.5);
   text-decoration: none;
+}
+
+.footer .footer-link:hover {
+  color: var(--footer-link-hover-color, var(--footer-link-color, var(--footer-text)));
 }
 
 .footer .footer-link:hover span:first-of-type {
