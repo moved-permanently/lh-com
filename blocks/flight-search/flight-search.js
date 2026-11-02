@@ -559,12 +559,16 @@ function showAirportNames(combobox) {
 /**
  * Background image (local promotion pages, live .flightmanager-container.full-width-bg): the
  * block's wrapper becomes a full-width band (min 500px) with the image as cover, and the card
- * sits at its bottom in the content column. The mobile image (if any) is used below 1025px.
+ * sits at its bottom in the content column. The mobile image (if any) is used below 1025px. A
+ * Background video (a link to an .mp4: www.swiss.com's flight manager with its promotion teaser's
+ * moving image) plays over the picture, muted, looped and inline, the picture its poster until it
+ * plays; with prefers-reduced-motion the picture alone.
  * @param {Element} block
  * @param {Element} cell the Background image cell
  * @param {Element} [mobileCell] the Background image mobile cell
+ * @param {Element} [videoCell] the Background video cell
  */
-function addBackground(block, cell, mobileCell) {
+export function addBackground(block, cell, mobileCell, videoCell) {
   const img = cell.querySelector('img');
   if (!img) return;
   const band = el('div', 'flight-search-background');
@@ -582,6 +586,22 @@ function addBackground(block, cell, mobileCell) {
   image.loading = 'lazy';
   picture.append(image);
   band.append(picture);
+  const src = videoCell?.querySelector('a[href]')?.getAttribute('href') || '';
+  if (/\.mp4$/i.test(src.split(/[?#]/)[0]) && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const video = document.createElement('video');
+    video.className = 'flight-search-video';
+    ['muted', 'loop', 'playsinline', 'autoplay'].forEach((a) => video.setAttribute(a, ''));
+    video.muted = true;
+    video.setAttribute('preload', 'metadata');
+    video.setAttribute('aria-hidden', 'true');
+    video.setAttribute('poster', img.getAttribute('src') || img.src);
+    const source = document.createElement('source');
+    source.setAttribute('src', src);
+    source.setAttribute('type', 'video/mp4');
+    video.append(source);
+    video.addEventListener('playing', () => video.classList.add('is-playing'), { once: true });
+    band.append(video);
+  }
   const wrapper = block.parentElement;
   if (wrapper) {
     wrapper.classList.add('flight-search-band');
@@ -1051,8 +1071,12 @@ export default function decorate(block) {
   // read before the rows are replaced: the pictures move into the band
   const background = pick(config, 'background-image');
   const backgroundMobile = pick(config, 'background-image-mobile');
+  const backgroundVideo = pick(config, 'background-video');
   block.replaceChildren(content);
-  if (background) addBackground(block, background.cell, backgroundMobile && backgroundMobile.cell);
+  if (background) {
+    const mobileCell = backgroundMobile && backgroundMobile.cell;
+    addBackground(block, background.cell, mobileCell, backgroundVideo && backgroundVideo.cell);
+  }
 
   if (!hasFlight) {
     // hotel only: no live data (the live hotel tab shows its built-in texts)

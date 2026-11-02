@@ -1,0 +1,131 @@
+/**
+ * Tabs that hold blocks (www.swiss.com's and www.austrian.com's maui-tab-control-responsive with
+ * column views, accordions and tables in its panels): consecutive sections with the section
+ * metadata `Tab` (the tab's label) are one tab set; `Tabs` (any value) names the set, so two sets
+ * that meet stay two. Each panel is a section of its own, so it holds any blocks. The set gets a
+ * section before its panels with the tab list (role tablist; tabs with aria-selected,
+ * aria-controls and a roving tabindex; arrow keys, Home and End select and focus; the panels
+ * role tabpanel, aria-labelledby, the others hidden), shown from 768px; below 768px each panel is
+ * an accordion item (a toggle with aria-expanded over it, the first open). A deep link (#id) into
+ * a panel selects its tab. Pages without such sections: nothing changes.
+ * Styles: styles/section-tabs.css (loaded with the first set).
+ */
+import { loadCSS, toClassName } from './aem.js';
+
+const DESKTOP = '(width >= 768px)';
+let setCount = 0;
+
+/** The tab sets of a main: [[section, ...], ...], consecutive Tab sections of one name. */
+function setsOf(main) {
+  const sets = [];
+  let current = null;
+  [...main.querySelectorAll(':scope > .section')].forEach((section) => {
+    const label = section.dataset.tab;
+    if (!label) { current = null; return; }
+    const name = section.dataset.tabs || '';
+    if (!current || current.name !== name) {
+      current = { name, sections: [] };
+      sets.push(current);
+    }
+    current.sections.push(section);
+  });
+  return sets.map((s) => s.sections);
+}
+
+function button(className, text) {
+  const b = document.createElement('button');
+  b.type = 'button';
+  b.className = className;
+  b.textContent = text;
+  return b;
+}
+
+/** One tab set: the tab list section before its panels, the accordion toggles, the state. */
+function buildSet(panels) {
+  setCount += 1;
+  const base = `section-tabs-${setCount}`;
+  const nav = document.createElement('div');
+  nav.className = 'section section-tabs';
+  nav.dataset.sectionStatus = 'initialized';
+  const list = document.createElement('div');
+  list.className = 'section-tabs-list';
+  list.setAttribute('role', 'tablist');
+  nav.append(list);
+  panels[0].before(nav);
+
+  const tabs = panels.map((panel, i) => {
+    const label = String(panel.dataset.tab).trim();
+    const id = `${base}-${toClassName(label) || 'tab'}-${i + 1}`;
+    panel.id = panel.id || `${id}-panel`;
+    panel.classList.add('section-tab-panel');
+    panel.setAttribute('role', 'tabpanel');
+    const tab = button('section-tabs-tab', label);
+    tab.id = `${id}-tab`;
+    tab.setAttribute('role', 'tab');
+    tab.setAttribute('aria-controls', panel.id);
+    panel.setAttribute('aria-labelledby', tab.id);
+    list.append(tab);
+    const toggle = button('section-tab-toggle', label);
+    toggle.setAttribute('aria-controls', panel.id);
+    panel.prepend(toggle);
+    return { tab, toggle, panel };
+  });
+
+  const media = window.matchMedia(DESKTOP);
+  let active = 0;
+  let open = 0;
+  const render = () => {
+    const desktop = media.matches;
+    tabs.forEach(({ tab, toggle, panel }, i) => {
+      tab.setAttribute('aria-selected', String(i === active));
+      tab.setAttribute('tabindex', i === active ? '0' : '-1');
+      toggle.setAttribute('aria-expanded', String(i === open));
+      panel.hidden = desktop && i !== active;
+      [...panel.children].filter((c) => c !== toggle)
+        .forEach((c) => { c.hidden = !desktop && i !== open; });
+    });
+  };
+  const select = (i, focus) => {
+    active = (i + tabs.length) % tabs.length;
+    open = active;
+    render();
+    if (focus) tabs[active].tab.focus();
+  };
+  tabs.forEach(({ tab, toggle }, i) => {
+    tab.addEventListener('click', () => select(i, false));
+    toggle.addEventListener('click', () => {
+      open = open === i ? -1 : i;
+      if (open >= 0) active = open;
+      render();
+    });
+  });
+  list.addEventListener('keydown', (e) => {
+    const keys = {
+      ArrowRight: active + 1, ArrowLeft: active - 1, Home: 0, End: tabs.length - 1,
+    };
+    if (!(e.key in keys)) return;
+    e.preventDefault();
+    select(keys[e.key], true);
+  });
+  media.addEventListener?.('change', render);
+
+  // a deep link into a panel selects its tab
+  const hash = decodeURIComponent((window.location.hash || '').slice(1));
+  const target = hash && tabs.findIndex(({ panel }) => panel.id === hash || panel.querySelector(`[id="${hash.replace(/"/g, '')}"]`));
+  if (target > 0) {
+    active = target;
+    open = target;
+  }
+  render();
+}
+
+/**
+ * The page's tab sets (sections with `Tab` metadata), after decorateSections and decorateBlocks.
+ * @param {Element} main
+ */
+export default function decorateSectionTabs(main) {
+  const sets = setsOf(main);
+  if (!sets.length) return;
+  sets.forEach(buildSet);
+  loadCSS(`${window.hlx?.codeBasePath || ''}/styles/section-tabs.css`);
+}

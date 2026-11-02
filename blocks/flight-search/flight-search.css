@@ -983,6 +983,21 @@ main > .section > .flight-search-wrapper.flight-search-band {
   object-fit: cover;
 }
 
+/* a Background video (SWISS's moving image): over the picture, which shows until it plays */
+.flight-search-band > .flight-search-background .flight-search-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.flight-search-band > .flight-search-background .flight-search-video.is-playing {
+  opacity: 1;
+}
+
 /* stylelint-disable-next-line no-descending-specificity -- the band overrides the card spacing */
 .flight-search-band > .flight-search.standalone {
   position: relative;

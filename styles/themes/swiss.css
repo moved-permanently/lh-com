@@ -94,6 +94,7 @@
   --link-hover-color: #900;
   --focus-color: #0968f6;
   --brand-color: #c00;
+  --section-tabs-bar: #c00; /* the tab bar: maui selection, lx-red */
   --border-color: #929292; /* border-30: lxgrey3 */
   --border-light-color: #ccc; /* border-10: lxgrey2 */
 

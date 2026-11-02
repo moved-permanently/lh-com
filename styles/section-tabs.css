@@ -1,0 +1,115 @@
+/* Tabs that hold blocks (scripts/section-tabs.js): www's maui-tab-control-responsive. From 768px
+   the tab list over the content width (tabs as wide as their labels allow, 64px, 18px labels,
+   the active one bold over a 4px bar on a 1px grey line), the panel below; below 768px an
+   accordion with 1px grey lines, as blocks/profile-tabs. The bar is the design system's
+   selection colour (--section-tabs-bar: SWISS lx-red, Austrian os-red; else Lufthansa's
+   deep blue) */
+main .section.section-tabs {
+  padding-bottom: 0;
+}
+
+.section-tabs .section-tabs-list {
+  display: none;
+  box-sizing: border-box;
+  max-width: var(--content-max-width, 1200px);
+  margin: 0 auto;
+  padding: 0 var(--layout-margin, 22px);
+}
+
+.section-tabs [role="tab"] {
+  position: relative;
+  flex: 1 1 auto;
+  margin: 0;
+  border: 0;
+  padding: 20px;
+  background: transparent;
+  color: var(--lh-grey-7);
+  font-family: inherit;
+  font-size: var(--body-font-size-m);
+  font-weight: 400;
+  line-height: 24px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.section-tabs [role="tab"][aria-selected="true"] {
+  color: var(--text-color, var(--lh-deepblue));
+  font-weight: 700;
+}
+
+.section-tabs [role="tab"][aria-selected="true"]::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: -1px;
+  left: 0;
+  height: 4px;
+  background: var(--section-tabs-bar, var(--lh-deepblue));
+}
+
+.section-tabs [role="tab"]:focus-visible {
+  outline: 2px solid var(--focus-color, #0968f6);
+  outline-offset: -2px;
+}
+
+/* below 768px: each panel an accordion item, its toggle over it */
+.section-tab-panel > .section-tab-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  width: calc(100% - 2 * var(--layout-margin, 22px));
+  margin: 0 var(--layout-margin, 22px);
+  border: 0;
+  border-bottom: 1px solid var(--lh-grey-4);
+  padding: 13px 0;
+  background: none;
+  color: var(--text-color, var(--lh-deepblue));
+  font-family: inherit;
+  font-size: var(--body-font-size-m);
+  font-weight: 700;
+  line-height: 24px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.section-tab-panel > .section-tab-toggle::after {
+  content: '';
+  flex: none;
+  width: 16px;
+  height: 10px;
+  margin: 0 4px;
+  background: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 10'%3E%3Cpath d='M0 1.9 1.9 0 8 6.1 14.1 0 16 1.9l-8 8z'/%3E%3C/svg%3E") center / contain no-repeat;
+  transition: transform 0.2s ease-in-out;
+}
+
+.section-tab-panel > .section-tab-toggle[aria-expanded="true"]::after {
+  transform: rotate(180deg);
+}
+
+.section-tabs + .section-tab-panel > .section-tab-toggle {
+  border-top: 1px solid var(--lh-grey-4);
+}
+
+main .section.section-tab-panel[hidden],
+.section-tab-panel > [hidden] {
+  display: none;
+}
+
+@media (width >= 768px) {
+  .section-tabs .section-tabs-list {
+    display: flex;
+    border-bottom: 1px solid var(--lh-grey-4);
+  }
+
+  .section-tab-panel > .section-tab-toggle {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section-tab-panel > .section-tab-toggle::after {
+    transition: none;
+  }
+}

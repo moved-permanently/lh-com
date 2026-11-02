@@ -35,6 +35,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import { parseHTML } from 'linkedom';
 import {
   ownPages, ownAliases, ownServed, withOwnLinks, onlyBatch,
 } from './own-links.mjs';
@@ -94,6 +95,64 @@ export function withLinkOuts(html, p) {
     const label = (attrs.match(/\stitle="([^"]+)"/) || [])[1] || h1Of(html) || HOST;
     return `<div class="iframe-link-out"><p><a href="https://${LINK_OUT}${p}">${label}</a></p></div>`;
   });
+}
+
+// the components a tab panel holds that become blocks (a set with one of them: Tab sections; a
+// set of text only stays lh-com's profile-tabs)
+const TAB_BLOCKS = /class="(?:twocolumn|threecolumn|fourcolumn|accordion|table|sidebar|teaser|imagelinklist|video|videoViewer|iframe|carousel|slideshow)[ "]/;
+const marker = (label) => `<div class="text section"><div class="richtext"><p>${label}</p></div></div>`;
+
+/**
+ * A snapshot whose tab sets that hold blocks (www's maui-tab-control-responsive with column
+ * views, accordions, tables ...) are their panels one after the other, a marker paragraph before
+ * each (@@tab@@<set>@@<label>@@) and after the set (@@tabs-end@@): splitTabSections makes the
+ * document's Tab sections of them (scripts/section-tabs.js). Text-only sets as they are.
+ */
+export function withTabMarkers(html) {
+  let n = 0;
+  return editDivs(html, '<div class="tabs panelcontainer', (el) => {
+    const panels = [...el.matchAll(/<maui-tab-control-panel-responsive\b([^>]*)>([\s\S]*?)<\/maui-tab-control-panel-responsive>/g)]
+      .map((m) => [((m[1].match(/\sname="([^"]*)"/) || [])[1] || '').replace(/\s+/g, ' ').trim(), m[2]]);
+    if (!panels.length || !panels.some(([, body]) => TAB_BLOCKS.test(body))) return el;
+    n += 1;
+    return `${panels.map(([label, body]) => `${marker(`@@tab@@${n}@@${label.replace(/@/g, '')}@@`)}${body}`).join('')}${marker('@@tabs-end@@')}`;
+  });
+}
+
+const TAB_MARK = /^@@tab@@(\d+)@@(.*)@@$/;
+const END_MARK = '@@tabs-end@@';
+
+/**
+ * The document's tab markers (withTabMarkers) as sections: the content before a set, a section
+ * per panel with the section metadata Tab (its label) and Tabs (the set's number), the content
+ * after it; a section's own metadata stays with its parts outside the set. A marker the import
+ * put inside a block cannot split its section: it goes, the panels stay one after the other.
+ */
+export function splitTabSections(doc) {
+  if (!doc.includes('@@tab')) return doc;
+  const { document } = parseHTML(`<html><body>${doc}</body></html>`);
+  const metaRows = (rows) => `<div class="section-metadata">${rows.map(([k, v]) => `<div><div>${k}</div><div>${v}</div></div>`).join('')}</div>`;
+  const out = [...document.body.children].map((section) => {
+    const kids = [...section.children];
+    const isMark = (c) => c.tagName === 'P' && (TAB_MARK.test(c.textContent.trim()) || c.textContent.trim() === END_MARK);
+    if (!kids.some(isMark)) return section.outerHTML;
+    const own = kids.find((c) => c.classList.contains('section-metadata'));
+    const parts = [{ tab: null, html: [] }];
+    kids.filter((c) => c !== own).forEach((c) => {
+      const line = c.tagName === 'P' ? c.textContent.trim() : '';
+      const m = line.match(TAB_MARK);
+      if (m) parts.push({ tab: m[2].trim(), set: m[1], html: [] });
+      else if (line === END_MARK) parts.push({ tab: null, html: [] });
+      else parts.at(-1).html.push(c.outerHTML);
+    });
+    return parts.filter((p) => p.tab || p.html.length).map((p) => {
+      let tail = own ? own.outerHTML : '';
+      if (p.tab) tail = metaRows([['Tab', p.tab], ['Tabs', p.set]]);
+      return `<div>${p.html.join('')}${tail}</div>`;
+    }).join('\n');
+  }).join('\n');
+  // markers inside a block (no split there): the text goes
+  return out.replace(/<p>@@tab@@\d+@@[^<]*@@<\/p>|<p>@@tabs-end@@<\/p>/g, '');
 }
 
 /**
@@ -286,6 +345,22 @@ export function withHeroVideo(doc, html) {
   });
 }
 
+/**
+ * The flight search's moving image (www's flight manager with a promotion teaser: its
+ * linkModeConfig.movingImage, the Bengaluru video on nine pilot pages) as the block's Background
+ * image and Background video rows (blocks/flight-search plays it behind the search), the video at
+ * its /content/dam path (the AEM sandbox's name). A page with a hero (the homepages: the hero
+ * plays it), a flight search with a Background image already, or no moving image: as it is.
+ */
+export function withFlightSearchVideo(doc, html) {
+  if (!/<div class="flight-search(?: [^"]*)?">/.test(doc) || doc.includes('class="hero-card-overlay')) return doc;
+  const m = String(html || '').replace(/&quot;/g, '"')
+    .match(/"promotionTeaser"\s*:\s*\{[\s\S]*?"movingImage"\s*:\s*\{\s*"imageUrl"\s*:\s*"([^"]+)"\s*,\s*"videoUrl"\s*:\s*"([^"]+\.mp4)"/);
+  if (!m) return doc;
+  const video = edsDamPath(m[2]);
+  return doc.replace(/(<div class="flight-search(?: [^"]*)?">)(?!<div><div>Background image<\/div>)/, (open) => `${open}<div><div>Background image</div><div><picture><img src="https://${HOST}${m[1]}" alt=""></picture></div></div><div><div>Background video</div><div><a href="${video}">${video}</a></div></div>`);
+}
+
 /** The template of a page from its path and snapshot. */
 export function templateOf(p, html) {
   if (/^\/[a-z]{2}\/[a-z]{2}\/homepage$/.test(p)) return 'homepage';
@@ -323,7 +398,7 @@ if (isMain) {
     // (the help centre app's screen-reader announcement "Help page loaded." is no page text;
     // the Studio's snapshots keep www's scripts, which must not run in the import browser)
     // (the form's jQuery UI date picker, appended to the body and hidden on www, is no content)
-    const mapped = withoutLoads(withTeaserColumns(withCheckinTabs(withLinkOuts(withoutPlaceholders(withPlaceholder(editDivs(stripScripts(html), '<div id="ui-datepicker-div"', () => ''))), p))))
+    const mapped = withoutLoads(withTabMarkers(withTeaserColumns(withCheckinTabs(withLinkOuts(withoutPlaceholders(withPlaceholder(editDivs(stripScripts(html), '<div id="ui-datepicker-div"', () => ''))), p)))))
       .replace(/<output[^>]*class="screen-reader-announcer"[^>]*>[\s\S]*?<\/output>/g, '');
     if (mapped.includes(`https://${LINK_OUT}`)) linkOuts.push(p);
     fs.writeFileSync(copy, mapped);
@@ -395,7 +470,7 @@ if (isMain) {
       const src = Object.keys(out).find((k) => docName(k) === p);
       const markets = scope.documents[src]?.markets || [];
       const snapHtml = fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8');
-      const next = withHeroVideo(withItaMetadata(withCheckinHandoff(withFlightSearch(withItaForm(doc, p, snapHtml), p), p), p, snapHtml, markets), snapHtml);
+      const next = splitTabSections(withFlightSearchVideo(withHeroVideo(withItaMetadata(withCheckinHandoff(withFlightSearch(withItaForm(doc, p, snapHtml), p), p), p, snapHtml, markets), snapHtml), snapHtml));
       if (next !== doc) fs.writeFileSync(f, next);
     });
     const mapOnly = path.join(W, 'runs', `${name}-upload.txt`);

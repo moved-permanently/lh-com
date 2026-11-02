@@ -25,6 +25,7 @@ import { loadBrandTheme } from './brand.js';
 import { isDemoHost, turnsThePageBrandOf } from './demo.js';
 import prioritizeSecondSectionImage from './lcp-image.js';
 import decorateHeadingIcons from './heading-icon.js';
+import decorateSectionTabs from './section-tabs.js';
 
 if (window.trustedTypes && window.trustedTypes.createPolicy) {
   const innerTT = window.trustedTypes.createPolicy('tt-inner', {
@@ -325,6 +326,8 @@ export function decorateMain(main) {
   decorateHeadingIcons(main);
   decorateBlocks(main);
   decorateButtons(main);
+  // sections with the section metadata Tab (tab sets that hold blocks): a tab list over them
+  decorateSectionTabs(main);
 }
 
 /**

@@ -118,6 +118,54 @@ test('the hero\'s video: www\'s moving image of the hero picture linked in the h
   assert.equal(withHeroVideo(other, snap), other, 'another picture: as it is');
 });
 
+test('tab sets that hold blocks: a marker before each panel and after the set; text-only sets as before', async () => {
+  // eslint-disable-next-line import/extensions
+  const { withTabMarkers } = await import('../tools/importer/swiss-import.mjs');
+  const panel = (name, body) => `<maui-tab-control-panel-responsive name="${name}" data-identifier="1"><div>${body}</div></maui-tab-control-panel-responsive>`;
+  const set = (panels) => `<div class="tabs panelcontainer section"><div class="maui-tab-control-jquery" id="tabs"><maui-tab-control-responsive>${panels}</maui-tab-control-responsive></div></div>`;
+  const html = `<div class="text section"><p>before</p></div>${set(panel('Europe', '<div class="twocolumn column section">A</div>') + panel('Intercontinental', '<div class="table section">B</div>'))}<p>after</p>${set(panel('Work space', '<div class="text section">t</div>') + panel('Rest area', '<div class="text section">u</div>'))}`;
+  const out = withTabMarkers(html);
+  assert.ok(!out.includes('maui-tab-control-panel-responsive name="Europe"'), 'the block set is unwrapped');
+  const marks = [...out.matchAll(/<p>(@@tab[^<]*)<\/p>/g)].map((m) => m[1]);
+  assert.deepEqual(marks, ['@@tab@@1@@Europe@@', '@@tab@@1@@Intercontinental@@', '@@tabs-end@@']);
+  assert.ok(out.indexOf('Europe@@') < out.indexOf('twocolumn') && out.indexOf('twocolumn') < out.indexOf('Intercontinental@@') && out.indexOf('table section') < out.indexOf('@@tabs-end@@'));
+  assert.match(out, /maui-tab-control-panel-responsive name="Work space"/, 'a text-only set stays (profile-tabs)');
+});
+
+test('the markers become Tab sections: the content before, a section per panel with its label, the rest after', async () => {
+  // eslint-disable-next-line import/extensions
+  const { splitTabSections } = await import('../tools/importer/swiss-import.mjs');
+  const doc = '<div><h1>Economy</h1><p>@@tab@@1@@Europe@@</p><h2>Europe</h2><div class="columns-media"><div><div>a</div></div></div><p>@@tab@@1@@Intercontinental@@</p><div class="table-striped"><div><div>b</div></div></div><p>@@tabs-end@@</p><p>after</p></div>\n<div><p>next</p><div class="metadata"><div><div>nav</div><div>/ch/en/nav</div></div></div></div>';
+  const out = splitTabSections(doc);
+  const sections = out.split('\n');
+  assert.equal(sections.length, 5);
+  assert.equal(sections[0], '<div><h1>Economy</h1></div>');
+  assert.equal(sections[1], '<div><h2>Europe</h2><div class="columns-media"><div><div>a</div></div></div><div class="section-metadata"><div><div>Tab</div><div>Europe</div></div><div><div>Tabs</div><div>1</div></div></div></div>');
+  assert.equal(sections[2], '<div><div class="table-striped"><div><div>b</div></div></div><div class="section-metadata"><div><div>Tab</div><div>Intercontinental</div></div><div><div>Tabs</div><div>1</div></div></div></div>');
+  assert.equal(sections[3], '<div><p>after</p></div>');
+  assert.match(sections[4], /<p>next<\/p>/);
+  assert.ok(!out.includes('@@'), 'no marker left');
+  // a section's own metadata (Style) stays with its parts outside the set
+  const styled = splitTabSections('<div><p>x</p><p>@@tab@@1@@A@@</p><p>a</p><p>@@tabs-end@@</p><p>y</p><div class="section-metadata"><div><div>Style</div><div>grey</div></div></div></div>');
+  assert.equal(styled.split('\n').filter((s) => s.includes('<div>Style</div><div>grey</div>')).length, 2);
+  assert.equal(splitTabSections('<div><p>plain</p></div>'), '<div><p>plain</p></div>', 'no markers: as it is');
+});
+
+test('the flight search\'s moving image: Background image and Background video rows, the video\'s /content/dam path', async () => {
+  // eslint-disable-next-line import/extensions
+  const { withFlightSearchVideo } = await import('../tools/importer/swiss-import.mjs');
+  const snap = '<div class="redesignedflightmanager" data-dcep="{&quot;promotionTeaser&quot;:{&quot;linkModeConfig&quot;:{&quot;movingImage&quot;:{&quot;imageUrl&quot;:&quot;/content/dam/lx/images/frontify_variations/6/c-1455672767-478966716.jpg&quot;,&quot;videoUrl&quot;:&quot;/content/dam/lx/video/Bengaluru Header Video_8017471.mp4&quot;}}}}"></div>';
+  const doc = '<div><div class="flight-search standalone"><div><div>Shop</div><div>x</div></div></div></div>';
+  const out = withFlightSearchVideo(doc, snap);
+  assert.equal(out, '<div><div class="flight-search standalone"><div><div>Background image</div><div><picture><img src="https://www.swiss.com/content/dam/lx/images/frontify_variations/6/c-1455672767-478966716.jpg" alt=""></picture></div></div><div><div>Background video</div><div><a href="/content/dam/lx/video/bengaluru-header-video-8017471.mp4">/content/dam/lx/video/bengaluru-header-video-8017471.mp4</a></div></div><div><div>Shop</div><div>x</div></div></div></div>');
+  assert.equal(withFlightSearchVideo(out, snap), out, 'once');
+  assert.equal(withFlightSearchVideo(doc, '<div></div>'), doc, 'no moving image: as it is');
+  const hero = '<div><div class="hero-card-overlay"><div><div>x</div></div></div></div>';
+  assert.equal(withFlightSearchVideo(hero, snap), hero, 'no flight search: as it is');
+  const homepage = `${doc}<div><div class="hero-card-overlay"><div><div>x</div></div></div></div>`;
+  assert.equal(withFlightSearchVideo(homepage, snap), homepage, 'a page with a hero (the homepages): the hero plays it');
+});
+
 test('the scope leaves out AirCore, /lhg/, the shells, placeholders and www\'s redirects', () => {
   ['/lhg/ch/en', '/aircore/sitemaps/x', '/ch/en/null/x', '/ch/ko/homepage', '/xx/de/homepage', '/ch/en/profile/login', '/ch/en/enrollment', '/ch/en/homepage/teasers/x', '/ch/en/customer-support/chatbot', '/ch/en/book-and-manage/passenger-receipt', '/ch/en/customer-support/refund']
     .forEach((p) => assert.ok(leftOut(p), p));
