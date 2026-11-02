@@ -297,3 +297,25 @@ is SWISS's main-stage teaser card for the same teaser (light, 8 px radius, 40/48
 without the row: the band as before.
 
 The showcase notice waits while a form field has the focus on every brand.
+
+## Functions scan: apps, fallbacks, offers, links, chatbot, cart, sub-footer (brief 264, 2026-11-02)
+
+- Apps: the help center and the culinary hub load their scripts and design system from the page's
+  own `/digitalhangar/` on the hosts that serve it (swiss.turnsthe.page: lh-edge answers it from
+  www.swiss.com), with SWISS's release and theme as its www's app pages (mausy-v1.40.1,
+  `swiss.css`); no visitor's browser asks www.swiss.com there. Preview hosts (aem.page) have no
+  `/digitalhangar/` and keep www's. No file only www has is missing.
+- lh-edge: a missing `/content/dam/lx/images/offers/*` image falls back on our own host
+  (`/content/dam/lx/images/offers/fallback/generic-<suffix>.jpg`), never www.swiss.com; the
+  generic square and panorama images are on the capture list (`lh-swiss-destination-images.tsv`).
+- Offers (ch/en, ch/de): `destination-finder grid` with www's settings (trip duration 14, 6
+  highlighted offers, their priority, the destination page). The cleanup had removed www's
+  unrendered grid before its parser; `withOffersGridConfig` keeps it now.
+- The flight search's group booking link and "Explore our destinations" go to our group travel and
+  offers pages (11 documents; `withOwnFlightSearchLinks`).
+- `/ch/<ll>/customer-support/chatbot`: two rows in `lh-swiss-redirects.tsv` to www's web chat, as
+  www redirects (the site has no chat of its own).
+- The cart: as on www a button that opens www's empty cart (title, text, "Explore all offers"),
+  from the nav's cart sub-list (`blocks/header/header-cart.js`); other brands' cart links as before.
+- The sub-footer's legal links: the arrow beside the text (the logos' block rule no longer applies
+  to them), 1440 and 390.
