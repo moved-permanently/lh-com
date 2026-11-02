@@ -46,7 +46,7 @@ An `Origin` is allowed if it matches `ALLOWED_ORIGIN_PATTERN` (the same pattern 
 `{branch}--lh-com|lh-flynet|lh-discover|lh-ita|lh-austrian|lh-airdolomiti|lh-brussels|lh-cargo|lh-b2b|lh-swiss--moved-permanently` on
 aem.page/live and the DA preview, Quick Edit and UE hosts) or is listed in `EXTRA_ALLOWED_ORIGINS` (
 `https://lufthansa.turnsthe.page`, `https://discover.turnsthe.page`, `https://ita.turnsthe.page`,
-`https://austrian.turnsthe.page`, `https://airdolomiti.turnsthe.page`, `https://brussels.turnsthe.page`, `https://cargo.turnsthe.page`, `https://b2b.turnsthe.page`, `https://swiss.turnsthe.page`, `http://localhost:3000`).
+`https://austrian.turnsthe.page`, `https://austrian-cn.turnsthe.page` (the Austrian site's China alias), `https://airdolomiti.turnsthe.page`, `https://brussels.turnsthe.page`, `https://cargo.turnsthe.page`, `https://b2b.turnsthe.page`, `https://swiss.turnsthe.page`, `http://localhost:3000`).
 Both are `[vars]` in `wrangler.toml`. The worker echoes the allowed
 origin and sets `Vary: Origin`. Any other origin gets `403 {"ok":false,"error":"origin-not-allowed"}`,
 and so does a `POST /submit` with no `Origin` header. `GET /health` works without an `Origin`

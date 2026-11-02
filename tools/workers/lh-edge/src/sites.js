@@ -145,6 +145,16 @@ export function siteOf(request, env = {}) {
 }
 
 /**
+ * A site's own hosts (SITE_HOSTS of that site), but `except` (its alias host): the hosts whose
+ * links its alias host's answers move to the alias (src/alias.js), as lufthansa-cn's
+ * ALIAS_REWRITE_HOSTS.
+ */
+export function siteHostsOf(name, env = {}, except = '') {
+  return Object.entries(pairs(env.SITE_HOSTS))
+    .filter(([h, n]) => n === name && h !== except).map(([h]) => h);
+}
+
+/**
  * The env a site's request is answered with: its origin and www host, its tables (read by
  * src/markets.js tables(env)), every market root served on its host (no pilot rows).
  */

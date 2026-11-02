@@ -1547,3 +1547,11 @@ test('il/en\'s cancellation form takes www\'s five uploads: PDF, JPEG and images
   assert.equal(sent.length, 2);
   assert.deepEqual(sent[0].attachments.map((a) => [a.filename, a.type]), [['a.pdf', 'application/pdf'], ['a.png', 'image/png'], ['a.jpeg', 'image/jpeg']]);
 });
+
+test('austrian-cn.turnsthe.page (www.austrian.cn\'s alias host) is an allowed origin; look-alikes are not', async () => {
+  const ok = await preflight('https://austrian-cn.turnsthe.page');
+  assert.equal(ok.status, 204);
+  assert.equal(ok.headers.get('access-control-allow-origin'), 'https://austrian-cn.turnsthe.page');
+  const no = await Promise.all(['https://austrian-cn.turnsthe.page.example.com', 'http://austrian-cn.turnsthe.page'].map(preflight));
+  no.forEach((res) => assert.equal(res.status, 403));
+});

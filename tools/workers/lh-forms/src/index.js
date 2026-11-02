@@ -236,7 +236,7 @@ const LOCALE = /^([a-z]{2}-)?[a-z]{2}$/;
 
 const DEFAULTS = {
   ALLOWED_ORIGIN_PATTERN: '^https://[a-z0-9-]+--(lh-com|lh-flynet|lh-discover|lh-ita|lh-austrian|lh-airdolomiti|lh-brussels|lh-cargo|lh-b2b|lh-swiss)--moved-permanently\\.(aem\\.(page|live)|(stage-)?(preview|ue)\\.da\\.(live|page))$',
-  EXTRA_ALLOWED_ORIGINS: 'https://lufthansa.turnsthe.page,https://discover.turnsthe.page,https://ita.turnsthe.page,https://austrian.turnsthe.page,https://airdolomiti.turnsthe.page,https://brussels.turnsthe.page,https://cargo.turnsthe.page,https://b2b.turnsthe.page,https://swiss.turnsthe.page,http://localhost:3000',
+  EXTRA_ALLOWED_ORIGINS: 'https://lufthansa.turnsthe.page,https://discover.turnsthe.page,https://ita.turnsthe.page,https://austrian.turnsthe.page,https://austrian-cn.turnsthe.page,https://airdolomiti.turnsthe.page,https://brussels.turnsthe.page,https://cargo.turnsthe.page,https://b2b.turnsthe.page,https://swiss.turnsthe.page,http://localhost:3000',
 };
 
 const MB = 1000 * 1000;

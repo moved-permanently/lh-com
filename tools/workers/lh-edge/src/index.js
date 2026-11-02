@@ -39,7 +39,7 @@ import { captchaVerify, CAPTCHA_PATH } from './captcha.js';
 import { mfe, isMfePath } from './mfe.js';
 import { csiOffline, isOfflinePath } from './offline.js';
 import { aliasHostOf, forAlias } from './alias.js';
-import { siteOf, siteEnv } from './sites.js';
+import { siteOf, siteEnv, siteHostsOf } from './sites.js';
 import {
   market, marketPath, marketSitemap, isMarketSitemapPath, withoutConditions,
 } from './markets.js';
@@ -415,12 +415,15 @@ async function siteRespond(incoming, env, site, ctx) {
   if (brand.backends && isBackendsPath(url.pathname)) return finish(await backends(incoming, env), incoming, senv, 'backends');
   // www's DAM URLs: lh-com's DAM route with the site's origin (its DA copies), then AEM
   if (isDamPath(url.pathname)) return finish(await dam(incoming, senv, ctx), incoming, senv, 'dam');
-  // / to the first language version's homepage, the site's other entry paths (SITE_ENTRIES) as
-  // on its source
-  const entryTarget = url.pathname === '/' ? `/${Object.values(site.tables.versions)[0]}/homepage` : (site.entry || {})[url.pathname];
+  // / to the first language version's homepage (on the site's alias host, www.austrian.cn's
+  // /cn/en/homepage: /<ALIAS_HOME_ROOT>/homepage when the site has that root), the site's other
+  // entry paths (SITE_ENTRIES) as on its source
+  const aliasRoot = aliasHostOf(incoming, env) && String(env.ALIAS_HOME_ROOT || '').trim();
+  const home = aliasRoot && site.tables.table[aliasRoot] ? `/${aliasRoot}/homepage` : `/${Object.values(site.tables.versions)[0]}/homepage`;
+  const entryTarget = url.pathname === '/' ? home : (site.entry || {})[url.pathname];
   if (entryTarget && read) {
-    const home = `${entryTarget}${url.search}`;
-    return finish(new Response(null, { status: 302, headers: { location: home, 'cache-control': 'max-age=60', 'x-lh-edge-route': 'site-entry' } }), incoming, senv, 'site-entry');
+    const target = `${entryTarget}${url.search}`;
+    return finish(new Response(null, { status: 302, headers: { location: target, 'cache-control': 'max-age=60', 'x-lh-edge-route': 'site-entry' } }), incoming, senv, 'site-entry');
   }
   return finish(await market(incoming, senv), incoming, senv, 'site');
 }
@@ -441,7 +444,8 @@ export default {
     if (head) resp = rewriteHeadUrls(resp, incoming, env, head);
     // alias hosts (ALIAS_HOSTS, src/alias.js): routed like the main host, links to the replica's
     // own hosts kept on the alias host
-    if (alias) resp = forAlias(resp, alias, env);
+    // (a site's alias, austrian-cn: the links of the site's own hosts, not lufthansa.com's)
+    if (alias) resp = forAlias(resp, alias, site ? { ...env, ALIAS_REWRITE_HOSTS: siteHostsOf(site.name, env, alias).join(',') } : env);
     // HTML pages: the visitor's country as lh-geo (src/onetrust.js), after every cache
     return withGeoCookie(resp, incoming);
   },

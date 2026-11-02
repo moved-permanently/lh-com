@@ -20,6 +20,7 @@ bbird.live hosts are retired. Hosts on turnsthe.page follow the brand pattern
 | lufthansa.turnsthe.page | `FRONT_DOOR_HOSTS` (below), `PILOT_COUNTRIES_BY_HOST` (ch), `ALIAS_REWRITE_HOSTS` |
 | lufthansa-edge.turnsthe.page | `PILOT_HOSTS` (every pilot root), `ALIAS_REWRITE_HOSTS` |
 | lufthansa-cn.turnsthe.page | `ALIAS_HOSTS`, `PILOT_COUNTRIES_BY_HOST` (cn) |
+| austrian-cn.turnsthe.page | `ALIAS_HOSTS`, `SITE_HOSTS` (austrian): the Austrian site's China alias |
 | discover.turnsthe.page | `SITE_HOSTS` ("Other sites") |
 | ita.turnsthe.page | `SITE_HOSTS` ("Other sites") |
 | austrian.turnsthe.page | `SITE_HOSTS` ("Other sites") |
@@ -130,6 +131,14 @@ Standard Workers APIs only (fetch, Request/Response, HTMLRewriter, service bindi
 A request whose host is in `ALIAS_HOSTS` (demo `lufthansa-cn.turnsthe.page`, the replica's www.lufthansa.cn) is
 routed exactly like one to the main host: same routes, same origin, same Workers behind them. On its
 answers:
+
+A site's alias host (`austrian-cn.turnsthe.page`, the replica's www.austrian.cn: also in `SITE_HOSTS`
+for its site) is answered as the site's host; its HTML's absolute links to the site's own hosts
+(`SITE_HOSTS` of that site: austrian.turnsthe.page) point at the alias host, not
+`ALIAS_REWRITE_HOSTS` (lufthansa.com's); canonical and hreflang links stay (the site's host, as
+www.austrian.cn's canonical names www.austrian.com); `/` goes to `/<ALIAS_HOME_ROOT>/homepage`
+(cn/en) when the site has that root, as www.austrian.cn answers `/`; robots.txt and every other
+file as on the site's host. lh-proxy and lh-forms allow it as an origin.
 
 - `text/html`: absolute `href`, `src`, `srcset` and `action` URLs whose host is in
   `ALIAS_REWRITE_HOSTS` (the replica's own hosts and the retired ones content still names) point at
