@@ -141,4 +141,14 @@ test('SWISS\'s in-flight entertainment widget and the Google Maps embed: lazy if
   assert.equal(embedUrl(comp(ife.split('&').join('&amp;'))), ife);
   assert.equal(embedUrl(comp(map)), map);
   assert.equal(embedUrl(comp('https://www.google.com/maps/place/Zurich')), '');
+  // the info template takes both iframes as embed blocks (tools/importer/page-templates.json)
+  const fs = await import('node:fs');
+  const { templates } = JSON.parse(fs.readFileSync(new URL('../tools/importer/page-templates.json', import.meta.url), 'utf8'));
+  const { instances } = templates.find((t) => t.name === 'info').blocks.find((b) => b.name === 'embed');
+  ['swiss-inflightentertainment.com', 'https://www.google.com/maps/embed'].forEach((host) => assert.ok(instances.some((i) => i.includes(host)), host));
+  document.body.innerHTML = `<div class="iframe"><div class="iframe-wrapper"><iframe src="${ife}"></iframe></div></div><div class="iframe"><div class="iframe-wrapper"><iframe src="${map}"></iframe></div></div>`;
+  ['swiss-inflightentertainment.com', 'https://www.google.com/maps/embed'].forEach((host) => {
+    const selector = instances.find((i) => i.includes(host));
+    assert.equal(document.querySelectorAll(selector).length, 1, selector);
+  });
 });

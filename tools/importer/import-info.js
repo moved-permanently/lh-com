@@ -178,7 +178,9 @@ const PAGE_TEMPLATE = {
         ".video:has(> .video-player iframe)",
         ".iframe:has(> .iframe-wrapper iframe[src*=\"lufthansa-inflightentertainment.com\"])",
         ".iframe:has(> .iframe-wrapper iframe[src*=\"box.media-carrier.de\"])",
-        ".iframe:has(> .iframe-wrapper iframe[src*=\"lhg-network.com\"])"
+        ".iframe:has(> .iframe-wrapper iframe[src*=\"lhg-network.com\"])",
+        ".iframe:has(> .iframe-wrapper iframe[src*=\"swiss-inflightentertainment.com\"])",
+        ".iframe:has(> .iframe-wrapper iframe[src^=\"https://www.google.com/maps/embed\"])"
       ]
     },
     {

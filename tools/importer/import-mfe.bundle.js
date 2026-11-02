@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-mfe.js
-  var tmp_bundle_mfe_667160_exports = {};
-  __export(tmp_bundle_mfe_667160_exports, {
-    default: () => tmp_bundle_mfe_667160_default
+  var tmp_bundle_mfe_677266_exports = {};
+  __export(tmp_bundle_mfe_677266_exports, {
+    default: () => tmp_bundle_mfe_677266_default
   });
 
   // tools/importer/parsers/micro-frontend.js
@@ -151,7 +151,7 @@ var CustomImportScript = (() => {
     "template"
   ];
   var TRACKING_URL = /(utag|tealium|tiqcdn|monetate|quantummetric|doubleclick|googletagmanager|google-analytics|googleadservices|facebook\.com\/tr|bat\.bing|demdex|omtrdc|\/b\/ss\/|adsrvr|criteo|cookielaw|onetrust|optanon|challenges\.cloudflare|shop\.lufthansa\.com\/preclearance|hotjar|contentsquare|linkedin\.com\/px|pinterest\.com\/ct|t\.co\/i\/adsct)/i;
-  var EMBED_URL = /(youtube\.com|youtube-nocookie\.com|youtu\.be|vimeo\.com|brightcove|players\.|maps\.google|google\.com\/maps|lufthansa\.com|lufthansa-inflightentertainment\.com|box\.media-carrier\.de|lhg-network\.com)/i;
+  var EMBED_URL = /(youtube\.com|youtube-nocookie\.com|youtu\.be|vimeo\.com|brightcove|players\.|maps\.google|google\.com\/maps|lufthansa\.com|lufthansa-inflightentertainment\.com|swiss-inflightentertainment\.com|box\.media-carrier\.de|lhg-network\.com)/i;
   function keepSubpageNavHeader(document, payload) {
     const template = payload && payload.template || {};
     if (!(template.blocks || []).some((b) => b.name === "subpage-nav")) return;
@@ -1572,7 +1572,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_mfe_667160_default = {
+  var tmp_bundle_mfe_677266_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -1602,5 +1602,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_mfe_667160_exports);
+  return __toCommonJS(tmp_bundle_mfe_677266_exports);
 })();
