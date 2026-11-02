@@ -12,7 +12,7 @@ import {
 import { MARKET_TIME_ZONES, DEFAULT_TIME_ZONE } from '../scripts/clock.js';
 import { buildShopHandoff } from '../scripts/shop-handoff.js';
 import { portalHeaders } from '../scripts/lh-data.js';
-import { LANGUAGE_VERSIONS } from '../scripts/locale-table.js';
+import { LANGUAGE_VERSIONS, NEUTRAL_VERSIONS } from '../scripts/locale-table.js';
 
 // today's values of the four roots (scripts/locale.js before the table)
 const BEFORE = {
@@ -170,4 +170,14 @@ test('French (batch 11, pilot): fr/fr the language version with its own document
   assert.deepEqual(portalHeaders('fr/fr'), {
     'X-Portal': 'LH', 'X-Portal-Site': 'FR', 'X-Portal-Language': 'fr', 'X-Portal-Taxonomy': '', 'X-Portal-CountryId': '',
   });
+});
+
+test('the neutral versions (brief 267): www\'s market-neutral roots xx/en and xx/de, no rows; their pages keep de/en\'s and de/de\'s documents', () => {
+  assert.deepEqual(NEUTRAL_VERSIONS, { en: 'xx/en', de: 'xx/de' });
+  assert.ok(!LOCALE_TABLE['xx/en'] && !LOCALE_TABLE['xx/de']);
+  assert.equal(getLocale('/xx/en/book-and-manage/stopover/munich-airport').key, 'de/en');
+  assert.equal(getLocale('/xx/de/319').key, 'de/de');
+  assert.throws(() => buildTable([{ root: 'de/en', hreflang: ['en-DE'], ownSitemap: true }], {
+    defaultLocale: 'de/en', languageVersions: { en: 'de/en' }, neutralVersions: { en: 'zz/en' }, fallbackLanguageVersion: 'de/en', roots: { 'de/en': { status: 'live' } },
+  }), /zz\/en: a neutral version must be a root of www's/);
 });
