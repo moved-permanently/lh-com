@@ -70,8 +70,11 @@ const FORMS = {
     de: 'Request for cancellation and refund via webform',
   },
   'formular-notfallkontakt': { en: 'Notfallkontakt', de: 'Notfallkontakt' },
-  // fr/fr's emergency contact form (French, batch 11; www's h1, 2026-11-02 capture)
-  'emergency-contact': { en: 'Contact en cas d’urgence', de: 'Contact en cas d’urgence' },
+  // the emergency contact form of fr/fr (French, batch 11) and of xx/es and es/es (Spanish, batch
+  // 12): www's h1 per language (2026-11-02 captures)
+  'emergency-contact': {
+    en: 'Contact en cas d’urgence', de: 'Contact en cas d’urgence', fr: 'Contact en cas d’urgence', es: 'Contacto en caso de emergencia',
+  },
   // Discover Airlines (lh-discover): the h1 of www.discover-airlines.com's /de/en/ and /de/de/
   // pages (2026-10-29); the sweepstake exists in German only (us/de, xx/de)
   'discover-assistance': {
