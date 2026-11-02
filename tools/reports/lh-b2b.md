@@ -57,7 +57,8 @@ archives (b2b-snapshots-001 to -007, sha256 checked, placed by `b2b-studio.mjs`)
 - `b2b-import.mjs`: lh-com's info template for every page; B2B's components get classes only this
   importer gives, taken by B2B selectors in `page-templates.json` (icon modules: cards-icon-text
   `stacked`; stage: hero-card-overlay; inspirational stage: hero-campaign right); the author quote
-  as its text and name (no lh-com block; a quote block is proposed, not built); the phone list
+  as its text and name, after the import the shared quote block (withB2bQuotes; a quote in a
+  block's cell stays two paragraphs: Jägermeister's, beside an image); the phone list
   (`dcep-ppb-hotlinebox`) as plain content; Cloudflare's obfuscated e-mail addresses decoded; the
   pre-login search as the search-results block (the root's search index); the route network map
   (`lhg-network.com`) as an embed (decision 6); the forms with lh-forms ids `b2b-<page>`; the
@@ -71,7 +72,21 @@ archives (b2b-snapshots-001 to -007, sha256 checked, placed by `b2b-studio.mjs`)
 - `b2b-batch.mjs`: import, links (aliases for renamed documents:
   `tools/importer/sites/lh-b2b-aliases.json`), DAM, upload and preview per batch.
 
-Needs outside this repo's B2B files: the search indexes of de/en and de/de (`helix-query.yaml`);
-lh-forms rows for `b2b-businesstogo` and `b2b-partner-plus-benefit-raffle` (both languages, origin
-`main--lh-b2b--moved-permanently.aem.page`, later `b2b.turnsthe.page`); the redirects sheet from
-`runs/redirects.tsv`; the lh-edge site entry for `b2b.turnsthe.page`.
+## On its host (2026-11-02)
+
+- lh-edge: `b2b.turnsthe.page` (`SITE_HOSTS` and the other site vars; README "Other sites"): the
+  market roots from de/en and de/de by the documents' `markets`, the rest-of-world documents from
+  `xx/<ll>` where de's row serves de only (`BRAND_SITES.b2b.restOfWorld`), own documents first,
+  the entry redirects; us/de, ca/de and mx/de no roots (www: its not-found page with a 500; here
+  the site's 404).
+- lh-forms: the lh-b2b origins (preview, live, `b2b.turnsthe.page`), `b2b-businesstogo` and
+  `b2b-partner-plus-benefit-raffle` in en and de, FORM_CONFIG's default recipient; the Turnstile
+  widget needs lh-b2b's hosts (Cloudflare dashboard).
+- Search: lh-com's `search-de-en` and `search-de-de` are lh-b2b's indexes of de/en and de/de
+  (`helix-query.yaml` serves every site; unchanged); they fill when the documents are published.
+- Redirects: `tools/reports/lh-b2b-redirects.tsv` (a copy of `runs/redirects.tsv`, 138 rows) for
+  lh-b2b's redirects sheet.
+- Author quotes: the shared `quote` block on 14 documents (de/en and de/de shared stories but
+  Jägermeister).
+- Measured against www (390 and 1440): the bar 61 and 81 px (was 72 and 80), the open menu item
+  `#e6f2ff` (was the estimate `#e8eef9`), the homepage intro at most 800 px (was the column).
