@@ -198,7 +198,11 @@ function subSiteLocale(site, sub, rest, prefix) {
     base: `${prefix}${own.path.replace(/\/$/, '')}`,
     root: key,
     siteLanguages: sub.languages,
-    subSite: { name: sub.name, header: sub.header },
+    subSite: {
+      name: sub.name,
+      header: sub.header,
+      ...(sub.articleIndex ? { articleIndex: sub.articleIndex } : {}),
+    },
   };
 }
 

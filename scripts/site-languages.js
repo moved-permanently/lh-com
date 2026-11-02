@@ -35,12 +35,15 @@ export const SITE_LANGUAGES = {
   ],
 };
 
-const subSite = (name, langs, header) => ({
+// home: a language's front page (the corporate site's /<sub>/<ll>/homepage; the magazine's
+// /magazine/<ll> is a page itself)
+const subSite = (name, langs, header, { home = (lang) => `/${name}/${lang}/homepage`, ...extra } = {}) => ({
   name,
   header,
   languages: langs.map(([lang, label]) => ({
-    lang, path: `/${name}/${lang}/`, home: `/${name}/${lang}/homepage`, name: label,
+    lang, path: `/${name}/${lang}/`, home: home(lang), name: label,
   })),
+  ...extra,
 });
 
 /**
@@ -56,6 +59,13 @@ export const SUB_SITES = {
   swiss: [
     subSite('corporate', [['en', 'English'], ['de', 'Deutsch'], ['fr', 'Français']], { menu: 'bar', search: 'button', languages: 'bar' }),
     subSite('medicalservices', [['en', 'English'], ['de', 'Deutsch']], { menu: 'bar', languages: 'bar' }),
+    // the magazine (/magazine/<ll>/): www's quick links in the bar and its menu in the flyout, the
+    // language list in the bar (www's names); articleIndex: its articles' index per language
+    // (helix-query.yaml magazine-<ll>; scripts/articles.js), read by its overview pages
+    subSite('magazine', [['de', 'German'], ['en', 'English']], { languages: 'bar' }, {
+      home: (lang) => `/magazine/${lang}`,
+      articleIndex: { de: '/magazine/de/query-index.json', en: '/magazine/en/query-index.json' },
+    }),
   ],
 };
 

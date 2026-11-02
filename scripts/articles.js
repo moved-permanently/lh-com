@@ -124,8 +124,12 @@ export function toArticle(row) {
  * @returns {Promise<Object[]>}
  */
 export async function loadArticles(locale, brand = null) {
-  const own = brand && brand.articleIndex && brand.articleIndex[locale.lang];
-  if (own) return (await loadSheet(own)).filter((r) => r.path).map(toArticle).sort(byDate);
+  // a sub-site's own index first (scripts/site-languages.js SUB_SITES: SWISS's magazine), then
+  // the brand's; its rows of another page type (overview pages, contact) are no posts
+  const index = (x) => (x && x.articleIndex && x.articleIndex[locale.lang]) || null;
+  const own = index(locale.subSite) || index(brand);
+  const post = (r) => r.path && ['', 'article'].includes(String(r['page-type'] || '').trim());
+  if (own) return (await loadSheet(own)).filter(post).map(toArticle).sort(byDate);
   const rows = await loadSheet(`/${locale.key}/articles/query-index.json`);
   return rows.filter((r) => String(r['page-type'] || '').trim() === 'article' && r.path)
     .map(toArticle).sort(byDate);

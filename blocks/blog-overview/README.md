@@ -15,6 +15,10 @@ Single block table, key | value rows; every row is optional. The options are www
 | Author | an author id, `lh/florian-tomberg` | `authorId` (base64 on www) |
 | Page size | cards per page (default 6) | `paginationSize` |
 | Hide filter | `true`: no result count, search field or category filter | `hideFilter` |
+| Path | only the articles under this path, `/magazine/de/reisen` (SWISS magazine's section and category lists) | the teaser container's parent page |
+| Load more | `false`: the grid's first page alone, no Load more button (SWISS magazine's five latest per row) | |
+
+A sub-site with an articles' index of its own (`scripts/site-languages.js` SUB_SITES `articleIndex`: SWISS's magazine) lists from it, its rows of another page type (overview pages) left out.
 
 The set options all apply (a tag page with Category and Tag lists the category's articles with that tag, as www's configuration asks). Labels: any of `Results label` ("{TOTAL} Results found"), `Search label`, `Categories label`, `All categories label`, `Read label`, `Read screen reader label` ("Read '{TITLE}'"), `No results label`, `Current page label`, `Pagination label`, `Tags label`, `Previous label`, `Next label`, `Page label` may be authored as a row; otherwise www's label bundle `blogOverview` (GET `/service/api/labels/blogOverview/lh/{lang}`, recorded answer as fallback) and then built-in English and German defaults are used.
 

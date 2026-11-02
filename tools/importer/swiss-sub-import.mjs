@@ -43,6 +43,8 @@ const CI = '/home/node/.excat-marketplaces/excat-marketplace/excat/skills/excat-
 // the sub-sites' path prefixes (scripts/site-languages.js SUB_SITES)
 export const SUB_SITE_NAMES = SUB_SITES.swiss.map((s) => s.name);
 const SUB_PATH = new RegExp(`^/(?:${SUB_SITE_NAMES.join('|')})/[a-z]{2}(?:/|$)`);
+// a link to a sub-site's page (www's absolute or relative spelling)
+const SUB_LINK = new RegExp(`href="(?:https://(?:www\\.)?swiss\\.com)?(/(?:${SUB_SITE_NAMES.join('|')})/[^"?#]*?)(?:\\.html)?/?([?#][^"]*)?"`, 'g');
 
 /** The html without the div (or element) that opens at each match of `open` (by div depth). */
 function withoutDivs(html, open) {
@@ -107,9 +109,10 @@ export function subSiteLinks(doc, { subPages, sitePaths, mapHosts = true }) {
   // mapHosts false: a document read from www's markup itself (the nav and footer), whose
   // www.lufthansa.com links are Lufthansa's
   const mapped = postprocess(doc, { sourceHost: HOST, sitePaths, mapHosts }).html;
-  return mapped.replace(/href="(?:https:\/\/(?:www\.)?swiss\.com)?(\/(?:corporate|medicalservices)\/[^"?#]*?)(?:\.html)?\/?([?#][^"]*)?"/g, (m, p, rest = '') => {
+  return mapped.replace(SUB_LINK, (m, p, rest = '') => {
     if (!SUB_PATH.test(p)) return m;
-    const page = /^\/[a-z]+\/[a-z]{2}$/.test(p) ? `${p}/homepage` : p;
+    // a sub-site's /<sub>/<ll>: its homepage document (the magazine's front page is itself a page)
+    const page = /^\/[a-z]+\/[a-z]{2}$/.test(p) && !subPages.has(p) ? `${p}/homepage` : p;
     return subPages.has(page) ? `href="${page}${rest}"` : `href="https://${HOST}${p}${rest}"`;
   });
 }

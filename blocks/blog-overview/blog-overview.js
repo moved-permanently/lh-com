@@ -117,6 +117,10 @@ function readOptions(block) {
     author: text('author', 'author-id'),
     pageSize: Number.isFinite(size) && size > 0 ? size : defaultSize,
     hideFilter: /^(true|yes|ja|1)$/i.test(text('hide-filter')),
+    // Path: only the articles under it (SWISS magazine's section and category lists); Load more
+    // false: the first page alone (its front and section pages' five latest per row)
+    path: text('path').replace(/\/+$/, ''),
+    loadMore: !/^(false|no|nein|0)$/i.test(text('load-more')),
   };
 }
 
@@ -273,7 +277,8 @@ export default async function decorate(block) {
 
   const all = (articlesResult.list || [])
     .filter((a) => (!options.tag || a.tagIds.includes(options.tag))
-    && (!options.author || a.authorId === options.author));
+    && (!options.author || a.authorId === options.author)
+    && (!options.path || a.path.startsWith(`${options.path}/`)));
   const saved = (window.history.state && window.history.state[uid]) || {};
   const state = {
     category: saved.category ?? resolveCategory(options.category, articlesResult.list || []),
@@ -291,7 +296,7 @@ export default async function decorate(block) {
   const pager = el('nav', 'blog-overview-pagination');
   pager.setAttribute('aria-label', labels['pagination label']);
   // the grid variant: a Load more button instead of numbered pages
-  const loadMore = options.grid ? el('button', 'blog-overview-load-more', labels['load more label']) : null;
+  const loadMore = options.grid && options.loadMore ? el('button', 'blog-overview-load-more', labels['load more label']) : null;
   if (loadMore) loadMore.type = 'button';
 
   let form;

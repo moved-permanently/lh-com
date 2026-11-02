@@ -11,8 +11,8 @@ import {
   withoutSubSiteChrome, withSearchResults, searchResultsBlock, SEARCH_MARK, subSiteLinks, SUB_SITE_NAMES,
 } from '../tools/importer/swiss-sub-import.mjs';
 
-test('the sub-sites: corporate and medicalservices (scripts/site-languages.js SUB_SITES)', () => {
-  assert.deepEqual(SUB_SITE_NAMES, ['corporate', 'medicalservices']);
+test('the sub-sites: corporate, medicalservices and magazine (scripts/site-languages.js SUB_SITES)', () => {
+  assert.deepEqual(SUB_SITE_NAMES, ['corporate', 'medicalservices', 'magazine']);
 });
 
 test('withoutSubSiteChrome: header, breadcrumb, footer, skip links, language dialogs and the empty message box go; the h1 and the content stay', () => {
