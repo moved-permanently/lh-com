@@ -49,6 +49,8 @@ const LABELS = {
     location: 'Location',
     continue: 'Continue',
     newTab: 'opens in a new tab',
+    // the bar's language list (a sub-site: www.swiss.com's corporate site, its text)
+    languageCurrent: 'language selection; currently:',
   },
   de: {
     nav: 'Navigation',
@@ -64,6 +66,7 @@ const LABELS = {
     location: 'Land',
     continue: 'Weiter',
     newTab: 'öffnet in einem neuen Tab',
+    languageCurrent: 'Derzeit ausgewählte Sprache:',
   },
   it: {
     nav: 'Navigazione',
@@ -79,6 +82,7 @@ const LABELS = {
     location: 'Paese',
     continue: 'Continua',
     newTab: 'si apre in una nuova scheda',
+    languageCurrent: 'selezione della lingua; attuale:',
   },
   fr: {
     nav: 'Navigation',
@@ -94,6 +98,7 @@ const LABELS = {
     location: 'Pays',
     continue: 'Continuer',
     newTab: 's’ouvre dans un nouvel onglet',
+    languageCurrent: 'language selection; currently:',
   },
   es: {
     nav: 'Navegación',
@@ -109,6 +114,7 @@ const LABELS = {
     location: 'País',
     continue: 'Continuar',
     newTab: 'se abre en una pestaña nueva',
+    languageCurrent: 'selección de idioma; actual:',
   },
   nl: {
     nav: 'Navigatie',
@@ -124,6 +130,7 @@ const LABELS = {
     location: 'Land',
     continue: 'Doorgaan',
     newTab: 'opent in een nieuw tabblad',
+    languageCurrent: 'taalkeuze; momenteel:',
   },
   pt: {
     nav: 'Navegação',
@@ -139,6 +146,7 @@ const LABELS = {
     location: 'País',
     continue: 'Continuar',
     newTab: 'abre em uma nova aba',
+    languageCurrent: 'seleção de idioma; atual:',
   },
   el: {
     nav: 'Πλοήγηση',
@@ -154,6 +162,7 @@ const LABELS = {
     location: 'Χώρα',
     continue: 'Συνέχεια',
     newTab: 'ανοίγει σε νέα καρτέλα',
+    languageCurrent: 'επιλογή γλώσσας· τρέχουσα:',
   },
   ja: {
     nav: 'ナビゲーション',
@@ -169,6 +178,7 @@ const LABELS = {
     location: '国',
     continue: '続ける',
     newTab: '新しいタブで開きます',
+    languageCurrent: '言語の選択、現在:',
   },
   ru: {
     nav: 'Навигация',
@@ -184,6 +194,7 @@ const LABELS = {
     location: 'Страна',
     continue: 'Продолжить',
     newTab: 'откроется в новой вкладке',
+    languageCurrent: 'выбор языка; сейчас:',
   },
   zh: {
     nav: '导航',
@@ -199,6 +210,7 @@ const LABELS = {
     location: '国家/地区',
     continue: '继续',
     newTab: '在新标签页中打开',
+    languageCurrent: '语言选择；当前：',
   },
   pl: {
     nav: 'Nawigacja',
@@ -214,6 +226,7 @@ const LABELS = {
     location: 'Kraj',
     continue: 'Dalej',
     newTab: 'otwiera się w nowej karcie',
+    languageCurrent: 'wybór języka; obecnie:',
   },
 };
 
@@ -792,9 +805,11 @@ export default async function decorate(block) {
     brand, quick, menu, tools,
   } = classifySections(fragment);
   // a brand's own header (scripts/brands.js header: Lufthansa Group for Business): the menu in the
-  // bar, the logo without a link, a search button; every other brand as before
+  // bar, the logo without a link, a search button; a sub-site's before its brand's
+  // (scripts/site-languages.js SUB_SITES: SWISS's corporate site); every other brand as before
   const pageBrand = brandEntry();
-  const headerStyle = (pageBrand && pageBrand.header) || {};
+  const subSiteHeader = locale.subSite && locale.subSite.header;
+  const headerStyle = subSiteHeader || (pageBrand && pageBrand.header) || {};
 
   // brand
   const brandEl = el('div', { className: 'nav-brand' });
@@ -909,6 +924,26 @@ export default async function decorate(block) {
     toolsEl.append(el('span', { className: 'nav-divider', 'aria-hidden': 'true' }));
     toolsEl.append(useLoginUrl(await toolLink(loginTool, 'nav-tool nav-tool-login', true)));
   }
+  // each other language of a site switch: its homepage at once, the page's counterpart once it is
+  // known to exist (one probe for the bar's list and the menu's links)
+  const exists = (p) => fetch(p, { method: 'HEAD' }).then((r) => r.ok);
+  const switchTargets = siteSwitch
+    ? siteSwitch.links.map((link) => switchTarget(link, exists)) : [];
+  // the language list in the bar (a sub-site's header.languages 'bar': www's "EN" with the globe)
+  let languages = null;
+  if (siteSwitch && headerStyle.languages === 'bar') {
+    const { default: buildLanguages } = await import('./header-languages.js');
+    languages = buildLanguages({
+      current: locale.lang,
+      label: labels.languageCurrent || LABELS.en.languageCurrent,
+      links: siteSwitch.links,
+      icon: await inlineIcon('globe'),
+    });
+    switchTargets.forEach((target, i) => target.then((href) => {
+      languages.anchors[i].href = href;
+    }));
+    toolsEl.append(languages.root);
+  }
   // the search button (header.search 'button': www's boxed search icon to the search page)
   const searchTool = headerStyle.search === 'button' ? byRole('search') : null;
   if (searchTool && searchTool.href) toolsEl.append(await toolLink(searchTool, 'nav-tool nav-tool-search', false));
@@ -944,9 +979,7 @@ export default async function decorate(block) {
     return toolLink(tool, 'nav-flyout-extra', true);
   })).then((links) => links.filter(Boolean).forEach((a) => extras.push(el('li', {}, a))));
   if (siteSwitch) {
-    // each other language: its homepage at once, the page's counterpart once it is known to exist
-    const exists = (p) => fetch(p, { method: 'HEAD' }).then((r) => r.ok);
-    siteSwitch.links.forEach((link) => {
+    siteSwitch.links.forEach((link, i) => {
       const a = el(
         'a',
         {
@@ -954,7 +987,7 @@ export default async function decorate(block) {
         },
         el('span', { className: 'nav-tool-label' }, link.label),
       );
-      switchTarget(link, exists).then((href) => { a.href = href; });
+      switchTargets[i].then((href) => { a.href = href; });
       extras.push(el('li', {}, a));
     });
   } else if (headerStyle.locale !== false) {
@@ -988,7 +1021,11 @@ export default async function decorate(block) {
   document.addEventListener('lh:locale-selector', (e) => {
     e.preventDefault();
     if (siteSwitch) {
-      if (menuButton.getAttribute('aria-expanded') !== 'true') menuButton.click();
+      // the bar's language list where it shows (a sub-site), else the menu
+      if (languages && languages.root.offsetParent !== null) {
+        languages.open();
+        languages.button.focus();
+      } else if (menuButton.getAttribute('aria-expanded') !== 'true') menuButton.click();
       return;
     }
     flyout.close(false);
@@ -1009,7 +1046,7 @@ export default async function decorate(block) {
   // the menu and the notifications panel: one at a time
   if (bell) menuButton.addEventListener('click', () => bell.close());
   if (a11y) menuButton.addEventListener('click', () => a11y.close());
-  const navWrapper = el('div', { className: barMenu ? 'nav-wrapper nav-has-bar-menu' : 'nav-wrapper' }, nav);
+  const navWrapper = el('div', { className: ['nav-wrapper', barMenu ? 'nav-has-bar-menu' : '', locale.subSite ? 'nav-sub-site' : ''].filter(Boolean).join(' ') }, nav);
   const flight = flightBar ? await flightBar : null;
   if (flight) navWrapper.append(flight);
 

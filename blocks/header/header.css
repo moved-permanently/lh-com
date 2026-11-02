@@ -1465,3 +1465,88 @@ body.brand-b2b .header {
 body.brand-b2b .header .nav-bar-menu-button[aria-expanded="true"] {
   background-color: #e6f2ff;
 }
+
+/* the language list in the bar (header.languages 'bar', header-languages.js: SWISS's corporate site
+   and medical services): www's globe and the current language's code, its screen-reader text
+   hidden, the other languages in a list below it */
+.header .nav-languages {
+  position: relative;
+}
+
+.header .nav-languages-button {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  margin: 0;
+  padding: 8px;
+  border: 0;
+  background: none;
+  color: var(--nav-bar-text);
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  line-height: 22px;
+  cursor: pointer;
+}
+
+.header .nav-languages-button:hover,
+.header .nav-languages-button[aria-expanded="true"] {
+  color: var(--nav-bar-text-hover);
+}
+
+.header .nav-languages-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.header .nav-languages-list {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 3;
+  min-width: 160px;
+  margin: 0;
+  padding: 8px 0;
+  background-color: var(--nav-bar-surface);
+  box-shadow: 0 2px 8px rgb(0 0 0 / 20%);
+  list-style: none;
+}
+
+.header .nav-languages-list[hidden] {
+  display: none;
+}
+
+.header .nav-languages-link {
+  display: block;
+  padding: 8px 16px;
+  color: var(--nav-bar-text);
+  font-size: 16px;
+  line-height: 22px;
+  text-decoration: none;
+}
+
+.header .nav-languages-link:hover {
+  color: var(--nav-bar-text-hover);
+  text-decoration: underline;
+}
+
+/* SWISS's sub-sites (scripts/site-languages.js SUB_SITES): the bar menu with SWISS's square corners,
+   the open item on its light grey (lxgrey1 #f2f2f2, styles/themes/swiss.css) instead of lh-b2b's
+   light blue; www's own header styles are not in the capture */
+body.brand-swiss .header .nav-sub-site .nav-bar-menu-button,
+body.brand-swiss .header .nav-sub-site .nav-bar-menu-link {
+  border-radius: 0;
+}
+
+body.brand-swiss .header .nav-sub-site .nav-bar-menu-button:hover,
+body.brand-swiss .header .nav-sub-site .nav-bar-menu-link:hover,
+body.brand-swiss .header .nav-sub-site .nav-bar-menu-button[aria-expanded="true"] {
+  background-color: #f2f2f2;
+}
+
+body.brand-swiss .header .nav-sub-site .nav-tool.nav-tool-search {
+  border-radius: 0;
+}

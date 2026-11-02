@@ -100,7 +100,8 @@ test('brands.js: the bar menu, the unlinked logo and the search button on Luftha
 
 test('header.js: the options read from the brand entry; without them as before', () => {
   const js = fs.readFileSync('blocks/header/header.js', 'utf8');
-  assert.match(js, /const headerStyle = \(pageBrand && pageBrand\.header\) \|\| \{\};/);
+  // (a sub-site's style first: test/swiss-sub-sites.test.mjs)
+  assert.match(js, /const subSiteHeader = locale\.subSite && locale\.subSite\.header;\n {2}const headerStyle = subSiteHeader \|\| \(pageBrand && pageBrand\.header\) \|\| \{\};/);
   assert.match(js, /if \(headerStyle\.menu === 'bar'\)/);
   assert.match(js, /headerStyle\.logoLink === false/);
   assert.match(js, /headerStyle\.search === 'button'/);

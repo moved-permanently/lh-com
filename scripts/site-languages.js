@@ -35,6 +35,36 @@ export const SITE_LANGUAGES = {
   ],
 };
 
+const subSite = (name, langs, header) => ({
+  name,
+  header,
+  languages: langs.map(([lang, label]) => ({
+    lang, path: `/${name}/${lang}/`, home: `/${name}/${lang}/homepage`, name: label,
+  })),
+});
+
+/**
+ * Sub-sites of a brand site with roots, under paths of their own with languages of their own
+ * (www.swiss.com's corporate site /corporate/<ll>/ and medical services /medicalservices/<ll>/:
+ * the capture of 2026-11-02). Their pages take the language from the path, their nav and footer
+ * from the sub-site's language (/corporate/de/nav: scripts/locale.js), and the header switches
+ * between the sub-site's languages (the same slugs in each). header: the header's style
+ * (blocks/header: the menu in the bar, a search button, the language list in the bar as www's
+ * "EN" with the globe; medical services has no search: www's has no results page).
+ */
+export const SUB_SITES = {
+  swiss: [
+    subSite('corporate', [['en', 'English'], ['de', 'Deutsch'], ['fr', 'Français']], { menu: 'bar', search: 'button', languages: 'bar' }),
+    subSite('medicalservices', [['en', 'English'], ['de', 'Deutsch']], { menu: 'bar', languages: 'bar' }),
+  ],
+};
+
+/** The sub-site of a brand (its key) a path belongs to, else null. */
+export function subSiteOf(brand, pathname) {
+  const subs = SUB_SITES[String(brand || '').trim().toLowerCase()] || [];
+  return subs.find((s) => pathname === `/${s.name}` || String(pathname).startsWith(`/${s.name}/`)) || null;
+}
+
 /** The languages of the page's brand site (read: the page's metadata), else null. */
 export function siteLanguagesOf(read) {
   const key = String(read('brand') || '').trim().toLowerCase();

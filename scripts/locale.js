@@ -11,7 +11,7 @@
 import {
   LOCALE_TABLE, DEFAULT_LOCALE, LANGUAGE_VERSIONS, FALLBACK_LANGUAGE_VERSION, WWW_ROOTS,
 } from './locale-table.js';
-import { siteLanguagesOf } from './site-languages.js';
+import { siteLanguagesOf, subSiteOf, languageOfPath } from './site-languages.js';
 import { BRANDS, BRAND_SITES } from './brands.js';
 
 export { LOCALE_TABLE, DEFAULT_LOCALE };
@@ -168,6 +168,27 @@ function brandLocale(site, root, prefix) {
 }
 
 /**
+ * The locale of a page of a brand's sub-site (scripts/site-languages.js SUB_SITES: SWISS's
+ * /corporate/<ll>/, /medicalservices/<ll>/): the language of its path (else the sub-site's
+ * first), the rest of the brand's root of that language (else its first: no ch/fr on lh-swiss),
+ * the sub-site's language as the base (its nav and footer), its languages for the header's switch
+ * and the sub-site (its name and header style).
+ */
+function subSiteLocale(site, sub, rest, prefix) {
+  const own = languageOfPath(rest, sub.languages) || sub.languages[0];
+  const key = site.versions[own.lang] || Object.values(site.versions)[0];
+  return {
+    ...brandRow(site, key),
+    lang: own.lang,
+    key,
+    base: `${prefix}${own.path.replace(/\/$/, '')}`,
+    root: key,
+    siteLanguages: sub.languages,
+    subSite: { name: sub.name, header: sub.header },
+  };
+}
+
+/**
  * lh-com's pages at the site root that are pages of one locale: OF1's generative page /of1 is an
  * English page (its fare widgets: English labels and conditions), de/en like the 404 page.
  */
@@ -187,8 +208,11 @@ export function getLocale(pathname = window.location.pathname) {
   // /content/lh/markets/{country}/{lang}/...
   const rest = pathname.slice(prefix.length).replace(/^\/content\/lh\/markets(?=\/)/, '');
   const match = rest.match(/^\/([a-z]{2})\/([a-z]{2})(?:\/|$)/);
-  // a brand site with roots (Discover, ITA): its own table
+  // a brand site with roots (Discover, ITA): its own table; a sub-site of it (SWISS's corporate
+  // site): the sub-site's language
   const site = brandSite();
+  const sub = site && subSiteOf(site.key, rest);
+  if (sub) return subSiteLocale(site, sub, rest, prefix);
   if (site) return brandLocale(site, match ? `${match[1]}/${match[2]}` : '', prefix);
   // no root in the path: a brand site without roots (its page's language), else (app screens,
   // experience fragments, /index) the default locale
