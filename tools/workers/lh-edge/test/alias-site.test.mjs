@@ -28,9 +28,13 @@ const env = {
   SITE_WWW_HOSTS: 'austrian=www.austrian.com',
   SITE_DESIGN_HOSTS: 'austrian=www.lufthansa.com',
 };
-const PAGE = `<!DOCTYPE html><html><head><title>Austrian</title>
-<link rel="canonical" href="https://austrian.turnsthe.page/at/en/homepage">
-<link rel="alternate" hreflang="de-AT" href="https://austrian.turnsthe.page/at/de/homepage">
+// as main--lh-austrian--moved-permanently.aem.live answers (no production host in the site's
+// config): the canonical, og:url and hreflang name the X-Forwarded-Host it is asked with (the live
+// austrian-cn answer, 2026-11-02 13:20 UTC: canonical https://austrian-cn.turnsthe.page/cn/zh/homepage)
+const PAGE = (host) => `<!DOCTYPE html><html><head><title>Austrian</title>
+<link rel="canonical" href="https://${host}/at/en/homepage">
+<meta property="og:url" content="https://${host}/at/en/homepage">
+<link rel="alternate" hreflang="de-AT" href="https://${host}/at/de/homepage">
 </head><body><main>
 <a href="https://austrian.turnsthe.page/at/en/baggage">baggage</a>
 <a href="https://www.austrian.com/at/en/offers">www</a>
@@ -41,14 +45,17 @@ const PAGE = `<!DOCTYPE html><html><head><title>Austrian</title>
 const ROBOTS = 'User-agent: *\nDisallow: /\n';
 
 let calls;
+let forwarded;
 beforeEach(() => {
   resetMarketCache();
   calls = [];
+  forwarded = [];
   globalThis.fetch = async (input) => {
     const req = input instanceof Request ? input : new Request(input);
     const u = new URL(req.url);
     calls.push(`${u.hostname}${u.pathname}`);
-    if (u.hostname === AT && u.pathname === '/at/en/homepage') return new Response(PAGE, { headers: { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'max-age=300' } });
+    forwarded.push(req.headers.get('x-forwarded-host'));
+    if (u.hostname === AT && u.pathname === '/at/en/homepage') return new Response(PAGE(req.headers.get('x-forwarded-host') || AT), { headers: { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'max-age=300' } });
     if (u.hostname === AT && u.pathname === '/robots.txt') return new Response(ROBOTS, { headers: { 'content-type': 'text/plain; charset=utf-8' } });
     return new Response('nf', { status: 404, headers: { 'content-type': 'text/html' } });
   };
@@ -73,7 +80,9 @@ test('austrian-cn: links to the site\'s host on the alias host; www.austrian.com
   assert.match(html, /<a href="https:\/\/lufthansa\.turnsthe\.page\/de\/en\/homepage">/, 'another site\'s host stays');
   assert.match(html, /<a href="\/at\/en\/relative">/);
   assert.match(html, /<link rel="canonical" href="https:\/\/austrian\.turnsthe\.page\/at\/en\/homepage">/);
+  assert.match(html, /<meta property="og:url" content="https:\/\/austrian\.turnsthe\.page\/at\/en\/homepage">/);
   assert.match(html, /<link rel="alternate" hreflang="de-AT" href="https:\/\/austrian\.turnsthe\.page\/at\/de\/homepage">/);
+  assert.ok(forwarded.every((h) => h === 'austrian.turnsthe.page'), `the origin asked for the site's host: ${forwarded.join(' ')}`);
   assert.equal(resp.headers.get('cache-control'), 'public, max-age=28800');
 });
 
@@ -94,6 +103,7 @@ test('austrian-cn: robots as austrian.turnsthe.page (the .com file); the site ho
   assert.equal(await at.text(), ROBOTS);
   const page = await get('austrian.turnsthe.page', '/at/en/homepage');
   const html = await page.text();
+  assert.match(html, /<link rel="canonical" href="https:\/\/austrian\.turnsthe\.page\/at\/en\/homepage">/);
   assert.match(html, /<a href="https:\/\/austrian\.turnsthe\.page\/at\/en\/baggage">/, 'no alias rewrite on the site\'s host');
   assert.notEqual(page.headers.get('cache-control'), 'public, max-age=28800');
 });

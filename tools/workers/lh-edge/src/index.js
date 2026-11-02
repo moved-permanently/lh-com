@@ -380,6 +380,13 @@ async function siteRespond(incoming, env, site, ctx) {
   const early = prelude(incoming);
   if (early) return early;
   const senv = siteEnv(env, site);
+  // a site's alias host (austrian-cn): the origin is asked for the site's own host (its first in
+  // SITE_HOSTS), whose name aem.live writes into canonical, og:url and hreflang without a
+  // production host of its own (lh-austrian has none; lh-com's config names
+  // lufthansa.turnsthe.page): one canonical host, as www.austrian.cn's pages name www.austrian.com
+  const aliasOfSite = aliasHostOf(incoming, env);
+  const ownHost = aliasOfSite && siteHostsOf(site.name, env, aliasOfSite)[0];
+  if (ownHost) senv.PUBLIC_HOST = ownHost;
   const url = new URL(incoming.url);
   const read = ['GET', 'HEAD'].includes(incoming.method);
   // OneTrust from the host and the immutable fonts, as on lh-com's hosts; www's design-system
