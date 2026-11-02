@@ -62,8 +62,10 @@ test('swiss: the site on its host: ch/en and ch/de with their own documents, no 
   assert.equal(site.origin, SWISS);
   assert.equal(site.www, 'www.swiss.com');
   assert.equal(site.design, 'www.lufthansa.com');
-  assert.deepEqual(site.tables.versions, { en: 'ch/en', de: 'ch/de' });
-  assert.deepEqual(Object.keys(site.tables.table), ['ch/en', 'ch/de']);
+  assert.deepEqual(site.tables.versions, {
+    en: 'ch/en', de: 'ch/de', fr: 'ch/fr', it: 'ch/it',
+  });
+  assert.deepEqual(Object.keys(site.tables.table), ['ch/en', 'ch/de', 'ch/fr', 'ch/it']);
   assert.deepEqual(SITES.swiss.marketRoots, []);
   assert.equal(siteOf(new Request('https://brussels.example/be/en/homepage'), env()).name, 'brussels');
 });
@@ -95,6 +97,13 @@ test('swiss: entry paths as www.swiss.com sends them (302); a homepage path stay
     '/xx/de/homepage': '/ch/de/homepage',
     '/en/homepage': '/ch/en/homepage',
     '/de/homepage': '/ch/de/homepage',
+    // brief 272: ch/fr and ch/it as the pilot's roots
+    '/ch/fr': '/ch/fr/homepage',
+    '/ch/it/': '/ch/it/homepage',
+    '/xx/fr': '/ch/fr/homepage',
+    '/xx/it/homepage': '/ch/it/homepage',
+    '/fr/homepage': '/ch/fr/homepage',
+    '/it/homepage': '/ch/it/homepage',
   };
   const answers = await Promise.all(Object.keys(expect).map((p) => get(`https://swiss.example${p}`)));
   answers.forEach((resp, i) => {
@@ -105,12 +114,12 @@ test('swiss: entry paths as www.swiss.com sends them (302); a homepage path stay
   });
   assert.equal((await get('https://swiss.example/ch/de?x=1')).headers.get('location'), '/ch/de/homepage?x=1');
   assert.equal((await get('https://swiss.example/ch/en/homepage')).status, 200);
-  assert.notEqual((await get('https://swiss.example/ch/fr')).status, 302, 'ch/fr is no root of the site yet');
+  assert.notEqual((await get('https://swiss.example/ch/es')).status, 302, 'ch/es is no root of the site yet');
   // the other sites' entries as before, none of SWISS's
   assert.equal((await get('https://brussels.example/ch')).headers.get('location'), '/ch/en/homepage');
   assert.equal((await get('https://brussels.example/xx/en')).headers.get('location'), '/be/en/homepage');
   Object.entries(SITE_ENTRIES).filter(([name]) => name !== 'swiss').forEach(([name, entries]) => {
-    assert.ok(!Object.keys(entries).some((p) => /^\/(en|de)\/homepage$/.test(p)), name);
+    assert.ok(!Object.keys(entries).some((p) => /^\/(en|de|fr|it)\/homepage$/.test(p)), name);
   });
 });
 

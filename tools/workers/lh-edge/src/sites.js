@@ -67,10 +67,11 @@ const ENTRY_ALIASES = { brussels: { xx: 'be' } };
 // entry paths besides its roots', as on the source: Austrian's www sends /xx/en to
 // /at/en/homepage and /at to a 404 (/at/at/en/homepage), here to /at/en/homepage too
 // SWISS's www sends /ch to /ch/de/homepage, /xx/<ll>[/homepage] to /ch/<ll>/homepage and the
-// sub-sites' /<ll>/homepage to /ch/<ll>/homepage (the groundwork's 1.6; the pilot's en and de)
+// sub-sites' /<ll>/homepage to /ch/<ll>/homepage (the groundwork's 1.6; the site's languages: the
+// pilot's en and de, fr and it since brief 272)
 const swissEntries = () => {
   const out = { '/ch': '/ch/de/homepage', '/ch/': '/ch/de/homepage' };
-  ['en', 'de'].forEach((ll) => {
+  Object.keys(BRAND_SITES.swiss.versions).forEach((ll) => {
     [`/xx/${ll}`, `/xx/${ll}/`, `/xx/${ll}/homepage`, `/${ll}/homepage`].forEach((p) => { out[p] = `/ch/${ll}/homepage`; });
   });
   return out;

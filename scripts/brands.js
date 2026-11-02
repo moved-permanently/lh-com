@@ -1013,9 +1013,17 @@ export const BRAND_SITES = {
     airports: {},
   },
   swiss: {
-    rows: rowsOf('own', ['ch/en', 'ch/de']),
-    versions: { en: 'ch/en', de: 'ch/de' },
-    names: { 'ch/en': 'Switzerland | English', 'ch/de': 'Switzerland | Deutsch' },
-    airports: { 'ch/en': 'ZRH', 'ch/de': 'ZRH' },
+    // the pilot's ch/en and ch/de; ch/fr and ch/it (brief 272); names: the homepages' line (ch/de's
+    // says Switzerland, ch/it's Suisse); airports: the homepages' flight search origin
+    rows: rowsOf('own', ['ch/en', 'ch/de', 'ch/fr', 'ch/it']),
+    versions: {
+      en: 'ch/en', de: 'ch/de', fr: 'ch/fr', it: 'ch/it',
+    },
+    names: {
+      'ch/en': 'Switzerland | English', 'ch/de': 'Switzerland | Deutsch', 'ch/fr': 'Suisse | Français', 'ch/it': 'Suisse | Italiano',
+    },
+    airports: {
+      'ch/en': 'ZRH', 'ch/de': 'ZRH', 'ch/fr': 'GVA', 'ch/it': 'ZRH',
+    },
   },
 };
