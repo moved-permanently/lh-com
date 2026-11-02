@@ -94,10 +94,12 @@ test('markets values: include and exclude lists, empty is every market', () => {
 });
 
 test('the four roots and other paths never reach the market route', () => {
-  ['/de/en/baggage', '/de/de/gepaeck', '/at/de/homepage', '/gb/en/flights', '/us/en/ccpa', '/ch/fr/homepage', '/ch/en'].forEach((p) => {
+  // fr/fr: a root of www's without a row (us/en, the example before, has a pilot row since batch 10)
+  ['/de/en/baggage', '/de/de/gepaeck', '/at/de/homepage', '/gb/en/flights', '/fr/fr/homepage', '/ch/fr/homepage', '/ch/en'].forEach((p) => {
     assert.notEqual(routeOf(new Request(`https://lhedge.example${p}`)).name, 'market', p);
   });
   assert.equal(routeOf(new Request('https://lhedge.example/ch/en/baggage')).name, 'market');
+  assert.equal(routeOf(new Request('https://lhedge.example/us/en/ccpa')).name, 'market', 'a pilot root of batch 10');
 });
 
 test('a host without pilot roots: /ch/en/... passes through to the origin unchanged', async () => {

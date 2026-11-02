@@ -193,6 +193,14 @@ export const LOCALE_TABLE = {
   'pt/en': { country: 'pt', lang: 'en', hreflang: 'en-PT', status: 'pilot', documents: 'language', name: 'Portugal | English', countryName: { en: 'Portugal', de: 'Portugal' }, homeAirport: 'LIS', currency: 'EUR', timeZone: null, shopLang: null },
   'ru/de': { country: 'ru', lang: 'de', hreflang: 'de-RU', status: 'pilot', documents: 'language', name: 'Russische Föderation | Deutsch', countryName: { en: 'Russian Federation', de: 'Russische Föderation' }, homeAirport: 'FRA', currency: 'EUR', timeZone: null, shopLang: null },
   'ru/en': { country: 'ru', lang: 'en', hreflang: 'en-RU', status: 'pilot', documents: 'language', name: 'Russian Federation | English', countryName: { en: 'Russian Federation', de: 'Russische Föderation' }, homeAirport: 'FRA', currency: 'EUR', timeZone: null, shopLang: null },
+  'tn/de': { country: 'tn', lang: 'de', hreflang: 'de-TN', status: 'pilot', documents: 'language', name: 'Tunesien | Deutsch', countryName: { en: 'Tunesien', de: 'Tunesien' }, homeAirport: 'TUN', currency: 'TND', timeZone: null, shopLang: null },
+  'tn/en': { country: 'tn', lang: 'en', hreflang: 'en-TN', status: 'pilot', documents: 'language', name: 'Tunesien | English', countryName: { en: 'Tunesien', de: 'Tunesien' }, homeAirport: 'TUN', currency: 'TND', timeZone: null, shopLang: null },
+  'tw/de': { country: 'tw', lang: 'de', hreflang: 'de-TW', status: 'pilot', documents: 'language', name: 'Taiwan, China | Deutsch', countryName: { en: 'Taiwan, China', de: 'Taiwan, China' }, homeAirport: 'TPE', currency: 'TWD', timeZone: null, shopLang: null },
+  'tw/en': { country: 'tw', lang: 'en', hreflang: 'en-TW', status: 'pilot', documents: 'language', name: 'Taiwan, China | English', countryName: { en: 'Taiwan, China', de: 'Taiwan, China' }, homeAirport: 'TPE', currency: 'TWD', timeZone: null, shopLang: null },
+  'us/de': { country: 'us', lang: 'de', hreflang: 'de-US', status: 'pilot', documents: 'language', name: 'USA | Deutsch', countryName: { en: 'USA', de: 'USA' }, homeAirport: null, currency: 'USD', timeZone: null, shopLang: null },
+  'us/en': { country: 'us', lang: 'en', hreflang: 'en-US', status: 'pilot', documents: 'language', name: 'USA | English', countryName: { en: 'USA', de: 'USA' }, homeAirport: null, currency: 'USD', timeZone: null, shopLang: null },
+  've/de': { country: 've', lang: 'de', hreflang: 'de-VE', status: 'pilot', documents: 'language', name: 'Venezuela | Deutsch', countryName: { en: 'Venezuela', de: 'Venezuela' }, homeAirport: 'FRA', currency: 'EUR', timeZone: null, shopLang: null },
+  've/en': { country: 've', lang: 'en', hreflang: 'en-VE', status: 'pilot', documents: 'language', name: 'Venezuela | English', countryName: { en: 'Venezuela', de: 'Venezuela' }, homeAirport: 'FRA', currency: 'EUR', timeZone: null, shopLang: null },
 };
 
 /** Every market-language root of www (its sitemap dataset), space-separated. */

@@ -3338,6 +3338,152 @@
         "shopLang"
       ],
       "batch": 9
+    },
+    "tn/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Tunesien | Deutsch",
+      "countryName": {
+        "en": "Tunesien",
+        "de": "Tunesien"
+      },
+      "homeAirport": "TUN",
+      "currency": "TND",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 10
+    },
+    "tn/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Tunesien | English",
+      "countryName": {
+        "en": "Tunesien",
+        "de": "Tunesien"
+      },
+      "homeAirport": "TUN",
+      "currency": "TND",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 10
+    },
+    "tw/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Taiwan, China | Deutsch",
+      "countryName": {
+        "en": "Taiwan, China",
+        "de": "Taiwan, China"
+      },
+      "homeAirport": "TPE",
+      "currency": "TWD",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 10
+    },
+    "tw/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Taiwan, China | English",
+      "countryName": {
+        "en": "Taiwan, China",
+        "de": "Taiwan, China"
+      },
+      "homeAirport": "TPE",
+      "currency": "TWD",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 10
+    },
+    "us/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "USA | Deutsch",
+      "countryName": {
+        "en": "USA",
+        "de": "USA"
+      },
+      "homeAirport": null,
+      "currency": "USD",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "homeAirport",
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 10
+    },
+    "us/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "USA | English",
+      "countryName": {
+        "en": "USA",
+        "de": "USA"
+      },
+      "homeAirport": null,
+      "currency": "USD",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "homeAirport",
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 10
+    },
+    "ve/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Venezuela | Deutsch",
+      "countryName": {
+        "en": "Venezuela",
+        "de": "Venezuela"
+      },
+      "homeAirport": "FRA",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 10
+    },
+    "ve/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Venezuela | English",
+      "countryName": {
+        "en": "Venezuela",
+        "de": "Venezuela"
+      },
+      "homeAirport": "FRA",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 10
     }
   }
 }

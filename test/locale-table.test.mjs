@@ -75,17 +75,21 @@ test('ch/en and ch/de: their own rows (CHF, ZRH, Europe/Zurich), not migrated (l
 });
 
 test('a root without a row: its own country and language, no home airport or currency, its language version\'s documents', () => {
-  const us = getLocale('/us/en/ccpa');
-  assert.deepEqual({
-    ...core(us), key: us.key, base: us.base, root: us.root,
-  }, {
-    country: 'us', lang: 'en', homeAirport: null, currency: null, key: 'de/en', base: '/de/en', root: 'us/en',
-  });
-  // a German root of www's without a row yet (the rollout gives them rows batch by batch: fr/de
-  // in batch 8), else none left to check
+  // an English and a German root of www's without a row yet (the rollout gives them rows batch by
+  // batch: fr/de in batch 8, us/en in batch 10), else none left to check; fr/fr below always is one
   const { roots } = JSON.parse(fs.readFileSync('tools/source-export/feeds/sitemaps/roots.json', 'utf8'));
-  const rowless = roots.map((r) => `${r.cc}/${r.ll}`).find((k) => k.endsWith('/de') && !LOCALE_TABLE[k]);
-  if (rowless) assert.equal(getLocale(`/${rowless}/x`).key, 'de/de', `German: de/de's documents (${rowless})`);
+  const rowless = (ll) => roots.map((r) => `${r.cc}/${r.ll}`).find((k) => k.endsWith(`/${ll}`) && !LOCALE_TABLE[k]);
+  const en = rowless('en');
+  if (en) {
+    const l = getLocale(`/${en}/x`);
+    assert.deepEqual({
+      ...core(l), key: l.key, base: l.base, root: l.root,
+    }, {
+      country: en.split('/')[0], lang: 'en', homeAirport: null, currency: null, key: 'de/en', base: '/de/en', root: en,
+    });
+  }
+  const de = rowless('de');
+  if (de) assert.equal(getLocale(`/${de}/x`).key, 'de/de', `German: de/de's documents (${de})`);
   const fr = getLocale('/fr/fr/homepage');
   assert.deepEqual({ ...core(fr), key: fr.key }, {
     country: 'fr', lang: 'fr', homeAirport: null, currency: null, key: 'de/en',
