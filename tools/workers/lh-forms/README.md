@@ -43,10 +43,10 @@ Any other path answers `404 {"ok":false,"error":"not-found"}`. A wrong method an
 ## CORS and Origin
 
 An `Origin` is allowed if it matches `ALLOWED_ORIGIN_PATTERN` (the same pattern as lh-proxy:
-`{branch}--lh-com|lh-flynet|lh-discover|lh-ita|lh-austrian|lh-airdolomiti|lh-brussels|lh-cargo|lh-b2b--moved-permanently` on
+`{branch}--lh-com|lh-flynet|lh-discover|lh-ita|lh-austrian|lh-airdolomiti|lh-brussels|lh-cargo|lh-b2b|lh-swiss--moved-permanently` on
 aem.page/live and the DA preview, Quick Edit and UE hosts) or is listed in `EXTRA_ALLOWED_ORIGINS` (
 `https://lufthansa.turnsthe.page`, `https://discover.turnsthe.page`, `https://ita.turnsthe.page`,
-`https://austrian.turnsthe.page`, `https://airdolomiti.turnsthe.page`, `https://brussels.turnsthe.page`, `https://cargo.turnsthe.page`, `https://b2b.turnsthe.page`, `http://localhost:3000`).
+`https://austrian.turnsthe.page`, `https://airdolomiti.turnsthe.page`, `https://brussels.turnsthe.page`, `https://cargo.turnsthe.page`, `https://b2b.turnsthe.page`, `https://swiss.turnsthe.page`, `http://localhost:3000`).
 Both are `[vars]` in `wrangler.toml`. The worker echoes the allowed
 origin and sets `Vary: Origin`. Any other origin gets `403 {"ok":false,"error":"origin-not-allowed"}`,
 and so does a `POST /submit` with no `Origin` header. `GET /health` works without an `Origin`
@@ -58,7 +58,7 @@ The body is `multipart/form-data` (for example a `FormData`). It has these parts
 
 | Part | Content |
 | --- | --- |
-| `form` | the form id, one of: `anmeldung-tiere-frachtraum`, `refund-form`, `feedback-past-flight`, `register-ammunition`, `register-animal-cabin`, `special-needs`, `add-sports-baggage`, `group-travel`, `passenger-receipt-90`; Discover Airlines (lh-discover): `discover-assistance`, `discover-add-sports-baggage`, `discover-register-ammunition`, `discover-register-hunting-firearm`, `discover-register-sporting-firearm`, `discover-register-animal-cargo-hold`, `discover-register-animal-cabin`, `discover-compensation-baggage`, `discover-other-concerns`, `discover-buccaneers-season-kickoff`; ITA Airways (lh-ita): `ita-mice`, `ita-group-travel`, `ita-voglia-di-volare`, `ita-emergency-contact`; Air Dolomiti (lh-airdolomiti): its newsletter sign-up per language, `airdolomiti-iscrizione-newsletter`, `airdolomiti-newsletter-subscription`, `airdolomiti-newsletter-anmeldung`; Austrian Airlines (lh-austrian): the 39 ids `austrian-<page name>` of its form pages (`FORMS` in `src/index.js`); Brussels Airlines (lh-brussels): the 17 ids `brussels-<page name>` of its form pages (8 kinds: the nine feedback topics, charter, group travel request, request for proposal, PPB registration, emergency contact, invoice request and its be/en GUID copy, DSAR); Lufthansa Cargo (lh-cargo): one id per form, `cargo-<form name>`, today `cargo-contact-us` (www's Support & Contact "Contact us"); Lufthansa Group for Business (lh-b2b): `b2b-businesstogo`, `b2b-partner-plus-benefit-raffle` (both in en and de) |
+| `form` | the form id, one of: `anmeldung-tiere-frachtraum`, `refund-form`, `feedback-past-flight`, `register-ammunition`, `register-animal-cabin`, `special-needs`, `add-sports-baggage`, `group-travel`, `passenger-receipt-90`; Discover Airlines (lh-discover): `discover-assistance`, `discover-add-sports-baggage`, `discover-register-ammunition`, `discover-register-hunting-firearm`, `discover-register-sporting-firearm`, `discover-register-animal-cargo-hold`, `discover-register-animal-cabin`, `discover-compensation-baggage`, `discover-other-concerns`, `discover-buccaneers-season-kickoff`; ITA Airways (lh-ita): `ita-mice`, `ita-group-travel`, `ita-voglia-di-volare`, `ita-emergency-contact`; Air Dolomiti (lh-airdolomiti): its newsletter sign-up per language, `airdolomiti-iscrizione-newsletter`, `airdolomiti-newsletter-subscription`, `airdolomiti-newsletter-anmeldung`; Austrian Airlines (lh-austrian): the 39 ids `austrian-<page name>` of its form pages (`FORMS` in `src/index.js`); Brussels Airlines (lh-brussels): the 17 ids `brussels-<page name>` of its form pages (8 kinds: the nine feedback topics, charter, group travel request, request for proposal, PPB registration, emergency contact, invoice request and its be/en GUID copy, DSAR); Lufthansa Cargo (lh-cargo): one id per form, `cargo-<form name>`, today `cargo-contact-us` (www's Support & Contact "Contact us"); Lufthansa Group for Business (lh-b2b): `b2b-businesstogo`, `b2b-partner-plus-benefit-raffle` (both in en and de); SWISS (lh-swiss): `swiss-<page name>`, 17 service forms (`swiss-general-request`, `swiss-feedback-past-flight`, `swiss-request-for-refund-of-expenses`, `swiss-loss-of-personal-item-form`, `swiss-data-protection-form`, `swiss-technical-support`, `swiss-refund-form`, `swiss-request`, `swiss-register-sports-baggage`, `swiss-accessible-travel-form`, `swiss-register-animal-cargo-hold`, `swiss-register-animals`, `swiss-emergency-contact`, `swiss-rent-a-plane`, `swiss-company-offers-contact-form`, `swiss-ad-plattforms-contact`, `swiss-group-travel-request`, en and de) and 6 raffles (`swiss-a350-geneve`, `swiss-gewinnspiel-zermatt-unplugged-2024`, `swiss-preparations-for-the-2025-european-championships`, `swiss-swiss-au-mondial-de-fondue`, `swiss-swiss-nati-women`, `swiss-womens-nations-league`, en) |
 | `locale` | the page's root as `<cc>-<ll>` (`de-en`, `at-de`, `it-it`, `cn-zh` ...) |
 | `page` | the page URL (`http:` or `https:`, at most 2000 characters) |
 | `fields` | a JSON array in page order: `[{"section":"...","label":"...","name":"...","value":"..."}]`. All four keys are required and must be strings (`""` is allowed). |
@@ -134,9 +134,9 @@ Without a `Content-Length`, the cap is enforced while the body is read.
 - From: `FORM_SENDER`. To: from `FORM_CONFIG` (see below).
 - Subject: the subject from the config. Without one, `[<site>] <form title> (<locale>)`: the site
   the mail came from, by its origin (`--lh-discover--`, `--lh-ita--`, `--lh-austrian--`,
-  `--lh-airdolomiti--`, `--lh-brussels--`, `--lh-cargo--`, `--lh-b2b--` hosts and `discover`, `ita`,
-  `austrian`, `airdolomiti`, `brussels`, `cargo`, `b2b.turnsthe.page`), else by the form id's prefix
-  (`discover-`, `ita-`, `austrian-`, `airdolomiti-`, `brussels-`, `cargo-`, `b2b-`), else `lh-com`.
+  `--lh-airdolomiti--`, `--lh-brussels--`, `--lh-cargo--`, `--lh-b2b--`, `--lh-swiss--` hosts and `discover`, `ita`,
+  `austrian`, `airdolomiti`, `brussels`, `cargo`, `b2b`, `swiss.turnsthe.page`), else by the form id's prefix
+  (`discover-`, `ita-`, `austrian-`, `airdolomiti-`, `brussels-`, `cargo-`, `b2b-`, `swiss-`), else `lh-com`.
   The form title is the
   page h1 in German on a `-de` root, in English on every other. The
   table is `FORMS` in `src/index.js`. `special-needs` and `add-sports-baggage` have no German
@@ -157,7 +157,7 @@ Cloudflare Turnstile widget "lh-com forms (lh-forms)", managed mode. It accepts 
 lh-com's and lh-discover's `main--…--moved-permanently.aem.page` and `.aem.live` hosts, lh-ita's
 and lh-austrian's, lh-airdolomiti's aem.page host and the turnsthe.page brand hosts (lh-brussels'
 aem.page and aem.live hosts, lh-cargo's aem.page and aem.live hosts and cargo.turnsthe.page, lh-b2b's aem.page and aem.live
-hosts and b2b.turnsthe.page: to be added to the widget's hostnames in the Cloudflare dashboard); branch previews and localhost cannot render it (use Cloudflare's test keys there, see the form block).
+hosts and b2b.turnsthe.page, lh-swiss's aem.page and aem.live hosts and swiss.turnsthe.page: to be added to the widget's hostnames in the Cloudflare dashboard); branch previews and localhost cannot render it (use Cloudflare's test keys there, see the form block).
 
 - `TURNSTILE_SITE_KEY` (`[vars]`, public): served to the block by `GET /config`, never hard-coded
   in the block.

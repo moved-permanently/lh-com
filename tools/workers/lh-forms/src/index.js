@@ -193,14 +193,42 @@ const FORMS = {
     businesstogo: ['Lufthansa Group BusinessToGo'],
     'partner-plus-benefit-raffle': ['LOYALTY PAYS OFF – WIN 1 MILLION BENEFIT POINTS', 'TREUE ZAHLT SICH AUS – GEWINNEN SIE 1 MILLION BENEFIT Punkte'],
   }),
+  // SWISS (lh-swiss): the h1 of its ch/en and ch/de pages (2026-11-02; ids swiss-<page name>, one
+  // per form for both languages); swiss-group-travel-request: the corporate page's (ch/de's local
+  // page with the same form says "Gruppenreisen - Anfrageformular"); the six raffles: ch/en only
+  ...brandForms('swiss', {
+    'accessible-travel-form': ['Register your assistance requirements online', 'Betreuungsbedarf online anmelden'],
+    'ad-plattforms-contact': ['Your message to SWISS Ambient Media', 'Ihre Nachricht an SWISS Ambient Media'],
+    'company-offers-contact-form': ['Corporate Offers - Contact Form', 'Firmenangebote - Kontaktanfrage'],
+    'data-protection-form': ['Contact: Rights regarding data protection', 'Kontakt: Rechte betreffend Datenschutz'],
+    'emergency-contact': ['Emergency contact', 'Notfallkontakt'],
+    'feedback-past-flight': ['Feedback about a past flight', 'Feedback zu einem vergangenen Flug'],
+    'general-request': ['Contact: General request and booking enquiries', 'Kontakt: Allgemeine Anfrage und Buchungsanfragen'],
+    'group-travel-request': ['Group travel - Request form', 'Antragsformular für Gruppenreisen'],
+    'loss-of-personal-item-form': ['Loss of Personal Item', 'Verlust eines persönlichen Gegenstands'],
+    'refund-form': ['Refunds', 'Rückerstattungen'],
+    'register-animal-cargo-hold': ['Cats or dogs in the hold', 'Katze oder Hund im Gepäckraum'],
+    'register-animals': ['Your dog or cat in the cabin', 'Hund oder Katze in der Kabine'],
+    'register-sports-baggage': ['Add sports baggage', 'Sportgepäck hinzufügen'],
+    'rent-a-plane': ['Rent a plane - just like a private jet', 'Rent a plane - Flugzeug chartern'],
+    request: ['Booking inquiry for SWISS First Grand Suite', 'Buchungsanfrage für SWISS First Grand Suite'],
+    'request-for-refund-of-expenses': ['Reimbursement for lost, damaged, or delayed baggage', 'Erstattung bei verspätetem oder beschädigtem Gepäck'],
+    'technical-support': ['Technical Support for swiss.com', 'Kontakt: Technischer Support'],
+    'a350-geneve': ['Discover the new Airbus A350'],
+    'gewinnspiel-zermatt-unplugged-2024': ['Raffle Zermatt Unplugged 2024'],
+    'preparations-for-the-2025-european-championships': ['Preparations for the 2025 European Championships'],
+    'swiss-au-mondial-de-fondue': ['SWISS at the Fondue World Championship'],
+    'swiss-nati-women': ["Swiss Women's National Football Team"],
+    'womens-nations-league': ["Women's Nations League"],
+  }),
 };
 // any country-language pair (the site's roots: de-en, de-de, at-de, gb-en, and the next ones),
 // or the language alone on the sites without roots (Cargo, Air Dolomiti: it, en, de)
 const LOCALE = /^([a-z]{2}-)?[a-z]{2}$/;
 
 const DEFAULTS = {
-  ALLOWED_ORIGIN_PATTERN: '^https://[a-z0-9-]+--(lh-com|lh-flynet|lh-discover|lh-ita|lh-austrian|lh-airdolomiti|lh-brussels|lh-cargo|lh-b2b)--moved-permanently\\.(aem\\.(page|live)|(stage-)?(preview|ue)\\.da\\.(live|page))$',
-  EXTRA_ALLOWED_ORIGINS: 'https://lufthansa.turnsthe.page,https://discover.turnsthe.page,https://ita.turnsthe.page,https://austrian.turnsthe.page,https://airdolomiti.turnsthe.page,https://brussels.turnsthe.page,https://cargo.turnsthe.page,https://b2b.turnsthe.page,http://localhost:3000',
+  ALLOWED_ORIGIN_PATTERN: '^https://[a-z0-9-]+--(lh-com|lh-flynet|lh-discover|lh-ita|lh-austrian|lh-airdolomiti|lh-brussels|lh-cargo|lh-b2b|lh-swiss)--moved-permanently\\.(aem\\.(page|live)|(stage-)?(preview|ue)\\.da\\.(live|page))$',
+  EXTRA_ALLOWED_ORIGINS: 'https://lufthansa.turnsthe.page,https://discover.turnsthe.page,https://ita.turnsthe.page,https://austrian.turnsthe.page,https://airdolomiti.turnsthe.page,https://brussels.turnsthe.page,https://cargo.turnsthe.page,https://b2b.turnsthe.page,https://swiss.turnsthe.page,http://localhost:3000',
 };
 
 const MB = 1000 * 1000;
@@ -306,6 +334,29 @@ function brusselsFileRules() {
     'brussels-request-for-proposal': rules(['application/pdf', 'image/jpeg', 'image/jpg', 'image/png'], 2048000),
   };
 }
+/*
+ * SWISS's drop zones (the file rows of lh-swiss' form pages, as www's forms-filedrop): the three
+ * claim forms and the general request image/png, image/jpeg, application/pdf, 5 x 3,700,000 (18.5
+ * MB in all: the total of MAIL_FILES); the loss of personal item form 5 x 2,048,000; the data
+ * protection form application/pdf, image/jpeg, image/png, 5 x 3,000,000.
+ */
+function swissFileRules() {
+  const rules = (types, maxSize) => ({
+    types,
+    extensions: [...new Set(types.flatMap((t) => ({ 'image/png': ['.png'], 'application/pdf': ['.pdf'] }[t] || ['.jpg', '.jpeg'])))],
+    maxFiles: 5,
+    maxSize,
+    ...MAIL_FILES,
+  });
+  const ALL = ['image/png', 'image/jpeg', 'image/jpg', 'application/pdf'];
+  return {
+    'swiss-general-request': rules(ALL, 3700000),
+    'swiss-feedback-past-flight': rules(ALL, 3700000),
+    'swiss-request-for-refund-of-expenses': rules(ALL, 3700000),
+    'swiss-loss-of-personal-item-form': rules(ALL, 2048000),
+    'swiss-data-protection-form': rules(['application/pdf', 'image/jpeg', 'image/png'], 3000000),
+  };
+}
 const FILE_RULES = {
   // content/de/en/feedback-past-flight: accept=image/png, image/jpeg, image/jpg, application/pdf;
   // max-files=5; max-size=3700000; not-allowed=#$%^*()[]
@@ -320,6 +371,7 @@ const FILE_RULES = {
   'discover-other-concerns': DISCOVER_CONTACT_FILES,
   ...austrianFileRules(),
   ...brusselsFileRules(),
+  ...swissFileRules(),
   // Lufthansa Cargo's contact form (www: pdf, xlsx, xls, docx, doc, jpg, png up to 10 MB): the
   // types this worker reads (PDF, JPEG, PNG), 5 x 3.7 MB as the others; no Office files
   'cargo-contact-us': {
@@ -663,9 +715,9 @@ async function validateFiles(files, form) {
 
 // the brand sites by their turnsthe.page host label and form id prefix (lh-com: neither)
 const BRAND_TAGS = {
-  discover: 'lh-discover', ita: 'lh-ita', austrian: 'lh-austrian', airdolomiti: 'lh-airdolomiti', brussels: 'lh-brussels', cargo: 'lh-cargo', b2b: 'lh-b2b',
+  discover: 'lh-discover', ita: 'lh-ita', austrian: 'lh-austrian', airdolomiti: 'lh-airdolomiti', brussels: 'lh-brussels', cargo: 'lh-cargo', b2b: 'lh-b2b', swiss: 'lh-swiss',
 };
-const BRAND_ORIGIN = /^https:\/\/[a-z0-9-]+--(lh-discover|lh-ita|lh-austrian|lh-airdolomiti|lh-brussels|lh-cargo|lh-b2b)--/;
+const BRAND_ORIGIN = /^https:\/\/[a-z0-9-]+--(lh-discover|lh-ita|lh-austrian|lh-airdolomiti|lh-brussels|lh-cargo|lh-b2b|lh-swiss)--/;
 
 /** The site of a submission (the subject's tag): its origin's, else its form id's, else lh-com. */
 export function siteTag(origin, form) {

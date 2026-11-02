@@ -1394,3 +1394,94 @@ test('B2B: its forms take no files (www\'s pages have no drop zone)', async () =
     assert.deepEqual(body, { ok: false, error: 'files-not-allowed' });
   });
 });
+
+/* ---------- SWISS (lh-swiss) ---------- */
+
+const SWISS_IDS = ['accessible-travel-form', 'ad-plattforms-contact', 'company-offers-contact-form', 'data-protection-form',
+  'emergency-contact', 'feedback-past-flight', 'general-request', 'group-travel-request', 'loss-of-personal-item-form',
+  'refund-form', 'register-animal-cargo-hold', 'register-animals', 'register-sports-baggage', 'rent-a-plane', 'request',
+  'request-for-refund-of-expenses', 'technical-support',
+  'a350-geneve', 'gewinnspiel-zermatt-unplugged-2024', 'preparations-for-the-2025-european-championships',
+  'swiss-au-mondial-de-fondue', 'swiss-nati-women', 'womens-nations-league'].map((n) => `swiss-${n}`);
+const LX = 'https://swiss.turnsthe.page';
+
+test('SWISS: its host and Edge Delivery hosts are allowed origins; look-alikes are not', async () => {
+  const allowed = [LX, 'https://main--lh-swiss--moved-permanently.aem.page', 'https://main--lh-swiss--moved-permanently.aem.live',
+    'https://branch--lh-swiss--moved-permanently.aem.page'];
+  const refused = ['https://main--lh-swis--moved-permanently.aem.page', 'https://swiss.turnsthe.page.example.com',
+    'http://swiss.turnsthe.page', 'https://main--lh-swiss--moved-permanently.aem.live.example.com'];
+  const ok = await Promise.all(allowed.map(preflight));
+  ok.forEach((res, i) => {
+    assert.equal(res.status, 204, allowed[i]);
+    assert.equal(res.headers.get('access-control-allow-origin'), allowed[i]);
+  });
+  const no = await Promise.all(refused.map(preflight));
+  no.forEach((res, i) => assert.equal(res.status, 403, refused[i]));
+});
+
+test('SWISS: its 23 form ids (17 service forms, 6 raffles) are accepted in en and de, to the default recipient; an unknown id is not', async () => {
+  assert.equal(SWISS_IDS.length, 23);
+  const cases = SWISS_IDS.flatMap((form) => ['ch-en', 'ch-de'].map((locale) => ({ form, locale })));
+  const results = await Promise.all(cases.map((c, i) => post({ ...c, origin: LX, ip: `198.18.${Math.floor(i / 200)}.${(i % 200) + 1}` })));
+  results.forEach(({ res, body }, i) => {
+    assert.equal(res.status, 200, `${cases[i].form} ${cases[i].locale}`);
+    assert.deepEqual(body, { ok: true });
+  });
+  assert.equal(sent.length, cases.length);
+  assert.ok(sent.every((m) => JSON.stringify(m.to) === JSON.stringify(sent[0].to)), 'one recipient set: the default');
+  const unknown = await Promise.all(['swiss-unknown', 'swiss', 'general-request-swiss'].map((form, i) => post({
+    form, locale: 'ch-en', origin: LX, ip: `198.18.9.${i + 1}`,
+  })));
+  unknown.forEach(({ res, body }) => {
+    assert.equal(res.status, 400);
+    assert.deepEqual(body, { ok: false, error: 'unknown-form' });
+  });
+});
+
+test('SWISS: titles from the ch/en and ch/de pages; the subject names lh-swiss (origin, else form id)', async () => {
+  const env = makeEnv({ FORM_CONFIG: JSON.stringify({ default: { to: 'only@example.com' } }) });
+  const cases = [
+    [{ form: 'swiss-general-request', locale: 'ch-en', origin: LX }, '[lh-swiss] Contact: General request and booking enquiries (ch-en)'],
+    [{ form: 'swiss-general-request', locale: 'ch-de', origin: 'https://main--lh-swiss--moved-permanently.aem.live' }, '[lh-swiss] Kontakt: Allgemeine Anfrage und Buchungsanfragen (ch-de)'],
+    [{ form: 'swiss-request-for-refund-of-expenses', locale: 'ch-de', origin: 'https://main--lh-swiss--moved-permanently.aem.page' }, '[lh-swiss] Erstattung bei verspätetem oder beschädigtem Gepäck (ch-de)'],
+    [{ form: 'swiss-a350-geneve', locale: 'ch-de', origin: ORIGIN }, '[lh-swiss] Discover the new Airbus A350 (ch-de)'],
+  ];
+  const results = await Promise.all(cases.map(([opts], i) => post({ ...opts, ip: `203.0.113.${190 + i}` }, env)));
+  results.forEach(({ res }, i) => assert.equal(res.status, 200, cases[i][1]));
+  assert.deepEqual(sent.map((m) => m.subject).sort(), cases.map((c) => c[1]).sort());
+});
+
+test('SWISS file rules as www\'s: 5 x 3.7 MB (loss of personal item 2,048,000; data protection 3,000,000), 18.5 MB in all; others none', async () => {
+  const ch = { origin: LX, locale: 'ch-en' };
+  const pdf = (name, size = 0) => {
+    const bytes = new Uint8Array(Math.max(size, PDF.length));
+    bytes.set(PDF);
+    return ['Attachments', file(bytes, name, 'application/pdf')];
+  };
+  const png = (name = 'a.png') => ['Attachments', file(PNG, name, 'image/png')];
+  const jpg = (name = 'a.jpg') => ['Attachments', file(JPG, name, 'image/jpeg')];
+  const five = (size) => [1, 2, 3, 4, 5].map((n) => pdf(`${n}.pdf`, size));
+  const cases = [
+    ...['general-request', 'feedback-past-flight', 'request-for-refund-of-expenses'].flatMap((n) => [
+      [`swiss-${n}`, five(3700000), 200, null],
+      [`swiss-${n}`, [png(), jpg()], 200, null],
+      [`swiss-${n}`, [pdf('a.pdf', 3700001)], 413, 'file-too-large'],
+      [`swiss-${n}`, [...five(), pdf('6.pdf')], 400, 'too-many-files'],
+    ]),
+    ['swiss-loss-of-personal-item-form', five(2048000), 200, null],
+    ['swiss-loss-of-personal-item-form', [pdf('a.pdf', 2048001)], 413, 'file-too-large'],
+    ['swiss-data-protection-form', [pdf('a.pdf', 3000000), png(), jpg()], 200, null],
+    ['swiss-data-protection-form', [pdf('a.pdf', 3000001)], 413, 'file-too-large'],
+    ['swiss-general-request', [pdf('a#1.pdf')], 400, 'invalid-file-name'],
+    ['swiss-rent-a-plane', [pdf('a.pdf')], 400, 'files-not-allowed'],
+    ['swiss-a350-geneve', [pdf('a.pdf')], 400, 'files-not-allowed'],
+  ];
+  const results = await Promise.all(cases.map(([form, files], i) => post({
+    ...ch, form, files, ip: `192.0.2.${10 + i}`,
+  })));
+  results.forEach(({ res, body }, i) => {
+    const [form, , status, error] = cases[i];
+    assert.equal(res.status, status, `${form} ${i}`);
+    assert.deepEqual(body, error ? { ok: false, error } : { ok: true }, `${form} ${i}`);
+  });
+});
