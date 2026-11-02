@@ -15,8 +15,8 @@ Files here:
 |---|---|
 | `translate.json` | the app's configuration, to upload as the DA document `/.da/translate.json` of the site (an admin uploads it; tools never write site-wide documents) |
 | `check-config.mjs` | runs the app's own code (pinned commit, downloaded to a temp folder) on `translate.json` and on lh-com pages; report `tools/reports/loc-config-check.md` (`--config <file>`: the gc rows, `tools/reports/loc-config-check-gc.md`) |
-| `setup-lib.mjs` | the setup of a `translate.json` (its languages rows): the source, the German translation, the pairs of every rollout; the link, slug and marker steps and check-config take it with `--config <file>\|da` (default the repo copy; `da`: DA's `/.da/translate.json`, read only) |
-| `regional-diff.mjs` | what a rollout would replace: DA sources of /at/de against /de/de and /gb/en against /de/en (today's rows only); report `tools/reports/loc-regional-diff.md` |
+| `setup-lib.mjs` | the setup of a `translate.json` (its languages rows): the source, the German translation, the pairs of every rollout; the link, slug and marker steps, regional-diff and check-config take it with `--config <file>\|da` (default the repo copy; `da`: DA's `/.da/translate.json`, read only) |
+| `regional-diff.mjs` | what a rollout would replace: each rollout pair of the setup, the market's DA sources against the rollout's source (today's rows: /at/de against /de/de, /gb/en against /de/en, report `tools/reports/loc-regional-diff.md`; the gc rows: /de/en and /gb/en against /gc/en, /de/de and /at/de against /gc/de, `tools/reports/loc-regional-diff-gc.md`); `--pages <file or comma list>` for some pages (to stdout) |
 | `link-step.mjs`, `link-lib.mjs` | makes a target locale's links its own after a rollout or a translation; dry run report `tools/reports/loc-link-step.md` |
 | `slug-step.mjs`, `slug-lib.mjs`, `slug-map.json` | moves German translations onto the 72 pages with their own German slug; prints the at/de rollout project's URLs (`--rollout-urls`); dry run report `tools/reports/loc-slug-step.md` |
 | `clear-review.mjs` | with `--linked-images`: removes the mark of links around a picture before a rollout; without: removes a page's `da-metadata` block (the review record) on purpose. Labelled DA version first, read-back after, dry run by default |
@@ -435,6 +435,12 @@ every run ("Before every run", the block check).
 **/gc is never previewed or published** and stays out of every publish sweep, as on www: no
 publish request, no bulk preview or publish of a folder above it; the migration's `da-upload` never
 previews a `/gc` path (249). Its pages exist in DA only; the markets' pages are what is published.
+
+**What a rollout would replace** (`node tools/loc/regional-diff.mjs --config da`, read only): each
+market page against its gc page, `tools/reports/loc-regional-diff-gc.md`. The gc tree is the de
+market's documents with their relative links under `/gc`, so a relative `/<cc>/<ll>/` or `/de/<ll>/`
+path counts as `/gc/<ll>/` and the market in www.lufthansa.com links, JCR paths and query values as
+de. `--pages /gc/en/x,/gc/de/y` (or a file) limits it to those rows and prints the report.
 
 **The link step's gc pairs** (`--config da` after the switch):
 

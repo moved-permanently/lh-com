@@ -1,4 +1,4 @@
-/* eslint-disable no-console, max-len, no-await-in-loop, no-restricted-syntax, import/no-extraneous-dependencies -- dev tooling */
+/* eslint-disable no-console, max-len, no-await-in-loop, no-restricted-syntax, import/no-extraneous-dependencies, import/extensions -- dev tooling */
 /**
  * Regional differences in Document Authoring: for every row of tools/migration-scope/pages.csv,
  * the DA source of /at/de/<path> against /de/de/<path> (the German rollout) and of /gb/en/<path>
@@ -11,27 +11,56 @@
  * Compared: text (block-level texts as a multiset), links, images, blocks (in order) and metadata
  * (per key).
  *
+ * The pairs are the translate.json's rollouts (setup-lib.mjs; --config <file>|da, default the repo
+ * copy). Today's rows: the two above. The global source's rows (tools/loc/README.md "Global
+ * source (/gc)"): /de/en and /gb/en against /gc/en, /de/de and /at/de against /gc/de (own slugs
+ * from pages.csv, as the link step). The gc tree is the de market's documents with their relative
+ * links under /gc (www.lufthansa.com links, media and query values keep de), so there a relative
+ * /<target cc>/<ll>/ or /de/<ll>/ counts as /gc/<ll>/ and the market elsewhere as de.
+ *
  * Reads DA only (GET admin.da.live/source); never writes. Cache: $TMPDIR/lh-loc-da (--refresh to
- * fetch again). Report: tools/reports/loc-regional-diff.md and .json.
- * Usage: node tools/loc/regional-diff.mjs [--refresh] [--limit 20]
+ * fetch again). Report: tools/reports/loc-regional-diff.md and .json (today's rows),
+ * loc-regional-diff-gc.md and .json (the gc rows). --pages <file or comma list>: only the rows
+ * that hold one of these paths (any of their locales, /gc included); the report then goes to
+ * stdout, the report files stay as they are.
+ * Usage: node tools/loc/regional-diff.mjs [--config <file>|da] [--refresh] [--limit 20] [--pages …]
  */
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseHTML } from 'linkedom';
+import { localePath, GLOBAL } from './link-lib.mjs';
+import { setupFromArgs } from './setup-lib.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const DA = 'https://admin.da.live/source/moved-permanently/lh-com';
 const CACHE = path.join(os.tmpdir(), 'lh-loc-da');
-const PAIRS = [
-  {
-    name: 'at/de vs de/de', source: 'de_de', target: 'at_de', from: 'de/de', to: 'at/de', cc: ['de', 'at'],
-  },
-  {
-    name: 'gb/en vs de/en', source: 'de_en', target: 'gb_en', from: 'de/en', to: 'gb/en', cc: ['de', 'gb'],
-  },
-];
+
+/**
+ * The compared pairs: the setup's rollouts, by target locale ([{name, from, to, cc: [the source's
+ * market, the target's], global, langs}]). Today's rows: at/de vs de/de, gb/en vs de/en.
+ */
+export function regionalPairs(setup) {
+  const langs = [...new Set(setup.rows.map((r) => r.location.split('/')[1]))];
+  return Object.entries(setup.pairs).filter(([, kind]) => kind === 'rollout').map(([k]) => k.split('>'))
+    .sort((a, b) => a[1].localeCompare(b[1]))
+    .map(([from, to]) => {
+      const global = from.startsWith(`${GLOBAL.root}/`);
+      return {
+        name: `${to} vs ${from}`, from, to, cc: [global ? GLOBAL.market : from.split('/')[0], to.split('/')[0]], global, langs,
+      };
+    });
+}
+
+/** The report files' name: loc-regional-diff (today's rows), loc-regional-diff-gc (the gc rows). */
+export const reportName = (setup) => `loc-regional-diff${setup.global ? '-gc' : ''}`;
+
+/** --pages: a comma list or a file (one path per line, # comments): ['/gc/de/x', …]. */
+export function readPages(arg) {
+  const list = fs.existsSync(arg) ? fs.readFileSync(arg, 'utf8').split(/\r?\n/).filter((l) => !l.trim().startsWith('#')) : String(arg).split(',');
+  return list.map((p) => p.trim().replace(/\.html$/, '').replace(/(.)\/$/, '$1')).filter(Boolean);
+}
 
 /** pages.csv rows: [{template_group, de_en, de_de, at_de, gb_en}]. */
 export function scopeRows() {
@@ -59,13 +88,23 @@ export async function daSource(page, { refresh = false } = {}) {
   return html || null;
 }
 
-/** A link or media URL with the market's locale and country made the source market's. */
+/**
+ * A link or media URL with the market's locale and country made the source market's. The gc rows:
+ * a relative /<target cc>/<ll> or /de/<ll> path as the gc tree's /gc/<ll>; www, JCR and query
+ * values with the target's market as the tree's (de).
+ */
 export function normalizeUrl(value, pair) {
   const [from, to] = [pair.from, pair.to];
   const [ccFrom, ccTo] = pair.cc;
   let v = String(value || '').trim();
   v = v.replace(/^https:\/\/(main--lh-com--moved-permanently\.aem\.(page|live)|lhcom\.bbird\.live)(?=\/)/, '');
-  v = v.replace(new RegExp(`(^|=|/content/lh/markets|https?://[^/?#]+)/${to}(?=/|$|\\?|#|\\.|&)`, 'g'), `$1/${from}`);
+  if (pair.global) {
+    const ll = to.split('/')[1];
+    v = v.replace(new RegExp(`^/(${[...new Set([ccTo, ccFrom])].join('|')})/(${pair.langs.join('|')})(?=/|$|\\?|#|\\.)`), `/${GLOBAL.root}/$2`);
+    v = v.replace(new RegExp(`(=|/content/lh/markets|https?://[^/?#]+)/${to}(?=/|$|\\?|#|\\.|&)`, 'g'), `$1/${ccFrom}/${ll}`);
+  } else {
+    v = v.replace(new RegExp(`(^|=|/content/lh/markets|https?://[^/?#]+)/${to}(?=/|$|\\?|#|\\.|&)`, 'g'), `$1/${from}`);
+  }
   v = v.replace(new RegExp(`([?&](?:country|market)=)(${ccTo})(?=&|$|#)`, 'gi'), (m, k, c) => `${k}${c === c.toUpperCase() ? ccFrom.toUpperCase() : ccFrom}`);
   v = v.replace(new RegExp(`/${ccTo}_(${to.split('/')[1]})(?=[./_])`, 'g'), `/${ccFrom}_$1`);
   return v;
@@ -73,6 +112,14 @@ export function normalizeUrl(value, pair) {
 
 const clean = (s) => String(s || '').replace(/[\u200B-\u200D\uFEFF]/g, '').replace(/\u00A0/g, ' ').replace(/\s+/g, ' ')
   .trim();
+
+/** A text's market paths as the source's (normalizeUrl's rules for paths inside text). */
+function textPaths(text, pair) {
+  if (!pair.global) return text.replace(new RegExp(`(/content/lh/markets|https?://[^/\\s]+|^|\\s)/${pair.to}(?=/|\\s|$)`, 'g'), `$1/${pair.from}`);
+  const ll = pair.to.split('/')[1];
+  return text.replace(new RegExp(`(/content/lh/markets|https?://[^/\\s]+)/${pair.to}(?=/|\\s|$)`, 'g'), `$1/${pair.cc[0]}/${ll}`)
+    .replace(new RegExp(`(^|\\s)/(${[...new Set(pair.cc)].join('|')})/(${pair.langs.join('|')})(?=/|\\s|$)`, 'g'), `$1/${GLOBAL.root}/$3`);
+}
 
 /** What a page consists of: texts, links, images, blocks, metadata. */
 export function digest(html, pair) {
@@ -101,7 +148,7 @@ export function digest(html, pair) {
     const own = [...el.childNodes].some((n) => (n.nodeType === 3 && clean(n.textContent)) || (n.nodeType === 1 && /^(A|STRONG|EM|B|I|U|SPAN|SUB|SUP|BR|CODE)$/.test(n.tagName)));
     if (own && !(el.tagName === 'DIV' && el.querySelector('p, h1, h2, h3, h4, h5, h6, li'))) {
       // JCR paths and URLs inside text (poi-map Source rows, link texts) name the market too
-      const t = clean(el.textContent).replace(new RegExp(`(/content/lh/markets|https?://[^/\\s]+|^|\\s)/${pair.to}(?=/|\\s|$)`, 'g'), `$1/${pair.from}`);
+      const t = textPaths(clean(el.textContent), pair);
       if (t) texts.push(t);
     }
   });
@@ -159,18 +206,32 @@ async function pool(items, n, fn) {
   return results;
 }
 
-export async function run({ refresh = false, limit = 0 } = {}) {
-  const rows = scopeRows().slice(0, limit || undefined);
+/** Every path of a pages.csv row: its locales' and the gc tree's. */
+const rowPaths = (row, locales) => locales.map((l) => localePath(row, l)).filter(Boolean);
+
+/**
+ * The comparison per pair: [{pair, rows: [{group, source, target, status, …}]}]. setup: the
+ * translate.json's (locSetup); source(page): the DA document or null (default daSource, cached);
+ * pages: only the rows that hold one of these paths.
+ */
+export async function run({
+  refresh = false, limit = 0, setup, source = (p) => daSource(p, { refresh }), pages = [],
+} = {}) {
+  const pairs = regionalPairs(setup);
+  const locales = [...new Set(pairs.flatMap((p) => [p.from, p.to]))];
+  const wanted = new Set(pages);
+  const rows = scopeRows().slice(0, limit || undefined)
+    .filter((row) => !wanted.size || rowPaths(row, locales).some((p) => wanted.has(p)));
   const results = [];
-  for (const pair of PAIRS) {
+  for (const pair of pairs) {
     const done = await pool(rows, 6, async (row) => {
-      const [s, t] = [row[pair.source], row[pair.target]];
+      const [s, t] = [localePath(row, pair.from), localePath(row, pair.to)];
       if (!s || !t) {
         return {
           group: row.template_group, source: s, target: t, status: 'no pair in the scope',
         };
       }
-      const [hs, ht] = [await daSource(s, { refresh }), await daSource(t, { refresh })];
+      const [hs, ht] = [await source(s), await source(t)];
       if (!hs || !ht) {
         return {
           group: row.template_group, source: s, target: t, status: `missing in DA: ${[!hs && s, !ht && t].filter(Boolean).join(', ')}`,
@@ -199,9 +260,12 @@ function describe(d) {
   return parts.join('; ');
 }
 
-export function report(results) {
+export function report(results, setup) {
   const md = ['# Regional differences in Document Authoring (what a rollout would replace)', '', new Date().toISOString(), '',
     'Source: the DA documents of every row of `tools/migration-scope/pages.csv`. Normalised before comparing: the locale prefix in links and media, the market in `country=`/`market=` query parameters and `/<cc>_<ll>` file names, whitespace. Text is compared as the multiset of block-level texts (−removed from the source / +added in the market).', ''];
+  if (setup && setup.global) {
+    md.push('With the global source\'s rows (translate.json: /gc/en, /gc/de): each rollout pair against the gc tree (the de market\'s documents with their relative links under /gc): a relative /<cc>/<ll>/ or /de/<ll>/ path counts as /gc/<ll>/, the market in www.lufthansa.com links, JCR paths and query values as de. Own German slugs from pages.csv (/gc/de/fluege against /de/de/fluege and /at/de/fluege).', '');
+  }
   results.forEach(({ pair, rows }) => {
     const by = (s) => rows.filter((r) => r.status === s).length;
     const differs = rows.filter((r) => r.status === 'differs');
@@ -245,8 +309,16 @@ export function report(results) {
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
   const argv = process.argv.slice(2);
-  const results = await run({ refresh: argv.includes('--refresh'), limit: Number(argv.includes('--limit') ? argv[argv.indexOf('--limit') + 1] : 0) });
-  fs.writeFileSync(path.join(root, 'tools/reports/loc-regional-diff.json'), `${JSON.stringify(results.map(({ pair, rows }) => ({ pair, rows: rows.map(({ diff, ...r }) => ({ ...r, kinds: diff ? Object.keys(diff) : [] })) })), null, 1)}\n`);
-  fs.writeFileSync(path.join(root, 'tools/reports/loc-regional-diff.md'), report(results));
+  const setup = await setupFromArgs(argv);
+  const pages = argv.includes('--pages') ? readPages(argv[argv.indexOf('--pages') + 1]) : [];
+  const results = await run({
+    refresh: argv.includes('--refresh'), limit: Number(argv.includes('--limit') ? argv[argv.indexOf('--limit') + 1] : 0), setup, pages,
+  });
+  if (pages.length) {
+    console.log(report(results, setup));
+  } else {
+    fs.writeFileSync(path.join(root, `tools/reports/${reportName(setup)}.json`), `${JSON.stringify(results.map(({ pair, rows }) => ({ pair, rows: rows.map(({ diff, ...r }) => ({ ...r, kinds: diff ? Object.keys(diff) : [] })) })), null, 1)}\n`);
+    fs.writeFileSync(path.join(root, `tools/reports/${reportName(setup)}.md`), report(results, setup));
+  }
   results.forEach(({ pair, rows }) => console.log(`${pair}: ${rows.filter((r) => r.status === 'identical').length} identical, ${rows.filter((r) => r.status === 'differs').length} differ, ${rows.filter((r) => !['identical', 'differs'].includes(r.status)).length} not compared`));
 }
