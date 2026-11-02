@@ -22,13 +22,15 @@ export function redirectedTo(requested, final) {
   return a === b ? null : new URL(final).pathname;
 }
 
-/** The country a market-neutral page (/xx/<ll>/x) went to ('de' for /de/en/x), or null. */
+/** The country root a market-neutral page (/xx/<ll>/x) went to ('de' for /de/en/y), or null. */
 export function countryOfRedirect(requested, final) {
   const a = pathOf(requested);
   const b = pathOf(final);
   if (!a || !b || a === b || !/^\/xx\/[a-z]{2}(\/|$)/.test(a)) return null;
-  // the same page in a country root (the exit's country); another page there is www's own alias
-  const m = b.match(/^\/([a-z]{2})\/[a-z]{2}(\/.*|$)/);
-  const rest = a.replace(/^\/xx\/[a-z]{2}/, '');
-  return m && m[1] !== 'xx' && m[2] === rest ? m[1] : null;
+  // any page of a country root: from such an exit www sends every market-neutral page to its
+  // country's counterpart (the same path, or the counterpart's slug: /xx/en/dcc to
+  // /de/en/partner); a session's exit can change under way, so no redirect into a country root
+  // counts as www's own alias (a page that keeps doing it is left after the run's sessions)
+  const m = b.match(/^\/([a-z]{2})\/[a-z]{2}(\/|$)/);
+  return m && m[1] !== 'xx' ? m[1] : null;
 }

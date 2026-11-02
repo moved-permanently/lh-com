@@ -250,9 +250,21 @@ try {
     const wrongPage = nav.status === null && !onPath;
     const moved = samePath && !netError && !wrongPage ? redirectedTo(url, page.url()) : null;
     if (moved) {
-      // the same page in a country root: the exit's country (asked again); another page: www's
-      // own alias, done
-      const cc = countryOfRedirect(url, page.url());
+      // into a country root: the anchor again tells the exit's country (it went there too: the
+      // session ends, the page is asked again later) from www's own redirect of the page (the
+      // anchor stays: a redirect like any alias, done); within the root or elsewhere: an alias
+      let cc = countryOfRedirect(url, page.url());
+      if (cc && /^\/xx\/[a-z]{2}\//.test(new URL(ANCHOR).pathname)) {
+        await sleep(minDelay);
+        await open(page, ANCHOR);
+        if (countryOfRedirect(ANCHOR, page.url())) {
+          countryExit = cc;
+          console.error(`bd-session: the anchor went into the ${countryOfRedirect(ANCHOR, page.url())} root after ${url} (the exit changed); ending session`);
+          break;
+        }
+        console.log(`  the anchor stayed: ${url} is www's own redirect into the ${cc} root`);
+        cc = null;
+      }
       state.pages[url] = {
         status: 'redirected', to: moved, ...(cc ? { country: cc } : {}), at: new Date().toISOString(),
       };
