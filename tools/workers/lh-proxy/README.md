@@ -78,11 +78,11 @@ encoded slashes or backslashes (`%2f`, `%5c`, `\`) are always rejected.
 
 ## Tests
 
-From the repo root (Node 24, no install needed):
+From this folder (Node 24, no install needed):
 
 ```sh
-node --test tools/workers/lh-proxy/test/
-npx eslint tools/workers
+npm test    # node --test test/*.test.mjs: every test file
+npx eslint .
 ```
 
 The tests stub `globalThis.fetch` and `globalThis.caches`, so they make no network requests.

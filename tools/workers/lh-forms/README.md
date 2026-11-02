@@ -269,7 +269,7 @@ values, file names, addresses or the token. Without the binding or the token, `/
 From this folder (Node 24, no install needed; the shim answers `cloudflare:workers`):
 
 ```sh
-npm test    # node --import ./test/cloudflare-workers-shim.mjs --test test/
+npm test    # node --import ./test/cloudflare-workers-shim.mjs --test test/*.test.mjs: every test file
 npx eslint .
 ```
 

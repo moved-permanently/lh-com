@@ -4,7 +4,7 @@
    site fell back to the recorded list). b2b.turnsthe.page waits until B2B's site is set up (it is
    no brand host of scripts/demo.js yet: test/host-lists.test.mjs). Checked with the worker's
    defaults and with the values wrangler.toml deploys (both copies must agree).
-   Run: node --max-old-space-size=512 --test test/ */
+   Run: npm test (every test file; test/ alone ran only index.test.mjs) */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
