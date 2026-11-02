@@ -39,12 +39,15 @@ export function buildTable(
   const rows = {};
   Object.entries(data.roots).forEach(([key, row]) => {
     const r = www.get(key);
-    if (!r || !r.ownSitemap) throw new Error(`${key}: not a root of www's sitemaps`);
+    // a language version may be one of www's market-neutral roots (xx/es: only hreflang
+    // alternates in its sitemaps, pages of its own on www)
+    const neutralVersion = Object.values(data.languageVersions || {}).includes(key) && /^xx\//.test(key);
+    if (!r || (!r.ownSitemap && !neutralVersion)) throw new Error(`${key}: not a root of www's sitemaps`);
     const [country, lang] = key.split('/');
     rows[key] = {
       country,
       lang,
-      hreflang: r.hreflang.find((h) => h.includes('-')) || `${lang}-${country.toUpperCase()}`,
+      hreflang: r.hreflang.find((h) => h.includes('-')) || (country === 'xx' ? lang : `${lang}-${country.toUpperCase()}`),
       status: liveNow(key, row) ? 'live' : row.status,
       documents: row.documents || 'own',
       name: row.name,

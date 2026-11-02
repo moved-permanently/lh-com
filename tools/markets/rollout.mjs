@@ -32,7 +32,9 @@ const SNAP = path.join(root, 'tools/importer/bd-snapshots/www.lufthansa.com');
 const LANGS = ['en', 'de'];
 // the languages after en and de, one batch each (batch 11: French), with their language version:
 // a root of www with every page as its own document (fr/fr, brief 264: www's xx/fr has no pages)
-export const LANGUAGE_BATCHES = [{ lang: 'fr', version: 'fr/fr' }];
+// batch 12: Spanish, with www's market-neutral xx/es (pages of its own, brief 268; es/es a
+// market root)
+export const LANGUAGE_BATCHES = [{ lang: 'fr', version: 'fr/fr' }, { lang: 'es', version: 'xx/es' }];
 const VERSIONS = { en: 'de/en', de: 'de/de', ...Object.fromEntries(LANGUAGE_BATCHES.map((l) => [l.lang, l.version])) };
 // the pages compared per root with the language version (en paths; the root's own slug from the
 // page groups): the flight offers page and two pages with local content (airports, services)
