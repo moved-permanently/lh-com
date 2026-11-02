@@ -30,7 +30,10 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
 const DATA = path.join(root, 'tools/source-export/feeds/sitemaps');
 const SNAP = path.join(root, 'tools/importer/bd-snapshots/www.lufthansa.com');
 const LANGS = ['en', 'de'];
-const VERSIONS = { en: 'de/en', de: 'de/de' };
+// the languages after en and de, one batch each (batch 11: French), with their language version:
+// a root of www with every page as its own document (fr/fr, brief 264: www's xx/fr has no pages)
+export const LANGUAGE_BATCHES = [{ lang: 'fr', version: 'fr/fr' }];
+const VERSIONS = { en: 'de/en', de: 'de/de', ...Object.fromEntries(LANGUAGE_BATCHES.map((l) => [l.lang, l.version])) };
 // the pages compared per root with the language version (en paths; the root's own slug from the
 // page groups): the flight offers page and two pages with local content (airports, services)
 export const COMPARE = ['/de/en/flights', '/de/en/airport-information', '/de/en/additional-services'];
@@ -38,8 +41,12 @@ export const COMPARE = ['/de/en/flights', '/de/en/airport-information', '/de/en/
 export const LEAD_TEXT_PAGES = ['/de/en/additional-services', '/de/en/100-years', '/de/en/320', '/de/en/32n', '/de/de/book-and-manage/stopover'];
 const read = (f) => JSON.parse(fs.readFileSync(f, 'utf8'));
 
-/** The batches: [{n, countries, roots}] (roots: the en and de roots without a row yet). */
-export function batches(roots = read(path.join(DATA, 'roots.json')).roots, table = read(path.join(root, 'tools/markets/locale-data.json')).roots, size = 10) {
+/**
+ * The batches: [{n, countries, roots}] (roots: the en and de roots without a row yet), then one
+ * batch per language of LANGUAGE_BATCHES: {n, lang, version, countries, roots} (its roots besides
+ * the version).
+ */
+export function batches(roots = read(path.join(DATA, 'roots.json')).roots, table = read(path.join(root, 'tools/markets/locale-data.json')).roots, size = 10, languageBatches = LANGUAGE_BATCHES) {
   const byCc = {};
   roots.filter((r) => r.ownSitemap).forEach((r) => { (byCc[r.cc] ||= []).push(r.ll); });
   // rows of the rollout (a `batch` field) stay in their batch
@@ -56,6 +63,15 @@ export function batches(roots = read(path.join(DATA, 'roots.json')).roots, table
       const cs = list.slice(i, rest > 0 && rest < 3 ? list.length : i + size);
       out.push({ n: out.length + 1, countries: cs, roots: cs.flatMap(todo) });
       i += cs.length - size;
+    }
+  });
+  languageBatches.forEach(({ lang, version }) => {
+    const has2 = (k) => Boolean(table[k]) && !table[k].batch;
+    const ks = roots.filter((r) => r.ownSitemap && r.ll === lang && r.root !== version && !has2(r.root)).map((r) => r.root).sort();
+    if (ks.length) {
+      out.push({
+        n: out.length + 1, lang, version, countries: [...new Set(ks.map((k) => k.split('/')[0]))], roots: ks,
+      });
     }
   });
   return out;
@@ -152,8 +168,11 @@ export function homepageFacts(html) {
   return { label, airport, currency };
 }
 
-/** The locale-data rows of a batch's roots from their homepage captures: {rows, missing}. */
-export function rowsOf(batchRoots, snapDir = SNAP) {
+/**
+ * The locale-data rows of a batch's roots from their homepage captures: {rows, missing}; langs:
+ * the languages of countryName (en and de, plus a language batch's own).
+ */
+export function rowsOf(batchRoots, snapDir = SNAP, langs = LANGS) {
   const facts = {};
   batchRoots.forEach((k) => {
     // a capture of another page (www sent the session to another root: al/en to al/de) is no
@@ -175,12 +194,12 @@ export function rowsOf(batchRoots, snapDir = SNAP) {
     const existing = read(path.join(root, 'tools/markets/locale-data.json')).roots;
     const countryOf = (l) => facts[`${cc}/${l}`]?.label?.split('|')[0].trim()
       || Object.entries(existing).find(([key, r]) => key.startsWith(`${cc}/`) && !r.batch && r.countryName?.[l])?.[1].countryName[l] || null;
-    const countryName = { en: countryOf('en'), de: countryOf('de') };
+    const countryName = Object.fromEntries(langs.map((l) => [l, countryOf(l)]));
     const row = {
       status: 'pilot', documents: 'language', name: f.label, countryName, homeAirport: f.airport, currency: f.currency, timeZone: null, shopLang: null,
     };
     const unknown = ['name', 'homeAirport', 'currency'].filter((x) => !row[x]);
-    ['en', 'de'].forEach((l) => { if (!countryName[l]) unknown.push(`countryName.${l}`); });
+    langs.forEach((l) => { if (!countryName[l]) unknown.push(`countryName.${l}`); });
     row.unverified = [...unknown, 'timeZone', 'shopLang'];
     unknown.forEach((x) => missing.push(`${k}: ${x} not found on the homepage`));
     rows[k] = row;
@@ -220,7 +239,7 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.a
       ownPages(k).keep.forEach((p) => pages.push(p));
       COMPARE.forEach((en) => {
         const lang = k.split('/')[1];
-        const from = lang === 'en' ? en : counterpart(en, 'de/de');
+        const from = lang === 'en' ? en : counterpart(en, VERSIONS[lang]);
         if (from && !fs.existsSync(path.join(root, 'content', `${from}.plain.html`))) throw new Error(`${from}: no language document`);
         const p = counterpart(en, k);
         if (p) { pages.push(p); compare.push({ root: k, page: p, language: from }); } else compare.push({ root: k, page: null, language: from });
@@ -237,13 +256,16 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.a
   }
   if (argv.includes('--rows')) {
     const b = pick('rows');
-    const { rows, missing } = rowsOf(b.roots);
+    // a language batch: its market roots and its language version (documents own)
+    const { rows, missing } = rowsOf(b.version ? [b.version, ...b.roots] : b.roots, SNAP, b.lang ? [...LANGS, b.lang] : LANGS);
+    if (b.version && rows[b.version]) rows[b.version].documents = 'own';
     Object.entries(rows).forEach(([k, r]) => console.log(`${k}: ${r.name} | ${JSON.stringify(r.countryName)} | ${r.homeAirport} | ${r.currency}`));
     missing.forEach((m) => console.log(`  missing: ${m}`));
     if (argv.includes('--apply')) {
       const f = path.join(root, 'tools/markets/locale-data.json');
       const data = read(f);
       Object.entries(rows).forEach(([k, r]) => { data.roots[k] = { ...r, batch: b.n }; });
+      if (b.version) data.languageVersions[b.lang] = b.version;
       fs.writeFileSync(f, `${JSON.stringify(data, null, 2)}\n`);
       console.log(`locale-data.json: ${Object.keys(rows).length} rows added`);
     }
@@ -305,7 +327,8 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.a
       const [cc, ll] = c.root.split('/');
       const a = facts(c.page, cc, ll);
       const refDir = fs.existsSync(path.join(REF, c.language, 'cleaned.html')) ? REF : PAGES;
-      const ref = facts(c.language, 'de', ll, refDir);
+      // the language page's country (de for de/en and de/de, fr for fr/fr)
+      const ref = facts(c.language, c.language.split('/')[1], ll, refDir);
       if (!a || !ref) return { ...c, status: a ? 'language page not captured' : 'not captured' };
       const d = compare(a, ref);
       const differs = d.textOnlyHere > 0 || d.textOnlyReference > 0 || !d.componentsSame;
