@@ -289,7 +289,7 @@ export function withItaForm(doc, p, html = '') {
 
 // the language of a form message (www's raffle forms on ch/en carry ch/fr's French ones, some
 // forms German ones)
-const MESSAGE_LANGUAGE = [['fr', /\b(?:Veuillez|votre|vos)\b/i], ['de', /\b(?:Bitte|Geben Sie|Ihre[nrs]?|Pflichtfeld)\b/], ['en', /\b(?:Please|your|required field)\b/i]];
+const MESSAGE_LANGUAGE = [['fr', /\b(?:Veuillez|votre|vos)\b/i], ['de', /\b(?:Bitte|Geben Sie|Ihre[nrs]?|Pflichtfeld)\b/], ['en', /\b(?:Please|your|required field)\b/i], ['it', /\b(?:Inserisca|Selezioni|Compili|campo obbligatorio)\b/i]];
 // SWISS's own wording per field name (its forms in the language), and the form block's
 // messages (DEFAULT_LABELS required / format error) for the other fields
 const FIELD_MESSAGES = {
@@ -328,6 +328,47 @@ const FIELD_MESSAGES = {
     'required error': 'Bitte füllen Sie dieses Feld aus.',
     'format error': 'Bitte überprüfen Sie Ihre Eingabe.',
     'email format': 'Bitte geben Sie eine gültige E-Mail-Adresse an.',
+  },
+  // ch/fr and ch/it (brief 276): SWISS's French and Italian forms' most frequent wording per field
+  fr: {
+    salutation: 'Veuillez sélectionner une civilité.',
+    firstname: 'Veuillez indiquer votre prénom.',
+    lastname: 'Veuillez indiquer votre nom de famille.',
+    nachname: 'Veuillez indiquer votre nom de famille.',
+    email: 'Veuillez saisir votre adresse e-mail.',
+    zip: 'Veuillez indiquer votre code postal.',
+    city: 'Veuillez indiquer votre ville.',
+    street: 'Veuillez indiquer le nom et le numéro de la voie.',
+    adress: 'Veuillez indiquer le nom et le numéro de la voie.',
+    country: 'Le pays doit être indiqué.',
+    state: 'Le pays doit être indiqué.',
+    phone: 'Veuillez indiquer votre numéro de téléphone.',
+    termsconditions: 'Veuillez accepter les conditions de participation.',
+    outbounddate: 'Veuillez sélectionner votre date de départ.',
+    inbounddate: 'Veuillez sélectionner votre date de retour.',
+    'required error': 'Veuillez remplir ce champ.',
+    'format error': 'Veuillez vérifier votre saisie.',
+    'email format': 'Veuillez saisir une adresse e-mail valide.',
+  },
+  it: {
+    salutation: 'Selezioni un titolo.',
+    firstname: 'Inserisca il suo nome.',
+    lastname: 'Inserisca il suo cognome.',
+    nachname: 'Inserisca il suo cognome.',
+    email: 'Inserisca il suo indirizzo e-mail.',
+    zip: 'Inserisca un codice postale.',
+    city: 'Inserisca il suo luogo di residenza.',
+    street: 'Inserisca una via e un numero civico.',
+    adress: 'Inserisca una via e un numero civico.',
+    country: 'Il Paese è un campo obbligatorio.',
+    state: 'Il Paese è un campo obbligatorio.',
+    phone: 'Inserisca il suo numero di telefono.',
+    termsconditions: 'Accetti le condizioni di partecipazione.',
+    outbounddate: 'Selezioni la data di partenza.',
+    inbounddate: 'Selezioni la data di ritorno.',
+    'required error': 'Compili questo campo.',
+    'format error': 'Verifichi i dati inseriti.',
+    'email format': 'Inserisca un indirizzo e-mail valido.',
   },
 };
 // a row of a form block (cells without nested blocks)

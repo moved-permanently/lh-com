@@ -339,7 +339,14 @@ test('form messages in the page\'s language: www\'s French or German ones on Eng
   ), 'by field name; a field without its wording: the form\'s own message');
   const de = form(field('Vorname', 'text', 'FirstName', 'Geben Sie Ihren Vornamen an'), field('PartnerPlus', 'text', 'PartnerPlus', 'Please enter a phone number'));
   assert.equal(withPageLanguageMessages(de, '/ch/de/x'), form(field('Vorname', 'text', 'FirstName', 'Geben Sie Ihren Vornamen an'), field('PartnerPlus', 'text', 'PartnerPlus', 'Bitte füllen Sie dieses Feld aus.')), 'German pages: German kept, English replaced');
-  assert.equal(withPageLanguageMessages(doc, '/ch/fr/x'), doc, 'a root without wording: as it is');
+  // brief 276: ch/fr and ch/it (www's technical support form has German messages on every language)
+  const tech = form(field('Prénom', 'text', 'firstName', 'Geben Sie Ihren Vornamen an'), field('Date', 'date', 'date', 'Geben Sie das Datum des Vorfalls an'), field('E-mail', 'email', 'Email', 'Veuillez indiquer votre adresse électronique'));
+  assert.equal(withPageLanguageMessages(tech, '/ch/fr/customer-support/contact-us/technical-support'), form(field('Prénom', 'text', 'firstName', 'Veuillez indiquer votre prénom.'), field('Date', 'date', 'date', 'Veuillez remplir ce champ.'), field('E-mail', 'email', 'Email', 'Veuillez indiquer votre adresse électronique')), 'French kept, German as SWISS\'s French');
+  assert.equal(withPageLanguageMessages(tech, '/ch/it/customer-support/contact-us/technical-support'), form(field('Prénom', 'text', 'firstName', 'Inserisca il suo nome.'), field('Date', 'date', 'date', 'Compili questo campo.'), field('E-mail', 'email', 'Email', 'Inserisca il suo indirizzo e-mail.')), 'German and French as SWISS\'s Italian');
+  const it = form(field('Nome', 'text', 'firstName', 'Inserisca il suo nome.'));
+  assert.equal(withPageLanguageMessages(it, '/ch/it/x'), it, 'Italian on ch/it: as it is');
+  assert.equal(withPageLanguageMessages(it, '/ch/en/x'), form(field('Nome', 'text', 'firstName', 'Please enter your first name.')), 'Italian on ch/en: English');
+  assert.equal(withPageLanguageMessages(doc, '/ch/es/x'), doc, 'a root without wording: as it is');
   assert.equal(withPageLanguageMessages('<p>Veuillez</p>', '/ch/en/x'), '<p>Veuillez</p>');
 });
 
