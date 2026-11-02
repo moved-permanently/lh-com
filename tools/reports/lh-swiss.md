@@ -342,3 +342,31 @@ The showcase notice waits while a form field has the focus on every brand.
   aem.page previews; the other brands as before.
 - lh-edge: the help center's data files (`COPIES`) answer from our copy at
   `/digitalhangar-copies/...` when one is committed; without one www's answer as before.
+
+## ch/fr and ch/it; the help center's data; served links (briefs 272, 276, 2026-11-02)
+
+From the Studio's archives 006 to 009 only (sha256 as the brief; no page of www.swiss.com
+loaded; DAM downloads stay stopped at the pilot's 403). DA and preview only, not published.
+
+- `BRAND_SITES.swiss`: ch/fr and ch/it with their own documents (fr-CH, it-CH), www's dialog
+  names "Suisse | Français" and "Suisse | Italiano", airports GVA and ZRH; lh-edge's entry paths
+  for them as www (`/ch/<ll>`, `/xx/<ll>[/homepage]`, `/<ll>/homepage`).
+- Scope: ch/fr 302 documents, ch/it 275 (the archives' extra lists p11, x11, p15, x15 as batches:
+  `swiss-plan.mjs` IMPORTED_ROOTS). Batches 11 to 14, p11, x11, c11 (ch/fr: 301 pages, nav and
+  footer) and 15 to 18, p15, x15 (ch/it: 275 pages, nav and footer), every page preview 200.
+- Nav and footer 1:1 from the homepages (3 items, 9 columns, 51 links; cart dialog in the
+  language; "Mes vols" / "I miei voli" the cockpit deep link, made relative: the login and profile
+  pages are ch/en's and ch/de's only, `lh-swiss.json` served by name).
+- Flight search: Genève (GVA) on ch/fr, Zurigo (ZRH) on ch/it.
+- Forms: 38 (ch/fr 21, ch/it 17), `swiss-` ids (two new: the ch/fr raffles
+  swiss-match-de-preparation-pour-les-championnats-europeens-2025, swiss-swiss-ice-hockey-games-2025);
+  21 link their own confirmation page; 9 keep the form's message (their confirmation is not in the
+  capture). www's technical support, general request and accessible travel forms carry German
+  messages on every language: SWISS's French and Italian wording per field.
+- For the capture: `lh-swiss-fr-it-capture.tsv` (69 DAM files, 19 pages without a snapshot, 9
+  confirmation pages); 8 more AEM files in `lh-swiss-aem-files.tsv`; 1 redirect row.
+- Help center: `digitalhangar-copies/` holds features, en and de (capture swiss-dam-003); it runs on
+  swiss.turnsthe.page in German with every topic; in English its topics wait for
+  `topics_en.json` (www refuses it to lh-edge; the copy step takes topics/ too).
+- Served links: 49 documents' links to www's cockpit, login and profile pages relative; 4 keep
+  www's `/ch/<ll>/profile/profile-login` (404 on our host).
