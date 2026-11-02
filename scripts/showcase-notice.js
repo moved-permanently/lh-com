@@ -15,13 +15,12 @@
  * - Never shown in DA authoring contexts (isAuthoringContext), inside iframes or under /tools/.
  * - Independent of the consent banner (scripts/consent.js): whichever shows first is handled
  *   first, the other works afterwards.
- * - The brands in WAITS_FOR_TYPING (SWISS): not while a form field has the focus
- *   (the modal would take the keys typed into it); it opens when the focus leaves the fields.
- *   Other brands: at its time, as before.
+ * - Not while a form field has the focus (the modal would take the keys typed into it): it
+ *   opens when the focus leaves the fields; nobody typing, at its time.
  */
 import { loadCSS } from './aem.js';
 import { isAuthoringContext } from './consent.js';
-import { brandName, brandOf } from './brand.js';
+import { brandName } from './brand.js';
 
 export const STORAGE_KEY = 'lh-showcase-acknowledged';
 
@@ -38,13 +37,6 @@ const TYPING = 'input:not([type="button"], [type="submit"], [type="reset"], [typ
 
 /** Whether an element is a field the visitor types into. */
 export const isTypingIn = (node) => Boolean(node && node.matches && node.matches(TYPING));
-
-// the brands whose notice waits for the visitor's typing (here, not in scripts/brands.js, which
-// lh-edge bundles)
-const WAITS_FOR_TYPING = ['swiss'];
-
-/** Whether the brand's notice waits for the visitor's typing. */
-export const waitsForTyping = (read) => WAITS_FOR_TYPING.includes(brandOf(read));
 
 /**
  * Resolves once no field has the focus: at once, or when the focus leaves the fields (from
@@ -128,7 +120,7 @@ function buildDialog() {
 export default async function showShowcaseNotice() {
   if (shown || !shouldShowNotice()) return;
   shown = true;
-  if (waitsForTyping()) await afterTyping();
+  await afterTyping();
   await loadCSS(`${window.hlx.codeBasePath}/styles/showcase-notice.css`);
 
   const { dialog, button } = buildDialog();

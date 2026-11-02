@@ -1,13 +1,14 @@
 /* eslint-disable max-len, import/extensions */
-/* The showcase notice and a visitor typing (scripts/showcase-notice.js, brief 262): on SWISS the
+/* The showcase notice and a visitor typing (scripts/showcase-notice.js, briefs 262 and 263): the
    notice does not open while a form field has the focus (its modal would take the keys typed
    into the field); it opens when the focus leaves the fields (tabbing from field to field keeps
-   it waiting). Other brands: at its fixed time, as before. OneTrust's own banner moves the focus
-   into itself when it opens (OneTrust's behaviour, left as it is).
+   it waiting). Every brand; nobody typing: at its fixed time, as before. OneTrust's own banner
+   moves the focus into itself when it opens (OneTrust's behaviour, left as it is).
    Run: node --max-old-space-size=512 --test test/showcase-notice-typing.test.mjs */
 /* global globalThis */
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
 import { parseHTML } from 'linkedom';
 
 const { window, document } = parseHTML('<!DOCTYPE html><html><head></head><body><form><input id="name" type="text"><input id="mail" type="email"><input id="ok" type="checkbox"><textarea id="msg"></textarea><button id="send" type="submit">Send</button></form><a id="link" href="#x">x</a></body></html>');
@@ -19,7 +20,7 @@ Object.defineProperty(window, 'origin', { value: 'https://swiss.turnsthe.page', 
 globalThis.window = window;
 globalThis.document = document;
 
-const { isTypingIn, afterTyping, waitsForTyping } = await import('../scripts/showcase-notice.js');
+const { isTypingIn, afterTyping } = await import('../scripts/showcase-notice.js');
 const byId = (id) => document.getElementById(id);
 const tick = () => new Promise((resolve) => { setTimeout(resolve, 5); });
 
@@ -52,8 +53,10 @@ test('no field with the focus: the notice opens at once', async () => {
   assert.ok(done);
 });
 
-test('waiting for the visitor\'s typing is SWISS\'s; lh-com and the other brands as before', () => {
-  const read = (brand) => (name) => (name === 'brand' ? brand : '');
-  assert.ok(waitsForTyping(read('swiss')));
-  ['', 'austrian', 'discover', 'ita'].forEach((b) => assert.ok(!waitsForTyping(read(b)), b || 'lh-com'));
+test('every brand\'s notice waits for the visitor\'s typing (brief 263); nobody typing: it opens at its time, as before', () => {
+  const src = fs.readFileSync(new URL('../scripts/showcase-notice.js', import.meta.url), 'utf8');
+  const show = src.slice(src.indexOf('export default async function showShowcaseNotice'));
+  assert.match(show, /\n {2}await afterTyping\(\);\n/, 'for every brand, lh-com included');
+  assert.doesNotMatch(src, /WAITS_FOR_TYPING|waitsForTyping/, 'no brand list');
+  assert.ok(show.indexOf('await afterTyping();') < show.indexOf('dialog.showModal()'), 'before the modal opens');
 });
