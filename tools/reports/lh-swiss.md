@@ -203,3 +203,31 @@ the same video behind www's flight manager have no hero: their flight search is 
 The 19 comparison pages and the seven brand homepages (main against the branch): equal apart from
 the head's stylesheet order.
 
+## Tabs that hold blocks, the flight search's video (brief 260, 2026-11-02)
+
+Tabs (2b35553d, 1848ed7d, e3541b5c): `scripts/section-tabs.js` makes consecutive sections with
+the section metadata `Tab` (the label; `Tabs` the set's number) one tab set, each panel a section
+of its own so it holds any block. From 768px a tab list (role tablist, aria-selected,
+aria-controls, a roving tabindex, arrow keys, Home and End; the panels role tabpanel, the others
+hidden), below 768px an accordion (a toggle with aria-expanded over each panel, the first open);
+a deep link into a panel selects its tab. The look (`styles/section-tabs.css`): www's maui tab
+control, 64px tabs, the active one bold over a 4px bar on the 1px grey line under the content
+width; the bar is the design system's selection colour (`--section-tabs-bar`: SWISS lx-red #c00,
+Austrian os-red #d81e05 from the mausy-v1.40.1 theme files on www.lufthansa.com; else Lufthansa's
+deep blue). Pages without Tab sections are untouched. The importer (`withTabMarkers`,
+`splitTabSections`) makes www's tab sets that hold blocks (59 of 78; the 19 text-only ones stay
+profile-tabs) into Tab sections, with www's labels on all 59 documents (`runs/r260-tabs.tsv`).
+
+Flight search: a `Background video` row plays an mp4 over the `Background image` band (muted,
+looped, inline, the image its poster; the image alone with prefers-reduced-motion). The importer
+(`withFlightSearchVideo`) writes both rows from www's flight manager's promotion teaser on the 9
+pages without a hero (ch/en and ch/de advanced-search, flights, partner-offers/swiss-airrail,
+customer-support/faq/payment-options/cash-and-miles; ch/de local-page/black-friday), the video at
+`/content/dam/lx/video/bengaluru-header-video-8017471.mp4` (the AEM sandbox; 404 on the preview,
+the poster stays). The teaser's card text (title, "Book your flight") is not imported.
+
+Documents re-imported and previewed: 68 (59 tab, 9 flight search; `runs/batch-r260.txt`) plus the
+ch/en and ch/de nav and footer. Austrian: no snapshots or documents in this workspace, so its
+documents are as before; its theme has the bar colour, and austrian-import.mjs can take
+`withTabMarkers` and `splitTabSections` as they are.
+
