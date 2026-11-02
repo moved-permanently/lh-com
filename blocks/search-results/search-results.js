@@ -42,8 +42,8 @@ const DEFAULT_LABELS = {
     'page label': 'Seite {PAGE}',
   },
   // fr: the search field of the French footers of www (its searchBar text); the others in the
-  // same wording, the replica own (the French label bundles of www answered this machine with a
-  // challenge; a recorded searchResultsAEM answer in French replaces them)
+  // same wording, the replica own (the French searchResultsAEM bundle of www is the English
+  // text, recorded 2026-11-02, so it is not recorded for the replica)
   fr: {
     'input label': 'Entrez un mot-clé',
     'search button label': 'Rechercher',

@@ -93,10 +93,10 @@ const DEFAULT_LABELS = {
     'stepper increase': 'Erhöhen',
     'repeat remove': 'Entfernen',
   },
-  // fr: the texts of www on the French form pages where they show them (the submit button, the
-  // file drop zone prompt, its or, the select button and the list headline, captures of
-  // 2026-11-02); the others in the same wording, the replica own (the French label bundles of
-  // www answered this machine with a challenge)
+  // fr: the texts of www on the French form pages (the submit button, captures of 2026-11-02)
+  // and in its French label bundle common (the file drop zone: prompt, or, select, list headline,
+  // required, type and size errors, recorded 2026-11-02); the others in the same wording, the
+  // replica own (www has none in French: its invalid file name text is English there)
   fr: {
     'sent message': 'Ceci est un formulaire d’aperçu. Aucune donnée n’a été envoyée.',
     'success message': 'Merci. Votre demande a été envoyée.',
@@ -116,8 +116,8 @@ const DEFAULT_LABELS = {
     'file list headline': 'Fichiers téléchargés',
     'file remove': 'Supprimer {NAME}',
     'file required': 'Le téléchargement de fichier est obligatoire',
-    'file invalid type': 'Veuillez télécharger un fichier dans un format accepté',
-    'file too big': 'Veuillez télécharger un fichier d’une taille acceptée',
+    'file invalid type': 'Veuillez télécharger un type de fichier accepté',
+    'file too big': 'Veuillez télécharger une taille de fichier acceptée',
     'file invalid name': 'Le nom du fichier contient un caractère non autorisé',
     'file too many': 'Vous ne pouvez pas télécharger plus de {MAX}',
     'file total': 'Tous les fichiers ensemble : max. {TOTAL}',
