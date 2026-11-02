@@ -31,6 +31,8 @@ import {
 } from './own-links.mjs';
 import { relativeDamLinks } from './austrian-dam.mjs';
 import { withLocalImages } from './austrian-nav.mjs';
+// SWISS's tab sets that hold blocks (ema-cashub, 2b35553d): the same component on www.austrian.com
+import { withTabMarkers, splitTabSections } from './swiss-import.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const argv = process.argv.slice(2);
@@ -216,6 +218,29 @@ export function withFlightSearch(doc, p) {
 }
 
 /** The template of a page from its path and snapshot. */
+/**
+ * A snapshot as the import reads it: placeholders, link-outs, the check-in entry's tabs, the
+ * teaser columns, the tab sets that hold blocks marked (SWISS's withTabMarkers: www.austrian.com's
+ * maui-tab-control-responsive with column views, accordions, tables), no loads, no screen-reader
+ * announcement (the help centre app's "Help page loaded." is no page text).
+ */
+export const mappedOf = (html, p) => withoutLoads(withTabMarkers(withTeaserColumns(withCheckinTabs(withLinkOuts(withPlaceholder(stripScripts(html)), p)))))
+  .replace(/<output[^>]*class="screen-reader-announcer"[^>]*>[\s\S]*?<\/output>/g, '');
+
+/**
+ * The document's tab markers as Tab sections (SWISS's splitTabSections; scripts/section-tabs.js).
+ * The import gives a marker paragraph tokens (the text section's {full-width}, a token paragraph
+ * after it merged into it): full-width goes, the others stay after the marker as their own
+ * paragraph (the panel's: {column-start}, a spacer).
+ */
+export const withAustrianTabs = (doc) => splitTabSections(doc.replace(
+  /<p>(@@tab@@\d+@@[^<]*?@@|@@tabs-end@@)\s*\{([^}<]*)\}<\/p>/g,
+  (m, mark, tokens) => {
+    const rest = tokens.split(/\s+/).filter((t) => t && t !== 'full-width');
+    return `<p>${mark}</p>${rest.length ? `<p>{${rest.join(' ')}}</p>` : ''}`;
+  },
+));
+
 export function templateOf(p, html) {
   // (homepage-new: the variant homepage some Italian-language roots have, al/it, be/it, ch/it)
   if (/^\/[a-z]{2}\/[a-z]{2}\/homepage(-new)?$/.test(p)) return 'homepage';
@@ -248,8 +273,7 @@ if (isMain) {
     fs.mkdirSync(path.dirname(copy), { recursive: true });
     // (the help centre app's screen-reader announcement "Help page loaded." is no page text;
     // the Studio's snapshots keep www's scripts, which must not run in the import browser)
-    const mapped = withoutLoads(withTeaserColumns(withCheckinTabs(withLinkOuts(withPlaceholder(stripScripts(html)), p))))
-      .replace(/<output[^>]*class="screen-reader-announcer"[^>]*>[\s\S]*?<\/output>/g, '');
+    const mapped = mappedOf(html, p);
     if (mapped.includes(`https://${LINK_OUT}`)) linkOuts.push(p);
     fs.writeFileSync(copy, mapped);
     (byTemplate[t] ||= []).push(u);
@@ -316,7 +340,7 @@ if (isMain) {
       const doc = fs.readFileSync(f, 'utf8');
       const src = Object.keys(out).find((k) => docName(k) === p);
       const markets = scope.documents[src]?.markets || [];
-      const next = withItaMetadata(withCheckinHandoff(withFlightSearch(withItaForm(doc, p, fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8')), p), p), p, fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8'), markets);
+      const next = withAustrianTabs(withItaMetadata(withCheckinHandoff(withFlightSearch(withItaForm(doc, p, fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8')), p), p), p, fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8'), markets));
       if (next !== doc) fs.writeFileSync(f, next);
     });
     const mapOnly = path.join(W, 'runs', `${name}-upload.txt`);
