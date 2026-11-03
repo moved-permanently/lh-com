@@ -2782,6 +2782,18 @@
     "/xx/zh/upgrade-to-premium-economy-class",
     "/xx/zh/upgrades-at-online-check-in",
     "/xx/zh/wheelchair-batteries",
-    "/xx/zh/with-children-at-the-airport"
+    "/xx/zh/with-children-at-the-airport",
+    "/cn/hk/nav",
+    "/cn/hk/footer",
+    "/hk/hk/nav",
+    "/hk/hk/footer",
+    "/tw/hk/nav",
+    "/tw/hk/footer",
+    "/cn/zh/nav",
+    "/cn/zh/footer",
+    "/hk/zh/nav",
+    "/hk/zh/footer",
+    "/tw/zh/nav",
+    "/tw/zh/footer"
   ]
 }
