@@ -76,7 +76,8 @@ test('zh and ja market roots (cn/zh, hk/zh, sg/zh, jp/ja): out with the shipped 
   const NEW = ['cn/zh', 'hk/zh', 'sg/zh', 'jp/ja'];
   assert.equal(NEW.some((r) => BRAND_SITES.swiss.rows[r]), false);
   const on = withSwissMarkets(BRAND_SITES.swiss, true, ['en', 'de', 'fr', 'it', 'zh', 'ja']);
-  assert.equal(Object.values(on.rows).filter((r) => r.documents === 'language').length, 208);
+  const languageRows = (site) => Object.values(site.rows).filter((r) => r.documents === 'language').length;
+  assert.equal(languageRows(on), languageRows(BRAND_SITES.swiss) + 4, 'the four, the shipped ones as they are');
   assert.deepEqual(on.rows['cn/zh'], {
     country: 'cn', lang: 'zh', hreflang: 'zh-CN', status: 'live', documents: 'language', label: 'Cina (Continentale) | 简体中文',
   });
