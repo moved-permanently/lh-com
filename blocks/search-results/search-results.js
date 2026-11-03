@@ -222,6 +222,17 @@ export function indexPath(block, locale) {
   return `/${locale.key}/search-index.json`;
 }
 
+// the brands whose www shows the empty search box for a page without a search word (SWISS: its
+// header magnifier and /<root>/search-results, as www.swiss.com today); elsewhere www's search API
+// refuses an empty query ("could not be loaded", lufthansa.com's recording)
+const EMPTY_BOX_BRANDS = ['swiss'];
+
+/** What the page shows: 'empty' (the box alone), 'failed' or 'results'. */
+export function resultState(query, failed, brand) {
+  if (!String(query || '').trim()) return EMPTY_BOX_BRANDS.includes(brand) ? 'empty' : 'failed';
+  return failed ? 'failed' : 'results';
+}
+
 let instances = 0;
 
 export default async function decorate(block) {
@@ -250,14 +261,20 @@ export default async function decorate(block) {
 
   const inner = el('div', 'search-results-inner');
   inner.append(buildForm(labels, query, uid));
+  const state = resultState(query, Boolean(indexResult.error), locale.brand);
+  // no search word on a brand that shows the empty box: the form alone
+  if (state === 'empty') {
+    block.append(inner);
+    block.removeAttribute('aria-busy');
+    return;
+  }
   const heading = el('h2', 'search-results-heading');
   heading.append(...withNode(labels['search for label'], 'QUERY', el('strong', '', query)));
   inner.append(heading);
   const status = el('p', 'search-results-sr');
   status.setAttribute('role', 'status');
   const body = el('div', 'search-results-body');
-  // www: an empty query is refused by its search API ("could not be loaded")
-  if (!query || indexResult.error) {
+  if (state === 'failed') {
     body.append(el('p', 'search-results-message', labels['failed label']));
     status.textContent = labels['failed sr label'];
   } else {
