@@ -64,6 +64,16 @@ export const PICKER_OPTION_LABELS = {
     'fare high label': '彈性／較高訂位艙等，可累積更多里數',
     'fare applied': '已套用您選擇的票價。',
   },
+  zh: {
+    'young adults label': '青少年',
+    'young adults hint': '（12–15 岁）',
+    'fare label': '选择其他票价',
+    'fare question': '您更希望享受哪些票价优惠？',
+    'fare default label': '最优价格',
+    'fare coupon label': '更改我的航班顺序',
+    'fare high label': '灵活性/更高订座舱位，可累积更多里程',
+    'fare applied': '您选择的票价已生效。',
+  },
 };
 
 /** The picker's hints a document can leave out. */

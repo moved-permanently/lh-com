@@ -42,7 +42,7 @@ function table(src, name) {
 }
 const show = (rev, file) => (rev ? execFileSync('git', ['show', `${rev}:${file}`], { encoding: 'utf8' }) : fs.readFileSync(file, 'utf8'));
 // characters only Traditional Chinese writes (their Simplified forms differ)
-const TRADITIONAL = /[們這個選擇檔頁輸請關時間話語認證帳號碼錯誤載傳刪發開處無務換題類級飛機積饋僅為與總訂體轉彈較艙數價優惠預覽謝謝欄資]/;
+const TRADITIONAL = /[們這個選擇檔頁輸請關時間話語認證帳號碼錯誤載傳刪發開處無務換題類級飛機積饋僅為與總訂體轉彈較艙數價優預覽謝欄資]/;
 
 test('the rows: xx/zh the language version (own documents), cn/zh, hk/zh, tw/zh its market roots; all pilot, batch 16, the homepages\' currencies', () => {
   const data = JSON.parse(fs.readFileSync('tools/markets/locale-data.json', 'utf8'));
