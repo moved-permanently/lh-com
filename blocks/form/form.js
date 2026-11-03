@@ -126,8 +126,10 @@ const DEFAULT_LABELS = {
     'stepper increase': 'Augmenter',
     'repeat remove': 'Supprimer',
   },
-  // es: the texts of www on the Spanish form pages and in its Spanish label bundle common (the
-  // file drop zone), recorded 2026-11-02; the others in the same wording, the replica own
+  // es: the texts of www on the Spanish form pages (the submit button) and in its Spanish label
+  // bundle common (the file drop zone: prompt, or, select, list headline, required, type and size
+  // errors), recorded 2026-11-02; the others in the same wording, the replica own (www has its
+  // invalid file name text in English there)
   es: {
     'sent message': 'Este es un formulario de vista previa. No se ha enviado nada.',
     'success message': 'Gracias. Su solicitud ha sido enviada.',
@@ -147,8 +149,8 @@ const DEFAULT_LABELS = {
     'file list headline': 'Archivos cargados',
     'file remove': 'Eliminar {NAME}',
     'file required': 'La carga de archivos es obligatoria',
-    'file invalid type': 'Cargue un archivo de un tipo aceptado',
-    'file too big': 'Cargue un archivo de un tamaño aceptado',
+    'file invalid type': 'Cargue un archivo con un formato de archivo aceptado',
+    'file too big': 'No cargue archivos que superen el tamaño límite permitido',
     'file invalid name': 'El nombre del archivo contiene un carácter no válido',
     'file too many': 'No se pueden cargar más de {MAX}',
     'file total': 'Todos los archivos juntos: máx. {TOTAL}',
