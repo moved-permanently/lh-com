@@ -47,7 +47,9 @@ export function buildTable(
     rows[key] = {
       country,
       lang,
-      hreflang: r.hreflang.find((h) => h.includes('-')) || (country === 'xx' ? lang : `${lang}-${country.toUpperCase()}`),
+      // an xx root: www's own hreflang (xx/hk: zh; its path language hk is no language tag), else
+      // its language
+      hreflang: r.hreflang.find((h) => h.includes('-')) || (country === 'xx' ? r.hreflang[0] || lang : `${lang}-${country.toUpperCase()}`),
       status: liveNow(key, row) ? 'live' : row.status,
       documents: row.documents || 'own',
       name: row.name,

@@ -238,6 +238,10 @@ export const LOCALE_TABLE = {
   'by/ru': { country: 'by', lang: 'ru', hreflang: 'ru-BY', status: 'pilot', documents: 'language', name: 'Belarus | Русский', countryName: { en: 'Belarus', de: 'Belarus', ru: 'Belarus' }, homeAirport: 'FRA', currency: null, timeZone: null, shopLang: null },
   'kz/ru': { country: 'kz', lang: 'ru', hreflang: 'ru-KZ', status: 'pilot', documents: 'language', name: 'Kazakhstan | Русский', countryName: { en: 'Kazakhstan', de: 'Kasachstan', ru: 'Kazakhstan' }, homeAirport: 'NQZ', currency: 'KZT', timeZone: null, shopLang: null },
   'ru/ru': { country: 'ru', lang: 'ru', hreflang: 'ru-RU', status: 'pilot', documents: 'language', name: 'Russian Federation | Русский', countryName: { en: 'Russian Federation', de: 'Russische Föderation', ru: 'Russian Federation' }, homeAirport: 'FRA', currency: null, timeZone: null, shopLang: null },
+  'xx/hk': { country: 'xx', lang: 'hk', hreflang: 'zh', status: 'pilot', documents: 'own', name: '其他国家 | 繁體中文', countryName: { en: null, de: null, hk: '其他国家' }, homeAirport: 'FRA', currency: null, timeZone: null, shopLang: null },
+  'cn/hk': { country: 'cn', lang: 'hk', hreflang: 'zh-CN', status: 'pilot', documents: 'language', name: 'China (Mainland) | 繁體中文', countryName: { en: 'China (Mainland)', de: 'China (Mainland)', hk: 'China (Mainland)' }, homeAirport: 'SHA', currency: null, timeZone: null, shopLang: null },
+  'hk/hk': { country: 'hk', lang: 'hk', hreflang: 'zh-HK', status: 'pilot', documents: 'language', name: 'Hong Kong, China | 繁體中文', countryName: { en: 'Hong Kong, China', de: 'Hong Kong, China', hk: 'Hong Kong, China' }, homeAirport: 'HKG', currency: null, timeZone: null, shopLang: null },
+  'tw/hk': { country: 'tw', lang: 'hk', hreflang: 'zh-TW', status: 'pilot', documents: 'language', name: 'Taiwan, China | 繁體中文', countryName: { en: 'Taiwan, China', de: 'Taiwan, China', hk: 'Taiwan, China' }, homeAirport: 'TPE', currency: null, timeZone: null, shopLang: null },
 };
 
 /** Every market-language root of www (its sitemap dataset), space-separated. */
@@ -254,6 +258,7 @@ export const LANGUAGE_VERSIONS = {
   es: 'xx/es',
   pt: 'xx/pt',
   ru: 'xx/ru',
+  hk: 'xx/hk',
 };
 
 /** A language without a version of its own (texts fall back to English). */
