@@ -1543,7 +1543,7 @@ test('SWISS corporate file rules as www\'s: the permission to film 5 x 3,700,000
 // SWISS's market roots' own forms (their local pages, the capture of 2026-11-02): the page's h1 as
 // the title; refundable travel credit has a German page only, Hungary's invoice request and Klook
 // an English one; none takes files
-test('SWISS market roots: pax receipt (al/en, al/de), refundable travel credit (al/de), invoice request Hungary (hu/en), Klook (kr/en); their titles; no files', async () => {
+test('SWISS market roots: pax receipt (al/en, al/de), refundable travel credit (al/de), invoice request Hungary (hu/en), Klook (kr/en), Hyundai 26 (kr/ko); their titles; no files', async () => {
   const env = makeEnv({ FORM_CONFIG: JSON.stringify({ default: { to: 'only@example.com' } }) });
   const cases = [
     [{ form: 'swiss-pax-receipt-request', locale: 'al-en', origin: LX }, '[lh-swiss] Enquiry about passenger receipt (al-en)'],
@@ -1551,6 +1551,8 @@ test('SWISS market roots: pax receipt (al/en, al/de), refundable travel credit (
     [{ form: 'swiss-refundable-travel-credit', locale: 'al-de', origin: LX }, '[lh-swiss] Antrag auf eine erstattungsfähige Reisegutschrift (al-de)'],
     [{ form: 'swiss-invoice-request-hungary', locale: 'hu-en', origin: LX }, '[lh-swiss] Invoice Request Hungary (hu-en)'],
     [{ form: 'swiss-klook', locale: 'kr-en', origin: LX }, '[lh-swiss] SWISS Europe Activity Promotion (kr-en)'],
+    // kr/ko's own form (the capture of 2026-11-03, swiss-snapshots-029): its page's h1
+    [{ form: 'swiss-hyundai26-application', locale: 'kr-ko', origin: LX }, '[lh-swiss] 스위스 항공의 현대자동차 임직원과 가족들을 위한 혜택 (kr-ko)'],
   ];
   const results = await Promise.all(cases.map(([opts], i) => post({ ...opts, ip: `203.0.113.${140 + i}` }, env)));
   results.forEach(({ res, body }, i) => {

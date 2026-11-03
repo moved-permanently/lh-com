@@ -248,6 +248,8 @@ const FORMS = {
     'refundable-travel-credit': ['Antrag auf eine erstattungsfähige Reisegutschrift'],
     'invoice-request-hungary': ['Invoice Request Hungary'],
     klook: ['SWISS Europe Activity Promotion'],
+    // kr/ko's own form (www's only Korean root, swiss-snapshots-029): its page's h1
+    'hyundai26-application': ['스위스 항공의 현대자동차 임직원과 가족들을 위한 혜택'],
   }),
 };
 // any country-language pair (the site's roots: de-en, de-de, at-de, gb-en, and the next ones),
