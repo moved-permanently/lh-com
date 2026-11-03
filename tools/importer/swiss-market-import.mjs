@@ -126,6 +126,18 @@ export function withServedLinks(doc, selfServed) {
 }
 
 /**
+ * A bare /deeplink/cockpit link (www's or ours: kr/ko's overview-manage) with its root's country
+ * and language, as the other cockpit links have them (the bare path answers 404 on our host).
+ * A page outside a <cc>/<ll> root as it is.
+ */
+export function withCockpitQuery(doc, p) {
+  const m = String(p).match(/^\/([a-z]{2})\/([a-z]{2})(\/|$)/);
+  if (!m) return doc;
+  const query = `?country=${m[1].toUpperCase()}&amp;language=${m[2].toUpperCase()}`;
+  return doc.replace(/href="(?:https:\/\/www\.swiss\.com)?\/deeplink\/cockpit"/g, `href="/deeplink/cockpit${query}"`);
+}
+
+/**
  * The Parent metadata as a plain path, as ch's documents write it: a link there makes the page's
  * parent meta its text (www's URL), which the breadcrumb links.
  */
@@ -236,7 +248,7 @@ if (isMain) {
     walk(docs).filter((f) => f.endsWith('.plain.html')).forEach((f) => {
       const d = `/${path.relative(docs, f).replace(/\.plain\.html$/, '')}`;
       const doc = fs.readFileSync(f, 'utf8');
-      const next = relinked(doc, { served, subPages, selfServed: allow.served || [] });
+      const next = withCockpitQuery(relinked(doc, { served, subPages, selfServed: allow.served || [] }), d);
       if (next !== doc) { fs.writeFileSync(f, next); changed.push(d); }
     });
     fs.writeFileSync(path.join(W, 'runs/relink-upload.txt'), `${changed.sort().join('\n')}\n`);
@@ -350,7 +362,7 @@ if (isMain) {
     doc = withDaImages(withOwnSuccess(doc, (t) => served.has(t)));
     // the paths lh-swiss serves itself (/deeplink/cockpit) relative; Parent as a plain path; the
     // images Edge Delivery refuses as their local renderings
-    doc = withLocalImageCopies(withParentPath(withServedLinks(doc, allow.served || [])));
+    doc = withCockpitQuery(withLocalImageCopies(withParentPath(withServedLinks(doc, allow.served || []))), p);
     fs.writeFileSync(f, doc);
   });
   fs.mkdirSync(path.join(W, 'runs'), { recursive: true });

@@ -156,3 +156,10 @@ test('kr/ko\'s images www answers 404 (on the capture\'s not-fetched list) are l
   const www = '<img src="https://www.swiss.com/content/dam/lx/icons/product-voucher.svg" alt="">';
   assert.equal(relinked(www, opts), '<img src="/media-da/swiss/product-voucher.png" alt="">');
 });
+
+test('withCockpitQuery: a bare /deeplink/cockpit link (www\'s or ours) gets its root\'s country and language, as the other cockpit links have it (the bare path answers 404 on our host)', async () => {
+  const { withCockpitQuery } = await import('../tools/importer/swiss-market-import.mjs');
+  const doc = '<a href="/deeplink/cockpit">a</a> <a href="https://www.swiss.com/deeplink/cockpit">b</a> <a href="/deeplink/cockpit?country=KR&amp;language=EN">c</a>';
+  assert.equal(withCockpitQuery(doc, '/kr/ko/book-and-manage/overview-manage'), '<a href="/deeplink/cockpit?country=KR&amp;language=KO">a</a> <a href="/deeplink/cockpit?country=KR&amp;language=KO">b</a> <a href="/deeplink/cockpit?country=KR&amp;language=EN">c</a>');
+  assert.equal(withCockpitQuery(doc, '/magazine/de/x'), doc, 'not a root\'s page: as it is');
+});
