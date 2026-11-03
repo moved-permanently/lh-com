@@ -65,13 +65,23 @@ const text = (h) => h.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
 const h1Of = (html) => text((html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/g) || []).map((x) => x).find((x) => !/sr-only/.test(x)) || '')
   || text((html.match(/<title>([^<]*)<\/title>/) || [])[1] || '').replace(/\s*\|\s*SWISS\s*$/, '');
 
+// www's search bar (dcep-search-bar, the FAQ's "Search for topic"): the paragraph withLinkOuts
+// writes before the import, which withSearchBar makes the search-bar block after it
+export const SEARCH_BAR_MARK = '@@search-bar@@';
+
+/** The marker paragraph (its link, a trailing style marker) as the search-bar block. */
+export function withSearchBar(doc) {
+  return doc.replace(new RegExp(`<p>${SEARCH_BAR_MARK}\\s*(<a href="[^"]+">[^<]*</a>)(?:\\s*\\{[^}]*\\})?</p>`, 'g'), '<div class="search-bar"><div><div>$1</div></div></div>');
+}
+
 /**
  * A snapshot whose live widgets are a link to the page on www (class C): the PNR search and the
  * passenger receipt portal (labelled with the page's H1), the booking logins (their intro text and
  * the H1), iframes the embed block doesn't play (with their title, else the H1). The FAQ search
- * bar is a link to the root's search page (www's searchUrl without its query, else
- * /<cc>/<ll>/search-results; the search-results block), with its own label. The check-in deadline
- * search (checkin-deadlines) and the culinary hub (micro-frontend) are lh-com blocks.
+ * bar is the search-bar block (SEARCH_BAR_MARK, withSearchBar after the import) on a link to the
+ * root's search page (www's searchUrl without its query, else /<cc>/<ll>/search-results; the
+ * search-results block), with its own label. The check-in deadline search (checkin-deadlines) and
+ * the culinary hub (micro-frontend) are lh-com blocks.
  */
 export function withLinkOuts(html, p) {
   const linkOut = (label) => `<div class="text section"><div class="richtext"><p><a href="https://${LINK_OUT}${p}">${label}</a></p></div></div>`;
@@ -83,7 +93,7 @@ export function withLinkOuts(html, p) {
     const label = (el.match(/<label[^>]*>([^<]+)<\/label>/) || [])[1] || h1Of(html) || HOST;
     const url = ((el.match(/searchUrl&quot;\s*:\s*&quot;([^&]*)/) || [])[1] || '').replace(/^https?:\/\/[^/]+/, '').split('?')[0];
     const page = /^\/[a-z]{2}\/[a-z]{2}\/search-results$/.test(url) ? url : `/${p.split('/').slice(1, 3).join('/')}/search-results`;
-    return `<div class="text section"><div class="richtext"><p><a href="${page}">${label}</a></p></div></div>`;
+    return `<div class="text section"><div class="richtext"><p>${SEARCH_BAR_MARK}<a href="${page}">${label}</a></p></div></div>`;
   });
   // the passenger receipt portal (a micro-frontend lh-com has no entry for)
   const pax = out.search(/<div class="wrapper section">\s*<passenger-receipt-portal/);
@@ -893,7 +903,7 @@ if (isMain) {
       const doc = fs.readFileSync(f, 'utf8');
       const linked = withOwnLinks(withLocalImages(relativeDamLinks(doc.split(`https://${LINK_OUT}`).join(`https://${HOST}`))), HOST, pages, aliases, { linkOut: linkOutDocs.has(p) ? p : null, served }).doc;
       // a form sends the visitor to its confirmation page on the site, never to www's
-      const next = withLiveFallback(withCockpitQuery(withOwnFlightSearchLinks(withOwnSuccess(linked, (t) => fs.existsSync(path.join(W, 'content', `${t}.plain.html`))), p), p), p);
+      const next = withSearchBar(withLiveFallback(withCockpitQuery(withOwnFlightSearchLinks(withOwnSuccess(linked, (t) => fs.existsSync(path.join(W, 'content', `${t}.plain.html`))), p), p), p));
       if (next !== doc) fs.writeFileSync(f, next);
     });
     fs.writeFileSync(path.join(W, 'runs', `${name}-import.json`), `${JSON.stringify({ templates: out, documents: made, missing }, null, 1)}\n`);

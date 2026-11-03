@@ -14,7 +14,7 @@ const {
   unwrapUrldefense, navDocument, footerDocument, linkFor,
 } = await import('../tools/importer/swiss-nav.mjs');
 const {
-  docName, withoutPlaceholders, withLinkOuts, LINK_OUT, formIdOf, templateOf,
+  docName, withoutPlaceholders, withLinkOuts, LINK_OUT, formIdOf, templateOf, SEARCH_BAR_MARK, withSearchBar,
 } = await import('../tools/importer/swiss-import.mjs');
 const { isBlock, damFiles } = await import('../tools/importer/swiss-dam.mjs');
 const { leftOut } = await import('../tools/importer/swiss-scope.mjs');
@@ -118,14 +118,21 @@ test('placeholders left out; the class C widgets a link to the page on www with 
   assert.equal(withLinkOuts('<div class="checkindeadlinesearch section"><div class="dcep-checkin-deadline-search"></div></div>', '/ch/en/x').includes('checkindeadlinesearch'), true, 'the deadline search is lh-com\'s block');
 });
 
-test('the FAQ search bar: a link to the root\'s search page (www\'s searchUrl without its query), with the bar\'s label', () => {
+test('the FAQ search bar: the search-bar block\'s marker and a link to the root\'s search page (www\'s searchUrl without its query), with the bar\'s label', () => {
   const bar = (url) => `<h1>FAQ</h1><div class="searchbar section"><div class="dcep-search-bar w-100" data-dcep="{ &quot;autoSuggest&quot;: false, ${url ? `&quot;searchUrl&quot;:&quot;${url}&quot;` : ''} }"><form class="w-100" role="search"><label for="x">주제 검색</label><input placeholder="주제 검색" name="searchbar" type="text"></form></div></div>`;
   const ko = withLinkOuts(bar('/kr/ko/search-results?query=%q%'), '/kr/ko/customer-support/faq');
   assert.ok(!ko.includes('dcep-search-bar') && !ko.includes(LINK_OUT), ko);
-  assert.match(ko, /<p><a href="\/kr\/ko\/search-results">주제 검색<\/a><\/p>/);
+  assert.match(ko, new RegExp(`<p>${SEARCH_BAR_MARK}<a href="/kr/ko/search-results">주제 검색</a></p>`));
   assert.match(withLinkOuts(bar('https://www.swiss.com/ch/de/search-results?query=%q%'), '/ch/de/customer-support/faq'), /<a href="\/ch\/de\/search-results">/);
   assert.match(withLinkOuts(bar(''), '/ch/zh/customer-support/faq'), /<a href="\/ch\/zh\/search-results">/, 'no searchUrl: the page root\'s');
   assert.match(withLinkOuts(bar('?query=%q%'), '/ch/en/customer-support/faq'), /<a href="\/ch\/en\/search-results">/, 'a searchUrl that is no search page: the page root\'s');
+});
+
+test('withSearchBar: the marker paragraph (and its {full-width}) as the search-bar block, its link kept; other paragraphs as they are', () => {
+  const doc = `<div><h1>FAQs</h1><p>Welcome.</p><p>${SEARCH_BAR_MARK}<a href="/ch/en/search-results">Search for topic</a> {full-width}</p><h2>Book {column-start}</h2></div>`;
+  assert.equal(withSearchBar(doc), '<div><h1>FAQs</h1><p>Welcome.</p><div class="search-bar"><div><div><a href="/ch/en/search-results">Search for topic</a></div></div></div><h2>Book {column-start}</h2></div>');
+  assert.equal(withSearchBar(`<p>${SEARCH_BAR_MARK}<a href="/kr/ko/search-results">주제 검색</a></p>`), '<div class="search-bar"><div><div><a href="/kr/ko/search-results">주제 검색</a></div></div></div>');
+  assert.equal(withSearchBar('<p><a href="/ch/en/search-results">Search for topic</a></p>'), '<p><a href="/ch/en/search-results">Search for topic</a></p>', 'no marker: a link as it is');
 });
 
 test('the DAM download stops at a block: 403, 429, 503, Cloudflare\'s challenge, an HTML page for a file', () => {

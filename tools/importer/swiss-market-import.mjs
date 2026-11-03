@@ -28,7 +28,7 @@ import {
   withoutLoads, withTeaserColumns, withCheckinTabs, withOffersGridConfig, withItaForm, withPageLanguageMessages,
   withItaMetadata, withOwnSuccess, withFlightSearch, withCheckinHandoff, withHeroVideo, withFlightSearchVideo,
   withFlightSearchTeaser, withOwnFlightSearchLinks, templateOf, divEnd, docName, withAppVersions,
-  withLiveFallback,
+  withLiveFallback, withSearchBar,
 } from './swiss-import.mjs';
 import { relativeDamLinks } from './swiss-dam.mjs';
 import { subSiteLinks, capturedPages, withOneH1 } from './swiss-sub-import.mjs';
@@ -363,7 +363,7 @@ if (isMain) {
     doc = withDaImages(withOwnSuccess(doc, (t) => served.has(t)));
     // the paths lh-swiss serves itself (/deeplink/cockpit) relative; Parent as a plain path; the
     // images Edge Delivery refuses as their local renderings
-    doc = withLiveFallback(withCockpitQuery(withLocalImageCopies(withParentPath(withServedLinks(doc, allow.served || []))), p), p);
+    doc = withSearchBar(withLiveFallback(withCockpitQuery(withLocalImageCopies(withParentPath(withServedLinks(doc, allow.served || []))), p), p));
     fs.writeFileSync(f, doc);
   });
   fs.mkdirSync(path.join(W, 'runs'), { recursive: true });
