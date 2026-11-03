@@ -66,3 +66,18 @@ test('metadata: the root\'s nav and footer, noindex, hidden from the search, no 
   assert.ok(!/markets/i.test(doc));
   assert.match(searchPage('kr/ko'), /<div><div>nav<\/div><div>\/kr\/ko\/nav<\/div>/);
 });
+
+test('medical services (brief 302): /medicalservices/{en,de}/search-results on its own index (the block row: a sub-site page\'s locale is ch/<ll>), its nav and footer, no parent, in lh-swiss-sub\'s documents', async () => {
+  const { SUB_ROOTS } = await import('../tools/importer/swiss-search-pages.mjs');
+  assert.deepEqual(SUB_ROOTS, ['medicalservices/en', 'medicalservices/de']);
+  const en = searchPage('medicalservices/en');
+  assert.match(en, /^<div><h1>Search results<\/h1><div class="search-results"><div><div>\/medicalservices\/en\/search-index\.json<\/div><\/div><\/div>/);
+  assert.match(searchPage('medicalservices/de'), /<h1>Suchergebnisse<\/h1><div class="search-results"><div><div>\/medicalservices\/de\/search-index\.json<\/div><\/div><\/div>/);
+  assert.match(en, /<div><div>nav<\/div><div>\/medicalservices\/en\/nav<\/div><\/div><div><div>footer<\/div><div>\/medicalservices\/en\/footer<\/div><\/div>/);
+  assert.match(en, /<div><div>hide-in-search<\/div><div>true<\/div><\/div>/);
+  assert.ok(!/Parent/.test(en));
+  assert.match(contentDirOf('medicalservices/en'), /content-sites\/lh-swiss-sub\/content$/);
+  const { paths } = JSON.parse(fs.readFileSync('tools/importer/sites/lh-swiss.json', 'utf8'));
+  SUB_ROOTS.forEach((r) => assert.ok(paths.includes(`/${r}/search-results`), r));
+  assert.ok(!/search-index\.json/.test(searchPage('ch/en')), 'the main site\'s pages as before (their root\'s own index)');
+});

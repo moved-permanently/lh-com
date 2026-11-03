@@ -49,7 +49,7 @@ test('SUB_SITES: SWISS\'s corporate (en, de, fr) and medical services (en, de), 
   assert.equal(medical.name, 'medicalservices');
   assert.deepEqual(medical.languages.map((l) => [l.lang, l.home]), [['en', '/medicalservices/en/homepage'], ['de', '/medicalservices/de/homepage']]);
   assert.deepEqual(corporate.header, { menu: 'bar', search: 'button', languages: 'bar' });
-  assert.deepEqual(medical.header, { menu: 'bar', languages: 'bar' }, 'no search: www\'s medical search has no results page');
+  assert.deepEqual(medical.header, { menu: 'bar', search: 'button', languages: 'bar' }, 'www\'s magnifier (it searches ?query= on the page itself); here the sub-site\'s own results page (brief 302)');
   assert.equal(subSiteOf('swiss', '/corporate/de/careers').name, 'corporate');
   assert.equal(subSiteOf('swiss', '/corporate').name, 'corporate');
   assert.equal(subSiteOf('swiss', '/medicalservices/en/health').name, 'medicalservices');

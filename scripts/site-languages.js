@@ -53,12 +53,13 @@ const subSite = (name, langs, header, { home = (lang) => `/${name}/${lang}/homep
  * from the sub-site's language (/corporate/de/nav: scripts/locale.js), and the header switches
  * between the sub-site's languages (the same slugs in each). header: the header's style
  * (blocks/header: the menu in the bar, a search button, the language list in the bar as www's
- * "EN" with the globe; medical services has no search: www's has no results page).
+ * "EN" with the globe; medical services' button to its own results page here, www's searches
+ * ?query= on the page itself).
  */
 export const SUB_SITES = {
   swiss: [
     subSite('corporate', [['en', 'English'], ['de', 'Deutsch'], ['fr', 'Français']], { menu: 'bar', search: 'button', languages: 'bar' }),
-    subSite('medicalservices', [['en', 'English'], ['de', 'Deutsch']], { menu: 'bar', languages: 'bar' }),
+    subSite('medicalservices', [['en', 'English'], ['de', 'Deutsch']], { menu: 'bar', search: 'button', languages: 'bar' }),
     // the magazine (/magazine/<ll>/): www's quick links in the bar and its menu in the flyout, the
     // language list in the bar (www's names); articleIndex: its articles' index per language
     // (helix-query.yaml magazine-<ll>; scripts/articles.js), read by its overview pages

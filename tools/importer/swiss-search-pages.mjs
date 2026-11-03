@@ -148,11 +148,18 @@ export const LABELS = {
 
 const row = (k, v) => `<div><div>${k}</div><div>${v}</div></div>`;
 
-/** The search page's document (.plain.html) of a root ("ch/en", "kr/ko"). */
+// the sub-sites without a results page on www (medical services: its magnifier searches ?query= on
+// the page itself): their own, on their own index (helix-query.yaml search-medicalservices-<ll>);
+// a sub-site page's locale is ch/<ll>, so the block names the index (as corporate's pages do)
+export const SUB_ROOTS = ['medicalservices/en', 'medicalservices/de'];
+
+/** The search page's document (.plain.html) of a root ("ch/en", "kr/ko", "medicalservices/en"). */
 export function searchPage(key) {
   const lang = key.split('/')[1];
   const h1 = HEADINGS[lang];
   if (!h1) throw new Error(`no heading for ${key}`);
+  const sub = SUB_ROOTS.includes(key);
+  const index = sub ? `<div><div>/${key}/search-index.json</div></div>` : '';
   const labels = Object.entries(LABELS[lang] || {}).map(([k, v]) => row(k, v)).join('');
   const meta = [
     row('nav', `/${key}/nav`),
@@ -162,14 +169,20 @@ export function searchPage(key) {
     row('og:title', h1),
     row('Theme', 'flow-spacing'),
     row('hide-in-search', 'true'),
-    row('Parent', `<a href="/${key}/homepage">/${key}/homepage</a>`),
+    ...(sub ? [] : [row('Parent', `<a href="/${key}/homepage">/${key}/homepage</a>`)]),
   ].join('');
-  return `<div><h1>${h1}</h1><div class="search-results">${labels}</div><div class="metadata">${meta}</div></div>\n`;
+  return `<div><h1>${h1}</h1><div class="search-results">${index}${labels}</div><div class="metadata">${meta}</div></div>\n`;
 }
 
-/** Where a root's documents are (ch/<ll>: swiss-import's; the own roots: the market importer's). */
+/**
+ * Where a root's documents are (ch/<ll>: swiss-import's; the own roots: the market importer's; the
+ * sub-sites: swiss-sub-import's).
+ */
 export function contentDirOf(key) {
-  return path.join(root, 'content-sites', key.startsWith('ch/') ? 'lh-swiss' : 'lh-swiss-mk', 'content');
+  let site = 'lh-swiss-mk';
+  if (key.startsWith('ch/')) site = 'lh-swiss';
+  else if (SUB_ROOTS.includes(key)) site = 'lh-swiss-sub';
+  return path.join(root, 'content-sites', site, 'content');
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
@@ -177,7 +190,7 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
     const i = process.argv.indexOf(`--${name}`);
     return i > 0 ? process.argv[i + 1] : undefined;
   };
-  const roots = opt('roots') ? opt('roots').split(',') : ROOTS;
+  const roots = opt('roots') ? opt('roots').split(',') : [...ROOTS, ...SUB_ROOTS];
   roots.forEach((key) => {
     const f = path.join(opt('content-dir') || contentDirOf(key), key, 'search-results.plain.html');
     fs.mkdirSync(path.dirname(f), { recursive: true });

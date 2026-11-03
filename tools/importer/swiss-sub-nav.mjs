@@ -7,8 +7,9 @@
  * - nav: the logo to the main site's homepage of the language (www's /<ll>/homepage: ch/en, ch/de
  *   on lh-swiss, else www's), the quick action "Book flight" (the burger's top link), the menu from
  *   the header's JSON ([data-dcep] "id":"lx-header-nav-horizontal": top items, their columns with
- *   the column's own link, the links), the tools: the search (corporate: its search-results page,
- *   labelled as the page's h1), the menu button's label (www's burger aria-label);
+ *   the column's own link, the links), the tools: the search (corporate's, labelled as its page's
+ *   h1; medical services' own results page, labelled Search in the language),
+ *   the menu button's label (www's burger aria-label);
  * - footer: swiss-nav.mjs footerDocument (the sub-sites' footer is the main site's markup: four
  *   link columns, the social row, the logos, the legal links).
  * The header shows the menu in the bar and the language list (SUB_SITES header). Links: the
@@ -98,9 +99,15 @@ if (isMain) {
     const snap = path.join(W, 'snapshots-src/www.swiss.com', key, 'homepage.html');
     if (!fs.existsSync(snap)) { console.log(`${key}: no homepage snapshot`); return; }
     const { document } = parseHTML(fs.readFileSync(snap, 'utf8'));
+    // the search tool: www's results page (corporate), else the replica's own (medical services:
+    // swiss-search-pages.mjs SUB_ROOTS), labelled as the page's h1
     const searchPage = `/${key}/search-results`;
-    const search = sub.header.search && subPages.has(searchPage)
-      ? { href: searchPage, label: clean(parseHTML(fs.readFileSync(path.join(W, 'snapshots-src/www.swiss.com', `${searchPage}.html`), 'utf8')).document.querySelector('h1')?.textContent) || 'Search' } : null;
+    const ownPage = path.join(W, 'content', `${searchPage}.plain.html`);
+    let searchLabel = '';
+    if (subPages.has(searchPage)) searchLabel = clean(parseHTML(fs.readFileSync(path.join(W, 'snapshots-src/www.swiss.com', `${searchPage}.html`), 'utf8')).document.querySelector('h1')?.textContent);
+    else if (fs.existsSync(ownPage)) searchLabel = { en: 'Search', de: 'Suchen', fr: 'Rechercher' }[l.lang];
+    const search = sub.header.search && (subPages.has(searchPage) || fs.existsSync(ownPage))
+      ? { href: searchPage, label: searchLabel || 'Search' } : null;
     const dir = path.join(W, 'content', key);
     fs.mkdirSync(dir, { recursive: true });
     fs.writeFileSync(path.join(dir, 'nav.plain.html'), subSiteLinks(subNavDocument(document, key, sitePaths, { search }), { subPages, sitePaths, mapHosts: false }));

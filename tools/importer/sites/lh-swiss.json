@@ -2861,7 +2861,9 @@
   "/ch/ja/search-results",
   "/ch/el/search-results",
   "/ch/ru/search-results",
-  "/kr/ko/search-results"
+  "/kr/ko/search-results",
+  "/medicalservices/en/search-results",
+  "/medicalservices/de/search-results"
  ],
  "linkOuts": [
   "/ch/en/culinaryjourney",

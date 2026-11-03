@@ -5496,3 +5496,73 @@ indices:
       lastModified:
         select: none
         value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+
+  # SWISS's medical services (lh-swiss /medicalservices/en/, scripts/site-languages.js SUB_SITES): the
+  # header magnifier's results page (tools/importer/swiss-search-pages.mjs SUB_ROOTS; www's searches
+  # ?query= on the page itself); search-corporate's definition
+  search-medicalservices-en:
+    include:
+      - /medicalservices/en/**
+    exclude:
+      - /medicalservices/en/nav
+      - /medicalservices/en/footer
+      - /medicalservices/en/search-results
+      - /medicalservices/en/**/*-success
+    target: /medicalservices/en/search-index.json
+    properties:
+      title:
+        select: head > title
+        value: textContent(el)
+      description:
+        select: head > meta[name="description"]
+        value: attribute(el, "content")
+      image:
+        select: head > meta[property="og:image"]
+        value: match(attribute(el, "content"), "https:\/\/[^/]+(/.*)")
+      headings:
+        select: main h1, main h2, main h3
+        values: textContent(el)
+      content:
+        select: main p, main li, main div > a
+        values: textContent(el)
+      hide-in-search:
+        select: head > meta[name="hide-in-search"]
+        value: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+
+  # SWISS's medical services (lh-swiss /medicalservices/de/, scripts/site-languages.js SUB_SITES): the
+  # header magnifier's results page (tools/importer/swiss-search-pages.mjs SUB_ROOTS; www's searches
+  # ?query= on the page itself); search-corporate's definition
+  search-medicalservices-de:
+    include:
+      - /medicalservices/de/**
+    exclude:
+      - /medicalservices/de/nav
+      - /medicalservices/de/footer
+      - /medicalservices/de/search-results
+      - /medicalservices/de/**/*-success
+    target: /medicalservices/de/search-index.json
+    properties:
+      title:
+        select: head > title
+        value: textContent(el)
+      description:
+        select: head > meta[name="description"]
+        value: attribute(el, "content")
+      image:
+        select: head > meta[property="og:image"]
+        value: match(attribute(el, "content"), "https:\/\/[^/]+(/.*)")
+      headings:
+        select: main h1, main h2, main h3
+        values: textContent(el)
+      content:
+        select: main p, main li, main div > a
+        values: textContent(el)
+      hide-in-search:
+        select: head > meta[name="hide-in-search"]
+        value: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
