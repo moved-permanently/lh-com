@@ -200,3 +200,25 @@ SWISS lists hreflang alternates as Austrian and Brussels (`ALTERNATES_SITES`), o
   (`/content/dam/lx/images/local_images/help-center/main.png`, `faq.png`), named by the app itself
   (its LX `baseImageUrl`, https://swiss.com/...). No document names a www.swiss.com resource (4301
   pages swept: ch, kr/ko, corporate, medical services, the magazine on the preview, ten market roots).
+
+## 2026-11-03: SWISS's claim apps (fast compensation, baggage reimbursement)
+
+- Snapshots: the capture's `swiss-snapshots-claims-20` (20 ch pages, sha256 checked, manifest's
+  per-file hashes too; in tools/importer/bd-snapshots, outside git) and kr/ko's capture. Every
+  `/<root>/fast-compensation` carries `<claim-form-entry data-public-endpoint="">` with
+  claim-automation/production/claim-form-entry/claim-form-entry-0.11.16.js, except ch/ru:
+  0.11.9 (its capture the latest of the ten; 0.11.9 puts the instruction in a copy). Every
+  `/<root>/baggage-reimbursement` `<baggage-form-entry data-public-endpoint="">` with
+  claim-automation/baggage-form-entry/baggage-form-entry-latest.js (v0.5.0); both on mausy-v1.40.1.
+- micro-frontend: baggage-form-entry; both apps on a brand's pages with the brand's design system
+  and the X-Portal meta tags (their tenant); a Version row (lufthansa.com's claim page as before).
+- Documents: the micro-frontend block with the app, its Version and www's first screen as
+  Fallback (Continue to the page on www.swiss.com); metadata as DA's (the mfe template writes no
+  Theme row). 22 uploaded and previewed, not published: /ch/{en,de,fr,it,es,pt,zh,ja,el,ru}/
+  fast-compensation and baggage-reimbursement, /kr/ko/ the same two.
+- Checked on swiss.turnsthe.page (the previewed block on the live page, main's code): ch/en and
+  ch/ru claim, ch/en and kr/ko baggage render www's form from our host (swiss.css, X-Portal LX,
+  the root's site and language); no request to www.swiss.com; the forms not submitted (Travel ID
+  and Miles & More services).
+- Rollback: git revert of the two commits; the pages' text-only versions are DA's earlier ones
+  (backups: the import's before-copies).
