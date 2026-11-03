@@ -1203,8 +1203,9 @@ body.brand-swiss main .default-content-wrapper > :is(h2, h3, h4) > a > picture:f
 
 /* Austrian's teasers with an icon (digital-services, accessible-travel: www's a.teaser.partner;
    legal: a.teaser.usp; > .teaser-heading > img.icon.icon-svg and the title; here an SVG picture
-   first in the heading's link): the icon at DCEP's .icon-svg size, 4.8rem square (recorded from
-   lufthansa.com's live CSS, the same component), above the title (was the column's 1264px) */
+   first in the heading's link): the icon at DCEP's .icon-svg size, 4.8rem square, above the title
+   (was the column's 1264px). The capture has Austrian's HTML, not its stylesheet (app.54a93e38.css);
+   the size is the shared component's as recorded from lufthansa.com's (app.e1a1d688.css) */
 body.brand-austrian main .default-content-wrapper > :is(h2, h3, h4) > a > picture:first-child:has(img[src*=".svg"]) {
   display: block;
   width: 48px;

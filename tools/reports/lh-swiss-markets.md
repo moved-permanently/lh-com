@@ -263,3 +263,25 @@ SWISS lists hreflang alternates as Austrian and Brussels (`ALTERNATES_SITES`), o
   so the preview shows the Fallback.
 - The 11 fast-compensation documents with the block (as 300's) uploaded and previewed again, not
   published; DA's text-only versions kept as the rollback.
+
+## 2026-11-03: SWISS's FAQ in four columns; Austrian's teaser icons; the empty results page
+
+- SWISS FAQ hub (styles.css, every root and language, no document change): the topic teasers in
+  www's fourcolumn column views, four to a row from 1025px, two from 768px, one below; each group's
+  first teaser ({column-start}) starts a new row. Checked on the branch preview at 1440: rows
+  4,4 | 4,2 | 3 | 4 (one group per |, as www's) on ch/en, ch/de, ch/fr and kr/ko, 21 teasers each; at 768 two to a row (On board's three: 2+1); at 390 one.
+- Every icon in the hub is 48px whatever its type: the lounge voucher's PNG (was 400×346) now matches
+  the SVGs. SWISS's 303 rule is unchanged.
+- Austrian (digital-services, accessible-travel and legal on every root, 22 documents; www's
+  a.teaser.partner and a.teaser.usp): the icon 48px above the title (was 1264px); on Austrian's pages
+  only. The capture has Austrian's HTML but not its stylesheet (app.54a93e38.css, a different build
+  from lufthansa.com's app.e1a1d688.css), so the size is DCEP's shared .icon-svg (4.8rem) as
+  recorded from lufthansa.com, not read from Austrian's own CSS. www puts the partner teasers' icon
+  left of the title; ours is above. Checked: 16 icons on the three en pages, all 48×48.
+- Results page without a search word: on SWISS's pages (ch/<ll>, the market roots, kr/ko,
+  medicalservices) the search box only, no heading, no error (as the brief says www.swiss.com does).
+  lufthansa.com and the other brands keep the recorded behaviour: www.lufthansa.com's empty-query
+  snapshot shows "Your search for / Your search results could not be loaded", so it was not changed
+  there. With a search word, nothing changes.
+- The branch preview (aem.page) has no `/ch/en/search-index.json` (on main's preview too); our host
+  serves it through lh-edge (326 entries), so searching with a word works only there.
