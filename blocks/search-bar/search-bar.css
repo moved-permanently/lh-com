@@ -1,0 +1,54 @@
+/* search-bar: www's dcep-search-bar (w-100: the whole column), the results page's field
+   (blocks/search-results): label for screen readers, the placeholder in the field, an underline,
+   the search icon as the submit button */
+.search-bar .search-bar-form {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  border-bottom: 2px solid var(--lh-deepblue);
+}
+
+.search-bar .search-bar-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.search-bar .search-bar-input {
+  flex: 1;
+  min-width: 0;
+  height: 48px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  color: var(--lh-deepblue);
+}
+
+.search-bar .search-bar-input::placeholder {
+  color: var(--lh-grey-7);
+}
+
+.search-bar .search-bar-input:focus {
+  outline: none;
+}
+
+.search-bar .search-bar-form:focus-within {
+  outline: 2px solid var(--lh-electric-blue);
+  outline-offset: 4px;
+}
+
+.search-bar .search-bar-submit {
+  width: 40px;
+  height: 48px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: url('../../icons/search.svg') center / 24px no-repeat;
+  cursor: pointer;
+}
