@@ -158,6 +158,7 @@ documents in that wave, as noted in rollout.md "The China host").
 | 10 | 8 | 38 | 24 / 14 | 2 (us/en ccpa, dnsmpi) | – |
 | **1–10** | **190** | **698** (697 documents and the redirects sheet) | | 21 | 1 |
 | 11 (French) | 14 (fr/fr and 13 market roots) | 323 | fr/fr 283 (its homepage, nav, footer, 273 pages and 7 form confirmations) / 13 × 3 and 1 own page | – | 1 |
+| 12 (Spanish) | 14 (xx/es and 13 market roots) | 315 | xx/es 269 (its homepage, nav, footer, 260 pages and 6 form confirmations) / 13 × 3 and 7 own pages | – | 1 |
 
 The lists hold every document of the wave's roots that is on preview and not live yet, homepages,
 navs and footers first per root. Since brief 264 they also hold:
@@ -360,18 +361,55 @@ page).
 **Rollback of wave 11**: as every wave (revert the switch commit; unpublish the list if wanted, the
 market roots' lines first).
 
+## Wave 12: Spanish (prepared 2026-11-03, brief 268; not switched)
+
+**xx/es is Spanish's language version.** www's `xx/es` has pages of its own (its homepage,
+`flights`, the Munich stopover page answer in Spanish with their own canonical, 2026-11-02), unlike
+`xx/fr`; following your rule (xx first, es/es otherwise) it is the version, a row of a root that
+is only an alternate in www's sitemaps (hreflang `es`, label "Otros paises | Español"), and
+**es/es (Spain) is a market root** like the other twelve: ar br ca cl co cr ec es mx pa pe us ve
+/es, 13 in all, batch 12, `pilot` (rollout.md "Batch 12"). The query indexes `search-xx-es`,
+`market-model-xx-es`, `market-llms-xx-es` are in helix-query.yaml (7174fd9; they fill on
+publish).
+
+`publish-wave-12.txt`: **315 documents**: xx/es 269 (homepage, nav, footer first, then its 260
+pages and the 6 confirmation pages its forms go to), then per market root its homepage, nav and
+footer and the own pages (es/es: emergency contact, feedback, feedbackai, the Allegris article,
+the ski campaign, asia-specials; ar/es: the Allegris article). Left out: xx/es's
+`…/register-ammunition1` (www's second copy of the ammunition form; no lh-forms id).
+Not imported: five xx/es URLs that are www's aliases only (`business-class`,
+`digital-travel-companion`, `flynet`, `freigepaeck-regeln`, `lounges`: their long AEM URL answers
+404; de/en has these as documents), three www 404s, and `xx/es/emergency-contact` (www's error
+page; es/es has the form).
+
+**Release order for wave 12**, as wave 11: publish xx/es's 269 lines first and wait until
+`/xx/es/search-index.json` and `/market-model/xx-es.json` answer with the same total (about 260);
+then the 46 market-root lines; then the switch `"liveWaves": [ …, 12 ]` (xx/es goes live with its
+roots); the checks as for every wave. The main host: `/xx/es/...` becomes a live root with its own
+documents (the origin, as de/en), the 13 roots as every wave's; xx/es's sitemap file and the
+static index entry with the switch (as wave 11). **Rollback**: revert the switch commit; unpublish
+the list if wanted, the market roots' lines first.
+
+**Forms**: xx/es's form pages keep their ids (animal cargo hold and cabin, sports baggage,
+ammunition, assistance, group travel, passenger receipt, feedback past flight); es/es's emergency
+contact form is `emergency-contact`, titled "Contacto en caso de emergencia" for Spanish roots
+(9288e6f). Their confirmations are xx/es's (captured, imported); es/es's emergency contact form
+shows its own success message. **Labels**: the form and search blocks in Spanish (cbb1802, www's
+texts where its Spanish pages and bundle have them); the brand sites' Spanish pages show them where
+they showed the English fallback (Austrian es/es, Brussels es/es, SWISS ch/es).
+
 ## The other roots (neither en nor de)
 
 www has 46 roots in 11 other languages (own sitemaps; about 340 URLs each, a third of an en or de
-root). **French is prepared (wave 11, above).** The other ten languages have no capture, nothing in
-lh-com and no language version; next in the order of the number of roots: es (13), then pt, ru,
-zh-HK, zh, it, el, ja, ko, pl. The /gc tree (DA, brief 249) is en and de. The brand sites hold other
+root). **French (wave 11) and Spanish (wave 12) are prepared (above).** The other nine languages have
+no capture, nothing in lh-com and no language version; next in the order of the number of roots: pt,
+ru, zh-HK, zh, it, el, ja, ko, pl. The /gc tree (DA, brief 249) is en and de. The brand sites hold other
 airlines' documents in some of these languages, not Lufthansa's.
 
 | Language | Roots | Root with most URLs on www | Language version on Edge Delivery |
 | --- | --- | --- | --- |
 | fr | 14: ar/fr be/fr ca/fr ch/fr cl/fr co/fr cr/fr dz/fr fr/fr gq/fr lu/fr ma/fr tn/fr us/fr | ch/fr (351) | **fr/fr** (pilot, wave 11; www's xx/fr has no pages) |
-| es | 13: ar/es br/es ca/es cl/es co/es cr/es ec/es es/es mx/es pa/es pe/es us/es ve/es | es/es (357) | none |
+| es | 13: ar/es br/es ca/es cl/es co/es cr/es ec/es es/es mx/es pa/es pe/es us/es ve/es | es/es (357) | **xx/es** (pilot, wave 12; www's xx/es has pages) |
 | pt | 3: ao/pt br/pt pt/pt | pt/pt (345) | none |
 | ru | 3: by/ru kz/ru ru/ru | ru/ru (338) | none |
 | zh (zh-HK, www's `hk`) | 3: cn/hk hk/hk tw/hk | hk/hk (341) | none |

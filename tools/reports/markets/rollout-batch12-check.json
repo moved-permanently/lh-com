@@ -1,0 +1,6735 @@
+{
+ "mx/es": {
+  "urls": 347,
+  "status": {
+   "200": 1,
+   "404": 346
+  },
+  "route": {
+   "pass-through": 347
+  },
+  "reasons": {
+   "xx/es document exists (index row missing?)": 258,
+   "no xx/es document": 72,
+   "login or profile (left alone)": 16
+  },
+  "badCanonical": 0,
+  "results": [
+   {
+    "path": "/mx/es/100-years",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/100-years/cabin-design",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/100-years/campaigns",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/100-years/chronicle",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/100-years/crane",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/100-years/destinations",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/100-years/fleet",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/100-years/global-network",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/100-years/history",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/100-years/history/menu-on-board",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/319",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/31h",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/31w",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/320",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/321",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/32a",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/32h",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/32l",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/32m",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/32n",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/32q",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/32v",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/333",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/33p",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/33q",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/343",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/346",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/34p",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/34q",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/359",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/35a",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/388",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/73g",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/744",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/74e",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/74h",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/74p",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/74q",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/74z",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/accessible-travel",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/additional-services",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/admission-rules",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/advance-seat-reservation",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/advance-seat-reservations-terms-and-conditions",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/advice-for-travellers-with-special-needs-to-and-from-the-usa",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/affiliatemarketing",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/airport-information",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/all-check-in",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/alleinreisende-kinder",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/anmeldung-tiere-frachtraum",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/arrival-services",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/articles/explore-flying",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/articles/explore-the-world",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/articles/highlights",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/articles/highlights/allegris-business-class-shanghai",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/articles/highlights/allegris-business-san-diego",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/articles/highlights/allegris-new-york",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/articles/highlights/allegris-premium-economy-san-diego_msm_moved",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/articles/highlights/allegris-typologies",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/articles/highlights/fashion-guide",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/articles/tags",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/articles/tags/allegris-inspires",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/assistenzhunde",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/automatic-check-in",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/baggage-irregularities",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/baterias-de-sillas-de-ruedas",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/besondere-befoerderungsbedingungen-bus",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/bid-upgrade",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/boarding",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/boeing787",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/book-and-manage",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/book-and-manage/additional-services/get-your-guide",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/book-and-manage/additional-services/travel-insurances",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/book-and-manage/digital-self-services/airline-apps",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/book-and-manage/flights/air-baltic",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/book-and-manage/flights/ana",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/book-and-manage/flights/ana/faq",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/book-and-manage/flights/giftvoucher",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/book-and-manage/flights/helvetic",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/book-and-manage/flights/wetlease-hub",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/book-and-manage/pax-receipt",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/book-and-manage/pax-receipt/invoices-different-countries",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/book-and-manage/rebook",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/book-and-manage/rebook/involuntary-rebooking",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/book-and-manage/rebook/voluntary-rebooking",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/book-and-manage/stopover",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/book-and-manage/stopover/bayerischer-hof",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/book-and-manage/stopover/breuninger",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/book-and-manage/stopover/garmisch-classic",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/book-and-manage/stopover/hop-on-hop-off-muc",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/book-and-manage/stopover/ingolstadt-village",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/book-and-manage/stopover/leonardo-hotel",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/book-and-manage/stopover/muc-city-pass",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/book-and-manage/stopover/munich-airport",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/book-and-manage/stopover/neuschwanstein",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/book-and-manage/stopover/rosewood",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/book-and-manage/stopover/sixt-muc",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/book-and-manage/stopover/sixt-ride-bavaria",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/book-and-manage/stopover/zugspitze",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/business-class",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/business-class-on-short-and-medium-haul",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/business-services",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/cancellations-and-refunds",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/cash-and-miles",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/check-in-baggage",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/check-in-online-informacion",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/check-in-with-the-family",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/common",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/common/accessibility-statement",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/common/agb-extra-services-at-online-check-in",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/common/agb-extra-services-at-online-check-in/conditions-seat-reservation",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/common/compensation-voucher",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/common/imprint/lufthansa-insights-imprint",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/common/privacy-statement/privacy-policy-for-the-lufthansa-facebook-page",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/common/privacy-statement/privacy-statement-group",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/common/seatreservation-condtions/economy-light-fare",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/common/seatreservation-condtions/rebookings-cancellation",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/common/seatreservation-condtions/refund",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/common/seatreservation-condtions/seat-reservations",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/concur-terms-and-conditions",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/condiciones-de-contratacion",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/condiciones-generales-conversion-de-divisas",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/configuration/commonheader",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/configuration/commonheader/100-years",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/configuration/commonheader/discover",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/configuration/commonheader/my-booking",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/configuration/commonheader/prepare",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/cookie-policy",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/crn",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/culinaryjourney",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/dangerous-dogs",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/data-collection-canada",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/data-collection-usa",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/data-protection-information",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/datenschutz",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/dcc",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/digital-baggage-services",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/digital-self-services",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/digital-travel-companion",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/direcciones-en-todo-el-mundo",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/discover-lufthansa",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/discover-lufthansa/carbon-offsetting/climate-protection-projects",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/discover-lufthansa/carbon-offsetting/environmental-cost-surcharge",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/discover-lufthansa/carbon-offsetting/faq-saf",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/discover-lufthansa/carbon-offsetting/saf",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/discover-lufthansa/flightreservation-priceguarantee",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/discover-lufthansa/lufthansa-fleet/351",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/discover-lufthansa/lufthansa-group-airlines/ita-airways",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/discover-lufthansa/new-onboard-experience",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/discover-lufthansa/take-off",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/doctor-on-board",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/doctor-on-board-news",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/during-your-trip",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/during-your-trip/internet-overview",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/during-your-trip/lhg-wifi",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/e9n-1",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/e9n-2",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/economy-class",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/electronic-bag-tags",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/emergency-contact",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/entryprocesses",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/europa-tarife-economy-class",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/europcar",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/exclusive-charter",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/faq-data-security",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/faq-ejournals",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/faq-password-security",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/farealert/best-price-alert",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/feedback-past-flight",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/fia-valet-service",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/first-class",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/first-class-lounges",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/first-class-personal-assistant",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/first-class-terminal",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/first-class-valet-parking-service",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/fliegen-mit-baby",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/fliegen-mit-kleinkind",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/flight-search",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/flights",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/flugunregelmaessigkeiten",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/fly-more-sustainabl",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/flynet",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/fmg-valet-parking-service",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/frankfurt-fair",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/free2move",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/freigepaeck-regeln",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/gefaehrliche-gegenstaende",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/gepaeck",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/gesund-reisen",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/green-fare",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/group-travel",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/handgepaeck",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/hertz",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/homepage",
+    "status": 200,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "https://lufthansa.turnsthe.page/mx/es/homepage"
+   },
+   {
+    "path": "/mx/es/hotel-offers",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/imprint",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/inicio-de-sesion",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/kinder-an-bord",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/kindermenues-an-bord",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/lh-rentalcar",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/lounge-begleitung",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/lounges",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/lufthansa-am-flughafen-frankfurt",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/lufthansa-at-berlin-airport",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/lufthansa-at-duesseldorf-airport",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/lufthansa-at-zuerich-airport",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/lufthansa-aviation-group",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/lufthansa-business-class-on-long-haul-routes",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/lufthansa-city/culinaryjourney",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/lufthansa-city/menu-card",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/lufthansa-corporate-customers",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/lufthansa-en-el-aeropuerto-de-viena",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/lufthansa-express",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/lufthansa-express-bus",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/lufthansa-express-rail",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/lufthansa-first-class-confort",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/lufthansa-first-class-entertainment",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/lufthansa-first-class-fleet",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/lufthansa-group-star-alliance-and-partner-airlines",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/lufthansa-guide-service",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/lufthansa-reiseklassen",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/lufthansa-terminal-muenchen",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/medikamenten-transport",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/meetings-and-events",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/meetings-y-events-asistentes",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/meetings-y-events-organizadores",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/meine-buchungen",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/menus-clases-de-servicio",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/menus-on-long-haul-flights",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/mi-diario-de-a-bordo",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/miles-and-more",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/mit-kindern-am-flughafen",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/mobility-partner-program-healthcare",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/munich-fair",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/necesidades-especiales-en-viajes",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/onboard-delights",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/onboard-delights-faq",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/online-check-in",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/opc",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/overview-flights",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/overview-manage",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/overview-special-request",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/overview-travel-information",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/partner",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/passenger-receipt-90",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/passenger-rights",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/passengers-using-wheelchairs",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/passengers-with-sensory-impairment",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/payment-options-at-the-airport",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/pre-check-in",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/premium-economy-class",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/prepare-for-your-trip",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/prepare-for-your-trip/all-check-in/check-in-information",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/prepare-for-your-trip/baggage/baggage-conditions",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/prepare-for-your-trip/baggage/baggage-irregularities/faq-baggage-delay",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/prepare-for-your-trip/baggage/baggage-irregularities/faq-damaged-baggage",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/prepare-for-your-trip/baggage/electronic-devices-and-batteries",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/prepare-for-your-trip/baggage/sport-baggage/register-ammunition",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/prepare-for-your-trip/baggage/sport-baggage/register-ammunition1",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/prepare-for-your-trip/current-travel-information",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/prepare-for-your-trip/entry-regulations/entering-schengen/entry-exit-system",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/prepare-for-your-trip/entry-regulations/immigration-regulations-uk",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-bus-briefing",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-rail-briefing",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/prepare-for-your-trip/special-travel-needs/medical-travel-companions",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/prepare-for-your-trip/special-travel-needs/travel-with-needs/cognitive-impairment",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/prepare-for-your-trip/special-travel-needs/travel-with-needs/hearing-impairment",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/prepare-for-your-trip/special-travel-needs/travel-with-needs/travel-companion",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/prepare-for-your-trip/special-travel-needs/travel-with-needs/visual-impairment",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/prepare-for-your-trip/travel-classes/economy-basic",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/prepare-for-your-trip/travelling-with-children/child-in-businessclass",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/prepare-for-your-trip/travelling-with-children/planning-with-kids",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/profile/account-statement",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "login or profile (left alone)"
+   },
+   {
+    "path": "/mx/es/profile/bookinglist",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "login or profile (left alone)"
+   },
+   {
+    "path": "/mx/es/profile/lufthansa-id1",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "login or profile (left alone)"
+   },
+   {
+    "path": "/mx/es/profile/my-account",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "login or profile (left alone)"
+   },
+   {
+    "path": "/mx/es/profile/my-account/communication-and-consents",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "login or profile (left alone)"
+   },
+   {
+    "path": "/mx/es/profile/my-account/cug-verification",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "login or profile (left alone)"
+   },
+   {
+    "path": "/mx/es/profile/my-account/flight-preferences",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "login or profile (left alone)"
+   },
+   {
+    "path": "/mx/es/profile/my-account/frequent-flyer-program",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "login or profile (left alone)"
+   },
+   {
+    "path": "/mx/es/profile/my-account/personal-information",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "login or profile (left alone)"
+   },
+   {
+    "path": "/mx/es/profile/my-account/security",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "login or profile (left alone)"
+   },
+   {
+    "path": "/mx/es/profile/my-account/wallet",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "login or profile (left alone)"
+   },
+   {
+    "path": "/mx/es/profile/retain-your-status",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "login or profile (left alone)"
+   },
+   {
+    "path": "/mx/es/profile/status-offer",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "login or profile (left alone)"
+   },
+   {
+    "path": "/mx/es/profile/travel-cockpit",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "login or profile (left alone)"
+   },
+   {
+    "path": "/mx/es/profile/travel-id/faq",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "login or profile (left alone)"
+   },
+   {
+    "path": "/mx/es/profile/travel-id/travel-id-data-protection",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "login or profile (left alone)"
+   },
+   {
+    "path": "/mx/es/rail-and-fly",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/rail-fly-condiciones",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/rechnungsbeleg",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/refund",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/register-animal-cabin",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/registro",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/schengen",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/seat-maps",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/secure-flight",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/security-check-time-slot",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/security-fast-lanes",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/sepa-condiciones",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/sepa-condiciones-b",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/services-am-flughafen-frankfurt",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/services-an-bord",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/services-at-the-airport",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/servicios-aeropuerto-munich",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/shopping",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/sicherheit-fuer-kleinkinder-an-bord",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/sixt",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/smart-bags",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/special-meals",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/special-needs",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/speisen-und-getraenke",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/sportgepaeck-hinzufuegen",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/sports-baggage",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/support/contact/hotlines",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/support/contact/passenger-duty-united-kingdom",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/support/feedback-and-contact-airlines",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/support/social-media",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/terms-and-conditions-lh",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/terms-of-service-group",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/terms-of-use",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/tiere-als-handgepaeck",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/tiere-als-uebergepaeck",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/timetable-and-flight-status",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/tips-senior-travellers",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/travel-agencies",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/travel-expense-management",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/travel-id-linking-page",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/travel-id-terms-conditions",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/travelling-and-corona",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/travelling-with-animals",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/travelling-with-children",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/traveltricks",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/trayectos-mas-significativos",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/uebergepaeck",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/unterhaltung-an-bord",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/upgrade-a-business-class",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/upgrade-business-class-larga-distancia",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/upgrade-first-class",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/upgrade-info",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/upgrade-options",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/upgrade-premium-economy-class",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/upgrade-to-premium-economy-class",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/upgrades-im-online-check-in",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/mx/es/validate-mail-token",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/mx/es/viajes-en-grupo-y-charter",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   }
+  ]
+ },
+ "es/es": {
+  "urls": 359,
+  "status": {
+   "200": 7,
+   "404": 352
+  },
+  "route": {
+   "pass-through": 359
+  },
+  "reasons": {
+   "xx/es document exists (index row missing?)": 259,
+   "no xx/es document": 77,
+   "login or profile (left alone)": 16
+  },
+  "badCanonical": 0,
+  "results": [
+   {
+    "path": "/es/es/100-years",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/100-years/cabin-design",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/100-years/campaigns",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/100-years/chronicle",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/100-years/crane",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/100-years/destinations",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/100-years/fleet",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/100-years/global-network",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/100-years/history",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/100-years/history/menu-on-board",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/319",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/31h",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/31w",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/320",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/321",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/32a",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/32h",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/32l",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/32m",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/32n",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/32q",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/32v",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/333",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/33p",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/33q",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/343",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/346",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/34p",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/34q",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/359",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/35a",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/388",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/73g",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/744",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/74e",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/74h",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/74p",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/74q",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/74z",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/accessible-travel",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/additional-services",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/admission-rules",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/advance-seat-reservation",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/advance-seat-reservations-terms-and-conditions",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/advice-for-travellers-with-special-needs-to-and-from-the-usa",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/affiliatemarketing",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/airport-information",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/all-check-in",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/alleinreisende-kinder",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/anmeldung-tiere-frachtraum",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/arrival-services",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/articles/explore-flying",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/articles/explore-the-world",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/articles/highlights",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/articles/highlights/allegris-business-class-shanghai",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/articles/highlights/allegris-business-san-diego",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/articles/highlights/allegris-new-york",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/articles/highlights/allegris-premium-economy-san-diego",
+    "status": 200,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "https://lufthansa.turnsthe.page/es/es/articles/highlights/allegris-premium-economy-san-diego"
+   },
+   {
+    "path": "/es/es/articles/highlights/allegris-typologies",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/articles/highlights/fashion-guide",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/articles/tags",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/articles/tags/allegris-inspires",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/asia-specials",
+    "status": 200,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "https://lufthansa.turnsthe.page/es/es/asia-specials"
+   },
+   {
+    "path": "/es/es/assistenzhunde",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/automatic-check-in",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/baggage-irregularities",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/baterias-de-sillas-de-ruedas",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/besondere-befoerderungsbedingungen-bus",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/bestpreissuche",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/bid-upgrade",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/bizum",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/boarding",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/boeing787",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/book-and-manage",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/book-and-manage/additional-services/get-your-guide",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/book-and-manage/additional-services/travel-insurances",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/book-and-manage/digital-self-services/airline-apps",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/book-and-manage/flights/air-baltic",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/book-and-manage/flights/ana",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/book-and-manage/flights/ana/faq",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/book-and-manage/flights/giftvoucher",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/book-and-manage/flights/helvetic",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/book-and-manage/flights/wetlease-hub",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/book-and-manage/pax-receipt",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/book-and-manage/pax-receipt/invoices-different-countries",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/book-and-manage/rebook",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/book-and-manage/rebook/involuntary-rebooking",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/book-and-manage/rebook/voluntary-rebooking",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/book-and-manage/stopover",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/book-and-manage/stopover/bayerischer-hof",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/book-and-manage/stopover/breuninger",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/book-and-manage/stopover/garmisch-classic",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/book-and-manage/stopover/hop-on-hop-off-muc",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/book-and-manage/stopover/ingolstadt-village",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/book-and-manage/stopover/leonardo-hotel",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/book-and-manage/stopover/muc-city-pass",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/book-and-manage/stopover/munich-airport",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/book-and-manage/stopover/neuschwanstein",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/book-and-manage/stopover/rosewood",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/book-and-manage/stopover/sixt-muc",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/book-and-manage/stopover/sixt-ride-bavaria",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/book-and-manage/stopover/zugspitze",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/business-class",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/business-class-on-short-and-medium-haul",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/business-services",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/cancellations-and-refunds",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/cash-and-miles",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/check-in-baggage",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/check-in-online-informacion",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/check-in-with-the-family",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/common",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/common/accessibility-statement",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/common/agb-extra-services-at-online-check-in",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/common/agb-extra-services-at-online-check-in/conditions-seat-reservation",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/common/compensation-voucher",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/common/imprint/lufthansa-insights-imprint",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/common/privacy-statement/privacy-policy-for-the-lufthansa-facebook-page",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/common/privacy-statement/privacy-statement-group",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/common/seatreservation-condtions/economy-light-fare",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/common/seatreservation-condtions/rebookings-cancellation",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/common/seatreservation-condtions/refund",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/common/seatreservation-condtions/seat-reservations",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/companion-special",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/concur-terms-and-conditions",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/condiciones-de-contratacion",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/condiciones-generales-conversion-de-divisas",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/configuration/commonheader",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/configuration/commonheader/100-years",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/configuration/commonheader/discover",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/configuration/commonheader/my-booking",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/configuration/commonheader/prepare",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/cookie-policy",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/crn",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/culinaryjourney",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/dangerous-dogs",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/data-collection-canada",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/data-collection-usa",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/data-protection-information",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/datenschutz",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/dcc",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/digital-baggage-services",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/digital-self-services",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/digital-travel-companion",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/direcciones-en-todo-el-mundo",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/discover-lufthansa",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/discover-lufthansa/carbon-offsetting/climate-protection-projects",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/discover-lufthansa/carbon-offsetting/environmental-cost-surcharge",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/discover-lufthansa/carbon-offsetting/faq-saf",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/discover-lufthansa/carbon-offsetting/saf",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/discover-lufthansa/flightreservation-priceguarantee",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/discover-lufthansa/lufthansa-fleet/351",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/discover-lufthansa/lufthansa-group-airlines/ita-airways",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/discover-lufthansa/new-onboard-experience",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/discover-lufthansa/take-off",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/doctor-on-board",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/doctor-on-board-news",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/during-your-trip",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/during-your-trip/internet-overview",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/during-your-trip/lhg-wifi",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/e9n-1",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/e9n-2",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/economy-class",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/electronic-bag-tags",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/emergency-contact",
+    "status": 200,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "https://lufthansa.turnsthe.page/es/es/emergency-contact"
+   },
+   {
+    "path": "/es/es/entryprocesses",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/europa-tarife-economy-class",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/europcar",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/exclusive-charter",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/faq-data-security",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/faq-ejournals",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/faq-password-security",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/farealert/best-price-alert",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/feedback",
+    "status": 200,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "https://lufthansa.turnsthe.page/es/es/feedback"
+   },
+   {
+    "path": "/es/es/feedback-past-flight",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/feedback/feedbackai",
+    "status": 200,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "https://lufthansa.turnsthe.page/es/es/feedback/feedbackai"
+   },
+   {
+    "path": "/es/es/fia-valet-service",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/first-class",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/first-class-lounges",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/first-class-personal-assistant",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/first-class-terminal",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/first-class-valet-parking-service",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/fliegen-mit-baby",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/fliegen-mit-kleinkind",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/flight-search",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/flights",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/flugunregelmaessigkeiten",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/fly-more-sustainabl",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/flynet",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/fmg-valet-parking-service",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/frankfurt-fair",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/free2move",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/freigepaeck-regeln",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/gefaehrliche-gegenstaende",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/gepaeck",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/gesund-reisen",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/green-fare",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/group-travel",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/handgepaeck",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/hertz",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/homepage",
+    "status": 200,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "https://lufthansa.turnsthe.page/es/es/homepage"
+   },
+   {
+    "path": "/es/es/hotel-offers",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/imprint",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/inicio-de-sesion",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/kinder-an-bord",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/kindermenues-an-bord",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/lh-rentalcar",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/local-page/descubre-la-belleza-de-alemania",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/local-page/form-submission-error",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/local-page/ski-campaign-2026",
+    "status": 200,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "https://lufthansa.turnsthe.page/es/es/local-page/ski-campaign-2026"
+   },
+   {
+    "path": "/es/es/local-page/todos-los-colores-a-bordo",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/lounge-begleitung",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/lounges",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/lufthansa-am-flughafen-frankfurt",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/lufthansa-at-berlin-airport",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/lufthansa-at-duesseldorf-airport",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/lufthansa-at-zuerich-airport",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/lufthansa-aviation-group",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/lufthansa-business-class-on-long-haul-routes",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/lufthansa-city/culinaryjourney",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/lufthansa-city/menu-card",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/lufthansa-corporate-customers",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/lufthansa-en-el-aeropuerto-de-viena",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/lufthansa-express",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/lufthansa-express-bus",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/lufthansa-express-rail",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/lufthansa-first-class-confort",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/lufthansa-first-class-entertainment",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/lufthansa-first-class-fleet",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/lufthansa-group-star-alliance-and-partner-airlines",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/lufthansa-guide-service",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/lufthansa-reiseklassen",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/lufthansa-terminal-muenchen",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/medikamenten-transport",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/meetings-and-events",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/meetings-y-events-asistentes",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/meetings-y-events-organizadores",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/meine-buchungen",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/menus-clases-de-servicio",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/menus-on-long-haul-flights",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/mi-diario-de-a-bordo",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/miles-and-more",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/mit-kindern-am-flughafen",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/mobility-partner-program-healthcare",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/munich-fair",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/necesidades-especiales-en-viajes",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/onboard-delights",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/onboard-delights-faq",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/online-check-in",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/opc",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/overview-flights",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/overview-manage",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/overview-special-request",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/overview-travel-information",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/partner",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/passenger-receipt-90",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/passenger-rights",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/passengers-using-wheelchairs",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/passengers-with-sensory-impairment",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/payment-options-at-the-airport",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/pre-check-in",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/premium-economy-class",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/prepare-for-your-trip",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/prepare-for-your-trip/baggage/baggage-conditions",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/prepare-for-your-trip/baggage/baggage-irregularities/faq-baggage-delay",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/prepare-for-your-trip/baggage/baggage-irregularities/faq-damaged-baggage",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/prepare-for-your-trip/baggage/electronic-devices-and-batteries",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/prepare-for-your-trip/baggage/sport-baggage/register-ammunition",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/prepare-for-your-trip/baggage/sport-baggage/register-ammunition1",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/prepare-for-your-trip/current-travel-information",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/prepare-for-your-trip/entry-regulations/entering-schengen/entry-exit-system",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/prepare-for-your-trip/entry-regulations/immigration-regulations-uk",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-bus-briefing",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-rail-briefing",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/prepare-for-your-trip/special-travel-needs/medical-travel-companions",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/prepare-for-your-trip/special-travel-needs/travel-with-needs/cognitive-impairment",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/prepare-for-your-trip/special-travel-needs/travel-with-needs/hearing-impairment",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/prepare-for-your-trip/special-travel-needs/travel-with-needs/travel-companion",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/prepare-for-your-trip/special-travel-needs/travel-with-needs/visual-impairment",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/prepare-for-your-trip/travel-classes/economy-basic",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/prepare-for-your-trip/travelling-with-children/child-in-businessclass",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/prepare-for-your-trip/travelling-with-children/planning-with-kids",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/profile/account-statement",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "login or profile (left alone)"
+   },
+   {
+    "path": "/es/es/profile/bookinglist",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "login or profile (left alone)"
+   },
+   {
+    "path": "/es/es/profile/lufthansa-id1",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "login or profile (left alone)"
+   },
+   {
+    "path": "/es/es/profile/my-account",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "login or profile (left alone)"
+   },
+   {
+    "path": "/es/es/profile/my-account/communication-and-consents",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "login or profile (left alone)"
+   },
+   {
+    "path": "/es/es/profile/my-account/cug-verification",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "login or profile (left alone)"
+   },
+   {
+    "path": "/es/es/profile/my-account/flight-preferences",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "login or profile (left alone)"
+   },
+   {
+    "path": "/es/es/profile/my-account/frequent-flyer-program",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "login or profile (left alone)"
+   },
+   {
+    "path": "/es/es/profile/my-account/personal-information",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "login or profile (left alone)"
+   },
+   {
+    "path": "/es/es/profile/my-account/security",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "login or profile (left alone)"
+   },
+   {
+    "path": "/es/es/profile/my-account/wallet",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "login or profile (left alone)"
+   },
+   {
+    "path": "/es/es/profile/retain-your-status",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "login or profile (left alone)"
+   },
+   {
+    "path": "/es/es/profile/status-offer",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "login or profile (left alone)"
+   },
+   {
+    "path": "/es/es/profile/travel-cockpit",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "login or profile (left alone)"
+   },
+   {
+    "path": "/es/es/profile/travel-id/faq",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "login or profile (left alone)"
+   },
+   {
+    "path": "/es/es/profile/travel-id/travel-id-data-protection",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "login or profile (left alone)"
+   },
+   {
+    "path": "/es/es/rail-and-fly",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/rail-fly-condiciones",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/rechnungsbeleg",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/refund",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/register-animal-cabin",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/registro",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/schengen",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/seat-maps",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/secure-flight",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/security-check-time-slot",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/security-fast-lanes",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/sepa-condiciones",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/sepa-condiciones-b",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/services-am-flughafen-frankfurt",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/services-an-bord",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/services-at-the-airport",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/servicio-desde-pamplona",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/servicio-desde-pamplona-grupos",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/servicios-aeropuerto-munich",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/shopping",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/sicherheit-fuer-kleinkinder-an-bord",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/sixt",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/smart-bags",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/special-meals",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/special-needs",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/speisen-und-getraenke",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/sportgepaeck-hinzufuegen",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/sports-baggage",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/support/contact/hotlines",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/support/contact/passenger-duty-united-kingdom",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/support/feedback-and-contact-airlines",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/support/social-media",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/terms-and-conditions-lh",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/terms-of-service-group",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/terms-of-use",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/tiempos-limite-de-check-in",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/tiere-als-handgepaeck",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/tiere-als-uebergepaeck",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/timetable-and-flight-status",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/tips-senior-travellers",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/travel-agencies",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/travel-expense-management",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/travel-id-linking-page",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/travel-id-terms-conditions",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/travelling-and-corona",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/travelling-with-animals",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/travelling-with-children",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/traveltricks",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/trayectos-mas-significativos",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/uebergepaeck",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/unterhaltung-an-bord",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/upgrade-a-business-class",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/upgrade-business-class-larga-distancia",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/upgrade-first-class",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/upgrade-info",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/upgrade-options",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/upgrade-premium-economy-class",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/upgrade-to-premium-economy-class",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/upgrades-im-online-check-in",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   },
+   {
+    "path": "/es/es/validate-mail-token",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "no xx/es document"
+   },
+   {
+    "path": "/es/es/viajes-en-grupo-y-charter",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": "",
+    "reason": "xx/es document exists (index row missing?)"
+   }
+  ]
+ },
+ "links /mx/es/homepage": {
+  "status": 200,
+  "links": 8,
+  "statuses": {
+   "404": 8
+  },
+  "bad": [
+   {
+    "path": "/mx/es/100-years",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/additional-services",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/book-and-manage/additional-services/get-your-guide",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/book-and-manage/flights/giftvoucher",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/group-travel",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/hotel-offers",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/lh-rentalcar",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/onboard-delights",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   }
+  ]
+ },
+ "links /mx/es/nav.plain.html": {
+  "status": 200,
+  "links": 50,
+  "statuses": {
+   "200": 1,
+   "404": 49
+  },
+  "bad": [
+   {
+    "path": "/mx/es/100-years",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/100-years/cabin-design",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/100-years/campaigns",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/100-years/chronicle",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/100-years/crane",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/100-years/destinations",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/100-years/fleet",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/100-years/global-network",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/100-years/history",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/100-years/history/menu-on-board",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/accessible-travel",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/additional-services",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/advance-seat-reservation",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/airport-information",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/all-check-in",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/alleinreisende-kinder",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/baggage-irregularities",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/book-and-manage/additional-services/travel-insurances",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/book-and-manage/flights/giftvoucher",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/book-and-manage/pax-receipt",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/book-and-manage/rebook",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/cancellations-and-refunds",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/culinaryjourney",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/discover-lufthansa/new-onboard-experience",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/during-your-trip/internet-overview",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/economy-class",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/entryprocesses",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/first-class",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/flight-search",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/flights",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/gepaeck",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/gesund-reisen",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/green-fare",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/hotel-offers",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/lufthansa-express",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/lufthansa-reiseklassen",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/online-check-in",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/premium-economy-class",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/seat-maps",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/services-an-bord",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/shopping",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/special-meals",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/speisen-und-getraenke",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/timetable-and-flight-status",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/travelling-with-animals",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/travelling-with-children",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/unterhaltung-an-bord",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/upgrade-options",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/viajes-en-grupo-y-charter",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   }
+  ]
+ },
+ "links /mx/es/footer.plain.html": {
+  "status": 200,
+  "links": 15,
+  "statuses": {
+   "404": 15
+  },
+  "bad": [
+   {
+    "path": "/mx/es/airport-information",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/all-check-in",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/common/accessibility-statement",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/datenschutz",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/flights",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/fly-more-sustainabl",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/gepaeck",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/imprint",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/lufthansa-group-star-alliance-and-partner-airlines",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/miles-and-more",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/partner",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/passenger-rights",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/terms-of-service-group",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/terms-of-use",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/mx/es/travel-agencies",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   }
+  ]
+ },
+ "links /es/es/homepage": {
+  "status": 200,
+  "links": 7,
+  "statuses": {
+   "404": 7
+  },
+  "bad": [
+   {
+    "path": "/es/es/additional-services",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/book-and-manage/additional-services/get-your-guide",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/book-and-manage/flights/giftvoucher",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/group-travel",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/hotel-offers",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/lh-rentalcar",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/onboard-delights",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   }
+  ]
+ },
+ "links /es/es/nav.plain.html": {
+  "status": 200,
+  "links": 50,
+  "statuses": {
+   "200": 1,
+   "404": 49
+  },
+  "bad": [
+   {
+    "path": "/es/es/100-years",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/100-years/cabin-design",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/100-years/campaigns",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/100-years/chronicle",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/100-years/crane",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/100-years/destinations",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/100-years/fleet",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/100-years/global-network",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/100-years/history",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/100-years/history/menu-on-board",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/accessible-travel",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/additional-services",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/advance-seat-reservation",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/airport-information",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/all-check-in",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/alleinreisende-kinder",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/baggage-irregularities",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/book-and-manage/additional-services/travel-insurances",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/book-and-manage/flights/giftvoucher",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/book-and-manage/pax-receipt",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/book-and-manage/rebook",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/cancellations-and-refunds",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/culinaryjourney",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/discover-lufthansa/new-onboard-experience",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/during-your-trip/internet-overview",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/economy-class",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/entryprocesses",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/first-class",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/flight-search",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/flights",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/gepaeck",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/gesund-reisen",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/green-fare",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/hotel-offers",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/lufthansa-express",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/lufthansa-reiseklassen",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/online-check-in",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/premium-economy-class",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/seat-maps",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/services-an-bord",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/shopping",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/special-meals",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/speisen-und-getraenke",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/timetable-and-flight-status",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/travelling-with-animals",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/travelling-with-children",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/unterhaltung-an-bord",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/upgrade-options",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/viajes-en-grupo-y-charter",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   }
+  ]
+ },
+ "links /es/es/footer.plain.html": {
+  "status": 200,
+  "links": 15,
+  "statuses": {
+   "404": 15
+  },
+  "bad": [
+   {
+    "path": "/es/es/airport-information",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/all-check-in",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/common/accessibility-statement",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/datenschutz",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/flights",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/fly-more-sustainabl",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/gepaeck",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/imprint",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/lufthansa-group-star-alliance-and-partner-airlines",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/miles-and-more",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/partner",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/passenger-rights",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/terms-of-service-group",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/terms-of-use",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   },
+   {
+    "path": "/es/es/travel-agencies",
+    "status": 404,
+    "route": "pass-through",
+    "location": "",
+    "canonical": ""
+   }
+  ]
+ }
+}

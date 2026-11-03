@@ -1552,3 +1552,76 @@ source of an unpublished language version.
   and `.gz`: the French roots); its baseline updated.
 - lufthansa.com's 19 comparison pages: 19 of 19 equal.
 - Every lh-edge and site test file passes (43 and 177).
+
+## Batch 12 (2026-11-03): Spanish, the language version xx/es and 13 market roots
+
+The second language after en and de (brief 268). **www's `xx/es` has pages of its own** (unlike
+`xx/fr`): its homepage, `flights` and the Munich stopover page answer in Spanish with their own
+canonical through the long AEM URLs. So xx/es is Spanish's language version (a row of a root that
+is only an alternate in www's sitemaps, hreflang `es`; build-locale-table.mjs allows such a
+version), and es/es is a market root with the other twelve. `rollout.mjs` LANGUAGE_BATCHES:
+Spanish is batch 12; every row is `pilot`, served on lufthansa-edge.turnsthe.page only.
+
+### Captures
+
+- One warm Bright Data session at a time, one page every 5 to 10 s, 22:02 to 00:44 UTC, through
+  www's long AEM URLs with a fresh query (`bd-session --long-path --bust --same-path`).
+- **One 403** (23:52, `/xx/es/prepare-for-your-trip/baggage/baggage-irregularities/faq-baggage-delay`):
+  30 minutes' pause, then the rest without a block.
+- The market roots: 67 URLs (homepages, own pages, compared pages), 61 captured, 6 from 2026-10-27.
+- xx/es: 271 URLs (the pages lh-com has in scope, by the template of their de/en counterpart, and
+  six Spanish-only pages), 262 captured; not: five aliases (`business-class`,
+  `digital-travel-companion`, `flynet`, `freigepaeck-regeln`, `lounges`: the long URL answers 404,
+  www's short one is an alias of another page), three www 404s, `emergency-contact` (www's error
+  page). Its six form confirmations captured as well. Canonicals: 329 of 329 their own.
+
+### Locale rows
+
+| Root | name | countryName en / de / es | Airport | Currency |
+| --- | --- | --- | --- | --- |
+| xx/es (version) | Otros paises \| Español | – / – / Otros paises | FRA | EUR |
+| ar/es | Argentina \| Español | Argentinien / Argentina / Argentina | BUE | USD |
+| br/es | Brasil \| Español | Brazil / Brazil / Brasil | SAO | BRL |
+| ca/es | Canadá \| Español | Canada / Kanada / Canadá | – | – |
+| cl/es | Chile \| Español | Chile / Chile / Chile | SCL | USD |
+| co/es | Colombia \| Español | Colombia / Kolumbien / Colombia | BOG | USD |
+| cr/es | Costa Rica \| Español | Costa Rica (all three) | SJO | USD |
+| ec/es | Ecuador \| Español | Ecuador (all three) | UIO | USD |
+| es/es | España \| Español | Spain / Spanien / España | – | EUR |
+| mx/es | México \| Español | Mexico / Mexiko / México | MEX | MXN |
+| pa/es | Panamá \| Español | Panama / Panama / Panamá | PTY | USD |
+| pe/es | Perú \| Español | Peru / Peru / Perú | LIM | USD |
+| us/es | Estados Unidos de América \| Español | USA / USA / Estados Unidos de América | – | USD |
+| ve/es | Venezuela \| Español | Venezuela (all three) | FRA | EUR |
+
+No home airport on ca/es, es/es and us/es, no currency on ca/es (www shows none). `languageVersions.es = xx/es`.
+
+### Documents
+
+Imported from the captures only, uploaded and previewed (not published): **316 documents**.
+- **xx/es, 270**: 261 pages by template, its nav and footer from its homepage capture (Spanish),
+  six form confirmations; links into xx/es relative where it has the document.
+- **The 13 market roots, 46**: homepages, navs and footers from xx/es's; es/es's own pages
+  (emergency contact, feedback, feedbackai, the Allegris article, the ski campaign, asia-specials)
+  and ar/es's Allegris article.
+- `tools/importer/sites/lh-com.json` lists them; the scope is unchanged.
+
+### Local versions
+
+`rollout-batch12-compare.json`: 38 of 39 the same; es/es's airport page "differs" only by the
+masking (Spain's code `es` is also the Spanish word "es"): the same text. No root document.
+
+### Checks against the preview origin
+
+Local runtime (lh-edge of this batch, the preview origin, lufthansa-edge as the host),
+`rollout-batch12-check.json`, mx/es and es/es: **200 for the roots' own documents only** (mx/es 1 of
+347; es/es 7 of 359: its homepage and own pages); 258 and 259 www URLs answer 404 because xx/es's
+index row is missing: **xx/es's indexes fill on publish**, as fr/fr's for wave 11; 72 and 77 are pages
+xx/es has not (out of scope), 16 each login and profile. After xx/es's publish the same check should
+look like the en and de batches'.
+
+### The deploy
+
+d4cda0d (23:01 UTC, the rows): smoke before (22:50, after two lh-edge deploys of other sessions)
+against after: 0 differences on nine hosts, lufthansa-edge 3 rows (ch's sitemap files and the
+index name the Spanish roots), its baseline updated. lufthansa.com's 19 comparison pages equal.
