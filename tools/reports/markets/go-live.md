@@ -352,7 +352,10 @@ The **French texts** of the form and search blocks and the SWISS sub-site's lang
 (4f10aaf, 56f4eb4; test/french-labels.test.mjs) go out with the code, before the wave: French pages
 of the brand sites show them where they showed the English fallback (Austrian fr/fr, Brussels be/fr,
 SWISS ch/fr: the file drop zone's "ou", "Fichiers téléchargés", the stepper buttons, Brussels' search
-page).
+page). The other blocks' and scripts' texts in French as well (brief 278, under wave 12's labels):
+before/after on 92 French and Spanish pages of lh-com and the brand sites, 51 changed, each an
+English fallback (the fallback consent banner, lounge finder, check-in deadlines, booking lookup,
+destination offer, carousel, blog), nothing French or Spanish replaced.
 
 **Release order for wave 11** (it differs from the en and de waves: the language version is new):
 1. Publish fr/fr's 276 lines first, then **wait until its indexes are filled**:
@@ -421,7 +424,13 @@ contact form is `emergency-contact`, titled "Contacto en caso de emergencia" for
 (9288e6f). Their confirmations are xx/es's (captured, imported); es/es's emergency contact form
 shows its own success message. **Labels**: the form and search blocks in Spanish (cbb1802, www's
 texts where its Spanish pages and bundle have them); the brand sites' Spanish pages show them where
-they showed the English fallback (Austrian es/es, Brussels es/es, SWISS ch/es).
+they showed the English fallback (Austrian es/es, Brussels es/es, SWISS ch/es). The other blocks'
+and scripts' built-in texts in French and Spanish too (brief 278, test/fr-es-block-labels.test.mjs):
+the fallback consent banner word for word as OneTrust's fr and es data, the check-in hand-off
+errors, the lounge finder, check-in deadlines, booking lookup, car rental, destination offer,
+carousel, blog, article header, POI map, security waiting time, countdown and the others; www's
+bundle texts where they are French or Spanish (xx/es's bundles recorded 2026-11-03), else the
+replica's own. They go out with the code, before the waves.
 
 ## The other roots (neither en nor de)
 
