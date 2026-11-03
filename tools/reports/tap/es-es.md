@@ -21,7 +21,8 @@ were not touched.
 ## Tools
 
 ema-cashub's `tools/importer/tap-import.mjs` and `tap-nav.mjs`, unchanged, run through
-**`tools/importer/tap-es-es.mjs`** (mine, es-only, with `test/tap-es-es.test.mjs`):
+**`tools/importer/tap-es-es.mjs`** (mine, es-only, with `test/tap-es-es.test.mjs`; since fr-fr
+`tools/importer/tap-languages.mjs es-es …`, the same steps for es and fr, see fr-fr.md):
 
 1. **Spanish texts in memory.** Both tools have texts in pt and en only: tap-import's `LABELS`
    (the dry run stopped on `LABELS.es` at the first page with a www widget, in the contacts
