@@ -232,6 +232,7 @@ const WEEKDAYS = {
   it: ['lun', 'mar', 'mer', 'gio', 'ven', 'sab', 'dom'],
   en: ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'],
   de: ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'],
+  pt: ['seg', 'ter', 'qua', 'qui', 'sex', 'sáb', 'dom'],
 };
 
 const EMPTY_DATE = '--/--/--';
@@ -308,7 +309,7 @@ function calendar(labels, lang, onPick) {
     prev.disabled = !list.length || state.view <= list[0];
     next.disabled = !list.length || state.view >= list[list.length - 1];
     const available = new Set(state.dates);
-    grid.replaceChildren(...WEEKDAYS[lang].map((d) => el('span', 'flight-timetable-weekday', d)));
+    grid.replaceChildren(...(WEEKDAYS[lang] || WEEKDAYS.en).map((d) => el('span', 'flight-timetable-weekday', d)));
     const first = new Date(Date.UTC(y, m - 1, 1));
     const lead = (first.getUTCDay() + 6) % 7;
     for (let i = 0; i < lead; i += 1) grid.append(el('span', 'flight-timetable-blank'));
