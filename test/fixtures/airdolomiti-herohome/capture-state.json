@@ -1,0 +1,18 @@
+{
+ "www.airdolomiti.eu/manage-flight-booking": {
+  "status": "ok",
+  "http": 200,
+  "finalUrl": "https://www.airdolomiti.eu/manage-flight-booking",
+  "title": "Managing a flight booking: how it works | Air Dolomiti",
+  "at": "2026-11-01T10:58:13.936Z",
+  "bytes": 745447
+ },
+ "www.airdolomiti.eu/miles-and-more": {
+  "status": "ok",
+  "http": 200,
+  "finalUrl": "https://www.airdolomiti.eu/miles-and-more",
+  "title": "Miles & More | Air Dolomiti",
+  "at": "2026-10-31T16:06:26.943Z",
+  "bytes": 902039
+ }
+}

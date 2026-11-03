@@ -1,0 +1,17 @@
+{
+ "done": {
+  "https://cms.airdolomiti.it/wp-content/uploads/2024/09/Toscana_1920X1080-1-e1792482816793.jpg": {
+   "status": 200,
+   "type": "image/jpeg",
+   "bytes": 209370,
+   "at": "2026-10-31T16:10:44.258Z"
+  },
+  "https://cms.airdolomiti.it/wp-content/uploads/2025/02/White_on_tuquoise-1024x724.png": {
+   "status": 200,
+   "type": "image/png",
+   "bytes": 154076,
+   "at": "2026-10-31T11:23:40.372Z"
+  }
+ },
+ "uploaded": {}
+}

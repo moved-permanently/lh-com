@@ -1,0 +1,13 @@
+{
+ "paths.json": true,
+ "assets/files.json": true,
+ "assets/state.json": true,
+ "capture-state.json": true,
+ "content/media-da/airdolomiti/toscana-1920x1080-1-e1792482816793-8bf8dc8d.jpg": true,
+ "content/media-da/airdolomiti/white-on-tuquoise-1024x724-122d0a9b.png": true,
+ "snapshots/www.airdolomiti.eu/index.html": true,
+ "content/index.plain.html": true,
+ "snapshots/www.airdolomiti.it/index.html": true,
+ "content/de/index.plain.html": true,
+ "snapshots/www.airdolomiti.de/index.html": true
+}

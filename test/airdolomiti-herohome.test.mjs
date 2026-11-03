@@ -2,19 +2,41 @@
 /* Air Dolomiti's homepage hero (tools/importer/airdolomiti-import.mjs 'lazyblock/herohome'):
    without a title (the three homepages: a label paragraph and the four "manage your trip" links)
    it is hero-campaign (services), the shared block's option for that shape (until the option is
-   on main the block ignores the word); with a title it stays hero-campaign. From the
-   homepage snapshot at / (content-sites/lh-airdolomiti/snapshots), offline.
+   on main the block ignores the word); with a title it stays hero-campaign. Offline and from git
+   alone: test/fixtures/airdolomiti-herohome is the part of content-sites/lh-airdolomiti convert
+   reads for the homepage at /: its snapshot trimmed to the herohome block (the head to its
+   alternate links), the it and de homepages' heads (their alternate links), the site data
+   (paths.json, assets/files.json and state.json, capture-state.json: only the entries it asks
+   for; the delivery lists' headers) and exists.json, the answers it gets on whether a file is
+   there. While the tests run, the importer's reads of content-sites/lh-airdolomiti are answered
+   from it (nothing is written).
    Run: node --max-old-space-size=512 --test test/airdolomiti-herohome.test.mjs */
-import test from 'node:test';
+import { test, after } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-// eslint-disable-next-line import/extensions
-import { snapshotFile } from '../tools/importer/airdolomiti-capture.mjs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const FIXTURE = fileURLToPath(new URL('./fixtures/airdolomiti-herohome/', import.meta.url));
+const SITE = fileURLToPath(new URL('../content-sites/lh-airdolomiti/', import.meta.url));
+const EXISTS = JSON.parse(fs.readFileSync(path.join(FIXTURE, 'exists.json'), 'utf8'));
+const { readFileSync, existsSync, openSync } = fs;
+const siteFile = (p) => (typeof p === 'string' && p.startsWith(SITE) ? path.relative(SITE, p) : null);
+// the importer's site data from the fixture (the module's fs is node:fs's default export)
+fs.readFileSync = (p, ...rest) => (siteFile(p) === null ? readFileSync(p, ...rest) : readFileSync(path.join(FIXTURE, siteFile(p)), ...rest));
+fs.existsSync = (p) => (siteFile(p) === null ? existsSync(p) : EXISTS[siteFile(p)] === true);
+// (the snapshots' heads: airdolomiti-alternates.mjs snapshotHead reads them with openSync)
+fs.openSync = (p, ...rest) => (siteFile(p) === null ? openSync(p, ...rest) : openSync(path.join(FIXTURE, siteFile(p)), ...rest));
+after(() => {
+  fs.readFileSync = readFileSync;
+  fs.existsSync = existsSync;
+  fs.openSync = openSync;
+});
 
 // eslint-disable-next-line import/extensions
 const { convert } = await import('../tools/importer/airdolomiti-import.mjs');
 const HOME = 'https://www.airdolomiti.eu/';
-const rendered = fs.readFileSync(snapshotFile(HOME), 'utf8');
+const rendered = readFileSync(path.join(FIXTURE, 'snapshots/www.airdolomiti.eu/index.html'), 'utf8');
 const NEXT = /(<script id="__NEXT_DATA__" type="application\/json"[^>]*>)([\s\S]*?)(<\/script>)/;
 const heroOf = (html) => (html.match(/<div class="hero-campaign[^"]*">/) || [''])[0];
 

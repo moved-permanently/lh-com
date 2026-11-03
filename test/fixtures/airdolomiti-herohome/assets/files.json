@@ -1,0 +1,20 @@
+{
+ "https://cms.airdolomiti.it/wp-content/uploads/2024/09/Toscana_1920X1080-1-e1792482816793.jpg": {
+  "kind": "image",
+  "pages": [
+   "https://www.airdolomiti.eu"
+  ],
+  "type": "image/jpeg",
+  "bytes": 209370,
+  "eds": "/media-da/airdolomiti/toscana-1920x1080-1-e1792482816793-8bf8dc8d.jpg"
+ },
+ "https://cms.airdolomiti.it/wp-content/uploads/2025/02/White_on_tuquoise-1024x724.png": {
+  "kind": "image",
+  "pages": [
+   "https://www.airdolomiti.eu"
+  ],
+  "type": "image/png",
+  "bytes": 154076,
+  "eds": "/media-da/airdolomiti/white-on-tuquoise-1024x724-122d0a9b.png"
+ }
+}
