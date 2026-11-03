@@ -1,0 +1,513 @@
+{
+ "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2",
+ "metadata": {
+  "title": "100 Jahre Lufthansa"
+ },
+ "body": {
+  "type": "column",
+  "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/par",
+  "items": [
+   {
+    "type": "image",
+    "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/image",
+    "url": "https://www.lufthansa.com/content/dam/lh/images/local_images/mobile/100-years/mobile_timeline_content_part_2_image_00_header.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+    "contentDescription": "An old aircraft"
+   },
+   {
+    "type": "column",
+    "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn",
+    "items": [
+     {
+      "type": "spacer",
+      "size": "X_SMALL",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/separator"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "Ein Jahrhundert voller Bewegung",
+      "variant": "HEADING_XXL",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/headline",
+      "isBold": true
+     },
+     {
+      "type": "spacer",
+      "size": "X_SMALL",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/separator_copy"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "Die Geschichte der Lufthansa \u2013 1946 bis 1996&nbsp;",
+      "variant": "HEADING_XL",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/headline_800996456",
+      "isBold": true
+     },
+     {
+      "type": "spacer",
+      "size": "X_SMALL",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/separator_copy_copy"
+     },
+     {
+      "type": "copyText",
+      "text": "<strong>100 Jahre unter dem Kranich \u2013 ein Jahrhundert Lufthansa. Begleiten Sie uns auf einer bewegten Reise voller Pioniergeist, Br\u00fcchen und neuen Anf\u00e4ngen. Was 1926 begann und in den 50er Jahren neu startete, ist heute eine globale Erfolgsgeschichte. Erleben Sie die entscheidenden Momente und erfahren Sie, wie sich Lufthansa \u00fcber politische und historische Grenzen hinweg immer wieder neu erfunden hat, um heute Jahr f\u00fcr Jahr Millionen Menschen an ihr Ziel zu bringen.</strong>",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/text_0"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/image",
+      "url": "https://www.lufthansa.com/content/dam/lh/images/local_images/mobile/100-years/new_mobile_timeline_content_part_2_image_01.png.transform/lh-dcep-transform-width-1440/img.jpg"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "Vom Neubeginn zur Weltmarke",
+      "variant": "HEADING_L",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/headline_1751185423",
+      "isBold": true
+     },
+     {
+      "type": "mainHeadline",
+      "text": "1946\u20131996",
+      "variant": "HEADING_M",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/headline_289594932",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "Vom ersten Linienflug der neuen Deutschen Lufthansa AG 1955 \u00fcber das Jet-Zeitalter bis zur Privatisierung: Innovationen, neue Ma\u00dfst\u00e4be im Komfort und stetiger Wandel pr\u00e4gen eine Epoche des Aufstiegs, in der Lufthansa zu einer der bekanntesten Fluggesellschaften der Welt heranw\u00e4chst.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/text_223103099_0"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "Der Neuanfang",
+      "variant": "HEADING_L",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/headline_1992595351",
+      "isBold": true
+     },
+     {
+      "type": "mainHeadline",
+      "text": "1951",
+      "variant": "HEADING_M",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/headline_289594932_c",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "Ein Jahr, gepr\u00e4gt von wichtigen Weichenstellungen f\u00fcr die Wiedergr\u00fcndung der Lufthansa. W\u00e4hrend die erste Lufthansa im Februar 1951 liquidiert wurde, beginnt in K\u00f6ln die konkrete Planung des Neuanfangs. Beauftragt von Verkehrsminister Seebohm, erarbeitet ein Team um Hans M. Bongers noch im selben Jahr die Grundlagen f\u00fcr eine neue deutsche Fluggesellschaft. Dieses Vorhaben wird durch die alliierte Zusage zur schrittweisen R\u00fcckgabe der Lufthoheit beg\u00fcnstigt.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/text_785325901_0"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/image_1371649539",
+      "url": "https://www.lufthansa.com/content/dam/lh/images/local_images/mobile/100-years/new_mobile_timeline_content_part_2_image_02.png.transform/lh-dcep-transform-width-1440/img.jpg"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "1953",
+      "variant": "HEADING_M",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/headline_289594932_c_1193301818",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "Deutschland befindet sich im Wiederaufbau und auch die Luftfahrt sucht einen neuen Anfang. Der Startschuss daf\u00fcr f\u00e4llt in K\u00f6ln: Mit der Gr\u00fcndung der \u201eAktiengesellschaft f\u00fcr Luftverkehrsbedarf\u201c (Luftag) wird der Grundstein f\u00fcr die zweite Lufthansa gelegt.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/text_1287034691_0"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/image_1574062650",
+      "url": "https://www.lufthansa.com/content/dam/lh/images/local_images/mobile/100-years/new_mobile_timeline_content_part_2_image_03.png.transform/lh-dcep-transform-width-1440/img.jpg"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "1954",
+      "variant": "HEADING_M",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/headline_289594932_c_460353183",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "Am 6. August beschlie\u00dft die Hauptversammlung der bisherigen Aktiengesellschaft f\u00fcr Luftverkehrsbedarf (Luftag), den Traditionsnamen Deutsche Lufthansa AG anzunehmen. Wenige Wochen sp\u00e4ter sichert sich das Unternehmen f\u00fcr 30.000 DM auch die Rechte an den historischen Symbolen der ersten Lufthansa: Der Kranich und die blau-gelbe Flagge kehren damit offiziell als Markenzeichen der neuen deutschen Airline zur\u00fcck.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/text_1029388710_0"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "1955",
+      "variant": "HEADING_M",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/headline_289594932_c_13516851",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "Lufthansa entwickelt ein neues Corporate Design \u2013 der Kranich erh\u00e4lt eine einheitliche Form und wird zum Symbol einer neuen \u00c4ra. Im selben Jahr hebt die junge Airline schlie\u00dflich ab. Zwei Flugzeuge des Typs Convair 340 der Lufthansa mit dem deutschen Hoheitszeichen am Heck starten am 1. April. Eine Maschine mit der legend\u00e4ren Flugnummer LH1 fliegt von Hamburg in Richtung M\u00fcnchen. Zeitgleich startet in M\u00fcnchen eine Convair \u00fcber Frankfurt am Main und K\u00f6ln Richtung Hamburg.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/text_699049754_0"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/image_856247074",
+      "url": "https://www.lufthansa.com/content/dam/lh/images/local_variations/c-1037930510-new_mobile_timeline_content_part_2_image_04.png.transform/lh-dcep-transform-width-1440/img.jpg"
+     },
+     {
+      "type": "copyText",
+      "text": "Am 19. April 1955 wird die erste Super Constellation an Lufthansa \u00fcbergeben. Kurz darauf \u00fcberquert der Kranich den gro\u00dfen Teich \u2013 der erste Flug der zweiten Lufthansa \u00fcber den Atlantik startet am 8. Juni von Hamburg nach New York. Zur selben Zeit \u00fcbernimmt Lufthansa besondere Eins\u00e4tze im Auftrag des Sports und der Politik: Die deutsche Leichtathletik-Nationalmannschaft reist per Sonderflug nach Helsinki. Zudem bringen zwei Lufthansa Maschinen Bundeskanzler Konrad Adenauer sowie eine deutsche Delegation nach Moskau-Wnukowo.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/text_457434224_0"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "Das D\u00fcsenzeitalter bricht an",
+      "variant": "HEADING_L",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/headline_1992595351_",
+      "isBold": true
+     },
+     {
+      "type": "mainHeadline",
+      "text": "1956",
+      "variant": "HEADING_M",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/headline_289594932_c_437472724",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "Lufthansa er\u00f6ffnet die erste S\u00fcdamerikastrecke \u2013 von Hamburg \u00fcber D\u00fcsseldorf/Frankfurt am Main, Paris und Dakar bis nach Rio de Janeiro, S\u00e3o Paulo und Buenos Aires. Tausende Kilometer, mehrere Zeitzonen \u2013 ein gewaltiger Sprung, der Kontinente verbindet und das internationale Streckennetz bedeutend erweitert. Auch Linienfl\u00fcge nach Teheran, Istanbul, Beirut und Bagdad werden aufgenommen.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/text_1676918672_0"
+     },
+     {
+      "type": "copyText",
+      "text": "Lufthansa startet das Projekt \u201ePaper Jet\u201c und entwickelt damit ein innovatives Simulationsprogramm. Lange bevor der erste echte Jet abhebt, werden damit s\u00e4mtliche Abl\u00e4ufe, Routen und Bedingungen des k\u00fcnftigen D\u00fcsenverkehrs auf dem Papier simuliert \u2013 ein zukunftsweisendes Konzept, mit dem sich die Airline fr\u00fchzeitig und pr\u00e4zise auf das kommende D\u00fcsenzeitalter vorbereitet.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/text_1676918672_1"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/image_1529395139",
+      "url": "https://www.lufthansa.com/content/dam/lh/images/local_images/mobile/100-years/new_mobile_timeline_content_part_2_image_05.png.transform/lh-dcep-transform-width-1440/img.jpg"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "1958",
+      "variant": "HEADING_M",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/headline_289594932_c_804686423",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "Nachdem Lufthansa in den vorherigen Jahren in kurzer Zeit riesige Spr\u00fcnge im internationalen Streckennetz gemacht hat, setzt ein neuer Stern am Himmel ein Zeichen des Aufbruchs \u2013 der Lockheed L-1649A Starliner. Die \u201eSuper Star\u201c gilt als neue Visitenkarte im Atlantikverkehr und ist zu dieser Zeit das modernste Gro\u00dfflugzeug der Welt mit mehr Komfort und mehr Reichweite. Im selben Jahr begr\u00fc\u00dft Lufthansa ihren millionsten Fluggast seit Wiederaufnahme des Flugbetriebs im Jahr 1955. Ein fr\u00fcher Beweis f\u00fcr das gro\u00dfe Vertrauen der Reisenden.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/text_1332518411_0"
+     },
+     {
+      "type": "copyText",
+      "text": "Kurz darauf f\u00fchrt Lufthansa auf der New York-Strecke erstmals den exklusiven Senator Service in der ersten Klasse ein. Dieser bietet 18 De-luxe-Schlafsitze, Betten, eine Lounge und exquisite Verpflegung, um zahlungskr\u00e4ftige Kund:innen zu gewinnen.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/text_1332518411_1"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/image_845266480",
+      "url": "https://www.lufthansa.com/content/dam/lh/images/local_images/mobile/100-years/new_mobile_timeline_content_part_2_image_06.png.transform/lh-dcep-transform-width-1440/img.jpg"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "1960",
+      "variant": "HEADING_M",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/headline_289594932_c_1875971923",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "Der Einsatz der Boeing 707 auf der Nordatlantikstrecke markiert den Beginn einer neuen \u00c4ra: F\u00fcr Lufthansa bricht das D\u00fcsenzeitalter an. Das Fliegen wird schneller und moderner und verbindet die Welt enger denn je.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/text_623917106_0"
+     },
+     {
+      "type": "copyText",
+      "text": "Im selben Jahr tauft Willy Brandt, der damalige regierende B\u00fcrgermeister von Berlin, eine Boeing 707 auf den Namen \u201eBerlin\u201c. Dieser historische Moment ist die erste Flugzeugtaufe der Lufthansa und verleiht der jungen Airline eine besondere Identit\u00e4t.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/text_623917106_1"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "1964",
+      "variant": "HEADING_M",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/headline_289594932_c_242289639",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "Mit der Boeing 727 hebt bei Lufthansa erstmals der moderne Europa-Jet ab. Das dreistrahlige Flugzeug leitet den \u00dcbergang zum Jet-Zeitalter auch auf der Kurz- und Mittelstrecke ein und ver\u00e4ndert das Fliegen innerhalb Europas sp\u00fcrbar.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/text_454282661_0"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "1965",
+      "variant": "HEADING_M",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/headline_289594932_c_433157549",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "Am 23. Juli wird auf dem Lufthansa Flug von Frankfurt am Main nach New York in 10.000 Metern H\u00f6he zum ersten Mal in der Geschichte ein Baby geboren. Das M\u00e4dchen erh\u00e4lt den Namen Barbara Lufthansa Herzog.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/text_1748195908_0"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "H\u00f6her, schneller, weiter",
+      "variant": "HEADING_L",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/headline_1992595351__1747825728",
+      "isBold": true
+     },
+     {
+      "type": "mainHeadline",
+      "text": "1968",
+      "variant": "HEADING_M",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/headline_289594932_c_2066882541",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "Bereits in den Jahren zuvor \u00fcberzeugt Lufthansa den US-Hersteller Boeing davon, einen Jet zu konstruieren, der wirtschaftlich auf kurzen Distanzen operieren kann. Lufthansa Ingenieur:innen bringen ihre spezifischen Anforderungen direkt in die Konstruktionsphase ein \u2013 ein Novum in der Firmengeschichte. Das Ergebnis dieser engen Zusammenarbeit ist die Boeing 737, die von Lufthansa treffend City Jet getauft wird und das Jet-Zeitalter nun auch in den t\u00e4glichen Reisealltag bringt.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/text_1421180724_0"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/image_1616066781",
+      "url": "https://www.lufthansa.com/content/dam/lh/images/local_images/mobile/100-years/new_mobile_timeline_content_part_2_image_07.png.transform/lh-dcep-transform-width-1440/img.jpg"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "1970",
+      "variant": "HEADING_M",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/headline_289594932_c_2053793728",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "Der Ersteinsatz der Boeing 747 im April auf der Strecke Frankfurt\u2013New York markiert f\u00fcr Lufthansa den Beginn des Jumbo-Zeitalters auf der Nordatlantikstrecke. Der sogenannte Jumbo-Jet wird aufgrund seiner Eleganz und Gr\u00f6\u00dfe auch als \u201eK\u00f6nigin der L\u00fcfte\u201c bezeichnet. In der Erstausf\u00fchrung bei Lufthansa gl\u00e4nzte sie mit 32 Sitze in der First Class, 333 in der Economy, einem Bordkino und einer Lounge im Oberdeck \u2013 ein v\u00f6llig neues Raum- und Komforterlebnis auf der Langstrecke.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/text_1252989126_0"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "1974",
+      "variant": "HEADING_M",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/headline_289594932_c_353156111",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "Mit der Einf\u00fchrung der Douglas DC-10 im Januar hat Lufthansa nun einen weiteren Gro\u00dfraumjet. Die dreistrahlige Maschine \u00fcbernimmt vor allem die langen Routen nach Fernost und S\u00fcdamerika, f\u00fcr die der Jumbo teilweise zu gro\u00df oder die Reichweite der kleineren Jets nicht ausreichend ist.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/text_2115595087_0"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "Eine Airline im Spiegel ihrer Zeit",
+      "variant": "HEADING_L",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/headline_1992595351__101116419",
+      "isBold": true
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/image_900244742",
+      "url": "https://www.lufthansa.com/content/dam/lh/images/local_images/mobile/100-years/new_mobile_timeline_content_part_2_image_08.png.transform/lh-dcep-transform-width-1440/img.jpg"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "1977",
+      "variant": "HEADING_M",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/headline_289594932_c_1411248882",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "Mit der Gr\u00fcndung der German Cargo Services GmbH schl\u00e4gt Lufthansa ein neues Kapitel auf. Die German Cargo entwickelt sich schnell zum Experten f\u00fcr alles, was sperrig, empfindlich oder lebendig ist. Ob Rennpferde, Eintagsk\u00fcken oder komplette Industrieanlagen \u2013 was nicht in den Frachtraum eines Linienflugzeugs passt, \u00fcbernimmt die Charter-Tochter.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/text_474377633_0"
+     },
+     {
+      "type": "copyText",
+      "text": "Im Deutschen Herbst wird der Lufthansa Flug LH 181 zum Schauplatz des Terrors. Am 13. Oktober entf\u00fchren Terroristen die Boeing 737 Landshut. Nach einem Irrflug und der Ermordung von Kapit\u00e4n J\u00fcrgen Schumann in Aden endet das Geiseldrama in Mogadischu. Die Befreiung durch die GSG 9 am 18. Oktober rettet alle 86 Passagier:innen \u2013 ein dramatischer Meilenstein der deutschen Luftfahrtgeschichte.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/text_474377633_1"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "1979",
+      "variant": "HEADING_M",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/headline_289594932_c_1778813858",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "In der Kabine findet eine kleine Revolution statt: Erstmals d\u00fcrfen Flugbegleiterinnen offiziell Hosen als Teil ihrer Uniform tragen. Lufthansa passt sich damit den gesellschaftlichen Ver\u00e4nderungen an und beweist einmal mehr, dass Tradition und Fortschritt Hand in Hand gehen k\u00f6nnen.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/text_1581659768_0"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/image_225711020",
+      "url": "https://www.lufthansa.com/content/dam/lh/images/local_images/mobile/100-years/mobile_timeline_content_part_2_image_09.jpg.transform/lh-dcep-transform-width-1440/img.jpg"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "1980",
+      "variant": "HEADING_M",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/headline_289594932_c_1986146823",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "Nach 51 Jahren Unterbrechung nimmt Lufthansa die regelm\u00e4\u00dfige Flugverbindung ins \u201eReich der Mitte\u201c wieder auf. Am 7. April hebt eine McDonnell Douglas DC-10 von Frankfurt am Main zum ersten Linienflug nach Beijing ab.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/text_604357158_0"
+     },
+     {
+      "type": "copyText",
+      "text": "Im Herbst wird einer Lufthansa Besatzung eine besondere Ehre zuteil. Zum Abschluss seines ersten gro\u00dfen Deutschlandbesuches w\u00e4hlt Papst Johannes Paul II. f\u00fcr seine R\u00fcckreise nach Rom die deutsche Airline.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/text_604357158_1"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/image_933131699",
+      "url": "https://www.lufthansa.com/content/dam/lh/images/local_images/mobile/100-years/new_mobile_timeline_content_part_2_image_10.png.transform/lh-dcep-transform-width-1440/img.jpg"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "1986",
+      "variant": "HEADING_M",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/headline_289594932_c_1676075045",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "Mit Evi Lausmann und Nicola Lunemann beginnen die ersten beiden Frauen ihre Ausbildung zur Verkehrsflugzeugf\u00fchrerin bei Lufthansa. Damit ebnen sie den Weg f\u00fcr viele weitere Pilotinnen. Im August 1988 fliegen sie als Erste Offizierinnen (Co-Pilotinnen) auf einer Boeing 737 ihre ersten Linienfl\u00fcge. In den ersten Jahren gibt es f\u00fcr die Pilotinnen allerdings noch keine eigene Uniform. Sie tragen die M\u00e4nneruniform, inklusive Krawatte und Herrenm\u00fctze, quasi \u201eals M\u00e4nner verkleidet\u201c, um \u2013 wie es intern hei\u00dft \u2013 die Passagier:innen nicht zu verunsichern.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/text_346727187_0"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "1987",
+      "variant": "HEADING_M",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/headline_289594932_c_1661899860",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "Als erste Frau in einem Lufthansa Cockpit beginnt die Flugingenieurin Michele Jett ihren Dienst auf einer Boeing 727 \u2013 viele weitere Frauen im Cockpit werden folgen.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/text_1246488083_0"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "Die Welt w\u00e4chst weiter zusammen",
+      "variant": "HEADING_L",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/headline_1992595351__1276533085",
+      "isBold": true
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/image_222647923",
+      "url": "https://www.lufthansa.com/content/dam/lh/images/local_images/mobile/100-years/new_mobile_timeline_content_part_2_image_11.png.transform/lh-dcep-transform-width-1440/img.jpg"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "1990",
+      "variant": "HEADING_M",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/headline_289594932_c_2056279425",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "Eine Boeing 747-400 wird im September 1990, nur wenige Tage vor der Deutschen Einheit, auf den Namen \u201ePotsdam\u201c getauft. Ein bewusstes Zeichen, einen St\u00e4dtenamen aus dem Gebiet der damaligen DDR in alle Welt zu tragen.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/text_1740150984_0"
+     },
+     {
+      "type": "copyText",
+      "text": "Am Tag vor der Wiedervereinigung f\u00fchrt Lufthansa einen historischen Sonderflug durch. Ein Airbus A310 startet in K\u00f6ln/Bonn mit rund 100 Bundestagsabgeordneten und landet in Berlin-Tegel. Damit ist Lufthansa nach 45 Jahren Pause offiziell zur\u00fcck in Berlin und nimmt am 28. Oktober den Linienverkehr wieder auf.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/text_1740150984_1"
+     },
+     {
+      "type": "copyText",
+      "text": "Schnell wird Reisen zwischen Ost und West wieder normal. Lufthansa tr\u00e4gt dazu bei und baut in den Folgejahren auch international viele neue Strecken auf, z. B. nach Kapstadt, Windhuk und Almaty \u2013 das Flugerlebnis wird f\u00fcr Millionen Menschen zum Symbol einer neuen Freiheit.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/text_1740150984_2"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/image_710277670",
+      "url": "https://www.lufthansa.com/content/dam/lh/images/local_images/mobile/100-years/new_mobile_timeline_content_part_2_image_12.png.transform/lh-dcep-transform-width-1440/img.jpg"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "1993\u20131996",
+      "variant": "HEADING_M",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/headline_289594932_c_396362426",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "Mit Miles &amp; More wird Deutschlands wichtigstes Vielfliegerprogramm eingef\u00fchrt \u2013 der Beginn der modernen Kund:innenbindung im Flugverkehr in Deutschland.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/text_2048632290_0"
+     },
+     {
+      "type": "copyText",
+      "text": "Der Airbus A340 ersetzt die \u00e4lteren DC-10 und B747-200. Er bringt eine leisere, modernere Kabine mit sich, die den Komfort auf der Langstrecke verbessert. Zugleich erg\u00e4nzt die A319 die erfolgreiche A320-Familie als etwas kleinere Variante und wird zu einem festen Bestandteil des Europaverkehrs.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2/jcr:content/par/sduicolumn/column/text_2048632290_1"
+     }
+    ],
+    "padding": {
+     "left": "SPACING_FOUR",
+     "right": "SPACING_FOUR"
+    },
+    "spacing": "LARGE"
+   }
+  ],
+  "spacing": "MEDIUM"
+ },
+ "cacheEnabled": true,
+ "version": "V2"
+}

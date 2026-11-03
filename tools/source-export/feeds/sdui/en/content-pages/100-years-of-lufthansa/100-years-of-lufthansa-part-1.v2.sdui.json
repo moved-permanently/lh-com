@@ -1,0 +1,408 @@
+{
+ "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1",
+ "metadata": {
+  "title": "100 years of Lufthansa"
+ },
+ "body": {
+  "type": "column",
+  "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1/par",
+  "items": [
+   {
+    "type": "image",
+    "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1/jcr:content/par/image",
+    "url": "https://www.lufthansa.com/content/dam/lh/images/local_images/mobile/100-years/mobile_timeline_content_part_1_image_00_header.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+    "contentDescription": "Old aircraft"
+   },
+   {
+    "type": "column",
+    "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1/jcr:content/par/sduicolumn",
+    "items": [
+     {
+      "type": "spacer",
+      "size": "X_SMALL",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1/jcr:content/par/sduicolumn/column/separator"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "A century of movement",
+      "variant": "HEADING_XXL",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1/jcr:content/par/sduicolumn/column/headline",
+      "isBold": true
+     },
+     {
+      "type": "spacer",
+      "size": "X_SMALL",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1/jcr:content/par/sduicolumn/column/separator_copy_copy"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "The history of Lufthansa \u2013 1926 to 1945",
+      "variant": "HEADING_XL",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1/jcr:content/par/sduicolumn/column/headline_copy",
+      "isBold": true
+     },
+     {
+      "type": "spacer",
+      "size": "X_SMALL",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1/jcr:content/par/sduicolumn/column/separator_copy"
+     },
+     {
+      "type": "copyText",
+      "text": "<strong>100 years under the symbol of the crane \u2013 a century of Lufthansa. Join us on an eventful journey of pioneering spirit, disruptions, and new beginnings. What began in 1926 and relaunched in the 1950s, is today a global success story. Experience the pivotal moments and learn how Lufthansa has reinvented itself time and again in the face of political and historical barriers so that today it takes millions of people to their destinations year after year.</strong>",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1/jcr:content/par/sduicolumn/column/text_0"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1/jcr:content/par/sduicolumn/column/image",
+      "url": "https://www.lufthansa.com/content/dam/lh/images/local_images/mobile/100-years/new_mobile_timeline_content_part_1_image_01.png.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Old aircraft"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "The era of the first Lufthansa&nbsp;",
+      "variant": "HEADING_L",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1/jcr:content/par/sduicolumn/column/headline_2046086501",
+      "isBold": true
+     },
+     {
+      "type": "mainHeadline",
+      "text": "1926\u20131945",
+      "variant": "HEADING_M",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1/jcr:content/par/sduicolumn/column/headline_1664186710",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "Look back at the beginnings of the first Lufthansa \u2013 an era of new starts, new ideas, and the desire to connect people worldwide through flight. At the same time, it is an era of a disastrous symbiosis, in which the airline is linked to the political and military aims of the Nazi dictatorship.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1/jcr:content/par/sduicolumn/column/text_435986961_0"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1/jcr:content/par/sduicolumn/column/image_1725669803",
+      "url": "https://www.lufthansa.com/content/dam/lh/images/local_images/mobile/100-years/new_mobile_timeline_content_part_1_image_02.png.transform/lh-dcep-transform-width-1440/img.jpg"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "The crane takes flight",
+      "variant": "HEADING_L",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1/jcr:content/par/sduicolumn/column/headline_2046086501_",
+      "isBold": true
+     },
+     {
+      "type": "mainHeadline",
+      "text": "1926",
+      "variant": "HEADING_M",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1/jcr:content/par/sduicolumn/column/headline_1664186710_",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "A historic moment for German aviation: In Berlin on January 6, 1926, Deutscher Aero Lloyd AG (DAL) and Junkers Luftverkehr AG (ILAG) merge to form Deutsche Luft Hansa AG (DLH). With the crane as their new logo, the first aircraft take off in the spring, heralding a new era in the skies.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1/jcr:content/par/sduicolumn/column/text_978980570_0"
+     },
+     {
+      "type": "copyText",
+      "text": "The engines roar, the crane is ready for take-off. On April 6, 1926, Luft Hansa\u2019s very first scheduled flight departs from Tempelhof Airport in Berlin. Destination: Zurich-D\u00fcbendorf \u2013 a moment that enables Europe to move a little closer together. In the same year, the first night flight from Berlin to K\u00f6nigsberg (present-day Kaliningrad) also takes place. Rotating searchlights are installed every 25 to 30 kilometers along the entire route to show the pilots the way.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1/jcr:content/par/sduicolumn/column/text_978980570_1"
+     },
+     {
+      "type": "copyText",
+      "text": "During the legendary East Asia Expedition in July and August, two Luft Hansa Junkers G 24 aircraft venture into the unknown. The D-901 and the D-903 cross continents on a 20,000 kilometer long-distance flight from Berlin to Peking (present-day Beijing). A masterful feat of aviation to explore a possible flight connection to East Asia.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1/jcr:content/par/sduicolumn/column/text_978980570_2"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "Years of discovery",
+      "variant": "HEADING_L",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1/jcr:content/par/sduicolumn/column/headline_2046086501__470500331",
+      "isBold": true
+     },
+     {
+      "type": "mainHeadline",
+      "text": "1927",
+      "variant": "HEADING_M",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1/jcr:content/par/sduicolumn/column/headline_1664186710__1167973836",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "One year after its founding, Luft Hansa has a remarkable route network: The crane flies from Munich over the Alps to Venice and from Berlin over the Baltic Sea to Oslo, as well as offering a regular connection to Moscow.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1/jcr:content/par/sduicolumn/column/text_978980570_copy_0"
+     },
+     {
+      "type": "copyText",
+      "text": "In the same year, Luft Hansa tests the combination of air and rail travel for the first time. Linking the two modes of transport enables shorter travel times and better regional connections \u2013 the foundation for Lufthansa Express Rail.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1/jcr:content/par/sduicolumn/column/text_978980570_copy_1"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1/jcr:content/par/sduicolumn/column/image_1859717969",
+      "url": "https://www.lufthansa.com/content/dam/lh/images/local_images/mobile/100-years/new_mobile_timeline_content_part_1_image_03.png.transform/lh-dcep-transform-width-1440/img.jpg"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "1929",
+      "variant": "HEADING_M",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1/jcr:content/par/sduicolumn/column/headline_1664186710__733753188",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "On May 29, Luft Hansa ushers in a new era of summer vacations and launches regular \u201cbathing routes\u201d to island destinations such as Sylt, Norderney, and R\u00fcgen. Flying boats such as the Dornier Wal drastically reduce travel time to the coast and even make the arrival itself into an event for beachgoers. The new service is promoted with the iconic campaign \u201cFliegt in die B\u00e4der!\u201d (Fly to the seaside).",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1/jcr:content/par/sduicolumn/column/text_1416714599_0"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1/jcr:content/par/sduicolumn/column/image_1863262687",
+      "url": "https://www.lufthansa.com/content/dam/lh/images/local_images/mobile/100-years/mobile_timeline_content_part_1_image_04.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Old aircraft"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "1932",
+      "variant": "HEADING_M",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1/jcr:content/par/sduicolumn/column/headline_1664186710__375216388",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "The first Junkers Ju 52 is added to the Luft Hansa fleet. The legendary aircraft, soon affectionately nicknamed \u201cTante Ju\u201d (\u201cAunt Ju\u201d), becomes the airline\u2019s \u201cworkhorse\u201d and has since become a symbol of pioneering spirit and engineering excellence.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1/jcr:content/par/sduicolumn/column/text_1416714599_copy_0"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "1933",
+      "variant": "HEADING_M",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1/jcr:content/par/sduicolumn/column/headline_1664186710__390662578",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "With the rise to power of the National Socialists, Luft Hansa enters a phase of political appropriation and enforced conformity known as \u201cNazification.\u201d One of the first changes: At the annual general meeting, the decision is taken to reformulate the company name to make Luft Hansa one word: Deutsche Lufthansa Aktiengesellschaft.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1/jcr:content/par/sduicolumn/column/text_2040134565_0"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "1934",
+      "variant": "HEADING_M",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1/jcr:content/par/sduicolumn/column/headline_1664186710__111568879",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "Lufthansa establishes a regular airmail service to South America. The route is long, the fuel tank too small, but a solution is found: The aircraft land in the middle of the Atlantic, are refueled on a ship and then take off again \u2013 a logistical tour de force.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1/jcr:content/par/sduicolumn/column/text_2040134565_copy_0"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "Exploring possibilities \u2013 years of new beginnings",
+      "variant": "HEADING_L",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1/jcr:content/par/sduicolumn/column/headline_2046086501__1843155472",
+      "isBold": true
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1/jcr:content/par/sduicolumn/column/image_1374121836",
+      "url": "https://www.lufthansa.com/content/dam/lh/images/local_images/mobile/100-years/new_mobile_timeline_content_part_1_image_05.png.transform/lh-dcep-transform-width-1440/img.jpg"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "1937",
+      "variant": "HEADING_M",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1/jcr:content/par/sduicolumn/column/headline_1664186710__1347559758",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "Lufthansa takes off from Berlin with two Junkers Ju 52s for an expedition to the Pamir Mountains in Central Asia, one of the most remote and dangerous regions of the world. The aim is to test potential aviation routes to the Far East and to open up a route that does not pass over Soviet territories. What makes this expedition special is that the aircraft must fly over passes more than 5,000 meters (16,400 ft) high, navigate through narrow mountain gorges, and cope with extremely unpredictable weather conditions.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1/jcr:content/par/sduicolumn/column/text_2040134565_copy_919029644_0"
+     },
+     {
+      "type": "copyText",
+      "text": "One of the Ju 52s has to make an emergency landing in Hotan in Northwest China. The crew is temporarily detained there and can only return safely to Berlin after several weeks in captivity.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1/jcr:content/par/sduicolumn/column/text_2040134565_copy_919029644_1"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1/jcr:content/par/sduicolumn/column/image_1607929127",
+      "url": "https://www.lufthansa.com/content/dam/lh/images/local_images/mobile/100-years/mobile_timeline_content_part_1_image_06.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Image of old aircraft with crew"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "1938",
+      "variant": "HEADING_M",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1/jcr:content/par/sduicolumn/column/headline_1664186710__1871448522",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "With the introduction of the modern large aircraft, the Focke-Wulf Fw 200 and the Junkers Ju 90, a new service standard also comes into effect: For the first time, uniformed air stewardesses look after the passengers\u2019 well-being on board. Previously, this role was reserved exclusively for male air stewards.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1/jcr:content/par/sduicolumn/column/text_2040134565_copy_395167316_0"
+     },
+     {
+      "type": "copyText",
+      "text": "A Focke-Wulf Fw 200 \u201cCondor\u201d (D-ACON) takes off in November for a spectacular record flight to Tokyo. After a flight time of around only 46 hours, it arrives in the Japanese capital, setting a new route record. It sets a new record on its return flight too. These pioneering flights underline the potential for fast connections to Asia in the future.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1/jcr:content/par/sduicolumn/column/text_2040134565_copy_395167316_1"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1/jcr:content/par/sduicolumn/column/image_1516076604",
+      "url": "https://www.lufthansa.com/content/dam/lh/images/local_images/mobile/100-years/mobile_timeline_content_part_1_image_07.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Aircraft and three people standing in front of it"
+     },
+     {
+      "type": "copyText",
+      "text": "On December 17, Lufthansa\u2019s catapult ship \u201cSchwabenland\u201d sails for Antarctica. The Lufthansa crews of the \u201cBoreas\u201d and \u201cPassat,\u201d both famous Dornier Wal flying boats, are to carry out pioneering aviation work there under extreme conditions. They map around 600,000 square kilometers of unknown terrain and bring back thousands of aerial photographs of \u201cNeuschwabenland\u201d.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1/jcr:content/par/sduicolumn/column/text_218128318_0"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "The end of civil aviation operations",
+      "variant": "HEADING_L",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1/jcr:content/par/sduicolumn/column/headline_2046086501__886872584",
+      "isBold": true
+     },
+     {
+      "type": "mainHeadline",
+      "text": "1939",
+      "variant": "HEADING_M",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1/jcr:content/par/sduicolumn/column/headline_1664186710__1995149281",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "The Second World War begins with the German invasion of Poland on September 1, 1939. Scheduled air traffic almost completely comes to a halt. Many aircraft and crews are transferred to the Luftwaffe.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1/jcr:content/par/sduicolumn/column/text_1728527222_0"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "1945",
+      "variant": "HEADING_M",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1/jcr:content/par/sduicolumn/column/headline_1664186710__998466824",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "After the war ends, the Allies prohibit Germany from conducting any form of flight operations. The manufacture, possession, and use of aircraft is forbidden, and German aviation comes to a complete standstill.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1/jcr:content/par/sduicolumn/column/text_591396460_0"
+     },
+     {
+      "type": "divider",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1/jcr:content/par/sduicolumn/column/separator_2072663600"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "1933\u20131945",
+      "variant": "HEADING_M",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1/jcr:content/par/sduicolumn/column/headline_1664186710__979467440",
+      "isBold": true
+     },
+     {
+      "type": "mainHeadline",
+      "text": "Lufthansa during National Socialism",
+      "variant": "HEADING_L",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1/jcr:content/par/sduicolumn/column/headline_2046086501__1711054988",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "The seizure of power by the National Socialists in Germany in 1933 saw the start of the darkest chapter in the history not only of the country but also of Lufthansa.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1/jcr:content/par/sduicolumn/column/text_1798704596_0"
+     },
+     {
+      "type": "copyText",
+      "text": "The first Lufthansa became part of the Nazi regime and participated in its military and criminal activities. Not everyone in the company, albeit far too many, actively supported this course of action. Before and during the Nazi era, Lufthansa profited from state subsidies and collaboration with leading National Socialists among other things. During the Second World War, the company trained pilots for the Luftwaffe and was involved in the production of munitions. Thousands of forced laborers, comprising up to 50 percent of the workforce during certain periods, were put to work under conditions that were both discriminatory and inhumane.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1/jcr:content/par/sduicolumn/column/text_1798704596_1"
+     },
+     {
+      "type": "copyText",
+      "text": "Lufthansa is also using the centenary of its founding as the opportunity to re-examine the company\u2019s responsibility during the period of National Socialism. Insights into the role of Lufthansa during the Nazi era feature in the book <i>Lufthansa \u2013 The First 100 Years</i>, written by three independent economic historians.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1/jcr:content/par/sduicolumn/column/text_1798704596_2"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1/jcr:content/par/sduicolumn/column/link",
+      "text": "Find the book here",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "LINK",
+       "removeTraits": "BUTTON",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "cp_link_lufthansa_book_080626"
+       },
+       "type": "openUrl",
+       "target": "SELF",
+       "url": "https://www.worldshop.eu/en/lufthansa-die-ersten-100-jahre-book-1776385/?p=GcdskxMLFmc",
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "copyText",
+      "text": "In summer 2026 a new visitor center, Hangar One, will open at Frankfurt Airport showing displays concerning the Nazi period, among other exhibitions.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1/jcr:content/par/sduicolumn/column/text_722447251_0"
+     }
+    ],
+    "padding": {
+     "left": "SPACING_FOUR",
+     "right": "SPACING_FOUR"
+    },
+    "spacing": "LARGE"
+   }
+  ],
+  "spacing": "MEDIUM"
+ },
+ "cacheEnabled": true,
+ "version": "V2"
+}

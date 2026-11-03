@@ -3,7 +3,8 @@
  * Imports the Lufthansa app's server-driven screens once, from www's recorded answers
  * (tools/source-export/feeds/sdui/<lang>/<path>.v2.sdui.json and .sdui.json), into one DA
  * document per screen at the same path: content/content/mobile/lh/<lang>/<path>.plain.html
- * (the hub `articles`, 7 category lists, 24 articles per language, and `homepage`).
+ * (the hub `articles`, 7 category lists, 24 articles per language, `homepage`, and the content
+ * page content-pages/100-years-of-lufthansa's three parts, brief 310: --only 100-years-of-lufthansa-part-).
  *
  * Document model (see blocks/app-*.md in tools/workers/lh-edge/SDUI.md):
  * - sections = the v2 columns; section metadata Spacing (medium | large, default large); a
@@ -12,12 +13,14 @@
  *   "{small}" at the end for the small size), ul (a list), an image linked to its DAM URL
  *   (the link is the image URL lh-edge sends; the image is for the author), "{spacer: medium}"
  *   paragraphs (sizes x-small, medium, m-large, large; ", v2" for a spacer only the v2 screen
- *   has);
+ *   has), "{divider}" (a divider); on a content page (content-pages/...) h1-h4 are the four
+ *   headline sizes (v2 HEADING_XXL, XL, L, M);
  * - blocks: app-links (in-app and web links), app-offer (offer box), app-article-list (the
  *   articles of a category, from the query index), app-service (the home screen's service
  *   slot, v2), app-teaser-slider (the home screen's teaser slider, v1);
- * - metadata: Title (screen title), Robots, and for articles Description, Teaser image,
- *   Category, Date, Order (the article lists).
+ * - metadata: Title (screen title), Robots, SDUI type, Bold tag (strong where www's texts have
+ *   <strong>, not <b>), and for articles Description, Teaser image, Category, Date, Order (the
+ *   article lists).
  * Usage: node tools/importer/sdui-import.mjs [--lang en] [--only <path>]
  */
 import fs from 'node:fs';
@@ -147,7 +150,11 @@ function convertItems(items, ctx) {
     if (!isListEntry && list.length) flush();
     switch (it.type) {
       case 'mainHeadline': {
-        const level = { HEADING_XL: 'h1', HEADING_XXL: 'h1', HEADING_L: 'h2' }[it.variant] || 'h2';
+        const level = (ctx.contentPage
+          ? {
+            HEADING_XXL: 'h1', HEADING_XL: 'h2', HEADING_L: 'h3', HEADING_M: 'h4',
+          }
+          : { HEADING_XL: 'h1', HEADING_XXL: 'h1', HEADING_L: 'h2' })[it.variant] || 'h2';
         out.push(`<${level}>${richHtml(it.text)}</${level}>`);
         break;
       }
@@ -161,6 +168,9 @@ function convertItems(items, ctx) {
         break;
       case 'spacer':
         out.push(`<p>{spacer: ${SPACER[it.size] || it.size.toLowerCase()}${ctx.v2Only.has(pos) ? ', v2' : ''}}</p>`);
+        break;
+      case 'divider':
+        out.push('<p>{divider}</p>');
         break;
       case 'navigationLink':
         links.push(it);
@@ -241,8 +251,10 @@ screens.forEach((p) => {
     (() => { const a = flat1(v1.items); return container ? a : a.slice(1, -1); })().filter((x, i, arr) => !(container && (i === 0 || i === arr.length - 1))),
     flat2(v2.body.items),
   );
+  // a content page (a PAGE whose headline has the container screens' size, v2 HEADING_XXL)
+  const contentPage = !container && JSON.stringify(v2.body).includes('"variant":"HEADING_XXL"');
   const ctx = {
-    path: p, pos: 0, v2Only, listed,
+    path: p, pos: 0, v2Only, listed, contentPage,
   };
   const sections = [];
   v2.body.items.forEach((it) => {
@@ -260,10 +272,8 @@ screens.forEach((p) => {
     const slider = v1.items.find((i) => i.type === 'teaserSlider');
     if (slider) sections[sections.length - 1] += teaserSliderBlock(slider);
   }
-  // a content page (a PAGE whose headline has the container screens' size, v2 HEADING_XXL)
-  const contentPage = !container && JSON.stringify(v2.body).includes('"variant":"HEADING_XXL"');
   docs[p] = {
-    sections, title: v2.metadata.title, container, contentPage, v1, v2,
+    sections, title: v2.metadata.title, container, contentPage, strong: JSON.stringify(v2.body).includes('<strong>'), v1, v2,
   };
 });
 
@@ -281,6 +291,7 @@ Object.entries(docs).forEach(([p, d]) => {
   const meta = [['Title', esc(d.title)], ['Robots', 'noindex, nofollow']];
   if (d.container) meta.push(['SDUI type', 'container']);
   if (d.contentPage) meta.push(['SDUI type', 'content-page']);
+  if (d.strong) meta.push(['Bold tag', 'strong']);
   const am = articleMeta[p];
   if (am) {
     const dateLine = d.v1.items.find((i) => i.type === 'copyText' && i.size === 'SMALL');

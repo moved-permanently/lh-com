@@ -24,6 +24,16 @@ give the canonical without a suffix, the others with `.solo_continue`. A query s
 app's request headers). `sdui/index.json` maps each URL to its file with status and headers (`cf-cache-status:
 DYNAMIC`, no `cache-control`). Image URLs inside are absolute `https://www.lufthansa.com/content/dam/...`.
 
+Added later, `recorded` per entry: 2026-10-29, zh's home screen and the content page
+`content-pages/100-years-of-lufthansa` (de, en; from inside a www page over the Bright Data browser); 2026-11-03
+11:56-12:08 UTC, the content page's three parts `content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-{1,2,3}`
+(de, en, v1 and v2: 12 answers, all 200 JSON, `cf-cache-status: DYNAMIC`, no `cache-control`), which www refused
+the agent's machine in batch 7: recorded by Ben in a real browser on www (archive `lh-feeds-001.tar.gz`, sha256
+`ed68e657a5e394ba0fdf10e0897edede40252bbc648129acf7a8683627d0d2b9`, each body's sha256 checked against its manifest).
+Stored as the others (indent 1). New compared with the parent screen: part 1 has a `divider` and a web link (v1
+`textLink_v2` with `showWebScreen`, v2 `navigationLink` with `openUrl`); the parts use four headline sizes (v2
+`HEADING_XXL`, `XL`, `L`, `M`) and write bold as `<strong>`, where the other screens write `<b>`.
+
 ## GraphQL persisted queries, `graphql/`
 
 47 answers of `/graphql/execute.json/<config>/<query>[;name=value...]`, recorded 2026-10-25 18:36-18:41 UTC:

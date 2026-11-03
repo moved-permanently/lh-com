@@ -1,0 +1,436 @@
+{
+ "title": "100 years of Lufthansa",
+ "type": "PAGE",
+ "items": [
+  {
+   "type": "spacer",
+   "size": "LARGE"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/images/local_images/mobile/100-years/new_mobile_timeline_content_part_2_image_00_header.png.transform/lh-dcep-transform-width-1440/img.jpg"
+  },
+  {
+   "type": "spacer",
+   "size": "X_SMALL"
+  },
+  {
+   "type": "copyText",
+   "text": "A century of movement",
+   "variant": "HEADLINE"
+  },
+  {
+   "type": "spacer",
+   "size": "X_SMALL"
+  },
+  {
+   "type": "copyText",
+   "text": "The history of Lufthansa \u2013 1946 to 1996",
+   "variant": "HEADLINE"
+  },
+  {
+   "type": "spacer",
+   "size": "X_SMALL"
+  },
+  {
+   "type": "copyText",
+   "text": "<strong>100 years under the symbol of the crane \u2013 a century of Lufthansa. Join us on an eventful journey of pioneering spirit, disruptions, and new beginnings. What began in 1926 and relaunched in the 1950s, is today a global success story. Experience the pivotal moments and learn how Lufthansa has reinvented itself time and again in the face of political and historical barriers so that today it takes millions of people to their destinations year after year.</strong>",
+   "size": "SMALL",
+   "variant": "BODY"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/images/local_images/mobile/100-years/new_mobile_timeline_content_part_2_image_01.png.transform/lh-dcep-transform-width-1440/img.jpg"
+  },
+  {
+   "type": "copyText",
+   "text": "From new beginning to global brand&nbsp;",
+   "size": "EXTRA_LARGE",
+   "variant": "HEADLINE"
+  },
+  {
+   "type": "copyText",
+   "text": "1946\u20131996",
+   "size": "LARGE",
+   "variant": "HEADLINE"
+  },
+  {
+   "type": "copyText",
+   "text": "From the first scheduled flight of the new Deutsche Lufthansa AG in 1955, through the Jet Age to privatization: Innovations, new standards in comfort, and constant change characterize an era of ascendancy in which Lufthansa grows into one of the best-known airlines in the world.",
+   "size": "SMALL",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "A new beginning",
+   "size": "EXTRA_LARGE",
+   "variant": "HEADLINE"
+  },
+  {
+   "type": "copyText",
+   "text": "1951",
+   "size": "LARGE",
+   "variant": "HEADLINE"
+  },
+  {
+   "type": "copyText",
+   "text": "A year characterized by important decisions for the re-establishment of Lufthansa. While the first Lufthansa is liquidated in February 1951, specific planning for the fresh start begins in Cologne. Commissioned by Transport Minister Hans-Christoph Seebohm, a team led by Hans M. Bongers develops the foundations for a new German airline this same year. This project is facilitated by the Allied commitment to the gradual return of West German air sovereignty.",
+   "size": "SMALL",
+   "variant": "BODY"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/images/local_images/mobile/100-years/new_mobile_timeline_content_part_2_image_02.png.transform/lh-dcep-transform-width-1440/img.jpg"
+  },
+  {
+   "type": "copyText",
+   "text": "1953",
+   "size": "LARGE",
+   "variant": "HEADLINE"
+  },
+  {
+   "type": "copyText",
+   "text": "Germany is rebuilding and aviation, too, is seeking a new beginning. The green light for this is given in Cologne: With the establishment of the \u201cAktiengesellschaft f\u00fcr Luftverkehrsbedarf\u201d (Luftag), the foundation for the second Lufthansa is laid.",
+   "size": "SMALL",
+   "variant": "BODY"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/images/local_images/mobile/100-years/new_mobile_timeline_content_part_2_image_03.png.transform/lh-dcep-transform-width-1440/img.jpg"
+  },
+  {
+   "type": "copyText",
+   "text": "1954",
+   "size": "LARGE",
+   "variant": "HEADLINE"
+  },
+  {
+   "type": "copyText",
+   "text": "On August 6, the annual general meeting of Luftag decides to adopt the traditional name of Deutsche Lufthansa AG. A few weeks later, the company also pays 30,000 Deutschmarks to secure the rights to the historic symbols of the first Lufthansa: The crane and the blue and yellow flag thus officially return as trademarks of the new West German airline.",
+   "size": "SMALL",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "1955",
+   "size": "LARGE",
+   "variant": "HEADLINE"
+  },
+  {
+   "type": "copyText",
+   "text": "Lufthansa develops a new corporate design: The crane is given a consistent form and becomes the symbol of a new era. In the same year, the young airline finally takes to the skies. Two Lufthansa Convair 340 aircraft, with the German national insignia on their tails, take off almost simultaneously on April 1. One aircraft, bearing the legendary flight number LH1, flies from Hamburg towards Munich, with stopovers in D\u00fcsseldorf and Frankfurt. At the same time, a Convair departs from Munich, heading towards Hamburg via Frankfurt and Cologne.",
+   "size": "SMALL",
+   "variant": "BODY"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/images/local_images/mobile/100-years/new_mobile_timeline_content_part_2_image_04.png.transform/lh-dcep-transform-width-1440/img.jpg"
+  },
+  {
+   "type": "copyText",
+   "text": "On April 19, 1955, the first Lockheed Super Constellation is delivered to Lufthansa. Shortly afterwards, the crane \u201ccrosses the pond\u201d \u2013 the first transatlantic flight by the second Lufthansa takes off from Hamburg to New York on June 8. At the same time, Lufthansa is undertaking special missions on behalf of sports and politics: The West German national athletics team travels to Helsinki on a special flight. In addition, two Lufthansa aircraft take Chancellor Konrad Adenauer and a West German delegation to Moscow-Vnukovo Airport.",
+   "size": "SMALL",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "The Jet Age begins",
+   "size": "EXTRA_LARGE",
+   "variant": "HEADLINE"
+  },
+  {
+   "type": "copyText",
+   "text": "1956",
+   "size": "LARGE",
+   "variant": "HEADLINE"
+  },
+  {
+   "type": "copyText",
+   "text": "Lufthansa opens its first South American route: from Hamburg via D\u00fcsseldorf/Frankfurt, Paris, and Dakar to Rio de Janeiro, S\u00e3o Paulo, and Buenos Aires. Thousands of kilometers, multiple time zones \u2013 a massive leap that connects continents and significantly expands the international route network. Scheduled flights to Tehran, Istanbul, Beirut, and Baghdad are also added.",
+   "size": "SMALL",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Lufthansa launches its \u201cPaper Jet\u201d project, developing an innovative simulation program. Long before the first real jet takes off, all processes, routes, and conditions of future jet traffic are simulated on paper \u2013 a forward-looking concept that enables the airline to prepare early and precisely for the coming Jet Age.",
+   "size": "SMALL",
+   "variant": "BODY"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/images/local_images/mobile/100-years/new_mobile_timeline_content_part_2_image_05.png.transform/lh-dcep-transform-width-1440/img.jpg"
+  },
+  {
+   "type": "copyText",
+   "text": "1958",
+   "size": "LARGE",
+   "variant": "HEADLINE"
+  },
+  {
+   "type": "copyText",
+   "text": "After Lufthansa had rapidly expanded its international route network in previous years, a new star in the sky signaled a new era \u2013 the Lockheed L-1649A Starliner. The \u201cSuper Star\u201d was regarded as the new \u201ccalling card\u201d for transatlantic service and was, at the time, the most modern large aircraft in the world, offering greater comfort and a longer range. The new aircraft brings more comfort, greater range, and more reliability \u2013 a major upgrade for transatlantic air travel. That same year, Lufthansa welcomed its millionth passenger since resuming flight operations in 1955. This was an early sign of the great trust travelers placed in the airline.",
+   "size": "SMALL",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Shortly thereafter, Lufthansa introduces its exclusive Senator Service in First Class on the New York route for the first time. This service offers 18 deluxe sleeper seats, beds, a lounge, and exquisite catering with the aim of attracting wealthy customers.",
+   "size": "SMALL",
+   "variant": "BODY"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/images/local_images/mobile/100-years/new_mobile_timeline_content_part_2_image_06.png.transform/lh-dcep-transform-width-1440/img.jpg"
+  },
+  {
+   "type": "copyText",
+   "text": "1960",
+   "size": "LARGE",
+   "variant": "HEADLINE"
+  },
+  {
+   "type": "copyText",
+   "text": "The introduction of the Boeing 707 on the North Atlantic route marks the beginning of a new era: For Lufthansa, the Jet Age is dawning. Flying is becoming faster and more modern and bringing the world closer together than ever before.",
+   "size": "SMALL",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "In the same year, Willy Brandt, then the mayor of West Berlin, christens a Boeing 707 with the name \u201cBerlin.\u201d This historic moment is Lufthansa\u2019s first aircraft christening and gives the young airline a special identity.",
+   "size": "SMALL",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "1964",
+   "size": "LARGE",
+   "variant": "HEADLINE"
+  },
+  {
+   "type": "copyText",
+   "text": "With the arrival of the Boeing 727, Lufthansa\u2019s modern European jet takes off for the first time. This three-engine aircraft heralds the transition to the Jet Age on short- and medium-haul routes, too, and significantly changes flying within Europe.",
+   "size": "SMALL",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "1965",
+   "size": "LARGE",
+   "variant": "HEADLINE"
+  },
+  {
+   "type": "copyText",
+   "text": "On July 23, a baby is born at an altitude of 10,000 meters (33,000 ft) for the first time in history on a Lufthansa flight from Frankfurt to New York. The girl is named Barbara Lufthansa Herzog.",
+   "size": "SMALL",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Higher, faster, further",
+   "size": "EXTRA_LARGE",
+   "variant": "HEADLINE"
+  },
+  {
+   "type": "copyText",
+   "text": "1968",
+   "size": "LARGE",
+   "variant": "HEADLINE"
+  },
+  {
+   "type": "copyText",
+   "text": "In previous years, Lufthansa had already convinced the US manufacturer Boeing to design a jet that could operate economically over short distances. Lufthansa engineers introduce their specific requirements directly into the construction phase \u2013 a first in the company\u2019s history. The result of this close collaboration is the Boeing 737, aptly named City Jet by Lufthansa, which becomes one of the most successful aircraft families in aviation history.",
+   "size": "SMALL",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Lufthansa is the first customer in the world to put the City Jet into scheduled service, now bringing the Jet Age into everyday travel.",
+   "size": "SMALL",
+   "variant": "BODY"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/images/local_images/mobile/100-years/new_mobile_timeline_content_part_2_image_07.png.transform/lh-dcep-transform-width-1440/img.jpg"
+  },
+  {
+   "type": "copyText",
+   "text": "1970",
+   "size": "LARGE",
+   "variant": "HEADLINE"
+  },
+  {
+   "type": "copyText",
+   "text": "The first deployment of the Boeing 747 in April on the Frankfurt\u2013New York route marks the beginning of the Jumbo era for Lufthansa on the North Atlantic route. The so-called Jumbo Jet, also known as the \u201cQueen of the Skies\u201d because of its elegance and size, offers 32 seats in First Class and 333 in Economy in its initial configuration for Lufthansa. In addition, there are two aisles, an onboard cinema, and a lounge on the upper deck \u2013 a completely new experience in terms of space and comfort for long-haul passengers.",
+   "size": "SMALL",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "1974",
+   "size": "LARGE",
+   "variant": "HEADLINE"
+  },
+  {
+   "type": "copyText",
+   "text": "With the introduction of the Douglas DC-10 from January, Lufthansa acquires another wide-body jet. The three-engine aircraft will primarily take over the long routes to the Far East and South America, for which the Jumbo Jet is sometimes too large, or the range of the smaller jets is insufficient.",
+   "size": "SMALL",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "An airline reflecting its times",
+   "size": "EXTRA_LARGE",
+   "variant": "HEADLINE"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/images/local_images/mobile/100-years/new_mobile_timeline_content_part_2_image_08.png.transform/lh-dcep-transform-width-1440/img.jpg"
+  },
+  {
+   "type": "copyText",
+   "text": "1977",
+   "size": "LARGE",
+   "variant": "HEADLINE"
+  },
+  {
+   "type": "copyText",
+   "text": "With the formation of German Cargo Services GmbH, Lufthansa opens a new chapter. Through its own, legally independent charter subsidiary, the airline can operate more flexibly and cost-effectively. German Cargo rapidly becomes expert in handling anything that is bulky, delicate, or alive. Whether racehorses, day-old chicks, or complete industrial plants, anything that doesn\u2019t fit into the cargo hold of a scheduled airliner is taken care of by the charter subsidiary.",
+   "size": "SMALL",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "During the \u201cGerman Autumn\u201d terrorism crisis, Lufthansa flight LH 181 becomes the setting for an attack. On October 13, terrorists hijack the Boeing 737 Landshut. After a disastrous flight and the murder of Captain J\u00fcrgen Schumann in Aden, the hostage drama ends at Mogadishu Airport. The rescue by West German counter-terrorism unit GSG 9 on October 18 saves all 86 passengers \u2013 a dramatic milestone in German aviation history.",
+   "size": "SMALL",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "1979",
+   "size": "LARGE",
+   "variant": "HEADLINE"
+  },
+  {
+   "type": "copyText",
+   "text": "A small revolution takes place in the cabin: For the first time, female flight attendants are officially allowed to wear trousers as part of their uniform. Lufthansa is thus adapting to societal changes and proving once again that tradition and progress can go hand in hand.",
+   "size": "SMALL",
+   "variant": "BODY"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/images/local_images/mobile/100-years/new_mobile_timeline_content_part_2_image_09.png.transform/lh-dcep-transform-width-1440/img.jpg"
+  },
+  {
+   "type": "copyText",
+   "text": "1980",
+   "size": "LARGE",
+   "variant": "HEADLINE"
+  },
+  {
+   "type": "copyText",
+   "text": "After a 51-year hiatus, Lufthansa resumes regular flights to \u201cThe Middle Kingdom\u201d. On April 7, a McDonnell Douglas DC-10 takes off from Frankfurt on the first scheduled flight to Beijing.",
+   "size": "SMALL",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "In the fall, a Lufthansa crew is accorded a special honor. At the conclusion of his first major visit to West Germany, Pope John Paul II chooses the airline for his return journey to Rome.",
+   "size": "SMALL",
+   "variant": "BODY"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/images/local_images/mobile/100-years/new_mobile_timeline_content_part_2_image_10.png.transform/lh-dcep-transform-width-1440/img.jpg"
+  },
+  {
+   "type": "copyText",
+   "text": "1986",
+   "size": "LARGE",
+   "variant": "HEADLINE"
+  },
+  {
+   "type": "copyText",
+   "text": "Evi Lausmann and Nicola Lunemann are the first two women to begin their training as commercial airline pilots with Lufthansa. They are paving the way for many more female pilots. In August 1988, they fly their first scheduled flights as first officers (co-pilots) on a Boeing 737. However, in the first few years, there is no separate uniform for female pilots. They wear men\u2019s uniforms, including ties and men\u2019s caps, essentially \u201cdressed as men\u201d in order \u2013 as it is said internally \u2013 not to unsettle the passengers.",
+   "size": "SMALL",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "In Frankfurt, the handover of the 200th Boeing jet marks a special moment in the cooperation between Boeing and Lufthansa \u2013 a sign of mutual trust and shared growth.",
+   "size": "SMALL",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "1987",
+   "size": "LARGE",
+   "variant": "HEADLINE"
+  },
+  {
+   "type": "copyText",
+   "text": "Michele Jett is the first woman to start work as a flight engineer in a Lufthansa cockpit on a Boeing 727. Many more women in the cockpit will follow.",
+   "size": "SMALL",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "The world keeps growing closer",
+   "size": "EXTRA_LARGE",
+   "variant": "HEADLINE"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/images/local_images/mobile/100-years/new_mobile_timeline_content_part_2_image_11.png.transform/lh-dcep-transform-width-1440/img.jpg"
+  },
+  {
+   "type": "copyText",
+   "text": "1990",
+   "size": "LARGE",
+   "variant": "HEADLINE"
+  },
+  {
+   "type": "copyText",
+   "text": "A Boeing 747-400 with the registration number D-ABVE is christened \u201cPotsdam\u201d in September 1990, just a few days before German reunification. A deliberate gesture to carry the name of a city from the former GDR out into the world.",
+   "size": "SMALL",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "The day before reunification, Lufthansa carries out a special historic flight. An Airbus A310 takes off from Cologne/Bonn with around 100 members of the Bundestag on board and lands at Berlin-Tegel. This means that Lufthansa is officially back in Berlin after a 45-year hiatus and resumes scheduled services from October 28.",
+   "size": "SMALL",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Travel between East and West soon returns to normal. Lufthansa plays a key role in this, and in the years that follow it launches many new international routes, such as to Cape Town, Windhoek, and Almaty, making the flying experience a symbol of newfound freedom for millions of people.",
+   "size": "SMALL",
+   "variant": "BODY"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/images/local_images/mobile/100-years/new_mobile_timeline_content_part_2_image_12.png.transform/lh-dcep-transform-width-1440/img.jpg"
+  },
+  {
+   "type": "copyText",
+   "text": "1993\u20131996",
+   "size": "LARGE",
+   "variant": "HEADLINE"
+  },
+  {
+   "type": "copyText",
+   "text": "Miles &amp; More marks the launch of Germany\u2019s premier frequent flyer program. It heralds the beginning of modern customer loyalty in the German aviation industry.",
+   "size": "SMALL",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "The Airbus A340 replaces the older DC-10 and B747-200. It features a quieter, more modern cabin that enhances comfort on long-haul flights. At the same time, the A319 complements the successful A320 family as a slightly smaller variant and becomes an integral part of European air traffic.",
+   "size": "SMALL",
+   "variant": "BODY"
+  },
+  {
+   "type": "spacer",
+   "size": "LARGE"
+  }
+ ]
+}

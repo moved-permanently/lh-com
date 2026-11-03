@@ -1,0 +1,511 @@
+{
+ "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3",
+ "metadata": {
+  "title": "100 years of Lufthansa"
+ },
+ "body": {
+  "type": "column",
+  "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/par",
+  "items": [
+   {
+    "type": "image",
+    "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/image",
+    "url": "https://www.lufthansa.com/content/dam/lh/images/local_images/mobile/100-years/mobile_timeline_content_part_3_image_00_header.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+    "contentDescription": "A modern aircraft"
+   },
+   {
+    "type": "column",
+    "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn",
+    "items": [
+     {
+      "type": "spacer",
+      "size": "X_SMALL",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/separator_copy"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "A century of movement",
+      "variant": "HEADING_XXL",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/headline",
+      "isBold": true
+     },
+     {
+      "type": "spacer",
+      "size": "X_SMALL",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/separator_copy_copy"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "The history of Lufthansa \u2013 1997 to 2026",
+      "variant": "HEADING_XL",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/headline_800996456_c",
+      "isBold": true
+     },
+     {
+      "type": "spacer",
+      "size": "X_SMALL",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/separator_copy_copy_"
+     },
+     {
+      "type": "copyText",
+      "text": "<strong>100 years under the symbol of the crane \u2013 a century of Lufthansa. Join us on an eventful journey of pioneering spirit, disruptions, and new beginnings. What began in 1926 and relaunched in the 1950s, is today a global success story. Experience the pivotal moments and learn how Lufthansa has reinvented itself time and again in the face of political and historical barriers so that today it takes millions of people to their destinations year after year.</strong>",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/text_copy_0"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/image",
+      "url": "https://www.lufthansa.com/content/dam/lh/images/local_images/mobile/100-years/mobile_timeline_content_part_3_image_01.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "A modern aircraft"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "The leap into modernity&nbsp;",
+      "variant": "HEADING_L",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/headline_1751185423_",
+      "isBold": true
+     },
+     {
+      "type": "mainHeadline",
+      "text": "1997\u20132025",
+      "variant": "HEADING_M",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/headline_289594932_c",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "With the founding of the Star Alliance, increasing digitalization, and diverse technological innovations, Lufthansa is developing into a modern, globally networked airline. Modern cabins, advanced flight operations, and new partners make travel even more comfortable and connect people more reliably and seamlessly than ever.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/text_0"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "Globalization, alliance, and a turning point",
+      "variant": "HEADING_L",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/headline_1751185423__1586366216",
+      "isBold": true
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/image_7979018",
+      "url": "https://www.lufthansa.com/content/dam/lh/images/local_images/mobile/100-years/mobile_timeline_content_part_3_image_02.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Five aircraft assembled in a star shape on the tarmac"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "1997",
+      "variant": "HEADING_M",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/headline_289594932_c_407945328",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "The Star Alliance is founded in Frankfurt. Lufthansa launches this first global airline alliance together with United Airlines, Air Canada, SAS, and Thai Airways. It leads to a massive expansion of services. Passengers benefit from shared lounges and a consistent travel experience across the global network, which now serves more than 578 cities in over 106 countries with over 1,334 aircraft.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/text_684633570_0"
+     },
+     {
+      "type": "copyText",
+      "text": "Lufthansa becomes a wholly privately owned company. This increases the pressure to operate profitably but also allows for more flexible investments in new products and cabin equipment, enabling the airline to remain competitive internationally.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/text_684633570_1"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/image_239249609",
+      "url": "https://www.lufthansa.com/content/dam/lh/images/local_images/mobile/100-years/mobile_timeline_content_part_3_image_03.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "A collage of cabin interior in the 90s"
+     },
+     {
+      "type": "copyText",
+      "text": "At the end of 1997, Lufthansa modernizes its long-haul cabins. A new Business Class with the familiar dark blue seats and a more comfortable First Class with greater privacy are introduced. These changes shape the look and feel of the cabins well into the late 1990s.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/text_684633570_copy_0"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "2001",
+      "variant": "HEADING_M",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/headline_289594932_c_382914486",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "The terrorist attacks of September 11, 2001 fundamentally change international aviation. As a result, governments introduce tighter security measures, such as strictly regulated access controls, time-consuming checks on carry-on baggage and passengers, and new cockpit safeguards.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/text_1831952801_0"
+     },
+     {
+      "type": "copyText",
+      "text": "Nevertheless, with a view to the future of long-haul flights, Lufthansa decides to order 15 Airbus A380-800 aircraft. This is a clear signal of growth, modernization, and the aspiration to further increase comfort on intercontinental journeys.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/text_1831952801_1"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "The future of aviation",
+      "variant": "HEADING_L",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/headline_1751185423__1053417033",
+      "isBold": true
+     },
+     {
+      "type": "mainHeadline",
+      "text": "2002",
+      "variant": "HEADING_M",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/headline_289594932_c_427350940",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "Lufthansa orders ten Airbus A330-300s from Airbus. Another newcomer to the Lufthansa fleet is the A340-600, the longest passenger aircraft in the world. In the same year, during a Lufthansa test flight with the Boeing B747-400 \u201cSachsen-Anhalt\u201d from Frankfurt to Washington, an email is sent from on board an aircraft for the first time internationally.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/text_2071833590_0"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "2004",
+      "variant": "HEADING_M",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/headline_289594932_c_1384770232",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "As part of its \u201cFuture Cont.\u201d project, Lufthansa introduces a series of noticeable improvements for passengers. In Business Class, the middle seats will remain empty, creating greater privacy, elbow room, and space to relax. At the same time, the in-flight service on European routes gets a modern update \u2013 rounded off by new, elegantly designed tableware.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/text_2134819191_0"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/image_1027907458",
+      "url": "https://www.lufthansa.com/content/dam/lh/images/local_images/mobile/100-years/mobile_timeline_content_part_3_image_04.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "A man sitting in an aircraft with a laptop"
+     },
+     {
+      "type": "copyText",
+      "text": "Passengers can now stay connected even during a flight. Lufthansa FlyNet\u00ae is used for the first time in routine operation on a flight from Munich to Los Angeles. Lufthansa is therefore the first airline in the world to offer passengers fast Internet access above the clouds.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/text_886599599_0"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/image_1579230747",
+      "url": "https://www.lufthansa.com/content/dam/lh/images/local_images/mobile/100-years/mobile_timeline_content_part_3_image_05.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Picture of a lounge"
+     },
+     {
+      "type": "copyText",
+      "text": "In the same year, the Lufthansa First Class Terminal and two new First Class Lounges open at Frankfurt Airport. Here, First Class guests and HON Circle Members enjoy the highest standard of service.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/text_787462712_0"
+     },
+     {
+      "type": "copyText",
+      "text": "Lufthansa continues to fly high: In 2004 the airline carries more than 50 million passengers for the first time \u2013 a record result in the company\u2019s history.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/text_787462712_1"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "2005",
+      "variant": "HEADING_M",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/headline_289594932_c_751182380",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "A new chapter in aviation begins. In Toulouse, the world\u2019s largest passenger aircraft is presented to the public with the rollout of the Airbus A380. Shortly afterwards, the Airbus A380 has its premiere in Frankfurt.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/text_562241886_0"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "2006",
+      "variant": "HEADING_M",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/headline_289594932_c_175543649",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "The retrofitting of the Lufthansa continental fleet with the new Economy Class seats begins. The high-quality leather seats in a subtle color scheme give the entire cabin a new, modern look. The new seats also weigh less, leading to a reduction in fuel consumption.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/text_1962304015_0"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/image_341160305",
+      "url": "https://www.lufthansa.com/content/dam/lh/images/local_images/mobile/100-years/mobile_timeline_content_part_3_image_06.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "A group of children and crew members standing in front of a small aircraft"
+     },
+     {
+      "type": "copyText",
+      "text": "The 18th FIFA World Cup is held in Germany. Fifty aircraft from the Lufthansa fleet are painted with the \u201cfootball nose.\u201d They are carrying the World Cup team from Germany to the rest of the world.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/text_1061747667_0"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "2008",
+      "variant": "HEADING_M",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/headline_289594932_c_1745717420",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "The Lufthansa app is introduced, marking the start of Lufthansa\u2019s mobile services. Since then, it has undergone several technical and design updates, including a completely redesigned version \u2013 the digital travel companion \u2013 from 2023 onwards.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/text_121667463_0"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/image_283901207",
+      "url": "https://www.lufthansa.com/content/dam/lh/images/local_images/mobile/100-years/mobile_timeline_content_part_3_image_07.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Picture of an A380"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "2010",
+      "variant": "HEADING_M",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/headline_289594932_c_1858909772",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "A giant lands in Frankfurt. Lufthansa receives its first Airbus A380 \u2013 the world\u2019s largest passenger aircraft. The new Lufthansa First Class also celebrates its world premiere on board the aircraft. Its luxurious seats can be converted into beds that are 207 cm long and 80 cm wide (81.5 in. x 31.5 in.).",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/text_121667463_copy_0"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "An airline in transition",
+      "variant": "HEADING_L",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/headline_1751185423__1761931698",
+      "isBold": true
+     },
+     {
+      "type": "mainHeadline",
+      "text": "2011",
+      "variant": "HEADING_M",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/headline_289594932_c_776467922",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "Lufthansa takes a step towards the future by being the first airline in the world to test biofuel in daily scheduled operations. To do this, a specially selected Airbus A321 shuttles between Frankfurt and Hamburg for six months during a test phase that demonstrates how the search for new, more sustainable ways of flying is being driven forward.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/text_121667463_copy__0"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "2012",
+      "variant": "HEADING_M",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/headline_289594932_c_652781318",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "Lufthansa is the first airline in the world to take delivery of a Boeing 747-8 Intercontinental. The new generation of the legendary Jumbo Jet is quieter, more fuel-efficient, and more comfortable than its predecessor model.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/text_121667463_copy__915727042_0"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/image_1920648915",
+      "url": "https://www.lufthansa.com/content/dam/lh/images/local_images/mobile/100-years/mobile_timeline_content_part_3_image_08.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Picture of  \"Fanhansa\" and \"Siegerflieger\" aircraft"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "2014",
+      "variant": "HEADING_M",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/headline_289594932_c_540299430",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "Lufthansa becomes the airline of the soccer world champions. From May 2014, the word \u201cLufthansa\u201d on a total of eight aircraft is replaced by \u201cFanhansa.\u201d",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/text_121667463_copy__86570721_0"
+     },
+     {
+      "type": "copyText",
+      "text": "The highlight of the campaign is the return flight of the victorious German national football team from Rio de Janeiro on July 14, 2014. The Lufthansa Boeing 747-8 with the inscription \u201cSiegerflieger\u201d (\u201cWinners\u2019 Plane\u201d) flies the newly crowned football world champions directly to the fan mile in Berlin.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/text_121667463_copy__86570721_1"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "2016",
+      "variant": "HEADING_M",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/headline_289594932_c_1068897797",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "The new satellite terminal opens at Munich Airport, a modern hub offering impressively short distances to gates and an improved travel experience. It\u2019s another milestone for the Lufthansa hub in Munich.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/text_121667463_copy__1501889027_0"
+     },
+     {
+      "type": "copyText",
+      "text": "For the Olympic Games in Rio de Janeiro, Lufthansa carries German athletes and their equipment to Brazil \u2013 a special service in the name of sport.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/text_121667463_copy__1501889027_1"
+     },
+     {
+      "type": "copyText",
+      "text": "In Hamburg, in the same year, Lufthansa takes delivery of its first A350-900. The twin-engine, long-haul aircraft consists largely of innovative composite materials and is the most modern and environmentally friendly aircraft on the market. For Lufthansa, this means entering the so-called \u201c2-liter class,\u201d with a consumption of around two liters of fuel per passenger per 100 kilometers flown.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/text_121667463_copy__1501889027_2"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/image_1920648915_cop",
+      "url": "https://www.lufthansa.com/content/dam/lh/images/local_images/mobile/100-years/mobile_timeline_content_part_3_image_09.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Blue tail fin"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "2018",
+      "variant": "HEADING_M",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/headline_289594932_c_2044975650",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "Frankfurt and Munich are the settings for a special moment. Lufthansa presents its updated brand identity at two major events \u2013 and with it, a fleet with a fresh new look. The classic yellow disappears from the tail fin and a sophisticated dark blue becomes the dominant brand color.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/text_121667463_copy__1199914558_0"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "Lufthansa in the age of crises",
+      "variant": "HEADING_L",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/headline_1751185423__1660335200",
+      "isBold": true
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/image_1920648915_cop_726023415",
+      "url": "https://www.lufthansa.com/content/dam/lh/images/local_images/mobile/100-years/mobile_timeline_content_part_3_image_10.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Multiple aircraft lined up one after another"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "2020",
+      "variant": "HEADING_M",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/headline_289594932_c_1297021019",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "In March, the global Covid pandemic brings the world to a standstill. Where thousands of people used to fly around the world every day, an eerie silence now reigns. The majority of the Lufthansa fleet must remain grounded, parked on runways and taxiways, carefully maintained and mothballed by the engineers. Canceled flights, repatriation flights, mandatory mask wearing: Lufthansa responds to the pandemic with completely new service concepts such as flexible rebooking rules, new hygiene standards, and contactless processes at airports.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/text_121667463_copy__1084700818_0"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "2022",
+      "variant": "HEADING_M",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/headline_289594932_c_1294729468",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "After the crisis comes a new dawn, symbolized by the arrival of a new type of aircraft that redefines efficiency and comfort. On August 30, the first Boeing 787-9, the so-called \u201cDreamliner,\u201d lands in Frankfurt.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/text_121667463_copy__832153308_0"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/image_1920648915_cop_950064273",
+      "url": "https://www.lufthansa.com/content/dam/lh/images/local_images/mobile/100-years/mobile_timeline_content_part_3_image_11.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Lufthansa Allegris interior"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "2024",
+      "variant": "HEADING_M",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/headline_289594932_c_2102463283",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "Lufthansa launches the biggest product campaign in its history. Under the name \u201cLufthansa Allegris,\u201d the travel experience in all classes is completely reimagined. At the heart of the renewal is the move away from the one-size-fits-all approach. In Business Class alone, passengers can now choose between a number of different seating options, from the suite with extra privacy to the extra-long bed seat that extends to 2.20 meters (over 7 ft) in length. Flying becomes more personal, relaxed, and comfortable than ever before.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/text_121667463_copy__1048796910_0"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "2025",
+      "variant": "HEADING_M",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/headline_289594932_c_1168092112",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "The new Lufthansa Allegris cabin is available on an increasing number of flights: From Munich, destinations include New York, Chicago, Miami, Shanghai, and Cape Town. In addition, passengers are able to experience Lufthansa Allegris on the new Dreamliners departing from Frankfurt.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/text_121667463_copy__160157766_0"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/image_1920648915_cop_520735668",
+      "url": "https://www.lufthansa.com/content/dam/lh/images/local_images/mobile/100-years/mobile_timeline_content_part_3_image_12.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "100 years logo"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "2026",
+      "variant": "HEADING_M",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/headline_289594932_c_1074145914",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "Together we are celebrating 100 years of Lufthansa and looking to the future full of anticipation.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3/jcr:content/par/sduicolumn/column/text_121667463_copy__2105821128_0"
+     }
+    ],
+    "padding": {
+     "left": "SPACING_FOUR",
+     "right": "SPACING_FOUR"
+    },
+    "spacing": "LARGE"
+   }
+  ],
+  "spacing": "MEDIUM"
+ },
+ "cacheEnabled": true,
+ "version": "V2"
+}
