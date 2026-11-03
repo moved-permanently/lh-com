@@ -13,25 +13,66 @@ const ROWS = {
   'culinary-hub': [['Configuration', 'data-configuration'], ['API gateway', 'data-api-gateway']],
 };
 
+const clean = (s) => (s || '').replace(/[​-‍﻿]/g, '').replace(/\s+/g, ' ').trim();
+
+/**
+ * The page on www where the app works: the snapshot's canonical when it names a www host
+ * (www.swiss.com's claim pages), else the import URL's path on www.lufthansa.com.
+ */
+function livePage(document, url) {
+  const canonical = (document.querySelector('link[rel="canonical"]') || { getAttribute: () => '' }).getAttribute('href') || '';
+  if (/^https:\/\/www\.[a-z.-]+\/[^?#]*$/.test(canonical)) return canonical;
+  try {
+    const u = new URL((url || '').replace(/^http:\/\/localhost:\d+/, 'https://www.lufthansa.com'));
+    return `https://www.lufthansa.com${u.pathname.replace(/\.html$/, '')}`;
+  } catch (e) {
+    return 'https://www.lufthansa.com/';
+  }
+}
+
+/** The Fallback's Continue: bold (the site's primary button, as www's yellow one), to www's page. */
+function liveButton(document, text, live) {
+  const p = document.createElement('p');
+  const strong = document.createElement('strong');
+  const a = document.createElement('a');
+  a.href = live;
+  a.setAttribute('data-live-link', '');
+  a.textContent = text;
+  strong.append(a);
+  p.append(strong);
+  return p;
+}
+
+/**
+ * baggage-form-entry's Fallback (SWISS's /<root>/baggage-reimbursement): www's first screen, its
+ * headline, the two texts above the form (bold kept) and Continue to the page on www.
+ */
+function baggageFallback(element, document, url) {
+  const head = clean((element.querySelector('maui-headline') || {}).textContent);
+  const button = clean((element.querySelector('maui-button') || {}).textContent);
+  if (!head || !button) return null;
+  const h1 = document.createElement('h1');
+  h1.textContent = head;
+  const texts = [...element.querySelectorAll('maui-copy')].slice(0, 2).map((c) => {
+    const p = document.createElement('p');
+    p.innerHTML = c.innerHTML.replace(/\s+/g, ' ').trim();
+    return p;
+  }).filter((p) => clean(p.textContent));
+  return [h1, ...texts, liveButton(document, button, livePage(document, url))];
+}
+
 /**
  * claim-form-entry's Fallback (lufthansa.com's /{cc}/{ll}/support/fast-compensation/
- * compensation-flight-disruptions; shown until the app renders, and where it does not: its module
- * comes only from a host that serves /digitalhangar/ itself, its APIs answer www.lufthansa.com
- * only): www's first step, its headline, instruction and Continue button, the button (bold: the
- * site's primary button, as www's yellow one) a link to the page on www, where the app works.
+ * compensation-flight-disruptions, SWISS's /<root>/fast-compensation; shown until the app renders,
+ * and where it does not: its module comes only from a host that serves /digitalhangar/ itself, its
+ * APIs answer www only): www's first step, its headline, instruction and Continue button, the
+ * button a link to the page on www, where the app works.
  */
 function claimFallback(element, document, url) {
-  const clean = (s) => (s || '').replace(/[​-‍﻿]/g, '').replace(/\s+/g, ' ').trim();
   const heads = [...element.querySelectorAll('maui-headline')].map((h) => clean(h.textContent)).filter(Boolean);
   const button = clean((element.querySelector('maui-button') || {}).textContent);
   if (!heads.length || !button) return null;
-  let live = 'https://www.lufthansa.com/';
-  try {
-    const u = new URL((url || '').replace(/^http:\/\/localhost:\d+/, 'https://www.lufthansa.com'));
-    live = `https://www.lufthansa.com${u.pathname.replace(/\.html$/, '')}`;
-  } catch (e) {
-    // the default
-  }
+  const live = livePage(document, url);
   const out = [];
   const h1 = document.createElement('h1');
   h1.textContent = heads[0];
@@ -41,17 +82,11 @@ function claimFallback(element, document, url) {
     p.textContent = heads[1];
     out.push(p);
   }
-  const p = document.createElement('p');
-  const strong = document.createElement('strong');
-  const a = document.createElement('a');
-  a.href = live;
-  a.setAttribute('data-live-link', '');
-  a.textContent = button;
-  strong.append(a);
-  p.append(strong);
-  out.push(p);
+  out.push(liveButton(document, button, live));
   return out;
 }
+
+const FALLBACKS = { 'claim-form-entry': claimFallback, 'baggage-form-entry': baggageFallback };
 
 export default function parse(element, { document, url }) {
   const name = element.tagName.toLowerCase();
@@ -60,7 +95,10 @@ export default function parse(element, { document, url }) {
     const value = (element.getAttribute(attr) || '').trim();
     if (value) cells.push([label, value]);
   });
-  const fallback = name === 'claim-form-entry' ? claimFallback(element, document, url) : null;
+  // the release the page's script names (SWISS's importers: data-app-version, withAppVersions)
+  const version = (element.getAttribute('data-app-version') || '').trim();
+  if (/^(\d+\.\d+\.\d+|latest)$/.test(version)) cells.push(['Version', version]);
+  const fallback = FALLBACKS[name] ? FALLBACKS[name](element, document, url) : null;
   if (fallback) cells.push(['Fallback', fallback]);
   const block = WebImporter.Blocks.createBlock(document, { name: 'micro-frontend', cells });
   element.replaceWith(block);

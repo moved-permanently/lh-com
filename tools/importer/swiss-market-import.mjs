@@ -27,7 +27,8 @@ import {
   PLACEHOLDER, LINK_OUT, withPlaceholder, withLinkOuts, withTabMarkers, splitTabSections, withoutPlaceholders,
   withoutLoads, withTeaserColumns, withCheckinTabs, withOffersGridConfig, withItaForm, withPageLanguageMessages,
   withItaMetadata, withOwnSuccess, withFlightSearch, withCheckinHandoff, withHeroVideo, withFlightSearchVideo,
-  withFlightSearchTeaser, withOwnFlightSearchLinks, templateOf, divEnd, docName,
+  withFlightSearchTeaser, withOwnFlightSearchLinks, templateOf, divEnd, docName, withAppVersions,
+  withLiveFallback,
 } from './swiss-import.mjs';
 import { relativeDamLinks } from './swiss-dam.mjs';
 import { subSiteLinks, capturedPages, withOneH1 } from './swiss-sub-import.mjs';
@@ -270,7 +271,7 @@ if (isMain) {
     const t = templateOf(p, html);
     const copy = path.join(MAPPED, HOST, `${p}.html`);
     fs.mkdirSync(path.dirname(copy), { recursive: true });
-    const mapped = withOffersGridConfig(withoutLoads(withTabMarkers(withTeaserColumns(withCheckinTabs(withLinkOuts(withoutPlaceholders(withPlaceholder(withoutDatepicker(stripScripts(html)))), p))))))
+    const mapped = withOffersGridConfig(withoutLoads(withTabMarkers(withTeaserColumns(withCheckinTabs(withLinkOuts(withoutPlaceholders(withPlaceholder(withoutDatepicker(stripScripts(withAppVersions(html))))), p))))))
       .replace(/<output[^>]*class="screen-reader-announcer"[^>]*>[\s\S]*?<\/output>/g, '');
     fs.writeFileSync(copy, mapped);
     (byTemplate[t] ||= []).push(u);
@@ -362,7 +363,7 @@ if (isMain) {
     doc = withDaImages(withOwnSuccess(doc, (t) => served.has(t)));
     // the paths lh-swiss serves itself (/deeplink/cockpit) relative; Parent as a plain path; the
     // images Edge Delivery refuses as their local renderings
-    doc = withCockpitQuery(withLocalImageCopies(withParentPath(withServedLinks(doc, allow.served || []))), p);
+    doc = withLiveFallback(withCockpitQuery(withLocalImageCopies(withParentPath(withServedLinks(doc, allow.served || []))), p), p);
     fs.writeFileSync(f, doc);
   });
   fs.mkdirSync(path.join(W, 'runs'), { recursive: true });

@@ -36,46 +36,68 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-mfe.js
-  var tmp_bundle_mfe_677266_exports = {};
-  __export(tmp_bundle_mfe_677266_exports, {
-    default: () => tmp_bundle_mfe_677266_default
+  var tmp_bundle_mfe_297323_exports = {};
+  __export(tmp_bundle_mfe_297323_exports, {
+    default: () => tmp_bundle_mfe_297323_default
   });
 
   // tools/importer/parsers/micro-frontend.js
   var ROWS = {
     "culinary-hub": [["Configuration", "data-configuration"], ["API gateway", "data-api-gateway"]]
   };
-  function claimFallback(element, document, url) {
-    const clean = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
-    const heads = [...element.querySelectorAll("maui-headline")].map((h) => clean(h.textContent)).filter(Boolean);
-    const button = clean((element.querySelector("maui-button") || {}).textContent);
-    if (!heads.length || !button) return null;
-    let live = "https://www.lufthansa.com/";
+  var clean = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
+  function livePage(document, url) {
+    const canonical = (document.querySelector('link[rel="canonical"]') || { getAttribute: () => "" }).getAttribute("href") || "";
+    if (/^https:\/\/www\.[a-z.-]+\/[^?#]*$/.test(canonical)) return canonical;
     try {
       const u = new URL((url || "").replace(/^http:\/\/localhost:\d+/, "https://www.lufthansa.com"));
-      live = `https://www.lufthansa.com${u.pathname.replace(/\.html$/, "")}`;
+      return `https://www.lufthansa.com${u.pathname.replace(/\.html$/, "")}`;
     } catch (e) {
+      return "https://www.lufthansa.com/";
     }
-    const out = [];
-    const h1 = document.createElement("h1");
-    h1.textContent = heads[0];
-    out.push(h1);
-    if (heads[1]) {
-      const p2 = document.createElement("p");
-      p2.textContent = heads[1];
-      out.push(p2);
-    }
+  }
+  function liveButton(document, text, live) {
     const p = document.createElement("p");
     const strong = document.createElement("strong");
     const a = document.createElement("a");
     a.href = live;
     a.setAttribute("data-live-link", "");
-    a.textContent = button;
+    a.textContent = text;
     strong.append(a);
     p.append(strong);
-    out.push(p);
+    return p;
+  }
+  function baggageFallback(element, document, url) {
+    const head = clean((element.querySelector("maui-headline") || {}).textContent);
+    const button = clean((element.querySelector("maui-button") || {}).textContent);
+    if (!head || !button) return null;
+    const h1 = document.createElement("h1");
+    h1.textContent = head;
+    const texts = [...element.querySelectorAll("maui-copy")].slice(0, 2).map((c) => {
+      const p = document.createElement("p");
+      p.innerHTML = c.innerHTML.replace(/\s+/g, " ").trim();
+      return p;
+    }).filter((p) => clean(p.textContent));
+    return [h1, ...texts, liveButton(document, button, livePage(document, url))];
+  }
+  function claimFallback(element, document, url) {
+    const heads = [...element.querySelectorAll("maui-headline")].map((h) => clean(h.textContent)).filter(Boolean);
+    const button = clean((element.querySelector("maui-button") || {}).textContent);
+    if (!heads.length || !button) return null;
+    const live = livePage(document, url);
+    const out = [];
+    const h1 = document.createElement("h1");
+    h1.textContent = heads[0];
+    out.push(h1);
+    if (heads[1]) {
+      const p = document.createElement("p");
+      p.textContent = heads[1];
+      out.push(p);
+    }
+    out.push(liveButton(document, button, live));
     return out;
   }
+  var FALLBACKS = { "claim-form-entry": claimFallback, "baggage-form-entry": baggageFallback };
   function parse(element, { document, url }) {
     const name = element.tagName.toLowerCase();
     const cells = [[name]];
@@ -83,7 +105,9 @@ var CustomImportScript = (() => {
       const value = (element.getAttribute(attr) || "").trim();
       if (value) cells.push([label, value]);
     });
-    const fallback = name === "claim-form-entry" ? claimFallback(element, document, url) : null;
+    const version = (element.getAttribute("data-app-version") || "").trim();
+    if (/^(\d+\.\d+\.\d+|latest)$/.test(version)) cells.push(["Version", version]);
+    const fallback = FALLBACKS[name] ? FALLBACKS[name](element, document, url) : null;
     if (fallback) cells.push(["Fallback", fallback]);
     const block = WebImporter.Blocks.createBlock(document, { name: "micro-frontend", cells });
     element.replaceWith(block);
@@ -1518,7 +1542,7 @@ var CustomImportScript = (() => {
   // tools/importer/import-mfe.js
   var PAGE_TEMPLATE = {
     "name": "mfe",
-    "description": "Pages that host one of www's micro-frontends (book-and-manage/trip-management; support/fast-compensation/compensation-flight-disruptions: claim-form-entry); other systems POST <page>.mfe.html to them",
+    "description": "Pages that host one of www's micro-frontends (book-and-manage/trip-management; support/fast-compensation/compensation-flight-disruptions: claim-form-entry; SWISS's baggage-reimbursement: baggage-form-entry); other systems POST <page>.mfe.html to them",
     "urls": [
       "https://www.lufthansa.com/de/en/book-and-manage/trip-management"
     ],
@@ -1528,7 +1552,8 @@ var CustomImportScript = (() => {
         "instances": [
           "trip-management",
           "culinary-hub",
-          "claim-form-entry"
+          "claim-form-entry",
+          "baggage-form-entry"
         ]
       }
     ],
@@ -1572,7 +1597,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_mfe_677266_default = {
+  var tmp_bundle_mfe_297323_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -1602,5 +1627,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_mfe_677266_exports);
+  return __toCommonJS(tmp_bundle_mfe_297323_exports);
 })();

@@ -735,6 +735,30 @@ export function withOwnFlightSearchLinks(doc, p) {
 }
 
 /** The template of a page from its path and snapshot. */
+// the claim apps whose release the page names in its script (www's ch/ru: claim-form-entry 0.11.9)
+const VERSIONED_APPS = ['claim-form-entry', 'baggage-form-entry'];
+
+/**
+ * The release of a claim app the snapshot's module script names (<app>-0.11.9.js, <app>-latest.js)
+ * as the app element's data-app-version, before the scripts are stripped: the micro-frontend
+ * parser writes it as the block's Version row. A page without such a script as it is.
+ */
+export function withAppVersions(html) {
+  return VERSIONED_APPS.reduce((out, app) => {
+    const v = (out.match(new RegExp(`<script\\b[^>]*\\ssrc="[^"]*/${app}-(\\d+\\.\\d+\\.\\d+|latest)\\.js"`)) || [])[1];
+    return v ? out.replace(new RegExp(`<${app}(?=[\\s>])(?![^>]*data-app-version)`, 'g'), `<${app} data-app-version="${v}"`) : out;
+  }, html);
+}
+
+/**
+ * A micro-frontend block's Fallback link to the document's own page (Continue to www, where the
+ * app works: the parser's live link) back on www.swiss.com where a link step made it relative;
+ * other links and those outside the block as they are.
+ */
+export function withLiveFallback(doc, p) {
+  return doc.replace(/<div class="micro-frontend">[\s\S]*?<div><div>Fallback<\/div><div>[\s\S]*?<\/div><\/div><\/div>/g, (block) => block.split(`href="${p}"`).join(`href="https://${HOST}${p}"`));
+}
+
 export function templateOf(p, html) {
   if (/^\/[a-z]{2}\/[a-z]{2}\/homepage$/.test(p)) return 'homepage';
   // articles and the article hub: lh-com's insights template (article-header, price-bar)
@@ -742,8 +766,9 @@ export function templateOf(p, html) {
   if (/class="topoffersdestinationfinder/.test(html)) return 'hub';
   if (/class="flightstatustimetable/.test(html)) return 'flight-status';
   if (/class="slideshow/.test(html)) return 'fleet';
-  // the culinary journey (www's <culinary-hub> micro-frontend): the micro-frontend block, as Discover
-  if (/<culinary-hub[\s>]/.test(html)) return 'mfe';
+  // the culinary journey (www's <culinary-hub> micro-frontend): the micro-frontend block, as Discover;
+  // the claim pages (<claim-form-entry>, <baggage-form-entry>) as lufthansa.com's claim page
+  if (/<(culinary-hub|claim-form-entry|baggage-form-entry)[\s>]/.test(html)) return 'mfe';
   if (/checkinpassengerreceiptentry|class="[^"]*dcep-quick-actions/.test(html)) return 'app-entry';
   return 'info';
 }
@@ -771,7 +796,7 @@ if (isMain) {
     // (the help centre app's screen-reader announcement "Help page loaded." is no page text;
     // the Studio's snapshots keep www's scripts, which must not run in the import browser)
     // (the form's jQuery UI date picker, appended to the body and hidden on www, is no content)
-    const mapped = withOffersGridConfig(withoutLoads(withTabMarkers(withTeaserColumns(withCheckinTabs(withLinkOuts(withoutPlaceholders(withPlaceholder(editDivs(stripScripts(html), '<div id="ui-datepicker-div"', () => ''))), p))))))
+    const mapped = withOffersGridConfig(withoutLoads(withTabMarkers(withTeaserColumns(withCheckinTabs(withLinkOuts(withoutPlaceholders(withPlaceholder(editDivs(stripScripts(withAppVersions(html)), '<div id="ui-datepicker-div"', () => ''))), p))))))
       .replace(/<output[^>]*class="screen-reader-announcer"[^>]*>[\s\S]*?<\/output>/g, '');
     if (mapped.includes(`https://${LINK_OUT}`)) linkOuts.push(p);
     fs.writeFileSync(copy, mapped);
@@ -868,7 +893,7 @@ if (isMain) {
       const doc = fs.readFileSync(f, 'utf8');
       const linked = withOwnLinks(withLocalImages(relativeDamLinks(doc.split(`https://${LINK_OUT}`).join(`https://${HOST}`))), HOST, pages, aliases, { linkOut: linkOutDocs.has(p) ? p : null, served }).doc;
       // a form sends the visitor to its confirmation page on the site, never to www's
-      const next = withCockpitQuery(withOwnFlightSearchLinks(withOwnSuccess(linked, (t) => fs.existsSync(path.join(W, 'content', `${t}.plain.html`))), p), p);
+      const next = withLiveFallback(withCockpitQuery(withOwnFlightSearchLinks(withOwnSuccess(linked, (t) => fs.existsSync(path.join(W, 'content', `${t}.plain.html`))), p), p), p);
       if (next !== doc) fs.writeFileSync(f, next);
     });
     fs.writeFileSync(path.join(W, 'runs', `${name}-import.json`), `${JSON.stringify({ templates: out, documents: made, missing }, null, 1)}\n`);

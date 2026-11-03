@@ -8,7 +8,7 @@ import lufthansaSectionsTransformer from './transformers/lufthansa-sections.js';
 
 const PAGE_TEMPLATE = {
   "name": "mfe",
-  "description": "Pages that host one of www's micro-frontends (book-and-manage/trip-management; support/fast-compensation/compensation-flight-disruptions: claim-form-entry); other systems POST <page>.mfe.html to them",
+  "description": "Pages that host one of www's micro-frontends (book-and-manage/trip-management; support/fast-compensation/compensation-flight-disruptions: claim-form-entry; SWISS's baggage-reimbursement: baggage-form-entry); other systems POST <page>.mfe.html to them",
   "urls": [
     "https://www.lufthansa.com/de/en/book-and-manage/trip-management"
   ],
@@ -18,7 +18,8 @@ const PAGE_TEMPLATE = {
       "instances": [
         "trip-management",
         "culinary-hub",
-        "claim-form-entry"
+        "claim-form-entry",
+        "baggage-form-entry"
       ]
     }
   ],
