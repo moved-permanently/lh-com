@@ -17,10 +17,6 @@ import {
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const meta = (brand) => (name) => (name === 'brand' ? brand : '');
 const file = (p) => path.join(root, p.replace(/^\//, ''));
-// brands whose web app manifest isn't on the site yet (no manifest link until then): TAP (brief
-// 316), www.flytap.com's site.webmanifest names android-chrome-192x192.png and -512x512.png, which
-// no TAP image archive has (tap-media-001 to -007, 2026-11-03)
-const MANIFEST_PENDING = new Set(['tap']);
 
 test('brandIcons: lh-com\'s as in head.html; every brand its own', () => {
   assert.deepEqual(DEFAULT_ICONS, { icon: '/etc/designs/dcep/favicon.ico', manifest: '/etc/designs/dcep/manifest.json' });
@@ -29,13 +25,13 @@ test('brandIcons: lh-com\'s as in head.html; every brand its own', () => {
   assert.deepEqual(brandIcons(meta('discover')), { icon: '/etc/designs/four_y/favicon.ico', type: 'image/ico', manifest: '' }, 'www Discover links no manifest');
   assert.deepEqual(brandIcons(meta('cargo')), { icon: '/o/eportal-theme/images/favicon.ico', type: 'image/x-icon', manifest: '' });
   assert.deepEqual(brandIcons(meta('airdolomiti')), { icon: '/favicon/favicon.ico', type: 'image/png', manifest: '' }, 'www\'s favicon.ico is a PNG');
-  // www.flytap.com's /favicon/favicon.ico (Air Dolomiti's path in the code: TAP's under /favicon/tap/)
-  assert.deepEqual(brandIcons(meta('tap')), { icon: '/favicon/tap/favicon.ico', type: 'image/x-icon', manifest: '' });
+  // www.flytap.com's /favicon/ files (Air Dolomiti's path in the code: TAP's under /favicon/tap/,
+  // its manifest's icons too)
+  assert.deepEqual(brandIcons(meta('tap')), { icon: '/favicon/tap/favicon.ico', type: 'image/x-icon', manifest: '/favicon/tap/site.webmanifest' });
   Object.keys(BRANDS).forEach((key) => {
     const icons = brandIcons(meta(key));
     assert.ok(icons !== DEFAULT_ICONS && icons.icon !== DEFAULT_ICONS.icon, `${key} has its own icon`);
   });
-  MANIFEST_PENDING.forEach((key) => assert.equal(brandIcons(meta(key)).manifest, '', `${key}: no manifest until its icons are captured`));
 });
 
 test('the files are there: each icon, each manifest (JSON, not Lufthansa\'s) and the icons it names', () => {
