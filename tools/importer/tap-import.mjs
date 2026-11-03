@@ -44,6 +44,9 @@
  * pages); a file over Edge Delivery's limits (images and PDFs 20 MB, mp4 36 MB) is linked on the
  * source and listed; an image without a file is left out and listed (missing; with
  * --source-images it stays on www's image host instead, which the preview would fetch).
+ * Metadata: title, description, image, robots, the locale's nav and footer, the language, and the
+ * page's counterparts in the other languages that are documents of the site (www's hrefLangs:
+ * Alternate <lang>, for the header's language switch).
  * Writes content-sites/lh-tap/runs/<name>-import.json, <name>-paths.txt (new or changed
  * documents) and the allowlist tools/importer/sites/lh-tap.json.
  *
@@ -622,6 +625,14 @@ export function convertPage(nd, site) {
   if (desc) meta.push(['Description', esc(desc.trim())]);
   if (page.seoImage) { const im = P.img(page.seoImage); if (im) meta.push(['Image', im]); }
   if (page.seoIndexablePage === false) meta.push(['Robots', 'noindex, follow']);
+  // the page's counterparts in the site's other languages (www's hrefLangs) that are documents of
+  // the site: Alternate <lang> rows, the header's language switch goes there (site-languages.js)
+  (page.hrefLangs || []).forEach((h) => {
+    const p = h && h.url ? docPath(h.url) : '';
+    const m = p.match(/^\/([a-z]{2})-([a-z]{2})(?:\/|$)/);
+    if (!m || `${m[1]}-${m[2]}` === locale || !c.scope.has(p) || meta.some(([k]) => k === `Alternate ${m[1]}`)) return;
+    meta.push([`Alternate ${m[1]}`, esc(p)]);
+  });
   meta.push(['Nav', `/${locale}/nav`], ['Footer', `/${locale}/footer`], ['Language', c.lang]);
   docs = docs.map((s, i) => {
     const body = s.items.map((it) => it.html).join('');

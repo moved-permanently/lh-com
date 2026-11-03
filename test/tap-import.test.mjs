@@ -239,6 +239,24 @@ describe('tap-import pages', () => {
     assert.ok(t && t.textContent.includes('Discount'));
   });
 
+  it('the language counterparts (www\'s hrefLangs) we have documents for: Alternate <lang> rows', () => {
+    const page = {
+      props: {
+        pageProps: {
+          page: {
+            title: 'Central de ajuda',
+            sections: [{ __typename: 'ComponentHeadingModel', title: 'Central de ajuda' }],
+            hrefLangs: [{ url: '/de-de/hilfe' }, { url: '/en-pt/help' }, { url: '/en-gb/help' }],
+          },
+        },
+      },
+    };
+    const c = { ...ctx(), scope: new Set([...scope, '/en-pt/help']) };
+    const meta = dom(convertPage(page, c).html).querySelector('.metadata');
+    const rows = [...meta.querySelectorAll(':scope > div')].map((r) => [...r.children].map((x) => x.textContent));
+    assert.deepEqual(rows.filter(([k]) => /^Alternate/.test(k)), [['Alternate en', '/en-pt/help']]);
+  });
+
   it('the registration form page is out of scope (a form): skipped', () => {
     const r = convertPage(nd('registo'), ctx('https://www.flytap.com/pt-pt/registo'));
     assert.ok(r.skipped && /register/.test(r.skipped));
