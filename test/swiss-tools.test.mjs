@@ -288,6 +288,22 @@ test('a rendition of an asset without a file extension: its copy named with the 
   assert.equal(assetOf('/content/dam/lx/icons/a.svg'), '/content/dam/lx/icons/a.svg', 'an original as it is');
 });
 
+test('www\'s own file names from a snapshot, by Edge Delivery name: capitals, underscores, spaces and parentheses (www serves its pictures under those only)', async () => {
+  // eslint-disable-next-line import/extensions
+  const { ownNames } = await import('../tools/importer/swiss-dam.mjs');
+  const app = '/content/dam/lx/images/app/01-Check-in EN(1440x720).png';
+  const kit = '/content/dam/lx/images/local_variations/c-789238544-SWISS_Business_Amenity_Kit_Inbound_3-(1).jpg';
+  const video = '/content/dam/lx/videos/260408 SWISS Air Rail EN.mp4';
+  const plain = '/content/dam/lx/images/app/lx-app-store-en.png';
+  const html = `<div data-dcep="{&quot;imageUrl&quot;: &quot;${app}.transform/lh-dcep-transform-width-1440/img.jpg&quot;}"><img src="${app}.transform/lh-dcep-transform-width-1440/img.jpg" srcset="${app}.transform/lh-dcep-transform-width-720/img.jpg 720w"></div>
+    <img src="${kit}.transform/lh-dcep-transform-width-1440/img.jpg"><video src="${video}"></video><img src="${plain}"><div style="background-image:url(${plain})"></div>`;
+  const names = ownNames(html);
+  assert.equal(names.get('/content/dam/lx/images/app/01-check-in-en-1440x720.png'), app);
+  assert.equal(names.get('/content/dam/lx/images/local_variations/c-789238544-swiss-business-amenity-kit-inbound-3-1.jpg'), kit);
+  assert.equal(names.get('/content/dam/lx/videos/260408-swiss-air-rail-en.mp4'), video);
+  assert.equal(names.get(plain), plain);
+});
+
 test('images www no longer has: dropped (their paragraph when it holds only the picture), others as they are', async () => {
   // eslint-disable-next-line import/extensions
   const { withoutGoneImages } = await import('../tools/importer/swiss-dam.mjs');

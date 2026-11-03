@@ -94,6 +94,24 @@ export function damFiles(doc) {
   return out;
 }
 
+/**
+ * www's own names of a snapshot's DAM files by their Edge Delivery name (edsDamPath of the asset):
+ * capitals, underscores, spaces and parentheses as www writes them, the only names www serves its
+ * files under (DA-normalised ones answered 404 or 403 on www: swiss-dam-001, the magazine's list).
+ */
+export function ownNames(snapHtml) {
+  const own = new Map();
+  const set = (raw) => { const www = decode(raw); own.set(edsDamPath(assetOf(www)), www); };
+  [...snapHtml.matchAll(/(?:https:\/\/www\.swiss\.com)?(\/content\/dam\/[^"'?#\s)&,]+)/g)].forEach((m) => set(m[1]));
+  // names with spaces or parentheses ("260408 SWISS Air Rail EN.mp4", "01-Check-in EN(1440x720).png",
+  // "..._Inbound_3-(1).jpg"): up to the file's extension (the first scan stops at a space or ")";
+  // requesting the Edge Delivery name instead answered 403 on www, 2026-11-02)
+  [...snapHtml.matchAll(/(\/content\/dam\/[^"'?#&,<>]+?\.(?:jpe?g|png|svg|gif|webp|pdf|mp4|vtt))(?=["'?#)&,<\s]|\.transform)/gi)]
+    .filter((m) => /[\s()]/.test(m[1]))
+    .forEach((m) => set(m[1]));
+  return own;
+}
+
 const walk = (d) => (fs.existsSync(d) ? fs.readdirSync(d, { withFileTypes: true }).flatMap((e) => (e.isDirectory() ? walk(path.join(d, e.name)) : [path.join(d, e.name)])) : []);
 const readJson = (f, d) => (fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, 'utf8')) : d);
 const state = readJson(STATE, {});
@@ -127,16 +145,8 @@ function list() {
   walk(DOCS).filter((f) => f.endsWith('.plain.html')).forEach((f) => {
     const p = `/${path.relative(DOCS, f).replace(/\.plain\.html$/, '')}`;
     const snap = path.join(SNAPS, `${p}.html`);
-    const own = new Map();
     const snapHtml = fs.existsSync(snap) ? fs.readFileSync(snap, 'utf8') : '';
-    [...snapHtml.matchAll(/(?:https:\/\/www\.swiss\.com)?(\/content\/dam\/[^"'?#\s)&,]+)/g)]
-      .forEach((m) => { const www = decode(m[1]); own.set(edsDamPath(assetOf(www)), www); });
-    // names with spaces ("260408 SWISS Air Rail EN.mp4", "Bengaluru Header Video_8017471.mp4"):
-    // up to the file's extension (the first scan stops at the space; requesting the Edge Delivery
-    // name instead answered 403 on www, 2026-11-02)
-    [...snapHtml.matchAll(/(\/content\/dam\/[^"'?#)&,<>]+?\.(?:jpe?g|png|svg|gif|webp|pdf|mp4|vtt))(?=["'?#)&,<\s]|\.transform)/gi)]
-      .filter((m) => /\s/.test(m[1]))
-      .forEach((m) => { const www = decode(m[1]); own.set(edsDamPath(assetOf(www)), www); });
+    const own = ownNames(snapHtml);
     const linked = damFiles(fs.readFileSync(f, 'utf8')).map(([link, kind]) => [own.get(edsDamPath(assetOf(link))) || link, kind]);
     linked.forEach(([www, kind]) => add(www, p, kind));
     // the subtitle tracks of the page's videos (www's video viewer): for AEM with their video
