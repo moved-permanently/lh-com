@@ -3,10 +3,22 @@
    where it has texts for it (pt, en, es, fr, de, it, pl), English otherwise; Lufthansa and every
    other brand keep the English notice on every page.
    Run: node --max-old-space-size=512 --test test/showcase-notice-languages.test.mjs */
+/* global globalThis */
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { noticeTexts, NOTICE_TEXTS } from '../scripts/showcase-notice.js';
+import { parseHTML } from 'linkedom';
 import { BRANDS } from '../scripts/brands.js';
+
+// the module loads scripts/aem.js, which needs a window
+const { window, document } = parseHTML('<!DOCTYPE html><html><head></head><body></body></html>');
+window.hlx = { codeBasePath: '' };
+window.location = {
+  hostname: 'tap.turnsthe.page', pathname: '/es-es', search: '', hash: '', href: 'https://tap.turnsthe.page/es-es', origin: 'https://tap.turnsthe.page',
+};
+Object.defineProperty(window, 'origin', { value: 'https://tap.turnsthe.page', configurable: true });
+globalThis.window = window;
+globalThis.document = document;
+const { noticeTexts, NOTICE_TEXTS } = await import('../scripts/showcase-notice.js');
 
 const TAP_LANGUAGES = ['pt', 'en', 'es', 'fr', 'de', 'it', 'pl'];
 

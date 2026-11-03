@@ -362,6 +362,8 @@ export const BRANDS = {
   tap: {
     name: 'TAP Air Portugal',
     www: 'www.flytap.com',
+    // the showcase notice in the page's language (scripts/showcase-notice.js NOTICE_TEXTS)
+    showcaseNotice: 'page',
   },
 };
 

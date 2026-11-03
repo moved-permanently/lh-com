@@ -1,7 +1,9 @@
 /**
  * Showcase notice: a modal telling visitors that this replica is a technical showcase, not an
  * official website of the site's brand (Lufthansa; Discover Airlines on lh-discover:
- * scripts/brand.js). English on every locale and channel (website, FlyNet, app view).
+ * scripts/brand.js). English on every locale and channel (website, FlyNet, app view); a brand
+ * whose entry asks for it (scripts/brands.js showcaseNotice 'page': TAP) in the page's language
+ * where the notice has texts for it (NOTICE_TEXTS), English otherwise.
  *
  * - Started from the end of loadEager() (scripts/scripts.js) at a fixed early time, 1.8 s after
  *   navigation start (at once when the first section took longer): it no longer opens in the
@@ -20,15 +22,63 @@
  */
 import { loadCSS } from './aem.js';
 import { isAuthoringContext } from './consent.js';
-import { brandName } from './brand.js';
+import { brandName, brandOf, BRANDS } from './brand.js';
 
 export const STORAGE_KEY = 'lh-showcase-acknowledged';
 
-const TEXT = {
-  title: 'Technical showcase',
-  text: (brand) => `This page is a technical showcase, not an official ${brand} website. It is for demonstration purposes only.`,
-  button: 'I understand',
+/** The notice's texts per language: English everywhere, TAP's languages for TAP (brief 320). */
+export const NOTICE_TEXTS = {
+  en: {
+    title: 'Technical showcase',
+    text: (brand) => `This page is a technical showcase, not an official ${brand} website. It is for demonstration purposes only.`,
+    button: 'I understand',
+  },
+  pt: {
+    title: 'Demonstração técnica',
+    text: (brand) => `Esta página é uma demonstração técnica, não um website oficial da ${brand}. Destina-se apenas a fins de demonstração.`,
+    button: 'Compreendo',
+  },
+  es: {
+    title: 'Demostración técnica',
+    text: (brand) => `Esta página es una demostración técnica, no un sitio web oficial de ${brand}. Solo tiene fines demostrativos.`,
+    button: 'Entendido',
+  },
+  fr: {
+    title: 'Démonstration technique',
+    text: (brand) => `Cette page est une démonstration technique, et non un site web officiel de ${brand}. Elle sert uniquement à des fins de démonstration.`,
+    button: 'J\'ai compris',
+  },
+  de: {
+    title: 'Technische Demo',
+    text: (brand) => `Diese Seite ist eine technische Demo, keine offizielle Website von ${brand}. Sie dient nur zu Demonstrationszwecken.`,
+    button: 'Verstanden',
+  },
+  it: {
+    title: 'Dimostrazione tecnica',
+    text: (brand) => `Questa pagina è una dimostrazione tecnica, non un sito web ufficiale di ${brand}. Serve solo a scopo dimostrativo.`,
+    button: 'Ho capito',
+  },
+  pl: {
+    title: 'Prezentacja techniczna',
+    text: (brand) => `Ta strona jest prezentacją techniczną, a nie oficjalną witryną ${brand}. Służy wyłącznie do celów demonstracyjnych.`,
+    button: 'Rozumiem',
+  },
 };
+
+/**
+ * The notice's language and texts: English, or on a brand with showcaseNotice 'page' the page's
+ * language (htmlLang's language part) where NOTICE_TEXTS has it.
+ * @param {Object|null} brand the page's brand entry (null: lh-com)
+ * @param {string} htmlLang the page's <html lang>
+ */
+export function noticeTexts(brand, htmlLang) {
+  const own = String(htmlLang || '').slice(0, 2).toLowerCase();
+  const lang = brand && brand.showcaseNotice === 'page' && NOTICE_TEXTS[own] ? own : 'en';
+  const t = NOTICE_TEXTS[lang];
+  return {
+    lang, title: t.title, text: t.text(brand ? brand.name : brandName()), button: t.button,
+  };
+}
 
 let shown = false;
 
@@ -88,9 +138,11 @@ export function shouldShowNotice() {
 }
 
 function buildDialog() {
+  const key = brandOf();
+  const texts = noticeTexts(key ? BRANDS[key] : null, document.documentElement.lang);
   const dialog = document.createElement('dialog');
   dialog.className = 'showcase-notice';
-  dialog.lang = 'en';
+  dialog.lang = texts.lang;
   dialog.setAttribute('aria-labelledby', 'showcase-notice-title');
   dialog.setAttribute('aria-describedby', 'showcase-notice-text');
   dialog.setAttribute('closedby', 'none');
@@ -98,17 +150,17 @@ function buildDialog() {
   const title = document.createElement('h2');
   title.id = 'showcase-notice-title';
   title.className = 'showcase-notice-title';
-  title.textContent = TEXT.title;
+  title.textContent = texts.title;
 
   const text = document.createElement('p');
   text.id = 'showcase-notice-text';
   text.className = 'showcase-notice-text';
-  text.textContent = TEXT.text(brandName());
+  text.textContent = texts.text;
 
   const button = document.createElement('button');
   button.type = 'button';
   button.className = 'button primary showcase-notice-button';
-  button.textContent = TEXT.button;
+  button.textContent = texts.button;
 
   dialog.append(title, text, button);
   return { dialog, button };
