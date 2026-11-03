@@ -157,7 +157,7 @@ documents in that wave, as noted in rollout.md "The China host").
 | 9 | 20 | 72 | 60 / 11, and `/redirects.json` | – | – |
 | 10 | 8 | 38 | 24 / 14 | 2 (us/en ccpa, dnsmpi) | – |
 | **1–10** | **190** | **698** (697 documents and the redirects sheet) | | 21 | 1 |
-| 11 (French) | 14 (fr/fr and 13 market roots) | 323 | fr/fr 283 (its homepage, nav, footer, 273 pages and 7 form confirmations) / 13 × 3 and 1 own page | – | 1 |
+| 11 (French) | 15 (xx/fr and 14 market roots) | 329 | xx/fr 280 (its homepage, nav, footer, 270 pages and 7 form confirmations) / 14 × 3 and 7 own pages | – | 1 |
 | 12 (Spanish) | 14 (xx/es and 13 market roots) | 320 | xx/es 274 (its homepage, nav, footer, 265 pages and 6 form confirmations) / 13 × 3 and 7 own pages | – | 1 |
 
 The lists hold every document of the wave's roots that is on preview and not live yet, homepages,
@@ -332,14 +332,40 @@ www's de roots either** (checked 2026-11-03 through the Bright Data session, sho
   `/de/en/articles/tags/cape-town-travel-guide` and the nine others answer 301 to the tag page
   instead of 404, on the main host and (after their waves) on the market roots.
 
-## Wave 11: French (prepared 2026-11-02, brief 264; not switched)
+## Wave 11: French (prepared 2026-11-02, brief 264; rebuilt 2026-11-03, brief 281; not switched)
 
-fr/fr is French's language version (www's `xx/fr` has no pages; your choice: fr/fr, as de/en for
-English) and ar/fr be/fr ca/fr ch/fr cl/fr co/fr cr/fr dz/fr gq/fr lu/fr ma/fr tn/fr us/fr its 13
-market roots, all batch 11, `pilot` (rollout.md "Batch 11"). `publish-wave-11.txt`: **323 documents**
-(fr/fr 283: homepage, nav, footer first, then its pages; then per market root its homepage, nav and
-footer, dz/fr's own page). Left out: fr/fr's `…/register-ammunition1` (www's second copy of the
-ammunition form; no lh-forms id).
+**xx/fr is French's language version** (brief 281, your decision: www's `xx/fr` has pages since
+2026-11-03, so French follows Spanish's rule) and ar/fr be/fr ca/fr ch/fr cl/fr co/fr cr/fr dz/fr
+**fr/fr** gq/fr lu/fr ma/fr tn/fr us/fr its 14 market roots, all batch 11, `pilot`. xx/fr is a row of
+a root that is only an alternate in www's sitemaps (hreflang `fr`); its label "Autres pays |
+Français" is the replica's (www's selector on xx/fr shows the placeholder "XX | FR"; as xx/es's
+"Otros paises | Español"). The query indexes `search-xx-fr`, `market-model-xx-fr`, `market-llms-xx-fr`
+were in helix-query.yaml already (they fill on publish).
+
+xx/fr's pages: www's 351 xx/fr URLs of the sitemaps of 2026-10-25 (only alternates, as xx/es's; www's
+fresh sitemap fetch answered 403 on 2026-11-03), 275 in scope by their de/en counterpart's template
+as fr/fr's, captured through the long AEM URLs on 2026-11-03 (one session at a time, 04:58 to 07:23
+UTC, no block); 7 answer 404 on www: `articles/tags/toronto`, `lufthansa-city/menu-card` (fr/fr has
+neither) and the five alias URLs `business-class`, `digital-travel-companion`, `flynet`,
+`freigepaeck-regeln`, `lounges`, imported from their real pages under the alias paths (as xx/es's).
+Imported by template, nav and footer from its homepage, its forms (their lh-forms ids from the page
+name) and the **seven confirmation pages** they go to (captured, imported); 280 documents.
+
+**fr/fr is a market root now**: it shows xx/fr's documents except its **9 own** (homepage, nav and
+footer from xx/fr's with its label, and `asia-specials`, `toutes-les-couleurs-a-bord`, `yes`: no xx/fr
+page; `support/support`: fr/fr has www's new help centre, xx/fr the old "Aide et Contacts" page;
+`rechnungsbeleg`: fr/fr's own receipt and VAT text; `hotel-offers`: fr/fr's extra Miles section).
+**275 of today's fr/fr documents are unnecessary** (`fr-fr-unnecessary.tsv`: 240 the same as xx/fr's,
+27 that differ only in market parameters of links, texts only xx/fr has, layout rows or a link to the
+same page's other path, the 7 confirmations, www's second ammunition form); they stay in Document
+Authoring (not deleted) and are not in the list, so they are never published: the market route
+serves a root's own document when the origin (aem.live) has one. Pages of fr/fr then show xx/fr's
+links with `country=XX` (cockpit deeplinks, fix-price upgrades), as every market root shows its
+version's.
+
+`publish-wave-11.txt`: **329 documents** (xx/fr 280: homepage, nav, footer first, then its pages; then
+per market root its homepage, nav and footer, fr/fr's six and dz/fr's one own pages). All 329
+uploaded and previewed on 2026-11-03 (329 of 329 answer 200).
 
 **Brief 268 for wave 11**: the **seven confirmation pages** fr/fr's forms go to on www (each form's
 redirect target: the contact form confirmation of the feedback, group travel and emergency contact
@@ -358,26 +384,27 @@ English fallback (the fallback consent banner, lounge finder, check-in deadlines
 destination offer, carousel, blog), nothing French or Spanish replaced.
 
 **Release order for wave 11** (it differs from the en and de waves: the language version is new):
-1. Publish fr/fr's 276 lines first, then **wait until its indexes are filled**:
-   `main--lh-com--moved-permanently.aem.live/fr/fr/search-index.json` and `/market-model/fr-fr.json`
-   answer with the same `total` (about 275). The market roots answer every language page from these
+1. Publish xx/fr's 280 lines first, then **wait until its indexes are filled**:
+   `main--lh-com--moved-permanently.aem.live/xx/fr/search-index.json` and `/market-model/xx-fr.json`
+   answer with the same `total` (about 277). The market roots answer every language page from these
    indexes; before they are filled, every French market page but the root's own documents is 404
    (as the preview check shows: rollout.md "Checks against the preview origin").
-2. Publish the 40 market-root lines.
-3. The switch: `"liveWaves": [ …, 11 ]`, build, tests, commit, push (as above). Wave 11 makes fr/fr
+2. Publish the 49 market-root lines (fr/fr among them).
+3. The switch: `"liveWaves": [ …, 11 ]`, build, tests, commit, push (as above). Wave 11 makes xx/fr
    live together with its roots (build-locale-table.mjs: a market root goes live with its language
    version only; the country wave "ch" alone leaves ch/fr pilot).
 4. The checks as for every wave; the route check for two French roots on the main host.
 
 **What changes on the main host with wave 11**:
-- `/fr/fr/...` is a live root with its own documents (as de/en): the front door passes it to the
+- `/xx/fr/...` is a live root with its own documents (as de/en): the front door passes it to the
   origin (published documents), its pages get the hreflang alternates of the live roots
-  (src/live-alternates.js), and the country dialog lists France | Français with the four.
+  (src/live-alternates.js). fr/fr and the 13 others are market roots (entry addresses, market
+  route; France | Français in the country dialog).
 - The 13 market roots as every wave's: entry addresses, market route, sitemap files, llms, the
   dialog on their pages; ch/fr joins ch/en and ch/de on `/ch` (the table's order: de first).
-- Not yet: **fr/fr's own sitemap file** (`/sitemap/sitemap_lh_fr_fr.xml`) is not in
-  helix-sitemap.yaml, and the static sitemap index lists the four; adding both changes the main
-  host, so they wait for the switch (one commit with wave 11). The search API for French headers
+- Not yet: **xx/fr's sitemap file** is not in helix-sitemap.yaml, and the static sitemap index
+  lists the four; adding both changes the main host, so they wait for the switch (one commit with
+  wave 11, as xx/es's with wave 12). The search API for French headers
   answers from fr/fr's data once build-search-data includes the live root (LIVE_ROOTS).
 - The site's labels in French: the header, footer, forms and search texts the blocks bring for en
   and de fall back to English on French pages (the content is French).
@@ -388,8 +415,8 @@ market roots' lines first).
 ## Wave 12: Spanish (prepared 2026-11-03, brief 268; not switched)
 
 **xx/es is Spanish's language version.** www's `xx/es` has pages of its own (its homepage,
-`flights`, the Munich stopover page answer in Spanish with their own canonical, 2026-11-02), unlike
-`xx/fr`; following your rule (xx first, es/es otherwise) it is the version, a row of a root that
+`flights`, the Munich stopover page answer in Spanish with their own canonical, 2026-11-02; `xx/fr`
+too since 2026-11-03, wave 11); following your rule (xx first, es/es otherwise) it is the version, a row of a root that
 is only an alternate in www's sitemaps (hreflang `es`, label "Otros paises | Español"), and
 **es/es (Spain) is a market root** like the other twelve: ar br ca cl co cr ec es mx pa pe us ve
 /es, 13 in all, batch 12, `pilot` (rollout.md "Batch 12"). The query indexes `search-xx-es`,
@@ -442,7 +469,7 @@ airlines' documents in some of these languages, not Lufthansa's.
 
 | Language | Roots | Root with most URLs on www | Language version on Edge Delivery |
 | --- | --- | --- | --- |
-| fr | 14: ar/fr be/fr ca/fr ch/fr cl/fr co/fr cr/fr dz/fr fr/fr gq/fr lu/fr ma/fr tn/fr us/fr | ch/fr (351) | **fr/fr** (pilot, wave 11; www's xx/fr has no pages) |
+| fr | 14: ar/fr be/fr ca/fr ch/fr cl/fr co/fr cr/fr dz/fr fr/fr gq/fr lu/fr ma/fr tn/fr us/fr | ch/fr (351) | **xx/fr** (pilot, wave 11; www's xx/fr has pages since 2026-11-03; fr/fr a market root) |
 | es | 13: ar/es br/es ca/es cl/es co/es cr/es ec/es es/es mx/es pa/es pe/es us/es ve/es | es/es (357) | **xx/es** (pilot, wave 12; www's xx/es has pages) |
 | pt | 3: ao/pt br/pt pt/pt | pt/pt (345) | none |
 | ru | 3: by/ru kz/ru ru/ru | ru/ru (338) | none |
@@ -471,10 +498,11 @@ captures for the version's ~280 in-scope pages and the roots' ~4 pages each):
 
 ## Open
 
-- **www's xx/fr has pages now** (2026-11-03: its homepage, flights and the Munich stopover page
-  answer in French with their own canonical through the long URLs; at the end of October its homepage
-  was 404). Wave 11 keeps fr/fr as the language version until you decide (as xx/es for Spanish, xx/fr
-  would be the version and fr/fr a market root).
+- **xx/fr's label**: www's selector on xx/fr shows the placeholder "XX | FR"; the row, nav and footer
+  say "Autres pays | Français" (as xx/es's "Otros paises | Español"). Your call if www's wording should
+  stay.
+- **fr/fr's 275 unnecessary documents** (`fr-fr-unnecessary.tsv`): in Document Authoring, never
+  published; delete them there if you want (the agent does not).
 - **Ten redirect rows** for the travel guides (above).
 - **Wave 00, the market-neutral pages**: publish before wave 1 (it changes ch's answers on the
   main host at once); 34 xx URLs are www's de/<ll> pages out of scope (your decision); which of the

@@ -1,0 +1,279 @@
+# fr/fr documents unnecessary with xx/fr as French's version (brief 281, 2026-11-03): fr/fr is a market root
+# and shows xx/fr's document there. Not in publish-wave-11.txt; still in Document Authoring (not deleted).
+# Kept as fr/fr's own (in the list): homepage, nav, footer, asia-specials, toutes-les-couleurs-a-bord, yes,
+# support/support, rechnungsbeleg, hotel-offers.
+/fr/fr/100-years	the same as xx/fr
+/fr/fr/100-years/cabin-design	the same as xx/fr
+/fr/fr/100-years/campaigns	the same as xx/fr
+/fr/fr/100-years/chronicle	the same as xx/fr
+/fr/fr/100-years/crane	the same as xx/fr
+/fr/fr/100-years/destinations	the same as xx/fr
+/fr/fr/100-years/fleet	the same as xx/fr
+/fr/fr/100-years/global-network	the same as xx/fr
+/fr/fr/100-years/history	the same as xx/fr
+/fr/fr/100-years/history/menu-on-board	the same as xx/fr
+/fr/fr/320	the same as xx/fr
+/fr/fr/32n	the same as xx/fr
+/fr/fr/359	the same as xx/fr
+/fr/fr/744	the same as xx/fr
+/fr/fr/accessible-travel	the same as xx/fr
+/fr/fr/additional-services	the same as xx/fr
+/fr/fr/admission-rules	the same as xx/fr
+/fr/fr/adresses-dans-le-monde-entier	the same as xx/fr
+/fr/fr/advance-seat-reservation	differs from xx/fr only in: market parameters in links (country=XX, xx-fr; as every market root shows its version)
+/fr/fr/advance-seat-reservations-terms-and-conditions	the same as xx/fr
+/fr/fr/advice-for-travellers-with-special-needs-to-and-from-the-usa	the same as xx/fr
+/fr/fr/affiliatemarketing	the same as xx/fr
+/fr/fr/all-check-in	the same as xx/fr
+/fr/fr/alleinreisende-kinder	the same as xx/fr
+/fr/fr/anmeldung-tiere-frachtraum	the same as xx/fr
+/fr/fr/arrival-services	the same as xx/fr
+/fr/fr/articles/highlights	the same as xx/fr
+/fr/fr/articles/highlights/allegris-business-class-shanghai	the same as xx/fr
+/fr/fr/articles/highlights/allegris-business-san-diego	the same as xx/fr
+/fr/fr/articles/highlights/allegris-new-york	the same as xx/fr
+/fr/fr/articles/highlights/allegris-premium-economy-san-diego	the same as xx/fr
+/fr/fr/articles/highlights/the-art-of-flying-extra-long-bed	the same as xx/fr
+/fr/fr/articles/highlights/the-art-of-flying-extra-space-seat	the same as xx/fr
+/fr/fr/articles/highlights/the-art-of-flying-suite	the same as xx/fr
+/fr/fr/articles/tags	the same as xx/fr
+/fr/fr/articles/tags/allegris	the same as xx/fr
+/fr/fr/articles/tags/allegris-inspires	the same as xx/fr
+/fr/fr/articles/tags/art	the same as xx/fr
+/fr/fr/assistenzhunde	the same as xx/fr
+/fr/fr/automatic-check-in	the same as xx/fr
+/fr/fr/baggage-irregularities	the same as xx/fr
+/fr/fr/batteries-de-fauteuil-roulant	the same as xx/fr
+/fr/fr/besondere-befoerderungsbedingungen-bus	the same as xx/fr
+/fr/fr/bid-upgrade	the same as xx/fr
+/fr/fr/boarding	the same as xx/fr
+/fr/fr/boeing787	the same as xx/fr
+/fr/fr/book-and-manage/additional-services/get-your-guide	the same as xx/fr
+/fr/fr/book-and-manage/additional-services/travel-insurances	the same as xx/fr
+/fr/fr/book-and-manage/digital-self-services/airline-apps	the same as xx/fr
+/fr/fr/book-and-manage/flights/air-baltic	the same as xx/fr
+/fr/fr/book-and-manage/flights/ana	the same as xx/fr
+/fr/fr/book-and-manage/flights/ana/faq	the same as xx/fr
+/fr/fr/book-and-manage/flights/giftvoucher	the same as xx/fr
+/fr/fr/book-and-manage/flights/helvetic	the same as xx/fr
+/fr/fr/book-and-manage/flights/wetlease-hub	the same as xx/fr
+/fr/fr/book-and-manage/passenger-receipt-90days/confirmation	a form confirmation, the same as xx/fr's
+/fr/fr/book-and-manage/pax-receipt	the same as xx/fr
+/fr/fr/book-and-manage/pax-receipt/invoices-different-countries	the same as xx/fr
+/fr/fr/book-and-manage/rebook	the same as xx/fr
+/fr/fr/book-and-manage/rebook/involuntary-rebooking	differs from xx/fr only in: market parameters in links (country=XX, xx-fr; as every market root shows its version)
+/fr/fr/book-and-manage/rebook/voluntary-rebooking	differs from xx/fr only in: market parameters in links (country=XX, xx-fr; as every market root shows its version)
+/fr/fr/book-and-manage/stopover	differs from xx/fr only in: layout or configuration rows
+/fr/fr/book-and-manage/stopover/bayerischer-hof	the same as xx/fr
+/fr/fr/book-and-manage/stopover/neuschwanstein	the same as xx/fr
+/fr/fr/book-and-manage/stopover/zugspitze	the same as xx/fr
+/fr/fr/business-class	differs from xx/fr only in: texts only xx/fr has
+/fr/fr/business-class-on-short-and-medium-haul	the same as xx/fr
+/fr/fr/business-services	the same as xx/fr
+/fr/fr/cancellations-and-refunds	the same as xx/fr
+/fr/fr/cash-and-miles	the same as xx/fr
+/fr/fr/check-in-baggage	the same as xx/fr
+/fr/fr/check-in-with-the-family	the same as xx/fr
+/fr/fr/common	the same as xx/fr
+/fr/fr/common/accessibility-statement	the same as xx/fr
+/fr/fr/common/agb-extra-services-at-online-check-in	the same as xx/fr
+/fr/fr/common/agb-extra-services-at-online-check-in/conditions-seat-reservation	the same as xx/fr
+/fr/fr/common/compensation-voucher	the same as xx/fr
+/fr/fr/common/imprint/lufthansa-insights-imprint	the same as xx/fr
+/fr/fr/common/privacy-statement/privacy-statement-group	the same as xx/fr
+/fr/fr/common/seatreservation-condtions/seat-reservations	the same as xx/fr
+/fr/fr/conditions-de-prelevement-sepa	the same as xx/fr
+/fr/fr/conditions-de-prelevement-sepa-b	the same as xx/fr
+/fr/fr/conditions-generales	the same as xx/fr
+/fr/fr/conditions-generales-conversion-de-devises	the same as xx/fr
+/fr/fr/conditions-rail-fly	the same as xx/fr
+/fr/fr/cookie-policy	the same as xx/fr
+/fr/fr/culinaryjourney	the same as xx/fr
+/fr/fr/dangerous-dogs	the same as xx/fr
+/fr/fr/data-collection-canada	the same as xx/fr
+/fr/fr/data-collection-usa	the same as xx/fr
+/fr/fr/data-protection-information	the same as xx/fr
+/fr/fr/datenschutz	the same as xx/fr
+/fr/fr/digital-baggage-services	the same as xx/fr
+/fr/fr/digital-self-services	the same as xx/fr
+/fr/fr/digital-travel-companion	the same as xx/fr
+/fr/fr/discover-lufthansa/carbon-offsetting/climate-protection-projects	the same as xx/fr
+/fr/fr/discover-lufthansa/carbon-offsetting/environmental-cost-surcharge	the same as xx/fr
+/fr/fr/discover-lufthansa/carbon-offsetting/faq-saf	the same as xx/fr
+/fr/fr/discover-lufthansa/carbon-offsetting/saf	the same as xx/fr
+/fr/fr/discover-lufthansa/flightreservation-priceguarantee	the same as xx/fr
+/fr/fr/discover-lufthansa/lufthansa-fleet/351	the same as xx/fr
+/fr/fr/discover-lufthansa/lufthansa-group-airlines/ita-airways	the same as xx/fr
+/fr/fr/discover-lufthansa/new-onboard-experience	the same as xx/fr
+/fr/fr/discover-lufthansa/take-off	the same as xx/fr
+/fr/fr/doctor-on-board	the same as xx/fr
+/fr/fr/doctor-on-board-news	the same as xx/fr
+/fr/fr/during-your-trip/internet-overview	the same as xx/fr
+/fr/fr/during-your-trip/lhg-wifi	the same as xx/fr
+/fr/fr/economy-class	the same as xx/fr
+/fr/fr/electronic-bag-tags	the same as xx/fr
+/fr/fr/emergency-contact	differs from xx/fr only in: texts only xx/fr has; layout or configuration rows
+/fr/fr/entryprocesses	the same as xx/fr
+/fr/fr/europa-tarife-economy-class	the same as xx/fr
+/fr/fr/europcar	differs from xx/fr only in: layout or configuration rows
+/fr/fr/exclusive-charter	the same as xx/fr
+/fr/fr/faq-data-security	the same as xx/fr
+/fr/fr/faq-ejournals	the same as xx/fr
+/fr/fr/faq-password-security	the same as xx/fr
+/fr/fr/farealert/best-price-alert	the same as xx/fr
+/fr/fr/feedback	the same as xx/fr
+/fr/fr/feedback-past-flight	the same as xx/fr
+/fr/fr/feedback/feedbackai	the same as xx/fr
+/fr/fr/fia-valet-service	the same as xx/fr
+/fr/fr/first-class	the same as xx/fr
+/fr/fr/first-class-lounges	the same as xx/fr
+/fr/fr/first-class-personal-assistant	the same as xx/fr
+/fr/fr/first-class-terminal	the same as xx/fr
+/fr/fr/first-class-valet-parking-service	the same as xx/fr
+/fr/fr/fliegen-mit-baby	the same as xx/fr
+/fr/fr/fliegen-mit-kleinkind	the same as xx/fr
+/fr/fr/flight-search	the same as xx/fr
+/fr/fr/flights	differs from xx/fr only in: texts only xx/fr has; layout or configuration rows
+/fr/fr/flughafeninformation	the same as xx/fr
+/fr/fr/flugunregelmaessigkeiten	the same as xx/fr
+/fr/fr/fly-more-sustainabl	the same as xx/fr
+/fr/fr/flynet	the same as xx/fr
+/fr/fr/fmg-valet-parking-service	the same as xx/fr
+/fr/fr/frankfurt-fair	the same as xx/fr
+/fr/fr/free2move	the same as xx/fr
+/fr/fr/freigepaeck-regeln	the same as xx/fr
+/fr/fr/gefaehrliche-gegenstaende	the same as xx/fr
+/fr/fr/gepaeck	differs from xx/fr only in: a link to another path of the same page
+/fr/fr/gesund-reisen	the same as xx/fr
+/fr/fr/green-fare	the same as xx/fr
+/fr/fr/group-travel	the same as xx/fr
+/fr/fr/handgepaeck	the same as xx/fr
+/fr/fr/hertz	the same as xx/fr
+/fr/fr/heures-limites-d-enregistrement	the same as xx/fr
+/fr/fr/imprint	the same as xx/fr
+/fr/fr/informations-enregistrement-en-ligne	the same as xx/fr
+/fr/fr/kinder-an-bord	the same as xx/fr
+/fr/fr/kindermenues-an-bord	differs from xx/fr only in: texts only xx/fr has
+/fr/fr/lh-rentalcar	the same as xx/fr
+/fr/fr/lounge-begleitung	the same as xx/fr
+/fr/fr/lounges	the same as xx/fr
+/fr/fr/lufthansa-a-aeroport-de-vienne	the same as xx/fr
+/fr/fr/lufthansa-am-flughafen-frankfurt	the same as xx/fr
+/fr/fr/lufthansa-at-berlin-airport	the same as xx/fr
+/fr/fr/lufthansa-at-duesseldorf-airport	the same as xx/fr
+/fr/fr/lufthansa-at-zuerich-airport	the same as xx/fr
+/fr/fr/lufthansa-aviation-group	the same as xx/fr
+/fr/fr/lufthansa-business-class-on-long-haul-routes	the same as xx/fr
+/fr/fr/lufthansa-city/culinaryjourney	the same as xx/fr
+/fr/fr/lufthansa-corporate-customers	the same as xx/fr
+/fr/fr/lufthansa-express	the same as xx/fr
+/fr/fr/lufthansa-express-bus	the same as xx/fr
+/fr/fr/lufthansa-express-rail	the same as xx/fr
+/fr/fr/lufthansa-first-class-confort	the same as xx/fr
+/fr/fr/lufthansa-first-class-entertainment	the same as xx/fr
+/fr/fr/lufthansa-first-class-fleet	the same as xx/fr
+/fr/fr/lufthansa-group-star-alliance-and-partner-airlines	the same as xx/fr
+/fr/fr/lufthansa-guide-service	the same as xx/fr
+/fr/fr/lufthansa-reiseklassen	the same as xx/fr
+/fr/fr/lufthansa-terminal-muenchen	the same as xx/fr
+/fr/fr/medikamenten-transport	the same as xx/fr
+/fr/fr/meetings-and-events	the same as xx/fr
+/fr/fr/meetings-et-events-organisateur	the same as xx/fr
+/fr/fr/meetings-et-events-participants	the same as xx/fr
+/fr/fr/meine-buchungen	differs from xx/fr only in: market parameters in links (country=XX, xx-fr; as every market root shows its version); texts only xx/fr has
+/fr/fr/menus-classes-de-voyage	the same as xx/fr
+/fr/fr/menus-on-long-haul-flights	the same as xx/fr
+/fr/fr/miles-and-more	the same as xx/fr
+/fr/fr/mit-kindern-am-flughafen	the same as xx/fr
+/fr/fr/mobility-partner-program-healthcare	the same as xx/fr
+/fr/fr/mon-journal-de-bord	the same as xx/fr
+/fr/fr/munich-fair	the same as xx/fr
+/fr/fr/onboard-delights	the same as xx/fr
+/fr/fr/onboard-delights-faq	the same as xx/fr
+/fr/fr/online-check-in	differs from xx/fr only in: market parameters in links (country=XX, xx-fr; as every market root shows its version)
+/fr/fr/overview-flights	the same as xx/fr
+/fr/fr/overview-manage	differs from xx/fr only in: market parameters in links (country=XX, xx-fr; as every market root shows its version)
+/fr/fr/overview-special-request	the same as xx/fr
+/fr/fr/overview-travel-information	the same as xx/fr
+/fr/fr/partner	the same as xx/fr
+/fr/fr/passenger-receipt-90	the same as xx/fr
+/fr/fr/passenger-rights	the same as xx/fr
+/fr/fr/passengers-using-wheelchairs	the same as xx/fr
+/fr/fr/passengers-with-sensory-impairment	differs from xx/fr only in: texts only xx/fr has
+/fr/fr/payment-options-at-the-airport	the same as xx/fr
+/fr/fr/pre-check-in	the same as xx/fr
+/fr/fr/premium-economy-class	differs from xx/fr only in: texts only xx/fr has
+/fr/fr/prepare-for-your-trip/baggage/baggage-conditions	the same as xx/fr
+/fr/fr/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg	the same as xx/fr
+/fr/fr/prepare-for-your-trip/baggage/baggage-irregularities/faq-baggage-delay	differs from xx/fr only in: a link to another path of the same page
+/fr/fr/prepare-for-your-trip/baggage/baggage-irregularities/faq-damaged-baggage	differs from xx/fr only in: a link to another path of the same page
+/fr/fr/prepare-for-your-trip/baggage/electronic-devices-and-batteries	the same as xx/fr
+/fr/fr/prepare-for-your-trip/baggage/sport-baggage/register-ammunition	the same as xx/fr
+/fr/fr/prepare-for-your-trip/baggage/sport-baggage/register-ammunition1	www's second copy of the ammunition form (never in a publish list)
+/fr/fr/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm1/confirmation	a form confirmation, the same as xx/fr's
+/fr/fr/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation	a form confirmation, the same as xx/fr's
+/fr/fr/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation	a form confirmation, the same as xx/fr's
+/fr/fr/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation	a form confirmation, the same as xx/fr's
+/fr/fr/prepare-for-your-trip/current-travel-information	the same as xx/fr
+/fr/fr/prepare-for-your-trip/entry-regulations/entering-schengen/entry-exit-system	the same as xx/fr
+/fr/fr/prepare-for-your-trip/entry-regulations/immigration-regulations-uk	the same as xx/fr
+/fr/fr/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-bus-briefing	the same as xx/fr
+/fr/fr/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-rail-briefing	the same as xx/fr
+/fr/fr/prepare-for-your-trip/special-travel-needs/medical-travel-companions	the same as xx/fr
+/fr/fr/prepare-for-your-trip/special-travel-needs/travel-with-needs/cognitive-impairment	differs from xx/fr only in: texts only xx/fr has
+/fr/fr/prepare-for-your-trip/special-travel-needs/travel-with-needs/hearing-impairment	differs from xx/fr only in: texts only xx/fr has
+/fr/fr/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation	a form confirmation, the same as xx/fr's
+/fr/fr/prepare-for-your-trip/special-travel-needs/travel-with-needs/travel-companion	differs from xx/fr only in: texts only xx/fr has
+/fr/fr/prepare-for-your-trip/special-travel-needs/travel-with-needs/visual-impairment	differs from xx/fr only in: texts only xx/fr has
+/fr/fr/prepare-for-your-trip/travel-classes/economy-basic	the same as xx/fr
+/fr/fr/prepare-for-your-trip/travelling-with-children/child-in-businessclass	differs from xx/fr only in: layout or configuration rows
+/fr/fr/prepare-for-your-trip/travelling-with-children/planning-with-kids	the same as xx/fr
+/fr/fr/rail-and-fly	the same as xx/fr
+/fr/fr/refund	the same as xx/fr
+/fr/fr/register-animal-cabin	the same as xx/fr
+/fr/fr/schengen	the same as xx/fr
+/fr/fr/seat-maps	the same as xx/fr
+/fr/fr/secure-flight	the same as xx/fr
+/fr/fr/security-check-time-slot	the same as xx/fr
+/fr/fr/security-fast-lanes	the same as xx/fr
+/fr/fr/segment-principal	the same as xx/fr
+/fr/fr/services-a-l-aeroport-de-munich	the same as xx/fr
+/fr/fr/services-am-flughafen-frankfurt	the same as xx/fr
+/fr/fr/services-an-bord	the same as xx/fr
+/fr/fr/services-at-the-airport	the same as xx/fr
+/fr/fr/shopping	differs from xx/fr only in: texts only xx/fr has
+/fr/fr/sicherheit-fuer-kleinkinder-an-bord	the same as xx/fr
+/fr/fr/sixt	the same as xx/fr
+/fr/fr/special-meals	differs from xx/fr only in: texts only xx/fr has
+/fr/fr/special-needs	the same as xx/fr
+/fr/fr/speisen-und-getraenke	the same as xx/fr
+/fr/fr/sportgepaeck-hinzufuegen	the same as xx/fr
+/fr/fr/sports-baggage	the same as xx/fr
+/fr/fr/support/contact/contact-form-confirmation	a form confirmation, the same as xx/fr's
+/fr/fr/support/contact/passenger-duty-united-kingdom	the same as xx/fr
+/fr/fr/support/feedback-and-contact-airlines	the same as xx/fr
+/fr/fr/surclassement-business-class-long-courrier	the same as xx/fr
+/fr/fr/surclassement-en-business-class	the same as xx/fr
+/fr/fr/surclassement-first-class	the same as xx/fr
+/fr/fr/terms-and-conditions-lh	the same as xx/fr
+/fr/fr/terms-of-service-group	the same as xx/fr
+/fr/fr/terms-of-use	the same as xx/fr
+/fr/fr/tiere-als-handgepaeck	the same as xx/fr
+/fr/fr/tiere-als-uebergepaeck	the same as xx/fr
+/fr/fr/timetable-and-flight-status	the same as xx/fr
+/fr/fr/tips-senior-travellers	differs from xx/fr only in: texts only xx/fr has
+/fr/fr/travel-agencies	the same as xx/fr
+/fr/fr/travel-expense-management	the same as xx/fr
+/fr/fr/travel-id-terms-conditions	the same as xx/fr
+/fr/fr/travelling-with-animals	the same as xx/fr
+/fr/fr/travelling-with-children	the same as xx/fr
+/fr/fr/traveltricks	differs from xx/fr only in: texts only xx/fr has
+/fr/fr/uebergepaeck	the same as xx/fr
+/fr/fr/unterhaltung-an-bord	the same as xx/fr
+/fr/fr/upgrade-info	the same as xx/fr
+/fr/fr/upgrade-options	differs from xx/fr only in: market parameters in links (country=XX, xx-fr; as every market root shows its version)
+/fr/fr/upgrade-premium-economy-class	the same as xx/fr
+/fr/fr/upgrade-to-premium-economy-class	the same as xx/fr
+/fr/fr/upgrades-im-online-check-in	the same as xx/fr
+/fr/fr/voyages-adaptes-aux-besoins-particuliers	the same as xx/fr
+/fr/fr/voyages-en-groupe-et-charter	the same as xx/fr

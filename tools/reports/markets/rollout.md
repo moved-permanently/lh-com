@@ -1433,6 +1433,10 @@ Against the nine hosts (b2b.turnsthe.page is the ninth since b564344) before and
 
 ## Batch 11 (2026-11-02): French, the language version fr/fr and 13 market roots
 
+**Rebuilt on 2026-11-03 (brief 281):** www's `xx/fr` has pages now, so xx/fr is French's language
+version and fr/fr a market root like the 13 others (go-live.md "Wave 11"; rollout.mjs
+LANGUAGE_BATCHES). What follows is the first build.
+
 The first language after en and de (brief 264). www's `xx/fr` has no pages (its homepage and
 baggage page answer 404; it is only an hreflang alternate in www's sitemaps, 351 of them), so the
 French language version is **fr/fr** (your choice of 2026-11-02, the plan's example): France's root
