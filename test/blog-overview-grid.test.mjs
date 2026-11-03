@@ -77,7 +77,8 @@ test('the default blog-overview: its markup as before the grid variant (lufthans
   const lhPaged = await run({ pathname: '/de/en/articles', rows: [['Page size', '3']] });
   const ad = await run({ meta: { brand: 'airdolomiti', language: 'it' } });
   const hashes = [sha(lh.innerHTML), sha(lhPaged.innerHTML), sha(ad.innerHTML)];
-  // the hashes of the block before the variant existed (cff8cc6)
+  // the hashes of the block before the variant existed (cff8cc6); Air Dolomiti's (an Italian page
+  // without label rows) since its built-in texts have Italian (brief 291)
   assert.deepEqual(hashes, JSON.parse(fs.readFileSync('test/fixtures/blog-overview-default-hashes.json', 'utf8')));
 });
 
@@ -112,7 +113,8 @@ test('grid: 9 cards, each one link with image, category chip, title and date onl
 test('grid: Page size, the category filter and a Load more label default', async () => {
   const block = await run({ cls: 'grid', meta: { brand: 'airdolomiti', language: 'it' }, rows: [['Page size', '6']] });
   assert.equal(block.querySelectorAll('.blog-overview-card').length, 6);
-  assert.equal(block.querySelector('button.blog-overview-load-more').textContent, 'Load more');
+  // the built-in Italian label (brief 291; before it the English one)
+  assert.equal(block.querySelector('button.blog-overview-load-more').textContent, 'Carica altro');
   const select = block.querySelector('select');
   select.value = 'avgeek';
   select.dispatchEvent(new window.Event('change'));
