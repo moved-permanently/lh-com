@@ -26,7 +26,7 @@ FORM_DELIVERY = "email"
 # the brand sites on lh-com's code (repoless: lh-discover, lh-ita, lh-austrian, lh-airdolomiti,
 # lh-brussels, lh-cargo, lh-b2b, lh-swiss) and their turnsthe.page hosts
 ALLOWED_ORIGIN_PATTERN = "^https://[a-z0-9-]+--(lh-com|lh-flynet|lh-discover|lh-ita|lh-austrian|lh-airdolomiti|lh-brussels|lh-cargo|lh-b2b|lh-swiss)--moved-permanently\\.(aem\\.(page|live)|(stage-)?(preview|ue)\\.da\\.(live|page))$"
-EXTRA_ALLOWED_ORIGINS = "https://lufthansa.turnsthe.page,https://discover.turnsthe.page,https://ita.turnsthe.page,https://austrian.turnsthe.page,https://austrian-cn.turnsthe.page,https://airdolomiti.turnsthe.page,https://brussels.turnsthe.page,https://cargo.turnsthe.page,https://b2b.turnsthe.page,https://swiss.turnsthe.page,http://localhost:3000"
+EXTRA_ALLOWED_ORIGINS = "https://lufthansa.turnsthe.page,https://discover.turnsthe.page,https://ita.turnsthe.page,https://austrian.turnsthe.page,https://austrian-cn.turnsthe.page,https://swiss-cn.turnsthe.page,https://airdolomiti.turnsthe.page,https://brussels.turnsthe.page,https://cargo.turnsthe.page,https://b2b.turnsthe.page,https://swiss.turnsthe.page,http://localhost:3000"
 # Bot check (AMS rest A6): Cloudflare Turnstile widget "lh-com forms (lh-forms)" (managed mode;
 # hosts: lh-com's and lh-discover's aem.page/.aem.live hosts and the turnsthe.page hosts). The site
 # key is public; the secret TURNSTILE_SECRET is set in the dashboard. BOT_CHECK on: /submit

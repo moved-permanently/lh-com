@@ -1641,6 +1641,15 @@ test('austrian-cn.turnsthe.page (www.austrian.cn\'s alias host) is an allowed or
   no.forEach((res) => assert.equal(res.status, 403));
 });
 
+test('swiss-cn.turnsthe.page (www.swiss.com.cn\'s alias host) is an allowed origin; look-alikes are not; austrian-cn as before', async () => {
+  const ok = await preflight('https://swiss-cn.turnsthe.page');
+  assert.equal(ok.status, 204);
+  assert.equal(ok.headers.get('access-control-allow-origin'), 'https://swiss-cn.turnsthe.page');
+  assert.equal((await preflight('https://austrian-cn.turnsthe.page')).status, 204);
+  const no = await Promise.all(['https://swiss-cn.turnsthe.page.example.com', 'http://swiss-cn.turnsthe.page'].map(preflight));
+  no.forEach((res) => assert.equal(res.status, 403));
+});
+
 test('the emergency contact form of the French and Spanish versions (fr/fr, xx/es, es/es): its page\'s h1 per language', async () => {
   const env = makeEnv({ FORM_CONFIG: JSON.stringify({ default: { to: 'only@example.com' } }) });
   const cases = [['fr-fr', '[lh-com] Contact en cas d’urgence (fr-fr)'], ['xx-es', '[lh-com] Contacto en caso de emergencia (xx-es)'],

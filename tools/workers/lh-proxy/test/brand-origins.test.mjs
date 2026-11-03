@@ -54,3 +54,11 @@ Object.entries(ENVS).forEach(([name, env]) => {
     assert.ok(!(await allowed(env, 'https://austrian-cn.turnsthe.page.example.com')));
   });
 });
+
+Object.entries(ENVS).forEach(([name, env]) => {
+  test(`${name}: swiss-cn.turnsthe.page, the SWISS site's China alias (as austrian-cn), allowed`, async () => {
+    assert.ok(await allowed(env, 'https://swiss-cn.turnsthe.page'));
+    assert.ok(await allowed(env, 'https://austrian-cn.turnsthe.page'), 'austrian-cn as before');
+    assert.ok(!(await allowed(env, 'https://swiss-cn.turnsthe.page.example.com')));
+  });
+});

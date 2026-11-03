@@ -108,7 +108,8 @@ OF1_ORIGIN = "https://main--lh-com--moved-permanently.of1.live"
 # host (canonical and hreflang links stay), Cache-Control as ALIAS_HTML_CACHE_CONTROL.
 # austrian-cn.turnsthe.page (www.austrian.cn for www.austrian.com): a site's alias (in SITE_HOSTS
 # too: routed as the Austrian site), its links move from the site's own hosts (austrian.turnsthe.page)
-ALIAS_HOSTS = "lufthansa-cn.turnsthe.page,austrian-cn.turnsthe.page"
+# swiss-cn.turnsthe.page (www.swiss.com.cn for www.swiss.com): the SWISS site's alias, as austrian-cn
+ALIAS_HOSTS = "lufthansa-cn.turnsthe.page,austrian-cn.turnsthe.page,swiss-cn.turnsthe.page"
 # the alias hosts' home (www's China host answers / with /cn/en/homepage): / goes to
 # /<root>/homepage once the root is in the locale table and the host serves it (a pilot cn/en row:
 # with cn in PILOT_COUNTRIES_BY_HOST); until then / by country. A site's alias (austrian-cn, as
@@ -127,9 +128,10 @@ URL_FORMS = "on"
 # airdolomiti.turnsthe.page: Air Dolomiti (lh-airdolomiti), sites without roots (PLAIN_SITES,
 # brief 162); brussels.turnsthe.page: Brussels Airlines (DA moved-permanently/lh-brussels);
 # b2b.turnsthe.page: Lufthansa Group for Business (DA moved-permanently/lh-b2b, business.lufthansagroup.com);
-# swiss.turnsthe.page: SWISS (DA moved-permanently/lh-swiss, www.swiss.com);
+# swiss.turnsthe.page: SWISS (DA moved-permanently/lh-swiss, www.swiss.com), swiss-cn.turnsthe.page its
+# China alias (www.swiss.com.cn; after swiss.turnsthe.page, the host its origin is asked for);
 # rollback: a site's entries out of the vars
-SITE_HOSTS = "discover.turnsthe.page=discover; ita.turnsthe.page=ita; austrian.turnsthe.page=austrian; austrian-cn.turnsthe.page=austrian; cargo.turnsthe.page=cargo; airdolomiti.turnsthe.page=airdolomiti; brussels.turnsthe.page=brussels; b2b.turnsthe.page=b2b; swiss.turnsthe.page=swiss"
+SITE_HOSTS = "discover.turnsthe.page=discover; ita.turnsthe.page=ita; austrian.turnsthe.page=austrian; austrian-cn.turnsthe.page=austrian; cargo.turnsthe.page=cargo; airdolomiti.turnsthe.page=airdolomiti; brussels.turnsthe.page=brussels; b2b.turnsthe.page=b2b; swiss.turnsthe.page=swiss; swiss-cn.turnsthe.page=swiss"
 SITE_ORIGINS = "discover=main--lh-discover--moved-permanently.aem.live; ita=main--lh-ita--moved-permanently.aem.live; austrian=main--lh-austrian--moved-permanently.aem.live; cargo=main--lh-cargo--moved-permanently.aem.live; airdolomiti=main--lh-airdolomiti--moved-permanently.aem.live; brussels=main--lh-brussels--moved-permanently.aem.live; b2b=main--lh-b2b--moved-permanently.aem.live; swiss=main--lh-swiss--moved-permanently.aem.live"
 SITE_WWW_HOSTS = "discover=www.discover-airlines.com; ita=www.ita-airways.com; austrian=www.austrian.com; cargo=www.lufthansa-cargo.com; airdolomiti=www.airdolomiti.it; brussels=www.brusselsairlines.com; b2b=business.lufthansagroup.com; swiss=www.swiss.com"
 # where a site's /digitalhangar/ (www's design-system files, the brand fonts) comes from; Cargo uses
