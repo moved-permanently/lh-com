@@ -286,3 +286,12 @@ test('emptyOnWww: a page whose main container www leaves empty (an empty article
   assert.equal(emptyOnWww(shell('<div class="articlecontentfragment"><div class="m-article-intro"><h1>Title</h1></div></div>')), false);
   assert.equal(emptyOnWww(shell('<section class="teasercontainer"><article class="teaser"><a href="/magazine/de/a"><h3>A</h3></a></article></section>')), false);
 });
+
+test('magazineLinks: www.swiss.com.cn\'s links (pages the capture rendered for SWISS\'s China host) as www.swiss.com\'s, relative where the page is captured', () => {
+  const pages = new Set(['/magazine/en/travel/lifestyle/family-care']);
+  const doc = '<p><a href="https://www.swiss.com.cn/magazine/en/travel/lifestyle/family-care">a</a> <a href="https://www.swiss.com.cn/lhg/ch/en/dest/cy/boston">b</a> <a href="http://www.swiss.com.cn">c</a></p>';
+  const out = magazineLinks(doc, { pages, sitePaths: new Set() });
+  assert.equal(out.includes('href="/magazine/en/travel/lifestyle/family-care"'), true, out);
+  assert.equal(out.includes('href="https://www.swiss.com/lhg/ch/en/dest/cy/boston"'), true, out);
+  assert.equal(out.includes('swiss.com.cn'), false, out);
+});

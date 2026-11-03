@@ -76,7 +76,10 @@ export const redirectRows = (pages) => [...pages].sort().filter((p) => docName(p
 export function magazineLinks(doc, { pages, sitePaths, mapHosts = true }) {
   // (the documents' own paths count as captured: a second pass keeps their relative links)
   const subPages = new Set([...pages, ...[...pages].map(docName)]);
-  const linked = subSiteLinks(doc, { subPages, sitePaths, mapHosts });
+  // www.swiss.com.cn (SWISS's China host, the same pages: the capture rendered 34 magazine pages
+  // for it) as www.swiss.com; the replica's China alias (swiss-cn) keeps relative links on itself
+  const dotCom = doc.replace(/href="https?:\/\/www\.swiss\.com\.cn(?=[/"?#])/g, 'href="https://www.swiss.com');
+  const linked = subSiteLinks(dotCom, { subPages, sitePaths, mapHosts });
   return linked.replace(/href="(\/magazine\/[^"?#]+)([?#][^"]*)?"/g, (m, p, rest = '') => (pages.has(p) ? `href="${docName(p)}${rest}"` : m));
 }
 
