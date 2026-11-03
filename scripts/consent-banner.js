@@ -65,6 +65,62 @@ const TEXTS = {
       C0005: ['Werbung', ['Nutzung der erfassten Daten zur Steigerung der Relevanz und Personalisierung von Online- und Social-Media-Werbung.', 'Segmentierung der Kund:innen in bestimmte Gruppen, um sie während der gesamten Customer Journey wieder mit unseren Produkten in Kontakt zu bringen.', 'Weitergabe bestimmter Kundendaten an Werbe- und Social-Media-Partner, um den Interessen unserer Kund:innen gerecht zu werden.', 'Einbindung von Inhalten von Drittanbietern in unsere digitalen Kontaktpunkte.']],
     },
   },
+  fr: {
+    title: 'Paramètres de confidentialité',
+    intro: 'Nous utilisons des cookies et des technologies similaires pour le fonctionnement de nos applications et pages Internet. En consentant à l’une ou plusieurs des finalités de traitement suivantes, vous acceptez l’utilisation de cookies supplémentaires et de technologies similaires qui sont nécessaires à la réalisation de l’objectif concerné:',
+    purposes: [
+      ['Analyses et statistiques', 'Nous surveillons notre application et notre page Internet afin de mesurer et d’améliorer leurs performances et d’évaluer l’efficacité de nos campagnes marketing.'],
+      ['Personnalisation de l’application et du site Web', 'Nous suivons et analysons vos interactions en ligne (recherches, clics, interactions avec le chatbot, etc.) afin de vous proposer des produits et des services qui correspondent à vos centres d’intérêt.'],
+      ['Publicité', 'Nous personnalisons la publicité en ligne et sur les réseaux sociaux en utilisant les données collectées, en créant des segments de clients, en partageant des données avec les réseaux sociaux et les plateformes publicitaires, et en intégrant le contenu tiers.'],
+    ],
+    special: 'Vous pouvez retirer ou gérer votre consentement à tout moment avec effet futur dans la section « Modifier les paramètres de consentement » du pied de la page Internet.',
+    links: [
+      ['Politique de confidentialité', 'https://www.lufthansa.com/xx/fr/data-protection-information?hidebanner=true'],
+      ['Gestion des cookies', 'https://www.lufthansa.com/xx/fr/cookie-policy?hidebanner=true'],
+      ['Impression', 'https://www.lufthansa.com/xx/fr/imprint?hidebanner=true'],
+    ],
+    manage: 'Gérer les préférences',
+    reject: 'Cookies nécessaires uniquement',
+    accept: 'Tout accepter',
+    pcTitle: 'Centre de préférences de la confidentialité',
+    save: 'Enregistrer mes préférences',
+    close: 'Fermer le centre de préférences',
+    alwaysActive: 'Toujours actif',
+    groups: {
+      C0001: ['Cookies strictement nécessaires', ['Ces cookies sont nécessaires au fonctionnement du site Web et ne peuvent pas être désactivés dans nos systèmes. Ils sont généralement établis en tant que réponse à des actions que vous avez effectuées et qui constituent une demande de services, telles que la définition de vos préférences en matière de confidentialité, la connexion ou le remplissage de formulaires. Vous pouvez configurer votre navigateur afin de bloquer ou être informé de l\'existence de ces cookies, mais certaines parties du site Web peuvent être affectées. Ces cookies ne stockent aucune information d’identification personnelle.']],
+      C0002: ['Analyses et statistiques', ['Effectuer des analyses agrégées de nos points de contact numériques', 'Surveiller le trafic sur le site Web', 'Mesurer les performances des canaux marketing']],
+      C0004: ['Personnalisation de l’application et du site Web', ['Suivre les interactions des visites précédentes et actuelles sur nos applications et sites Web', 'Analyser l’historique des interactions avec les comportements numériques, les achats et les services', 'Déterminer les préférences numériques et fournir des produits et services personnalisés sur nos applications et sites Web']],
+      C0005: ['Publicité', ['Utiliser les données recueillies pour augmenter la pertinence et personnaliser la publicité en ligne et sur les réseaux sociaux', 'Construire des segments sur des groupes de clients spécifiques pour se reconnecter à nos produits tout au long du parcours client', 'Nous partageons des données clients spécifiques avec nos partenaires publicitaires et de réseaux sociaux afin de répondre aux besoins de nos clients', 'Intégrer du contenu tiers à nos points de contact numériques']],
+    },
+  },
+  es: {
+    title: 'Opciones de privacidad',
+    intro: 'Utilizamos cookies y tecnologías similares que son necesarias para ejecutar nuestras apps y páginas web. Con su consentimiento para uno o más de los siguientes fines de tratamiento, usted acepta el uso de cookies adicionales y tecnologías similares que son necesarias para cumplir con el fin respectivo:',
+    purposes: [
+      ['Análisis y estadísticas', 'Supervisamos nuestra app y nuestra página web para medir y mejorar su rendimiento y evaluar la eficiencia de nuestras campañas de marketing.'],
+      ['Personalización de la app y la página web', 'Hacemos un seguimiento y analizamos sus interacciones online (p. ej., búsquedas, clics, interacciones con chatbot) para ofrecerle productos y servicios que se ajusten a sus intereses.'],
+      ['Publicidad', 'Personalizamos la publicidad online y en redes sociales utilizando los datos recopilados, creando segmentos de clientes, compartiendo datos con redes sociales y plataformas publicitarias e incorporando contenido de terceros.'],
+    ],
+    special: 'Puede retirar o gestionar su consentimiento en cualquier momento con efecto futuro en la sección “Cambiar configuración de consentimiento” al pie de la página web.',
+    links: [
+      ['Política de privacidad', 'https://www.lufthansa.com/xx/es/data-protection-information?hidebanner=true'],
+      ['Política de cookies', 'https://www.lufthansa.com/es/es/cookie-policy?hidebanner=true'],
+      ['Aviso Legal', 'https://www.lufthansa.com/xx/es/imprint?hidebanner=true'],
+    ],
+    manage: 'Gestionar preferencias',
+    reject: 'Solo las necesarias',
+    accept: 'Aceptar todas',
+    pcTitle: 'Centro de preferencia de la privacidad',
+    save: 'Guardar preferencias',
+    close: 'Cerrar centro de preferencias',
+    alwaysActive: 'Activas siempre',
+    groups: {
+      C0001: ['Cookies estrictamente necesarias', ['Estas cookies son necesarias para que el sitio web funcione y no se pueden desactivar en nuestros sistemas. Usualmente están configuradas para responder a acciones hechas por usted para recibir servicios, tales como ajustar sus preferencias de privacidad, iniciar sesión en el sitio, o llenar formularios. Usted puede configurar su navegador para bloquear o alertar la presencia de estas cookies, pero algunas partes del sitio web no funcionarán. Estas cookies no guardan ninguna información personal identificable.']],
+      C0002: ['Análisis y estadísticas', ['Realizar análisis agregados de nuestros puntos de contacto digitales', 'Supervisar el tráfico de la página web', 'Medir el rendimiento de los canales de marketing']],
+      C0004: ['Personalización de la app y la página web', ['Hacer un seguimiento de las interacciones de visitas anteriores y actuales en nuestras apps y páginas web', 'Analizar el historial de comportamientos digitales, compras e interacción con el servicio', 'Determinar las preferencias digitales y proporcionar productos y servicios personalizados en nuestras apps y páginas web']],
+      C0005: ['Publicidad', ['Usar los datos recopilados para aumentar la relevancia y personalizar la publicidad online y social', 'Construir segmentos en grupos de clientes específicos para volver a conectar con nuestros productos a lo largo de todo el trayecto del cliente', 'Compartir datos específicos de clientes con socios publicitarios y de redes sociales para satisfacer los intereses de nuestros clientes.', 'Incorporar contenido de terceros en nuestros puntos de contacto digitales']],
+    },
+  },
 };
 
 const NECESSARY = 'C0001';

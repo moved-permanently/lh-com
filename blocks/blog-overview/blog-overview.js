@@ -45,6 +45,38 @@ const DEFAULT_LABELS = {
     'page label': 'Seite {PAGE}',
     'load more label': 'Mehr laden',
   },
+  fr: {
+    'results label': '{TOTAL} résultats trouvés',
+    'search label': 'Rechercher un mot-clé',
+    'categories label': 'Catégories',
+    'all categories label': 'Toutes les catégories',
+    'read label': 'Lire l’article',
+    'read screen reader label': 'Lire {TITLE}',
+    'no results label': 'Oups. Nous n’avons pas encore écrit de blog sur ce sujet.',
+    'current page label': 'Vous êtes sur la page {CURRENT_PAGE} des résultats',
+    'pagination label': 'Pagination des articles du blog',
+    'tags label': 'Mots-clés de l’article {TITLE}',
+    'previous label': 'Page précédente',
+    'next label': 'Page suivante',
+    'page label': 'Page {PAGE}',
+    'load more label': 'Afficher plus',
+  },
+  es: {
+    'results label': 'Se han encontrado {TOTAL} resultados',
+    'search label': 'Buscar palabra clave',
+    'categories label': 'Categorías',
+    'all categories label': 'Todas las categorías',
+    'read label': 'Leer artículo',
+    'read screen reader label': 'Leer {TITLE}',
+    'no results label': '¡Vaya! Aún no hemos escrito ningún artículo sobre este tema en el blog.',
+    'current page label': 'Está en la página {CURRENT_PAGE} de los resultados',
+    'pagination label': 'Paginación de los artículos del blog',
+    'tags label': 'Etiquetas del artículo {TITLE}',
+    'previous label': 'Página anterior',
+    'next label': 'Página siguiente',
+    'page label': 'Página {PAGE}',
+    'load more label': 'Mostrar más',
+  },
 };
 
 const LIVE_LABELS = {
@@ -64,6 +96,16 @@ const LIVE_LABELS = {
 const CATEGORY_NAMES = {
   en: { 'explore-flying': 'Explore Flying', 'explore-the-world': 'Explore the World', highlights: 'Highlights' },
   de: { 'explore-flying': 'Erlebe das Fliegen', 'explore-the-world': 'Erlebe die Welt', highlights: 'Highlights' },
+  fr: {
+    'explore-flying': 'Explore Flying',
+    'explore-the-world': 'Explore the World',
+    highlights: 'Highlights',
+  },
+  es: {
+    'explore-flying': 'Explore Flying',
+    'explore-the-world': 'Explore the World',
+    highlights: 'Highlights',
+  },
 };
 
 const BREAKPOINTS = [{ media: '(min-width: 600px)', width: '750' }, { width: '600' }];

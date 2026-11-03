@@ -38,6 +38,22 @@ const LABELS = {
     'submit label': 'Buchung suchen',
     error: 'Die Buchung kann gerade nicht abgerufen werden. Bitte versuchen Sie es später noch einmal.',
   },
+  fr: {
+    'surname label': 'Nom de famille',
+    'surname placeholder': 'Nom de famille',
+    'booking code label': 'Code de réservation',
+    'booking code placeholder': 'Code de réservation',
+    'submit label': 'Rechercher la réservation',
+    error: 'Votre réservation n’a pas pu être récupérée pour le moment. Veuillez réessayer ultérieurement.',
+  },
+  es: {
+    'surname label': 'Apellidos',
+    'surname placeholder': 'Apellidos',
+    'booking code label': 'Código de reserva',
+    'booking code placeholder': 'Código de reserva',
+    'submit label': 'Buscar reserva',
+    error: 'No ha sido posible recuperar su reserva en este momento. Vuelva a intentarlo más tarde.',
+  },
 };
 
 let instances = 0;

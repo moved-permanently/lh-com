@@ -56,6 +56,20 @@ const DEFAULT_LABELS = {
     'map label': 'Karte',
     'attribution label': 'Mitwirkende',
   },
+  fr: {
+    'zoom in label': 'Zoom avant',
+    'zoom out label': 'Zoom arrière',
+    'visit website label': 'Visiter la page Internet',
+    'map label': 'Carte',
+    'attribution label': 'contributeurs',
+  },
+  es: {
+    'zoom in label': 'Acercar',
+    'zoom out label': 'Alejar',
+    'visit website label': 'Visitar la página web',
+    'map label': 'Mapa',
+    'attribution label': 'colaboradores',
+  },
 };
 
 /** Live label keys (labels/common) of the strings above. */

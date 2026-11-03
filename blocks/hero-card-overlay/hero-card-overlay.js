@@ -22,6 +22,18 @@ const COUNTDOWN_LABELS = {
   de: {
     days: 'Tage', hours: 'Stunden', minutes: 'Minuten', seconds: 'Sekunden',
   },
+  fr: {
+    days: 'Jours',
+    hours: 'Heures',
+    minutes: 'Minutes',
+    seconds: 'Secondes',
+  },
+  es: {
+    days: 'Días',
+    hours: 'Horas',
+    minutes: 'Minutos',
+    seconds: 'Segundos',
+  },
 };
 const LIVE_COUNTDOWN_LABELS = {
   days: 'countdown.common.default.dayLabelText',

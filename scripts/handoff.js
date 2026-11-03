@@ -178,6 +178,20 @@ const ERROR_TEXTS = {
     'checkin.error.checkinApplicationNotFound': 'Leider können Sie für Ihre Buchung nicht online einchecken. Bitte checken Sie am Flughafen ein.',
     'checkin.error.linkGenerationError': 'Die Weiterleitung zum Check-in hat leider nicht funktioniert. Bitte versuchen Sie es später noch einmal. Falls Sie weiterhin Unterstützung benötigen, kontaktieren Sie das Service Center.',
   },
+  fr: {
+    'checkin.error.bookingNotFound': 'Aucune réservation n’a pu être trouvée. Veuillez vérifier votre code de réservation ainsi que le nom saisi pour votre réservation et réessayer.',
+    'checkin.error.segmentNotFound': 'Le vol de votre réservation est introuvable. Veuillez réessayer ultérieurement. Veuillez contacter notre Service Center pour obtenir de l’aide.',
+    'checkin.error.notInCheckinWindow': 'L’enregistrement pour votre vol n’est pas encore ouvert. Selon l’aéroport de départ et la compagnie aérienne, l’enregistrement en ligne ouvre au moins 24 heures avant le départ.',
+    'checkin.error.checkinApplicationNotFound': 'Malheureusement, l’enregistrement en ligne n’est pas disponible pour votre réservation. Merci de vous enregistrer à l’aéroport.',
+    'checkin.error.linkGenerationError': 'La redirection vers l’enregistrement n’a pas fonctionné. Veuillez réessayer ultérieurement. Veuillez contacter notre Service Center pour obtenir de l’aide.',
+  },
+  es: {
+    'checkin.error.bookingNotFound': 'No ha sido posible encontrar su reserva. Verifique su código de reserva, el nombre introducido para su reserva y vuelva a intentarlo.',
+    'checkin.error.segmentNotFound': 'No se ha encontrado el vuelo de su reserva. Vuelva a intentarlo más tarde. Póngase en contacto con el centro de atención al cliente para obtener más ayuda.',
+    'checkin.error.notInCheckinWindow': 'Todavía no es posible realizar el check-in de su vuelo. En función de su aeropuerto de salida y de la aerolínea operadora, el check-in online abre al menos 24 horas antes de la salida.',
+    'checkin.error.checkinApplicationNotFound': 'Lamentablemente, el check-in online no está disponible para su reserva. Realice el check-in en el aeropuerto.',
+    'checkin.error.linkGenerationError': 'La redirección al check-in no funcionó. Vuelva a intentarlo más tarde. Póngase en contacto con el centro de atención al cliente para obtener más ayuda.',
+  },
 };
 
 /** The text of an error code in the page's language: its common label, else the built-in copy. */

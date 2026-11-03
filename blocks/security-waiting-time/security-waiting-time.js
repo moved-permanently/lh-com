@@ -57,6 +57,26 @@ const DEFAULT_LABELS = {
     'status label': '{TERMINAL_NAME}, {WORKLOAD, select, CLOSED {Area {AREA_NAME}, il controllo di sicurezza è chiuso.} OPEN {Area {AREA_NAME}, il controllo di sicurezza è aperto.} other {Area {AREA_NAME}, tempo di attesa stimato da {MIN_TIME} a {MAX_TIME} minuti.}}',
     'live page label': 'Tempi di attesa ai controlli di sicurezza su {HOST}',
   },
+  fr: {
+    'select label': 'Sélectionner un aéroport',
+    'last update label': 'Dernière mise à jour',
+    'open label': 'ouverte',
+    'closed label': 'fermée',
+    'minutes label': 'min',
+    'error label': 'Problèmes d\'obtention des données',
+    'status label': '{TERMINAL_NAME}, {WORKLOAD, select, CLOSED {Zone {AREA_NAME}, Porte de sécurité fermée.} OPEN {Zone {AREA_NAME}, Porte de sécurité ouverte.} other {Zone {AREA_NAME}, temps d’attente estimé de {MIN_TIME} à {MAX_TIME} minutes.}}',
+    'live page label': 'Temps d’attente au contrôle de sécurité sur {HOST}',
+  },
+  es: {
+    'select label': 'Seleccionar aeropuerto',
+    'last update label': 'Última actualización',
+    'open label': 'abierta',
+    'closed label': 'cerrada',
+    'minutes label': 'min',
+    'error label': 'Problemas para obtener los datos',
+    'status label': '{TERMINAL_NAME}, {WORKLOAD, select, CLOSED {Área {AREA_NAME}, La puerta de seguridad está cerrada.} OPEN {Área {AREA_NAME}, La puerta de seguridad está abierta.} other {Área {AREA_NAME}, Tiempo de espera estimado: de {MIN_TIME} a {MAX_TIME} minutos.}}',
+    'live page label': 'Tiempos de espera en el control de seguridad en {HOST}',
+  },
 };
 const LIVE_LABELS = {
   'select label': 'securityWaitingTime.default.default.selectAirport',

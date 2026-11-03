@@ -25,6 +25,22 @@ const DEFAULT_LABELS = {
     'dialog label': 'Bildergalerie',
     'slide label': '{n} von {total}',
   },
+  fr: {
+    'open label': 'Agrandir l’image',
+    'close label': 'Fermer',
+    'previous label': 'Image précédente',
+    'next label': 'Image suivante',
+    'dialog label': 'Galerie d’images',
+    'slide label': '{n} sur {total}',
+  },
+  es: {
+    'open label': 'Ampliar imagen',
+    'close label': 'Cerrar',
+    'previous label': 'Imagen anterior',
+    'next label': 'Imagen siguiente',
+    'dialog label': 'Galería de imágenes',
+    'slide label': '{n} de {total}',
+  },
 };
 
 const LABEL_KEYS = Object.keys(DEFAULT_LABELS.en).map(toConfigKey);
