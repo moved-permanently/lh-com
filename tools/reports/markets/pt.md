@@ -20,13 +20,21 @@ Brazilian wording of its own on the pages compared.
 ## Captures
 
 - **The local capture** (Ben's machine, a real browser, about one page every 10 s, from
-  `tools/markets/capture-lists/13-pt.txt`): three archives, `lh-snapshots-001` to `-003`
+  `tools/markets/capture-lists/13-pt.txt`): five archives, `lh-snapshots-001` to `-005`
   (lh-deliveries.json: `{"segment": "pt", "complete": true}`), **274 pages**; each archive's sha256
   and each page's sha256 in its manifest checked, every entry a regular file inside the archive.
   The pages were checked before they were placed: all Portuguese (`lang="pt"`), each with its own
   canonical, its own URL or www's long AEM URL of it as final URL, no challenge page, no empty
   shell. **None looked wrong.** 13 have no H1, as on www (the 100-years, aircraft and hero
   pages; the Bright Data snapshots of the same pages have none either).
+- **Archives 004 and 005 replace 39 pages of 003** (field `replaces`, unpacked in order): 004
+  `prepare-for-your-trip/current-travel-information` (imported again: the document came out the
+  same), 005 the 38 from `.../entering-schengen/entry-exit-system` to `terms-of-use`. 003's copies of
+  these had www's country list in English and no "Outros países | Português" label; 005's carry the
+  Portuguese page chrome. All 39 passed the same checks; imported again by their templates, **8
+  documents changed** (`cognitive-impairment`, `visual-impairment`, `economy-basic`, `schengen`,
+  `security-fast-lanes`, `services-am-flughafen-frankfurt`, `shopping`, `sports-baggage`),
+  uploaded and previewed; the other 31 came out the same.
 - **Not captured: 6, all www 404s** (the archive's probes): `/xx/pt/business-class`,
   `digital-travel-companion`, `flynet`, `freigepaeck-regeln`, `lounges` (www's short alias URLs of
   other xx/pt pages, as xx/es's five) and `/xx/pt/lufthansa-city/menu-card` (a 404 on www, as
@@ -64,8 +72,16 @@ Brazilian wording of its own on the pages compared.
   no language version): the aircraft type pages (`319` … `74z`), the `configuration/commonheader`
   AEM pages, the stopover partner pages lh-com does not have, `inscricao`,
   `book-and-manage/best-price` and others. They were not captured.
-- **The six www 404s** above (no capture). xx/es has its five alias URLs as documents imported
-  from their real pages (931e6d05); the same is possible for xx/pt if you want it.
+- **The six www 404s** above (no capture). **The five alias documents** (`business-class`,
+  `digital-travel-companion`, `flynet`, `freigepaeck-regeln`, `lounges`; as xx/es's, 931e6d05,
+  from their real pages) wait for a capture of the real pages: no archive and no snapshot has
+  them (they are in none of www's sitemaps, and the short URLs answer 404), and Bright Data is
+  stopped. `tools/markets/capture-lists/13-pt-aliases.txt` lists their long URLs
+  (`prepare-for-your-trip/travel-classes/business-class`,
+  `book-and-manage/digital-self-services/digital-travel-companion`,
+  `during-your-trip/internet-on-board`, `prepare-for-your-trip/baggage/free-baggage`,
+  `during-your-trip/lounges`) for the local capture; the documents go under the alias paths with
+  their de/en counterparts' templates (info; lounges: hub) once an archive brings them.
 - **Two archive pages outside the scope**, captured but not imported: `/xx/pt/emergency-contact`
   (no de/en counterpart; the emergency contact form is on lh-forms as `emergency-contact`, as es/es
   and fr/fr have it) and `/xx/pt/prepare-for-your-trip/baggage/sport-baggage/register-ammunition1`
@@ -73,7 +89,9 @@ Brazilian wording of its own on the pages compared.
 - **The roots' comparison pages** (`flights`, `airport-information`, `additional-services` of each
   root, 8 captured): references for the local-version comparison, not documents (the roots answer
   them from xx/pt).
-- **The form confirmations**: not in www's sitemaps nor in the capture list, so not captured:
+- **The form confirmations**: not in www's sitemaps nor in the first capture list, so not captured
+  yet; `tools/markets/capture-lists/13-pt-confirmations.txt` (271507e2) lists them for the local
+  capture, with the four de/en forms' confirmations xx/pt's groups also have:
   `/xx/pt/support/contact/contact-form-confirmation`,
   `/xx/pt/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm1/confirmation`,
   `/xx/pt/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation`
@@ -124,5 +142,7 @@ version's in-scope pages (its homepage first), then what `rollout.mjs --plan <n>
 version's three comparison references; the roots' homepages, own pages and comparison pages).
 For batches 14 to 21 also `<n>-<lang>-<cc>-<ll>.txt`, the fallback root's in-scope pages. `--plan`
 itself stops on batches 14 to 21 until the version's comparison documents exist; the lists were
-made from its helpers without that check. The lists hold no form confirmation pages (not in www's
-sitemaps); for Portuguese they are point 1 above.
+made from its helpers without that check. The form confirmation pages (not in www's sitemaps) are
+in `<n>-<lang>-confirmations.txt` and `<n>-<lang>-<cc>-<ll>-confirmations.txt` (271507e2): the
+confirmations of the de/en and de/de forms whose group has a page of the root, the root swapped in
+(7 a list; xx/pt 8 with its own `register-sporting-firearm1`).
