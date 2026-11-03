@@ -397,3 +397,36 @@ preview only, not published.
 - For the capture: `lh-swiss-es-pt-capture.tsv` (31 DAM files, 14 pages without a snapshot, 8
   confirmation pages); no new AEM files (the 35 the pages use are in `lh-swiss-aem-files.tsv`); no
   new redirect rows.
+
+## ch/zh and ch/ja behind the language switch; two raffles, the bare cockpit links (brief 28x, 2026-11-03)
+
+From the Studio's archives 014, 015 (Chinese) and 021, 022 (Japanese) only (sha256 as the brief; no
+request to www.swiss.com). DA and preview only, not published. ch/es and ch/pt went live with the
+switch on (838dedba).
+
+- The switch: `SWISS_LANGUAGES` with zh (ch/zh "瑞士 (Switzerland) | 简体中文") and ja (ch/ja
+  "Switzerland | 日本語"), both Zurich; off (pilots), so swiss.turnsthe.page answers as before
+  (`/ch/zh`, `/xx/ja`, `/ja/homepage` ... 404). The switch tests read `SWISS_LANGUAGES_LIVE`: to go
+  live, add `'zh'` and/or `'ja'` there; `test/brand-swiss.test.mjs`,
+  `test/swiss-markets-switch.test.mjs` and lh-edge's `sites-swiss.test.mjs` name ch's roots and
+  need them added.
+- Scope: ch/zh 270 documents, ch/ja 268; batches 23 to 26, p23, x23 (ch/zh) and 35 to 38, p35, x35
+  (ch/ja), every page and both roots' nav and footer preview 200 (542 documents).
+- Nav and footer 1:1 from the homepages ("我的航班" / "私のフライト" the cockpit deep link); ch/zh's
+  X icon has an empty alt on www: its title "Twitter" names it (`swiss-nav.mjs`).
+- Flight search: "苏黎世 (ZRH)" on ch/zh, "チューリッヒ (ZRH)" on ch/ja, as the homepages' field.
+- Fonts: www's zh and ja pages load the same stylesheets as ch/de (mausy's swiss.css, lx-fonts.css:
+  CH Sans with Arial and Helvetica after it) and no CJK font: the browser's system fonts set the
+  Chinese and Japanese characters. The theme does the same; nothing added.
+- Forms: 32 (16 per root, all ids lh-forms knows); 20 link their own confirmation page; 12 keep
+  the form's message (confirmation not in the capture). www's German and English messages:
+  SWISS's Chinese and Japanese wording per field (5 documents); kana marks a Japanese message,
+  请/您 a Chinese one.
+- For the capture: `lh-swiss-zh-ja-capture.tsv` (30 DAM files, 14 pages without a snapshot, 12
+  confirmation pages); no new AEM files or redirect rows.
+- lh-forms: ch/fr's raffles `swiss-swiss-ice-hockey-games-2025` and
+  `swiss-match-de-preparation-pour-les-championnats-europeens-2025` known (their pages' h1; the
+  hockey page's says 2024), deployed.
+- Cockpit links without a query (`/ch/<ll>/book-and-manage/overview-manage`, two each, en de fr it
+  es pt) carry `?country=CH&language=<LL>` (`swiss-import.mjs` withCockpitQuery); no other
+  document had one.
