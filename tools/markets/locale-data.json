@@ -7,7 +7,8 @@
     "de": "de/de",
     "fr": "xx/fr",
     "es": "xx/es",
-    "pt": "xx/pt"
+    "pt": "xx/pt",
+    "ru": "xx/ru"
   },
   "fallbackLanguageVersion": "de/en",
   "neutralVersions": {
@@ -4135,6 +4136,87 @@
         "shopLang"
       ],
       "batch": 13
+    },
+    "xx/ru": {
+      "status": "pilot",
+      "documents": "own",
+      "name": "Другие страны | Русский",
+      "countryName": {
+        "en": null,
+        "de": null,
+        "ru": "Другие страны"
+      },
+      "homeAirport": "FRA",
+      "currency": null,
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "countryName.en",
+        "countryName.de",
+        "currency",
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 14
+    },
+    "by/ru": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Belarus | Русский",
+      "countryName": {
+        "en": "Belarus",
+        "de": "Belarus",
+        "ru": "Belarus"
+      },
+      "homeAirport": "FRA",
+      "currency": null,
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "currency",
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 14
+    },
+    "kz/ru": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Kazakhstan | Русский",
+      "countryName": {
+        "en": "Kazakhstan",
+        "de": "Kasachstan",
+        "ru": "Kazakhstan"
+      },
+      "homeAirport": "NQZ",
+      "currency": "KZT",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 14
+    },
+    "ru/ru": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Russian Federation | Русский",
+      "countryName": {
+        "en": "Russian Federation",
+        "de": "Russische Föderation",
+        "ru": "Russian Federation"
+      },
+      "homeAirport": "FRA",
+      "currency": null,
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "currency",
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 14
     }
   }
 }

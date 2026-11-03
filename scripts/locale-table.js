@@ -234,6 +234,10 @@ export const LOCALE_TABLE = {
   'ao/pt': { country: 'ao', lang: 'pt', hreflang: 'pt-AO', status: 'pilot', documents: 'language', name: 'Angola | Português', countryName: { en: 'Angola', de: 'Angola', pt: 'Angola' }, homeAirport: 'LAD', currency: 'USD', timeZone: null, shopLang: null },
   'br/pt': { country: 'br', lang: 'pt', hreflang: 'pt-BR', status: 'pilot', documents: 'language', name: 'Brasil | Português', countryName: { en: 'Brazil', de: 'Brazil', pt: 'Brasil' }, homeAirport: 'SAO', currency: 'BRL', timeZone: null, shopLang: null },
   'pt/pt': { country: 'pt', lang: 'pt', hreflang: 'pt-PT', status: 'pilot', documents: 'language', name: 'Portugal | Português', countryName: { en: 'Portugal', de: 'Portugal', pt: 'Portugal' }, homeAirport: 'LIS', currency: 'EUR', timeZone: null, shopLang: null },
+  'xx/ru': { country: 'xx', lang: 'ru', hreflang: 'ru', status: 'pilot', documents: 'own', name: 'Другие страны | Русский', countryName: { en: null, de: null, ru: 'Другие страны' }, homeAirport: 'FRA', currency: null, timeZone: null, shopLang: null },
+  'by/ru': { country: 'by', lang: 'ru', hreflang: 'ru-BY', status: 'pilot', documents: 'language', name: 'Belarus | Русский', countryName: { en: 'Belarus', de: 'Belarus', ru: 'Belarus' }, homeAirport: 'FRA', currency: null, timeZone: null, shopLang: null },
+  'kz/ru': { country: 'kz', lang: 'ru', hreflang: 'ru-KZ', status: 'pilot', documents: 'language', name: 'Kazakhstan | Русский', countryName: { en: 'Kazakhstan', de: 'Kasachstan', ru: 'Kazakhstan' }, homeAirport: 'NQZ', currency: 'KZT', timeZone: null, shopLang: null },
+  'ru/ru': { country: 'ru', lang: 'ru', hreflang: 'ru-RU', status: 'pilot', documents: 'language', name: 'Russian Federation | Русский', countryName: { en: 'Russian Federation', de: 'Russische Föderation', ru: 'Russian Federation' }, homeAirport: 'FRA', currency: null, timeZone: null, shopLang: null },
 };
 
 /** Every market-language root of www (its sitemap dataset), space-separated. */
@@ -249,6 +253,7 @@ export const LANGUAGE_VERSIONS = {
   fr: 'xx/fr',
   es: 'xx/es',
   pt: 'xx/pt',
+  ru: 'xx/ru',
 };
 
 /** A language without a version of its own (texts fall back to English). */
