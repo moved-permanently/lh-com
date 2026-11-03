@@ -230,6 +230,10 @@ export const LOCALE_TABLE = {
   'pe/es': { country: 'pe', lang: 'es', hreflang: 'es-PE', status: 'pilot', documents: 'language', name: 'Perú | Español', countryName: { en: 'Peru', de: 'Peru', es: 'Perú' }, homeAirport: 'LIM', currency: 'USD', timeZone: null, shopLang: null },
   'us/es': { country: 'us', lang: 'es', hreflang: 'es-US', status: 'pilot', documents: 'language', name: 'Estados Unidos de América | Español', countryName: { en: 'USA', de: 'USA', es: 'Estados Unidos de América' }, homeAirport: null, currency: 'USD', timeZone: null, shopLang: null },
   've/es': { country: 've', lang: 'es', hreflang: 'es-VE', status: 'pilot', documents: 'language', name: 'Venezuela | Español', countryName: { en: 'Venezuela', de: 'Venezuela', es: 'Venezuela' }, homeAirport: 'FRA', currency: 'EUR', timeZone: null, shopLang: null },
+  'xx/pt': { country: 'xx', lang: 'pt', hreflang: 'pt', status: 'pilot', documents: 'own', name: 'Outros países | Português', countryName: { en: null, de: null, pt: 'Outros países' }, homeAirport: 'FRA', currency: 'EUR', timeZone: null, shopLang: null },
+  'ao/pt': { country: 'ao', lang: 'pt', hreflang: 'pt-AO', status: 'pilot', documents: 'language', name: 'Angola | Português', countryName: { en: 'Angola', de: 'Angola', pt: 'Angola' }, homeAirport: 'LAD', currency: 'USD', timeZone: null, shopLang: null },
+  'br/pt': { country: 'br', lang: 'pt', hreflang: 'pt-BR', status: 'pilot', documents: 'language', name: 'Brasil | Português', countryName: { en: 'Brazil', de: 'Brazil', pt: 'Brasil' }, homeAirport: 'SAO', currency: 'BRL', timeZone: null, shopLang: null },
+  'pt/pt': { country: 'pt', lang: 'pt', hreflang: 'pt-PT', status: 'pilot', documents: 'language', name: 'Portugal | Português', countryName: { en: 'Portugal', de: 'Portugal', pt: 'Portugal' }, homeAirport: 'LIS', currency: 'EUR', timeZone: null, shopLang: null },
 };
 
 /** Every market-language root of www (its sitemap dataset), space-separated. */
@@ -244,6 +248,7 @@ export const LANGUAGE_VERSIONS = {
   de: 'de/de',
   fr: 'xx/fr',
   es: 'xx/es',
+  pt: 'xx/pt',
 };
 
 /** A language without a version of its own (texts fall back to English). */

@@ -6,7 +6,8 @@
     "en": "de/en",
     "de": "de/de",
     "fr": "xx/fr",
-    "es": "xx/es"
+    "es": "xx/es",
+    "pt": "xx/pt"
   },
   "fallbackLanguageVersion": "de/en",
   "neutralVersions": {
@@ -4056,6 +4057,84 @@
         "shopLang"
       ],
       "batch": 12
+    },
+    "xx/pt": {
+      "status": "pilot",
+      "documents": "own",
+      "name": "Outros países | Português",
+      "countryName": {
+        "en": null,
+        "de": null,
+        "pt": "Outros países"
+      },
+      "homeAirport": "FRA",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "countryName.en",
+        "countryName.de",
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 13
+    },
+    "ao/pt": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Angola | Português",
+      "countryName": {
+        "en": "Angola",
+        "de": "Angola",
+        "pt": "Angola"
+      },
+      "homeAirport": "LAD",
+      "currency": "USD",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 13
+    },
+    "br/pt": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Brasil | Português",
+      "countryName": {
+        "en": "Brazil",
+        "de": "Brazil",
+        "pt": "Brasil"
+      },
+      "homeAirport": "SAO",
+      "currency": "BRL",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 13
+    },
+    "pt/pt": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Portugal | Português",
+      "countryName": {
+        "en": "Portugal",
+        "de": "Portugal",
+        "pt": "Portugal"
+      },
+      "homeAirport": "LIS",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 13
     }
   }
 }
