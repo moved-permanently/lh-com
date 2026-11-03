@@ -54,6 +54,16 @@ export const PICKER_OPTION_LABELS = {
     'fare high label': 'Гибкость / более высокий класс бронирования для накопления большего числа миль',
     'fare applied': 'Выбранный тариф применён.',
   },
+  hk: {
+    'young adults label': '青少年',
+    'young adults hint': '（12–15 歲）',
+    'fare label': '選擇其他票價',
+    'fare question': '您希望享有哪些票價優惠？',
+    'fare default label': '最優惠價格',
+    'fare coupon label': '更改我的航班次序',
+    'fare high label': '彈性／較高訂位艙等，可累積更多里數',
+    'fare applied': '已套用您選擇的票價。',
+  },
 };
 
 /** The picker's hints a document can leave out. */

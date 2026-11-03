@@ -204,6 +204,8 @@ export function formatArticleDate(value, locale, style = 'market') {
   if (locale.lang === 'pt') return `${day} de ${month} de ${year}`;
   // Russian: the month in the genitive, then "г." ("3 ноября 2026 г.")
   if (locale.lang === 'ru') return `${day} ${month} ${year} г.`;
+  // Traditional Chinese: year, month and day with 年, 月, 日 ("2026年11月3日")
+  if (locale.lang === 'hk') return `${year}年${d.getUTCMonth() + 1}月${day}日`;
   return `${day}. ${month} ${year}`;
 }
 
