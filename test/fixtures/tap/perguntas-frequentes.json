@@ -1,0 +1,309 @@
+{
+ "page": "/[[...slug]]",
+ "query": {
+  "slug": [
+   "ajuda",
+   "perguntas-frequentes"
+  ]
+ },
+ "props": {
+  "pageProps": {
+   "page": {
+    "__typename": "PageModel",
+    "url": "/ajuda/perguntas-frequentes",
+    "title": "Perguntas frequentes",
+    "body": {
+     "json": null
+    },
+    "template": "default",
+    "hidePageHeading": true,
+    "showOnSearch": true,
+    "seoTitle": "Perguntas frequentes | TAP Air Portugal",
+    "seoDescription": {
+     "plaintext": "Encontre respostas rápidas e claras às suas dúvidas. Consulte a nossa área de perguntas frequentes para informações completas e relevantes."
+    },
+    "seoImage": {
+     "__typename": "ImageRef",
+     "title": "",
+     "description": "",
+     "width": 1280,
+     "height": 720,
+     "_dynamicUrl": "/adobe/dynamicmedia/deliver/dm-aid--2153a7e6-e0b2-4244-8c9b-94e9c0aa8361/help_contact_center_tap.jpg?preferwebp=true"
+    },
+    "redirect": null,
+    "seoIndexablePage": true,
+    "topSections": [],
+    "lineOfBusiness": null,
+    "position": null,
+    "annualAmount": null,
+    "sections": [
+     {
+      "__typename": "ComponentHeadingModel",
+      "lead": null,
+      "title": "Perguntas frequentes",
+      "headingDescription": {
+       "json": null
+      },
+      "textAlign": "center",
+      "containerSize": "default"
+     },
+     {
+      "__typename": "ComponentCategoryAccordionModel",
+      "expandFirstItem": null,
+      "categories": [
+       {
+        "id": "antes-voo",
+        "__typename": "CategoryModel",
+        "label": "Antes do voo",
+        "subCategories": [
+         {
+          "id": "prime",
+          "__typename": "SubCategoryModel",
+          "label": "Economy Prime",
+          "items": [
+           {
+            "id": null,
+            "__typename": "CategoryItemModel",
+            "channel": "both",
+            "question": "O que é a Economy Prime?",
+            "answer": {
+             "json": [
+              {
+               "nodeType": "paragraph",
+               "content": [
+                {
+                 "nodeType": "text",
+                 "value": "Trata-se de nova opção de viagem situada entre a Economy e a Business, nos voos de longo curso. Esta cabina é composta por 12 lugares, que estão localizados nas três primeiras filas da Economy. Em cada fila, há quatro lugares, onde cada passageiro beneficia de um assento ao lado sempre livre."
+                }
+               ]
+              }
+             ]
+            },
+            "ctaLabel": null,
+            "ctaUrl": null,
+            "sections": [],
+            "showBorderAtBottom": null
+           },
+           {
+            "id": null,
+            "__typename": "CategoryItemModel",
+            "channel": "both",
+            "question": "Em que voos posso escolher viajar em Economy Prime?",
+            "answer": {
+             "json": [
+              {
+               "nodeType": "paragraph",
+               "content": [
+                {
+                 "nodeType": "text",
+                 "value": "Pode escolher esta nova cabina sempre que fizer voos de longo curso."
+                }
+               ]
+              }
+             ]
+            },
+            "ctaLabel": null,
+            "ctaUrl": null,
+            "sections": [],
+            "showBorderAtBottom": null
+           },
+           {
+            "id": null,
+            "__typename": "CategoryItemModel",
+            "channel": "both",
+            "question": "Quando começam os voos com a Economy Prime?",
+            "answer": {
+             "json": [
+              {
+               "nodeType": "paragraph",
+               "content": [
+                {
+                 "nodeType": "text",
+                 "value": "Pode viajar nesta nova cabina a partir de 1 de junho de 2026."
+                }
+               ]
+              }
+             ]
+            },
+            "ctaLabel": null,
+            "ctaUrl": null,
+            "sections": [],
+            "showBorderAtBottom": null
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "id": "durante-voo",
+        "__typename": "CategoryModel",
+        "label": "Durante o voo",
+        "subCategories": [
+         {
+          "id": null,
+          "__typename": "SubCategoryModel",
+          "label": "Entretenimento e aparelhos eletrónicos",
+          "items": [
+           {
+            "id": null,
+            "__typename": "CategoryItemModel",
+            "channel": "both",
+            "question": "Posso usar aparelhos eletrónicos a bordo?",
+            "answer": {
+             "json": [
+              {
+               "nodeType": "text",
+               "value": "Sim. A TAP permite a utilização de aparelhos eletrónicos pessoais, desde que programados em modo de voo ou equivalente - sistemas de comunicação e transmissão de dados (Wireless e Bluetooth) desativados.Existem, no entanto, algumas normas que devem ser cumpridas durante o voo:"
+              },
+              {
+               "nodeType": "unordered-list",
+               "content": [
+                {
+                 "nodeType": "list-item",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "Os telemóveis e outros equipamentos transmissores podem estar ligados até ao fecho das portas;"
+                  }
+                 ]
+                },
+                {
+                 "nodeType": "list-item",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "Durante a fase de descolagem e aterragem os computadores portáteis e outros equipamentos de peso similar deverão ser arrumados nas bagageiras;"
+                  }
+                 ]
+                },
+                {
+                 "nodeType": "list-item",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "Quando colocados nas bagageiras, e sempre que a tripulação o solicite, os equipamentos deverão ser desligados."
+                  }
+                 ]
+                }
+               ]
+              }
+             ]
+            },
+            "ctaLabel": null,
+            "ctaUrl": null,
+            "sections": [],
+            "showBorderAtBottom": null
+           },
+           {
+            "id": null,
+            "__typename": "CategoryItemModel",
+            "channel": "both",
+            "question": "Que aparelhos eletrónicos não são permitidos durante o voo?",
+            "answer": {
+             "json": [
+              {
+               "nodeType": "text",
+               "value": "Por razões de segurança, a TAP não permite que os passageiros utilizem os seguintes aparelhos:"
+              },
+              {
+               "nodeType": "unordered-list",
+               "content": [
+                {
+                 "nodeType": "list-item",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "Walkie-talkies ou rádios portáteis;"
+                  }
+                 ]
+                },
+                {
+                 "nodeType": "list-item",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "Equipamento Wireless para pc;"
+                  }
+                 ]
+                },
+                {
+                 "nodeType": "list-item",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "Brinquedos com controlo remoto;"
+                  }
+                 ]
+                },
+                {
+                 "nodeType": "list-item",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "Equipamento stereo, incluindo rádios de bolso (AM / FM);"
+                  }
+                 ]
+                },
+                {
+                 "nodeType": "list-item",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "Transmissores de rádio frequências ou equipamentos similares e recetores portáteis de TV;"
+                  }
+                 ]
+                },
+                {
+                 "nodeType": "list-item",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "Cigarros eletrónicos, no entanto estes podem ser transportados na mala de mão, apenas não poderão ser utilizados durante o voo."
+                  }
+                 ]
+                }
+               ]
+              }
+             ]
+            },
+            "ctaLabel": null,
+            "ctaUrl": null,
+            "sections": [],
+            "showBorderAtBottom": null
+           },
+           {
+            "id": null,
+            "__typename": "CategoryItemModel",
+            "channel": "both",
+            "question": "Que outros cuidados devo ter com o uso de aparelhos eletrónicos a bordo?",
+            "answer": {
+             "json": [
+              {
+               "nodeType": "paragraph",
+               "content": [
+                {
+                 "nodeType": "text",
+                 "value": "Durante a descolagem e aterragem, todos os portáteis ou equipamentos de peso similares, como leitores de DVD, devem ser arrumados na bagageira. Também os poderá guardar nas bolsas das cadeiras desde que o peso não seja superior a 1.36 kg e a dimensão não seja superior à bolsa. Ao colocar na bagageira, ou por indicação da tripulação, deve desligar os aparelhos."
+                }
+               ]
+              }
+             ]
+            },
+            "ctaLabel": null,
+            "ctaUrl": null,
+            "sections": [],
+            "showBorderAtBottom": null
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ],
+    "dynamicData": {},
+    "hrefLangs": []
+   }
+  }
+ }
+}

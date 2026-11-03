@@ -1,0 +1,311 @@
+{
+ "page": "/[[...slug]]",
+ "query": {},
+ "props": {
+  "pageProps": {
+   "page": {
+    "__typename": "HomepageModel",
+    "sections": [
+     {
+      "__typename": "ComponentAuxiliaryCarouselModel",
+      "items": [
+       {
+        "__typename": "AuxiliaryCarouselItemModel",
+        "icon": {
+         "__typename": "DocumentRef",
+         "type": "document",
+         "format": "image/svg+xml",
+         "size": 2144,
+         "title": "",
+         "description": "pt:Ícone adicionar seguro|en:Icon add insurance|fr:Icône ajouter une assurance|de:Icon Versicherung hinzufügen|es:Icono adicionar seguro|it:Icona aggiungere l'assicurazione|pl:Ikona dodaj ubezpieczenie|pt-br:Ícone adicionar seguro"
+        },
+        "label": "Adicionar seguro",
+        "url": "https://buy.chubbtravelinsurance.com/tappt/quote?utm_source=flytap.com&utm_campaign=flytap-homepage&utm_medium=referral&utm_content=extras-links"
+       },
+       {
+        "__typename": "AuxiliaryCarouselItemModel",
+        "icon": {
+         "__typename": "DocumentRef",
+         "type": "document",
+         "format": "image/svg+xml",
+         "size": 2471,
+         "title": "",
+         "description": "pt:Ícone alugar carro|en:Icon Rent a car|fr:Icône Location de voiture|de:Icon Mieten Sie ein Auto|es:Icono  alquilar un coche|it:Icona Noleggiare auto|pl:Ikona Wynajmij samochód|pt-br:Ícone alugar um carro"
+        },
+        "label": "Alugar carro",
+        "url": "https://cars.flytap.com/pt/?clientId=644693&curr=EUR#/searchcars&utm_source=flytap.com&utm_campaign=flytap-homepage&utm_medium=referral&utm_content=extras-links"
+       },
+       {
+        "__typename": "AuxiliaryCarouselItemModel",
+        "icon": {
+         "__typename": "DocumentRef",
+         "type": "document",
+         "format": "image/svg+xml",
+         "size": 1222,
+         "title": "",
+         "description": "pt:Ícone reservar alojamento|en:Icon book accommodation|fr:Icône réservez un hébergement|es:Icono reservar alojamiento|de:Icon buchen Sie eine Unterkunft|it:Icona prenotare un alloggio|pl:Ikona rezerwacja zakwaterowanie|pt-br:Ícone reservar acomodação"
+        },
+        "label": "Reservar alojamento",
+        "url": "https://www.booking.com/?aid=2206611&label=airtap-navtab-homepage&utm-link-2206611-click"
+       }
+      ]
+     },
+     {
+      "__typename": "ComponentClientNeedsCardListModel",
+      "title": "Planeie a sua viagem ao detalhe",
+      "variant": "default",
+      "clientNeedsCardListDescription": {
+       "json": null
+      },
+      "cards": [
+       {
+        "__typename": "ClientNeedsCardModel",
+        "image": {
+         "__typename": "ImageRef",
+         "title": "",
+         "description": "pt:Homem a caminhar num tapete rolante dentro de um aeroporto, com uma mochila às costas e a puxar uma mala de viagem com rodas. O corredor tem janelas grandes com vista para o exterior, onde se vê o céu azul com algumas nuvens.|en:Man walking on a conveyor belt inside an airport, with a rucksack on his back and pulling a wheeled suitcase. The corridor has large windows overlooking the outside, where you can see the blue sky with a few clouds.|fr:Homme marchant sur un tapis roulant à l'intérieur d'un aéroport, avec un sac à dos sur le dos et tirant une valise à roulettes. Le couloir est doté de grandes fenêtres donnant sur l'extérieur, où l'on peut voir le ciel bleu avec quelques nuages.|es:Hombre caminando por una cinta transportadora dentro de un aeropuerto, con una mochila a la espalda y tirando de una maleta con ruedas. El pasillo tiene grandes ventanales que dan al exterior, donde se ve el cielo azul con algunas nubes.|de:Mann, der auf einem Förderband in einem Flughafen läuft, einen Rucksack auf dem Rücken trägt und einen Rollkoffer schleppt. Der Korridor hat große Fenster mit Blick nach draußen, wo man den blauen Himmel mit ein paar Wolken sehen kann.|it:Uomo che cammina su un nastro trasportatore all'interno di un aeroporto, con uno zaino sulle spalle e tirando una valigia a rotelle. Il corridoio ha grandi finestre che si affacciano sull'esterno, dove si vede il cielo azzurro con qualche nuvola.|pl:Mężczyzna idący na przenośniku taśmowym wewnątrz lotniska, z plecakiem na plecach i ciągnący walizkę na kółkach. Korytarz ma duże okna wychodzące na zewnątrz, przez które widać błękitne niebo z kilkoma chmurami.|pt-br:Um homem andando em uma esteira rolante dentro do aeroporto, com uma mochila nas costas e arrastando uma mala com rodas. O corredor tem grandes janelas que dão para o exterior, através das quais é possível ver um céu azul com algumas nuvens.",
+         "width": 1280,
+         "height": 720,
+         "_dynamicUrl": "/adobe/dynamicmedia/deliver/dm-aid--bd6d1ad2-88c0-4ed9-9cc2-91a83509e5dc/baggage_tap_air_portugal_card_hp.jpg?preferwebp=true"
+        },
+        "title": "Regras e restrições de bagagem",
+        "url": "/informacoes/bagagem"
+       },
+       {
+        "__typename": "ClientNeedsCardModel",
+        "image": {
+         "__typename": "ImageRef",
+         "title": "",
+         "description": "pt:Imagem em contraluz de quatro pessoas a deslocarem-se num aeroporto. Duas delas encontram-se a carregar a sua bagagem, outra encontra-se numa cadeira de rodas que está a ser guiada pela última pessoa.|es:Backlit image of four people moving through an airport. Two of them are carrying their baggage, another is in a wheelchair being guided by the last person.|fr:Image rétroéclairée de quatre personnes se déplaçant dans un aéroport. Deux d'entre elles portent leurs bagages, une autre est en fauteuil roulant, guidée par la dernière personne.|es:Imagen retroiluminada de cuatro personas moviéndose por un aeropuerto. Dos de ellas llevan su equipaje, otra va en una silla de ruedas que es guiada por la última persona.|de:Gegenlichtbild von vier Personen, die sich durch einen Flughafen bewegen. Zwei von ihnen tragen ihr Gepäck, eine andere sitzt im Rollstuhl und wird von der letzten Person geschoben.|it:Immagine in controluce di quattro persone che si muovono in un aeroporto. Due di loro trasportano il proprio bagaglio, un'altra è su una sedia a rotelle guidata dall'ultima persona.|pt-br:Imagem retroiluminada de quatro pessoas se movimentando em um aeroporto. Duas delas estão carregando suas bagagens, outra está em uma cadeira de rodas sendo guiada pela última pessoa.|pl: Podświetlony obraz czterech osób poruszających się po lotnisku. Dwie z nich niosą bagaże, trzecia porusza się na wózku inwalidzkim prowadzonym przez ostatnią osobę.",
+         "width": 1280,
+         "height": 720,
+         "_dynamicUrl": "/adobe/dynamicmedia/deliver/dm-aid--c7f4b37a-5493-4525-bccc-247196f47453/special_needs_card_homepage.jpg?preferwebp=true"
+        },
+        "title": "Necessidades especiais e cadeiras de rodas",
+        "url": "/informacoes/necessidades-especiais"
+       }
+      ]
+     },
+     {
+      "__typename": "ComponentHeroCardModel",
+      "image": {
+       "__typename": "ImageRef",
+       "title": "",
+       "description": "",
+       "width": 1152,
+       "height": 648,
+       "_dynamicUrl": "/adobe/dynamicmedia/deliver/dm-aid--1429bb1f-03b8-4032-817b-83fed8e1394a/TAP_Flytap_Natal26__2_.jpg?preferwebp=true"
+      },
+      "imageMobile": null,
+      "title": "Mercados de Natal na Europa",
+      "template": "content-page",
+      "heroCardDescription": {
+       "plaintext": " Descubra cidades iluminadas, aromas irresistíveis e a magia das tradições natalícias. "
+      },
+      "primaryCtaLabel": "Reserve já",
+      "primaryCtaUrl": "https://www.flytap.com/pt_pt/mercados-natal",
+      "secondaryCtaLabel": null,
+      "secondaryCtaUrl": null
+     },
+     {
+      "__typename": "ComponentMiles_GoCardListModel",
+      "milesAndGoCards": [
+       {
+        "__typename": "ComponentMiles_GoCardModel",
+        "type": "1",
+        "title": "TAP Miles&Go",
+        "subtitle": "Descubra como cada milha percorrida se traduz em benefícios extraordinários",
+        "milesAndGoCardDescription": {
+         "plaintext": "Desfrute de vantagens exclusivas, como Upgrades, acesso a Lounges selecionados e prioridade no Check-in. Faça da sua viagem uma oportunidade para acumular experiências inesquecíveis."
+        },
+        "image": {
+         "__typename": "ImageRef",
+         "title": "",
+         "description": "pt:Fotografia de uma senhora a bordo de um avião da TAP, em Classe Executiva. A senhora veste uma blusa de cor azul, umas calças de cor clara e está a segurar uma chávena de chá enquanto utiliza os headphones da TAP.|en:Photo of a woman seated in Business Class on a TAP plane. Dressed in a blue blouse and light-colored pants, the woman holds a cup of tea while wearing TAP headphones.|es:Fotografía de una señora a bordo de un avión de TAP en Clase Business. La señora lleva una blusa azul, pantalones de color claro y sostiene una taza de té mientras utiliza los auriculares de TAP.|fr:Photographie d'une dame à bord d'un avion TAP, en Classe Business. La dame porte un chemisier bleu, un pantalon de couleur claire et tient une tasse de thé tout en utilisant des écouteurs TAP.|it:Fotografia di una signora a bordo di un aereo TAP in Business Class. La signora indossa una camicetta blu, pantaloni chiari e tiene in mano una tazza di tè mentre usa le cuffie di TAP.|de:Foto einer Dame an Bord eines TAP -Flugzeugs in der Business Class. Die Dame trägt eine blaue Bluse, helle Hosen und hält eine Tasse Tee in der Hand, während sie TAP-Kopfhörer verwendet.|pl:Zdjęcie kobiety siedzącej w klasie Business w samolocie TAP. Kobieta trzyma w dłoni filiżankę herbaty, ma na sobie niebieską bluzkę i jasne spodnie, a na głowie słuchawki TAP.|pt-br:Foto de uma mulher sentada na Classe Executiva em um avião da TAP. Vestida com uma blusa azul e calça de cor clara, a mulher segura uma xícara de chá enquanto usa fones de ouvido da TAP.",
+         "width": 2260,
+         "height": 1506,
+         "_dynamicUrl": "/adobe/dynamicmedia/deliver/dm-aid--1e70c89a-e16a-4dc0-9e5b-4c38dbd06498/Miles_Go_homepage_discover.jpg?preferwebp=true"
+        },
+        "logo": {
+         "__typename": "ImageRef",
+         "title": "",
+         "description": "pt:Logo TAP Air Portugal e TAP Miles&Go.|en:TAP Air Portugal and TAP Miles&Go logo.|fr:Logo de TAP Air Portugal et de TAP Miles&Go.|es:Logotipo de TAP Air Portugal y TAP Miles&Go.|de:Logo von TAP Air Portugal und TAP Miles&Go.|it:Logo TAP Air Portugal e TAP Miles&Go.|pl:Logo TAP Air Portugal i TAP Miles&Go.|pt-br:Logotipo da TAP Air Portugal e TAP Miles&Go.",
+         "width": 260,
+         "height": 57,
+         "_dynamicUrl": "/adobe/dynamicmedia/deliver/dm-aid--63bdcdb9-3615-4ea8-86b2-6f5f5b0b7050/logo_miles_go.jpg?preferwebp=true"
+        },
+        "primaryCtaLabel": "Aderir ao Programa",
+        "primaryCtaUrl": "/registo",
+        "secondaryCtaLabel": null,
+        "secondaryCtaUrl": null,
+        "extrainfo": {
+         "plaintext": null
+        }
+       },
+       {
+        "__typename": "ComponentMiles_GoCardModel",
+        "type": "2",
+        "title": "Club TAP Miles&Go",
+        "subtitle": "Ganhe mais milhas e benefícios",
+        "milesAndGoCardDescription": {
+         "plaintext": "Com o Club TAP Miles&Go, o seu saldo de milhas cresce todos os meses e as suas viagens vêm com novas vantagens."
+        },
+        "image": {
+         "__typename": "ImageRef",
+         "title": "",
+         "description": "",
+         "width": 1790,
+         "height": 1920,
+         "_dynamicUrl": "/adobe/dynamicmedia/deliver/dm-aid--3064d030-0c00-47d1-98ef-4765ab73b0e6/Club900x870.jpg?preferwebp=true"
+        },
+        "logo": {
+         "__typename": "ImageRef",
+         "title": "",
+         "description": "pt:Logo Club|en:Logo Club|fr:Logo Club|es:Logo Club|de:Logo Club|it:Logo Club|pt-br:Logo Club|pl:Logo Club",
+         "width": 222,
+         "height": 76,
+         "_dynamicUrl": "/adobe/dynamicmedia/deliver/dm-aid--94820a80-ad31-4e6a-be24-35cbea924b3c/logo_club_miles_go.jpg?preferwebp=true"
+        },
+        "primaryCtaLabel": "Aderir ao Club",
+        "primaryCtaUrl": "/miles-and-go/club",
+        "secondaryCtaLabel": null,
+        "secondaryCtaUrl": null,
+        "extrainfo": {
+         "plaintext": null
+        }
+       }
+      ]
+     }
+    ],
+    "slider": {
+     "__typename": "ComponentSliderHomepageModel",
+     "slides": [
+      {
+       "__typename": "BannerSlideModel",
+       "title": "Islândia: onde a Natureza supera a imaginação",
+       "buttonLabel": "Reserve já",
+       "buttonUrl": "https://www.flytap.com/pt_[market]/voos-para-reiquiavique",
+       "secondaryButtonLabel": null,
+       "secondaryButtonUrl": null,
+       "description": {
+        "json": [
+         {
+          "nodeType": "paragraph",
+          "content": [
+           {
+            "nodeType": "text",
+            "value": "3 voos diretos por semana para Reiquiavique, a partir de 1 de abril de 2027."
+           }
+          ]
+         }
+        ]
+       },
+       "image": {
+        "__typename": "ImageRef",
+        "title": "",
+        "description": "",
+        "width": 1484,
+        "height": 989,
+        "_dynamicUrl": "/adobe/dynamicmedia/deliver/dm-aid--d5c4be76-9c67-4e92-9f27-98f30e04feba/GettyImages_847751050__1_.jpg?preferwebp=true"
+       },
+       "imageMobile": {
+        "__typename": "ImageRef",
+        "title": "",
+        "description": "",
+        "width": 1484,
+        "height": 989,
+        "_dynamicUrl": "/adobe/dynamicmedia/deliver/dm-aid--d5c4be76-9c67-4e92-9f27-98f30e04feba/GettyImages_847751050__1_.jpg?preferwebp=true"
+       },
+       "countdownEnabled": false,
+       "countdownEndDateTime": null
+      },
+      {
+       "__typename": "BannerSlideModel",
+       "title": "Chocolate quente a um voo de distância",
+       "buttonLabel": "Reserve já",
+       "buttonUrl": "https://www.flytap.com/pt_[market]/mercados-natal",
+       "secondaryButtonLabel": null,
+       "secondaryButtonUrl": null,
+       "description": {
+        "json": [
+         {
+          "nodeType": "paragraph",
+          "content": [
+           {
+            "nodeType": "text",
+            "value": "Visite os melhores mercados de Natal europeus."
+           }
+          ]
+         }
+        ]
+       },
+       "image": {
+        "__typename": "ImageRef",
+        "title": "",
+        "description": "",
+        "width": 1920,
+        "height": 899,
+        "_dynamicUrl": "/adobe/dynamicmedia/deliver/dm-aid--63ec3e5d-6179-4501-be8f-f26c8313709a/banner_desktop_xmas_markets_1980x1080.jpg?preferwebp=true"
+       },
+       "imageMobile": {
+        "__typename": "ImageRef",
+        "title": "",
+        "description": "",
+        "width": 880,
+        "height": 638,
+        "_dynamicUrl": "/adobe/dynamicmedia/deliver/dm-aid--efca31b2-5d12-4301-9026-455e8ff6300f/banner_mobile_xmas_1024x500.jpg?preferwebp=true"
+       },
+       "countdownEnabled": false,
+       "countdownEndDateTime": null
+      }
+     ]
+    },
+    "seoTitle": "TAP Air Portugal | flyTAP Website Oficial  ",
+    "seoDescription": "A TAP Air Portugal dá-lhe as boas-vindas a bordo! Explore os destinos e os voos mais baratos, saiba tudo sobre o Check-in, as refeições e os benefícios TAP Miles&Go. Reserve já!",
+    "seoImage": {
+     "__typename": "ImageRef",
+     "title": "",
+     "description": "",
+     "width": 218,
+     "height": 107,
+     "_dynamicUrl": "/adobe/dynamicmedia/deliver/dm-aid--691de57f-ec73-4fde-b0f8-330cdc6a5a58/logoTAP_INST_vertical_CMYK_Positivo.jpg?preferwebp=true"
+    },
+    "organizationName": "TAP Air Portugal",
+    "organizationUrl": "https://www.flytap.com",
+    "organizationLogo": {
+     "__typename": "ImageRef",
+     "title": "",
+     "description": "",
+     "width": 218,
+     "height": 107,
+     "_dynamicUrl": "/adobe/dynamicmedia/deliver/dm-aid--691de57f-ec73-4fde-b0f8-330cdc6a5a58/logoTAP_INST_vertical_CMYK_Positivo.jpg?preferwebp=true"
+    },
+    "organizationSameAs": null,
+    "organizationContactPointPhone": null,
+    "organizationContactPointType": null,
+    "organizationContactPointAreaServed": null,
+    "organizationContactPointAvailableLanguage": null,
+    "organizationAddress": "Aeroporto de Lisboa",
+    "organizationLocality": "Lisboa",
+    "organizationAddressCountry": "Portugal",
+    "organizationAddressPostalCode": "1704-801",
+    "organizationAddressRegion": "Lisboa",
+    "websiteName": "TAP Air Portugal",
+    "websiteDescription": "A TAP Air Portugal dá-lhe as boas-vindas a bordo! Explore os destinos e os voos mais baratos, saiba tudo sobre o Check-in, as refeições e os benefícios TAP Miles&Go. Reserve já!",
+    "websiteUrl": "https://www.flytap.com",
+    "websitePublisherName": "TAP Air Portugal",
+    "websitePublisherLogo": {
+     "__typename": "ImageRef",
+     "title": "",
+     "description": "",
+     "width": 218,
+     "height": 107,
+     "_dynamicUrl": "/adobe/dynamicmedia/deliver/dm-aid--691de57f-ec73-4fde-b0f8-330cdc6a5a58/logoTAP_INST_vertical_CMYK_Positivo.jpg?preferwebp=true"
+    },
+    "websiteMainEntityOfPage": null,
+    "dynamicData": {},
+    "hrefLangs": []
+   }
+  }
+ }
+}

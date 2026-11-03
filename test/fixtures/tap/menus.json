@@ -1,0 +1,1309 @@
+{
+ "props": {
+  "pageProps": {
+   "headerMenu": [
+    {
+     "title": "Planear viagem",
+     "link": null,
+     "group": null,
+     "target": null,
+     "component": null,
+     "requireLogin": false,
+     "showSeeAll": true,
+     "showOnlyForEurMarket": null,
+     "topLevelMenu": true,
+     "description": {
+      "json": null
+     },
+     "bannerMenu": {
+      "image": {
+       "title": "",
+       "description": "",
+       "width": 1080,
+       "height": 1080
+      },
+      "title": "Novo sistema EES",
+      "description": {
+       "json": [
+        {
+         "nodeType": "paragraph",
+         "content": [
+          {
+           "nodeType": "text",
+           "value": "Demoras no controlo de passaportes em Lisboa."
+          }
+         ]
+        }
+       ]
+      },
+      "ctaLabel": "Saiba mais",
+      "ctaUrl": "/informacoes/documentacao/vistos-schengen"
+     },
+     "children": [
+      {
+       "title": "Reservar",
+       "link": "/reservas",
+       "group": null,
+       "target": "_self",
+       "component": null,
+       "requireLogin": false,
+       "showSeeAll": true,
+       "showOnlyForEurMarket": null,
+       "topLevelMenu": null,
+       "description": {
+        "json": null
+       },
+       "bannerMenu": null,
+       "children": [
+        {
+         "title": "Voos e Destinos",
+         "link": "https://www.flytap.com/pt_[market]/",
+         "group": null,
+         "target": "_blank",
+         "component": null,
+         "requireLogin": false,
+         "showSeeAll": true,
+         "showOnlyForEurMarket": null,
+         "topLevelMenu": null,
+         "description": {
+          "json": null
+         },
+         "bannerMenu": null
+        },
+        {
+         "title": "Tarifas",
+         "link": "/reservas/tarifas-tap",
+         "group": null,
+         "target": "_self",
+         "component": null,
+         "requireLogin": false,
+         "showSeeAll": true,
+         "showOnlyForEurMarket": null,
+         "topLevelMenu": null,
+         "description": {
+          "json": null
+         },
+         "bannerMenu": null
+        },
+        {
+         "title": "Promoções e Campanhas",
+         "link": "https://www.flytap.com/pt_[market]/desconto-voos",
+         "group": null,
+         "target": "_blank",
+         "component": null,
+         "requireLogin": false,
+         "showSeeAll": true,
+         "showOnlyForEurMarket": null,
+         "topLevelMenu": false,
+         "description": {
+          "json": null
+         },
+         "bannerMenu": null
+        },
+        {
+         "title": "Avião e comboio",
+         "link": "/reservas/aviao-e-comboio",
+         "group": null,
+         "target": "_self",
+         "component": null,
+         "requireLogin": false,
+         "showSeeAll": true,
+         "showOnlyForEurMarket": null,
+         "topLevelMenu": null,
+         "description": {
+          "json": null
+         },
+         "bannerMenu": null
+        },
+        {
+         "title": "Ponte Aérea",
+         "link": "/reservas/ponte-aerea",
+         "group": null,
+         "target": "_self",
+         "component": null,
+         "requireLogin": false,
+         "showSeeAll": true,
+         "showOnlyForEurMarket": null,
+         "topLevelMenu": null,
+         "description": {
+          "json": null
+         },
+         "bannerMenu": null
+        },
+        {
+         "title": "Stopover",
+         "link": "/stopover",
+         "group": null,
+         "target": "_self",
+         "component": null,
+         "requireLogin": false,
+         "showSeeAll": true,
+         "showOnlyForEurMarket": null,
+         "topLevelMenu": null,
+         "description": {
+          "json": null
+         },
+         "bannerMenu": null
+        }
+       ]
+      },
+      {
+       "title": "Informações de viagem",
+       "link": "/informacoes",
+       "group": null,
+       "target": "_self",
+       "component": null,
+       "requireLogin": false,
+       "showSeeAll": true,
+       "showOnlyForEurMarket": null,
+       "topLevelMenu": null,
+       "description": {
+        "json": null
+       },
+       "bannerMenu": null,
+       "children": [
+        {
+         "title": "Bagagem",
+         "link": "/informacoes/bagagem",
+         "group": null,
+         "target": "_self",
+         "component": null,
+         "requireLogin": false,
+         "showSeeAll": true,
+         "showOnlyForEurMarket": null,
+         "topLevelMenu": null,
+         "description": {
+          "json": null
+         },
+         "bannerMenu": null
+        },
+        {
+         "title": "Necessidades especiais",
+         "link": "/informacoes/necessidades-especiais",
+         "group": null,
+         "target": "_self",
+         "component": null,
+         "requireLogin": false,
+         "showSeeAll": true,
+         "showOnlyForEurMarket": null,
+         "topLevelMenu": null,
+         "description": {
+          "json": null
+         },
+         "bannerMenu": null
+        },
+        {
+         "title": "Viajar com animais",
+         "link": "/informacoes/viajar-com-animais",
+         "group": null,
+         "target": "_self",
+         "component": null,
+         "requireLogin": false,
+         "showSeeAll": true,
+         "showOnlyForEurMarket": null,
+         "topLevelMenu": null,
+         "description": {
+          "json": null
+         },
+         "bannerMenu": null
+        },
+        {
+         "title": "Bebés e crianças",
+         "link": "/informacoes/bebes-e-criancas",
+         "group": null,
+         "target": "_self",
+         "component": null,
+         "requireLogin": false,
+         "showSeeAll": true,
+         "showOnlyForEurMarket": null,
+         "topLevelMenu": null,
+         "description": {
+          "json": null
+         },
+         "bannerMenu": null
+        },
+        {
+         "title": "Grávidas",
+         "link": "/informacoes/gravidas",
+         "group": null,
+         "target": "_self",
+         "component": null,
+         "requireLogin": false,
+         "showSeeAll": true,
+         "showOnlyForEurMarket": null,
+         "topLevelMenu": null,
+         "description": {
+          "json": null
+         },
+         "bannerMenu": null
+        },
+        {
+         "title": "Requisitos e documentação",
+         "link": "/informacoes/documentacao",
+         "group": null,
+         "target": "_self",
+         "component": null,
+         "requireLogin": false,
+         "showSeeAll": true,
+         "showOnlyForEurMarket": null,
+         "topLevelMenu": null,
+         "description": {
+          "json": null
+         },
+         "bannerMenu": null
+        }
+       ]
+      },
+      {
+       "title": "A bordo",
+       "link": "/a-bordo",
+       "group": null,
+       "target": null,
+       "component": null,
+       "requireLogin": false,
+       "showSeeAll": false,
+       "showOnlyForEurMarket": null,
+       "topLevelMenu": null,
+       "description": {
+        "json": null
+       },
+       "bannerMenu": null,
+       "children": [
+        {
+         "title": "Voar em Business",
+         "link": "/a-bordo/voar-executiva",
+         "group": null,
+         "target": "_self",
+         "component": null,
+         "requireLogin": false,
+         "showSeeAll": true,
+         "showOnlyForEurMarket": null,
+         "topLevelMenu": null,
+         "description": {
+          "json": null
+         },
+         "bannerMenu": null
+        },
+        {
+         "title": "Voar em Economy Prime",
+         "link": "/a-bordo/economy-prime",
+         "group": null,
+         "target": "_self",
+         "component": null,
+         "requireLogin": null,
+         "showSeeAll": true,
+         "showOnlyForEurMarket": null,
+         "topLevelMenu": null,
+         "description": {
+          "json": null
+         },
+         "bannerMenu": null
+        },
+        {
+         "title": "Voar em Economy",
+         "link": "/a-bordo/voar-economica",
+         "group": null,
+         "target": "_self",
+         "component": null,
+         "requireLogin": false,
+         "showSeeAll": true,
+         "showOnlyForEurMarket": null,
+         "topLevelMenu": null,
+         "description": {
+          "json": null
+         },
+         "bannerMenu": null
+        },
+        {
+         "title": "Refeições a bordo",
+         "link": "/a-bordo/refeicoes",
+         "group": null,
+         "target": "_self",
+         "component": null,
+         "requireLogin": false,
+         "showSeeAll": true,
+         "showOnlyForEurMarket": null,
+         "topLevelMenu": null,
+         "description": {
+          "json": null
+         },
+         "bannerMenu": null
+        },
+        {
+         "title": "Entretenimento",
+         "link": "/a-bordo/entretenimento",
+         "group": null,
+         "target": "_self",
+         "component": null,
+         "requireLogin": false,
+         "showSeeAll": true,
+         "showOnlyForEurMarket": null,
+         "topLevelMenu": null,
+         "description": {
+          "json": null
+         },
+         "bannerMenu": null
+        },
+        {
+         "title": "Wi-Fi",
+         "link": "/a-bordo/wi-fi",
+         "group": null,
+         "target": "_self",
+         "component": null,
+         "requireLogin": false,
+         "showSeeAll": true,
+         "showOnlyForEurMarket": null,
+         "topLevelMenu": null,
+         "description": {
+          "json": null
+         },
+         "bannerMenu": null
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Os meus voos",
+     "link": null,
+     "group": null,
+     "target": null,
+     "component": null,
+     "requireLogin": false,
+     "showSeeAll": false,
+     "showOnlyForEurMarket": null,
+     "topLevelMenu": true,
+     "description": {
+      "json": null
+     },
+     "bannerMenu": null,
+     "children": [
+      {
+       "title": "Gerir reserva",
+       "link": "/gerir-reserva",
+       "group": null,
+       "target": "_self",
+       "component": "check-in-form",
+       "requireLogin": false,
+       "showSeeAll": false,
+       "showOnlyForEurMarket": null,
+       "topLevelMenu": null,
+       "description": {
+        "json": null
+       },
+       "bannerMenu": null,
+       "children": [
+        {
+         "title": "Gestão da Reserva",
+         "link": "#special-anchor-my-travels",
+         "group": null,
+         "target": "_self",
+         "component": null,
+         "requireLogin": false,
+         "showSeeAll": true,
+         "showOnlyForEurMarket": null,
+         "topLevelMenu": null,
+         "description": {
+          "json": null
+         },
+         "bannerMenu": null
+        },
+        {
+         "title": "Extras e Upgrades",
+         "link": "/gerir-reserva/extras",
+         "group": null,
+         "target": "_self",
+         "component": null,
+         "requireLogin": false,
+         "showSeeAll": true,
+         "showOnlyForEurMarket": null,
+         "topLevelMenu": null,
+         "description": {
+          "json": null
+         },
+         "bannerMenu": null
+        },
+        {
+         "title": "Fatura online",
+         "link": "https://receipts.flytap.com/PaxReceiptsWAR/spring/docs?locale=pt",
+         "group": null,
+         "target": "_blank",
+         "component": null,
+         "requireLogin": false,
+         "showSeeAll": true,
+         "showOnlyForEurMarket": null,
+         "topLevelMenu": null,
+         "description": {
+          "json": null
+         },
+         "bannerMenu": null
+        },
+        {
+         "title": "TAP Vouchers",
+         "link": "/vouchers",
+         "group": null,
+         "target": "_self",
+         "component": null,
+         "requireLogin": false,
+         "showSeeAll": false,
+         "showOnlyForEurMarket": null,
+         "topLevelMenu": null,
+         "description": {
+          "json": null
+         },
+         "bannerMenu": null
+        }
+       ]
+      },
+      {
+       "title": "Extras",
+       "link": "/gerir-reserva/extras",
+       "group": null,
+       "target": "_self",
+       "component": null,
+       "requireLogin": false,
+       "showSeeAll": false,
+       "showOnlyForEurMarket": null,
+       "topLevelMenu": null,
+       "description": {
+        "json": null
+       },
+       "bannerMenu": null,
+       "children": [
+        {
+         "title": "Alugar carro",
+         "link": "https://cars.flytap.com/pt/?clientId=644693&curr=EUR#/searchcars&utm_source=flytap.com&utm_campaign=flytap-header-menu&utm_medium=referral&utm_content=extras-links",
+         "group": null,
+         "target": "_blank",
+         "component": null,
+         "requireLogin": false,
+         "showSeeAll": true,
+         "showOnlyForEurMarket": null,
+         "topLevelMenu": null,
+         "description": {
+          "json": null
+         },
+         "bannerMenu": null
+        },
+        {
+         "title": "Seguro de Viagem",
+         "link": "/reservas/seguros",
+         "group": null,
+         "target": "_self",
+         "component": null,
+         "requireLogin": false,
+         "showSeeAll": true,
+         "showOnlyForEurMarket": null,
+         "topLevelMenu": null,
+         "description": {
+          "json": null
+         },
+         "bannerMenu": null
+        },
+        {
+         "title": "Alojamento",
+         "link": "https://www.booking.com/?aid=2206611&label=airtap-navtab-homepage&utm-link-2206611-click",
+         "group": null,
+         "target": "_blank",
+         "component": null,
+         "requireLogin": false,
+         "showSeeAll": true,
+         "showOnlyForEurMarket": null,
+         "topLevelMenu": null,
+         "description": {
+          "json": null
+         },
+         "bannerMenu": null
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Check-in",
+     "link": "#special-anchor-check-in",
+     "group": null,
+     "target": null,
+     "component": null,
+     "requireLogin": false,
+     "showSeeAll": true,
+     "showOnlyForEurMarket": null,
+     "topLevelMenu": true,
+     "description": {
+      "json": null
+     },
+     "bannerMenu": null,
+     "children": [
+      {
+       "title": "Voos para Check-in",
+       "link": null,
+       "group": null,
+       "target": null,
+       "component": "check-in-flights",
+       "requireLogin": true,
+       "showSeeAll": false,
+       "showOnlyForEurMarket": null,
+       "topLevelMenu": null,
+       "description": {
+        "json": null
+       },
+       "bannerMenu": null,
+       "children": [
+        {
+         "title": "Lista de Voos",
+         "link": null,
+         "group": null,
+         "target": null,
+         "component": "check-in-flights",
+         "requireLogin": true,
+         "showSeeAll": true,
+         "showOnlyForEurMarket": null,
+         "topLevelMenu": null,
+         "description": {
+          "json": null
+         },
+         "bannerMenu": null
+        }
+       ]
+      },
+      {
+       "title": "Efetuar Check-in",
+       "link": null,
+       "group": null,
+       "target": null,
+       "component": null,
+       "requireLogin": false,
+       "showSeeAll": false,
+       "showOnlyForEurMarket": null,
+       "topLevelMenu": null,
+       "description": {
+        "json": null
+       },
+       "bannerMenu": null,
+       "children": [
+        {
+         "title": "Check In Form",
+         "link": null,
+         "group": null,
+         "target": null,
+         "component": "check-in-form",
+         "requireLogin": false,
+         "showSeeAll": false,
+         "showOnlyForEurMarket": null,
+         "topLevelMenu": null,
+         "description": {
+          "json": null
+         },
+         "bannerMenu": null
+        }
+       ]
+      },
+      {
+       "title": "Informações de Check-in",
+       "link": "/informacoes-check-in",
+       "group": null,
+       "target": "_self",
+       "component": null,
+       "requireLogin": false,
+       "showSeeAll": false,
+       "showOnlyForEurMarket": null,
+       "topLevelMenu": null,
+       "description": {
+        "json": null
+       },
+       "bannerMenu": null,
+       "children": []
+      }
+     ]
+    },
+    {
+     "title": "TAP Miles&Go",
+     "link": "/miles-and-go",
+     "group": null,
+     "target": null,
+     "component": null,
+     "requireLogin": false,
+     "showSeeAll": false,
+     "showOnlyForEurMarket": null,
+     "topLevelMenu": true,
+     "description": {
+      "json": null
+     },
+     "bannerMenu": {
+      "image": {
+       "title": "",
+       "description": "",
+       "width": 1417,
+       "height": 1417
+      },
+      "title": "TAP Miles&Go",
+      "description": {
+       "json": [
+        {
+         "nodeType": "paragraph",
+         "content": [
+          {
+           "nodeType": "text",
+           "value": "Adira gratuitamente e ganhe 200 milhas."
+          }
+         ]
+        }
+       ]
+      },
+      "ctaLabel": "Adira já",
+      "ctaUrl": "/registo"
+     },
+     "children": [
+      {
+       "title": "Programa TAP Miles&Go",
+       "link": "/miles-and-go",
+       "group": null,
+       "target": null,
+       "component": null,
+       "requireLogin": false,
+       "showSeeAll": false,
+       "showOnlyForEurMarket": null,
+       "topLevelMenu": false,
+       "description": {
+        "json": null
+       },
+       "bannerMenu": null,
+       "children": [
+        {
+         "title": "Conhecer o Programa",
+         "link": "/miles-and-go",
+         "group": null,
+         "target": null,
+         "component": null,
+         "requireLogin": false,
+         "showSeeAll": true,
+         "showOnlyForEurMarket": null,
+         "topLevelMenu": null,
+         "description": {
+          "json": null
+         },
+         "bannerMenu": null
+        },
+        {
+         "title": "Acumular milhas",
+         "link": "/miles-and-go/acumular-milhas",
+         "group": null,
+         "target": null,
+         "component": null,
+         "requireLogin": false,
+         "showSeeAll": true,
+         "showOnlyForEurMarket": null,
+         "topLevelMenu": null,
+         "description": {
+          "json": null
+         },
+         "bannerMenu": null
+        },
+        {
+         "title": "Utilizar milhas",
+         "link": "/miles-and-go/utilizar-milhas",
+         "group": null,
+         "target": null,
+         "component": null,
+         "requireLogin": false,
+         "showSeeAll": true,
+         "showOnlyForEurMarket": null,
+         "topLevelMenu": null,
+         "description": {
+          "json": null
+         },
+         "bannerMenu": null
+        },
+        {
+         "title": "Parceiros",
+         "link": "/miles-and-go/parceiros",
+         "group": null,
+         "target": "_self",
+         "component": null,
+         "requireLogin": false,
+         "showSeeAll": true,
+         "showOnlyForEurMarket": null,
+         "topLevelMenu": null,
+         "description": {
+          "json": null
+         },
+         "bannerMenu": null
+        },
+        {
+         "title": "Cartões de Crédito",
+         "link": "/miles-and-go/acumular-milhas/cartoes-de-credito",
+         "group": null,
+         "target": "_self",
+         "component": null,
+         "requireLogin": null,
+         "showSeeAll": true,
+         "showOnlyForEurMarket": null,
+         "topLevelMenu": null,
+         "description": {
+          "json": null
+         },
+         "bannerMenu": null
+        },
+        {
+         "title": "Club TAP Miles&Go",
+         "link": "/miles-and-go/club",
+         "group": null,
+         "target": null,
+         "component": null,
+         "requireLogin": false,
+         "showSeeAll": true,
+         "showOnlyForEurMarket": null,
+         "topLevelMenu": null,
+         "description": {
+          "json": null
+         },
+         "bannerMenu": null
+        },
+        {
+         "title": "Promoções e Ofertas",
+         "link": "/miles-and-go/promocoes",
+         "group": null,
+         "target": null,
+         "component": null,
+         "requireLogin": false,
+         "showSeeAll": true,
+         "showOnlyForEurMarket": null,
+         "topLevelMenu": null,
+         "description": {
+          "json": null
+         },
+         "bannerMenu": null
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Ajuda",
+     "link": null,
+     "group": null,
+     "target": null,
+     "component": null,
+     "requireLogin": false,
+     "showSeeAll": false,
+     "showOnlyForEurMarket": null,
+     "topLevelMenu": true,
+     "description": {
+      "json": null
+     },
+     "bannerMenu": null,
+     "children": [
+      {
+       "title": "Central de ajuda",
+       "link": "/ajuda",
+       "group": null,
+       "target": "_self",
+       "component": null,
+       "requireLogin": false,
+       "showSeeAll": false,
+       "showOnlyForEurMarket": null,
+       "topLevelMenu": null,
+       "description": {
+        "json": null
+       },
+       "bannerMenu": null,
+       "children": [
+        {
+         "title": "Perguntas frequentes",
+         "link": "/ajuda/perguntas-frequentes",
+         "group": null,
+         "target": null,
+         "component": null,
+         "requireLogin": false,
+         "showSeeAll": true,
+         "showOnlyForEurMarket": null,
+         "topLevelMenu": null,
+         "description": {
+          "json": null
+         },
+         "bannerMenu": null
+        },
+        {
+         "title": "Pedidos e reclamações",
+         "link": "/ajuda/pedidos-reclamacoes",
+         "group": null,
+         "target": "_self",
+         "component": null,
+         "requireLogin": false,
+         "showSeeAll": false,
+         "showOnlyForEurMarket": null,
+         "topLevelMenu": false,
+         "description": {
+          "json": null
+         },
+         "bannerMenu": null
+        },
+        {
+         "title": "Contactos",
+         "link": "/ajuda#contactos",
+         "group": null,
+         "target": null,
+         "component": null,
+         "requireLogin": false,
+         "showSeeAll": true,
+         "showOnlyForEurMarket": null,
+         "topLevelMenu": null,
+         "description": {
+          "json": null
+         },
+         "bannerMenu": null
+        }
+       ]
+      },
+      {
+       "title": "Informações úteis",
+       "link": "/ajuda#informacoes-uteis",
+       "group": null,
+       "target": "_self",
+       "component": null,
+       "requireLogin": false,
+       "showSeeAll": false,
+       "showOnlyForEurMarket": null,
+       "topLevelMenu": null,
+       "description": {
+        "json": null
+       },
+       "bannerMenu": null,
+       "children": [
+        {
+         "title": "Reembolsos",
+         "link": "/ajuda/reembolsos-tap",
+         "group": null,
+         "target": null,
+         "component": null,
+         "requireLogin": false,
+         "showSeeAll": true,
+         "showOnlyForEurMarket": null,
+         "topLevelMenu": null,
+         "description": {
+          "json": null
+         },
+         "bannerMenu": null
+        },
+        {
+         "title": "Fatura online",
+         "link": "https://receipts.flytap.com/PaxReceiptsWAR/spring/docs?locale=pt",
+         "group": null,
+         "target": "_blank",
+         "component": null,
+         "requireLogin": false,
+         "showSeeAll": true,
+         "showOnlyForEurMarket": null,
+         "topLevelMenu": null,
+         "description": {
+          "json": null
+         },
+         "bannerMenu": null
+        },
+        {
+         "title": "Bagagem perdida / danificada",
+         "link": "/informacoes/bagagem/problemas-bagagem",
+         "group": null,
+         "target": null,
+         "component": null,
+         "requireLogin": false,
+         "showSeeAll": true,
+         "showOnlyForEurMarket": null,
+         "topLevelMenu": null,
+         "description": {
+          "json": null
+         },
+         "bannerMenu": null
+        },
+        {
+         "title": "Voo atrasado / cancelado",
+         "link": "/ajuda/atrasos-cancelamentos",
+         "group": null,
+         "target": null,
+         "component": null,
+         "requireLogin": false,
+         "showSeeAll": true,
+         "showOnlyForEurMarket": null,
+         "topLevelMenu": null,
+         "description": {
+          "json": null
+         },
+         "bannerMenu": null
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "footerMenu": [
+    {
+     "title": "Outros websites",
+     "link": null,
+     "group": null,
+     "target": null,
+     "component": null,
+     "requireLogin": false,
+     "showSeeAll": true,
+     "showOnlyForEurMarket": null,
+     "topLevelMenu": true,
+     "description": {
+      "json": null
+     },
+     "bannerMenu": null,
+     "children": [
+      {
+       "title": "TAP Institucional",
+       "link": "https://www.tapairportugal.com/pt/",
+       "group": null,
+       "target": "_blank",
+       "component": null,
+       "requireLogin": null,
+       "showSeeAll": true,
+       "showOnlyForEurMarket": null,
+       "topLevelMenu": null,
+       "description": {
+        "json": null
+       },
+       "bannerMenu": null,
+       "children": []
+      },
+      {
+       "title": "TAP FORBIZ",
+       "link": "https://tapforbiz.com/",
+       "group": null,
+       "target": "_blank",
+       "component": null,
+       "requireLogin": null,
+       "showSeeAll": true,
+       "showOnlyForEurMarket": null,
+       "topLevelMenu": null,
+       "description": {
+        "json": null
+       },
+       "bannerMenu": null,
+       "children": []
+      },
+      {
+       "title": "TAP Air Cargo",
+       "link": "https://www.tapcargo.com/pt",
+       "group": null,
+       "target": "_blank",
+       "component": null,
+       "requireLogin": null,
+       "showSeeAll": true,
+       "showOnlyForEurMarket": null,
+       "topLevelMenu": null,
+       "description": {
+        "json": null
+       },
+       "bannerMenu": null,
+       "children": []
+      },
+      {
+       "title": "TAP Maintenance & Engineering",
+       "link": "https://www.tapme.pt/en/",
+       "group": null,
+       "target": "_blank",
+       "component": null,
+       "requireLogin": null,
+       "showSeeAll": true,
+       "showOnlyForEurMarket": null,
+       "topLevelMenu": null,
+       "description": {
+        "json": null
+       },
+       "bannerMenu": null,
+       "children": []
+      },
+      {
+       "title": "TAP Store",
+       "link": "https://store.flytap.com/?_gl=1*zvxxrs*_gcl_dc*R0NMLjE3MjA0MzU5MzUuQ043LXk2U2psNGNERlc1dlFRSWRpRElYRXc.*_gcl_au*NjAzMDAxNTk2LjE3MTYyOTg2MDk.*_ga*ODc0NDk2NDAzLjE3MTYyOTg2MDg.*_ga_MN85FYPN4N*MTcyMTY4NzgxNS42ODAuMC4xNzIxNjg3ODE1LjYwLjAuMA..",
+       "group": null,
+       "target": "_blank",
+       "component": null,
+       "requireLogin": null,
+       "showSeeAll": true,
+       "showOnlyForEurMarket": null,
+       "topLevelMenu": null,
+       "description": {
+        "json": null
+       },
+       "bannerMenu": null,
+       "children": []
+      }
+     ]
+    },
+    {
+     "title": "Outros recursos importantes",
+     "link": null,
+     "group": null,
+     "target": null,
+     "component": null,
+     "requireLogin": false,
+     "showSeeAll": true,
+     "showOnlyForEurMarket": null,
+     "topLevelMenu": true,
+     "description": {
+      "json": null
+     },
+     "bannerMenu": null,
+     "children": [
+      {
+       "title": "Central de Informação legal",
+       "link": "/info-legal",
+       "group": null,
+       "target": "_self",
+       "component": null,
+       "requireLogin": null,
+       "showSeeAll": true,
+       "showOnlyForEurMarket": null,
+       "topLevelMenu": null,
+       "description": {
+        "json": null
+       },
+       "bannerMenu": null,
+       "children": []
+      },
+      {
+       "title": "Condições de Transporte",
+       "link": "/info-legal/condicoes-de-transporte",
+       "group": null,
+       "target": "_self",
+       "component": null,
+       "requireLogin": false,
+       "showSeeAll": true,
+       "showOnlyForEurMarket": null,
+       "topLevelMenu": false,
+       "description": {
+        "json": null
+       },
+       "bannerMenu": null,
+       "children": []
+      },
+      {
+       "title": "Política de Privacidade",
+       "link": "/info-legal/privacidade",
+       "group": null,
+       "target": "_self",
+       "component": null,
+       "requireLogin": null,
+       "showSeeAll": true,
+       "showOnlyForEurMarket": null,
+       "topLevelMenu": null,
+       "description": {
+        "json": null
+       },
+       "bannerMenu": null,
+       "children": []
+      },
+      {
+       "title": "Política de Cookies",
+       "link": "/info-legal/cookies",
+       "group": null,
+       "target": "_self",
+       "component": null,
+       "requireLogin": null,
+       "showSeeAll": true,
+       "showOnlyForEurMarket": null,
+       "topLevelMenu": null,
+       "description": {
+        "json": null
+       },
+       "bannerMenu": null,
+       "children": []
+      },
+      {
+       "title": "Definições de Cookies",
+       "link": null,
+       "group": null,
+       "target": null,
+       "component": "cookies-settings",
+       "requireLogin": null,
+       "showSeeAll": false,
+       "showOnlyForEurMarket": null,
+       "topLevelMenu": null,
+       "description": {
+        "json": null
+       },
+       "bannerMenu": null,
+       "children": []
+      },
+      {
+       "title": "Termos e Condições TAP Miles&Go",
+       "link": "/info-legal/termos-e-condicoes-miles-and-go",
+       "group": null,
+       "target": "_self",
+       "component": null,
+       "requireLogin": false,
+       "showSeeAll": true,
+       "showOnlyForEurMarket": null,
+       "topLevelMenu": false,
+       "description": {
+        "json": null
+       },
+       "bannerMenu": null,
+       "children": []
+      },
+      {
+       "title": "Livro de Reclamações",
+       "link": "https://www.livroreclamacoes.pt/Inicio/",
+       "group": null,
+       "target": "_blank",
+       "component": null,
+       "requireLogin": null,
+       "showSeeAll": false,
+       "showOnlyForEurMarket": null,
+       "topLevelMenu": null,
+       "description": {
+        "json": null
+       },
+       "bannerMenu": null,
+       "children": []
+      }
+     ]
+    },
+    {
+     "title": "Destinos em destaque",
+     "link": null,
+     "group": null,
+     "target": null,
+     "component": null,
+     "requireLogin": false,
+     "showSeeAll": true,
+     "showOnlyForEurMarket": null,
+     "topLevelMenu": true,
+     "description": {
+      "json": null
+     },
+     "bannerMenu": null,
+     "children": [
+      {
+       "title": "Voos Lisboa",
+       "link": "https://www.flytap.com/pt_[market]/voos-para-lisboa",
+       "group": null,
+       "target": "_blank",
+       "component": null,
+       "requireLogin": false,
+       "showSeeAll": true,
+       "showOnlyForEurMarket": null,
+       "topLevelMenu": false,
+       "description": {
+        "json": null
+       },
+       "bannerMenu": null,
+       "children": []
+      },
+      {
+       "title": "Voos Porto",
+       "link": "https://www.flytap.com/pt_[market]/voos-para-porto",
+       "group": null,
+       "target": "_blank",
+       "component": null,
+       "requireLogin": false,
+       "showSeeAll": true,
+       "showOnlyForEurMarket": null,
+       "topLevelMenu": false,
+       "description": {
+        "json": null
+       },
+       "bannerMenu": null,
+       "children": []
+      },
+      {
+       "title": "Voos Funchal",
+       "link": "https://www.flytap.com/pt_[market]/voos-para-funchal",
+       "group": null,
+       "target": "_blank",
+       "component": null,
+       "requireLogin": null,
+       "showSeeAll": true,
+       "showOnlyForEurMarket": null,
+       "topLevelMenu": null,
+       "description": {
+        "json": null
+       },
+       "bannerMenu": null,
+       "children": []
+      },
+      {
+       "title": "Voos Madrid",
+       "link": "https://www.flytap.com/pt_[market]/voos-para-madrid",
+       "group": null,
+       "target": "_blank",
+       "component": null,
+       "requireLogin": null,
+       "showSeeAll": true,
+       "showOnlyForEurMarket": null,
+       "topLevelMenu": null,
+       "description": {
+        "json": null
+       },
+       "bannerMenu": null,
+       "children": []
+      },
+      {
+       "title": "Voos Londres",
+       "link": "https://www.flytap.com/pt_[market]/voos-para-londres",
+       "group": null,
+       "target": "_blank",
+       "component": null,
+       "requireLogin": null,
+       "showSeeAll": true,
+       "showOnlyForEurMarket": null,
+       "topLevelMenu": null,
+       "description": {
+        "json": null
+       },
+       "bannerMenu": null,
+       "children": []
+      },
+      {
+       "title": "Voos Nova Iorque",
+       "link": "https://www.flytap.com/pt_[market]/voos-para-nova-iorque",
+       "group": null,
+       "target": "_blank",
+       "component": null,
+       "requireLogin": null,
+       "showSeeAll": true,
+       "showOnlyForEurMarket": null,
+       "topLevelMenu": null,
+       "description": {
+        "json": null
+       },
+       "bannerMenu": null,
+       "children": []
+      },
+      {
+       "title": "Voos Rio de Janeiro",
+       "link": "https://www.flytap.com/pt_[market]/voos-para-rio-de-janeiro",
+       "group": null,
+       "target": "_blank",
+       "component": null,
+       "requireLogin": null,
+       "showSeeAll": true,
+       "showOnlyForEurMarket": null,
+       "topLevelMenu": null,
+       "description": {
+        "json": null
+       },
+       "bannerMenu": null,
+       "children": []
+      }
+     ]
+    }
+   ],
+   "siteSettings": {
+    "darkSite": false,
+    "facebook": "https://www.facebook.com/TAPAirPortugal",
+    "x": null,
+    "pinterest": null,
+    "linkedin": "https://www.linkedin.com/company/tap-air-portugal",
+    "instagram": "https://www.instagram.com/tapairportugal/",
+    "youtube": "https://www.youtube.com/user/tap",
+    "tiktok": "https://www.tiktok.com/@tapairportugal",
+    "appStore": "https://itunes.apple.com/pt/app/tap-portugal/id440497198?mt=8",
+    "googlePlay": "https://play.google.com/store/apps/details?id=com.megasis.android&feature=search_result#?t=W251bGwsMSwxLDEsImNvbS5tZWdhc2lzLmFuZHJvaWQiXQ.."
+   }
+  }
+ }
+}

@@ -1,0 +1,140 @@
+/* eslint-disable no-console, max-len, no-underscore-dangle, import/extensions -- tooling */
+/**
+ * TAP Air Portugal's nav and footer documents (lh-tap: /<locale>/nav and /<locale>/footer) from
+ * the locale's homepage capture (__NEXT_DATA__ headerMenu, footerMenu and siteSettings), in the
+ * shape of lh-com's documents (blocks/header, blocks/footer) as Air Dolomiti's
+ * (airdolomiti-nav.mjs), on the TAP theme:
+ * - nav: 1. TAP's logo (the inline SVG of www's header, as a file) linking the homepage; 2. quick
+ *   actions: www's check-in and manage-booking widgets (#special-anchor-*: out of scope, on www);
+ *   3. the mega menu: the tabs (Planear viagem, Os meus voos, TAP Miles&Go, Ajuda) with their
+ *   columns and links, a tab's banner as a column of its own; www's widget entries (component
+ *   check-in-form, check-in-flights) left out, the Check-in tab (www's widget) in the quick
+ *   actions; 4. tools: help (:help:), the other language's homepage (the language switch), the
+ *   menu label.
+ * - footer: the link columns (other websites, legal resources, featured destinations; www's
+ *   cookie settings, its consent layer, left out), a section with the style badges: the app
+ *   stores and the social links (:facebook:, :instagram:, :linkedin:, :youtube:, :x:, :tiktok:
+ *   tokens), and the logo row.
+ * Links as tap-import.mjs's linkOf: pages of the site relative, the rest on www.flytap.com.
+ *
+ * Usage: node tools/importer/tap-nav.mjs --archive <unpacked pages archive> [--archive ...]
+ *          [--locale pt-pt] [--dry-run]
+ */
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import { fileURLToPath } from 'node:url';
+import { linkOf, docPath, WWW } from './tap-import.mjs';
+
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
+const OUT = path.join(root, 'content-sites/lh-tap/content');
+const esc = (s) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+const attr = (s) => esc(s).replace(/"/g, '&quot;');
+
+const SETUP = {
+  pt: {
+    logoAlt: 'TAP Air Portugal, voltar à página inicial', menu: 'Menu', help: ['Ajuda', '/ajuda'], other: ['English', 'en-pt'], appStore: 'App Store', googlePlay: 'Google Play',
+  },
+  en: {
+    logoAlt: 'TAP Air Portugal, back to the homepage', menu: 'Menu', help: ['Help', '/help'], other: ['Português', 'pt-pt'], appStore: 'App Store', googlePlay: 'Google Play',
+  },
+};
+const SOCIAL = ['facebook', 'instagram', 'linkedin', 'youtube', 'x', 'tiktok'];
+const isWidget = (x) => Boolean(x.component);
+const isSpecial = (x) => /^#special-anchor/.test(x.link || '');
+
+const ctxOf = (site) => ({ anchors: new Map(), ...site, locale: site.locale || docPath(site.url).split('/')[1] });
+const a = (href, label, c) => `<a href="${attr(linkOf(href, c))}">${esc(label)}</a>`;
+const li = (x, c) => (x.link ? `<li>${a(x.link, x.title, c)}</li>` : '');
+
+/** The nav document's HTML. */
+export function navHtml(pp, site) {
+  const c = ctxOf(site);
+  const lang = c.locale.split('-')[0];
+  const S = SETUP[lang] || SETUP.en;
+  const menu = pp.headerMenu || [];
+  const logo = `<div><p><a href="/${c.locale}"><img src="${attr(site.logo)}" alt="${attr(S.logoAlt)}"></a></p></div>`;
+  // quick actions: www's widgets (the Check-in tab, the manage-booking entry)
+  const quick = [];
+  menu.forEach((t) => {
+    if (isSpecial(t)) quick.push([t.link, t.title]);
+    (t.children || []).forEach((col) => (col.children || []).forEach((x) => { if (isSpecial(x)) quick.push([x.link, col.title]); }));
+  });
+  const quickHtml = `<div><ul>${quick.map(([h, l]) => `<li>${a(h, l, c)}</li>`).join('')}</ul></div>`;
+  const tabs = menu.filter((t) => !isSpecial(t) && (t.children || []).length).map((t) => {
+    const cols = (t.children || []).filter((col) => !isWidget(col)).map((col) => {
+      const links = (col.children || []).filter((x) => !isWidget(x) && x.link).map((x) => li(x, c)).join('');
+      const head = col.link && !isSpecial(col) ? `<p>${a(col.link, col.title, c)}</p>` : `<p>${esc(col.title)}</p>`;
+      return links || col.link ? `<li>${head}${links ? `<ul>${links}</ul>` : ''}</li>` : '';
+    });
+    const b = t.bannerMenu;
+    if (b && b.title && b.ctaUrl) cols.push(`<li><p>${esc(b.title)}</p><ul><li>${a(b.ctaUrl, b.ctaLabel || b.title, c)}</li></ul></li>`);
+    return `<li><p>${esc(t.title)}</p><ul>${cols.join('')}</ul></li>`;
+  });
+  const megaHtml = `<div><ul>${tabs.join('')}</ul></div>`;
+  const [otherLabel, otherLocale] = S.other;
+  const otherHome = c.scope.has(`/${otherLocale}`) ? `/${otherLocale}` : `${WWW}/${otherLocale}`;
+  const tools = `<div><ul><li>:help: ${a(S.help[1], S.help[0], c)}</li><li><a href="${attr(otherHome)}">${esc(otherLabel)}</a></li></ul><p>${esc(S.menu)}</p></div>`;
+  return `${logo}\n${quickHtml}\n${megaHtml}\n${tools}\n`;
+}
+
+/** The footer document's HTML. */
+export function footerHtml(pp, site) {
+  const c = ctxOf(site);
+  const lang = c.locale.split('-')[0];
+  const S = SETUP[lang] || SETUP.en;
+  const cols = (pp.footerMenu || []).map((col) => {
+    const links = (col.children || []).filter((x) => !isWidget(x) && x.link).map((x) => li(x, c)).join('');
+    return links ? `<h3>${esc(col.title)}</h3><ul>${links}</ul>` : '';
+  }).join('');
+  const ss = pp.siteSettings || {};
+  const apps = [[ss.appStore, S.appStore], [ss.googlePlay, S.googlePlay]].filter(([h]) => h).map(([h, l]) => `<li><a href="${attr(h)}">${esc(l)}</a></li>`).join('');
+  const social = SOCIAL.filter((k) => ss[k]).map((k) => `<li><a href="${attr(ss[k])}">:${k}:</a></li>`).join('');
+  const badges = `<div>${apps ? `<ul>${apps}</ul>` : ''}${social ? `<ul>${social}</ul>` : ''}<div class="section-metadata"><div><div>Style</div><div>badges</div></div></div></div>`;
+  const logos = `<div><ul><li><a href="/${c.locale}"><img src="${attr(site.logo)}" alt="${attr(S.logoAlt)}"></a></li></ul></div>`;
+  return `<div>${cols}</div>\n${badges}\n${logos}\n`;
+}
+
+/** TAP's logo: the first inline SVG of the homepage's header (www's desktop logo). */
+export function logoSvg(html) {
+  const nav = html.slice(html.indexOf('<nav'));
+  const svg = (nav.match(/<svg[\s\S]*?<\/svg>/) || [])[0];
+  if (!svg) return null;
+  return svg.replace(/ class="[^"]*"/, '').replace(/^<svg /, (m) => (/width=/.test(svg.slice(0, 200)) ? m : '<svg width="166" height="21" '));
+}
+
+function main() {
+  const argv = process.argv.slice(2);
+  const all = (n) => argv.flatMap((x, i) => (x === `--${n}` ? [path.resolve(argv[i + 1])] : []));
+  const opt = (n) => (argv.includes(`--${n}`) ? argv[argv.indexOf(`--${n}`) + 1] : null);
+  const locale = opt('locale') || 'pt-pt';
+  const archives = all('archive');
+  if (!archives.length) { console.log('usage: --archive <unpacked pages archive> [--archive ...] [--locale pt-pt] [--dry-run]'); process.exit(1); }
+  // the site's documents (the allowlist tap-import.mjs keeps) and the locale's homepage capture
+  const allow = JSON.parse(fs.readFileSync(path.join(root, 'tools/importer/sites/lh-tap.json'), 'utf8'));
+  const scope = new Set(allow.paths);
+  let home = null;
+  archives.forEach((dir) => {
+    const f = path.join(dir, 'www.flytap.com', `${locale}.html`);
+    if (fs.existsSync(f)) home = f;
+  });
+  if (!home) throw new Error(`no capture of /${locale} in the archives given`);
+  const html = fs.readFileSync(home, 'utf8');
+  const pp = JSON.parse(html.match(/<script id="__NEXT_DATA__" type="application\/json"[^>]*>([\s\S]*?)<\/script>/)[1]).props.pageProps;
+  const svg = logoSvg(html);
+  const logo = `/media-da/tap/tap-logo-${crypto.createHash('sha1').update(svg || '').digest('hex').slice(0, 8)}.svg`;
+  const site = {
+    url: `${WWW}/${locale}`, locale, scope, logo,
+  };
+  const nav = navHtml(pp, site);
+  const footer = footerHtml(pp, site);
+  if (argv.includes('--dry-run')) { console.log(nav); console.log(footer); return; }
+  fs.mkdirSync(path.join(OUT, 'media-da/tap'), { recursive: true });
+  fs.writeFileSync(path.join(OUT, logo), svg);
+  fs.mkdirSync(path.join(OUT, locale), { recursive: true });
+  fs.writeFileSync(path.join(OUT, locale, 'nav.plain.html'), nav);
+  fs.writeFileSync(path.join(OUT, locale, 'footer.plain.html'), footer);
+  console.log(`/${locale}/nav, /${locale}/footer written; logo ${logo} (${svg.length} B)`);
+}
+
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) main();

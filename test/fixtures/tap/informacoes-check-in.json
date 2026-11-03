@@ -1,0 +1,1121 @@
+{
+ "page": "/[[...slug]]",
+ "query": {
+  "slug": [
+   "informacoes-check-in"
+  ]
+ },
+ "props": {
+  "pageProps": {
+   "page": {
+    "__typename": "PageModel",
+    "url": "/informacoes-check-in",
+    "title": "Informações de Check-in",
+    "body": {
+     "json": null
+    },
+    "template": "default",
+    "hidePageHeading": true,
+    "showOnSearch": true,
+    "seoTitle": "Informações de Check-in | TAP Air Portugal",
+    "seoDescription": {
+     "plaintext": "O Check-in do seu voo é um passo importante para a sua viagem. Conheça todas as formas disponíveis e saiba com que antecedência o deve realizar."
+    },
+    "seoImage": {
+     "__typename": "ImageRef",
+     "title": "",
+     "description": "",
+     "width": 1280,
+     "height": 720,
+     "_dynamicUrl": "/adobe/dynamicmedia/deliver/dm-aid--1925112c-2936-4f4b-9760-9b9e3d373ea5/family_check_in.jpg?preferwebp=true"
+    },
+    "redirect": null,
+    "seoIndexablePage": true,
+    "topSections": [],
+    "lineOfBusiness": null,
+    "position": null,
+    "annualAmount": null,
+    "sections": [
+     {
+      "__typename": "ComponentHeadingModel",
+      "lead": null,
+      "title": "Informações de Check-in",
+      "headingDescription": {
+       "json": [
+        {
+         "nodeType": "text",
+         "value": "O primeiro passo para a sua viagem pode ser simples e eficiente. "
+        }
+       ]
+      },
+      "textAlign": "center",
+      "containerSize": "default"
+     },
+     {
+      "__typename": "ComponentInfoBlockModel",
+      "infoType": "info",
+      "displayType": "subtle",
+      "dismissable": true,
+      "title": "Informação importante",
+      "message": {
+       "json": [
+        {
+         "nodeType": "unordered-list",
+         "content": [
+          {
+           "nodeType": "list-item",
+           "content": [
+            {
+             "nodeType": "text",
+             "value": "Controlo de documentação na fronteira: ",
+             "format": {
+              "variants": [
+               "strong"
+              ]
+             }
+            },
+            {
+             "nodeType": "text",
+             "value": "Todos os passageiros com viagens de ou para países que não pertençam ao Espaço Schengen ou com viagens intercontinentais serão sujeitos a um controlo documental, realizado pelas autoridades portuguesas. "
+            },
+            {
+             "nodeType": "line-break",
+             "content": []
+            },
+            {
+             "nodeType": "text",
+             "value": "No aeroporto, aconselha-se a deslocação atempada ao controlo de fronteira, uma vez que todos serão submetidos a uma entrevista e o tempo de espera pode variar."
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      "ctaLabel": null,
+      "ctaUrl": null,
+      "containerSize": "default"
+     },
+     {
+      "__typename": "ComponentRichTextBlockModel",
+      "richTextContent": {
+       "json": [
+        {
+         "nodeType": "paragraph",
+         "content": [
+          {
+           "nodeType": "text",
+           "value": "Consulte os tempos e todas as formas de Check-in disponíveis, e opte pela que mais se adequa a si. Tenha apenas em atenção que "
+          },
+          {
+           "nodeType": "text",
+           "value": "independentemente da forma de Check-in escolhida, deve garantir que se encontra na porta de embarque para o seu voo pelo menos 30 minutos antes da hora de partida anunciada.",
+           "format": {
+            "variants": [
+             "strong"
+            ]
+           }
+          }
+         ]
+        },
+        {
+         "nodeType": "paragraph",
+         "content": [
+          {
+           "nodeType": "text",
+           "value": "Todos os serviços abaixo indicados estão disponíveis para passageiros com reserva confirmada em voos operados pela TAP ou TAP Express."
+          }
+         ]
+        }
+       ]
+      },
+      "ctaLabel": null,
+      "ctaUrl": null,
+      "secondaryCtaLabel": null,
+      "secondaryCtaUrl": null,
+      "containerSize": "narrow"
+     },
+     {
+      "__typename": "ComponentAccordionItemsListModel",
+      "icon": null,
+      "title": null,
+      "shortDescription": null,
+      "subtitle": null,
+      "accordionItemsListDescription": {
+       "plaintext": null
+      },
+      "items": [
+       {
+        "__typename": "AccordionItemModel",
+        "id": null,
+        "label": "Aeroportos de A a C",
+        "accordionItemDescription": {
+         "json": [
+          {
+           "nodeType": "table",
+           "content": [
+            {
+             "nodeType": "table-body",
+             "content": [
+              {
+               "nodeType": "table-row",
+               "content": [
+                {
+                 "nodeType": "table-data",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "Aeroporto",
+                   "format": {
+                    "variants": [
+                     "strong"
+                    ]
+                   }
+                  }
+                 ],
+                 "format": {
+                  " height": " 33.6px",
+                  "text-align": " center"
+                 }
+                },
+                {
+                 "nodeType": "table-data",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "Abertura do balcão para entrega de bagagem",
+                   "format": {
+                    "variants": [
+                     "strong"
+                    ]
+                   }
+                  }
+                 ],
+                 "format": {
+                  " height": " 33.6px",
+                  "text-align": " center"
+                 }
+                },
+                {
+                 "nodeType": "table-data",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "Hora limite para Check-in e entrega de bagagem",
+                   "format": {
+                    "variants": [
+                     "strong"
+                    ]
+                   }
+                  }
+                 ],
+                 "format": {
+                  " height": " 33.6px",
+                  "text-align": " center"
+                 }
+                }
+               ],
+               "format": {
+                "height": " 33.6px"
+               }
+              },
+              {
+               "nodeType": "table-row",
+               "content": [
+                {
+                 "nodeType": "table-data",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "Acra"
+                  }
+                 ],
+                 "format": {
+                  "height": " 226.8px"
+                 }
+                },
+                {
+                 "nodeType": "table-data",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "Voos Acra - São Tomé e Príncipe ",
+                   "format": {
+                    "variants": [
+                     "strong"
+                    ]
+                   }
+                  },
+                  {
+                   "nodeType": "line-break",
+                   "content": []
+                  },
+                  {
+                   "nodeType": "text",
+                   "value": "1h30"
+                  },
+                  {
+                   "nodeType": "line-break",
+                   "content": []
+                  },
+                  {
+                   "nodeType": "line-break",
+                   "content": []
+                  },
+                  {
+                   "nodeType": "text",
+                   "value": "Voos Acra - Lisboa",
+                   "format": {
+                    "variants": [
+                     "strong"
+                    ]
+                   }
+                  },
+                  {
+                   "nodeType": "line-break",
+                   "content": []
+                  },
+                  {
+                   "nodeType": "text",
+                   "value": "2h"
+                  }
+                 ],
+                 "format": {
+                  " text-align": " center",
+                  "height": " 226.8px"
+                 }
+                },
+                {
+                 "nodeType": "table-data",
+                 "content": [
+                  {
+                   "nodeType": "line-break",
+                   "content": []
+                  },
+                  {
+                   "nodeType": "text",
+                   "value": "1h"
+                  }
+                 ],
+                 "format": {
+                  " text-align": " center",
+                  "height": " 226.8px"
+                 }
+                }
+               ],
+               "format": {
+                "height": " 226.8px"
+               }
+              },
+              {
+               "nodeType": "table-row",
+               "content": [
+                {
+                 "nodeType": "table-data",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "Amesterdão"
+                  }
+                 ],
+                 "format": {
+                  "height": " 16.8px"
+                 }
+                },
+                {
+                 "nodeType": "table-data",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "4h30"
+                  }
+                 ],
+                 "format": {
+                  " text-align": " center",
+                  "height": " 16.8px"
+                 }
+                },
+                {
+                 "nodeType": "table-data",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "45 minutos"
+                  }
+                 ],
+                 "format": {
+                  " text-align": " center",
+                  "height": " 16.8px"
+                 }
+                }
+               ],
+               "format": {
+                "height": " 16.8px"
+               }
+              },
+              {
+               "nodeType": "table-row",
+               "content": [
+                {
+                 "nodeType": "table-data",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "Banjul"
+                  }
+                 ],
+                 "format": {
+                  "height": " 16.8px"
+                 }
+                },
+                {
+                 "nodeType": "table-data",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "3h"
+                  }
+                 ],
+                 "format": {
+                  " text-align": " center",
+                  "height": " 16.8px"
+                 }
+                },
+                {
+                 "nodeType": "table-data",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "1h20"
+                  }
+                 ],
+                 "format": {
+                  " text-align": " center",
+                  "height": " 16.8px"
+                 }
+                }
+               ],
+               "format": {
+                "height": " 16.8px"
+               }
+              },
+              {
+               "nodeType": "table-row",
+               "content": [
+                {
+                 "nodeType": "table-data",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "Barcelona"
+                  }
+                 ],
+                 "format": {
+                  "height": " 16.8px"
+                 }
+                },
+                {
+                 "nodeType": "table-data",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "2h30"
+                  }
+                 ],
+                 "format": {
+                  " text-align": " center",
+                  "height": " 16.8px"
+                 }
+                },
+                {
+                 "nodeType": "table-data",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "45 minutos"
+                  }
+                 ],
+                 "format": {
+                  " text-align": " center",
+                  "height": " 16.8px"
+                 }
+                }
+               ],
+               "format": {
+                "height": " 16.8px"
+               }
+              },
+              {
+               "nodeType": "table-row",
+               "content": [
+                {
+                 "nodeType": "table-data",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "Belém"
+                  }
+                 ],
+                 "format": {
+                  "height": " 16.8px"
+                 }
+                },
+                {
+                 "nodeType": "table-data",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "4h"
+                  }
+                 ],
+                 "format": {
+                  " text-align": " center",
+                  "height": " 16.8px"
+                 }
+                },
+                {
+                 "nodeType": "table-data",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "1h"
+                  }
+                 ],
+                 "format": {
+                  " text-align": " center",
+                  "height": " 16.8px"
+                 }
+                }
+               ],
+               "format": {
+                "height": " 16.8px"
+               }
+              },
+              {
+               "nodeType": "table-row",
+               "content": [
+                {
+                 "nodeType": "table-data",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "Belo Horizonte"
+                  }
+                 ],
+                 "format": {
+                  "height": " 16.8px"
+                 }
+                },
+                {
+                 "nodeType": "table-data",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "4h"
+                  }
+                 ],
+                 "format": {
+                  " text-align": " center",
+                  "height": " 16.8px"
+                 }
+                },
+                {
+                 "nodeType": "table-data",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "1h"
+                  }
+                 ],
+                 "format": {
+                  " text-align": " center",
+                  "height": " 16.8px"
+                 }
+                }
+               ],
+               "format": {
+                "height": " 16.8px"
+               }
+              },
+              {
+               "nodeType": "table-row",
+               "content": [
+                {
+                 "nodeType": "table-data",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "Berlim"
+                  }
+                 ],
+                 "format": {
+                  "height": " 16.8px"
+                 }
+                },
+                {
+                 "nodeType": "table-data",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "2h"
+                  }
+                 ],
+                 "format": {
+                  " text-align": " center",
+                  "height": " 16.8px"
+                 }
+                },
+                {
+                 "nodeType": "table-data",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "45 minutos"
+                  }
+                 ],
+                 "format": {
+                  " text-align": " center",
+                  "height": " 16.8px"
+                 }
+                }
+               ],
+               "format": {
+                "height": " 16.8px"
+               }
+              },
+              {
+               "nodeType": "table-row",
+               "content": [
+                {
+                 "nodeType": "table-data",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "Bilbau"
+                  }
+                 ],
+                 "format": {
+                  "height": " 16.8px"
+                 }
+                },
+                {
+                 "nodeType": "table-data",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "2h"
+                  }
+                 ],
+                 "format": {
+                  " text-align": " center",
+                  "height": " 16.8px"
+                 }
+                },
+                {
+                 "nodeType": "table-data",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "45 minutos"
+                  }
+                 ],
+                 "format": {
+                  " text-align": " center",
+                  "height": " 16.8px"
+                 }
+                }
+               ],
+               "format": {
+                "height": " 16.8px"
+               }
+              },
+              {
+               "nodeType": "table-row",
+               "content": [
+                {
+                 "nodeType": "table-data",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "Bissau"
+                  }
+                 ],
+                 "format": {
+                  "height": " 16.8px"
+                 }
+                },
+                {
+                 "nodeType": "table-data",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "4h"
+                  }
+                 ],
+                 "format": {
+                  " text-align": " center",
+                  "height": " 16.8px"
+                 }
+                },
+                {
+                 "nodeType": "table-data",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "1h30"
+                  }
+                 ],
+                 "format": {
+                  " text-align": " center",
+                  "height": " 16.8px"
+                 }
+                }
+               ],
+               "format": {
+                "height": " 16.8px"
+               }
+              },
+              {
+               "nodeType": "table-row",
+               "content": [
+                {
+                 "nodeType": "table-data",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "Boa Vista"
+                  }
+                 ],
+                 "format": {
+                  "height": " 16.8px"
+                 }
+                },
+                {
+                 "nodeType": "table-data",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "3h"
+                  }
+                 ],
+                 "format": {
+                  " text-align": " center",
+                  "height": " 16.8px"
+                 }
+                },
+                {
+                 "nodeType": "table-data",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "1h"
+                  }
+                 ],
+                 "format": {
+                  " text-align": " center",
+                  "height": " 16.8px"
+                 }
+                }
+               ],
+               "format": {
+                "height": " 16.8px"
+               }
+              },
+              {
+               "nodeType": "table-row",
+               "content": [
+                {
+                 "nodeType": "table-data",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "Bolonha"
+                  }
+                 ],
+                 "format": {
+                  "height": " 16.8px"
+                 }
+                },
+                {
+                 "nodeType": "table-data",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "2h30"
+                  }
+                 ],
+                 "format": {
+                  " text-align": " center",
+                  "height": " 16.8px"
+                 }
+                },
+                {
+                 "nodeType": "table-data",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "45 minutos"
+                  }
+                 ],
+                 "format": {
+                  " text-align": " center",
+                  "height": " 16.8px"
+                 }
+                }
+               ],
+               "format": {
+                "height": " 16.8px"
+               }
+              },
+              {
+               "nodeType": "table-row",
+               "content": [
+                {
+                 "nodeType": "table-data",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "Boston"
+                  }
+                 ],
+                 "format": {
+                  "height": " 16.8px"
+                 }
+                },
+                {
+                 "nodeType": "table-data",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "3h30"
+                  }
+                 ],
+                 "format": {
+                  " text-align": " center",
+                  "height": " 16.8px"
+                 }
+                },
+                {
+                 "nodeType": "table-data",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "1h"
+                  }
+                 ],
+                 "format": {
+                  " text-align": " center",
+                  "height": " 16.8px"
+                 }
+                }
+               ],
+               "format": {
+                "height": " 16.8px"
+               }
+              },
+              {
+               "nodeType": "table-row",
+               "content": [
+                {
+                 "nodeType": "table-data",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "Brasília"
+                  }
+                 ],
+                 "format": {
+                  "height": " 16.8px"
+                 }
+                },
+                {
+                 "nodeType": "table-data",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "3h40"
+                  }
+                 ],
+                 "format": {
+                  " text-align": " center",
+                  "height": " 16.8px"
+                 }
+                },
+                {
+                 "nodeType": "table-data",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "1h"
+                  }
+                 ],
+                 "format": {
+                  " text-align": " center",
+                  "height": " 16.8px"
+                 }
+                }
+               ],
+               "format": {
+                "height": " 16.8px"
+               }
+              },
+              {
+               "nodeType": "table-row",
+               "content": [
+                {
+                 "nodeType": "table-data",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "Bruxelas"
+                  }
+                 ],
+                 "format": {
+                  "height": " 16.8px"
+                 }
+                },
+                {
+                 "nodeType": "table-data",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "2h"
+                  }
+                 ],
+                 "format": {
+                  " text-align": " center",
+                  "height": " 16.8px"
+                 }
+                },
+                {
+                 "nodeType": "table-data",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "45 minutos"
+                  }
+                 ],
+                 "format": {
+                  " text-align": " center",
+                  "height": " 16.8px"
+                 }
+                }
+               ],
+               "format": {
+                "height": " 16.8px"
+               }
+              },
+              {
+               "nodeType": "table-row",
+               "content": [
+                {
+                 "nodeType": "table-data",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "Caracas"
+                  }
+                 ],
+                 "format": {
+                  "height": " 16.8px"
+                 }
+                },
+                {
+                 "nodeType": "table-data",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "4h"
+                  }
+                 ],
+                 "format": {
+                  " text-align": " center",
+                  "height": " 16.8px"
+                 }
+                },
+                {
+                 "nodeType": "table-data",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "1h30"
+                  }
+                 ],
+                 "format": {
+                  " text-align": " center",
+                  "height": " 16.8px"
+                 }
+                }
+               ],
+               "format": {
+                "height": " 16.8px"
+               }
+              },
+              {
+               "nodeType": "table-row",
+               "content": [
+                {
+                 "nodeType": "table-data",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "Casablanca"
+                  }
+                 ],
+                 "format": {
+                  "height": " 16.8px"
+                 }
+                },
+                {
+                 "nodeType": "table-data",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "3h"
+                  }
+                 ],
+                 "format": {
+                  " text-align": " center",
+                  "height": " 16.8px"
+                 }
+                },
+                {
+                 "nodeType": "table-data",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "1h"
+                  }
+                 ],
+                 "format": {
+                  " text-align": " center",
+                  "height": " 16.8px"
+                 }
+                }
+               ],
+               "format": {
+                "height": " 16.8px"
+               }
+              },
+              {
+               "nodeType": "table-row",
+               "content": [
+                {
+                 "nodeType": "table-data",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "Chicago"
+                  }
+                 ],
+                 "format": {
+                  "height": " 16.8px"
+                 }
+                },
+                {
+                 "nodeType": "table-data",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "3h30"
+                  }
+                 ],
+                 "format": {
+                  " text-align": " center",
+                  "height": " 16.8px"
+                 }
+                },
+                {
+                 "nodeType": "table-data",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "1h"
+                  }
+                 ],
+                 "format": {
+                  " text-align": " center",
+                  "height": " 16.8px"
+                 }
+                }
+               ],
+               "format": {
+                "height": " 16.8px"
+               }
+              },
+              {
+               "nodeType": "table-row",
+               "content": [
+                {
+                 "nodeType": "table-data",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "Copenhaga"
+                  }
+                 ],
+                 "format": {
+                  "height": " 16.8px"
+                 }
+                },
+                {
+                 "nodeType": "table-data",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "2h"
+                  }
+                 ],
+                 "format": {
+                  " text-align": " center",
+                  "height": " 16.8px"
+                 }
+                },
+                {
+                 "nodeType": "table-data",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "45 minutos"
+                  }
+                 ],
+                 "format": {
+                  " text-align": " center",
+                  "height": " 16.8px"
+                 }
+                }
+               ],
+               "format": {
+                "height": " 16.8px"
+               }
+              }
+             ]
+            }
+           ],
+           "data": {
+            "border": "1"
+           },
+           "format": {
+            " height": " 562.8px",
+            " margin-left": " auto",
+            "border-collapse": " collapse",
+            " margin-right": " auto",
+            " width": " 100%"
+           }
+          }
+         ]
+        },
+        "sections": []
+       }
+      ],
+      "ctaLabel": null,
+      "ctaUrl": null,
+      "containerSize": "default"
+     }
+    ],
+    "dynamicData": {},
+    "hrefLangs": []
+   }
+  }
+ }
+}

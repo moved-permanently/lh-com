@@ -1,0 +1,507 @@
+{
+ "page": "/[[...slug]]",
+ "query": {
+  "slug": [
+   "ajuda"
+  ]
+ },
+ "props": {
+  "pageProps": {
+   "page": {
+    "__typename": "PageModel",
+    "url": "/ajuda",
+    "title": "Central de ajuda",
+    "body": {
+     "json": null
+    },
+    "template": "default",
+    "hidePageHeading": true,
+    "showOnSearch": true,
+    "seoTitle": "Central de ajuda | TAP Air Portugal",
+    "seoDescription": {
+     "plaintext": "Precisa de ajuda? Obtenha as respostas para todas as suas dúvidas, acesso direto para tópicos de interesse e consulte todos os nossos contactos."
+    },
+    "seoImage": {
+     "__typename": "ImageRef",
+     "title": "",
+     "description": "",
+     "width": 1280,
+     "height": 720,
+     "_dynamicUrl": "/adobe/dynamicmedia/deliver/dm-aid--2153a7e6-e0b2-4244-8c9b-94e9c0aa8361/help_contact_center_tap.jpg?preferwebp=true"
+    },
+    "redirect": null,
+    "seoIndexablePage": true,
+    "topSections": [],
+    "lineOfBusiness": null,
+    "position": null,
+    "annualAmount": null,
+    "sections": [
+     {
+      "__typename": "ComponentHeadingModel",
+      "lead": null,
+      "title": "Central de ajuda",
+      "headingDescription": {
+       "json": [
+        {
+         "nodeType": "paragraph",
+         "content": [
+          {
+           "nodeType": "text",
+           "value": "Encontre acessos diretos para tópicos relevantes, informações úteis para melhorar a sua experiência com a TAP e respostas às suas perguntas. Se precisar de assistência adicional, não hesite em contactar-nos. A sua satisfação é a nossa prioridade!"
+          }
+         ]
+        }
+       ]
+      },
+      "textAlign": "center",
+      "containerSize": "default"
+     },
+     {
+      "__typename": "ComponentAnchorModel",
+      "name": "informacoes-uteis"
+     },
+     {
+      "__typename": "ComponentGenericCardListModel",
+      "desktopType": "grid",
+      "mobileType": "grid",
+      "itemsPerRow": 3,
+      "showfilters": null,
+      "title": null,
+      "subtitle": null,
+      "items": [
+       {
+        "__typename": "SimpleGenericCardModel",
+        "icon": null,
+        "title": "Check-in online",
+        "description": {
+         "json": [
+          {
+           "nodeType": "paragraph",
+           "content": [
+            {
+             "nodeType": "text",
+             "value": "Faça o seu Check-in online com antecedência, evite filas e ganhe tempo."
+            }
+           ]
+          }
+         ]
+        },
+        "primaryCtaUrl": "#special-anchor-check-in",
+        "primaryCtaLabel": "Fazer Check-in",
+        "secondaryCtaUrl": null,
+        "secondaryCtaLabel": null
+       },
+       {
+        "__typename": "SimpleGenericCardModel",
+        "icon": null,
+        "title": "Fatura online",
+        "description": {
+         "json": [
+          {
+           "nodeType": "paragraph",
+           "content": [
+            {
+             "nodeType": "text",
+             "value": "Faça o pedido da sua fatura online através do preenchimento de um formulário."
+            }
+           ]
+          }
+         ]
+        },
+        "primaryCtaUrl": "https://receipts.flytap.com/PaxReceiptsWAR/spring/docs?locale=pt",
+        "primaryCtaLabel": "Pedir fatura online",
+        "secondaryCtaUrl": null,
+        "secondaryCtaLabel": null
+       },
+       {
+        "__typename": "SimpleGenericCardModel",
+        "icon": null,
+        "title": "Requisitos de viagem",
+        "description": {
+         "json": [
+          {
+           "nodeType": "paragraph",
+           "content": [
+            {
+             "nodeType": "text",
+             "value": "Antes de viajar, assegure-se de que cumpre todos os requisitos necessários para a entrada no seu país de destino."
+            }
+           ]
+          }
+         ]
+        },
+        "primaryCtaUrl": "/informacoes/documentacao",
+        "primaryCtaLabel": "Confirmar requisitos e documentação",
+        "secondaryCtaUrl": null,
+        "secondaryCtaLabel": null
+       }
+      ]
+     },
+     {
+      "__typename": "ComponentHeadingSectionModel",
+      "lead": null,
+      "title": "Perguntas frequentes",
+      "headingSectionDescription": {
+       "json": null
+      },
+      "textAlign": "left",
+      "textSize": "default",
+      "containerSize": "default"
+     },
+     {
+      "__typename": "ComponentAccordionItemsListModel",
+      "icon": null,
+      "title": null,
+      "shortDescription": null,
+      "subtitle": null,
+      "accordionItemsListDescription": {
+       "plaintext": null
+      },
+      "items": [
+       {
+        "__typename": "AccordionItemModel",
+        "id": null,
+        "label": "Que reservas podem ser alteradas online?",
+        "accordionItemDescription": {
+         "json": [
+          {
+           "nodeType": "text",
+           "value": "Podem ser alteradas todas as reservas que tenham sido feitas diretamente com a TAP (online, balcões, Contact Center ou lojas) e cujos bilhetes tenham sido emitidos há mais de 24h."
+          },
+          {
+           "nodeType": "text",
+           "value": "Não é possível alterar reservas feitas através de Agências de Viagens, dos Programas TAP Miles&Go ou FORBIZ, nem aquelas efetuadas com a utilização de Códigos Promocionais. Além disso, as seguintes situações estão igualmente excluídas:"
+          },
+          {
+           "nodeType": "unordered-list",
+           "content": [
+            {
+             "nodeType": "list-item",
+             "content": [
+              {
+               "nodeType": "text",
+               "value": "Reservas de grupo;"
+              }
+             ]
+            },
+            {
+             "nodeType": "list-item",
+             "content": [
+              {
+               "nodeType": "text",
+               "value": "Reservas com serviços adicionais como:"
+              },
+              {
+               "nodeType": "unordered-list",
+               "content": [
+                {
+                 "nodeType": "list-item",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "menores não acompanhados;"
+                  }
+                 ]
+                },
+                {
+                 "nodeType": "list-item",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "transporte de equipamento desportivo;"
+                  }
+                 ]
+                },
+                {
+                 "nodeType": "list-item",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "bagagem extra;"
+                  }
+                 ]
+                },
+                {
+                 "nodeType": "list-item",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "transporte de animais (na cabina e / ou no porão);"
+                  }
+                 ]
+                },
+                {
+                 "nodeType": "list-item",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "transporte de bicicletas;"
+                  }
+                 ]
+                },
+                {
+                 "nodeType": "list-item",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "necessidades especiais;"
+                  }
+                 ]
+                },
+                {
+                 "nodeType": "list-item",
+                 "content": [
+                  {
+                   "nodeType": "text",
+                   "value": "transporte de armas."
+                  }
+                 ]
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        "sections": []
+       },
+       {
+        "__typename": "AccordionItemModel",
+        "id": null,
+        "label": "A minha bagagem não apareceu no tapete de recolha. O que devo fazer?",
+        "accordionItemDescription": {
+         "json": [
+          {
+           "nodeType": "paragraph",
+           "content": [
+            {
+             "nodeType": "text",
+             "value": "Consulte a nossa "
+            },
+            {
+             "nodeType": "link",
+             "content": [
+              {
+               "nodeType": "text",
+               "value": "página Problemas com a bagagem"
+              }
+             ],
+             "data": {
+              "href": "/informacoes/bagagem/problemas-bagagem"
+             }
+            },
+            {
+             "nodeType": "text",
+             "value": " para obter todas as informações necessárias."
+            }
+           ]
+          }
+         ]
+        },
+        "sections": []
+       },
+       {
+        "__typename": "AccordionItemModel",
+        "id": null,
+        "label": "Posso pedir um reembolso nas primeiras 24h após a compra do bilhete?",
+        "accordionItemDescription": {
+         "json": [
+          {
+           "nodeType": "paragraph",
+           "content": [
+            {
+             "nodeType": "text",
+             "value": "Sim. Excecionalmente, todas as tarifas serão reembolsáveis e não serão aplicadas as penalidades que possam estar previstas na tarifa adquirida. Adicionalmente, se o pedido for efetuado online, não será aplicada a taxa de serviço. Se optar por pedir o reembolso através do Contact Center ou num balcão de vendas da TAP, o reembolso estará sujeito à taxa de serviço no valor de 40 EUR / 50 USD / 60 CAD, cobrada por bilhete."
+            },
+            {
+             "nodeType": "line-break",
+             "content": []
+            },
+            {
+             "nodeType": "text",
+             "value": "O reembolso será efetuado no mesmo método de pagamento utilizado na compra do bilhete."
+            },
+            {
+             "nodeType": "line-break",
+             "content": []
+            },
+            {
+             "nodeType": "text",
+             "value": "Estas condições não se aplicam aos casos de não comparência do passageiro a um voo com hora de partida nas primeiras 24h após a compra do bilhete."
+            }
+           ]
+          }
+         ]
+        },
+        "sections": []
+       }
+      ],
+      "ctaLabel": null,
+      "ctaUrl": null,
+      "containerSize": "default"
+     },
+     {
+      "__typename": "ComponentLinkListModel",
+      "title": null,
+      "variant": "elementary-list",
+      "divider": true,
+      "icon": null,
+      "linkList": [
+       {
+        "__typename": "LinkModel",
+        "label": "Antes do voo",
+        "url": "/ajuda/perguntas-frequentes#antes-voo",
+        "target": "_self"
+       },
+       {
+        "__typename": "LinkModel",
+        "label": "Durante o voo",
+        "url": "/ajuda/perguntas-frequentes#durante-voo",
+        "target": "_self"
+       },
+       {
+        "__typename": "LinkModel",
+        "label": "Depois do voo",
+        "url": "/ajuda/perguntas-frequentes#depois-voo",
+        "target": "_self"
+       }
+      ]
+     },
+     {
+      "__typename": "ComponentAnchorModel",
+      "name": "contactos"
+     },
+     {
+      "__typename": "ComponentHeadingSectionModel",
+      "lead": null,
+      "title": "Contactos",
+      "headingSectionDescription": {
+       "json": null
+      },
+      "textAlign": "left",
+      "textSize": "default",
+      "containerSize": "default"
+     },
+     {
+      "__typename": "ComponentContactsByCountryModel",
+      "title": null,
+      "image": {
+       "__typename": "ImageRef",
+       "title": "",
+       "description": "",
+       "width": 1280,
+       "height": 720,
+       "_dynamicUrl": "/adobe/dynamicmedia/deliver/dm-aid--2153a7e6-e0b2-4244-8c9b-94e9c0aa8361/help_contact_center_tap.jpg?preferwebp=true"
+      },
+      "folder": "contacts",
+      "additionalInfo": {
+       "json": null
+      }
+     },
+     {
+      "__typename": "ComponentHeadingSectionModel",
+      "lead": null,
+      "title": "Pedidos e reclamações",
+      "headingSectionDescription": {
+       "json": [
+        {
+         "nodeType": "paragraph",
+         "content": [
+          {
+           "nodeType": "text",
+           "value": "Envie-nos o seu pedido de informação, elogio, sugestão ou reclamação."
+          }
+         ]
+        }
+       ]
+      },
+      "textAlign": "left",
+      "textSize": "default",
+      "containerSize": "default"
+     },
+     {
+      "__typename": "ComponentGenericCardListModel",
+      "desktopType": "grid",
+      "mobileType": "grid",
+      "itemsPerRow": 3,
+      "showfilters": null,
+      "title": null,
+      "subtitle": null,
+      "items": [
+       {
+        "__typename": "SimpleGenericCardModel",
+        "icon": null,
+        "title": "Informações",
+        "description": {
+         "json": [
+          {
+           "nodeType": "paragraph",
+           "content": [
+            {
+             "nodeType": "text",
+             "value": "Tenho uma dúvida ou quero fazer um pedido relacionado com o Programa TAP Miles&Go."
+            }
+           ]
+          }
+         ]
+        },
+        "primaryCtaUrl": "/ajuda/pedidos-reclamacoes/informacoes-miles-go",
+        "primaryCtaLabel": "Pedir informação",
+        "secondaryCtaUrl": null,
+        "secondaryCtaLabel": null
+       },
+       {
+        "__typename": "SimpleGenericCardModel",
+        "icon": null,
+        "title": "Reclamações",
+        "description": {
+         "json": [
+          {
+           "nodeType": "paragraph",
+           "content": [
+            {
+             "nodeType": "text",
+             "value": "Tenho um problema e procuro uma solução."
+            }
+           ]
+          }
+         ]
+        },
+        "primaryCtaUrl": "/ajuda/pedidos-reclamacoes/reclamacao",
+        "primaryCtaLabel": "Verificar / efetuar reclamação",
+        "secondaryCtaUrl": null,
+        "secondaryCtaLabel": "Consultar estado da reclamação"
+       },
+       {
+        "__typename": "SimpleGenericCardModel",
+        "icon": null,
+        "title": "Elogios e sugestões",
+        "description": {
+         "json": [
+          {
+           "nodeType": "paragraph",
+           "content": [
+            {
+             "nodeType": "text",
+             "value": "Quero partilhar uma experiência positiva que tive com a TAP ou fazer uma sugestão de melhoria."
+            }
+           ]
+          }
+         ]
+        },
+        "primaryCtaUrl": "/ajuda/pedidos-reclamacoes/sugestao-ou-elogio",
+        "primaryCtaLabel": "Enviar mensagem",
+        "secondaryCtaUrl": null,
+        "secondaryCtaLabel": null
+       }
+      ]
+     }
+    ],
+    "dynamicData": {},
+    "hrefLangs": []
+   }
+  }
+ }
+}

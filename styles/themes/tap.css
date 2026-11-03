@@ -83,8 +83,11 @@
   --body-font-size-m: 16px;
   --heading-line-height: 1.2;
 
-  /* buttons: primary dark text on TAP green, secondary green-bordered, pills */
+  /* buttons: primary dark text on TAP green, secondary green-bordered, pills; www's 15 px labels
+     and 24 px side padding */
   --button-radius: 999px;
+  --button-font-size: 15px;
+  --button-padding: 8px 24px;
   --button-primary-text: #000;
   --button-secondary-color: #397213;
   --button-secondary-hover: #489018;

@@ -1,0 +1,36 @@
+{
+ "page": "/[[...slug]]",
+ "query": {
+  "slug": [
+   "registo"
+  ]
+ },
+ "props": {
+  "pageProps": {
+   "page": {
+    "__typename": "PageModel",
+    "url": "/registo",
+    "title": "Novo registo",
+    "body": {
+     "json": null
+    },
+    "template": "register",
+    "hidePageHeading": null,
+    "showOnSearch": true,
+    "seoTitle": "Registo | TAP Air Portugal",
+    "seoDescription": {
+     "plaintext": "Crie a sua Conta TAP Miles&Go e tenha um espaço só seu! Faça a gestão das suas reservas, acumule e utilize milhas e usufrua de muitas outras vantagens."
+    },
+    "seoImage": null,
+    "redirect": null,
+    "seoIndexablePage": true,
+    "topSections": [],
+    "lineOfBusiness": null,
+    "position": null,
+    "annualAmount": null,
+    "sections": [],
+    "hrefLangs": []
+   }
+  }
+ }
+}
