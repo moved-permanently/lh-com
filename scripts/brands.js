@@ -574,7 +574,7 @@ const SWISS_MARKETS = {
   'us/it': ['USA | Italiano', 'NYC'],
   'xk/it': ['Kosovo | Italiano', 'PRN'],
   'za/it': ['Sud Africa | Italiano', 'CPT'],
-  // es and pt (the capture's held roots, imported 2026-11-03): behind SWISS_MARKET_LANGUAGES_LIVE
+  // es and pt (the capture's held roots, imported 2026-11-03): in SWISS_MARKET_LANGUAGES_LIVE
   'ar/es': ['Argentina | Español', 'BUE'],
   'br/es': ['Brasil | Español', 'SAO'],
   'es/es': ['Spain | Español', 'MAD'],
@@ -589,8 +589,8 @@ const SWISS_MARKETS = {
 // the dialog lists them and lh-edge serves their pages.
 export const SWISS_MARKETS_LIVE = true;
 // the languages whose market roots join (lh-swiss has the language and the roots' documents are
-// published): es and pt's roots of SWISS_MARKETS come in once their code is listed here
-export const SWISS_MARKET_LANGUAGES_LIVE = ['en', 'de', 'fr', 'it'];
+// published): es and pt's roots of SWISS_MARKETS since their documents are live (2026-11-03)
+export const SWISS_MARKET_LANGUAGES_LIVE = ['en', 'de', 'fr', 'it', 'es', 'pt'];
 
 /** SWISS's site entry with its market roots when the switch is on (roots of its languages only). */
 export function withSwissMarkets(

@@ -56,7 +56,7 @@ beforeEach(() => {
 });
 const get = (url, init) => worker.fetch(new Request(url, init), env(), { waitUntil() {} });
 
-test('swiss: the site on its host: ch\'s eight roots with their own documents, the 204 market roots (SWISS_MARKETS_LIVE) from them', () => {
+test('swiss: the site on its host: ch\'s eight roots with their own documents, the 210 market roots (SWISS_MARKETS_LIVE) from them', () => {
   const site = siteOf(new Request('https://swiss.example/ch/en/homepage'), env());
   assert.equal(site.name, 'swiss');
   assert.equal(site.origin, SWISS);
@@ -67,7 +67,7 @@ test('swiss: the site on its host: ch\'s eight roots with their own documents, t
   });
   assert.deepEqual(Object.keys(site.tables.table).slice(0, 8), ['ch/en', 'ch/de', 'ch/fr', 'ch/it', 'ch/es', 'ch/pt', 'ch/zh', 'ch/ja']);
   assert.deepEqual(Object.keys(site.tables.table).filter((r) => site.tables.table[r].documents === 'own'), ['ch/en', 'ch/de', 'ch/fr', 'ch/it', 'ch/es', 'ch/pt', 'ch/zh', 'ch/ja']);
-  assert.equal(SITES.swiss.marketRoots.length, 204);
+  assert.equal(SITES.swiss.marketRoots.length, 210);
   assert.ok(SITES.swiss.marketRoots.every((r) => site.tables.versions[r.split('/')[1]]), 'only languages lh-swiss has');
   assert.equal(siteOf(new Request('https://brussels.example/be/en/homepage'), env()).name, 'brussels');
 });
@@ -120,6 +120,13 @@ test('swiss: entry paths as www.swiss.com sends them (302); a homepage path stay
     '/xx/ja/homepage': '/ch/ja/homepage',
     '/zh/homepage': '/ch/zh/homepage',
     '/ja/homepage': '/ch/ja/homepage',
+    // es and pt's market roots (scripts/brands.js SWISS_MARKET_LANGUAGES_LIVE, 2026-11-03)
+    '/es/es': '/es/es/homepage',
+    '/ar/es/': '/ar/es/homepage',
+    '/us/es': '/us/es/homepage',
+    '/br/es': '/br/es/homepage',
+    '/br/pt/': '/br/pt/homepage',
+    '/pt/pt': '/pt/pt/homepage',
   };
   const answers = await Promise.all(Object.keys(expect).map((p) => get(`https://swiss.example${p}`)));
   answers.forEach((resp, i) => {

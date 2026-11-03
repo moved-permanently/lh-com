@@ -43,7 +43,11 @@ const off = Object.keys(SWISS_LANGUAGES).filter((ll) => !SWISS_LANGUAGES_LIVE.in
 const on = Object.keys(SWISS_LANGUAGES).filter((ll) => SWISS_LANGUAGES_LIVE.includes(ll));
 // SWISS's site without the switch's languages (as withSwissLanguages finds it)
 const base = (() => {
-  const roots = Object.values(SWISS_LANGUAGES).map((l) => l.root);
+  // ch's roots of these languages and their market roots (es and pt's since 2026-11-03)
+  const roots = [
+    ...Object.values(SWISS_LANGUAGES).map((l) => l.root),
+    ...Object.keys(BRAND_SITES.swiss.rows).filter((k) => SWISS_LANGUAGES[k.split('/')[1]]),
+  ];
   const without = (map) => Object.fromEntries(Object.entries(map).filter(([k]) => !roots.includes(k)));
   const s = {
     ...BRAND_SITES.swiss,
