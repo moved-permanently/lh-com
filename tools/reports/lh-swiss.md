@@ -430,3 +430,42 @@ switch on (838dedba).
 - Cockpit links without a query (`/ch/<ll>/book-and-manage/overview-manage`, two each, en de fr it
   es pt) carry `?country=CH&language=<LL>` (`swiss-import.mjs` withCockpitQuery); no other
   document had one.
+
+## ch/el and ch/ru behind the language switch; the images lost to DA names (brief 283, 2026-11-03)
+
+From the Studio's archives 018, 019 (Greek), 023, 024 (Russian) and 041 only (sha256 as the brief;
+no request to www.swiss.com). DA and preview only, not published.
+
+- Images dropped by DA names: swiss-dam-001 had asked www for 21 files under their DA-normalised
+  names (404: www serves its files only under its own names, "01-Check-in EN(1440x720).png",
+  "..._Amenity_Kit_Inbound_3-(1).jpg", "LX image (3_1) BLURRED.jpg"); the file list kept those names
+  because the snapshot scan stopped at ")", so the switch counted the images as gone and left them
+  out. `swiss-dam.mjs` ownNames reads names with parentheses; the 21 records are marked
+  `www-404-da-name` in the DAM state; all 21 files are in lh-swiss's DA. 28 documents imported again
+  with them (swiss-app, swiss-business and hold-the-booking on the eight roots, four refund and
+  feedback forms), uploaded and previewed: the swiss-app screenshots, the amenity kit and the
+  others show (every image of the two ch/es pages answers 200 on preview).
+- Capture lists name www's own URL (the DA path next to it); the earlier lists and
+  `lh-swiss-aem-files.tsv` already did (checked against the snapshots); only the pilot's DAM
+  state had DA names.
+- swiss-snapshots-041: the four ch/es and ch/pt confirmation pages (group travel request, data
+  protection form), imported; their forms link them (4 documents).
+- The switch: `SWISS_LANGUAGES` with el (ch/el "Ελβετία | Ελληνικά") and ru (ch/ru "Switzerland |
+  Русский"), both Zurich; off (pilots): swiss.turnsthe.page answers as before (`/ch/el`, `/xx/ru`,
+  `/ru/homepage` ... 404). To go live: `'el'`/`'ru'` in `SWISS_LANGUAGES_LIVE`;
+  `test/brand-swiss.test.mjs` and lh-edge's `sites-swiss.test.mjs` use ru as "a language SWISS has
+  no root for" and name ch's roots.
+- Scope: ch/el 269 documents, ch/ru 271; batches 31 to 34, p31, x31 (ch/el) and 39 to 42, p39, x39
+  (ch/ru), every page and both roots' nav and footer preview 200 (544 documents).
+- Nav and footer 1:1 from the homepages ("Οι πτήσεις μου" / "Мои рейсы" the cockpit deep link).
+- Flight search: "Ζυρίχη (ZRH)" on ch/el, "Цюрих (ZRH)" on ch/ru, as the homepages' field.
+- Fonts: www's el and ru pages load the same stylesheets as ch/de (mausy's swiss.css, lx-fonts.css:
+  CH Sans with Arial and Helvetica after it), no Greek or Cyrillic face of their own; the theme
+  does the same, nothing added.
+- Forms: 32 (16 per root, all ids lh-forms knows); 20 link their own confirmation page; 12 keep
+  the form's message. www's German and English messages: SWISS's Greek and Russian wording per
+  field (Greek and Cyrillic letters mark the language). "Wählen Sie ..." is German too: the
+  technical support form's "Wählen Sie die Zeit des Vorfalls" also left the en, es, fr, it, ja, pt
+  and zh documents (7 documents, uploaded and previewed).
+- For the capture: `lh-swiss-el-ru-capture.tsv` (32 DAM files, 14 pages without a snapshot, 12
+  confirmation pages), www's own URLs; no new AEM files or redirect rows.

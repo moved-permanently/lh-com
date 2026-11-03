@@ -2956,9 +2956,9 @@
    "preview": "2026-11-02T14:30:37.774Z"
   },
   "/ch/en/customer-support/contact-us/technical-support": {
-   "uploaded": "2026-11-02T14:30:44.272Z",
-   "mtime": 1793629795425,
-   "preview": "2026-11-02T14:30:46.107Z"
+   "uploaded": "2026-11-03T05:22:13.585Z",
+   "mtime": 1793683252694,
+   "preview": "2026-11-03T05:22:15.833Z"
   },
   "/ch/en/discover/a350/cabin": {
    "uploaded": "2026-11-02T06:49:53.034Z",
@@ -5541,9 +5541,9 @@
    "preview": "2026-11-02T17:23:50.039Z"
   },
   "/ch/fr/customer-support/contact-us/technical-support": {
-   "uploaded": "2026-11-02T18:54:03.413Z",
-   "mtime": 1793645560673,
-   "preview": "2026-11-02T18:54:05.334Z"
+   "uploaded": "2026-11-03T05:22:20.834Z",
+   "mtime": 1793683255809,
+   "preview": "2026-11-03T05:22:22.712Z"
   },
   "/ch/fr/customer-support/contact-us/technical-support/technical-support-success": {
    "uploaded": "2026-11-02T17:23:55.142Z",
@@ -6956,9 +6956,9 @@
    "preview": "2026-11-02T18:35:49.358Z"
   },
   "/ch/it/customer-support/contact-us/technical-support": {
-   "uploaded": "2026-11-02T18:54:49.361Z",
-   "mtime": 1793645562013,
-   "preview": "2026-11-02T18:54:51.420Z"
+   "uploaded": "2026-11-03T05:22:24.418Z",
+   "mtime": 1793683257350,
+   "preview": "2026-11-03T05:22:26.055Z"
   },
   "/ch/it/customer-support/contact-us/technical-support/technical-support-success": {
    "uploaded": "2026-11-02T18:35:54.179Z",
@@ -8331,9 +8331,9 @@
    "preview": "2026-11-02T21:00:13.232Z"
   },
   "/ch/es/customer-support/contact-us/technical-support": {
-   "uploaded": "2026-11-02T22:07:12.114Z",
-   "mtime": 1793657096409,
-   "preview": "2026-11-02T22:07:14.178Z"
+   "uploaded": "2026-11-03T05:22:17.560Z",
+   "mtime": 1793683254371,
+   "preview": "2026-11-03T05:22:19.112Z"
   },
   "/ch/es/customer-support/contact-us/technical-support/technical-support-success": {
    "uploaded": "2026-11-02T21:00:18.322Z",
@@ -9706,9 +9706,9 @@
    "preview": "2026-11-02T21:50:40.830Z"
   },
   "/ch/pt/customer-support/contact-us/technical-support": {
-   "uploaded": "2026-11-02T22:07:59.189Z",
-   "mtime": 1793657099940,
-   "preview": "2026-11-02T22:08:03.646Z"
+   "uploaded": "2026-11-03T05:22:31.512Z",
+   "mtime": 1793683260164,
+   "preview": "2026-11-03T05:22:33.202Z"
   },
   "/ch/pt/customer-support/contact-us/technical-support/technical-support-success": {
    "uploaded": "2026-11-02T21:50:47.405Z",
@@ -14546,9 +14546,9 @@
    "preview": "2026-11-03T00:30:19.939Z"
   },
   "/ch/zh/customer-support/contact-us/technical-support": {
-   "uploaded": "2026-11-03T01:46:32.381Z",
-   "mtime": 1793670310612,
-   "preview": "2026-11-03T01:46:34.424Z"
+   "uploaded": "2026-11-03T05:23:00.793Z",
+   "mtime": 1793683263011,
+   "preview": "2026-11-03T05:23:02.339Z"
   },
   "/ch/zh/customer-support/contact-us/technical-support/technical-support-success": {
    "uploaded": "2026-11-03T00:30:25.740Z",
@@ -15896,9 +15896,9 @@
    "preview": "2026-11-03T01:26:53.277Z"
   },
   "/ch/ja/customer-support/contact-us/technical-support": {
-   "uploaded": "2026-11-03T01:46:02.282Z",
-   "mtime": 1793670308096,
-   "preview": "2026-11-03T01:46:04.665Z"
+   "uploaded": "2026-11-03T05:22:27.800Z",
+   "mtime": 1793683258816,
+   "preview": "2026-11-03T05:22:30.027Z"
   },
   "/ch/ja/customer-support/contact-us/technical-support/technical-support-success": {
    "uploaded": "2026-11-03T01:26:58.158Z",
@@ -21104,6 +21104,2726 @@
    "uploaded": "2026-11-03T02:21:03.936Z",
    "mtime": 1793670398892,
    "preview": "2026-11-03T02:21:06.244Z"
+  },
+  "/ch/el/homepage": {
+   "uploaded": "2026-11-03T04:07:54.562Z",
+   "mtime": 1793678328033,
+   "preview": "2026-11-03T04:07:57.447Z"
+  },
+  "/ch/el/book-and-manage": {
+   "uploaded": "2026-11-03T03:22:14.009Z",
+   "mtime": 1793676095908,
+   "preview": "2026-11-03T03:22:16.758Z"
+  },
+  "/ch/el/book-and-manage/advanced-search": {
+   "uploaded": "2026-11-03T03:22:18.299Z",
+   "mtime": 1793676094877,
+   "preview": "2026-11-03T03:22:20.032Z"
+  },
+  "/ch/el/book-and-manage/conditions/baggage-conditions-check-in": {
+   "uploaded": "2026-11-03T03:22:21.309Z",
+   "mtime": 1793676094905,
+   "preview": "2026-11-03T03:22:23.525Z"
+  },
+  "/ch/el/book-and-manage/conditions/voucher-conditions-overview": {
+   "uploaded": "2026-11-03T04:05:01.744Z",
+   "mtime": 1793678325504,
+   "preview": "2026-11-03T04:05:03.745Z"
+  },
+  "/ch/el/book-and-manage/corporate-customers": {
+   "uploaded": "2026-11-03T04:05:21.815Z",
+   "mtime": 1793678325787,
+   "preview": "2026-11-03T04:05:23.807Z"
+  },
+  "/ch/el/book-and-manage/corporate-customers/ads-at-swiss": {
+   "uploaded": "2026-11-03T03:22:32.532Z",
+   "mtime": 1793676095025,
+   "preview": "2026-11-03T03:22:35.213Z"
+  },
+  "/ch/el/book-and-manage/corporate-customers/ads-at-swiss/ad-plattforms": {
+   "uploaded": "2026-11-03T04:05:05.201Z",
+   "mtime": 1793678325587,
+   "preview": "2026-11-03T04:05:07.885Z"
+  },
+  "/ch/el/book-and-manage/corporate-customers/ads-at-swiss/affiliate-partner-programme": {
+   "uploaded": "2026-11-03T04:05:09.299Z",
+   "mtime": 1793678325613,
+   "preview": "2026-11-03T04:05:11.205Z"
+  },
+  "/ch/el/book-and-manage/corporate-customers/company-offers": {
+   "uploaded": "2026-11-03T04:05:17.518Z",
+   "mtime": 1793678325699,
+   "preview": "2026-11-03T04:05:20.396Z"
+  },
+  "/ch/el/book-and-manage/corporate-customers/company-offers/corporate-contracts": {
+   "uploaded": "2026-11-03T04:05:12.799Z",
+   "mtime": 1793678325665,
+   "preview": "2026-11-03T04:05:16.097Z"
+  },
+  "/ch/el/book-and-manage/corporate-customers/company-offers/partnerplusbenefit": {
+   "uploaded": "2026-11-03T03:22:52.965Z",
+   "mtime": 1793676095086,
+   "preview": "2026-11-03T03:22:54.825Z"
+  },
+  "/ch/el/book-and-manage/corporate-customers/group-travel-and-charter/rent-a-plane": {
+   "uploaded": "2026-11-03T05:21:48.307Z",
+   "mtime": 1793683272538,
+   "preview": "2026-11-03T05:21:50.505Z"
+  },
+  "/ch/el/book-and-manage/flights": {
+   "uploaded": "2026-11-03T03:23:00.564Z",
+   "mtime": 1793676095243,
+   "preview": "2026-11-03T03:23:02.671Z"
+  },
+  "/ch/el/book-and-manage/flights/wetlease-hub": {
+   "uploaded": "2026-11-03T04:05:25.439Z",
+   "mtime": 1793678325838,
+   "preview": "2026-11-03T04:05:27.530Z"
+  },
+  "/ch/el/book-and-manage/offers/miles-and-more": {
+   "uploaded": "2026-11-03T03:53:30.212Z",
+   "mtime": 1793677682757,
+   "preview": "2026-11-03T03:53:32.626Z"
+  },
+  "/ch/el/book-and-manage/offers/vouchers": {
+   "uploaded": "2026-11-03T04:05:29.367Z",
+   "mtime": 1793678325881,
+   "preview": "2026-11-03T04:05:31.597Z"
+  },
+  "/ch/el/book-and-manage/overview-extra-services": {
+   "uploaded": "2026-11-03T04:05:33.299Z",
+   "mtime": 1793678325912,
+   "preview": "2026-11-03T04:05:35.966Z"
+  },
+  "/ch/el/book-and-manage/overview-manage": {
+   "uploaded": "2026-11-03T04:05:38.198Z",
+   "mtime": 1793678325945,
+   "preview": "2026-11-03T04:05:40.642Z"
+  },
+  "/ch/el/book-and-manage/partner-offers": {
+   "uploaded": "2026-11-03T03:23:24.368Z",
+   "mtime": 1793676095505,
+   "preview": "2026-11-03T03:23:26.629Z"
+  },
+  "/ch/el/book-and-manage/partner-offers/medical-travel-companions": {
+   "uploaded": "2026-11-03T03:23:27.962Z",
+   "mtime": 1793676095390,
+   "preview": "2026-11-03T03:23:30.297Z"
+  },
+  "/ch/el/book-and-manage/partner-offers/medication-transport": {
+   "uploaded": "2026-11-03T03:53:37.983Z",
+   "mtime": 1793677682823,
+   "preview": "2026-11-03T03:53:40.000Z"
+  },
+  "/ch/el/book-and-manage/partner-offers/swiss-airrail": {
+   "uploaded": "2026-11-03T04:05:42.053Z",
+   "mtime": 1793678325992,
+   "preview": "2026-11-03T04:05:44.909Z"
+  },
+  "/ch/el/book-and-manage/partner-offers/swiss-airrail-briefing": {
+   "uploaded": "2026-11-03T03:23:39.790Z",
+   "mtime": 1793676095444,
+   "preview": "2026-11-03T03:23:42.172Z"
+  },
+  "/ch/el/book-and-manage/pax-receipt": {
+   "uploaded": "2026-11-03T03:23:43.623Z",
+   "mtime": 1793676095530,
+   "preview": "2026-11-03T03:23:45.682Z"
+  },
+  "/ch/el/book-and-manage/rebook": {
+   "uploaded": "2026-11-03T04:05:54.873Z",
+   "mtime": 1793678326122,
+   "preview": "2026-11-03T04:05:57.502Z"
+  },
+  "/ch/el/book-and-manage/rebook/involuntary-rebooking": {
+   "uploaded": "2026-11-03T04:05:46.429Z",
+   "mtime": 1793678326063,
+   "preview": "2026-11-03T04:05:49.178Z"
+  },
+  "/ch/el/book-and-manage/rebook/voluntary-rebooking": {
+   "uploaded": "2026-11-03T04:05:50.705Z",
+   "mtime": 1793678326097,
+   "preview": "2026-11-03T04:05:53.340Z"
+  },
+  "/ch/el/book-and-manage/swiss-choice": {
+   "uploaded": "2026-11-03T03:43:49.273Z",
+   "mtime": 1793677077056,
+   "preview": "2026-11-03T03:43:51.570Z"
+  },
+  "/ch/el/book-and-manage/swiss-choice/additional-bag": {
+   "uploaded": "2026-11-03T04:05:58.923Z",
+   "mtime": 1793678326147,
+   "preview": "2026-11-03T04:06:01.271Z"
+  },
+  "/ch/el/book-and-manage/swiss-choice/advance-seat-reservation": {
+   "uploaded": "2026-11-03T04:06:02.665Z",
+   "mtime": 1793678326195,
+   "preview": "2026-11-03T04:06:05.599Z"
+  },
+  "/ch/el/book-and-manage/swiss-choice/golf-traveller": {
+   "uploaded": "2026-11-03T03:33:58.452Z",
+   "mtime": 1793676513223,
+   "preview": "2026-11-03T03:34:00.439Z"
+  },
+  "/ch/el/book-and-manage/swiss-choice/hold-the-booking": {
+   "uploaded": "2026-11-03T03:34:01.963Z",
+   "mtime": 1793676513249,
+   "preview": "2026-11-03T03:34:04.407Z"
+  },
+  "/ch/el/book-and-manage/swiss-choice/lounge-access": {
+   "uploaded": "2026-11-03T04:06:07.090Z",
+   "mtime": 1793678326230,
+   "preview": "2026-11-03T04:06:09.422Z"
+  },
+  "/ch/el/book-and-manage/swiss-choice/upgrade-options": {
+   "uploaded": "2026-11-03T04:06:19.255Z",
+   "mtime": 1793678326314,
+   "preview": "2026-11-03T04:06:21.820Z"
+  },
+  "/ch/el/book-and-manage/swiss-choice/upgrade-options/swiss-bid-upgrade": {
+   "uploaded": "2026-11-03T04:06:11.248Z",
+   "mtime": 1793678326261,
+   "preview": "2026-11-03T04:06:13.698Z"
+  },
+  "/ch/el/book-and-manage/swiss-choice/upgrade-options/upgrade-in-to-business-class": {
+   "uploaded": "2026-11-03T04:06:15.477Z",
+   "mtime": 1793678326286,
+   "preview": "2026-11-03T04:06:17.758Z"
+  },
+  "/ch/el/culinaryjourney": {
+   "uploaded": "2026-11-03T03:24:32.965Z",
+   "mtime": 1793676095933,
+   "preview": "2026-11-03T03:24:34.704Z"
+  },
+  "/ch/el/customer-support/contact-us/feedback-past-flight": {
+   "uploaded": "2026-11-03T05:21:52.076Z",
+   "mtime": 1793683272772,
+   "preview": "2026-11-03T05:21:54.016Z"
+  },
+  "/ch/el/customer-support/contact-us/general-request": {
+   "uploaded": "2026-11-03T05:21:55.682Z",
+   "mtime": 1793683272809,
+   "preview": "2026-11-03T05:21:57.237Z"
+  },
+  "/ch/el/customer-support/contact-us/request-for-refund-of-expenses": {
+   "uploaded": "2026-11-03T05:21:59.019Z",
+   "mtime": 1793683272859,
+   "preview": "2026-11-03T05:22:01.547Z"
+  },
+  "/ch/el/customer-support/faq": {
+   "uploaded": "2026-11-03T04:06:45.895Z",
+   "mtime": 1793678326814,
+   "preview": "2026-11-03T04:06:48.904Z"
+  },
+  "/ch/el/customer-support/faq/a-la-carte-dining": {
+   "uploaded": "2026-11-03T03:24:50.576Z",
+   "mtime": 1793676096051,
+   "preview": "2026-11-03T03:24:52.698Z"
+  },
+  "/ch/el/customer-support/faq/animals-travelling": {
+   "uploaded": "2026-11-03T04:06:23.249Z",
+   "mtime": 1793678326429,
+   "preview": "2026-11-03T04:06:25.425Z"
+  },
+  "/ch/el/customer-support/faq/baggage": {
+   "uploaded": "2026-11-03T04:06:26.958Z",
+   "mtime": 1793678326466,
+   "preview": "2026-11-03T04:06:28.808Z"
+  },
+  "/ch/el/customer-support/faq/baggage-irregularities-faq": {
+   "uploaded": "2026-11-03T03:25:01.248Z",
+   "mtime": 1793676096113,
+   "preview": "2026-11-03T03:25:03.836Z"
+  },
+  "/ch/el/customer-support/faq/booking-tariffs": {
+   "uploaded": "2026-11-03T03:25:05.130Z",
+   "mtime": 1793676096171,
+   "preview": "2026-11-03T03:25:06.856Z"
+  },
+  "/ch/el/nav": {
+   "uploaded": "2026-11-03T04:14:41.819Z",
+   "mtime": 1793679187063,
+   "preview": "2026-11-03T04:14:44.051Z"
+  },
+  "/ch/el/footer": {
+   "uploaded": "2026-11-03T04:14:45.573Z",
+   "mtime": 1793679187028,
+   "preview": "2026-11-03T04:14:48.105Z"
+  },
+  "/ch/el/customer-support/faq/change-cancel-booking": {
+   "uploaded": "2026-11-03T03:30:45.839Z",
+   "mtime": 1793676607593,
+   "preview": "2026-11-03T03:30:48.150Z"
+  },
+  "/ch/el/customer-support/faq/check-in": {
+   "uploaded": "2026-11-03T03:43:53.013Z",
+   "mtime": 1793677077125,
+   "preview": "2026-11-03T03:43:54.947Z"
+  },
+  "/ch/el/customer-support/faq/children-travelling": {
+   "uploaded": "2026-11-03T04:06:30.388Z",
+   "mtime": 1793678326533,
+   "preview": "2026-11-03T04:06:32.971Z"
+  },
+  "/ch/el/customer-support/faq/ejournals": {
+   "uploaded": "2026-11-03T03:30:57.214Z",
+   "mtime": 1793676607686,
+   "preview": "2026-11-03T03:30:59.408Z"
+  },
+  "/ch/el/customer-support/faq/entertainment-electronics": {
+   "uploaded": "2026-11-03T03:43:56.412Z",
+   "mtime": 1793677077158,
+   "preview": "2026-11-03T03:43:58.412Z"
+  },
+  "/ch/el/customer-support/faq/fare-concept-europe": {
+   "uploaded": "2026-11-03T03:31:05.107Z",
+   "mtime": 1793676607751,
+   "preview": "2026-11-03T03:31:07.428Z"
+  },
+  "/ch/el/customer-support/faq/first-welcome-service": {
+   "uploaded": "2026-11-03T03:44:00.012Z",
+   "mtime": 1793677077186,
+   "preview": "2026-11-03T03:44:02.013Z"
+  },
+  "/ch/el/customer-support/faq/food-and-beverage": {
+   "uploaded": "2026-11-03T03:31:12.956Z",
+   "mtime": 1793676607817,
+   "preview": "2026-11-03T03:31:15.451Z"
+  },
+  "/ch/el/customer-support/faq/group-travel": {
+   "uploaded": "2026-11-03T03:31:16.916Z",
+   "mtime": 1793676607848,
+   "preview": "2026-11-03T03:31:19.149Z"
+  },
+  "/ch/el/customer-support/faq/lounge-voucher": {
+   "uploaded": "2026-11-03T03:31:20.692Z",
+   "mtime": 1793676607880,
+   "preview": "2026-11-03T03:31:22.917Z"
+  },
+  "/ch/el/customer-support/faq/lounges": {
+   "uploaded": "2026-11-03T04:06:34.668Z",
+   "mtime": 1793678326643,
+   "preview": "2026-11-03T04:06:37.043Z"
+  },
+  "/ch/el/customer-support/faq/pay-per-invoice": {
+   "uploaded": "2026-11-03T03:31:27.823Z",
+   "mtime": 1793676607948,
+   "preview": "2026-11-03T03:31:29.994Z"
+  },
+  "/ch/el/customer-support/faq/payment": {
+   "uploaded": "2026-11-03T03:31:31.354Z",
+   "mtime": 1793676608073,
+   "preview": "2026-11-03T03:31:33.277Z"
+  },
+  "/ch/el/customer-support/faq/payment-options": {
+   "uploaded": "2026-11-03T04:06:38.628Z",
+   "mtime": 1793678326690,
+   "preview": "2026-11-03T04:06:40.707Z"
+  },
+  "/ch/el/customer-support/faq/payment-options-at-the-airport": {
+   "uploaded": "2026-11-03T03:31:38.361Z",
+   "mtime": 1793676608010,
+   "preview": "2026-11-03T03:31:40.743Z"
+  },
+  "/ch/el/customer-support/faq/payment-options/cash-and-miles": {
+   "uploaded": "2026-11-03T03:31:42.150Z",
+   "mtime": 1793676607980,
+   "preview": "2026-11-03T03:31:44.548Z"
+  },
+  "/ch/el/customer-support/faq/privacy-seat": {
+   "uploaded": "2026-11-03T03:31:45.994Z",
+   "mtime": 1793676608103,
+   "preview": "2026-11-03T03:31:48.167Z"
+  },
+  "/ch/el/customer-support/faq/seat-reservation": {
+   "uploaded": "2026-11-03T03:31:49.422Z",
+   "mtime": 1793676608270,
+   "preview": "2026-11-03T03:31:52.160Z"
+  },
+  "/ch/el/customer-support/faq/seat-reservation/economy-light-fare": {
+   "uploaded": "2026-11-03T03:31:53.641Z",
+   "mtime": 1793676608132,
+   "preview": "2026-11-03T03:31:55.697Z"
+  },
+  "/ch/el/customer-support/faq/seat-reservation/rebookings-cancellation": {
+   "uploaded": "2026-11-03T03:31:57.063Z",
+   "mtime": 1793676608166,
+   "preview": "2026-11-03T03:31:59.177Z"
+  },
+  "/ch/el/customer-support/faq/seat-reservation/refund": {
+   "uploaded": "2026-11-03T03:32:00.892Z",
+   "mtime": 1793676608210,
+   "preview": "2026-11-03T03:32:02.812Z"
+  },
+  "/ch/el/customer-support/faq/seat-reservation/seat-reservations": {
+   "uploaded": "2026-11-03T04:06:42.123Z",
+   "mtime": 1793678326765,
+   "preview": "2026-11-03T04:06:44.341Z"
+  },
+  "/ch/el/customer-support/faq/sports-equipment": {
+   "uploaded": "2026-11-03T03:54:09.992Z",
+   "mtime": 1793677683322,
+   "preview": "2026-11-03T03:54:11.999Z"
+  },
+  "/ch/el/customer-support/faq/swiss-connect": {
+   "uploaded": "2026-11-03T03:32:10.852Z",
+   "mtime": 1793676608329,
+   "preview": "2026-11-03T03:32:13.104Z"
+  },
+  "/ch/el/customer-support/faq/swiss-upgrade-bargain": {
+   "uploaded": "2026-11-03T03:32:14.532Z",
+   "mtime": 1793676608358,
+   "preview": "2026-11-03T03:32:16.342Z"
+  },
+  "/ch/el/customer-support/feedback": {
+   "uploaded": "2026-11-03T04:06:50.602Z",
+   "mtime": 1793678326840,
+   "preview": "2026-11-03T04:06:52.362Z"
+  },
+  "/ch/el/customer-support/newsletter": {
+   "uploaded": "2026-11-03T03:32:20.848Z",
+   "mtime": 1793676608439,
+   "preview": "2026-11-03T03:32:22.876Z"
+  },
+  "/ch/el/customer-support/passenger-duty-united-kingdom": {
+   "uploaded": "2026-11-03T03:32:24.141Z",
+   "mtime": 1793676608472,
+   "preview": "2026-11-03T03:32:26.067Z"
+  },
+  "/ch/el/customer-support/refund": {
+   "uploaded": "2026-11-03T03:32:27.433Z",
+   "mtime": 1793676608499,
+   "preview": "2026-11-03T03:32:29.301Z"
+  },
+  "/ch/el/customer-support/travel-and-corona": {
+   "uploaded": "2026-11-03T03:32:30.625Z",
+   "mtime": 1793676608647,
+   "preview": "2026-11-03T03:32:33.131Z"
+  },
+  "/ch/el/customer-support/travel-and-corona/free-neighbouring-seat": {
+   "uploaded": "2026-11-03T04:06:54.071Z",
+   "mtime": 1793678326948,
+   "preview": "2026-11-03T04:06:56.061Z"
+  },
+  "/ch/el/customer-support/travel-and-corona/simplified-onboard-service": {
+   "uploaded": "2026-11-03T03:44:06.899Z",
+   "mtime": 1793677077383,
+   "preview": "2026-11-03T03:44:09.568Z"
+  },
+  "/ch/el/customer-support/travel-and-corona/travel-briefing/destinations-masks": {
+   "uploaded": "2026-11-03T03:32:41.773Z",
+   "mtime": 1793676608593,
+   "preview": "2026-11-03T03:32:44.006Z"
+  },
+  "/ch/el/customer-support/travel-and-corona/travel-planning": {
+   "uploaded": "2026-11-03T03:44:11.340Z",
+   "mtime": 1793677077409,
+   "preview": "2026-11-03T03:44:13.320Z"
+  },
+  "/ch/el/discover": {
+   "uploaded": "2026-11-03T03:32:48.787Z",
+   "mtime": 1793676609099,
+   "preview": "2026-11-03T03:32:51.254Z"
+  },
+  "/ch/el/discover/fleet": {
+   "uploaded": "2026-11-03T03:32:52.464Z",
+   "mtime": 1793676608766,
+   "preview": "2026-11-03T03:32:54.789Z"
+  },
+  "/ch/el/discover/fleet/airbus-longhaul": {
+   "uploaded": "2026-11-03T04:06:57.502Z",
+   "mtime": 1793678327036,
+   "preview": "2026-11-03T04:07:00.073Z"
+  },
+  "/ch/el/discover/fleet/airbus-shorthaul": {
+   "uploaded": "2026-11-03T03:33:00.784Z",
+   "mtime": 1793676608711,
+   "preview": "2026-11-03T03:33:03.508Z"
+  },
+  "/ch/el/discover/fleet/boeing": {
+   "uploaded": "2026-11-03T03:33:04.870Z",
+   "mtime": 1793676608739,
+   "preview": "2026-11-03T03:33:06.976Z"
+  },
+  "/ch/el/discover/lufthansa-group": {
+   "uploaded": "2026-11-03T03:33:08.343Z",
+   "mtime": 1793676608825,
+   "preview": "2026-11-03T03:33:10.578Z"
+  },
+  "/ch/el/discover/lufthansa-group/ita-airways": {
+   "uploaded": "2026-11-03T03:44:20.682Z",
+   "mtime": 1793677077478,
+   "preview": "2026-11-03T03:44:23.038Z"
+  },
+  "/ch/el/discover/new-destinations": {
+   "uploaded": "2026-11-03T04:07:01.526Z",
+   "mtime": 1793678327088,
+   "preview": "2026-11-03T04:07:03.663Z"
+  },
+  "/ch/el/discover/overview-inspiration": {
+   "uploaded": "2026-11-03T04:07:05.418Z",
+   "mtime": 1793678327110,
+   "preview": "2026-11-03T04:07:07.848Z"
+  },
+  "/ch/el/discover/sustainable-choices": {
+   "uploaded": "2026-11-03T04:07:10.015Z",
+   "mtime": 1793678327157,
+   "preview": "2026-11-03T04:07:11.888Z"
+  },
+  "/ch/el/discover/sustainable-choices/climate-protection-projects": {
+   "uploaded": "2026-11-03T03:33:26.962Z",
+   "mtime": 1793676608913,
+   "preview": "2026-11-03T03:33:29.248Z"
+  },
+  "/ch/el/discover/sustainable-choices/environmental-cost-surcharge": {
+   "uploaded": "2026-11-03T03:33:30.510Z",
+   "mtime": 1793676608942,
+   "preview": "2026-11-03T03:33:32.835Z"
+  },
+  "/ch/el/discover/sustainable-choices/faq-saf": {
+   "uploaded": "2026-11-03T03:33:34.239Z",
+   "mtime": 1793676608974,
+   "preview": "2026-11-03T03:33:36.557Z"
+  },
+  "/ch/el/discover/sustainable-choices/saf": {
+   "uploaded": "2026-11-03T03:33:38.021Z",
+   "mtime": 1793676609004,
+   "preview": "2026-11-03T03:33:40.137Z"
+  },
+  "/ch/el/discover/swiss-recraft-collection": {
+   "uploaded": "2026-11-03T03:33:41.560Z",
+   "mtime": 1793676609070,
+   "preview": "2026-11-03T03:33:44.735Z"
+  },
+  "/ch/el/discover/swiss-senses/destinations": {
+   "uploaded": "2026-11-03T04:07:13.546Z",
+   "mtime": 1793678327213,
+   "preview": "2026-11-03T04:07:16.126Z"
+  },
+  "/ch/el/fly": {
+   "uploaded": "2026-11-03T03:40:15.970Z",
+   "mtime": 1793677175495,
+   "preview": "2026-11-03T03:40:18.537Z"
+  },
+  "/ch/el/fly/airport": {
+   "uploaded": "2026-11-03T03:40:19.917Z",
+   "mtime": 1793677174398,
+   "preview": "2026-11-03T03:40:22.046Z"
+  },
+  "/ch/el/fly/airport/boarding": {
+   "uploaded": "2026-11-03T03:40:23.548Z",
+   "mtime": 1793677173922,
+   "preview": "2026-11-03T03:40:25.464Z"
+  },
+  "/ch/el/fly/airport/geneva-airport": {
+   "uploaded": "2026-11-03T03:40:26.947Z",
+   "mtime": 1793677173959,
+   "preview": "2026-11-03T03:40:29.012Z"
+  },
+  "/ch/el/fly/airport/lounges": {
+   "uploaded": "2026-11-03T03:40:30.626Z",
+   "mtime": 1793677174234,
+   "preview": "2026-11-03T03:40:33.263Z"
+  },
+  "/ch/el/fly/airport/lounges/admission-rules": {
+   "uploaded": "2026-11-03T03:40:34.853Z",
+   "mtime": 1793677174003,
+   "preview": "2026-11-03T03:40:37.111Z"
+  },
+  "/ch/el/fly/airport/lounges/house-rules": {
+   "uploaded": "2026-11-03T03:40:38.498Z",
+   "mtime": 1793677174053,
+   "preview": "2026-11-03T03:40:40.705Z"
+  },
+  "/ch/el/fly/airport/lounges/lounges-geneva": {
+   "uploaded": "2026-11-03T04:07:17.584Z",
+   "mtime": 1793678327416,
+   "preview": "2026-11-03T04:07:19.842Z"
+  },
+  "/ch/el/fly/airport/lounges/lounges-worldwide": {
+   "uploaded": "2026-11-03T03:40:45.984Z",
+   "mtime": 1793677174123,
+   "preview": "2026-11-03T03:40:48.748Z"
+  },
+  "/ch/el/fly/airport/lounges/lounges-zurich": {
+   "uploaded": "2026-11-03T04:07:21.442Z",
+   "mtime": 1793678327452,
+   "preview": "2026-11-03T04:07:24.703Z"
+  },
+  "/ch/el/fly/airport/lounges/new-lounges-zurich": {
+   "uploaded": "2026-11-03T03:40:54.857Z",
+   "mtime": 1793677174200,
+   "preview": "2026-11-03T03:40:57.591Z"
+  },
+  "/ch/el/fly/airport/security-control-service": {
+   "uploaded": "2026-11-03T03:40:59.006Z",
+   "mtime": 1793677174274,
+   "preview": "2026-11-03T03:41:01.134Z"
+  },
+  "/ch/el/fly/airport/security-fast-lanes": {
+   "uploaded": "2026-11-03T03:41:03.046Z",
+   "mtime": 1793677174305,
+   "preview": "2026-11-03T03:41:06.052Z"
+  },
+  "/ch/el/fly/airport/swiss-first-welcome-service": {
+   "uploaded": "2026-11-03T03:41:07.351Z",
+   "mtime": 1793677174333,
+   "preview": "2026-11-03T03:41:09.769Z"
+  },
+  "/ch/el/fly/airport/zurich-airport": {
+   "uploaded": "2026-11-03T03:54:13.661Z",
+   "mtime": 1793677683546,
+   "preview": "2026-11-03T03:54:15.593Z"
+  },
+  "/ch/el/fly/check-in": {
+   "uploaded": "2026-11-03T03:41:15.368Z",
+   "mtime": 1793677174773,
+   "preview": "2026-11-03T03:41:17.753Z"
+  },
+  "/ch/el/fly/check-in/airport-check-in": {
+   "uploaded": "2026-11-03T03:54:17.022Z",
+   "mtime": 1793677683574,
+   "preview": "2026-11-03T03:54:18.979Z"
+  },
+  "/ch/el/fly/check-in/baggage-tags": {
+   "uploaded": "2026-11-03T03:41:22.623Z",
+   "mtime": 1793677174459,
+   "preview": "2026-11-03T03:41:25.318Z"
+  },
+  "/ch/el/fly/check-in/check-in-times": {
+   "uploaded": "2026-11-03T03:54:20.582Z",
+   "mtime": 1793677683602,
+   "preview": "2026-11-03T03:54:22.407Z"
+  },
+  "/ch/el/fly/check-in/electronic-bag-tag": {
+   "uploaded": "2026-11-03T03:54:23.831Z",
+   "mtime": 1793677683627,
+   "preview": "2026-11-03T03:54:26.127Z"
+  },
+  "/ch/el/fly/check-in/emergency-contact": {
+   "uploaded": "2026-11-03T05:22:06.657Z",
+   "mtime": 1793683273406,
+   "preview": "2026-11-03T05:22:08.238Z"
+  },
+  "/ch/el/fly/check-in/fast-bag-drop-gva": {
+   "uploaded": "2026-11-03T03:41:37.890Z",
+   "mtime": 1793677174584,
+   "preview": "2026-11-03T03:41:40.159Z"
+  },
+  "/ch/el/fly/check-in/fast-bag-drop-zrh": {
+   "uploaded": "2026-11-03T03:41:41.670Z",
+   "mtime": 1793677174616,
+   "preview": "2026-11-03T03:41:44.366Z"
+  },
+  "/ch/el/fly/check-in/off-counter-check-in": {
+   "uploaded": "2026-11-03T03:41:45.788Z",
+   "mtime": 1793677174648,
+   "preview": "2026-11-03T03:41:48.258Z"
+  },
+  "/ch/el/fly/check-in/online-check-in": {
+   "uploaded": "2026-11-03T03:41:49.938Z",
+   "mtime": 1793677174683,
+   "preview": "2026-11-03T03:41:52.464Z"
+  },
+  "/ch/el/fly/check-in/previous-day-check-in": {
+   "uploaded": "2026-11-03T03:41:53.872Z",
+   "mtime": 1793677174724,
+   "preview": "2026-11-03T03:41:56.215Z"
+  },
+  "/ch/el/fly/flight-information": {
+   "uploaded": "2026-11-03T03:41:57.649Z",
+   "mtime": 1793677174989,
+   "preview": "2026-11-03T03:42:00.224Z"
+  },
+  "/ch/el/fly/flight-information/arrival-departure": {
+   "uploaded": "2026-11-03T03:42:01.795Z",
+   "mtime": 1793677174803,
+   "preview": "2026-11-03T03:42:04.251Z"
+  },
+  "/ch/el/fly/flight-information/current-information": {
+   "uploaded": "2026-11-03T03:42:05.573Z",
+   "mtime": 1793677174831,
+   "preview": "2026-11-03T03:42:07.758Z"
+  },
+  "/ch/el/fly/flight-information/flight-irregularities": {
+   "uploaded": "2026-11-03T03:42:09.003Z",
+   "mtime": 1793677174901,
+   "preview": "2026-11-03T03:42:11.228Z"
+  },
+  "/ch/el/fly/flight-information/flight-irregularities/faq": {
+   "uploaded": "2026-11-03T04:07:26.255Z",
+   "mtime": 1793678327598,
+   "preview": "2026-11-03T04:07:28.345Z"
+  },
+  "/ch/el/fly/flight-information/mobile-apps": {
+   "uploaded": "2026-11-03T03:42:16.348Z",
+   "mtime": 1793677174931,
+   "preview": "2026-11-03T03:42:19.014Z"
+  },
+  "/ch/el/fly/flight-information/swiss-app": {
+   "uploaded": "2026-11-03T03:42:20.388Z",
+   "mtime": 1793677174961,
+   "preview": "2026-11-03T03:42:23.038Z"
+  },
+  "/ch/el/fly/on-board": {
+   "uploaded": "2026-11-03T03:42:24.476Z",
+   "mtime": 1793677175470,
+   "preview": "2026-11-03T03:42:26.611Z"
+  },
+  "/ch/el/fly/on-board/duty-free-shop": {
+   "uploaded": "2026-11-03T03:42:27.989Z",
+   "mtime": 1793677175015,
+   "preview": "2026-11-03T03:42:30.315Z"
+  },
+  "/ch/el/fly/on-board/entertainment-on-board": {
+   "uploaded": "2026-11-03T03:42:31.636Z",
+   "mtime": 1793677175076,
+   "preview": "2026-11-03T03:42:33.988Z"
+  },
+  "/ch/el/fly/on-board/entertainment-on-board/swiss-magazine": {
+   "uploaded": "2026-11-03T03:42:35.455Z",
+   "mtime": 1793677175044,
+   "preview": "2026-11-03T03:42:37.235Z"
+  },
+  "/ch/el/fly/on-board/food-and-beverage": {
+   "uploaded": "2026-11-03T03:42:38.534Z",
+   "mtime": 1793677175273,
+   "preview": "2026-11-03T03:42:41.549Z"
+  },
+  "/ch/el/fly/on-board/food-and-beverage/special-meals": {
+   "uploaded": "2026-11-03T04:07:29.866Z",
+   "mtime": 1793678327679,
+   "preview": "2026-11-03T04:07:31.867Z"
+  },
+  "/ch/el/fly/on-board/food-and-beverage/swiss-business": {
+   "uploaded": "2026-11-03T03:42:46.474Z",
+   "mtime": 1793677175140,
+   "preview": "2026-11-03T03:42:49.122Z"
+  },
+  "/ch/el/fly/on-board/food-and-beverage/swiss-economy": {
+   "uploaded": "2026-11-03T03:54:27.664Z",
+   "mtime": 1793677683761,
+   "preview": "2026-11-03T03:54:29.774Z"
+  },
+  "/ch/el/fly/on-board/food-and-beverage/swiss-first": {
+   "uploaded": "2026-11-03T03:42:54.062Z",
+   "mtime": 1793677175207,
+   "preview": "2026-11-03T03:42:56.878Z"
+  },
+  "/ch/el/fly/on-board/food-and-beverage/swiss-premium-economy": {
+   "uploaded": "2026-11-03T03:42:58.189Z",
+   "mtime": 1793677175239,
+   "preview": "2026-11-03T03:43:00.673Z"
+  },
+  "/ch/el/fly/on-board/green-fare": {
+   "uploaded": "2026-11-03T03:43:02.086Z",
+   "mtime": 1793677175305,
+   "preview": "2026-11-03T03:43:04.713Z"
+  },
+  "/ch/el/fly/on-board/internet-overview": {
+   "uploaded": "2026-11-03T04:07:33.328Z",
+   "mtime": 1793678327730,
+   "preview": "2026-11-03T04:07:35.778Z"
+  },
+  "/ch/el/fly/on-board/lhg-wifi": {
+   "uploaded": "2026-11-03T03:43:09.766Z",
+   "mtime": 1793677175369,
+   "preview": "2026-11-03T03:43:12.115Z"
+  },
+  "/ch/el/fly/on-board/swiss-business": {
+   "uploaded": "2026-11-03T04:07:37.282Z",
+   "mtime": 1793678327783,
+   "preview": "2026-11-03T04:07:39.913Z"
+  },
+  "/ch/el/fly/on-board/swiss-connect": {
+   "uploaded": "2026-11-03T03:43:17.582Z",
+   "mtime": 1793677175431,
+   "preview": "2026-11-03T03:43:19.514Z"
+  },
+  "/ch/el/fly/on-board/swiss-economy": {
+   "uploaded": "2026-11-03T04:07:41.467Z",
+   "mtime": 1793678327840,
+   "preview": "2026-11-03T04:07:44.388Z"
+  },
+  "/ch/el/fly/on-board/swiss-economy/swiss-saveurs": {
+   "uploaded": "2026-11-03T03:50:27.858Z",
+   "mtime": 1793677784137,
+   "preview": "2026-11-03T03:50:30.338Z"
+  },
+  "/ch/el/fly/on-board/swiss-first": {
+   "uploaded": "2026-11-03T04:15:08.091Z",
+   "mtime": 1793679086786,
+   "preview": "2026-11-03T04:15:10.577Z"
+  },
+  "/ch/el/fly/on-board/travel-classes/swiss-premium-economy": {
+   "uploaded": "2026-11-03T04:07:50.129Z",
+   "mtime": 1793678327945,
+   "preview": "2026-11-03T04:07:52.979Z"
+  },
+  "/ch/el/prepare": {
+   "uploaded": "2026-11-03T03:50:39.242Z",
+   "mtime": 1793677785596,
+   "preview": "2026-11-03T03:50:41.475Z"
+  },
+  "/ch/el/prepare/baggage": {
+   "uploaded": "2026-11-03T03:50:42.893Z",
+   "mtime": 1793677784710,
+   "preview": "2026-11-03T03:50:45.613Z"
+  },
+  "/ch/el/prepare/baggage/baggage-irregularities": {
+   "uploaded": "2026-11-03T04:07:59.559Z",
+   "mtime": 1793678328137,
+   "preview": "2026-11-03T04:08:01.792Z"
+  },
+  "/ch/el/prepare/baggage/baggage-provisions-partners": {
+   "uploaded": "2026-11-03T04:08:03.223Z",
+   "mtime": 1793678328161,
+   "preview": "2026-11-03T04:08:05.441Z"
+  },
+  "/ch/el/prepare/baggage/checked-baggage": {
+   "uploaded": "2026-11-03T04:08:06.880Z",
+   "mtime": 1793678328185,
+   "preview": "2026-11-03T04:08:09.677Z"
+  },
+  "/ch/el/prepare/baggage/comfort-devices": {
+   "uploaded": "2026-11-03T03:50:57.956Z",
+   "mtime": 1793677784447,
+   "preview": "2026-11-03T03:50:59.982Z"
+  },
+  "/ch/el/prepare/baggage/dangerous-goods": {
+   "uploaded": "2026-11-03T04:08:11.311Z",
+   "mtime": 1793678328225,
+   "preview": "2026-11-03T04:08:14.330Z"
+  },
+  "/ch/el/prepare/baggage/electronic-devices-and-batteries": {
+   "uploaded": "2026-11-03T03:51:05.165Z",
+   "mtime": 1793677784532,
+   "preview": "2026-11-03T03:51:08.022Z"
+  },
+  "/ch/el/prepare/baggage/excess-baggage": {
+   "uploaded": "2026-11-03T04:08:15.892Z",
+   "mtime": 1793678328258,
+   "preview": "2026-11-03T04:08:18.448Z"
+  },
+  "/ch/el/prepare/baggage/hand-baggage": {
+   "uploaded": "2026-11-03T03:51:13.460Z",
+   "mtime": 1793677784608,
+   "preview": "2026-11-03T03:51:16.410Z"
+  },
+  "/ch/el/prepare/baggage/sports-equipment": {
+   "uploaded": "2026-11-03T04:08:19.991Z",
+   "mtime": 1793678328293,
+   "preview": "2026-11-03T04:08:22.465Z"
+  },
+  "/ch/el/prepare/baggage/sports-equipment/register-sports-baggage": {
+   "uploaded": "2026-11-03T03:51:21.026Z",
+   "mtime": 1793677784643,
+   "preview": "2026-11-03T03:51:23.286Z"
+  },
+  "/ch/el/prepare/economy-basic": {
+   "uploaded": "2026-11-03T03:51:24.614Z",
+   "mtime": 1793677784740,
+   "preview": "2026-11-03T03:51:26.916Z"
+  },
+  "/ch/el/prepare/overview-flights": {
+   "uploaded": "2026-11-03T04:08:24.067Z",
+   "mtime": 1793678328325,
+   "preview": "2026-11-03T04:08:26.611Z"
+  },
+  "/ch/el/prepare/overview-travel-information": {
+   "uploaded": "2026-11-03T03:51:31.644Z",
+   "mtime": 1793677784804,
+   "preview": "2026-11-03T03:51:34.049Z"
+  },
+  "/ch/el/prepare/special-care": {
+   "uploaded": "2026-11-03T03:51:35.296Z",
+   "mtime": 1793677785268,
+   "preview": "2026-11-03T03:51:37.851Z"
+  },
+  "/ch/el/prepare/special-care/accessible-travel": {
+   "uploaded": "2026-11-03T04:08:28.145Z",
+   "mtime": 1793678328367,
+   "preview": "2026-11-03T04:08:30.533Z"
+  },
+  "/ch/el/prepare/special-care/accessible-travel/accessible-travel-form": {
+   "uploaded": "2026-11-03T05:22:09.702Z",
+   "mtime": 1793683273755,
+   "preview": "2026-11-03T05:22:11.929Z"
+  },
+  "/ch/el/prepare/special-care/animals-travelling": {
+   "uploaded": "2026-11-03T04:08:31.995Z",
+   "mtime": 1793678328417,
+   "preview": "2026-11-03T04:08:34.490Z"
+  },
+  "/ch/el/prepare/special-care/animals-travelling/register-animal-cargo-hold": {
+   "uploaded": "2026-11-03T03:51:49.745Z",
+   "mtime": 1793677784911,
+   "preview": "2026-11-03T03:51:51.759Z"
+  },
+  "/ch/el/prepare/special-care/animals-travelling/register-animals": {
+   "uploaded": "2026-11-03T03:51:52.921Z",
+   "mtime": 1793677784943,
+   "preview": "2026-11-03T03:51:54.806Z"
+  },
+  "/ch/el/prepare/special-care/children-travelling": {
+   "uploaded": "2026-11-03T03:51:56.277Z",
+   "mtime": 1793677785175,
+   "preview": "2026-11-03T03:51:58.645Z"
+  },
+  "/ch/el/prepare/special-care/children-travelling/child-in-businessclass": {
+   "uploaded": "2026-11-03T03:52:00.059Z",
+   "mtime": 1793677785026,
+   "preview": "2026-11-03T03:52:02.380Z"
+  },
+  "/ch/el/prepare/special-care/children-travelling/children-at-the-airport": {
+   "uploaded": "2026-11-03T03:52:03.763Z",
+   "mtime": 1793677785056,
+   "preview": "2026-11-03T03:52:06.231Z"
+  },
+  "/ch/el/prepare/special-care/children-travelling/general-information": {
+   "uploaded": "2026-11-03T03:52:07.524Z",
+   "mtime": 1793677785087,
+   "preview": "2026-11-03T03:52:10.231Z"
+  },
+  "/ch/el/prepare/special-care/children-travelling/unaccompanied-minors": {
+   "uploaded": "2026-11-03T04:08:36.018Z",
+   "mtime": 1793678328457,
+   "preview": "2026-11-03T04:08:38.162Z"
+  },
+  "/ch/el/prepare/special-care/children-travelling/with-children-on-board": {
+   "uploaded": "2026-11-03T04:08:39.628Z",
+   "mtime": 1793678328482,
+   "preview": "2026-11-03T04:08:42.052Z"
+  },
+  "/ch/el/prepare/special-care/health-and-travel": {
+   "uploaded": "2026-11-03T04:08:47.767Z",
+   "mtime": 1793678328564,
+   "preview": "2026-11-03T04:08:50.345Z"
+  },
+  "/ch/el/prepare/special-care/health-and-travel/doctor-on-board": {
+   "uploaded": "2026-11-03T04:08:43.538Z",
+   "mtime": 1793678328536,
+   "preview": "2026-11-03T04:08:46.083Z"
+  },
+  "/ch/el/prepare/travel-briefing": {
+   "uploaded": "2026-11-03T03:52:27.186Z",
+   "mtime": 1793677785298,
+   "preview": "2026-11-03T03:52:29.959Z"
+  },
+  "/ch/el/prepare/travel-regulations": {
+   "uploaded": "2026-11-03T03:52:31.262Z",
+   "mtime": 1793677785571,
+   "preview": "2026-11-03T03:52:33.798Z"
+  },
+  "/ch/el/prepare/travel-regulations/immigration-regulations-canada": {
+   "uploaded": "2026-11-03T03:52:35.188Z",
+   "mtime": 1793677785330,
+   "preview": "2026-11-03T03:52:37.486Z"
+  },
+  "/ch/el/prepare/travel-regulations/immigration-regulations-schengen": {
+   "uploaded": "2026-11-03T03:52:38.740Z",
+   "mtime": 1793677785392,
+   "preview": "2026-11-03T03:52:41.094Z"
+  },
+  "/ch/el/prepare/travel-regulations/immigration-regulations-schengen/entry-exit-system": {
+   "uploaded": "2026-11-03T03:52:42.885Z",
+   "mtime": 1793677785362,
+   "preview": "2026-11-03T03:52:45.666Z"
+  },
+  "/ch/el/prepare/travel-regulations/immigration-regulations-uk": {
+   "uploaded": "2026-11-03T03:52:47.069Z",
+   "mtime": 1793677785423,
+   "preview": "2026-11-03T03:52:49.425Z"
+  },
+  "/ch/el/prepare/travel-regulations/immigration-regulations-usa": {
+   "uploaded": "2026-11-03T03:52:50.603Z",
+   "mtime": 1793677785512,
+   "preview": "2026-11-03T03:52:52.949Z"
+  },
+  "/ch/el/prepare/travel-regulations/immigration-regulations-usa/global-entry-program": {
+   "uploaded": "2026-11-03T03:52:54.315Z",
+   "mtime": 1793677785452,
+   "preview": "2026-11-03T03:52:56.321Z"
+  },
+  "/ch/el/prepare/travel-regulations/immigration-regulations-usa/tsa-pre-check": {
+   "uploaded": "2026-11-03T03:52:57.599Z",
+   "mtime": 1793677785483,
+   "preview": "2026-11-03T03:52:59.452Z"
+  },
+  "/ch/el/prepare/travel-regulations/immigration-regulations-worldwide": {
+   "uploaded": "2026-11-03T03:53:00.841Z",
+   "mtime": 1793677785544,
+   "preview": "2026-11-03T03:53:03.029Z"
+  },
+  "/ch/el/terms-conditions/agb-extra-services-at-online-check-in": {
+   "uploaded": "2026-11-03T04:08:51.922Z",
+   "mtime": 1793678328646,
+   "preview": "2026-11-03T04:08:53.846Z"
+  },
+  "/ch/el/terms-conditions/agb-extra-services-at-online-check-in/conditions-seat-reservation": {
+   "uploaded": "2026-11-03T03:53:08.452Z",
+   "mtime": 1793677785625,
+   "preview": "2026-11-03T03:53:10.608Z"
+  },
+  "/ch/el/terms-conditions/cookie-policy": {
+   "uploaded": "2026-11-03T03:53:12.162Z",
+   "mtime": 1793677785699,
+   "preview": "2026-11-03T03:53:14.637Z"
+  },
+  "/ch/el/terms-conditions/privacy-statement": {
+   "uploaded": "2026-11-03T04:15:15.979Z",
+   "mtime": 1793679087271,
+   "preview": "2026-11-03T04:15:17.973Z"
+  },
+  "/ch/el/various/accessibility-statement": {
+   "uploaded": "2026-11-03T03:53:19.632Z",
+   "mtime": 1793677785776,
+   "preview": "2026-11-03T03:53:21.239Z"
+  },
+  "/ch/el/baggage-reimbursement": {
+   "uploaded": "2026-11-03T04:01:13.955Z",
+   "mtime": 1793678429947,
+   "preview": "2026-11-03T04:01:16.036Z"
+  },
+  "/ch/el/book-and-manage/conditions/affiliate-partner-program-conditions": {
+   "uploaded": "2026-11-03T04:01:17.346Z",
+   "mtime": 1793678429989,
+   "preview": "2026-11-03T04:01:19.200Z"
+  },
+  "/ch/el/book-and-manage/conditions/baggage-conditions": {
+   "uploaded": "2026-11-03T04:01:20.937Z",
+   "mtime": 1793678430031,
+   "preview": "2026-11-03T04:01:23.052Z"
+  },
+  "/ch/el/book-and-manage/conditions/bid-upgrade-conditions": {
+   "uploaded": "2026-11-03T04:01:24.331Z",
+   "mtime": 1793678430061,
+   "preview": "2026-11-03T04:01:27.018Z"
+  },
+  "/ch/el/book-and-manage/conditions/compensation-voucher-conditions": {
+   "uploaded": "2026-11-03T04:14:50.005Z",
+   "mtime": 1793679085576,
+   "preview": "2026-11-03T04:14:51.779Z"
+  },
+  "/ch/el/book-and-manage/conditions/extra-seat": {
+   "uploaded": "2026-11-03T04:14:53.463Z",
+   "mtime": 1793679085602,
+   "preview": "2026-11-03T04:14:55.798Z"
+  },
+  "/ch/el/book-and-manage/conditions/lounge-access-conditions": {
+   "uploaded": "2026-11-03T04:01:35.529Z",
+   "mtime": 1793678430164,
+   "preview": "2026-11-03T04:01:37.715Z"
+  },
+  "/ch/el/book-and-manage/conditions/online-check-in-upgrades": {
+   "uploaded": "2026-11-03T04:01:39.249Z",
+   "mtime": 1793678430195,
+   "preview": "2026-11-03T04:01:41.414Z"
+  },
+  "/ch/el/book-and-manage/conditions/opc": {
+   "uploaded": "2026-11-03T04:01:42.755Z",
+   "mtime": 1793678430226,
+   "preview": "2026-11-03T04:01:44.784Z"
+  },
+  "/ch/el/book-and-manage/conditions/redemption-of-multiple-vouchers": {
+   "uploaded": "2026-11-03T04:01:46.184Z",
+   "mtime": 1793678430253,
+   "preview": "2026-11-03T04:01:48.029Z"
+  },
+  "/ch/el/book-and-manage/conditions/upgrade-conditions": {
+   "uploaded": "2026-11-03T04:01:49.531Z",
+   "mtime": 1793678430290,
+   "preview": "2026-11-03T04:01:51.169Z"
+  },
+  "/ch/el/book-and-manage/conditions/voucher-conditions": {
+   "uploaded": "2026-11-03T04:14:57.199Z",
+   "mtime": 1793679085660,
+   "preview": "2026-11-03T04:14:59.145Z"
+  },
+  "/ch/el/book-and-manage/corporate-customers/ads-at-swiss/ad-plattforms/ad-plattforms-contact": {
+   "uploaded": "2026-11-03T04:01:55.697Z",
+   "mtime": 1793678430374,
+   "preview": "2026-11-03T04:01:57.915Z"
+  },
+  "/ch/el/book-and-manage/corporate-customers/company-offers/corporate-contracts/company-offers-contact-form": {
+   "uploaded": "2026-11-03T04:01:59.326Z",
+   "mtime": 1793678430464,
+   "preview": "2026-11-03T04:02:01.677Z"
+  },
+  "/ch/el/book-and-manage/corporate-customers/company-offers/corporate-contracts/company-offers-contact-form/company-offers-contact-form-success": {
+   "uploaded": "2026-11-03T04:02:03.219Z",
+   "mtime": 1793678430434,
+   "preview": "2026-11-03T04:02:04.904Z"
+  },
+  "/ch/el/book-and-manage/corporate-customers/group-travel-and-charter": {
+   "uploaded": "2026-11-03T04:02:06.184Z",
+   "mtime": 1793678430597,
+   "preview": "2026-11-03T04:02:08.860Z"
+  },
+  "/ch/el/book-and-manage/corporate-customers/group-travel-and-charter/group-travel": {
+   "uploaded": "2026-11-03T04:15:00.517Z",
+   "mtime": 1793679085753,
+   "preview": "2026-11-03T04:15:02.567Z"
+  },
+  "/ch/el/book-and-manage/corporate-customers/group-travel-and-charter/rent-a-plane/rent-a-plane-success": {
+   "uploaded": "2026-11-03T04:02:14.507Z",
+   "mtime": 1793678430560,
+   "preview": "2026-11-03T04:02:16.773Z"
+  },
+  "/ch/el/book-and-manage/flights/helvetic": {
+   "uploaded": "2026-11-03T04:02:17.937Z",
+   "mtime": 1793678430637,
+   "preview": "2026-11-03T04:02:20.203Z"
+  },
+  "/ch/el/book-and-manage/overview-manage/manage-bookings": {
+   "uploaded": "2026-11-03T04:02:21.733Z",
+   "mtime": 1793678430717,
+   "preview": "2026-11-03T04:02:23.654Z"
+  },
+  "/ch/el/book-and-manage/partner-offers/travel-insurances": {
+   "uploaded": "2026-11-03T04:02:25.128Z",
+   "mtime": 1793678430799,
+   "preview": "2026-11-03T04:02:27.802Z"
+  },
+  "/ch/el/customer-support": {
+   "uploaded": "2026-11-03T04:02:29.201Z",
+   "mtime": 1793678431941,
+   "preview": "2026-11-03T04:02:31.756Z"
+  },
+  "/ch/el/customer-support/contact-us": {
+   "uploaded": "2026-11-03T04:02:33.084Z",
+   "mtime": 1793678431207,
+   "preview": "2026-11-03T04:02:35.344Z"
+  },
+  "/ch/el/customer-support/contact-us/feedback-past-flight/confirmation": {
+   "uploaded": "2026-11-03T04:02:36.948Z",
+   "mtime": 1793678431005,
+   "preview": "2026-11-03T04:02:39.081Z"
+  },
+  "/ch/el/customer-support/contact-us/general-request/general-request-success": {
+   "uploaded": "2026-11-03T04:02:40.388Z",
+   "mtime": 1793678431048,
+   "preview": "2026-11-03T04:02:42.498Z"
+  },
+  "/ch/el/customer-support/contact-us/request-for-refund-of-expenses/confirmation": {
+   "uploaded": "2026-11-03T04:02:44.120Z",
+   "mtime": 1793678431092,
+   "preview": "2026-11-03T04:02:46.336Z"
+  },
+  "/ch/el/customer-support/contact-us/technical-support": {
+   "uploaded": "2026-11-03T05:22:03.182Z",
+   "mtime": 1793683251181,
+   "preview": "2026-11-03T05:22:04.694Z"
+  },
+  "/ch/el/customer-support/contact-us/technical-support/technical-support-success": {
+   "uploaded": "2026-11-03T04:02:51.630Z",
+   "mtime": 1793678431139,
+   "preview": "2026-11-03T04:02:53.722Z"
+  },
+  "/ch/el/customer-support/faq/card-security-number": {
+   "uploaded": "2026-11-03T04:02:55.051Z",
+   "mtime": 1793678431307,
+   "preview": "2026-11-03T04:02:57.533Z"
+  },
+  "/ch/el/customer-support/faq/damaged-baggage-faq": {
+   "uploaded": "2026-11-03T04:02:58.928Z",
+   "mtime": 1793678431371,
+   "preview": "2026-11-03T04:03:00.687Z"
+  },
+  "/ch/el/customer-support/faq/help-3d-secure": {
+   "uploaded": "2026-11-03T04:03:02.012Z",
+   "mtime": 1793678431466,
+   "preview": "2026-11-03T04:03:04.541Z"
+  },
+  "/ch/el/customer-support/faq/invoice-information": {
+   "uploaded": "2026-11-03T04:03:06.124Z",
+   "mtime": 1793678431503,
+   "preview": "2026-11-03T04:03:08.461Z"
+  },
+  "/ch/el/customer-support/faq/powerpay": {
+   "uploaded": "2026-11-03T04:03:09.881Z",
+   "mtime": 1793678431606,
+   "preview": "2026-11-03T04:03:11.844Z"
+  },
+  "/ch/el/customer-support/refunds": {
+   "uploaded": "2026-11-03T04:03:13.177Z",
+   "mtime": 1793678431857,
+   "preview": "2026-11-03T04:03:15.635Z"
+  },
+  "/ch/el/customer-support/refunds/confirmation": {
+   "uploaded": "2026-11-03T04:03:17.122Z",
+   "mtime": 1793678431791,
+   "preview": "2026-11-03T04:03:18.894Z"
+  },
+  "/ch/el/customer-support/refunds/refund-form": {
+   "uploaded": "2026-11-03T04:03:20.320Z",
+   "mtime": 1793678431826,
+   "preview": "2026-11-03T04:03:22.152Z"
+  },
+  "/ch/el/discover/a350": {
+   "uploaded": "2026-11-03T04:15:04.297Z",
+   "mtime": 1793679086348,
+   "preview": "2026-11-03T04:15:06.674Z"
+  },
+  "/ch/el/discover/swiss-senses": {
+   "uploaded": "2026-11-03T04:03:27.195Z",
+   "mtime": 1793678432374,
+   "preview": "2026-11-03T04:03:29.705Z"
+  },
+  "/ch/el/discover/swiss-senses/business": {
+   "uploaded": "2026-11-03T04:03:31.077Z",
+   "mtime": 1793678432170,
+   "preview": "2026-11-03T04:03:33.889Z"
+  },
+  "/ch/el/discover/swiss-senses/economy": {
+   "uploaded": "2026-11-03T04:03:35.278Z",
+   "mtime": 1793678432222,
+   "preview": "2026-11-03T04:03:37.648Z"
+  },
+  "/ch/el/discover/swiss-senses/first": {
+   "uploaded": "2026-11-03T04:03:39.050Z",
+   "mtime": 1793678432301,
+   "preview": "2026-11-03T04:03:42.168Z"
+  },
+  "/ch/el/discover/swiss-senses/first/grand-suite": {
+   "uploaded": "2026-11-03T04:03:43.456Z",
+   "mtime": 1793678432262,
+   "preview": "2026-11-03T04:03:45.966Z"
+  },
+  "/ch/el/discover/swiss-senses/premium-economy": {
+   "uploaded": "2026-11-03T04:03:47.289Z",
+   "mtime": 1793678432339,
+   "preview": "2026-11-03T04:03:50.280Z"
+  },
+  "/ch/el/fast-compensation": {
+   "uploaded": "2026-11-03T04:03:51.741Z",
+   "mtime": 1793678432419,
+   "preview": "2026-11-03T04:03:53.780Z"
+  },
+  "/ch/el/fly-more-sustainably-search": {
+   "uploaded": "2026-11-03T04:03:55.241Z",
+   "mtime": 1793678433303,
+   "preview": "2026-11-03T04:03:56.995Z"
+  },
+  "/ch/el/fly/airport/lounges/companion-rules": {
+   "uploaded": "2026-11-03T04:03:58.315Z",
+   "mtime": 1793678432485,
+   "preview": "2026-11-03T04:04:00.249Z"
+  },
+  "/ch/el/fly/check-in/emergency-contact/success": {
+   "uploaded": "2026-11-03T04:04:01.761Z",
+   "mtime": 1793678432689,
+   "preview": "2026-11-03T04:04:04.068Z"
+  },
+  "/ch/el/fly/on-board/swiss-business/business-interior": {
+   "uploaded": "2026-11-03T04:04:05.456Z",
+   "mtime": 1793678433031,
+   "preview": "2026-11-03T04:04:08.155Z"
+  },
+  "/ch/el/fly/on-board/swiss-economy/economy-interior": {
+   "uploaded": "2026-11-03T04:04:09.424Z",
+   "mtime": 1793678433097,
+   "preview": "2026-11-03T04:04:11.338Z"
+  },
+  "/ch/el/fly/on-board/travel-classes": {
+   "uploaded": "2026-11-03T04:04:12.822Z",
+   "mtime": 1793678433253,
+   "preview": "2026-11-03T04:04:14.853Z"
+  },
+  "/ch/el/fly/on-board/travel-classes/swiss-premium-economy/discover-premium-economy": {
+   "uploaded": "2026-11-03T04:04:16.310Z",
+   "mtime": 1793678433167,
+   "preview": "2026-11-03T04:04:18.423Z"
+  },
+  "/ch/el/fly/on-board/travel-classes/swiss-premium-economy/premium-economy-interior": {
+   "uploaded": "2026-11-03T04:04:19.849Z",
+   "mtime": 1793678433199,
+   "preview": "2026-11-03T04:04:23.035Z"
+  },
+  "/ch/el/offers": {
+   "uploaded": "2026-11-03T04:15:12.152Z",
+   "mtime": 1793679086852,
+   "preview": "2026-11-03T04:15:14.144Z"
+  },
+  "/ch/el/prepare/baggage/baggage-irregularities/loss-of-personal-item-form": {
+   "uploaded": "2026-11-03T04:04:27.981Z",
+   "mtime": 1793678433467,
+   "preview": "2026-11-03T04:04:30.303Z"
+  },
+  "/ch/el/prepare/baggage/excess-baggage/baggage-price-zones": {
+   "uploaded": "2026-11-03T04:04:31.699Z",
+   "mtime": 1793678433571,
+   "preview": "2026-11-03T04:04:33.456Z"
+  },
+  "/ch/el/prepare/special-care/accessible-travel/accessible-travel-form/accessible-travel-form-success": {
+   "uploaded": "2026-11-03T04:04:35.117Z",
+   "mtime": 1793678433686,
+   "preview": "2026-11-03T04:04:37.004Z"
+  },
+  "/ch/el/prepare/special-care/health-and-travel/doctor-on-board/doctor-on-board-news": {
+   "uploaded": "2026-11-03T04:04:38.432Z",
+   "mtime": 1793678433844,
+   "preview": "2026-11-03T04:04:41.100Z"
+  },
+  "/ch/el/terms-conditions": {
+   "uploaded": "2026-11-03T04:15:20.072Z",
+   "mtime": 1793679087344,
+   "preview": "2026-11-03T04:15:22.356Z"
+  },
+  "/ch/el/terms-conditions/imprint": {
+   "uploaded": "2026-11-03T04:04:46.583Z",
+   "mtime": 1793678434135,
+   "preview": "2026-11-03T04:04:48.442Z"
+  },
+  "/ch/el/terms-conditions/passenger-rights": {
+   "uploaded": "2026-11-03T04:04:49.813Z",
+   "mtime": 1793678434171,
+   "preview": "2026-11-03T04:04:51.872Z"
+  },
+  "/ch/el/book-and-manage/corporate-customers/group-travel-and-charter/group-travel/group-travel-request": {
+   "uploaded": "2026-11-03T04:13:45.041Z",
+   "mtime": 1793679184910,
+   "preview": "2026-11-03T04:13:47.161Z"
+  },
+  "/ch/el/book-and-manage/destination": {
+   "uploaded": "2026-11-03T04:13:48.648Z",
+   "mtime": 1793679184989,
+   "preview": "2026-11-03T04:13:50.649Z"
+  },
+  "/ch/el/customer-support/contact-us/data-protection-form": {
+   "uploaded": "2026-11-03T04:13:51.895Z",
+   "mtime": 1793679185342,
+   "preview": "2026-11-03T04:13:53.826Z"
+  },
+  "/ch/el/discover/a350/cabin": {
+   "uploaded": "2026-11-03T04:13:55.132Z",
+   "mtime": 1793679185951,
+   "preview": "2026-11-03T04:13:57.871Z"
+  },
+  "/ch/el/discover/a350/facts": {
+   "uploaded": "2026-11-03T04:13:59.146Z",
+   "mtime": 1793679185980,
+   "preview": "2026-11-03T04:14:01.742Z"
+  },
+  "/ch/el/discover/a350/production": {
+   "uploaded": "2026-11-03T04:14:02.890Z",
+   "mtime": 1793679186010,
+   "preview": "2026-11-03T04:14:06.175Z"
+  },
+  "/ch/el/discover/a350/special-livery": {
+   "uploaded": "2026-11-03T04:14:07.515Z",
+   "mtime": 1793679186041,
+   "preview": "2026-11-03T04:14:10.074Z"
+  },
+  "/ch/el/fly/on-board/on-board-count": {
+   "uploaded": "2026-11-03T04:14:11.321Z",
+   "mtime": 1793679186831,
+   "preview": "2026-11-03T04:14:13.155Z"
+  },
+  "/ch/el/fly/on-board/swiss-first/first-interior": {
+   "uploaded": "2026-11-03T04:14:14.496Z",
+   "mtime": 1793679186929,
+   "preview": "2026-11-03T04:14:16.406Z"
+  },
+  "/ch/el/terms-conditions/conditions-of-carriage": {
+   "uploaded": "2026-11-03T04:14:18.040Z",
+   "mtime": 1793679187606,
+   "preview": "2026-11-03T04:14:20.304Z"
+  },
+  "/ch/el/terms-conditions/copyright": {
+   "uploaded": "2026-11-03T04:14:21.608Z",
+   "mtime": 1793679187645,
+   "preview": "2026-11-03T04:14:23.803Z"
+  },
+  "/ch/el/terms-conditions/ec-regulation": {
+   "uploaded": "2026-11-03T04:14:25.227Z",
+   "mtime": 1793679187675,
+   "preview": "2026-11-03T04:14:27.219Z"
+  },
+  "/ch/el/terms-conditions/eu-regulation": {
+   "uploaded": "2026-11-03T04:14:28.661Z",
+   "mtime": 1793679187701,
+   "preview": "2026-11-03T04:14:30.270Z"
+  },
+  "/ch/el/terms-conditions/legal-notice": {
+   "uploaded": "2026-11-03T04:14:31.685Z",
+   "mtime": 1793679187743,
+   "preview": "2026-11-03T04:14:33.400Z"
+  },
+  "/ch/el/terms-conditions/profile-conditions": {
+   "uploaded": "2026-11-03T04:14:34.813Z",
+   "mtime": 1793679187798,
+   "preview": "2026-11-03T04:14:36.473Z"
+  },
+  "/ch/el/terms-conditions/terms-conditions": {
+   "uploaded": "2026-11-03T04:14:37.855Z",
+   "mtime": 1793679187829,
+   "preview": "2026-11-03T04:14:40.168Z"
+  },
+  "/ch/ru/homepage": {
+   "uploaded": "2026-11-03T05:07:01.048Z",
+   "mtime": 1793681897716,
+   "preview": "2026-11-03T05:07:03.732Z"
+  },
+  "/ch/ru/baggage-conditions": {
+   "uploaded": "2026-11-03T04:20:55.829Z",
+   "mtime": 1793679633087,
+   "preview": "2026-11-03T04:20:57.724Z"
+  },
+  "/ch/ru/book-and-manage": {
+   "uploaded": "2026-11-03T04:20:59.011Z",
+   "mtime": 1793679634231,
+   "preview": "2026-11-03T04:21:01.037Z"
+  },
+  "/ch/ru/book-and-manage/advanced-search": {
+   "uploaded": "2026-11-03T04:21:02.403Z",
+   "mtime": 1793679633129,
+   "preview": "2026-11-03T04:21:04.684Z"
+  },
+  "/ch/ru/book-and-manage/conditions/baggage-conditions-check-in": {
+   "uploaded": "2026-11-03T04:21:06.097Z",
+   "mtime": 1793679633174,
+   "preview": "2026-11-03T04:21:08.037Z"
+  },
+  "/ch/ru/book-and-manage/conditions/voucher-conditions-overview": {
+   "uploaded": "2026-11-03T05:04:14.690Z",
+   "mtime": 1793681895236,
+   "preview": "2026-11-03T05:04:16.917Z"
+  },
+  "/ch/ru/book-and-manage/corporate-customers": {
+   "uploaded": "2026-11-03T05:04:32.216Z",
+   "mtime": 1793681895509,
+   "preview": "2026-11-03T05:04:34.368Z"
+  },
+  "/ch/ru/book-and-manage/corporate-customers/ads-at-swiss": {
+   "uploaded": "2026-11-03T04:21:15.819Z",
+   "mtime": 1793679633303,
+   "preview": "2026-11-03T04:21:18.374Z"
+  },
+  "/ch/ru/book-and-manage/corporate-customers/ads-at-swiss/ad-plattforms": {
+   "uploaded": "2026-11-03T05:04:18.249Z",
+   "mtime": 1793681895313,
+   "preview": "2026-11-03T05:04:20.482Z"
+  },
+  "/ch/ru/book-and-manage/corporate-customers/ads-at-swiss/affiliate-partner-programme": {
+   "uploaded": "2026-11-03T05:04:21.942Z",
+   "mtime": 1793681895342,
+   "preview": "2026-11-03T05:04:23.732Z"
+  },
+  "/ch/ru/book-and-manage/corporate-customers/company-offers": {
+   "uploaded": "2026-11-03T05:04:28.846Z",
+   "mtime": 1793681895426,
+   "preview": "2026-11-03T05:04:30.737Z"
+  },
+  "/ch/ru/book-and-manage/corporate-customers/company-offers/corporate-contracts": {
+   "uploaded": "2026-11-03T05:04:25.108Z",
+   "mtime": 1793681895396,
+   "preview": "2026-11-03T05:04:27.341Z"
+  },
+  "/ch/ru/book-and-manage/corporate-customers/company-offers/partnerplusbenefit": {
+   "uploaded": "2026-11-03T04:21:34.558Z",
+   "mtime": 1793679633357,
+   "preview": "2026-11-03T04:21:36.437Z"
+  },
+  "/ch/ru/book-and-manage/corporate-customers/group-travel-and-charter/rent-a-plane": {
+   "uploaded": "2026-11-03T05:22:34.615Z",
+   "mtime": 1793683283213,
+   "preview": "2026-11-03T05:22:37.086Z"
+  },
+  "/ch/ru/book-and-manage/flights": {
+   "uploaded": "2026-11-03T04:21:41.010Z",
+   "mtime": 1793679633507,
+   "preview": "2026-11-03T04:21:43.057Z"
+  },
+  "/ch/ru/book-and-manage/flights/wetlease-hub": {
+   "uploaded": "2026-11-03T05:04:35.881Z",
+   "mtime": 1793681895563,
+   "preview": "2026-11-03T05:04:38.227Z"
+  },
+  "/ch/ru/book-and-manage/offers/miles-and-more": {
+   "uploaded": "2026-11-03T04:52:29.188Z",
+   "mtime": 1793681222202,
+   "preview": "2026-11-03T04:52:31.844Z"
+  },
+  "/ch/ru/book-and-manage/offers/vouchers": {
+   "uploaded": "2026-11-03T05:04:39.585Z",
+   "mtime": 1793681895601,
+   "preview": "2026-11-03T05:04:41.951Z"
+  },
+  "/ch/ru/book-and-manage/overview-extra-services": {
+   "uploaded": "2026-11-03T05:04:43.459Z",
+   "mtime": 1793681895629,
+   "preview": "2026-11-03T05:04:45.904Z"
+  },
+  "/ch/ru/book-and-manage/overview-manage": {
+   "uploaded": "2026-11-03T05:04:47.529Z",
+   "mtime": 1793681895659,
+   "preview": "2026-11-03T05:04:49.914Z"
+  },
+  "/ch/ru/book-and-manage/partner-offers": {
+   "uploaded": "2026-11-03T04:22:03.223Z",
+   "mtime": 1793679633784,
+   "preview": "2026-11-03T04:22:05.456Z"
+  },
+  "/ch/ru/book-and-manage/partner-offers/medical-travel-companions": {
+   "uploaded": "2026-11-03T04:22:06.724Z",
+   "mtime": 1793679633659,
+   "preview": "2026-11-03T04:22:08.860Z"
+  },
+  "/ch/ru/book-and-manage/partner-offers/medication-transport": {
+   "uploaded": "2026-11-03T04:52:37.111Z",
+   "mtime": 1793681222270,
+   "preview": "2026-11-03T04:52:39.548Z"
+  },
+  "/ch/ru/book-and-manage/partner-offers/swiss-airrail": {
+   "uploaded": "2026-11-03T05:04:51.483Z",
+   "mtime": 1793681895699,
+   "preview": "2026-11-03T05:04:54.253Z"
+  },
+  "/ch/ru/book-and-manage/partner-offers/swiss-airrail-briefing": {
+   "uploaded": "2026-11-03T04:22:17.054Z",
+   "mtime": 1793679633717,
+   "preview": "2026-11-03T04:22:19.245Z"
+  },
+  "/ch/ru/book-and-manage/pax-receipt": {
+   "uploaded": "2026-11-03T04:22:20.614Z",
+   "mtime": 1793679633810,
+   "preview": "2026-11-03T04:22:22.716Z"
+  },
+  "/ch/ru/book-and-manage/rebook": {
+   "uploaded": "2026-11-03T05:05:03.687Z",
+   "mtime": 1793681895820,
+   "preview": "2026-11-03T05:05:06.037Z"
+  },
+  "/ch/ru/book-and-manage/rebook/involuntary-rebooking": {
+   "uploaded": "2026-11-03T05:04:55.796Z",
+   "mtime": 1793681895761,
+   "preview": "2026-11-03T05:04:58.249Z"
+  },
+  "/ch/ru/book-and-manage/rebook/voluntary-rebooking": {
+   "uploaded": "2026-11-03T05:04:59.676Z",
+   "mtime": 1793681895796,
+   "preview": "2026-11-03T05:05:01.848Z"
+  },
+  "/ch/ru/book-and-manage/swiss-choice": {
+   "uploaded": "2026-11-03T04:42:43.059Z",
+   "mtime": 1793680615389,
+   "preview": "2026-11-03T04:42:45.466Z"
+  },
+  "/ch/ru/book-and-manage/swiss-choice/additional-bag": {
+   "uploaded": "2026-11-03T05:05:07.385Z",
+   "mtime": 1793681895846,
+   "preview": "2026-11-03T05:05:09.390Z"
+  },
+  "/ch/ru/book-and-manage/swiss-choice/advance-seat-reservation": {
+   "uploaded": "2026-11-03T05:05:11.141Z",
+   "mtime": 1793681895899,
+   "preview": "2026-11-03T05:05:13.995Z"
+  },
+  "/ch/ru/book-and-manage/swiss-choice/golf-traveller": {
+   "uploaded": "2026-11-03T04:32:44.417Z",
+   "mtime": 1793680044081,
+   "preview": "2026-11-03T04:32:46.422Z"
+  },
+  "/ch/ru/book-and-manage/swiss-choice/hold-the-booking": {
+   "uploaded": "2026-11-03T04:32:47.975Z",
+   "mtime": 1793680044107,
+   "preview": "2026-11-03T04:32:50.349Z"
+  },
+  "/ch/ru/book-and-manage/swiss-choice/lounge-access": {
+   "uploaded": "2026-11-03T05:05:15.500Z",
+   "mtime": 1793681895942,
+   "preview": "2026-11-03T05:05:17.768Z"
+  },
+  "/ch/ru/book-and-manage/swiss-choice/upgrade-options": {
+   "uploaded": "2026-11-03T05:05:26.390Z",
+   "mtime": 1793681896022,
+   "preview": "2026-11-03T05:05:28.438Z"
+  },
+  "/ch/ru/book-and-manage/swiss-choice/upgrade-options/swiss-bid-upgrade": {
+   "uploaded": "2026-11-03T05:05:19.146Z",
+   "mtime": 1793681895970,
+   "preview": "2026-11-03T05:05:21.411Z"
+  },
+  "/ch/ru/book-and-manage/swiss-choice/upgrade-options/upgrade-in-to-business-class": {
+   "uploaded": "2026-11-03T05:05:23.108Z",
+   "mtime": 1793681895996,
+   "preview": "2026-11-03T05:05:24.865Z"
+  },
+  "/ch/ru/culinaryjourney": {
+   "uploaded": "2026-11-03T04:23:07.821Z",
+   "mtime": 1793679634265,
+   "preview": "2026-11-03T04:23:09.789Z"
+  },
+  "/ch/ru/customer-support/contact-us/feedback-past-flight": {
+   "uploaded": "2026-11-03T05:22:38.548Z",
+   "mtime": 1793683283436,
+   "preview": "2026-11-03T05:22:40.659Z"
+  },
+  "/ch/ru/customer-support/contact-us/general-request": {
+   "uploaded": "2026-11-03T05:22:42.185Z",
+   "mtime": 1793683283474,
+   "preview": "2026-11-03T05:22:44.068Z"
+  },
+  "/ch/ru/customer-support/contact-us/request-for-refund-of-expenses": {
+   "uploaded": "2026-11-03T05:22:45.749Z",
+   "mtime": 1793683283528,
+   "preview": "2026-11-03T05:22:48.408Z"
+  },
+  "/ch/ru/customer-support/faq": {
+   "uploaded": "2026-11-03T05:05:52.550Z",
+   "mtime": 1793681896488,
+   "preview": "2026-11-03T05:05:54.767Z"
+  },
+  "/ch/ru/customer-support/faq/a-la-carte-dining": {
+   "uploaded": "2026-11-03T04:23:25.616Z",
+   "mtime": 1793679634401,
+   "preview": "2026-11-03T04:23:27.497Z"
+  },
+  "/ch/ru/customer-support/faq/animals-travelling": {
+   "uploaded": "2026-11-03T05:05:29.779Z",
+   "mtime": 1793681896123,
+   "preview": "2026-11-03T05:05:31.938Z"
+  },
+  "/ch/ru/customer-support/faq/baggage": {
+   "uploaded": "2026-11-03T05:05:33.490Z",
+   "mtime": 1793681896153,
+   "preview": "2026-11-03T05:05:35.227Z"
+  },
+  "/ch/ru/customer-support/faq/baggage-irregularities-faq": {
+   "uploaded": "2026-11-03T04:23:35.797Z",
+   "mtime": 1793679634465,
+   "preview": "2026-11-03T04:23:38.197Z"
+  },
+  "/ch/ru/customer-support/faq/booking-tariffs": {
+   "uploaded": "2026-11-03T04:23:39.483Z",
+   "mtime": 1793679634537,
+   "preview": "2026-11-03T04:23:41.093Z"
+  },
+  "/ch/ru/nav": {
+   "uploaded": "2026-11-03T05:14:49.369Z",
+   "mtime": 1793682804906,
+   "preview": "2026-11-03T05:14:51.350Z"
+  },
+  "/ch/ru/footer": {
+   "uploaded": "2026-11-03T05:14:52.902Z",
+   "mtime": 1793682804802,
+   "preview": "2026-11-03T05:14:54.931Z"
+  },
+  "/ch/ru/customer-support/faq/change-cancel-booking": {
+   "uploaded": "2026-11-03T04:29:37.203Z",
+   "mtime": 1793680158255,
+   "preview": "2026-11-03T04:29:39.051Z"
+  },
+  "/ch/ru/customer-support/faq/check-in": {
+   "uploaded": "2026-11-03T04:42:46.983Z",
+   "mtime": 1793680615470,
+   "preview": "2026-11-03T04:42:49.114Z"
+  },
+  "/ch/ru/customer-support/faq/children-travelling": {
+   "uploaded": "2026-11-03T05:05:36.761Z",
+   "mtime": 1793681896220,
+   "preview": "2026-11-03T05:05:38.699Z"
+  },
+  "/ch/ru/customer-support/faq/ejournals": {
+   "uploaded": "2026-11-03T04:29:47.354Z",
+   "mtime": 1793680158342,
+   "preview": "2026-11-03T04:29:49.260Z"
+  },
+  "/ch/ru/customer-support/faq/entertainment-electronics": {
+   "uploaded": "2026-11-03T04:42:50.590Z",
+   "mtime": 1793680615503,
+   "preview": "2026-11-03T04:42:52.601Z"
+  },
+  "/ch/ru/customer-support/faq/fare-concept-europe": {
+   "uploaded": "2026-11-03T04:29:54.047Z",
+   "mtime": 1793680158398,
+   "preview": "2026-11-03T04:29:55.773Z"
+  },
+  "/ch/ru/customer-support/faq/first-welcome-service": {
+   "uploaded": "2026-11-03T04:42:54.396Z",
+   "mtime": 1793680615542,
+   "preview": "2026-11-03T04:42:55.932Z"
+  },
+  "/ch/ru/customer-support/faq/food-and-beverage": {
+   "uploaded": "2026-11-03T04:30:00.203Z",
+   "mtime": 1793680158455,
+   "preview": "2026-11-03T04:30:02.800Z"
+  },
+  "/ch/ru/customer-support/faq/group-travel": {
+   "uploaded": "2026-11-03T04:30:04.227Z",
+   "mtime": 1793680158485,
+   "preview": "2026-11-03T04:30:06.731Z"
+  },
+  "/ch/ru/customer-support/faq/lounge-voucher": {
+   "uploaded": "2026-11-03T04:42:57.347Z",
+   "mtime": 1793680615583,
+   "preview": "2026-11-03T04:42:59.677Z"
+  },
+  "/ch/ru/customer-support/faq/lounges": {
+   "uploaded": "2026-11-03T05:05:40.151Z",
+   "mtime": 1793681896325,
+   "preview": "2026-11-03T05:05:41.850Z"
+  },
+  "/ch/ru/customer-support/faq/pay-per-invoice": {
+   "uploaded": "2026-11-03T04:30:14.764Z",
+   "mtime": 1793680158573,
+   "preview": "2026-11-03T04:30:16.943Z"
+  },
+  "/ch/ru/customer-support/faq/payment": {
+   "uploaded": "2026-11-03T04:30:18.312Z",
+   "mtime": 1793680158698,
+   "preview": "2026-11-03T04:30:20.444Z"
+  },
+  "/ch/ru/customer-support/faq/payment-options": {
+   "uploaded": "2026-11-03T05:05:43.365Z",
+   "mtime": 1793681896371,
+   "preview": "2026-11-03T05:05:46.580Z"
+  },
+  "/ch/ru/customer-support/faq/payment-options-at-the-airport": {
+   "uploaded": "2026-11-03T04:30:25.331Z",
+   "mtime": 1793680158638,
+   "preview": "2026-11-03T04:30:26.962Z"
+  },
+  "/ch/ru/customer-support/faq/payment-options/cash-and-miles": {
+   "uploaded": "2026-11-03T04:30:28.381Z",
+   "mtime": 1793680158607,
+   "preview": "2026-11-03T04:30:30.781Z"
+  },
+  "/ch/ru/customer-support/faq/privacy-seat": {
+   "uploaded": "2026-11-03T04:30:32.338Z",
+   "mtime": 1793680158737,
+   "preview": "2026-11-03T04:30:34.647Z"
+  },
+  "/ch/ru/customer-support/faq/seat-reservation": {
+   "uploaded": "2026-11-03T04:30:36.122Z",
+   "mtime": 1793680158894,
+   "preview": "2026-11-03T04:30:38.336Z"
+  },
+  "/ch/ru/customer-support/faq/seat-reservation/economy-light-fare": {
+   "uploaded": "2026-11-03T04:30:39.802Z",
+   "mtime": 1793680158764,
+   "preview": "2026-11-03T04:30:41.921Z"
+  },
+  "/ch/ru/customer-support/faq/seat-reservation/rebookings-cancellation": {
+   "uploaded": "2026-11-03T04:30:43.366Z",
+   "mtime": 1793680158791,
+   "preview": "2026-11-03T04:30:45.085Z"
+  },
+  "/ch/ru/customer-support/faq/seat-reservation/refund": {
+   "uploaded": "2026-11-03T04:30:46.397Z",
+   "mtime": 1793680158827,
+   "preview": "2026-11-03T04:30:48.529Z"
+  },
+  "/ch/ru/customer-support/faq/seat-reservation/seat-reservations": {
+   "uploaded": "2026-11-03T05:05:48.941Z",
+   "mtime": 1793681896444,
+   "preview": "2026-11-03T05:05:51.017Z"
+  },
+  "/ch/ru/customer-support/faq/sports-equipment": {
+   "uploaded": "2026-11-03T04:53:09.647Z",
+   "mtime": 1793681222745,
+   "preview": "2026-11-03T04:53:11.814Z"
+  },
+  "/ch/ru/customer-support/faq/swiss-connect": {
+   "uploaded": "2026-11-03T04:30:56.865Z",
+   "mtime": 1793680158953,
+   "preview": "2026-11-03T04:30:58.974Z"
+  },
+  "/ch/ru/customer-support/faq/swiss-upgrade-bargain": {
+   "uploaded": "2026-11-03T04:31:00.323Z",
+   "mtime": 1793680158983,
+   "preview": "2026-11-03T04:31:02.192Z"
+  },
+  "/ch/ru/customer-support/feedback": {
+   "uploaded": "2026-11-03T05:05:56.281Z",
+   "mtime": 1793681896514,
+   "preview": "2026-11-03T05:05:57.907Z"
+  },
+  "/ch/ru/customer-support/newsletter": {
+   "uploaded": "2026-11-03T04:31:06.911Z",
+   "mtime": 1793680159055,
+   "preview": "2026-11-03T04:31:09.155Z"
+  },
+  "/ch/ru/customer-support/passenger-duty-united-kingdom": {
+   "uploaded": "2026-11-03T04:31:10.697Z",
+   "mtime": 1793680159083,
+   "preview": "2026-11-03T04:31:12.642Z"
+  },
+  "/ch/ru/customer-support/refund": {
+   "uploaded": "2026-11-03T04:31:13.910Z",
+   "mtime": 1793680159125,
+   "preview": "2026-11-03T04:31:15.825Z"
+  },
+  "/ch/ru/customer-support/travel-and-corona": {
+   "uploaded": "2026-11-03T04:31:17.225Z",
+   "mtime": 1793680159262,
+   "preview": "2026-11-03T04:31:19.208Z"
+  },
+  "/ch/ru/customer-support/travel-and-corona/free-neighbouring-seat": {
+   "uploaded": "2026-11-03T05:05:59.292Z",
+   "mtime": 1793681896625,
+   "preview": "2026-11-03T05:06:01.183Z"
+  },
+  "/ch/ru/customer-support/travel-and-corona/simplified-onboard-service": {
+   "uploaded": "2026-11-03T04:43:04.598Z",
+   "mtime": 1793680615771,
+   "preview": "2026-11-03T04:43:08.392Z"
+  },
+  "/ch/ru/customer-support/travel-and-corona/travel-briefing/destinations-masks": {
+   "uploaded": "2026-11-03T04:31:27.435Z",
+   "mtime": 1793680159211,
+   "preview": "2026-11-03T04:31:29.160Z"
+  },
+  "/ch/ru/customer-support/travel-and-corona/travel-planning": {
+   "uploaded": "2026-11-03T04:43:09.800Z",
+   "mtime": 1793680615795,
+   "preview": "2026-11-03T04:43:12.003Z"
+  },
+  "/ch/ru/discover": {
+   "uploaded": "2026-11-03T04:31:34.142Z",
+   "mtime": 1793680159751,
+   "preview": "2026-11-03T04:31:35.844Z"
+  },
+  "/ch/ru/discover/fleet": {
+   "uploaded": "2026-11-03T04:31:37.089Z",
+   "mtime": 1793680159380,
+   "preview": "2026-11-03T04:31:39.547Z"
+  },
+  "/ch/ru/discover/fleet/airbus-longhaul": {
+   "uploaded": "2026-11-03T05:06:02.680Z",
+   "mtime": 1793681896726,
+   "preview": "2026-11-03T05:06:05.317Z"
+  },
+  "/ch/ru/discover/fleet/airbus-shorthaul": {
+   "uploaded": "2026-11-03T04:31:45.345Z",
+   "mtime": 1793680159325,
+   "preview": "2026-11-03T04:31:48.008Z"
+  },
+  "/ch/ru/discover/fleet/boeing": {
+   "uploaded": "2026-11-03T04:31:49.406Z",
+   "mtime": 1793680159352,
+   "preview": "2026-11-03T04:31:51.788Z"
+  },
+  "/ch/ru/discover/lufthansa-group": {
+   "uploaded": "2026-11-03T04:31:53.265Z",
+   "mtime": 1793680159437,
+   "preview": "2026-11-03T04:31:55.792Z"
+  },
+  "/ch/ru/discover/lufthansa-group/ita-airways": {
+   "uploaded": "2026-11-03T04:43:16.707Z",
+   "mtime": 1793680615862,
+   "preview": "2026-11-03T04:43:18.927Z"
+  },
+  "/ch/ru/discover/new-destinations": {
+   "uploaded": "2026-11-03T05:06:06.852Z",
+   "mtime": 1793681896780,
+   "preview": "2026-11-03T05:06:09.085Z"
+  },
+  "/ch/ru/discover/overview-inspiration": {
+   "uploaded": "2026-11-03T05:06:10.610Z",
+   "mtime": 1793681896800,
+   "preview": "2026-11-03T05:06:12.478Z"
+  },
+  "/ch/ru/discover/sustainable-choices": {
+   "uploaded": "2026-11-03T05:06:14.212Z",
+   "mtime": 1793681896851,
+   "preview": "2026-11-03T05:06:16.579Z"
+  },
+  "/ch/ru/discover/sustainable-choices/climate-protection-projects": {
+   "uploaded": "2026-11-03T04:32:12.035Z",
+   "mtime": 1793680159533,
+   "preview": "2026-11-03T04:32:14.413Z"
+  },
+  "/ch/ru/discover/sustainable-choices/environmental-cost-surcharge": {
+   "uploaded": "2026-11-03T04:32:15.724Z",
+   "mtime": 1793680159563,
+   "preview": "2026-11-03T04:32:17.677Z"
+  },
+  "/ch/ru/discover/sustainable-choices/faq-saf": {
+   "uploaded": "2026-11-03T04:32:19.096Z",
+   "mtime": 1793680159594,
+   "preview": "2026-11-03T04:32:20.897Z"
+  },
+  "/ch/ru/discover/sustainable-choices/saf": {
+   "uploaded": "2026-11-03T04:32:22.196Z",
+   "mtime": 1793680159625,
+   "preview": "2026-11-03T04:32:24.607Z"
+  },
+  "/ch/ru/discover/swiss-recraft-collection": {
+   "uploaded": "2026-11-03T04:32:25.980Z",
+   "mtime": 1793680159696,
+   "preview": "2026-11-03T04:32:28.412Z"
+  },
+  "/ch/ru/discover/swiss-senses/destinations": {
+   "uploaded": "2026-11-03T05:06:17.896Z",
+   "mtime": 1793681896911,
+   "preview": "2026-11-03T05:06:20.196Z"
+  },
+  "/ch/ru/fly": {
+   "uploaded": "2026-11-03T04:39:17.850Z",
+   "mtime": 1793680738993,
+   "preview": "2026-11-03T04:39:20.057Z"
+  },
+  "/ch/ru/fly/airport": {
+   "uploaded": "2026-11-03T04:39:21.335Z",
+   "mtime": 1793680737805,
+   "preview": "2026-11-03T04:39:23.409Z"
+  },
+  "/ch/ru/fly/airport/boarding": {
+   "uploaded": "2026-11-03T04:39:24.701Z",
+   "mtime": 1793680737397,
+   "preview": "2026-11-03T04:39:26.463Z"
+  },
+  "/ch/ru/fly/airport/geneva-airport": {
+   "uploaded": "2026-11-03T04:39:27.804Z",
+   "mtime": 1793680737425,
+   "preview": "2026-11-03T04:39:29.638Z"
+  },
+  "/ch/ru/fly/airport/lounges": {
+   "uploaded": "2026-11-03T04:39:32.411Z",
+   "mtime": 1793680737646,
+   "preview": "2026-11-03T04:39:34.880Z"
+  },
+  "/ch/ru/fly/airport/lounges/admission-rules": {
+   "uploaded": "2026-11-03T04:39:36.053Z",
+   "mtime": 1793680737458,
+   "preview": "2026-11-03T04:39:38.192Z"
+  },
+  "/ch/ru/fly/airport/lounges/house-rules": {
+   "uploaded": "2026-11-03T04:39:39.551Z",
+   "mtime": 1793680737487,
+   "preview": "2026-11-03T04:39:41.446Z"
+  },
+  "/ch/ru/fly/airport/lounges/lounges-geneva": {
+   "uploaded": "2026-11-03T05:06:21.675Z",
+   "mtime": 1793681897114,
+   "preview": "2026-11-03T05:06:23.931Z"
+  },
+  "/ch/ru/fly/airport/lounges/lounges-worldwide": {
+   "uploaded": "2026-11-03T04:39:46.223Z",
+   "mtime": 1793680737548,
+   "preview": "2026-11-03T04:39:48.547Z"
+  },
+  "/ch/ru/fly/airport/lounges/lounges-zurich": {
+   "uploaded": "2026-11-03T05:06:25.387Z",
+   "mtime": 1793681897145,
+   "preview": "2026-11-03T05:06:28.118Z"
+  },
+  "/ch/ru/fly/airport/lounges/new-lounges-zurich": {
+   "uploaded": "2026-11-03T04:39:53.931Z",
+   "mtime": 1793680737612,
+   "preview": "2026-11-03T04:39:56.132Z"
+  },
+  "/ch/ru/fly/airport/security-control-service": {
+   "uploaded": "2026-11-03T04:39:57.393Z",
+   "mtime": 1793680737679,
+   "preview": "2026-11-03T04:39:59.331Z"
+  },
+  "/ch/ru/fly/airport/security-fast-lanes": {
+   "uploaded": "2026-11-03T04:40:00.819Z",
+   "mtime": 1793680737712,
+   "preview": "2026-11-03T04:40:03.326Z"
+  },
+  "/ch/ru/fly/airport/swiss-first-welcome-service": {
+   "uploaded": "2026-11-03T04:40:04.697Z",
+   "mtime": 1793680737741,
+   "preview": "2026-11-03T04:40:06.851Z"
+  },
+  "/ch/ru/fly/airport/zurich-airport": {
+   "uploaded": "2026-11-03T04:53:13.255Z",
+   "mtime": 1793681223039,
+   "preview": "2026-11-03T04:53:15.926Z"
+  },
+  "/ch/ru/fly/check-in": {
+   "uploaded": "2026-11-03T04:40:12.059Z",
+   "mtime": 1793680738146,
+   "preview": "2026-11-03T04:40:14.657Z"
+  },
+  "/ch/ru/fly/check-in/airport-check-in": {
+   "uploaded": "2026-11-03T04:53:17.584Z",
+   "mtime": 1793681223073,
+   "preview": "2026-11-03T04:53:19.610Z"
+  },
+  "/ch/ru/fly/check-in/baggage-tags": {
+   "uploaded": "2026-11-03T04:40:19.074Z",
+   "mtime": 1793680737867,
+   "preview": "2026-11-03T04:40:20.955Z"
+  },
+  "/ch/ru/fly/check-in/check-in-times": {
+   "uploaded": "2026-11-03T04:53:20.984Z",
+   "mtime": 1793681223106,
+   "preview": "2026-11-03T04:53:23.259Z"
+  },
+  "/ch/ru/fly/check-in/electronic-bag-tag": {
+   "uploaded": "2026-11-03T04:53:24.875Z",
+   "mtime": 1793681223141,
+   "preview": "2026-11-03T04:53:26.934Z"
+  },
+  "/ch/ru/fly/check-in/emergency-contact": {
+   "uploaded": "2026-11-03T05:22:53.259Z",
+   "mtime": 1793683284094,
+   "preview": "2026-11-03T05:22:55.540Z"
+  },
+  "/ch/ru/fly/check-in/fast-bag-drop-gva": {
+   "uploaded": "2026-11-03T04:40:32.266Z",
+   "mtime": 1793680737987,
+   "preview": "2026-11-03T04:40:34.177Z"
+  },
+  "/ch/ru/fly/check-in/fast-bag-drop-zrh": {
+   "uploaded": "2026-11-03T04:40:35.397Z",
+   "mtime": 1793680738020,
+   "preview": "2026-11-03T04:40:37.653Z"
+  },
+  "/ch/ru/fly/check-in/off-counter-check-in": {
+   "uploaded": "2026-11-03T04:40:39.129Z",
+   "mtime": 1793680738053,
+   "preview": "2026-11-03T04:40:41.698Z"
+  },
+  "/ch/ru/fly/check-in/online-check-in": {
+   "uploaded": "2026-11-03T04:40:42.976Z",
+   "mtime": 1793680738085,
+   "preview": "2026-11-03T04:40:45.238Z"
+  },
+  "/ch/ru/fly/check-in/previous-day-check-in": {
+   "uploaded": "2026-11-03T04:40:46.619Z",
+   "mtime": 1793680738115,
+   "preview": "2026-11-03T04:40:49.112Z"
+  },
+  "/ch/ru/fly/flight-information": {
+   "uploaded": "2026-11-03T04:40:50.503Z",
+   "mtime": 1793680738351,
+   "preview": "2026-11-03T04:40:52.571Z"
+  },
+  "/ch/ru/fly/flight-information/arrival-departure": {
+   "uploaded": "2026-11-03T04:40:54.000Z",
+   "mtime": 1793680738173,
+   "preview": "2026-11-03T04:40:56.088Z"
+  },
+  "/ch/ru/fly/flight-information/current-information": {
+   "uploaded": "2026-11-03T04:40:57.336Z",
+   "mtime": 1793680738198,
+   "preview": "2026-11-03T04:40:59.251Z"
+  },
+  "/ch/ru/fly/flight-information/flight-irregularities": {
+   "uploaded": "2026-11-03T05:06:34.202Z",
+   "mtime": 1793681897308,
+   "preview": "2026-11-03T05:06:35.984Z"
+  },
+  "/ch/ru/fly/flight-information/flight-irregularities/faq": {
+   "uploaded": "2026-11-03T05:06:30.587Z",
+   "mtime": 1793681897282,
+   "preview": "2026-11-03T05:06:32.627Z"
+  },
+  "/ch/ru/fly/flight-information/mobile-apps": {
+   "uploaded": "2026-11-03T04:41:07.066Z",
+   "mtime": 1793680738290,
+   "preview": "2026-11-03T04:41:08.975Z"
+  },
+  "/ch/ru/fly/flight-information/swiss-app": {
+   "uploaded": "2026-11-03T04:41:10.336Z",
+   "mtime": 1793680738326,
+   "preview": "2026-11-03T04:41:12.998Z"
+  },
+  "/ch/ru/fly/on-board": {
+   "uploaded": "2026-11-03T04:41:14.388Z",
+   "mtime": 1793680738962,
+   "preview": "2026-11-03T04:41:16.654Z"
+  },
+  "/ch/ru/fly/on-board/duty-free-shop": {
+   "uploaded": "2026-11-03T04:41:17.864Z",
+   "mtime": 1793680738378,
+   "preview": "2026-11-03T04:41:19.667Z"
+  },
+  "/ch/ru/fly/on-board/entertainment-on-board": {
+   "uploaded": "2026-11-03T04:41:20.978Z",
+   "mtime": 1793680738457,
+   "preview": "2026-11-03T04:41:23.195Z"
+  },
+  "/ch/ru/fly/on-board/entertainment-on-board/swiss-magazine": {
+   "uploaded": "2026-11-03T04:41:24.510Z",
+   "mtime": 1793680738425,
+   "preview": "2026-11-03T04:41:26.543Z"
+  },
+  "/ch/ru/fly/on-board/food-and-beverage": {
+   "uploaded": "2026-11-03T04:41:28.054Z",
+   "mtime": 1793680738680,
+   "preview": "2026-11-03T04:41:30.414Z"
+  },
+  "/ch/ru/fly/on-board/food-and-beverage/special-meals": {
+   "uploaded": "2026-11-03T05:06:37.619Z",
+   "mtime": 1793681897364,
+   "preview": "2026-11-03T05:06:39.446Z"
+  },
+  "/ch/ru/fly/on-board/food-and-beverage/swiss-business": {
+   "uploaded": "2026-11-03T04:41:35.534Z",
+   "mtime": 1793680738526,
+   "preview": "2026-11-03T04:41:38.312Z"
+  },
+  "/ch/ru/fly/on-board/food-and-beverage/swiss-economy": {
+   "uploaded": "2026-11-03T04:41:39.666Z",
+   "mtime": 1793680738560,
+   "preview": "2026-11-03T04:41:42.104Z"
+  },
+  "/ch/ru/fly/on-board/food-and-beverage/swiss-first": {
+   "uploaded": "2026-11-03T04:41:43.377Z",
+   "mtime": 1793680738612,
+   "preview": "2026-11-03T04:41:45.841Z"
+  },
+  "/ch/ru/fly/on-board/food-and-beverage/swiss-premium-economy": {
+   "uploaded": "2026-11-03T04:41:47.058Z",
+   "mtime": 1793680738648,
+   "preview": "2026-11-03T04:41:49.513Z"
+  },
+  "/ch/ru/fly/on-board/green-fare": {
+   "uploaded": "2026-11-03T04:41:50.927Z",
+   "mtime": 1793680738715,
+   "preview": "2026-11-03T04:41:52.790Z"
+  },
+  "/ch/ru/fly/on-board/internet-overview": {
+   "uploaded": "2026-11-03T05:06:40.973Z",
+   "mtime": 1793681897420,
+   "preview": "2026-11-03T05:06:43.820Z"
+  },
+  "/ch/ru/fly/on-board/lhg-wifi": {
+   "uploaded": "2026-11-03T04:41:57.524Z",
+   "mtime": 1793680738780,
+   "preview": "2026-11-03T04:42:00.312Z"
+  },
+  "/ch/ru/fly/on-board/swiss-business": {
+   "uploaded": "2026-11-03T05:06:45.578Z",
+   "mtime": 1793681897472,
+   "preview": "2026-11-03T05:06:48.495Z"
+  },
+  "/ch/ru/fly/on-board/swiss-connect": {
+   "uploaded": "2026-11-03T04:42:06.208Z",
+   "mtime": 1793680738854,
+   "preview": "2026-11-03T04:42:08.360Z"
+  },
+  "/ch/ru/fly/on-board/swiss-economy": {
+   "uploaded": "2026-11-03T05:06:49.948Z",
+   "mtime": 1793681897530,
+   "preview": "2026-11-03T05:06:52.229Z"
+  },
+  "/ch/ru/fly/on-board/swiss-economy/swiss-saveurs": {
+   "uploaded": "2026-11-03T04:42:13.355Z",
+   "mtime": 1793680738892,
+   "preview": "2026-11-03T04:42:15.560Z"
+  },
+  "/ch/ru/fly/on-board/swiss-first": {
+   "uploaded": "2026-11-03T05:15:14.780Z",
+   "mtime": 1793682658333,
+   "preview": "2026-11-03T05:15:17.227Z"
+  },
+  "/ch/ru/fly/on-board/travel-classes/swiss-premium-economy": {
+   "uploaded": "2026-11-03T05:06:57.429Z",
+   "mtime": 1793681897629,
+   "preview": "2026-11-03T05:06:59.577Z"
+  },
+  "/ch/ru/prepare": {
+   "uploaded": "2026-11-03T04:49:44.036Z",
+   "mtime": 1793681355144,
+   "preview": "2026-11-03T04:49:46.242Z"
+  },
+  "/ch/ru/prepare/baggage": {
+   "uploaded": "2026-11-03T04:49:47.427Z",
+   "mtime": 1793681354039,
+   "preview": "2026-11-03T04:49:49.638Z"
+  },
+  "/ch/ru/prepare/baggage/baggage-irregularities": {
+   "uploaded": "2026-11-03T05:07:05.478Z",
+   "mtime": 1793681897811,
+   "preview": "2026-11-03T05:07:07.312Z"
+  },
+  "/ch/ru/prepare/baggage/baggage-provisions-partners": {
+   "uploaded": "2026-11-03T05:07:08.949Z",
+   "mtime": 1793681897839,
+   "preview": "2026-11-03T05:07:11.100Z"
+  },
+  "/ch/ru/prepare/baggage/checked-baggage": {
+   "uploaded": "2026-11-03T05:07:12.940Z",
+   "mtime": 1793681897867,
+   "preview": "2026-11-03T05:07:14.992Z"
+  },
+  "/ch/ru/prepare/baggage/comfort-devices": {
+   "uploaded": "2026-11-03T04:50:01.526Z",
+   "mtime": 1793681353708,
+   "preview": "2026-11-03T04:50:03.725Z"
+  },
+  "/ch/ru/prepare/baggage/dangerous-goods": {
+   "uploaded": "2026-11-03T05:07:16.457Z",
+   "mtime": 1793681897911,
+   "preview": "2026-11-03T05:07:18.918Z"
+  },
+  "/ch/ru/prepare/baggage/electronic-devices-and-batteries": {
+   "uploaded": "2026-11-03T04:50:09.216Z",
+   "mtime": 1793681353854,
+   "preview": "2026-11-03T04:50:11.813Z"
+  },
+  "/ch/ru/prepare/baggage/excess-baggage": {
+   "uploaded": "2026-11-03T05:07:20.647Z",
+   "mtime": 1793681897966,
+   "preview": "2026-11-03T05:07:22.556Z"
+  },
+  "/ch/ru/prepare/baggage/hand-baggage": {
+   "uploaded": "2026-11-03T04:50:16.636Z",
+   "mtime": 1793681353933,
+   "preview": "2026-11-03T04:50:19.557Z"
+  },
+  "/ch/ru/prepare/baggage/sports-equipment": {
+   "uploaded": "2026-11-03T05:07:24.136Z",
+   "mtime": 1793681898013,
+   "preview": "2026-11-03T05:07:25.974Z"
+  },
+  "/ch/ru/prepare/baggage/sports-equipment/register-sports-baggage": {
+   "uploaded": "2026-11-03T04:50:24.239Z",
+   "mtime": 1793681353971,
+   "preview": "2026-11-03T04:50:26.515Z"
+  },
+  "/ch/ru/prepare/economy-basic": {
+   "uploaded": "2026-11-03T04:50:28.263Z",
+   "mtime": 1793681354071,
+   "preview": "2026-11-03T04:50:30.676Z"
+  },
+  "/ch/ru/prepare/overview-flights": {
+   "uploaded": "2026-11-03T05:07:27.506Z",
+   "mtime": 1793681898062,
+   "preview": "2026-11-03T05:07:29.576Z"
+  },
+  "/ch/ru/prepare/overview-travel-information": {
+   "uploaded": "2026-11-03T04:50:35.422Z",
+   "mtime": 1793681354144,
+   "preview": "2026-11-03T04:50:37.137Z"
+  },
+  "/ch/ru/prepare/special-care": {
+   "uploaded": "2026-11-03T04:50:38.422Z",
+   "mtime": 1793681354708,
+   "preview": "2026-11-03T04:50:40.423Z"
+  },
+  "/ch/ru/prepare/special-care/accessible-travel": {
+   "uploaded": "2026-11-03T05:07:31.067Z",
+   "mtime": 1793681898100,
+   "preview": "2026-11-03T05:07:33.608Z"
+  },
+  "/ch/ru/prepare/special-care/accessible-travel/accessible-travel-form": {
+   "uploaded": "2026-11-03T05:22:57.003Z",
+   "mtime": 1793683284413,
+   "preview": "2026-11-03T05:22:59.273Z"
+  },
+  "/ch/ru/prepare/special-care/animals-travelling": {
+   "uploaded": "2026-11-03T05:07:35.164Z",
+   "mtime": 1793681898152,
+   "preview": "2026-11-03T05:07:38.047Z"
+  },
+  "/ch/ru/prepare/special-care/animals-travelling/register-animal-cargo-hold": {
+   "uploaded": "2026-11-03T04:50:52.869Z",
+   "mtime": 1793681354261,
+   "preview": "2026-11-03T04:50:55.056Z"
+  },
+  "/ch/ru/prepare/special-care/animals-travelling/register-animals": {
+   "uploaded": "2026-11-03T04:50:56.380Z",
+   "mtime": 1793681354298,
+   "preview": "2026-11-03T04:50:58.086Z"
+  },
+  "/ch/ru/prepare/special-care/children-travelling": {
+   "uploaded": "2026-11-03T04:50:59.370Z",
+   "mtime": 1793681354574,
+   "preview": "2026-11-03T04:51:01.608Z"
+  },
+  "/ch/ru/prepare/special-care/children-travelling/child-in-businessclass": {
+   "uploaded": "2026-11-03T04:51:02.838Z",
+   "mtime": 1793681354391,
+   "preview": "2026-11-03T04:51:05.155Z"
+  },
+  "/ch/ru/prepare/special-care/children-travelling/children-at-the-airport": {
+   "uploaded": "2026-11-03T04:51:06.367Z",
+   "mtime": 1793681354424,
+   "preview": "2026-11-03T04:51:08.314Z"
+  },
+  "/ch/ru/prepare/special-care/children-travelling/general-information": {
+   "uploaded": "2026-11-03T04:51:09.744Z",
+   "mtime": 1793681354458,
+   "preview": "2026-11-03T04:51:11.698Z"
+  },
+  "/ch/ru/prepare/special-care/children-travelling/unaccompanied-minors": {
+   "uploaded": "2026-11-03T05:07:39.610Z",
+   "mtime": 1793681898200,
+   "preview": "2026-11-03T05:07:41.568Z"
+  },
+  "/ch/ru/prepare/special-care/children-travelling/with-children-on-board": {
+   "uploaded": "2026-11-03T05:07:43.011Z",
+   "mtime": 1793681898227,
+   "preview": "2026-11-03T05:07:45.166Z"
+  },
+  "/ch/ru/prepare/special-care/health-and-travel": {
+   "uploaded": "2026-11-03T05:07:50.800Z",
+   "mtime": 1793681898306,
+   "preview": "2026-11-03T05:07:52.866Z"
+  },
+  "/ch/ru/prepare/special-care/health-and-travel/doctor-on-board": {
+   "uploaded": "2026-11-03T05:07:47.379Z",
+   "mtime": 1793681898280,
+   "preview": "2026-11-03T05:07:49.358Z"
+  },
+  "/ch/ru/prepare/travel-briefing": {
+   "uploaded": "2026-11-03T04:51:27.289Z",
+   "mtime": 1793681354746,
+   "preview": "2026-11-03T04:51:29.277Z"
+  },
+  "/ch/ru/prepare/travel-regulations": {
+   "uploaded": "2026-11-03T04:51:30.670Z",
+   "mtime": 1793681355107,
+   "preview": "2026-11-03T04:51:32.639Z"
+  },
+  "/ch/ru/prepare/travel-regulations/immigration-regulations-canada": {
+   "uploaded": "2026-11-03T04:51:34.009Z",
+   "mtime": 1793681354791,
+   "preview": "2026-11-03T04:51:36.171Z"
+  },
+  "/ch/ru/prepare/travel-regulations/immigration-regulations-schengen": {
+   "uploaded": "2026-11-03T04:51:37.660Z",
+   "mtime": 1793681354865,
+   "preview": "2026-11-03T04:51:39.762Z"
+  },
+  "/ch/ru/prepare/travel-regulations/immigration-regulations-schengen/entry-exit-system": {
+   "uploaded": "2026-11-03T04:51:41.394Z",
+   "mtime": 1793681354828,
+   "preview": "2026-11-03T04:51:43.919Z"
+  },
+  "/ch/ru/prepare/travel-regulations/immigration-regulations-uk": {
+   "uploaded": "2026-11-03T04:51:45.237Z",
+   "mtime": 1793681354898,
+   "preview": "2026-11-03T04:51:47.497Z"
+  },
+  "/ch/ru/prepare/travel-regulations/immigration-regulations-usa": {
+   "uploaded": "2026-11-03T04:51:48.813Z",
+   "mtime": 1793681354996,
+   "preview": "2026-11-03T04:51:50.725Z"
+  },
+  "/ch/ru/prepare/travel-regulations/immigration-regulations-usa/global-entry-program": {
+   "uploaded": "2026-11-03T04:51:52.233Z",
+   "mtime": 1793681354930,
+   "preview": "2026-11-03T04:51:54.004Z"
+  },
+  "/ch/ru/prepare/travel-regulations/immigration-regulations-usa/tsa-pre-check": {
+   "uploaded": "2026-11-03T04:51:55.191Z",
+   "mtime": 1793681354961,
+   "preview": "2026-11-03T04:51:56.772Z"
+  },
+  "/ch/ru/prepare/travel-regulations/immigration-regulations-worldwide": {
+   "uploaded": "2026-11-03T04:51:58.090Z",
+   "mtime": 1793681355061,
+   "preview": "2026-11-03T04:52:00.415Z"
+  },
+  "/ch/ru/terms-conditions/agb-extra-services-at-online-check-in": {
+   "uploaded": "2026-11-03T05:07:54.442Z",
+   "mtime": 1793681898391,
+   "preview": "2026-11-03T05:07:56.307Z"
+  },
+  "/ch/ru/terms-conditions/agb-extra-services-at-online-check-in/conditions-seat-reservation": {
+   "uploaded": "2026-11-03T04:52:04.684Z",
+   "mtime": 1793681355234,
+   "preview": "2026-11-03T04:52:06.523Z"
+  },
+  "/ch/ru/terms-conditions/cookie-policy": {
+   "uploaded": "2026-11-03T04:52:07.825Z",
+   "mtime": 1793681355355,
+   "preview": "2026-11-03T04:52:09.884Z"
+  },
+  "/ch/ru/terms-conditions/copyright": {
+   "uploaded": "2026-11-03T04:52:11.107Z",
+   "mtime": 1793681355412,
+   "preview": "2026-11-03T04:52:12.884Z"
+  },
+  "/ch/ru/terms-conditions/privacy-statement": {
+   "uploaded": "2026-11-03T05:15:18.791Z",
+   "mtime": 1793682658864,
+   "preview": "2026-11-03T05:15:20.944Z"
+  },
+  "/ch/ru/various/accessibility-statement": {
+   "uploaded": "2026-11-03T04:52:17.283Z",
+   "mtime": 1793681355558,
+   "preview": "2026-11-03T04:52:19.696Z"
+  },
+  "/ch/ru/baggage-reimbursement": {
+   "uploaded": "2026-11-03T05:00:48.534Z",
+   "mtime": 1793682023182,
+   "preview": "2026-11-03T05:00:50.268Z"
+  },
+  "/ch/ru/book-and-manage/conditions/affiliate-partner-program-conditions": {
+   "uploaded": "2026-11-03T05:00:51.671Z",
+   "mtime": 1793682023227,
+   "preview": "2026-11-03T05:00:54.045Z"
+  },
+  "/ch/ru/book-and-manage/conditions/baggage-conditions": {
+   "uploaded": "2026-11-03T05:00:55.358Z",
+   "mtime": 1793682023277,
+   "preview": "2026-11-03T05:00:57.053Z"
+  },
+  "/ch/ru/book-and-manage/conditions/bid-upgrade-conditions": {
+   "uploaded": "2026-11-03T05:00:58.409Z",
+   "mtime": 1793682023320,
+   "preview": "2026-11-03T05:01:00.357Z"
+  },
+  "/ch/ru/book-and-manage/conditions/compensation-voucher-conditions": {
+   "uploaded": "2026-11-03T05:14:56.514Z",
+   "mtime": 1793682656698,
+   "preview": "2026-11-03T05:14:58.153Z"
+  },
+  "/ch/ru/book-and-manage/conditions/extra-seat": {
+   "uploaded": "2026-11-03T05:14:59.547Z",
+   "mtime": 1793682656731,
+   "preview": "2026-11-03T05:15:01.276Z"
+  },
+  "/ch/ru/book-and-manage/conditions/lounge-access-conditions": {
+   "uploaded": "2026-11-03T05:01:08.863Z",
+   "mtime": 1793682023428,
+   "preview": "2026-11-03T05:01:10.525Z"
+  },
+  "/ch/ru/book-and-manage/conditions/online-check-in-upgrades": {
+   "uploaded": "2026-11-03T05:01:11.952Z",
+   "mtime": 1793682023472,
+   "preview": "2026-11-03T05:01:14.173Z"
+  },
+  "/ch/ru/book-and-manage/conditions/opc": {
+   "uploaded": "2026-11-03T05:01:15.351Z",
+   "mtime": 1793682023508,
+   "preview": "2026-11-03T05:01:17.307Z"
+  },
+  "/ch/ru/book-and-manage/conditions/redemption-of-multiple-vouchers": {
+   "uploaded": "2026-11-03T05:01:18.700Z",
+   "mtime": 1793682023541,
+   "preview": "2026-11-03T05:01:20.476Z"
+  },
+  "/ch/ru/book-and-manage/conditions/upgrade-conditions": {
+   "uploaded": "2026-11-03T05:01:21.908Z",
+   "mtime": 1793682023577,
+   "preview": "2026-11-03T05:01:23.438Z"
+  },
+  "/ch/ru/book-and-manage/conditions/voucher-conditions": {
+   "uploaded": "2026-11-03T05:15:03.099Z",
+   "mtime": 1793682656804,
+   "preview": "2026-11-03T05:15:05.214Z"
+  },
+  "/ch/ru/book-and-manage/corporate-customers/ads-at-swiss/ad-plattforms/ad-plattforms-contact": {
+   "uploaded": "2026-11-03T05:01:28.132Z",
+   "mtime": 1793682023697,
+   "preview": "2026-11-03T05:01:29.786Z"
+  },
+  "/ch/ru/book-and-manage/corporate-customers/company-offers/corporate-contracts/company-offers-contact-form": {
+   "uploaded": "2026-11-03T05:01:31.011Z",
+   "mtime": 1793682023804,
+   "preview": "2026-11-03T05:01:33.087Z"
+  },
+  "/ch/ru/book-and-manage/corporate-customers/company-offers/corporate-contracts/company-offers-contact-form/company-offers-contact-form-success": {
+   "uploaded": "2026-11-03T05:01:34.477Z",
+   "mtime": 1793682023768,
+   "preview": "2026-11-03T05:01:36.478Z"
+  },
+  "/ch/ru/book-and-manage/corporate-customers/group-travel-and-charter": {
+   "uploaded": "2026-11-03T05:01:37.776Z",
+   "mtime": 1793682023986,
+   "preview": "2026-11-03T05:01:39.946Z"
+  },
+  "/ch/ru/book-and-manage/corporate-customers/group-travel-and-charter/group-travel": {
+   "uploaded": "2026-11-03T05:15:06.889Z",
+   "mtime": 1793682656933,
+   "preview": "2026-11-03T05:15:09.254Z"
+  },
+  "/ch/ru/book-and-manage/corporate-customers/group-travel-and-charter/rent-a-plane/rent-a-plane-success": {
+   "uploaded": "2026-11-03T05:01:44.575Z",
+   "mtime": 1793682023908,
+   "preview": "2026-11-03T05:01:46.582Z"
+  },
+  "/ch/ru/book-and-manage/flights/helvetic": {
+   "uploaded": "2026-11-03T05:01:48.098Z",
+   "mtime": 1793682024061,
+   "preview": "2026-11-03T05:01:50.651Z"
+  },
+  "/ch/ru/book-and-manage/overview-manage/manage-bookings": {
+   "uploaded": "2026-11-03T05:01:51.895Z",
+   "mtime": 1793682024220,
+   "preview": "2026-11-03T05:01:53.617Z"
+  },
+  "/ch/ru/book-and-manage/partner-offers/travel-insurances": {
+   "uploaded": "2026-11-03T05:01:54.913Z",
+   "mtime": 1793682024330,
+   "preview": "2026-11-03T05:01:56.776Z"
+  },
+  "/ch/ru/customer-support": {
+   "uploaded": "2026-11-03T05:01:57.980Z",
+   "mtime": 1793682025643,
+   "preview": "2026-11-03T05:01:59.695Z"
+  },
+  "/ch/ru/customer-support/contact-us": {
+   "uploaded": "2026-11-03T05:02:01.174Z",
+   "mtime": 1793682024841,
+   "preview": "2026-11-03T05:02:02.853Z"
+  },
+  "/ch/ru/customer-support/contact-us/feedback-past-flight/confirmation": {
+   "uploaded": "2026-11-03T05:02:04.188Z",
+   "mtime": 1793682024612,
+   "preview": "2026-11-03T05:02:06.047Z"
+  },
+  "/ch/ru/customer-support/contact-us/general-request/general-request-success": {
+   "uploaded": "2026-11-03T05:02:07.426Z",
+   "mtime": 1793682024665,
+   "preview": "2026-11-03T05:02:09.246Z"
+  },
+  "/ch/ru/customer-support/contact-us/request-for-refund-of-expenses/confirmation": {
+   "uploaded": "2026-11-03T05:02:10.655Z",
+   "mtime": 1793682024715,
+   "preview": "2026-11-03T05:02:12.334Z"
+  },
+  "/ch/ru/customer-support/contact-us/technical-support": {
+   "uploaded": "2026-11-03T05:22:49.970Z",
+   "mtime": 1793683261591,
+   "preview": "2026-11-03T05:22:51.692Z"
+  },
+  "/ch/ru/customer-support/contact-us/technical-support/technical-support-success": {
+   "uploaded": "2026-11-03T05:02:16.519Z",
+   "mtime": 1793682024764,
+   "preview": "2026-11-03T05:02:18.372Z"
+  },
+  "/ch/ru/customer-support/faq/card-security-number": {
+   "uploaded": "2026-11-03T05:02:19.634Z",
+   "mtime": 1793682024932,
+   "preview": "2026-11-03T05:02:21.652Z"
+  },
+  "/ch/ru/customer-support/faq/damaged-baggage-faq": {
+   "uploaded": "2026-11-03T05:02:22.968Z",
+   "mtime": 1793682024996,
+   "preview": "2026-11-03T05:02:24.683Z"
+  },
+  "/ch/ru/customer-support/faq/help-3d-secure": {
+   "uploaded": "2026-11-03T05:02:26.078Z",
+   "mtime": 1793682025091,
+   "preview": "2026-11-03T05:02:27.913Z"
+  },
+  "/ch/ru/customer-support/faq/invoice-information": {
+   "uploaded": "2026-11-03T05:02:29.390Z",
+   "mtime": 1793682025127,
+   "preview": "2026-11-03T05:02:30.907Z"
+  },
+  "/ch/ru/customer-support/faq/powerpay": {
+   "uploaded": "2026-11-03T05:02:32.197Z",
+   "mtime": 1793682025238,
+   "preview": "2026-11-03T05:02:33.977Z"
+  },
+  "/ch/ru/customer-support/refunds": {
+   "uploaded": "2026-11-03T05:02:35.305Z",
+   "mtime": 1793682025498,
+   "preview": "2026-11-03T05:02:37.333Z"
+  },
+  "/ch/ru/customer-support/refunds/confirmation": {
+   "uploaded": "2026-11-03T05:02:38.581Z",
+   "mtime": 1793682025416,
+   "preview": "2026-11-03T05:02:40.045Z"
+  },
+  "/ch/ru/customer-support/refunds/refund-form": {
+   "uploaded": "2026-11-03T05:02:41.656Z",
+   "mtime": 1793682025454,
+   "preview": "2026-11-03T05:02:43.432Z"
+  },
+  "/ch/ru/discover/a350": {
+   "uploaded": "2026-11-03T05:15:10.687Z",
+   "mtime": 1793682657738,
+   "preview": "2026-11-03T05:15:13.216Z"
+  },
+  "/ch/ru/discover/swiss-senses": {
+   "uploaded": "2026-11-03T05:02:48.825Z",
+   "mtime": 1793682026090,
+   "preview": "2026-11-03T05:02:51.149Z"
+  },
+  "/ch/ru/discover/swiss-senses/business": {
+   "uploaded": "2026-11-03T05:02:52.411Z",
+   "mtime": 1793682025900,
+   "preview": "2026-11-03T05:02:55.016Z"
+  },
+  "/ch/ru/discover/swiss-senses/economy": {
+   "uploaded": "2026-11-03T05:02:56.269Z",
+   "mtime": 1793682025949,
+   "preview": "2026-11-03T05:02:59.138Z"
+  },
+  "/ch/ru/discover/swiss-senses/first": {
+   "uploaded": "2026-11-03T05:03:00.399Z",
+   "mtime": 1793682026018,
+   "preview": "2026-11-03T05:03:03.548Z"
+  },
+  "/ch/ru/discover/swiss-senses/first/grand-suite": {
+   "uploaded": "2026-11-03T05:03:04.887Z",
+   "mtime": 1793682025982,
+   "preview": "2026-11-03T05:03:06.819Z"
+  },
+  "/ch/ru/discover/swiss-senses/premium-economy": {
+   "uploaded": "2026-11-03T05:03:08.237Z",
+   "mtime": 1793682026055,
+   "preview": "2026-11-03T05:03:10.762Z"
+  },
+  "/ch/ru/fast-compensation": {
+   "uploaded": "2026-11-03T05:03:11.940Z",
+   "mtime": 1793682026129,
+   "preview": "2026-11-03T05:03:13.593Z"
+  },
+  "/ch/ru/fly-more-sustainably-search": {
+   "uploaded": "2026-11-03T05:03:14.876Z",
+   "mtime": 1793682027128,
+   "preview": "2026-11-03T05:03:16.711Z"
+  },
+  "/ch/ru/fly/airport/lounges/companion-rules": {
+   "uploaded": "2026-11-03T05:03:18.046Z",
+   "mtime": 1793682026204,
+   "preview": "2026-11-03T05:03:19.782Z"
+  },
+  "/ch/ru/fly/check-in/emergency-contact/success": {
+   "uploaded": "2026-11-03T05:03:21.142Z",
+   "mtime": 1793682026444,
+   "preview": "2026-11-03T05:03:23.066Z"
+  },
+  "/ch/ru/fly/on-board/swiss-business/business-interior": {
+   "uploaded": "2026-11-03T05:03:24.318Z",
+   "mtime": 1793682026866,
+   "preview": "2026-11-03T05:03:26.552Z"
+  },
+  "/ch/ru/fly/on-board/swiss-economy/economy-interior": {
+   "uploaded": "2026-11-03T05:03:27.837Z",
+   "mtime": 1793682026922,
+   "preview": "2026-11-03T05:03:29.824Z"
+  },
+  "/ch/ru/fly/on-board/travel-classes": {
+   "uploaded": "2026-11-03T05:03:31.186Z",
+   "mtime": 1793682027089,
+   "preview": "2026-11-03T05:03:33.041Z"
+  },
+  "/ch/ru/fly/on-board/travel-classes/swiss-premium-economy/discover-premium-economy": {
+   "uploaded": "2026-11-03T05:03:34.414Z",
+   "mtime": 1793682026994,
+   "preview": "2026-11-03T05:03:36.225Z"
+  },
+  "/ch/ru/fly/on-board/travel-classes/swiss-premium-economy/premium-economy-interior": {
+   "uploaded": "2026-11-03T05:03:37.567Z",
+   "mtime": 1793682027033,
+   "preview": "2026-11-03T05:03:39.279Z"
+  },
+  "/ch/ru/offers": {
+   "uploaded": "2026-11-03T05:03:40.615Z",
+   "mtime": 1793682027268,
+   "preview": "2026-11-03T05:03:42.676Z"
+  },
+  "/ch/ru/prepare/baggage/baggage-irregularities/loss-of-personal-item-form": {
+   "uploaded": "2026-11-03T05:03:43.895Z",
+   "mtime": 1793682027313,
+   "preview": "2026-11-03T05:03:45.976Z"
+  },
+  "/ch/ru/prepare/baggage/excess-baggage/baggage-price-zones": {
+   "uploaded": "2026-11-03T05:03:47.335Z",
+   "mtime": 1793682027429,
+   "preview": "2026-11-03T05:03:48.938Z"
+  },
+  "/ch/ru/prepare/special-care/accessible-travel/accessible-travel-form/accessible-travel-form-success": {
+   "uploaded": "2026-11-03T05:03:50.298Z",
+   "mtime": 1793682027555,
+   "preview": "2026-11-03T05:03:52.069Z"
+  },
+  "/ch/ru/prepare/special-care/health-and-travel/doctor-on-board/doctor-on-board-news": {
+   "uploaded": "2026-11-03T05:03:53.412Z",
+   "mtime": 1793682027710,
+   "preview": "2026-11-03T05:03:55.412Z"
+  },
+  "/ch/ru/terms-conditions": {
+   "uploaded": "2026-11-03T05:15:22.390Z",
+   "mtime": 1793682658949,
+   "preview": "2026-11-03T05:15:24.536Z"
+  },
+  "/ch/ru/terms-conditions/imprint": {
+   "uploaded": "2026-11-03T05:04:00.567Z",
+   "mtime": 1793682027982,
+   "preview": "2026-11-03T05:04:02.443Z"
+  },
+  "/ch/ru/terms-conditions/passenger-rights": {
+   "uploaded": "2026-11-03T05:04:03.754Z",
+   "mtime": 1793682028015,
+   "preview": "2026-11-03T05:04:05.453Z"
+  },
+  "/ch/ru/book-and-manage/corporate-customers/group-travel-and-charter/group-travel/group-travel-request": {
+   "uploaded": "2026-11-03T05:13:53.927Z",
+   "mtime": 1793682801631,
+   "preview": "2026-11-03T05:13:56.076Z"
+  },
+  "/ch/ru/book-and-manage/destination": {
+   "uploaded": "2026-11-03T05:13:57.365Z",
+   "mtime": 1793682801736,
+   "preview": "2026-11-03T05:13:58.845Z"
+  },
+  "/ch/ru/customer-support/contact-us/data-protection-form": {
+   "uploaded": "2026-11-03T05:14:00.452Z",
+   "mtime": 1793682802226,
+   "preview": "2026-11-03T05:14:02.095Z"
+  },
+  "/ch/ru/discover/a350/cabin": {
+   "uploaded": "2026-11-03T05:14:03.399Z",
+   "mtime": 1793682803072,
+   "preview": "2026-11-03T05:14:05.701Z"
+  },
+  "/ch/ru/discover/a350/facts": {
+   "uploaded": "2026-11-03T05:14:07.078Z",
+   "mtime": 1793682803112,
+   "preview": "2026-11-03T05:14:09.661Z"
+  },
+  "/ch/ru/discover/a350/production": {
+   "uploaded": "2026-11-03T05:14:13.798Z",
+   "mtime": 1793682803175,
+   "preview": "2026-11-03T05:14:15.826Z"
+  },
+  "/ch/ru/discover/a350/special-livery": {
+   "uploaded": "2026-11-03T05:14:17.327Z",
+   "mtime": 1793682803223,
+   "preview": "2026-11-03T05:14:19.644Z"
+  },
+  "/ch/ru/flights": {
+   "uploaded": "2026-11-03T05:14:20.953Z",
+   "mtime": 1793682803607,
+   "preview": "2026-11-03T05:14:22.563Z"
+  },
+  "/ch/ru/fly/on-board/on-board-count": {
+   "uploaded": "2026-11-03T05:14:24.025Z",
+   "mtime": 1793682804492,
+   "preview": "2026-11-03T05:14:25.635Z"
+  },
+  "/ch/ru/fly/on-board/swiss-first/first-interior": {
+   "uploaded": "2026-11-03T05:14:27.142Z",
+   "mtime": 1793682804655,
+   "preview": "2026-11-03T05:14:28.973Z"
+  },
+  "/ch/ru/terms-conditions/conditions-of-carriage": {
+   "uploaded": "2026-11-03T05:14:30.398Z",
+   "mtime": 1793682805749,
+   "preview": "2026-11-03T05:14:32.735Z"
+  },
+  "/ch/ru/terms-conditions/ec-regulation": {
+   "uploaded": "2026-11-03T05:14:34.092Z",
+   "mtime": 1793682805831,
+   "preview": "2026-11-03T05:14:35.631Z"
+  },
+  "/ch/ru/terms-conditions/eu-regulation": {
+   "uploaded": "2026-11-03T05:14:36.934Z",
+   "mtime": 1793682805872,
+   "preview": "2026-11-03T05:14:38.521Z"
+  },
+  "/ch/ru/terms-conditions/legal-notice": {
+   "uploaded": "2026-11-03T05:14:39.948Z",
+   "mtime": 1793682805924,
+   "preview": "2026-11-03T05:14:41.456Z"
+  },
+  "/ch/ru/terms-conditions/profile-conditions": {
+   "uploaded": "2026-11-03T05:14:42.863Z",
+   "mtime": 1793682806007,
+   "preview": "2026-11-03T05:14:44.693Z"
+  },
+  "/ch/ru/terms-conditions/terms-conditions": {
+   "uploaded": "2026-11-03T05:14:45.910Z",
+   "mtime": 1793682806051,
+   "preview": "2026-11-03T05:14:47.608Z"
   },
   "/cn/zh/homepage": {
    "uploaded": "2026-11-03T05:15:30.145Z",
