@@ -24101,9 +24101,9 @@
    "preview": "2026-11-03T03:45:27.739Z"
   },
   "/kr/ko/discover/swiss-senses": {
-   "uploaded": "2026-11-03T03:45:29.363Z",
-   "mtime": 1793676877756,
-   "preview": "2026-11-03T03:45:31.840Z"
+   "uploaded": "2026-11-03T06:05:54.665Z",
+   "mtime": 1793685902514,
+   "preview": "2026-11-03T06:05:56.858Z"
   },
   "/kr/ko/discover/swiss-senses/business": {
    "uploaded": "2026-11-03T03:45:33.280Z",
@@ -24446,10 +24446,9 @@
    "preview": "2026-11-03T05:26:28.572Z"
   },
   "/kr/ko/customer-support/faq": {
-   "uploaded": "2026-11-03T05:26:30.083Z",
-   "mtime": 1793682400935,
-   "previewError": "409 error from content-bus",
-   "previewErrorAt": "2026-11-03T05:26:31.794Z"
+   "uploaded": "2026-11-03T06:05:49.504Z",
+   "mtime": 1793685902464,
+   "preview": "2026-11-03T06:05:52.063Z"
   },
   "/kr/ko/customer-support/faq/a-la-carte-dining": {
    "uploaded": "2026-11-03T03:49:48.305Z",
@@ -24702,9 +24701,9 @@
    "preview": "2026-11-03T03:52:44.860Z"
   },
   "/kr/ko/discover/sustainable-choices/saf": {
-   "uploaded": "2026-11-03T03:52:46.221Z",
-   "mtime": 1793676882437,
-   "preview": "2026-11-03T03:52:48.602Z"
+   "uploaded": "2026-11-03T06:05:59.430Z",
+   "mtime": 1793685902572,
+   "preview": "2026-11-03T06:06:01.651Z"
   },
   "/kr/ko/discover/swiss-recraft-collection": {
    "uploaded": "2026-11-03T05:27:10.099Z",
@@ -24947,9 +24946,9 @@
    "preview": "2026-11-03T03:55:44.841Z"
   },
   "/kr/ko/fly/on-board/swiss-business": {
-   "uploaded": "2026-11-03T03:55:46.262Z",
-   "mtime": 1793676884352,
-   "preview": "2026-11-03T03:55:48.777Z"
+   "uploaded": "2026-11-03T06:06:04.340Z",
+   "mtime": 1793685902631,
+   "preview": "2026-11-03T06:06:06.640Z"
   },
   "/kr/ko/fly/on-board/swiss-connect": {
    "uploaded": "2026-11-03T03:55:50.253Z",
@@ -25077,9 +25076,9 @@
    "preview": "2026-11-03T05:28:10.659Z"
   },
   "/kr/ko/prepare/overview-flights": {
-   "uploaded": "2026-11-03T03:57:23.124Z",
-   "mtime": 1793676885411,
-   "preview": "2026-11-03T03:57:25.353Z"
+   "uploaded": "2026-11-03T06:06:09.716Z",
+   "mtime": 1793685902661,
+   "preview": "2026-11-03T06:06:11.471Z"
   },
   "/kr/ko/prepare/overview-travel-information": {
    "uploaded": "2026-11-03T05:28:12.244Z",
@@ -25197,9 +25196,9 @@
    "preview": "2026-11-03T03:58:55.733Z"
   },
   "/kr/ko/prepare/travel-regulations/immigration-regulations-usa/tsa-pre-check": {
-   "uploaded": "2026-11-03T03:58:56.936Z",
-   "mtime": 1793676886309,
-   "preview": "2026-11-03T03:58:58.963Z"
+   "uploaded": "2026-11-03T06:06:14.083Z",
+   "mtime": 1793685902705,
+   "preview": "2026-11-03T06:06:15.797Z"
   },
   "/kr/ko/prepare/travel-regulations/immigration-regulations-worldwide": {
    "uploaded": "2026-11-03T05:28:29.849Z",
@@ -25320,6 +25319,46 @@
    "uploaded": "2026-11-03T04:00:23.749Z",
    "mtime": 1793677246816,
    "preview": "2026-11-03T04:00:26.154Z"
+  },
+  "/gr/el/homepage": {
+   "uploaded": "2026-11-03T06:14:24.971Z",
+   "mtime": 1793686359736,
+   "preview": "2026-11-03T06:14:27.221Z"
+  },
+  "/gr/el/family-promotion": {
+   "uploaded": "2026-11-03T06:14:28.869Z",
+   "mtime": 1793686359781,
+   "preview": "2026-11-03T06:14:30.850Z"
+  },
+  "/ru/ru/homepage": {
+   "uploaded": "2026-11-03T06:14:32.628Z",
+   "mtime": 1793686359818,
+   "preview": "2026-11-03T06:14:34.845Z"
+  },
+  "/ru/ru/family-promotion": {
+   "uploaded": "2026-11-03T06:14:36.564Z",
+   "mtime": 1793686359859,
+   "preview": "2026-11-03T06:14:38.254Z"
+  },
+  "/ru/ru/footer": {
+   "uploaded": "2026-11-03T06:14:40.037Z",
+   "mtime": 1793686405305,
+   "preview": "2026-11-03T06:14:42.355Z"
+  },
+  "/ru/ru/nav": {
+   "uploaded": "2026-11-03T06:14:44.272Z",
+   "mtime": 1793686405290,
+   "preview": "2026-11-03T06:14:45.857Z"
+  },
+  "/gr/el/footer": {
+   "uploaded": "2026-11-03T06:14:47.652Z",
+   "mtime": 1793686393296,
+   "preview": "2026-11-03T06:14:49.673Z"
+  },
+  "/gr/el/nav": {
+   "uploaded": "2026-11-03T06:14:51.316Z",
+   "mtime": 1793686393282,
+   "preview": "2026-11-03T06:14:53.582Z"
   }
  },
  "media": {

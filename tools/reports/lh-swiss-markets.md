@@ -120,3 +120,30 @@ SWISS lists hreflang alternates as Austrian and Brussels (`ALTERNATES_SITES`), o
   (condições gerais) from DA; the Parent metadata of 139 documents as a plain path (kr/en
   klook's breadcrumb). The navs' magazine link as it was. `/kr/ko/customer-support/faq` still
   waits for its icon `product-voucher.svg` in DA (preview 409).
+
+## 2026-11-03: kr/ko's held pages; Greek and Russian
+
+- kr/ko, uploaded and previewed again (6 documents):
+  - `/kr/ko/customer-support/faq`: the voucher icon (`product-voucher.svg`, 66.8 KB, over Edge
+    Delivery's 40 KB for SVGs) as ch's PNG of it (`/media-da/swiss/product-voucher.png`, the
+    same file ch/en's FAQ shows; swiss-nav.mjs LOCAL_IMAGES).
+  - dropped, www answers them 404 (all on `lh-swiss-dam-not-fetched.tsv`):
+    `/kr/ko/discover/swiss-senses` the A350 picture
+    (`/content/dam/lx/images/frontify/2024/q3/2024-061-SWISS_A350_Shot_02_delivery-C.jpg`);
+    `/kr/ko/discover/sustainable-choices/saf` `.../frontify_variations/9/c-917821987-436555062.jpg`;
+    `/kr/ko/fly/on-board/swiss-business`
+    `.../frontify_variations/3/c-207114728-SWISS_Business_Continental_Meal_7.jpg`;
+    `/kr/ko/prepare/overview-flights` `.../frontify_variations/9/c-552853445-436555062.jpg`;
+    `.../tsa-pre-check` `/content/dam/lx/images/local_images/Formular_2to1.jpg`.
+  - kept: swiss-senses' video `senses_film_2026_hero-en.mp4` waits for the capture (on
+    `lh-swiss-kr-ko-dam.tsv`, not on the not-fetched list); its other pictures are in DA.
+- gr/el and ru/ru (the capture's only roots in el and ru; homepage and family-promotion each,
+  nav and footer: 8 documents) uploaded and previewed. Their rows behind
+  `SWISS_MARKET_LANGUAGES_LIVE` and ch/el's and ch/ru's switch. Their links to ch/el's and
+  ch/ru's pages relative (each page's markets read from its meta on lh-swiss's preview: 192 ch/el
+  pages list gr/el, 194 ch/ru pages ru/ru, the others every root). For the capture
+  (`tools/reports/lh-swiss-markets-el-ru-dam.tsv`):
+  - https://www.swiss.com/content/dam/lx/images/local_variations/c-937562636-319646734.jpg.transform/lh-dcep-transform-width-2560/img.jpg
+    -> `/content/dam/lx/images/local_variations/c-937562636-319646734.jpg`
+  - https://www.swiss.com/content/dam/lx/images/pixels_variations/c-1937235332-3360912.jpg.transform/lh-dcep-transform-width-2560/img.jpg
+    -> `/content/dam/lx/images/pixels_variations/c-1937235332-3360912.jpg`
