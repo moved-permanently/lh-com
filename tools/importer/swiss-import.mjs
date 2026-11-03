@@ -291,7 +291,7 @@ export function withItaForm(doc, p, html = '') {
 // forms German ones)
 const MESSAGE_LANGUAGE = [
   ['fr', /\b(?:Veuillez|votre|vos)\b/i],
-  ['de', /\b(?:Bitte|Geben Sie|Ihre[nrs]?|Pflichtfeld)\b/],
+  ['de', /\b(?:Bitte|Geben Sie|Wählen Sie|Ihre[nrs]?|Pflichtfeld)\b/],
   ['en', /\b(?:Please|your|required field|Choose a)\b/i],
   ['it', /\b(?:Inserisca|Selezioni|Compili|campo obbligatorio)\b/i],
   ['es', /\b(?:Introduzca|Seleccione|Rellene)\b/],
@@ -299,6 +299,9 @@ const MESSAGE_LANGUAGE = [
   // kana: Japanese; 请 and 您 (simplified, not Japanese): Chinese
   ['ja', /[\u3040-\u30ff]/],
   ['zh', /[请您]/],
+  // Greek and Cyrillic letters
+  ['el', /[\u0370-\u03ff]/],
+  ['ru', /[\u0400-\u04ff]/],
 ];
 // SWISS's own wording per field name (its forms in the language), and the form block's
 // messages (DEFAULT_LABELS required / format error) for the other fields
@@ -464,6 +467,47 @@ const FIELD_MESSAGES = {
     'format error': '入力内容をご確認ください。',
     'email format': '有効なEメールアドレスを入力してください。',
   },
+  // ch/el and ch/ru (brief 283): SWISS's Greek and Russian forms' most frequent wording per field,
+  // a Greek or Russian required or format message for the others
+  el: {
+    salutation: 'Παρακαλούμε επιλέξτε τίτλο.',
+    gender: 'Επιλέξτε προσφώνηση',
+    firstname: 'Εισαγάγετε το όνομά σας.',
+    lastname: 'Παρακαλούμε πληκτρολογήστε το επώνυμό σας.',
+    nachname: 'Παρακαλούμε πληκτρολογήστε το επώνυμό σας.',
+    email: 'Εισαγάγετε τη διεύθυνση email σας',
+    zip: 'Εισαγάγετε έναν ταχυδρομικό κώδικα',
+    city: 'Εισαγάγετε την πόλη σας.',
+    street: 'Παρακαλούμε εισαγάγετε οδό και αριθμό οικίας',
+    adress: 'Παρακαλούμε εισαγάγετε οδό και αριθμό οικίας',
+    country: 'Η χώρα είναι απαιτούμενο πεδίο.',
+    state: 'Η χώρα είναι απαιτούμενο πεδίο.',
+    phone: 'Εισαγάγετε τον αριθμό τηλεφώνου σας',
+    outbounddate: 'Επιλέξτε την ημερομηνία αναχώρησης.',
+    inbounddate: 'Επιλέξτε την ημερομηνία επιστροφής.',
+    'required error': 'Συμπληρώστε αυτό το πεδίο.',
+    'format error': 'Ελέγξτε τα στοιχεία που καταχωρίσατε.',
+    'email format': 'Εισαγάγετε μια έγκυρη διεύθυνση e-mail.',
+  },
+  ru: {
+    salutation: 'Выберите обращение.',
+    gender: 'Выберите приветствие',
+    firstname: 'Введите имя.',
+    lastname: 'Введите фамилию.',
+    nachname: 'Введите фамилию.',
+    email: 'Введите адрес электронной почты.',
+    zip: 'Введите индекс',
+    city: 'Укажите город или населенный пункт.',
+    street: 'Ведите улицу и номер дома',
+    adress: 'Ведите улицу и номер дома',
+    country: 'Страна обязательна для заполнения.',
+    state: 'Страна обязательна для заполнения.',
+    phone: 'Введите свой номер телефона',
+    outbounddate: 'Введите дату вылета',
+    'required error': 'Заполните это поле.',
+    'format error': 'Проверьте введенные данные.',
+    'email format': 'Введите действительный адрес электронной почты.',
+  },
 };
 // a row of a form block (cells without nested blocks)
 const FORM_ROW = /<div>(?:<div>(?:(?!<\/?div[ >])[\s\S])*<\/div>){8,}<\/div>/g;
@@ -528,6 +572,8 @@ const DEFAULT_ORIGIN = {
   'ch/pt': 'Zurique (ZRH)',
   'ch/zh': '苏黎世 (ZRH)',
   'ch/ja': 'チューリッヒ (ZRH)',
+  'ch/el': 'Ζυρίχη (ZRH)',
+  'ch/ru': 'Цюрих (ZRH)',
 };
 
 /** The document's flight-search blocks with the Shop row and the market's default origin. */

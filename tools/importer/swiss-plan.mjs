@@ -26,9 +26,9 @@ const LISTS = path.join(W, 'lists');
 const SNAP = path.join(root, 'tools/importer/bd-snapshots', HOST);
 
 // the roots imported so far (the pilot's ch/en and ch/de; ch/fr and ch/it, brief 272; ch/es and
-// ch/pt, brief 279; ch/zh and ch/ja, brief 28x): the extra lists' pages of other roots go with
-// those roots' batches
-export const IMPORTED_ROOTS = ['ch/en', 'ch/de', 'ch/fr', 'ch/it', 'ch/es', 'ch/pt', 'ch/zh', 'ch/ja'];
+// ch/pt, brief 279; ch/zh and ch/ja, brief 28x; ch/el and ch/ru, brief 283): the extra lists'
+// pages of other roots go with those roots' batches
+export const IMPORTED_ROOTS = ['ch/en', 'ch/de', 'ch/fr', 'ch/it', 'ch/es', 'ch/pt', 'ch/zh', 'ch/ja', 'ch/el', 'ch/ru'];
 // a Studio batch's list (01 to 53); every other list of the capture is an extra list (c1, x01, the
 // language archives' p11, x11, p15, x15 ...)
 const STUDIO_LIST = /^\d+$/;
