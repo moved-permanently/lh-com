@@ -203,13 +203,15 @@ const MARKET_EXTRA_INDEX_SITES = new Set(['swiss']);
 /**
  * The env a site's request is answered with: its origin and www host, its tables (read by
  * src/markets.js tables(env)), every market root served on its host (no pilot rows); INDEX_PATHS:
- * its language versions' index paths where they are not their search-index.json (SITE_INDEX_PATHS);
+ * its language versions' and own roots' (SWISS's kr/ko, helix-query.yaml language-kr-ko) index
+ * paths where they are not their search-index.json (SITE_INDEX_PATHS);
  * MARKET_EXTRA_INDEXES: the search indexes of its market roots the market index leaves out.
  */
 export function siteEnv(env, site) {
   const indexOf = SITE_INDEX_PATHS[site.name];
-  const indexPaths = indexOf && site.tables ? Object.fromEntries(Object.values(site.tables.versions)
-    .map((v) => [`/${v}/search-index.json`, indexOf(v)])) : undefined;
+  const indexPaths = indexOf && site.tables
+    ? Object.fromEntries([...Object.values(site.tables.versions), ...site.tables.ownRoots]
+      .map((v) => [`/${v}/search-index.json`, indexOf(v)])) : undefined;
   const extra = MARKET_EXTRA_INDEX_SITES.has(site.name) && site.tables
     ? site.tables.marketRoots.filter((r) => MARKET_INDEX_EXCLUDED_ROOTS.includes(r))
       .map((r) => `/${r}/search-index.json`) : [];

@@ -27,3 +27,13 @@ test('language-ch-<ll>: SWISS\'s ten ch roots, nav, footer, fragments and confir
 test('no index writes a /ch/<ll>/search-index.json (lh-com\'s ch market roots)', () => {
   assert.equal(Object.values(indices).filter((i) => /^\/ch\/[a-z]{2}\/search-index\.json$/.test(i.target || '')).length, 0);
 });
+
+test('language-kr-ko: SWISS\'s own root kr/ko (its search page\'s index) as the ch roots\', target language-index.json, no /kr/ko/search-index.json', () => {
+  const index = indices['language-kr-ko'];
+  assert.deepEqual(index.include, ['/kr/ko/**']);
+  assert.deepEqual(index.exclude, indices['language-ch-en'].exclude.map((x) => x.replace('/ch/en/', '/kr/ko/')));
+  assert.equal(index.target, '/kr/ko/language-index.json');
+  assert.equal(JSON.stringify(index.properties), JSON.stringify(indices['language-ch-en'].properties));
+  assert.ok('hide-in-search' in index.properties);
+  assert.equal(Object.values(indices).filter((i) => i.target === '/kr/ko/search-index.json').length, 0);
+});

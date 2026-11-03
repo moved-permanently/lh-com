@@ -58,8 +58,19 @@ test('SITE_INDEX_PATHS: SWISS\'s language versions read /<version>/language-inde
     assert.equal(swiss.INDEX_PATHS[`/${v}/search-index.json`], `/${v}/language-index.json`, v);
   });
   assert.ok(swiss.INDEX_PATHS['/ch/en/search-index.json']);
+  // the own roots (kr/ko: every page its own document) the same way (helix-query.yaml language-kr-ko)
+  assert.deepEqual(swiss.SITE_TABLES.ownRoots, ['kr/ko']);
+  assert.equal(swiss.INDEX_PATHS['/kr/ko/search-index.json'], '/kr/ko/language-index.json');
+  assert.equal(Object.keys(swiss.INDEX_PATHS).length, Object.keys(swiss.SITE_TABLES.versions).length + 1);
   const brussels = siteEnv(env(), siteOf(new Request('https://brussels.example/be/en/homepage'), env()));
   assert.equal(brussels.INDEX_PATHS, undefined);
+});
+
+test('a visitor\'s /kr/ko/search-index.json on SWISS\'s host: lh-swiss\'s /kr/ko/language-index.json', async () => {
+  const resp = await worker.fetch(new Request('https://swiss.example/kr/ko/search-index.json'), env(), { waitUntil() {} });
+  assert.ok(calls.includes(`${SWISS}/kr/ko/language-index.json`), calls.join(' '));
+  assert.ok(!calls.includes(`${SWISS}/kr/ko/search-index.json`), calls.join(' '));
+  assert.equal(resp.status, 200);
 });
 
 test('a visitor\'s /ch/en/search-index.json: on SWISS\'s host lh-swiss\'s language index; on lh-com\'s host lh-com\'s path as before', async () => {
