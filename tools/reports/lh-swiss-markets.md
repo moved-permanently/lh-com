@@ -222,3 +222,25 @@ SWISS lists hreflang alternates as Austrian and Brussels (`ALTERNATES_SITES`), o
   and Miles & More services).
 - Rollback: git revert of the two commits; the pages' text-only versions are DA's earlier ones
   (backups: the import's before-copies).
+
+## 2026-11-03: SWISS search as www has it (FAQ box, sub-site magnifiers, FAQ icons)
+
+- No search in the main site's header or menu (www has none).
+- FAQ "Search for topic": the search-bar block (www's dcep-search-bar: field, search button, submit
+  to the root's `search-results?query=`), in the ten ch FAQs and kr/ko's; the market roots get it
+  with ch's document (the market route makes the link the root's own). Importers: withLinkOuts'
+  marker and withSearchBar (swiss-import, the market importer). Uploaded and previewed after the
+  results pages, not published.
+- Results pages: `/ch/{en,de,fr,it,es,pt,zh,ja,el,ru}/search-results`, `/kr/ko/search-results`, the
+  market roots through their language's page; `/corporate/{en,de,fr}/search-results` (its header
+  magnifier as before); new: `/medicalservices/{en,de}/search-results` on its own index
+  (helix-query.yaml search-medicalservices-en, -de; fills when medical services is published or
+  indexed), its header magnifier (SUB_SITES search 'button', the navs' :search: tool).
+- FAQ icons: an SVG picture first in a heading's link on SWISS's pages at DCEP's .icon-svg size,
+  48px, above the title (was 1264px). From DCEP's shared rule, as recorded from www.lufthansa.com;
+  www.swiss.com's own stylesheet and a screenshot of its FAQ are not in the capture. The topics stay
+  one per row (www: four per row in its fourcolumn view).
+- Checked on swiss.turnsthe.page: "baggage" on ch/en, "Gepäck" on ch/de, "行李" on ch/zh: 30 results
+  each, all of the root, no request to www.swiss.com. The FAQ box (preview) on ch/en and ch/de opens
+  `/ch/en/search-results?query=baggage` and `/ch/de/search-results?query=Gepäck`; on ae/en (our
+  host, the market route's link) `/ae/en/search-results?query=baggage`: 30 results of ae/en.
