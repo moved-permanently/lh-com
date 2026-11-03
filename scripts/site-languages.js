@@ -39,13 +39,14 @@ export const SITE_LANGUAGES = {
   ],
   // TAP Air Portugal (lh-tap): www.flytap.com's <ll>-<cc> roots, Portuguese first (its / goes to
   // /pt-pt), each homepage the root itself (/pt-pt); in the switch the roots imported so far
-  // (es-es since brief 318)
+  // (es-es since brief 318); its slugs are translated (/pt-pt/ajuda, /en-pt/help): no same-path
+  // guess, the page's Alternate <lang> metadata or the homepage (brief 320)
   tap: [
     ['pt', 'pt', 'Português'], ['en', 'pt', 'English'], ['es', 'es', 'Español'],
     ['fr', 'fr', 'Français', false], ['de', 'de', 'Deutsch', false], ['it', 'it', 'Italiano', false],
     ['pl', 'pl', 'Polski', false],
   ].map(([lang, country, name, listed]) => ({
-    lang, country, path: `/${lang}-${country}/`, home: `/${lang}-${country}`, name, ...(listed === false ? { listed } : {}),
+    lang, country, path: `/${lang}-${country}/`, home: `/${lang}-${country}`, name, slugs: 'own', ...(listed === false ? { listed } : {}),
   })),
 };
 
