@@ -9,7 +9,8 @@
     "es": "xx/es",
     "pt": "xx/pt",
     "ru": "xx/ru",
-    "hk": "xx/hk"
+    "hk": "xx/hk",
+    "zh": "xx/zh"
   },
   "fallbackLanguageVersion": "de/en",
   "neutralVersions": {
@@ -4300,6 +4301,85 @@
         "shopLang"
       ],
       "batch": 15
+    },
+    "xx/zh": {
+      "status": "pilot",
+      "documents": "own",
+      "name": "其它国家 (Other countries) | 简体中文",
+      "countryName": {
+        "en": null,
+        "de": null,
+        "zh": "其它国家 (Other countries)"
+      },
+      "homeAirport": "FRA",
+      "currency": null,
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "countryName.en",
+        "countryName.de",
+        "currency",
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 16
+    },
+    "cn/zh": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "中国内地 (China Mainland) | 简体中文",
+      "countryName": {
+        "en": "China (Mainland)",
+        "de": "China (Mainland)",
+        "zh": "中国内地 (China Mainland)"
+      },
+      "homeAirport": "SHA",
+      "currency": "CNY",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 16
+    },
+    "hk/zh": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "中国香港 (Hong Kong, China) | 简体中文",
+      "countryName": {
+        "en": "Hong Kong, China",
+        "de": "Hong Kong, China",
+        "zh": "中国香港 (Hong Kong, China)"
+      },
+      "homeAirport": "HKG",
+      "currency": "HKD",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 16
+    },
+    "tw/zh": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "中国台湾 (Taiwan, China) | 简体中文",
+      "countryName": {
+        "en": "Taiwan, China",
+        "de": "Taiwan, China",
+        "zh": "中国台湾 (Taiwan, China)"
+      },
+      "homeAirport": "TPE",
+      "currency": "TWD",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 16
     }
   }
 }
