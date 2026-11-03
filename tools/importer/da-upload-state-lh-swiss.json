@@ -21341,14 +21341,14 @@
    "preview": "2026-11-03T03:25:06.856Z"
   },
   "/ch/el/nav": {
-   "uploaded": "2026-11-03T04:14:41.819Z",
-   "mtime": 1793679187063,
-   "preview": "2026-11-03T04:14:44.051Z"
+   "uploaded": "2026-11-03T07:23:24.030Z",
+   "mtime": 1793690548992,
+   "preview": "2026-11-03T07:23:25.942Z"
   },
   "/ch/el/footer": {
-   "uploaded": "2026-11-03T06:30:04.736Z",
-   "mtime": 1793687260086,
-   "preview": "2026-11-03T06:30:06.860Z"
+   "uploaded": "2026-11-03T07:23:27.369Z",
+   "mtime": 1793690548958,
+   "preview": "2026-11-03T07:23:29.381Z"
   },
   "/ch/el/customer-support/faq/change-cancel-booking": {
    "uploaded": "2026-11-03T03:30:45.839Z",
@@ -22381,9 +22381,9 @@
    "preview": "2026-11-03T04:04:51.872Z"
   },
   "/ch/el/book-and-manage/corporate-customers/group-travel-and-charter/group-travel/group-travel-request": {
-   "uploaded": "2026-11-03T04:13:45.041Z",
-   "mtime": 1793679184910,
-   "preview": "2026-11-03T04:13:47.161Z"
+   "uploaded": "2026-11-03T07:26:30.893Z",
+   "mtime": 1793690658464,
+   "preview": "2026-11-03T07:26:33.310Z"
   },
   "/ch/el/book-and-manage/destination": {
    "uploaded": "2026-11-03T04:13:48.648Z",
@@ -22391,9 +22391,9 @@
    "preview": "2026-11-03T04:13:50.649Z"
   },
   "/ch/el/customer-support/contact-us/data-protection-form": {
-   "uploaded": "2026-11-03T04:13:51.895Z",
-   "mtime": 1793679185342,
-   "preview": "2026-11-03T04:13:53.826Z"
+   "uploaded": "2026-11-03T07:26:34.802Z",
+   "mtime": 1793690658642,
+   "preview": "2026-11-03T07:26:36.736Z"
   },
   "/ch/el/discover/a350/cabin": {
    "uploaded": "2026-11-03T04:13:55.132Z",
@@ -22701,14 +22701,14 @@
    "preview": "2026-11-03T04:23:41.093Z"
   },
   "/ch/ru/nav": {
-   "uploaded": "2026-11-03T05:14:49.369Z",
-   "mtime": 1793682804906,
-   "preview": "2026-11-03T05:14:51.350Z"
+   "uploaded": "2026-11-03T07:23:31.005Z",
+   "mtime": 1793690570058,
+   "preview": "2026-11-03T07:23:32.714Z"
   },
   "/ch/ru/footer": {
-   "uploaded": "2026-11-03T06:39:10.672Z",
-   "mtime": 1793687271991,
-   "preview": "2026-11-03T06:39:12.743Z"
+   "uploaded": "2026-11-03T07:23:34.171Z",
+   "mtime": 1793690570023,
+   "preview": "2026-11-03T07:23:35.944Z"
   },
   "/ch/ru/customer-support/faq/change-cancel-booking": {
    "uploaded": "2026-11-03T04:29:37.203Z",
@@ -22866,9 +22866,9 @@
    "preview": "2026-11-03T05:06:01.183Z"
   },
   "/ch/ru/customer-support/travel-and-corona/simplified-onboard-service": {
-   "uploaded": "2026-11-03T04:43:04.598Z",
-   "mtime": 1793680615771,
-   "preview": "2026-11-03T04:43:08.392Z"
+   "uploaded": "2026-11-03T07:26:45.505Z",
+   "mtime": 1793690789859,
+   "preview": "2026-11-03T07:26:47.184Z"
   },
   "/ch/ru/customer-support/travel-and-corona/travel-briefing/destinations-masks": {
    "uploaded": "2026-11-03T04:31:27.435Z",
@@ -23746,9 +23746,9 @@
    "preview": "2026-11-03T05:04:05.453Z"
   },
   "/ch/ru/book-and-manage/corporate-customers/group-travel-and-charter/group-travel/group-travel-request": {
-   "uploaded": "2026-11-03T05:13:53.927Z",
-   "mtime": 1793682801631,
-   "preview": "2026-11-03T05:13:56.076Z"
+   "uploaded": "2026-11-03T07:26:38.133Z",
+   "mtime": 1793690666875,
+   "preview": "2026-11-03T07:26:40.208Z"
   },
   "/ch/ru/book-and-manage/destination": {
    "uploaded": "2026-11-03T05:13:57.365Z",
@@ -23756,9 +23756,9 @@
    "preview": "2026-11-03T05:13:58.845Z"
   },
   "/ch/ru/customer-support/contact-us/data-protection-form": {
-   "uploaded": "2026-11-03T05:14:00.452Z",
-   "mtime": 1793682802226,
-   "preview": "2026-11-03T05:14:02.095Z"
+   "uploaded": "2026-11-03T07:26:41.571Z",
+   "mtime": 1793690667059,
+   "preview": "2026-11-03T07:26:43.700Z"
   },
   "/ch/ru/discover/a350/cabin": {
    "uploaded": "2026-11-03T05:14:03.399Z",
@@ -25359,6 +25359,26 @@
    "uploaded": "2026-11-03T06:14:51.316Z",
    "mtime": 1793686393282,
    "preview": "2026-11-03T06:14:53.582Z"
+  },
+  "/ch/el/book-and-manage/corporate-customers/group-travel-and-charter/group-travel/group-travel-request-success": {
+   "uploaded": "2026-11-03T07:23:10.882Z",
+   "mtime": 1793690546957,
+   "preview": "2026-11-03T07:23:13.550Z"
+  },
+  "/ch/el/customer-support/contact-us/data-protection-form/form-success": {
+   "uploaded": "2026-11-03T07:23:14.904Z",
+   "mtime": 1793690547327,
+   "preview": "2026-11-03T07:23:16.592Z"
+  },
+  "/ch/ru/book-and-manage/corporate-customers/group-travel-and-charter/group-travel/group-travel-request-success": {
+   "uploaded": "2026-11-03T07:23:17.886Z",
+   "mtime": 1793690568120,
+   "preview": "2026-11-03T07:23:19.655Z"
+  },
+  "/ch/ru/customer-support/contact-us/data-protection-form/form-success": {
+   "uploaded": "2026-11-03T07:23:20.936Z",
+   "mtime": 1793690568497,
+   "preview": "2026-11-03T07:23:22.625Z"
   }
  },
  "media": {
