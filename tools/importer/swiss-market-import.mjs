@@ -32,7 +32,7 @@ import {
 import { relativeDamLinks } from './swiss-dam.mjs';
 import { subSiteLinks, capturedPages, withOneH1 } from './swiss-sub-import.mjs';
 import { withDaImages } from './swiss-sub-dam.mjs';
-import { BRAND_SITES } from '../../scripts/brands.js';
+import { BRAND_SITES, SWISS_OWN_ROOTS } from '../../scripts/brands.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const HOST = 'www.swiss.com';
@@ -110,6 +110,14 @@ export function withoutDatepicker(html) {
   return out;
 }
 
+/**
+ * Is a www path one of the site's pages: a page of a language lh-swiss has (a market root's own
+ * page), or of an own root (scripts/brands.js SWISS_OWN_ROOTS: kr/ko, all of whose pages are its
+ * own documents)?
+ */
+export const onSite = (p) => Object.prototype.hasOwnProperty.call(BRAND_SITES.swiss.versions, p.split('/')[2])
+  || Object.prototype.hasOwnProperty.call(SWISS_OWN_ROOTS, p.split('/').slice(1, 3).join('/'));
+
 const isMain = process.argv[1] && fs.realpathSync(process.argv[1]) === fileURLToPath(import.meta.url);
 if (isMain) {
   const argv = process.argv.slice(2);
@@ -181,7 +189,7 @@ if (isMain) {
   // the roots' own pages: the snapshots of the languages lh-swiss has (the others wait)
   const walk = (d) => (fs.existsSync(d) ? fs.readdirSync(d, { withFileTypes: true }).flatMap((e) => (e.isDirectory() ? walk(path.join(d, e.name)) : [path.join(d, e.name)])) : []);
   const own = walk(SNAP).filter((f) => f.endsWith('.html')).map((f) => `/${path.relative(SNAP, f).replace(/\.html$/, '')}`)
-    .filter((p) => Object.prototype.hasOwnProperty.call(BRAND_SITES.swiss.versions, p.split('/')[2]));
+    .filter(onSite);
   // the market roots: the imported languages' homepages
   const marketRoots = own.filter((x) => x.endsWith('/homepage')).map((x) => x.split('/').slice(1, 3).join('/'));
   const served = servedPaths({

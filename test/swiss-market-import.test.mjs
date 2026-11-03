@@ -84,3 +84,10 @@ test('the market pages\' images www answers 404 (GONE_IMAGES; still missing in D
     assert.equal([...filesOf([{ p: '/gb/en/x', doc, snap: '' }]).values()].length, 1, g);
   });
 });
+
+test('onSite: a page of a language lh-swiss has, or of an own root (scripts/brands.js SWISS_OWN_ROOTS: kr/ko), is the site\'s; another language\'s not', async () => {
+  const { onSite } = await import('../tools/importer/swiss-market-import.mjs');
+  assert.equal(onSite('/kr/ko/fly/check-in'), true);
+  assert.equal(onSite('/kr/en/homepage'), true);
+  assert.equal(onSite('/gr/el/homepage'), false);
+});

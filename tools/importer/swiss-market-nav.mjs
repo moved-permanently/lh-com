@@ -16,8 +16,7 @@ import { parseHTML } from 'linkedom';
 import { navDocument, footerDocument } from './swiss-nav.mjs';
 import { subSiteLinks, capturedPages } from './swiss-sub-import.mjs';
 import { withDaImages } from './swiss-sub-dam.mjs';
-import { servedPaths, W } from './swiss-market-import.mjs';
-import { BRAND_SITES } from '../../scripts/brands.js';
+import { servedPaths, onSite, W } from './swiss-market-import.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 
@@ -33,9 +32,8 @@ if (isMain) {
   const allow = JSON.parse(fs.readFileSync(path.join(root, 'tools/importer/sites/lh-swiss.json'), 'utf8'));
   const marketsFile = path.join(W, 'runs/markets.json');
   const markets = fs.existsSync(marketsFile) ? JSON.parse(fs.readFileSync(marketsFile, 'utf8')) : {};
-  const imported = (r) => Object.prototype.hasOwnProperty.call(BRAND_SITES.swiss.versions, r.split('/')[1]);
   const walk = (d) => (fs.existsSync(d) ? fs.readdirSync(d, { withFileTypes: true }).flatMap((e) => (e.isDirectory() ? walk(path.join(d, e.name)) : [path.join(d, e.name)])) : []);
-  const own = walk(SNAP).filter((f) => f.endsWith('.html')).map((f) => `/${path.relative(SNAP, f).replace(/\.html$/, '')}`).filter((p) => imported(p.slice(1)));
+  const own = walk(SNAP).filter((f) => f.endsWith('.html')).map((f) => `/${path.relative(SNAP, f).replace(/\.html$/, '')}`).filter(onSite);
   // the market roots: the imported languages' homepages
   const marketRoots = own.filter((x) => x.endsWith('/homepage')).map((x) => x.split('/').slice(1, 3).join('/'));
   const served = servedPaths({
