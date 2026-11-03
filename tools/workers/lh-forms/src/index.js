@@ -242,6 +242,12 @@ const FORMS = {
     'media-permission': ['Application for permission to film for media creators', 'Antrag Drehgenehmigung für Medienschaffende', 'Demande d’autorisation de tournage pour les créateurs de médias'],
     'media-request-form': ['Inquiries from media creators', 'Anfragen von Medienschaffenden', 'Demandes des professionnels des médias'],
     'contact-corporate-procurement': ['Corporate Procurement Inquiry'],
+    // the market roots' own forms (the capture of 2026-11-02): the pages' h1; refundable travel
+    // credit has al/de's page only, Hungary's invoice request and Klook an English one
+    'pax-receipt-request': ['Enquiry about passenger receipt', 'Anfrage bezüglich einem Passagierbeleg'],
+    'refundable-travel-credit': ['Antrag auf eine erstattungsfähige Reisegutschrift'],
+    'invoice-request-hungary': ['Invoice Request Hungary'],
+    klook: ['SWISS Europe Activity Promotion'],
   }),
 };
 // any country-language pair (the site's roots: de-en, de-de, at-de, gb-en, and the next ones),

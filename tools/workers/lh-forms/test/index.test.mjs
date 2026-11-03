@@ -1540,6 +1540,32 @@ test('SWISS corporate file rules as www\'s: the permission to film 5 x 3,700,000
   });
 });
 
+// SWISS's market roots' own forms (their local pages, the capture of 2026-11-02): the page's h1 as
+// the title; refundable travel credit has a German page only, Hungary's invoice request and Klook
+// an English one; none takes files
+test('SWISS market roots: pax receipt (al/en, al/de), refundable travel credit (al/de), invoice request Hungary (hu/en), Klook (kr/en); their titles; no files', async () => {
+  const env = makeEnv({ FORM_CONFIG: JSON.stringify({ default: { to: 'only@example.com' } }) });
+  const cases = [
+    [{ form: 'swiss-pax-receipt-request', locale: 'al-en', origin: LX }, '[lh-swiss] Enquiry about passenger receipt (al-en)'],
+    [{ form: 'swiss-pax-receipt-request', locale: 'al-de', origin: LX }, '[lh-swiss] Anfrage bezüglich einem Passagierbeleg (al-de)'],
+    [{ form: 'swiss-refundable-travel-credit', locale: 'al-de', origin: LX }, '[lh-swiss] Antrag auf eine erstattungsfähige Reisegutschrift (al-de)'],
+    [{ form: 'swiss-invoice-request-hungary', locale: 'hu-en', origin: LX }, '[lh-swiss] Invoice Request Hungary (hu-en)'],
+    [{ form: 'swiss-klook', locale: 'kr-en', origin: LX }, '[lh-swiss] SWISS Europe Activity Promotion (kr-en)'],
+  ];
+  const results = await Promise.all(cases.map(([opts], i) => post({ ...opts, ip: `203.0.113.${140 + i}` }, env)));
+  results.forEach(({ res, body }, i) => {
+    assert.equal(res.status, 200, cases[i][1]);
+    assert.deepEqual(body, { ok: true });
+  });
+  assert.deepEqual(sent.map((m) => m.subject).sort(), cases.map((c) => c[1]).sort());
+  const pdf = ['Attachments', file(PDF, 'a.pdf', 'application/pdf')];
+  const withFile = await post({
+    origin: LX, locale: 'kr-en', form: 'swiss-klook', files: [pdf], ip: '192.0.2.160',
+  });
+  assert.equal(withFile.res.status, 400);
+  assert.deepEqual(withFile.body, { ok: false, error: 'files-not-allowed' });
+});
+
 // lh-com's market roots' own forms (www's local pages: bg/en, il/en, mk/de); ids by page name, as
 // the other lh-com forms; mk/en's support/refund has no fields on www and no id
 const LH = 'https://lufthansa.turnsthe.page';
