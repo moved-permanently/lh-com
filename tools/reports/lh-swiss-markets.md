@@ -147,3 +147,16 @@ SWISS lists hreflang alternates as Austrian and Brussels (`ALTERNATES_SITES`), o
     -> `/content/dam/lx/images/local_variations/c-937562636-319646734.jpg`
   - https://www.swiss.com/content/dam/lx/images/pixels_variations/c-1937235332-3360912.jpg.transform/lh-dcep-transform-width-2560/img.jpg
     -> `/content/dam/lx/images/pixels_variations/c-1937235332-3360912.jpg`
+
+## 2026-11-03: swiss-cn.turnsthe.page (www.swiss.com.cn)
+
+- lh-edge (7724b459): swiss-cn.turnsthe.page an alias host of the SWISS site, as austrian-cn: routed
+  as swiss.turnsthe.page, its links on the alias host, / to /cn/en/homepage, canonical, og:url and
+  hreflang swiss.turnsthe.page's, robots as swiss.turnsthe.page's; lh-forms and lh-proxy allow it.
+  lufthansa-cn and austrian-cn as they were.
+- What www.swiss.com.cn shows that www.swiss.com doesn't, from our recordings only: there are no
+  recordings of www.swiss.com.cn itself (its homepage, robots.txt or a page fetched on that host).
+  The capture rendered 34 magazine pages for it (their absolute links name www.swiss.com.cn):
+  those differ from the .com pages only in that host; the footer's text and links are the same,
+  with no ICP or 备案 line. 8 magazine documents still linked www.swiss.com.cn: relinked as
+  www.swiss.com's (relative where captured), uploaded and previewed.
