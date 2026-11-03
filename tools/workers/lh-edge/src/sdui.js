@@ -161,6 +161,7 @@ function modelOf(el, out) {
     const raw = textOf(el).trim();
     const sp = raw.match(/^\{spacer:\s*([a-z-]+)\s*(,\s*v2)?\s*\}$/i);
     if (sp) { out.push({ kind: 'spacer', size: SPACER_SIZES[sp[1].toLowerCase()] || sp[1].toUpperCase(), v2Only: Boolean(sp[2]) }); return; }
+    if (/^\{divider\}$/i.test(raw)) { out.push({ kind: 'divider' }); return; }
     const img = imageOf(el);
     if (img) { out.push(img); return; }
     const small = takeMarker(el, 'small');
@@ -235,12 +236,20 @@ export function screenModel(doc) {
     return { spacing: (s.attrs.spacing || 'large').toUpperCase(), direct, items };
   });
   const type = (doc.meta['sdui-type'] || '').toLowerCase();
+  // Bold tag "strong": the screen's bold as www's content pages write it (<strong>, not <b>)
+  if ((doc.meta['bold-tag'] || '').trim().toLowerCase() === 'strong') {
+    sections.forEach((s) => s.items.forEach((i) => {
+      if (i.kind === 'text' || i.kind === 'headline') i.html = i.html.replace(/<(\/?)b>/g, '<$1strong>');
+    }));
+  }
   return {
     title: doc.meta.title || '',
     container: type === 'container',
     // a content page (content-pages/100-years-of-lufthansa): a page with the container screens'
     // headline (v1 HEADLINE without size, v2 HEADING_XXL)
     largeHeadline: type === 'container' || type === 'content-page',
+    // its four headline sizes: h1-h4 (CONTENT_PAGE_HEADLINES)
+    contentPage: type === 'content-page',
     sections,
   };
 }
@@ -325,10 +334,21 @@ export function articlesOf(ctx, category) {
 let idSeq = 0;
 const nextId = (ctx) => { idSeq += 1; return `${ctx.path}/i${idSeq}`; };
 
+/** A content page's headlines (h1-h4): [v2 mainHeadline variant, v1 copyText size or none]. */
+const CONTENT_PAGE_HEADLINES = {
+  1: ['HEADING_XXL', null], 2: ['HEADING_XL', null], 3: ['HEADING_L', 'EXTRA_LARGE'], 4: ['HEADING_M', 'LARGE'],
+};
+
 export function itemsV1(ctx, item, container) {
   switch (item.kind) {
     case 'divider': return [{ type: 'divider' }];
     case 'headline': {
+      const cp = ctx.contentPage && CONTENT_PAGE_HEADLINES[item.level];
+      if (cp) {
+        return [{
+          type: 'copyText', text: item.html, ...(cp[1] ? { size: cp[1] } : {}), variant: 'HEADLINE',
+        }];
+      }
       if (item.level === 3) {
         return [{
           type: 'copyText', text: item.html, size: 'MEDIUM', variant: 'HEADLINE',
@@ -418,6 +438,12 @@ export function itemsV2(ctx, item, container) {
   switch (item.kind) {
     case 'divider': return [{ type: 'divider', id: id() }];
     case 'headline': {
+      const cp = ctx.contentPage && CONTENT_PAGE_HEADLINES[item.level];
+      if (cp) {
+        return [{
+          type: 'mainHeadline', id: id(), text: item.html, variant: cp[0], isBold: true,
+        }];
+      }
       if (item.level === 3) {
         return [{
           type: 'copyText', id: id(), text: item.html, size: 'MEDIUM', variant: 'HEADLINE',
@@ -521,7 +547,7 @@ export function iosLayout(items) {
  * a page has no LARGE spacers at its start and end, a container keeps its M_LARGE ones).
  */
 export function renderV1(model, ctx) {
-  const c = { ...ctx, v2: false };
+  const c = { ...ctx, v2: false, contentPage: model.contentPage };
   const pad = { type: 'spacer', size: model.container ? 'M_LARGE' : 'LARGE' };
   const large = model.largeHeadline ?? model.container;
   const items = model.sections.flatMap((s) => s.items.flatMap((i) => itemsV1(c, i, large)));
@@ -537,7 +563,7 @@ export function renderV1(model, ctx) {
 
 /** The v2 screen: {id, metadata: {title}, body, cacheEnabled, version: "V2"}. */
 export function renderV2(model, ctx) {
-  const c = { ...ctx, v2: true };
+  const c = { ...ctx, v2: true, contentPage: model.contentPage };
   idSeq = 0;
   const body = model.sections.flatMap((s, n) => {
     const items = s.items.flatMap((i) => itemsV2(c, i, model.largeHeadline ?? model.container));

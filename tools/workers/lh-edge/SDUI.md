@@ -19,6 +19,9 @@ The Lufthansa app reads its "Lufthansa Insights" screens and the home screen as 
 | Image **linked to its DAM URL** (`https://www.lufthansa.com/content/dam/…`), alt text = description | `image` url (the link, on the public host), `contentDescription` (the alt text) | the same |
 | `{spacer: x-small}`, `{spacer: medium}`, `{spacer: m-large}`, `{spacer: large}` | `spacer` | `spacer` |
 | `{spacer: medium, v2}` | – | `spacer` (a space only the v2 screen has, e.g. after an article's intro) |
+| `{divider}` | `divider` | `divider` |
+
+On a **content page** (`SDUI type` `content-page`) the headings are its four headline sizes, all `mainHeadline` bold in v2: Heading 1 `HEADING_XXL` (v1 `copyText` HEADLINE without size), Heading 2 `HEADING_XL` (v1 the same), Heading 3 `HEADING_L` (v1 HEADLINE EXTRA_LARGE), Heading 4 `HEADING_M` (v1 HEADLINE LARGE): `content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-{1,2,3}`.
 
 The image's link matters, not the image: Edge Delivery copies images into its media bus, but the app gets www's DAM renditions (`…jpg.transform/lh-dcep-transform-width-1440/img.jpg`, served from the public host). An image without a link is sent with its media URL.
 
@@ -34,7 +37,7 @@ The image's link matters, not the image: Edge Delivery copies images into its me
 
 Tracking keys and categories follow from the item (`link button click`, `offer box click`, `blog overview click`, `sm teaser click`); the document holds only the labels.
 
-**Metadata**: `Title` (the screen title; v1 `title`, v2 `metadata.title`), `Robots` (`noindex, nofollow`), `SDUI type` (`container` for the home screen: v1 `CONTAINER`, v2 body padding top/bottom `NONE`; `content-page` for a content page such as `content-pages/100-years-of-lufthansa`: a v1 `PAGE` whose headline has the container screens' size, v1 `HEADLINE` without size, v2 `HEADING_XXL`). A screen with only v2 items (zh's home screen: the service slot) is an empty v1 screen, without the padding spacers, as www. Articles: `Description` and `Teaser image` (their offer box in the category list), `Category` (the category screen), `Date` (ISO, from the date line), `Order` (the position among articles of the same date; www's order).
+**Metadata**: `Title` (the screen title; v1 `title`, v2 `metadata.title`), `Robots` (`noindex, nofollow`), `SDUI type` (`container` for the home screen: v1 `CONTAINER`, v2 body padding top/bottom `NONE`; `content-page` for a content page such as `content-pages/100-years-of-lufthansa`: a v1 `PAGE` whose headline has the container screens' size, v1 `HEADLINE` without size, v2 `HEADING_XXL`; its headings above), `Bold tag` (`strong`: bold is sent as `<strong>`, as www's content page parts have it; without it `<b>`, as the other screens). A screen with only v2 items (zh's home screen: the service slot) is an empty v1 screen, without the padding spacers, as www. Articles: `Description` and `Teaser image` (their offer box in the category list), `Category` (the category screen), `Date` (ISO, from the date line), `Order` (the position among articles of the same date; www's order).
 
 ## Example: `/content/mobile/lh/en/articles/europe`
 
@@ -55,7 +58,7 @@ An article (`…/a-perfect-day-in-frankfurt`): section 1 the hero image; section
 
 ## Import
 
-`tools/importer/sdui-import.mjs` wrote the 66 documents once from www's recorded answers (`tools/source-export/feeds/sdui/`): the structure from v2, the v1-only teaser slider, the spacers only v2 has (by aligning both versions), the article metadata from the category lists. `tools/workers/lh-edge/compare-sdui.mjs` compares (`--local`: the documents, `--origin <aem.page>`: the previewed documents, `--host`: lh-edge).
+`tools/importer/sdui-import.mjs` wrote the 66 documents once (and in brief 310 the content page's three parts, `--only 100-years-of-lufthansa-part-`) from www's recorded answers (`tools/source-export/feeds/sdui/`): the structure from v2, the v1-only teaser slider, the spacers only v2 has (by aligning both versions), the article metadata from the category lists. `tools/workers/lh-edge/compare-sdui.mjs` compares (`--local`: the documents, `--origin <aem.page>`: the previewed documents, `--host`: lh-edge).
 
 ## Web pages as SDUI (`src/sdui-web.js`, brief 78 part 2)
 

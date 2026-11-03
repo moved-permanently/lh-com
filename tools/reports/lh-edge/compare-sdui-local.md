@@ -1,10 +1,10 @@
 # lh-edge app screens vs www (local render)
 
-2026-10-29T06:29:40.335Z
+2026-11-03T15:19:48.215Z
 
-v1: 69 URLs, 68 equal apart from the fields left out, 1 with differences (missing 0, extra 0, different 1)
+v1: 75 URLs, 74 equal apart from the fields left out, 1 with differences (missing 0, extra 0, different 1)
 
-v2: 69 URLs, 68 equal apart from the fields left out, 1 with differences (missing 0, extra 0, different 1)
+v2: 75 URLs, 74 equal apart from the fields left out, 1 with differences (missing 0, extra 0, different 1)
 
 Left out on purpose:
 - id: www sends AEM node paths; lh-edge generates stable ids of its own
@@ -150,3 +150,15 @@ Left out on purpose:
 | /content/mobile/lh/de/content-pages/100-years-of-lufthansa.sdui | 200 | yes |  |  |  |
 | /content/mobile/lh/de/content-pages/100-years-of-lufthansa.v2.sdui | 200 | yes |  |  |  |
 | /content/mobile/lh/zh/homepage.v2.sdui | 200 | yes |  |  |  |
+| /content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1.sdui | 200 | yes |  |  |  |
+| /content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1.v2.sdui | 200 | yes |  |  |  |
+| /content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2.sdui | 200 | yes |  |  |  |
+| /content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2.v2.sdui | 200 | yes |  |  |  |
+| /content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3.sdui | 200 | yes |  |  |  |
+| /content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3.v2.sdui | 200 | yes |  |  |  |
+| /content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1.sdui | 200 | yes |  |  |  |
+| /content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1.v2.sdui | 200 | yes |  |  |  |
+| /content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2.sdui | 200 | yes |  |  |  |
+| /content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2.v2.sdui | 200 | yes |  |  |  |
+| /content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3.sdui | 200 | yes |  |  |  |
+| /content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3.v2.sdui | 200 | yes |  |  |  |
