@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-03 12:14",
-  "change": "🪏 split into our work, Lufthansa (✈️) and both.",
+  "updated": "2026-11-03 12:37",
+  "change": "SWISS: site search works; its newsroom stays on its own press platform.",
   "legend": {
     "done": {
       "label": "works on our replica",
@@ -1517,9 +1517,9 @@
           "evidence": "2026-11-02: replica /de/en/news lists 23 article links, /de/en/program/experts/news 18 (www raw 25 incl. menu links, 18); articles published 2026-11-02"
         },
         "swiss": {
-          "status": "wip",
-          "note": "SWISS's media pages (press contacts, media request and filming permission forms) are on the replica since 2 November. The press releases and agenda are on SWISS's separate newsroom site, which the media page links to; bringing them over is ours.",
-          "evidence": "2026-11-02 23:55 CET curl on swiss.turnsthe.page: 200 for /corporate/{en,de,fr}/media, /corporate/{en,de,fr}/media/media-request-form, /corporate/{en,de,fr}/media/media-permission, /content/dam/swiss/pdfs/corporate/geschaftsleitung/situation-maps-swiss.pdf; 3 forms tested 22:10-22:11 CET; media page links press releases and agenda to https://newsroom.swiss.com/en (not on our host), media gallery to brand.swiss.com"
+          "status": "elsewhere",
+          "note": "SWISS's newsroom (press releases and agenda) runs on a separate press platform that stays; the replica links to it. SWISS's media pages (press contacts, media request and filming permission forms) are on the replica since 2 November.",
+          "evidence": "2026-11-02 23:55 CET curl on swiss.turnsthe.page: 200 for /corporate/{en,de,fr}/media, /corporate/{en,de,fr}/media/media-request-form, /corporate/{en,de,fr}/media/media-permission, /content/dam/swiss/pdfs/corporate/geschaftsleitung/situation-maps-swiss.pdf; 3 forms tested 22:10-22:11 CET; media page links press releases and agenda to https://newsroom.swiss.com/en (not on our host), media gallery to brand.swiss.com; 2026-11-03 12:40 CET: newsroom.swiss.com is a CNAME to ssl-client.presspage.com, its HTML loads templates, assets and statistics from presspage.com (PPSESSION cookie): separate press platform, not AEM AMS -> elsewhere"
         }
       }
     },
@@ -1576,9 +1576,10 @@
           "evidence": "2026-11-02: replica 30 results from /de/en/search-index.json (256 rows; de/de 310), www 30 results from its search API; market roots use their language's index"
         },
         "swiss": {
-          "status": "wip",
-          "note": "SWISS's own search page and the FAQ's link to it are on the replica since 3 November, but the page doesn't show results yet; finishing it is ours.",
-          "evidence": "2026-11-02: replica /ch/en/customer-support/faq 'Search for topic' -> https://www.swiss.com/ch/en/customer-support/faq; /ch/en/search-results 404; lh-swiss.md: no search-ch-* index; from snapshot: www's searchbar on the FAQ hub (autosuggest searching.lufthansa.com), results /ch/en/search-results ; split 2026-11-03 (checks on our hosts, private Studio tab): /ch/en/search-results 200 on aem.live and swiss.turnsthe.page, FAQ links to it; ?q=baggage: 'Search results could not be loaded.'"
+          "status": "done",
+          "note": "The search page finds SWISS's own pages in all ten Swiss language versions and in Korean; the FAQ's \"Search for topic\" leads to it.",
+          "evidence": "2026-11-02: replica /ch/en/customer-support/faq 'Search for topic' -> https://www.swiss.com/ch/en/customer-support/faq; /ch/en/search-results 404; lh-swiss.md: no search-ch-* index; from snapshot: www's searchbar on the FAQ hub (autosuggest searching.lufthansa.com), results /ch/en/search-results ; split 2026-11-03 (checks on our hosts, private Studio tab): /ch/en/search-results 200 on aem.live and swiss.turnsthe.page, FAQ links to it; ?q=baggage: 'Search results could not be loaded.'; 2026-11-03: search pages for the ten ch roots and kr/ko published 11:47 CET (job-2026-11-03-10-47-45-6df553d1); on swiss.turnsthe.page a word per root gave 30 results, all from that root (baggage ch/en + ae/en, Gepäck ch/de, 行李 ch/zh, 수하물 kr/ko); /ch/en/search-index.json 326 rows there 12:41 CET (404 on aem.live: index route lives in lh-edge on the brand hosts) -> done",
+          "page": "/ch/en/search-results"
         }
       }
     },
