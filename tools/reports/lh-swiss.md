@@ -469,3 +469,22 @@ no request to www.swiss.com). DA and preview only, not published.
   and zh documents (7 documents, uploaded and previewed).
 - For the capture: `lh-swiss-el-ru-capture.tsv` (32 DAM files, 14 pages without a snapshot, 12
   confirmation pages), www's own URLs; no new AEM files or redirect rows.
+
+## The Korean date mask; the ch roots' and sub-sites' links relative (brief 285, 2026-11-03)
+
+- Forms: a date mask that ends in a literal (kr/ko's "YYYY. MM. DD.", 13 characters) gets it
+  once every digit is typed (`blocks/form/form-rules.js` applyDateMask, 8bb4f03b); before, the
+  field held 12 characters and always answered the format error. Every site's form documents
+  checked (558 with a form, 344 date fields): `tools/reports/form-date-masks.tsv` lists the 8
+  kr/ko documents (13 fields, fixed) and lh-austrian's 11 cn/zh documents whose mask is
+  "0000-00-00" (15 fields: no D/M/Y slots, the field cannot be filled; open).
+- Links: `tools/importer/swiss-relink.mjs` (--collect, --probe, --write): every www page link of
+  the ten ch roots' documents and of the corporate and medical services sites whose target
+  answers 200 on swiss.turnsthe.page (a redirect there to one of its pages: that page) is
+  relative, query and fragment kept; www DAM links whose copy is in DA site-relative. 203
+  documents (393 page links, 30 DAM links; ch/fr's ice-hockey conditions link among them):
+  `tools/reports/lh-swiss-ch-relinked.tsv`; uploaded and previewed, not published. The ch
+  documents' cockpit links already carried their query (2f6de20a) and their Parent rows were
+  relative. Left as they are: 561 www page links whose target answers 404 on our host (the
+  magazine's 33 previewed pages until they are live, gc, xx and market pages lh-swiss has no
+  page for).
