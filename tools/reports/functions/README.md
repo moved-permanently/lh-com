@@ -24,24 +24,29 @@ Never edit the page in DA or the canvas in Slack: the next update overwrites bot
   - `status`: one of the codes below
   - `note`: hover text, one plain sentence for Lufthansa readers; required in every cell, "–" cells too
   - `see`: the function id a → cell points to
-  - `footnote`: a key of `footnotes`; required on ⏳ and 💬, and worth adding on 🪏 cells that matter
+  - `footnote`: a key of `footnotes`; required on 🪏✈️, ✈️ and 💬, and worth adding on 🪏 cells that matter
   - `page`: optional path on the brand's replica where the function is (the page lists it with PageSpeed links)
   - `evidence`: the brief, commit, report or check the cell rests on; never rendered
 
-| code | symbol | meaning |
-|---|---|---|
-| `done` | ✅ | works on our replica |
-| `wip` | 🪏 | planned or in progress |
-| `elsewhere` | 🌊 | covered elsewhere: the link goes to a system that stays |
-| `stays` | 💬 | stays on the old platform by decision |
-| `lh` | ⏳ | needs LH (Lufthansa or the airline has to change something) |
-| `see` | → | covered in another row |
-| `none` | – | the airline has no such function |
+| code | symbol | on the page | meaning |
+|---|---|---|---|
+| `done` | ✅ | ✅ | works on our replica |
+| `wip` | 🪏 | 🪏 | needs work on our side: what's left is our build or our switch |
+| `wip-lh` | 🪏✈️ | 🪏 and the crane | needs work on our side and Lufthansa: neither side has 80 % or more of what's left |
+| `lh` | ✈️ | the crane | needs Lufthansa: what's left is Lufthansa's, the airline's or its vendor's (an allowlist, Travel ID, its systems, its own address, a decision) |
+| `elsewhere` | 🌊 | 🌊 | covered elsewhere: the link goes to a system that stays |
+| `stays` | 💬 | 💬 | stays on the old platform by decision |
+| `see` | → | → | covered in another row |
+| `none` | – | – | the airline has no such function |
+
+A cell gets both symbols only when it is really both: if one side has 80 % or more of what's left, it gets that side's symbol
+alone. The note says what's left and who does it; the symbol follows from the note. The page shows the Lufthansa crane
+(`icons/lh-crane.svg`, written `:lh-crane:` in the page) where functions.md and the canvas show ✈️.
 
 This repository is public: no names of people, no conversations with Lufthansa, no audit or decompiled material, no internal
 host names, in any field.
 
-`node render.mjs --check` fails on an unknown status, a missing note, label or about, a ⏳ or 💬 cell without a footnote, an
+`node render.mjs --check` fails on an unknown status, a missing note, label or about, a 🪏✈️, ✈️ or 💬 cell without a footnote, an
 unknown footnote key, a → cell without a target or with a target that doesn't exist, a function without a cell for every
 brand, `:name:` text (Edge Delivery turns it into an icon) and a `functions.md` that doesn't match `functions.json`.
 

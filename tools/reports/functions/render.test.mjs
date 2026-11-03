@@ -5,11 +5,11 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
-  validate, renderMarkdown, renderPage, renderCanvas, check, itemCount, titledItemLinks, verifyPlain,
+  validate, renderMarkdown, renderPage, renderCanvas, check, itemCount, titledItemLinks, verifyPlain, SYMBOLS, PAGE_SYMBOLS,
 } from './render.mjs';
 
 const dir = path.dirname(fileURLToPath(import.meta.url));
-const legend = Object.fromEntries(['done', 'wip', 'elsewhere', 'stays', 'lh', 'see', 'none']
+const legend = Object.fromEntries(['done', 'wip', 'wip-lh', 'lh', 'elsewhere', 'stays', 'see', 'none']
   .map((s) => [s, { label: `label ${s}`, note: `Legend note for ${s}.` }]));
 
 const fixture = () => ({
@@ -104,6 +104,63 @@ test('validate: a needs-LH or stays cell without a footnote, and a footnote key 
   assert.match(errors, /flight-search.*airdolomiti.*footnote "nope" does not exist/);
 });
 
+test('validate: a cell that needs work on our side and Lufthansa is a known status and needs a footnote', () => {
+  const doc = fixture();
+  doc.functions[0].cells.airdolomiti = { status: 'wip-lh', note: 'Our page is missing, and Travel ID refuses us.', evidence: 'check' };
+  assert.match(validate(doc).join('\n'), /flight-search.*airdolomiti.*needs a footnote/);
+  doc.functions[0].cells.airdolomiti.footnote = 'tid';
+  assert.deepEqual(validate(doc), []);
+  delete doc.legend['wip-lh'].label;
+  assert.match(validate(doc).join('\n'), /legend wip-lh.*no label/);
+});
+
+test('symbols: ✈️ replaces ⏳ for needs Lufthansa, 🪏✈️ for both; the page shows the crane icon instead of ✈️', () => {
+  assert.equal(SYMBOLS.lh, '✈️');
+  assert.equal(SYMBOLS['wip-lh'], '🪏✈️');
+  assert.equal(SYMBOLS.wip, '🪏');
+  assert.deepEqual(Object.keys(SYMBOLS), ['done', 'wip', 'wip-lh', 'lh', 'elsewhere', 'stays', 'see', 'none']);
+  assert.ok(!Object.values(SYMBOLS).includes('⏳'));
+  assert.equal(PAGE_SYMBOLS.lh, ':lh-crane:');
+  // a no-break space keeps the spade and the icon on one line
+  assert.equal(PAGE_SYMBOLS['wip-lh'], '🪏\u00a0:lh-crane:');
+  assert.deepEqual(Object.keys(PAGE_SYMBOLS), Object.keys(SYMBOLS));
+  ['done', 'wip', 'elsewhere', 'stays', 'see', 'none'].forEach((s) => assert.equal(PAGE_SYMBOLS[s], SYMBOLS[s], s));
+});
+
+const both = () => {
+  const doc = fixture();
+  doc.functions[0].cells.airdolomiti = {
+    status: 'wip-lh', note: 'Our page is missing, and Travel ID refuses us.', footnote: 'tid', evidence: 'check',
+  };
+  return doc;
+};
+
+test('page: needs-Lufthansa and both cells carry the crane icon inside their titled links, in the table, the legend and the lists', () => {
+  const html = renderPage(both());
+  assert.match(html, /<a href="#lufthansa" title="Needs Travel ID.">:lh-crane:<\/a>/);
+  assert.match(html, /<a href="#air-dolomiti" title="Our page is missing, and Travel ID refuses us.">🪏\u00a0:lh-crane:<\/a>/);
+  assert.match(html, /<li><a href="#legend" title="Legend note for lh.">:lh-crane:<\/a> label lh: Legend note for lh.<\/li>/);
+  assert.match(html, /<li><a href="#legend" title="Legend note for wip-lh.">🪏\u00a0:lh-crane:<\/a> label wip-lh: Legend note for wip-lh.<\/li>/);
+  assert.match(html, /<li><strong>Personalised content<\/strong> :lh-crane: Needs Travel ID.<\/li>/);
+  assert.match(html, /<li><strong>Flight search<\/strong> 🪏\u00a0:lh-crane: Our page is missing, and Travel ID refuses us.<\/li>/);
+  assert.ok(!html.includes('✈️') && !html.includes('⏳'));
+  assert.equal(titledItemLinks(html).length, itemCount(both()));
+});
+
+test('canvas and markdown: ✈️ and 🪏✈️ cells with their footnote marks, legend in order, totals count both', () => {
+  const doc = both();
+  const canvas = renderCanvas(doc);
+  assert.match(canvas, /<tr><td>Flight search<\/td><td>✅<\/td><td>🪏✈️¹<\/td><\/tr>/);
+  assert.match(canvas, /<tr><td>Personalised content<\/td><td>✈️¹<\/td>/);
+  assert.match(canvas, /<b>Legend:<\/b> ✅ label done · 🪏 label wip · 🪏✈️ label wip-lh · ✈️ label lh · 🌊 label elsewhere · 💬 label stays · → label see · – label none/);
+  assert.match(canvas, /<b>Totals<\/b> \(✅ \/ 🪏 \/ 🪏✈️ \/ ✈️ \/ 🌊 \/ 💬\): Lufthansa 1\/0\/0\/1\/0\/0 · Air Dolomiti 0\/0\/1\/0\/0\/1/);
+  const md = renderMarkdown(doc);
+  assert.match(md, /\| Flight search \| ✅ \| 🪏✈️¹ \|/);
+  assert.match(md, /\| \*\*✅ \/ 🪏 \/ 🪏✈️ \/ ✈️ \/ 🌊 \/ 💬\*\* \| 1\/0\/0\/1\/0\/0 \| 0\/0\/1\/0\/0\/1 \|/);
+  assert.match(md, /- \*\*Flight search\*\* 🪏✈️ Our page is missing/);
+  assert.ok(!md.includes('⏳') && !canvas.includes('⏳') && !md.includes(':lh-crane:') && !canvas.includes(':lh-crane:'));
+});
+
 test('validate: a see target that does not exist, and a see cell without a target', () => {
   const doc = fixture();
   doc.functions[1].cells.airdolomiti.see = 'hotel-search';
@@ -151,7 +208,7 @@ test('page: every cell, function name, brand heading and legend symbol is a link
   const html = renderPage(doc);
   const titles = titledItemLinks(html).map((l) => l.title);
   assert.equal(titles.length, itemCount(doc));
-  assert.equal(itemCount(doc), 3 * 2 + 3 + 2 + 7);
+  assert.equal(itemCount(doc), 3 * 2 + 3 + 2 + 8);
   ['Hands &quot;searches&quot; to the shop.', 'Needs Travel ID.', 'No freight booking.', 'The search form that hands off to the shop.',
     'The Air Dolomiti replica.', 'Legend note for none.'].forEach((t) => assert.ok(titles.includes(t), t));
 });
@@ -185,9 +242,9 @@ test('canvas: title, date line, legend, replica links, table with footnote marks
   assert.match(html, /Updated 1 November 2026: Flight status moved\..*edits here get overwritten/);
   assert.match(html, /<a href="https:\/\/airdolomiti\.turnsthe\.page\/">Air Dolomiti<\/a>/);
   assert.match(html, /<tr><td>Flight search<\/td><td>✅<\/td><td>🪏¹<\/td><\/tr>/);
-  assert.match(html, /<tr><td>Personalised content<\/td><td>⏳²<\/td><td>→ Flight search<\/td><\/tr>/);
+  assert.match(html, /<tr><td>Personalised content<\/td><td>✈️²<\/td><td>→ Flight search<\/td><\/tr>/);
   assert.match(html, /<tr><td>eBooking quick start<\/td><td>–<\/td><td>💬²<\/td><\/tr>/);
-  assert.match(html, /Lufthansa 1\/0\/0\/0\/1 · Air Dolomiti 0\/1\/0\/1\/0/);
+  assert.match(html, /Lufthansa 1\/0\/0\/1\/0\/0 · Air Dolomiti 0\/1\/0\/0\/0\/1/);
   assert.match(html, /<ol><li>The picker is in the shared code\.<\/li><li>Travel ID accepts only the airline's own website\.<\/li><\/ol>/);
 });
 
@@ -219,7 +276,7 @@ test('verify: the served page has every titled item link, the brand and section 
     .replace('<h2>Functions</h2>', '<h2 id="functions">Functions</h2>');
   assert.deepEqual(verifyPlain(doc, served), []);
   const errors = verifyPlain(doc, served.replace(' title="No freight booking."', '').replace('id="air-dolomiti"', '')).join('\n');
-  assert.match(errors, /17 titled item links, expected 18/);
+  assert.match(errors, /18 titled item links, expected 19/);
   assert.match(errors, /no heading id "air-dolomiti"/);
   assert.match(verifyPlain({ ...doc, updated: '2026-11-02' }, served).join('\n'), /no "Updated 2 November 2026"/);
   assert.match(verifyPlain({ ...doc, change: 'Cargo moved too.' }, served).join('\n'), /no "Updated 1 November 2026: Cargo moved too\." line/);

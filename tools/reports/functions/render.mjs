@@ -10,11 +10,16 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+/** The symbols of functions.md and the canvas; the legend, the totals and the canvas keep this order. */
 export const SYMBOLS = {
-  done: '✅', wip: '🪏', elsewhere: '🌊', stays: '💬', lh: '⏳', see: '→', none: '–',
+  done: '✅', wip: '🪏', 'wip-lh': '🪏✈️', lh: '✈️', elsewhere: '🌊', stays: '💬', see: '→', none: '–',
 };
-const COUNTED = ['done', 'wip', 'elsewhere', 'stays', 'lh'];
-const NEEDS_FOOTNOTE = ['lh', 'stays'];
+// the page's: the Lufthansa crane (icons/lh-crane.svg) instead of ✈️, as :lh-crane: (the pipeline makes it an icon); a
+// no-break space keeps the spade and the crane on one line
+const CRANE = ':lh-crane:';
+export const PAGE_SYMBOLS = { ...SYMBOLS, 'wip-lh': `${SYMBOLS.wip}\u00a0${CRANE}`, lh: CRANE };
+const COUNTED = ['done', 'wip', 'wip-lh', 'lh', 'elsewhere', 'stays'];
+const NEEDS_FOOTNOTE = ['wip-lh', 'lh', 'stays'];
 const SUP = '⁰¹²³⁴⁵⁶⁷⁸⁹';
 const PSI = 'https://pagespeed.web.dev/report?url=';
 // helix-html-pipeline turns :name: in text into an icon
@@ -84,12 +89,12 @@ export function validate(doc) {
 
 const fnById = (doc) => Object.fromEntries(doc.functions.map((f) => [f.id, f]));
 
-function cellText(doc, cell) {
+function cellText(doc, cell, symbols = SYMBOLS) {
   if (cell.status === 'see') {
     const target = fnById(doc)[cell.see];
-    return `${SYMBOLS.see} ${target.short || target.name}`;
+    return `${symbols.see} ${target.short || target.name}`;
   }
-  return SYMBOLS[cell.status];
+  return symbols[cell.status];
 }
 
 /** Footnote keys in order of first use (row by row), each with its number. */
@@ -170,21 +175,21 @@ export function renderPage(doc) {
     '<p>Point at a symbol, a function or an airline for a short explanation. On a phone, tap a symbol to jump to the airline&#39;s list further down, where every explanation is written out.</p>',
     '<p>Part of the <a href="/migration-status">migration status</a>.</p>',
     '<h2>Legend</h2>',
-    `<ul>${Object.entries(SYMBOLS).map(([s, sym]) => `<li>${titled('#legend', doc.legend[s].note, sym)} ${esc(doc.legend[s].label)}: ${esc(doc.legend[s].note)}</li>`).join('')}</ul>`,
+    `<ul>${Object.entries(PAGE_SYMBOLS).map(([s, sym]) => `<li>${titled('#legend', doc.legend[s].note, sym)} ${esc(doc.legend[s].label)}: ${esc(doc.legend[s].note)}</li>`).join('')}</ul>`,
     '<p>:landing:\u00a0next to links: PageSpeed on the airline&#39;s current site, :takeoff:: PageSpeed on the replica</p>',
   ].join('');
   const table = `<div class="table-striped header matrix">${[
     row(['Function', ...doc.brands.map((b) => titled(`#${slug(b.name)}`, b.note, b.name))]),
     ...doc.functions.map((f) => row([
       titled('#functions', f.about, f.name),
-      ...doc.brands.map((b) => titled(`#${slug(b.name)}`, f.cells[b.id].note, cellText(doc, f.cells[b.id]))),
+      ...doc.brands.map((b) => titled(`#${slug(b.name)}`, f.cells[b.id].note, cellText(doc, f.cells[b.id], PAGE_SYMBOLS))),
     ])),
   ].join('')}</div>`;
   const lists = doc.brands.map((b) => {
     const items = doc.functions.map((f) => {
       const cell = f.cells[b.id];
       const page = cell.page ? ` <a href="${esc(b.host + cell.page)}">${cell.status === 'done' ? 'Try it' : 'Today&#39;s page'}</a>${psi(b, cell.page)}` : '';
-      return `<li><strong>${esc(f.name)}</strong> ${SYMBOLS[cell.status]} ${esc(cell.note)}${page}</li>`;
+      return `<li><strong>${esc(f.name)}</strong> ${PAGE_SYMBOLS[cell.status]} ${esc(cell.note)}${page}</li>`;
     });
     return `<h3>${esc(b.name)}</h3><p>${esc(b.note)} Replica: <a href="${esc(b.host)}/">${esc(new URL(b.host).host)}</a></p><ul>${items.join('')}</ul>`;
   }).join('');
