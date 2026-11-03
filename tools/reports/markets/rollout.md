@@ -754,6 +754,12 @@ root answers there only. lhedge.bbird.live, the test address of batches 1 to 6, 
   well, `server: cloudflare`, Cloudflare's 11,304-byte "Lufthansa" page, byte for byte the size of
   the page this machine got for www's `/service/api` routes on 2026-10-31. So it shows Cloudflare
   refusing this machine, not something about the URL. All 12 left for your decision.
+- **Done in brief 310 (2026-11-03)**: Ben recorded the 12 in a real browser on www (all 200 JSON,
+  `lh-feeds-001.tar.gz`, sha256 checked); they are in `tools/source-export/feeds/sdui/`, the six
+  documents are in DA at the same paths, uploaded and previewed, **not published**, and lh-edge
+  renders them as www in v1 and v2 (`compare-sdui.mjs --origin`: 8 of 8 screens of the content
+  page equal). lh-edge reads app screens from aem.live: the 12 URLs answer 404 there until the
+  six documents are published.
 
 ### Pages in the local language
 
