@@ -53,13 +53,13 @@ test('the brand entry: name, www, and none of the live systems (links to www.fly
   withPage({ brand: 'tap' }, () => assert.equal(brandEntry(), BRANDS.tap));
 });
 
-// the others join the switch when their pages are imported
-test('its roots: <ll>-<cc>, pt-pt first; the switch lists pt-pt and en-pt', () => {
+// the others join the switch when their pages are imported (es-es: brief 318)
+test('its roots: <ll>-<cc>, pt-pt first; the switch lists pt-pt, en-pt and es-es', () => {
   const roots = SITE_LANGUAGES.tap;
   assert.deepEqual(roots.map((l) => [l.lang, l.country, l.path, l.home]), [
     ['pt', 'pt', '/pt-pt/', '/pt-pt'], ['en', 'pt', '/en-pt/', '/en-pt'], ['es', 'es', '/es-es/', '/es-es'], ['fr', 'fr', '/fr-fr/', '/fr-fr'],
     ['de', 'de', '/de-de/', '/de-de'], ['it', 'it', '/it-it/', '/it-it'], ['pl', 'pl', '/pl-pl/', '/pl-pl']]);
-  assert.deepEqual(roots.filter((l) => l.listed !== false).map((l) => l.path), ['/pt-pt/', '/en-pt/']);
+  assert.deepEqual(roots.filter((l) => l.listed !== false).map((l) => l.path), ['/pt-pt/', '/en-pt/', '/es-es/']);
   assert.equal(languageOfPath('/pt-pt', roots).lang, 'pt');
   assert.equal(languageOfPath('/en-pt/book', roots).lang, 'en');
   assert.equal(languageOfPath('/pt-ptx', roots), null);
@@ -67,8 +67,9 @@ test('its roots: <ll>-<cc>, pt-pt first; the switch lists pt-pt and en-pt', () =
   assert.equal(counterpartPath('/pt-pt', roots[0], roots[1]), '/en-pt');
   assert.equal(counterpartPath('/pt-pt/bagagem', roots[0], roots[1]), '/en-pt/bagagem');
   const { links } = languageSwitch([], '/pt-pt/bagagem', 'pt', roots);
-  assert.deepEqual(links.map((l) => [l.lang, l.home, l.counterpart]), [['en', '/en-pt', '/en-pt/bagagem']]);
-  assert.deepEqual(languageSwitch([], '/en-pt', 'en', roots).links.map((l) => l.home), ['/pt-pt']);
+  assert.deepEqual(links.map((l) => [l.lang, l.home, l.counterpart]), [['en', '/en-pt', '/en-pt/bagagem'], ['es', '/es-es', '/es-es/bagagem']]);
+  assert.deepEqual(languageSwitch([], '/en-pt', 'en', roots).links.map((l) => l.home), ['/pt-pt', '/es-es']);
+  assert.deepEqual(languageSwitch([], '/es-es/equipaje', 'es', roots).links.map((l) => [l.lang, l.home]), [['pt', '/pt-pt'], ['en', '/en-pt']]);
 });
 
 test('a page\'s locale from its root: language, country, hreflang <ll>-<CC>, base the root (its nav and footer)', () => {
