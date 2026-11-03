@@ -31,7 +31,9 @@ import {
 } from './swiss-import.mjs';
 import { relativeDamLinks } from './swiss-dam.mjs';
 import { subSiteLinks, capturedPages, withOneH1 } from './swiss-sub-import.mjs';
-import { withDaImages } from './swiss-sub-dam.mjs';
+import { withDaImages, DA_CONTENT } from './swiss-sub-dam.mjs';
+import { LOCAL_IMAGES, withLocalImages } from './swiss-nav.mjs';
+import { edsDamPath } from '../../scripts/dam-path.js';
 import { BRAND_SITES, SWISS_OWN_ROOTS } from '../../scripts/brands.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
@@ -132,13 +134,21 @@ export function withParentPath(doc) {
 }
 
 /**
+ * The images Edge Delivery refuses at preview (swiss-nav.mjs LOCAL_IMAGES: the 66 KB voucher
+ * SVG) as ch's local renderings, www's src or its DA copy's (withDaImages ran first).
+ */
+export function withLocalImageCopies(doc) {
+  return withLocalImages(Object.keys(LOCAL_IMAGES).reduce((d, www) => d.split(`src="${DA_CONTENT}${edsDamPath(www)}"`).join(`src="${www}"`), doc));
+}
+
+/**
  * A market document's links again (--relink after the served pages grew: a language joined,
  * runs/markets.json refreshed): the served pages relative (subSiteLinks, as a document read from
  * www's markup: www.lufthansa.com's links stay Lufthansa's), DAM links site-relative, the paths
  * lh-swiss serves itself, the Parent path. Done twice it leaves a document as it is.
  */
 export function relinked(doc, { served, subPages, selfServed = [] }) {
-  return withParentPath(withServedLinks(relativeDamLinks(subSiteLinks(doc, { subPages, sitePaths: served, mapHosts: false })), selfServed));
+  return withLocalImageCopies(withParentPath(withServedLinks(relativeDamLinks(subSiteLinks(doc, { subPages, sitePaths: served, mapHosts: false })), selfServed)));
 }
 
 /**
@@ -146,8 +156,19 @@ export function relinked(doc, { served, subPages, selfServed = [] }) {
  * page), or of an own root (scripts/brands.js SWISS_OWN_ROOTS: kr/ko, all of whose pages are its
  * own documents)?
  */
+// the languages whose ch/<ll> is a pilot (behind SWISS_LANGUAGES_LIVE: its documents imported,
+// not live yet): their market roots are imported as the live ones', to join with them
+const PILOT_LANGUAGES = Object.values((BRAND_SITES.swiss.pilots || {}).rows || {})
+  .filter((r) => r.country === 'ch').map((r) => r.lang);
 export const onSite = (p) => Object.prototype.hasOwnProperty.call(BRAND_SITES.swiss.versions, p.split('/')[2])
+  || PILOT_LANGUAGES.includes(p.split('/')[2])
   || Object.prototype.hasOwnProperty.call(SWISS_OWN_ROOTS, p.split('/').slice(1, 3).join('/'));
+
+/** A ch page's markets from its rendered page's head (meta markets), [] without one. */
+export function marketsOfDocument(html) {
+  const m = String(html).match(/<meta name="markets" content="([^"]*)"/i);
+  return m ? m[1].split(',').map((x) => x.trim()).filter(Boolean) : [];
+}
 
 const isMain = process.argv[1] && fs.realpathSync(process.argv[1]) === fileURLToPath(import.meta.url);
 if (isMain) {
@@ -170,8 +191,29 @@ if (isMain) {
         offset += (body.data || []).length;
         if (!(body.data || []).length || offset >= body.total) break;
       }
-      Object.assign(record, marketsOf(rows));
-      console.log(`markets: ${version} ${rows.length} pages`);
+      if (rows.length) {
+        Object.assign(record, marketsOf(rows));
+        console.log(`markets: ${version} ${rows.length} pages`);
+      }
+    }
+    // a pilot language's ch/<ll> has no index before it is published: its pages on lh-swiss's
+    // preview (the allowlist's paths of the version), their markets meta
+    const allowed = JSON.parse(fs.readFileSync(path.join(root, 'tools/importer/sites/lh-swiss.json'), 'utf8')).paths;
+    // eslint-disable-next-line no-restricted-syntax
+    for (const version of [...new Set(PILOT_LANGUAGES)].map((ll) => `ch/${ll}`)) {
+      const paths = allowed.filter((x) => x.startsWith(`/${version}/`) && !/\/(nav|footer)$/.test(x));
+      let read = 0;
+      // eslint-disable-next-line no-restricted-syntax
+      for (const p of paths) {
+        // eslint-disable-next-line no-await-in-loop
+        const resp = await fetch(`https://main--lh-swiss--moved-permanently.aem.page${p}`, { headers: { 'user-agent': 'curl/8.5.0' } });
+        if (resp.ok) {
+          // eslint-disable-next-line no-await-in-loop
+          record[p] = marketsOfDocument(await resp.text());
+          read += 1;
+        }
+      }
+      console.log(`markets: ${version} ${read} of ${paths.length} pages from their documents (pilot)`);
     }
     // pages the language indexes leave out (nav, footer, form confirmations) as the record had them
     const file = path.join(W, 'runs/markets.json');
@@ -306,8 +348,9 @@ if (isMain) {
     doc = relativeDamLinks(subSiteLinks(doc.split(`https://${LINK_OUT}`).join(`https://${HOST}`), { subPages, sitePaths: served }))
       .split(`https://${PLACEHOLDER}`).join('https://www.lufthansa.com');
     doc = withDaImages(withOwnSuccess(doc, (t) => served.has(t)));
-    // the paths lh-swiss serves itself (/deeplink/cockpit) relative; Parent as a plain path
-    doc = withParentPath(withServedLinks(doc, allow.served || []));
+    // the paths lh-swiss serves itself (/deeplink/cockpit) relative; Parent as a plain path; the
+    // images Edge Delivery refuses as their local renderings
+    doc = withLocalImageCopies(withParentPath(withServedLinks(doc, allow.served || [])));
     fs.writeFileSync(f, doc);
   });
   fs.mkdirSync(path.join(W, 'runs'), { recursive: true });

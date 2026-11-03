@@ -70,6 +70,14 @@ export const GONE_IMAGES = [
   '/content/dam/btg/btg-terminal-1-1-jpg.jpeg',
   '/content/dam/lx/hxod/stage-winter-skideshot-slki-und-snowboard-1.jpg',
   '/content/dam/lx/images/pixels/7/7/8/251028-swiss-uk-2hy-winter-newsletter-header-2-1.jpg',
+  // kr/ko's held pages (2026-11-03): on the capture's not-fetched list (tools/reports/
+  // lh-swiss-dam-not-fetched.tsv), so www answers them 404 (discover/swiss-senses,
+  // sustainable-choices/saf, on-board/swiss-business, prepare/overview-flights, tsa-pre-check)
+  '/content/dam/lx/images/frontify/2024/q3/2024-061-SWISS_A350_Shot_02_delivery-C.jpg',
+  '/content/dam/lx/images/frontify_variations/9/c-917821987-436555062.jpg',
+  '/content/dam/lx/images/frontify_variations/3/c-207114728-SWISS_Business_Continental_Meal_7.jpg',
+  '/content/dam/lx/images/frontify_variations/9/c-552853445-436555062.jpg',
+  '/content/dam/lx/images/local_images/Formular_2to1.jpg',
 ];
 const GONE = new Set(GONE_IMAGES.map((www) => edsDamPath(assetOf(www))));
 

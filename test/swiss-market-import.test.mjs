@@ -85,11 +85,21 @@ test('the market pages\' images www answers 404 (GONE_IMAGES; still missing in D
   });
 });
 
-test('onSite: a page of a language lh-swiss has, or of an own root (scripts/brands.js SWISS_OWN_ROOTS: kr/ko), is the site\'s; another language\'s not', async () => {
+test('onSite: a page of a language lh-swiss has (live, or behind SWISS_LANGUAGES_LIVE as a pilot: el, ru), or of an own root (kr/ko), is the site\'s; another language\'s not', async () => {
   const { onSite } = await import('../tools/importer/swiss-market-import.mjs');
   assert.equal(onSite('/kr/ko/fly/check-in'), true);
   assert.equal(onSite('/kr/en/homepage'), true);
-  assert.equal(onSite('/gr/el/homepage'), false);
+  assert.equal(onSite('/gr/el/homepage'), true);
+  assert.equal(onSite('/ru/ru/family-promotion'), true);
+  assert.equal(onSite('/tr/tr/homepage'), false);
+});
+
+test('marketsOfDocument: a ch page\'s markets from its rendered page\'s head (a language whose index is not built yet)', async () => {
+  const { marketsOfDocument } = await import('../tools/importer/swiss-market-import.mjs');
+  const meta = (v) => `<html><head><title>x</title>${v === null ? '' : `<meta name="markets" content="${v}">`}</head><body></body></html>`;
+  assert.deepEqual(marketsOfDocument(meta('gr/el, cy/el')), ['gr/el', 'cy/el']);
+  assert.deepEqual(marketsOfDocument(meta('')), []);
+  assert.deepEqual(marketsOfDocument(meta(null)), []);
 });
 
 test('marketsOf: a language index\'s rows as the markets record (path -> its roots; an empty markets value: none listed)', async () => {
@@ -123,4 +133,26 @@ test('relinked: a market document\'s links again (the root\'s served pages relat
   assert.equal(out.includes('href="/deeplink/cockpit?country=BR&amp;language=PT"'), true, out);
   assert.equal(out.includes('href="https://www.swiss.com/br/pt/unknown"'), true, out);
   assert.equal(relinked(out, opts), out);
+});
+
+test('kr/ko\'s images www answers 404 (on the capture\'s not-fetched list) are left out; the voucher icon Edge Delivery refuses (66 KB SVG) as ch\'s PNG of it (swiss-nav.mjs LOCAL_IMAGES), www\'s or DA\'s spelling', async () => {
+  const { withDaImages, GONE_IMAGES } = await import('../tools/importer/swiss-sub-dam.mjs');
+  const { relinked } = await import('../tools/importer/swiss-market-import.mjs');
+  const gone = [
+    '/content/dam/lx/images/frontify/2024/q3/2024-061-SWISS_A350_Shot_02_delivery-C.jpg',
+    '/content/dam/lx/images/frontify_variations/9/c-917821987-436555062.jpg',
+    '/content/dam/lx/images/frontify_variations/3/c-207114728-SWISS_Business_Continental_Meal_7.jpg',
+    '/content/dam/lx/images/frontify_variations/9/c-552853445-436555062.jpg',
+    '/content/dam/lx/images/local_images/Formular_2to1.jpg',
+  ];
+  assert.equal(gone.every((g) => GONE_IMAGES.includes(g)), true);
+  gone.forEach((g) => {
+    const out = withDaImages(`<p><img src="https://www.swiss.com${g}.transform/lh-dcep-transform-width-2560/img.jpg" alt=""></p><p>Text</p>`);
+    assert.equal(out, '<p>Text</p>', g);
+  });
+  const opts = { served: new Set(), subPages: new Set(), selfServed: [] };
+  const da = '<h3><a href="/kr/ko/customer-support/faq/lounge-voucher"><img src="https://content.da.live/moved-permanently/lh-swiss/content/dam/lx/icons/product-voucher.svg" alt="">라운지 이용 바우처</a></h3>';
+  assert.equal(relinked(da, opts).includes('<img src="/media-da/swiss/product-voucher.png" alt="">'), true);
+  const www = '<img src="https://www.swiss.com/content/dam/lx/icons/product-voucher.svg" alt="">';
+  assert.equal(relinked(www, opts), '<img src="/media-da/swiss/product-voucher.png" alt="">');
 });
