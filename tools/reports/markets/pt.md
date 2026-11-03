@@ -1,6 +1,7 @@
 # Portuguese for lufthansa.com (batch 13)
 
-Status of 2026-11-03 (briefs 298 and 300). Nothing published, nothing switched on.
+Status of 2026-11-03 (briefs 298, 300 and 302): **imported, uploaded and previewed; nothing
+published, nothing switched on.**
 
 ## The language version: xx/pt
 
@@ -14,61 +15,77 @@ batch 13, d0c80364; `test/markets-pt.test.mjs`).
 
 The four homepages carry the same Portuguese text (European Portuguese, "Reserve os seus bilhetes
 online agora e viaje pelo mundo"); only the country and language label differs. br/pt has no
-Brazilian wording of its own on the pages compared so far.
+Brazilian wording of its own on the pages compared.
 
 ## Captures
 
-Bright Data, 2026-11-03, one warm session at a time, one page every 5 to 10 s; **no 403, no block**.
-Stopped at 10:50 UTC on Ben's word (brief 300: no more Bright Data captures; Ben's machine captures
-from `tools/markets/capture-lists/13-pt.txt`).
-
-| | asked | captured | not captured |
-| --- | --- | --- | --- |
-| xx/pt, in scope (pages whose de/en or de/de counterpart is in `tools/migration-scope/pages.csv`) | 257 | 75 (73 in the session, 2 of the 3 probes) | 182: the capture stopped |
-| the roots (homepages, own pages, comparison pages: what `rollout.mjs --plan 13` gives) | 21 | 20 | pt/pt `additional-services` |
-
-- One www 404 so far: `/xx/pt/business-class` (www's short alias URL, as xx/es's
-  `business-class`; its long URL answers 404).
-- **Left out of the version** (77 of www's 334 xx/pt URLs): pages lh-com has in no language version
-  (no in-scope de/en or de/de counterpart): the aircraft type pages (`319` … `74z`), the
-  `configuration/commonheader` AEM pages, the stopover partner pages lh-com does not have,
-  `emergency-contact` (no de/en page), `inscricao`, `book-and-manage/best-price` and others; the
-  list is `migration-work/pt/xx-pt-out.tsv` (outside git) and reproducible from the sitemap groups.
-- **The roots' own pages** (`rollout.mjs` ownPages): ao/pt none; br/pt six
-  (`local-page/lufthansa-in-brazil/anac-report`, `carrying-values`,
-  `international-transit-in-gru`, `online-tickets-cancellation`, `sac`; `pix`); pt/pt three
-  (`book-and-manage/offers-and-destination/companion_special_business`,
-  `companion_special_premium_economy`, `fatura`).
+- **The local capture** (Ben's machine, a real browser, about one page every 10 s, from
+  `tools/markets/capture-lists/13-pt.txt`): three archives, `lh-snapshots-001` to `-003`
+  (lh-deliveries.json: `{"segment": "pt", "complete": true}`), **274 pages**; each archive's sha256
+  and each page's sha256 in its manifest checked, every entry a regular file inside the archive.
+  The pages were checked before they were placed: all Portuguese (`lang="pt"`), each with its own
+  canonical, its own URL or www's long AEM URL of it as final URL, no challenge page, no empty
+  shell. **None looked wrong.** 13 have no H1, as on www (the 100-years, aircraft and hero
+  pages; the Bright Data snapshots of the same pages have none either).
+- **Not captured: 6, all www 404s** (the archive's probes): `/xx/pt/business-class`,
+  `digital-travel-companion`, `flynet`, `freigepaeck-regeln`, `lounges` (www's short alias URLs of
+  other xx/pt pages, as xx/es's five) and `/xx/pt/lufthansa-city/menu-card` (a 404 on www, as
+  fr/fr's).
+- Before that, Bright Data (2026-11-03, no 403) had captured 75 xx/pt and 20 root pages; stopped at
+  10:50 UTC on Ben's word (brief 300). Every one of those pages came again in the archives, and
+  **the archives' copies replaced them** (every one differed: another capture time): every
+  document is imported from Ben's captures.
 
 ## Documents (DA and preview, not published)
 
-**62 documents**, 62 of 62 answer 200 on preview and carry the same text in DA (374a0d18):
-- **xx/pt, 50**: 48 pages imported from the captures (27 more captured pages wait for the archive) by the template of their de/en counterpart
-  (`import-batch.mjs`; homepage 1, the 100-years hub and campaign pages, info, legal, one form), its
-  nav and footer from its homepage capture (`import-nav.bundle.js`: Portuguese labels, "Outros
-  países | Português"); links into xx/pt relative where it has the document (`root-docs.mjs
-  --own-root xx/pt`: 142 links).
-- **ao/pt, br/pt, pt/pt, 12**: the three homepages (homepage template) and the nine own pages (info
-  template; pt/pt's two `companion_special_*` pages are documents under `companion-special-*`).
-- Images: the Instagram logo SVG of the homepages (58 KB, over Edge Delivery's 40 KB: the preview
-  answered 409) is its converted PNG already in DA (`media-manifest.json`'s conversion; this
-  workspace has no media cache, so `postprocess-media.mjs --no-download` measures nothing).
-- `tools/importer/sites/lh-com.json` lists the 62 (added at the end).
+**265 documents, 265 of 265 answer 200 on preview and carry the same text in DA:**
+- **xx/pt, 253**: 251 pages by the template of their de/en counterpart (`import-batch.mjs`:
+  homepage 1, hub 16, campaign 21, fleet 8, info 165, legal 29, form 5, app-entry 5,
+  flight-status 1), its nav and footer from its homepage capture (`import-nav.bundle.js`:
+  Portuguese labels, "Outros países | Português"); links into xx/pt relative where it has the
+  document (`root-docs.mjs --own-root xx/pt`).
+- **ao/pt, br/pt, pt/pt, 12**: the three homepages (homepage template) and the nine own pages
+  (info template): br/pt's `local-page/lufthansa-in-brazil/anac-report`, `carrying-values`,
+  `international-transit-in-gru`, `online-tickets-cancellation`, `sac` and `pix`; pt/pt's
+  `book-and-manage/offers-and-destination/companion_special_business` and
+  `companion_special_premium_economy` (documents under `companion-special-*`) and `fatura`; their
+  links into their own root relative (`--own-root`). ao/pt has no own pages.
+- **The forms** keep their ids: `anmeldung-tiere-frachtraum`, `feedback-past-flight`,
+  `register-ammunition`, `register-animal-cabin` (`farealert/best-price-alert` has no form row, as
+  on de/en).
+- Images: the homepages' Instagram logo SVG (58 KB, over Edge Delivery's 40 KB: the preview answered
+  409) is its converted PNG already in DA (`media-manifest.json`'s conversion; this workspace has no
+  media cache, so `postprocess-media.mjs --no-download` measures nothing).
+- `tools/importer/sites/lh-com.json` lists the 265 (added at the end).
+
+## Left out, and why
+
+- **77 of www's 334 xx/pt URLs** have no in-scope de/en or de/de counterpart (pages lh-com has in
+  no language version): the aircraft type pages (`319` … `74z`), the `configuration/commonheader`
+  AEM pages, the stopover partner pages lh-com does not have, `inscricao`,
+  `book-and-manage/best-price` and others. They were not captured.
+- **The six www 404s** above (no capture). xx/es has its five alias URLs as documents imported
+  from their real pages (931e6d05); the same is possible for xx/pt if you want it.
+- **Two archive pages outside the scope**, captured but not imported: `/xx/pt/emergency-contact`
+  (no de/en counterpart; the emergency contact form is on lh-forms as `emergency-contact`, as es/es
+  and fr/fr have it) and `/xx/pt/prepare-for-your-trip/baggage/sport-baggage/register-ammunition1`
+  (www's second copy of the ammunition form, as fr/fr's, which has no id).
+- **The roots' comparison pages** (`flights`, `airport-information`, `additional-services` of each
+  root, 8 captured): references for the local-version comparison, not documents (the roots answer
+  them from xx/pt).
+- **The form confirmations**: not in www's sitemaps nor in the capture list, so not captured:
+  `/xx/pt/support/contact/contact-form-confirmation`,
+  `/xx/pt/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm1/confirmation`,
+  `/xx/pt/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation`
+  (the success rows of xx/pt's forms name them; on www's pages until they are captured) and
+  `/xx/pt/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation`
+  (de/en's; xx/pt's `anmeldung-tiere-frachtraum` names none).
 
 ## What Portuguese still needs before it can go live
 
-1. **The rest of the captures**: Ben's archive (182 xx/pt pages, pt/pt's `additional-services`,
-   xx/pt's form confirmations below); where an archive page differs from a snapshot here, the
-   archive's wins. Then the import of the rest, by template, uploaded and previewed per batch.
-2. **The form confirmations**: xx/pt's form pages (`anmeldung-tiere-frachtraum`,
-   `feedback-past-flight`, `register-ammunition`, `register-animal-cabin`; `farealert/best-price-alert`
-   has no success row on de/en) and the pages their de/en forms send to:
-   `/xx/pt/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation`,
-   `/xx/pt/support/contact/contact-form-confirmation`,
-   `/xx/pt/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation`,
-   `/xx/pt/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation`
-   (to capture; not in www's sitemaps). The form ids stay as on de/en.
-3. **Locale rows (ema-adobe: `tools/markets/locale-data.json` and the table it builds,
+1. **The four form confirmation pages** above: captured and imported (the success rows then link
+   them).
+2. **Locale rows (ema-adobe: `tools/markets/locale-data.json` and the table it builds,
    `scripts/locale-table.js`, are shared)**: the values from the homepage captures
    (`rollout.mjs --rows 13`, not applied):
 
@@ -80,17 +97,18 @@ from `tools/markets/capture-lists/13-pt.txt`).
    | pt/pt | Portugal \| Português | Portugal / Portugal / Portugal | LIS | EUR |
 
    (www's labels have runs of spaces before the "|": kept as www writes them, as for French);
-   `languageVersions.pt = xx/pt`; all `pilot`, batch 13. Without the rows the roots' nav and footer
-   copies (`root-docs.mjs --from xx/pt --to <root>`) keep xx/pt's label: they are not made yet.
+   `languageVersions.pt = xx/pt`; all `pilot`, batch 13.
+3. **The roots' nav and footer**: copies of xx/pt's (`root-docs.mjs --from xx/pt --to <root>`),
+   which take the root's label from the locale rows: after them.
 4. **The query indexes** of xx/pt (helix-query.yaml `search-xx-pt`, `market-model-xx-pt`,
-   `market-llms-xx-pt`, as for xx/es: `tools/markets/lean-indexes.mjs` ROOTS): they fill on
-   publish; the market route answers the roots' pages from them.
+   `market-llms-xx-pt`, as xx/es's: `tools/markets/lean-indexes.mjs` ROOTS): they fill on publish;
+   the market route answers the roots' pages from them.
 5. **Redirect rows**: pt/pt's `companion_special_business` and `companion_special_premium_economy`
-   (www's underscore URLs) to the documents `companion-special-business` and
-   `companion-special-premium-economy`; `/xx/pt/business-class` (www's alias) as xx/es's.
+   (www's underscore URLs) to `companion-special-business` and `companion-special-premium-economy`;
+   the five xx/pt alias URLs if they get no documents.
 6. **The site's texts in Portuguese** (labels fall back to English).
-7. Then a wave: the local-version comparison (`rollout.mjs --plan 13` compare pairs) and the
-   preview check, as batches 11 and 12.
+7. Then a wave: the local-version comparison (`rollout.mjs --plan 13`'s compare pairs, the roots'
+   comparison captures against xx/pt's) and the preview check, as batches 11 and 12.
 
 ## The other languages (brief 300)
 
@@ -106,4 +124,5 @@ version's in-scope pages (its homepage first), then what `rollout.mjs --plan <n>
 version's three comparison references; the roots' homepages, own pages and comparison pages).
 For batches 14 to 21 also `<n>-<lang>-<cc>-<ll>.txt`, the fallback root's in-scope pages. `--plan`
 itself stops on batches 14 to 21 until the version's comparison documents exist; the lists were
-made from its helpers without that check.
+made from its helpers without that check. The lists hold no form confirmation pages (not in www's
+sitemaps); for Portuguese they are point 1 above.
