@@ -63,6 +63,7 @@
 /xx/es/book-and-manage/stopover/bayerischer-hof
 /xx/es/book-and-manage/stopover/neuschwanstein
 /xx/es/book-and-manage/stopover/zugspitze
+/xx/es/business-class
 /xx/es/business-class-on-short-and-medium-haul
 /xx/es/business-services
 /xx/es/cancellations-and-refunds
@@ -89,6 +90,7 @@
 /xx/es/datenschutz
 /xx/es/digital-baggage-services
 /xx/es/digital-self-services
+/xx/es/digital-travel-companion
 /xx/es/direcciones-en-todo-el-mundo
 /xx/es/discover-lufthansa/carbon-offsetting/climate-protection-projects
 /xx/es/discover-lufthansa/carbon-offsetting/environmental-cost-surcharge
@@ -126,9 +128,11 @@
 /xx/es/flights
 /xx/es/flugunregelmaessigkeiten
 /xx/es/fly-more-sustainabl
+/xx/es/flynet
 /xx/es/fmg-valet-parking-service
 /xx/es/frankfurt-fair
 /xx/es/free2move
+/xx/es/freigepaeck-regeln
 /xx/es/gefaehrliche-gegenstaende
 /xx/es/gepaeck
 /xx/es/gesund-reisen
@@ -143,6 +147,7 @@
 /xx/es/lh-rentalcar
 /xx/es/local-page/black-friday
 /xx/es/lounge-begleitung
+/xx/es/lounges
 /xx/es/lufthansa-am-flughafen-frankfurt
 /xx/es/lufthansa-at-berlin-airport
 /xx/es/lufthansa-at-duesseldorf-airport

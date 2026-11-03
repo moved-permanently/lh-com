@@ -158,7 +158,7 @@ documents in that wave, as noted in rollout.md "The China host").
 | 10 | 8 | 38 | 24 / 14 | 2 (us/en ccpa, dnsmpi) | – |
 | **1–10** | **190** | **698** (697 documents and the redirects sheet) | | 21 | 1 |
 | 11 (French) | 14 (fr/fr and 13 market roots) | 323 | fr/fr 283 (its homepage, nav, footer, 273 pages and 7 form confirmations) / 13 × 3 and 1 own page | – | 1 |
-| 12 (Spanish) | 14 (xx/es and 13 market roots) | 315 | xx/es 269 (its homepage, nav, footer, 260 pages and 6 form confirmations) / 13 × 3 and 7 own pages | – | 1 |
+| 12 (Spanish) | 14 (xx/es and 13 market roots) | 320 | xx/es 274 (its homepage, nav, footer, 265 pages and 6 form confirmations) / 13 × 3 and 7 own pages | – | 1 |
 
 The lists hold every document of the wave's roots that is on preview and not live yet, homepages,
 navs and footers first per root. Since brief 264 they also hold:
@@ -311,6 +311,27 @@ decision) and one app page (`/xx/en/support/airport-assistant`); plus 52 left ou
 the capture (AEM configuration, login, registration, profile and Travel ID app pages,
 confirmations), as for every root. No new redirect rows.
 
+## The 34 de/<ll> pages behind www's xx alias URLs (brief 278)
+
+The 34 xx URLs of brief 267 that www sends to the same path under de/en or de/de are **no pages of
+www's de roots either** (checked 2026-11-03 through the Bright Data session, short and long URLs):
+- **24 answer 404 on www** (short and long URL): the Art Basel, Paris 2024, European Championship,
+  Yes-to-Europe raffle, tracksuit and Team Yes raffle articles and pages, de/de's
+  `winter-destinations-backup` and `on-the-scene-paris-olympic-games`. www's sitemaps still list
+  their xx alternates; there is no page to import, and a market root answering 404 for them is
+  what www answers. No document, no publish list.
+- **10 are www's 301 aliases**: the five travel guides in en and de
+  (`/de/<ll>/articles/tags/<city>-travel-guide` to `/de/<ll>/articles/tags/<city>`, cape-town,
+  chicago, munich, san-francisco, shanghai): lh-com has the ten tag pages. **Redirect rows for
+  you** (the redirect sheet), so the main host and every market root (the market route follows the
+  language version's redirects into the root) answer as www:
+  `/de/en/articles/tags/<city>-travel-guide` -> `/de/en/articles/tags/<city>` and the same for
+  de/de; www's xx URLs (`/xx/en/articles/tags/<city>-travel-guide`, `/xx/de/...`) go to the same
+  targets if you want them too.
+- **What changes on the main host**: nothing until the rows are on the published sheet; then
+  `/de/en/articles/tags/cape-town-travel-guide` and the nine others answer 301 to the tag page
+  instead of 404, on the main host and (after their waves) on the market roots.
+
 ## Wave 11: French (prepared 2026-11-02, brief 264; not switched)
 
 fr/fr is French's language version (www's `xx/fr` has no pages; your choice: fr/fr, as de/en for
@@ -372,15 +393,19 @@ is only an alternate in www's sitemaps (hreflang `es`, label "Otros paises | Esp
 `market-model-xx-es`, `market-llms-xx-es` are in helix-query.yaml (7174fd9; they fill on
 publish).
 
-`publish-wave-12.txt`: **315 documents**: xx/es 269 (homepage, nav, footer first, then its 260
+`publish-wave-12.txt`: **320 documents**: xx/es 274 (homepage, nav, footer first, then its 265
 pages and the 6 confirmation pages its forms go to), then per market root its homepage, nav and
 footer and the own pages (es/es: emergency contact, feedback, feedbackai, the Allegris article,
 the ski campaign, asia-specials; ar/es: the Allegris article). Left out: xx/es's
 `…/register-ammunition1` (www's second copy of the ammunition form; no lh-forms id).
-Not imported: five xx/es URLs that are www's aliases only (`business-class`,
-`digital-travel-companion`, `flynet`, `freigepaeck-regeln`, `lounges`: their long AEM URL answers
-404; de/en has these as documents), three www 404s, and `xx/es/emergency-contact` (www's error
-page; es/es has the form).
+**xx/es's five alias pages** (`business-class`, `digital-travel-companion`, `flynet`,
+`freigepaeck-regeln`, `lounges`: www's short URLs of other pages, as on fr/fr) are documents under
+the alias paths, as de/en has them (brief 278): imported from the captures of their real pages
+(`prepare-for-your-trip/travel-classes/business-class`,
+`book-and-manage/digital-self-services/digital-travel-companion`, `during-your-trip/internet-on-board`,
+`prepare-for-your-trip/baggage/free-baggage`, `during-your-trip/lounges`, captured 2026-11-03
+through the long URLs), previewed, in the list. Not imported: three www 404s and
+`xx/es/emergency-contact` (www's error page; es/es has the form).
 
 **Release order for wave 12**, as wave 11: publish xx/es's 269 lines first and wait until
 `/xx/es/search-index.json` and `/market-model/xx-es.json` answer with the same total (about 260);
@@ -437,6 +462,11 @@ captures for the version's ~280 in-scope pages and the roots' ~4 pages each):
 
 ## Open
 
+- **www's xx/fr has pages now** (2026-11-03: its homepage, flights and the Munich stopover page
+  answer in French with their own canonical through the long URLs; at the end of October its homepage
+  was 404). Wave 11 keeps fr/fr as the language version until you decide (as xx/es for Spanish, xx/fr
+  would be the version and fr/fr a market root).
+- **Ten redirect rows** for the travel guides (above).
 - **Wave 00, the market-neutral pages**: publish before wave 1 (it changes ch's answers on the
   main host at once); 34 xx URLs are www's de/<ll> pages out of scope (your decision); which of the
   109 go to `/gc` (tools/reports/markets/neutral-pages.md), after 5 November.
