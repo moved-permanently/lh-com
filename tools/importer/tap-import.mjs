@@ -147,7 +147,20 @@ export function anchorsOf(nd) {
 
 /* ------------------------------------------------------------------ rich text ---------- */
 
-const INLINE = new Set(['text', 'link', 'line-break', 'span']);
+const INLINE = new Set(['text', 'link', 'line-break', 'span', 'reference']);
+// www renders a rich text's DAM references from its AEM host (pageProps.aemHost)
+const AEM = 'https://aem.flytap.com';
+
+/** A rich text reference (a DAM image): the archive's copy, else left out and listed. */
+function reference(n, c) {
+  const p = n.data && n.data.path;
+  if (!p || !/^image\//.test(n.data.mimetype || 'image/')) return '';
+  const m = c.media(p) || c.media(`${AEM}/${p.replace(/^\/+/, '')}`) || c.media(`${AEM}//${p.replace(/^\/+/, '')}`);
+  const local = m && (typeof m === 'string' ? { eds: m } : m);
+  if (local && local.eds) return `<img src="${attr(local.eds)}" alt="">`;
+  if (c.missing) c.missing.add(`${AEM}/${p.replace(/^\/+/, '')}`);
+  return '';
+}
 const FORMAT = {
   strong: 'strong', bold: 'strong', emphasis: 'em', italic: 'em', underline: 'u', subscript: 'sub', superscript: 'sup',
 };
@@ -159,6 +172,7 @@ function inline(n, c) {
     return s;
   }
   if (n.nodeType === 'line-break') return '<br>';
+  if (n.nodeType === 'reference') return reference(n, c);
   const inner = (n.content || []).map((x) => (INLINE.has(x.nodeType) ? inline(x, c) : flow([x], c, 'cell'))).join('');
   if (n.nodeType === 'link') {
     const href = linkOf(n.data && n.data.href, c);
@@ -259,7 +273,9 @@ class Page {
     this.c = c;
     this.sections = [{ style: null, items: [] }];
     this.blocks = {};
-    this.missing = new Set();
+    // shared with the rich text (its DAM references)
+    this.missing = c.missing || new Set();
+    c.missing = this.missing;
     this.linkedOut = new Set();
     this.generic = new Set();
     this.notes = [];

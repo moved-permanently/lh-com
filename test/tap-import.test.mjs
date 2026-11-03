@@ -105,6 +105,17 @@ describe('tap-import media', () => {
   });
 });
 
+describe('tap-import rich text images', () => {
+  const ref = (p) => [{ nodeType: 'paragraph', content: [{ nodeType: 'span', content: [{ nodeType: 'reference', data: { path: p, mimetype: 'image/jpeg' } }] }] }];
+  it('a reference to a DAM image: the archive\'s copy, else left out and listed (www renders it from aem.flytap.com)', () => {
+    const missing = new Set();
+    const c = { ...ctx(), missing, media: (k) => (k === '/content/dam/tap/a.jpg' ? '/media-da/tap/a-1.jpg' : null) };
+    assert.equal(richText(ref('/content/dam/tap/a.jpg'), c), '<p><img src="/media-da/tap/a-1.jpg" alt=""></p>');
+    assert.equal(richText(ref('/content/dam/tap/b.jpg'), c), '');
+    assert.deepEqual([...missing], ['https://aem.flytap.com/content/dam/tap/b.jpg']);
+  });
+});
+
 describe('tap-import pages', () => {
   it('the homepage: the stage slider, the service links, the cards, Miles&Go, metadata', () => {
     const { html, report } = convertPage(nd('homepage'), ctx('https://www.flytap.com/pt-pt'));
