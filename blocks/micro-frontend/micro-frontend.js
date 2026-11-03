@@ -2,7 +2,7 @@ import {
   loadCSS, loadScript, decorateBlock, loadBlock,
 } from '../../scripts/aem.js';
 import { getLocale, brandEntry, portalOf } from '../../scripts/locale.js';
-import { isDemoHost, isTurnsThePageHost } from '../../scripts/demo.js';
+import { isDemoHost, isTurnsThePageHost, TURNSTHE_PAGE_DOMAIN } from '../../scripts/demo.js';
 
 /*
  * Micro Frontend: one of the Lufthansa Group's micro-frontends on the page (AMS rest A4 part 2).
@@ -42,8 +42,9 @@ const BRAND_DESIGN_SYSTEMS = {
 };
 
 // the brands whose apps and design system load from the page's own /digitalhangar/ where the host
-// serves it (lh-edge answers it from the brand's www): no visitor's browser asks their www
-const OWN_HOST_BRANDS = ['www.swiss.com'];
+// serves it (lh-edge answers it from the brand's www), elsewhere (aem.page, aem.live, localhost)
+// from their turnsthe.page host's: no visitor's browser asks their www. www host -> brand host
+const OWN_HOST_BRANDS = { 'www.swiss.com': `swiss.${TURNSTHE_PAGE_DOMAIN}` };
 
 /**
  * The apps the block knows: name (the block's first cell) -> element, script and www's classes.
@@ -144,16 +145,16 @@ export function configOf(block) {
  * page's module app (www.lufthansa.com sends its scripts without Access-Control-Allow-Origin, so
  * a module from there is refused on our hosts) loads from the page's own /digitalhangar/ where the
  * host serves it; the brands' apps from their www (SWISS's, OWN_HOST_BRANDS, from the page's own
- * /digitalhangar/ where the host serves it), the classic scripts from www, as before.
+ * /digitalhangar/ where the host serves it, else from its turnsthe.page host's), the classic
+ * scripts from www, as before.
  */
 export function mountPlan(block, brand, locale, hostname = window.location.hostname) {
   const app = appOf(block);
   if (!app) return null;
   const ownHost = app.path && app.module && !brand && servesDigitalHangar(hostname);
-  const brandOwn = Boolean(brand && OWN_HOST_BRANDS.includes(brand.www))
-    && servesDigitalHangar(hostname);
+  const brandHost = brand && OWN_HOST_BRANDS[brand.www];
   let brandWww = app.path && brand && brand.www ? `https://${brand.www}` : WWW;
-  if (app.path && brandOwn) brandWww = `https://${hostname}`;
+  if (app.path && brandHost) brandWww = `https://${servesDigitalHangar(hostname) ? hostname : brandHost}`;
   const www = ownHost ? `https://${hostname}` : brandWww;
   const design = app.brandDesign && brand ? BRAND_DESIGN_SYSTEMS[brand.www] : null;
   // the brand's design system from its www; a lufthansa.com app's own release from www

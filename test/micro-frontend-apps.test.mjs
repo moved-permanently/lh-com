@@ -159,3 +159,24 @@ test('SWISS\'s apps and design system from the page\'s own /digitalhangar/ (swis
   const aua = mountPlan(blockOf([['help-center-web']]), BRANDS.austrian, { country: 'at', lang: 'en', brand: 'austrian' }, 'austrian.turnsthe.page');
   assert.equal(aua.scripts[1].src, 'https://www.austrian.com/digitalhangar/cs-help-center/help-center-web/help-center-web-4.3.1.js', 'Austrian as before');
 });
+
+// brief 293: on the hosts that serve no /digitalhangar/ (aem.page, aem.live, localhost) SWISS's
+// apps and design system from its turnsthe.page host (lh-edge's route there), not www.swiss.com;
+// on www.swiss.com itself its own; the other brands as before
+test('SWISS on aem.page, aem.live and localhost: its apps and design system from swiss.turnsthe.page, never www.swiss.com', () => {
+  const locale = { country: 'ch', lang: 'en', brand: 'swiss' };
+  ['main--lh-swiss--moved-permanently.aem.page', 'main--lh-swiss--moved-permanently.aem.live', 'localhost'].forEach((host) => {
+    const hc = mountPlan(blockOf([['help-center-web']]), BRANDS.swiss, locale, host);
+    assert.equal(hc.css, 'https://swiss.turnsthe.page/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/css/swiss.css', host);
+    assert.deepEqual(hc.scripts, [
+      { src: 'https://swiss.turnsthe.page/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/packages/maui-design-system.js', module: true },
+      { src: 'https://swiss.turnsthe.page/digitalhangar/cs-help-center/help-center-web/help-center-web-4.3.1.js', module: true },
+    ], host);
+    const cul = mountPlan(blockOf([['culinary-hub']]), BRANDS.swiss, locale, host);
+    assert.equal(cul.scripts[1].src, 'https://swiss.turnsthe.page/digitalhangar/onecatering/culinary-hub/culinary-hub-latest.js', host);
+  });
+  const www = mountPlan(blockOf([['culinary-hub']]), BRANDS.swiss, locale, 'www.swiss.com');
+  assert.equal(www.scripts[1].src, 'https://www.swiss.com/digitalhangar/onecatering/culinary-hub/culinary-hub-latest.js', 'www.swiss.com: its own');
+  const aua = mountPlan(blockOf([['culinary-hub']]), BRANDS.austrian, { country: 'at', lang: 'en', brand: 'austrian' }, 'main--lh-austrian--moved-permanently.aem.page');
+  assert.equal(aua.scripts[1].src, 'https://www.austrian.com/digitalhangar/onecatering/culinary-hub/culinary-hub-latest.js', 'Austrian as before');
+});
