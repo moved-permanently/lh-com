@@ -1,4 +1,4 @@
-import { createOptimizedPicture } from '../../scripts/aem.js';
+import { createOptimizedPicture, getMetadata } from '../../scripts/aem.js';
 import { getLocale } from '../../scripts/locale.js';
 import {
   resolveLabels, cleanText, toConfigKey, keepImageSize,
@@ -353,6 +353,74 @@ function decorateStage(block, labels, { eager, region, uid }) {
   }
 }
 
+/** The looks of option services; the first is the default. */
+const SERVICES_LOOKS = ['band', 'dock', 'tiles'];
+
+/** Options that switch option services off (the block renders as without it). */
+const SERVICES_EXCLUDED = ['slider', 'card', 'right', 'narrow', 'regular'];
+
+/** The icons of option services by position: the label, then the items (more items: none). */
+const SERVICES_LABEL_ICON = 'gear';
+const SERVICES_ITEM_ICONS = ['plane', 'suitcase', 'star', 'car'];
+
+/**
+ * The look of option services, first match wins: the URL parameter hero-services (compares the
+ * looks on one page), the variant word on the block, the page metadata hero-services (a site's
+ * /metadata.json sets it for every page), else band. Unknown values are skipped.
+ */
+function servicesLook(block) {
+  const known = (value) => {
+    const v = String(value || '').trim().toLowerCase();
+    return SERVICES_LOOKS.includes(v) ? v : '';
+  };
+  let param = '';
+  try {
+    param = new URLSearchParams(window.location.search || '').get('hero-services');
+  } catch (e) {
+    param = '';
+  }
+  return known(param)
+    || SERVICES_LOOKS.find((l) => block.classList.contains(l))
+    || known(getMetadata('hero-services'))
+    || SERVICES_LOOKS[0];
+}
+
+/**
+ * Option services (Air Dolomiti's homepages): a stage without a heading whose text is an optional
+ * label paragraph followed by link-only paragraphs (the decorated .hero-campaign-cta) becomes a row
+ * of service shortcuts in one of three looks (data-services, class hero-campaign-services; the CSS
+ * keys off those two only): the label is named and labels the text as a group, an icon per
+ * position (data-icon). Any other shape, a heading in the block, or one of SERVICES_EXCLUDED:
+ * nothing changes.
+ * @param {Element} block the decorated stage
+ * @param {string} uid the stage's id suffix
+ */
+function decorateServices(block, uid) {
+  if (!block.classList.contains('services')) return;
+  if (SERVICES_EXCLUDED.some((c) => block.classList.contains(c))) return;
+  const content = block.querySelector(':scope > .hero-campaign-inner > .hero-campaign-content');
+  if (!content || content.querySelector('h1, h2, h3, h4, h5, h6')) return;
+  const children = [...content.children];
+  const isItem = (el) => el.classList.contains('hero-campaign-cta');
+  const isLabel = (el) => el.tagName === 'P' && !el.querySelector('a, picture, img') && cleanText(el);
+  const label = children.length && isLabel(children[0]) ? children[0] : null;
+  const items = label ? children.slice(1) : children;
+  if (!items.length || !items.every(isItem)) return;
+
+  block.dataset.services = servicesLook(block);
+  block.classList.add('hero-campaign-services');
+  if (label) {
+    label.classList.add('hero-campaign-services-label');
+    label.id = `hero-campaign-services-label-${uid}`;
+    label.dataset.icon = SERVICES_LABEL_ICON;
+    content.setAttribute('role', 'group');
+    content.setAttribute('aria-labelledby', label.id);
+  }
+  items.forEach((item, i) => {
+    if (SERVICES_ITEM_ICONS[i]) item.dataset.icon = SERVICES_ITEM_ICONS[i];
+  });
+}
+
 /** The rows of option slider per slide: a row with a picture starts one (earlier rows join it). */
 function slideRows(block) {
   const groups = [];
@@ -469,5 +537,6 @@ export default function decorate(block) {
     return;
   }
   decorateStage(block, labels, { eager, region: true, uid: String(instanceCount) });
+  decorateServices(block, String(instanceCount));
   trackScrollbar(block);
 }

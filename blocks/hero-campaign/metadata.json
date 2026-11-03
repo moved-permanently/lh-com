@@ -20,6 +20,22 @@
     {
       "class": "right",
       "label": "Text card right"
+    },
+    {
+      "class": "services",
+      "label": "Service shortcuts (look: ?hero-services, the variant word, metadata hero-services, else band)"
+    },
+    {
+      "class": "services band",
+      "label": "Service shortcuts: band"
+    },
+    {
+      "class": "services dock",
+      "label": "Service shortcuts: dock"
+    },
+    {
+      "class": "services tiles",
+      "label": "Service shortcuts: tiles"
     }
   ],
   "memberVariantIds": [],

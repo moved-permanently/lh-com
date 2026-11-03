@@ -10,6 +10,8 @@ Single block table. Content: 1 column. Row 1: background image (poster), optiona
 
 Option slider (`hero-campaign (slider)`, www.lufthansa-cargo.com's homepage stage): several slides in one block. Each row with a picture starts a slide (its background image, optionally followed by an .mp4 link), the rows after it up to the next picture are that slide's text, written as in a single stage (heading, subtitle, text, CTA): image row, text row, image row, text row, ... The block's other options (`right`, `card`, `narrow`, `regular`) apply to every slide. One slide at a time, full width; previous/next buttons at the sides (from 768px), a dot per slide at the bottom, arrow keys on the focused slider; no automatic rotation. Screen readers get it as carousel-images: a region (aria-roledescription carousel, label 'Stage' / 'Bühne'), each slide a group labelled '1 of 3' / '1 von 3', the buttons 'Previous slide' / 'Next slide' ('Vorherige Folie' / 'Nächste Folie'), the current dot aria-current. Optional label rows: 'Slider label', 'Previous label', 'Next label', 'Slide label' ({n} and {total}). Only the first slide's image loads eagerly. A block with a single slide is a plain stage.
 
+Option services (`hero-campaign (services)`, Air Dolomiti's homepages): a stage without a heading whose text is an optional label paragraph (plain text, before the first link) followed by link-only paragraphs (one link each: Check In, Manage booking, Miles & More, Car rental) becomes a row of service shortcuts in one of three looks. `hero-campaign (services, band)`: a band in the brand colour along the bottom of the photo, the label on the left, equal outlined buttons (2 x 2 below 1025px). `hero-campaign (services, dock)`: one frosted white bar on the photo, the label its first cell, quiet segments with hairline dividers (2 x 2 below 1025px). `hero-campaign (services, tiles)`: the label as an overline on a navy pill, frosted navy tiles with the icon above the label (2 x 2 on phones). Which look, first match wins: the URL parameter `?hero-services=band|dock|tiles` (any host, to compare the looks on one page without publishing), the variant word on the block, the page metadata `hero-services` (a `hero-services` column on the `/**` row of the site's `/metadata.json` sets it for every page; a page's own metadata overrides it), else band; unknown values are skipped. Icons by position: the label a gear, the items a plane, a suitcase, a star, a car (further items none). The text is a group named by the label (no label: no group). No overlay from the left, no margin under the stage section; 640px stage (tiles 680px; phones 560px band, 600px dock and tiles). Only the block's own content counts (a visually hidden H1 before the block does not). With a heading in the block, or with `slider`, `card`, `right`, `narrow` or `regular`, the option is ignored: the block renders as without it.
+
 ## Supported variations
 
 | Variation | Option class |
@@ -19,6 +21,10 @@ Option slider (`hero-campaign (slider)`, www.lufthansa-cargo.com's homepage stag
 | Narrow stage (350px) | `narrow` |
 | Regular stage (640px) | `regular` |
 | Several stages, one at a time | `slider` (combine with the others: they apply to every slide) |
+| Service shortcuts, the look from the URL parameter, the page or site metadata `hero-services`, else band | `services` (not with a heading, `slider`, `card`, `right`, `narrow`, `regular`) |
+| Service shortcuts in a brand-colour band | `services`, `band` |
+| Service shortcuts in a frosted bar | `services`, `dock` |
+| Service shortcuts as frosted tiles | `services`, `tiles` |
 
 ## Universal Editor fields
 

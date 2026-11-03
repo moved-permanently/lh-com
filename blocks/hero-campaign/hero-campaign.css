@@ -472,3 +472,359 @@ main > .section.stage.flush.before-padded:has(> .hero-campaign-wrapper) {
     display: none;
   }
 }
+
+/* ---------------------------------------------------------------- option services ----- */
+
+/* services (hero-campaign.js decorateServices): a stage without a heading whose text is a label
+   and link-only paragraphs, as a row of service shortcuts in one of three looks: band, dock,
+   tiles. The block carries the look as data-services and the class hero-campaign-services (only
+   those two are keyed here, no brand). All looks: no overlay from the left, the text at the bottom
+   of the photo, the image focus as without the option, no margin under the stage section (the
+   flight search follows). Icons by position (data-icon), drawn as masks in the text colour on
+   pseudo-elements, as the video toggle's. The rules are ordered by part (overlay, text box, row,
+   label, shortcuts, hover, focus), the looks within each part. */
+.hero-campaign.hero-campaign-services {
+  --hero-campaign-icon-gear: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.488.488 0 0 0-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54a.484.484 0 0 0-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58a.49.49 0 0 0-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z'/%3E%3C/svg%3E");
+  --hero-campaign-icon-plane: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z'/%3E%3C/svg%3E");
+  --hero-campaign-icon-suitcase: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z'/%3E%3C/svg%3E");
+  --hero-campaign-icon-star: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z'/%3E%3C/svg%3E");
+  --hero-campaign-icon-car: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z'/%3E%3C/svg%3E");
+  --hero-campaign-services-hairline: color-mix(in srgb, var(--lh-deepblue) 14%, transparent);
+
+  align-items: flex-end;
+  min-height: 640px;
+}
+
+.hero-campaign-services [data-icon="gear"] { --hero-campaign-icon: var(--hero-campaign-icon-gear); }
+.hero-campaign-services [data-icon="plane"] { --hero-campaign-icon: var(--hero-campaign-icon-plane); }
+.hero-campaign-services [data-icon="suitcase"] { --hero-campaign-icon: var(--hero-campaign-icon-suitcase); }
+.hero-campaign-services [data-icon="star"] { --hero-campaign-icon: var(--hero-campaign-icon-star); }
+.hero-campaign-services [data-icon="car"] { --hero-campaign-icon: var(--hero-campaign-icon-car); }
+
+.hero-campaign.hero-campaign-services .hero-campaign-services-label[data-icon]::before,
+.hero-campaign.hero-campaign-services .hero-campaign-cta[data-icon] a::before {
+  content: "";
+  flex: none;
+  width: 22px;
+  height: 22px;
+  background-color: currentcolor;
+  mask: var(--hero-campaign-icon) center / contain no-repeat;
+}
+
+/* the stage section's 64px under-margin (and the stage style's variants: the :is() argument
+   gives this rule their specificity) */
+main > .section:is(.stage.flush.before-padded, .section):has(> .hero-campaign-wrapper > .hero-campaign-services) {
+  margin-bottom: 0;
+}
+
+.hero-campaign.hero-campaign-services[data-services="tiles"] {
+  min-height: 680px;
+}
+
+/* overlay: band none (the band carries the text), dock a soft shadow at the bottom edge, tiles
+   one from the bottom left */
+.hero-campaign.hero-campaign-services[data-services="band"] .hero-campaign-media::after {
+  content: none;
+}
+
+.hero-campaign.hero-campaign-services[data-services="dock"] .hero-campaign-media::after {
+  background: linear-gradient(to top, color-mix(in srgb, var(--lh-deepblue) 45%, transparent) 0%, transparent 38%);
+  mix-blend-mode: normal;
+}
+
+.hero-campaign.hero-campaign-services[data-services="tiles"] .hero-campaign-media::after {
+  background: linear-gradient(
+    to top right,
+    color-mix(in srgb, var(--lh-deepblue) 62%, transparent) 0%,
+    color-mix(in srgb, var(--lh-deepblue) 20%, transparent) 42%,
+    transparent 66%
+  );
+  mix-blend-mode: normal;
+}
+
+/* text box: band full width in the brand colour, the content on the page grid; dock and tiles
+   on the page grid at the bottom of the photo */
+.hero-campaign.hero-campaign-services[data-services="band"] .hero-campaign-inner {
+  max-width: none;
+  padding: 28px max(var(--layout-margin), calc((100% - var(--content-max-width)) / 2 + var(--layout-margin)));
+  background-color: var(--brand-color);
+}
+
+.hero-campaign.hero-campaign-services[data-services="dock"] .hero-campaign-inner {
+  padding-top: 0;
+  padding-bottom: 40px;
+}
+
+.hero-campaign.hero-campaign-services[data-services="tiles"] .hero-campaign-inner {
+  padding-top: 0;
+  padding-bottom: 48px;
+}
+
+/* the row: the block's text column width, paragraph margins and 64px indent (from 1025px) are
+   not for it. band: the label 1.3 parts, each button 1 (any number); dock: one frosted bar;
+   tiles: 156px tiles under the label */
+.hero-campaign.hero-campaign-services .hero-campaign-content {
+  max-width: none;
+}
+
+.hero-campaign.hero-campaign-services[data-services="band"] .hero-campaign-content {
+  display: grid;
+  grid-auto-columns: minmax(0, 1fr);
+  grid-auto-flow: column;
+  grid-template-columns: minmax(0, 1.3fr);
+  gap: 16px;
+  align-items: center;
+}
+
+.hero-campaign.hero-campaign-services[data-services="dock"] .hero-campaign-content {
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+  border-radius: 14px;
+  background-color: color-mix(in srgb, var(--lh-white) 94%, transparent);
+  box-shadow: 0 12px 32px color-mix(in srgb, var(--lh-deepblue) 28%, transparent);
+  color: var(--lh-deepblue);
+  backdrop-filter: blur(14px);
+}
+
+.hero-campaign.hero-campaign-services[data-services="tiles"] .hero-campaign-content {
+  display: grid;
+  grid-template-columns: repeat(4, 156px);
+  gap: 12px;
+}
+
+.hero-campaign.hero-campaign-services[data-services="band"] .hero-campaign-content:not(:has(> .hero-campaign-services-label)) {
+  grid-template-columns: none;
+}
+
+/* as specific as the block's 64px indent and call-to-action margins (and after them), less than
+   the looks' own label rules below */
+.hero-campaign.hero-campaign-services[data-services] .hero-campaign-content > * {
+  margin: 0;
+  padding-left: 0;
+}
+
+/* the label */
+.hero-campaign.hero-campaign-services .hero-campaign-services-label {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  line-height: 1.3;
+}
+
+.hero-campaign.hero-campaign-services[data-services="band"] .hero-campaign-services-label {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.hero-campaign.hero-campaign-services[data-services="dock"] .hero-campaign-services-label {
+  flex: 1 1 auto;
+  padding: 0 28px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* tiles' overline on a navy pill: on the homepages' bright skies the shadow alone gave 2:1 (the
+   lightest pixel behind the text); 70 % navy is 5.45:1 even over white */
+.hero-campaign.hero-campaign-services[data-services="tiles"] .hero-campaign-services-label {
+  grid-column: 1 / -1;
+  justify-self: start;
+  gap: 10px;
+  margin-bottom: 4px;
+  padding: 6px 14px 6px 10px;
+  border-radius: 999px;
+  background-color: color-mix(in srgb, var(--lh-deepblue) 70%, transparent);
+  font-size: 18px;
+  font-weight: 500;
+  backdrop-filter: blur(12px);
+}
+
+/* dock: the segments, hairline dividers between them */
+.hero-campaign.hero-campaign-services[data-services="dock"] .hero-campaign-content > .hero-campaign-cta {
+  display: flex;
+  flex: 0 0 auto;
+  border-left: 1px solid var(--hero-campaign-services-hairline);
+}
+
+.hero-campaign.hero-campaign-services[data-services="dock"] .hero-campaign-content > .hero-campaign-cta:first-child {
+  border-left: 0;
+}
+
+/* the shortcuts: as wide as their cell, labels wrap instead of an ellipsis (German) */
+.hero-campaign.hero-campaign-services .hero-campaign-content > .hero-campaign-cta a.button {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  line-height: 1.2;
+  text-align: center;
+  white-space: normal;
+}
+
+.hero-campaign.hero-campaign-services[data-services="band"] .hero-campaign-content > .hero-campaign-cta a.button {
+  min-height: 64px;
+  padding: 10px 12px;
+  border: 2px solid var(--lh-white);
+  border-radius: 10px;
+  background-color: transparent;
+  color: var(--lh-white);
+}
+
+.hero-campaign.hero-campaign-services[data-services="dock"] .hero-campaign-content > .hero-campaign-cta a.button {
+  min-height: 80px;
+  padding: 10px 28px;
+  border: 0;
+  border-radius: 0;
+  background-color: transparent;
+  color: var(--lh-deepblue);
+  font-weight: 600;
+}
+
+.hero-campaign.hero-campaign-services[data-services="tiles"] .hero-campaign-content > .hero-campaign-cta a.button {
+  flex-direction: column;
+  gap: 12px;
+  min-height: 112px;
+  padding: 16px 10px;
+  border: 1px solid color-mix(in srgb, var(--lh-white) 40%, transparent);
+  border-radius: 14px;
+  background-color: color-mix(in srgb, var(--lh-deepblue) 70%, transparent);
+  color: var(--lh-white);
+  font-size: 15px;
+  font-weight: 600;
+  backdrop-filter: blur(12px);
+  transition: background-color 0.2s, color 0.2s, transform 0.2s;
+}
+
+/* the icons: dock's in the brand colour, tiles' 30px */
+.hero-campaign.hero-campaign-services[data-services="dock"] .hero-campaign-services-label::before,
+.hero-campaign.hero-campaign-services[data-services="dock"] .hero-campaign-cta a::before {
+  color: var(--brand-color);
+}
+
+.hero-campaign.hero-campaign-services[data-services="tiles"] .hero-campaign-cta a::before {
+  width: 30px;
+  height: 30px;
+}
+
+/* hover and focus: band and tiles white with the brand colour, dock light grey */
+.hero-campaign.hero-campaign-services[data-services="band"] .hero-campaign-content > .hero-campaign-cta a.button:is(:hover, :focus-visible) {
+  border-color: var(--lh-white);
+  background-color: var(--lh-white);
+  color: var(--brand-color);
+}
+
+.hero-campaign.hero-campaign-services[data-services="dock"] .hero-campaign-content > .hero-campaign-cta a.button:is(:hover, :focus-visible) {
+  border: 0;
+  background-color: var(--lh-grey-1);
+  color: var(--brand-color);
+}
+
+.hero-campaign.hero-campaign-services[data-services="tiles"] .hero-campaign-content > .hero-campaign-cta a.button:is(:hover, :focus-visible) {
+  border-color: var(--lh-white);
+  background-color: var(--lh-white);
+  color: var(--brand-color);
+  transform: translateY(-2px);
+}
+
+/* the block's white focus ring vanishes on the white bar: the blue one, inside the segment */
+.hero-campaign.hero-campaign-services[data-services="dock"] .hero-campaign-content > .hero-campaign-cta a.button:focus-visible {
+  outline: 3px solid var(--focus-color);
+  outline-offset: -6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-campaign.hero-campaign-services[data-services="tiles"] .hero-campaign-content > .hero-campaign-cta a.button {
+    transition: none;
+  }
+
+  .hero-campaign.hero-campaign-services[data-services="tiles"] .hero-campaign-content > .hero-campaign-cta a.button:is(:hover, :focus-visible) {
+    transform: none;
+  }
+}
+
+@media (width < 1025px) {
+  /* dock: the label row on top, the segments 2 x 2; band: the label a row of its own, the
+     buttons 2 x 2 */
+  .hero-campaign.hero-campaign-services[data-services="dock"] .hero-campaign-content {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hero-campaign.hero-campaign-services[data-services="band"] .hero-campaign-content,
+  .hero-campaign.hero-campaign-services[data-services="band"] .hero-campaign-content:not(:has(> .hero-campaign-services-label)) {
+    grid-auto-flow: row;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hero-campaign.hero-campaign-services[data-services="band"] .hero-campaign-services-label {
+    grid-column: 1 / -1;
+  }
+
+  .hero-campaign.hero-campaign-services[data-services="dock"] .hero-campaign-services-label {
+    grid-column: 1 / -1;
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--hero-campaign-services-hairline);
+  }
+
+  .hero-campaign.hero-campaign-services[data-services="dock"] .hero-campaign-content > .hero-campaign-cta:nth-child(odd of .hero-campaign-cta) {
+    border-left: 0;
+  }
+
+  .hero-campaign.hero-campaign-services[data-services="dock"] .hero-campaign-content > .hero-campaign-cta:nth-child(n + 3 of .hero-campaign-cta) {
+    border-top: 1px solid var(--hero-campaign-services-hairline);
+  }
+}
+
+@media (width < 768px) {
+  .hero-campaign.hero-campaign-services[data-services="band"] {
+    min-height: 560px;
+  }
+
+  .hero-campaign.hero-campaign-services:is([data-services="dock"], [data-services="tiles"]) {
+    min-height: 600px;
+  }
+
+  .hero-campaign.hero-campaign-services[data-services="band"] .hero-campaign-inner {
+    padding: 24px 16px;
+  }
+
+  .hero-campaign.hero-campaign-services[data-services="dock"] .hero-campaign-inner {
+    padding-bottom: 20px;
+  }
+
+  .hero-campaign.hero-campaign-services[data-services="tiles"] .hero-campaign-inner {
+    padding: 0 16px 24px;
+  }
+
+  .hero-campaign.hero-campaign-services[data-services="band"] .hero-campaign-content {
+    gap: 12px;
+  }
+
+  .hero-campaign.hero-campaign-services[data-services="tiles"] .hero-campaign-content {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+  }
+
+  /* the icon above the label: band 76px, dock 84px, tiles 96px high */
+  .hero-campaign.hero-campaign-services .hero-campaign-content > .hero-campaign-cta a.button {
+    flex-direction: column;
+    font-size: 15px;
+  }
+
+  .hero-campaign.hero-campaign-services[data-services="band"] .hero-campaign-content > .hero-campaign-cta a.button {
+    min-height: 76px;
+    padding: 10px 8px;
+  }
+
+  .hero-campaign.hero-campaign-services[data-services="dock"] .hero-campaign-content > .hero-campaign-cta a.button {
+    min-height: 84px;
+    padding: 10px 8px;
+  }
+
+  .hero-campaign.hero-campaign-services[data-services="tiles"] .hero-campaign-content > .hero-campaign-cta a.button {
+    min-height: 96px;
+  }
+}
