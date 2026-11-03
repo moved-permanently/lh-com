@@ -39168,6 +39168,1381 @@
    "uploaded": "2026-11-03T20:39:41.081Z",
    "mtime": 1793738328594,
    "preview": "2026-11-03T20:39:42.830Z"
+  },
+  "/ch/it/homepage": {
+   "uploaded": "2026-11-03T21:08:53.416Z",
+   "mtime": 1793740064058,
+   "preview": "2026-11-03T21:08:56.357Z"
+  },
+  "/it/it/book-and-manage/offers-and-destination/generic-offer-chicago": {
+   "uploaded": "2026-11-03T21:08:57.716Z",
+   "mtime": 1793740031695,
+   "preview": "2026-11-03T21:09:01.110Z"
+  },
+  "/it/it/book-and-manage/offers-and-destination/generic-offer-miami": {
+   "uploaded": "2026-11-03T21:09:02.503Z",
+   "mtime": 1793740031721,
+   "preview": "2026-11-03T21:09:07.524Z"
+  },
+  "/it/it/homepage": {
+   "uploaded": "2026-11-03T21:09:09.056Z",
+   "mtime": 1793740064128,
+   "preview": "2026-11-03T21:09:11.782Z"
+  },
+  "/xx/it/100-years": {
+   "uploaded": "2026-11-03T21:09:12.946Z",
+   "mtime": 1793740009974,
+   "preview": "2026-11-03T21:09:15.056Z"
+  },
+  "/xx/it/100-years/cabin-design": {
+   "uploaded": "2026-11-03T21:09:16.504Z",
+   "mtime": 1793740010003,
+   "preview": "2026-11-03T21:09:19.493Z"
+  },
+  "/xx/it/100-years/campaigns": {
+   "uploaded": "2026-11-03T21:09:20.802Z",
+   "mtime": 1793740010030,
+   "preview": "2026-11-03T21:09:23.496Z"
+  },
+  "/xx/it/100-years/chronicle": {
+   "uploaded": "2026-11-03T21:09:25.038Z",
+   "mtime": 1793740010063,
+   "preview": "2026-11-03T21:09:28.115Z"
+  },
+  "/xx/it/100-years/crane": {
+   "uploaded": "2026-11-03T21:09:29.379Z",
+   "mtime": 1793740010089,
+   "preview": "2026-11-03T21:09:31.556Z"
+  },
+  "/xx/it/100-years/destinations": {
+   "uploaded": "2026-11-03T21:09:32.827Z",
+   "mtime": 1793740010115,
+   "preview": "2026-11-03T21:09:35.372Z"
+  },
+  "/xx/it/100-years/fleet": {
+   "uploaded": "2026-11-03T21:09:36.743Z",
+   "mtime": 1793740010141,
+   "preview": "2026-11-03T21:09:39.528Z"
+  },
+  "/xx/it/100-years/global-network": {
+   "uploaded": "2026-11-03T21:09:40.692Z",
+   "mtime": 1793740010168,
+   "preview": "2026-11-03T21:09:43.798Z"
+  },
+  "/xx/it/100-years/history": {
+   "uploaded": "2026-11-03T21:09:45.204Z",
+   "mtime": 1793740080826,
+   "preview": "2026-11-03T21:09:47.433Z"
+  },
+  "/xx/it/100-years/history/menu-on-board": {
+   "uploaded": "2026-11-03T21:09:49.188Z",
+   "mtime": 1793740010221,
+   "preview": "2026-11-03T21:09:51.489Z"
+  },
+  "/xx/it/320": {
+   "uploaded": "2026-11-03T21:09:52.856Z",
+   "mtime": 1793740010264,
+   "preview": "2026-11-03T21:09:55.063Z"
+  },
+  "/xx/it/32n": {
+   "uploaded": "2026-11-03T21:09:56.258Z",
+   "mtime": 1793740010293,
+   "preview": "2026-11-03T21:09:58.406Z"
+  },
+  "/xx/it/accessible-travel": {
+   "uploaded": "2026-11-03T21:09:59.828Z",
+   "mtime": 1793740064652,
+   "preview": "2026-11-03T21:10:02.413Z"
+  },
+  "/xx/it/additional-services": {
+   "uploaded": "2026-11-03T21:10:10.207Z",
+   "mtime": 1793740010348,
+   "preview": "2026-11-03T21:10:12.748Z"
+  },
+  "/xx/it/admission-rules": {
+   "uploaded": "2026-11-03T21:10:14.248Z",
+   "mtime": 1793740049755,
+   "preview": "2026-11-03T21:10:16.264Z"
+  },
+  "/xx/it/advance-seat-reservation": {
+   "uploaded": "2026-11-03T21:10:17.645Z",
+   "mtime": 1793740064778,
+   "preview": "2026-11-03T21:10:20.373Z"
+  },
+  "/xx/it/advance-seat-reservations-terms-and-conditions": {
+   "uploaded": "2026-11-03T21:10:21.531Z",
+   "mtime": 1793740010457,
+   "preview": "2026-11-03T21:10:23.724Z"
+  },
+  "/xx/it/advice-for-travellers-with-special-needs-to-and-from-the-usa": {
+   "uploaded": "2026-11-03T21:10:25.049Z",
+   "mtime": 1793740064809,
+   "preview": "2026-11-03T21:10:27.480Z"
+  },
+  "/xx/it/affiliatemarketing": {
+   "uploaded": "2026-11-03T21:10:28.767Z",
+   "mtime": 1793740010669,
+   "preview": "2026-11-03T21:10:30.720Z"
+  },
+  "/xx/it/airport-information": {
+   "uploaded": "2026-11-03T21:10:32.010Z",
+   "mtime": 1793740049801,
+   "preview": "2026-11-03T21:10:34.051Z"
+  },
+  "/xx/it/all-check-in": {
+   "uploaded": "2026-11-03T21:10:35.237Z",
+   "mtime": 1793740010719,
+   "preview": "2026-11-03T21:10:37.035Z"
+  },
+  "/xx/it/alleinreisende-kinder": {
+   "uploaded": "2026-11-03T21:10:38.655Z",
+   "mtime": 1793740064855,
+   "preview": "2026-11-03T21:10:40.845Z"
+  },
+  "/xx/it/anmeldung-tiere-frachtraum": {
+   "uploaded": "2026-11-03T21:10:42.057Z",
+   "mtime": 1793740010793,
+   "preview": "2026-11-03T21:10:44.076Z"
+  },
+  "/xx/it/arrival-services": {
+   "uploaded": "2026-11-03T21:10:45.687Z",
+   "mtime": 1793740064893,
+   "preview": "2026-11-03T21:10:47.807Z"
+  },
+  "/xx/it/articles/highlights": {
+   "uploaded": "2026-11-03T21:10:49.065Z",
+   "mtime": 1793740010861,
+   "preview": "2026-11-03T21:10:51.115Z"
+  },
+  "/xx/it/articles/highlights/allegris-business-class-shanghai": {
+   "uploaded": "2026-11-03T21:10:52.470Z",
+   "mtime": 1793740010887,
+   "preview": "2026-11-03T21:10:54.563Z"
+  },
+  "/xx/it/articles/highlights/allegris-business-san-diego": {
+   "uploaded": "2026-11-03T21:10:56.015Z",
+   "mtime": 1793740010919,
+   "preview": "2026-11-03T21:10:58.216Z"
+  },
+  "/xx/it/articles/highlights/allegris-new-york": {
+   "uploaded": "2026-11-03T21:10:59.677Z",
+   "mtime": 1793740010944,
+   "preview": "2026-11-03T21:11:01.810Z"
+  },
+  "/xx/it/articles/highlights/allegris-premium-economy-san-diego": {
+   "uploaded": "2026-11-03T21:11:03.221Z",
+   "mtime": 1793740010969,
+   "preview": "2026-11-03T21:11:05.400Z"
+  },
+  "/xx/it/articles/highlights/the-art-of-flying-extra-long-bed": {
+   "uploaded": "2026-11-03T21:11:06.887Z",
+   "mtime": 1793740064938,
+   "preview": "2026-11-03T21:11:08.987Z"
+  },
+  "/xx/it/articles/highlights/the-art-of-flying-extra-space-seat": {
+   "uploaded": "2026-11-03T21:11:10.336Z",
+   "mtime": 1793740011025,
+   "preview": "2026-11-03T21:11:12.310Z"
+  },
+  "/xx/it/articles/highlights/the-art-of-flying-suite": {
+   "uploaded": "2026-11-03T21:11:13.522Z",
+   "mtime": 1793740011052,
+   "preview": "2026-11-03T21:11:16.058Z"
+  },
+  "/xx/it/articles/tags": {
+   "uploaded": "2026-11-03T21:11:17.370Z",
+   "mtime": 1793740011258,
+   "preview": "2026-11-03T21:11:19.353Z"
+  },
+  "/xx/it/articles/tags/allegris-inspires": {
+   "uploaded": "2026-11-03T21:11:21.033Z",
+   "mtime": 1793740011280,
+   "preview": "2026-11-03T21:11:23.297Z"
+  },
+  "/xx/it/assistenzhunde": {
+   "uploaded": "2026-11-03T21:11:24.633Z",
+   "mtime": 1793740011321,
+   "preview": "2026-11-03T21:11:26.356Z"
+  },
+  "/xx/it/automatic-check-in": {
+   "uploaded": "2026-11-03T21:11:27.999Z",
+   "mtime": 1793740011350,
+   "preview": "2026-11-03T21:11:30.158Z"
+  },
+  "/xx/it/baggage-irregularities": {
+   "uploaded": "2026-11-03T21:11:31.481Z",
+   "mtime": 1793740011383,
+   "preview": "2026-11-03T21:11:33.471Z"
+  },
+  "/xx/it/batterie-per-sedie-a-rotelle": {
+   "uploaded": "2026-11-03T21:11:34.709Z",
+   "mtime": 1793740011412,
+   "preview": "2026-11-03T21:11:36.608Z"
+  },
+  "/xx/it/besondere-befoerderungsbedingungen-bus": {
+   "uploaded": "2026-11-03T21:11:37.768Z",
+   "mtime": 1793740011438,
+   "preview": "2026-11-03T21:11:39.513Z"
+  },
+  "/xx/it/bid-upgrade": {
+   "uploaded": "2026-11-03T21:11:40.855Z",
+   "mtime": 1793740065013,
+   "preview": "2026-11-03T21:11:43.027Z"
+  },
+  "/xx/it/boarding": {
+   "uploaded": "2026-11-03T21:11:44.394Z",
+   "mtime": 1793740011491,
+   "preview": "2026-11-03T21:11:46.303Z"
+  },
+  "/xx/it/boeing787": {
+   "uploaded": "2026-11-03T21:11:47.482Z",
+   "mtime": 1793740011517,
+   "preview": "2026-11-03T21:11:49.709Z"
+  },
+  "/xx/it/book-and-manage/additional-services/get-your-guide": {
+   "uploaded": "2026-11-03T21:11:51.114Z",
+   "mtime": 1793740011539,
+   "preview": "2026-11-03T21:11:53.066Z"
+  },
+  "/xx/it/book-and-manage/additional-services/travel-insurances": {
+   "uploaded": "2026-11-03T21:11:54.375Z",
+   "mtime": 1793740011572,
+   "preview": "2026-11-03T21:11:56.093Z"
+  },
+  "/xx/it/book-and-manage/digital-self-services/airline-apps": {
+   "uploaded": "2026-11-03T21:11:57.459Z",
+   "mtime": 1793740049962,
+   "preview": "2026-11-03T21:11:59.238Z"
+  },
+  "/xx/it/book-and-manage/flights/air-baltic": {
+   "uploaded": "2026-11-03T21:12:00.404Z",
+   "mtime": 1793740011626,
+   "preview": "2026-11-03T21:12:02.753Z"
+  },
+  "/xx/it/book-and-manage/flights/ana": {
+   "uploaded": "2026-11-03T21:12:04.512Z",
+   "mtime": 1793740050037,
+   "preview": "2026-11-03T21:12:06.463Z"
+  },
+  "/xx/it/book-and-manage/flights/ana/faq": {
+   "uploaded": "2026-11-03T21:12:07.702Z",
+   "mtime": 1793740049997,
+   "preview": "2026-11-03T21:12:09.616Z"
+  },
+  "/xx/it/book-and-manage/flights/giftvoucher": {
+   "uploaded": "2026-11-03T21:12:10.992Z",
+   "mtime": 1793740011718,
+   "preview": "2026-11-03T21:12:13.029Z"
+  },
+  "/xx/it/book-and-manage/flights/helvetic": {
+   "uploaded": "2026-11-03T21:12:14.280Z",
+   "mtime": 1793740011745,
+   "preview": "2026-11-03T21:12:16.409Z"
+  },
+  "/xx/it/book-and-manage/flights/wetlease-hub": {
+   "uploaded": "2026-11-03T21:12:17.579Z",
+   "mtime": 1793740011768,
+   "preview": "2026-11-03T21:12:19.653Z"
+  },
+  "/xx/it/book-and-manage/passenger-receipt-90days/confirmation": {
+   "uploaded": "2026-11-03T21:12:20.944Z",
+   "mtime": 1793740011788,
+   "preview": "2026-11-03T21:12:22.796Z"
+  },
+  "/xx/it/book-and-manage/pax-receipt": {
+   "uploaded": "2026-11-03T21:12:23.917Z",
+   "mtime": 1793740011808,
+   "preview": "2026-11-03T21:12:25.689Z"
+  },
+  "/xx/it/book-and-manage/pax-receipt/invoices-different-countries": {
+   "uploaded": "2026-11-03T21:12:26.900Z",
+   "mtime": 1793740011829,
+   "preview": "2026-11-03T21:12:28.986Z"
+  },
+  "/xx/it/book-and-manage/rebook": {
+   "uploaded": "2026-11-03T21:12:30.812Z",
+   "mtime": 1793740011852,
+   "preview": "2026-11-03T21:12:32.899Z"
+  },
+  "/xx/it/book-and-manage/rebook/involuntary-rebooking": {
+   "uploaded": "2026-11-03T21:12:34.172Z",
+   "mtime": 1793740011875,
+   "preview": "2026-11-03T21:12:36.462Z"
+  },
+  "/xx/it/book-and-manage/rebook/voluntary-rebooking": {
+   "uploaded": "2026-11-03T21:12:37.800Z",
+   "mtime": 1793740011901,
+   "preview": "2026-11-03T21:12:40.182Z"
+  },
+  "/xx/it/book-and-manage/stopover": {
+   "uploaded": "2026-11-03T21:12:41.376Z",
+   "mtime": 1793740011956,
+   "preview": "2026-11-03T21:12:44.306Z"
+  },
+  "/xx/it/book-and-manage/stopover/bayerischer-hof": {
+   "uploaded": "2026-11-03T21:12:45.425Z",
+   "mtime": 1793740011980,
+   "preview": "2026-11-03T21:12:47.314Z"
+  },
+  "/xx/it/book-and-manage/stopover/neuschwanstein": {
+   "uploaded": "2026-11-03T21:12:48.465Z",
+   "mtime": 1793740012003,
+   "preview": "2026-11-03T21:12:50.341Z"
+  },
+  "/xx/it/book-and-manage/stopover/zugspitze": {
+   "uploaded": "2026-11-03T21:12:51.739Z",
+   "mtime": 1793740012026,
+   "preview": "2026-11-03T21:12:53.784Z"
+  },
+  "/xx/it/business-class": {
+   "uploaded": "2026-11-03T21:12:54.974Z",
+   "mtime": 1793740050316,
+   "preview": "2026-11-03T21:12:57.518Z"
+  },
+  "/xx/it/business-class-on-short-and-medium-haul": {
+   "uploaded": "2026-11-03T21:12:58.845Z",
+   "mtime": 1793740050288,
+   "preview": "2026-11-03T21:13:00.996Z"
+  },
+  "/xx/it/business-services": {
+   "uploaded": "2026-11-03T21:13:02.356Z",
+   "mtime": 1793740012115,
+   "preview": "2026-11-03T21:13:04.437Z"
+  },
+  "/xx/it/cancellations-and-refunds": {
+   "uploaded": "2026-11-03T21:13:05.620Z",
+   "mtime": 1793740012140,
+   "preview": "2026-11-03T21:13:07.610Z"
+  },
+  "/xx/it/cash-and-miles": {
+   "uploaded": "2026-11-03T21:13:09.345Z",
+   "mtime": 1793740012168,
+   "preview": "2026-11-03T21:13:11.061Z"
+  },
+  "/xx/it/check-in-baggage": {
+   "uploaded": "2026-11-03T21:13:12.214Z",
+   "mtime": 1793740065182,
+   "preview": "2026-11-03T21:13:14.489Z"
+  },
+  "/xx/it/check-in-with-the-family": {
+   "uploaded": "2026-11-03T21:13:15.776Z",
+   "mtime": 1793740084125,
+   "preview": "2026-11-03T21:13:17.631Z"
+  },
+  "/xx/it/comfort-nella-first-class-lufthansa": {
+   "uploaded": "2026-11-03T21:13:18.809Z",
+   "mtime": 1793740012245,
+   "preview": "2026-11-03T21:13:20.846Z"
+  },
+  "/xx/it/common": {
+   "uploaded": "2026-11-03T21:13:22.089Z",
+   "mtime": 1793740012265,
+   "preview": "2026-11-03T21:13:23.793Z"
+  },
+  "/xx/it/common/accessibility-statement": {
+   "uploaded": "2026-11-03T21:13:25.049Z",
+   "mtime": 1793740012293,
+   "preview": "2026-11-03T21:13:26.920Z"
+  },
+  "/xx/it/common/agb-extra-services-at-online-check-in": {
+   "uploaded": "2026-11-03T21:13:28.463Z",
+   "mtime": 1793740012315,
+   "preview": "2026-11-03T21:13:30.405Z"
+  },
+  "/xx/it/common/agb-extra-services-at-online-check-in/conditions-seat-reservation": {
+   "uploaded": "2026-11-03T21:13:31.810Z",
+   "mtime": 1793740012340,
+   "preview": "2026-11-03T21:13:33.953Z"
+  },
+  "/xx/it/common/compensation-voucher": {
+   "uploaded": "2026-11-03T21:13:35.503Z",
+   "mtime": 1793740012369,
+   "preview": "2026-11-03T21:13:37.524Z"
+  },
+  "/xx/it/common/imprint/lufthansa-insights-imprint": {
+   "uploaded": "2026-11-03T21:13:38.799Z",
+   "mtime": 1793740012393,
+   "preview": "2026-11-03T21:13:40.664Z"
+  },
+  "/xx/it/common/privacy-statement/privacy-statement-group": {
+   "uploaded": "2026-11-03T21:13:42.430Z",
+   "mtime": 1793740012417,
+   "preview": "2026-11-03T21:13:44.247Z"
+  },
+  "/xx/it/common/seatreservation-condtions/seat-reservations": {
+   "uploaded": "2026-11-03T21:13:45.695Z",
+   "mtime": 1793740012450,
+   "preview": "2026-11-03T21:13:47.727Z"
+  },
+  "/xx/it/condizioni-generali": {
+   "uploaded": "2026-11-03T21:13:49.062Z",
+   "mtime": 1793740012473,
+   "preview": "2026-11-03T21:13:50.776Z"
+  },
+  "/xx/it/condizioni-generali-conversione-di-valuta": {
+   "uploaded": "2026-11-03T21:13:51.999Z",
+   "mtime": 1793740012495,
+   "preview": "2026-11-03T21:13:53.987Z"
+  },
+  "/xx/it/condizioni-rail-fly": {
+   "uploaded": "2026-11-03T21:13:55.380Z",
+   "mtime": 1793740012518,
+   "preview": "2026-11-03T21:13:58.152Z"
+  },
+  "/xx/it/condizioni-sepa": {
+   "uploaded": "2026-11-03T21:13:59.415Z",
+   "mtime": 1793740012546,
+   "preview": "2026-11-03T21:14:01.388Z"
+  },
+  "/xx/it/condizioni-sepa-b": {
+   "uploaded": "2026-11-03T21:14:02.519Z",
+   "mtime": 1793740012569,
+   "preview": "2026-11-03T21:14:04.222Z"
+  },
+  "/xx/it/cookie-policy": {
+   "uploaded": "2026-11-03T21:14:05.796Z",
+   "mtime": 1793740012613,
+   "preview": "2026-11-03T21:14:08.032Z"
+  },
+  "/xx/it/culinaryjourney": {
+   "uploaded": "2026-11-03T21:14:09.295Z",
+   "mtime": 1793740012633,
+   "preview": "2026-11-03T21:14:11.030Z"
+  },
+  "/xx/it/dangerous-dogs": {
+   "uploaded": "2026-11-03T21:14:12.294Z",
+   "mtime": 1793740012659,
+   "preview": "2026-11-03T21:14:14.348Z"
+  },
+  "/xx/it/data-collection-canada": {
+   "uploaded": "2026-11-03T21:14:15.571Z",
+   "mtime": 1793740012684,
+   "preview": "2026-11-03T21:14:17.631Z"
+  },
+  "/xx/it/data-collection-usa": {
+   "uploaded": "2026-11-03T21:14:19.255Z",
+   "mtime": 1793740012708,
+   "preview": "2026-11-03T21:14:21.717Z"
+  },
+  "/xx/it/data-protection-information": {
+   "uploaded": "2026-11-03T21:14:22.990Z",
+   "mtime": 1793740012738,
+   "preview": "2026-11-03T21:14:25.404Z"
+  },
+  "/xx/it/datenschutz": {
+   "uploaded": "2026-11-03T21:14:26.633Z",
+   "mtime": 1793740012766,
+   "preview": "2026-11-03T21:14:28.355Z"
+  },
+  "/xx/it/digital-baggage-services": {
+   "uploaded": "2026-11-03T21:14:29.707Z",
+   "mtime": 1793740050470,
+   "preview": "2026-11-03T21:14:31.701Z"
+  },
+  "/xx/it/digital-self-services": {
+   "uploaded": "2026-11-03T21:14:33.131Z",
+   "mtime": 1793740050503,
+   "preview": "2026-11-03T21:14:36.784Z"
+  },
+  "/xx/it/digital-travel-companion": {
+   "uploaded": "2026-11-03T21:14:38.101Z",
+   "mtime": 1793740012864,
+   "preview": "2026-11-03T21:14:40.169Z"
+  },
+  "/xx/it/discover-lufthansa/carbon-offsetting/climate-protection-projects": {
+   "uploaded": "2026-11-03T21:14:41.307Z",
+   "mtime": 1793740012896,
+   "preview": "2026-11-03T21:14:43.906Z"
+  },
+  "/xx/it/discover-lufthansa/carbon-offsetting/environmental-cost-surcharge": {
+   "uploaded": "2026-11-03T21:14:45.043Z",
+   "mtime": 1793740012924,
+   "preview": "2026-11-03T21:14:46.865Z"
+  },
+  "/xx/it/discover-lufthansa/carbon-offsetting/faq-saf": {
+   "uploaded": "2026-11-03T21:14:48.661Z",
+   "mtime": 1793740012968,
+   "preview": "2026-11-03T21:14:50.396Z"
+  },
+  "/xx/it/discover-lufthansa/carbon-offsetting/saf": {
+   "uploaded": "2026-11-03T21:14:52.038Z",
+   "mtime": 1793740012995,
+   "preview": "2026-11-03T21:14:53.946Z"
+  },
+  "/xx/it/discover-lufthansa/flightreservation-priceguarantee": {
+   "uploaded": "2026-11-03T21:14:55.102Z",
+   "mtime": 1793740013023,
+   "preview": "2026-11-03T21:14:57.103Z"
+  },
+  "/xx/it/discover-lufthansa/lufthansa-fleet/351": {
+   "uploaded": "2026-11-03T21:14:58.861Z",
+   "mtime": 1793740013067,
+   "preview": "2026-11-03T21:15:01.317Z"
+  },
+  "/xx/it/discover-lufthansa/lufthansa-group-airlines/ita-airways": {
+   "uploaded": "2026-11-03T21:15:03.166Z",
+   "mtime": 1793740050580,
+   "preview": "2026-11-03T21:15:05.399Z"
+  },
+  "/xx/it/discover-lufthansa/new-onboard-experience": {
+   "uploaded": "2026-11-03T21:15:06.887Z",
+   "mtime": 1793740050612,
+   "preview": "2026-11-03T21:15:09.430Z"
+  },
+  "/xx/it/discover-lufthansa/take-off": {
+   "uploaded": "2026-11-03T21:15:10.642Z",
+   "mtime": 1793740013154,
+   "preview": "2026-11-03T21:15:12.835Z"
+  },
+  "/xx/it/doctor-on-board": {
+   "uploaded": "2026-11-03T21:15:14.034Z",
+   "mtime": 1793740013180,
+   "preview": "2026-11-03T21:15:15.997Z"
+  },
+  "/xx/it/doctor-on-board-news": {
+   "uploaded": "2026-11-03T21:15:17.259Z",
+   "mtime": 1793740013207,
+   "preview": "2026-11-03T21:15:19.368Z"
+  },
+  "/xx/it/during-your-trip/internet-overview": {
+   "uploaded": "2026-11-03T21:15:20.893Z",
+   "mtime": 1793740065584,
+   "preview": "2026-11-03T21:15:23.557Z"
+  },
+  "/xx/it/during-your-trip/lhg-wifi": {
+   "uploaded": "2026-11-03T21:15:24.903Z",
+   "mtime": 1793740065611,
+   "preview": "2026-11-03T21:15:26.958Z"
+  },
+  "/xx/it/economy-class": {
+   "uploaded": "2026-11-03T21:15:28.189Z",
+   "mtime": 1793740050698,
+   "preview": "2026-11-03T21:15:30.511Z"
+  },
+  "/xx/it/electronic-bag-tags": {
+   "uploaded": "2026-11-03T21:15:33.594Z",
+   "mtime": 1793740050725,
+   "preview": "2026-11-03T21:15:35.578Z"
+  },
+  "/xx/it/entryprocesses": {
+   "uploaded": "2026-11-03T21:15:37.135Z",
+   "mtime": 1793740013337,
+   "preview": "2026-11-03T21:15:39.201Z"
+  },
+  "/xx/it/europa-tarife-economy-class": {
+   "uploaded": "2026-11-03T21:15:40.694Z",
+   "mtime": 1793740013373,
+   "preview": "2026-11-03T21:15:42.650Z"
+  },
+  "/xx/it/europcar": {
+   "uploaded": "2026-11-03T21:15:43.907Z",
+   "mtime": 1793740013397,
+   "preview": "2026-11-03T21:15:45.653Z"
+  },
+  "/xx/it/exclusive-charter": {
+   "uploaded": "2026-11-03T21:15:47.100Z",
+   "mtime": 1793740013423,
+   "preview": "2026-11-03T21:15:48.962Z"
+  },
+  "/xx/it/faq-data-security": {
+   "uploaded": "2026-11-03T21:15:50.082Z",
+   "mtime": 1793740013444,
+   "preview": "2026-11-03T21:15:52.029Z"
+  },
+  "/xx/it/faq-ejournals": {
+   "uploaded": "2026-11-03T21:15:53.371Z",
+   "mtime": 1793740013470,
+   "preview": "2026-11-03T21:15:55.309Z"
+  },
+  "/xx/it/faq-password-security": {
+   "uploaded": "2026-11-03T21:15:56.676Z",
+   "mtime": 1793740013492,
+   "preview": "2026-11-03T21:15:58.408Z"
+  },
+  "/xx/it/farealert/best-price-alert": {
+   "uploaded": "2026-11-03T21:15:59.631Z",
+   "mtime": 1793740013517,
+   "preview": "2026-11-03T21:16:01.771Z"
+  },
+  "/xx/it/feedback-past-flight": {
+   "uploaded": "2026-11-03T21:16:03.246Z",
+   "mtime": 1793740013546,
+   "preview": "2026-11-03T21:16:05.140Z"
+  },
+  "/xx/it/fia-valet-service": {
+   "uploaded": "2026-11-03T21:16:06.630Z",
+   "mtime": 1793740013575,
+   "preview": "2026-11-03T21:16:08.563Z"
+  },
+  "/xx/it/first-class": {
+   "uploaded": "2026-11-03T21:16:10.185Z",
+   "mtime": 1793740050843,
+   "preview": "2026-11-03T21:16:13.523Z"
+  },
+  "/xx/it/first-class-lounges": {
+   "uploaded": "2026-11-03T21:16:14.811Z",
+   "mtime": 1793740050799,
+   "preview": "2026-11-03T21:16:16.689Z"
+  },
+  "/xx/it/first-class-personal-assistant": {
+   "uploaded": "2026-11-03T21:16:17.934Z",
+   "mtime": 1793740013657,
+   "preview": "2026-11-03T21:16:19.853Z"
+  },
+  "/xx/it/first-class-terminal": {
+   "uploaded": "2026-11-03T21:16:21.136Z",
+   "mtime": 1793740013682,
+   "preview": "2026-11-03T21:16:23.827Z"
+  },
+  "/xx/it/first-class-valet-parking-service": {
+   "uploaded": "2026-11-03T21:16:25.124Z",
+   "mtime": 1793740013702,
+   "preview": "2026-11-03T21:16:27.122Z"
+  },
+  "/xx/it/fliegen-mit-baby": {
+   "uploaded": "2026-11-03T21:16:28.491Z",
+   "mtime": 1793740050873,
+   "preview": "2026-11-03T21:16:30.385Z"
+  },
+  "/xx/it/fliegen-mit-kleinkind": {
+   "uploaded": "2026-11-03T21:16:31.883Z",
+   "mtime": 1793740065728,
+   "preview": "2026-11-03T21:16:33.716Z"
+  },
+  "/xx/it/flight-search": {
+   "uploaded": "2026-11-03T21:16:35.051Z",
+   "mtime": 1793740013863,
+   "preview": "2026-11-03T21:16:37.096Z"
+  },
+  "/xx/it/flights": {
+   "uploaded": "2026-11-03T21:16:38.368Z",
+   "mtime": 1793740013893,
+   "preview": "2026-11-03T21:16:40.251Z"
+  },
+  "/xx/it/flugunregelmaessigkeiten": {
+   "uploaded": "2026-11-03T21:16:41.564Z",
+   "mtime": 1793740050938,
+   "preview": "2026-11-03T21:16:43.741Z"
+  },
+  "/xx/it/fly-more-sustainabl": {
+   "uploaded": "2026-11-03T21:16:46.070Z",
+   "mtime": 1793740013959,
+   "preview": "2026-11-03T21:16:48.553Z"
+  },
+  "/xx/it/flynet": {
+   "uploaded": "2026-11-03T21:16:49.795Z",
+   "mtime": 1793740013987,
+   "preview": "2026-11-03T21:16:52.225Z"
+  },
+  "/xx/it/fmg-valet-parking-service": {
+   "uploaded": "2026-11-03T21:16:53.437Z",
+   "mtime": 1793740014027,
+   "preview": "2026-11-03T21:16:55.219Z"
+  },
+  "/xx/it/footer": {
+   "uploaded": "2026-11-03T21:16:56.323Z",
+   "mtime": 1793740050975,
+   "preview": "2026-11-03T21:16:58.217Z"
+  },
+  "/xx/it/frankfurt-fair": {
+   "uploaded": "2026-11-03T21:16:59.436Z",
+   "mtime": 1793740014082,
+   "preview": "2026-11-03T21:17:01.612Z"
+  },
+  "/xx/it/free2move": {
+   "uploaded": "2026-11-03T21:17:02.888Z",
+   "mtime": 1793740065791,
+   "preview": "2026-11-03T21:17:05.188Z"
+  },
+  "/xx/it/freigepaeck-regeln": {
+   "uploaded": "2026-11-03T21:17:06.908Z",
+   "mtime": 1793740014142,
+   "preview": "2026-11-03T21:17:08.941Z"
+  },
+  "/xx/it/gefaehrliche-gegenstaende": {
+   "uploaded": "2026-11-03T21:17:10.203Z",
+   "mtime": 1793740051018,
+   "preview": "2026-11-03T21:17:12.448Z"
+  },
+  "/xx/it/gepaeck": {
+   "uploaded": "2026-11-03T21:17:13.709Z",
+   "mtime": 1793740051045,
+   "preview": "2026-11-03T21:17:15.946Z"
+  },
+  "/xx/it/gesund-reisen": {
+   "uploaded": "2026-11-03T21:17:17.291Z",
+   "mtime": 1793740065833,
+   "preview": "2026-11-03T21:17:19.378Z"
+  },
+  "/xx/it/green-fare": {
+   "uploaded": "2026-11-03T21:17:20.622Z",
+   "mtime": 1793740014265,
+   "preview": "2026-11-03T21:17:22.742Z"
+  },
+  "/xx/it/group-travel": {
+   "uploaded": "2026-11-03T21:17:23.951Z",
+   "mtime": 1793740014309,
+   "preview": "2026-11-03T21:17:26.490Z"
+  },
+  "/xx/it/handgepaeck": {
+   "uploaded": "2026-11-03T21:17:27.752Z",
+   "mtime": 1793740014336,
+   "preview": "2026-11-03T21:17:30.050Z"
+  },
+  "/xx/it/hertz": {
+   "uploaded": "2026-11-03T21:17:31.302Z",
+   "mtime": 1793740014359,
+   "preview": "2026-11-03T21:17:33.298Z"
+  },
+  "/xx/it/homepage": {
+   "uploaded": "2026-11-03T21:17:34.877Z",
+   "mtime": 1793740063989,
+   "preview": "2026-11-03T21:17:37.438Z"
+  },
+  "/xx/it/hotel-offers": {
+   "uploaded": "2026-11-03T21:17:38.597Z",
+   "mtime": 1793740014411,
+   "preview": "2026-11-03T21:17:40.503Z"
+  },
+  "/xx/it/il-mio-diario-di-bordo": {
+   "uploaded": "2026-11-03T21:17:41.719Z",
+   "mtime": 1793740014437,
+   "preview": "2026-11-03T21:17:43.800Z"
+  },
+  "/xx/it/imprint": {
+   "uploaded": "2026-11-03T21:17:45.129Z",
+   "mtime": 1793740014464,
+   "preview": "2026-11-03T21:17:46.986Z"
+  },
+  "/xx/it/indirizzi-in-tutto-il-mondo": {
+   "uploaded": "2026-11-03T21:17:48.321Z",
+   "mtime": 1793740014487,
+   "preview": "2026-11-03T21:17:50.304Z"
+  },
+  "/xx/it/informazioni-sul-check-in-online": {
+   "uploaded": "2026-11-03T21:17:52.966Z",
+   "mtime": 1793740014514,
+   "preview": "2026-11-03T21:17:55.065Z"
+  },
+  "/xx/it/kinder-an-bord": {
+   "uploaded": "2026-11-03T21:17:56.291Z",
+   "mtime": 1793740014542,
+   "preview": "2026-11-03T21:17:57.971Z"
+  },
+  "/xx/it/kindermenues-an-bord": {
+   "uploaded": "2026-11-03T21:17:59.112Z",
+   "mtime": 1793740014572,
+   "preview": "2026-11-03T21:18:01.361Z"
+  },
+  "/xx/it/lh-rentalcar": {
+   "uploaded": "2026-11-03T21:18:02.555Z",
+   "mtime": 1793740014595,
+   "preview": "2026-11-03T21:18:04.563Z"
+  },
+  "/xx/it/lounge-begleitung": {
+   "uploaded": "2026-11-03T21:18:05.865Z",
+   "mtime": 1793740065921,
+   "preview": "2026-11-03T21:18:07.977Z"
+  },
+  "/xx/it/lounges": {
+   "uploaded": "2026-11-03T21:18:09.454Z",
+   "mtime": 1793740014649,
+   "preview": "2026-11-03T21:18:11.789Z"
+  },
+  "/xx/it/lufthansa-all-aeroporto-di-vienna": {
+   "uploaded": "2026-11-03T21:18:13.293Z",
+   "mtime": 1793740014675,
+   "preview": "2026-11-03T21:18:15.265Z"
+  },
+  "/xx/it/lufthansa-am-flughafen-frankfurt": {
+   "uploaded": "2026-11-03T21:18:16.547Z",
+   "mtime": 1793740065953,
+   "preview": "2026-11-03T21:18:18.442Z"
+  },
+  "/xx/it/lufthansa-at-berlin-airport": {
+   "uploaded": "2026-11-03T21:18:19.725Z",
+   "mtime": 1793740051198,
+   "preview": "2026-11-03T21:18:21.819Z"
+  },
+  "/xx/it/lufthansa-at-duesseldorf-airport": {
+   "uploaded": "2026-11-03T21:18:23.103Z",
+   "mtime": 1793740014757,
+   "preview": "2026-11-03T21:18:25.244Z"
+  },
+  "/xx/it/lufthansa-at-zuerich-airport": {
+   "uploaded": "2026-11-03T21:18:26.755Z",
+   "mtime": 1793740014783,
+   "preview": "2026-11-03T21:18:28.589Z"
+  },
+  "/xx/it/lufthansa-aviation-group": {
+   "uploaded": "2026-11-03T21:18:30.054Z",
+   "mtime": 1793740014806,
+   "preview": "2026-11-03T21:18:31.812Z"
+  },
+  "/xx/it/lufthansa-business-class-on-long-haul-routes": {
+   "uploaded": "2026-11-03T21:18:33.090Z",
+   "mtime": 1793740051237,
+   "preview": "2026-11-03T21:18:34.993Z"
+  },
+  "/xx/it/lufthansa-city/culinaryjourney": {
+   "uploaded": "2026-11-03T21:18:36.265Z",
+   "mtime": 1793740014863,
+   "preview": "2026-11-03T21:18:37.958Z"
+  },
+  "/xx/it/lufthansa-corporate-customers": {
+   "uploaded": "2026-11-03T21:18:39.421Z",
+   "mtime": 1793740014910,
+   "preview": "2026-11-03T21:18:41.358Z"
+  },
+  "/xx/it/lufthansa-express": {
+   "uploaded": "2026-11-03T21:18:42.750Z",
+   "mtime": 1793740014938,
+   "preview": "2026-11-03T21:18:44.846Z"
+  },
+  "/xx/it/lufthansa-express-bus": {
+   "uploaded": "2026-11-03T21:18:46.178Z",
+   "mtime": 1793740014969,
+   "preview": "2026-11-03T21:18:48.171Z"
+  },
+  "/xx/it/lufthansa-express-rail": {
+   "uploaded": "2026-11-03T21:18:49.616Z",
+   "mtime": 1793740014999,
+   "preview": "2026-11-03T21:18:51.910Z"
+  },
+  "/xx/it/lufthansa-first-class-entertainment": {
+   "uploaded": "2026-11-03T21:18:53.448Z",
+   "mtime": 1793740015032,
+   "preview": "2026-11-03T21:18:55.324Z"
+  },
+  "/xx/it/lufthansa-first-class-fleet": {
+   "uploaded": "2026-11-03T21:18:56.440Z",
+   "mtime": 1793740015059,
+   "preview": "2026-11-03T21:18:58.355Z"
+  },
+  "/xx/it/lufthansa-group-star-alliance-and-partner-airlines": {
+   "uploaded": "2026-11-03T21:18:59.535Z",
+   "mtime": 1793740015088,
+   "preview": "2026-11-03T21:19:02.267Z"
+  },
+  "/xx/it/lufthansa-guide-service": {
+   "uploaded": "2026-11-03T21:19:03.389Z",
+   "mtime": 1793740015118,
+   "preview": "2026-11-03T21:19:05.541Z"
+  },
+  "/xx/it/lufthansa-reiseklassen": {
+   "uploaded": "2026-11-03T21:19:06.891Z",
+   "mtime": 1793740015150,
+   "preview": "2026-11-03T21:19:08.807Z"
+  },
+  "/xx/it/lufthansa-terminal-muenchen": {
+   "uploaded": "2026-11-03T21:19:10.047Z",
+   "mtime": 1793740051312,
+   "preview": "2026-11-03T21:19:11.867Z"
+  },
+  "/xx/it/medikamenten-transport": {
+   "uploaded": "2026-11-03T21:19:13.322Z",
+   "mtime": 1793740015219,
+   "preview": "2026-11-03T21:19:15.627Z"
+  },
+  "/xx/it/meetings-and-events": {
+   "uploaded": "2026-11-03T21:19:16.921Z",
+   "mtime": 1793740015247,
+   "preview": "2026-11-03T21:19:19.118Z"
+  },
+  "/xx/it/meetings-e-events-organizzatori": {
+   "uploaded": "2026-11-03T21:19:20.518Z",
+   "mtime": 1793740015276,
+   "preview": "2026-11-03T21:19:22.570Z"
+  },
+  "/xx/it/meetings-e-events-partecipanti": {
+   "uploaded": "2026-11-03T21:19:23.834Z",
+   "mtime": 1793740015302,
+   "preview": "2026-11-03T21:19:25.621Z"
+  },
+  "/xx/it/meine-buchungen": {
+   "uploaded": "2026-11-03T21:19:26.887Z",
+   "mtime": 1793740051360,
+   "preview": "2026-11-03T21:19:28.928Z"
+  },
+  "/xx/it/menu-classi-di-viaggio": {
+   "uploaded": "2026-11-03T21:19:30.350Z",
+   "mtime": 1793740015350,
+   "preview": "2026-11-03T21:19:32.347Z"
+  },
+  "/xx/it/menus-on-long-haul-flights": {
+   "uploaded": "2026-11-03T21:19:33.726Z",
+   "mtime": 1793740015376,
+   "preview": "2026-11-03T21:19:36.144Z"
+  },
+  "/xx/it/miles-and-more": {
+   "uploaded": "2026-11-03T21:19:37.704Z",
+   "mtime": 1793740015402,
+   "preview": "2026-11-03T21:19:39.535Z"
+  },
+  "/xx/it/mit-kindern-am-flughafen": {
+   "uploaded": "2026-11-03T21:19:40.851Z",
+   "mtime": 1793740066095,
+   "preview": "2026-11-03T21:19:42.816Z"
+  },
+  "/xx/it/mobility-partner-program-healthcare": {
+   "uploaded": "2026-11-03T21:19:44.234Z",
+   "mtime": 1793740015469,
+   "preview": "2026-11-03T21:19:46.471Z"
+  },
+  "/xx/it/munich-fair": {
+   "uploaded": "2026-11-03T21:19:47.679Z",
+   "mtime": 1793740015493,
+   "preview": "2026-11-03T21:19:49.599Z"
+  },
+  "/xx/it/nav": {
+   "uploaded": "2026-11-03T21:19:51.032Z",
+   "mtime": 1793740051413,
+   "preview": "2026-11-03T21:19:53.187Z"
+  },
+  "/xx/it/onboard-delights": {
+   "uploaded": "2026-11-03T21:19:54.376Z",
+   "mtime": 1793740015547,
+   "preview": "2026-11-03T21:19:56.735Z"
+  },
+  "/xx/it/onboard-delights-faq": {
+   "uploaded": "2026-11-03T21:19:58.258Z",
+   "mtime": 1793740015575,
+   "preview": "2026-11-03T21:20:00.169Z"
+  },
+  "/xx/it/online-check-in": {
+   "uploaded": "2026-11-03T21:20:01.434Z",
+   "mtime": 1793740015601,
+   "preview": "2026-11-03T21:20:03.988Z"
+  },
+  "/xx/it/overview-flights": {
+   "uploaded": "2026-11-03T21:20:05.418Z",
+   "mtime": 1793740015624,
+   "preview": "2026-11-03T21:20:07.664Z"
+  },
+  "/xx/it/overview-manage": {
+   "uploaded": "2026-11-03T21:20:09.246Z",
+   "mtime": 1793740015654,
+   "preview": "2026-11-03T21:20:11.849Z"
+  },
+  "/xx/it/overview-special-request": {
+   "uploaded": "2026-11-03T21:20:13.115Z",
+   "mtime": 1793740015681,
+   "preview": "2026-11-03T21:20:15.554Z"
+  },
+  "/xx/it/overview-travel-information": {
+   "uploaded": "2026-11-03T21:20:16.896Z",
+   "mtime": 1793740051466,
+   "preview": "2026-11-03T21:20:19.740Z"
+  },
+  "/xx/it/partner": {
+   "uploaded": "2026-11-03T21:20:21.221Z",
+   "mtime": 1793740015732,
+   "preview": "2026-11-03T21:20:23.650Z"
+  },
+  "/xx/it/passenger-receipt-90": {
+   "uploaded": "2026-11-03T21:20:25.123Z",
+   "mtime": 1793740015759,
+   "preview": "2026-11-03T21:20:27.031Z"
+  },
+  "/xx/it/passenger-rights": {
+   "uploaded": "2026-11-03T21:20:28.527Z",
+   "mtime": 1793740015786,
+   "preview": "2026-11-03T21:20:30.361Z"
+  },
+  "/xx/it/passengers-using-wheelchairs": {
+   "uploaded": "2026-11-03T21:20:31.613Z",
+   "mtime": 1793740066180,
+   "preview": "2026-11-03T21:20:35.165Z"
+  },
+  "/xx/it/passengers-with-sensory-impairment": {
+   "uploaded": "2026-11-03T21:20:36.977Z",
+   "mtime": 1793740066207,
+   "preview": "2026-11-03T21:20:39.741Z"
+  },
+  "/xx/it/payment-options-at-the-airport": {
+   "uploaded": "2026-11-03T21:20:41.104Z",
+   "mtime": 1793740015868,
+   "preview": "2026-11-03T21:20:43.240Z"
+  },
+  "/xx/it/pre-check-in": {
+   "uploaded": "2026-11-03T21:20:44.839Z",
+   "mtime": 1793740015895,
+   "preview": "2026-11-03T21:20:46.880Z"
+  },
+  "/xx/it/premium-economy-class": {
+   "uploaded": "2026-11-03T21:20:48.290Z",
+   "mtime": 1793740051524,
+   "preview": "2026-11-03T21:20:50.867Z"
+  },
+  "/xx/it/prepare-for-your-trip/baggage/baggage-conditions": {
+   "uploaded": "2026-11-03T21:20:52.189Z",
+   "mtime": 1793740015949,
+   "preview": "2026-11-03T21:20:54.051Z"
+  },
+  "/xx/it/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg": {
+   "uploaded": "2026-11-03T21:20:55.231Z",
+   "mtime": 1793740015979,
+   "preview": "2026-11-03T21:20:57.312Z"
+  },
+  "/xx/it/prepare-for-your-trip/baggage/baggage-irregularities/faq-baggage-delay": {
+   "uploaded": "2026-11-03T21:20:58.776Z",
+   "mtime": 1793740016010,
+   "preview": "2026-11-03T21:21:00.975Z"
+  },
+  "/xx/it/prepare-for-your-trip/baggage/baggage-irregularities/faq-damaged-baggage": {
+   "uploaded": "2026-11-03T21:21:02.316Z",
+   "mtime": 1793740016039,
+   "preview": "2026-11-03T21:21:04.180Z"
+  },
+  "/xx/it/prepare-for-your-trip/baggage/electronic-devices-and-batteries": {
+   "uploaded": "2026-11-03T21:21:05.506Z",
+   "mtime": 1793740016068,
+   "preview": "2026-11-03T21:21:08.061Z"
+  },
+  "/xx/it/prepare-for-your-trip/baggage/sport-baggage/register-ammunition": {
+   "uploaded": "2026-11-03T21:21:09.404Z",
+   "mtime": 1793740016110,
+   "preview": "2026-11-03T21:21:11.545Z"
+  },
+  "/xx/it/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation": {
+   "uploaded": "2026-11-03T21:21:12.589Z",
+   "mtime": 1793740016136,
+   "preview": "2026-11-03T21:21:14.294Z"
+  },
+  "/xx/it/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation": {
+   "uploaded": "2026-11-03T21:21:15.523Z",
+   "mtime": 1793740016161,
+   "preview": "2026-11-03T21:21:17.289Z"
+  },
+  "/xx/it/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation": {
+   "uploaded": "2026-11-03T21:21:18.464Z",
+   "mtime": 1793740016184,
+   "preview": "2026-11-03T21:21:20.473Z"
+  },
+  "/xx/it/prepare-for-your-trip/current-travel-information": {
+   "uploaded": "2026-11-03T21:21:21.696Z",
+   "mtime": 1793740016220,
+   "preview": "2026-11-03T21:21:23.542Z"
+  },
+  "/xx/it/prepare-for-your-trip/entry-regulations/entering-schengen/entry-exit-system": {
+   "uploaded": "2026-11-03T21:21:24.990Z",
+   "mtime": 1793740016256,
+   "preview": "2026-11-03T21:21:27.206Z"
+  },
+  "/xx/it/prepare-for-your-trip/entry-regulations/immigration-regulations-uk": {
+   "uploaded": "2026-11-03T21:21:28.351Z",
+   "mtime": 1793740016286,
+   "preview": "2026-11-03T21:21:30.299Z"
+  },
+  "/xx/it/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-bus-briefing": {
+   "uploaded": "2026-11-03T21:21:31.626Z",
+   "mtime": 1793740016322,
+   "preview": "2026-11-03T21:21:33.491Z"
+  },
+  "/xx/it/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-rail-briefing": {
+   "uploaded": "2026-11-03T21:21:34.921Z",
+   "mtime": 1793740016349,
+   "preview": "2026-11-03T21:21:37.062Z"
+  },
+  "/xx/it/prepare-for-your-trip/special-travel-needs/medical-travel-companions": {
+   "uploaded": "2026-11-03T21:21:38.415Z",
+   "mtime": 1793740066309,
+   "preview": "2026-11-03T21:21:40.413Z"
+  },
+  "/xx/it/prepare-for-your-trip/special-travel-needs/travel-with-needs/cognitive-impairment": {
+   "uploaded": "2026-11-03T21:21:41.681Z",
+   "mtime": 1793740066340,
+   "preview": "2026-11-03T21:21:44.582Z"
+  },
+  "/xx/it/prepare-for-your-trip/special-travel-needs/travel-with-needs/hearing-impairment": {
+   "uploaded": "2026-11-03T21:21:45.736Z",
+   "mtime": 1793740016437,
+   "preview": "2026-11-03T21:21:47.844Z"
+  },
+  "/xx/it/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation": {
+   "uploaded": "2026-11-03T21:21:49.270Z",
+   "mtime": 1793740016462,
+   "preview": "2026-11-03T21:21:50.862Z"
+  },
+  "/xx/it/prepare-for-your-trip/special-travel-needs/travel-with-needs/travel-companion": {
+   "uploaded": "2026-11-03T21:21:52.025Z",
+   "mtime": 1793740016494,
+   "preview": "2026-11-03T21:21:53.972Z"
+  },
+  "/xx/it/prepare-for-your-trip/special-travel-needs/travel-with-needs/visual-impairment": {
+   "uploaded": "2026-11-03T21:21:55.272Z",
+   "mtime": 1793740066387,
+   "preview": "2026-11-03T21:21:57.522Z"
+  },
+  "/xx/it/prepare-for-your-trip/travel-classes/economy-basic": {
+   "uploaded": "2026-11-03T21:21:58.831Z",
+   "mtime": 1793740066415,
+   "preview": "2026-11-03T21:22:00.973Z"
+  },
+  "/xx/it/prepare-for-your-trip/travelling-with-children/child-in-businessclass": {
+   "uploaded": "2026-11-03T21:22:02.147Z",
+   "mtime": 1793740016579,
+   "preview": "2026-11-03T21:22:04.123Z"
+  },
+  "/xx/it/prepare-for-your-trip/travelling-with-children/planning-with-kids": {
+   "uploaded": "2026-11-03T21:22:05.340Z",
+   "mtime": 1793740016613,
+   "preview": "2026-11-03T21:22:07.328Z"
+  },
+  "/xx/it/rail-and-fly": {
+   "uploaded": "2026-11-03T21:22:08.531Z",
+   "mtime": 1793740016642,
+   "preview": "2026-11-03T21:22:10.573Z"
+  },
+  "/xx/it/rechnungsbeleg": {
+   "uploaded": "2026-11-03T21:22:11.800Z",
+   "mtime": 1793740016668,
+   "preview": "2026-11-03T21:22:13.593Z"
+  },
+  "/xx/it/refund": {
+   "uploaded": "2026-11-03T21:22:14.949Z",
+   "mtime": 1793740016695,
+   "preview": "2026-11-03T21:22:16.718Z"
+  },
+  "/xx/it/register-animal-cabin": {
+   "uploaded": "2026-11-03T21:22:17.776Z",
+   "mtime": 1793740016722,
+   "preview": "2026-11-03T21:22:19.701Z"
+  },
+  "/xx/it/schengen": {
+   "uploaded": "2026-11-03T21:22:20.995Z",
+   "mtime": 1793740066471,
+   "preview": "2026-11-03T21:22:23.128Z"
+  },
+  "/xx/it/seat-maps": {
+   "uploaded": "2026-11-03T21:22:24.498Z",
+   "mtime": 1793740016813,
+   "preview": "2026-11-03T21:22:26.442Z"
+  },
+  "/xx/it/secure-flight": {
+   "uploaded": "2026-11-03T21:22:27.527Z",
+   "mtime": 1793740016858,
+   "preview": "2026-11-03T21:22:29.216Z"
+  },
+  "/xx/it/security-check-time-slot": {
+   "uploaded": "2026-11-03T21:22:30.354Z",
+   "mtime": 1793740051689,
+   "preview": "2026-11-03T21:22:32.286Z"
+  },
+  "/xx/it/security-fast-lanes": {
+   "uploaded": "2026-11-03T21:22:33.715Z",
+   "mtime": 1793740066514,
+   "preview": "2026-11-03T21:22:35.923Z"
+  },
+  "/xx/it/services-am-flughafen-frankfurt": {
+   "uploaded": "2026-11-03T21:22:37.028Z",
+   "mtime": 1793740066541,
+   "preview": "2026-11-03T21:22:39.163Z"
+  },
+  "/xx/it/services-an-bord": {
+   "uploaded": "2026-11-03T21:22:41.321Z",
+   "mtime": 1793740051722,
+   "preview": "2026-11-03T21:22:43.258Z"
+  },
+  "/xx/it/services-at-the-airport": {
+   "uploaded": "2026-11-03T21:22:44.808Z",
+   "mtime": 1793740017022,
+   "preview": "2026-11-03T21:22:46.643Z"
+  },
+  "/xx/it/servizi-all-aeroporto-di-monaco": {
+   "uploaded": "2026-11-03T21:22:48.135Z",
+   "mtime": 1793740017049,
+   "preview": "2026-11-03T21:22:50.253Z"
+  },
+  "/xx/it/shopping": {
+   "uploaded": "2026-11-03T21:22:51.647Z",
+   "mtime": 1793740066582,
+   "preview": "2026-11-03T21:22:53.770Z"
+  },
+  "/xx/it/sicherheit-fuer-kleinkinder-an-bord": {
+   "uploaded": "2026-11-03T21:22:54.883Z",
+   "mtime": 1793740017103,
+   "preview": "2026-11-03T21:22:56.604Z"
+  },
+  "/xx/it/sixt": {
+   "uploaded": "2026-11-03T21:22:57.881Z",
+   "mtime": 1793740017128,
+   "preview": "2026-11-03T21:22:59.696Z"
+  },
+  "/xx/it/special-meals": {
+   "uploaded": "2026-11-03T21:23:01.092Z",
+   "mtime": 1793740017157,
+   "preview": "2026-11-03T21:23:03.098Z"
+  },
+  "/xx/it/special-needs": {
+   "uploaded": "2026-11-03T21:23:04.451Z",
+   "mtime": 1793740017187,
+   "preview": "2026-11-03T21:23:06.428Z"
+  },
+  "/xx/it/speisen-und-getraenke": {
+   "uploaded": "2026-11-03T21:23:07.577Z",
+   "mtime": 1793740017215,
+   "preview": "2026-11-03T21:23:09.804Z"
+  },
+  "/xx/it/sportgepaeck-hinzufuegen": {
+   "uploaded": "2026-11-03T21:23:11.044Z",
+   "mtime": 1793740017243,
+   "preview": "2026-11-03T21:23:12.970Z"
+  },
+  "/xx/it/sports-baggage": {
+   "uploaded": "2026-11-03T21:23:14.415Z",
+   "mtime": 1793740066639,
+   "preview": "2026-11-03T21:23:16.947Z"
+  },
+  "/xx/it/support/contact/contact-form-confirmation": {
+   "uploaded": "2026-11-03T21:23:18.265Z",
+   "mtime": 1793740017305,
+   "preview": "2026-11-03T21:23:19.965Z"
+  },
+  "/xx/it/support/contact/passenger-duty-united-kingdom": {
+   "uploaded": "2026-11-03T21:23:21.248Z",
+   "mtime": 1793740017328,
+   "preview": "2026-11-03T21:23:22.889Z"
+  },
+  "/xx/it/support/feedback-and-contact-airlines": {
+   "uploaded": "2026-11-03T21:23:24.212Z",
+   "mtime": 1793740017353,
+   "preview": "2026-11-03T21:23:26.259Z"
+  },
+  "/xx/it/tempi-limite-di-accettazione": {
+   "uploaded": "2026-11-03T21:23:27.325Z",
+   "mtime": 1793740017377,
+   "preview": "2026-11-03T21:23:29.342Z"
+  },
+  "/xx/it/terms-and-conditions-lh": {
+   "uploaded": "2026-11-03T21:23:30.619Z",
+   "mtime": 1793740017408,
+   "preview": "2026-11-03T21:23:32.461Z"
+  },
+  "/xx/it/terms-of-service-group": {
+   "uploaded": "2026-11-03T21:23:33.724Z",
+   "mtime": 1793740017436,
+   "preview": "2026-11-03T21:23:35.424Z"
+  },
+  "/xx/it/terms-of-use": {
+   "uploaded": "2026-11-03T21:23:36.569Z",
+   "mtime": 1793740017462,
+   "preview": "2026-11-03T21:23:38.300Z"
+  },
+  "/xx/it/tiere-als-handgepaeck": {
+   "uploaded": "2026-11-03T21:23:39.534Z",
+   "mtime": 1793740017492,
+   "preview": "2026-11-03T21:23:41.332Z"
+  },
+  "/xx/it/tiere-als-uebergepaeck": {
+   "uploaded": "2026-11-03T21:23:42.695Z",
+   "mtime": 1793740017519,
+   "preview": "2026-11-03T21:23:44.601Z"
+  },
+  "/xx/it/timetable-and-flight-status": {
+   "uploaded": "2026-11-03T21:23:45.838Z",
+   "mtime": 1793740051881,
+   "preview": "2026-11-03T21:23:47.987Z"
+  },
+  "/xx/it/tips-senior-travellers": {
+   "uploaded": "2026-11-03T21:23:49.281Z",
+   "mtime": 1793740066720,
+   "preview": "2026-11-03T21:23:51.697Z"
+  },
+  "/xx/it/tratte-prevalenti": {
+   "uploaded": "2026-11-03T21:23:53.064Z",
+   "mtime": 1793740017598,
+   "preview": "2026-11-03T21:23:54.832Z"
+  },
+  "/xx/it/travel-agencies": {
+   "uploaded": "2026-11-03T21:23:56.121Z",
+   "mtime": 1793740017623,
+   "preview": "2026-11-03T21:23:58.008Z"
+  },
+  "/xx/it/travel-expense-management": {
+   "uploaded": "2026-11-03T21:23:59.249Z",
+   "mtime": 1793740017662,
+   "preview": "2026-11-03T21:24:01.265Z"
+  },
+  "/xx/it/travel-id-terms-conditions": {
+   "uploaded": "2026-11-03T21:24:02.650Z",
+   "mtime": 1793740017692,
+   "preview": "2026-11-03T21:24:04.426Z"
+  },
+  "/xx/it/travelling-with-animals": {
+   "uploaded": "2026-11-03T21:24:05.901Z",
+   "mtime": 1793740051954,
+   "preview": "2026-11-03T21:24:07.809Z"
+  },
+  "/xx/it/travelling-with-children": {
+   "uploaded": "2026-11-03T21:24:09.140Z",
+   "mtime": 1793740051980,
+   "preview": "2026-11-03T21:24:11.376Z"
+  },
+  "/xx/it/traveltricks": {
+   "uploaded": "2026-11-03T21:24:12.486Z",
+   "mtime": 1793740052007,
+   "preview": "2026-11-03T21:24:14.468Z"
+  },
+  "/xx/it/uebergepaeck": {
+   "uploaded": "2026-11-03T21:24:15.901Z",
+   "mtime": 1793740066779,
+   "preview": "2026-11-03T21:24:18.180Z"
+  },
+  "/xx/it/unterhaltung-an-bord": {
+   "uploaded": "2026-11-03T21:24:19.585Z",
+   "mtime": 1793740094946,
+   "preview": "2026-11-03T21:24:21.421Z"
+  },
+  "/xx/it/upgrade-business-class-lungo-raggio": {
+   "uploaded": "2026-11-03T21:24:22.653Z",
+   "mtime": 1793740017867,
+   "preview": "2026-11-03T21:24:24.394Z"
+  },
+  "/xx/it/upgrade-first-class": {
+   "uploaded": "2026-11-03T21:24:25.835Z",
+   "mtime": 1793740017894,
+   "preview": "2026-11-03T21:24:27.579Z"
+  },
+  "/xx/it/upgrade-info": {
+   "uploaded": "2026-11-03T21:24:28.761Z",
+   "mtime": 1793740017920,
+   "preview": "2026-11-03T21:24:30.780Z"
+  },
+  "/xx/it/upgrade-options": {
+   "uploaded": "2026-11-03T21:24:32.017Z",
+   "mtime": 1793740066824,
+   "preview": "2026-11-03T21:24:34.090Z"
+  },
+  "/xx/it/upgrade-premium-economy-class": {
+   "uploaded": "2026-11-03T21:24:37.155Z",
+   "mtime": 1793740017976,
+   "preview": "2026-11-03T21:24:39.036Z"
+  },
+  "/xx/it/upgrade-to-business-class": {
+   "uploaded": "2026-11-03T21:24:40.117Z",
+   "mtime": 1793740018006,
+   "preview": "2026-11-03T21:24:42.124Z"
+  },
+  "/xx/it/upgrade-to-premium-economy-class": {
+   "uploaded": "2026-11-03T21:24:43.321Z",
+   "mtime": 1793740018030,
+   "preview": "2026-11-03T21:24:45.156Z"
+  },
+  "/xx/it/upgrades-im-online-check-in": {
+   "uploaded": "2026-11-03T21:24:46.306Z",
+   "mtime": 1793740018057,
+   "preview": "2026-11-03T21:24:48.102Z"
+  },
+  "/xx/it/viaggi-di-gruppo-e-charter": {
+   "uploaded": "2026-11-03T21:24:49.308Z",
+   "mtime": 1793740018081,
+   "preview": "2026-11-03T21:24:51.346Z"
+  },
+  "/xx/it/viaggiare-con-esigenze-speciali": {
+   "uploaded": "2026-11-03T21:24:52.778Z",
+   "mtime": 1793740018107,
+   "preview": "2026-11-03T21:24:54.558Z"
   }
  },
  "media": {
