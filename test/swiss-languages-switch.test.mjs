@@ -8,7 +8,7 @@
    ch/it. Spanish and Portuguese (brief 279: swiss-snapshots-011, -012, -016, -017: "Suiza |
    Español", "Suiça | Português"), Chinese and Japanese (brief 28x: -014, -015, -021, -022:
    "瑞士 (Switzerland) | 简体中文", "Switzerland | 日本語"); the flight search from Zurich on all.
-   es and pt on since their documents are live (2026-11-03). The tests read SWISS_LANGUAGES_LIVE:
+   es and pt on since their documents are live (2026-11-03), zh and ja too (2026-11-03). The tests read SWISS_LANGUAGES_LIVE:
    turning a language on needs no change here.
    Run: node --max-old-space-size=512 --test test/swiss-languages-switch.test.mjs */
 /* global globalThis */
@@ -50,9 +50,9 @@ const base = (() => {
   return s;
 })();
 
-test('the languages behind the switch: es, pt, zh, ja (zh and ja off); www\'s names, Zurich', () => {
+test('the languages behind the switch: es, pt, zh, ja (all on); www\'s names, Zurich', () => {
   assert.deepEqual(Object.keys(SWISS_LANGUAGES), ['es', 'pt', 'zh', 'ja']);
-  assert.ok(!SWISS_LANGUAGES_LIVE.includes('zh') && !SWISS_LANGUAGES_LIVE.includes('ja'), 'zh and ja off until published');
+  assert.deepEqual(SWISS_LANGUAGES_LIVE, ['es', 'pt', 'zh', 'ja'], 'zh and ja on since their documents are live');
   assert.ok(SWISS_LANGUAGES_LIVE.every((ll) => SWISS_LANGUAGES[ll]), 'only languages of the table');
   Object.entries(SWISS_LANGUAGES).forEach(([ll, { root, name, airport }]) => {
     assert.equal(root, `ch/${ll}`);

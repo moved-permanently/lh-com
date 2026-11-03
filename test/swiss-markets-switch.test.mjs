@@ -10,10 +10,10 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { BRAND_SITES, SWISS_MARKETS_LIVE, withSwissMarkets } from '../scripts/brands.js';
 
-test('the switch is on: SWISS\'s rows are ch\'s own six and the 204 market roots', () => {
+test('the switch is on: SWISS\'s rows are ch\'s own eight and the 204 market roots', () => {
   assert.equal(SWISS_MARKETS_LIVE, true);
   const { rows } = BRAND_SITES.swiss;
-  assert.deepEqual(Object.keys(rows).filter((k) => rows[k].documents === 'own').sort(), ['ch/de', 'ch/en', 'ch/es', 'ch/fr', 'ch/it', 'ch/pt']);
+  assert.deepEqual(Object.keys(rows).filter((k) => rows[k].documents === 'own').sort(), ['ch/de', 'ch/en', 'ch/es', 'ch/fr', 'ch/it', 'ch/ja', 'ch/pt', 'ch/zh']);
   assert.equal(Object.values(rows).filter((r) => r.documents === 'language').length, 204);
   assert.deepEqual(withSwissMarkets(BRAND_SITES.swiss, true), BRAND_SITES.swiss, 'on: the site as it is');
 });

@@ -56,17 +56,17 @@ beforeEach(() => {
 });
 const get = (url, init) => worker.fetch(new Request(url, init), env(), { waitUntil() {} });
 
-test('swiss: the site on its host: ch\'s six roots with their own documents, the 204 market roots (SWISS_MARKETS_LIVE) from them', () => {
+test('swiss: the site on its host: ch\'s eight roots with their own documents, the 204 market roots (SWISS_MARKETS_LIVE) from them', () => {
   const site = siteOf(new Request('https://swiss.example/ch/en/homepage'), env());
   assert.equal(site.name, 'swiss');
   assert.equal(site.origin, SWISS);
   assert.equal(site.www, 'www.swiss.com');
   assert.equal(site.design, 'www.lufthansa.com');
   assert.deepEqual(site.tables.versions, {
-    en: 'ch/en', de: 'ch/de', fr: 'ch/fr', it: 'ch/it', es: 'ch/es', pt: 'ch/pt',
+    en: 'ch/en', de: 'ch/de', fr: 'ch/fr', it: 'ch/it', es: 'ch/es', pt: 'ch/pt', zh: 'ch/zh', ja: 'ch/ja',
   });
-  assert.deepEqual(Object.keys(site.tables.table).slice(0, 6), ['ch/en', 'ch/de', 'ch/fr', 'ch/it', 'ch/es', 'ch/pt']);
-  assert.deepEqual(Object.keys(site.tables.table).filter((r) => site.tables.table[r].documents === 'own'), ['ch/en', 'ch/de', 'ch/fr', 'ch/it', 'ch/es', 'ch/pt']);
+  assert.deepEqual(Object.keys(site.tables.table).slice(0, 8), ['ch/en', 'ch/de', 'ch/fr', 'ch/it', 'ch/es', 'ch/pt', 'ch/zh', 'ch/ja']);
+  assert.deepEqual(Object.keys(site.tables.table).filter((r) => site.tables.table[r].documents === 'own'), ['ch/en', 'ch/de', 'ch/fr', 'ch/it', 'ch/es', 'ch/pt', 'ch/zh', 'ch/ja']);
   assert.equal(SITES.swiss.marketRoots.length, 204);
   assert.ok(SITES.swiss.marketRoots.every((r) => site.tables.versions[r.split('/')[1]]), 'only languages lh-swiss has');
   assert.equal(siteOf(new Request('https://brussels.example/be/en/homepage'), env()).name, 'brussels');
@@ -113,6 +113,13 @@ test('swiss: entry paths as www.swiss.com sends them (302); a homepage path stay
     '/xx/pt/homepage': '/ch/pt/homepage',
     '/es/homepage': '/ch/es/homepage',
     '/pt/homepage': '/ch/pt/homepage',
+    // brief 282: ch/zh and ch/ja (SWISS_LANGUAGES_LIVE on)
+    '/ch/zh': '/ch/zh/homepage',
+    '/ch/ja/': '/ch/ja/homepage',
+    '/xx/zh': '/ch/zh/homepage',
+    '/xx/ja/homepage': '/ch/ja/homepage',
+    '/zh/homepage': '/ch/zh/homepage',
+    '/ja/homepage': '/ch/ja/homepage',
   };
   const answers = await Promise.all(Object.keys(expect).map((p) => get(`https://swiss.example${p}`)));
   answers.forEach((resp, i) => {
@@ -124,17 +131,14 @@ test('swiss: entry paths as www.swiss.com sends them (302); a homepage path stay
   assert.equal((await get('https://swiss.example/ch/de?x=1')).headers.get('location'), '/ch/de/homepage?x=1');
   assert.equal((await get('https://swiss.example/ch/en/homepage')).status, 200);
   assert.equal(SITES.swiss.table['ch/pt'].status, 'live');
-  assert.equal(SITE_ENTRIES.swiss['/ch/ja'], undefined, 'a language SWISS has no root for');
-  // ch/zh and ch/ja behind the switch (scripts/brands.js SWISS_LANGUAGES, off): no entry or row of theirs
-  ['zh', 'ja'].forEach((ll) => {
-    [`/ch/${ll}`, `/ch/${ll}/`, `/xx/${ll}`, `/xx/${ll}/homepage`, `/${ll}/homepage`].forEach((x) => assert.equal(SITE_ENTRIES.swiss[x], undefined, x));
-    assert.equal(SITES.swiss.table[`ch/${ll}`], undefined);
-  });
+  assert.equal(SITES.swiss.table['ch/zh'].status, 'live');
+  assert.equal(SITES.swiss.table['ch/ja'].status, 'live');
+  assert.equal(SITE_ENTRIES.swiss['/ch/ru'], undefined, 'a language SWISS has no root for');
   // the other sites' entries as before, none of SWISS's
   assert.equal((await get('https://brussels.example/ch')).headers.get('location'), '/ch/en/homepage');
   assert.equal((await get('https://brussels.example/xx/en')).headers.get('location'), '/be/en/homepage');
   Object.entries(SITE_ENTRIES).filter(([name]) => name !== 'swiss').forEach(([name, entries]) => {
-    assert.ok(!Object.keys(entries).some((p) => /^\/(en|de|fr|it|es|pt)\/homepage$/.test(p)), name);
+    assert.ok(!Object.keys(entries).some((p) => /^\/(en|de|fr|it|es|pt|zh|ja)\/homepage$/.test(p)), name);
   });
 });
 
