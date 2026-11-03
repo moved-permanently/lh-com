@@ -24,6 +24,10 @@ main > .section > .flash-teaser-wrapper.flash-teaser-empty + div {
 .flash-teaser-strip {
   --flash-teaser-color: var(--lh-deepblue, #05164d);
 
+  /* the controls' colour (www .flash-teaser-controls-wrapper: Lufthansa #52627c, hover #414e63) */
+  --flash-teaser-control: var(--lh-whale-blue, #52627c);
+  --flash-teaser-control-hover: #414e63;
+
   position: relative;
   background-color: #f5f5f5;
   color: var(--flash-teaser-color);
@@ -67,6 +71,23 @@ main > .section > .flash-teaser-wrapper.flash-teaser-empty + div {
   animation: flash-teaser-in 0.45s cubic-bezier(0.5, 0, 1, 1);
 }
 
+/* a full ring: the message goes out in 0.2 s, then the next comes in */
+.flash-teaser-slide.is-active.is-leaving {
+  animation: flash-teaser-out 0.2s ease-in forwards;
+}
+
+@keyframes flash-teaser-out {
+  from {
+    opacity: 1;
+    transform: none;
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(-50%);
+  }
+}
+
 @keyframes flash-teaser-in {
   from {
     opacity: 0;
@@ -80,7 +101,8 @@ main > .section > .flash-teaser-wrapper.flash-teaser-empty + div {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .flash-teaser-slide.is-active {
+  .flash-teaser-slide.is-active,
+  .flash-teaser-slide.is-active.is-leaving {
     animation: none;
   }
 }
@@ -131,21 +153,86 @@ main > .section > .flash-teaser-wrapper.flash-teaser-empty + div {
   text-decoration: underline;
 }
 
-/* controls (.flash-teaser-controls-wrapper: gap 1rem, #52627c): pager 14px, buttons 24px */
+/* controls, left to right as www (.flash-teaser-controls-wrapper, gap 1rem): the countdown ring
+   with play/pause, the pager "1/2", previous / next stacked (from 1025px) */
 .flash-teaser-controls {
   display: flex;
   flex: 0 0 auto;
   align-items: center;
   gap: 10px;
   padding-left: 10px;
-  color: var(--lh-whale-blue);
+  color: var(--flash-teaser-control);
 }
 
+/* the ring: SVG 24 x 24 from 12 o'clock, the track at 20 %, the progress in the control colour
+   (darker on hover); the 16px play/pause icon over it */
+.flash-teaser-timer {
+  position: relative;
+  display: flex;
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+}
+
+.flash-teaser-ring {
+  position: absolute;
+  inset: 0;
+  width: 24px;
+  height: 24px;
+  transform: rotate(-90deg);
+  pointer-events: none;
+}
+
+.flash-teaser-ring-track {
+  stroke: color-mix(in srgb, var(--flash-teaser-control) 20%, transparent);
+}
+
+.flash-teaser-ring-progress {
+  stroke: var(--flash-teaser-control);
+}
+
+.flash-teaser-timer:hover .flash-teaser-ring-progress {
+  stroke: var(--flash-teaser-control-hover);
+}
+
+/* .flash-teaser-pager: 1.4rem, 1.4rem high, min 3rem, the digit rolls in .45s */
 .flash-teaser-pager {
+  display: flex;
+  justify-content: center;
   min-width: 30px;
+  height: 14px;
+  overflow: hidden;
   font-size: 14px;
   line-height: 14px;
-  text-align: end;
+}
+
+.flash-teaser-page {
+  display: inline-block;
+  overflow: hidden;
+}
+
+.flash-teaser-page-number {
+  display: inline-block;
+}
+
+.flash-teaser-page-number.is-rolling {
+  animation: flash-teaser-roll 0.45s cubic-bezier(0.5, 0, 1, 1);
+}
+
+@keyframes flash-teaser-roll {
+  from {
+    transform: translateY(100%);
+  }
+
+  to {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flash-teaser-page-number.is-rolling {
+    animation: none;
+  }
 }
 
 .flash-teaser-button {
@@ -163,7 +250,7 @@ main > .section > .flash-teaser-wrapper.flash-teaser-empty + div {
 }
 
 .flash-teaser-button:hover {
-  color: #414e63;
+  color: var(--flash-teaser-control-hover);
 }
 
 .flash-teaser-button:focus-visible {
@@ -172,14 +259,36 @@ main > .section > .flash-teaser-wrapper.flash-teaser-empty + div {
 }
 
 .flash-teaser-button svg {
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
 }
 
-/* previous / next only from 1025px (live hides .flash-teaser-controls below; swipe there) */
-.flash-teaser-previous,
-.flash-teaser-next {
+/* the play/pause button inside the ring */
+.flash-teaser-toggle {
+  position: relative;
+  border-radius: 50%;
+}
+
+/* previous / next: up / down chevrons stacked, only from 1025px (below: ring and pager, swipe) */
+.flash-teaser-nav {
   display: none;
+  flex-direction: column;
+}
+
+.flash-teaser-nav .flash-teaser-button {
+  height: 18px;
+}
+
+/* the brands' control colours: recorded live CSS (Austrian, www.austrian.com 2026-11-01: #4d4d4d,
+   hover #ac1804, its theme's own), SWISS's live strip (#6f6660, hover #554e49); the others (no
+   recorded CSS) their theme's control and hover colours */
+body.brand-swiss .flash-teaser-strip {
+  --flash-teaser-control: #6f6660;
+  --flash-teaser-control-hover: #554e49;
+}
+
+body:is(.brand-austrian, .brand-brussels, .brand-discover, .brand-ita, .brand-airdolomiti) .flash-teaser-strip {
+  --flash-teaser-control-hover: var(--link-hover-color, #414e63);
 }
 
 .flash-teaser-sr-only {
@@ -206,8 +315,7 @@ main > .section > .flash-teaser-wrapper.flash-teaser-empty + div {
 }
 
 @media (width >= 1025px) {
-  .flash-teaser-previous,
-  .flash-teaser-next {
+  .flash-teaser-nav {
     display: flex;
   }
 }

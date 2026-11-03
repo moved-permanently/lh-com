@@ -1,13 +1,15 @@
 /*
  * flash-teaser: the one-line strip of current travel information, alerts and promotions at the
  * top of the homepage content (live .dcep-flash-teaser), from the Message Center index
- * (scripts/message-center.js). One message per slide; several rotate every 7 s.
+ * (scripts/message-center.js). One message per slide; several rotate every 7 s, with www's
+ * countdown ring around play/pause.
  */
 import {
   messageLocale, loadIndex, loadCtiPages, selectMessages, messageHref, readTypes, ICONS, iconOf,
 } from '../../scripts/message-center.js';
 
-const ROTATION_MS = 7000;
+/** A message stays up 7 s (www); the countdown ring fills over this time. */
+export const ROTATION_MS = 7000;
 
 /** Built-in copies of the live bundle labels/flashteaser (recorded 2026-10-25). */
 const LABELS = {
@@ -163,9 +165,10 @@ const el = (tag, className, text) => {
 const stepper = (labels, current, total) => labels.stepper
   .replace('{CURRENT}', current).replace('{TOTAL}', total);
 
+// previous / next as www: up / down chevrons, stacked
 const CONTROL_ICONS = {
-  previous: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M15.4 5.6 14 4.2 6.2 12l7.8 7.8 1.4-1.4L9 12z"/></svg>',
-  next: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8.6 18.4 10 19.8l7.8-7.8L10 4.2 8.6 5.6 15 12z"/></svg>',
+  up: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M5.6 15.4 4.2 14 12 6.2l7.8 7.8-1.4 1.4L12 9z"/></svg>',
+  down: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M18.4 8.6 19.8 10 12 17.8 4.2 10l1.4-1.4L12 15z"/></svg>',
   pause: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg>',
   play: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>',
 };
@@ -206,7 +209,64 @@ function slidePrefixes(items, labels) {
   });
 }
 
-function strip(messages, labels, ctiRows, locale) {
+/** The countdown ring's circumference (r 11.25 in a 24 x 24 box, www's .dcep-flash-teaser). */
+const RING_R = 11.25;
+const RING_C = 2 * Math.PI * RING_R;
+/** The message goes out for 0.2 s before the next comes in (www). */
+const LEAVE_MS = 200;
+/** A frame further than this from the last one (a hidden tab, a stalled page) counts this much. */
+const MAX_FRAME_MS = 100;
+
+const SVG_NS = 'http://www.w3.org/2000/svg';
+
+/** www's countdown: a track and the progress circle, rotated to start at 12 o'clock. */
+function ring() {
+  const svg = document.createElementNS(SVG_NS, 'svg');
+  svg.setAttribute('class', 'flash-teaser-ring');
+  svg.setAttribute('viewBox', '0 0 24 24');
+  svg.setAttribute('aria-hidden', 'true');
+  svg.setAttribute('focusable', 'false');
+  const circle = (cls) => {
+    const c = document.createElementNS(SVG_NS, 'circle');
+    c.setAttribute('class', cls);
+    c.setAttribute('cx', '12');
+    c.setAttribute('cy', '12');
+    c.setAttribute('r', String(RING_R));
+    c.setAttribute('fill', 'none');
+    c.setAttribute('stroke-width', '1.5');
+    return c;
+  };
+  const track = circle('flash-teaser-ring-track');
+  const progress = circle('flash-teaser-ring-progress');
+  progress.setAttribute('stroke-dasharray', RING_C.toFixed(2));
+  progress.setAttribute('stroke-dashoffset', RING_C.toFixed(2));
+  svg.append(track, progress);
+  return { svg, progress };
+}
+
+/**
+ * The strip: one slide per message; with two or more, www's controls (left to right: the countdown
+ * ring with play/pause, the pager "1/2", previous/next stacked from 1025px). One clock drives ring
+ * and rotation: the ring fills over ROTATION_MS (requestAnimationFrame, so a hidden tab pauses
+ * both), full brings the next message (LEAVE_MS out, then in) and the ring starts empty again.
+ * Hover on the message and pause hold the progress; previous/next, arrow keys, swipe and focus in
+ * a message stop the rotation (the ring empty, the play icon; play starts it again). Reduced motion
+ * starts stopped.
+ * @param {Array} messages
+ * @param {Object} labels
+ * @param {Array} ctiRows
+ * @param {Object} locale
+ * @param {{now?: Function, raf?: Function, caf?: Function, reducedMotion?: boolean}} [env] the
+ *   clock and frame source (tests inject their own), whether the visitor prefers reduced motion
+ * @returns {{region: Element, labels: Function}}
+ */
+export function buildStrip(messages, labels, ctiRows, locale, env = {}) {
+  const now = env.now || (() => window.performance.now());
+  const raf = env.raf || ((fn) => window.requestAnimationFrame(fn));
+  const caf = env.caf || ((id) => window.cancelAnimationFrame(id));
+  const reducedMotion = env.reducedMotion !== undefined ? env.reducedMotion
+    : Boolean(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+
   const region = el('div', 'flash-teaser-strip');
   region.setAttribute('role', 'region');
   region.setAttribute('aria-roledescription', 'carousel');
@@ -230,6 +290,7 @@ function strip(messages, labels, ctiRows, locale) {
     items.forEach((item, n) => {
       const active = n === i;
       item.classList.toggle('is-active', active);
+      item.classList.remove('is-leaving');
       item.hidden = !active;
       item.querySelectorAll('a').forEach((a) => { a.tabIndex = active ? 0 : -1; });
     });
@@ -239,55 +300,112 @@ function strip(messages, labels, ctiRows, locale) {
   show(0);
   if (messages.length < 2) return { region, labels: () => {} };
 
-  // controls: pager "n / total", previous / next (from 1025px), start / stop rotation
+  // controls, left to right as www: the ring with play/pause, the pager, previous / next
   const controls = el('div', 'flash-teaser-controls');
-  const pager = el('span', 'flash-teaser-pager');
-  pager.setAttribute('aria-hidden', 'true');
-  const button = (name) => {
+  const button = (name, icon) => {
     const b = el('button', `flash-teaser-button flash-teaser-${name}`);
     b.type = 'button';
-    b.innerHTML = CONTROL_ICONS[name];
+    b.innerHTML = CONTROL_ICONS[icon];
     return b;
   };
-  const prev = button('previous');
-  const next = button('next');
-  const toggle = button('pause');
+  const timer = el('div', 'flash-teaser-timer');
+  const { svg, progress } = ring();
+  const toggle = button('toggle', 'pause');
+  timer.append(svg, toggle);
+  const pager = el('span', 'flash-teaser-pager');
+  pager.setAttribute('aria-hidden', 'true');
+  const page = el('span', 'flash-teaser-page');
+  pager.append(page, document.createTextNode(`/${messages.length}`));
+  const nav = el('div', 'flash-teaser-nav');
+  const prev = button('previous', 'up');
+  const next = button('next', 'down');
+  nav.append(prev, next);
   const status = el('div', 'flash-teaser-sr-only flash-teaser-status');
   status.setAttribute('aria-live', 'polite');
   status.setAttribute('aria-atomic', 'true');
-  controls.append(pager, prev, next, toggle);
+  controls.append(timer, pager, nav);
   container.append(controls);
   region.append(status);
 
-  let timer = null;
-  let stopped = false;
-  let hovered = false;
-  let focused = false;
   let lbl = labels;
-  const updatePager = () => { pager.textContent = `${current + 1} / ${messages.length}`; };
+  let playing = !reducedMotion;
+  let held = false;
+  let elapsed = 0;
+  let leaving = null;
+  let frame = null;
+  let last = null;
+
+  const updatePager = (roll) => {
+    const digit = el('span', `flash-teaser-page-number${roll ? ' is-rolling' : ''}`, String(current + 1));
+    page.replaceChildren(digit);
+  };
+  const render = () => {
+    progress.setAttribute('stroke-dashoffset', (RING_C * (1 - elapsed / ROTATION_MS)).toFixed(2));
+  };
   const go = (i, announce) => {
     // the focused slide is hidden by the change: focus moves to the link of the new one (keys
     // keep working; the buttons keep their own focus)
     const slideFocused = slides.contains(document.activeElement);
     show((i + messages.length) % messages.length);
     if (slideFocused) items[current].querySelector('a')?.focus({ preventScroll: true });
-    updatePager();
+    updatePager(true);
     if (announce) {
       const msg = items[current].textContent.trim();
       status.textContent = `${stepper(lbl, current + 1, messages.length)}. ${msg}`;
     }
   };
-  const halt = () => { clearInterval(timer); timer = null; };
-  const run = () => {
-    halt();
-    if (!stopped && !hovered && !focused) {
-      timer = setInterval(() => go(current + 1, false), ROTATION_MS);
-    }
-    slides.setAttribute('aria-live', timer ? 'off' : 'polite');
-  };
   const setToggle = () => {
-    toggle.innerHTML = CONTROL_ICONS[stopped ? 'play' : 'pause'];
-    toggle.setAttribute('aria-label', stopped ? lbl.start : lbl.stop);
+    toggle.innerHTML = CONTROL_ICONS[playing ? 'pause' : 'play'];
+    toggle.dataset.state = playing ? 'pause' : 'play';
+    toggle.setAttribute('aria-label', playing ? lbl.stop : lbl.start);
+  };
+  const tick = () => {
+    frame = null;
+    const t = now();
+    const dt = Math.min(Math.max(t - last, 0), MAX_FRAME_MS);
+    last = t;
+    if (leaving !== null) {
+      leaving += dt;
+      if (leaving >= LEAVE_MS) {
+        leaving = null;
+        elapsed = 0;
+        go(current + 1, false);
+      }
+    } else {
+      elapsed = Math.min(ROTATION_MS, elapsed + dt);
+      if (elapsed >= ROTATION_MS) {
+        leaving = 0;
+        items[current].classList.add('is-leaving');
+      }
+    }
+    render();
+    // eslint-disable-next-line no-use-before-define
+    schedule();
+  };
+  // the clock runs only while the ring fills: playing and not held
+  const schedule = () => {
+    const running = playing && !held;
+    slides.setAttribute('aria-live', running ? 'off' : 'polite');
+    if (running && frame === null) {
+      // the clock counts from now, not from its first frame
+      if (last === null) last = now();
+      frame = raf(tick);
+    }
+    if (!running) {
+      if (frame !== null) caf(frame);
+      frame = null;
+      last = null;
+    }
+  };
+  // a visitor's own move: the rotation stops, the ring empties, play starts it again
+  const userStop = () => {
+    playing = false;
+    elapsed = 0;
+    if (leaving !== null) items[current].classList.remove('is-leaving');
+    leaving = null;
+    render();
+    setToggle();
+    schedule();
   };
   const setLabels = (l) => {
     lbl = l;
@@ -298,23 +416,25 @@ function strip(messages, labels, ctiRows, locale) {
     slidePrefixes(items, l);
     setToggle();
   };
-  prev.addEventListener('click', () => { go(current - 1, true); run(); });
-  next.addEventListener('click', () => { go(current + 1, true); run(); });
+  prev.addEventListener('click', () => { go(current - 1, true); userStop(); });
+  next.addEventListener('click', () => { go(current + 1, true); userStop(); });
   toggle.addEventListener('click', () => {
-    stopped = !stopped;
+    playing = !playing;
     setToggle();
-    status.textContent = stopped ? lbl.stop : lbl.start;
-    run();
+    status.textContent = playing ? lbl.start : lbl.stop;
+    schedule();
   });
-  region.addEventListener('mouseenter', () => { hovered = true; run(); });
-  region.addEventListener('mouseleave', () => { hovered = false; run(); });
-  region.addEventListener('focusin', () => { focused = true; run(); });
-  region.addEventListener('focusout', (e) => {
-    if (!region.contains(e.relatedTarget)) { focused = false; run(); }
-  });
+  slides.addEventListener('mouseenter', () => { held = true; schedule(); });
+  slides.addEventListener('mouseleave', () => { held = false; schedule(); });
+  // keyboard focus moving into a message is a visitor's own move (the controls are not)
+  slides.addEventListener('focusin', () => { if (playing || elapsed) userStop(); });
   region.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); go(current - 1, true); }
-    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { e.preventDefault(); go(current + 1, true); }
+    const back = e.key === 'ArrowLeft' || e.key === 'ArrowUp';
+    const forward = e.key === 'ArrowRight' || e.key === 'ArrowDown';
+    if (!back && !forward) return;
+    e.preventDefault();
+    go(current + (forward ? 1 : -1), true);
+    userStop();
   });
   let touchX = null;
   region.addEventListener('touchstart', (e) => { touchX = e.touches[0].clientX; }, { passive: true });
@@ -322,13 +442,12 @@ function strip(messages, labels, ctiRows, locale) {
     if (touchX === null) return;
     const dx = e.changedTouches[0].clientX - touchX;
     touchX = null;
-    if (Math.abs(dx) > 40) { go(current + (dx < 0 ? 1 : -1), true); run(); }
+    if (Math.abs(dx) > 40) { go(current + (dx < 0 ? 1 : -1), true); userStop(); }
   }, { passive: true });
-  // the rotation stops for visitors who ask for less motion (they can start it)
-  stopped = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   setLabels(labels);
-  updatePager();
-  run();
+  updatePager(false);
+  render();
+  schedule();
   return { region, labels: setLabels };
 }
 
@@ -347,7 +466,7 @@ export default async function decorate(block) {
   }
   block.dataset.messages = String(messages.length);
   const labels = { ...(LABELS[locale.lang] || LABELS.en) };
-  const view = strip(messages, labels, ctiRows, locale);
+  const view = buildStrip(messages, labels, ctiRows, locale);
   block.append(view.region);
   // the live label bundle (the built-in copies are the same texts; only screen reader labels):
   // scripts/lh-api.js loaded here, not with the block, so the visible strip doesn't wait for it
