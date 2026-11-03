@@ -107,9 +107,17 @@ Brazilian wording of its own on the pages compared.
 
 ## What Portuguese still needs before it can go live
 
-1. **Locale rows (ema-adobe: `tools/markets/locale-data.json` and the table it builds,
-   `scripts/locale-table.js`, are shared)**: the values from the homepage captures
-   (`rollout.mjs --rows 13`, not applied):
+Done since: **the locale rows and xx/pt's query indexes** (ema-adobe 67c1cfe8, on main 14:21 UTC),
+**the site's built-in texts in Portuguese** (0f5a27f2), and **the roots' nav and footer**:
+ao/pt's, br/pt's and pt/pt's from xx/pt's (`root-docs.mjs --from xx/pt --to <root> --doc nav --doc
+footer`: 57 nav and 16 footer links made the root's, 7 and 8 www links to www's same root, the
+label the root's; none left without a page), uploaded and previewed (6 of 6 answer 200, DA's text).
+On preview each root's homepage shows its own label ("Angola | Português", "Brasil | Português",
+"Portugal | Português") and its own nav, links into the root. 283 Portuguese documents.
+
+1. ~~Locale rows~~ (done; kept for reference) (ema-adobe: `tools/markets/locale-data.json` and the
+   table it builds, `scripts/locale-table.js`, are shared): the values from the homepage captures
+   (`rollout.mjs --rows 13`):
 
    | Root | name (www's label) | countryName en / de / pt | Airport | Currency |
    | --- | --- | --- | --- | --- |
@@ -120,14 +128,12 @@ Brazilian wording of its own on the pages compared.
 
    (www's labels have runs of spaces before the "|": kept as www writes them, as for French);
    `languageVersions.pt = xx/pt`; all `pilot`, batch 13.
-2. **The roots' nav and footer**: copies of xx/pt's (`root-docs.mjs --from xx/pt --to <root>`),
-   which take the root's label from the locale rows: after them.
-3. **The query indexes** of xx/pt (helix-query.yaml `search-xx-pt`, `market-model-xx-pt`,
-   `market-llms-xx-pt`, as xx/es's: `tools/markets/lean-indexes.mjs` ROOTS): they fill on publish;
-   the market route answers the roots' pages from them.
+2. ~~The roots' nav and footer~~ (done, above).
+3. ~~The query indexes~~ of xx/pt (on main, 67c1cfe8): they fill on publish; the market route
+   answers the roots' pages from them.
 4. **Redirect rows**: pt/pt's `companion_special_business` and `companion_special_premium_economy`
    (www's underscore URLs) to `companion-special-business` and `companion-special-premium-economy`.
-5. **The site's texts in Portuguese** (labels fall back to English).
+5. ~~The site's texts in Portuguese~~ (on main, 0f5a27f2).
 6. Then a wave: the local-version comparison (`rollout.mjs --plan 13`'s compare pairs, the roots'
    comparison captures against xx/pt's) and the preview check, as batches 11 and 12.
 

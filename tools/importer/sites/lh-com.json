@@ -2236,6 +2236,12 @@
     "/xx/pt/digital-travel-companion",
     "/xx/pt/flynet",
     "/xx/pt/freigepaeck-regeln",
-    "/xx/pt/lounges"
+    "/xx/pt/lounges",
+    "/ao/pt/footer",
+    "/ao/pt/nav",
+    "/br/pt/footer",
+    "/br/pt/nav",
+    "/pt/pt/footer",
+    "/pt/pt/nav"
   ]
 }
