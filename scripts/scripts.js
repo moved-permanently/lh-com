@@ -15,7 +15,9 @@ import {
   toCamelCase,
   toClassName,
 } from './aem.js';
-import { brandEntry, getLocale, rootRedirectPath } from './locale.js';
+import {
+  brandEntry, getLocale, rootRedirectPath, htmlLangOf,
+} from './locale.js';
 import { marketAllows } from './market-rules.js';
 import {
   initConsent, isAuthoringContext, martechWanted, hidePrivacySettings,
@@ -385,8 +387,9 @@ function applyDocumentMetadata(main) {
 async function loadEager(doc) {
   if (doc.querySelector('main')) applyDocumentMetadata(doc.querySelector('main'));
   const locale = getLocale();
-  // pages outside the locale trees (e.g. /demo/channels) may name their language in metadata
-  document.documentElement.lang = getMetadata('language') || locale.lang;
+  // pages outside the locale trees (e.g. /demo/channels) may name their language in metadata;
+  // a path language that is no language tag its tag (hk: zh-HK)
+  document.documentElement.lang = getMetadata('language') || htmlLangOf(locale.lang);
   decorateTemplateAndTheme();
   // a brand site (metadata brand, e.g. lh-discover): its design tokens before the first section;
   // on a brand with accessibility settings (scripts/brands.js: Air Dolomiti) the visitor's stored

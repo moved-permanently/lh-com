@@ -2,6 +2,7 @@ import { decorateIcons } from '../../scripts/aem.js';
 import { stripZeroWidth, decorateExternalLinks } from '../../scripts/block-config.js';
 import { takeIconName } from '../../scripts/lh-icons.js';
 import { decorateMedia } from '../../scripts/media.js';
+import { pathLanguageOf } from '../../scripts/locale.js';
 
 const HEADINGS = 'h2, h3, h4, h5, h6';
 
@@ -288,7 +289,7 @@ export default async function decorate(block) {
   const single = block.classList.contains('faq');
   // filter: a type-to-filter field over the items (not with tabs); its rows set its texts
   const filter = block.classList.contains('filter') && !block.classList.contains('tabs');
-  const lang = (document.documentElement.lang || 'en').slice(0, 2).toLowerCase();
+  const lang = pathLanguageOf(document.documentElement.lang);
   const filterTexts = { ...(FILTER_LABELS[lang] || FILTER_LABELS.en) };
   const items = [];
   [...block.children].forEach((row) => {

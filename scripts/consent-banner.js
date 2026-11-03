@@ -7,6 +7,7 @@
 
 import { loadCSS } from './aem.js';
 import { BRANDS, brandOf } from './brand.js';
+import { pathLanguageOf } from './locale.js';
 
 const TEXTS = {
   en: {
@@ -426,7 +427,7 @@ export function bannerLinks(lang, read) {
 }
 
 function texts() {
-  const lang = (document.documentElement.lang || 'en').slice(0, 2).toLowerCase();
+  const lang = pathLanguageOf(document.documentElement.lang);
   return { ...(TEXTS[lang] || TEXTS.en), links: bannerLinks(lang) };
 }
 

@@ -18,6 +18,26 @@ export { LOCALE_TABLE, DEFAULT_LOCALE };
 
 export const LIVE_ORIGIN = 'https://www.lufthansa.com';
 
+/**
+ * The page's <html lang> of a path language that is no language tag: hk (Traditional Chinese,
+ * www's /xx/hk/) is zh-HK, www's hreflang of hk/hk (www's own pages say en-US, wrong for their
+ * texts). Every other path language is its own tag.
+ */
+export const HTML_LANGS = { hk: 'zh-HK' };
+
+/** The <html lang> of a path language (hk: zh-HK; de: de). */
+export const htmlLangOf = (lang) => HTML_LANGS[lang] || lang;
+
+/**
+ * The path language of an <html lang> value, for the texts keyed by it: zh-HK is hk, any other
+ * its first two letters (en-US: en), none English.
+ */
+export function pathLanguageOf(htmlLang) {
+  const tag = String(htmlLang || 'en').toLowerCase();
+  const own = Object.keys(HTML_LANGS).find((l) => HTML_LANGS[l].toLowerCase() === tag);
+  return own || tag.slice(0, 2);
+}
+
 /** The migrated locales (status live): local links, the language switch, lh-edge's routes. */
 export const LOCALES = Object.fromEntries(Object.entries(LOCALE_TABLE)
   .filter(([, row]) => row.status === 'live'));
