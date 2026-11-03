@@ -8,7 +8,8 @@
  * URL-encoded JSON) in __NEXT_DATA__; this reads them, not the markup.
  *
  * Blocks (per lazyblock):
- * - herohome: hero-campaign (image, the "manage your trip" buttons) and the homepage's H1 (www's
+ * - herohome: hero-campaign (image, the "manage your trip" buttons; without a title its services
+ *   option) and the homepage's H1 (www's
  *   H1 is its logo: a visually hidden H1, section style hidden-heading); hero: hero-campaign (narrow);
  * - title, title-margin, title-description-text-cta: default content (heading at its tag, text,
  *   the CTA as a primary button);
@@ -717,7 +718,9 @@ const HANDLERS = {
     const buttons = (a.buttons || []).map((b) => page.link(b.url, b.text)).join('');
     // www's booking widget on the hero: the flight-search block after it
     page.search = page.search || flightSearchRows(page);
-    page.block('hero-campaign', [[page.img(a.backgroundImage)], [`${a.title ? page.heading('h2', a.title) : ''}${a.subtitle ? `<p>${esc(plain(a.subtitle))}</p>` : ''}${a.settingText ? `<p>${esc(plain(a.settingText))}</p>` : ''}${buttons}`]]);
+    // no title (the homepages: a label and the "manage your trip" links): the block's services
+    // option, which lays that shape out (ignored by the block until the option is on main)
+    page.block(a.title ? 'hero-campaign' : 'hero-campaign (services)', [[page.img(a.backgroundImage)], [`${a.title ? page.heading('h2', a.title) : ''}${a.subtitle ? `<p>${esc(plain(a.subtitle))}</p>` : ''}${a.settingText ? `<p>${esc(plain(a.settingText))}</p>` : ''}${buttons}`]]);
     placeSearch(page);
     page.section();
   },
