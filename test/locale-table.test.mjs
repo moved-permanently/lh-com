@@ -151,18 +151,22 @@ test('a language version still pilot (French, batch 11): allowed while its marke
   assert.throws(() => buildTable(www, { ...data([]), fallbackLanguageVersion: 'fr/fr' }), /fr\/fr: must be a live row/);
 });
 
-test('French (batch 11, pilot): fr/fr the language version with its own documents, 13 market roots from it; the four live roots as before', () => {
+test('French (batch 11, pilot; brief 281: www\'s xx/fr has pages): xx/fr the language version with its own documents, 14 market roots from it (fr/fr among them); the four live roots as before', () => {
   const { liveWaves = [] } = JSON.parse(fs.readFileSync('tools/markets/locale-data.json', 'utf8'));
   assert.deepEqual(LIVE_ROOTS, ['de/en', 'de/de', 'at/de', 'gb/en']);
-  assert.deepEqual({ en: LANGUAGE_VERSIONS.en, de: LANGUAGE_VERSIONS.de, fr: LANGUAGE_VERSIONS.fr }, { en: 'de/en', de: 'de/de', fr: 'fr/fr' });
+  assert.deepEqual({ en: LANGUAGE_VERSIONS.en, de: LANGUAGE_VERSIONS.de, fr: LANGUAGE_VERSIONS.fr }, { en: 'de/en', de: 'de/de', fr: 'xx/fr' });
   const french = Object.entries(LOCALE_TABLE).filter(([, r]) => r.lang === 'fr');
-  assert.equal(french.length, 14);
+  assert.equal(french.length, 15);
   assert.ok(french.every(([, r]) => r.status === (liveWaves.includes(11) ? 'live' : 'pilot')));
-  assert.deepEqual(french.filter(([, r]) => r.documents === 'own').map(([k]) => k), ['fr/fr']);
-  const fr = getLocale('/fr/fr/homepage');
-  assert.deepEqual({ key: fr.key, lang: fr.lang, versionBase: fr.versionBase }, { key: 'fr/fr', lang: 'fr', versionBase: undefined });
+  assert.deepEqual(french.filter(([, r]) => r.documents === 'own').map(([k]) => k), ['xx/fr']);
+  assert.equal(LOCALE_TABLE['xx/fr'].hreflang, 'fr');
+  assert.equal(LOCALE_TABLE['fr/fr'].hreflang, 'fr-FR');
+  const xx = getLocale('/xx/fr/homepage');
+  assert.deepEqual({ key: xx.key, lang: xx.lang, versionBase: xx.versionBase }, { key: 'xx/fr', lang: 'fr', versionBase: undefined });
+  const fr = getLocale('/fr/fr/bagages');
+  assert.deepEqual({ key: fr.key, lang: fr.lang, versionBase: fr.versionBase }, { key: 'fr/fr', lang: 'fr', versionBase: '/xx/fr' }, 'France: a market root of xx/fr');
   const ch = getLocale('/ch/fr/bagages');
-  assert.deepEqual({ key: ch.key, currency: ch.currency, versionBase: ch.versionBase }, { key: 'ch/fr', currency: 'CHF', versionBase: '/fr/fr' });
+  assert.deepEqual({ key: ch.key, currency: ch.currency, versionBase: ch.versionBase }, { key: 'ch/fr', currency: 'CHF', versionBase: '/xx/fr' });
   if (!liveWaves.includes(11)) {
     assert.ok(!isMigratedLocale('fr', 'fr'));
     assert.equal(getHomepageUrl('ch', 'fr'), 'https://www.lufthansa.com/ch/fr/homepage');

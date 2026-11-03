@@ -35,11 +35,12 @@ test('rollout: a language batch after the en and de ones: French (batch 11), its
   assert.deepEqual(b.map((x) => [x.n, x.roots, x.version || null]), [[1, ['aa/en', 'bb/de'], null], [2, ['be/fr', 'ch/fr'], 'fr/fr']]);
   assert.deepEqual(b[1].countries, ['be', 'ch']);
   assert.equal(b[1].lang, 'fr');
-  // the real data: batch 11, 13 French market roots
+  // the real data: batch 11, French's version www's xx/fr (pages since 2026-11-03, brief 281), 14
+  // French market roots, fr/fr among them
   const fr = batches().find((x) => x.lang === 'fr');
   assert.equal(fr.n, 11);
-  assert.deepEqual(fr.roots, ['ar/fr', 'be/fr', 'ca/fr', 'ch/fr', 'cl/fr', 'co/fr', 'cr/fr', 'dz/fr', 'gq/fr', 'lu/fr', 'ma/fr', 'tn/fr', 'us/fr']);
-  assert.equal(fr.version, 'fr/fr');
+  assert.deepEqual(fr.roots, ['ar/fr', 'be/fr', 'ca/fr', 'ch/fr', 'cl/fr', 'co/fr', 'cr/fr', 'dz/fr', 'fr/fr', 'gq/fr', 'lu/fr', 'ma/fr', 'tn/fr', 'us/fr']);
+  assert.equal(fr.version, 'xx/fr');
   // Spanish (batch 12, brief 268): www's xx/es has pages (2026-11-02), it is the version; es/es
   // a market root like the others
   const es = batches().find((x) => x.lang === 'es');
