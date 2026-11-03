@@ -16,7 +16,7 @@ import {
   getLocale, siteOrigin, rootRedirectPath, brandEntry,
 } from '../scripts/locale.js';
 import {
-  SITE_LANGUAGES, languageOfPath, languageSwitch, counterpartPath,
+  SITE_LANGUAGES, languageOfPath, languageSwitch, counterpartPath, switchTarget,
 } from '../scripts/site-languages.js';
 import {
   brandName, oneTrustId, isOwnWwwHost,
@@ -63,13 +63,31 @@ test('its roots: <ll>-<cc>, pt-pt first; the switch lists pt-pt, en-pt and es-es
   assert.equal(languageOfPath('/pt-pt', roots).lang, 'pt');
   assert.equal(languageOfPath('/en-pt/book', roots).lang, 'en');
   assert.equal(languageOfPath('/pt-ptx', roots), null);
-  // a homepage's counterpart: the other root's homepage; a page: its path under the other root
+  // TAP's slugs are translated (/pt-pt/ajuda, /en-pt/help, /es-es/ayuda; brief 320): a homepage's
+  // counterpart is the other root's homepage, a page has none of the same path
+  assert.ok(roots.every((l) => l.slugs === 'own'));
   assert.equal(counterpartPath('/pt-pt', roots[0], roots[1]), '/en-pt');
-  assert.equal(counterpartPath('/pt-pt/bagagem', roots[0], roots[1]), '/en-pt/bagagem');
+  assert.equal(counterpartPath('/pt-pt/bagagem', roots[0], roots[1]), null);
   const { links } = languageSwitch([], '/pt-pt/bagagem', 'pt', roots);
-  assert.deepEqual(links.map((l) => [l.lang, l.home, l.counterpart]), [['en', '/en-pt', '/en-pt/bagagem'], ['es', '/es-es', '/es-es/bagagem']]);
+  assert.deepEqual(links.map((l) => [l.lang, l.home, l.counterpart]), [['en', '/en-pt', null], ['es', '/es-es', null]]);
   assert.deepEqual(languageSwitch([], '/en-pt', 'en', roots).links.map((l) => l.home), ['/pt-pt', '/es-es']);
   assert.deepEqual(languageSwitch([], '/es-es/equipaje', 'es', roots).links.map((l) => [l.lang, l.home]), [['pt', '/pt-pt'], ['en', '/en-pt']]);
+});
+
+test('the switch\'s targets: the page\'s Alternate <lang> metadata, else the language\'s homepage; never a probe', async () => {
+  const roots = SITE_LANGUAGES.tap;
+  const probes = [];
+  const exists = async (p) => { probes.push(p); return true; };
+  // pt-pt/ajuda with its counterparts (tap-import.mjs writes www's hrefLangs as Alternate <lang>)
+  const withAlternates = languageSwitch([], '/pt-pt/ajuda', 'pt', roots, { en: '/en-pt/help', es: '/es-es/ayuda' });
+  assert.deepEqual(await Promise.all(withAlternates.links.map((l) => switchTarget(l, exists))), ['/en-pt/help', '/es-es/ayuda']);
+  // an es-es page without them (es-es and fr-fr's documents have none yet): the homepages
+  const without = languageSwitch([], '/es-es/ayuda', 'es', roots);
+  assert.deepEqual(await Promise.all(without.links.map((l) => switchTarget(l, exists))), ['/pt-pt', '/en-pt']);
+  // one alternate only: it, and the other language's homepage
+  const one = languageSwitch([], '/en-pt/help', 'en', roots, { pt: '/pt-pt/ajuda' });
+  assert.deepEqual(await Promise.all(one.links.map((l) => switchTarget(l, exists))), ['/pt-pt/ajuda', '/es-es']);
+  assert.deepEqual(probes, [], 'no HEAD request');
 });
 
 test('a page\'s locale from its root: language, country, hreflang <ll>-<CC>, base the root (its nav and footer)', () => {
