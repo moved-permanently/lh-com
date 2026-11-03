@@ -242,6 +242,26 @@ export const PASSENGER_LABELS = {
     'fewer label': 'Usuń: {TYPE}',
     'done label': 'Gotowe',
   },
+  // Korean (kr/ko; the wording of www where it has one, the capture of 2026-11-03)
+  ko: {
+    'passengers label': '승객 및 탑승 클래스',
+    'adults label': '성인',
+    'adults hint': '',
+    'children label': '어린이',
+    'children hint': '2~11세',
+    'infants label': '유아',
+    'infants hint': '2세 미만',
+    'cabin label': '탑승 클래스',
+    'economy label': '이코노미',
+    'premium economy label': '프리미엄 이코노미',
+    'business label': '비즈니스',
+    'first label': '퍼스트',
+    'traveller summary': '{CABIN}, {COUNT} 승객',
+    'travellers summary': '{CABIN}, {COUNT} 승객',
+    'more label': '{TYPE} 추가',
+    'fewer label': '{TYPE} 줄이기',
+    'done label': '완료',
+  },
 };
 
 /** The cabins the picker can offer, by the block's cabin codes (scripts/shop-handoff.js). */

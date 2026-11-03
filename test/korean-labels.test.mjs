@@ -25,6 +25,7 @@ const TABLES = {
   'blocks/columns-media/columns-media.js': ['DEFAULT_LABELS'],
   'blocks/carousel-images/carousel-images.js': ['DEFAULT_LABELS'],
   'blocks/flight-search/flight-search.js': ['DEFAULT_LABELS'],
+  'blocks/flight-search/passenger-picker.js': ['PASSENGER_LABELS'],
   'blocks/price-bar/price-bar.js': ['DEFAULT_LABELS'],
   'blocks/hero-campaign/hero-campaign.js': ['DEFAULT_LABELS'],
   'blocks/destination-finder/destination-finder.js': ['DEFAULT_LABELS'],
@@ -83,6 +84,8 @@ test('www\'s own Korean wording where www has it', () => {
   const t = (file, name) => table(fs.readFileSync(path.join(root, file), 'utf8'), name).ko;
   assert.equal(t('blocks/flight-search/flight-search.js', 'DEFAULT_LABELS')['submit label'], '항공편 검색');
   assert.equal(t('blocks/flight-search/flight-search.js', 'DEFAULT_LABELS')['date label'], '출발 - 귀국');
+  // the passenger picker's summary as www writes it ("이코노미, 1 승객")
+  assert.equal(t('blocks/flight-search/passenger-picker.js', 'PASSENGER_LABELS')['traveller summary'], '{CABIN}, {COUNT} 승객');
   assert.equal(t('blocks/header/header.js', 'LABELS').localeTitle, '위치/언어');
   assert.equal(t('blocks/header/header.js', 'LABELS').newTab, '링크가 새 브라우저 탭에서 열립니다');
   assert.equal(t('blocks/flash-teaser/flash-teaser.js', 'LABELS').title, '최신 여행 정보, 알림 및 프로모션');
