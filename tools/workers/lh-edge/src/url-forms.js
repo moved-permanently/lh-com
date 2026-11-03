@@ -77,6 +77,22 @@ export function brandLongPathTarget(url, root) {
 }
 
 /**
+ * A page path with "&" (raw or %26: www's /us/en/local-pages/baggage-&-other-fees): the path the
+ * importer names that page's document (swiss-import.mjs docName: "&" as "-and-", one hyphen between
+ * words), query kept; else null. aem.live answers such a path 404 ("Unsupported characters in
+ * path") before it reads a site's redirects. Page paths only (/<cc>/<ll>/..., no file extension).
+ */
+export function ampersandTarget(url) {
+  const { pathname, search } = url;
+  if (!/&|%26/i.test(pathname) || EXCLUDED.test(pathname) || !SHORT.test(pathname)) return null;
+  if (pathname.split('/').pop().includes('.')) return null;
+  const target = pathname.replace(/%26/gi, '&').split('/')
+    .map((seg) => (seg.includes('&') ? seg.replace(/&/g, '-and-').replace(/-{2,}/g, '-').replace(/^-|-$/g, '') : seg))
+    .join('/');
+  return `${target}${search}`;
+}
+
+/**
  * The long path of a long-path form's page (/content/lh/markets/<cc>/<ll>/<page>, spelled as the
  * page), or null (a short path, /content/lh/markets/<cc>/<ll>, no URL form).
  */

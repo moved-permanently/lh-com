@@ -106,6 +106,13 @@ export const SITE_ENTRIES = Object.fromEntries(Object.entries(BRAND_SITES).map((
 export const ALTERNATES_SITES = new Set(['austrian', 'brussels', 'ita', 'swiss']);
 
 /**
+ * The sites whose www has page paths with "&" (SWISS: /us/en/local-pages/baggage-&-other-fees): a
+ * 301 to the document's "-and-" path (src/url-forms.js ampersandTarget), since aem.live answers
+ * such a path 404 before the site's redirects are read.
+ */
+export const AMPERSAND_SITES = new Set(['swiss']);
+
+/**
  * The sites without <cc>/<ll> roots (no locale table, no market roots): every path passes through
  * to the site's origin as it is; entry: the paths that redirect (302) as on the source.
  */

@@ -40,7 +40,7 @@ import { mfe, isMfePath } from './mfe.js';
 import { csiOffline, isOfflinePath } from './offline.js';
 import { aliasHostOf, forAlias } from './alias.js';
 import {
-  siteOf, siteEnv, siteHostsOf, ALTERNATES_SITES,
+  siteOf, siteEnv, siteHostsOf, ALTERNATES_SITES, AMPERSAND_SITES,
 } from './sites.js';
 import {
   market, marketPath, marketSitemap, isMarketSitemapPath, withoutConditions,
@@ -55,7 +55,7 @@ import {
 import { headUrlHost, rewriteHeadUrls } from './head-urls.js';
 import { rewriteBrandIcons } from './brand-icons.js';
 import {
-  urlForm, urlFormUnlessPage, isLongPagePath, brandLongPathTarget,
+  urlForm, urlFormUnlessPage, isLongPagePath, brandLongPathTarget, ampersandTarget,
 } from './url-forms.js';
 /* eslint-disable-next-line import/no-relative-packages */
 import { BRANDS } from '../../../../scripts/brands.js';
@@ -415,6 +415,12 @@ async function siteRespond(incoming, env, site, ctx) {
   const long = read && brandLongPathTarget(url, brand.aemContent);
   if (long) {
     return finish(new Response(null, { status: 301, headers: { location: long, 'cache-control': 'public, max-age=3600', 'x-lh-edge-route': 'url-form' } }), incoming, senv, 'url-form');
+  }
+  // a page path with "&" (www's /us/en/local-pages/baggage-&-other-fees): 301 to the document's
+  // "-and-" path (src/sites.js AMPERSAND_SITES); aem.live answers it 404 before its redirects
+  const amp = read && AMPERSAND_SITES.has(site.name) && ampersandTarget(url);
+  if (amp) {
+    return finish(new Response(null, { status: 301, headers: { location: amp, 'cache-control': 'public, max-age=3600', 'x-lh-edge-route': 'url-form' } }), incoming, senv, 'url-form');
   }
   // a brand whose tenant lh-backends has (scripts/brands.js backends): the sign-in return and
   // lh-backends' paths as on lh-com's hosts, the request (its host) unchanged: lh-backends picks
