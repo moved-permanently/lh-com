@@ -44,6 +44,16 @@ export const PICKER_OPTION_LABELS = {
     'fare high label': 'Flexibilidade/classe de reserva mais alta para acumular mais milhas',
     'fare applied': 'A sua seleção de tarifa está ativa.',
   },
+  ru: {
+    'young adults label': 'Молодые люди',
+    'young adults hint': '(12–15 лет)',
+    'fare label': 'Выбор другого тарифа',
+    'fare question': 'Какие преимущества тарифа для вас важнее?',
+    'fare default label': 'Предложения по лучшей цене',
+    'fare coupon label': 'Изменить последовательность моих перелётов',
+    'fare high label': 'Гибкость / более высокий класс бронирования для накопления большего числа миль',
+    'fare applied': 'Выбранный тариф применён.',
+  },
 };
 
 /** The picker's hints a document can leave out. */

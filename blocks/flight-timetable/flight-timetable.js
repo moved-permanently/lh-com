@@ -233,6 +233,7 @@ const WEEKDAYS = {
   en: ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'],
   de: ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'],
   pt: ['seg', 'ter', 'qua', 'qui', 'sex', 'sáb', 'dom'],
+  ru: ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'],
 };
 
 const EMPTY_DATE = '--/--/--';

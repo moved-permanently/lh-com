@@ -172,6 +172,7 @@ const MONTHS = {
   en: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
   de: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
   pt: ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'],
+  ru: ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'],
 };
 
 /**
@@ -201,6 +202,8 @@ export function formatArticleDate(value, locale, style = 'market') {
   }
   // Portuguese writes the date with "de" ("3 de novembro de 2026")
   if (locale.lang === 'pt') return `${day} de ${month} de ${year}`;
+  // Russian: the month in the genitive, then "г." ("3 ноября 2026 г.")
+  if (locale.lang === 'ru') return `${day} ${month} ${year} г.`;
   return `${day}. ${month} ${year}`;
 }
 

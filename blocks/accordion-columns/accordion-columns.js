@@ -194,6 +194,7 @@ export const FILTER_LABELS = {
   de: { label: 'Thema durch Eingabe finden', empty: 'Keine Themen gefunden.', clear: 'Entfernen' },
   it: { label: 'Trova un argomento digitando', empty: 'Nessun argomento trovato.', clear: 'Rimuovi' },
   pt: { label: 'Encontre um tema ao escrever', empty: 'Nenhum tema encontrado.', clear: 'Remover' },
+  ru: { label: 'Начните вводить тему', empty: 'Темы не найдены.', clear: 'Удалить' },
 };
 // rows of option filter: their first cell (lower case) -> the text they set
 const FILTER_ROWS = { 'filter label': 'label', 'no results': 'empty' };
