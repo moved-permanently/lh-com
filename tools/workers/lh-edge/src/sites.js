@@ -187,16 +187,35 @@ export const SITE_INDEX_PATHS = {
 };
 
 /**
+ * The two-letter roots helix-query.yaml's market-pages index leaves out (it serves every site):
+ * lh-com's four roots with their own indexes, Discover's xx/fr, ITA's and Austrian's language
+ * versions. Each has its own search-<cc>-<ll> index. On SWISS (MARKET_EXTRA_INDEX_SITES) its
+ * market roots among them are market roots like the others, whose own pages that index holds
+ * instead of /market-pages.json: siteEnv's MARKET_EXTRA_INDEXES, read with it (src/edge.js
+ * originFetch). test/swiss-market-index.test.mjs checks the list against helix-query.yaml.
+ */
+export const MARKET_INDEX_EXCLUDED_ROOTS = [
+  'de/en', 'de/de', 'at/de', 'gb/en', 'xx/fr', 'it/en', 'it/it', 'fr/fr', 'es/es', 'nl/nl', 'br/pt',
+  'gr/el', 'jp/ja', 'ru/ru', 'cn/zh', 'pl/pl',
+];
+const MARKET_EXTRA_INDEX_SITES = new Set(['swiss']);
+
+/**
  * The env a site's request is answered with: its origin and www host, its tables (read by
  * src/markets.js tables(env)), every market root served on its host (no pilot rows); INDEX_PATHS:
- * its language versions' index paths where they are not their search-index.json (SITE_INDEX_PATHS).
+ * its language versions' index paths where they are not their search-index.json (SITE_INDEX_PATHS);
+ * MARKET_EXTRA_INDEXES: the search indexes of its market roots the market index leaves out.
  */
 export function siteEnv(env, site) {
   const indexOf = SITE_INDEX_PATHS[site.name];
   const indexPaths = indexOf && site.tables ? Object.fromEntries(Object.values(site.tables.versions)
     .map((v) => [`/${v}/search-index.json`, indexOf(v)])) : undefined;
+  const extra = MARKET_EXTRA_INDEX_SITES.has(site.name) && site.tables
+    ? site.tables.marketRoots.filter((r) => MARKET_INDEX_EXCLUDED_ROOTS.includes(r))
+      .map((r) => `/${r}/search-index.json`) : [];
   return {
     ...(indexPaths ? { INDEX_PATHS: indexPaths } : {}),
+    ...(extra.length ? { MARKET_EXTRA_INDEXES: extra } : {}),
     ...env,
     ORIGIN: site.origin,
     WWW_HOST: site.www || env.WWW_HOST,

@@ -1002,7 +1002,13 @@ export async function market(request, env) {
   const { root, rest } = mp;
   const restOfWorld = (t.restOfWorld || {})[t.table[root].lang];
   const worldSearch = Boolean(restOfWorld) && rest === '/search-index.json';
-  if (own.status !== 404 && !(worldSearch && own.status === 200)) return own;
+  // a SWISS market root whose own search index the origin has because the shared market index
+  // leaves its path out (src/sites.js MARKET_INDEX_EXCLUDED_ROOTS: es/es, de/en …): its search
+  // index as the other market roots' (the language version's rows and its own, which the market
+  // index read has: src/edge.js), not that file alone
+  const ownIndexRoot = rest === '/search-index.json'
+    && (env.MARKET_EXTRA_INDEXES || []).includes(`/${root}/search-index.json`);
+  if (own.status !== 404 && !((worldSearch || ownIndexRoot) && own.status === 200)) return own;
   const from = t.versions[t.table[root].lang];
   // the language version's document in full (see withoutConditions)
   const versionRequest = withoutConditions(request);

@@ -129,6 +129,12 @@ function capBrowserCache(resp, env) {
  */
 export async function originFetch(request, env, target, options = {}) {
   const url = target ? new URL(target) : originUrl(request.url, env);
+  // SWISS's market index with its market roots' own search indexes the shared index leaves out
+  // (src/sites.js MARKET_INDEX_EXCLUDED_ROOTS, siteEnv MARKET_EXTRA_INDEXES)
+  if (env.MARKET_EXTRA_INDEXES && url.pathname === '/market-pages.json' && ['GET', 'HEAD'].includes(request.method)) {
+    // eslint-disable-next-line no-use-before-define
+    return mergedMarketIndex(request, env, url, options);
+  }
   // a site's language versions' index under its own name (src/sites.js SITE_INDEX_PATHS: SWISS)
   const indexPath = env.INDEX_PATHS && env.INDEX_PATHS[url.pathname];
   if (indexPath) url.pathname = indexPath;
@@ -155,6 +161,58 @@ export async function originFetch(request, env, target, options = {}) {
   withoutCacheVersion(resp);
   capBrowserCache(resp, env);
   return resp;
+}
+
+/**
+ * /market-pages.json with the rows of env.MARKET_EXTRA_INDEXES (a row of the market index first,
+ * one row a path): every page of each read, the request's offset and limit applied to the merged
+ * rows. The market index's answer as it is when it is not a sheet (a 304, an error).
+ */
+async function mergedMarketIndex(request, env, url, options) {
+  const { MARKET_EXTRA_INDEXES: extra, ...plain } = env;
+  const get = new Request(request.url, { method: 'GET', headers: request.headers });
+  const readAll = async (path) => {
+    const rows = [];
+    let first = null;
+    for (let offset = 0; ;) {
+      const u = new URL(path, url);
+      u.searchParams.set('offset', String(offset));
+      u.searchParams.set('limit', '1000');
+      // eslint-disable-next-line no-await-in-loop
+      const resp = await originFetch(get, plain, u, options);
+      if (!resp.ok) return first ? { first, rows } : { first: resp, rows: null };
+      let body;
+      try {
+        // eslint-disable-next-line no-await-in-loop
+        body = await resp.clone().json();
+      } catch (e) {
+        return { first: first || resp, rows: first ? rows : null };
+      }
+      if (!first) first = { resp, body };
+      const data = Array.isArray(body.data) ? body.data : [];
+      rows.push(...data);
+      offset += data.length;
+      if (!data.length || offset >= Number(body.total || 0)) return { first, rows };
+    }
+  };
+  const main = await readAll(url.pathname);
+  if (!main.rows || !main.first.body) return main.first.resp || main.first;
+  const extras = await Promise.all(extra.map((p) => readAll(p).catch(() => ({ rows: [] }))));
+  const byPath = new Map();
+  [main.rows, ...extras.map((x) => x.rows || [])].flat().forEach((r) => {
+    if (r && typeof r.path === 'string' && !byPath.has(r.path)) byPath.set(r.path, r);
+  });
+  const all = [...byPath.values()];
+  const offset = Math.max(0, Number.parseInt(url.searchParams.get('offset'), 10) || 0);
+  const limit = Math.max(1, Number.parseInt(url.searchParams.get('limit'), 10) || 1000);
+  const body = {
+    ...main.first.body, total: all.length, offset, limit, data: all.slice(offset, offset + limit),
+  };
+  const headers = new Headers(main.first.resp.headers);
+  headers.delete('content-length');
+  headers.delete('etag');
+  headers.set('content-type', 'application/json');
+  return new Response(request.method === 'HEAD' ? null : JSON.stringify(body), { status: 200, headers });
 }
 
 /**
