@@ -1185,3 +1185,18 @@ main .section.heading-icon h2 .heading-icon-image img {
 body.brand-b2b main > .section:first-child > .default-content-wrapper > p:has(> picture) + h1 ~ p {
   max-width: 800px;
 }
+
+/* SWISS's topic teasers (the FAQ hub: www's a.teaser.usp > h3.teaser-heading > img.icon.icon-svg
+   and the title; here an SVG picture first in the heading's link): the icon at DCEP's .icon-svg
+   size, 4.8rem square, above the title (the SVG's own 150px stretched to the column, 1264px) */
+body.brand-swiss main .default-content-wrapper > :is(h2, h3, h4) > a > picture:first-child:has(img[src*=".svg"]) {
+  display: block;
+  width: 48px;
+  margin-bottom: 8px;
+}
+
+body.brand-swiss main .default-content-wrapper > :is(h2, h3, h4) > a > picture:first-child:has(img[src*=".svg"]) img {
+  display: block;
+  width: 48px;
+  height: 48px;
+}
