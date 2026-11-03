@@ -201,7 +201,7 @@ export const LOCALE_TABLE = {
   'us/en': { country: 'us', lang: 'en', hreflang: 'en-US', status: 'pilot', documents: 'language', name: 'USA | English', countryName: { en: 'USA', de: 'USA' }, homeAirport: null, currency: 'USD', timeZone: null, shopLang: null },
   've/de': { country: 've', lang: 'de', hreflang: 'de-VE', status: 'pilot', documents: 'language', name: 'Venezuela | Deutsch', countryName: { en: 'Venezuela', de: 'Venezuela' }, homeAirport: 'FRA', currency: 'EUR', timeZone: null, shopLang: null },
   've/en': { country: 've', lang: 'en', hreflang: 'en-VE', status: 'pilot', documents: 'language', name: 'Venezuela | English', countryName: { en: 'Venezuela', de: 'Venezuela' }, homeAirport: 'FRA', currency: 'EUR', timeZone: null, shopLang: null },
-  'fr/fr': { country: 'fr', lang: 'fr', hreflang: 'fr-FR', status: 'pilot', documents: 'own', name: 'France | Français', countryName: { en: 'France', de: 'France', fr: 'France' }, homeAirport: null, currency: 'EUR', timeZone: null, shopLang: null },
+  'fr/fr': { country: 'fr', lang: 'fr', hreflang: 'fr-FR', status: 'pilot', documents: 'language', name: 'France | Français', countryName: { en: 'France', de: 'France', fr: 'France' }, homeAirport: null, currency: 'EUR', timeZone: null, shopLang: null },
   'ar/fr': { country: 'ar', lang: 'fr', hreflang: 'fr-AR', status: 'pilot', documents: 'language', name: 'Argentine | Français', countryName: { en: 'Argentinien', de: 'Argentina', fr: 'Argentine' }, homeAirport: 'BUE', currency: 'USD', timeZone: null, shopLang: null },
   'be/fr': { country: 'be', lang: 'fr', hreflang: 'fr-BE', status: 'pilot', documents: 'language', name: 'Belgique | Français', countryName: { en: 'Belgium', de: 'Belgien', fr: 'Belgique' }, homeAirport: 'BRU', currency: 'EUR', timeZone: null, shopLang: null },
   'ca/fr': { country: 'ca', lang: 'fr', hreflang: 'fr-CA', status: 'pilot', documents: 'language', name: 'Canada | Français', countryName: { en: 'Canada', de: 'Kanada', fr: 'Canada' }, homeAirport: null, currency: null, timeZone: null, shopLang: null },
@@ -215,6 +215,7 @@ export const LOCALE_TABLE = {
   'ma/fr': { country: 'ma', lang: 'fr', hreflang: 'fr-MA', status: 'pilot', documents: 'language', name: 'Maroc  | Français', countryName: { en: 'Morocco', de: 'Marokko', fr: 'Maroc' }, homeAirport: 'RAK', currency: 'MAD', timeZone: null, shopLang: null },
   'tn/fr': { country: 'tn', lang: 'fr', hreflang: 'fr-TN', status: 'pilot', documents: 'language', name: 'Tunisie  | Français', countryName: { en: 'Tunesien', de: 'Tunesien', fr: 'Tunisie' }, homeAirport: 'TUN', currency: 'TND', timeZone: null, shopLang: null },
   'us/fr': { country: 'us', lang: 'fr', hreflang: 'fr-US', status: 'pilot', documents: 'language', name: 'Etats-Unis d\'Amérique  | Français', countryName: { en: 'USA', de: 'USA', fr: 'Etats-Unis d\'Amérique' }, homeAirport: null, currency: 'USD', timeZone: null, shopLang: null },
+  'xx/fr': { country: 'xx', lang: 'fr', hreflang: 'fr', status: 'pilot', documents: 'own', name: 'Autres pays | Français', countryName: { en: null, de: null, fr: 'Autres pays' }, homeAirport: 'FRA', currency: 'EUR', timeZone: null, shopLang: null },
   'xx/es': { country: 'xx', lang: 'es', hreflang: 'es', status: 'pilot', documents: 'own', name: 'Otros paises | Español', countryName: { en: null, de: null, es: 'Otros paises' }, homeAirport: 'FRA', currency: 'EUR', timeZone: null, shopLang: null },
   'ar/es': { country: 'ar', lang: 'es', hreflang: 'es-AR', status: 'pilot', documents: 'language', name: 'Argentina | Español', countryName: { en: 'Argentinien', de: 'Argentina', es: 'Argentina' }, homeAirport: 'BUE', currency: 'USD', timeZone: null, shopLang: null },
   'br/es': { country: 'br', lang: 'es', hreflang: 'es-BR', status: 'pilot', documents: 'language', name: 'Brasil | Español', countryName: { en: 'Brazil', de: 'Brazil', es: 'Brasil' }, homeAirport: 'SAO', currency: 'BRL', timeZone: null, shopLang: null },
@@ -241,7 +242,7 @@ export const DEFAULT_LOCALE = 'de/de';
 export const LANGUAGE_VERSIONS = {
   en: 'de/en',
   de: 'de/de',
-  fr: 'fr/fr',
+  fr: 'xx/fr',
   es: 'xx/es',
 };
 

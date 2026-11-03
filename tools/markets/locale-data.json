@@ -5,7 +5,7 @@
   "languageVersions": {
     "en": "de/en",
     "de": "de/de",
-    "fr": "fr/fr",
+    "fr": "xx/fr",
     "es": "xx/es"
   },
   "fallbackLanguageVersion": "de/en",
@@ -3494,7 +3494,7 @@
     },
     "fr/fr": {
       "status": "pilot",
-      "documents": "own",
+      "documents": "language",
       "name": "France | Français",
       "countryName": {
         "en": "France",
@@ -3757,6 +3757,29 @@
       "shopLang": null,
       "unverified": [
         "homeAirport",
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 11
+    },
+    "xx/fr": {
+      "status": "pilot",
+      "documents": "own",
+      "name": "Autres pays | Français",
+      "countryName": {
+        "en": null,
+        "de": null,
+        "fr": "Autres pays"
+      },
+      "homeAirport": "FRA",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "name",
+        "countryName.fr",
+        "countryName.en",
+        "countryName.de",
         "timeZone",
         "shopLang"
       ],
