@@ -232,13 +232,16 @@ export function defaultDateMask(lang) {
 
 /**
  * Applies a date mask to typed text: keeps the digits and inserts the mask's separators,
- * e.g. ("15102022", "DD.MM.YYYY") -> "15.10.2022".
+ * e.g. ("15102022", "DD.MM.YYYY") -> "15.10.2022". The literals after the last digit slot (the
+ * Korean "YYYY. MM. DD.") come once every digit slot is filled, unless the edit is a deletion
+ * (Backspace takes the trailing literal, then the last digit).
  */
-export function applyDateMask(text, mask) {
+export function applyDateMask(text, mask, { deleting = false } = {}) {
   const digits = String(text || '').replace(/\D/g, '');
   let out = '';
   let d = 0;
-  for (let i = 0; i < mask.length && d < digits.length; i += 1) {
+  let i = 0;
+  for (; i < mask.length && d < digits.length; i += 1) {
     if (/[DMY]/i.test(mask[i])) {
       out += digits[d];
       d += 1;
@@ -246,6 +249,8 @@ export function applyDateMask(text, mask) {
       out += mask[i];
     }
   }
+  // every digit slot filled: the mask's trailing literals
+  if (!deleting && !/[DMY]/i.test(mask.slice(i))) out += mask.slice(i);
   return out;
 }
 

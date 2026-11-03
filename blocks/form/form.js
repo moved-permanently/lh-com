@@ -567,7 +567,12 @@ function renderControl(row, ctx) {
     control.inputMode = 'numeric';
     control.maxLength = mask.length;
     control.placeholder = mask;
-    control.addEventListener('input', () => {
+    control.addEventListener('input', (e) => {
+      const masked = applyDateMask(control.value, mask, { deleting: /^delete/.test(e.inputType || '') });
+      if (masked !== control.value) control.value = masked;
+    });
+    // (a deletion left the trailing literal off: back once the field is left with every digit)
+    control.addEventListener('blur', () => {
       const masked = applyDateMask(control.value, mask);
       if (masked !== control.value) control.value = masked;
     });
