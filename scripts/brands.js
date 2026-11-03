@@ -581,7 +581,7 @@ const SWISS_MARKETS = {
   'us/es': ['Estados Unidos de América | Español', 'NYC'],
   'br/pt': ['Brasile | Português', 'SAO'],
   'pt/pt': ['Portugal | Português', 'LIS'],
-  // zh and ja (the held roots, imported 2026-11-03): behind SWISS_MARKET_LANGUAGES_LIVE as well
+  // zh and ja (the held roots, imported 2026-11-03): in SWISS_MARKET_LANGUAGES_LIVE
   'cn/zh': ['Cina (Continentale) | 简体中文', 'BJS'],
   'hk/zh': ['Hong Kong, Cina | 简体中文', 'HKG'],
   'sg/zh': ['新加坡 (Singapore) | 简体中文', 'SIN'],
@@ -594,8 +594,9 @@ const SWISS_MARKETS = {
 // the dialog lists them and lh-edge serves their pages.
 export const SWISS_MARKETS_LIVE = true;
 // the languages whose market roots join (lh-swiss has the language and the roots' documents are
-// published): es and pt's roots of SWISS_MARKETS since their documents are live (2026-11-03)
-export const SWISS_MARKET_LANGUAGES_LIVE = ['en', 'de', 'fr', 'it', 'es', 'pt'];
+// published): es and pt's roots of SWISS_MARKETS since their documents are live (2026-11-03), zh
+// and ja's (cn/zh, hk/zh, sg/zh, jp/ja) since theirs are (2026-11-03)
+export const SWISS_MARKET_LANGUAGES_LIVE = ['en', 'de', 'fr', 'it', 'es', 'pt', 'zh', 'ja'];
 
 /** SWISS's site entry with its market roots when the switch is on (roots of its languages only). */
 export function withSwissMarkets(
@@ -666,11 +667,11 @@ export function withSwissLanguages(site, live = SWISS_LANGUAGES_LIVE) {
 // their switch as the languages: off, a pilot (its pages render with their own row; the rows, the
 // country dialog and lh-edge as before); its key in SWISS_OWN_ROOTS_LIVE (once its documents are
 // published) makes it a root with its own documents. name: www's selector label; airport: its
-// homepage's flight search origin.
+// homepage's flight search origin. kr/ko on since its documents are live (2026-11-03).
 export const SWISS_OWN_ROOTS = {
   'kr/ko': { name: '대한민국 | 한국어', airport: 'SEL' },
 };
-export const SWISS_OWN_ROOTS_LIVE = [];
+export const SWISS_OWN_ROOTS_LIVE = ['kr/ko'];
 
 /** SWISS's site entry with the own roots switched on as roots, the others among its pilots. */
 export function withSwissOwnRoots(site, live = SWISS_OWN_ROOTS_LIVE) {

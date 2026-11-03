@@ -175,7 +175,8 @@ test('the roots: the pilot\'s ch/en and ch/de, ch/fr and ch/it (brief 272), ch/e
   const site = BRAND_SITES.swiss;
   // the market roots (SWISS_MARKETS_LIVE, test/swiss-markets-switch.test.mjs) come after ch's eight
   assert.deepEqual(Object.keys(site.rows).slice(0, 8), ['ch/en', 'ch/de', 'ch/fr', 'ch/it', 'ch/es', 'ch/pt', 'ch/zh', 'ch/ja']);
-  assert.deepEqual(Object.keys(site.rows).filter((r) => site.rows[r].documents === 'own'), ['ch/en', 'ch/de', 'ch/fr', 'ch/it', 'ch/es', 'ch/pt', 'ch/zh', 'ch/ja']);
+  // and kr/ko, the own root with its own documents in Korean (SWISS_OWN_ROOTS_LIVE, test/swiss-korea.test.mjs)
+  assert.deepEqual(Object.keys(site.rows).filter((r) => site.rows[r].documents === 'own'), ['ch/en', 'ch/de', 'ch/fr', 'ch/it', 'ch/es', 'ch/pt', 'ch/zh', 'ch/ja', 'kr/ko']);
   assert.deepEqual(Object.keys(site.rows).slice(0, 8).map((r) => site.rows[r].hreflang), ['en-CH', 'de-CH', 'fr-CH', 'it-CH', 'es-CH', 'pt-CH', 'zh-CH', 'ja-CH']);
   assert.deepEqual(site.versions, {
     en: 'ch/en', de: 'ch/de', fr: 'ch/fr', it: 'ch/it', es: 'ch/es', pt: 'ch/pt', zh: 'ch/zh', ja: 'ch/ja',
@@ -192,13 +193,13 @@ test('the roots: the pilot\'s ch/en and ch/de, ch/fr and ch/it (brief 272), ch/e
   });
 });
 
-test('the country dialog: the eight roots and the 210 market roots; every other root links to its homepage on www.swiss.com', async () => {
+test('the country dialog: the eight roots, kr/ko and the 214 market roots; every other root links to its homepage on www.swiss.com', async () => {
   const {
     ownRoots, getHomepageUrl, rootRedirectPath, siteLocales,
   } = await import('../scripts/locale.js');
   onPage({ brand: 'swiss' }, () => {
     assert.deepEqual(ownRoots().slice(0, 8), ['ch/en', 'ch/de', 'ch/fr', 'ch/it', 'ch/es', 'ch/pt', 'ch/zh', 'ch/ja']);
-    assert.equal(ownRoots().length, 218, 'ch\'s eight and the market roots (SWISS_MARKETS_LIVE)');
+    assert.equal(ownRoots().length, 223, 'ch\'s eight, kr/ko (SWISS_OWN_ROOTS_LIVE) and the market roots (SWISS_MARKETS_LIVE)');
     assert.equal(getHomepageUrl('ch', 'en'), '/ch/en/homepage');
     assert.equal(getHomepageUrl('CH', 'DE'), '/ch/de/homepage');
     assert.equal(getHomepageUrl('ch', 'fr'), '/ch/fr/homepage');
@@ -208,10 +209,12 @@ test('the country dialog: the eight roots and the 210 market roots; every other 
     assert.equal(getHomepageUrl('ch', 'zh'), '/ch/zh/homepage');
     assert.equal(getHomepageUrl('ch', 'ja'), '/ch/ja/homepage');
     assert.equal(getHomepageUrl('ch', 'ru'), `${W}/ch/ru/homepage`, 'a language SWISS has no root for: www');
-    assert.equal(getHomepageUrl('kr', 'ko'), `${W}/kr/ko/homepage`);
+    assert.equal(getHomepageUrl('kr', 'ko'), '/kr/ko/homepage', 'kr/ko (SWISS_OWN_ROOTS_LIVE, 2026-11-03)');
     assert.equal(getHomepageUrl('de', 'de'), '/de/de/homepage', 'a market root: its homepage here');
     // es and pt's market roots (SWISS_MARKET_LANGUAGES_LIVE, 2026-11-03)
     [['ar', 'es'], ['br', 'es'], ['es', 'es'], ['us', 'es'], ['br', 'pt'], ['pt', 'pt']].forEach(([cc, ll]) => assert.equal(getHomepageUrl(cc, ll), `/${cc}/${ll}/homepage`, `${cc}/${ll}`));
+    // zh and ja's market roots (SWISS_MARKET_LANGUAGES_LIVE, 2026-11-03)
+    [['cn', 'zh'], ['hk', 'zh'], ['sg', 'zh'], ['jp', 'ja']].forEach(([cc, ll]) => assert.equal(getHomepageUrl(cc, ll), `/${cc}/${ll}/homepage`, `${cc}/${ll}`));
     assert.equal(rootRedirectPath(), '/ch/en/homepage');
     assert.equal(siteLocales()['ch/de'].homeAirport, 'ZRH');
     assert.equal(siteLocales()['ch/de'].name, 'Switzerland | Deutsch');

@@ -17,7 +17,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { parseHTML } from 'linkedom';
 import {
-  BRAND_SITES, SWISS_LANGUAGES, SWISS_LANGUAGES_LIVE, withSwissLanguages, withSwissMarkets,
+  BRAND_SITES, SWISS_LANGUAGES, SWISS_LANGUAGES_LIVE, SWISS_OWN_ROOTS, withSwissLanguages, withSwissMarkets,
 } from '../scripts/brands.js';
 
 const W = 'https://www.swiss.com';
@@ -43,10 +43,12 @@ const off = Object.keys(SWISS_LANGUAGES).filter((ll) => !SWISS_LANGUAGES_LIVE.in
 const on = Object.keys(SWISS_LANGUAGES).filter((ll) => SWISS_LANGUAGES_LIVE.includes(ll));
 // SWISS's site without the switch's languages (as withSwissLanguages finds it)
 const base = (() => {
-  // ch's roots of these languages and their market roots (es and pt's since 2026-11-03)
+  // ch's roots of these languages and their market roots (es and pt's since 2026-11-03), and the
+  // own roots (kr/ko since 2026-11-03: test/swiss-korea.test.mjs)
   const roots = [
     ...Object.values(SWISS_LANGUAGES).map((l) => l.root),
     ...Object.keys(BRAND_SITES.swiss.rows).filter((k) => SWISS_LANGUAGES[k.split('/')[1]]),
+    ...Object.keys(SWISS_OWN_ROOTS),
   ];
   const without = (map) => Object.fromEntries(Object.entries(map).filter(([k]) => !roots.includes(k)));
   const s = {
@@ -74,7 +76,7 @@ test('the languages behind the switch: es, pt, zh, ja (on), el and ru (off); www
 
 test('BRAND_SITES.swiss: the languages off as pilots, the ones on as roots; ch\'s own four first', () => {
   const site = BRAND_SITES.swiss;
-  const own = Object.keys(site.rows).filter((r) => site.rows[r].documents === 'own');
+  const own = Object.keys(site.rows).filter((r) => site.rows[r].documents === 'own' && r.startsWith('ch/'));
   assert.deepEqual(own, ['ch/en', 'ch/de', 'ch/fr', 'ch/it', ...on.map((ll) => `ch/${ll}`)]);
   assert.deepEqual(Object.keys(site.versions), ['en', 'de', 'fr', 'it', ...on]);
   // (the own roots' pilots, kr/ko: test/swiss-korea.test.mjs)
