@@ -69,3 +69,18 @@ test('es and pt market roots (ar/es, br/es, es/es, us/es, br/pt, pt/pt): in sinc
   const esOnly = withSwissMarkets({ ...on, rows: ownRows }, true, ['en', 'de', 'fr', 'it', 'es']);
   assert.equal(Boolean(esOnly.rows['es/es']) && !esOnly.rows['pt/pt'], true);
 });
+
+// the market roots of SWISS's Chinese and Japanese (cn/zh, hk/zh, sg/zh, jp/ja: the held roots,
+// imported 2026-11-03) behind the same switch: in once 'zh' and 'ja' are listed
+test('zh and ja market roots (cn/zh, hk/zh, sg/zh, jp/ja): out with the shipped switch; in with their language, www\'s labels and airports', () => {
+  const NEW = ['cn/zh', 'hk/zh', 'sg/zh', 'jp/ja'];
+  assert.equal(NEW.some((r) => BRAND_SITES.swiss.rows[r]), false);
+  const on = withSwissMarkets(BRAND_SITES.swiss, true, ['en', 'de', 'fr', 'it', 'zh', 'ja']);
+  assert.equal(Object.values(on.rows).filter((r) => r.documents === 'language').length, 208);
+  assert.deepEqual(on.rows['cn/zh'], {
+    country: 'cn', lang: 'zh', hreflang: 'zh-CN', status: 'live', documents: 'language', label: 'Cina (Continentale) | 简体中文',
+  });
+  assert.equal(on.names['sg/zh'], '新加坡 (Singapore) | 简体中文');
+  assert.equal(on.names['jp/ja'], 'Giappone | 日本語', 'www\'s label as www writes it');
+  assert.deepEqual(NEW.map((r) => on.airports[r]), ['BJS', 'HKG', 'SIN', 'TYO']);
+});

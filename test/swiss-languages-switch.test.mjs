@@ -77,7 +77,8 @@ test('BRAND_SITES.swiss: the languages off as pilots, the ones on as roots; ch\'
   const own = Object.keys(site.rows).filter((r) => site.rows[r].documents === 'own');
   assert.deepEqual(own, ['ch/en', 'ch/de', 'ch/fr', 'ch/it', ...on.map((ll) => `ch/${ll}`)]);
   assert.deepEqual(Object.keys(site.versions), ['en', 'de', 'fr', 'it', ...on]);
-  assert.deepEqual(Object.keys(site.pilots.rows), off.map((ll) => `ch/${ll}`));
+  // (the own roots' pilots, kr/ko: test/swiss-korea.test.mjs)
+  assert.deepEqual(Object.keys(site.pilots.rows).filter((r) => r.startsWith('ch/')), off.map((ll) => `ch/${ll}`));
   off.forEach((ll) => {
     const root = `ch/${ll}`;
     assert.deepEqual(site.pilots.rows[root], {

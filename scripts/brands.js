@@ -581,6 +581,11 @@ const SWISS_MARKETS = {
   'us/es': ['Estados Unidos de América | Español', 'NYC'],
   'br/pt': ['Brasile | Português', 'SAO'],
   'pt/pt': ['Portugal | Português', 'LIS'],
+  // zh and ja (the held roots, imported 2026-11-03): behind SWISS_MARKET_LANGUAGES_LIVE as well
+  'cn/zh': ['Cina (Continentale) | 简体中文', 'BJS'],
+  'hk/zh': ['Hong Kong, Cina | 简体中文', 'HKG'],
+  'sg/zh': ['新加坡 (Singapore) | 简体中文', 'SIN'],
+  'jp/ja': ['Giappone | 日本語', 'TYO'],
 };
 
 // The switch (as lh-com's liveWaves): off, SWISS's rows are ch's alone, swiss.turnsthe.page answers
@@ -653,6 +658,40 @@ export function withSwissLanguages(site, live = SWISS_LANGUAGES_LIVE) {
     names: { ...site.names, ...by(on, 'name') },
     airports: { ...site.airports, ...by(on, 'airport') },
     pilots: { rows: pilots, names: by(off, 'name'), airports: by(off, 'airport') },
+  };
+}
+
+// SWISS's country roots whose pages are all their own documents in a language lh-swiss has no
+// version of (kr/ko: www's only Korean root; the capture's swiss-snapshots-028 and -029), behind
+// their switch as the languages: off, a pilot (its pages render with their own row; the rows, the
+// country dialog and lh-edge as before); its key in SWISS_OWN_ROOTS_LIVE (once its documents are
+// published) makes it a root with its own documents. name: www's selector label; airport: its
+// homepage's flight search origin.
+export const SWISS_OWN_ROOTS = {
+  'kr/ko': { name: '대한민국 | 한국어', airport: 'SEL' },
+};
+export const SWISS_OWN_ROOTS_LIVE = [];
+
+/** SWISS's site entry with the own roots switched on as roots, the others among its pilots. */
+export function withSwissOwnRoots(site, live = SWISS_OWN_ROOTS_LIVE) {
+  const on = Object.keys(SWISS_OWN_ROOTS).filter((r) => live.includes(r));
+  const off = Object.keys(SWISS_OWN_ROOTS).filter((r) => !live.includes(r));
+  const by = (roots, field) => Object.fromEntries(roots.map((r) => [r, SWISS_OWN_ROOTS[r][field]]));
+  const pilots = rowsOf('own', off);
+  Object.values(pilots).forEach((r) => { r.status = 'pilot'; });
+  const had = site.pilots || { rows: {}, names: {}, airports: {} };
+  const without = (o) => Object.fromEntries(Object.entries(o || {})
+    .filter(([r]) => !on.includes(r)));
+  return {
+    ...site,
+    rows: { ...site.rows, ...rowsOf('own', on) },
+    names: { ...site.names, ...by(on, 'name') },
+    airports: { ...site.airports, ...by(on, 'airport') },
+    pilots: {
+      rows: { ...without(had.rows), ...pilots },
+      names: { ...without(had.names), ...by(off, 'name') },
+      airports: { ...without(had.airports), ...by(off, 'airport') },
+    },
   };
 }
 
@@ -1304,7 +1343,7 @@ export const BRAND_SITES = {
     },
     airports: {},
   },
-  swiss: withSwissMarkets(withSwissLanguages({
+  swiss: withSwissOwnRoots(withSwissMarkets(withSwissLanguages({
     // the pilot's ch/en and ch/de; ch/fr and ch/it (brief 272); ch/es and ch/pt behind their
     // switch (SWISS_LANGUAGES); names: the homepages' line (ch/de's says Switzerland, ch/it's
     // Suisse); airports: the homepages' flight search origin
@@ -1318,5 +1357,5 @@ export const BRAND_SITES = {
     airports: {
       'ch/en': 'ZRH', 'ch/de': 'ZRH', 'ch/fr': 'GVA', 'ch/it': 'ZRH',
     },
-  })),
+  }))),
 };
