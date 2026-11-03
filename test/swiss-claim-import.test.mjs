@@ -64,6 +64,14 @@ test('claim-form-entry on SWISS: its name, the Version row, www\'s first screen 
   assert.equal(rows.length, 3);
 });
 
+test('claim-form-entry 0.11.9 (www\'s ch/ru): its instruction a copy, not a headline; the Fallback is the first screen only, never the error dialog', () => {
+  const screen = '<div id="root"><maui-headline type="h2">Добро пожаловать в приложение</maui-headline><maui-copy>Введите данные бронировании соответствующего рейса.</maui-copy><maui-input type="text" label="Имя"></maui-input><maui-button type="primary">Продолжить</maui-button><maui-headline type="h3">Бронирование не найдено</maui-headline><maui-copy>Проверьте данные бронирования.</maui-copy><maui-button type="primary">Закрыть</maui-button></div>';
+  const { document } = parseHTML(page('https://www.swiss.com/ch/ru/fast-compensation', `<claim-form-entry data-app-version="0.11.9" data-public-endpoint="">${screen}</claim-form-entry>`));
+  parse(document.querySelector('claim-form-entry'), { document, url: 'http://localhost:3001/ch/ru/fast-compensation.html' });
+  const rows = rowsOf(document);
+  assert.equal(rows[2][1], '<h1>Добро пожаловать в приложение</h1><p>Введите данные бронировании соответствующего рейса.</p><p><strong><a data-live-link="" href="https://www.swiss.com/ch/ru/fast-compensation">Продолжить</a></strong></p>');
+});
+
 test('baggage-form-entry: Version latest; Fallback headline, the two texts (bold kept), Continue to the page on www.swiss.com; no link without an address', () => {
   const { document } = parseHTML(page('https://www.swiss.com/ch/en/baggage-reimbursement', `<baggage-form-entry data-app-version="latest" data-public-endpoint="">${BAG_SCREEN}</baggage-form-entry>`));
   parse(document.querySelector('baggage-form-entry'), { document, url: 'http://localhost:3001/ch/en/baggage-reimbursement.html' });

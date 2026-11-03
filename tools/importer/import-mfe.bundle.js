@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-mfe.js
-  var tmp_bundle_mfe_297323_exports = {};
-  __export(tmp_bundle_mfe_297323_exports, {
-    default: () => tmp_bundle_mfe_297323_default
+  var tmp_bundle_mfe_309917_exports = {};
+  __export(tmp_bundle_mfe_309917_exports, {
+    default: () => tmp_bundle_mfe_309917_default
   });
 
   // tools/importer/parsers/micro-frontend.js
@@ -81,8 +81,10 @@ var CustomImportScript = (() => {
     return [h1, ...texts, liveButton(document, button, livePage(document, url))];
   }
   function claimFallback(element, document, url) {
-    const heads = [...element.querySelectorAll("maui-headline")].map((h) => clean(h.textContent)).filter(Boolean);
-    const button = clean((element.querySelector("maui-button") || {}).textContent);
+    const first = element.querySelector("maui-button");
+    const before = (el) => first && el.compareDocumentPosition(first) & 4;
+    const heads = [...element.querySelectorAll("maui-headline, maui-copy")].filter(before).map((h) => clean(h.textContent)).filter(Boolean);
+    const button = clean((first || {}).textContent);
     if (!heads.length || !button) return null;
     const live = livePage(document, url);
     const out = [];
@@ -1597,7 +1599,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_mfe_297323_default = {
+  var tmp_bundle_mfe_309917_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -1627,5 +1629,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_mfe_297323_exports);
+  return __toCommonJS(tmp_bundle_mfe_309917_exports);
 })();

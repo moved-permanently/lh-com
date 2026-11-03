@@ -69,8 +69,13 @@ function baggageFallback(element, document, url) {
  * button a link to the page on www, where the app works.
  */
 function claimFallback(element, document, url) {
-  const heads = [...element.querySelectorAll('maui-headline')].map((h) => clean(h.textContent)).filter(Boolean);
-  const button = clean((element.querySelector('maui-button') || {}).textContent);
+  // the first screen only: its headline and the text after it (a headline, in 0.11.9 a copy), up
+  // to its Continue button (the error dialogs' headlines come after it)
+  const first = element.querySelector('maui-button');
+  const before = (el) => first && (el.compareDocumentPosition(first) & 4);
+  const heads = [...element.querySelectorAll('maui-headline, maui-copy')].filter(before)
+    .map((h) => clean(h.textContent)).filter(Boolean);
+  const button = clean((first || {}).textContent);
   if (!heads.length || !button) return null;
   const live = livePage(document, url);
   const out = [];
