@@ -296,6 +296,9 @@ const MESSAGE_LANGUAGE = [
   ['it', /\b(?:Inserisca|Selezioni|Compili|campo obbligatorio)\b/i],
   ['es', /\b(?:Introduzca|Seleccione|Rellene)\b/],
   ['pt', /\b(?:Digite|Selecione|Informe|Preencha)\b/],
+  // kana: Japanese; 请 and 您 (simplified, not Japanese): Chinese
+  ['ja', /[\u3040-\u30ff]/],
+  ['zh', /[请您]/],
 ];
 // SWISS's own wording per field name (its forms in the language), and the form block's
 // messages (DEFAULT_LABELS required / format error) for the other fields
@@ -419,6 +422,48 @@ const FIELD_MESSAGES = {
     'format error': 'Verifique os dados informados.',
     'email format': 'Digite um e-mail válido.',
   },
+  // ch/zh and ch/ja (brief 28x): SWISS's Chinese and Japanese forms' most frequent wording per
+  // field, a Chinese or Japanese required or format message for the others
+  zh: {
+    salutation: '请选择称谓。',
+    gender: '请选择称谓',
+    firstname: '请输入您的名字。',
+    lastname: '请输入您的姓氏。',
+    nachname: '请输入您的姓氏。',
+    email: '请输入您的电子邮箱。',
+    zip: '请输入您的邮政编码。',
+    city: '请输入您的城镇或城市。',
+    street: '请输入您的街道名称和门牌号',
+    adress: '请输入您的街道名称和门牌号',
+    country: '国家/地区是必填字段。',
+    state: '国家/地区是必填字段。',
+    phone: '请输入您的电话号码',
+    outbounddate: '请选择您的出发日期。',
+    inbounddate: '请选择您的返程日期。',
+    'required error': '请填写此字段。',
+    'format error': '请检查您的输入。',
+    'email format': '请输入有效的电子邮箱。',
+  },
+  ja: {
+    salutation: '敬称を選択してください。',
+    gender: '敬称を選択してください',
+    firstname: '名を入力してください。',
+    lastname: '姓を入力してください。',
+    nachname: '姓を入力してください。',
+    email: 'Eメールアドレスを入力してください。',
+    zip: '郵便番号を入力してください。',
+    city: '市区町村を入力してください。',
+    street: '町名以降および番地を入力してください。',
+    adress: '町名以降および番地を入力してください。',
+    country: '国は必須情報です。',
+    state: '国は必須情報です。',
+    phone: '電話番号を入力してください',
+    outbounddate: '出発日を選択してください。',
+    inbounddate: '復路便の搭乗日を選択してください。',
+    'required error': 'この項目を入力してください。',
+    'format error': '入力内容をご確認ください。',
+    'email format': '有効なEメールアドレスを入力してください。',
+  },
 };
 // a row of a form block (cells without nested blocks)
 const FORM_ROW = /<div>(?:<div>(?:(?!<\/?div[ >])[\s\S])*<\/div>){8,}<\/div>/g;
@@ -481,6 +526,8 @@ const DEFAULT_ORIGIN = {
   'ch/it': 'Zurigo (ZRH)',
   'ch/es': 'Zurich (ZRH)',
   'ch/pt': 'Zurique (ZRH)',
+  'ch/zh': '苏黎世 (ZRH)',
+  'ch/ja': 'チューリッヒ (ZRH)',
 };
 
 /** The document's flight-search blocks with the Shop row and the market's default origin. */

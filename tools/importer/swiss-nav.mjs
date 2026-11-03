@@ -163,7 +163,10 @@ export function footerOf(document) {
   })).filter((c) => c.links.length);
   const social = [...footer.querySelectorAll('.swiss-social-links ul.horizontal > li')].map(linkOf).filter(Boolean).map((x) => {
     const im = x.querySelector('img');
-    return { href: x.getAttribute('href'), src: im?.getAttribute('src') || '', alt: clean(im?.getAttribute('alt')) || visible(x) };
+    // an empty alt (ch/zh's): www's title names the icon
+    return {
+      href: x.getAttribute('href'), src: im?.getAttribute('src') || '', alt: clean(im?.getAttribute('alt')) || clean(im?.getAttribute('title')) || visible(x),
+    };
   }).filter((l) => l.href && l.src);
   const sub = footer.querySelector('.subfooter') || footer;
   const legal = [...sub.querySelectorAll('.swiss-site-navigation ul > li')].map((li) => {
