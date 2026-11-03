@@ -160,3 +160,16 @@ SWISS lists hreflang alternates as Austrian and Brussels (`ALTERNATES_SITES`), o
   those differ from the .com pages only in that host; the footer's text and links are the same,
   with no ICP or 备案 line. 8 magazine documents still linked www.swiss.com.cn: relinked as
   www.swiss.com's (relative where captured), uploaded and previewed.
+
+## 2026-11-03: kr/ko's cockpit links; Austrian cn/zh date masks
+
+- The market importer gives every bare `/deeplink/cockpit` link its root's query
+  (`?country=KR&language=KO` on kr/ko), in the import and in `--relink`. Net changes after the
+  relink (the market navs' magazine links restored as they are on the preview):
+  `/kr/ko/book-and-manage/overview-manage` (its 2 cockpit links), and 8 es-root homepage and nav
+  links made relative after the markets record refresh. Uploaded and previewed, not published.
+- lh-austrian: `mask=0000-00-00` has no D/M/Y slots. form-core now takes the slots' order from the
+  field's hint or placeholder (`YYYY-MM-DD` -> `mask=YYYY-MM-DD`) when its groups' lengths match.
+  The 11 `/cn/zh/` form documents re-imported (only their masks changed; emergency-contact also has a
+  config row in another order), uploaded and previewed, not published. The other Austrian roots
+  (at/de, at/en, es/es, fr/fr, gr/el, it/it, jp/ja, pl/pl, ru/ru) have masks with D/M/Y slots.
