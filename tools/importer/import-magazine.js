@@ -196,6 +196,13 @@ function bodyOf(document, body, out) {
           // www's links without an address (<a>–</a>, href=""): their text
           if (!href) { a.replaceWith(...a.childNodes); return; }
           [...a.attributes].map((x) => x.name).filter((n) => n !== 'href').forEach((n) => a.removeAttribute(n));
+          // www's own link to an address below one of its pages (en's marche-aux-puces:
+          // …/magazine/de/reisen/lifestyle/chezsarah.net): the site; a file as it is
+          const below = href.match(/^(?:https?:\/\/(?:www\.)?swiss\.com)?\/magazine\/.*\/((?:www\.)?[a-z0-9-]+(?:\.[a-z0-9-]+)*\.[a-z]{2,})$/i);
+          if (below && !/\.(html?|pdf|jpe?g|png|gif|svg|webp|mp4|zip|docx?|xlsx?|pptx?|txt|json|xml|ics)$/i.test(below[1])) {
+            a.setAttribute('href', `https://${below[1]}`);
+            return;
+          }
           if (/^(https?:|\/|#|mailto:|tel:)/i.test(href)) return;
           // (www's spaces and soft hyphens in them: "www.%20lelion.net", "www.hygge%C2%ADhamburg.de")
           let bare = href;

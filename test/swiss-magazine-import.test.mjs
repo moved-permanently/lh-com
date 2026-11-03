@@ -13,7 +13,9 @@ import { parseHTML } from 'linkedom';
 import {
   assetOf, isoDate, creditsOf, docName, commonParent, transformPage,
 } from '../tools/importer/import-magazine.js';
-import { magazineLinks, redirectRows, MAGAZINE_PATH } from '../tools/importer/swiss-magazine-import.mjs';
+import {
+  magazineLinks, redirectRows, MAGAZINE_PATH, emptyOnWww,
+} from '../tools/importer/swiss-magazine-import.mjs';
 import { subSiteLinks } from '../tools/importer/swiss-sub-import.mjs';
 import { magazineMenuOf, magazineNavDocument, magazineFooterDocument } from '../tools/importer/swiss-magazine-nav.mjs';
 
@@ -73,6 +75,7 @@ const ARTICLE = `
     <div class="dynamic-image-component"><picture><source media="(min-width: 1200px)" srcset="${REND('/content/dam/swiss-magazine/images/the-crew’s-eyes/R53', 'jpg')} 1x, ${REND('/content/dam/swiss-magazine/images/the-crew’s-eyes/R53', 'jpg')} 2x"><img src=".jpg" alt="R53_3292.jpg"></picture></div>
     <p>Ein <a href="">leerer</a> und <a>kein</a> Link.</p>
     <p><a href="www.%20lelion.net">Le Lion</a> <a href="www.hygge%C2%ADhamburg.de">Hygge</a> <a href="zur%C3%BCckzudir.ch">Zurück</a> <a href="Gundari">Gundari</a></p>
+    <p><a href="https://www.swiss.com/magazine/de/reisen/lifestyle/chezsarah.net">Chez Sarah</a> <a href="https://www.swiss.com/content/dam/a/guide.pdf">PDF</a></p>
     <div class="component"><div class="quote"><div class="quote-text"><h1>«Alles gehört zu einem grossen Ganzen.»</h1></div><div class="quote-source-author">Iwan Wirth</div><div class="quote-source-description">Hauser &amp; Wirth</div></div></div>
     <div class="carousel teasercarousel"><div class="swiper-wrapper">
       <div class="swiper-slide"><div class="dynamic-image-component"><img src="${REND('/content/dam/swiss-magazine/images/a', 'jpg')}" alt="A"><div class="caption-wrapper">Hofladen</div></div></div>
@@ -147,6 +150,8 @@ test('an article: article-header, the body in order with its blocks, the credits
   assert.equal(html.includes('<p>Ein leerer und kein Link.</p>'), true);
   // www's addresses without a scheme, with spaces or soft hyphens: the site; a name: its text
   assert.equal(html.includes('<a href="https://www.lelion.net">Le Lion</a> <a href="https://www.hyggehamburg.de">Hygge</a> <a href="https://zurückzudir.ch">Zurück</a> Gundari'), true);
+  // www's own link to an address below one of its pages (…/lifestyle/chezsarah.net): the site; files as they are
+  assert.equal(html.includes('<a href="https://chezsarah.net">Chez Sarah</a> <a href="https://www.swiss.com/content/dam/a/guide.pdf">PDF</a>'), true);
   assert.equal(main.querySelector('table[data-name="quote"] tr').children[1].textContent, 'Iwan Wirth, Hauser & Wirth');
   assert.equal(main.querySelectorAll('table[data-name="carousel-images"] tr').length, 2);
   const embeds = [...main.querySelectorAll('table[data-name="embed"] a')].map((a) => a.getAttribute('href'));
@@ -219,6 +224,8 @@ test('magazineLinks: a captured page relative under its document\'s path, the fr
   assert.equal(out.includes('href="/magazine/de"'), true);
   assert.equal(out.includes('href="/magazine/de/reisen/reisegeschichten/in-full-color-bengaluru"'), true);
   assert.equal(out.includes('href="https://www.swiss.com/magazine/de/tags?tag=art"'), true);
+  // a second pass (--relink after a later archive) leaves the links as they are
+  assert.equal(magazineLinks(out, { pages, sitePaths: new Set() }), out);
   // the corporate site's /corporate/<ll> is its homepage document, as before
   assert.equal(subSiteLinks('<a href="/corporate/de">C</a>', { subPages: new Set(['/corporate/de/homepage']), sitePaths: new Set() }).includes('href="/corporate/de/homepage"'), true);
 });
@@ -269,4 +276,11 @@ test('the footer document: the social badges (lh-swiss\'s icons), the logos, the
   assert.equal(sections[1].innerHTML.includes(':star-alliance:') && sections[1].querySelector('a').getAttribute('href') === 'https://www.swiss.com', true);
   assert.deepEqual([...sections[2].querySelectorAll('a')].map((a) => a.getAttribute('href')), ['https://www.swiss.com/ch/de/terms-conditions', '#privacy-settings']);
   assert.equal(sections[3].querySelector('p').textContent === '© Swiss International Air Lines' && sections[3].textContent.includes('note'), true);
+});
+
+test('emptyOnWww: a page whose main container www leaves empty (an empty article fragment) is held', () => {
+  const shell = (main) => `<html><body><header><h1 id="download-dialog-title">Download stories</h1></header><div class="main-container aem-GridColumn"><div class="aem-Grid">${main}</div></div><div class="footercontainer"><footer>Swiss</footer></div></body></html>`;
+  assert.equal(emptyOnWww(shell('<div class="component"> </div><div class="articlecontentfragment aem-GridColumn"> </div>')), true);
+  assert.equal(emptyOnWww(shell('<div class="articlecontentfragment"><div class="m-article-intro"><h1>Title</h1></div></div>')), false);
+  assert.equal(emptyOnWww(shell('<section class="teasercontainer"><article class="teaser"><a href="/magazine/de/a"><h3>A</h3></a></article></section>')), false);
 });

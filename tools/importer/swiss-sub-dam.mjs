@@ -9,7 +9,10 @@
  *             preview, our host: the main site's copies), -> runs/dam-files.json and
  *             tools/reports/lh-swiss-sub-dam.tsv (the capture's list: the ones DA lacks; videos and
  *             PDFs for the AEM publish tier when they are over Edge Delivery's limits, which only
- *             the files' sizes tell)
+ *             the files' sizes tell).
+ *             With --new-report <tsv>: the previous list's files (runs/dam-files.json) keep their
+ *             answer, only the new ones are checked, and the new ones the capture needs go to
+ *             tools/reports/<tsv> as well (a batch after the first).
  *   --switch  the documents' images from their place in lh-swiss's DA (content.da.live; the ones DA
  *             lacks show once their copy is uploaded and the page previewed again), so the preview
  *             loads nothing from www: runs/dam-switch-upload.txt
@@ -57,6 +60,16 @@ export const withoutSubPrefix = (doc) => doc
 export const GONE_IMAGES = [
   // corporate's sponsoring pages (en, de, fr): the Locarno picture (2026-11-02)
   '/content/dam/lx/images/corporate/2.8. Piazza Grande.jpg',
+  // the market versions' seven held pages (2026-11-03): still missing in lh-swiss's DA after the
+  // capture's upload of its list (al/fr aig-travel-insurance; al/fr, al/it prepare-lxmas-2024;
+  // br/en homepage and br/pt terminal-btg; dk/en ski-campaign-2025 and gb/en ski-campaign;
+  // gb/en swiss-summit-lounge)
+  '/content/dam/lx/images/local_images/Logo-AIG.jpg',
+  '/content/dam/lx/images/local_images/LX004_SWISS_Saveurs_Mondial_fr_Fondue_2023_Landing_Page_Stage_Teaser_1440x720px_f01_01_@2x.jpg',
+  '/content/dam/lx/images/local_images/LX004_SWISS_Saveurs_Mondial_it_Fondue_2023_Landing_Page_Stage_Teaser_1440x720px_f01_01_@2x.jpg',
+  '/content/dam/btg/btg-terminal-1-1-jpg.jpeg',
+  '/content/dam/lx/hxod/stage-winter-skideshot-slki-und-snowboard-1.jpg',
+  '/content/dam/lx/images/pixels/7/7/8/251028-swiss-uk-2hy-winter-newsletter-header-2-1.jpg',
 ];
 const GONE = new Set(GONE_IMAGES.map((www) => edsDamPath(assetOf(www))));
 
@@ -101,6 +114,22 @@ export function filesOf(docs) {
   return files;
 }
 
+/**
+ * The files against the previous list (runs/dam-files.json): known ones keep its answer (inDa),
+ * with the pages of now; fresh ones are to be checked (and listed apart: --new-report).
+ */
+export function splitKnown(files, previous = []) {
+  const before = new Map(previous.map((x) => [x.kind === 'link' ? x.www : `image:${x.eds}`, x]));
+  const known = [];
+  const fresh = [];
+  files.forEach((x, key) => {
+    const had = before.get(key);
+    if (had) known.push({ ...x, inDa: had.inDa });
+    else fresh.push(x);
+  });
+  return { known, fresh };
+}
+
 const isMain = process.argv[1] && fs.realpathSync(process.argv[1]) === fileURLToPath(import.meta.url);
 if (isMain) {
   const argv = process.argv.slice(2);
@@ -112,9 +141,13 @@ if (isMain) {
     };
   });
   if (argv.includes('--list')) {
-    const files = [...filesOf(docs).values()];
+    // --new-report: the previous list's files keep their answer; only the new ones are checked
+    const newReport = cliOpt('new-report', null);
+    const previous = newReport && fs.existsSync(LIST) ? JSON.parse(fs.readFileSync(LIST, 'utf8')) : [];
+    const { known, fresh } = newReport ? splitKnown(filesOf(docs), previous) : { known: [], fresh: [...filesOf(docs).values()] };
+    const files = [...known, ...fresh];
     // in lh-swiss's DA already (the main site's copies): its preview answers the name
-    for (const x of files) {
+    for (const x of fresh) {
       const res = await fetch(`${PREVIEW}${x.eds}`, { method: 'HEAD', headers: { 'user-agent': 'curl/8.5.0' } });
       x.inDa = res.ok;
       await new Promise((r) => { setTimeout(r, 250); });
@@ -122,12 +155,18 @@ if (isMain) {
     const out = files.map((x) => ({ ...x, pages: [...x.pages].sort() }));
     fs.writeFileSync(LIST, `${JSON.stringify(out, null, 1)}\n`);
     const need = out.filter((x) => !x.inDa);
-    const rows = need.sort((a, b) => a.www.localeCompare(b.www)).map((x) => [
+    const tsv = (list) => `${['www url', 'da path', 'kind', 'where', 'pages', 'first pages'].join('\t')}\n${list.sort((a, b) => a.www.localeCompare(b.www)).map((x) => [
       `https://www.swiss.com${x.www}`, x.eds, x.kind, /^(mp4|pdf)$/.test(extOf(x.www)) ? 'AEM if over the limit (mp4 36 MiB, PDF 20 MB)' : 'DA', x.pages.length, x.pages.slice(0, 3).join(' '),
-    ].join('\t'));
-    fs.writeFileSync(path.join(root, 'tools/reports', cliOpt('report', 'lh-swiss-sub-dam.tsv')), `${['www url', 'da path', 'kind', 'where', 'pages', 'first pages'].join('\t')}\n${rows.join('\n')}\n`);
+    ].join('\t')).join('\n')}\n`;
+    fs.writeFileSync(path.join(root, 'tools/reports', cliOpt('report', 'lh-swiss-sub-dam.tsv')), tsv(need));
     const kinds = (l) => Object.entries(l.reduce((a, x) => ({ ...a, [extOf(x.www)]: (a[extOf(x.www)] || 0) + 1 }), {})).map(([k, n]) => `${n} ${k}`).join(', ');
     console.log(`swiss-sub-dam list: ${out.length} files (${kinds(out)}); in lh-swiss's DA ${out.length - need.length}; for the capture ${need.length} (${kinds(need)})`);
+    if (newReport) {
+      const isFresh = new Set(fresh.map((x) => x.www));
+      const newNeed = need.filter((x) => isFresh.has(x.www));
+      fs.writeFileSync(path.join(root, 'tools/reports', newReport), tsv(newNeed));
+      console.log(`  new since the previous list: ${fresh.length} files; for the capture ${newNeed.length} (${kinds(newNeed)}) -> tools/reports/${newReport}`);
+    }
   }
   if (argv.includes('--switch')) {
     const changed = [];

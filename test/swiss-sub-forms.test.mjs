@@ -59,6 +59,24 @@ test('swiss-sub-dam.mjs: an image whose source www answers 404 (GONE_IMAGES: spo
   assert.equal([...filesOf([{ p: '/corporate/en/x', doc: www, snap: '' }]).values()].length, 0, 'not on the capture list');
 });
 
+test('swiss-sub-dam.mjs splitKnown: a file of the previous list keeps its answer (in DA or not, its pages updated); only the new ones are checked and listed apart', async () => {
+  const { splitKnown } = await import('../tools/importer/swiss-sub-dam.mjs');
+  const files = new Map([
+    ['image:/content/dam/a.jpg', {
+      www: '/content/dam/a.jpg', eds: '/content/dam/a.jpg', kind: 'image', pages: new Set(['/magazine/de/x', '/magazine/en/x']),
+    }],
+    ['image:/content/dam/b.jpg', {
+      www: '/content/dam/b.jpg', eds: '/content/dam/b.jpg', kind: 'image', pages: new Set(['/magazine/en/y']),
+    }],
+  ]);
+  const previous = [{
+    www: '/content/dam/a.jpg', eds: '/content/dam/a.jpg', kind: 'image', inDa: false, pages: ['/magazine/de/x'],
+  }];
+  const { known, fresh } = splitKnown(files, previous);
+  assert.equal(known.length === 1 && known[0].inDa === false && known[0].pages.size === 2, true);
+  assert.deepEqual(fresh.map((x) => x.www), ['/content/dam/b.jpg']);
+});
+
 test('withoutNullLinks: www\'s links to /<sub-site>/null/<ll>.html unwrapped, the content stays', () => {
   const doc = '<p><a href="https://www.swiss.com/medicalservices/null/de.html"><picture><img src="x.jpg"></picture></a></p><a href="/medicalservices/de/contact">ok</a>';
   assert.equal(withoutNullLinks(doc), '<p><picture><img src="x.jpg"></picture></p><a href="/medicalservices/de/contact">ok</a>');

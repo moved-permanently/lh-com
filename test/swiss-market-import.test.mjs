@@ -65,3 +65,22 @@ test('servedPaths: the roots\' own documents, the language versions\' and ch/<ll
 test('withoutDatepicker: the date picker div goes, the rest stays', () => {
   assert.equal(withoutDatepicker('<main><p>a</p></main><div id="ui-datepicker-div" class="ui-datepicker"><div><a>Prev</a></div></div><p>b</p>'), '<main><p>a</p></main><p>b</p>');
 });
+
+test('the market pages\' images www answers 404 (GONE_IMAGES; still missing in DA after the capture\'s upload) are left out, their paragraphs with them; the others stay', async () => {
+  const { withDaImages, GONE_IMAGES, filesOf } = await import('../tools/importer/swiss-sub-dam.mjs');
+  const gone = [
+    '/content/dam/lx/images/local_images/Logo-AIG.jpg',
+    '/content/dam/lx/images/local_images/LX004_SWISS_Saveurs_Mondial_fr_Fondue_2023_Landing_Page_Stage_Teaser_1440x720px_f01_01_@2x.jpg',
+    '/content/dam/lx/images/local_images/LX004_SWISS_Saveurs_Mondial_it_Fondue_2023_Landing_Page_Stage_Teaser_1440x720px_f01_01_@2x.jpg',
+    '/content/dam/btg/btg-terminal-1-1-jpg.jpeg',
+    '/content/dam/lx/hxod/stage-winter-skideshot-slki-und-snowboard-1.jpg',
+    '/content/dam/lx/images/pixels/7/7/8/251028-swiss-uk-2hy-winter-newsletter-header-2-1.jpg',
+  ];
+  assert.equal(gone.every((g) => GONE_IMAGES.includes(g)), true);
+  gone.forEach((g) => {
+    const doc = `<h2>X</h2><p><img src="https://www.swiss.com${g}.transform/lh-dcep-transform-width-2560/img.jpg" alt=""></p><p>Text</p><p><img src="https://www.swiss.com/content/dam/lx/images/other.jpg" alt=""></p>`;
+    const out = withDaImages(doc);
+    assert.equal(out.startsWith('<h2>X</h2><p>Text</p>') && out.includes('/content/dam/lx/images/other.jpg'), true, g);
+    assert.equal([...filesOf([{ p: '/gb/en/x', doc, snap: '' }]).values()].length, 1, g);
+  });
+});

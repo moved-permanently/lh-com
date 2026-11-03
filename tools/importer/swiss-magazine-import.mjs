@@ -19,6 +19,8 @@
  * Usage: node tools/importer/swiss-magazine-import.mjs --list content-sites/lh-swiss-mag/runs/batch-033.txt [--dry-run]
  *        (a list of www URLs; without one: every captured magazine page)
  *        node tools/importer/swiss-magazine-import.mjs --lists   (tools/reports/lh-swiss-mag-*.tsv)
+ *        node tools/importer/swiss-magazine-import.mjs --relink  (after a later archive: the earlier
+ *        documents' links to its pages relative)
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -50,6 +52,19 @@ export function capturedMagazine(dir = SNAP) {
   return new Set([...out].filter((p) => MAGAZINE_PATH.test(p)));
 }
 
+/**
+ * Does www leave the page's main container empty (an empty article fragment, no teasers: en's
+ * rethinking-old-seat-covers)? Such a page is held, not imported as a blank document.
+ */
+export function emptyOnWww(html) {
+  const start = html.search(/<div class="main-container[ "]/);
+  if (start < 0) return true;
+  const end = html.indexOf('<div class="footercontainer', start);
+  const main = html.slice(start, end < 0 ? undefined : end);
+  if (/<img\b|<iframe\b/.test(main)) return false;
+  return !main.replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>/g, '').replace(/<[^>]+>/g, ' ').replace(/&nbsp;|\s+/g, '').length;
+}
+
 /** www path -> the document's path, for the pages whose document path differs (redirect rows). */
 export const redirectRows = (pages) => [...pages].sort().filter((p) => docName(p) !== p).map((p) => [p, docName(p)]);
 
@@ -59,7 +74,9 @@ export const redirectRows = (pages) => [...pages].sort().filter((p) => docName(p
  * relative where lh-swiss has it; the rest absolute on www (subSiteLinks).
  */
 export function magazineLinks(doc, { pages, sitePaths, mapHosts = true }) {
-  const linked = subSiteLinks(doc, { subPages: pages, sitePaths, mapHosts });
+  // (the documents' own paths count as captured: a second pass keeps their relative links)
+  const subPages = new Set([...pages, ...[...pages].map(docName)]);
+  const linked = subSiteLinks(doc, { subPages, sitePaths, mapHosts });
   return linked.replace(/href="(\/magazine\/[^"?#]+)([?#][^"]*)?"/g, (m, p, rest = '') => (pages.has(p) ? `href="${docName(p)}${rest}"` : m));
 }
 
@@ -92,10 +109,29 @@ if (isMain) {
     const walkSnap = (d) => (fs.existsSync(d) ? fs.readdirSync(d, { withFileTypes: true }).flatMap((e) => (e.isDirectory() ? walkSnap(path.join(d, e.name)) : [path.join(d, e.name)])) : []);
     walkSnap(SNAP).filter((f) => f.endsWith('.html')).forEach((f) => {
       const p = `/${path.relative(SNAP, f).replace(/\.html$/, '')}`;
-      if (!MAGAZINE_PATH.test(p)) others.push(p);
+      if (!MAGAZINE_PATH.test(p)) others.push([p, 'the main site\'s page (ema-cashub\'s ch/<ll>), not the magazine\'s']);
+      else if (emptyOnWww(fs.readFileSync(f, 'utf8'))) others.push([p, 'www\'s page is empty (no article, no teasers): held']);
     });
-    fs.writeFileSync(path.join(REP, 'lh-swiss-mag-not-imported.tsv'), `www url\twhy\n${others.sort().map((p) => `https://${HOST}${p}\tthe main site's page (ema-cashub's ch/<ll>), not the magazine's`).join('\n')}\n`);
-    console.log(`lists: ${rows.length} redirect rows, ${missing.length} linked pages the capture lacks, ${others.length} pages outside the magazine`);
+    fs.writeFileSync(path.join(REP, 'lh-swiss-mag-not-imported.tsv'), `www url\twhy\n${others.sort(([a], [b]) => a.localeCompare(b)).map(([p, why]) => `https://${HOST}${p}\t${why}`).join('\n')}\n`);
+    console.log(`lists: ${rows.length} redirect rows, ${missing.length} linked pages the capture lacks, ${others.length} pages not imported (outside the magazine or empty on www)`);
+    process.exit(0);
+  }
+  if (argv.includes('--relink')) {
+    // the documents made before a later archive: their links to its pages relative now
+    // (magazineLinks again; nav and footer as www's own markup) -> runs/relink-upload.txt
+    const allow = JSON.parse(fs.readFileSync(path.join(root, 'tools/importer/sites/lh-swiss.json'), 'utf8'));
+    const sitePaths = new Set(allow.paths);
+    const docs = path.join(W, 'content');
+    const walk = (d) => (fs.existsSync(d) ? fs.readdirSync(d, { withFileTypes: true }).flatMap((e) => (e.isDirectory() ? walk(path.join(d, e.name)) : [path.join(d, e.name)])) : []);
+    const changed = [];
+    walk(docs).filter((f) => f.endsWith('.plain.html')).forEach((f) => {
+      const d = `/${path.relative(docs, f).replace(/\.plain\.html$/, '')}`;
+      const doc = fs.readFileSync(f, 'utf8');
+      const next = magazineLinks(doc, { pages, sitePaths, mapHosts: !/\/(nav|footer)$/.test(d) });
+      if (next !== doc) { fs.writeFileSync(f, next); changed.push(d); }
+    });
+    fs.writeFileSync(path.join(W, 'runs', 'relink-upload.txt'), `${changed.sort().join('\n')}\n`);
+    console.log(`relink: ${changed.length} documents changed (runs/relink-upload.txt)`);
     process.exit(0);
   }
   const list = opt('list');
@@ -107,17 +143,21 @@ if (isMain) {
   const out = {};
   const missing = [];
   const outside = [];
+  // pages www leaves empty (emptyOnWww): held
+  const empty = [];
   urls.forEach((u) => {
     const p = new URL(u).pathname.replace(/\.html$/, '');
     if (!MAGAZINE_PATH.test(p)) { outside.push(p); return; }
     const f = path.join(SNAP, `${p}.html`);
     if (!fs.existsSync(f)) { missing.push(p); return; }
+    const html = fs.readFileSync(f, 'utf8');
+    if (emptyOnWww(html)) { empty.push(p); return; }
     const copy = path.join(MAPPED, HOST, `${p}.html`);
     fs.mkdirSync(path.dirname(copy), { recursive: true });
-    fs.writeFileSync(copy, withPlaceholder(stripScripts(fs.readFileSync(f, 'utf8'))));
+    fs.writeFileSync(copy, withPlaceholder(stripScripts(html)));
     out[p] = docName(p);
   });
-  console.log(`${name}: ${Object.keys(out).length} pages; no snapshot: ${missing.length ? missing.join(' ') : 'none'}; outside the magazine: ${outside.length ? outside.join(' ') : 'none'}`);
+  console.log(`${name}: ${Object.keys(out).length} pages; no snapshot: ${missing.length ? missing.join(' ') : 'none'}; outside the magazine: ${outside.length ? outside.join(' ') : 'none'}; empty on www (held): ${empty.length ? empty.join(' ') : 'none'}`);
   if (argv.includes('--dry-run')) process.exit(0);
   const listFile = path.join(W, `urls-${name}.txt`);
   fs.writeFileSync(listFile, `${Object.keys(out).map((p) => `https://${HOST}${p}`).join('\n')}\n`);
@@ -150,7 +190,7 @@ if (isMain) {
   fs.mkdirSync(path.join(W, 'runs'), { recursive: true });
   fs.writeFileSync(path.join(W, 'runs', `${name}-upload.txt`), `${made.join('\n')}\n`);
   fs.writeFileSync(path.join(W, 'runs', `${name}-import.json`), `${JSON.stringify({
-    documents: out, made, missing, outside,
+    documents: out, made, missing, outside, empty,
   }, null, 1)}\n`);
   console.log(`${made.length} documents; upload list runs/${name}-upload.txt`);
 }
