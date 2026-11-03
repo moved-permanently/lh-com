@@ -54,13 +54,14 @@ const root = (html) => {
 };
 const texts = (el) => [...el.querySelectorAll('li, p')].map((n) => n.textContent.replace(/\s+/g, ' ').trim());
 
-test('a consent tool runs where the brand has OneTrust (and on lh-com, Lufthansa\'s); not on Cargo or Air Dolomiti', () => {
+// TAP (brief 312): consent off until the TAP capture archives show what www.flytap.com loads
+test('a consent tool runs where the brand has OneTrust (and on lh-com, Lufthansa\'s); not on Cargo, Air Dolomiti or TAP', () => {
   assert.equal(hasConsentTool(), true, 'lh-com');
   const without = Object.keys(BRANDS).filter((k) => {
     brand(k);
     return !hasConsentTool();
   });
-  assert.deepEqual(without.sort(), ['airdolomiti', 'cargo']);
+  assert.deepEqual(without.sort(), ['airdolomiti', 'cargo', 'tap']);
   without.forEach((k) => assert.equal(BRANDS[k].oneTrust, undefined));
 });
 
