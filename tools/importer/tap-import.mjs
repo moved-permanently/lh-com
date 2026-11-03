@@ -76,7 +76,13 @@ const plainOf = (v) => (v && typeof v === 'object' ? v.plaintext : v) || '';
 const LABELS = {
   pt: { onWww: 'Ver em flytap.com', video: 'Ver o vídeo' },
   en: { onWww: 'See on flytap.com', video: 'Watch the video' },
+  es: { onWww: 'Ver en flytap.com', video: 'Ver el vídeo' },
+  fr: { onWww: 'Voir sur flytap.com', video: 'Regarder la vidéo' },
+  de: { onWww: 'Auf flytap.com ansehen', video: 'Video ansehen' },
+  it: { onWww: 'Vedi su flytap.com', video: 'Guarda il video' },
+  pl: { onWww: 'Zobacz na flytap.com', video: 'Obejrzyj wideo' },
 };
+const labelsOf = (lang) => LABELS[lang] || LABELS.en;
 /** Page templates out of scope: no document (their links go to www). */
 const OUT_TEMPLATES = {
   register: 'register: the TAP Miles&Go sign-up form (a form, out of scope)',
@@ -167,19 +173,78 @@ function reference(n, c) {
 const FORMAT = {
   strong: 'strong', bold: 'strong', emphasis: 'em', italic: 'em', underline: 'u', subscript: 'sub', superscript: 'sup',
 };
+// the marks' nesting, outside in: a bold-italic word inside a bold sentence is
+// <strong>… <em>word</em> …</strong>, not <em><strong>word</strong></em><strong>…, which the
+// preview printed as literal asterisks ("Cristo morto**,")
+const MARK_ORDER = ['strong', 'em', 'u', 'sub', 'sup'];
+const marksOf = (n) => {
+  const s = new Set(((n.format && n.format.variants) || []).map((v) => FORMAT[v]).filter(Boolean));
+  return MARK_ORDER.filter((t) => s.has(t));
+};
+// a span only wraps: its children are siblings of the run
+const unwrap = (nodes) => (nodes || []).flatMap((n) => (n && n.nodeType === 'span' ? unwrap(n.content) : [n]));
 
+/**
+ * A run of sibling nodes as HTML with one stack of marks: an open mark stays open while the next
+ * text has it too (new ones nest inside, in MARK_ORDER), a text of spaces keeps the open ones,
+ * and spaces at a mark's edge go outside it (a closing mark after a space is no mark in
+ * Markdown); a link, line break or image closes them; a block node inside (a list in a
+ * paragraph) is rendered as cell content.
+ */
+function marked(nodes, c) {
+  let out = '';
+  let pending = '';
+  const open = [];
+  const closeTo = (k) => { while (open.length > k) out += `</${open.pop()}>`; };
+  const flushSpace = () => { out += pending; pending = ''; };
+  const run = unwrap(nodes);
+  // how many texts from i on have the mark (texts of spaces don't break the run)
+  const runOf = (t, i) => {
+    let r = 0;
+    for (let j = i; j < run.length && run[j] && run[j].nodeType === 'text'; j += 1) {
+      if (String(run[j].value).trim()) { if (!marksOf(run[j]).includes(t)) break; r += 1; }
+    }
+    return r;
+  };
+  run.forEach((n, i) => {
+    if (!n || typeof n !== 'object') return;
+    if (n.nodeType === 'text') {
+      const [, lead, core, trail] = esc(n.value).match(/^(\s*)([\s\S]*?)(\s*)$/);
+      if (!core) { pending += lead; return; }
+      const want = new Set(marksOf(n));
+      let k = 0;
+      while (k < open.length && want.has(open[k])) k += 1;
+      closeTo(k);
+      flushSpace();
+      out += lead;
+      // the new marks: the one that runs on longest outside, then MARK_ORDER
+      MARK_ORDER.filter((t) => want.has(t) && !open.includes(t))
+        .sort((a, b) => runOf(b, i) - runOf(a, i) || MARK_ORDER.indexOf(a) - MARK_ORDER.indexOf(b))
+        .forEach((t) => { out += `<${t}>`; open.push(t); });
+      out += core;
+      pending = trail;
+      return;
+    }
+    closeTo(0);
+    flushSpace();
+    out += INLINE.has(n.nodeType) ? inline(n, c) : flow([n], c, 'cell');
+  });
+  closeTo(0);
+  flushSpace();
+  return out;
+}
+
+/** A link, line break or image of a run (texts and spans: marked). */
 function inline(n, c) {
-  if (n.nodeType === 'text') {
-    let s = esc(n.value);
-    [...new Set(((n.format && n.format.variants) || []).map((v) => FORMAT[v]).filter(Boolean))].forEach((t) => { if (s.trim()) s = `<${t}>${s}</${t}>`; });
-    return s;
-  }
+  if (n.nodeType === 'text' || n.nodeType === 'span') return marked([n], c);
   if (n.nodeType === 'line-break') return '<br>';
   if (n.nodeType === 'reference') return reference(n, c);
-  const inner = (n.content || []).map((x) => (INLINE.has(x.nodeType) ? inline(x, c) : flow([x], c, 'cell'))).join('');
+  const inner = marked(n.content, c);
   if (n.nodeType === 'link') {
     const href = linkOf(n.data && n.data.href, c);
-    return href && inner.trim() ? `<a href="${attr(href)}">${inner}</a>` : inner;
+    // spaces at the link's edges outside it (as at a mark's: no mark run into the next one)
+    const [, lead, core, trail] = inner.match(/^(\s*)([\s\S]*?)(\s*)$/);
+    return href && core ? `${lead}<a href="${attr(href)}">${core}</a>${trail}` : inner;
   }
   return inner;
 }
@@ -187,7 +252,7 @@ function inline(n, c) {
 const tidy = (h) => h.replace(/^(\s*<br>)+|(<br>\s*)+$/g, '').trim();
 
 function cellOfTable(n, c) {
-  return tidy((n.content || []).map((x) => (INLINE.has(x.nodeType) ? inline(x, c) : flow([x], c, 'cell'))).join(''));
+  return tidy(marked(n.content, c));
 }
 
 function tableRows(n) {
@@ -213,13 +278,14 @@ function list(n, c) {
   const tag = n.nodeType === 'ordered-list' ? 'ol' : 'ul';
   const items = (n.content || []).map((li) => {
     const parts = [];
-    let run = '';
+    let run = [];
+    const flush = () => { const h = tidy(marked(run, c)); if (h) parts.push(h); run = []; };
     (li.content || []).forEach((x) => {
-      if (INLINE.has(x.nodeType)) run += inline(x, c);
-      else if (x.nodeType === 'paragraph') run += `${run ? '<br>' : ''}${(x.content || []).map((y) => inline(y, c)).join('')}`;
-      else { if (run) { parts.push(tidy(run)); run = ''; } parts.push(flow([x], c, 'cell')); }
+      if (INLINE.has(x.nodeType)) run.push(x);
+      else if (x.nodeType === 'paragraph') run.push(...(run.length ? [{ nodeType: 'line-break' }] : []), ...(x.content || []));
+      else { flush(); parts.push(flow([x], c, 'cell')); }
     });
-    if (run) parts.push(tidy(run));
+    flush();
     return `<li>${parts.join('')}</li>`;
   });
   return `<${tag}>${items.join('')}</${tag}>`;
@@ -228,18 +294,18 @@ function list(n, c) {
 /** Block-level HTML of a node list; consecutive inline nodes become a paragraph. */
 function flow(nodes, c, mode = 'top') {
   const out = [];
-  let run = '';
-  const close = () => { if (tidy(run)) out.push(`<p>${tidy(run)}</p>`); run = ''; };
+  let run = [];
+  const close = () => { const h = tidy(marked(run, c)); if (h) out.push(`<p>${h}</p>`); run = []; };
   (nodes || []).forEach((n) => {
     if (!n || typeof n !== 'object') return;
-    if (INLINE.has(n.nodeType)) { run += inline(n, c); return; }
+    if (INLINE.has(n.nodeType)) { run.push(n); return; }
     close();
     if (n.nodeType === 'paragraph') {
-      const p = tidy((n.content || []).map((x) => (INLINE.has(x.nodeType) ? inline(x, c) : flow([x], c, 'cell'))).join(''));
+      const p = tidy(marked(n.content, c));
       if (p.replace(/<br>/g, '').trim()) out.push(`<p>${p}</p>`);
     } else if (n.nodeType === 'header') {
       const lv = Math.min(6, Math.max(2, Number(String(n.style || 'h3').replace(/\D/g, '')) || 3));
-      const h = tidy((n.content || []).map((x) => inline(x, c)).join('')).replace(/<\/?strong>/g, '');
+      const h = tidy(marked(n.content, c)).replace(/<\/?strong>/g, '');
       if (h) out.push(`<h${lv}>${h}</h${lv}>`);
     } else if (n.nodeType === 'unordered-list' || n.nodeType === 'ordered-list') out.push(list(n, c));
     else if (n.nodeType === 'table') out.push(table(n, c, mode));
@@ -344,7 +410,7 @@ class Page {
   /** A link to the page on www for one of its live widgets (reported). */
   onWww(type) {
     this.linkedOut.add(`${type}: ${docPath(this.c.url)}`);
-    this.add(`<p><a href="${attr(`${WWW}${docPath(this.c.url)}`)}">${esc(LABELS[this.c.lang].onWww)}</a></p>`);
+    this.add(`<p><a href="${attr(`${WWW}${docPath(this.c.url)}`)}">${esc(labelsOf(this.c.lang).onWww)}</a></p>`);
   }
 }
 
@@ -516,7 +582,7 @@ const HANDLERS = {
     const src = local && !local.link ? local.eds : (v._publishUrl || (v._authorUrl || '').replace(/^https:\/\/author-/, 'https://publish-'));
     if (!local) P.missing.add(src);
     if (local && local.link) P.notes.push(`${src}: ${local.link}`);
-    const label = s.buttonLabel || LABELS[P.c.lang].video;
+    const label = s.buttonLabel || labelsOf(P.c.lang).video;
     P.block('columns-media', [[`${P.img(s.backgroundImage)}${src ? `<p><a href="${attr(src)}">${esc(label)}</a></p>` : ''}`, `${P.heading(2, s.title)}${P.rich(s.bannerVideoDescription)}${s.bannerVideoCaption ? `<p>${esc(plainOf(s.bannerVideoCaption))}</p>` : ''}`]]);
   },
   ComponentYoutubeVideoModel: (s, P) => {
@@ -599,9 +665,9 @@ function nested(secs, P) {
  */
 export function convertPage(nd, site) {
   const locale = site.locale || localeOf(site.url);
-  const c = {
-    lang: langOf(locale), locale, anchors: new Map(), siteName: 'TAP Air Portugal', ...site,
-  };
+  const c = { anchors: new Map(), siteName: 'TAP Air Portugal', ...site };
+  c.locale = locale;
+  c.lang = site.lang || langOf(locale);
   const pp = (nd.props && nd.props.pageProps) || {};
   const page = pp.page || {};
   if (OUT_TEMPLATES[page.template]) return { skipped: OUT_TEMPLATES[page.template] };

@@ -40,6 +40,28 @@ describe('tap-nav', () => {
     assert.ok(s[3].textContent.includes('Menu'));
   });
 
+  it('nav texts in every language of the site (logo text, help, menu, the other language)', () => {
+    const expect = {
+      'es-es': ['TAP Air Portugal, volver a la página de inicio', 'Ayuda', '/es-es/ayuda', 'Menú', 'English'],
+      'fr-fr': ['TAP Air Portugal, retour à la page d’accueil', 'Aide', '/fr-fr/aide', 'Menu', 'English'],
+      'de-de': ['TAP Air Portugal, zurück zur Startseite', 'Hilfe', '/de-de/hilfe', 'Menü', 'English'],
+      'it-it': ['TAP Air Portugal, torna alla homepage', 'Aiuto', '/it-it/aiuto', 'Menu', 'English'],
+      'pl-pl': ['TAP Air Portugal, powrót do strony głównej', 'Pomoc', '/pl-pl/pomoc', 'Menu', 'English'],
+    };
+    Object.entries(expect).forEach(([locale, [alt, help, helpPath, menu, other]]) => {
+      const scopeOf = new Set([`/${locale}`, `/${locale}${helpPath.slice(6)}`]);
+      const s = sections(navHtml(pp, {
+        ...site, url: `https://www.flytap.com/${locale}`, locale, scope: scopeOf,
+      }));
+      assert.equal(s[0].querySelector('img').getAttribute('alt'), alt, locale);
+      const tools = s[3];
+      assert.ok(tools.querySelector(`a[href="${helpPath}"]`) && tools.textContent.includes(help), `${locale} help`);
+      assert.equal(tools.querySelector('p').textContent, menu, `${locale} menu`);
+      // the other language (English of the market) is on www
+      assert.ok([...tools.querySelectorAll('a')].some((a) => a.textContent === other && a.getAttribute('href') === `https://www.flytap.com/en-${locale.split('-')[1]}`), `${locale} other`);
+    });
+  });
+
   it('footer: the link columns, the social and app links as badges, the logo row', () => {
     const d = dom(footerHtml(pp, site));
     assert.deepEqual([...d.querySelectorAll('h3')].map((h) => h.textContent), ['Outros websites', 'Outros recursos importantes', 'Destinos em destaque']);

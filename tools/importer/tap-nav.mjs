@@ -38,6 +38,23 @@ const SETUP = {
   en: {
     logoAlt: 'TAP Air Portugal, back to the homepage', menu: 'Menu', help: ['Help', '/help'], other: ['Português', 'pt-pt'], appStore: 'App Store', googlePlay: 'Google Play',
   },
+  // the other markets: their help tab as www's header names it, the language switch to the
+  // market's English version (on www while lh-tap has none)
+  es: {
+    logoAlt: 'TAP Air Portugal, volver a la página de inicio', menu: 'Menú', help: ['Ayuda', '/ayuda'], other: ['English', 'en-es'], appStore: 'App Store', googlePlay: 'Google Play',
+  },
+  fr: {
+    logoAlt: 'TAP Air Portugal, retour à la page d’accueil', menu: 'Menu', help: ['Aide', '/aide'], other: ['English', 'en-fr'], appStore: 'App Store', googlePlay: 'Google Play',
+  },
+  de: {
+    logoAlt: 'TAP Air Portugal, zurück zur Startseite', menu: 'Menü', help: ['Hilfe', '/hilfe'], other: ['English', 'en-de'], appStore: 'App Store', googlePlay: 'Google Play',
+  },
+  it: {
+    logoAlt: 'TAP Air Portugal, torna alla homepage', menu: 'Menu', help: ['Aiuto', '/aiuto'], other: ['English', 'en-it'], appStore: 'App Store', googlePlay: 'Google Play',
+  },
+  pl: {
+    logoAlt: 'TAP Air Portugal, powrót do strony głównej', menu: 'Menu', help: ['Pomoc', '/pomoc'], other: ['English', 'en-pl'], appStore: 'App Store', googlePlay: 'Google Play',
+  },
 };
 const SOCIAL = ['facebook', 'instagram', 'linkedin', 'youtube', 'x', 'tiktok'];
 const isWidget = (x) => Boolean(x.component);

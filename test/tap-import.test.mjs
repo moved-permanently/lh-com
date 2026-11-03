@@ -105,6 +105,51 @@ describe('tap-import media', () => {
   });
 });
 
+describe('tap-import marks and languages', () => {
+  const t = (value, ...variants) => ({ nodeType: 'text', value, ...(variants.length ? { format: { variants } } : {}) });
+  it('a bold-italic run inside bold text: one bold run with the italic in it (no literal asterisks on preview)', () => {
+    assert.equal(
+      richText([{ nodeType: 'paragraph', content: [t('la escultura ', 'strong'), t('Compianto sul Cristo morto', 'emphasis', 'strong'), t(', compuesta por siete estatuas', 'strong'), t(' de tamaño real.')] }], ctx()),
+      '<p><strong>la escultura <em>Compianto sul Cristo morto</em>, compuesta por siete estatuas</strong> de tamaño real.</p>',
+    );
+    assert.equal(
+      richText([{ nodeType: 'list-item', content: [] }, { nodeType: 'unordered-list', content: [{ nodeType: 'list-item', content: [t('Si es un vuelo de código ', 'strong'), t('compartido', 'strong', 'emphasis'), t('*', 'strong')] }] }], ctx()),
+      '<ul><li><strong>Si es un vuelo de código <em>compartido</em>*</strong></li></ul>',
+    );
+    // separate runs stay separate; a space between two bold runs keeps one run
+    assert.equal(richText([{ nodeType: 'paragraph', content: [t('a', 'emphasis', 'strong'), t(' e '), t('b', 'strong')] }], ctx()), '<p><strong><em>a</em></strong> e <strong>b</strong></p>');
+    assert.equal(richText([{ nodeType: 'paragraph', content: [t('a', 'strong'), t(' ', 'strong'), t('b', 'bold')] }], ctx()), '<p><strong>a b</strong></p>');
+    // an open mark stays open while the next text has it too (an author line: "Por" italic, the
+    // name bold-italic)
+    assert.equal(richText([{ nodeType: 'paragraph', content: [t('Por ', 'emphasis'), t('Augusto Freitas', 'strong', 'emphasis'), t(' - © up-tap', 'emphasis')] }], ctx()), '<p><em>Por <strong>Augusto Freitas</strong> - © up-tap</em></p>');
+    // the mark that runs on is the outer one (www: "arroz de marisc" bold-italic, its "o" italic)
+    assert.equal(richText([{ nodeType: 'paragraph', content: [t('arroz de marisc', 'strong', 'emphasis'), t('o', 'emphasis'), t(' (seafood)')] }], ctx()), '<p><em><strong>arroz de marisc</strong>o</em> (seafood)</p>');
+    // spaces at a link's edge go outside it too (a bold link text ending in a space, bold after it)
+    assert.equal(richText([{ nodeType: 'paragraph', content: [t('junto da', 'strong'), t(' '), { nodeType: 'link', data: { href: 'https://www.dgav.pt/' }, content: [t('Direção Geral', 'strong'), t(' ', 'strong')] }, t('ou de um veterinário.', 'strong')] }], ctx()), '<p><strong>junto da</strong> <a href="https://www.dgav.pt/"><strong>Direção Geral</strong></a> <strong>ou de um veterinário.</strong></p>');
+    // spaces at a mark's edge go outside it (a closing mark after a space is no mark in Markdown)
+    assert.equal(richText([{ nodeType: 'paragraph', content: [t('1 par '), t('standard ', 'emphasis'), t('ou', 'strong'), t(' 1 '), t('slalom', 'emphasis')] }], ctx()), '<p>1 par <em>standard</em> <strong>ou</strong> 1 <em>slalom</em></p>');
+  });
+
+  it('www\'s widget link and the video label in every language of the site (pt, en, es, fr, de, it, pl)', () => {
+    const page = () => ({ props: { pageProps: { page: { title: 'X', sections: [{ __typename: 'ComponentHeadingModel', title: 'X' }, { __typename: 'ComponentWidgetFreeBlockModel' }] } } } });
+    const labels = {
+      'pt-pt': 'Ver em flytap.com', 'en-pt': 'See on flytap.com', 'es-es': 'Ver en flytap.com', 'fr-fr': 'Voir sur flytap.com', 'de-de': 'Auf flytap.com ansehen', 'it-it': 'Vedi su flytap.com', 'pl-pl': 'Zobacz na flytap.com',
+    };
+    Object.entries(labels).forEach(([locale, label]) => {
+      const { html } = convertPage(page(locale), { ...ctx(`https://www.flytap.com/${locale}/x`), lang: undefined, locale: undefined });
+      assert.ok(html.includes(`>${label}</a>`), `${locale}: ${label}`);
+      assert.ok(html.includes(`<div>Language</div><div>${locale.split('-')[0]}</div>`), locale);
+    });
+  });
+
+  it('a rich text image without a file (aem.flytap.com) is listed in the page report\'s missing', () => {
+    const page = { props: { pageProps: { page: { title: 'X', sections: [{ __typename: 'ComponentRichTextBlockModel', richTextContent: { json: [{ nodeType: 'paragraph', content: [{ nodeType: 'reference', data: { path: '/content/dam/tap/x/card.jpg', mimetype: 'image/jpeg' } }, t('texto')] }] } }] } } } };
+    const { html, report } = convertPage(page, ctx('https://www.flytap.com/pt-pt/stopover/parceiros'));
+    assert.ok(!html.includes('aem.flytap.com'));
+    assert.deepEqual(report.missing, ['https://aem.flytap.com/content/dam/tap/x/card.jpg']);
+  });
+});
+
 describe('tap-import rich text images', () => {
   const ref = (p) => [{ nodeType: 'paragraph', content: [{ nodeType: 'span', content: [{ nodeType: 'reference', data: { path: p, mimetype: 'image/jpeg' } }] }] }];
   it('a reference to a DAM image: the archive\'s copy, else left out and listed (www renders it from aem.flytap.com)', () => {
