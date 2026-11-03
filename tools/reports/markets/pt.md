@@ -1,6 +1,6 @@
 # Portuguese for lufthansa.com (batch 13)
 
-Status of 2026-11-03 (briefs 298, 300 and 302): **imported, uploaded and previewed; nothing
+Status of 2026-11-03 (briefs 298, 300, 302 and the next): **imported, uploaded and previewed; nothing
 published, nothing switched on.**
 
 ## The language version: xx/pt
@@ -20,8 +20,9 @@ Brazilian wording of its own on the pages compared.
 ## Captures
 
 - **The local capture** (Ben's machine, a real browser, about one page every 10 s, from
-  `tools/markets/capture-lists/13-pt.txt`): five archives, `lh-snapshots-001` to `-005`
-  (lh-deliveries.json: `{"segment": "pt", "complete": true}`), **274 pages**; each archive's sha256
+  `tools/markets/capture-lists/13-pt.txt`): five archives, `lh-snapshots-001` to `-005`, and the
+  confirmations' `lh-snapshots-010` (lh-deliveries.json: `{"segment": "pt", "complete": true}`),
+  **274 pages and 7 confirmations**; each archive's sha256
   and each page's sha256 in its manifest checked, every entry a regular file inside the archive.
   The pages were checked before they were placed: all Portuguese (`lang="pt"`), each with its own
   canonical, its own URL or www's long AEM URL of it as final URL, no challenge page, no empty
@@ -46,10 +47,11 @@ Brazilian wording of its own on the pages compared.
 
 ## Documents (DA and preview, not published)
 
-**265 documents, 265 of 265 answer 200 on preview and carry the same text in DA:**
-- **xx/pt, 253**: 251 pages by the template of their de/en counterpart (`import-batch.mjs`:
+**272 documents, 272 of 272 answer 200 on preview and carry the same text in DA:**
+- **xx/pt, 260**: 251 pages by the template of their de/en counterpart (`import-batch.mjs`:
   homepage 1, hub 16, campaign 21, fleet 8, info 165, legal 29, form 5, app-entry 5,
-  flight-status 1), its nav and footer from its homepage capture (`import-nav.bundle.js`:
+  flight-status 1), the 7 form confirmation pages (info, as de/en's; archive `lh-snapshots-010`,
+  below), its nav and footer from its homepage capture (`import-nav.bundle.js`:
   Portuguese labels, "Outros países | Português"); links into xx/pt relative where it has the
   document (`root-docs.mjs --own-root xx/pt`).
 - **ao/pt, br/pt, pt/pt, 12**: the three homepages (homepage template) and the nine own pages
@@ -60,11 +62,16 @@ Brazilian wording of its own on the pages compared.
   links into their own root relative (`--own-root`). ao/pt has no own pages.
 - **The forms** keep their ids: `anmeldung-tiere-frachtraum`, `feedback-past-flight`,
   `register-ammunition`, `register-animal-cabin` (`farealert/best-price-alert` has no form row, as
-  on de/en).
+  on de/en). Every success row links its confirmation document now (relative): the contact
+  forms' `support/contact/contact-form-confirmation`, `passenger-receipt-90days/confirmation`,
+  `register-sporting-firearm1/confirmation` (www's own for xx/pt's ammunition form),
+  `register-sports-baggage/confirmation`, `register-animal/confirmation`,
+  `special-needs-online-form/confirmation`. `register-animal-cargo-hold/confirmation` is a document
+  too, though xx/pt's `anmeldung-tiere-frachtraum` names no success page (as captured).
 - Images: the homepages' Instagram logo SVG (58 KB, over Edge Delivery's 40 KB: the preview answered
   409) is its converted PNG already in DA (`media-manifest.json`'s conversion; this workspace has no
   media cache, so `postprocess-media.mjs --no-download` measures nothing).
-- `tools/importer/sites/lh-com.json` lists the 265 (added at the end).
+- `tools/importer/sites/lh-com.json` lists the 272 (added at the end).
 
 ## Left out, and why
 
@@ -89,20 +96,17 @@ Brazilian wording of its own on the pages compared.
 - **The roots' comparison pages** (`flights`, `airport-information`, `additional-services` of each
   root, 8 captured): references for the local-version comparison, not documents (the roots answer
   them from xx/pt).
-- **The form confirmations**: not in www's sitemaps nor in the first capture list, so not captured
-  yet; `tools/markets/capture-lists/13-pt-confirmations.txt` (271507e2) lists them for the local
-  capture, with the four de/en forms' confirmations xx/pt's groups also have:
-  `/xx/pt/support/contact/contact-form-confirmation`,
-  `/xx/pt/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm1/confirmation`,
-  `/xx/pt/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation`
-  (the success rows of xx/pt's forms name them; on www's pages until they are captured) and
-  `/xx/pt/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation`
-  (de/en's; xx/pt's `anmeldung-tiere-frachtraum` names none).
+- **One confirmation URL, a www 404**: `/xx/pt/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation`
+  (de/en's path; xx/pt's form goes to `register-sporting-firearm1/confirmation`, which is a
+  document). The confirmations were in no capture list at first (not in www's sitemaps);
+  `13-pt-confirmations.txt` (271507e2) listed 8, the local capture brought 7
+  (`lh-snapshots-010`, kind `confirmations`; the eighth is the 404).
 
 ## What Portuguese still needs before it can go live
 
-1. **The four form confirmation pages** above: captured and imported (the success rows then link
-   them).
+1. **The five alias documents** above: a capture of their real pages
+   (`13-pt-aliases.txt`), then their import under the alias paths; or redirect rows instead
+   (point 5).
 2. **Locale rows (ema-adobe: `tools/markets/locale-data.json` and the table it builds,
    `scripts/locale-table.js`, are shared)**: the values from the homepage captures
    (`rollout.mjs --rows 13`, not applied):
