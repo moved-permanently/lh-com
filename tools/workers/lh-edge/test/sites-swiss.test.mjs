@@ -134,6 +134,11 @@ test('swiss: entry paths as www.swiss.com sends them (302); a homepage path stay
   assert.equal(SITES.swiss.table['ch/zh'].status, 'live');
   assert.equal(SITES.swiss.table['ch/ja'].status, 'live');
   assert.equal(SITE_ENTRIES.swiss['/ch/ru'], undefined, 'a language SWISS has no root for');
+  // ch/el and ch/ru behind the switch (scripts/brands.js SWISS_LANGUAGES, off): no entry or row of theirs
+  ['el', 'ru'].forEach((ll) => {
+    [`/ch/${ll}`, `/ch/${ll}/`, `/xx/${ll}`, `/xx/${ll}/homepage`, `/${ll}/homepage`].forEach((x) => assert.equal(SITE_ENTRIES.swiss[x], undefined, x));
+    assert.equal(SITES.swiss.table[`ch/${ll}`], undefined);
+  });
   // the other sites' entries as before, none of SWISS's
   assert.equal((await get('https://brussels.example/ch')).headers.get('location'), '/ch/en/homepage');
   assert.equal((await get('https://brussels.example/xx/en')).headers.get('location'), '/be/en/homepage');

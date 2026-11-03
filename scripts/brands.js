@@ -629,6 +629,9 @@ export const SWISS_LANGUAGES = {
   pt: { root: 'ch/pt', name: 'Suiça | Português', airport: 'ZRH' },
   zh: { root: 'ch/zh', name: '瑞士 (Switzerland) | 简体中文', airport: 'ZRH' },
   ja: { root: 'ch/ja', name: 'Switzerland | 日本語', airport: 'ZRH' },
+  // el and ru: swiss-snapshots-018, -023
+  el: { root: 'ch/el', name: 'Ελβετία | Ελληνικά', airport: 'ZRH' },
+  ru: { root: 'ch/ru', name: 'Switzerland | Русский', airport: 'ZRH' },
 };
 export const SWISS_LANGUAGES_LIVE = ['es', 'pt', 'zh', 'ja'];
 

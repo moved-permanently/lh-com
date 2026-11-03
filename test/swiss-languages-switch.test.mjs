@@ -7,7 +7,8 @@
    its documents are published, its code in SWISS_LANGUAGES_LIVE makes it a root as ch/fr and
    ch/it. Spanish and Portuguese (brief 279: swiss-snapshots-011, -012, -016, -017: "Suiza |
    Español", "Suiça | Português"), Chinese and Japanese (brief 28x: -014, -015, -021, -022:
-   "瑞士 (Switzerland) | 简体中文", "Switzerland | 日本語"); the flight search from Zurich on all.
+   "瑞士 (Switzerland) | 简体中文", "Switzerland | 日本語"), Greek and Russian (brief 283: -018, -019,
+   -023, -024: "Ελβετία | Ελληνικά", "Switzerland | Русский"); the flight search from Zurich on all.
    es and pt on since their documents are live (2026-11-03), zh and ja too (2026-11-03). The tests read SWISS_LANGUAGES_LIVE:
    turning a language on needs no change here.
    Run: node --max-old-space-size=512 --test test/swiss-languages-switch.test.mjs */
@@ -21,7 +22,12 @@ import {
 
 const W = 'https://www.swiss.com';
 const NAMES = {
-  'ch/es': 'Suiza | Español', 'ch/pt': 'Suiça | Português', 'ch/zh': '瑞士 (Switzerland) | 简体中文', 'ch/ja': 'Switzerland | 日本語',
+  'ch/es': 'Suiza | Español',
+  'ch/pt': 'Suiça | Português',
+  'ch/zh': '瑞士 (Switzerland) | 简体中文',
+  'ch/ja': 'Switzerland | 日本語',
+  'ch/el': 'Ελβετία | Ελληνικά',
+  'ch/ru': 'Switzerland | Русский',
 };
 const onPage = (fn) => {
   const { document } = parseHTML('<!DOCTYPE html><html><head><meta name="brand" content="swiss"></head><body></body></html>');
@@ -50,9 +56,10 @@ const base = (() => {
   return s;
 })();
 
-test('the languages behind the switch: es, pt, zh, ja (all on); www\'s names, Zurich', () => {
-  assert.deepEqual(Object.keys(SWISS_LANGUAGES), ['es', 'pt', 'zh', 'ja']);
-  assert.deepEqual(SWISS_LANGUAGES_LIVE, ['es', 'pt', 'zh', 'ja'], 'zh and ja on since their documents are live');
+test('the languages behind the switch: es, pt, zh, ja (on), el and ru (off); www\'s names, Zurich', () => {
+  assert.deepEqual(Object.keys(SWISS_LANGUAGES), ['es', 'pt', 'zh', 'ja', 'el', 'ru']);
+  assert.ok(['es', 'pt', 'zh', 'ja'].every((ll) => SWISS_LANGUAGES_LIVE.includes(ll)), 'es, pt, zh and ja on since their documents are live');
+  assert.ok(!SWISS_LANGUAGES_LIVE.includes('el') && !SWISS_LANGUAGES_LIVE.includes('ru'), 'el and ru off until published');
   assert.ok(SWISS_LANGUAGES_LIVE.every((ll) => SWISS_LANGUAGES[ll]), 'only languages of the table');
   Object.entries(SWISS_LANGUAGES).forEach(([ll, { root, name, airport }]) => {
     assert.equal(root, `ch/${ll}`);
@@ -89,13 +96,18 @@ test('on for a language: its root joins as ch/fr did (row, version, name, airpor
   assert.equal(es.versions.es, 'ch/es');
   assert.equal(es.names['ch/es'], 'Suiza | Español');
   assert.equal(es.airports['ch/es'], 'ZRH');
-  assert.deepEqual(Object.keys(es.pilots.rows), ['ch/pt', 'ch/zh', 'ch/ja']);
+  assert.deepEqual(Object.keys(es.pilots.rows), ['ch/pt', 'ch/zh', 'ch/ja', 'ch/el', 'ch/ru']);
   const ja = withSwissLanguages(base, ['ja']);
   assert.deepEqual(ja.rows['ch/ja'], {
     country: 'ch', lang: 'ja', hreflang: 'ja-CH', status: 'live', documents: 'own',
   });
   assert.equal(ja.names['ch/ja'], 'Switzerland | 日本語');
-  const all = withSwissLanguages(base, ['es', 'pt', 'zh', 'ja']);
+  const ru = withSwissLanguages(base, ['ru']);
+  assert.deepEqual(ru.rows['ch/ru'], {
+    country: 'ch', lang: 'ru', hreflang: 'ru-CH', status: 'live', documents: 'own',
+  });
+  assert.equal(ru.names['ch/ru'], 'Switzerland | Русский');
+  const all = withSwissLanguages(base, Object.keys(SWISS_LANGUAGES));
   assert.deepEqual(all.pilots.rows, {});
   assert.equal(all.versions.zh, 'ch/zh');
   // with the markets' switch on too: the markets of the languages that are on only
@@ -131,6 +143,6 @@ test('a pilot\'s page renders with its own row; the dialog, the links to it and 
     assert.equal(getHomepageUrl('ch', 'it'), '/ch/it/homepage');
     assert.equal(rootRedirectPath(), '/ch/en/homepage');
     // a language SWISS has no root for: ch/en's, as before
-    assert.equal(getLocale('/ch/ru/homepage').key, 'ch/en');
+    assert.equal(getLocale('/ch/ko/homepage').key, 'ch/en');
   });
 });
