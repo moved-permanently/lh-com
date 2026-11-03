@@ -56,6 +56,9 @@ export function isoDate(text) {
   const t = clean(text).toLowerCase();
   let m = t.match(/(\d{1,2})\.(\d{1,2})\.(\d{4})/);
   if (m) return iso(m[3], m[2], m[1]);
+  // en's two-digit years ("Published: 01.06.23")
+  m = t.match(/(\d{1,2})\.(\d{1,2})\.(\d{2})(?!\d)/);
+  if (m) return iso(`20${m[3]}`, m[2], m[1]);
   const month = (name) => {
     const all = [...MONTHS.de, ...MONTHS.en];
     const i = all.findIndex((x) => name.startsWith(x.slice(0, 3)));

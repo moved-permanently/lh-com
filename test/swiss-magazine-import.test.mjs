@@ -105,6 +105,8 @@ test('isoDate and creditsOf: www\'s credits (a line a paragraph or line break) a
   assert.equal(isoDate('Publiziert am: 21. Februar 2026'), '2026-02-21');
   assert.equal(isoDate('Published on February 3, 2025'), '2025-02-03');
   assert.equal(isoDate('Fotos: Ana Lui'), '');
+  // en's two-digit years ("Published: 01.06.23")
+  assert.equal(isoDate('Published: 01.06.23'), '2023-06-01');
   const { document } = parseHTML('<div class="credits__wrapper"><p>Aktualisiert am 01.02.2025</p><p>Text: Sara Thenen Images: NAM Films</p></div><div class="credits__wrapper"><p>Selektion &amp; Text: Claus<br>Publiziert: 3. März 2024</p></div>');
   const c = creditsOf(document.querySelectorAll('.credits__wrapper'));
   // the publication date before the update's
