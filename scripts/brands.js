@@ -586,6 +586,10 @@ const SWISS_MARKETS = {
   'hk/zh': ['Hong Kong, Cina | 简体中文', 'HKG'],
   'sg/zh': ['新加坡 (Singapore) | 简体中文', 'SIN'],
   'jp/ja': ['Giappone | 日本語', 'TYO'],
+  // el and ru (the capture's only roots in those languages, imported 2026-11-03): behind
+  // SWISS_MARKET_LANGUAGES_LIVE and their language versions' switch (SWISS_LANGUAGES_LIVE)
+  'gr/el': ['Griechenland | Ελληνικά', 'ATH'],
+  'ru/ru': ['Federazione Russa | Русский', 'ZRH'],
 };
 
 // The switch (as lh-com's liveWaves): off, SWISS's rows are ch's alone, swiss.turnsthe.page answers

@@ -91,3 +91,24 @@ test('zh and ja market roots (cn/zh, hk/zh, sg/zh, jp/ja): in since SWISS_MARKET
   assert.equal(Object.values(before.rows).filter((r) => r.documents === 'language').length, 210);
   assert.equal(NEW.some((r) => before.rows[r]), false, 'without zh and ja: as before');
 });
+
+// the market roots of SWISS's Greek and Russian (gr/el, ru/ru: the capture's only roots in those
+// languages, imported 2026-11-03) behind the same switch, and behind their language version's
+// (ch/el, ch/ru: SWISS_LANGUAGES_LIVE): in once both list the language
+test('el and ru market roots (gr/el, ru/ru): out with the shipped switches; in with their language version and their language listed, www\'s labels and airports', async () => {
+  const { withSwissLanguages, SWISS_LANGUAGES } = await import('../scripts/brands.js');
+  const NEW = ['gr/el', 'ru/ru'];
+  assert.equal(NEW.some((r) => BRAND_SITES.swiss.rows[r]), false);
+  const languages = withSwissLanguages({ ...BRAND_SITES.swiss, pilots: undefined }, Object.keys(SWISS_LANGUAGES));
+  const languageRows = (site) => Object.values(site.rows).filter((r) => r.documents === 'language').length;
+  const on = withSwissMarkets(languages, true, ['en', 'de', 'fr', 'it', 'es', 'pt', 'zh', 'ja', 'el', 'ru']);
+  assert.equal(languageRows(on), languageRows(BRAND_SITES.swiss) + 2);
+  assert.deepEqual(on.rows['gr/el'], {
+    country: 'gr', lang: 'el', hreflang: 'el-GR', status: 'live', documents: 'language', label: 'Griechenland | Ελληνικά',
+  });
+  assert.equal(on.names['ru/ru'], 'Federazione Russa | Русский');
+  assert.deepEqual(NEW.map((r) => on.airports[r]), ['ATH', 'ZRH']);
+  // the language listed, its version not live: out
+  const versionOff = withSwissMarkets(BRAND_SITES.swiss, true, ['en', 'de', 'fr', 'it', 'el', 'ru']);
+  assert.equal(NEW.some((r) => versionOff.rows[r]), false);
+});
