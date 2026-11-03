@@ -56,3 +56,23 @@ SWISS lists hreflang alternates as Austrian and Brussels (`ALTERNATES_SITES`), o
 - `lh-swiss-markets-redirects.tsv`: 1 row. The roots' entry paths (`/<cc>/<ll>`, `/<cc>`) come with
   the switch (lh-edge's SITE_ENTRIES from the rows).
 - `lh-swiss-markets-held.tsv`: the 12 held roots.
+
+## 2026-11-03: held pages, es and pt, the "&" address, forms
+
+- The seven held pages imported again with the rule for images www answers 404
+  (`tools/importer/swiss-sub-dam.mjs` GONE_IMAGES: the six files still missing in lh-swiss's DA
+  after the capture's upload): al/fr aig-travel-insurance (the AIG logo), al/fr and al/it
+  prepare-lxmas-2024 (the fondue teaser), br/en homepage (the BTG terminal picture), dk/en
+  ski-campaign-2025 and gb/en ski-campaign (the winter stage picture), gb/en swiss-summit-lounge
+  (the newsletter header). Each lost that one picture and nothing else; uploaded and previewed.
+- es and pt: ar/es, br/es, es/es, us/es, br/pt, pt/pt (6 homepages, 11 own pages, their nav and
+  footer: 29 documents) uploaded and previewed. Their rows are in `scripts/brands.js`
+  SWISS_MARKETS behind `SWISS_MARKET_LANGUAGES_LIVE` (en, de, fr, it): add 'es' and 'pt' once the
+  documents are published. es/es and pt/pt `feedback` are www's questionnaire widget only, empty
+  here as al/it's. br/pt terminal-btg without the BTG picture (the same 404). Their 6 new files
+  for the capture: `tools/reports/lh-swiss-markets-es-pt-dam.tsv`.
+- `/us/en/local-pages/baggage-&-other-fees` (and `%26`): a 301 on swiss.turnsthe.page to
+  `/us/en/local-pages/baggage-and-other-fees` (lh-edge, src/url-forms.js ampersandTarget); the
+  redirect row in `lh-swiss-markets-redirects.tsv` is not needed.
+- lh-forms: swiss-pax-receipt-request, swiss-refundable-travel-credit,
+  swiss-invoice-request-hungary, swiss-klook added (deployed); their five pages unchanged.
