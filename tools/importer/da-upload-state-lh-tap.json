@@ -3769,6 +3769,421 @@
    "uploaded": "2026-11-03T21:15:45.752Z",
    "mtime": 1793740115728,
    "preview": "2026-11-03T21:15:50.279Z"
+  },
+  "/pl-pl/nav": {
+   "uploaded": "2026-11-03T21:25:03.554Z",
+   "mtime": 1793741101614,
+   "preview": "2026-11-03T21:25:05.889Z"
+  },
+  "/pl-pl/footer": {
+   "uploaded": "2026-11-03T21:25:07.344Z",
+   "mtime": 1793741101625,
+   "preview": "2026-11-03T21:25:09.428Z"
+  },
+  "/pl-pl": {
+   "uploaded": "2026-11-03T21:25:24.635Z",
+   "mtime": 1793741099386,
+   "preview": "2026-11-03T21:25:28.686Z"
+  },
+  "/pl-pl/an-bord/mahlzeiten/local-stars": {
+   "uploaded": "2026-11-03T21:25:30.036Z",
+   "mtime": 1793741101277,
+   "preview": "2026-11-03T21:25:31.860Z"
+  },
+  "/pl-pl/info-legal/privacidade": {
+   "uploaded": "2026-11-03T21:25:33.241Z",
+   "mtime": 1793741099936,
+   "preview": "2026-11-03T21:25:34.898Z"
+  },
+  "/pl-pl/informacja": {
+   "uploaded": "2026-11-03T21:25:36.283Z",
+   "mtime": 1793741099535,
+   "preview": "2026-11-03T21:25:38.564Z"
+  },
+  "/pl-pl/informacja/bagaz": {
+   "uploaded": "2026-11-03T21:25:40.229Z",
+   "mtime": 1793741099987,
+   "preview": "2026-11-03T21:25:42.350Z"
+  },
+  "/pl-pl/informacja/bagaz/bagaz-podreczny": {
+   "uploaded": "2026-11-03T21:25:44.004Z",
+   "mtime": 1793741100790,
+   "preview": "2026-11-03T21:25:46.284Z"
+  },
+  "/pl-pl/informacja/bagaz/bagaz-rejestrowany": {
+   "uploaded": "2026-11-03T21:25:47.640Z",
+   "mtime": 1793741100813,
+   "preview": "2026-11-03T21:25:49.696Z"
+  },
+  "/pl-pl/informacja/bagaz/bron-amunicja": {
+   "uploaded": "2026-11-03T21:25:51.065Z",
+   "mtime": 1793741100747,
+   "preview": "2026-11-03T21:25:52.790Z"
+  },
+  "/pl-pl/informacja/bagaz/instrumenty-muzyczne": {
+   "uploaded": "2026-11-03T21:25:54.020Z",
+   "mtime": 1793741100853,
+   "preview": "2026-11-03T21:25:55.741Z"
+  },
+  "/pl-pl/informacja/bagaz/problemy-bagazem": {
+   "uploaded": "2026-11-03T21:25:57.041Z",
+   "mtime": 1793741100873,
+   "preview": "2026-11-03T21:25:58.944Z"
+  },
+  "/pl-pl/informacja/bagaz/przedmioty-niebezpieczne": {
+   "uploaded": "2026-11-03T21:26:00.671Z",
+   "mtime": 1793741100769,
+   "preview": "2026-11-03T21:26:02.593Z"
+  },
+  "/pl-pl/informacja/bagaz/sprzet-sportowy": {
+   "uploaded": "2026-11-03T21:26:03.966Z",
+   "mtime": 1793741100834,
+   "preview": "2026-11-03T21:26:05.924Z"
+  },
+  "/pl-pl/informacja/bagaz/zlokalizowac-bagaz": {
+   "uploaded": "2026-11-03T21:26:07.143Z",
+   "mtime": 1793741100892,
+   "preview": "2026-11-03T21:26:08.890Z"
+  },
+  "/pl-pl/informacja/floty-tap": {
+   "uploaded": "2026-11-03T21:26:10.262Z",
+   "mtime": 1793741100034,
+   "preview": "2026-11-03T21:26:12.277Z"
+  },
+  "/pl-pl/informacja/kobiety-w-ciazy": {
+   "uploaded": "2026-11-03T21:26:13.644Z",
+   "mtime": 1793741100053,
+   "preview": "2026-11-03T21:26:15.615Z"
+  },
+  "/pl-pl/informacja/podrozowanie-zwierzetami": {
+   "uploaded": "2026-11-03T21:26:16.970Z",
+   "mtime": 1793741100121,
+   "preview": "2026-11-03T21:26:18.903Z"
+  },
+  "/pl-pl/informacja/podrozowanie-zwierzetami/zwierzeta": {
+   "uploaded": "2026-11-03T21:26:20.352Z",
+   "mtime": 1793741101237,
+   "preview": "2026-11-03T21:26:22.714Z"
+  },
+  "/pl-pl/informacja/specjalne-potrzeby": {
+   "uploaded": "2026-11-03T21:26:24.275Z",
+   "mtime": 1793741100073,
+   "preview": "2026-11-03T21:26:25.889Z"
+  },
+  "/pl-pl/informacja/specjalne-potrzeby/nieslyszacy": {
+   "uploaded": "2026-11-03T21:26:26.993Z",
+   "mtime": 1793741100985,
+   "preview": "2026-11-03T21:26:28.936Z"
+  },
+  "/pl-pl/informacja/specjalne-potrzeby/niewidomi": {
+   "uploaded": "2026-11-03T21:26:30.522Z",
+   "mtime": 1793741100966,
+   "preview": "2026-11-03T21:26:32.595Z"
+  },
+  "/pl-pl/informacja/specjalne-potrzeby/problemy-zdrowotne": {
+   "uploaded": "2026-11-03T21:26:33.976Z",
+   "mtime": 1793741100928,
+   "preview": "2026-11-03T21:26:36.011Z"
+  },
+  "/pl-pl/informacja/specjalne-potrzeby/prosba-pomoc": {
+   "uploaded": "2026-11-03T21:26:37.493Z",
+   "mtime": 1793741101003,
+   "preview": "2026-11-03T21:26:40.064Z"
+  },
+  "/pl-pl/informacja/specjalne-potrzeby/wozek-inwalidzki": {
+   "uploaded": "2026-11-03T21:26:41.489Z",
+   "mtime": 1793741100948,
+   "preview": "2026-11-03T21:26:43.541Z"
+  },
+  "/pl-pl/informacje-odprawa": {
+   "uploaded": "2026-11-03T21:26:44.852Z",
+   "mtime": 1793741099455,
+   "preview": "2026-11-03T21:26:46.955Z"
+  },
+  "/pl-pl/informacje-prawne": {
+   "uploaded": "2026-11-03T21:26:49.004Z",
+   "mtime": 1793741099515,
+   "preview": "2026-11-03T21:26:50.778Z"
+  },
+  "/pl-pl/informacje-prawne/cookie": {
+   "uploaded": "2026-11-03T21:26:52.278Z",
+   "mtime": 1793741099889,
+   "preview": "2026-11-03T21:26:54.113Z"
+  },
+  "/pl-pl/informacje-prawne/cyberbezpieczenstwo": {
+   "uploaded": "2026-11-03T21:26:55.363Z",
+   "mtime": 1793741099806,
+   "preview": "2026-11-03T21:26:57.019Z"
+  },
+  "/pl-pl/informacje-prawne/dostepnosc": {
+   "uploaded": "2026-11-03T21:26:58.352Z",
+   "mtime": 1793741099849,
+   "preview": "2026-11-03T21:27:00.045Z"
+  },
+  "/pl-pl/informacje-prawne/flight-passes": {
+   "uploaded": "2026-11-03T21:27:01.357Z",
+   "mtime": 1793741099866,
+   "preview": "2026-11-03T21:27:02.854Z"
+  },
+  "/pl-pl/informacje-prawne/prywatnosc": {
+   "uploaded": "2026-11-03T21:27:04.198Z",
+   "mtime": 1793741099911,
+   "preview": "2026-11-03T21:27:05.906Z"
+  },
+  "/pl-pl/informacje-prawne/warunki-i-postanowienia": {
+   "uploaded": "2026-11-03T21:27:07.234Z",
+   "mtime": 1793741099960,
+   "preview": "2026-11-03T21:27:08.905Z"
+  },
+  "/pl-pl/informacje-prawne/warunki-przewozu": {
+   "uploaded": "2026-11-03T21:27:10.176Z",
+   "mtime": 1793741099830,
+   "preview": "2026-11-03T21:27:11.799Z"
+  },
+  "/pl-pl/informacje/niemowleta-i-dzieci": {
+   "uploaded": "2026-11-03T21:27:13.253Z",
+   "mtime": 1793741100014,
+   "preview": "2026-11-03T21:27:15.160Z"
+  },
+  "/pl-pl/informacje/podrozowanie-zwierzetami/zwierzeta-asystujace": {
+   "uploaded": "2026-11-03T21:27:16.529Z",
+   "mtime": 1793741101209,
+   "preview": "2026-11-03T21:27:18.599Z"
+  },
+  "/pl-pl/informacyjne/dokumenty": {
+   "uploaded": "2026-11-03T21:27:19.944Z",
+   "mtime": 1793741100097,
+   "preview": "2026-11-03T21:27:22.001Z"
+  },
+  "/pl-pl/informacyjne/dokumenty/partnerstwie-ucs": {
+   "uploaded": "2026-11-03T21:27:23.155Z",
+   "mtime": 1793741101025,
+   "preview": "2026-11-03T21:27:25.157Z"
+  },
+  "/pl-pl/informacyjne/dokumenty/paszport-elektroniczny": {
+   "uploaded": "2026-11-03T21:27:26.558Z",
+   "mtime": 1793741101044,
+   "preview": "2026-11-03T21:27:28.106Z"
+  },
+  "/pl-pl/informacyjne/dokumenty/podroz-brazylii": {
+   "uploaded": "2026-11-03T21:27:29.666Z",
+   "mtime": 1793741101081,
+   "preview": "2026-11-03T21:27:31.304Z"
+  },
+  "/pl-pl/informacyjne/dokumenty/podroz-kanada": {
+   "uploaded": "2026-11-03T21:27:32.664Z",
+   "mtime": 1793741101101,
+   "preview": "2026-11-03T21:27:34.197Z"
+  },
+  "/pl-pl/informacyjne/dokumenty/podroz-uk": {
+   "uploaded": "2026-11-03T21:27:35.496Z",
+   "mtime": 1793741101123,
+   "preview": "2026-11-03T21:27:37.134Z"
+  },
+  "/pl-pl/informacyjne/dokumenty/wizy-schengen": {
+   "uploaded": "2026-11-03T21:27:38.438Z",
+   "mtime": 1793741101181,
+   "preview": "2026-11-03T21:27:40.648Z"
+  },
+  "/pl-pl/informacyjne/dokumenty/zoltej-febry": {
+   "uploaded": "2026-11-03T21:27:41.919Z",
+   "mtime": 1793741101062,
+   "preview": "2026-11-03T21:27:43.822Z"
+  },
+  "/pl-pl/miejsca-docelowe": {
+   "uploaded": "2026-11-03T21:27:45.368Z",
+   "mtime": 1793741099477,
+   "preview": "2026-11-03T21:27:47.382Z"
+  },
+  "/pl-pl/na-pokladzie": {
+   "uploaded": "2026-11-03T21:27:48.748Z",
+   "mtime": 1793741099554,
+   "preview": "2026-11-03T21:27:50.467Z"
+  },
+  "/pl-pl/na-pokladzie/altitude-film-festival": {
+   "uploaded": "2026-11-03T21:27:51.715Z",
+   "mtime": 1793741100147,
+   "preview": "2026-11-03T21:27:53.777Z"
+  },
+  "/pl-pl/na-pokladzie/economy-prime": {
+   "uploaded": "2026-11-03T21:27:55.239Z",
+   "mtime": 1793741100170,
+   "preview": "2026-11-03T21:27:57.527Z"
+  },
+  "/pl-pl/na-pokladzie/lot-business": {
+   "uploaded": "2026-11-03T21:27:58.814Z",
+   "mtime": 1793741100269,
+   "preview": "2026-11-03T21:28:00.960Z"
+  },
+  "/pl-pl/na-pokladzie/lot-ekonomicznej": {
+   "uploaded": "2026-11-03T21:28:02.208Z",
+   "mtime": 1793741100248,
+   "preview": "2026-11-03T21:28:04.237Z"
+  },
+  "/pl-pl/na-pokladzie/posilki": {
+   "uploaded": "2026-11-03T21:28:05.548Z",
+   "mtime": 1793741100225,
+   "preview": "2026-11-03T21:28:07.397Z"
+  },
+  "/pl-pl/na-pokladzie/posilki/economy-prime": {
+   "uploaded": "2026-11-03T21:28:08.694Z",
+   "mtime": 1793741101301,
+   "preview": "2026-11-03T21:28:10.431Z"
+  },
+  "/pl-pl/na-pokladzie/posilki/posilki-specjalne": {
+   "uploaded": "2026-11-03T21:28:11.866Z",
+   "mtime": 1793741101321,
+   "preview": "2026-11-03T21:28:13.985Z"
+  },
+  "/pl-pl/na-pokladzie/rozrywka": {
+   "uploaded": "2026-11-03T21:28:15.259Z",
+   "mtime": 1793741100190,
+   "preview": "2026-11-03T21:28:17.019Z"
+  },
+  "/pl-pl/na-pokladzie/wi-fi": {
+   "uploaded": "2026-11-03T21:28:18.410Z",
+   "mtime": 1793741100289,
+   "preview": "2026-11-03T21:28:19.868Z"
+  },
+  "/pl-pl/ostrzezenia-i-informacje": {
+   "uploaded": "2026-11-03T21:28:21.097Z",
+   "mtime": 1793741099431,
+   "preview": "2026-11-03T21:28:22.850Z"
+  },
+  "/pl-pl/pomoc": {
+   "uploaded": "2026-11-03T21:28:24.232Z",
+   "mtime": 1793741099410,
+   "preview": "2026-11-03T21:28:26.029Z"
+  },
+  "/pl-pl/pomoc/czesto-zadawane-pytania": {
+   "uploaded": "2026-11-03T21:28:27.382Z",
+   "mtime": 1793741099759,
+   "preview": "2026-11-03T21:28:29.547Z"
+  },
+  "/pl-pl/pomoc/prosby-roszczenia": {
+   "uploaded": "2026-11-03T21:28:30.948Z",
+   "mtime": 1793741099719,
+   "preview": "2026-11-03T21:28:32.551Z"
+  },
+  "/pl-pl/pomoc/zwroty-tap": {
+   "uploaded": "2026-11-03T21:28:33.964Z",
+   "mtime": 1793741099697,
+   "preview": "2026-11-03T21:28:35.738Z"
+  },
+  "/pl-pl/rezerwacje": {
+   "uploaded": "2026-11-03T21:28:38.337Z",
+   "mtime": 1793741099648,
+   "preview": "2026-11-03T21:28:40.751Z"
+  },
+  "/pl-pl/rezerwacje/lot-i-pociag": {
+   "uploaded": "2026-11-03T21:28:42.454Z",
+   "mtime": 1793741100467,
+   "preview": "2026-11-03T21:28:44.095Z"
+  },
+  "/pl-pl/rezerwacje/metody-platnosci": {
+   "uploaded": "2026-11-03T21:28:45.329Z",
+   "mtime": 1793741100360,
+   "preview": "2026-11-03T21:28:47.685Z"
+  },
+  "/pl-pl/rezerwacje/stawki-tap": {
+   "uploaded": "2026-11-03T21:28:48.862Z",
+   "mtime": 1793741100338,
+   "preview": "2026-11-03T21:28:50.774Z"
+  },
+  "/pl-pl/rezerwacje/tap-meetings": {
+   "uploaded": "2026-11-03T21:28:51.975Z",
+   "mtime": 1793741100315,
+   "preview": "2026-11-03T21:28:53.785Z"
+  },
+  "/pl-pl/rezerwacje/time-to-think": {
+   "uploaded": "2026-11-03T21:28:55.087Z",
+   "mtime": 1793741100427,
+   "preview": "2026-11-03T21:28:57.470Z"
+  },
+  "/pl-pl/rezerwacje/ubezpieczenies": {
+   "uploaded": "2026-11-03T21:28:59.051Z",
+   "mtime": 1793741100408,
+   "preview": "2026-11-03T21:29:00.940Z"
+  },
+  "/pl-pl/rezerwacje/vigo-porto": {
+   "uploaded": "2026-11-03T21:29:02.192Z",
+   "mtime": 1793741100446,
+   "preview": "2026-11-03T21:29:04.227Z"
+  },
+  "/pl-pl/rezerwy/ponte-aerea": {
+   "uploaded": "2026-11-03T21:29:05.625Z",
+   "mtime": 1793741100385,
+   "preview": "2026-11-03T21:29:07.207Z"
+  },
+  "/pl-pl/stopover": {
+   "uploaded": "2026-11-03T21:29:08.492Z",
+   "mtime": 1793741099667,
+   "preview": "2026-11-03T21:29:10.694Z"
+  },
+  "/pl-pl/stopover/partnerzy": {
+   "uploaded": "2026-11-03T21:29:12.360Z",
+   "mtime": 1793741100575,
+   "preview": "2026-11-03T21:29:16.628Z"
+  },
+  "/pl-pl/zarzadzaj-rezerwacja": {
+   "uploaded": "2026-11-03T21:29:18.174Z",
+   "mtime": 1793741099496,
+   "preview": "2026-11-03T21:29:20.207Z"
+  },
+  "/pl-pl/zarzadzaj-rezerwacja/dodatki": {
+   "uploaded": "2026-11-03T21:29:21.557Z",
+   "mtime": 1793741099783,
+   "preview": "2026-11-03T21:29:23.441Z"
+  },
+  "/pl-pl/zarzadzaj-rezerwacja/dodatki/boost-packs": {
+   "uploaded": "2026-11-03T21:29:24.678Z",
+   "mtime": 1793741100598,
+   "preview": "2026-11-03T21:29:26.360Z"
+  },
+  "/pl-pl/zarzadzaj-rezerwacja/dodatki/fast-track": {
+   "uploaded": "2026-11-03T21:29:27.702Z",
+   "mtime": 1793741100636,
+   "preview": "2026-11-03T21:29:29.386Z"
+  },
+  "/pl-pl/zarzadzaj-rezerwacja/dodatki/lounges": {
+   "uploaded": "2026-11-03T21:29:30.826Z",
+   "mtime": 1793741100661,
+   "preview": "2026-11-03T21:29:33.313Z"
+  },
+  "/pl-pl/zarzadzaj-rezerwacja/dodatki/miejsca": {
+   "uploaded": "2026-11-03T21:29:34.643Z",
+   "mtime": 1793741100684,
+   "preview": "2026-11-03T21:29:37.119Z"
+  },
+  "/pl-pl/zarzadzaj-rezerwacja/dodatki/puste-miejsce-obok": {
+   "uploaded": "2026-11-03T21:29:38.463Z",
+   "mtime": 1793741100725,
+   "preview": "2026-11-03T21:29:40.005Z"
+  },
+  "/pl-pl/zarzadzaj-rezerwacja/dodatki/upgrades": {
+   "uploaded": "2026-11-03T21:29:41.231Z",
+   "mtime": 1793741100706,
+   "preview": "2026-11-03T21:29:43.172Z"
+  },
+  "/pl-pl/zarzadzaj-rezerwacja/dodatki/upgrades/aukcje": {
+   "uploaded": "2026-11-03T21:29:44.598Z",
+   "mtime": 1793741101347,
+   "preview": "2026-11-03T21:29:46.401Z"
+  },
+  "/pl-pl/zarzadzaj-rezerwacja/dodatki/upgrades/bezplatna": {
+   "uploaded": "2026-11-03T21:29:47.815Z",
+   "mtime": 1793741101383,
+   "preview": "2026-11-03T21:29:49.309Z"
+  },
+  "/pl-pl/zarzadzaj-rezerwacja/dodatki/upgrades/ustalona-oplata": {
+   "uploaded": "2026-11-03T21:29:50.622Z",
+   "mtime": 1793741101365,
+   "preview": "2026-11-03T21:29:52.298Z"
+  },
+  "/pl-pl/zarzadzaj-rezerwacja/dodatki/wejscie-poklad": {
+   "uploaded": "2026-11-03T21:29:53.601Z",
+   "mtime": 1793741100617,
+   "preview": "2026-11-03T21:29:55.303Z"
   }
  },
  "media": {
@@ -6285,6 +6700,15 @@
   },
   "/media-da/tap/special-needs-card-9f5aa568.webp": {
    "at": "2026-11-03T21:12:35.644Z"
+  },
+  "/media-da/tap/tap-logo-dfa90d93.svg": {
+   "at": "2026-11-03T21:25:02.564Z"
+  },
+  "/media-da/tap/tap-fares-043844ed.webp": {
+   "at": "2026-11-03T21:28:36.687Z"
+  },
+  "/media-da/tap/time-to-think-a34b427e.jpg": {
+   "at": "2026-11-03T21:28:37.283Z"
   }
  }
 }
