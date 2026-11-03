@@ -1,14 +1,22 @@
 {
-  "updated": "2026-11-03 08:52",
-  "change": "SWISS: all ten Swiss languages, the countries in their languages, Korea and the China address are live; the offers page has its filters.",
+  "updated": "2026-11-03 12:14",
+  "change": "🪏 split into our work, Lufthansa (✈️) and both.",
   "legend": {
     "done": {
       "label": "works on our replica",
       "note": "The function works on the replica today, with the same data or hand-off as on the airline's current site."
     },
     "wip": {
-      "label": "planned or in progress",
-      "note": "The replica doesn't have this yet, or only in part; the work is planned or under way."
+      "label": "needs work on our side",
+      "note": "What's left is ours: something to build, move or switch on. Lufthansa doesn't need to do anything for it."
+    },
+    "wip-lh": {
+      "label": "needs work on our side and Lufthansa",
+      "note": "Both sides have a real part of what's left: something we still have to build, and a step only Lufthansa, the airline or its vendor can take."
+    },
+    "lh": {
+      "label": "needs Lufthansa",
+      "note": "What's left is Lufthansa's, or the airline's or its vendor's: allowing our address (Travel ID, a vendor's allowlist), connecting its systems, running the site on its own address, or a decision. At most a small step is left on our side."
     },
     "elsewhere": {
       "label": "covered elsewhere",
@@ -17,10 +25,6 @@
     "stays": {
       "label": "stays on the old platform",
       "note": "By decision, this stays on the airline's current platform, and the new site links to it."
-    },
-    "lh": {
-      "label": "needs LH",
-      "note": "This can't work on the replica until Lufthansa, or the airline itself, changes a setting or decides."
     },
     "see": {
       "label": "covered in another row",
@@ -33,8 +37,8 @@
   },
   "footnotes": {
     "adbooking": "Air Dolomiti sells through its own booking engine, not Lufthansa's shop. Since 1 November the search form is on the replica's homepages, route pages and booking pages and hands the trip to that engine, as www does; the engine's bot check can show a captcha, as it can on www.",
-    "lhbooking": "Lufthansa's manage booking and hotel tabs hand over to two services that run in AEM today. Their replacements answer with test data, and since 1 November the tabs post to them on the airline's own address; on the replica's addresses they keep opening www, so no real booking reaches test data.",
-    "signin": "On Discover, ITA, Austrian, Brussels Airlines and SWISS, manage booking goes through a deep link to the login and profile pages, which are on the new platform since 1 November (SWISS's since 2 November). The services behind the deep link answer with test data, and the replicas' addresses route the deep link to them, so it ends on the replica's login page.",
+    "lhbooking": "Lufthansa's manage booking and hotel tabs and ITA's and SWISS's check-in forms hand over to services that run in AEM today. Their replacements are built and answer with test data; the forms post to them only on the airline's own address, so on the replica's addresses they keep opening the airline's current page and no real booking reaches test data. Nothing is left to build: what's left is Lufthansa's, the site on the airline's own address and the services connected to its booking and check-in systems.",
+    "signin": "On Discover, ITA, Austrian, Brussels Airlines and SWISS, manage booking leads to the login page, which is on the new platform since 1 November (SWISS's since 2 November); the services behind the travel cockpit deep link answer with test data. Two parts are left. Ours: the booking code entry (its form and the links to it), which still opens the airline's current site. Lufthansa's, as for Lufthansa's own manage booking: Travel ID sign-in and real bookings work only once the site runs on the airline's own address with its booking systems connected.",
     "travelidapps": "The help center, culinary hub and compensation claim apps are in the shared code and load on our pages, but their data comes from the airline's Travel ID service (and, for the claim, Miles & More's booking service), which refuses our test addresses. They work once the site runs on the airline's own address, or once Lufthansa allows ours.",
     "adown": "Switching off Air Dolomiti's current website is a goal, so its timetable, manage booking, newsletter and eSIM pages get versions of their own. Its booking service answers our addresses, so timetable and manage booking can work as on www; the newsletter becomes a form on our own forms service.",
     "cargostays": "Cargo's booking, schedules, customer portal, station finder and eServices stay on Cargo's current systems; the new site links to them.",
@@ -47,7 +51,8 @@
     "snchat": "Brussels Airlines' chat assistant loads from Brussels Airlines' website, outside AEM, as Austrian's does. Since 1 November its button shows on the pages that have it on www, in all six languages.",
     "adesim": "Air Dolomiti's eSIM shop (from the vendor Breeze) is built into the replica, but its switch stays off: Breeze answers every call from our address with 403, because the widget's key belongs to Air Dolomiti's site. It works once Air Dolomiti or Breeze allows our address.",
     "b2bsignin": "Lufthansa Group for Business has two sign-ins in AEM today, one for companies and one for travel agencies (eXperts), each with a member area. Their replacement follows the other airlines' sign-ins, with test data first; showing real member data needs Lufthansa to let it reach its user and role systems. Until then the replica links to the current sign-ins.",
-    "lxmarkets": "Switzerland in all ten of SWISS's languages (English, German, French, Italian, Spanish, Portuguese, Chinese, Japanese, Greek, Russian), SWISS's other countries in the languages www offers them in, and Korea in Korean are on the new platform since 3 November."
+    "lxmarkets": "Switzerland in all ten of SWISS's languages (English, German, French, Italian, Spanish, Portuguese, Chinese, Japanese, Greek, Russian), SWISS's other countries in the languages www offers them in, and Korea in Korean are on the new platform since 3 November.",
+    "travelidbuild": "SWISS's compensation and baggage claim apps and Brussels Airlines' help center app aren't on the new platform's pages yet: putting them there is our work. Then they need the airline's Travel ID service (and, for the claims, Miles & More's booking service), which refuses our test addresses, as for the other airlines' apps."
   },
   "brands": [
     {
@@ -315,9 +320,10 @@
           "evidence": "functions scan 2026-10-31: Submit URL once.discover-airlines.com TENANT=4Y ; backend Worker 2026-11-01: AEM has no online check-in provider for Discover, so the link stays"
         },
         "ita": {
-          "status": "wip",
-          "note": "The check-in form posts to the replacement service once the site runs on ITA's own address (built 1 November); on the replica it opens www's page as today, so no real booking reaches test data.",
-          "evidence": "M1 2026-11-01: www posts to an AEM endpoint that returns the target; ours opens www's page ; backend Worker 2026-11-01 ~02:00: the ITA check-in route answers on test data and hands off to the group check-in system; not routed on ita.turnsthe.page yet; 207 (1e7f178) 2026-11-01: POST fktn with ITA's portal on www.ita-airways.com only; not-found answer checked with the test switch"
+          "status": "lh",
+          "note": "The check-in form posts to the replacement service (built 1 November) only on ITA's own address; on the replica it opens www's page as today, so no real booking reaches test data. Nothing is left to build: what's left is Lufthansa's, the site on ITA's address and the service connected to the check-in systems.",
+          "evidence": "M1 2026-11-01: www posts to an AEM endpoint that returns the target; ours opens www's page ; backend Worker 2026-11-01 ~02:00: the ITA check-in route answers on test data and hands off to the group check-in system; not routed on ita.turnsthe.page yet; 207 (1e7f178) 2026-11-01: POST fktn with ITA's portal on www.ita-airways.com only; not-found answer checked with the test switch ; split 2026-11-03 (checks on our hosts, private Studio tab): ?handoff=post on ita.turnsthe.page: POST checkin/fktn -> 400 checkin.error.bookingNotFound (test data)",
+          "footnote": "lhbooking"
         },
         "austrian": {
           "status": "elsewhere",
@@ -347,10 +353,11 @@
           "evidence": "groundwork widget list; check-in appears as text only"
         },
         "swiss": {
-          "status": "wip",
-          "note": "The check-in form still opens www's check-in page. The check-in service it uses on www.swiss.com runs in AEM; its rebuild outside AEM answers for SWISS on test data since 2 November, and the form doesn't use it yet.",
+          "status": "lh",
+          "note": "The check-in form posts to the rebuilt check-in service (it answers for SWISS on test data since 2 November) only on www.swiss.com; on the replica it opens www's check-in page as today. Nothing is left to build: what's left is Lufthansa's, the site on SWISS's address and the service connected to the check-in systems.",
           "page": "/ch/en/fly/check-in/online-check-in",
-          "evidence": "2026-11-02: lh-backends cd329fe, check-in with X-Portal LX on swiss.turnsthe.page 200 (OneBooking mock, tenant LX); 2026-11-02: replica booking-lookup row Submit URL https://www.swiss.com/ch/en/fly/check-in/online-check-in (no booking fields in the URL; post mode only on www.swiss.com, scripts/handoff.js); from snapshot: www's check-in tab is the flight manager's fktnCheckinRequest form (POST /service/secured/api/core/checkin/fktn, AEM); lh-backends entry test: tenants without a booking configuration (Swiss, Brussels) answer 500"
+          "evidence": "2026-11-02: lh-backends cd329fe, check-in with X-Portal LX on swiss.turnsthe.page 200 (OneBooking mock, tenant LX); 2026-11-02: replica booking-lookup row Submit URL https://www.swiss.com/ch/en/fly/check-in/online-check-in (no booking fields in the URL; post mode only on www.swiss.com, scripts/handoff.js); from snapshot: www's check-in tab is the flight manager's fktnCheckinRequest form (POST /service/secured/api/core/checkin/fktn, AEM); lh-backends entry test: tenants without a booking configuration (Swiss, Brussels) answer 500 ; split 2026-11-03 (checks on our hosts, private Studio tab): ?handoff=post on swiss.turnsthe.page: isOwnWww(www.swiss.com) true, POST checkin/fktn -> 400 checkin.error.bookingNotFound (tenant LX, test data)",
+          "footnote": "lhbooking"
         }
       }
     },
@@ -360,30 +367,30 @@
       "about": "Where travellers look up an existing booking to change it or add services.",
       "cells": {
         "lufthansa": {
-          "status": "wip",
-          "note": "The tab posts to the replacement service once the site runs on www.lufthansa.com (built 1 November); on the replica's addresses it opens www's page as today, so no real booking reaches test data.",
+          "status": "lh",
+          "note": "The tab posts to the replacement service (built 1 November) only on www.lufthansa.com; on the replica's addresses it opens www's page as today, so no real booking reaches test data. Nothing is left to build: what's left is Lufthansa's, the site on www.lufthansa.com and the service connected to Lufthansa's booking systems.",
           "footnote": "lhbooking",
-          "evidence": "functions scan 2026-10-31; M2 2026-11-01: bookingdetailslink answers through the backend Worker on the main host; 207 (1e7f178) 2026-11-01: post mode on the airline's www host, test switch checked end to end on lufthansa.turnsthe.page"
+          "evidence": "functions scan 2026-10-31; M2 2026-11-01: bookingdetailslink answers through the backend Worker on the main host; 207 (1e7f178) 2026-11-01: post mode on the airline's www host, test switch checked end to end on lufthansa.turnsthe.page ; split 2026-11-03 (checks on our hosts, private Studio tab): ?handoff=post on lufthansa.turnsthe.page: filekeylogin + bookingdetailslink answer a test-data target (mock host)"
         },
         "discover": {
-          "status": "wip",
-          "note": "\"Edit booking\" goes through a deep link to Discover's login page; the page is on the replica since 1 November, and the deep link moves to the new platform next.",
+          "status": "wip-lh",
+          "note": "\"Edit booking\" and \"My flights\" still open Discover's current site, and the replica has no booking code entry yet: linking them to the replica's login page and adding the form is ours. Then Travel ID sign-in and real bookings need Discover's own address with its booking systems connected, which is Lufthansa's.",
           "footnote": "signin",
           "page": "/de/en/my-bookings/manage",
-          "evidence": "fill check 2026-11-01: /deeplink/cockpit ends on /content/four_y/.../profile/login; M2 app shell plan ; backend Worker 2026-11-01 ~02:00: booking, check-in, deeplink and sign-in routes answer per brand (Austrian, Discover, ITA) on test data; lh-edge does not route them on the brand hosts yet; app-shells child p_mvx3nkru5y 2026-11-01 (lh-com 8c847d06, be6e30c6, bfdc50b3, b037757f; 445 published entries, rollback lists in work/brand-app-shells/published-*.json); curl 04:5x: login and cockpit pages 200 on each host"
+          "evidence": "fill check 2026-11-01: /deeplink/cockpit ends on /content/four_y/.../profile/login; M2 app shell plan ; backend Worker 2026-11-01 ~02:00: booking, check-in, deeplink and sign-in routes answer per brand (Austrian, Discover, ITA) on test data; lh-edge does not route them on the brand hosts yet; app-shells child p_mvx3nkru5y 2026-11-01 (lh-com 8c847d06, be6e30c6, bfdc50b3, b037757f; 445 published entries, rollback lists in work/brand-app-shells/published-*.json); curl 04:5x: login and cockpit pages 200 on each host ; split 2026-11-03 (checks on our hosts, private Studio tab): /de/en/my-bookings/manage: Edit booking and My flights -> www.discover-airlines.com/deeplink/cockpit; /de/en/login 404"
         },
         "ita": {
-          "status": "wip",
-          "note": "Manage booking ends on ITA's login page; the page is on the replica since 1 November, and the hand-off moves to the new platform next.",
+          "status": "wip-lh",
+          "note": "Manage booking ends on ITA's login page on the replica, but its \"Enter booking code\" button points back at the same page: the booking code form is ours to add. Then Travel ID sign-in and real bookings need ITA's own address with its booking systems connected, which is Lufthansa's.",
           "footnote": "signin",
           "page": "/it/en/manage-my-bookings",
-          "evidence": "functions scan 2026-10-31; M2 app shell plan ; backend Worker 2026-11-01 ~02:00: booking, check-in, deeplink and sign-in routes answer per brand (Austrian, Discover, ITA) on test data; lh-edge does not route them on the brand hosts yet; app-shells child p_mvx3nkru5y 2026-11-01 (lh-com 8c847d06, be6e30c6, bfdc50b3, b037757f; 445 published entries, rollback lists in work/brand-app-shells/published-*.json); curl 04:5x: login and cockpit pages 200 on each host"
+          "evidence": "functions scan 2026-10-31; M2 app shell plan ; backend Worker 2026-11-01 ~02:00: booking, check-in, deeplink and sign-in routes answer per brand (Austrian, Discover, ITA) on test data; lh-edge does not route them on the brand hosts yet; app-shells child p_mvx3nkru5y 2026-11-01 (lh-com 8c847d06, be6e30c6, bfdc50b3, b037757f; 445 published entries, rollback lists in work/brand-app-shells/published-*.json); curl 04:5x: login and cockpit pages 200 on each host ; split 2026-11-03 (checks on our hosts, private Studio tab): /it/en/manage-my-bookings: Enter booking code -> /it/en/manage-my-bookings (itself); no booking-lookup block"
         },
         "austrian": {
-          "status": "wip",
-          "note": "\"Manage bookings\" leads to Austrian's login page, which is on the replica since 1 November; the menus of at/en and at/de already link to it.",
+          "status": "wip-lh",
+          "note": "\"Manage bookings\" leads to Austrian's login page on the replica, but \"Enter booking code\" and \"My flights\" still open Austrian's current site: the booking code form and those links are ours. Then Travel ID sign-in and real bookings need Austrian's own address with its booking systems connected, which is Lufthansa's.",
           "footnote": "signin",
-          "evidence": "fill check 2026-11-01: nav links www /at/en/login; M2 app shell plan ; backend Worker 2026-11-01 ~02:00: booking, check-in, deeplink and sign-in routes answer per brand (Austrian, Discover, ITA) on test data; lh-edge does not route them on the brand hosts yet; app-shells child p_mvx3nkru5y 2026-11-01 (lh-com 8c847d06, be6e30c6, bfdc50b3, b037757f; 445 published entries, rollback lists in work/brand-app-shells/published-*.json); curl 04:5x: login and cockpit pages 200 on each host"
+          "evidence": "fill check 2026-11-01: nav links www /at/en/login; M2 app shell plan ; backend Worker 2026-11-01 ~02:00: booking, check-in, deeplink and sign-in routes answer per brand (Austrian, Discover, ITA) on test data; lh-edge does not route them on the brand hosts yet; app-shells child p_mvx3nkru5y 2026-11-01 (lh-com 8c847d06, be6e30c6, bfdc50b3, b037757f; 445 published entries, rollback lists in work/brand-app-shells/published-*.json); curl 04:5x: login and cockpit pages 200 on each host ; split 2026-11-03 (checks on our hosts, private Studio tab): /at/en/login: Enter booking code -> www.austrian.com/at/en/login, tour operator -> www; nav My flights -> www deeplink"
         },
         "cargo": {
           "status": "see",
@@ -399,11 +406,11 @@
           "page": "/gestione-prenotazione-volo"
         },
         "brussels": {
-          "status": "wip",
-          "note": "\"Manage bookings\" and \"My flights\" lead to Brussels Airlines' login page, which is on the replica since 1 November on all roots; the deep link to the travel cockpit also ends there now.",
+          "status": "wip-lh",
+          "note": "\"Manage bookings\", \"My flights\" and the travel cockpit deep link end on Brussels Airlines' login page on the replica, but \"Enter booking data\" still opens the current site: the booking code form is ours to add. Then Travel ID sign-in and real bookings need Brussels Airlines' own address with its booking systems connected, which is Lufthansa's.",
           "page": "/be/en/my-bookings",
           "footnote": "signin",
-          "evidence": "Brussels app shells 2026-11-01: menus of all 98 roots (job 18-05-11-74cfe277); the my-bookings pages still link www's deep link; backends 2026-11-01 evening: lh-backends 26f0e26/594d7fd (tenant SN), lh-com 498c8ca7/35b15b65 (brands.js backends + aemContent bel), smoke 0 diffs; my curl: GET /deeplink/cockpit 200, POST 302 -> /be/en/profile/login"
+          "evidence": "Brussels app shells 2026-11-01: menus of all 98 roots (job 18-05-11-74cfe277); the my-bookings pages still link www's deep link; backends 2026-11-01 evening: lh-backends 26f0e26/594d7fd (tenant SN), lh-com 498c8ca7/35b15b65 (brands.js backends + aemContent bel), smoke 0 diffs; my curl: GET /deeplink/cockpit 200, POST 302 -> /be/en/profile/login ; split 2026-11-03 (checks on our hosts, private Studio tab): /be/en/profile/login: Enter booking data -> www.brusselsairlines.com/be/en/profile/login; /be/en/my-bookings/manage-my-bookings 404"
         },
         "b2b": {
           "status": "none",
@@ -411,10 +418,10 @@
           "evidence": "groundwork widget list"
         },
         "swiss": {
-          "status": "wip",
-          "note": "\"My flights\" and \"Manage bookings\" lead to SWISS's login page, which is on the replica since 2 November (ch/en, ch/de); the deep link to the travel cockpit also ends there now.",
+          "status": "wip-lh",
+          "note": "\"My flights\" and \"Manage bookings\" lead to SWISS's login page on the replica and the booking code form is there too, but the login page's \"Enter booking code\" still opens www.swiss.com and not every language has its login page yet: ours. Then Travel ID sign-in and real bookings need SWISS's own address with its booking systems connected, which is Lufthansa's.",
           "footnote": "signin",
-          "evidence": "2026-11-02: lh-backends cd329fe (tenant LX), lh-com 8d5f4a48; menu links job-2026-11-02-13-54-44-7ae5700f; POST /deeplink/cockpit -> 302 -> /ch/en/login 200"
+          "evidence": "2026-11-02: lh-backends cd329fe (tenant LX), lh-com 8d5f4a48; menu links job-2026-11-02-13-54-44-7ae5700f; POST /deeplink/cockpit -> 302 -> /ch/en/login 200 ; split 2026-11-03 (checks on our hosts, private Studio tab): /ch/en/login: Enter booking code -> www.swiss.com/ch/en/login; manage-bookings page has booking-lookup my-bookings, ?handoff=post answers a test-data target (tenant LX); /ch/fr/login 404"
         }
       }
     },
@@ -485,11 +492,11 @@
       "about": "A tab in the flight search that hands a hotel search over to a partner.",
       "cells": {
         "lufthansa": {
-          "status": "wip",
-          "note": "The hotel tab posts to the replacement service once the site runs on www.lufthansa.com (built 1 November); on the replica's addresses it opens www's hotel page as today.",
+          "status": "lh",
+          "note": "The hotel tab posts to the replacement service (built 1 November) only on www.lufthansa.com; on the replica's addresses it opens www's hotel page as today. Nothing is left to build: what's left is Lufthansa's, the site on www.lufthansa.com and the service connected to Lufthansa's systems.",
           "footnote": "lhbooking",
           "page": "/de/en/homepage",
-          "evidence": "functions scan 2026-10-31; M2 2026-11-01: /service/secured/api/booking/hotel routed on the main host; 207 (1e7f178) 2026-11-01: post mode on the airline's www host"
+          "evidence": "functions scan 2026-10-31; M2 2026-11-01: /service/secured/api/booking/hotel routed on the main host; 207 (1e7f178) 2026-11-01: post mode on the airline's www host ; split 2026-11-03 (checks on our hosts, private Studio tab): ?handoff=post: booking/hotel answers a test-data target (mock host)"
         },
         "discover": {
           "status": "none",
@@ -1350,15 +1357,15 @@
       "about": "The app for viewing and pre-ordering meals for a booked flight.",
       "cells": {
         "lufthansa": {
-          "status": "wip",
-          "note": "Lufthansa's culinary journey pages carry the app since 1 November; the parts that need a booking come from Lufthansa's Travel ID service, which refuses our addresses.",
+          "status": "lh",
+          "note": "Lufthansa's culinary journey pages carry the app since 1 November. What's left is Lufthansa's: the parts that need a booking come from Lufthansa's Travel ID service, which refuses our addresses.",
           "footnote": "travelidapps",
           "page": "/de/en/culinaryjourney",
           "evidence": "ema-test 237 (9576724f, 95237246, dd6c60c5; 28 documents); published 2026-11-01 lh-com job-2026-11-01-19-38-07-299b35cc; live /de/de/culinaryjourney has culinary-hub"
         },
         "discover": {
-          "status": "wip",
-          "note": "Discover's \"Pre-order food\" page carries the app since 1 November; the parts that need a booking come from Discover's Travel ID service, which refuses our addresses.",
+          "status": "lh",
+          "note": "Discover's \"Pre-order food\" page carries the app since 1 November. What's left is Lufthansa's: the parts that need a booking come from Discover's Travel ID service, which refuses our addresses.",
           "footnote": "travelidapps",
           "page": "/de/en/culinaryjourney",
           "evidence": "ema-adobe 209 (5b81c83, 5d4c302, 99036b8; state 554747cb; 31 documents); published 2026-11-01 lh-discover job-2026-11-01-19-00-37-f64b8c33; live /de/de/culinaryjourney has the micro-frontend block"
@@ -1369,8 +1376,8 @@
           "evidence": "fill check 2026-11-01"
         },
         "austrian": {
-          "status": "wip",
-          "note": "Austrian's culinary journey page carries the app since 1 November; the parts that need a booking come from Austrian's Travel ID service, which refuses our addresses.",
+          "status": "lh",
+          "note": "Austrian's culinary journey page carries the app since 1 November. What's left is Lufthansa's: the parts that need a booking come from Austrian's Travel ID service, which refuses our addresses.",
           "footnote": "travelidapps",
           "page": "/at/en/culinaryjourney",
           "evidence": "ema-test 210 (9303cf90 theme) published 2026-11-01 job-2026-11-01-06-56-16-040c5a53; Travel ID preflight 401 (brief 189)"
@@ -1396,10 +1403,11 @@
           "evidence": "groundwork widget list"
         },
         "swiss": {
-          "status": "wip",
-          "note": "SWISS's culinary journey page carries the app, but its script still loads from www.swiss.com; the parts that need a booking come from SWISS's Travel ID service, which refuses our addresses.",
+          "status": "lh",
+          "note": "SWISS's culinary journey page carries the app, loaded from the replica's own address since 2 November. What's left is Lufthansa's: the parts that need a booking come from SWISS's Travel ID service, which refuses our addresses.",
           "page": "/ch/en/culinaryjourney",
-          "evidence": "2026-11-02: replica /ch/en/culinaryjourney.plain.html has micro-frontend culinary-hub; page not opened (blocks/micro-frontend loads the app's script from https://www.swiss.com/digitalhangar/... on brand pages); from snapshot: www's culinary-hub with SWISS's Travel ID client"
+          "evidence": "2026-11-02: replica /ch/en/culinaryjourney.plain.html has micro-frontend culinary-hub; page not opened (blocks/micro-frontend loads the app's script from https://www.swiss.com/digitalhangar/... on brand pages); from snapshot: www's culinary-hub with SWISS's Travel ID client ; split 2026-11-03 (checks on our hosts, private Studio tab): lh-com ba060b6a + 28221fc5: SWISS's apps from /digitalhangar/ of our host; swiss.turnsthe.page/digitalhangar/onecatering/culinary-hub/culinary-hub-latest.js 200 (page not opened)",
+          "footnote": "travelidapps"
         }
       }
     },
@@ -1510,7 +1518,7 @@
         },
         "swiss": {
           "status": "wip",
-          "note": "SWISS's media pages (press contacts, media request and filming permission forms) are on the replica in the corporate section since 2 November; the press releases and agenda are on SWISS's separate newsroom site, which the media page links to, so the newsroom itself hasn't moved.",
+          "note": "SWISS's media pages (press contacts, media request and filming permission forms) are on the replica since 2 November. The press releases and agenda are on SWISS's separate newsroom site, which the media page links to; bringing them over is ours.",
           "evidence": "2026-11-02 23:55 CET curl on swiss.turnsthe.page: 200 for /corporate/{en,de,fr}/media, /corporate/{en,de,fr}/media/media-request-form, /corporate/{en,de,fr}/media/media-permission, /content/dam/swiss/pdfs/corporate/geschaftsleitung/situation-maps-swiss.pdf; 3 forms tested 22:10-22:11 CET; media page links press releases and agenda to https://newsroom.swiss.com/en (not on our host), media gallery to brand.swiss.com"
         }
       }
@@ -1569,8 +1577,8 @@
         },
         "swiss": {
           "status": "wip",
-          "note": "SWISS's FAQ search leads to www's search; the replica's own search page and index aren't built yet.",
-          "evidence": "2026-11-02: replica /ch/en/customer-support/faq 'Search for topic' -> https://www.swiss.com/ch/en/customer-support/faq; /ch/en/search-results 404; lh-swiss.md: no search-ch-* index; from snapshot: www's searchbar on the FAQ hub (autosuggest searching.lufthansa.com), results /ch/en/search-results"
+          "note": "SWISS's own search page and the FAQ's link to it are on the replica since 3 November, but the page doesn't show results yet; finishing it is ours.",
+          "evidence": "2026-11-02: replica /ch/en/customer-support/faq 'Search for topic' -> https://www.swiss.com/ch/en/customer-support/faq; /ch/en/search-results 404; lh-swiss.md: no search-ch-* index; from snapshot: www's searchbar on the FAQ hub (autosuggest searching.lufthansa.com), results /ch/en/search-results ; split 2026-11-03 (checks on our hosts, private Studio tab): /ch/en/search-results 200 on aem.live and swiss.turnsthe.page, FAQ links to it; ?q=baggage: 'Search results could not be loaded.'"
         }
       }
     },
@@ -1592,15 +1600,15 @@
           "evidence": "fill check 2026-11-01"
         },
         "ita": {
-          "status": "wip",
-          "note": "The app is in the shared code, but ITA's Travel ID service refuses our addresses; the replica's help page shows a fixed list of topics.",
+          "status": "lh",
+          "note": "The help center app is on the replica's help page. What's left is Lufthansa's: ITA's Travel ID service, which the topics come from, refuses our addresses, so the page shows a fixed list of topics.",
           "footnote": "travelidapps",
           "page": "/it/en/help-and-contact",
           "evidence": "e74d57f2; brief 189 report 2026-11-01: api.travelid.ita-airways.com preflight 401"
         },
         "austrian": {
-          "status": "wip",
-          "note": "The app is in the shared code, but Austrian's Travel ID service refuses our addresses; the replica's help page shows a fixed list of topics.",
+          "status": "lh",
+          "note": "The help center app is on the replica's help page. What's left is Lufthansa's: Austrian's Travel ID service, which the topics come from, refuses our addresses, so the page shows a fixed list of topics.",
           "footnote": "travelidapps",
           "page": "/at/en/help-center",
           "evidence": "e74d57f2; brief 189 report 2026-11-01: api.travelid.austrian.com preflight 401"
@@ -1617,11 +1625,11 @@
           "evidence": "fill check 2026-11-01"
         },
         "brussels": {
-          "status": "wip",
-          "footnote": "travelidapps",
-          "note": "The app is in the shared code, but Brussels Airlines' Travel ID service refuses our addresses; the replica's help page shows a fixed list of topics.",
+          "status": "wip-lh",
+          "footnote": "travelidbuild",
+          "note": "The replica's contact page shows a fixed list of topics; the help center app isn't on it yet, which is ours. Once it is, its topics come from Brussels Airlines' Travel ID service, which refuses our addresses: Lufthansa's.",
           "page": "/be/en/contact",
-          "evidence": "2026-11-01: www /be/en/contact help-center-web 4.3.1 with topics from api.travelid.brusselsairlines.com/help-center-contact/v1/topics; replica /be/en/contact accordion-columns with fixed topics; GET to that topics URL from the aem.live origin blocked by CORS (brand host not attached, not tested there)"
+          "evidence": "2026-11-01: www /be/en/contact help-center-web 4.3.1 with topics from api.travelid.brusselsairlines.com/help-center-contact/v1/topics; replica /be/en/contact accordion-columns with fixed topics; GET to that topics URL from the aem.live origin blocked by CORS (brand host not attached, not tested there) ; split 2026-11-03 (checks on our hosts, private Studio tab): brussels.turnsthe.page/be/en/contact.plain.html: accordion-columns faq, no micro-frontend block"
         },
         "b2b": {
           "status": "done",
@@ -1630,10 +1638,11 @@
           "evidence": "Published 2026-11-02 13:03 CET (job-2026-11-02-12-03-02-f31eea31: /data/hotlines.json, the box image and /de/en, /de/de, /xx/en, /xx/de about-us/contact); checked on b2b.turnsthe.page/de/de/about-us/contact: 128 options (127 + prompt), Ägypten first, DE preselected, +49 69 86 799 500 with hours. Code: lh-com 887aef91 + 92bbd1de (block hotline-finder)."
         },
         "swiss": {
-          "status": "wip",
-          "note": "The help center app's script still loads from www.swiss.com, which refuses our address; the page shows a fixed list of topics.",
+          "status": "lh",
+          "note": "The help center app loads from the replica's own address since 2 November and shows SWISS's topics. What's left is Lufthansa's: SWISS's Travel ID service, which sign-in and the live topic list come from, refuses our addresses.",
           "page": "/ch/en/customer-support/contact-us",
-          "evidence": "2026-11-02: replica micro-frontend help-center-web loads https://www.swiss.com/digitalhangar/cs-help-center/help-center-web/help-center-web-4.3.1.js as a module: blocked by CORS (no Access-Control-Allow-Origin); fallback with 11 topics stays; from snapshot: help-center-web 4.3.1 on www"
+          "evidence": "2026-11-02: replica micro-frontend help-center-web loads https://www.swiss.com/digitalhangar/cs-help-center/help-center-web/help-center-web-4.3.1.js as a module: blocked by CORS (no Access-Control-Allow-Origin); fallback with 11 topics stays; from snapshot: help-center-web 4.3.1 on www ; split 2026-11-03 (checks on our hosts, private Studio tab): /ch/en/customer-support/contact-us: help-center-web 4.3.1 from swiss.turnsthe.page/digitalhangar, topics from our topics_en.json; api.travelid.swiss.com loginstatus and topics refused (app's own calls)",
+          "footnote": "travelidapps"
         }
       }
     },
@@ -1764,8 +1773,8 @@
       "about": "The form for compensation and refund claims after a disruption.",
       "cells": {
         "lufthansa": {
-          "status": "wip",
-          "note": "Lufthansa's compensation claim page is on the replica with the claim app since 1 November; looking up a booking needs Lufthansa's Travel ID and Miles & More services, which refuse our addresses.",
+          "status": "lh",
+          "note": "Lufthansa's compensation claim page is on the replica with the claim app since 1 November. What's left is Lufthansa's: looking up a booking needs its Travel ID and Miles & More services, which refuse our addresses.",
           "footnote": "travelidapps",
           "page": "/de/en/support/fast-compensation/compensation-flight-disruptions",
           "evidence": "ema-test 237 (9576724f, 95237246, dd6c60c5; 28 documents); published 2026-11-01 lh-com job-2026-11-01-19-38-07-299b35cc; claim-form-entry 0.11.16 loads from lufthansa.turnsthe.page/digitalhangar; loginstatus and bookingdetails preflight 401 from our hosts (ema-test); 8 fast-compensation redirects 301"
@@ -1810,9 +1819,10 @@
           "evidence": "groundwork forms.tsv: only BusinessToGo and raffle"
         },
         "swiss": {
-          "status": "wip",
-          "note": "SWISS's compensation and baggage claim apps aren't on the replica yet; their pages show only www's introduction, and the apps, like Lufthansa's claim app, need Travel ID and Miles & More services that refuse our addresses.",
-          "evidence": "2026-11-02: replica /ch/en/fast-compensation and /ch/en/baggage-reimbursement: text only, no block; from snapshot: www's claim-form-entry 0.11.16 and baggage-form-entry-latest (digitalhangar/claim-automation); lh-com micro-frontend knows claim-form-entry only; refund and expense forms are rated under Forms"
+          "status": "wip-lh",
+          "note": "SWISS's compensation and baggage claim apps aren't on the replica yet; its pages show only the introduction: ours. Like Lufthansa's claim app, they then need the Travel ID and Miles & More services, which refuse our addresses: Lufthansa's.",
+          "evidence": "2026-11-02: replica /ch/en/fast-compensation and /ch/en/baggage-reimbursement: text only, no block; from snapshot: www's claim-form-entry 0.11.16 and baggage-form-entry-latest (digitalhangar/claim-automation); lh-com micro-frontend knows claim-form-entry only; refund and expense forms are rated under Forms ; split 2026-11-03 (checks on our hosts, private Studio tab): /ch/en/fast-compensation and /ch/en/baggage-reimbursement .plain.html: no block",
+          "footnote": "travelidbuild"
         }
       }
     },
@@ -1923,7 +1933,7 @@
         },
         "b2b": {
           "status": "wip",
-          "note": "The sign-ins for companies and travel agencies run in AEM today; the replica links to www's sign-in pages until their replacement is built.",
+          "note": "The sign-ins for companies and travel agencies run in AEM today; the replica links to www's sign-in pages until we build their replacement, which is ours. Showing real member data needs Lufthansa (see Personalised content).",
           "footnote": "b2bsignin",
           "evidence": "2026-11-02: replica header Login links www /de/en/login and /service/secured/api/experts/login?country=de&language=en (country=de on every market root; www carries the root's country); PartnerPlusBenefit portal link unchanged; AMS-rest inventory: B2B sign-in has no owner yet"
         },
