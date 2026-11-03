@@ -567,13 +567,15 @@ main > .section:is(.stage.flush.before-padded, .section):has(> .hero-campaign-wr
   max-width: none;
 }
 
+/* band: the rows stretch, so the buttons of a row are equally high when one label wraps (390,
+   Italian "Gestione Prenotazione"); the label stays centred in its cell (a centred flex row) */
 .hero-campaign.hero-campaign-services[data-services="band"] .hero-campaign-content {
   display: grid;
   grid-auto-columns: minmax(0, 1fr);
   grid-auto-flow: column;
   grid-template-columns: minmax(0, 1.3fr);
   gap: 16px;
-  align-items: center;
+  align-items: stretch;
 }
 
 .hero-campaign.hero-campaign-services[data-services="dock"] .hero-campaign-content {
@@ -639,6 +641,11 @@ main > .section:is(.stage.flush.before-padded, .section):has(> .hero-campaign-wr
   backdrop-filter: blur(12px);
 }
 
+/* band: the shortcut paragraph a flex row, its button stretches to the row's height */
+.hero-campaign.hero-campaign-services[data-services="band"] .hero-campaign-content > .hero-campaign-cta {
+  display: flex;
+}
+
 /* dock: the segments, hairline dividers between them */
 .hero-campaign.hero-campaign-services[data-services="dock"] .hero-campaign-content > .hero-campaign-cta {
   display: flex;
@@ -664,9 +671,10 @@ main > .section:is(.stage.flush.before-padded, .section):has(> .hero-campaign-wr
   white-space: normal;
 }
 
+/* 8px at the sides: the Italian "Gestione Prenotazione" needs 205px, 12px left 198px at 1440 */
 .hero-campaign.hero-campaign-services[data-services="band"] .hero-campaign-content > .hero-campaign-cta a.button {
   min-height: 64px;
-  padding: 10px 12px;
+  padding: 10px 8px;
   border: 2px solid var(--lh-white);
   border-radius: 10px;
   background-color: transparent;
@@ -745,22 +753,13 @@ main > .section:is(.stage.flush.before-padded, .section):has(> .hero-campaign-wr
   }
 }
 
-@media (width < 1025px) {
-  /* dock: the label row on top, the segments 2 x 2; band: the label a row of its own, the
-     buttons 2 x 2 */
+/* dock: the label row on top, the segments 2 x 2 below 1200px: one row needs the widest language's
+   segments plus its label on two lines (Italian: 1190px on Air Dolomiti's homepages; below, the
+   bar cut its last segment or the label took 3 and more lines) */
+@media (width < 1200px) {
   .hero-campaign.hero-campaign-services[data-services="dock"] .hero-campaign-content {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .hero-campaign.hero-campaign-services[data-services="band"] .hero-campaign-content,
-  .hero-campaign.hero-campaign-services[data-services="band"] .hero-campaign-content:not(:has(> .hero-campaign-services-label)) {
-    grid-auto-flow: row;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .hero-campaign.hero-campaign-services[data-services="band"] .hero-campaign-services-label {
-    grid-column: 1 / -1;
   }
 
   .hero-campaign.hero-campaign-services[data-services="dock"] .hero-campaign-services-label {
@@ -775,6 +774,19 @@ main > .section:is(.stage.flush.before-padded, .section):has(> .hero-campaign-wr
 
   .hero-campaign.hero-campaign-services[data-services="dock"] .hero-campaign-content > .hero-campaign-cta:nth-child(n + 3 of .hero-campaign-cta) {
     border-top: 1px solid var(--hero-campaign-services-hairline);
+  }
+}
+
+@media (width < 1025px) {
+  /* band: the label a row of its own, the buttons 2 x 2 */
+  .hero-campaign.hero-campaign-services[data-services="band"] .hero-campaign-content,
+  .hero-campaign.hero-campaign-services[data-services="band"] .hero-campaign-content:not(:has(> .hero-campaign-services-label)) {
+    grid-auto-flow: row;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hero-campaign.hero-campaign-services[data-services="band"] .hero-campaign-services-label {
+    grid-column: 1 / -1;
   }
 }
 
