@@ -1200,3 +1200,66 @@ body.brand-swiss main .default-content-wrapper > :is(h2, h3, h4) > a > picture:f
   width: 48px;
   height: 48px;
 }
+
+/* Austrian's teasers with an icon (digital-services, accessible-travel: www's a.teaser.partner;
+   legal: a.teaser.usp; > .teaser-heading > img.icon.icon-svg and the title; here an SVG picture
+   first in the heading's link): the icon at DCEP's .icon-svg size, 4.8rem square (recorded from
+   lufthansa.com's live CSS, the same component), above the title (was the column's 1264px) */
+body.brand-austrian main .default-content-wrapper > :is(h2, h3, h4) > a > picture:first-child:has(img[src*=".svg"]) {
+  display: block;
+  width: 48px;
+  margin-bottom: 8px;
+}
+
+body.brand-austrian main .default-content-wrapper > :is(h2, h3, h4) > a > picture:first-child:has(img[src*=".svg"]) img {
+  display: block;
+  width: 48px;
+  height: 48px;
+}
+
+/* SWISS's FAQ hub as www's fourcolumn column views (.column-view-item col-md-6 col-lg): the topic
+   teasers (a heading whose link starts with the icon) four to a row from 1025px, two from 768px,
+   one below; each group's first teaser ({column-start}) on a new row; the group headings and
+   everything else across the row; every icon there 48px (the SVGs and the lounge voucher's PNG) */
+/* stylelint-disable-next-line no-descending-specificity -- a brand's rule after the shared ones */
+body.brand-swiss main .default-content-wrapper:has(> .column-start):has(> :is(h2, h3, h4) > a > picture:first-child) {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  column-gap: 32px;
+}
+
+body.brand-swiss main .default-content-wrapper:has(> .column-start):has(> :is(h2, h3, h4) > a > picture:first-child) > * {
+  grid-column: 1 / -1;
+}
+
+body.brand-swiss main .default-content-wrapper:has(> .column-start):has(> :is(h2, h3, h4) > a > picture:first-child) > :is(h2, h3, h4):has(> a > picture:first-child) {
+  grid-column: auto;
+}
+
+body.brand-swiss main .default-content-wrapper:has(> .column-start):has(> :is(h2, h3, h4) > a > picture:first-child) > :is(h2, h3, h4):has(> a > picture:first-child).column-start {
+  grid-column-start: 1;
+}
+
+body.brand-swiss main .default-content-wrapper:has(> .column-start):has(> :is(h2, h3, h4) > a > picture:first-child) > :is(h2, h3, h4) > a > picture:first-child {
+  display: block;
+  width: 48px;
+  margin-bottom: 8px;
+}
+
+body.brand-swiss main .default-content-wrapper:has(> .column-start):has(> :is(h2, h3, h4) > a > picture:first-child) > :is(h2, h3, h4) > a > picture:first-child img {
+  display: block;
+  width: 48px;
+  height: 48px;
+}
+
+@media (width >= 768px) {
+  body.brand-swiss main .default-content-wrapper:has(> .column-start):has(> :is(h2, h3, h4) > a > picture:first-child) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (width >= 1025px) {
+  body.brand-swiss main .default-content-wrapper:has(> .column-start):has(> :is(h2, h3, h4) > a > picture:first-child) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}

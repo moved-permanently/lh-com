@@ -8,7 +8,7 @@ import fs from 'node:fs';
 
 const css = fs.readFileSync('styles/styles.css', 'utf8').replace(/\/\*[\s\S]*?\*\//g, '');
 const rules = [...css.matchAll(/([^{}]+)\{([^{}]*)\}/g)].map((m) => ({ sel: m[1].trim(), body: m[2] }));
-const icon = rules.filter((r) => /body\.brand-swiss/.test(r.sel) && /> a > picture:first-child/.test(r.sel));
+const icon = rules.filter((r) => r.sel.startsWith('body.brand-swiss main .default-content-wrapper > '));
 
 test('the icon: 48px square, a block above the title, SVG pictures only, SWISS only', () => {
   const img = icon.find((r) => /\) img$/.test(r.sel));
