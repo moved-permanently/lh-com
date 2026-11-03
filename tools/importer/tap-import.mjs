@@ -23,14 +23,19 @@
  *   AuxiliaryCarousel: cards-icon; Miles_GoCardList, FeatureCard, InfoSection, BannerVideo:
  *   columns-media; MilesStatusCardList: cards; LinkList: a list of links (jump-links when all are
  *   anchors on the page); InfoBlock: a highlight section; CardInfoBlock: default content;
- *   YoutubeVideo: embed;
+ *   YoutubeVideo: embed; Table (fare comparisons): table-striped (header; matrix over three
+ *   fares), a table in a panel; TabsItemsList (tabs in tabs: route group, cabin): a heading per
+ *   group and accordion-columns (tabs) of its items;
  * - www's live widgets (WidgetFreeBlock: Smartvel's explorer; ContactsByCountry: the contacts
- *   picker; CoreMedia: the flight extras widget): a link to the page on www, reported;
+ *   picker; CoreMedia: the flight extras and c2call widgets; TrackBagagge: the baggage tracking
+ *   form): a link to the page on www, reported;
  * - any other component: its titles, texts, images and links in order (reported as generic).
- * Out of scope (no document, links to www): the registration form (template register).
- * A page over 900 KB of HTML (the content bus takes 1 MB a document; /pt-pt/destinos/inspire-se's
- * destination themes are 2 MB): each category of its CategoryAccordion a fragment document
- * (/<locale>/fragments/<page>/<category>), the page a heading and a fragment block per category.
+ * Out of scope (no document, links to www): the forms (templates register, requests-complaints,
+ * information-miles-and-go-requests, suggestion-and-praise).
+ * A page over 900 KB of HTML or 190 images (the content bus takes 1 MB and 200 images a document;
+ * /pt-pt/destinos/inspire-se's destination themes are 2 MB): each category of its
+ * CategoryAccordion fragment documents (/<locale>/fragments/<page>/<category>, -2 … each within
+ * 900 KB and 180 images), the page a heading per category and a fragment block per fragment.
  * Links: pages of the site (those of the archives given that are imported) relative, www's
  * anchors to the headings' ids (anchorsOf), the rest absolute on www.flytap.com (the
  * "pt_[market]" placeholder filled with the page's market).
@@ -70,7 +75,12 @@ const LABELS = {
   en: { onWww: 'See on flytap.com', video: 'Watch the video' },
 };
 /** Page templates out of scope: no document (their links go to www). */
-const OUT_TEMPLATES = { register: 'register: the TAP Miles&Go sign-up form (a form, out of scope)' };
+const OUT_TEMPLATES = {
+  register: 'register: the TAP Miles&Go sign-up form (a form, out of scope)',
+  'requests-complaints': 'requests-complaints: the complaint form (a form, out of scope)',
+  'information-miles-and-go-requests': 'information-miles-and-go-requests: the Miles&Go request form (a form, out of scope)',
+  'suggestion-and-praise': 'suggestion-and-praise: the suggestion and praise form (a form, out of scope)',
+};
 
 /** An image description in the page's language ("pt:…|en:…|fr:…"); a plain one as it is. */
 export function altOf(description, lang) {
@@ -386,15 +396,40 @@ const HANDLERS = {
     P.add(P.link(s.ctaUrl, s.ctaLabel, 'primary'));
   },
   ComponentCategoryAccordionModel: (s, P) => {
-    const subs = (cat) => (cat.subCategories || []).map((sub) => `${P.heading(3, sub.label)}${blockHtml('accordion-columns (faq)', (sub.items || []).map((x) => [esc(x.question), `${richText(x.answer, P.c, 'cell')}${nested(x.sections, P)}${P.link(x.ctaUrl, x.ctaLabel)}`]))}`).join('');
+    const item = (x) => [esc(x.question), `${richText(x.answer, P.c, 'cell')}${nested(x.sections, P)}${P.link(x.ctaUrl, x.ctaLabel)}`];
+    const subs = (cat) => (cat.subCategories || []).map((sub) => `${P.heading(3, sub.label)}${blockHtml('accordion-columns (faq)', (sub.items || []).map(item))}`).join('');
     (s.categories || []).forEach((cat) => {
       P.add(P.heading(2, cat.label));
-      // a page over the content bus's 1 MB (c.fragments): the category's accordions a fragment
-      // document of the locale (/<locale>/fragments/<page>/<category>), the page a fragment block
+      // a page over the content bus's limits (c.fragments; 1 MB, 200 images a document): the
+      // category's accordions fragment documents of the locale (/<locale>/fragments/<page>/
+      // <category>, -2, -3 … each within c.fragmentLimits), the page a fragment block each
       if (P.c.fragments) {
-        const doc = `/${P.c.locale}/fragments/${docPath(P.c.url).split('/').pop()}/${slugOf(cat.label).normalize('NFD').replace(/[̀-ͯ]/g, '')}`;
-        P.fragments.push({ doc, html: `<div>${subs(cat)}</div>\n` });
-        P.block('fragment', [[`<a href="${attr(doc)}">${esc(doc)}</a>`]]);
+        const L = { bytes: 900 * 1024, images: 180, ...P.c.fragmentLimits };
+        const fits = (h) => Buffer.byteLength(h) <= L.bytes && (h.match(/<img /g) || []).length <= L.images;
+        // units: a subcategory's heading and accordion, its items split where one would not fit
+        const units = [];
+        (cat.subCategories || []).forEach((sub) => {
+          let cur = [];
+          let first = true;
+          const unit = (rows) => `${first ? P.heading(3, sub.label) : ''}${blockHtml('accordion-columns (faq)', rows)}`;
+          const flush = () => { if (cur.length) { units.push(unit(cur)); first = false; cur = []; } };
+          (sub.items || []).map(item).forEach((r) => {
+            if (cur.length && !fits(unit([...cur, r]))) flush();
+            cur.push(r);
+          });
+          flush();
+        });
+        const chunks = [];
+        units.forEach((u) => {
+          if (chunks.length && fits(chunks[chunks.length - 1] + u)) chunks[chunks.length - 1] += u;
+          else chunks.push(u);
+        });
+        const base = `/${P.c.locale}/fragments/${docPath(P.c.url).split('/').pop()}/${slugOf(cat.label).normalize('NFD').replace(/[̀-ͯ]/g, '')}`;
+        chunks.forEach((h, i) => {
+          const doc = i ? `${base}-${i + 1}` : base;
+          P.fragments.push({ doc, html: `<div>${h}</div>\n` });
+          P.block('fragment', [[`<a href="${attr(doc)}">${esc(doc)}</a>`]]);
+        });
         return;
       }
       P.blocks['accordion-columns (faq)'] = (P.blocks['accordion-columns (faq)'] || 0) + (cat.subCategories || []).length;
@@ -469,6 +504,34 @@ const HANDLERS = {
     const u = s.youtubeUrl || s.url || s.videoUrl;
     if (u) P.block('embed', [[`<a href="${attr(u)}">${esc(s.title || u)}</a>`]]);
   },
+  ComponentTableModel: (s, P) => {
+    // www's fare comparison: a column per fare (its heading and values), a row per row title
+    // ("title|note"); in a panel a table, at the top table-striped (header; matrix when wide)
+    const cols = s.columns || [];
+    const titles = (s.rowTitles || []).map((t) => {
+      const [title, note] = String(t).split('|');
+      return `${esc(title.trim())}${note ? `<br><em>${esc(note.trim())}</em>` : ''}`;
+    });
+    const rows = [['', ...cols.map((c) => esc(c.heading))], ...titles.map((t, i) => [t, ...cols.map((c) => esc((c.items || [])[i] ?? ''))])];
+    const ctas = cols.map((c) => P.link(c.ctaUrl, c.ctaLabel, 'primary').replace(/^<p>|<\/p>$/g, ''));
+    if (ctas.some(Boolean)) rows.push(['', ...ctas]);
+    if (P.cell) {
+      P.add(`<table><tbody>${rows.map((r, i) => `<tr>${r.map((x) => (i === 0 ? `<th>${x}</th>` : `<td>${x}</td>`)).join('')}</tr>`).join('')}</tbody></table>`);
+    } else {
+      P.block(cols.length > 3 ? 'table-striped (header, matrix)' : 'table-striped (header)', rows);
+    }
+    P.add(P.rich(s.tableComplementaryNotes));
+  },
+  ComponentTabsItemsListModel: (s, P) => {
+    // tabs in tabs (route group, cabin): a heading per group, its items as accordion-columns
+    // (tabs), each item's components in its panel
+    (s.tabs || []).forEach((t) => {
+      P.add(P.heading(2, t.fieldLabel));
+      P.block('accordion-columns (tabs)', (t.tabsItems || []).map((x) => [esc(x.label), `${P.rich(x.description)}${nested(x.sections, P)}`]));
+    });
+  },
+  ComponentMiles_GoCardModel: (s, P) => HANDLERS.ComponentMiles_GoCardListModel({ milesAndGoCards: [s] }, P),
+  ComponentTrackBagaggeModel: (s, P) => { P.add(P.heading(2, s.title)); P.onWww('TrackBagagge (the baggage tracking form)'); },
   ComponentWidgetFreeBlockModel: (s, P) => P.onWww('WidgetFreeBlock (Smartvel destinations explorer)'),
   ComponentContactsByCountryModel: (s, P) => { P.add(P.heading(2, s.title)); P.onWww('ContactsByCountry (the contacts by country picker)'); },
   ComponentCoreMediaModel: (s, P) => P.onWww(`CoreMedia (${s.type})`),
@@ -579,20 +642,46 @@ const baseName = (u) => decodeURIComponent(String(u).split('?')[0].split('/').po
   .slice(0, 60) || 'file';
 
 /** The media archives' files by every URL (and URL path) they were seen under. */
-function mediaIndex(dirs) {
+export function mediaIndex(dirs) {
   const idx = new Map();
   dirs.forEach((dir) => {
     const m = readJson(path.join(dir, 'manifest.json'), []);
     (Array.isArray(m) ? m : m.files || []).forEach((e) => {
-      const file = e.file ? fileOf(dir, e) : path.join(dir, new URL(e.url).host, new URL(e.url).pathname);
+      // the archive's file: manifest path (<host>/<URL path>) or file, else from the URL
+      const rel = e.path || (e.file || '').replace(/^snapshots\//, '');
+      const file = rel ? path.join(dir, rel) : path.join(dir, new URL(e.url).host, new URL(e.url).pathname);
+      if (!path.resolve(file).startsWith(path.resolve(dir) + path.sep)) return;
       const entry = { ...e, local: file };
-      [e.url, ...(e.urls || e.seen || [])].filter(Boolean).forEach((u) => {
+      [e.url, ...(e.urlsSeen || e.urls || [])].filter(Boolean).forEach((u) => {
         idx.set(u, entry);
         try { const x = new URL(u); idx.set(x.pathname, entry); idx.set(`${x.origin}${x.pathname}`, entry); } catch (err) { /* a path */ idx.set(u.split('?')[0], entry); }
       });
     });
   });
   return idx;
+}
+
+/**
+ * The site's copy of a media file by a key of the page JSON (a pic.flytap.com path, a URL):
+ * {eds: /media-da/tap/<name>-<hash>.<ext>} (copied to <out>, unless dry), {link: why it stays
+ * on the source} over Edge Delivery's limits (images and PDFs 20 MB, mp4 36 MB), null without one.
+ */
+export function mediaResolver(idx, { out = OUT, dry = false } = {}) {
+  return (key) => {
+    const e = idx.get(key) || idx.get(`${PIC}${key}`);
+    if (!e || !fs.existsSync(e.local)) return null;
+    const type = String(e.type || e.contentType || '').split(';')[0];
+    const bytes = e.bytes || fs.statSync(e.local).size;
+    const limit = type === 'video/mp4' ? 36 * MB : 20 * MB;
+    if (bytes > limit) return { link: `${(bytes / MB).toFixed(1)} MB: over Edge Delivery's ${limit / MB} MB, linked on the source` };
+    const ext = EXT[type] || path.extname(e.local).slice(1) || 'bin';
+    const eds = `/media-da/tap/${baseName(e.url)}-${sha1(e.url).slice(0, 8)}.${ext}`;
+    if (!dry) {
+      const f = path.join(out, eds);
+      if (!fs.existsSync(f)) { fs.mkdirSync(path.dirname(f), { recursive: true }); fs.copyFileSync(e.local, f); }
+    }
+    return { eds };
+  };
 }
 
 function main() {
@@ -625,21 +714,7 @@ function main() {
   const scope = new Set(nds.keys());
   const anchors = new Map([...nds].map(([doc, p]) => [doc, anchorsOf(p.nd)]));
   const idx = mediaIndex(all('media'));
-  const media = (key) => {
-    const e = idx.get(key) || idx.get(`${PIC}${key}`);
-    if (!e || !fs.existsSync(e.local)) return null;
-    const type = String(e.type || e.contentType || '').split(';')[0];
-    const bytes = e.bytes || fs.statSync(e.local).size;
-    const limit = type === 'video/mp4' ? 36 * MB : 20 * MB;
-    if (bytes > limit) return { link: `${(bytes / MB).toFixed(1)} MB: over Edge Delivery's ${limit / MB} MB, linked on the source` };
-    const ext = EXT[type] || path.extname(e.local).slice(1) || 'bin';
-    const eds = `/media-da/tap/${baseName(e.url)}-${sha1(e.url).slice(0, 8)}.${ext}`;
-    if (!dry) {
-      const out = path.join(OUT, eds);
-      if (!fs.existsSync(out)) { fs.mkdirSync(path.dirname(out), { recursive: true }); fs.copyFileSync(e.local, out); }
-    }
-    return { eds };
-  };
+  const media = mediaResolver(idx, { dry });
   const written = [];
   const write = (doc, html) => {
     if (dry) return null;
@@ -651,19 +726,21 @@ function main() {
     written.push(doc);
     return before === null ? 'new' : 'changed';
   };
-  // the content bus takes at most 1 MB of HTML a document (preview 409 above): a larger page's
-  // category accordions go to fragment documents
+  // the content bus takes at most 1 MB of HTML and 200 images a document (preview 409 above):
+  // a larger page's category accordions go to fragment documents
   const LIMIT = 900 * 1024;
+  const IMAGES = 190;
+  const over = (h) => Buffer.byteLength(h) > LIMIT || (h.match(/<img /g) || []).length > IMAGES;
   nds.forEach((p, doc) => {
     const site = {
       url: p.url, scope, media, anchors, sourceImages: argv.includes('--source-images'),
     };
     let r = convertPage(p.nd, site);
-    if (!r.skipped && Buffer.byteLength(r.html) > LIMIT) r = convertPage(p.nd, { ...site, fragments: true });
+    if (!r.skipped && over(r.html)) r = convertPage(p.nd, { ...site, fragments: true });
     if (r.skipped) { report[p.url] = { doc, skipped: r.skipped }; return; }
     report[p.url] = { doc, ...r.report };
-    const big = [r, ...r.fragments].filter((x) => Buffer.byteLength(x.html) > LIMIT);
-    if (big.length) report[p.url].notes.push(`over 900 KB of HTML (the content bus takes 1 MB): ${big.map((x) => x.doc || doc).join(', ')}`);
+    const big = [r, ...r.fragments].filter((x) => over(x.html));
+    if (big.length) report[p.url].notes.push(`over 900 KB of HTML or ${IMAGES} images (the content bus takes 1 MB, 200 images): ${big.map((x) => x.doc || doc).join(', ')}`);
     const changed = write(doc, r.html);
     if (changed) report[p.url].changed = changed;
     r.fragments.forEach((f) => write(f.doc, f.html));

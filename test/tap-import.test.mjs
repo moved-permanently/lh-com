@@ -1,4 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies, import/extensions -- tests */
+/* eslint-disable no-underscore-dangle -- the page JSON's __typename */
 /**
  * TAP Air Portugal's importer (tools/importer/tap-import.mjs): www.flytap.com's page JSON
  * (__NEXT_DATA__ of five captured pt-pt pages, trimmed: test/fixtures/tap/) as Edge Delivery
@@ -7,11 +8,12 @@
 import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseHTML } from 'linkedom';
 import {
-  altOf, slugOf, docPath, richText, linkOf, anchorsOf, convertPage,
+  altOf, slugOf, docPath, richText, linkOf, anchorsOf, convertPage, mediaIndex, mediaResolver,
 } from '../tools/importer/tap-import.mjs';
 
 const dir = path.join(path.dirname(fileURLToPath(import.meta.url)), 'fixtures/tap');
@@ -73,6 +75,33 @@ describe('tap-import helpers', () => {
       { nodeType: 'unordered-list', content: [{ nodeType: 'list-item', content: [{ nodeType: 'text', value: 'Um', format: { variants: ['emphasis'] } }] }] },
     ], ctx());
     assert.equal(html, '<p>Veja <strong>já</strong><br><a href="/pt-pt/informacoes/bagagem">bagagem</a></p><h2>Título</h2><p>Solto</p><ul><li><em>Um</em></li></ul>');
+  });
+});
+
+describe('tap-import media', () => {
+  it('the media archives\' files by every URL they were seen under, as /media-da/tap/ copies within the limits', () => {
+    const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'tap-media-'));
+    const rel = 'pic.flytap.com/adobe/dynamicmedia/deliver/dm-aid--1/baggage_card.jpg';
+    fs.mkdirSync(path.join(tmp, path.dirname(rel)), { recursive: true });
+    fs.writeFileSync(path.join(tmp, rel), 'x');
+    const big = 'pic.flytap.com/adobe/dynamicmedia/deliver/dm-aid--2/stopover.jpg';
+    fs.mkdirSync(path.join(tmp, path.dirname(big)), { recursive: true });
+    fs.writeFileSync(path.join(tmp, big), 'y');
+    fs.writeFileSync(path.join(tmp, 'manifest.json'), JSON.stringify([
+      {
+        path: rel, url: `https://${rel}?preferwebp=true&quality=75&width=1920`, urlsSeen: [`https://${rel}?preferwebp=true&quality=75&width=1280`], bytes: 1, contentType: 'image/webp',
+      },
+      {
+        path: big, url: `https://${big}?width=1280`, urlsSeen: [], bytes: 48986761, contentType: 'image/gif',
+      },
+    ]));
+    const out = fs.mkdtempSync(path.join(os.tmpdir(), 'tap-out-'));
+    const media = mediaResolver(mediaIndex([tmp]), { out });
+    const m = media('/adobe/dynamicmedia/deliver/dm-aid--1/baggage_card.jpg');
+    assert.ok(m && /^\/media-da\/tap\/baggage-card-[0-9a-f]{8}\.webp$/.test(m.eds));
+    assert.ok(fs.existsSync(path.join(out, m.eds)));
+    assert.ok(/over Edge Delivery's 20 MB/.test(media('/adobe/dynamicmedia/deliver/dm-aid--2/stopover.jpg').link));
+    assert.equal(media('/adobe/dynamicmedia/deliver/dm-aid--3/none.jpg'), null);
   });
 });
 
@@ -155,6 +184,48 @@ describe('tap-import pages', () => {
     assert.equal(fragments[0].doc, '/pt-pt/fragments/inspire-se/antes-do-voo');
     const f = dom(fragments[0].html);
     assert.ok(f.querySelector('h3') && f.querySelector('.accordion-columns.faq'));
+  });
+
+  it('a category over a fragment\'s limits (900 KB, 180 images): several fragments, -2, -3 …', () => {
+    const faq = nd('perguntas-frequentes');
+    const limits = { bytes: 1500, images: 180 };
+    const { html, fragments } = convertPage(faq, {
+      ...ctx('https://www.flytap.com/pt-pt/destinos/inspire-se'), fragments: true, fragmentLimits: limits,
+    });
+    const links = [...dom(html).querySelectorAll('.fragment a')].map((a) => a.getAttribute('href'));
+    assert.ok(links.includes('/pt-pt/fragments/inspire-se/durante-o-voo-2'));
+    assert.deepEqual(fragments.map((f) => f.doc), links);
+    assert.ok(fragments.every((f) => Buffer.byteLength(f.html) <= limits.bytes + 100));
+    // every subcategory once, in order; every item once
+    const cats = faq.props.pageProps.page.sections[1].categories;
+    const subs = fragments.flatMap((f) => [...dom(f.html).querySelectorAll('h3')].map((h) => h.textContent));
+    assert.deepEqual(subs, cats.flatMap((c) => c.subCategories.map((s) => s.label)));
+    const items = fragments.flatMap((f) => [...dom(f.html).querySelectorAll('.accordion-columns > div')]).length;
+    assert.equal(items, cats.flatMap((c) => c.subCategories.flatMap((s) => s.items)).length);
+  });
+
+  it('fares: a heading per route group, its cabins as accordion-columns (tabs) with the fare table in each panel', () => {
+    const { html, report } = convertPage(nd('tarifas-tap'), ctx('https://www.flytap.com/pt-pt/reservas/tarifas-tap'));
+    const d = dom(html);
+    assert.deepEqual([...d.querySelectorAll('h2')].map((h) => h.textContent), ['Voos para Europa e Norte de África', 'Voos intercontinentais']);
+    const tabs = d.querySelectorAll('.accordion-columns.tabs');
+    assert.equal(tabs.length, 2);
+    const first = tabs[0].querySelector(':scope > div');
+    assert.equal(first.firstElementChild.textContent, 'Economy');
+    const table = first.querySelector('table');
+    // the header row: the fares; a row: its title (and note), the fares' values
+    assert.deepEqual([...table.querySelectorAll('tr:first-child th')].map((x) => x.textContent), ['', 'Discount', 'Classic', 'Plus']);
+    assert.ok(table.querySelector('tr:nth-child(2)').textContent.startsWith('Bagagem de mão'));
+    assert.deepEqual(report.generic, []);
+  });
+
+  it('a fare table at the top level is table-striped (header)', () => {
+    const tabs = nd('tarifas-tap').props.pageProps.page.sections[1];
+    const table = tabs.tabs[0].tabsItems[0].sections.find((s) => s.__typename === 'ComponentTableModel');
+    const page = { props: { pageProps: { page: { title: 'T', sections: [table] } } } };
+    const d = dom(convertPage(page, ctx('https://www.flytap.com/pt-pt/x')).html);
+    const t = d.querySelector('.table-striped.header');
+    assert.ok(t && t.textContent.includes('Discount'));
   });
 
   it('the registration form page is out of scope (a form): skipped', () => {

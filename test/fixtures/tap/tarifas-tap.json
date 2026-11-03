@@ -1,0 +1,453 @@
+{
+ "props": {
+  "pageProps": {
+   "page": {
+    "__typename": "PageModel",
+    "_path": "/content/dam/tap/master/pt/pages/reservas/gerir-reservas/tarifas-tap",
+    "url": "/reservas/tarifas-tap",
+    "title": "Tarifas de voo TAP",
+    "body": {
+     "json": null
+    },
+    "template": "default",
+    "hidePageHeading": true,
+    "showOnSearch": true,
+    "seoTitle": "Tarifas TAP | TAP Air Portugal",
+    "seoDescription": {
+     "plaintext": "Encontre a tarifa ideal para o seu estilo de viagem e descubra todas as vantagens. Escolha como quer viajar e reserve já o seu voo."
+    },
+    "seoImage": {
+     "__typename": "ImageRef",
+     "_path": "/content/dam/tap/media/global/images/Reservas/Tarifas TAP/tap-fares.jpg",
+     "title": "",
+     "description": "",
+     "width": 836,
+     "height": 450,
+     "_publishUrl": "https://publish-p133109-e1368204.adobeaemcloud.com/content/dam/tap/media/global/images/Reservas/Tarifas%20TAP/tap-fares.jpg",
+     "_dynamicUrl": "/adobe/dynamicmedia/deliver/dm-aid--5b8b4814-7911-4c42-bb1a-5c2eb99b4b1f/tap_fares.jpg?preferwebp=true"
+    },
+    "redirect": null,
+    "seoIndexablePage": true,
+    "topSections": [],
+    "lineOfBusiness": null,
+    "position": null,
+    "annualAmount": null,
+    "sections": [
+     {
+      "__typename": "ComponentHeadingModel",
+      "_path": "/content/dam/tap/master/pt/components/reservas/tarifas-de-voo-tap/titulo-tarifas-de-voo-tap",
+      "lead": null,
+      "title": "Tarifas de voo TAP",
+      "headingDescription": {
+       "json": [
+        {
+         "nodeType": "paragraph",
+         "content": [
+          {
+           "nodeType": "text",
+           "value": "As suas viagens não são todas iguais. Conheça as diferentes tarifas TAP e tenha cada viagem à sua medida."
+          }
+         ]
+        }
+       ]
+      },
+      "textAlign": "center",
+      "containerSize": "default"
+     },
+     {
+      "__typename": "ComponentTabsItemsListModel",
+      "_path": "/content/dam/tap/master/pt/components/reservas/tarifas-de-voo-tap/tabs-economy-prime",
+      "tabs": [
+       {
+        "__typename": "ComponentTabsSubitemsListModel",
+        "_path": "/content/dam/tap/master/pt/components/reservas/tarifas-de-voo-tap/tab-europa-e-norte-de-africa",
+        "fieldLabel": "Voos para Europa e Norte de África",
+        "tabsItems": [
+         {
+          "__typename": "TabItemModel",
+          "_path": "/content/dam/tap/master/pt/components/reservas/tarifas-de-voo-tap/economica-europa-e-norte-de-africa",
+          "id": null,
+          "label": "Economy",
+          "description": null,
+          "sections": [
+           {
+            "__typename": "ComponentTableModel",
+            "_path": "/content/dam/tap/master/pt/components/reservas/tarifas-de-voo-tap/c-economica-europa-e-norte-de-africa",
+            "groups": [],
+            "columns": [
+             {
+              "__typename": "TableColumnModel",
+              "_path": "/content/dam/tap/master/pt/components/reservas/tarifas-de-voo-tap/discount-europa-e-norte-de-africa",
+              "heading": "Discount",
+              "tableColumnDescription": {
+               "plaintext": null
+              },
+              "campaignOnOff": false,
+              "campaignStartDate": null,
+              "campaignEndDate": null,
+              "campaignPrice": null,
+              "tooltip": null,
+              "groupName": "Economy",
+              "items": [
+               "1 x 10 kg / 22 lbs",
+               "Custo adicional",
+               "Custo adicional"
+              ],
+              "style": "default",
+              "whiteButton": false,
+              "ctaLabel": null,
+              "ctaUrl": null
+             },
+             {
+              "__typename": "TableColumnModel",
+              "_path": "/content/dam/tap/master/pt/components/reservas/tarifas-de-voo-tap/classic-europa-e-norte-de-africa",
+              "heading": "Classic",
+              "tableColumnDescription": {
+               "plaintext": null
+              },
+              "campaignOnOff": false,
+              "campaignStartDate": null,
+              "campaignEndDate": null,
+              "campaignPrice": null,
+              "tooltip": null,
+              "groupName": "Economy",
+              "items": [
+               "1 x 10 kg / 22 lbs",
+               "1 x 23 kg / 50 lbs",
+               "[yes]|A reserva de lugar na Área Comfort ou na saída de emergência tem um custo adicional."
+              ],
+              "style": "green",
+              "whiteButton": null,
+              "ctaLabel": null,
+              "ctaUrl": null
+             },
+             {
+              "__typename": "TableColumnModel",
+              "_path": "/content/dam/tap/master/pt/components/reservas/tarifas-de-voo-tap/plus-europa-e-norte-de-africa",
+              "heading": "Plus",
+              "tableColumnDescription": {
+               "plaintext": null
+              },
+              "campaignOnOff": false,
+              "campaignStartDate": null,
+              "campaignEndDate": null,
+              "campaignPrice": null,
+              "tooltip": null,
+              "groupName": "Economy",
+              "items": [
+               "1 x 10 kg / 22 lbs",
+               "1 x 23 kg / 50 lbs|Em voos entre Portugal Continental e ilhas (e vice-versa) tem direito a duas peças de bagagem de 23 kg cada.",
+               "[yes]|Os lugares na Área Comfort podem não estar disponíveis em aviões operados em nome da TAP."
+              ],
+              "style": "green",
+              "whiteButton": null,
+              "ctaLabel": null,
+              "ctaUrl": null
+             }
+            ],
+            "rowTitles": [
+             "Bagagem de mão|Adicionalmente, poderá levar consigo um artigo pessoal.",
+             "Bagagem de porão|Poderá adicionar bagagem de porão à tarifa Discount ou bagagem extra a qualquer outra tarifa.",
+             "Reserva de lugar"
+            ],
+            "style": "type2",
+            "tableComplementaryNotes": {
+             "json": [
+              {
+               "nodeType": "paragraph",
+               "content": [
+                {
+                 "nodeType": "text",
+                 "value": "As tarifas aqui apresentadas podem não estar disponíveis em todos os voos TAP."
+                }
+               ]
+              }
+             ]
+            }
+           }
+          ]
+         },
+         {
+          "__typename": "TabItemModel",
+          "_path": "/content/dam/tap/master/pt/components/reservas/tarifas-de-voo-tap/executiva-europa-e-norte-de-africa",
+          "id": null,
+          "label": "Business",
+          "description": null,
+          "sections": [
+           {
+            "__typename": "ComponentTableModel",
+            "_path": "/content/dam/tap/master/pt/components/reservas/tarifas-de-voo-tap/c-executiva-europa-e-norte-de-africa",
+            "groups": [],
+            "columns": [
+             {
+              "__typename": "TableColumnModel",
+              "_path": "/content/dam/tap/master/pt/components/reservas/tarifas-de-voo-tap/executive-europa-e-norte-de-africa",
+              "heading": "Executive",
+              "tableColumnDescription": {
+               "plaintext": null
+              },
+              "campaignOnOff": false,
+              "campaignStartDate": null,
+              "campaignEndDate": null,
+              "campaignPrice": null,
+              "tooltip": null,
+              "groupName": "Business",
+              "items": [
+               "2 x 10 kg / 22 lbs",
+               "2 x 32 kg / 70 lbs",
+               "[yes]"
+              ],
+              "style": "default",
+              "whiteButton": null,
+              "ctaLabel": null,
+              "ctaUrl": null
+             },
+             {
+              "__typename": "TableColumnModel",
+              "_path": "/content/dam/tap/master/pt/components/reservas/tarifas-de-voo-tap/top-executive-europa-e-norte-de-africa",
+              "heading": "Top Executive",
+              "tableColumnDescription": {
+               "plaintext": null
+              },
+              "campaignOnOff": false,
+              "campaignStartDate": null,
+              "campaignEndDate": null,
+              "campaignPrice": null,
+              "tooltip": null,
+              "groupName": "Business",
+              "items": [
+               "2 x 10 kg / 22 lbs",
+               "2 x 32 kg / 70 lbs",
+               "[yes]"
+              ],
+              "style": "darkgreen",
+              "whiteButton": null,
+              "ctaLabel": null,
+              "ctaUrl": null
+             }
+            ],
+            "rowTitles": [
+             "Bagagem de mão|Adicionalmente, poderá levar consigo um artigo pessoal.",
+             "Bagagem de porão",
+             "Reserva de lugar"
+            ],
+            "style": "type2",
+            "tableComplementaryNotes": {
+             "json": [
+              {
+               "nodeType": "paragraph",
+               "content": [
+                {
+                 "nodeType": "text",
+                 "value": "As tarifas aqui apresentadas podem não estar disponíveis em todos os voos TAP."
+                }
+               ]
+              }
+             ]
+            }
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "__typename": "ComponentTabsSubitemsListModel",
+        "_path": "/content/dam/tap/master/pt/components/reservas/tarifas-de-voo-tap/tab-voos-intercontinentais",
+        "fieldLabel": "Voos intercontinentais",
+        "tabsItems": [
+         {
+          "__typename": "TabItemModel",
+          "_path": "/content/dam/tap/master/pt/components/reservas/tarifas-de-voo-tap/economica-intercontinentais",
+          "id": null,
+          "label": "Economy",
+          "description": null,
+          "sections": [
+           {
+            "__typename": "ComponentTableModel",
+            "_path": "/content/dam/tap/master/pt/components/reservas/tarifas-de-voo-tap/c-economica-voos-intercontinentais",
+            "groups": [],
+            "columns": [
+             {
+              "__typename": "TableColumnModel",
+              "_path": "/content/dam/tap/master/pt/components/reservas/tarifas-de-voo-tap/discount-intercontinentais",
+              "heading": "Discount",
+              "tableColumnDescription": {
+               "plaintext": null
+              },
+              "campaignOnOff": false,
+              "campaignStartDate": null,
+              "campaignEndDate": null,
+              "campaignPrice": null,
+              "tooltip": null,
+              "groupName": "Economy",
+              "items": [
+               "1 x 10 kg / 22 lbs",
+               "Custo adicional|Em voos de / para Luanda e Maputo permitido: 1 x 23 kg.",
+               "Custo adicional"
+              ],
+              "style": "default",
+              "whiteButton": false,
+              "ctaLabel": null,
+              "ctaUrl": null
+             },
+             {
+              "__typename": "TableColumnModel",
+              "_path": "/content/dam/tap/master/pt/components/reservas/tarifas-de-voo-tap/basic-intercontinentais",
+              "heading": "Basic",
+              "tableColumnDescription": {
+               "plaintext": null
+              },
+              "campaignOnOff": false,
+              "campaignStartDate": null,
+              "campaignEndDate": null,
+              "campaignPrice": null,
+              "tooltip": null,
+              "groupName": "Economy",
+              "items": [
+               "1 x 10 kg ",
+               "1 x 23 kg|Em voos de / para Luanda e Maputo permitido: 2 x 23 kg.",
+               "Custo adicional"
+              ],
+              "style": "green",
+              "whiteButton": null,
+              "ctaLabel": null,
+              "ctaUrl": null
+             },
+             {
+              "__typename": "TableColumnModel",
+              "_path": "/content/dam/tap/master/pt/components/reservas/tarifas-de-voo-tap/classic-intercontinentais",
+              "heading": "Classic",
+              "tableColumnDescription": {
+               "plaintext": null
+              },
+              "campaignOnOff": false,
+              "campaignStartDate": null,
+              "campaignEndDate": null,
+              "campaignPrice": null,
+              "tooltip": null,
+              "groupName": "Economy",
+              "items": [
+               "1 x 10 kg",
+               "1 x 23 kg|Em voos de / para África (médio e longo curso) permitido: 2 x 23 kg.",
+               "[yes]|A reserva de lugar na Área Comfort, na fila Leg Space (quando disponível) ou na saída de emergência (disponível nos aviões A330-900 / A330-200 / A321LR) tem um custo adicional."
+              ],
+              "style": "green",
+              "whiteButton": null,
+              "ctaLabel": null,
+              "ctaUrl": null
+             }
+            ],
+            "rowTitles": [
+             "Bagagem de mão|Adicionalmente, poderá levar consigo um artigo pessoal.",
+             "Bagagem de porão|Poderá adicionar bagagem de porão à tarifa Discount ou bagagem extra a qualquer outra tarifa.",
+             "Reserva de lugar "
+            ],
+            "style": "type2",
+            "tableComplementaryNotes": {
+             "json": [
+              {
+               "nodeType": "paragraph",
+               "content": [
+                {
+                 "nodeType": "text",
+                 "value": "As tarifas aqui apresentadas podem não estar disponíveis em todos os voos TAP."
+                }
+               ]
+              }
+             ]
+            }
+           }
+          ]
+         },
+         {
+          "__typename": "TabItemModel",
+          "_path": "/content/dam/tap/master/pt/components/reservas/tarifas-de-voo-tap/economy-prime-intercontinentais",
+          "id": null,
+          "label": "Economy Prime",
+          "description": null,
+          "sections": [
+           {
+            "__typename": "ComponentTableModel",
+            "_path": "/content/dam/tap/master/pt/components/a-bordo/voar-em-economy-prime/economy-prime",
+            "groups": [],
+            "columns": [
+             {
+              "__typename": "TableColumnModel",
+              "_path": "/content/dam/tap/master/pt/components/a-bordo/voar-em-economy-prime/prime",
+              "heading": "Prime",
+              "tableColumnDescription": {
+               "plaintext": null
+              },
+              "campaignOnOff": false,
+              "campaignStartDate": null,
+              "campaignEndDate": null,
+              "campaignPrice": null,
+              "tooltip": null,
+              "groupName": "Economy Prime",
+              "items": [
+               "1 x 10 kg",
+               "2 x 23 kg",
+               "[yes]"
+              ],
+              "style": "red",
+              "whiteButton": null,
+              "ctaLabel": null,
+              "ctaUrl": null
+             },
+             {
+              "__typename": "TableColumnModel",
+              "_path": "/content/dam/tap/master/pt/components/a-bordo/voar-em-economy-prime/top-prime",
+              "heading": "Top Prime",
+              "tableColumnDescription": {
+               "plaintext": null
+              },
+              "campaignOnOff": false,
+              "campaignStartDate": null,
+              "campaignEndDate": null,
+              "campaignPrice": null,
+              "tooltip": null,
+              "groupName": "Economy Prime",
+              "items": [
+               "1 x 10 kg",
+               "2 x 23 kg",
+               "[yes]"
+              ],
+              "style": "red",
+              "whiteButton": null,
+              "ctaLabel": null,
+              "ctaUrl": null
+             }
+            ],
+            "rowTitles": [
+             "Bagagem de mão|Adicionalmente, poderá levar consigo um artigo pessoal.",
+             "Bagagem de porão",
+             "Reserva de lugar "
+            ],
+            "style": "type2",
+            "tableComplementaryNotes": {
+             "json": [
+              {
+               "nodeType": "paragraph",
+               "content": [
+                {
+                 "nodeType": "text",
+                 "value": "As tarifas aqui apresentadas podem não estar disponíveis em todos os voos TAP."
+                }
+               ]
+              }
+             ]
+            }
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ],
+    "dynamicData": {},
+    "hrefLangs": []
+   }
+  }
+ }
+}
