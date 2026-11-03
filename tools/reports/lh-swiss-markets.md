@@ -244,3 +244,22 @@ SWISS lists hreflang alternates as Austrian and Brussels (`ALTERNATES_SITES`), o
   each, all of the root, no request to www.swiss.com. The FAQ box (preview) on ch/en and ch/de opens
   `/ch/en/search-results?query=baggage` and `/ch/de/search-results?query=Gepäck`; on ae/en (our
   host, the market route's link) `/ae/en/search-results?query=baggage`: 30 results of ae/en.
+
+## 2026-11-03: claim-form-entry in SWISS's design (the theme class)
+
+- Cause: the design system's components take their theme from the nearest `.maui-theme-<tenant>`
+  ancestor (else `lh`), and mausy's swiss.css sets SWISS's tokens on `:host, .maui-theme-lx`.
+  www.swiss.com's body has `class="maui-theme-lx"`; ours had not. baggage-form-entry puts the class
+  on its own root (`<main id="root" class="maui-theme-lx">`), claim-form-entry does not, so on the
+  live page its components ran as `lh` without SWISS's tokens: fields without a border, Continue
+  without a button. X-Portal (LX), the stylesheet and consent were not the cause.
+- Fix (micro-frontend): on a brand page whose design system names a theme class (SWISS: maui-theme-lx)
+  the block puts it on the body with the X-Portal tags, before the app's scripts load;
+  lufthansa.com's claim page and the other brands as before.
+- Checked on swiss.turnsthe.page (fresh context, "Only necessary", main's code with the previewed
+  block): ch/en and ch/ru claim pages and the ch/en baggage page alike: components theme `lx`, fields
+  1px solid #666, Continue #cc0000 with white text, 50px; nothing from www.swiss.com. The branch or
+  main preview (aem.page) cannot run the claim apps: our host sends no CORS header for their modules,
+  so the preview shows the Fallback.
+- The 11 fast-compensation documents with the block (as 300's) uploaded and previewed again, not
+  published; DA's text-only versions kept as the rollback.
