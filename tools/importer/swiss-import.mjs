@@ -68,9 +68,10 @@ const h1Of = (html) => text((html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/g) || []).map
 /**
  * A snapshot whose live widgets are a link to the page on www (class C): the PNR search and the
  * passenger receipt portal (labelled with the page's H1), the booking logins (their intro text and
- * the H1), the FAQ search bar (with its own label; lh-swiss has no search index yet), iframes the
- * embed block doesn't play (with their title, else the H1). The check-in deadline search
- * (checkin-deadlines) and the culinary hub (micro-frontend) are lh-com blocks.
+ * the H1), iframes the embed block doesn't play (with their title, else the H1). The FAQ search
+ * bar is a link to the root's search page (www's searchUrl without its query, else
+ * /<cc>/<ll>/search-results; the search-results block), with its own label. The check-in deadline
+ * search (checkin-deadlines) and the culinary hub (micro-frontend) are lh-com blocks.
  */
 export function withLinkOuts(html, p) {
   const linkOut = (label) => `<div class="text section"><div class="richtext"><p><a href="https://${LINK_OUT}${p}">${label}</a></p></div></div>`;
@@ -78,7 +79,12 @@ export function withLinkOuts(html, p) {
   // the "fly more sustainably" PNR search (pnr-search-module micro-frontend in a wrapper)
   const pnr = out.search(/<div class="wrapper section">\s*<pnr-search-module/);
   if (pnr >= 0) out = `${out.slice(0, pnr)}${linkOut(h1Of(html) || HOST)}${out.slice(divEnd(out, pnr))}`;
-  out = editDivs(out, '<div class="dcep-search-bar', (el) => linkOut((el.match(/<label[^>]*>([^<]+)<\/label>/) || [])[1] || h1Of(html) || HOST));
+  out = editDivs(out, '<div class="dcep-search-bar', (el) => {
+    const label = (el.match(/<label[^>]*>([^<]+)<\/label>/) || [])[1] || h1Of(html) || HOST;
+    const url = ((el.match(/searchUrl&quot;\s*:\s*&quot;([^&]*)/) || [])[1] || '').replace(/^https?:\/\/[^/]+/, '').split('?')[0];
+    const page = /^\/[a-z]{2}\/[a-z]{2}\/search-results$/.test(url) ? url : `/${p.split('/').slice(1, 3).join('/')}/search-results`;
+    return `<div class="text section"><div class="richtext"><p><a href="${page}">${label}</a></p></div></div>`;
+  });
   // the passenger receipt portal (a micro-frontend lh-com has no entry for)
   const pax = out.search(/<div class="wrapper section">\s*<passenger-receipt-portal/);
   if (pax >= 0) out = `${out.slice(0, pax)}${linkOut(h1Of(html) || HOST)}${out.slice(divEnd(out, pax))}`;

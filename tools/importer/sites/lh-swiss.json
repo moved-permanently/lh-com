@@ -2850,7 +2850,18 @@
   "/ch/el/book-and-manage/corporate-customers/group-travel-and-charter/group-travel/group-travel-request-success",
   "/ch/el/customer-support/contact-us/data-protection-form/form-success",
   "/ch/ru/book-and-manage/corporate-customers/group-travel-and-charter/group-travel/group-travel-request-success",
-  "/ch/ru/customer-support/contact-us/data-protection-form/form-success"
+  "/ch/ru/customer-support/contact-us/data-protection-form/form-success",
+  "/ch/en/search-results",
+  "/ch/de/search-results",
+  "/ch/fr/search-results",
+  "/ch/it/search-results",
+  "/ch/es/search-results",
+  "/ch/pt/search-results",
+  "/ch/zh/search-results",
+  "/ch/ja/search-results",
+  "/ch/el/search-results",
+  "/ch/ru/search-results",
+  "/kr/ko/search-results"
  ],
  "linkOuts": [
   "/ch/en/culinaryjourney",

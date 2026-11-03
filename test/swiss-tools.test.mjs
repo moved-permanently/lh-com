@@ -118,6 +118,16 @@ test('placeholders left out; the class C widgets a link to the page on www with 
   assert.equal(withLinkOuts('<div class="checkindeadlinesearch section"><div class="dcep-checkin-deadline-search"></div></div>', '/ch/en/x').includes('checkindeadlinesearch'), true, 'the deadline search is lh-com\'s block');
 });
 
+test('the FAQ search bar: a link to the root\'s search page (www\'s searchUrl without its query), with the bar\'s label', () => {
+  const bar = (url) => `<h1>FAQ</h1><div class="searchbar section"><div class="dcep-search-bar w-100" data-dcep="{ &quot;autoSuggest&quot;: false, ${url ? `&quot;searchUrl&quot;:&quot;${url}&quot;` : ''} }"><form class="w-100" role="search"><label for="x">주제 검색</label><input placeholder="주제 검색" name="searchbar" type="text"></form></div></div>`;
+  const ko = withLinkOuts(bar('/kr/ko/search-results?query=%q%'), '/kr/ko/customer-support/faq');
+  assert.ok(!ko.includes('dcep-search-bar') && !ko.includes(LINK_OUT), ko);
+  assert.match(ko, /<p><a href="\/kr\/ko\/search-results">주제 검색<\/a><\/p>/);
+  assert.match(withLinkOuts(bar('https://www.swiss.com/ch/de/search-results?query=%q%'), '/ch/de/customer-support/faq'), /<a href="\/ch\/de\/search-results">/);
+  assert.match(withLinkOuts(bar(''), '/ch/zh/customer-support/faq'), /<a href="\/ch\/zh\/search-results">/, 'no searchUrl: the page root\'s');
+  assert.match(withLinkOuts(bar('?query=%q%'), '/ch/en/customer-support/faq'), /<a href="\/ch\/en\/search-results">/, 'a searchUrl that is no search page: the page root\'s');
+});
+
 test('the DAM download stops at a block: 403, 429, 503, Cloudflare\'s challenge, an HTML page for a file', () => {
   const h = (o) => new Headers(o);
   assert.ok(isBlock(403, h({}), '/content/dam/lx/x.jpg'));
