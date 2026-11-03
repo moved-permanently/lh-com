@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-03 12:37",
-  "change": "SWISS: site search works; its newsroom stays on its own press platform.",
+  "updated": "2026-11-03 16:47",
+  "change": "SWISS: both claim apps are on the replica, so what's left of claims is Lufthansa's; site search also works from the FAQ's search box and the magnifiers of the corporate and medical services sites.",
   "legend": {
     "done": {
       "label": "works on our replica",
@@ -39,7 +39,7 @@
     "adbooking": "Air Dolomiti sells through its own booking engine, not Lufthansa's shop. Since 1 November the search form is on the replica's homepages, route pages and booking pages and hands the trip to that engine, as www does; the engine's bot check can show a captcha, as it can on www.",
     "lhbooking": "Lufthansa's manage booking and hotel tabs and ITA's and SWISS's check-in forms hand over to services that run in AEM today. Their replacements are built and answer with test data; the forms post to them only on the airline's own address, so on the replica's addresses they keep opening the airline's current page and no real booking reaches test data. Nothing is left to build: what's left is Lufthansa's, the site on the airline's own address and the services connected to its booking and check-in systems.",
     "signin": "On Discover, ITA, Austrian, Brussels Airlines and SWISS, manage booking leads to the login page, which is on the new platform since 1 November (SWISS's since 2 November); the services behind the travel cockpit deep link answer with test data. Two parts are left. Ours: the booking code entry (its form and the links to it), which still opens the airline's current site. Lufthansa's, as for Lufthansa's own manage booking: Travel ID sign-in and real bookings work only once the site runs on the airline's own address with its booking systems connected.",
-    "travelidapps": "The help center, culinary hub and compensation claim apps are in the shared code and load on our pages, but their data comes from the airline's Travel ID service (and, for the claim, Miles & More's booking service), which refuses our test addresses. They work once the site runs on the airline's own address, or once Lufthansa allows ours.",
+    "travelidapps": "The help center, culinary hub and claim apps (compensation, and SWISS's baggage claim) are in the shared code and load on our pages, but their data comes from the airline's Travel ID service (and, for the claims, Miles & More's booking service), which refuses our test addresses. They work once the site runs on the airline's own address, or once Lufthansa allows ours.",
     "adown": "Switching off Air Dolomiti's current website is a goal, so its timetable, manage booking, newsletter and eSIM pages get versions of their own. Its booking service answers our addresses, so timetable and manage booking can work as on www; the newsletter becomes a form on our own forms service.",
     "cargostays": "Cargo's booking, schedules, customer portal, station finder and eServices stay on Cargo's current systems; the new site links to them.",
     "cargomoves": "Cargo's public pages move completely: contact forms, notifications, help and contact search, the newsletter page and the tracking entry form get versions on the new platform.",
@@ -52,7 +52,7 @@
     "adesim": "Air Dolomiti's eSIM shop (from the vendor Breeze) is built into the replica, but its switch stays off: Breeze answers every call from our address with 403, because the widget's key belongs to Air Dolomiti's site. It works once Air Dolomiti or Breeze allows our address.",
     "b2bsignin": "Lufthansa Group for Business has two sign-ins in AEM today, one for companies and one for travel agencies (eXperts), each with a member area. Their replacement follows the other airlines' sign-ins, with test data first; showing real member data needs Lufthansa to let it reach its user and role systems. Until then the replica links to the current sign-ins.",
     "lxmarkets": "Switzerland in all ten of SWISS's languages (English, German, French, Italian, Spanish, Portuguese, Chinese, Japanese, Greek, Russian), SWISS's other countries in the languages www offers them in, and Korea in Korean are on the new platform since 3 November.",
-    "travelidbuild": "SWISS's compensation and baggage claim apps and Brussels Airlines' help center app aren't on the new platform's pages yet: putting them there is our work. Then they need the airline's Travel ID service (and, for the claims, Miles & More's booking service), which refuses our test addresses, as for the other airlines' apps."
+    "travelidbuild": "Brussels Airlines' help center app isn't on the new platform's pages yet: putting it there is our work. Then it needs Brussels Airlines' Travel ID service, which refuses our test addresses, as for the other airlines' apps."
   },
   "brands": [
     {
@@ -1577,8 +1577,8 @@
         },
         "swiss": {
           "status": "done",
-          "note": "The search page finds SWISS's own pages in all ten Swiss language versions and in Korean; the FAQ's \"Search for topic\" leads to it.",
-          "evidence": "2026-11-02: replica /ch/en/customer-support/faq 'Search for topic' -> https://www.swiss.com/ch/en/customer-support/faq; /ch/en/search-results 404; lh-swiss.md: no search-ch-* index; from snapshot: www's searchbar on the FAQ hub (autosuggest searching.lufthansa.com), results /ch/en/search-results ; split 2026-11-03 (checks on our hosts, private Studio tab): /ch/en/search-results 200 on aem.live and swiss.turnsthe.page, FAQ links to it; ?q=baggage: 'Search results could not be loaded.'; 2026-11-03: search pages for the ten ch roots and kr/ko published 11:47 CET (job-2026-11-03-10-47-45-6df553d1); on swiss.turnsthe.page a word per root gave 30 results, all from that root (baggage ch/en + ae/en, Gepäck ch/de, 行李 ch/zh, 수하물 kr/ko); /ch/en/search-index.json 326 rows there 12:41 CET (404 on aem.live: index route lives in lh-edge on the brand hosts) -> done",
+          "note": "The search pages find SWISS's own pages in all ten Swiss language versions and in Korean; the FAQ's search box sends the query to its language's results page, and the corporate and medical services sites have a magnifier in the header with results pages and indexes of their own.",
+          "evidence": "2026-11-02: replica /ch/en/customer-support/faq 'Search for topic' -> https://www.swiss.com/ch/en/customer-support/faq; /ch/en/search-results 404; lh-swiss.md: no search-ch-* index; from snapshot: www's searchbar on the FAQ hub (autosuggest searching.lufthansa.com), results /ch/en/search-results ; split 2026-11-03 (checks on our hosts, private Studio tab): /ch/en/search-results 200 on aem.live and swiss.turnsthe.page, FAQ links to it; ?q=baggage: 'Search results could not be loaded.'; 2026-11-03: search pages for the ten ch roots and kr/ko published 11:47 CET (job-2026-11-03-10-47-45-6df553d1); on swiss.turnsthe.page a word per root gave 30 results, all from that root (baggage ch/en + ae/en, Gepäck ch/de, 行李 ch/zh, 수하물 kr/ko); /ch/en/search-index.json 326 rows there 12:41 CET (404 on aem.live: index route lives in lh-edge on the brand hosts) -> done ; 2026-11-03 15:00 CET: FAQ search box (a real box, no longer a link) sends the query to its root's results page; corporate and medical services header magnifier with own results pages and indexes (medical services 45 en + 47 de rows); lh-com bfa12d17, ae7e166e; published job-2026-11-03-13-59-42-4493c0cf, -13-59-54-3b7358d4, -14-00-53-6dc7d089; checks on swiss.turnsthe.page: 'baggage' ch/en 30, 'Gepäck' ch/de 30, 'flight' medical services 27",
           "page": "/ch/en/search-results"
         }
       }
@@ -1820,10 +1820,11 @@
           "evidence": "groundwork forms.tsv: only BusinessToGo and raffle"
         },
         "swiss": {
-          "status": "wip-lh",
-          "note": "SWISS's compensation and baggage claim apps aren't on the replica yet; its pages show only the introduction: ours. Like Lufthansa's claim app, they then need the Travel ID and Miles & More services, which refuse our addresses: Lufthansa's.",
-          "evidence": "2026-11-02: replica /ch/en/fast-compensation and /ch/en/baggage-reimbursement: text only, no block; from snapshot: www's claim-form-entry 0.11.16 and baggage-form-entry-latest (digitalhangar/claim-automation); lh-com micro-frontend knows claim-form-entry only; refund and expense forms are rated under Forms ; split 2026-11-03 (checks on our hosts, private Studio tab): /ch/en/fast-compensation and /ch/en/baggage-reimbursement .plain.html: no block",
-          "footnote": "travelidbuild"
+          "status": "lh",
+          "note": "SWISS's compensation and baggage claim apps are on the replica since 3 November, in SWISS's design. What's left is Lufthansa's: looking up a booking needs SWISS's Travel ID and Miles & More services, which refuse our addresses.",
+          "evidence": "2026-11-02: replica /ch/en/fast-compensation and /ch/en/baggage-reimbursement: text only, no block; from snapshot: www's claim-form-entry 0.11.16 and baggage-form-entry-latest (digitalhangar/claim-automation); lh-com micro-frontend knows claim-form-entry only; refund and expense forms are rated under Forms ; split 2026-11-03 (checks on our hosts, private Studio tab): /ch/en/fast-compensation and /ch/en/baggage-reimbursement .plain.html: no block ; 2026-11-03: claim-form-entry on the 11 /ch/<ll>/fast-compensation + /kr/ko/fast-compensation pages (published job-2026-11-03-15-37-54-5c1680cf, live 16:38 CET; ch/ru 0.11.9, others 0.11.16) and baggage-form-entry on the 11 baggage-reimbursement pages (job-2026-11-03-12-37-08-83313f86); scripts from swiss.turnsthe.page; SWISS design via maui-theme-lx on the body (lh-com 5daa7dcb), baggage-form-entry + X-Portal tags (6c8eeef7); checked in a fresh headless browser on swiss.turnsthe.page (screenshot artifact a_3d56ed94c5fd424899e4); booking lookup needs Travel ID + Miles & More, which refuse our hosts -> lh",
+          "footnote": "travelidapps",
+          "page": "/ch/en/fast-compensation"
         }
       }
     },
