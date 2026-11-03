@@ -76,7 +76,7 @@ and ru/ru are its market roots** (`test/markets-languages.test.mjs`). The fallba
 - **The six www 404s** above. Behind the five aliases are real pages, as for xx/pt and xx/es
   (`prepare-for-your-trip/travel-classes/business-class` and the others). No capture list has
   their xx/ru long URLs yet. A `14-ru-aliases.txt` like `13-pt-aliases.txt` would bring them, if
-  you want those documents for Russian too.
+  you want those documents for Russian too; they would be made as xx/pt's were (pt.md).
 - **The roots' comparison pages** (`flights`, `airport-information`, `additional-services` of
   by/ru, kz/ru and ru/ru, 9 captured): references for the local-version comparison, not documents
   (the roots answer them from xx/ru).

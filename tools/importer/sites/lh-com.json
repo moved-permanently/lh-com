@@ -2231,6 +2231,11 @@
     "/xx/pt/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation",
     "/xx/pt/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation",
     "/xx/pt/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation",
-    "/xx/pt/support/contact/contact-form-confirmation"
+    "/xx/pt/support/contact/contact-form-confirmation",
+    "/xx/pt/business-class",
+    "/xx/pt/digital-travel-companion",
+    "/xx/pt/flynet",
+    "/xx/pt/freigepaeck-regeln",
+    "/xx/pt/lounges"
   ]
 }

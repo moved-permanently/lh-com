@@ -20,9 +20,9 @@ Brazilian wording of its own on the pages compared.
 ## Captures
 
 - **The local capture** (Ben's machine, a real browser, about one page every 10 s, from
-  `tools/markets/capture-lists/13-pt.txt`): five archives, `lh-snapshots-001` to `-005`, and the
-  confirmations' `lh-snapshots-010` (lh-deliveries.json: `{"segment": "pt", "complete": true}`),
-  **274 pages and 7 confirmations**; each archive's sha256
+  `tools/markets/capture-lists/13-pt.txt`): five archives, `lh-snapshots-001` to `-005`, the
+  confirmations' `lh-snapshots-010` and the aliases' `lh-snapshots-013` (lh-deliveries.json:
+  `{"segment": "pt", "complete": true}`), **274 pages, 7 confirmations and 5 alias pages**; each archive's sha256
   and each page's sha256 in its manifest checked, every entry a regular file inside the archive.
   The pages were checked before they were placed: all Portuguese (`lang="pt"`), each with its own
   canonical, its own URL or www's long AEM URL of it as final URL, no challenge page, no empty
@@ -47,11 +47,11 @@ Brazilian wording of its own on the pages compared.
 
 ## Documents (DA and preview, not published)
 
-**272 documents, 272 of 272 answer 200 on preview and carry the same text in DA:**
-- **xx/pt, 260**: 251 pages by the template of their de/en counterpart (`import-batch.mjs`:
+**277 documents, 277 of 277 answer 200 on preview and carry the same text in DA:**
+- **xx/pt, 265**: 251 pages by the template of their de/en counterpart (`import-batch.mjs`:
   homepage 1, hub 16, campaign 21, fleet 8, info 165, legal 29, form 5, app-entry 5,
   flight-status 1), the 7 form confirmation pages (info, as de/en's; archive `lh-snapshots-010`,
-  below), its nav and footer from its homepage capture (`import-nav.bundle.js`:
+  below), the five alias documents (below), its nav and footer from its homepage capture (`import-nav.bundle.js`:
   Portuguese labels, "Outros países | Português"); links into xx/pt relative where it has the
   document (`root-docs.mjs --own-root xx/pt`).
 - **ao/pt, br/pt, pt/pt, 12**: the three homepages (homepage template) and the nine own pages
@@ -68,10 +68,21 @@ Brazilian wording of its own on the pages compared.
   `register-sports-baggage/confirmation`, `register-animal/confirmation`,
   `special-needs-online-form/confirmation`. `register-animal-cargo-hold/confirmation` is a document
   too, though xx/pt's `anmeldung-tiere-frachtraum` names no success page (as captured).
+- **The five alias documents** `business-class`, `digital-travel-companion`, `flynet`,
+  `freigepaeck-regeln` and `lounges` (www's short URLs, 404s on www), as xx/es's (931e6d05):
+  documents under the alias paths, as de/en has them, imported from the captures of their real
+  pages (`prepare-for-your-trip/travel-classes/business-class`,
+  `book-and-manage/digital-self-services/digital-travel-companion`,
+  `during-your-trip/internet-on-board`, `prepare-for-your-trip/baggage/free-baggage`,
+  `during-your-trip/lounges`; `tools/markets/capture-lists/13-pt-aliases.txt`, archive
+  `lh-snapshots-013`, kind `aliases`: all five Portuguese with their own canonical, none wrong) by
+  their de/en counterparts' templates (info; lounges hub). No document under the real paths (they
+  are in none of www's sitemaps; de/en has none either). Seven documents that link the aliases
+  link them relative now; the 12 uploaded and previewed.
 - Images: the homepages' Instagram logo SVG (58 KB, over Edge Delivery's 40 KB: the preview answered
   409) is its converted PNG already in DA (`media-manifest.json`'s conversion; this workspace has no
   media cache, so `postprocess-media.mjs --no-download` measures nothing).
-- `tools/importer/sites/lh-com.json` lists the 272 (added at the end).
+- `tools/importer/sites/lh-com.json` lists the 277 (added at the end).
 
 ## Left out, and why
 
@@ -79,16 +90,8 @@ Brazilian wording of its own on the pages compared.
   no language version): the aircraft type pages (`319` … `74z`), the `configuration/commonheader`
   AEM pages, the stopover partner pages lh-com does not have, `inscricao`,
   `book-and-manage/best-price` and others. They were not captured.
-- **The six www 404s** above (no capture). **The five alias documents** (`business-class`,
-  `digital-travel-companion`, `flynet`, `freigepaeck-regeln`, `lounges`; as xx/es's, 931e6d05,
-  from their real pages) wait for a capture of the real pages: no archive and no snapshot has
-  them (they are in none of www's sitemaps, and the short URLs answer 404), and Bright Data is
-  stopped. `tools/markets/capture-lists/13-pt-aliases.txt` lists their long URLs
-  (`prepare-for-your-trip/travel-classes/business-class`,
-  `book-and-manage/digital-self-services/digital-travel-companion`,
-  `during-your-trip/internet-on-board`, `prepare-for-your-trip/baggage/free-baggage`,
-  `during-your-trip/lounges`) for the local capture; the documents go under the alias paths with
-  their de/en counterparts' templates (info; lounges: hub) once an archive brings them.
+- **`/xx/pt/lufthansa-city/menu-card`**, a www 404 (no capture, no document). The other five
+  404s are the alias documents above.
 - **Two archive pages outside the scope**, captured but not imported: `/xx/pt/emergency-contact`
   (no de/en counterpart; the emergency contact form is on lh-forms as `emergency-contact`, as es/es
   and fr/fr have it) and `/xx/pt/prepare-for-your-trip/baggage/sport-baggage/register-ammunition1`
@@ -104,10 +107,7 @@ Brazilian wording of its own on the pages compared.
 
 ## What Portuguese still needs before it can go live
 
-1. **The five alias documents** above: a capture of their real pages
-   (`13-pt-aliases.txt`), then their import under the alias paths; or redirect rows instead
-   (point 5).
-2. **Locale rows (ema-adobe: `tools/markets/locale-data.json` and the table it builds,
+1. **Locale rows (ema-adobe: `tools/markets/locale-data.json` and the table it builds,
    `scripts/locale-table.js`, are shared)**: the values from the homepage captures
    (`rollout.mjs --rows 13`, not applied):
 
@@ -120,16 +120,15 @@ Brazilian wording of its own on the pages compared.
 
    (www's labels have runs of spaces before the "|": kept as www writes them, as for French);
    `languageVersions.pt = xx/pt`; all `pilot`, batch 13.
-3. **The roots' nav and footer**: copies of xx/pt's (`root-docs.mjs --from xx/pt --to <root>`),
+2. **The roots' nav and footer**: copies of xx/pt's (`root-docs.mjs --from xx/pt --to <root>`),
    which take the root's label from the locale rows: after them.
-4. **The query indexes** of xx/pt (helix-query.yaml `search-xx-pt`, `market-model-xx-pt`,
+3. **The query indexes** of xx/pt (helix-query.yaml `search-xx-pt`, `market-model-xx-pt`,
    `market-llms-xx-pt`, as xx/es's: `tools/markets/lean-indexes.mjs` ROOTS): they fill on publish;
    the market route answers the roots' pages from them.
-5. **Redirect rows**: pt/pt's `companion_special_business` and `companion_special_premium_economy`
-   (www's underscore URLs) to `companion-special-business` and `companion-special-premium-economy`;
-   the five xx/pt alias URLs if they get no documents.
-6. **The site's texts in Portuguese** (labels fall back to English).
-7. Then a wave: the local-version comparison (`rollout.mjs --plan 13`'s compare pairs, the roots'
+4. **Redirect rows**: pt/pt's `companion_special_business` and `companion_special_premium_economy`
+   (www's underscore URLs) to `companion-special-business` and `companion-special-premium-economy`.
+5. **The site's texts in Portuguese** (labels fall back to English).
+6. Then a wave: the local-version comparison (`rollout.mjs --plan 13`'s compare pairs, the roots'
    comparison captures against xx/pt's) and the preview check, as batches 11 and 12.
 
 ## The other languages (brief 300)
