@@ -21,10 +21,9 @@ export const BRAND_ICONS = {
   cargo: { icon: '/o/eportal-theme/images/favicon.ico', type: 'image/x-icon', manifest: '' },
   // www.airdolomiti.it's favicon.ico is a PNG
   airdolomiti: { icon: '/favicon/favicon.ico', type: 'image/png', manifest: '' },
-  // www.flytap.com's /favicon/favicon.ico (tap-media-001), under /favicon/tap/ (Air Dolomiti's
-  // path is the code's /favicon/favicon.ico); its site.webmanifest names two icons not captured
-  // yet (android-chrome-192x192.png, -512x512.png): no manifest until they are
-  tap: { icon: '/favicon/tap/favicon.ico', type: 'image/x-icon', manifest: '' },
+  // www.flytap.com's /favicon/ files (tap-media-001, -007, -009) under /favicon/tap/ (Air
+  // Dolomiti's path is the code's /favicon/favicon.ico); the manifest's two icon paths moved there
+  tap: { icon: '/favicon/tap/favicon.ico', type: 'image/x-icon', manifest: '/favicon/tap/site.webmanifest' },
 };
 
 /** A brand's icons, or null (lh-com, unknown keys). */
