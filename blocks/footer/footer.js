@@ -86,6 +86,12 @@ const LABELS = {
     localeCurrent: 'Wybór kraju i języka; obecnie:',
     newTab: 'otwiera się w nowej karcie',
   },
+  // Korean (kr/ko; the wording of www where it has one, the capture of 2026-11-03)
+  ko: {
+    search: '검색',
+    localeCurrent: '국가/언어 선택, 현재:',
+    newTab: '링크가 새 브라우저 탭에서 열립니다',
+  },
 };
 
 const MOBILE = window.matchMedia('(width < 768px)');

@@ -378,6 +378,30 @@ const DEFAULT_LABELS = {
     'airport error': 'Wybierz lotnisko',
     'no results label': 'Brak pasujących lotnisk',
   },
+  // Korean (kr/ko; the wording of www where it has one, the capture of 2026-11-03)
+  ko: {
+    'number tab label': '항공편 번호',
+    'route tab label': '항공편 노선',
+    'airport tab label': '공항',
+    'tabs label': '운항 정보 검색',
+    'airline label': '항공사',
+    'flight number label': '항공편 번호',
+    'flight number error': '항공편 번호는 필수 입력 항목입니다',
+    'flight number invalid error': '유효한 항공편 번호(1~4자리 숫자)를 입력하십시오',
+    'date label': '날짜',
+    'date hint': '운항 정보는 {days}일 전부터 확인할 수 있습니다.',
+    'from label': '출발',
+    'to label': '도착',
+    'airport label': '공항',
+    'direction label': '출발 또는 도착',
+    'departure label': '출발',
+    'arrival label': '도착',
+    'submit label': '검색',
+    'origin error': '출발지를 선택하십시오',
+    'destination error': '도착지를 선택하십시오',
+    'airport error': '공항을 선택하십시오',
+    'no results label': '일치하는 공항이 없습니다',
+  },
 };
 
 let instance = 0;

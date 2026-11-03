@@ -200,6 +200,17 @@ const DEFAULT_LABELS = {
     'last name error': 'Nazwisko jest wymagane',
     'tabs label': 'Znajdź rezerwację',
   },
+  // Korean (kr/ko; the wording of www where it has one, the capture of 2026-11-03)
+  ko: {
+    'reference label': '예약 코드 또는 항공권 번호',
+    'first name label': '이름',
+    'last name label': '성 (姓)',
+    'submit label': '확인',
+    'reference error': '6자리 예약 코드 또는 13자리 항공권 번호를 입력하십시오',
+    'first name error': '이름은 필수 입력 항목입니다',
+    'last name error': '성은 필수 입력 항목입니다',
+    'tabs label': '예약 찾기',
+  },
 };
 
 let instance = 0;

@@ -81,6 +81,13 @@ const DEFAULT_LABELS = {
     'next label': 'Następny slajd',
     'slide label': '{n} z {total}',
   },
+  // Korean (kr/ko; the wording of www where it has one, the capture of 2026-11-03)
+  ko: {
+    'carousel label': '이미지 캐러셀',
+    'previous label': '이전 슬라이드',
+    'next label': '다음 슬라이드',
+    'slide label': '{n}/{total}',
+  },
 };
 
 const LABEL_KEYS = Object.keys(DEFAULT_LABELS.en).map(toConfigKey);

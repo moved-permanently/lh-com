@@ -137,6 +137,17 @@ const LABELS = {
     newsstand: 'Kiosk eJournals',
     'google-maps': 'Mapa',
   },
+  // Korean (kr/ko; the wording of www where it has one, the capture of 2026-11-03)
+  ko: {
+    video: '영상 재생',
+    youtube: 'YouTube 동영상',
+    'inflight-entertainment': '기내 엔터테인먼트',
+    newsstand: 'eJournals 뉴스스탠드',
+    'google-maps': '지도',
+    matterport: '가상 투어 시작',
+    mynewsdesk: '뉴스룸 보기',
+    'route-network': '노선망',
+  },
 };
 
 let mediaCount = 0;

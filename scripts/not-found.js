@@ -113,6 +113,17 @@ const TEXT = {
     help: 'Pomoc i kontakt',
     newTab: '',
   },
+  // Korean (kr/ko; the wording of www where it has one, the capture of 2026-11-03)
+  ko: {
+    title: '페이지를 찾을 수 없습니다',
+    intro: '죄송합니다. 찾으시는 페이지를 찾을 수 없습니다. 검색어를 입력하여 찾으시는 주제나 서비스에 관한 정보를 확인하십시오.',
+    search: '검색어 입력',
+    searchButton: '검색',
+    links: [['홈페이지로 이동', 'home'], ['항공권 예약', 'flight-search'], ['온라인 체크인', 'online-check-in-info'], ['내 예약', 'my-bookings']],
+    feedback: '원하는 정보를 찾지 못하셨거나 의견을 남기고 싶으신가요? 의견 및 문의 옵션을 확인하십시오.',
+    help: '도움말 및 문의',
+    newTab: '',
+  },
 };
 
 /** Locale of the path; a path without a migrated locale gets de/en (live's /error.html). */

@@ -435,6 +435,26 @@ const DEFAULT_LABELS = {
     'same airport error': 'Miejsce wylotu i cel podróży są takie same. Sprawdź dane i spróbuj ponownie.',
     'no results label': 'Brak pasujących lotnisk',
   },
+  // Korean (kr/ko; the wording of www where it has one, the capture of 2026-11-03)
+  ko: {
+    'from label': '출발',
+    'to label': '도착',
+    'submit label': '항공편 검색',
+    'date label': '출발 - 귀국',
+    'one way date label': '출발',
+    'date error': '여행 날짜를 입력하십시오',
+    'return date error': '귀국일을 입력한 후 다시 시도하십시오.',
+    'trip type label': '여행 유형',
+    'round trip label': '왕복',
+    'one way label': '편도',
+    'swap label': '출발지와 도착지 바꾸기',
+    'departure label': '출발일',
+    'return label': '귀국일',
+    'origin error': '출발지를 선택하십시오',
+    'destination error': '도착지를 선택하십시오',
+    'same airport error': '출발지와 도착지가 같습니다. 입력 내용을 확인한 후 다시 시도하십시오.',
+    'no results label': '일치하는 공항이 없습니다',
+  },
 };
 
 /**

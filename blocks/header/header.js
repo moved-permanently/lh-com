@@ -229,6 +229,23 @@ const LABELS = {
     newTab: 'otwiera się w nowej karcie',
     languageCurrent: 'wybór języka; obecnie:',
   },
+  // Korean (kr/ko; the wording of www where it has one, the capture of 2026-11-03)
+  ko: {
+    nav: '내비게이션',
+    menu: '메뉴',
+    close: '닫기',
+    back: '뒤로',
+    localeTitle: '위치/언어',
+    flight: '내 항공편',
+    sample: '샘플 데이터',
+    to: '-',
+    localeCurrent: '국가/언어 선택, 현재:',
+    otherCountries: '기타 국가',
+    location: '위치',
+    continue: '계속',
+    newTab: '링크가 새 브라우저 탭에서 열립니다',
+    languageCurrent: '언어 선택, 현재:',
+  },
 };
 
 const TOOL_ROLES = {

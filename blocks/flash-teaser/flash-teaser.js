@@ -131,6 +131,17 @@ const LABELS = {
     start: 'Uruchom przewijanie',
     stop: 'Zatrzymaj przewijanie',
   },
+  // Korean (kr/ko; the wording of www where it has one, the capture of 2026-11-03)
+  ko: {
+    title: '최신 여행 정보, 알림 및 프로모션',
+    stepper: '메시지 {CURRENT}/{TOTAL}',
+    critical: '주의',
+    promo: '프로모션',
+    previous: '이전 메시지',
+    next: '다음 메시지',
+    start: '슬라이드 자동 재생 시작',
+    stop: '슬라이드 자동 재생 중지',
+  },
 };
 const LIVE_KEYS = {
   title: 'flashteaser.sr.labels.title',

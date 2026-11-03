@@ -325,6 +325,19 @@ const DEFAULT_LABELS = {
     'no results label': 'Brak pasujących lotnisk',
     'conditions label': 'Warunki',
   },
+  // Korean (kr/ko; the wording of www where it has one, the capture of 2026-11-03)
+  ko: {
+    heading: '출발지별 항공권 특가',
+    'origin input label': '추천 목적지 운임에 맞는 출발 도시를 선택하십시오.',
+    'change origin label': '출발지 변경',
+    'trip type label': '여행 유형',
+    'price label': '왕복 최저가',
+    'one way price label': '편도 최저가',
+    'previous label': '이전',
+    'next label': '다음',
+    'no results label': '일치하는 공항이 없습니다',
+    'conditions label': '조건',
+  },
 };
 
 let instanceCount = 0;

@@ -262,6 +262,11 @@ const DEFAULT_LABELS = {
     'price label': 'W obie strony od',
     'show more': 'Pokaż więcej',
   },
+  // Korean (kr/ko; the wording of www where it has one, the capture of 2026-11-03)
+  ko: {
+    'price label': '왕복 최저가',
+    'show more': '더 보기',
+  },
 };
 
 /** Routes shown on small screens before "Show more" (the live site hides the rest below 768px). */

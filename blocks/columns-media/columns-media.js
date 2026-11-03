@@ -63,6 +63,12 @@ const DEFAULT_LABELS = {
     'show image': 'Pokaż zdjęcie',
     'show slide': 'Pokaż slajd',
   },
+  // Korean (kr/ko; the wording of www where it has one, the capture of 2026-11-03)
+  ko: {
+    'play video': '영상 재생',
+    'show image': '이미지 보기',
+    'show slide': '슬라이드 보기',
+  },
 };
 
 const BREAKPOINTS = [{ media: '(min-width: 600px)', width: '2000' }, { width: '750' }];

@@ -101,6 +101,15 @@ const DEFAULT_LABELS = {
     'next label': 'Następny slajd',
     'slide label': '{n} z {total}',
   },
+  // Korean (kr/ko; the wording of www where it has one, the capture of 2026-11-03)
+  ko: {
+    'pause label': '배경 영상 일시 정지',
+    'play label': '배경 영상 재생',
+    'slider label': '스테이지',
+    'previous label': '이전 슬라이드',
+    'next label': '다음 슬라이드',
+    'slide label': '{n}/{total}',
+  },
 };
 
 const LABEL_KEYS = ['pause-label', 'play-label', 'slider-label', 'previous-label', 'next-label', 'slide-label'];

@@ -142,6 +142,11 @@ const DEFAULT_LABELS = {
     'price label': 'W obie strony od',
     'link label': 'Szukaj lotów',
   },
+  // Korean (kr/ko; the wording of www where it has one, the capture of 2026-11-03)
+  ko: {
+    'price label': '왕복 최저가',
+    'link label': '항공편 검색',
+  },
 };
 
 function el(tag, className, text) {
