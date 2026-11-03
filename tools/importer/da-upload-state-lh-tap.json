@@ -1,0 +1,219 @@
+{
+ "docs": {
+  "/pt-pt": {
+   "uploaded": "2026-11-03T16:36:06.258Z",
+   "mtime": 1793723741150,
+   "preview": "2026-11-03T16:36:08.075Z"
+  },
+  "/pt-pt/ajuda": {
+   "uploaded": "2026-11-03T16:36:09.518Z",
+   "mtime": 1793723741174,
+   "preview": "2026-11-03T16:36:11.017Z"
+  },
+  "/pt-pt/alertas-e-informacoes": {
+   "uploaded": "2026-11-03T16:36:12.453Z",
+   "mtime": 1793723741194,
+   "preview": "2026-11-03T16:36:14.291Z"
+  },
+  "/pt-pt/informacoes-check-in": {
+   "uploaded": "2026-11-03T16:36:15.711Z",
+   "mtime": 1793723741214,
+   "preview": "2026-11-03T16:36:17.705Z"
+  },
+  "/pt-pt/destinos": {
+   "uploaded": "2026-11-03T16:36:19.699Z",
+   "mtime": 1793723741237,
+   "preview": "2026-11-03T16:36:21.538Z"
+  },
+  "/pt-pt/gerir-reserva": {
+   "uploaded": "2026-11-03T16:36:22.987Z",
+   "mtime": 1793723741258,
+   "preview": "2026-11-03T16:36:24.643Z"
+  },
+  "/pt-pt/info-legal": {
+   "uploaded": "2026-11-03T16:36:26.177Z",
+   "mtime": 1793723741279,
+   "preview": "2026-11-03T16:36:27.923Z"
+  },
+  "/pt-pt/informacoes": {
+   "uploaded": "2026-11-03T16:36:29.490Z",
+   "mtime": 1793723741300,
+   "preview": "2026-11-03T16:36:31.350Z"
+  },
+  "/pt-pt/a-bordo": {
+   "uploaded": "2026-11-03T16:36:33.019Z",
+   "mtime": 1793723741320,
+   "preview": "2026-11-03T16:36:34.648Z"
+  },
+  "/pt-pt/promos": {
+   "uploaded": "2026-11-03T16:36:36.110Z",
+   "mtime": 1793723741341,
+   "preview": "2026-11-03T16:36:37.590Z"
+  },
+  "/pt-pt/reservas": {
+   "uploaded": "2026-11-03T16:36:39.266Z",
+   "mtime": 1793723741361,
+   "preview": "2026-11-03T16:36:40.826Z"
+  },
+  "/pt-pt/stopover": {
+   "uploaded": "2026-11-03T16:36:42.204Z",
+   "mtime": 1793723741380,
+   "preview": "2026-11-03T16:36:44.370Z"
+  },
+  "/pt-pt/miles-and-go": {
+   "uploaded": "2026-11-03T16:36:46.002Z",
+   "mtime": 1793723741429,
+   "preview": "2026-11-03T16:36:47.771Z"
+  },
+  "/pt-pt/ajuda/atrasos-cancelamentos": {
+   "uploaded": "2026-11-03T16:36:49.904Z",
+   "mtime": 1793723741456,
+   "preview": "2026-11-03T16:36:51.490Z"
+  },
+  "/pt-pt/ajuda/reembolsos-tap": {
+   "uploaded": "2026-11-03T16:36:53.278Z",
+   "mtime": 1793723741477,
+   "preview": "2026-11-03T16:36:55.062Z"
+  },
+  "/pt-pt/ajuda/pedidos-reclamacoes": {
+   "uploaded": "2026-11-03T16:36:56.399Z",
+   "mtime": 1793723741505,
+   "preview": "2026-11-03T16:36:57.990Z"
+  },
+  "/pt-pt/ajuda/perguntas-frequentes": {
+   "uploaded": "2026-11-03T16:36:59.647Z",
+   "mtime": 1793723741546,
+   "preview": "2026-11-03T16:37:02.066Z"
+  },
+  "/pt-pt/destinos/inspire-se": {
+   "uploaded": "2026-11-03T16:40:46.206Z",
+   "mtime": 1793724034656,
+   "preview": "2026-11-03T16:40:48.044Z"
+  },
+  "/pt-pt/gerir-reserva/extras": {
+   "uploaded": "2026-11-03T16:37:06.495Z",
+   "mtime": 1793723741739,
+   "preview": "2026-11-03T16:37:08.224Z"
+  },
+  "/pt-pt/info-legal/ciberseguranca": {
+   "uploaded": "2026-11-03T16:37:09.524Z",
+   "mtime": 1793723741762,
+   "preview": "2026-11-03T16:37:11.247Z"
+  },
+  "/pt-pt/info-legal/condicoes-de-transporte": {
+   "uploaded": "2026-11-03T16:37:12.709Z",
+   "mtime": 1793723741790,
+   "preview": "2026-11-03T16:37:14.648Z"
+  },
+  "/pt-pt/info-legal/acessibilidade": {
+   "uploaded": "2026-11-03T16:37:15.972Z",
+   "mtime": 1793723741810,
+   "preview": "2026-11-03T16:37:17.522Z"
+  },
+  "/pt-pt/info-legal/flight-passes": {
+   "uploaded": "2026-11-03T16:37:19.111Z",
+   "mtime": 1793723741844,
+   "preview": "2026-11-03T16:37:20.699Z"
+  },
+  "/pt-pt/info-legal/cookies": {
+   "uploaded": "2026-11-03T16:37:22.212Z",
+   "mtime": 1793723741867,
+   "preview": "2026-11-03T16:37:24.181Z"
+  },
+  "/pt-pt/info-legal/privacidade": {
+   "uploaded": "2026-11-03T16:37:25.711Z",
+   "mtime": 1793723741890,
+   "preview": "2026-11-03T16:37:27.425Z"
+  },
+  "/pt-pt/info-legal/politica-revelacao-vulnerabilidades": {
+   "uploaded": "2026-11-03T16:37:28.881Z",
+   "mtime": 1793723741910,
+   "preview": "2026-11-03T16:37:30.753Z"
+  },
+  "/pt-pt/info-legal/termos-e-condicoes-miles-and-go": {
+   "uploaded": "2026-11-03T16:37:32.107Z",
+   "mtime": 1793723741944,
+   "preview": "2026-11-03T16:37:34.187Z"
+  },
+  "/pt-pt/info-legal/termos-e-condicoes": {
+   "uploaded": "2026-11-03T16:37:35.742Z",
+   "mtime": 1793723741970,
+   "preview": "2026-11-03T16:37:37.631Z"
+  },
+  "/pt-pt/informacoes/bagagem": {
+   "uploaded": "2026-11-03T16:37:39.057Z",
+   "mtime": 1793723741994,
+   "preview": "2026-11-03T16:37:40.963Z"
+  },
+  "/pt-pt/nav": {
+   "uploaded": "2026-11-03T16:37:43.374Z",
+   "mtime": 1793723742210,
+   "preview": "2026-11-03T16:37:45.809Z"
+  },
+  "/pt-pt/footer": {
+   "uploaded": "2026-11-03T16:37:47.133Z",
+   "mtime": 1793723742224,
+   "preview": "2026-11-03T16:37:49.008Z"
+  },
+  "/pt-pt/fragments/inspire-se/aventura": {
+   "uploaded": "2026-11-03T16:40:49.425Z",
+   "mtime": 1793724034708,
+   "preview": "2026-11-03T16:40:52.603Z"
+  },
+  "/pt-pt/fragments/inspire-se/compras": {
+   "uploaded": "2026-11-03T16:40:54.066Z",
+   "mtime": 1793724034743,
+   "preview": "2026-11-03T16:40:56.275Z"
+  },
+  "/pt-pt/fragments/inspire-se/cultura": {
+   "uploaded": "2026-11-03T16:40:57.717Z",
+   "mtime": 1793724034795,
+   "preview": "2026-11-03T16:41:02.265Z"
+  },
+  "/pt-pt/fragments/inspire-se/familia": {
+   "uploaded": "2026-11-03T16:41:03.606Z",
+   "mtime": 1793724034830,
+   "preview": "2026-11-03T16:41:05.824Z"
+  },
+  "/pt-pt/fragments/inspire-se/gastronomia": {
+   "uploaded": "2026-11-03T16:41:07.548Z",
+   "mtime": 1793724034870,
+   "preview": "2026-11-03T16:41:09.722Z"
+  },
+  "/pt-pt/fragments/inspire-se/multi-destinos": {
+   "uploaded": "2026-11-03T16:41:11.330Z",
+   "mtime": 1793724034905,
+   "preview": "2026-11-03T16:41:13.648Z"
+  },
+  "/pt-pt/fragments/inspire-se/natureza": {
+   "uploaded": "2026-11-03T16:41:15.484Z",
+   "mtime": 1793724034948,
+   "preview": "2026-11-03T16:41:18.258Z"
+  },
+  "/pt-pt/fragments/inspire-se/noite": {
+   "uploaded": "2026-11-03T16:41:19.641Z",
+   "mtime": 1793724034988,
+   "preview": "2026-11-03T16:41:22.042Z"
+  },
+  "/pt-pt/fragments/inspire-se/praia": {
+   "uploaded": "2026-11-03T16:41:23.434Z",
+   "mtime": 1793724035037,
+   "preview": "2026-11-03T16:41:26.162Z"
+  },
+  "/pt-pt/fragments/inspire-se/relax": {
+   "uploaded": "2026-11-03T16:41:27.648Z",
+   "mtime": 1793724035058,
+   "preview": "2026-11-03T16:41:29.325Z"
+  },
+  "/pt-pt/fragments/inspire-se/romance": {
+   "uploaded": "2026-11-03T16:41:30.842Z",
+   "mtime": 1793724035098,
+   "preview": "2026-11-03T16:41:33.476Z"
+  }
+ },
+ "media": {
+  "/media-da/tap/tap-logo-4f50ecd5.svg": {
+   "at": "2026-11-03T16:37:42.273Z"
+  }
+ }
+}
