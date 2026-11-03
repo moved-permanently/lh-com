@@ -64,9 +64,14 @@ and ru/ru are its market roots** (`test/markets-languages.test.mjs`). The fallba
   them. `postprocess-media.mjs --no-download` changed 3 documents (this workspace has no media
   cache).
 - `tools/importer/sites/lh-com.json` lists the 265 (added at the end).
-- **How it renders on preview**: xx/ru's body is Russian. Header and footer show de/en's for now, as
-  on xx/pt: the site picks the nav by the locale rows, which xx/ru does not have yet (point 1
-  below).
+- **How it renders on preview**: since Russian's rows (26f311d1), xx/ru's homepage shows its own
+  nav and footer and "Другие страны | Русский"; before them it showed de/en's, as xx/pt did.
+- **The roots' nav and footer**: by/ru's, kz/ru's and ru/ru's from xx/ru's (`root-docs.mjs --from
+  xx/ru --to <root> --doc nav --doc footer`: 55 nav and 16 footer links made the root's, 9 and 8
+  www links to www's same root, the label the root's; none left without a page), uploaded and
+  previewed (6 of 6 answer 200, DA's text). On preview each root's homepage shows its own label
+  ("Belarus | Русский", "Kazakhstan | Русский", "Russian Federation | Русский", as the rows have
+  them) and its own nav. 271 Russian documents.
 
 ## Left out, and why
 
@@ -74,18 +79,21 @@ and ru/ru are its market roots** (`test/markets-languages.test.mjs`). The fallba
   the `configuration/commonheader` AEM pages, stopover partner pages lh-com does not have, and
   others (`migration-work`'s scope list, as for xx/pt). They were not in the capture list.
 - **The six www 404s** above. Behind the five aliases are real pages, as for xx/pt and xx/es
-  (`prepare-for-your-trip/travel-classes/business-class` and the others). No capture list has
-  their xx/ru long URLs yet. A `14-ru-aliases.txt` like `13-pt-aliases.txt` would bring them, if
-  you want those documents for Russian too; they would be made as xx/pt's were (pt.md).
+  (`prepare-for-your-trip/travel-classes/business-class` and the others):
+  `14-ru-aliases.txt` (5a716374) lists them for the local capture; they become documents under the
+  alias paths, as xx/pt's (pt.md), when an archive brings them.
 - **The roots' comparison pages** (`flights`, `airport-information`, `additional-services` of
   by/ru, kz/ru and ru/ru, 9 captured): references for the local-version comparison, not documents
   (the roots answer them from xx/ru).
 
 ## What Russian still needs before it can go live
 
-1. **Locale rows (ema-adobe: `tools/markets/locale-data.json` and the table it builds,
-   `scripts/locale-table.js`, are shared)**: the values from the homepage captures
-   (`rollout.mjs --rows 14`, not applied):
+Done since: **the locale rows, xx/ru's query indexes** (ema-adobe 26f311d1), **the built-in texts
+in Russian** (6e0aed3c) and **the roots' nav and footer** (above).
+
+1. ~~Locale rows~~ (done; the proposal kept for reference) (ema-adobe:
+   `tools/markets/locale-data.json` and the table it builds, `scripts/locale-table.js`, are
+   shared): the values from the homepage captures (`rollout.mjs --rows 14`):
 
    | Root | name (www's label) | countryName en / de / ru | Airport | Currency |
    | --- | --- | --- | --- | --- |
@@ -98,12 +106,10 @@ and ru/ru are its market roots** (`test/markets-languages.test.mjs`). The fallba
    Russian country names (www's labels are in English; in Russian they would be Беларусь,
    Казахстан, Российская Федерация: your call);
    `languageVersions.ru = xx/ru`; all `pilot`, batch 14.
-2. **The roots' nav and footer**: copies of xx/ru's (`root-docs.mjs --from xx/ru --to <root>`),
-   which take the root's label from the locale rows: after them.
-3. **The query indexes** of xx/ru (helix-query.yaml `search-xx-ru`, `market-model-xx-ru`,
-   `market-llms-xx-ru`, as xx/es's and xx/pt's): they fill on publish.
-4. **Redirect rows**, or alias documents: the five xx/ru alias URLs.
-5. **The site's texts in Russian** (labels fall back to English).
+2. ~~The roots' nav and footer~~ (done, above).
+3. ~~The query indexes~~ of xx/ru (on main, 26f311d1): they fill on publish.
+4. **The five alias documents** (the capture of `14-ru-aliases.txt`), or redirect rows instead.
+5. ~~The site's texts in Russian~~ (on main, 6e0aed3c).
 6. Then a wave. `rollout.mjs --plan 14` runs now that xx/ru's three comparison documents exist
    (`flights`, `airport-information`, `additional-services`): "15 pages, 3 references; compare
    pairs 9 (no counterpart: none)". After it: the local-version comparison against the roots'
