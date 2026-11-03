@@ -574,6 +574,13 @@ const SWISS_MARKETS = {
   'us/it': ['USA | Italiano', 'NYC'],
   'xk/it': ['Kosovo | Italiano', 'PRN'],
   'za/it': ['Sud Africa | Italiano', 'CPT'],
+  // es and pt (the capture's held roots, imported 2026-11-03): behind SWISS_MARKET_LANGUAGES_LIVE
+  'ar/es': ['Argentina | Español', 'BUE'],
+  'br/es': ['Brasil | Español', 'SAO'],
+  'es/es': ['Spain | Español', 'MAD'],
+  'us/es': ['Estados Unidos de América | Español', 'NYC'],
+  'br/pt': ['Brasile | Português', 'SAO'],
+  'pt/pt': ['Portugal | Português', 'LIS'],
 };
 
 // The switch (as lh-com's liveWaves): off, SWISS's rows are ch's alone, swiss.turnsthe.page answers
@@ -581,11 +588,19 @@ const SWISS_MARKETS = {
 // documents are published), the roots of SWISS_MARKETS whose language lh-swiss has join the table:
 // the dialog lists them and lh-edge serves their pages.
 export const SWISS_MARKETS_LIVE = true;
+// the languages whose market roots join (lh-swiss has the language and the roots' documents are
+// published): es and pt's roots of SWISS_MARKETS come in once their code is listed here
+export const SWISS_MARKET_LANGUAGES_LIVE = ['en', 'de', 'fr', 'it'];
 
 /** SWISS's site entry with its market roots when the switch is on (roots of its languages only). */
-export function withSwissMarkets(site, live = SWISS_MARKETS_LIVE) {
+export function withSwissMarkets(
+  site,
+  live = SWISS_MARKETS_LIVE,
+  languages = SWISS_MARKET_LANGUAGES_LIVE,
+) {
   if (!live) return site;
-  const has = (root) => Object.prototype.hasOwnProperty.call(site.versions, root.split('/')[1]);
+  const has = (root) => Object.prototype.hasOwnProperty.call(site.versions, root.split('/')[1])
+    && languages.includes(root.split('/')[1]);
   const roots = Object.entries(SWISS_MARKETS).filter(([root]) => has(root));
   const rows = Object.fromEntries(roots.map(([root, [label]]) => {
     const [cc, ll] = root.split('/');
