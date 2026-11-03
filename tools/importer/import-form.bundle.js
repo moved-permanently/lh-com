@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-form.js
-  var tmp_bundle_form_101708_exports = {};
-  __export(tmp_bundle_form_101708_exports, {
-    default: () => tmp_bundle_form_101708_default
+  var tmp_bundle_form_262672_exports = {};
+  __export(tmp_bundle_form_262672_exports, {
+    default: () => tmp_bundle_form_262672_default
   });
 
   // tools/importer/parsers/form-core.js
@@ -148,11 +148,21 @@ var CustomImportScript = (() => {
       const t = attr(field, "type");
       add(textField(field, t === "email" ? "email" : t === "tel" ? "tel" : "text"));
     }
+    function dateMask(mask, field) {
+      if (!mask || /[DMY]/.test(mask)) return mask;
+      const groups = mask.split(/[^09]+/);
+      const seps = mask.match(/[^09]+/g) || [];
+      const named = `${attr(field, "hint") || ""} ${attr(field, "placeholder") || ""}`.match(/([DMY]+)[^DMY\s]([DMY]+)[^DMY\s]([DMY]+)/);
+      if (!named || groups.length !== 3) return mask;
+      const letters = named.slice(1, 4);
+      if (letters.some((l, i) => l.length !== groups[i].length || !/^(D+|M+|Y+)$/.test(l))) return mask;
+      return letters.map((l, i) => `${l}${seps[i] || ""}`).join("");
+    }
     function date(masked) {
       const field = masked.querySelector("maui-input");
       if (!field) return;
       const row = textField(field, "date");
-      const mask = attr(masked, "mask");
+      const mask = dateMask(attr(masked, "mask"), field);
       row.rules = mask ? [`mask=${mask}`] : [];
       add(row);
     }
@@ -3110,7 +3120,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_form_101708_default = {
+  var tmp_bundle_form_262672_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -3140,5 +3150,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_form_101708_exports);
+  return __toCommonJS(tmp_bundle_form_262672_exports);
 })();

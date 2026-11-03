@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-info.js
-  var tmp_bundle_info_677266_exports = {};
-  __export(tmp_bundle_info_677266_exports, {
-    default: () => tmp_bundle_info_677266_default
+  var tmp_bundle_info_262672_exports = {};
+  __export(tmp_bundle_info_262672_exports, {
+    default: () => tmp_bundle_info_262672_default
   });
 
   // tools/importer/parsers/search-results.js
@@ -1892,7 +1892,13 @@ var CustomImportScript = (() => {
     "add-sports-baggage": "add-sports-baggage",
     "sportgepaeck-hinzufuegen": "add-sports-baggage",
     "group-travel": "group-travel",
-    "passenger-receipt-90": "passenger-receipt-90"
+    "passenger-receipt-90": "passenger-receipt-90",
+    // the market roots' own forms (bg/en, il/en, mk/de local pages)
+    "invoice-request-bg": "invoice-request-bg",
+    "cancellation-refund-webform": "cancellation-refund-webform",
+    "formular-notfallkontakt": "formular-notfallkontakt",
+    // fr/fr's emergency contact form (French)
+    "emergency-contact": "emergency-contact"
   };
   var ERROR_PAGE = "/error.html";
   function parse9(element, { document, url, params }) {
@@ -1957,11 +1963,21 @@ var CustomImportScript = (() => {
       const t = attr(field, "type");
       add(textField(field, t === "email" ? "email" : t === "tel" ? "tel" : "text"));
     }
+    function dateMask(mask, field) {
+      if (!mask || /[DMY]/.test(mask)) return mask;
+      const groups = mask.split(/[^09]+/);
+      const seps = mask.match(/[^09]+/g) || [];
+      const named = `${attr(field, "hint") || ""} ${attr(field, "placeholder") || ""}`.match(/([DMY]+)[^DMY\s]([DMY]+)[^DMY\s]([DMY]+)/);
+      if (!named || groups.length !== 3) return mask;
+      const letters = named.slice(1, 4);
+      if (letters.some((l, i) => l.length !== groups[i].length || !/^(D+|M+|Y+)$/.test(l))) return mask;
+      return letters.map((l, i) => `${l}${seps[i] || ""}`).join("");
+    }
     function date(masked) {
       const field = masked.querySelector("maui-input");
       if (!field) return;
       const row = textField(field, "date");
-      const mask = attr(masked, "mask");
+      const mask = dateMask(attr(masked, "mask"), field);
       row.rules = mask ? [`mask=${mask}`] : [];
       add(row);
     }
@@ -2101,6 +2117,41 @@ var CustomImportScript = (() => {
         help: text(zone.querySelector("p.footnote, #forms-filedrop-hint")),
         placeholder: text(zone.querySelector("maui-button")),
         message: clean2(config2.requiredError),
+        rules
+      });
+    }
+    function upload(box) {
+      const inputs = [...box.querySelectorAll("input.forms-file-upload")];
+      const first = inputs[0];
+      let config2 = {};
+      try {
+        config2 = JSON.parse(first.getAttribute("data-forms-file-upload") || "{}") || {};
+      } catch (e) {
+        config2 = {};
+      }
+      const TYPES = {
+        pdf: ["application/pdf"],
+        jpeg: ["image/jpeg", "image/jpg"],
+        jpg: ["image/jpeg", "image/jpg"],
+        png: ["image/png"],
+        image: ["image/jpeg", "image/jpg", "image/png"]
+      };
+      const types = [...new Set(attr(first, "accept").split(",").flatMap((t) => TYPES[t.trim().toLowerCase()] || []))];
+      const order = ["application/pdf", "image/jpeg", "image/jpg", "image/png"];
+      types.sort((a, b) => order.indexOf(a) - order.indexOf(b));
+      const rules = [];
+      if (types.length) rules.push(`accept=${types.join(", ")}`);
+      rules.push(`max-files=${inputs.length}`);
+      if (config2.maximumFileSize) rules.push(`max-size=${clean2(config2.maximumFileSize)}`);
+      rules.push("not-allowed=#$%^*()[]");
+      const id = box.querySelector(`input.forms-file-id[data-fieldname]`);
+      add({
+        label: text(box.querySelector(`label[for="${first.id}"]`)),
+        type: "file",
+        name: id ? attr(id, "data-fieldname") : "",
+        required: has(first, "required") ? "yes" : "optional",
+        placeholder: text(box.querySelector(".forms-file-select-btn")),
+        message: attr(first.closest("[data-cmp-required-message]"), "data-cmp-required-message"),
         rules
       });
     }
@@ -2252,6 +2303,10 @@ var CustomImportScript = (() => {
       }
       if (el.matches("section.forms-filedrop")) {
         file(el);
+        return;
+      }
+      if (el.matches("div.upload") && el.querySelector("input.forms-file-upload")) {
+        upload(el);
         return;
       }
       if (el.matches("maui-checkbox") && !done.has(el.parentElement)) {
@@ -5960,7 +6015,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_info_677266_default = {
+  var tmp_bundle_info_262672_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -5990,5 +6045,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_info_677266_exports);
+  return __toCommonJS(tmp_bundle_info_262672_exports);
 })();

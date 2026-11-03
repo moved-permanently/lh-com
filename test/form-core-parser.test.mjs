@@ -75,3 +75,25 @@ test('the market roots\' form pages get their lh-forms id; www\'s empty mk/en/su
     assert.equal(form ? form.children[0].textContent : null, id, path);
   });
 });
+
+// Austrian's cn/zh forms (ema-cashub's survey, tools/reports/form-date-masks.tsv): www's masked
+// date inputs with mask="0000-00-00" (digit slots, no D/M/Y), their hint " - YYYY-MM-DD"; the
+// form block's mask rule needs D/M/Y slots, so the field never validated
+const masked = (mask, hint) => `<maui-masked-input variant="custom" custom-locale="zh-cn" mask="${mask}" value=""><maui-input id="form-text-1" label="日期" placeholder="日期" hint="${hint}" name="flightdate" type="text"></maui-input></maui-masked-input>`;
+const maskOfField = (mask, hint) => {
+  const { document } = parseHTML(`<!DOCTYPE html><html><body><main><div class="form-wrapper"><form class="cmp-form" action="https://www.austrian.com/content/aua/markets/cn/zh/emergency-contact.html">${masked(mask, hint)}<maui-button id="submit-btn" behavior="submit">提交</maui-button></form></div></main></body></html>`);
+  parse(document.querySelector('.form-wrapper'), { document, url: 'https://www.austrian.com/cn/zh/emergency-contact' });
+  const row = [...document.querySelectorAll('table[data-name] tr')].map((tr) => [...tr.children].map((td) => td.textContent)).find((r) => r[1] === 'date');
+  return row ? row[9] : null;
+};
+
+test('a date mask without D/M/Y slots (www\'s "0000-00-00") takes the order of the hint\'s pattern and the mask\'s separators and lengths', () => {
+  assert.equal(maskOfField('0000-00-00', ' - YYYY-MM-DD'), 'mask=YYYY-MM-DD');
+  // the hint written with slashes, the mask (what the field accepts) with hyphens
+  assert.equal(maskOfField('0000-00-00', ' - YYYY/MM/DD'), 'mask=YYYY-MM-DD');
+  // the other roots' masks as they are
+  assert.equal(maskOfField('DD.MM.YYYY', ' - DD.MM.YYYY'), 'mask=DD.MM.YYYY');
+  assert.equal(maskOfField('YYYY/MM/DD', ''), 'mask=YYYY/MM/DD');
+  // no pattern to take: as before
+  assert.equal(maskOfField('0000-00-00', ''), 'mask=0000-00-00');
+});

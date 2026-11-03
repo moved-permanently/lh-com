@@ -124,11 +124,25 @@ export default function parse(element, { document, url, params }) {
     add(textField(field, t === 'email' ? 'email' : t === 'tel' ? 'tel' : 'text'));
   }
 
+  // a mask of digit slots (www.austrian.com's cn/zh forms: "0000-00-00") has no D/M/Y for the form
+  // block's mask rule: the field's hint or placeholder names the order ("YYYY-MM-DD", once
+  // "YYYY/MM/DD"); the mask keeps its separators and lengths (what the field accepts)
+  function dateMask(mask, field) {
+    if (!mask || /[DMY]/.test(mask)) return mask;
+    const groups = mask.split(/[^09]+/);
+    const seps = mask.match(/[^09]+/g) || [];
+    const named = `${attr(field, 'hint') || ''} ${attr(field, 'placeholder') || ''}`.match(/([DMY]+)[^DMY\s]([DMY]+)[^DMY\s]([DMY]+)/);
+    if (!named || groups.length !== 3) return mask;
+    const letters = named.slice(1, 4);
+    if (letters.some((l, i) => l.length !== groups[i].length || !/^(D+|M+|Y+)$/.test(l))) return mask;
+    return letters.map((l, i) => `${l}${seps[i] || ''}`).join('');
+  }
+
   function date(masked) {
     const field = masked.querySelector('maui-input');
     if (!field) return;
     const row = textField(field, 'date');
-    const mask = attr(masked, 'mask');
+    const mask = dateMask(attr(masked, 'mask'), field);
     row.rules = mask ? [`mask=${mask}`] : [];
     add(row);
   }
