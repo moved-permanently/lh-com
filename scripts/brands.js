@@ -600,7 +600,7 @@ export const SWISS_MARKETS_LIVE = true;
 // the languages whose market roots join (lh-swiss has the language and the roots' documents are
 // published): es and pt's roots of SWISS_MARKETS since their documents are live (2026-11-03), zh
 // and ja's (cn/zh, hk/zh, sg/zh, jp/ja) since theirs are (2026-11-03)
-export const SWISS_MARKET_LANGUAGES_LIVE = ['en', 'de', 'fr', 'it', 'es', 'pt', 'zh', 'ja'];
+export const SWISS_MARKET_LANGUAGES_LIVE = ['en', 'de', 'fr', 'it', 'es', 'pt', 'zh', 'ja', 'el', 'ru'];
 
 /** SWISS's site entry with its market roots when the switch is on (roots of its languages only). */
 export function withSwissMarkets(

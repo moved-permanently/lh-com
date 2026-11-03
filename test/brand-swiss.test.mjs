@@ -193,13 +193,13 @@ test('the roots: the pilot\'s ch/en and ch/de, ch/fr and ch/it (brief 272), ch/e
   });
 });
 
-test('the country dialog: the ten roots, kr/ko and the 214 market roots; every other root links to its homepage on www.swiss.com', async () => {
+test('the country dialog: the ten roots, kr/ko and the 216 market roots; every other root links to its homepage on www.swiss.com', async () => {
   const {
     ownRoots, getHomepageUrl, rootRedirectPath, siteLocales,
   } = await import('../scripts/locale.js');
   onPage({ brand: 'swiss' }, () => {
     assert.deepEqual(ownRoots().slice(0, 10), ['ch/en', 'ch/de', 'ch/fr', 'ch/it', 'ch/es', 'ch/pt', 'ch/zh', 'ch/ja', 'ch/el', 'ch/ru']);
-    assert.equal(ownRoots().length, 225, 'ch\'s ten, kr/ko (SWISS_OWN_ROOTS_LIVE) and the market roots (SWISS_MARKETS_LIVE)');
+    assert.equal(ownRoots().length, 227, 'ch\'s ten, kr/ko (SWISS_OWN_ROOTS_LIVE) and the market roots (SWISS_MARKETS_LIVE)');
     assert.equal(getHomepageUrl('ch', 'en'), '/ch/en/homepage');
     assert.equal(getHomepageUrl('CH', 'DE'), '/ch/de/homepage');
     assert.equal(getHomepageUrl('ch', 'fr'), '/ch/fr/homepage');
@@ -217,6 +217,8 @@ test('the country dialog: the ten roots, kr/ko and the 214 market roots; every o
     [['ar', 'es'], ['br', 'es'], ['es', 'es'], ['us', 'es'], ['br', 'pt'], ['pt', 'pt']].forEach(([cc, ll]) => assert.equal(getHomepageUrl(cc, ll), `/${cc}/${ll}/homepage`, `${cc}/${ll}`));
     // zh and ja's market roots (SWISS_MARKET_LANGUAGES_LIVE, 2026-11-03)
     [['cn', 'zh'], ['hk', 'zh'], ['sg', 'zh'], ['jp', 'ja']].forEach(([cc, ll]) => assert.equal(getHomepageUrl(cc, ll), `/${cc}/${ll}/homepage`, `${cc}/${ll}`));
+    // el and ru's market roots (SWISS_MARKET_LANGUAGES_LIVE, 2026-11-03)
+    [['gr', 'el'], ['ru', 'ru']].forEach(([cc, ll]) => assert.equal(getHomepageUrl(cc, ll), `/${cc}/${ll}/homepage`, `${cc}/${ll}`));
     assert.equal(rootRedirectPath(), '/ch/en/homepage');
     assert.equal(siteLocales()['ch/de'].homeAirport, 'ZRH');
     assert.equal(siteLocales()['ch/de'].name, 'Switzerland | Deutsch');

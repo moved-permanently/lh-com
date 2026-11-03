@@ -6,28 +6,28 @@
    from ch/<ll>'s documents, with www's labels and their homepages' default airports; es and pt's six
    (ar/es, br/es, es/es, us/es, br/pt, pt/pt) since their documents are live (2026-11-03,
    SWISS_MARKET_LANGUAGES_LIVE), zh and ja's four (cn/zh, hk/zh, sg/zh, jp/ja) since theirs are live
-   (2026-11-03). Roots of other languages (el, ru: ch/el and ch/ru live since 2026-11-03) are not in the table until
-   their language is in SWISS_MARKET_LANGUAGES_LIVE.
+   (2026-11-03), el and ru's two (gr/el, ru/ru) since theirs and ch/el's and ch/ru's are live (2026-11-03).
    Run: node --max-old-space-size=512 --test test/swiss-markets-switch.test.mjs */
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { BRAND_SITES, SWISS_MARKETS_LIVE, withSwissMarkets } from '../scripts/brands.js';
 
-test('the switch is on: SWISS\'s rows are ch\'s own ten, kr/ko (test/swiss-korea.test.mjs) and the 214 market roots', () => {
+test('the switch is on: SWISS\'s rows are ch\'s own ten, kr/ko (test/swiss-korea.test.mjs) and the 216 market roots', () => {
   assert.equal(SWISS_MARKETS_LIVE, true);
   const { rows } = BRAND_SITES.swiss;
   assert.deepEqual(Object.keys(rows).filter((k) => rows[k].documents === 'own').sort(), ['ch/de', 'ch/el', 'ch/en', 'ch/es', 'ch/fr', 'ch/it', 'ch/ja', 'ch/pt', 'ch/ru', 'ch/zh', 'kr/ko']);
-  assert.equal(Object.values(rows).filter((r) => r.documents === 'language').length, 214);
+  assert.equal(Object.values(rows).filter((r) => r.documents === 'language').length, 216);
   assert.deepEqual(withSwissMarkets(BRAND_SITES.swiss, true), BRAND_SITES.swiss, 'on: the site as it is');
 });
 
-test('on: 51 countries in each of en, de, fr, it, 4 in es, 2 in pt, 3 in zh and 1 in ja as language roots, www\'s labels, their airports; the language versions and ch\'s rows as they are', () => {
+test('on: 51 countries in each of en, de, fr, it, 4 in es, 2 in pt, 3 in zh, 1 in ja, 1 in el and 1 in ru as language roots, www\'s labels, their airports; the language versions and ch\'s rows as they are', () => {
   const on = withSwissMarkets(BRAND_SITES.swiss, true);
   const markets = Object.entries(on.rows).filter(([, r]) => r.documents === 'language');
-  assert.equal(markets.length, 214);
+  assert.equal(markets.length, 216);
   ['en', 'de', 'fr', 'it'].forEach((ll) => assert.equal(markets.filter(([, r]) => r.lang === ll).length, 51, ll));
   assert.deepEqual(markets.filter(([, r]) => ['es', 'pt'].includes(r.lang)).map(([k]) => k), ['ar/es', 'br/es', 'es/es', 'us/es', 'br/pt', 'pt/pt']);
   assert.deepEqual(markets.filter(([, r]) => ['zh', 'ja'].includes(r.lang)).map(([k]) => k), ['cn/zh', 'hk/zh', 'sg/zh', 'jp/ja']);
+  assert.deepEqual(markets.filter(([, r]) => ['el', 'ru'].includes(r.lang)).map(([k]) => k), ['gr/el', 'ru/ru']);
   assert.deepEqual(on.rows['ae/en'], {
     country: 'ae', lang: 'en', hreflang: 'en-AE', status: 'live', documents: 'language', label: 'United Arab Emirates | English',
   });
@@ -57,7 +57,7 @@ test('es and pt market roots (ar/es, br/es, es/es, us/es, br/pt, pt/pt): in sinc
   assert.deepEqual(SWISS_MARKET_LANGUAGES_LIVE.slice(0, 6), ['en', 'de', 'fr', 'it', 'es', 'pt']);
   assert.equal(NEW.every((r) => BRAND_SITES.swiss.rows[r]), true);
   const on = BRAND_SITES.swiss;
-  assert.equal(Object.values(on.rows).filter((r) => r.documents === 'language').length, 214);
+  assert.equal(Object.values(on.rows).filter((r) => r.documents === 'language').length, 216);
   assert.deepEqual(on.rows['ar/es'], {
     country: 'ar', lang: 'es', hreflang: 'es-AR', status: 'live', documents: 'language', label: 'Argentina | Español',
   });
@@ -78,7 +78,7 @@ test('es and pt market roots (ar/es, br/es, es/es, us/es, br/pt, pt/pt): in sinc
 test('zh and ja market roots (cn/zh, hk/zh, sg/zh, jp/ja): in since SWISS_MARKET_LANGUAGES_LIVE lists zh and ja, with www\'s labels and airports; out without their language', async () => {
   const { SWISS_MARKET_LANGUAGES_LIVE } = await import('../scripts/brands.js');
   const NEW = ['cn/zh', 'hk/zh', 'sg/zh', 'jp/ja'];
-  assert.deepEqual(SWISS_MARKET_LANGUAGES_LIVE, ['en', 'de', 'fr', 'it', 'es', 'pt', 'zh', 'ja']);
+  assert.deepEqual(SWISS_MARKET_LANGUAGES_LIVE.slice(0, 8), ['en', 'de', 'fr', 'it', 'es', 'pt', 'zh', 'ja']);
   assert.equal(NEW.every((r) => BRAND_SITES.swiss.rows[r]), true);
   const on = BRAND_SITES.swiss;
   assert.deepEqual(on.rows['cn/zh'], {
@@ -95,22 +95,26 @@ test('zh and ja market roots (cn/zh, hk/zh, sg/zh, jp/ja): in since SWISS_MARKET
 
 // the market roots of SWISS's Greek and Russian (gr/el, ru/ru: the capture's only roots in those
 // languages, imported 2026-11-03) behind the same switch, and behind their language version's
-// (ch/el, ch/ru: SWISS_LANGUAGES_LIVE): in once both list the language
-test('el and ru market roots (gr/el, ru/ru): out with the shipped switches; in with their language version and their language listed, www\'s labels and airports', async () => {
-  const { withSwissLanguages, SWISS_LANGUAGES } = await import('../scripts/brands.js');
+// (ch/el, ch/ru: SWISS_LANGUAGES_LIVE): in since both list the language (their documents and
+// ch/el's and ch/ru's are live, 2026-11-03); without either the table is as before
+test('el and ru market roots (gr/el, ru/ru): in since SWISS_MARKET_LANGUAGES_LIVE lists el and ru and their language versions are live, www\'s labels and airports; out without either', async () => {
+  const { SWISS_MARKET_LANGUAGES_LIVE } = await import('../scripts/brands.js');
   const NEW = ['gr/el', 'ru/ru'];
-  assert.equal(NEW.some((r) => BRAND_SITES.swiss.rows[r]), false);
-  const languages = withSwissLanguages({ ...BRAND_SITES.swiss, pilots: undefined }, Object.keys(SWISS_LANGUAGES));
-  const languageRows = (site) => Object.values(site.rows).filter((r) => r.documents === 'language').length;
-  const on = withSwissMarkets(languages, true, ['en', 'de', 'fr', 'it', 'es', 'pt', 'zh', 'ja', 'el', 'ru']);
-  assert.equal(languageRows(on), languageRows(BRAND_SITES.swiss) + 2);
+  assert.deepEqual(SWISS_MARKET_LANGUAGES_LIVE, ['en', 'de', 'fr', 'it', 'es', 'pt', 'zh', 'ja', 'el', 'ru']);
+  assert.equal(NEW.every((r) => BRAND_SITES.swiss.rows[r]), true);
+  const on = BRAND_SITES.swiss;
   assert.deepEqual(on.rows['gr/el'], {
     country: 'gr', lang: 'el', hreflang: 'el-GR', status: 'live', documents: 'language', label: 'Griechenland | Ελληνικά',
   });
   assert.equal(on.names['ru/ru'], 'Federazione Russa | Русский');
   assert.deepEqual(NEW.map((r) => on.airports[r]), ['ATH', 'ZRH']);
-  // the language listed, its version not live: out (ch/el and ch/ru are live since 2026-11-03: a site without their versions)
-  const noVersions = Object.fromEntries(Object.entries(BRAND_SITES.swiss.versions).filter(([ll]) => !['el', 'ru'].includes(ll)));
-  const versionOff = withSwissMarkets({ ...BRAND_SITES.swiss, versions: noVersions }, true, ['en', 'de', 'fr', 'it', 'el', 'ru']);
+  const languageRows = (site) => Object.values(site.rows).filter((r) => r.documents === 'language').length;
+  const ownRows = Object.fromEntries(Object.entries(on.rows).filter(([, r]) => r.documents === 'own'));
+  const before = withSwissMarkets({ ...on, rows: ownRows }, true, ['en', 'de', 'fr', 'it', 'es', 'pt', 'zh', 'ja']);
+  assert.equal(languageRows(before), 214);
+  assert.equal(NEW.some((r) => before.rows[r]), false, 'without el and ru: as before');
+  // the language listed, its version not live: out
+  const noVersions = Object.fromEntries(Object.entries(on.versions).filter(([ll]) => !['el', 'ru'].includes(ll)));
+  const versionOff = withSwissMarkets({ ...on, rows: ownRows, versions: noVersions }, true, SWISS_MARKET_LANGUAGES_LIVE);
   assert.equal(NEW.some((r) => versionOff.rows[r]), false);
 });
