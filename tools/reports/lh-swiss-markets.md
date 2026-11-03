@@ -173,3 +173,30 @@ SWISS lists hreflang alternates as Austrian and Brussels (`ALTERNATES_SITES`), o
   The 11 `/cn/zh/` form documents re-imported (only their masks changed; emergency-contact also has a
   config row in another order), uploaded and previewed, not published. The other Austrian roots
   (at/de, at/en, es/es, fr/fr, gr/el, it/it, jp/ja, pl/pl, ru/ru) have masks with D/M/Y slots.
+
+## 2026-11-03: SWISS's site search; the apps on the preview hosts
+
+- Search pages (`tools/importer/swiss-search-pages.mjs`, www's `/<cc>/<ll>/search-results`, the FAQ
+  search bar's searchUrl): `/ch/{en,de,fr,it,es,pt,zh,ja,el,ru}/search-results` and
+  `/kr/ko/search-results`, uploaded and previewed, not published. The market roots get their
+  language's page from lh-edge's market route (no markets row; hide-in-search true, noindex), and its
+  block reads the page root's own index. Label rows for it, pt, zh, ja, el, ru and ko (the block has
+  en, de, fr, es); the input label is www's FAQ search bar text.
+- The FAQ's "Search for topic" (swiss-import withLinkOuts: www's search bar) links to the root's
+  search page: the ten ch FAQs and kr/ko's, uploaded and previewed after the search pages.
+- No header search button: www's main header has none (598 market snapshots); only the corporate
+  and medical services headers have one.
+- kr/ko's search index: `language-kr-ko` (helix-query.yaml, appended; target
+  `/kr/ko/language-index.json`), read for `/kr/ko/search-index.json` on SWISS's hosts as the ch roots'
+  (lh-edge siteEnv INDEX_PATHS, own roots). It fills on publish or an index job.
+- Checked on swiss.turnsthe.page (the block over the root's live index): "baggage" on ch/en and
+  ae/en, "Gepäck" on ch/de and de/de, "行李" on ch/zh, cn/zh and hk/zh: 30 results each, all of the
+  root; "수하물" over kr/ko's rows (market index): 30.
+- Apps: on swiss.turnsthe.page the help center and the culinary hub load from our host since
+  ba060b6a. On aem.page, aem.live and localhost they loaded from www.swiss.com; now from
+  swiss.turnsthe.page (the help center's module is still refused there: no CORS header, and it reads
+  its texts from the page's own origin; the topic list stays).
+- Still loaded from www.swiss.com: the contact pages' two help center pictures
+  (`/content/dam/lx/images/local_images/help-center/main.png`, `faq.png`), named by the app itself
+  (its LX `baseImageUrl`, https://swiss.com/...). No document names a www.swiss.com resource (4301
+  pages swept: ch, kr/ko, corporate, medical services, the magazine on the preview, ten market roots).
