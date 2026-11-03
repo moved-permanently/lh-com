@@ -36,6 +36,20 @@ const LANGS = ['en', 'de'];
 // fr/fr, brief 264); batch 12: Spanish with xx/es (brief 268; es/es a market root); batch 13:
 // Portuguese with xx/pt (brief 296: www's xx/pt has pages of its own; ao/pt, br/pt, pt/pt market roots)
 export const LANGUAGE_BATCHES = [{ lang: 'fr', version: 'xx/fr' }, { lang: 'es', version: 'xx/es' }, { lang: 'pt', version: 'xx/pt' }];
+// batches 14 to 21 (brief 300): ru, hk (www's zh-HK), zh (zh-CN), it, el, ja, ko, pl. www's sitemaps
+// list xx/<ll> URLs for each, but only as alternates (as xx/pt's, and xx/fr's while its pages
+// answered 404), so the sitemaps do not settle the version: xx/<ll>, to confirm by the local
+// capture's pilot; `confirm`: the root with the most URLs, the version if xx/<ll> has no pages
+LANGUAGE_BATCHES.push(
+  { lang: 'ru', version: 'xx/ru', confirm: 'ru/ru' },
+  { lang: 'hk', version: 'xx/hk', confirm: 'hk/hk' },
+  { lang: 'zh', version: 'xx/zh', confirm: 'cn/zh' },
+  { lang: 'it', version: 'xx/it', confirm: 'it/it' },
+  { lang: 'el', version: 'xx/el', confirm: 'gr/el' },
+  { lang: 'ja', version: 'xx/ja', confirm: 'jp/ja' },
+  { lang: 'ko', version: 'xx/ko', confirm: 'kr/ko' },
+  { lang: 'pl', version: 'xx/pl', confirm: 'pl/pl' },
+);
 const VERSIONS = { en: 'de/en', de: 'de/de', ...Object.fromEntries(LANGUAGE_BATCHES.map((l) => [l.lang, l.version])) };
 // the pages compared per root with the language version (en paths; the root's own slug from the
 // page groups): the flight offers page and two pages with local content (airports, services)
