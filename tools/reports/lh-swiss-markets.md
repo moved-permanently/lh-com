@@ -102,3 +102,21 @@ SWISS lists hreflang alternates as Austrian and Brussels (`ALTERNATES_SITES`), o
     DA already (ch's).
   - `tools/reports/lh-swiss-kr-ko-missing-pages.tsv`: 14 linked pages the capture lacks (among
     them the login page, which lh-swiss serves for ch only); no redirect rows needed.
+
+## 2026-11-03: the market index gap; links to pages we serve
+
+- lh-edge (8b8416b3, deployed): SWISS's market roots under the paths the shared market-pages index
+  leaves out (de/en, de/de, at/de, gb/en, it/en, it/it, fr/fr, es/es, br/pt, cn/zh, jp/ja) get
+  their own pages from their own `search-<cc>-<ll>` index, merged into SWISS's
+  `/market-pages.json` read; their search index is built as the other market roots' (de/en: 326
+  rows, was 3; es/es 270, was 5; br/pt 270). ITA's and the other sites' indexes as they are;
+  `helix-query.yaml` unchanged. SWISS has no sitemaps on its host (`/sitemap.xml` 404, none in
+  robots.txt): nothing to add there.
+- Relinked and uploaded, previewed (`tools/reports/lh-swiss-markets-relinked.tsv`, 487
+  documents, 486 previewed): 477 links to www's `/deeplink/cockpit` in 228 documents (every
+  market nav, kr/ko's pages) now on our host with their `country` and `language`; 876 links in
+  130 documents to pages the site serves relative (the es, pt, zh, ja and kr/ko roots' navs,
+  footers and pages, whose ch pages were not yet in `runs/markets.json`); br/pt's footer PDF
+  (condições gerais) from DA; the Parent metadata of 139 documents as a plain path (kr/en
+  klook's breadcrumb). The navs' magazine link as it was. `/kr/ko/customer-support/faq` still
+  waits for its icon `product-voucher.svg` in DA (preview 409).
