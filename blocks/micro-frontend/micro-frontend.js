@@ -50,7 +50,8 @@ const OWN_HOST_BRANDS = { 'www.swiss.com': `swiss.${TURNSTHE_PAGE_DOMAIN}` };
  * The apps the block knows: name (the block's first cell) -> element, script and www's classes.
  * script: an absolute URL (www.lufthansa.com's app), or path: the app on the page's brand www
  * (www.lufthansa.com without a brand); module: a module script; attributes: the element's own;
- * portalMeta: the app reads the page's X-Portal, X-Portal-Site, X-Portal-Language meta tags;
+ * portalMeta: the app reads the page's X-Portal, X-Portal-Site, X-Portal-Language meta tags
+ * (brandMeta: on a brand's pages only); a Version row: that release of the app's script;
  * release: www's design system release the app's page loads (else DESIGN_SYSTEM_VERSION).
  * shows: blocks after the app in its section that show what the app shows itself (a fallback the
  * importer writes outside the block): removed once the app renders, kept where it does not.
@@ -73,14 +74,28 @@ export const APPS = {
     shows: ['accordion-columns'],
   },
   // lufthansa.com's compensation claim (support/fast-compensation/compensation-flight-disruptions,
-  // 2026-11-01): a module with chunks next to it, on www's mausy-v1.40.1; its APIs
-  // (api.travelid.lufthansa.com, api.miles-and-more.com/claim) allow www.lufthansa.com only
+  // 2026-11-01) and SWISS's (/<root>/fast-compensation): a module with chunks next to it, on www's
+  // mausy-v1.40.1; its APIs (api.travelid.lufthansa.com, api.miles-and-more.com/claim) allow www
+  // only. On a brand's pages (brandDesign, brandMeta) the brand's design system and the X-Portal
+  // meta tags it reads for its tenant; lufthansa.com's as before
   'claim-form-entry': {
     tag: 'claim-form-entry',
     path: '/digitalhangar/claim-automation/production/claim-form-entry/claim-form-entry-0.11.16.js',
     module: true,
     attributes: { 'data-public-endpoint': '' },
     release: 'mausy-v1.40.1',
+    brandDesign: true,
+    brandMeta: true,
+  },
+  // SWISS's baggage claim (/<root>/baggage-reimbursement): a module, its chunks in assets/
+  'baggage-form-entry': {
+    tag: 'baggage-form-entry',
+    path: '/digitalhangar/claim-automation/baggage-form-entry/baggage-form-entry-latest.js',
+    module: true,
+    attributes: { 'data-public-endpoint': '' },
+    release: 'mausy-v1.40.1',
+    brandDesign: true,
+    brandMeta: true,
   },
   // Austrian's culinary journey (rows: Configuration, API gateway); its theme from X-Portal
   // (without it the app's class is maui-theme-undefined, its inputs unstyled), www's classes
@@ -164,8 +179,15 @@ export function mountPlan(block, brand, locale, hostname = window.location.hostn
   else if (app.release) base = `${releases(WWW)}/${app.release}/standalone`;
   const theme = design ? design.theme : 'lufthansa';
   const attributes = { ...(app.attributes || {}) };
+  let { path } = app;
   rowsOf(block).slice(1).forEach(([key, value]) => {
     const name = String(key || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    // the Version row: the page's release of the app (www's ch/ru: claim-form-entry 0.11.9)
+    if (name === 'version') {
+      const v = String(value || '').trim();
+      if (path && /^(\d+\.\d+\.\d+|latest)$/.test(v)) path = path.replace(/-(\d+\.\d+\.\d+|latest)\.js$/, `-${v}.js`);
+      return;
+    }
     // the Fallback row is the block's content, not the app's
     if (name && name !== 'fallback') attributes[`data-${name}`] = value || '';
   });
@@ -175,10 +197,10 @@ export function mountPlan(block, brand, locale, hostname = window.location.hostn
     css: base ? `${base}/css/${theme}.css` : DESIGN_SYSTEM_CSS,
     scripts: [
       { src: base ? `${base}/packages/maui-design-system.js` : DESIGN_SYSTEM_JS, module: true },
-      { src: app.script || `${www}${app.path}`, module: Boolean(app.module) },
+      { src: app.script || `${www}${path}`, module: Boolean(app.module) },
     ],
     attributes,
-    meta: app.portalMeta ? {
+    meta: app.portalMeta || (app.brandMeta && brand) ? {
       'X-Portal': portalOf(locale),
       'X-Portal-Site': String(locale.country || '').toUpperCase(),
       'X-Portal-Language': locale.lang,

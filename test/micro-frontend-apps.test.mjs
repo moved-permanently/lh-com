@@ -180,3 +180,51 @@ test('SWISS on aem.page, aem.live and localhost: its apps and design system from
   const aua = mountPlan(blockOf([['culinary-hub']]), BRANDS.austrian, { country: 'at', lang: 'en', brand: 'austrian' }, 'main--lh-austrian--moved-permanently.aem.page');
   assert.equal(aua.scripts[1].src, 'https://www.austrian.com/digitalhangar/onecatering/culinary-hub/culinary-hub-latest.js', 'Austrian as before');
 });
+
+// brief 300: SWISS's claim apps (swiss-snapshots-claims-20, kr/ko's capture): /<root>/fast-compensation
+// <claim-form-entry data-public-endpoint=""> (0.11.16; ch/ru 0.11.9), /<root>/baggage-reimbursement
+// <baggage-form-entry data-public-endpoint=""> (claim-automation/baggage-form-entry/
+// baggage-form-entry-latest.js, its chunks in assets/ next to it), both modules on mausy-v1.40.1
+// with swiss.css; they read X-Portal, X-Portal-Site and X-Portal-Language (else Lufthansa's tenant)
+const BAGGAGE = '/digitalhangar/claim-automation/baggage-form-entry/baggage-form-entry-latest.js';
+const LX = 'https://swiss.turnsthe.page/digitalhangar/design-system/releases/mausy-v1.40.1/standalone';
+
+test('baggage-form-entry and claim-form-entry on SWISS: modules from the page\'s own /digitalhangar/, SWISS\'s design system, its X-Portal meta', () => {
+  const locale = { country: 'ch', lang: 'en', brand: 'swiss' };
+  const bag = mountPlan(blockOf([['baggage-form-entry']]), BRANDS.swiss, locale, 'swiss.turnsthe.page');
+  assert.deepEqual(bag, {
+    tag: 'baggage-form-entry',
+    className: '',
+    css: `${LX}/css/swiss.css`,
+    scripts: [{ src: `${LX}/packages/maui-design-system.js`, module: true }, { src: `https://swiss.turnsthe.page${BAGGAGE}`, module: true }],
+    attributes: { 'data-public-endpoint': '' },
+    meta: { 'X-Portal': 'LX', 'X-Portal-Site': 'CH', 'X-Portal-Language': 'en' },
+  });
+  const claim = mountPlan(blockOf([['claim-form-entry']]), BRANDS.swiss, { ...locale, country: 'kr', lang: 'ko' }, 'swiss.turnsthe.page');
+  assert.equal(claim.scripts[1].src, `https://swiss.turnsthe.page${CLAIM}`);
+  assert.equal(claim.css, `${LX}/css/swiss.css`);
+  assert.deepEqual(claim.meta, { 'X-Portal': 'LX', 'X-Portal-Site': 'KR', 'X-Portal-Language': 'ko' });
+  // the preview hosts: from swiss.turnsthe.page, never www.swiss.com
+  const preview = mountPlan(blockOf([['baggage-form-entry']]), BRANDS.swiss, locale, 'main--lh-swiss--moved-permanently.aem.page');
+  assert.equal(preview.scripts[1].src, `https://swiss.turnsthe.page${BAGGAGE}`);
+  assert.ok([...bag.scripts, ...claim.scripts, ...preview.scripts].every((s) => !s.src.includes('www.swiss.com')));
+  assert.equal(appOf(blockOf([['baggage-form-entry']])).tag, 'baggage-form-entry');
+});
+
+test('a Version row: the app\'s script of that version (ch/ru: claim-form-entry-0.11.9.js), not an attribute; an odd value ignored', () => {
+  const locale = { country: 'ch', lang: 'ru', brand: 'swiss' };
+  const ru = mountPlan(blockOf([['claim-form-entry'], ['Version', '0.11.9']]), BRANDS.swiss, locale, 'swiss.turnsthe.page');
+  assert.equal(ru.scripts[1].src, 'https://swiss.turnsthe.page/digitalhangar/claim-automation/production/claim-form-entry/claim-form-entry-0.11.9.js');
+  assert.deepEqual(ru.attributes, { 'data-public-endpoint': '' });
+  const latest = mountPlan(blockOf([['baggage-form-entry'], ['Version', 'latest']]), BRANDS.swiss, locale, 'swiss.turnsthe.page');
+  assert.equal(latest.scripts[1].src, `https://swiss.turnsthe.page${BAGGAGE}`);
+  const odd = mountPlan(blockOf([['claim-form-entry'], ['Version', '../../x']]), BRANDS.swiss, locale, 'swiss.turnsthe.page');
+  assert.equal(odd.scripts[1].src, `https://swiss.turnsthe.page${CLAIM}`);
+});
+
+test('lufthansa.com\'s claim page as before: no X-Portal meta, lufthansa.css from www', () => {
+  const plan = mountPlan(blockOf([['claim-form-entry']]), null, { country: 'gb', lang: 'en' }, 'lufthansa.turnsthe.page');
+  assert.deepEqual(plan.meta, {});
+  assert.equal(plan.css, `${MAUSY}/css/lufthansa.css`);
+  assert.equal(plan.scripts[1].src, `https://lufthansa.turnsthe.page${CLAIM}`);
+});
