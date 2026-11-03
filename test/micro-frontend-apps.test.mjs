@@ -199,6 +199,7 @@ test('baggage-form-entry and claim-form-entry on SWISS: modules from the page\'s
     scripts: [{ src: `${LX}/packages/maui-design-system.js`, module: true }, { src: `https://swiss.turnsthe.page${BAGGAGE}`, module: true }],
     attributes: { 'data-public-endpoint': '' },
     meta: { 'X-Portal': 'LX', 'X-Portal-Site': 'CH', 'X-Portal-Language': 'en' },
+    themeClass: 'maui-theme-lx',
   });
   const claim = mountPlan(blockOf([['claim-form-entry']]), BRANDS.swiss, { ...locale, country: 'kr', lang: 'ko' }, 'swiss.turnsthe.page');
   assert.equal(claim.scripts[1].src, `https://swiss.turnsthe.page${CLAIM}`);
@@ -220,6 +221,27 @@ test('a Version row: the app\'s script of that version (ch/ru: claim-form-entry-
   assert.equal(latest.scripts[1].src, `https://swiss.turnsthe.page${BAGGAGE}`);
   const odd = mountPlan(blockOf([['claim-form-entry'], ['Version', '../../x']]), BRANDS.swiss, locale, 'swiss.turnsthe.page');
   assert.equal(odd.scripts[1].src, `https://swiss.turnsthe.page${CLAIM}`);
+});
+
+// brief 304: the design system's components take their theme from the nearest .maui-theme-<tenant>
+// ancestor (else lh); www.swiss.com's body has class maui-theme-lx, which claim-form-entry needs
+// (baggage-form-entry sets it on its own root): on SWISS's pages the plan names it and the block
+// puts it on the body before the app's scripts load; other brands and lufthansa.com as before
+test('SWISS\'s apps: the theme class maui-theme-lx, on the body before the scripts; other brands and lufthansa.com none', async () => {
+  const locale = { country: 'ch', lang: 'en', brand: 'swiss' };
+  ['claim-form-entry', 'baggage-form-entry', 'help-center-web', 'culinary-hub'].forEach((app) => {
+    assert.equal(mountPlan(blockOf([[app]]), BRANDS.swiss, locale, 'swiss.turnsthe.page').themeClass, 'maui-theme-lx', app);
+  });
+  assert.equal('themeClass' in mountPlan(blockOf([['claim-form-entry']]), null, { country: 'de', lang: 'en' }, 'lufthansa.turnsthe.page'), false, 'lufthansa.com: no theme class');
+  assert.equal('themeClass' in mountPlan(blockOf([['help-center-web']]), BRANDS.austrian, { country: 'at', lang: 'en', brand: 'austrian' }, 'austrian.turnsthe.page'), false, 'Austrian as before');
+  const { pagePrepare } = await import('../blocks/micro-frontend/micro-frontend.js');
+  const plan = mountPlan(blockOf([['claim-form-entry']]), BRANDS.swiss, locale, 'swiss.turnsthe.page');
+  pagePrepare(plan, document);
+  assert.equal(document.body.classList.contains('maui-theme-lx'), true);
+  assert.equal(document.head.querySelector('meta[name="X-Portal"]').getAttribute('content'), 'LX');
+  document.body.classList.remove('maui-theme-lx');
+  pagePrepare(mountPlan(blockOf([['claim-form-entry']]), null, { country: 'de', lang: 'en' }, 'lufthansa.turnsthe.page'), document);
+  assert.equal([...document.body.classList].some((c) => c.startsWith('maui-theme-')), false, 'lufthansa.com: the body as it is');
 });
 
 test('lufthansa.com\'s claim page as before: no X-Portal meta, lufthansa.css from www', () => {

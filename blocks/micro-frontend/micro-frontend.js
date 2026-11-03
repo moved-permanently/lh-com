@@ -37,8 +37,11 @@ const BRAND_DESIGN_SYSTEMS = {
   'www.ita-airways.com': { release: 'mausy-v1.40.1', theme: 'ita' },
   // www's culinaryjourney pages (2026-10-27): v1.38.0, discover.css
   'www.discover-airlines.com': { release: 'v1.38.0', theme: 'discover' },
-  // www's help center and culinary journey pages (the snapshots): mausy-v1.40.1, swiss.css
-  'www.swiss.com': { release: 'mausy-v1.40.1', theme: 'swiss' },
+  // www's help center and culinary journey pages (the snapshots): mausy-v1.40.1, swiss.css; its
+  // body has class maui-theme-lx, the ancestor the components take their theme from (else lh) and
+  // that swiss.css sets its tokens on (claim-form-entry relies on it; baggage-form-entry sets
+  // its own)
+  'www.swiss.com': { release: 'mausy-v1.40.1', theme: 'swiss', themeClass: 'maui-theme-lx' },
 };
 
 // the brands whose apps and design system load from the page's own /digitalhangar/ where the host
@@ -205,7 +208,24 @@ export function mountPlan(block, brand, locale, hostname = window.location.hostn
       'X-Portal-Site': String(locale.country || '').toUpperCase(),
       'X-Portal-Language': locale.lang,
     } : {},
+    // the brand's theme class for the body (www's), where its design system has one
+    ...(design && design.themeClass ? { themeClass: design.themeClass } : {}),
   };
+}
+
+/**
+ * What the page needs before the app's scripts load: the meta tags it reads (where the page has
+ * none) and the brand's theme class on the body (the components read it when they connect).
+ */
+export function pagePrepare(plan, doc = document) {
+  Object.entries(plan.meta).forEach(([name, content]) => {
+    if (doc.head.querySelector(`meta[name="${name}"]`)) return;
+    const meta = doc.createElement('meta');
+    meta.name = name;
+    meta.content = content;
+    doc.head.append(meta);
+  });
+  if (plan.themeClass) doc.body.classList.add(plan.themeClass);
 }
 
 /** The text a node shows: its text nodes, its shadow roots', not styles or scripts. */
@@ -295,14 +315,8 @@ export default async function decorate(block) {
   block.replaceChildren();
   if (fallback) block.append(fallback);
   if (!plan) return;
-  // the meta tags the app reads, where the page has none
-  Object.entries(plan.meta).forEach(([name, content]) => {
-    if (document.head.querySelector(`meta[name="${name}"]`)) return;
-    const meta = document.createElement('meta');
-    meta.name = name;
-    meta.content = content;
-    document.head.append(meta);
-  });
+  // the meta tags the app reads and the brand's theme class, before its scripts load
+  pagePrepare(plan);
   const config = configOf(block);
   const mount = async () => {
     try {
