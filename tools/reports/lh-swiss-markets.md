@@ -76,3 +76,29 @@ SWISS lists hreflang alternates as Austrian and Brussels (`ALTERNATES_SITES`), o
   redirect row in `lh-swiss-markets-redirects.tsv` is not needed.
 - lh-forms: swiss-pax-receipt-request, swiss-refundable-travel-credit,
   swiss-invoice-request-hungary, swiss-klook added (deployed); their five pages unchanged.
+
+## 2026-11-03: zh and ja market roots; Korea (kr/ko)
+
+- cn/zh, hk/zh, sg/zh, jp/ja: 4 homepages and 7 own pages with their nav and footer (19
+  documents) uploaded and previewed. Their rows are in `scripts/brands.js` SWISS_MARKETS behind
+  `SWISS_MARKET_LANGUAGES_LIVE`: add 'zh' and 'ja' once published. 2 new files for the capture:
+  `tools/reports/lh-swiss-markets-zh-ja-dam.tsv`.
+- kr/ko (swiss-snapshots-028 and -029, 278 pages, sha256 as given and each file against its
+  manifest): all its pages as its own documents (ko is no SWISS language version), with its nav
+  and footer: 280 documents uploaded, 279 previewed. Behind `SWISS_OWN_ROOTS_LIVE` ([]): until
+  'kr/ko' is listed it is a pilot (its pages render with their own row on preview; the country
+  dialog and lh-edge as before); then it joins next to kr/en as "대한민국 | 한국어".
+  - flight search: Seoul (SEL) as the homepage's origin, as www's.
+  - forms: 18 pages; 17 on SWISS's known ids, swiss-hyundai26-application added to lh-forms
+    (deployed); www's own Korean field messages.
+  - labels: Korean in every built-in label table (header, footer, form, flight search, passenger
+    picker and the other blocks), www's own wording where it has one.
+  - fonts: as www, SWISS's own (CH Sans via the design system) with the browser's fallback for
+    Hangul; www loads no Korean web font.
+  - `/kr/ko/customer-support/faq`: uploaded, its preview refused (409 from the content bus):
+    its icon `product-voucher.svg` is not in DA yet (on the list); preview it again once it is.
+  - `tools/reports/lh-swiss-kr-ko-dam.tsv`: 30 files for the capture under www's own names (11
+    jpg, 1 svg, 16 mp4 and 2 PDFs for the AEM tier if over the limits); 781 of its files are in
+    DA already (ch's).
+  - `tools/reports/lh-swiss-kr-ko-missing-pages.tsv`: 14 linked pages the capture lacks (among
+    them the login page, which lh-swiss serves for ch only); no redirect rows needed.
