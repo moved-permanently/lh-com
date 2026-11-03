@@ -356,8 +356,9 @@ export const BRANDS = {
   // check-in, manage booking, account and sign-in, search, forms, live fares and chat stay links
   // to www.flytap.com: no booking hand-off, Travel ID, Message Center tenant, embeds or portal
   // (the widgets that hand off to Lufthansa's shop or sign in with Lufthansa's Travel ID don't
-  // belong on its pages). No consent manager: the TAP capture archives (what www.flytap.com
-  // loads) were not delivered yet (2026-11-03); consent stays off until they show one
+  // belong on its pages). No consent manager: www.flytap.com's pages load none of their own,
+  // only Google Tag Manager (GTM-5H44JL7M; the TAP capture, tap-snapshots-001), which the
+  // replica doesn't run
   tap: {
     name: 'TAP Air Portugal',
     www: 'www.flytap.com',

@@ -54,7 +54,8 @@ const root = (html) => {
 };
 const texts = (el) => [...el.querySelectorAll('li, p')].map((n) => n.textContent.replace(/\s+/g, ' ').trim());
 
-// TAP (brief 312): consent off until the TAP capture archives show what www.flytap.com loads
+// TAP (briefs 312, 314): www.flytap.com's pages load no consent manager of their own, only Google
+// Tag Manager (GTM-5H44JL7M), which the replica doesn't run
 test('a consent tool runs where the brand has OneTrust (and on lh-com, Lufthansa\'s); not on Cargo, Air Dolomiti or TAP', () => {
   assert.equal(hasConsentTool(), true, 'lh-com');
   const without = Object.keys(BRANDS).filter((k) => {

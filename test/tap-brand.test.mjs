@@ -4,8 +4,8 @@
    /it-it, /pl-pl. A page's language, country, hreflang and base (its nav and footer) from its
    root; the header's language switch lists the roots the site has pages of. Booking, check-in,
    sign-in, search, forms, fares and chat stay links to www.flytap.com: no hand-off, no Travel ID,
-   no Message Center tenant, no embeds; no consent manager (the TAP capture archives were not
-   delivered: consent off until they show what www.flytap.com loads). Air Dolomiti, Cargo and
+   no Message Center tenant, no embeds; no consent manager (www.flytap.com's pages load none of
+   their own, only Google Tag Manager, which the replica doesn't run). Air Dolomiti, Cargo and
    lh-com as before. Run: node --max-old-space-size=512 --test test/tap-brand.test.mjs */
 /* global globalThis */
 import test from 'node:test';
