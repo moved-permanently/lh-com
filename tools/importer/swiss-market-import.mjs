@@ -110,6 +110,37 @@ export function withoutDatepicker(html) {
   return out;
 }
 
+/** The markets record (runs/markets.json: ch page -> the roots its markets list) of index rows. */
+export const marketsOf = (rows) => Object.fromEntries(rows.filter((r) => r && r.path)
+  .map((r) => [r.path, String(r.markets || '').split(',').map((x) => x.trim()).filter(Boolean)]));
+
+/**
+ * www's links to a path lh-swiss answers itself without a document (tools/importer/sites/
+ * lh-swiss.json served: /deeplink/cockpit, which ch's documents link relatively) relative, the
+ * query kept.
+ */
+export function withServedLinks(doc, selfServed) {
+  return doc.replace(/href="https:\/\/www\.swiss\.com(\/[^"?#]*)([?#][^"]*)?"/g, (m, p, rest = '') => (selfServed.includes(p) ? `href="${p}${rest}"` : m));
+}
+
+/**
+ * The Parent metadata as a plain path, as ch's documents write it: a link there makes the page's
+ * parent meta its text (www's URL), which the breadcrumb links.
+ */
+export function withParentPath(doc) {
+  return doc.replace(/(<div><div>Parent<\/div><div>)<a href="([^"]*)">[^<]*<\/a>(<\/div><\/div>)/g, (m, open, href, close) => `${open}${href.replace(/^https:\/\/(?:www\.)?swiss\.com/, '')}${close}`);
+}
+
+/**
+ * A market document's links again (--relink after the served pages grew: a language joined,
+ * runs/markets.json refreshed): the served pages relative (subSiteLinks, as a document read from
+ * www's markup: www.lufthansa.com's links stay Lufthansa's), DAM links site-relative, the paths
+ * lh-swiss serves itself, the Parent path. Done twice it leaves a document as it is.
+ */
+export function relinked(doc, { served, subPages, selfServed = [] }) {
+  return withParentPath(withServedLinks(relativeDamLinks(subSiteLinks(doc, { subPages, sitePaths: served, mapHosts: false })), selfServed));
+}
+
 /**
  * Is a www path one of the site's pages: a page of a language lh-swiss has (a market root's own
  * page), or of an own root (scripts/brands.js SWISS_OWN_ROOTS: kr/ko, all of whose pages are its
@@ -123,6 +154,53 @@ if (isMain) {
   const argv = process.argv.slice(2);
   const opt = (n) => (argv.includes(`--${n}`) ? argv[argv.indexOf(`--${n}`) + 1] : null);
   const started = Date.now();
+  if (argv.includes('--markets')) {
+    // runs/markets.json from lh-swiss's live language indexes (our host: each ch page's markets)
+    const record = {};
+    // eslint-disable-next-line no-restricted-syntax
+    for (const version of Object.values(BRAND_SITES.swiss.versions)) {
+      const rows = [];
+      for (let offset = 0; ;) {
+        // eslint-disable-next-line no-await-in-loop
+        const resp = await fetch(`https://main--lh-swiss--moved-permanently.aem.live/${version}/language-index.json?offset=${offset}&limit=1000`, { headers: { 'user-agent': 'curl/8.5.0' } });
+        if (!resp.ok) break;
+        // eslint-disable-next-line no-await-in-loop
+        const body = await resp.json();
+        rows.push(...(body.data || []));
+        offset += (body.data || []).length;
+        if (!(body.data || []).length || offset >= body.total) break;
+      }
+      Object.assign(record, marketsOf(rows));
+      console.log(`markets: ${version} ${rows.length} pages`);
+    }
+    // pages the language indexes leave out (nav, footer, form confirmations) as the record had them
+    const file = path.join(W, 'runs/markets.json');
+    const had = fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, 'utf8')) : {};
+    fs.writeFileSync(file, `${JSON.stringify({ ...had, ...record }, null, 1)}\n`);
+    process.exit(0);
+  }
+  if (argv.includes('--relink')) {
+    // every market document's links again (relinked), nav and footer too -> runs/relink-upload.txt
+    const allow = JSON.parse(fs.readFileSync(path.join(root, 'tools/importer/sites/lh-swiss.json'), 'utf8'));
+    const markets = JSON.parse(fs.readFileSync(path.join(W, 'runs/markets.json'), 'utf8'));
+    const walk = (d) => (fs.existsSync(d) ? fs.readdirSync(d, { withFileTypes: true }).flatMap((e) => (e.isDirectory() ? walk(path.join(d, e.name)) : [path.join(d, e.name)])) : []);
+    const own = walk(SNAP).filter((f) => f.endsWith('.html')).map((f) => `/${path.relative(SNAP, f).replace(/\.html$/, '')}`).filter(onSite);
+    const served = servedPaths({
+      own: [...own, ...own.map(docName)], sitePaths: new Set(allow.paths), markets, roots: own.filter((x) => x.endsWith('/homepage')).map((x) => x.split('/').slice(1, 3).join('/')),
+    });
+    const subPages = capturedPages(SUB_SNAP);
+    const docs = path.join(W, 'content');
+    const changed = [];
+    walk(docs).filter((f) => f.endsWith('.plain.html')).forEach((f) => {
+      const d = `/${path.relative(docs, f).replace(/\.plain\.html$/, '')}`;
+      const doc = fs.readFileSync(f, 'utf8');
+      const next = relinked(doc, { served, subPages, selfServed: allow.served || [] });
+      if (next !== doc) { fs.writeFileSync(f, next); changed.push(d); }
+    });
+    fs.writeFileSync(path.join(W, 'runs/relink-upload.txt'), `${changed.sort().join('\n')}\n`);
+    console.log(`relink: ${changed.length} documents changed (runs/relink-upload.txt)`);
+    process.exit(0);
+  }
   const list = opt('list');
   const name = path.basename(list).replace(/\.txt$/, '');
   const urls = fs.readFileSync(path.resolve(root, list), 'utf8').split('\n').map((u) => u.trim()).filter(Boolean);
@@ -228,6 +306,8 @@ if (isMain) {
     doc = relativeDamLinks(subSiteLinks(doc.split(`https://${LINK_OUT}`).join(`https://${HOST}`), { subPages, sitePaths: served }))
       .split(`https://${PLACEHOLDER}`).join('https://www.lufthansa.com');
     doc = withDaImages(withOwnSuccess(doc, (t) => served.has(t)));
+    // the paths lh-swiss serves itself (/deeplink/cockpit) relative; Parent as a plain path
+    doc = withParentPath(withServedLinks(doc, allow.served || []));
     fs.writeFileSync(f, doc);
   });
   fs.mkdirSync(path.join(W, 'runs'), { recursive: true });

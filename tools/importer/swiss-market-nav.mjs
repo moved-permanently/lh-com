@@ -14,15 +14,21 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseHTML } from 'linkedom';
 import { navDocument, footerDocument } from './swiss-nav.mjs';
-import { subSiteLinks, capturedPages } from './swiss-sub-import.mjs';
+import { capturedPages } from './swiss-sub-import.mjs';
 import { withDaImages } from './swiss-sub-dam.mjs';
-import { servedPaths, onSite, W } from './swiss-market-import.mjs';
+import {
+  servedPaths, onSite, relinked, W,
+} from './swiss-market-import.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 
+// the paths lh-swiss serves itself (tools/importer/sites/lh-swiss.json served)
+const SERVED = JSON.parse(fs.readFileSync(path.join(root, 'tools/importer/sites/lh-swiss.json'), 'utf8')).served || [];
+
 /** The nav and footer of a market root (key: de/en) from its homepage's document. */
 export function marketNavDocuments(document, key, served, subPages) {
-  const fix = (doc) => withDaImages(subSiteLinks(doc, { subPages, sitePaths: served, mapHosts: false }));
+  // (DAM links site-relative and the paths lh-swiss serves itself relative, as the pages')
+  const fix = (doc) => withDaImages(relinked(doc, { served, subPages, selfServed: SERVED }));
   return { nav: fix(navDocument(document, key, served)), footer: fix(footerDocument(document, served)) };
 }
 

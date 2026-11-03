@@ -91,3 +91,36 @@ test('onSite: a page of a language lh-swiss has, or of an own root (scripts/bran
   assert.equal(onSite('/kr/en/homepage'), true);
   assert.equal(onSite('/gr/el/homepage'), false);
 });
+
+test('marketsOf: a language index\'s rows as the markets record (path -> its roots; an empty markets value: none listed)', async () => {
+  const { marketsOf } = await import('../tools/importer/swiss-market-import.mjs');
+  assert.deepEqual(marketsOf([{ path: '/ch/es/a', markets: 'ar/es, br/es' }, { path: '/ch/es/b', markets: '' }, { path: '/ch/es/c' }]), {
+    '/ch/es/a': ['ar/es', 'br/es'], '/ch/es/b': [], '/ch/es/c': [],
+  });
+});
+
+test('withServedLinks: www\'s links to a path lh-swiss serves itself (/deeplink/cockpit) relative, the query kept; other www links as they are', async () => {
+  const { withServedLinks } = await import('../tools/importer/swiss-market-import.mjs');
+  const doc = '<a href="https://www.swiss.com/deeplink/cockpit?country=AE&amp;language=EN">My flights</a> <a href="https://www.swiss.com/deeplink/other">x</a> <a href="https://www.swiss.com/deeplink/cockpit">y</a>';
+  assert.equal(withServedLinks(doc, ['/deeplink/cockpit']), '<a href="/deeplink/cockpit?country=AE&amp;language=EN">My flights</a> <a href="https://www.swiss.com/deeplink/other">x</a> <a href="/deeplink/cockpit">y</a>');
+});
+
+test('withParentPath: the Parent metadata as a plain path (as ch\'s documents write it; a link\'s text, www\'s URL, became the breadcrumb\'s target)', async () => {
+  const { withParentPath } = await import('../tools/importer/swiss-market-import.mjs');
+  const row = (cell) => `<div><div>Parent</div><div>${cell}</div></div>`;
+  assert.equal(withParentPath(row('<a href="/kr/en/homepage">https://www.swiss.com/kr/en/homepage</a>')), row('/kr/en/homepage'));
+  assert.equal(withParentPath(row('<a href="https://www.swiss.com/kr/en/homepage">https://www.swiss.com/kr/en/homepage</a>')), row('/kr/en/homepage'));
+  assert.equal(withParentPath(row('/ch/en/homepage')), row('/ch/en/homepage'));
+});
+
+test('relinked: a market document\'s links again (the root\'s served pages relative, DAM links site-relative, served paths, Parent); a second pass leaves it as it is', async () => {
+  const { relinked } = await import('../tools/importer/swiss-market-import.mjs');
+  const doc = '<p><a href="https://www.swiss.com/br/pt/fly/check-in">Check-in</a> <a href="https://www.swiss.com/content/dam/lx/documents/br/condicoes-gerais-de-transporte-aereo-jun2024.pdf">Condições</a> <a href="https://www.swiss.com/deeplink/cockpit?country=BR&amp;language=PT">Voos</a> <a href="https://www.swiss.com/br/pt/unknown">x</a></p>';
+  const opts = { served: new Set(['/br/pt/fly/check-in']), subPages: new Set(), selfServed: ['/deeplink/cockpit'] };
+  const out = relinked(doc, opts);
+  assert.equal(out.includes('href="/br/pt/fly/check-in"'), true, out);
+  assert.equal(out.includes('href="/content/dam/lx/documents/br/condicoes-gerais-de-transporte-aereo-jun2024.pdf"'), true, out);
+  assert.equal(out.includes('href="/deeplink/cockpit?country=BR&amp;language=PT"'), true, out);
+  assert.equal(out.includes('href="https://www.swiss.com/br/pt/unknown"'), true, out);
+  assert.equal(relinked(out, opts), out);
+});
