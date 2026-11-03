@@ -488,3 +488,21 @@ no request to www.swiss.com). DA and preview only, not published.
   relative. Left as they are: 561 www page links whose target answers 404 on our host (the
   magazine's 33 previewed pages until they are live, gc, xx and market pages lh-swiss has no
   page for).
+
+## The last held ch pages (brief 292, 2026-11-03)
+
+No request to www: www's answer from the capture's and the DAM state's records.
+
+- `/ch/zh/` and `/ch/ja/customer-support/travel-and-corona/simplified-onboard-service`: the
+  SWISS Saveurs menu PDF paragraph dropped (`/content/dam/swiss/pdfs/swiss-saveurs-menu.pdf`,
+  404 on www), as on ch/ru; ch/el has none, en and de have no such page, the other languages
+  none either.
+- `/ch/fr/discover/a350/special-livery`: the St. Moritz illustration dropped from its carousel
+  slide (404 on www), the slide's text kept, as en, de, it and the others have it.
+- `/ch/zh/` and `/ch/ja/fly/on-board/green-fare`: the three green-fares infographics kept and
+  listed (`lh-swiss-held-capture.tsv`; www names them `_ZH_` and `_JP_`): DA has them for de,
+  en, fr, it, es, pt, el and ru; for zh and ja no capture has recorded www's answer.
+- `/ch/zh/` and `/ch/ja/discover/a350`: nothing is missing (the two renderings,
+  `frontify/2025/q4/a350-rendering-3-fw-f01.jpg` and `-4-`, are in DA, valid JPEGs), but the
+  previews of 00:42 and 01:39 render them about:error (most likely made before the copies were in
+  DA): a new preview of the two pages should be all they need.
