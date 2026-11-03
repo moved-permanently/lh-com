@@ -20,7 +20,7 @@ import {
 } from '../scripts/locale.js';
 import { formatArticleDate } from '../scripts/articles.js';
 
-const BEFORE = 'd35ebbd';
+const BEFORE = '27a3318';
 
 function table(src, name) {
   const at = src.indexOf(`const ${name} = {`);
