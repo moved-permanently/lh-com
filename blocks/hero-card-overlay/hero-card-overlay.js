@@ -34,6 +34,60 @@ const COUNTDOWN_LABELS = {
     minutes: 'Minutos',
     seconds: 'Segundos',
   },
+  el: {
+    days: 'Ημέρες',
+    hours: 'Ώρες',
+    minutes: 'Λεπτά',
+    seconds: 'Δευτερόλεπτα',
+  },
+  it: {
+    days: 'Giorni',
+    hours: 'Ore',
+    minutes: 'Minuti',
+    seconds: 'Secondi',
+  },
+  ja: {
+    days: '日',
+    hours: '時間',
+    minutes: '分',
+    seconds: '秒',
+  },
+  ko: {
+    days: '일',
+    hours: '시간',
+    minutes: '분',
+    seconds: '초',
+  },
+  nl: {
+    days: 'Dagen',
+    hours: 'Uren',
+    minutes: 'Minuten',
+    seconds: 'Seconden',
+  },
+  pl: {
+    days: 'Dni',
+    hours: 'Godzin',
+    minutes: 'Minut',
+    seconds: 'Sekund',
+  },
+  pt: {
+    days: 'Dias',
+    hours: 'Horas',
+    minutes: 'Minutos',
+    seconds: 'Segundos',
+  },
+  ru: {
+    days: 'Дней',
+    hours: 'Часов',
+    minutes: 'Минут',
+    seconds: 'Секунд',
+  },
+  zh: {
+    days: '天',
+    hours: '小时',
+    minutes: '分钟',
+    seconds: '秒',
+  },
 };
 const LIVE_COUNTDOWN_LABELS = {
   days: 'countdown.common.default.dayLabelText',
