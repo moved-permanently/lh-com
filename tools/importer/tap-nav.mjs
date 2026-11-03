@@ -50,7 +50,7 @@ const SETUP = {
     logoAlt: 'TAP Air Portugal, zurück zur Startseite', menu: 'Menü', help: ['Hilfe', '/hilfe'], other: ['English', 'en-de'], appStore: 'App Store', googlePlay: 'Google Play',
   },
   it: {
-    logoAlt: 'TAP Air Portugal, torna alla homepage', menu: 'Menu', help: ['Aiuto', '/aiuto'], other: ['English', 'en-it'], appStore: 'App Store', googlePlay: 'Google Play',
+    logoAlt: 'TAP Air Portugal, torna alla homepage', menu: 'Menu', help: ['Aiuto', '/assistenza'], other: ['English', 'en-it'], appStore: 'App Store', googlePlay: 'Google Play',
   },
   pl: {
     logoAlt: 'TAP Air Portugal, powrót do strony głównej', menu: 'Menu', help: ['Pomoc', '/pomoc'], other: ['English', 'en-pl'], appStore: 'App Store', googlePlay: 'Google Play',

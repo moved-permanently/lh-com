@@ -45,7 +45,7 @@ describe('tap-nav', () => {
       'es-es': ['TAP Air Portugal, volver a la página de inicio', 'Ayuda', '/es-es/ayuda', 'Menú', 'English'],
       'fr-fr': ['TAP Air Portugal, retour à la page d’accueil', 'Aide', '/fr-fr/aide', 'Menu', 'English'],
       'de-de': ['TAP Air Portugal, zurück zur Startseite', 'Hilfe', '/de-de/hilfe', 'Menü', 'English'],
-      'it-it': ['TAP Air Portugal, torna alla homepage', 'Aiuto', '/it-it/aiuto', 'Menu', 'English'],
+      'it-it': ['TAP Air Portugal, torna alla homepage', 'Aiuto', '/it-it/assistenza', 'Menu', 'English'],
       'pl-pl': ['TAP Air Portugal, powrót do strony głównej', 'Pomoc', '/pl-pl/pomoc', 'Menu', 'English'],
     };
     Object.entries(expect).forEach(([locale, [alt, help, helpPath, menu, other]]) => {

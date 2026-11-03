@@ -36,7 +36,8 @@
  * /pt-pt/destinos/inspire-se's destination themes are 2 MB): each category of its
  * CategoryAccordion fragment documents (/<locale>/fragments/<page>/<category>, -2 … each within
  * 900 KB and 180 images), the page a heading per category and a fragment block per fragment.
- * Links: pages of the site (those of the archives given that are imported) relative, www's
+ * Links: pages of the site (those of the archives given that are imported, and the documents of
+ * earlier runs, tools/importer/sites/lh-tap.json) relative, www's
  * anchors to the headings' ids (anchorsOf), the rest absolute on www.flytap.com (the
  * "pt_[market]" placeholder filled with the page's market).
  * Images: the media archives' files (tap-media-NNN.tar.gz, unpacked, by every URL they were seen
@@ -804,7 +805,9 @@ function main() {
     if (OUT_TEMPLATES[t]) { report[p.url] = { doc, skipped: OUT_TEMPLATES[t] }; return; }
     nds.set(doc, { ...p, nd });
   });
-  const scope = new Set(nds.keys());
+  // the site's pages: this run's and the documents imported before (the allowlist), so a new
+  // language links and names its counterparts in the others without importing them again
+  const scope = new Set([...nds.keys(), ...readJson(path.join(root, 'tools/importer/sites/lh-tap.json'), { paths: [] }).paths]);
   const anchors = new Map([...nds].map(([doc, p]) => [doc, anchorsOf(p.nd)]));
   const idx = mediaIndex(all('media'));
   const media = mediaResolver(idx, { dry });
