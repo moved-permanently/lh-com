@@ -111,11 +111,27 @@ const pageMeta = (name) => {
  * The locale of a page of a brand site without <cc>/<ll> roots (scripts/site-languages.js:
  * Cargo, Air Dolomiti): the interface language from the page's `language` metadata, English
  * without it; the rest of a migrated locale of that language (de/en for English), else of the
- * default locale. null for every other site (lh-com, Discover, ITA: as before).
+ * default locale. A site with <ll>-<cc> roots (TAP: /pt-pt/, /en-pt/): the page's root (rest, its
+ * path; else the first root) sets the language, country, hreflang (<ll>-<CC>) and base (its nav
+ * and footer, /pt-pt/nav). null for every other site (lh-com, Discover, ITA: as before).
  */
-export function brandSiteLocale(prefix = '', read = pageMeta) {
+export function brandSiteLocale(prefix = '', read = pageMeta, rest = '') {
   const languages = siteLanguagesOf(read);
   if (!languages) return null;
+  if (languages.some((l) => l.country)) {
+    const own = languageOfPath(rest, languages) || languages[0];
+    const key = Object.keys(LOCALES).find((k) => k.endsWith(`/${own.lang}`)) || DEFAULT_LOCALE;
+    return {
+      ...LOCALE_TABLE[key],
+      lang: own.lang,
+      country: own.country,
+      hreflang: `${own.lang}-${own.country.toUpperCase()}`,
+      key,
+      base: `${prefix}${own.path.replace(/\/$/, '')}`,
+      root: key,
+      siteLanguages: languages,
+    };
+  }
   const lang = (/^[a-z]{2}$/.test(read('language')) && read('language')) || 'en';
   const key = Object.keys(LOCALES).find((k) => k.endsWith(`/${lang}`)) || DEFAULT_LOCALE;
   return {
@@ -235,7 +251,7 @@ export function getLocale(pathname = window.location.pathname) {
   // no root in the path: a brand site without roots (its page's language), else (app screens,
   // experience fragments, /index) the default locale
   if (!match) {
-    const plain = brandSiteLocale(prefix);
+    const plain = brandSiteLocale(prefix, pageMeta, rest);
     if (plain) return plain;
     const own = ROOT_PAGE_LOCALES[rest.replace(/(.)\/$/, '$1')];
     if (own) {
@@ -265,7 +281,7 @@ export function getLocale(pathname = window.location.pathname) {
   }
   // two segments that are no root (/xf/lh/…): a brand site without roots (its page's language),
   // else a migrated locale of that language, else the default
-  const plain = brandSiteLocale(prefix);
+  const plain = brandSiteLocale(prefix, pageMeta, rest);
   if (plain) return plain;
   const key = Object.keys(LOCALES).find((k) => k.endsWith(`/${match[2]}`)) || DEFAULT_LOCALE;
   return {
@@ -327,14 +343,17 @@ export function ownRoots(read = pageMeta) {
  * Where a demo host sends / (scripts.js loadPage): lh-com's German homepage, as the live site does
  * for a visitor in Germany; a brand site with roots its first language version's homepage, as
  * lh-edge's entry redirect for / (src/index.js siteRespond); '' (no redirect) for a brand without
- * roots: Air Dolomiti's homepage is the document at /, Cargo's hosts redirect / before the page.
+ * roots: Air Dolomiti's homepage is the document at /, Cargo's hosts redirect / before the page;
+ * a site with <ll>-<cc> roots (TAP) its first root's homepage (/pt-pt), as lh-edge's entry.
  * @param {Function} [read] metadata reader
  * @returns {string}
  */
 export function rootRedirectPath(read = pageMeta) {
   if (!brandKey(read)) return '/de/de/homepage';
   const site = brandSite(read);
-  return site ? `/${Object.values(site.versions)[0]}/homepage` : '';
+  if (site) return `/${Object.values(site.versions)[0]}/homepage`;
+  const languages = siteLanguagesOf(read);
+  return languages && languages.some((l) => l.country) ? languages[0].home : '';
 }
 
 /** The page's brand entry (scripts/brands.js BRANDS), or null (lh-com and no page). */

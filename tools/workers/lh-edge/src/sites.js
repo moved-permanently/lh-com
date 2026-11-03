@@ -128,6 +128,9 @@ export const PLAIN_SITES = {
   // at /en/..., German at /de/...; www answers /en and /de as its English and German homepages
   // (200, 2026-11-01): here the 302 to /en/ and /de/
   airdolomiti: { entry: { '/en': '/en/', '/de': '/de/' } },
+  // TAP Air Portugal (DA moved-permanently/lh-tap, www.flytap.com): <ll>-<cc> roots, / to the
+  // first, /pt-pt (scripts/site-languages.js SITE_LANGUAGES.tap)
+  tap: { entry: { '/': '/pt-pt' } },
 };
 
 const pairs = (value) => {

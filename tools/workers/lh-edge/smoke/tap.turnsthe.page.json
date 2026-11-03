@@ -1,0 +1,73 @@
+[
+ {
+  "key": "GET /metadata.json",
+  "path": "/metadata.json",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "application/json",
+  "hash": "6e22f6ffdf5979d6",
+  "route": ""
+ },
+ {
+  "key": "GET /robots.txt",
+  "path": "/robots.txt",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "text/plain; charset=utf-8",
+  "hash": "331ea9090db0c9f6",
+  "route": ""
+ },
+ {
+  "key": "GET /",
+  "path": "/",
+  "method": "GET",
+  "status": 302,
+  "location": "/pt-pt",
+  "type": "",
+  "length": 0,
+  "hash": "e3b0c44298fc1c14",
+  "route": "site-entry"
+ },
+ {
+  "key": "GET /pt-pt",
+  "path": "/pt-pt",
+  "method": "GET",
+  "status": 404,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "24f492ec3f3ee16f",
+  "route": ""
+ },
+ {
+  "key": "GET /en-pt",
+  "path": "/en-pt",
+  "method": "GET",
+  "status": 404,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "24f492ec3f3ee16f",
+  "route": ""
+ },
+ {
+  "key": "GET /sitemap/sitemap_lh.xml",
+  "path": "/sitemap/sitemap_lh.xml",
+  "method": "GET",
+  "status": 404,
+  "location": "",
+  "type": "text/plain; charset=utf-8",
+  "hash": "0019dfc4b32d63c1",
+  "route": "site-sitemap"
+ },
+ {
+  "key": "GET /digitalhangar/design-system/releases/mausy-v1.40.1/standalone/fonts/lufthansa/LufthansaTextWeb-Regular.woff2",
+  "path": "/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/fonts/lufthansa/LufthansaTextWeb-Regular.woff2",
+  "method": "GET",
+  "status": 404,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "7addd0370242dbf8",
+  "route": ""
+ }
+]

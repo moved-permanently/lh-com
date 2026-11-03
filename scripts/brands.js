@@ -8,7 +8,8 @@
  * BRAND_SITES: the brands with <cc>/<ll> roots (Discover, ITA): their locale rows and language
  * versions (lh-edge's src/sites.js SITES are built from them), the root names of the country and
  * language dialog (the root's footer label) and each root's home airport (its homepage's flight
- * search default origin). The sites without roots (Cargo, Air Dolomiti): scripts/site-languages.js.
+ * search default origin). The sites without roots (Cargo, Air Dolomiti, TAP):
+ * scripts/site-languages.js.
  */
 
 /**
@@ -349,6 +350,17 @@ export const BRANDS = {
       // (2026-11-01); its token, products and colours are the block's rows (blocks/esim-widget)
       'esim-widget': { script: 'https://widgets.breezesim.com/v1/embed.js' },
     },
+  },
+  // TAP Air Portugal (lh-tap, brief 312): its own theme (styles/themes/tap.css; until it exists
+  // the pages keep Lufthansa's look), its <ll>-<cc> roots: scripts/site-languages.js. Booking,
+  // check-in, manage booking, account and sign-in, search, forms, live fares and chat stay links
+  // to www.flytap.com: no booking hand-off, Travel ID, Message Center tenant, embeds or portal
+  // (the widgets that hand off to Lufthansa's shop or sign in with Lufthansa's Travel ID don't
+  // belong on its pages). No consent manager: the TAP capture archives (what www.flytap.com
+  // loads) were not delivered yet (2026-11-03); consent stays off until they show one
+  tap: {
+    name: 'TAP Air Portugal',
+    www: 'www.flytap.com',
   },
 };
 

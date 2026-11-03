@@ -1,6 +1,10 @@
 /**
- * Brand sites without <cc>/<ll> roots (metadata brand: cargo, airdolomiti): their languages, each
- * with its path prefix, its homepage and its own name. Their pages take the interface language
+ * Brand sites without <cc>/<ll> roots (metadata brand: cargo, airdolomiti, tap): their languages,
+ * each with its path prefix, its homepage and its own name. A site with <ll>-<cc> roots
+ * (www.flytap.com's /pt-pt/, /en-pt/): each root also names its country, and the page's root (its
+ * path) sets the language, country, hreflang and base (nav, footer) of its locale
+ * (scripts/locale.js brandSiteLocale); listed false: a root whose pages the site doesn't have yet
+ * (its pages resolve, the header's switch leaves it out). Their pages take the interface language
  * from the page's `language` metadata (scripts/locale.js), and the header switches between the
  * languages (blocks/header): the page's counterpart its metadata names (`Alternate en |
  * /en/newsletter-subscription`), else the same path in the other language when the site shares
@@ -33,6 +37,15 @@ export const SITE_LANGUAGES = {
       lang: 'de', path: '/de/', home: '/de/', name: 'Deutsch', slugs: 'own',
     },
   ],
+  // TAP Air Portugal (lh-tap): www.flytap.com's <ll>-<cc> roots, Portuguese first (its / goes to
+  // /pt-pt), each homepage the root itself (/pt-pt); in the switch the roots imported so far
+  tap: [
+    ['pt', 'pt', 'Português'], ['en', 'pt', 'English'], ['es', 'es', 'Español', false],
+    ['fr', 'fr', 'Français', false], ['de', 'de', 'Deutsch', false], ['it', 'it', 'Italiano', false],
+    ['pl', 'pl', 'Polski', false],
+  ].map(([lang, country, name, listed]) => ({
+    lang, country, path: `/${lang}-${country}/`, home: `/${lang}-${country}`, name, ...(listed === false ? { listed } : {}),
+  })),
 };
 
 // home: a language's front page (the corporate site's /<sub>/<ll>/homepage; the magazine's
@@ -124,8 +137,11 @@ const pathOf = (href) => {
  *   names (Alternate <lang>), taken without a probe
  */
 export function languageSwitch(tools, pathname, lang, languages, alternates = {}) {
-  const current = languages.find((l) => l.lang === lang) || languageOfPath(pathname, languages);
-  const others = languages.filter((l) => l !== current);
+  // a site with <ll>-<cc> roots: the page's root (a language may have several)
+  const rooted = languages.some((l) => l.country) && languageOfPath(pathname, languages);
+  const current = rooted || languages.find((l) => l.lang === lang)
+    || languageOfPath(pathname, languages);
+  const others = languages.filter((l) => l !== current && l.listed !== false);
   const homeOf = (href) => others.find((l) => [l.home, l.path, l.path.replace(/\/$/, '') || '/'].includes(pathOf(href)));
   const authored = new Map();
   const rest = tools.filter((t) => {

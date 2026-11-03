@@ -17,7 +17,8 @@
  *   Range: bytes=0-99, and its subtitle file
  * The hosts of the sites without roots (src/sites.js PLAIN_SITES: cargo, airdolomiti) get their own
  * few checks (PLAIN_CHECKS; --set plain chooses them for another host, e.g. a wrangler dev run;
- * --name <host> names the baseline file then). b2b.turnsthe.page gets B2B_CHECKS (--set b2b).
+ * --name <host> names the baseline file then). b2b.turnsthe.page gets B2B_CHECKS (--set b2b),
+ * tap.turnsthe.page TAP_CHECKS (--set tap).
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -95,6 +96,14 @@ export const PLAIN_CHECKS = [
 ];
 const PLAIN_HOSTS = /^(cargo|airdolomiti)\.turnsthe\.page$/;
 
+// TAP Air Portugal (tap.turnsthe.page, a site without roots with <ll>-<cc> roots): its metadata and
+// robots, / (to /pt-pt), its first two roots' homepages, lh-com's sitemap (404) and a font
+export const TAP_CHECKS = [
+  ...['/metadata.json', '/robots.txt', '/', '/pt-pt', '/en-pt', '/sitemap/sitemap_lh.xml'].map((p) => ({ path: p })),
+  { path: '/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/fonts/lufthansa/LufthansaTextWeb-Regular.woff2' },
+];
+const TAP_HOSTS = /^tap\.turnsthe\.page$/;
+
 // Lufthansa Group for Business (b2b.turnsthe.page, src/sites.js SITES.b2b): its language
 // versions, market roots (from de/<ll>, the rest-of-world documents from xx/<ll>), own documents,
 // a no-root (us/de), the entry paths, the search indexes, a redirect of its sheet, nav, footer,
@@ -109,7 +118,8 @@ export const B2B_CHECKS = [
   ...['/', '/de', '/de/en', '/us', '/at/de', '/xx/en', '/ch/de'].map((p) => ({ path: p, headers: { 'cf-ipcountry': 'DE', 'accept-language': 'en' } })),
 ];
 const B2B_HOSTS = /^b2b\.turnsthe\.page$/;
-const checksOf = (host) => {
+export const checksOf = (host) => {
+  if (opt('set') === 'tap' || TAP_HOSTS.test(new URL(host).hostname)) return TAP_CHECKS;
   if (opt('set') === 'plain' || PLAIN_HOSTS.test(new URL(host).hostname)) return PLAIN_CHECKS;
   if (opt('set') === 'b2b' || B2B_HOSTS.test(new URL(host).hostname)) return B2B_CHECKS;
   return CHECKS;
