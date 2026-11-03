@@ -170,36 +170,36 @@ test('favicon, manifest and logo: www\'s files at www\'s paths, copies in the co
   assert.ok(!/<script|javascript:/i.test(read('etc/designs/lx/clientlib-all/vite/img/swiss-logo.svg')), 'the logo is a plain SVG');
 });
 
-test('the roots: the pilot\'s ch/en and ch/de, ch/fr and ch/it (brief 272), ch/es and ch/pt (brief 279), ch/zh and ch/ja (brief 282) with their own documents, www\'s dialog names, their airports', async () => {
+test('the roots: the pilot\'s ch/en and ch/de, ch/fr and ch/it (brief 272), ch/es and ch/pt (brief 279), ch/zh and ch/ja (brief 282), ch/el and ch/ru (2026-11-03) with their own documents, www\'s dialog names, their airports', async () => {
   const { BRAND_SITES } = await import('../scripts/brands.js');
   const site = BRAND_SITES.swiss;
-  // the market roots (SWISS_MARKETS_LIVE, test/swiss-markets-switch.test.mjs) come after ch's eight
-  assert.deepEqual(Object.keys(site.rows).slice(0, 8), ['ch/en', 'ch/de', 'ch/fr', 'ch/it', 'ch/es', 'ch/pt', 'ch/zh', 'ch/ja']);
+  // the market roots (SWISS_MARKETS_LIVE, test/swiss-markets-switch.test.mjs) come after ch's ten
+  assert.deepEqual(Object.keys(site.rows).slice(0, 10), ['ch/en', 'ch/de', 'ch/fr', 'ch/it', 'ch/es', 'ch/pt', 'ch/zh', 'ch/ja', 'ch/el', 'ch/ru']);
   // and kr/ko, the own root with its own documents in Korean (SWISS_OWN_ROOTS_LIVE, test/swiss-korea.test.mjs)
-  assert.deepEqual(Object.keys(site.rows).filter((r) => site.rows[r].documents === 'own'), ['ch/en', 'ch/de', 'ch/fr', 'ch/it', 'ch/es', 'ch/pt', 'ch/zh', 'ch/ja', 'kr/ko']);
-  assert.deepEqual(Object.keys(site.rows).slice(0, 8).map((r) => site.rows[r].hreflang), ['en-CH', 'de-CH', 'fr-CH', 'it-CH', 'es-CH', 'pt-CH', 'zh-CH', 'ja-CH']);
+  assert.deepEqual(Object.keys(site.rows).filter((r) => site.rows[r].documents === 'own'), ['ch/en', 'ch/de', 'ch/fr', 'ch/it', 'ch/es', 'ch/pt', 'ch/zh', 'ch/ja', 'ch/el', 'ch/ru', 'kr/ko']);
+  assert.deepEqual(Object.keys(site.rows).slice(0, 10).map((r) => site.rows[r].hreflang), ['en-CH', 'de-CH', 'fr-CH', 'it-CH', 'es-CH', 'pt-CH', 'zh-CH', 'ja-CH', 'el-CH', 'ru-CH']);
   assert.deepEqual(site.versions, {
-    en: 'ch/en', de: 'ch/de', fr: 'ch/fr', it: 'ch/it', es: 'ch/es', pt: 'ch/pt', zh: 'ch/zh', ja: 'ch/ja',
+    en: 'ch/en', de: 'ch/de', fr: 'ch/fr', it: 'ch/it', es: 'ch/es', pt: 'ch/pt', zh: 'ch/zh', ja: 'ch/ja', el: 'ch/el', ru: 'ch/ru',
   });
   // the homepages' country and language line (.country-language-text): ch/de's says Switzerland
   // too, ch/it's Suisse
   const ch = (map) => Object.fromEntries(Object.entries(map).filter(([r]) => r.startsWith('ch/')));
   assert.deepEqual(ch(site.names), {
-    'ch/en': 'Switzerland | English', 'ch/de': 'Switzerland | Deutsch', 'ch/fr': 'Suisse | Français', 'ch/it': 'Suisse | Italiano', 'ch/es': 'Suiza | Español', 'ch/pt': 'Suiça | Português', 'ch/zh': '瑞士 (Switzerland) | 简体中文', 'ch/ja': 'Switzerland | 日本語',
+    'ch/en': 'Switzerland | English', 'ch/de': 'Switzerland | Deutsch', 'ch/fr': 'Suisse | Français', 'ch/it': 'Suisse | Italiano', 'ch/es': 'Suiza | Español', 'ch/pt': 'Suiça | Português', 'ch/zh': '瑞士 (Switzerland) | 简体中文', 'ch/ja': 'Switzerland | 日本語', 'ch/el': 'Ελβετία | Ελληνικά', 'ch/ru': 'Switzerland | Русский',
   });
   // the homepages' flight search origin: Geneva on ch/fr, Zurich on the others
   assert.deepEqual(ch(site.airports), {
-    'ch/en': 'ZRH', 'ch/de': 'ZRH', 'ch/fr': 'GVA', 'ch/it': 'ZRH', 'ch/es': 'ZRH', 'ch/pt': 'ZRH', 'ch/zh': 'ZRH', 'ch/ja': 'ZRH',
+    'ch/en': 'ZRH', 'ch/de': 'ZRH', 'ch/fr': 'GVA', 'ch/it': 'ZRH', 'ch/es': 'ZRH', 'ch/pt': 'ZRH', 'ch/zh': 'ZRH', 'ch/ja': 'ZRH', 'ch/el': 'ZRH', 'ch/ru': 'ZRH',
   });
 });
 
-test('the country dialog: the eight roots, kr/ko and the 214 market roots; every other root links to its homepage on www.swiss.com', async () => {
+test('the country dialog: the ten roots, kr/ko and the 214 market roots; every other root links to its homepage on www.swiss.com', async () => {
   const {
     ownRoots, getHomepageUrl, rootRedirectPath, siteLocales,
   } = await import('../scripts/locale.js');
   onPage({ brand: 'swiss' }, () => {
-    assert.deepEqual(ownRoots().slice(0, 8), ['ch/en', 'ch/de', 'ch/fr', 'ch/it', 'ch/es', 'ch/pt', 'ch/zh', 'ch/ja']);
-    assert.equal(ownRoots().length, 223, 'ch\'s eight, kr/ko (SWISS_OWN_ROOTS_LIVE) and the market roots (SWISS_MARKETS_LIVE)');
+    assert.deepEqual(ownRoots().slice(0, 10), ['ch/en', 'ch/de', 'ch/fr', 'ch/it', 'ch/es', 'ch/pt', 'ch/zh', 'ch/ja', 'ch/el', 'ch/ru']);
+    assert.equal(ownRoots().length, 225, 'ch\'s ten, kr/ko (SWISS_OWN_ROOTS_LIVE) and the market roots (SWISS_MARKETS_LIVE)');
     assert.equal(getHomepageUrl('ch', 'en'), '/ch/en/homepage');
     assert.equal(getHomepageUrl('CH', 'DE'), '/ch/de/homepage');
     assert.equal(getHomepageUrl('ch', 'fr'), '/ch/fr/homepage');
@@ -208,7 +208,9 @@ test('the country dialog: the eight roots, kr/ko and the 214 market roots; every
     assert.equal(getHomepageUrl('ch', 'pt'), '/ch/pt/homepage');
     assert.equal(getHomepageUrl('ch', 'zh'), '/ch/zh/homepage');
     assert.equal(getHomepageUrl('ch', 'ja'), '/ch/ja/homepage');
-    assert.equal(getHomepageUrl('ch', 'ru'), `${W}/ch/ru/homepage`, 'a language SWISS has no root for: www');
+    assert.equal(getHomepageUrl('ch', 'el'), '/ch/el/homepage');
+    assert.equal(getHomepageUrl('ch', 'ru'), '/ch/ru/homepage');
+    assert.equal(getHomepageUrl('ch', 'ko'), `${W}/ch/ko/homepage`, 'a language SWISS has no ch root for (Korean only on kr/ko): www');
     assert.equal(getHomepageUrl('kr', 'ko'), '/kr/ko/homepage', 'kr/ko (SWISS_OWN_ROOTS_LIVE, 2026-11-03)');
     assert.equal(getHomepageUrl('de', 'de'), '/de/de/homepage', 'a market root: its homepage here');
     // es and pt's market roots (SWISS_MARKET_LANGUAGES_LIVE, 2026-11-03)

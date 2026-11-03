@@ -6,16 +6,17 @@
    from ch/<ll>'s documents, with www's labels and their homepages' default airports; es and pt's six
    (ar/es, br/es, es/es, us/es, br/pt, pt/pt) since their documents are live (2026-11-03,
    SWISS_MARKET_LANGUAGES_LIVE), zh and ja's four (cn/zh, hk/zh, sg/zh, jp/ja) since theirs are live
-   (2026-11-03). Roots of other languages (el, ru) are not in the table until their language version is.
+   (2026-11-03). Roots of other languages (el, ru: ch/el and ch/ru live since 2026-11-03) are not in the table until
+   their language is in SWISS_MARKET_LANGUAGES_LIVE.
    Run: node --max-old-space-size=512 --test test/swiss-markets-switch.test.mjs */
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { BRAND_SITES, SWISS_MARKETS_LIVE, withSwissMarkets } from '../scripts/brands.js';
 
-test('the switch is on: SWISS\'s rows are ch\'s own eight, kr/ko (test/swiss-korea.test.mjs) and the 214 market roots', () => {
+test('the switch is on: SWISS\'s rows are ch\'s own ten, kr/ko (test/swiss-korea.test.mjs) and the 214 market roots', () => {
   assert.equal(SWISS_MARKETS_LIVE, true);
   const { rows } = BRAND_SITES.swiss;
-  assert.deepEqual(Object.keys(rows).filter((k) => rows[k].documents === 'own').sort(), ['ch/de', 'ch/en', 'ch/es', 'ch/fr', 'ch/it', 'ch/ja', 'ch/pt', 'ch/zh', 'kr/ko']);
+  assert.deepEqual(Object.keys(rows).filter((k) => rows[k].documents === 'own').sort(), ['ch/de', 'ch/el', 'ch/en', 'ch/es', 'ch/fr', 'ch/it', 'ch/ja', 'ch/pt', 'ch/ru', 'ch/zh', 'kr/ko']);
   assert.equal(Object.values(rows).filter((r) => r.documents === 'language').length, 214);
   assert.deepEqual(withSwissMarkets(BRAND_SITES.swiss, true), BRAND_SITES.swiss, 'on: the site as it is');
 });
@@ -108,7 +109,8 @@ test('el and ru market roots (gr/el, ru/ru): out with the shipped switches; in w
   });
   assert.equal(on.names['ru/ru'], 'Federazione Russa | Русский');
   assert.deepEqual(NEW.map((r) => on.airports[r]), ['ATH', 'ZRH']);
-  // the language listed, its version not live: out
-  const versionOff = withSwissMarkets(BRAND_SITES.swiss, true, ['en', 'de', 'fr', 'it', 'el', 'ru']);
+  // the language listed, its version not live: out (ch/el and ch/ru are live since 2026-11-03: a site without their versions)
+  const noVersions = Object.fromEntries(Object.entries(BRAND_SITES.swiss.versions).filter(([ll]) => !['el', 'ru'].includes(ll)));
+  const versionOff = withSwissMarkets({ ...BRAND_SITES.swiss, versions: noVersions }, true, ['en', 'de', 'fr', 'it', 'el', 'ru']);
   assert.equal(NEW.some((r) => versionOff.rows[r]), false);
 });

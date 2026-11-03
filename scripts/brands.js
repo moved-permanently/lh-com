@@ -643,7 +643,7 @@ export const SWISS_LANGUAGES = {
   el: { root: 'ch/el', name: 'Ελβετία | Ελληνικά', airport: 'ZRH' },
   ru: { root: 'ch/ru', name: 'Switzerland | Русский', airport: 'ZRH' },
 };
-export const SWISS_LANGUAGES_LIVE = ['es', 'pt', 'zh', 'ja'];
+export const SWISS_LANGUAGES_LIVE = ['es', 'pt', 'zh', 'ja', 'el', 'ru'];
 
 /** SWISS's site entry with the languages switched on as roots, the others as its pilots. */
 export function withSwissLanguages(site, live = SWISS_LANGUAGES_LIVE) {

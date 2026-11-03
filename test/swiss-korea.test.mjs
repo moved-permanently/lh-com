@@ -10,7 +10,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  BRAND_SITES, SWISS_OWN_ROOTS, SWISS_OWN_ROOTS_LIVE, withSwissOwnRoots,
+  BRAND_SITES, SWISS_LANGUAGES, SWISS_LANGUAGES_LIVE, SWISS_OWN_ROOTS, SWISS_OWN_ROOTS_LIVE, withSwissOwnRoots,
 } from '../scripts/brands.js';
 
 test('kr/ko: on as shipped (its documents are live): a root with its own documents, www\'s label and Seoul as its origin; no longer a pilot', () => {
@@ -38,8 +38,9 @@ test('kr/ko off: a pilot with its own row, www\'s label and Seoul as its origin;
   assert.equal(site.pilots.rows['kr/ko'].documents, 'own');
   assert.equal(site.pilots.names['kr/ko'], '대한민국 | 한국어');
   assert.equal(site.pilots.airports['kr/ko'], 'SEL');
-  // the other pilots (languages behind SWISS_LANGUAGES_LIVE) stay
-  assert.equal(Object.keys(site.pilots.rows).length > 1, true);
+  // the other pilots (languages behind SWISS_LANGUAGES_LIVE, none since el and ru are live) stay
+  const off = Object.keys(SWISS_LANGUAGES).filter((ll) => !SWISS_LANGUAGES_LIVE.includes(ll)).map((ll) => `ch/${ll}`);
+  assert.deepEqual(Object.keys(site.pilots.rows).sort(), [...off, 'kr/ko'].sort());
   assert.equal(site.rows['kr/en'].documents, 'language');
 });
 
