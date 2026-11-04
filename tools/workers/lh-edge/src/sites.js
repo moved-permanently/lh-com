@@ -129,8 +129,9 @@ export const PLAIN_SITES = {
   // (200, 2026-11-01): here the 302 to /en/ and /de/
   airdolomiti: { entry: { '/en': '/en/', '/de': '/de/' } },
   // TAP Air Portugal (DA moved-permanently/lh-tap, www.flytap.com): <ll>-<cc> roots, / to the
-  // first, /pt-pt (scripts/site-languages.js SITE_LANGUAGES.tap)
-  tap: { entry: { '/': '/pt-pt' } },
+  // first, /pt-pt (scripts/site-languages.js SITE_LANGUAGES.tap); markets: its market roots
+  // (de-ch, fr-ca …) answered from its language versions once they are on (src/tap-markets.js)
+  tap: { entry: { '/': '/pt-pt' }, markets: true },
 };
 
 const pairs = (value) => {

@@ -45,6 +45,7 @@ import {
 import {
   market, marketPath, marketSitemap, isMarketSitemapPath, withoutConditions,
 } from './markets.js';
+import { tapMarket } from './tap-markets.js';
 import {
   routerConfig, choose, defaultOrigin, finish,
 } from './router.js';
@@ -407,6 +408,9 @@ async function siteRespond(incoming, env, site, ctx) {
     if (target) {
       return finish(new Response(null, { status: 302, headers: { location: `${target}${url.search}`, 'cache-control': 'max-age=60', 'x-lh-edge-route': 'site-entry' } }), incoming, senv, 'site-entry');
     }
+    // its market roots that are on (TAP's de-ch …, src/tap-markets.js); every other path as it is
+    const marketResp = site.plain.markets ? await tapMarket(incoming, senv) : null;
+    if (marketResp) return finish(marketResp, incoming, senv, 'tap-market');
     return finish(await passThrough(incoming, senv), incoming, senv, 'site');
   }
   const brand = BRANDS[site.name] || {};

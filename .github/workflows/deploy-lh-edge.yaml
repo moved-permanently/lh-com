@@ -28,6 +28,8 @@ on:
       - 'scripts/brand-icons.js'
       # and the brands and their sites' roots (src/sites.js, scripts/locale.js)
       - 'scripts/brands.js'
+      # and TAP's market roots and their switch (src/tap-markets.js, scripts/site-languages.js)
+      - 'scripts/tap-markets.js'
       # and the bound Workers' check (tools/workers/README.md "Account")
       - 'tools/workers/wait-for-workers.sh'
       - '.github/workflows/deploy-lh-edge.yaml'

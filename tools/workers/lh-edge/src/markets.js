@@ -427,7 +427,8 @@ export function alternates(model, lang, suffix) {
 }
 
 /** The site's own hosts in absolute links (origin, the replica's hosts): stripped. */
-function siteHosts(env) {
+/** The site's own hosts as a pattern (its links are stripped to paths); src/tap-markets.js too. */
+export function siteHosts(env) {
   const origin = String(env.ORIGIN || '').replace(/\.aem\.(live|page)$/, '');
   const hosts = [`${origin}.aem.live`, `${origin}.aem.page`, ...listVar(env.ALIAS_REWRITE_HOSTS), ...listVar(env.PUBLIC_HOST)];
   const alt = hosts.filter(Boolean).map((h) => h.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|');
