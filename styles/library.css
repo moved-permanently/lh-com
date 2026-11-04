@@ -53,6 +53,11 @@ body.app-screen main h2 {
   line-height: 1.25;
 }
 
+/* the text the column's width (the web's desktop rules limit text to two thirds of the content) */
+body.app-screen main > .section > .default-content-wrapper > :is(p, ul, ol, h1, h2, h3, h4) {
+  max-width: none;
+}
+
 body.app-screen main p,
 body.app-screen main ul {
   margin: 0 0 12px;
