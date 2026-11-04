@@ -23,7 +23,9 @@ previewed on `main--lh-tap--moved-permanently.aem.page`; nothing published.** `/
 ema-cashub's `tap-import.mjs` and `tap-nav.mjs`, unchanged, run through my wrapper, now
 **`tools/importer/tap-languages.mjs`** (was `tap-es-es.mjs`; `test/tap-languages.test.mjs`, tests
 first): `node tools/importer/tap-languages.mjs <es-es|fr-fr> import|nav <the tool's arguments>`.
-The same two steps as for es-es, per language:
+(Removed on 2026-11-04: ema-cashub's tools have the es and fr texts and the merged marks
+themselves since 3fa6a307; git history keeps the wrapper.) The same two steps as for es-es, per
+language:
 
 1. **The language's texts in memory** (both tools have pt and en only), from www's fr-fr pages:
    - `LABELS.fr`: onWww "Voir sur flytap.com", video "Voir la vidéo" (fr-fr writes its links "Voir
