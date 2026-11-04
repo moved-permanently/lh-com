@@ -442,10 +442,10 @@ const MARKET_AIRPORT = {
 
 /** A text of www's translations (pageProps._nextI18Next: the language's namespaces), or null. */
 function i18nOf(pp, lang, key) {
-  const store = pp._nextI18Next && pp._nextI18Next.initialI18nStore;
-  const ns = store && (store[lang] || store[Object.keys(store)[0]]);
-  if (!ns) return null;
-  const hit = Object.values(ns).find((n) => n && typeof n === 'object' && typeof n[key] === 'string');
+  // the language's store first, then the page's others (pt-br's texts are in its br store)
+  const store = (pp._nextI18Next && pp._nextI18Next.initialI18nStore) || {};
+  const stores = [store[lang], ...Object.values(store)].filter((ns) => ns && typeof ns === 'object');
+  const hit = stores.flatMap((ns) => Object.values(ns)).find((n) => n && typeof n === 'object' && typeof n[key] === 'string');
   return hit ? hit[key] : null;
 }
 

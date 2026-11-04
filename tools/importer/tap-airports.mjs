@@ -27,8 +27,8 @@ const PREVIEW = `https://main--${SITE}--${ORG}.aem.page`;
 export const ENDPOINT = 'https://www.flytap.com/api/flight?functionName=originSearch';
 export const PAUSE_MS = 12000;
 export const COLUMNS = ['code', 'city', 'cityName', 'airportName', 'country', 'countryName', 'tapRoute', 'railway'];
-/** The live roots: <ll>-<cc>, the language and the market of each. */
-export const ROOTS = Object.fromEntries(['pt-pt', 'en-pt', 'es-es', 'fr-fr', 'de-de', 'it-it', 'pl-pl']
+/** The live roots: <ll>-<cc>, the language and the market of each (pt-br: Portuguese, market BR). */
+export const ROOTS = Object.fromEntries(['pt-pt', 'en-pt', 'es-es', 'fr-fr', 'de-de', 'it-it', 'pl-pl', 'pt-br']
   .map((r) => [r, { language: r.split('-')[0], market: r.split('-')[1].toUpperCase() }]));
 
 /** originSearch's body for a root, as the spec records it (Lisbon's coordinates, return trips). */

@@ -280,5 +280,46 @@
   "_corporate_link": [
    "https://tapforbiz.com/"
   ]
+ },
+ "pt-br": {
+  "ibe.book-flight": "Reservar voo",
+  "ibe.to-check-in": "Check-in",
+  "ibe.my-travels": "Gerenciar reserva",
+  "ibe.flight-status": "Status do voo",
+  "round-trip": "Ida e volta",
+  "one-way": "Só ida",
+  "multi-city": "Multi-city",
+  "pay-with-miles": "Pagar com milhas",
+  "enterprise-reservation": "Reservas corporativas",
+  "origin-label": "Origem",
+  "origin-placeholder": "Escolher a origem",
+  "destination-label": "Destino",
+  "destination-placeholder": "Escolher o destino",
+  "aria-label-swap": "Trocar Origem e Destino",
+  "dates": "Datas",
+  "select-date": "Selecionar as datas",
+  "departure-date": "Data de partida",
+  "arrival-date": "Data de retorno",
+  "clean-dates": "Limpar datas",
+  "continue": "Continuar",
+  "passengers-label": "Passageiros",
+  "passengers": "Passageiro(s)",
+  "adult": "Adulto(s)",
+  "adult-range": " Mais de 12 anos",
+  "youngAdult": "Jovem(ns) adulto(s)",
+  "youngAdult-range": " 12 a 15 anos",
+  "childrens": "Criança(s)",
+  "childrens-range": "2 a 11 anos",
+  "babys": "Bebê(s)",
+  "babys-range": " Abaixo de 2 anos",
+  "search": "Pesquisar",
+  "add-more-flights": "Adicionar outro voo",
+  "no-results-search": "Não há resultados para sua pesquisa",
+  "recent-searches": "Pesquisas recentes",
+  "validation-required": "Campo obrigatório",
+  "_corporate_link": [
+   "https://tapforbiz.com",
+   "https://tapforbiz.com/"
+  ]
  }
 }

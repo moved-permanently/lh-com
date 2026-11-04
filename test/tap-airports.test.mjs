@@ -21,7 +21,8 @@ const RAIL = {
 };
 
 test('the seven live roots, each with its language and market', () => {
-  assert.deepEqual(Object.keys(ROOTS), ['pt-pt', 'en-pt', 'es-es', 'fr-fr', 'de-de', 'it-it', 'pl-pl']);
+  assert.deepEqual(Object.keys(ROOTS), ['pt-pt', 'en-pt', 'es-es', 'fr-fr', 'de-de', 'it-it', 'pl-pl', 'pt-br']);
+  assert.deepEqual(ROOTS['pt-br'], { language: 'pt', market: 'BR' }, 'pt-br: Portuguese, market BR');
   assert.deepEqual(ROOTS['en-pt'], { language: 'en', market: 'PT' });
   assert.deepEqual(ROOTS['pl-pl'], { language: 'pl', market: 'PL' });
 });
@@ -31,7 +32,8 @@ test('the request: originSearch, the spec\'s body with the root\'s language and 
   assert.equal(JSON.stringify(requestBody('pt-pt')), '{"airlineIds":["TP"],"language":"pt","latitude":38.7071,"longitude":-9.13549,"market":"PT","payWithMiles":false,"tripType":"R"}');
   assert.equal(requestBody('de-de').language, 'de');
   assert.equal(requestBody('de-de').market, 'DE');
-  assert.throws(() => requestBody('pt-br'), /pt-br/);
+  assert.equal(requestBody('pt-br').market, 'BR');
+  assert.throws(() => requestBody('pt-xx'), /pt-xx/);
   assert.ok(PAUSE_MS >= 10000);
 });
 

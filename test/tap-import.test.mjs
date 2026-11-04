@@ -183,6 +183,29 @@ describe('tap-import parity (tools/reports/tap/parity.md)', () => {
     assert.ok(!html.includes('booking-slot'));
   });
 
+  it('pt-br\'s homepage: the box as on the seven, market BR, pt-br\'s texts (its br store and labels), its own airport sheet', () => {
+    const labelsAll = JSON.parse(fs.readFileSync(path.join(path.dirname(fileURLToPath(import.meta.url)), '../tools/reports/tap/booking-labels.json'), 'utf8'));
+    const labels = labelsAll['pt-br'];
+    assert.ok(labels, 'pt-br has labels of its own');
+    assert.deepEqual(Object.keys(labels), Object.keys(labelsAll['pt-pt']), 'the same keys as the seven');
+    assert.equal(labels['ibe.my-travels'], 'Gerenciar reserva');
+    const home = nd('homepage');
+    home.props.pageProps.markets = [{ code: 'BR', airport: 'RIO' }];
+    // www's pt-br page: a pt-br store without the box's texts, a br store with them
+    home.props.pageProps._nextI18Next = { initialI18nStore: { 'pt-br': { common: { other: 'x' } }, br: { common: { 'ibe.book-flight': 'Reservar voo', 'ibe.to-check-in': 'Check-in', 'ibe.my-travels': 'Gerenciar reserva', 'ibe.flight-status': 'Status do voo' } } } };
+    const { html } = convertPage(home, {
+      ...ctx('https://www.flytap.com/pt-br'), locale: 'pt-br', lang: 'pt', booking: { labels, originName: 'Rio de Janeiro, Brasil' },
+    });
+    const box = dom(html).querySelector('.booking-box');
+    assert.ok(box);
+    const rows = Object.fromEntries([...box.querySelectorAll(':scope > div')].map((r) => [r.children[0].textContent, r.children[1]]));
+    assert.equal(rows.Market.textContent, 'BR');
+    assert.equal(rows.Language.textContent, 'pt');
+    assert.equal(rows['Default origin'].textContent, 'RIO');
+    assert.equal(rows.Airports.querySelector('a').getAttribute('href'), '/pt-br/booking/airports.json');
+    assert.equal(rows.Tabs.textContent, 'Reservar voo, Check-in, Gerenciar reserva, Status do voo', 'www\'s pt-br texts, from its br store');
+  });
+
   it('the market\'s airport when the page names no market list; the market from the root', () => {
     const labels = JSON.parse(fs.readFileSync(path.join(path.dirname(fileURLToPath(import.meta.url)), '../tools/reports/tap/booking-labels.json'), 'utf8'))['de-de'];
     const { html } = convertPage(nd('homepage'), {
