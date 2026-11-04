@@ -71,8 +71,8 @@ encoded slashes or backslashes (`%2f`, `%5c`, `\`) are always rejected.
 | Name | Default |
 | --- | --- |
 | `UPSTREAM_ORIGIN` | `https://www.lufthansa.com` |
-| `ALLOWED_ORIGIN_PATTERN` | `^https://[a-z0-9-]+--(lh-com\|lh-flynet\|lh-discover\|lh-ita\|lh-austrian\|lh-brussels\|lh-cargo\|lh-airdolomiti\|lh-b2b)--moved-permanently\.(aem\.(page\|live)\|(stage-)?(preview\|ue)\.da\.(live\|page))$` (aem.page/live plus DA preview, Quick Edit and UE hosts; the brand sites since brief 242) |
-| `EXTRA_ALLOWED_ORIGINS` | the turnsthe.page hosts (lufthansa, lufthansa-edge, lufthansa-cn, discover, ita, cargo, airdolomiti, austrian, brussels), `http://localhost:3000` (comma-separated) |
+| `ALLOWED_ORIGIN_PATTERN` | `^https://[a-z0-9-]+--(lh-com\|lh-flynet\|lh-discover\|lh-ita\|lh-austrian\|lh-brussels\|lh-cargo\|lh-airdolomiti\|lh-b2b\|lh-swiss\|lh-tap)--moved-permanently\.(aem\.(page\|live)\|(stage-)?(preview\|ue)\.da\.(live\|page))$` (aem.page/live plus DA preview, Quick Edit and UE hosts; the brand sites since brief 242, lh-swiss and lh-tap since brief 349) |
+| `EXTRA_ALLOWED_ORIGINS` | the turnsthe.page hosts (lufthansa, lufthansa-edge, lufthansa-cn, discover, ita, cargo, airdolomiti, austrian, austrian-cn, swiss-cn, brussels, swiss, b2b, tap), `http://localhost:3000` (comma-separated) |
 | `CACHE_TTL` | `300` (seconds; `0` disables caching) |
 | `UPSTREAM_TIMEOUT_MS` | `8000` |
 
