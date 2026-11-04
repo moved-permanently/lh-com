@@ -14,7 +14,8 @@ import {
   assetOf, isoDate, creditsOf, docName, commonParent, transformPage,
 } from '../tools/importer/import-magazine.js';
 import {
-  magazineLinks, redirectRows, MAGAZINE_PATH, emptyOnWww,
+  magazineLinks, redirectRows, MAGAZINE_PATH, emptyOnWww, GONE_PICTURES, dropGonePictures, authorLinks,
+  relinkDocument,
 } from '../tools/importer/swiss-magazine-import.mjs';
 import { subSiteLinks } from '../tools/importer/swiss-sub-import.mjs';
 import { magazineMenuOf, magazineNavDocument, magazineFooterDocument } from '../tools/importer/swiss-magazine-nav.mjs';
@@ -294,4 +295,52 @@ test('magazineLinks: www.swiss.com.cn\'s links (pages the capture rendered for S
   assert.equal(out.includes('href="/magazine/en/travel/lifestyle/family-care"'), true, out);
   assert.equal(out.includes('href="https://www.swiss.com/lhg/ch/en/dest/cy/boston"'), true, out);
   assert.equal(out.includes('swiss.com.cn'), false, out);
+});
+
+// the magazine's leftovers (brief 341): pictures www no longer has, www's own broken author links,
+// links to pages the replica has
+test('dropGonePictures: a carousel slide of a gone picture out (its caption with it), an article header keeps its text', () => {
+  const carousel = '<div><div class="carousel-images"><div><div><picture><img src="https://content.da.live/x/230926_amman/3-auf-gehts-min.jpg" alt=""></picture></div><div>Los gehts!</div></div><div><div><picture><img src="https://content.da.live/x/230926_amman/3-checkflight-flight-radar.png" alt=""></picture></div><div>Der Checkflight findet im Raum Nikosia statt.</div></div></div></div>';
+  const out = dropGonePictures(carousel);
+  assert.ok(!out.includes('3-checkflight-flight-radar') && !out.includes('Nikosia'), out);
+  assert.ok(out.includes('3-auf-gehts-min.jpg') && out.includes('Los gehts!'), out);
+  const header = '<div><div class="article-header"><div><div><picture><img src="https://content.da.live/x/cargo/when-animals-go-on-a-journey/capture.png" alt="A sleeping dog"></picture></div></div><div><div><h1>When animals go on long journeys</h1><p>Whether pets or exotics</p></div></div></div></div>';
+  const h = dropGonePictures(header);
+  assert.ok(!h.includes('capture.png') && h.includes('<h1>When animals go on long journeys</h1>'), h);
+  assert.equal(dropGonePictures('<div><p>no picture of the list</p></div>'), '<div><p>no picture of the list</p></div>');
+  assert.equal(GONE_PICTURES.length, 4);
+});
+
+test('authorLinks: www\'s /content/swiss-magazine/ and /editor.html/ links the public page they mean, else plain text', () => {
+  const docs = new Set(['/magazine/en/inside-swiss/swiss-experience/swiss-senses', '/magazine/en/inside-swiss/behind-the-scenes/swiss-wanderlust-not-painted-but-applied', '/magazine/de/inside-swiss/sustainability/aeroshark-how-we-further-reduce-our-carbon-emissions']);
+  const doc = [
+    '<p><a href="/content/swiss-magazine/en/inside-swiss/swiss-experience/swiss-senses">Senses</a></p>',
+    '<p><a href="/content/swiss-magazine/en/inside-swiss/behind-the-scenes/-swiss-wanderlust----not-painted-but-applied">Wanderlust</a></p>',
+    '<p><a href="https://www.swiss.com/content/swiss-magazine/de/inside-swiss/sustainability/aeroshark-how-we-further-reduce-our-carbon-emissions">aeroSHARK</a></p>',
+    '<p>The <a href="/content/swiss-magazine/en/travel/destinations/Cum%20Pane">Cum Pane</a> bakery</p>',
+    '<p><a href="/editor.html/content/dam/swiss-magazine/en/articles/travel/destination/lacma.org">Los Angeles County Museum of Art</a></p>',
+  ].join('');
+  const out = authorLinks(doc, { docs });
+  assert.ok(out.includes('<a href="/magazine/en/inside-swiss/swiss-experience/swiss-senses">Senses</a>'), out);
+  assert.ok(out.includes('<a href="/magazine/en/inside-swiss/behind-the-scenes/swiss-wanderlust-not-painted-but-applied">Wanderlust</a>'), out);
+  assert.ok(out.includes('<a href="/magazine/de/inside-swiss/sustainability/aeroshark-how-we-further-reduce-our-carbon-emissions">aeroSHARK</a>'), out);
+  assert.ok(out.includes('<p>The Cum Pane bakery</p>'), out);
+  assert.ok(out.includes('<a href="https://lacma.org">Los Angeles County Museum of Art</a>'), out);
+  assert.ok(!/\/content\/swiss-magazine\/|\/editor\.html\//.test(out), out);
+});
+
+test('relinkDocument: www links relative where the replica has the page (a magazine page by its document path, the sub-sites\' documents, the main site\'s allowlist), the rest on www', () => {
+  const docs = new Set(['/magazine/en/inside-swiss/swiss-worldcargo/from-bern-to-sao-paulo-how-to-ship-a-masterpiece', '/corporate/de/careers/professional-fields/pilots']);
+  const sitePaths = new Set(['/ch/en/prepare/baggage/hand-baggage']);
+  const doc = [
+    '<p><a href="https://www.swiss.com/magazine/en/inside-swiss/swiss-worldcargo/from-bern-to-sao-paulo--how-to-ship-a-masterpiece">masterpiece</a></p>',
+    '<p><a href="https://www.swiss.com/corporate/de/careers/professional-fields/pilots">Pilots</a></p>',
+    '<p><a href="https://www.swiss.com/lhg/ch/en/o-d/cy-cy/zurich-bristol">Bristol</a></p>',
+    '<p><a href="https://www.swiss.com/ch/de/discover/carbon-offsetting">CO2</a></p>',
+  ].join('');
+  const out = relinkDocument(doc, { docs, sitePaths });
+  assert.ok(out.includes('href="/magazine/en/inside-swiss/swiss-worldcargo/from-bern-to-sao-paulo-how-to-ship-a-masterpiece"'), out);
+  assert.ok(out.includes('href="/corporate/de/careers/professional-fields/pilots"'), out);
+  assert.ok(out.includes('href="https://www.swiss.com/lhg/ch/en/o-d/cy-cy/zurich-bristol"'), out);
+  assert.ok(out.includes('href="https://www.swiss.com/ch/de/discover/carbon-offsetting"'), out);
 });
