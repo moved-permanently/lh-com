@@ -388,6 +388,10 @@ body:is(.brand-austrian, .brand-brussels, .brand-discover, .brand-ita, .brand-ai
   transition: none;
 }
 
+.flash-teaser-tap-slide[hidden] {
+  display: none;
+}
+
 .flash-teaser-tap-link,
 .flash-teaser-tap-link:any-link {
   display: block;
