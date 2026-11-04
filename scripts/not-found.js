@@ -11,22 +11,19 @@
  * (e.g. /error.html, where the Form (core) block goes when a submission fails) is English de/en,
  * as live's /error.html is the English not-found page. Help & contact is not migrated and links
  * to www.lufthansa.com. Runs before scripts.js decorates main.
- * Brand sites (ITA, Discover, Cargo, Air Dolomiti): the 404 has no metadata of its own, so it
- * takes the brand of the site's /metadata.json row that matches the path, and the nav, footer and
- * language its pages carry (a site without roots: the language of the path's prefix; with roots:
- * the path's <cc>/<ll>), before scripts.js loads (theme, consent, showcase notice and header and
- * footer then follow the brand). Its title names the brand; it links only the site's pages that
- * answer (homepage, booking, check-in, bookings: a HEAD request each), without Lufthansa's search
- * and help page. A brand with its own 404 (scripts/not-found-texts.js, brief 342): www's title,
- * heading, text and homepage button in the path's language, the metadata of the path's root (as
- * lh-edge sends the page on the brand's host). lh-com (no brand row) as above. scripts.js is
- * loaded from here, after that.
+ * Brand sites: the 404 has no metadata of its own, so it takes the brand lh-edge set on the
+ * brand's host (its src/not-found.js), else the brand of the site's /metadata.json row that
+ * matches the path, and the nav, footer and language its pages carry (the path's root or language
+ * version, else the site's first), before scripts.js loads (theme, consent, showcase notice and
+ * header and footer then follow the brand). Its text is the brand's www 404 in the path's language
+ * (scripts/not-found-texts.js, brief 342: title, heading, text, homepage button), without
+ * Lufthansa's search and help page. lh-com (no brand row) as above. scripts.js is loaded from
+ * here, after that.
  */
 import {
   getLocale, getHomepageUrl, LIVE_ORIGIN, LOCALES,
 } from './locale.js';
-import { BRANDS, brandName } from './brand.js';
-import { siteLanguagesOf, languageOfPath } from './site-languages.js';
+import { BRANDS } from './brand.js';
 import { brandNotFound, notFoundMarkup } from './not-found-texts.js';
 
 const TEXT = {
@@ -224,25 +221,14 @@ export function metadataBrand(rows, pathname) {
 
 /**
  * The metadata a brand's pages carry, for its 404 at a path: brand; nav, footer (and language on
- * a site without roots) of the path's language or root.
+ * a site without roots) of the path's root or language version (scripts/not-found-texts.js).
  * @param {string} pathname
  * @param {string} brand
  * @returns {Object<string, string>}
  */
 export function brandPageMeta(pathname, brand) {
   const own = brandNotFound(brand, pathname);
-  if (own) return own.meta;
-  const meta = { brand };
-  const languages = siteLanguagesOf((n) => (n === 'brand' ? brand : ''));
-  if (languages) {
-    const entry = languageOfPath(pathname, languages) || languages[0];
-    return {
-      ...meta, language: entry.lang, nav: `${entry.path}nav`, footer: `${entry.path}footer`,
-    };
-  }
-  const root = pathname.match(/^\/([a-z]{2})\/([a-z]{2})(?:\/|$)/);
-  if (!root) return meta;
-  return { ...meta, nav: `/${root[1]}/${root[2]}/nav`, footer: `/${root[1]}/${root[2]}/footer` };
+  return own ? own.meta : { brand };
 }
 
 /** Sets a page metadata value (<meta name>). */
@@ -258,58 +244,18 @@ export function setMeta(name, content) {
 
 const pageMeta = (name) => document.head.querySelector(`meta[name="${name}"]`)?.getAttribute('content') || '';
 
-/** Whether a page of this site answers (HEAD, after redirects). */
-async function pageExists(href) {
-  try {
-    return (await fetch(href, { method: 'HEAD' })).ok;
-  } catch (e) {
-    return false;
-  }
-}
-
 /**
- * A brand's not-found page: the title, then the homepage and the booking, check-in and bookings
- * pages of the path's language or root that exist on the site; the brand's name in the title.
+ * A brand's not-found page (scripts/not-found-texts.js): www's title, heading, text and homepage
+ * button in the path's language, as lh-edge sends it on the brand's host.
  * @param {Element} [main]
- * @param {Function} [exists] async (href) => boolean
  */
-export async function buildBrandNotFound(main = document.querySelector('main'), exists = pageExists) {
-  if (!main) return;
-  const { pathname } = window.location;
-  // a brand with its own 404 (scripts/not-found-texts.js): www's wording, as lh-edge sends it
-  const own = brandNotFound(pageMeta('brand'), pathname);
-  if (own) {
-    main.innerHTML = notFoundMarkup(own);
-    document.title = own.title;
-    const og = document.querySelector('meta[property="og:title"]');
-    if (og) og.content = own.title;
-    return;
-  }
-  const languages = siteLanguagesOf(pageMeta);
-  const root = pathname.match(/^\/([a-z]{2})\/([a-z]{2})(?:\/|$)/);
-  let lang = 'en';
-  let base = '';
-  let home = '/';
-  if (languages) {
-    const entry = languageOfPath(pathname, languages) || languages[0];
-    ({ lang, home } = entry);
-    base = entry.path.replace(/\/$/, '');
-  } else if (root) {
-    [, , lang] = root;
-    base = `/${root[1]}/${root[2]}`;
-    home = `${base}/homepage`;
-  }
-  const t = TEXT[lang] || TEXT.en;
-  const candidates = t.links.map(([label, slug]) => [label, slug === 'home' ? home : `${base}/${slug}`]);
-  const found = await Promise.all(candidates.map(([, href]) => exists(href).catch(() => false)));
-  const content = el('div', {}, el('h1', {}, t.title));
-  candidates.forEach(([label, href], i) => {
-    if (found[i]) content.append(linkParagraph(label, href, ''));
-  });
-  main.replaceChildren(content);
-  document.title = `${t.title} | ${brandName()}`;
+export async function buildBrandNotFound(main = document.querySelector('main')) {
+  const own = main && brandNotFound(pageMeta('brand'), window.location.pathname);
+  if (!own) return;
+  main.innerHTML = notFoundMarkup(own);
+  document.title = own.title;
   const og = document.querySelector('meta[property="og:title"]');
-  if (og) og.content = document.title;
+  if (og) og.content = own.title;
 }
 
 /** The brand of this site: its /metadata.json row for the path ('' for lh-com and on errors). */
