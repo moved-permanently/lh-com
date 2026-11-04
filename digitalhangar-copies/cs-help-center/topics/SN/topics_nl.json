@@ -1,0 +1,3936 @@
+{
+  "targetCustomerStatus": "BASE",
+  "menu": [
+    {
+      "code": "travelBookingStatus",
+      "title": "Actuele vluchtinformatie",
+      "children": [
+        {
+          "code": "currentTravelInformation",
+          "title": "Reisadviezen",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.brusselsairlines.com/xx/nl/plan-your-trip/flight-information",
+                "linkTitle": "Reisinformatie bekijken",
+                "description": "Zoek informatie en hulp bij stakingen of andere vluchtwijzigingen.",
+                "title": "Ontvang reisupdates",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "flightStatus",
+          "title": "Vluchtstatus",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.brusselsairlines.com/xx/nl/plan-your-trip/arrivals-and-departures#/",
+                "linkTitle": "Nu controleren",
+                "description": "Zoek op vluchtnummer, vluchtroute of luchthaven om de status van je vlucht te controleren.",
+                "title": "Vluchtstatus controleren",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.brusselsairlines.com/digitalassistant/deeplink?start=FLIGHTSTATUS&language=nl",
+                "linkTitle": "Chat beginnen",
+                "description": "Charlie kan de status, vertrektijd en andere details van je vlucht controleren.",
+                "title": null,
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://www.brusselsairlines.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "FLIGHTSTATUS",
+                    "language": "nl",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": "icon-flight-status",
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "checkConnection",
+          "title": "Aansluitende vlucht controleren",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.brusselsairlines.com/digitalassistant/deeplink?start=flynet&language=nl",
+                "linkTitle": "Chat beginnen",
+                "description": "Charlie kan alternatieve vluchten voor je vinden als je je aansluitende vlucht mist vanwege een annulatie of vertraging.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.brusselsairlines.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "flynet",
+                    "language": "nl",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-flight-status",
+      "imageUrl": "https://www.brusselsairlines.com/content/dam/bel/images/local_images/help-center//travel-information.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "rebookingsCancelationsRefunds",
+      "title": "Omboekingen en annuleringen",
+      "children": [
+        {
+          "code": "rebookFlight",
+          "title": "Een vlucht omboeken",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.brusselsairlines.com/digitalassistant/deeplink?start=CONTACTCENTERDEFAULT&language=nl",
+                "linkTitle": "Chat beginnen",
+                "description": "Charlie is beschikbaar om je vragen te beantwoorden en om je door de volgende stappen te leiden.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.brusselsairlines.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "CONTACTCENTERDEFAULT",
+                    "language": "nl",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.brusselsairlines.com/xx/nl/profile/login",
+                "linkTitle": "Boeking beheren",
+                "description": "Wijzig de datum of tijd van je vlucht online voor een of meer passagiers in je boeking. \n \nLet op: Gebruik onze chatassistent Charlie om je vluchtroute te wijzigen.",
+                "title": "Vlucht omboeken",
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://shop.brusselsairlines.com/booking/manage-booking/retrieve?lang=nl-NL&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.brusselsairlines.com/digitalassistant/deeplink?start=liveagent&laguage=nl&language=nl",
+                "linkTitle": "Livechat beginnen",
+                "description": "Krijg 24/7 hulp van onze Service Center medewerkers via Live Chat.",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.brusselsairlines.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "nl",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Service center bellen",
+                "description": "Als onze online services je niet konden helpen met je vraag, staat ons Service Center klaar om je te ondersteunen.",
+                "title": null,
+                "phone": "+493072629623",
+                "priority": 4,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": true,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "NewBoardingPass",
+          "title": "Nieuwe instapkaart verkrijgen",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://once.brusselsairlines.com/connect/main-app?APPID=LHG_ONLINE&COUNTRY=xx&LANGUAGE=nl&TENANT=SN&MODE=PORTAL",
+                "linkTitle": "Ga naar inchecken",
+                "description": "Om uw nieuwe instapkaart te ontvangen, checkt u opnieuw in via de onderstaande link.",
+                "title": "Opnieuw inchecken",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "confirmRebooking",
+          "title": "Herboeking bevestigen",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.brusselsairlines.com/digitalassistant/deeplink?start=MISSINGCONFIRMATION&language=nl",
+                "linkTitle": "Chat beginnen",
+                "description": "Charlie kan de status van uw omboeking voor u controleren.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.brusselsairlines.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "MISSINGCONFIRMATION",
+                    "language": "nl",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.brusselsairlines.com/digitalassistant/deeplink?start=liveagent&laguage=nl&language=nl",
+                "linkTitle": "Livechat beginnen",
+                "description": "Als uw boeking werd veranderd, kunnen onze medewerkers in het service center uw nieuwe boekingsinformatie opnieuw verzenden en u verder helpen bij het omboeken van extra diensten (zoals stoelreserveringen).",
+                "title": null,
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://www.brusselsairlines.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "nl",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "OvernightStay",
+          "title": "Hotelverblijf wegens vertraging vlucht",
+          "children": [
+            {
+              "code": "BookOvernightStay",
+              "title": "Ik heb hulp nodig bij het boeken van een hotel",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.brusselsairlines.com/xx/nl/plan-your-trip/flight-irregularities#accordion-item-section-hotel",
+                    "linkTitle": "Voorwaarden lezen",
+                    "description": "Als uw vertrek wordt uitgesteld tot de volgende dag, regelen we een hotelverblijf, of u kunt er zelf een boeken. \n  \nHoud er rekening mee dat er bepaalde voorwaarden van toepassing zijn.",
+                    "title": "Hotel boeken",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "RefundOvernightStay",
+              "title": "Ik heb al een hotel geboekt",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.brusselsairlines.com/xx/nl/contact/feedback/general/delays-and-cancellation",
+                    "linkTitle": "Formulier openen",
+                    "description": "U kunt de kosten voor de overnachting, het vervoer van de luchthaven naar het hotel en terug en maaltijden indienen voor restitutie via ons feedbackformulier.",
+                    "title": "Terugbetaling aanvragen",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "FORM",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "cancelBookingGetRefund",
+          "title": "Annulering en/of terugbetaling aanvragen",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://refund.brusselsairlines.com/nl",
+                "linkTitle": "Formulier openen",
+                "description": "Voor boekingen bij Brussels Airlines kan je de annulering en terugbetaling van je boeking aanvragen via ons contactformulier.",
+                "title": "Annulatie en terugbetaling aanvragen",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.brusselsairlines.com/xx/nl/my-bookings/cancel-and-refund-requests",
+                "linkTitle": "Bekijk het overzicht",
+                "description": "U vindt een volledig overzicht van de restitueerbare tarieven, diensten en kosten op onze informatiepagina.",
+                "title": "Meer over annuleringen",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.brusselsairlines.com/digitalassistant/deeplink?start=liveagent&laguage=nl&language=nl",
+                "linkTitle": "Livechat beginnen",
+                "description": "Krijg 24/7 hulp van onze Service Center medewerkers via Live Chat.",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.brusselsairlines.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "nl",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Service center bellen",
+                "description": "Als onze online services je niet konden helpen met je vraag, staat ons Service Center klaar om je te ondersteunen.",
+                "title": null,
+                "phone": "+493072629623",
+                "priority": 4,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": true,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "delayCancelationConfirmation",
+          "title": "Annulatie bevestigen",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.brusselsairlines.com/digitalassistant/deeplink?start=liveagent&laguage=nl&language=nl",
+                "linkTitle": "Livechat beginnen",
+                "description": "Na annulering ontvangt u een bevestigingsmail die mogelijk in uw spam is terechtgekomen. Als u de annuleringsbevestiging opnieuw wilt ontvangen, neem dan contact op met ons service center.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.brusselsairlines.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "nl",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-flight-irreg",
+      "imageUrl": "https://www.brusselsairlines.com/content/dam/bel/images/local_images/help-center//rebooking-cancellation-refund.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "RefundsAndCompensations",
+      "title": "Terugbetalingen en compensaties",
+      "children": [
+        {
+          "code": "claimCompensationFlightDisruption",
+          "title": "Compensatie voor door de luchtvaartmaatschappij gemaakte vluchtwijzigingen",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.brusselsairlines.com/xx/nl/contact/feedback/general/delays-and-cancellation",
+                "linkTitle": "Formulier openen",
+                "description": "Als uw vlucht werd verstoord, kunt u een compensatie aanvragen via ons contactformulier.",
+                "title": "Compensatie aanvragen",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "cancelBookingGetRefund",
+          "title": "Annulering en/of terugbetaling aanvragen",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://refund.brusselsairlines.com/nl",
+                "linkTitle": "Formulier openen",
+                "description": "Voor boekingen bij Brussels Airlines kan je de annulering en terugbetaling van je boeking aanvragen via ons contactformulier.",
+                "title": "Annulatie en terugbetaling aanvragen",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.brusselsairlines.com/xx/nl/my-bookings/cancel-and-refund-requests",
+                "linkTitle": "Bekijk het overzicht",
+                "description": "U vindt een volledig overzicht van de restitueerbare tarieven, diensten en kosten op onze informatiepagina.",
+                "title": "Meer over annuleringen",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.brusselsairlines.com/digitalassistant/deeplink?start=liveagent&laguage=nl&language=nl",
+                "linkTitle": "Livechat beginnen",
+                "description": "Krijg 24/7 hulp van onze Service Center medewerkers via Live Chat.",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.brusselsairlines.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "nl",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Service center bellen",
+                "description": "Als onze online services je niet konden helpen met je vraag, staat ons Service Center klaar om je te ondersteunen.",
+                "title": null,
+                "phone": "+493072629623",
+                "priority": 4,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": true,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "confirmRefund",
+          "title": "Terugbetaling bevestigen",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.brusselsairlines.com/digitalassistant/deeplink?start=liveagent&laguage=nl&language=nl",
+                "linkTitle": "Livechat beginnen",
+                "description": "Neem contact op met ons Service Center om uw terugbetalingsbevestiging opnieuw te ontvangen of de status van uw terugbetaling te controleren.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.brusselsairlines.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "nl",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "refundBaggageIrregularities",
+          "title": "Vergoeding voor bagageproblemen",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.brusselsairlines.com/xx/nl/contact/feedback/general/baggage",
+                "linkTitle": "Formulier openen",
+                "description": "Gebruik ons contactformulier om een terugbetaling aan te vragen voor extra kosten als gevolg van vertraagde of beschadigde bagage.",
+                "title": "Terugbetaling aanvragen",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.brusselsairlines.com/xx/nl/extra-services/baggage/problems-with-your-baggage",
+                "linkTitle": "Meer informatie",
+                "description": "Vind hulp bij vertraagde of beschadigde bagage en bij het aanvragen van een vergoeding.",
+                "title": "Meer informatie over bagageproblemen",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.brusselsairlines.com/digitalassistant/deeplink?language=nl&start=DYNAMIC_RefundsAndCompensations-refundBaggageIrregularities",
+                "linkTitle": "Chat beginnen",
+                "description": "Charlie is beschikbaar om je vragen te beantwoorden en om je door de volgende stappen te leiden.",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.brusselsairlines.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_RefundsAndCompensations-refundBaggageIrregularities",
+                    "language": "nl",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "OvernightStay",
+          "title": "Hotelverblijf wegens vertraging vlucht",
+          "children": [
+            {
+              "code": "BookOvernightStay",
+              "title": "Ik heb hulp nodig bij het boeken van een hotel",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.brusselsairlines.com/xx/nl/plan-your-trip/flight-irregularities#accordion-item-section-hotel",
+                    "linkTitle": "Voorwaarden lezen",
+                    "description": "Als uw vertrek wordt uitgesteld tot de volgende dag, regelen we een hotelverblijf, of u kunt er zelf een boeken. \n  \nHoud er rekening mee dat er bepaalde voorwaarden van toepassing zijn.",
+                    "title": "Hotel boeken",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "RefundOvernightStay",
+              "title": "Ik heb al een hotel geboekt",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.brusselsairlines.com/xx/nl/contact/feedback/general/delays-and-cancellation",
+                    "linkTitle": "Formulier openen",
+                    "description": "U kunt de kosten voor de overnachting, het vervoer van de luchthaven naar het hotel en terug en maaltijden indienen voor restitutie via ons feedbackformulier.",
+                    "title": "Terugbetaling aanvragen",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "FORM",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "MealVoucher",
+          "title": "Maaltijdvoucher",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.brusselsairlines.com/xx/nl/plan-your-trip/flight-irregularities#accordion-item-section-voucher",
+                "linkTitle": "Meer informatie",
+                "description": "In de meeste gevallen ontvang je automatisch een maaltijdvoucher die wordt gekoppeld aan de QR-code op je ticket. Bekijk hoe je je maaltijdvoucher ontvangt en waar je hem kunt gebruiken.",
+                "title": "Controleer de voorwaarden",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "TravelbyTrain",
+          "title": "Alternatief vervoer per trein",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.brusselsairlines.com/xx/nl/good-for-train",
+                "linkTitle": "Voer boekingsgegevens in",
+                "description": "Als er geen geschikt alternatief was voor je geannuleerde vlucht, kan je vliegticket inwisselen voor een treinvoucher. \n \nHoud er rekening mee dat dit alleen geldt voor bepaalde routes.",
+                "title": "Treinvoucher aanvragen",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "passengerRights",
+          "title": "Passagiersrechten",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.brusselsairlines.com/xx/nl/legal-notices/passenger-rights",
+                "linkTitle": "Meer informatie",
+                "description": "Kom meer te weten over je passagiersrechten in geval van vluchtannuleringen, vertragingen of andere vluchtverstoringen.",
+                "title": "Passagiersrechten bekijken",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-refund-possible",
+      "imageUrl": "https://www.brusselsairlines.com/content/dam/bel/images/local_images/help-center//refund-compensations.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "checkin",
+      "title": "Check-in",
+      "children": [
+        {
+          "code": "HelpWithCheckIn",
+          "title": "Probleem met inchecken",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.brusselsairlines.com/digitalassistant/deeplink?start=checkin&language=nl",
+                "linkTitle": "Chat beginnen",
+                "description": "Charlie kan voor je uitzoeken waarom je niet kan inchecken voor je vlucht.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.brusselsairlines.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "checkin",
+                    "language": "nl",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Service center bellen",
+                "description": "Onze experts helpen u graag verder als u nog vragen of opmerkingen heeft.",
+                "title": null,
+                "phone": "+493091588500",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "lateNightCheckin",
+          "title": "Vroege bagage drop-off",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.brusselsairlines.com/digitalassistant/deeplink?language=nl&start=DYNAMIC_checkin-lateNightCheckin",
+                "linkTitle": "Chat beginnen",
+                "description": "Charlie is beschikbaar om je vragen te beantwoorden en om je door de volgende stappen te leiden.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.brusselsairlines.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_checkin-lateNightCheckin",
+                    "language": "nl",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.brusselsairlines.com/xx/nl/check-in-options-and-info/check-in-options-for-africa",
+                "linkTitle": "Meer informatie",
+                "description": "Als u vanuit Parijs Charles De Gaulle naar Afrika reist, kunt u uw bagage de avond voor uw vlucht afgeven op de luchthaven.",
+                "title": "Bagage vroeg inchecken",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "NewBoardingPass",
+          "title": "Nieuwe instapkaart verkrijgen",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://once.brusselsairlines.com/connect/main-app?APPID=LHG_ONLINE&COUNTRY=xx&LANGUAGE=nl&TENANT=SN&MODE=PORTAL",
+                "linkTitle": "Ga naar inchecken",
+                "description": "Om uw nieuwe instapkaart te ontvangen, checkt u opnieuw in via de onderstaande link.",
+                "title": "Opnieuw inchecken",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "otherCheckinQuestions",
+          "title": "Vragen over inchecken",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.brusselsairlines.com/digitalassistant/deeplink?language=nl&start=DYNAMIC_checkin-otherCheckinQuestions",
+                "linkTitle": "Chat beginnen",
+                "description": "Charlie is beschikbaar om je vragen te beantwoorden en om je door de volgende stappen te leiden.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.brusselsairlines.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_checkin-otherCheckinQuestions",
+                    "language": "nl",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.brusselsairlines.com/xx/nl/check-in-options-and-info",
+                "linkTitle": "Bekijk het overzicht",
+                "description": "Vind de handigste optie om in te checken voor uw volgende reis.",
+                "title": "Incheckopties bekijken",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-boarding-card",
+      "imageUrl": "https://www.brusselsairlines.com/content/dam/bel/images/local_images/help-center//check-in.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "baggage",
+      "title": "Bagage",
+      "children": [
+        {
+          "code": "baggage.rules",
+          "title": "Bagageregels en prijzen",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.brusselsairlines.com/xx/nl/profile/login",
+                "linkTitle": "Boeking beheren",
+                "description": "Bekijk hoeveel bagage je mag meenemen op je aanstaande vlucht.",
+                "title": "Bekijk de gratis toegelaten bagage",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.brusselsairlines.com/booking/services/BAGGAGE?lang=nl-NL&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.brusselsairlines.com/xx/nl/extra-services/baggage",
+                "linkTitle": "Naar het overzicht",
+                "description": "Vind een overzicht van alle soorten bagage en diensten.",
+                "title": "Bekijk alle bagagediensten",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.brusselsairlines.com/digitalassistant/deeplink?start=liveagent&laguage=nl&language=nl",
+                "linkTitle": "Livechat beginnen",
+                "description": "Krijg 24/7 hulp van onze Service Center medewerkers via Live Chat.",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.brusselsairlines.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "nl",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Service center bellen",
+                "description": "Als u verder nog vragen of opmerkingen heeft, helpen onze experts u graag verder.",
+                "title": null,
+                "phone": "+493072629623",
+                "priority": 4,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "baggage.excess",
+          "title": "Extra bagage/overbagage",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.brusselsairlines.com/xx/nl/profile/login",
+                "linkTitle": "Boeking beheren",
+                "description": "Bekijk hoeveel bagage je mag meenemen op je volgende vlucht en voeg indien nodig meer toe.",
+                "title": "Extra bagage toevoegen",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.brusselsairlines.com/booking/services/BAGGAGE?lang=nl-NL&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.brusselsairlines.com/digitalassistant/deeplink?language=nl&start=DYNAMIC_baggage-baggage_excess",
+                "linkTitle": "Chat beginnen",
+                "description": "Charlie is beschikbaar om je vragen te beantwoorden en om je door de volgende stappen te leiden.",
+                "title": null,
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://www.brusselsairlines.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_baggage-baggage_excess",
+                    "language": "nl",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.brusselsairlines.com/xx/nl/extra-services/baggage/checked-baggage",
+                "linkTitle": "Meer informatie",
+                "description": "Vind meer informatie over het toevoegen van overbagage voor uw geboekte vlucht.",
+                "title": "Controleer de bagagevoorschriften",
+                "phone": null,
+                "priority": 3,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.brusselsairlines.com/digitalassistant/deeplink?start=liveagent&laguage=nl&language=nl",
+                "linkTitle": "Livechat beginnen",
+                "description": "Krijg 24/7 hulp van onze Service Center medewerkers via Live Chat.",
+                "title": null,
+                "phone": null,
+                "priority": 4,
+                "deeplink": {
+                  "url": "https://www.brusselsairlines.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "nl",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Service center bellen",
+                "description": "Als u verder nog vragen of opmerkingen heeft, helpen onze experts u graag verder.",
+                "title": null,
+                "phone": "+493072629623",
+                "priority": 5,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "baggage.sports",
+          "title": "Sportbagage toevoegen",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Service center bellen",
+                "description": "Als u sportuitrusting wilt meenemen, neem dan zo snel mogelijk contact op met ons servicecentrum.",
+                "title": null,
+                "phone": "+493072629623",
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.brusselsairlines.com/digitalassistant/deeplink?start=liveagent&laguage=nl&language=nl",
+                "linkTitle": "Livechat beginnen",
+                "description": "Krijg 24/7 hulp van onze Service Center medewerkers via Live Chat.",
+                "title": null,
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://www.brusselsairlines.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "nl",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.brusselsairlines.com/digitalassistant/deeplink?language=nl&start=DYNAMIC_baggage-baggage_sports",
+                "linkTitle": "Chat beginnen",
+                "description": "Charlie is beschikbaar om je vragen te beantwoorden en om je door de volgende stappen te leiden.",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.brusselsairlines.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_baggage-baggage_sports",
+                    "language": "nl",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.brusselsairlines.com/xx/nl/extra-services/baggage/sports-equipment",
+                "linkTitle": "Meer informatie",
+                "description": "Alle informatie over sportbagage vindt u hier.",
+                "title": "Controleer de bagagevoorschriften",
+                "phone": null,
+                "priority": 4,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "pets",
+          "title": "Reizen met huisdieren",
+          "children": [
+            {
+              "code": "travelPetsInCabin",
+              "title": "Dieren in de cabine (max. 8 kg incl. transportbox)",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.brusselsairlines.com/xx/nl/profile/login",
+                    "linkTitle": "Nu registreren",
+                    "description": "Registreer uw huisdier voor een bestaande boeking om deze mee te nemen in de cabine (tot 72 uur voor vertrek).",
+                    "title": "Voeg een huisdier toe",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.brusselsairlines.com/booking/services/PETS?lang=nl-NL&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "CHAT_ASSISTANT",
+                    "link": "https://www.brusselsairlines.com/digitalassistant/deeplink?language=nl&start=DYNAMIC_pets-travelPetsInCabin",
+                    "linkTitle": "Chat beginnen",
+                    "description": "Charlie is beschikbaar om je vragen te beantwoorden en om je door de volgende stappen te leiden.",
+                    "title": null,
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": {
+                      "url": "https://www.brusselsairlines.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "DYNAMIC_pets-travelPetsInCabin",
+                        "language": "nl",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "LIVE_CHAT",
+                    "link": "https://www.brusselsairlines.com/digitalassistant/deeplink?start=liveagent&laguage=nl&language=nl",
+                    "linkTitle": "Livechat beginnen",
+                    "description": "Krijg 24/7 hulp van onze Service Center medewerkers via Live Chat.",
+                    "title": null,
+                    "phone": null,
+                    "priority": 3,
+                    "deeplink": {
+                      "url": "https://www.brusselsairlines.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "liveagent",
+                        "language": "nl",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "Service center bellen",
+                    "description": "Onze experts helpen u graag verder als u nog vragen of opmerkingen heeft.",
+                    "title": null,
+                    "phone": "+493072629623",
+                    "priority": 4,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            },
+            {
+              "code": "travelPetsInCargo",
+              "title": "Dieren in het vrachtruim",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.brusselsairlines.com/xx/nl/special-care/pets/cats-and-dogs-in-the-hold",
+                    "linkTitle": "Alle voorwaarden bekijken",
+                    "description": "Controleer de voorwaarden voor het reizen met huisdieren en zorg ervoor dat u alle vereiste documenten heeft.",
+                    "title": "Reisvoorwaarden bekijken",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "CHAT_ASSISTANT",
+                    "link": "https://www.brusselsairlines.com/digitalassistant/deeplink?language=nl&start=DYNAMIC_pets-travelPetsInCargo",
+                    "linkTitle": "Chat beginnen",
+                    "description": "Charlie is beschikbaar om je vragen te beantwoorden en om je door de volgende stappen te leiden.",
+                    "title": null,
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": {
+                      "url": "https://www.brusselsairlines.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "DYNAMIC_pets-travelPetsInCargo",
+                        "language": "nl",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "LIVE_CHAT",
+                    "link": "https://www.brusselsairlines.com/digitalassistant/deeplink?start=liveagent&laguage=nl&language=nl",
+                    "linkTitle": "Livechat beginnen",
+                    "description": "Krijg 24/7 hulp van onze Service Center medewerkers via Live Chat.",
+                    "title": null,
+                    "phone": null,
+                    "priority": 3,
+                    "deeplink": {
+                      "url": "https://www.brusselsairlines.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "liveagent",
+                        "language": "nl",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "Service center bellen",
+                    "description": "Onze experts helpen u graag verder als u nog vragen of opmerkingen heeft.",
+                    "title": null,
+                    "phone": "+493072629623",
+                    "priority": 4,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "lateNightCheckin",
+          "title": "Vroege bagage drop-off",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.brusselsairlines.com/digitalassistant/deeplink?language=nl&start=DYNAMIC_baggage-lateNightCheckin",
+                "linkTitle": "Chat beginnen",
+                "description": "Charlie is beschikbaar om je vragen te beantwoorden en om je door de volgende stappen te leiden.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.brusselsairlines.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_baggage-lateNightCheckin",
+                    "language": "nl",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.brusselsairlines.com/xx/nl/check-in-options-and-info/check-in-options-for-africa",
+                "linkTitle": "Meer informatie",
+                "description": "Als u vanuit Parijs Charles De Gaulle naar Afrika reist, kunt u uw bagage de avond voor uw vlucht afgeven op de luchthaven.",
+                "title": "Bagage vroeg inchecken",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "baggage.damagedOrDelayed",
+          "title": "Problemen met bagage",
+          "children": [
+            {
+              "code": "reportDelayedBaggage",
+              "title": "Vertraagde bagage melden",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "CHAT_ASSISTANT",
+                    "link": "https://www.brusselsairlines.com/digitalassistant/deeplink?start=DELAYBAGCREATE&language=nl",
+                    "linkTitle": "Chat beginnen",
+                    "description": "Als je ingecheckte bagage niet is aangekomen, dan kan Charlie je uitleggen hoe je dit als vertraagd kan melden.",
+                    "title": null,
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://www.brusselsairlines.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "DELAYBAGCREATE",
+                        "language": "nl",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.brusselsairlines.com/xx/nl/extra-services/baggage/problems-with-your-baggage",
+                    "linkTitle": "Meer informatie",
+                    "description": "Alle belangrijke informatie over vertraagde bagage vindt u hier.",
+                    "title": "Meer informatie over bagagevertragingen",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "statusBaggageReport",
+              "title": "Melding vertraagde bagage beheren",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "CHAT_ASSISTANT",
+                    "link": "https://www.brusselsairlines.com/digitalassistant/deeplink?start=DELAYBAG&language=nl",
+                    "linkTitle": "Chat beginnen",
+                    "description": "Charlie kan je helpen bij het volgen of bewerken van je vertraagde bagagerapport. Je kan het rapport sluiten zodra je je bagage hebt ontvangen.",
+                    "title": null,
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://www.brusselsairlines.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "DELAYBAG",
+                        "language": "nl",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.brusselsairlines.com/xx/nl/extra-services/baggage/problems-with-your-baggage",
+                    "linkTitle": "Meer informatie",
+                    "description": "Hier vind je alle belangrijke informatie over vertraagde bagage.",
+                    "title": "Meer informatie over bagagevertragingen",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "reportDamagedBaggage",
+              "title": "Beschadigde bagage melden",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.brusselsairlines.com/xx/nl/contact/feedback/general/baggage",
+                    "linkTitle": "Melding beheren",
+                    "description": "Als u de schade niet hebt gemeld op de luchthaven, kunt u dit binnen 7 dagen na de vlucht doen via ons contactformulier.",
+                    "title": "Beschadigde bagage melden",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "FORM",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "CHAT_ASSISTANT",
+                    "link": "https://www.brusselsairlines.com/digitalassistant/deeplink?language=nl&start=DYNAMIC_baggage_damagedOrDelayed-reportDamagedBaggage",
+                    "linkTitle": "Chat beginnen",
+                    "description": "Charlie is beschikbaar om je vragen te beantwoorden en om je door de volgende stappen te leiden.",
+                    "title": null,
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": {
+                      "url": "https://www.brusselsairlines.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "DYNAMIC_baggage_damagedOrDelayed-reportDamagedBaggage",
+                        "language": "nl",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "refundBaggageIrregularities",
+              "title": "Vergoeding voor bagageproblemen",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.brusselsairlines.com/xx/nl/contact/feedback/general/baggage",
+                    "linkTitle": "Formulier openen",
+                    "description": "Gebruik ons contactformulier om een terugbetaling aan te vragen voor extra kosten als gevolg van vertraagde of beschadigde bagage.",
+                    "title": "Terugbetaling aanvragen",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "FORM",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.brusselsairlines.com/xx/nl/extra-services/baggage/problems-with-your-baggage",
+                    "linkTitle": "Meer informatie",
+                    "description": "Vind hulp bij vertraagde of beschadigde bagage en bij het aanvragen van een vergoeding.",
+                    "title": "Meer informatie over bagageproblemen",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CHAT_ASSISTANT",
+                    "link": "https://www.brusselsairlines.com/digitalassistant/deeplink?language=nl&start=DYNAMIC_baggage_damagedOrDelayed-refundBaggageIrregularities",
+                    "linkTitle": "Chat beginnen",
+                    "description": "Charlie is beschikbaar om je vragen te beantwoorden en om je door de volgende stappen te leiden.",
+                    "title": null,
+                    "phone": null,
+                    "priority": 3,
+                    "deeplink": {
+                      "url": "https://www.brusselsairlines.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "DYNAMIC_baggage_damagedOrDelayed-refundBaggageIrregularities",
+                        "language": "nl",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "baggage.lost",
+          "title": "Verlies van persoonlijk voorwerp",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.brusselsairlines.com/digitalassistant/deeplink?language=nl&start=DYNAMIC-baggage_lost-baggage",
+                "linkTitle": "Chat beginnen",
+                "description": "Charlie is beschikbaar om je vragen te beantwoorden en om je door de volgende stappen te leiden.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.brusselsairlines.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC-baggage_lost-baggage",
+                    "language": "nl",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.brusselsairlines.com/xx/nl/extra-services/baggage/problems-with-your-baggage#tab-03",
+                "linkTitle": "Nu melden",
+                "description": "Meld persoonlijke voorwerpen die u bent kwijtgeraakt op de luchthaven, in het vliegtuig of die ontbreken in uw ingecheckte bagage.",
+                "title": "Verloren voorwerp melden",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.brusselsairlines.com/xx/nl/extra-services/baggage/problems-with-your-baggage#tab-03",
+                "linkTitle": "Meer informatie",
+                "description": "Lees hier meer over wat je moet doen als er persoonlijke spullen ontbreken en hoe je een claim kunt indienen.",
+                "title": "Meer informatie over verloren voorwerpen",
+                "phone": null,
+                "priority": 3,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "baggage.dangerousGoods",
+          "title": "Gevaarlijke goederen en wapens",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.brusselsairlines.com/digitalassistant/deeplink?language=nl&start=DYNAMIC_baggage-baggage_dangerousGoods",
+                "linkTitle": "Chat beginnen",
+                "description": "Charlie is beschikbaar om je vragen te beantwoorden en om je door de volgende stappen te leiden.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.brusselsairlines.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_baggage-baggage_dangerousGoods",
+                    "language": "nl",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.brusselsairlines.com/xx/nl/extra-services/baggage/prohibited-items",
+                "linkTitle": "Meer informatie",
+                "description": "Bekijk onze uitgebreide lijst met gevaarlijke goederen en verboden voorwerpen.",
+                "title": "Controleer de bagagevoorschriften",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.brusselsairlines.com/digitalassistant/deeplink?start=liveagent&laguage=nl&language=nl",
+                "linkTitle": "Livechat beginnen",
+                "description": "Krijg 24/7 hulp van onze Service Center medewerkers via Live Chat.",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.brusselsairlines.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "nl",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Service center bellen",
+                "description": "Onze experts helpen u graag verder als u nog vragen of opmerkingen heeft.",
+                "title": null,
+                "phone": "+493072629623",
+                "priority": 4,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "OtherQuestionsBaggage",
+          "title": "Andere vragen over bagage",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.brusselsairlines.com/digitalassistant/deeplink?language=nl&start=DYNAMIC_baggage-OtherQuestionsBaggage",
+                "linkTitle": "Chat beginnen",
+                "description": "Charlie is beschikbaar om je vragen te beantwoorden en om je door de volgende stappen te leiden.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.brusselsairlines.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_baggage-OtherQuestionsBaggage",
+                    "language": "nl",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-baggage",
+      "imageUrl": "https://www.brusselsairlines.com/content/dam/bel/images/local_images/help-center//baggage.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "addFlightServices",
+      "title": "Extra diensten",
+      "children": [
+        {
+          "code": "changeSeat",
+          "title": "Stoel toevoegen of wijzigen",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.brusselsairlines.com/xx/nl/profile/login",
+                "linkTitle": "Boeking beheren",
+                "description": "Boek of wijzig je stoel online tot 2 uur voor vertrek.",
+                "title": "Stoel toevoegen of wijzigen",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.brusselsairlines.com/booking/manage-booking/retrieve?lang=nl-NL&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.brusselsairlines.com/xx/nl/extra-services/seat-reservation",
+                "linkTitle": "Bekijk het overzicht",
+                "description": "Ontvang informatie over alle stoelcategorieën en hun prijzen per route.",
+                "title": "Alle stoelcategorieën bekijken",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Service center bellen",
+                "description": "Boek of wijzig je stoel telefonisch tot 24 uur voor vertrek.",
+                "title": null,
+                "phone": "+493072629623",
+                "priority": 3,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "specialMeal",
+          "title": "Maaltijden aan boord",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.brusselsairlines.com/xx/nl/profile/login",
+                "linkTitle": "Boeking beheren",
+                "description": "Bestel een speciale maaltijd voor je dieet, religieuze of voedingsbehoeften.  \n \nHoud er rekening mee dat de beschikbaarheid van deze dienst afhankelijk is van de geboekte voorwaarden.",
+                "title": "Speciale maaltijd bestellen",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.brusselsairlines.com/booking/manage-booking/retrieve?lang=nl-NL&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.brusselsairlines.com/digitalassistant/deeplink?language=nl&start=DYNAMIC_addFlightServices-specialMeal",
+                "linkTitle": "Chat beginnen",
+                "description": "Charlie is beschikbaar om je vragen te beantwoorden en om je door de volgende stappen te leiden.",
+                "title": null,
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://www.brusselsairlines.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_addFlightServices-specialMeal",
+                    "language": "nl",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.brusselsairlines.com/digitalassistant/deeplink?start=liveagent&laguage=nl&language=nl",
+                "linkTitle": "Livechat beginnen",
+                "description": "Krijg 24/7 hulp van onze Service Center medewerkers via Live Chat.",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.brusselsairlines.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "nl",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Service center bellen",
+                "description": "Onze experts helpen u graag verder als u nog vragen of opmerkingen heeft.",
+                "title": null,
+                "phone": "+493072629623",
+                "priority": 4,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "onBoardServices",
+          "title": "Diensten aan boord",
+          "children": [
+            {
+              "code": "ejournals",
+              "title": "Digitale kranten en tijdschriften",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.brusselsairlines.com/xx/nl/extra-services/inflight-services/ejournals",
+                    "linkTitle": "Alle eJournals bekijken",
+                    "description": "U kunt kiezen uit een ruime aanbod kranten en tijdschriften en ze gemakkelijk opslaan op uw smartphone, tablet of laptop vóór uw vlucht.",
+                    "title": "Download eJournal",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "inflightEntertainment",
+              "title": "Inflight Entertainment",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.brusselsairlines.com/xx/nl/extra-services/inflight-services",
+                    "linkTitle": "Alle opties bekijken",
+                    "description": "Ontdek ons entertainmentaanbod waarmee u uw verblijf aan boord kunt verrijken.",
+                    "title": "Entertainment aan boord bekijken",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "Lounges",
+          "title": "Lounges",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.brusselsairlines.com/digitalassistant/deeplink?language=nl&start=DYNAMIC_addFlightServices-Lounges",
+                "linkTitle": "Chat beginnen",
+                "description": "Charlie is beschikbaar om je vragen te beantwoorden en om je door de volgende stappen te leiden.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.brusselsairlines.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_addFlightServices-Lounges",
+                    "language": "nl",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.brusselsairlines.com/xx/nl/extra-services/lounges/worldwide-lounges",
+                "linkTitle": "Lijst bekijken",
+                "description": "Vind alle beschikbare lounges, inclusief hun openingstijden en diensten op de betreffende luchthavens.",
+                "title": "Lounges zoeken",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "TravelInsurance",
+          "title": "Reisverzekering",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.brusselsairlines.com/xx/nl/profile/login",
+                "linkTitle": "Verzekering selecteren",
+                "description": "Sluit een reisverzekering af voor uw volgende reis.  \n  \nHoud er rekening mee dat de beschikbaarheid van deze dienst afhankelijk is van de geboekte voorwaarden.",
+                "title": "Verzekering afsluiten",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.brusselsairlines.com/booking/manage-booking/retrieve?lang=nl-NL&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "pets",
+          "title": "Reizen met huisdieren",
+          "children": [
+            {
+              "code": "travelPetsInCabin",
+              "title": "Dieren in de cabine (max. 8 kg incl. transportbox)",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.brusselsairlines.com/xx/nl/profile/login",
+                    "linkTitle": "Nu registreren",
+                    "description": "Registreer uw huisdier voor een bestaande boeking om deze mee te nemen in de cabine (tot 72 uur voor vertrek).",
+                    "title": "Voeg een huisdier toe",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.brusselsairlines.com/booking/services/PETS?lang=nl-NL&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "CHAT_ASSISTANT",
+                    "link": "https://www.brusselsairlines.com/digitalassistant/deeplink?language=nl&start=DYNAMIC_pets-travelPetsInCabin",
+                    "linkTitle": "Chat beginnen",
+                    "description": "Charlie is beschikbaar om je vragen te beantwoorden en om je door de volgende stappen te leiden.",
+                    "title": null,
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": {
+                      "url": "https://www.brusselsairlines.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "DYNAMIC_pets-travelPetsInCabin",
+                        "language": "nl",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "LIVE_CHAT",
+                    "link": "https://www.brusselsairlines.com/digitalassistant/deeplink?start=liveagent&laguage=nl&language=nl",
+                    "linkTitle": "Livechat beginnen",
+                    "description": "Krijg 24/7 hulp van onze Service Center medewerkers via Live Chat.",
+                    "title": null,
+                    "phone": null,
+                    "priority": 3,
+                    "deeplink": {
+                      "url": "https://www.brusselsairlines.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "liveagent",
+                        "language": "nl",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "Service center bellen",
+                    "description": "Onze experts helpen u graag verder als u nog vragen of opmerkingen heeft.",
+                    "title": null,
+                    "phone": "+493072629623",
+                    "priority": 4,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            },
+            {
+              "code": "travelPetsInCargo",
+              "title": "Dieren in het vrachtruim",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.brusselsairlines.com/xx/nl/special-care/pets/cats-and-dogs-in-the-hold",
+                    "linkTitle": "Alle voorwaarden bekijken",
+                    "description": "Controleer de voorwaarden voor het reizen met huisdieren en zorg ervoor dat u alle vereiste documenten heeft.",
+                    "title": "Reisvoorwaarden bekijken",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "CHAT_ASSISTANT",
+                    "link": "https://www.brusselsairlines.com/digitalassistant/deeplink?language=nl&start=DYNAMIC_pets-travelPetsInCargo",
+                    "linkTitle": "Chat beginnen",
+                    "description": "Charlie is beschikbaar om je vragen te beantwoorden en om je door de volgende stappen te leiden.",
+                    "title": null,
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": {
+                      "url": "https://www.brusselsairlines.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "DYNAMIC_pets-travelPetsInCargo",
+                        "language": "nl",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "LIVE_CHAT",
+                    "link": "https://www.brusselsairlines.com/digitalassistant/deeplink?start=liveagent&laguage=nl&language=nl",
+                    "linkTitle": "Livechat beginnen",
+                    "description": "Krijg 24/7 hulp van onze Service Center medewerkers via Live Chat.",
+                    "title": null,
+                    "phone": null,
+                    "priority": 3,
+                    "deeplink": {
+                      "url": "https://www.brusselsairlines.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "liveagent",
+                        "language": "nl",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "Service center bellen",
+                    "description": "Onze experts helpen u graag verder als u nog vragen of opmerkingen heeft.",
+                    "title": null,
+                    "phone": "+493072629623",
+                    "priority": 4,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "TravelingWithChildren",
+          "title": "Reizen met kinderen",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.brusselsairlines.com/xx/nl/special-care/families-and-children",
+                "linkTitle": "Meer informatie",
+                "description": "Vind informatie over reizen met kinderen, van de voorbereiding op je reis tot stoelen en meer.",
+                "title": "Reisinformatie",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.brusselsairlines.com/digitalassistant/deeplink?language=nl&start=DYNAMIC_addFlightServices-TravelingWithChildren",
+                "linkTitle": "Chat beginnen",
+                "description": "Charlie is beschikbaar om je vragen over reizen met kinderen te beantwoorden.",
+                "title": null,
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://www.brusselsairlines.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_addFlightServices-TravelingWithChildren",
+                    "language": "nl",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.brusselsairlines.com/digitalassistant/deeplink?start=liveagent&laguage=nl&language=nl",
+                "linkTitle": "Livechat beginnen",
+                "description": "Chat met een van onze Service Center-medewerkers als je technische problemen ondervindt, een babybedje wilt aanvragen of een vlucht wilt boeken voor een kind dat alleen reist.",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.brusselsairlines.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "nl",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Service center bellen",
+                "description": "Neem rechtstreeks contact op met een van onze Service Center-medewerkers als je technische problemen ondervindt, een babybedje wilt aanvragen of een vlucht wilt boeken voor een kind dat alleen reist.",
+                "title": null,
+                "phone": "+493072629623",
+                "priority": 4,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "confirmAdditionalServices",
+          "title": "Extra diensten bevestigen",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.brusselsairlines.com/digitalassistant/deeplink?start=liveagent&laguage=nl&language=nl",
+                "linkTitle": "Livechat beginnen",
+                "description": "Krijg 24/7 hulp van onze Service Center medewerkers via Live Chat.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.brusselsairlines.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "nl",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Service center bellen",
+                "description": "Ons Service Center zal graag nakijken of je aangevraagde diensten zijn bevestigd.",
+                "title": null,
+                "phone": "+493072629623",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "addFlightServices.problem",
+          "title": "Probleem met het toevoegen van een extra dienst",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Service center bellen",
+                "description": "Als u verder nog vragen of opmerkingen heeft, helpen onze experts u graag verder.",
+                "title": null,
+                "phone": "+493091588500",
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "MoreServices",
+          "title": "Meer aanvullende diensten",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.brusselsairlines.com/digitalassistant/deeplink?language=nl&start=DYNAMIC_addFlightServices-MoreServices",
+                "linkTitle": "Chat beginnen",
+                "description": "Charlie is beschikbaar om je vragen te beantwoorden en om je door de volgende stappen te leiden.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.brusselsairlines.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_addFlightServices-MoreServices",
+                    "language": "nl",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.brusselsairlines.com/xx/nl/extra-services",
+                "linkTitle": "Bekijk het dienstenoverzicht",
+                "description": "Ontdek meer aanvullende diensten die je helpen bij de voorbereiding en het genieten van elk onderdeel van je reis.",
+                "title": "Alle diensten bekijken",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-additional-services",
+      "imageUrl": "https://www.brusselsairlines.com/content/dam/bel/images/local_images/help-center//add-flight-service.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "booking",
+      "title": "Boek en bereid je voor",
+      "children": [
+        {
+          "code": "changeSeat",
+          "title": "Stoel toevoegen of wijzigen",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.brusselsairlines.com/xx/nl/profile/login",
+                "linkTitle": "Boeking beheren",
+                "description": "Boek of wijzig je stoel online tot 2 uur voor vertrek.",
+                "title": "Stoel toevoegen of wijzigen",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.brusselsairlines.com/booking/manage-booking/retrieve?lang=nl-NL&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.brusselsairlines.com/xx/nl/extra-services/seat-reservation",
+                "linkTitle": "Bekijk het overzicht",
+                "description": "Ontvang informatie over alle stoelcategorieën en hun prijzen per route.",
+                "title": "Alle stoelcategorieën bekijken",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Service center bellen",
+                "description": "Boek of wijzig je stoel telefonisch tot 24 uur voor vertrek.",
+                "title": null,
+                "phone": "+493072629623",
+                "priority": 3,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "booking.Upgrades",
+          "title": "Upgrades",
+          "children": [
+            {
+              "code": "upgradeFlight",
+              "title": "Een upgrade boeken",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.brusselsairlines.com/xx/nl/profile/login",
+                    "linkTitle": "Boeking beheren",
+                    "description": "Vergelijk de beschikbare upgrades voor uw volgende vlucht en selecteer de gewenste optie.",
+                    "title": "Een upgrade boeken",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.brusselsairlines.com/booking/cash-upgrade?lang=nl-NL&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.brusselsairlines.com/xx/nl/extra-services/upgrades",
+                    "linkTitle": "Alle upgrade-opties bekijken",
+                    "description": "Ontdek onze upgrade-opties en geniet in nog meer comfort van uw reis.",
+                    "title": "Upgrade-opties bekijken",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "Service center bellen",
+                    "description": "Onze experts helpen u graag verder als u nog vragen of opmerkingen heeft.",
+                    "title": null,
+                    "phone": "+493072629623",
+                    "priority": 3,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            },
+            {
+              "code": "BidUpgrade",
+              "title": "Bied voor een upgrade",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.brusselsairlines.com/xx/nl/profile/login",
+                    "linkTitle": "Plaatsaanbod",
+                    "description": "Upgrade naar een hogere reisklasse tegen de door u gewenste prijs.  \n \nHoud er rekening mee dat de beschikbaarheid van deze dienst afhankelijk is van de geboekte voorwaarden.",
+                    "title": "Bied voor een upgrade",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.brusselsairlines.com/booking/manage-booking/retrieve?lang=nl-NL&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "reconfirmation",
+          "title": "Boeking bevestigen",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.brusselsairlines.com/digitalassistant/deeplink?start=MISSINGCONFIRMATION&language=nl",
+                "linkTitle": "Chat beginnen",
+                "description": "Charlie toont je waar je je boekingscode kan vinden of hoe je een nieuwe bevestigingsmail kan aanvragen.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.brusselsairlines.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "MISSINGCONFIRMATION",
+                    "language": "nl",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "booking.miles",
+          "title": "Met Miles boeken",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/nl/spend/flights.html",
+                "linkTitle": "Vluchten zoeken",
+                "description": "Uw Miles inwisselen voor vluchten.",
+                "title": "Award Flight boeken",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Service center bellen",
+                "description": "Onze experts helpen u graag verder als u nog vragen of opmerkingen heeft.",
+                "title": null,
+                "phone": "+3290251600",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "booking.new.problem",
+          "title": "Probleem met boeking of betaling",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Service center bellen",
+                "description": "Als u verder nog vragen of opmerkingen heeft, helpen onze experts u graag verder.",
+                "title": null,
+                "phone": "+493091588500",
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "NameChangeAfterBooking",
+          "title": "Naamswijziging na boeking",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Service center bellen",
+                "description": "Neem contact op met ons Service Center om een naamscorrectie op je boeking aan te vragen. \n \nHoud er rekening mee dat er slechts kleine correcties kunnen worden uitgevoerd, zoals het verbeteren van spelfouten.",
+                "title": null,
+                "phone": "+493072629623",
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "passengerReceipt",
+          "title": "Passenger receipt/factuur",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.brusselsairlines.com/xx/nl/my-bookings/invoices",
+                "linkTitle": "Nu aanvragen",
+                "description": "Vraag online het “passenger receipt” voor je reis op. \n \nAls u hebt geboekt via een reisorganisatie, neem dan contact op met de reisorganisatie om een ontvangstbewijs te vragen.",
+                "title": "“Passenger receipt” aanvragen",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.brusselsairlines.com/digitalassistant/deeplink?start=liveagent&laguage=nl&language=nl",
+                "linkTitle": "Livechat beginnen",
+                "description": "Krijg 24/7 hulp van onze Service Center medewerkers via Live Chat.",
+                "title": null,
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://www.brusselsairlines.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "nl",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Service center bellen",
+                "description": "Onze experts helpen u graag verder als u nog vragen of opmerkingen heeft.",
+                "title": null,
+                "phone": "+493072629623",
+                "priority": 3,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "TravelRegulations",
+          "title": "Reisvoorschriften",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.brusselsairlines.com/xx/nl/plan-your-trip/travel-regulations",
+                "linkTitle": "Meer informatie",
+                "description": "Vind inreis-, visum- en gezondheidsvoorschriften voor uw volgende reis.",
+                "title": "Reisregelgevingen controleren",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "booking.group",
+          "title": "Groepsboeking (min. 10 passagiers)",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.brusselsairlines.com/xx/nl/book-a-flight/groups-and-charter/groups",
+                "linkTitle": "Bekijk de voorwaarden",
+                "description": "Alle informatie over groepsboekingen vindt u op onze informatiepagina.",
+                "title": "Controleer de voorwaarden",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "sustainableFlying",
+          "title": "Vlieg duurzamer",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.brusselsairlines.com/xx/nl/profile/login",
+                "linkTitle": "Pakket kiezen",
+                "description": "Koop een van onze combinatiepakketten om de CO₂-uitstoot van uw vlucht te compenseren en investeer in duurzaamheidsprojecten. \n \nHoud er rekening mee dat de beschikbaarheid van deze dienst afhankelijk is van de geboekte voorwaarden.",
+                "title": "Compensatiepakket kopen",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.brusselsairlines.com/booking/manage-booking/retrieve?lang=nl-NL&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.brusselsairlines.com/xx/nl/fly-more-sustainably-search",
+                "linkTitle": "Bekijk compensatieopties",
+                "description": "U kunt ook op elk moment de berekende CO₂-uitstoot van eerdere vluchten compenseren.",
+                "title": "Compensatie eerdere vlucht",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-airplane-outbound",
+      "imageUrl": "https://www.brusselsairlines.com/content/dam/bel/images/local_images/help-center//booking.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "milesAndMore",
+      "title": "Miles & More",
+      "children": [
+        {
+          "code": "milesAndMore.mileageCredit",
+          "title": "Miles creditering na het boeken",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/nl/program/at-a-glance/mileage-request.html",
+                "linkTitle": "Controleer de voorwaarden",
+                "description": "Ontvang een creditering van je Miles en Points tot 6 maanden na de datum van de activiteit.",
+                "title": "Miles-tegoed aanvragen",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Miles & More bellen",
+                "description": "Voor verdere hulp met uw kredietaanvraag, neem contact op met het Miles & More serviceteam.",
+                "title": null,
+                "phone": "+3290251600",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.mileageAccount",
+          "title": "Saldo Miles & More rekening",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/nl/static/login.html",
+                "linkTitle": "Inloggen",
+                "description": "Log in op Miles & More om je huidige rekeningsaldo te bekijken.",
+                "title": "Rekeningsaldo controleren",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Miles & More bellen",
+                "description": "Voor vragen over uw account en beschikbare Miles, neem contact op met uw Miles & More serviceteam.",
+                "title": null,
+                "phone": "+3290251600",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.spendMiles",
+          "title": "Miles inwisselen",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/nl/spend/award-overview.html",
+                "linkTitle": "Awards ontdekken",
+                "description": "Wissel uw Miles in voor gadgets, upgrades van uw vluchten, cadeaukaarten en meer.",
+                "title": "Miles inwisselen",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Miles & More bellen",
+                "description": "Vraag uw Miles & More serviceteam om meer informatie over het inwisselen van uw Miles.",
+                "title": null,
+                "phone": "+3290251600",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.login",
+          "title": "Probleem met inloggen op Miles & More",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/nl/general-information/help-and-contact.html?topic=pin-password-login/",
+                "linkTitle": "Ga naar Miles & More",
+                "description": "Ga naar Miles & More voor hulp en informatie over uw login.",
+                "title": "Krijg ondersteuning bij het inloggen",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Miles & More bellen",
+                "description": "Voor hulp bij problemen of vragen met betrekking tot inloggen, neem contact op met het Miles & More serviceteam.",
+                "title": null,
+                "phone": "+3290251600",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.upgrade",
+          "title": "Upgrade met award Miles/eVoucher",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/nl/program/flight-benefits/upgrade-award.html",
+                "linkTitle": "Meer over upgrade awards",
+                "description": "Upgrade online naar een hogere reisklasse door uw Miles of een eVoucher te gebruiken.",
+                "title": "Upgrade award boeken",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Miles & More bellen",
+                "description": "Als u problemen ondervindt met upgrades, neem dan contact op met uw Miles & More serviceteam.",
+                "title": null,
+                "phone": "+3290251600",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.status",
+          "title": "Statusvoordelen Miles & More",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/nl/program/status-benefits/status-level-comparison.html",
+                "linkTitle": "Bekijk de voordelen",
+                "description": "Ontdek de voordelen van elke Frequent flyer-status.",
+                "title": "Status vergelijken",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Miles & More bellen",
+                "description": "Als u verder nog vragen heeft over de statusvoordelen, neem dan contact op met uw Miles & More serviceteam.",
+                "title": null,
+                "phone": "+3290251600",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.newMember",
+          "title": "Word Miles & More-lid",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.brusselsairlines.com/xx/nl/profile/login",
+                "linkTitle": "Inloggen",
+                "description": "Als u al een Business Travel ID heeft, log dan in op uw account op brusselsairlines.com en activeer Miles & More.",
+                "title": "Miles & More activeren",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/nl/program/at-a-glance.html",
+                "linkTitle": "Nu registreren",
+                "description": "Gratis registreren en beginnen met het verzamelen van Miles voor upgrades van uw vluchten en andere awards.",
+                "title": "Word lid",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Miles & More bellen",
+                "description": "Voor meer informatie over het lidmaatschap, neem contact op met uw Miles & More serviceteam.",
+                "title": null,
+                "phone": "+3290251600",
+                "priority": 3,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.creditCard",
+          "title": "Miles & More-kredietkaarten",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/nl/program/credit-cards/credit-cards-overview.html",
+                "linkTitle": "Alle kaarten bekijken",
+                "description": "Ontdek alle beschikbare Miles & More kredietkaarten voor elk land.",
+                "title": "Selecteer een kredietkaart",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "booking.miles",
+          "title": "Met Miles boeken",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/nl/spend/flights.html",
+                "linkTitle": "Vluchten zoeken",
+                "description": "Uw Miles inwisselen voor vluchten.",
+                "title": "Award Flight boeken",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Service center bellen",
+                "description": "Onze experts helpen u graag verder als u nog vragen of opmerkingen heeft.",
+                "title": null,
+                "phone": "+3290251600",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.worldshop",
+          "title": "Worldshop",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.worldshop.eu/en/?p=oIGUDLalQDA",
+                "linkTitle": "Ga naar de Worldshop",
+                "description": "Shop topmerken en exclusieve producten uit onze nieuwste speciale edities.",
+                "title": "Bezoek de Worldshop",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.otherQuestions",
+          "title": "Overige vragen over Miles & More",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/nl/general-information/help-and-contact.html",
+                "linkTitle": "Ga naar Miles & More",
+                "description": "Vind nuttige artikelen, formulieren en de hotline van het Miles & More serviceteam voor hulp met uw aanvraag.",
+                "title": "Hulpartikelen zoeken",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-miles-and-more",
+      "imageUrl": "https://www.brusselsairlines.com/content/dam/bel/images/local_images/help-center//miles-and-more.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "accessibility",
+      "title": "Toegankelijk reizen",
+      "children": [],
+      "options": {
+        "recommended": [
+          {
+            "type": "SELF_SERVICE",
+            "link": "https://www.brusselsairlines.com/xx/nl/special-care/special-assistance",
+            "linkTitle": "Naar overzicht",
+            "description": "Hier vindt u een overzicht van alle beschikbare diensten voor comfortabel reizen in alle omstandigheden.",
+            "title": "Alle diensten bekijken",
+            "phone": null,
+            "priority": 1,
+            "deeplink": null,
+            "notifications": [],
+            "trackingType": "INFORMATIONAL",
+            "profileHandoverEnabled": false
+          }
+        ],
+        "others": [
+          {
+            "type": "SELF_SERVICE",
+            "link": "https://www.brusselsairlines.com/xx/nl/special-care/special-assistance/request-special-assistance",
+            "linkTitle": "Ga naar het formulier",
+            "description": "Download en vul ons contactformulier ten minste 48 uur voor vertrek in om assistentie op de luchthaven aan te vragen.",
+            "title": "Mobiliteitsdienst aanvragen",
+            "phone": null,
+            "priority": 2,
+            "deeplink": null,
+            "notifications": [],
+            "trackingType": "INFORMATIONAL",
+            "profileHandoverEnabled": false
+          },
+          {
+            "type": "CHAT_ASSISTANT",
+            "link": "https://www.brusselsairlines.com/digitalassistant/deeplink?language=nl&start=DYNAMIC_accessibility",
+            "linkTitle": "Chat beginnen",
+            "description": "Charlie is beschikbaar om je vragen te beantwoorden en om je door de volgende stappen te leiden.",
+            "title": null,
+            "phone": null,
+            "priority": 3,
+            "deeplink": {
+              "url": "https://www.brusselsairlines.com/digitalassistant/deeplink",
+              "data": {
+                "lastName": "<lastName>",
+                "firstName": "<firstName>",
+                "start": "DYNAMIC_accessibility",
+                "language": "nl",
+                "filekey": "<pnr>"
+              }
+            },
+            "notifications": [],
+            "trackingType": null,
+            "profileHandoverEnabled": false
+          },
+          {
+            "type": "LIVE_CHAT",
+            "link": "https://www.brusselsairlines.com/digitalassistant/deeplink?start=liveagent&laguage=nl&language=nl",
+            "linkTitle": "Livechat beginnen",
+            "description": "Krijg 24/7 hulp van onze Service Center medewerkers via Live Chat.",
+            "title": null,
+            "phone": null,
+            "priority": 4,
+            "deeplink": {
+              "url": "https://www.brusselsairlines.com/digitalassistant/deeplink",
+              "data": {
+                "lastName": "<lastName>",
+                "firstName": "<firstName>",
+                "start": "liveagent",
+                "language": "nl",
+                "filekey": "<pnr>"
+              }
+            },
+            "notifications": [],
+            "trackingType": null,
+            "profileHandoverEnabled": false
+          },
+          {
+            "type": "CALL",
+            "link": null,
+            "linkTitle": "Service center bellen",
+            "description": "Onze experts helpen u graag verder als u nog vragen of opmerkingen heeft.",
+            "title": null,
+            "phone": "+493072629623",
+            "priority": 5,
+            "deeplink": null,
+            "notifications": [],
+            "trackingType": null,
+            "profileHandoverEnabled": false
+          }
+        ]
+      },
+      "icon": "icon-wheelchair",
+      "imageUrl": "https://www.brusselsairlines.com/content/dam/bel/images/local_images/help-center//accessible-travel.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": false
+    },
+    {
+      "code": "LocalOffices",
+      "title": "Plaatselijke kantoren",
+      "children": [],
+      "options": {
+        "recommended": [
+          {
+            "type": "SELF_SERVICE",
+            "link": "https://www.brusselsairlines.com/xx/nl/contact/local-offices",
+            "linkTitle": "Contactgegevens bekijken",
+            "description": "Neem contact op met een plaatselijk kantoor van Brussels Airlines.",
+            "title": "Plaatselijke kantoren zoeken",
+            "phone": null,
+            "priority": 1,
+            "deeplink": null,
+            "notifications": [],
+            "trackingType": "INFORMATIONAL",
+            "profileHandoverEnabled": false
+          }
+        ],
+        "others": []
+      },
+      "icon": "icon-building",
+      "imageUrl": null,
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": false
+    },
+    {
+      "code": "TravelIDLogin",
+      "title": "Inloggen en Travel ID",
+      "children": [],
+      "options": {
+        "recommended": [
+          {
+            "type": "SELF_SERVICE",
+            "link": "https://www.brusselsairlines.com/content/bel/markets/xx/nl/profile/travel-id/faq",
+            "linkTitle": "Bekijk de vaak gestelde vragen",
+            "description": "Meer informatie over Travel ID en hulp bij inlogproblemen vind je in onze vaak gestelde vragen.",
+            "title": "Vaak gestelde vragen over inloggen en Travel ID",
+            "phone": null,
+            "priority": 1,
+            "deeplink": null,
+            "notifications": [],
+            "trackingType": "INFORMATIONAL",
+            "profileHandoverEnabled": false
+          }
+        ],
+        "others": [
+          {
+            "type": "CALL",
+            "link": null,
+            "linkTitle": "Service center bellen",
+            "description": "Als je meer ondersteuning nodig hebt, staan onze experts klaar om je te helpen.",
+            "title": null,
+            "phone": "+493091588500",
+            "priority": 2,
+            "deeplink": null,
+            "notifications": [],
+            "trackingType": null,
+            "profileHandoverEnabled": true
+          }
+        ]
+      },
+      "icon": "icon-service-login",
+      "imageUrl": null,
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": false
+    },
+    {
+      "code": "other",
+      "title": "Feedback en andere vragen",
+      "children": [],
+      "options": {
+        "recommended": [
+          {
+            "type": "SELF_SERVICE",
+            "link": "https://www.brusselsairlines.com/xx/nl/contact/feedback",
+            "linkTitle": "Bekijk de formulieren",
+            "description": "Vertel ons over uw ervaring met een eerdere vlucht via ons contactformulier. We zullen zo snel mogelijk reageren.",
+            "title": "Feedback verzenden",
+            "phone": null,
+            "priority": 1,
+            "deeplink": null,
+            "notifications": [],
+            "trackingType": "FORM",
+            "profileHandoverEnabled": false
+          }
+        ],
+        "others": [
+          {
+            "type": "CHAT_ASSISTANT",
+            "link": "https://www.brusselsairlines.com/digitalassistant/deeplink?start=CONTACTCENTERDEFAULT&language=nl",
+            "linkTitle": "Chat beginnen",
+            "description": "Charlie is beschikbaar om je vragen te beantwoorden en om je door de volgende stappen te leiden.",
+            "title": null,
+            "phone": null,
+            "priority": 2,
+            "deeplink": {
+              "url": "https://www.brusselsairlines.com/digitalassistant/deeplink",
+              "data": {
+                "lastName": "<lastName>",
+                "firstName": "<firstName>",
+                "start": "CONTACTCENTERDEFAULT",
+                "language": "nl",
+                "filekey": "<pnr>"
+              }
+            },
+            "notifications": [],
+            "trackingType": null,
+            "profileHandoverEnabled": false
+          }
+        ]
+      },
+      "icon": "icon-create-post",
+      "imageUrl": null,
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": false
+    }
+  ],
+  "_metadata": {
+    "tenant": "SN",
+    "language": "nl",
+    "extracted_at": "2026-11-04T02:03:49.118069",
+    "record_count": 1
+  }
+}
