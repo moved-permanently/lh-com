@@ -352,3 +352,248 @@ body.brand-airdolomiti {
     line-height: 40px;
   }
 }
+
+/*
+ * flight search (blocks/flight-search, Air Dolomiti's rules), as www's booking widget
+ * (www.airdolomiti.it, 390 and 1440 px, 2026-11-04): boxed fields at every width, the label
+ * 14px / 18px above (#1f1f1f), the field 56px high with a 1px border and a 5px radius, the
+ * button 56px teal with a 10px radius. From 1025px one row in a white box: the trip type as a
+ * white tab (199 x 50, teal semibold 14px with its radio), then From, To, the two dates, the
+ * passengers (as fields, 14px apart) and the button (81px); no swap button (www has none). On the
+ * homepage the box sits over the bottom of the stage (136px over the photo, 73px into the teal
+ * band below it, www's 521 -> 730 over a photo ending at 657); the band is 243px high.
+ */
+body.brand-airdolomiti .flight-search .airport-combobox {
+  padding-top: 26px;
+}
+
+body.brand-airdolomiti .flight-search .airport-combobox label,
+body.brand-airdolomiti .flight-search .airport-combobox[data-code=""]:not(:focus-within) label {
+  top: 0;
+  color: var(--lh-grey-8);
+  font-size: 14px;
+  line-height: 18px;
+  pointer-events: auto;
+}
+
+body.brand-airdolomiti .flight-search .airport-combobox input,
+body.brand-airdolomiti .flight-search .flight-search-date input {
+  height: 56px;
+  border: 1px solid var(--lh-grey-3);
+  border-radius: 5px;
+  padding: 0 12px;
+  background-color: #fff;
+}
+
+body.brand-airdolomiti .flight-search .airport-combobox input:focus,
+body.brand-airdolomiti .flight-search .flight-search-date input:focus {
+  outline: 2px solid var(--lh-whale-blue);
+  outline-offset: -1px;
+  border-color: var(--lh-whale-blue);
+  padding-inline: 12px;
+}
+
+body.brand-airdolomiti .flight-search .airport-combobox[data-code=""]:not(:focus-within)::after {
+  content: none;
+}
+
+/* the dates: two boxed fields, each with its own label (the shared legend hidden) */
+body.brand-airdolomiti .flight-search .flight-search-dates {
+  gap: 14px;
+  border: 0;
+  padding: 0;
+}
+
+body.brand-airdolomiti .flight-search .flight-search-dates::after,
+body.brand-airdolomiti .flight-search .flight-search-dates legend {
+  display: none;
+}
+
+body.brand-airdolomiti .flight-search .flight-search-date {
+  padding-top: 26px;
+}
+
+body.brand-airdolomiti .flight-search .flight-search-date-label,
+body.brand-airdolomiti .flight-search .flight-search-dates legend ~ .flight-search-date .flight-search-date-label {
+  top: 0;
+  width: auto;
+  height: auto;
+  clip-path: none;
+  color: var(--lh-grey-8);
+  font-size: 14px;
+  line-height: 18px;
+}
+
+body.brand-airdolomiti .flight-search .flight-search-dates:not(:focus-within, :has(input:valid)) input {
+  color: var(--lh-grey-7);
+}
+
+/* the button: teal, 56px, a 10px radius */
+body.brand-airdolomiti .flight-search .flight-search-submit {
+  min-height: 56px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+@media (width >= 1025px) {
+  body.brand-airdolomiti .flight-search:not(.standalone) {
+    padding-top: 0;
+  }
+
+  body.brand-airdolomiti .flight-search:not(.standalone) .flight-search-form {
+    position: relative;
+    display: grid;
+    grid-template:
+      "trip trip trip . . . . ." 50px
+      ". . . . . . . ." 19px
+      ". origin dest dep ret trav submit ." auto
+      ". . . . . . . ." 19px
+      ". error error error error error error ." auto
+      / 0 minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) 81px 40px;
+    column-gap: 14px;
+  }
+
+  /* the white box under the tab, its right end as www's arrow */
+  body.brand-airdolomiti .flight-search:not(.standalone) .flight-search-form::before {
+    content: "";
+    grid-area: 2 / 1 / 5 / -1;
+    align-self: stretch;
+
+    /* (its clip-path makes it a layer of its own: under the fields) */
+    z-index: -1;
+    margin-left: -14px;
+    border-radius: 0 0 0 10px;
+    background-color: #fff;
+    clip-path: polygon(0 0, calc(100% - 40px) 0, 100% 50%, calc(100% - 40px) 100%, 0 100%);
+  }
+
+  body.brand-airdolomiti .flight-search:not(.standalone) :is(.flight-search-options, .flight-search-fields, .flight-search-dates) {
+    display: contents;
+  }
+
+  body.brand-airdolomiti .flight-search:not(.standalone) .flight-search-trip-type {
+    position: relative;
+    grid-area: trip;
+    justify-self: start;
+    box-sizing: border-box;
+    width: 199px;
+    height: 50px;
+    margin: 0 0 0 -14px;
+    padding-left: 29px;
+    border-radius: 10px 10px 0 0;
+    background-color: #fff;
+  }
+
+  body.brand-airdolomiti .flight-search:not(.standalone) .flight-search-trip-type::before {
+    content: "";
+    box-sizing: border-box;
+    flex: 0 0 auto;
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    border: 6px solid var(--lh-whale-blue);
+    border-radius: 50%;
+  }
+
+  body.brand-airdolomiti .flight-search:not(.standalone) .flight-search-trip-type select {
+    color: var(--lh-whale-blue);
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  body.brand-airdolomiti .flight-search:not(.standalone) .flight-search-origin {
+    grid-area: origin;
+    margin: 0;
+  }
+
+  body.brand-airdolomiti .flight-search:not(.standalone) .flight-search-destination {
+    grid-area: dest;
+  }
+
+  body.brand-airdolomiti .flight-search:not(.standalone) .flight-search-departure {
+    grid-area: dep;
+  }
+
+  body.brand-airdolomiti .flight-search:not(.standalone) .flight-search-return {
+    grid-area: ret;
+  }
+
+  body.brand-airdolomiti .flight-search:not(.standalone) .flight-search-swap {
+    display: none;
+  }
+
+  /* the passengers: a field with its label (the button keeps its own text) */
+  body.brand-airdolomiti .flight-search:not(.standalone) .flight-search-passengers {
+    position: relative;
+    grid-area: trav;
+    margin: 0;
+    padding-top: 26px;
+  }
+
+  body.brand-airdolomiti .flight-search:not(.standalone) .flight-search-passengers::before {
+    content: "Passeggeri";
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: var(--lh-grey-8);
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  body.brand-airdolomiti .flight-search:not(.standalone) .flight-search-passengers:lang(en)::before {
+    content: "Passengers";
+  }
+
+  body.brand-airdolomiti .flight-search:not(.standalone) .flight-search-passengers:lang(de)::before {
+    content: "Passagiere";
+  }
+
+  body.brand-airdolomiti .flight-search:not(.standalone) .flight-search-travellers {
+    box-sizing: border-box;
+    width: 100%;
+    height: 56px;
+    margin: 0;
+    padding: 0 12px;
+    border: 1px solid var(--lh-grey-3);
+    border-radius: 5px;
+    background-color: #fff;
+    color: var(--lh-grey-8);
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  body.brand-airdolomiti .flight-search:not(.standalone) .flight-search-submit {
+    grid-area: submit;
+    align-self: end;
+    width: 81px;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+  }
+
+  body.brand-airdolomiti .flight-search:not(.standalone) .flight-search-error {
+    grid-area: error;
+  }
+
+  /* the homepage: the box over the bottom of the stage, the band 243px high under it */
+  body.brand-airdolomiti main > .section:has(.hero-campaign-services) .hero-campaign.hero-campaign-services {
+    min-height: 780px;
+  }
+
+  body.brand-airdolomiti main > .section:has(.hero-campaign-services) .hero-campaign.hero-campaign-services[data-services="band"] .hero-campaign-inner {
+    padding-top: 151px;
+  }
+
+  body.brand-airdolomiti.appear main > .section:has(.hero-campaign-services) + .section.flight-search-container {
+    position: relative;
+    z-index: 2;
+    margin-top: -343px;
+    margin-bottom: 230px;
+  }
+
+  body.brand-airdolomiti main > .section:has(.hero-campaign-services) + .section.flight-search-container > .flight-search-wrapper {
+    max-width: none;
+    padding: 0 41px;
+  }
+}
