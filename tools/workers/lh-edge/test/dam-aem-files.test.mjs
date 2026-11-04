@@ -14,8 +14,12 @@
 import { test, beforeEach } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import HTMLRewriter from './htmlrewriter-shim.mjs';
 import worker from '../src/index.js';
 import { MEDIA_TYPES, AFTER_DA } from '../src/dam-aem.js';
+
+// the site hosts' pages pass the brand-icon rewrite
+globalThis.HTMLRewriter = HTMLRewriter;
 
 const ORIGIN = 'main--lh-com--moved-permanently.aem.live';
 const AEM = 'https://publish-p1-e2.adobeaemcloud.com';

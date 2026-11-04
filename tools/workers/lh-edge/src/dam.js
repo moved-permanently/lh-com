@@ -20,12 +20,17 @@
  * - The synced brand assets (/content/dam/<tenant>/(images|videos)/frontify/...) go to
  *   lh-backends first (syncedAsset); its 404 falls through to the copies.
  * - DAM_STEPS run next (a step returns a Response or null): for paths another source answers.
- *   PDFs: DA first (one request), the steps (AEM) only when DA answers 404; any other DA
- *   answer for a PDF (200, 206, 5xx, a timeout's error) is answered as before. When AEM can't
+ *   Every type of src/dam-aem.js AFTER_DA (PDFs, images, fonts, css, js …: the AEM Assets panel's
+ *   files, brief 334): DA first (one request), the steps (AEM) only when DA answers 404; any other
+ *   DA answer (200, 206, 5xx, a timeout's error) is answered as before. Not for the site's own
+ *   media parameters (?width=: DA's renditions) and not for the offers images (their fallback,
+ *   below, without waiting for AEM). When AEM can't
  *   answer (src/dam-aem.js: info.aemUnavailable) and DA has no copy: 503 (aemUnavailable).
  */
 import { originFetch } from './edge.js';
-import { damAem, aemUnavailable } from './dam-aem.js';
+import {
+  damAem, aemUnavailable, AFTER_DA, extOf,
+} from './dam-aem.js';
 // the site's own module: one naming rule for the site, the copies and the Worker (wrangler
 // bundles it)
 /* eslint-disable import/no-relative-packages */
@@ -169,9 +174,11 @@ export async function dam(request, env, ctx) {
   }
   const resp = await fetchDamAsset(request, env, edsDamPath(parsed.asset), params);
   if (resp.status === 200 || resp.status === 206) return assetResponse(request, resp);
-  if (resp.status === 404 && /\.pdf$/i.test(parsed.asset)) {
-    // a PDF DA doesn't hold (over its 20 MB): the steps again (AEM), after this one DA request
-    // (they skip PDFs until afterDa)
+  info.mediaParams = !parsed.rendition && [...params.keys()].length > 0;
+  if (resp.status === 404 && AFTER_DA.has(extOf(parsed.asset)) && !info.mediaParams
+    && !OFFERS.test(parsed.asset)) {
+    // a file DA doesn't hold (a PDF over its 20 MB, a file only in the AEM Assets sandbox): the
+    // steps again (AEM), after this one DA request (they skip these types until afterDa)
     info.afterDa = true;
     for (let i = 0; i < DAM_STEPS.length; i += 1) {
       // eslint-disable-next-line no-await-in-loop

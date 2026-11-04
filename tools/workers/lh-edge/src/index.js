@@ -402,7 +402,9 @@ async function siteRespond(incoming, env, site, ctx) {
   if (read && /^\/sitemap\/sitemap_lh[._]/.test(url.pathname)) {
     return finish(new Response('Not Found', { status: 404, headers: { 'content-type': 'text/plain; charset=utf-8', 'x-lh-edge-route': 'site-sitemap' } }), incoming, senv, 'site-sitemap');
   }
-  // a site without roots (src/sites.js PLAIN_SITES): its entry redirects, every other path as it is
+  // a site without roots (src/sites.js PLAIN_SITES): www's DAM URLs as on the other site hosts
+  // (its DA copies, then AEM: brief 334), its entry redirects, every other path as it is
+  if (site.plain && isDamPath(url.pathname)) return finish(await dam(incoming, senv, ctx), incoming, senv, 'dam');
   if (site.plain) {
     const target = read && site.plain.entry[url.pathname];
     if (target) {
