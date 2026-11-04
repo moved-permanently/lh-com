@@ -16,7 +16,8 @@
  *    blocks every row is checked against the item schema.
  *
  * Writes tools/reports/block-library.md (one line per variant) and tools/reports/block-library.json.
- * Usage: node tools/library/check-fields.mjs [--lib dir] [--out dir] [--compare earlier/block-library.json --named "a; b"]
+ * --site lh-tap: lh-tap's library, content and reports (tools/library/sites.mjs).
+ * Usage: node tools/library/check-fields.mjs [--site lh-tap] [--lib dir] [--out dir] [--compare earlier/block-library.json --named "a; b"]
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -24,21 +25,23 @@ import { fileURLToPath } from 'node:url';
 import {
   parse, describeBlockDiv, libraryVariants, fieldLabels, matchFieldCount,
 } from './structure.mjs';
+import { siteConfig, siteArg } from './sites.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
-const CONTENT = path.join(root, 'content');
+const SITE = siteConfig(siteArg());
+const CONTENT = SITE.content;
 const argv = process.argv.slice(2);
 const opt = (name) => (argv.includes(`--${name}`) ? argv[argv.indexOf(`--${name}`) + 1] : undefined);
 // --lib dir: another copy of the library (blocks/*.html, blocks.json, library-variants.json)
-const LIB_DIR = opt('lib') ? path.resolve(opt('lib')) : path.join(CONTENT, 'library');
+const LIB_DIR = opt('lib') ? path.resolve(opt('lib')) : SITE.library;
 const LIB = path.join(LIB_DIR, 'blocks');
 const index = JSON.parse(fs.readFileSync(path.join(LIB_DIR, 'blocks.json'), 'utf8'));
-const manifestFile = fs.existsSync(path.join(LIB_DIR, 'library-variants.json')) ? path.join(LIB_DIR, 'library-variants.json') : path.join(root, 'tools/library/library-variants.json');
+const manifestFile = fs.existsSync(path.join(LIB_DIR, 'library-variants.json')) ? path.join(LIB_DIR, 'library-variants.json') : SITE.manifest;
 const manifest = JSON.parse(fs.readFileSync(manifestFile, 'utf8'));
 // --out dir: where the reports go (default tools/reports)
-const OUT = opt('out') ? path.resolve(opt('out')) : path.join(root, 'tools/reports');
+const OUT = opt('out') ? path.resolve(opt('out')) : SITE.reports;
 const multiBlocks = new Set(index.editor.data.filter((r) => r.property === 'multi').map((r) => r.block));
-const LOCALES = ['/de/en/', '/de/de/'];
+const LOCALES = SITE.locales.slice(0, 2);
 
 /** Library check of one variant: the definitions (labels with positions and types), or errors. */
 function checkLibrary(item, multi) {
@@ -170,7 +173,8 @@ entries.forEach(({
     });
     return;
   }
-  const named = [...LOCALES.map((l) => info.pages.find((p) => p.startsWith(l))), info.pages.find((p) => !LOCALES.some((l) => p.startsWith(l)))].filter(Boolean).slice(0, 3);
+  const inLocale = (p, l) => p.startsWith(l) || `${p}/` === l;
+  const named = [...LOCALES.map((l) => info.pages.find((p) => inLocale(p, l))), info.pages.find((p) => !LOCALES.some((l) => inLocale(p, l)))].filter(Boolean).slice(0, 3);
   const namedIssues = named.map((p) => ({ page: p, issues: pageBlocks(p, name, variant).flatMap((b) => checkPage(b, lib, multi)) }));
   const bad = namedIssues.filter((n) => n.issues.length);
   results.push({

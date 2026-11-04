@@ -8,7 +8,10 @@
  * --only a,b: only these block documents. --preview: previews each uploaded document on
  * main--lh-com--moved-permanently.aem.page (never published).
  *
- * Usage: node tools/library/upload-library.mjs [--only a,b] [--preview] [--sheet] [--dry]
+ * --site lh-tap: lh-tap's library to DA moved-permanently/lh-tap /library/ (its sheets:
+ * blocks.json only; tools/library/sites.mjs).
+ *
+ * Usage: node tools/library/upload-library.mjs [--site lh-tap] [--only a,b] [--preview] [--sheet] [--dry]
  */
 import fs from 'node:fs';
 import os from 'node:os';
@@ -16,15 +19,17 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
+import { siteConfig, siteArg } from './sites.mjs';
 
 const run = promisify(execFile);
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
-const LIB = path.join(root, 'content/library');
-const SOURCE = 'https://admin.da.live/source/moved-permanently/lh-com/library';
+const SITE = siteConfig(siteArg());
+const LIB = SITE.library;
+const SOURCE = SITE.source;
 const argv = process.argv.slice(2);
 const dry = argv.includes('--dry');
 const only = argv.includes('--only') ? new Set(argv[argv.indexOf('--only') + 1].split(',').map((b) => b.trim())) : null;
-const PREVIEW = 'https://admin.hlx.page/preview/moved-permanently/lh-com/main/library';
+const { preview: PREVIEW } = SITE;
 
 // curl: Document Authoring credentials are added to admin.da.live requests by the environment
 async function curl(args) {
@@ -46,7 +51,7 @@ const files = fs.readdirSync(path.join(LIB, 'blocks')).filter((f) => f.endsWith(
   });
 if (only && files.length !== only.size) throw new Error(`--only: ${only.size} names, ${files.length} documents found`);
 if (argv.includes('--sheet')) {
-  ['blocks.json', 'ema-library.json'].forEach((f) => files.push({
+  SITE.sheets.forEach((f) => files.push({
     local: path.join(LIB, f), remote: `${SOURCE}/${f}`, preview: `${PREVIEW}/${f}`, type: 'application/json',
   }));
 }

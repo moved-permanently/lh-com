@@ -26,7 +26,10 @@
  * and the boilerplate starter page /index (its cards and columns are on no other page); the
  * brand sites' content (content-sites/**) is theirs.
  *
- * Usage: node tools/library/build-library.mjs
+ * --site lh-tap: TAP Air Portugal's library from lh-tap's content instead (tools/library/sites.mjs:
+ * its folder, manifest and descriptions; blocks.json only).
+ *
+ * Usage: node tools/library/build-library.mjs [--site lh-tap]
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -35,124 +38,19 @@ import {
   parse, describeBlockDiv, rowShape, normalizeCell, contentFields, fieldType, rowCovers, blockCovers,
   chooseModels, rowFits, rowIsModel, describeModel, configKeys,
 } from './structure.mjs';
+import { OPTION_NOTES } from './spec.mjs';
+import { siteConfig, siteArg, specFor } from './sites.mjs';
 
-const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
-const CONTENT = path.join(root, 'content');
-const OUT = path.join(CONTENT, 'library/blocks');
-const ORG_SITE = 'moved-permanently/lh-com';
-const SKIP_DIRS = /^(drafts|lhg|library|media-da|data|demo|message-center|migration-status)(\/|$)/;
-// the boilerplate starter page (its cards and columns blocks are on no lh-com page) and the
-// migration status meta page
-const SKIP_PAGES = new Set(['/index', '/migration-status']);
+const SITE = siteConfig(siteArg());
+const CONTENT = SITE.content;
+const LIBRARY = SITE.library;
+const OUT = path.join(LIBRARY, 'blocks');
+const ORG_SITE = SITE.org;
+const SKIP_DIRS = SITE.skipDirs;
+const SKIP_PAGES = SITE.skipPages;
 const SKIP_BLOCKS = new Set(['header', 'footer', 'channels-demo', 'section-metadata', 'metadata', 'library-metadata']);
-const LOCALE_ORDER = ['/de/en/', '/de/de/', '/gb/en/', '/at/de/', '/us/en/'];
+const LOCALE_ORDER = SITE.locales;
 const MAX_ITEMS = 4;
-
-/**
- * Per block: multi (every row is an item authors add, delete and reorder), description, and
- * labels: per row index (or 'item' for multi blocks) an array per cell of field labels, used
- * in order; fields beyond them get generic labels. `imageLabel` names images.
- */
-const SPEC = {
-  'accordion-columns': {
-    multi: true, description: 'Expandable items, such as FAQs: each row is an item whose title opens its content, optionally split into columns of links', item: [['Title'], []], columnHeadings: true,
-  },
-  'app-article-list': { title: 'App screen: article list', description: 'App screen: one offer box per article of a category (from the app screens\' index), with its link text and tracking label. Only in app screen documents under /content/mobile/lh/<lang>/' },
-  'app-links': {
-    multi: true, title: 'App screen: links', description: 'App screen: links with the app\'s arrow, one per row, each with its tracking label. Only in app screen documents under /content/mobile/lh/<lang>/', item: [['Link'], ['Tracking ID']],
-  },
-  'app-offer': { title: 'App screen: offer box', description: 'App screen: an offer box with image, title, description and the link text as its button, and its tracking label. Only in app screen documents under /content/mobile/lh/<lang>/' },
-  'app-service': { title: 'App screen: service slot', description: 'App screen: a slot the app fills with one of its services (service, auxiliary data, tenant, market, language). Only in app screen documents under /content/mobile/lh/<lang>/' },
-  'app-teaser-slider': {
-    title: 'App screen: teaser slider', description: 'App screen: a teaser slider, its title over a row of cards (text, image, link, tracking label). Only in app screen documents under /content/mobile/lh/<lang>/', rows: { 1: [['Title', 'Text'], ['Image'], ['Link'], ['Tracking ID']] },
-  },
-  'article-header': { description: 'Article page header: feature image (optionally a header video), title and intro; tags, date, reading time and author come from the page metadata', rows: { 0: [['Image', 'Header video']], 1: [['Title', 'Intro']] } },
-  'blog-overview': { description: 'Article list with search, category filter and pagination, filled from the locale\'s article index' },
-  'booking-lookup': { description: 'Form to find a booking by booking reference or ticket number and name, which hands off to the booking pages' },
-  'car-rental': { description: 'Rental car search of a Lufthansa partner (Meili widget), with a fallback form' },
-  cards: { multi: true, description: 'Cards with image and text, one card per row (boilerplate block, used on the starter page)', item: [['Image'], ['Title', 'Text']] },
-  'cards-icon': {
-    multi: true, description: 'Icon tiles, one per row: an icon and a linked label', item: [['Icon'], ['Link']], imageLabel: 'Icon',
-  },
-  'cards-icon-text': {
-    multi: true, description: 'Cards with an icon, title, description and link, one card per row', item: [['Icon'], []], imageLabel: 'Icon',
-  },
-  'cards-steps': { multi: true, description: 'Numbered steps, one per row: step number, title, description and an optional link', item: [['Step number', 'Title', 'Text', 'Link']] },
-  'cards-teaser': { multi: true, description: 'Teaser cards with image, title, text and an arrow link, one card per row' },
-  'carousel-cards': { multi: true, description: 'Carousel of cards with image, eyebrow, title, text and link, one slide per row' },
-  'carousel-images': { multi: true, description: 'Image carousel, one slide per row: the image and an optional caption', item: [['Image'], ['Caption']] },
-  'carousel-lightbox': { description: 'Image preview that opens a gallery lightbox: intro, slides (image and caption) and optional label rows' },
-  columns: { description: 'Columns of text and images (boilerplate block, used on the starter page)' },
-  'columns-logos': { description: 'Columns, each with a heading and linked logos or icons (payment options, social links)', rows: { 0: [['Title', 'Logos'], ['Title', 'Logos']] } },
-  'columns-media': { description: 'Text next to media (image, several images, linked image or video), one row per text/media pair' },
-  'destination-finder': { description: 'Flight offers from an origin: destination slider with live prices, trip types and a finder card' },
-  'destination-offer': { description: 'Destination page: flight offers, price calendar and route facts for the route in the URL' },
-  ejournals: { description: 'E-journals download: a booking lookup that leads to the free e-journals' },
-  embed: { description: 'A YouTube video or in-flight entertainment widget, from its link', rows: { 0: [['Video link']] } },
-  'fare-teaser': { description: 'Fare teaser: routes from an origin with the lowest live price per destination' },
-  feedback: { description: 'Feedback question with its answer choices', rows: { 0: [['Question']], 1: [['Answers']] } },
-  'checkin-deadlines': { description: 'Check-in deadline search: travel class, country and airport, then the airport\'s check-in deadlines and services (labels and links in optional rows)' },
-  'flash-teaser': { description: 'Current messages of the Message Center (disruptions, outages, promotions) at the top of the homepage' },
-  'flight-search': {
-    multi: true, description: 'Flight search form (origin, destination, dates, travellers) that hands off to the booking; each row is one setting (key and value), optional ones can be added or removed', item: [['Setting'], ['Value']],
-  },
-  'flight-status': { description: 'Flight status search by flight number, route or airport' },
-  form: { multi: true, description: 'Form built from a field table: a header row naming the columns, then one row per field, heading or text', headerLabels: true },
-  fragment: { description: 'Includes the content of another document (fragment), from its link', rows: { 0: [['Fragment link']] } },
-  'hero-banner': { description: 'Stage with panes that open by their tab label: image, tab label, headline, text and button per pane', allRows: [['Image'], ['Tab label', 'Headline']] },
-  'hero-campaign': { description: 'Campaign stage: background image (optionally a background video) with title, subtitle, text and buttons', rows: { 0: [['Background image', 'Background video']] } },
-  'hero-card-overlay': { description: 'Promotion stage: background image with a card holding eyebrow, title, text, buttons and optional conditions', rows: { 0: [['Background image']] } },
-  'jump-links': { multi: true, description: 'Links to sections of the page (anchors), one per row', item: [['Link']] },
-  'lounge-finder': { description: 'Lounge search by city and status or travel class (labels and options in optional rows)' },
-  'message-center': { description: 'Current messages of the Message Center above the travel information' },
-  'micro-frontend': { description: 'One of www\'s micro-frontend apps (today trip-management), loaded from www with its design system; the page\'s data comes from the system that opens it', rows: { 0: [['App']] } },
-  'poi-map': { multi: true, description: 'Map with points of interest: one row per point (title, coordinates, link), plus source, caption and aside rows', item: [['Title'], ['Coordinates'], ['Link']] },
-  'price-bar': { description: 'Sticky price bar at the bottom of the window: destination, price label and link' },
-  'profile-nav': { description: 'Tabs of the profile pages, as a list of links', rows: { 0: [['Tabs']] } },
-  'profile-tabs': { multi: true, description: 'Tabs, one per row: tab label, panel content and an optional deep link id', item: [['Tab label'], ['Panel'], ['Tab id']] },
-  'related-articles': { description: 'Three related articles, picked from the article index by tags and category; rows add fixed picks' },
-  'search-results': { description: 'Site search results from the locale\'s search index', rows: { 0: [['Search index']] } },
-  'stage-promotions': { description: 'Homepage stage: shows the active promotion of the locale\'s promotions document', rows: { 0: [['Promotions document']] } },
-  'subpage-nav': { description: 'Navigation to the pages of a topic, at the end of the page', rows: { 0: [['Eyebrow', 'Topic', 'Pages']] } },
-  'table-striped': { multi: true, description: 'Table with striped rows, one block row per table row (option header: the first row is the header)', columnLabels: true },
-};
-
-const OPTION_NOTES = {
-  faq: 'FAQ style',
-  spaced: 'spaced items',
-  'limited-width': 'limited width',
-  column: 'content in columns',
-  usp: 'USP tiles',
-  'four-up': 'four per row',
-  'three-up': 'three per row',
-  'two-up': 'two per row',
-  partner: 'partner cards',
-  overlay: 'text over the image',
-  grid: 'grid instead of a carousel',
-  article: 'article cards',
-  authors: 'authors from the index',
-  half: 'half width',
-  stacked: 'images stacked',
-  padded: 'padded',
-  sidebar: 'sidebar layout',
-  'before-padded': 'padding before',
-  'nested-2': 'two nested columns',
-  'nested-4': 'four nested columns',
-  'cell-slider': 'cells as a slider below 1025px',
-  slider: 'images as a slider below 1025px',
-  'my-bookings': 'my bookings tabs',
-  standalone: 'standalone form',
-  core: 'AEM core form layout',
-  narrow: '350px stage',
-  right: 'text on the right',
-  card: 'text in a white card',
-  regular: '640px stage',
-  light: 'light card',
-  'no-mobile-image': 'no image on small screens',
-  columns: 'in columns',
-  header: 'first row is the header',
-  content: 'content tabs',
-};
 
 const walk = (d, rel = '') => fs.readdirSync(d, { withFileTypes: true }).flatMap((e) => {
   const r = rel ? `${rel}/${e.name}` : e.name;
@@ -160,7 +58,8 @@ const walk = (d, rel = '') => fs.readdirSync(d, { withFileTypes: true }).flatMap
   return e.name.endsWith('.plain.html') ? [r] : [];
 });
 const localeRank = (p) => {
-  const i = LOCALE_ORDER.findIndex((l) => p.startsWith(l));
+  // a locale's pages and its root page itself (lh-tap's homepages: /pt-pt)
+  const i = LOCALE_ORDER.findIndex((l) => p.startsWith(l) || `${p}/` === l);
   return i < 0 ? LOCALE_ORDER.length : i;
 };
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -364,8 +263,8 @@ const index = [];
 const manifest = {};
 const missingSpec = [];
 [...byBlock.keys()].sort().forEach((name) => {
-  const spec = SPEC[name] || {};
-  if (!SPEC[name]) missingSpec.push(name);
+  const spec = specFor(SITE.name, name);
+  if (!spec.description) missingSpec.push(name);
   const list = byBlock.get(name).sort((a, b) => (a.opts.length - b.opts.length) || b.uses.length - a.uses.length || a.key.localeCompare(b.key));
   const sections = [];
   const addVariant = (v, sample, heading, extra = {}) => {
@@ -419,7 +318,7 @@ const missingSpec = [];
   index.push({ name: spec.title || title(name.replace(/-/g, ' ')), path: `https://content.da.live/${ORG_SITE}/library/blocks/${name}` });
 });
 
-const editor = Object.entries(SPEC).filter(([n, s]) => s.multi && byBlock.has(n)).map(([block]) => ({ block, property: 'multi' })).sort((a, b) => a.block.localeCompare(b.block));
+const editor = [...byBlock.keys()].filter((n) => specFor(SITE.name, n).multi).map((block) => ({ block, property: 'multi' })).sort((a, b) => a.block.localeCompare(b.block));
 const options = [
   { blocks: 'fare-teaser, flight-search, price-bar', key: 'Cabin', values: 'Economy=E|Premium Economy=P|Business=B|First=F' },
   { blocks: 'blog-overview', key: 'Category', values: 'Explore the world=explore-the-world|Explore flying=explore-flying|Highlights=highlights' },
@@ -427,17 +326,19 @@ const options = [
   { blocks: 'car-rental', key: 'Partner ID', values: 'SIXT=105.14|Hertz=105.13|Europcar=105.12|Rental car offers=105.11' },
   { blocks: 'destination-offer', key: 'Content languages', values: 'English=en|German=de' },
 ];
+const siteOptions = options.filter((o) => o.blocks.split(', ').some((b) => byBlock.has(b)));
 const sheet = (data) => ({
   total: data.length, limit: data.length, offset: 0, data, ':colWidths': [],
 });
 const json = {
-  blocks: sheet(index), editor: sheet(editor), options: sheet(options), ':names': ['blocks', 'editor', 'options'], ':version': 3, ':type': 'multi-sheet',
+  blocks: sheet(index), editor: sheet(editor), options: sheet(siteOptions), ':names': ['blocks', 'editor', 'options'], ':version': 3, ':type': 'multi-sheet',
 };
-fs.writeFileSync(path.join(CONTENT, 'library/blocks.json'), `${JSON.stringify(json, null, 2)}\n`);
+fs.writeFileSync(path.join(LIBRARY, 'blocks.json'), `${JSON.stringify(json, null, 2)}\n`);
 // the migration tools' block list (.migration/project.json: /library/ema-library.json), the same names
 const ema = {
   total: index.length, limit: index.length, offset: 0, data: index.map((b) => ({ name: b.name, path: b.path.replace(`https://content.da.live/${ORG_SITE}`, '') })), ':type': 'sheet',
 };
-fs.writeFileSync(path.join(CONTENT, 'library/ema-library.json'), `${JSON.stringify(ema, null, 2)}\n`);
-fs.writeFileSync(path.join(root, 'tools/library/library-variants.json'), `${JSON.stringify(manifest, null, 1)}\n`);
-console.log(`build-library: ${byBlock.size} block documents, ${Object.keys(manifest).length} variants (incl. content variants), editor ${editor.length}, options ${options.length}${missingSpec.length ? `; no spec: ${missingSpec.join(', ')}` : ''}`);
+if (SITE.sheets.includes('ema-library.json')) fs.writeFileSync(path.join(LIBRARY, 'ema-library.json'), `${JSON.stringify(ema, null, 2)}\n`);
+fs.mkdirSync(path.dirname(SITE.manifest), { recursive: true });
+fs.writeFileSync(SITE.manifest, `${JSON.stringify(manifest, null, 1)}\n`);
+console.log(`build-library (${SITE.name}): ${byBlock.size} block documents, ${Object.keys(manifest).length} variants (incl. content variants), editor ${editor.length}, options ${siteOptions.length}${missingSpec.length ? `; no spec: ${missingSpec.join(', ')}` : ''}`);
