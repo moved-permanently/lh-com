@@ -50,21 +50,24 @@ test('the table: markets.json\'s 137 roots with www\'s currency and airport, own
   assert.equal(TAP_MARKETS['pt-br'], undefined);
   assert.equal(TAP_MARKETS['pt-pt'], undefined);
   assert.equal(fs.readFileSync('scripts/tap-markets.js', 'utf8'), render(marketRows(www, list), TAP_LIVE_MARKETS));
-  assert.deepEqual(TAP_LIVE_MARKETS, []);
+  // the three pilot roots on since brief 330 (their own documents published 2026-11-04 06:48)
+  assert.deepEqual(TAP_LIVE_MARKETS, ['de-ch', 'en-us', 'fr-ca']);
 });
 
-test('SITE_LANGUAGES.tap: the seven language roots as before, then pt-br and the market roots, none listed while off', () => {
+test('SITE_LANGUAGES.tap: the seven language roots as before, then pt-br and the market roots, listed only the three that are on', () => {
   const rows = SITE_LANGUAGES.tap;
   assert.deepEqual(rows.slice(0, 7).map((l) => l.path), LANGUAGE_ROOTS);
   assert.ok(rows.slice(0, 7).every((l) => l.listed === undefined));
   const br = rows.find((l) => l.path === '/pt-br/');
   assert.deepEqual([br.lang, br.country, br.home, br.listed], ['pt', 'br', '/pt-br', false]);
   const ch = rows.find((l) => l.path === '/de-ch/');
-  assert.deepEqual([ch.lang, ch.country, ch.home, ch.name, ch.version, ch.listed, ch.slugs], ['de', 'ch', '/de-ch', 'Deutsch (Schweiz)', 'de-de', false, 'own']);
+  assert.deepEqual([ch.lang, ch.country, ch.home, ch.name, ch.version, ch.listed, ch.slugs], ['de', 'ch', '/de-ch', 'Deutsch (Schweiz)', 'de-de', undefined, 'own']);
+  assert.equal(rows.find((l) => l.path === '/pt-ao/').listed, false, 'a root that is off');
   assert.equal(rows.length, 7 + 1 + 137);
-  assert.deepEqual(rows.filter((l) => l.listed !== false).map((l) => l.path), LANGUAGE_ROOTS);
+  assert.deepEqual(rows.filter((l) => l.listed !== false).map((l) => l.path), [...LANGUAGE_ROOTS, '/de-ch/', '/en-us/', '/fr-ca/']);
   // the switch's others on a page: the six other language roots, as before
-  assert.deepEqual(languageSwitch([], '/pt-pt/ajuda', 'pt', rows).links.map((l) => l.home), ['/en-pt', '/es-es', '/fr-fr', '/de-de', '/it-it', '/pl-pl']);
+  // the switch's others on a page: the six other language roots and the three that are on
+  assert.deepEqual(languageSwitch([], '/pt-pt/ajuda', 'pt', rows).links.map((l) => l.home), ['/en-pt', '/es-es', '/fr-fr', '/de-de', '/it-it', '/pl-pl', '/de-ch', '/en-us', '/fr-ca']);
 });
 
 test('a root is listed once it is on (tapLanguages(live)): de-ch and pt-br on', () => {
