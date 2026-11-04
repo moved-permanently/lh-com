@@ -189,3 +189,49 @@ test('the finder\'s look: the schedule\'s column from 1024 px, www\'s lines kept
   assert.match(css, /:is\(\.hotline-finder-note, \.hotline-finder-schedule \.hotline-finder-value\) \{[^}]*font-size: 13px;[^}]*line-height: 19\.5px;/);
   assert.match(css, /@media \(width >= 1024px\) \{[^@]*body\.brand-tap \.hotline-finder-tap \{\s*grid-template-columns: minmax\(0, 1fr\) minmax\(0, 1fr\);\s*gap: 44px;[^@]*\.hotline-finder-media img \{\s*aspect-ratio: 538 \/ 275;[^@]*:is\(\.hotline-finder-note, \.hotline-finder-schedule \.hotline-finder-value\) \{\s*font-size: 12px;\s*line-height: 18px;/);
 });
+
+/* ----------------------------------------------- footer, stopover, booking box, cards ------ */
+
+test('brief 352 (ema-lufthansa\'s 336): the footer\'s Star Alliance logo as www\'s, 140 x 20 (TAP only)', async () => {
+  const fs = await import('node:fs');
+  const svg = fs.readFileSync(new URL('../icons/tap-star-alliance.svg', import.meta.url), 'utf8');
+  assert.equal(svg.startsWith('<svg width="140" height="20" viewBox="0 0 140 20"'), true);
+  assert.equal(/<script|on\w+=|href=/i.test(svg), false, 'plain paths');
+  const { default: layoutTapFooter } = await import('../blocks/footer/footer-tap.js');
+  window.hlx = { ...(window.hlx || {}), codeBasePath: '' };
+  const block = document.createElement('div');
+  block.innerHTML = '<div class="footer-inner"><div class="footer-note">© 2026, TAP.</div></div>'
+    + '<ul class="footer-logos"><li><a href="/pt-pt"><img src="/icons/tap.svg" alt="TAP"></a></li>'
+    + '<li><a class="footer-logo-star-alliance" href="https://www.staralliance.com/"><img src="/icons/star-alliance.svg" alt="star alliance"></a></li></ul>';
+  layoutTapFooter(block);
+  const img = block.querySelector('.footer-tap-partner img');
+  assert.equal(img.getAttribute('src'), '/icons/tap-star-alliance.svg');
+  assert.equal(img.getAttribute('alt'), 'star alliance');
+  const css = fs.readFileSync(new URL('../styles/themes/tap.css', import.meta.url), 'utf8');
+  assert.match(css, /body\.brand-tap \.footer \.footer-tap-partner img \{\s*display: block;\s*width: 140px;\s*height: 20px;/);
+});
+
+test('brief 352 (ema-lufthansa\'s 336): the stopover\'s centred button and info card as www\'s, TAP only', async () => {
+  const fs = await import('node:fs');
+  const css = fs.readFileSync(new URL('../styles/themes/tap.css', import.meta.url), 'utf8');
+  assert.match(css, /body\.brand-tap main > \.section:has\(\+ \.section\.centred-button\) \{\s*margin-bottom: 32px;/);
+  assert.match(css, /body\.brand-tap main > \.section\.centred-button \.default-content-wrapper \{\s*text-align: center;/);
+  assert.match(css, /body\.brand-tap main > \.section\.centred-button a\.button:any-link \{[^}]*background-color: #9efd38;[^}]*font-size: 16px;\s*font-weight: 500;/);
+  assert.match(css, /body\.brand-tap main > \.section\.info-card > \.default-content-wrapper \{[^}]*max-width: min\(567px, calc\(100% - 2 \* var\(--layout-margin\)\)\);[^}]*padding: 24px;[^}]*border-left: 4px solid #65c922;[^}]*border-radius: 4px;[^}]*background-color: #fcfcfc;/);
+  assert.match(css, /body\.brand-tap main > \.section\.info-card > \.default-content-wrapper > p:first-child \{[^}]*font-family: var\(--heading-font-family\);[^}]*font-size: 18px;[^}]*font-weight: 500;/);
+  assert.match(css, /body\.brand-tap main > \.section\.info-card a\.button:any-link \{[^}]*min-height: 32px;[^}]*border: 1px solid #65c922;[^}]*background-color: transparent;/);
+});
+
+test('brief 352 (row 56): the booking box\'s select arrow www\'s green triangle, TAP only', async () => {
+  const fs = await import('node:fs');
+  const css = fs.readFileSync(new URL('../blocks/booking-box/booking-box.css', import.meta.url), 'utf8');
+  assert.match(css, /body\.brand-tap \.booking-box \.booking-box-icon-caret svg \{\s*width: 20px;\s*height: 20px;\s*fill: #397213;\s*stroke: none;/);
+  assert.match(css, /body\.brand-tap \.booking-box \.booking-box-field-button \.booking-box-icon-caret svg \{\s*opacity: 0\.5;/);
+  assert.match(css, /body\.brand-tap \.booking-box \.booking-box-field-button \.booking-box-icon-caret \{\s*right: 12px;/);
+});
+
+test('brief 352 (ema-lufthansa\'s 350): a feature card\'s H3 title as www\'s (GT Flexa 24 / 28.8 bold, 16 px to the text)', async () => {
+  const fs = await import('node:fs');
+  const css = fs.readFileSync(new URL('../styles/themes/tap.css', import.meta.url), 'utf8');
+  assert.match(css, /body\.brand-tap \.columns-media:not\(\.stack\) \.columns-media-text > h3:not\(\[class\*="heading-"\]\) \{\s*margin-bottom: 16px;\s*font-size: 24px;\s*line-height: 1\.2;\s*font-weight: 700;/);
+});

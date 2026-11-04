@@ -260,6 +260,27 @@
   right: 52px;
 }
 
+/* brand tap: www's arrow, lucide's chevron filled as a triangle (20 px, TAP's dark green; the
+   passengers' at half strength), parity.md row 56 */
+body.brand-tap .booking-box .booking-box-icon-caret svg {
+  width: 20px;
+  height: 20px;
+  fill: #397213;
+  stroke: none;
+}
+
+body.brand-tap .booking-box .booking-box-field-button .booking-box-icon-caret svg {
+  opacity: 0.5;
+}
+
+body.brand-tap .booking-box .booking-box-field-button .booking-box-icon-caret {
+  right: 12px;
+}
+
+body.brand-tap .booking-box :is(.airport-combobox > .booking-box-icon-caret, .booking-box-field-button .booking-box-icon-caret) {
+  bottom: 16px;
+}
+
 .booking-box-chip {
   display: inline-flex;
   align-items: center;

@@ -95,9 +95,13 @@ tokens) and the computed styles of the pages above.
 | 51 | Market roots' alerts bar (en-gb and others) | the root's own alerts ("Measures Related to Ebola Outbreak", 3/6) | another market's ("… for Travel to the US", 2/7) | alerts bar (ema-adobe) | open |
 | 52 | Market roots' `html lang` | the market's (`pt-ao`, `en-gb`, `de-ch` …) | the language (`pt`, `en`, `de`) | scripts (ema-adobe) | open |
 | 53 | Market roots' footer | "Cookie settings" in the second column; Star Alliance as www's picture; Google Play before App Store | no cookie settings link; "A Star Alliance member"; App Store first | import (ema-lufthansa: the footer documents) | Google Play before the App Store in every footer document (brief 354); the cookie settings link stays out (no consent tool). Star Alliance: the footer documents link it as `:star-alliance:` (ema-lufthansa); the page decoration makes it lh-com's `/icons/star-alliance.svg` (Lufthansa's "A Star Alliance member" logo, 20 px wide on preview, left out on live), and footer-tap.js only keeps that link by the class of its icon, so www's own 140 x 20 logo (the inline SVG in its copyright bar) needs the footer block: ema-test |
-| 54 | Market roots' help contacts | the finder with the market's country and city first (Schweiz / Genf, Angola / Luanda) | "See on flytap.com" | data: the contacts capture (the block and its sheet are ready, row 40) | open |
+| 54 | Market roots' help contacts | the finder with the market's country and city first (Schweiz / Genf, Angola / Luanda) | "See on flytap.com" | the eight sheets are in DA (brief 352); the help documents (ema-lufthansa) | open |
 | 55 | Contacts picture | a green chevron line over the picture's right edge | none | theme (TAP-scoped, hotline-finder-tap) | fixed (brief 344) |
-| 56 | Booking box's selects | a green triangle as the selects' arrow | a chevron | booking box (ema-adobe) | open |
+| 56 | Booking box's selects | a green triangle as the selects' arrow | a chevron | booking box (TAP-scoped rules) | fixed (brief 352) |
+| 57 | Footer's Star Alliance logo (ema-lufthansa's 336) | www's picture, "STAR ALLIANCE" and the star, 140 x 20 | lh-com's "A STAR ALLIANCE MEMBER", 205 x 20 | footer (TAP variant) | fixed (brief 352) |
+| 58 | Stopover's centred button (ema-lufthansa's 336) | "Reservar agora" centred 32 px under the text, the electric green pill, 16 / 500 | at the left, TAP green, 15 / 400 | theme (`centred-button`) | fixed (brief 352) |
+| 59 | Stopover's FAQ card (ema-lufthansa's 336) | a light card with a 4 px green edge, 567 px, centred; title 18 / 500, text 14 / 21 grey, an outline button | plain text and a primary button | theme (`info-card`) | fixed (brief 352) |
+| 60 | Feature card titles (ema-lufthansa's 350, Ispirati finding 167) | H3, GT Flexa 24 / 28.8 bold | H2 (40 / 48 at 1440) | theme: the H3's TAP style is in (brief 352); the documents' H2 to H3 (ema-lufthansa) | open |
 
 ## What was fixed (commits)
 
@@ -601,3 +605,100 @@ requests, without www (rows 48 to 50, 17:30). Row 55's before and after: `/tmp/t
     order of its stylesheets (timing).
 
 Rollback: `git revert` of the commit. The DA sheets and drafts keep their earlier versions in DA.
+
+## Brief 352: the help contacts sheets, the stopover's styles, the footer logo, the booking box (rows 54, 56 to 60)
+
+### The help contacts sheets, all eight language versions
+
+`tools/tap-data/contacts-sheet.mjs` builds them from the capture `tap-help-contacts-001.tar.gz`
+(sha256 checked). It reads www's answer to `retrieve-contacts` per language and the capture's flat
+rows, which supply the labels. It writes the rows in the order www's finder (`ContactsByCountry`)
+shows them, logged out:
+- the countries in the answer's order;
+- the cities without "NA", the default city the country's `defaultCity` (else the first);
+- a city's locations: first the "NA" place's ones whose title the city has not, then the city's
+  own, contact-center first; only locations with a telephone, an e-mail or an address;
+- a location: its description, telephones ("+" before a bare number, as www), WhatsApp numbers,
+  address (the company first), e-mails, schedule; the HTML as text, www's line breaks kept.
+
+| Path | Countries | Rows |
+| --- | --- | --- |
+| `/pt-pt/help/contacts.json` | 86 | 711 |
+| `/en-pt/help/contacts.json` | 86 | 711 |
+| `/es-es/help/contacts.json` | 86 | 736 |
+| `/fr-fr/help/contacts.json` | 86 | 736 |
+| `/de-de/help/contacts.json` | 86 | 735 |
+| `/it-it/help/contacts.json` | 86 | 734 |
+| `/pl-pl/help/contacts.json` | 86 | 737 |
+| `/pt-br/help/contacts.json` | 86 | 711 |
+
+All eight are uploaded to DA (lh-tap) and previewed, not published. The served JSON equals the
+local file for each. The draft's sample sheet (`/drafts/help-contacts-en-pt.json`) is replaced by
+en-pt's real sheet. The draft page still carries its brief 339 note calling the sheet a sample.
+
+hotline-finder on tap reads the new `default` column: the default city comes first. It shows one
+label over a kind's entries, the company with the address, and the schedule in a column of its own
+from 1024 px.
+
+### The draft against www's help page (390 and 1440)
+
+- **Portugal / Lisbon (en-pt):** the same four groups, entries, notes and schedules in www's order,
+  with the city select on Lisbon.
+- **Brazil (en-pt):** "Rio de Janeiro - Center" first, as www. The 23 cities are in www's order.
+  The same three groups, including www's "+0 800 …" numbers.
+- **Spain (en-pt, twelve cities):** Alicante first, as www, with the same two groups.
+- **Brazil (pt-br):** www's country order, the 23 cities in www's order, "Rio de Janeiro - Centro"
+  first. The same texts in Portuguese.
+- **Layout matched to www's measurements:**
+  - the picture is 358 x 420 on phones and 538 x 275 at 1440, with 44 px to the finder;
+  - the pills are 52 px and 24 px apart;
+  - there are 16 px from a label to its values;
+  - schedules and notes are 13 / 19.5 on phones and 12 / 18 at 1440 (the 1024 px breakpoint is
+    assumed).
+
+### The stopover, the footer, the booking box (rows 56 to 60)
+
+- **Rows 58 and 59**, `/pt-pt/stopover` at 390 and 1440. The centred button is now 32 px under the
+  text, centred, on #9efd38. The FAQ card is at 437 / 567 (www 436 / 567) and full width on phones.
+  Its title, text and outline button match www's sizes.
+  - Left over: the card's text wraps onto a second line here (Inter at 14 px needs 523 px, the card
+    gives 515), so the card is 168 px tall where www's is 147.
+  - Left over: the button labels are a few pixels wider than www's.
+- **Row 57:** www's own SVG (plain paths) is `icons/tap-star-alliance.svg`. The TAP footer swaps the
+  picture in. Row 53's documents are unchanged.
+- **Row 56:** lucide's chevron, filled as www's: 20 px, #397213, the passengers' at half strength.
+  The rules are in `blocks/booking-box/booking-box.css` under `body.brand-tap`.
+- **Row 60:** www's feature card title is an H3, 24 / 28.8 bold, 16 px over its text. lh-com's
+  columns-media H3 is light at 24 px (20 on phones), so a TAP style for it is in. Switching the
+  title to an H3 in the page gives www's size at both widths.
+
+### For ema-lufthansa (content)
+
+- **The help pages:** `/pt-pt/ajuda`, `/en-pt/help`, `/es-es/ayuda`, `/fr-fr/aide`, `/de-de/hilfe`,
+  `/it-it/assistenza`, `/pl-pl/pomoc` and `/pt-br/ajuda`.
+  - Under the contacts heading (Contactos, Contacts, Kontakte, Contatti, Kontakt, Contatos), the
+    "See on flytap.com" paragraph becomes a `hotline-finder` block with two rows:
+    - `Sheet | /<version>/help/contacts.json`;
+    - `Image | ` www's `help_contact_center_tap.jpg`, with its alt text.
+  - A market root's help page takes its language version's sheet; the block picks the market's
+    country.
+- **Row 60:** feature card titles from H2 to H3 (Ispirati and the same cards elsewhere).
+- **Row 53**, unchanged: the footer documents.
+
+### Checks (brief 352)
+
+- **Lint:** passes (eslint and stylelint).
+- **Full suite:** 247 of 248 test files before the rebase onto main, 250 of 251 after it.
+  `test/library-entries.test.mjs` fails only in this workspace, because it reads the untracked
+  local `content/library/blocks` (as in brief 344).
+- **Tests:** `test/tap-352.test.mjs` covers the sheet tool (www's merge, filter and order, the
+  default city, the telephones, the text), the finder (default city, one label per kind, company
+  with the address, the schedule column) and the CSS rules of rows 56 to 60.
+- **Other sites:** every new rule starts with `body.brand-tap` (checked by `test/brand.test.mjs` for
+  the theme, and by hand for the booking box's four rules), and the JS changes run only on brand
+  tap (`hotline-finder-tap.js`, `footer-tap.js`). So lufthansa.com's 19 pages and the other brands
+  are unchanged by construction. They were not compared in a browser this time.
+
+Screenshots (not committed, can be lost on a restart): `/tmp/tap-352/cmp`.
+
+Rollback: `git revert` of the commits. The DA sheets keep their versions in DA.

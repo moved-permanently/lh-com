@@ -1608,9 +1608,10 @@ body.brand-tap .footer .footer-tap-bar .footer-note {
   font-size: 14px;
 }
 
+/* www's Star Alliance picture, 140 x 20 (brief 352) */
 body.brand-tap .footer .footer-tap-partner img {
   display: block;
-  width: auto;
+  width: 140px;
   height: 20px;
 }
 
@@ -1670,6 +1671,103 @@ body.brand-tap .footer .footer-tap-partner img {
 /* --------------------------------------------- TAP's inner pages (brief 331, part 4) ---- */
 
 /* stylelint-disable no-descending-specificity -- scoped by block and option; page order */
+
+/* ------------------------------ the stopover's section styles, feature cards (brief 352) ---- */
+
+/* centred-button (a rich text's button in a section of its own: www's "Reservar agora"): centred,
+   32 px under the text, the electric green pill with a 16 / 500 label */
+body.brand-tap main > .section:has(+ .section.centred-button) {
+  margin-bottom: 32px;
+}
+
+body.brand-tap main > .section.centred-button .default-content-wrapper {
+  text-align: center;
+}
+
+body.brand-tap main > .section.centred-button a.button:any-link {
+  border-color: #9efd38;
+  background-color: #9efd38;
+  color: #000;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+body.brand-tap main > .section.centred-button a.button:hover {
+  border-color: var(--button-accent-hover);
+  background-color: var(--button-accent-hover);
+}
+
+/* info-card (www's FAQ card under the stopover): a light card with a green edge, 567 px at most
+   and centred, its title GT Flexa 18 / 500, the text 14 / 21 grey, an outline button (32 px,
+   16 / 500), the whole width on phones */
+body.brand-tap main > .section.info-card > .default-content-wrapper {
+  box-sizing: border-box;
+  max-width: min(567px, calc(100% - 2 * var(--layout-margin)));
+  margin: 0 auto;
+  padding: 24px;
+  border-left: 4px solid #65c922;
+  border-radius: 4px;
+  background-color: #fcfcfc;
+}
+
+body.brand-tap main > .section.info-card > .default-content-wrapper > p {
+  margin: 0;
+}
+
+body.brand-tap main > .section.info-card > .default-content-wrapper > p:first-child {
+  color: #424045;
+  font-family: var(--heading-font-family);
+  font-size: 18px;
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+body.brand-tap main > .section.info-card > .default-content-wrapper > p:first-child strong {
+  font-weight: inherit;
+}
+
+body.brand-tap main > .section.info-card > .default-content-wrapper > p:not(:first-child, .button-wrapper) {
+  margin-top: 8px;
+  color: #65626a;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+body.brand-tap main > .section.info-card > .default-content-wrapper > .button-wrapper {
+  margin-top: 16px;
+}
+
+body.brand-tap main > .section.info-card a.button:any-link {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  min-height: 32px;
+  padding: 0 16px;
+  border: 1px solid #65c922;
+  background-color: transparent;
+  color: #424045;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+body.brand-tap main > .section.info-card a.button:hover {
+  background-color: #f2f2f3;
+}
+
+@media (width >= 768px) {
+  body.brand-tap main > .section.info-card a.button:any-link {
+    width: auto;
+  }
+}
+
+/* a feature card's title as www's H3 (font-tap text-title-xs font-bold: 24 / 28.8, 700), 16 px to
+   its text; lh-com's columns-media H3 is light (ema-lufthansa's 350: the documents' H2 to H3) */
+body.brand-tap .columns-media:not(.stack) .columns-media-text > h3:not([class*="heading-"]) {
+  margin-bottom: 16px;
+  font-size: 24px;
+  line-height: 1.2;
+  font-weight: 700;
+}
 
 /* the page title and its lead centred, as www (row 14: ajuda, a-bordo, bagagem, miles-and-go and
    every other inner page measured: H1 40 / 48 centred, the lead centred in 726 px, 16 px below;

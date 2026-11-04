@@ -3,7 +3,8 @@
  * rounded cards side by side, the link columns in the first (three quarters), a side card with
  * the logo, "Follow us" and its icons, "TAP App" and its store badges; under them a rounded
  * copyright bar with the note and, when the footer document has it, Star Alliance's logo at the
- * right. Built from the decorated footer (footer.js): its columns, badges, note and logo row.
+ * right (www's picture, icons/tap-star-alliance.svg, 140 x 20). Built from the decorated footer
+ * (footer.js): its columns, badges, note and logo row.
  * The look: styles/themes/tap.css.
  */
 
@@ -40,6 +41,9 @@ export default function layoutTapFooter(block) {
       img.classList.add('footer-tap-icon');
     });
   }
+  // www's Star Alliance picture ("STAR ALLIANCE" and the star, 140 x 20) for lh-com's wider one
+  const starImg = star ? star.querySelector('img') : null;
+  if (starImg) starImg.src = `${window.hlx?.codeBasePath || ''}/icons/tap-star-alliance.svg`;
   const side = div('footer-tap-side', home ? div('footer-tap-logo', home) : null, badges);
   const bar = div('footer-tap-bar', note, star ? div('footer-tap-partner', star) : null);
   inner.querySelectorAll(':scope > .footer-divider').forEach((hr) => hr.remove());
