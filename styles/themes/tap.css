@@ -211,6 +211,52 @@ body.brand-tap .cards .cards-card-body {
   margin: 24px;
 }
 
+/* no picture wider than www shows it (migration-work/tap/width-compare.mjs, 40 pages at 1440 and
+   390 px): www's card grids are 24 px apart, each card 16 px inside its column (its p-4), so the
+   pictures are 32 px narrower than the column; the Miles&Go tier cards' logos (234 px files) in a
+   72 px row inside 24 px of padding; the homepage's "Planeie a sua viagem" cards four to a row,
+   their pictures 28:12; the explore picture beside its accordion (InfoSection) half the column */
+body.brand-tap .cards-teaser.three-up > ul {
+  column-gap: 24px;
+}
+
+body.brand-tap .cards-teaser.three-up > ul > li {
+  padding: 16px;
+}
+
+body.brand-tap .cards .cards-card-image {
+  padding: 24px 24px 0;
+}
+
+body.brand-tap .cards .cards-card-image img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: 62px;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+@media (width >= 1024px) {
+  body.brand-tap main .default-content-wrapper:has(+ .accordion-columns-wrapper > .accordion-columns.faq) > p:last-child > picture img {
+    max-width: calc(50% - 48px);
+  }
+}
+
+@media (width >= 1025px) {
+  body.brand-tap .carousel-cards .carousel-cards-track {
+    gap: 24px;
+  }
+
+  body.brand-tap .carousel-cards .carousel-cards-slide:not(.carousel-cards-wide) {
+    flex-basis: calc((100% - 72px) / 4);
+  }
+
+  body.brand-tap .carousel-cards .carousel-cards-slide:not(.carousel-cards-wide) .carousel-cards-image {
+    aspect-ratio: 28 / 12;
+  }
+}
+
 @media (width >= 984px) {
   body.brand-tap .cards.three-up > ul {
     grid-template-columns: repeat(3, 1fr);
@@ -219,13 +265,4 @@ body.brand-tap .cards .cards-card-body {
   body.brand-tap .cards.four-up > ul {
     grid-template-columns: repeat(4, 1fr);
   }
-}
-
-/* the booking slot (where www's booking box sits, under the stage): a white rounded panel with
-   www's shadow, until the booking block replaces its link (tools/reports/tap/parity.md, F2) */
-body.brand-tap main .section.booking-slot .default-content-wrapper {
-  border-radius: var(--radius-l);
-  padding: 24px;
-  background-color: #fff;
-  box-shadow: 0 4px 24px rgb(0 0 0 / 8%);
 }
