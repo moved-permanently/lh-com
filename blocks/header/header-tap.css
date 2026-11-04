@@ -1,0 +1,365 @@
+/*
+ * TAP's main menu (blocks/header/header-tap.js buildTapMenu), as www.flytap.com's (measured on
+ * /en-pt, 2026-11-04, 1440 and 390 px). Loaded by header-tap.js for TAP only; the bar itself and
+ * its top-level buttons are the theme's (styles/themes/tap.css).
+ * - from 1025 px: a white panel 16 px under the header pill and as wide as it, 24 px corners and a
+ *   soft shadow; the columns in a row 32 px from the panel's edges and 32 px apart, each as wide
+ *   as its content with 32 px on its left for TAP's green chevron; the heading TAP's type 18 / 700,
+ *   the links Inter 16 about 33.6 px apart, "See all" Inter 16 / 500 in TAP's dark green with a
+ *   1 px line under it; the banner a 266 x 224 picture card 16 px from the panel's top and right,
+ *   its green corner and arc, the title 24 / 700 and the line 13 / 700 in white over the picture,
+ *   a white "Find out more" pill under them.
+ * - below 1025 px: the menu button opens the items as www's accordion in a white card under the
+ *   pill: each item a 40 px pill (grey, TAP green when open), its columns light green pills, the
+ *   links 36 px apart, "See all" underlined; no banner (www shows none on phones).
+ */
+
+/* ---------------------------------------------------------------- the columns -------------- */
+
+body.brand-tap .header .tap-menu-heading {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  color: var(--lh-deepblue);
+  font-family: var(--heading-font-family);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+body.brand-tap .header a.tap-menu-heading:hover {
+  color: var(--lh-green);
+}
+
+body.brand-tap .header .tap-menu-chevron {
+  position: absolute;
+  top: 50%;
+  left: -32px;
+  display: flex;
+  transform: translateY(-50%);
+}
+
+body.brand-tap .header .tap-menu-col-toggle {
+  display: none;
+}
+
+body.brand-tap .header .tap-menu-links {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+body.brand-tap .header .tap-menu-link {
+  display: block;
+  color: var(--lh-deepblue);
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+body.brand-tap .header .tap-menu-link:hover {
+  color: var(--lh-green);
+  text-decoration: underline;
+}
+
+body.brand-tap .header .tap-menu-see-all {
+  display: inline-block;
+  margin-top: 15px;
+  color: var(--lh-green);
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  text-decoration: underline 1px;
+  text-underline-offset: 4px;
+}
+
+body.brand-tap .header .tap-menu-see-all:hover {
+  text-decoration-thickness: 2px;
+}
+
+/* ---------------------------------------------------------------- the banner --------------- */
+
+body.brand-tap .header .tap-menu-banner-card {
+  position: relative;
+  overflow: hidden;
+  width: 266px;
+  height: 224px;
+  border-radius: 24px;
+  background-color: var(--lh-deepblue);
+}
+
+body.brand-tap .header .tap-menu-banner-card > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* www's dark fade under the text */
+body.brand-tap .header .tap-menu-banner-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgb(0 0 0 / 0%) 35%, rgb(0 0 0 / 65%) 100%);
+}
+
+body.brand-tap .header .tap-menu-banner-corner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+body.brand-tap .header .tap-menu-banner-arc {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+}
+
+body.brand-tap .header .tap-menu-banner-text {
+  position: absolute;
+  inset: auto 16px 16px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+}
+
+body.brand-tap .header .tap-menu-banner-title {
+  margin: 0;
+  color: #fff;
+  font-family: var(--heading-font-family);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+body.brand-tap .header .tap-menu-banner-line {
+  margin: 0;
+  color: #fff;
+  font-family: var(--body-font-family);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+body.brand-tap .header .tap-menu-banner-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  height: 40px;
+  margin-top: 15px;
+  padding: 0 24px;
+  border-radius: 999px;
+  background-color: #fff;
+  color: var(--lh-deepblue);
+  font-family: var(--body-font-family);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.1;
+  text-decoration: none;
+}
+
+body.brand-tap .header .tap-menu-banner-cta:hover {
+  background-color: var(--lh-grey-1);
+}
+
+/* ---------------------------------------------------------------- 1025 px and wider -------- */
+
+@media (width >= 1025px) {
+  body.brand-tap .header .tap-menu .nav-bar-menu-item {
+    position: static;
+  }
+
+  body.brand-tap .header .tap-menu-panel {
+    position: absolute;
+    top: calc(100% + 16px);
+    right: 0;
+    left: 0;
+    display: flex;
+    align-items: flex-start;
+    border-radius: 24px;
+    background-color: #fff;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -4px rgb(0 0 0 / 10%);
+    text-align: left;
+  }
+
+  body.brand-tap .header .tap-menu-panel[hidden] {
+    display: none;
+  }
+
+  /* the columns as wide as their content; where the banner needs the room they give way (into
+     their 32 px gaps) rather than push it out of the panel */
+  body.brand-tap .header .tap-menu-cols {
+    display: flex;
+    flex: 1 1 auto;
+    gap: 32px;
+    min-width: 0;
+    padding: 32px;
+  }
+
+  body.brand-tap .header .tap-menu-col {
+    flex: 0 1 auto;
+    min-width: 0;
+    padding-left: 32px;
+  }
+
+  body.brand-tap .header .tap-menu-banner {
+    flex: none;
+    margin-left: auto;
+    padding: 16px;
+  }
+}
+
+/* ---------------------------------------------------------------- phones ------------------- */
+
+@media (width < 1025px) {
+  body.brand-tap .header .tap-menu {
+    display: none;
+  }
+
+  /* the card under the pill, scrolling inside itself while the page stays */
+  body.brand-tap .header .tap-menu.is-open {
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-sizing: border-box;
+    max-height: calc(100dvh - 100% - 24px - var(--header-bar-inset, 0px));
+    margin: 0;
+    padding: 16px;
+    overflow-y: auto;
+    border-radius: 24px;
+    background-color: #fff;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -4px rgb(0 0 0 / 10%);
+    list-style: none;
+  }
+
+  body.brand-tap .header .tap-menu .nav-bar-menu-item {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  body.brand-tap .header .tap-menu :is(.nav-bar-menu-button, .nav-bar-menu-link),
+  body.brand-tap .header .tap-menu .tap-menu-col-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    width: 100%;
+    height: 40px;
+    margin: 0;
+    padding: 0 16px;
+    border: 0;
+    border-radius: 999px;
+    background-color: var(--lh-grey-1);
+    color: var(--lh-deepblue);
+    font-family: var(--body-font-family);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.2;
+    text-align: left;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  /* www's chevron down, up when open */
+  body.brand-tap .header .tap-menu :is(.nav-bar-menu-button, .tap-menu-col-toggle)::after {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-right: 1.5px solid currentcolor;
+    border-bottom: 1.5px solid currentcolor;
+    transform: translateY(-2px) rotate(45deg);
+  }
+
+  body.brand-tap .header .tap-menu :is(.nav-bar-menu-button, .tap-menu-col-toggle)[aria-expanded="true"]::after {
+    transform: translateY(2px) rotate(-135deg);
+  }
+
+  body.brand-tap .header .tap-menu .nav-bar-menu-button[aria-expanded="true"] {
+    background-color: var(--lh-yellow);
+  }
+
+  body.brand-tap .header .tap-menu .tap-menu-col-toggle {
+    padding-left: 24px;
+    background-color: rgb(101 201 34 / 8%);
+  }
+
+  body.brand-tap .header .tap-menu .tap-menu-col-toggle[aria-expanded="true"] {
+    background-color: rgb(101 201 34 / 15%);
+  }
+
+  body.brand-tap .header .tap-menu-panel {
+    display: block;
+  }
+
+  body.brand-tap .header .tap-menu-panel[hidden] {
+    display: none;
+  }
+
+  body.brand-tap .header .tap-menu-cols {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  body.brand-tap .header .tap-menu-col-single > .tap-menu-heading {
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    height: 40px;
+    padding: 0 24px;
+    border-radius: 999px;
+    background-color: rgb(101 201 34 / 8%);
+    font-family: var(--body-font-family);
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  body.brand-tap .header .tap-menu-col-single .tap-menu-chevron {
+    display: none;
+  }
+
+  body.brand-tap .header .tap-menu-col-body {
+    padding: 4px 16px;
+  }
+
+  /* a column with links: its pill and, when open, the links; a column without: its heading link */
+  body.brand-tap .header .tap-menu-col:not(.tap-menu-col-single) > .tap-menu-heading {
+    display: none;
+  }
+
+  body.brand-tap .header .tap-menu-col:not(.is-open) > .tap-menu-col-body {
+    display: none;
+  }
+
+  body.brand-tap .header .tap-menu-col-body .tap-menu-links {
+    gap: 16px;
+    margin-top: 12px;
+  }
+
+  body.brand-tap .header .tap-menu-link {
+    line-height: 20px;
+    white-space: normal;
+  }
+
+  body.brand-tap .header .tap-menu-banner {
+    display: none;
+  }
+}

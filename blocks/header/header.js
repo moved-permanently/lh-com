@@ -1048,7 +1048,8 @@ export default async function decorate(block) {
     labels,
     menuLabel,
   });
-  flyout.bind(menuButton);
+  // (TAP: the menu button opens its own menu, below)
+  if (!tap) flyout.bind(menuButton);
 
   // the footer's country/language button opens the same dialog (a brand site without roots: the
   // menu with its language switch)
@@ -1068,7 +1069,14 @@ export default async function decorate(block) {
 
   // the menu in the bar (header.menu 'bar'): the top items with their drop-downs from 1025px
   let barMenu = null;
-  if (headerStyle.menu === 'bar') {
+  if (tap) {
+    // TAP's own menu (./header-tap.js): www's panels in the bar, its accordion on phones
+    barMenu = tap.buildTapMenu(menu, {
+      link: (href, label, className) => navLink(href, label, className, labels),
+      menuButton,
+      quickLinks: quick ? [...quick.querySelectorAll('a[href]')] : [],
+    });
+  } else if (headerStyle.menu === 'bar') {
     const { default: buildBarMenu } = await import('./header-bar-menu.js');
     barMenu = buildBarMenu(menuItems, {
       link: (href, label, className) => navLink(href, label, className, labels),

@@ -62,6 +62,201 @@ export function tapBarTools(locale) {
   ];
 }
 
+/* ------------------------------------------------------------------ the menu --------- */
+
+// www's chevron before a column's heading, its banner card's corner and arc (TAP green #65C922)
+const CHEVRON = '<svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill-rule="evenodd" clip-rule="evenodd" d="M13.4086 22H6L10.5249 12.2992C10.6133 12.1099 10.6133 11.8904 10.5249 11.7008L6 2H13.4086L17.9335 11.7008C18.0222 11.8904 18.0222 12.1099 17.9335 12.2992L13.4086 22Z" fill="#65C922"/></svg>';
+const CORNER = '<svg class="tap-menu-banner-corner" width="105" height="60" viewBox="0 0 105 60" aria-hidden="true" focusable="false"><path d="M105 0L0.000488281 60V0H105Z" fill="#65C922"/></svg>';
+const ARC = '<svg class="tap-menu-banner-arc" width="272" height="71" viewBox="0 0 272 71" fill="none" aria-hidden="true" focusable="false"><path d="M-72.9995 150.473L227.503 5.12972C233.375 2.28942 240.175 2.28942 246.046 5.12972L546.548 150.473" stroke="#65C922" stroke-width="5"/></svg>';
+
+const text = (n) => (n ? n.textContent.replace(/\s+/g, ' ').trim() : '');
+const children = (n, tag) => (n ? [...n.children].filter((c) => c.tagName === tag) : []);
+/** An item's own line: its first paragraph, else its own link (a list item without paragraphs). */
+const ownLine = (li) => li.querySelector(':scope > p') || li.querySelector(':scope > a');
+const hrefOf = (n) => {
+  const a = n && (n.tagName === 'A' ? n : n.querySelector('a'));
+  return a ? a.getAttribute('href') : null;
+};
+
+/**
+ * The nav document's menu as tools/importer/tap-nav.mjs writes it: www's top level, each item a
+ * title (a link: Check-in), its columns (the heading linking the column's page, its links, a
+ * "See all" paragraph after them) and its banner row (a picture, the bold title, a line, a link).
+ * @param {Element} section the nav document's menu section
+ * @returns {Array<{label: string, link: string|null, cols: Array<{label: string, href: string|null,
+ *   links: Array<{label: string, href: string}>, seeAll: {label: string, href: string}|null}>,
+ *   banner: {img: {src: string, alt: string}|null, title: string, line: string,
+ *   cta: {label: string, href: string}|null}|null}>}
+ */
+export function readTapMenu(section) {
+  const list = section && section.querySelector('ul');
+  return children(list, 'LI').map((li) => {
+    const own = ownLine(li);
+    const cols = [];
+    let banner = null;
+    children(li.querySelector(':scope > ul'), 'LI').forEach((c) => {
+      const title = c.querySelector(':scope > p > strong, :scope > strong');
+      if (title) {
+        const img = c.querySelector('img');
+        const paras = children(c, 'P').filter((p) => !p.querySelector('img') && !p.querySelector('strong'));
+        const ctaP = paras.find((p) => p.querySelector('a'));
+        banner = {
+          img: img ? { src: img.getAttribute('src'), alt: img.getAttribute('alt') || '' } : null,
+          title: text(title),
+          line: text(paras.find((p) => !p.querySelector('a'))),
+          cta: ctaP ? { label: text(ctaP), href: hrefOf(ctaP) } : null,
+        };
+        return;
+      }
+      const head = ownLine(c);
+      const all = c.querySelector(':scope > ul + p');
+      cols.push({
+        label: text(head),
+        href: hrefOf(head),
+        links: [...c.querySelectorAll(':scope > ul > li > a')].map((a) => ({ label: text(a), href: a.getAttribute('href') })),
+        seeAll: all && hrefOf(all) ? { label: text(all), href: hrefOf(all) } : null,
+      });
+    });
+    return {
+      label: text(own), link: hrefOf(own), cols, banner,
+    };
+  }).filter((item) => item.label);
+}
+
+let menus = 0;
+
+function node(tag, attrs = {}, ...kids) {
+  const n = document.createElement(tag);
+  Object.entries(attrs).forEach(([k, v]) => {
+    if (v === null || v === undefined || v === false) return;
+    if (k === 'className') n.className = v;
+    else if (k === 'html') n.innerHTML = v;
+    else n.setAttribute(k, v === true ? '' : v);
+  });
+  kids.flat().forEach((c) => { if (c) n.append(typeof c === 'string' ? document.createTextNode(c) : c); });
+  return n;
+}
+
+/** header-tap.css, once (TAP's menu; the theme styles/themes/tap.css is not for it). */
+function loadMenuCss() {
+  const href = `${(window.hlx && window.hlx.codeBasePath) || ''}/blocks/header/header-tap.css`;
+  if (document.querySelector(`link[href="${href}"]`)) return;
+  document.head.append(node('link', { rel: 'stylesheet', href }));
+}
+
+/**
+ * TAP's menu, as www.flytap.com's: in the bar from 1025 px a button per top item opening its
+ * panel under the bar (the columns as wide as their content, TAP's chevron before each heading,
+ * "See all" where www shows it, the banner card on the right), one open at a time, Escape or a
+ * click outside closing it; below 1025 px the menu button opens the same items as www's
+ * accordion in a card (an item opens its columns, a column its links). An item without columns
+ * is a link (an older nav document's Check-in: its quick action, third).
+ * @param {Element} section the nav document's menu section
+ * @param {{link: Function, menuButton: Element, quickLinks?: Element[]}} opts link(href, label,
+ *   className): a link as the header makes them; menuButton: the bar's menu (burger) button
+ * @returns {{root: HTMLUListElement, close: Function}}
+ */
+export function buildTapMenu(section, { link, menuButton, quickLinks = [] }) {
+  loadMenuCss();
+  const items = readTapMenu(section);
+  if (!items.some((i) => CHECK_IN.test(i.link || '') || /^check-?in$/i.test(i.label))) {
+    const checkIn = quickLinks.find((a) => CHECK_IN.test(a.getAttribute('href') || '') || /#check-in$/.test(a.getAttribute('href') || ''));
+    if (checkIn) {
+      items.splice(Math.min(2, items.length), 0, {
+        label: text(checkIn), link: checkIn.getAttribute('href'), cols: [], banner: null,
+      });
+    }
+  }
+  const root = node('ul', { className: 'nav-bar-menu tap-menu' });
+  const entries = [];
+  const close = (entry = null, focus = false) => {
+    entries.filter((x) => !entry || x === entry).forEach((x) => {
+      x.button.setAttribute('aria-expanded', 'false');
+      x.panel.hidden = true;
+      if (focus) x.button.focus();
+    });
+  };
+  items.forEach((item) => {
+    if (!item.cols.length && !item.banner) {
+      if (item.link) root.append(node('li', { className: 'nav-bar-menu-item' }, link(item.link, item.label, 'nav-bar-menu-link')));
+      return;
+    }
+    menus += 1;
+    const id = `tap-menu-${menus}`;
+    const button = node('button', {
+      type: 'button', className: 'nav-bar-menu-button', 'aria-expanded': 'false', 'aria-controls': id,
+    }, item.label);
+    const cols = item.cols.map((c, i) => {
+      const linksId = `${id}-col-${i}`;
+      const toggle = node('button', {
+        type: 'button', className: 'tap-menu-col-toggle', 'aria-expanded': 'false', 'aria-controls': linksId,
+      }, c.label);
+      const heading = c.href ? link(c.href, c.label, 'tap-menu-heading') : node('span', { className: 'tap-menu-heading' }, c.label);
+      heading.prepend(node('span', { className: 'tap-menu-chevron', html: CHEVRON }));
+      const body = node(
+        'div',
+        { className: 'tap-menu-col-body', id: linksId },
+        c.links.length ? node('ul', { className: 'tap-menu-links' }, c.links.map((l) => node('li', {}, link(l.href, l.label, 'tap-menu-link')))) : null,
+        c.seeAll ? link(c.seeAll.href, c.seeAll.label, 'tap-menu-see-all') : null,
+      );
+      const col = node('div', { className: `tap-menu-col${c.links.length ? '' : ' tap-menu-col-single'}` }, heading, c.links.length ? toggle : null, body);
+      toggle.addEventListener('click', () => {
+        const open = toggle.getAttribute('aria-expanded') !== 'true';
+        toggle.setAttribute('aria-expanded', String(open));
+        col.classList.toggle('is-open', open);
+      });
+      return col;
+    });
+    const b = item.banner;
+    const banner = b ? node(
+      'div',
+      { className: 'tap-menu-banner' },
+      node(
+        'div',
+        { className: 'tap-menu-banner-card' },
+        b.img ? node('img', {
+          src: b.img.src, alt: b.img.alt, loading: 'lazy', width: 266, height: 224,
+        }) : null,
+        node('span', { className: 'tap-menu-banner-shapes', html: `${CORNER}${ARC}` }),
+        node(
+          'div',
+          { className: 'tap-menu-banner-text' },
+          node('p', { className: 'tap-menu-banner-title' }, b.title),
+          b.line ? node('p', { className: 'tap-menu-banner-line' }, b.line) : null,
+          b.cta ? link(b.cta.href, b.cta.label, 'tap-menu-banner-cta') : null,
+        ),
+      ),
+    ) : null;
+    const panel = node('div', { id, className: 'tap-menu-panel' }, node('div', { className: 'tap-menu-cols' }, cols), banner);
+    panel.hidden = true;
+    const entry = { button, panel };
+    entries.push(entry);
+    button.addEventListener('click', () => {
+      const open = button.getAttribute('aria-expanded') === 'true';
+      close();
+      if (open) return;
+      button.setAttribute('aria-expanded', 'true');
+      panel.hidden = false;
+    });
+    panel.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(entry, true); });
+    button.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !panel.hidden) close(entry, true); });
+    root.append(node('li', { className: 'nav-bar-menu-item' }, button, panel));
+  });
+  document.addEventListener('click', (e) => {
+    if (!root.contains(e.target) && !(menuButton && menuButton.contains(e.target))) close();
+  });
+  // phones: the menu button opens the menu as a card under the bar
+  if (menuButton) {
+    menuButton.addEventListener('click', () => {
+      const open = !root.classList.contains('is-open');
+      root.classList.toggle('is-open', open);
+      menuButton.setAttribute('aria-expanded', String(open));
+      if (!open) close();
+    });
+  }
+  return { root, close: () => close() };
+}
+
 const ROOT = /^\/[a-z]{2}-[a-z]{2}(?=\/|$)/;
 
 /**
