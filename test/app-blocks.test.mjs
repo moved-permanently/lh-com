@@ -1,8 +1,10 @@
 /* The app screen blocks (blocks/app-*): what the Lufthansa app shows for them
    (tools/workers/lh-edge/SDUI.md), from lh-edge's fixtures
-   (tools/workers/lh-edge/test/fixtures/sdui) and the library's teaser slider: the offer box, the
-   arrow links, an offer box per article of the category (lh-edge's order), the slider's title
-   over its cards, the service slot; each item's tracking label as a caption.
+   (tools/workers/lh-edge/test/fixtures/sdui) and the library's teaser slider (its DA library
+   page /library/blocks/app-teaser-slider on lh-com's preview, copied 2026-11-06 to
+   test/fixtures/library: the workspaces' content/ is local, a clean checkout has none): the offer
+   box, the arrow links, an offer box per article of the category (lh-edge's order), the slider's
+   title over its cards, the service slot; each item's tracking label as a caption.
    Run: node --max-old-space-size=512 --test test/app-blocks.test.mjs */
 /* global globalThis */
 import { describe, it } from 'node:test';
@@ -14,6 +16,7 @@ import { parseHTML } from 'linkedom';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SDUI = path.join(root, 'tools/workers/lh-edge/test/fixtures/sdui');
+const LIBRARY = path.join(root, 'test/fixtures/library');
 const read = (f) => fs.readFileSync(f, 'utf8');
 
 const { window, document } = parseHTML('<!DOCTYPE html><html><head></head><body></body></html>');
@@ -93,7 +96,7 @@ describe('app-article-list', () => {
 describe('app-teaser-slider', () => {
   it('its title over a row of cards (picture, headline, text, linked), each card\'s tracking label', async () => {
     const { default: decorate } = await import('../blocks/app-teaser-slider/app-teaser-slider.js');
-    const b = blockOf(path.join(root, 'content/library/blocks/app-teaser-slider.plain.html'), 'app-teaser-slider');
+    const b = blockOf(path.join(LIBRARY, 'app-teaser-slider.plain.html'), 'app-teaser-slider');
     const cardRows = [...b.children].filter((r) => r.children.length >= 4);
     const want = cardRows.map((r) => [text(r.children[0].querySelector('h1, h2, h3, h4, h5, h6')), r.children[2].querySelector('a').getAttribute('href'), text(r.children[3])]);
     decorate(b);
