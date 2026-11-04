@@ -1,6 +1,7 @@
 /* scripts/airport-combobox.js's two optional parameters (brief 324; booking-spec.md 4):
    minChars (default 2: the list after two typed characters, as before; booking-box 0: the list
-   opens on focus with an empty term) and renderOption(airport, li) / display(airport) (default:
+   opens on focus, since brief 365 (parity row 79) as www.flytap.com's: filtered to the field's
+   text, then to what is typed; an empty field none) and renderOption(airport, li) / display(airport) (default:
    today's "name (code)" in the list and the field; booking-box: a code chip, "City, Airport" and
    the country in the list, "City, Country" in the field). flight-search, destination-finder,
    flight-status and lounge-finder pass neither: unchanged.
@@ -61,20 +62,41 @@ test('defaults as before: no list under two characters, none on focus, "name (co
   assert.equal(box.getValue().code, 'LIS');
 });
 
-test('minChars 0: the list opens on focus with an empty term, and filters from the first character', async () => {
+test('minChars 0, an empty field: no list on focus (www: none), the list from the first typed character, none once emptied', async () => {
   const { box, terms } = make({ minChars: 0 });
   focus(box.input);
   await wait(300);
-  assert.deepEqual(terms, ['']);
-  assert.equal(box.element.querySelector('ul').hidden, false);
+  assert.deepEqual(terms, [], 'nothing typed, nothing listed');
+  assert.equal(box.element.querySelector('ul').hidden, true);
   box.input.value = 'p';
   fire(box.input, 'input');
   await wait(300);
-  assert.deepEqual(terms, ['', 'p']);
+  assert.deepEqual(terms, ['p']);
+  assert.equal(box.element.querySelector('ul').hidden, false);
   box.input.value = '';
   fire(box.input, 'input');
   await wait(300);
-  assert.deepEqual(terms, ['', 'p', ''], 'emptied: the full list again');
+  assert.deepEqual(terms, ['p'], 'emptied: no search');
+  assert.equal(box.element.querySelector('ul').hidden, true);
+});
+
+test('minChars 0, a field with a value: the list on focus filtered to the field\'s text (www: "Lisboa, Portugal"), not every airport', async () => {
+  const { box, terms } = make({ minChars: 0, display: (a) => `${a.cityName}, Portugal`, value: { code: 'LIS', cityName: 'Lisboa' } });
+  focus(box.input);
+  await wait(300);
+  assert.deepEqual(terms, ['Lisboa, Portugal']);
+  assert.equal(box.element.querySelector('ul').hidden, false);
+  // the keyboard as before: down to an option, Enter picks it, Escape closes
+  box.input.dispatchEvent(new window.KeyboardEvent('keydown', { key: 'ArrowDown' }));
+  box.input.dispatchEvent(new window.KeyboardEvent('keydown', { key: 'ArrowDown' }));
+  box.input.dispatchEvent(new window.KeyboardEvent('keydown', { key: 'Enter' }));
+  assert.equal(box.getValue().code, 'OPO');
+  assert.equal(box.element.querySelector('ul').hidden, true);
+  focus(box.input);
+  await wait(300);
+  assert.deepEqual(terms, ['Lisboa, Portugal', 'Porto, Portugal'], 'the new value\'s text');
+  box.input.dispatchEvent(new window.KeyboardEvent('keydown', { key: 'Escape' }));
+  assert.equal(box.element.querySelector('ul').hidden, true);
 });
 
 test('renderOption and display: the option\'s content and the field\'s text are the block\'s', async () => {
