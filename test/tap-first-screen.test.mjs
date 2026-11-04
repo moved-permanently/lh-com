@@ -197,8 +197,9 @@ test('header: search and account as links to www\'s same root, labelled in its l
   assert.equal(tools[1].href, 'https://www.flytap.com/fr-fr');
   assert.equal(tools[0].label, 'Rechercher');
   assert.equal(tools[1].label, 'Se connecter');
-  assert.equal(tools[0].icon, 'search');
-  assert.equal(tools[1].icon, 'login');
+  // www's icons (brief 356: icons/tap-search.svg, tap-person.svg)
+  assert.equal(tools[0].icon, 'tap-search');
+  assert.equal(tools[1].icon, 'tap-person');
   assert.equal(tapBarTools({ base: '/pt-pt', lang: 'pt' })[0].label, 'Pesquisar');
   // a language without its own texts: English
   assert.equal(tapBarTools({ base: '/xx-yy', lang: 'xx' })[0].label, TAP_HEADER_TEXTS.en.search);

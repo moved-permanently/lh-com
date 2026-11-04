@@ -281,6 +281,7 @@ body.brand-tap .booking-box :is(.airport-combobox > .booking-box-icon-caret, .bo
   bottom: 16px;
 }
 
+
 .booking-box-chip {
   display: inline-flex;
   align-items: center;
@@ -396,6 +397,32 @@ body.brand-tap .booking-box :is(.airport-combobox > .booking-box-icon-caret, .bo
 
 .booking-box-search:hover {
   background: var(--booking-box-search-hover);
+}
+
+/* brand tap: www's values dark (#020817), its swap icon (Material's sync turned 25 degrees), the
+   search label 500 and the corporate link regular (brief 356) */
+body.brand-tap .booking-box :is(.airport-combobox input, .booking-box-field-button:not(.empty)) {
+  color: #020817;
+}
+
+body.brand-tap .booking-box-swap .booking-box-icon-swap {
+  width: 24px;
+  height: 24px;
+  background-color: #424045;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46A7.93 7.93 0 0 0 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74A7.93 7.93 0 0 0 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z'/%3E%3C/svg%3E") center / contain no-repeat;
+  transform: rotate(25deg);
+}
+
+body.brand-tap .booking-box .booking-box-swap .booking-box-icon-swap svg {
+  display: none;
+}
+
+body.brand-tap .booking-box-corporate {
+  font-weight: 400;
+}
+
+body.brand-tap .booking-box-search {
+  font-weight: 500;
 }
 
 /* validation */
@@ -857,6 +884,52 @@ body.brand-tap .booking-box :is(.airport-combobox > .booking-box-icon-caret, .bo
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+  }
+}
+
+/* brand tap below 1024 px, the fields stacked as www's at 390 (24 px under the trip options):
+   origin and destination 245 of 310 px with the swap button beside them (56 px down), 12 px
+   between the fields, an input 20 px under its label, the dates 44 px, the passengers 4 px under
+   theirs, the search 12 px under them (brief 356) */
+@media (width < 1024px) {
+  body.brand-tap .booking-box-fields {
+    margin-top: 8px;
+  }
+
+  body.brand-tap .booking-box-route {
+    gap: 12px;
+  }
+
+  body.brand-tap .booking-box-route :is(.booking-box-origin, .booking-box-destination) {
+    width: calc(100% - 65px);
+  }
+
+  body.brand-tap .booking-box :is(.airport-combobox label, .booking-box-dates .booking-box-label) {
+    margin-bottom: -4px;
+  }
+
+  body.brand-tap .booking-box-dates .booking-box-field-button {
+    height: 44px;
+  }
+
+  body.brand-tap .booking-box-passengers .booking-box-label {
+    margin-bottom: 4px;
+  }
+
+  body.brand-tap .booking-box-search {
+    margin-top: -4px;
+  }
+
+  body.brand-tap .booking-box-swap {
+    top: 56px;
+  }
+
+  body.brand-tap .booking-box-route :is(.booking-box-origin, .booking-box-destination) .airport-combobox > .booking-box-icon-caret {
+    right: 12px;
+  }
+
+  body.brand-tap .booking-box-route .booking-box-origin .airport-combobox input {
+    padding-right: 40px;
   }
 }
 

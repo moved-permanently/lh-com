@@ -199,12 +199,13 @@ body.brand-tap main .default-content-wrapper > p > picture img {
   border-radius: 32px;
 }
 
-/* www's text cards (help centre): white, a soft shadow, 24 px corners, no border; three or four
-   to a row from 984 px (the importer's three-up / four-up, www's itemsPerRow) */
+/* www's text cards (help centre): white, a soft shadow (0 2px 8px, 10 %: brief 356), 24 px
+   corners, no border; three or four to a row from 984 px (the importer's three-up / four-up, www's
+   itemsPerRow) */
 body.brand-tap .cards > ul > li {
   border: 0;
   border-radius: var(--radius-l);
-  box-shadow: 0 2px 16px rgb(0 0 0 / 8%);
+  box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
 }
 
 body.brand-tap .cards .cards-card-body {
@@ -284,6 +285,10 @@ body.brand-tap .cards .cards-card-image img {
 body.brand-tap {
   --nav-height: 96px;
   --tap-stage-inset: 16px;
+
+  /* www's body text 1 % tighter (its body rule: letter-spacing -1%, a share of each element's
+     own size; brief 356: the stopover card's text on one line, the labels as wide as www's) */
+  letter-spacing: -1%;
 }
 
 /* the page's hidden h1 above the stage: no margin of its own (the stage at main's top) */
@@ -579,6 +584,20 @@ body.brand-tap .hero-campaign-tap :is(.hero-campaign-prev, .hero-campaign-next, 
   }
 }
 
+/* phones, a homepage with the extra link strip first (pt-pt, en-pt, fr-fr): as www the strip right
+   under the alerts bar, in the header's room, and the bar 16 px under the strip while it shows
+   (header-tap.js floatInStage: tap-has-strip, --tap-strip-offset the strip's bottom edge) */
+@media (width < 1025px) {
+  body.brand-tap header.tap-home.tap-has-strip ~ main > .section.extra-alert:first-of-type {
+    position: relative;
+    top: calc(-1 * var(--nav-height));
+  }
+
+  body.brand-tap header.tap-home.tap-has-strip .nav-wrapper.nav-tap {
+    top: calc(var(--header-bar-inset, 0px) + max(var(--alerts-bar-offset, 0px), var(--tap-strip-offset, 0px)));
+  }
+}
+
 /* the bar: www's white pill, as wide as the container's text (max((100% - 1240px) / 2, 0) plus its
    padding from the sides), 56 px high on phones and 70 px from 1025 px */
 body.brand-tap .header {
@@ -600,6 +619,17 @@ body.brand-tap .header .nav-tap .nav-brand {
 
 body.brand-tap .header .nav-tap .nav-tools {
   gap: 8px;
+}
+
+/* phones: www's logo 130 x 17 and its tools 4 px apart (brief 356) */
+@media (width < 1025px) {
+  body.brand-tap .header {
+    --nav-logo-height: 17px;
+  }
+
+  body.brand-tap .header .nav-tap .nav-tools {
+    gap: 4px;
+  }
 }
 
 body.brand-tap .header .nav-tap .nav-tool.nav-tool-search {
@@ -1578,6 +1608,13 @@ body.brand-tap .footer .footer-tap-side .footer-badge-group:has(img:not([data-ic
   column-gap: 12px;
 }
 
+/* phones: the social icons 20 px apart, www's 44 px from one to the next (brief 356) */
+@media (width < 1024px) {
+  body.brand-tap .footer .footer-tap-side .footer-badge-group:has(img[data-icon-name]) ul {
+    column-gap: 20px;
+  }
+}
+
 body.brand-tap .footer .footer-tap-side .footer-badges img {
   height: 40px;
 }
@@ -1786,6 +1823,22 @@ body.brand-tap main > .section:not(.hidden-heading) .default-content-wrapper > h
   text-align: center;
 }
 
+/* the trail at main's top (a market section's 24 px aside) and the title right under it: 24 px on
+   phones, 64 from 1025 px (www's help centre at 390 and 1440; brief 356) */
+body.brand-tap main > .section.breadcrumb-container:first-of-type {
+  margin-top: 0;
+}
+
+body.brand-tap main > .section > .breadcrumb-wrapper + .default-content-wrapper > h1:first-child {
+  margin-top: 24px;
+}
+
+@media (width >= 1025px) {
+  body.brand-tap main > .section > .breadcrumb-wrapper + .default-content-wrapper > h1:first-child {
+    margin-top: 64px;
+  }
+}
+
 /* the inner pages' banners (row 18: hero-campaign narrow, a slider or a single stage): inset in the
    content column (www: 1176 x 404 at 1440, 32 px corners), the controls inside at the bottom
    (previous / dots / next 60 px from the left, the pause button 64 px from the right, 20 px up) */
@@ -1813,6 +1866,38 @@ body.brand-tap .hero-campaign-tap .hero-campaign-slide.narrow {
 @media (width < 1024px) {
   body.brand-tap .hero-campaign-tap.narrow .hero-campaign-content :is(h1, h2, h3, h4, h5, h6) {
     font-size: calc(32px * var(--a11y-scale, 1));
+  }
+
+  /* a single banner (no slider: www's article banner, altitude-film-festival; brief 356): 380 px
+     high, 24 px inside, its title 32 / 38.4 500, its lead 16 / 24 600, 32 px above the title
+     that follows */
+  body.brand-tap .hero-campaign.narrow:not(.slider, .hero-campaign-slide) {
+    min-height: 380px;
+  }
+
+  body.brand-tap .hero-campaign.narrow:not(.slider, .hero-campaign-slide) .hero-campaign-inner {
+    padding: 24px;
+  }
+
+  body.brand-tap .hero-campaign.narrow:not(.slider, .hero-campaign-slide) .hero-campaign-content :is(h1, h2, h3, h4, h5, h6) {
+    font-size: 32px;
+    line-height: 1.2;
+    font-weight: 500;
+  }
+
+  body.brand-tap .hero-campaign.narrow:not(.slider, .hero-campaign-slide) .hero-campaign-content > .hero-campaign-subtitle {
+    padding-top: 8px;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 600;
+  }
+
+  body.brand-tap main > .section:has(> .hero-campaign-wrapper:last-child .hero-campaign.narrow:not(.slider, .hero-campaign-slide)) {
+    margin-bottom: 32px;
+  }
+
+  body.brand-tap main > .section:has(> .hero-campaign-wrapper:last-child .hero-campaign.narrow:not(.slider, .hero-campaign-slide)) + .section > .default-content-wrapper:first-child > h1:first-child {
+    margin-top: 0;
   }
 
   body.brand-tap .hero-campaign-tap.narrow .hero-campaign-content > .hero-campaign-subtitle {
@@ -1964,8 +2049,11 @@ body.brand-tap .cards.three-up .cards-card-body {
   flex-direction: column;
 }
 
+/* (www: 48 px from the text to the button, the text's own 24 px and 24 more; brief 356) */
 body.brand-tap .cards.three-up .cards-card-body > .button-wrapper:last-child {
   margin-top: auto;
+  padding-top: 24px;
+  margin-bottom: 0;
 }
 
 body.brand-tap .cards.three-up a.button:any-link {
@@ -1976,9 +2064,11 @@ body.brand-tap .cards.three-up a.button:any-link {
 body.brand-tap .cards.three-up .cards-card-body a.button:any-link {
   justify-content: space-between;
   max-width: 100%;
+  min-height: 40px;
   height: auto;
-  padding-block: 8px;
-  line-height: 1.5;
+  font-weight: 500;
+  padding-block: 6px;
+  line-height: 24px;
   white-space: normal;
   text-align: start;
 }
@@ -2035,12 +2125,24 @@ body.brand-tap main > .section:not(.hidden-heading) .default-content-wrapper > h
 }
 
 /* the breadcrumb (row 35): the whole trail at every width (a phone's too), the homepage as a
-   house, lucide chevrons between, the page in semibold; Inter 14 / 20, #424045 */
+   house, lucide chevrons between, the page in semibold; as www (brief 356) Inter 14 / 21 in 26 px
+   rows 6 px apart, the house in a 24 px box, the chevrons 6 px either side, #424045 */
+body.brand-tap .breadcrumb ol {
+  row-gap: 6px;
+}
+
+body.brand-tap .breadcrumb li:first-child:not(:only-child) {
+  min-height: 26px;
+}
+
 body.brand-tap .breadcrumb li,
 body.brand-tap .breadcrumb li:not(.breadcrumb-parent) {
   display: flex;
   padding-left: 0;
+  align-items: center;
   color: #424045;
+  font-size: 14px;
+  line-height: 21px;
 }
 
 body.brand-tap .breadcrumb li::before,
@@ -2053,7 +2155,7 @@ body.brand-tap .breadcrumb li:not(:last-child)::after {
   content: "";
   width: 16px;
   height: 16px;
-  margin: 0 8px;
+  margin: 0 6px;
   background-color: #64748b;
   mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m9 18 6-6-6-6'/%3E%3C/svg%3E") center / contain no-repeat;
 }
@@ -2069,13 +2171,13 @@ body.brand-tap .breadcrumb a:any-link:hover {
 /* the homepage's crumb: a 16 px house, its name kept for assistive tech */
 body.brand-tap .breadcrumb li:first-child:not(:only-child) > a:any-link {
   display: block;
-  width: 16px;
-  height: 16px;
+  width: 24px;
+  height: 24px;
   overflow: hidden;
   background-color: currentcolor;
   white-space: nowrap;
   text-indent: 100%;
-  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8'/%3E%3Cpath d='M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8'/%3E%3Cpath d='M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z'/%3E%3C/svg%3E") center / 16px no-repeat;
 }
 
 body.brand-tap .breadcrumb .breadcrumb-current {
