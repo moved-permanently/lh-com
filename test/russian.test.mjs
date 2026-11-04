@@ -81,7 +81,14 @@ test('xx/ru\'s query indexes: search-xx-ru as xx/es\'s, its lean copies after xx
   assert.equal(indices['market-model-xx-ru'].target, '/market-model/xx-ru.json');
   assert.ok(indices['market-llms-xx-ru']);
   // message-center's weight (TAP's order, brief 326) came later; everything else as before
-  const later = (name, d) => (name === 'message-center' && d ? {
+  // and the card-image rule keeping Edge Delivery's ./media_ address (brief 338)
+  const CARD = 'match(attribute(el, "content"), "^(?:https:\\/\\/[^/]+)?((?:[.])?/.*)$")';
+  const CARD_BEFORE = 'match(attribute(el, "content"), "https:\\/\\/[^/]+(/.*)")';
+  const cardAsBefore = (d) => (d && d.properties ? {
+    ...d,
+    properties: Object.fromEntries(Object.entries(d.properties).map(([k, p]) => [k, p && p.value === CARD ? { ...p, value: CARD_BEFORE } : p])),
+  } : d);
+  const later = (name, d) => cardAsBefore(name === 'message-center' && d ? {
     ...d, properties: Object.fromEntries(Object.entries(d.properties).filter(([k]) => k !== 'weight')),
   } : d);
   Object.entries(old).forEach(([name, def]) => assert.deepEqual(later(name, indices[name]), def, `${name} as before`));

@@ -8,6 +8,7 @@
    carousel-cards, lh-edge's sdui-web) resolve ./media_… against the row's own folder (Edge
    Delivery answers a media file under any folder). og:image stays as it was (written absolute).
    Run: node --max-old-space-size=512 --test test/card-image-index.test.mjs */
+/* global globalThis */
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
@@ -60,6 +61,7 @@ test('the readers: ./media_… resolved against the row\'s folder; a path or URL
 });
 
 test('the authors\' images too (loadAuthors)', async () => {
+  globalThis.window = { location: { hostname: 'lufthansa.turnsthe.page', pathname: '/de/en/articles' } };
   globalThis.fetch = async () => new Response(JSON.stringify({ data: [{ path: '/de/en/articles/authors/jane', author: 'Jane', image: './media_3.jpg?width=750' }] }), { headers: { 'content-type': 'application/json' } });
   const { loadAuthors } = await import('../scripts/articles.js');
   const [jane] = await loadAuthors({ key: 'de/en' });
