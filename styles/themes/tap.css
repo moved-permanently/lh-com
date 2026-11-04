@@ -1138,3 +1138,523 @@ body.brand-tap main > .section.extra-alert .columns a.button {
     font-size: 16px;
   }
 }
+
+/* ---------------------------------- TAP's homepage below the carousels (brief 331) ---- */
+
+/* stylelint-disable no-descending-specificity -- this section's rules are scoped by block and
+   option (stack, footer-tap); the order follows the page, not the selectors' weight */
+
+/* the Miles&Go cards (columns-media option stack, one row a card), as www.flytap.com/en-pt's
+   (2026-11-04): 1120 x 580 white rounded cards with a soft shadow, the text on a panel at the left
+   (light green on the first, near white on the others) with the card's accent chevron on its left
+   edge, the photo at the right behind a panel-coloured chevron, the logo in a small white box at
+   the top; from 1024 px the cards stay at the top as the next one slides over them (www pins them,
+   GSAP; here position: sticky), on phones one under the other, the photo above the text with a
+   slanted edge. Accents: www's per card (Miles&Go green, Club lime, grey, dark green). */
+body.brand-tap .columns-media.stack {
+  gap: 16px;
+}
+
+body.brand-tap .columns-media.stack > .columns-media-row {
+  --tap-card-panel: #fcfcfc;
+  --tap-card-accent: #e0dfe2;
+
+  position: relative;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 0;
+  align-items: stretch;
+  overflow: hidden;
+  border-radius: 32px;
+  background-color: var(--tap-card-panel);
+  box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
+}
+
+body.brand-tap .columns-media.stack > .columns-media-row:nth-child(4n + 1) {
+  --tap-card-panel: #f5fff0;
+  --tap-card-accent: #65c922;
+}
+
+body.brand-tap .columns-media.stack > .columns-media-row:nth-child(4n + 2) {
+  --tap-card-accent: #bfd730;
+}
+
+body.brand-tap .columns-media.stack > .columns-media-row:nth-child(4n) {
+  --tap-card-panel: #fff;
+  --tap-card-accent: #1e5227;
+}
+
+body.brand-tap .columns-media.stack .columns-media-row > .columns-media-media {
+  position: relative;
+  min-height: 0;
+  margin: 0;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+}
+
+body.brand-tap .columns-media.stack .columns-media-media :is(picture, img) {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+body.brand-tap .columns-media.stack .columns-media-media img {
+  object-fit: cover;
+}
+
+/* the photo's slanted lower edge on phones (www's 343 x 44 shape in the panel's colour) */
+body.brand-tap .columns-media.stack .columns-media-media::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -1px;
+  left: 0;
+  aspect-ratio: 343 / 44;
+  background-color: var(--tap-card-panel);
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 343 44' preserveAspectRatio='none'%3E%3Cpath d='M0 46V0L343 44.5V46H0Z'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
+}
+
+body.brand-tap .columns-media.stack .columns-media-row > .columns-media-text {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-content: center;
+  margin: 0;
+  padding: 0 24px 32px;
+  color: var(--text-color);
+}
+
+body.brand-tap .columns-media.stack .columns-media-text > * {
+  flex: 0 0 100%;
+  margin: 0;
+}
+
+/* the logo's white box at the card's top (over the photo on phones) */
+body.brand-tap .columns-media.stack .columns-media-text > p:first-child:has(> picture:only-child) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  flex: none;
+  padding: 20px 16px;
+  border-radius: 0 0 6px 6px;
+  background-color: #fff;
+  line-height: 0;
+}
+
+body.brand-tap .columns-media.stack .columns-media-text > p:first-child > picture img {
+  width: auto;
+  max-width: 164px;
+  height: 36px;
+  object-fit: contain;
+}
+
+body.brand-tap .columns-media.stack .columns-media-text :is(h2, h3) {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+body.brand-tap .columns-media.stack .columns-media-text p {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+body.brand-tap .columns-media.stack .columns-media-text p:has(> strong:only-child) {
+  font-weight: 600;
+}
+
+/* the buttons in a row (www: pt-4), a link beside them */
+body.brand-tap .columns-media.stack .columns-media-text > :is(.button-wrapper, .button-wrapper + .link-wrapper) {
+  flex: 1 1 100%;
+  padding-top: 16px;
+}
+
+body.brand-tap .columns-media.stack .columns-media-text a.button:any-link {
+  width: 100%;
+}
+
+body.brand-tap .columns-media.stack .columns-media-text a.button.accent:any-link {
+  color: #000;
+}
+
+body.brand-tap .columns-media.stack .columns-media-text a.button.secondary:any-link {
+  border: 1px solid var(--lh-yellow);
+  background-color: transparent;
+  color: var(--text-color);
+}
+
+body.brand-tap .columns-media.stack .columns-media-text a.button.secondary:hover {
+  background-color: #f5fff0;
+}
+
+@media (width >= 600px) {
+  body.brand-tap .columns-media.stack .columns-media-text > :is(.button-wrapper, .button-wrapper + .link-wrapper) {
+    flex: 0 0 auto;
+  }
+
+  body.brand-tap .columns-media.stack .columns-media-text a.button:any-link {
+    width: auto;
+  }
+}
+
+@media (width >= 1024px) {
+  body.brand-tap .columns-media.stack {
+    gap: 32px;
+  }
+
+  body.brand-tap .columns-media.stack > .columns-media-row {
+    position: sticky;
+    top: 48px;
+    flex-direction: row;
+    height: 580px;
+  }
+
+  body.brand-tap .columns-media.stack > .columns-media-row:nth-child(2) {
+    top: 78px;
+  }
+
+  body.brand-tap .columns-media.stack > .columns-media-row:nth-child(3) {
+    top: 108px;
+  }
+
+  body.brand-tap .columns-media.stack > .columns-media-row:nth-child(n + 4) {
+    top: 138px;
+  }
+
+  body.brand-tap .columns-media.stack .columns-media-row > .columns-media-text {
+    position: relative;
+    flex: 0 0 50%;
+    box-sizing: border-box;
+    padding: 0 24px 32px 64px;
+  }
+
+  /* the card's accent chevron on its left edge (www's 147 x 580 shape, 105 px outside) */
+  body.brand-tap .columns-media.stack .columns-media-row > .columns-media-text::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -105px;
+    width: 147px;
+    height: 580px;
+    background-color: var(--tap-card-accent);
+    transform: translateY(-50%);
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 147 580'%3E%3Cpath d='M0 619V-39L143.769 278.449C147.094 285.791 147.094 294.209 143.769 301.551L0 619Z'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
+  }
+
+  body.brand-tap .columns-media.stack .columns-media-text > p:first-child:has(> picture:only-child) {
+    left: 64px;
+  }
+
+  body.brand-tap .columns-media.stack .columns-media-row > .columns-media-media {
+    flex: 1 1 auto;
+    aspect-ratio: auto;
+  }
+
+  /* the photo behind the panel's chevron */
+  body.brand-tap .columns-media.stack .columns-media-media::after {
+    inset: 50% auto auto -0.5px;
+    width: 147px;
+    height: 580px;
+    aspect-ratio: auto;
+    transform: translateY(-50%);
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 147 580'%3E%3Cpath d='M0 619V-39L143.769 278.449C147.094 285.791 147.094 294.209 143.769 301.551L0 619Z'/%3E%3C/svg%3E");
+  }
+
+  body.brand-tap .columns-media.stack .columns-media-text :is(h2, h3) {
+    font-size: 40px;
+  }
+
+  body.brand-tap .columns-media.stack .columns-media-text p {
+    font-size: 16px;
+  }
+
+  body.brand-tap .columns-media.stack .columns-media-text p:has(> strong:only-child) {
+    font-size: 20px;
+  }
+}
+
+/* the Christmas Markets banner (hero-card-overlay): www's 1120 px rounded banner, the title, line
+   and white pill straight on the picture under a 20 % shade, no box; 305 px high from 1024 px,
+   380 on phones with the button at the bottom */
+body.brand-tap .hero-card-overlay {
+  min-height: 380px;
+  overflow: hidden;
+  border-radius: 32px;
+  aspect-ratio: auto;
+}
+
+body.brand-tap .hero-card-overlay > .hero-card-overlay-media {
+  position: absolute;
+  inset: 0;
+  border-radius: 0;
+  aspect-ratio: auto;
+}
+
+body.brand-tap .hero-card-overlay .hero-card-overlay-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgb(0 0 0 / 20%);
+}
+
+body.brand-tap .hero-card-overlay .hero-card-overlay-card {
+  z-index: 1;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  width: auto;
+  max-width: none;
+  margin: 0;
+  padding: 24px;
+  border-radius: 0;
+  background-color: transparent;
+}
+
+body.brand-tap .hero-card-overlay .hero-card-overlay-card :is(h1, h2, h3, h4, h5, h6) {
+  margin: 0 0 8px;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+body.brand-tap .hero-card-overlay .hero-card-overlay-card p {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+body.brand-tap .hero-card-overlay .hero-card-overlay-card > .hero-card-overlay-cta {
+  margin-top: auto;
+  padding-top: 24px;
+}
+
+body.brand-tap .hero-card-overlay .hero-card-overlay-cta a.button:any-link {
+  width: 100%;
+  min-width: 0;
+  color: var(--text-color);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+@media (width >= 1024px) {
+  body.brand-tap .hero-card-overlay {
+    min-height: 305px;
+  }
+
+  body.brand-tap .hero-card-overlay .hero-card-overlay-card {
+    padding: 72px 64px;
+  }
+
+  body.brand-tap .hero-card-overlay .hero-card-overlay-card :is(h1, h2, h3, h4, h5, h6) {
+    font-weight: 700;
+  }
+
+  body.brand-tap .hero-card-overlay .hero-card-overlay-card p {
+    font-size: 18px;
+  }
+
+  body.brand-tap .hero-card-overlay .hero-card-overlay-card > .hero-card-overlay-cta {
+    margin-top: 0;
+    padding-top: 48px;
+  }
+
+  body.brand-tap .hero-card-overlay .hero-card-overlay-cta a.button:any-link {
+    width: auto;
+  }
+}
+
+/* the footer (blocks/footer/footer-tap.js), as www's: the link columns on a light grey rounded
+   card, the side card with the logo, "Follow us" and "TAP App" (GT Flexa 24 / 500, TAP's dark
+   green) centred, the copyright bar under them (a pill from 1024 px); on phones the columns as
+   accordions in the first card, the cards one under the other */
+body.brand-tap .footer .footer-main {
+  border-top: 0;
+  background: none;
+  color: var(--text-color);
+}
+
+body.brand-tap .footer .footer-inner.footer-tap {
+  grid-template-areas: "links" "side" "bar";
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+  max-width: var(--content-max-width);
+  padding: 64px var(--layout-margin) 32px;
+}
+
+body.brand-tap .footer .footer-tap-links,
+body.brand-tap .footer .footer-tap-side {
+  border-radius: 24px;
+  background-color: #f7f7f8;
+}
+
+body.brand-tap .footer .footer-tap-links {
+  grid-area: links;
+  padding: 20px 32px;
+}
+
+body.brand-tap .footer .footer-tap-links .footer-columns {
+  margin: 0;
+}
+
+body.brand-tap .footer .footer-tap-links .footer-column-toggle {
+  padding: 12px 0;
+  border: 0;
+  color: #020817;
+  font-weight: 600;
+}
+
+body.brand-tap .footer .footer-tap-links .footer-column-heading {
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+body.brand-tap .footer .footer-tap-links .footer-column-links {
+  padding: 12px 0 0;
+}
+
+body.brand-tap .footer .footer-tap-links .footer-link {
+  margin-bottom: 20px;
+  color: #020817;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+body.brand-tap .footer .footer-tap-links .footer-link:hover {
+  color: var(--lh-green);
+}
+
+body.brand-tap .footer .footer-tap-side {
+  display: flex;
+  grid-area: side;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+  padding: 24px;
+  text-align: center;
+}
+
+body.brand-tap .footer .footer-tap-logo img {
+  display: block;
+  width: 202px;
+  height: auto;
+}
+
+body.brand-tap .footer .footer-tap-side .footer-badges {
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+  padding: 0;
+  border-top: 0;
+}
+
+body.brand-tap .footer .footer-tap-side .footer-badge-heading {
+  margin: 0 0 24px;
+  color: var(--lh-green);
+  font-family: var(--heading-font-family);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+body.brand-tap .footer .footer-tap-side .footer-badges ul {
+  gap: 12px 24px;
+  justify-content: center;
+}
+
+/* the store badges side by side (www: 12 px apart) */
+body.brand-tap .footer .footer-tap-side .footer-badge-group:has(img:not([data-icon-name])) ul {
+  column-gap: 12px;
+}
+
+body.brand-tap .footer .footer-tap-side .footer-badges img {
+  height: 40px;
+}
+
+body.brand-tap .footer .footer-tap-side .footer-badges img[data-icon-name] {
+  width: 24px;
+  height: 24px;
+}
+
+body.brand-tap .footer .footer-tap-bar {
+  display: flex;
+  grid-area: bar;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  margin-top: -8px;
+  padding: 16px 24px;
+  border-radius: 24px;
+  background-color: #e0dfe2;
+  color: #020817;
+}
+
+body.brand-tap .footer .footer-tap-bar .footer-note {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  color: inherit;
+  font-size: 14px;
+}
+
+body.brand-tap .footer .footer-tap-partner img {
+  display: block;
+  width: auto;
+  height: 20px;
+}
+
+@media (width >= 768px) {
+  body.brand-tap .footer .footer-tap-links .footer-columns {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+  }
+
+  body.brand-tap .footer .footer-tap-links .footer-column-title {
+    margin-bottom: 26px;
+    padding: 0;
+    border-bottom: 0;
+    color: #020817;
+  }
+
+  body.brand-tap .footer .footer-tap-links .footer-column-links,
+  body.brand-tap .footer .footer-tap-links .footer-column.is-open .footer-column-links {
+    padding: 0;
+  }
+}
+
+@media (width >= 1024px) {
+  body.brand-tap .footer .footer-inner.footer-tap {
+    grid-template-areas: "links side" "bar bar";
+    grid-template-columns: minmax(0, 1fr) 280px;
+    gap: 16px 24px;
+  }
+
+  body.brand-tap .footer .footer-tap-links,
+  body.brand-tap .footer .footer-tap-side {
+    border-radius: 32px;
+    padding: 48px 32px;
+  }
+
+  body.brand-tap .footer .footer-tap-side,
+  body.brand-tap .footer .footer-tap-side .footer-badges {
+    gap: 64px;
+  }
+
+  body.brand-tap .footer .footer-tap-side .footer-badges img {
+    height: 32px;
+  }
+
+  body.brand-tap .footer .footer-tap-bar {
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 0;
+    padding: 24px 32px;
+    border-radius: 9999px;
+  }
+}
+
+/* stylelint-enable no-descending-specificity */

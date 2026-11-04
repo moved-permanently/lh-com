@@ -489,6 +489,12 @@ export default async function decorate(block) {
   block.append(el('div', { className: 'footer-main' }, inner));
   if (logosEl && !subfooterEl) block.append(logosEl);
 
+  // TAP: www's cards and copyright bar (footer-tap.js)
+  if (getMetadata('brand').trim().toLowerCase() === 'tap') {
+    const { default: layoutTapFooter } = await import('./footer-tap.js');
+    layoutTapFooter(block);
+  }
+
   syncAccordions(block);
   MOBILE.addEventListener('change', () => syncAccordions(block));
 }
