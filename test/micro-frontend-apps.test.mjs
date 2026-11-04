@@ -250,3 +250,27 @@ test('lufthansa.com\'s claim page as before: no X-Portal meta, lufthansa.css fro
   assert.equal(plan.css, `${MAUSY}/css/lufthansa.css`);
   assert.equal(plan.scripts[1].src, `https://lufthansa.turnsthe.page${CLAIM}`);
 });
+
+// brief 358: Brussels Airlines' help center (/be/en/contact, /be/fr/contact) as www's: the app and
+// its design system from the page's own /digitalhangar/ where the host serves it (lh-edge answers
+// it from www.lufthansa.com; the feature and translation files from the code's copies), else
+// from brussels.turnsthe.page; www's release and theme (mausy-v1.40.1, brussels.css, the body's
+// maui-theme-sn); its pages' Version row: www's help-center-web 4.3.2 (SWISS keeps 4.3.1)
+test('Brussels: the help center from the page\'s own /digitalhangar/ (brussels.turnsthe.page), brussels.css, maui-theme-sn, its Version row', () => {
+  const locale = { country: 'be', lang: 'fr', brand: 'brussels' };
+  const plan = mountPlan(blockOf([['help-center-web'], ['Version', '4.3.2']]), BRANDS.brussels, locale, 'brussels.turnsthe.page');
+  assert.equal(plan.css, 'https://brussels.turnsthe.page/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/css/brussels.css');
+  assert.deepEqual(plan.scripts, [
+    { src: 'https://brussels.turnsthe.page/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/packages/maui-design-system.js', module: true },
+    { src: 'https://brussels.turnsthe.page/digitalhangar/cs-help-center/help-center-web/help-center-web-4.3.2.js', module: true },
+  ]);
+  assert.equal(plan.themeClass, 'maui-theme-sn');
+  assert.deepEqual(plan.meta, { 'X-Portal': 'SN', 'X-Portal-Site': 'BE', 'X-Portal-Language': 'fr' });
+  ['main--lh-brussels--moved-permanently.aem.page', 'localhost'].forEach((host) => {
+    const other = mountPlan(blockOf([['help-center-web'], ['Version', '4.3.2']]), BRANDS.brussels, locale, host);
+    assert.ok(other.scripts.every((x) => x.src.startsWith('https://brussels.turnsthe.page/')), host);
+    assert.ok([other.css, ...other.scripts.map((x) => x.src)].every((u) => !u.includes('www.brusselsairlines.com')), host);
+  });
+  const swiss = mountPlan(blockOf([['help-center-web']]), BRANDS.swiss, { country: 'ch', lang: 'en', brand: 'swiss' }, 'swiss.turnsthe.page');
+  assert.equal(swiss.scripts[1].src, 'https://swiss.turnsthe.page/digitalhangar/cs-help-center/help-center-web/help-center-web-4.3.1.js', 'SWISS as before');
+});
