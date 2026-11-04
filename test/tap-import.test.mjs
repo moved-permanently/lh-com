@@ -63,8 +63,8 @@ describe('tap-import helpers', () => {
     assert.equal(linkOf('https://receipts.flytap.com/PaxReceiptsWAR/spring/docs?locale=pt', c), 'https://receipts.flytap.com/PaxReceiptsWAR/spring/docs?locale=pt');
     // www's anchors to the FAQ categories: our heading ids
     assert.equal(linkOf('/ajuda/perguntas-frequentes#antes-voo', c), '/pt-pt/ajuda/perguntas-frequentes#antes-do-voo');
-    // a widget anchor (www opens its check-in form): the page on www
-    assert.equal(linkOf('#special-anchor-check-in', c), 'https://www.flytap.com/pt-pt/ajuda#special-anchor-check-in');
+    // a widget anchor (www opens its check-in form): the root homepage's booking box
+    assert.equal(linkOf('#special-anchor-check-in', c), '/pt-pt#check-in');
   });
 
   it('richText: paragraphs, formats, links, line breaks, headers, lists', () => {
@@ -154,15 +154,55 @@ describe('tap-import parity (tools/reports/tap/parity.md)', () => {
   const metaRows = (html) => Object.fromEntries([...dom(html).querySelectorAll('.metadata > div')].map((r) => [r.children[0].textContent, r.children[1].textContent]));
   const one = (sections, extra = {}) => ({ props: { pageProps: { page: { title: 'Página', sections, ...extra } } } });
 
-  it('the homepage: a booking-slot section right after the stage, its link to www\'s booking box', () => {
-    const { html } = convertPage(nd('homepage'), ctx('https://www.flytap.com/pt-pt'));
+  it('the homepage: the booking box (booking-spec.md 5.1) in a section of its own right after the stage', () => {
+    const home = nd('homepage');
+    home.props.pageProps.markets = [{ code: 'DE', airport: 'FRA' }, { code: 'PT', airport: 'LIS' }];
+    const labels = JSON.parse(fs.readFileSync(path.join(path.dirname(fileURLToPath(import.meta.url)), '../tools/reports/tap/booking-labels.json'), 'utf8'))['pt-pt'];
+    const { html, report } = convertPage(home, { ...ctx('https://www.flytap.com/pt-pt'), booking: { labels, originName: 'Lisboa, Portugal' } });
     const sections = [...dom(html).querySelectorAll('main > div')];
     const stage = sections.findIndex((s) => s.querySelector('.hero-campaign'));
-    const slot = sections[stage + 1];
-    assert.ok(slot.querySelector('.section-metadata').textContent.includes('booking-slot'));
-    const a = slot.querySelector('a');
-    assert.equal(a.getAttribute('href'), 'https://www.flytap.com/pt-pt');
-    assert.equal(a.textContent, 'Pesquisar voos em flytap.com');
+    const box = sections[stage + 1].querySelector('.booking-box');
+    assert.ok(box, 'the box in the section after the stage');
+    assert.equal(sections[stage + 1].children.length, 1, 'the box alone in its section');
+    const rows = Object.fromEntries([...box.querySelectorAll(':scope > div')].map((r) => [r.children[0].textContent, r.children[1]]));
+    assert.equal(rows.Format.textContent, 'tap');
+    assert.equal(rows.Market.textContent, 'PT');
+    assert.equal(rows.Language.textContent, 'pt');
+    assert.equal(rows['Default origin'].textContent, 'LIS');
+    assert.equal(rows['Default origin name'].textContent, 'Lisboa, Portugal');
+    assert.equal(rows.Airports.querySelector('a').getAttribute('href'), '/pt-pt/booking/airports.json');
+    assert.equal(rows.Tabs.textContent, 'Reservar voo, Fazer Check-in, Gerir reserva, Estado do voo');
+    assert.equal(rows['Corporate link'].querySelector('a').getAttribute('href'), 'https://tapforbiz.com/');
+    assert.equal(rows['Corporate link'].textContent, 'Reservas para empresas');
+    // one row per label key (TAP's key | the root's text)
+    assert.equal(rows['round-trip'].textContent, 'Ida e volta');
+    assert.equal(rows['babys-range'].textContent, 'Idade inferior a 2 anos');
+    assert.ok(!rows._corporate_link);
+    assert.equal(report.blocks['booking-box'], 1);
+    assert.ok(!html.includes('booking-slot'));
+  });
+
+  it('the market\'s airport when the page names no market list; the market from the root', () => {
+    const labels = JSON.parse(fs.readFileSync(path.join(path.dirname(fileURLToPath(import.meta.url)), '../tools/reports/tap/booking-labels.json'), 'utf8'))['de-de'];
+    const { html } = convertPage(nd('homepage'), {
+      ...ctx('https://www.flytap.com/de-de'), locale: 'de-de', lang: 'de', booking: { labels },
+    });
+    const box = dom(html).querySelector('.booking-box');
+    const rows = Object.fromEntries([...box.querySelectorAll(':scope > div')].map((r) => [r.children[0].textContent, r.children[1].textContent]));
+    assert.equal(rows.Market, 'DE');
+    assert.equal(rows.Language, 'de');
+    assert.equal(rows['Default origin'], 'FRA');
+    assert.equal(rows.Tabs, 'Flug buchen, Check-in, Buchung verwalten, Flugstatus');
+  });
+
+  it('www\'s box anchors (#special-anchor-book-flight, -check-in, -my-travels, -flight-status) go to the root homepage\'s box', () => {
+    const c = ctx('https://www.flytap.com/pt-pt/ajuda');
+    assert.equal(linkOf('#special-anchor-check-in', c), '/pt-pt#check-in');
+    assert.equal(linkOf('/pt-pt#special-anchor-book-flight', c), '/pt-pt#book-flight');
+    assert.equal(linkOf('https://www.flytap.com/pt-pt#special-anchor-my-travels', c), '/pt-pt#my-travels');
+    assert.equal(linkOf('/informacoes#special-anchor-flight-status', c), '/pt-pt#flight-status');
+    // the sign-in stays on www
+    assert.equal(linkOf('#special-anchor-login', c), 'https://www.flytap.com/pt-pt/ajuda#special-anchor-login');
   });
 
   it('Miles&Go on the homepage: the visitor\'s card only (www shows the others to members), no stretched logo', () => {

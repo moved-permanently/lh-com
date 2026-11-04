@@ -55,7 +55,8 @@
  * documents) and the allowlist tools/importer/sites/lh-tap.json.
  *
  * Usage: node tools/importer/tap-import.mjs --archive <unpacked pages archive> [--archive ...]
- *          [--media <unpacked media archive> ...] [--name batch-1] [--source-images] [--dry-run]
+ *          [--media <unpacked media archive> ...] [--name batch-1] [--only <path,...>]
+ *          [--source-images] [--dry-run]
  *        (archives in the index's order: a later one replaces pages of an earlier one)
  */
 import fs from 'node:fs';
@@ -125,7 +126,11 @@ export function linkOf(href, c) {
     const m = c.anchors && c.anchors.get(p);
     return (m && m.get(id)) || id;
   };
-  // www's widget anchors (#special-anchor-check-in opens its check-in form): the page on www
+  // www's box anchors (#special-anchor-book-flight, -check-in, -my-travels, -flight-status; www
+  // opens its booking box over the page), on any page or link: the root homepage's booking box,
+  // /<root>#<tab> (booking-spec.md 5.4); its other widget anchors (sign-in): the page on www
+  const box = h.match(/#special-anchor-(book-flight|check-in|my-travels|flight-status)$/);
+  if (box && (h.startsWith('#') || /^(https?:\/\/(www\.)?flytap\.com)?\//.test(h))) return `/${c.locale}#${box[1]}`;
   if (/^#special-anchor/.test(h)) return `${WWW}${own}${h}`;
   if (h.startsWith('#')) return `#${mapAnchor(own, h.slice(1))}`;
   let u;
@@ -418,6 +423,52 @@ class Page {
   }
 }
 
+// the box's tab labels (TAP's keys), in the block's order: book, check-in, manage, status
+const BOOKING_TABS = ['ibe.book-flight', 'ibe.to-check-in', 'ibe.my-travels', 'ibe.flight-status'];
+// a market's airport when the page names no market list (the block's README: PT LIS, ES MAD …)
+const MARKET_AIRPORT = {
+  PT: 'LIS', ES: 'MAD', FR: 'PAR', DE: 'FRA', IT: 'FCO', PL: 'WAW', BR: 'SAO',
+};
+
+/** A text of www's translations (pageProps._nextI18Next: the language's namespaces), or null. */
+function i18nOf(pp, lang, key) {
+  const store = pp._nextI18Next && pp._nextI18Next.initialI18nStore;
+  const ns = store && (store[lang] || store[Object.keys(store)[0]]);
+  if (!ns) return null;
+  const hit = Object.values(ns).find((n) => n && typeof n === 'object' && typeof n[key] === 'string');
+  return hit ? hit[key] : null;
+}
+
+/**
+ * The booking-box table (booking-spec.md 5.1): Format, Market and Language from the root,
+ * Default origin the market's airport (pageProps.markets, else MARKET_AIRPORT), its name from the
+ * airport sheet (c.booking.originName), the root's airport sheet, the four tabs, the corporate
+ * link and one row per label: www's texts (its i18n store), else c.booking.labels
+ * (tools/reports/tap/booking-labels.json).
+ */
+function bookingRows(P) {
+  const { c } = P;
+  const [lang, country] = c.locale.split('-');
+  const market = country.toUpperCase();
+  const pp = c.pageProps || {};
+  const fromMarkets = (pp.markets || []).find((m) => m && String(m.code).toUpperCase() === market);
+  const origin = (fromMarkets && fromMarkets.airport) || MARKET_AIRPORT[market] || '';
+  const given = (c.booking && c.booking.labels) || {};
+  const keys = Object.keys(given).filter((k) => !k.startsWith('_'));
+  const text = (k) => i18nOf(pp, lang, k) || given[k] || '';
+  const corporate = [].concat(given._corporate_link || ['https://tapforbiz.com/']).slice(-1)[0];
+  const sheet = `/${c.locale}/booking/airports.json`;
+  const rows = [['Format', 'tap'], ['Market', market], ['Language', lang]];
+  if (origin) rows.push(['Default origin', origin]);
+  const originName = c.booking && (c.booking.originName || (origin && c.booking.originNameOf && c.booking.originNameOf(origin)));
+  if (originName) rows.push(['Default origin name', esc(originName)]);
+  rows.push(['Airports', `<a href="${sheet}">${sheet}</a>`]);
+  if (BOOKING_TABS.every(text)) rows.push(['Tabs', esc(BOOKING_TABS.map(text).join(', '))]);
+  if (text('enterprise-reservation')) rows.push(['Corporate link', `<a href="${attr(corporate)}">${esc(text('enterprise-reservation'))}</a>`]);
+  keys.filter((k) => !BOOKING_TABS.includes(k) && k !== 'enterprise-reservation' && text(k)).forEach((k) => rows.push([esc(k), esc(text(k))]));
+  return rows;
+}
+
 const slideRows = (slides, P) => slides.flatMap((s) => [[P.img(s.image)], [
   `${P.heading(2, s.title)}${P.rich(s.description)}${P.link(s.buttonUrl, s.buttonLabel, 'primary')}${P.link(s.secondaryButtonUrl, s.secondaryButtonLabel)}`,
 ]]);
@@ -452,10 +503,10 @@ const HANDLERS = {
     P.section();
     const slides = s.slides || [];
     P.block(slides.length > 1 ? 'hero-campaign (slider)' : 'hero-campaign', slideRows(slides, P));
-    // where www has its booking box: a placeholder section (style booking-slot) with a link to
-    // the box on www, for the booking block to come (tools/reports/tap/parity.md, F2)
-    P.section('booking-slot');
-    P.add(`<p><a href="${attr(`${WWW}/${P.c.locale}`)}">${esc(labelsOf(P.c.lang).book)}</a></p>`);
+    // where www has its booking box: the booking-box block in a section of its own right after
+    // the stage (booking-spec.md 5.1, 5.4)
+    P.section();
+    P.block('booking-box', bookingRows(P));
     P.section();
   },
   ComponentBannerCarouselModel: (s, P) => {
@@ -692,6 +743,7 @@ export function convertPage(nd, site) {
   c.locale = locale;
   c.lang = site.lang || langOf(locale);
   const pp = (nd.props && nd.props.pageProps) || {};
+  c.pageProps = pp;
   const page = pp.page || {};
   if (OUT_TEMPLATES[page.template]) return { skipped: OUT_TEMPLATES[page.template] };
   const P = new Page(c);
@@ -807,13 +859,29 @@ export function mediaResolver(idx, { out = OUT, dry = false } = {}) {
   };
 }
 
-function main() {
+// the root's airport sheet (lh-tap's preview, ema-test's sheets: booking-spec.md 5.3), cached in
+// runs/airports-<root>.json: code -> "City, Country" for the box's Default origin name
+const PREVIEW = 'https://main--lh-tap--moved-permanently.aem.page';
+async function airportNames(locale) {
+  const cache = path.join(W, 'runs', `airports-${locale}.json`);
+  if (fs.existsSync(cache)) return readJson(cache, {});
+  const r = await fetch(`${PREVIEW}/${locale}/booking/airports.json?limit=5000`);
+  if (!r.ok) return {};
+  const names = Object.fromEntries(((await r.json()).data || []).map((a) => [a.code, `${a.cityName}, ${a.countryName}`]));
+  writeJson(cache, names);
+  return names;
+}
+
+async function main() {
   const argv = process.argv.slice(2);
   const all = (n) => argv.flatMap((a, i) => (a === `--${n}` ? [path.resolve(argv[i + 1])] : []));
   const opt = (n) => (argv.includes(`--${n}`) ? argv[argv.indexOf(`--${n}`) + 1] : null);
   const archives = all('archive');
   if (!archives.length) { console.log('usage: --archive <unpacked pages archive> [--archive ...] [--media <dir> ...] [--name batch-1] [--dry-run]'); process.exit(1); }
   const name = opt('name') || 'batch';
+  // --only <path,...>: write only these documents (the others are read for links and anchors)
+  const only = opt('only') ? new Set(opt('only').split(',')) : null;
+  const bookingLabels = readJson(path.join(root, 'tools/reports/tap/booking-labels.json'), {});
   const dry = argv.includes('--dry-run');
   // the pages: a later archive replaces an earlier one's copy
   const pages = new Map();
@@ -856,9 +924,21 @@ function main() {
   const LIMIT = 900 * 1024;
   const IMAGES = 190;
   const over = (h) => Buffer.byteLength(h) > LIMIT || (h.match(/<img /g) || []).length > IMAGES;
+  // the homepages' booking box: labels and the default origin's name per root
+  const locales = [...new Set([...nds.keys()].map((d) => d.split('/')[1]))];
+  const sheets = await Promise.all(locales.map((locale) => airportNames(locale)));
+  const booking = Object.fromEntries(locales.map((locale, i) => [locale, { labels: bookingLabels[locale] || {}, names: sheets[i] }]));
   nds.forEach((p, doc) => {
+    if (only && !only.has(doc)) return;
+    const locale = doc.split('/')[1];
+    const b = booking[locale] || { labels: {}, names: {} };
     const site = {
-      url: p.url, scope, media, anchors, sourceImages: argv.includes('--source-images'),
+      url: p.url,
+      scope,
+      media,
+      anchors,
+      sourceImages: argv.includes('--source-images'),
+      booking: { labels: b.labels, originNameOf: (code) => b.names[code] },
     };
     let r = convertPage(p.nd, site);
     if (!r.skipped && over(r.html)) r = convertPage(p.nd, { ...site, fragments: true });
@@ -898,4 +978,4 @@ function main() {
   if (generics.size) console.log('generic:', [...generics].join(', '));
 }
 
-if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) main();
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) await main();

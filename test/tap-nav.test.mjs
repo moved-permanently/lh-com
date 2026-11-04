@@ -27,8 +27,8 @@ describe('tap-nav', () => {
     const logo = s[0].querySelector('a img');
     assert.ok(logo && logo.getAttribute('src') === site.logo);
     assert.equal(s[0].querySelector('a').getAttribute('href'), '/pt-pt');
-    // the quick actions (www's widgets: check-in, manage booking) on www
-    assert.ok([...s[1].querySelectorAll('a')].some((a) => a.getAttribute('href') === 'https://www.flytap.com/pt-pt#special-anchor-check-in'));
+    // the quick actions (www's widgets: check-in, manage booking): the homepage's booking box
+    assert.ok([...s[1].querySelectorAll('a')].some((a) => a.getAttribute('href') === '/pt-pt#check-in'));
     // the mega menu's tabs, their columns and links; site pages relative, the rest on www
     const tabs = [...s[2].querySelectorAll(':scope > ul > li > p')].map((p) => p.textContent);
     assert.deepEqual(tabs, ['Planear viagem', 'Os meus voos', 'TAP Miles&Go', 'Ajuda']);
