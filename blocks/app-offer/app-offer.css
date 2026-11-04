@@ -47,16 +47,8 @@
   text-decoration: none;
 }
 
-/* the tracking label (authors maintain it; the app doesn't show it) */
-main .app-tracking {
-  margin: 4px 0 0;
-  color: var(--lh-grey-7);
-  font-size: 11px;
-  line-height: 1.4;
-  overflow-wrap: anywhere;
-}
-
-.app-offer-box > .app-tracking {
+/* the tracking label's caption (styles/library.css) inside the box */
+main .app-offer-box > .app-tracking {
   margin: 0;
   padding: 0 16px 12px;
 }

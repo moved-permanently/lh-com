@@ -104,3 +104,12 @@ body.library-page main > .section:has(.app-offer, .app-links, .app-article-list,
   max-width: 390px;
   padding: 0 16px;
 }
+
+/* the app screen blocks' tracking labels (authors maintain them; the app doesn't show them) */
+main .app-tracking {
+  margin: 4px 0 0;
+  color: var(--lh-grey-7);
+  font-size: 11px;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
