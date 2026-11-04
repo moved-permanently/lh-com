@@ -86,12 +86,14 @@ const ctxOf = (site) => ({ anchors: new Map(), ...site, locale: site.locale || d
 const a = (href, label, c) => `<a href="${attr(linkOf(href, c))}">${esc(label)}</a>`;
 const li = (x, c) => (x.link ? `<li>${a(x.link, x.title, c)}</li>` : '');
 
-/** A text of www's translations (pageProps._nextI18Next: the language's namespaces), or null. */
+/**
+ * A text of www's translations (pageProps._nextI18Next: the language's namespaces, then the
+ * page's other stores: pt-br's texts are in its br store), or null.
+ */
 function textOf(pp, lang, key) {
-  const store = pp._nextI18Next && pp._nextI18Next.initialI18nStore;
-  const ns = store && (store[lang] || store[Object.keys(store)[0]]);
-  if (!ns) return null;
-  const hit = Object.values(ns).find((n) => n && typeof n === 'object' && typeof n[key] === 'string');
+  const store = (pp._nextI18Next && pp._nextI18Next.initialI18nStore) || {};
+  const stores = [store[lang], ...Object.values(store)].filter((ns) => ns && typeof ns === 'object');
+  const hit = stores.flatMap((ns) => Object.values(ns)).find((n) => n && typeof n === 'object' && typeof n[key] === 'string');
   return hit ? hit[key] : null;
 }
 

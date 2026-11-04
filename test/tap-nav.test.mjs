@@ -60,6 +60,13 @@ describe('tap-nav', () => {
     assert.equal(cols(items[1])[0].querySelector(':scope > ul > li > a').getAttribute('href'), '/pt-pt#my-travels');
   });
 
+  it('"See all" in www\'s words from any of the page\'s translation stores (pt-br: its br store, "Ver tudo")', () => {
+    const br = { ...pp, _nextI18Next: { initialI18nStore: { 'pt-br': { common: { other: 'x' } }, br: { common: { 'menu-see-all': 'Ver tudo' } } } } };
+    const s = sections(navHtml(br, { ...site, url: 'https://www.flytap.com/pt-br', locale: 'pt-br' }));
+    assert.ok(s[2].textContent.includes('Ver tudo'));
+    assert.ok(!s[2].textContent.includes('Ver todos'));
+  });
+
   it('Check-in: a top item linking the booking box, its form column to the box, its information page; sign-in widgets left out', () => {
     const s = sections(navHtml(pp, site));
     const checkIn = [...s[2].querySelectorAll(':scope > ul > li')][2];
