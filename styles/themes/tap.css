@@ -1664,3 +1664,198 @@ body.brand-tap .footer .footer-tap-partner img {
 }
 
 /* stylelint-enable no-descending-specificity */
+
+/* --------------------------------------------- TAP's inner pages (brief 331, part 4) ---- */
+
+/* stylelint-disable no-descending-specificity -- scoped by block and option; page order */
+
+/* the page title and its lead centred, as www (row 14: ajuda, a-bordo, bagagem, miles-and-go and
+   every other inner page measured: H1 40 / 48 centred, the lead centred in 726 px, 16 px below) */
+body.brand-tap main > .section:not(.hidden-heading) .default-content-wrapper > h1 {
+  margin: 48px 0 16px;
+  text-align: center;
+}
+
+body.brand-tap main > .section:not(.hidden-heading) .default-content-wrapper > h1 + p {
+  max-width: 726px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+/* the inner pages' banners (row 18: hero-campaign narrow, a slider or a single stage): inset in the
+   content column (www: 1176 x 404 at 1440, 32 px corners), the controls inside at the bottom
+   (previous / dots / next 60 px from the left, the pause button 64 px from the right, 20 px up) */
+body.brand-tap .hero-campaign.narrow {
+  --tap-banner-width: min(1176px, calc(var(--hero-campaign-viewport, 100vw) - 2 * var(--tap-stage-inset, 16px)));
+
+  width: var(--tap-banner-width);
+  margin-inline: calc(50% - var(--tap-banner-width) / 2);
+  overflow: hidden;
+  border-radius: 32px;
+}
+
+body.brand-tap .hero-campaign.narrow:not(.slider) {
+  min-height: 259px;
+}
+
+@media (width >= 1024px) {
+  body.brand-tap .hero-campaign.narrow:not(.slider),
+  body.brand-tap .hero-campaign-tap.narrow .hero-campaign-slide {
+    min-height: 404px;
+  }
+
+  body.brand-tap .hero-campaign-tap.narrow .hero-campaign-inner {
+    padding: 64px 64px 0;
+  }
+
+  body.brand-tap .hero-campaign-tap.narrow .hero-campaign-content :is(h1, h2, h3, h4, h5, h6) {
+    margin-bottom: 16px;
+    font-size: calc(40px * var(--a11y-scale, 1));
+  }
+
+  body.brand-tap .hero-campaign-tap.narrow .hero-campaign-content > .hero-campaign-subtitle {
+    margin-bottom: 24px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  body.brand-tap .hero-campaign-tap.narrow .hero-campaign-controls {
+    bottom: 20px;
+    left: 60px;
+  }
+
+  body.brand-tap .hero-campaign-tap.narrow .hero-campaign-pause {
+    right: 64px;
+    bottom: 20px;
+  }
+}
+
+/* the category cards (row 21: cards-teaser cards of a picture, a linked title and maybe a list of
+   links: a-bordo, informacoes): the picture with 16 px corners, the title as a white tab over its
+   top edge (Inter 16, 16 px lower corners), the sub-links in a light grey card under it, one row
+   each with a line and a chevron */
+body.brand-tap .cards-teaser > ul > li:has(> .cards-teaser-body > .cards-teaser-title:first-child > a:only-child):not(:has(.cards-teaser-body > p)) {
+  position: relative;
+  border: 0;
+  background: none;
+  box-shadow: none;
+}
+
+body.brand-tap .cards-teaser li:has(> .cards-teaser-body > .cards-teaser-title:first-child > a:only-child):not(:has(.cards-teaser-body > p)) .cards-teaser-image {
+  margin: 0;
+  overflow: hidden;
+  border-radius: 16px;
+  aspect-ratio: 325 / 225;
+}
+
+body.brand-tap .cards-teaser li:has(> .cards-teaser-body > .cards-teaser-title:first-child > a:only-child):not(:has(.cards-teaser-body > p)) .cards-teaser-image :is(picture, img) {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+body.brand-tap .cards-teaser li:has(> .cards-teaser-body > .cards-teaser-title:first-child > a:only-child):not(:has(.cards-teaser-body > p)) .cards-teaser-body {
+  padding: 0;
+}
+
+body.brand-tap .cards-teaser li:has(> .cards-teaser-body > .cards-teaser-title:first-child > a:only-child):not(:has(.cards-teaser-body > p)) .cards-teaser-title {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  z-index: 1;
+  margin: 0;
+  padding: 8px 16px;
+  border-radius: 0 0 16px 16px;
+  background-color: #fff;
+  color: #020817;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  transform: translateX(-50%);
+}
+
+body.brand-tap .cards-teaser li:has(> .cards-teaser-body > .cards-teaser-title:first-child > a:only-child):not(:has(.cards-teaser-body > p)) .cards-teaser-title a:any-link {
+  color: inherit;
+  font-weight: inherit;
+  text-decoration: none;
+}
+
+body.brand-tap .cards-teaser li:has(> .cards-teaser-body > .cards-teaser-title:first-child > a:only-child):not(:has(.cards-teaser-body > p)) .cards-teaser-body > ul {
+  margin: 8px 0 0;
+  padding: 4px 16px;
+  border-radius: 16px;
+  background-color: #f7f7f8;
+  list-style: none;
+}
+
+body.brand-tap .cards-teaser li:has(> .cards-teaser-body > .cards-teaser-title:first-child > a:only-child):not(:has(.cards-teaser-body > p)) .cards-teaser-body > ul > li {
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid #e0dfe2;
+}
+
+body.brand-tap .cards-teaser li:has(> .cards-teaser-body > .cards-teaser-title:first-child > a:only-child):not(:has(.cards-teaser-body > p)) .cards-teaser-body > ul > li:last-child {
+  border-bottom: 0;
+}
+
+body.brand-tap .cards-teaser li:has(> .cards-teaser-body > .cards-teaser-title:first-child > a:only-child):not(:has(.cards-teaser-body > p)) .cards-teaser-body > ul a:any-link {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 8px;
+  color: #65626a;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-decoration: none;
+}
+
+body.brand-tap .cards-teaser li:has(> .cards-teaser-body > .cards-teaser-title:first-child > a:only-child):not(:has(.cards-teaser-body > p)) .cards-teaser-body > ul a:any-link::after {
+  content: "";
+  flex: none;
+  width: 16px;
+  height: 16px;
+  background-color: var(--text-color);
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8.6 5.4 7.2 6.8l5.2 5.2-5.2 5.2 1.4 1.4 6.6-6.6z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+body.brand-tap .cards-teaser li:has(> .cards-teaser-body > .cards-teaser-title:first-child > a:only-child):not(:has(.cards-teaser-body > p)) .cards-teaser-body > ul a:any-link:hover {
+  color: var(--lh-green);
+}
+
+/* the help cards' buttons (row 15: cards three-up, ajuda): at the card's foot, a chevron after
+   the label */
+body.brand-tap .cards.three-up > ul > li {
+  display: flex;
+  flex-direction: column;
+}
+
+body.brand-tap .cards.three-up .cards-card-body {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+}
+
+body.brand-tap .cards.three-up .cards-card-body > .button-wrapper:last-child {
+  margin-top: auto;
+}
+
+body.brand-tap .cards.three-up a.button:any-link {
+  gap: 8px;
+}
+
+body.brand-tap .cards.three-up a.button:any-link::after {
+  content: "";
+  flex: none;
+  width: 16px;
+  height: 16px;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8.6 5.4 7.2 6.8l5.2 5.2-5.2 5.2 1.4 1.4 6.6-6.6z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* stylelint-enable no-descending-specificity */
