@@ -10,6 +10,8 @@ import {
   loadSections,
   loadCSS,
   buildBlock,
+  decorateBlock,
+  loadBlock,
   getMetadata,
   readBlockConfig,
   toCamelCase,
@@ -28,6 +30,10 @@ import { isDemoHost, turnsThePageBrandOf } from './demo.js';
 import prioritizeSecondSectionImage from './lcp-image.js';
 import decorateHeadingIcons from './heading-icon.js';
 import decorateSectionTabs from './section-tabs.js';
+import { placeAlertsBar } from './alerts-bar.js';
+
+/** The brand's alerts bar above the header (scripts/alerts-bar.js), placed in loadEager. */
+let alertsBarBlock = null;
 
 if (window.trustedTypes && window.trustedTypes.createPolicy) {
   const innerTT = window.trustedTypes.createPolicy('tt-inner', {
@@ -413,10 +419,15 @@ async function loadEager(doc) {
     // or authoring, nothing when a choice is stored); the app view leaves consent to the app
     if (channel !== 'app') initConsent();
     if (channel !== 'website') await loadCSS(`${window.hlx.codeBasePath}/styles/channels.css`);
+    // a brand's alerts bar (TAP's root homepages): first in the body, its 52 px reserved before
+    // the first paint; the block loads with the header (loadLazy)
+    if (channel === 'website') {
+      alertsBarBlock = placeAlertsBar(doc, brand, locale, window.location.pathname);
+    }
     document.body.classList.add('appear');
     // Message Center blocks: start loading the index before the first section's blocks load, so
     // the flash teaser above the flight search is ready with it (no layout shift, no extra wait)
-    if (main.querySelector('.flash-teaser, .message-center')) {
+    if (alertsBarBlock || main.querySelector('.flash-teaser, .message-center')) {
       import('./message-center.js').then((mc) => { mc.loadIndex(); mc.loadCtiPages(); });
     }
     // the flight search: its recorded data index the same way (the block reads it on render)
@@ -458,6 +469,10 @@ async function loadLazy(doc) {
   // fallbacks stay
   loadFonts();
   // the app view has no header and footer (removed by applyChannel)
+  if (alertsBarBlock) {
+    decorateBlock(alertsBarBlock);
+    loadBlock(alertsBarBlock);
+  }
   const header = doc.querySelector('body > header');
   if (header) loadHeader(header);
 

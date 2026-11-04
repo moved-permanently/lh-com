@@ -52,6 +52,10 @@ indices:
       internal-title:
         select: div > div > div:has(#internal-title) > div:last-child
         value: textContent(el)
+      # a tenant's own order, 1 first (TAP's; scripts/message-center.js WEIGHT_TENANTS)
+      weight:
+        select: div > div > div:has(#weight) > div:last-child
+        value: textContent(el)
       lastModified:
         select: none
         value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")

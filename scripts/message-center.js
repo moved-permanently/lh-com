@@ -6,13 +6,14 @@
  * /message-center/<type>/<id>/<lang> (type irreg, tech-outage or promo), and listed in the query
  * index /message-center/index.json (helix-query.yaml, index message-center): path, headline,
  * criticality (high/low), tenants, markets, touchpoints (lists; markets [] = all), link, details,
- * from, to (ISO UTC or ""), push, internal-title, lastModified (seconds).
+ * from, to (ISO UTC or ""), push, internal-title, weight (a tenant's own order, 1 first: TAP's;
+ * WEIGHT_TENANTS), lastModified (seconds).
  * The current travel information page per tenant: /message-center/config/cti-pages.json (tenant,
  * webPath with {cc}/{ll}, contentPath; optionally language: a row for one language, before the
  * tenant's row without one).
  * Each site reads its own index and sheet (same origin) and shows its own tenant's messages: the
  * tenant of its brand (scripts/brand.js BRANDS messageCenter), lh-com's 'lh' without a brand.
- * The sites without <cc>/<ll> roots (Cargo, Air Dolomiti): messageLocale.
+ * The sites without <cc>/<ll> roots (Cargo, Air Dolomiti; TAP's <ll>-<cc> roots): messageLocale.
  */
 
 import { now as clockNow } from './clock.js';
@@ -26,6 +27,8 @@ export const TOUCHPOINT = 'web';
 export const TYPES = ['irreg', 'tech-outage', 'promo'];
 export const INDEX_PATH = '/message-center/index.json';
 export const CTI_PAGES_PATH = '/message-center/config/cti-pages.json';
+/** The tenants whose messages show in their weight order (1 first), not by rank: TAP's (www's). */
+export const WEIGHT_TENANTS = ['tap'];
 
 /**
  * The site's Message Center tenant: its brand's, '' for a brand without one (no messages), TENANT
@@ -51,7 +54,9 @@ const metadata = (name) => {
  * with <cc>/<ll> roots; on a site without roots (Cargo /en/, /de/; Air Dolomiti / Italian, /en/,
  * /de/) the page's language from its `language` metadata, else its first path segment (the
  * site's languages, scripts/site-languages.js), and no country: such a site has no markets, so it
- * shows the messages for all markets.
+ * shows the messages for all markets. A site whose languages name a country (TAP's <ll>-<cc>
+ * roots: pt-pt, en-pt) keeps the root's country: its market-only messages (the Portuguese ID card
+ * on pt-pt and en-pt).
  * @param {Object} [options]
  * @param {Object} [options.locale] getLocale() result
  * @param {Function} [options.read] metadata reader
@@ -65,7 +70,7 @@ export function messageLocale({
   const authored = String(read('language') || '').trim().toLowerCase();
   const own = locale.siteLanguages.find((l) => l.lang === authored)
     || languageOfPath(pathname, locale.siteLanguages);
-  return { ...locale, lang: own ? own.lang : locale.lang, country: '' };
+  return { ...locale, lang: own ? own.lang : locale.lang, country: (own && own.country) || '' };
 }
 
 /** Display order: irreg high, tech-outage high, irreg low, tech-outage low, promo high, low. */
@@ -93,6 +98,13 @@ export function listField(value) {
     }
   }
   return text.split(',').map((v) => v.trim().toLowerCase()).filter(Boolean);
+}
+
+/** A weight of the index (1, 2 …), or null when empty or no number. */
+function weightOf(value) {
+  const text = String(value ?? '').trim();
+  const n = text ? Number(text) : NaN;
+  return Number.isFinite(n) ? n : null;
 }
 
 /** ISO time of the index as ms, or null when empty or unreadable. */
@@ -124,6 +136,7 @@ export function parseRow(row) {
     from: time(row.from),
     to: time(row.to),
     push: String(row.push).trim() === 'true',
+    weight: weightOf(row.weight),
     lastModified: Number(row.lastModified) || 0,
   };
 }
@@ -166,10 +179,37 @@ export function selectMessages(rows, {
     && (msg.to === null || now < msg.to));
   // promotions only while there is no irregularity or outage to show
   const alerts = visible.some((msg) => msg.type !== 'promo');
+  const byRank = (a, b) => RANK[`${a.type}/${a.criticality}`] - RANK[`${b.type}/${b.criticality}`]
+    || recency(b) - recency(a);
+  // a tenant with its own order (TAP): by weight, the rows without one after them by rank
+  const byWeight = (a, b) => {
+    if (a.weight !== null && b.weight !== null) return a.weight - b.weight || byRank(a, b);
+    if (a.weight !== null || b.weight !== null) return a.weight !== null ? -1 : 1;
+    return byRank(a, b);
+  };
   return visible
     .filter((msg) => !alerts || msg.type !== 'promo')
-    .sort((a, b) => RANK[`${a.type}/${a.criticality}`] - RANK[`${b.type}/${b.criticality}`]
-      || recency(b) - recency(a));
+    .sort(WEIGHT_TENANTS.includes(tenant) ? byWeight : byRank);
+}
+
+/**
+ * The tenant's current travel information page for the page's locale: its row for the page's
+ * language, else its row without a language ({cc}, {ll} filled); '' without one.
+ * @param {Object[]} ctiRows rows of /message-center/config/cti-pages.json
+ * @param {Object} locale (country, lang)
+ * @param {string} [tenant] default: the site's (siteTenant)
+ * @returns {string}
+ */
+export function ctiPagePath(ctiRows, locale, tenant = siteTenant()) {
+  if (!tenant) return '';
+  const rows = (ctiRows || [])
+    .filter((r) => String(r.tenant || '').trim().toLowerCase() === tenant && r.webPath);
+  const language = (r) => String(r.language || '').trim().toLowerCase();
+  const row = rows.find((r) => language(r) === locale.lang) || rows.find((r) => !language(r));
+  if (!row) return '';
+  return String(row.webPath).trim()
+    .replace(/\{cc\}/g, locale.country)
+    .replace(/\{ll\}/g, locale.lang);
 }
 
 /**
@@ -183,18 +223,7 @@ export function selectMessages(rows, {
  * @returns {string} the href, or '' when there is none
  */
 export function messageHref(msg, ctiRows, locale, tenant = siteTenant()) {
-  let href = msg.link;
-  if (!href && tenant) {
-    const rows = (ctiRows || [])
-      .filter((r) => String(r.tenant || '').trim().toLowerCase() === tenant && r.webPath);
-    const language = (r) => String(r.language || '').trim().toLowerCase();
-    const row = rows.find((r) => language(r) === locale.lang) || rows.find((r) => !language(r));
-    if (row) {
-      href = String(row.webPath).trim()
-        .replace(/\{cc\}/g, locale.country)
-        .replace(/\{ll\}/g, locale.lang);
-    }
-  }
+  const href = msg.link || ctiPagePath(ctiRows, locale, tenant);
   if (!href) return '';
   return `${href.replace(/#.*$/, '')}#${encodeURIComponent(msg.id)}`;
 }

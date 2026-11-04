@@ -354,14 +354,19 @@ export const BRANDS = {
   // TAP Air Portugal (lh-tap, brief 312): its own theme (styles/themes/tap.css; until it exists
   // the pages keep Lufthansa's look), its <ll>-<cc> roots: scripts/site-languages.js. Booking,
   // check-in, manage booking, account and sign-in, search, forms, live fares and chat stay links
-  // to www.flytap.com: no booking hand-off, Travel ID, Message Center tenant, embeds or portal
-  // (the widgets that hand off to Lufthansa's shop or sign in with Lufthansa's Travel ID don't
-  // belong on its pages). No consent manager: www.flytap.com's pages load none of their own,
-  // only Google Tag Manager (GTM-5H44JL7M; the TAP capture, tap-snapshots-001), which the
-  // replica doesn't run
+  // to www.flytap.com: no Lufthansa booking hand-off (TAP's own: the booking-box block), Travel
+  // ID, embeds or portal (the widgets that hand off to Lufthansa's shop or sign in with
+  // Lufthansa's Travel ID don't belong on its pages). No consent manager: www.flytap.com's
+  // pages load none of their own, only Google Tag Manager (GTM-5H44JL7M; the TAP capture,
+  // tap-snapshots-001), which the replica doesn't run. Its Message Center tenant tap (lh-tap's
+  // own /message-center/ documents, kept in step with www.flytap.com's alerts, in TAP's order:
+  // their weight) shows as www's alerts bar at the top of the root homepages (alertsBar: the
+  // flash-teaser variant scripts/alerts-bar.js places there; tools/reports/tap/alerts-spec.md)
   tap: {
     name: 'TAP Air Portugal',
     www: 'www.flytap.com',
+    messageCenter: 'tap',
+    alertsBar: 'tap',
     // the showcase notice in the page's language (scripts/showcase-notice.js NOTICE_TEXTS)
     showcaseNotice: 'page',
   },

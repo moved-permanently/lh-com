@@ -319,3 +319,145 @@ body:is(.brand-austrian, .brand-brussels, .brand-discover, .brand-ita, .brand-ai
     display: flex;
   }
 }
+
+/* the tap variant: www.flytap.com's alerts bar (tools/reports/tap/alerts-spec.md, read at 1440
+   and 390 px): first on the root homepages above the header (scripts/alerts-bar.js), a white
+   52 px strip (8 px, a 36 px row, 8 px), 16 px from the sides, 32 px from 1024 px; previous, the
+   pager, next, the headline (Inter 16/24 semibold, 13/19.5 below 1024 px, one line), "Ver todos" */
+.alerts-bar {
+  position: relative;
+  z-index: 1002;
+  background: #fff;
+}
+
+.flash-teaser-tap-strip {
+  background: #fff;
+  color: #000;
+  font-family: var(--body-font-family);
+}
+
+.flash-teaser-tap-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-sizing: border-box;
+  height: 52px;
+  padding: 8px 16px;
+}
+
+.flash-teaser-tap-prev,
+.flash-teaser-tap-next {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 36px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #000;
+  cursor: pointer;
+}
+
+.flash-teaser-tap-pager {
+  flex: none;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  font-variant-numeric: tabular-nums;
+}
+
+.flash-teaser-tap-slides {
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 36px;
+  overflow: hidden;
+}
+
+.flash-teaser-tap-slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  transition: transform 1.2s ease;
+}
+
+.flash-teaser-tap-slide.is-entering {
+  transition: none;
+}
+
+.flash-teaser-tap-link,
+.flash-teaser-tap-link:any-link {
+  display: block;
+  overflow: hidden;
+  color: #000;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 19.5px;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.flash-teaser-tap-link:any-link:hover {
+  text-decoration: underline;
+}
+
+.flash-teaser-tap-all,
+.flash-teaser-tap-all:any-link {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  box-sizing: border-box;
+  height: 32px;
+  padding: 0 16px;
+  border: 1px solid var(--brand-color, #65c922);
+  border-radius: 999px;
+  background: #fff;
+  color: #000;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.flash-teaser-tap-strip :focus-visible {
+  outline: 2px solid var(--link-color, #397213);
+  outline-offset: 2px;
+}
+
+.flash-teaser-tap-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* the fixed header bar starts below the alerts bar while it is in view (flash-teaser-tap.js
+   keepHeaderBelow sets the offset) */
+body.has-alerts-bar .header .nav-wrapper {
+  top: calc(var(--header-bar-inset, 0px) + var(--alerts-bar-offset, 0px));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flash-teaser-tap-slide {
+    transition: none;
+  }
+}
+
+@media (width >= 1024px) {
+  .flash-teaser-tap-bar {
+    padding: 8px 32px;
+  }
+
+  .flash-teaser-tap-link,
+  .flash-teaser-tap-link:any-link {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}

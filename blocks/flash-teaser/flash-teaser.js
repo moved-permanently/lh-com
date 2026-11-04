@@ -2,7 +2,8 @@
  * flash-teaser: the one-line strip of current travel information, alerts and promotions at the
  * top of the homepage content (live .dcep-flash-teaser), from the Message Center index
  * (scripts/message-center.js). One message per slide; several rotate every 7 s, with www's
- * countdown ring around play/pause.
+ * countdown ring around play/pause. The tap variant (flash-teaser tap, placed by
+ * scripts/alerts-bar.js above TAP's header): www.flytap.com's alerts bar, flash-teaser-tap.js.
  */
 import {
   messageLocale, loadIndex, loadCtiPages, selectMessages, messageHref, readTypes, ICONS, iconOf,
@@ -451,11 +452,30 @@ export function buildStrip(messages, labels, ctiRows, locale, env = {}) {
   return { region, labels: setLabels };
 }
 
+/** The tap variant: www.flytap.com's alerts bar, or nothing (the bar removed) without alerts. */
+async function decorateTap(block, locale) {
+  const [rows, ctiRows, tap] = await Promise.all([loadIndex(), loadCtiPages(), import('./flash-teaser-tap.js')]);
+  const messages = selectMessages(rows, { market: locale.country, lang: locale.lang, types: ['irreg', 'tech-outage'] });
+  const wrapper = block.closest('.alerts-bar');
+  block.dataset.messages = String(messages.length);
+  if (!messages.length) {
+    if (wrapper) wrapper.remove();
+    else block.closest('.flash-teaser-wrapper')?.classList.add('flash-teaser-empty');
+    return;
+  }
+  block.append(tap.buildTapBar(messages, ctiRows, locale).region);
+  if (wrapper) tap.keepHeaderBelow(wrapper);
+}
+
 export default async function decorate(block) {
   // lh-com and the sites with roots: getLocale(); the sites without: the page's language
   const locale = messageLocale();
   const types = readTypes(block);
   block.textContent = '';
+  if (block.classList.contains('tap')) {
+    await decorateTap(block, locale);
+    return;
+  }
   const [rows, ctiRows] = await Promise.all([loadIndex(), loadCtiPages()]);
   const messages = selectMessages(rows, { market: locale.country, lang: locale.lang, types });
   if (!messages.length) {
