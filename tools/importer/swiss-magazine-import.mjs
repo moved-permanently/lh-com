@@ -21,11 +21,15 @@
  *        node tools/importer/swiss-magazine-import.mjs --lists   (tools/reports/lh-swiss-mag-*.tsv)
  *        node tools/importer/swiss-magazine-import.mjs --relink  (after a later archive: the earlier
  *        documents' links to its pages relative)
+ *        node tools/importer/swiss-magazine-import.mjs --relink-docs  (the documents as DA has them,
+ *        content-sites/lh-swiss/content/magazine: relinkDocument; writes the changed ones and
+ *        content-sites/lh-swiss/runs/magazine-relink.txt)
  */
 import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import { parseHTML } from 'linkedom';
 import { PLACEHOLDER, withPlaceholder } from './swiss-import.mjs';
 import { relativeDamLinks } from './swiss-dam.mjs';
 import { subSiteLinks } from './swiss-sub-import.mjs';
@@ -83,11 +87,101 @@ export function magazineLinks(doc, { pages, sitePaths, mapHosts = true }) {
   return linked.replace(/href="(\/magazine\/[^"?#]+)([?#][^"]*)?"/g, (m, p, rest = '') => (pages.has(p) ? `href="${docName(p)}${rest}"` : m));
 }
 
+/**
+ * The magazine's pictures www no longer has (404 for the original and every rendition tried,
+ * 2026-11-04): the documents drop them, the rest of the page as www shows it.
+ */
+export const GONE_PICTURES = [
+  '230926_amman/3-checkflight-flight-radar.png',
+  'milestones-20-years-of-swiss/2022-synhelion-sun-rise.png',
+  'cargo/when-animals-go-on-a-journey/capture.png',
+  'agi-portrait-high-12d08c7dce6-8709786-4.jpeg',
+];
+
+/**
+ * A document without the gone pictures: a carousel slide (its row: the picture and its caption)
+ * out; elsewhere the picture (and its paragraph when nothing else is in it).
+ */
+export function dropGonePictures(doc, gone = GONE_PICTURES) {
+  if (!gone.some((g) => doc.includes(g))) return doc;
+  const { document } = parseHTML(`<html><body>${doc}</body></html>`);
+  document.querySelectorAll('img').forEach((img) => {
+    if (!gone.some((g) => (img.getAttribute('src') || '').includes(g))) return;
+    let block = img.parentElement;
+    while (block && !(block.tagName === 'DIV' && block.getAttribute('class'))) block = block.parentElement;
+    if (block && block.getAttribute('class').split(/\s+/)[0] === 'carousel-images') {
+      const row = [...block.children].find((r) => r.contains(img));
+      if (row) { row.remove(); return; }
+    }
+    const pic = img.closest('picture') || img;
+    const p = pic.parentElement && pic.parentElement.tagName === 'P' ? pic.parentElement : null;
+    pic.remove();
+    if (p && !p.textContent.trim() && !p.children.length) p.remove();
+  });
+  return document.body.innerHTML;
+}
+
+// www's broken author links: its AEM paths of magazine pages (/content/swiss-magazine/<ll>/…, also
+// on www.swiss.com) and its editor's links to an outside site (/editor.html/content/dam/…/<domain>)
+const CONTENT_LINK = /^(?:https?:\/\/www\.swiss\.com)?\/content\/swiss-magazine\/(de|en)\/([^?#"]+)/;
+const EDITOR_LINK = /^\/editor\.html\/content\/dam\/.*\/((?:[a-z0-9-]+\.)+[a-z]{2,})\/?$/i;
+
+/**
+ * www's broken author links as the public page they mean: a magazine page by its document path,
+ * an outside site by its domain; without one, the link's text.
+ */
+export function authorLinks(doc, { docs }) {
+  return doc.replace(/<a href="([^"]*)"([^>]*)>([\s\S]*?)<\/a>/g, (m, href, attrs, text) => {
+    const c = href.match(CONTENT_LINK);
+    if (c) {
+      let rest = c[2];
+      try { rest = decodeURIComponent(rest); } catch (e) { /* as it is */ }
+      const target = docName(`/magazine/${c[1]}/${rest}`.replace(/\/+$/, ''));
+      return docs.has(target) ? `<a href="${target}"${attrs}>${text}</a>` : text;
+    }
+    const e = href.match(EDITOR_LINK);
+    if (e) return `<a href="https://${e[1].toLowerCase()}"${attrs}>${text}</a>`;
+    return m;
+  });
+}
+
+/**
+ * A document's leftovers fixed (brief 341): the gone pictures out, www's broken author links,
+ * its www.swiss.com links relative where the replica has the page (a magazine page by its document
+ * path, the sub-sites' documents, the main site's allowlist: magazineLinks), the rest on www.
+ */
+export function relinkDocument(doc, { docs, sitePaths }) {
+  const fixed = authorLinks(dropGonePictures(doc), { docs });
+  const magazine = fixed.replace(/href="https?:\/\/www\.swiss\.com(\/magazine\/(?:de|en)\/[^"?#]+)([?#][^"]*)?"/g, (m, p, rest = '') => (docs.has(docName(p)) ? `href="${docName(p)}${rest}"` : m));
+  return magazineLinks(magazine, { pages: docs, sitePaths });
+}
+
 const isMain = process.argv[1] && fs.realpathSync(process.argv[1]) === fileURLToPath(import.meta.url);
 if (isMain) {
   const argv = process.argv.slice(2);
   const opt = (n) => (argv.includes(`--${n}`) ? argv[argv.indexOf(`--${n}`) + 1] : null);
   const started = Date.now();
+  if (argv.includes('--relink-docs')) {
+    // the documents as DA has them (content-sites/lh-swiss/content: the magazine, the sub-sites)
+    const C = path.join(root, 'content-sites/lh-swiss/content');
+    const walkDocs = (d) => (fs.existsSync(d) ? fs.readdirSync(d, { withFileTypes: true }).flatMap((e) => (e.isDirectory() ? walkDocs(path.join(d, e.name)) : [path.join(d, e.name)])) : []);
+    const all = ['magazine', 'corporate', 'medicalservices'].flatMap((s) => walkDocs(path.join(C, s))).filter((f) => f.endsWith('.plain.html'))
+      .map((f) => `/${path.relative(C, f).replace(/\.plain\.html$/, '')}`);
+    const docs = new Set(all);
+    const sitePaths = new Set(JSON.parse(fs.readFileSync(path.join(root, 'tools/importer/sites/lh-swiss.json'), 'utf8')).paths);
+    const changed = [];
+    all.filter((d) => MAGAZINE_PATH.test(d)).forEach((d) => {
+      const file = path.join(C, `${d}.plain.html`);
+      const html = fs.readFileSync(file, 'utf8');
+      const out = relinkDocument(html, { docs, sitePaths });
+      if (out === html) return;
+      if (!argv.includes('--dry-run')) fs.writeFileSync(file, out);
+      changed.push(d);
+    });
+    if (!argv.includes('--dry-run')) fs.writeFileSync(path.join(root, 'content-sites/lh-swiss/runs/magazine-relink.txt'), changed.length ? `${changed.join('\n')}\n` : '');
+    console.log(`relink-docs: ${changed.length} of ${all.filter((d) => MAGAZINE_PATH.test(d)).length} magazine documents changed`);
+    process.exit(0);
+  }
   const pages = capturedMagazine();
   if (argv.includes('--lists')) {
     // the lists (tools/reports): the redirect rows, the linked magazine pages the capture lacks,
