@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-04 15:20",
-  "change": "TAP Air Portugal column: the booking box, alerts and country selector work on the replica; check-in, manage booking, group bookings and the fare pages run on systems that stay; the destinations map and help contacts are built and wait for our content change.",
+  "updated": "2026-11-04 15:21",
+  "change": "TAP Air Portugal column: the booking box, alerts and country selector work on the replica; check-in, manage booking, group bookings and the fare pages run on systems that stay; the destinations map and help contacts are built and wait for our content change. The flight search on the other airlines also fills itself in from the page address, as www.lufthansa.com's does.",
   "legend": {
     "done": {
       "label": "works on our replica",
@@ -136,27 +136,27 @@
       "cells": {
         "lufthansa": {
           "status": "done",
-          "note": "The search form hands route, dates and travellers to Lufthansa's booking shop, as on www; a test search reached the shop's flight selection.",
+          "note": "The search form hands route, dates and travellers to Lufthansa's booking shop, as on www; a test search reached the shop's flight selection. It also fills itself in from the page address (route, dates, travellers), as www.lufthansa.com's search does.",
           "page": "/de/en/homepage",
-          "evidence": "functions scan 2026-10-31: FRA-VIE from the replica reached shop.lufthansa.com flight selection"
+          "evidence": "functions scan 2026-10-31: FRA-VIE from the replica reached shop.lufthansa.com flight selection ; prefill from the page URL: lh-com a7135394 (ema-adobe 345, test c604e2db); checked 2026-11-04 ~15:18 CET in a private Studio tab: lufthansa.turnsthe.page/de/en/homepage?OriginCode=FRA&DestinationCode=JFK&TripType=ROUNDTRIP&DepartureDate=2026-12-10&ReturnDate=2026-12-17&PaxAdults=2&Cabin=B -> FRA, JFK, return, 10/17 Dec, Business 2 travellers, parameters taken off the address bar"
         },
         "discover": {
           "status": "done",
-          "note": "The search form hands searches to Lufthansa's booking shop, which sells Discover's flights, as www does.",
+          "note": "The search form hands searches to Lufthansa's booking shop, which sells Discover's flights, as www does. It also fills itself in from the page address (route, dates, travellers), as www.lufthansa.com's search does.",
           "page": "/de/en/homepage",
-          "evidence": "functions scan 2026-10-31: replica FRA-HRG built the POST to shop.lufthansa.com (captured, not sent)"
+          "evidence": "functions scan 2026-10-31: replica FRA-HRG built the POST to shop.lufthansa.com (captured, not sent) ; prefill from the page URL: lh-com a7135394 (ema-adobe 345, test c604e2db); checked 2026-11-04 ~15:18 CET in a private Studio tab: lufthansa.turnsthe.page/de/en/homepage?OriginCode=FRA&DestinationCode=JFK&TripType=ROUNDTRIP&DepartureDate=2026-12-10&ReturnDate=2026-12-17&PaxAdults=2&Cabin=B -> FRA, JFK, return, 10/17 Dec, Business 2 travellers, parameters taken off the address bar"
         },
         "ita": {
           "status": "done",
-          "note": "The search form is set up to hand searches to ITA's own booking shop, as www does.",
+          "note": "The search form is set up to hand searches to ITA's own booking shop, as www does. It also fills itself in from the page address (route, dates, travellers), as www.lufthansa.com's search does.",
           "page": "/it/en/homepage",
-          "evidence": "functions scan 2026-10-31: Shop row shop.ita-airways.com/booking/availability; not submitted"
+          "evidence": "functions scan 2026-10-31: Shop row shop.ita-airways.com/booking/availability; not submitted ; prefill from the page URL: lh-com a7135394 (ema-adobe 345, test c604e2db); checked 2026-11-04 ~15:18 CET in a private Studio tab: lufthansa.turnsthe.page/de/en/homepage?OriginCode=FRA&DestinationCode=JFK&TripType=ROUNDTRIP&DepartureDate=2026-12-10&ReturnDate=2026-12-17&PaxAdults=2&Cabin=B -> FRA, JFK, return, 10/17 Dec, Business 2 travellers, parameters taken off the address bar"
         },
         "austrian": {
           "status": "done",
-          "note": "The search form is set up to hand searches to Austrian's own booking shop, as www does.",
+          "note": "The search form is set up to hand searches to Austrian's own booking shop, as www does. It also fills itself in from the page address (route, dates, travellers), as www.lufthansa.com's search does.",
           "page": "/at/en/homepage",
-          "evidence": "functions scan 2026-10-31: Shop row shop.austrian.com/booking/availability; not submitted"
+          "evidence": "functions scan 2026-10-31: Shop row shop.austrian.com/booking/availability; not submitted ; prefill from the page URL: lh-com a7135394 (ema-adobe 345, test c604e2db); checked 2026-11-04 ~15:18 CET in a private Studio tab: lufthansa.turnsthe.page/de/en/homepage?OriginCode=FRA&DestinationCode=JFK&TripType=ROUNDTRIP&DepartureDate=2026-12-10&ReturnDate=2026-12-17&PaxAdults=2&Cabin=B -> FRA, JFK, return, 10/17 Dec, Business 2 travellers, parameters taken off the address bar"
         },
         "cargo": {
           "status": "see",
@@ -166,16 +166,16 @@
         },
         "airdolomiti": {
           "status": "done",
-          "note": "The search form on the homepages, the route pages and the booking pages hands the trip to Air Dolomiti's own booking engine, as on www.",
+          "note": "The search form on the homepages, the route pages and the booking pages hands the trip to Air Dolomiti's own booking engine, as on www. It also fills itself in from the page address (route, dates, travellers), as www.lufthansa.com's search does.",
           "footnote": "adbooking",
           "page": "/prenotazioni",
-          "evidence": "ema-cashub 191 (af2b87be) published 2026-11-01 job-2026-11-01-06-50-03-fdfd0461: flight-search on 3 homepages, 192 route pages, /prenotazioni, /en/booking, /de/buchung; M1 2026-11-01: POST from our host reached the engine's flight selection"
+          "evidence": "ema-cashub 191 (af2b87be) published 2026-11-01 job-2026-11-01-06-50-03-fdfd0461: flight-search on 3 homepages, 192 route pages, /prenotazioni, /en/booking, /de/buchung; M1 2026-11-01: POST from our host reached the engine's flight selection ; prefill from the page URL: lh-com a7135394 (ema-adobe 345, test c604e2db); checked 2026-11-04 ~15:18 CET in a private Studio tab: lufthansa.turnsthe.page/de/en/homepage?OriginCode=FRA&DestinationCode=JFK&TripType=ROUNDTRIP&DepartureDate=2026-12-10&ReturnDate=2026-12-17&PaxAdults=2&Cabin=B -> FRA, JFK, return, 10/17 Dec, Business 2 travellers, parameters taken off the address bar"
         },
         "brussels": {
           "status": "done",
-          "note": "The search form is set up to hand searches to Brussels Airlines' own booking shop, as www does.",
+          "note": "The search form is set up to hand searches to Brussels Airlines' own booking shop, as www does. It also fills itself in from the page address (route, dates, travellers), as www.lufthansa.com's search does.",
           "page": "/be/en/homepage",
-          "evidence": "2026-11-01: www.brusselsairlines.com/be/en/homepage flight manager (tabs Flights, Travel details, Redeem miles); replica /be/en/homepage flight-search block loaded with live labels and airports, Shop row shop.brusselsairlines.com/booking/availability; not submitted"
+          "evidence": "2026-11-01: www.brusselsairlines.com/be/en/homepage flight manager (tabs Flights, Travel details, Redeem miles); replica /be/en/homepage flight-search block loaded with live labels and airports, Shop row shop.brusselsairlines.com/booking/availability; not submitted ; prefill from the page URL: lh-com a7135394 (ema-adobe 345, test c604e2db); checked 2026-11-04 ~15:18 CET in a private Studio tab: lufthansa.turnsthe.page/de/en/homepage?OriginCode=FRA&DestinationCode=JFK&TripType=ROUNDTRIP&DepartureDate=2026-12-10&ReturnDate=2026-12-17&PaxAdults=2&Cabin=B -> FRA, JFK, return, 10/17 Dec, Business 2 travellers, parameters taken off the address bar"
         },
         "b2b": {
           "status": "none",
@@ -184,9 +184,9 @@
         },
         "swiss": {
           "status": "done",
-          "note": "The search form is set up to hand searches to SWISS's own booking shop, as www does.",
+          "note": "The search form is set up to hand searches to SWISS's own booking shop, as www does. It also fills itself in from the page address (route, dates, travellers), as www.lufthansa.com's search does.",
           "page": "/ch/en/homepage",
-          "evidence": "2026-11-02: replica /ch/en/homepage flight-search row Shop https://shop.swiss.com/booking/availability (POST hand-off, scripts/shop-handoff.js), default origin Zurich (ZRH); ch/de the same; from snapshot: www's flight manager (defaultCarrier LX) hands off to shop.swiss.com; not submitted (no request to shop.swiss.com while the capture runs)"
+          "evidence": "2026-11-02: replica /ch/en/homepage flight-search row Shop https://shop.swiss.com/booking/availability (POST hand-off, scripts/shop-handoff.js), default origin Zurich (ZRH); ch/de the same; from snapshot: www's flight manager (defaultCarrier LX) hands off to shop.swiss.com; not submitted (no request to shop.swiss.com while the capture runs) ; prefill from the page URL: lh-com a7135394 (ema-adobe 345, test c604e2db); checked 2026-11-04 ~15:18 CET in a private Studio tab: lufthansa.turnsthe.page/de/en/homepage?OriginCode=FRA&DestinationCode=JFK&TripType=ROUNDTRIP&DepartureDate=2026-12-10&ReturnDate=2026-12-17&PaxAdults=2&Cabin=B -> FRA, JFK, return, 10/17 Dec, Business 2 travellers, parameters taken off the address bar"
         },
         "tap": {
           "status": "done",
