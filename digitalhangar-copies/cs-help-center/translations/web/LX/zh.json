@@ -1,0 +1,525 @@
+{
+  "accentHint": "重音字符将转换为非重音字符。这不会更改您的确定预订信息。",
+  "backBookingLink": {
+    "enter": "输入其他预订信息",
+    "select": "选择其他航班"
+  },
+  "boardingPass": {
+    "cameraOption": "扫描登机牌（需要相机访问权限）",
+    "cameraTitle": "将登机牌上的条形码或二维码置于扫描框中心。",
+    "checking": "正在检查您的登机牌",
+    "closeAction": "关闭",
+    "continue": "继续",
+    "continueWithoutBookingAction": "继续，无需预订",
+    "errors": {
+      "bookingNotFound": {
+        "message": "我们无法在系统中找到匹配的预订。",
+        "title": "预订详情不可用"
+      },
+      "bookingServiceUnavailable": {
+        "message": "这是由于技术问题造成的。请继续，无需预订。",
+        "title": "无法获取预订详情"
+      },
+      "cameraAccessDenied": {
+        "message": "需要相机访问权限才能扫描您的登机牌。",
+        "title": "相机访问权限被拒"
+      },
+      "passNotDetected": {
+        "message": "请上传有效的登机牌。",
+        "title": "未检测到登机牌"
+      },
+      "uploadFailed": {
+        "message": "您的文件无法上传。请重试。",
+        "title": "上传失败"
+      }
+    },
+    "methodSelectionTitle": "添加您的预订详情",
+    "open": "使用您的登机牌",
+    "processing": "正在上传文件",
+    "retryAction": "重试",
+    "selectDifferentFileAction": "请选择其他文件",
+    "uploadOnlyAction": "选择文件",
+    "uploadOnlySupportedFormats": "支持的文件类型：jpg、jpeg、png、pdf ",
+    "uploadOption": "上传登机牌（jpg、jpeg、png、pdf）",
+    "uploadTitle": "上传您的登机牌"
+  },
+  "bookingInfo": {
+    "formTitle": "输入预订详情",
+    "loading": "正在获取预订信息",
+    "message": {
+      "internal": {
+        "message": "由于技术问题，我们无法加载您的预订。您已使用所提供的信息自动进入此步骤。",
+        "title": "无法检索预订"
+      },
+      "notFound": {
+        "message": "我们无法找到您提供的预订。您仍然可以使用我们的任何帮助和联系选项。",
+        "retryMessage": "请核对输入内容并重试。如果我们仍未找到您的预订，您将自动进入下一步。",
+        "title": "未找到预订信息"
+      },
+      "title": {
+        "withData": "好的 - 我们可以如何提供帮助？",
+        "withoutData": "我们可以如何为您提供帮助？"
+      }
+    },
+    "title": "您的问题与航班有关吗？"
+  },
+  "bookingList": {
+    "anotherBooking": "访问其他预订",
+    "code": "预订： <sensitive>{{ code }}</sensitive>",
+    "error": {
+      "message": "我们无法自动加载您的航班概览。如需获取关于特定航班的帮助，请选择“访问其他预订”。 ",
+      "title": "无法显示航班概览 "
+    },
+    "select": {
+      "message": "选择航班"
+    },
+    "wcag": {
+      "card": "第 {{ current }} 个预订，共 {{ total }} 个，预订编号 {{ code }}，从 {{ origin }} 前往 {{ destination }}，日期为 {{ date }}",
+      "end": "没有其他需要加载的预订",
+      "next": "后续预订",
+      "previous": "此前预订",
+      "slide": "预订"
+    }
+  },
+  "chatAssistant": {
+    "languageNotAvailable": "您所选的语言当前不可用，因此该服务设置为英语。"
+  },
+  "continue": "继续",
+  "country": {
+    "AD": "安道尔",
+    "AE": "阿拉伯联合酋长国",
+    "AF": "阿富汗",
+    "AG": "安提瓜和巴布达",
+    "AI": "安圭拉",
+    "AL": "阿尔巴尼亚",
+    "AM": "亚美尼亚",
+    "AN": "荷属安的列斯",
+    "AO": "安哥拉",
+    "AR": "阿根廷",
+    "AS": "美属萨摩亚",
+    "AT": "奥地利",
+    "AU": "澳大利亚",
+    "AW": "阿鲁巴",
+    "AX": "奥兰群岛",
+    "AZ": "阿塞拜疆",
+    "BA": "波斯尼亚和黑塞哥维那",
+    "BB": "巴巴多斯",
+    "BD": "孟加拉国",
+    "BE": "比利时",
+    "BF": "布基纳法索",
+    "BG": "保加利亚",
+    "BH": "巴林",
+    "BI": "布隆迪",
+    "BJ": "贝宁",
+    "BL": "圣巴泰勒米",
+    "BM": "百慕大",
+    "BN": "文莱",
+    "BO": "玻利维亚",
+    "BR": "巴西",
+    "BS": "巴哈马",
+    "BT": "不丹",
+    "BW": "博茨瓦纳",
+    "BY": "白俄罗斯",
+    "BZ": "伯利兹",
+    "CA": "加拿大",
+    "CC": "科科斯（基林）群岛",
+    "CD": "刚果民主共和国",
+    "CF": "中非共和国",
+    "CG": "刚果",
+    "CH": "瑞士",
+    "CI": "科特迪瓦",
+    "CK": "库克群岛",
+    "CL": "智利",
+    "CM": "喀麦隆",
+    "CN": "中国",
+    "CO": "哥伦比亚",
+    "CR": "哥斯达黎加",
+    "CU": "古巴",
+    "CV": "佛得角",
+    "CX": "圣诞岛",
+    "CY": "塞浦路斯",
+    "CZ": "捷克",
+    "DE": "德国",
+    "DJ": "吉布提",
+    "DK": "丹麦",
+    "DM": "多米尼克",
+    "DO": "多米尼加共和国",
+    "DZ": "阿尔及利亚",
+    "EC": "厄瓜多尔",
+    "EE": "爱沙尼亚",
+    "EG": "埃及",
+    "ER": "厄立特里亚",
+    "ES": "西班牙",
+    "ET": "埃塞俄比亚",
+    "FI": "芬兰",
+    "FJ": "斐济",
+    "FK": "福克兰群岛",
+    "FM": "密克罗尼西亚",
+    "FO": "法罗群岛",
+    "FR": "法国",
+    "GA": "加蓬",
+    "GB": "英国",
+    "GD": "格林纳达",
+    "GE": "格鲁吉亚",
+    "GF": "法属圭亚那",
+    "GG": "根西岛",
+    "GH": "加纳",
+    "GI": "直布罗陀",
+    "GL": "格陵兰",
+    "GM": "冈比亚",
+    "GN": "几内亚",
+    "GP": "瓜德罗普",
+    "GQ": "赤道几内亚",
+    "GR": "希腊",
+    "GS": "南乔治亚和南桑威奇群岛",
+    "GT": "危地马拉",
+    "GU": "关岛",
+    "GW": "几内亚比绍",
+    "GY": "圭亚那",
+    "HK": "香港",
+    "HM": "赫德岛和麦克唐纳群岛",
+    "HN": "洪都拉斯",
+    "HR": "克罗地亚",
+    "HT": "海地",
+    "HU": "匈牙利",
+    "ID": "印度尼西亚",
+    "IE": "爱尔兰",
+    "IL": "以色列",
+    "IM": "马恩岛",
+    "IN": "印度",
+    "IO": "英属印度洋领地",
+    "IQ": "伊拉克",
+    "IR": "伊朗",
+    "IS": "冰岛",
+    "IT": "意大利",
+    "JE": "泽西岛",
+    "JM": "牙买加",
+    "JO": "约旦",
+    "JP": "日本",
+    "KE": "肯尼亚",
+    "KG": "吉尔吉斯斯坦",
+    "KH": "柬埔寨",
+    "KI": "基里巴斯",
+    "KM": "科摩罗",
+    "KN": "圣基茨和尼维斯",
+    "KP": "朝鲜",
+    "KR": "韩国",
+    "KW": "科威特",
+    "KY": "开曼群岛",
+    "KZ": "哈萨克斯坦",
+    "LA": "老挝",
+    "LB": "黎巴嫩",
+    "LC": "圣卢西亚",
+    "LI": "列支敦士登",
+    "LK": "斯里兰卡",
+    "LR": "利比里亚",
+    "LS": "莱索托",
+    "LT": "立陶宛",
+    "LU": "卢森堡",
+    "LV": "拉脱维亚",
+    "LY": "利比亚",
+    "MA": "摩洛哥",
+    "MC": "摩纳哥",
+    "MD": "摩尔多瓦",
+    "ME": "黑山",
+    "MF": "法属圣马丁",
+    "MG": "马达加斯加",
+    "MH": "马绍尔群岛",
+    "MK": "北马其顿",
+    "ML": "马里",
+    "MM": "缅甸",
+    "MN": "蒙古",
+    "MO": "澳门",
+    "MP": "北马里亚纳群岛",
+    "MQ": "马提尼克",
+    "MR": "毛里塔尼亚",
+    "MS": "蒙特塞拉特",
+    "MT": "马耳他",
+    "MU": "毛里求斯",
+    "MV": "马尔代夫",
+    "MW": "马拉维",
+    "MX": "墨西哥",
+    "MY": "马来西亚",
+    "MZ": "莫桑比克",
+    "NA": "纳米比亚",
+    "NC": "新喀里多尼亚",
+    "NE": "尼日尔",
+    "NF": "诺福克岛",
+    "NG": "尼日利亚",
+    "NI": "尼加拉瓜",
+    "NL": "荷兰",
+    "NO": "挪威",
+    "NP": "尼泊尔",
+    "NR": "瑙鲁",
+    "NU": "纽埃",
+    "NZ": "新西兰",
+    "OM": "阿曼",
+    "PA": "巴拿马",
+    "PE": "秘鲁",
+    "PF": "法属波利尼西亚",
+    "PG": "巴布亚新几内亚",
+    "PH": "菲律宾",
+    "PK": "巴基斯坦",
+    "PL": "波兰",
+    "PM": "圣皮埃尔和密克隆",
+    "PN": "皮特凯恩群岛",
+    "PR": "波多黎各",
+    "PS": "巴勒斯坦地区",
+    "PT": "葡萄牙",
+    "PW": "帕劳",
+    "PY": "巴拉圭",
+    "QA": "卡塔尔",
+    "RE": "留尼汪",
+    "RO": "罗马尼亚",
+    "RS": "塞尔维亚",
+    "RU": "俄罗斯",
+    "RW": "卢旺达",
+    "SA": "沙特阿拉伯",
+    "SB": "所罗门群岛",
+    "SC": "塞舌尔",
+    "SD": "苏丹",
+    "SE": "瑞典",
+    "SG": "新加坡",
+    "SH": "圣赫勒拿、阿森松和特里斯坦-达库尼亚",
+    "SI": "斯洛文尼亚",
+    "SJ": "斯瓦尔巴和扬马延",
+    "SK": "斯洛伐克",
+    "SL": "塞拉利昂",
+    "SM": "圣马力诺",
+    "SN": "塞内加尔",
+    "SO": "索马里",
+    "SR": "苏里南",
+    "SS": "南苏丹",
+    "ST": "圣多美和普林西比",
+    "SV": "萨尔瓦多",
+    "SY": "叙利亚",
+    "SZ": "斯威士兰",
+    "TC": "特克斯和凯科斯群岛",
+    "TD": "乍得",
+    "TG": "多哥",
+    "TH": "泰国",
+    "TJ": "塔吉克斯坦",
+    "TK": "托克劳",
+    "TL": "东帝汶",
+    "TM": "土库曼斯坦",
+    "TN": "突尼斯",
+    "TO": "汤加",
+    "TR": "土耳其",
+    "TT": "特立尼达和多巴哥",
+    "TV": "图瓦卢",
+    "TW": "台湾",
+    "TZ": "坦桑尼亚",
+    "UA": "乌克兰",
+    "UG": "乌干达",
+    "US": "美国",
+    "UY": "乌拉圭",
+    "UZ": "乌兹别克斯坦",
+    "VA": "梵蒂冈",
+    "VC": "圣文森特和格林纳丁斯",
+    "VE": "委内瑞拉",
+    "VG": "英属维尔京群岛",
+    "VI": "美属维尔京群岛",
+    "VN": "越南",
+    "VU": "瓦努阿图",
+    "WF": "瓦利斯和富图纳",
+    "WS": "萨摩亚",
+    "XK": "科索沃",
+    "YE": "也门",
+    "YT": "马约特",
+    "ZA": "南非",
+    "ZM": "赞比亚",
+    "ZW": "津巴布韦"
+  },
+  "faqInfoCard": {
+    "imageAlt": "",
+    "link": "前往常见问题",
+    "text": "获取有关我们服务、政策等最常见问题的答案。",
+    "title": "常见问题"
+  },
+  "firstName": {
+    "invalid": "请输入您的名字。",
+    "label": "名字"
+  },
+  "flightInfo": {
+    "booking": "预订 <sensitive>{{ pnr }}</sensitive>",
+    "status": {
+      "cancelled": "已取消",
+      "delayed": "延误",
+      "onTime": "准时",
+      "pending": "待处理",
+      "scheduled": "已计划",
+      "standby": "候补",
+      "waitlisted": "候补名单"
+    },
+    "stops": "次经停",
+    "travelClass": {
+      "business": "商务舱",
+      "default": "混合舱位",
+      "eco": "经济舱",
+      "first": "头等舱",
+      "premium-eco": " 优选经济舱"
+    },
+    "wcag": {
+      "card": "卡片 {{ current }}（共 {{ total }} 张），航班 {{ flightNumber }} 从 {{ origin }} 飞往 {{ destination }}，日期 {{ date }} - {{ bookingClass }}。{{ numberOfStops }} 个中转站。{{ originStatus }} 于 {{ originTime }} 出发。飞行时间 {{ duration }}。{{ destinationStatus }} 于 {{ destinationTime }} 到达",
+      "cardWithoutFlightNumber": "卡片 {{ current }}（共 {{ total }} 张）。从 {{ origin }} 飞往 {{ destination }}，日期 {{ date }} - {{ bookingClass }}。{{ numberOfStops }} 个中转站。{{ originStatus }} 于 {{ originTime }} 出发。飞行时间 {{ duration }}。{{ destinationStatus }} 于 {{ destinationTime }} 到达"
+    }
+  },
+  "flightStatus": {
+    "inbound": "返程",
+    "new": "新",
+    "notification": {
+      "success": "所有航班均按计划运行",
+      "warning": "您的行程已变更。请查看您的电子邮件以获取更多信息。"
+    },
+    "old": "旧",
+    "outbound": "去程",
+    "segment": "航段 {{ number }}"
+  },
+  "helpCenter": {
+    "bootstrapping": "请稍待片刻"
+  },
+  "helpOptions": {
+    "back": "返回联系选项",
+    "phoneInfo": {
+      "full": "此主题不提供电话支持。如果您觉得会有所帮助，欢迎在下方的问卷调查中留下宝贵的反馈，对此我们深表感谢。",
+      "short": "此主题不提供电话支持。"
+    },
+    "title": "帮助与联系方式"
+  },
+  "identifier": {
+    "hint": "预订代码包含 6 个字母和数字组合（例如 ABCD12）。机票号码为 13 位数字（例如 7391538503519）。",
+    "invalid": "预订代码包含 6 个字母和数字组合（例如 ABCD12）。机票号码为 13 位数字（例如 7391538503519）。",
+    "label": "预订代码或机票号码"
+  },
+  "informationalMessage": "",
+  "lastName": {
+    "invalid": "请输入您的姓氏。",
+    "label": "姓氏"
+  },
+  "notBookingDetails": "跳过",
+  "notifications": {
+    "milesAndMore": {
+      "call": {
+        "message": "前2分钟：每分钟0.08瑞士法郎；接下来10分钟：每分钟0.86瑞士法郎；之后：每分钟0.08瑞士法郎；价格包括增值税。"
+      }
+    }
+  },
+  "phoneHandover": {
+    "error": "此次我们无法分享您的详细信息。请在致电时准备好您的详细信息。",
+    "form": {
+      "buttons": {
+        "withSharing": "确认并致电"
+      },
+      "recording": {
+        "consent": "我同意出于培训和质量管理目的对我的通话进行录音。我可以随时撤回我的同意。",
+        "privacyPolicy": "数据保护"
+      }
+    },
+    "message": "我方代理在您致电时即可查看相关详情（例如您的姓名和Miles & More会员身份等级），无需您重复告知。",
+    "title": "随时准备接听来电"
+  },
+  "salutation": {
+    "female": "女士",
+    "male": "先生"
+  },
+  "searchInput": {
+    "button": "搜索",
+    "error": {
+      "maxLengthExceeded": "{{ inputCount }}。输入不超过 {{ maxLength }} 个字符。",
+      "minLengthNotMet": "{{ inputCount }}。输入最多 {{ minLength }} 个字符。"
+    },
+    "wcag": {
+      "clear": "清除",
+      "search": "搜索"
+    }
+  },
+  "selectedTopicInfo": {
+    "link": "选择其他请求"
+  },
+  "stepBreadcrumb": {
+    "home": "首页"
+  },
+  "steps": {
+    "bookingInfo": "航班详细信息（可选）",
+    "helpOptions": "帮助选项",
+    "screenReader": "{{ stepName }} 页面已加载。",
+    "topicSelection": "帮助"
+  },
+  "supportOptionCard": {
+    "recommended": "推荐"
+  },
+  "supportOptions": {
+    "call": "致电服务中心",
+    "chat_assistant": "聊天助手",
+    "live_chat": "实时聊天",
+    "self_service": "便捷自助服务"
+  },
+  "topicSearch": {
+    "error": {
+      "description": "我们目前无法显示您的搜索结果。请选择我们的帮助主题之一。",
+      "title": "个搜索结果。"
+    },
+    "humanSupportRequest": {
+      "message": "想要联系我们？ 请告诉我们您需要什么帮助，以便我们为您显示合适的联系方式。"
+    },
+    "noResults": {
+      "action": "开始聊天",
+      "description": "请重新调整搜索方式，或向我们的聊天助理 {{ chatAssistantName }} 寻求帮助。",
+      "title": "未找到结果"
+    },
+    "results": {
+      "title": "个搜索结果。",
+      "wcag": {
+        "list": "{{ resultsCount }} 个搜索结果。"
+      }
+    },
+    "searching": {
+      "ariaLabel": "正在加载结果",
+      "title": "个搜索结果。"
+    }
+  },
+  "topicSelection": {
+    "list": {
+      "description": "我们可以为您提供帮助的主题。",
+      "error": {
+        "action": "查看联系选项",
+        "message": "我们目前无法显示主题列表。请稍后重试，或联系我们寻求帮助。",
+        "title": "无法加载主题列表"
+      },
+      "title": "选择您的请求"
+    },
+    "loader": "正在加载您的帮助选项",
+    "searchBar": {
+      "label": "查找主题",
+      "placeholders": {
+        "default": [
+          "我的升舱未成功",
+          "我需要重新获取登机牌",
+          "我如何才能获取发票"
+        ],
+        "desktop": [],
+        "mobile": [],
+        "tablet": []
+      },
+      "wcag": {
+        "clear": "搜索已清除。"
+      }
+    },
+    "subtitle": "查找适用于您请求的答案和联系选项。",
+    "title": {
+      "loggedIn": "<sensitive>{{ greet }}</sensitive>，请问有什么可以帮您？",
+      "loggedOut": "我们可以如何为您提供帮助？"
+    }
+  },
+  "wcag": {
+    "close": "关闭",
+    "dialogOpened": "打开对话框",
+    "modalOpened": "在模态窗口中打开",
+    "newTabOpened": "在新标签页中打开",
+    "overlayOpened": "在覆盖层对话框中打开",
+    "phoneCall": "发起电话呼叫",
+    "samePageOpened": "在同一页面中打开",
+    "selected": "已选择",
+    "systemFolderOpened": "在对话框中打开系统文件夹"
+  }
+}

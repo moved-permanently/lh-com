@@ -1,0 +1,4716 @@
+{
+  "targetCustomerStatus": "BASE",
+  "menu": [
+    {
+      "code": "travelBookingStatus",
+      "title": "Актуальная информация о рейсе",
+      "children": [
+        {
+          "code": "currentTravelInformation",
+          "title": "Рекомендации для путешественников",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/ru/fly/flight-information/current-information",
+                "linkTitle": "Посмотреть информацию о поездке",
+                "description": "Узнайте информацию и получите помощь в случае забастовки или других изменений на рейсе.  ",
+                "title": "Получать новости о поездке",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "flightStatus",
+          "title": "Статус рейса",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/ru/fly/flight-information/arrival-departure#/",
+                "linkTitle": "Узнать",
+                "description": "Проверьте статус вашего рейса по коду, маршруту или аэропорту.",
+                "title": "Проверить статус рейса",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?start=FLIGHTSTATUS&language=en",
+                "linkTitle": "Написать в чат",
+                "description": "Nelly может проверить статус, время вылета и другие данные о вашем рейсе.",
+                "title": null,
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "FLIGHTSTATUS",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": "icon-flight-status",
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "checkConnection",
+          "title": "Проверить стыковочный рейс",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?start=flynet&language=en",
+                "linkTitle": "Написать в чат",
+                "description": "Если вы опоздаете на стыковочный рейс из-за отмены или задержки, Nelly поможет вам найти альтернативные рейсы.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "flynet",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-flight-status",
+      "imageUrl": "https://www.swiss.com/content/dam/lx/images/local_images/help-center//travel-information.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "rebookingsCancelationsRefunds",
+      "title": "Внесение изменений и отмена бронирований",
+      "children": [
+        {
+          "code": "rebookFlight",
+          "title": "Перебронировать рейс",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?start=CONTACTCENTERDEFAULT&language=en",
+                "linkTitle": "Написать в чат",
+                "description": "Nelly ответит на ваши вопросы и поможет выполнить следующие действия.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "CONTACTCENTERDEFAULT",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/ru/profile/login",
+                "linkTitle": "Управление бронированием",
+                "description": "Измените дату или время рейса онлайн для одного или нескольких пассажиров в вашем бронировании. \n \nПримечание. Чтобы изменить маршрут рейса, воспользуйтесь нашим Chat Assistant Nelly.",
+                "title": "Перебронировать рейс",
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://shop.swiss.com/booking/manage-booking/retrieve?lang=ru-RU&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "Начать чат",
+                "description": "Наши агенты сервисного центра готовы помочь в чате круглосуточно и без выходных.",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Позвонить в сервисный центр",
+                "description": "Если наши онлайн-услуги не смогли решить ваш вопрос, наш сервисный центр всегда готов помочь.",
+                "title": null,
+                "phone": "+496986798000",
+                "priority": 4,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": true,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "NewBoardingPass",
+          "title": "Оформить новый посадочный талон",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://once.swiss.com/connect/main-app?APPID=LHG_ONLINE&TENANT=LX&LANGUAGE=ru&COUNTRY=xx&MODE=PORTAL",
+                "linkTitle": "Перейти к регистрации",
+                "description": "Для получения нового посадочного талона пройдите повторную регистрацию по ссылке ниже.",
+                "title": "Пройти повторную регистрацию",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "confirmRebooking",
+          "title": "Подтвердить перебронирование",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?start=MISSINGCONFIRMATION&language=en",
+                "linkTitle": "Написать в чат",
+                "description": "Nelly может проверить статус вашего перебронирования.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "MISSINGCONFIRMATION",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "Начать чат",
+                "description": "Если ваше бронирование было изменено, специалисты нашего сервисного центра могут повторно отправить вам новое подтверждение бронирования и помочь перебронировать любые дополнительные услуги (например, бронирование мест).",
+                "title": null,
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "OvernightStay",
+          "title": "Пребывание в отеле из-за задержки рейса",
+          "children": [
+            {
+              "code": "BookOvernightStay",
+              "title": "Мне нужна помощь в бронировании отеля",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/hotel-check",
+                    "linkTitle": "Подтвердить сейчас",
+                    "description": "Подтвердите свои контактные данные, чтобы получить ссылку на бронирование пребывания.  \n \nОбратите внимание: в настоящее время следующий веб-сайт доступен только на английском и немецком языках.",
+                    "title": "Подтвердить контактные данные",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "FORM",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.swiss.com/xx/ru/fly/flight-information/flight-irregularities/faq.html#accordion-item-section-hotel",
+                    "linkTitle": "Открыть раздел «Часто задаваемые вопросы»",
+                    "description": "Узнайте, где получить помощь с организацией посуточного пребывания из-за задержки рейса и как запросить возмещение расходов на отель.",
+                    "title": "Помощь с организацией пребывания в отеле",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "RefundOvernightStay",
+              "title": "Я уже забронировал(-а) отель",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.swiss.com/xx/ru/customer-support/contact-us/application-for-compensation-in-the-event-of-flight-irregularities",
+                    "linkTitle": "Открыть форму",
+                    "description": "Заполните эту форму, чтобы запросить возмещение расходов, связанных с пребыванием.",
+                    "title": "Запрос на возмещение расходов",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "FORM",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "cancelBookingGetRefund",
+          "title": "Запросить отмену и (или) возврат средств",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?start=refund&language=en",
+                "linkTitle": "Написать в чат",
+                "description": "Nelly может отменить ваше бронирование и инициировать возврат средств.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "refund",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/ru/profile/login",
+                "linkTitle": "Управление бронированием",
+                "description": "Отмените бронирование и запросите возврат средств онлайн. \n \nОбратите внимание: возможна только полная отмена бронирования.",
+                "title": "Отменить бронирование",
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://shop.swiss.com/booking/manage-booking/retrieve?lang=ru-RU&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "Начать чат",
+                "description": "Наши агенты сервисного центра готовы помочь в чате круглосуточно и без выходных.",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Позвонить в сервисный центр",
+                "description": "Если наши онлайн-услуги не смогли решить ваш вопрос, наш сервисный центр всегда готов помочь.",
+                "title": null,
+                "phone": "+496986798000",
+                "priority": 4,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": true,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "delayCancelationConfirmation",
+          "title": "Подтвердить отмену",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "Начать чат",
+                "description": "После отмены вы получите электронное письмо с подтверждением, которое могло попасть в папку со спамом. Для повторной отправки подтверждения отмены обратитесь в наш сервисный центр.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-flight-irreg",
+      "imageUrl": "https://www.swiss.com/content/dam/lx/images/local_images/help-center//rebooking-cancellation-refund.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "RefundsAndCompensations",
+      "title": "Возврат средств и компенсация",
+      "children": [
+        {
+          "code": "claimCompensationFlightDisruption",
+          "title": "Компенсация за изменения рейсов, вносимые авиакомпанией",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/ru/customer-support/contact-us/application-for-compensation-in-the-event-of-flight-irregularities/compensation-flight-disruptions",
+                "linkTitle": "Открыть форму",
+                "description": "Если ваш рейс был отменен, задержан не менее чем на 3 часа или вы пропустили стыковочный рейс, воспользуйтесь нашей формой обратной связи, чтобы запросить возмещение расходов.",
+                "title": "Запросить компенсацию",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "cancelBookingGetRefund",
+          "title": "Запросить отмену и (или) возврат средств",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?start=refund&language=en",
+                "linkTitle": "Написать в чат",
+                "description": "Nelly может отменить ваше бронирование и инициировать возврат средств.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "refund",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/ru/profile/login",
+                "linkTitle": "Управление бронированием",
+                "description": "Отмените бронирование и запросите возврат средств онлайн. \n \nОбратите внимание: возможна только полная отмена бронирования.",
+                "title": "Отменить бронирование",
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://shop.swiss.com/booking/manage-booking/retrieve?lang=ru-RU&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "Начать чат",
+                "description": "Наши агенты сервисного центра готовы помочь в чате круглосуточно и без выходных.",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Позвонить в сервисный центр",
+                "description": "Если наши онлайн-услуги не смогли решить ваш вопрос, наш сервисный центр всегда готов помочь.",
+                "title": null,
+                "phone": "+496986798000",
+                "priority": 4,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": true,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "confirmRefund",
+          "title": "Подтвердить возврат средств",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "Начать чат",
+                "description": "Для повторной отправки подтверждения возврата средств или проверки статуса возврата обратитесь к агентам нашего сервисного центра.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "refundBaggageIrregularities",
+          "title": "Возмещение расходов в случае проблем с багажом",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/ru/baggage-reimbursement",
+                "linkTitle": "Открыть форму",
+                "description": "Воспользуйтесь нашей формой обратной связи для запроса компенсации дополнительных расходов при задержке или повреждении багажа.",
+                "title": "Запрос на возмещение расходов",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/ru/prepare/baggage/baggage-irregularities",
+                "linkTitle": "Подробнее",
+                "description": "Узнайте, где получить помощь при задержке или повреждении багажа и как запросить возмещение.",
+                "title": "Подробнее о проблемах с багажом",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?language=en&start=DYNAMIC_RefundsAndCompensations-refundBaggageIrregularities",
+                "linkTitle": "Написать в чат",
+                "description": "Nelly ответит на ваши вопросы и поможет выполнить следующие действия.",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_RefundsAndCompensations-refundBaggageIrregularities",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "OvernightStay",
+          "title": "Пребывание в отеле из-за задержки рейса",
+          "children": [
+            {
+              "code": "BookOvernightStay",
+              "title": "Мне нужна помощь в бронировании отеля",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/hotel-check",
+                    "linkTitle": "Подтвердить сейчас",
+                    "description": "Подтвердите свои контактные данные, чтобы получить ссылку на бронирование пребывания.  \n \nОбратите внимание: в настоящее время следующий веб-сайт доступен только на английском и немецком языках.",
+                    "title": "Подтвердить контактные данные",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "FORM",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.swiss.com/xx/ru/fly/flight-information/flight-irregularities/faq.html#accordion-item-section-hotel",
+                    "linkTitle": "Открыть раздел «Часто задаваемые вопросы»",
+                    "description": "Узнайте, где получить помощь с организацией посуточного пребывания из-за задержки рейса и как запросить возмещение расходов на отель.",
+                    "title": "Помощь с организацией пребывания в отеле",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "RefundOvernightStay",
+              "title": "Я уже забронировал(-а) отель",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.swiss.com/xx/ru/customer-support/contact-us/application-for-compensation-in-the-event-of-flight-irregularities",
+                    "linkTitle": "Открыть форму",
+                    "description": "Заполните эту форму, чтобы запросить возмещение расходов, связанных с пребыванием.",
+                    "title": "Запрос на возмещение расходов",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "FORM",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "MealVoucher",
+          "title": "Ваучер на питание",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/ru/fly/flight-information/flight-irregularities/faq#accordion-item-section-voucher",
+                "linkTitle": "Подробнее",
+                "description": "В большинстве случаев вы автоматически получаете купон на питание, который будет привязан к QR-коду вашего билета. Узнайте, как получить купон на питание и где его использовать.",
+                "title": "Узнать условия",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "TravelbyTrain",
+          "title": "Альтернативный вариант перевозки на поезде",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/ru/good-for-train",
+                "linkTitle": "Введите данные бронирования",
+                "description": "Нет подходящей альтернативы отмененному рейсу? Обменяйте билет на рейс на ваучер на поезд. \n \nОбратите внимание: это относится только к определенным маршрутам.",
+                "title": "Получить ваучер на поезд",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "passengerRights",
+          "title": "Права пассажира",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/ru/terms-conditions/passenger-rights",
+                "linkTitle": "Подробнее",
+                "description": "Узнайте о правах пассажиров в случае отмены, задержки или других изменений на рейсе.",
+                "title": "Посмотреть права пассажиров",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-refund-possible",
+      "imageUrl": "https://www.swiss.com/content/dam/lx/images/local_images/help-center//refund-compensations.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "checkin",
+      "title": "Регистрация на рейс",
+      "children": [
+        {
+          "code": "HelpWithCheckIn",
+          "title": "Проблема с регистрацией",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?start=checkin&language=en",
+                "linkTitle": "Написать в чат",
+                "description": "Nelly поможет вам узнать, почему вы не можете зарегистрироваться на рейс.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "checkin",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Позвонить в сервисный центр",
+                "description": "Наши специалисты всегда рады помочь вам с любыми вопросами или проблемами.",
+                "title": null,
+                "phone": "+496986798000",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "lateNightCheckin",
+          "title": "Ранняя сдача багажа",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?language=en&start=DYNAMIC_checkin-lateNightCheckin",
+                "linkTitle": "Написать в чат",
+                "description": "Nelly ответит на ваши вопросы и поможет выполнить следующие действия.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_checkin-lateNightCheckin",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/ru/fly/check-in/previous-day-check-in",
+                "linkTitle": "Подробнее",
+                "description": "Пройдите регистрацию и сдайте багаж накануне вылета.",
+                "title": "Ранняя регистрация багажа",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "NewBoardingPass",
+          "title": "Оформить новый посадочный талон",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://once.swiss.com/connect/main-app?APPID=LHG_ONLINE&TENANT=LX&LANGUAGE=ru&COUNTRY=xx&MODE=PORTAL",
+                "linkTitle": "Перейти к регистрации",
+                "description": "Для получения нового посадочного талона пройдите повторную регистрацию по ссылке ниже.",
+                "title": "Пройти повторную регистрацию",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "otherCheckinQuestions",
+          "title": "Вопросы о регистрации",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?language=en&start=DYNAMIC_checkin-otherCheckinQuestions",
+                "linkTitle": "Написать в чат",
+                "description": "Nelly ответит на ваши вопросы и поможет выполнить следующие действия.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_checkin-otherCheckinQuestions",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/ru/fly/check-in",
+                "linkTitle": "См. обзор",
+                "description": "Найдите самый удобный вариант регистрации на следующий рейс.",
+                "title": "Посмотреть варианты регистрации",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/ru/customer-support/faq/check-in",
+                "linkTitle": "Подробнее о регистрации",
+                "description": "Получите ответы на самые частые вопросы о регистрации здесь.",
+                "title": "Посмотреть часто задаваемые вопросы о регистрации",
+                "phone": null,
+                "priority": 3,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-boarding-card",
+      "imageUrl": "https://www.swiss.com/content/dam/lx/images/local_images/help-center//check-in.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "baggage",
+      "title": "Багаж",
+      "children": [
+        {
+          "code": "baggage.rules",
+          "title": "Стоимость и правила перевозки багажа",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/ru/profile/login",
+                "linkTitle": "Управление бронированием",
+                "description": "Узнайте норму провоза багажа на следующем рейсе.",
+                "title": "Узнать норму бесплатного провоза багажа",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.swiss.com/booking/services/BAGGAGE?lang=ru-RU&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/ru/prepare/baggage",
+                "linkTitle": "Перейти к обзору",
+                "description": "Обзор всех типов багажа и услуг.",
+                "title": "Посмотреть все услуги, связанные с багажом",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "Начать чат",
+                "description": "Наши агенты сервисного центра готовы помочь в чате круглосуточно и без выходных.",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Позвонить в сервисный центр",
+                "description": "Нужна дополнительная помощь? Наши специалисты всегда рады помочь вам с любыми вопросами или проблемами.",
+                "title": null,
+                "phone": "+496986798000",
+                "priority": 4,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "baggage.excess",
+          "title": "Дополнительный багаж / сверхнормативный багаж",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/ru/profile/login",
+                "linkTitle": "Управление бронированием",
+                "description": "Посмотрите норму багажа на следующем рейсе и при необходимости добавьте еще.",
+                "title": "Добавить дополнительный багаж",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.swiss.com/booking/services/BAGGAGE?lang=ru-RU&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?language=en&start=DYNAMIC_baggage-baggage_excess",
+                "linkTitle": "Написать в чат",
+                "description": "Nelly ответит на ваши вопросы и поможет выполнить следующие действия.",
+                "title": null,
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_baggage-baggage_excess",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/ru/prepare/baggage/excess-baggage",
+                "linkTitle": "Посмотреть все правила",
+                "description": "Получите дополнительную информацию о разрешенном весе и размерах сверхнормативного багажа в зависимости от забронированного тарифа.",
+                "title": "Узнать правила перевозки багажа",
+                "phone": null,
+                "priority": 3,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "Начать чат",
+                "description": "Наши агенты сервисного центра готовы помочь в чате круглосуточно и без выходных.",
+                "title": null,
+                "phone": null,
+                "priority": 4,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Позвонить в сервисный центр",
+                "description": "Нужна дополнительная помощь? Наши специалисты всегда рады помочь вам с любыми вопросами или проблемами.",
+                "title": null,
+                "phone": "+496986798000",
+                "priority": 5,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "baggage.sports",
+          "title": "Добавить спортивный инвентарь",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/ru/prepare/baggage/sports-equipment/register-sports-baggage",
+                "linkTitle": "Открыть форму",
+                "description": "Заполните форму, чтобы добавить в бронирование спортивное снаряжение.",
+                "title": "Зарегистрировать спортивное снаряжение",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?language=en&start=DYNAMIC_baggage-baggage_sports",
+                "linkTitle": "Написать в чат",
+                "description": "Nelly ответит на ваши вопросы и поможет выполнить следующие действия.",
+                "title": null,
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_baggage-baggage_sports",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/ru/prepare/baggage/sports-equipment",
+                "linkTitle": "Посмотреть все правила",
+                "description": "Здесь содержится вся информация о перевозке спортивного снаряжения и специального багажа.",
+                "title": "Узнать правила перевозки багажа",
+                "phone": null,
+                "priority": 3,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "Начать чат",
+                "description": "Наши агенты сервисного центра готовы помочь в чате круглосуточно и без выходных.",
+                "title": null,
+                "phone": null,
+                "priority": 4,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Позвонить в сервисный центр",
+                "description": "Наши специалисты всегда рады помочь вам с любыми вопросами или проблемами.",
+                "title": null,
+                "phone": "+496986798000",
+                "priority": 5,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "pets",
+          "title": "Путешествие с домашними животными",
+          "children": [
+            {
+              "code": "travelPetsInCabin",
+              "title": "Животные в салоне (не более 8 кг вместе с контейнером для перевозки)",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.swiss.com/xx/ru/profile/login",
+                    "linkTitle": "Зарегистрироваться",
+                    "description": "Зарегистрируйте домашнее животное для существующего бронирования, чтобы взять его с собой в салон (не позднее чем за 72 часа до вылета).",
+                    "title": "Добавить домашнее животное",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.swiss.com/booking/services/PETS?lang=ru-RU&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "CHAT_ASSISTANT",
+                    "link": "https://www.swiss.com/digitalassistant/deeplink?language=en&start=DYNAMIC_pets-travelPetsInCabin",
+                    "linkTitle": "Написать в чат",
+                    "description": "Nelly ответит на ваши вопросы и поможет выполнить следующие действия.",
+                    "title": null,
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": {
+                      "url": "https://www.swiss.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "DYNAMIC_pets-travelPetsInCabin",
+                        "language": "en",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [
+                      {
+                        "type": "info",
+                        "title": null,
+                        "message": "chatAssistant.languageNotAvailable",
+                        "reason": null
+                      }
+                    ],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.swiss.com/xx/ru/prepare/special-care/animals-travelling",
+                    "linkTitle": "Посмотреть все условия",
+                    "description": "Ознакомьтесь с условиями перевозки домашних животных и убедитесь, что у вас есть все необходимые документы.",
+                    "title": "Проверить условия поездки",
+                    "phone": null,
+                    "priority": 3,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "LIVE_CHAT",
+                    "link": "https://www.swiss.com/digitalassistant/deeplink?start=liveagent&language=en",
+                    "linkTitle": "Начать чат",
+                    "description": "Наши агенты сервисного центра готовы помочь в чате круглосуточно и без выходных.",
+                    "title": null,
+                    "phone": null,
+                    "priority": 4,
+                    "deeplink": {
+                      "url": "https://www.swiss.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "liveagent",
+                        "language": "en",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [
+                      {
+                        "type": "info",
+                        "title": null,
+                        "message": "chatAssistant.languageNotAvailable",
+                        "reason": null
+                      }
+                    ],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "Позвонить в сервисный центр",
+                    "description": "Наши специалисты всегда рады помочь вам с любыми вопросами или проблемами.",
+                    "title": null,
+                    "phone": "+496986798000",
+                    "priority": 5,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": true
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            },
+            {
+              "code": "travelPetsInHold",
+              "title": "Животные в грузовом отсеке",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.swiss.com/xx/ru/prepare/special-care/animals-travelling/register-animal-cargo-hold",
+                    "linkTitle": "Зарегистрироваться",
+                    "description": "Зарегистрируйте собаку или кошку для перевозки в грузовом отсеке на рейсе SWISS (не позднее чем за 72 часа до вылета).",
+                    "title": "Зарегистрировать перевозку домашнего животного",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "FORM",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "CHAT_ASSISTANT",
+                    "link": "https://www.swiss.com/digitalassistant/deeplink?language=en&start=DYNAMIC_pets-travelPetsInHold",
+                    "linkTitle": "Написать в чат",
+                    "description": "Nelly ответит на ваши вопросы и поможет выполнить следующие действия.",
+                    "title": null,
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": {
+                      "url": "https://www.swiss.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "DYNAMIC_pets-travelPetsInHold",
+                        "language": "en",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [
+                      {
+                        "type": "info",
+                        "title": null,
+                        "message": "chatAssistant.languageNotAvailable",
+                        "reason": null
+                      }
+                    ],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.swiss.com/xx/ru/prepare/special-care/animals-travelling",
+                    "linkTitle": "Посмотреть все условия",
+                    "description": "Узнайте о правилах и вариантах перевозки животных на рейсах SWISS.",
+                    "title": "Узнать условия",
+                    "phone": null,
+                    "priority": 3,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "LIVE_CHAT",
+                    "link": "https://www.swiss.com/digitalassistant/deeplink?start=liveagent&language=en",
+                    "linkTitle": "Начать чат",
+                    "description": "Наши агенты сервисного центра готовы помочь в чате круглосуточно и без выходных.",
+                    "title": null,
+                    "phone": null,
+                    "priority": 4,
+                    "deeplink": {
+                      "url": "https://www.swiss.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "liveagent",
+                        "language": "en",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [
+                      {
+                        "type": "info",
+                        "title": null,
+                        "message": "chatAssistant.languageNotAvailable",
+                        "reason": null
+                      }
+                    ],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "Позвонить в сервисный центр",
+                    "description": "Наши специалисты всегда рады помочь вам с любыми вопросами или проблемами.",
+                    "title": null,
+                    "phone": "+496986798000",
+                    "priority": 5,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": true
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "lateNightCheckin",
+          "title": "Ранняя сдача багажа",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?language=en&start=DYNAMIC_baggage-lateNightCheckin",
+                "linkTitle": "Написать в чат",
+                "description": "Nelly ответит на ваши вопросы и поможет выполнить следующие действия.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_baggage-lateNightCheckin",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/ru/fly/check-in/previous-day-check-in",
+                "linkTitle": "Подробнее",
+                "description": "Пройдите регистрацию и сдайте багаж накануне вылета.",
+                "title": "Ранняя регистрация багажа",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "baggage.damagedOrDelayed",
+          "title": "Проблемы с багажом",
+          "children": [
+            {
+              "code": "reportDelayedBaggage",
+              "title": "Заявить о задержке багажа",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "CHAT_ASSISTANT",
+                    "link": "https://www.swiss.com/digitalassistant/deeplink?start=DELAYBAGCREATE&language=en",
+                    "linkTitle": "Написать в чат",
+                    "description": "Если зарегистрированный багаж не прибыл, Nelly подскажет, как сообщить о задержке багажа.",
+                    "title": null,
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://www.swiss.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "DELAYBAGCREATE",
+                        "language": "en",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [
+                      {
+                        "type": "info",
+                        "title": null,
+                        "message": "chatAssistant.languageNotAvailable",
+                        "reason": null
+                      }
+                    ],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.swiss.com/xx/ru/customer-support/faq/baggage-irregularities-faq",
+                    "linkTitle": "Открыть раздел «Часто задаваемые вопросы»",
+                    "description": "Ответы на самые распространенные вопросы о задержке багажа содержатся в разделе «Часто задаваемые вопросы».",
+                    "title": "Подробнее о задержке багажа",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "statusBaggageReport",
+              "title": "Управление заявлением о задержке багажа",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "CHAT_ASSISTANT",
+                    "link": "https://www.swiss.com/digitalassistant/deeplink?start=DELAYBAG&language=en",
+                    "linkTitle": "Написать в чат",
+                    "description": "Nelly поможет вам отследить или изменить заявление о задержке багажа. Вы также можете закрыть заявление после возврата багажа.",
+                    "title": null,
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://www.swiss.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "DELAYBAG",
+                        "language": "en",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [
+                      {
+                        "type": "info",
+                        "title": null,
+                        "message": "chatAssistant.languageNotAvailable",
+                        "reason": null
+                      }
+                    ],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.swiss.com/xx/ru/customer-support/faq/baggage-irregularities-faq",
+                    "linkTitle": "Открыть раздел «Часто задаваемые вопросы»",
+                    "description": "Ответы на самые распространенные вопросы о задержке багажа содержатся в разделе «Часто задаваемые вопросы».",
+                    "title": "Подробнее о задержке багажа",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "reportDamagedBaggage",
+              "title": "Сообщить о повреждении багажа",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://mybag.aero/swiss/damaged/en",
+                    "linkTitle": "Подать заявление",
+                    "description": "Подайте заявление о повреждении багажа (в течение 72 часов после прилета).",
+                    "title": "Сообщить о повреждении багажа",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "FORM",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.swiss.com/xx/ru/customer-support/faq/damaged-baggage-faq",
+                    "linkTitle": "Открыть раздел «Часто задаваемые вопросы»",
+                    "description": "Ответы на самые распространенные вопросы о поврежденном багаже содержатся в разделе «Часто задаваемые вопросы».",
+                    "title": "Подробнее о поврежденном багаже",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CHAT_ASSISTANT",
+                    "link": "https://www.swiss.com/digitalassistant/deeplink?language=en&start=DYNAMIC_baggage_damagedOrDelayed-reportDamagedBaggage",
+                    "linkTitle": "Написать в чат",
+                    "description": "Nelly ответит на ваши вопросы и поможет выполнить следующие действия.",
+                    "title": null,
+                    "phone": null,
+                    "priority": 3,
+                    "deeplink": {
+                      "url": "https://www.swiss.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "DYNAMIC_baggage_damagedOrDelayed-reportDamagedBaggage",
+                        "language": "en",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [
+                      {
+                        "type": "info",
+                        "title": null,
+                        "message": "chatAssistant.languageNotAvailable",
+                        "reason": null
+                      }
+                    ],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "refundBaggageIrregularities",
+              "title": "Возмещение расходов в случае проблем с багажом",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.swiss.com/xx/ru/baggage-reimbursement",
+                    "linkTitle": "Открыть форму",
+                    "description": "Воспользуйтесь нашей формой обратной связи для запроса компенсации дополнительных расходов при задержке или повреждении багажа.",
+                    "title": "Запрос на возмещение расходов",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "FORM",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.swiss.com/xx/ru/prepare/baggage/baggage-irregularities",
+                    "linkTitle": "Подробнее",
+                    "description": "Узнайте, где получить помощь при задержке или повреждении багажа и как запросить возмещение.",
+                    "title": "Подробнее о проблемах с багажом",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CHAT_ASSISTANT",
+                    "link": "https://www.swiss.com/digitalassistant/deeplink?language=en&start=DYNAMIC_baggage_damagedOrDelayed-refundBaggageIrregularities",
+                    "linkTitle": "Написать в чат",
+                    "description": "Nelly ответит на ваши вопросы и поможет выполнить следующие действия.",
+                    "title": null,
+                    "phone": null,
+                    "priority": 3,
+                    "deeplink": {
+                      "url": "https://www.swiss.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "DYNAMIC_baggage_damagedOrDelayed-refundBaggageIrregularities",
+                        "language": "en",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [
+                      {
+                        "type": "info",
+                        "title": null,
+                        "message": "chatAssistant.languageNotAvailable",
+                        "reason": null
+                      }
+                    ],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "baggage.lost",
+          "title": "Утеря личной вещи",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?language=en&start=DYNAMIC-baggage_lost-baggage",
+                "linkTitle": "Написать в чат",
+                "description": "Nelly ответит на ваши вопросы и поможет выполнить следующие действия.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC-baggage_lost-baggage",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/ru/prepare/baggage/baggage-irregularities#3",
+                "linkTitle": "Сообщить",
+                "description": "Сообщите о личных вещах, потерянных в аэропорту, на борту самолета или пропавших из зарегистрированного багажа.",
+                "title": "Сообщить об утерянном предмете",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "baggage.dangerousGoods",
+          "title": "Опасные предметы и вещества, оружие",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?language=en&start=DYNAMIC_baggage-baggage_dangerousGoods",
+                "linkTitle": "Написать в чат",
+                "description": "Nelly ответит на ваши вопросы и поможет выполнить следующие действия.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_baggage-baggage_dangerousGoods",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/ru/prepare/baggage/dangerous-goods",
+                "linkTitle": "Посмотреть все правила",
+                "description": "Ознакомьтесь с нашим полным перечнем опасных предметов и веществ, запрещенных к перевозке.",
+                "title": "Узнать правила перевозки багажа",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "Начать чат",
+                "description": "Наши агенты сервисного центра готовы помочь в чате круглосуточно и без выходных.",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Позвонить в сервисный центр",
+                "description": "Наши специалисты всегда рады помочь вам с любыми вопросами или проблемами.",
+                "title": null,
+                "phone": "+496986798000",
+                "priority": 4,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "OtherQuestionsBaggage",
+          "title": "Другие вопросы о багаже",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?language=en&start=DYNAMIC_baggage-OtherQuestionsBaggage",
+                "linkTitle": "Написать в чат",
+                "description": "Nelly ответит на ваши вопросы и поможет выполнить следующие действия.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_baggage-OtherQuestionsBaggage",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-baggage",
+      "imageUrl": "https://www.swiss.com/content/dam/lx/images/local_images/help-center//baggage.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "addFlightServices",
+      "title": "Дополнительные услуги",
+      "children": [
+        {
+          "code": "booking.Seats",
+          "title": "Места",
+          "children": [
+            {
+              "code": "changeSeat",
+              "title": "Добавить или изменить место",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.swiss.com/xx/ru/profile/login",
+                    "linkTitle": "Управление бронированием",
+                    "description": "Забронируйте или измените место онлайн не позднее чем за 2 часа до вылета.",
+                    "title": "Добавить или изменить место",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.swiss.com/booking/manage-booking/retrieve?lang=ru-RU&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.swiss.com/xx/ru/book-and-manage/swiss-choice/advance-seat-reservation",
+                    "linkTitle": "См. обзор",
+                    "description": "Получите информацию обо всех категориях мест и их стоимости на каждом маршруте.",
+                    "title": "Посмотреть все категории мест",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "Позвонить в сервисный центр",
+                    "description": "Забронируйте или измените место по телефону не позднее чем за 48 часов до вылета.",
+                    "title": null,
+                    "phone": "+496986798000",
+                    "priority": 3,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": true
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            },
+            {
+              "code": "BookNeighboringSeat",
+              "title": "Забронировать соседнее место",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "Позвонить в сервисный центр",
+                    "description": "Позвоните в наш сервисный центр, чтобы забронировать свободное место рядом с вами для еще более комфортного перелета.",
+                    "title": null,
+                    "phone": "+496986798000",
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": true
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "specialMeal",
+          "title": "Питание на борту",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/ru/profile/login",
+                "linkTitle": "Управление бронированием",
+                "description": "Закажите специальное питание в соответствии со своими диетическими или религиозными предпочтениями. \n \nОбратите внимание: доступность данной услуги зависит от условий бронирования.",
+                "title": "Заказать специальное питание",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.swiss.com/booking/manage-booking/retrieve?lang=ru-RU&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/ru/fly/on-board/food-and-beverage/culinary-journey#/entry",
+                "linkTitle": "Смотреть меню",
+                "description": "Ознакомьтесь с кулинарными услугами на наших рейсах и заранее закажите питание для следующего перелeта.",
+                "title": "Подробнее о питании на борту",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?language=en&start=DYNAMIC_addFlightServices-specialMeal",
+                "linkTitle": "Написать в чат",
+                "description": "Nelly ответит на ваши вопросы и поможет выполнить следующие действия.",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_addFlightServices-specialMeal",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "Начать чат",
+                "description": "Наши агенты сервисного центра готовы помочь в чате круглосуточно и без выходных.",
+                "title": null,
+                "phone": null,
+                "priority": 4,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Позвонить в сервисный центр",
+                "description": "Наши специалисты всегда рады помочь вам с любыми вопросами или проблемами.",
+                "title": null,
+                "phone": "+496986798000",
+                "priority": 5,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "onBoardServices",
+          "title": "Обслуживание на борту",
+          "children": [
+            {
+              "code": "ejournals",
+              "title": "Электронные газеты и журналы",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.swiss.com/xx/ru/customer-support/faq/ejournals",
+                    "linkTitle": "Показать часто задаваемые вопросы",
+                    "description": "Нажмите здесь, чтобы узнать об eJournals и сразу же загрузить их.",
+                    "title": "Посмотреть часто задаваемые вопросы о eJournal",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "flynet",
+              "title": "Интернет на борту",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.swiss.com/xx/ru/customer-support/faq/swiss-connect",
+                    "linkTitle": "Посмотреть часто задаваемые вопросы",
+                    "description": "Узнайте больше о SWISS Connect — нашей услуге доступа в Интернет на борту — и о том, как ей пользоваться.",
+                    "title": "Откройте для себя Wi-Fi на борту",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "inflightEntertainment",
+              "title": "Развлечения на борту",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.swiss.com/xx/ru/fly/on-board/entertainment-on-board",
+                    "linkTitle": "Посмотреть все варианты",
+                    "description": "Узнайте все о доступных развлечениях, которые сделают ваше пребывание на борту более приятным. Вас ждут фильмы и сериалы, а также аудиокниги, музыка и игры.",
+                    "title": "Узнать о развлечениях на борту",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "Lounges",
+          "title": "Бизнес-залы",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?language=en&start=DYNAMIC_addFlightServices-Lounges",
+                "linkTitle": "Написать в чат",
+                "description": "Nelly ответит на ваши вопросы и поможет выполнить следующие действия.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_addFlightServices-Lounges",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/ru/fly/airport/lounges/lounges-worldwide",
+                "linkTitle": "Посмотреть каталог",
+                "description": "Найдите информацию о доступных бизнес-залах, включая часы их работы и услуги, в соответствующих аэропортах.",
+                "title": "Найти бизнес-залы",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/ru/fly/airport/lounges/admission-rules",
+                "linkTitle": "Перейти к обзору",
+                "description": "Посмотрите, какие бизнес-залы вы можете посетить по прилете или перед вылетом, а также можете ли вы взять с собой компаньона.",
+                "title": "Проверить возможность доступа в зал ожидания",
+                "phone": null,
+                "priority": 3,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "TravelInsurance",
+          "title": "Страхование",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/ru/profile/login",
+                "linkTitle": "Выбрать страховку",
+                "description": "Оформите страховой полис для следующего перелета.  \n  \nОбратите внимание: доступность данной услуги зависит от условий бронирования.",
+                "title": "Оформить страховку",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.swiss.com/booking/manage-booking/retrieve?lang=ru-RU&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "pets",
+          "title": "Путешествие с домашними животными",
+          "children": [
+            {
+              "code": "travelPetsInCabin",
+              "title": "Животные в салоне (не более 8 кг вместе с контейнером для перевозки)",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.swiss.com/xx/ru/profile/login",
+                    "linkTitle": "Зарегистрироваться",
+                    "description": "Зарегистрируйте домашнее животное для существующего бронирования, чтобы взять его с собой в салон (не позднее чем за 72 часа до вылета).",
+                    "title": "Добавить домашнее животное",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.swiss.com/booking/services/PETS?lang=ru-RU&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "CHAT_ASSISTANT",
+                    "link": "https://www.swiss.com/digitalassistant/deeplink?language=en&start=DYNAMIC_pets-travelPetsInCabin",
+                    "linkTitle": "Написать в чат",
+                    "description": "Nelly ответит на ваши вопросы и поможет выполнить следующие действия.",
+                    "title": null,
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": {
+                      "url": "https://www.swiss.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "DYNAMIC_pets-travelPetsInCabin",
+                        "language": "en",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [
+                      {
+                        "type": "info",
+                        "title": null,
+                        "message": "chatAssistant.languageNotAvailable",
+                        "reason": null
+                      }
+                    ],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.swiss.com/xx/ru/prepare/special-care/animals-travelling",
+                    "linkTitle": "Посмотреть все условия",
+                    "description": "Ознакомьтесь с условиями перевозки домашних животных и убедитесь, что у вас есть все необходимые документы.",
+                    "title": "Проверить условия поездки",
+                    "phone": null,
+                    "priority": 3,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "LIVE_CHAT",
+                    "link": "https://www.swiss.com/digitalassistant/deeplink?start=liveagent&language=en",
+                    "linkTitle": "Начать чат",
+                    "description": "Наши агенты сервисного центра готовы помочь в чате круглосуточно и без выходных.",
+                    "title": null,
+                    "phone": null,
+                    "priority": 4,
+                    "deeplink": {
+                      "url": "https://www.swiss.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "liveagent",
+                        "language": "en",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [
+                      {
+                        "type": "info",
+                        "title": null,
+                        "message": "chatAssistant.languageNotAvailable",
+                        "reason": null
+                      }
+                    ],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "Позвонить в сервисный центр",
+                    "description": "Наши специалисты всегда рады помочь вам с любыми вопросами или проблемами.",
+                    "title": null,
+                    "phone": "+496986798000",
+                    "priority": 5,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": true
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            },
+            {
+              "code": "travelPetsInHold",
+              "title": "Животные в грузовом отсеке",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.swiss.com/xx/ru/prepare/special-care/animals-travelling/register-animal-cargo-hold",
+                    "linkTitle": "Зарегистрироваться",
+                    "description": "Зарегистрируйте собаку или кошку для перевозки в грузовом отсеке на рейсе SWISS (не позднее чем за 72 часа до вылета).",
+                    "title": "Зарегистрировать перевозку домашнего животного",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "FORM",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "CHAT_ASSISTANT",
+                    "link": "https://www.swiss.com/digitalassistant/deeplink?language=en&start=DYNAMIC_pets-travelPetsInHold",
+                    "linkTitle": "Написать в чат",
+                    "description": "Nelly ответит на ваши вопросы и поможет выполнить следующие действия.",
+                    "title": null,
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": {
+                      "url": "https://www.swiss.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "DYNAMIC_pets-travelPetsInHold",
+                        "language": "en",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [
+                      {
+                        "type": "info",
+                        "title": null,
+                        "message": "chatAssistant.languageNotAvailable",
+                        "reason": null
+                      }
+                    ],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.swiss.com/xx/ru/prepare/special-care/animals-travelling",
+                    "linkTitle": "Посмотреть все условия",
+                    "description": "Узнайте о правилах и вариантах перевозки животных на рейсах SWISS.",
+                    "title": "Узнать условия",
+                    "phone": null,
+                    "priority": 3,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "LIVE_CHAT",
+                    "link": "https://www.swiss.com/digitalassistant/deeplink?start=liveagent&language=en",
+                    "linkTitle": "Начать чат",
+                    "description": "Наши агенты сервисного центра готовы помочь в чате круглосуточно и без выходных.",
+                    "title": null,
+                    "phone": null,
+                    "priority": 4,
+                    "deeplink": {
+                      "url": "https://www.swiss.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "liveagent",
+                        "language": "en",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [
+                      {
+                        "type": "info",
+                        "title": null,
+                        "message": "chatAssistant.languageNotAvailable",
+                        "reason": null
+                      }
+                    ],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "Позвонить в сервисный центр",
+                    "description": "Наши специалисты всегда рады помочь вам с любыми вопросами или проблемами.",
+                    "title": null,
+                    "phone": "+496986798000",
+                    "priority": 5,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": true
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "TravelingWithChildren",
+          "title": "Путешествие с детьми",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/ru/prepare/special-care/children-travelling",
+                "linkTitle": "Подробнее",
+                "description": "Здесь вы найдете информацию о путешествиях с детьми: от подготовки к перелету до выбора мест и многого другого.",
+                "title": "Информация о поездке",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?language=en&start=DYNAMIC_addFlightServices-TravelingWithChildren",
+                "linkTitle": "Написать в чат",
+                "description": "Nelly ответит на ваши вопросы о путешествиях с детьми.",
+                "title": null,
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_addFlightServices-TravelingWithChildren",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "Начать чат",
+                "description": "Если у вас возникли технические проблемы, вы хотите запросить детскую кроватку или выполнить бронирование рейса для ребенка, путешествующего без сопровождения, обратитесь непосредственно к одному из сотрудников нашего сервисного центра.",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Позвонить в сервисный центр",
+                "description": "Если у вас возникли технические проблемы, вы хотите запросить детскую кроватку или выполнить бронирование рейса для ребенка, путешествующего без сопровождения, обратитесь непосредственно к одному из сотрудников нашего сервисного центра.",
+                "title": null,
+                "phone": "+496986798000",
+                "priority": 4,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "confirmAdditionalServices",
+          "title": "Подтвердить дополнительные услуги",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Позвонить в сервисный центр",
+                "description": "Наш сервисный центр с радостью проверит подтверждение запрошенных вами услуг.",
+                "title": null,
+                "phone": "+496986798000",
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "addFlightServices.problem",
+          "title": "Проблема с добавлением услуги",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/ru/customer-support/contact-us/technical-support",
+                "linkTitle": "Открыть форму",
+                "description": "При возникновении проблем с добавлением дополнительной услуги воспользуйтесь нашей формой обратной связи, и мы свяжемся с вами в ближайшее время.",
+                "title": "Сообщить о проблеме",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Позвонить в сервисный центр",
+                "description": "Нужна дополнительная помощь? Наши специалисты всегда рады помочь вам с любыми вопросами или проблемами.",
+                "title": null,
+                "phone": "+496986798000",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-additional-services",
+      "imageUrl": "https://www.swiss.com/content/dam/lx/images/local_images/help-center//add-flight-service.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "booking",
+      "title": "Забронировать и подготовиться",
+      "children": [
+        {
+          "code": "booking.Seats",
+          "title": "Места",
+          "children": [
+            {
+              "code": "changeSeat",
+              "title": "Добавить или изменить место",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.swiss.com/xx/ru/profile/login",
+                    "linkTitle": "Управление бронированием",
+                    "description": "Забронируйте или измените место онлайн не позднее чем за 2 часа до вылета.",
+                    "title": "Добавить или изменить место",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.swiss.com/booking/manage-booking/retrieve?lang=ru-RU&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.swiss.com/xx/ru/book-and-manage/swiss-choice/advance-seat-reservation",
+                    "linkTitle": "См. обзор",
+                    "description": "Получите информацию обо всех категориях мест и их стоимости на каждом маршруте.",
+                    "title": "Посмотреть все категории мест",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "Позвонить в сервисный центр",
+                    "description": "Забронируйте или измените место по телефону не позднее чем за 48 часов до вылета.",
+                    "title": null,
+                    "phone": "+496986798000",
+                    "priority": 3,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": true
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            },
+            {
+              "code": "BookNeighboringSeat",
+              "title": "Забронировать соседнее место",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "Позвонить в сервисный центр",
+                    "description": "Позвоните в наш сервисный центр, чтобы забронировать свободное место рядом с вами для еще более комфортного перелета.",
+                    "title": null,
+                    "phone": "+496986798000",
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": true
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "booking.Upgrades",
+          "title": "Повышение класса обслуживания",
+          "children": [
+            {
+              "code": "upgradeFlight",
+              "title": "Бронирование повышения класса обслуживания",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.swiss.com/xx/ru/profile/login",
+                    "linkTitle": "Управление бронированием",
+                    "description": "Сравните доступные варианты повышения класса обслуживания на следующем рейсе и выберите предпочитаемый.",
+                    "title": "Забронировать повышение класса обслуживания",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.swiss.com/booking/cash-upgrade?lang=ru-RU&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.swiss.com/xx/ru/book-and-manage/swiss-choice/upgrade-options",
+                    "linkTitle": "Посмотреть все варианты",
+                    "description": "Узнайте о вариантах повышения класса обслуживания и насладитесь дополнительным комфортом в путешествии.",
+                    "title": "Посмотреть все варианты повышения класса обслуживания",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "Позвонить в сервисный центр",
+                    "description": "Наши специалисты всегда рады помочь вам с любыми вопросами или проблемами.",
+                    "title": null,
+                    "phone": "+496986798000",
+                    "priority": 3,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": true
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            },
+            {
+              "code": "BidUpgrade",
+              "title": "Отправить предложение по повышению класса обслуживания",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.swiss.com/xx/ru/profile/login",
+                    "linkTitle": "Отправить предложение",
+                    "description": "Выполните повышение класса обслуживания по желаемой цене.  \n \nОбратите внимание: доступность данной услуги зависит от условий бронирования.",
+                    "title": "Отправить предложение по повышению класса обслуживания",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.swiss.com/booking/manage-booking/retrieve?lang=ru-RU&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "reconfirmation",
+          "title": "Подтвердить бронирование",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?start=MISSINGCONFIRMATION&language=en",
+                "linkTitle": "Написать в чат",
+                "description": "Nelly подскажет, где найти код бронирования или как запросить новое электронное письмо с подтверждением.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "MISSINGCONFIRMATION",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "booking.miles",
+          "title": "Забронировать за мили",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/ru/spend/flights.html",
+                "linkTitle": "Поиск рейсов",
+                "description": "Обменяйте мили на перелеты.",
+                "title": "Забронировать премиальный полет",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Позвонить в сервисный центр",
+                "description": "Наши специалисты всегда рады помочь вам с любыми вопросами или проблемами.",
+                "title": null,
+                "phone": "+4969209777777",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "booking.new.problem",
+          "title": "Проблема с бронированием или оплатой",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/ru/customer-support/contact-us/technical-support",
+                "linkTitle": "Открыть форму",
+                "description": "При возникновении проблем с бронированием или оплатой вы можете воспользоваться нашей формой обратной связи, и мы свяжемся с вами в ближайшее время.",
+                "title": "Сообщить о проблеме",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Позвонить в сервисный центр",
+                "description": "Нужна дополнительная помощь? Наши специалисты всегда рады помочь вам с любыми вопросами или проблемами.",
+                "title": null,
+                "phone": "+496986798000",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "NameChangeAfterBooking",
+          "title": "Изменение имени после бронирования",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Позвонить в сервисный центр",
+                "description": "Обратитесь в наш сервисный центр, чтобы запросить исправление имени в вашем бронировании. \n \nОбратите внимание: возможно только внесение незначительных изменений, например исправление орфографических ошибок.",
+                "title": null,
+                "phone": "+496986798000",
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "passengerReceipt",
+          "title": "Пассажирская квитанция / счет",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/ru/customer-support/faq/invoice-information",
+                "linkTitle": "Запросить",
+                "description": "Запросите пассажирскую квитанцию или счет за бронирование онлайн.",
+                "title": "Запросить квитанцию или счет",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "Начать чат",
+                "description": "Наши агенты сервисного центра готовы помочь в чате круглосуточно и без выходных.",
+                "title": null,
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Позвонить в сервисный центр",
+                "description": "Наши специалисты всегда рады помочь вам с любыми вопросами или проблемами.",
+                "title": null,
+                "phone": "+496986798000",
+                "priority": 3,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "TravelRegulations",
+          "title": "Правила путешествий",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.travel-regulations.com/?language=en",
+                "linkTitle": "Ввести маршрут",
+                "description": "Ознакомьтесь с правилами въезда, порядком оформления виз и требованиями органов здравоохранения для вашего следующего путешествия.",
+                "title": "Узнать требования к поездкам",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "booking.group",
+          "title": "Групповое бронирование (не менее 10 пассажиров)",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/ru/book-and-manage/corporate-customers/group-travel-and-charter/group-travel",
+                "linkTitle": "Посмотреть условия",
+                "description": "Вся информация о групповых бронированиях содержится на нашей информационной странице.",
+                "title": "Узнать условия",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "sustainableFlying",
+          "title": "Летайте экологичнее",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/ru/profile/login",
+                "linkTitle": "Выбрать пакет",
+                "description": "Купите один из наших комбинированных пакетов, чтобы компенсировать выбросы CO₂ от своего перелета и инвестировать в проекты по устойчивому развитию. \n \nОбратите внимание: доступность данной услуги зависит от условий бронирования.",
+                "title": "Купить пакет компенсации",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.swiss.com/booking/manage-booking/retrieve?lang=ru-RU&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/ru/fly-more-sustainably-search",
+                "linkTitle": "Проверить варианты компенсации",
+                "description": "Вы также можете в любое время компенсировать рассчитанные выбросы углекислого газа от прошлых рейсов.",
+                "title": "Компенсировать выбросы от прошлого рейса",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-airplane-outbound",
+      "imageUrl": "https://www.swiss.com/content/dam/lx/images/local_images/help-center//booking.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "milesAndMore",
+      "title": "Miles & More",
+      "children": [
+        {
+          "code": "milesAndMore.mileageCredit",
+          "title": "Начисление миль после бронирования",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/ru/program/at-a-glance/mileage-request.html",
+                "linkTitle": "Узнать условия",
+                "description": "Запросите начисление недостающих миль и Points (баллов) в течение шести месяцев после действия, за которое вы их заработали.",
+                "title": "Запросить кредитование миль",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Позвонить в Miles & More",
+                "description": "Требуется помощь с запросом о начислении миль? Обратитесь в сервисный центр Miles & More.",
+                "title": null,
+                "phone": "+4969209777777",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.mileageAccount",
+          "title": "Баланс счета Miles & More",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/ru/static/login.html",
+                "linkTitle": "Войти",
+                "description": "Войдите в Miles & More, чтобы посмотреть текущий баланс счета и срок действия миль.",
+                "title": "Проверить баланс счета",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Позвонить в Miles & More",
+                "description": "Возникли вопросы о счете и балансе миль? Обратитесь в сервисный центр Miles & More.",
+                "title": null,
+                "phone": "+4969209777777",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.spendMiles",
+          "title": "Использование миль",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/ru/spend/flights.html",
+                "linkTitle": "Посмотреть вознаграждения",
+                "description": "Потратьте мили на гаджеты, повышение класса обслуживания, ваучеры и многое другое.",
+                "title": "Потратить мили",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Позвонить в Miles & More",
+                "description": "Хотите узнать больше о том, как потратить мили? Обратитесь в сервисный центр Miles & More.",
+                "title": null,
+                "phone": "+4969209777777",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.login",
+          "title": "Проблема со входом в Miles & More",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/ru/general-information/help-and-contact.html?topic=pin-password-login/",
+                "linkTitle": "Перейти к Miles & More",
+                "description": "Перейдите на веб-сайт Miles & More, чтобы получить помощь и информацию о своем входе в систему.",
+                "title": "Получить помощь со входом в систему",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Позвонить в Miles & More",
+                "description": "Возникли вопросы или проблемы со входом в систему? Обратитесь в сервисный центр Miles & More.",
+                "title": null,
+                "phone": "+4969209777777",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.upgrade",
+          "title": "Повышение класса обслуживания за премиальные мили / eVoucher",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/ru/program/flight-benefits/upgrade-award.html",
+                "linkTitle": "Подробнее о премиальном повышении класса обслуживания",
+                "description": "Выполните повышение класса обслуживания онлайн за мили или с помощью eVoucher.",
+                "title": "Забронировать премиальное повышение класса обслуживания",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Позвонить в Miles & More",
+                "description": "Возникли проблемы с повышением класса обслуживания? Обратитесь в сервисный центр Miles & More.",
+                "title": null,
+                "phone": "+4969209777777",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.status",
+          "title": "Привилегии статусов Miles & More",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/ru/program/status-benefits/status-level-comparison.html",
+                "linkTitle": "Сравнить статусы",
+                "description": "Узнайте о привилегиях каждого статуса часто летающего пассажира.",
+                "title": "Посмотреть привилегии статуса",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Позвонить в Miles & More",
+                "description": "Возникли вопросы о привилегиях статуса? Обратитесь в сервисный центр Miles & More.",
+                "title": null,
+                "phone": "+4969209777777",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.newMember",
+          "title": "Стать участником программы Miles & More",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/ru/profile/login?deeplinkRedirect=true",
+                "linkTitle": "Войти",
+                "description": "Если у вас уже есть SWISS Travel ID, войдите в свою учетную запись на swiss.com и активируйте Miles & More.",
+                "title": "Активировать Miles & More",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/ru/program/at-a-glance.html",
+                "linkTitle": "Зарегистрироваться",
+                "description": "Зарегистрируйтесь бесплатно и начните зарабатывать мили для повышения класса обслуживания и получения других вознаграждений.",
+                "title": "Зарегистрироваться",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Позвонить в Miles & More",
+                "description": "Хотите узнать больше об участии в программе? Обратитесь в сервисный центр Miles & More.",
+                "title": null,
+                "phone": "+4969209777777",
+                "priority": 3,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.creditCard",
+          "title": "Кредитные карты Miles & More",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/ru/program/credit-cards/credit-cards-overview.html",
+                "linkTitle": "Посмотреть все карты",
+                "description": "Ознакомьтесь с доступными кредитными картами Miles & More для каждой страны.",
+                "title": "Выбрать кредитную карту",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/ru/support/faq/faq-miles-and-more",
+                "linkTitle": "Подробнее",
+                "description": "Узнайте больше о дополнительных услугах для кредитной карты Miles & More и загрузите наше приложение, чтобы посмотреть новые предложения.",
+                "title": "Посмотреть варианты кредитных карт",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Позвонить в Miles & More",
+                "description": "Сотрудники сервисного центра Miles & More готовы ответить на все ваши вопросы.",
+                "title": null,
+                "phone": "+4969209777777",
+                "priority": 3,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "booking.miles",
+          "title": "Забронировать за мили",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/ru/spend/flights.html",
+                "linkTitle": "Поиск рейсов",
+                "description": "Обменяйте мили на перелеты.",
+                "title": "Забронировать премиальный полет",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Позвонить в сервисный центр",
+                "description": "Наши специалисты всегда рады помочь вам с любыми вопросами или проблемами.",
+                "title": null,
+                "phone": "+4969209777777",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.worldshop",
+          "title": "Worldshop",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.worldshop.eu/en/page/SWISS/?p=65SqaeEGyj0",
+                "linkTitle": "В магазин Worldshop",
+                "description": "Приобретайте продукцию премиальных брендов и эксклюзивные товары из наших обновляемых специальных подборок.",
+                "title": "Посетить магазин Worldshop",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.otherQuestions",
+          "title": "Другие вопросы о программе Miles & More",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/ru/general-information/help-and-contact.html",
+                "linkTitle": "Перейти на Miles & More",
+                "description": "Посмотрите полезные статьи, формы и узнайте номер горячей линии сервисного центра Miles & More, который поможет ответить на ваш запрос.",
+                "title": "Найти справочные статьи",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-miles-and-more",
+      "imageUrl": "https://www.swiss.com/content/dam/lx/images/local_images/help-center//miles-and-more.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "accessibility",
+      "title": "Безбарьерная среда для путешествий",
+      "children": [
+        {
+          "code": "mobilityAssistance",
+          "title": "Помощь в перемещении по аэропорту",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/ru/prepare/special-care/accessible-travel",
+                "linkTitle": "Посмотреть информацию об услугах",
+                "description": "Узнайте подробнее о наших услугах для пассажиров с ограниченной подвижностью или сенсорными нарушениями (бронирование возможно не позднее чем за 48 часов до вылета).",
+                "title": "Посмотреть услуги для людей с ограниченной подвижностью",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/ru/prepare/special-care/accessible-travel/accessible-travel-form",
+                "linkTitle": "Открыть форму",
+                "description": "Не позднее чем за 48 часов до вылета заполните форму обратной связи, чтобы сообщить нам о своих потребностях в помощи.",
+                "title": "Запросить услугу передвижения",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?language=en&start=DYNAMIC_accessibility-mobilityAssistance",
+                "linkTitle": "Написать в чат",
+                "description": "Nelly ответит на ваши вопросы и поможет выполнить следующие действия.",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_accessibility-mobilityAssistance",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "Начать чат",
+                "description": "Наши агенты сервисного центра готовы помочь в чате круглосуточно и без выходных.",
+                "title": null,
+                "phone": null,
+                "priority": 4,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Позвонить в сервисный центр",
+                "description": "Наши специалисты всегда рады помочь вам с любыми вопросами или проблемами.",
+                "title": null,
+                "phone": "+496986798000",
+                "priority": 5,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "travelHealthIssues",
+          "title": "Путешествие при наличии проблем со здоровьем",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/ru/prepare/special-care/health-and-travel",
+                "linkTitle": "Посмотреть памятку",
+                "description": "Ознакомьтесь с нашей памяткой и запросите медико-санитарную помощь в следующей поездке, если вы испытываете дискомфорт или ваше состояние здоровья требует особого внимания.",
+                "title": "Подготовка к перелету",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?language=en&start=DYNAMIC_accessibility-travelHealthIssues",
+                "linkTitle": "Написать в чат",
+                "description": "Nelly ответит на ваши вопросы и поможет выполнить следующие действия.",
+                "title": null,
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_accessibility-travelHealthIssues",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "Начать чат",
+                "description": "Наши агенты сервисного центра готовы помочь в чате круглосуточно и без выходных.",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Позвонить в сервисный центр",
+                "description": "Наши специалисты всегда рады помочь вам с любыми вопросами или проблемами.",
+                "title": null,
+                "phone": "+496986798000",
+                "priority": 4,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "moreAccessibleTravel",
+          "title": "Подробнее о безбарьерной среде для путешествий",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?language=en&start=DYNAMIC_accessibility-moreAccessibleTravel",
+                "linkTitle": "Написать в чат",
+                "description": "Nelly ответит на ваши вопросы и поможет выполнить следующие действия.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_accessibility-moreAccessibleTravel",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/medicalservices/ru/health/",
+                "linkTitle": "Перейти к обзору",
+                "description": "Узнайте обо всех доступных услугах для комфортного путешествия в любых обстоятельствах.",
+                "title": "Посмотреть все услуги",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "Начать чат",
+                "description": "Наши агенты сервисного центра готовы помочь в чате круглосуточно и без выходных.",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Позвонить в сервисный центр",
+                "description": "Наши специалисты всегда рады помочь вам с любыми вопросами или проблемами.",
+                "title": null,
+                "phone": "+496986798000",
+                "priority": 4,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-wheelchair",
+      "imageUrl": "https://www.swiss.com/content/dam/lx/images/local_images/help-center//accessible-travel.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "TravelIDLogin",
+      "title": "Логин и Travel ID",
+      "children": [],
+      "options": {
+        "recommended": [
+          {
+            "type": "SELF_SERVICE",
+            "link": "https://www.swiss.com/content/lx/markets/xx/ru/profile/travel-id/faq",
+            "linkTitle": "Открыть раздел «Часто задаваемые вопросы»",
+            "description": "Более подробная информация о Travel ID и помощь при возникновении проблем с входом в систему содержатся в разделе «Часто задаваемые вопросы».",
+            "title": "Часто задаваемые вопросы о входе в систему и Travel ID",
+            "phone": null,
+            "priority": 1,
+            "deeplink": null,
+            "notifications": [],
+            "trackingType": "INFORMATIONAL",
+            "profileHandoverEnabled": false
+          }
+        ],
+        "others": [
+          {
+            "type": "CALL",
+            "link": null,
+            "linkTitle": "Позвонить в сервисный центр",
+            "description": "Если вам нужна дополнительная помощь, наши эксперты всегда готовы помочь.",
+            "title": null,
+            "phone": "+496986798000",
+            "priority": 2,
+            "deeplink": null,
+            "notifications": [],
+            "trackingType": null,
+            "profileHandoverEnabled": true
+          }
+        ]
+      },
+      "icon": "icon-service-login",
+      "imageUrl": null,
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": false
+    },
+    {
+      "code": "other",
+      "title": "Обратная связь и другие запросы",
+      "children": [],
+      "options": {
+        "recommended": [
+          {
+            "type": "SELF_SERVICE",
+            "link": "https://www.swiss.com/xx/ru/customer-support/contact-us/feedback-past-flight",
+            "linkTitle": "Открыть форму",
+            "description": "Расскажите нам о своих впечатлениях от прошлого перелета — воспользуйтесь формой обратной связи. Мы ответим вам в ближайшее время.",
+            "title": "Оставить отзыв",
+            "phone": null,
+            "priority": 1,
+            "deeplink": null,
+            "notifications": [],
+            "trackingType": "FORM",
+            "profileHandoverEnabled": false
+          }
+        ],
+        "others": [
+          {
+            "type": "CHAT_ASSISTANT",
+            "link": "https://www.swiss.com/digitalassistant/deeplink?start=CONTACTCENTERDEFAULT&language=en",
+            "linkTitle": "Написать в чат",
+            "description": "Nelly ответит на ваши вопросы и поможет выполнить следующие действия.",
+            "title": null,
+            "phone": null,
+            "priority": 2,
+            "deeplink": {
+              "url": "https://www.swiss.com/digitalassistant/deeplink",
+              "data": {
+                "lastName": "<lastName>",
+                "firstName": "<firstName>",
+                "start": "CONTACTCENTERDEFAULT",
+                "language": "en",
+                "filekey": "<pnr>"
+              }
+            },
+            "notifications": [
+              {
+                "type": "info",
+                "title": null,
+                "message": "chatAssistant.languageNotAvailable",
+                "reason": null
+              }
+            ],
+            "trackingType": null,
+            "profileHandoverEnabled": false
+          }
+        ]
+      },
+      "icon": "icon-create-post",
+      "imageUrl": null,
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": false
+    }
+  ],
+  "_metadata": {
+    "tenant": "LX",
+    "language": "ru",
+    "extracted_at": "2026-11-04T02:03:24.564084",
+    "record_count": 1
+  }
+}

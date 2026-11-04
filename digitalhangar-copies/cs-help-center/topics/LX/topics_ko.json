@@ -1,0 +1,4716 @@
+{
+  "targetCustomerStatus": "BASE",
+  "menu": [
+    {
+      "code": "travelBookingStatus",
+      "title": "현재 항공편 운항 정보",
+      "children": [
+        {
+          "code": "currentTravelInformation",
+          "title": "여행 주의 사항",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/en/fly/flight-information/current-information",
+                "linkTitle": "여행 정보 보기",
+                "description": "파업 또는 기타 항공편 변경 시 자세한 정보 및 지원에 대해 확인하십시오.",
+                "title": "여행 업데이트 받기",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "flightStatus",
+          "title": "항공편 운항 정보",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/en/fly/flight-information/arrival-departure#/",
+                "linkTitle": "지금 확인",
+                "description": "항공편 번호, 항공편 노선 또는 공항으로 검색하여 항공편 현황을 확인하십시오.",
+                "title": "항공편 현황 확인",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?start=FLIGHTSTATUS&language=en",
+                "linkTitle": "채팅 시작하기",
+                "description": "Nelly가 항공편 운항 상태, 출발 시간 및 기타 세부 정보를 확인해 드립니다.",
+                "title": null,
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "FLIGHTSTATUS",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": "icon-flight-status",
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "checkConnection",
+          "title": "연계 항공편 확인",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?start=flynet&language=en",
+                "linkTitle": "채팅 시작하기",
+                "description": "항공편 취소 또는 지연으로 인해 연계 항공편을 놓친 경우, Nelly가 이용 가능한 대체 항공편을 찾아드립니다.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "flynet",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-flight-status",
+      "imageUrl": "https://www.swiss.com/content/dam/lx/images/local_images/help-center//travel-information.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "rebookingsCancelationsRefunds",
+      "title": "재예약 및 취소",
+      "children": [
+        {
+          "code": "rebookFlight",
+          "title": "항공편 재예약",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?start=CONTACTCENTERDEFAULT&language=en",
+                "linkTitle": "채팅 시작하기",
+                "description": "Nelly가 질문에 답변하고 다음 단계를 안내해 드립니다.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "CONTACTCENTERDEFAULT",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/en/profile/login",
+                "linkTitle": "예약 관리",
+                "description": "예약에 포함된 한 명 이상의 승객에 대해 온라인으로 항공편 날짜나 시간을 변경할 수 있습니다.\n \n주의사항: 항공편 노선을 변경하려면 채팅 도우미 Nelly를 이용하세요.",
+                "title": "항공편 재예약",
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://shop.swiss.com/booking/manage-booking/retrieve?lang=ko-KR&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "라이브 채팅 시작하기",
+                "description": "연중무휴 24시간 라이브 채팅을 통해 서비스 센터 상담원의 도움을 받아보세요.",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "콜 서비스 센터",
+                "description": "온라인 서비스를 통해 요청하신 사항을 해결하지 못한 경우, 서비스 센터에서 도와드리겠습니다.",
+                "title": null,
+                "phone": "+496986798000",
+                "priority": 4,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": true,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "NewBoardingPass",
+          "title": "새 탑승권 다운로드",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://once.swiss.com/connect/main-app?APPID=LHG_ONLINE&TENANT=LX&LANGUAGE=en&COUNTRY=xx&MODE=PORTAL",
+                "linkTitle": "체크인으로 이동",
+                "description": "새 탑승권을 받으시려면 아래 링크를 통해 다시 체크인하세요.",
+                "title": "다시 체크인",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "confirmRebooking",
+          "title": "재예약 확인",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?start=MISSINGCONFIRMATION&language=en",
+                "linkTitle": "채팅 시작하기",
+                "description": "Nelly가 재예약 상태를 확인해드립니다.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "MISSINGCONFIRMATION",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "라이브 채팅 시작하기",
+                "description": "예약이 변경된 경우, 서비스 센터 직원이 새로운 예약 확인서를 다시 보내드리고 추가 서비스(예: 좌석 예약) 재예약을 도와드릴 수 있습니다.",
+                "title": null,
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "OvernightStay",
+          "title": "항공편 지연으로 인한 호텔 숙박",
+          "children": [
+            {
+              "code": "BookOvernightStay",
+              "title": "호텔 예약에 도움이 필요합니다.",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/hotel-check",
+                    "linkTitle": "지금 확인하기",
+                    "description": "연락처 세부 정보를 확인해서 숙박을 위한 예약 링크를 받으세요.\n \n다음 웹사이트는 영어 및 독일어로만 제공됩니다.",
+                    "title": "연락처 세부 정보 확인",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "FORM",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.swiss.com/xx/en/fly/flight-information/flight-irregularities/faq.html#accordion-item-section-hotel",
+                    "linkTitle": "자주 묻는 질문 보기",
+                    "description": "항공편 지연으로 인한 숙박 지원 및 호텔 비용 환급 신청 방법에 대해 알아보세요.",
+                    "title": "호텔 숙박 관련 도움말",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "RefundOvernightStay",
+              "title": "이미 호텔을 예약했습니다.",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.swiss.com/xx/en/customer-support/contact-us/application-for-compensation-in-the-event-of-flight-irregularities",
+                    "linkTitle": "양식 열기",
+                    "description": "이 양식을 작성해서 숙박과 관련된 비용 환급을 요청하세요.",
+                    "title": "환급 요청",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "FORM",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "cancelBookingGetRefund",
+          "title": "취소 및/또는 환불 신청",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?start=refund&language=en",
+                "linkTitle": "채팅 시작하기",
+                "description": "Nelly가 예약을 취소하고 환불을 진행해 드릴 수 있습니다.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "refund",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/en/profile/login",
+                "linkTitle": "예약 관리",
+                "description": "온라인으로 예약을 취소하고 환불을 요청하세요.\n \n전체 예약만 취소할 수 있습니다.",
+                "title": "예약 취소",
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://shop.swiss.com/booking/manage-booking/retrieve?lang=ko-KR&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "라이브 채팅 시작하기",
+                "description": "연중무휴 24시간 라이브 채팅을 통해 서비스 센터 상담원의 도움을 받아보세요.",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "콜 서비스 센터",
+                "description": "온라인 서비스를 통해 요청하신 사항을 해결하지 못한 경우, 서비스 센터에서 도와드리겠습니다.",
+                "title": null,
+                "phone": "+496986798000",
+                "priority": 4,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": true,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "delayCancelationConfirmation",
+          "title": "취소 확인",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "라이브 채팅 시작하기",
+                "description": "취소 후, 확인 이메일이 발송되며, 이는 스팸 폴더로 전송되었을 수 있습니다. 취소 확인서를 다시 전송받으려면 서비스 센터로 문의해 주시기 바랍니다.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-flight-irreg",
+      "imageUrl": "https://www.swiss.com/content/dam/lx/images/local_images/help-center//rebooking-cancellation-refund.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "RefundsAndCompensations",
+      "title": "환불 및 보상",
+      "children": [
+        {
+          "code": "claimCompensationFlightDisruption",
+          "title": "항공사의 항공편 변경에 대한 보상",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/en/customer-support/contact-us/application-for-compensation-in-the-event-of-flight-irregularities/compensation-flight-disruptions",
+                "linkTitle": "양식 열기",
+                "description": "항공편이 취소되었거나, 3시간 이상 지연되었거나, 연계 항공편을 놓친 경우, 문의 양식을 사용하여 비용 환불을 요청하십시오.",
+                "title": "보상 요청",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "cancelBookingGetRefund",
+          "title": "취소 및/또는 환불 신청",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?start=refund&language=en",
+                "linkTitle": "채팅 시작하기",
+                "description": "Nelly가 예약을 취소하고 환불을 진행해 드릴 수 있습니다.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "refund",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/en/profile/login",
+                "linkTitle": "예약 관리",
+                "description": "온라인으로 예약을 취소하고 환불을 요청하세요.\n \n전체 예약만 취소할 수 있습니다.",
+                "title": "예약 취소",
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://shop.swiss.com/booking/manage-booking/retrieve?lang=ko-KR&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "라이브 채팅 시작하기",
+                "description": "연중무휴 24시간 라이브 채팅을 통해 서비스 센터 상담원의 도움을 받아보세요.",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "콜 서비스 센터",
+                "description": "온라인 서비스를 통해 요청하신 사항을 해결하지 못한 경우, 서비스 센터에서 도와드리겠습니다.",
+                "title": null,
+                "phone": "+496986798000",
+                "priority": 4,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": true,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "confirmRefund",
+          "title": "환불 확인",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "라이브 채팅 시작하기",
+                "description": "환불 확인서를 다시 보내거나 환불 상태를 확인하려면 서비스 센터 상담원에게 문의하세요.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "refundBaggageIrregularities",
+          "title": "수하물 문제에 대한 보상",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/en/baggage-reimbursement",
+                "linkTitle": "양식 열기",
+                "description": "문의 양식을 사용하여 수하물 손상 또는 지연으로 인해 발생한 추가 비용에 대한 환급을 요청할 수 있습니다.",
+                "title": "환급 요청",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/en/prepare/baggage/baggage-irregularities",
+                "linkTitle": "자세히 알아보기",
+                "description": "지연 또는 손상된 수하물에 대한 도움을 받고 보상을 청구하는 방법을 확인하세요.",
+                "title": "수하물 문제 자세히 알아보기",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?language=en&start=DYNAMIC_RefundsAndCompensations-refundBaggageIrregularities",
+                "linkTitle": "채팅 시작하기",
+                "description": "Nelly가 질문에 답변하고 다음 단계를 안내해 드립니다.",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_RefundsAndCompensations-refundBaggageIrregularities",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "OvernightStay",
+          "title": "항공편 지연으로 인한 호텔 숙박",
+          "children": [
+            {
+              "code": "BookOvernightStay",
+              "title": "호텔 예약에 도움이 필요합니다.",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/hotel-check",
+                    "linkTitle": "지금 확인하기",
+                    "description": "연락처 세부 정보를 확인해서 숙박을 위한 예약 링크를 받으세요.\n \n다음 웹사이트는 영어 및 독일어로만 제공됩니다.",
+                    "title": "연락처 세부 정보 확인",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "FORM",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.swiss.com/xx/en/fly/flight-information/flight-irregularities/faq.html#accordion-item-section-hotel",
+                    "linkTitle": "자주 묻는 질문 보기",
+                    "description": "항공편 지연으로 인한 숙박 지원 및 호텔 비용 환급 신청 방법에 대해 알아보세요.",
+                    "title": "호텔 숙박 관련 도움말",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "RefundOvernightStay",
+              "title": "이미 호텔을 예약했습니다.",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.swiss.com/xx/en/customer-support/contact-us/application-for-compensation-in-the-event-of-flight-irregularities",
+                    "linkTitle": "양식 열기",
+                    "description": "이 양식을 작성해서 숙박과 관련된 비용 환급을 요청하세요.",
+                    "title": "환급 요청",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "FORM",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "MealVoucher",
+          "title": "식사 바우처",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/en/fly/flight-information/flight-irregularities/faq#accordion-item-section-voucher",
+                "linkTitle": "자세히 알아보기",
+                "description": "대부분의 경우, 항공권의 QR 코드에 연결되는 식사 바우처를 자동으로 받게 됩니다. 식사 바우처를 받는 방법과 사용처를 확인하세요.",
+                "title": "조건 확인",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "TravelbyTrain",
+          "title": "기차 대체 교통편",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/en/good-for-train",
+                "linkTitle": "예약 상세 정보 입력",
+                "description": "취소된 항공편에 적합한 대체 항공편이 없는 경우, 항공권을 기차 바우처로 교환할 수 있습니다.\n \n특정 노선에만 적용됩니다.",
+                "title": "열차 바우처 받기",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "passengerRights",
+          "title": "승객 권리",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/en/terms-conditions/passenger-rights",
+                "linkTitle": "자세히 알아보기",
+                "description": "항공편 취소, 지연 또는 기타 항공편 운항 관련 문제가 발생한 경우 승객의 권리에 대해 알아보십시오.",
+                "title": "승객의 권리 보기",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-refund-possible",
+      "imageUrl": "https://www.swiss.com/content/dam/lx/images/local_images/help-center//refund-compensations.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "checkin",
+      "title": "체크인",
+      "children": [
+        {
+          "code": "HelpWithCheckIn",
+          "title": "체크인 관련 문제",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?start=checkin&language=en",
+                "linkTitle": "채팅 시작하기",
+                "description": "Nelly가 항공편 체크인이 불가능한 이유를 확인하도록 도와드립니다.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "checkin",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "콜 서비스 센터",
+                "description": "전문가가 질문이나 우려 사항에 대해 도움을 드리겠습니다.",
+                "title": null,
+                "phone": "+496986798000",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "lateNightCheckin",
+          "title": "조기 수하물 위탁",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?language=en&start=DYNAMIC_checkin-lateNightCheckin",
+                "linkTitle": "채팅 시작하기",
+                "description": "Nelly가 질문에 답변하고 다음 단계를 안내해 드립니다.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_checkin-lateNightCheckin",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/en/fly/check-in/previous-day-check-in",
+                "linkTitle": "자세히 알아보기",
+                "description": "출발일 전에 일찍 체크인하고 수하물을 위탁하세요.",
+                "title": "수하물 조기 위탁",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "NewBoardingPass",
+          "title": "새 탑승권 다운로드",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://once.swiss.com/connect/main-app?APPID=LHG_ONLINE&TENANT=LX&LANGUAGE=en&COUNTRY=xx&MODE=PORTAL",
+                "linkTitle": "체크인으로 이동",
+                "description": "새 탑승권을 받으시려면 아래 링크를 통해 다시 체크인하세요.",
+                "title": "다시 체크인",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "otherCheckinQuestions",
+          "title": "체크인 관련 질문",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?language=en&start=DYNAMIC_checkin-otherCheckinQuestions",
+                "linkTitle": "채팅 시작하기",
+                "description": "Nelly가 질문에 답변하고 다음 단계를 안내해 드립니다.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_checkin-otherCheckinQuestions",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/en/fly/check-in",
+                "linkTitle": "개요 보기",
+                "description": "다음 여행에서 가장 편리한 체크인 옵션을 확인하세요.",
+                "title": "체크인 옵션 보기",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/en/customer-support/faq/check-in",
+                "linkTitle": "체크인 자세히 보기",
+                "description": "여기에서 가장 자주 묻는 체크인 질문에 대한 답변을 확인하세요.",
+                "title": "체크인 관련 자주 묻는 질문 보기",
+                "phone": null,
+                "priority": 3,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-boarding-card",
+      "imageUrl": "https://www.swiss.com/content/dam/lx/images/local_images/help-center//check-in.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "baggage",
+      "title": "수하물",
+      "children": [
+        {
+          "code": "baggage.rules",
+          "title": "수하물 규정 및 가격",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/en/profile/login",
+                "linkTitle": "예약 관리",
+                "description": "다가오는 항공편에 반입할 수 있는 수하물 허용량을 확인하세요.",
+                "title": "무료 수하물 허용량 보기",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.swiss.com/booking/services/BAGGAGE?lang=ko-KR&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/en/prepare/baggage",
+                "linkTitle": "개요로 이동",
+                "description": "모든 수하물 유형과 서비스에 대한 개요를 확인하십시오.",
+                "title": "모든 수하물 서비스 보기",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "라이브 채팅 시작하기",
+                "description": "연중무휴 24시간 라이브 채팅을 통해 서비스 센터 상담원의 도움을 받아보세요.",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "콜 서비스 센터",
+                "description": "추가로 도움이 필요한 경우 전문가가 질문이나 우려 사항에 대해 도움을 드리겠습니다.",
+                "title": null,
+                "phone": "+496986798000",
+                "priority": 4,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "baggage.excess",
+          "title": "추가 수하물 / 초과 수하물",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/en/profile/login",
+                "linkTitle": "예약 관리",
+                "description": "다음 항공편에 가져갈 수 있는 수하물의 양을 확인하고 필요한 경우 추가하세요.",
+                "title": "수하물 추가",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.swiss.com/booking/services/BAGGAGE?lang=ko-KR&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?language=en&start=DYNAMIC_baggage-baggage_excess",
+                "linkTitle": "채팅 시작하기",
+                "description": "Nelly가 질문에 답변하고 다음 단계를 안내해 드립니다.",
+                "title": null,
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_baggage-baggage_excess",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/en/prepare/baggage/excess-baggage",
+                "linkTitle": "모든 규정 보기",
+                "description": "예약한 운임에 따라 허용되는 초과 수화물 무게와 크기에 대한 자세한 정보를 확인하십시오.",
+                "title": "수하물 규정 확인",
+                "phone": null,
+                "priority": 3,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "라이브 채팅 시작하기",
+                "description": "연중무휴 24시간 라이브 채팅을 통해 서비스 센터 상담원의 도움을 받아보세요.",
+                "title": null,
+                "phone": null,
+                "priority": 4,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "콜 서비스 센터",
+                "description": "추가로 도움이 필요한 경우 전문가가 질문이나 우려 사항에 대해 도움을 드리겠습니다.",
+                "title": null,
+                "phone": "+496986798000",
+                "priority": 5,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "baggage.sports",
+          "title": "스포츠 장비 수하물 추가",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/en/prepare/baggage/sports-equipment/register-sports-baggage",
+                "linkTitle": "양식 열기",
+                "description": "예약에 스포츠 장비 수하물을 추가하려면 양식을 작성하십시오.",
+                "title": "스포츠 장비 수하물 등록",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?language=en&start=DYNAMIC_baggage-baggage_sports",
+                "linkTitle": "채팅 시작하기",
+                "description": "Nelly가 질문에 답변하고 다음 단계를 안내해 드립니다.",
+                "title": null,
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_baggage-baggage_sports",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/en/prepare/baggage/sports-equipment",
+                "linkTitle": "모든 규정 보기",
+                "description": "여기에서 스포츠 장비 및 특별 수하물에 대한 모든 정보를 확인하십시오.",
+                "title": "수하물 규정 확인",
+                "phone": null,
+                "priority": 3,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "라이브 채팅 시작하기",
+                "description": "연중무휴 24시간 라이브 채팅을 통해 서비스 센터 상담원의 도움을 받아보세요.",
+                "title": null,
+                "phone": null,
+                "priority": 4,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "콜 서비스 센터",
+                "description": "전문가가 질문이나 우려 사항에 대해 도움을 드리겠습니다.",
+                "title": null,
+                "phone": "+496986798000",
+                "priority": 5,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "pets",
+          "title": "반려동물 동반 여행",
+          "children": [
+            {
+              "code": "travelPetsInCabin",
+              "title": "객실 내 동물 운송(이동장 포함 최대 8kg)",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.swiss.com/xx/en/profile/login",
+                    "linkTitle": "지금 등록하기",
+                    "description": "반려동물을 객실에 동반할 수 있도록 기존 예약에 반려동물을 등록하세요(출발 최대 72시간 전).",
+                    "title": "반려동물 추가",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.swiss.com/booking/services/PETS?lang=ko-KR&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "CHAT_ASSISTANT",
+                    "link": "https://www.swiss.com/digitalassistant/deeplink?language=en&start=DYNAMIC_pets-travelPetsInCabin",
+                    "linkTitle": "채팅 시작하기",
+                    "description": "Nelly가 질문에 답변하고 다음 단계를 안내해 드립니다.",
+                    "title": null,
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": {
+                      "url": "https://www.swiss.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "DYNAMIC_pets-travelPetsInCabin",
+                        "language": "en",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [
+                      {
+                        "type": "info",
+                        "title": null,
+                        "message": "chatAssistant.languageNotAvailable",
+                        "reason": null
+                      }
+                    ],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.swiss.com/xx/en/prepare/special-care/animals-travelling",
+                    "linkTitle": "모든 조건 보기",
+                    "description": "반려동물과 함께하는 여행 조건을 확인하고 필요한 서류를 모두 준비하세요.",
+                    "title": "여행 조건 확인",
+                    "phone": null,
+                    "priority": 3,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "LIVE_CHAT",
+                    "link": "https://www.swiss.com/digitalassistant/deeplink?start=liveagent&language=en",
+                    "linkTitle": "라이브 채팅 시작하기",
+                    "description": "연중무휴 24시간 라이브 채팅을 통해 서비스 센터 상담원의 도움을 받아보세요.",
+                    "title": null,
+                    "phone": null,
+                    "priority": 4,
+                    "deeplink": {
+                      "url": "https://www.swiss.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "liveagent",
+                        "language": "en",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [
+                      {
+                        "type": "info",
+                        "title": null,
+                        "message": "chatAssistant.languageNotAvailable",
+                        "reason": null
+                      }
+                    ],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "콜 서비스 센터",
+                    "description": "전문가가 질문이나 우려 사항에 대해 도움을 드리겠습니다.",
+                    "title": null,
+                    "phone": "+496986798000",
+                    "priority": 5,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": true
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            },
+            {
+              "code": "travelPetsInHold",
+              "title": "화물칸 내 동물 운송",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.swiss.com/xx/en/prepare/special-care/animals-travelling/register-animal-cargo-hold",
+                    "linkTitle": "지금 등록하기",
+                    "description": "스위스 항공편의 화물칸에 반려견 또는 반려묘를 운송할 수 있도록 등록하세요(늦어도 출발 72시간 전까지).",
+                    "title": "반려동물 여행 등록",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "FORM",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "CHAT_ASSISTANT",
+                    "link": "https://www.swiss.com/digitalassistant/deeplink?language=en&start=DYNAMIC_pets-travelPetsInHold",
+                    "linkTitle": "채팅 시작하기",
+                    "description": "Nelly가 질문에 답변하고 다음 단계를 안내해 드립니다.",
+                    "title": null,
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": {
+                      "url": "https://www.swiss.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "DYNAMIC_pets-travelPetsInHold",
+                        "language": "en",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [
+                      {
+                        "type": "info",
+                        "title": null,
+                        "message": "chatAssistant.languageNotAvailable",
+                        "reason": null
+                      }
+                    ],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.swiss.com/xx/en/prepare/special-care/animals-travelling",
+                    "linkTitle": "모든 조건 보기",
+                    "description": "스위스 항공편의 동물 동반 관련 규정 및 여행 옵션에 대해 알아보세요.",
+                    "title": "조건 확인",
+                    "phone": null,
+                    "priority": 3,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "LIVE_CHAT",
+                    "link": "https://www.swiss.com/digitalassistant/deeplink?start=liveagent&language=en",
+                    "linkTitle": "라이브 채팅 시작하기",
+                    "description": "연중무휴 24시간 라이브 채팅을 통해 서비스 센터 상담원의 도움을 받아보세요.",
+                    "title": null,
+                    "phone": null,
+                    "priority": 4,
+                    "deeplink": {
+                      "url": "https://www.swiss.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "liveagent",
+                        "language": "en",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [
+                      {
+                        "type": "info",
+                        "title": null,
+                        "message": "chatAssistant.languageNotAvailable",
+                        "reason": null
+                      }
+                    ],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "콜 서비스 센터",
+                    "description": "전문가가 질문이나 우려 사항에 대해 도움을 드리겠습니다.",
+                    "title": null,
+                    "phone": "+496986798000",
+                    "priority": 5,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": true
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "lateNightCheckin",
+          "title": "조기 수하물 위탁",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?language=en&start=DYNAMIC_baggage-lateNightCheckin",
+                "linkTitle": "채팅 시작하기",
+                "description": "Nelly가 질문에 답변하고 다음 단계를 안내해 드립니다.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_baggage-lateNightCheckin",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/en/fly/check-in/previous-day-check-in",
+                "linkTitle": "자세히 알아보기",
+                "description": "출발일 전에 일찍 체크인하고 수하물을 위탁하세요.",
+                "title": "수하물 조기 위탁",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "baggage.damagedOrDelayed",
+          "title": "수하물 관련 문제",
+          "children": [
+            {
+              "code": "reportDelayedBaggage",
+              "title": "지연 수하물 신고",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "CHAT_ASSISTANT",
+                    "link": "https://www.swiss.com/digitalassistant/deeplink?start=DELAYBAGCREATE&language=en",
+                    "linkTitle": "채팅 시작하기",
+                    "description": "위탁 수하물이 도착하지 않은 경우, Nelly가 지연된 수하물을 신고하는 방법을 안내해 드립니다.",
+                    "title": null,
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://www.swiss.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "DELAYBAGCREATE",
+                        "language": "en",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [
+                      {
+                        "type": "info",
+                        "title": null,
+                        "message": "chatAssistant.languageNotAvailable",
+                        "reason": null
+                      }
+                    ],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.swiss.com/xx/en/customer-support/faq/baggage-irregularities-faq",
+                    "linkTitle": "자주 묻는 질문 읽기",
+                    "description": "자주 묻는 질문에서 수하물 지연에 관한 가장 일반적인 질문에 대한 답변을 확인하세요.",
+                    "title": "수하물 지연 자세히 알아보기",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "statusBaggageReport",
+              "title": "지연 수하물 신고 관리",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "CHAT_ASSISTANT",
+                    "link": "https://www.swiss.com/digitalassistant/deeplink?start=DELAYBAG&language=en",
+                    "linkTitle": "채팅 시작하기",
+                    "description": "Nelly가 지연 수하물 신고 내역을 조회하거나 수정할 수 있도록 도와드립니다. 수하물이 반환되면 신고서를 닫을 수 있습니다.",
+                    "title": null,
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://www.swiss.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "DELAYBAG",
+                        "language": "en",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [
+                      {
+                        "type": "info",
+                        "title": null,
+                        "message": "chatAssistant.languageNotAvailable",
+                        "reason": null
+                      }
+                    ],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.swiss.com/xx/en/customer-support/faq/baggage-irregularities-faq",
+                    "linkTitle": "자주 묻는 질문 보기",
+                    "description": "자주 묻는 질문에서 수하물 지연에 관한 가장 일반적인 질문에 대한 답변을 확인하세요.",
+                    "title": "수하물 지연 자세히 알아보기",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "reportDamagedBaggage",
+              "title": "손상된 수하물 신고하기",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://mybag.aero/swiss/damaged/en",
+                    "linkTitle": "신고서 접수하기",
+                    "description": "손상된 수하물에 대해 수하물 신고서를 접수하세요(도착 후 72시간까지 접수 가능).",
+                    "title": "손상된 수하물 신고",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "FORM",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.swiss.com/xx/en/customer-support/faq/damaged-baggage-faq",
+                    "linkTitle": "자주 묻는 질문 보기",
+                    "description": "손상된 수하물에 관한 가장 일반적인 질문에 대한 답변은 자주 묻는 질문에서 확인하실 수 있습니다.",
+                    "title": "손상된 수하물 자세히 보기",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CHAT_ASSISTANT",
+                    "link": "https://www.swiss.com/digitalassistant/deeplink?language=en&start=DYNAMIC_baggage_damagedOrDelayed-reportDamagedBaggage",
+                    "linkTitle": "채팅 시작하기",
+                    "description": "Nelly가 질문에 답변하고 다음 단계를 안내해 드립니다.",
+                    "title": null,
+                    "phone": null,
+                    "priority": 3,
+                    "deeplink": {
+                      "url": "https://www.swiss.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "DYNAMIC_baggage_damagedOrDelayed-reportDamagedBaggage",
+                        "language": "en",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [
+                      {
+                        "type": "info",
+                        "title": null,
+                        "message": "chatAssistant.languageNotAvailable",
+                        "reason": null
+                      }
+                    ],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "refundBaggageIrregularities",
+              "title": "수하물 문제에 대한 보상",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.swiss.com/xx/en/baggage-reimbursement",
+                    "linkTitle": "양식 열기",
+                    "description": "문의 양식을 사용하여 수하물 손상 또는 지연으로 인해 발생한 추가 비용에 대한 환급을 요청할 수 있습니다.",
+                    "title": "환급 요청",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "FORM",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.swiss.com/xx/en/prepare/baggage/baggage-irregularities",
+                    "linkTitle": "자세히 알아보기",
+                    "description": "지연 또는 손상된 수하물에 대한 도움을 받고 보상을 청구하는 방법을 확인하세요.",
+                    "title": "수하물 문제 자세히 알아보기",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CHAT_ASSISTANT",
+                    "link": "https://www.swiss.com/digitalassistant/deeplink?language=en&start=DYNAMIC_baggage_damagedOrDelayed-refundBaggageIrregularities",
+                    "linkTitle": "채팅 시작하기",
+                    "description": "Nelly가 질문에 답변하고 다음 단계를 안내해 드립니다.",
+                    "title": null,
+                    "phone": null,
+                    "priority": 3,
+                    "deeplink": {
+                      "url": "https://www.swiss.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "DYNAMIC_baggage_damagedOrDelayed-refundBaggageIrregularities",
+                        "language": "en",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [
+                      {
+                        "type": "info",
+                        "title": null,
+                        "message": "chatAssistant.languageNotAvailable",
+                        "reason": null
+                      }
+                    ],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "baggage.lost",
+          "title": "개인 물품 분실",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?language=en&start=DYNAMIC-baggage_lost-baggage",
+                "linkTitle": "채팅 시작하기",
+                "description": "Nelly가 질문에 답변하고 다음 단계를 안내해 드립니다.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC-baggage_lost-baggage",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/en/prepare/baggage/baggage-irregularities#3",
+                "linkTitle": "지금 신고하기",
+                "description": "공항, 항공기 내에서 분실했거나 위탁 수하물에서 분실된 개인 물품을 신고하세요.",
+                "title": "분실 물품 신고하기",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "baggage.dangerousGoods",
+          "title": "위험물 및 무기",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?language=en&start=DYNAMIC_baggage-baggage_dangerousGoods",
+                "linkTitle": "채팅 시작하기",
+                "description": "Nelly가 질문에 답변하고 다음 단계를 안내해 드립니다.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_baggage-baggage_dangerousGoods",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/en/prepare/baggage/dangerous-goods",
+                "linkTitle": "모든 규정 보기",
+                "description": "위험물 및 금지 물품에 대한 전체 목록을 살펴보십시오.",
+                "title": "수하물 규정 확인",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "라이브 채팅 시작하기",
+                "description": "연중무휴 24시간 라이브 채팅을 통해 서비스 센터 상담원의 도움을 받아보세요.",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "콜 서비스 센터",
+                "description": "전문가가 질문이나 우려 사항에 대해 도움을 드리겠습니다.",
+                "title": null,
+                "phone": "+496986798000",
+                "priority": 4,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "OtherQuestionsBaggage",
+          "title": "기타 수하물 관련 질문",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?language=en&start=DYNAMIC_baggage-OtherQuestionsBaggage",
+                "linkTitle": "채팅 시작하기",
+                "description": "Nelly가 질문에 답변하고 다음 단계를 안내해 드립니다.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_baggage-OtherQuestionsBaggage",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-baggage",
+      "imageUrl": "https://www.swiss.com/content/dam/lx/images/local_images/help-center//baggage.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "addFlightServices",
+      "title": "추가 서비스",
+      "children": [
+        {
+          "code": "booking.Seats",
+          "title": "좌석",
+          "children": [
+            {
+              "code": "changeSeat",
+              "title": "좌석 추가 또는 변경",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.swiss.com/xx/en/profile/login",
+                    "linkTitle": "예약 관리",
+                    "description": "출발 최대 2시간 전까지 온라인에서 좌석을 추가하거나 변경할 수 있습니다.",
+                    "title": "좌석 추가 또는 변경",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.swiss.com/booking/manage-booking/retrieve?lang=ko-KR&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.swiss.com/xx/en/book-and-manage/swiss-choice/advance-seat-reservation",
+                    "linkTitle": "개요 보기",
+                    "description": "모든 좌석 유형과 노선별 요금에 대한 정보를 확인하십시오.",
+                    "title": "모든 좌석 유형 보기",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "콜 서비스 센터",
+                    "description": "출발 최대 48시간 전까지 전화로 좌석을 예약하거나 변경할 수 있습니다.",
+                    "title": null,
+                    "phone": "+496986798000",
+                    "priority": 3,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": true
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            },
+            {
+              "code": "BookNeighboringSeat",
+              "title": "옆 좌석 예약",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "콜 서비스 센터",
+                    "description": "서비스 센터로 문의하여 빈 옆 좌석을 예약하면 더욱 편안하게 여행을 즐길 수 있습니다.",
+                    "title": null,
+                    "phone": "+496986798000",
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": true
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "specialMeal",
+          "title": "기내식 메뉴",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/en/profile/login",
+                "linkTitle": "예약 관리",
+                "description": "식이, 종교, 영양상의 필요에 따라 특별 기내식을 주문하십시오.\n \n이 서비스의 이용 가능 여부는 예약 조건에 따라 달라질 수 있습니다.",
+                "title": "특별 기내식 주문",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.swiss.com/booking/manage-booking/retrieve?lang=ko-KR&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/en/fly/on-board/food-and-beverage/culinary-journey#/entry",
+                "linkTitle": "메뉴 보기",
+                "description": "항공편의 기내식 서비스를 확인하고 다음 여행을 위해 기내식을 사전에 주문하세요.",
+                "title": "기내식 살펴보기",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?language=en&start=DYNAMIC_addFlightServices-specialMeal",
+                "linkTitle": "채팅 시작하기",
+                "description": "Nelly가 질문에 답변하고 다음 단계를 안내해 드립니다.",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_addFlightServices-specialMeal",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "라이브 채팅 시작하기",
+                "description": "연중무휴 24시간 라이브 채팅을 통해 서비스 센터 상담원의 도움을 받아보세요.",
+                "title": null,
+                "phone": null,
+                "priority": 4,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "콜 서비스 센터",
+                "description": "전문가가 질문이나 우려 사항에 대해 도움을 드리겠습니다.",
+                "title": null,
+                "phone": "+496986798000",
+                "priority": 5,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "onBoardServices",
+          "title": "기내 서비스",
+          "children": [
+            {
+              "code": "ejournals",
+              "title": "디지털 신문 및 잡지",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.swiss.com/xx/en/customer-support/faq/ejournals",
+                    "linkTitle": "자주 묻는 질문 보기",
+                    "description": "여기를 클릭해서 eJournals에 대한 정보를 찾고 바로 다운로드하십시오.",
+                    "title": "e저널 관련 자주 묻는 질문 보기",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "flynet",
+              "title": "기내 인터넷",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.swiss.com/xx/en/customer-support/faq/swiss-connect",
+                    "linkTitle": "자주 묻는 질문 보기",
+                    "description": "기내 인터넷 서비스 스위스 커넥트와 이용 방법에 대한 자세한 정보를 확인하십시오.",
+                    "title": "항공편 와이파이 자세히 보기",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "inflightEntertainment",
+              "title": "기내 엔터테인먼트",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.swiss.com/xx/en/fly/on-board/entertainment-on-board",
+                    "linkTitle": "모든 옵션 보기",
+                    "description": "기내에서 즐거운 시간을 보낼 수 있는 엔터테인먼트 상품을 살펴보세요. 영화와 TV 시리즈뿐만 아니라 오디오 북과 음악 및 게임 등을 즐길 수 있습니다.",
+                    "title": "기내 엔터테인먼트 보기",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "Lounges",
+          "title": "라운지",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?language=en&start=DYNAMIC_addFlightServices-Lounges",
+                "linkTitle": "채팅 시작하기",
+                "description": "Nelly가 질문에 답변하고 다음 단계를 안내해 드립니다.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_addFlightServices-Lounges",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/en/fly/airport/lounges/lounges-worldwide",
+                "linkTitle": "목록 보기",
+                "description": "각 공항의 운영 시간 및 서비스를 포함하여 이용 가능한 모든 라운지에 대해 알아보세요.",
+                "title": "라운지 찾기",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/en/fly/airport/lounges/admission-rules",
+                "linkTitle": "개요로 이동",
+                "description": "도착 또는 출발 시 이용할 수 있는 라운지와 승객 동반 가능 여부를 확인하세요.",
+                "title": "라운지 이용 확인",
+                "phone": null,
+                "priority": 3,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "TravelInsurance",
+          "title": "여행자 보험",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/en/profile/login",
+                "linkTitle": "보험 선택",
+                "description": "다음 여행을 위한 여행자 보험에 가입하세요.\n  \n이 서비스의 이용 가능 여부는 예약 조건에 따라 달라질 수 있습니다.",
+                "title": "보험 가입하기",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.swiss.com/booking/manage-booking/retrieve?lang=ko-KR&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "pets",
+          "title": "반려동물 동반 여행",
+          "children": [
+            {
+              "code": "travelPetsInCabin",
+              "title": "객실 내 동물 운송(이동장 포함 최대 8kg)",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.swiss.com/xx/en/profile/login",
+                    "linkTitle": "지금 등록하기",
+                    "description": "반려동물을 객실에 동반할 수 있도록 기존 예약에 반려동물을 등록하세요(출발 최대 72시간 전).",
+                    "title": "반려동물 추가",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.swiss.com/booking/services/PETS?lang=ko-KR&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "CHAT_ASSISTANT",
+                    "link": "https://www.swiss.com/digitalassistant/deeplink?language=en&start=DYNAMIC_pets-travelPetsInCabin",
+                    "linkTitle": "채팅 시작하기",
+                    "description": "Nelly가 질문에 답변하고 다음 단계를 안내해 드립니다.",
+                    "title": null,
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": {
+                      "url": "https://www.swiss.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "DYNAMIC_pets-travelPetsInCabin",
+                        "language": "en",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [
+                      {
+                        "type": "info",
+                        "title": null,
+                        "message": "chatAssistant.languageNotAvailable",
+                        "reason": null
+                      }
+                    ],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.swiss.com/xx/en/prepare/special-care/animals-travelling",
+                    "linkTitle": "모든 조건 보기",
+                    "description": "반려동물과 함께하는 여행 조건을 확인하고 필요한 서류를 모두 준비하세요.",
+                    "title": "여행 조건 확인",
+                    "phone": null,
+                    "priority": 3,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "LIVE_CHAT",
+                    "link": "https://www.swiss.com/digitalassistant/deeplink?start=liveagent&language=en",
+                    "linkTitle": "라이브 채팅 시작하기",
+                    "description": "연중무휴 24시간 라이브 채팅을 통해 서비스 센터 상담원의 도움을 받아보세요.",
+                    "title": null,
+                    "phone": null,
+                    "priority": 4,
+                    "deeplink": {
+                      "url": "https://www.swiss.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "liveagent",
+                        "language": "en",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [
+                      {
+                        "type": "info",
+                        "title": null,
+                        "message": "chatAssistant.languageNotAvailable",
+                        "reason": null
+                      }
+                    ],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "콜 서비스 센터",
+                    "description": "전문가가 질문이나 우려 사항에 대해 도움을 드리겠습니다.",
+                    "title": null,
+                    "phone": "+496986798000",
+                    "priority": 5,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": true
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            },
+            {
+              "code": "travelPetsInHold",
+              "title": "화물칸 내 동물 운송",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.swiss.com/xx/en/prepare/special-care/animals-travelling/register-animal-cargo-hold",
+                    "linkTitle": "지금 등록하기",
+                    "description": "스위스 항공편의 화물칸에 반려견 또는 반려묘를 운송할 수 있도록 등록하세요(늦어도 출발 72시간 전까지).",
+                    "title": "반려동물 여행 등록",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "FORM",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "CHAT_ASSISTANT",
+                    "link": "https://www.swiss.com/digitalassistant/deeplink?language=en&start=DYNAMIC_pets-travelPetsInHold",
+                    "linkTitle": "채팅 시작하기",
+                    "description": "Nelly가 질문에 답변하고 다음 단계를 안내해 드립니다.",
+                    "title": null,
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": {
+                      "url": "https://www.swiss.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "DYNAMIC_pets-travelPetsInHold",
+                        "language": "en",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [
+                      {
+                        "type": "info",
+                        "title": null,
+                        "message": "chatAssistant.languageNotAvailable",
+                        "reason": null
+                      }
+                    ],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.swiss.com/xx/en/prepare/special-care/animals-travelling",
+                    "linkTitle": "모든 조건 보기",
+                    "description": "스위스 항공편의 동물 동반 관련 규정 및 여행 옵션에 대해 알아보세요.",
+                    "title": "조건 확인",
+                    "phone": null,
+                    "priority": 3,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "LIVE_CHAT",
+                    "link": "https://www.swiss.com/digitalassistant/deeplink?start=liveagent&language=en",
+                    "linkTitle": "라이브 채팅 시작하기",
+                    "description": "연중무휴 24시간 라이브 채팅을 통해 서비스 센터 상담원의 도움을 받아보세요.",
+                    "title": null,
+                    "phone": null,
+                    "priority": 4,
+                    "deeplink": {
+                      "url": "https://www.swiss.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "liveagent",
+                        "language": "en",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [
+                      {
+                        "type": "info",
+                        "title": null,
+                        "message": "chatAssistant.languageNotAvailable",
+                        "reason": null
+                      }
+                    ],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "콜 서비스 센터",
+                    "description": "전문가가 질문이나 우려 사항에 대해 도움을 드리겠습니다.",
+                    "title": null,
+                    "phone": "+496986798000",
+                    "priority": 5,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": true
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "TravelingWithChildren",
+          "title": "어린이와 함께하는 여행",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/en/prepare/special-care/children-travelling",
+                "linkTitle": "자세히 알아보기",
+                "description": "여행 준비부터 좌석 안내까지, 어린이와 함께하는 여행에 필요한 다양한 정보를 확인해 보세요.",
+                "title": "여행 정보",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?language=en&start=DYNAMIC_addFlightServices-TravelingWithChildren",
+                "linkTitle": "채팅 시작하기",
+                "description": "Nelly가 어린이 동반 여행에 관한 질문에 답변해 드립니다.",
+                "title": null,
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_addFlightServices-TravelingWithChildren",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "라이브 채팅 시작하기",
+                "description": "기술적인 문제가 발생했거나, 아기 침대를 요청하거나, 비동반 어린이 항공권을 예약하려는 경우에는 서비스 센터 상담원에게 직접 문의해 주세요.",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "콜 서비스 센터",
+                "description": "기술적인 문제가 발생했거나, 아기 침대를 요청하거나, 비동반 어린이 항공권을 예약하려는 경우에는 서비스 센터 상담원에게 직접 문의해 주세요.",
+                "title": null,
+                "phone": "+496986798000",
+                "priority": 4,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "confirmAdditionalServices",
+          "title": "부가 서비스 확인",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "콜 서비스 센터",
+                "description": "요청하신 서비스의 확정 여부는 서비스 센터에서 안내해 드릴 수 있습니다.",
+                "title": null,
+                "phone": "+496986798000",
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "addFlightServices.problem",
+          "title": "서비스 추가 관련 문제",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/en/customer-support/contact-us/technical-support",
+                "linkTitle": "양식 열기",
+                "description": "부가 서비스를 추가하는 데 문제가 발생한 경우, 문의 양식을 사용하시면 최대한 빨리 답변해 드리겠습니다.",
+                "title": "문제 신고하기",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "콜 서비스 센터",
+                "description": "추가로 도움이 필요한 경우 전문가가 질문이나 우려 사항에 대해 도움을 드리겠습니다.",
+                "title": null,
+                "phone": "+496986798000",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-additional-services",
+      "imageUrl": "https://www.swiss.com/content/dam/lx/images/local_images/help-center//add-flight-service.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "booking",
+      "title": "예약 및 준비",
+      "children": [
+        {
+          "code": "booking.Seats",
+          "title": "좌석",
+          "children": [
+            {
+              "code": "changeSeat",
+              "title": "좌석 추가 또는 변경",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.swiss.com/xx/en/profile/login",
+                    "linkTitle": "예약 관리",
+                    "description": "출발 최대 2시간 전까지 온라인에서 좌석을 추가하거나 변경할 수 있습니다.",
+                    "title": "좌석 추가 또는 변경",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.swiss.com/booking/manage-booking/retrieve?lang=ko-KR&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.swiss.com/xx/en/book-and-manage/swiss-choice/advance-seat-reservation",
+                    "linkTitle": "개요 보기",
+                    "description": "모든 좌석 유형과 노선별 요금에 대한 정보를 확인하십시오.",
+                    "title": "모든 좌석 유형 보기",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "콜 서비스 센터",
+                    "description": "출발 최대 48시간 전까지 전화로 좌석을 예약하거나 변경할 수 있습니다.",
+                    "title": null,
+                    "phone": "+496986798000",
+                    "priority": 3,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": true
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            },
+            {
+              "code": "BookNeighboringSeat",
+              "title": "옆 좌석 예약",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "콜 서비스 센터",
+                    "description": "서비스 센터로 문의하여 빈 옆 좌석을 예약하면 더욱 편안하게 여행을 즐길 수 있습니다.",
+                    "title": null,
+                    "phone": "+496986798000",
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": true
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "booking.Upgrades",
+          "title": "좌석 승급",
+          "children": [
+            {
+              "code": "upgradeFlight",
+              "title": "좌석 승급 예약",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.swiss.com/xx/en/profile/login",
+                    "linkTitle": "예약 관리",
+                    "description": "다음 항공편에서 이용할 수 있는 좌석 승급을 비교하고 선호하는 옵션을 선택하세요.",
+                    "title": "좌석 승급 예약",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.swiss.com/booking/cash-upgrade?lang=ko-KR&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.swiss.com/xx/en/book-and-manage/swiss-choice/upgrade-options",
+                    "linkTitle": "모든 옵션 보기",
+                    "description": "좌석 승급 옵션을 살펴보고 더욱 편안하게 여행을 즐겨보세요.",
+                    "title": "좌석 승급 옵션 보기",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "콜 서비스 센터",
+                    "description": "전문가가 질문이나 우려 사항에 대해 도움을 드리겠습니다.",
+                    "title": null,
+                    "phone": "+496986798000",
+                    "priority": 3,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": true
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            },
+            {
+              "code": "BidUpgrade",
+              "title": "좌석 승급 가격을 제시하세요",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.swiss.com/xx/en/profile/login",
+                    "linkTitle": "가격 제안",
+                    "description": "원하는 가격에 더 높은 탑승 클래스로 좌석을 승급하세요.\n \n이 서비스의 이용 가능 여부는 예약 조건에 따라 달라질 수 있습니다.",
+                    "title": "좌석 승급 가격을 제시하세요",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.swiss.com/booking/manage-booking/retrieve?lang=ko-KR&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "reconfirmation",
+          "title": "예약 확인",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?start=MISSINGCONFIRMATION&language=en",
+                "linkTitle": "채팅 시작하기",
+                "description": "Nelly가 예약 코드를 찾는 방법이나 새로운 확인 이메일을 요청하는 방법을 알려 드립니다.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "MISSINGCONFIRMATION",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "booking.miles",
+          "title": "마일리지 예약",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/en/spend/flights.html",
+                "linkTitle": "항공편 검색",
+                "description": "마일리지를 항공권에 사용하세요.",
+                "title": "보너스 항공권 예약",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "콜 서비스 센터",
+                "description": "전문가가 질문이나 우려 사항에 대해 도움을 드리겠습니다.",
+                "title": null,
+                "phone": "+4969209777777",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "booking.new.problem",
+          "title": "예약 또는 결제 관련 문제",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/en/customer-support/contact-us/technical-support",
+                "linkTitle": "양식 열기",
+                "description": "예약 또는 결제에 문제가 발생한 경우, 문의 양식을 사용하시면 최대한 빨리 답변해 드리겠습니다.",
+                "title": "문제 신고하기",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "콜 서비스 센터",
+                "description": "추가로 도움이 필요한 경우 전문가가 질문이나 우려 사항에 대해 도움을 드리겠습니다.",
+                "title": null,
+                "phone": "+496986798000",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "NameChangeAfterBooking",
+          "title": "예약 후 이름 변경",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "콜 서비스 센터",
+                "description": "예약된 이름을 수정하려면 서비스 센터에 문의하세요.\n \n오타 수정과 같이 사소한 수정만 가능합니다.",
+                "title": null,
+                "phone": "+496986798000",
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "passengerReceipt",
+          "title": "승객 영수증 / 인보이스",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/en/customer-support/faq/invoice-information",
+                "linkTitle": "지금 요청",
+                "description": "온라인으로 예약한 승객 영수증 또는 청구서를 요청하세요.",
+                "title": "영수증 또는 청구서 요청",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "라이브 채팅 시작하기",
+                "description": "연중무휴 24시간 라이브 채팅을 통해 서비스 센터 상담원의 도움을 받아보세요.",
+                "title": null,
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "콜 서비스 센터",
+                "description": "전문가가 질문이나 우려 사항에 대해 도움을 드리겠습니다.",
+                "title": null,
+                "phone": "+496986798000",
+                "priority": 3,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "TravelRegulations",
+          "title": "여행 규정",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.travel-regulations.com/?language=en",
+                "linkTitle": "여정 입력",
+                "description": "다음 여행을 위한 입국, 비자 및 건강 규정을 확인하세요.",
+                "title": "여행 규정 확인",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "booking.group",
+          "title": "단체 예약(최소 10인)",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/en/book-and-manage/corporate-customers/group-travel-and-charter/group-travel",
+                "linkTitle": "조건 보기",
+                "description": "단체 예약에 대한 모든 정보는 정보 페이지에서 확인할 수 있습니다.",
+                "title": "조건 확인",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "sustainableFlying",
+          "title": "더욱 지속 가능한 비행",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/en/profile/login",
+                "linkTitle": "패키지 선택",
+                "description": "조합 패키지 중 하나를 구매하여 항공편의 이산화탄소 배출량을 상쇄하고 지속 가능성 프로젝트에 투자하세요.\n \n이 서비스의 이용 가능 여부는 예약 조건에 따라 달라질 수 있습니다.",
+                "title": "상쇄 패키지 구매",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.swiss.com/booking/manage-booking/retrieve?lang=ko-KR&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/en/fly-more-sustainably-search",
+                "linkTitle": "상쇄 옵션 확인",
+                "description": "지난 항공편에 대해 계산된 이산화탄소 배출을 언제든지 상쇄할 수도 있습니다.",
+                "title": "지난 항공편 상쇄",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-airplane-outbound",
+      "imageUrl": "https://www.swiss.com/content/dam/lx/images/local_images/help-center//booking.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "milesAndMore",
+      "title": "Miles & More",
+      "children": [
+        {
+          "code": "milesAndMore.mileageCredit",
+          "title": "예약 후 마일리지 적립",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/en/program/at-a-glance/mileage-request.html",
+                "linkTitle": "조건 확인",
+                "description": "활동일로부터 최대 6개월까지 마일리지와 포인트를 적립하십시오.",
+                "title": "마일리지 적립 요청",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Miles & More 전화",
+                "description": "크레딧 요청에 대해 추가로 도움이 필요하시면 Miles & More 서비스 팀에 문의해 주시기 바랍니다.",
+                "title": null,
+                "phone": "+4969209777777",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.mileageAccount",
+          "title": "Miles & More 계정 잔액",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/en/static/login.html",
+                "linkTitle": "로그인",
+                "description": "Miles & More에 로그인하여 현재 마일리지 계좌 잔액과 마일리지 만료일을 확인하세요.",
+                "title": "계정 잔액 확인하기",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Miles & More 전화",
+                "description": "계정과 사용 가능한 마일리지에 대해 질문이 있으신 경우, Miles & More 서비스 팀에 문의해 주시기 바랍니다.",
+                "title": null,
+                "phone": "+4969209777777",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.spendMiles",
+          "title": "마일리지 사용",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/en/spend/flights.html",
+                "linkTitle": "보너스 살펴보기",
+                "description": "가젯, 항공권 좌석 승급, 기프트 카드 등에 마일리지를 사용하세요.",
+                "title": "마일리지 사용",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Miles & More 전화",
+                "description": "마일리지 사용 방법에 대한 자세한 정보는 Miles & More 서비스 팀에 문의하시기 바랍니다.",
+                "title": null,
+                "phone": "+4969209777777",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.login",
+          "title": "Miles & More 로그인 문제",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/en/general-information/help-and-contact.html?topic=pin-password-login/",
+                "linkTitle": "Miles & More로 이동",
+                "description": "로그인에 대한 도움말과 정보는 Miles & More를 참조하십시오.",
+                "title": "로그인 지원 받기",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Miles & More 전화",
+                "description": "로그인 문제나 궁금한 점이 있으신 경우, Miles & More 서비스 팀에 문의하여 도움을 받으시기 바랍니다.",
+                "title": null,
+                "phone": "+4969209777777",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.upgrade",
+          "title": "보너스 마일리지/전자 상품권 좌석 승급",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/en/program/flight-benefits/upgrade-award.html",
+                "linkTitle": "좌석 승급 보너스 자세히 보기",
+                "description": "온라인에서 마일리지 또는 전자 상품권을 사용하여 더 높은 탑승 클래스로 좌석을 승급하세요.",
+                "title": "좌석 승급 보너스 예약하기",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Miles & More 전화",
+                "description": "좌석 승급 시 문제가 발생한 경우, Miles & More 서비스 팀에 문의해 주시기 바랍니다.",
+                "title": null,
+                "phone": "+4969209777777",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.status",
+          "title": "Miles & More 등급 혜택",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/en/program/status-benefits/status-level-comparison.html",
+                "linkTitle": "등급 비교",
+                "description": "각 상용 고객 등급 혜택 자세히 보기",
+                "title": "등급 혜택 보기",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Miles & More 전화",
+                "description": "등급 혜택에 대해 더 궁금한 점이 있으시면 Miles & More 서비스 팀에 문의해 주시기 바랍니다.",
+                "title": null,
+                "phone": "+4969209777777",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.newMember",
+          "title": "Miles & More 회원 가입",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/en/profile/login?deeplinkRedirect=true",
+                "linkTitle": "로그인",
+                "description": "스위스항공 Travel ID가 있는 경우, swiss.com에서 계정에 로그인하여 Miles & More를 활성화하세요.",
+                "title": "Miles & More 활성화",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/en/program/at-a-glance.html",
+                "linkTitle": "지금 등록하기",
+                "description": "무료로 등록하고 마일리지를 적립하여 항공편 좌석 승급 및 기타 보너스를 받으세요.",
+                "title": "회원 가입하기",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Miles & More 전화",
+                "description": "멤버십에 대한 추가 정보는 Miles & More 서비스 팀에 문의해 주시기 바랍니다.",
+                "title": null,
+                "phone": "+4969209777777",
+                "priority": 3,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.creditCard",
+          "title": "Miles & More 신용카드",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/en/program/credit-cards/credit-cards-overview.html",
+                "linkTitle": "모든 카드 보기",
+                "description": "각 국가에서 사용할 수 있는 모든 Miles & More 신용카드를 확인하십시오.",
+                "title": "신용카드 선택",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/ko/support/faq/faq-miles-and-more",
+                "linkTitle": "자세히 알아보기",
+                "description": "Miles & More 신용카드에 대한 자세한 서비스 정보를 확인하고 앱을 다운로드하여 새로운 혜택을 살펴보세요.",
+                "title": "신용카드 서비스 보기",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Miles & More 전화",
+                "description": "추가로 궁금한 점이나 우려 사항이 있으신 경우, Miles & More 서비스 팀에서 도와드리겠습니다.",
+                "title": null,
+                "phone": "+4969209777777",
+                "priority": 3,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "booking.miles",
+          "title": "마일리지 예약",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/en/spend/flights.html",
+                "linkTitle": "항공편 검색",
+                "description": "마일리지를 항공권에 사용하세요.",
+                "title": "보너스 항공권 예약",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "콜 서비스 센터",
+                "description": "전문가가 질문이나 우려 사항에 대해 도움을 드리겠습니다.",
+                "title": null,
+                "phone": "+4969209777777",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.worldshop",
+          "title": "월드샵",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.worldshop.eu/en/page/SWISS/?p=65SqaeEGyj0",
+                "linkTitle": "Worldshop으로 이동",
+                "description": "프리미엄 브랜드와 최신 스페셜 에디션 독점 제품을 쇼핑하세요.",
+                "title": "월드샵 방문",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.otherQuestions",
+          "title": "Miles & More에 대한 기타 질문",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/en/general-information/help-and-contact.html",
+                "linkTitle": "Miles & More 방문하기",
+                "description": "유용한 기사, 양식 및 Miles & More 서비스 팀 핫라인을 통해 요청에 대한 도움을 받으세요.",
+                "title": "도움말 찾기",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-miles-and-more",
+      "imageUrl": "https://www.swiss.com/content/dam/lx/images/local_images/help-center//miles-and-more.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "accessibility",
+      "title": "이동이 불편한 승객을 위한 여행",
+      "children": [
+        {
+          "code": "mobilityAssistance",
+          "title": "공항 내 이동 지원 서비스",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/en/prepare/special-care/accessible-travel",
+                "linkTitle": "서비스 세부 사항 보기",
+                "description": "이동이 불편하거나 감각 장애가 있는 승객을 위한 서비스에 대해 자세히 알아보세요(출발 48시간 전까지 예약 가능).",
+                "title": "이동 서비스 보기",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/en/prepare/special-care/accessible-travel/accessible-travel-form",
+                "linkTitle": "양식 열기",
+                "description": "출발 최소 48시간 전까지 문의 양식을 작성하여 지원 요구 사항을 알려주십시오.",
+                "title": "이동 서비스 요청",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?language=en&start=DYNAMIC_accessibility-mobilityAssistance",
+                "linkTitle": "채팅 시작하기",
+                "description": "Nelly가 질문에 답변하고 다음 단계를 안내해 드립니다.",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_accessibility-mobilityAssistance",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "라이브 채팅 시작하기",
+                "description": "연중무휴 24시간 라이브 채팅을 통해 서비스 센터 상담원의 도움을 받아보세요.",
+                "title": null,
+                "phone": null,
+                "priority": 4,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "콜 서비스 센터",
+                "description": "전문가가 질문이나 우려 사항에 대해 도움을 드리겠습니다.",
+                "title": null,
+                "phone": "+496986798000",
+                "priority": 5,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "travelHealthIssues",
+          "title": "건강 문제가 있는 승객",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/xx/en/prepare/special-care/health-and-travel",
+                "linkTitle": "체크리스트 보기",
+                "description": "불편함이 있거나 건강 상태에 특별한 주의가 필요한 경우 체크리스트를 살펴보고 다음 여행을 위한 의료 서비스를 요청하십시오.",
+                "title": "여행 준비",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?language=en&start=DYNAMIC_accessibility-travelHealthIssues",
+                "linkTitle": "채팅 시작하기",
+                "description": "Nelly가 질문에 답변하고 다음 단계를 안내해 드립니다.",
+                "title": null,
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_accessibility-travelHealthIssues",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "라이브 채팅 시작하기",
+                "description": "연중무휴 24시간 라이브 채팅을 통해 서비스 센터 상담원의 도움을 받아보세요.",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "콜 서비스 센터",
+                "description": "전문가가 질문이나 우려 사항에 대해 도움을 드리겠습니다.",
+                "title": null,
+                "phone": "+496986798000",
+                "priority": 4,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "moreAccessibleTravel",
+          "title": "이동이 불편한 승객을 위한 여행에 대해 자세히 보기",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?language=en&start=DYNAMIC_accessibility-moreAccessibleTravel",
+                "linkTitle": "채팅 시작하기",
+                "description": "Nelly가 질문에 답변하고 다음 단계를 안내해 드립니다.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_accessibility-moreAccessibleTravel",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.swiss.com/medicalservices/en/health/",
+                "linkTitle": "개요로 이동",
+                "description": "다양한 상황에서 편안한 여행을 위해 이용 가능한 모든 서비스에 대한 개요를 확인하세요.",
+                "title": "모든 서비스 보기",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.swiss.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "라이브 채팅 시작하기",
+                "description": "연중무휴 24시간 라이브 채팅을 통해 서비스 센터 상담원의 도움을 받아보세요.",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.swiss.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "콜 서비스 센터",
+                "description": "전문가가 질문이나 우려 사항에 대해 도움을 드리겠습니다.",
+                "title": null,
+                "phone": "+496986798000",
+                "priority": 4,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-wheelchair",
+      "imageUrl": "https://www.swiss.com/content/dam/lx/images/local_images/help-center//accessible-travel.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "TravelIDLogin",
+      "title": "로그인 및 Travel ID",
+      "children": [],
+      "options": {
+        "recommended": [
+          {
+            "type": "SELF_SERVICE",
+            "link": "https://www.swiss.com/content/lx/markets/xx/en/profile/travel-id/faq",
+            "linkTitle": "자주 묻는 질문 보기",
+            "description": "자주 묻는 질문에서 Travel ID에 대한 자세한 정보와 로그인 관련 도움말을 확인하세요.",
+            "title": "로그인 및 Travel ID 관련 자주 묻는 질문",
+            "phone": null,
+            "priority": 1,
+            "deeplink": null,
+            "notifications": [],
+            "trackingType": "INFORMATIONAL",
+            "profileHandoverEnabled": false
+          }
+        ],
+        "others": [
+          {
+            "type": "CALL",
+            "link": null,
+            "linkTitle": "콜 서비스 센터",
+            "description": "도움이 필요하시면 저희 전문가가 도와드리겠습니다.",
+            "title": null,
+            "phone": "+496986798000",
+            "priority": 2,
+            "deeplink": null,
+            "notifications": [],
+            "trackingType": null,
+            "profileHandoverEnabled": true
+          }
+        ]
+      },
+      "icon": "icon-service-login",
+      "imageUrl": null,
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": false
+    },
+    {
+      "code": "other",
+      "title": "피드백 및 기타 문의",
+      "children": [],
+      "options": {
+        "recommended": [
+          {
+            "type": "SELF_SERVICE",
+            "link": "https://www.swiss.com/xx/en/customer-support/contact-us/feedback-past-flight",
+            "linkTitle": "양식 열기",
+            "description": "문의 양식을 통해 지난 항공편 이용 경험에 대해 알려주시기 바랍니다. 최대한 신속하게 답변해 드리겠습니다.",
+            "title": "피드백 보내기",
+            "phone": null,
+            "priority": 1,
+            "deeplink": null,
+            "notifications": [],
+            "trackingType": "FORM",
+            "profileHandoverEnabled": false
+          }
+        ],
+        "others": [
+          {
+            "type": "CHAT_ASSISTANT",
+            "link": "https://www.swiss.com/digitalassistant/deeplink?start=CONTACTCENTERDEFAULT&language=en",
+            "linkTitle": "채팅 시작하기",
+            "description": "Nelly가 질문에 답변하고 다음 단계를 안내해 드립니다.",
+            "title": null,
+            "phone": null,
+            "priority": 2,
+            "deeplink": {
+              "url": "https://www.swiss.com/digitalassistant/deeplink",
+              "data": {
+                "lastName": "<lastName>",
+                "firstName": "<firstName>",
+                "start": "CONTACTCENTERDEFAULT",
+                "language": "en",
+                "filekey": "<pnr>"
+              }
+            },
+            "notifications": [
+              {
+                "type": "info",
+                "title": null,
+                "message": "chatAssistant.languageNotAvailable",
+                "reason": null
+              }
+            ],
+            "trackingType": null,
+            "profileHandoverEnabled": false
+          }
+        ]
+      },
+      "icon": "icon-create-post",
+      "imageUrl": null,
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": false
+    }
+  ],
+  "_metadata": {
+    "tenant": "LX",
+    "language": "ko",
+    "extracted_at": "2026-11-04T02:03:24.051704",
+    "record_count": 1
+  }
+}
