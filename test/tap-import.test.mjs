@@ -287,6 +287,66 @@ describe('tap-import aem.flytap.com pictures', () => {
   });
 });
 
+describe('tap-import alerts page and extra link strip', () => {
+  const sectionsOf = (html) => [...dom(html).querySelectorAll('main > div')];
+
+  it('the alerts page: the message-center block (irreg, tech-outage) in place of the static alerts, the page\'s other content kept', () => {
+    const page = {
+      props: {
+        pageProps: {
+          page: {
+            template: 'alerts',
+            title: 'Alertas e informações',
+            sections: [{ __typename: 'ComponentHeadingModel', title: 'Alertas e informações' }],
+            dynamicData: { alertList: { items: [{ title: 'Manutenção de sistemas', weight: 1, content: [{ nodeType: 'paragraph', content: [{ nodeType: 'text', value: 'Texto' }] }] }] } },
+          },
+        },
+      },
+    };
+    const { html } = convertPage(page, { ...ctx('https://www.flytap.com/pt-pt/alertas-e-informacoes') });
+    const d = dom(html);
+    assert.equal(d.querySelector('h1').textContent, 'Alertas e informações');
+    const mc = d.querySelector('.message-center');
+    assert.ok(mc, 'message-center block');
+    assert.deepEqual([...mc.querySelectorAll(':scope > div')].map((r) => [...r.children].map((x) => x.textContent)), [['Types', 'irreg, tech-outage']]);
+    assert.ok(!d.querySelector('.accordion-columns'), 'no static accordion');
+    assert.ok(!html.includes('Manutenção de sistemas'));
+  });
+
+  it('the alerts page without alerts in the capture: still the message-center block', () => {
+    const page = { props: { pageProps: { page: { template: 'alerts', title: 'Alerts and information', sections: [] } } } };
+    const d = dom(convertPage(page, { ...ctx('https://www.flytap.com/en-pt/alerts-and-informations'), lang: 'en', locale: 'en-pt' }).html);
+    assert.ok(d.querySelector('.message-center'));
+  });
+
+  it('the homepage\'s extra link strip (extraAlert): a first section of style extra-alert, a columns block of the link and its pill', () => {
+    const home = nd('homepage');
+    home.props.pageProps.extraAlert = [{
+      __typename: 'ComponentExtraAlertModel', messageCta: 'Intermediação de Crédito', messageCtaUrl: '/miles-and-go/acumular-milhas/cartoes-de-credito', extraAlertCtaLabel: 'Saiba mais', extraAlertCtaUrl: '/miles-and-go/acumular-milhas/cartoes-de-credito',
+    }];
+    const c = { ...ctx('https://www.flytap.com/pt-pt'), scope: new Set([...scope, '/pt-pt/miles-and-go/acumular-milhas/cartoes-de-credito']) };
+    const s = sectionsOf(convertPage(home, c).html);
+    assert.match(s[0].querySelector('.section-metadata').textContent, /extra-alert/);
+    const cells = [...s[0].querySelectorAll('.columns > div > div')];
+    assert.equal(cells.length, 2);
+    assert.equal(cells[0].querySelector('a').getAttribute('href'), '/pt-pt/miles-and-go/acumular-milhas/cartoes-de-credito');
+    assert.equal(cells[0].querySelector('a').textContent, 'Intermediação de Crédito');
+    assert.ok(!cells[0].querySelector('strong, em'), 'the message a plain link');
+    assert.equal(cells[1].querySelector('em > a').textContent, 'Saiba mais');
+    // then the homepage's hidden H1 and the stage
+    assert.ok(s[1].querySelector('h1') && s[2].querySelector('.hero-campaign'));
+  });
+
+  it('no extra strip without extraAlert, nor on other pages', () => {
+    const home = nd('homepage');
+    delete home.props.pageProps.extraAlert;
+    assert.ok(!convertPage(home, ctx('https://www.flytap.com/pt-pt')).html.includes('extra-alert'));
+    const help = nd('ajuda');
+    help.props.pageProps.extraAlert = [{ messageCta: 'Intermediação de Crédito', messageCtaUrl: '/x' }];
+    assert.ok(!convertPage(help, ctx()).html.includes('extra-alert'));
+  });
+});
+
 describe('tap-import media archives from the deliveries index', () => {
   it('every tap-media archive the index lists, in its order; the ones not unpacked named', () => {
     const top = fs.mkdtempSync(path.join(os.tmpdir(), 'tap-arch-'));

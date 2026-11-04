@@ -17,7 +17,8 @@
  * - Heading (the page's first: its H1), HeadingSection (H2), RichTextBlock: default content, the
  *   CTAs as buttons (primary bold, secondary plain), tables as table-striped;
  * - AccordionItemsList, the FAQ's CategoryAccordion (a heading per category and subcategory),
- *   the alerts page's list: accordion-columns (faq);
+ *   the alerts page's list: the message-center block (the current alerts, not the captured ones);
+ *   the homepage's extra link strip (extraAlert): columns in a first section of style extra-alert;
  * - GenericCardList: cards (text cards; three-up, four-up by itemsPerRow), cards-teaser (image
  *   cards; three-up, four-up by itemsPerRow), carousel-cards (desktopType carousel);
  *   ClientNeedsCardList: carousel-cards; AuxiliaryCarousel: cards-icon; the visitor's
@@ -762,6 +763,19 @@ export function convertPage(nd, site) {
   // site.units (tap-markets.mjs): the components with the countries of those behind a rule
   // (__markets), each a section of its own; the variants of one component each keep its H1
   const secs = site.units ? site.units(page, pp) : [...(page.topSections || []), ...(page.sections || [])];
+  // www's extra link strip under the alerts bar, above the header, on the root homepage only
+  // (pageProps.extraAlert: pt-pt, en-pt "Intermediação de Crédito", fr-fr "Droits des passagers"):
+  // a first section of style extra-alert, a columns block of the message (a link) and its pill
+  // (a secondary button), before the stage (the header floats in the stage below it)
+  if (page.__typename === 'HomepageModel') {
+    (pp.extraAlert || []).filter((x) => x && x.messageCta && x.messageCtaUrl).forEach((x) => {
+      const cells = [`<p><a href="${attr(linkOf(x.messageCtaUrl, c))}">${esc(x.messageCta)}</a></p>`];
+      if (x.extraAlertCtaLabel) cells.push(`<p><em><a href="${attr(linkOf(x.extraAlertCtaUrl || x.messageCtaUrl, c))}">${esc(x.extraAlertCtaLabel)}</a></em></p>`);
+      P.section('extra-alert');
+      P.block('columns', [cells]);
+      P.section();
+    });
+  }
   if (page.slider) render(page.slider, P, -1);
   let h1Before = P.h1;
   secs.forEach((s, i) => {
@@ -773,11 +787,10 @@ export function convertPage(nd, site) {
     }
     render(s, P, page.slider ? i + 1 : i);
   });
-  // the alerts page: www's alerts list (dynamicData) as an accordion, in its order
-  const alerts = page.template === 'alerts' && page.dynamicData && page.dynamicData.alertList ? page.dynamicData.alertList.items || [] : [];
-  if (alerts.length) {
-    P.block('accordion-columns (faq)', [...alerts].sort((a, b) => (Number(a.weight) || 0) - (Number(b.weight) || 0)).map((x) => [esc(x.title), richText(x.content, c, 'cell')]));
-  }
+  // the alerts page: in place of www's alerts list as captured (dynamicData), the message-center
+  // block, which shows the current alerts of lh-tap's Message Center (tenant tap) and opens #<id>
+  // from the alerts bar's links (tools/reports/tap/alerts-spec.md 5)
+  if (page.template === 'alerts') P.block('message-center', [['Types', 'irreg, tech-outage']]);
   let docs = P.sections.filter((s) => s.items.length);
   if (!docs.length) return { skipped: `no content (template ${page.template || page.__typename})` };
   if (!P.h1) {
