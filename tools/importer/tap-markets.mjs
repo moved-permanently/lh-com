@@ -33,7 +33,7 @@ import {
   convertPage, anchorsOf, docPath, mediaIndex, mediaResolver, WWW,
 } from './tap-import.mjs';
 import { navHtml, footerHtml, logoSvg } from './tap-nav.mjs';
-import { marketAllows } from '../../scripts/market-rules.js';
+import { marketAllows, sectionMarkets } from '../../scripts/market-rules.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const W = path.join(root, 'content-sites/lh-tap');
@@ -352,6 +352,59 @@ export function variantFragments(html, fragments) {
   return { html: out, fragments: uniq };
 }
 
+/** The top-level sections of a document's HTML (its <div>s). */
+function topSections(html) {
+  const out = [];
+  const re = /<div\b[^>]*>|<\/div>/g;
+  let depth = 0;
+  let start = 0;
+  let m = re.exec(html);
+  while (m) {
+    if (m[0] === '</div>') {
+      depth -= 1;
+      if (depth === 0) out.push(html.slice(start, re.lastIndex));
+    } else {
+      if (depth === 0) start = m.index;
+      depth += 1;
+    }
+    m = re.exec(html);
+  }
+  return out;
+}
+
+/** A section's section-metadata block and the section's content without it. */
+function splitSectionMetadata(section) {
+  const inner = section.replace(/^<div>/, '').replace(/<\/div>$/, '');
+  const at = inner.indexOf('<div class="section-metadata">');
+  if (at < 0) return { body: inner, meta: '' };
+  const end = at + topSections(inner.slice(at))[0].length;
+  return { body: inner.slice(0, at) + inner.slice(end), meta: inner.slice(at, end) };
+}
+
+/**
+ * A page over the content bus's limits: the sections its home market never sees (other markets'
+ * variants) as fragment documents (<base>/market-<hash>), each section a fragment block with its
+ * Markets kept; the home market's view stays inline as the plain document has it (a loaded
+ * fragment gets the page's breadcrumb again: scripts.js builds it in fragments too).
+ * @param {string} html the document
+ * @param {{home: string, base: string}} o home: the language version's market; base: the
+ *   fragments' folder (/<language>/fragments/<page>)
+ * @returns {{html: string, fragments: {doc: string, html: string}[]}}
+ */
+export function marketFragments(html, { home, base }) {
+  const fragments = [];
+  const out = topSections(html).map((sec) => {
+    const m = sectionMarkets(sec);
+    if (m === null || marketAllows(m, home)) return sec;
+    const { body, meta } = splitSectionMetadata(sec);
+    const frag = `<div>${body}</div>\n`;
+    const doc = `${base}/market-${crypto.createHash('sha1').update(frag).digest('hex').slice(0, 6)}`;
+    if (!fragments.some((x) => x.doc === doc)) fragments.push({ doc, html: frag });
+    return `<div><div class="fragment"><div><div><a href="${doc}">${doc}</a></div></div></div>${meta}</div>`;
+  });
+  return { html: `${out.join('\n')}\n`, fragments };
+}
+
 /** A root's document with its links as its language version's (/en-us → /en-pt, www's en_us → en_pt). */
 export function rootLinks(html, r, lv) {
   const u = (x) => x.replace('-', '_');
@@ -475,7 +528,13 @@ async function main() {
     let r = convertPage(nd, site);
     if (r.skipped) continue;
     const over = (h) => Buffer.byteLength(h) > 900 * 1024 || (h.match(/<img /g) || []).length > 190;
-    if (over(r.html)) r = convertPage(nd, { ...site, fragments: true });
+    if (over(r.html)) {
+      // other markets' sections into fragments first (the home view stays as the plain document),
+      // else the importer's fragments of the page's categories
+      const mf = marketFragments(r.html, { home, base: `/${lv}/fragments/${doc.split('/').pop()}` });
+      if (mf.fragments.length && !over(mf.html) && !mf.fragments.some((x) => over(x.html))) r = { ...r, html: mf.html, fragments: mf.fragments };
+      else r = convertPage(nd, { ...site, fragments: true });
+    }
     // the variants' fragment documents apart
     const vf = variantFragments(r.html, r.fragments);
     const html = withPageMarkets(vf.html, pm);

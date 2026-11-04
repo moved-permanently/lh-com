@@ -10,7 +10,7 @@ import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
 import { convertPage } from '../tools/importer/tap-import.mjs';
 import {
-  ruleTail, ruleIndex, marketUnits, pageMarkets, withPageMarkets, rootLinks, languageOf, rootDocPath, variantFragments, marketViewPaths,
+  ruleTail, ruleIndex, marketUnits, pageMarkets, withPageMarkets, rootLinks, languageOf, rootDocPath, variantFragments, marketViewPaths, marketFragments,
 } from '../tools/importer/tap-markets.mjs';
 import { dropMarketSections, sectionMarkets } from '../scripts/market-rules.js';
 
@@ -287,6 +287,22 @@ describe('tap-markets: pages and links', () => {
     const other = r.fragments[2].doc;
     assert.match(other, /^\/en-pt\/fragments\/partners\/hotels-[0-9a-f]{6}$/);
     assert.equal(r.html, `<div>${block(f)}${block(g)}</div>\n<div>${block(other)}${block(g)}</div>\n`);
+  });
+
+  it('marketFragments: a page over the limits moves the sections its home market never sees into fragments; the home view stays inline', () => {
+    const sm = (m) => `<div class="section-metadata"><div><div>Markets</div><div>${m}</div></div></div>`;
+    const html = `<div><h1>Partners</h1></div>\n<div><p>Portugal's partners</p>${sm('pt')}</div>\n<div><p>Brazil's partners</p>${sm('br')}</div>\n<div><p>Everyone else's</p>${sm('-br,-pt')}</div>\n<div><p>After</p><div class="metadata"><div><div>Title</div><div>X</div></div></div></div>\n`;
+    const r = marketFragments(html, { home: 'pt', base: '/pt-pt/fragments/parceiros' });
+    assert.equal(r.fragments.length, 2);
+    r.fragments.forEach((f) => assert.match(f.doc, /^\/pt-pt\/fragments\/parceiros\/market-[0-9a-f]{6}$/));
+    assert.equal(dropMarketSections(r.html, 'pt'), dropMarketSections(html, 'pt'), 'Portugal\'s view exactly as before');
+    assert.ok(!dropMarketSections(r.html, 'pt').includes('class="fragment"'));
+    // Brazil's section: a fragment block with its Markets kept, its content in the fragment
+    const br = dropMarketSections(r.html, 'br');
+    assert.match(br, /<div class="fragment"><div><div><a href="\/pt-pt\/fragments\/parceiros\/market-[0-9a-f]{6}">/);
+    assert.ok(!br.includes('Brazil\'s partners'));
+    assert.match(r.fragments.find((f) => f.html.includes('Brazil')).html, /^<div><p>Brazil's partners<\/p><\/div>\n$/);
+    assert.equal(sectionMarkets(sectionsOf(r.html.trim())[2]), 'br');
   });
 
   it('rootLinks: a root\'s document as its language version\'s (to compare nav and footer)', () => {
