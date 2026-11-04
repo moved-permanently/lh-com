@@ -97,7 +97,8 @@ test('the page\'s <html lang>: zh-HK for hk (no language tag), every other langu
   assert.equal(pathLanguageOf('en-US'), 'en');
   assert.equal(pathLanguageOf('zh'), 'zh');
   assert.equal(pathLanguageOf(''), 'en');
-  assert.match(show(null, 'scripts/scripts.js'), /document\.documentElement\.lang = getMetadata\('language'\) \|\| htmlLangOf\(locale\.lang\);/);
+  // since brief 353 a TAP market root's language and market first (test/tap-html-lang.test.mjs)
+  assert.match(show(null, 'scripts/scripts.js'), /document\.documentElement\.lang = (?:htmlLangOfRoot\(window\.location\.pathname, locale\.siteLanguages\)\s*\|\| )?getMetadata\('language'\) \|\| htmlLangOf\(locale\.lang\);/);
   assert.match(show(null, 'blocks/accordion-columns/accordion-columns.js'), /const lang = pathLanguageOf\(document\.documentElement\.lang\);/);
   assert.match(show(null, 'scripts/consent-banner.js'), /const lang = pathLanguageOf\(document\.documentElement\.lang\);/);
 });
