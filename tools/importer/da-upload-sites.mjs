@@ -89,13 +89,19 @@ export const allowlistAllowed = (list) => {
  * The run's site settings from the options.
  * @param {string} root the repository
  * @param {() => Promise<Set<string>>} loadScope lh-com's scope (only loaded for lh-com)
- * @param {{site?: string, contentDir?: string, stateEnv?: string}} opts
+ * @param {{site?: string, contentDir?: string, stateEnv?: string, stateName?: string}} opts
+ *   stateName (--state): a state file of the run's own, da-upload-state-<site>-<name>.json (lh-com:
+ *   da-upload-state-<name>.json), for runs that must not share the site's (lh-tap's market roots)
  */
-export async function siteSettings(root, loadScope, { site = DEFAULT_SITE, contentDir, stateEnv } = {}) {
+export async function siteSettings(root, loadScope, {
+  site = DEFAULT_SITE, contentDir, stateEnv, stateName,
+} = {}) {
   if (!/^[a-z0-9-]+$/.test(site)) throw new Error(`--site ${site}: not a site name`);
+  if (stateName !== undefined && !/^[a-z0-9-]+$/.test(stateName)) throw new Error(`--state ${stateName}: not a state name`);
   const lhCom = site === DEFAULT_SITE;
   const dir = path.resolve(root, contentDir || (lhCom ? 'content' : `content-sites/${site}/content`));
-  let stateFile = path.join(root, lhCom ? 'tools/importer/da-upload-state.json' : `tools/importer/da-upload-state-${site}.json`);
+  const suffix = [lhCom ? null : site, stateName].filter(Boolean).map((x) => `-${x}`).join('');
+  let stateFile = path.join(root, `tools/importer/da-upload-state${suffix}.json`);
   // $DA_UPLOAD_STATE keeps working for lh-com runs (other sites always have their own file)
   if (lhCom && stateEnv) stateFile = path.resolve(stateEnv);
   let allowed;

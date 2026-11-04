@@ -27,6 +27,7 @@
  *
  * Usage: node tools/importer/da-upload.mjs (--path /de/en/homepage ... | --list paths.txt)
  *          [--no-preview] [--dry-run] [--force] [--budget 500] [--site lh-com] [--content-dir dir]
+ *          [--state <name>] (a state file of its own: da-upload-state-<site>-<name>.json)
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -44,7 +45,7 @@ const has = (n) => argv.includes(`--${n}`);
 const opt = (n) => (argv.includes(`--${n}`) ? argv[argv.indexOf(`--${n}`) + 1] : null);
 const loadScope = async () => (await import(path.join(root, 'tools/importer/transformers/scope-paths.js'))).default;
 const settings = await siteSettings(root, loadScope, {
-  site: opt('site') || undefined, contentDir: opt('content-dir') || undefined, stateEnv: process.env.DA_UPLOAD_STATE,
+  site: opt('site') || undefined, contentDir: opt('content-dir') || undefined, stateEnv: process.env.DA_UPLOAD_STATE, stateName: opt('state') || undefined,
 });
 const {
   org: ORG, site: SITE, contentDir, stateFile, allowed, authorEdits: AUTHOR_EDITS,

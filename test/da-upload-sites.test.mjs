@@ -51,6 +51,19 @@ test('another site: its own tree and state, only its allowlist, no lh-com scope 
   await assert.rejects(siteSettings(root, loadScope, { site: '../x' }), /not a site name/);
 });
 
+test('--state <name>: a run of its own keeps a state file of its own (lh-tap market roots)', async () => {
+  const s = await siteSettings(root, loadScope, { site: 'lh-tap', stateName: 'markets' });
+  assert.equal(s.stateFile, path.join(root, 'tools/importer/da-upload-state-lh-tap-markets.json'));
+  assert.equal(s.contentDir, path.join(root, 'content-sites/lh-tap/content'), 'the same tree and allowlist');
+  const plain = await siteSettings(root, loadScope, { site: 'lh-tap' });
+  assert.equal(plain.stateFile, path.join(root, 'tools/importer/da-upload-state-lh-tap.json'), 'without it as before');
+  const com = await siteSettings(root, loadScope, { stateName: 'pilot' });
+  assert.equal(com.stateFile, path.join(root, 'tools/importer/da-upload-state-pilot.json'));
+  await assert.rejects(siteSettings(root, loadScope, { site: 'lh-tap', stateName: '../x' }), /not a state name/);
+  const src = fs.readFileSync(path.join(root, 'tools/importer/da-upload.mjs'), 'utf8');
+  assert.match(src, /stateName: opt\('state'\)/, 'da-upload.mjs passes --state on');
+});
+
 test('refusals for every site: /lhg/ and the login/profile shells', () => {
   const list = allowlistAllowed({ paths: ['/lhg/de/en/x', '/de/en/x'], patterns: ['^/lhg/.*$'] });
   assert.ok(!list('/lhg/de/en/x'), 'an allowlist cannot allow /lhg/');

@@ -364,14 +364,16 @@ class Page {
     this.fragments = [];
     this.h1 = false;
     this.cell = false;
+    // the countries of the component being rendered (tap-markets.mjs), for its sections
+    this.markets = null;
   }
 
   get current() { return this.sections[this.sections.length - 1]; }
 
   section(style = null) {
     if (this.cell) return;
-    if (!this.current.items.length) this.current.style = style;
-    else this.sections.push({ style, items: [] });
+    if (!this.current.items.length) Object.assign(this.current, { style, markets: this.markets });
+    else this.sections.push({ style, items: [], markets: this.markets });
   }
 
   add(html) { if (html) this.current.items.push({ html }); }
@@ -699,6 +701,8 @@ const HANDLERS = {
   ComponentContactsByCountryModel: (s, P) => { P.add(P.heading(2, s.title)); P.onWww('ContactsByCountry (the contacts by country picker)'); },
   ComponentCoreMediaModel: (s, P) => P.onWww(`CoreMedia (${s.type})`),
   ComponentAnchorModel: () => {},
+  // tap-markets.mjs: in place of a market's variant that no capture holds, the page on www
+  MarketVariantOnWww: (s, P) => P.onWww('a market variant no capture holds (tap-markets.mjs)'),
 };
 
 /** Generic: a component's titles, texts, images and links in order (reported). */
@@ -739,7 +743,8 @@ function nested(secs, P) {
  * @param {object} nd the page's __NEXT_DATA__
  * @param {{url: string, lang?: string, locale?: string, scope: Set<string>,
  *   media: (key: string) => (string|{eds?: string, link?: string}|null),
- *   anchors?: Map<string, Map<string, string>>, siteName?: string}} site
+ *   anchors?: Map<string, Map<string, string>>, siteName?: string,
+ *   units?: (page: object, pageProps: object) => object[]}} site (units: tap-markets.mjs)
  */
 export function convertPage(nd, site) {
   const locale = site.locale || localeOf(site.url);
@@ -751,9 +756,20 @@ export function convertPage(nd, site) {
   const page = pp.page || {};
   if (OUT_TEMPLATES[page.template]) return { skipped: OUT_TEMPLATES[page.template] };
   const P = new Page(c);
-  const secs = [...(page.topSections || []), ...(page.sections || [])];
+  // site.units (tap-markets.mjs): the components with the countries of those behind a rule
+  // (__markets), each a section of its own; the variants of one component each keep its H1
+  const secs = site.units ? site.units(page, pp) : [...(page.topSections || []), ...(page.sections || [])];
   if (page.slider) render(page.slider, P, -1);
-  secs.forEach((s, i) => render(s, P, page.slider ? i + 1 : i));
+  let h1Before = P.h1;
+  secs.forEach((s, i) => {
+    if (s.__markets || P.markets) {
+      if (s.__markets && P.markets && s._path === (secs[i - 1] || {})._path) P.h1 = h1Before;
+      else h1Before = P.h1;
+      P.markets = s.__markets || null;
+      P.section();
+    }
+    render(s, P, page.slider ? i + 1 : i);
+  });
   // the alerts page: www's alerts list (dynamicData) as an accordion, in its order
   const alerts = page.template === 'alerts' && page.dynamicData && page.dynamicData.alertList ? page.dynamicData.alertList.items || [] : [];
   if (alerts.length) {
@@ -762,6 +778,7 @@ export function convertPage(nd, site) {
   let docs = P.sections.filter((s) => s.items.length);
   if (!docs.length) return { skipped: `no content (template ${page.template || page.__typename})` };
   if (!P.h1) {
+    if (docs[0].markets) docs.unshift({ style: null, items: [] });
     docs[0].items.unshift({ html: `<h1>${esc(page.title || String(page.seoTitle || '').replace(/\s*\|\s*TAP Air Portugal\s*$/, ''))}</h1>` });
     P.notes.push('no heading on the page: H1 from its title');
   }
@@ -790,17 +807,22 @@ export function convertPage(nd, site) {
     if (page.title) meta.push(['Breadcrumb Title', esc(page.title)]);
   } else meta.push(['Breadcrumb Title', esc(c.siteName)]);
   meta.push(['Nav', `/${locale}/nav`], ['Footer', `/${locale}/footer`], ['Language', c.lang]);
+  // the page metadata never in a market's section (lh-edge drops those for the other markets)
+  if (docs[docs.length - 1].markets) docs.push({ style: null, items: [] });
+  let h1s = 0;
   docs = docs.map((s, i) => {
     const body = s.items.map((it) => it.html).join('');
-    const sm = s.style ? blockHtml('section-metadata', [['Style', s.style]]) : '';
+    const rows = [s.style && ['Style', s.style], s.markets && ['Markets', s.markets]].filter(Boolean);
+    const sm = rows.length ? blockHtml('section-metadata', rows) : '';
     const md = i === docs.length - 1 ? blockHtml('metadata', meta) : '';
-    return `<div>${body}${sm}${md}</div>`;
+    // one H1 a page; a market section's (a variant's own) stays
+    const out = `<div>${body}${sm}${md}</div>`;
+    return s.markets ? out : out.replace(/<(\/?)h1>/g, (x, close) => {
+      if (!close) h1s += 1;
+      return h1s > 1 ? `<${close}h2>` : x;
+    });
   });
-  let h1s = 0;
-  const html = docs.join('\n').replace(/<(\/?)h1>/g, (x, close) => {
-    if (!close) h1s += 1;
-    return h1s > 1 ? `<${close}h2>` : x;
-  });
+  const html = docs.join('\n');
   return {
     html: `${html}\n`,
     fragments: P.fragments,

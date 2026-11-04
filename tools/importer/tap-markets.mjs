@@ -1,0 +1,584 @@
+/* eslint-disable no-console, no-continue, no-restricted-syntax, no-await-in-loop, max-len, no-underscore-dangle, import/extensions -- tooling */
+/**
+ * TAP's market roots on lh-tap (Ben's option B, tools/reports/markets/plan.md: one document per
+ * language page; a market root holds documents of its own only where it differs). www.flytap.com
+ * authors one version per language and applies its country rules on the server
+ * (pageProps.personalizations: show, hide, activate-variation; a rule names the pt master's
+ * component, /content/dam/tap/master/pt/…, and holds for every language's copy by the path after
+ * /master/<lang>/). Our language versions are their home markets' view.
+ *
+ * - marketUnits: the components of a language page (its topSections and sections) as units for
+ *   tap-import.mjs's convertPage (site.units): a component behind a rule (on itself or on an item
+ *   in it) with __markets, its countries as lh-com's market rules read them (scripts/market-rules.js:
+ *   'br,pt' to show, '-us' to hide), a section of its own; the variants other markets show (their
+ *   captures, the market roots' `rule` pages) merged in, one unit per variant, each with its
+ *   countries. Countries are grouped by what the rules give them; a group that no capture shows is
+ *   decided by a show/hide rule on the component itself, else it is noted (unplaced).
+ * - the CLI writes the merged language documents (local only until they may be uploaded), each
+ *   root's own documents (/<ll>-<cc>/index, its own pages, a rule page its language version lacks,
+ *   nav and footer where they differ from the language version's), the allowlist entries for them
+ *   and a run report for tools/reports/tap/markets.md.
+ *
+ * Usage: node tools/importer/tap-markets.mjs --archive <language pages archive> [...]
+ *          --market-archive <market pages archive> [...] --media <media archive> [...]
+ *          --sitemaps <sitemaps archive> [...] --pages tap-market-pages.json
+ *          [--roots de-ch,fr-ca] [--name markets] [--dry-run]
+ *        (archives unpacked, in the index's order)
+ */
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import { fileURLToPath } from 'node:url';
+import {
+  convertPage, anchorsOf, docPath, mediaIndex, mediaResolver, WWW,
+} from './tap-import.mjs';
+import { navHtml, footerHtml, logoSvg } from './tap-nav.mjs';
+import { marketAllows } from '../../scripts/market-rules.js';
+
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
+const W = path.join(root, 'content-sites/lh-tap');
+const OUT = path.join(W, 'content');
+
+/** The language version a root's pages come from (TAP's home market of the language). */
+export const LANGUAGE_VERSIONS = {
+  pt: 'pt-pt', en: 'en-pt', es: 'es-es', fr: 'fr-fr', de: 'de-de', it: 'it-it', pl: 'pl-pl',
+};
+export const languageOf = (r) => (r === 'pt-br' ? 'pt-br' : LANGUAGE_VERSIONS[r.split('-')[0]]);
+/** A root's document for a path of it: its homepage /<ll>-<cc>/index (www's /<ll>-<cc>). */
+export const rootDocPath = (p) => (/^\/[a-z]{2}-[a-z]{2}$/.test(p) ? `${p}/index` : p);
+
+/** A component's path after /master/<lang>/ (rules name the pt master's). */
+export const ruleTail = (p) => String(p || '').replace(/^\/content\/dam\/tap\/master\/[^/]+\//, '');
+
+/** The rules by the tail of each target. */
+export function ruleIndex(rules) {
+  const idx = new Map();
+  (rules || []).forEach((r) => (r.targets || []).forEach((t) => {
+    const k = ruleTail(t._path);
+    if (!idx.has(k)) idx.set(k, []);
+    if (!idx.get(k).includes(r)) idx.get(k).push(r);
+  }));
+  return idx;
+}
+
+const lc = (x) => String(x).trim().toLowerCase();
+/** A rule's countries: show/hide its value, activate-variation its variations' markets. */
+const variationsOf = (r) => Object.values(r.variations || {}).filter((v) => (v.markets || []).length);
+const namedBy = (r) => (r.action === 'activate-variation' ? variationsOf(r).flatMap((v) => v.markets) : r.value || []).map(lc);
+
+/** What a rule gives a country: shown or not; for activate-variation the variation's name (master without one). */
+function ruleOutcome(r, c) {
+  if (r.action === 'show') return (r.value || []).map(lc).includes(c) ? 'in' : 'out';
+  if (r.action === 'hide') return (r.value || []).map(lc).includes(c) ? 'out' : 'in';
+  if (r.action === 'activate-variation') {
+    // a variation for its markets (show), or for every market but its markets (hide: "variation_x-pt")
+    const vs = variationsOf(r);
+    const v = vs.find((x) => x.action !== 'hide' && x.markets.map(lc).includes(c)) || vs.find((x) => x.action === 'hide' && !x.markets.map(lc).includes(c));
+    return v ? v.name : 'master';
+  }
+  return 'in';
+}
+
+/** The tails of a component and of every item in it. */
+function tailsOf(unit) {
+  const out = new Set();
+  const walk = (o) => {
+    if (Array.isArray(o)) { o.forEach(walk); return; }
+    if (!o || typeof o !== 'object') return;
+    if (o._path && o.__typename) out.add(ruleTail(o._path));
+    Object.values(o).forEach(walk);
+  };
+  walk(unit);
+  return out;
+}
+
+/**
+ * The variations www applies without a rule: a component's (or item's) variation market_<cc> is
+ * that market's (the club table's market_us, a promotion's market_pt), as activate-variation rules.
+ */
+function implicitRules(units) {
+  const out = new Map();
+  const walk = (o) => {
+    if (Array.isArray(o)) { o.forEach(walk); return; }
+    if (!o || typeof o !== 'object') return;
+    const own = (o._path && Array.isArray(o._variations) ? o._variations : []).filter((v) => /^market_[a-z]{2}$/.test(v));
+    if (own.length && !out.has(ruleTail(o._path))) {
+      out.set(ruleTail(o._path), {
+        _path: `implicit:${o._path}`,
+        action: 'activate-variation',
+        implicit: true,
+        targets: [{ __typename: o.__typename, _path: o._path }],
+        variations: Object.fromEntries(own.map((v) => [v, { name: v, markets: [v.slice(7)], action: 'show' }])),
+      });
+    }
+    Object.values(o).forEach(walk);
+  };
+  walk(units);
+  return [...out.values()];
+}
+
+const keyOf = (u, i) => (u._path ? ruleTail(u._path) : `${u.__typename}@${i}`);
+const hashOf = (u) => crypto.createHash('sha1').update(JSON.stringify(u)).digest('hex');
+const OTHERS = '*';
+const sorted = (s) => [...s].sort();
+
+/**
+ * A language page's units with the markets of those behind a rule.
+ * @param {{home: string, units: object[], views: {country: string, units: object[]}[],
+ *   rules: object[], countries: string[]}} o home: the language version's market; units: its
+ *   components; views: the same page as other markets show it (their captures); rules: www's
+ *   personalizations; countries: the markets of the roots this language version serves
+ * @returns {{units: object[], notes: object[]}} units (copies, __markets on those behind a rule)
+ *   in the page's order; notes: drift (a difference no rule explains: the language version kept),
+ *   unplaced (countries whose view no capture holds)
+ */
+export function marketUnits({
+  home, units, views = [], rules = [], countries = [],
+}) {
+  const idx = ruleIndex(rules);
+  const notes = [];
+  const sources = [{ country: home, units }, ...views];
+  // the slots (one per component) in the page's order: a component only other markets show goes
+  // before the next one the page has
+  const order = units.map(keyOf);
+  views.forEach((v) => {
+    const keys = v.units.map(keyOf);
+    keys.forEach((k, i) => {
+      if (order.includes(k)) return;
+      const next = keys.slice(i + 1).find((x) => order.includes(x));
+      order.splice(next ? order.indexOf(next) : order.length, 0, k);
+    });
+  });
+  const out = [];
+  order.forEach((key) => {
+    // what each source shows in the slot (null: nothing)
+    const seen = new Map(sources.map((s) => {
+      const i = s.units.map(keyOf).indexOf(key);
+      return [s.country, i < 0 ? null : s.units[i]];
+    }));
+    const variants = [...seen.values()].filter(Boolean);
+    const hit = [...new Set(variants.flatMap((u) => [...tailsOf(u)]).flatMap((t) => idx.get(t) || [])), ...implicitRules(variants)];
+    if (!hit.length) {
+      // no rule: every market sees the language version's (a difference is TAP's edit between captures)
+      const own = seen.get(home);
+      views.forEach((v) => {
+        const u = seen.get(v.country);
+        if ((u ? hashOf(u) : null) !== (own ? hashOf(own) : null)) {
+          notes.push({
+            kind: 'drift', slot: key, root: v.country, why: `differs from the language version without a rule on it (${u ? 'other content' : 'missing'}): the language version's kept`,
+          });
+        }
+      });
+      if (own) out.push({ ...own });
+      return;
+    }
+    // the countries the rules name, the roots' and the home market; OTHERS: every other country
+    const universe = new Set([home, ...countries.map(lc), ...hit.flatMap(namedBy)]);
+    const sig = (c) => hit.map((r) => ruleOutcome(r, c)).join('|');
+    const classes = new Map();
+    [...universe, OTHERS].forEach((c) => {
+      const s = sig(c === OTHERS ? '\u0000' : c);
+      if (!classes.has(s)) classes.set(s, []);
+      classes.get(s).push(c);
+    });
+    const direct = hit.every((r) => r.action !== 'activate-variation' && (r.targets || []).some((t) => ruleTail(t._path) === key));
+    // a group no capture shows: from a capture whose rules give it the same variations and every
+    // item the group sees, without the items the group's rules hide (null: hidden); undefined
+    // without such a capture
+    const derive = (member) => {
+      const c = member === OTHERS ? '\u0000' : member;
+      for (const [from, u] of seen) {
+        if (!u) continue;
+        const tails = tailsOf(u);
+        const fits = hit.every((r) => {
+          const mine = ruleOutcome(r, c);
+          if (r.action === 'activate-variation') return mine === ruleOutcome(r, from);
+          return mine === 'out' || (r.targets || []).some((t) => tails.has(ruleTail(t._path)));
+        });
+        if (!fits) continue;
+        const outs = new Set(hit.filter((r) => r.action !== 'activate-variation' && ruleOutcome(r, c) === 'out')
+          .flatMap((r) => (r.targets || []).map((t) => ruleTail(t._path))));
+        if (outs.has(key)) return null;
+        const strip = (o) => {
+          if (Array.isArray(o)) return o.filter((x) => !(x && x._path && outs.has(ruleTail(x._path)))).map(strip);
+          if (!o || typeof o !== 'object') return o;
+          return Object.fromEntries(Object.entries(o).map(([k, v]) => [k, strip(v)]));
+        };
+        return strip(u);
+      }
+      return undefined;
+    };
+    const assigned = new Map();
+    const onWww = [];
+    classes.forEach((members, s) => {
+      const observed = members.filter((c) => seen.has(c));
+      let pick;
+      if (observed.length) {
+        // the home market's view first, then the captures in order; a capture that disagrees with
+        // its group is drift
+        const first = observed.includes(home) ? home : observed[0];
+        pick = seen.get(first);
+        observed.filter((c) => c !== first).forEach((c) => {
+          const u = seen.get(c);
+          if ((u ? hashOf(u) : null) !== (pick ? hashOf(pick) : null)) {
+            notes.push({
+              kind: 'drift', slot: key, root: c, why: `differs from ${first}'s, which the rules give the same view: ${first}'s kept`,
+            });
+          }
+        });
+      } else if (direct) {
+        // a show/hide rule on the component itself: shown (the content the shown ones have) or not
+        const shown = s.split('|').every((x) => x === 'in');
+        pick = shown ? [...seen.values()].find(Boolean) || null : null;
+      } else if (derive(members[0]) !== undefined) {
+        pick = derive(members[0]);
+      } else {
+        pick = null;
+        const what = s.split('|').filter((x) => x !== 'in' && x !== 'out').join(', ') || s;
+        const roots = members.filter((c) => c !== OTHERS && countries.map(lc).includes(c));
+        roots.forEach((c) => notes.push({
+          kind: 'unplaced', slot: key, root: c, why: `the rules give ${c} ${what}, which no capture shows: the page on www in its place`,
+        }));
+        roots.forEach((c) => onWww.push(c));
+        const rest = members.filter((c) => !roots.includes(c));
+        if (rest.length) {
+          notes.push({
+            kind: 'unplaced', slot: key, countries: rest, why: `${what} for ${rest.join(',')} (no root of ours): no capture`,
+          });
+        }
+      }
+      assigned.set(s, pick);
+    });
+    // a unit per variant: its countries (an exclusion list when every other country sees it)
+    const byHash = new Map();
+    classes.forEach((members, s) => {
+      const u = assigned.get(s);
+      if (!u) return;
+      const h = hashOf(u);
+      if (!byHash.has(h)) byHash.set(h, { unit: u, members: [] });
+      byHash.get(h).members.push(...members);
+    });
+    const homeHash = seen.get(home) ? hashOf(seen.get(home)) : null;
+    [...byHash.entries()].sort(([a], [b]) => (b === homeHash) - (a === homeHash)).forEach(([, v]) => {
+      const others = v.members.includes(OTHERS);
+      const mine = new Set(v.members.filter((c) => c !== OTHERS));
+      let markets;
+      if (others) {
+        const not = sorted([...universe].filter((c) => !mine.has(c)));
+        markets = not.length ? not.map((c) => `-${c}`).join(',') : null;
+      } else markets = sorted(mine).join(',');
+      out.push(markets ? { ...v.unit, __markets: markets } : { ...v.unit });
+    });
+    // the roots whose variant no capture holds: the page on www (tap-import.mjs MarketVariantOnWww)
+    if (onWww.length) out.push({ __typename: 'MarketVariantOnWww', _path: (variants[0] || {})._path, __markets: sorted(new Set(onWww)).join(',') });
+  });
+  return { units: out, notes };
+}
+
+/** The page's own markets (rules on the page itself, PageModel), or null. */
+export function pageMarkets(page, rules) {
+  const hit = ruleIndex(rules).get(ruleTail(page._path)) || [];
+  if (!hit.length) return null;
+  const universe = new Set(hit.flatMap(namedBy));
+  const shown = (c) => hit.every((r) => ruleOutcome(r, c) !== 'out');
+  const others = shown('\u0000');
+  const list = sorted([...universe].filter((c) => shown(c) !== others));
+  if (!list.length) return null;
+  return others ? list.map((c) => `-${c}`).join(',') : list.join(',');
+}
+
+/** A document with a Markets row in its metadata block. */
+export function withPageMarkets(html, markets) {
+  const at = html.indexOf('<div class="metadata">');
+  if (at < 0 || !markets) return html;
+  const re = /<div\b[^>]*>|<\/div>/g;
+  re.lastIndex = at;
+  let depth = 0;
+  let m = re.exec(html);
+  while (m) {
+    depth += m[0] === '</div>' ? -1 : 1;
+    if (depth === 0) break;
+    m = re.exec(html);
+  }
+  const end = m.index;
+  return `${html.slice(0, end)}<div><div>Markets</div><div>${markets}</div></div>${html.slice(end)}`;
+}
+
+/**
+ * A page over the limits (fragment documents) whose variants each made their own: a fragment
+ * document per distinct content (the first keeps its name, another gets -<hash>), the page's
+ * fragment blocks (in the same order as the fragments) pointing to them.
+ */
+export function variantFragments(html, fragments) {
+  const byDoc = new Map();
+  const docs = fragments.map((f) => {
+    const seen = byDoc.get(f.doc) || new Map();
+    byDoc.set(f.doc, seen);
+    if (!seen.size) seen.set(f.html, f.doc);
+    if (!seen.has(f.html)) seen.set(f.html, `${f.doc}-${crypto.createHash('sha1').update(f.html).digest('hex').slice(0, 6)}`);
+    return { doc: seen.get(f.html), html: f.html };
+  });
+  let i = 0;
+  const out = html.replace(/<div class="fragment"><div><div><a href="([^"]+)">[^<]*<\/a><\/div><\/div><\/div>/g, (m, d) => {
+    const f = docs[i];
+    i += 1;
+    return f && f.doc !== d ? m.split(d).join(f.doc) : m;
+  });
+  const uniq = [...new Map(docs.map((f) => [f.doc, f])).values()];
+  return { html: out, fragments: uniq };
+}
+
+/** A root's document with its links as its language version's (/en-us → /en-pt, www's en_us → en_pt). */
+export function rootLinks(html, r, lv) {
+  const u = (x) => x.replace('-', '_');
+  return html.replace(new RegExp(`/${r}(?=[/"#?]|$)`, 'g'), `/${lv}`).replace(new RegExp(`/${u(r)}(?=[/"#?]|$)`, 'g'), `/${u(lv)}`);
+}
+
+/* ------------------------------------------------------------------ CLI ---------------- */
+
+/** What a root's nav or footer has that its language version's lacks, and the other way (links and texts). */
+function differences(mine, theirs) {
+  const parts = (h) => h.split(/(?=<li>|<h3>|<div>)/).map((x) => x.replace(/<\/(li|ul|div)>/g, '').trim()).filter(Boolean);
+  const a = parts(mine);
+  const b = parts(theirs);
+  const label = (x) => {
+    const href = (x.match(/href="([^"]+)"/) || [])[1];
+    return `${x.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 60)}${href ? ` (${href.slice(0, 80)})` : ''}`;
+  };
+  return { only: a.filter((x) => !b.includes(x)).map(label), lacks: b.filter((x) => !a.includes(x)).map(label) };
+}
+
+const NEXT_DATA = /<script id="__NEXT_DATA__" type="application\/json"[^>]*>([\s\S]*?)<\/script>/;
+const readJson = (f, d) => (fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, 'utf8')) : d);
+const writeJson = (f, v) => { fs.mkdirSync(path.dirname(f), { recursive: true }); fs.writeFileSync(f, `${JSON.stringify(v, null, 1)}\n`); };
+
+/** The pages of unpacked page archives: path → {url, file, at} (a later archive's copy wins). */
+function pagesOf(dirs) {
+  const pages = new Map();
+  dirs.forEach((dir) => readJson(path.join(dir, 'manifest.json'), []).forEach((e) => {
+    if (e.status && e.status !== 'ok') return;
+    const f = path.join(dir, (e.file || '').replace(/^snapshots\//, ''));
+    if (fs.existsSync(f) && path.resolve(f).startsWith(path.resolve(dir) + path.sep)) pages.set(docPath(e.url), { url: e.url, file: f, at: e.at });
+  }));
+  return pages;
+}
+const ndOf = (p) => {
+  if (!p.nd) { const m = fs.readFileSync(p.file, 'utf8').match(NEXT_DATA); p.nd = m ? JSON.parse(m[1]) : null; }
+  return p.nd;
+};
+const unitsOf = (nd) => { const page = nd.props.pageProps.page || {}; return [...(page.topSections || []), ...(page.sections || [])]; };
+
+/** The paths of a root's sitemap (www.flytap.com/<root>/sitemap.xml in the sitemaps archives). */
+function sitemapOf(dirs, r) {
+  const f = dirs.map((d) => path.join(d, 'www.flytap.com', r, 'sitemap.xml')).find((x) => fs.existsSync(x));
+  if (!f) return null;
+  return [...fs.readFileSync(f, 'utf8').matchAll(/<loc>\s*https:\/\/www\.flytap\.com([^<\s]*)\s*<\/loc>/g)].map((m) => docPath(decodeURIComponent(m[1])));
+}
+
+async function main() {
+  const argv = process.argv.slice(2);
+  const all = (n) => argv.flatMap((a, i) => (a === `--${n}` ? [path.resolve(argv[i + 1])] : []));
+  const opt = (n) => (argv.includes(`--${n}`) ? argv[argv.indexOf(`--${n}`) + 1] : null);
+  const dry = argv.includes('--dry-run');
+  const name = opt('name') || 'markets';
+  const list = readJson(path.resolve(opt('pages') || ''), null);
+  if (!all('archive').length || !all('market-archive').length || !list) {
+    console.log('usage: --archive <dir> ... --market-archive <dir> ... --media <dir> ... --sitemaps <dir> ... --pages tap-market-pages.json [--roots a,b] [--dry-run]');
+    process.exit(1);
+  }
+  const only = opt('roots') ? opt('roots').split(',') : null;
+  const roots = Object.keys(list).filter((r) => !only || only.includes(r));
+  const langPages = pagesOf(all('archive'));
+  const marketPages = pagesOf(all('market-archive'));
+  const sitemaps = all('sitemaps');
+  // www's rules: the newest capture's list (the market pages were captured last)
+  const newest = [...marketPages.values()].sort((a, b) => String(b.at).localeCompare(String(a.at)))[0];
+  const rules = ndOf(newest).props.pageProps.personalizations || [];
+  const allowFile = path.join(root, 'tools/importer/sites/lh-tap.json');
+  const allow = readJson(allowFile, { paths: [] });
+  const langDocs = new Set(allow.paths);
+  const media = mediaResolver(mediaIndex(all('media')), { out: OUT, dry });
+  const anchors = new Map([...langPages].filter(([, p]) => ndOf(p)).map(([d, p]) => [d, anchorsOf(ndOf(p))]));
+  const report = {
+    at: new Date().toISOString(), rules: rules.length, rulesFrom: newest.url, languages: {}, roots: {},
+  };
+  const written = [];
+  const write = (doc, html) => {
+    if (dry) return;
+    const f = path.join(OUT, `${doc}.plain.html`);
+    fs.mkdirSync(path.dirname(f), { recursive: true });
+    if (fs.existsSync(f) && fs.readFileSync(f, 'utf8') === html) return;
+    fs.writeFileSync(f, html);
+    written.push(doc);
+  };
+  // every root: its language version, country, sitemap
+  const allRoots = Object.keys(list);
+  const info = Object.fromEntries(allRoots.map((r) => [r, { lv: languageOf(r), country: r.split('-')[1], paths: sitemapOf(sitemaps, r) || [] }]));
+
+  /* 1 and 2: the language pages with rules, their other markets' variants merged in (local only) */
+  const views = new Map();
+  allRoots.forEach((r) => list[r].rule.forEach((u) => {
+    const p = docPath(u);
+    const lp = p.replace(/^\/[a-z]{2}-[a-z]{2}/, `/${info[r].lv}`);
+    if (!views.has(lp)) views.set(lp, []);
+    views.get(lp).push({ root: r, country: info[r].country, page: marketPages.get(p) });
+  }));
+  const lvs = [...new Set([...Object.values(LANGUAGE_VERSIONS), 'pt-br'])];
+  const scopeLang = new Set([...langDocs, ...langPages.keys()]);
+  for (const [doc, p] of langPages) {
+    const lv = doc.split('/')[1];
+    if (!lvs.includes(lv) || doc === `/${lv}` || !ndOf(p)) continue;
+    const nd = ndOf(p);
+    const page = nd.props.pageProps.page || {};
+    const home = lv === 'pt-br' ? 'br' : lv.split('-')[1];
+    const vs = (views.get(doc) || []).filter((v) => v.page && ndOf(v.page)).map((v) => ({ country: v.country, root: v.root, units: unitsOf(ndOf(v.page)) }));
+    // the markets of the roots that have the page (their sitemaps) and that the page's rules allow
+    const pm = pageMarkets(page, rules);
+    const rest = doc.slice(lv.length + 1);
+    const countries = allRoots.filter((r) => info[r].lv === lv && info[r].paths.includes(`/${r}${rest}`)).map((r) => info[r].country)
+      .filter((c) => !pm || marketAllows(pm, c));
+    const merged = marketUnits({
+      home, units: unitsOf(nd), views: vs, rules, countries,
+    });
+    const marked = merged.units.filter((u) => u.__markets);
+    if (!marked.length && !pm && !merged.notes.length) continue;
+    const site = {
+      url: p.url, scope: scopeLang, media, anchors, sourceImages: false, units: () => merged.units,
+    };
+    let r = convertPage(nd, site);
+    if (r.skipped) continue;
+    const over = (h) => Buffer.byteLength(h) > 900 * 1024 || (h.match(/<img /g) || []).length > 190;
+    if (over(r.html)) r = convertPage(nd, { ...site, fragments: true });
+    // the variants' fragment documents apart
+    const vf = variantFragments(r.html, r.fragments);
+    const html = withPageMarkets(vf.html, pm);
+    (report.languages[lv] ||= {})[doc] = {
+      sections: marked.map((u) => ({ component: keyOf(u), variation: u._variation, markets: u.__markets })),
+      pageMarkets: pm,
+      merged: vs.map((v) => v.root),
+      notes: merged.notes,
+      fragments: vf.fragments.map((f) => f.doc),
+      ...(over(html) ? { overLimits: true } : {}),
+      blocks: r.report.blocks,
+      missing: r.report.missing.length,
+    };
+    write(doc, html);
+    vf.fragments.forEach((f) => write(f.doc, f.html));
+  }
+
+  /* 3: each root's own documents */
+  // the roots' paths our worker answers: a root's sitemap paths whose language page is a document,
+  // its own documents and every root's homepage
+  const ownOf = (r) => [...list[r].own.map(docPath), ...list[r].rule.map(docPath).filter((p) => !langPages.has(p.replace(/^\/[a-z]{2}-[a-z]{2}/, `/${info[r].lv}`)))];
+  const rootScope = new Set(scopeLang);
+  allRoots.forEach((r) => {
+    rootScope.add(`/${r}`);
+    info[r].paths.forEach((p) => { if (scopeLang.has(p.replace(/^\/[a-z]{2}-[a-z]{2}/, `/${info[r].lv}`))) rootScope.add(p); });
+    ownOf(r).forEach((p) => rootScope.add(p));
+  });
+  // the homepages' booking box: the language version's labels and airport sheet (a root has no
+  // sheet of its own yet: tap-airports.mjs makes them per root)
+  const bookingLabels = readJson(path.join(root, 'tools/reports/tap/booking-labels.json'), {});
+  const sheetNames = {};
+  const namesOf = async (lv) => {
+    if (sheetNames[lv]) return sheetNames[lv];
+    const cache = path.join(W, 'runs', `airports-${lv}.json`);
+    let names = readJson(cache, null);
+    if (!names) {
+      const res = await fetch(`https://main--lh-tap--moved-permanently.aem.page/${lv}/booking/airports.json?limit=5000`);
+      names = res.ok ? Object.fromEntries(((await res.json()).data || []).map((a) => [a.code, `${a.cityName}, ${a.countryName}`])) : {};
+      if (res.ok && !dry) writeJson(cache, names);
+    }
+    sheetNames[lv] = names;
+    return names;
+  };
+  const rootDocs = [];
+  for (const r of roots) {
+    const { lv } = info[r];
+    const names = await namesOf(lv);
+    const booking = { labels: bookingLabels[r] || bookingLabels[lv] || {}, originNameOf: (code) => names[code] };
+    const rep = {
+      language: lv, country: info[r].country, docs: [], navOwn: false, footerOwn: false, notes: [],
+    };
+    report.roots[r] = rep;
+    const homeCap = marketPages.get(`/${r}`);
+    const langHome = langPages.get(`/${lv}`);
+    // nav and footer: the root's own only where they differ from the language version's
+    let navDoc = `/${lv}/nav`;
+    let footerDoc = `/${lv}/footer`;
+    if (homeCap && langHome) {
+      const html = fs.readFileSync(homeCap.file, 'utf8');
+      const svg = logoSvg(html);
+      const logo = `/media-da/tap/tap-logo-${crypto.createHash('sha1').update(svg || '').digest('hex').slice(0, 8)}.svg`;
+      const mk = (pp, locale) => [navHtml(pp, {
+        url: `${WWW}/${locale}`, locale, scope: rootScope, logo, media,
+      }), footerHtml(pp, {
+        url: `${WWW}/${locale}`, locale, scope: rootScope, logo, media,
+      })];
+      const [n1, f1] = mk(ndOf(homeCap).props.pageProps, r);
+      const [n0, f0] = mk(ndOf(langHome).props.pageProps, lv);
+      if (rootLinks(n1, r, lv) !== n0) { rep.navOwn = differences(rootLinks(n1, r, lv), n0); navDoc = `/${r}/nav`; write(navDoc, n1); rootDocs.push(navDoc); }
+      if (rootLinks(f1, r, lv) !== f0) { rep.footerOwn = differences(rootLinks(f1, r, lv), f0); footerDoc = `/${r}/footer`; write(footerDoc, f1); rootDocs.push(footerDoc); }
+      if ((rep.navOwn || rep.footerOwn) && !dry && svg) { fs.mkdirSync(path.join(OUT, 'media-da/tap'), { recursive: true }); fs.writeFileSync(path.join(OUT, logo), svg); }
+    }
+    const pagesToDo = [[`/${r}`, homeCap, 'homepage'], ...ownOf(r).map((p) => [p, marketPages.get(p), list[r].own.map(docPath).includes(p) ? 'own' : 'rule page its language version lacks'])];
+    for (const [p, cap, kind] of pagesToDo) {
+      if (!cap || !ndOf(cap)) { rep.notes.push(`${p}: no capture`); continue; }
+      const res = convertPage(ndOf(cap), {
+        url: cap.url, scope: rootScope, media, anchors, sourceImages: false, booking,
+      });
+      if (res.skipped) { rep.notes.push(`${p}: ${res.skipped}`); continue; }
+      const sheet = (x) => `/${x}/booking/airports.json`;
+      const html = res.html.replace(`<div><div>Nav</div><div>/${r}/nav</div></div>`, `<div><div>Nav</div><div>${navDoc}</div></div>`)
+        .replace(`<div><div>Footer</div><div>/${r}/footer</div></div>`, `<div><div>Footer</div><div>${footerDoc}</div></div>`)
+        .split(sheet(r)).join(sheet(lv));
+      const doc = rootDocPath(p);
+      write(doc, html);
+      rootDocs.push(doc);
+      rep.docs.push({
+        doc, kind, blocks: res.report.blocks, missing: res.report.missing, linkedOut: res.report.linkedOut,
+      });
+    }
+    rep.pathsNotInLanguage = info[r].paths.filter((p) => p !== `/${r}` && !rootScope.has(p));
+  }
+  // what lh-edge needs to answer a root (tools/reports/tap/markets.json): its language version and
+  // market, its own documents, the language pages it lacks (www answers 404 there) and its paths
+  // with no document anywhere
+  const pagesOfLang = (lv) => [...langDocs].filter((d) => d.startsWith(`/${lv}/`) && !/\/(nav|footer)$|\/fragments\//.test(d));
+  report.worker = Object.fromEntries(allRoots.map((r) => {
+    const { lv } = info[r];
+    const has = new Set(info[r].paths);
+    const own = [rootDocPath(`/${r}`), ...ownOf(r)];
+    return [r, {
+      language: lv,
+      market: info[r].country,
+      homepage: rootDocPath(`/${r}`),
+      nav: report.roots[r] && report.roots[r].navOwn ? `/${r}/nav` : `/${lv}/nav`,
+      footer: report.roots[r] && report.roots[r].footerOwn ? `/${r}/footer` : `/${lv}/footer`,
+      own: own.filter((d) => d !== rootDocPath(`/${r}`)),
+      sitemapPages: info[r].paths.length,
+      lacks: pagesOfLang(lv).map((d) => `/${r}${d.slice(lv.length + 1)}`).filter((p) => !has.has(p)).map((p) => p.slice(r.length + 1)),
+      noDocument: info[r].paths.filter((p) => p !== `/${r}` && !rootScope.has(p)).map((p) => p.slice(r.length + 1)),
+    }];
+  }));
+  if (!dry && !only) {
+    writeJson(path.join(root, 'tools/reports/tap/markets.json'), {
+      about: 'TAP market roots on lh-tap (tools/importer/tap-markets.mjs, tools/reports/tap/markets.md): per root its language version, market, homepage, nav, footer, own documents, the language pages it lacks and its paths without a document',
+      at: report.at,
+      roots: report.worker,
+    });
+  }
+  if (!dry) {
+    writeJson(path.join(W, 'runs', `${name}-import.json`), report);
+    fs.writeFileSync(path.join(W, 'runs', `${name}-paths.txt`), rootDocs.length ? `${rootDocs.join('\n')}\n` : '');
+    fs.writeFileSync(path.join(W, 'runs', `${name}-written.txt`), written.length ? `${written.join('\n')}\n` : '');
+    // the roots' documents into the site's allowlist (nav and footer by its pattern)
+    const fresh = readJson(allowFile, allow);
+    fresh.paths = [...new Set([...fresh.paths, ...rootDocs.filter((d) => !/\/(nav|footer)$/.test(d))])].sort();
+    writeJson(allowFile, fresh);
+  }
+  const langDocsN = Object.values(report.languages).reduce((n, x) => n + Object.keys(x).length, 0);
+  console.log(`${name}: ${langDocsN} language documents with market sections (local), ${rootDocs.length} root documents for ${roots.length} roots, ${written.length} files new or changed`);
+}
+
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) main();
