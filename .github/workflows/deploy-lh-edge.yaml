@@ -30,6 +30,8 @@ on:
       - 'scripts/brands.js'
       # and TAP's market roots and their switch (src/tap-markets.js, scripts/site-languages.js)
       - 'scripts/tap-markets.js'
+      # and the brands' not-found pages (src/not-found.js)
+      - 'scripts/not-found-texts.js'
       # and the bound Workers' check (tools/workers/README.md "Account")
       - 'tools/workers/wait-for-workers.sh'
       - '.github/workflows/deploy-lh-edge.yaml'
