@@ -120,8 +120,9 @@ test('passengers: at most 9, adults + young adults at least 1, one infant per ad
   assert.equal(canChange(p(1), 'youngAdults', 1, true), true);
 });
 
-test('UK routes: the 32 airports TAP offers young adults on', () => {
-  assert.equal(UK_AIRPORTS.size, 32);
+// the spec (2.3) says 32 airports and lists 31 codes: the list as given
+test('UK routes: the airports TAP offers young adults on (the spec\'s list)', () => {
+  assert.equal(UK_AIRPORTS.size, 31);
   assert.equal(isUkRoute([{ origin: 'LIS', destination: 'LHR' }]), true);
   assert.equal(isUkRoute([{ origin: 'LON', destination: 'LIS' }]), true);
   assert.equal(isUkRoute([{ origin: 'LIS', destination: 'OPO' }, { origin: 'OPO', destination: 'MAN' }]), true);
@@ -168,6 +169,7 @@ test('the airport sheet: rows to airports (codes upper case, the flags as boolea
   assert.equal(airportsFromSheet({ ':type': 'multi-sheet', data: { data: SHEET.data } }).length, 7);
 });
 
+// TAP's rules in its order, the first that matches gives the score
 test('TAP\'s matching: its scores, accents folded, highest first, ties by city name, at most 30; empty: the first 30', () => {
   const list = airportsFromSheet(SHEET);
   const lis = list[0];
@@ -181,7 +183,8 @@ test('TAP\'s matching: its scores, accents folded, highest first, ties by city n
   assert.equal(scoreAirport(list[5], 'paulo'), 0.8, 'a whole word of the city name');
   assert.equal(scoreAirport(lis, 'delgado'), 0.75, 'a whole word of the airport name');
   assert.equal(scoreAirport(lis, 'lisb'), 0.7, 'the city starts with the term');
-  assert.equal(scoreAirport(lis, 'tugal'), 0.5, 'the country ends with the term');
+  assert.equal(scoreAirport(lis, 'portu'), 0.5, 'the country starts with the term');
+  assert.equal(scoreAirport(lis, 'tugal'), 0.68, '"city, country" ends with it, checked first');
   assert.equal(scoreAirport(lis, 'rtug'), 0.1, 'the country contains the term');
   assert.equal(scoreAirport(lis, 'xyz'), 0);
   assert.equal(scoreAirport(list[5], 'sao'), 0.8, 'accents folded: São');
