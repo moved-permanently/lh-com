@@ -1,6 +1,6 @@
 {
  "about": "TAP market roots on lh-tap (tools/importer/tap-markets.mjs, tools/reports/tap/markets.md): per root its language version, market, homepage, nav, footer, own documents, the language pages it lacks and its paths without a document",
- "at": "2026-11-04T04:39:29.634Z",
+ "at": "2026-11-04T17:07:56.251Z",
  "roots": {
   "de-at": {
    "language": "de-de",
@@ -11,7 +11,12 @@
    "own": [],
    "sitemapPages": 118,
    "lacks": [],
-   "noDocument": []
+   "noDocument": [
+    "/hilfe/anfragen-reklamationen/reklamationen",
+    "/hilfe/anfragen-reklamationen/informationen-miles-go",
+    "/hilfe/anfragen-reklamationen/anregung-oder-kompliment",
+    "/registrierung"
+   ]
   },
   "de-ch": {
    "language": "de-de",
@@ -25,7 +30,12 @@
     "/buchungen/gift-card",
     "/rechtliche-informationen/schlichtungsstelle"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/hilfe/anfragen-reklamationen/reklamationen",
+    "/hilfe/anfragen-reklamationen/informationen-miles-go",
+    "/hilfe/anfragen-reklamationen/anregung-oder-kompliment",
+    "/registrierung"
+   ]
   },
   "en-de": {
    "language": "en-pt",
@@ -42,8 +52,12 @@
     "/miles-and-go/promotions/navigator-experiences"
    ],
    "noDocument": [
+    "/help/requests-complaints/complaints",
+    "/help/requests-complaints/information-miles-go",
+    "/help/requests-complaints/suggestion-or-compliment",
     "/legal-info/legal-notices",
-    "/legal-info/arbitration-body"
+    "/legal-info/arbitration-body",
+    "/sign-up"
    ]
   },
   "pt-de": {
@@ -61,8 +75,12 @@
     "/miles-and-go/promocoes/navigator-experiences"
    ],
    "noDocument": [
+    "/ajuda/pedidos-reclamacoes/reclamacao",
+    "/ajuda/pedidos-reclamacoes/informacoes-miles-go",
+    "/ajuda/pedidos-reclamacoes/sugestao-ou-elogio",
     "/info-legal/avisos-legais",
-    "/info-legal/orgao-arbitragem"
+    "/info-legal/orgao-arbitragem",
+    "/registo"
    ]
   },
   "fr-dz": {
@@ -79,7 +97,12 @@
     "/reservations/assurances",
     "/reservations/gift-card"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/aide/demandes-reclamations/reclamation",
+    "/aide/demandes-reclamations/informations-miles-go",
+    "/aide/demandes-reclamations/suggestion-ou-compliment",
+    "/inscription"
+   ]
   },
   "pt-dz": {
    "language": "pt-pt",
@@ -98,7 +121,12 @@
     "/reservas/gift-card",
     "/reservas/seguros"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ajuda/pedidos-reclamacoes/reclamacao",
+    "/ajuda/pedidos-reclamacoes/informacoes-miles-go",
+    "/ajuda/pedidos-reclamacoes/sugestao-ou-elogio",
+    "/registo"
+   ]
   },
   "en-dz": {
    "language": "en-pt",
@@ -117,7 +145,12 @@
     "/miles-and-go/promotions/navigator-experiences",
     "/promos"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/help/requests-complaints/complaints",
+    "/help/requests-complaints/information-miles-go",
+    "/help/requests-complaints/suggestion-or-compliment",
+    "/sign-up"
+   ]
   },
   "pt-ao": {
    "language": "pt-pt",
@@ -135,7 +168,12 @@
     "/reservas/gift-card",
     "/reservas/seguros"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ajuda/pedidos-reclamacoes/reclamacao",
+    "/ajuda/pedidos-reclamacoes/informacoes-miles-go",
+    "/ajuda/pedidos-reclamacoes/sugestao-ou-elogio",
+    "/registo"
+   ]
   },
   "en-ao": {
    "language": "en-pt",
@@ -153,7 +191,12 @@
     "/miles-and-go/promotions/navigator-experiences",
     "/promos"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/help/requests-complaints/complaints",
+    "/help/requests-complaints/information-miles-go",
+    "/help/requests-complaints/suggestion-or-compliment",
+    "/sign-up"
+   ]
   },
   "en-ar": {
    "language": "en-pt",
@@ -172,7 +215,12 @@
     "/miles-and-go/promotions/navigator-experiences",
     "/promos"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/help/requests-complaints/complaints",
+    "/help/requests-complaints/information-miles-go",
+    "/help/requests-complaints/suggestion-or-compliment",
+    "/sign-up"
+   ]
   },
   "es-ar": {
    "language": "es-es",
@@ -187,7 +235,12 @@
     "/reservas/gift-card",
     "/reservas/seguros"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ayuda/solicitudes-reclamaciones/reclamacion",
+    "/ayuda/solicitudes-reclamaciones/informaciones-miles-go",
+    "/ayuda/solicitudes-reclamaciones/sugerencia-o-elogio",
+    "/registro"
+   ]
   },
   "pt-ar": {
    "language": "pt-pt",
@@ -206,7 +259,12 @@
     "/reservas/gift-card",
     "/reservas/seguros"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ajuda/pedidos-reclamacoes/reclamacao",
+    "/ajuda/pedidos-reclamacoes/informacoes-miles-go",
+    "/ajuda/pedidos-reclamacoes/sugestao-ou-elogio",
+    "/registo"
+   ]
   },
   "en-at": {
    "language": "en-pt",
@@ -223,8 +281,12 @@
     "/miles-and-go/promotions/navigator-experiences"
    ],
    "noDocument": [
+    "/help/requests-complaints/complaints",
+    "/help/requests-complaints/information-miles-go",
+    "/help/requests-complaints/suggestion-or-compliment",
     "/legal-info/legal-notices",
-    "/legal-info/arbitration-body"
+    "/legal-info/arbitration-body",
+    "/sign-up"
    ]
   },
   "pt-at": {
@@ -242,8 +304,12 @@
     "/miles-and-go/promocoes/navigator-experiences"
    ],
    "noDocument": [
+    "/ajuda/pedidos-reclamacoes/reclamacao",
+    "/ajuda/pedidos-reclamacoes/informacoes-miles-go",
+    "/ajuda/pedidos-reclamacoes/sugestao-ou-elogio",
     "/info-legal/avisos-legais",
-    "/info-legal/orgao-arbitragem"
+    "/info-legal/orgao-arbitragem",
+    "/registo"
    ]
   },
   "en-be": {
@@ -260,7 +326,12 @@
     "/miles-and-go/earn-miles/day-by-day",
     "/miles-and-go/promotions/navigator-experiences"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/help/requests-complaints/complaints",
+    "/help/requests-complaints/information-miles-go",
+    "/help/requests-complaints/suggestion-or-compliment",
+    "/sign-up"
+   ]
   },
   "fr-be": {
    "language": "fr-fr",
@@ -273,7 +344,12 @@
    "lacks": [
     "/mentions-legales/droits-des-passagers-france"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/aide/demandes-reclamations/reclamation",
+    "/aide/demandes-reclamations/informations-miles-go",
+    "/aide/demandes-reclamations/suggestion-ou-compliment",
+    "/inscription"
+   ]
   },
   "pt-be": {
    "language": "pt-pt",
@@ -289,7 +365,12 @@
     "/miles-and-go/acumular-milhas/dia-a-dia",
     "/miles-and-go/promocoes/navigator-experiences"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ajuda/pedidos-reclamacoes/reclamacao",
+    "/ajuda/pedidos-reclamacoes/informacoes-miles-go",
+    "/ajuda/pedidos-reclamacoes/sugestao-ou-elogio",
+    "/registo"
+   ]
   },
   "en-br": {
    "language": "en-pt",
@@ -307,6 +388,10 @@
     "/miles-and-go/promotions/navigator-experiences"
    ],
    "noDocument": [
+    "/help/requests-complaints/complaints",
+    "/help/requests-complaints/information-miles-go",
+    "/help/requests-complaints/suggestion-or-compliment",
+    "/sign-up",
     "/miles-and-go/btg-pactual-black",
     "/miles-and-go/btg-pactual"
    ]
@@ -328,7 +413,12 @@
     "/miles-and-go/promotions/navigator-experiences",
     "/promos"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/help/requests-complaints/complaints",
+    "/help/requests-complaints/information-miles-go",
+    "/help/requests-complaints/suggestion-or-compliment",
+    "/sign-up"
+   ]
   },
   "pt-cv": {
    "language": "pt-pt",
@@ -347,7 +437,12 @@
     "/reservas/gift-card",
     "/reservas/seguros"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ajuda/pedidos-reclamacoes/reclamacao",
+    "/ajuda/pedidos-reclamacoes/informacoes-miles-go",
+    "/ajuda/pedidos-reclamacoes/sugestao-ou-elogio",
+    "/registo"
+   ]
   },
   "en-ca": {
    "language": "en-pt",
@@ -367,7 +462,12 @@
     "/miles-and-go/earn-miles/day-by-day",
     "/miles-and-go/promotions/navigator-experiences"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/help/requests-complaints/complaints",
+    "/help/requests-complaints/information-miles-go",
+    "/help/requests-complaints/suggestion-or-compliment",
+    "/sign-up"
+   ]
   },
   "fr-ca": {
    "language": "fr-fr",
@@ -386,7 +486,12 @@
     "/reservations/assurances",
     "/reservations/gift-card"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/aide/demandes-reclamations/reclamation",
+    "/aide/demandes-reclamations/informations-miles-go",
+    "/aide/demandes-reclamations/suggestion-ou-compliment",
+    "/inscription"
+   ]
   },
   "pt-ca": {
    "language": "pt-pt",
@@ -406,7 +511,12 @@
     "/reservas/gift-card",
     "/reservas/seguros"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ajuda/pedidos-reclamacoes/reclamacao",
+    "/ajuda/pedidos-reclamacoes/informacoes-miles-go",
+    "/ajuda/pedidos-reclamacoes/sugestao-ou-elogio",
+    "/registo"
+   ]
   },
   "en-ci": {
    "language": "en-pt",
@@ -425,7 +535,12 @@
     "/miles-and-go/promotions/navigator-experiences",
     "/promos"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/help/requests-complaints/complaints",
+    "/help/requests-complaints/information-miles-go",
+    "/help/requests-complaints/suggestion-or-compliment",
+    "/sign-up"
+   ]
   },
   "fr-ci": {
    "language": "fr-fr",
@@ -441,7 +556,12 @@
     "/reservations/assurances",
     "/reservations/gift-card"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/aide/demandes-reclamations/reclamation",
+    "/aide/demandes-reclamations/informations-miles-go",
+    "/aide/demandes-reclamations/suggestion-ou-compliment",
+    "/inscription"
+   ]
   },
   "pt-ci": {
    "language": "pt-pt",
@@ -460,7 +580,12 @@
     "/reservas/gift-card",
     "/reservas/seguros"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ajuda/pedidos-reclamacoes/reclamacao",
+    "/ajuda/pedidos-reclamacoes/informacoes-miles-go",
+    "/ajuda/pedidos-reclamacoes/sugestao-ou-elogio",
+    "/registo"
+   ]
   },
   "es-cl": {
    "language": "es-es",
@@ -475,7 +600,12 @@
     "/reservas/gift-card",
     "/reservas/seguros"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ayuda/solicitudes-reclamaciones/reclamacion",
+    "/ayuda/solicitudes-reclamaciones/informaciones-miles-go",
+    "/ayuda/solicitudes-reclamaciones/sugerencia-o-elogio",
+    "/registro"
+   ]
   },
   "pt-cl": {
    "language": "pt-pt",
@@ -494,7 +624,12 @@
     "/reservas/gift-card",
     "/reservas/seguros"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ajuda/pedidos-reclamacoes/reclamacao",
+    "/ajuda/pedidos-reclamacoes/informacoes-miles-go",
+    "/ajuda/pedidos-reclamacoes/sugestao-ou-elogio",
+    "/registo"
+   ]
   },
   "en-cl": {
    "language": "en-pt",
@@ -513,7 +648,12 @@
     "/miles-and-go/promotions/navigator-experiences",
     "/promos"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/help/requests-complaints/complaints",
+    "/help/requests-complaints/information-miles-go",
+    "/help/requests-complaints/suggestion-or-compliment",
+    "/sign-up"
+   ]
   },
   "en-co": {
    "language": "en-pt",
@@ -532,7 +672,12 @@
     "/miles-and-go/promotions/navigator-experiences",
     "/promos"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/help/requests-complaints/complaints",
+    "/help/requests-complaints/information-miles-go",
+    "/help/requests-complaints/suggestion-or-compliment",
+    "/sign-up"
+   ]
   },
   "es-co": {
    "language": "es-es",
@@ -547,7 +692,12 @@
     "/reservas/gift-card",
     "/reservas/seguros"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ayuda/solicitudes-reclamaciones/reclamacion",
+    "/ayuda/solicitudes-reclamaciones/informaciones-miles-go",
+    "/ayuda/solicitudes-reclamaciones/sugerencia-o-elogio",
+    "/registro"
+   ]
   },
   "pt-co": {
    "language": "pt-pt",
@@ -566,7 +716,12 @@
     "/reservas/gift-card",
     "/reservas/seguros"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ajuda/pedidos-reclamacoes/reclamacao",
+    "/ajuda/pedidos-reclamacoes/informacoes-miles-go",
+    "/ajuda/pedidos-reclamacoes/sugestao-ou-elogio",
+    "/registo"
+   ]
   },
   "en-hr": {
    "language": "en-pt",
@@ -584,7 +739,12 @@
     "/miles-and-go/earn-miles/day-by-day",
     "/promos"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/help/requests-complaints/complaints",
+    "/help/requests-complaints/information-miles-go",
+    "/help/requests-complaints/suggestion-or-compliment",
+    "/sign-up"
+   ]
   },
   "pt-hr": {
    "language": "pt-pt",
@@ -602,7 +762,12 @@
     "/reservas/gift-card",
     "/reservas/seguros"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ajuda/pedidos-reclamacoes/reclamacao",
+    "/ajuda/pedidos-reclamacoes/informacoes-miles-go",
+    "/ajuda/pedidos-reclamacoes/sugestao-ou-elogio",
+    "/registo"
+   ]
   },
   "en-dk": {
    "language": "en-pt",
@@ -619,7 +784,12 @@
     "/miles-and-go/earn-miles/day-by-day",
     "/miles-and-go/promotions/navigator-experiences"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/help/requests-complaints/complaints",
+    "/help/requests-complaints/information-miles-go",
+    "/help/requests-complaints/suggestion-or-compliment",
+    "/sign-up"
+   ]
   },
   "pt-dk": {
    "language": "pt-pt",
@@ -636,7 +806,12 @@
     "/miles-and-go/promocoes/navigator-experiences",
     "/reservas/gift-card"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ajuda/pedidos-reclamacoes/reclamacao",
+    "/ajuda/pedidos-reclamacoes/informacoes-miles-go",
+    "/ajuda/pedidos-reclamacoes/sugestao-ou-elogio",
+    "/registo"
+   ]
   },
   "en-ee": {
    "language": "en-pt",
@@ -655,7 +830,12 @@
     "/miles-and-go/promotions/navigator-experiences",
     "/promos"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/help/requests-complaints/complaints",
+    "/help/requests-complaints/information-miles-go",
+    "/help/requests-complaints/suggestion-or-compliment",
+    "/sign-up"
+   ]
   },
   "pt-ee": {
    "language": "pt-pt",
@@ -674,7 +854,12 @@
     "/reservas/gift-card",
     "/reservas/seguros"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ajuda/pedidos-reclamacoes/reclamacao",
+    "/ajuda/pedidos-reclamacoes/informacoes-miles-go",
+    "/ajuda/pedidos-reclamacoes/sugestao-ou-elogio",
+    "/registo"
+   ]
   },
   "en-eg": {
    "language": "en-pt",
@@ -693,7 +878,12 @@
     "/miles-and-go/promotions/navigator-experiences",
     "/promos"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/help/requests-complaints/complaints",
+    "/help/requests-complaints/information-miles-go",
+    "/help/requests-complaints/suggestion-or-compliment",
+    "/sign-up"
+   ]
   },
   "pt-eg": {
    "language": "pt-pt",
@@ -712,7 +902,12 @@
     "/reservas/gift-card",
     "/reservas/seguros"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ajuda/pedidos-reclamacoes/reclamacao",
+    "/ajuda/pedidos-reclamacoes/informacoes-miles-go",
+    "/ajuda/pedidos-reclamacoes/sugestao-ou-elogio",
+    "/registo"
+   ]
   },
   "en-es": {
    "language": "en-pt",
@@ -728,7 +923,12 @@
     "/miles-and-go/earn-miles/day-by-day",
     "/miles-and-go/promotions/navigator-experiences"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/help/requests-complaints/complaints",
+    "/help/requests-complaints/information-miles-go",
+    "/help/requests-complaints/suggestion-or-compliment",
+    "/sign-up"
+   ]
   },
   "pt-es": {
    "language": "pt-pt",
@@ -744,7 +944,12 @@
     "/miles-and-go/acumular-milhas/dia-a-dia",
     "/miles-and-go/promocoes/navigator-experiences"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ajuda/pedidos-reclamacoes/reclamacao",
+    "/ajuda/pedidos-reclamacoes/informacoes-miles-go",
+    "/ajuda/pedidos-reclamacoes/sugestao-ou-elogio",
+    "/registo"
+   ]
   },
   "en-us": {
    "language": "en-pt",
@@ -761,7 +966,12 @@
     "/miles-and-go/earn-miles/day-by-day",
     "/miles-and-go/promotions/navigator-experiences"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/help/requests-complaints/complaints",
+    "/help/requests-complaints/information-miles-go",
+    "/help/requests-complaints/suggestion-or-compliment",
+    "/sign-up"
+   ]
   },
   "pt-us": {
    "language": "pt-pt",
@@ -778,7 +988,12 @@
     "/reservas/gift-card",
     "/reservas/seguros"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ajuda/pedidos-reclamacoes/reclamacao",
+    "/ajuda/pedidos-reclamacoes/informacoes-miles-go",
+    "/ajuda/pedidos-reclamacoes/sugestao-ou-elogio",
+    "/registo"
+   ]
   },
   "es-us": {
    "language": "es-es",
@@ -794,7 +1009,12 @@
     "/reservas/gift-card",
     "/reservas/seguros"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ayuda/solicitudes-reclamaciones/reclamacion",
+    "/ayuda/solicitudes-reclamaciones/informaciones-miles-go",
+    "/ayuda/solicitudes-reclamaciones/sugerencia-o-elogio",
+    "/registro"
+   ]
   },
   "en-fi": {
    "language": "en-pt",
@@ -811,7 +1031,12 @@
     "/miles-and-go/promotions/navigator-experiences",
     "/promos"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/help/requests-complaints/complaints",
+    "/help/requests-complaints/information-miles-go",
+    "/help/requests-complaints/suggestion-or-compliment",
+    "/sign-up"
+   ]
   },
   "pt-fi": {
    "language": "pt-pt",
@@ -828,7 +1053,12 @@
     "/miles-and-go/promocoes/navigator-experiences",
     "/promos"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ajuda/pedidos-reclamacoes/reclamacao",
+    "/ajuda/pedidos-reclamacoes/informacoes-miles-go",
+    "/ajuda/pedidos-reclamacoes/sugestao-ou-elogio",
+    "/registo"
+   ]
   },
   "pt-fr": {
    "language": "pt-pt",
@@ -845,7 +1075,11 @@
     "/miles-and-go/promocoes/navigator-experiences"
    ],
    "noDocument": [
-    "/info-legal/direitos-passageiros-franca"
+    "/ajuda/pedidos-reclamacoes/reclamacao",
+    "/ajuda/pedidos-reclamacoes/informacoes-miles-go",
+    "/ajuda/pedidos-reclamacoes/sugestao-ou-elogio",
+    "/info-legal/direitos-passageiros-franca",
+    "/registo"
    ]
   },
   "en-fr": {
@@ -863,7 +1097,11 @@
     "/miles-and-go/promotions/navigator-experiences"
    ],
    "noDocument": [
-    "/info-legal/direitos-passageiros-franca"
+    "/help/requests-complaints/complaints",
+    "/help/requests-complaints/information-miles-go",
+    "/help/requests-complaints/suggestion-or-compliment",
+    "/info-legal/direitos-passageiros-franca",
+    "/sign-up"
    ]
   },
   "en-gm": {
@@ -883,7 +1121,12 @@
     "/miles-and-go/promotions/navigator-experiences",
     "/promos"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/help/requests-complaints/complaints",
+    "/help/requests-complaints/information-miles-go",
+    "/help/requests-complaints/suggestion-or-compliment",
+    "/sign-up"
+   ]
   },
   "pt-gm": {
    "language": "pt-pt",
@@ -902,7 +1145,12 @@
     "/reservas/gift-card",
     "/reservas/seguros"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ajuda/pedidos-reclamacoes/reclamacao",
+    "/ajuda/pedidos-reclamacoes/informacoes-miles-go",
+    "/ajuda/pedidos-reclamacoes/sugestao-ou-elogio",
+    "/registo"
+   ]
   },
   "en-gh": {
    "language": "en-pt",
@@ -922,6 +1170,10 @@
     "/promos"
    ],
    "noDocument": [
+    "/help/requests-complaints/complaints",
+    "/help/requests-complaints/information-miles-go",
+    "/help/requests-complaints/suggestion-or-compliment",
+    "/sign-up",
     "/miles-and-go/btg-pactual-black"
    ]
   },
@@ -939,7 +1191,12 @@
     "/reservations/assurances",
     "/reservations/gift-card"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/aide/demandes-reclamations/reclamation",
+    "/aide/demandes-reclamations/informations-miles-go",
+    "/aide/demandes-reclamations/suggestion-ou-compliment",
+    "/inscription"
+   ]
   },
   "pt-gh": {
    "language": "pt-pt",
@@ -958,7 +1215,12 @@
     "/reservas/gift-card",
     "/reservas/seguros"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ajuda/pedidos-reclamacoes/reclamacao",
+    "/ajuda/pedidos-reclamacoes/informacoes-miles-go",
+    "/ajuda/pedidos-reclamacoes/sugestao-ou-elogio",
+    "/registo"
+   ]
   },
   "en-gn": {
    "language": "en-pt",
@@ -977,7 +1239,12 @@
     "/miles-and-go/promotions/navigator-experiences",
     "/promos"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/help/requests-complaints/complaints",
+    "/help/requests-complaints/information-miles-go",
+    "/help/requests-complaints/suggestion-or-compliment",
+    "/sign-up"
+   ]
   },
   "fr-gn": {
    "language": "fr-fr",
@@ -993,7 +1260,12 @@
     "/reservations/assurances",
     "/reservations/gift-card"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/aide/demandes-reclamations/reclamation",
+    "/aide/demandes-reclamations/informations-miles-go",
+    "/aide/demandes-reclamations/suggestion-ou-compliment",
+    "/inscription"
+   ]
   },
   "pt-gn": {
    "language": "pt-pt",
@@ -1012,7 +1284,12 @@
     "/reservas/gift-card",
     "/reservas/seguros"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ajuda/pedidos-reclamacoes/reclamacao",
+    "/ajuda/pedidos-reclamacoes/informacoes-miles-go",
+    "/ajuda/pedidos-reclamacoes/sugestao-ou-elogio",
+    "/registo"
+   ]
   },
   "en-gr": {
    "language": "en-pt",
@@ -1031,7 +1308,12 @@
     "/miles-and-go/promotions/navigator-experiences",
     "/promos"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/help/requests-complaints/complaints",
+    "/help/requests-complaints/information-miles-go",
+    "/help/requests-complaints/suggestion-or-compliment",
+    "/sign-up"
+   ]
   },
   "pt-gr": {
    "language": "pt-pt",
@@ -1050,7 +1332,12 @@
     "/reservas/gift-card",
     "/reservas/seguros"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ajuda/pedidos-reclamacoes/reclamacao",
+    "/ajuda/pedidos-reclamacoes/informacoes-miles-go",
+    "/ajuda/pedidos-reclamacoes/sugestao-ou-elogio",
+    "/registo"
+   ]
   },
   "en-gw": {
    "language": "en-pt",
@@ -1069,7 +1356,12 @@
     "/miles-and-go/promotions/navigator-experiences",
     "/promos"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/help/requests-complaints/complaints",
+    "/help/requests-complaints/information-miles-go",
+    "/help/requests-complaints/suggestion-or-compliment",
+    "/sign-up"
+   ]
   },
   "pt-gw": {
    "language": "pt-pt",
@@ -1088,7 +1380,12 @@
     "/reservas/gift-card",
     "/reservas/seguros"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ajuda/pedidos-reclamacoes/reclamacao",
+    "/ajuda/pedidos-reclamacoes/informacoes-miles-go",
+    "/ajuda/pedidos-reclamacoes/sugestao-ou-elogio",
+    "/registo"
+   ]
   },
   "en-hk": {
    "language": "en-pt",
@@ -1107,7 +1404,12 @@
     "/miles-and-go/promotions/navigator-experiences",
     "/promos"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/help/requests-complaints/complaints",
+    "/help/requests-complaints/information-miles-go",
+    "/help/requests-complaints/suggestion-or-compliment",
+    "/sign-up"
+   ]
   },
   "pt-hk": {
    "language": "pt-pt",
@@ -1126,7 +1428,12 @@
     "/reservas/gift-card",
     "/reservas/seguros"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ajuda/pedidos-reclamacoes/reclamacao",
+    "/ajuda/pedidos-reclamacoes/informacoes-miles-go",
+    "/ajuda/pedidos-reclamacoes/sugestao-ou-elogio",
+    "/registo"
+   ]
   },
   "en-hu": {
    "language": "en-pt",
@@ -1144,7 +1451,12 @@
     "/miles-and-go/promotions/navigator-experiences",
     "/promos"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/help/requests-complaints/complaints",
+    "/help/requests-complaints/information-miles-go",
+    "/help/requests-complaints/suggestion-or-compliment",
+    "/sign-up"
+   ]
   },
   "pt-hu": {
    "language": "pt-pt",
@@ -1162,7 +1474,12 @@
     "/promos",
     "/reservas/gift-card"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ajuda/pedidos-reclamacoes/reclamacao",
+    "/ajuda/pedidos-reclamacoes/informacoes-miles-go",
+    "/ajuda/pedidos-reclamacoes/sugestao-ou-elogio",
+    "/registo"
+   ]
   },
   "en-ie": {
    "language": "en-pt",
@@ -1178,7 +1495,12 @@
     "/miles-and-go/earn-miles/day-by-day",
     "/miles-and-go/promotions/navigator-experiences"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/help/requests-complaints/complaints",
+    "/help/requests-complaints/information-miles-go",
+    "/help/requests-complaints/suggestion-or-compliment",
+    "/sign-up"
+   ]
   },
   "pt-ie": {
    "language": "pt-pt",
@@ -1194,7 +1516,12 @@
     "/miles-and-go/acumular-milhas/dia-a-dia",
     "/miles-and-go/promocoes/navigator-experiences"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ajuda/pedidos-reclamacoes/reclamacao",
+    "/ajuda/pedidos-reclamacoes/informacoes-miles-go",
+    "/ajuda/pedidos-reclamacoes/sugestao-ou-elogio",
+    "/registo"
+   ]
   },
   "en-il": {
    "language": "en-pt",
@@ -1213,7 +1540,12 @@
     "/miles-and-go/promotions/navigator-experiences",
     "/promos"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/help/requests-complaints/complaints",
+    "/help/requests-complaints/information-miles-go",
+    "/help/requests-complaints/suggestion-or-compliment",
+    "/sign-up"
+   ]
   },
   "pt-il": {
    "language": "pt-pt",
@@ -1232,7 +1564,12 @@
     "/reservas/gift-card",
     "/reservas/seguros"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ajuda/pedidos-reclamacoes/reclamacao",
+    "/ajuda/pedidos-reclamacoes/informacoes-miles-go",
+    "/ajuda/pedidos-reclamacoes/sugestao-ou-elogio",
+    "/registo"
+   ]
   },
   "en-it": {
    "language": "en-pt",
@@ -1248,7 +1585,12 @@
     "/miles-and-go/earn-miles/day-by-day",
     "/miles-and-go/promotions/navigator-experiences"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/help/requests-complaints/complaints",
+    "/help/requests-complaints/information-miles-go",
+    "/help/requests-complaints/suggestion-or-compliment",
+    "/sign-up"
+   ]
   },
   "pt-it": {
    "language": "pt-pt",
@@ -1264,7 +1606,12 @@
     "/miles-and-go/acumular-milhas/dia-a-dia",
     "/miles-and-go/promocoes/navigator-experiences"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ajuda/pedidos-reclamacoes/reclamacao",
+    "/ajuda/pedidos-reclamacoes/informacoes-miles-go",
+    "/ajuda/pedidos-reclamacoes/sugestao-ou-elogio",
+    "/registo"
+   ]
   },
   "en-lt": {
    "language": "en-pt",
@@ -1283,7 +1630,12 @@
     "/miles-and-go/promotions/navigator-experiences",
     "/promos"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/help/requests-complaints/complaints",
+    "/help/requests-complaints/information-miles-go",
+    "/help/requests-complaints/suggestion-or-compliment",
+    "/sign-up"
+   ]
   },
   "pt-lt": {
    "language": "pt-pt",
@@ -1302,7 +1654,12 @@
     "/reservas/gift-card",
     "/reservas/seguros"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ajuda/pedidos-reclamacoes/reclamacao",
+    "/ajuda/pedidos-reclamacoes/informacoes-miles-go",
+    "/ajuda/pedidos-reclamacoes/sugestao-ou-elogio",
+    "/registo"
+   ]
   },
   "fr-lu": {
    "language": "fr-fr",
@@ -1315,7 +1672,12 @@
    "lacks": [
     "/mentions-legales/droits-des-passagers-france"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/aide/demandes-reclamations/reclamation",
+    "/aide/demandes-reclamations/informations-miles-go",
+    "/aide/demandes-reclamations/suggestion-ou-compliment",
+    "/inscription"
+   ]
   },
   "en-lu": {
    "language": "en-pt",
@@ -1331,7 +1693,12 @@
     "/miles-and-go/earn-miles/day-by-day",
     "/miles-and-go/promotions/navigator-experiences"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/help/requests-complaints/complaints",
+    "/help/requests-complaints/information-miles-go",
+    "/help/requests-complaints/suggestion-or-compliment",
+    "/sign-up"
+   ]
   },
   "pt-lu": {
    "language": "pt-pt",
@@ -1347,7 +1714,12 @@
     "/miles-and-go/acumular-milhas/dia-a-dia",
     "/miles-and-go/promocoes/navigator-experiences"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ajuda/pedidos-reclamacoes/reclamacao",
+    "/ajuda/pedidos-reclamacoes/informacoes-miles-go",
+    "/ajuda/pedidos-reclamacoes/sugestao-ou-elogio",
+    "/registo"
+   ]
   },
   "en-lv": {
    "language": "en-pt",
@@ -1366,7 +1738,12 @@
     "/miles-and-go/promotions/navigator-experiences",
     "/promos"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/help/requests-complaints/complaints",
+    "/help/requests-complaints/information-miles-go",
+    "/help/requests-complaints/suggestion-or-compliment",
+    "/sign-up"
+   ]
   },
   "pt-lv": {
    "language": "pt-pt",
@@ -1385,7 +1762,12 @@
     "/reservas/gift-card",
     "/reservas/seguros"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ajuda/pedidos-reclamacoes/reclamacao",
+    "/ajuda/pedidos-reclamacoes/informacoes-miles-go",
+    "/ajuda/pedidos-reclamacoes/sugestao-ou-elogio",
+    "/registo"
+   ]
   },
   "en-ml": {
    "language": "en-pt",
@@ -1404,7 +1786,12 @@
     "/miles-and-go/promotions/navigator-experiences",
     "/promos"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/help/requests-complaints/complaints",
+    "/help/requests-complaints/information-miles-go",
+    "/help/requests-complaints/suggestion-or-compliment",
+    "/sign-up"
+   ]
   },
   "fr-ml": {
    "language": "fr-fr",
@@ -1420,7 +1807,12 @@
     "/reservations/assurances",
     "/reservations/gift-card"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/aide/demandes-reclamations/reclamation",
+    "/aide/demandes-reclamations/informations-miles-go",
+    "/aide/demandes-reclamations/suggestion-ou-compliment",
+    "/inscription"
+   ]
   },
   "pt-ml": {
    "language": "pt-pt",
@@ -1439,7 +1831,12 @@
     "/reservas/gift-card",
     "/reservas/seguros"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ajuda/pedidos-reclamacoes/reclamacao",
+    "/ajuda/pedidos-reclamacoes/informacoes-miles-go",
+    "/ajuda/pedidos-reclamacoes/sugestao-ou-elogio",
+    "/registo"
+   ]
   },
   "fr-ma": {
    "language": "fr-fr",
@@ -1455,7 +1852,12 @@
     "/reservations/assurances",
     "/reservations/gift-card"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/aide/demandes-reclamations/reclamation",
+    "/aide/demandes-reclamations/informations-miles-go",
+    "/aide/demandes-reclamations/suggestion-ou-compliment",
+    "/inscription"
+   ]
   },
   "pt-ma": {
    "language": "pt-pt",
@@ -1474,7 +1876,12 @@
     "/reservas/gift-card",
     "/reservas/seguros"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ajuda/pedidos-reclamacoes/reclamacao",
+    "/ajuda/pedidos-reclamacoes/informacoes-miles-go",
+    "/ajuda/pedidos-reclamacoes/sugestao-ou-elogio",
+    "/registo"
+   ]
   },
   "en-ma": {
    "language": "en-pt",
@@ -1493,7 +1900,12 @@
     "/miles-and-go/promotions/navigator-experiences",
     "/promos"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/help/requests-complaints/complaints",
+    "/help/requests-complaints/information-miles-go",
+    "/help/requests-complaints/suggestion-or-compliment",
+    "/sign-up"
+   ]
   },
   "en-mx": {
    "language": "en-pt",
@@ -1512,7 +1924,12 @@
     "/miles-and-go/promotions/navigator-experiences",
     "/promos"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/help/requests-complaints/complaints",
+    "/help/requests-complaints/information-miles-go",
+    "/help/requests-complaints/suggestion-or-compliment",
+    "/sign-up"
+   ]
   },
   "es-mx": {
    "language": "es-es",
@@ -1527,7 +1944,12 @@
     "/reservas/gift-card",
     "/reservas/seguros"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ayuda/solicitudes-reclamaciones/reclamacion",
+    "/ayuda/solicitudes-reclamaciones/informaciones-miles-go",
+    "/ayuda/solicitudes-reclamaciones/sugerencia-o-elogio",
+    "/registro"
+   ]
   },
   "pt-mx": {
    "language": "pt-pt",
@@ -1546,7 +1968,12 @@
     "/reservas/gift-card",
     "/reservas/seguros"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ajuda/pedidos-reclamacoes/reclamacao",
+    "/ajuda/pedidos-reclamacoes/informacoes-miles-go",
+    "/ajuda/pedidos-reclamacoes/sugestao-ou-elogio",
+    "/registo"
+   ]
   },
   "en-mz": {
    "language": "en-pt",
@@ -1565,7 +1992,12 @@
     "/miles-and-go/promotions/navigator-experiences",
     "/promos"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/help/requests-complaints/complaints",
+    "/help/requests-complaints/information-miles-go",
+    "/help/requests-complaints/suggestion-or-compliment",
+    "/sign-up"
+   ]
   },
   "pt-mz": {
    "language": "pt-pt",
@@ -1584,7 +2016,12 @@
     "/reservas/gift-card",
     "/reservas/seguros"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ajuda/pedidos-reclamacoes/reclamacao",
+    "/ajuda/pedidos-reclamacoes/informacoes-miles-go",
+    "/ajuda/pedidos-reclamacoes/sugestao-ou-elogio",
+    "/registo"
+   ]
   },
   "en-no": {
    "language": "en-pt",
@@ -1601,7 +2038,12 @@
     "/miles-and-go/earn-miles/day-by-day",
     "/miles-and-go/promotions/navigator-experiences"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/help/requests-complaints/complaints",
+    "/help/requests-complaints/information-miles-go",
+    "/help/requests-complaints/suggestion-or-compliment",
+    "/sign-up"
+   ]
   },
   "pt-no": {
    "language": "pt-pt",
@@ -1618,7 +2060,12 @@
     "/miles-and-go/promocoes/navigator-experiences",
     "/reservas/gift-card"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ajuda/pedidos-reclamacoes/reclamacao",
+    "/ajuda/pedidos-reclamacoes/informacoes-miles-go",
+    "/ajuda/pedidos-reclamacoes/sugestao-ou-elogio",
+    "/registo"
+   ]
   },
   "en-pa": {
    "language": "en-pt",
@@ -1637,7 +2084,12 @@
     "/miles-and-go/promotions/navigator-experiences",
     "/promos"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/help/requests-complaints/complaints",
+    "/help/requests-complaints/information-miles-go",
+    "/help/requests-complaints/suggestion-or-compliment",
+    "/sign-up"
+   ]
   },
   "es-pa": {
    "language": "es-es",
@@ -1652,7 +2104,12 @@
     "/reservas/gift-card",
     "/reservas/seguros"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ayuda/solicitudes-reclamaciones/reclamacion",
+    "/ayuda/solicitudes-reclamaciones/informaciones-miles-go",
+    "/ayuda/solicitudes-reclamaciones/sugerencia-o-elogio",
+    "/registro"
+   ]
   },
   "pt-pa": {
    "language": "pt-pt",
@@ -1671,7 +2128,12 @@
     "/reservas/gift-card",
     "/reservas/seguros"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ajuda/pedidos-reclamacoes/reclamacao",
+    "/ajuda/pedidos-reclamacoes/informacoes-miles-go",
+    "/ajuda/pedidos-reclamacoes/sugestao-ou-elogio",
+    "/registo"
+   ]
   },
   "en-nl": {
    "language": "en-pt",
@@ -1687,7 +2149,12 @@
     "/miles-and-go/earn-miles/day-by-day",
     "/miles-and-go/promotions/navigator-experiences"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/help/requests-complaints/complaints",
+    "/help/requests-complaints/information-miles-go",
+    "/help/requests-complaints/suggestion-or-compliment",
+    "/sign-up"
+   ]
   },
   "pt-nl": {
    "language": "pt-pt",
@@ -1703,7 +2170,12 @@
     "/miles-and-go/acumular-milhas/dia-a-dia",
     "/miles-and-go/promocoes/navigator-experiences"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ajuda/pedidos-reclamacoes/reclamacao",
+    "/ajuda/pedidos-reclamacoes/informacoes-miles-go",
+    "/ajuda/pedidos-reclamacoes/sugestao-ou-elogio",
+    "/registo"
+   ]
   },
   "en-pl": {
    "language": "en-pt",
@@ -1720,7 +2192,12 @@
     "/miles-and-go/earn-miles/day-by-day",
     "/miles-and-go/promotions/navigator-experiences"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/help/requests-complaints/complaints",
+    "/help/requests-complaints/information-miles-go",
+    "/help/requests-complaints/suggestion-or-compliment",
+    "/sign-up"
+   ]
   },
   "pt-pl": {
    "language": "pt-pt",
@@ -1737,7 +2214,12 @@
     "/miles-and-go/promocoes/navigator-experiences",
     "/reservas/gift-card"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ajuda/pedidos-reclamacoes/reclamacao",
+    "/ajuda/pedidos-reclamacoes/informacoes-miles-go",
+    "/ajuda/pedidos-reclamacoes/sugestao-ou-elogio",
+    "/registo"
+   ]
   },
   "en-gb": {
    "language": "en-pt",
@@ -1755,7 +2237,12 @@
     "/miles-and-go/earn-miles/day-by-day",
     "/miles-and-go/promotions/navigator-experiences"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/help/requests-complaints/complaints",
+    "/help/requests-complaints/information-miles-go",
+    "/help/requests-complaints/suggestion-or-compliment",
+    "/sign-up"
+   ]
   },
   "pt-gb": {
    "language": "pt-pt",
@@ -1773,7 +2260,12 @@
     "/reservas/gift-card",
     "/reservas/seguros"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ajuda/pedidos-reclamacoes/reclamacao",
+    "/ajuda/pedidos-reclamacoes/informacoes-miles-go",
+    "/ajuda/pedidos-reclamacoes/sugestao-ou-elogio",
+    "/registo"
+   ]
   },
   "en-cz": {
    "language": "en-pt",
@@ -1790,7 +2282,12 @@
     "/miles-and-go/earn-miles/day-by-day",
     "/miles-and-go/promotions/navigator-experiences"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/help/requests-complaints/complaints",
+    "/help/requests-complaints/information-miles-go",
+    "/help/requests-complaints/suggestion-or-compliment",
+    "/sign-up"
+   ]
   },
   "pt-cz": {
    "language": "pt-pt",
@@ -1807,7 +2304,12 @@
     "/miles-and-go/promocoes/navigator-experiences",
     "/reservas/gift-card"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ajuda/pedidos-reclamacoes/reclamacao",
+    "/ajuda/pedidos-reclamacoes/informacoes-miles-go",
+    "/ajuda/pedidos-reclamacoes/sugestao-ou-elogio",
+    "/registo"
+   ]
   },
   "en-ro": {
    "language": "en-pt",
@@ -1826,7 +2328,12 @@
     "/miles-and-go/promotions/navigator-experiences",
     "/promos"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/help/requests-complaints/complaints",
+    "/help/requests-complaints/information-miles-go",
+    "/help/requests-complaints/suggestion-or-compliment",
+    "/sign-up"
+   ]
   },
   "pt-ro": {
    "language": "pt-pt",
@@ -1845,7 +2352,12 @@
     "/reservas/gift-card",
     "/reservas/seguros"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ajuda/pedidos-reclamacoes/reclamacao",
+    "/ajuda/pedidos-reclamacoes/informacoes-miles-go",
+    "/ajuda/pedidos-reclamacoes/sugestao-ou-elogio",
+    "/registo"
+   ]
   },
   "en-rs": {
    "language": "en-pt",
@@ -1864,7 +2376,12 @@
     "/miles-and-go/promotions/navigator-experiences",
     "/promos"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/help/requests-complaints/complaints",
+    "/help/requests-complaints/information-miles-go",
+    "/help/requests-complaints/suggestion-or-compliment",
+    "/sign-up"
+   ]
   },
   "pt-rs": {
    "language": "pt-pt",
@@ -1883,7 +2400,12 @@
     "/reservas/gift-card",
     "/reservas/seguros"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ajuda/pedidos-reclamacoes/reclamacao",
+    "/ajuda/pedidos-reclamacoes/informacoes-miles-go",
+    "/ajuda/pedidos-reclamacoes/sugestao-ou-elogio",
+    "/registo"
+   ]
   },
   "en-ru": {
    "language": "en-pt",
@@ -1902,7 +2424,12 @@
     "/miles-and-go/promotions/navigator-experiences",
     "/promos"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/help/requests-complaints/complaints",
+    "/help/requests-complaints/information-miles-go",
+    "/help/requests-complaints/suggestion-or-compliment",
+    "/sign-up"
+   ]
   },
   "pt-ru": {
    "language": "pt-pt",
@@ -1921,7 +2448,12 @@
     "/reservas/gift-card",
     "/reservas/seguros"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ajuda/pedidos-reclamacoes/reclamacao",
+    "/ajuda/pedidos-reclamacoes/informacoes-miles-go",
+    "/ajuda/pedidos-reclamacoes/sugestao-ou-elogio",
+    "/registo"
+   ]
   },
   "en-st": {
    "language": "en-pt",
@@ -1940,7 +2472,12 @@
     "/miles-and-go/promotions/navigator-experiences",
     "/promos"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/help/requests-complaints/complaints",
+    "/help/requests-complaints/information-miles-go",
+    "/help/requests-complaints/suggestion-or-compliment",
+    "/sign-up"
+   ]
   },
   "pt-st": {
    "language": "pt-pt",
@@ -1959,7 +2496,12 @@
     "/reservas/gift-card",
     "/reservas/seguros"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ajuda/pedidos-reclamacoes/reclamacao",
+    "/ajuda/pedidos-reclamacoes/informacoes-miles-go",
+    "/ajuda/pedidos-reclamacoes/sugestao-ou-elogio",
+    "/registo"
+   ]
   },
   "fr-sn": {
    "language": "fr-fr",
@@ -1975,7 +2517,12 @@
     "/reservations/assurances",
     "/reservations/gift-card"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/aide/demandes-reclamations/reclamation",
+    "/aide/demandes-reclamations/informations-miles-go",
+    "/aide/demandes-reclamations/suggestion-ou-compliment",
+    "/inscription"
+   ]
   },
   "pt-sn": {
    "language": "pt-pt",
@@ -1994,7 +2541,12 @@
     "/reservas/gift-card",
     "/reservas/seguros"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ajuda/pedidos-reclamacoes/reclamacao",
+    "/ajuda/pedidos-reclamacoes/informacoes-miles-go",
+    "/ajuda/pedidos-reclamacoes/sugestao-ou-elogio",
+    "/registo"
+   ]
   },
   "en-sn": {
    "language": "en-pt",
@@ -2013,7 +2565,12 @@
     "/miles-and-go/promotions/navigator-experiences",
     "/promos"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/help/requests-complaints/complaints",
+    "/help/requests-complaints/information-miles-go",
+    "/help/requests-complaints/suggestion-or-compliment",
+    "/sign-up"
+   ]
   },
   "en-sk": {
    "language": "en-pt",
@@ -2032,7 +2589,12 @@
     "/miles-and-go/promotions/navigator-experiences",
     "/promos"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/help/requests-complaints/complaints",
+    "/help/requests-complaints/information-miles-go",
+    "/help/requests-complaints/suggestion-or-compliment",
+    "/sign-up"
+   ]
   },
   "pt-sk": {
    "language": "pt-pt",
@@ -2051,7 +2613,12 @@
     "/reservas/gift-card",
     "/reservas/seguros"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ajuda/pedidos-reclamacoes/reclamacao",
+    "/ajuda/pedidos-reclamacoes/informacoes-miles-go",
+    "/ajuda/pedidos-reclamacoes/sugestao-ou-elogio",
+    "/registo"
+   ]
   },
   "en-se": {
    "language": "en-pt",
@@ -2068,7 +2635,12 @@
     "/miles-and-go/earn-miles/day-by-day",
     "/miles-and-go/promotions/navigator-experiences"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/help/requests-complaints/complaints",
+    "/help/requests-complaints/information-miles-go",
+    "/help/requests-complaints/suggestion-or-compliment",
+    "/sign-up"
+   ]
   },
   "pt-se": {
    "language": "pt-pt",
@@ -2085,7 +2657,12 @@
     "/miles-and-go/promocoes/navigator-experiences",
     "/reservas/gift-card"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ajuda/pedidos-reclamacoes/reclamacao",
+    "/ajuda/pedidos-reclamacoes/informacoes-miles-go",
+    "/ajuda/pedidos-reclamacoes/sugestao-ou-elogio",
+    "/registo"
+   ]
   },
   "fr-ch": {
    "language": "fr-fr",
@@ -2100,7 +2677,11 @@
     "/reservations/gift-card"
    ],
    "noDocument": [
-    "/mentions-legales/mentions-legales"
+    "/aide/demandes-reclamations/reclamation",
+    "/aide/demandes-reclamations/informations-miles-go",
+    "/aide/demandes-reclamations/suggestion-ou-compliment",
+    "/mentions-legales/mentions-legales",
+    "/inscription"
    ]
   },
   "en-ch": {
@@ -2119,7 +2700,11 @@
     "/miles-and-go/promotions/navigator-experiences"
    ],
    "noDocument": [
-    "/legal-info/legal-notices"
+    "/help/requests-complaints/complaints",
+    "/help/requests-complaints/information-miles-go",
+    "/help/requests-complaints/suggestion-or-compliment",
+    "/legal-info/legal-notices",
+    "/sign-up"
    ]
   },
   "pt-ch": {
@@ -2138,7 +2723,11 @@
     "/reservas/gift-card"
    ],
    "noDocument": [
-    "/info-legal/avisos-legais"
+    "/ajuda/pedidos-reclamacoes/reclamacao",
+    "/ajuda/pedidos-reclamacoes/informacoes-miles-go",
+    "/ajuda/pedidos-reclamacoes/sugestao-ou-elogio",
+    "/info-legal/avisos-legais",
+    "/registo"
    ]
   },
   "en-tg": {
@@ -2158,7 +2747,12 @@
     "/miles-and-go/promotions/navigator-experiences",
     "/promos"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/help/requests-complaints/complaints",
+    "/help/requests-complaints/information-miles-go",
+    "/help/requests-complaints/suggestion-or-compliment",
+    "/sign-up"
+   ]
   },
   "fr-tg": {
    "language": "fr-fr",
@@ -2174,7 +2768,12 @@
     "/reservations/assurances",
     "/reservations/gift-card"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/aide/demandes-reclamations/reclamation",
+    "/aide/demandes-reclamations/informations-miles-go",
+    "/aide/demandes-reclamations/suggestion-ou-compliment",
+    "/inscription"
+   ]
   },
   "pt-tg": {
    "language": "pt-pt",
@@ -2193,7 +2792,12 @@
     "/reservas/gift-card",
     "/reservas/seguros"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ajuda/pedidos-reclamacoes/reclamacao",
+    "/ajuda/pedidos-reclamacoes/informacoes-miles-go",
+    "/ajuda/pedidos-reclamacoes/sugestao-ou-elogio",
+    "/registo"
+   ]
   },
   "en-tn": {
    "language": "en-pt",
@@ -2212,7 +2816,12 @@
     "/miles-and-go/promotions/navigator-experiences",
     "/promos"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/help/requests-complaints/complaints",
+    "/help/requests-complaints/information-miles-go",
+    "/help/requests-complaints/suggestion-or-compliment",
+    "/sign-up"
+   ]
   },
   "pt-tn": {
    "language": "pt-pt",
@@ -2231,7 +2840,12 @@
     "/reservas/gift-card",
     "/reservas/seguros"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ajuda/pedidos-reclamacoes/reclamacao",
+    "/ajuda/pedidos-reclamacoes/informacoes-miles-go",
+    "/ajuda/pedidos-reclamacoes/sugestao-ou-elogio",
+    "/registo"
+   ]
   },
   "en-tr": {
    "language": "en-pt",
@@ -2250,7 +2864,12 @@
     "/miles-and-go/promotions/navigator-experiences",
     "/promos"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/help/requests-complaints/complaints",
+    "/help/requests-complaints/information-miles-go",
+    "/help/requests-complaints/suggestion-or-compliment",
+    "/sign-up"
+   ]
   },
   "pt-tr": {
    "language": "pt-pt",
@@ -2269,7 +2888,12 @@
     "/reservas/gift-card",
     "/reservas/seguros"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ajuda/pedidos-reclamacoes/reclamacao",
+    "/ajuda/pedidos-reclamacoes/informacoes-miles-go",
+    "/ajuda/pedidos-reclamacoes/sugestao-ou-elogio",
+    "/registo"
+   ]
   },
   "en-ua": {
    "language": "en-pt",
@@ -2288,7 +2912,12 @@
     "/miles-and-go/promotions/navigator-experiences",
     "/promos"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/help/requests-complaints/complaints",
+    "/help/requests-complaints/information-miles-go",
+    "/help/requests-complaints/suggestion-or-compliment",
+    "/sign-up"
+   ]
   },
   "pt-ua": {
    "language": "pt-pt",
@@ -2307,7 +2936,12 @@
     "/reservas/gift-card",
     "/reservas/seguros"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ajuda/pedidos-reclamacoes/reclamacao",
+    "/ajuda/pedidos-reclamacoes/informacoes-miles-go",
+    "/ajuda/pedidos-reclamacoes/sugestao-ou-elogio",
+    "/registo"
+   ]
   },
   "en-uy": {
    "language": "en-pt",
@@ -2326,7 +2960,12 @@
     "/miles-and-go/promotions/navigator-experiences",
     "/promos"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/help/requests-complaints/complaints",
+    "/help/requests-complaints/information-miles-go",
+    "/help/requests-complaints/suggestion-or-compliment",
+    "/sign-up"
+   ]
   },
   "es-uy": {
    "language": "es-es",
@@ -2341,7 +2980,12 @@
     "/reservas/gift-card",
     "/reservas/seguros"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ayuda/solicitudes-reclamaciones/reclamacion",
+    "/ayuda/solicitudes-reclamaciones/informaciones-miles-go",
+    "/ayuda/solicitudes-reclamaciones/sugerencia-o-elogio",
+    "/registro"
+   ]
   },
   "pt-uy": {
    "language": "pt-pt",
@@ -2360,7 +3004,12 @@
     "/reservas/gift-card",
     "/reservas/seguros"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ajuda/pedidos-reclamacoes/reclamacao",
+    "/ajuda/pedidos-reclamacoes/informacoes-miles-go",
+    "/ajuda/pedidos-reclamacoes/sugestao-ou-elogio",
+    "/registo"
+   ]
   },
   "en-ve": {
    "language": "en-pt",
@@ -2379,7 +3028,12 @@
     "/miles-and-go/promotions/navigator-experiences",
     "/promos"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/help/requests-complaints/complaints",
+    "/help/requests-complaints/information-miles-go",
+    "/help/requests-complaints/suggestion-or-compliment",
+    "/sign-up"
+   ]
   },
   "es-ve": {
    "language": "es-es",
@@ -2394,7 +3048,12 @@
     "/reservas/gift-card",
     "/reservas/seguros"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ayuda/solicitudes-reclamaciones/reclamacion",
+    "/ayuda/solicitudes-reclamaciones/informaciones-miles-go",
+    "/ayuda/solicitudes-reclamaciones/sugerencia-o-elogio",
+    "/registro"
+   ]
   },
   "pt-ve": {
    "language": "pt-pt",
@@ -2413,7 +3072,12 @@
     "/reservas/gift-card",
     "/reservas/seguros"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ajuda/pedidos-reclamacoes/reclamacao",
+    "/ajuda/pedidos-reclamacoes/informacoes-miles-go",
+    "/ajuda/pedidos-reclamacoes/sugestao-ou-elogio",
+    "/registo"
+   ]
   },
   "en-za": {
    "language": "en-pt",
@@ -2432,7 +3096,12 @@
     "/miles-and-go/promotions/navigator-experiences",
     "/promos"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/help/requests-complaints/complaints",
+    "/help/requests-complaints/information-miles-go",
+    "/help/requests-complaints/suggestion-or-compliment",
+    "/sign-up"
+   ]
   },
   "pt-za": {
    "language": "pt-pt",
@@ -2451,7 +3120,12 @@
     "/reservas/gift-card",
     "/reservas/seguros"
    ],
-   "noDocument": []
+   "noDocument": [
+    "/ajuda/pedidos-reclamacoes/reclamacao",
+    "/ajuda/pedidos-reclamacoes/informacoes-miles-go",
+    "/ajuda/pedidos-reclamacoes/sugestao-ou-elogio",
+    "/registo"
+   ]
   }
  }
 }

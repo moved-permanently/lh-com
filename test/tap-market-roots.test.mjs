@@ -39,13 +39,16 @@ test('the table: markets.json\'s 137 roots with www\'s currency and airport, own
   const www = JSON.parse(fs.readFileSync('tools/markets/tap/www-markets.json', 'utf8'));
   assert.equal(Object.keys(TAP_MARKETS).length, 137);
   assert.deepEqual(Object.keys(TAP_MARKETS).sort(), Object.keys(list.roots).sort());
-  assert.deepEqual(TAP_MARKETS['de-ch'], ['de', 'ch', 'de-de', 'CHF', 'GVA', 'Deutsch (Schweiz)', [], ['/buchungen/gift-card', '/rechtliche-informationen/schlichtungsstelle']]);
+  // www's forms (sign-up, complaint, Miles&Go information, suggestion) are no documents: lacks
+  const FORMS_DE = ['/hilfe/anfragen-reklamationen/anregung-oder-kompliment', '/hilfe/anfragen-reklamationen/informationen-miles-go', '/hilfe/anfragen-reklamationen/reklamationen'];
+  assert.deepEqual(TAP_MARKETS['de-ch'], ['de', 'ch', 'de-de', 'CHF', 'GVA', 'Deutsch (Schweiz)', [], ['/buchungen/gift-card', ...FORMS_DE, '/rechtliche-informationen/schlichtungsstelle', '/registrierung']]);
   assert.deepEqual(TAP_MARKETS['fr-ca'], ['fr', 'ca', 'fr-fr', 'CAD', 'YYZ', 'Français (Canada)',
     ['/mentions-legales/droits-passagers-canada', '/mentions-legales/plan-accessibilite-canada', '/miles-and-go/gagnez-miles/cartes-de-credit'],
-    ['/mentions-legales/droits-des-passagers-france', '/reservations/assurances', '/reservations/gift-card']]);
+    ['/aide/demandes-reclamations/informations-miles-go', '/aide/demandes-reclamations/reclamation', '/aide/demandes-reclamations/suggestion-ou-compliment', '/inscription',
+      '/mentions-legales/droits-des-passagers-france', '/reservations/assurances', '/reservations/gift-card']]);
   // lacks and the paths without a document (en-ch's legal notices) both answer 404
   assert.ok(TAP_MARKETS['en-ch'][7].includes('/legal-info/legal-notices'));
-  assert.deepEqual(TAP_MARKETS['de-at'].slice(6), [[], []]);
+  assert.deepEqual(TAP_MARKETS['de-at'].slice(6), [[], [...FORMS_DE, '/registrierung']]);
   assert.deepEqual(TAP_MARKETS['en-us'].slice(0, 5), ['en', 'us', 'en-pt', 'USD', 'NYC']);
   assert.deepEqual(TAP_MARKETS['en-br'].slice(0, 5), ['en', 'br', 'en-pt', 'BRL', 'RIO'], 'en-br from en-pt; pt-br is a language version');
   assert.equal(TAP_MARKETS['pt-br'], undefined);
