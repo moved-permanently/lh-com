@@ -1906,6 +1906,15 @@ body.brand-tap .cards.three-up a.button:any-link::after {
    row 14's rule above) */
 body.brand-tap main :is(h1, h2, h3, h4, h5, h6) {
   letter-spacing: -0.02em;
+  hyphens: manual;
+}
+
+/* headings wrap as www's (row 47: the same GT Flexa files, sha256 equal, and the same metrics;
+   www breaks lines greedily, text-wrap: wrap, and hyphenates nothing, where lh-com balances the
+   hero card's lines and hyphenates long words on phones) */
+body.brand-tap .hero-card-overlay .hero-card-overlay-card :is(h1, h2, h3, h4, h5, h6),
+body.brand-tap .hero-card-overlay .hero-card-overlay-card .hero-card-overlay-eyebrow {
+  text-wrap: wrap;
 }
 
 body.brand-tap main:has(> .breadcrumb-container) .default-content-wrapper > h2 {
@@ -2385,6 +2394,267 @@ body.brand-tap main > .section:last-child {
 @media (width >= 1024px) {
   body.brand-tap main > .section:last-child {
     margin-bottom: 48px;
+  }
+}
+
+/* stylelint-enable no-descending-specificity */
+
+/* ------------------------------------------ TAP's destinations map (brief 339) ---------- */
+
+/* stylelint-disable no-descending-specificity -- scoped by block and option; page order */
+
+/* poi-map on brand tap with a destinations sheet (blocks/poi-map/poi-map-tap.js; parity.md row 45):
+   www's light map in a 16 px-rounded box (24 px from 768 px), a green dot per destination (www's
+   #9efd38 with a dark green edge), its bubble white with 16 px corners (the city in GT Flexa, the
+   link to its flights page in TAP's dark green), the zoom buttons as white circles at the top
+   right; above the map the regions as white pills, the chosen one green-edged on #f5fff0 */
+body.brand-tap .poi-map-tap .poi-map-view {
+  height: 520px;
+  border-radius: 16px;
+  background: #f2f2f3;
+}
+
+body.brand-tap .poi-map-tap .poi-map-pin {
+  left: -8px;
+  top: -8px;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+  border: 2px solid #397213;
+  border-radius: 50%;
+  background: #9efd38;
+  mask: none;
+}
+
+body.brand-tap .poi-map-tap .poi-map-marker.marker-active .poi-map-pin,
+body.brand-tap .poi-map-tap .poi-map-marker:hover .poi-map-pin {
+  background: #65c922;
+  transform: scale(1.25);
+}
+
+body.brand-tap .poi-map-tap .poi-map-bubble {
+  bottom: 16px;
+  border-radius: 16px;
+  padding: 12px 16px;
+  box-shadow: 0 8px 16px rgb(0 0 0 / 10%);
+  color: #424045;
+}
+
+body.brand-tap .poi-map-tap .poi-map-title {
+  color: #424045;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+body.brand-tap .poi-map-tap .poi-map-link {
+  color: #397213;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+body.brand-tap .poi-map-tap .poi-map-link::before {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8.6 5.4 7.2 6.8l5.2 5.2-5.2 5.2 1.4 1.4 6.6-6.6z'/%3E%3C/svg%3E");
+}
+
+body.brand-tap .poi-map-tap .poi-map-zoom {
+  top: 16px;
+  right: 16px;
+  bottom: auto;
+}
+
+body.brand-tap .poi-map-tap .poi-map-zoom-button {
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 15%);
+  color: #424045;
+}
+
+body.brand-tap .poi-map-tap .poi-map-regions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 16px;
+}
+
+body.brand-tap .poi-map-tap .poi-map-region {
+  min-height: 40px;
+  padding: 0 20px;
+  border: 1px solid #e0dfe2;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 8%);
+  color: #424045;
+  font-family: var(--body-font-family);
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+body.brand-tap .poi-map-tap .poi-map-region[aria-pressed="true"] {
+  border-color: #65c922;
+  background: #f5fff0;
+}
+
+body.brand-tap .poi-map-tap .poi-map-region:focus-visible {
+  outline: 2px solid var(--focus-color);
+  outline-offset: 2px;
+}
+
+@media (width >= 768px) {
+  body.brand-tap .poi-map-tap .poi-map-view {
+    border-radius: 24px;
+  }
+}
+
+/* stylelint-enable no-descending-specificity */
+
+/* -------------------------------------------- TAP's help contacts (brief 339) ----------- */
+
+/* stylelint-disable no-descending-specificity -- scoped by block and option; page order */
+
+/* hotline-finder on brand tap (blocks/hotline-finder/hotline-finder-tap.js; parity.md row 40):
+   www's ContactsByCountry on ajuda / help: the picture (8 px corners) over the finder on phones,
+   at the left from 1024 px (538 x 275 at 1440, the finder from the column's middle); the country
+   and city selects as green-edged pills (48 px, 2 px #65c922), side by side from 768 px; each group
+   a GT Flexa 24 / 500 title in TAP's dark green, its entries with an icon, the label Inter 16 / 600,
+   the value (telephones underlined links), the note 12 / 18; two entries to a row from 768 px */
+body.brand-tap .hotline-finder-tap {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+body.brand-tap .hotline-finder-tap .hotline-finder-media {
+  display: block;
+}
+
+body.brand-tap .hotline-finder-tap .hotline-finder-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  aspect-ratio: 538 / 275;
+  object-fit: cover;
+}
+
+body.brand-tap .hotline-finder-tap .hotline-finder-fields {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+body.brand-tap .hotline-finder-tap .hotline-finder-field {
+  max-width: none;
+  margin: 0;
+}
+
+body.brand-tap .hotline-finder-tap .hotline-finder-field[hidden] {
+  display: none;
+}
+
+body.brand-tap .hotline-finder-tap .hotline-finder-field select {
+  min-height: 48px;
+  padding: 0 48px 0 24px;
+  border: 2px solid #65c922;
+  border-radius: 999px;
+  background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23424045' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") right 16px center / 24px no-repeat;
+  color: #424045;
+  font-size: 16px;
+  appearance: none;
+  cursor: pointer;
+}
+
+body.brand-tap .hotline-finder-tap .hotline-finder-contact {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+body.brand-tap .hotline-finder-tap .hotline-finder-group + .hotline-finder-group {
+  margin-top: 40px;
+}
+
+body.brand-tap .hotline-finder-tap .hotline-finder-group-title {
+  margin: 0 0 8px;
+  color: #397213;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+body.brand-tap .hotline-finder-tap .hotline-finder-text {
+  margin: 0 0 16px;
+}
+
+body.brand-tap .hotline-finder-tap .hotline-finder-entries {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+  margin-top: 16px;
+}
+
+body.brand-tap .hotline-finder-tap .hotline-finder-label {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  color: #424045;
+  font-weight: 600;
+}
+
+body.brand-tap .hotline-finder-tap .hotline-finder-label::before {
+  content: "";
+  flex: none;
+  width: 24px;
+  height: 24px;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+body.brand-tap .hotline-finder-tap :is(.hotline-finder-schedule, .hotline-finder-address, .hotline-finder-email, .hotline-finder-link) .hotline-finder-label::before {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M12 6v6l4 2'/%3E%3C/svg%3E");
+}
+
+body.brand-tap .hotline-finder-tap .hotline-finder-address .hotline-finder-label::before {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z'/%3E%3Ccircle cx='12' cy='10' r='3'/%3E%3C/svg%3E");
+}
+
+body.brand-tap .hotline-finder-tap .hotline-finder-email .hotline-finder-label::before {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect width='20' height='16' x='2' y='4' rx='2'/%3E%3Cpath d='m22 7-10 6L2 7'/%3E%3C/svg%3E");
+}
+
+body.brand-tap .hotline-finder-tap .hotline-finder-value {
+  margin: 8px 0 0;
+}
+
+body.brand-tap .hotline-finder-tap .hotline-finder-value a:any-link {
+  color: #397213;
+  font-weight: 400;
+  text-decoration: underline;
+}
+
+body.brand-tap .hotline-finder-tap .hotline-finder-note {
+  margin: 8px 0 0;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+@media (width >= 768px) {
+  body.brand-tap .hotline-finder-tap .hotline-finder-fields,
+  body.brand-tap .hotline-finder-tap .hotline-finder-entries {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (width >= 1024px) {
+  body.brand-tap .hotline-finder-tap {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 32px;
   }
 }
 

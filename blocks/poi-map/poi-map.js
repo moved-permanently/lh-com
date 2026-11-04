@@ -7,6 +7,9 @@ import {
 } from '../../scripts/lh-api.js';
 import { markSource } from '../../scripts/lh-data.js';
 
+/** Brand tap (TAP Air Portugal): the page's brand metadata (lh-tap's metadata.json). */
+const isTap = () => (document.querySelector('meta[name="brand"]')?.getAttribute('content') || '').trim().toLowerCase() === 'tap';
+
 /* ---------------------------------------------------------------------------------------------
  * The live POI map (.poimapping > .dcep-poi-mapping, PointsOfInterest of 1ad93a8d.chunk.js, map
  * view 5e1bfdb4.chunk.js) loads its points from GET /service/api/pointsOfInterest/{data-dcep id}
@@ -510,7 +513,9 @@ export function drawMap(view, points, labels, tiles) {
   view.replaceChildren(tileLayer, markerLayer, zoomControl, attribution);
   view.classList.add(`poi-map-tiles-${tiles}`);
   render();
-  return { state, render, zoomTo };
+  return {
+    state, render, zoomTo, markers,
+  };
 }
 
 /** Calls fn once the block is near the viewport (at once without IntersectionObserver). */
@@ -539,6 +544,7 @@ export default function decorate(block) {
   const locale = getLocale();
   const { config, points: authored } = readPoiMapRows(block);
   const settings = readPoiMapSettings(config);
+  const tap = isTap();
   const view = el('div', 'poi-map-view');
   view.id = `poi-map-${instanceCount}`;
   view.setAttribute('role', 'region');
@@ -566,7 +572,12 @@ export default function decorate(block) {
 
   return new Promise((resolve) => {
     whenNear(block, async () => {
-      const result = await loadPoiMap(settings, authored, locale);
+      // brand tap: a sheet as the Source (TAP's destinations, ./poi-map-tap.js)
+      const variant = tap ? await import('./poi-map-tap.js') : null;
+      const sheet = Boolean(variant && variant.isSheetSource((config.source || {}).text));
+      const result = sheet
+        ? await variant.loadTapMap(config.source.text, locale.lang)
+        : await loadPoiMap(settings, authored, locale);
       // authored row, then the live label (labels/common), then the built-in default
       const defaults = resolveLabels(DEFAULT_LABELS, {}, locale.lang);
       const labels = { ...defaults, ...result.labels };
@@ -574,9 +585,11 @@ export default function decorate(block) {
         const authoredLabel = config[toConfigKey(key)];
         if (authoredLabel && authoredLabel.text) labels[key] = authoredLabel.text;
       });
+      const mapLabel = config[toConfigKey('map label')];
+      if (sheet && !(mapLabel && mapLabel.text)) labels['map label'] = variant.labelsFor(locale.lang).map;
       view.setAttribute('aria-label', labels['map label']);
-      if (result.sources.points === 'authored') {
-        block.dataset.lhSource = 'authored';
+      if (result.sources.points === 'authored' || sheet) {
+        block.dataset.lhSource = sheet ? result.sources.points : 'authored';
         block.dataset.lhSources = Object.entries(result.sources).map(([n, s]) => `${n}:${s}`).join(' ');
       } else {
         markSource(block, result.sources, result.primary);
@@ -593,7 +606,13 @@ export default function decorate(block) {
         resolve();
         return;
       }
-      drawMap(view, result.points, labels, settings.tiles);
+      const drawn = drawMap(view, result.points, labels, settings.tiles);
+      if (variant) {
+        const { maxZoom } = TILE_SOURCES[settings.tiles] || TILE_SOURCES.osm;
+        variant.decorateTapMap(block, drawn, result.points, {
+          lang: locale.lang, fitBounds, view, maxZoom,
+        });
+      }
       resolve();
     });
     // with an IntersectionObserver the section is still hidden (aem.js shows it once its blocks
