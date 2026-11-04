@@ -69,8 +69,10 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
 const W = path.join(root, 'content-sites/lh-tap');
 const OUT = path.join(W, 'content');
 export const WWW = 'https://www.flytap.com';
-// the header's language switch: its root per language (scripts/site-languages.js, tap)
-const SWITCH_ROOT = Object.fromEntries([...SITE_LANGUAGES.tap].reverse().map((l) => [l.lang, l.home.slice(1)]));
+// the header's language switch: its first listed root per language (scripts/site-languages.js,
+// tap: pt-pt for pt; the markets not yet live are listed false)
+const SWITCH_ROOT = Object.fromEntries(SITE_LANGUAGES.tap.filter((l) => l.listed !== false)
+  .reverse().map((l) => [l.lang, l.home.slice(1)]));
 const PIC = 'https://pic.flytap.com';
 const MB = 1024 * 1024;
 const readJson = (f, d) => (fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, 'utf8')) : d);
