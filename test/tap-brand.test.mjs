@@ -16,7 +16,7 @@ import {
   getLocale, siteOrigin, rootRedirectPath, brandEntry,
 } from '../scripts/locale.js';
 import {
-  SITE_LANGUAGES, languageOfPath, languageSwitch, counterpartPath, switchTarget,
+  SITE_LANGUAGES, tapLanguages, languageOfPath, languageSwitch, counterpartPath, switchTarget,
 } from '../scripts/site-languages.js';
 import {
   brandName, oneTrustId, isOwnWwwHost,
@@ -86,7 +86,9 @@ test('its roots: <ll>-<cc>, pt-pt first; the switch lists all seven', () => {
 });
 
 test('the switch\'s targets: the page\'s Alternate <lang> metadata, else the language\'s homepage; never a probe', async () => {
-  const roots = SITE_LANGUAGES.tap;
+  // the roots with the three pilots on (the targets' rules; every root on:
+  // test/tap-market-roots.test.mjs)
+  const roots = tapLanguages(['de-ch', 'en-us', 'fr-ca']);
   const probes = [];
   const exists = async (p) => { probes.push(p); return true; };
   // pt-pt/ajuda with its counterparts (tap-import.mjs writes www's hrefLangs as Alternate <lang>)

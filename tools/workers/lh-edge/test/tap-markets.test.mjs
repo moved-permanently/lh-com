@@ -111,15 +111,18 @@ test('the switch: pt-br and every root on; a root that is off, a language root a
   assert.equal(calls.length, 0);
 });
 
-test('the worker: a root that is on (de-ch) by the route, one that is off (de-at) from the origin as it is', async () => {
+test('the worker: the roots that are on (de-ch, de-at: every root since brief 340) by the route, a path of no root from the origin as it is', async () => {
   const on = await worker.fetch(new Request('https://tap.turnsthe.page/de-ch/an-bord', { redirect: 'manual' }), env(), { waitUntil() {} });
   assert.equal(on.status, 200);
   assert.equal(on.headers.get('x-lh-edge-route'), 'tap-market');
   assert.match(await on.text(), /<link rel="canonical" href="https:\/\/tap\.turnsthe\.page\/de-ch\/an-bord">/);
+  const at = await worker.fetch(new Request('https://tap.turnsthe.page/de-at/an-bord', { redirect: 'manual' }), env(), { waitUntil() {} });
+  assert.equal(at.headers.get('x-lh-edge-route'), 'tap-market');
+  assert.ok((await at.text()).includes('<link rel="canonical" href="https://tap.turnsthe.page/de-at/an-bord">'));
   calls = [];
-  const resp = await worker.fetch(new Request('https://tap.turnsthe.page/de-at/an-bord', { redirect: 'manual' }), env(), { waitUntil() {} });
+  const resp = await worker.fetch(new Request('https://tap.turnsthe.page/xx-yy/an-bord', { redirect: 'manual' }), env(), { waitUntil() {} });
   assert.equal(resp.status, 404);
-  assert.deepEqual(calls, ['/de-at/an-bord']);
+  assert.deepEqual(calls, ['/xx-yy/an-bord']);
 });
 
 test('the homepage: the root\'s own document (/de-ch/), canonical /de-ch, its links into the language version the root\'s', async () => {

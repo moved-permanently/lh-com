@@ -70,7 +70,7 @@ test('SITE_LANGUAGES.tap: the seven language roots as before, then pt-br and the
   const all = [...LANGUAGE_ROOTS, '/pt-br/', ...Object.keys(TAP_MARKETS).map((r) => `/${r}/`)];
   assert.deepEqual(rows.filter((l) => l.listed !== false).map((l) => l.path), all);
   // the country selector on a page (the header's language switch): every other root, each once
-  ['/pt-pt/ajuda', '/pt-br/ajuda', '/de-at/an-bord', '/en-gb/help', '/es-mx/ayuda', '/fr-be/aide', '/it-ch/assistenza', '/pl-pl/pomoc', '/pt-ao/ajuda'].forEach((page) => {
+  ['/pt-pt/ajuda', '/pt-br/ajuda', '/de-at/an-bord', '/en-gb/help', '/es-mx/ayuda', '/fr-be/aide', '/it-it/assistenza', '/pl-pl/pomoc', '/pt-ao/ajuda'].forEach((page) => {
     const own = `/${page.split('/')[1]}`;
     const homes = languageSwitch([], page, getLocale(page).lang, rows).links.map((l) => l.home);
     assert.equal(homes.length, 144, page);
