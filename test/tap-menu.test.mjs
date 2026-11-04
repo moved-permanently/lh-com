@@ -148,7 +148,7 @@ test('phones: the menu button opens the menu as a card; an item and a column ope
 test('an older nav document without Check-in: the quick action third, a plain link', () => {
   const html = SECTION.replace(/<li><p><a href="\/en-pt#check-in">Check-in<\/a><\/p><ul>[\s\S]*?<\/ul><\/li>\n/, '');
   const { root } = build({ html, quickLinks: [link('/en-pt#my-travels', 'Manage booking'), link('/en-pt#check-in', 'Check-in')] });
-  const items = [...root.querySelectorAll(':scope > li')];
+  const items = [...root.querySelectorAll(':scope > li:not(.tap-menu-market)')];
   assert.deepEqual(items.map((li) => li.firstElementChild.textContent), ['Plan a trip', 'My flights', 'Check-in', 'Help']);
   assert.equal(items[2].querySelector('a').getAttribute('href'), '/en-pt#check-in');
 });
@@ -156,8 +156,52 @@ test('an older nav document without Check-in: the quick action third, a plain li
 test('a Check-in item in another language (fr-fr Enregistrement, pl-pl Odprawa) is the Check-in: no second one from the quick action', () => {
   const html = SECTION.replace('<li><p><a href="/en-pt#check-in">Check-in</a></p><ul>', '<li><p><a href="/fr-fr#check-in">Enregistrement</a></p><ul>');
   const { root } = build({ html, quickLinks: [link('/fr-fr#check-in', 'Enregistrement')] });
-  const labels = [...root.querySelectorAll(':scope > li')].map((li) => li.firstElementChild.textContent);
+  const labels = [...root.querySelectorAll(':scope > li:not(.tap-menu-market)')].map((li) => li.firstElementChild.textContent);
   assert.deepEqual(labels, ['Plan a trip', 'My flights', 'Enregistrement', 'Help']);
+});
+
+test('phones: the menu button shows the close icon and says Close while the menu is open (www at 390)', () => {
+  document.documentElement.lang = 'pt';
+  const { menuButton } = build();
+  menuButton.setAttribute('aria-label', 'Menu');
+  click(menuButton);
+  assert.ok(menuButton.classList.contains('tap-menu-open'));
+  assert.equal(menuButton.getAttribute('aria-label'), 'Fechar');
+  click(menuButton);
+  assert.ok(!menuButton.classList.contains('tap-menu-open'));
+  assert.equal(menuButton.getAttribute('aria-label'), 'Menu');
+  document.documentElement.lang = 'en';
+});
+
+test('phones: the card ends with the market row ("PT, English"), opening the bar\'s language links as they are then', () => {
+  window.location = { pathname: '/en-pt/information/baggage' };
+  document.documentElement.lang = 'en';
+  const header = document.querySelector('header');
+  const { root, menuButton } = build();
+  // the bar's market button and its list (header-languages.js), its links set by the header
+  const langs = document.createElement('div');
+  langs.className = 'nav-languages';
+  langs.innerHTML = '<button class="nav-tool nav-languages-button"><svg class="lh-icon"></svg><span class="nav-languages-current">PT</span></button><ul class="nav-languages-list" hidden><li><a class="nav-languages-link" lang="pt" href="/pt-pt">Português</a></li></ul>';
+  header.prepend(langs);
+  const row = root.querySelector(':scope > li.tap-menu-market');
+  assert.ok(row, 'the market row, last');
+  assert.equal(root.lastElementChild, row);
+  click(menuButton);
+  const button = row.querySelector('button.tap-menu-market-button');
+  assert.equal(button.textContent.trim(), 'PT, English');
+  assert.ok(button.querySelector('svg'), 'the bar\'s globe');
+  // the header points the bar's links at the page's counterpart: the row takes them at opening
+  langs.querySelector('a').setAttribute('href', '/pt-pt/informacoes/bagagem');
+  click(button);
+  assert.equal(button.getAttribute('aria-expanded'), 'true');
+  assert.deepEqual([...row.querySelectorAll('.tap-menu-market-list a')].map((a) => [a.textContent, a.getAttribute('href')]), [['Português', '/pt-pt/informacoes/bagagem']]);
+  langs.remove();
+});
+
+test('the market row stays hidden where the bar has no language list', () => {
+  const { root, menuButton } = build();
+  click(menuButton);
+  assert.equal(root.querySelector('.tap-menu-market').hidden, true);
 });
 
 test('header-tap.css: loaded once for TAP, every rule scoped to brand tap', () => {

@@ -11,13 +11,27 @@
 
 /** The bar's search and account texts in TAP's languages (www's aria labels; English else). */
 export const TAP_HEADER_TEXTS = {
-  pt: { search: 'Pesquisar', account: 'Login' },
-  en: { search: 'Search', account: 'Login' },
-  es: { search: 'Buscar', account: 'Iniciar sesión' },
-  fr: { search: 'Rechercher', account: 'Se connecter' },
-  de: { search: 'Suchen', account: 'Anmelden' },
-  it: { search: 'Cerca', account: 'Accedi' },
-  pl: { search: 'Szukaj', account: 'Zaloguj się' },
+  pt: {
+    search: 'Pesquisar', account: 'Login', close: 'Fechar', language: 'Português',
+  },
+  en: {
+    search: 'Search', account: 'Login', close: 'Close', language: 'English',
+  },
+  es: {
+    search: 'Buscar', account: 'Iniciar sesión', close: 'Cerrar', language: 'Español',
+  },
+  fr: {
+    search: 'Rechercher', account: 'Se connecter', close: 'Fermer', language: 'Français',
+  },
+  de: {
+    search: 'Suchen', account: 'Anmelden', close: 'Schließen', language: 'Deutsch',
+  },
+  it: {
+    search: 'Cerca', account: 'Accedi', close: 'Chiudi', language: 'Italiano',
+  },
+  pl: {
+    search: 'Szukaj', account: 'Zaloguj się', close: 'Zamknij', language: 'Polski',
+  },
 };
 
 const WWW = 'https://www.flytap.com';
@@ -60,6 +74,17 @@ export function tapBarTools(locale) {
       role: 'account', icon: 'login', label: texts.account, href,
     },
   ];
+}
+
+const ROOT = /^\/[a-z]{2}-[a-z]{2}(?=\/|$)/;
+
+/**
+ * The page's root: its first segment when that is a root's (/pt-br), else the locale's base (a
+ * root the locale table doesn't know yet reads as another one's: pt-br as /pt-pt).
+ */
+export function tapRoot(pathname, base) {
+  const m = pathname.match(ROOT);
+  return m ? m[0] : base;
 }
 
 /* ------------------------------------------------------------------ the menu --------- */
@@ -244,30 +269,57 @@ export function buildTapMenu(section, { link, menuButton, quickLinks = [] }) {
     button.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !panel.hidden) close(entry, true); });
     root.append(node('li', { className: 'nav-bar-menu-item' }, button, panel));
   });
+  // phones: the card's last row, www's market ("PT, English"): the bar's language list (its links
+  // as the header has set them when the row opens: the page's counterparts)
+  const texts = TAP_HEADER_TEXTS[(document.documentElement.lang || '').slice(0, 2)] || TAP_HEADER_TEXTS.en;
+  const marketList = node('ul', { className: 'tap-menu-market-list', id: `tap-menu-market-${menus}` });
+  marketList.hidden = true;
+  const marketButton = node('button', {
+    type: 'button', className: 'tap-menu-market-button', 'aria-expanded': 'false', 'aria-controls': marketList.id,
+  });
+  const market = node('li', { className: 'nav-bar-menu-item tap-menu-market' }, marketButton, marketList);
+  root.append(market);
+  const barLanguages = () => document.querySelector('header .nav-languages');
+  const fillMarket = () => {
+    const bar = barLanguages();
+    const links = bar ? [...bar.querySelectorAll('.nav-languages-list a[href]')] : [];
+    market.hidden = !links.length;
+    if (!links.length) return;
+    const root0 = tapRoot(window.location.pathname, '');
+    const country = (root0 ? root0.split('-')[1] : (bar.querySelector('.nav-languages-current') || {}).textContent || '').toUpperCase();
+    const globe = bar.querySelector('.nav-languages-button svg, .nav-languages-button .lh-icon');
+    marketButton.replaceChildren(...(globe ? [globe.cloneNode(true)] : []), node('span', {}, `${country}, ${texts.language}`));
+    marketList.replaceChildren(...links.map((a) => node('li', {}, node('a', { href: a.getAttribute('href'), lang: a.getAttribute('lang'), className: 'tap-menu-market-link' }, text(a)))));
+  };
+  marketButton.addEventListener('click', () => {
+    const open = marketButton.getAttribute('aria-expanded') !== 'true';
+    if (open) fillMarket();
+    marketButton.setAttribute('aria-expanded', String(open));
+    marketList.hidden = !open;
+  });
   document.addEventListener('click', (e) => {
     if (!root.contains(e.target) && !(menuButton && menuButton.contains(e.target))) close();
   });
-  // phones: the menu button opens the menu as a card under the bar
+  // phones: the menu button opens the menu as a card under the bar; while it is open the button
+  // shows www's close icon and says so
   if (menuButton) {
+    let menuLabel = null;
     menuButton.addEventListener('click', () => {
       const open = !root.classList.contains('is-open');
       root.classList.toggle('is-open', open);
       menuButton.setAttribute('aria-expanded', String(open));
-      if (!open) close();
+      menuButton.classList.toggle('tap-menu-open', open);
+      if (open) {
+        menuLabel = menuButton.getAttribute('aria-label');
+        menuButton.setAttribute('aria-label', texts.close);
+        fillMarket();
+      } else {
+        if (menuLabel !== null) menuButton.setAttribute('aria-label', menuLabel);
+        close();
+      }
     });
   }
   return { root, close: () => close() };
-}
-
-const ROOT = /^\/[a-z]{2}-[a-z]{2}(?=\/|$)/;
-
-/**
- * The page's root: its first segment when that is a root's (/pt-br), else the locale's base (a
- * root the locale table doesn't know yet reads as another one's: pt-br as /pt-pt).
- */
-export function tapRoot(pathname, base) {
-  const m = pathname.match(ROOT);
-  return m ? m[0] : base;
 }
 
 /** Whether the page is a root's homepage (/pt-pt). */

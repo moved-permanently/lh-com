@@ -11,7 +11,8 @@
  *   a white "Find out more" pill under them.
  * - below 1025 px: the menu button opens the items as www's accordion in a white card under the
  *   pill: each item a 40 px pill (grey, TAP green when open), its columns light green pills, the
- *   links 36 px apart, "See all" underlined; no banner (www shows none on phones).
+ *   links 36 px apart, "See all" underlined; no banner (www shows none on phones); the card's last
+ *   row the market ("PT, English", the bar's language list), the menu button an x while open.
  */
 
 /* ---------------------------------------------------------------- the columns -------------- */
@@ -199,6 +200,11 @@ body.brand-tap .header .tap-menu-banner-cta:hover {
     display: none;
   }
 
+  /* the market row is the phones' (the bar has its market button) */
+  body.brand-tap .header .tap-menu .tap-menu-market {
+    display: none;
+  }
+
   /* the columns as wide as their content; where the banner needs the room they give way (into
      their 32 px gaps) rather than push it out of the panel */
   body.brand-tap .header .tap-menu-cols {
@@ -361,5 +367,86 @@ body.brand-tap .header .tap-menu-banner-cta:hover {
 
   body.brand-tap .header .tap-menu-banner {
     display: none;
+  }
+
+  /* www's market row at the card's end: a grey pill, centred, the globe and "PT, English" */
+  body.brand-tap .header .tap-menu .tap-menu-market[hidden] {
+    display: none;
+  }
+
+  body.brand-tap .header .tap-menu-market-button {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 100%;
+    height: 40px;
+    margin: 0;
+    padding: 0 16px;
+    border: 0;
+    border-radius: 999px;
+    background-color: var(--lh-grey-1);
+    color: var(--lh-deepblue);
+    font-family: var(--body-font-family);
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.2;
+    cursor: pointer;
+  }
+
+  body.brand-tap .header .tap-menu-market-button svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  body.brand-tap .header .tap-menu-market-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 0;
+    padding: 4px 16px;
+    list-style: none;
+  }
+
+  body.brand-tap .header .tap-menu-market-list[hidden] {
+    display: none;
+  }
+
+  body.brand-tap .header .tap-menu-market-link {
+    color: var(--lh-deepblue);
+    font-family: var(--body-font-family);
+    font-size: 16px;
+    line-height: 20px;
+    text-decoration: none;
+  }
+
+  /* the menu button while the menu is open: www's close icon (x) in place of the menu icon */
+  body.brand-tap .header .nav-menu-button.tap-menu-open {
+    position: relative;
+  }
+
+  body.brand-tap .header .nav-menu-button.tap-menu-open .lh-icon {
+    visibility: hidden;
+  }
+
+  body.brand-tap .header .nav-menu-button.tap-menu-open::before,
+  body.brand-tap .header .nav-menu-button.tap-menu-open::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 16px;
+    height: 2px;
+    border-radius: 1px;
+    background-color: currentcolor;
+  }
+
+  body.brand-tap .header .nav-menu-button.tap-menu-open::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+
+  body.brand-tap .header .nav-menu-button.tap-menu-open::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
   }
 }
