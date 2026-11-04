@@ -42,12 +42,20 @@ const BRAND_DESIGN_SYSTEMS = {
   // that swiss.css sets its tokens on (claim-form-entry relies on it; baggage-form-entry sets
   // its own)
   'www.swiss.com': { release: 'mausy-v1.40.1', theme: 'swiss', themeClass: 'maui-theme-lx' },
+  // www's contact pages (/be/en/contact, read 2026-11-05): mausy-v1.40.1, brussels.css, its tokens
+  // on the body's maui-theme-sn
+  'www.brusselsairlines.com': { release: 'mausy-v1.40.1', theme: 'brussels', themeClass: 'maui-theme-sn' },
 };
 
 // the brands whose apps and design system load from the page's own /digitalhangar/ where the host
 // serves it (lh-edge answers it from the brand's www), elsewhere (aem.page, aem.live, localhost)
 // from their turnsthe.page host's: no visitor's browser asks their www. www host -> brand host
-const OWN_HOST_BRANDS = { 'www.swiss.com': `swiss.${TURNSTHE_PAGE_DOMAIN}` };
+const OWN_HOST_BRANDS = {
+  'www.swiss.com': `swiss.${TURNSTHE_PAGE_DOMAIN}`,
+  // Brussels' help center (brief 358): lh-edge answers its /digitalhangar/ from www.lufthansa.com,
+  // the feature and translation files www refuses lh-edge from the code's copies
+  'www.brusselsairlines.com': `brussels.${TURNSTHE_PAGE_DOMAIN}`,
+};
 
 /**
  * The apps the block knows: name (the block's first cell) -> element, script and www's classes.
@@ -65,7 +73,8 @@ export const APPS = {
     script: `${WWW}/digitalhangar/trip-management/trip-management/trip-management-latest.js`,
     className: 'full-width-bg px-0 pb-5',
   },
-  // ITA's and Austrian's contact pages (its tenant from X-Portal: LH, LX, OS, SN, ITA)
+  // ITA's, Austrian's, SWISS's and Brussels' contact pages (its tenant from X-Portal: LH, LX, OS,
+  // SN, ITA); a page's Version row its www's release (Brussels' 4.3.2)
   'help-center-web': {
     tag: 'help-center-web',
     path: '/digitalhangar/cs-help-center/help-center-web/help-center-web-4.3.1.js',
