@@ -164,7 +164,7 @@ const airportLabel = (code, lang) => { const a = AIRPORTS.find((x) => x.code ===
  * airports, the route's airports, and the texts of www's widget on the page (labels, trip types,
  * the passenger line). The booking engine comes from the page's brand and language.
  */
-function flightSearchRows(page, route = {}) {
+export function flightSearchRows(page, route = {}) {
   const rows = [['Passenger picker', 'yes'], ['Cabins', 'E'], ['Airports', AIRPORTS.map((a) => a.code).join(', ')]];
   if (route.origin) rows.push(['Default origin', airportLabel(route.origin, page.lang)]);
   if (route.destination) rows.push(['Default destination', airportLabel(route.destination, page.lang)]);
@@ -196,14 +196,20 @@ function flightSearchRows(page, route = {}) {
   });
   const submit = [...box.querySelectorAll('button[type="submit"]')].map(t).find(Boolean);
   if (submit) rows.push(['Submit label', submit]);
+  // www's phone card that opens the widget ("Prenota il tuo volo"): the variant's Open label
+  const card = t(document.querySelector('[class*="_searchBtnMobile_"]'));
+  if (card) rows.push(['Open label', card]);
   return rows;
 }
 
-/** The flight-search block once per page, in a section of its own (after the page's hero). */
-function placeSearch(page) {
+/**
+ * The flight-search block once per page, in a section of its own (after the page's hero): the
+ * variant airdolomiti (www's trip type tabs; with Open label the phone card).
+ */
+export function placeSearch(page) {
   if (!page.search || page.searchPlaced) return;
   page.section();
-  page.block('flight-search', page.search.map(([k, v]) => [k, esc(v)]));
+  page.block('flight-search (airdolomiti)', page.search.map(([k, v]) => [k, esc(v)]));
   page.section();
   page.searchPlaced = true;
   page.note('booking widget: flight-search (the booking engine by the page\'s brand and language)');
