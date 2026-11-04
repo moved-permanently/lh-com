@@ -2,8 +2,9 @@
 /* TAP's market roots on the site (brief 328): scripts/tap-markets.js (generated from www's market
    settings and ema-lufthansa's tools/reports/tap/markets.json: its 137 roots, their own pages and
    the paths each lacks or has no document for; tools/markets/tap-market-table.mjs), the switch
-   TAP_LIVE_MARKETS (none on), the roots in SITE_LANGUAGES.tap (their pages resolve; the country
-   selector lists one only when it is on; pt-br, the eighth language version, likewise), a market
+   TAP_LIVE_MARKETS (since brief 340 pt-br and all 137 roots on), the roots in SITE_LANGUAGES.tap
+   (their pages resolve; the country selector, the header's language switch, lists one only when it
+   is on, each once; pt-br, the eighth language version, likewise), a market
    root's locale (its language, country, hreflang <ll>-<CC>, base, currency and home airport; the
    language roots get www's currency and airport too), the alerts bar on its homepage, the Message
    Center's country and the booking box's default origin from the root.
@@ -50,24 +51,32 @@ test('the table: markets.json\'s 137 roots with www\'s currency and airport, own
   assert.equal(TAP_MARKETS['pt-br'], undefined);
   assert.equal(TAP_MARKETS['pt-pt'], undefined);
   assert.equal(fs.readFileSync('scripts/tap-markets.js', 'utf8'), render(marketRows(www, list), TAP_LIVE_MARKETS));
-  // the three pilot roots on since brief 330 (their own documents published 2026-11-04 06:48)
-  assert.deepEqual(TAP_LIVE_MARKETS, ['de-ch', 'en-us', 'fr-ca']);
+  // pt-br and every root on since brief 340 (the merged language documents, pt-br's and all 137
+  // roots' own documents and the eight pages indexes live 2026-11-04 10:52; the pilots de-ch,
+  // en-us, fr-ca since brief 330); pt-br first, then the table's order
+  assert.deepEqual(TAP_LIVE_MARKETS, ['pt-br', ...Object.keys(TAP_MARKETS)]);
 });
 
-test('SITE_LANGUAGES.tap: the seven language roots as before, then pt-br and the market roots, listed only the three that are on', () => {
+test('SITE_LANGUAGES.tap: the seven language roots as before, then pt-br and the 137 market roots, every one listed', () => {
   const rows = SITE_LANGUAGES.tap;
   assert.deepEqual(rows.slice(0, 7).map((l) => l.path), LANGUAGE_ROOTS);
   assert.ok(rows.slice(0, 7).every((l) => l.listed === undefined));
   const br = rows.find((l) => l.path === '/pt-br/');
-  assert.deepEqual([br.lang, br.country, br.home, br.listed], ['pt', 'br', '/pt-br', false]);
+  assert.deepEqual([br.lang, br.country, br.home, br.listed], ['pt', 'br', '/pt-br', undefined]);
   const ch = rows.find((l) => l.path === '/de-ch/');
   assert.deepEqual([ch.lang, ch.country, ch.home, ch.name, ch.version, ch.listed, ch.slugs], ['de', 'ch', '/de-ch', 'Deutsch (Schweiz)', 'de-de', undefined, 'own']);
-  assert.equal(rows.find((l) => l.path === '/pt-ao/').listed, false, 'a root that is off');
+  assert.equal(rows.find((l) => l.path === '/pt-ao/').listed, undefined, 'pt-ao on too');
   assert.equal(rows.length, 7 + 1 + 137);
-  assert.deepEqual(rows.filter((l) => l.listed !== false).map((l) => l.path), [...LANGUAGE_ROOTS, '/de-ch/', '/en-us/', '/fr-ca/']);
-  // the switch's others on a page: the six other language roots, as before
-  // the switch's others on a page: the six other language roots and the three that are on
-  assert.deepEqual(languageSwitch([], '/pt-pt/ajuda', 'pt', rows).links.map((l) => l.home), ['/en-pt', '/es-es', '/fr-fr', '/de-de', '/it-it', '/pl-pl', '/de-ch', '/en-us', '/fr-ca']);
+  const all = [...LANGUAGE_ROOTS, '/pt-br/', ...Object.keys(TAP_MARKETS).map((r) => `/${r}/`)];
+  assert.deepEqual(rows.filter((l) => l.listed !== false).map((l) => l.path), all);
+  // the country selector on a page (the header's language switch): every other root, each once
+  ['/pt-pt/ajuda', '/pt-br/ajuda', '/de-at/an-bord', '/en-gb/help', '/es-mx/ayuda', '/fr-be/aide', '/it-ch/assistenza', '/pl-pl/pomoc', '/pt-ao/ajuda'].forEach((page) => {
+    const own = `/${page.split('/')[1]}`;
+    const homes = languageSwitch([], page, getLocale(page).lang, rows).links.map((l) => l.home);
+    assert.equal(homes.length, 144, page);
+    assert.equal(new Set(homes).size, 144, `${page}: each root once`);
+    assert.deepEqual([...homes].sort(), all.map((p) => p.slice(0, -1)).filter((h) => h !== own).sort(), page);
+  });
 });
 
 test('a root is listed once it is on (tapLanguages(live)): de-ch and pt-br on', () => {

@@ -11,7 +11,8 @@
    root; media and files as they are; a page www doesn't have on the root (markets.json lacks,
    noDocument; markets): 404. /<root>/sitemap.xml from its language version's index
    (helix-query.yaml tap-pages-<version>) without those, with its own pages. A root that is off, a language root and every other
-   path: as before (the origin's answer, as it is). The switch is TAP_LIVE_MARKETS (none on).
+   path: as before (the origin's answer, as it is). The switch is TAP_LIVE_MARKETS (pt-br and all
+   137 roots on since brief 340; pt-br is a language version, answered as before).
    Run: node --import ./test/cloudflare-workers-shim.mjs --test test/tap-markets.test.mjs */
 import { test, beforeEach } from 'node:test';
 import assert from 'node:assert/strict';
@@ -94,10 +95,11 @@ const ask = (path, method = 'GET', live = LIVE) => tapMarket(new Request(`https:
 const links = (text) => [...text.matchAll(/<a href="([^"]*)"/g)].map((m) => m[1]);
 const alts = (text) => [...text.matchAll(/<link rel="alternate" hreflang="([^"]*)" href="([^"]*)">/g)].map((m) => `${m[1]} ${new URL(m[2]).pathname}`);
 
-test('the switch: no root on; a root that is off, a language root and other paths not taken (null: the route as before)', async () => {
-  // the three pilot roots on since brief 330
-  assert.deepEqual(TAP_LIVE_MARKETS, ['de-ch', 'en-us', 'fr-ca']);
-  assert.equal(await tapMarket(new Request('https://tap.turnsthe.page/de-at/an-bord'), env()), null, 'a root that is off');
+test('the switch: pt-br and every root on; a root that is off, a language root and other paths not taken (null: the route as before)', async () => {
+  // pt-br and all 137 roots on since brief 340 (the pilots de-ch, en-us, fr-ca since brief 330)
+  assert.deepEqual(TAP_LIVE_MARKETS, ['pt-br', ...Object.keys(TAP_MARKETS)]);
+  assert.equal(await tapMarket(new Request('https://tap.turnsthe.page/de-at/an-bord'), env(), { live: ['de-ch'] }), null, 'a root that is off');
+  assert.equal(await tapMarket(new Request('https://tap.turnsthe.page/pt-br/ajuda'), env()), null, 'pt-br: its own version, as before');
   assert.equal(await ask('/pt-ao/a-bordo'), null, 'not on');
   assert.equal(await ask('/de-de/an-bord'), null, 'a language root');
   assert.equal(await ask('/xx-yy/x'), null);
@@ -212,6 +214,19 @@ test('/<root>/sitemap.xml: the language version\'s pages the country has, the ro
   ], 'its lacks left out, its own pages in');
   assert.equal(await ask('/pt-ao/sitemap.xml'), null);
   assert.equal(typeof tapSitemapXml, 'function');
+});
+
+test('every root on (the switch as it is): /<root>/sitemap.xml answers on the market route for all 137', async () => {
+  const roots = Object.keys(TAP_MARKETS);
+  assert.equal(roots.length, 137);
+  const answers = await Promise.all(roots.map((root) => tapMarket(new Request(`https://tap.turnsthe.page/${root}/sitemap.xml`), env())));
+  answers.forEach((resp, i) => {
+    assert.ok(resp, roots[i]);
+    assert.equal(resp.status, 200, roots[i]);
+    assert.equal(resp.headers.get('x-lh-edge-route'), 'tap-market', roots[i]);
+  });
+  const xml = await answers[roots.indexOf('pt-ao')].text();
+  assert.match(xml, /<loc>https:\/\/tap\.turnsthe\.page\/pt-ao<\/loc>/);
 });
 
 test('the index of a language version: /<version>/pages-index.json (helix-query.yaml tap-pages-<version>, checked in the site\'s test/tap-market-roots.test.mjs)', () => {

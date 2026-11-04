@@ -63,8 +63,10 @@ test('its roots: <ll>-<cc>, pt-pt first; the switch lists all seven', () => {
   assert.deepEqual(roots.map((l) => [l.lang, l.country, l.path, l.home]), [
     ['pt', 'pt', '/pt-pt/', '/pt-pt'], ['en', 'pt', '/en-pt/', '/en-pt'], ['es', 'es', '/es-es/', '/es-es'], ['fr', 'fr', '/fr-fr/', '/fr-fr'],
     ['de', 'de', '/de-de/', '/de-de'], ['it', 'it', '/it-it/', '/it-it'], ['pl', 'pl', '/pl-pl/', '/pl-pl']]);
-  // and the market roots that are on (brief 330: de-ch, en-us, fr-ca)
-  assert.deepEqual(SITE_LANGUAGES.tap.filter((l) => l.listed !== false).map((l) => l.path), ['/pt-pt/', '/en-pt/', '/es-es/', '/fr-fr/', '/de-de/', '/it-it/', '/pl-pl/', '/de-ch/', '/en-us/', '/fr-ca/']);
+  // and pt-br and the market roots, all on since brief 340
+  const listed = SITE_LANGUAGES.tap.filter((l) => l.listed !== false).map((l) => l.path);
+  assert.deepEqual(listed.slice(0, 8), ['/pt-pt/', '/en-pt/', '/es-es/', '/fr-fr/', '/de-de/', '/it-it/', '/pl-pl/', '/pt-br/']);
+  assert.equal(listed.length, 7 + 1 + 137);
   assert.ok(roots.every((l) => l.listed === undefined));
   assert.equal(languageOfPath('/pt-pt', roots).lang, 'pt');
   assert.equal(languageOfPath('/en-pt/book', roots).lang, 'en');
