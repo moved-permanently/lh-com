@@ -18,6 +18,15 @@
   transition: transform 0.3s ease, visibility 0s;
 }
 
+/* the block library's page (DA's Insert-block preview): the bar in place, not fixed to the window */
+.price-bar.price-bar-in-place {
+  position: relative;
+  z-index: auto;
+  transform: none;
+  visibility: visible;
+  transition: none;
+}
+
 /* .sticky-price.container > .sticky-price-container { padding: 2rem 0 } */
 .price-bar .price-bar-inner {
   box-sizing: border-box;

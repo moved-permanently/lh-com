@@ -31,9 +31,18 @@ import prioritizeSecondSectionImage from './lcp-image.js';
 import decorateHeadingIcons from './heading-icon.js';
 import decorateSectionTabs from './section-tabs.js';
 import { placeAlertsBar } from './alerts-bar.js';
+import {
+  isLibraryPath, isAppScreenPath, addHeadingIds, removeLibraryMetadata, applyBarePage, followHash,
+} from './library-page.js';
 
 /** The brand's alerts bar above the header (scripts/alerts-bar.js), placed in loadEager. */
 let alertsBarBlock = null;
+
+/**
+ * A page without the web chrome (scripts/library-page.js): 'library' (the block library's
+ * pages, DA's Insert-block preview), 'app-screen' (the app screen documents), else null.
+ */
+let barePage = null;
 
 if (window.trustedTypes && window.trustedTypes.createPolicy) {
   const innerTT = window.trustedTypes.createPolicy('tt-inner', {
@@ -320,6 +329,8 @@ function restoreAppConfigText(main) {
  */
 // eslint-disable-next-line import/prefer-default-export
 export function decorateMain(main) {
+  // the block library's descriptions for DA (library-metadata) are never page content
+  removeLibraryMetadata(main);
   // no consent tool on the site (a brand without OneTrust: Cargo, Air Dolomiti): no "Change
   // privacy settings" links, they would open nothing
   hidePrivacySettings(main);
@@ -406,22 +417,32 @@ async function loadEager(doc) {
     brand && brand.accessibility ? import('./accessibility.js').then((m) => m.restoreAccessibility(brand)) : null,
   ]);
   const main = doc.querySelector('main');
+  // the block library's pages and the app screens: only their content (scripts/library-page.js)
+  const { pathname } = window.location;
+  if (isLibraryPath(pathname)) barePage = 'library';
+  else if (isAppScreenPath(pathname)) barePage = 'app-screen';
   // channel (website, flynet by page metadata, app by ?channel=app): see scripts/channel.js
   let channel = 'website';
   if (main) {
+    // headings without ids (preview.da.live composes pages without them): the pipeline's ids
+    addHeadingIds(main);
     decorateMain(main);
     channel = applyChannel(main);
+    if (barePage) {
+      applyBarePage(doc, main, barePage);
+      await loadCSS(`${window.hlx.codeBasePath}/styles/library.css`);
+    }
     // a first section without an image: the second section's first image is the LCP candidate,
     // fetched now (eager, high priority) though its section stays hidden until loadLazy
     prioritizeSecondSectionImage(main);
     // cookie banner (OneTrust as on lufthansa.com, where it sits in the <head>) at page start, so
     // its requests run alongside the first section's; initConsent keeps its rules (never in DA
     // or authoring, nothing when a choice is stored); the app view leaves consent to the app
-    if (channel !== 'app') initConsent();
+    if (channel !== 'app' && !barePage) initConsent();
     if (channel !== 'website') await loadCSS(`${window.hlx.codeBasePath}/styles/channels.css`);
     // a brand's alerts bar (TAP's root homepages): first in the body, its 52 px reserved before
     // the first paint; the block loads with the header (loadLazy)
-    if (channel === 'website') {
+    if (channel === 'website' && !barePage) {
       alertsBarBlock = placeAlertsBar(doc, brand, locale, window.location.pathname);
     }
     document.body.classList.add('appear');
@@ -434,7 +455,9 @@ async function loadEager(doc) {
     if (main.querySelector('.flight-search')) {
       import('./lh-data.js').then((data) => data.loadRecordedIndex());
     }
-    await loadSection(main.querySelector('.section'), waitForFirstImage);
+    // a library page: all its entries at once (the dialog's preview jumps to one of them)
+    if (barePage === 'library') await loadSections(main);
+    else await loadSection(main.querySelector('.section'), waitForFirstImage);
   }
 
   try {
@@ -447,12 +470,12 @@ async function loadEager(doc) {
   }
 
   // a page without main: the cookie banner now (initConsent runs once per page)
-  if (channel !== 'app') initConsent();
+  if (channel !== 'app' && !barePage) initConsent();
 
   // showcase notice ("not an official Lufthansa website"): at a fixed early time, 1.8 s after
   // navigation start (at once if that has passed), so it never lands in the middle of a later
   // phase; demo hosts only (scripts/showcase-notice.js has its other rules)
-  if (isDemoHost()) {
+  if (isDemoHost() && !barePage) {
     window.setTimeout(() => {
       import('./showcase-notice.js').then(({ default: showShowcaseNotice }) => showShowcaseNotice());
     }, Math.max(0, 1800 - performance.now()));
@@ -485,9 +508,13 @@ async function loadLazy(doc) {
     openLinksInNewTab(main, new URL(window.location.href));
   }
 
-  const { hash } = window.location;
-  const element = hash ? doc.getElementById(hash.substring(1)) : false;
-  if (hash && element) element.scrollIntoView();
+  // the hash's element; on a library page also when the hash changes (the dialog's preview)
+  if (barePage) followHash(doc);
+  else {
+    const { hash } = window.location;
+    const element = hash ? doc.getElementById(hash.substring(1)) : false;
+    if (hash && element) element.scrollIntoView();
+  }
 
   const footer = doc.querySelector('body > footer');
   if (footer) loadFooter(footer);
@@ -512,6 +539,8 @@ async function loadLazy(doc) {
  * without impacting the user experience.
  */
 function loadDelayed() {
+  // the block library's pages and the app screens: no tag manager, embeds or OF1
+  if (barePage) return;
   // tag manager and data layer (scripts/martech.js): off unless the host has a row in
   // MARTECH_HOSTS or the page asks ?martech=dry, so other pages load nothing for it
   if (martechWanted()) {

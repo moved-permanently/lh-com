@@ -10,6 +10,7 @@ import {
   formatFare,
 } from '../../scripts/lh-api.js';
 import { markSource } from '../../scripts/lh-data.js';
+import { isLibraryPath } from '../../scripts/library-page.js';
 import { buildShopHandoff, submitShopHandoff } from '../../scripts/shop-handoff.js';
 
 /* ---------------------------------------------------------------------------------------------
@@ -653,6 +654,21 @@ export function readRoute(search, defaults = {}) {
   };
 }
 
+// the block library's page (DA's Insert-block preview has no route in its URL): a sample route
+const LIBRARY_ROUTE = '?OriginCode=FRA&DestinationCode=NYC';
+
+/**
+ * The route of the URL; on a library page without one, the sample route.
+ * @param {string} search
+ * @param {string} pathname
+ * @param {Object} [defaults] readRoute's
+ */
+export function routeOf(search, pathname, defaults = {}) {
+  const route = readRoute(search, defaults);
+  if (route || !isLibraryPath(pathname)) return route;
+  return readRoute(LIBRARY_ROUTE, defaults);
+}
+
 const settle = (sources, name, promise, mapper = (d) => d) => promise
   .then(({ data, source }) => {
     sources[name] = source;
@@ -784,7 +800,7 @@ export default async function decorate(block) {
   const offersRow = pick(config, 'all-offers', 'offers-link');
   const offersHref = (offersRow && offersRow.link && offersRow.link.getAttribute('href'))
     || `${locale.base}/book-and-manage/offers-and-destination`;
-  const route = readRoute(window.location.search, { tripDuration: parseInt(text('trip-duration'), 10) });
+  const route = routeOf(window.location.search, window.location.pathname, { tripDuration: parseInt(text('trip-duration'), 10) });
   block.replaceChildren();
   block.setAttribute('aria-busy', 'true');
 

@@ -7,6 +7,7 @@ import {
   mapTeaserPrice, mapLocaleData, formatFare,
 } from '../../scripts/lh-api.js';
 import { markSource } from '../../scripts/lh-data.js';
+import { isLibraryPath } from '../../scripts/library-page.js';
 
 /* ---------------------------------------------------------------------------------------------
  * Data contract (see scripts/lh-api.js). The live sticky price (dcep-sticky-price, data-dcep
@@ -162,6 +163,8 @@ function el(tag, className, text) {
  */
 function observeVisibility(block) {
   block.classList.add('price-bar-visible');
+  // the block library's page (DA's Insert-block preview): in place, always shown
+  if (block.classList.contains('price-bar-in-place')) return;
   const footer = document.querySelector('footer');
   if (!footer || !('IntersectionObserver' in window)) return;
   new IntersectionObserver(([entry]) => {
@@ -198,6 +201,8 @@ export default async function decorate(block) {
   }
 
   block.replaceChildren(inner);
+  const inPlace = isLibraryPath(window.location.pathname);
+  if (inPlace) block.classList.add('price-bar-in-place');
   if (settings.title) {
     block.setAttribute('role', 'region');
     block.setAttribute('aria-label', settings.title);
@@ -221,6 +226,11 @@ export default async function decorate(block) {
   }
   // nothing to say (no price, no title: www hides its bar then, e.g. FRA from the German market)
   if (!price && !settings.title) {
+    // on a library page the bar stays, its destination's code as the title
+    if (inPlace) {
+      info.prepend(el('p', 'price-bar-title', (data.lowest && data.lowest.name) || settings.destination));
+      return;
+    }
     block.hidden = true;
     return;
   }

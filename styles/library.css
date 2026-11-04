@@ -1,0 +1,101 @@
+/* The block library's pages (DA's Insert-block preview) and the app screen documents, without
+   the web chrome (scripts/library-page.js): loaded on those pages only. */
+
+/* library pages: the entries one under the other, a little room at the top and the end */
+body.library-page main {
+  padding: 24px 0 48px;
+}
+
+/* app screens: the app's screen, a phone-width column (390 px) on a grey page */
+body.app-screen {
+  background-color: var(--lh-grey-1);
+}
+
+body.app-screen main {
+  box-sizing: border-box;
+  max-width: 390px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 0 0 32px;
+  background-color: var(--lh-white);
+}
+
+body.app-screen main > .section {
+  margin: 0;
+}
+
+body.app-screen main > .section > div {
+  max-width: none;
+  padding: 0 16px;
+}
+
+/* a section of only the hero image: the screen's width (the app puts it outside the columns) */
+body.app-screen main > .section:first-child > .default-content-wrapper:only-child:has(> p:only-child picture) {
+  padding: 0;
+}
+
+body.app-screen main picture,
+body.app-screen main img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+body.app-screen main h1 {
+  margin: 24px 0 8px;
+  font-size: 28px;
+  line-height: 1.2;
+}
+
+body.app-screen main h2 {
+  margin: 24px 0 8px;
+  font-size: 22px;
+  line-height: 1.25;
+}
+
+body.app-screen main p,
+body.app-screen main ul {
+  margin: 0 0 12px;
+}
+
+/* the screen's markers: {spacer: …} (the app's spacer sizes), {divider}, {small} */
+main .app-spacer {
+  margin: 0;
+}
+
+main .app-spacer-x-small {
+  height: 8px;
+}
+
+main .app-spacer-small {
+  height: 12px;
+}
+
+main .app-spacer-medium {
+  height: 16px;
+}
+
+main .app-spacer-m-large {
+  height: 24px;
+}
+
+main .app-spacer-large {
+  height: 32px;
+}
+
+main .app-divider {
+  height: 0;
+  margin: 16px 0;
+  border-top: 1px solid var(--lh-grey-3);
+}
+
+main p.app-small {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+/* library pages: the app screen blocks in the same phone-width column */
+body.library-page main > .section:has(.app-offer, .app-links, .app-article-list, .app-teaser-slider, .app-service) > div {
+  max-width: 390px;
+  padding: 0 16px;
+}
