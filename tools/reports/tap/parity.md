@@ -45,7 +45,7 @@ tokens) and the computed styles of the pages above.
 | 1 | Header, all pages | a white pill bar floating over the stage, the five tabs in the bar (Planear viagem, Os meus voos, Check-in, TAP Miles&Go, Ajuda), search, account and language icons; each tab opens a white rounded panel of link columns and a green banner card | a full-width bar with the quick actions (Gerir reserva, Check-in), the tabs in a dark side drawer behind Menu | theme (floating bar) + function (tabs in the bar: lh-com's bar menu, `header.menu: 'bar'`) | bar: fixed in tap.css; tabs: spec F1 |
 | 2 | Homepage stage | an inset stage (16 px from the sides, 32 px corners) with a green swoosh, white text, a white pill button, dots and pause at the bottom; the booking box overlaps its foot | a full-bleed 810 px stage, green button | variant (hero-campaign `inset`) + theme (button, type) | type and button: fixed; inset: spec V1 |
 | 3 | Homepage booking box | trip type, origin, destination, dates, passengers, Pesquisar; service tabs above it (Reservar voo, Fazer Check-in, Gerir reserva, Estado do voo) | nothing | function | fixed: the `booking-box` block on the seven homepages (f94aa639; ema-adobe's block, booking-spec.md 5.1) |
-| 4 | Alerts | a ticker above the header ("2/8 Aviso de Viagem …", Ver todos) and a notice bar (Intermediação de Crédito) | nothing | function | spec F3 |
+| 4 | Alerts | a ticker above the header ("2/8 Aviso de Viagem …", Ver todos) and a notice bar (Intermediação de Crédito) | nothing | function + import | the bar: ema-adobe's (live since 04:57); the alerts pages: the message-center block (current alerts, opens `#<id>`); the notice strip: authored on pt-pt, en-pt, fr-fr (below, The extra link strip) |
 | 5 | Content width | 1120 px content in a 1240 px container | 1264 px content at 1440 | theme | fixed |
 | 6 | Headings | bold GT Flexa 40 px h1 and h2, 28 / 24 px on phones | h1 48 px, h2 light 300 | theme | fixed |
 | 7 | Buttons | 40 px pills, 15 px regular labels; white pill on pictures | 48 px bold green pills everywhere | theme | fixed (on pictures: white, TAP-scoped) |
@@ -200,3 +200,23 @@ promotions).
   and 1,176 px), which are ema-test's hero work (V1, V4), and on phones the stopover's
   columns-media cards (358 against 326). Not compared: our pictures without a counterpart found
   on www (about 1 in 5).
+
+## The extra link strip (pageProps.extraAlert)
+
+www shows it on the root homepages only, right under the alerts bar and above the header: a full-width
+#ebf2ff strip, 52 px, the message as a link (Inter 16/24 semibold, 13 px on phones) and a pill to the
+same page. pt-pt and en-pt: "Intermediação de Crédito" / "Credit Intermediation" with "Saiba mais" /
+"Find out more"; fr-fr: "Droits des passagers". The importer writes it as the homepage's first section
+(style `extra-alert`): a `columns` block, the message a plain link, the pill a secondary button; tap.css
+gives it www's look. Placement: as content it sits at the top of `main`, so at 1440 px it is 25 px under the
+alerts bar (the space the first screen keeps above the stage, with the header floating in the stage
+below it), and on phones under the header instead of above it. Exact placement would be code: the header
+(ema-test) or the alerts bar (ema-adobe) moving a `.section.extra-alert` above the header.
+
+## The alerts pages
+
+The seven alerts pages (`/pt-pt/alertas-e-informacoes` … `/pl-pl/ostrzezenia-i-informacje`) have the
+`message-center` block (Types irreg, tech-outage) in place of the static accordion of the capture: they
+show lh-tap's current alerts in weight order and open `#<id>` from the alerts bar's links (checked with the
+local code: 8 items on pt-pt and en-pt, `#power-banks` and `#phishing-scheme` open). The block keeps
+lufthansa.com's width (74.2 % of the column from 768 px).
