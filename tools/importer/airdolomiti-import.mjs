@@ -324,6 +324,28 @@ function newsletterForm(page) {
   page.note(`newsletter form: form (core) sent by lh-forms (${form}), success ${confirmation}`);
 }
 
+/**
+ * www's newsletter strip above the footer (CenteredBlock news_letter: a heading, a line of text and
+ * an email field) from the rendered page; the field becomes a link to the site's subscription
+ * page, where the form is (the theme draws it as www's field), in a section of the style
+ * newsletter. Without the strip: the language's label as the heading, no text, "Email".
+ * @param {string} rendered the rendered page
+ * @param {{label: string, href: string}} to the subscription page and its label
+ * @returns {{style: string, html: string}}
+ */
+export function newsletterStrip(rendered, { label, href }) {
+  const { document } = parseHTML(rendered);
+  const box = document.querySelector('[class*="CenteredBlock_news_letter"]');
+  const title = plain(box && box.querySelector('h2') ? box.querySelector('h2').textContent : '') || label;
+  const intro = plain(box && box.querySelector('[class*="RichText"]') ? box.querySelector('[class*="RichText"]').textContent : '');
+  const input = box && box.querySelector('input[type="email"]');
+  const field = plain(input && input.getAttribute('placeholder')) || 'Email';
+  return {
+    style: 'newsletter',
+    html: `<h2>${esc(title)}</h2>${intro ? `<p>${esc(intro)}</p>` : ''}<p><a href="${attr(href)}">${esc(field)}</a></p>`,
+  };
+}
+
 // Air Dolomiti's current travel information pages (the Message Center's cti-pages.json rows)
 const CTI_PAGES = ['www.airdolomiti.it/informazioni-aggiornate', 'www.airdolomiti.eu/current-flight-information', 'www.airdolomiti.de/fluginformationen'];
 
@@ -705,6 +727,26 @@ const cardRow = (page, {
   return [page.img(image), body];
 };
 
+/**
+ * www's offers (mini-card-slider: CardPromo cards, "Scopri le nostre offerte") as carousel-cards
+ * (promo): per card its picture, the route as the title, the price and the fare as two
+ * paragraphs, the card's link last (www links the whole card: the theme stretches it).
+ * @param {Object} a the slider's attributes
+ * @param {{img: Function, heading: Function, link: Function}} page
+ * @returns {{name: string, rows: string[][]}}
+ */
+export function promoCards(a, page) {
+  const rows = (a.cardList || []).map((c) => {
+    const body = [
+      page.heading(a.tagCard || 'h3', c.title),
+      ...[c.price, c.bottomText].map((t) => plain(t)).filter(Boolean).map((t) => `<p>${esc(t)}</p>`),
+      c.url ? page.link(c.url, c.title) : '',
+    ].join('');
+    return [page.img(c.image), body];
+  });
+  return { name: 'carousel-cards (promo)', rows };
+}
+
 // blocks that are lists of items (kept as blocks where they stand, not flattened into a column)
 const LIST_BLOCKS = /^lazyblock\/(tariffe-list|tariffe-table|news-list-grid|select-flight-list|add-baggage-cards|mini-card-slider|story-card-slider|cosa-fare-carroussel|gridtwocolumns)$/;
 
@@ -768,9 +810,8 @@ const HANDLERS = {
   },
   'lazyblock/mini-card-slider': (a, page) => {
     page.add(page.heading(a.tag, a.title));
-    page.block('carousel-cards', (a.cardList || []).map((c) => cardRow(page, {
-      image: c.image, tag: a.tagCard, title: c.title, text: [c.price, c.bottomText].filter(Boolean).map(plain).join(' '), url: c.url,
-    })));
+    const promo = promoCards(a, page);
+    page.block(promo.name, promo.rows);
     if (a.showMoreTextUrl && a.showMoreText) page.add(page.link(a.showMoreTextUrl, a.showMoreText));
   },
   'lazyblock/story-card-slider': (a, page) => {
@@ -897,8 +938,11 @@ const HANDLERS = {
     if (page.tool === 'newsletter') { newsletterForm(page); return; }
     if (page.newsletterLinked) return;
     page.newsletterLinked = true;
-    page.note('newsletter form: a link to the subscription page on the live site');
-    page.add(page.link(`${page.live.host}${page.live.newsletter}`, page.live.newsletterLabel));
+    page.note('newsletter: www\'s strip, its field a link to the subscription page');
+    const strip = newsletterStrip(page.rendered, { label: page.live.newsletterLabel, href: page.href(`${page.live.host}${page.live.newsletter}`) });
+    page.section(strip.style);
+    page.add(strip.html);
+    page.section();
   },
   'lazyblock/blog-posts': (a, page) => {
     // www's live list: the category links the rendered page shows
