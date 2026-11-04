@@ -53,13 +53,15 @@ test('the brand entry: name, www, and none of the live systems (links to www.fly
   withPage({ brand: 'tap' }, () => assert.equal(brandEntry(), BRANDS.tap));
 });
 
-// the others join the switch when their pages are live (es-es: brief 318, fr-fr: brief 320)
-test('its roots: <ll>-<cc>, pt-pt first; the switch lists pt-pt, en-pt, es-es and fr-fr', () => {
+// the others joined the switch when their pages were live (es-es: brief 318, fr-fr: brief 320,
+// de-de, it-it and pl-pl: brief 324)
+test('its roots: <ll>-<cc>, pt-pt first; the switch lists all seven', () => {
   const roots = SITE_LANGUAGES.tap;
   assert.deepEqual(roots.map((l) => [l.lang, l.country, l.path, l.home]), [
     ['pt', 'pt', '/pt-pt/', '/pt-pt'], ['en', 'pt', '/en-pt/', '/en-pt'], ['es', 'es', '/es-es/', '/es-es'], ['fr', 'fr', '/fr-fr/', '/fr-fr'],
     ['de', 'de', '/de-de/', '/de-de'], ['it', 'it', '/it-it/', '/it-it'], ['pl', 'pl', '/pl-pl/', '/pl-pl']]);
-  assert.deepEqual(roots.filter((l) => l.listed !== false).map((l) => l.path), ['/pt-pt/', '/en-pt/', '/es-es/', '/fr-fr/']);
+  assert.deepEqual(roots.filter((l) => l.listed !== false).map((l) => l.path), ['/pt-pt/', '/en-pt/', '/es-es/', '/fr-fr/', '/de-de/', '/it-it/', '/pl-pl/']);
+  assert.ok(roots.every((l) => l.listed === undefined));
   assert.equal(languageOfPath('/pt-pt', roots).lang, 'pt');
   assert.equal(languageOfPath('/en-pt/book', roots).lang, 'en');
   assert.equal(languageOfPath('/pt-ptx', roots), null);
@@ -69,10 +71,12 @@ test('its roots: <ll>-<cc>, pt-pt first; the switch lists pt-pt, en-pt, es-es an
   assert.equal(counterpartPath('/pt-pt', roots[0], roots[1]), '/en-pt');
   assert.equal(counterpartPath('/pt-pt/bagagem', roots[0], roots[1]), null);
   const { links } = languageSwitch([], '/pt-pt/bagagem', 'pt', roots);
-  assert.deepEqual(links.map((l) => [l.lang, l.home, l.counterpart]), [['en', '/en-pt', null], ['es', '/es-es', null], ['fr', '/fr-fr', null]]);
-  assert.deepEqual(languageSwitch([], '/en-pt', 'en', roots).links.map((l) => l.home), ['/pt-pt', '/es-es', '/fr-fr']);
-  assert.deepEqual(languageSwitch([], '/es-es/equipaje', 'es', roots).links.map((l) => [l.lang, l.home]), [['pt', '/pt-pt'], ['en', '/en-pt'], ['fr', '/fr-fr']]);
-  assert.deepEqual(languageSwitch([], '/fr-fr/bagages', 'fr', roots).links.map((l) => [l.lang, l.home]), [['pt', '/pt-pt'], ['en', '/en-pt'], ['es', '/es-es']]);
+  assert.deepEqual(links.map((l) => [l.lang, l.home, l.counterpart]), [
+    ['en', '/en-pt', null], ['es', '/es-es', null], ['fr', '/fr-fr', null], ['de', '/de-de', null], ['it', '/it-it', null], ['pl', '/pl-pl', null]]);
+  assert.deepEqual(languageSwitch([], '/en-pt', 'en', roots).links.map((l) => l.home), ['/pt-pt', '/es-es', '/fr-fr', '/de-de', '/it-it', '/pl-pl']);
+  assert.deepEqual(languageSwitch([], '/es-es/equipaje', 'es', roots).links.map((l) => l.lang), ['pt', 'en', 'fr', 'de', 'it', 'pl']);
+  assert.deepEqual(languageSwitch([], '/fr-fr/bagages', 'fr', roots).links.map((l) => l.lang), ['pt', 'en', 'es', 'de', 'it', 'pl']);
+  assert.deepEqual(languageSwitch([], '/pl-pl', 'pl', roots).links.map((l) => l.home), ['/pt-pt', '/en-pt', '/es-es', '/fr-fr', '/de-de', '/it-it']);
 });
 
 test('the switch\'s targets: the page\'s Alternate <lang> metadata, else the language\'s homepage; never a probe', async () => {
@@ -81,13 +85,13 @@ test('the switch\'s targets: the page\'s Alternate <lang> metadata, else the lan
   const exists = async (p) => { probes.push(p); return true; };
   // pt-pt/ajuda with its counterparts (tap-import.mjs writes www's hrefLangs as Alternate <lang>)
   const withAlternates = languageSwitch([], '/pt-pt/ajuda', 'pt', roots, { en: '/en-pt/help', es: '/es-es/ayuda' });
-  assert.deepEqual(await Promise.all(withAlternates.links.map((l) => switchTarget(l, exists))), ['/en-pt/help', '/es-es/ayuda', '/fr-fr']);
+  assert.deepEqual(await Promise.all(withAlternates.links.map((l) => switchTarget(l, exists))), ['/en-pt/help', '/es-es/ayuda', '/fr-fr', '/de-de', '/it-it', '/pl-pl']);
   // an es-es page without them (es-es and fr-fr's documents have none yet): the homepages
   const without = languageSwitch([], '/es-es/ayuda', 'es', roots);
-  assert.deepEqual(await Promise.all(without.links.map((l) => switchTarget(l, exists))), ['/pt-pt', '/en-pt', '/fr-fr']);
+  assert.deepEqual(await Promise.all(without.links.map((l) => switchTarget(l, exists))), ['/pt-pt', '/en-pt', '/fr-fr', '/de-de', '/it-it', '/pl-pl']);
   // one alternate only: it, and the other language's homepage
   const one = languageSwitch([], '/en-pt/help', 'en', roots, { pt: '/pt-pt/ajuda' });
-  assert.deepEqual(await Promise.all(one.links.map((l) => switchTarget(l, exists))), ['/pt-pt/ajuda', '/es-es', '/fr-fr']);
+  assert.deepEqual(await Promise.all(one.links.map((l) => switchTarget(l, exists))), ['/pt-pt/ajuda', '/es-es', '/fr-fr', '/de-de', '/it-it', '/pl-pl']);
   assert.deepEqual(probes, [], 'no HEAD request');
 });
 
