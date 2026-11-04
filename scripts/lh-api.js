@@ -379,8 +379,14 @@ export function mapAirportSuggestions(data) {
   const add = (item) => {
     if (!item || !isCode(item.code)) return;
     const code = item.code.toUpperCase();
-    if (list.some((a) => a.code === code)) return;
     const name = item.airport || item.name || '';
+    const known = list.find((a) => a.code === code);
+    if (known) {
+      // a city and its airport under one code ("Munich, all airports", "Munich"): one entry, the
+      // airport's name kept for a prefilled code (flight-search names it as www does)
+      if (known.type === 'CITY' && item.type === 'AIRPORT' && name && !known.airportName) known.airportName = name;
+      return;
+    }
     list.push({
       code,
       name,
@@ -819,6 +825,7 @@ export function knownAirports(locale) {
             name: a.name,
             label: a.label || `${a.name} (${a.code})`,
             type: a.type || '',
+            ...(a.airportName ? { airportName: a.airportName } : {}),
           });
         }
       });

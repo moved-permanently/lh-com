@@ -216,13 +216,16 @@ export function withPrefill(settings, prefill) {
 /**
  * The name of an airport or city code from the airport suggestions (the field's typing call, the
  * code as the term): the entry with that code, as the field shows it once picked ("Munich", "New
- * York - JFK International, NY"); '' when none matches or the call fails. www names a prefilled
+ * York - JFK International, NY"; under a city with the same code its airport's: "Munich", not
+ * "Munich, all airports"); '' when none matches or the call fails. www names a prefilled
  * code so: its airport names list holds Frankfurt only.
  */
 export async function airportNameOf(code, locale) {
   try {
     const { list } = await searchAirportsWithSource(code, locale);
-    return (list.find((a) => a.code === code && a.name) || {}).name || '';
+    const hit = list.find((a) => a.code === code && a.name);
+    // a city entry with its airport under the same code: the airport's name, as www shows it
+    return hit ? hit.airportName || hit.name : '';
   } catch (e) {
     return '';
   }
