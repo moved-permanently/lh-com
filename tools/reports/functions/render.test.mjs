@@ -289,5 +289,8 @@ test('the committed functions.json is valid and functions.md is current', () => 
   const doc = JSON.parse(fs.readFileSync(path.join(dir, 'functions.json'), 'utf8'));
   const md = fs.readFileSync(path.join(dir, 'functions.md'), 'utf8');
   assert.deepEqual(check(doc, md), []);
-  assert.deepEqual(doc.brands.map((b) => b.name), ['Lufthansa', 'Discover', 'ITA', 'Austrian', 'Cargo', 'Air Dolomiti', 'Brussels', 'Group for Business', 'SWISS']);
+  assert.deepEqual(doc.brands.map((b) => b.name), ['Lufthansa', 'Discover', 'ITA', 'Austrian', 'Cargo', 'Air Dolomiti', 'Brussels', 'Group for Business', 'SWISS', 'TAP']);
+  // every canvas table of the real document stays within Slack's 300 cells (header row included)
+  const cells = renderCanvas(doc).match(/<table>.*?<\/table>/g).map((t) => t.match(/<t[dh]>/g).length);
+  assert.ok(cells.every((n) => n <= 300), String(cells));
 });

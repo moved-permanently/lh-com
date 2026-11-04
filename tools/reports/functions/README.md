@@ -1,6 +1,6 @@
 # Functions table
 
-Which interactive functions of each Lufthansa Group airline's website work on its replica: 39 functions by 9 airlines.
+Which interactive functions of each Lufthansa Group airline's website work on its replica: 39 functions by 10 airlines.
 `functions.json` is the only file to edit. `render.mjs` makes three views from it:
 
 | view | file | where it goes |
@@ -105,7 +105,7 @@ web client in a browser tab signed in to Slack:
 
 6. The first `<h1>` becomes the canvas title; tables, links, bold and lists come through. A canvas table holds at most
    300 cells and Slack drops the rows past that without a message, so `render.mjs` splits the table into even tables of
-   at most 300 cells, each with the header row (with 9 airlines: two tables of 20 and 19 functions).
+   at most 300 cells, each with the header row (with 10 airlines: two tables of 20 and 19 functions).
 7. Check the result with a screenshot of the canvas, not with the DOM: in a background tab the editor DOM keeps stale
    sections. Scroll through it: title and date, legend, the tables (they scroll sideways for the last airlines; the
    last row is eServices), totals and the numbered notes.

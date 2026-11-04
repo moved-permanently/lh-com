@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-03 16:47",
-  "change": "SWISS: both claim apps are on the replica, so what's left of claims is Lufthansa's; site search also works from the FAQ's search box and the magnifiers of the corporate and medical services sites.",
+  "updated": "2026-11-04 15:20",
+  "change": "TAP Air Portugal column: the booking box, alerts and country selector work on the replica; check-in, manage booking, group bookings and the fare pages run on systems that stay; the destinations map and help contacts are built and wait for our content change.",
   "legend": {
     "done": {
       "label": "works on our replica",
@@ -52,7 +52,9 @@
     "adesim": "Air Dolomiti's eSIM shop (from the vendor Breeze) is built into the replica, but its switch stays off: Breeze answers every call from our address with 403, because the widget's key belongs to Air Dolomiti's site. It works once Air Dolomiti or Breeze allows our address.",
     "b2bsignin": "Lufthansa Group for Business has two sign-ins in AEM today, one for companies and one for travel agencies (eXperts), each with a member area. Their replacement follows the other airlines' sign-ins, with test data first; showing real member data needs Lufthansa to let it reach its user and role systems. Until then the replica links to the current sign-ins.",
     "lxmarkets": "Switzerland in all ten of SWISS's languages (English, German, French, Italian, Spanish, Portuguese, Chinese, Japanese, Greek, Russian), SWISS's other countries in the languages www offers them in, and Korea in Korean are on the new platform since 3 November.",
-    "travelidbuild": "Brussels Airlines' help center app isn't on the new platform's pages yet: putting it there is our work. Then it needs Brussels Airlines' Travel ID service, which refuses our test addresses, as for the other airlines' apps."
+    "travelidbuild": "Brussels Airlines' help center app isn't on the new platform's pages yet: putting it there is our work. Then it needs Brussels Airlines' Travel ID service, which refuses our test addresses, as for the other airlines' apps.",
+    "tapstays": "By decision, TAP's booking engine, check-in, the manage-booking steps, the account and TAP Miles&Go sign-in, flight status, site search, forms, live fares and chat stay on TAP's current systems, and the new site links to them as www.flytap.com does. The pages about these topics are on the new platform.",
+    "tapbuild": "TAP's destinations map and help contacts finder are built as TAP versions of the shared map and contacts blocks and work on draft pages. What's left is ours: a destinations sheet per country version, the contacts by country and city (not in our copies of www), and the switch on each version's destinations and help page."
   },
   "brands": [
     {
@@ -117,6 +119,13 @@
       "host": "https://swiss.turnsthe.page",
       "www": "https://www.swiss.com",
       "note": "The SWISS replica, on the lufthansa.com code with SWISS's theme; SWISS runs on Lufthansa's AEM today. Switzerland in ten languages, SWISS's other countries in their languages, Korea, the corporate and medical services sites and the China address are on the new platform; the magazine follows, and some destination pictures are still being added."
+    },
+    {
+      "id": "tap",
+      "name": "TAP",
+      "host": "https://tap.turnsthe.page",
+      "www": "https://www.flytap.com",
+      "note": "The TAP Air Portugal replica, on the lufthansa.com code with TAP's theme; TAP's current site runs on Next.js with its own content system, not on Lufthansa's AEM. Eight language versions (with Brazilian Portuguese) and 137 country versions are on the new platform."
     }
   ],
   "functions": [
@@ -178,6 +187,12 @@
           "note": "The search form is set up to hand searches to SWISS's own booking shop, as www does.",
           "page": "/ch/en/homepage",
           "evidence": "2026-11-02: replica /ch/en/homepage flight-search row Shop https://shop.swiss.com/booking/availability (POST hand-off, scripts/shop-handoff.js), default origin Zurich (ZRH); ch/de the same; from snapshot: www's flight manager (defaultCarrier LX) hands off to shop.swiss.com; not submitted (no request to shop.swiss.com while the capture runs)"
+        },
+        "tap": {
+          "status": "done",
+          "note": "The booking box on every version's homepage hands the search to TAP's booking engine in a new tab, with the version's market, language and home airport, as www does; the fares under the calendar's days stay with TAP.",
+          "page": "/pt-pt",
+          "evidence": "booking-box (ema-adobe, booking-spec.md 5); tools/reports/tap/booking-spec.md section 6: nine searches on market roots reached TAP's flight list; check 2026-11-04 ~15:00 CET, private Studio tab on tap.turnsthe.page: /pt-pt LIS->OPO 10-17.12.2026 built booking.flytap.com/booking/flights/deeplink?market=PT&language=pt&origin=LIS&destination=OPO...flightType=return (window.open captured, not sent); /en-us origin New York"
         }
       }
     },
@@ -238,6 +253,12 @@
           "note": "SWISS's flight searches have the picker for adults, children, infants and cabin, with www's link to group bookings from 10 travellers.",
           "page": "/ch/en/homepage",
           "evidence": "2026-11-02: replica picker adults, children (2-11), infants without seat (0-23 months), Economy, Premium Economy, Business, First, 'Group bookings for 10 or more passengers', alternative fare selection; its group link goes to www's /content/lx/markets/ch/en/.../group-travel (as www's config has it)"
+        },
+        "tap": {
+          "status": "see",
+          "see": "flight-search",
+          "note": "TAP's booking box has its own picker for adults, young adults, children and infants and no cabin choice (the cabin is chosen in TAP's engine), so the Flight search row rates it.",
+          "evidence": "booking-spec.md 2.1 and 2.3; check 2026-11-04 ~15:00 CET, private Studio tab on tap.turnsthe.page: steppers Adulto(s), Jovem(ns) Adulto(s), Criança(s), Bebé(s)"
         }
       }
     },
@@ -298,6 +319,13 @@
           "note": "The form hands searches by flight number, route and airport to SWISS's status page, with the same search fields as the other airlines' forms.",
           "page": "/ch/en/fly/flight-information/arrival-departure",
           "evidence": "2026-11-02: replica tabs flight number, route, airport, default airline LX; buildFlightStatusUrl gives https://www.swiss.com/ch/en/fly/flight-information/arrival-departure?flightStatus.flightStatusByFlightNumberRequest.airline=LX&...&flightStatus.activeTab=number; from snapshot: www's page has the same dcep-flight-status component (activeTab number); www's result page not opened (no request to www.swiss.com)"
+        },
+        "tap": {
+          "status": "stays",
+          "note": "TAP's flight status search stays on www.flytap.com; the booking box's status tab links to it, as www's menu does.",
+          "footnote": "tapstays",
+          "page": "/pt-pt",
+          "evidence": "check 2026-11-04 ~15:00 CET, private Studio tab on tap.turnsthe.page: tab Estado do voo -> www.flytap.com/pt-pt#special-anchor-flight-status; booking-spec.md 5.4"
         }
       }
     },
@@ -358,6 +386,12 @@
           "page": "/ch/en/fly/check-in/online-check-in",
           "evidence": "2026-11-02: lh-backends cd329fe, check-in with X-Portal LX on swiss.turnsthe.page 200 (OneBooking mock, tenant LX); 2026-11-02: replica booking-lookup row Submit URL https://www.swiss.com/ch/en/fly/check-in/online-check-in (no booking fields in the URL; post mode only on www.swiss.com, scripts/handoff.js); from snapshot: www's check-in tab is the flight manager's fktnCheckinRequest form (POST /service/secured/api/core/checkin/fktn, AEM); lh-backends entry test: tenants without a booking configuration (Swiss, Brussels) answer 500 ; split 2026-11-03 (checks on our hosts, private Studio tab): ?handoff=post on swiss.turnsthe.page: isOwnWww(www.swiss.com) true, POST checkin/fktn -> 400 checkin.error.bookingNotFound (tenant LX, test data)",
           "footnote": "lhbooking"
+        },
+        "tap": {
+          "status": "elsewhere",
+          "note": "The booking box's check-in tab hands booking code and surname to TAP's check-in, which stays after the switch, as www does.",
+          "page": "/pt-pt",
+          "evidence": "check 2026-11-04 ~15:00 CET, private Studio tab on tap.turnsthe.page: tab Fazer Check-in, ABC123/Silva -> checkin.si.amadeus.net/static/PRD/TP/#/checkindirect?...&ln=pt (window.open captured, not sent)"
         }
       }
     },
@@ -422,6 +456,12 @@
           "note": "\"My flights\" and \"Manage bookings\" lead to SWISS's login page on the replica and the booking code form is there too, but the login page's \"Enter booking code\" still opens www.swiss.com and not every language has its login page yet: ours. Then Travel ID sign-in and real bookings need SWISS's own address with its booking systems connected, which is Lufthansa's.",
           "footnote": "signin",
           "evidence": "2026-11-02: lh-backends cd329fe (tenant LX), lh-com 8d5f4a48; menu links job-2026-11-02-13-54-44-7ae5700f; POST /deeplink/cockpit -> 302 -> /ch/en/login 200 ; split 2026-11-03 (checks on our hosts, private Studio tab): /ch/en/login: Enter booking code -> www.swiss.com/ch/en/login; manage-bookings page has booking-lookup my-bookings, ?handoff=post answers a test-data target (tenant LX); /ch/fr/login 404"
+        },
+        "tap": {
+          "status": "elsewhere",
+          "note": "The booking box's manage tab hands booking code and surname to TAP's booking app, which stays after the switch, as www does; the manage-booking information pages are on the replica.",
+          "page": "/pt-pt",
+          "evidence": "check 2026-11-04 ~15:00 CET, private Studio tab on tap.turnsthe.page: tab Gerir reserva, ABC123/Silva -> myb.flytap.com/my-bookings/details/ABC123/Silva?market=PT&language=pt (window.open captured, not sent)"
         }
       }
     },
@@ -482,6 +522,11 @@
           "note": "SWISS's timetable is the route tab of its flight status form.",
           "see": "flight-status",
           "evidence": "from snapshot: www's flightstatustimetable component, tabs flight number, route, airport; replica the same three tabs"
+        },
+        "tap": {
+          "status": "none",
+          "note": "TAP's website has no timetable search apart from flight status.",
+          "evidence": "capture 2026-11-03: no timetable component in the 765 captured pages; www menu"
         }
       }
     },
@@ -537,6 +582,11 @@
           "status": "none",
           "note": "SWISS's flight search has no hotel tab; the menu and the extra services page link to Booking.com, as the replica does.",
           "evidence": "from snapshot: www's flight manager config hideHotel true; menu 'Book hotel' https://www.booking.com/...; replica menu and /ch/en/book-and-manage/overview-extra-services the same link"
+        },
+        "tap": {
+          "status": "none",
+          "note": "TAP's booking box has no hotel tab; the menu links to Booking.com, as the replica does.",
+          "evidence": "check 2026-11-04 ~15:00 CET, private Studio tab on tap.turnsthe.page: box tabs book, check-in, manage, status; nav Alojamento -> booking.com aid=2206611"
         }
       }
     },
@@ -593,6 +643,11 @@
           "note": "SWISS links to its rental partner, which stays; the replica has the same links.",
           "page": "/ch/en/book-and-manage/overview-extra-services",
           "evidence": "2026-11-02: replica menu and extra services page 'Book rental car' https://www.cars-swiss.com/en/ as www (snapshot); www's flight manager hideCar true"
+        },
+        "tap": {
+          "status": "elsewhere",
+          "note": "TAP links to its rental partner's booking site, which stays; the replica's menu has the same link.",
+          "evidence": "check 2026-11-04 ~15:00 CET, private Studio tab on tap.turnsthe.page: nav Alugar carro -> cars.flytap.com (as www's menu)"
         }
       }
     },
@@ -649,6 +704,12 @@
           "status": "none",
           "note": "SWISS's website has no trip management app; \"My flights\" leads to the travel cockpit, rated under Manage booking.",
           "evidence": "from snapshot: no trip-management element on the 316 ch/en snapshot pages; 'My flights' = /deeplink/cockpit"
+        },
+        "tap": {
+          "status": "see",
+          "see": "manage-booking",
+          "note": "TAP's trips are managed in its booking app ('My flights'), rated under Manage booking.",
+          "evidence": "www menu Os meus voos -> Gerir reserva / #special-anchor-my-travels; replica the same"
         }
       }
     },
@@ -707,6 +768,11 @@
           "note": "The lounge finder lists lounges with live data; Zurich and Business Class showed 4 lounges.",
           "page": "/ch/en/fly/airport/lounges/lounges-worldwide",
           "evidence": "2026-11-02: replica search Zurich + Business Class: 4 results (SWISS Business Lounges A, E, D, ...) from www.lufthansa.com/service/api/catalogs/lounges/BUS/ZRH, labels loungefinder/lx/en"
+        },
+        "tap": {
+          "status": "none",
+          "note": "TAP's lounges page describes its lounges without a search; the replica has the page.",
+          "evidence": "capture 2026-11-03: no lounge search component; replica /pt-pt/gerir-reserva/extras/lounges 200"
         }
       }
     },
@@ -763,6 +829,11 @@
           "status": "none",
           "note": "SWISS's website shows no waiting times.",
           "evidence": "from snapshot: no waiting time widget on the 316 ch/en pages; 'waiting time' only in text"
+        },
+        "tap": {
+          "status": "none",
+          "note": "TAP's website shows no security waiting times.",
+          "evidence": "capture 2026-11-03: no such component in the 765 captured pages"
         }
       }
     },
@@ -820,6 +891,11 @@
           "note": "The airport search shows SWISS's live check-in deadlines, counters and services, as on www; Zurich showed them.",
           "page": "/ch/en/fly/check-in/check-in-times",
           "evidence": "2026-11-02: replica Switzerland > Zurich, Economy: deadline 40 min, counters, bag drop, from www.lufthansa.com/service/api/catalogs/checkin/info/deadlines?airport=ZRH; from snapshot: www's checkindeadlinesearch on the same page"
+        },
+        "tap": {
+          "status": "none",
+          "note": "TAP gives check-in times as text on its check-in information page, which the replica has.",
+          "evidence": "replica /pt-pt/informacoes-check-in 200 (highlight, accordion-columns); no search component on www"
         }
       }
     },
@@ -878,6 +954,11 @@
           "note": "SWISS's group requests use a form on the replica, rated under Forms.",
           "see": "forms",
           "evidence": "2026-11-02: replica group travel page links .../group-travel-request (form swiss-group-travel-request, live on aem.live); rent-a-plane form swiss-rent-a-plane too"
+        },
+        "tap": {
+          "status": "elsewhere",
+          "note": "TAP sends groups to its group booking portal, which stays; the replica has the same links.",
+          "evidence": "check 2026-11-04 ~15:00 CET, private Studio tab on tap.turnsthe.page: /pt-pt/reservas cards -> groups.flytap.com; www footer 'Travelling in group' -> groups.flytap.com"
         }
       }
     },
@@ -935,6 +1016,11 @@
           "note": "SWISS's eSIM comes from a partner shop, which stays; the replica's extra services page links to it.",
           "page": "/ch/en/book-and-manage/overview-extra-services",
           "evidence": "2026-11-02: replica 'Stay connected' https://swiss.breezesim.com/?utm_source=LX_Homepage... as www (snapshot overview-extra-services)"
+        },
+        "tap": {
+          "status": "none",
+          "note": "TAP's website has no eSIM shop.",
+          "evidence": "capture 2026-11-03: menu, footer and pages without eSIM"
         }
       }
     },
@@ -995,6 +1081,11 @@
           "note": "Fare teasers show live fares from Zurich and open the replica's own destination page; their destination pictures are still being added.",
           "page": "/ch/en/homepage",
           "evidence": "2026-11-02 (Studio tab on swiss.turnsthe.page, en and de): 6 teasers, e.g. Zurich-Palma de Mallorca from CHF 110, Zurich-Vienna CHF 209; links /ch/en/book-and-manage/destination?OriginCode=ZRH&DestinationCode=...; the images /content/dam/lh/images/offers/destination/*-square.jpg answer 302 to a fallback that is 404"
+        },
+        "tap": {
+          "status": "elsewhere",
+          "note": "TAP's live fares are on its route and offer pages, which run on a fare vendor's platform, not on TAP's content system; they stay, and the replica's menu and destination links go there as www's do.",
+          "evidence": "curl 2026-11-04 www.flytap.com/pt_pt/desconto-voos: airTrfx page (author EveryMundo), not TAP's Next.js content; replica nav 'Voos e Destinos' -> www.flytap.com/pt_pt, /pt-pt/destinos links www.flytap.com/pt_pt/voos-para-*"
         }
       }
     },
@@ -1055,6 +1146,11 @@
           "note": "The homepage slider lists destinations with live prices from Zurich and opens the replica's own destination page; its destination pictures are still being added.",
           "page": "/ch/en/homepage",
           "evidence": "2026-11-02: slider 'Flight offers from Zurich', Geneva from CHF 109, Palma CHF 110, ... from www.lufthansa.com/service/api/destinationfinder/destination/finder/ZRH/E; destination page /ch/en/book-and-manage/destination (Barcelona from CHF 112, price calendar) works; images /content/dam/lufthansa-group/images/destination/*-square.jpg 404"
+        },
+        "tap": {
+          "status": "none",
+          "note": "TAP's homepage slider shows campaigns, which the replica has, not destinations with live prices.",
+          "evidence": "capture 2026-11-03: ComponentSliderHomepageModel = hero slides + booking box"
         }
       }
     },
@@ -1114,6 +1210,12 @@
           "note": "The offers page shows destinations with live prices and filters.",
           "page": "/ch/en/offers",
           "evidence": "2026-11-03 08:50: private Studio tab on swiss.turnsthe.page /ch/en/offers and /ch/de/offers: block destination-finder grid, 48 cards with live CHF prices from ZRH (Santiago de Compostela CHF 231, Geneva CHF 109; destinationfinder/ZRH call from the browser 200), filters Where to fly, Budget, Month, Stops, Travel class, Airline, Type of trip, Activities, Sort by; Nonstop only changes the cards; no request to swiss.com hosts"
+        },
+        "tap": {
+          "status": "see",
+          "see": "fare-teaser",
+          "note": "TAP's offers page with fares ('Promotions and Campaigns') is one of the fare vendor's pages, rated under Fare teaser.",
+          "evidence": "www menu Promoções e Campanhas -> www.flytap.com/pt_pt/desconto-voos (airTrfx); replica menu the same"
         }
       }
     },
@@ -1174,6 +1276,11 @@
           "note": "SWISS's route prices are live, rated under Fare teaser.",
           "see": "fare-teaser",
           "evidence": "from snapshot: www's homepage and our-new-destinations use fareteaserstatic with live prices; replica fare-teaser loads them live"
+        },
+        "tap": {
+          "status": "none",
+          "note": "TAP's pages have no route cards with typed-in prices.",
+          "evidence": "capture 2026-11-03: no typed prices in the server HTML of the homepage, promos, destinations and stopover pages"
         }
       }
     },
@@ -1231,6 +1338,12 @@
           "status": "none",
           "note": "SWISS's route network and new destinations pages have no map.",
           "evidence": "from snapshot: discover/new-destinations and our-new-destinations have no map or iframe; the only map on the pilot pages is the city ticket office's Google Maps location (embedded on the replica)"
+        },
+        "tap": {
+          "status": "wip",
+          "note": "TAP's destinations map is built (TAP's version of the map, with its 89 destinations) and works on a draft page; the destinations pages still link to www's map until our content change. Smartvel's search and destination cards on www's map stay www's.",
+          "footnote": "tapbuild",
+          "evidence": "c7b1d41b (brief 339, parity.md row 45); check 2026-11-04 ~15:00 CET, private Studio tab on tap.turnsthe.page: main--lh-tap aem.page /drafts/destinations-map poi-map-tap loaded, 90 markers, filters Todos/Africa/America/Europe; /pt-pt/destinos 'Ver em flytap.com'"
         }
       }
     },
@@ -1286,6 +1399,11 @@
           "status": "none",
           "note": "SWISS's homepage teasers have no countdown.",
           "evidence": "from snapshot: no countdown on the ch/en pages"
+        },
+        "tap": {
+          "status": "none",
+          "note": "TAP's homepage has no countdown.",
+          "evidence": "capture 2026-11-03: no countdown component"
         }
       }
     },
@@ -1347,6 +1465,12 @@
           "note": "SWISS's notices show from its own messages; the twice-daily sync copies them from www, which showed two on 2 November (flights to Dubai, the Edelweiss booking outage).",
           "page": "/ch/en/fly/flight-information/current-information",
           "evidence": "2026-11-02 17:13: swiss.turnsthe.page /message-center/index.json 5 rows; homepage strip 2 slides on ch/en and ch/de; Message Center sync 6th run, publish job-2026-11-02-16-12-48-809595d2"
+        },
+        "tap": {
+          "status": "done",
+          "note": "TAP's alerts show in the bar at the top of each version's homepage and on its alerts page, as on www; the twice-daily sync copies them from www.",
+          "page": "/pt-pt/alertas-e-informacoes",
+          "evidence": "alerts bar (ema-adobe, alerts-spec.md), Message Center sync with TAP; check 2026-11-04 ~15:00 CET, private Studio tab on tap.turnsthe.page: /pt-pt bar 'x/8 ... Ver todos', /en-us bar 2/7, /pt-pt/alertas-e-informacoes message-center 7 alerts with anchors"
         }
       }
     },
@@ -1408,6 +1532,11 @@
           "page": "/ch/en/culinaryjourney",
           "evidence": "2026-11-02: replica /ch/en/culinaryjourney.plain.html has micro-frontend culinary-hub; page not opened (blocks/micro-frontend loads the app's script from https://www.swiss.com/digitalhangar/... on brand pages); from snapshot: www's culinary-hub with SWISS's Travel ID client ; split 2026-11-03 (checks on our hosts, private Studio tab): lh-com ba060b6a + 28221fc5: SWISS's apps from /digitalhangar/ of our host; swiss.turnsthe.page/digitalhangar/onecatering/culinary-hub/culinary-hub-latest.js 200 (page not opened)",
           "footnote": "travelidapps"
+        },
+        "tap": {
+          "status": "none",
+          "note": "TAP has no culinary hub; its meal pages are text, which the replica has.",
+          "evidence": "capture 2026-11-03: /pt-pt/a-bordo/refeicoes and subpages are content components only"
         }
       }
     },
@@ -1465,6 +1594,11 @@
           "note": "The lookup on the entertainment page searches with live answers, as on www; its login link opens Lufthansa's Travel ID, where www's opens SWISS's.",
           "page": "/ch/en/fly/on-board/entertainment-on-board",
           "evidence": "2026-11-02: made-up booking ABC123/Test: 'no tickets could be found' from www.lufthansa.com/service/api/ejournals (200); login link api.travelid.lufthansa.com client yA8iz2...; www snapshot uses api.travelid.swiss.com client sAwlvr...; the SWISS film widget and the media-carrier newsstand embed load"
+        },
+        "tap": {
+          "status": "none",
+          "note": "TAP's website offers no eJournals.",
+          "evidence": "capture 2026-11-03: on-board pages without a newspaper or magazine service"
         }
       }
     },
@@ -1520,6 +1654,11 @@
           "status": "elsewhere",
           "note": "SWISS's newsroom (press releases and agenda) runs on a separate press platform that stays; the replica links to it. SWISS's media pages (press contacts, media request and filming permission forms) are on the replica since 2 November.",
           "evidence": "2026-11-02 23:55 CET curl on swiss.turnsthe.page: 200 for /corporate/{en,de,fr}/media, /corporate/{en,de,fr}/media/media-request-form, /corporate/{en,de,fr}/media/media-permission, /content/dam/swiss/pdfs/corporate/geschaftsleitung/situation-maps-swiss.pdf; 3 forms tested 22:10-22:11 CET; media page links press releases and agenda to https://newsroom.swiss.com/en (not on our host), media gallery to brand.swiss.com; 2026-11-03 12:40 CET: newsroom.swiss.com is a CNAME to ssl-client.presspage.com, its HTML loads templates, assets and statistics from presspage.com (PPSESSION cookie): separate press platform, not AEM AMS -> elsewhere"
+        },
+        "tap": {
+          "status": "elsewhere",
+          "note": "TAP's press releases are on its corporate website, which stays; the replica's footer links to it as www's does.",
+          "evidence": "check 2026-11-04 ~15:00 CET, private Studio tab on tap.turnsthe.page: footer 'TAP Institucional' -> www.tapairportugal.com/pt/; no press pages in www's sitemaps"
         }
       }
     },
@@ -1580,6 +1719,12 @@
           "note": "The search pages find SWISS's own pages in all ten Swiss language versions and in Korean; the FAQ's search box sends the query to its language's results page, and the corporate and medical services sites have a magnifier in the header with results pages and indexes of their own.",
           "evidence": "2026-11-02: replica /ch/en/customer-support/faq 'Search for topic' -> https://www.swiss.com/ch/en/customer-support/faq; /ch/en/search-results 404; lh-swiss.md: no search-ch-* index; from snapshot: www's searchbar on the FAQ hub (autosuggest searching.lufthansa.com), results /ch/en/search-results ; split 2026-11-03 (checks on our hosts, private Studio tab): /ch/en/search-results 200 on aem.live and swiss.turnsthe.page, FAQ links to it; ?q=baggage: 'Search results could not be loaded.'; 2026-11-03: search pages for the ten ch roots and kr/ko published 11:47 CET (job-2026-11-03-10-47-45-6df553d1); on swiss.turnsthe.page a word per root gave 30 results, all from that root (baggage ch/en + ae/en, Gepäck ch/de, 行李 ch/zh, 수하물 kr/ko); /ch/en/search-index.json 326 rows there 12:41 CET (404 on aem.live: index route lives in lh-edge on the brand hosts) -> done ; 2026-11-03 15:00 CET: FAQ search box (a real box, no longer a link) sends the query to its root's results page; corporate and medical services header magnifier with own results pages and indexes (medical services 45 en + 47 de rows); lh-com bfa12d17, ae7e166e; published job-2026-11-03-13-59-42-4493c0cf, -13-59-54-3b7358d4, -14-00-53-6dc7d089; checks on swiss.turnsthe.page: 'baggage' ch/en 30, 'Gepäck' ch/de 30, 'flight' medical services 27",
           "page": "/ch/en/search-results"
+        },
+        "tap": {
+          "status": "stays",
+          "note": "TAP's site search stays on www.flytap.com; the replica's search icon links there.",
+          "footnote": "tapstays",
+          "evidence": "check 2026-11-04 ~15:00 CET, private Studio tab on tap.turnsthe.page: header Pesquisar -> https://www.flytap.com/pt-pt"
         }
       }
     },
@@ -1644,6 +1789,13 @@
           "page": "/ch/en/customer-support/contact-us",
           "evidence": "2026-11-02: replica micro-frontend help-center-web loads https://www.swiss.com/digitalhangar/cs-help-center/help-center-web/help-center-web-4.3.1.js as a module: blocked by CORS (no Access-Control-Allow-Origin); fallback with 11 topics stays; from snapshot: help-center-web 4.3.1 on www ; split 2026-11-03 (checks on our hosts, private Studio tab): /ch/en/customer-support/contact-us: help-center-web 4.3.1 from swiss.turnsthe.page/digitalhangar, topics from our topics_en.json; api.travelid.swiss.com loginstatus and topics refused (app's own calls)",
           "footnote": "travelidapps"
+        },
+        "tap": {
+          "status": "wip",
+          "note": "TAP's contacts finder (country and city, phone numbers, hours, desks) is built and works on a draft with sample data; the contacts per country are ours to collect, and the help pages link to www's finder until then.",
+          "footnote": "tapbuild",
+          "page": "/pt-pt/ajuda",
+          "evidence": "c7b1d41b (brief 339, parity.md row 40); check 2026-11-04 ~15:00 CET, private Studio tab on tap.turnsthe.page: aem.page /drafts/help-contacts hotline-finder-tap loaded with the Portugal/Lisbon sample; /pt-pt/ajuda 'Ver em flytap.com'"
         }
       }
     },
@@ -1703,6 +1855,12 @@
           "status": "elsewhere",
           "note": "SWISS's chat assistant doesn't run on AEM and stays where it is; the replica links to it as www does.",
           "evidence": "2026-11-02: replica footer 'SWISS Chat Assistant' -> https://www.swiss.com/digitalassistant/support/webchat.html as www (snapshot, every page); www's /customer-support/chatbot redirect has no row on the replica (404)"
+        },
+        "tap": {
+          "status": "stays",
+          "note": "TAP's online chat, which www shows only on some pages for some countries, stays on www.flytap.com.",
+          "footnote": "tapstays",
+          "evidence": "capture 2026-11-03: personalization rule variation_chatonline (us, br) on special-needs pages; replica loads no chat"
         }
       }
     },
@@ -1764,6 +1922,13 @@
           "note": "SWISS's form pages in every language send to our own forms service, behind a bot check, like the other airlines' forms; test entries arrived.",
           "page": "/ch/en/customer-support/contact-us/general-request",
           "evidence": "2026-11-02: 41 form pages live on aem.live (work/swiss-forms/form-map-2026-11-02.json, 23 ids swiss-*); general-request renders 12 fields with file drop, posts to lufthansa-forms.turnsthe.page, Turnstile loads; test submissions general request and Zermatt raffle passed (formtest-2026-11-02.json, mail in Inbox); 2026-11-03 07:38-07:42: the four Korean forms (hyundai26-application, rent-a-plane, group-travel-request, technical-support) test-submitted on swiss.turnsthe.page after the date-mask fix 8bb4f03b"
+        },
+        "tap": {
+          "status": "stays",
+          "note": "TAP's forms (TAP Miles&Go sign-up, complaints, information requests, suggestions) stay on www.flytap.com. The sign-up links there; the three links on the requests and complaints page still point at the replica, where they don't exist, and are ours to fix.",
+          "footnote": "tapstays",
+          "page": "/pt-pt/ajuda/pedidos-reclamacoes",
+          "evidence": "check 2026-11-04 ~15:00 CET, private Studio tab on tap.turnsthe.page: 'Adira já' -> www.flytap.com/pt-pt/registo; /pt-pt/ajuda/pedidos-reclamacoes links /pt-pt/ajuda/pedidos-reclamacoes/{reclamacao,informacoes-miles-go,sugestao-ou-elogio} 404 (en-pt the same)"
         }
       }
     },
@@ -1825,6 +1990,12 @@
           "evidence": "2026-11-02: replica /ch/en/fast-compensation and /ch/en/baggage-reimbursement: text only, no block; from snapshot: www's claim-form-entry 0.11.16 and baggage-form-entry-latest (digitalhangar/claim-automation); lh-com micro-frontend knows claim-form-entry only; refund and expense forms are rated under Forms ; split 2026-11-03 (checks on our hosts, private Studio tab): /ch/en/fast-compensation and /ch/en/baggage-reimbursement .plain.html: no block ; 2026-11-03: claim-form-entry on the 11 /ch/<ll>/fast-compensation + /kr/ko/fast-compensation pages (published job-2026-11-03-15-37-54-5c1680cf, live 16:38 CET; ch/ru 0.11.9, others 0.11.16) and baggage-form-entry on the 11 baggage-reimbursement pages (job-2026-11-03-12-37-08-83313f86); scripts from swiss.turnsthe.page; SWISS design via maui-theme-lx on the body (lh-com 5daa7dcb), baggage-form-entry + X-Portal tags (6c8eeef7); checked in a fresh headless browser on swiss.turnsthe.page (screenshot artifact a_3d56ed94c5fd424899e4); booking lookup needs Travel ID + Miles & More, which refuse our hosts -> lh",
           "footnote": "travelidapps",
           "page": "/ch/en/fast-compensation"
+        },
+        "tap": {
+          "status": "see",
+          "see": "forms",
+          "note": "TAP's complaints go through a form, rated under Forms; refund requests go to TAP's booking app, which stays.",
+          "evidence": "check 2026-11-04 ~15:00 CET, private Studio tab on tap.turnsthe.page: /pt-pt/ajuda links myb.flytap.com/refunds; complaint form link as in Forms"
         }
       }
     },
@@ -1887,6 +2058,11 @@
           "note": "SWISS's newsletter page is on the replica; sign-up runs through Travel ID registration, which stays.",
           "page": "/ch/en/customer-support/newsletter",
           "evidence": "2026-11-02: replica page 'Subscribe with Travel ID' -> swiss.miles-and-more.com enrolment, as www (groundwork: no form)"
+        },
+        "tap": {
+          "status": "none",
+          "note": "TAP's website has no newsletter sign-up page.",
+          "evidence": "capture 2026-11-03: no newsletter page or link in menu, footer or pages"
         }
       }
     },
@@ -1943,6 +2119,12 @@
           "status": "elsewhere",
           "note": "Login goes to SWISS's Travel ID, which stays; the login and profile pages for visitors who aren't signed in are on the replica since 2 November (ch/en, ch/de).",
           "evidence": "2026-11-02: lh-com 126ecf05, 552aefce (lh-app SWISS entry); 32 login and profile pages published, job-2026-11-02-13-54-37-1adf15be; all 200 on swiss.turnsthe.page, login link to api.travelid.swiss.com with SWISS's client"
+        },
+        "tap": {
+          "status": "stays",
+          "note": "Signing in to TAP's account and TAP Miles&Go stays on www.flytap.com; the replica's account icon and login buttons link there.",
+          "footnote": "tapstays",
+          "evidence": "check 2026-11-04 ~15:00 CET, private Studio tab on tap.turnsthe.page: header Login -> www.flytap.com/pt-pt; booking box Login -> www.flytap.com/pt-pt#special-anchor-login"
         }
       }
     },
@@ -2002,6 +2184,12 @@
           "note": "Personal content needs a Travel ID sign-in, and Travel ID accepts only the airline's own website; this needs Lufthansa.",
           "footnote": "travelid",
           "evidence": "groundwork: ppfi-web-component on www's homepage, left out as on the other brands"
+        },
+        "tap": {
+          "status": "stays",
+          "note": "Content for signed-in TAP Miles&Go members goes with the sign-in, which stays on www.flytap.com; the replica shows what visitors who aren't signed in see.",
+          "footnote": "tapstays",
+          "evidence": "tap result.md section 8: 9 personalization rules by Miles&Go tier (signed in)"
         }
       }
     },
@@ -2065,6 +2253,12 @@
           "page": "/ch/en/homepage",
           "footnote": "lxmarkets",
           "evidence": "2026-11-03 ~08:05: lh-com 05d8eb1b, c48f1ce8 (and 34203142, 7eb18162, 839a6ab9 before); private Studio tab on swiss.turnsthe.page at 1440 and 390: 227 entries, ch/el and ch/ru open their homepages"
+        },
+        "tap": {
+          "status": "done",
+          "note": "The market button lists TAP's eight language versions and 137 country versions, and every one of them answers on the replica.",
+          "page": "/pt-pt",
+          "evidence": "check 2026-11-04 ~15:00 CET, private Studio tab on tap.turnsthe.page: /pt-pt market button: 144 links (all versions but the current one), fetch 144 x 200; /en-us lang en, origin New York"
         }
       }
     },
@@ -2126,6 +2320,12 @@
           "note": "SWISS's consent banner works as on www, and the footer's privacy settings link opens its settings.",
           "page": "/ch/en/homepage",
           "evidence": "2026-11-02: OneTrust 01994cb2-f461-7489-80cc-e1ce655a86bc from the host's /onetrust/ path, banner shown, 'Change Privacy Settings' opens the preference center (www's link opens the same; groundwork decision 7)"
+        },
+        "tap": {
+          "status": "done",
+          "note": "The replica loads nothing for TAP that needs consent, so it needs no consent tool.",
+          "page": "/pt-pt",
+          "evidence": "check 2026-11-04 ~15:00 CET, private Studio tab on tap.turnsthe.page: /pt-pt and /en-us load resources from tap.turnsthe.page only"
         }
       }
     },
@@ -2180,6 +2380,11 @@
           "status": "none",
           "note": "SWISS's header has no contrast or text size controls; its wheelchair icon leads to the accessible travel page.",
           "evidence": "2026-11-02: replica header icon -> /ch/en/prepare/special-care/accessible-travel, as www (snapshot)"
+        },
+        "tap": {
+          "status": "none",
+          "note": "TAP's header has no contrast or text size controls.",
+          "evidence": "parity.md rows 1, 23, 24 (header: menu tabs, search, account, market)"
         }
       }
     },
@@ -2234,6 +2439,11 @@
           "status": "none",
           "note": "SWISS's website has no freight tracking.",
           "evidence": "from snapshot; SWISS WorldCargo has its own website"
+        },
+        "tap": {
+          "status": "none",
+          "note": "TAP's website has no freight tracking; TAP Air Cargo has its own website, which the footer links.",
+          "evidence": "check 2026-11-04 ~15:00 CET, private Studio tab on tap.turnsthe.page: footer TAP Air Cargo -> www.tapcargo.com/pt"
         }
       }
     },
@@ -2288,6 +2498,11 @@
           "status": "none",
           "note": "SWISS's website has no freight booking.",
           "evidence": "from snapshot"
+        },
+        "tap": {
+          "status": "none",
+          "note": "TAP's website has no freight booking.",
+          "evidence": "www menu and footer; cargo is on www.tapcargo.com"
         }
       }
     },
@@ -2342,6 +2557,11 @@
           "status": "none",
           "note": "SWISS's website has no cargo station finder.",
           "evidence": "from snapshot"
+        },
+        "tap": {
+          "status": "none",
+          "note": "TAP's website has no cargo station finder.",
+          "evidence": "www menu and footer; cargo is on www.tapcargo.com"
         }
       }
     },
@@ -2396,6 +2616,11 @@
           "status": "none",
           "note": "SWISS's website has no cargo eServices.",
           "evidence": "from snapshot"
+        },
+        "tap": {
+          "status": "none",
+          "note": "TAP's website has no cargo eServices.",
+          "evidence": "www menu and footer; cargo is on www.tapcargo.com"
         }
       }
     }
