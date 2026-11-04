@@ -80,6 +80,16 @@ test('slash paths the site answers keep their answers; / , files, code paths and
   assert.equal((await get('https://swiss.turnsthe.page/ch/en/homepage/', 'POST')).status !== 301, true, 'POST: no redirect');
 });
 
+test('no loop: a slash path whose path without it is an entry redirect to it (Air Dolomiti\'s /en to /en/) keeps its 404', async () => {
+  OWN_SLASH.delete('main--lh-airdolomiti--moved-permanently.aem.live/en/');
+  try {
+    assert.equal((await get('https://airdolomiti.turnsthe.page/en/')).status, 404);
+    assert.equal((await get('https://airdolomiti.turnsthe.page/de/')).status, 404);
+  } finally {
+    OWN_SLASH.add('main--lh-airdolomiti--moved-permanently.aem.live/en/');
+  }
+});
+
 test('lufthansa.turnsthe.page as before (its own url-form route)', async () => {
   const resp = await get('https://lufthansa.turnsthe.page/de/en/homepage/?a=1');
   assert.equal(resp.status, 301);
