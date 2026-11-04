@@ -1,7 +1,9 @@
 /**
  * Accessible airport autocomplete (ARIA 1.2 combobox with a listbox popup).
  * Used by flight-search and destination-finder. It knows nothing about the API: the block
- * passes fetchSuggestions(term) returning [{ code, name, label }].
+ * passes fetchSuggestions(term) returning [{ code, name, label }]. Optional (booking-box): minChars
+ * (0: the list opens on focus), renderOption(airport, li) and display(airport) for the option's
+ * content and the field's text; without them as before.
  */
 
 let comboboxCount = 0;
@@ -30,11 +32,16 @@ export function airportDisplay(airport) {
  *   options.fetchSuggestions
  * @param {function({code: string, name?: string}|null): void} [options.onChange]
  * @param {string} [options.noResultsLabel] announced when nothing matches
+ * @param {number} [options.minChars] characters before a search (default 2; 0: on focus too)
+ * @param {function(Object, HTMLLIElement): void} [options.renderOption] fills an option (default:
+ *   its label, else "name (code)")
+ * @param {function(Object): string} [options.display] the field's text (default airportDisplay)
  * @returns {{element: HTMLElement, input: HTMLInputElement, getValue: function,
  *   setValue: function, focus: function}}
  */
 export function createAirportCombobox({
   label, name, placeholder, value, fetchSuggestions, onChange, noResultsLabel = '',
+  minChars = MIN_CHARS, renderOption, display = airportDisplay,
 }) {
   comboboxCount += 1;
   const id = `airport-combobox-${comboboxCount}`;
@@ -62,7 +69,7 @@ export function createAirportCombobox({
   input.setAttribute('aria-expanded', 'false');
   input.setAttribute('aria-controls', `${id}-listbox`);
   if (placeholder) input.placeholder = placeholder;
-  input.value = airportDisplay(current);
+  input.value = display(current);
 
   const listbox = document.createElement('ul');
   listbox.id = `${id}-listbox`;
@@ -98,7 +105,7 @@ export function createAirportCombobox({
 
   function setValue(airport, { silent = false } = {}) {
     current = airport && airport.code ? { ...airport } : null;
-    input.value = airportDisplay(current);
+    input.value = display(current);
     wrapper.dataset.code = current ? current.code : '';
     if (!silent && onChange) onChange(current);
   }
@@ -118,7 +125,8 @@ export function createAirportCombobox({
       li.setAttribute('role', 'option');
       li.setAttribute('aria-selected', 'false');
       li.dataset.code = airport.code;
-      li.textContent = airport.label || airportDisplay(airport);
+      if (renderOption) renderOption(airport, li);
+      else li.textContent = airport.label || airportDisplay(airport);
       // mousedown keeps focus in the input so blur does not close the list first
       li.addEventListener('mousedown', (e) => {
         e.preventDefault();
@@ -150,7 +158,7 @@ export function createAirportCombobox({
   input.addEventListener('input', () => {
     clearTimeout(timer);
     const term = input.value.trim();
-    if (term.length < MIN_CHARS) {
+    if (term.length < minChars || (!term && minChars > 0)) {
       render([]);
       status.textContent = '';
       return;
@@ -175,7 +183,11 @@ export function createAirportCombobox({
     }
   });
 
-  input.addEventListener('focus', () => input.select());
+  input.addEventListener('focus', () => {
+    input.select();
+    // minChars 0: the whole list (an empty term) as soon as the field has the focus
+    if (minChars === 0) search('');
+  });
 
   input.addEventListener('blur', () => {
     close();
@@ -186,7 +198,7 @@ export function createAirportCombobox({
     } else if (!typed) {
       setValue(null);
     } else {
-      input.value = airportDisplay(current);
+      input.value = display(current);
     }
   });
 

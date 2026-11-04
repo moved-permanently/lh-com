@@ -99,8 +99,9 @@ test('renderOption and display: the option\'s content and the field\'s text are 
   items[1].dispatchEvent(new window.Event('mousedown'));
   assert.equal(box.input.value, 'Porto, PT');
   assert.deepEqual(changes, ['OPO']);
-  // typed text that was not picked: back to the value's display text
-  box.input.value = 'Por';
+  // typed text that was not picked (not a 3-letter code, which is kept as it is): back to the
+  // value's display text
+  box.input.value = 'Port';
   fire(box.input, 'blur');
   assert.equal(box.input.value, 'Porto, PT');
   box.setValue({ code: 'FAO' }, { silent: true });
