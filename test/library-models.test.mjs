@@ -46,3 +46,16 @@ test('itemsFit (multi): every row with the item\'s cells resolves; a block witho
   const settings = block('<div class="flight-search"><div><div>Origin</div><div>FRA</div></div><div><div>Destination</div><div>JFK</div></div><div><div>Cabin</div><div>Business</div></div></div>');
   assert.ok(itemsFit([['text'], ['text']], settings), 'key/value settings as items: any number of rows');
 });
+
+test('chooseModels (multi): config rows (a key in at least half of the blocks) are no items while the blocks have other rows; poi-map\'s first entry has its points', () => {
+  const map = (n) => block(`<div class="poi-map"><div><div>Source</div><div>/content/lh/markets/x/${n}</div></div>${
+    ['Chicago', 'Denver', 'Austin'].map((c) => `<div><div>${c} ${n}</div><div>41.87, -87.62</div><div><a href="/x/${c}">${c}</a></div></div>`).join('')
+  }<div><div>Caption</div><div>Map ${n}</div></div></div>`);
+  const sourceOnly = (n) => block(`<div class="poi-map"><div><div>Source</div><div>/content/lh/markets/y/${n}</div></div></div>`);
+  const blocks = [map(1), map(2), map(3), sourceOnly(4), sourceOnly(5), sourceOnly(6), sourceOnly(7)];
+  const [first] = chooseModels(blocks, true);
+  assert.deepEqual(first.model, [['text'], ['text'], ['text']], 'the point rows, not the Source rows');
+  // key/value rows only (flight-search's settings): they stay the items
+  const settings = (n) => block(`<div class="flight-search"><div><div>Origin</div><div>FRA${n}</div></div><div><div>Cabin</div><div>Business</div></div></div>`);
+  assert.deepEqual(chooseModels([settings(1), settings(2), settings(3)], true)[0].model, [['text'], ['text']]);
+});
