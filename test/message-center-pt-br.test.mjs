@@ -48,7 +48,9 @@ test('parseRow: a two-letter language with an optional region; anything else as 
 
 test('/pt-br (lang pt, country br): the pt-br document, else pt, else English', () => {
   assert.deepEqual(pick('pt', 'br'), ['only-brazil/pt-br', 'only-english/en', 'power-banks/pt', 'surto-de-ebola/pt-br']);
-  const ebola = selectMessages(ROWS, { lang: 'pt', market: 'br', now: NOW, tenant: 'tap' }).find((m) => m.id === 'surto-de-ebola');
+  const ebola = selectMessages(ROWS, {
+    lang: 'pt', market: 'br', now: NOW, tenant: 'tap',
+  }).find((m) => m.id === 'surto-de-ebola');
   assert.equal(ebola.details, '/message-center/details/surto-de-ebola/pt-br', 'its own details page');
 });
 

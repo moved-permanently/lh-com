@@ -122,7 +122,8 @@ function time(value) {
  * (/message-center/<type>/<id>/<lang>). Rows with another path shape are dropped (null).
  */
 export function parseRow(row) {
-  const m = String(row.path || '').match(/^\/message-center\/([a-z-]+)\/([^/]+)\/([a-z]{2})$/);
+  // the language: two letters, with a region where a market has its own wording (TAP's pt-br)
+  const m = String(row.path || '').match(/^\/message-center\/([a-z-]+)\/([^/]+)\/([a-z]{2}(?:-[a-z]{2})?)$/);
   if (!m || !TYPES.includes(m[1])) return null;
   const criticality = String(row.criticality || '').trim().toLowerCase() === 'high' ? 'high' : 'low';
   return {
@@ -165,15 +166,21 @@ export function selectMessages(rows, {
   market, lang, now = clockNow(), types = TYPES, tenant = siteTenant(), touchpoint = TOUCHPOINT,
 } = {}) {
   const parsed = (rows || []).map(parseRow).filter(Boolean);
-  // one row per message: the page's language, else English
+  const cc = String(market || '').toLowerCase();
+  // one row per message: the page's language and market (pt-br on /pt-br), else its language,
+  // else English; another market's or language's document none
+  const own = cc ? `${lang}-${cc}` : '';
+  const score = (msg) => {
+    if (own && msg.lang === own) return 3;
+    if (msg.lang === lang) return 2;
+    return msg.lang === 'en' ? 1 : 0;
+  };
   const byMessage = new Map();
   parsed.forEach((msg) => {
     const key = `${msg.type}/${msg.id}`;
     const current = byMessage.get(key);
-    if (msg.lang === lang) byMessage.set(key, msg);
-    else if (msg.lang === 'en' && (!current || current.lang !== lang)) byMessage.set(key, msg);
+    if (score(msg) && (!current || score(msg) > score(current))) byMessage.set(key, msg);
   });
-  const cc = String(market || '').toLowerCase();
   const visible = [...byMessage.values()].filter((msg) => types.includes(msg.type)
     && msg.headline
     && msg.tenants.includes(tenant)
