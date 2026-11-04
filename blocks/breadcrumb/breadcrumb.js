@@ -1,6 +1,7 @@
 import { getMetadata } from '../../scripts/aem.js';
 import { cleanText } from '../../scripts/block-config.js';
 import { isSitePreviewHost } from '../../scripts/brand.js';
+import { pathLanguageOf } from '../../scripts/locale.js';
 
 const MAX_DEPTH = 10;
 const CACHE_KEY = 'lh-breadcrumb:';
@@ -147,7 +148,8 @@ async function trailFromMetadata() {
 
 function render(block, crumbs) {
   const nav = document.createElement('nav');
-  nav.setAttribute('aria-label', document.documentElement.lang === 'de' ? 'Brotkrümelnavigation' : 'Breadcrumb');
+  // the language part of <html lang>: a TAP market root's de-ch is German as de is
+  nav.setAttribute('aria-label', pathLanguageOf(document.documentElement.lang) === 'de' ? 'Brotkrümelnavigation' : 'Breadcrumb');
   const ol = document.createElement('ol');
   crumbs.forEach(({ label, href }, i) => {
     const li = document.createElement('li');
