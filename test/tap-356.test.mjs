@@ -122,3 +122,11 @@ test('the help cards and the footer\'s social icons', () => {
   assert.match(css, /body\.brand-tap \.cards\.three-up \.cards-card-body a\.button:any-link \{[^}]*min-height: 40px;[^}]*font-weight: 500;/);
   assert.match(css, /@media \(width < 1024px\) \{[^@]*body\.brand-tap \.footer \.footer-tap-side \.footer-badge-group:has\(img\[data-icon-name\]\) ul \{\s*column-gap: 20px;/);
 });
+
+test('the Miles&Go cards\' buttons 15 / 500, as www\'s', () => {
+  assert.match(css, /body\.brand-tap \.columns-media\.stack \.columns-media-text a\.button:any-link \{\s*width: 100%;\s*font-weight: 500;/);
+});
+
+test('phones: the open menu over the quick-action tab, as www\'s', () => {
+  assert.match(headerCss, /body\.brand-tap \.header:has\(\.tap-menu\.is-open\) \.tap-quick \{\s*z-index: -1;/);
+});

@@ -80,7 +80,7 @@ tokens) and the computed styles of the pages above.
 | 36 | Explore Miles&Go (miles-and-go, row 20) | from 1024 px the picture at the left (512 × 288), the list beside it from the column's middle; no panel, a line under every item, the names GT Flexa 600 (24 px; 16 on phones), a dark chevron | the list in a grey panel under the picture | theme | fixed (brief 336) |
 | 37 | Inner banners on phones | the title 32 px, the lead Inter 20 / 30 | the homepage stage's 24 and 18 | theme | fixed (brief 336) |
 | 38 | Running text width | the content's whole width (1120 px at 1440) | two thirds (lh-com's limited width) | theme | fixed (brief 336) |
-| 39 | Breadcrumb's place under the header | 176 px from the top (the bar and its green quick-action tab above it) | 96 to 120 px (no quick-action tab) | header (ema-lufthansa) | open |
+| 39 | Breadcrumb's place under the header | 176 px from the top (the bar and its green quick-action tab above it) | the tab and the trail at 176 px since b7fd82a6; left: the tab 196 px on phones, its corners and icons, the trail's 20 px rows | header (TAP variant) | fixed (brief 356: rows 72, 73) |
 | 40 | Help centre contacts (ajuda) | a country / city picker with phone numbers, opening hours and desks | a link to www ("See on flytap.com") | variant (hotline-finder on brand tap) + data (a contacts sheet per root) | block built (brief 339), the draft with a sample in DA, previewed (brief 344); the data: the contacts capture (row 54) |
 | 41 | LUGGit (bagagem) | the LUGGit booking widget | a link to www | app | open |
 | 42 | Stopover video (stopover) | a 32 px-rounded video, its title over it | columns-media: the video, the title beside it | import (ema-lufthansa) | the form done in the import (brief 341; checked at 1440 and 390, brief 357): hero-card-overlay, 32 px corners, the title over the picture, 1120 wide, the play control. Left, theme (ema-test): www's frame is 420 px high at both widths, the title 44 px from its top from 1024 px; ours 305 / 380 and 72 px (the Christmas banner's sizes): `body.brand-tap .hero-card-overlay.hero-card-overlay-has-video { min-height: 420px; }` and, at `(width >= 1024px)`, the same with `.hero-card-overlay-card { padding: 44px 64px; }`; www's title an H3 (the documents' since brief 357) |
@@ -91,9 +91,9 @@ tokens) and the computed styles of the pages above.
 | 47 | Christmas banner title on phones | "Christmas Markets / in Europe" | "Christmas / Markets in Europe" (the same 32 / 38.4, 500, -2 %, 310 px box) | theme: not the fonts (www's files, sha256 equal) but lh-com's text-wrap: balance on the hero card | fixed (brief 339) |
 | 48 | Market roots' homepage stage (es-mx, es-ar, pt-ao) | a fare carousel ("Voos desde 1 616 149 Kz", "Vuelos desde MX$34,391"), www's prices per market | no stage: the booking box at the top | import (ema-lufthansa: the roots' stage slides; the prices are www's live fares) | stays as it is, nothing to build (brief 354): www's stage on these roots is a carousel of its live fares, and live fares stay on TAP by decision; the booking box at the top |
 | 49 | Market roots' fourth Miles&Go card (pt-br, fr-ca, pt-ao) | four cards, the fourth the market's credit card (TAP BTG Pactual Black, Cartes de Crédit, VISA TAP Gold) | three cards (en-us has its fourth) | import (ema-lufthansa) | done (brief 341, on the live site since its publication): pt-br, fr-ca and pt-ao show the four cards, the fourth the market's credit card (www's rule: ca, pt, br, us, ao); checked rendered on tap.turnsthe.page, 2026-11-04 (brief 354) |
-| 50 | Market roots' Miles&Go section served | the four cards | tap.turnsthe.page serves mostly the published one card (`columns-media`), now and then the four-card stack (`columns-media stack`), with the same last-modified (pt-br, de-ch, en-gb, rechecked at 17:30). The preview has the stack. | publishing the roots' homepages; if it still alternates after that, the edge cache (ema-adobe) | open |
-| 51 | Market roots' alerts bar (en-gb and others) | the root's own alerts ("Measures Related to Ebola Outbreak", 3/6) | another market's ("… for Travel to the US", 2/7) | alerts bar (ema-adobe) | open |
-| 52 | Market roots' `html lang` | the market's (`pt-ao`, `en-gb`, `de-ch` …) | the language (`pt`, `en`, `de`) | scripts (ema-adobe) | open |
+| 50 | Market roots' Miles&Go section served | the four cards | tap.turnsthe.page serves mostly the published one card (`columns-media`), now and then the four-card stack (`columns-media stack`), with the same last-modified (pt-br, de-ch, en-gb, rechecked at 17:30). The preview has the stack. | publishing the roots' homepages | fixed (the steering session: /en-gb, /de-ch, /pt-ao, /en-us and /fr-fr, three requests each, the stack every time) |
+| 51 | Market roots' alerts bar (en-gb and others) | the root's own alerts ("Measures Related to Ebola Outbreak", 3/6) | another market's ("… for Travel to the US", 2/7) | alerts bar (ema-adobe) | as www (the steering session: www's /en-gb shows the US advisory too, on every root; the same 6 alerts in the same order. The 2/7 was read while TAP's maintenance notice still showed; it expired at 16:25) |
+| 52 | Market roots' `html lang` | the market's (`pt-ao`, `en-gb`, `de-ch` …) | the language (`pt`, `en`, `de`) | scripts (ema-adobe) | fixed (de7fabe9: pt-ao, en-gb, de-ch, en-us) |
 | 53 | Market roots' footer | "Cookie settings" in the second column; Star Alliance as www's picture; Google Play before App Store | no cookie settings link; "A Star Alliance member"; App Store first | import (ema-lufthansa: the footer documents) | Google Play before the App Store in every footer document (brief 354); the cookie settings link stays out (no consent tool). Star Alliance: the footer documents link it as `:star-alliance:` (ema-lufthansa); the page decoration makes it lh-com's `/icons/star-alliance.svg` (Lufthansa's "A Star Alliance member" logo, 20 px wide on preview, left out on live), and footer-tap.js only keeps that link by the class of its icon, so www's own 140 x 20 logo (the inline SVG in its copyright bar) needs the footer block: ema-test |
 | 54 | Market roots' help contacts | the finder with the market's country and city first (Schweiz / Genf, Angola / Luanda) | "See on flytap.com" | the eight sheets are in DA (brief 352); the help documents (ema-lufthansa) | open |
 | 55 | Contacts picture | a green chevron line over the picture's right edge | none | theme (TAP-scoped, hotline-finder-tap) | fixed (brief 344) |
@@ -110,6 +110,23 @@ tokens) and the computed styles of the pages above.
 | 66 | Extras' click-to-call card (CoreMedia 2023-flight-extra, 28 pages; the 2020 to 2022 c2call teasers alike) | "Dê um boost à sua viagem": a phone field, "Ligue-me", the hours, an agent's photo; a floating "Ligamos grátis" button | "Ver em flytap.com" | new block (ema-test): a callback form of TAP's CoreMedia Engagement Cloud, nothing in the capture to import | open |
 | 67 | Card grids (cards-teaser three-up: reservas, informações, gerir reserva …) | rows 281 px apart at 1440 and 390, the first 426 px from the top at 1440 | 323 px at 1440, 294 at 390; the first at 396 | theme (ema-test) | open |
 | 68 | A page's top banner (hero-campaign narrow: extras, bagagem, Miles&Go …) | 1120 x 305 at 1440 | 1176 x 404 | theme (ema-test) | open |
+| 69 | Body text (every page, every width) | Inter with www's body letter-spacing -1 % (the stopover card's text on one line in 515 px) | no letter-spacing: 1 % wider (that text on two lines, labels a few px wider) | theme | fixed (brief 356) |
+| 70 | Header on phones | the logo 130 x 17; search, person and menu 4 px apart, www's drawings (Material's person and menu, light) | 166 x 21; 8 px apart; lh-com's search, a filled login icon, a small burger | header (TAP variant) | fixed (brief 356) |
+| 71 | Homepage with the extra strip on phones (pt-pt, en-pt, fr-fr) | the alerts, the strip, then the bar 16 px under it (120 px), the stage at 200 | the bar under the alerts (68 px), the strip under the bar | header (TAP variant) and theme | fixed (brief 356) |
+| 72 | Quick-action tab (inner pages) | 180 px on phones (12 px inside, 4 px apart), 56 px high with 48 px corners at 1440, www's four drawings; the open menu's card over it | 196 px, 55 px with 32 px corners, Material's icons; the tab over the open menu | header (TAP variant) | fixed (brief 356) |
+| 73 | Breadcrumb and the title under it | 26 px rows 6 px apart, Inter 14 / 21, the house in a 24 px box, chevrons 6 px either side; the title 24 px under it on phones, 64 px at 1440; the trail at 176 px on Miles&Go too | 20 px rows, 8 px either side; the title 48 px under it; Miles&Go's trail 24 px lower | theme | fixed (brief 356) |
+| 74 | A single inner banner on phones (altitude-film-festival) | 380 px high, 24 px inside, the title 32 / 38.4 500, the lead 16 / 24 600, centred; the title 32 px under it | 267 px, 16 px inside, 28 / 34 700 and 20 / 30, at the top; 64 px | theme | fixed (brief 356) |
+| 75 | Booking box on phones | origin and destination 245 px with the swap button beside them, 12 px between the fields, inputs 20 px under their labels, the dates 44 px, the search 12 px under the passengers; Material's sync icon turned 25 degrees; values #020817; the search label 500; the corporate link regular | every field 310 px, 16 px apart, 24 px under the labels, 52 px dates; arrows ⇄; #424045; 400; bold | booking box (TAP rules) | fixed (brief 356) |
+| 76 | Help cards (help, stopover) | the button 48 px under the text, 40 px, 15 / 500; 24 px under it; shadow 0 2px 8px 10 % | 24 px under, 43 px, 400; 47 px under it; 0 2px 16px 8 % | theme | fixed (brief 356) |
+| 77 | Footer on phones | the social icons 44 px from one to the next | 48 px | footer (TAP rules) | fixed (brief 356) |
+| 78 | Miles&Go cards' buttons (homepages) | 15 / 500 | 15 / 400 | theme | fixed (brief 356) |
+| 79 | Booking box's airport list (open) | the list filtered to the field's value (Madrid: MAD, MSN), as wide as the field, a clear button and the arrow in a light green circle | every airport from A, 310 px, the value selected | `scripts/airport-combobox.js` (shared, not in my files; ema-adobe) | open |
+| 80 | Stage controls on phones (homepages, slider banners) | Material's thin chevrons, the last slide's next button a grey disc | lucide's 2 px chevrons, no disabled state | theme | open |
+| 81 | A single inner banner's picture on phones (altitude-film-festival) | the picture as it is (the arch and the sky) | a dark scrim over its top half | theme | open |
+| 82 | Footer documents (es-es and others) | YouTube before LinkedIn; "© 2026, TAP." in bold | LinkedIn first; the note plain | import (ema-lufthansa: the footer documents) | open |
+| 83 | Homepage stages (es-es) | three slides | two (pt-ao none: row 48) | import (ema-lufthansa) | open |
+| 84 | Destinations page (en-pt/destinations, every version) | www's destination grid: filters, 16 destination cards, the continents' lists (5,084 px at 390) | the title, the lead and the inspiration banner (2,668 px) | import, perhaps a new block (ema-lufthansa) | open |
+| 85 | Homepage headings (every root) | "Planeie a sua viagem ao detalhe" an H1; the Miles&Go cards' second lines H2 (Inter 14 / 21 600) | H2; paragraphs | import (ema-lufthansa; row 62 covers the hero card's H3) | open |
 
 ## What was fixed (commits)
 
@@ -710,3 +727,84 @@ from 1024 px.
 Screenshots (not committed, can be lost on a restart): `/tmp/tap-352/cmp`.
 
 Rollback: `git revert` of the commits. The DA sheets keep their versions in DA.
+
+## Brief 356: row 39 and TAP at 390 (rows 39, 50 to 52, 69 to 85)
+
+### Rows closed
+
+- **Row 39:** the quick-action tab and the trail at 176 px were already on main (b7fd82a6). What was
+  left is now rows 72 and 73.
+- **Rows 50 to 52:** closed with the steering session's checks of tonight.
+  - Row 50: the four-card stack on /en-gb, /de-ch, /pt-ao, /en-us and /fr-fr, three requests each.
+  - Row 51: as www.
+  - Row 52: de7fabe9.
+
+### What was compared, at 390 x 844
+
+www.flytap.com against the preview (the language versions and the inner pages) and
+tap.turnsthe.page (the market roots: the preview has no market pages). A phone's user agent:
+www serves its old mobile site to HeadlessChrome. One www page every 10 s or more.
+
+- **The eight homepages:** pt-pt, en-pt, es-es, fr-fr, de-de, it-it, pl-pl and pt-br.
+- **Three market roots:** de-ch, pt-ao and en-us.
+- **Five inner pages:**
+  - an article: `/en-pt/on-board/altitude-film-festival`;
+  - Miles&Go: `/en-pt/miles-and-go`;
+  - help: `/en-pt/help`;
+  - stopover: `/pt-pt/stopover`;
+  - a destination page: `/en-pt/destinations`.
+
+Each page:
+- the first screen, the menu open, the page in 844 px slices and the footer;
+- on a homepage, the booking box closed and with the origin open;
+- the headings' and buttons' boxes and styles.
+
+### What the pages show after the fixes (local preview, 390)
+
+- **Homepage with the strip (pt-pt):** the strip at 52 to 104 px, the bar at 120 px and the stage at
+  200 px, as www.
+- **es-es:** the tools at 238, 282 and 326 px, as www. The booking box's labels and fields as www,
+  2 px higher.
+- **Help:** the trail at 176 to 202 px and the title at 226 px, as www. At 1440 the title is at 266 px,
+  as www.
+- **Article:** the trail 53 px high, the banner at 253 px and 380 px high, the title at 665 px, as www.
+- **Miles&Go:** the banner at 226 px and the title at 597 px, as www.
+- **Stopover:** the title at 645 px, as www. The FAQ card's text now fits on its line, and the labels
+  are as wide as www's (rows 69 and 59).
+
+### For ema-lufthansa (content)
+
+- **Row 82:** the footer documents. YouTube before LinkedIn; "© 2026, TAP." in bold.
+- **Row 83:** es-es's stage has three slides on www (pt-ao has no stage: row 48).
+- **Row 84:** the destinations page's grid (filters, destination cards, the continents' lists).
+- **Row 85:** the homepage headings. "Planeie a sua viagem ao detalhe" is an H1, and the Miles&Go
+  cards' second lines are H2.
+
+### Outside my files
+
+- **Row 79:** the airport list's filter and width live in `scripts/airport-combobox.js`, a shared
+  script.
+- No change was needed in `blocks/header/header.js`. The TAP header's icons come from its own tool
+  list and from `buildTapMenu` (`header-tap.js`). The tab's corners and size are in `header-tap.css`,
+  TAP's own stylesheet beside it.
+- The airport sheets show TAP's own data as originSearch answers it, e.g. AAC "El Arish" under
+  Spain. It is not a difference from www.
+
+### Checks (brief 356)
+
+- **Lint:** passes (eslint and stylelint).
+- **Full suite:** 256 of 257 test files pass. `test/library-entries.test.mjs` fails only in this workspace, because it
+  reads the untracked local `content/library/blocks` (as in briefs 344 and 352).
+- **Tests:** `test/tap-356.test.mjs` covers:
+  - the header's icons, the menu icon, the tab's icons and size, the strip class and its offset;
+  - the trail and title rules, the single banner, the booking box's stacked rules;
+  - the help cards, the footer's icons, the Miles&Go buttons and the menu over the tab.
+  - `test/tap-first-screen.test.mjs` now expects www's icon names.
+- **Other sites:** every new rule starts with `body.brand-tap` (`test/brand.test.mjs` for the theme;
+  the booking box's and header-tap.css's by their selectors). The JS runs only on brand tap. So
+  lufthansa.com's 19 pages and the other brands are unchanged by construction. They were not
+  compared in a browser this time.
+
+Screenshots (not committed, can be lost on a restart): `/tmp/tap-356/p`.
+
+Rollback: `git revert` of the commits.

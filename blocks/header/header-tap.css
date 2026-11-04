@@ -260,6 +260,11 @@ body.brand-tap .header .tap-quick-icon svg {
     border-radius: 0 0 32px 32px;
   }
 
+  /* the open menu's card over the tab (www: the tab behind it; brief 356) */
+  body.brand-tap .header:has(.tap-menu.is-open) .tap-quick {
+    z-index: -1;
+  }
+
   body.brand-tap .header .tap-quick ul {
     gap: 4px;
     height: 56px;

@@ -1307,8 +1307,10 @@ body.brand-tap .columns-media.stack .columns-media-text > :is(.button-wrapper, .
   padding-top: 16px;
 }
 
+/* (www's labels 15 / 500 here; brief 356) */
 body.brand-tap .columns-media.stack .columns-media-text a.button:any-link {
   width: 100%;
+  font-weight: 500;
 }
 
 body.brand-tap .columns-media.stack .columns-media-text a.button.accent:any-link {
