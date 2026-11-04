@@ -1,4 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies, import/extensions -- tests */
+/* eslint-disable import/no-extraneous-dependencies, import/extensions, no-underscore-dangle */
 /**
  * TAP Air Portugal's nav and footer documents (tools/importer/tap-nav.mjs) from the pt-pt
  * homepage's menus (__NEXT_DATA__ headerMenu, footerMenu, siteSettings;
@@ -29,15 +29,63 @@ describe('tap-nav', () => {
     assert.equal(s[0].querySelector('a').getAttribute('href'), '/pt-pt');
     // the quick actions (www's widgets: check-in, manage booking): the homepage's booking box
     assert.ok([...s[1].querySelectorAll('a')].some((a) => a.getAttribute('href') === '/pt-pt#check-in'));
-    // the mega menu's tabs, their columns and links; site pages relative, the rest on www
+    // the mega menu's tabs (www's top level, Check-in third), their columns and links; site pages
+    // relative, the rest on www
     const tabs = [...s[2].querySelectorAll(':scope > ul > li > p')].map((p) => p.textContent);
-    assert.deepEqual(tabs, ['Planear viagem', 'Os meus voos', 'TAP Miles&Go', 'Ajuda']);
+    assert.deepEqual(tabs, ['Planear viagem', 'Os meus voos', 'Check-in', 'TAP Miles&Go', 'Ajuda']);
     assert.ok(s[2].querySelector('a[href="/pt-pt/informacoes/bagagem"]'));
     assert.ok(s[2].querySelector('a[href="https://www.flytap.com/pt-pt/a-bordo"]'));
     assert.ok(s[2].querySelector('a[href="https://www.flytap.com/pt_pt/desconto-voos"]'));
     // the widget entries (check-in form, flights to check in) are left out
     assert.ok(!s[2].textContent.includes('Check In Form'));
     assert.ok(s[3].textContent.includes('Menu'));
+  });
+
+  it('menu as www\'s: every column with its heading link and links, "See all" where www shows it', () => {
+    const s = sections(navHtml(pp, site));
+    const items = [...s[2].querySelectorAll(':scope > ul > li')];
+    const cols = (li) => [...li.querySelectorAll(':scope > ul > li')].filter((c) => !c.querySelector(':scope > p > strong'));
+    const heads = (li) => cols(li).map((c) => c.querySelector(':scope > p').textContent);
+    assert.deepEqual(heads(items[0]), ['Reservar', 'Informações de viagem', 'A bordo']);
+    // the heading is the column's page
+    assert.equal(cols(items[0])[0].querySelector(':scope > p > a').getAttribute('href'), '/pt-pt/reservas');
+    assert.equal(cols(items[0])[0].querySelectorAll(':scope > ul > li > a').length, 6);
+    // "See all" (www's showSeeAll) under Reservar and Informações de viagem, not under A bordo
+    const seeAll = (c) => c.querySelector(':scope > ul + p > a');
+    assert.deepEqual(cols(items[0]).map((c) => (seeAll(c) ? [seeAll(c).textContent, seeAll(c).getAttribute('href')] : null)), [['Ver todos', '/pt-pt/reservas'], ['Ver todos', 'https://www.flytap.com/pt-pt/informacoes'], null]);
+    // Os meus voos: "Gerir reserva" (a column with www's check-in form widget and links) and Extras
+    assert.deepEqual(heads(items[1]), ['Gerir reserva', 'Extras']);
+    assert.deepEqual([...cols(items[1])[0].querySelectorAll(':scope > ul > li > a')].map((a) => a.textContent), ['Gestão da Reserva', 'Extras e Upgrades', 'Fatura online', 'TAP Vouchers']);
+    // the manage-booking anchor: the root homepage's booking box
+    assert.equal(cols(items[1])[0].querySelector(':scope > ul > li > a').getAttribute('href'), '/pt-pt#my-travels');
+  });
+
+  it('Check-in: a top item linking the booking box, its form column to the box, its information page; sign-in widgets left out', () => {
+    const s = sections(navHtml(pp, site));
+    const checkIn = [...s[2].querySelectorAll(':scope > ul > li')][2];
+    assert.equal(checkIn.querySelector(':scope > p > a').getAttribute('href'), '/pt-pt#check-in');
+    const cols = [...checkIn.querySelectorAll(':scope > ul > li')];
+    assert.deepEqual(cols.map((c) => [c.querySelector(':scope > p').textContent, c.querySelector(':scope > p > a').getAttribute('href')]), [
+      ['Efetuar Check-in', '/pt-pt#check-in'],
+      ['Informações de Check-in', 'https://www.flytap.com/pt-pt/informacoes-check-in'],
+    ]);
+    assert.ok(!checkIn.textContent.includes('Voos para Check-in'), 'the signed-in flights list (requireLogin) is left out');
+  });
+
+  it('the banner (www\'s bannerMenu): a row of its own with the picture, title, line and link', () => {
+    const withPic = JSON.parse(JSON.stringify(pp));
+    withPic.headerMenu[0].bannerMenu.image._dynamicUrl = '/adobe/dynamicmedia/deliver/dm-aid--1/ees.jpg';
+    const media = (k) => (k === '/adobe/dynamicmedia/deliver/dm-aid--1/ees.jpg' ? '/media-da/tap/ees-1.jpg' : null);
+    const s = sections(navHtml(withPic, { ...site, media }));
+    const plan = s[2].querySelector(':scope > ul > li');
+    const banner = [...plan.querySelectorAll(':scope > ul > li')].pop();
+    assert.equal(banner.querySelector('img').getAttribute('src'), '/media-da/tap/ees-1.jpg');
+    assert.deepEqual([...banner.querySelectorAll(':scope > p')].map((p) => p.textContent), ['', 'Novo sistema EES', 'Demoras no controlo de passaportes em Lisboa.', 'Saiba mais']);
+    assert.ok(banner.querySelector(':scope > p > strong'));
+    assert.equal(banner.querySelector(':scope > p > a').getAttribute('href'), 'https://www.flytap.com/pt-pt/informacoes/documentacao/vistos-schengen');
+    // without its picture the banner is still a row (title, line, link)
+    const plain = sections(navHtml(pp, site))[2].querySelector(':scope > ul > li');
+    assert.match([...plain.querySelectorAll(':scope > ul > li')].pop().textContent, /Novo sistema EES.*Saiba mais/);
   });
 
   it('nav texts in every language of the site (logo text, help, menu, the other language)', () => {
@@ -73,6 +121,11 @@ describe('tap-nav', () => {
     assert.deepEqual(other('pt-br'), ['English', 'https://www.flytap.com/en-br']);
     assert.deepEqual(other('en-pt'), ['Português', 'https://www.flytap.com/pt-pt']);
     assert.deepEqual(other('de-de'), ['English', 'https://www.flytap.com/en-de']);
+    // an English root of a market without a language of its own in the table: the market's
+    // Portuguese (www's markets all have it), never the root itself
+    assert.deepEqual(other('en-us'), ['Português', 'https://www.flytap.com/pt-us']);
+    assert.deepEqual(other('en-ch'), ['Português', 'https://www.flytap.com/pt-ch']);
+    assert.deepEqual(other('en-gb'), ['Português', 'https://www.flytap.com/pt-gb']);
   });
 
   it('footer as www\'s: "Siga-nos" over the social icons, "TAP App" over the store badges (pictures), the copyright as a note', () => {

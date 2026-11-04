@@ -6,11 +6,13 @@
  * (airdolomiti-nav.mjs), on the TAP theme:
  * - nav: 1. TAP's logo (the inline SVG of www's header, as a file) linking the homepage; 2. quick
  *   actions: www's check-in and manage-booking widgets (#special-anchor-*: out of scope, on www);
- *   3. the mega menu: the tabs (Planear viagem, Os meus voos, TAP Miles&Go, Ajuda) with their
- *   columns and links, a tab's banner as a column of its own; www's widget entries (component
- *   check-in-form, check-in-flights) left out, the Check-in tab (www's widget) in the quick
- *   actions; 4. tools: help (:help:), the other language's homepage (the language switch), the
- *   menu label.
+ *   3. the mega menu, www's top level: the tabs (Planear viagem, Os meus voos, Check-in, TAP
+ *   Miles&Go, Ajuda; Check-in links the homepage's booking box), each column a heading linking its
+ *   page, its links and "See all" where www shows it (showSeeAll; www's menu-see-all text), a tab's
+ *   banner (bannerMenu) as a row of its own: picture, bold title, line, link; www's widget
+ *   entries (check-in-form) left out, a column of widgets only linking the tab's target, the
+ *   signed-in ones (requireLogin) left out; 4. tools: help (:help:), the other language's homepage
+ *   (the language switch), the menu label.
  * - footer: the link columns (other websites, legal resources, featured destinations; www's
  *   cookie settings, its consent layer, left out), a section with the style badges: the app
  *   stores (www's badge pictures from the media archives, else their names) under "TAP App" and
@@ -26,7 +28,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import {
-  linkOf, docPath, WWW, mediaIndex, mediaResolver,
+  linkOf, docPath, WWW, mediaIndex, mediaResolver, altOf,
 } from './tap-import.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
@@ -36,26 +38,26 @@ const attr = (s) => esc(s).replace(/"/g, '&quot;');
 
 const SETUP = {
   pt: {
-    logoAlt: 'TAP Air Portugal, voltar à página inicial', menu: 'Menu', help: ['Ajuda', '/ajuda'], appStore: 'App Store', googlePlay: 'Google Play', follow: 'Siga-nos', app: 'TAP App', rights: 'Todos os direitos reservados.',
+    seeAll: 'Ver todos', logoAlt: 'TAP Air Portugal, voltar à página inicial', menu: 'Menu', help: ['Ajuda', '/ajuda'], appStore: 'App Store', googlePlay: 'Google Play', follow: 'Siga-nos', app: 'TAP App', rights: 'Todos os direitos reservados.',
   },
   en: {
-    logoAlt: 'TAP Air Portugal, back to the homepage', menu: 'Menu', help: ['Help', '/help'], appStore: 'App Store', googlePlay: 'Google Play', follow: 'Follow us', app: 'TAP App', rights: 'All rights reserved.',
+    seeAll: 'See all', logoAlt: 'TAP Air Portugal, back to the homepage', menu: 'Menu', help: ['Help', '/help'], appStore: 'App Store', googlePlay: 'Google Play', follow: 'Follow us', app: 'TAP App', rights: 'All rights reserved.',
   },
   // the other markets: their help tab as www's header names it
   es: {
-    logoAlt: 'TAP Air Portugal, volver a la página de inicio', menu: 'Menú', help: ['Ayuda', '/ayuda'], appStore: 'App Store', googlePlay: 'Google Play', follow: 'Síguenos', app: 'TAP App', rights: 'Todos los derechos reservados.',
+    seeAll: 'Ver todo', logoAlt: 'TAP Air Portugal, volver a la página de inicio', menu: 'Menú', help: ['Ayuda', '/ayuda'], appStore: 'App Store', googlePlay: 'Google Play', follow: 'Síguenos', app: 'TAP App', rights: 'Todos los derechos reservados.',
   },
   fr: {
-    logoAlt: 'TAP Air Portugal, retour à la page d’accueil', menu: 'Menu', help: ['Aide', '/aide'], appStore: 'App Store', googlePlay: 'Google Play', follow: 'Suivez-nous', app: 'TAP App', rights: 'Tous droits réservés.',
+    seeAll: 'Voir tout', logoAlt: 'TAP Air Portugal, retour à la page d’accueil', menu: 'Menu', help: ['Aide', '/aide'], appStore: 'App Store', googlePlay: 'Google Play', follow: 'Suivez-nous', app: 'TAP App', rights: 'Tous droits réservés.',
   },
   de: {
-    logoAlt: 'TAP Air Portugal, zurück zur Startseite', menu: 'Menü', help: ['Hilfe', '/hilfe'], appStore: 'App Store', googlePlay: 'Google Play', follow: 'Folgen Sie uns', app: 'TAP App', rights: 'Alle Rechte vorbehalten.',
+    seeAll: 'Alle anzeigen', logoAlt: 'TAP Air Portugal, zurück zur Startseite', menu: 'Menü', help: ['Hilfe', '/hilfe'], appStore: 'App Store', googlePlay: 'Google Play', follow: 'Folgen Sie uns', app: 'TAP App', rights: 'Alle Rechte vorbehalten.',
   },
   it: {
-    logoAlt: 'TAP Air Portugal, torna alla homepage', menu: 'Menu', help: ['Aiuto', '/assistenza'], appStore: 'App Store', googlePlay: 'Google Play', follow: 'Seguici', app: 'TAP App', rights: 'Tutti i diritti riservati.',
+    seeAll: 'Visualizzi tutti', logoAlt: 'TAP Air Portugal, torna alla homepage', menu: 'Menu', help: ['Aiuto', '/assistenza'], appStore: 'App Store', googlePlay: 'Google Play', follow: 'Seguici', app: 'TAP App', rights: 'Tutti i diritti riservati.',
   },
   pl: {
-    logoAlt: 'TAP Air Portugal, powrót do strony głównej', menu: 'Menu', help: ['Pomoc', '/pomoc'], appStore: 'App Store', googlePlay: 'Google Play', follow: 'Obserwuj nas', app: 'TAP App', rights: 'Wszelkie prawa zastrzeżone.',
+    seeAll: 'Wszystkie informacje', logoAlt: 'TAP Air Portugal, powrót do strony głównej', menu: 'Menu', help: ['Pomoc', '/pomoc'], appStore: 'App Store', googlePlay: 'Google Play', follow: 'Obserwuj nas', app: 'TAP App', rights: 'Wszelkie prawa zastrzeżone.',
   },
 };
 // the language switch per root: www's markets have two languages, the market's and English; a
@@ -69,16 +71,41 @@ const LANG_NAME = {
 };
 function otherOf(locale) {
   const [lang, cc] = locale.split('-');
-  const to = lang === 'en' ? MARKET_LANG[cc] || 'en' : 'en';
+  // an English root of a market with no language of its own in MARKET_LANG (en-us, en-ch, en-gb):
+  // the market's Portuguese, TAP's language (www has a pt root in its markets), never itself
+  const to = lang === 'en' ? MARKET_LANG[cc] || 'pt' : 'en';
   return [LANG_NAME[to], `${to}-${cc}`];
 }
 const SOCIAL = ['facebook', 'instagram', 'linkedin', 'youtube', 'x', 'tiktok'];
 const isWidget = (x) => Boolean(x.component);
+// www shows these only to a signed-in visitor (the flights to check in): left out
+const isSignedIn = (x) => x.requireLogin === true;
 const isSpecial = (x) => /^#special-anchor/.test(x.link || '');
 
 const ctxOf = (site) => ({ anchors: new Map(), ...site, locale: site.locale || docPath(site.url).split('/')[1] });
 const a = (href, label, c) => `<a href="${attr(linkOf(href, c))}">${esc(label)}</a>`;
 const li = (x, c) => (x.link ? `<li>${a(x.link, x.title, c)}</li>` : '');
+
+/** A text of www's translations (pageProps._nextI18Next: the language's namespaces), or null. */
+function textOf(pp, lang, key) {
+  const store = pp._nextI18Next && pp._nextI18Next.initialI18nStore;
+  const ns = store && (store[lang] || store[Object.keys(store)[0]]);
+  if (!ns) return null;
+  const hit = Object.values(ns).find((n) => n && typeof n === 'object' && typeof n[key] === 'string');
+  return hit ? hit[key] : null;
+}
+
+/** A rich text's words (www's banner line: AEM's JSON node tree). */
+const plainText = (nodes) => (nodes || []).map((n) => (n.nodeType === 'text' ? n.value : plainText(n.content))).join('').trim();
+
+/** The banner's picture from the media archives (by its Dynamic Media URL or path), or nothing. */
+function bannerImg(image, media, lang) {
+  if (!image) return '';
+  const keys = [image._dynamicUrl && image._dynamicUrl.split('?')[0], image._path, image._publishUrl].filter(Boolean);
+  const m = keys.map((k) => media(k)).find(Boolean);
+  const src = m && (typeof m === 'string' ? m : m.eds);
+  return src ? `<img src="${attr(src)}" alt="${attr(altOf(image.description || image.title, lang))}">` : '';
+}
 
 /** The nav document's HTML. */
 export function navHtml(pp, site) {
@@ -94,30 +121,35 @@ export function navHtml(pp, site) {
     (t.children || []).forEach((col) => (col.children || []).forEach((x) => { if (isSpecial(x)) quick.push([x.link, col.title]); }));
   });
   const quickHtml = `<div><ul>${quick.map(([h, l]) => `<li>${a(h, l, c)}</li>`).join('')}</ul></div>`;
-  const tabs = menu.filter((t) => !isSpecial(t) && (t.children || []).length).map((t) => {
-    const cols = (t.children || []).filter((col) => !isWidget(col)).map((col) => {
-      const links = (col.children || []).filter((x) => !isWidget(x) && x.link).map((x) => li(x, c)).join('');
-      const head = col.link && !isSpecial(col) ? `<p>${a(col.link, col.title, c)}</p>` : `<p>${esc(col.title)}</p>`;
-      return links || col.link ? `<li>${head}${links ? `<ul>${links}</ul>` : ''}</li>` : '';
+  // www's top level (Planear viagem, Os meus voos, Check-in, TAP Miles&Go, Ajuda): an item's title
+  // (a link where www's has one: Check-in, the homepage's booking box), its columns (a heading
+  // linking the column's page, its links, "See all" under them where www shows it: showSeeAll),
+  // the menu's banner (bannerMenu) as a row of its own: picture, title, line, link. A column of
+  // www's widgets only (the check-in form) links the item's own target; sign-in widgets left out.
+  const seeAll = textOf(pp, lang, 'menu-see-all') || S.seeAll;
+  const tabs = menu.filter((t) => (t.children || []).length).map((t) => {
+    const cols = (t.children || []).filter((col) => !isSignedIn(col)).map((col) => {
+      const links = (col.children || []).filter((x) => !isWidget(x) && !isSignedIn(x) && x.link).map((x) => li(x, c)).join('');
+      const target = col.link || (!links && t.link) || null;
+      if (!links && !target) return '';
+      const head = target ? `<p>${a(target, col.title, c)}</p>` : `<p>${esc(col.title)}</p>`;
+      const all = links && col.showSeeAll && col.link ? `<p>${a(col.link, seeAll, c)}</p>` : '';
+      return `<li>${head}${links ? `<ul>${links}</ul>` : ''}${all}</li>`;
     });
     const b = t.bannerMenu;
-    if (b && b.title && b.ctaUrl) cols.push(`<li><p>${esc(b.title)}</p><ul><li>${a(b.ctaUrl, b.ctaLabel || b.title, c)}</li></ul></li>`);
-    return `<li><p>${esc(t.title)}</p><ul>${cols.join('')}</ul></li>`;
+    if (b && b.title && b.ctaUrl) {
+      const pic = site.media ? bannerImg(b.image, site.media, lang) : '';
+      const line = b.description && b.description.json ? plainText(b.description.json) : '';
+      cols.push(`<li>${pic ? `<p>${pic}</p>` : ''}<p><strong>${esc(b.title)}</strong></p>${line ? `<p>${esc(line)}</p>` : ''}<p>${a(b.ctaUrl, b.ctaLabel || b.title, c)}</p></li>`);
+    }
+    const title = t.link ? a(t.link, t.title, c) : esc(t.title);
+    return `<li><p>${title}</p><ul>${cols.join('')}</ul></li>`;
   });
   const megaHtml = `<div><ul>${tabs.join('')}</ul></div>`;
   const [otherLabel, otherLocale] = otherOf(c.locale);
   const otherHome = c.scope.has(`/${otherLocale}`) ? `/${otherLocale}` : `${WWW}/${otherLocale}`;
   const tools = `<div><ul><li>:help: ${a(S.help[1], S.help[0], c)}</li><li><a href="${attr(otherHome)}">${esc(otherLabel)}</a></li></ul><p>${esc(S.menu)}</p></div>`;
   return `${logo}\n${quickHtml}\n${megaHtml}\n${tools}\n`;
-}
-
-/** A text of www's translations (pageProps._nextI18Next: the language's namespaces), or null. */
-function textOf(pp, lang, key) {
-  const store = pp._nextI18Next && pp._nextI18Next.initialI18nStore;
-  const ns = store && (store[lang] || store[Object.keys(store)[0]]);
-  if (!ns) return null;
-  const hit = Object.values(ns).find((n) => n && typeof n === 'object' && typeof n[key] === 'string');
-  return hit ? hit[key] : null;
 }
 
 /** The footer document's HTML. */
