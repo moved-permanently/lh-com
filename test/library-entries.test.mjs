@@ -54,7 +54,9 @@ test('cards and columns (the starter page\'s) are not in the library', () => {
 });
 
 const LIB = path.join(root, 'content/library/blocks');
-const docs = fs.existsSync(LIB) ? fs.readdirSync(LIB).filter((f) => f.endsWith('.plain.html')) : [];
+// the documents the build writes (a document of a block no longer in the library may stay in the folder)
+const built = new Set(Object.values(manifest).map((e) => e.block));
+const docs = fs.existsSync(LIB) ? fs.readdirSync(LIB).filter((f) => f.endsWith('.plain.html') && built.has(f.replace(/\.plain\.html$/, ''))) : [];
 test('the documents: an H2 right before every table, its options as the table header\'s', { skip: !docs.length && 'no local library documents' }, () => {
   docs.forEach((f) => {
     const block = f.replace(/\.plain\.html$/, '');

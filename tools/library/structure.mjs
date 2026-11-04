@@ -48,6 +48,15 @@ export function fieldType(el) {
   return 'text';
 }
 
+/** The key of a key/value row (two cells, the first a short plain label), else ''. */
+function keyOf(row) {
+  const [k] = row.children;
+  if (row.children.length !== 2 || !k) return '';
+  const text = k.textContent.trim();
+  if (!text || text.length > 40 || k.querySelector('img, a, ul, ol, h1, h2, h3, h4, h5, h6')) return '';
+  return text.toLowerCase();
+}
+
 /**
  * Rows of a block div (page or library: <div class="name opts"><div row><div cell>...), as the
  * table getBlockTableHtml() builds: the last cell of a short row spans the remaining columns.
@@ -60,6 +69,8 @@ export function describeBlockDiv(block) {
     name,
     variant: variants.join(', '),
     rows: rows.map((row) => ({
+      // a key/value row's key (two cells, the first a short plain label: "Source", "Caption")
+      key: keyOf(row),
       cells: [...row.children].map((cell, i) => {
         const c = normalizeCell(cell.cloneNode(true));
         const span = row.children.length < maxCols && i === row.children.length - 1 ? maxCols - i : 1;
@@ -208,6 +219,16 @@ export function itemsFit(model, block) {
 
 export const modelFits = (model, block, multi) => (multi ? itemsFit(model, block) : blockFits(model, block));
 
+/**
+ * The config rows of multi blocks: key/value rows whose key recurs in at least half of the
+ * blocks (poi-map's Source, Caption and Aside rows), not items authors add.
+ */
+export function configKeys(blocks) {
+  const counts = new Map();
+  blocks.forEach((b) => new Set(b.rows.map((r) => r.key).filter(Boolean)).forEach((k) => counts.set(k, (counts.get(k) || 0) + 1)));
+  return new Set([...counts].filter(([, n]) => n >= 2 && n >= blocks.length / 2).map(([k]) => k));
+}
+
 /** One model per structure group of the blocks: item models (multi) or block models. */
 export function candidateModels(blocks, multi) {
   if (multi) return groupBy(blocks.flatMap((b) => b.rows), rowKey).map(groupRowModel);
@@ -222,7 +243,18 @@ const modelSize = (model, multi) => (multi ? [model] : model).reduce((n, r) => n
  * fields), then, for the blocks it leaves, the next one, while another structure holds at least
  * `min` blocks or a tenth of the variant (at most `max` entries). Returns [{model, fit: blocks}].
  */
-export function chooseModels(blocks, multi, { max = 3, min = 4 } = {}) {
+export function chooseModels(blocks, multi, { max = 3, min = 4, config: withConfig = true } = {}) {
+  // multi: the config rows are no items where the blocks have other rows (a block whose rows are
+  // all settings, flight-search, keeps them as its items); the entries name the blocks as given
+  if (multi && withConfig) {
+    const config = configKeys(blocks);
+    const items = (b) => b.rows.filter((r) => !config.has(r.key));
+    if (config.size && blocks.some((b) => items(b).length)) {
+      const of = new Map(blocks.map((b) => [{ ...b, rows: items(b) }, b]));
+      return chooseModels([...of.keys()], multi, { max, min, config: false })
+        .map((e) => ({ ...e, fit: e.fit.map((b) => of.get(b)) }));
+    }
+  }
   const entries = [];
   let rest = blocks;
   while (entries.length < max && rest.length) {

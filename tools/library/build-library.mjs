@@ -1,8 +1,12 @@
 /* eslint-disable no-console, max-len, import/no-extraneous-dependencies, import/extensions -- linkedom is a dev tool dependency */
 /**
  * Builds lh-com's DA block library from the content: one document per block at
- * content/library/blocks/<block>.html (DA /library/blocks/<block>), one block table per
- * variant (option combination) that occurs on lh-com pages: a copy of a real page's block with
+ * content/library/blocks/<block>.plain.html (its <main>; DA /library/blocks/<block>), one block
+ * table per variant (option combination) that occurs on lh-com pages, each under an H2 that names
+ * it: "<Block title>" for the default, "<Block title> (<options>)" for a visual variant, the
+ * options exactly as in the table header (DA's variant picker and the Block Inspector read the
+ * option value from those parentheses; a heading without one disables the dialog's row): a copy
+ * of a real page's block with
  * the structure the most of the variant's blocks resolve against (structure.mjs chooseModels:
  * the fields all of them share; a sample with more is cut to them), then, under a heading, one
  * per other structure the pages use (at least 4 blocks or a tenth of the variant; the Block
@@ -10,13 +14,17 @@
  * each followed by a library-metadata table (description,
  * fields: the labels the Block Inspector of adobe-rnd/ew-extensions shows, mirroring the
  * table's rows and cells; see tools/library/structure.mjs). Writes the index sheet
- * content/library/blocks.json (sheets blocks, editor, options) and
+ * content/library/blocks.json (sheets blocks, editor, options), content/library/ema-library.json
+ * (the same blocks, for the migration tools) and
  * tools/library/library-variants.json (variant -> sample page, pages), which
  * tools/library/check-fields.mjs reads.
  *
- * Left out: header and footer (loaded by the page), channels-demo, and the blocks of the
+ * Left out: header and footer (loaded by the page), channels-demo, the blocks of the
  * structured documents under /data/** (DA form documents from the GraphQL import, edited
- * with DA's form editor; their class names are generated ids).
+ * with DA's form editor; their class names are generated ids), the Message Center's documents
+ * (/message-center/**, read by the Message Center blocks), the meta pages (/migration-status/**)
+ * and the boilerplate starter page /index (its cards and columns are on no other page); the
+ * brand sites' content (content-sites/**) is theirs.
  *
  * Usage: node tools/library/build-library.mjs
  */
@@ -25,14 +33,17 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
   parse, describeBlockDiv, rowShape, normalizeCell, contentFields, fieldType, rowCovers, blockCovers,
-  chooseModels, rowFits, rowIsModel, describeModel,
+  chooseModels, rowFits, rowIsModel, describeModel, configKeys,
 } from './structure.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const CONTENT = path.join(root, 'content');
 const OUT = path.join(CONTENT, 'library/blocks');
 const ORG_SITE = 'moved-permanently/lh-com';
-const SKIP_DIRS = /^(drafts|lhg|library|media-da|data|demo)(\/|$)/;
+const SKIP_DIRS = /^(drafts|lhg|library|media-da|data|demo|message-center|migration-status)(\/|$)/;
+// the boilerplate starter page (its cards and columns blocks are on no lh-com page) and the
+// migration status meta page
+const SKIP_PAGES = new Set(['/index', '/migration-status']);
 const SKIP_BLOCKS = new Set(['header', 'footer', 'channels-demo', 'section-metadata', 'metadata', 'library-metadata']);
 const LOCALE_ORDER = ['/de/en/', '/de/de/', '/gb/en/', '/at/de/', '/us/en/'];
 const MAX_ITEMS = 4;
@@ -46,11 +57,15 @@ const SPEC = {
   'accordion-columns': {
     multi: true, description: 'Expandable items, such as FAQs: each row is an item whose title opens its content, optionally split into columns of links', item: [['Title'], []], columnHeadings: true,
   },
-  'app-article-list': { description: 'App screen: the article list of a category, with its link text and tracking id' },
-  'app-links': { multi: true, description: 'App screen: a list of links, one per row, each with its tracking id', item: [['Link'], ['Tracking ID']] },
-  'app-offer': { description: 'App screen: an offer teaser with title, description, image and link' },
-  'app-service': { description: 'App screen: an SDUI service the app calls, with its auxiliary data, tenant, market and language' },
-  'app-teaser-slider': { description: 'App screen: a teaser slider with a title and teaser cards (text, image, link, tracking id)', rows: { 1: [['Title', 'Text'], ['Image'], ['Link'], ['Tracking ID']] } },
+  'app-article-list': { title: 'App screen: article list', description: 'App screen: one offer box per article of a category (from the app screens\' index), with its link text and tracking label. Only in app screen documents under /content/mobile/lh/<lang>/' },
+  'app-links': {
+    multi: true, title: 'App screen: links', description: 'App screen: links with the app\'s arrow, one per row, each with its tracking label. Only in app screen documents under /content/mobile/lh/<lang>/', item: [['Link'], ['Tracking ID']],
+  },
+  'app-offer': { title: 'App screen: offer box', description: 'App screen: an offer box with image, title, description and the link text as its button, and its tracking label. Only in app screen documents under /content/mobile/lh/<lang>/' },
+  'app-service': { title: 'App screen: service slot', description: 'App screen: a slot the app fills with one of its services (service, auxiliary data, tenant, market, language). Only in app screen documents under /content/mobile/lh/<lang>/' },
+  'app-teaser-slider': {
+    title: 'App screen: teaser slider', description: 'App screen: a teaser slider, its title over a row of cards (text, image, link, tracking label). Only in app screen documents under /content/mobile/lh/<lang>/', rows: { 1: [['Title', 'Text'], ['Image'], ['Link'], ['Tracking ID']] },
+  },
   'article-header': { description: 'Article page header: feature image (optionally a header video), title and intro; tags, date, reading time and author come from the page metadata', rows: { 0: [['Image', 'Header video']], 1: [['Title', 'Intro']] } },
   'blog-overview': { description: 'Article list with search, category filter and pagination, filled from the locale\'s article index' },
   'booking-lookup': { description: 'Form to find a booking by booking reference or ticket number and name, which hands off to the booking pages' },
@@ -76,6 +91,7 @@ const SPEC = {
   embed: { description: 'A YouTube video or in-flight entertainment widget, from its link', rows: { 0: [['Video link']] } },
   'fare-teaser': { description: 'Fare teaser: routes from an origin with the lowest live price per destination' },
   feedback: { description: 'Feedback question with its answer choices', rows: { 0: [['Question']], 1: [['Answers']] } },
+  'checkin-deadlines': { description: 'Check-in deadline search: travel class, country and airport, then the airport\'s check-in deadlines and services (labels and links in optional rows)' },
   'flash-teaser': { description: 'Current messages of the Message Center (disruptions, outages, promotions) at the top of the homepage' },
   'flight-search': {
     multi: true, description: 'Flight search form (origin, destination, dates, travellers) that hands off to the booking; each row is one setting (key and value), optional ones can be added or removed', item: [['Setting'], ['Value']],
@@ -154,6 +170,7 @@ const title = (s) => s.charAt(0).toUpperCase() + s.slice(1);
 const variants = new Map();
 walk(CONTENT).forEach((file) => {
   const page = `/${file.replace(/\.plain\.html$/, '')}`;
+  if (SKIP_PAGES.has(page)) return;
   const doc = parse(`<main>${fs.readFileSync(path.join(CONTENT, file), 'utf8')}</main>`);
   const seen = new Set();
   doc.querySelectorAll('main > div > div[class]').forEach((block) => {
@@ -222,10 +239,11 @@ function trimCell(cell, n) {
  * the model is cut to the model (the fields table describes the sample). Multi: the rows before
  * its first item are left out (the first row is the item schema).
  */
-function sampleFor(entry, uses, multi, preferred) {
+function sampleFor(entry, uses, multi, preferred, config = new Set()) {
   const byPage = (a, b) => (localeRank(a.page) - localeRank(b.page)) || a.page.localeCompare(b.page);
-  // multi: the first item row (the sample starts with it); a fixed block starts with row 1
-  const first = (u) => (multi ? u.d.rows.findIndex((r) => rowFits(entry.model, r)) : 0);
+  // multi: the first item row (the sample starts with it; config rows are no items); a fixed
+  // block starts with row 1
+  const first = (u) => (multi ? u.d.rows.findIndex((r) => !config.has(r.key) && rowFits(entry.model, r)) : 0);
   const exact = (u) => (multi ? rowIsModel(entry.model, u.d.rows[first(u)]) : u.d.rows.every((r, i) => rowIsModel(entry.model[i], r)));
   const items = (u) => (multi ? u.d.rows.slice(first(u), first(u) + MAX_ITEMS).filter((r) => rowFits(entry.model, r)).length : 0);
   // the earlier sample (pickSample) stays when it is the model exactly: no change for authors
@@ -357,10 +375,12 @@ const missingSpec = [];
     const empty = spec.multi && !sample.block.children.length;
     // a multi block needs a first item for its fields; an empty sample gets the description only
     const meta = empty ? `<div class="library-metadata"><div><div><p>description</p></div><div><p>${esc(description)}</p></div></div></div>` : metadataHtml(description, fields);
-    sections.push(`<div>${heading ? `<h2>${esc(heading)}</h2>` : ''}${sampleHtml(sample.block, spec)}${meta}</div>`);
+    // every entry under its H2: the dialog names it and links to it (its anchor)
+    const h2 = heading || `${title(name.replace(/-/g, ' '))}${v.opts.length ? ` (${v.opts.join(', ')})` : ''}`;
+    sections.push(`<div><h2>${esc(h2)}</h2>${sampleHtml(sample.block, spec)}${meta}</div>`);
     const pages = [...new Set(v.uses.map((u) => u.page))];
     manifest[`${v.key}${heading ? ` [${heading}]` : ''}`] = {
-      block: name, variant: v.opts.join(', '), heading: heading || '', multi: !!spec.multi, sample: sample.page, pages, fieldsOmitted: empty, ...(extra.entry ? { entry: extra.entry } : {}), ...(sample.trimmed ? { trimmed: true } : {}),
+      block: name, name: h2, variant: v.opts.join(', '), heading: heading || '', multi: !!spec.multi, sample: sample.page, pages, fieldsOmitted: empty, ...(extra.entry ? { entry: extra.entry } : {}), ...(sample.trimmed ? { trimmed: true } : {}),
     };
   };
   list.forEach((v) => {
@@ -377,13 +397,14 @@ const missingSpec = [];
     // the Block Inspector edits every block of the variant with it), samples cut to the model
     const multi = !!spec.multi;
     const entries = chooseModels(v.uses.map((u) => u.d), multi);
+    const config = multi ? configKeys(v.uses.map((u) => u.d)) : new Set();
     if (!entries.length) {
       addVariant(v, pickSample(v, spec));
       return;
     }
     const label = `${title(name.replace(/-/g, ' '))}${v.opts.length ? ` (${v.opts.join(', ')})` : ''}`;
     entries.forEach((entry, i) => {
-      const sample = sampleFor(entry, v.uses, multi, i ? null : pickSample(v, spec));
+      const sample = sampleFor(entry, v.uses, multi, i ? null : pickSample(v, spec), config);
       if (!i) {
         addVariant(v, sample);
         return;
@@ -394,8 +415,8 @@ const missingSpec = [];
       });
     });
   });
-  fs.writeFileSync(path.join(OUT, `${name}.html`), `<body><header></header><main>${sections.join('')}</main><footer></footer></body>\n`);
-  index.push({ name: title(name.replace(/-/g, ' ')), path: `https://content.da.live/${ORG_SITE}/library/blocks/${name}` });
+  fs.writeFileSync(path.join(OUT, `${name}.plain.html`), sections.join(''));
+  index.push({ name: spec.title || title(name.replace(/-/g, ' ')), path: `https://content.da.live/${ORG_SITE}/library/blocks/${name}` });
 });
 
 const editor = Object.entries(SPEC).filter(([n, s]) => s.multi && byBlock.has(n)).map(([block]) => ({ block, property: 'multi' })).sort((a, b) => a.block.localeCompare(b.block));
@@ -413,5 +434,10 @@ const json = {
   blocks: sheet(index), editor: sheet(editor), options: sheet(options), ':names': ['blocks', 'editor', 'options'], ':version': 3, ':type': 'multi-sheet',
 };
 fs.writeFileSync(path.join(CONTENT, 'library/blocks.json'), `${JSON.stringify(json, null, 2)}\n`);
+// the migration tools' block list (.migration/project.json: /library/ema-library.json), the same names
+const ema = {
+  total: index.length, limit: index.length, offset: 0, data: index.map((b) => ({ name: b.name, path: b.path.replace(`https://content.da.live/${ORG_SITE}`, '') })), ':type': 'sheet',
+};
+fs.writeFileSync(path.join(CONTENT, 'library/ema-library.json'), `${JSON.stringify(ema, null, 2)}\n`);
 fs.writeFileSync(path.join(root, 'tools/library/library-variants.json'), `${JSON.stringify(manifest, null, 1)}\n`);
 console.log(`build-library: ${byBlock.size} block documents, ${Object.keys(manifest).length} variants (incl. content variants), editor ${editor.length}, options ${options.length}${missingSpec.length ? `; no spec: ${missingSpec.join(', ')}` : ''}`);

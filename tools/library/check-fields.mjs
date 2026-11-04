@@ -114,11 +114,16 @@ const pageBlocks = (page, name, variant) => {
 const results = [];
 // the library entries per class combination, in library order: the Block Inspector edits every
 // block of a combination with its first entry (library.js getBlockFieldTemplate: the first match)
-const entries = fs.readdirSync(LIB).filter((f) => f.endsWith('.html')).sort().flatMap((file) => libraryVariants(fs.readFileSync(path.join(LIB, file), 'utf8')).map((item) => {
+// the documents of the blocks the build wrote (a block's document may stay after it left the
+// library); a first entry's H2 is its name ("Accordion columns (faq)"), not a later structure's
+const built = new Set(Object.values(manifest).map((m) => m.block));
+const entryName = (name, variant) => `${name.charAt(0).toUpperCase()}${name.slice(1).replace(/-/g, ' ')}${variant ? ` (${variant})` : ''}`;
+const entries = fs.readdirSync(LIB).filter((f) => f.endsWith('.plain.html') && built.has(f.replace(/\.plain\.html$/, ''))).sort().flatMap((file) => libraryVariants(fs.readFileSync(path.join(LIB, file), 'utf8')).map((item) => {
   const [name, ...opts] = item.block.className.trim().split(/\s+/);
   const variant = opts.join(', ');
+  const heading = item.heading === entryName(name, variant) ? '' : item.heading;
   return {
-    item, name, variant, cls: `${name}|${variant}`, key: `${variant ? `${name} (${variant})` : name}${item.heading ? ` [${item.heading}]` : ''}`,
+    item, name, variant, cls: `${name}|${variant}`, key: `${variant ? `${name} (${variant})` : name}${heading ? ` [${heading}]` : ''}`,
   };
 }));
 const firstOf = new Map();
