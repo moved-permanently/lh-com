@@ -7,10 +7,13 @@
  * schedule, link, each with its icon, label, value and note. The picture beside it from 1024 px.
  *
  * Rows (key | value): Sheet (the root's contacts sheet, one row per entry: country (ISO code),
- * name (the country's name in the root's language), city, group, kind (text, phone, whatsapp,
- * email, address, schedule, link), label (else the kind's), value, note), Image, Select and City
- * (the selects' labels; else TAP's "Select country" and "City" in the page's language). First the
- * root's market country and its first city. Another brand's hotline-finder is unchanged.
+ * name (the country's name in the root's language), city, default ("true" on the default city's
+ * rows), group, kind (text, phone, whatsapp, email, company, address, schedule, link), label
+ * (else the kind's), value, note; tools/tap-data/contacts-sheet.mjs writes it from www's), Image,
+ * Select and City (the selects' labels; else TAP's "Select country" and "City" in the page's
+ * language). First the root's market country and its default city (else its first). As www: one
+ * label over a kind's entries (a company and its address one address), the schedule in a column
+ * of its own. Another brand's hotline-finder is unchanged.
  * The look: styles/themes/tap.css (.hotline-finder-tap).
  */
 
@@ -39,7 +42,10 @@ export const TAP_CONTACT_LABELS = {
   },
 };
 
-export const KINDS = ['text', 'phone', 'whatsapp', 'email', 'address', 'schedule', 'link'];
+export const KINDS = ['text', 'phone', 'whatsapp', 'email', 'company', 'address', 'schedule', 'link'];
+
+/** The field an entry is shown in: a company with its address. */
+const fieldOf = (kind) => (kind === 'company' ? 'address' : kind);
 
 const el = (tag, attrs = {}, text = '') => {
   const node = document.createElement(tag);
@@ -68,7 +74,8 @@ export function contactsOf(rows) {
     if (!c) { c = { code, name: String(r.name || '').trim() || code, cities: [] }; countries.push(c); }
     const cityName = String(r.city || '').trim();
     let city = c.cities.find((x) => x.name === cityName);
-    if (!city) { city = { name: cityName, groups: [] }; c.cities.push(city); }
+    if (!city) { city = { name: cityName, groups: [], isDefault: false }; c.cities.push(city); }
+    if (String(r.default || '').trim().toLowerCase() === 'true') city.isDefault = true;
     const title = String(r.group || '').trim();
     let group = city.groups.find((g) => g.title === title);
     if (!group) { group = { title, entries: [] }; city.groups.push(group); }
@@ -82,28 +89,44 @@ export function contactsOf(rows) {
 /** A telephone number as a tel: address (digits and the leading +). */
 export const telOf = (phone) => `tel:${String(phone).replace(/[^+\d]/g, '')}`;
 
-function entryOf(entry, labels) {
-  if (entry.kind === 'text') return el('p', { class: 'hotline-finder-text' }, entry.value);
-  const item = el('div', { class: `hotline-finder-entry hotline-finder-${entry.kind}` });
-  item.append(el('span', { class: 'hotline-finder-label' }, entry.label || labels[entry.kind] || ''));
+function valueOf(entry) {
   const value = el('p', { class: 'hotline-finder-value' });
   if (entry.kind === 'phone') value.append(el('a', { href: telOf(entry.value) }, entry.value));
   else if (entry.kind === 'whatsapp') value.append(el('a', { href: `https://wa.me/${entry.value.replace(/[^\d]/g, '')}`, target: '_blank', rel: 'noopener noreferrer' }, entry.value));
   else if (entry.kind === 'email') value.append(el('a', { href: `mailto:${entry.value}` }, entry.value));
   else if (entry.kind === 'link' && /^https?:\/\//.test(entry.value)) value.append(el('a', { href: entry.value, target: '_blank', rel: 'noopener noreferrer' }, entry.value.replace(/^https?:\/\//, '')));
   else value.textContent = entry.value;
-  item.append(value);
-  if (entry.note) item.append(el('p', { class: 'hotline-finder-note' }, entry.note));
-  return item;
+  return value;
 }
 
-/** The groups of a place as nodes: a heading per group, its text and entries. */
+/**
+ * The groups of a place as nodes: a heading per group, its text, then its entries, one label over
+ * the entries of a field in a row; the schedule in a column of its own (.hotline-finder-side).
+ */
 export function groupsOf(city, labels) {
   return city.groups.map((g) => {
     const box = el('div', { class: 'hotline-finder-group' });
     if (g.title) box.append(el('h3', { class: 'hotline-finder-group-title' }, g.title));
     const entries = el('div', { class: 'hotline-finder-entries' });
-    g.entries.forEach((e) => (e.kind === 'text' ? box : entries).append(entryOf(e, labels)));
+    const main = el('div', { class: 'hotline-finder-main' });
+    const side = el('div', { class: 'hotline-finder-side' });
+    let item = null;
+    g.entries.forEach((e) => {
+      if (e.kind === 'text') {
+        box.append(el('p', { class: 'hotline-finder-text' }, e.value));
+        return;
+      }
+      const field = fieldOf(e.kind);
+      if (!item || item.dataset.field !== field) {
+        item = el('div', { class: `hotline-finder-entry hotline-finder-${field}`, 'data-field': field });
+        item.append(el('span', { class: 'hotline-finder-label' }, e.label || labels[field] || ''));
+        (field === 'schedule' ? side : main).append(item);
+      }
+      item.append(valueOf(e));
+      if (e.note) item.append(el('p', { class: 'hotline-finder-note' }, e.note));
+    });
+    if (main.children.length) entries.append(main);
+    if (side.children.length) entries.append(side);
     box.append(entries);
     return box;
   });
@@ -175,6 +198,9 @@ export default async function decorateTapFinder(block, {
   const showCountry = () => {
     const c = current();
     citySelect.replaceChildren(...c.cities.map((x) => el('option', { value: x.name }, x.name)));
+    // the country's default city first (www's defaultCity)
+    const first = c.cities.findIndex((x) => x.isDefault);
+    if (first > 0) citySelect.children[first].setAttribute('selected', '');
     // a country without cities (or one city without a name): no city select
     cityField.hidden = c.cities.length < 2 && !c.cities[0].name;
     showCity();

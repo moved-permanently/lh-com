@@ -2520,7 +2520,10 @@ body.brand-tap .poi-map-tap .poi-map-region:focus-visible {
    at the left from 1024 px (538 x 275 at 1440, the finder from the column's middle); the country
    and city selects as green-edged pills (48 px, 2 px #65c922), side by side from 768 px; each group
    a GT Flexa 24 / 500 title in TAP's dark green, its entries with an icon, the label Inter 16 / 600,
-   the value (telephones underlined links), the note 12 / 18; two entries to a row from 768 px */
+   the value (telephones underlined links), the note 12 / 18; as www (brief 352) the entries in a
+   column, the schedule in a second one from 1024 px, www's lines kept; the picture 358 x 420 on
+   phones, the pills 52 px and 24 apart, 16 px from a label to its values, the schedule as small as
+   the notes (13 / 19.5, 12 / 18 from 1024 px), 44 px between the picture and the finder */
 body.brand-tap .hotline-finder-tap {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -2550,14 +2553,14 @@ body.brand-tap .hotline-finder-tap .hotline-finder-media img {
   width: 100%;
   height: auto;
   border-radius: 8px;
-  aspect-ratio: 538 / 275;
+  aspect-ratio: 358 / 420;
   object-fit: cover;
 }
 
 body.brand-tap .hotline-finder-tap .hotline-finder-fields {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: 16px;
+  gap: 24px;
   margin-bottom: 24px;
 }
 
@@ -2571,7 +2574,7 @@ body.brand-tap .hotline-finder-tap .hotline-finder-field[hidden] {
 }
 
 body.brand-tap .hotline-finder-tap .hotline-finder-field select {
-  min-height: 48px;
+  min-height: 52px;
   padding: 0 48px 0 24px;
   border: 2px solid #65c922;
   border-radius: 999px;
@@ -2604,11 +2607,20 @@ body.brand-tap .hotline-finder-tap .hotline-finder-text {
   margin: 0 0 16px;
 }
 
-body.brand-tap .hotline-finder-tap .hotline-finder-entries {
+body.brand-tap .hotline-finder-tap .hotline-finder-entries,
+body.brand-tap .hotline-finder-tap :is(.hotline-finder-main, .hotline-finder-side) {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: 24px;
+  align-content: start;
+}
+
+body.brand-tap .hotline-finder-tap .hotline-finder-entries {
   margin-top: 16px;
+}
+
+body.brand-tap .hotline-finder-tap .hotline-finder-main {
+  grid-column: 1;
 }
 
 body.brand-tap .hotline-finder-tap .hotline-finder-label {
@@ -2641,7 +2653,15 @@ body.brand-tap .hotline-finder-tap .hotline-finder-email .hotline-finder-label::
 }
 
 body.brand-tap .hotline-finder-tap .hotline-finder-value {
-  margin: 8px 0 0;
+  margin: 16px 0 0;
+}
+
+body.brand-tap .hotline-finder-tap .hotline-finder-value + .hotline-finder-value {
+  margin-top: 8px;
+}
+
+body.brand-tap .hotline-finder-tap :is(.hotline-finder-text, .hotline-finder-value, .hotline-finder-note) {
+  white-space: pre-line;
 }
 
 body.brand-tap .hotline-finder-tap .hotline-finder-value a:any-link {
@@ -2652,13 +2672,15 @@ body.brand-tap .hotline-finder-tap .hotline-finder-value a:any-link {
 
 body.brand-tap .hotline-finder-tap .hotline-finder-note {
   margin: 8px 0 0;
-  font-size: 12px;
-  line-height: 18px;
+}
+
+body.brand-tap .hotline-finder-tap :is(.hotline-finder-note, .hotline-finder-schedule .hotline-finder-value) {
+  font-size: 13px;
+  line-height: 19.5px;
 }
 
 @media (width >= 768px) {
-  body.brand-tap .hotline-finder-tap .hotline-finder-fields,
-  body.brand-tap .hotline-finder-tap .hotline-finder-entries {
+  body.brand-tap .hotline-finder-tap .hotline-finder-fields {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -2666,7 +2688,20 @@ body.brand-tap .hotline-finder-tap .hotline-finder-note {
 @media (width >= 1024px) {
   body.brand-tap .hotline-finder-tap {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 32px;
+    gap: 44px;
+  }
+
+  body.brand-tap .hotline-finder-tap .hotline-finder-media img {
+    aspect-ratio: 538 / 275;
+  }
+
+  body.brand-tap .hotline-finder-tap :is(.hotline-finder-note, .hotline-finder-schedule .hotline-finder-value) {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  body.brand-tap .hotline-finder-tap .hotline-finder-entries {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
