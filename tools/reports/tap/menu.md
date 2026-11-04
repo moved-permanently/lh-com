@@ -4,6 +4,10 @@ Status of 2026-11-04: **the 145 nav documents (the eight language versions' and 
 roots') are uploaded to DA (`moved-permanently/lh-tap`) and previewed, 145 of 145 answer 200;
 nothing published.** The code is on main (a5584160, 36ec98e2, f1f331b9, 833cad7c).
 
+Brief 341 (2026-11-04): **the 145 navs built again with the two banner pictures (tap-media-021)
+and the market's flag, uploaded and previewed, 145 of 145 with a flag row; nothing published.**
+The code is on main (9c46b126, b7fd82a6, 7019fc00, 60d4bcfb).
+
 ## What www shows (en-pt, 1440 x 900 and 390 x 844, 2026-11-04 06:20 CET)
 
 | | www | ours before | ours after |
@@ -13,7 +17,7 @@ nothing published.** The code is on main (a5584160, 36ec98e2, f1f331b9, 833cad7c
 | Heading | TAP's type 18 / 700, a link, TAP's green chevron 24 px before it | 18 px text, no link, no chevron | as www |
 | Links | Inter 16, 33.5 px apart | 41 px apart | 33.5 px apart |
 | "See all" | under Book and Trip information (`showSeeAll`), Inter 16 / 500, dark green, underlined | none | as www, www's text per language (`menu-see-all`) |
-| Banner | a 266 x 224 picture card on the right: green corner and arc, title 24 / 700 and line 13 / 700 in white, a white "Find out more" pill | a fourth text column with "Find out more" only | as www; the picture is in no archive yet (below) |
+| Banner | a 266 x 224 picture card on the right: green corner and arc, title 24 / 700 and line 13 / 700 in white, a white "Find out more" pill | a fourth text column with "Find out more" only | as www, with www's picture (brief 341: Plan a trip and TAP Miles&Go at 1440 on preview, the picture 266 x 224 at x 998) |
 | Plan a trip | 330 high | 365 | 329 |
 | My flights | "Manage booking" (4 links) and "Extras" (3), 223 high | only "Extras", 284 wide | both columns, 223 high |
 | Check-in | sign-in widget, booking-code form, "Check-in Information" | no item (the quick action, a plain link) | the item, a column to the homepage's check-in box in place of the form, "Check-in Information" |
@@ -73,6 +77,19 @@ link counts and "See all", and the banner's title:
   the links have −0.01em letter spacing (as `tap.css` gives the bar's buttons), and the columns
   give way into their gaps rather than push the banner out of the panel.
 
+## The market button and the inner pages' tab (brief 341)
+
+| | www (en-pt, de-ch) | ours before | ours after (preview) |
+| --- | --- | --- | --- |
+| Market button | the market's flag in a 20 px circle and the page's language ("EN", "DE"), 63 x 40, Inter 16 / 400 | a globe and the country ("CH") | the flag and "EN" / "DE", 67 x 40 (our Inter's "EN" 4 px wider) |
+| Phone card's market row | the flag, then "PT, English" | a globe | the flag |
+| Inner pages | a lime (#9efd38) tab under the pill: Book flight, Check-in, Manage booking, Flight status (icons only on phones); the breadcrumb 176 px from the top | no tab, the breadcrumb higher | the tab (630 x 55 at 1440, 196 x 56 at 390) linking the root homepage's box (`/<root>#book-flight` …); the breadcrumb's first link at 178 (1440) and 176 (390) |
+
+- The flag is www's own SVG from the homepage's header, written to `/media-da/tap/flag-<cc>-<hash>.svg`
+  and put in the nav as the menu section's last row (a picture named for the market); the header
+  reads it (`readTapFlag`), the preview serving it in a `<picture>` (7019fc00).
+- lh-com's bar tools are 50 px wide: the button is as wide as its flag and language (60d4bcfb).
+
 ## Other brands
 
 The tap-menu branch against main with `tools/markets/compare-roots.mjs`: **lufthansa.com's 19
@@ -84,20 +101,17 @@ and the flash teaser's progress ring (timing).
 
 ## Gaps
 
-1. **The banner pictures are in no archive** (www's `bannerMenu`; the capture never fetched them,
-   so `missing-pictures.txt` doesn't list them either): every root's menu uses the same two. **For
-   the capture:**
+1. ~~**The banner pictures are in no archive**~~ captured in tap-media-021 and in the navs since
+   brief 341 (every root's menu uses the same two):
    - `https://pic.flytap.com/adobe/dynamicmedia/deliver/dm-aid--e9207061-036c-4438-83d7-c643440ab183/image_airport_ESS_V4.jpg`
      (Plan a trip, 145 roots)
    - `https://pic.flytap.com/adobe/dynamicmedia/deliver/dm-aid--3c60d8f3-1102-4460-8b70-bd24cc231bd3/card_menu_mile_go.jpg`
      (TAP Miles&Go, 143 roots)
 
-   Until then the cards show TAP's dark grey with the green corner, the arc, the texts and the
-   pill. Once the pictures are in an archive, a nav build and upload puts them in.
 2. **Check-in's booking-code form and sign-in list** are www's live widgets: a link to the
    homepage's check-in box in their place.
-3. **On phones** www turns the menu button into a close icon while the menu is open, and its card
-   ends with the market button ("PT, English"); ours keeps the menu icon and has no market row.
+3. ~~**On phones** the close icon and the market row~~ done in brief 332; the row has the flag
+   since brief 341.
 4. **The language footers** are not part of this brief: rebuilt locally, not uploaded. pt-br's will
    take www's `br` texts at its next footer build (the same lookup as "See all").
 5. **The workspace's local content tree** (`content/`, a link to a folder outside the repository)

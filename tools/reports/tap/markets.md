@@ -7,6 +7,15 @@ pictures); every one answers 200 on `main--lh-tap--moved-permanently.aem.page`. 
 roots' own documents (414) were uploaded before (brief 327). Nothing is published.** The market
 variants' capture placed 966 of the 1,129 rule hits; 147 in 6 groups have no capture (below).
 
+Brief 341 (2026-11-04): **438 documents uploaded again and previewed** (all 200,
+`content-sites/lh-tap/runs/step341-upload.txt`): the eight language homepages, stopover pages,
+navs and footers, and the roots' 137 homepages, 137 navs and 132 footers. Every homepage's
+booking box has the 16 label rows of ema-adobe's list (www's texts for the seven
+`ibe.*`/`login-and-make-easier`/`validation-invalid`; our own translations for the block's 9,
+`booking-labels.json`); the homepage's Miles&Go is the four cards' `columns-media (stack)`; the
+navs carry the banners' pictures and the market's flag; the footers Star Alliance and Cookies
+Settings. Nothing published.
+
 Ben's option B (`tools/reports/markets/plan.md` 4.B): one document per language page; a market
 root holds documents of its own only where it differs. www.flytap.com authors one version per
 language and applies its country rules on the server; our language versions are their home
