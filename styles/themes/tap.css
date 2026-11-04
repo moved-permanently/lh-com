@@ -1906,12 +1906,11 @@ body.brand-tap .cards.three-up a.button:any-link::after {
    row 14's rule above) */
 body.brand-tap main :is(h1, h2, h3, h4, h5, h6) {
   letter-spacing: -0.02em;
-  hyphens: manual;
 }
 
-/* headings wrap as www's (row 47: the same GT Flexa files, sha256 equal, and the same metrics;
-   www breaks lines greedily, text-wrap: wrap, and hyphenates nothing, where lh-com balances the
-   hero card's lines and hyphenates long words on phones) */
+/* the hero card's title breaks its lines as www's (row 47: the same GT Flexa files, sha256 equal,
+   and the same metrics; www breaks lines greedily, text-wrap: wrap, where lh-com balances them;
+   lh-com's phone rule for 14+ letter words stays: test/heading-wrap.test.mjs) */
 body.brand-tap .hero-card-overlay .hero-card-overlay-card :is(h1, h2, h3, h4, h5, h6),
 body.brand-tap .hero-card-overlay .hero-card-overlay-card .hero-card-overlay-eyebrow {
   text-wrap: wrap;

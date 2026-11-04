@@ -1,8 +1,8 @@
 /* eslint-disable max-len, class-methods-use-this */
 /* TAP's brief 339 (tools/reports/tap/parity.md rows 45 to 47):
    - row 47, the headings' line breaks: fonts/tap holds www.flytap.com's own GT Flexa and Inter files
-     (sha256 as www serves them, 2026-11-04); the difference was lh-com's balanced and hyphenated
-     headings, which brand tap turns off;
+     (sha256 as www serves them, 2026-11-04); the difference was lh-com's balanced hero-card title,
+     which brand tap wraps greedily;
    - row 45, the destinations map: tools/tap-data/destinations-sheet.mjs (the destinations of the
      captured page's __NEXT_DATA__, placed by the root's airport sheet and OurAirports) and poi-map on
      brand tap with a sheet as its Source (blocks/poi-map/poi-map-tap.js: green dots, the regions);
@@ -30,13 +30,12 @@ const mapTap = await import('../blocks/poi-map/poi-map-tap.js');
 const finderTap = await import('../blocks/hotline-finder/hotline-finder-tap.js');
 const css = fs.readFileSync(new URL('../styles/themes/tap.css', import.meta.url), 'utf8');
 
-test('row 47: fonts/tap are www\'s own files (the same sha256), headings wrap greedily and hyphenate nothing', () => {
+test('row 47: fonts/tap are www\'s own files (the same sha256), the hero card\'s title wraps greedily as www\'s', () => {
   const sha = (f) => crypto.createHash('sha256').update(fs.readFileSync(new URL(`../fonts/tap/${f}`, import.meta.url))).digest('hex');
   assert.equal(sha('GTFlexa-400.ttf'), 'f1b507fd03a8e8bca4b829fd8c5d4321adfd579b1b6a5fb7e21156e52e510ea3');
   assert.equal(sha('GTFlexa-500.ttf'), '33179f5fe30c93aab8366f3120afcba9cf559c7cee50511073ec8d977f8d172c');
   assert.equal(sha('GTFlexa-700.ttf'), 'e5c22056af2025c3c7599f3aa1c6f1f783201b64a6b3002f2297ad86732ef419');
   assert.equal(sha('Inter-latin.woff2'), 'c940764593d0fe5d596be327ca7558855e018039fb78509aa21921fd3644c3e4');
-  assert.match(css, /body\.brand-tap main :is\(h1, h2, h3, h4, h5, h6\) \{\s*letter-spacing: -0\.02em;\s*hyphens: manual;/);
   assert.match(css, /body\.brand-tap \.hero-card-overlay \.hero-card-overlay-card :is\(h1, h2, h3, h4, h5, h6\),\s*body\.brand-tap \.hero-card-overlay \.hero-card-overlay-card \.hero-card-overlay-eyebrow \{\s*text-wrap: wrap;/);
 });
 

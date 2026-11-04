@@ -81,14 +81,14 @@ tokens) and the computed styles of the pages above.
 | 37 | Inner banners on phones | the title 32 px, the lead Inter 20 / 30 | the homepage stage's 24 and 18 | theme | fixed (brief 336) |
 | 38 | Running text width | the content's whole width (1120 px at 1440) | two thirds (lh-com's limited width) | theme | fixed (brief 336) |
 | 39 | Breadcrumb's place under the header | 176 px from the top (the bar and its green quick-action tab above it) | 96 to 120 px (no quick-action tab) | header (ema-lufthansa) | open |
-| 40 | Help centre contacts (ajuda) | a country / city picker with phone numbers, opening hours and desks | a link to www ("See on flytap.com") | app | open |
+| 40 | Help centre contacts (ajuda) | a country / city picker with phone numbers, opening hours and desks | a link to www ("See on flytap.com") | variant (hotline-finder on brand tap) + data (a contacts sheet per root) | block built (brief 339), tested on a local draft with a sample; the data is not in the captures (below) |
 | 41 | LUGGit (bagagem) | the LUGGit booking widget | a link to www | app | open |
 | 42 | Stopover video (stopover) | a 32 px-rounded video, its title over it | columns-media: the video, the title beside it | import (ema-lufthansa) | open |
 | 43 | FAQ teaser card (stopover) | a #fcfcfc card with a 4 px green left edge, an outline button over its width | a heading, a line and a green button | import (a section style) | open |
 | 44 | A lone button under the text (stopover "Book now") | centred | at the left | import (no marker in the content tells it from left-aligned ones) | open |
-| 45 | Destinations map and cards (destinos) | Smartvel's map, filter chips and destination cards | the continents as an accordion, the get-inspired banner | app | open |
+| 45 | Destinations map and cards (destinos) | Smartvel's map, filter chips and destination cards | the continents as an accordion, the get-inspired banner | variant (poi-map on brand tap) + data (a destinations sheet per root) | map built (brief 339), tested on a local draft; Smartvel's cards and themes stay www's (below) |
 | 46 | Homepage Miles&Go cards | four cards stacked as on www | the visitor's card as text and a picture | import: drafts/miles-go-stack (ema-lufthansa's importer) | open |
-| 47 | Christmas banner title on phones | "Christmas Markets / in Europe" | "Christmas / Markets in Europe" (the same 32 / 38.4, 500, -2 %, 310 px box) | the font files (GT Flexa against www's build) | open |
+| 47 | Christmas banner title on phones | "Christmas Markets / in Europe" | "Christmas / Markets in Europe" (the same 32 / 38.4, 500, -2 %, 310 px box) | theme: not the fonts (www's files, sha256 equal) but lh-com's text-wrap: balance on the hero card | fixed (brief 339) |
 
 ## What was fixed (commits)
 
@@ -301,3 +301,175 @@ Checks:
 - **lh-edge:** no file on its deploy paths changed.
 
 Rollback: `git revert` of the commits.
+
+## Brief 339: the headings' line breaks, the destinations map, the help contacts (rows 47, 45, 40)
+
+Code only, all TAP-scoped, nothing published. Every other brand's poi-map and hotline-finder are
+unchanged.
+
+### Row 47: the fonts are www's, the wrapping was not
+
+www.flytap.com's stylesheet (`/_next/static/css/86708601e3be1e13.css`) loads its `tap` font
+from three files: `58f00d2219f5e110-s.p.ttf` (400), `ddf52e3354263f0b-s.p.ttf` (500) and
+`b3b32643e73e0a8d-s.p.ttf` (700). Inter is `e4af272ccee01ff0-s.p.woff2`, the latin range. I
+fetched each file once on 2026-11-04. Each one has the same sha256 and size as ours in
+`fonts/tap/`:
+
+| File | Bytes | sha256 |
+| --- | --- | --- |
+| `GTFlexa-400.ttf` | 145,079 | `f1b507fd…510ea3` |
+| `GTFlexa-500.ttf` | 147,643 | `33179f5f…8d172c` |
+| `GTFlexa-700.ttf` | 169,007 | `e5c22056…32ef419` |
+| `Inter-latin.woff2` | 48,432 | `c9407645…44c3e4` |
+
+The `@font-face` rules match too:
+- `font-display: swap`, truetype for the 400, 500 and 700 weights;
+- no `font-feature-settings`;
+- www's `font-style: semibold` and `bold` are not valid values, so the browser treats them as
+  normal;
+- www's `size-adjust` (105.27 %) and its overrides apply only to its Arial fallback, "tap
+  Fallback", which shows until the font loads. I left them out: ours falls back to Arial too.
+
+Both sites measure the heading at 427.7 px on one line. The difference was in the wrapping:
+lh-com balances the hero card's title and eyebrow (`text-wrap: balance`), while www wraps
+greedily. Brand tap now wraps them greedily too.
+
+lh-com's phone rule still hyphenates words of 14 letters or more, so a long word cannot push the
+page sideways (`test/heading-wrap.test.mjs` keeps brand themes from turning it off). www
+hyphenates nothing, but none of the compared headings has a word that long.
+
+**Check:** I compared every h1 to h4 on `/en-pt`, `/en-pt/stopover`, `/en-pt/miles-and-go` and
+`/pt-pt/ajuda` at 390 and 1440, 94 headings in all. 93 have as many lines as on www. The one
+that differs is stopover's video title, which sits in a box of another shape (row 42, import).
+
+### Row 45: the destinations map
+
+**The data.** www's map is Smartvel's widget (`<exploreandgo>`, its script from
+cdn.smartvel.com). Its points are not in the page. The page's `__NEXT_DATA__` in the capture
+archives (tap-snapshots-001 `pt-pt/destinos`, -003 `en-pt/destinations`) holds the destinations:
+- `ComponentAccordionItemsListModel`, three regions with 89 destinations;
+- each destination a city, its country and the two flights links.
+
+`tools/tap-data/destinations-sheet.mjs` places each destination by its airport:
+- the city's name is matched to the root's recorded airport sheet
+  (`content-sites/lh-tap/runs/airports/<root>.json`, TAP's city codes), the destination's
+  country first ("Boa Vista" is Cape Verde's BVC, not Brazil's BVB);
+- a city code (NYC, LON) is placed at the mean of its airports, leaving out the odd one (the
+  sheet's NYC lists YYY, a Canadian code);
+- the coordinates come from OurAirports' public `airports.csv` (public domain), fetched once;
+- 16 names that differ are kept in the tool's `PLACES`.
+
+No TAP API is called. en-pt and pt-pt both give 89 of 89 destinations, with the same set of
+codes.
+
+**The block.** poi-map on brand tap, with a sheet as its Source (`poi-map-tap.js`):
+- a green dot per destination;
+- the bubble "Accra, Ghana" with "Flights to Accra", linking to www's flights page (in the
+  page's language);
+- zoom buttons as white circles at the top right;
+- above the map, "All" and one button per region; a region shows its dots and fits the map to
+  them.
+
+The tiles are OpenStreetMap's: CARTO's light tiles now answer "API key required".
+
+**Not as www:** Smartvel's search box, its theme chips (Christmas Markets …) and its destination
+cards with pictures and texts. Their data is Smartvel's and is not in the captures.
+
+**The content change, for ema-lufthansa (`tools/importer/tap-*`):**
+- **Where:** on each root's destinations page (`/en-pt/destinations`, `/pt-pt/destinos` …), in
+  place of the "See on flytap.com" paragraph (www's `ComponentWidgetFreeBlockModel` with
+  `exploreandgo`).
+- **The block table:**
+
+  | poi-map | |
+  | --- | --- |
+  | Source | `/<root>/destinations/destinations-map.json` |
+
+- **The sheet:** one per root, `/<root>/destinations/destinations-map.json`, from that root's
+  captured destinations page: `node tools/tap-data/destinations-sheet.mjs --root <root> --page
+  <capture> --airports content-sites/lh-tap/runs/airports/<root>.json --ourairports
+  <airports.csv> --out <sheet>`. Columns: region, city, country, code, lat, lng, link,
+  countryLink. The tool prints any name it cannot place; add it to `PLACES`.
+
+**The draft:** `/drafts/destinations-map` and its sheet `/drafts/destinations-map-en-pt.json`,
+the en-pt page with the block in place. Both are local copies in
+`content-sites/lh-tap-draft/drafts/`. The upload to Document Authoring (DA) was blocked by the
+remote-content guard, so they are not in DA yet. I checked the block on a local copy, with TAP's
+brand set in the test browser.
+
+### Row 40: the help contacts
+
+**What www shows:** `ComponentContactsByCountryModel` (folder `contacts`), a country select and
+a city select. Under them, the place's groups (TAP Miles&Go Customer Service, Contact Center,
+Customer Service Desk, Lost & Found …), each with a telephone, its note, a schedule or an
+address.
+
+**The data is not in the captures.** The page loads it after it renders. The archives hold only
+www's labels: `contact.contact-center`, `contact.atendimento-tap-milesgo`,
+`contact.balcao-de-servico-ao-cliente`, `contact.lost-and-found`, `contact.phone.whatsapp` …,
+plus "Select country" and "Schedule". A capture of the finder per country and city (or of its
+data request) is needed. I did not call TAP's live API.
+
+**The block.** hotline-finder on brand tap (`hotline-finder-tap.js`):
+- the picture with 8 px corners, beside the finder from 1024 px;
+- the country and city selects as green-edged pills;
+- the market's country first;
+- each group's title in GT Flexa 24 / 500, dark green;
+- the entries with icons, labels, values (telephones as links) and notes, two to a row from
+  768 px.
+
+**The content change, for ema-lufthansa:**
+- **Where:** on each root's help page, the Contacts section (`/en-pt/help`, `/pt-pt/ajuda` …),
+  in place of "See on flytap.com".
+- **The block table:**
+
+  | hotline-finder | |
+  | --- | --- |
+  | Sheet | `/<root>/help/contacts.json` |
+  | Image | www's `help-contact-center-tap.jpg` |
+
+- **The sheet:** one per root, one row per entry. Columns:
+  - country (ISO code);
+  - name (the country's name in the root's language);
+  - city;
+  - group (www's contact type, in the root's language);
+  - kind (text, phone, whatsapp, email, address, schedule, link);
+  - label (optional);
+  - value;
+  - note.
+
+**The draft:** `/drafts/help-contacts` and `/drafts/help-contacts-en-pt.json`, local copies in
+`content-sites/lh-tap-draft/drafts/`, not uploaded (the guard). The sheet is a SAMPLE: Portugal /
+Lisbon's seven entries as www's help page showed them on 2026-11-04 (brief 336's screenshots).
+It is there only to test the block until a capture holds every country.
+
+### Checks
+
+Screenshots (not committed), in `/tmp/tap-339`:
+- **The map, local:** `map-local-*.png`.
+- **The contacts, local:** `contacts-local-*.png`.
+- **The Christmas banner:** `xmas-before-390.png` (tap.turnsthe.page) and `xmas-after-390.png`
+  (the branch), next to www's.
+
+Tests: `test/tap-339.test.mjs`. It covers:
+- the font hashes;
+- the sheet tool on a fixture (nested spans, the country's Boa Vista, NYC without YYY, the
+  hand-kept names, unplaced names);
+- the map's sheet, its bubbles and its region buttons;
+- the contacts grouping and the finder's selects;
+- the two blocks hand brand tap to their variants only;
+- the new rules all under `body.brand-tap`.
+
+Comparisons, main against the branch `cmp-339`:
+- **lufthansa.com's 19 pages:** 19 of 19 equal with a warm cache.
+- **poi-map's lufthansa.com pages** (`/de/en/100-years/destinations`,
+  `/de/en/articles/explore-the-world`, `/at/de/first-class` and its Barcelona article): 4 of 4
+  equal on the first capture. On the second, the Barcelona page's stylesheets loaded in another
+  order (timing).
+- **lh-b2b's hotline-finder pages** (`/de/en/about-us/contact`, `/xx/en/about-us/contact`):
+  2 of 2 equal.
+- **The other brands' homepages:** equal. ITA and SWISS differ only in the flash teaser's progress
+  ring; Air Dolomiti only in its stylesheets' order (timing).
+- **The Christmas banner on phones:** "Christmas Markets / in Europe" as www's.
+
+Rollback: `git revert` of the commit.
