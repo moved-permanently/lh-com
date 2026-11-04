@@ -831,6 +831,10 @@ export default async function decorate(block) {
   // TAP's layout (scripts/brands.js tap: header.layout 'tap', ./header-tap.js): www.flytap.com's
   // top-level menu, search and account linked to www, the bar inside the homepage's stage
   const tap = headerStyle.layout === 'tap' ? await import('./header-tap.js') : null;
+  // Air Dolomiti (the page's brand airdolomiti, ./header-airdolomiti.js): www.airdolomiti.it's
+  // menu in the bar with its panels from 1025px, the search button and the language list in the
+  // bar, no quick actions; every other brand as before
+  const airdolomiti = /^airdolomiti$/i.test(getMetadata('brand')) ? await import('./header-airdolomiti.js') : null;
 
   // brand
   const brandEl = el('div', { className: 'nav-brand' });
@@ -859,7 +863,7 @@ export default async function decorate(block) {
   const quickEl = el('div', { className: 'nav-quick' });
   const quickList = el('ul');
   // (TAP's bar has no quick actions: www's top-level menu takes its Check-in, tapMenuItems)
-  if (quick && !tap) {
+  if (quick && !tap && !airdolomiti) {
     quick.querySelectorAll('a[href]').forEach((a) => {
       quickList.append(el('li', {}, navLink(a.getAttribute('href'), text(a), 'nav-quick-link', labels)));
     });
@@ -960,7 +964,7 @@ export default async function decorate(block) {
       .map((t) => toolLink(t, `nav-tool nav-tool-${t.role}`, false)));
     tapTools.forEach((a) => toolsEl.append(a));
   }
-  if (siteSwitch && headerStyle.languages === 'bar') {
+  if ((siteSwitch && headerStyle.languages === 'bar') || (siteSwitch && airdolomiti)) {
     const { default: buildLanguages } = await import('./header-languages.js');
     languages = buildLanguages({
       // TAP's button names the market (www's "PT"), the others the language
@@ -975,7 +979,7 @@ export default async function decorate(block) {
     toolsEl.append(languages.root);
   }
   // the search button (header.search 'button': www's boxed search icon to the search page)
-  const searchTool = headerStyle.search === 'button' ? byRole('search') : null;
+  const searchTool = headerStyle.search === 'button' || airdolomiti ? byRole('search') : null;
   if (searchTool && searchTool.href) toolsEl.append(await toolLink(searchTool, 'nav-tool nav-tool-search', false));
   if (toolsEl.children.length) toolsEl.append(el('span', { className: 'nav-divider', 'aria-hidden': 'true' }));
   const menuButton = el(
@@ -1076,6 +1080,11 @@ export default async function decorate(block) {
       menuButton,
       quickLinks: quick ? [...quick.querySelectorAll('a[href]')] : [],
     });
+  } else if (airdolomiti) {
+    barMenu = airdolomiti.buildAirDolomitiMenu(menu, {
+      link: (href, label, className) => navLink(href, label, className, labels),
+    });
+    menuButton.addEventListener('click', () => barMenu.close());
   } else if (headerStyle.menu === 'bar') {
     const { default: buildBarMenu } = await import('./header-bar-menu.js');
     barMenu = buildBarMenu(menuItems, {
@@ -1088,7 +1097,7 @@ export default async function decorate(block) {
   // the menu and the notifications panel: one at a time
   if (bell) menuButton.addEventListener('click', () => bell.close());
   if (a11y) menuButton.addEventListener('click', () => a11y.close());
-  const navWrapper = el('div', { className: ['nav-wrapper', barMenu ? 'nav-has-bar-menu' : '', locale.subSite ? 'nav-sub-site' : '', tap ? 'nav-tap' : ''].filter(Boolean).join(' ') }, nav);
+  const navWrapper = el('div', { className: ['nav-wrapper', barMenu ? 'nav-has-bar-menu' : '', locale.subSite ? 'nav-sub-site' : '', tap ? 'nav-tap' : '', airdolomiti ? 'nav-airdolomiti' : ''].filter(Boolean).join(' ') }, nav);
   // TAP's homepage: the bar inside the top of the stage (styles/themes/tap.css body.tap-home)
   if (tap && tap.isTapHome(window.location.pathname, locale.base)) tap.floatInStage(document);
   const flight = flightBar ? await flightBar : null;

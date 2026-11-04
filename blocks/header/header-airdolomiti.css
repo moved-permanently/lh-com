@@ -1,0 +1,307 @@
+/*
+ * Air Dolomiti's header (header-airdolomiti.js, the brand airdolomiti only), as
+ * www.airdolomiti.it's at 1440 px (2026-11-04): from 1025px a full-width white bar 120 px high
+ * (30px 36px padding), the 273 x 50 logo left; the three menu items semibold 24px / 30px midnight
+ * navy, 50 px apart, the open one teal and underlined; then, 60 px on, the tools as 36 px navy
+ * outlined squares (6 px radius, 15 px apart): assistance, search, accessibility settings, the
+ * language. No Menu button. A panel: full width under the bar, white, its columns spread over the
+ * left 1024 px (60px 60px 60px 90px padding), grey 15px titles in capitals, links 17px / 24px
+ * (30 px apart), bold links semibold 19px / 30px (40 px apart), the image card 250 px wide
+ * (10 px radius, its title a beige chip 12 px in, a white button at the bottom); on the right the
+ * quick actions on teal #008293 (416 px, 60px 40px padding): 20 px icons, labels semibold
+ * 17px in capitals, 49 px apart. Below 1025px the bar keeps lh-com's layout and the Menu
+ * button's flyout.
+ */
+.header .nav-airdolomiti .nav-ad-menu {
+  display: none;
+}
+
+/* below 1025px the languages stay in the Menu button's flyout, as before */
+@media (width < 1025px) {
+  .header .nav-airdolomiti .nav-languages {
+    display: none;
+  }
+}
+
+@media (width >= 1025px) {
+  .header .nav-airdolomiti .nav-bar {
+    max-width: none;
+    min-height: 120px;
+    padding: 30px 36px;
+  }
+
+  .header .nav-airdolomiti .nav-brand img {
+    height: 50px;
+  }
+
+  .header .nav-airdolomiti .nav-ad-menu {
+    display: flex;
+    flex: 1 1 auto;
+    order: 2;
+    gap: 50px;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 0 60px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .header .nav-airdolomiti .nav-tools {
+    order: 3;
+    gap: 15px;
+    margin-left: 0;
+  }
+
+  .header .nav-airdolomiti .nav-menu-button,
+  .header .nav-airdolomiti .nav-divider,
+  .header .nav-airdolomiti .nav-quick {
+    display: none;
+  }
+
+  /* the tools: assistance, search, accessibility settings, the language, as www's */
+  .header .nav-airdolomiti .nav-tool-accessibility {
+    order: 1;
+  }
+
+  .header .nav-airdolomiti .nav-tool-search {
+    order: 2;
+  }
+
+  .header .nav-airdolomiti .nav-accessibility-wrapper {
+    order: 3;
+  }
+
+  .header .nav-airdolomiti .nav-languages {
+    order: 4;
+  }
+
+  .header .nav-airdolomiti .nav-tools .nav-tool,
+  .header .nav-airdolomiti .nav-tools .nav-tool.nav-tool-search,
+  .header .nav-airdolomiti .nav-accessibility-wrapper > .nav-tool,
+  .header .nav-airdolomiti .nav-languages-button {
+    display: inline-flex;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border: 1px solid var(--lh-midnight, #040f32);
+    border-radius: 6px;
+    color: var(--lh-midnight, #040f32);
+  }
+
+  .header .nav-airdolomiti .nav-languages-button svg {
+    display: none;
+  }
+
+  .header .nav-airdolomiti .nav-tools .nav-tool svg,
+  .header .nav-airdolomiti .nav-tools .nav-tool .lh-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .header .nav-airdolomiti .nav-languages-current {
+    color: #a0522d;
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .header .nav-airdolomiti .nav-ad-menu-button {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--lh-midnight, #040f32);
+    font-family: var(--body-font-family);
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 30px;
+    cursor: pointer;
+  }
+
+  .header .nav-airdolomiti .nav-ad-menu-button:hover,
+  .header .nav-airdolomiti .nav-ad-menu-button[aria-expanded="true"] {
+    color: var(--lh-whale-blue, #00798a);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .header .nav-airdolomiti .nav-ad-panel {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 2;
+    display: flex;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 12px 25px rgb(0 0 0 / 10%);
+  }
+
+  .header .nav-airdolomiti .nav-ad-panel[hidden] {
+    display: none;
+  }
+
+  .header .nav-airdolomiti .nav-ad-panel-main {
+    display: flex;
+    flex: 0 0 1024px;
+    box-sizing: border-box;
+    justify-content: space-between;
+    max-width: calc(100% - 416px);
+    padding: 60px 60px 60px 90px;
+  }
+
+  .header .nav-airdolomiti .nav-ad-group + .nav-ad-group {
+    margin-top: 30px;
+  }
+
+  .header .nav-airdolomiti .nav-ad-group-title,
+  .header .nav-airdolomiti .nav-ad-quick-title {
+    margin: 0 0 32px;
+    color: #757575;
+    font-size: 15px;
+    line-height: 20px;
+    text-transform: uppercase;
+  }
+
+  .header .nav-airdolomiti .nav-ad-group-title a:any-link {
+    color: inherit;
+    font-weight: 400;
+    text-decoration: none;
+  }
+
+  .header .nav-airdolomiti .nav-ad-list,
+  .header .nav-airdolomiti .nav-ad-quick-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .header .nav-airdolomiti .nav-ad-group-bold .nav-ad-list {
+    gap: 10px;
+  }
+
+  .header .nav-airdolomiti .nav-ad-list li {
+    line-height: 22px;
+  }
+
+  .header .nav-airdolomiti .nav-ad-link:any-link {
+    color: var(--lh-midnight, #040f32);
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 22px;
+    text-decoration: none;
+  }
+
+  .header .nav-airdolomiti .nav-ad-link-bold:any-link {
+    font-size: 19px;
+    font-weight: 600;
+    line-height: 30px;
+  }
+
+  .header .nav-airdolomiti .nav-ad-link:any-link:hover,
+  .header .nav-airdolomiti .nav-ad-group-title a:any-link:hover {
+    text-decoration: underline;
+  }
+
+  .header .nav-airdolomiti .nav-ad-card {
+    position: relative;
+    flex: 0 0 250px;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+
+  .header .nav-airdolomiti .nav-ad-card picture,
+  .header .nav-airdolomiti .nav-ad-card img {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .header .nav-airdolomiti .nav-ad-card-title {
+    position: relative;
+    display: inline-block;
+    margin: 12px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgb(246 242 239 / 80%);
+    color: var(--lh-deepblue, #002e54);
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 30px;
+  }
+
+  .header .nav-airdolomiti .nav-ad-card-cta {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    left: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 12px 16px;
+    border-radius: 6px;
+    background-color: #fff;
+    color: var(--lh-deepblue, #002e54);
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 20px;
+    text-decoration: none;
+  }
+
+  .header .nav-airdolomiti .nav-ad-card-cta::after {
+    content: "";
+    width: 18px;
+    height: 18px;
+    background-color: var(--lh-whale-blue, #00798a);
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='m7 1.5-3 3 7.5 7.5-7.5 7.5 3 3 10.5-10.5z'/%3E%3C/svg%3E") center / contain no-repeat;
+  }
+
+  .header .nav-airdolomiti .nav-ad-quick {
+    flex: 1 1 416px;
+    box-sizing: border-box;
+    padding: 60px 40px;
+    background-color: #008293;
+    color: #fff;
+  }
+
+  .header .nav-airdolomiti .nav-ad-quick-title {
+    margin-bottom: 25px;
+    color: #fff;
+  }
+
+  .header .nav-airdolomiti .nav-ad-quick-list {
+    gap: 25px;
+  }
+
+  .header .nav-airdolomiti .nav-ad-quick-link {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 24px;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .header .nav-airdolomiti .nav-ad-quick-link:hover {
+    text-decoration: underline;
+  }
+
+  .header .nav-airdolomiti .nav-ad-quick-link picture,
+  .header .nav-airdolomiti .nav-ad-quick-link img {
+    display: block;
+    flex: 0 0 20px;
+    width: 20px;
+    height: 20px;
+  }
+}

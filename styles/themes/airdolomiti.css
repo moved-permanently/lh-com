@@ -298,10 +298,28 @@ body.brand-airdolomiti .cards-teaser.three-up > ul > li:has(> .cards-teaser-imag
   }
 }
 
-/* phones: no quick links under the logo (www's phone header: logo, search and the menu) */
+/* phones: no quick links under the logo (www's phone header: logo, search and the menu), so the
+   bar's one row (74px, 86px from 768px with the quick links in it) is all the page leaves free; from 1025px www's 120px bar
+   (blocks/header/header-airdolomiti.css) */
+body.brand-airdolomiti {
+  --nav-height: 74px;
+}
+
 @media (width < 768px) {
   body.brand-airdolomiti header .nav-quick {
     display: none;
+  }
+}
+
+@media (width >= 768px) {
+  body.brand-airdolomiti {
+    --nav-height: 86px;
+  }
+}
+
+@media (width >= 1025px) {
+  body.brand-airdolomiti {
+    --nav-height: 120px;
   }
 }
 
