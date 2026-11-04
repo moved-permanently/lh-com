@@ -1140,3 +1140,208 @@ body.brand-airdolomiti main > .section.newsletter .default-content-wrapper > p:l
   }
 
 }
+
+/*
+ * the flight search variant airdolomiti (blocks/flight-search/flight-search-airdolomiti.js), as
+ * www's booking widget (2026-11-05). The trip type as two radio tabs: a 20px ring in teal (filled
+ * with a dot when chosen), the label 14px, the chosen one semibold teal, the other #1f1f1f;
+ * stacked 30px apart on phones, from 1025px two white tabs of 199 x 50 on top of the box. With
+ * the homepage's Open label, below 1025px: the card "Prenota il tuo volo" (white, teal 22px / 30px
+ * semibold, 100px high, an arrow end) half over the bottom of the stage photo, half over the band;
+ * it opens the search as a white full-screen panel (above the bar) with a round close button
+ * (32px, a #d2d2d2 ring) 26px from the top right.
+ */
+body.brand-airdolomiti .flight-search .flight-search-trip-tabs {
+  display: flex;
+  flex-direction: column;
+  grid-area: trip;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+body.brand-airdolomiti .flight-search .flight-search-trip-tab {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  color: var(--lh-grey-8);
+  font-size: 14px;
+  line-height: 24px;
+  cursor: pointer;
+}
+
+body.brand-airdolomiti .flight-search .flight-search-trip-tab.is-checked {
+  color: var(--lh-whale-blue);
+  font-weight: 600;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- the radios, not the text fields above */
+body.brand-airdolomiti .flight-search .flight-search-trip-tab input {
+  appearance: none;
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  border: 1px solid var(--lh-whale-blue);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- the radios, not the text fields above */
+body.brand-airdolomiti .flight-search .flight-search-trip-tab input:checked {
+  background-color: var(--lh-whale-blue);
+  box-shadow: inset 0 0 0 3px #fff;
+}
+
+body.brand-airdolomiti .flight-search .flight-search-trip-tab:has(input:focus-visible) {
+  outline: 2px solid var(--lh-whale-blue);
+  outline-offset: 4px;
+}
+
+body.brand-airdolomiti .flight-search :is(.flight-search-open, .flight-search-close-panel) {
+  display: none;
+}
+
+/* the drop-down the tabs replace */
+body.brand-airdolomiti .flight-search .flight-search-trip-type[hidden] {
+  display: none;
+}
+
+@media (width < 1025px) {
+  body.brand-airdolomiti .flight-search.flight-search-overlay {
+    padding-top: 0;
+  }
+
+  body.brand-airdolomiti .flight-search.flight-search-overlay:not(.flight-search-overlay-open) .flight-search-form {
+    display: none;
+  }
+
+  body.brand-airdolomiti .flight-search.flight-search-overlay .flight-search-open {
+    position: relative;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    width: min(336px, 100%);
+    height: 100px;
+    margin: 0;
+    padding: 0 70px 0 24px;
+    border: 0;
+    border-radius: 10px 0 0 10px;
+    background-color: #fff;
+    color: var(--lh-whale-blue);
+    font-family: var(--body-font-family);
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 30px;
+    text-align: left;
+    cursor: pointer;
+    clip-path: polygon(0 0, calc(100% - 40px) 0, 100% 50%, calc(100% - 40px) 100%, 0 100%);
+  }
+
+  body.brand-airdolomiti .flight-search.flight-search-overlay .flight-search-open::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 56px;
+    width: 25px;
+    height: 28px;
+    background-color: currentcolor;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 25 28'%3E%3Cpath d='M24.7 13.3H11.5L0 0h13.2zM0 28h13.2l11.5-13.3H11.5z'/%3E%3C/svg%3E") center / contain no-repeat;
+    transform: translateY(-50%);
+  }
+
+  /* the open panel: the whole window, above the bar */
+  body.brand-airdolomiti .flight-search.flight-search-overlay.flight-search-overlay-open .flight-search-form {
+    position: fixed;
+    inset: 0;
+    z-index: 1100;
+    overflow-y: auto;
+    margin: 0;
+    padding: 100px 26px 40px;
+    background-color: #fff;
+  }
+
+  body.brand-airdolomiti .flight-search.flight-search-overlay-open .flight-search-close-panel {
+    position: absolute;
+    top: 26px;
+    right: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 32px;
+    height: 32px;
+    margin: 0;
+    padding: 0;
+    border: 1px solid var(--lh-grey-3);
+    border-radius: 50%;
+    background-color: #fff;
+    color: var(--lh-deepblue);
+    cursor: pointer;
+  }
+
+  body.brand-airdolomiti .flight-search.flight-search-overlay-open .flight-search-close-panel::before {
+    content: "";
+    width: 14px;
+    height: 14px;
+    background-color: currentcolor;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14' fill='none' stroke='%23000' stroke-width='1.6'%3E%3Cpath d='m1 1 12 12M13 1 1 13'/%3E%3C/svg%3E") center / contain no-repeat;
+  }
+
+  html:has(.flight-search-overlay-open) {
+    overflow: hidden;
+  }
+
+
+  /* the open panel's section above the bar (its own layer would keep the panel under it) */
+  body.brand-airdolomiti main > .section.flight-search-container:has(.flight-search-overlay-open) {
+    position: relative;
+    z-index: 1100;
+  }
+
+  /* the homepage: the card half over the photo, half over the band (90px over its shortcuts) */
+  body.brand-airdolomiti main > .section:has(.hero-campaign-services):has(+ .section .flight-search-overlay) .hero-campaign.hero-campaign-services[data-services="band"] .hero-campaign-inner {
+    padding-top: 90px;
+  }
+
+  body.brand-airdolomiti main > .section:has(.hero-campaign-services) + .section.flight-search-container:has(.flight-search-overlay) {
+    position: relative;
+    z-index: 2;
+    margin-top: -271px;
+    margin-bottom: calc(171px + var(--section-gap));
+  }
+
+  /* the open panel's section above the bar (its own layer would keep the panel under it) */
+  body.brand-airdolomiti main > .section:has(.hero-campaign-services) + .section.flight-search-container:has(.flight-search-overlay.flight-search-overlay-open) {
+    z-index: 1100;
+  }
+}
+
+@media (width >= 1025px) {
+  body.brand-airdolomiti .flight-search:not(.standalone) .flight-search-trip-tabs {
+    flex-direction: row;
+    gap: 0;
+    justify-self: start;
+    margin: 0 0 0 -14px;
+  }
+
+  body.brand-airdolomiti .flight-search:not(.standalone) .flight-search-trip-tab {
+    box-sizing: border-box;
+    width: 199px;
+    height: 50px;
+    padding-left: 29px;
+    background-color: #fff;
+  }
+
+  body.brand-airdolomiti .flight-search:not(.standalone) .flight-search-trip-tab:first-child {
+    border-top-left-radius: 10px;
+  }
+
+  body.brand-airdolomiti .flight-search:not(.standalone) .flight-search-trip-tab:last-child {
+    border-top-right-radius: 10px;
+  }
+
+  body.brand-airdolomiti .flight-search:not(.standalone) .flight-search-trip-tab:has(input:focus-visible) {
+    outline-offset: -6px;
+  }
+}

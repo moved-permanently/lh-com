@@ -1196,6 +1196,14 @@ export default function decorate(block) {
   const backgroundVideo = pick(config, 'background-video');
   const backgroundTeaser = pick(config, 'background-teaser');
   block.replaceChildren(content);
+  // Air Dolomiti (the variant airdolomiti, ./flight-search-airdolomiti.js): www's two trip type
+  // tabs, and with an Open label row the phone card that opens the search as a panel; every other
+  // brand's search as before
+  if (block.classList.contains('airdolomiti')) {
+    import('./flight-search-airdolomiti.js').then(({ default: decorateAirDolomiti }) => decorateAirDolomiti(block, {
+      form, select: tripTypeSelect, openLabel: text('open-label'), lang: locale.lang,
+    }));
+  }
   if (background) {
     const mobileCell = backgroundMobile && backgroundMobile.cell;
     const videoCell = backgroundVideo && backgroundVideo.cell;
