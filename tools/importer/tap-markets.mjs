@@ -491,6 +491,8 @@ async function main() {
     at: new Date().toISOString(), rules: rules.length, rulesFrom: newest.url, languages: {}, roots: {},
   };
   const written = [];
+  // the language pages' fragment documents (market sections, categories): into the allowlist too
+  const langFragments = [];
   const write = (doc, html) => {
     if (dry) return;
     const f = path.join(OUT, `${doc}.plain.html`);
@@ -553,7 +555,7 @@ async function main() {
     if (plain) {
       (report.plainAgain ||= []).push(doc);
       write(doc, html);
-      vf.fragments.forEach((x) => write(x.doc, x.html));
+      vf.fragments.forEach((x) => { write(x.doc, x.html); langFragments.push(x.doc); });
       continue;
     }
     (report.languages[lv] ||= {})[doc] = {
@@ -567,7 +569,7 @@ async function main() {
       missing: r.report.missing.length,
     };
     write(doc, html);
-    vf.fragments.forEach((f) => write(f.doc, f.html));
+    vf.fragments.forEach((f) => { write(f.doc, f.html); langFragments.push(f.doc); });
   }
 
   /* 3: each root's own documents */
@@ -683,9 +685,10 @@ async function main() {
     writeJson(path.join(W, 'runs', `${name}-import.json`), report);
     fs.writeFileSync(path.join(W, 'runs', `${name}-paths.txt`), rootDocs.length ? `${rootDocs.join('\n')}\n` : '');
     fs.writeFileSync(path.join(W, 'runs', `${name}-written.txt`), written.length ? `${written.join('\n')}\n` : '');
-    // the roots' documents into the site's allowlist (nav and footer by its pattern)
+    // the roots' documents and the language pages' fragments into the site's allowlist (nav and
+    // footer by its pattern)
     const fresh = readJson(allowFile, allow);
-    fresh.paths = [...new Set([...fresh.paths, ...rootDocs.filter((d) => !/\/(nav|footer)$/.test(d))])].sort();
+    fresh.paths = [...new Set([...fresh.paths, ...langFragments, ...rootDocs.filter((d) => !/\/(nav|footer)$/.test(d))])].sort();
     writeJson(allowFile, fresh);
   }
   const langDocsN = Object.values(report.languages).reduce((n, x) => n + Object.keys(x).length, 0);
