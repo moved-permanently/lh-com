@@ -442,7 +442,8 @@ function slideRows(block) {
  * @param {Object} labels
  * @param {boolean} eager
  * @returns {false|{slides: Element[], track: Element, prev: Element, next: Element, dots: Element,
- *   goTo: Function, current: Function}} the slider's parts (brand tap adds its own to them)
+ *   goTo: Function, current: Function, motion: {scroll: Function}}} the slider's parts (brand tap
+ *   adds its own to them and replaces motion.scroll)
  */
 function buildSlider(block, labels, eager, minSlides = 2) {
   const groups = slideRows(block);
@@ -472,9 +473,11 @@ function buildSlider(block, labels, eager, minSlides = 2) {
     const i = Math.round((track.scrollLeft || 0) / (track.clientWidth || 1));
     return Math.max(0, Math.min(slides.length - 1, i));
   };
+  // how a step moves the track (brand tap: www's 1.2 s slide, hero-campaign-tap.js)
+  const motion = { scroll: (left) => track.scrollTo({ left, behavior: 'smooth' }) };
   const goTo = (i) => {
     const index = (i + slides.length) % slides.length;
-    track.scrollTo({ left: index * track.clientWidth, behavior: 'smooth' });
+    motion.scroll(index * track.clientWidth);
   };
   const button = (dir) => {
     const btn = document.createElement('button');
@@ -523,7 +526,7 @@ function buildSlider(block, labels, eager, minSlides = 2) {
   block.replaceChildren(track, prev, next, dots);
   update();
   return {
-    slides, track, prev, next, dots, goTo, current,
+    slides, track, prev, next, dots, goTo, current, motion,
   };
 }
 

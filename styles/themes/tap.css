@@ -190,9 +190,9 @@ body.brand-tap .footer .footer-badges img[data-icon-name] {
 }
 
 body.brand-tap .accordion-columns.faq {
-  border-radius: var(--radius-l);
-  padding: 8px 24px;
-  background-color: var(--lh-grey-1);
+  padding: 16px;
+  border-radius: 16px;
+  background-color: #fcfcfc;
 }
 
 body.brand-tap main .default-content-wrapper > p > picture img {
@@ -1487,7 +1487,7 @@ body.brand-tap .footer .footer-inner.footer-tap {
   grid-template-columns: minmax(0, 1fr);
   gap: 24px;
   max-width: var(--content-max-width);
-  padding: 64px var(--layout-margin) 32px;
+  padding: 0 var(--layout-margin) 32px;
 }
 
 body.brand-tap .footer .footer-tap-links,
@@ -1638,6 +1638,7 @@ body.brand-tap .footer .footer-tap-partner img {
     grid-template-areas: "links side" "bar bar";
     grid-template-columns: minmax(0, 1fr) 280px;
     gap: 16px 24px;
+    padding-top: 16px;
   }
 
   body.brand-tap .footer .footer-tap-links,
@@ -1671,9 +1672,13 @@ body.brand-tap .footer .footer-tap-partner img {
 /* stylelint-disable no-descending-specificity -- scoped by block and option; page order */
 
 /* the page title and its lead centred, as www (row 14: ajuda, a-bordo, bagagem, miles-and-go and
-   every other inner page measured: H1 40 / 48 centred, the lead centred in 726 px, 16 px below) */
+   every other inner page measured: H1 40 / 48 centred, the lead centred in 726 px, 16 px below;
+   the title in 726 px too and 40 / 48 on phones as well, row 26) */
 body.brand-tap main > .section:not(.hidden-heading) .default-content-wrapper > h1 {
-  margin: 48px 0 16px;
+  max-width: 726px;
+  margin: 48px auto 16px;
+  font-size: 40px;
+  line-height: 48px;
   text-align: center;
 }
 
@@ -1697,6 +1702,19 @@ body.brand-tap .hero-campaign.narrow {
 
 body.brand-tap .hero-campaign.narrow:not(.slider) {
   min-height: 259px;
+}
+
+/* on phones the banner's title 32 px and its lead Inter 20 / 30 (row 37; the homepage stage's
+   are 24 and 18) */
+@media (width < 1024px) {
+  body.brand-tap .hero-campaign-tap.narrow .hero-campaign-content :is(h1, h2, h3, h4, h5, h6) {
+    font-size: calc(32px * var(--a11y-scale, 1));
+  }
+
+  body.brand-tap .hero-campaign-tap.narrow .hero-campaign-content > .hero-campaign-subtitle {
+    font-size: 20px;
+    line-height: 30px;
+  }
 }
 
 @media (width >= 1024px) {
@@ -1850,6 +1868,17 @@ body.brand-tap .cards.three-up a.button:any-link {
   gap: 8px;
 }
 
+/* a long label wraps inside the card, the chevron at its end (row 27, www's two-line button) */
+body.brand-tap .cards.three-up .cards-card-body a.button:any-link {
+  justify-content: space-between;
+  max-width: 100%;
+  height: auto;
+  padding-block: 8px;
+  line-height: 1.5;
+  white-space: normal;
+  text-align: start;
+}
+
 body.brand-tap .cards.three-up a.button:any-link::after {
   content: "";
   flex: none;
@@ -1857,6 +1886,499 @@ body.brand-tap .cards.three-up a.button:any-link::after {
   height: 16px;
   background-color: currentcolor;
   mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8.6 5.4 7.2 6.8l5.2 5.2-5.2 5.2 1.4 1.4 6.6-6.6z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* stylelint-enable no-descending-specificity */
+
+/* ------------------------------------- TAP's remaining differences (brief 336) --------- */
+
+/* stylelint-disable no-descending-specificity -- scoped by block and option; page order */
+
+/* www.flytap.com/en-pt and /pt-pt at 390 and 1440 px (2026-11-04), tools/reports/tap/parity.md
+   rows 25 on. Headings (row 26): GT Flexa at -2 % letter spacing everywhere; on the inner pages
+   (a breadcrumb above them) the section headings 32 / 38.4 at every width (the title 40 / 48:
+   row 14's rule above) */
+body.brand-tap main :is(h1, h2, h3, h4, h5, h6) {
+  letter-spacing: -0.02em;
+}
+
+body.brand-tap main:has(> .breadcrumb-container) .default-content-wrapper > h2 {
+  font-size: 32px;
+  line-height: 1.2;
+}
+
+/* a heading right under the title (no lead between) centred with it, as www's destinos (row 26) */
+body.brand-tap main > .section:not(.hidden-heading) .default-content-wrapper > h1 + h2 {
+  max-width: 726px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+/* running text over the content's whole width (row 38: www's 1120 px at 1440; lh-com keeps two
+   thirds); the title's lead stays 726 px (row 14) */
+@media (width >= 1025px) {
+  body.brand-tap main .default-content-wrapper > :is(p, ul, ol) {
+    max-width: none;
+  }
+}
+
+/* the breadcrumb (row 25): the whole trail at every width (a phone's too), the homepage as a
+   house, lucide chevrons between, the page in semibold; Inter 14 / 20, #424045 */
+body.brand-tap .breadcrumb li,
+body.brand-tap .breadcrumb li:not(.breadcrumb-parent) {
+  display: flex;
+  padding-left: 0;
+  color: #424045;
+}
+
+body.brand-tap .breadcrumb li::before,
+body.brand-tap .breadcrumb li.breadcrumb-parent::before {
+  content: none;
+}
+
+/* the chevron after each crumb but the page's, so it stays on its line when the page wraps */
+body.brand-tap .breadcrumb li:not(:last-child)::after {
+  content: "";
+  width: 16px;
+  height: 16px;
+  margin: 0 8px;
+  background-color: #64748b;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m9 18 6-6-6-6'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+body.brand-tap .breadcrumb a:any-link {
+  color: #424045;
+}
+
+body.brand-tap .breadcrumb a:any-link:hover {
+  color: #397213;
+}
+
+/* the homepage's crumb: a 16 px house, its name kept for assistive tech */
+body.brand-tap .breadcrumb li:first-child:not(:only-child) > a:any-link {
+  display: block;
+  width: 16px;
+  height: 16px;
+  overflow: hidden;
+  background-color: currentcolor;
+  white-space: nowrap;
+  text-indent: 100%;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8'/%3E%3Cpath d='M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+body.brand-tap .breadcrumb .breadcrumb-current {
+  color: #424045;
+  font-weight: 600;
+}
+
+/* the text cards' titles (row 27: cards three-up, ajuda's help cards and stopover's steps):
+   GT Flexa 24 / 28.8, 500, 8 px above the text */
+body.brand-tap .cards.three-up .cards-card-body > :is(h2, h3, h4):first-child {
+  margin-bottom: 8px;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+/* the FAQ accordions (row 28): www's panel #fcfcfc, 32 px corners and 16 / 32 px inside (16 px
+   and 16 on phones; the panel's rule near the top), the questions Inter 16 / 24 semibold 12 px high, a line between them only,
+   a dark green chevron at the right */
+body.brand-tap .accordion-columns.faq .accordion-columns-item:first-child {
+  border-top: 0;
+}
+
+body.brand-tap .accordion-columns.faq .accordion-columns-item:last-child {
+  border-bottom: 0;
+}
+
+body.brand-tap .accordion-columns.faq .accordion-columns-title {
+  padding: 12px 40px 12px 0;
+  color: #424045;
+  font-family: var(--body-font-family);
+  font-size: calc(16px * var(--a11y-scale, 1));
+  font-weight: 600;
+  line-height: calc(24px * var(--a11y-scale, 1));
+  letter-spacing: -0.01em;
+}
+
+body.brand-tap .accordion-columns.faq .accordion-columns-title::after {
+  right: 0;
+  background-color: #397213;
+}
+
+body.brand-tap .accordion-columns.faq .accordion-columns-panel {
+  padding: 0 0 16px;
+}
+
+@media (width >= 768px) {
+  body.brand-tap .accordion-columns.faq {
+    padding: 16px 32px;
+    border-radius: 32px;
+  }
+}
+
+/* the explore accordion beside a picture (row 20, miles-and-go): www's open list, no panel, a
+   line under every item, the groups' names GT Flexa 16 / 24 bold, a dark chevron */
+body.brand-tap .default-content-wrapper:has(> p:last-child > picture) + .accordion-columns-wrapper > .accordion-columns.faq {
+  padding: 0;
+  border-radius: 0;
+  background: none;
+}
+
+body.brand-tap .default-content-wrapper:has(> p:last-child > picture) + .accordion-columns-wrapper > .accordion-columns.faq .accordion-columns-item,
+body.brand-tap .default-content-wrapper:has(> p:last-child > picture) + .accordion-columns-wrapper > .accordion-columns.faq .accordion-columns-item:last-child {
+  border-bottom: 1px solid #e0dfe2;
+}
+
+body.brand-tap .default-content-wrapper:has(> p:last-child > picture) + .accordion-columns-wrapper > .accordion-columns.faq .accordion-columns-title {
+  padding: 24px 40px 24px 0;
+  font-family: var(--heading-font-family);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+body.brand-tap .default-content-wrapper:has(> p:last-child > picture) + .accordion-columns-wrapper > .accordion-columns.faq .accordion-columns-title::after {
+  background-color: #424045;
+}
+
+/* the picture's lower corners square over the list on phones; from 1024 px the picture at the
+   left (512 px at 1440), the list beside it from the column's middle, as www's InfoSection */
+body.brand-tap main .default-content-wrapper:has(+ .accordion-columns-wrapper > .accordion-columns.faq) > p:last-child > picture img {
+  border-radius: 32px 32px 0 0;
+}
+
+@media (width >= 1024px) {
+  body.brand-tap main .default-content-wrapper:has(+ .accordion-columns-wrapper > .accordion-columns.faq) > p:last-child:has(> picture) {
+    float: left;
+    width: calc(50% - 48px);
+    margin: 0;
+  }
+
+  body.brand-tap main .default-content-wrapper:has(+ .accordion-columns-wrapper > .accordion-columns.faq) > p:last-child > picture img {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 32px;
+  }
+
+  body.brand-tap .default-content-wrapper:has(> p:last-child > picture) + .accordion-columns-wrapper > .accordion-columns.faq {
+    margin-left: calc(50% + 16px);
+  }
+
+  body.brand-tap .default-content-wrapper:has(> p:last-child > picture) + .accordion-columns-wrapper > .accordion-columns.faq .accordion-columns-title {
+    font-size: calc(24px * var(--a11y-scale, 1));
+  }
+
+  /* (www: 80 px from the picture to the next heading) */
+  body.brand-tap .default-content-wrapper:has(> p:last-child > picture) + .accordion-columns-wrapper:has(> .accordion-columns.faq) + * {
+    clear: both;
+    padding-top: 80px;
+  }
+
+  body.brand-tap main > .section:has(> .default-content-wrapper:has(> p:last-child > picture) + .accordion-columns-wrapper > .accordion-columns.faq)::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+
+/* the link-list tiles (row 29: cards-icon without icons, bagagem, ajuda, a-bordo): www's grey
+   tiles (#f7f7f8, 8 px corners, 8 px inside) of a 56 px row, the label left in Inter 16 / 24
+   regular, a chevron at the right; one to a row on phones, two from 768 px, three from 984 px,
+   16 / 24 px apart */
+body.brand-tap .cards-icon:not(.cards-icon-tap) > ul {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+}
+
+body.brand-tap .cards-icon:not(.cards-icon-tap) > ul > li {
+  width: auto;
+}
+
+body.brand-tap .cards-icon:not(.cards-icon-tap) .cards-icon-tile {
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 72px;
+  padding: 8px 24px;
+  border: 0;
+  border-radius: 8px;
+  background-color: #f7f7f8;
+  box-shadow: none;
+  color: #424045;
+  font-weight: 400;
+  text-align: start;
+}
+
+body.brand-tap .cards-icon:not(.cards-icon-tap) a.cards-icon-tile:hover {
+  border: 0;
+  background-color: #f2f2f3;
+  box-shadow: none;
+  color: #397213;
+}
+
+body.brand-tap .cards-icon:not(.cards-icon-tap) .cards-icon-tile::after {
+  content: "";
+  flex: none;
+  width: 24px;
+  height: 24px;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8.6 5.4 7.2 6.8l5.2 5.2-5.2 5.2 1.4 1.4 6.6-6.6z'/%3E%3C/svg%3E") center / 24px no-repeat;
+}
+
+body.brand-tap .cards-icon:not(.cards-icon-tap) .cards-icon-label {
+  color: inherit;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: -0.025em;
+  text-align: start;
+}
+
+@media (width >= 768px) {
+  body.brand-tap .cards-icon:not(.cards-icon-tap) > ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+}
+
+@media (width >= 984px) {
+  body.brand-tap .cards-icon:not(.cards-icon-tap) > ul {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* the picture above an inner page's title (row 30: bagagem, info-legal): www's 380 px high on
+   phones, 305 at 1440, cut to fit */
+body.brand-tap main .default-content-wrapper > p:has(+ h1) > picture img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+}
+
+@media (width >= 1024px) {
+  body.brand-tap main .default-content-wrapper > p:has(+ h1) > picture img {
+    height: 305px;
+  }
+}
+
+/* the text cards with a picture (row 31: cards-teaser cards with text, miles-and-go's
+   advantages, stopover's advantages and reasons): a card 16 px inside its column, 16 px corners,
+   www's shadow, the picture on top (326 x 183), the title GT Flexa 24 / 28.8 500, the link an
+   outline pill with a chevron (42 px, Inter 15 / 500) */
+body.brand-tap .cards-teaser > ul > li:has(> .cards-teaser-body > p:not(.cards-teaser-cta)) {
+  margin: 16px;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 8px 16px rgb(0 0 0 / 10%);
+}
+
+body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-cta)) .cards-teaser-image {
+  margin: 0;
+  aspect-ratio: 326 / 183;
+}
+
+body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-cta)) .cards-teaser-image :is(picture, img) {
+  height: 100%;
+  object-fit: cover;
+}
+
+body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-cta)) .cards-teaser-body {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  padding: 24px;
+}
+
+body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-cta)) .cards-teaser-body > * {
+  margin-bottom: 8px;
+}
+
+body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-cta)) .cards-teaser-title {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-cta)) .cards-teaser-cta {
+  margin: auto 0 0;
+  padding-top: 16px;
+}
+
+body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-cta)) .cards-teaser-cta-link:any-link {
+  box-sizing: border-box;
+  align-items: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 8px 16px;
+  border: 1px solid #65c922;
+  border-radius: 999px;
+  color: #424045;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 24px;
+  text-decoration: none;
+}
+
+body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-cta)) .cards-teaser-cta-link:hover {
+  background-color: #f5fff0;
+  color: #424045;
+}
+
+body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-cta)) .cards-teaser-cta-link::before {
+  content: none;
+}
+
+body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-cta)) .cards-teaser-cta-link::after {
+  content: "";
+  flex: none;
+  width: 16px;
+  height: 16px;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8.6 5.4 7.2 6.8l5.2 5.2-5.2 5.2 1.4 1.4 6.6-6.6z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* the Miles&Go tier cards (row 32: cards of a logo, a title, a list and a link, miles-and-go):
+   www's 8 px top edge in the tier's colour, 16 px corners, 24 px inside, the cards as tall as
+   their text; the list without bullets, a chevron in the tier's colour before each line (Inter
+   14 / 21), the title GT Flexa 18 / 500, the link centred; four to a row from 1024 px, on phones
+   a row of 247 px cards to swipe */
+body.brand-tap .cards:not(.three-up, .four-up) > ul:has(> li > .cards-card-image) {
+  align-items: start;
+}
+
+body.brand-tap .cards:not(.three-up, .four-up) > ul > li:has(> .cards-card-image) {
+  --tap-tier: #55aa1c;
+
+  box-sizing: border-box;
+  padding: 24px;
+  border-top: 8px solid var(--tap-tier);
+  border-radius: 16px;
+  box-shadow: 0 8px 16px rgb(0 0 0 / 10%);
+}
+
+body.brand-tap .cards:not(.three-up, .four-up) > ul > li:has(> .cards-card-image):nth-child(4n + 2) {
+  --tap-tier: #a4a6a8;
+}
+
+body.brand-tap .cards:not(.three-up, .four-up) > ul > li:has(> .cards-card-image):nth-child(4n + 3) {
+  --tap-tier: #ae975d;
+}
+
+body.brand-tap .cards:not(.three-up, .four-up) > ul > li:has(> .cards-card-image):nth-child(4n + 4) {
+  --tap-tier: #47454a;
+}
+
+body.brand-tap .cards:not(.three-up, .four-up) > ul > li:has(> .cards-card-image) .cards-card-image {
+  padding: 0;
+}
+
+body.brand-tap .cards:not(.three-up, .four-up) > ul > li:has(> .cards-card-image) .cards-card-image img {
+  height: 65px;
+  aspect-ratio: auto;
+}
+
+body.brand-tap .cards:not(.three-up, .four-up) > ul > li:has(> .cards-card-image) .cards-card-body {
+  margin: 16px 0 0;
+}
+
+body.brand-tap .cards:not(.three-up, .four-up) > ul > li:has(> .cards-card-image) .cards-card-body > :is(h2, h3, h4) {
+  margin: 0;
+  color: #020817;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+body.brand-tap .cards:not(.three-up, .four-up) > ul > li:has(> .cards-card-image) .cards-card-body > ul {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 16px 0;
+  padding: 0;
+  list-style: none;
+}
+
+body.brand-tap .cards:not(.three-up, .four-up) > ul > li:has(> .cards-card-image) .cards-card-body > ul > li {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  margin: 0;
+  color: #020817;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: -0.01em;
+}
+
+body.brand-tap .cards:not(.three-up, .four-up) > ul > li:has(> .cards-card-image) .cards-card-body > ul > li::before {
+  content: "";
+  flex: none;
+  width: 24px;
+  height: 21px;
+  background-color: var(--tap-tier);
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13.4086 22H6L10.5249 12.2992C10.6133 12.1099 10.6133 11.8904 10.5249 11.7008L6 2H13.4086L17.9335 11.7008C18.0222 11.8904 18.0222 12.1099 17.9335 12.2992z'/%3E%3C/svg%3E") center / 16px no-repeat;
+}
+
+body.brand-tap .cards:not(.three-up, .four-up) > ul > li:has(> .cards-card-image) .cards-card-body > p:last-child {
+  margin: 0;
+  text-align: center;
+}
+
+body.brand-tap .cards:not(.three-up, .four-up) > ul > li:has(> .cards-card-image) .cards-card-body > p:last-child a:any-link {
+  color: #397213;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+@media (width < 1024px) {
+  body.brand-tap .cards:not(.three-up, .four-up) > ul:has(> li > .cards-card-image) {
+    display: flex;
+    gap: 16px;
+    width: auto;
+    max-width: none;
+    margin-inline: calc(-1 * var(--layout-margin, 16px));
+    padding: 8px var(--layout-margin, 16px) 24px;
+    overflow-x: auto;
+    scroll-padding-inline: var(--layout-margin, 16px);
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  body.brand-tap .cards:not(.three-up, .four-up) > ul > li:has(> .cards-card-image) {
+    flex: 0 0 247px;
+    scroll-snap-align: start;
+  }
+}
+
+/* links in running text (row 33, stopover, info-legal): www's underlined links in TAP's dark
+   green, regular, without lh-com's arrows */
+body.brand-tap main :is(.default-content-wrapper, .columns-media-text) :is(p:not(.link-wrapper, .button-wrapper), li) a:any-link:not(.button, :has(img, picture)) {
+  font-weight: 400;
+  text-decoration: underline;
+}
+
+body.brand-tap main :is(.default-content-wrapper, .columns-media-text) :is(p:not(.link-wrapper, .button-wrapper), li) a:any-link:not(.button, :has(img, picture))::before {
+  content: none;
+}
+
+/* the footer (row 34): www's outline social glyphs (footer-tap.js, icons/tap-*.svg, drawn in
+   #424045), 64 px between the page and the footer at 1440 (with the footer's 16 px at the top,
+   the rule above), 32 on phones */
+body.brand-tap .footer .footer-tap-side .footer-badges img.footer-tap-icon {
+  filter: none;
+}
+
+body.brand-tap main > .section:last-child {
+  margin-bottom: 32px;
+}
+
+@media (width >= 1024px) {
+  body.brand-tap main > .section:last-child {
+    margin-bottom: 48px;
+  }
 }
 
 /* stylelint-enable no-descending-specificity */

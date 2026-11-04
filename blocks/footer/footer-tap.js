@@ -7,6 +7,9 @@
  * The look: styles/themes/tap.css.
  */
 
+/** the social icons www draws as outline glyphs (24 px, #424045) */
+export const TAP_SOCIAL_ICONS = ['facebook', 'instagram', 'linkedin', 'youtube', 'tiktok'];
+
 const div = (className, ...children) => {
   const e = document.createElement('div');
   e.className = className;
@@ -28,6 +31,15 @@ export default function layoutTapFooter(block) {
   const star = logoLinks.find((a) => a.classList.contains('footer-logo-star-alliance'));
   const home = logoLinks.find((a) => a !== star);
 
+  // www's outline social glyphs (icons/tap-*.svg) for lh-com's round ones
+  if (badges) {
+    badges.querySelectorAll('img[data-icon-name]').forEach((img) => {
+      const name = img.dataset.iconName;
+      if (!TAP_SOCIAL_ICONS.includes(name)) return;
+      img.src = `${window.hlx?.codeBasePath || ''}/icons/tap-${name}.svg`;
+      img.classList.add('footer-tap-icon');
+    });
+  }
   const side = div('footer-tap-side', home ? div('footer-tap-logo', home) : null, badges);
   const bar = div('footer-tap-bar', note, star ? div('footer-tap-partner', star) : null);
   inner.querySelectorAll(':scope > .footer-divider').forEach((hr) => hr.remove());
