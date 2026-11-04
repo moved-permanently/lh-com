@@ -419,6 +419,18 @@ body.brand-tap .hero-campaign-tap .hero-campaign-next {
   color: var(--lh-green);
 }
 
+/* www's chevrons (Material Symbols at weight 300, 24 px) and, at the first and the last slide,
+   the unavailable one a grey disc at 20 % (hero-campaign-tap.js: aria-disabled; row 80) */
+body.brand-tap .hero-campaign-tap :is(.hero-campaign-prev, .hero-campaign-next)::before {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9.7 18 8.65 16.95 13.6 12 8.65 7.05 9.7 6l6 6z'/%3E%3C/svg%3E");
+}
+
+body.brand-tap .hero-campaign-tap :is(.hero-campaign-prev, .hero-campaign-next)[aria-disabled="true"] {
+  background-color: #c6c5c9;
+  opacity: 0.2;
+  cursor: default;
+}
+
 body.brand-tap .hero-campaign-tap .hero-campaign-dots {
   position: static;
   gap: 4px;
@@ -553,7 +565,7 @@ body.brand-tap .hero-campaign-tap :is(.hero-campaign-prev, .hero-campaign-next, 
   body.brand-tap .hero-campaign-tap .hero-campaign-prev,
   body.brand-tap .hero-campaign-tap .hero-campaign-next {
     background: #fff;
-    color: #000;
+    color: var(--lh-green);
   }
 
   body.brand-tap .hero-campaign-tap .hero-campaign-dot {
@@ -1855,6 +1867,13 @@ body.brand-tap .hero-campaign.narrow {
 
 body.brand-tap .hero-campaign.narrow:not(.slider) {
   min-height: 259px;
+}
+
+/* a single banner's picture as www's: a flat 20 % veil (bg-overlay-image-subtle), no gradient
+   (row 81) */
+body.brand-tap .hero-campaign.narrow:not(.slider, .hero-campaign-slide) .hero-campaign-media::after {
+  background: rgb(0 0 0 / 20%);
+  mix-blend-mode: normal;
 }
 
 /* the slides inside the rounded frame square (they carry the block's options): while one slides

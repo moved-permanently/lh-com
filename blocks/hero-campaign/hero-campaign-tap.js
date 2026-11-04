@@ -161,9 +161,31 @@ export default function decorateTapSlider(block, {
     return;
   }
 
+  // www's swiper does not wrap: previous at the first slide and next at the last are unavailable
+  // (aria-disabled, so a keyboard visitor keeps the focus) and do nothing; TAP's own copies of
+  // the two buttons, without hero-campaign.js's wrapping step. The rotation still starts over
+  // from the last slide.
+  const step = (button, by) => {
+    const own = button.cloneNode(true);
+    own.addEventListener('click', () => {
+      const to = current() + by;
+      if (to >= 0 && to < slides.length) goTo(to);
+    });
+    return own;
+  };
+  const back = step(prev, -1);
+  const ahead = step(next, 1);
+  const ends = () => {
+    const at = current();
+    back.setAttribute('aria-disabled', String(at <= 0));
+    ahead.setAttribute('aria-disabled', String(at >= slides.length - 1));
+  };
+  track.addEventListener('scroll', ends, { passive: true });
+  ends();
+
   const controls = document.createElement('div');
   controls.className = 'hero-campaign-controls';
-  controls.append(prev, dots, next);
+  controls.append(back, dots, ahead);
 
   const labels = TAP_STAGE_LABELS[lang] || TAP_STAGE_LABELS.en;
   const pause = document.createElement('button');
