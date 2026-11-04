@@ -134,6 +134,20 @@ export function languageOfPath(pathname, languages) {
 }
 
 /**
+ * <html lang> of a TAP market root (brief 353): its language and market as www.flytap.com writes
+ * them ("pt-ao", "en-gb", "de-ch": a root answered from a language version, tapLanguages'
+ * `version`); '' for the language versions (pt-pt, en-pt … pt-br: their language, as before),
+ * every other path and the other sites.
+ * @param {string} pathname
+ * @param {Object[]|null} languages the page's site languages (locale.siteLanguages)
+ */
+export function htmlLangOfRoot(pathname, languages) {
+  if (!languages) return '';
+  const entry = languageOfPath(String(pathname || ''), languages);
+  return entry && entry.version && entry.country ? `${entry.lang}-${entry.country}` : '';
+}
+
+/**
  * The counterpart of a page in another site language: its homepage for a homepage, else the same
  * path under the other language's prefix (the sites share their slugs); null when unknown.
  */
