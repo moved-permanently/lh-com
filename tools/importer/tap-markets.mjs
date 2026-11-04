@@ -30,7 +30,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import {
-  convertPage, anchorsOf, docPath, mediaIndex, mediaResolver, WWW,
+  convertPage, anchorsOf, docPath, mediaIndex, mediaResolver, WWW, outOfScope,
 } from './tap-import.mjs';
 import {
   navHtml, footerHtml, logoSvg, flagSvg, flagPath,
@@ -447,6 +447,16 @@ const ndOf = (p) => {
 };
 const unitsOf = (nd) => { const page = nd.props.pageProps.page || {}; return [...(page.topSections || []), ...(page.sections || [])]; };
 
+/**
+ * The pages links stay on the site for: the allowlist's and the captured language pages, but
+ * www's forms (complaint, Miles&Go information, suggestion: no document, their links to www as
+ * the language import's). The sign-up page (template register) as it was.
+ */
+export function languageScope(paths, pages, templateOf) {
+  const form = (t) => outOfScope(t) && t !== 'register';
+  return new Set([...paths, ...[...pages.keys()].filter((d) => !form(templateOf(pages.get(d))))]);
+}
+
 /** The paths of a root's sitemap (www.flytap.com/<root>/sitemap.xml in the sitemaps archives). */
 function sitemapOf(dirs, r) {
   const f = dirs.map((d) => path.join(d, 'www.flytap.com', r, 'sitemap.xml')).find((x) => fs.existsSync(x));
@@ -501,7 +511,8 @@ async function main() {
     .filter((p) => info[p.split('/')[1]])
     .map((p) => ({ root: p.split('/')[1], country: info[p.split('/')[1]].country, page: marketPages.get(p) }))]));
   const lvs = [...new Set([...Object.values(LANGUAGE_VERSIONS), 'pt-br'])];
-  const scopeLang = new Set([...langDocs, ...langPages.keys()]);
+  const templateOf = (p) => { const nd = ndOf(p); return nd && ((nd.props.pageProps || {}).page || {}).template; };
+  const scopeLang = languageScope(langDocs, langPages, templateOf);
   for (const [doc, p] of langPages) {
     const lv = doc.split('/')[1];
     if (!lvs.includes(lv) || doc === `/${lv}` || !ndOf(p)) continue;
@@ -626,7 +637,7 @@ async function main() {
     for (const [p, cap, kind] of pagesToDo) {
       if (!cap || !ndOf(cap)) { rep.notes.push(`${p}: no capture`); continue; }
       const res = convertPage(ndOf(cap), {
-        url: cap.url, scope: rootScope, media, anchors, sourceImages: false, booking,
+        url: cap.url, version: lv, scope: rootScope, media, anchors, sourceImages: false, booking,
       });
       if (res.skipped) { rep.notes.push(`${p}: ${res.skipped}`); continue; }
       const sheet = (x) => `/${x}/booking/airports.json`;

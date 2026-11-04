@@ -131,6 +131,30 @@ describe('tap-import marks and languages', () => {
     assert.equal(richText([{ nodeType: 'paragraph', content: [t('1 par '), t('standard ', 'emphasis'), t('ou', 'strong'), t(' 1 '), t('slalom', 'emphasis')] }], ctx()), '<p>1 par <em>standard</em> <strong>ou</strong> 1 <em>slalom</em></p>');
   });
 
+  it('the destinations map (www\'s widget mapa-destinos): the poi-map block on the language version\'s sheet, a section of its own; the other widgets link www', () => {
+    const page = (p) => ({ props: { pageProps: { page: { title: 'X', sections: [{ __typename: 'ComponentHeadingModel', title: 'Destinations' }, { __typename: 'ComponentWidgetFreeBlockModel', _path: p }, { __typename: 'ComponentHeadingModel', title: 'After' }] } } } });
+    const map = (lang) => page(`/content/dam/tap/master/${lang}/components/destinos/mapa-destinos-en-us`);
+    const at = (url, extra = {}) => ({
+      ...ctx(url), lang: undefined, locale: undefined, ...extra,
+    });
+    const source = (html) => {
+      const block = dom(html).querySelector('.poi-map');
+      assert.ok(block, 'a poi-map block');
+      assert.equal(block.parentElement.children.length, 1, 'alone in its section');
+      assert.equal(block.parentElement.parentElement.tagName, 'MAIN');
+      return [...block.querySelectorAll(':scope > div')].map((r) => [...r.children].map((c) => c.textContent));
+    };
+    const en = convertPage(map('en'), at('https://www.flytap.com/en-pt/destinations')).html;
+    assert.deepEqual(source(en), [['Source', '/en-pt/destinations/destinations-map.json']]);
+    assert.ok(!en.includes('See on flytap.com'), 'no link to www in its place');
+    assert.deepEqual(source(convertPage(map('pt'), at('https://www.flytap.com/pt-pt/destinos')).html), [['Source', '/pt-pt/destinations/destinations-map.json']], 'the sheets are at /<version>/destinations/ in every version');
+    // a market root's document: its language version's sheet
+    assert.deepEqual(source(convertPage(map('de'), at('https://www.flytap.com/de-ch/reiseziele', { version: 'de-de' })).html), [['Source', '/de-de/destinations/destinations-map.json']]);
+    // the baggage widget (Luggit) as before
+    const bag = convertPage(page('/content/dam/tap/master/en/components/informacoes-de-viagem/bagagem/luggit'), at('https://www.flytap.com/en-pt/information/baggage')).html;
+    assert.ok(bag.includes('>See on flytap.com</a>') && !bag.includes('poi-map'));
+  });
+
   it('www\'s widget link and the video label in every language of the site (pt, en, es, fr, de, it, pl)', () => {
     const page = () => ({ props: { pageProps: { page: { title: 'X', sections: [{ __typename: 'ComponentHeadingModel', title: 'X' }, { __typename: 'ComponentWidgetFreeBlockModel' }] } } } });
     const labels = {

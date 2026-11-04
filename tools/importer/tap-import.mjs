@@ -102,6 +102,8 @@ const OUT_TEMPLATES = {
   'information-miles-and-go-requests': 'information-miles-and-go-requests: the Miles&Go request form (a form, out of scope)',
   'suggestion-and-praise': 'suggestion-and-praise: the suggestion and praise form (a form, out of scope)',
 };
+/** A template out of scope (a form on www: no document, links to www). */
+export const outOfScope = (template) => Boolean(OUT_TEMPLATES[template]);
 
 /** An image description in the page's language ("pt:…|en:…|fr:…"); a plain one as it is. */
 export function altOf(description, lang) {
@@ -737,7 +739,15 @@ const HANDLERS = {
   },
   ComponentMiles_GoCardModel: (s, P) => HANDLERS.ComponentMiles_GoCardListModel({ milesAndGoCards: [s] }, P),
   ComponentTrackBagaggeModel: (s, P) => { P.add(P.heading(2, s.title)); P.onWww('TrackBagagge (the baggage tracking form)'); },
-  ComponentWidgetFreeBlockModel: (s, P) => P.onWww('WidgetFreeBlock (Smartvel destinations explorer)'),
+  // the destinations map (mapa-destinos): the poi-map block on ema-test's sheet of the language
+  // version (/<version>/destinations/destinations-map.json in every version; a root's document
+  // its version's); the other widgets (Luggit's baggage tracker) link www
+  ComponentWidgetFreeBlockModel: (s, P) => {
+    if (!/\/components\/destinos\/mapa-destinos/.test(s._path || '')) { P.onWww('WidgetFreeBlock (Luggit\'s baggage tracker)'); return; }
+    P.section();
+    P.block('poi-map', [['Source', `/${P.c.version || P.c.locale}/destinations/destinations-map.json`]]);
+    P.section();
+  },
   ComponentContactsByCountryModel: (s, P) => { P.add(P.heading(2, s.title)); P.onWww('ContactsByCountry (the contacts by country picker)'); },
   ComponentCoreMediaModel: (s, P) => P.onWww(`CoreMedia (${s.type})`),
   ComponentAnchorModel: () => {},
@@ -781,7 +791,7 @@ function nested(secs, P) {
 /**
  * Converts one page's __NEXT_DATA__ to the document's HTML: { html, report } or { skipped }.
  * @param {object} nd the page's __NEXT_DATA__
- * @param {{url: string, lang?: string, locale?: string, scope: Set<string>,
+ * @param {{url: string, lang?: string, locale?: string, version?: string, scope: Set<string>,
  *   media: (key: string) => (string|{eds?: string, link?: string}|null),
  *   anchors?: Map<string, Map<string, string>>, siteName?: string,
  *   units?: (page: object, pageProps: object) => object[]}} site (units: tap-markets.mjs)

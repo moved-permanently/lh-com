@@ -8,9 +8,10 @@
  */
 import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
-import { convertPage } from '../tools/importer/tap-import.mjs';
+import { convertPage, linkOf } from '../tools/importer/tap-import.mjs';
 import {
   ruleTail, ruleIndex, marketUnits, pageMarkets, withPageMarkets, rootLinks, languageOf, rootDocPath, variantFragments, marketViewPaths, marketFragments,
+  languageScope,
 } from '../tools/importer/tap-markets.mjs';
 import { dropMarketSections, sectionMarkets } from '../scripts/market-rules.js';
 
@@ -303,6 +304,22 @@ describe('tap-markets: pages and links', () => {
     assert.ok(!br.includes('Brazil\'s partners'));
     assert.match(r.fragments.find((f) => f.html.includes('Brazil')).html, /^<div><p>Brazil's partners<\/p><\/div>\n$/);
     assert.equal(sectionMarkets(sectionsOf(r.html.trim())[2]), 'br');
+  });
+
+  it('languageScope: the pages links stay on the site for; www\'s complaint, Miles&Go information and suggestion forms link www as the language import\'s', () => {
+    const pages = new Map([
+      ['/pt-pt/ajuda/pedidos-reclamacoes', 'default'],
+      ['/pt-pt/ajuda/pedidos-reclamacoes/reclamacao', 'requests-complaints'],
+      ['/pt-pt/ajuda/pedidos-reclamacoes/informacoes-miles-go', 'information-miles-and-go-requests'],
+      ['/pt-pt/ajuda/pedidos-reclamacoes/sugestao-ou-elogio', 'suggestion-and-praise'],
+      ['/pt-pt/registo', 'register'],
+    ]);
+    const scope = languageScope(['/pt-pt', '/pt-pt/ajuda'], pages, (t) => t);
+    assert.deepEqual([...scope].sort(), ['/pt-pt', '/pt-pt/ajuda', '/pt-pt/ajuda/pedidos-reclamacoes', '/pt-pt/registo'], 'the sign-up link as it is');
+    const c = { url: 'https://www.flytap.com/pt-pt/ajuda/pedidos-reclamacoes', locale: 'pt-pt', scope };
+    assert.equal(linkOf('/pt-pt/ajuda/pedidos-reclamacoes/reclamacao', c), 'https://www.flytap.com/pt-pt/ajuda/pedidos-reclamacoes/reclamacao');
+    assert.equal(linkOf('https://www.flytap.com/pt-pt/ajuda/pedidos-reclamacoes/sugestao-ou-elogio', c), 'https://www.flytap.com/pt-pt/ajuda/pedidos-reclamacoes/sugestao-ou-elogio');
+    assert.equal(linkOf('/pt-pt/ajuda/pedidos-reclamacoes', c), '/pt-pt/ajuda/pedidos-reclamacoes');
   });
 
   it('rootLinks: a root\'s document as its language version\'s (to compare nav and footer)', () => {
