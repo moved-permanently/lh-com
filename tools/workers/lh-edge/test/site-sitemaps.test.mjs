@@ -40,9 +40,15 @@ const DAY = '2026-11-03';
 const INDEXES = {
   'lh-tap': {
     '/pt-br/pages-index.json': [
-      { path: '/pt-br', markets: '', robots: 'noindex, nofollow', lastModified: T },
-      { path: '/pt-br/ajuda', markets: '', robots: 'noindex, nofollow', lastModified: T },
-      { path: '/pt-br/a-bordo', markets: 'br', robots: '', lastModified: '' },
+      {
+        path: '/pt-br', markets: '', robots: 'noindex, nofollow', lastModified: T,
+      },
+      {
+        path: '/pt-br/ajuda', markets: '', robots: 'noindex, nofollow', lastModified: T,
+      },
+      {
+        path: '/pt-br/a-bordo', markets: 'br', robots: '', lastModified: '',
+      },
     ],
     '/de-de/pages-index.json': [
       { path: '/de-de', markets: '', lastModified: T },
@@ -52,11 +58,21 @@ const INDEXES = {
   },
   'lh-discover': {
     '/de/en/search-index.json': [
-      { path: '/de/en/homepage', markets: '', robots: '', lastModified: T },
-      { path: '/de/en/book/flights', markets: '', robots: '', lastModified: T },
-      { path: '/de/en/only-germany', markets: 'de', robots: '', lastModified: T },
-      { path: '/de/en/hidden', markets: '', robots: 'noindex', lastModified: T },
-      { path: '/de/en/fragments/teaser', markets: '', robots: '', lastModified: T },
+      {
+        path: '/de/en/homepage', markets: '', robots: '', lastModified: T,
+      },
+      {
+        path: '/de/en/book/flights', markets: '', robots: '', lastModified: T,
+      },
+      {
+        path: '/de/en/only-germany', markets: 'de', robots: '', lastModified: T,
+      },
+      {
+        path: '/de/en/hidden', markets: '', robots: 'noindex', lastModified: T,
+      },
+      {
+        path: '/de/en/fragments/teaser', markets: '', robots: '', lastModified: T,
+      },
     ],
     '/market-pages.json': [
       { path: '/us/en/homepage', robots: '', lastModified: T },

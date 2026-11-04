@@ -197,7 +197,7 @@ function compactRows(rows) {
 }
 
 /** A compact index (path -> {markets, robots, primary, lastModified}), a minute per isolate. */
-async function compactIndex(request, env, path) {
+export async function compactIndex(request, env, path) {
   return cachedIndex(`${env.ORIGIN}${path}`, async () => compactRows((await sheetRows(request, env, path))?.rows || []));
 }
 

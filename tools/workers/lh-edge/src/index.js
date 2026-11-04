@@ -56,6 +56,7 @@ import {
 import { headUrlHost, rewriteHeadUrls } from './head-urls.js';
 import { rewriteBrandIcons } from './brand-icons.js';
 import { brandNotFoundPage } from './not-found.js';
+import { siteSitemap } from './site-sitemaps.js';
 import {
   urlForm, urlFormUnlessPage, isLongPagePath, brandLongPathTarget, ampersandTarget,
 } from './url-forms.js';
@@ -403,6 +404,10 @@ async function siteRespond(incoming, env, site, ctx) {
   if (read && /^\/sitemap\/sitemap_lh[._]/.test(url.pathname)) {
     return finish(new Response('Not Found', { status: 404, headers: { 'content-type': 'text/plain; charset=utf-8', 'x-lh-edge-route': 'site-sitemap' } }), incoming, senv, 'site-sitemap');
   }
+  // the host's own sitemaps (src/site-sitemaps.js): /sitemap.xml its index, its language
+  // versions' and roots' (TAP's market roots': the market route below)
+  const sitemap = read && await siteSitemap(incoming, senv, site, ctx);
+  if (sitemap) return finish(sitemap, incoming, senv, 'site-sitemap');
   // a site without roots (src/sites.js PLAIN_SITES): www's DAM URLs as on the other site hosts
   // (its DA copies, then AEM: brief 334), its entry redirects, every other path as it is
   if (site.plain && isDamPath(url.pathname)) return finish(await dam(incoming, senv, ctx), incoming, senv, 'dam');

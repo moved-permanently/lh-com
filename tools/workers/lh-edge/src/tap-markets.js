@@ -15,7 +15,8 @@
  *   airports, /<root>/booking/airports.json, until each root has its own);
  * - else the origin's 404 for the root's path (www has no such page on the root).
  * /<root>/sitemap.xml: the language version's pages the country has (the pages index,
- * helix-query.yaml tap-pages-<version>) and the root's own pages. Media and files: the origin's.
+ * helix-query.yaml tap-pages-<version>) and the root's own pages; a language version's sitemap
+ * (src/site-sitemaps.js) its pages from the same index. Media and files: the origin's.
  * A root that is off, a language root and every other path: null (the route as before).
  */
 import {
@@ -33,7 +34,8 @@ import { TAP_MARKETS, TAP_LIVE_MARKETS } from '../../../../scripts/tap-markets.j
 export const TAP_INDEX = (version) => `/${version}/pages-index.json`;
 
 /** TAP's language versions (the roots whose documents the market roots use, and pt-br). */
-const VERSIONS = new Set(['pt-pt', 'en-pt', 'es-es', 'fr-fr', 'de-de', 'it-it', 'pl-pl', 'pt-br']);
+export const TAP_VERSIONS = ['pt-pt', 'en-pt', 'es-es', 'fr-fr', 'de-de', 'it-it', 'pl-pl', 'pt-br'];
+const VERSIONS = new Set(TAP_VERSIONS);
 const hreflangOf = (root) => {
   const [ll, cc] = root.split('-');
   return `${ll}-${cc.toUpperCase()}`;
@@ -152,6 +154,25 @@ const day = (lastModified) => {
   return Number.isFinite(n) && n > 0 ? new Date(n * 1000).toISOString().slice(0, 10) : '';
 };
 
+/** A sitemap of a root's or version's URLs on the host ([url, lastmod] each). */
+const urlset = (urls) => `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls
+  .map(([loc, mod]) => `<url><loc>${xmlEscape(loc)}</loc>${mod ? `<lastmod>${mod}</lastmod>` : ''}</url>`).join('\n')}\n</urlset>\n`;
+
+/**
+ * A language version's sitemap (brief 342): its homepage, then its pages (its index), by path,
+ * as the roots' sitemaps list theirs.
+ */
+export async function tapVersionSitemapXml(request, env, version) {
+  const index = (await versionIndex(request, env, version)) || new Map();
+  const host = `https://${publicHost(request, env)}`;
+  const home = index.get(`/${version}`);
+  const pages = [...index.keys()].filter((p) => p.startsWith(`/${version}/`) && !NOT_PAGES.test(p)).sort();
+  return urlset([
+    [`${host}/${version}`, home ? day(home.lastModified) : ''],
+    ...pages.map((p) => [`${host}${p}`, day(index.get(p).lastModified)]),
+  ]);
+}
+
 /**
  * A root's sitemap: its homepage, the language version's pages the country has (its index) and
  * the root's own pages, each once, by path.
@@ -169,13 +190,10 @@ export async function tapSitemapXml(request, env, root) {
     pages.set(suffix, day(row.lastModified));
   });
   own.forEach((s) => { if (!pages.has(s)) pages.set(s, ''); });
-  const entry = (suffix, mod) => `<url><loc>${xmlEscape(`${host}/${root}${suffix}`)}</loc>${
-    mod ? `<lastmod>${mod}</lastmod>` : ''}</url>`;
-  const urls = [
-    entry('', home ? day(home.lastModified) : ''),
-    ...[...pages.keys()].sort().map((s) => entry(s, pages.get(s))),
-  ];
-  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.join('\n')}\n</urlset>\n`;
+  return urlset([
+    [`${host}/${root}`, home ? day(home.lastModified) : ''],
+    ...[...pages.keys()].sort().map((s) => [`${host}/${root}${s}`, pages.get(s)]),
+  ]);
 }
 
 /**

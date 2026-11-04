@@ -167,6 +167,17 @@ without a valid origin is not served. All three vars are empty by default: every
 tables are `LH_TABLES`, the routes read them unchanged; `bench-market.mjs --record/--replay --dump`: 3,006 answers
 byte-identical with and without the change).
 
+Every site host (brief 342): its 404 is the brand's (`src/not-found.js`): the origin's 404 page (the code's
+`404.html`, Lufthansa's title and text until its script runs) gets the brand's title, `og:title`, `<html lang>`, the
+brand, nav, footer (and language) metadata of the path's root or language version (else the site's first) and its
+www 404's heading, text and homepage link (`scripts/not-found-texts.js`, which `scripts/not-found.js` builds the same
+from); status and scripts as they are, lh-com's hosts untouched. Its sitemaps (`src/site-sitemaps.js`, route
+`site-sitemap`): `/sitemap.xml` an index of the host's sitemaps, URLs on the host: TAP's eight language versions'
+`/<version>/sitemap.xml` (from `tap-pages-<version>`) and the market roots' that are on; a site with roots every
+language version's, own root's and served market root's `/<cc>/<ll>/sitemap.xml` (its index; a market root's from the
+market model, as its pages); Cargo and Air Dolomiti one per language from its search index (`/<ll>/sitemap.xml`, a
+language at `/` `/sitemap-<ll>.xml`). No hreflang in them, an hour in the edge cache; `robots.txt` the origin's.
+
 Discover Airlines (`discover`, DA `moved-permanently/lh-discover`): de/en, de/de, xx/fr hold the language documents;
 us/en, ca/en, xx/en, us/de, xx/de, ca/fr are market roots. For `discover.turnsthe.page`:
 
