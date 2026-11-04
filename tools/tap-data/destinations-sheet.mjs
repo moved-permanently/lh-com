@@ -10,7 +10,9 @@
  * not in the captures; no TAP API is called.
  *
  * Usage: node tools/tap-data/destinations-sheet.mjs --root en-pt --page <destinations.html>
- *          --airports <runs/airports/en-pt.json> --ourairports <airports.csv> --out <sheet.json>
+ *          --airports <runs/airports/en-pt.json | the root's booking/airports.json sheet>
+ *          --ourairports <airports.csv> --out <sheet.json> [--also <the other languages' sheets, a,b>]
+ *          [--known <another version's destinations sheet: its codes first>]
  * Prints the destinations it could not place (to add to PLACES below); they stay out of the sheet.
  */
 import fs from 'node:fs';
@@ -41,6 +43,28 @@ export const PLACES = {
   marraquexe: 'RAK',
   'sao luis do maranhao': 'SLZ',
   'cidade do luxemburgo': 'LUX',
+  'santo tome': 'TMS',
+  'ciudad de luxemburgo': 'LUX',
+  reikiavik: 'KEF',
+  marrakesch: 'RAK',
+  oporto: 'OPO',
+  porto: 'OPO',
+  mailand: 'MIL',
+  'lussemburgo citta': 'LUX',
+  minorca: 'MAH',
+  'monaco di baviera': 'MUC',
+  'nowego jorku': 'NYC',
+  kurytyby: 'CWB',
+  ateny: 'ATH',
+  kopenhaga: 'CPH',
+  florencja: 'FLR',
+  marsylia: 'MRS',
+  mediolan: 'MIL',
+  sewilla: 'SVQ',
+  teneryfa: 'TCI',
+  zurych: 'ZRH',
+  amesterda: 'AMS',
+  madri: 'MAD',
 };
 
 /** Folds a name for matching: no accents, lower case, single spaces. */
@@ -71,6 +95,67 @@ export function marketLink(href, root) {
 }
 
 /**
+ * A paragraph's leaves in order: each text with the link it sits in ('' outside a link) and
+ * whether it starts a new node (a span or link of the paragraph's own).
+ */
+function leavesOf(para) {
+  const out = [];
+  const walk = (node, href, fresh) => {
+    if (node.nodeType === 'text') {
+      out.push({ text: node.value || '', href, fresh });
+      return;
+    }
+    if (node.nodeType === 'line-break') {
+      out.push({ text: '', href, fresh, lineBreak: true });
+      return;
+    }
+    const own = node.nodeType === 'link' ? ((node.data && node.data.href) || '') : href;
+    (node.content || []).forEach((c, i) => walk(c, own, fresh && i === 0));
+  };
+  (para.content || []).forEach((c) => walk(c, '', true));
+  return out;
+}
+
+/**
+ * A paragraph's destinations: "City | Country", the names linked or not, sometimes two in one
+ * paragraph (pl-pl's "Ateny | Grecja", line breaks, "Barcelona | Hiszpanii"): a line break, or a
+ * new node after the country, starts the next city.
+ * @param {Object} para
+ * @returns {Array<{city: string, country: string, link: string, countryLink: string}>}
+ */
+export function paragraphDestinations(para) {
+  const out = [];
+  let cur = null;
+  let side = 'city';
+  const start = () => {
+    cur = {
+      city: '', country: '', link: '', countryLink: '',
+    };
+    out.push(cur);
+    side = 'city';
+  };
+  leavesOf(para).forEach((leaf) => {
+    // a line break ends a destination
+    if (leaf.lineBreak) {
+      if (cur && cur.city.trim()) cur = null;
+      return;
+    }
+    const parts = leaf.text.split('|');
+    parts.forEach((part, i) => {
+      if (i > 0) side = 'country';
+      else if (!cur || (side === 'country' && cur.country.trim() && leaf.fresh && part.trim())) start();
+      if (!part.trim()) return;
+      cur[side] += part;
+      const key = side === 'city' ? 'link' : 'countryLink';
+      if (leaf.href && !cur[key]) cur[key] = leaf.href;
+    });
+  });
+  return out.map((d) => ({
+    ...d, city: d.city.replace(/\s+/g, ' ').trim(), country: d.country.replace(/\s+/g, ' ').trim(),
+  })).filter((d) => d.city);
+}
+
+/**
  * The destinations of a destinations page: region, city, country and the two links, in www's order.
  * @param {Object} next the page's __NEXT_DATA__
  * @param {string} root
@@ -83,17 +168,13 @@ export function destinationsOf(next, root) {
   (list.items || []).forEach((item) => {
     const region = String(item.label || '').trim();
     ((item.accordionItemDescription || {}).json || []).forEach((para) => {
-      const links = (para.content || []).filter((c) => c.nodeType === 'link');
-      if (!links.length) return;
-      const city = textOf(links[0]).trim();
-      if (!city) return;
-      out.push({
+      paragraphDestinations(para).forEach((d) => out.push({
         region,
-        city,
-        country: links[1] ? textOf(links[1]).trim() : '',
-        link: marketLink(links[0].data && links[0].data.href, root),
-        countryLink: links[1] ? marketLink(links[1].data && links[1].data.href, root) : '',
-      });
+        city: d.city,
+        country: d.country,
+        link: marketLink(d.link, root),
+        countryLink: marketLink(d.countryLink, root),
+      }));
     });
   });
   return out;
@@ -133,30 +214,72 @@ export function coordinatesOf(csv) {
   return map;
 }
 
+/** A flights link's place name: "flights-to-new-york", "loty-do-nowy-jork" -> "new york". */
+export function slugName(href) {
+  const last = String(href || '').split(/[?#]/)[0].split('/').filter(Boolean).pop() || '';
+  const m = last.match(/^(?:flights-to|voos-para|vuelos-a|vols-pour|vols-vers|fluge-nach|fluege-nach|flug-nach|voli-per|voli-a|loty-do)-(.+)$/);
+  return m ? m[1].replace(/-/g, ' ') : '';
+}
+
+/** A city code from one airport sheet: the name (in the country first), else a longer name. */
+function codeIn(airports, name, { country = '', countryCode = '', known = null } = {}) {
+  if (!name) return '';
+  const hits = airports.filter((e) => fold(e.cityName) === name);
+  // the same name in the destination's country first (Boa Vista: Cape Verde's, not Brazil's) ...
+  const inCountry = airports.filter((e) => (country && fold(e.countryName) === country)
+    || (countryCode && e.country === countryCode));
+  // ... or a longer name there holding it ("Boa Vista Island", "Ilha Da Boa Vista")
+  const ranked = [
+    ...hits.filter((e) => inCountry.includes(e)),
+    ...inCountry.filter((e) => ` ${fold(e.cityName)} `.includes(` ${name} `)),
+    ...(countryCode ? [] : hits),
+    // a longer name anywhere, for a code another version placed (de-de's "Boa Vista")
+    ...(known ? airports.filter((e) => known.has(e.city || e.airport) && ` ${fold(e.cityName)} `.includes(` ${name} `)) : []),
+  ];
+  // a code another language version already placed first (es-es' "Santa Maria": the Azores', not
+  // Brazil's; it-it's "Manchester": England's, not New Hampshire's)
+  const codeOf = (e) => e.city || e.airport;
+  const pool = known ? [...ranked.filter((e) => known.has(codeOf(e))), ...ranked] : ranked;
+  const best = pool.find((e) => e.tapRoute && (!known || known.has(codeOf(e)))) || pool.find((e) => e.tapRoute) || pool[0];
+  return best ? codeOf(best) : '';
+}
+
 /**
  * Places a destination: its airport code and coordinates (city codes as the mean of their
- * airports' positions), or null.
- * @param {{city: string}} dest
- * @param {Array} airports the root's recorded entries ({airport, city, cityName, tapRoute})
+ * airports' positions), or null. The name in the root's sheet, then in the other languages'
+ * sheets (within the country the root's sheet gives the country's name), then the name in its
+ * flights link (pl-pl's "Nowego Jorku" links to loty-do-nowy-jork), then PLACES.
+ * @param {{city: string, country?: string, link?: string}} dest
+ * @param {Array} airports the root's entries ({airport, city, cityName, country, countryName,
+ *   tapRoute})
  * @param {Map} coords IATA -> {lat, lng}
+ * @param {Array<Array>} [others] the other languages' entries
+ * @param {Set<string>} [known] codes another version's sheet has (en-pt's): preferred
  */
-export function placeOf(dest, airports, coords) {
+export function placeOf(dest, airports, coords, others = [], known = null) {
   const name = fold(dest.city);
-  let code = PLACES[name] || '';
-  if (!code) {
-    // the same name in the destination's country first (Boa Vista: Cape Verde's, not Brazil's)
-    const hits = airports.filter((e) => fold(e.cityName) === name);
-    const country = fold(dest.country);
-    // ... or a longer name there holding it ("Boa Vista Island", "Ilha Da Boa Vista")
-    const inCountry = airports.filter((e) => country && fold(e.countryName) === country);
-    const ranked = [
-      ...hits.filter((e) => inCountry.includes(e)),
-      ...inCountry.filter((e) => ` ${fold(e.cityName)} `.includes(` ${name} `)),
-      ...hits,
-    ];
-    const best = ranked.find((e) => e.tapRoute) || ranked[0];
-    code = best ? (best.city || best.airport) : '';
-  }
+  const country = fold(dest.country);
+  const own = airports.find((e) => country && fold(e.countryName) === country);
+  const countryCode = own ? own.country : '';
+  const slug = fold(slugName(dest.link));
+  const lookups = [
+    () => PLACES[name],
+    () => codeIn(airports, name, { country, known }),
+    ...others.map((list) => () => codeIn(list, name, { countryCode, known })),
+    () => codeIn(airports, slug, { country, known }),
+    ...others.map((list) => () => codeIn(list, slug, { countryCode, known })),
+    () => PLACES[slug],
+  ];
+  // the first code another version placed too (known), else the first code found
+  let code = '';
+  let first = '';
+  lookups.some((f) => {
+    const c = f() || '';
+    if (c && !first) first = c;
+    if (c && (!known || known.has(c))) code = c;
+    return code;
+  });
+  code = code || first;
   if (!code) return null;
   if (coords.has(code)) return { code, ...coords.get(code) };
   // a city code (LON, NYC, MIL): the mean of its airports TAP flies to (no railway stations)
@@ -175,17 +298,39 @@ export function placeOf(dest, airports, coords) {
 const round = (n) => Math.round(n * 10000) / 10000;
 
 /** The sheet's rows and the destinations left out (not placed). */
-export function sheetRows(dests, airports, coords) {
+export function sheetRows(dests, airports, coords, others = [], known = null) {
   const rows = [];
   const missing = [];
+  const seen = new Set();
   dests.forEach((d) => {
-    const p = placeOf(d, airports, coords);
+    // the same destination twice (it-it's list has Belém twice): once
+    const key = `${d.city}|${d.link}`;
+    if (seen.has(key)) return;
+    seen.add(key);
+    const p = placeOf(d, airports, coords, others, known);
     if (!p) { missing.push(d.city); return; }
     rows.push({
       region: d.region, city: d.city, country: d.country, code: p.code, lat: String(round(p.lat)), lng: String(round(p.lng)), link: d.link, countryLink: d.countryLink,
     });
   });
   return { rows, missing };
+}
+
+/**
+ * The airport entries as placeOf reads them, from a recorded answer (entries: airport, isRailway,
+ * tapRoute as booleans) or from a root's DA sheet (/<root>/booking/airports.json: code, railway,
+ * tapRoute as "true" / "false").
+ * @param {Object|Array} json
+ */
+export function airportsOf(json) {
+  const list = Array.isArray(json) ? json : (json.entries || json.data || []);
+  const yes = (v) => v === true || v === 'true';
+  return list.map((e) => ({
+    ...e,
+    airport: e.airport || e.code,
+    tapRoute: yes(e.tapRoute),
+    isRailway: yes(e.isRailway) || yes(e.railway),
+  }));
 }
 
 /** DA's single-sheet JSON. */
@@ -206,8 +351,10 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   });
   const next = nextDataOf(fs.readFileSync(a.page, 'utf8'));
   const dests = destinationsOf(next, a.root);
-  const recorded = JSON.parse(fs.readFileSync(a.airports, 'utf8'));
-  const { rows, missing } = sheetRows(dests, recorded.entries || recorded, coordinatesOf(fs.readFileSync(a.ourairports, 'utf8')));
+  const read = (f) => airportsOf(JSON.parse(fs.readFileSync(f, 'utf8')));
+  const others = (a.also || '').split(',').filter(Boolean).map(read);
+  const known = a.known ? new Set(JSON.parse(fs.readFileSync(a.known, 'utf8')).data.map((r) => r.code)) : null;
+  const { rows, missing } = sheetRows(dests, read(a.airports), coordinatesOf(fs.readFileSync(a.ourairports, 'utf8')), others, known);
   fs.mkdirSync(path.dirname(a.out), { recursive: true });
   fs.writeFileSync(a.out, `${JSON.stringify(sheetOf(rows), null, 1)}\n`);
   console.log(`${a.root}: ${dests.length} destinations, ${rows.length} placed -> ${a.out}`);

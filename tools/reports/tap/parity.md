@@ -81,14 +81,23 @@ tokens) and the computed styles of the pages above.
 | 37 | Inner banners on phones | the title 32 px, the lead Inter 20 / 30 | the homepage stage's 24 and 18 | theme | fixed (brief 336) |
 | 38 | Running text width | the content's whole width (1120 px at 1440) | two thirds (lh-com's limited width) | theme | fixed (brief 336) |
 | 39 | Breadcrumb's place under the header | 176 px from the top (the bar and its green quick-action tab above it) | 96 to 120 px (no quick-action tab) | header (ema-lufthansa) | open |
-| 40 | Help centre contacts (ajuda) | a country / city picker with phone numbers, opening hours and desks | a link to www ("See on flytap.com") | variant (hotline-finder on brand tap) + data (a contacts sheet per root) | block built (brief 339), tested on a local draft with a sample; the data is not in the captures (below) |
+| 40 | Help centre contacts (ajuda) | a country / city picker with phone numbers, opening hours and desks | a link to www ("See on flytap.com") | variant (hotline-finder on brand tap) + data (a contacts sheet per root) | block built (brief 339), the draft with a sample in DA, previewed (brief 344); the data: the contacts capture (row 54) |
 | 41 | LUGGit (bagagem) | the LUGGit booking widget | a link to www | app | open |
 | 42 | Stopover video (stopover) | a 32 px-rounded video, its title over it | columns-media: the video, the title beside it | import (ema-lufthansa) | open |
 | 43 | FAQ teaser card (stopover) | a #fcfcfc card with a 4 px green left edge, an outline button over its width | a heading, a line and a green button | import (a section style) | open |
 | 44 | A lone button under the text (stopover "Book now") | centred | at the left | import (no marker in the content tells it from left-aligned ones) | open |
-| 45 | Destinations map and cards (destinos) | Smartvel's map, filter chips and destination cards | the continents as an accordion, the get-inspired banner | variant (poi-map on brand tap) + data (a destinations sheet per root) | map built (brief 339), tested on a local draft; Smartvel's cards and themes stay www's (below) |
+| 45 | Destinations map and cards (destinos) | Smartvel's map, filter chips and destination cards | the continents as an accordion, the get-inspired banner | variant (poi-map on brand tap) + data (a destinations sheet per root) | map built (brief 339); the draft and the eight versions' sheets in DA, previewed (brief 344); the `poi-map` row on the pages: ema-lufthansa; Smartvel's cards and themes stay www's |
 | 46 | Homepage Miles&Go cards | four cards stacked as on www | the visitor's card as text and a picture | import: drafts/miles-go-stack (ema-lufthansa's importer) | open |
 | 47 | Christmas banner title on phones | "Christmas Markets / in Europe" | "Christmas / Markets in Europe" (the same 32 / 38.4, 500, -2 %, 310 px box) | theme: not the fonts (www's files, sha256 equal) but lh-com's text-wrap: balance on the hero card | fixed (brief 339) |
+| 48 | Market roots' homepage stage (es-mx, es-ar, pt-ao) | a fare carousel ("Voos desde 1 616 149 Kz", "Vuelos desde MX$34,391"), www's prices per market | no stage: the booking box at the top | import (ema-lufthansa: the roots' stage slides; the prices are www's live fares) | open |
+| 49 | Market roots' fourth Miles&Go card (pt-br, fr-ca, pt-ao) | four cards, the fourth the market's credit card (TAP BTG Pactual Black, Cartes de Crédit, VISA TAP Gold) | three cards (en-us has its fourth) | import (ema-lufthansa) | open |
+| 50 | Market roots' Miles&Go section served | the four cards | tap.turnsthe.page/pt-br alternates between `columns-media stack` (four cards) and the old `columns-media` (one card) with the same last-modified; the preview has the stack | edge cache (ema-adobe) | open |
+| 51 | Market roots' alerts bar (en-gb and others) | the root's own alerts ("Measures Related to Ebola Outbreak", 3/6) | another market's ("… for Travel to the US", 2/7) | alerts bar (ema-adobe) | open |
+| 52 | Market roots' `html lang` | the market's (`pt-ao`, `en-gb`, `de-ch` …) | the language (`pt`, `en`, `de`) | scripts (ema-adobe) | open |
+| 53 | Market roots' footer | "Cookie settings" in the second column; Star Alliance as www's picture; Google Play before App Store | no cookie settings link; "A Star Alliance member"; App Store first | import (ema-lufthansa: the footer documents) | open |
+| 54 | Market roots' help contacts | the finder with the market's country and city first (Schweiz / Genf, Angola / Luanda) | "See on flytap.com" | data: the contacts capture (the block and its sheet are ready, row 40) | open |
+| 55 | Contacts picture | a green chevron line over the picture's right edge | none | theme (TAP-scoped, hotline-finder-tap) | fixed (brief 344) |
+| 56 | Booking box's selects | a green triangle as the selects' arrow | a chevron | booking box (ema-adobe) | open |
 
 ## What was fixed (commits)
 
@@ -473,3 +482,104 @@ Comparisons, main against the branch `cmp-339`:
 - **The Christmas banner on phones:** "Christmas Markets / in Europe" as www's.
 
 Rollback: `git revert` of the commit.
+
+## Brief 344: the drafts in DA, the eight destinations sheets, the market roots (rows 48 to 56)
+
+### The drafts
+
+Uploaded to Document Authoring (DA, lh-tap) and previewed on 2026-11-04. Not published. Both
+pages read back from DA the same as their local copies in `content-sites/lh-tap-draft/drafts/`.
+
+| Draft | Preview |
+| --- | --- |
+| destinations map | https://main--lh-tap--moved-permanently.aem.page/drafts/destinations-map |
+| its sheet (89 rows) | https://main--lh-tap--moved-permanently.aem.page/drafts/destinations-map-en-pt.json |
+| help contacts | https://main--lh-tap--moved-permanently.aem.page/drafts/help-contacts |
+| its sheet (the Portugal / Lisbon sample, 7 rows) | https://main--lh-tap--moved-permanently.aem.page/drafts/help-contacts-en-pt.json |
+
+On the preview, the map has 89 dots and the region buttons. The finder starts with Portugal and
+shows its four groups. The drafts' path has no root, so their labels are TAP's default language,
+Portuguese.
+
+### The destinations sheets, all eight language versions
+
+`/<version>/destinations/destinations-map.json` in DA lh-tap, previewed only. Each preview's rows
+are the same as the local copy (`content-sites/lh-tap/content/<version>/destinations/`).
+
+The sheets come from each version's captured destinations page, its own city names and links:
+- pt-pt: destinos (archive 001);
+- en-pt: destinations (003);
+- es-es: destinos (006);
+- fr-fr: destinations (008);
+- de-de: reiseziele (010);
+- it-it: destinazioni (012);
+- pl-pl: miejsca-docelowe (013);
+- pt-br: destinos (014).
+
+| Version | Destinations on www | In the sheet | Not placed |
+| --- | --- | --- | --- |
+| pt-pt | 89 | 89 | – |
+| en-pt | 89 | 89 | – |
+| es-es | 89 | 89 | – |
+| fr-fr | 89 | 89 | – |
+| de-de | 90 (Alicante as well) | 90 | – |
+| it-it | 89 (Belém twice, São Paulo missing: www's list) | 88 (Belém once) | – |
+| pl-pl | 88 (no Reykjavik) | 88 (40 of them without a link, as on www) | – |
+| pt-br | 88 (no Manaus) | 88 | – |
+
+The tool now reads every version's list as www has it:
+- names linked or not;
+- pl-pl's two destinations in one paragraph, split at the line break;
+- the same destination twice kept once.
+
+It places each name by these sources, in order:
+1. the root's airport sheet;
+2. the other languages' sheets, within the country;
+3. the name in the flights link ("loty-do-nowy-jork");
+4. the hand-kept `PLACES`, which now holds 38 names.
+
+Each version prefers the codes en-pt placed (`--known`). That fixes es-es's Santa Maria (the
+Azores', not Brazil's), Boa Vista (Cape Verde's), Valencia (Spain's) and Manchester (England's).
+Every version's set of codes is en-pt's, apart from the differences between www's lists noted in
+the table. pt-br reads its DA airport sheet (`/pt-br/booking/airports.json`).
+
+### The market roots against www
+
+Ten roots, 2026-11-04, at 390 and 1440: pt-br, en-us, fr-ca, de-ch, es-mx, pt-ao, en-gb, fr-be,
+de-at, es-ar. For each, the homepage and its help page. One www page every 10.5 s or more, 40 in
+all.
+
+Same section by section on all ten help pages (the finder aside):
+- the title and lead;
+- the six help cards;
+- the FAQ;
+- the link tiles;
+- requests and complaints.
+
+On the homepages the stage, booking box, pills, plan-your-trip cards and Christmas banner have
+TAP's look as on the language versions. The Miles&Go cards are the stack at 1440, but row 50 has
+the page served both ways. The differences are rows 48 to 56; one is TAP-scoped code (row 55).
+
+Not differences:
+- A stage caught mid-slide in a screenshot: the 5 s rotation and its 1.2 s slide. At rest
+  `scrollLeft` is a multiple of the slide width.
+- www's Miles&Go cards below the first one look blank at 1440: they fade in as they scroll into
+  view.
+
+Screenshots (not committed): `/tmp/tap-344/cmp/<width>-<root>[-help]-<n>.png`, www left, ours
+right.
+
+### For ema-lufthansa (content)
+
+- Rows 48, 49 and 53, the roots' documents. The stage on es-mx, es-ar and pt-ao. The fourth
+  Miles&Go card on pt-br, fr-ca and pt-ao. The footer's cookie settings, Star Alliance picture and
+  store order.
+- `poi-map` with `Source | /<version>/destinations/destinations-map.json` on the eight destinations
+  pages (the sheets are in DA).
+
+### For ema-adobe
+
+- Row 50: the edge serving two versions of the same page.
+- Row 51: the alerts per market.
+- Row 52: `html lang`.
+- Row 56: the booking box's select arrow.
