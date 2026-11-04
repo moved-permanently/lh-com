@@ -12,8 +12,11 @@ import { buildShopHandoff, submitShopHandoff } from '../../scripts/shop-handoff.
 import {
   postHandoffOn, isOwnWww, hotelTarget, openTarget,
 } from '../../scripts/handoff.js';
-import { createPassengerPicker, PASSENGER_LABELS, PICKER_CABINS } from './passenger-picker.js';
+import {
+  createPassengerPicker, passengerSummary, PASSENGER_LABELS, PICKER_CABINS,
+} from './passenger-picker.js';
 import { readPickerOptions, applyPickerChoices } from './picker-options.js';
+import { pagePrefillParams, parsePrefill } from './url-prefill.js';
 
 /* ---------------------------------------------------------------------------------------------
  * Data contract (see scripts/lh-api.js for the live request and response shapes). The live
@@ -148,21 +151,25 @@ export function flightSearchRequests(settings, locale) {
 export async function loadFlightSearchData(settings, locale) {
   const requests = flightSearchRequests(settings, locale);
   const sources = {};
-  const settle = (name, mapper, fallback) => fetchRequest(requests[name], locale)
-    .then(({ data, source }) => {
-      // a brand root has no recordings of its own: a recorded default airport is another
-      // market's (lh-com's at/de, Vienna); the fallback is the root's home airport
-      if (name === 'defaultAirport' && locale.brand && source === 'recorded') {
+  const settle = (name, mapper, fallback) => {
+    // an origin from the page URL (url-prefill.js) needs no market default airport
+    if (name === 'defaultAirport' && settings.urlOrigin) return Promise.resolve(fallback);
+    return fetchRequest(requests[name], locale)
+      .then(({ data, source }) => {
+        // a brand root has no recordings of its own: a recorded default airport is another
+        // market's (lh-com's at/de, Vienna); the fallback is the root's home airport
+        if (name === 'defaultAirport' && locale.brand && source === 'recorded') {
+          sources[name] = 'none';
+          return fallback;
+        }
+        sources[name] = source;
+        return mapper(data);
+      })
+      .catch(() => {
         sources[name] = 'none';
         return fallback;
-      }
-      sources[name] = source;
-      return mapper(data);
-    })
-    .catch(() => {
-      sources[name] = 'none';
-      return fallback;
-    });
+      });
+  };
   const [live, defaultAirport, airportNames] = await Promise.all([
     fetchLabels(LABEL_BUNDLES, locale),
     settle('defaultAirport', mapDefaultAirport, null),
@@ -184,6 +191,26 @@ export async function loadFlightSearchData(settings, locale) {
   return {
     labels: pickLabels(live.labels, LIVE_LABELS), origin, destination, sources,
   };
+}
+
+/**
+ * The settings with what the page URL sets (url-prefill.js parsePrefill) over the rows: origin and
+ * destination (codes the Airports row allows; named like an authored code, the origin without the
+ * defaultAirport request), adults and cabin; the URL's other values are applied to the form.
+ */
+export function withPrefill(settings, prefill) {
+  const out = { ...settings };
+  const allows = (c) => !settings.airports.length || settings.airports.includes(c);
+  if (prefill.origin && allows(prefill.origin)) {
+    out.origin = { code: prefill.origin, name: '' };
+    out.urlOrigin = true;
+  }
+  if (prefill.destination && allows(prefill.destination)) {
+    out.destination = { code: prefill.destination, name: '' };
+  }
+  if (prefill.passengers) out.adults = prefill.passengers.adults;
+  if (prefill.cabin) out.cabin = prefill.cabin;
+  return out;
 }
 
 /** Trip type codes by authored position: first trip type is round trip, second one way. */
@@ -797,7 +824,18 @@ function buildHotelPanel(config, locale, onClose) {
 export default function decorate(block) {
   const locale = getLocale();
   const config = readConfigRows(block);
-  const settings = readFlightSearchSettings(config, locale);
+  // lufthansa.com's Young adults and Fare preference rows, hints left out (picker-options.js)
+  const pickerOptions = readPickerOptions(block, config, locale);
+  // the page URL's search, as www's flight manager (url-prefill.js): over the authored rows
+  const params = pagePrefillParams();
+  const authored = readFlightSearchSettings(config, locale);
+  const prefill = Object.keys(params).length ? parsePrefill(params, {
+    today: isoDate(new Date()),
+    cabins: authored.cabins,
+    youngAdults: authored.passengerPicker && pickerOptions.youngAdults,
+    adults: authored.adults,
+  }) : {};
+  const settings = withPrefill(authored, prefill);
   let labels = resolveLabels(DEFAULT_LABELS, config, locale.lang);
   const text = (...keys) => (pick(config, ...keys) || {}).text || '';
   const links = (pick(config, 'where-we-fly', 'links', 'link') || {}).cell;
@@ -843,8 +881,10 @@ export default function decorate(block) {
       option.value = code;
       if (settings.tripTypes[i]) option.textContent = settings.tripTypes[i];
       else bind((l) => { option.textContent = l[i ? 'one way label' : 'round trip label']; });
-      option.selected = Boolean(settings.defaultTripType)
+      // the page URL's trip type (url-prefill.js), else the Default trip type row
+      const authoredType = Boolean(settings.defaultTripType)
         && option.textContent.toLowerCase() === settings.defaultTripType.toLowerCase();
+      option.selected = prefill.tripType ? code === prefill.tripType : authoredType;
       tripTypeSelect.append(option);
     });
     wrap.append(label, tripTypeSelect);
@@ -852,19 +892,23 @@ export default function decorate(block) {
   }
   let passengers;
   if (settings.passengerPicker) {
-    // lufthansa.com's Young adults and Fare preference rows, hints left out (picker-options.js)
-    const options = readPickerOptions(block, config, locale);
+    const options = pickerOptions;
     passengers = createPassengerPicker({
       labels: { ...resolveLabels(PASSENGER_LABELS, config, locale.lang), ...options.labels },
       cabins: settings.cabins,
-      value: { adults: settings.adults, cabin: settings.cabin },
+      value: { adults: settings.adults, cabin: settings.cabin, ...(prefill.passengers || {}) },
       groupBooking: settings.groupBooking,
       youngAdults: options.youngAdults,
       farePreference: options.farePreference,
     });
     optionsRow.append(passengers.element);
   } else if (settings.travellerLabel) {
-    optionsRow.append(el('span', 'flight-search-travellers', settings.travellerLabel));
+    // the URL's counts or cabin: the line says them, as the picker's would
+    const counts = prefill.passengers || { adults: settings.adults, children: 0, infants: 0 };
+    const words = resolveLabels(PASSENGER_LABELS, config, locale.lang);
+    const line = prefill.passengers || prefill.cabin
+      ? passengerSummary(words, settings.cabin, counts) : settings.travellerLabel;
+    optionsRow.append(el('span', 'flight-search-travellers', line));
   }
   let nonstop;
   if (settings.nonstopLabel) {
@@ -987,7 +1031,9 @@ export default function decorate(block) {
   form.append(error);
 
   const updateTripType = () => {
-    const oneWay = tripTypeSelect && tripTypeSelect.value === 'ONEWAY';
+    // without the trip type select: the URL's one way, else round trip
+    const oneWay = tripTypeSelect
+      ? tripTypeSelect.value === 'ONEWAY' : prefill.tripType === 'ONEWAY';
     ret.label.hidden = oneWay;
     ret.input.disabled = oneWay;
     form.dataset.tripType = oneWay ? 'ONEWAY' : 'RETURN';
@@ -998,6 +1044,13 @@ export default function decorate(block) {
   };
   if (tripTypeSelect) tripTypeSelect.addEventListener('change', updateTripType);
   bind(updateTripType);
+  // the URL's dates (from today on, the return not before the departure: url-prefill.js), the
+  // return only on a round trip
+  if (prefill.departureDate) {
+    departure.input.value = prefill.departureDate;
+    ret.input.min = prefill.departureDate;
+  }
+  if (prefill.returnDate && form.dataset.tripType === 'RETURN') ret.input.value = prefill.returnDate;
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -1009,6 +1062,10 @@ export default function decorate(block) {
       returnDate: ret.input.value,
       adults: settings.adults,
       cabin: settings.cabin,
+      // without the picker: the URL's children and infants
+      ...(prefill.passengers ? {
+        children: prefill.passengers.children, infants: prefill.passengers.infants,
+      } : {}),
       nonstop: Boolean(nonstop && nonstop.checked),
       // the picker's adults, young adults, children, infants, cabin and fare preference
       ...(passengers ? passengers.getValue() : {}),

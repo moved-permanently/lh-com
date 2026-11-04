@@ -33,7 +33,7 @@ test('query and hash both count, URL-decoded; the hash wins on a clash', () => {
     OriginCode: 'MUC', DestinationCode: 'LHR', Cabin: 'B',
   });
   assert.deepEqual(readPrefillParams('', '#OriginCode=%48AM&TripType=one%77ay'), { OriginCode: 'HAM', TripType: 'oneway' });
-  assert.deepEqual(readPrefillParams('?OriginCode=%E0%A4%A', ''), { OriginCode: '%E0%A4%A' }, 'a broken escape: as it is, no error');
+  assert.equal(parse('?OriginCode=%E0%A4%A').origin, undefined, 'a broken escape: no error, no code');
   assert.deepEqual(readPrefillParams('', '#main'), {}, 'another hash: nothing');
 });
 

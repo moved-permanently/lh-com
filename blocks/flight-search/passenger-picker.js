@@ -314,7 +314,8 @@ function el(tag, className, text) {
  * @param {Object} options
  * @param {Object} options.labels PASSENGER_LABELS of the language (authored rows applied)
  * @param {string[]} options.cabins the cabin codes to offer (E, P, B, F)
- * @param {{adults: number, cabin: string}} options.value the block's starting values
+ * @param {{adults: number, cabin: string, youngAdults?: number, children?: number,
+ *   infants?: number}} options.value the block's starting values (the counts: the page URL's)
  * @param {Object} [options.groupBooking] the Group booking row's link ({href, text})
  * @param {boolean} [options.youngAdults] the young adults' stepper (picker-options.js)
  * @param {boolean} [options.farePreference] the fare preference choices (picker-options.js)
@@ -325,7 +326,8 @@ export function createPassengerPicker({
 }) {
   const offered = PICKER_CABINS.filter(([code]) => cabins.includes(code));
   const list = offered.length ? offered : PICKER_CABINS.slice(0, 1);
-  const start = youngAdults ? { adults: value.adults, youngAdults: 0 } : { adults: value.adults };
+  const counted = { adults: value.adults, children: value.children, infants: value.infants };
+  const start = youngAdults ? { ...counted, youngAdults: value.youngAdults || 0 } : counted;
   let counts = clampPassengers(start);
   let fare = 'DEFAULT';
   let cabin = list.some(([code]) => code === value.cabin) ? value.cabin : list[0][0];
