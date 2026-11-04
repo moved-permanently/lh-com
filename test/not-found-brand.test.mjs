@@ -2,8 +2,9 @@
 /* The not-found page per brand (scripts/not-found.js): the 404 has no metadata of its own, so it
    takes the brand of its site from the site's /metadata.json (brand row), the nav, footer and
    language its pages carry (sites without roots: their language prefix; with roots: the path's
-   <cc>/<ll>), the brand in its title, and only links to pages that exist on the site (no
-   Lufthansa search, no www.lufthansa.com help page). lh-com (no brand row): as before.
+   <cc>/<ll>), and since brief 342 the brand's own wording (scripts/not-found-texts.js,
+   test/not-found-texts.test.mjs; no Lufthansa search, no www.lufthansa.com help page). lh-com
+   (no brand row): as before.
    Run: node --max-old-space-size=512 --test test/not-found-brand.test.mjs */
 /* global globalThis */
 import test from 'node:test';
@@ -55,28 +56,25 @@ test('brandPageMeta: the rows the site\'s pages carry', () => {
   });
   assert.deepEqual(nf.brandPageMeta('/it/en/no-such', 'ita'), { brand: 'ita', nav: '/it/en/nav', footer: '/it/en/footer' });
   assert.deepEqual(nf.brandPageMeta('/xx/fr/a/b', 'discover'), { brand: 'discover', nav: '/xx/fr/nav', footer: '/xx/fr/footer' });
-  assert.deepEqual(nf.brandPageMeta('/x', 'ita'), { brand: 'ita' });
+  assert.deepEqual(nf.brandPageMeta('/x', 'ita'), { brand: 'ita', nav: '/it/en/nav', footer: '/it/en/footer' }, 'not a root: the first language version (brief 342)');
 });
 
-test('a brand\'s 404: its name in the title, only links that exist on the site, no Lufthansa search or help', async () => {
+test('a brand\'s 404: its www wording and title (brief 342), its homepage, no Lufthansa search or help', async () => {
   const doc = page('/it/en/no-such', 'ita');
-  const asked = [];
-  await nf.buildBrandNotFound(doc.querySelector('main'), async (href) => { asked.push(href); return href === '/it/en/homepage'; });
+  await nf.buildBrandNotFound(doc.querySelector('main'));
   const main = doc.querySelector('main');
-  assert.equal(main.querySelector('h1').textContent, 'Page not found');
-  assert.deepEqual([...main.querySelectorAll('a')].map((a) => a.getAttribute('href')), ['/it/en/homepage']);
+  assert.equal(main.querySelector('h1').textContent, 'Unable to find the page');
+  assert.deepEqual([...main.querySelectorAll('a')].map((a) => [a.getAttribute('href'), a.textContent]), [['/it/en/homepage', 'Homepage']]);
   assert.ok(main.querySelector('form') === null, 'no search field (www.lufthansa.com\'s search)');
   assert.doesNotMatch(main.innerHTML, /lufthansa\.com/);
   assert.equal(doc.title, 'Page not found | ITA Airways');
   assert.equal(doc.querySelector('meta[property="og:title"]').content, 'Page not found | ITA Airways');
-  assert.ok(asked.every((h) => h.startsWith('/it/en/')), 'same-origin pages of the root only');
-  assert.ok(asked.length >= 2, 'every candidate is checked');
 
   const cargo = page('/en/no-such', 'cargo');
   Object.entries(nf.brandPageMeta('/en/no-such', 'cargo')).forEach(([k, v]) => nf.setMeta(k, v));
-  await nf.buildBrandNotFound(cargo.querySelector('main'), async (href) => href === '/en/home');
-  assert.deepEqual([...cargo.querySelectorAll('main a')].map((a) => a.getAttribute('href')), ['/en/home']);
-  assert.equal(cargo.title, 'Page not found | Lufthansa Cargo');
+  await nf.buildBrandNotFound(cargo.querySelector('main'));
+  assert.equal(cargo.querySelectorAll('main a').length, 0, 'www\'s Cargo 404 has no button');
+  assert.equal(cargo.title, 'This page is no longer available | Lufthansa Cargo');
   assert.equal(cargo.querySelector('meta[name="nav"]').content, '/en/nav');
 });
 

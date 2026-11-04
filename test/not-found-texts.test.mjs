@@ -104,3 +104,82 @@ test('scripts/not-found.js on a TAP host: the brand\'s page, its title and metad
     brand: 'tap', language: 'it', nav: '/it-it/nav', footer: '/it-it/footer',
   });
 });
+
+/* The other brands (their www 404 per language, read once each on 2026-11-04 over Bright Data:
+   logs/b342/bd-404; Air Dolomiti's directly): sites with <cc>/<ll> roots take the texts of the
+   root's language and the root's nav, footer and homepage; a path outside the roots the site's
+   first language version's; SWISS's sub-sites their own language's. */
+test('brands with <cc>/<ll> roots: the root\'s language and nav, else the first language version', () => {
+  assert.deepEqual(brandNotFound('discover', '/de/en/no-such'), {
+    brand: 'discover',
+    lang: 'en',
+    title: 'Page not found | Discover Airlines',
+    heading: 'Page not found',
+    text: ['There may be a typing error in the link or the page may no longer exist.', 'Please use our navigation to search for an alternative or use the button below to return to the homepage.'],
+    button: 'To the homepage',
+    home: '/de/en/homepage',
+    meta: { brand: 'discover', nav: '/de/en/nav', footer: '/de/en/footer' },
+  });
+  const usde = brandNotFound('discover', '/us/de/x/y');
+  assert.equal(usde.title, 'Seite nicht gefunden | Discover Airlines');
+  assert.equal(usde.home, '/us/de/homepage');
+  assert.deepEqual(usde.meta, { brand: 'discover', nav: '/us/de/nav', footer: '/us/de/footer' });
+  const outside = brandNotFound('discover', '/zz/qq/x');
+  assert.equal(outside.home, '/de/en/homepage', 'not a root: the first language version');
+  assert.equal(outside.lang, 'en');
+  assert.equal(brandNotFound('ita', '/it/en/x').heading, 'Unable to find the page');
+  assert.equal(brandNotFound('ita', '/it/en/x').title, 'Page not found | ITA Airways');
+  assert.equal(brandNotFound('ita', '/ch/de/x').title, 'Seite nicht gefunden | ITA Airways', 'a market root: its language');
+  assert.equal(brandNotFound('ita', '/jp/ja/x').text[0], '申し訳ございません。お探しのページが見つかりませんでした。');
+  assert.equal(brandNotFound('austrian', '/ru/ru/x').title, 'Страница не найдена | Austrian Airlines');
+  assert.equal(brandNotFound('austrian', '/at/de/x').button, 'Zur Startseite');
+  assert.equal(brandNotFound('brussels', '/be/nl/x').heading, 'De pagina kon niet worden gevonden');
+  assert.deepEqual(brandNotFound('brussels', '/be/fr/x').text, ['La page demandée n’existe plus ou a été déplacée.']);
+  assert.equal(brandNotFound('b2b', '/de/de/x').title, 'Seite nicht gefunden | Lufthansa Group');
+  assert.equal(brandNotFound('b2b', '/us/en/x').button, 'To Homepage');
+  assert.equal(brandNotFound('swiss', '/ch/pt/x').title, 'A página não foi encontrada | SWISS');
+  assert.equal(brandNotFound('swiss', '/ch/zh/x').button, '回到主页');
+});
+
+test('SWISS: kr/ko as www (English, no text), its sub-sites their own language\'s nav and homepage', () => {
+  const ko = brandNotFound('swiss', '/kr/ko/x');
+  assert.equal(ko.title, 'The requested page could not be found | SWISS');
+  assert.equal(ko.lang, 'en');
+  assert.deepEqual(ko.text, []);
+  assert.equal(ko.meta.nav, '/kr/ko/nav');
+  const corp = brandNotFound('swiss', '/corporate/de/no-such');
+  assert.equal(corp.title, 'Diese Seite ist nicht auffindbar | SWISS');
+  assert.equal(corp.home, '/corporate/de/homepage');
+  assert.deepEqual(corp.meta, { brand: 'swiss', nav: '/corporate/de/nav', footer: '/corporate/de/footer' });
+  assert.equal(brandNotFound('swiss', '/magazine/en/x').home, '/magazine/en');
+});
+
+test('sites without roots: Cargo (no button on www), Air Dolomiti (Italian at /)', () => {
+  const cargo = brandNotFound('cargo', '/de/no-such');
+  assert.equal(cargo.title, 'Diese Webseite ist nicht mehr verfügbar | Lufthansa Cargo');
+  assert.equal(cargo.button, undefined);
+  assert.deepEqual(cargo.meta, {
+    brand: 'cargo', language: 'de', nav: '/de/nav', footer: '/de/footer',
+  });
+  assert.equal(notFoundMarkup(cargo), '<div><h1>Diese Webseite ist nicht mehr verfügbar</h1><p>Die von Ihnen gesuchte Webseite ist leider nicht mehr verfügbar.</p><p>Vielen Dank!</p></div>');
+  assert.equal(brandNotFound('cargo', '/x').lang, 'en');
+  const ad = brandNotFound('airdolomiti', '/voli/x');
+  assert.equal(ad.title, 'Impossibile trovare la pagina | Air Dolomiti');
+  assert.equal(ad.button, 'Torna all’homepage');
+  assert.equal(ad.home, '/');
+  assert.equal(brandNotFound('airdolomiti', '/en/x').button, 'Back to homepage');
+  assert.equal(brandNotFound('airdolomiti', '/de/x').heading, 'Seite konnte nicht gefunden werden');
+});
+
+test('every brand has its texts, for every language of its roots', async () => {
+  const { BRANDS, BRAND_SITES } = await import('../scripts/brands.js');
+  assert.deepEqual(Object.keys(NOT_FOUND_TEXTS).sort(), Object.keys(BRANDS).sort());
+  Object.entries(BRAND_SITES).forEach(([brand, site]) => {
+    new Set(Object.values(site.rows).map((r) => r.lang)).forEach((ll) => assert.ok(NOT_FOUND_TEXTS[brand][ll], `${brand} ${ll}`));
+  });
+  const shortName = { b2b: 'Lufthansa Group' };
+  Object.entries(NOT_FOUND_TEXTS).forEach(([brand, texts]) => Object.values(texts).forEach((t) => {
+    assert.ok(t.title.endsWith(` | ${shortName[brand] || BRANDS[brand].name}`), `${brand} ${t.title}`);
+    assert.ok(t.heading && Array.isArray(t.text), `${brand} ${t.title}`);
+  }));
+});

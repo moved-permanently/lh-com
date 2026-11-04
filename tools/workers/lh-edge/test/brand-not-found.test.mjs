@@ -45,6 +45,22 @@ test('TAP: a market root (its language version\'s wording, its own nav), pt-br, 
   assert.match(none, /<title>404 Erro \| TAP Air Portugal<\/title>/);
 });
 
+test('the other brands: a <cc>/<ll> root (no language row), a site without roots, Cargo without a button', async () => {
+  const at = (host, p) => new Request(`https://${host}.turnsthe.page${p}`);
+  const disc = await (await brandNotFoundPage(notFound(), at('discover', '/us/de/gibt-es-nicht'), { name: 'discover' })).text();
+  assert.match(disc, /<html lang="de">/);
+  assert.match(disc, /<title>Seite nicht gefunden \| Discover Airlines<\/title>/);
+  assert.match(disc, /<meta name="brand" content="discover"><meta name="nav" content="\/us\/de\/nav"><meta name="footer" content="\/us\/de\/footer">\s*<\/head>/);
+  assert.match(disc, /<a href="\/us\/de\/homepage">Zur Startseite<\/a>/);
+  const swiss = await (await brandNotFoundPage(notFound(), at('swiss', '/ch/fr/x'), { name: 'swiss' })).text();
+  assert.match(swiss, /<title>La page que vous avez demandée n’a pas pu être trouvée \| SWISS<\/title>/);
+  const ad = await (await brandNotFoundPage(notFound(), at('airdolomiti', '/en/x'), { name: 'airdolomiti' })).text();
+  assert.match(ad, /<meta name="language" content="en">/);
+  assert.match(ad, /<a href="\/en\/">Back to homepage<\/a>/);
+  const cargo = await (await brandNotFoundPage(notFound(), at('cargo', '/de/x'), { name: 'cargo' })).text();
+  assert.match(cargo, /<main><div><h1>Diese Webseite ist nicht mehr verfügbar<\/h1><p>Die von Ihnen gesuchte Webseite ist leider nicht mehr verfügbar\.<\/p><p>Vielen Dank!<\/p><\/div><\/main>/);
+});
+
 test('untouched: lh-com\'s hosts, an unknown brand, other statuses, other types, .plain.html, HEAD, another 404 body', async () => {
   const same = async (resp, request, site) => assert.ok(await brandNotFoundPage(resp, request, site) === resp);
   await same(notFound(), req('/de/en/x'), null);
