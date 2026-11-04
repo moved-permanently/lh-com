@@ -163,6 +163,8 @@ describe('tap-nav', () => {
     assert.deepEqual([...badges.querySelectorAll('h3')].map((h) => h.textContent), ['Siga-nos', 'TAP App']);
     assert.ok(badges.querySelector('a[href^="https://itunes.apple.com"] img[src="/media-da/tap/download-app-store-1.webp"]'));
     assert.ok(badges.querySelector('a[href^="https://play.google.com"] img[src="/media-da/tap/download-google-play-2.webp"]'));
+    // www's order: Google Play, then the App Store (parity 53)
+    assert.deepEqual([...badges.querySelectorAll('a[href*="play.google.com"], a[href*="apple.com"]')].map((a) => a.querySelector('img').alt), ['Google Play', 'App Store']);
     const note = [...d.querySelectorAll('main > div')].find((s) => s.querySelector('.section-metadata') && /note/.test(s.querySelector('.section-metadata').textContent));
     assert.match(note.textContent, /© \d{4}, TAP\. Todos os direitos reservados\./);
     // without the store pictures: the store names as text links, as before

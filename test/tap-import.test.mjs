@@ -249,6 +249,27 @@ describe('tap-import parity (tools/reports/tap/parity.md)', () => {
     const rows = Object.fromEntries([...dom(html).querySelector('.booking-box').querySelectorAll(':scope > div')].map((r) => [r.children[0].textContent, r.children[1].textContent]));
     KEYS.forEach((k) => assert.ok(rows[k], `the row ${k}`));
     assert.equal(rows['ibe.reservation-number'], all['pt-pt']['ibe.reservation-number']);
+    // ema-adobe's reading (brief 354): the steppers' fewer / more lead the buttons' names
+    // ("Remove one: Adults"), French's departure as the form's "Départ de", German's tab reflexive
+    const STEPPER = {
+      'en-pt': ['Remove one', 'Add one'],
+      'pt-pt': ['Remover um', 'Adicionar um'],
+      'pt-br': ['Remover um', 'Adicionar um'],
+      'es-es': ['Quitar uno', 'Añadir uno'],
+      'fr-fr': ['Retirer un', 'Ajouter un'],
+      'de-de': ['Eine Person weniger', 'Eine Person mehr'],
+      'it-it': ['Togli uno', 'Aggiungi uno'],
+      'pl-pl': ['Usuń', 'Dodaj'],
+    };
+    Object.entries(STEPPER).forEach(([lv, [fewer, more]]) => assert.deepEqual([all[lv].fewer, all[lv].more], [fewer, more], lv));
+    assert.equal(all['fr-fr']['same-airports'], 'Choisissez une destination différente du lieu de départ');
+    assert.equal(all['de-de']['new-tab'], 'öffnet sich in einem neuen Tab');
+    // a root's homepage from its language version's rows (de-ch: de-de's)
+    const de = convertPage(nd('homepage'), {
+      ...ctx('https://www.flytap.com/de-ch'), locale: 'de-ch', lang: 'de', booking: { labels: all['de-de'] },
+    }).html;
+    const deRows = Object.fromEntries([...dom(de).querySelector('.booking-box').querySelectorAll(':scope > div')].map((r) => [r.children[0].textContent, r.children[1].textContent]));
+    assert.deepEqual([deRows.fewer, deRows.more, deRows['new-tab']], ['Eine Person weniger', 'Eine Person mehr', 'öffnet sich in einem neuen Tab']);
   });
 
   it('stopover (parity 42-44): the video under its title as hero-card-overlay, the FAQ card a section info-card, a rich text\'s button centred', () => {

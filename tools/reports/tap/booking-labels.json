@@ -52,8 +52,8 @@
   "previous-month": "Mês anterior",
   "next-month": "Mês seguinte",
   "close": "Fechar",
-  "fewer": "Menos",
-  "more": "Mais",
+  "fewer": "Remover um",
+  "more": "Adicionar um",
   "new-tab": "abre num novo separador"
  },
  "en-pt": {
@@ -108,8 +108,8 @@
   "previous-month": "Previous month",
   "next-month": "Next month",
   "close": "Close",
-  "fewer": "Fewer",
-  "more": "More",
+  "fewer": "Remove one",
+  "more": "Add one",
   "new-tab": "opens in a new tab"
  },
  "es-es": {
@@ -164,8 +164,8 @@
   "previous-month": "Mes anterior",
   "next-month": "Mes siguiente",
   "close": "Cerrar",
-  "fewer": "Menos",
-  "more": "Más",
+  "fewer": "Quitar uno",
+  "more": "Añadir uno",
   "new-tab": "se abre en una pestaña nueva"
  },
  "fr-fr": {
@@ -214,14 +214,14 @@
   "ibe.passenger-lastname": "Nom de famille du passager",
   "ibe.find-reservation": "Trouver une réservation",
   "validation-invalid": "Champ invalide",
-  "same-airports": "Choisissez une destination différente de l’origine",
+  "same-airports": "Choisissez une destination différente du lieu de départ",
   "flight-status-text": "Départs et arrivées des vols TAP, sur flytap.com.",
   "remove-flight": "Supprimer le vol",
   "previous-month": "Mois précédent",
   "next-month": "Mois suivant",
   "close": "Fermer",
-  "fewer": "Moins",
-  "more": "Plus",
+  "fewer": "Retirer un",
+  "more": "Ajouter un",
   "new-tab": "s’ouvre dans un nouvel onglet"
  },
  "de-de": {
@@ -277,9 +277,9 @@
   "previous-month": "Vorheriger Monat",
   "next-month": "Nächster Monat",
   "close": "Schließen",
-  "fewer": "Weniger",
-  "more": "Mehr",
-  "new-tab": "öffnet in einem neuen Tab"
+  "fewer": "Eine Person weniger",
+  "more": "Eine Person mehr",
+  "new-tab": "öffnet sich in einem neuen Tab"
  },
  "it-it": {
   "ibe.book-flight": "Prenoti il volo",
@@ -333,8 +333,8 @@
   "previous-month": "Mese precedente",
   "next-month": "Mese successivo",
   "close": "Chiudi",
-  "fewer": "Meno",
-  "more": "Più",
+  "fewer": "Togli uno",
+  "more": "Aggiungi uno",
   "new-tab": "si apre in una nuova scheda"
  },
  "pl-pl": {
@@ -389,8 +389,8 @@
   "previous-month": "Poprzedni miesiąc",
   "next-month": "Następny miesiąc",
   "close": "Zamknij",
-  "fewer": "Mniej",
-  "more": "Więcej",
+  "fewer": "Usuń",
+  "more": "Dodaj",
   "new-tab": "otwiera się w nowej karcie"
  },
  "pt-br": {
@@ -446,8 +446,8 @@
   "previous-month": "Mês anterior",
   "next-month": "Próximo mês",
   "close": "Fechar",
-  "fewer": "Menos",
-  "more": "Mais",
+  "fewer": "Remover um",
+  "more": "Adicionar um",
   "new-tab": "abre em uma nova aba"
  },
  "_note": "ibe.login, login-and-make-easier, ibe.reservation-details, ibe.reservation-number, ibe.passenger-lastname, ibe.find-reservation and validation-invalid: www's texts (each language's capture, the common namespace); same-airports, flight-status-text, remove-flight, previous-month, next-month, close, fewer, more and new-tab: ours (www has no text for them; brief 341)"

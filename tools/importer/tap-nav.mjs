@@ -181,7 +181,8 @@ export function footerHtml(pp, site) {
     const m = site.media ? site.media(`${WWW}/images/${file}`) : null;
     return m && (typeof m === 'string' ? m : m.eds);
   };
-  const apps = [[ss.appStore, S.appStore, 'download-app-store.webp'], [ss.googlePlay, S.googlePlay, 'download-google-play.webp']].filter(([h]) => h)
+  // www's order: Google Play, then the App Store
+  const apps = [[ss.googlePlay, S.googlePlay, 'download-google-play.webp'], [ss.appStore, S.appStore, 'download-app-store.webp']].filter(([h]) => h)
     .map(([h, l, file]) => { const src = badge(file); return `<li><a href="${attr(h)}">${src ? `<img src="${attr(src)}" alt="${attr(l)}">` : esc(l)}</a></li>`; }).join('');
   const social = SOCIAL.filter((k) => ss[k]).map((k) => `<li><a href="${attr(ss[k])}">:${k}:</a></li>`).join('');
   // www's side card: "Siga-nos" over the icons, "TAP App" over the badges (its texts, else ours)
