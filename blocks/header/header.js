@@ -5,7 +5,7 @@ import {
   isMigratedLocale, portalOf, ownRoots, siteLocales, siteOrigin, brandEntry,
 } from '../../scripts/locale.js';
 import { messageLocale, notificationsPage } from '../../scripts/message-center.js';
-import { languageSwitch, switchTarget } from '../../scripts/site-languages.js';
+import { languageSwitch, switchTarget, switchAlternates } from '../../scripts/site-languages.js';
 import { uiIcon, inlineIcon, takeIconName } from '../../scripts/lh-icons.js';
 import { getChannel, isFlynetHiddenLink, FLYNET_LOCALES } from '../../scripts/channel.js';
 import { isDemoHost } from '../../scripts/demo.js';
@@ -872,9 +872,9 @@ export default async function decorate(block) {
     .filter((t) => !flynet || !['login', 'cart', 'search'].includes(t.role));
   // a brand site without <cc>/<ll> roots (scripts/site-languages.js): a switch between its
   // languages (the nav's links to their homepages become it) instead of the country selector;
-  // the page's own counterparts from its metadata (Alternate en | /en/newsletter-subscription)
-  const alternates = Object.fromEntries((locale.siteLanguages || [])
-    .map((l) => [l.lang, getMetadata(`alternate-${l.lang}`).trim()]).filter(([, href]) => href));
+  // the page's own counterparts from its metadata (Alternate en | /en/newsletter-subscription;
+  // on TAP's roots also Alternate pt-br, parity.md F4)
+  const alternates = switchAlternates(locale.siteLanguages || [], getMetadata);
   const { pathname } = window.location;
   const siteSwitch = locale.siteLanguages
     ? languageSwitch(navTools, pathname, locale.lang, locale.siteLanguages, alternates) : null;

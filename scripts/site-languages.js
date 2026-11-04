@@ -41,9 +41,9 @@ export function tapLanguages(live = TAP_LIVE_MARKETS) {
     ['pl', 'pl', 'Polski', { currency: 'PLN', homeAirport: 'WAW' }],
     ['pt', 'br', 'Português (Brasil)', { currency: 'BRL', homeAirport: 'RIO', ...off('pt-br') }],
     ...Object.entries(TAP_MARKETS).map(([root, row]) => {
-      const [lang, country, version, currency, homeAirport, name] = row;
+      const [lang, country, version, currency, homeAirport, name, , lacks = []] = row;
       return [lang, country, name, {
-        version, currency, homeAirport, ...off(root),
+        version, currency, homeAirport, ...(lacks.length ? { lacks } : {}), ...off(root),
       }];
     }),
   ].map(tapRoot);
@@ -155,6 +155,22 @@ const pathOf = (href) => {
   }
 };
 
+/** A site language's key: its root (pt-br) on a site with countries, else its language. */
+const keyOf = (l) => (l.country ? `${l.lang}-${l.country}` : l.lang);
+
+/**
+ * The page's counterparts its metadata names, for the switch: by language (Alternate en) and, on a
+ * site whose languages name a country (TAP), by root (Alternate pt-br, parity.md F4).
+ * @param {Array} languages the site's languages
+ * @param {function(string): string} read a metadata reader (getMetadata)
+ * @returns {Object<string, string>} key (language or root) -> path
+ */
+export function switchAlternates(languages, read) {
+  const keys = [...new Set((languages || []).flatMap((l) => [l.lang, keyOf(l)]))];
+  return Object.fromEntries(keys.map((k) => [k, String(read(`alternate-${k}`) || '').trim()])
+    .filter(([, href]) => href));
+}
+
 /**
  * The header's language switch of a brand site without roots: per other language its label, its
  * homepage and the counterpart of the current page (counterpartPath). A nav tool link that points
@@ -165,8 +181,11 @@ const pathOf = (href) => {
  * @param {string} pathname the current page's path
  * @param {string} lang the current page's language (its locale)
  * @param {Array} languages the site's languages (SITE_LANGUAGES)
- * @param {Object<string, string>} [alternates] per language the page's counterpart its metadata
- *   names (Alternate <lang>), taken without a probe
+ * @param {Object<string, string>} [alternates] the page's counterparts its metadata names
+ *   (switchAlternates: per language, and per root on a site with countries), taken without a probe.
+ *   A site with countries (TAP): a root's own row first, the language's row only for that
+ *   language's first listed root; a market root and its language version share their slugs
+ *   (en-us/help, en-pt/help), unless the root lacks the page (its homepage then)
  */
 export function languageSwitch(tools, pathname, lang, languages, alternates = {}) {
   // a site with <ll>-<cc> roots: the page's root (a language may have several)
@@ -182,13 +201,31 @@ export function languageSwitch(tools, pathname, lang, languages, alternates = {}
     authored.set(l.lang, t.label);
     return false;
   });
-  const links = others.map((l) => ({
-    lang: l.lang,
-    label: authored.get(l.lang) || l.name,
-    home: l.home,
-    counterpart: counterpartPath(pathname, current, l),
-    ...(alternates[l.lang] ? { alternate: alternates[l.lang] } : {}),
-  }));
+  const first = (ll) => languages.find((x) => x.lang === ll && x.listed !== false);
+  const alternateOf = (l) => {
+    if (!l.country) return alternates[l.lang];
+    return alternates[keyOf(l)] || (first(l.lang) === l ? alternates[l.lang] : undefined);
+  };
+  // a market root and its language version (or two roots of one version): the same path
+  const versionOf = (l) => l.version || keyOf(l);
+  const sharedOf = (l) => {
+    if (!rooted || !l.country || versionOf(current) !== versionOf(l)) return null;
+    const isHome = pathname === current.home || pathname === current.path;
+    if (!isHome && !pathname.startsWith(current.path)) return null;
+    const suffix = isHome ? '' : pathname.slice(current.path.length - 1).replace(/\/$/, '');
+    if ((l.lacks || []).includes(suffix)) return null;
+    return `${l.home}${suffix}`;
+  };
+  const links = others.map((l) => {
+    const alternate = alternateOf(l) || sharedOf(l);
+    return {
+      lang: l.lang,
+      label: authored.get(l.lang) || l.name,
+      home: l.home,
+      counterpart: counterpartPath(pathname, current, l),
+      ...(alternate ? { alternate } : {}),
+    };
+  });
   return { links, tools: rest };
 }
 
