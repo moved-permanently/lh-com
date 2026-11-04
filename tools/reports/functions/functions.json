@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-04 21:52",
-  "change": "TAP Air Portugal: the destinations map now works on all eight versions; the forms' links on the requests and complaints page and the sign-up links go to www.flytap.com, where the forms stay.",
+  "updated": "2026-11-04 23:30",
+  "change": "Brussels Airlines' help center app now runs on the replica with Brussels' topics; Air Dolomiti's alert strip is copied from www.airdolomiti.it; TAP's country addresses show their own market's alerts.",
   "legend": {
     "done": {
       "label": "works on our replica",
@@ -52,7 +52,6 @@
     "adesim": "Air Dolomiti's eSIM shop (from the vendor Breeze) is built into the replica, but its switch stays off: Breeze answers every call from our address with 403, because the widget's key belongs to Air Dolomiti's site. It works once Air Dolomiti or Breeze allows our address.",
     "b2bsignin": "Lufthansa Group for Business has two sign-ins in AEM today, one for companies and one for travel agencies (eXperts), each with a member area. Their replacement follows the other airlines' sign-ins, with test data first; showing real member data needs Lufthansa to let it reach its user and role systems. Until then the replica links to the current sign-ins.",
     "lxmarkets": "Switzerland in all ten of SWISS's languages (English, German, French, Italian, Spanish, Portuguese, Chinese, Japanese, Greek, Russian), SWISS's other countries in the languages www offers them in, and Korea in Korean are on the new platform since 3 November.",
-    "travelidbuild": "Brussels Airlines' help center app isn't on the new platform's pages yet: putting it there is our work. Then it needs Brussels Airlines' Travel ID service, which refuses our test addresses, as for the other airlines' apps.",
     "tapstays": "By decision, TAP's booking engine, check-in, the manage-booking steps, the account and TAP Miles&Go sign-in, flight status, site search, forms, live fares and chat stay on TAP's current systems, and the new site links to them as www.flytap.com does. The pages about these topics are on the new platform.",
     "tapbuild": "TAP's help contacts finder is built as a TAP version of the shared contacts block and works on a draft page. What's left is ours: the contacts by country and city (not in our copies of www) and the switch on each version's help page."
   },
@@ -1445,9 +1444,9 @@
         },
         "airdolomiti": {
           "status": "done",
-          "note": "Air Dolomiti's notices work the same way, written on our side because Air Dolomiti's website has no Message Center; there are none to show today.",
+          "note": "Air Dolomiti's alert strip (today the US entry attestation) shows at the top of its homepages in Italian, English and German, as on www.airdolomiti.it; the twice-daily sync copies it from there.",
           "page": "/informazioni-aggiornate",
-          "evidence": "ema-cashub 211 published 2026-11-01 job-2026-11-01-08-51-14-b85dc939 (flash teaser on homepages, message center on travel information pages); cti-pages sheet live"
+          "evidence": "Message Center sync with Air Dolomiti's source (read-ad, 2026-11-04 21:30 UTC), preview job-2026-11-04-21-31-33-d740439d, publish job-2026-11-04-21-31-55-1fc885f2 (6/6); index 3 rows; checked in a Studio tab on airdolomiti.turnsthe.page /, /en/, /de/"
         },
         "brussels": {
           "status": "done",
@@ -1468,9 +1467,9 @@
         },
         "tap": {
           "status": "done",
-          "note": "TAP's alerts show in the bar at the top of each version's homepage and on its alerts page, as on www; the twice-daily sync copies them from www.",
+          "note": "TAP's alerts show in the bar at the top of each version's homepage and on its alerts page, as on www, and each country address shows its own market's alerts and links to its own alerts page; the twice-daily sync copies them from www.",
           "page": "/pt-pt/alertas-e-informacoes",
-          "evidence": "alerts bar (ema-adobe, alerts-spec.md), Message Center sync with TAP; check 2026-11-04 ~15:00 CET, private Studio tab on tap.turnsthe.page: /pt-pt bar 'x/8 ... Ver todos', /en-us bar 2/7, /pt-pt/alertas-e-informacoes message-center 7 alerts with anchors"
+          "evidence": "alerts bar (ema-adobe, alerts-spec.md), Message Center sync with TAP; check 2026-11-04 ~15:00 CET, private Studio tab on tap.turnsthe.page: /pt-pt bar 'x/8 ... Ver todos', /en-us bar 2/7, /pt-pt/alertas-e-informacoes message-center 7 alerts with anchors; 2026-11-04 roots read (145 homepages): pt-il's aviation services law notice, publish job-2026-11-04-21-14-12-ae8bca79; root links cdc2056 (brief 361); checked 23:0x: pt-il 7 with ASL first -> /pt-il/alertas-e-informacoes, en-gb 6 = www's 6"
         }
       }
     },
@@ -1771,11 +1770,11 @@
           "evidence": "fill check 2026-11-01"
         },
         "brussels": {
-          "status": "wip-lh",
-          "footnote": "travelidbuild",
-          "note": "The replica's contact page shows a fixed list of topics; the help center app isn't on it yet, which is ours. Once it is, its topics come from Brussels Airlines' Travel ID service, which refuses our addresses: Lufthansa's.",
+          "status": "lh",
+          "note": "The help center app runs on the replica's contact pages in English and French and shows Brussels Airlines' topics. What's left is Lufthansa's: Brussels Airlines' Travel ID service, which sign-in and the live topic list come from, refuses our addresses.",
           "page": "/be/en/contact",
-          "evidence": "2026-11-01: www /be/en/contact help-center-web 4.3.1 with topics from api.travelid.brusselsairlines.com/help-center-contact/v1/topics; replica /be/en/contact accordion-columns with fixed topics; GET to that topics URL from the aem.live origin blocked by CORS (brand host not attached, not tested there) ; split 2026-11-03 (checks on our hosts, private Studio tab): brussels.turnsthe.page/be/en/contact.plain.html: accordion-columns faq, no micro-frontend block"
+          "evidence": "brief 361 (0e1b20a, 4271250); help-center files SN copies 552e2642, topics ed9d4340 (captured 2026-11-04 22:25-23:22 CET); published 2026-11-04 job-2026-11-04-22-22-35-109f9438; check 23:2x private Studio tab brussels.turnsthe.page/be/fr/contact: app renders, topics from /digitalhangar/cs-help-center/topics/SN/topics_fr.json, no page errors",
+          "footnote": "travelidapps"
         },
         "b2b": {
           "status": "done",
@@ -1787,7 +1786,7 @@
           "status": "lh",
           "note": "The help center app loads from the replica's own address since 2 November and shows SWISS's topics. What's left is Lufthansa's: SWISS's Travel ID service, which sign-in and the live topic list come from, refuses our addresses.",
           "page": "/ch/en/customer-support/contact-us",
-          "evidence": "2026-11-02: replica micro-frontend help-center-web loads https://www.swiss.com/digitalhangar/cs-help-center/help-center-web/help-center-web-4.3.1.js as a module: blocked by CORS (no Access-Control-Allow-Origin); fallback with 11 topics stays; from snapshot: help-center-web 4.3.1 on www ; split 2026-11-03 (checks on our hosts, private Studio tab): /ch/en/customer-support/contact-us: help-center-web 4.3.1 from swiss.turnsthe.page/digitalhangar, topics from our topics_en.json; api.travelid.swiss.com loginstatus and topics refused (app's own calls)",
+          "evidence": "2026-11-02: replica micro-frontend help-center-web loads https://www.swiss.com/digitalhangar/cs-help-center/help-center-web/help-center-web-4.3.1.js as a module: blocked by CORS (no Access-Control-Allow-Origin); fallback with 11 topics stays; from snapshot: help-center-web 4.3.1 on www ; split 2026-11-03 (checks on our hosts, private Studio tab): /ch/en/customer-support/contact-us: help-center-web 4.3.1 from swiss.turnsthe.page/digitalhangar, topics from our topics_en.json; api.travelid.swiss.com loginstatus and topics refused (app's own calls); 2026-11-04: the app's topic list was empty (topics/LX/topics_en.json refused); copies ed9d4340, check 23:2x swiss.turnsthe.page/ch/en/customer-support/contact-us shows SWISS's 11 topics",
           "footnote": "travelidapps"
         },
         "tap": {
