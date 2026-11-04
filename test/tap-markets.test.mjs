@@ -315,7 +315,8 @@ describe('tap-markets: pages and links', () => {
       ['/pt-pt/registo', 'register'],
     ]);
     const scope = languageScope(['/pt-pt', '/pt-pt/ajuda'], pages, (t) => t);
-    assert.deepEqual([...scope].sort(), ['/pt-pt', '/pt-pt/ajuda', '/pt-pt/ajuda/pedidos-reclamacoes', '/pt-pt/registo'], 'the sign-up link as it is');
+    assert.deepEqual([...scope].sort(), ['/pt-pt', '/pt-pt/ajuda', '/pt-pt/ajuda/pedidos-reclamacoes'], 'the sign-up page a form on www too (live-audit 1-34)');
+    assert.equal(linkOf('/pt-pt/registo', { url: 'https://www.flytap.com/pt-pt/miles-and-go', locale: 'pt-pt', scope }), 'https://www.flytap.com/pt-pt/registo');
     const c = { url: 'https://www.flytap.com/pt-pt/ajuda/pedidos-reclamacoes', locale: 'pt-pt', scope };
     assert.equal(linkOf('/pt-pt/ajuda/pedidos-reclamacoes/reclamacao', c), 'https://www.flytap.com/pt-pt/ajuda/pedidos-reclamacoes/reclamacao');
     assert.equal(linkOf('https://www.flytap.com/pt-pt/ajuda/pedidos-reclamacoes/sugestao-ou-elogio', c), 'https://www.flytap.com/pt-pt/ajuda/pedidos-reclamacoes/sugestao-ou-elogio');

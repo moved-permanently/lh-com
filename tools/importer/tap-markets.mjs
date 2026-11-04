@@ -449,12 +449,11 @@ const unitsOf = (nd) => { const page = nd.props.pageProps.page || {}; return [..
 
 /**
  * The pages links stay on the site for: the allowlist's and the captured language pages, but
- * www's forms (complaint, Miles&Go information, suggestion: no document, their links to www as
- * the language import's). The sign-up page (template register) as it was.
+ * www's forms (sign-up, complaint, Miles&Go information, suggestion: no document, their links to
+ * www as the language import's; the roots' navs too, their scope this one's).
  */
 export function languageScope(paths, pages, templateOf) {
-  const form = (t) => outOfScope(t) && t !== 'register';
-  return new Set([...paths, ...[...pages.keys()].filter((d) => !form(templateOf(pages.get(d))))]);
+  return new Set([...paths, ...[...pages.keys()].filter((d) => !outOfScope(templateOf(pages.get(d))))]);
 }
 
 /** The paths of a root's sitemap (www.flytap.com/<root>/sitemap.xml in the sitemaps archives). */

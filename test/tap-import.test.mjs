@@ -282,13 +282,50 @@ describe('tap-import parity (tools/reports/tap/parity.md)', () => {
     assert.equal(hero.querySelector('a[href$=".mp4"]').getAttribute('href'), '/media-da/tap/stopover-1.mp4');
     assert.ok(!html.includes('adobeaemcloud.com'));
     assert.ok(!dom(html).querySelector('.columns-media'));
-    // the FAQ card: a section info-card with its heading, text and button
+    // the FAQ card: a section info-card with its title (bold text, no heading: www's is a span),
+    // text and button
     const card = secs.find((s) => /info-card/.test(style(s)));
-    assert.ok(card && card.querySelector('h2').textContent === 'Perguntas frequentes' && card.querySelector('a[href="/pt-pt/ajuda/perguntas-frequentes#stopover"]'));
+    assert.ok(card && card.querySelector('a[href="/pt-pt/ajuda/perguntas-frequentes#stopover"]'));
+    assert.equal(card.querySelector('p > strong').textContent, 'Perguntas frequentes');
+    assert.ok(!card.querySelector('h1, h2, h3, h4'), 'no heading in the card');
     // without a local copy of the video: the poster and texts, no link to TAP's AEM host
     const none = convertPage(page, { ...ctx('https://www.flytap.com/pt-pt/stopover'), media: (k) => (k === '/content/dam/tap/poster.jpg' ? '/media-da/tap/poster-1.jpg' : null) });
     assert.ok(!none.html.includes('adobeaemcloud.com'));
     assert.ok(dom(none.html).querySelector('.hero-card-overlay'));
+  });
+
+  it('headings as www shows them (live-audit 154-171): a card list\'s title not shown, the page\'s only H2 its H1 when it is the title', () => {
+    const steps = {
+      __typename: 'ComponentGenericCardListModel', title: 'To pre-choose your meal, follow the steps below.', items: [{ __typename: 'GenericCard1Model', title: '1 - Enter your booking details' }],
+    };
+    const meals = { props: { pageProps: { page: { title: 'Meals in Economy Prime', sections: [{ __typename: 'ComponentHeadingModel', title: 'Meals in Economy Prime' }, { __typename: 'ComponentHeadingSectionModel', title: 'Pre-select your meal' }, steps] } } } };
+    const m = convertPage(meals, { ...ctx('https://www.flytap.com/en-pt/on-board/meals/economy-prime'), lang: 'en', locale: 'en-pt' }).html;
+    assert.ok(!m.includes('To pre-choose your meal'), 'www renders no card list title');
+    assert.ok(m.includes('1 - Enter your booking details'));
+    // no H1 on www, the first heading the page's title: that heading is the H1, not a second copy
+    const only = (first) => ({ props: { pageProps: { page: { title: 'Travel Pass Optiontown (Flight Pass)', sections: [{ __typename: 'ComponentHeadingSectionModel', title: first }, { __typename: 'ComponentHeadingSectionModel', title: 'Jak to działa' }] } } } });
+    const h = (html) => [...dom(html).querySelectorAll('h1, h2')].map((x) => `${x.tagName} ${x.textContent}`);
+    const pl = { ...ctx('https://www.flytap.com/pl-pl/informacje-prawne/flight-passes'), lang: 'pl', locale: 'pl-pl' };
+    assert.deepEqual(h(convertPage(only('Travel Pass Optiontown (Flight Pass)'), pl).html), ['H1 Travel Pass Optiontown (Flight Pass)', 'H2 Jak to działa']);
+    // another first heading: the title as H1 before it, as before
+    assert.deepEqual(h(convertPage(only('Inny tytuł'), pl).html), ['H1 Travel Pass Optiontown (Flight Pass)', 'H2 Inny tytuł', 'H2 Jak to działa']);
+  });
+
+  it('text that reads as an icon token (the cookie table\'s inside:eu:IN-1000585) keeps its name, no icon', () => {
+    const t = (value) => ({ nodeType: 'text', value });
+    const cell = (value) => ({ nodeType: 'table-data', content: [{ nodeType: 'paragraph', content: [t(value)] }] });
+    const json = [{ nodeType: 'table', content: [{ nodeType: 'table-row', content: [cell('eu-live.inside-graph.com'), cell('inside:eu:IN-1000585, inside-eu')] }] }];
+    const page = (j) => ({ props: { pageProps: { page: { title: 'Cookies', sections: [{ __typename: 'ComponentHeadingModel', title: 'Cookies' }, { __typename: 'ComponentRichTextBlockModel', richTextContent: { json: j } }] } } } });
+    const { html } = convertPage(page(json), { ...ctx('https://www.flytap.com/pt-pt/info-legal/cookies') });
+    const name = [...dom(html).querySelectorAll('div, td')].filter((x) => !x.children.length || [...x.children].every((y) => y.tagName === 'P')).find((x) => x.textContent.includes('IN-1000585'));
+    assert.ok(name, 'the cookie name in the table');
+    assert.equal(name.textContent.replace(/\u2060/g, '').trim(), 'inside:eu:IN-1000585, inside-eu', 'the name as it is to read');
+    assert.ok(!/:[#a-z_-]+[a-z\d]*:/i.test(name.textContent), 'no :name: the page decoration turns into an icon');
+    // a link's address untouched, its text kept from being read as one too
+    const link = [{ nodeType: 'paragraph', content: [{ nodeType: 'link', data: { href: 'https://example.com/a:b:c' }, content: [t('urn:x:y')] }] }];
+    const l = convertPage(page(link), ctx()).html;
+    assert.ok(l.includes('href="https://example.com/a:b:c"'));
+    assert.ok(!/>[^<]*:[#a-z_-]+[a-z\d]*:[^<]*</i.test(l));
   });
 
   it('the market\'s airport when the page names no market list; the market from the root', () => {

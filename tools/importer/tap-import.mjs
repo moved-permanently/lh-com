@@ -343,6 +343,14 @@ export function richText(v, c, mode = 'top') {
 
 /* ------------------------------------------------------------------ the page ----------- */
 
+/**
+ * A document's text with no :name: the page decoration reads as an icon token (/icons/name.svg):
+ * a word joiner after the colon keeps it text, as it reads (the cookie table's
+ * inside:eu:IN-1000585, live-audit 35-42); tags and their attributes as they are.
+ */
+export const iconSafe = (html) => html.split(/(<[^>]*>)/)
+  .map((x) => (x.startsWith('<') ? x : x.replace(/:(?=#?[a-z_-]+[a-z\d]*:)/gi, ':\u2060'))).join('');
+
 export function blockHtml(name, rows) {
   const m = name.match(/^([a-z0-9-]+)(?: \(([^)]+)\))?$/);
   const classes = [m[1], ...(m[2] ? m[2].split(/,\s*/).map((o) => o.trim().replace(/\s+/g, '-')) : [])].join(' ');
@@ -606,7 +614,8 @@ const HANDLERS = {
     });
   },
   ComponentGenericCardListModel: (s, P) => {
-    P.add(P.heading(2, s.title));
+    // www renders no card list's title (the meals' "To pre-choose your meal, follow the steps
+    // below.": in the page's data only, live-audit 154)
     if (s.subtitle) P.add(`<p>${esc(s.subtitle)}</p>`);
     cards(s.items || [], P, s);
   },
@@ -681,7 +690,8 @@ const HANDLERS = {
     // www's teaser card (stopover's FAQ: a light card with a green edge): a section of its own,
     // style info-card (parity 43)
     P.section('info-card');
-    P.add(P.heading(2, s.title));
+    // its title a line of bold text, no heading (www's a span, live-audit 154, 171)
+    if (s.title && String(s.title).trim()) P.add(`<p><strong>${esc(String(s.title).trim())}</strong></p>`);
     P.add(P.rich(s.cardInfoBlockDescription));
     P.add(P.ctas(s));
     P.section();
@@ -840,9 +850,22 @@ export function convertPage(nd, site) {
   let docs = P.sections.filter((s) => s.items.length);
   if (!docs.length) return { skipped: `no content (template ${page.template || page.__typename})` };
   if (!P.h1) {
-    if (docs[0].markets) docs.unshift({ style: null, items: [] });
-    docs[0].items.unshift({ html: `<h1>${esc(page.title || String(page.seoTitle || '').replace(/\s*\|\s*TAP Air Portugal\s*$/, ''))}</h1>` });
-    P.notes.push('no heading on the page: H1 from its title');
+    const title = page.title || String(page.seoTitle || '').replace(/\s*\|\s*TAP Air Portugal\s*$/, '');
+    // the page's first heading its title (www shows no H1, only that H2: localizar-equipaje,
+    // flight-passes, live-audit 158, 168): that heading the H1, not a second copy above it
+    // (not in a market section: every market's view keeps one H1)
+    const sec = docs.find((s) => s.items.some((x) => /<h[1-6][ >]/.test(x.html)));
+    const first = sec && !sec.markets && sec.items.find((x) => /<h[1-6][ >]/.test(x.html));
+    const m = first && first.html.match(/<h([2-6])>([\s\S]*?)<\/h\1>/);
+    const plain = (h) => h.replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').replace(/\s+/g, ' ').trim();
+    if (m && first.html.indexOf(m[0]) === first.html.search(/<h[1-6][ >]/) && plain(m[2]) === plain(esc(title))) {
+      first.html = first.html.replace(m[0], `<h1>${m[2]}</h1>`);
+      P.notes.push('no H1 on the page: its first heading, the title, the H1');
+    } else {
+      if (docs[0].markets) docs.unshift({ style: null, items: [] });
+      docs[0].items.unshift({ html: `<h1>${esc(title)}</h1>` });
+      P.notes.push('no heading on the page: H1 from its title');
+    }
   }
   const meta = [['Title', esc(page.seoTitle || page.title || '')]];
   const desc = plainOf(page.seoDescription);
@@ -873,7 +896,7 @@ export function convertPage(nd, site) {
   if (docs[docs.length - 1].markets) docs.push({ style: null, items: [] });
   let h1s = 0;
   docs = docs.map((s, i) => {
-    const body = s.items.map((it) => it.html).join('');
+    const body = iconSafe(s.items.map((it) => it.html).join(''));
     const rows = [s.style && ['Style', s.style], s.markets && ['Markets', s.markets]].filter(Boolean);
     const sm = rows.length ? blockHtml('section-metadata', rows) : '';
     const md = i === docs.length - 1 ? blockHtml('metadata', meta) : '';
@@ -887,7 +910,7 @@ export function convertPage(nd, site) {
   const html = docs.join('\n');
   return {
     html: `${html}\n`,
-    fragments: P.fragments,
+    fragments: P.fragments.map((f) => ({ ...f, html: iconSafe(f.html) })),
     report: {
       blocks: P.blocks, generic: [...P.generic], notes: P.notes, missing: [...P.missing], linkedOut: [...P.linkedOut].sort(), fragments: P.fragments.map((f) => f.doc),
     },
