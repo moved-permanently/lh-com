@@ -6,6 +6,7 @@
    the root lacks the page (its lacks: the version's as before). The language versions, pt-br and
    the other brands keep their CTI pages as they are.
    Run: node --max-old-space-size=512 --test test/tap-alerts-root-link.test.mjs */
+/* global globalThis */
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { parseHTML } from 'linkedom';

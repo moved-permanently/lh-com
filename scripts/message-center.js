@@ -197,8 +197,23 @@ export function selectMessages(rows, {
 }
 
 /**
+ * A TAP market root's own copy of a language version's page (brief 358: www links pt-il's alerts
+ * strip to /pt-il/alertas-e-informacoes): the path with the root in place of its version
+ * (scripts/site-languages.js tapLanguages: version, lacks), unless the root lacks the page; any
+ * other locale and path as it is.
+ */
+function rootPath(path, locale) {
+  const root = String(locale.base || '').replace(/^\/content(?=\/)/, '').replace(/^\//, '');
+  const entry = (locale.siteLanguages || []).find((l) => l.path === `/${root}/`);
+  if (!entry || !entry.version || !path.startsWith(`/${entry.version}/`)) return path;
+  const suffix = path.slice(entry.version.length + 1).replace(/[?#].*$/, '');
+  return (entry.lacks || []).includes(suffix) ? path : `/${root}${path.slice(entry.version.length + 1)}`;
+}
+
+/**
  * The tenant's current travel information page for the page's locale: its row for the page's
- * language, else its row without a language ({cc}, {ll} filled); '' without one.
+ * language, else its row without a language ({cc}, {ll} filled); '' without one. On a TAP market
+ * root its own copy of the page (rootPath).
  * @param {Object[]} ctiRows rows of /message-center/config/cti-pages.json
  * @param {Object} locale (country, lang)
  * @param {string} [tenant] default: the site's (siteTenant)
@@ -211,9 +226,9 @@ export function ctiPagePath(ctiRows, locale, tenant = siteTenant()) {
   const language = (r) => String(r.language || '').trim().toLowerCase();
   const row = rows.find((r) => language(r) === locale.lang) || rows.find((r) => !language(r));
   if (!row) return '';
-  return String(row.webPath).trim()
+  return rootPath(String(row.webPath).trim()
     .replace(/\{cc\}/g, locale.country)
-    .replace(/\{ll\}/g, locale.lang);
+    .replace(/\{ll\}/g, locale.lang), locale);
 }
 
 /**
