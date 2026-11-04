@@ -441,10 +441,12 @@ function slideRows(block) {
  * @param {Element} block
  * @param {Object} labels
  * @param {boolean} eager
+ * @returns {false|{slides: Element[], track: Element, prev: Element, next: Element, dots: Element,
+ *   goTo: Function, current: Function}} the slider's parts (brand tap adds its own to them)
  */
-function buildSlider(block, labels, eager) {
+function buildSlider(block, labels, eager, minSlides = 2) {
   const groups = slideRows(block);
-  if (groups.length < 2) return false;
+  if (groups.length < minSlides) return false;
   const uid = `hero-campaign-${instanceCount}`;
   const options = [...block.classList].filter((c) => !['block', 'hero-campaign', 'slider'].includes(c) && !c.startsWith('hero-campaign'));
   const slideLabel = (i) => labels['slide label'].replace('{n}', i + 1).replace('{total}', groups.length);
@@ -520,19 +522,31 @@ function buildSlider(block, labels, eager) {
   track.tabIndex = 0;
   block.replaceChildren(track, prev, next, dots);
   update();
-  return true;
+  return {
+    slides, track, prev, next, dots, goTo, current,
+  };
 }
 
 /**
  * Full-bleed campaign stage: background image (optionally with a muted looping background video)
- * and text placed directly on the media. Option slider: several stages (buildSlider).
+ * and text placed directly on the media. Option slider: several stages (buildSlider); on brand tap
+ * with www.flytap.com's stripes, controls group and rotation (./hero-campaign-tap.js, loaded there
+ * only).
  * @param {Element} block
  */
-export default function decorate(block) {
+export default async function decorate(block) {
   instanceCount += 1;
-  const labels = resolveLabels(DEFAULT_LABELS, takeLabelRows(block), getLocale().lang);
+  const locale = getLocale();
+  const labels = resolveLabels(DEFAULT_LABELS, takeLabelRows(block), locale.lang);
   const eager = stageEager(block);
-  if (block.classList.contains('slider') && buildSlider(block, labels, eager)) {
+  // TAP: its stage also with one slide (pl-pl), without the controls (hero-campaign-tap.js)
+  const tap = getMetadata('brand').trim().toLowerCase() === 'tap';
+  const slider = block.classList.contains('slider') && buildSlider(block, labels, eager, tap ? 1 : 2);
+  if (slider) {
+    if (tap) {
+      const { default: decorateTapSlider } = await import('./hero-campaign-tap.js');
+      decorateTapSlider(block, { ...slider, lang: locale.lang });
+    }
     trackScrollbar(block);
     return;
   }

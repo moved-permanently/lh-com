@@ -266,3 +266,483 @@ body.brand-tap .cards .cards-card-image img {
     grid-template-columns: repeat(4, 1fr);
   }
 }
+
+/* ------------------------------------------------ TAP's first screen (brief 311) ------- */
+
+/* www.flytap.com/pt-pt's first screen (2026-11-04, 1440 and 390 px; TAP's stylesheet
+   86708601e3be1e13.css, Tailwind lg 1024 px, md 728 px): the homepage's stage
+   (hero-campaign slider, blocks/hero-campaign/hero-campaign-tap.js) 16 px from the viewport's
+   sides on phones and 32 px from 1024 px, 740 px high, 32 px corners; the headline in GT Flexa
+   64 / 64 px (24 px on phones, 32 from 728 px), -4 %; the lead in Inter 20 / 30 px 600 (18 / 27 on
+   phones); a white 40 px pill; the green wedge at the top left and the electric green line at the
+   bottom right; previous, dots and next 236 px above the stage's bottom on the left and the pause
+   button level with them on the right (www's place for it), the booking box's tab bar between
+   them; on phones the controls below the picture. The header (blocks/header/header-tap.js): www's
+   white pill, 1120 px wide at 1440 (the container's width less its 60 px padding), 70 px high
+   (56 on phones), floating 16 px inside the stage's top on a homepage, fixed 16 px from the top
+   elsewhere. */
+body.brand-tap {
+  --nav-height: 96px;
+  --tap-stage-inset: 16px;
+}
+
+/* the page's hidden h1 above the stage: no margin of its own (the stage at main's top) */
+body.brand-tap main > .section.hidden-heading:has(+ .section > .hero-campaign-wrapper .hero-campaign-tap) {
+  margin: 0;
+}
+
+body.brand-tap main > .section:has(.hero-campaign-tap) {
+  margin-bottom: 24px;
+}
+
+body.brand-tap .hero-campaign.hero-campaign-tap {
+  width: calc(var(--hero-campaign-viewport, 100vw) - 2 * var(--tap-stage-inset));
+  margin-inline: calc(50% - var(--hero-campaign-viewport, 100vw) / 2 + var(--tap-stage-inset));
+  padding-bottom: 8px;
+  overflow: visible;
+}
+
+body.brand-tap .hero-campaign.hero-campaign-tap.hero-campaign-single {
+  padding-bottom: 0;
+}
+
+body.brand-tap .hero-campaign-tap .hero-campaign-track {
+  border-radius: 32px;
+}
+
+/* www's slide: 259 px high on phones whatever the text's length */
+body.brand-tap .hero-campaign-tap .hero-campaign-slide {
+  align-items: flex-start;
+  min-height: 259px;
+}
+
+/* www: linear-gradient(90deg, rgba(5,5,5,.4) 3.08%, transparent) over the picture */
+body.brand-tap .hero-campaign-tap .hero-campaign-slide .hero-campaign-media::after {
+  background: linear-gradient(90deg, rgb(5 5 5 / 40%) 3.08%, rgb(255 255 255 / 0%) 100%);
+  mix-blend-mode: normal;
+}
+
+body.brand-tap .hero-campaign-tap .hero-campaign-stripe-wedge,
+body.brand-tap .hero-campaign-tap .hero-campaign-stripe-line {
+  position: absolute;
+  z-index: 1;
+  line-height: 0;
+  pointer-events: none;
+}
+
+body.brand-tap .hero-campaign-tap .hero-campaign-stripe-wedge {
+  top: 0;
+  left: 0;
+}
+
+body.brand-tap .hero-campaign-tap .hero-campaign-stripe-line {
+  right: 0;
+  bottom: 0;
+}
+
+body.brand-tap .hero-campaign-tap .hero-campaign-stripe-wide {
+  display: none;
+}
+
+body.brand-tap .hero-campaign-tap .hero-campaign-stripe-narrow {
+  display: block;
+}
+
+/* the text: pt-12 pb-4 px-4 (md: py-8 px-16) */
+body.brand-tap .hero-campaign-tap .hero-campaign-inner {
+  max-width: none;
+  margin: 0;
+  padding: 48px 16px 16px;
+}
+
+body.brand-tap .hero-campaign-tap .hero-campaign-content {
+  max-width: 720px;
+}
+
+body.brand-tap .hero-campaign-tap .hero-campaign-content :is(h1, h2, h3, h4, h5, h6) {
+  display: -webkit-box;
+  margin: 0 0 16px;
+  overflow: hidden;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+body.brand-tap .hero-campaign-tap .hero-campaign-content > .hero-campaign-subtitle {
+  max-width: 672px;
+  margin: 0 0 12px;
+  padding: 0;
+  font-size: 18px;
+  letter-spacing: -0.01em;
+}
+
+body.brand-tap .hero-campaign-tap .hero-campaign-content > :not(h1, h2, h3, h4, h5, h6, .hero-campaign-subtitle) {
+  padding-left: 0;
+}
+
+body.brand-tap .hero-campaign-tap .hero-campaign-cta a.button:any-link {
+  width: 100%;
+  min-width: 0;
+  min-height: 40px;
+  padding: 0 24px;
+  font-size: 15px;
+  letter-spacing: -0.01em;
+}
+
+/* previous, dots and next: centred below the picture on phones (www: green chevrons, green dots,
+   the current one a pill), the pause button at the right */
+body.brand-tap .hero-campaign-tap .hero-campaign-controls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  margin: 16px auto 0;
+}
+
+body.brand-tap .hero-campaign-tap .hero-campaign-prev,
+body.brand-tap .hero-campaign-tap .hero-campaign-next {
+  position: static;
+  display: flex;
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  background: none;
+  color: var(--lh-green);
+}
+
+body.brand-tap .hero-campaign-tap .hero-campaign-dots {
+  position: static;
+  gap: 4px;
+  align-items: center;
+  transform: none;
+}
+
+body.brand-tap .hero-campaign-tap .hero-campaign-dot {
+  width: 8px;
+  height: 8px;
+  border: 1px solid var(--lh-yellow);
+  border-radius: 999px;
+  transition: width 0.3s;
+}
+
+body.brand-tap .hero-campaign-tap .hero-campaign-dot[aria-current="true"] {
+  width: 24px;
+  background: var(--lh-yellow);
+}
+
+body.brand-tap .hero-campaign-tap .hero-campaign-pause {
+  position: absolute;
+  right: 0;
+  bottom: 8px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--lh-grey-2);
+  border-radius: 999px;
+  background: #fff;
+  color: #000;
+  cursor: pointer;
+}
+
+body.brand-tap .hero-campaign-tap .hero-campaign-pause::before {
+  content: "";
+  width: 24px;
+  height: 24px;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 5h3.5v14H7zm6.5 0H17v14h-3.5z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+body.brand-tap .hero-campaign-tap.hero-campaign-paused .hero-campaign-pause::before {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8 5v14l11-7z'/%3E%3C/svg%3E");
+}
+
+body.brand-tap .hero-campaign-tap :is(.hero-campaign-prev, .hero-campaign-next, .hero-campaign-dot, .hero-campaign-pause):focus-visible {
+  outline: 2px solid var(--lh-green);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.brand-tap .hero-campaign-tap .hero-campaign-dot {
+    transition: none;
+  }
+}
+
+@media (width >= 600px) {
+  body.brand-tap .hero-campaign-tap .hero-campaign-cta a.button:any-link {
+    width: auto;
+  }
+}
+
+@media (width >= 728px) {
+  body.brand-tap .hero-campaign-tap .hero-campaign-inner {
+    padding: 32px 64px;
+  }
+
+  body.brand-tap .hero-campaign-tap .hero-campaign-content :is(h1, h2, h3, h4, h5, h6) {
+    font-size: 32px;
+  }
+
+  body.brand-tap .hero-campaign-tap .hero-campaign-content > .hero-campaign-subtitle {
+    font-size: 20px;
+  }
+}
+
+@media (width >= 1024px) {
+  body.brand-tap {
+    --tap-stage-inset: 32px;
+  }
+
+  body.brand-tap .hero-campaign.hero-campaign-tap {
+    padding-bottom: 0;
+    overflow: hidden;
+    border-radius: 32px;
+  }
+
+  body.brand-tap .hero-campaign-tap .hero-campaign-slide {
+    min-height: 740px;
+  }
+
+  body.brand-tap .hero-campaign-tap .hero-campaign-stripe-wide {
+    display: block;
+  }
+
+  body.brand-tap .hero-campaign-tap .hero-campaign-stripe-narrow {
+    display: none;
+  }
+
+  /* the text 96 px below the stage's top, 64 px inside the 1240 px container */
+  body.brand-tap .hero-campaign-tap .hero-campaign-inner {
+    padding: 96px calc(max((100% - 1240px) / 2, 0px) + 64px) 0;
+  }
+
+  body.brand-tap .hero-campaign-tap .hero-campaign-content :is(h1, h2, h3, h4, h5, h6) {
+    margin-bottom: 32px;
+    font-size: calc(64px * var(--a11y-scale, 1));
+  }
+
+  body.brand-tap .hero-campaign-tap .hero-campaign-content > .hero-campaign-subtitle {
+    margin-bottom: 32px;
+    line-height: 30px;
+  }
+
+  /* www: lg:absolute lg:bottom-[236px], the group 46 px inside the container, white circles,
+     black chevrons, white dots (the current one a pill); the pause 64 px inside it */
+  body.brand-tap .hero-campaign-tap .hero-campaign-controls {
+    position: absolute;
+    bottom: 236px;
+    left: calc(max((100% - 1240px) / 2, 0px) + 46px);
+    z-index: 3;
+    margin: 0;
+  }
+
+  body.brand-tap .hero-campaign-tap .hero-campaign-prev,
+  body.brand-tap .hero-campaign-tap .hero-campaign-next {
+    background: #fff;
+    color: #000;
+  }
+
+  body.brand-tap .hero-campaign-tap .hero-campaign-dot {
+    border: 0;
+    background: rgb(255 255 255 / 50%);
+  }
+
+  body.brand-tap .hero-campaign-tap .hero-campaign-dot[aria-current="true"] {
+    width: 24px;
+    background: #fff;
+  }
+
+  body.brand-tap .hero-campaign-tap .hero-campaign-pause {
+    right: calc(max((100% - 1240px) / 2, 0px) + 64px);
+    bottom: 236px;
+    border: 0;
+  }
+
+  /* the homepage: no room above the stage, the bar floats inside its top */
+  body.brand-tap header.tap-home {
+    --nav-height: 0px;
+  }
+
+  body.brand-tap header.tap-home .nav-wrapper.nav-tap {
+    position: absolute;
+    top: calc(var(--tap-stage-top, 0px) + 16px);
+    transform: none;
+  }
+}
+
+/* the bar: www's white pill, as wide as the container's text (max((100% - 1240px) / 2, 0) plus its
+   padding from the sides), 56 px high on phones and 70 px from 1025 px */
+body.brand-tap .header {
+  --header-bar-radius: 999px;
+  --header-bar-shadow: 0 16px 32px rgb(0 0 0 / 10%);
+  --header-bar-padding: 8px 8px 8px 16px;
+  --nav-logo-height: 21px;
+  --nav-logo-height-wide: 21px;
+}
+
+/* (the top: --header-bar-inset, below the alerts bar while it shows: flash-teaser.css) */
+body.brand-tap .header .nav-wrapper.nav-tap {
+  inset-inline: calc(max((100% - 1240px) / 2, 0px) + var(--layout-margin));
+}
+
+body.brand-tap .header .nav-tap .nav-brand {
+  margin-right: 0;
+}
+
+body.brand-tap .header .nav-tap .nav-tools {
+  gap: 8px;
+}
+
+body.brand-tap .header .nav-tap .nav-tool.nav-tool-search {
+  display: inline-flex;
+}
+
+body.brand-tap .header .nav-tap :is(.nav-tool-help, .nav-quick, .nav-divider, .nav-languages) {
+  display: none;
+}
+
+body.brand-tap .header .nav-tap :is(.nav-tool, .nav-menu-button):not(.nav-languages-button) {
+  box-sizing: border-box;
+  width: 40px;
+  min-width: 40px;
+  height: 40px;
+  min-height: 40px;
+  padding: 8px;
+  border: 0;
+  border-radius: 999px;
+  background-color: var(--lh-grey-1);
+  color: var(--lh-deepblue);
+}
+
+body.brand-tap .header .nav-tap :is(.nav-tool, .nav-menu-button) .lh-icon {
+  width: 24px;
+  height: 24px;
+}
+
+body.brand-tap .header .nav-tap :is(.nav-tool, .nav-menu-button):hover {
+  color: var(--lh-green);
+}
+
+@media (width >= 1024px) {
+  body.brand-tap .header {
+    --header-bar-padding: 15px 24px;
+  }
+}
+
+@media (width >= 1025px) {
+  body.brand-tap .header .nav-tap .nav-languages {
+    display: block;
+  }
+
+  body.brand-tap .header .nav-tap .nav-languages-button {
+    box-sizing: border-box;
+    height: 40px;
+    padding: 0 16px 0 12px;
+    border-radius: 999px;
+    background-color: var(--lh-grey-1);
+    color: var(--lh-deepblue);
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  /* www's top-level menu: Inter 16 / 500, 8 px padding, centred between the logo and the tools; the
+     open one green with a 4 px TAP green underline */
+  body.brand-tap .header .nav-tap .nav-bar-menu {
+    gap: 4px;
+    justify-content: center;
+  }
+
+  body.brand-tap .header .nav-tap :is(.nav-bar-menu-button, .nav-bar-menu-link) {
+    padding: 8px;
+    border-radius: 0;
+    color: var(--lh-deepblue);
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+
+  body.brand-tap .header .nav-tap .nav-bar-menu-button::after {
+    content: none;
+  }
+
+  body.brand-tap .header .nav-tap :is(.nav-bar-menu-button, .nav-bar-menu-link):hover,
+  body.brand-tap .header .nav-tap .nav-bar-menu-button[aria-expanded="true"] {
+    background: none;
+    color: var(--lh-green);
+    text-decoration: underline 4px var(--lh-yellow);
+    text-underline-offset: 8px;
+  }
+
+  body.brand-tap .header .nav-tap .nav-dropdown {
+    top: calc(100% + 16px);
+    right: auto;
+    border-radius: 32px;
+  }
+
+  body.brand-tap .header .nav-tap .nav-dropdown-inner {
+    gap: 32px;
+    padding: 32px;
+  }
+
+  body.brand-tap .header .nav-tap .nav-dropdown-section {
+    width: 220px;
+  }
+
+  body.brand-tap .header .nav-tap .nav-dropdown-title {
+    color: var(--lh-deepblue);
+    font-family: var(--heading-font-family);
+    font-size: 18px;
+    line-height: 1.2;
+  }
+
+  body.brand-tap .header .nav-tap .nav-dropdown-list {
+    gap: 16px;
+  }
+
+  body.brand-tap .header .nav-tap .nav-dropdown-link {
+    color: var(--lh-deepblue);
+    font-size: 15px;
+  }
+
+  body.brand-tap .header .nav-tap .nav-dropdown-link:hover {
+    color: var(--lh-green);
+  }
+}
+
+/* pictures no wider than www shows them (TAP's originals are small): the extras' icons at 20 px,
+   the Christmas markets' banner inside the container with 32 px corners, the Miles&Go logo in its
+   text 36 px high (www: 164 x 36 from a 260 x 57 file) */
+body.brand-tap .cards-icon .cards-icon-icon :is(.icon, picture, > img) {
+  width: 20px;
+  height: 20px;
+}
+
+body.brand-tap main > .section > .hero-card-overlay-wrapper {
+  max-width: var(--content-max-width);
+  margin-inline: auto;
+  padding-inline: var(--layout-margin);
+}
+
+body.brand-tap .hero-card-overlay .hero-card-overlay-media {
+  border-radius: 32px;
+}
+
+@media (width >= 1025px) {
+  body.brand-tap .hero-card-overlay .hero-card-overlay-media {
+    aspect-ratio: 1120 / 305;
+  }
+}
+
+body.brand-tap .columns-media .columns-media-text p > picture img {
+  width: auto;
+  height: 36px;
+}

@@ -91,11 +91,13 @@ test('a click opens one drop-down at a time; again, Escape or a click outside cl
   assert.equal(programs.getAttribute('aria-expanded'), 'false');
 });
 
-test('brands.js: the bar menu, the unlinked logo and the search button on Lufthansa Group for Business only', () => {
+test('brands.js: the bar menu, the unlinked logo and the search button on Lufthansa Group for Business; TAP\'s own layout (brief 311); no other brand', () => {
   assert.deepEqual(BRANDS.b2b.header, {
     menu: 'bar', logoLink: false, search: 'button', locale: false,
   });
-  assert.deepEqual(Object.keys(BRANDS).filter((k) => BRANDS[k].header), ['b2b']);
+  // TAP: the bar menu with the language list and its layout (test/tap-first-screen.test.mjs)
+  assert.deepEqual(BRANDS.tap.header, { menu: 'bar', languages: 'bar', layout: 'tap' });
+  assert.deepEqual(Object.keys(BRANDS).filter((k) => BRANDS[k].header), ['b2b', 'tap']);
 });
 
 test('header.js: the options read from the brand entry; without them as before', () => {

@@ -369,6 +369,10 @@ export const BRANDS = {
     alertsBar: 'tap',
     // the showcase notice in the page's language (scripts/showcase-notice.js NOTICE_TEXTS)
     showcaseNotice: 'page',
+    // www.flytap.com's header (brief 311): the top-level menu in the bar, the language list as its
+    // market button, TAP's layout (blocks/header/header-tap.js: Check-in in the menu, search and
+    // account linked to www, the bar inside the homepage's stage)
+    header: { menu: 'bar', languages: 'bar', layout: 'tap' },
   },
 };
 

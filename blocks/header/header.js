@@ -828,6 +828,9 @@ export default async function decorate(block) {
   const pageBrand = brandEntry();
   const subSiteHeader = locale.subSite && locale.subSite.header;
   const headerStyle = subSiteHeader || (pageBrand && pageBrand.header) || {};
+  // TAP's layout (scripts/brands.js tap: header.layout 'tap', ./header-tap.js): www.flytap.com's
+  // top-level menu, search and account linked to www, the bar inside the homepage's stage
+  const tap = headerStyle.layout === 'tap' ? await import('./header-tap.js') : null;
 
   // brand
   const brandEl = el('div', { className: 'nav-brand' });
@@ -855,7 +858,8 @@ export default async function decorate(block) {
   // quick actions
   const quickEl = el('div', { className: 'nav-quick' });
   const quickList = el('ul');
-  if (quick) {
+  // (TAP's bar has no quick actions: www's top-level menu takes its Check-in, tapMenuItems)
+  if (quick && !tap) {
     quick.querySelectorAll('a[href]').forEach((a) => {
       quickList.append(el('li', {}, navLink(a.getAttribute('href'), text(a), 'nav-quick-link', labels)));
     });
@@ -949,10 +953,18 @@ export default async function decorate(block) {
     ? siteSwitch.links.map((link) => switchTarget(link, exists)) : [];
   // the language list in the bar (a sub-site's header.languages 'bar': www's "EN" with the globe)
   let languages = null;
+  // TAP: search and account (links to www's same root) before the market button, as www's bar
+  if (tap) {
+    const base = tap.tapRoot(window.location.pathname, locale.base);
+    const tapTools = await Promise.all(tap.tapBarTools({ ...locale, base })
+      .map((t) => toolLink(t, `nav-tool nav-tool-${t.role}`, false)));
+    tapTools.forEach((a) => toolsEl.append(a));
+  }
   if (siteSwitch && headerStyle.languages === 'bar') {
     const { default: buildLanguages } = await import('./header-languages.js');
     languages = buildLanguages({
-      current: locale.lang,
+      // TAP's button names the market (www's "PT"), the others the language
+      current: tap && locale.country ? locale.country : locale.lang,
       label: labels.languageCurrent || LABELS.en.languageCurrent,
       links: siteSwitch.links,
       icon: await inlineIcon('globe'),
@@ -1024,8 +1036,12 @@ export default async function decorate(block) {
       img.alt = '';
     }
   }
+  // the menu's items (TAP: www's top level, Check-in from the quick action while the menu lacks it)
+  const menuItems = tap
+    ? tap.tapMenuItems(readMenu(menu), quick ? [...quick.querySelectorAll('a[href]')] : [])
+    : readMenu(menu);
   const flyout = buildFlyout({
-    items: readMenu(menu),
+    items: menuItems,
     image: menuImage || null,
     extras,
     login: flyoutLogin,
@@ -1054,7 +1070,7 @@ export default async function decorate(block) {
   let barMenu = null;
   if (headerStyle.menu === 'bar') {
     const { default: buildBarMenu } = await import('./header-bar-menu.js');
-    barMenu = buildBarMenu(readMenu(menu), {
+    barMenu = buildBarMenu(menuItems, {
       link: (href, label, className) => navLink(href, label, className, labels),
     });
     menuButton.addEventListener('click', () => barMenu.close());
@@ -1064,7 +1080,9 @@ export default async function decorate(block) {
   // the menu and the notifications panel: one at a time
   if (bell) menuButton.addEventListener('click', () => bell.close());
   if (a11y) menuButton.addEventListener('click', () => a11y.close());
-  const navWrapper = el('div', { className: ['nav-wrapper', barMenu ? 'nav-has-bar-menu' : '', locale.subSite ? 'nav-sub-site' : ''].filter(Boolean).join(' ') }, nav);
+  const navWrapper = el('div', { className: ['nav-wrapper', barMenu ? 'nav-has-bar-menu' : '', locale.subSite ? 'nav-sub-site' : '', tap ? 'nav-tap' : ''].filter(Boolean).join(' ') }, nav);
+  // TAP's homepage: the bar inside the top of the stage (styles/themes/tap.css body.tap-home)
+  if (tap && tap.isTapHome(window.location.pathname, locale.base)) tap.floatInStage(document);
   const flight = flightBar ? await flightBar : null;
   if (flight) navWrapper.append(flight);
 
