@@ -32,7 +32,9 @@ import { fileURLToPath } from 'node:url';
 import {
   convertPage, anchorsOf, docPath, mediaIndex, mediaResolver, WWW,
 } from './tap-import.mjs';
-import { navHtml, footerHtml, logoSvg } from './tap-nav.mjs';
+import {
+  navHtml, footerHtml, logoSvg, flagSvg, flagPath,
+} from './tap-nav.mjs';
 import { marketAllows, sectionMarkets } from '../../scripts/market-rules.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
@@ -602,13 +604,20 @@ async function main() {
       const html = fs.readFileSync(homeCap.file, 'utf8');
       const svg = logoSvg(html);
       const logo = `/media-da/tap/tap-logo-${crypto.createHash('sha1').update(svg || '').digest('hex').slice(0, 8)}.svg`;
+      // each nav with its market's flag (www's market button: the SVG in the homepage's header)
+      const flagOf = (capture, locale) => {
+        const f = flagSvg(fs.readFileSync(capture.file, 'utf8'));
+        return f ? { file: flagPath(locale, f), svg: f } : null;
+      };
+      const flags = { [r]: flagOf(homeCap, r), [lv]: flagOf(langHome, lv) };
       const mk = (pp, locale) => [navHtml(pp, {
-        url: `${WWW}/${locale}`, locale, scope: rootScope, logo, media,
+        url: `${WWW}/${locale}`, locale, scope: rootScope, logo, media, flag: flags[locale] ? flags[locale].file : null,
       }), footerHtml(pp, {
         url: `${WWW}/${locale}`, locale, scope: rootScope, logo, media,
       })];
       const [n1, f1] = mk(ndOf(homeCap).props.pageProps, r);
       const [n0, f0] = mk(ndOf(langHome).props.pageProps, lv);
+      if (flags[r] && !dry) { fs.mkdirSync(path.join(OUT, 'media-da/tap'), { recursive: true }); fs.writeFileSync(path.join(OUT, flags[r].file), flags[r].svg); }
       if (rootLinks(n1, r, lv) !== n0) { rep.navOwn = differences(rootLinks(n1, r, lv), n0); navDoc = `/${r}/nav`; write(navDoc, n1); rootDocs.push(navDoc); }
       if (rootLinks(f1, r, lv) !== f0) { rep.footerOwn = differences(rootLinks(f1, r, lv), f0); footerDoc = `/${r}/footer`; write(footerDoc, f1); rootDocs.push(footerDoc); }
       if ((rep.navOwn || rep.footerOwn) && !dry && svg) { fs.mkdirSync(path.join(OUT, 'media-da/tap'), { recursive: true }); fs.writeFileSync(path.join(OUT, logo), svg); }

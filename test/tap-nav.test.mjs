@@ -10,7 +10,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseHTML } from 'linkedom';
-import { navHtml, footerHtml } from '../tools/importer/tap-nav.mjs';
+import { navHtml, footerHtml, flagSvg } from '../tools/importer/tap-nav.mjs';
 
 const dir = path.join(path.dirname(fileURLToPath(import.meta.url)), 'fixtures/tap');
 const pp = JSON.parse(fs.readFileSync(path.join(dir, 'menus.json'), 'utf8')).props.pageProps;
@@ -95,6 +95,27 @@ describe('tap-nav', () => {
     assert.match([...plain.querySelectorAll(':scope > ul > li')].pop().textContent, /Novo sistema EES.*Saiba mais/);
   });
 
+  it('the market\'s flag (www\'s header SVG): the menu section\'s last row, a picture named for the country, no text', () => {
+    const withMarkets = { ...pp, markets: [{ code: 'CH', name: 'Schweiz' }, { code: 'PT', name: 'Portugal' }] };
+    const s = sections(navHtml(withMarkets, {
+      ...site, url: 'https://www.flytap.com/de-ch', locale: 'de-ch', flag: '/media-da/tap/flag-ch-1a2b3c4d.svg',
+    }));
+    const last = [...s[2].querySelectorAll(':scope > ul > li')].pop();
+    assert.equal(last.querySelector('img').getAttribute('src'), '/media-da/tap/flag-ch-1a2b3c4d.svg');
+    assert.equal(last.querySelector('img').getAttribute('alt'), 'Schweiz');
+    assert.equal(last.textContent.trim(), '', 'no text: header.js reads it as no menu item');
+    assert.ok(!last.querySelector('ul'));
+    // without a flag: no row
+    const plain = sections(navHtml(pp, site));
+    assert.ok(![...plain[2].querySelectorAll(':scope > ul > li')].pop().querySelector(':scope > p > img'));
+  });
+
+  it('flagSvg: the flag of www\'s market button from the homepage\'s server HTML', () => {
+    const html = '<nav><button aria-label="x"><span class="flex h-5 w-5 overflow-hidden rounded-full object-cover object-center *:scale-150"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 85.333 512 341.333"><path fill="#D80027" d="M0 85.337h512v341.326H0z"></path></svg></span>EN</button></nav>';
+    assert.equal(flagSvg(html), '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 85.333 512 341.333"><path fill="#D80027" d="M0 85.337h512v341.326H0z"></path></svg>');
+    assert.equal(flagSvg('<nav>no flag</nav>'), null);
+  });
+
   it('nav texts in every language of the site (logo text, help, menu, the other language)', () => {
     const expect = {
       'es-es': ['TAP Air Portugal, volver a la página de inicio', 'Ayuda', '/es-es/ayuda', 'Menú', 'English'],
@@ -156,8 +177,17 @@ describe('tap-nav', () => {
     assert.ok(d.querySelector('a[href="https://www.facebook.com/TAPAirPortugal"]'));
     assert.ok(d.body.textContent.includes(':instagram:'));
     assert.ok([...d.querySelectorAll('.section-metadata')].some((m) => m.textContent.includes('badges')));
-    // www's cookie settings (its consent layer): left out
-    assert.ok(!d.body.textContent.includes('Definições de Cookies'));
+    // www's cookie settings (a button opening its consent layer) after "Política de Cookies": the
+    // site's #privacy-settings link (scripts/consent.js opens the consent tool's preferences)
+    const legal = [...d.querySelector('main > div').querySelectorAll('h3')][1].nextElementSibling;
+    const labels = [...legal.querySelectorAll('a')].map((a) => [a.textContent, a.getAttribute('href')]);
+    const at = labels.findIndex(([t]) => t === 'Política de Cookies');
+    assert.deepEqual(labels[at + 1], ['Definições de Cookies', '#privacy-settings']);
     assert.ok(d.querySelector(`img[src="${site.logo}"]`));
+    // the logo row: Star Alliance as www (right of the copyright bar: footer-tap.js)
+    const logos = [...d.querySelectorAll('main > div')].pop();
+    const star = [...logos.querySelectorAll('li > a')].find((a) => a.textContent === ':star-alliance:');
+    assert.ok(star, 'the :star-alliance: token');
+    assert.equal(star.getAttribute('href'), 'https://www.staralliance.com/');
   });
 });

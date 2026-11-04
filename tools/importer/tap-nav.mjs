@@ -11,13 +11,14 @@
  *   page, its links and "See all" where www shows it (showSeeAll; www's menu-see-all text), a tab's
  *   banner (bannerMenu) as a row of its own: picture, bold title, line, link; www's widget
  *   entries (check-in-form) left out, a column of widgets only linking the tab's target, the
- *   signed-in ones (requireLogin) left out; 4. tools: help (:help:), the other language's homepage
+ *   signed-in ones (requireLogin) left out; the market's flag (www's market button) a last row of the
+ *   picture only; 4. tools: help (:help:), the other language's homepage
  *   (the language switch), the menu label.
  * - footer: the link columns (other websites, legal resources, featured destinations; www's
- *   cookie settings, its consent layer, left out), a section with the style badges: the app
+ *   cookie settings as the site's #privacy-settings link), a section with the style badges: the app
  *   stores (www's badge pictures from the media archives, else their names) under "TAP App" and
  *   the social links (:facebook:, :instagram:, :linkedin:, :youtube:, :x:, :tiktok: tokens) under
- *   "Siga-nos" (www's texts), the copyright as a note, and the logo row.
+ *   "Siga-nos" (www's texts), the copyright as a note, and the logo row (TAP's logo, :star-alliance:).
  * Links as tap-import.mjs's linkOf: pages of the site relative, the rest on www.flytap.com.
  *
  * Usage: node tools/importer/tap-nav.mjs --archive <unpacked pages archive> [--archive ...]
@@ -147,6 +148,13 @@ export function navHtml(pp, site) {
     const title = t.link ? a(t.link, t.title, c) : esc(t.title);
     return `<li><p>${title}</p><ul>${cols.join('')}</ul></li>`;
   });
+  // the market's flag (www's market button: the flag and the language), a row of the menu with the
+  // picture only, named for the country (www's market list); header-tap.js shows it on the button
+  if (site.flag) {
+    const cc = (c.locale.split('-')[1] || '').toUpperCase();
+    const m = (pp.markets || []).find((x) => x && String(x.code).toUpperCase() === cc);
+    tabs.push(`<li><p><img src="${attr(site.flag)}" alt="${attr((m && m.name) || cc)}"></p></li>`);
+  }
   const megaHtml = `<div><ul>${tabs.join('')}</ul></div>`;
   const [otherLabel, otherLocale] = otherOf(c.locale);
   const otherHome = c.scope.has(`/${otherLocale}`) ? `/${otherLocale}` : `${WWW}/${otherLocale}`;
@@ -159,8 +167,11 @@ export function footerHtml(pp, site) {
   const c = ctxOf(site);
   const lang = c.locale.split('-')[0];
   const S = SETUP[lang] || SETUP.en;
+  // www's cookie settings (a button opening its consent layer): the site's #privacy-settings link in
+  // its place (scripts/consent.js opens the consent tool's preferences; without one it is hidden)
+  const footerItem = (x) => (x.component === 'cookies-settings' ? `<li><a href="#privacy-settings">${esc(x.title)}</a></li>` : li(x, c));
   const cols = (pp.footerMenu || []).map((col) => {
-    const links = (col.children || []).filter((x) => !isWidget(x) && x.link).map((x) => li(x, c)).join('');
+    const links = (col.children || []).filter((x) => x.component === 'cookies-settings' || (!isWidget(x) && x.link)).map(footerItem).join('');
     return links ? `<h3>${esc(col.title)}</h3><ul>${links}</ul>` : '';
   }).join('');
   const ss = pp.siteSettings || {};
@@ -180,8 +191,18 @@ export function footerHtml(pp, site) {
   // www's copyright bar ("© 2026, TAP. Todos os direitos reservados.")
   const rights = textOf(pp, lang, 'rights-reserved') || S.rights;
   const note = `<div><p>© ${new Date().getFullYear()}, TAP. ${esc(rights)}</p><div class="section-metadata"><div><div>Style</div><div>note</div></div></div></div>`;
-  const logos = `<div><ul><li><a href="/${c.locale}"><img src="${attr(site.logo)}" alt="${attr(S.logoAlt)}"></a></li></ul></div>`;
+  // the logo row: TAP's logo and Star Alliance (www shows it at the right of the copyright bar)
+  const logos = `<div><ul><li><a href="/${c.locale}"><img src="${attr(site.logo)}" alt="${attr(S.logoAlt)}"></a></li><li><a href="https://www.staralliance.com/">:star-alliance:</a></li></ul></div>`;
   return `<div>${cols}</div>\n${badges}\n${note}\n${logos}\n`;
+}
+
+/** The flag's file in the media folder: /media-da/tap/flag-<cc>-<hash>.svg. */
+export const flagPath = (locale, svg) => `/media-da/tap/flag-${locale.split('-')[1]}-${crypto.createHash('sha1').update(svg).digest('hex').slice(0, 8)}.svg`;
+
+/** The market's flag: the SVG of www's market button (its 20 px round flag) in the homepage's server HTML, or null. */
+export function flagSvg(html) {
+  const m = String(html).match(/<span class="flex h-5 w-5 overflow-hidden rounded-full[^"]*">(<svg[\s\S]*?<\/svg>)<\/span>/);
+  return m ? m[1] : null;
 }
 
 /** TAP's logo: the first inline SVG of the homepage's header (www's desktop logo). */
@@ -212,15 +233,18 @@ function main() {
   const pp = JSON.parse(html.match(/<script id="__NEXT_DATA__" type="application\/json"[^>]*>([\s\S]*?)<\/script>/)[1]).props.pageProps;
   const svg = logoSvg(html);
   const logo = `/media-da/tap/tap-logo-${crypto.createHash('sha1').update(svg || '').digest('hex').slice(0, 8)}.svg`;
+  const flagFile = flagSvg(html);
+  const flag = flagFile ? flagPath(locale, flagFile) : null;
   const media = mediaResolver(mediaIndex(all('media')), { dry: argv.includes('--dry-run') });
   const site = {
-    url: `${WWW}/${locale}`, locale, scope, logo, media,
+    url: `${WWW}/${locale}`, locale, scope, logo, media, flag,
   };
   const nav = navHtml(pp, site);
   const footer = footerHtml(pp, site);
   if (argv.includes('--dry-run')) { console.log(nav); console.log(footer); return; }
   fs.mkdirSync(path.join(OUT, 'media-da/tap'), { recursive: true });
   fs.writeFileSync(path.join(OUT, logo), svg);
+  if (flag) fs.writeFileSync(path.join(OUT, flag), flagFile);
   fs.mkdirSync(path.join(OUT, locale), { recursive: true });
   fs.writeFileSync(path.join(OUT, locale, 'nav.plain.html'), nav);
   fs.writeFileSync(path.join(OUT, locale, 'footer.plain.html'), footer);
