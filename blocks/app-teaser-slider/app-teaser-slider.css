@@ -1,0 +1,53 @@
+/* app-teaser-slider: its title over a row of cards that scrolls sideways */
+.app-teaser-slider .app-teaser-slider-title {
+  margin: 0 0 12px;
+  color: var(--lh-deepblue);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.app-teaser-slider .app-teaser-slider-cards {
+  display: flex;
+  gap: 12px;
+  margin: 0 0 16px;
+  padding: 0 0 8px;
+  overflow-x: auto;
+  list-style: none;
+  scroll-snap-type: x mandatory;
+}
+
+.app-teaser-slider .app-card {
+  flex: 0 0 75%;
+  scroll-snap-align: start;
+}
+
+.app-teaser-slider a.app-card-link:any-link {
+  display: block;
+  overflow: hidden;
+  border-radius: var(--radius-l);
+  background-color: var(--lh-white);
+  box-shadow: var(--shadow-1), 0 0 0 1px var(--lh-grey-2);
+  color: var(--lh-deepblue);
+  text-decoration: none;
+}
+
+.app-teaser-slider .app-card-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background-color: var(--lh-grey-2);
+}
+
+.app-teaser-slider .app-card-headline {
+  margin: 12px 12px 4px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.app-teaser-slider .app-card-text {
+  margin: 0 12px 12px;
+  font-size: 14px;
+  line-height: 1.4;
+}

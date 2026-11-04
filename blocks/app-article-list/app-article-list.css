@@ -1,0 +1,10 @@
+/* app-article-list: one offer box per article (the boxes: blocks/app-offer/app-offer.css) */
+@import url('../app-offer/app-offer.css');
+
+.app-article-list .app-article-list-empty {
+  border: 1px dashed var(--lh-grey-5);
+  border-radius: var(--radius-l);
+  padding: 16px;
+  color: var(--lh-grey-7);
+  font-size: 14px;
+}

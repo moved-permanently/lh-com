@@ -1,0 +1,62 @@
+/* app-offer: the app's offer box (also used by app-article-list, scripts/app-screen.js offerBox) */
+.app-offer-box {
+  overflow: hidden;
+  margin: 0 0 16px;
+  border-radius: var(--radius-l);
+  background-color: var(--lh-white);
+  box-shadow: var(--shadow-1), 0 0 0 1px var(--lh-grey-2);
+  color: var(--lh-deepblue);
+}
+
+.app-offer-box .app-offer-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background-color: var(--lh-grey-2);
+}
+
+.app-offer-box .app-offer-body {
+  padding: 16px;
+}
+
+.app-offer-box .app-offer-title {
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.app-offer-box .app-offer-description {
+  margin: 0 0 16px;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.app-offer-box a.app-offer-button:any-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  border-radius: 20px;
+  padding: 0 20px;
+  background-color: var(--lh-deepblue);
+  color: var(--lh-white);
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* the tracking label (authors maintain it; the app doesn't show it) */
+main .app-tracking {
+  margin: 4px 0 0;
+  color: var(--lh-grey-7);
+  font-size: 11px;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.app-offer-box > .app-tracking {
+  margin: 0;
+  padding: 0 16px 12px;
+}

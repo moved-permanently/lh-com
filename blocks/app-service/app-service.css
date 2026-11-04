@@ -1,0 +1,32 @@
+/* app-service: the service slot the app fills, a labelled placeholder */
+.app-service .app-service-slot {
+  margin: 0 0 16px;
+  border: 2px dashed var(--lh-grey-5);
+  border-radius: var(--radius-l);
+  padding: 16px;
+  background-color: var(--lh-grey-1);
+  color: var(--lh-deepblue);
+}
+
+.app-service .app-service-label {
+  margin: 0 0 8px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.app-service dl {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 4px 12px;
+  margin: 0;
+  font-size: 12px;
+}
+
+.app-service dt {
+  color: var(--lh-grey-7);
+}
+
+.app-service dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
