@@ -28,7 +28,7 @@ test('TAP: the 404 of the path\'s root in its language, the brand\'s title and m
   assert.match(html, /<meta property="og:title" content="404 Erro \| TAP Air Portugal">/);
   assert.doesNotMatch(html, /Lufthansa/);
   assert.match(html, /<meta name="brand" content="tap"><meta name="language" content="pt"><meta name="nav" content="\/pt-pt\/nav"><meta name="footer" content="\/pt-pt\/footer">\s*<\/head>/);
-  assert.match(html, /<main><div><h1>Erro 404<\/h1><p>Este destino não está disponível<\/p><p>Regresse à página inicial e continue a sua viagem\.<\/p><p><a href="\/pt-pt">Continuar<\/a><\/p><\/div><\/main>/);
+  assert.match(html, /<main><div><h1>Erro 404<\/h1><p>Este destino não está disponível<\/p><p>Regresse à página inicial e continue a sua viagem\.<\/p><p><strong><a href="\/pt-pt">Continuar<\/a><\/strong><\/p><\/div><\/main>/);
   assert.match(html, /window\.isErrorPage = true;/, 'the page\'s scripts as they are');
   assert.match(html, /<script nonce="aem" src="\/scripts\/not-found\.js" type="module"><\/script>/);
 });
@@ -51,12 +51,12 @@ test('the other brands: a <cc>/<ll> root (no language row), a site without roots
   assert.match(disc, /<html lang="de">/);
   assert.match(disc, /<title>Seite nicht gefunden \| Discover Airlines<\/title>/);
   assert.match(disc, /<meta name="brand" content="discover"><meta name="nav" content="\/us\/de\/nav"><meta name="footer" content="\/us\/de\/footer">\s*<\/head>/);
-  assert.match(disc, /<a href="\/us\/de\/homepage">Zur Startseite<\/a>/);
+  assert.match(disc, /<p><strong><a href="\/us\/de\/homepage">Zur Startseite<\/a><\/strong><\/p>/);
   const swiss = await (await brandNotFoundPage(notFound(), at('swiss', '/ch/fr/x'), { name: 'swiss' })).text();
   assert.match(swiss, /<title>La page que vous avez demandée n’a pas pu être trouvée \| SWISS<\/title>/);
   const ad = await (await brandNotFoundPage(notFound(), at('airdolomiti', '/en/x'), { name: 'airdolomiti' })).text();
   assert.match(ad, /<meta name="language" content="en">/);
-  assert.match(ad, /<a href="\/en\/">Back to homepage<\/a>/);
+  assert.match(ad, /<p><a href="\/en\/">Back to homepage<\/a><\/p>/);
   const cargo = await (await brandNotFoundPage(notFound(), at('cargo', '/de/x'), { name: 'cargo' })).text();
   assert.match(cargo, /<main><div><h1>Diese Webseite ist nicht mehr verfügbar<\/h1><p>Die von Ihnen gesuchte Webseite ist leider nicht mehr verfügbar\.<\/p><p>Vielen Dank!<\/p><\/div><\/main>/);
 });

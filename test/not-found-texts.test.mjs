@@ -78,9 +78,12 @@ test('lh-com and unknown brands: none', () => {
   assert.equal(brandNotFound(undefined, '/x'), null);
 });
 
-test('notFoundMarkup: the heading, the text and the homepage link (a button), escaped', () => {
+test('notFoundMarkup: the heading, the text and the homepage link, escaped; a button (strong: primary) where www has one (TAP, Discover)', () => {
   const html = notFoundMarkup(brandNotFound('tap', '/fr-fr/x'));
-  assert.equal(html, '<div><h1>Erreur 404</h1><p>Cette destination n&#39;est pas disponible</p><p>Retournez à la page d&#39;accueil et poursuivez votre voyage.</p><p><a href="/fr-fr">Continuer</a></p></div>');
+  assert.equal(html, '<div><h1>Erreur 404</h1><p>Cette destination n&#39;est pas disponible</p><p>Retournez à la page d&#39;accueil et poursuivez votre voyage.</p><p><strong><a href="/fr-fr">Continuer</a></strong></p></div>');
+  assert.match(notFoundMarkup(brandNotFound('discover', '/de/de/x')), /<p><strong><a href="\/de\/de\/homepage">Zur Startseite<\/a><\/strong><\/p><\/div>$/);
+  assert.match(notFoundMarkup(brandNotFound('swiss', '/ch/en/x')), /<p><a href="\/ch\/en\/homepage">To the homepage<\/a><\/p><\/div>$/, 'www\'s link list: a link');
+  assert.match(notFoundMarkup(brandNotFound('airdolomiti', '/x')), /<p><a href="\/">Torna all’homepage<\/a><\/p><\/div>$/);
   assert.equal(notFoundMarkup({
     heading: '<b>', text: ['a & b'], home: '/"x', button: 'go',
   }), '<div><h1>&lt;b&gt;</h1><p>a &amp; b</p><p><a href="/&quot;x">go</a></p></div>');
