@@ -38,7 +38,23 @@
   "_corporate_link": [
    "https://tapforbiz.com",
    "https://tapforbiz.com/"
-  ]
+  ],
+  "ibe.login": "Login",
+  "login-and-make-easier": "Faça login e torne o processo mais simples.",
+  "ibe.reservation-details": "Ou insira os dados relativos à sua reserva",
+  "ibe.reservation-number": "Código de reserva",
+  "ibe.passenger-lastname": "Último sobrenome do passageiro",
+  "ibe.find-reservation": "Encontrar reserva",
+  "validation-invalid": "Campo inválido",
+  "same-airports": "Escolha um destino diferente da origem",
+  "flight-status-text": "Partidas e chegadas dos voos TAP, em flytap.com.",
+  "remove-flight": "Remover voo",
+  "previous-month": "Mês anterior",
+  "next-month": "Mês seguinte",
+  "close": "Fechar",
+  "fewer": "Menos",
+  "more": "Mais",
+  "new-tab": "abre num novo separador"
  },
  "en-pt": {
   "ibe.book-flight": "Book flight",
@@ -78,7 +94,23 @@
   "validation-required": "Required field",
   "_corporate_link": [
    "https://tapforbiz.com/"
-  ]
+  ],
+  "ibe.login": "Login",
+  "login-and-make-easier": "Log in and make the process easier.",
+  "ibe.reservation-details": "Or enter the details of your booking",
+  "ibe.reservation-number": "Booking code",
+  "ibe.passenger-lastname": "Passenger's last surname",
+  "ibe.find-reservation": "Find booking",
+  "validation-invalid": "Invalid field",
+  "same-airports": "Choose a destination other than the origin",
+  "flight-status-text": "Departures and arrivals of TAP flights, on flytap.com.",
+  "remove-flight": "Remove flight",
+  "previous-month": "Previous month",
+  "next-month": "Next month",
+  "close": "Close",
+  "fewer": "Fewer",
+  "more": "More",
+  "new-tab": "opens in a new tab"
  },
  "es-es": {
   "ibe.book-flight": "Reservar vuelo",
@@ -118,7 +150,23 @@
   "validation-required": "Campo requerido",
   "_corporate_link": [
    "https://tapforbiz.com/"
-  ]
+  ],
+  "ibe.login": "Iniciar sesión",
+  "login-and-make-easier": "Inicie sesión y facilite el proceso.",
+  "ibe.reservation-details": "O ingrese los datos de su reserva",
+  "ibe.reservation-number": "Código de reserva",
+  "ibe.passenger-lastname": "Último apellido del pasajero",
+  "ibe.find-reservation": "Encuentre la reserva",
+  "validation-invalid": "Campo no válido",
+  "same-airports": "Elija un destino distinto del origen",
+  "flight-status-text": "Salidas y llegadas de los vuelos de TAP, en flytap.com.",
+  "remove-flight": "Eliminar vuelo",
+  "previous-month": "Mes anterior",
+  "next-month": "Mes siguiente",
+  "close": "Cerrar",
+  "fewer": "Menos",
+  "more": "Más",
+  "new-tab": "se abre en una pestaña nueva"
  },
  "fr-fr": {
   "ibe.book-flight": "Réserver un vol",
@@ -158,7 +206,23 @@
   "validation-required": "Champ obligatoire",
   "_corporate_link": [
    "https://tapforbiz.com/"
-  ]
+  ],
+  "ibe.login": "Se connecter",
+  "login-and-make-easier": "Connectez-vous et facilitez le processus.",
+  "ibe.reservation-details": "Ou saisissez les détails de votre réservation",
+  "ibe.reservation-number": "Référence de réservation",
+  "ibe.passenger-lastname": "Nom de famille du passager",
+  "ibe.find-reservation": "Trouver une réservation",
+  "validation-invalid": "Champ invalide",
+  "same-airports": "Choisissez une destination différente de l’origine",
+  "flight-status-text": "Départs et arrivées des vols TAP, sur flytap.com.",
+  "remove-flight": "Supprimer le vol",
+  "previous-month": "Mois précédent",
+  "next-month": "Mois suivant",
+  "close": "Fermer",
+  "fewer": "Moins",
+  "more": "Plus",
+  "new-tab": "s’ouvre dans un nouvel onglet"
  },
  "de-de": {
   "ibe.book-flight": "Flug buchen",
@@ -199,7 +263,23 @@
   "_corporate_link": [
    "https://tapforbiz.com",
    "https://tapforbiz.com/"
-  ]
+  ],
+  "ibe.login": "Anmelden",
+  "login-and-make-easier": "Melden Sie sich an und vereinfachen Sie den Vorgang.",
+  "ibe.reservation-details": "Oder geben Sie die Details Ihrer Buchung ein",
+  "ibe.reservation-number": "Buchungscode",
+  "ibe.passenger-lastname": "Nachname des Fluggast",
+  "ibe.find-reservation": "Buchung finden",
+  "validation-invalid": "Ungültiges Feld",
+  "same-airports": "Wählen Sie ein anderes Ziel als den Abflugort",
+  "flight-status-text": "Abflüge und Ankünfte der TAP-Flüge, auf flytap.com.",
+  "remove-flight": "Flug entfernen",
+  "previous-month": "Vorheriger Monat",
+  "next-month": "Nächster Monat",
+  "close": "Schließen",
+  "fewer": "Weniger",
+  "more": "Mehr",
+  "new-tab": "öffnet in einem neuen Tab"
  },
  "it-it": {
   "ibe.book-flight": "Prenoti il volo",
@@ -239,7 +319,23 @@
   "validation-required": "Campo obbligatorio",
   "_corporate_link": [
    "https://tapforbiz.com/"
-  ]
+  ],
+  "ibe.login": "Acceda",
+  "login-and-make-easier": "Effettui l'accesso e semplifichi il processo.",
+  "ibe.reservation-details": "O inserisca i dettagli della prenotazione",
+  "ibe.reservation-number": "Codice di prenotazione",
+  "ibe.passenger-lastname": "Cognome del passeggero",
+  "ibe.find-reservation": "Trova prenotazione",
+  "validation-invalid": "Campo non valido",
+  "same-airports": "Scegli una destinazione diversa dall’origine",
+  "flight-status-text": "Partenze e arrivi dei voli TAP, su flytap.com.",
+  "remove-flight": "Rimuovi volo",
+  "previous-month": "Mese precedente",
+  "next-month": "Mese successivo",
+  "close": "Chiudi",
+  "fewer": "Meno",
+  "more": "Più",
+  "new-tab": "si apre in una nuova scheda"
  },
  "pl-pl": {
   "ibe.book-flight": "Zarezerwuj lot",
@@ -279,7 +375,23 @@
   "validation-required": "Pole wymagane",
   "_corporate_link": [
    "https://tapforbiz.com/"
-  ]
+  ],
+  "ibe.login": "Login",
+  "login-and-make-easier": "Zaloguj się, aby w ten sposób ułatwić sobie cały proces.",
+  "ibe.reservation-details": "Lub proszę wprowadzić szczegóły swojej rezerwacji",
+  "ibe.reservation-number": "Kod rezerwacji",
+  "ibe.passenger-lastname": "Nazwisko pasażera",
+  "ibe.find-reservation": "Proszę poszukać rezerwacji",
+  "validation-invalid": "Nieprawidłowe pole",
+  "same-airports": "Wybierz cel inny niż miejsce wylotu",
+  "flight-status-text": "Odloty i przyloty lotów TAP, na flytap.com.",
+  "remove-flight": "Usuń lot",
+  "previous-month": "Poprzedni miesiąc",
+  "next-month": "Następny miesiąc",
+  "close": "Zamknij",
+  "fewer": "Mniej",
+  "more": "Więcej",
+  "new-tab": "otwiera się w nowej karcie"
  },
  "pt-br": {
   "ibe.book-flight": "Reservar voo",
@@ -320,6 +432,23 @@
   "_corporate_link": [
    "https://tapforbiz.com",
    "https://tapforbiz.com/"
-  ]
- }
+  ],
+  "ibe.login": "Login",
+  "login-and-make-easier": "Faça login e simplifique o processo.",
+  "ibe.reservation-details": "Ou insira os dados da sua reserva",
+  "ibe.reservation-number": "Código de reserva",
+  "ibe.passenger-lastname": "Último sobrenome do passageiro",
+  "ibe.find-reservation": "Encontrar reserva",
+  "validation-invalid": "Campo inválido",
+  "same-airports": "Escolha um destino diferente da origem",
+  "flight-status-text": "Partidas e chegadas dos voos TAP, em flytap.com.",
+  "remove-flight": "Remover voo",
+  "previous-month": "Mês anterior",
+  "next-month": "Próximo mês",
+  "close": "Fechar",
+  "fewer": "Menos",
+  "more": "Mais",
+  "new-tab": "abre em uma nova aba"
+ },
+ "_note": "ibe.login, login-and-make-easier, ibe.reservation-details, ibe.reservation-number, ibe.passenger-lastname, ibe.find-reservation and validation-invalid: www's texts (each language's capture, the common namespace); same-airports, flight-status-text, remove-flight, previous-month, next-month, close, fewer, more and new-tab: ours (www has no text for them; brief 341)"
 }

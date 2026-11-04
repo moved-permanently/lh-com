@@ -546,7 +546,14 @@ const HANDLERS = {
   },
   ComponentRichTextBlockModel: (s, P) => {
     P.add(P.rich(s.richTextContent));
-    P.add(P.ctas(s, 'cta', 'secondaryCta'));
+    // www centres a rich text's button under the text (every one: stopover's "Book now", the
+    // refunds' and the fares' ones): a section of its own, style centred-button (parity 44)
+    const ctas = P.ctas(s, 'cta', 'secondaryCta');
+    if (ctas && !P.cell) {
+      P.section('centred-button');
+      P.add(ctas);
+      P.section();
+    } else P.add(ctas);
   },
   ComponentAccordionItemsListModel: (s, P) => {
     P.add(P.heading(2, s.title));
@@ -610,10 +617,29 @@ const HANDLERS = {
     P.block('cards-icon', (s.items || []).map((x) => [P.img(x.icon), `<p><a href="${attr(linkOf(x.url, P.c))}">${esc(x.label)}</a></p>`]));
   },
   ComponentMiles_GoCardListModel: (s, P) => {
-    // www shows the card of the visitor's state: a visitor (no account) the first (type 1), the
-    // others to members; the logo (a small wordmark over the title) left out, columns-media
-    // stretches a picture to the cell
     const all = s.milesAndGoCards || [];
+    const page = (P.c.pageProps && P.c.pageProps.page) || {};
+    if (page.__typename === 'HomepageModel' && !P.cell) {
+      // the homepage: www's stacked cards (lower-home.md), all four a visitor sees, one row each:
+      // the logo picture, the h2 title, the subtitle in bold, the description, the button (the
+      // first card's bold italic, the others' italic), a second link plain; the photo beside it
+      // (www shows no extrainfo)
+      const link = (url, label, wrap) => {
+        const href = linkOf(url, P.c);
+        return href && label ? `<p>${wrap(`<a href="${attr(href)}">${esc(label)}</a>`)}</p>` : '';
+      };
+      P.block('columns-media (stack)', all.map((x, i) => {
+        const logo = P.img(x.logo);
+        const cta = link(x.primaryCtaUrl, x.primaryCtaLabel, (a) => (i === 0 ? `<em><strong>${a}</strong></em>` : `<em>${a}</em>`));
+        return [
+          `${logo ? `<p>${logo}</p>` : ''}${P.heading(2, x.title)}${x.subtitle ? `<p><strong>${esc(x.subtitle)}</strong></p>` : ''}${P.rich(x.milesAndGoCardDescription)}${cta}${link(x.secondaryCtaUrl, x.secondaryCtaLabel, (a) => a)}`,
+          P.img(x.image),
+        ];
+      }));
+      return;
+    }
+    // elsewhere: the card of the visitor's state, a visitor (no account) the first (type 1); the
+    // logo (a small wordmark over the title) left out, columns-media stretches a picture to the cell
     const visitor = all.filter((x) => String(x.type) === '1');
     P.block('columns-media', (visitor.length ? visitor : all.slice(0, 1)).map((x) => [
       `${P.heading(2, x.title)}${x.subtitle ? `<p><strong>${esc(x.subtitle)}</strong></p>` : ''}${P.rich(x.milesAndGoCardDescription)}${P.ctas(x)}${P.rich(x.extrainfo)}`,
@@ -650,9 +676,13 @@ const HANDLERS = {
     P.section();
   },
   ComponentCardInfoBlockModel: (s, P) => {
+    // www's teaser card (stopover's FAQ: a light card with a green edge): a section of its own,
+    // style info-card (parity 43)
+    P.section('info-card');
     P.add(P.heading(2, s.title));
     P.add(P.rich(s.cardInfoBlockDescription));
     P.add(P.ctas(s));
+    P.section();
   },
   ComponentBannerVideoModel: (s, P) => {
     if (s.youtubeUrl) {
@@ -667,7 +697,13 @@ const HANDLERS = {
     if (!local) P.missing.add(src);
     if (local && local.link) P.notes.push(`${src}: ${local.link}`);
     const label = s.buttonLabel || labelsOf(P.c.lang).video;
-    P.block('columns-media', [[`${P.img(s.backgroundImage)}${src ? `<p><a href="${attr(src)}">${esc(label)}</a></p>` : ''}`, `${P.heading(2, s.title)}${P.rich(s.bannerVideoDescription)}${s.bannerVideoCaption ? `<p>${esc(plainOf(s.bannerVideoCaption))}</p>` : ''}`]]);
+    // www: the video in a rounded frame, its title over it (parity 42): hero-card-overlay, the
+    // poster and the local mp4 (the block plays it over the poster); without a local copy the
+    // poster only, nothing from TAP's AEM host
+    const href = local && !local.link ? local.eds : '';
+    P.section();
+    P.block('hero-card-overlay', [[P.img(s.backgroundImage)], [`${P.heading(2, s.title)}${P.rich(s.bannerVideoDescription)}${s.bannerVideoCaption ? `<p>${esc(plainOf(s.bannerVideoCaption))}</p>` : ''}${href ? `<p><a href="${attr(href)}">${esc(label)}</a></p>` : ''}`]]);
+    P.section();
   },
   ComponentYoutubeVideoModel: (s, P) => {
     const u = s.youtubeUrl || s.url || s.videoUrl;

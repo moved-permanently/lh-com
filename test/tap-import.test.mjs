@@ -192,7 +192,16 @@ describe('tap-import parity (tools/reports/tap/parity.md)', () => {
     const home = nd('homepage');
     home.props.pageProps.markets = [{ code: 'BR', airport: 'RIO' }];
     // www's pt-br page: a pt-br store without the box's texts, a br store with them
-    home.props.pageProps._nextI18Next = { initialI18nStore: { 'pt-br': { common: { other: 'x' } }, br: { common: { 'ibe.book-flight': 'Reservar voo', 'ibe.to-check-in': 'Check-in', 'ibe.my-travels': 'Gerenciar reserva', 'ibe.flight-status': 'Status do voo' } } } };
+    home.props.pageProps._nextI18Next = {
+      initialI18nStore: {
+        'pt-br': { common: { other: 'x' } },
+        br: {
+          common: {
+            'ibe.book-flight': 'Reservar voo', 'ibe.to-check-in': 'Check-in', 'ibe.my-travels': 'Gerenciar reserva', 'ibe.flight-status': 'Status do voo',
+          },
+        },
+      },
+    };
     const { html } = convertPage(home, {
       ...ctx('https://www.flytap.com/pt-br'), locale: 'pt-br', lang: 'pt', booking: { labels, originName: 'Rio de Janeiro, Brasil' },
     });
@@ -204,6 +213,58 @@ describe('tap-import parity (tools/reports/tap/parity.md)', () => {
     assert.equal(rows['Default origin'].textContent, 'RIO');
     assert.equal(rows.Airports.querySelector('a').getAttribute('href'), '/pt-br/booking/airports.json');
     assert.equal(rows.Tabs.textContent, 'Reservar voo, Check-in, Gerenciar reserva, Status do voo', 'www\'s pt-br texts, from its br store');
+  });
+
+  it('every root\'s box: the check-in and manage tabs\' texts and the block\'s own, in the root\'s language (booking-spec.md 6)', () => {
+    const KEYS = ['ibe.login', 'login-and-make-easier', 'ibe.reservation-details', 'ibe.reservation-number', 'ibe.passenger-lastname', 'ibe.find-reservation', 'validation-invalid', 'same-airports', 'flight-status-text', 'remove-flight', 'previous-month', 'next-month', 'close', 'fewer', 'more', 'new-tab'];
+    const all = JSON.parse(fs.readFileSync(path.join(path.dirname(fileURLToPath(import.meta.url)), '../tools/reports/tap/booking-labels.json'), 'utf8'));
+    ['pt-pt', 'en-pt', 'es-es', 'fr-fr', 'de-de', 'it-it', 'pl-pl', 'pt-br'].forEach((lv) => KEYS.forEach((k) => assert.ok(String(all[lv][k] || '').trim(), `${lv} ${k}`)));
+    assert.equal(all['de-de']['ibe.find-reservation'] !== all['en-pt']['ibe.find-reservation'], true, 'German, not English');
+    assert.equal(all['pt-pt'].close, 'Fechar');
+    const { html } = convertPage(nd('homepage'), { ...ctx('https://www.flytap.com/pt-pt'), booking: { labels: all['pt-pt'] } });
+    const rows = Object.fromEntries([...dom(html).querySelector('.booking-box').querySelectorAll(':scope > div')].map((r) => [r.children[0].textContent, r.children[1].textContent]));
+    KEYS.forEach((k) => assert.ok(rows[k], `the row ${k}`));
+    assert.equal(rows['ibe.reservation-number'], all['pt-pt']['ibe.reservation-number']);
+  });
+
+  it('stopover (parity 42-44): the video under its title as hero-card-overlay, the FAQ card a section info-card, a rich text\'s button centred', () => {
+    const MP4 = 'https://publish-p133109-e1368204.adobeaemcloud.com/content/dam/tap/media/global/pages/homepage/video/stopover.mp4';
+    const sections = [
+      {
+        __typename: 'ComponentRichTextBlockModel', richTextContent: { plaintext: 'Mais de 500 ofertas.' }, ctaLabel: 'Reservar agora', ctaUrl: '#special-anchor-book-flight',
+      },
+      {
+        __typename: 'ComponentBannerVideoModel', title: 'Portugal Stopover com a TAP', bannerVideoDescription: { plaintext: 'Veja o vídeo.' }, buttonLabel: 'Assistir ao vídeo', backgroundImage: { _path: '/content/dam/tap/poster.jpg', description: 'Vídeo' }, video: { _path: '/content/dam/tap/media/global/pages/homepage/video/stopover.mp4', _publishUrl: MP4 },
+      },
+      {
+        __typename: 'ComponentCardInfoBlockModel', title: 'Perguntas frequentes', cardInfoBlockDescription: { plaintext: 'Tem dúvidas?' }, primaryCtaLabel: 'Saiba mais', primaryCtaUrl: '/ajuda/perguntas-frequentes#stopover',
+      },
+    ];
+    const page = { props: { pageProps: { page: { title: 'Stopover', sections: [{ __typename: 'ComponentHeadingModel', title: 'Stopover' }, ...sections] } } } };
+    const media = (k) => ({ [MP4]: '/media-da/tap/stopover-1.mp4', '/content/dam/tap/poster.jpg': '/media-da/tap/poster-1.jpg' }[k] || null);
+    const { html } = convertPage(page, { ...ctx('https://www.flytap.com/pt-pt/stopover'), media });
+    const secs = [...dom(html).querySelectorAll('main > div')];
+    const style = (s) => { const m = s.querySelector('.section-metadata'); return m ? m.textContent.replace(/\s+/g, ' ').trim() : ''; };
+    // the rich text's button: a section of its own, style centred-button, the text stays before it
+    const button = secs.find((s) => /centred-button/.test(style(s)));
+    assert.ok(button && button.querySelector('a[href="/pt-pt#book-flight"]'));
+    assert.ok(!button.textContent.includes('Mais de 500 ofertas'));
+    assert.ok(secs[secs.indexOf(button) - 1].textContent.includes('Mais de 500 ofertas'));
+    // the video: hero-card-overlay, the poster, the title and text, the local mp4 (no AEM host)
+    const hero = dom(html).querySelector('.hero-card-overlay');
+    assert.ok(hero, 'hero-card-overlay');
+    assert.ok(hero.querySelector('img[src="/media-da/tap/poster-1.jpg"]'));
+    assert.equal(hero.querySelector('h2').textContent, 'Portugal Stopover com a TAP');
+    assert.equal(hero.querySelector('a[href$=".mp4"]').getAttribute('href'), '/media-da/tap/stopover-1.mp4');
+    assert.ok(!html.includes('adobeaemcloud.com'));
+    assert.ok(!dom(html).querySelector('.columns-media'));
+    // the FAQ card: a section info-card with its heading, text and button
+    const card = secs.find((s) => /info-card/.test(style(s)));
+    assert.ok(card && card.querySelector('h2').textContent === 'Perguntas frequentes' && card.querySelector('a[href="/pt-pt/ajuda/perguntas-frequentes#stopover"]'));
+    // without a local copy of the video: the poster and texts, no link to TAP's AEM host
+    const none = convertPage(page, { ...ctx('https://www.flytap.com/pt-pt/stopover'), media: (k) => (k === '/content/dam/tap/poster.jpg' ? '/media-da/tap/poster-1.jpg' : null) });
+    assert.ok(!none.html.includes('adobeaemcloud.com'));
+    assert.ok(dom(none.html).querySelector('.hero-card-overlay'));
   });
 
   it('the market\'s airport when the page names no market list; the market from the root', () => {
@@ -229,12 +290,38 @@ describe('tap-import parity (tools/reports/tap/parity.md)', () => {
     assert.equal(linkOf('#special-anchor-login', c), 'https://www.flytap.com/pt-pt/ajuda#special-anchor-login');
   });
 
-  it('Miles&Go on the homepage: the visitor\'s card only (www shows the others to members), no stretched logo', () => {
-    const { html } = convertPage(nd('homepage'), ctx('https://www.flytap.com/pt-pt'));
+  it('Miles&Go on the homepage: columns-media (stack), all four cards www shows a visitor (lower-home.md), one row each', () => {
+    const home = nd('homepage');
+    const list = home.props.pageProps.page.sections.find((x) => x.__typename === 'ComponentMiles_GoCardListModel');
+    const [first] = list.milesAndGoCards;
+    list.milesAndGoCards.push(
+      {
+        ...first, type: '4', title: 'Descontos em hotéis', subtitle: 'A estadia perfeita', primaryCtaLabel: 'Descobrir hotéis', primaryCtaUrl: '/miles-and-go/parceiros#hotel',
+      },
+      {
+        ...first, type: '3', title: 'Cartões de Crédito TAP Miles&Go', subtitle: 'Ganhe milhas', primaryCtaLabel: 'Saiba mais', primaryCtaUrl: '/miles-and-go/acumular-milhas/cartoes-de-credito', secondaryCtaLabel: 'Consulte aqui', secondaryCtaUrl: 'https://www.bportugal.pt/intermediariocreditofar/x', extrainfo: { plaintext: 'Com o Cartão TAP FLY+ …' },
+      },
+    );
+    const media = (k) => (String(k).includes('logo') ? '/media-da/tap/logo-miles-go-1.png' : MEDIA[k] || '/media-da/tap/photo-1.jpg');
+    const { html } = convertPage(home, { ...ctx('https://www.flytap.com/pt-pt'), media });
     const cm = dom(html).querySelector('.columns-media');
-    assert.equal(cm.querySelectorAll(':scope > div').length, 1);
-    assert.ok(cm.textContent.includes('TAP Miles&Go') && !cm.textContent.includes('Club TAP Miles&Go'));
-    assert.ok(![...cm.querySelectorAll('img')].some((i) => /logo/.test(i.getAttribute('src') + i.getAttribute('alt'))));
+    assert.equal(cm.className, 'columns-media stack');
+    const rows = [...cm.querySelectorAll(':scope > div')];
+    assert.deepEqual(rows.map((r) => r.querySelector('h2').textContent), ['TAP Miles&Go', 'Club TAP Miles&Go', 'Descontos em hotéis', 'Cartões de Crédito TAP Miles&Go'], 'www\'s order, not members only');
+    rows.forEach((r) => {
+      const [text, photo] = r.children;
+      // the text cell: the logo picture, the h2 title, the subtitle in bold
+      assert.ok(text.firstElementChild.tagName === 'P' && text.firstElementChild.querySelector('img'), 'the logo first');
+      assert.equal(text.children[1].tagName, 'H2');
+      assert.equal(text.children[2].innerHTML.startsWith('<strong>'), true);
+      assert.ok(photo.querySelector('img'), 'the photo next to it');
+    });
+    // the first card's button bold italic, the others' italic; "See here" a plain link
+    assert.ok(rows[0].querySelector('p > em > strong > a'));
+    rows.slice(1).forEach((r) => { assert.ok(r.querySelector('p > em > a')); assert.ok(!r.querySelector('strong > a')); });
+    const seeHere = [...rows[3].querySelectorAll('a')].find((a) => a.textContent === 'Consulte aqui');
+    assert.equal(seeHere.parentElement.tagName, 'P', 'a plain link');
+    assert.ok(!rows[3].textContent.includes('TAP FLY+'), 'www shows no extrainfo');
   });
 
   it('breadcrumbs: Parent the nearest ancestor we have (else the homepage), Breadcrumb Title the page\'s title; none on the homepage', () => {
