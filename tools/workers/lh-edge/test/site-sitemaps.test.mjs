@@ -94,15 +94,38 @@ const INDEXES = {
     ],
     '/de/search-index.json': [{ path: '/de/flughaefen/bari', lastModified: T }],
   },
+  // SWISS's ch/en (brief 349): its language index (the full one, title, content, …)
+  'lh-swiss': {
+    '/ch/en/language-index.json': [
+      {
+        path: '/ch/en/homepage', robots: '', lastModified: T, content: 'x'.repeat(200),
+      },
+      {
+        path: '/ch/en/book-and-manage', robots: '', lastModified: T, content: 'x'.repeat(200),
+      },
+      {
+        path: '/ch/en/hidden', robots: 'noindex', lastModified: T, content: '',
+      },
+    ],
+  },
 };
+// SWISS's small sitemap index /ch/en/sitemap-index.json (null: not there yet)
+let swissSmall = null;
+let urls;
 let calls;
 beforeEach(() => {
   resetMarketCache();
   calls = [];
+  urls = [];
+  swissSmall = null;
   globalThis.fetch = async (input, init = {}) => {
     const req = input instanceof Request ? input : new Request(input, init);
     const u = new URL(req.url);
     calls.push(`${u.hostname}${u.pathname}`);
+    urls.push(`${u.pathname}${u.search}`);
+    if (u.hostname.startsWith('main--lh-swiss--') && u.pathname === '/ch/en/sitemap-index.json') {
+      return swissSmall ? sheet(swissSmall) : new Response('Not Found', { status: 404 });
+    }
     const repo = (u.hostname.match(/^main--([a-z0-9-]+)--/) || [])[1];
     const rows = (INDEXES[repo] || {})[u.pathname];
     if (rows) return sheet(rows);
@@ -175,4 +198,27 @@ test('as before: lh-com\'s host, robots.txt, a path that is no sitemap of the si
   const robots = await get('tap.turnsthe.page', '/robots.txt');
   assert.equal(await robots.text(), 'User-agent: *\nDisallow: /\n');
   assert.notEqual((await get('cargo.turnsthe.page', '/fr/sitemap.xml')).headers.get('x-lh-edge-route'), 'site-sitemap');
+});
+
+test('SWISS ch/<ll>: the small sitemap index once it is filled (its total the language index\'s), else the language index as before', async () => {
+  const LATER = '1793900000';
+  const before = await (await get('swiss.turnsthe.page', '/ch/en/sitemap.xml')).text();
+  assert.deepEqual(locs(before), ['https://swiss.turnsthe.page/ch/en/book-and-manage', 'https://swiss.turnsthe.page/ch/en/homepage'], 'not there yet: the language index');
+  resetMarketCache();
+  swissSmall = [{ path: '/ch/en/homepage', robots: '', lastModified: LATER }];
+  const partial = await (await get('swiss.turnsthe.page', '/ch/en/sitemap.xml')).text();
+  assert.equal(partial, before, 'still filling (1 of 3 rows): the language index');
+  resetMarketCache();
+  urls = [];
+  calls = [];
+  swissSmall = [
+    { path: '/ch/en/homepage', robots: '', lastModified: LATER },
+    { path: '/ch/en/book-and-manage', robots: '', lastModified: LATER },
+    { path: '/ch/en/hidden', robots: 'noindex', lastModified: LATER },
+  ];
+  const filled = await (await get('swiss.turnsthe.page', '/ch/en/sitemap.xml')).text();
+  assert.deepEqual(locs(filled), locs(before), 'the same pages');
+  assert.match(filled, /<lastmod>2026-11-05<\/lastmod>/, 'from the small index');
+  assert.ok(urls.filter((u) => u.startsWith('/ch/en/language-index.json')).every((u) => /[?&]limit=1(&|$)/.test(u)), 'the language index: its total only');
+  assert.ok(!calls.some((c) => c.endsWith('/market-pages.json')), 'no market index');
 });
