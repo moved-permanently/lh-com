@@ -64,6 +64,8 @@ test('Cargo: the same path in the other language, probed as before', async () =>
 
 test('header.js: the Alternate rows of the page\'s metadata go to the switch', () => {
   const src = fs.readFileSync('blocks/header/header.js', 'utf8');
-  assert.match(src, /getMetadata\(`alternate-\$\{[^}]+\}`\)/);
+  // through switchAlternates since parity.md F4 (by language, and by root on a site with countries)
+  assert.match(src, /switchAlternates\(locale\.siteLanguages \|\| \[\], getMetadata\)/);
+  assert.match(fs.readFileSync('scripts/site-languages.js', 'utf8'), /read\(`alternate-\$\{k\}`\)/);
   assert.match(src, /languageSwitch\(navTools, pathname, locale\.lang, locale\.siteLanguages, alternates\)/);
 });
