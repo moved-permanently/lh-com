@@ -3,7 +3,8 @@
  * (/pt-pt, 2026-11-04; its swiper: autoplay every 5 s, on after a click, paused while the
  * pointer is over it): www's green wedge (top left) and line (bottom right) on every slide, a
  * desktop and a phone shape each as www draws them; previous, dots and next in one group; a pause
- * button that stops and restarts the rotation. Under prefers-reduced-motion nothing rotates (the
+ * button that stops and restarts the rotation; each step www's 1.2 s slide, the neighbouring slide
+ * coming in from the side (createSlide). Under prefers-reduced-motion nothing rotates (the
  * button shows the stage as paused and starts it on request). A stage of one slide (pl-pl) gets
  * the stripes only. The look: styles/themes/tap.css.
  */
@@ -53,6 +54,84 @@ export function createRotation({ advance, delay = ROTATION_MS, timers = window }
   };
 }
 
+/** www's swiper: speed 1200 (effect slide, one slide per view) */
+export const SLIDE_MS = 1200;
+
+/**
+ * A CSS timing function as a function of time (0 to 1) to progress (0 to 1).
+ * @returns {(x: number) => number}
+ */
+export function cubicBezier(x1, y1, x2, y2) {
+  const at = (t, a, b) => 3 * a * t * (1 - t) ** 2 + 3 * b * t * t * (1 - t) + t ** 3;
+  return (x) => {
+    if (x <= 0) return 0;
+    if (x >= 1) return 1;
+    let lo = 0;
+    let hi = 1;
+    let t = x;
+    for (let i = 0; i < 24; i += 1) {
+      const v = at(t, x1, x2);
+      if (Math.abs(v - x) < 1e-5) break;
+      if (v < x) lo = t;
+      else hi = t;
+      t = (lo + hi) / 2;
+    }
+    return at(t, y1, y2);
+  };
+}
+
+/** www's swiper wrapper: transition-timing-function initial, i.e. ease */
+export const EASE = cubicBezier(0.25, 0.1, 0.25, 1);
+
+/**
+ * www's slide between stages: the track scrolled over duration ms with ease, so the neighbouring
+ * slide comes in from the side as on www (the browser's smooth scroll takes about a third of
+ * that). The track's snapping and smooth scrolling are off while it moves; a swipe or wheel
+ * stops it where it is. Reduced motion: the step at once.
+ * @param {{track: Element, duration?: number, reduced?: boolean, clock?: {now: Function,
+ *   frame: Function, cancel: Function}}} opts
+ * @returns {{scroll: (left: number) => void, moving: () => boolean}}
+ */
+export function createSlide({
+  track, duration = SLIDE_MS, reduced = false, clock = {
+    now: () => performance.now(),
+    frame: (fn) => requestAnimationFrame(fn),
+    cancel: (id) => cancelAnimationFrame(id),
+  },
+}) {
+  let id = null;
+  const settle = () => {
+    if (id !== null) clock.cancel(id);
+    id = null;
+    track.style.removeProperty('scroll-snap-type');
+    track.style.removeProperty('scroll-behavior');
+  };
+  ['touchstart', 'wheel'].forEach((type) => track.addEventListener(type, () => {
+    if (id !== null) settle();
+  }, { passive: true }));
+  return {
+    scroll(left) {
+      settle();
+      const from = track.scrollLeft || 0;
+      if (reduced || from === left) {
+        track.scrollLeft = left;
+        return;
+      }
+      track.style.setProperty('scroll-snap-type', 'none');
+      track.style.setProperty('scroll-behavior', 'auto');
+      const start = clock.now();
+      const step = () => {
+        const p = Math.min(1, (clock.now() - start) / duration);
+        track.scrollLeft = from + (left - from) * EASE(p);
+        if (p < 1) id = clock.frame(step);
+        else settle();
+      };
+      id = clock.frame(step);
+    },
+    moving: () => id !== null,
+  };
+}
+
 function stripe(className, markup) {
   const layer = document.createElement('div');
   layer.className = className;
@@ -65,10 +144,10 @@ function stripe(className, markup) {
  * TAP's slider parts on a built slider (hero-campaign.js buildSlider).
  * @param {Element} block the slider
  * @param {{slides: Element[], track: Element, prev: Element, next: Element, dots: Element,
- *   goTo: Function, current: Function, lang: string}} parts
+ *   goTo: Function, current: Function, motion: {scroll: Function}, lang: string}} parts
  */
 export default function decorateTapSlider(block, {
-  slides, track, prev, next, dots, goTo, current, lang,
+  slides, track, prev, next, dots, goTo, current, motion, lang,
 }) {
   block.classList.add('hero-campaign-tap');
   slides.forEach((slide) => {
@@ -100,6 +179,8 @@ export default function decorateTapSlider(block, {
     block.classList.toggle('hero-campaign-paused', paused);
   };
   const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // previous, next, the dots, the arrow keys and the rotation: www's 1.2 s slide
+  if (motion) motion.scroll = createSlide({ track, reduced: Boolean(reduced) }).scroll;
   paused = Boolean(reduced);
   show();
   if (!paused) rotation.start();
