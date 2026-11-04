@@ -42,7 +42,9 @@ const pick = (l) => ({
 test('the brand entry: name, www, and none of the live systems (links to www.flytap.com), no consent manager', () => {
   assert.equal(BRANDS.tap.name, 'TAP Air Portugal');
   assert.equal(BRANDS.tap.www, 'www.flytap.com');
-  ['oneTrust', 'consentLinks', 'messageCenter', 'booking', 'travelId', 'embeds', 'serviceOrigin', 'backends', 'portal', 'aemContent', 'accessibility', 'notifications', 'destinationImages', 'theme']
+  // its Message Center tenant tap since brief 326 (test/tap-alerts.test.mjs)
+  assert.equal(BRANDS.tap.messageCenter, 'tap');
+  ['oneTrust', 'consentLinks', 'booking', 'travelId', 'embeds', 'serviceOrigin', 'backends', 'portal', 'aemContent', 'accessibility', 'notifications', 'destinationImages', 'theme']
     .forEach((k) => assert.equal(BRANDS.tap[k], undefined, k));
   assert.equal(BRAND_SITES.tap, undefined, 'no <cc>/<ll> roots');
   assert.equal(brandName(tap), 'TAP Air Portugal');

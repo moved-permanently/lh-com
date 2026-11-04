@@ -252,7 +252,8 @@ test('4: one alert: no arrows and no pager; the headline and "Ver todos"', () =>
 });
 
 test('4: placed first in the body, before the header, on TAP\'s seven root homepages only, 52 px reserved', () => {
-  const roots = BRANDS.tap && getLocale('/pt-pt').siteLanguages;
+  at('/pt-pt', { brand: 'tap' });
+  const roots = getLocale('/pt-pt').siteLanguages;
   ['/pt-pt', '/pt-pt/', '/en-pt', '/es-es', '/fr-fr', '/de-de', '/it-it', '/pl-pl', '/content/pt-pt'].forEach((p) => assert.ok(isRootHomepage(p, roots), p));
   ['/pt-pt/ajuda', '/pt-pt/alertas-e-informacoes', '/', '/drafts/booking-box/pt-pt', '/pt-ptx'].forEach((p) => assert.ok(!isRootHomepage(p, roots), p));
   at('/pt-pt', { brand: 'tap' });
