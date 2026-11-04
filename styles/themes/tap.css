@@ -1063,3 +1063,78 @@ body.brand-tap .carousel-cards-tap .carousel-cards-dot[aria-current="true"] {
     flex-basis: calc((100% - 72px) / 4);
   }
 }
+
+/* www's extra link strip under the alerts bar on the root homepages (tap-import.mjs: a first section
+   of style extra-alert, a columns block of the message link and its pill; pt-pt, en-pt, fr-fr):
+   full width, #ebf2ff, 52 px (8 px, a 36 px row, 8 px), 32 px from the sides from 1025 px (16 px on
+   phones); the message Inter 16/24 semibold (13/19.5 on phones), black, no underline; the pill
+   32 px, 15 px regular, a 1 px #e0dfe2 border, right */
+body.brand-tap main > .section.extra-alert {
+  margin: 0;
+  background-color: #ebf2ff;
+}
+
+body.brand-tap main > .section.extra-alert > .columns-wrapper {
+  max-width: none;
+  padding: 8px 16px;
+}
+
+body.brand-tap main > .section.extra-alert .columns > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 36px;
+}
+
+body.brand-tap main > .section.extra-alert .columns > div > div {
+  flex: 0 1 auto;
+  min-width: 0;
+}
+
+body.brand-tap main > .section.extra-alert .columns p {
+  margin: 0;
+}
+
+body.brand-tap main > .section.extra-alert .columns p > a:not(.button) {
+  overflow: hidden;
+  display: block;
+  color: #000;
+  font-family: var(--body-font-family);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.5;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+body.brand-tap main > .section.extra-alert .columns p > a:not(.button):hover {
+  text-decoration: underline;
+}
+
+body.brand-tap main > .section.extra-alert .columns a.button {
+  width: auto;
+  min-width: 0;
+  min-height: 32px;
+  margin: 0;
+  border: 1px solid #e0dfe2;
+  padding: 0 16px;
+  background-color: transparent;
+  color: #000;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+@media (width >= 1025px) {
+  body.brand-tap main > .section.extra-alert > .columns-wrapper {
+    padding: 8px 32px;
+  }
+
+  body.brand-tap main > .section.extra-alert .columns p > a:not(.button) {
+    font-size: 16px;
+  }
+}
