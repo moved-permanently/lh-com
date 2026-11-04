@@ -1,5 +1,8 @@
 import { getLocale } from '../../scripts/locale.js';
 
+/** Brand tap (TAP Air Portugal): the page's brand metadata (lh-tap's metadata.json). */
+const isTap = () => (document.querySelector('meta[name="brand"]')?.getAttribute('content') || '').trim().toLowerCase() === 'tap';
+
 /*
  * Hotline finder: a country select and the hotline of the picked country (www's PartnerPlusBenefit
  * box on business.lufthansagroup.com's contact pages). Rows (key | value): Sheet (the countries'
@@ -92,6 +95,13 @@ function contactOf(row, labels, lang) {
 }
 
 export default async function decorate(block) {
+  // brand tap: www.flytap.com's contacts by country and city (./hotline-finder-tap.js)
+  if (isTap()) {
+    const { default: decorateTapFinder } = await import('./hotline-finder-tap.js');
+    const { lang, country } = getLocale();
+    await decorateTapFinder(block, { lang, country });
+    return;
+  }
   const rows = readRows(block);
   const sheetCell = rows.sheet;
   const href = sheetCell ? (sheetCell.querySelector('a[href]')?.getAttribute('href') || textOf(sheetCell)) : '';

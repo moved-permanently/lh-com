@@ -10,6 +10,7 @@ tools/migration-scope/
 tools/workers/
 tools/reports/
 tools/parity/
+tools/tap-data/
 tools/source-export/
 migration-work/
 tools/importer/

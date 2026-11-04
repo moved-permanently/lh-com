@@ -157,6 +157,18 @@ fails CORS). Parser: `tools/importer/parsers/poi-map.js` (mapped first in campai
 
 `pointsOfInterest` is recordable now (`RECORDABLE` of tools/importer/record-live-data.mjs) and a direct route (`DIRECT_ROUTES` of scripts/lh-data.js); lh-proxy is not involved. Check the first recorded answer against `mapPointsOfInterest` (the shape comes from the live selectors; no real answer has been seen yet) and whether the direct call from aem.page passes CORS (if not, visitors get the recordings).
 
+## Brand tap (TAP Air Portugal): the destinations map
+
+On a page with `brand: tap`, `Source` may be a sheet (a `.json` path or URL, e.g.
+`/en-pt/destinations/destinations-map.json`): `poi-map-tap.js` loads it (`?limit=1000`) instead of
+the pointsOfInterest request. One row per destination: `region`, `city`, `country`, `code`, `lat`,
+`lng`, `link` (www's flights page), `countryLink`, built from the captured destinations page by
+`tools/tap-data/destinations-sheet.mjs`. The map then has www.flytap.com's look
+(styles/themes/tap.css): green dots, the bubble "City, Country" with "Flights to City", the zoom
+buttons top right, and above the map one button per region of the sheet plus "All" (a region shows
+its dots and fits the map to them). `Map label` stays optional (else "Map of TAP destinations" in the
+page's language). JCR paths, point rows and every other brand behave as above.
+
 ## Universal Editor fields
 
 N/A (Document Authoring project)
