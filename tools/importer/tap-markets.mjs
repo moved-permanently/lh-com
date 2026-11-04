@@ -94,23 +94,23 @@ function tailsOf(unit) {
 
 /**
  * The variations www applies without a rule: a component's (or item's) variation market_<cc> is
- * that market's (the club table's market_us, a promotion's market_pt), as activate-variation rules.
+ * that market's where a capture shows it served (the club table's market_us, a promotion's
+ * market_pt), as activate-variation rules. A variation only listed (_variations) is not: TAP
+ * serves those markets the plain master (the market-variants capture, 35 of 35 rows).
  */
 function implicitRules(units) {
   const out = new Map();
   const walk = (o) => {
     if (Array.isArray(o)) { o.forEach(walk); return; }
     if (!o || typeof o !== 'object') return;
-    const own = (o._path && Array.isArray(o._variations) ? o._variations : []).filter((v) => /^market_[a-z]{2}$/.test(v));
+    const own = o._path && /^market_[a-z]{2}$/.test(o._variation || '') ? [o._variation] : [];
+    // one rule per component, with every market's variation a capture shows (us and ao each theirs)
     if (own.length && !out.has(ruleTail(o._path))) {
       out.set(ruleTail(o._path), {
-        _path: `implicit:${o._path}`,
-        action: 'activate-variation',
-        implicit: true,
-        targets: [{ __typename: o.__typename, _path: o._path }],
-        variations: Object.fromEntries(own.map((v) => [v, { name: v, markets: [v.slice(7)], action: 'show' }])),
+        _path: `implicit:${o._path}`, action: 'activate-variation', implicit: true, targets: [{ __typename: o.__typename, _path: o._path }], variations: {},
       });
     }
+    own.forEach((v) => { out.get(ruleTail(o._path)).variations[v] = { name: v, markets: [v.slice(7)], action: 'show' }; });
     Object.values(o).forEach(walk);
   };
   walk(units);
@@ -118,7 +118,9 @@ function implicitRules(units) {
 }
 
 const keyOf = (u, i) => (u._path ? ruleTail(u._path) : `${u.__typename}@${i}`);
-const hashOf = (u) => crypto.createHash('sha1').update(JSON.stringify(u)).digest('hex');
+// a component's content: its variations list left aside (TAP serves a market_<cc> root the plain
+// master with no variations listed: the same component as the language version's master)
+const hashOf = (u) => crypto.createHash('sha1').update(JSON.stringify(u, (k, v) => (k === '_variations' ? undefined : v))).digest('hex');
 const OTHERS = '*';
 const sorted = (s) => [...s].sort();
 
@@ -275,6 +277,28 @@ export function marketUnits({
   return { units: out, notes };
 }
 
+/**
+ * The captured market pages as views of their language versions' pages: /<root>/<rest> for
+ * /<language version>/<rest> where that is a page (a root's homepage and own pages are not).
+ * @param {Iterable<string>} paths the market captures' paths
+ * @param {Set<string>} langPages the language versions' page paths
+ * @returns {Map<string, string[]>} language page → its market pages
+ */
+export function marketViewPaths(paths, langPages) {
+  const views = new Map();
+  [...paths].forEach((p) => {
+    const m = p.match(/^\/([a-z]{2}-[a-z]{2})(\/.+)$/);
+    if (!m) return;
+    const lv = languageOf(m[1]);
+    if (!lv || lv === m[1]) return;
+    const lp = `/${lv}${m[2]}`;
+    if (!langPages.has(lp)) return;
+    if (!views.has(lp)) views.set(lp, []);
+    views.get(lp).push(p);
+  });
+  return views;
+}
+
 /** The page's own markets (rules on the page itself, PageModel), or null. */
 export function pageMarkets(page, rules) {
   const hit = ruleIndex(rules).get(ruleTail(page._path)) || [];
@@ -416,13 +440,11 @@ async function main() {
   const info = Object.fromEntries(allRoots.map((r) => [r, { lv: languageOf(r), country: r.split('-')[1], paths: sitemapOf(sitemaps, r) || [] }]));
 
   /* 1 and 2: the language pages with rules, their other markets' variants merged in (local only) */
-  const views = new Map();
-  allRoots.forEach((r) => list[r].rule.forEach((u) => {
-    const p = docPath(u);
-    const lp = p.replace(/^\/[a-z]{2}-[a-z]{2}/, `/${info[r].lv}`);
-    if (!views.has(lp)) views.set(lp, []);
-    views.get(lp).push({ root: r, country: info[r].country, page: marketPages.get(p) });
-  }));
+  // every captured market page is a view of its language page (the roots' rule pages and the
+  // market variants' captures: a page per variant, from a root that gets it)
+  const views = new Map([...marketViewPaths(marketPages.keys(), new Set(langPages.keys()))].map(([lp, ps]) => [lp, ps
+    .filter((p) => info[p.split('/')[1]])
+    .map((p) => ({ root: p.split('/')[1], country: info[p.split('/')[1]].country, page: marketPages.get(p) }))]));
   const lvs = [...new Set([...Object.values(LANGUAGE_VERSIONS), 'pt-br'])];
   const scopeLang = new Set([...langDocs, ...langPages.keys()]);
   for (const [doc, p] of langPages) {
@@ -441,9 +463,14 @@ async function main() {
       home, units: unitsOf(nd), views: vs, rules, countries,
     });
     const marked = merged.units.filter((u) => u.__markets);
-    if (!marked.length && !pm && !merged.notes.length) continue;
+    const plain = !marked.length && !pm && !merged.notes.length;
+    // a page with no market section now whose local copy still has some (an earlier run's): the
+    // plain conversion again, so no stale section stays (it is the language import's document)
+    const localFile = path.join(OUT, `${doc}.plain.html`);
+    const stale = plain && fs.existsSync(localFile) && fs.readFileSync(localFile, 'utf8').includes('<div>Markets</div>');
+    if (plain && !stale) continue;
     const site = {
-      url: p.url, scope: scopeLang, media, anchors, sourceImages: false, units: () => merged.units,
+      url: p.url, scope: scopeLang, media, anchors, sourceImages: false, units: plain ? undefined : () => merged.units,
     };
     let r = convertPage(nd, site);
     if (r.skipped) continue;
@@ -452,6 +479,12 @@ async function main() {
     // the variants' fragment documents apart
     const vf = variantFragments(r.html, r.fragments);
     const html = withPageMarkets(vf.html, pm);
+    if (plain) {
+      (report.plainAgain ||= []).push(doc);
+      write(doc, html);
+      vf.fragments.forEach((x) => write(x.doc, x.html));
+      continue;
+    }
     (report.languages[lv] ||= {})[doc] = {
       sections: marked.map((u) => ({ component: keyOf(u), variation: u._variation, markets: u.__markets })),
       pageMarkets: pm,

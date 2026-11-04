@@ -10,7 +10,7 @@ import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
 import { convertPage } from '../tools/importer/tap-import.mjs';
 import {
-  ruleTail, ruleIndex, marketUnits, pageMarkets, withPageMarkets, rootLinks, languageOf, rootDocPath, variantFragments,
+  ruleTail, ruleIndex, marketUnits, pageMarkets, withPageMarkets, rootLinks, languageOf, rootDocPath, variantFragments, marketViewPaths,
 } from '../tools/importer/tap-markets.mjs';
 import { dropMarketSections, sectionMarkets } from '../scripts/market-rules.js';
 
@@ -121,15 +121,16 @@ describe('tap-markets: marketUnits', () => {
     assert.ok(!r.notes.some((n) => n.kind === 'unplaced'), 'us gets the variation for all markets');
   });
 
-  it('a variation named market_<cc> is the market\'s without a rule (www applies it so)', () => {
+  it('a variation named market_<cc> is the market\'s where a capture shows it served; listed only, the market gets the master (the market-variants capture)', () => {
     const table = { ...text('en', 'c', 'Card text'), _variations: ['market_us', 'market_ao'] };
     const us = [home[0], home[1], home[2], { ...table, _variation: 'market_us', richTextContent: { plaintext: 'US card' } }];
     const r = marketUnits({
       home: 'pt', units: [home[0], home[1], home[2], table], views: [{ country: 'us', units: us }], rules: [], countries: ['pt', 'us', 'ao', 'gb'],
     });
     const c = r.units.filter((u) => ruleTail(u._path) === 'components/c');
-    assert.deepEqual(c.map((u) => [u._variation, u.__markets]), [['master', '-ao,-us'], ['market_us', 'us'], [undefined, 'ao']]);
-    assert.ok(r.notes.some((n) => n.kind === 'unplaced' && n.root === 'ao'), 'Angola\'s variation: no capture');
+    assert.deepEqual(c.map((u) => [u._variation, u.__markets]), [['master', '-us'], ['market_us', 'us']]);
+    assert.ok(!r.notes.some((n) => n.kind === 'unplaced'), 'market_ao is only listed: Angola gets the master');
+    assert.ok(!r.units.some((u) => u.__typename === 'MarketVariantOnWww'));
   });
 
   it('a component only a market shows (missing in the language version) is merged in at its place', () => {
@@ -138,6 +139,36 @@ describe('tap-markets: marketUnits', () => {
       home: 'pt', units: home, views: [{ country: 'br', units: br }], rules: [show('galp', ['pt']), show('brazil', ['br'])], countries: ['pt', 'br'],
     });
     assert.deepEqual(r.units.map((u) => [ruleTail(u._path).split('/').pop(), u.__markets || null]), [['h', null], ['a', null], ['galp', 'pt'], ['brazil', 'br'], ['c', null]]);
+  });
+
+  it('two markets each served their own market_<cc> variation of one component: a section each', () => {
+    const table = { ...text('en', 'c', 'Card text'), _variations: ['market_us', 'market_ao'] };
+    const v = (cc, t) => ({ country: cc, units: [home[0], home[1], home[2], { ...table, _variation: `market_${cc}`, richTextContent: { plaintext: t } }] });
+    const r = marketUnits({
+      home: 'pt', units: [home[0], home[1], home[2], table], views: [v('us', 'US card'), v('ao', 'Angola card'), { country: 'br', units: [home[0], home[1], home[2], table] }], rules: [], countries: ['pt', 'us', 'ao', 'br'],
+    });
+    const c = r.units.filter((u) => ruleTail(u._path) === 'components/c');
+    assert.deepEqual(c.map((u) => [u.richTextContent.plaintext, u.__markets]), [['Card text', '-ao,-us'], ['US card', 'us'], ['Angola card', 'ao']]);
+    assert.ok(!r.notes.some((n) => n.kind === 'drift'));
+  });
+
+  it('a market served the plain master (no variations listed, as TAP serves market_us roots) shares the master\'s section', () => {
+    const table = { ...text('en', 'c', 'Card text'), _variations: ['market_us', 'market_ao'] };
+    const plain = { ...text('en', 'c', 'Card text'), _variations: [] };
+    const r = marketUnits({
+      home: 'pt', units: [home[0], home[1], home[2], table], views: [{ country: 'us', units: [home[0], home[1], home[2], plain] }, { country: 'ao', units: [home[0], home[1], home[2], plain] }], rules: [], countries: ['pt', 'us', 'ao'],
+    });
+    const c = r.units.filter((u) => ruleTail(u._path) === 'components/c');
+    assert.equal(c.length, 1, 'one section: the same component');
+    assert.equal(c[0].__markets, undefined, 'every market sees it');
+    assert.ok(!r.notes.some((n) => n.kind === 'unplaced'));
+    assert.ok(!r.units.some((u) => u.__typename === 'MarketVariantOnWww'), 'no stand-in where a capture exists');
+  });
+
+  it('views: every captured market page whose language version has it, by its root\'s language version', () => {
+    const langPages = new Set(['/en-pt/help', '/pt-pt/promos', '/en-pt/miles-and-go']);
+    const v = marketViewPaths(['/en-us/help', '/pt-us/promos', '/en-fr/miles-and-go', '/en-us', '/en-ca/legal-info/passenger-rights-canada', '/fr-ca/x'], langPages);
+    assert.deepEqual([...v.entries()], [['/en-pt/help', ['/en-us/help']], ['/pt-pt/promos', ['/pt-us/promos']], ['/en-pt/miles-and-go', ['/en-fr/miles-and-go']]]);
   });
 
   it('a difference no rule explains (TAP edited the page between captures) keeps the language version, noted', () => {
