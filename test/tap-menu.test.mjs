@@ -204,6 +204,10 @@ test('the market button as www\'s: the nav\'s flag and the root\'s language ("DE
   const html = SECTION.replace('</ul></div>', '<li><p><img src="/media-da/tap/flag-ch-1a2b3c4d.svg" alt="Schweiz"></p></li>\n</ul></div>');
   assert.deepEqual(readTapMenu(section(html)).map((i) => i.label), ['Plan a trip', 'My flights', 'Check-in', 'Help'], 'the flag row is no menu item');
   assert.deepEqual(readTapFlag(section(html)), { src: '/media-da/tap/flag-ch-1a2b3c4d.svg', alt: 'Schweiz' });
+  // as the preview serves it: the image in a <picture>
+  const served = SECTION.replace('</ul></div>', '<li><p><picture><source type="image/webp" srcset="./media_12b8.svg?width=750&format=webply"><img loading="lazy" alt="Schweiz" src="./media_12b8.svg?width=750&format=svg"></picture></p></li>\n</ul></div>');
+  assert.deepEqual(readTapMenu(section(served)).map((i) => i.label), ['Plan a trip', 'My flights', 'Check-in', 'Help'], 'the served flag row is no menu item');
+  assert.deepEqual(readTapFlag(section(served)), { src: './media_12b8.svg?width=750&format=svg', alt: 'Schweiz' });
   // the bar as header.js builds it: the menu, then the tools with the market button
   const bar = document.createElement('div');
   bar.className = 'nav-bar';

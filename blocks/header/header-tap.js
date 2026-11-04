@@ -161,7 +161,7 @@ export function readTapMenu(section) {
  */
 export function readTapFlag(section) {
   const list = section && section.querySelector('ul');
-  const row = children(list, 'LI').find((li) => !li.querySelector(':scope > ul') && li.querySelector(':scope > p > img, :scope > img') && !text(li));
+  const row = children(list, 'LI').find((li) => !li.querySelector(':scope > ul') && li.querySelector(':scope > p > img, :scope > p > picture > img, :scope > img, :scope > picture > img') && !text(li));
   const img = row && row.querySelector('img');
   return img ? { src: img.getAttribute('src'), alt: img.getAttribute('alt') || '' } : null;
 }
