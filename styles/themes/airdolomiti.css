@@ -586,7 +586,7 @@ body.brand-airdolomiti .flight-search .flight-search-submit {
     padding-top: 151px;
   }
 
-  body.brand-airdolomiti.appear main > .section:has(.hero-campaign-services) + .section.flight-search-container {
+  body.brand-airdolomiti main > .section:has(.hero-campaign-services) + .section.flight-search-container {
     position: relative;
     z-index: 2;
     margin-top: -343px;
