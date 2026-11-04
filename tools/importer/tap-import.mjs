@@ -18,11 +18,14 @@
  *   CTAs as buttons (primary bold, secondary plain), tables as table-striped;
  * - AccordionItemsList, the FAQ's CategoryAccordion (a heading per category and subcategory),
  *   the alerts page's list: accordion-columns (faq);
- * - GenericCardList: cards (text cards), cards-teaser (image cards; three-up, four-up by
- *   itemsPerRow), carousel-cards (desktopType carousel); ClientNeedsCardList: carousel-cards;
- *   AuxiliaryCarousel: cards-icon; Miles_GoCardList, FeatureCard, InfoSection, BannerVideo:
- *   columns-media; MilesStatusCardList: cards; LinkList: a list of links (jump-links when all are
- *   anchors on the page); InfoBlock: a highlight section; CardInfoBlock: default content;
+ * - GenericCardList: cards (text cards; three-up, four-up by itemsPerRow), cards-teaser (image
+ *   cards; three-up, four-up by itemsPerRow), carousel-cards (desktopType carousel);
+ *   ClientNeedsCardList: carousel-cards; AuxiliaryCarousel: cards-icon; the visitor's
+ *   Miles_GoCard (type 1), FeatureCard, BannerVideo: columns-media; InfoSection: its picture and
+ *   accordion-columns (faq); a HeroCard with a picture only: the picture in the content; a
+ *   LinkList to pages: cards-icon tiles (jump-links when all are anchors on the page); the
+ *   homepage's stage: a booking-slot section after it; MilesStatusCardList: cards; InfoBlock: a
+ *   highlight section; CardInfoBlock: default content;
  *   YoutubeVideo: embed; Table (fare comparisons): table-striped (header; matrix over three
  *   fares), a table in a panel; TabsItemsList (tabs in tabs: route group, cabin): a heading per
  *   group and accordion-columns (tabs) of its items;
@@ -422,8 +425,9 @@ const slideRows = (slides, P) => slides.flatMap((s) => [[P.img(s.image)], [
 function cards(items, P, s) {
   const first = items[0] && items[0].__typename;
   if (first === 'SimpleGenericCardModel') {
-    // www's text cards, so many to a row (itemsPerRow): cards-teaser three-up / four-up, else cards
-    const up = { 3: 'cards-teaser (three-up)', 4: 'cards-teaser (four-up)' }[s.itemsPerRow] || 'cards';
+    // www's text cards, so many to a row (itemsPerRow): cards with the option three-up / four-up
+    // (tap.css lays them out so; cards keeps the buttons, cards-teaser would make them arrows)
+    const up = { 3: 'cards (three-up)', 4: 'cards (four-up)' }[s.itemsPerRow] || 'cards';
     P.block(up, items.map((x) => [`${x.icon ? P.img(x.icon) : ''}${P.heading(3, x.title)}${P.rich(x.description)}${P.ctas(x)}`]));
     return;
   }

@@ -184,10 +184,11 @@ describe('tap-import parity (tools/reports/tap/parity.md)', () => {
     assert.equal(metaRows(convertPage(page, { ...ctx('https://www.flytap.com/pt-pt/informacoes/bagagem'), scope: new Set() }).html).Parent, '/pt-pt');
   });
 
-  it('text cards three to a row (itemsPerRow 3): cards-teaser (three-up)', () => {
+  it('text cards three to a row (itemsPerRow 3): cards (three-up), their buttons kept (tap.css lays them out three to a row)', () => {
     const d = dom(convertPage(nd('ajuda'), ctx()).html);
-    const t = d.querySelector('.cards-teaser.three-up');
+    const t = d.querySelector('.cards.three-up');
     assert.ok(t && t.textContent.includes('Check-in online'));
+    assert.ok(t.querySelector('strong > a'));
   });
 
   it('a list of links to pages: cards-icon tiles (www\'s grid of tiles); links to the page\'s own anchors stay jump-links', () => {

@@ -198,3 +198,34 @@ body.brand-tap .accordion-columns.faq {
 body.brand-tap main .default-content-wrapper > p > picture img {
   border-radius: 32px;
 }
+
+/* www's text cards (help centre): white, a soft shadow, 24 px corners, no border; three or four
+   to a row from 984 px (the importer's three-up / four-up, www's itemsPerRow) */
+body.brand-tap .cards > ul > li {
+  border: 0;
+  border-radius: var(--radius-l);
+  box-shadow: 0 2px 16px rgb(0 0 0 / 8%);
+}
+
+body.brand-tap .cards .cards-card-body {
+  margin: 24px;
+}
+
+@media (width >= 984px) {
+  body.brand-tap .cards.three-up > ul {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  body.brand-tap .cards.four-up > ul {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* the booking slot (where www's booking box sits, under the stage): a white rounded panel with
+   www's shadow, until the booking block replaces its link (tools/reports/tap/parity.md, F2) */
+body.brand-tap main .section.booking-slot .default-content-wrapper {
+  border-radius: var(--radius-l);
+  padding: 24px;
+  background-color: #fff;
+  box-shadow: 0 4px 24px rgb(0 0 0 / 8%);
+}
