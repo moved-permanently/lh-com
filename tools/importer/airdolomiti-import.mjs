@@ -41,7 +41,7 @@ import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { parseHTML } from 'linkedom';
 import {
-  docOf, sourceKey, langOf, allRows, targetOf, LIVE_TOOLS, NEWSLETTER,
+  docOf, sourceKey, langOf, allRows, targetOf, LIVE_TOOLS, NEWSLETTER, edsPath,
 } from './airdolomiti-paths.mjs';
 import { snapshotFile, urlKey } from './airdolomiti-capture.mjs';
 import { alternateRows, snapshotHead } from './airdolomiti-alternates.mjs';
@@ -1088,6 +1088,31 @@ function blockHtml(item) {
   return `<div class="${classes}">${item.rows.map((r) => `<div>${r.map((c) => `<div>${c}</div>`).join('')}</div>`).join('')}</div>`;
 }
 
+/**
+ * www's breadcrumb trail (its list, ol.Breadcrumbs_breadcrumbs, in the rendered page: "Home | Orario Voli",
+ * "Home | extra services | eSIM") as lh-com's breadcrumb rows (blocks/breadcrumb): Parent the
+ * nearest linked crumb that is a page of the site (exists), else the language's homepage;
+ * Breadcrumb Title the page's own crumb. A homepage (home): "Breadcrumb Title | Home", its label
+ * in its children's trails. No trail on www: no rows.
+ */
+export function breadcrumbRows(rendered, sourceUrl, { exists = sitePage, home = false } = {}) {
+  if (home) return [['Breadcrumb Title', 'Home']];
+  // the trail's list (its nav's label is in the page's language: "Percorso di navigazione")
+  const nav = (rendered.match(/<ol class="Breadcrumbs_breadcrumbs[^"]*"[^>]*>([\s\S]*?)<\/ol>/) || [])[1];
+  if (!nav) return [];
+  const crumbs = [...nav.matchAll(/<li\b[^>]*>([\s\S]*?)<\/li>/g)].map(([, li]) => {
+    const a = li.match(/<a\b[^>]*href="([^"]*)"/);
+    return { href: a ? a[1] : null, text: plain(li).replace(/&amp;/g, '&') };
+  }).filter((c) => c.text);
+  if (crumbs.length < 2) return [];
+  const prefix = HOMES[langOf(sourceUrl)] || '/';
+  const parents = crumbs.slice(0, -1).filter((c) => c.href).map((c) => edsPath(new URL(c.href, sourceUrl).href)).filter(Boolean);
+  const parent = [...parents].reverse().find((p) => p !== prefix && exists(p)) || prefix;
+  return [['Parent', `<a href="${attr(parent)}">${esc(parent)}</a>`], ['Breadcrumb Title', esc(crumbs[crumbs.length - 1].text)]];
+}
+const HOMES = { it: '/', en: '/en', de: '/de' };
+const sitePage = (p) => Object.values(loadSite().paths).includes(p) || Object.values(HOMES).includes(p);
+
 /** Converts one snapshot to the document's HTML; returns { html, report }. */
 export function convert(rendered, sourceUrl) {
   const lang = langOf(sourceUrl);
@@ -1169,6 +1194,8 @@ export function convert(rendered, sourceUrl) {
   // the page's counterparts in the other languages (www's hreflang, both directions, our paths):
   // the header's language switch goes there instead of the language's homepage
   alternateRows(sourceUrl, alternateSite()).forEach(([k, v]) => meta.push([k, esc(v)]));
+  // www's breadcrumb trail (its homepages: their label for the children's trails)
+  breadcrumbRows(rendered, sourceUrl, { home: Object.values(HOMES).includes(edsPath(sourceUrl)) }).forEach((r) => meta.push(r));
   meta.push(['Nav', `${prefix}/nav`], ['Footer', `${prefix}/footer`], ['Language', lang]);
   const out = docs.map((s, i) => {
     const body = s.items.map((it) => (it.block ? blockHtml(it) : it.html)).join('');
