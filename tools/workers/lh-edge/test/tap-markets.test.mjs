@@ -84,6 +84,8 @@ beforeEach(() => {
     if (u.hostname !== TAP) return new Response('other', { status: 500 });
     if (INDEXES[u.pathname]) return index(INDEXES[u.pathname]);
     if (u.pathname === '/de-de/alt') return new Response(null, { status: 301, headers: { location: '/de-de/an-bord' } });
+    if (u.pathname === '/de-de/booking/airports.json') return Response.json({ total: 1, data: [{ code: 'GVA', cityName: 'Genf' }], ':type': 'sheet' });
+    if (u.pathname === '/fr-ca/booking/airports.json') return Response.json({ total: 1, data: [{ code: 'YUL', cityName: 'Montréal' }], ':type': 'sheet' });
     if (/\/media_/.test(u.pathname)) return new Response('img', { headers: { 'content-type': 'image/jpeg' } });
     const doc = DOCS[u.pathname];
     if (doc) return new Response(doc, { headers: { 'content-type': 'text/html; charset=utf-8', 'last-modified': 'Tue, 03 Nov 2026 10:00:00 GMT' } });
@@ -179,6 +181,22 @@ test('a page the language version leaves the country out of (page markets): 404;
   assert.equal(await footer.text(), '<div><a href="/de-ch/hilfe">Hilfe</a></div>');
   const plain = await (await ask('/de-ch/an-bord.plain.html')).text();
   assert.equal(plain, '<div><a href="/de-ch/buchungen">Buchungen</a></div>');
+});
+
+test('a sheet the root has no copy of (its airports, brief 340): the language version\'s, as it is; its own copy first', async () => {
+  const resp = await ask('/de-ch/booking/airports.json?limit=5000');
+  assert.equal(resp.status, 200);
+  assert.equal(resp.headers.get('x-lh-edge-route'), 'tap-market');
+  assert.match(resp.headers.get('content-type'), /json/);
+  assert.deepEqual((await resp.json()).data, [{ code: 'GVA', cityName: 'Genf' }]);
+  assert.ok(calls.includes('/de-ch/booking/airports.json'), 'its own first');
+  assert.ok(calls.includes('/de-de/booking/airports.json'), 'then the language version\'s');
+  calls = [];
+  const own = await ask('/fr-ca/booking/airports.json');
+  assert.deepEqual((await own.json()).data, [{ code: 'YUL', cityName: 'Montréal' }]);
+  assert.ok(!calls.includes('/fr-fr/booking/airports.json'), 'its own copy: no fallback');
+  // none in either: the root's 404
+  assert.equal((await ask('/de-ch/booking/none.json')).status, 404);
 });
 
 test('a redirect of the language version into the root; media and files as they are; HEAD', async () => {
