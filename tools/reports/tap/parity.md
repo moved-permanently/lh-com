@@ -66,6 +66,29 @@ tokens) and the computed styles of the pages above.
 | 22 | Pictures | the pictures at their size | missing ones (aem.flytap.com) left out; logos stretched | pictures | aem-dam and full size placed; names with spaces and accents found; none wider than www's but the stages (below, Pictures) |
 | 23 | Mobile header | a pill with logo, search, account, burger | a bar with a second row of quick actions | theme (floating bar) + function (F1) | partly with row 1 |
 | 24 | Search, account, language icons | in the bar | – | function | spec F1 (search and account stay links to www) |
+| 25 | Stage and inner banners: the step between slides | swiper speed 1200, ease: the neighbouring slide slides in from the side over 1.2 s (at rest one slide, nothing peeks) | the browser's smooth scroll, about 0.4 s | function (hero-campaign-tap.js `createSlide`; hero-campaign.js lets a brand replace `motion.scroll`) | fixed (brief 336); reduced motion: the step at once |
+| 26 | Headings | GT Flexa at -2 % letter spacing; inner pages: the H1 40 / 48 in 726 px at every width, section H2 32 / 38.4, an H2 right under the H1 centred | no letter spacing; H1 28 and H2 24 on phones, H2 40 at 1440; the H1 over the whole column | theme (TAP-scoped) | fixed (brief 336) |
+| 27 | Text cards' titles and buttons (ajuda's help cards, stopover's steps) | GT Flexa 24 / 28.8, 500, 8 px above the text; a long label wraps inside the button | 18 / 700 with 24 px below; a long label overflowing the card | theme | fixed (brief 336) |
+| 28 | FAQ accordions (ajuda, stopover, destinos) | a #fcfcfc panel, 32 px corners (16 on phones), 16 / 32 px inside; questions Inter 16 / 24 semibold, 12 px high; a line between items only; a dark green chevron | a #f7f7f8 panel, 24 px corners; questions GT Flexa 18 bold; lines above the first and under the last | theme | fixed (brief 336) |
+| 29 | Link-list tiles (bagagem, ajuda, a-bordo, miles-and-go) | grey #f7f7f8 tiles, 8 px corners, a 56 px row inside 8 px, the label left in Inter 16 regular, a chevron at the right; 1 / 2 / 3 to a row | bordered pills with a shadow, the label centred in GT Flexa bold | theme | fixed (brief 336) |
+| 30 | Picture above the title (bagagem, info-legal) | 380 px high on phones, 305 at 1440, cut to fit | the picture's own ratio (84 px high on phones) | theme | fixed (brief 336) |
+| 31 | Text cards with a picture (miles-and-go's advantages, stopover's advantages and reasons) | a card 16 px inside its column, 16 px corners, shadow 0 8 16 / 10 %; the picture 326 × 183; the title GT Flexa 24 / 500; an outline pill (1 px #65c922, 42 px, 15 / 500) with a chevron | no card; an 18 px bold title; an arrow link | theme | fixed (brief 336) |
+| 32 | Miles&Go tier cards (miles-and-go) | an 8 px top edge in the tier's colour (#55aa1c, #a4a6a8, #ae975d, #47454a), 16 px corners, 24 px inside, each as tall as its text; the logo 65 px high; chevrons in the tier's colour before 14 / 21 lines; the title 18 / 500; the link centred; on phones a row of 247 px cards | white cards of one height, a small logo (83 px wide), bullets, stacked on phones | theme | fixed (brief 336); www's dots under the phone row: not built (the row scrolls) |
+| 33 | Links in running text (stopover, destinos) | underlined, regular, TAP's dark green, no icon | bold, not underlined, lh-com's arrow before them | theme | fixed (brief 336) |
+| 34 | Footer | outline social glyphs (24 px, #424045); 64 px from the page at 1440, 32 on phones | lh-com's round icons; 112 px from the page | function (footer-tap.js, icons/tap-*.svg) + theme | fixed (brief 336); the store badges' order and Star Alliance in the bar: the footer document (ema-lufthansa) |
+| 35 | Breadcrumb | the whole trail on phones too: a house, chevrons, the page in semibold (Inter 14 / 20, #424045) | on phones only a back link to the parent; the homepage as text | theme | fixed (brief 336) |
+| 36 | Explore Miles&Go (miles-and-go, row 20) | from 1024 px the picture at the left (512 × 288), the list beside it from the column's middle; no panel, a line under every item, the names GT Flexa 600 (24 px; 16 on phones), a dark chevron | the list in a grey panel under the picture | theme | fixed (brief 336) |
+| 37 | Inner banners on phones | the title 32 px, the lead Inter 20 / 30 | the homepage stage's 24 and 18 | theme | fixed (brief 336) |
+| 38 | Running text width | the content's whole width (1120 px at 1440) | two thirds (lh-com's limited width) | theme | fixed (brief 336) |
+| 39 | Breadcrumb's place under the header | 176 px from the top (the bar and its green quick-action tab above it) | 96 to 120 px (no quick-action tab) | header (ema-lufthansa) | open |
+| 40 | Help centre contacts (ajuda) | a country / city picker with phone numbers, opening hours and desks | a link to www ("See on flytap.com") | app | open |
+| 41 | LUGGit (bagagem) | the LUGGit booking widget | a link to www | app | open |
+| 42 | Stopover video (stopover) | a 32 px-rounded video, its title over it | columns-media: the video, the title beside it | import (ema-lufthansa) | open |
+| 43 | FAQ teaser card (stopover) | a #fcfcfc card with a 4 px green left edge, an outline button over its width | a heading, a line and a green button | import (a section style) | open |
+| 44 | A lone button under the text (stopover "Book now") | centred | at the left | import (no marker in the content tells it from left-aligned ones) | open |
+| 45 | Destinations map and cards (destinos) | Smartvel's map, filter chips and destination cards | the continents as an accordion, the get-inspired banner | app | open |
+| 46 | Homepage Miles&Go cards | four cards stacked as on www | the visitor's card as text and a picture | import: drafts/miles-go-stack (ema-lufthansa's importer) | open |
+| 47 | Christmas banner title on phones | "Christmas Markets / in Europe" | "Christmas / Markets in Europe" (the same 32 / 38.4, 500, -2 %, 310 px box) | the font files (GT Flexa against www's build) | open |
 
 ## What was fixed (commits)
 
@@ -220,3 +243,61 @@ The seven alerts pages (`/pt-pt/alertas-e-informacoes` … `/pl-pl/ostrzezenia-i
 show lh-tap's current alerts in weight order and open `#<id>` from the alerts bar's links (checked with the
 local code: 8 items on pt-pt and en-pt, `#power-banks` and `#phishing-scheme` open). The block keeps
 lufthansa.com's width (74.2 % of the column from 768 px).
+
+## Brief 336: phones first, then 1440 (rows 25 to 47)
+
+Compared on 2026-11-04 at 390 and 1440 px, www.flytap.com against tap.turnsthe.page (before)
+and the branch preview `cmp-336--lh-tap--moved-permanently.aem.page` (after):
+- the eight homepages;
+- in pt-pt and en-pt: ajuda / help, a-bordo / on-board, bagagem / baggage, miles-and-go,
+  stopover, destinos / destinations.
+
+The fixes are all TAP-scoped: `body.brand-tap` rules in `styles/themes/tap.css`, TAP's own
+modules `hero-campaign-tap.js` and `footer-tap.js`, and `icons/tap-*.svg`. One shared change:
+`hero-campaign.js` hands the slider's scroll to `motion.scroll`, which brand tap replaces.
+Every other brand keeps the browser's smooth scroll.
+
+Left as it was: the extra link strip's place on phones (as asked), TAP's market roots, the
+header (`header-tap.*`), and the importer (`tools/importer/tap-*`). The open rows above say
+whose they are.
+
+**The neighbouring slide (row 25).** www's swiper (slidesPerView 1, spaceBetween 0, speed 1200)
+shows one slide at rest. The neighbour comes in from the side during the 1.2 s step. Ours now
+steps the same way. The track is scrolled with ease and its snapping is off while it moves. A
+swipe or the wheel stops it. Under reduced motion it moves at once. The banner's slides are
+square inside the rounded frame, so the seam between them is straight while one slides in.
+
+**The homepages.** The stage and the cards are unchanged, apart from the slide, the headings'
+-2 % and the footer. The eight homepages at 390 and 1440 on the branch:
+- no script errors;
+- no horizontal overflow;
+- the section headings 28 / 40 px as before.
+
+The 12 inner pages, at both widths:
+- the H1 at 40 px;
+- the whole trail;
+- no overflow.
+
+Screenshots (not committed), in `/tmp/tap-336`:
+- **Before:** `cmp390/*.png` (www at the left, tap.turnsthe.page at the right).
+- **After:** `after390/*.png` and `after1440/*.png` (www at the left, the branch code at the
+  right).
+- **The slide:** `slide-before-main-300ms.png` and `slide-after-branch-300ms.png`, and the same
+  at 600 ms.
+- **The explore list:** `after1440/explore.png`.
+
+Checks:
+- **Lint:** eslint and stylelint pass.
+- **Tests:** `test/tap-parity-336.test.mjs` (the slide with a hand-moved clock, TAP's next
+  button against another brand's, the footer's icons, the rules).
+- **Full suite, after the final rebase:** 239 of 240 test files pass.
+  `test/library-entries.test.mjs` fails only in this workspace: it reads the untracked local
+  `content/library/blocks`. In a clean worktree of the same commit it passes 7 of 7.
+- **lufthansa.com's 19 comparison pages:** 19 of 19 equal on the branch, with a warm cache. The
+  first, cold capture showed `/de/en/homepage`'s stylesheets in another order.
+- **Brand homepages:** Discover, Austrian, Brussels, Lufthansa Group for Business, Cargo, Air
+  Dolomiti and ITA are equal. SWISS differs only in the flash teaser's progress ring, which is
+  timing.
+- **lh-edge:** no file on its deploy paths changed.
+
+Rollback: `git revert` of the commits.
