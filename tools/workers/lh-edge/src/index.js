@@ -55,6 +55,7 @@ import {
 } from './front-door.js';
 import { headUrlHost, rewriteHeadUrls } from './head-urls.js';
 import { rewriteBrandIcons } from './brand-icons.js';
+import { brandNotFoundPage } from './not-found.js';
 import {
   urlForm, urlFormUnlessPage, isLongPagePath, brandLongPathTarget, ampersandTarget,
 } from './url-forms.js';
@@ -462,7 +463,9 @@ export default {
     let resp = site
       ? await siteRespond(incoming, env, site, ctx)
       : await respond(incoming, env, ctx);
-    // a brand's host (src/brand-icons.js): its favicon and manifest in the head, before the paint
+    // a brand's host: its own not-found page (src/not-found.js), its favicon and manifest in the
+    // head, before the paint (src/brand-icons.js)
+    if (site) resp = await brandNotFoundPage(resp, incoming, site);
     if (site) resp = rewriteBrandIcons(resp, incoming, site);
     // turnsthe.page hosts (src/head-urls.js): head URLs that name the site config's production host
     // (HEAD_URLS_FROM, "" today) point at the host; no rewriter anywhere else

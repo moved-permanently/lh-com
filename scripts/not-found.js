@@ -17,13 +17,17 @@
  * the path's <cc>/<ll>), before scripts.js loads (theme, consent, showcase notice and header and
  * footer then follow the brand). Its title names the brand; it links only the site's pages that
  * answer (homepage, booking, check-in, bookings: a HEAD request each), without Lufthansa's search
- * and help page. lh-com (no brand row) as above. scripts.js is loaded from here, after that.
+ * and help page. A brand with its own 404 (scripts/not-found-texts.js, brief 342): www's title,
+ * heading, text and homepage button in the path's language, the metadata of the path's root (as
+ * lh-edge sends the page on the brand's host). lh-com (no brand row) as above. scripts.js is
+ * loaded from here, after that.
  */
 import {
   getLocale, getHomepageUrl, LIVE_ORIGIN, LOCALES,
 } from './locale.js';
 import { BRANDS, brandName } from './brand.js';
 import { siteLanguagesOf, languageOfPath } from './site-languages.js';
+import { brandNotFound, notFoundMarkup } from './not-found-texts.js';
 
 const TEXT = {
   en: {
@@ -226,6 +230,8 @@ export function metadataBrand(rows, pathname) {
  * @returns {Object<string, string>}
  */
 export function brandPageMeta(pathname, brand) {
+  const own = brandNotFound(brand, pathname);
+  if (own) return own.meta;
   const meta = { brand };
   const languages = siteLanguagesOf((n) => (n === 'brand' ? brand : ''));
   if (languages) {
@@ -270,6 +276,15 @@ async function pageExists(href) {
 export async function buildBrandNotFound(main = document.querySelector('main'), exists = pageExists) {
   if (!main) return;
   const { pathname } = window.location;
+  // a brand with its own 404 (scripts/not-found-texts.js): www's wording, as lh-edge sends it
+  const own = brandNotFound(pageMeta('brand'), pathname);
+  if (own) {
+    main.innerHTML = notFoundMarkup(own);
+    document.title = own.title;
+    const og = document.querySelector('meta[property="og:title"]');
+    if (og) og.content = own.title;
+    return;
+  }
   const languages = siteLanguagesOf(pageMeta);
   const root = pathname.match(/^\/([a-z]{2})\/([a-z]{2})(?:\/|$)/);
   let lang = 'en';
@@ -312,7 +327,8 @@ export default buildNotFound;
 // the not-found page (404.html): the brand first, then the page's text, then scripts.js
 if (window.isErrorPage) {
   const { pathname } = window.location;
-  const brand = await siteBrand(pathname);
+  // the brand lh-edge set (src/not-found.js), else the site's /metadata.json row
+  const brand = pageMeta('brand') || await siteBrand(pathname);
   if (brand) {
     Object.entries(brandPageMeta(pathname, brand)).forEach(([k, v]) => setMeta(k, v));
     await buildBrandNotFound();
