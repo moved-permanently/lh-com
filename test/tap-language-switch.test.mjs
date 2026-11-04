@@ -65,6 +65,13 @@ test('a market root and its language version share their slugs: en-us/help ↔ e
   assert.equal(byHome(languageSwitch([], '/en-us', 'en', rows, {}).links)['/en-pt'], '/en-pt');
 });
 
+test('the nav\'s language link labels its own root only: English (to /en-pt) is en-pt\'s; en-us keeps its name', () => {
+  const rows = tapLanguages(['en-us']);
+  const { links } = languageSwitch([{ href: '/en-pt', label: 'English' }], '/pt-pt/ajuda', 'pt', rows, {});
+  assert.equal(links.find((l) => l.home === '/en-pt').label, 'English');
+  assert.equal(links.find((l) => l.home === '/en-us').label, 'English (United States)');
+});
+
 test('the other sites as before: Air Dolomiti\'s language-keyed rows', () => {
   const rows = SITE_LANGUAGES.airdolomiti;
   const { links } = languageSwitch([], '/iscrizione-newsletter', 'it', rows, { en: '/en/newsletter-subscription' });
