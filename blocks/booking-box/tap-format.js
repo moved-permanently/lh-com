@@ -17,6 +17,19 @@ export const MAX_PASSENGERS = 9;
 export const UK_AIRPORTS = new Set(('LCY LGW LHR MAN EDI BHD ABZ GLA BRS NCL SOU IOM BPR TPB CFW CWL ZXE EXT ZGG GLO '
   + 'INV XQL LPL LXL LON NQY NWI OXF XPT SZD ZFG').split(' '));
 
+/** The market's airport (TAP's market settings, spec 2.3) when a root names none. */
+const MARKET_ORIGINS = {
+  PT: 'LIS', ES: 'MAD', FR: 'PAR', DE: 'FRA', IT: 'FCO', PL: 'WAW', GB: 'LON', US: 'NYC', BR: 'RIO',
+};
+
+/**
+ * The default origin of a search: the root's home airport (scripts/site-languages.js, www's
+ * market settings: de-ch GVA), else the market's; '' when neither is known.
+ */
+export function marketOrigin(market, homeAirport) {
+  return String(homeAirport || MARKET_ORIGINS[String(market || '').toUpperCase()] || '');
+}
+
 /** Whether a route touches one of the UK airports (young adults then count). */
 export function isUkRoute(flights = []) {
   return flights.some((f) => f && (UK_AIRPORTS.has(f.origin) || UK_AIRPORTS.has(f.destination)));

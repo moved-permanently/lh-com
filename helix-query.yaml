@@ -6101,6 +6101,179 @@ indices:
         select: head > meta[name="ai-guidance"]
         value: attribute(el, "content")
 
+  # TAP's language versions (lh-tap, brief 328): one index each of its pages with their `markets`,
+  # robots and last modification. lh-edge's TAP market route (src/tap-markets.js) reads it for the
+  # links and the hreflang of a market root (de-ch from de-de) and for the root's sitemap; it fills
+  # on publish. The other sites have no such paths.
+  tap-pages-pt-pt:
+    include:
+      - /pt-pt
+      - /pt-pt/**
+    exclude:
+      - /pt-pt/nav
+      - /pt-pt/footer
+      - /pt-pt/fragments/**
+      - /pt-pt/**/nav
+      - /pt-pt/**/footer
+    target: /pt-pt/pages-index.json
+    properties:
+      markets:
+        select: head > meta[name="markets"]
+        value: attribute(el, "content")
+      robots:
+        select: head > meta[name="robots"]
+        value: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+  tap-pages-en-pt:
+    include:
+      - /en-pt
+      - /en-pt/**
+    exclude:
+      - /en-pt/nav
+      - /en-pt/footer
+      - /en-pt/fragments/**
+      - /en-pt/**/nav
+      - /en-pt/**/footer
+    target: /en-pt/pages-index.json
+    properties:
+      markets:
+        select: head > meta[name="markets"]
+        value: attribute(el, "content")
+      robots:
+        select: head > meta[name="robots"]
+        value: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+  tap-pages-es-es:
+    include:
+      - /es-es
+      - /es-es/**
+    exclude:
+      - /es-es/nav
+      - /es-es/footer
+      - /es-es/fragments/**
+      - /es-es/**/nav
+      - /es-es/**/footer
+    target: /es-es/pages-index.json
+    properties:
+      markets:
+        select: head > meta[name="markets"]
+        value: attribute(el, "content")
+      robots:
+        select: head > meta[name="robots"]
+        value: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+  tap-pages-fr-fr:
+    include:
+      - /fr-fr
+      - /fr-fr/**
+    exclude:
+      - /fr-fr/nav
+      - /fr-fr/footer
+      - /fr-fr/fragments/**
+      - /fr-fr/**/nav
+      - /fr-fr/**/footer
+    target: /fr-fr/pages-index.json
+    properties:
+      markets:
+        select: head > meta[name="markets"]
+        value: attribute(el, "content")
+      robots:
+        select: head > meta[name="robots"]
+        value: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+  tap-pages-de-de:
+    include:
+      - /de-de
+      - /de-de/**
+    exclude:
+      - /de-de/nav
+      - /de-de/footer
+      - /de-de/fragments/**
+      - /de-de/**/nav
+      - /de-de/**/footer
+    target: /de-de/pages-index.json
+    properties:
+      markets:
+        select: head > meta[name="markets"]
+        value: attribute(el, "content")
+      robots:
+        select: head > meta[name="robots"]
+        value: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+  tap-pages-it-it:
+    include:
+      - /it-it
+      - /it-it/**
+    exclude:
+      - /it-it/nav
+      - /it-it/footer
+      - /it-it/fragments/**
+      - /it-it/**/nav
+      - /it-it/**/footer
+    target: /it-it/pages-index.json
+    properties:
+      markets:
+        select: head > meta[name="markets"]
+        value: attribute(el, "content")
+      robots:
+        select: head > meta[name="robots"]
+        value: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+  tap-pages-pl-pl:
+    include:
+      - /pl-pl
+      - /pl-pl/**
+    exclude:
+      - /pl-pl/nav
+      - /pl-pl/footer
+      - /pl-pl/fragments/**
+      - /pl-pl/**/nav
+      - /pl-pl/**/footer
+    target: /pl-pl/pages-index.json
+    properties:
+      markets:
+        select: head > meta[name="markets"]
+        value: attribute(el, "content")
+      robots:
+        select: head > meta[name="robots"]
+        value: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+  tap-pages-pt-br:
+    include:
+      - /pt-br
+      - /pt-br/**
+    exclude:
+      - /pt-br/nav
+      - /pt-br/footer
+      - /pt-br/fragments/**
+      - /pt-br/**/nav
+      - /pt-br/**/footer
+    target: /pt-br/pages-index.json
+    properties:
+      markets:
+        select: head > meta[name="markets"]
+        value: attribute(el, "content")
+      robots:
+        select: head > meta[name="robots"]
+        value: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+
   # SWISS's medical services (lh-swiss /medicalservices/en/, scripts/site-languages.js SUB_SITES): the
   # header magnifier's results page (tools/importer/swiss-search-pages.mjs SUB_ROOTS; www's searches
   # ?query= on the page itself); search-corporate's definition

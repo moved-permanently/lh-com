@@ -143,6 +143,9 @@ export function brandSiteLocale(prefix = '', read = pageMeta, rest = '') {
     const key = Object.keys(LOCALES).find((k) => k.endsWith(`/${own.lang}`)) || DEFAULT_LOCALE;
     return {
       ...LOCALE_TABLE[key],
+      // the root's own currency and home airport (TAP's roots: www's market settings)
+      ...(own.currency ? { currency: own.currency } : {}),
+      ...(own.homeAirport ? { homeAirport: own.homeAirport } : {}),
       lang: own.lang,
       country: own.country,
       hreflang: `${own.lang}-${own.country.toUpperCase()}`,

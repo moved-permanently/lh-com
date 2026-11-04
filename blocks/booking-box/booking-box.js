@@ -21,7 +21,8 @@ import { readConfigRows, toConfigKey } from '../../scripts/block-config.js';
 import { createAirportCombobox } from '../../scripts/airport-combobox.js';
 import { getLocale, siteOrigin } from '../../scripts/locale.js';
 import {
-  MAX_FLIGHTS, buildTapDeeplink, canChange, isBookingCode, isUkRoute, tapCheckinUrl, tapManageUrl,
+  MAX_FLIGHTS, buildTapDeeplink, marketOrigin, canChange, isBookingCode, isUkRoute, tapCheckinUrl,
+  tapManageUrl,
 } from './tap-format.js';
 import {
   airportsFromSheet, fieldText, matchAirports, optionText,
@@ -94,10 +95,6 @@ const TRIPS = [['return', 'round-trip'], ['one-way', 'one-way'], ['multi-city', 
 const PASSENGERS = [
   ['adults', 'adult'], ['youngAdults', 'youngAdult'], ['children', 'childrens'], ['infants', 'babys'],
 ];
-/** The market's airport (TAP's market settings, spec 2.3) when no Default origin row. */
-const MARKET_ORIGINS = {
-  PT: 'LIS', ES: 'MAD', FR: 'PAR', DE: 'FRA', IT: 'FCO', PL: 'WAW', GB: 'LON', US: 'NYC', BR: 'RIO',
-};
 const CORPORATE_LINK = 'https://tapforbiz.com/';
 
 const ICONS = {
@@ -920,7 +917,9 @@ export default async function decorate(block, { today: fixedToday } = {}) {
     }
     return sheet;
   };
-  const originCode = ((config['default-origin'] && config['default-origin'].text) || MARKET_ORIGINS[market] || '').toUpperCase();
+  // no Default origin row: the root's home airport (www's market settings), else the market's
+  const originCode = ((config['default-origin'] && config['default-origin'].text)
+    || marketOrigin(market, locale.homeAirport)).toUpperCase();
   const originName = config['default-origin-name'] && config['default-origin-name'].text;
   const origin = originCode ? { code: originCode } : null;
   if (origin && originName) {

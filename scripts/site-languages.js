@@ -11,9 +11,44 @@
  * its slugs (probed), else that language's homepage. slugs 'own': a language whose pages have
  * slugs of their own (Air Dolomiti: its Italian, English and German pages share none), so no
  * same-path guess and no probe.
- * A module of its own, without imports: scripts/locale.js (which lh-edge bundles) reads it.
- * Tests: test/locale-brand-site.test.mjs, test/language-switch.test.mjs.
+ * TAP's market roots (scripts/tap-markets.js: de-ch, fr-ca …, answered from their language
+ * version by lh-edge) and its eighth language version pt-br follow its language roots: their
+ * pages resolve; the switch lists one once TAP_LIVE_MARKETS has it (tapLanguages).
+ * Its only import is that table (no imports there): scripts/locale.js (which lh-edge bundles)
+ * reads it. Tests: test/locale-brand-site.test.mjs, test/language-switch.test.mjs,
+ * test/tap-markets.test.mjs.
  */
+import { TAP_MARKETS, TAP_LIVE_MARKETS } from './tap-markets.js';
+
+const tapRoot = ([lang, country, name, extra = {}]) => ({
+  lang, country, path: `/${lang}-${country}/`, home: `/${lang}-${country}`, name, slugs: 'own', ...extra,
+});
+
+/**
+ * TAP's roots: its language roots (www's currency and home airport of their market), then pt-br
+ * and the market roots (its language version, currency and home airport), listed only when on.
+ * @param {string[]} [live] the roots that are on (default: TAP_LIVE_MARKETS)
+ */
+export function tapLanguages(live = TAP_LIVE_MARKETS) {
+  const off = (root) => (live.includes(root) ? {} : { listed: false });
+  return [
+    ['pt', 'pt', 'Português', { currency: 'EUR', homeAirport: 'LIS' }],
+    ['en', 'pt', 'English', { currency: 'EUR', homeAirport: 'LIS' }],
+    ['es', 'es', 'Español', { currency: 'EUR', homeAirport: 'MAD' }],
+    ['fr', 'fr', 'Français', { currency: 'EUR', homeAirport: 'PAR' }],
+    ['de', 'de', 'Deutsch', { currency: 'EUR', homeAirport: 'FRA' }],
+    ['it', 'it', 'Italiano', { currency: 'EUR', homeAirport: 'FCO' }],
+    ['pl', 'pl', 'Polski', { currency: 'PLN', homeAirport: 'WAW' }],
+    ['pt', 'br', 'Português (Brasil)', { currency: 'BRL', homeAirport: 'RIO', ...off('pt-br') }],
+    ...Object.entries(TAP_MARKETS).map(([root, row]) => {
+      const [lang, country, version, currency, homeAirport, name] = row;
+      return [lang, country, name, {
+        version, currency, homeAirport, ...off(root),
+      }];
+    }),
+  ].map(tapRoot);
+}
+
 export const SITE_LANGUAGES = {
   // Lufthansa Cargo (lh-cargo): the same slugs in both languages, homepages /en/home and /de/home
   cargo: [
@@ -38,17 +73,11 @@ export const SITE_LANGUAGES = {
     },
   ],
   // TAP Air Portugal (lh-tap): www.flytap.com's <ll>-<cc> roots, Portuguese first (its / goes to
-  // /pt-pt), each homepage the root itself (/pt-pt); in the switch the roots live so far (es-es
-  // since brief 318, fr-fr since 320, de-de, it-it and pl-pl since 324; a fourth value false
-  // keeps a root out of it); its slugs are translated (/pt-pt/ajuda, /en-pt/help): no
-  // same-path guess, the page's Alternate <lang> metadata or the homepage (brief 320)
-  tap: [
-    ['pt', 'pt', 'Português'], ['en', 'pt', 'English'], ['es', 'es', 'Español'],
-    ['fr', 'fr', 'Français'], ['de', 'de', 'Deutsch'], ['it', 'it', 'Italiano'],
-    ['pl', 'pl', 'Polski'],
-  ].map(([lang, country, name, listed]) => ({
-    lang, country, path: `/${lang}-${country}/`, home: `/${lang}-${country}`, name, slugs: 'own', ...(listed === false ? { listed } : {}),
-  })),
+  // /pt-pt), each homepage the root itself (/pt-pt); in the switch the language roots (es-es
+  // since brief 318, fr-fr since 320, de-de, it-it and pl-pl since 324), pt-br and the market
+  // roots once they are on (brief 328, tapLanguages); its slugs are translated (/pt-pt/ajuda,
+  // /en-pt/help): no same-path guess, the page's Alternate <lang> metadata or the homepage
+  tap: tapLanguages(),
 };
 
 // home: a language's front page (the corporate site's /<sub>/<ll>/homepage; the magazine's
