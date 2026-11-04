@@ -436,12 +436,17 @@ const escape = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').rep
   .replace(/"/g, '&quot;')
   .replace(/'/g, '&#39;');
 
+// the brands whose www 404 has a button to the homepage (the others a link in a list, Air
+// Dolomiti an underlined link): <strong>, which scripts.js decorates as a primary button
+const BUTTONS = new Set(['tap', 'discover']);
+
 /**
- * The page's main content: the heading, the text, the homepage link (decorated as a button; none
- * where www has none).
+ * The page's main content: the heading, the text, the homepage link (a primary button where www
+ * has one; none where www has no link).
  */
 export function notFoundMarkup(page) {
   const text = page.text.map((t) => `<p>${escape(t)}</p>`).join('');
-  const button = page.button ? `<p><a href="${escape(page.home)}">${escape(page.button)}</a></p>` : '';
+  const link = `<a href="${escape(page.home)}">${escape(page.button)}</a>`;
+  const button = page.button ? `<p>${BUTTONS.has(page.brand) ? `<strong>${link}</strong>` : link}</p>` : '';
   return `<div><h1>${escape(page.heading)}</h1>${text}${button}</div>`;
 }
