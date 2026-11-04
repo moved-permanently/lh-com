@@ -6127,6 +6127,192 @@ indices:
         select: head > meta[name="ai-guidance"]
         value: attribute(el, "content")
 
+  # SWISS's sitemaps (lh-swiss, brief 349): per language version the columns a sitemap needs, the
+  # same pages as language-ch-<ll> (its include and exclude): robots (the page's own page-robots,
+  # as there) and the last modification. lh-edge's /ch/<ll>/sitemap.xml (src/site-sitemaps.js)
+  # reads it once its total is the language index's, else the language index (1.4 MB) as before;
+  # it fills on publish or an index job.
+  sitemap-ch-en:
+    include:
+      - /ch/en/**
+    exclude:
+      - /ch/en/nav
+      - /ch/en/footer
+      - /ch/en/fragments/**
+      - /ch/en/drafts/**
+      - /ch/en/**/confirmation
+      - /ch/en/**/*-confirmation
+    target: /ch/en/sitemap-index.json
+    properties:
+      robots:
+        select: head > meta[name="page-robots"]
+        value: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+  sitemap-ch-de:
+    include:
+      - /ch/de/**
+    exclude:
+      - /ch/de/nav
+      - /ch/de/footer
+      - /ch/de/fragments/**
+      - /ch/de/drafts/**
+      - /ch/de/**/confirmation
+      - /ch/de/**/*-confirmation
+    target: /ch/de/sitemap-index.json
+    properties:
+      robots:
+        select: head > meta[name="page-robots"]
+        value: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+  sitemap-ch-fr:
+    include:
+      - /ch/fr/**
+    exclude:
+      - /ch/fr/nav
+      - /ch/fr/footer
+      - /ch/fr/fragments/**
+      - /ch/fr/drafts/**
+      - /ch/fr/**/confirmation
+      - /ch/fr/**/*-confirmation
+    target: /ch/fr/sitemap-index.json
+    properties:
+      robots:
+        select: head > meta[name="page-robots"]
+        value: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+  sitemap-ch-it:
+    include:
+      - /ch/it/**
+    exclude:
+      - /ch/it/nav
+      - /ch/it/footer
+      - /ch/it/fragments/**
+      - /ch/it/drafts/**
+      - /ch/it/**/confirmation
+      - /ch/it/**/*-confirmation
+    target: /ch/it/sitemap-index.json
+    properties:
+      robots:
+        select: head > meta[name="page-robots"]
+        value: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+  sitemap-ch-es:
+    include:
+      - /ch/es/**
+    exclude:
+      - /ch/es/nav
+      - /ch/es/footer
+      - /ch/es/fragments/**
+      - /ch/es/drafts/**
+      - /ch/es/**/confirmation
+      - /ch/es/**/*-confirmation
+    target: /ch/es/sitemap-index.json
+    properties:
+      robots:
+        select: head > meta[name="page-robots"]
+        value: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+  sitemap-ch-zh:
+    include:
+      - /ch/zh/**
+    exclude:
+      - /ch/zh/nav
+      - /ch/zh/footer
+      - /ch/zh/fragments/**
+      - /ch/zh/drafts/**
+      - /ch/zh/**/confirmation
+      - /ch/zh/**/*-confirmation
+    target: /ch/zh/sitemap-index.json
+    properties:
+      robots:
+        select: head > meta[name="page-robots"]
+        value: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+  sitemap-ch-pt:
+    include:
+      - /ch/pt/**
+    exclude:
+      - /ch/pt/nav
+      - /ch/pt/footer
+      - /ch/pt/fragments/**
+      - /ch/pt/drafts/**
+      - /ch/pt/**/confirmation
+      - /ch/pt/**/*-confirmation
+    target: /ch/pt/sitemap-index.json
+    properties:
+      robots:
+        select: head > meta[name="page-robots"]
+        value: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+  sitemap-ch-el:
+    include:
+      - /ch/el/**
+    exclude:
+      - /ch/el/nav
+      - /ch/el/footer
+      - /ch/el/fragments/**
+      - /ch/el/drafts/**
+      - /ch/el/**/confirmation
+      - /ch/el/**/*-confirmation
+    target: /ch/el/sitemap-index.json
+    properties:
+      robots:
+        select: head > meta[name="page-robots"]
+        value: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+  sitemap-ch-ja:
+    include:
+      - /ch/ja/**
+    exclude:
+      - /ch/ja/nav
+      - /ch/ja/footer
+      - /ch/ja/fragments/**
+      - /ch/ja/drafts/**
+      - /ch/ja/**/confirmation
+      - /ch/ja/**/*-confirmation
+    target: /ch/ja/sitemap-index.json
+    properties:
+      robots:
+        select: head > meta[name="page-robots"]
+        value: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+  sitemap-ch-ru:
+    include:
+      - /ch/ru/**
+    exclude:
+      - /ch/ru/nav
+      - /ch/ru/footer
+      - /ch/ru/fragments/**
+      - /ch/ru/drafts/**
+      - /ch/ru/**/confirmation
+      - /ch/ru/**/*-confirmation
+    target: /ch/ru/sitemap-index.json
+    properties:
+      robots:
+        select: head > meta[name="page-robots"]
+        value: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+
   # TAP's language versions (lh-tap, brief 328): one index each of its pages with their `markets`,
   # robots and last modification. lh-edge's TAP market route (src/tap-markets.js) reads it for the
   # links and the hreflang of a market root (de-ch from de-de) and for the root's sitemap; it fills

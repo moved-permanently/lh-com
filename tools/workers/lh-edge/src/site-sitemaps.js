@@ -6,7 +6,8 @@
  *   (/<root>/sitemap.xml, answered by the market route), as www.flytap.com's index;
  * - a site with <cc>/<ll> roots: every language version's, own root's and served market root's
  *   /<cc>/<ll>/sitemap.xml: a language version's or own root's pages from its index (its
- *   search-index.json, SWISS's language-index.json), a market root's the language pages it
+ *   search-index.json, SWISS's language-index.json; SWISS's ch/<ll> its small sitemap-index.json
+ *   once that is filled: src/sites.js SITE_SITEMAP_INDEXES), a market root's the language pages it
  *   serves and its own pages (the market model, as its pages are answered: src/markets.js
  *   sitemapEntries), without noindex pages, navs, footers and fragments;
  * - a site without roots (Cargo, Air Dolomiti): one per language from its search index (its
@@ -15,7 +16,8 @@
  * No hreflang (the roots' sitemaps list none either). Kept an hour (the edge cache, the host in
  * its key). Every other path: null (the routes as before). robots.txt is the origin's.
  */
-import { publicHost } from './edge.js';
+import { originFetch, publicHost } from './edge.js';
+import { SITE_SITEMAP_INDEXES } from './sites.js';
 import {
   compactIndex, marketModel, servedMarketRoots, sitemapEntries, NOT_PAGES,
 } from './markets.js';
@@ -56,6 +58,35 @@ const rootRows = (index, root) => {
   return rows.sort(([a], [b]) => (a < b ? -1 : Number(a > b)));
 };
 
+/** The total of an index (one row read), or -1 when it can't be read. */
+async function indexTotal(request, env, path) {
+  try {
+    const get = new Request(request.url, { method: 'GET', headers: { accept: 'application/json' } });
+    const resp = await originFetch(get, env, `https://${env.ORIGIN}${path}?limit=1`);
+    if (!resp.ok) {
+      if (resp.body) resp.body.cancel().catch(() => {});
+      return -1;
+    }
+    const total = Number((await resp.json()).total);
+    return Number.isFinite(total) ? total : -1;
+  } catch (e) {
+    return -1;
+  }
+}
+
+/**
+ * A language version's small sitemap index (SITE_SITEMAP_INDEXES) as path -> row, once it is
+ * filled (its total the language index's), else null (the language index as before).
+ */
+async function smallIndex(request, env, site, root) {
+  const path = SITE_SITEMAP_INDEXES[site.name] && SITE_SITEMAP_INDEXES[site.name](root);
+  if (!path) return null;
+  const [small, full] = await Promise.all([
+    indexTotal(request, env, path), indexTotal(request, env, `/${root}/search-index.json`),
+  ]);
+  return small > 0 && small === full ? compactIndex(request, env, path) : null;
+}
+
 /**
  * The sitemaps of a site: [{path, make}] in the index's order; make: (request, env) => xml, or
  * null where another route answers it (TAP's market roots).
@@ -93,6 +124,9 @@ function sitemapsOf(site, request, env) {
     ...versionRoots.map((r) => ({
       path: `/${r}/sitemap.xml`,
       make: async (host) => {
+        // its small sitemap index once it is filled (SWISS's ch/<ll>), else the market model's
+        const small = await smallIndex(request, env, site, r);
+        if (small) return urlset(host, rootRows(small, r));
         const model = await marketModel(request, env, [r]);
         return urlset(host, rootRows(model.versions[table[r].lang].index, r));
       },

@@ -191,6 +191,15 @@ export const SITE_INDEX_PATHS = {
 };
 
 /**
+ * The small sitemap index of a site's language version (brief 349; none: its language index):
+ * SWISS's ch/<ll> (helix-query.yaml sitemap-ch-<ll>, the language index's pages with robots and
+ * lastModified only), read by src/site-sitemaps.js once it is filled.
+ */
+export const SITE_SITEMAP_INDEXES = {
+  swiss: (version) => (/^ch\/[a-z]{2}$/.test(version) ? `/${version}/sitemap-index.json` : null),
+};
+
+/**
  * The two-letter roots helix-query.yaml's market-pages index leaves out (it serves every site):
  * lh-com's four roots with their own indexes, Discover's xx/fr, ITA's and Austrian's language
  * versions. Each has its own search-<cc>-<ll> index. On SWISS (MARKET_EXTRA_INDEX_SITES) its
