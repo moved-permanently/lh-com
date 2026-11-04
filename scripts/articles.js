@@ -90,6 +90,21 @@ export const normalizeTag = (value) => {
   return !v || v.includes(':') ? v : `articles:${v}`;
 };
 
+/**
+ * A row's picture as an address the page can use: Edge Delivery writes `card-image` relative to
+ * the page (./media_<hash>.jpg?width=750…, its folder), the index keeps it so (helix-query.yaml):
+ * resolved against the row's folder; a path or a URL as it is (brief 338).
+ * @param {string} value the row's image
+ * @param {string} path the row's page path
+ * @returns {string}
+ */
+export function resolveRowImage(value, path) {
+  const v = String(value || '').trim();
+  if (!v || v.startsWith('/') || /^[a-z]+:/i.test(v)) return v;
+  const folder = String(path || '').replace(/\/[^/]*$/, '');
+  return `${folder}/${v.replace(/^\.\//, '')}`;
+}
+
 export function toArticle(row) {
   const tags = listOf(row.tags);
   const tagIds = listOf(row['tag-ids']).map(normalizeTag);
@@ -99,7 +114,7 @@ export function toArticle(row) {
     description: String(row.description || '').trim(),
     // a brand's posts index: the post's header image, else its share image (Air Dolomiti's
     // share-image, og:image); lufthansa.com's indexes have no share-image
-    image: String(row.image || row['share-image'] || '').trim(),
+    image: resolveRowImage(row.image || row['share-image'], row.path),
     imageAlt: String((row.image ? row['image-alt'] : row['share-image-alt'] ?? row['image-alt']) || '').trim(),
     category: normalizeCategory(row.category),
     categoryName: String(row.category || '').trim(),
@@ -146,7 +161,7 @@ export async function loadAuthors(locale) {
     name: String(r.author || r.title || '').trim(),
     authorId: String(r['author-id'] || '').trim(),
     description: String(r.description || '').trim(),
-    image: String(r.image || '').trim(),
+    image: resolveRowImage(r.image, r.path),
   }));
 }
 

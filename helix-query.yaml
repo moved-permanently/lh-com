@@ -122,7 +122,9 @@ indices:
         value: textContent(el)
       image:
         select: head > meta[name="card-image"]
-        value: match(attribute(el, "content"), "https:\/\/[^/]+(/.*)")
+        # Edge Delivery writes it relative (./media_…, the page's folder): kept as written, an
+        # https URL's path as before; scripts/articles.js resolves it (brief 338)
+        value: match(attribute(el, "content"), "^(?:https:\/\/[^/]+)?((?:[.])?/.*)$")
       image-alt:
         select: head > meta[name="card-image-alt"]
         value: attribute(el, "content")
@@ -180,7 +182,9 @@ indices:
         value: textContent(el)
       image:
         select: head > meta[name="card-image"]
-        value: match(attribute(el, "content"), "https:\/\/[^/]+(/.*)")
+        # Edge Delivery writes it relative (./media_…, the page's folder): kept as written, an
+        # https URL's path as before; scripts/articles.js resolves it (brief 338)
+        value: match(attribute(el, "content"), "^(?:https:\/\/[^/]+)?((?:[.])?/.*)$")
       image-alt:
         select: head > meta[name="card-image-alt"]
         value: attribute(el, "content")
@@ -238,7 +242,9 @@ indices:
         value: textContent(el)
       image:
         select: head > meta[name="card-image"]
-        value: match(attribute(el, "content"), "https:\/\/[^/]+(/.*)")
+        # Edge Delivery writes it relative (./media_…, the page's folder): kept as written, an
+        # https URL's path as before; scripts/articles.js resolves it (brief 338)
+        value: match(attribute(el, "content"), "^(?:https:\/\/[^/]+)?((?:[.])?/.*)$")
       image-alt:
         select: head > meta[name="card-image-alt"]
         value: attribute(el, "content")
@@ -296,7 +302,9 @@ indices:
         value: textContent(el)
       image:
         select: head > meta[name="card-image"]
-        value: match(attribute(el, "content"), "https:\/\/[^/]+(/.*)")
+        # Edge Delivery writes it relative (./media_…, the page's folder): kept as written, an
+        # https URL's path as before; scripts/articles.js resolves it (brief 338)
+        value: match(attribute(el, "content"), "^(?:https:\/\/[^/]+)?((?:[.])?/.*)$")
       image-alt:
         select: head > meta[name="card-image-alt"]
         value: attribute(el, "content")
@@ -352,7 +360,9 @@ indices:
         value: attribute(el, "content")
       image:
         select: head > meta[name="card-image"]
-        value: match(attribute(el, "content"), "https:\/\/[^/]+(/.*)")
+        # Edge Delivery writes it relative (./media_…, the page's folder): kept as written, an
+        # https URL's path as before; scripts/articles.js resolves it (brief 338)
+        value: match(attribute(el, "content"), "^(?:https:\/\/[^/]+)?((?:[.])?/.*)$")
       page-type:
         select: head > meta[name="page-type"]
         value: attribute(el, "content")
@@ -375,7 +385,9 @@ indices:
         value: attribute(el, "content")
       image:
         select: head > meta[name="card-image"]
-        value: match(attribute(el, "content"), "https:\/\/[^/]+(/.*)")
+        # Edge Delivery writes it relative (./media_…, the page's folder): kept as written, an
+        # https URL's path as before; scripts/articles.js resolves it (brief 338)
+        value: match(attribute(el, "content"), "^(?:https:\/\/[^/]+)?((?:[.])?/.*)$")
       page-type:
         select: head > meta[name="page-type"]
         value: attribute(el, "content")
@@ -398,7 +410,9 @@ indices:
         value: attribute(el, "content")
       image:
         select: head > meta[name="card-image"]
-        value: match(attribute(el, "content"), "https:\/\/[^/]+(/.*)")
+        # Edge Delivery writes it relative (./media_…, the page's folder): kept as written, an
+        # https URL's path as before; scripts/articles.js resolves it (brief 338)
+        value: match(attribute(el, "content"), "^(?:https:\/\/[^/]+)?((?:[.])?/.*)$")
       page-type:
         select: head > meta[name="page-type"]
         value: attribute(el, "content")
@@ -421,7 +435,9 @@ indices:
         value: attribute(el, "content")
       image:
         select: head > meta[name="card-image"]
-        value: match(attribute(el, "content"), "https:\/\/[^/]+(/.*)")
+        # Edge Delivery writes it relative (./media_…, the page's folder): kept as written, an
+        # https URL's path as before; scripts/articles.js resolves it (brief 338)
+        value: match(attribute(el, "content"), "^(?:https:\/\/[^/]+)?((?:[.])?/.*)$")
       page-type:
         select: head > meta[name="page-type"]
         value: attribute(el, "content")
@@ -4075,7 +4091,9 @@ indices:
         value: textContent(el)
       image:
         select: head > meta[name="card-image"]
-        value: match(attribute(el, "content"), "https:\/\/[^/]+(/.*)")
+        # Edge Delivery writes it relative (./media_…, the page's folder): kept as written, an
+        # https URL's path as before; scripts/articles.js resolves it (brief 338)
+        value: match(attribute(el, "content"), "^(?:https:\/\/[^/]+)?((?:[.])?/.*)$")
       image-alt:
         select: head > meta[name="card-image-alt"]
         value: attribute(el, "content")
@@ -4129,7 +4147,9 @@ indices:
         value: textContent(el)
       image:
         select: head > meta[name="card-image"]
-        value: match(attribute(el, "content"), "https:\/\/[^/]+(/.*)")
+        # Edge Delivery writes it relative (./media_…, the page's folder): kept as written, an
+        # https URL's path as before; scripts/articles.js resolves it (brief 338)
+        value: match(attribute(el, "content"), "^(?:https:\/\/[^/]+)?((?:[.])?/.*)$")
       image-alt:
         select: head > meta[name="card-image-alt"]
         value: attribute(el, "content")
@@ -4183,7 +4203,9 @@ indices:
         value: textContent(el)
       image:
         select: head > meta[name="card-image"]
-        value: match(attribute(el, "content"), "https:\/\/[^/]+(/.*)")
+        # Edge Delivery writes it relative (./media_…, the page's folder): kept as written, an
+        # https URL's path as before; scripts/articles.js resolves it (brief 338)
+        value: match(attribute(el, "content"), "^(?:https:\/\/[^/]+)?((?:[.])?/.*)$")
       image-alt:
         select: head > meta[name="card-image-alt"]
         value: attribute(el, "content")
@@ -5334,7 +5356,9 @@ indices:
         value: textContent(el)
       image:
         select: head > meta[name="card-image"]
-        value: match(attribute(el, "content"), "https:\/\/[^/]+(/.*)")
+        # Edge Delivery writes it relative (./media_…, the page's folder): kept as written, an
+        # https URL's path as before; scripts/articles.js resolves it (brief 338)
+        value: match(attribute(el, "content"), "^(?:https:\/\/[^/]+)?((?:[.])?/.*)$")
       image-alt:
         select: head > meta[name="card-image-alt"]
         value: attribute(el, "content")
@@ -5388,7 +5412,9 @@ indices:
         value: textContent(el)
       image:
         select: head > meta[name="card-image"]
-        value: match(attribute(el, "content"), "https:\/\/[^/]+(/.*)")
+        # Edge Delivery writes it relative (./media_…, the page's folder): kept as written, an
+        # https URL's path as before; scripts/articles.js resolves it (brief 338)
+        value: match(attribute(el, "content"), "^(?:https:\/\/[^/]+)?((?:[.])?/.*)$")
       image-alt:
         select: head > meta[name="card-image-alt"]
         value: attribute(el, "content")
