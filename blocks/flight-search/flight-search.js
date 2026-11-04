@@ -213,6 +213,21 @@ export function withPrefill(settings, prefill) {
   return out;
 }
 
+/**
+ * The name of an airport or city code from the airport suggestions (the field's typing call, the
+ * code as the term): the entry with that code, as the field shows it once picked ("Munich", "New
+ * York - JFK International, NY"); '' when none matches or the call fails. www names a prefilled
+ * code so: its airport names list holds Frankfurt only.
+ */
+export async function airportNameOf(code, locale) {
+  try {
+    const { list } = await searchAirportsWithSource(code, locale);
+    return (list.find((a) => a.code === code && a.name) || {}).name || '';
+  } catch (e) {
+    return '';
+  }
+}
+
 /** Trip type codes by authored position: first trip type is round trip, second one way. */
 const TRIP_TYPE_CODES = ['RETURN', 'ONEWAY'];
 
@@ -1208,5 +1223,20 @@ export default function decorate(block) {
       destination.setValue(data.destination, { silent: true });
       updateSwapLabel();
     }
+    // a prefilled code (the page URL's or authored) the names list lacks: named afterwards from
+    // the airport suggestions, one request per field; an unknown code keeps the code; a field
+    // the visitor picked or typed in meanwhile keeps the visitor's text
+    const nameLater = (combobox, airport, touched) => {
+      if (!allowed(airport) || airport.name || touched()) return;
+      airportNameOf(airport.code, locale).then((name) => {
+        // the field as prefilled still: not picked anew, not being typed in
+        if (!name || touched() || (combobox.getValue() || {}).code !== airport.code
+          || combobox.input.value !== airport.code) return;
+        combobox.setValue({ code: airport.code, name }, { silent: true });
+        updateSwapLabel();
+      });
+    };
+    if (settings.origin) nameLater(origin, data.origin, () => originTouched);
+    if (settings.destination) nameLater(destination, data.destination, () => destinationTouched);
   });
 }

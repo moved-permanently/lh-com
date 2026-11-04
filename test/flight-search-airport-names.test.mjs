@@ -28,11 +28,43 @@ globalThis.Event = window.Event;
 // www's answers: the names list with Frankfurt only; the suggestions per term (a city with its
 // airports, an airport alone)
 const SUGGESTIONS = {
-  MUC: { items: [{ airport: 'Munich', code: 'MUC', country: 'Germany', type: 'AIRPORT' }] },
-  JFK: { items: [{ airport: 'New York, all airports', code: 'NYC', country: 'United States', type: 'CITY', items: [{ airport: 'New York - JFK International, NY', code: 'JFK', country: 'United States', type: 'AIRPORT' }] }] },
-  HAM: { items: [{ airport: 'Hamburg', code: 'HAM', country: 'Germany', type: 'AIRPORT' }] },
-  CPT: { items: [{ airport: 'Cape Town', code: 'CPT', country: 'South Africa', type: 'AIRPORT' }] },
-  LHR: { items: [{ airport: 'London, all airports', code: 'LON', country: 'United Kingdom', type: 'CITY', items: [{ airport: 'London Heathrow', code: 'LHR', country: 'United Kingdom', type: 'AIRPORT' }] }] },
+  MUC: {
+    items: [{
+      airport: 'Munich', code: 'MUC', country: 'Germany', type: 'AIRPORT',
+    }],
+  },
+  JFK: {
+    items: [{
+      airport: 'New York, all airports',
+      code: 'NYC',
+      country: 'United States',
+      type: 'CITY',
+      items: [{
+        airport: 'New York - JFK International, NY', code: 'JFK', country: 'United States', type: 'AIRPORT',
+      }],
+    }],
+  },
+  HAM: {
+    items: [{
+      airport: 'Hamburg', code: 'HAM', country: 'Germany', type: 'AIRPORT',
+    }],
+  },
+  CPT: {
+    items: [{
+      airport: 'Cape Town', code: 'CPT', country: 'South Africa', type: 'AIRPORT',
+    }],
+  },
+  LHR: {
+    items: [{
+      airport: 'London, all airports',
+      code: 'LON',
+      country: 'United Kingdom',
+      type: 'CITY',
+      items: [{
+        airport: 'London Heathrow', code: 'LHR', country: 'United Kingdom', type: 'AIRPORT',
+      }],
+    }],
+  },
   XYZ: { items: [] },
 };
 let suggestions;
