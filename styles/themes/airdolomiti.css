@@ -597,3 +597,99 @@ body.brand-airdolomiti .flight-search .flight-search-submit {
     padding: 0 41px;
   }
 }
+
+/*
+ * page stages (hero-campaign narrow: www's HeroFirst, e.g. the fleet), as www at 390 and 1440:
+ * as high as the window under the bar, the photo under a 50 % black veil, the title centred in a
+ * box of 80 % white, navy and light, 38px / 40px (65px / 72px from 1025px), 10px 16px padding.
+ */
+body.brand-airdolomiti .hero-campaign.narrow {
+  min-height: calc(100svh - var(--nav-height));
+}
+
+body.brand-airdolomiti .hero-campaign.narrow .hero-campaign-media::after {
+  background: rgb(0 0 0 / 50%);
+  mix-blend-mode: normal;
+}
+
+body.brand-airdolomiti .hero-campaign.narrow .hero-campaign-inner {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+body.brand-airdolomiti .hero-campaign.narrow .hero-campaign-content {
+  max-width: 1008px;
+}
+
+body.brand-airdolomiti .hero-campaign.narrow .hero-campaign-content h1 {
+  display: inline-block;
+  margin: 0;
+  padding: 10px 16px;
+  background-color: rgb(255 255 255 / 80%);
+  color: var(--lh-deepblue);
+  font-size: 38px;
+  font-weight: 300;
+  line-height: 40px;
+}
+
+@media (width >= 1025px) {
+  body.brand-airdolomiti .hero-campaign.narrow .hero-campaign-content h1 {
+    font-size: 65px;
+    line-height: 72px;
+  }
+}
+
+/*
+ * the homepage's service shortcuts (hero-campaign services, band: "Gestisci al meglio il tuo
+ * viaggio"), as www at 390 and 1440: outlined pills without icons (1px white, 10px radius,
+ * 20px 40px padding, semibold 17px / 24px, as wide as their text, 10px apart); on phones the label
+ * on its own line and the pills in one row that scrolls sideways, from 1025px the label and the
+ * pills in one row (40px between them).
+ */
+body.brand-airdolomiti .hero-campaign.hero-campaign-services[data-services="band"] .hero-campaign-content {
+  display: grid;
+  grid-template-columns: repeat(4, max-content);
+  grid-auto-flow: row;
+  gap: 15px 10px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+body.brand-airdolomiti .hero-campaign.hero-campaign-services[data-services="band"] .hero-campaign-services-label {
+  grid-column: 1 / -1;
+}
+
+body.brand-airdolomiti .hero-campaign.hero-campaign-services .hero-campaign-cta[data-icon] a::before {
+  content: none;
+}
+
+body.brand-airdolomiti .hero-campaign.hero-campaign-services[data-services="band"] .hero-campaign-content > .hero-campaign-cta a.button {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  min-height: 66px;
+  height: 100%;
+  margin: 0;
+  padding: 20px 40px;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  background: transparent;
+  color: #fff;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 24px;
+  white-space: nowrap;
+}
+
+@media (width >= 1025px) {
+  body.brand-airdolomiti .hero-campaign.hero-campaign-services[data-services="band"] .hero-campaign-content {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  body.brand-airdolomiti .hero-campaign.hero-campaign-services[data-services="band"] .hero-campaign-services-label {
+    margin-right: 75px;
+  }
+}
