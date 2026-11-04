@@ -11,6 +11,8 @@
  *   canonical and og:url the root's, hreflang per root (the language version and its roots that
  *   are on, the other languages' counterparts its alternate-<ll> metadata names, with theirs);
  *   a redirect of the language version into the root;
+ * - a sheet (.json) the root has no copy of: the language version's, as it is (the booking box's
+ *   airports, /<root>/booking/airports.json, until each root has its own);
  * - else the origin's 404 for the root's path (www has no such page on the root).
  * /<root>/sitemap.xml: the language version's pages the country has (the pages index,
  * helix-query.yaml tap-pages-<version>) and the root's own pages. Media and files: the origin's.
@@ -215,7 +217,18 @@ export async function tapMarket(request, env, { live = TAP_LIVE_MARKETS } = {}) 
   // the root's own document first (its homepage is /<root>/, a folder's index)
   const ownPath = homepage ? `/${root}/` : `/${root}${rest}`;
   const own = await originFetch(withoutConditions(request, 'GET'), env, `https://${env.ORIGIN}${ownPath}${url.search}`);
-  if (kind === 'file') return own;
+  if (kind === 'file') {
+    // a sheet the root has no copy of (its airports: the homepage's booking box, brief 340): the
+    // language version's, as it is; every other file: the root's own answer
+    if (own.status !== 404 || !/\.json$/.test(last)) return own;
+    const sheet = await originFetch(withoutConditions(request, 'GET'), env, `https://${env.ORIGIN}/${version}${rest}${url.search}`);
+    if (!sheet.ok) {
+      if (sheet.body) sheet.body.cancel().catch(() => {});
+      return own;
+    }
+    if (own.body) own.body.cancel().catch(() => {});
+    return new Response(request.method === 'HEAD' ? null : sheet.body, { status: sheet.status, headers: tagged(sheet) });
+  }
   if (own.status !== 404) {
     if (!own.ok) return own;
     // www's root homepages list no hreflang; the root's other own pages none either
