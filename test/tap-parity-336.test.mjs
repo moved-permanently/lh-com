@@ -169,7 +169,27 @@ test('row 34 (footer): www\'s five outline glyphs as TAP icons, #424045', async 
   assert.match(part, /body\.brand-tap \.footer \.footer-tap-side \.footer-badges img\.footer-tap-icon \{\s*filter: none;/);
 });
 
-test('rows 25 to 27: breadcrumb trail on phones too, the house, semibold page; headings; text-card titles', () => {
+test('row 34: the TAP footer takes the outline icons for the social links, the store badges stay', async () => {
+  const { default: layoutTapFooter } = await import('../blocks/footer/footer-tap.js');
+  // the site's code at the host's root (aem.js set the module's folder under Node)
+  window.hlx.codeBasePath = '';
+  const block = document.createElement('div');
+  block.innerHTML = '<div class="footer-inner"><div class="footer-columns"></div><div class="footer-badges">'
+    + '<a href="https://www.facebook.com/TAPAirPortugal"><img data-icon-name="facebook" src="/icons/facebook.svg" alt="Facebook"></a>'
+    + '<a href="https://www.tiktok.com/@tapairportugal"><img data-icon-name="tiktok" src="/icons/tiktok.svg" alt="TikTok"></a>'
+    + '<a href="https://apps.apple.com/x"><img src="/content/app-store.png" alt="App Store"></a></div>'
+    + '<div class="footer-note">© 2026, TAP.</div></div>';
+  layoutTapFooter(block);
+  const srcs = [...block.querySelectorAll('.footer-badges img')].map((i) => i.getAttribute('src'));
+  assert.deepEqual(srcs, ['/icons/tap-facebook.svg', '/icons/tap-tiktok.svg', '/content/app-store.png']);
+  assert.equal(block.querySelectorAll('img.footer-tap-icon').length, 2);
+});
+
+test('row 25: the banner\'s slides square inside the rounded frame (a straight seam while one slides in)', () => {
+  assert.match(css, /body\.brand-tap \.hero-campaign-tap \.hero-campaign-slide\.narrow \{\s*border-radius: 0;/);
+});
+
+test('rows 26, 27 and 35: headings; text-card titles; the breadcrumb trail on phones too, the house, the page semibold', () => {
   assert.match(part, /body\.brand-tap main :is\(h1, h2, h3, h4, h5, h6\) \{\s*letter-spacing: -0\.02em;/);
   assert.match(part, /body\.brand-tap main:has\(> \.breadcrumb-container\) \.default-content-wrapper > h2 \{\s*font-size: 32px;/);
   assert.match(css, /\.default-content-wrapper > h1 \{\s*max-width: 726px;\s*margin: 48px auto 16px;\s*font-size: 40px;\s*line-height: 48px;/);

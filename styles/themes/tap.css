@@ -1704,6 +1704,12 @@ body.brand-tap .hero-campaign.narrow:not(.slider) {
   min-height: 259px;
 }
 
+/* the slides inside the rounded frame square (they carry the block's options): while one slides
+   in, the seam between them straight as www's (row 25) */
+body.brand-tap .hero-campaign-tap .hero-campaign-slide.narrow {
+  border-radius: 0;
+}
+
 /* on phones the banner's title 32 px and its lead Inter 20 / 30 (row 37; the homepage stage's
    are 24 and 18) */
 @media (width < 1024px) {
@@ -1922,7 +1928,7 @@ body.brand-tap main > .section:not(.hidden-heading) .default-content-wrapper > h
   }
 }
 
-/* the breadcrumb (row 25): the whole trail at every width (a phone's too), the homepage as a
+/* the breadcrumb (row 35): the whole trail at every width (a phone's too), the homepage as a
    house, lucide chevrons between, the page in semibold; Inter 14 / 20, #424045 */
 body.brand-tap .breadcrumb li,
 body.brand-tap .breadcrumb li:not(.breadcrumb-parent) {
@@ -2017,8 +2023,9 @@ body.brand-tap .accordion-columns.faq .accordion-columns-panel {
   }
 }
 
-/* the explore accordion beside a picture (row 20, miles-and-go): www's open list, no panel, a
-   line under every item, the groups' names GT Flexa 16 / 24 bold, a dark chevron */
+/* the explore accordion beside a picture (row 36, miles-and-go; row 20 brought it in): www's
+   open list, no panel, a line under every item, the groups' names GT Flexa 600 (16 / 24 on
+   phones, 24 from 1024 px), a dark chevron */
 body.brand-tap .default-content-wrapper:has(> p:last-child > picture) + .accordion-columns-wrapper > .accordion-columns.faq {
   padding: 0;
   border-radius: 0;
