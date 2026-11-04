@@ -1,10 +1,18 @@
 # Air Dolomiti against www: parity
 
-airdolomiti.turnsthe.page (lh-airdolomiti) compared with www.airdolomiti.it / .eu / .de on
-2026-11-04: at 390 px first, then at 1440 px. Viewport screens side by side, ours on the left. On www the
-consent window and the chat button were hidden. The computed type of the titles, headings, cards and
-breadcrumb was measured on both sites. One www page every 12 s, one browser at a time. The
-screenshots are outside git (`airdolomiti-views/`, next to the repo).
+airdolomiti.turnsthe.page (lh-airdolomiti) compared with www.airdolomiti.it / .eu / .de, at 390 px
+first, then at 1440 px:
+
+- **2026-11-04, brief 351:** 19 pages, viewport screens side by side (ours on the left, www's consent
+  window and chat button hidden).
+- **2026-11-04, brief 355:** the rows left open by 351. www's menu, homepage, baggage, fleet, news
+  article and footer were measured again: the computed boxes and type of the menu panels, the
+  booking widget, the service shortcuts, the offers cards, the stage title, the newsletter strip
+  and the footer. Ours was checked locally (code from the repo, the site's preview content)
+  before each push, then on main--lh-airdolomiti--moved-permanently.aem.page.
+
+Each run: one www page every 12 s or more, one browser at a time. The screenshots are outside git
+(`airdolomiti-views/`, next to the repo).
 
 ## Pages compared (19, at 390 and 1440)
 
@@ -24,39 +32,52 @@ www has no Italian eSIM page, so the German one was compared instead.
 
 ## Differences
 
-State: **fixed** (in code or documents, with the commit), **open** (with its owner).
+State: **fixed** (in code or documents, with the commits), **open** (with its owner).
+
+All rows' fixes are Air Dolomiti only:
+
+- rules under `body.brand-airdolomiti` in `styles/themes/airdolomiti.css` (scripts/brand.js loads it
+  only on lh-airdolomiti);
+- the header variant `blocks/header/header-airdolomiti.*`, which header.js loads only for the
+  brand `airdolomiti`;
+- the site's importer (`tools/importer/airdolomiti-import.mjs`, `airdolomiti-nav.mjs`) and its
+  documents.
 
 | # | Where | www | Ours (before) | State | Owner |
 | --- | --- | --- | --- | --- | --- |
-| 1 | Page titles (h1 of inner pages) | light 300, 38px / 46px at every width; subtitle 22px / 30px | bold 700, 36px at 390 and 48px at 1440; subtitle 16px | fixed, 1ccf46c4 (styles/themes/airdolomiti.css) | lh-com migration agent |
+| 1 | Page titles (h1 of inner pages) | light 300, 38px / 46px at every width; subtitle 22px / 30px | bold 700, 36px at 390 and 48px at 1440; subtitle 16px | fixed, 1ccf46c4 | lh-com migration agent |
 | 2 | Section headings (h2) | light 300, 38px / 46px at 390 and 42px / 50px at 1440 | 28px at 390, 36px at 1440 | fixed, 1ccf46c4 | lh-com migration agent |
 | 3 | Blog posts: title and lead h3 | title semibold 600, 38px / 40px (65px / 72px at 1440); lead h3 regular 400, 26px / 32px (35px / 40px) | title bold 36px; lead h3 bold 20px | fixed, 1ccf46c4 | lh-com migration agent |
-| 4 | Breadcrumb | "Home \| Orario Voli" under the header on every inner page and at every width: 15px midnight navy, parents semibold, a bar between the items | none (the documents had no Parent rows) | fixed: importer and test ac06caa4 (c762ac11 red), look 1ccf46c4; 1557 documents re-imported with Parent / Breadcrumb Title rows (homepages "Home"), uploaded to DA and previewed (not published) | lh-com migration agent |
-| 5 | Header on phones | logo, search and menu only | a quick-links row under the logo (Prenota un volo, Stato volo, Gestione) | fixed, 1ccf46c4 (hidden below 768px) | lh-com migration agent |
-| 6 | Baggage and contact link tiles | image cards with the title as a beige chip (80% opaque, 10px radius) on the image; the whole card links; a sideways row on phones (325 x 225 cards), 3 per row at 1440 | image, bold title and an arrow link, stacked | fixed, 1ccf46c4 | lh-com migration agent |
-| 7 | Stage titles (fleet) | light 300 | bold 700 | fixed, 1ccf46c4 (weight) | lh-com migration agent |
-| 8 | Stage title size and box (fleet, 1440) | 65px / 72px, dark text in a translucent white box | 42px, white text on the image | open | lh-com migration agent (AD hero-campaign variant) |
-| 9 | Header on desktop | mega menu "Esplora / Prenota e Gestisci / In viaggio"; accessibility, search, login and language icons | quick links and "Menu" | open | ema-adobe (shared header code), then the nav document (lh-com migration agent) |
-| 10 | Homepage alert strip | US travel attestation alert at the top | the flash-teaser block shows nothing | open: the Message Center content for tenant airdolomiti | ema-adobe / steering session |
-| 11 | Homepage stage and flight search | larger image, a "Prenota il tuo volo" card on phones; the search overlaps the stage at 1440 | the flight search as a separate block below the stage | open | ema-adobe (blocks/flight-search); the stage CTA lh-com migration agent |
-| 12 | Flight search form | radio buttons for the trip type, boxed fields | a dropdown, other field style | open | ema-adobe (blocks/flight-search) |
-| 13 | "Gestisci al meglio il tuo viaggio" tiles on phones | one row of pills | a 2 x 2 grid (at 1440 the same) | open | lh-com migration agent (AD CSS) |
-| 14 | Homepage offers carousel | text above the image on a beige card, arrow buttons, "Vedi tutto (3)" | image on top, white card, dots | open | lh-com migration agent (AD carousel-cards variant) |
-| 15 | eSIM | the Breeze widget (`<breeze-widget>`) with the plans | the "Find your eSIM plan" link to www: the esim-widget block is behind the site flag `esim-widget`, which is off | open: turn the site flag on (a third-party script on the site) | the user (site config decision); the block is ready |
-| 16 | Blog posts on phones | no featured image, the reading time only | featured image, category chip and date | open (minor) | lh-com migration agent (article-header for the site) |
-| 17 | Blog post title position at 1440 | title at the top, full width | below the featured image | open | lh-com migration agent |
-| 18 | Footer | 4 link columns, then a dark band with the logo, "Member of Lufthansa Group" and large social circles, then the copyright | headings, a quick-links row with small icons, a white logo row | open | lh-com migration agent (footer document from airdolomiti-nav.mjs and AD CSS) |
-| 19 | Newsletter strip above the footer | "Iscriviti alla nostra newsletter" with an email field on many pages | a link "Iscriviti alla nostra newsletter" | open | lh-com migration agent (footer/nav document) |
+| 4 | Breadcrumb | "Home \| Orario Voli" under the header on every inner page and at every width | none | fixed: ac06caa4 (test c762ac11), look 1ccf46c4; 1557 documents with Parent / Breadcrumb Title rows | lh-com migration agent |
+| 5 | Header on phones | logo, search and menu only | a quick-links row under the logo | fixed, 1ccf46c4. 355: the gap the hidden row left under the bar closed (the header 74px high, 86px from 768px, 120px from 1025px), f0f9621d | lh-com migration agent |
+| 6 | Baggage and contact link tiles | image cards with the title as a beige chip; the whole card links; a sideways row on phones | image, bold title and an arrow link | fixed, 1ccf46c4 | lh-com migration agent |
+| 7 | Stage titles (fleet): weight | light 300 | bold 700 | fixed, 1ccf46c4 | lh-com migration agent |
+| 8 | Stage (fleet): size and box | as high as the window under the bar, a 50 % black veil, the title navy in a centred 80 % white box, 38px / 40px (65px / 72px at 1440) | 350px high, white text on the photo | fixed, 04a68b91 | lh-com migration agent |
+| 9 | Header on desktop | a menu in the bar, "Esplora / Prenota e Gestisci / In viaggio", each opening a panel: link columns, an image card, the teal "Azioni Rapide" column with icons. Outlined square tools: assistance, search, accessibility, language. 120px bar | quick links and "Menu" | fixed: the Air Dolomiti header variant f0f9621d (tests 87b22712), its quick actions as Edge Delivery renders them c1dfeb60. The nav documents (it, en, de) carry the card pictures, the quick-action icons and the search tool; on preview | lh-com migration agent |
+| 10 | Homepage alert strip | US travel attestation alert at the top | the flash-teaser block shows nothing | open: the Message Center content and code for tenant airdolomiti | ema-adobe |
+| 11 | Homepage stage and flight search (1440) | the search box on the bottom of the stage photo, a 243px teal band under it with the shortcuts | the search as a separate block under the stage and band | fixed: 7422a9de, 4cb85c76 (136px over the photo, 73px into the band) | lh-com migration agent |
+| 12 | Flight search form | boxed fields 56px high with their labels above, the passengers as a field, a teal 56px button; at 1440 one white row with the trip type as a tab and an arrow end | underlined fields, the dates as one field | fixed: 7422a9de (Air Dolomiti rules only, no change to the block). The trip type stays a drop-down in a tab (www: two radio tabs) | ema-adobe (the block's markup) |
+| 13 | Homepage on phones: "Prenota il tuo volo" | a white card on the stage opening the search as an overlay | the search form inline under the band | open: needs the flight search block's behaviour (an overlay), not rules | ema-adobe (blocks/flight-search) |
+| 14 | "Gestisci al meglio il tuo viaggio" shortcuts | outlined pills without icons, as wide as their text (152 x 66, 266 x 66), one row that scrolls sideways on phones, beside the label at 1440 | a 2 x 2 grid of icon tiles on phones; icon buttons of equal width at 1440 | fixed, 04a68b91 | lh-com migration agent |
+| 15 | Homepage offers | grey cards (#f4f4f4, 10px radius) that are one link: route, price, fare in capitals; the text over the picture on phones, beside it at 1440 | white cards, the picture on top, price and fare in one line, a separate arrow link | fixed: carousel-cards (promo) d90df76a (test bbd9d3e4), look 70dfe307; the three homepages on preview. "Vedi tutto (3)" and the arrows stay under the cards (www: beside the heading) | lh-com migration agent |
+| 16 | eSIM | the Breeze widget with the plans | the "Find your eSIM plan" link: the esim-widget block is behind the site flag `esim-widget`, which is off | open: you check the widget on preview and set the flag | the user |
+| 17 | Blog posts: top | no feature picture, no category chip, the title first, the reading time alone (16px), the text in a 1200px column from the left | the feature picture, the chip, date and reading time, the text centred in two thirds | fixed, 70dfe307 | lh-com migration agent |
+| 18 | Footer (1440) | outlined pills at the top right; the company links (no title) with the address and payment logos under them; three columns a row (contacts, news, routes; assistance, legal) with 14px regular titles; a dark teal band with the white logo and round social links; the company line on a grey bar | the search field, five titled columns, a row of text buttons with small icons, a separate legal row, a white logo row | fixed: the footer documents 62277212 (test dfbcfb1b: legal links as the column "Info legali", buttons, social links and payments as three badge sections), the layout 70dfe307; on preview. Phones keep the accordion (with "Info legali" now one of its rows) | lh-com migration agent |
+| 19 | Newsletter strip above the footer | "Iscriviti alla nostra newsletter", a line of text and an email field (300 x 82, the teal envelope) | a link "Iscriviti alla nostra newsletter" | fixed: d90df76a (test bbd9d3e4), 70dfe307; 283 documents on preview. Open: www's field takes the address in place; ours is a link drawn as the field that opens the subscription form | lh-com migration agent (a small block; outside 355's files) |
+| 20 | Fleet stage: breadcrumb | the trail in white on the top of the stage photo | the trail above the stage | open (minor) | lh-com migration agent |
 
-Rows 1-7 are scoped to the site: rules under `body.brand-airdolomiti` in the theme file that
-scripts/brand.js loads only on lh-airdolomiti, plus its importer and documents. The lh-edge smoke
-(lufthansa, lufthansa-edge, lufthansa-cn, discover, ita, austrian, cargo, airdolomiti) gave the
-same answers before and after the push. On tap.turnsthe.page one answer changed (`/en-pt`): TAP's
-own commits (1f4bf6f2, a223086a) landed in the same window, and the theme file never loads there.
+## Checks
 
-airdolomiti.turnsthe.page serves the published site, so the new documents show there only after
-publishing. Until then, check them on main--lh-airdolomiti--moved-permanently.aem.page. The code
-rules are live on both hosts.
-
-The search pages and the newsletter confirmation pages (3 languages each) have no www snapshot.
-They carry no breadcrumb rows.
+- **Lint and tests:** the full suite before each push, after each rebase (254 files, 0 fail at
+  the last push).
+- **Smoke:** the lh-edge smoke on the brand hosts (lufthansa, lufthansa-edge, lufthansa-cn,
+  discover, ita, austrian, cargo, airdolomiti, tap) before and after each push.
+  - 351: the same answers, except on tap.turnsthe.page, whose `/en-pt` and `/pt-pt` answers
+    alternate between two versions between runs with no push in between (seen again in 355),
+    TAP's own content.
+  - 355: the same answers after both pushes, TAP included at the second.
+- **Publishing:** airdolomiti.turnsthe.page serves the published site. The previewed documents
+  show there after publishing; until then they show on main--lh-airdolomiti--moved-permanently.aem.page.
+  The code rules are live on both hosts.
+- **Pages without breadcrumb rows:** the search pages and the newsletter confirmation pages (3
+  languages each) have no www snapshot.
