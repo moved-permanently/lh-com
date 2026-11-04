@@ -58,7 +58,7 @@ import { rewriteBrandIcons } from './brand-icons.js';
 import { brandNotFoundPage } from './not-found.js';
 import { siteSitemap } from './site-sitemaps.js';
 import {
-  urlForm, urlFormUnlessPage, isLongPagePath, brandLongPathTarget, ampersandTarget,
+  urlForm, urlFormUnlessPage, isLongPagePath, brandLongPathTarget, ampersandTarget, siteSlashForm,
 } from './url-forms.js';
 /* eslint-disable-next-line import/no-relative-packages */
 import { BRANDS } from '../../../../scripts/brands.js';
@@ -381,7 +381,7 @@ async function respond(incoming, env, ctx, forms = true) {
  * language documents (src/markets.js with the site's tables and origin), everything else from the
  * site's origin; / to the homepage of its first language version. No other route of lh-com.
  */
-async function siteRespond(incoming, env, site, ctx) {
+async function siteAnswer(incoming, env, site, ctx) {
   const early = prelude(incoming);
   if (early) return early;
   const senv = siteEnv(env, site);
@@ -458,6 +458,17 @@ async function siteRespond(incoming, env, site, ctx) {
   const resp = await market(incoming, senv);
   const alternates = ALTERNATES_SITES.has(site.name);
   return finish(alternates ? await withLiveAlternates(resp, incoming, senv, undefined, { marketOwn: true }) : resp, incoming, senv, 'site');
+}
+
+/**
+ * A site host's answer (siteAnswer); a page path with a trailing slash the site has no page at:
+ * the path without it (src/url-forms.js siteSlashForm), unless that path is an entry redirect.
+ */
+async function siteRespond(incoming, env, site, ctx) {
+  const resp = await siteAnswer(incoming, env, site, ctx);
+  const entries = { ...(site.entry || {}), ...((site.plain && site.plain.entry) || {}) };
+  const slash = siteSlashForm(resp, incoming, env, entries);
+  return slash === resp ? resp : finish(slash, incoming, siteEnv(env, site), 'url-form');
 }
 
 export default {

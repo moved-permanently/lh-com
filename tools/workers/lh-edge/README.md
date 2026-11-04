@@ -167,6 +167,8 @@ without a valid origin is not served. All three vars are empty by default: every
 tables are `LH_TABLES`, the routes read them unchanged; `bench-market.mjs --record/--replay --dump`: 3,006 answers
 byte-identical with and without the change).
 
+Every site host (brief 349): a page path with a trailing slash the site answers 404 (`/ch/en/homepage/`, `/pt-pt/`, `/en/home/`) is one 301 to the path without it, the query kept (route `url-form`, as lufthansa.com's); a slash path the site answers keeps its answer (Air Dolomiti's `/en/`, TAP's `/de-ch/`, the entry redirects), as does one whose path without it is an entry redirect to it (no loop), and `/` stays as it is.
+
 Every site host (brief 342): its 404 is the brand's (`src/not-found.js`): the origin's 404 page (the code's
 `404.html`, Lufthansa's title and text until its script runs) gets the brand's title, `og:title`, `<html lang>`, the
 brand, nav, footer (and language) metadata of the path's root or language version (else the site's first) and its

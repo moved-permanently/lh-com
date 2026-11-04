@@ -144,6 +144,29 @@ export function urlFormUnlessPage(resp, request, env = {}) {
   return location && longPageOf(url, location) === url.pathname ? redirect(301, location) : resp;
 }
 
+/**
+ * A brand host's trailing slash (brief 349): a page path ending in / (not / itself, not a code or
+ * service path, no file name) that the site answered 404 is one 301 to the path without it, the
+ * query kept, as lufthansa.com's url-form route; every slash path the site answers keeps its
+ * answer (Air Dolomiti's /en/ homepage, a TAP market root's /de-ch/, the entry redirects), and so
+ * does one whose path without it is an entry redirect (entries: Air Dolomiti's /en to /en/, no
+ * loop).
+ * @param {Response} resp the site's answer
+ * @param {Request} request
+ * @param {Object} env
+ * @param {Object<string, string>} [entries] the site's entry redirects (path -> target)
+ */
+export function siteSlashForm(resp, request, env = {}, entries = {}) {
+  if (resp.status !== 404 || !enabled(request, env)) return resp;
+  const { pathname, search } = new URL(request.url);
+  if (pathname === '/' || !pathname.endsWith('/') || EXCLUDED.test(pathname)) return resp;
+  const path = pathname.replace(/\/+$/, '');
+  if (!path || path.includes('//') || path.split('/').pop().includes('.')) return resp;
+  if (Object.prototype.hasOwnProperty.call(entries, path)) return resp;
+  if (resp.body) resp.body.cancel().catch(() => {});
+  return redirect(301, `${path}${search}`);
+}
+
 /** Whether a request is for a long page path whose own answer decides (urlFormUnlessPage). */
 export function isLongPagePath(request, env = {}) {
   if (!enabled(request, env)) return false;
