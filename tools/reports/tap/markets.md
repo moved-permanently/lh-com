@@ -1,10 +1,11 @@
 # TAP's market roots on lh-tap (option B)
 
-Status of 2026-11-04: **the 137 market roots' own documents (414) are uploaded to DA
-(`moved-permanently/lh-tap`) and previewed, 414 of 414 answer 200 on
-`main--lh-tap--moved-permanently.aem.page`. Nothing is published.** The merged language documents
-(step 2: 236 pages and 32 fragments in the eight language folders) are **written locally only**
-and are not uploaded: the language folders are another agent's upload right now (wait for the go).
+Status of 2026-11-04 (brief 332): **the merged language documents are uploaded to DA
+(`moved-permanently/lh-tap`) and previewed: 209 pages and 23 fragment documents in the eight
+language folders, with pt-br's homepage (its booking box) and the 145 navs (the menu banners'
+pictures); every one answers 200 on `main--lh-tap--moved-permanently.aem.page`. The 137 market
+roots' own documents (414) were uploaded before (brief 327). Nothing is published.** The market
+variants' capture placed 966 of the 1,129 rule hits; 147 in 6 groups have no capture (below).
 
 Ben's option B (`tools/reports/markets/plan.md` 4.B): one document per language page; a market
 root holds documents of its own only where it differs. www.flytap.com authors one version per
@@ -22,6 +23,12 @@ each of the 3,335 files with a sha256 against its archive's manifest: all match;
 regular file inside its archive, each archive unpacked into its own empty folder
 (`content-sites/lh-tap/captures/`, gitignored). No request to TAP's hosts; the only requests were
 DA, admin.hlx.page and our own preview (the airport sheets' names for the booking box).
+
+**The market variants** (brief 332, segment `market-variants`, `"complete": true`):
+`tap-snapshots-020` (100 pages), `-021` (1), `-022` (1, en-fr/miles-and-go standing in for
+en-gb's, which redirects to pt-br on www), the pictures in `tap-media-020` (2); the menu banners in
+`tap-media-021` (2) and `tap-media-019` (the 78 missing pictures). sha256 of each against the index
+and the brief, and each of 3,519 files against its archive's manifest: all match.
 
 Left out, as listed (Ben): the Brazil- and US-only bank and card partner pages (en-br's
 `btg-pactual`, `btg-pactual-black`, en-gh's `btg-pactual-black`; en-us', pt-us' and es-us' Bilt
@@ -49,8 +56,11 @@ language counterpart, below).
   `/master/<lang>/` (checked: de-de's, en-pt's copies). Actions: `show` (331), `hide` (17),
   `activate-variation` (68; a variation for its markets, or with `hide` for every market but
   them, "variation_todososmercados-pt"). **One rule www applies without listing it:** a
-  component's variation named `market_<cc>` is that market's (the club table's `market_us`, a
-  promotion's `market_pt`); taking those as rules turned the last 2 of 193 mismatches into matches.
+  component's variation named `market_<cc>` is that market's **where a capture shows it served**
+  (en-us's and en-ao's club table, a promotion's `market_pt`); a variation only listed in a
+  component's `_variations` is not: TAP served those markets the plain master in all 35
+  `market_<cc>` rows of the market-variants capture. Components are compared without their
+  `_variations` list (a plain master without variations is the language version's master).
 - **A component behind a rule** (on itself or on an item in it: a slide, a card, an accordion
   item, a FAQ subcategory) is a section of its own with section metadata `Markets`, as
   `scripts/market-rules.js` reads it (`br,pt` to show, `-us,-gb` to hide). Countries are grouped
@@ -58,41 +68,58 @@ language counterpart, below).
   variant every other country sees has an exclusion list. A rule on the page itself (`PageModel`,
   28) is the page's own `Markets` metadata row.
 - **The other markets' variants merged in** (step 2): the components a root shows that its
-  language version lacks come from its `rule` page capture; a group without a capture is derived
+  language version lacks come from its captures: every captured market page (`tap-snapshots-016`
+  to `-022`: the roots' `rule` pages and the market variants) is a view of its language page; a
+  group without a capture is derived
   when its rules only show or hide items (the component without those items), else it is a hit
   that could not be placed (below). Homepages are not merged: every root has its own homepage
   document, so a language homepage only serves its home market.
-- **The page metadata never sits in a market section**; each variant of a heading keeps its H1;
-  a page over the content bus's limits keeps its fragments, a variant with other content gets
-  fragment documents of its own (`…/hotels-8b97cc`).
-- **The hook in TAP's importer** (`tap-import.mjs`, the other agent's file; 30 lines):
+- **The page metadata never sits in a market section**; each variant of a heading keeps its H1.
+  **A page over the content bus's limits** (the partners pages of pt-pt, en-pt and es-es with 5
+  to 10 variants of their partner categories) keeps its home market's sections inline, as the
+  plain document has them, and the sections the home market never sees become fragment documents
+  (`/<language>/fragments/<page>/market-<hash>`, 23), each a fragment block with its `Markets`.
+  (A loaded fragment gets the page's breadcrumb again: `scripts.js` builds it in fragments too.
+  A market root's view of those pages shows it once more under the variant's fragment; for the
+  site's owner.)
+- A page whose earlier merged copy had market sections and that has none now (27, e.g. the
+  fast-track pages: en-pt's copy carries no variation at all) is written as its plain conversion
+  again; DA keeps the language import's (plain) document, so it is not uploaded.
+- **The hook in TAP's importer** (`tap-import.mjs`, ours since brief 332; 30 lines):
   `convertPage` takes `site.units` (the components with `__markets`), the `Page` keeps the
   markets on the sections it opens, the section metadata gets a `Markets` row, and one handler
   `MarketVariantOnWww`. Without `site.units` the importer writes what it wrote before (its tests
   unchanged and green). **A plain re-import of the language versions with `tap-import.mjs` drops
   the market sections again:** the merged language documents come from `tap-markets.mjs`.
 
-**Check of the merge:** each of the 193 `rule` pages whose language version has the page, the
-merged language document filtered for the root's country with `dropMarketSections`, against the
-root's own capture converted with the same tools (text of every paragraph, heading, item and cell,
-in order): **193 of 193 identical** (the "See on flytap.com" links left aside).
+**Checks of the merge:**
+- **Every market view:** each of the 295 captured market pages whose language version has the
+  page, the merged language document filtered for the root's country with `dropMarketSections`,
+  against the root's own capture converted with the same tools (text of every paragraph, heading,
+  item and cell, in order): **295 of 295 identical**.
+- **Every home view:** each of the 209 merged documents filtered for its home market (pt for
+  pt-pt and en-pt, br for pt-br, …) against its plain conversion (the language import's document):
+  **209 of 209 identical**, the markup included.
+- **On preview:** the 34 merged pt-pt pages rendered (main's text after the blocks load) before
+  and after the upload: **34 of 34 the same** (the site drops the other markets' sections in the
+  browser: `dropOtherMarkets`, by the page's country).
 
 | Language version | Documents with market sections | Market sections | Pages with page Markets | Fragment documents | "See on flytap.com" sections |
 | --- | --- | --- | --- | --- | --- |
-| pt-pt | 37 | 144 | 7 | 15 | 18 |
-| en-pt | 40 | 177 | 7 | 17 | 26 |
-| es-es | 30 | 84 | 3 | 0 | 9 |
-| fr-fr | 34 | 73 | 4 | 0 | 4 |
-| de-de | 32 | 69 | 5 | 0 | 4 |
-| it-it | 17 | 27 | 2 | 0 | 0 |
-| pl-pl | 16 | 27 | 1 | 0 | 0 |
-| pt-br | 30 | 60 | 2 | 0 | 0 |
+| pt-pt | 34 | 160 | 7 | 8 | 3 |
+| en-pt | 39 | 196 | 7 | 10 | 3 |
+| es-es | 27 | 79 | 3 | 5 | 0 |
+| fr-fr | 29 | 72 | 4 | 0 | 0 |
+| de-de | 26 | 64 | 5 | 0 | 0 |
+| it-it | 14 | 23 | 2 | 0 | 0 |
+| pl-pl | 13 | 23 | 1 | 0 | 0 |
+| pt-br | 27 | 57 | 2 | 0 | 0 |
 
-Local only (`content-sites/lh-tap/content/<language>/…`, the list in
-`content-sites/lh-tap/runs/markets-language-paths.txt`). **Before they are uploaded:** the 32
-fragment documents of `/pt-pt/miles-and-go/parceiros` and `/en-pt/miles-and-go/partners` go into
-the allowlist (the merged partners pages are over the limits with their 7 and 8 variants of the
-partner categories; the plain ones were not).
+Uploaded and previewed (brief 332), built from main at 7832ed6e with `tap-markets.mjs`; the 23
+fragment documents in the allowlist. The first upload of the same turn had the importer's category
+fragments for the partners pages (41, `/pt-pt/fragments/parceiros/alugar-carro` …): no page links
+them now; they are out of the allowlist and stay in DA and on preview (unpublished) until someone
+asks for them to be deleted.
 
 ## Each root's own documents (step 3)
 
@@ -126,7 +153,17 @@ new: a run keeps a state file of its own; lh-tap's own state file untouched).
 
 ## Rule hits that could not be placed
 
-**113 components × root groups, 1,129 hits.** The rules give these roots a variant that no
+**Brief 332: 6 groups, 147 hits** (were 113 and 1,129): the market-variants capture placed every
+other row. What is left has no capture from a root that gets the variant:
+- **pt-pt's miles-and-go** (53 roots, the explore card's master): pt-gb stood in, but gb is on the
+  rule's variation list (pt, br, us, ca, gb, ao) and gets the credit-card variation; a pt root
+  outside it (pt-fr, pt-de, …) holds the master.
+- **pt-pt's and en-pt's conditions of carriage** (45 roots each, the accordion's plain master):
+  en-gb and pt-gb get gb's own variations (`variation_reinounido` on three items, `market_gb` on
+  one); a root without one (en-dk, pt-dk, …) holds the master.
+- **pt-pt's and en-pt's promos** (es, br: 4 hits): no capture of en-es, pt-es or en-br's promos.
+
+Before brief 332: **113 components × root groups, 1,129 hits.** The rules give these roots a variant that no
 capture holds: mostly the master (the "rest of the world") version of a component that Portugal
 sees in a variation of its own, in English and Portuguese, which no captured root shows. The
 roots get a section with a link to the page on www ("See on flytap.com", as the importer does for
@@ -137,121 +174,16 @@ them:** one more capture per page of a root in the master group (for example en-
 `market_br`, `variation_<country>` of the legal pages). The capture list's `rule` pages miss them
 because it followed the listed rules, not the `market_<cc>` variations and not the master groups.
 
+The 6 groups left (brief 332):
+
 | Language document | Component | What the rules give them | Roots |
 | --- | --- | --- | --- |
-| `/en-pt/manage-booking/extras/fast-track` | richtext-fast-track | master | 58 roots |
-| `/en-pt/miles-and-go/use-miles/donate-miles` | banner-base | master | 58 roots |
-| `/en-pt/miles-and-go/use-miles/donate-miles` | rich-text-o-tap-donate-miles-e-a-iniciativa-de-responsabilidade-social-da-tap | master | 58 roots |
-| `/pt-pt/gerir-reserva/extras/fast-track` | richtext-fast-track | master | 57 roots |
-| `/pt-pt/miles-and-go/utilizar-milhas/doar-milhas` | banner-base | master | 57 roots |
-| `/pt-pt/miles-and-go/utilizar-milhas/doar-milhas` | rich-text-o-tap-donate-miles-e-a-iniciativa-de-responsabilidade-social-da-tap | master | 57 roots |
-| `/en-pt/information/traveling-with-animals/service-animals` | expands-reservar-o-servico-de-transporte-de-animais-de-assistencia | master | 56 roots |
-| `/en-pt/miles-and-go/use-miles/buy-ticket` | hero-card-mais-lugares-disponiveis-para-viajar-com-milhas | master | 56 roots |
-| `/pt-pt/informacoes/viajar-com-animais/animais-assistencia` | expands-reservar-o-servico-de-transporte-de-animais-de-assistencia | master | 56 roots |
-| `/pt-pt/miles-and-go/utilizar-milhas/comprar-bilhete` | hero-card-mais-lugares-disponiveis-para-viajar-com-milhas | master | 56 roots |
-| `/en-pt/miles-and-go/club` | table-conheca-os-clubs | variation_todososmercados, master | 55 roots |
-| `/en-pt/miles-and-go/club` | accordion-list-termos-e-condicoes-club-tap-miles-go | master, variation_todososmercados, variation_restantesmercados | 55 roots |
-| `/pt-pt/miles-and-go/club` | table-conheca-os-clubs | variation_todososmercados, master | 55 roots |
-| `/pt-pt/miles-and-go/club` | accordion-list-termos-e-condicoes-club-tap-miles-go | master, variation_todososmercados, variation_restantesmercados | 55 roots |
-| `/en-pt/miles-and-go` | card-explorar-o-tap-m-g | master | 53 roots |
 | `/pt-pt/miles-and-go` | card-explorar-o-tap-m-g | master | 53 roots |
 | `/en-pt/legal-info/conditions-of-carriage` | accordion-list-condicoes-de-transporte | master | 45 roots |
 | `/pt-pt/info-legal/condicoes-de-transporte` | accordion-list-condicoes-de-transporte | master | 45 roots |
-| `/en-pt/promos` | generic-card-list-novidades | master | 19 roots |
-| `/pt-pt/promos` | generic-card-list-novidades | master | 18 roots |
-| `/fr-fr/mentions-legales/conditions-de-transport` | accordion-list-condicoes-de-transporte | master | ch, ci, dz, gn, lu, ma, ml, sn, tg |
-| `/es-es/informacion-legal/condiciones-de-transporte` | accordion-list-condicoes-de-transporte | master | ar, cl, co, mx, pa, uy, ve |
-| `/de-de/buchungen/versicherung` | rich-text-coberturas-e-condicoes | variation_austria | at |
-| `/de-de/buchungen/versicherung` | rich-text-coberturas-e-condicoes | variation_suica | ch |
-| `/de-de/rechtliche-informationen/beforderungsbedingungen` | accordion-list-condicoes-de-transporte | variation_austria, master | at |
-| `/de-de/rechtliche-informationen/beforderungsbedingungen` | accordion-list-condicoes-de-transporte | master | ch |
-| `/de-de/rechtliche-informationen/rechtliche-hinweise` | rich-text-avisos-legais-privacidade | variation_austria | at |
-| `/de-de/rechtliche-informationen/rechtliche-hinweise` | rich-text-avisos-legais-privacidade | variation_suica | ch |
-| `/de-de/rechtliche-informationen/schlichtungsstelle` | rich-text-orgao-de-arbitragem | market_at | at |
-| `/en-pt/bookings` | cards-opcoes-de-reserva | market_us | us |
-| `/en-pt/destinations` | titulo-voe-com-a-tap | market_us | us |
-| `/en-pt/help` | expands-fa-qs | master, market_us | us |
-| `/en-pt/help/frequently-asked-questions` | faqs | master, market_us | us |
-| `/en-pt/help/tap-refunds` | richtext-reembolso-voluntario | market_br | br |
-| `/en-pt/help/tap-refunds` | richtext-reembolso-involuntario | market_br | br |
-| `/en-pt/info-legal/privacidade` | rich-text-politica-de-privacidade | variation_brasil | br |
-| `/en-pt/info-legal/privacidade` | accordion-list-politica-de-privacidade | variation_brasil | br |
-| `/en-pt/information/traveling-with-animals/service-animals` | expands-reservar-o-servico-de-transporte-de-animais-de-assistencia | variation_eua, master | us |
-| `/en-pt/legal-info/conditions-of-carriage` | accordion-list-condicoes-de-transporte | variation_alemanha, master | de |
-| `/en-pt/legal-info/conditions-of-carriage` | accordion-list-condicoes-de-transporte | variation_austria, master | at |
-| `/en-pt/legal-info/conditions-of-carriage` | accordion-list-condicoes-de-transporte | variation_belgica, master | be |
-| `/en-pt/legal-info/conditions-of-carriage` | accordion-list-condicoes-de-transporte | variation_canada, master | ca |
-| `/en-pt/legal-info/conditions-of-carriage` | accordion-list-condicoes-de-transporte | variation_franca, master | fr |
-| `/en-pt/legal-info/conditions-of-carriage` | accordion-list-condicoes-de-transporte | variation_ghana, master | gh |
-| `/en-pt/legal-info/conditions-of-carriage` | accordion-list-condicoes-de-transporte | variation_italia, master | it |
-| `/en-pt/legal-info/conditions-of-carriage` | accordion-list-condicoes-de-transporte | variation_polonia, master | pl |
-| `/en-pt/legal-info/privacy` | rich-text-politica-de-privacidade | variation_brasil | br |
-| `/en-pt/legal-info/privacy` | accordion-list-politica-de-privacidade | variation_brasil | br |
-| `/en-pt/legal-info/terms-and-conditions` | rich-text-sede | market_br | br |
-| `/en-pt/manage-booking/extras` | expands-todos-os-servicos-e-extras | market_br | br |
-| `/en-pt/manage-booking/extras` | expands-todos-os-servicos-e-extras | market_ca | ca |
-| `/en-pt/manage-booking/extras` | expands-todos-os-servicos-e-extras | market_us | us |
-| `/en-pt/miles-and-go/club` | table-conheca-os-clubs | master, market_ao | ao |
-| `/en-pt/miles-and-go/club` | accordion-list-termos-e-condicoes-club-tap-miles-go | master, variation_todososmercados, variation_angola | ao |
-| `/en-pt/miles-and-go/happy-miles` | card-celebramos-o-seu-aniversario | market_br | br |
-| `/en-pt/miles-and-go/happy-miles` | card-celebramos-o-seu-aniversario | market_us | us |
-| `/en-pt/miles-and-go/promo` | accordion-list-termos-e-condicoes | market_cl | cl |
-| `/en-pt/miles-and-go/promo` | accordion-list-termos-e-condicoes | market_mx | mx |
-| `/en-pt/miles-and-go/promo` | accordion-list-termos-e-condicoes | market_mz | mz |
-| `/en-pt/miles-and-go/promo` | accordion-list-termos-e-condicoes | market_pl | pl |
-| `/en-pt/miles-and-go/promo` | accordion-list-termos-e-condicoes | market_sn | sn |
-| `/en-pt/miles-and-go/promo` | accordion-list-termos-e-condicoes | market_tg | tg |
-| `/en-pt/miles-and-go/promo` | accordion-list-termos-e-condicoes | market_tr | tr |
-| `/en-pt/miles-and-go/promo` | accordion-list-termos-e-condicoes | market_za | za |
-| `/en-pt/miles-and-go/use-miles/fees` | tabela-taxas-de-servico-em-reservas-online-com-milhas | market_br | br |
-| `/en-pt/promos` | generic-card-list-promocoes | market_ca | ca |
-| `/en-pt/promos` | generic-card-list-promocoes | market_us | us |
-| `/es-es/ayuda` | expands-fa-qs | master, market_us | us |
-| `/es-es/ayuda/preguntas-frecuentes` | faqs | master, market_us | us |
-| `/es-es/destinos` | titulo-voe-com-a-tap | market_us | us |
-| `/es-es/gestionar-reserva/extras` | expands-todos-os-servicos-e-extras | market_us | us |
-| `/es-es/miles-and-go/happy-miles` | card-celebramos-o-seu-aniversario | market_us | us |
-| `/es-es/miles-and-go/promo` | accordion-list-termos-e-condicoes | market_cl | cl |
-| `/es-es/miles-and-go/promo` | accordion-list-termos-e-condicoes | market_mx | mx |
-| `/es-es/promos` | generic-card-list-novidades | market_us | us |
-| `/es-es/reservas` | cards-opcoes-de-reserva | market_us | us |
-| `/fr-fr/gerer-reserves/extras` | expands-todos-os-servicos-e-extras | market_ca | ca |
-| `/fr-fr/mentions-legales/conditions-de-transport` | accordion-list-condicoes-de-transporte | variation_belgica, master | be |
-| `/fr-fr/mentions-legales/conditions-de-transport` | accordion-list-condicoes-de-transporte | variation_canada, master | ca |
-| `/fr-fr/mentions-legales/conditions-de-transport` | accordion-list-condicoes-de-transporte | variation_ghana, master | gh |
-| `/fr-fr/miles-and-go/promo` | accordion-list-termos-e-condicoes | market_sn | sn |
-| `/fr-fr/miles-and-go/promo` | accordion-list-termos-e-condicoes | market_tg | tg |
-| `/fr-fr/reservations/assurances` | rich-text-coberturas-e-condicoes | variation_belgica | be |
-| `/fr-fr/reservations/assurances` | rich-text-coberturas-e-condicoes | variation_luxemburgo | lu |
-| `/fr-fr/reservations/assurances` | rich-text-coberturas-e-condicoes | variation_suica | ch |
-| `/pt-pt/ajuda` | expands-fa-qs | master, market_us | us |
-| `/pt-pt/ajuda/perguntas-frequentes` | faqs | master, market_us | us |
-| `/pt-pt/destinos` | titulo-voe-com-a-tap | market_us | us |
-| `/pt-pt/gerir-reserva/extras` | expands-todos-os-servicos-e-extras | market_ca | ca |
-| `/pt-pt/gerir-reserva/extras` | expands-todos-os-servicos-e-extras | market_us | us |
-| `/pt-pt/info-legal/condicoes-de-transporte` | accordion-list-condicoes-de-transporte | variation_alemanha, master | de |
-| `/pt-pt/info-legal/condicoes-de-transporte` | accordion-list-condicoes-de-transporte | variation_austria, master | at |
-| `/pt-pt/info-legal/condicoes-de-transporte` | accordion-list-condicoes-de-transporte | variation_belgica, master | be |
-| `/pt-pt/info-legal/condicoes-de-transporte` | accordion-list-condicoes-de-transporte | variation_canada, master | ca |
-| `/pt-pt/info-legal/condicoes-de-transporte` | accordion-list-condicoes-de-transporte | variation_franca, master | fr |
-| `/pt-pt/info-legal/condicoes-de-transporte` | accordion-list-condicoes-de-transporte | variation_ghana, master | gh |
-| `/pt-pt/info-legal/condicoes-de-transporte` | accordion-list-condicoes-de-transporte | variation_italia, master | it |
-| `/pt-pt/info-legal/condicoes-de-transporte` | accordion-list-condicoes-de-transporte | variation_polonia, master | pl |
-| `/pt-pt/informacoes/viajar-com-animais/animais-assistencia` | expands-reservar-o-servico-de-transporte-de-animais-de-assistencia | variation_eua, master | us |
-| `/pt-pt/miles-and-go/club` | table-conheca-os-clubs | master, market_ao | ao |
-| `/pt-pt/miles-and-go/club` | accordion-list-termos-e-condicoes-club-tap-miles-go | master, variation_todososmercados, variation_angola | ao |
-| `/pt-pt/miles-and-go/happy-miles` | card-celebramos-o-seu-aniversario | market_us | us |
-| `/pt-pt/miles-and-go/promo` | accordion-list-termos-e-condicoes | market_cl | cl |
-| `/pt-pt/miles-and-go/promo` | accordion-list-termos-e-condicoes | market_mx | mx |
-| `/pt-pt/miles-and-go/promo` | accordion-list-termos-e-condicoes | market_mz | mz |
-| `/pt-pt/miles-and-go/promo` | accordion-list-termos-e-condicoes | market_pl | pl |
-| `/pt-pt/miles-and-go/promo` | accordion-list-termos-e-condicoes | market_sn | sn |
-| `/pt-pt/miles-and-go/promo` | accordion-list-termos-e-condicoes | market_tg | tg |
-| `/pt-pt/miles-and-go/promo` | accordion-list-termos-e-condicoes | market_tr | tr |
-| `/pt-pt/miles-and-go/promo` | accordion-list-termos-e-condicoes | market_za | za |
-| `/pt-pt/promos` | generic-card-list-promocoes | market_ca | ca |
-| `/pt-pt/promos` | generic-card-list-promocoes | market_us | us |
-| `/pt-pt/reservas` | cards-opcoes-de-reserva | market_us | us |
+| `/en-pt/promos` | generic-card-list-promocoes | master | br, es |
+| `/en-pt/promos` | generic-card-list-novidades | master | br |
+| `/pt-pt/promos` | generic-card-list-promocoes | master | es |
 
 ## Other rules
 
@@ -308,143 +240,147 @@ flytap.com" section on preview once the language documents are uploaded.
 
 | Root | Language version | Own documents | Nav | Footer | Sections for it | Not placed | Language pages it lacks |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| de-at | de-de | `/de-at/index` | own (lacks English Menü) (adds English Menü) | language | 6 in 5 | 4 in 4 | 0 |
-| de-ch | de-de | `/de-ch/index` | own (lacks Jetzt beitreten, English Menü) (adds English Menü) | language | 6 in 5 | 3 in 3 | 2 |
-| en-ao | en-pt | `/en-ao/index` | own (lacks Trip Insurance, Português Menu) (adds English Menu) | own (lacks Complaints Book) | 7 in 6 | 8 in 6 | 6 |
-| en-ar | en-pt | `/en-ar/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds English Menu) | own (lacks TAP FORBIZ, Complaints Book) | 0 in 0 | 9 in 7 | 7 |
-| en-at | en-pt | `/en-at/index` | own (lacks Credit Cards, Português Menu) (adds English Menu) | own (lacks Complaints Book) | 6 in 5 | 10 in 8 | 4 |
-| en-be | en-pt | `/en-be/index` | own (lacks Credit Cards, Português Menu) (adds English Menu) | own (lacks Complaints Book) | 6 in 5 | 10 in 8 | 4 |
-| en-br | en-pt | `/en-br/index` | own (lacks Trip Insurance, Accommodation, Português Menu) (adds Accommodation, Português Menu) | own (lacks TAP Store, Complaints Book) | 29 in 18 | 14 in 10 | 5 |
-| en-ca | en-pt | `/en-ca/index`, `/en-ca/legal-info/passenger-rights-canada`, `/en-ca/legal-info/accessibility-plan-canada` | own (lacks Trip Insurance, Accommodation, Português Menu) (adds Accommodation, English Menu) | own (lacks TAP FORBIZ, TAP Store, Complaints Book) | 8 in 6 | 11 in 8 | 5 |
-| en-ch | en-pt | `/en-ch/index` | own (lacks Credit Cards, Português Menu) (adds English Menu) | own (lacks Complaints Book) | 6 in 5 | 10 in 8 | 5 |
-| en-ci | en-pt | `/en-ci/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds English Menu) | own (lacks TAP FORBIZ, Complaints Book) | 0 in 0 | 9 in 7 | 7 |
-| en-cl | en-pt | `/en-cl/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds English Menu) | own (lacks TAP FORBIZ, Complaints Book) | 0 in 0 | 10 in 8 | 7 |
-| en-co | en-pt | `/en-co/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds English Menu) | own (lacks TAP FORBIZ, Complaints Book) | 0 in 0 | 9 in 7 | 7 |
-| en-cv | en-pt | `/en-cv/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds English Menu) | own (lacks TAP FORBIZ, Complaints Book) | 1 in 1 | 9 in 7 | 7 |
-| en-cz | en-pt | `/en-cz/index` | own (lacks Credit Cards, Português Menu) (adds English Menu) | own (lacks Complaints Book) | 4 in 4 | 10 in 8 | 5 |
-| en-de | en-pt | `/en-de/index` | own (lacks Credit Cards, Português Menu) (adds Deutsch Menu) | own (lacks Complaints Book) | 6 in 5 | 10 in 8 | 4 |
-| en-dk | en-pt | `/en-dk/index` | own (lacks Credit Cards, Português Menu) (adds English Menu) | own (lacks Complaints Book) | 8 in 5 | 10 in 8 | 5 |
-| en-dz | en-pt | `/en-dz/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds English Menu) | own (lacks TAP FORBIZ, Complaints Book) | 0 in 0 | 9 in 7 | 7 |
-| en-ee | en-pt | `/en-ee/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds English Menu) | own (lacks TAP FORBIZ, Complaints Book) | 0 in 0 | 9 in 7 | 7 |
-| en-eg | en-pt | `/en-eg/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds English Menu) | own (lacks TAP FORBIZ, Complaints Book) | 0 in 0 | 9 in 7 | 7 |
-| en-es | en-pt | `/en-es/index` | own (lacks Credit Cards, Português Menu) (adds Español Menu) | own (lacks Complaints Book) | 7 in 6 | 9 in 7 | 4 |
-| en-fi | en-pt | `/en-fi/index` | own (lacks Credit Cards, Português Menu) (adds English Menu) | own (lacks Complaints Book) | 5 in 3 | 9 in 7 | 5 |
-| en-fr | en-pt | `/en-fr/index` | own (lacks Credit Cards, Português Menu) (adds Français Menu) | own (lacks Complaints Book) | 8 in 6 | 10 in 8 | 4 |
-| en-gb | en-pt | `/en-gb/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds English Menu) | own (lacks Complaints Book) | 6 in 5 | 8 in 6 | 6 |
-| en-gh | en-pt | `/en-gh/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds English Menu) | own (lacks TAP FORBIZ, Complaints Book) | 0 in 0 | 9 in 7 | 7 |
-| en-gm | en-pt | `/en-gm/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds English Menu) | own (lacks TAP FORBIZ, Complaints Book) | 0 in 0 | 9 in 7 | 7 |
-| en-gn | en-pt | `/en-gn/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds English Menu) | own (lacks TAP FORBIZ, Complaints Book) | 0 in 0 | 9 in 7 | 7 |
-| en-gr | en-pt | `/en-gr/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds English Menu) | own (lacks TAP FORBIZ, Complaints Book) | 0 in 0 | 9 in 7 | 7 |
-| en-gw | en-pt | `/en-gw/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds English Menu) | own (lacks TAP FORBIZ, Complaints Book) | 0 in 0 | 9 in 7 | 7 |
-| en-hk | en-pt | `/en-hk/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds English Menu) | own (lacks TAP FORBIZ, Complaints Book) | 0 in 0 | 9 in 7 | 7 |
-| en-hr | en-pt | `/en-hr/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds English Menu) | own (lacks TAP FORBIZ, Complaints Book) | 0 in 0 | 9 in 7 | 6 |
-| en-hu | en-pt | `/en-hu/index` | own (lacks Credit Cards, Português Menu) (adds English Menu) | own (lacks Complaints Book) | 3 in 3 | 9 in 7 | 6 |
-| en-ie | en-pt | `/en-ie/index` | own (lacks Credit Cards, Português Menu) (adds English Menu) | own (lacks Complaints Book) | 6 in 5 | 10 in 8 | 4 |
-| en-il | en-pt | `/en-il/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds English Menu) | own (lacks Complaints Book) | 2 in 2 | 8 in 6 | 7 |
-| en-it | en-pt | `/en-it/index` | own (lacks Credit Cards, Português Menu) (adds Italiano Menu) | own (lacks Complaints Book) | 6 in 5 | 10 in 8 | 4 |
-| en-lt | en-pt | `/en-lt/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds English Menu) | own (lacks TAP FORBIZ, Complaints Book) | 0 in 0 | 9 in 7 | 7 |
-| en-lu | en-pt | `/en-lu/index` | own (lacks Credit Cards, Português Menu) (adds English Menu) | own (lacks Complaints Book) | 6 in 5 | 10 in 8 | 4 |
-| en-lv | en-pt | `/en-lv/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds English Menu) | own (lacks TAP FORBIZ, Complaints Book) | 0 in 0 | 9 in 7 | 7 |
-| en-ma | en-pt | `/en-ma/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds English Menu) | own (lacks TAP FORBIZ, Complaints Book) | 1 in 1 | 9 in 7 | 7 |
-| en-ml | en-pt | `/en-ml/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds English Menu) | own (lacks TAP FORBIZ, Complaints Book) | 0 in 0 | 9 in 7 | 7 |
-| en-mx | en-pt | `/en-mx/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds English Menu) | own (lacks TAP FORBIZ, Complaints Book) | 1 in 1 | 10 in 8 | 7 |
-| en-mz | en-pt | `/en-mz/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds English Menu) | own (lacks TAP FORBIZ, Complaints Book) | 1 in 1 | 10 in 8 | 7 |
-| en-nl | en-pt | `/en-nl/index` | own (lacks Credit Cards, Português Menu) (adds English Menu) | own (lacks Complaints Book) | 7 in 6 | 10 in 8 | 4 |
-| en-no | en-pt | `/en-no/index` | own (lacks Credit Cards, Português Menu) (adds English Menu) | own (lacks Complaints Book) | 8 in 5 | 10 in 8 | 5 |
-| en-pa | en-pt | `/en-pa/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds English Menu) | own (lacks TAP FORBIZ, Complaints Book) | 0 in 0 | 9 in 7 | 7 |
-| en-pl | en-pt | `/en-pl/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds Polski Menu) | own (lacks Complaints Book) | 6 in 5 | 11 in 9 | 5 |
-| en-ro | en-pt | `/en-ro/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds English Menu) | own (lacks Complaints Book) | 1 in 1 | 9 in 7 | 7 |
-| en-rs | en-pt | `/en-rs/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds English Menu) | own (lacks TAP FORBIZ, Complaints Book) | 0 in 0 | 9 in 7 | 7 |
-| en-ru | en-pt | `/en-ru/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds English Menu) | own (lacks Complaints Book) | 1 in 1 | 9 in 7 | 7 |
-| en-se | en-pt | `/en-se/index` | own (lacks Accommodation, Credit Cards, Português Menu) (adds Accommodation, English Menu) | own (lacks Complaints Book) | 8 in 5 | 10 in 8 | 5 |
-| en-sk | en-pt | `/en-sk/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds English Menu) | own (lacks TAP FORBIZ, Complaints Book) | 0 in 0 | 9 in 7 | 7 |
-| en-sn | en-pt | `/en-sn/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds English Menu) | own (lacks TAP FORBIZ, Complaints Book) | 0 in 0 | 10 in 8 | 7 |
-| en-st | en-pt | `/en-st/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds English Menu) | own (lacks TAP FORBIZ, Complaints Book) | 0 in 0 | 9 in 7 | 7 |
-| en-tg | en-pt | `/en-tg/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds English Menu) | own (lacks TAP FORBIZ, Complaints Book) | 0 in 0 | 10 in 8 | 7 |
-| en-tn | en-pt | `/en-tn/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds English Menu) | own (lacks TAP FORBIZ, Complaints Book) | 0 in 0 | 9 in 7 | 7 |
-| en-tr | en-pt | `/en-tr/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds English Menu) | own (lacks TAP FORBIZ, Complaints Book) | 0 in 0 | 10 in 8 | 7 |
-| en-ua | en-pt | `/en-ua/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds English Menu) | own (lacks TAP FORBIZ, Complaints Book) | 0 in 0 | 9 in 7 | 7 |
-| en-us | en-pt | `/en-us/index` | own (lacks Trip Insurance, Accommodation, Português Menu) (adds Accommodation, English Menu) | own (lacks TAP Store, Complaints Book) | 16 in 11 | 12 in 10 | 5 |
-| en-uy | en-pt | `/en-uy/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds English Menu) | own (lacks TAP FORBIZ, Complaints Book) | 0 in 0 | 9 in 7 | 7 |
-| en-ve | en-pt | `/en-ve/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds English Menu) | own (lacks TAP FORBIZ, TAP Store, Complaints Book) | 0 in 0 | 9 in 7 | 7 |
-| en-za | en-pt | `/en-za/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds English Menu) | own (lacks TAP FORBIZ, Complaints Book) | 0 in 0 | 10 in 8 | 7 |
-| es-ar | es-es | `/es-ar/index` | own (lacks Seguro de Viaje, English Menú) (adds English Menú) | own (lacks TAP FORBIZ) | 0 in 0 | 1 in 1 | 3 |
-| es-cl | es-es | `/es-cl/index` | own (lacks Seguro de Viaje, English Menú) (adds English Menú) | own (lacks TAP FORBIZ) | 0 in 0 | 2 in 2 | 3 |
-| es-co | es-es | `/es-co/index` | own (lacks Seguro de Viaje, English Menú) (adds English Menú) | own (lacks TAP FORBIZ) | 0 in 0 | 1 in 1 | 3 |
-| es-mx | es-es | `/es-mx/index` | own (lacks Seguro de Viaje, English Menú) (adds English Menú) | own (lacks TAP FORBIZ) | 1 in 1 | 2 in 2 | 3 |
-| es-pa | es-es | `/es-pa/index` | own (lacks Seguro de Viaje, English Menú) (adds English Menú) | own (lacks TAP FORBIZ) | 0 in 0 | 1 in 1 | 3 |
-| es-us | es-es | `/es-us/index`, `/es-us/miles-and-go/gane-millas/tarjetas-de-credito` | own (lacks Seguro de Viaje, Alojamiento, English Menú) (adds Alojamiento, Tarjetas de Crédito, English Menú) | own (lacks TAP Store) | 15 in 12 | 7 in 7 | 2 |
-| es-uy | es-es | `/es-uy/index` | own (lacks Seguro de Viaje, English Menú) (adds English Menú) | own (lacks TAP FORBIZ) | 0 in 0 | 1 in 1 | 3 |
-| es-ve | es-es | `/es-ve/index` | own (lacks Seguro de Viaje, English Menú) (adds English Menú) | own (lacks TAP FORBIZ, TAP Store) | 0 in 0 | 1 in 1 | 3 |
-| fr-be | fr-fr | `/fr-be/index` | own (lacks English Menu) (adds English Menu) | language | 5 in 4 | 2 in 2 | 1 |
-| fr-ca | fr-fr | `/fr-ca/index`, `/fr-ca/mentions-legales/droits-passagers-canada`, `/fr-ca/mentions-legales/plan-accessibilite-canada`, `/fr-ca/miles-and-go/gagnez-miles/cartes-de-credit` | own (lacks Assurance Voyage, Hébergement, English Menu) (adds Hébergement, Cartes de Crédit, English Menu) | own (lacks TAP FORBIZ, TAP Store) | 6 in 5 | 2 in 2 | 3 |
-| fr-ch | fr-fr | `/fr-ch/index` | own (lacks English Menu) (adds English Menu) | language | 5 in 4 | 2 in 2 | 2 |
-| fr-ci | fr-fr | `/fr-ci/index` | own (lacks Assurance Voyage, English Menu) (adds English Menu) | own (lacks TAP FORBIZ) | 0 in 0 | 1 in 1 | 4 |
-| fr-dz | fr-fr | `/fr-dz/index` | own (lacks Assurance Voyage, English Menu) (adds English Menu) | own (lacks TAP FORBIZ) | 0 in 0 | 1 in 1 | 4 |
-| fr-gh | fr-fr | `/fr-gh/index` | own (lacks Assurance Voyage, English Menu) (adds English Menu) | own (lacks TAP FORBIZ) | 0 in 0 | 1 in 1 | 4 |
-| fr-gn | fr-fr | `/fr-gn/index` | own (lacks Assurance Voyage, English Menu) (adds English Menu) | own (lacks TAP FORBIZ) | 0 in 0 | 1 in 1 | 4 |
-| fr-lu | fr-fr | `/fr-lu/index` | own (lacks Hébergement, Rejoignez dès maintenant, English Menu) (adds Acomodação, English Menu) | language | 5 in 4 | 2 in 2 | 1 |
-| fr-ma | fr-fr | `/fr-ma/index` | own (lacks Assurance Voyage, English Menu) (adds English Menu) | own (lacks TAP FORBIZ) | 1 in 1 | 1 in 1 | 4 |
-| fr-ml | fr-fr | `/fr-ml/index` | own (lacks Assurance Voyage, English Menu) (adds English Menu) | own (lacks TAP FORBIZ) | 0 in 0 | 1 in 1 | 4 |
-| fr-sn | fr-fr | `/fr-sn/index` | own (lacks Assurance Voyage, English Menu) (adds English Menu) | own (lacks TAP FORBIZ) | 0 in 0 | 2 in 2 | 4 |
-| fr-tg | fr-fr | `/fr-tg/index` | own (lacks Assurance Voyage, English Menu) (adds English Menu) | own (lacks TAP FORBIZ) | 0 in 0 | 2 in 2 | 4 |
-| pt-ao | pt-pt | `/pt-ao/index` | own (lacks Seguro de Viagem, English Menu) (adds English Menu) | own (lacks Livro de Reclamações) | 7 in 6 | 8 in 6 | 6 |
-| pt-ar | pt-pt | `/pt-ar/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 0 in 0 | 9 in 7 | 7 |
-| pt-at | pt-pt | `/pt-at/index` | own (lacks Cartões de Crédito, English Menu) (adds English Menu) | own (lacks Livro de Reclamações) | 6 in 5 | 10 in 8 | 4 |
-| pt-be | pt-pt | `/pt-be/index` | own (lacks Cartões de Crédito, English Menu) (adds English Menu) | own (lacks Livro de Reclamações) | 6 in 5 | 10 in 8 | 4 |
-| pt-ca | pt-pt | `/pt-ca/index`, `/pt-ca/info-legal/direitos-passageiros-canada`, `/pt-ca/info-legal/plano-acessibilidade-canada` | own (lacks Seguro de Viagem, Alojamento, English Menu) (adds Alojamento, English Menu) | own (lacks TAP FORBIZ, TAP Store, Livro de Reclamações) | 8 in 6 | 11 in 8 | 5 |
-| pt-ch | pt-pt | `/pt-ch/index` | own (lacks Cartões de Crédito, English Menu) (adds English Menu) | own (lacks Livro de Reclamações) | 6 in 5 | 10 in 8 | 5 |
-| pt-ci | pt-pt | `/pt-ci/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 0 in 0 | 9 in 7 | 7 |
-| pt-cl | pt-pt | `/pt-cl/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 0 in 0 | 10 in 8 | 7 |
-| pt-co | pt-pt | `/pt-co/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 0 in 0 | 9 in 7 | 7 |
-| pt-cv | pt-pt | `/pt-cv/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 1 in 1 | 9 in 7 | 7 |
-| pt-cz | pt-pt | `/pt-cz/index` | own (lacks Cartões de Crédito, English Menu) (adds English Menu) | own (lacks Livro de Reclamações) | 4 in 4 | 10 in 8 | 5 |
-| pt-de | pt-pt | `/pt-de/index` | own (lacks Cartões de Crédito, English Menu) (adds English Menu) | own (lacks Livro de Reclamações) | 6 in 5 | 10 in 8 | 4 |
-| pt-dk | pt-pt | `/pt-dk/index` | own (lacks Cartões de Crédito, English Menu) (adds English Menu) | own (lacks Livro de Reclamações) | 8 in 5 | 10 in 8 | 5 |
-| pt-dz | pt-pt | `/pt-dz/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 0 in 0 | 9 in 7 | 7 |
-| pt-ee | pt-pt | `/pt-ee/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 0 in 0 | 9 in 7 | 7 |
-| pt-eg | pt-pt | `/pt-eg/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 0 in 0 | 9 in 7 | 7 |
-| pt-es | pt-pt | `/pt-es/index` | own (lacks Cartões de Crédito, English Menu) (adds English Menu) | own (lacks Livro de Reclamações) | 7 in 6 | 9 in 7 | 4 |
-| pt-fi | pt-pt | `/pt-fi/index` | own (lacks Cartões de Crédito, English Menu) (adds English Menu) | own (lacks Livro de Reclamações) | 5 in 3 | 9 in 7 | 5 |
-| pt-fr | pt-pt | `/pt-fr/index` | own (lacks Cartões de Crédito, English Menu) (adds English Menu) | own (lacks Livro de Reclamações) | 8 in 6 | 10 in 8 | 4 |
-| pt-gb | pt-pt | `/pt-gb/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks Livro de Reclamações) | 6 in 5 | 8 in 6 | 6 |
-| pt-gh | pt-pt | `/pt-gh/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 0 in 0 | 9 in 7 | 7 |
-| pt-gm | pt-pt | `/pt-gm/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 0 in 0 | 9 in 7 | 7 |
-| pt-gn | pt-pt | `/pt-gn/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 0 in 0 | 9 in 7 | 7 |
-| pt-gr | pt-pt | `/pt-gr/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 0 in 0 | 9 in 7 | 7 |
-| pt-gw | pt-pt | `/pt-gw/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 0 in 0 | 9 in 7 | 7 |
-| pt-hk | pt-pt | `/pt-hk/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 0 in 0 | 9 in 7 | 7 |
-| pt-hr | pt-pt | `/pt-hr/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 0 in 0 | 9 in 7 | 6 |
-| pt-hu | pt-pt | `/pt-hu/index` | own (lacks Cartões de Crédito, English Menu) (adds English Menu) | own (lacks Livro de Reclamações) | 3 in 3 | 9 in 7 | 6 |
-| pt-ie | pt-pt | `/pt-ie/index` | own (lacks Cartões de Crédito, English Menu) (adds English Menu) | own (lacks Livro de Reclamações) | 6 in 5 | 10 in 8 | 4 |
-| pt-il | pt-pt | `/pt-il/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks Livro de Reclamações) | 2 in 2 | 8 in 6 | 7 |
-| pt-it | pt-pt | `/pt-it/index` | own (lacks Cartões de Crédito, English Menu) (adds English Menu) | own (lacks Livro de Reclamações) | 6 in 5 | 10 in 8 | 4 |
-| pt-lt | pt-pt | `/pt-lt/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 0 in 0 | 9 in 7 | 7 |
-| pt-lu | pt-pt | `/pt-lu/index` | own (lacks Cartões de Crédito, English Menu) (adds English Menu) | own (lacks Livro de Reclamações) | 6 in 5 | 10 in 8 | 4 |
-| pt-lv | pt-pt | `/pt-lv/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 0 in 0 | 9 in 7 | 7 |
-| pt-ma | pt-pt | `/pt-ma/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 1 in 1 | 9 in 7 | 7 |
-| pt-ml | pt-pt | `/pt-ml/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 0 in 0 | 9 in 7 | 7 |
-| pt-mx | pt-pt | `/pt-mx/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 1 in 1 | 10 in 8 | 7 |
-| pt-mz | pt-pt | `/pt-mz/index` | own (lacks Seguro de Viagem, Alojamento, Cartões de Crédito, English Menu) (adds Acomodação, English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 1 in 1 | 10 in 8 | 7 |
-| pt-nl | pt-pt | `/pt-nl/index` | own (lacks Cartões de Crédito, English Menu) (adds English Menu) | own (lacks Livro de Reclamações) | 7 in 6 | 10 in 8 | 4 |
-| pt-no | pt-pt | `/pt-no/index` | own (lacks Cartões de Crédito, English Menu) (adds English Menu) | own (lacks Livro de Reclamações) | 8 in 5 | 10 in 8 | 5 |
-| pt-pa | pt-pt | `/pt-pa/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 0 in 0 | 9 in 7 | 7 |
-| pt-pl | pt-pt | `/pt-pl/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks Livro de Reclamações) | 6 in 5 | 11 in 9 | 5 |
-| pt-ro | pt-pt | `/pt-ro/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks Livro de Reclamações) | 1 in 1 | 9 in 7 | 7 |
-| pt-rs | pt-pt | `/pt-rs/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 0 in 0 | 9 in 7 | 7 |
-| pt-ru | pt-pt | `/pt-ru/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks Livro de Reclamações) | 1 in 1 | 9 in 7 | 7 |
-| pt-se | pt-pt | `/pt-se/index` | own (lacks Cartões de Crédito, English Menu) (adds English Menu) | own (lacks Livro de Reclamações) | 8 in 5 | 10 in 8 | 5 |
-| pt-sk | pt-pt | `/pt-sk/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 0 in 0 | 9 in 7 | 7 |
-| pt-sn | pt-pt | `/pt-sn/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 0 in 0 | 10 in 8 | 7 |
-| pt-st | pt-pt | `/pt-st/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 0 in 0 | 9 in 7 | 7 |
-| pt-tg | pt-pt | `/pt-tg/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 0 in 0 | 10 in 8 | 7 |
-| pt-tn | pt-pt | `/pt-tn/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 0 in 0 | 9 in 7 | 7 |
-| pt-tr | pt-pt | `/pt-tr/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 0 in 0 | 10 in 8 | 7 |
-| pt-ua | pt-pt | `/pt-ua/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 0 in 0 | 9 in 7 | 7 |
-| pt-us | pt-pt | `/pt-us/index` | own (lacks Seguro de Viagem, Alojamento, English Menu) (adds Alojamento, English Menu) | own (lacks TAP Store, Livro de Reclamações) | 16 in 11 | 12 in 10 | 5 |
-| pt-uy | pt-pt | `/pt-uy/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 0 in 0 | 9 in 7 | 7 |
-| pt-ve | pt-pt | `/pt-ve/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, TAP Store, Livro de Reclamações) | 0 in 0 | 9 in 7 | 7 |
-| pt-za | pt-pt | `/pt-za/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 0 in 0 | 10 in 8 | 7 |
+| de-at | de-de | `/de-at/index` | own (lacks English Menü) (adds English Menü) | language | 10 in 9 | 0 | 0 |
+| de-ch | de-de | `/de-ch/index` | own (lacks TAP Miles&amp;Go, TAP Miles&amp;Go Melden Sie sich kostenlos an und sammeln Si, English Menü) (adds TAP Miles&amp;Go, English Menü) | language | 8 in 7 | 0 | 2 |
+| en-ao | en-pt | `/en-ao/index` | own (lacks Trip Insurance, Português Menu) (adds Português Menu) | own (lacks Complaints Book) | 8 in 7 | 1 in 1 | 6 |
+| en-ar | en-pt | `/en-ar/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds Português Menu) | own (lacks TAP FORBIZ, Complaints Book) | 0 in 0 | 1 in 1 | 7 |
+| en-at | en-pt | `/en-at/index` | own (lacks Credit Cards, Português Menu) (adds Português Menu) | own (lacks Complaints Book) | 7 in 6 | 0 | 4 |
+| en-be | en-pt | `/en-be/index` | own (lacks Credit Cards, Português Menu) (adds Português Menu) | own (lacks Complaints Book) | 7 in 6 | 0 | 4 |
+| en-br | en-pt | `/en-br/index` | own (lacks Trip Insurance, Accommodation, Português Menu) (adds Accommodation, Português Menu) | own (lacks TAP Store, Complaints Book) | 37 in 24 | 2 in 1 | 5 |
+| en-ca | en-pt | `/en-ca/index`, `/en-ca/legal-info/passenger-rights-canada`, `/en-ca/legal-info/accessibility-plan-canada` | own (lacks Trip Insurance, Accommodation, Português Menu) (adds Accommodation, Português Menu) | own (lacks TAP FORBIZ, TAP Store, Complaints Book) | 10 in 9 | 0 | 5 |
+| en-ch | en-pt | `/en-ch/index` | own (lacks Credit Cards, Português Menu) (adds Português Menu) | own (lacks Complaints Book) | 6 in 5 | 1 in 1 | 5 |
+| en-ci | en-pt | `/en-ci/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds Português Menu) | own (lacks TAP FORBIZ, Complaints Book) | 0 in 0 | 1 in 1 | 7 |
+| en-cl | en-pt | `/en-cl/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds Português Menu) | own (lacks TAP FORBIZ, Complaints Book) | 1 in 1 | 1 in 1 | 7 |
+| en-co | en-pt | `/en-co/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds Português Menu) | own (lacks TAP FORBIZ, Complaints Book) | 0 in 0 | 1 in 1 | 7 |
+| en-cv | en-pt | `/en-cv/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds Português Menu) | own (lacks TAP FORBIZ, Complaints Book) | 1 in 1 | 1 in 1 | 7 |
+| en-cz | en-pt | `/en-cz/index` | own (lacks Credit Cards, Português Menu) (adds Português Menu) | own (lacks Complaints Book) | 4 in 4 | 1 in 1 | 5 |
+| en-de | en-pt | `/en-de/index` | own (lacks Credit Cards, Português Menu) (adds Deutsch Menu) | own (lacks Complaints Book) | 7 in 6 | 0 | 4 |
+| en-dk | en-pt | `/en-dk/index` | own (lacks Credit Cards, Português Menu) (adds Português Menu) | own (lacks Complaints Book) | 8 in 5 | 1 in 1 | 5 |
+| en-dz | en-pt | `/en-dz/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds Português Menu) | own (lacks TAP FORBIZ, Complaints Book) | 0 in 0 | 1 in 1 | 7 |
+| en-ee | en-pt | `/en-ee/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds Português Menu) | own (lacks TAP FORBIZ, Complaints Book) | 0 in 0 | 1 in 1 | 7 |
+| en-eg | en-pt | `/en-eg/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds Português Menu) | own (lacks TAP FORBIZ, Complaints Book) | 0 in 0 | 1 in 1 | 7 |
+| en-es | en-pt | `/en-es/index` | own (lacks Credit Cards, Português Menu) (adds Español Menu) | own (lacks Complaints Book) | 6 in 5 | 1 in 1 | 4 |
+| en-fi | en-pt | `/en-fi/index` | own (lacks Credit Cards, Português Menu) (adds Português Menu) | own (lacks Complaints Book) | 5 in 3 | 1 in 1 | 5 |
+| en-fr | en-pt | `/en-fr/index` | own (lacks Credit Cards, Português Menu) (adds Français Menu) | own (lacks Complaints Book) | 9 in 7 | 0 | 4 |
+| en-gb | en-pt | `/en-gb/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds Português Menu) | own (lacks Complaints Book) | 5 in 4 | 0 | 6 |
+| en-gh | en-pt | `/en-gh/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds Português Menu) | own (lacks TAP FORBIZ, Complaints Book) | 1 in 1 | 0 | 7 |
+| en-gm | en-pt | `/en-gm/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds Português Menu) | own (lacks TAP FORBIZ, Complaints Book) | 0 in 0 | 1 in 1 | 7 |
+| en-gn | en-pt | `/en-gn/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds Português Menu) | own (lacks TAP FORBIZ, Complaints Book) | 0 in 0 | 1 in 1 | 7 |
+| en-gr | en-pt | `/en-gr/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds Português Menu) | own (lacks TAP FORBIZ, Complaints Book) | 0 in 0 | 1 in 1 | 7 |
+| en-gw | en-pt | `/en-gw/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds Português Menu) | own (lacks TAP FORBIZ, Complaints Book) | 0 in 0 | 1 in 1 | 7 |
+| en-hk | en-pt | `/en-hk/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds Português Menu) | own (lacks TAP FORBIZ, Complaints Book) | 0 in 0 | 1 in 1 | 7 |
+| en-hr | en-pt | `/en-hr/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds Português Menu) | own (lacks TAP FORBIZ, Complaints Book) | 0 in 0 | 1 in 1 | 6 |
+| en-hu | en-pt | `/en-hu/index` | own (lacks Credit Cards, Português Menu) (adds Português Menu) | own (lacks Complaints Book) | 3 in 3 | 1 in 1 | 6 |
+| en-ie | en-pt | `/en-ie/index` | own (lacks Credit Cards, Português Menu) (adds Português Menu) | own (lacks Complaints Book) | 6 in 5 | 1 in 1 | 4 |
+| en-il | en-pt | `/en-il/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds Português Menu) | own (lacks Complaints Book) | 2 in 2 | 0 | 7 |
+| en-it | en-pt | `/en-it/index` | own (lacks Credit Cards, Português Menu) (adds Italiano Menu) | own (lacks Complaints Book) | 7 in 6 | 0 | 4 |
+| en-lt | en-pt | `/en-lt/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds Português Menu) | own (lacks TAP FORBIZ, Complaints Book) | 0 in 0 | 1 in 1 | 7 |
+| en-lu | en-pt | `/en-lu/index` | own (lacks Credit Cards, Português Menu) (adds Português Menu) | own (lacks Complaints Book) | 6 in 5 | 1 in 1 | 4 |
+| en-lv | en-pt | `/en-lv/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds Português Menu) | own (lacks TAP FORBIZ, Complaints Book) | 0 in 0 | 1 in 1 | 7 |
+| en-ma | en-pt | `/en-ma/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds Português Menu) | own (lacks TAP FORBIZ, Complaints Book) | 1 in 1 | 1 in 1 | 7 |
+| en-ml | en-pt | `/en-ml/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds Português Menu) | own (lacks TAP FORBIZ, Complaints Book) | 0 in 0 | 1 in 1 | 7 |
+| en-mx | en-pt | `/en-mx/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds Português Menu) | own (lacks TAP FORBIZ, Complaints Book) | 2 in 2 | 1 in 1 | 7 |
+| en-mz | en-pt | `/en-mz/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds Português Menu) | own (lacks TAP FORBIZ, Complaints Book) | 2 in 2 | 1 in 1 | 7 |
+| en-nl | en-pt | `/en-nl/index` | own (lacks Credit Cards, Português Menu) (adds Português Menu) | own (lacks Complaints Book) | 7 in 6 | 1 in 1 | 4 |
+| en-no | en-pt | `/en-no/index` | own (lacks Credit Cards, Português Menu) (adds Português Menu) | own (lacks Complaints Book) | 8 in 5 | 1 in 1 | 5 |
+| en-pa | en-pt | `/en-pa/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds Português Menu) | own (lacks TAP FORBIZ, Complaints Book) | 0 in 0 | 1 in 1 | 7 |
+| en-pl | en-pt | `/en-pl/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds Polski Menu) | own (lacks Complaints Book) | 8 in 7 | 0 | 5 |
+| en-ro | en-pt | `/en-ro/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds Português Menu) | own (lacks Complaints Book) | 1 in 1 | 1 in 1 | 7 |
+| en-rs | en-pt | `/en-rs/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds Português Menu) | own (lacks TAP FORBIZ, Complaints Book) | 0 in 0 | 1 in 1 | 7 |
+| en-ru | en-pt | `/en-ru/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds Português Menu) | own (lacks Complaints Book) | 1 in 1 | 1 in 1 | 7 |
+| en-se | en-pt | `/en-se/index` | own (lacks Accommodation, Credit Cards, Português Menu) (adds Accommodation, Português Menu) | own (lacks Complaints Book) | 8 in 5 | 1 in 1 | 5 |
+| en-sk | en-pt | `/en-sk/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds Português Menu) | own (lacks TAP FORBIZ, Complaints Book) | 0 in 0 | 1 in 1 | 7 |
+| en-sn | en-pt | `/en-sn/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds Português Menu) | own (lacks TAP FORBIZ, Complaints Book) | 1 in 1 | 1 in 1 | 7 |
+| en-st | en-pt | `/en-st/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds Português Menu) | own (lacks TAP FORBIZ, Complaints Book) | 0 in 0 | 1 in 1 | 7 |
+| en-tg | en-pt | `/en-tg/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds Português Menu) | own (lacks TAP FORBIZ, Complaints Book) | 1 in 1 | 1 in 1 | 7 |
+| en-tn | en-pt | `/en-tn/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds Português Menu) | own (lacks TAP FORBIZ, Complaints Book) | 0 in 0 | 1 in 1 | 7 |
+| en-tr | en-pt | `/en-tr/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds Português Menu) | own (lacks TAP FORBIZ, Complaints Book) | 1 in 1 | 1 in 1 | 7 |
+| en-ua | en-pt | `/en-ua/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds Português Menu) | own (lacks TAP FORBIZ, Complaints Book) | 0 in 0 | 1 in 1 | 7 |
+| en-us | en-pt | `/en-us/index` | own (lacks Trip Insurance, Accommodation, Português Menu) (adds Accommodation, Português Menu) | own (lacks TAP Store, Complaints Book) | 24 in 19 | 0 | 5 |
+| en-uy | en-pt | `/en-uy/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds Português Menu) | own (lacks TAP FORBIZ, Complaints Book) | 0 in 0 | 1 in 1 | 7 |
+| en-ve | en-pt | `/en-ve/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds Português Menu) | own (lacks TAP FORBIZ, TAP Store, Complaints Book) | 0 in 0 | 1 in 1 | 7 |
+| en-za | en-pt | `/en-za/index` | own (lacks Trip Insurance, Credit Cards, Português Menu) (adds Português Menu) | own (lacks TAP FORBIZ, Complaints Book) | 1 in 1 | 1 in 1 | 7 |
+| es-ar | es-es | `/es-ar/index` | own (lacks Seguro de Viaje, English Menú) (adds English Menú) | own (lacks TAP FORBIZ) | 0 in 0 | 0 | 3 |
+| es-cl | es-es | `/es-cl/index` | own (lacks Seguro de Viaje, English Menú) (adds English Menú) | own (lacks TAP FORBIZ) | 1 in 1 | 0 | 3 |
+| es-co | es-es | `/es-co/index` | own (lacks Seguro de Viaje, English Menú) (adds English Menú) | own (lacks TAP FORBIZ) | 0 in 0 | 0 | 3 |
+| es-mx | es-es | `/es-mx/index` | own (lacks Seguro de Viaje, English Menú) (adds English Menú) | own (lacks TAP FORBIZ) | 2 in 2 | 0 | 3 |
+| es-pa | es-es | `/es-pa/index` | own (lacks Seguro de Viaje, English Menú) (adds English Menú) | own (lacks TAP FORBIZ) | 0 in 0 | 0 | 3 |
+| es-us | es-es | `/es-us/index`, `/es-us/miles-and-go/gane-millas/tarjetas-de-credito` | own (lacks Seguro de Viaje, Alojamiento, English Menú) (adds Alojamiento, Tarjetas de Crédito, English Menú) | own (lacks TAP Store) | 22 in 18 | 0 | 2 |
+| es-uy | es-es | `/es-uy/index` | own (lacks Seguro de Viaje, English Menú) (adds English Menú) | own (lacks TAP FORBIZ) | 0 in 0 | 0 | 3 |
+| es-ve | es-es | `/es-ve/index` | own (lacks Seguro de Viaje, English Menú) (adds English Menú) | own (lacks TAP FORBIZ, TAP Store) | 0 in 0 | 0 | 3 |
+| fr-be | fr-fr | `/fr-be/index` | own (lacks English Menu) (adds English Menu) | language | 7 in 6 | 0 | 1 |
+| fr-ca | fr-fr | `/fr-ca/index`, `/fr-ca/mentions-legales/droits-passagers-canada`, `/fr-ca/mentions-legales/plan-accessibilite-canada`, `/fr-ca/miles-and-go/gagnez-miles/cartes-de-credit` | own (lacks Assurance Voyage, Hébergement, English Menu) (adds Hébergement, Cartes de Crédit, English Menu) | own (lacks TAP FORBIZ, TAP Store) | 8 in 7 | 0 | 3 |
+| fr-ch | fr-fr | `/fr-ch/index` | own (lacks English Menu) (adds English Menu) | language | 6 in 5 | 0 | 2 |
+| fr-ci | fr-fr | `/fr-ci/index` | own (lacks Assurance Voyage, English Menu) (adds English Menu) | own (lacks TAP FORBIZ) | 0 in 0 | 0 | 4 |
+| fr-dz | fr-fr | `/fr-dz/index` | own (lacks Assurance Voyage, English Menu) (adds English Menu) | own (lacks TAP FORBIZ) | 0 in 0 | 0 | 4 |
+| fr-gh | fr-fr | `/fr-gh/index` | own (lacks Assurance Voyage, English Menu) (adds English Menu) | own (lacks TAP FORBIZ) | 1 in 1 | 0 | 4 |
+| fr-gn | fr-fr | `/fr-gn/index` | own (lacks Assurance Voyage, English Menu) (adds English Menu) | own (lacks TAP FORBIZ) | 0 in 0 | 0 | 4 |
+| fr-lu | fr-fr | `/fr-lu/index` | own (lacks Hébergement, TAP Miles&amp;Go Inscrivez-vous gratuitement et gagnez 200 m, English Menu) (adds Acomodação, English Menu) | language | 6 in 5 | 0 | 1 |
+| fr-ma | fr-fr | `/fr-ma/index` | own (lacks Assurance Voyage, English Menu) (adds English Menu) | own (lacks TAP FORBIZ) | 1 in 1 | 0 | 4 |
+| fr-ml | fr-fr | `/fr-ml/index` | own (lacks Assurance Voyage, English Menu) (adds English Menu) | own (lacks TAP FORBIZ) | 0 in 0 | 0 | 4 |
+| fr-sn | fr-fr | `/fr-sn/index` | own (lacks Assurance Voyage, English Menu) (adds English Menu) | own (lacks TAP FORBIZ) | 1 in 1 | 0 | 4 |
+| fr-tg | fr-fr | `/fr-tg/index` | own (lacks Assurance Voyage, English Menu) (adds English Menu) | own (lacks TAP FORBIZ) | 1 in 1 | 0 | 4 |
+| pt-ao | pt-pt | `/pt-ao/index` | own (lacks Seguro de Viagem, English Menu) (adds English Menu) | own (lacks Livro de Reclamações) | 9 in 7 | 1 in 1 | 6 |
+| pt-ar | pt-pt | `/pt-ar/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 0 in 0 | 2 in 2 | 7 |
+| pt-at | pt-pt | `/pt-at/index` | own (lacks Cartões de Crédito, English Menu) (adds English Menu) | own (lacks Livro de Reclamações) | 7 in 6 | 1 in 1 | 4 |
+| pt-be | pt-pt | `/pt-be/index` | own (lacks Cartões de Crédito, English Menu) (adds English Menu) | own (lacks Livro de Reclamações) | 7 in 6 | 1 in 1 | 4 |
+| pt-ca | pt-pt | `/pt-ca/index`, `/pt-ca/info-legal/direitos-passageiros-canada`, `/pt-ca/info-legal/plano-acessibilidade-canada` | own (lacks Seguro de Viagem, Alojamento, English Menu) (adds Alojamento, English Menu) | own (lacks TAP FORBIZ, TAP Store, Livro de Reclamações) | 11 in 9 | 0 | 5 |
+| pt-ch | pt-pt | `/pt-ch/index` | own (lacks Cartões de Crédito, English Menu) (adds English Menu) | own (lacks Livro de Reclamações) | 6 in 5 | 2 in 2 | 5 |
+| pt-ci | pt-pt | `/pt-ci/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 0 in 0 | 2 in 2 | 7 |
+| pt-cl | pt-pt | `/pt-cl/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 1 in 1 | 2 in 2 | 7 |
+| pt-co | pt-pt | `/pt-co/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 0 in 0 | 2 in 2 | 7 |
+| pt-cv | pt-pt | `/pt-cv/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 1 in 1 | 2 in 2 | 7 |
+| pt-cz | pt-pt | `/pt-cz/index` | own (lacks Cartões de Crédito, English Menu) (adds English Menu) | own (lacks Livro de Reclamações) | 4 in 4 | 2 in 2 | 5 |
+| pt-de | pt-pt | `/pt-de/index` | own (lacks Cartões de Crédito, English Menu) (adds English Menu) | own (lacks Livro de Reclamações) | 7 in 6 | 1 in 1 | 4 |
+| pt-dk | pt-pt | `/pt-dk/index` | own (lacks Cartões de Crédito, English Menu) (adds English Menu) | own (lacks Livro de Reclamações) | 8 in 5 | 2 in 2 | 5 |
+| pt-dz | pt-pt | `/pt-dz/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 0 in 0 | 2 in 2 | 7 |
+| pt-ee | pt-pt | `/pt-ee/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 0 in 0 | 2 in 2 | 7 |
+| pt-eg | pt-pt | `/pt-eg/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 0 in 0 | 2 in 2 | 7 |
+| pt-es | pt-pt | `/pt-es/index` | own (lacks Cartões de Crédito, English Menu) (adds English Menu) | own (lacks Livro de Reclamações) | 6 in 5 | 2 in 2 | 4 |
+| pt-fi | pt-pt | `/pt-fi/index` | own (lacks Cartões de Crédito, English Menu) (adds English Menu) | own (lacks Livro de Reclamações) | 5 in 3 | 2 in 2 | 5 |
+| pt-fr | pt-pt | `/pt-fr/index` | own (lacks Cartões de Crédito, English Menu) (adds English Menu) | own (lacks Livro de Reclamações) | 9 in 7 | 1 in 1 | 4 |
+| pt-gb | pt-pt | `/pt-gb/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks Livro de Reclamações) | 6 in 5 | 0 | 6 |
+| pt-gh | pt-pt | `/pt-gh/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 1 in 1 | 1 in 1 | 7 |
+| pt-gm | pt-pt | `/pt-gm/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 0 in 0 | 2 in 2 | 7 |
+| pt-gn | pt-pt | `/pt-gn/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 0 in 0 | 2 in 2 | 7 |
+| pt-gr | pt-pt | `/pt-gr/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 0 in 0 | 2 in 2 | 7 |
+| pt-gw | pt-pt | `/pt-gw/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 0 in 0 | 2 in 2 | 7 |
+| pt-hk | pt-pt | `/pt-hk/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 0 in 0 | 2 in 2 | 7 |
+| pt-hr | pt-pt | `/pt-hr/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 0 in 0 | 2 in 2 | 6 |
+| pt-hu | pt-pt | `/pt-hu/index` | own (lacks Cartões de Crédito, English Menu) (adds English Menu) | own (lacks Livro de Reclamações) | 3 in 3 | 2 in 2 | 6 |
+| pt-ie | pt-pt | `/pt-ie/index` | own (lacks Cartões de Crédito, English Menu) (adds English Menu) | own (lacks Livro de Reclamações) | 6 in 5 | 2 in 2 | 4 |
+| pt-il | pt-pt | `/pt-il/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks Livro de Reclamações) | 2 in 2 | 1 in 1 | 7 |
+| pt-it | pt-pt | `/pt-it/index` | own (lacks Cartões de Crédito, English Menu) (adds English Menu) | own (lacks Livro de Reclamações) | 7 in 6 | 1 in 1 | 4 |
+| pt-lt | pt-pt | `/pt-lt/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 0 in 0 | 2 in 2 | 7 |
+| pt-lu | pt-pt | `/pt-lu/index` | own (lacks Cartões de Crédito, English Menu) (adds English Menu) | own (lacks Livro de Reclamações) | 6 in 5 | 2 in 2 | 4 |
+| pt-lv | pt-pt | `/pt-lv/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 0 in 0 | 2 in 2 | 7 |
+| pt-ma | pt-pt | `/pt-ma/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 1 in 1 | 2 in 2 | 7 |
+| pt-ml | pt-pt | `/pt-ml/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 0 in 0 | 2 in 2 | 7 |
+| pt-mx | pt-pt | `/pt-mx/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 2 in 2 | 2 in 2 | 7 |
+| pt-mz | pt-pt | `/pt-mz/index` | own (lacks Seguro de Viagem, Alojamento, Cartões de Crédito, English Menu) (adds Acomodação, English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 2 in 2 | 2 in 2 | 7 |
+| pt-nl | pt-pt | `/pt-nl/index` | own (lacks Cartões de Crédito, English Menu) (adds English Menu) | own (lacks Livro de Reclamações) | 7 in 6 | 2 in 2 | 4 |
+| pt-no | pt-pt | `/pt-no/index` | own (lacks Cartões de Crédito, English Menu) (adds English Menu) | own (lacks Livro de Reclamações) | 8 in 5 | 2 in 2 | 5 |
+| pt-pa | pt-pt | `/pt-pa/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 0 in 0 | 2 in 2 | 7 |
+| pt-pl | pt-pt | `/pt-pl/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks Livro de Reclamações) | 8 in 7 | 1 in 1 | 5 |
+| pt-ro | pt-pt | `/pt-ro/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks Livro de Reclamações) | 1 in 1 | 2 in 2 | 7 |
+| pt-rs | pt-pt | `/pt-rs/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 0 in 0 | 2 in 2 | 7 |
+| pt-ru | pt-pt | `/pt-ru/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks Livro de Reclamações) | 1 in 1 | 2 in 2 | 7 |
+| pt-se | pt-pt | `/pt-se/index` | own (lacks Cartões de Crédito, English Menu) (adds English Menu) | own (lacks Livro de Reclamações) | 8 in 5 | 2 in 2 | 5 |
+| pt-sk | pt-pt | `/pt-sk/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 0 in 0 | 2 in 2 | 7 |
+| pt-sn | pt-pt | `/pt-sn/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 1 in 1 | 2 in 2 | 7 |
+| pt-st | pt-pt | `/pt-st/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 0 in 0 | 2 in 2 | 7 |
+| pt-tg | pt-pt | `/pt-tg/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 1 in 1 | 2 in 2 | 7 |
+| pt-tn | pt-pt | `/pt-tn/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 0 in 0 | 2 in 2 | 7 |
+| pt-tr | pt-pt | `/pt-tr/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 1 in 1 | 2 in 2 | 7 |
+| pt-ua | pt-pt | `/pt-ua/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 0 in 0 | 2 in 2 | 7 |
+| pt-us | pt-pt | `/pt-us/index` | own (lacks Seguro de Viagem, Alojamento, English Menu) (adds Alojamento, English Menu) | own (lacks TAP Store, Livro de Reclamações) | 25 in 19 | 0 | 5 |
+| pt-uy | pt-pt | `/pt-uy/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 0 in 0 | 2 in 2 | 7 |
+| pt-ve | pt-pt | `/pt-ve/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, TAP Store, Livro de Reclamações) | 0 in 0 | 2 in 2 | 7 |
+| pt-za | pt-pt | `/pt-za/index` | own (lacks Seguro de Viagem, Cartões de Crédito, English Menu) (adds English Menu) | own (lacks TAP FORBIZ, Livro de Reclamações) | 1 in 1 | 2 in 2 | 7 |
+
+**pt-br's homepage** (brief 332): the booking box as on the seven (market BR, Default origin
+RIO from www's market list, pt-br's labels and texts from its `br` store, its own airport sheet
+`/pt-br/booking/airports.json`, 1,553 rows, written with `tap-airports.mjs` and on preview).
 
 Rollback: git revert; the documents stay unpublished in Document Authoring (the roots'
 folders are new: nothing was there before).
