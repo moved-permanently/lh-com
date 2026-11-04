@@ -68,7 +68,11 @@ export function messageLocale({
 } = {}) {
   if (!locale.siteLanguages) return locale;
   const authored = String(read('language') || '').trim().toLowerCase();
-  const own = locale.siteLanguages.find((l) => l.lang === authored)
+  // a site whose languages name a country (TAP): the path's root first (en-us, not the first
+  // English root en-pt); the others: the language metadata first, as before
+  const rooted = locale.siteLanguages.some((l) => l.country)
+    && languageOfPath(pathname, locale.siteLanguages);
+  const own = rooted || locale.siteLanguages.find((l) => l.lang === authored)
     || languageOfPath(pathname, locale.siteLanguages);
   return { ...locale, lang: own ? own.lang : locale.lang, country: (own && own.country) || '' };
 }
