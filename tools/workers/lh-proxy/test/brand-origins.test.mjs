@@ -1,8 +1,8 @@
 /* The brand sites' own preview and live hosts (lh-discover, lh-ita, lh-austrian, lh-brussels,
    lh-cargo, lh-airdolomiti, lh-b2b on aem.page / aem.live) ask lh-proxy for the slider's origin
    list (fareteaser/recommend) and got a CORS error (only lh-com and lh-flynet were allowed; the
-   site fell back to the recorded list). b2b.turnsthe.page waits until B2B's site is set up (it is
-   no brand host of scripts/demo.js yet: test/host-lists.test.mjs). Checked with the worker's
+   site fell back to the recorded list); since brief 349 SWISS's, b2b's and TAP's hosts and
+   previews too. Checked with the worker's
    defaults and with the values wrangler.toml deploys (both copies must agree).
    Run: npm test (every test file; test/ alone ran only index.test.mjs) */
 import { test } from 'node:test';
@@ -60,5 +60,19 @@ Object.entries(ENVS).forEach(([name, env]) => {
     assert.ok(await allowed(env, 'https://swiss-cn.turnsthe.page'));
     assert.ok(await allowed(env, 'https://austrian-cn.turnsthe.page'), 'austrian-cn as before');
     assert.ok(!(await allowed(env, 'https://swiss-cn.turnsthe.page.example.com')));
+  });
+});
+
+// brief 349: SWISS's, b2b's and TAP's hosts and their sites' previews (lh-swiss, lh-tap) asked for
+// the slider's origin list and logged a CORS error; www still refuses the proxy (its 502 stays,
+// the slider its recorded list), the answer now carries the origin
+Object.entries(ENVS).forEach(([name, env]) => {
+  test(`${name}: swiss, b2b and tap.turnsthe.page and the lh-swiss and lh-tap previews, allowed`, async () => {
+    const origins = ['https://swiss.turnsthe.page', 'https://b2b.turnsthe.page', 'https://tap.turnsthe.page',
+      'https://main--lh-swiss--moved-permanently.aem.page', 'https://main--lh-tap--moved-permanently.aem.live'];
+    const results = await Promise.all(origins.map((o) => allowed(env, o)));
+    origins.forEach((o, i) => assert.ok(results[i], `${o} allowed`));
+    assert.ok(!(await allowed(env, 'https://tap.turnsthe.page.example.com')));
+    assert.ok(!(await allowed(env, 'https://main--lh-tapx--moved-permanently.aem.page')));
   });
 });
