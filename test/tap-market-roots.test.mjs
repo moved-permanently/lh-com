@@ -1,6 +1,7 @@
 /* eslint-disable max-len, import/no-extraneous-dependencies, import/extensions -- dev tooling; js-yaml is a dev dependency */
 /* TAP's market roots on the site (brief 328): scripts/tap-markets.js (generated from www's market
-   settings and the list of 137 roots, tools/markets/tap-market-table.mjs), the switch
+   settings and ema-lufthansa's tools/reports/tap/markets.json: its 137 roots, their own pages and
+   the paths each lacks or has no document for; tools/markets/tap-market-table.mjs), the switch
    TAP_LIVE_MARKETS (none on), the roots in SITE_LANGUAGES.tap (their pages resolve; the country
    selector lists one only when it is on; pt-br, the eighth language version, likewise), a market
    root's locale (its language, country, hreflang <ll>-<CC>, base, currency and home airport; the
@@ -32,13 +33,18 @@ const pick = (l) => ({
 });
 const LANGUAGE_ROOTS = ['/pt-pt/', '/en-pt/', '/es-es/', '/fr-fr/', '/de-de/', '/it-it/', '/pl-pl/'];
 
-test('the table: 137 roots from the list with www\'s currency and airport; generated, up to date; the switch off', () => {
-  const list = JSON.parse(fs.readFileSync('tools/markets/tap/market-pages.json', 'utf8'));
+test('the table: markets.json\'s 137 roots with www\'s currency and airport, own pages, lacks; generated, up to date; the switch off', () => {
+  const list = JSON.parse(fs.readFileSync('tools/reports/tap/markets.json', 'utf8'));
   const www = JSON.parse(fs.readFileSync('tools/markets/tap/www-markets.json', 'utf8'));
   assert.equal(Object.keys(TAP_MARKETS).length, 137);
-  assert.deepEqual(Object.keys(TAP_MARKETS).sort(), Object.keys(list).sort());
-  assert.deepEqual(TAP_MARKETS['de-ch'], ['de', 'ch', 'de-de', 'CHF', 'GVA', 'Deutsch (Schweiz)']);
-  assert.deepEqual(TAP_MARKETS['fr-ca'], ['fr', 'ca', 'fr-fr', 'CAD', 'YYZ', 'Français (Canada)', ['/mentions-legales/droits-passagers-canada', '/mentions-legales/plan-accessibilite-canada']]);
+  assert.deepEqual(Object.keys(TAP_MARKETS).sort(), Object.keys(list.roots).sort());
+  assert.deepEqual(TAP_MARKETS['de-ch'], ['de', 'ch', 'de-de', 'CHF', 'GVA', 'Deutsch (Schweiz)', [], ['/buchungen/gift-card', '/rechtliche-informationen/schlichtungsstelle']]);
+  assert.deepEqual(TAP_MARKETS['fr-ca'], ['fr', 'ca', 'fr-fr', 'CAD', 'YYZ', 'Français (Canada)',
+    ['/mentions-legales/droits-passagers-canada', '/mentions-legales/plan-accessibilite-canada', '/miles-and-go/gagnez-miles/cartes-de-credit'],
+    ['/mentions-legales/droits-des-passagers-france', '/reservations/assurances', '/reservations/gift-card']]);
+  // lacks and the paths without a document (en-ch's legal notices) both answer 404
+  assert.ok(TAP_MARKETS['en-ch'][7].includes('/legal-info/legal-notices'));
+  assert.deepEqual(TAP_MARKETS['de-at'].slice(6), [[], []]);
   assert.deepEqual(TAP_MARKETS['en-us'].slice(0, 5), ['en', 'us', 'en-pt', 'USD', 'NYC']);
   assert.deepEqual(TAP_MARKETS['en-br'].slice(0, 5), ['en', 'br', 'en-pt', 'BRL', 'RIO'], 'en-br from en-pt; pt-br is a language version');
   assert.equal(TAP_MARKETS['pt-br'], undefined);

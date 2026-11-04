@@ -16,7 +16,7 @@
  * pages resolve; the switch lists one once TAP_LIVE_MARKETS has it (tapLanguages).
  * Its only import is that table (no imports there): scripts/locale.js (which lh-edge bundles)
  * reads it. Tests: test/locale-brand-site.test.mjs, test/language-switch.test.mjs,
- * test/tap-markets.test.mjs.
+ * test/tap-market-roots.test.mjs.
  */
 import { TAP_MARKETS, TAP_LIVE_MARKETS } from './tap-markets.js';
 

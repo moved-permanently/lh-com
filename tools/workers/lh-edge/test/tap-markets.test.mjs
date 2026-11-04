@@ -5,10 +5,12 @@
    language version's (/<version>/<path>) when the page's `markets` allow the country, its sections
    by `markets`, links into the language version the root's (where its index lets the root have the
    page), www's links www's root, canonical and og:url the root's, hreflang per root (the language
-   version, the roots that are on, the other languages' counterparts from alternate-<ll>); a
-   language version's redirect into the root; media and files as they are; a page www doesn't
-   have on the root: 404. /<root>/sitemap.xml from its language version's index (helix-query.yaml
-   tap-pages-<version>) and its own pages. A root that is off, a language root and every other
+   version, the roots that are on, the other languages' counterparts from alternate-<ll>;
+   none on a homepage, as www), the alternate-<ll> rows the same market's root in that language
+   where it is on, www's links (en-pt and en_pt) www's root; a language version's redirect into the
+   root; media and files as they are; a page www doesn't have on the root (markets.json lacks,
+   noDocument; markets): 404. /<root>/sitemap.xml from its language version's index
+   (helix-query.yaml tap-pages-<version>) without those, with its own pages. A root that is off, a language root and every other
    path: as before (the origin's answer, as it is). The switch is TAP_LIVE_MARKETS (none on).
    Run: node --import ./test/cloudflare-workers-shim.mjs --test test/tap-markets.test.mjs */
 import { test, beforeEach } from 'node:test';
@@ -37,8 +39,8 @@ const env = () => ({
 });
 const html = (head, main) => `<!DOCTYPE html><html><head>${head}</head><body><header></header><main>${main}</main><footer></footer></body></html>`;
 const PAGE = html(
-  '<link rel="canonical" href="https://tap.turnsthe.page/de-de/an-bord"><meta property="og:url" content="https://tap.turnsthe.page/de-de/an-bord"><meta name="alternate-en" content="/en-pt/on-board"><meta name="alternate-fr" content="/fr-fr/a-bord"><meta name="nav" content="/de-de/nav"><meta name="footer" content="/de-de/footer"><meta name="language" content="de">',
-  '<div><p><a href="/de-de/buchungen">Buchungen</a> <a href="/de-de/nur-deutschland">Nur DE</a> <a href="https://www.flytap.com/de-de/check-in">www</a> <a href="https://main--lh-tap--moved-permanently.aem.live/de-de/hilfe">Hilfe</a></p><img src="https://main--lh-tap--moved-permanently.aem.live/de-de/media_1111111111111111111111111111111111111111.jpg"></div>'
+  '<link rel="canonical" href="https://tap.turnsthe.page/de-de/an-bord"><meta property="og:url" content="https://tap.turnsthe.page/de-de/an-bord"><meta name="alternate-en" content="/en-pt/on-board"><meta name="alternate-fr" content="/fr-fr/a-bord"><meta name="alternate-pt" content="/pt-pt/a-bordo"><meta name="nav" content="/de-de/nav"><meta name="footer" content="/de-de/footer"><meta name="language" content="de">',
+  '<div><p><a href="/de-de/buchungen">Buchungen</a> <a href="/de-de/nur-deutschland">Nur DE</a> <a href="https://www.flytap.com/de-de/check-in">www</a> <a href="https://www.flytap.com/de_de/gepaeck">www_</a> <a href="/de-de#check-in">Check-in</a> <a href="https://main--lh-tap--moved-permanently.aem.live/de-de/hilfe">Hilfe</a></p><img src="https://main--lh-tap--moved-permanently.aem.live/de-de/media_1111111111111111111111111111111111111111.jpg"></div>'
   + '<div data-markets="-ch"><p>Nicht in der Schweiz</p></div><div data-markets="ch, at"><p>Schweiz und Österreich</p></div>',
 );
 const OWN_HOME = html('<link rel="canonical" href="https://tap.turnsthe.page/de-ch/"><meta property="og:url" content="https://tap.turnsthe.page/de-ch/"><meta name="nav" content="/de-ch/nav"><meta name="footer" content="/de-de/footer"><meta name="alternate-fr" content="/fr-fr">', '<div><h1>TAP Schweiz</h1><a href="/de-de/an-bord">An Bord</a></div>');
@@ -51,6 +53,8 @@ const DOCS = {
   '/de-ch/nav.plain.html': '<div><a href="/de-ch">TAP</a></div>',
   '/de-de/an-bord': PAGE,
   '/de-de/an-bord.plain.html': '<div><a href="/de-de/buchungen">Buchungen</a></div><div data-markets="-ch"><p>Nicht CH</p></div>',
+  '/de-de/buchungen/gift-card': html('<link rel="canonical" href="https://tap.turnsthe.page/de-de/buchungen/gift-card">', '<div>Gift</div>'),
+  '/fr-fr/mentions-legales/droits-des-passagers-france': html('', '<div>France</div>'),
   '/de-de/buchungen': html('<link rel="canonical" href="https://tap.turnsthe.page/de-de/buchungen">', '<div>Buchungen</div>'),
   '/de-de/nur-deutschland': html('<link rel="canonical" href="https://tap.turnsthe.page/de-de/nur-deutschland"><meta name="markets" content="de">', '<div>Nur DE</div>'),
   '/de-de/footer.plain.html': '<div><a href="/de-de/hilfe">Hilfe</a></div>',
@@ -64,9 +68,10 @@ const INDEXES = {
     { path: '/de-de/an-bord', markets: '', lastModified: '1793700000' },
     { path: '/de-de/buchungen', markets: '', lastModified: '1793600000' },
     { path: '/de-de/nur-deutschland', markets: 'de', lastModified: '1793600000' },
+    { path: '/de-de/buchungen/gift-card', markets: '', lastModified: '1793600000' },
   ],
   '/en-pt/pages-index.json': [{ path: '/en-pt/on-board', markets: '', lastModified: '1793700000' }],
-  '/fr-fr/pages-index.json': [{ path: '/fr-fr/a-bord', markets: '-ch', lastModified: '1793700000' }, { path: '/fr-fr/mentions-legales', markets: '', lastModified: '1793700000' }],
+  '/fr-fr/pages-index.json': [{ path: '/fr-fr/a-bord', markets: '-ch', lastModified: '1793700000' }, { path: '/fr-fr/mentions-legales', markets: '', lastModified: '1793700000' }, { path: '/fr-fr/mentions-legales/droits-des-passagers-france', markets: '', lastModified: '1793700000' }],
 };
 let calls;
 beforeEach(() => {
@@ -118,6 +123,7 @@ test('the homepage: the root\'s own document (/de-ch/), canonical /de-ch, its li
     assert.match(text, /<link rel="canonical" href="https:\/\/tap\.turnsthe\.page\/de-ch">/);
     assert.match(text, /<meta property="og:url" content="https:\/\/tap\.turnsthe\.page\/de-ch">/);
     assert.deepEqual(links(text), ['/de-ch/an-bord']);
+    assert.deepEqual(alts(text), [], 'no hreflang on a homepage (www lists none there)');
     assert.equal(resp.headers.get('x-lh-edge-route'), 'tap-market');
   }
 });
@@ -128,7 +134,11 @@ test('a page from the language version: sections by markets, links the root\'s w
   const text = await resp.text();
   assert.doesNotMatch(text, /Nicht in der Schweiz/);
   assert.match(text, /Schweiz und Österreich/);
-  assert.deepEqual(links(text), ['/de-ch/buchungen', '/de-de/nur-deutschland', 'https://www.flytap.com/de-ch/check-in', '/de-ch/hilfe']);
+  assert.deepEqual(links(text), ['/de-ch/buchungen', '/de-de/nur-deutschland', 'https://www.flytap.com/de-ch/check-in', 'https://www.flytap.com/de_ch/gepaeck', '/de-ch#check-in', '/de-ch/hilfe']);
+  // the Alternate rows: the same market's root in that language where it is on (en-ch), else as they are
+  assert.match(text, /<meta name="alternate-en" content="\/en-ch\/on-board">/);
+  assert.match(text, /<meta name="alternate-fr" content="\/fr-fr\/a-bord">/);
+  assert.match(text, /<meta name="alternate-pt" content="\/pt-pt\/a-bordo">/);
   assert.match(text, /<img src="\/de-de\/media_1{40}\.jpg">/);
   assert.match(text, /<link rel="canonical" href="https:\/\/tap\.turnsthe\.page\/de-ch\/an-bord">/);
   assert.match(text, /<meta property="og:url" content="https:\/\/tap\.turnsthe\.page\/de-ch\/an-bord">/);
@@ -140,12 +150,16 @@ test('a page from the language version: sections by markets, links the root\'s w
     'de-DE /de-de/an-bord', 'de-AT /de-at/an-bord', 'de-CH /de-ch/an-bord',
     'en-PT /en-pt/on-board', 'en-CH /en-ch/on-board',
     'fr-FR /fr-fr/a-bord', 'fr-CA /fr-ca/a-bord',
+    'pt-PT /pt-pt/a-bordo',
   ]);
   assert.deepEqual(calls.filter((c) => !c.endsWith('pages-index.json')), ['/de-ch/an-bord', '/de-de/an-bord']);
 });
 
 test('a page the language version leaves the country out of (page markets): 404; nav from the root, footer from the language version (.plain.html)', async () => {
   assert.equal((await ask('/de-ch/nur-deutschland')).status, 404);
+  // a page www doesn't have on the root (markets.json lacks): 404 though the language version has it
+  assert.equal((await ask('/de-ch/buchungen/gift-card')).status, 404);
+  assert.equal((await ask('/fr-ca/mentions-legales/droits-des-passagers-france')).status, 404);
   assert.equal((await ask('/de-ch/gibt-es-nicht')).status, 404);
   const nav = await ask('/de-ch/nav.plain.html');
   assert.equal(await nav.text(), '<div><a href="/de-ch">TAP</a></div>');
@@ -188,12 +202,13 @@ test('/<root>/sitemap.xml: the language version\'s pages the country has, the ro
   assert.deepEqual([...ca.matchAll(/<loc>([^<]*)<\/loc>/g)].map((m) => m[1]), [
     'https://tap.turnsthe.page/fr-ca', 'https://tap.turnsthe.page/fr-ca/a-bord', 'https://tap.turnsthe.page/fr-ca/mentions-legales',
     'https://tap.turnsthe.page/fr-ca/mentions-legales/droits-passagers-canada', 'https://tap.turnsthe.page/fr-ca/mentions-legales/plan-accessibilite-canada',
-  ]);
+    'https://tap.turnsthe.page/fr-ca/miles-and-go/gagnez-miles/cartes-de-credit',
+  ], 'its lacks left out, its own pages in');
   assert.equal(await ask('/pt-ao/sitemap.xml'), null);
   assert.equal(typeof tapSitemapXml, 'function');
 });
 
-test('the index of a language version: /<version>/pages-index.json (helix-query.yaml tap-pages-<version>, checked in test/tap-markets.test.mjs)', () => {
+test('the index of a language version: /<version>/pages-index.json (helix-query.yaml tap-pages-<version>, checked in the site\'s test/tap-market-roots.test.mjs)', () => {
   assert.equal(TAP_INDEX('de-de'), '/de-de/pages-index.json');
   assert.equal(Object.keys(TAP_MARKETS).length, 137);
 });
