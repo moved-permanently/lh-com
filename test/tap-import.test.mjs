@@ -14,6 +14,7 @@ import { fileURLToPath } from 'node:url';
 import { parseHTML } from 'linkedom';
 import {
   altOf, slugOf, docPath, richText, linkOf, anchorsOf, convertPage, mediaIndex, mediaResolver,
+  deliveryMediaDirs,
 } from '../tools/importer/tap-import.mjs';
 
 const dir = path.join(path.dirname(fileURLToPath(import.meta.url)), 'fixtures/tap');
@@ -283,6 +284,37 @@ describe('tap-import aem.flytap.com pictures', () => {
     const html = richText([{ nodeType: 'paragraph', content: [{ nodeType: 'reference', data: { path: '/content/dam/tap/x/AdegaMãe Exterior.png', mimetype: 'image/png' } }] }], { ...ctx(), media, missing });
     assert.match(html, /<img src="\/media-da\/tap\/[^"]+\.png"/);
     assert.equal(missing.size, 0);
+  });
+});
+
+describe('tap-import media archives from the deliveries index', () => {
+  it('every tap-media archive the index lists, in its order; the ones not unpacked named', () => {
+    const top = fs.mkdtempSync(path.join(os.tmpdir(), 'tap-arch-'));
+    ['tap-media-001', 'tap-media-014', 'tap-media-019'].forEach((n) => fs.mkdirSync(path.join(top, n, 'x'), { recursive: true }));
+    const index = path.join(top, 'tap-deliveries.json');
+    fs.writeFileSync(index, JSON.stringify([
+      { file: 'tap-snapshots-001.tar.gz', kind: 'pages' },
+      { file: 'tap-media-001.tar.gz', kind: 'media' },
+      { file: 'tap-media-014.tar.gz', kind: 'media', segment: 'aem-dam' },
+      { file: 'tap-sitemaps-001.tar.gz', kind: 'media', segment: 'market-sitemaps' },
+      { file: 'tap-media-018.tar.gz', kind: 'media', segment: 'market-images' },
+      { file: 'tap-media-019.tar.gz', kind: 'media', segment: 'missing-pictures' },
+    ]));
+    const { dirs, missing } = deliveryMediaDirs(index, top);
+    assert.deepEqual(dirs, ['tap-media-001', 'tap-media-014', 'tap-media-019'].map((n) => path.join(top, n, 'x')));
+    assert.deepEqual(missing, ['tap-media-018']);
+  });
+
+  it('a picture by the URL the missing list named it (listedAs)', () => {
+    const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'tap-listed-'));
+    const rel = 'pic.flytap.com/a/boarding.jpg';
+    fs.mkdirSync(path.join(tmp, path.dirname(rel)), { recursive: true });
+    fs.writeFileSync(path.join(tmp, rel), 'x');
+    fs.writeFileSync(path.join(tmp, 'manifest.json'), JSON.stringify([{
+      path: rel, url: 'https://pic.flytap.com/a/boarding.jpg?preferwebp=true&width=2560', listedAs: 'https://pic.flytap.com/a/boarding.jpg?preferwebp=true', contentType: 'image/jpeg',
+    }]));
+    const media = mediaResolver(mediaIndex([tmp]), { out: fs.mkdtempSync(path.join(os.tmpdir(), 'tap-out-')) });
+    assert.match(media('https://pic.flytap.com/a/boarding.jpg?preferwebp=true').eds, /^\/media-da\/tap\/boarding-/);
   });
 });
 

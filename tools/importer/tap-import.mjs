@@ -55,6 +55,7 @@
  * documents) and the allowlist tools/importer/sites/lh-tap.json.
  *
  * Usage: node tools/importer/tap-import.mjs --archive <unpacked pages archive> [--archive ...]
+ *          [--deliveries <tap-deliveries.json> [--archives-root /tmp/lh-arch]]
  *          [--media <unpacked media archive> ...] [--name batch-1] [--only <path,...>]
  *          [--source-images] [--dry-run]
  *        (archives in the index's order: a later one replaces pages of an earlier one)
@@ -862,6 +863,18 @@ export function plainKey(u) {
   } catch (err) { return null; }
 }
 
+/**
+ * The media archives the capture's deliveries index (tap-deliveries.json) lists, in its order (a
+ * later one's file wins): every tap-media-NNN, unpacked as <top>/<name>/x; missing, the ones not
+ * unpacked there (the sitemap archives are no pictures).
+ */
+export function deliveryMediaDirs(indexFile, top = '/tmp/lh-arch') {
+  const names = readJson(indexFile, []).filter((e) => e.kind === 'media' && /^tap-media-\d+\.tar\.gz$/.test(e.file || ''))
+    .map((e) => e.file.replace(/\.tar\.gz$/, ''));
+  const dirs = names.map((n) => path.join(top, n, 'x'));
+  return { dirs: dirs.filter((d) => fs.existsSync(d)), missing: names.filter((n, i) => !fs.existsSync(dirs[i])) };
+}
+
 /** The media archives' files by every URL (and URL path) they were seen under. */
 export function mediaIndex(dirs) {
   const idx = new Map();
@@ -873,7 +886,8 @@ export function mediaIndex(dirs) {
       const file = rel ? path.join(dir, rel) : path.join(dir, new URL(e.url).host, new URL(e.url).pathname);
       if (!path.resolve(file).startsWith(path.resolve(dir) + path.sep)) return;
       const entry = { ...e, local: file };
-      [e.url, ...(e.urlsSeen || e.urls || [])].filter(Boolean).forEach((u) => {
+      // listedAs: the URL a list of missing pictures named it (missing-pictures.txt)
+      [e.url, ...(e.urlsSeen || e.urls || []), e.listedAs].filter(Boolean).forEach((u) => {
         idx.set(u, entry);
         try { const x = new URL(u); idx.set(x.pathname, entry); idx.set(`${x.origin}${x.pathname}`, entry); } catch (err) { /* a path */ idx.set(u.split('?')[0], entry); }
         const k = plainKey(u);
@@ -925,7 +939,7 @@ async function main() {
   const all = (n) => argv.flatMap((a, i) => (a === `--${n}` ? [path.resolve(argv[i + 1])] : []));
   const opt = (n) => (argv.includes(`--${n}`) ? argv[argv.indexOf(`--${n}`) + 1] : null);
   const archives = all('archive');
-  if (!archives.length) { console.log('usage: --archive <unpacked pages archive> [--archive ...] [--media <dir> ...] [--name batch-1] [--dry-run]'); process.exit(1); }
+  if (!archives.length) { console.log('usage: --archive <unpacked pages archive> [--archive ...] [--deliveries <index>] [--media <dir> ...] [--name batch-1] [--dry-run]'); process.exit(1); }
   const name = opt('name') || 'batch';
   // --only <path,...>: write only these documents (the others are read for links and anchors)
   const only = opt('only') ? new Set(opt('only').split(',')) : null;
@@ -954,7 +968,11 @@ async function main() {
   // language links and names its counterparts in the others without importing them again
   const scope = new Set([...nds.keys(), ...readJson(path.join(root, 'tools/importer/sites/lh-tap.json'), { paths: [] }).paths]);
   const anchors = new Map([...nds].map(([doc, p]) => [doc, anchorsOf(p.nd)]));
-  const idx = mediaIndex(all('media'));
+  // --deliveries <tap-deliveries.json>: every media archive it lists (unpacked under
+  // --archives-root, default /tmp/lh-arch), before the --media ones
+  const fromIndex = opt('deliveries') ? deliveryMediaDirs(path.resolve(opt('deliveries')), opt('archives-root') || undefined) : { dirs: [], missing: [] };
+  if (fromIndex.missing.length) console.log(`media archives of the index not unpacked: ${fromIndex.missing.join(', ')}`);
+  const idx = mediaIndex([...fromIndex.dirs, ...all('media')]);
   const media = mediaResolver(idx, { dry });
   const written = [];
   const write = (doc, html) => {
