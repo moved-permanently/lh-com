@@ -19,7 +19,7 @@ window.hlx = { codeBasePath: '' };
 globalThis.window = window;
 globalThis.document = document;
 
-const { readTapMenu, buildTapMenu } = await import('../blocks/header/header-tap.js');
+const { readTapMenu, buildTapMenu, readTapFlag } = await import('../blocks/header/header-tap.js');
 
 // a TAP nav document's menu section, as tools/importer/tap-nav.mjs writes it (en-pt, trimmed)
 const SECTION = `<div><ul>
@@ -196,6 +196,81 @@ test('phones: the card ends with the market row ("PT, English"), opening the bar
   assert.equal(button.getAttribute('aria-expanded'), 'true');
   assert.deepEqual([...row.querySelectorAll('.tap-menu-market-list a')].map((a) => [a.textContent, a.getAttribute('href')]), [['Português', '/pt-pt/informacoes/bagagem']]);
   langs.remove();
+});
+
+test('the market button as www\'s: the nav\'s flag and the root\'s language ("DE" on de-ch), not the globe and "CH"', async () => {
+  window.location = { pathname: '/de-ch/informationen' };
+  document.documentElement.lang = 'de';
+  const html = SECTION.replace('</ul></div>', '<li><p><img src="/media-da/tap/flag-ch-1a2b3c4d.svg" alt="Schweiz"></p></li>\n</ul></div>');
+  assert.deepEqual(readTapMenu(section(html)).map((i) => i.label), ['Plan a trip', 'My flights', 'Check-in', 'Help'], 'the flag row is no menu item');
+  assert.deepEqual(readTapFlag(section(html)), { src: '/media-da/tap/flag-ch-1a2b3c4d.svg', alt: 'Schweiz' });
+  // the bar as header.js builds it: the menu, then the tools with the market button
+  const bar = document.createElement('div');
+  bar.className = 'nav-bar';
+  const menuButton = document.createElement('button');
+  const { root } = buildTapMenu(section(html), { link, menuButton });
+  const tools = document.createElement('div');
+  tools.innerHTML = '<div class="nav-languages"><button class="nav-tool nav-languages-button"><svg class="lh-icon"></svg><span class="nav-languages-label">Land und Sprache; aktuell:</span><span class="nav-languages-current">CH</span></button><ul class="nav-languages-list" hidden><li><a class="nav-languages-link" href="/en-ch">English</a></li></ul></div>';
+  bar.append(root, tools);
+  document.querySelector('header').replaceChildren(menuButton, bar);
+  await new Promise((r) => { setTimeout(r, 0); });
+  const button = tools.querySelector('.nav-languages-button');
+  assert.ok(button.classList.contains('tap-market'));
+  assert.equal(button.querySelector('.tap-flag img').getAttribute('src'), '/media-da/tap/flag-ch-1a2b3c4d.svg');
+  assert.equal(button.querySelector('svg.lh-icon'), null, 'no globe');
+  assert.equal(button.querySelector('.nav-languages-current').textContent, 'DE');
+  // the phone card's market row: the flag too
+  click(menuButton);
+  const row = root.querySelector('.tap-menu-market-button');
+  assert.equal(row.querySelector('.tap-flag img').getAttribute('src'), '/media-da/tap/flag-ch-1a2b3c4d.svg');
+  assert.equal(row.textContent.trim(), 'CH, Deutsch');
+  document.documentElement.lang = 'en';
+});
+
+test('inner pages: www\'s quick-action tab under the bar (parity 39), the homepage box\'s four tabs in the page\'s language; none on a homepage', async () => {
+  const wrap = (pathname, lang) => {
+    window.location = { pathname };
+    document.documentElement.lang = lang;
+    const wrapper = document.createElement('div');
+    wrapper.className = 'nav-wrapper nav-tap';
+    const nav = document.createElement('nav');
+    const bar = document.createElement('div');
+    bar.className = 'nav-bar';
+    const menuButton = document.createElement('button');
+    const { root } = buildTapMenu(section(), { link, menuButton });
+    bar.append(root);
+    nav.append(bar);
+    wrapper.append(nav);
+    const header = document.createElement('header');
+    header.append(wrapper);
+    document.body.replaceChildren(header);
+    return { wrapper, header };
+  };
+  let { wrapper, header } = wrap('/pt-pt/informacoes/bagagem', 'pt');
+  await new Promise((r) => { setTimeout(r, 0); });
+  const tab = wrapper.querySelector('.tap-quick');
+  assert.ok(tab, 'the tab');
+  assert.ok(header.classList.contains('tap-has-quick'), 'the header keeps room for it');
+  assert.deepEqual([...tab.querySelectorAll('a')].map((a) => [a.textContent.trim(), a.getAttribute('href')]), [
+    ['Reservar voo', '/pt-pt#book-flight'], ['Fazer Check-in', '/pt-pt#check-in'], ['Gerir reserva', '/pt-pt#my-travels'], ['Estado do voo', '/pt-pt#flight-status'],
+  ]);
+  assert.ok([...tab.querySelectorAll('a')].every((a) => a.querySelector('svg')), 'each with its icon');
+  // a market root's inner page: its own root and language
+  ({ wrapper } = wrap('/en-us/information/baggage', 'en'));
+  await new Promise((r) => { setTimeout(r, 0); });
+  assert.deepEqual([...wrapper.querySelectorAll('.tap-quick a')].map((a) => a.getAttribute('href'))[0], '/en-us#book-flight');
+  assert.equal(wrapper.querySelector('.tap-quick a').textContent.trim(), 'Book flight');
+  // pt-br's own words
+  ({ wrapper } = wrap('/pt-br/informacoes/bagagem', 'pt'));
+  await new Promise((r) => { setTimeout(r, 0); });
+  assert.equal([...wrapper.querySelectorAll('.tap-quick a')][2].textContent.trim(), 'Gerenciar reserva');
+  // a homepage: none (the stage holds the booking box)
+  ({ wrapper, header } = wrap('/pt-pt', 'pt'));
+  await new Promise((r) => { setTimeout(r, 0); });
+  assert.equal(wrapper.querySelector('.tap-quick'), null);
+  assert.ok(!header.classList.contains('tap-has-quick'));
+  document.body.replaceChildren(document.createElement('header'));
+  document.documentElement.lang = 'en';
 });
 
 test('the market row stays hidden where the bar has no language list', () => {

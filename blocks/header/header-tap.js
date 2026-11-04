@@ -87,6 +87,12 @@ export function tapRoot(pathname, base) {
   return m ? m[0] : base;
 }
 
+/** Whether the page is a root's homepage (/pt-pt). */
+export function isTapHome(pathname, base) {
+  const root = tapRoot(pathname, base);
+  return Boolean(root) && pathname.replace(/\/+$/, '') === root;
+}
+
 /* ------------------------------------------------------------------ the menu --------- */
 
 // www's chevron before a column's heading, its banner card's corner and arc (TAP green #65C922)
@@ -146,6 +152,52 @@ export function readTapMenu(section) {
       label: text(own), link: hrefOf(own), cols, banner,
     };
   }).filter((item) => item.label);
+}
+
+/**
+ * The market's flag the nav document carries (tap-nav.mjs: the menu's last row, a picture only).
+ * @param {Element} section the nav document's menu section
+ * @returns {{src: string, alt: string}|null}
+ */
+export function readTapFlag(section) {
+  const list = section && section.querySelector('ul');
+  const row = children(list, 'LI').find((li) => !li.querySelector(':scope > ul') && li.querySelector(':scope > p > img, :scope > img') && !text(li));
+  const img = row && row.querySelector('img');
+  return img ? { src: img.getAttribute('src'), alt: img.getAttribute('alt') || '' } : null;
+}
+
+/**
+ * www's quick-action tab on inner pages: the booking box's four tabs (www's texts per language,
+ * tools/reports/tap/booking-labels.json; pt-br its own), each a link to the root homepage's box.
+ */
+export const TAP_QUICK_TABS = {
+  pt: ['Reservar voo', 'Fazer Check-in', 'Gerir reserva', 'Estado do voo'],
+  br: ['Reservar voo', 'Check-in', 'Gerenciar reserva', 'Status do voo'],
+  en: ['Book flight', 'Check-in', 'Manage booking', 'Flight status'],
+  es: ['Reservar vuelo', 'Check-in', 'Gestionar reserva', 'Estado del vuelo'],
+  fr: ['Réserver un vol', 'Enregistrement', 'Gérer la réservation', 'Statut du vol'],
+  de: ['Flug buchen', 'Check-in', 'Buchung verwalten', 'Flugstatus'],
+  it: ['Prenoti il volo', 'Il Check-in', 'Gestire la prenotazione', 'Stato del volo'],
+  pl: ['Zarezerwuj lot', 'Odprawa', 'Zarządzaj rezerwacją', 'Status lotu'],
+};
+// the tabs' anchors on the homepage's box (booking-box.js) and www's icons (outline, 20 px)
+const QUICK = [
+  ['book-flight', '<path d="M2.5 19h19v2h-19zm19.57-9.36c-.21-.8-1.04-1.28-1.84-1.06L14.92 10l-6.9-6.43-1.93.51 4.14 7.17-4.97 1.33-1.97-1.54-1.45.39 2.59 4.49 16.57-4.43c.81-.23 1.28-1.05 1.07-1.85z"/>'],
+  ['check-in', '<path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm-1.5-5.59-3.3-3.3-1.4 1.42 4.7 4.7 7.7-7.7-1.4-1.42z"/>'],
+  ['my-travels', '<path d="M22 10V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v4a2 2 0 0 1 0 4v4a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-4a2 2 0 0 1 0-4zm-2-1.46a4 4 0 0 0 0 6.92V18H4v-2.54a4 4 0 0 0 0-6.92V6h16zM11 15h2v2h-2zm0-4h2v2h-2zm0-4h2v2h-2z"/>'],
+  ['flight-status', '<path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>'],
+];
+
+const pathOf = () => (window.location && window.location.pathname) || '';
+
+/** The quick-action tab of a page (its root's homepage box, its language); null on a homepage. */
+export function tapQuickTabs(pathname) {
+  const r = tapRoot(pathname, '');
+  if (!r || isTapHome(pathname, r)) return null;
+  const texts = TAP_QUICK_TABS[r === '/pt-br' ? 'br' : r.slice(1, 3)] || TAP_QUICK_TABS.en;
+  return QUICK.map(([tab, icon], i) => ({
+    tab, icon, label: texts[i], href: `${r}#${tab}`,
+  }));
 }
 
 let menus = 0;
@@ -269,6 +321,40 @@ export function buildTapMenu(section, { link, menuButton, quickLinks = [] }) {
     button.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !panel.hidden) close(entry, true); });
     root.append(node('li', { className: 'nav-bar-menu-item' }, button, panel));
   });
+  // the market button as www's: the market's flag (the nav document's) and the page's language
+  // ("DE" on de-ch) in place of the globe and the country; the bar is built right after the menu
+  const flag = readTapFlag(section);
+  const flagEl = () => node('span', { className: 'tap-flag' }, node('img', {
+    src: flag.src, alt: '', width: 20, height: 20,
+  }));
+  Promise.resolve().then(() => {
+    const bar = root.closest('.nav-bar') || document;
+    const button = bar.querySelector('.nav-languages-button');
+    if (!button || button.classList.contains('tap-market')) return;
+    button.classList.add('tap-market');
+    if (flag) {
+      const icon = button.querySelector(':scope > svg, :scope > .lh-icon, :scope > .icon');
+      if (icon) icon.replaceWith(flagEl());
+      else button.prepend(flagEl());
+    }
+    const current = button.querySelector('.nav-languages-current');
+    const r = tapRoot(pathOf(), '');
+    const lang = (r ? r.slice(1, 3) : (document.documentElement.lang || '').slice(0, 2)).toUpperCase();
+    if (current && lang) current.textContent = lang;
+  });
+  // inner pages: www's quick-action tab under the bar (header-tap.css keeps the room for it)
+  Promise.resolve().then(() => {
+    const tabs = tapQuickTabs(pathOf());
+    const wrapper = root.closest('.nav-wrapper');
+    if (!tabs || !wrapper || wrapper.querySelector('.tap-quick')) return;
+    wrapper.append(node('nav', { className: 'tap-quick', 'aria-label': tabs.map((t) => t.label).join(', ') }, node('ul', {}, tabs.map((t) => node(
+      'li',
+      {},
+      node('a', { href: t.href, className: 'tap-quick-link' }, node('span', { className: 'tap-quick-icon', html: `<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">${t.icon}</svg>` }), node('span', { className: 'tap-quick-label' }, t.label)),
+    )))));
+    const header = wrapper.closest('header');
+    if (header) header.classList.add('tap-has-quick');
+  });
   // phones: the card's last row, www's market ("PT, English"): the bar's language list (its links
   // as the header has set them when the row opens: the page's counterparts)
   const texts = TAP_HEADER_TEXTS[(document.documentElement.lang || '').slice(0, 2)] || TAP_HEADER_TEXTS.en;
@@ -285,10 +371,11 @@ export function buildTapMenu(section, { link, menuButton, quickLinks = [] }) {
     const links = bar ? [...bar.querySelectorAll('.nav-languages-list a[href]')] : [];
     market.hidden = !links.length;
     if (!links.length) return;
-    const root0 = tapRoot(window.location.pathname, '');
+    const root0 = tapRoot(pathOf(), '');
     const country = (root0 ? root0.split('-')[1] : (bar.querySelector('.nav-languages-current') || {}).textContent || '').toUpperCase();
-    const globe = bar.querySelector('.nav-languages-button svg, .nav-languages-button .lh-icon');
-    marketButton.replaceChildren(...(globe ? [globe.cloneNode(true)] : []), node('span', {}, `${country}, ${texts.language}`));
+    const globe = bar.querySelector('.nav-languages-button .tap-flag, .nav-languages-button svg, .nav-languages-button .lh-icon');
+    const mark = flag ? flagEl() : globe && globe.cloneNode(true);
+    marketButton.replaceChildren(...(mark ? [mark] : []), node('span', {}, `${country}, ${texts.language}`));
     marketList.replaceChildren(...links.map((a) => node('li', {}, node('a', { href: a.getAttribute('href'), lang: a.getAttribute('lang'), className: 'tap-menu-market-link' }, text(a)))));
   };
   marketButton.addEventListener('click', () => {
@@ -320,12 +407,6 @@ export function buildTapMenu(section, { link, menuButton, quickLinks = [] }) {
     });
   }
   return { root, close: () => close() };
-}
-
-/** Whether the page is a root's homepage (/pt-pt). */
-export function isTapHome(pathname, base) {
-  const root = tapRoot(pathname, base);
-  return Boolean(root) && pathname.replace(/\/+$/, '') === root;
 }
 
 /**

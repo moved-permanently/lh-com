@@ -176,6 +176,108 @@ body.brand-tap .header .tap-menu-banner-cta:hover {
   background-color: var(--lh-grey-1);
 }
 
+/* ---------------------------------------------------------------- the market's flag -------- */
+
+/* www's flag: 20 px round, the 3:2 flag filling it (the bar's market button, the phones' market row) */
+body.brand-tap .header .tap-flag {
+  display: inline-flex;
+  flex: none;
+  overflow: hidden;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+body.brand-tap .header .tap-flag img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.5);
+}
+
+/* ---------------------------------------------------------------- the quick-action tab ----- */
+
+/* inner pages (parity 39): www's lime tab under the bar with the booking box's four tabs, the
+   page's breadcrumb 176 px from the top as on www (the header keeps 160 px) */
+body.brand-tap header.tap-has-quick {
+  --nav-height: 160px;
+}
+
+body.brand-tap .header .tap-quick {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  box-sizing: border-box;
+  padding: 0 36px;
+  border-radius: 0 0 32px 32px;
+  background-color: #9efd38;
+  box-shadow: 0 16px 32px rgb(0 0 0 / 10%);
+}
+
+body.brand-tap .header .tap-quick ul {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  height: 55px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+body.brand-tap .header .tap-quick-link {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  height: 36px;
+  padding: 0 8px;
+  color: var(--lh-deepblue);
+  font-family: var(--body-font-family);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+body.brand-tap .header .tap-quick-link:hover {
+  text-decoration: underline;
+}
+
+body.brand-tap .header .tap-quick-icon {
+  display: inline-flex;
+  color: var(--lh-deepblue);
+}
+
+body.brand-tap .header .tap-quick-icon svg {
+  fill: currentcolor;
+}
+
+@media (width < 1025px) {
+  /* phones: the icons only (www: 180 px, 56 high) */
+  body.brand-tap .header .tap-quick {
+    padding: 0 20px;
+  }
+
+  body.brand-tap .header .tap-quick ul {
+    gap: 4px;
+    height: 56px;
+  }
+
+  body.brand-tap .header .tap-quick-link {
+    padding: 0 8px;
+  }
+
+  body.brand-tap .header .tap-quick-label {
+    position: absolute;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}
+
 /* ---------------------------------------------------------------- 1025 px and wider -------- */
 
 @media (width >= 1025px) {
@@ -198,6 +300,18 @@ body.brand-tap .header .tap-menu-banner-cta:hover {
 
   body.brand-tap .header .tap-menu-panel[hidden] {
     display: none;
+  }
+
+  /* the bar's market button as www's: 63 x 40, 8 px padding, the flag and the language code in
+     Inter 16 / 400 */
+  body.brand-tap .header .nav-tap .nav-languages-button.tap-market {
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    padding: 8px;
+    color: #000;
+    font-size: 16px;
+    font-weight: 400;
   }
 
   /* the market row is the phones' (the bar has its market button) */
