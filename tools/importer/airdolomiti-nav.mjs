@@ -78,6 +78,47 @@ export function navTools(setup, others, { href }) {
   return `<div><ul>${tool(':wheelchair:', setup.assist)}${tool(':search:', setup.search)}${others.map(([n, h]) => `<li><a href="${h}">${n}</a></li>`).join('')}</ul><p>${esc(setup.menuLabel)}</p></div>`;
 }
 
+/**
+ * The footer's link columns, as www's: the company (www shows it without a title: "Air Dolomiti"
+ * here), contacts, news, routes, assistance and the legal links ("Info legali", www's last column;
+ * its cookie-settings button, a {{...}} placeholder, left out); a column without links, none.
+ * @param {Object} fd www's footer data
+ * @param {Function} li li(url, text): a list item with the site's link
+ * @returns {string}
+ */
+export function footerColumns(fd, li) {
+  const column = (title, links) => {
+    const items = (links || []).filter((l) => !/^\{\{/.test(l.url || '')).map((l) => li(l.url, l.text)).join('');
+    return items ? `<h3>${esc(title)}</h3><ul>${items}</ul>` : '';
+  };
+  return [
+    column(fd.corporateTitle || 'Air Dolomiti', fd.corporateLinks),
+    column(fd.contattiTitle, fd.contattiLinks),
+    column(fd.newsConsigliTitle, fd.newsConsigliLinks),
+    column(fd.tratteTitle, fd.tratteLinks),
+    column(fd.assistenzaTitle, fd.assistenzaLinks),
+    column(fd.infoLegaliTitle || 'Info legali', fd.infoLegaliLinks),
+  ].join('');
+}
+
+/**
+ * The footer's badges as three sections of the style badges (blocks/footer: one group each, so the
+ * theme can place them as www does): the main buttons (www's pills at the top), the social links
+ * (www's band at the bottom), the payment logos under their heading; an empty one, none.
+ * @param {{buttons: string, social: string, payments: string, heading?: string}} parts the
+ *   list items of each
+ * @returns {string[][]} [body, style] per section
+ */
+export function footerBadges({
+  buttons, social, payments, heading,
+}) {
+  return [
+    buttons ? [`<ul>${buttons}</ul>`, 'badges'] : null,
+    social ? [`<ul>${social}</ul>`, 'badges'] : null,
+    payments ? [`${heading ? `<h3>${esc(heading)}</h3>` : ''}<ul>${payments}</ul>`, 'badges'] : null,
+  ].filter(Boolean);
+}
+
 function main() {
   const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
   const W = path.join(root, 'content-sites/lh-airdolomiti');
@@ -150,15 +191,7 @@ function main() {
 
   /* ------------------------------------------------------------------ footer ------------- */
   const fd = blocksOf(SETUP.footer).find((b) => b.name === 'lazyblock/footer-data').a;
-  const column = (title, links) => (links && links.length ? `<h3>${esc(title)}</h3><ul>${links.map((l) => li(l.url, l.text)).join('')}</ul>` : '');
-  const columns = [
-  // the company column has no title on www (its head is the footer logo, alt "Footer Air Dolomiti")
-    column(fd.corporateTitle || 'Air Dolomiti', fd.corporateLinks),
-    column(fd.contattiTitle, fd.contattiLinks),
-    column(fd.newsConsigliTitle, fd.newsConsigliLinks),
-    column(fd.tratteTitle, fd.tratteLinks),
-    column(fd.assistenzaTitle, fd.assistenzaLinks),
-  ].join('');
+  const columns = footerColumns(fd, li);
   const social = (fd.socialMedias || []).map((s) => {
     const icon = ICONS.find(([re]) => re.test(s.url || ''));
     if (icon) return `<li><a href="${s.url}">${icon[1]}</a></li>`;
@@ -172,7 +205,6 @@ function main() {
     const name = p.ariaLabel || (PAYMENT_NAMES.find(([re]) => re.test(p.pic.url)) || [])[1] || p.pic.alt || '';
     return `<li>${page.img({ url: p.pic.url, alt: name })}</li>`;
   }).join('');
-  const legal = (fd.infoLegaliLinks || []).filter((l) => !/^\{\{/.test(l.url || '')).map((l) => li(l.url, l.text)).join('');
   const note = [fd.address, fd.copyright].filter(Boolean).map((t) => `<p>${esc(t.trim())}</p>`).join('');
   const section = (body, style) => `<div>${body}${style ? `<div class="section-metadata"><div><div>Style</div><div>${style}</div></div></div>` : ''}</div>`;
   // the search row (as lh-com's footers): www's search field ("Inizia la ricerca...") leading to the
@@ -180,8 +212,9 @@ function main() {
   const footer = [
     section(`<p>:search: <a href="${SETUP.prefix}/search?query=">${esc(SEARCH.input)}</a></p>`),
     section(columns),
-    section(`<ul>${mainButtons}</ul><ul>${social}</ul>${payments ? `<h3>${esc(fd.metodoDiPagamento || SETUP.payments)}</h3><ul>${payments}</ul>` : ''}`, 'badges'),
-    section(`<ul>${legal}</ul>`),
+    ...footerBadges({
+      buttons: mainButtons, social, payments, heading: fd.metodoDiPagamento || SETUP.payments,
+    }).map(([body, style]) => section(body, style)),
     section(note, 'note'),
     section(`<ul><li><a href="${SETUP.prefix || '/'}${SETUP.prefix ? '/' : ''}">${logoSrc}</a></li></ul>`),
   ].join('\n');
