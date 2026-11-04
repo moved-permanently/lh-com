@@ -21,13 +21,21 @@ bbird.live hosts are retired. Hosts on turnsthe.page follow the brand pattern
 | lufthansa-edge.turnsthe.page | `PILOT_HOSTS` (every pilot root), `ALIAS_REWRITE_HOSTS` |
 | lufthansa-cn.turnsthe.page | `ALIAS_HOSTS`, `PILOT_COUNTRIES_BY_HOST` (cn) |
 | austrian-cn.turnsthe.page | `ALIAS_HOSTS`, `SITE_HOSTS` (austrian): the Austrian site's China alias |
+| swiss-cn.turnsthe.page | `ALIAS_HOSTS`, `SITE_HOSTS` (swiss): the SWISS site's China alias (its origin asked for swiss.turnsthe.page) |
 | discover.turnsthe.page | `SITE_HOSTS` ("Other sites") |
 | ita.turnsthe.page | `SITE_HOSTS` ("Other sites") |
 | austrian.turnsthe.page | `SITE_HOSTS` ("Other sites") |
 | brussels.turnsthe.page | `SITE_HOSTS` ("Other sites") |
 | b2b.turnsthe.page | `SITE_HOSTS` ("Other sites") |
 | swiss.turnsthe.page | `SITE_HOSTS` ("Other sites") |
-| lh-edge.benpeter.workers.dev | (none) |
+| cargo.turnsthe.page | `SITE_HOSTS` ("Other sites": a site without roots, `PLAIN_SITES`) |
+| airdolomiti.turnsthe.page | `SITE_HOSTS` ("Other sites": a site without roots, `PLAIN_SITES`) |
+| tap.turnsthe.page | `SITE_HOSTS` ("Other sites": a site without roots with its market roots, `PLAIN_SITES` markets, `src/tap-markets.js`) |
+| lh-edge.benpeter.workers.dev | (none; `workers_dev = true`) |
+
+The hosts as `wrangler.toml` lists them (`SITE_HOSTS`, `ALIAS_HOSTS`, `PILOT_HOSTS`,
+`PILOT_COUNTRIES_BY_HOST`, `FRONT_DOOR_HOSTS`), checked 2026-11-05; their custom domains are set
+in the account, not in `wrangler.toml`. lufthansa-forms.turnsthe.page is lh-forms' host.
 
 `ALIAS_REWRITE_HOSTS` also keeps the retired lhcom.bbird.live and lhedge.bbird.live: an old link
 to them (no published content names them today) moves to the alias host.
