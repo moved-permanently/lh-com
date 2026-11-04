@@ -50,7 +50,8 @@ export function navColumn(b, { href, img }) {
   const li = (url, text, icon = '') => {
     const h = href(url);
     if (!text) return '';
-    return `<li>${h ? `<a href="${attr(h)}">${icon ? `${icon} ` : ''}${esc(text.trim())}</a>` : esc(text.trim())}</li>`;
+    // (the icon before the link, not in it: Edge Delivery splits a link holding a picture in two)
+    return `<li>${icon ? `${icon} ` : ''}${h ? `<a href="${attr(h)}">${esc(text.trim())}</a>` : esc(text.trim())}</li>`;
   };
   if (/-card$/.test(b.name)) {
     const picture = a.image && a.image.url ? `<p>${img({ url: a.image.url, alt: '' })}</p>` : '';

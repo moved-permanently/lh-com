@@ -2,7 +2,7 @@
 /* Air Dolomiti's nav documents (tools/importer/airdolomiti-nav.mjs) for its desktop menu
    (blocks/header/header-airdolomiti.js): a menu card (www's nav-bar-tab-*-card: its picture,
    title and button) as a column with its picture; the quick actions (nav-bar-tab-*-azioni-rapide)
-   with www's icon before each link; a titled column with its title linked where www links it; a
+   with www's icon before each link (outside it: Edge Delivery would split a link holding a picture into two); a titled column with its title linked where www links it; a
    list without a title (list-bold) with an empty title; the tools with the search page
    (:search:) after the assistance link.
    Run: node --max-old-space-size=512 --test test/airdolomiti-nav.test.mjs */
@@ -24,7 +24,7 @@ test('a menu card: its title, its picture and its button as one column', () => {
 
 test('the quick actions with their icons; columns with and without a title', () => {
   const quick = { name: 'lazyblock/nav-bar-tab-esplora-azioni-rapide', a: { tabTitle: 'Azioni Rapide', links: [{ text: 'Prenota un volo', url: '/prenotazioni', icon: { url: 'https://cms.airdolomiti.it/wp-content/uploads/2021/12/prenota-volo.png' } }, { text: 'Assistenza', url: 'https://www.airdolomiti.it/assistenza' }] } };
-  assert.equal(navColumn(quick, ctx), '<li><p>Azioni Rapide</p><ul><li><a href="/prenotazioni"><picture><img src="https://cms.airdolomiti.it/wp-content/uploads/2021/12/prenota-volo.png" alt=""></picture> Prenota un volo</a></li><li><a href="/assistenza">Assistenza</a></li></ul></li>');
+  assert.equal(navColumn(quick, ctx), '<li><p>Azioni Rapide</p><ul><li><picture><img src="https://cms.airdolomiti.it/wp-content/uploads/2021/12/prenota-volo.png" alt=""></picture> <a href="/prenotazioni">Prenota un volo</a></li><li><a href="/assistenza">Assistenza</a></li></ul></li>');
   const titled = { name: 'lazyblock/nav-bar-tab-esplora-destinazioni', a: { tabTitle: 'Destinazioni', tabTitleUrl: '/destinazioni', links: [{ text: 'Francoforte', url: '/destinazioni/francoforte' }], vediTutte: 'Vedi tutte', vediTutteLink: '/destinazioni' } };
   assert.equal(navColumn(titled, ctx), '<li><p><a href="/destinazioni">Destinazioni</a></p><ul><li><a href="/destinazioni/francoforte">Francoforte</a></li><li><a href="/destinazioni">Vedi tutte</a></li></ul></li>');
   const bold = { name: 'lazyblock/nav-bar-tab-esplora-list-bold', a: { tabTitle: 'tabtitle', links: [{ text: 'Flotta', url: '/flotta' }] } };

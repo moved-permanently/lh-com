@@ -75,6 +75,20 @@ test('the document read as tabs of columns (a column without a title joins the o
   assert.equal(tabs[2].card, null, 'a tab without a card');
 });
 
+test('the quick actions as Edge Delivery renders them: the icon and the text as two links in two paragraphs, one action each', () => {
+  const s = document.createElement('div');
+  s.innerHTML = `<ul><li><p>Explore</p><ul>
+    <li><p>Quick Actions</p><ul>
+      <li><p><a href="/en/booking"><picture><img src="./media_1.png" alt=""></picture></a></p><p><a href="/en/booking">Book</a></p></li>
+      <li><p><a href="/en/flight-status"><picture><img src="./media_2.png" alt=""></picture></a></p><p><a href="/en/flight-status">Flight status</a></p></li>
+    </ul></li>
+    <li><p>Services</p><ul><li><a href="/en/lounges">Lounges</a></li></ul></li>
+  </ul></li></ul>`;
+  const { tabs, quick } = readAirDolomitiMenu(s);
+  assert.deepEqual(quick.links.map((l) => [l.href, l.label, Boolean(l.icon)]), [['/en/booking', 'Book', true], ['/en/flight-status', 'Flight status', true]]);
+  assert.deepEqual(tabs[0].columns.map((c) => c.map((g) => g.links.map((l) => l.label))), [[['Lounges']]]);
+});
+
 test('the bar: a button per tab, each panel with its columns, its card and the quick actions', () => {
   const menu = buildAirDolomitiMenu(section(), { link });
   document.body.replaceChildren(menu.root);

@@ -59,18 +59,19 @@ export function readAirDolomitiMenu(section) {
       const ps = children(col, 'P');
       const head = ps.find((p) => !p.querySelector('picture, img'));
       const picture = ps.map((p) => p.querySelector('picture, img')).find(Boolean);
-      const anchors = [...col.querySelectorAll(':scope > ul > li a[href]')];
-      const links = anchors.map((a) => ({ href: a.getAttribute('href'), label: clean(a.textContent) }));
+      // one link per item (Edge Delivery renders an icon link as two: the picture's and the text's)
+      const items = [...col.querySelectorAll(':scope > ul > li')].filter((item) => item.querySelector('a[href]'));
+      const links = items.map((item) => ({ href: item.querySelector('a[href]').getAttribute('href'), label: clean(item.textContent) }));
       if (picture) {
         card = {
           title: clean(head && head.textContent), picture, href: links[0] ? links[0].href : null, cta: links[0] ? links[0].label : '',
         };
         return;
       }
-      if (anchors.some((a) => a.querySelector('picture, img'))) {
+      if (items.some((item) => item.querySelector('picture, img'))) {
         quick = quick || {
           label: clean(head && head.textContent),
-          links: anchors.map((a, i) => ({ ...links[i], icon: a.querySelector('picture, img') })),
+          links: items.map((item, i) => ({ ...links[i], icon: item.querySelector('picture, img') })),
         };
         return;
       }
