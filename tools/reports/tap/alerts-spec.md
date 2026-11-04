@@ -43,8 +43,8 @@ more 52 px strip, background `#ebf2ff`, with a link ("Intermediação de Crédit
 `/miles-and-go/acumular-milhas/cartoes-de-credito` / `/miles-and-go/earn-miles/credit-cards`) and a "Saiba mais" /
 "Find out more" pill button to the same page (the border is the button's default, no green). fr-fr has one too
 ("Droits des passagers" to `/mentions-legales/droits-des-passagers-france`). es-es, de-de, it-it and pl-pl have none.
-This is a standing link strip, not an alert: it is not in lh-tap's Message Center (open question for the parent: a small
-authored block or fragment per root, or leave it out).
+This is a standing link strip, not an alert, so it is not in lh-tap's Message Center: TAP's importer writes it as authored
+content on the pt-pt, en-pt and fr-fr homepages (an existing block, or part of the bar's variant if that fits better).
 
 ## What lh-tap has now (content)
 
