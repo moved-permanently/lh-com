@@ -95,8 +95,9 @@ const links = (text) => [...text.matchAll(/<a href="([^"]*)"/g)].map((m) => m[1]
 const alts = (text) => [...text.matchAll(/<link rel="alternate" hreflang="([^"]*)" href="([^"]*)">/g)].map((m) => `${m[1]} ${new URL(m[2]).pathname}`);
 
 test('the switch: no root on; a root that is off, a language root and other paths not taken (null: the route as before)', async () => {
-  assert.deepEqual(TAP_LIVE_MARKETS, []);
-  assert.equal(await tapMarket(new Request('https://tap.turnsthe.page/de-ch/an-bord'), env()), null, 'off by default');
+  // the branch tap-markets-on: de-ch and fr-ca on (a test deploy, not for main)
+  assert.deepEqual(TAP_LIVE_MARKETS, ['de-ch', 'fr-ca']);
+  assert.equal(await tapMarket(new Request('https://tap.turnsthe.page/en-us/x'), env()), null, 'off by default');
   assert.equal(await ask('/pt-ao/a-bordo'), null, 'not on');
   assert.equal(await ask('/de-de/an-bord'), null, 'a language root');
   assert.equal(await ask('/xx-yy/x'), null);
@@ -109,9 +110,9 @@ test('the switch: no root on; a root that is off, a language root and other path
 });
 
 test('the worker: with the switch off tap.turnsthe.page answers /de-ch/an-bord from the origin as it is (as before)', async () => {
-  const resp = await worker.fetch(new Request('https://tap.turnsthe.page/de-ch/an-bord', { redirect: 'manual' }), env(), { waitUntil() {} });
+  const resp = await worker.fetch(new Request('https://tap.turnsthe.page/en-us/an-bord', { redirect: 'manual' }), env(), { waitUntil() {} });
   assert.equal(resp.status, 404);
-  assert.deepEqual(calls, ['/de-ch/an-bord']);
+  assert.deepEqual(calls, ['/en-us/an-bord']);
 });
 
 test('the homepage: the root\'s own document (/de-ch/), canonical /de-ch, its links into the language version the root\'s', async () => {

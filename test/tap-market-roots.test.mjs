@@ -50,7 +50,7 @@ test('the table: markets.json\'s 137 roots with www\'s currency and airport, own
   assert.equal(TAP_MARKETS['pt-br'], undefined);
   assert.equal(TAP_MARKETS['pt-pt'], undefined);
   assert.equal(fs.readFileSync('scripts/tap-markets.js', 'utf8'), render(marketRows(www, list), TAP_LIVE_MARKETS));
-  assert.deepEqual(TAP_LIVE_MARKETS, []);
+  assert.deepEqual(TAP_LIVE_MARKETS, ['de-ch', 'fr-ca']);
 });
 
 test('SITE_LANGUAGES.tap: the seven language roots as before, then pt-br and the market roots, none listed while off', () => {
@@ -60,11 +60,11 @@ test('SITE_LANGUAGES.tap: the seven language roots as before, then pt-br and the
   const br = rows.find((l) => l.path === '/pt-br/');
   assert.deepEqual([br.lang, br.country, br.home, br.listed], ['pt', 'br', '/pt-br', false]);
   const ch = rows.find((l) => l.path === '/de-ch/');
-  assert.deepEqual([ch.lang, ch.country, ch.home, ch.name, ch.version, ch.listed, ch.slugs], ['de', 'ch', '/de-ch', 'Deutsch (Schweiz)', 'de-de', false, 'own']);
+  assert.deepEqual([ch.lang, ch.country, ch.home, ch.name, ch.version, ch.listed, ch.slugs], ['de', 'ch', '/de-ch', 'Deutsch (Schweiz)', 'de-de', undefined, 'own']);
   assert.equal(rows.length, 7 + 1 + 137);
-  assert.deepEqual(rows.filter((l) => l.listed !== false).map((l) => l.path), LANGUAGE_ROOTS);
+  assert.deepEqual(rows.filter((l) => l.listed !== false).map((l) => l.path), [...LANGUAGE_ROOTS, '/de-ch/', '/fr-ca/']);
   // the switch's others on a page: the six other language roots, as before
-  assert.deepEqual(languageSwitch([], '/pt-pt/ajuda', 'pt', rows).links.map((l) => l.home), ['/en-pt', '/es-es', '/fr-fr', '/de-de', '/it-it', '/pl-pl']);
+  assert.deepEqual(languageSwitch([], '/pt-pt/ajuda', 'pt', rows).links.map((l) => l.home), ['/en-pt', '/es-es', '/fr-fr', '/de-de', '/it-it', '/pl-pl', '/de-ch', '/fr-ca']);
 });
 
 test('a root is listed once it is on (tapLanguages(live)): de-ch and pt-br on', () => {

@@ -153,4 +153,4 @@ export const TAP_MARKETS = {
  * country selector, each once its own documents and its language documents' sections are
  * published. Off (none) until then.
  */
-export const TAP_LIVE_MARKETS = [];
+export const TAP_LIVE_MARKETS = ['de-ch', 'fr-ca'];
