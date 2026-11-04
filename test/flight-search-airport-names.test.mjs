@@ -28,9 +28,16 @@ globalThis.Event = window.Event;
 // www's answers: the names list with Frankfurt only; the suggestions per term (a city with its
 // airports, an airport alone)
 const SUGGESTIONS = {
+  // a city and its airport under one code (as Dubai's recorded answer): the airport's name
   MUC: {
     items: [{
-      airport: 'Munich', code: 'MUC', country: 'Germany', type: 'AIRPORT',
+      airport: 'Munich, all airports',
+      code: 'MUC',
+      country: 'Germany',
+      type: 'CITY',
+      items: [{
+        airport: 'Munich', code: 'MUC', country: 'Germany', type: 'AIRPORT',
+      }],
     }],
   },
   JFK: {
@@ -119,7 +126,7 @@ const ROWS = [['Trip types', 'Round trip, One-way'], ['Passenger picker', 'yes']
 test('the URL\'s codes named from the suggestions, one request per field, after the form is shown', async () => {
   const f = await run(ROWS, '/de/en/homepage', '?OriginCode=MUC&DestinationCode=JFK&TripType=roundtrip');
   assert.deepEqual(f.shown, { origin: 'MUC', destination: 'JFK' }, 'the form at once, with the codes');
-  assert.equal(f.origin, 'Munich');
+  assert.equal(f.origin, 'Munich', 'the airport of the city entry with the same code, as www');
   assert.equal(f.destination, 'New York - JFK International, NY', 'the airport inside the city entry');
   assert.deepEqual(suggestions.sort(), ['JFK', 'MUC']);
   const h = await run(ROWS, '/de/de/homepage', '', '#OriginCode=HAM&DestinationCode=LHR');
@@ -170,4 +177,14 @@ test('a field the visitor changed before the name arrives keeps the visitor\'s c
   await flush();
   assert.notEqual(input.value, 'New York - JFK International, NY');
   assert.equal(block.querySelector('.flight-search-origin input').value, 'Munich');
+});
+
+test('the suggestions keep the airport\'s name under its city entry (the list as before)', async () => {
+  const { mapAirportSuggestions } = await import('../scripts/lh-api.js');
+  const list = mapAirportSuggestions(SUGGESTIONS.MUC);
+  assert.equal(list.length, 1, 'one entry per code, as before');
+  assert.equal(list[0].name, 'Munich, all airports');
+  assert.equal(list[0].label, 'Munich, all airports (MUC), Germany');
+  assert.equal(list[0].airportName, 'Munich');
+  assert.equal(mapAirportSuggestions(SUGGESTIONS.HAM)[0].airportName, undefined, 'an airport alone: none');
 });
