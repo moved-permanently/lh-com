@@ -36,29 +36,42 @@ const attr = (s) => esc(s).replace(/"/g, '&quot;');
 
 const SETUP = {
   pt: {
-    logoAlt: 'TAP Air Portugal, voltar à página inicial', menu: 'Menu', help: ['Ajuda', '/ajuda'], other: ['English', 'en-pt'], appStore: 'App Store', googlePlay: 'Google Play', follow: 'Siga-nos', app: 'TAP App', rights: 'Todos os direitos reservados.',
+    logoAlt: 'TAP Air Portugal, voltar à página inicial', menu: 'Menu', help: ['Ajuda', '/ajuda'], appStore: 'App Store', googlePlay: 'Google Play', follow: 'Siga-nos', app: 'TAP App', rights: 'Todos os direitos reservados.',
   },
   en: {
-    logoAlt: 'TAP Air Portugal, back to the homepage', menu: 'Menu', help: ['Help', '/help'], other: ['Português', 'pt-pt'], appStore: 'App Store', googlePlay: 'Google Play', follow: 'Follow us', app: 'TAP App', rights: 'All rights reserved.',
+    logoAlt: 'TAP Air Portugal, back to the homepage', menu: 'Menu', help: ['Help', '/help'], appStore: 'App Store', googlePlay: 'Google Play', follow: 'Follow us', app: 'TAP App', rights: 'All rights reserved.',
   },
-  // the other markets: their help tab as www's header names it, the language switch to the
-  // market's English version (on www while lh-tap has none)
+  // the other markets: their help tab as www's header names it
   es: {
-    logoAlt: 'TAP Air Portugal, volver a la página de inicio', menu: 'Menú', help: ['Ayuda', '/ayuda'], other: ['English', 'en-es'], appStore: 'App Store', googlePlay: 'Google Play', follow: 'Síguenos', app: 'TAP App', rights: 'Todos los derechos reservados.',
+    logoAlt: 'TAP Air Portugal, volver a la página de inicio', menu: 'Menú', help: ['Ayuda', '/ayuda'], appStore: 'App Store', googlePlay: 'Google Play', follow: 'Síguenos', app: 'TAP App', rights: 'Todos los derechos reservados.',
   },
   fr: {
-    logoAlt: 'TAP Air Portugal, retour à la page d’accueil', menu: 'Menu', help: ['Aide', '/aide'], other: ['English', 'en-fr'], appStore: 'App Store', googlePlay: 'Google Play', follow: 'Suivez-nous', app: 'TAP App', rights: 'Tous droits réservés.',
+    logoAlt: 'TAP Air Portugal, retour à la page d’accueil', menu: 'Menu', help: ['Aide', '/aide'], appStore: 'App Store', googlePlay: 'Google Play', follow: 'Suivez-nous', app: 'TAP App', rights: 'Tous droits réservés.',
   },
   de: {
-    logoAlt: 'TAP Air Portugal, zurück zur Startseite', menu: 'Menü', help: ['Hilfe', '/hilfe'], other: ['English', 'en-de'], appStore: 'App Store', googlePlay: 'Google Play', follow: 'Folgen Sie uns', app: 'TAP App', rights: 'Alle Rechte vorbehalten.',
+    logoAlt: 'TAP Air Portugal, zurück zur Startseite', menu: 'Menü', help: ['Hilfe', '/hilfe'], appStore: 'App Store', googlePlay: 'Google Play', follow: 'Folgen Sie uns', app: 'TAP App', rights: 'Alle Rechte vorbehalten.',
   },
   it: {
-    logoAlt: 'TAP Air Portugal, torna alla homepage', menu: 'Menu', help: ['Aiuto', '/assistenza'], other: ['English', 'en-it'], appStore: 'App Store', googlePlay: 'Google Play', follow: 'Seguici', app: 'TAP App', rights: 'Tutti i diritti riservati.',
+    logoAlt: 'TAP Air Portugal, torna alla homepage', menu: 'Menu', help: ['Aiuto', '/assistenza'], appStore: 'App Store', googlePlay: 'Google Play', follow: 'Seguici', app: 'TAP App', rights: 'Tutti i diritti riservati.',
   },
   pl: {
-    logoAlt: 'TAP Air Portugal, powrót do strony głównej', menu: 'Menu', help: ['Pomoc', '/pomoc'], other: ['English', 'en-pl'], appStore: 'App Store', googlePlay: 'Google Play', follow: 'Obserwuj nas', app: 'TAP App', rights: 'Wszelkie prawa zastrzeżone.',
+    logoAlt: 'TAP Air Portugal, powrót do strony głównej', menu: 'Menu', help: ['Pomoc', '/pomoc'], appStore: 'App Store', googlePlay: 'Google Play', follow: 'Obserwuj nas', app: 'TAP App', rights: 'Wszelkie prawa zastrzeżone.',
   },
 };
+// the language switch per root: www's markets have two languages, the market's and English; a
+// market's root links the same market's English (pt-br: en-br), an English root the market's
+// language (en-pt: pt-pt), on lh-tap when it has the root, else on www
+const MARKET_LANG = {
+  pt: 'pt', br: 'pt', es: 'es', fr: 'fr', de: 'de', it: 'it', pl: 'pl',
+};
+const LANG_NAME = {
+  pt: 'Português', en: 'English', es: 'Español', fr: 'Français', de: 'Deutsch', it: 'Italiano', pl: 'Polski',
+};
+function otherOf(locale) {
+  const [lang, cc] = locale.split('-');
+  const to = lang === 'en' ? MARKET_LANG[cc] || 'en' : 'en';
+  return [LANG_NAME[to], `${to}-${cc}`];
+}
 const SOCIAL = ['facebook', 'instagram', 'linkedin', 'youtube', 'x', 'tiktok'];
 const isWidget = (x) => Boolean(x.component);
 const isSpecial = (x) => /^#special-anchor/.test(x.link || '');
@@ -92,7 +105,7 @@ export function navHtml(pp, site) {
     return `<li><p>${esc(t.title)}</p><ul>${cols.join('')}</ul></li>`;
   });
   const megaHtml = `<div><ul>${tabs.join('')}</ul></div>`;
-  const [otherLabel, otherLocale] = S.other;
+  const [otherLabel, otherLocale] = otherOf(c.locale);
   const otherHome = c.scope.has(`/${otherLocale}`) ? `/${otherLocale}` : `${WWW}/${otherLocale}`;
   const tools = `<div><ul><li>:help: ${a(S.help[1], S.help[0], c)}</li><li><a href="${attr(otherHome)}">${esc(otherLabel)}</a></li></ul><p>${esc(S.menu)}</p></div>`;
   return `${logo}\n${quickHtml}\n${megaHtml}\n${tools}\n`;

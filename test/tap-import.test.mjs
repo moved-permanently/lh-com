@@ -267,6 +267,43 @@ describe('tap-import rich text images', () => {
   });
 });
 
+describe('tap-import aem.flytap.com pictures', () => {
+  it('a rich text picture whose name has spaces or accents is found in the archive (two slashes, percent-encoded there)', () => {
+    const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'tap-aem-'));
+    const rel = 'aem.flytap.com/content/dam/tap/x/AdegaMãe Exterior.png';
+    fs.mkdirSync(path.join(tmp, path.dirname(rel)), { recursive: true });
+    fs.writeFileSync(path.join(tmp, rel), 'x');
+    fs.writeFileSync(path.join(tmp, 'manifest.json'), JSON.stringify([{
+      path: rel, url: 'https://aem.flytap.com//content/dam/tap/x/AdegaM%C3%A3e%20Exterior.png', bytes: 1, contentType: 'image/png',
+    }]));
+    const out = fs.mkdtempSync(path.join(os.tmpdir(), 'tap-out-'));
+    const media = mediaResolver(mediaIndex([tmp]), { out });
+    const missing = new Set();
+    // the rich text names it with one slash, unencoded (and the accent decomposed, as some do)
+    const html = richText([{ nodeType: 'paragraph', content: [{ nodeType: 'reference', data: { path: '/content/dam/tap/x/AdegaMãe Exterior.png', mimetype: 'image/png' } }] }], { ...ctx(), media, missing });
+    assert.match(html, /<img src="\/media-da\/tap\/[^"]+\.png"/);
+    assert.equal(missing.size, 0);
+  });
+});
+
+describe('tap-import language counterparts per root', () => {
+  it('Alternate <ll-cc> for every root; Alternate <lang> only for the root the language switch has for that language', () => {
+    const page = {
+      props: {
+        pageProps: {
+          page: {
+            title: 'Ajuda', sections: [{ __typename: 'ComponentHeadingModel', title: 'Ajuda' }], hrefLangs: [{ url: '/pt-br/ajuda' }, { url: '/en-pt/help' }, { url: '/en-br/help' }],
+          },
+        },
+      },
+    };
+    const c = { ...ctx(), scope: new Set([...scope, '/pt-br/ajuda', '/en-pt/help']) };
+    const meta = dom(convertPage(page, c).html).querySelector('.metadata');
+    const rows = [...meta.querySelectorAll(':scope > div')].map((r) => [...r.children].map((x) => x.textContent)).filter(([k]) => /^Alternate/.test(k));
+    assert.deepEqual(rows, [['Alternate pt-br', '/pt-br/ajuda'], ['Alternate en', '/en-pt/help'], ['Alternate en-pt', '/en-pt/help']]);
+  });
+});
+
 describe('tap-import pages', () => {
   it('the homepage: the stage slider, the service links, the cards, Miles&Go, metadata', () => {
     const { html, report } = convertPage(nd('homepage'), ctx('https://www.flytap.com/pt-pt'));
@@ -405,7 +442,7 @@ describe('tap-import pages', () => {
     const c = { ...ctx(), scope: new Set([...scope, '/en-pt/help']) };
     const meta = dom(convertPage(page, c).html).querySelector('.metadata');
     const rows = [...meta.querySelectorAll(':scope > div')].map((r) => [...r.children].map((x) => x.textContent));
-    assert.deepEqual(rows.filter(([k]) => /^Alternate/.test(k)), [['Alternate en', '/en-pt/help']]);
+    assert.deepEqual(rows.filter(([k]) => /^Alternate/.test(k)), [['Alternate en', '/en-pt/help'], ['Alternate en-pt', '/en-pt/help']]);
   });
 
   it('the registration form page is out of scope (a form): skipped', () => {

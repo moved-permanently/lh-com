@@ -63,11 +63,14 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
+import { SITE_LANGUAGES } from '../../scripts/site-languages.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const W = path.join(root, 'content-sites/lh-tap');
 const OUT = path.join(W, 'content');
 export const WWW = 'https://www.flytap.com';
+// the header's language switch: its root per language (scripts/site-languages.js, tap)
+const SWITCH_ROOT = Object.fromEntries([...SITE_LANGUAGES.tap].reverse().map((l) => [l.lang, l.home.slice(1)]));
 const PIC = 'https://pic.flytap.com';
 const MB = 1024 * 1024;
 const readJson = (f, d) => (fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, 'utf8')) : d);
@@ -173,7 +176,8 @@ const AEM = 'https://aem.flytap.com';
 function reference(n, c) {
   const p = n.data && n.data.path;
   if (!p || !/^image\//.test(n.data.mimetype || 'image/')) return '';
-  const m = c.media(p) || c.media(`${AEM}/${p.replace(/^\/+/, '')}`) || c.media(`${AEM}//${p.replace(/^\/+/, '')}`);
+  const m = c.media(p) || c.media(`${AEM}/${p.replace(/^\/+/, '')}`) || c.media(`${AEM}//${p.replace(/^\/+/, '')}`)
+    || c.media(plainKey(`${AEM}/${p}`));
   const local = m && (typeof m === 'string' ? { eds: m } : m);
   if (local && local.eds) return `<img src="${attr(local.eds)}" alt="">`;
   if (c.missing) c.missing.add(`${AEM}/${p.replace(/^\/+/, '')}`);
@@ -766,13 +770,17 @@ export function convertPage(nd, site) {
   if (desc) meta.push(['Description', esc(desc.trim())]);
   if (page.seoImage) { const im = P.img(page.seoImage); if (im) meta.push(['Image', im]); }
   if (page.seoIndexablePage === false) meta.push(['Robots', 'noindex, follow']);
-  // the page's counterparts in the site's other languages (www's hrefLangs) that are documents of
-  // the site: Alternate <lang> rows, the header's language switch goes there (site-languages.js)
+  // the page's counterparts in the site's other roots (www's hrefLangs) that are documents of the
+  // site: Alternate <ll>-<cc> per root; Alternate <lang>, which the header's language switch reads
+  // (blocks/header, site-languages.js), only for the root the switch has for that language (pt:
+  // pt-pt, not pt-br)
   (page.hrefLangs || []).forEach((h) => {
     const p = h && h.url ? docPath(h.url) : '';
     const m = p.match(/^\/([a-z]{2})-([a-z]{2})(?:\/|$)/);
-    if (!m || `${m[1]}-${m[2]}` === locale || !c.scope.has(p) || meta.some(([k]) => k === `Alternate ${m[1]}`)) return;
-    meta.push([`Alternate ${m[1]}`, esc(p)]);
+    const r = m && `${m[1]}-${m[2]}`;
+    if (!m || r === locale || !c.scope.has(p)) return;
+    if (SWITCH_ROOT[m[1]] === r && !meta.some(([k]) => k === `Alternate ${m[1]}`)) meta.push([`Alternate ${m[1]}`, esc(p)]);
+    if (!meta.some(([k]) => k === `Alternate ${r}`)) meta.push([`Alternate ${r}`, esc(p)]);
   });
   // breadcrumbs (www: home, the ancestors, the page): Parent the nearest ancestor that is a page
   // of the site, else the homepage; the page's crumb its title (blocks/breadcrumb)
@@ -816,6 +824,20 @@ const baseName = (u) => decodeURIComponent(String(u).split('?')[0].split('/').po
   .replace(/^-+|-+$/g, '')
   .slice(0, 60) || 'file';
 
+/**
+ * A URL's plain key: host and path decoded, the path's slashes collapsed, NFC. The archives name
+ * aem.flytap.com's pictures as fetched (//content/dam/…/AdegaM%C3%A3e%20Exterior.png), the rich
+ * text by its DAM path (/content/dam/…/AdegaMãe Exterior.png).
+ */
+export function plainKey(u) {
+  try {
+    const x = new URL(u);
+    let p = x.pathname;
+    try { p = decodeURIComponent(p); } catch (err) { /* a stray % */ }
+    return `plain:${x.host}${p.replace(/\/{2,}/g, '/')}`.normalize('NFC');
+  } catch (err) { return null; }
+}
+
 /** The media archives' files by every URL (and URL path) they were seen under. */
 export function mediaIndex(dirs) {
   const idx = new Map();
@@ -830,6 +852,8 @@ export function mediaIndex(dirs) {
       [e.url, ...(e.urlsSeen || e.urls || [])].filter(Boolean).forEach((u) => {
         idx.set(u, entry);
         try { const x = new URL(u); idx.set(x.pathname, entry); idx.set(`${x.origin}${x.pathname}`, entry); } catch (err) { /* a path */ idx.set(u.split('?')[0], entry); }
+        const k = plainKey(u);
+        if (k && !idx.has(k)) idx.set(k, entry);
       });
     });
   });

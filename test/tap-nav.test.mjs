@@ -62,6 +62,19 @@ describe('tap-nav', () => {
     });
   });
 
+  it('the language switch per root: a market\'s other language is English of the same market (pt-br: en-br), en-pt\'s Português', () => {
+    const other = (locale) => {
+      const s = sections(navHtml(pp, {
+        ...site, url: `https://www.flytap.com/${locale}`, locale, scope: new Set([`/${locale}`]),
+      }));
+      const a = [...s[3].querySelectorAll('a')].pop();
+      return [a.textContent, a.getAttribute('href')];
+    };
+    assert.deepEqual(other('pt-br'), ['English', 'https://www.flytap.com/en-br']);
+    assert.deepEqual(other('en-pt'), ['Português', 'https://www.flytap.com/pt-pt']);
+    assert.deepEqual(other('de-de'), ['English', 'https://www.flytap.com/en-de']);
+  });
+
   it('footer as www\'s: "Siga-nos" over the social icons, "TAP App" over the store badges (pictures), the copyright as a note', () => {
     const media = (k) => ({ 'https://www.flytap.com/images/download-app-store.webp': '/media-da/tap/download-app-store-1.webp', 'https://www.flytap.com/images/download-google-play.webp': '/media-da/tap/download-google-play-2.webp' }[k] || null);
     const d = dom(footerHtml(pp, { ...site, media }));
