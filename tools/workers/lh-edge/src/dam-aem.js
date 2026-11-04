@@ -29,6 +29,21 @@
  *   "Range request behavior"), and a file over the 512 MB cacheable size (Free to Business) is
  *   never stored. The publish tier's own CDN still caches (it ignores the request's no-cache
  *   headers).
+ * - This zone's cache (brief 355; the Cache API, caches.default; var DAM_AEM_CACHE "off": none):
+ *   AEM's real file answers are kept, so a file nobody asked for in an hour (AEM's CDN forgets
+ *   it; the next answer took 10-30 s) answers at once. One key per file for every host
+ *   (damCacheKey: https://lufthansa.turnsthe.page/.lh-edge-cache/dam-aem/<EDGE_CACHE_VERSION>
+ *   <the AEM path>), kept 30 days (the stored copy's cache-control, the visitors' max-age=2592000;
+ *   Cloudflare may drop it sooner). Stored: only a 200 with the file's media type and a
+ *   content-length up to 512 MB (DAM_CACHE_MAX_BYTES; the 869 MB video stays as before), never
+ *   the hibernation page, a 304, a 206, a 5xx or a timeout. A hit answers the client's own
+ *   request from the stored file (its Range as 206, its If-None-Match as 304), no AEM request,
+ *   x-lh-edge-cache: hit. A miss answers as before (x-lh-edge-cache: miss) and stores the file: a
+ *   200 up to 8 MB on the way (the body teed), a larger one or a Range's 206 by one whole-file GET
+ *   in the background (ctx.waitUntil; one per file and isolate at a time; a fill cut short by the
+ *   Worker's limits stores nothing and the next miss tries again). Drop one file (a replaced
+ *   one): purge its key URL above (Cloudflare's purge by URL, 5 a minute on the Free plan), or
+ *   wait the 30 days; drop them all: a new EDGE_CACHE_VERSION and a deploy.
  * - Headers: content-type of MEDIA_TYPES, cache-control public, max-age=2592000, accept-ranges
  *   bytes; content-length, content-range, etag and last-modified from AEM; no other AEM header;
  *   an SVG content-security-policy script-src 'none' (it can't run scripts on our hosts).
@@ -82,6 +97,77 @@ export const AFTER_DA = new Set(Object.keys(MEDIA_TYPES).filter((x) => !['mp4', 
 /** The extension of an asset path, lower case ('' without one). */
 export const extOf = (asset) => ((String(asset).match(/\.([a-z0-9]+)$/i) || [])[1] || '').toLowerCase();
 
+/** The largest file kept in the zone's cache (Cloudflare's cacheable size, Free to Business). */
+export const DAM_CACHE_MAX_BYTES = 512 * 1024 * 1024;
+// up to this size a miss's 200 is stored on the way (teed); larger files by a background GET, as a
+// teed body would be buffered in memory while the visitor reads slower than the cache
+const TEE_MAX_BYTES = 8 * 1024 * 1024;
+const CACHE_HOST = 'https://lufthansa.turnsthe.page';
+const VISITORS = 'public, max-age=2592000';
+
+/** The zone cache's key of an asset: one per file for every host, versioned. */
+export function damCacheKey(asset, env = {}) {
+  const version = String(env.EDGE_CACHE_VERSION ?? '').trim() || '0';
+  return `${CACHE_HOST}/.lh-edge-cache/dam-aem/${encodeURIComponent(version)}${edsDamPath(asset)}`;
+}
+
+/** The file's whole size from an answer: a 200's content-length, a 206's content-range total. */
+function totalOf(resp) {
+  if (resp.status === 206) return Number(((resp.headers.get('content-range') || '').match(/\/(\d+)$/) || [])[1]) || 0;
+  return Number(resp.headers.get('content-length')) || 0;
+}
+
+/** The headers a stored copy keeps: our media type and cache-control, AEM's file headers. */
+function storedHeaders(resp, type, ext) {
+  const out = new Headers({ 'content-type': type, 'cache-control': VISITORS, 'accept-ranges': 'bytes' });
+  ['content-length', 'etag', 'last-modified'].forEach((h) => { if (resp.headers.has(h)) out.set(h, resp.headers.get(h)); });
+  if (ext === 'svg') out.set('content-security-policy', "script-src 'none'");
+  return out;
+}
+
+// the background fills running in this isolate, by key (a player's many ranges: one fill)
+const filling = new Map();
+
+/** Stores a file's body under its key (errors and a cut-short body store nothing). */
+function store(cache, key, body, resp, type, ext) {
+  const copy = new Response(body, { status: 200, headers: storedHeaders(resp, type, ext) });
+  return cache.put(key, copy).catch(() => {});
+}
+
+/** One whole-file GET of AEM, stored when it is the file (200, its type, a length in the limit). */
+function fill(cache, key, url, names, type, ext) {
+  if (filling.has(key)) return filling.get(key);
+  const run = (async () => {
+    try {
+      const resp = await fetch(url, { method: 'GET', redirect: 'manual', cache: 'no-store' });
+      const got = (resp.headers.get('content-type') || '').split(';')[0].trim().toLowerCase();
+      const size = totalOf(resp);
+      if (resp.status !== 200 || !names.includes(got) || !size || size > DAM_CACHE_MAX_BYTES) {
+        if (resp.body) resp.body.cancel().catch(() => {});
+        return;
+      }
+      await store(cache, key, resp.body, resp, type, ext);
+    } catch (e) {
+      // the next miss tries again
+    } finally {
+      filling.delete(key);
+    }
+  })();
+  filling.set(key, run);
+  return run;
+}
+
+/** The client's answer from a stored copy (its own Range, If-None-Match, If-Modified-Since). */
+function fromCache(request, hit) {
+  const out = new Headers(hit.headers);
+  out.set('cache-control', VISITORS);
+  out.set('x-lh-edge-route', 'dam-aem');
+  out.set('x-lh-edge-cache', 'hit');
+  const empty = request.method === 'HEAD' || hit.status === 304;
+  if (empty && hit.body) hit.body.cancel().catch(() => {});
+  return new Response(empty ? null : hit.body, { status: hit.status, headers: out });
+}
+
 /** How long AEM may take for its response headers. */
 export const AEM_HEADER_TIMEOUT_MS = 30000;
 const FORWARD = ['range', 'if-none-match', 'if-modified-since'];
@@ -124,9 +210,18 @@ export async function damAem(request, env, ctx, info) {
   if (AFTER_DA.has(ext) !== Boolean(info.afterDa)) return null;
   const headers = new Headers();
   FORWARD.forEach((h) => { if (request.headers.has(h)) headers.set(h, request.headers.get(h)); });
+  // the zone's cache first (brief 355): a stored file answers without AEM
+  const cached = String(env.DAM_AEM_CACHE || '').trim() !== 'off' && typeof caches !== 'undefined';
+  const cache = cached ? caches.default : null;
+  const key = cache && damCacheKey(info.asset, env);
+  if (cache) {
+    const hit = await cache.match(new Request(key, { headers })).catch(() => null);
+    if (hit) return fromCache(request, hit);
+  }
+  const url = `${base}${edsDamPath(info.asset)}`;
   let resp;
   try {
-    resp = await fetchHeaders(`${base}${edsDamPath(info.asset)}`, {
+    resp = await fetchHeaders(url, {
       method: request.method, headers, redirect: 'manual', cache: 'no-store',
     }, Number(env.AEM_HEADER_TIMEOUT_MS) || AEM_HEADER_TIMEOUT_MS);
   } catch (e) {
@@ -152,5 +247,21 @@ export async function damAem(request, env, ctx, info) {
   if (ext === 'svg') out.set('content-security-policy', "script-src 'none'");
   const empty = request.method === 'HEAD' || resp.status === 304;
   if (empty && resp.body) resp.body.cancel().catch(() => {});
-  return new Response(empty ? null : resp.body, { status: resp.status, headers: out });
+  let body = empty ? null : resp.body;
+  // a miss: the file into the zone's cache, on the way (a small 200) or in the background
+  const size = file ? totalOf(resp) : 0;
+  if (cache && request.method === 'GET' && file && size && size <= DAM_CACHE_MAX_BYTES) {
+    out.set('x-lh-edge-cache', 'miss');
+    const later = ctx && ctx.waitUntil ? (p) => ctx.waitUntil(p) : null;
+    if (later && resp.status === 200 && size <= TEE_MAX_BYTES && body) {
+      const [client, stored] = body.tee();
+      body = client;
+      later(store(cache, key, stored, resp, type, ext));
+    } else if (later) {
+      later(fill(cache, key, url, names, type, ext));
+    }
+  } else if (cache && file) {
+    out.set('x-lh-edge-cache', 'pass');
+  }
+  return new Response(body, { status: resp.status, headers: out });
 }

@@ -151,6 +151,7 @@ test('never stored: the hibernation page (200 text/html), 304, 5xx, a file over 
   assert.equal((await get('lufthansa.turnsthe.page', MP4, { headers: { 'if-none-match': '"aem"' } })).status, 304);
   aem = () => new Response('busy', { status: 502 });
   assert.equal((await get('lufthansa.turnsthe.page', MP4)).status, 503);
+  const before = aemCalls().length;
   const big = String(DAM_CACHE_MAX_BYTES + 1);
   aem = (req) => (req.headers.get('range')
     ? new Response(BYTES.slice(0, 100), { status: 206, headers: { 'content-type': 'video/mp4', 'content-range': `bytes 0-99/${big}`, 'content-length': '100' } })
@@ -159,7 +160,7 @@ test('never stored: the hibernation page (200 text/html), 304, 5xx, a file over 
   await (await get('lufthansa.turnsthe.page', MP4, { headers: { range: 'bytes=0-99' } })).arrayBuffer();
   await settle();
   assert.deepEqual(cache.puts, []);
-  assert.equal(aemCalls().filter((c) => !c.headers.range && c.method === 'GET').length, 1, 'no background fill for a file over the limit');
+  assert.equal(aemCalls().slice(before).filter((c) => !c.headers.range && c.method === 'GET').length, 1, 'the 200 itself, no background fill for a file over the limit');
   aem = () => new Response(BYTES, { headers: { 'content-type': 'video/mp4' } });
   await (await get('lufthansa.turnsthe.page', MP4)).arrayBuffer();
   await settle();
