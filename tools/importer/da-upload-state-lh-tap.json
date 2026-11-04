@@ -4184,6 +4184,636 @@
    "uploaded": "2026-11-04T01:36:04.667Z",
    "mtime": 1793753138156,
    "preview": "2026-11-04T01:36:06.551Z"
+  },
+  "/pt-br": {
+   "uploaded": "2026-11-04T02:07:58.038Z",
+   "mtime": 1793758061760,
+   "preview": "2026-11-04T02:08:01.171Z"
+  },
+  "/pt-br/a-bordo": {
+   "uploaded": "2026-11-04T02:08:02.592Z",
+   "mtime": 1793758062032,
+   "preview": "2026-11-04T02:08:05.512Z"
+  },
+  "/pt-br/a-bordo/altitude-film-festival": {
+   "uploaded": "2026-11-04T02:08:07.282Z",
+   "mtime": 1793758063520,
+   "preview": "2026-11-04T02:08:09.815Z"
+  },
+  "/pt-br/a-bordo/economy-prime": {
+   "uploaded": "2026-11-04T02:08:11.398Z",
+   "mtime": 1793758063590,
+   "preview": "2026-11-04T02:08:13.414Z"
+  },
+  "/pt-br/a-bordo/entretenimento": {
+   "uploaded": "2026-11-04T02:08:14.843Z",
+   "mtime": 1793758063645,
+   "preview": "2026-11-04T02:08:17.493Z"
+  },
+  "/pt-br/a-bordo/refeicoes": {
+   "uploaded": "2026-11-04T02:08:19.069Z",
+   "mtime": 1793758063680,
+   "preview": "2026-11-04T02:08:21.447Z"
+  },
+  "/pt-br/a-bordo/refeicoes-especiais": {
+   "uploaded": "2026-11-04T02:08:22.879Z",
+   "mtime": 1793758063722,
+   "preview": "2026-11-04T02:08:25.312Z"
+  },
+  "/pt-br/a-bordo/refeicoes/classe-economica": {
+   "uploaded": "2026-11-04T02:08:26.923Z",
+   "mtime": 1793758066114,
+   "preview": "2026-11-04T02:08:29.515Z"
+  },
+  "/pt-br/a-bordo/refeicoes/classe-executiva": {
+   "uploaded": "2026-11-04T02:30:53.967Z",
+   "mtime": 1793759438776,
+   "preview": "2026-11-04T02:30:56.047Z"
+  },
+  "/pt-br/a-bordo/refeicoes/economy-prime": {
+   "uploaded": "2026-11-04T02:30:57.750Z",
+   "mtime": 1793759438808,
+   "preview": "2026-11-04T02:31:00.532Z"
+  },
+  "/pt-br/a-bordo/refeicoes/local-stars": {
+   "uploaded": "2026-11-04T02:08:40.187Z",
+   "mtime": 1793758066018,
+   "preview": "2026-11-04T02:08:42.371Z"
+  },
+  "/pt-br/a-bordo/voar-economica": {
+   "uploaded": "2026-11-04T02:08:44.192Z",
+   "mtime": 1793758063770,
+   "preview": "2026-11-04T02:08:46.418Z"
+  },
+  "/pt-br/a-bordo/voar-executiva": {
+   "uploaded": "2026-11-04T02:08:48.401Z",
+   "mtime": 1793758063845,
+   "preview": "2026-11-04T02:08:50.746Z"
+  },
+  "/pt-br/a-bordo/wi-fi": {
+   "uploaded": "2026-11-04T02:31:02.254Z",
+   "mtime": 1793759438241,
+   "preview": "2026-11-04T02:31:04.312Z"
+  },
+  "/pt-br/ajuda": {
+   "uploaded": "2026-11-04T02:31:05.897Z",
+   "mtime": 1793759437388,
+   "preview": "2026-11-04T02:31:08.386Z"
+  },
+  "/pt-br/ajuda/atrasos-cancelamentos": {
+   "uploaded": "2026-11-04T02:09:01.184Z",
+   "mtime": 1793758062205,
+   "preview": "2026-11-04T02:09:03.605Z"
+  },
+  "/pt-br/ajuda/perguntas-frequentes": {
+   "uploaded": "2026-11-04T02:09:05.231Z",
+   "mtime": 1793758062346,
+   "preview": "2026-11-04T02:09:08.132Z"
+  },
+  "/pt-br/ajuda/reembolsos-tap": {
+   "uploaded": "2026-11-04T02:09:09.795Z",
+   "mtime": 1793758062238,
+   "preview": "2026-11-04T02:09:12.468Z"
+  },
+  "/pt-br/ajuda/solicitacoes-reclamacoes": {
+   "uploaded": "2026-11-04T02:31:09.995Z",
+   "mtime": 1793759437532,
+   "preview": "2026-11-04T02:31:12.324Z"
+  },
+  "/pt-br/alertas-e-informacoes": {
+   "uploaded": "2026-11-04T02:09:17.743Z",
+   "mtime": 1793758061833,
+   "preview": "2026-11-04T02:09:19.899Z"
+  },
+  "/pt-br/destinos": {
+   "uploaded": "2026-11-04T02:09:21.398Z",
+   "mtime": 1793758061915,
+   "preview": "2026-11-04T02:09:23.983Z"
+  },
+  "/pt-br/destinos/inspire-se": {
+   "uploaded": "2026-11-04T02:09:25.672Z",
+   "mtime": 1793758062727,
+   "preview": "2026-11-04T02:09:28.494Z"
+  },
+  "/pt-br/footer": {
+   "uploaded": "2026-11-04T02:09:30.184Z",
+   "mtime": 1793758066858,
+   "preview": "2026-11-04T02:09:33.130Z"
+  },
+  "/pt-br/fragments/inspire-se/aventura": {
+   "uploaded": "2026-11-04T01:44:22.769Z",
+   "mtime": 1793756308640,
+   "preview": "2026-11-04T01:44:31.576Z"
+  },
+  "/pt-br/fragments/inspire-se/compras": {
+   "uploaded": "2026-11-04T01:45:05.979Z",
+   "mtime": 1793756308673,
+   "preview": "2026-11-04T01:45:10.652Z"
+  },
+  "/pt-br/fragments/inspire-se/cultura": {
+   "uploaded": "2026-11-04T01:46:31.618Z",
+   "mtime": 1793756308714,
+   "preview": "2026-11-04T01:46:40.646Z"
+  },
+  "/pt-br/fragments/inspire-se/cultura-2": {
+   "uploaded": "2026-11-04T01:47:47.875Z",
+   "mtime": 1793756308761,
+   "preview": "2026-11-04T01:47:56.415Z"
+  },
+  "/pt-br/fragments/inspire-se/cultura-3": {
+   "uploaded": "2026-11-04T01:48:03.234Z",
+   "mtime": 1793756308783,
+   "preview": "2026-11-04T01:48:06.266Z"
+  },
+  "/pt-br/fragments/inspire-se/familia": {
+   "uploaded": "2026-11-04T01:48:11.129Z",
+   "mtime": 1793756308815,
+   "preview": "2026-11-04T01:48:16.414Z"
+  },
+  "/pt-br/fragments/inspire-se/gastronomia": {
+   "uploaded": "2026-11-04T01:48:20.084Z",
+   "mtime": 1793756308848,
+   "preview": "2026-11-04T01:48:25.375Z"
+  },
+  "/pt-br/fragments/inspire-se/multi-destinos": {
+   "uploaded": "2026-11-04T01:48:55.453Z",
+   "mtime": 1793756308886,
+   "preview": "2026-11-04T01:48:59.328Z"
+  },
+  "/pt-br/fragments/inspire-se/natureza": {
+   "uploaded": "2026-11-04T01:49:03.943Z",
+   "mtime": 1793756308925,
+   "preview": "2026-11-04T01:49:12.108Z"
+  },
+  "/pt-br/fragments/inspire-se/noite": {
+   "uploaded": "2026-11-04T01:49:18.992Z",
+   "mtime": 1793756308966,
+   "preview": "2026-11-04T01:49:24.231Z"
+  },
+  "/pt-br/fragments/inspire-se/praia": {
+   "uploaded": "2026-11-04T01:49:33.256Z",
+   "mtime": 1793756309008,
+   "preview": "2026-11-04T01:49:40.675Z"
+  },
+  "/pt-br/fragments/inspire-se/praia-2": {
+   "uploaded": "2026-11-04T01:49:42.054Z",
+   "mtime": 1793756309032,
+   "preview": "2026-11-04T01:49:44.426Z"
+  },
+  "/pt-br/fragments/inspire-se/relax": {
+   "uploaded": "2026-11-04T01:49:45.726Z",
+   "mtime": 1793756309053,
+   "preview": "2026-11-04T01:49:49.226Z"
+  },
+  "/pt-br/fragments/inspire-se/romance": {
+   "uploaded": "2026-11-04T01:49:50.574Z",
+   "mtime": 1793756309098,
+   "preview": "2026-11-04T01:49:57.125Z"
+  },
+  "/pt-br/gerenciar-reserva": {
+   "uploaded": "2026-11-04T02:09:34.703Z",
+   "mtime": 1793758061942,
+   "preview": "2026-11-04T02:09:37.156Z"
+  },
+  "/pt-br/gerenciar-reserva/extras": {
+   "uploaded": "2026-11-04T02:09:38.790Z",
+   "mtime": 1793758062868,
+   "preview": "2026-11-04T02:09:41.427Z"
+  },
+  "/pt-br/gerenciar-reserva/extras/assento-lado-livre": {
+   "uploaded": "2026-11-04T02:31:14.133Z",
+   "mtime": 1793759438571,
+   "preview": "2026-11-04T02:31:16.444Z"
+  },
+  "/pt-br/gerenciar-reserva/extras/assentos": {
+   "uploaded": "2026-11-04T02:31:18.639Z",
+   "mtime": 1793759438539,
+   "preview": "2026-11-04T02:31:21.012Z"
+  },
+  "/pt-br/gerenciar-reserva/extras/boost-packs": {
+   "uploaded": "2026-11-04T02:09:50.959Z",
+   "mtime": 1793758065005,
+   "preview": "2026-11-04T02:09:53.507Z"
+  },
+  "/pt-br/gerenciar-reserva/extras/embarque": {
+   "uploaded": "2026-11-04T02:09:54.976Z",
+   "mtime": 1793758065040,
+   "preview": "2026-11-04T02:09:57.577Z"
+  },
+  "/pt-br/gerenciar-reserva/extras/fast-track": {
+   "uploaded": "2026-11-04T02:09:59.069Z",
+   "mtime": 1793758065079,
+   "preview": "2026-11-04T02:10:01.931Z"
+  },
+  "/pt-br/gerenciar-reserva/extras/lounges": {
+   "uploaded": "2026-11-04T02:10:04.959Z",
+   "mtime": 1793758065129,
+   "preview": "2026-11-04T02:10:08.584Z"
+  },
+  "/pt-br/gerenciar-reserva/extras/upgrades": {
+   "uploaded": "2026-11-04T02:10:10.147Z",
+   "mtime": 1793758065218,
+   "preview": "2026-11-04T02:10:12.356Z"
+  },
+  "/pt-br/gerenciar-reserva/extras/upgrades/gratuito": {
+   "uploaded": "2026-11-04T02:31:22.661Z",
+   "mtime": 1793759439051,
+   "preview": "2026-11-04T02:31:24.768Z"
+  },
+  "/pt-br/gerenciar-reserva/extras/upgrades/leiloes": {
+   "uploaded": "2026-11-04T02:10:16.869Z",
+   "mtime": 1793758066465,
+   "preview": "2026-11-04T02:10:19.282Z"
+  },
+  "/pt-br/gerenciar-reserva/extras/upgrades/preco-fixo": {
+   "uploaded": "2026-11-04T02:10:21.296Z",
+   "mtime": 1793758066495,
+   "preview": "2026-11-04T02:10:23.475Z"
+  },
+  "/pt-br/info-legal/privacidade": {
+   "uploaded": "2026-11-04T02:10:25.216Z",
+   "mtime": 1793758063077,
+   "preview": "2026-11-04T02:10:27.421Z"
+  },
+  "/pt-br/informacoes": {
+   "uploaded": "2026-11-04T02:10:28.815Z",
+   "mtime": 1793758062005,
+   "preview": "2026-11-04T02:10:31.989Z"
+  },
+  "/pt-br/informacoes-check-in": {
+   "uploaded": "2026-11-04T02:10:33.626Z",
+   "mtime": 1793758061872,
+   "preview": "2026-11-04T02:10:36.248Z"
+  },
+  "/pt-br/informacoes-legais": {
+   "uploaded": "2026-11-04T02:10:37.932Z",
+   "mtime": 1793758061971,
+   "preview": "2026-11-04T02:10:40.348Z"
+  },
+  "/pt-br/informacoes-legais/acessibilidade": {
+   "uploaded": "2026-11-04T02:10:42.006Z",
+   "mtime": 1793758062967,
+   "preview": "2026-11-04T02:10:44.070Z"
+  },
+  "/pt-br/informacoes-legais/condicoes-de-transporte": {
+   "uploaded": "2026-11-04T02:10:45.609Z",
+   "mtime": 1793758062936,
+   "preview": "2026-11-04T02:10:47.757Z"
+  },
+  "/pt-br/informacoes-legais/cookies": {
+   "uploaded": "2026-11-04T02:10:49.984Z",
+   "mtime": 1793758063030,
+   "preview": "2026-11-04T02:10:52.478Z"
+  },
+  "/pt-br/informacoes-legais/flight-passes": {
+   "uploaded": "2026-11-04T02:10:54.071Z",
+   "mtime": 1793758062991,
+   "preview": "2026-11-04T02:10:56.374Z"
+  },
+  "/pt-br/informacoes-legais/politica-divulgacao-vulnerabilidades": {
+   "uploaded": "2026-11-04T02:10:58.220Z",
+   "mtime": 1793758063145,
+   "preview": "2026-11-04T02:11:00.299Z"
+  },
+  "/pt-br/informacoes-legais/privacidade": {
+   "uploaded": "2026-11-04T02:11:01.781Z",
+   "mtime": 1793758063114,
+   "preview": "2026-11-04T02:11:04.044Z"
+  },
+  "/pt-br/informacoes-legais/seguranca-cibernetica": {
+   "uploaded": "2026-11-04T02:11:05.608Z",
+   "mtime": 1793758062896,
+   "preview": "2026-11-04T02:11:07.850Z"
+  },
+  "/pt-br/informacoes-legais/termos-e-condicoes": {
+   "uploaded": "2026-11-04T02:11:09.601Z",
+   "mtime": 1793758063239,
+   "preview": "2026-11-04T02:11:11.864Z"
+  },
+  "/pt-br/informacoes-legais/termos-e-condicoes-miles-and-go": {
+   "uploaded": "2026-11-04T02:11:13.338Z",
+   "mtime": 1793758063196,
+   "preview": "2026-11-04T02:11:16.177Z"
+  },
+  "/pt-br/informacoes/bagagem": {
+   "uploaded": "2026-11-04T02:11:17.621Z",
+   "mtime": 1793758063267,
+   "preview": "2026-11-04T02:11:19.999Z"
+  },
+  "/pt-br/informacoes/bagagem/armas-municao": {
+   "uploaded": "2026-11-04T02:11:21.661Z",
+   "mtime": 1793758065279,
+   "preview": "2026-11-04T02:11:24.593Z"
+  },
+  "/pt-br/informacoes/bagagem/bagagem-mao": {
+   "uploaded": "2026-11-04T02:11:26.035Z",
+   "mtime": 1793758065380,
+   "preview": "2026-11-04T02:11:29.124Z"
+  },
+  "/pt-br/informacoes/bagagem/bagagem-porao": {
+   "uploaded": "2026-11-04T02:11:30.555Z",
+   "mtime": 1793758065420,
+   "preview": "2026-11-04T02:11:33.093Z"
+  },
+  "/pt-br/informacoes/bagagem/equipamento-esportivo": {
+   "uploaded": "2026-11-04T02:11:35.628Z",
+   "mtime": 1793758065454,
+   "preview": "2026-11-04T02:11:38.315Z"
+  },
+  "/pt-br/informacoes/bagagem/instrumentos-musicais": {
+   "uploaded": "2026-11-04T02:11:39.806Z",
+   "mtime": 1793758065496,
+   "preview": "2026-11-04T02:11:42.358Z"
+  },
+  "/pt-br/informacoes/bagagem/itens-perigosos": {
+   "uploaded": "2026-11-04T02:11:43.750Z",
+   "mtime": 1793758065326,
+   "preview": "2026-11-04T02:11:46.056Z"
+  },
+  "/pt-br/informacoes/bagagem/localizar-bagagem": {
+   "uploaded": "2026-11-04T02:11:47.498Z",
+   "mtime": 1793758065553,
+   "preview": "2026-11-04T02:11:49.602Z"
+  },
+  "/pt-br/informacoes/bagagem/problemas-bagagem": {
+   "uploaded": "2026-11-04T02:11:51.154Z",
+   "mtime": 1793758065527,
+   "preview": "2026-11-04T02:11:53.496Z"
+  },
+  "/pt-br/informacoes/bebes-e-criancas": {
+   "uploaded": "2026-11-04T02:11:55.156Z",
+   "mtime": 1793758063305,
+   "preview": "2026-11-04T02:11:58.189Z"
+  },
+  "/pt-br/informacoes/documentacao": {
+   "uploaded": "2026-11-04T02:11:59.598Z",
+   "mtime": 1793758063437,
+   "preview": "2026-11-04T02:12:01.988Z"
+  },
+  "/pt-br/informacoes/documentacao/parceria-ucs": {
+   "uploaded": "2026-11-04T02:12:03.879Z",
+   "mtime": 1793758065747,
+   "preview": "2026-11-04T02:12:06.270Z"
+  },
+  "/pt-br/informacoes/documentacao/passaporte-eletronico": {
+   "uploaded": "2026-11-04T02:12:08.058Z",
+   "mtime": 1793758065772,
+   "preview": "2026-11-04T02:12:10.132Z"
+  },
+  "/pt-br/informacoes/documentacao/viagem-aos-eua": {
+   "uploaded": "2026-11-04T02:12:11.812Z",
+   "mtime": 1793758065884,
+   "preview": "2026-11-04T02:12:14.287Z"
+  },
+  "/pt-br/informacoes/documentacao/viajando-brasil": {
+   "uploaded": "2026-11-04T02:12:15.719Z",
+   "mtime": 1793758065803,
+   "preview": "2026-11-04T02:12:17.965Z"
+  },
+  "/pt-br/informacoes/documentacao/viajando-canada": {
+   "uploaded": "2026-11-04T02:12:19.622Z",
+   "mtime": 1793758065829,
+   "preview": "2026-11-04T02:12:21.679Z"
+  },
+  "/pt-br/informacoes/documentacao/viajando-reino-unido": {
+   "uploaded": "2026-11-04T02:12:23.754Z",
+   "mtime": 1793758065854,
+   "preview": "2026-11-04T02:12:26.938Z"
+  },
+  "/pt-br/informacoes/documentacao/vistos-schengen": {
+   "uploaded": "2026-11-04T02:12:28.546Z",
+   "mtime": 1793758065918,
+   "preview": "2026-11-04T02:12:31.195Z"
+  },
+  "/pt-br/informacoes/frota-tap": {
+   "uploaded": "2026-11-04T02:12:32.767Z",
+   "mtime": 1793758063349,
+   "preview": "2026-11-04T02:12:35.182Z"
+  },
+  "/pt-br/informacoes/mulheres-gravidas": {
+   "uploaded": "2026-11-04T02:12:36.657Z",
+   "mtime": 1793758063381,
+   "preview": "2026-11-04T02:12:38.691Z"
+  },
+  "/pt-br/informacoes/necessidades-especiais": {
+   "uploaded": "2026-11-04T02:12:40.239Z",
+   "mtime": 1793758063409,
+   "preview": "2026-11-04T02:12:42.407Z"
+  },
+  "/pt-br/informacoes/necessidades-especiais/cadeira-rodas": {
+   "uploaded": "2026-11-04T02:12:44.123Z",
+   "mtime": 1793758065628,
+   "preview": "2026-11-04T02:12:46.350Z"
+  },
+  "/pt-br/informacoes/necessidades-especiais/deficiencia-visual": {
+   "uploaded": "2026-11-04T02:12:48.023Z",
+   "mtime": 1793758065662,
+   "preview": "2026-11-04T02:12:50.668Z"
+  },
+  "/pt-br/informacoes/necessidades-especiais/problemas-saude": {
+   "uploaded": "2026-11-04T02:12:52.434Z",
+   "mtime": 1793758065595,
+   "preview": "2026-11-04T02:12:55.125Z"
+  },
+  "/pt-br/informacoes/necessidades-especiais/solicitacao-assistencia": {
+   "uploaded": "2026-11-04T02:12:57.305Z",
+   "mtime": 1793758065720,
+   "preview": "2026-11-04T02:13:01.369Z"
+  },
+  "/pt-br/informacoes/necessidades-especiais/surdos": {
+   "uploaded": "2026-11-04T02:13:03.098Z",
+   "mtime": 1793758065696,
+   "preview": "2026-11-04T02:13:05.299Z"
+  },
+  "/pt-br/informacoes/viajar-com-animais": {
+   "uploaded": "2026-11-04T02:13:06.927Z",
+   "mtime": 1793758063471,
+   "preview": "2026-11-04T02:13:09.531Z"
+  },
+  "/pt-br/informacoes/viajar-com-animais/animais-auxiliares": {
+   "uploaded": "2026-11-04T02:13:11.250Z",
+   "mtime": 1793758065951,
+   "preview": "2026-11-04T02:13:13.740Z"
+  },
+  "/pt-br/informacoes/viajar-com-animais/animais-estimacao": {
+   "uploaded": "2026-11-04T02:13:15.481Z",
+   "mtime": 1793758065990,
+   "preview": "2026-11-04T02:13:18.137Z"
+  },
+  "/pt-br/miles-and-go": {
+   "uploaded": "2026-11-04T02:13:19.757Z",
+   "mtime": 1793758062173,
+   "preview": "2026-11-04T02:13:22.231Z"
+  },
+  "/pt-br/miles-and-go/club": {
+   "uploaded": "2026-11-04T02:13:23.754Z",
+   "mtime": 1793758064553,
+   "preview": "2026-11-04T02:13:26.150Z"
+  },
+  "/pt-br/miles-and-go/estatutos": {
+   "uploaded": "2026-11-04T02:13:27.638Z",
+   "mtime": 1793758064598,
+   "preview": "2026-11-04T02:13:29.799Z"
+  },
+  "/pt-br/miles-and-go/estatutos/for-life": {
+   "uploaded": "2026-11-04T02:13:31.350Z",
+   "mtime": 1793758066198,
+   "preview": "2026-11-04T02:13:33.694Z"
+  },
+  "/pt-br/miles-and-go/ganhe-milhas": {
+   "uploaded": "2026-11-04T02:13:35.227Z",
+   "mtime": 1793758064514,
+   "preview": "2026-11-04T02:13:37.826Z"
+  },
+  "/pt-br/miles-and-go/ganhe-milhas/cartoes-de-credito": {
+   "uploaded": "2026-11-04T02:13:39.414Z",
+   "mtime": 1793758066166,
+   "preview": "2026-11-04T02:13:41.583Z"
+  },
+  "/pt-br/miles-and-go/ganhe-milhas/voando": {
+   "uploaded": "2026-11-04T02:31:26.607Z",
+   "mtime": 1793759438846,
+   "preview": "2026-11-04T02:31:28.840Z"
+  },
+  "/pt-br/miles-and-go/gift": {
+   "uploaded": "2026-11-04T02:31:30.354Z",
+   "mtime": 1793759438391,
+   "preview": "2026-11-04T02:31:32.785Z"
+  },
+  "/pt-br/miles-and-go/happy-miles": {
+   "uploaded": "2026-11-04T02:13:51.217Z",
+   "mtime": 1793758064669,
+   "preview": "2026-11-04T02:13:53.669Z"
+  },
+  "/pt-br/miles-and-go/loja-de-milhas": {
+   "uploaded": "2026-11-04T02:13:55.254Z",
+   "mtime": 1793758064721,
+   "preview": "2026-11-04T02:13:57.504Z"
+  },
+  "/pt-br/miles-and-go/miles-and-go-pets": {
+   "uploaded": "2026-11-04T02:31:34.712Z",
+   "mtime": 1793759438436,
+   "preview": "2026-11-04T02:31:36.999Z"
+  },
+  "/pt-br/miles-and-go/parceiros": {
+   "uploaded": "2026-11-04T02:14:04.287Z",
+   "mtime": 1793758064835,
+   "preview": "2026-11-04T02:14:07.872Z"
+  },
+  "/pt-br/miles-and-go/promo": {
+   "uploaded": "2026-11-04T02:14:09.642Z",
+   "mtime": 1793758064874,
+   "preview": "2026-11-04T02:14:12.237Z"
+  },
+  "/pt-br/miles-and-go/promocoes": {
+   "uploaded": "2026-11-04T02:14:13.937Z",
+   "mtime": 1793758064912,
+   "preview": "2026-11-04T02:14:16.654Z"
+  },
+  "/pt-br/miles-and-go/utilizar-milhas": {
+   "uploaded": "2026-11-04T02:14:18.766Z",
+   "mtime": 1793758064961,
+   "preview": "2026-11-04T02:14:21.472Z"
+  },
+  "/pt-br/miles-and-go/utilizar-milhas/comprar-passagem": {
+   "uploaded": "2026-11-04T02:31:38.559Z",
+   "mtime": 1793759438917,
+   "preview": "2026-11-04T02:31:41.225Z"
+  },
+  "/pt-br/miles-and-go/utilizar-milhas/doacao-milhas": {
+   "uploaded": "2026-11-04T02:31:43.066Z",
+   "mtime": 1793759438945,
+   "preview": "2026-11-04T02:31:45.825Z"
+  },
+  "/pt-br/miles-and-go/utilizar-milhas/doacao-milhas/milhas-doadas": {
+   "uploaded": "2026-11-04T02:14:31.284Z",
+   "mtime": 1793758066560,
+   "preview": "2026-11-04T02:14:33.474Z"
+  },
+  "/pt-br/miles-and-go/utilizar-milhas/lista-de-beneficiarios": {
+   "uploaded": "2026-11-04T02:31:47.338Z",
+   "mtime": 1793759438889,
+   "preview": "2026-11-04T02:31:49.508Z"
+  },
+  "/pt-br/miles-and-go/utilizar-milhas/miles4extras": {
+   "uploaded": "2026-11-04T02:31:50.957Z",
+   "mtime": 1793759438972,
+   "preview": "2026-11-04T02:31:53.343Z"
+  },
+  "/pt-br/miles-and-go/utilizar-milhas/taxas": {
+   "uploaded": "2026-11-04T02:14:42.448Z",
+   "mtime": 1793758066369,
+   "preview": "2026-11-04T02:14:45.041Z"
+  },
+  "/pt-br/miles-and-go/utilizar-milhas/upgrade-com-milhas": {
+   "uploaded": "2026-11-04T02:31:54.992Z",
+   "mtime": 1793759439006,
+   "preview": "2026-11-04T02:31:57.532Z"
+  },
+  "/pt-br/miles-and-go/utilizar-milhas/viagem-ao-redor-do-mundo": {
+   "uploaded": "2026-11-04T02:14:50.020Z",
+   "mtime": 1793758066427,
+   "preview": "2026-11-04T02:14:52.503Z"
+  },
+  "/pt-br/nav": {
+   "uploaded": "2026-11-04T02:14:54.738Z",
+   "mtime": 1793758066839,
+   "preview": "2026-11-04T02:14:56.858Z"
+  },
+  "/pt-br/promos": {
+   "uploaded": "2026-11-04T02:14:58.715Z",
+   "mtime": 1793758062064,
+   "preview": "2026-11-04T02:15:00.897Z"
+  },
+  "/pt-br/reservas": {
+   "uploaded": "2026-11-04T02:15:02.379Z",
+   "mtime": 1793758062097,
+   "preview": "2026-11-04T02:15:05.939Z"
+  },
+  "/pt-br/reservas/metodos-de-pagamento": {
+   "uploaded": "2026-11-04T02:15:07.364Z",
+   "mtime": 1793758064194,
+   "preview": "2026-11-04T02:15:10.284Z"
+  },
+  "/pt-br/reservas/ponte-aerea": {
+   "uploaded": "2026-11-04T02:15:11.811Z",
+   "mtime": 1793758064233,
+   "preview": "2026-11-04T02:15:14.203Z"
+  },
+  "/pt-br/reservas/tap-meetings": {
+   "uploaded": "2026-11-04T02:15:15.582Z",
+   "mtime": 1793758063905,
+   "preview": "2026-11-04T02:15:17.698Z"
+  },
+  "/pt-br/reservas/tarifas-tap": {
+   "uploaded": "2026-11-04T02:15:19.129Z",
+   "mtime": 1793758063939,
+   "preview": "2026-11-04T02:15:21.425Z"
+  },
+  "/pt-br/reservas/time-to-think": {
+   "uploaded": "2026-11-04T02:15:22.853Z",
+   "mtime": 1793758064257,
+   "preview": "2026-11-04T02:15:25.144Z"
+  },
+  "/pt-br/reservas/vigo-porto": {
+   "uploaded": "2026-11-04T02:15:27.062Z",
+   "mtime": 1793758064285,
+   "preview": "2026-11-04T02:15:29.504Z"
+  },
+  "/pt-br/reservas/voo-e-trem": {
+   "uploaded": "2026-11-04T02:15:31.201Z",
+   "mtime": 1793758064333,
+   "preview": "2026-11-04T02:15:33.638Z"
+  },
+  "/pt-br/stopover": {
+   "uploaded": "2026-11-04T02:31:59.245Z",
+   "mtime": 1793759437484,
+   "preview": "2026-11-04T02:32:02.454Z"
+  },
+  "/pt-br/stopover/parceiros": {
+   "uploaded": "2026-11-04T02:15:40.151Z",
+   "mtime": 1793758064459,
+   "preview": "2026-11-04T02:15:49.298Z"
   }
  },
  "media": {
@@ -7084,6 +7714,1761 @@
   },
   "/media-da/tap/everyday-is-sunday-350x140-448ed859.png": {
    "at": "2026-11-04T01:43:47.094Z"
+  },
+  "/media-da/tap/gettyimages-847751050-1-54d6fda6.jpg": {
+   "at": "2026-11-04T01:40:51.558Z"
+  },
+  "/media-da/tap/baggage-tap-air-portugal-card-hp-cc440480.jpg": {
+   "at": "2026-11-04T01:40:52.229Z"
+  },
+  "/media-da/tap/special-needs-card-homepage-2b61c6a5.jpg": {
+   "at": "2026-11-04T01:40:53.030Z"
+  },
+  "/media-da/tap/card-homepage-travel-with-pets-ff6d48ea.jpg": {
+   "at": "2026-11-04T01:40:53.818Z"
+  },
+  "/media-da/tap/tap-flytap-natal26-2-3031df26.jpg": {
+   "at": "2026-11-04T01:40:54.512Z"
+  },
+  "/media-da/tap/logo-miles-go-77c7fdd8.jpg": {
+   "at": "2026-11-04T01:40:55.102Z"
+  },
+  "/media-da/tap/miles-go-homepage-discover-125f8235.jpg": {
+   "at": "2026-11-04T01:40:55.832Z"
+  },
+  "/media-da/tap/logo-club-miles-go-bd98cb41.jpg": {
+   "at": "2026-11-04T01:40:56.481Z"
+  },
+  "/media-da/tap/club900x870-d1907cd9.jpg": {
+   "at": "2026-11-04T01:40:57.361Z"
+  },
+  "/media-da/tap/tap-miles-and-go-hotels-card-homepage-38b1b632.jpg": {
+   "at": "2026-11-04T01:40:57.944Z"
+  },
+  "/media-da/tap/bluetooth-entertainment-f4461541.jpg": {
+   "at": "2026-11-04T01:41:03.162Z"
+  },
+  "/media-da/tap/meals-on-board-business-a6fbf20e.jpg": {
+   "at": "2026-11-04T01:41:03.865Z"
+  },
+  "/media-da/tap/flying-in-economy-class-f8d515e2.jpg": {
+   "at": "2026-11-04T01:41:04.538Z"
+  },
+  "/media-da/tap/lugares-a-bordo-prime-1280x720-c8eb6375.jpg": {
+   "at": "2026-11-04T01:41:05.147Z"
+  },
+  "/media-da/tap/flying-in-business-class-eea4975f.jpg": {
+   "at": "2026-11-04T01:41:05.810Z"
+  },
+  "/media-da/tap/flying-in-business-class-wi-fi-022da001.jpg": {
+   "at": "2026-11-04T01:41:06.385Z"
+  },
+  "/media-da/tap/help-contact-center-tap-5e8a4aff.jpg": {
+   "at": "2026-11-04T01:41:58.369Z"
+  },
+  "/media-da/tap/bb-1500x500-267b3749.jpg": {
+   "at": "2026-11-04T01:42:20.585Z"
+  },
+  "/media-da/tap/lisbon-stopover-30835a35.jpg": {
+   "at": "2026-11-04T01:42:21.619Z"
+  },
+  "/media-da/tap/banner-geral-get-inspired-958b4087.jpg": {
+   "at": "2026-11-04T01:42:27.292Z"
+  },
+  "/media-da/tap/gettyimages-1490620867-279ee978.jpg": {
+   "at": "2026-11-04T01:42:28.005Z"
+  },
+  "/media-da/tap/tesouros-a-nao-perder-get-ispired-8619fbfd.jpg": {
+   "at": "2026-11-04T01:42:28.814Z"
+  },
+  "/media-da/tap/melhor-destino-de-cidade-da-europa-get-inspired-2206e4a3.jpg": {
+   "at": "2026-11-04T01:42:29.462Z"
+  },
+  "/media-da/tap/obidos-get-ispired-33594d40.jpg": {
+   "at": "2026-11-04T01:42:30.120Z"
+  },
+  "/media-da/tap/berlim-get-inspired-a4cb9935.jpg": {
+   "at": "2026-11-04T01:42:30.726Z"
+  },
+  "/media-da/tap/chicago-get-inspired-3c15f6ab.jpg": {
+   "at": "2026-11-04T01:42:31.340Z"
+  },
+  "/media-da/tap/maceio-get-inspired-d8ff1fbc.jpg": {
+   "at": "2026-11-04T01:42:31.958Z"
+  },
+  "/media-da/tap/copenhaga-get-inspired-4862129c.jpg": {
+   "at": "2026-11-04T01:42:32.727Z"
+  },
+  "/media-da/tap/morocco-large-image-1110x415-2-3ad5cf60.jpg": {
+   "at": "2026-11-04T01:42:33.369Z"
+  },
+  "/media-da/tap/365venezacelebriamo11110x415-5526c98c.jpg": {
+   "at": "2026-11-04T01:42:34.030Z"
+  },
+  "/media-da/tap/tap-gift-card-82930b0e.jpg": {
+   "at": "2026-11-04T01:42:34.786Z"
+  },
+  "/media-da/tap/explore-tap-miles-and-go-52d7a558.jpg": {
+   "at": "2026-11-04T01:42:35.394Z"
+  },
+  "/media-da/tap/tap-logo-382a9f0f.svg": {
+   "at": "2026-11-04T01:42:41.373Z"
+  },
+  "/media-da/tap/354alemanhacontofadas11110x415-4cb12fb0.jpg": {
+   "at": "2026-11-04T01:42:45.610Z"
+  },
+  "/media-da/tap/354alemanhacontofadas21110x415-93e05093.jpg": {
+   "at": "2026-11-04T01:42:46.199Z"
+  },
+  "/media-da/tap/354alemanhacontofadas4670x350-afa11fb3.jpg": {
+   "at": "2026-11-04T01:42:46.843Z"
+  },
+  "/media-da/tap/354alemanhacontofadas51110x415-186f33b5.jpg": {
+   "at": "2026-11-04T01:42:47.458Z"
+  },
+  "/media-da/tap/flytap-mobile-banner1110x415-recife-pacodofrevo-580e7345.jpg": {
+   "at": "2026-11-04T01:42:48.063Z"
+  },
+  "/media-da/tap/flytap-desktop-banner1920x1036-recife-fmg-d2ec27fd.jpg": {
+   "at": "2026-11-04T01:42:48.685Z"
+  },
+  "/media-da/tap/flytap-mobile-banner1110x415-recife-caisdosertao-e4bfe6c7.jpg": {
+   "at": "2026-11-04T01:42:49.265Z"
+  },
+  "/media-da/tap/recife-d7336b6b.jpg": {
+   "at": "2026-11-04T01:42:50.012Z"
+  },
+  "/media-da/tap/place-baia-dos-porcos-1110x415-d2e9df7e.jpg": {
+   "at": "2026-11-04T01:42:50.662Z"
+  },
+  "/media-da/tap/place-fernando-de-noronha-1110x425-af68b72c.jpg": {
+   "at": "2026-11-04T01:42:51.321Z"
+  },
+  "/media-da/tap/place-praia-do-sancho-1110x415-6b7a8fd3.jpg": {
+   "at": "2026-11-04T01:42:51.919Z"
+  },
+  "/media-da/tap/361bahia1670x350-c8567997.jpg": {
+   "at": "2026-11-04T01:42:52.499Z"
+  },
+  "/media-da/tap/361bahia2670x350-a35b175a.jpg": {
+   "at": "2026-11-04T01:42:53.230Z"
+  },
+  "/media-da/tap/361bahia3670x350-b5c2f7a1.jpg": {
+   "at": "2026-11-04T01:42:53.823Z"
+  },
+  "/media-da/tap/361bahia4670x350-489018db.jpg": {
+   "at": "2026-11-04T01:42:54.588Z"
+  },
+  "/media-da/tap/361bahia5670x350-a609d44e.jpg": {
+   "at": "2026-11-04T01:42:55.173Z"
+  },
+  "/media-da/tap/361bahia6670x350-2d685f41.jpg": {
+   "at": "2026-11-04T01:42:55.744Z"
+  },
+  "/media-da/tap/361bahia7670x350-f2e46b87.jpg": {
+   "at": "2026-11-04T01:42:56.483Z"
+  },
+  "/media-da/tap/361bahia8670x350-01f49bb2.jpg": {
+   "at": "2026-11-04T01:42:57.270Z"
+  },
+  "/media-da/tap/0-basicos-de-salvador-da-bahia1920x1036-b8061725.jpg": {
+   "at": "2026-11-04T01:42:57.902Z"
+  },
+  "/media-da/tap/alagoas-1-large-image-1110x415-f67fc597.jpg": {
+   "at": "2026-11-04T01:42:59.013Z"
+  },
+  "/media-da/tap/alagoas-2-large-image-1110x415-06a54764.jpg": {
+   "at": "2026-11-04T01:42:59.681Z"
+  },
+  "/media-da/tap/alagoas-3-large-image-1110x415-d5eded1a.jpg": {
+   "at": "2026-11-04T01:43:00.579Z"
+  },
+  "/media-da/tap/alagoas-4-large-image-1110x415-6dbfba11.jpg": {
+   "at": "2026-11-04T01:43:01.330Z"
+  },
+  "/media-da/tap/alagoas-5-large-image-1110x415-6387fd2b.jpg": {
+   "at": "2026-11-04T01:43:01.992Z"
+  },
+  "/media-da/tap/alagoas-banner-desktop-1920x655-1bf02c33.jpg": {
+   "at": "2026-11-04T01:43:02.885Z"
+  },
+  "/media-da/tap/324belem11110x415-1fb39875.jpg": {
+   "at": "2026-11-04T01:43:03.489Z"
+  },
+  "/media-da/tap/324belem31110x415-e5df28ae.jpg": {
+   "at": "2026-11-04T01:43:04.214Z"
+  },
+  "/media-da/tap/324belem41110x415-455f6503.jpg": {
+   "at": "2026-11-04T01:43:04.962Z"
+  },
+  "/media-da/tap/belem-edc0d81c.jpg": {
+   "at": "2026-11-04T01:43:05.796Z"
+  },
+  "/media-da/tap/362riojaneiro11110x415-5826f86f.jpg": {
+   "at": "2026-11-04T01:43:06.455Z"
+  },
+  "/media-da/tap/362riojaneiro2670x350-191294cf.jpg": {
+   "at": "2026-11-04T01:43:07.071Z"
+  },
+  "/media-da/tap/70-amor-98647b17.jpg": {
+   "at": "2026-11-04T01:43:07.985Z"
+  },
+  "/media-da/tap/110-caranguejo-96e8b9ce.jpg": {
+   "at": "2026-11-04T01:43:08.739Z"
+  },
+  "/media-da/tap/920-topo-1-b9cccfe8.jpg": {
+   "at": "2026-11-04T01:43:09.470Z"
+  },
+  "/media-da/tap/70-elevador-efe625da.jpg": {
+   "at": "2026-11-04T01:43:10.110Z"
+  },
+  "/media-da/tap/110-barra-49866321.jpg": {
+   "at": "2026-11-04T01:43:10.680Z"
+  },
+  "/media-da/tap/topo-1920-1-569cbe74.jpg": {
+   "at": "2026-11-04T01:43:11.622Z"
+  },
+  "/media-da/tap/ilha-1110-a6f8bcf7.jpg": {
+   "at": "2026-11-04T01:43:12.268Z"
+  },
+  "/media-da/tap/cidade-1110-de32c9aa.jpg": {
+   "at": "2026-11-04T01:43:12.966Z"
+  },
+  "/media-da/tap/pedro-670-037928cc.jpg": {
+   "at": "2026-11-04T01:43:13.624Z"
+  },
+  "/media-da/tap/fogo-670-c1d3bb8d.jpg": {
+   "at": "2026-11-04T01:43:14.282Z"
+  },
+  "/media-da/tap/110-415-sal-9491966b.jpg": {
+   "at": "2026-11-04T01:43:14.959Z"
+  },
+  "/media-da/tap/salinas-670-cf2c38b2.jpg": {
+   "at": "2026-11-04T01:43:15.603Z"
+  },
+  "/media-da/tap/70-buracona-cac0977a.jpg": {
+   "at": "2026-11-04T01:43:16.256Z"
+  },
+  "/media-da/tap/110-sal-9bae4a78.jpg": {
+   "at": "2026-11-04T01:43:16.846Z"
+  },
+  "/media-da/tap/percurso-97c2824d.jpg": {
+   "at": "2026-11-04T01:43:17.460Z"
+  },
+  "/media-da/tap/70-cykelslangen-bb61dd56.jpg": {
+   "at": "2026-11-04T01:43:18.147Z"
+  },
+  "/media-da/tap/70-nyhavn-91dc79a9.jpg": {
+   "at": "2026-11-04T01:43:18.848Z"
+  },
+  "/media-da/tap/110-plads2-23267e94.jpg": {
+   "at": "2026-11-04T01:43:19.457Z"
+  },
+  "/media-da/tap/920-cph-1-b0bd642c.jpg": {
+   "at": "2026-11-04T01:43:20.170Z"
+  },
+  "/media-da/tap/flytap-mobile-banner1110x415-tenerife-fmg-teide-b945f905.jpg": {
+   "at": "2026-11-04T01:43:20.824Z"
+  },
+  "/media-da/tap/flytap-mobile-banner1110x415-tenerife-fmg-afur-taganana-36a1a97c.jpg": {
+   "at": "2026-11-04T01:43:21.548Z"
+  },
+  "/media-da/tap/flytap-desktop-banner1920x1036-tenerife-fmg-roques-garcia-cc0e077d.jpg": {
+   "at": "2026-11-04T01:43:22.314Z"
+  },
+  "/media-da/tap/tenerife-10942540.jpg": {
+   "at": "2026-11-04T01:43:23.022Z"
+  },
+  "/media-da/tap/gran-1110-eaf6a9cd.jpg": {
+   "at": "2026-11-04T01:43:23.631Z"
+  },
+  "/media-da/tap/tnerife-1110-56054756.jpg": {
+   "at": "2026-11-04T01:43:24.558Z"
+  },
+  "/media-da/tap/70-ibiza-286dbffd.jpg": {
+   "at": "2026-11-04T01:43:25.228Z"
+  },
+  "/media-da/tap/topo-1920-2-01e4e5e0.jpg": {
+   "at": "2026-11-04T01:43:25.852Z"
+  },
+  "/media-da/tap/bissau-market-535x357-c40a0375.jpg": {
+   "at": "2026-11-04T01:43:26.623Z"
+  },
+  "/media-da/tap/bolama-island-535x357-ba824452.jpg": {
+   "at": "2026-11-04T01:43:27.296Z"
+  },
+  "/media-da/tap/bubaque-island-535x357-7900f7ea.jpg": {
+   "at": "2026-11-04T01:43:27.940Z"
+  },
+  "/media-da/tap/tabanca-elalab-535x357-411a14f8.jpg": {
+   "at": "2026-11-04T01:43:28.613Z"
+  },
+  "/media-da/tap/varela-535x357-f54019d4.jpg": {
+   "at": "2026-11-04T01:43:29.314Z"
+  },
+  "/media-da/tap/bissau-405adffc.jpg": {
+   "at": "2026-11-04T01:43:29.935Z"
+  },
+  "/media-da/tap/gettyimages-1164166817-15911be8.jpg": {
+   "at": "2026-11-04T01:43:30.640Z"
+  },
+  "/media-da/tap/gettyimages-582780630-5cffcd5c.jpg": {
+   "at": "2026-11-04T01:43:31.342Z"
+  },
+  "/media-da/tap/gettyimages-170879176-7aae5250.jpg": {
+   "at": "2026-11-04T01:43:31.973Z"
+  },
+  "/media-da/tap/365venezacelebriamo21110x415-31442bac.jpg": {
+   "at": "2026-11-04T01:43:32.767Z"
+  },
+  "/media-da/tap/365venezacelebriamo31110x415-b0a7dfdc.jpg": {
+   "at": "2026-11-04T01:43:33.391Z"
+  },
+  "/media-da/tap/70-praia2-jpg-5544c100.jpg": {
+   "at": "2026-11-04T01:43:34.236Z"
+  },
+  "/media-da/tap/110-kasbah-jpg-0d0b7e88.jpg": {
+   "at": "2026-11-04T01:43:34.945Z"
+  },
+  "/media-da/tap/110-marina-jpg-b9694b0e.jpg": {
+   "at": "2026-11-04T01:43:35.614Z"
+  },
+  "/media-da/tap/328marraquexe2670x350-ef4edf7b.jpg": {
+   "at": "2026-11-04T01:43:36.230Z"
+  },
+  "/media-da/tap/328marraquexe31110x415-19cb3c39.jpg": {
+   "at": "2026-11-04T01:43:36.921Z"
+  },
+  "/media-da/tap/328marraquexe5670x350-6e6aaa9e.jpg": {
+   "at": "2026-11-04T01:43:37.544Z"
+  },
+  "/media-da/tap/328marraquexe7670x350-74257203.jpg": {
+   "at": "2026-11-04T01:43:38.168Z"
+  },
+  "/media-da/tap/328marraquexe9670x350-6dcfc66d.jpg": {
+   "at": "2026-11-04T01:43:38.861Z"
+  },
+  "/media-da/tap/328marraquexe121110x415-e6b4178e.jpg": {
+   "at": "2026-11-04T01:43:39.454Z"
+  },
+  "/media-da/tap/53-1-5869e2e3.jpg": {
+   "at": "2026-11-04T01:43:40.082Z"
+  },
+  "/media-da/tap/35-2-52531fec.jpg": {
+   "at": "2026-11-04T01:43:40.684Z"
+  },
+  "/media-da/tap/35-3-5d880c14.jpg": {
+   "at": "2026-11-04T01:43:41.311Z"
+  },
+  "/media-da/tap/35-4-3e807c4b.jpg": {
+   "at": "2026-11-04T01:43:41.937Z"
+  },
+  "/media-da/tap/mexico-92b9af25.jpg": {
+   "at": "2026-11-04T01:43:42.671Z"
+  },
+  "/media-da/tap/317maputo11110x415-767b1c1f.jpg": {
+   "at": "2026-11-04T01:43:43.472Z"
+  },
+  "/media-da/tap/317maputo21110x415-702bd751.jpg": {
+   "at": "2026-11-04T01:43:44.084Z"
+  },
+  "/media-da/tap/317maputo31110x415-c417d622.jpg": {
+   "at": "2026-11-04T01:43:44.766Z"
+  },
+  "/media-da/tap/maputo-1681d914.jpg": {
+   "at": "2026-11-04T01:43:45.384Z"
+  },
+  "/media-da/tap/335mocambique21110x415-1a3cb216.jpg": {
+   "at": "2026-11-04T01:43:46.005Z"
+  },
+  "/media-da/tap/335mocambique11110x415-6c4c7d73.jpg": {
+   "at": "2026-11-04T01:43:46.700Z"
+  },
+  "/media-da/tap/335mocambique4670x350-46f7a19f.jpg": {
+   "at": "2026-11-04T01:43:47.317Z"
+  },
+  "/media-da/tap/335mocambique8670x350-012db677.jpg": {
+   "at": "2026-11-04T01:43:47.991Z"
+  },
+  "/media-da/tap/346noruega11110x415-e58fcd50.jpg": {
+   "at": "2026-11-04T01:43:48.575Z"
+  },
+  "/media-da/tap/346noruega3670x350-db6760ba.jpg": {
+   "at": "2026-11-04T01:43:49.172Z"
+  },
+  "/media-da/tap/346noruega7670x350-be45156b.jpg": {
+   "at": "2026-11-04T01:43:49.785Z"
+  },
+  "/media-da/tap/346noruega8670x350-d39c7b2a.jpg": {
+   "at": "2026-11-04T01:43:50.448Z"
+  },
+  "/media-da/tap/920noruega2-66dce14c.jpg": {
+   "at": "2026-11-04T01:43:51.166Z"
+  },
+  "/media-da/tap/soajo-858a1e61.jpg": {
+   "at": "2026-11-04T01:43:51.814Z"
+  },
+  "/media-da/tap/sortelha-bfeed754.jpg": {
+   "at": "2026-11-04T01:43:52.461Z"
+  },
+  "/media-da/tap/campo-82072666.jpg": {
+   "at": "2026-11-04T01:43:53.091Z"
+  },
+  "/media-da/tap/monsanto-a68d6910.jpg": {
+   "at": "2026-11-04T01:43:53.776Z"
+  },
+  "/media-da/tap/castro-ec13040d.jpg": {
+   "at": "2026-11-04T01:43:54.385Z"
+  },
+  "/media-da/tap/aldeias-0826d88b.jpg": {
+   "at": "2026-11-04T01:43:55.002Z"
+  },
+  "/media-da/tap/35algarve11110x415-jpg-1df590b0.jpg": {
+   "at": "2026-11-04T01:43:55.563Z"
+  },
+  "/media-da/tap/35algarve21110x415-jpg-cb3510d9.jpg": {
+   "at": "2026-11-04T01:43:56.171Z"
+  },
+  "/media-da/tap/35algarve31110x415-jpg-2b024210.jpg": {
+   "at": "2026-11-04T01:43:56.825Z"
+  },
+  "/media-da/tap/35algarve41110x415-jpg-e2bebe08.jpg": {
+   "at": "2026-11-04T01:43:57.466Z"
+  },
+  "/media-da/tap/35algarve8670x350-jpg-fe573ce4.jpg": {
+   "at": "2026-11-04T01:43:58.157Z"
+  },
+  "/media-da/tap/faro-9ad4bdad.jpg": {
+   "at": "2026-11-04T01:43:58.955Z"
+  },
+  "/media-da/tap/311braga11110x415-jpg-cc2262a8.jpg": {
+   "at": "2026-11-04T01:43:59.561Z"
+  },
+  "/media-da/tap/311braga31110x415-jpg-2f30c633.jpg": {
+   "at": "2026-11-04T01:44:00.234Z"
+  },
+  "/media-da/tap/311braga41110x415-jpg-2d13d789.jpg": {
+   "at": "2026-11-04T01:44:00.882Z"
+  },
+  "/media-da/tap/311braga51110x415-jpg-3b8ac786.jpg": {
+   "at": "2026-11-04T01:44:01.648Z"
+  },
+  "/media-da/tap/braga1920x1036-59ed15fe.jpg": {
+   "at": "2026-11-04T01:44:02.536Z"
+  },
+  "/media-da/tap/337terceira11110x415-78d8d73c.jpg": {
+   "at": "2026-11-04T01:44:03.218Z"
+  },
+  "/media-da/tap/337terceira21110x415-51aca118.jpg": {
+   "at": "2026-11-04T01:44:03.849Z"
+  },
+  "/media-da/tap/337terceira3670x350-c64285c4.jpg": {
+   "at": "2026-11-04T01:44:04.418Z"
+  },
+  "/media-da/tap/terceira-bb-de41d580.jpg": {
+   "at": "2026-11-04T01:44:05.085Z"
+  },
+  "/media-da/tap/70-lagoa-ee5abf8a.jpg": {
+   "at": "2026-11-04T01:44:05.708Z"
+  },
+  "/media-da/tap/110-portas-511a2247.jpg": {
+   "at": "2026-11-04T01:44:06.371Z"
+  },
+  "/media-da/tap/70-furnas-87ba5eb5.jpg": {
+   "at": "2026-11-04T01:44:07.061Z"
+  },
+  "/media-da/tap/920-bb-69e5807d.jpg": {
+   "at": "2026-11-04T01:44:07.746Z"
+  },
+  "/media-da/tap/v1-af13d473.jpg": {
+   "at": "2026-11-04T01:44:08.348Z"
+  },
+  "/media-da/tap/madeira-1920-e1ce5253.jpg": {
+   "at": "2026-11-04T01:44:08.933Z"
+  },
+  "/media-da/tap/1110-18d96c99.jpg": {
+   "at": "2026-11-04T01:44:09.628Z"
+  },
+  "/media-da/tap/1110-99de937a.jpg": {
+   "at": "2026-11-04T01:44:10.305Z"
+  },
+  "/media-da/tap/1110-4235337b.jpg": {
+   "at": "2026-11-04T01:44:11.069Z"
+  },
+  "/media-da/tap/1110-cf4c22b8.jpg": {
+   "at": "2026-11-04T01:44:11.648Z"
+  },
+  "/media-da/tap/1110-fc7c8b7b.jpg": {
+   "at": "2026-11-04T01:44:13.614Z"
+  },
+  "/media-da/tap/352madeira11110x415-de8fde15.jpg": {
+   "at": "2026-11-04T01:44:14.329Z"
+  },
+  "/media-da/tap/352madeira3670x350-1aa7bd1a.jpg": {
+   "at": "2026-11-04T01:44:14.948Z"
+  },
+  "/media-da/tap/funchal1920x1036-b430ccd6.jpg": {
+   "at": "2026-11-04T01:44:15.574Z"
+  },
+  "/media-da/tap/319sintra1670x350-86ae7b2d.jpg": {
+   "at": "2026-11-04T01:44:16.280Z"
+  },
+  "/media-da/tap/319sintra4670x350-94c963e3.jpg": {
+   "at": "2026-11-04T01:44:16.950Z"
+  },
+  "/media-da/tap/319sintra1920x1036-b6767b8b.jpg": {
+   "at": "2026-11-04T01:44:17.863Z"
+  },
+  "/media-da/tap/lamego-88f18d17.jpg": {
+   "at": "2026-11-04T01:44:18.552Z"
+  },
+  "/media-da/tap/viseu-c7647a1f.jpg": {
+   "at": "2026-11-04T01:44:19.180Z"
+  },
+  "/media-da/tap/gois-69b2597b.jpg": {
+   "at": "2026-11-04T01:44:19.804Z"
+  },
+  "/media-da/tap/alentejo-49d2b546.jpg": {
+   "at": "2026-11-04T01:44:20.449Z"
+  },
+  "/media-da/tap/trevim-c71f24b7.jpg": {
+   "at": "2026-11-04T01:44:21.085Z"
+  },
+  "/media-da/tap/fim-cd6e6170.jpg": {
+   "at": "2026-11-04T01:44:21.700Z"
+  },
+  "/media-da/tap/feira-bruxelas-015000f6.jpg": {
+   "at": "2026-11-04T01:44:32.598Z"
+  },
+  "/media-da/tap/bruges-9499f469.jpg": {
+   "at": "2026-11-04T01:44:33.244Z"
+  },
+  "/media-da/tap/feira-genth-dd4c5d92.jpg": {
+   "at": "2026-11-04T01:44:33.914Z"
+  },
+  "/media-da/tap/bb-sugestao-feiras-bruxelas-df614da7.jpg": {
+   "at": "2026-11-04T01:44:34.523Z"
+  },
+  "/media-da/tap/110-mad1-9ae6391f.jpg": {
+   "at": "2026-11-04T01:44:35.225Z"
+  },
+  "/media-da/tap/70-plazamayor-ca17a03d.jpg": {
+   "at": "2026-11-04T01:44:36.214Z"
+  },
+  "/media-da/tap/110-tapas-ba366943.jpg": {
+   "at": "2026-11-04T01:44:36.810Z"
+  },
+  "/media-da/tap/920-bb-mad-0a25cd34.jpg": {
+   "at": "2026-11-04T01:44:37.448Z"
+  },
+  "/media-da/tap/357barcelona11110x415-86097a63.jpg": {
+   "at": "2026-11-04T01:44:38.081Z"
+  },
+  "/media-da/tap/357barcelona21110x415-0eebfaf7.jpg": {
+   "at": "2026-11-04T01:44:38.669Z"
+  },
+  "/media-da/tap/357barcelona31110x415-69087af6.jpg": {
+   "at": "2026-11-04T01:44:39.301Z"
+  },
+  "/media-da/tap/excentricos1920x1036-69a8a836.jpg": {
+   "at": "2026-11-04T01:44:39.974Z"
+  },
+  "/media-da/tap/catedral-large-image-1110x415-f1dd1bc2.jpg": {
+   "at": "2026-11-04T01:44:40.817Z"
+  },
+  "/media-da/tap/cidade-large-image-1110x415-7e9c03d8.jpg": {
+   "at": "2026-11-04T01:44:41.469Z"
+  },
+  "/media-da/tap/caminho-de-santiago-large-image-1110x415-c8edb50e.jpg": {
+   "at": "2026-11-04T01:44:42.315Z"
+  },
+  "/media-da/tap/santiago-compostela-banner-desktop-1920x655-b4fbda7d.jpg": {
+   "at": "2026-11-04T01:44:42.999Z"
+  },
+  "/media-da/tap/chicago-1-large-image-1110x415-a8e4d66e.jpg": {
+   "at": "2026-11-04T01:44:43.608Z"
+  },
+  "/media-da/tap/chicago-2-large-image-1110x415-e185a0ed.jpg": {
+   "at": "2026-11-04T01:44:44.391Z"
+  },
+  "/media-da/tap/chicago-3-large-image-1110x415-4d78549b.jpg": {
+   "at": "2026-11-04T01:44:45.137Z"
+  },
+  "/media-da/tap/chicago-4-large-image-1110x415-f415bea9.jpg": {
+   "at": "2026-11-04T01:44:45.831Z"
+  },
+  "/media-da/tap/chicago-banner-0281a200.jpg": {
+   "at": "2026-11-04T01:44:46.426Z"
+  },
+  "/media-da/tap/358miami11110x415-1-2820e82b.jpg": {
+   "at": "2026-11-04T01:44:47.039Z"
+  },
+  "/media-da/tap/358miami3670x350-1-dfe6cbdc.jpg": {
+   "at": "2026-11-04T01:44:47.617Z"
+  },
+  "/media-da/tap/358miami41110x415-1-13f32428.jpg": {
+   "at": "2026-11-04T01:44:48.231Z"
+  },
+  "/media-da/tap/367newyork11110x415-31b3ddc1.jpg": {
+   "at": "2026-11-04T01:44:48.860Z"
+  },
+  "/media-da/tap/367newyork3670x350-5866a557.jpg": {
+   "at": "2026-11-04T01:44:49.614Z"
+  },
+  "/media-da/tap/o-outro-lado-da-maca1920x1036-e70d5572.jpg": {
+   "at": "2026-11-04T01:44:50.315Z"
+  },
+  "/media-da/tap/110-was-9ec0e51a.jpg": {
+   "at": "2026-11-04T01:44:50.925Z"
+  },
+  "/media-da/tap/110-was2-b82f086c.jpg": {
+   "at": "2026-11-04T01:44:51.573Z"
+  },
+  "/media-da/tap/110-was3-ffffec85.jpg": {
+   "at": "2026-11-04T01:44:52.220Z"
+  },
+  "/media-da/tap/suggestions-romanticism-toulouse-547a085c.jpg": {
+   "at": "2026-11-04T01:44:52.802Z"
+  },
+  "/media-da/tap/329entrerios11110x415-1-2de44426.jpg": {
+   "at": "2026-11-04T01:44:53.373Z"
+  },
+  "/media-da/tap/329entrerios31110x415-1-05236318.jpg": {
+   "at": "2026-11-04T01:44:53.954Z"
+  },
+  "/media-da/tap/329entrerios21110x415-1-9894fe33.jpg": {
+   "at": "2026-11-04T01:44:54.548Z"
+  },
+  "/media-da/tap/entre-os-rios-a-arte-e-a-ficcao-1920x1036-1-2cf30eba.jpg": {
+   "at": "2026-11-04T01:44:55.260Z"
+  },
+  "/media-da/tap/110-colinas1-7521776c.jpg": {
+   "at": "2026-11-04T01:44:55.913Z"
+  },
+  "/media-da/tap/366lisboa21110x415-dedae144.jpg": {
+   "at": "2026-11-04T01:44:56.615Z"
+  },
+  "/media-da/tap/110-colinas2-16216a91.jpg": {
+   "at": "2026-11-04T01:44:57.296Z"
+  },
+  "/media-da/tap/110-pto-0ec84670.jpg": {
+   "at": "2026-11-04T01:44:58.017Z"
+  },
+  "/media-da/tap/10-pto-5f7de0bb.jpg": {
+   "at": "2026-11-04T01:44:58.623Z"
+  },
+  "/media-da/tap/920-porto-topo-335e89a5.jpg": {
+   "at": "2026-11-04T01:44:59.280Z"
+  },
+  "/media-da/tap/londres1-a9853bb8.jpg": {
+   "at": "2026-11-04T01:44:59.991Z"
+  },
+  "/media-da/tap/lond-670-36ef989a.jpg": {
+   "at": "2026-11-04T01:45:00.666Z"
+  },
+  "/media-da/tap/londres-afbfdb5b.jpg": {
+   "at": "2026-11-04T01:45:01.376Z"
+  },
+  "/media-da/tap/325zurique11110x415-2039ee3f.jpg": {
+   "at": "2026-11-04T01:45:02.125Z"
+  },
+  "/media-da/tap/325zurique21110x415-1096cd7e.jpg": {
+   "at": "2026-11-04T01:45:02.787Z"
+  },
+  "/media-da/tap/325zurique4670x350-16dff119.jpg": {
+   "at": "2026-11-04T01:45:03.507Z"
+  },
+  "/media-da/tap/325zurique61110x415-97c48902.jpg": {
+   "at": "2026-11-04T01:45:04.088Z"
+  },
+  "/media-da/tap/325zurique71110x415-494b2e6c.jpg": {
+   "at": "2026-11-04T01:45:04.897Z"
+  },
+  "/media-da/tap/321berlim2670x350-6b6fc3de.jpg": {
+   "at": "2026-11-04T01:45:11.820Z"
+  },
+  "/media-da/tap/321berlim31110x415-21b5a9c7.jpg": {
+   "at": "2026-11-04T01:45:12.372Z"
+  },
+  "/media-da/tap/321berlim41110x415-44847aa5.jpg": {
+   "at": "2026-11-04T01:45:13.216Z"
+  },
+  "/media-da/tap/321berlim51110x415-24437953.jpg": {
+   "at": "2026-11-04T01:45:13.793Z"
+  },
+  "/media-da/tap/321berlim71110x415-9fefee93.jpg": {
+   "at": "2026-11-04T01:45:14.509Z"
+  },
+  "/media-da/tap/berlim1920x1036-db57fe86.jpg": {
+   "at": "2026-11-04T01:45:15.222Z"
+  },
+  "/media-da/tap/330luanda11110x415-7eba8343.jpg": {
+   "at": "2026-11-04T01:45:15.882Z"
+  },
+  "/media-da/tap/330luanda21110x415-9ca85e8d.jpg": {
+   "at": "2026-11-04T01:45:16.534Z"
+  },
+  "/media-da/tap/330luanda31110x415-5e919347.jpg": {
+   "at": "2026-11-04T01:45:17.255Z"
+  },
+  "/media-da/tap/luanda-danca-numa-angola-que-canta-1920x1036-47fa8929.jpg": {
+   "at": "2026-11-04T01:45:17.849Z"
+  },
+  "/media-da/tap/filipemoratogomestap-0850-supersense-535x357-8ff89dc2.jpg": {
+   "at": "2026-11-04T01:45:18.495Z"
+  },
+  "/media-da/tap/filipemoratogomestap-1101-hase-igel-535x357-68c985bf.jpg": {
+   "at": "2026-11-04T01:45:19.105Z"
+  },
+  "/media-da/tap/filipemoratogomestap-0884-kunsthaus-535x357-fb2c1293.jpg": {
+   "at": "2026-11-04T01:45:19.770Z"
+  },
+  "/media-da/tap/viena-d233833d.jpg": {
+   "at": "2026-11-04T01:45:20.533Z"
+  },
+  "/media-da/tap/350viena11110x415-0fde7643.jpg": {
+   "at": "2026-11-04T01:45:21.149Z"
+  },
+  "/media-da/tap/350viena3670x350-d153374f.jpg": {
+   "at": "2026-11-04T01:45:21.771Z"
+  },
+  "/media-da/tap/350viena2670x350-5d970d80.jpg": {
+   "at": "2026-11-04T01:45:22.376Z"
+  },
+  "/media-da/tap/viena1920x1036-a3e901e4.jpg": {
+   "at": "2026-11-04T01:45:23.059Z"
+  },
+  "/media-da/tap/atracoesbelem-mercado2-a4fdf523.jpg": {
+   "at": "2026-11-04T01:45:23.713Z"
+  },
+  "/media-da/tap/atracoesbelem-teatro-31abc19b.jpg": {
+   "at": "2026-11-04T01:45:24.364Z"
+  },
+  "/media-da/tap/atracoesbelem-mercado-d4bf1338.jpg": {
+   "at": "2026-11-04T01:45:25.184Z"
+  },
+  "/media-da/tap/atracoesbelem-ilha-e3e43642.jpg": {
+   "at": "2026-11-04T01:45:25.847Z"
+  },
+  "/media-da/tap/atracoesbele-bb-a479165b.jpg": {
+   "at": "2026-11-04T01:45:26.545Z"
+  },
+  "/media-da/tap/belem-e98e7b1c.jpg": {
+   "at": "2026-11-04T01:45:27.276Z"
+  },
+  "/media-da/tap/praca-alfandega-fe6e1d32.jpg": {
+   "at": "2026-11-04T01:45:27.989Z"
+  },
+  "/media-da/tap/museu-92fc3c1a.jpg": {
+   "at": "2026-11-04T01:45:28.615Z"
+  },
+  "/media-da/tap/museus-26ec9ccf.jpg": {
+   "at": "2026-11-04T01:45:29.258Z"
+  },
+  "/media-da/tap/parque-1923b41e.jpg": {
+   "at": "2026-11-04T01:45:29.850Z"
+  },
+  "/media-da/tap/ed-santa-cruz-f636c446.jpg": {
+   "at": "2026-11-04T01:45:30.441Z"
+  },
+  "/media-da/tap/catedral-2367af5d.jpg": {
+   "at": "2026-11-04T01:45:31.028Z"
+  },
+  "/media-da/tap/boteco-7d7f88d1.jpg": {
+   "at": "2026-11-04T01:45:31.712Z"
+  },
+  "/media-da/tap/lago-9c907340.jpg": {
+   "at": "2026-11-04T01:45:32.553Z"
+  },
+  "/media-da/tap/0-caminhos-rurais-a2041ba9.jpg": {
+   "at": "2026-11-04T01:45:33.276Z"
+  },
+  "/media-da/tap/centro-b88532e8.jpg": {
+   "at": "2026-11-04T01:45:33.913Z"
+  },
+  "/media-da/tap/bb-sugestoes-porto-alegre-56c0b74d.jpg": {
+   "at": "2026-11-04T01:45:34.664Z"
+  },
+  "/media-da/tap/331belohorizonte11110x415-1-26171fbd.jpg": {
+   "at": "2026-11-04T01:45:35.432Z"
+  },
+  "/media-da/tap/331belohorizonte2670x350-1-60cd9297.jpg": {
+   "at": "2026-11-04T01:45:36.154Z"
+  },
+  "/media-da/tap/331belohorizonte41110x415-1-063e749a.jpg": {
+   "at": "2026-11-04T01:45:36.749Z"
+  },
+  "/media-da/tap/belohorizonte1920x1036-41b957d2.jpg": {
+   "at": "2026-11-04T01:45:37.328Z"
+  },
+  "/media-da/tap/343saopaulo11110x415-6ef63fd9.jpg": {
+   "at": "2026-11-04T01:45:37.985Z"
+  },
+  "/media-da/tap/343saopaulo2670x350-8b472778.jpg": {
+   "at": "2026-11-04T01:45:38.675Z"
+  },
+  "/media-da/tap/343saopaulo41110x415-cfe89f3d.jpg": {
+   "at": "2026-11-04T01:45:39.282Z"
+  },
+  "/media-da/tap/343saopaulo51110x415-a82148c5.jpg": {
+   "at": "2026-11-04T01:45:39.904Z"
+  },
+  "/media-da/tap/sao-paulo-3c63ae8c.jpg": {
+   "at": "2026-11-04T01:45:40.584Z"
+  },
+  "/media-da/tap/futuro-refeitorio-670x350-67ee12d3.jpg": {
+   "at": "2026-11-04T01:45:41.247Z"
+  },
+  "/media-da/tap/farol-santander-1110x415-501102bc.jpg": {
+   "at": "2026-11-04T01:45:41.892Z"
+  },
+  "/media-da/tap/parque-ibiraquera-670x350-dc242534.jpg": {
+   "at": "2026-11-04T01:45:42.491Z"
+  },
+  "/media-da/tap/banner-desktop-1920x655-47216759.jpg": {
+   "at": "2026-11-04T01:45:43.169Z"
+  },
+  "/media-da/tap/70-congresso-75c4dbba.jpg": {
+   "at": "2026-11-04T01:45:43.751Z"
+  },
+  "/media-da/tap/70-galinha-130353e2.jpg": {
+   "at": "2026-11-04T01:45:44.371Z"
+  },
+  "/media-da/tap/70-ponte-014ccab7.jpg": {
+   "at": "2026-11-04T01:45:45.081Z"
+  },
+  "/media-da/tap/320recife11110x415-55ce9416.jpg": {
+   "at": "2026-11-04T01:45:45.705Z"
+  },
+  "/media-da/tap/320recife21110x415-75d3602e.jpg": {
+   "at": "2026-11-04T01:45:46.333Z"
+  },
+  "/media-da/tap/320recifeolinda4670x350-4e14570a.jpg": {
+   "at": "2026-11-04T01:45:46.938Z"
+  },
+  "/media-da/tap/320recifeolinda5670x350-a326154d.jpg": {
+   "at": "2026-11-04T01:45:47.981Z"
+  },
+  "/media-da/tap/frevo-f4af2e8c.jpg": {
+   "at": "2026-11-04T01:45:48.821Z"
+  },
+  "/media-da/tap/praia-76dfa7b1.jpg": {
+   "at": "2026-11-04T01:45:49.494Z"
+  },
+  "/media-da/tap/bonecos-6c15228a.jpg": {
+   "at": "2026-11-04T01:45:50.129Z"
+  },
+  "/media-da/tap/marco-zero-3b25f9ae.jpg": {
+   "at": "2026-11-04T01:45:50.709Z"
+  },
+  "/media-da/tap/artesanato-6999da6b.jpg": {
+   "at": "2026-11-04T01:45:51.487Z"
+  },
+  "/media-da/tap/armazens-8ef1219c.jpg": {
+   "at": "2026-11-04T01:45:52.106Z"
+  },
+  "/media-da/tap/feira-13ef09f9.jpg": {
+   "at": "2026-11-04T01:45:52.696Z"
+  },
+  "/media-da/tap/catamara-b28f790b.jpg": {
+   "at": "2026-11-04T01:45:53.322Z"
+  },
+  "/media-da/tap/0-oficina-81481306.jpg": {
+   "at": "2026-11-04T01:45:53.994Z"
+  },
+  "/media-da/tap/1-olinda-716b042a.jpg": {
+   "at": "2026-11-04T01:45:54.671Z"
+  },
+  "/media-da/tap/2-poro-galinhas-1fdfd477.jpg": {
+   "at": "2026-11-04T01:45:55.370Z"
+  },
+  "/media-da/tap/instituto-ricardo-49e06ecf.jpg": {
+   "at": "2026-11-04T01:45:56.012Z"
+  },
+  "/media-da/tap/bb-sugestoes-recife-d1b005ce.jpg": {
+   "at": "2026-11-04T01:45:56.622Z"
+  },
+  "/media-da/tap/336saovicente11110x415-fdf8d2b7.jpg": {
+   "at": "2026-11-04T01:45:57.278Z"
+  },
+  "/media-da/tap/336saovicente2670x350-76aaf95e.jpg": {
+   "at": "2026-11-04T01:45:57.873Z"
+  },
+  "/media-da/tap/336saovicente41110x415-9581bca8.jpg": {
+   "at": "2026-11-04T01:45:58.495Z"
+  },
+  "/media-da/tap/saovicente1920x1036-c4383b65.jpg": {
+   "at": "2026-11-04T01:45:59.151Z"
+  },
+  "/media-da/tap/toronto-fmg-mobile-banner551x367-ripleys-aquarium-271e8b18.jpg": {
+   "at": "2026-11-04T01:45:59.778Z"
+  },
+  "/media-da/tap/toronto-fmg-mobile-banner551x367-casa-loma-1-d9e5f6b0.jpg": {
+   "at": "2026-11-04T01:46:00.400Z"
+  },
+  "/media-da/tap/toronto-fmg-mobile-banner551x367-distillery-district-a3a08a20.jpg": {
+   "at": "2026-11-04T01:46:01.069Z"
+  },
+  "/media-da/tap/toronto-fmg-mobile-banner551x367-cataratas-do-niagara-063e2581.jpg": {
+   "at": "2026-11-04T01:46:01.654Z"
+  },
+  "/media-da/tap/toronto-fmg-mobile-banner551x367-cn-tower-f3a869f7.jpg": {
+   "at": "2026-11-04T01:46:02.217Z"
+  },
+  "/media-da/tap/toronto-destinations-a220c021.jpg": {
+   "at": "2026-11-04T01:46:03.133Z"
+  },
+  "/media-da/tap/353pragacidadecemtorres1670x350-3b59b76a.jpg": {
+   "at": "2026-11-04T01:46:03.843Z"
+  },
+  "/media-da/tap/353pragacidadecemtorres31110x415-3548cab5.jpg": {
+   "at": "2026-11-04T01:46:04.434Z"
+  },
+  "/media-da/tap/353pragacidadecemtorres4670x350-1f660f1a.jpg": {
+   "at": "2026-11-04T01:46:05.010Z"
+  },
+  "/media-da/tap/ayuntamiento-alicante-87d84804.jpg": {
+   "at": "2026-11-04T01:46:05.719Z"
+  },
+  "/media-da/tap/torrao-alicante-2a314887.jpg": {
+   "at": "2026-11-04T01:46:06.341Z"
+  },
+  "/media-da/tap/monumentos-alicante-e00a3c01.jpg": {
+   "at": "2026-11-04T01:46:06.914Z"
+  },
+  "/media-da/tap/festas-alicante-1a426f59.jpg": {
+   "at": "2026-11-04T01:46:07.688Z"
+  },
+  "/media-da/tap/castelo-alicante-9fc9fd03.jpg": {
+   "at": "2026-11-04T01:46:08.323Z"
+  },
+  "/media-da/tap/bb-sugestoes-alicante-28803839.jpg": {
+   "at": "2026-11-04T01:46:08.977Z"
+  },
+  "/media-da/tap/327corunha1670x350-bdbe3d44.jpg": {
+   "at": "2026-11-04T01:46:09.572Z"
+  },
+  "/media-da/tap/327corunha31110x415-dadf435c.jpg": {
+   "at": "2026-11-04T01:46:10.306Z"
+  },
+  "/media-da/tap/327corunha4670x350-4a5735f4.jpg": {
+   "at": "2026-11-04T01:46:10.897Z"
+  },
+  "/media-da/tap/327corunha61110x415-50cc3c92.jpg": {
+   "at": "2026-11-04T01:46:11.523Z"
+  },
+  "/media-da/tap/326malaga11110x415-1c45efae.jpg": {
+   "at": "2026-11-04T01:46:12.104Z"
+  },
+  "/media-da/tap/326malaga21110x415-82b736a2.jpg": {
+   "at": "2026-11-04T01:46:12.697Z"
+  },
+  "/media-da/tap/326malaga31110x415-e0056137.jpg": {
+   "at": "2026-11-04T01:46:13.327Z"
+  },
+  "/media-da/tap/326malaga41110x415-b416b371.jpg": {
+   "at": "2026-11-04T01:46:14.004Z"
+  },
+  "/media-da/tap/326malaga51110x415-da980a1b.jpg": {
+   "at": "2026-11-04T01:46:14.655Z"
+  },
+  "/media-da/tap/326malaga61110x415-cad2df3a.jpg": {
+   "at": "2026-11-04T01:46:15.331Z"
+  },
+  "/media-da/tap/malaga1920x1036-c9df853e.jpg": {
+   "at": "2026-11-04T01:46:16.044Z"
+  },
+  "/media-da/tap/33lasfallas8670x350-af915324.jpg": {
+   "at": "2026-11-04T01:46:16.640Z"
+  },
+  "/media-da/tap/33lasfallas7670x350-75618372.jpg": {
+   "at": "2026-11-04T01:46:17.272Z"
+  },
+  "/media-da/tap/33lasfallas51110x415-0d4d8b6a.jpg": {
+   "at": "2026-11-04T01:46:17.876Z"
+  },
+  "/media-da/tap/33lasfallas3670x350-95efbcd4.jpg": {
+   "at": "2026-11-04T01:46:18.497Z"
+  },
+  "/media-da/tap/33lasfallas2670x350-514a3290.jpg": {
+   "at": "2026-11-04T01:46:19.363Z"
+  },
+  "/media-da/tap/333valencia11110x415-2ad9fac2.jpg": {
+   "at": "2026-11-04T01:46:19.932Z"
+  },
+  "/media-da/tap/333valencia21110x415-019e2abc.jpg": {
+   "at": "2026-11-04T01:46:20.685Z"
+  },
+  "/media-da/tap/333valencia31110x415-97a22dbf.jpg": {
+   "at": "2026-11-04T01:46:21.457Z"
+  },
+  "/media-da/tap/valencia1920x1036-jpg-1-5a3dca6e.jpg": {
+   "at": "2026-11-04T01:46:22.109Z"
+  },
+  "/media-da/tap/322vigo11110x415-jpg-78d99141.jpg": {
+   "at": "2026-11-04T01:46:22.718Z"
+  },
+  "/media-da/tap/322vigo21110x415-jpg-78942d2c.jpg": {
+   "at": "2026-11-04T01:46:23.339Z"
+  },
+  "/media-da/tap/322vigo31110x415-jpg-cd055f8c.jpg": {
+   "at": "2026-11-04T01:46:23.924Z"
+  },
+  "/media-da/tap/322vigo41110x415-jpg-56f30767.jpg": {
+   "at": "2026-11-04T01:46:24.538Z"
+  },
+  "/media-da/tap/322vigo5670x350-jpg-c426b8f1.jpg": {
+   "at": "2026-11-04T01:46:25.130Z"
+  },
+  "/media-da/tap/322vigo71110x415-jpg-bcd1a9b9.jpg": {
+   "at": "2026-11-04T01:46:25.770Z"
+  },
+  "/media-da/tap/vigo-um-lugar-que-sabe-a-mar-1920x1036-9336aca5.jpg": {
+   "at": "2026-11-04T01:46:26.400Z"
+  },
+  "/media-da/tap/36sevilha11110x415-131a83a0.jpg": {
+   "at": "2026-11-04T01:46:27.108Z"
+  },
+  "/media-da/tap/36sevilha3670x350-ca0c96e2.jpg": {
+   "at": "2026-11-04T01:46:27.784Z"
+  },
+  "/media-da/tap/36sevilha4670x350-d57a5418.jpg": {
+   "at": "2026-11-04T01:46:28.473Z"
+  },
+  "/media-da/tap/36sevilha61110x415-6cbfb6b7.jpg": {
+   "at": "2026-11-04T01:46:29.242Z"
+  },
+  "/media-da/tap/36sevilha71110x415-a91f65a0.jpg": {
+   "at": "2026-11-04T01:46:29.848Z"
+  },
+  "/media-da/tap/36sevilha1920x1036-c7fbcab1.jpg": {
+   "at": "2026-11-04T01:46:30.584Z"
+  },
+  "/media-da/tap/313boston1670x350-08d79289.jpg": {
+   "at": "2026-11-04T01:46:41.660Z"
+  },
+  "/media-da/tap/313boston31110x415-4ebf067d.jpg": {
+   "at": "2026-11-04T01:46:42.246Z"
+  },
+  "/media-da/tap/313boston41110x415-544874a8.jpg": {
+   "at": "2026-11-04T01:46:43.113Z"
+  },
+  "/media-da/tap/313boston61110x415-552d7f6c.jpg": {
+   "at": "2026-11-04T01:46:43.717Z"
+  },
+  "/media-da/tap/boston1920x1036-06696dd5.jpg": {
+   "at": "2026-11-04T01:46:44.478Z"
+  },
+  "/media-da/tap/364paris11110x415-48d6fc32.jpg": {
+   "at": "2026-11-04T01:46:45.113Z"
+  },
+  "/media-da/tap/364paris21110x415-b0fed24c.jpg": {
+   "at": "2026-11-04T01:46:45.787Z"
+  },
+  "/media-da/tap/a-filhadoiluminismo1920x1036-97803277.jpg": {
+   "at": "2026-11-04T01:46:46.398Z"
+  },
+  "/media-da/tap/flytap-mobile-banner551x367-dublin-trinitycollege-8c7c8b1b.jpg": {
+   "at": "2026-11-04T01:46:47.173Z"
+  },
+  "/media-da/tap/flytap-mobile-banner551x367-dublin-kilmainhamgaol-35693f5d.jpg": {
+   "at": "2026-11-04T01:46:47.871Z"
+  },
+  "/media-da/tap/flytap-mobile-banner551x367-dublin-guiness-ab27bdbe.jpg": {
+   "at": "2026-11-04T01:46:48.628Z"
+  },
+  "/media-da/tap/dublin-6405898f.jpg": {
+   "at": "2026-11-04T01:46:49.333Z"
+  },
+  "/media-da/tap/suggestions-medieval-bologna-big-banner-1920x1036-ed493ad7.jpg": {
+   "at": "2026-11-04T01:46:50.051Z"
+  },
+  "/media-da/tap/flytap-mobile-banner1110x415-napoles-fmg-galleriabornica-b2288065.jpg": {
+   "at": "2026-11-04T01:46:50.640Z"
+  },
+  "/media-da/tap/flytap-mobile-banner1110x415-napoles-fmg-toledo-c5d2d97d.jpg": {
+   "at": "2026-11-04T01:46:51.400Z"
+  },
+  "/media-da/tap/flytap-mobile-banner1110x415-napoles-fmg-sangennaro-3de3142f.jpg": {
+   "at": "2026-11-04T01:46:52.014Z"
+  },
+  "/media-da/tap/napoles-eee9fb49.jpg": {
+   "at": "2026-11-04T01:46:52.719Z"
+  },
+  "/media-da/tap/110-ponte-a9a33c54.jpg": {
+   "at": "2026-11-04T01:46:53.352Z"
+  },
+  "/media-da/tap/110-estatua-3e5a27aa.jpg": {
+   "at": "2026-11-04T01:46:53.977Z"
+  },
+  "/media-da/tap/920-flr-6d98078e.jpg": {
+   "at": "2026-11-04T01:46:54.826Z"
+  },
+  "/media-da/tap/rome-millennium-large-image-1-1110x415-7d5afe44.jpg": {
+   "at": "2026-11-04T01:46:55.453Z"
+  },
+  "/media-da/tap/rome-millennium-large-image-2-1110x415-86286f08.jpg": {
+   "at": "2026-11-04T01:46:56.310Z"
+  },
+  "/media-da/tap/rome-millennium-large-image-3-1110x415-827d8f62.jpg": {
+   "at": "2026-11-04T01:46:56.920Z"
+  },
+  "/media-da/tap/rome-millennium-banner-image-desktop-1920x1036-79971dd6.jpg": {
+   "at": "2026-11-04T01:46:57.689Z"
+  },
+  "/media-da/tap/34casablanca11110x415-aea16098.jpg": {
+   "at": "2026-11-04T01:46:58.324Z"
+  },
+  "/media-da/tap/34casablanca21110x415-4e752321.jpg": {
+   "at": "2026-11-04T01:46:58.948Z"
+  },
+  "/media-da/tap/casablanca-o-coracao-marroquino-1920x1036-0e16fb20.jpg": {
+   "at": "2026-11-04T01:46:59.750Z"
+  },
+  "/media-da/tap/morocco-large-image-1110x415-1-fb8d9dfe.jpg": {
+   "at": "2026-11-04T01:47:00.383Z"
+  },
+  "/media-da/tap/morocco-2-large-image-1110x415-1-5b18764c.jpg": {
+   "at": "2026-11-04T01:47:01.004Z"
+  },
+  "/media-da/tap/morocco-banner-desktop-1920x655-1-a4b93a12.jpg": {
+   "at": "2026-11-04T01:47:01.766Z"
+  },
+  "/media-da/tap/isla-mujeres-1110-251b5484.jpg": {
+   "at": "2026-11-04T01:47:02.418Z"
+  },
+  "/media-da/tap/cenotes-670-c2d961ab.jpg": {
+   "at": "2026-11-04T01:47:03.209Z"
+  },
+  "/media-da/tap/topo-1920-92fd8d67.jpg": {
+   "at": "2026-11-04T01:47:03.878Z"
+  },
+  "/media-da/tap/359amesterdam11110x415-16c57ed5.jpg": {
+   "at": "2026-11-04T01:47:04.556Z"
+  },
+  "/media-da/tap/359amesterdam2670x350-4b0ac78a.jpg": {
+   "at": "2026-11-04T01:47:05.200Z"
+  },
+  "/media-da/tap/359amesterdam41110x415-35ac9385.jpg": {
+   "at": "2026-11-04T01:47:05.829Z"
+  },
+  "/media-da/tap/310varsovia11110x415-8be7ad74.jpg": {
+   "at": "2026-11-04T01:47:06.577Z"
+  },
+  "/media-da/tap/310varsovia21110x415-2caa4282.jpg": {
+   "at": "2026-11-04T01:47:07.378Z"
+  },
+  "/media-da/tap/310varsovia31110x415-cb432ec3.jpg": {
+   "at": "2026-11-04T01:47:08.118Z"
+  },
+  "/media-da/tap/310varsovia41110x415-f8b1304e.jpg": {
+   "at": "2026-11-04T01:47:08.801Z"
+  },
+  "/media-da/tap/310varsovia51110x415-0975e030.jpg": {
+   "at": "2026-11-04T01:47:09.601Z"
+  },
+  "/media-da/tap/varsovia1920x1036-63346623.jpg": {
+   "at": "2026-11-04T01:47:10.257Z"
+  },
+  "/media-da/tap/316obidos11110x415-a7be3943.jpg": {
+   "at": "2026-11-04T01:47:10.979Z"
+  },
+  "/media-da/tap/316obidos2670x350-9eef1c55.jpg": {
+   "at": "2026-11-04T01:47:11.691Z"
+  },
+  "/media-da/tap/316obidos3670x350-24e1b3d4.jpg": {
+   "at": "2026-11-04T01:47:12.530Z"
+  },
+  "/media-da/tap/316obidos41110x415-ab1de120.jpg": {
+   "at": "2026-11-04T01:47:13.173Z"
+  },
+  "/media-da/tap/316obidos51110x415-6a14ba42.jpg": {
+   "at": "2026-11-04T01:47:13.845Z"
+  },
+  "/media-da/tap/obidos1920x1036-c984de5e.jpg": {
+   "at": "2026-11-04T01:47:14.558Z"
+  },
+  "/media-da/tap/coa-48a08de9.jpg": {
+   "at": "2026-11-04T01:47:15.234Z"
+  },
+  "/media-da/tap/vinhas-d4d4c017.jpg": {
+   "at": "2026-11-04T01:47:15.853Z"
+  },
+  "/media-da/tap/ribeira-14b221c9.jpg": {
+   "at": "2026-11-04T01:47:16.508Z"
+  },
+  "/media-da/tap/mafra-f4b361bf.jpg": {
+   "at": "2026-11-04T01:47:17.184Z"
+  },
+  "/media-da/tap/lisboa-ce6d96fb.jpg": {
+   "at": "2026-11-04T01:47:17.857Z"
+  },
+  "/media-da/tap/monsaraz-a00c2d87.jpg": {
+   "at": "2026-11-04T01:47:18.727Z"
+  },
+  "/media-da/tap/odeceixe-97a09d22.jpg": {
+   "at": "2026-11-04T01:47:19.401Z"
+  },
+  "/media-da/tap/acores-v2-ec596cec.jpg": {
+   "at": "2026-11-04T01:47:20.193Z"
+  },
+  "/media-da/tap/madeira-v2-30721ac3.jpg": {
+   "at": "2026-11-04T01:47:20.845Z"
+  },
+  "/media-da/tap/belem-8229bc73.jpg": {
+   "at": "2026-11-04T01:47:21.496Z"
+  },
+  "/media-da/tap/920-fatima-206861d3.jpg": {
+   "at": "2026-11-04T01:47:22.201Z"
+  },
+  "/media-da/tap/312fatima3670x350-a908512b.jpg": {
+   "at": "2026-11-04T01:47:22.809Z"
+  },
+  "/media-da/tap/312fatima41110x415-94809efd.jpg": {
+   "at": "2026-11-04T01:47:23.407Z"
+  },
+  "/media-da/tap/312fatima11110x415-a1a1fe0b.jpg": {
+   "at": "2026-11-04T01:47:24.075Z"
+  },
+  "/media-da/tap/39guimaraes11110x415-7c04425e.jpg": {
+   "at": "2026-11-04T01:47:24.662Z"
+  },
+  "/media-da/tap/39guimaraes31110x415-b255417b.jpg": {
+   "at": "2026-11-04T01:47:25.343Z"
+  },
+  "/media-da/tap/39guimaraes21110x415-27ebd53a.jpg": {
+   "at": "2026-11-04T01:47:25.927Z"
+  },
+  "/media-da/tap/guimaraes1920x1036-9886f87e.jpg": {
+   "at": "2026-11-04T01:47:26.551Z"
+  },
+  "/media-da/tap/314porto11110x415-1-f8bc47be.jpg": {
+   "at": "2026-11-04T01:47:27.415Z"
+  },
+  "/media-da/tap/314porto21110x415-1-58abdbfe.jpg": {
+   "at": "2026-11-04T01:47:28.274Z"
+  },
+  "/media-da/tap/314porto31110x415-1-34f1536c.jpg": {
+   "at": "2026-11-04T01:47:29.071Z"
+  },
+  "/media-da/tap/314porto41110x415-1-3547e363.jpg": {
+   "at": "2026-11-04T01:47:29.725Z"
+  },
+  "/media-da/tap/314porto6670x350-1-38d5a020.jpg": {
+   "at": "2026-11-04T01:47:30.322Z"
+  },
+  "/media-da/tap/bb-porto-1-24dd2304.jpg": {
+   "at": "2026-11-04T01:47:31.027Z"
+  },
+  "/media-da/tap/almeida-1110-22d0e261.jpg": {
+   "at": "2026-11-04T01:47:31.755Z"
+  },
+  "/media-da/tap/castelo-mendo-1110-79027ab3.jpg": {
+   "at": "2026-11-04T01:47:32.485Z"
+  },
+  "/media-da/tap/rodrigo-1110-a7cb15dc.jpg": {
+   "at": "2026-11-04T01:47:33.233Z"
+  },
+  "/media-da/tap/marialva-1110-74531299.jpg": {
+   "at": "2026-11-04T01:47:34.159Z"
+  },
+  "/media-da/tap/monsanto-1110-6a6562a5.jpg": {
+   "at": "2026-11-04T01:47:34.969Z"
+  },
+  "/media-da/tap/sortelha-1110-0ae731de.jpg": {
+   "at": "2026-11-04T01:47:35.594Z"
+  },
+  "/media-da/tap/315saboresportugueses2670x350-cac45295.jpg": {
+   "at": "2026-11-04T01:47:36.251Z"
+  },
+  "/media-da/tap/110-feijoada-66a24cde.jpg": {
+   "at": "2026-11-04T01:47:36.839Z"
+  },
+  "/media-da/tap/315saboresportugueses5670x350-c8ec9b66.jpg": {
+   "at": "2026-11-04T01:47:37.525Z"
+  },
+  "/media-da/tap/920x655-sabores-2dc59e76.jpg": {
+   "at": "2026-11-04T01:47:38.388Z"
+  },
+  "/media-da/tap/38tomar11110x415-f89d013d.jpg": {
+   "at": "2026-11-04T01:47:39.014Z"
+  },
+  "/media-da/tap/38tomar5670x350-b6aca866.jpg": {
+   "at": "2026-11-04T01:47:39.671Z"
+  },
+  "/media-da/tap/38tomar7670x350-d52795ba.jpg": {
+   "at": "2026-11-04T01:47:40.283Z"
+  },
+  "/media-da/tap/38tomar81110x415-274bff45.jpg": {
+   "at": "2026-11-04T01:47:40.864Z"
+  },
+  "/media-da/tap/369simbolosmanchester1551x367-jpg-b6275e03.jpg": {
+   "at": "2026-11-04T01:47:41.624Z"
+  },
+  "/media-da/tap/369simbolosmanchester2551x367-jpg-29a28446.jpg": {
+   "at": "2026-11-04T01:47:42.291Z"
+  },
+  "/media-da/tap/369simbolosmanchester3551x367-jpg-a68e46db.jpg": {
+   "at": "2026-11-04T01:47:42.913Z"
+  },
+  "/media-da/tap/369simbolosmanchester4551x367-jpg-5639a11b.jpg": {
+   "at": "2026-11-04T01:47:43.528Z"
+  },
+  "/media-da/tap/369simbolosmanchester6551x367-jpg-0ed8e605.jpg": {
+   "at": "2026-11-04T01:47:44.114Z"
+  },
+  "/media-da/tap/369simbolosmanchester7551x367-jpg-f93c4032.jpg": {
+   "at": "2026-11-04T01:47:44.787Z"
+  },
+  "/media-da/tap/369simbolosmanchester8551x367-jpg-ed8060ec.jpg": {
+   "at": "2026-11-04T01:47:45.414Z"
+  },
+  "/media-da/tap/369simbolosmanchester9551x367-jpg-20f1ffa9.jpg": {
+   "at": "2026-11-04T01:47:46.124Z"
+  },
+  "/media-da/tap/0simbolods-de-manchester1920x1036-0db4c6c4.jpg": {
+   "at": "2026-11-04T01:47:46.794Z"
+  },
+  "/media-da/tap/110-tms1-421915a1.jpg": {
+   "at": "2026-11-04T01:47:57.372Z"
+  },
+  "/media-da/tap/110-praiabanana-31f46fe6.jpg": {
+   "at": "2026-11-04T01:47:57.948Z"
+  },
+  "/media-da/tap/110-linha-8d1281c3.jpg": {
+   "at": "2026-11-04T01:47:58.614Z"
+  },
+  "/media-da/tap/920-tms-47703bb8.jpg": {
+   "at": "2026-11-04T01:47:59.389Z"
+  },
+  "/media-da/tap/349genebra11110x415-ce3ab3cf.jpg": {
+   "at": "2026-11-04T01:48:00.087Z"
+  },
+  "/media-da/tap/349genebra3670x350-bd8235d6.jpg": {
+   "at": "2026-11-04T01:48:00.728Z"
+  },
+  "/media-da/tap/349genebra5670x350-7375c0a3.jpg": {
+   "at": "2026-11-04T01:48:01.400Z"
+  },
+  "/media-da/tap/beira-lago1920x1036-e9720fdc.jpg": {
+   "at": "2026-11-04T01:48:02.320Z"
+  },
+  "/media-da/tap/342portosanto11110x415-0dc1c22e.jpg": {
+   "at": "2026-11-04T01:48:07.269Z"
+  },
+  "/media-da/tap/342portosanto21110x415-c4e2225f.jpg": {
+   "at": "2026-11-04T01:48:07.956Z"
+  },
+  "/media-da/tap/342portosanto4670x350-ef8f0390.jpg": {
+   "at": "2026-11-04T01:48:08.659Z"
+  },
+  "/media-da/tap/342portosanto51110x415-831de6d4.jpg": {
+   "at": "2026-11-04T01:48:09.290Z"
+  },
+  "/media-da/tap/pxo-1920-704ff4cd.jpg": {
+   "at": "2026-11-04T01:48:10.028Z"
+  },
+  "/media-da/tap/serra1-902aed35.jpg": {
+   "at": "2026-11-04T01:48:17.604Z"
+  },
+  "/media-da/tap/loriga-670-f917371e.jpg": {
+   "at": "2026-11-04T01:48:18.302Z"
+  },
+  "/media-da/tap/serra-topo-1920-726bd2b8.jpg": {
+   "at": "2026-11-04T01:48:19.038Z"
+  },
+  "/media-da/tap/334escandinavia11110x415-4ec1ae50.jpg": {
+   "at": "2026-11-04T01:48:26.354Z"
+  },
+  "/media-da/tap/334escandinavia21110x415-852af374.jpg": {
+   "at": "2026-11-04T01:48:26.950Z"
+  },
+  "/media-da/tap/334escandinavia5670x350-1f6331ad.jpg": {
+   "at": "2026-11-04T01:48:27.595Z"
+  },
+  "/media-da/tap/338festivaisveraoeuropa1670x350-c06b421c.jpg": {
+   "at": "2026-11-04T01:48:28.250Z"
+  },
+  "/media-da/tap/338festivaisveraoeuropa31110x415-bf93f9e0.jpg": {
+   "at": "2026-11-04T01:48:28.807Z"
+  },
+  "/media-da/tap/338festivaisveraoeuropa41110x415-c06d0e44.jpg": {
+   "at": "2026-11-04T01:48:29.428Z"
+  },
+  "/media-da/tap/339asturias11110x415-511c9608.jpg": {
+   "at": "2026-11-04T01:48:30.090Z"
+  },
+  "/media-da/tap/339asturias6670x350-60926f2e.jpg": {
+   "at": "2026-11-04T01:48:30.675Z"
+  },
+  "/media-da/tap/339asturias41110x415-9345ae67.jpg": {
+   "at": "2026-11-04T01:48:31.392Z"
+  },
+  "/media-da/tap/asturias1920x1036-72faa0b7.jpg": {
+   "at": "2026-11-04T01:48:32.100Z"
+  },
+  "/media-da/tap/339asturias71110x415-f2ecbdde.jpg": {
+   "at": "2026-11-04T01:48:32.827Z"
+  },
+  "/media-da/tap/couples-destinations-image-4-a56e639d.jpg": {
+   "at": "2026-11-04T01:48:33.451Z"
+  },
+  "/media-da/tap/couples-destinations-image-2-ff46ba3d.jpg": {
+   "at": "2026-11-04T01:48:34.228Z"
+  },
+  "/media-da/tap/110-italiana-e93532d2.jpg": {
+   "at": "2026-11-04T01:48:34.820Z"
+  },
+  "/media-da/tap/110-americana-7532416f.jpg": {
+   "at": "2026-11-04T01:48:35.400Z"
+  },
+  "/media-da/tap/carnaval-v1-670x350-jpg-0eae42e0.jpg": {
+   "at": "2026-11-04T01:48:36.183Z"
+  },
+  "/media-da/tap/carnaval-v3-670x350-jpg-16f5930a.jpg": {
+   "at": "2026-11-04T01:48:36.837Z"
+  },
+  "/media-da/tap/348europavinhateira11110x415-e45d9162.jpg": {
+   "at": "2026-11-04T01:48:37.440Z"
+  },
+  "/media-da/tap/348europavinhateira21110x415-928440e4.jpg": {
+   "at": "2026-11-04T01:48:38.029Z"
+  },
+  "/media-da/tap/348europavinhateira4670x350-ea2428dd.jpg": {
+   "at": "2026-11-04T01:48:39.031Z"
+  },
+  "/media-da/tap/348europavinhateira51110x415-6ab13d47.jpg": {
+   "at": "2026-11-04T01:48:39.788Z"
+  },
+  "/media-da/tap/348europavinhateira61110x415-71e59d1d.jpg": {
+   "at": "2026-11-04T01:48:40.669Z"
+  },
+  "/media-da/tap/348europavinhateira81110x415-4a0bdf1f.jpg": {
+   "at": "2026-11-04T01:48:41.341Z"
+  },
+  "/media-da/tap/cancun-1110-5880aa88.jpg": {
+   "at": "2026-11-04T01:48:42.284Z"
+  },
+  "/media-da/tap/ssa-1110-ed046f0e.jpg": {
+   "at": "2026-11-04T01:48:42.920Z"
+  },
+  "/media-da/tap/tenerife-1110-29d779c6.jpg": {
+   "at": "2026-11-04T01:48:43.966Z"
+  },
+  "/media-da/tap/canarias-1110-57d8fc66.jpg": {
+   "at": "2026-11-04T01:48:44.561Z"
+  },
+  "/media-da/tap/sal-1110-8efc82b8.jpg": {
+   "at": "2026-11-04T01:48:45.165Z"
+  },
+  "/media-da/tap/35-fmaily5-3e6f8d66.jpg": {
+   "at": "2026-11-04T01:48:45.778Z"
+  },
+  "/media-da/tap/35-family3-d50b0e1f.jpg": {
+   "at": "2026-11-04T01:48:46.762Z"
+  },
+  "/media-da/tap/35-family-c0f36a3f.jpg": {
+   "at": "2026-11-04T01:48:47.581Z"
+  },
+  "/media-da/tap/35-family4-88605406.jpg": {
+   "at": "2026-11-04T01:48:48.162Z"
+  },
+  "/media-da/tap/35-family1-aee92222.jpg": {
+   "at": "2026-11-04T01:48:48.793Z"
+  },
+  "/media-da/tap/31paraisoseuropa1acoressmiguel1110x415-ab6abbd5.jpg": {
+   "at": "2026-11-04T01:48:49.457Z"
+  },
+  "/media-da/tap/31paraisoseuropa2acorespico1110x415-ebb337a6.jpg": {
+   "at": "2026-11-04T01:48:50.110Z"
+  },
+  "/media-da/tap/31paraisoseuropa3espanhamenorca1110x415-1f4099af.jpg": {
+   "at": "2026-11-04T01:48:50.888Z"
+  },
+  "/media-da/tap/31paraisoseuropa4espanhacabrera1110x415-0b86c5e1.jpg": {
+   "at": "2026-11-04T01:48:51.535Z"
+  },
+  "/media-da/tap/31paraisoseuropa5francacoteazur1110x415-eb7bc5a5.jpg": {
+   "at": "2026-11-04T01:48:52.131Z"
+  },
+  "/media-da/tap/31paraisoseuropa6italiacinqueterre1110x415-d58ef3c1.jpg": {
+   "at": "2026-11-04T01:48:52.937Z"
+  },
+  "/media-da/tap/31paraisoseuropa7greciasantorini1110x415-2ec7659a.jpg": {
+   "at": "2026-11-04T01:48:53.662Z"
+  },
+  "/media-da/tap/920-europa-7379981d.jpg": {
+   "at": "2026-11-04T01:48:54.611Z"
+  },
+  "/media-da/tap/360brasil11110x415-3f29d94a.jpg": {
+   "at": "2026-11-04T01:49:01.403Z"
+  },
+  "/media-da/tap/360brasil3670x350-42a0b3bb.jpg": {
+   "at": "2026-11-04T01:49:02.066Z"
+  },
+  "/media-da/tap/o-que-tem-as-praias-do-brasil1920x1036-f8704757.jpg": {
+   "at": "2026-11-04T01:49:02.709Z"
+  },
+  "/media-da/tap/351madridruadiscoteca11110x415-ec605d92.jpg": {
+   "at": "2026-11-04T01:49:13.254Z"
+  },
+  "/media-da/tap/351madridruadiscoteca2670x350-28d0e31f.jpg": {
+   "at": "2026-11-04T01:49:13.856Z"
+  },
+  "/media-da/tap/351madridruadiscoteca41110x415-35ab98ba.jpg": {
+   "at": "2026-11-04T01:49:14.579Z"
+  },
+  "/media-da/tap/discoteca1920x1036-5377a08f.jpg": {
+   "at": "2026-11-04T01:49:15.203Z"
+  },
+  "/media-da/tap/345nice11110x415-1d8d12b1.jpg": {
+   "at": "2026-11-04T01:49:16.002Z"
+  },
+  "/media-da/tap/345nice2670x350-d6a8b23f.jpg": {
+   "at": "2026-11-04T01:49:16.733Z"
+  },
+  "/media-da/tap/345nice41110x415-746d362e.jpg": {
+   "at": "2026-11-04T01:49:17.324Z"
+  },
+  "/media-da/tap/920x1036-nice-card-ed5ac4bc.jpg": {
+   "at": "2026-11-04T01:49:18.044Z"
+  },
+  "/media-da/tap/conheca-as-10-melhores-praias-do-ceara-1-jpg-6d1b2ff3.jpg": {
+   "at": "2026-11-04T01:49:25.239Z"
+  },
+  "/media-da/tap/51-pontagrossa-c3897aba.jpg": {
+   "at": "2026-11-04T01:49:25.920Z"
+  },
+  "/media-da/tap/51-jericoacoara-f1e6a1bb.jpg": {
+   "at": "2026-11-04T01:49:26.521Z"
+  },
+  "/media-da/tap/51-icarai-5aa2ad64.jpg": {
+   "at": "2026-11-04T01:49:27.578Z"
+  },
+  "/media-da/tap/conheca-as-10-melhores-praias-do-ceara-3-jpg-9aa84acc.jpg": {
+   "at": "2026-11-04T01:49:28.284Z"
+  },
+  "/media-da/tap/51-cumbuco-322d253b.jpg": {
+   "at": "2026-11-04T01:49:28.898Z"
+  },
+  "/media-da/tap/conheca-as-10-melhores-praias-do-ceara-4-jpg-f0409a7d.jpg": {
+   "at": "2026-11-04T01:49:29.496Z"
+  },
+  "/media-da/tap/51-praia-prea-a618d358.jpg": {
+   "at": "2026-11-04T01:49:30.198Z"
+  },
+  "/media-da/tap/conheca-as-10-melhores-praias-do-ceara-5-jpg-c423c4c3.jpg": {
+   "at": "2026-11-04T01:49:30.944Z"
+  },
+  "/media-da/tap/51-meireles-2c87351c.jpg": {
+   "at": "2026-11-04T01:49:31.594Z"
+  },
+  "/media-da/tap/fortaleza-1920-b4eddc5b.jpg": {
+   "at": "2026-11-04T01:49:32.339Z"
+  },
+  "/media-da/tap/extras-and-special-services-for-your-flight-ff9ff600.jpg": {
+   "at": "2026-11-04T01:49:58.133Z"
+  },
+  "/media-da/tap/invoice-e6809cb3.jpg": {
+   "at": "2026-11-04T01:49:58.761Z"
+  },
+  "/media-da/tap/family-check-in-217df3d9.jpg": {
+   "at": "2026-11-04T01:49:59.423Z"
+  },
+  "/media-da/tap/discover-the-fleet-10683096.jpg": {
+   "at": "2026-11-04T01:50:00.024Z"
+  },
+  "/media-da/tap/extras-and-upgrades-tap-c83f6536.jpg": {
+   "at": "2026-11-04T01:50:05.074Z"
+  },
+  "/media-da/tap/tap-2023-0235-mobile-fe2024e2.jpg": {
+   "at": "2026-11-04T01:50:05.726Z"
+  },
+  "/media-da/tap/comfort-seats-long-hault-59320ee9.jpg": {
+   "at": "2026-11-04T01:50:06.372Z"
+  },
+  "/media-da/tap/buy-extra-baggage-0e61fe3a.jpg": {
+   "at": "2026-11-04T01:50:07.351Z"
+  },
+  "/media-da/tap/fast-track-standard-81e35c0c.jpg": {
+   "at": "2026-11-04T01:50:31.321Z"
+  },
+  "/media-da/tap/lounges-42490324.jpg": {
+   "at": "2026-11-04T01:50:36.147Z"
+  },
+  "/media-da/tap/flying-with-babies-and-children-38958232.jpg": {
+   "at": "2026-11-04T01:50:59.881Z"
+  },
+  "/media-da/tap/discover-the-fleet-de6c9581.jpg": {
+   "at": "2026-11-04T01:51:00.517Z"
+  },
+  "/media-da/tap/pregnant-women-precautions-when-flying-2d2c1688.jpg": {
+   "at": "2026-11-04T01:51:01.192Z"
+  },
+  "/media-da/tap/special-needs-card-info-9af0de15.jpg": {
+   "at": "2026-11-04T01:51:01.779Z"
+  },
+  "/media-da/tap/passport-documents-e5cf9b86.jpg": {
+   "at": "2026-11-04T01:51:02.496Z"
+  },
+  "/media-da/tap/legal-information-5121ed04.jpg": {
+   "at": "2026-11-04T01:51:11.610Z"
+  },
+  "/media-da/tap/baggage-tap-air-portugal-banner-desktop-99f9b9a4.jpg": {
+   "at": "2026-11-04T01:51:49.056Z"
+  },
+  "/media-da/tap/hand-baggage-v2-05298452.jpg": {
+   "at": "2026-11-04T01:51:57.141Z"
+  },
+  "/media-da/tap/hold-baggage-v2-d1cd1012.jpg": {
+   "at": "2026-11-04T01:52:02.121Z"
+  },
+  "/media-da/tap/special-meals-kids-de28db57.jpg": {
+   "at": "2026-11-04T01:52:26.883Z"
+  },
+  "/media-da/tap/children-family-bagage-abecebec.jpg": {
+   "at": "2026-11-04T01:52:27.659Z"
+  },
+  "/media-da/tap/flying-with-babies-and-children-ea23f998.jpg": {
+   "at": "2026-11-04T01:52:28.268Z"
+  },
+  "/media-da/tap/airbus-a330-900neo-60fb0a24.jpg": {
+   "at": "2026-11-04T01:53:01.276Z"
+  },
+  "/media-da/tap/airbus-a321-200lr-530569c7.jpg": {
+   "at": "2026-11-04T01:53:01.920Z"
+  },
+  "/media-da/tap/airbus-a321-200neo-13de0ec5.jpg": {
+   "at": "2026-11-04T01:53:02.508Z"
+  },
+  "/media-da/tap/airbus-a320-200neo-5d8f0a39.jpg": {
+   "at": "2026-11-04T01:53:03.194Z"
+  },
+  "/media-da/tap/airbus-a330-200-a646c1a2.jpg": {
+   "at": "2026-11-04T01:53:03.790Z"
+  },
+  "/media-da/tap/airbus-a321-200-9b4f4769.jpg": {
+   "at": "2026-11-04T01:53:04.402Z"
+  },
+  "/media-da/tap/airbus-a320-200-4e830c48.jpg": {
+   "at": "2026-11-04T01:53:04.996Z"
+  },
+  "/media-da/tap/explore-tap-miles-and-go-d0335eef.jpg": {
+   "at": "2026-11-04T01:53:47.555Z"
+  },
+  "/media-da/tap/logo-miles-abc88283.jpg": {
+   "at": "2026-11-04T01:53:48.240Z"
+  },
+  "/media-da/tap/logo-silver-49139570.jpg": {
+   "at": "2026-11-04T01:53:48.961Z"
+  },
+  "/media-da/tap/logo-gold-c6895838.jpg": {
+   "at": "2026-11-04T01:53:49.570Z"
+  },
+  "/media-da/tap/logo-navigator-743b3aa7.jpg": {
+   "at": "2026-11-04T01:53:50.189Z"
+  },
+  "/media-da/tap/club-card-1280x720-216e3295.jpg": {
+   "at": "2026-11-04T01:53:51.001Z"
+  },
+  "/media-da/tap/credit-card-tap-miles-and-go-598d0cc6.jpg": {
+   "at": "2026-11-04T01:53:51.640Z"
+  },
+  "/media-da/tap/promotions-tap-miles-and-go-2e1c2738.jpg": {
+   "at": "2026-11-04T01:53:52.368Z"
+  },
+  "/media-da/tap/card-lp-donate-miles-1280x720-2a50becb.jpg": {
+   "at": "2026-11-04T01:54:47.026Z"
+  },
+  "/media-da/tap/iceland-card-1280x720-aa233d4b.jpg": {
+   "at": "2026-11-04T01:55:25.717Z"
+  },
+  "/media-da/tap/card-promos-xmas-1280x720-ab6afd37.jpg": {
+   "at": "2026-11-04T01:55:26.438Z"
+  },
+  "/media-da/tap/train-and-airplane-2ed38594.jpg": {
+   "at": "2026-11-04T01:55:31.191Z"
+  },
+  "/media-da/tap/card-payment-methods-37865c86.jpg": {
+   "at": "2026-11-04T01:55:31.902Z"
+  },
+  "/media-da/tap/ponte-aerea-e2ca285b.jpg": {
+   "at": "2026-11-04T01:55:32.591Z"
+  },
+  "/media-da/tap/promotions-fecd4d91.jpg": {
+   "at": "2026-11-04T01:55:33.284Z"
+  },
+  "/media-da/tap/stopover-banner-madeira-mobile-e1c90303.jpg": {
+   "at": "2026-11-04T01:55:33.894Z"
+  },
+  "/media-da/tap/tap-for-biz-fb3f3220.jpg": {
+   "at": "2026-11-04T01:55:34.539Z"
+  },
+  "/media-da/tap/tap-meetings-b238af90.jpg": {
+   "at": "2026-11-04T01:55:35.322Z"
+  },
+  "/media-da/tap/tap-fares-c033cee4.jpg": {
+   "at": "2026-11-04T01:55:36.000Z"
+  },
+  "/media-da/tap/time-to-think-871e3e75.jpg": {
+   "at": "2026-11-04T01:55:36.651Z"
+  },
+  "/media-da/tap/galiza-porto-tap-848844e6.jpg": {
+   "at": "2026-11-04T01:55:37.413Z"
+  },
+  "/media-da/tap/travelling-in-group-13c84d49.jpg": {
+   "at": "2026-11-04T01:55:38.296Z"
+  },
+  "/media-da/tap/lisboacard-stopover-lisbon-banner-desktop-2fae6024.jpg": {
+   "at": "2026-11-04T01:56:10.110Z"
+  },
+  "/media-da/tap/card-stopover-gratuito-495171ff.jpg": {
+   "at": "2026-11-04T01:56:10.706Z"
+  },
+  "/media-da/tap/card-ofertas-nv-1280x720-d4f0a1af.jpg": {
+   "at": "2026-11-04T01:56:11.605Z"
+  },
+  "/media-da/tap/promocode-card-39266653.jpg": {
+   "at": "2026-11-04T01:56:12.278Z"
+  },
+  "/media-da/tap/stopover-dc50214c.jpg": {
+   "at": "2026-11-04T01:56:13.046Z"
+  },
+  "/media-da/tap/card-hospitalidade-2fc1d764.jpg": {
+   "at": "2026-11-04T01:56:13.708Z"
+  },
+  "/media-da/tap/card-paisagens-285b8341.jpg": {
+   "at": "2026-11-04T01:56:14.556Z"
+  },
+  "/media-da/tap/card-gastronomia-8716eb31.jpg": {
+   "at": "2026-11-04T01:56:15.254Z"
+  },
+  "/media-da/tap/faro-stopover-09948149.jpg": {
+   "at": "2026-11-04T01:56:15.971Z"
+  },
+  "/media-da/tap/funchal-stopover-bc5f78a6.jpg": {
+   "at": "2026-11-04T01:56:16.812Z"
+  },
+  "/media-da/tap/ponta-delgada-stopover-e7e9792b.jpg": {
+   "at": "2026-11-04T01:56:17.541Z"
+  },
+  "/media-da/tap/porto-stopover-9f040f31.jpg": {
+   "at": "2026-11-04T01:56:18.256Z"
+  },
+  "/media-da/tap/porto-santo-stopover-aff1b757.jpg": {
+   "at": "2026-11-04T01:56:19.014Z"
+  },
+  "/media-da/tap/terceira-stopover-b97d285a.jpg": {
+   "at": "2026-11-04T01:56:19.681Z"
+  },
+  "/media-da/tap/cards-ofertas-fabrica-de-nata-348x140-9243060f.jpg": {
+   "at": "2026-11-04T01:57:01.305Z"
+  },
+  "/media-da/tap/il-basilico-lisboa-standard-card-old-350x140-84763ba0.jpg": {
+   "at": "2026-11-04T01:57:02.000Z"
+  },
+  "/media-da/tap/lota-da-esquina-standard-card-old-350x140-677ccbc2.jpg": {
+   "at": "2026-11-04T01:57:02.716Z"
   }
  }
 }
