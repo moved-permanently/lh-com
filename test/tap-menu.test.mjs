@@ -153,6 +153,13 @@ test('an older nav document without Check-in: the quick action third, a plain li
   assert.equal(items[2].querySelector('a').getAttribute('href'), '/en-pt#check-in');
 });
 
+test('a Check-in item in another language (fr-fr Enregistrement, pl-pl Odprawa) is the Check-in: no second one from the quick action', () => {
+  const html = SECTION.replace('<li><p><a href="/en-pt#check-in">Check-in</a></p><ul>', '<li><p><a href="/fr-fr#check-in">Enregistrement</a></p><ul>');
+  const { root } = build({ html, quickLinks: [link('/fr-fr#check-in', 'Enregistrement')] });
+  const labels = [...root.querySelectorAll(':scope > li')].map((li) => li.firstElementChild.textContent);
+  assert.deepEqual(labels, ['Plan a trip', 'My flights', 'Enregistrement', 'Help']);
+});
+
 test('header-tap.css: loaded once for TAP, every rule scoped to brand tap', () => {
   build();
   build();

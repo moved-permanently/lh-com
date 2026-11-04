@@ -159,8 +159,10 @@ function loadMenuCss() {
 export function buildTapMenu(section, { link, menuButton, quickLinks = [] }) {
   loadMenuCss();
   const items = readTapMenu(section);
-  if (!items.some((i) => CHECK_IN.test(i.link || '') || /^check-?in$/i.test(i.label))) {
-    const checkIn = quickLinks.find((a) => CHECK_IN.test(a.getAttribute('href') || '') || /#check-in$/.test(a.getAttribute('href') || ''));
+  // the Check-in item: www's anchor or the homepage's box (/<root>#check-in), in any language
+  const isCheckIn = (href) => CHECK_IN.test(href || '') || /#check-in$/.test(href || '');
+  if (!items.some((i) => isCheckIn(i.link) || /^check-?in$/i.test(i.label))) {
+    const checkIn = quickLinks.find((a) => isCheckIn(a.getAttribute('href')));
     if (checkIn) {
       items.splice(Math.min(2, items.length), 0, {
         label: text(checkIn), link: checkIn.getAttribute('href'), cols: [], banner: null,
