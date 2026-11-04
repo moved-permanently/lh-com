@@ -1,0 +1,864 @@
+{
+ "/library/blocks/accordion-columns": [
+  [
+   "Accordion columns (faq, spaced): text | list",
+   "accordion-columns-faq-spaced-text--list"
+  ],
+  [
+   "Canada",
+   "canada"
+  ],
+  [
+   "Mexico",
+   "mexico"
+  ],
+  [
+   "United States",
+   "united-states"
+  ],
+  [
+   "Argentina",
+   "argentina"
+  ],
+  [
+   "Brazil",
+   "brazil"
+  ],
+  [
+   "Columbia",
+   "columbia"
+  ],
+  [
+   "Accordion columns (faq, column): text | list",
+   "accordion-columns-faq-column-text--list"
+  ]
+ ],
+ "/library/blocks/app-teaser-slider": [
+  [
+   "100 Jahre Lufthansa",
+   "jahre-lufthansa"
+  ]
+ ],
+ "/library/blocks/article-header": [
+  [
+   "100 Years of Lufthansa: Seven People Who Shaped Our History",
+   "years-of-lufthansa-seven-people-who-shaped-our-history"
+  ],
+  [
+   "Article header with video",
+   "article-header-with-video"
+  ],
+  [
+   "Essentials: Vancouver",
+   "essentials-vancouver"
+  ]
+ ],
+ "/library/blocks/blog-overview": [
+  [
+   "Blog overview: 4 rows",
+   "blog-overview-4-rows"
+  ],
+  [
+   "Blog overview: text | text / text | text",
+   "blog-overview-text--text--text--text"
+  ]
+ ],
+ "/library/blocks/cards-icon-text": [
+  [
+   "Online check-in",
+   "online-check-in"
+  ],
+  [
+   "Lufthansa app",
+   "lufthansa-app"
+  ]
+ ],
+ "/library/blocks/cards-steps": [
+  [
+   "Find your booking",
+   "find-your-booking"
+  ],
+  [
+   "Sign in with Travel ID",
+   "sign-in-with-travel-id"
+  ],
+  [
+   "Complete your travel details",
+   "complete-your-travel-details"
+  ],
+  [
+   "Personalize your flight",
+   "personalize-your-flight"
+  ]
+ ],
+ "/library/blocks/cards-teaser": [
+  [
+   "A new beginning: at home all over the world {heading-small}",
+   "a-new-beginning-at-home-all-over-the-world-heading-small"
+  ],
+  [
+   "Travel briefing",
+   "travel-briefing"
+  ],
+  [
+   "Travelling with animals",
+   "travelling-with-animals"
+  ],
+  [
+   "A healthy journey",
+   "a-healthy-journey"
+  ],
+  [
+   "More Stories",
+   "more-stories"
+  ],
+  [
+   "Lufthansa Insights",
+   "lufthansa-insights"
+  ],
+  [
+   "Berlin Airport {heading-small}",
+   "berlin-airport-heading-small"
+  ],
+  [
+   "Dusseldorf Airport {heading-small}",
+   "dusseldorf-airport-heading-small"
+  ],
+  [
+   "Vienna Airport {heading-small}",
+   "vienna-airport-heading-small"
+  ],
+  [
+   "Zurich Airport {heading-small}",
+   "zurich-airport-heading-small"
+  ],
+  [
+   "Mehr Geschichten",
+   "mehr-geschichten"
+  ],
+  [
+   "Lufthansa Insights",
+   "lufthansa-insights-1"
+  ],
+  [
+   "Mehr Geschichten",
+   "mehr-geschichten-1"
+  ]
+ ],
+ "/library/blocks/carousel-cards": [
+  [
+   "Discover Kuala Lumpur and other destinations",
+   "discover-kuala-lumpur-and-other-destinations"
+  ],
+  [
+   "Greatness is a Group effort",
+   "greatness-is-a-group-effort"
+  ],
+  [
+   "With PartnerPlusBenefit, the free corporate bonus programme",
+   "with-partnerplusbenefit-the-free-corporate-bonus-programme"
+  ],
+  [
+   "New: hot meals on your flight",
+   "new-hot-meals-on-your-flight"
+  ],
+  [
+   "Discover more fascinating stories from the world of Lufthansa",
+   "discover-more-fascinating-stories-from-the-world-of-lufthansa"
+  ],
+  [
+   "The next 100 years: A look into the future of flying",
+   "the-next-100-years-a-look-into-the-future-of-flying"
+  ],
+  [
+   "Stay up to date: subscribe to our newsletter now",
+   "stay-up-to-date-subscribe-to-our-newsletter-now"
+  ],
+  [
+   "Carousel cards (article): text | text",
+   "carousel-cards-article-text--text"
+  ],
+  [
+   "Our best tips for seeing a different side of Madrid",
+   "our-best-tips-for-seeing-a-different-side-of-madrid"
+  ],
+  [
+   "Discover picturesque Mallorca",
+   "discover-picturesque-mallorca"
+  ],
+  [
+   "Stay up to date: Subscribe to our newsletter",
+   "stay-up-to-date-subscribe-to-our-newsletter"
+  ],
+  [
+   "In or as checked baggage",
+   "in-or-as-checked-baggage"
+  ],
+  [
+   "In or as carry-on baggage or personal item in the cabin",
+   "in-or-as-carry-on-baggage-or-personal-item-in-the-cabin"
+  ],
+  [
+   "On your person",
+   "on-your-person"
+  ],
+  [
+   "Transport approval required",
+   "transport-approval-required"
+  ],
+  [
+   "Carousel cards (grid): text | text",
+   "carousel-cards-grid-text--text"
+  ],
+  [
+   "Travel ID",
+   "travel-id"
+  ],
+  [
+   "Booking code",
+   "booking-code"
+  ],
+  [
+   "Carousel cards (four-up): image | text",
+   "carousel-cards-four-up-image--text"
+  ],
+  [
+   "The Beijing travel podcast",
+   "the-beijing-travel-podcast"
+  ],
+  [
+   "The Boston travel podcast",
+   "the-boston-travel-podcast"
+  ],
+  [
+   "The Athens travel podcast",
+   "the-athens-travel-podcast"
+  ],
+  [
+   "The Barcelona travel podcast",
+   "the-barcelona-travel-podcast"
+  ],
+  [
+   "A healthy journey",
+   "a-healthy-journey"
+  ],
+  [
+   "Older travellers",
+   "older-travellers"
+  ],
+  [
+   "Global Healthcare",
+   "global-healthcare"
+  ],
+  [
+   "Medical escort service",
+   "medical-escort-service"
+  ],
+  [
+   "Carousel cards (grid, four-up): text | text",
+   "carousel-cards-grid-four-up-text--text"
+  ],
+  [
+   "Booking Period",
+   "booking-period"
+  ],
+  [
+   "Travel Period",
+   "travel-period"
+  ],
+  [
+   "Destinations",
+   "destinations"
+  ],
+  [
+   "Travel Class",
+   "travel-class"
+  ],
+  [
+   "Children’s menus",
+   "childrens-menus"
+  ],
+  [
+   "Special menus",
+   "special-menus"
+  ]
+ ],
+ "/library/blocks/carousel-lightbox": [
+  [
+   "Carousel lightbox: image | text / text | text",
+   "carousel-lightbox-image--text--text--text"
+  ],
+  [
+   "Carousel lightbox: 4 rows",
+   "carousel-lightbox-4-rows"
+  ],
+  [
+   "Sample illustration A350-900 (48 Business / 21 Premium Economy / 224 Economy)",
+   "sample-illustration-a350-900-48-business--21-premium-economy--224-economy"
+  ],
+  [
+   "Main deck",
+   "main-deck"
+  ]
+ ],
+ "/library/blocks/columns-logos": [
+  [
+   "Payment options",
+   "payment-options"
+  ],
+  [
+   "Follow us",
+   "follow-us"
+  ]
+ ],
+ "/library/blocks/columns-media": [
+  [
+   "Columns media: image",
+   "columns-media-image"
+  ],
+  [
+   "Columns media: text | image",
+   "columns-media-text--image"
+  ],
+  [
+   "Columns media (padded): text | image",
+   "columns-media-padded-text--image"
+  ],
+  [
+   "Columns media (padded): text | text",
+   "columns-media-padded-text--text"
+  ],
+  [
+   "Columns media (sidebar): text | image",
+   "columns-media-sidebar-text--image"
+  ],
+  [
+   "Columns media (sidebar): text | text",
+   "columns-media-sidebar-text--text"
+  ],
+  [
+   "2001",
+   "2001"
+  ],
+  [
+   "2002",
+   "2002"
+  ],
+  [
+   "Dallmayr: for special moments of pleasure {heading-small}",
+   "dallmayr-for-special-moments-of-pleasure-heading-small"
+  ],
+  [
+   "Simply travel smarter with the Lufthansa app",
+   "simply-travel-smarter-with-the-lufthansa-app"
+  ],
+  [
+   "dean&david: sustainably delicious {heading-small}",
+   "deandavid-sustainably-delicious-heading-small"
+  ],
+  [
+   "Under the symbol of the crane",
+   "under-the-symbol-of-the-crane"
+  ]
+ ],
+ "/library/blocks/columns": [
+  [
+   "",
+   "yellow-double-helix"
+  ]
+ ],
+ "/library/blocks/destination-finder": [
+  [
+   "Destination finder: 10 rows",
+   "destination-finder-10-rows"
+  ],
+  [
+   "Destination finder (grid): 5 rows",
+   "destination-finder-grid-5-rows"
+  ]
+ ],
+ "/library/blocks/hero-banner": [
+  [
+   "First Class",
+   "first-class"
+  ],
+  [
+   "Pure Indulgence",
+   "pure-indulgence"
+  ],
+  [
+   "Business Class",
+   "business-class"
+  ],
+  [
+   "Gourmet Moments",
+   "gourmet-moments"
+  ],
+  [
+   "Premium Economy Class",
+   "premium-economy-class"
+  ],
+  [
+   "Flavourful",
+   "flavourful"
+  ],
+  [
+   "Economy Class",
+   "economy-class"
+  ],
+  [
+   "Simply Good",
+   "simply-good"
+  ]
+ ],
+ "/library/blocks/hero-campaign": [
+  [
+   "The crane through the ages",
+   "the-crane-through-the-ages"
+  ],
+  [
+   "Munich – more than just a transit point",
+   "munich--more-than-just-a-transit-point"
+  ],
+  [
+   "A journey through time via advertising",
+   "a-journey-through-time-via-advertising"
+  ],
+  [
+   "A varied culinary offer on board",
+   "a-varied-culinary-offer-on-board"
+  ],
+  [
+   "Boeing 787-9",
+   "boeing-787-9"
+  ],
+  [
+   "A world of culinary delights",
+   "a-world-of-culinary-delights"
+  ],
+  [
+   "Your Winter sports gear flies free*",
+   "your-winter-sports-gear-flies-free"
+  ]
+ ],
+ "/library/blocks/hero-card-overlay": [
+  [
+   "Discover Kuala Lumpur and other destinations",
+   "discover-kuala-lumpur-and-other-destinations"
+  ],
+  [
+   "€30 off to South Africa with promo code FLYZA",
+   "off-to-south-africa-with-promo-code-flyza"
+  ],
+  [
+   "Lufthansa Group Wi-Fi powered by Starlink",
+   "lufthansa-group-wi-fi-powered-by-starlink"
+  ],
+  [
+   "Your Winter sports gear flies free*",
+   "your-winter-sports-gear-flies-free"
+  ]
+ ],
+ "/library/blocks/poi-map": [
+  [
+   "Poi map: text | text | text",
+   "poi-map-text--text--text"
+  ]
+ ],
+ "/library/blocks/profile-tabs": [
+  [
+   "Check-in and gate areas",
+   "check-in-and-gate-areas"
+  ],
+  [
+   "First Class Check-in Area",
+   "first-class-check-in-area"
+  ],
+  [
+   "Bag drop-off",
+   "bag-drop-off"
+  ],
+  [
+   "Time slot for security check",
+   "time-slot-for-security-check"
+  ],
+  [
+   "Getting there",
+   "getting-there"
+  ],
+  [
+   "Accessible travel",
+   "accessible-travel"
+  ],
+  [
+   "Profile tabs (content): text | image, text | text",
+   "profile-tabs-content-text--image-text--text"
+  ],
+  [
+   "Varied {heading-small}",
+   "varied-heading-small"
+  ],
+  [
+   "High-quality {heading-small}",
+   "high-quality-heading-small"
+  ],
+  [
+   "Sustainable {heading-small}",
+   "sustainable-heading-small"
+  ],
+  [
+   "Profile tabs (content): text | list | text",
+   "profile-tabs-content-text--list--text"
+  ]
+ ],
+ "/library/blocks/subpage-nav": [
+  [
+   "Business Services",
+   "business-services"
+  ]
+ ],
+ "/library/blocks/table-striped": [
+  [
+   "Table striped: text | text | text",
+   "table-striped-text--text--text"
+  ],
+  [
+   "Table striped: text | text | text | text",
+   "table-striped-text--text--text--text"
+  ],
+  [
+   "Table striped (header): text | text | text | text | text",
+   "table-striped-header-text--text--text--text--text"
+  ],
+  [
+   "Table striped (header): text | text | text | text",
+   "table-striped-header-text--text--text--text"
+  ]
+ ],
+ "/de/de/homepage": [
+  [
+   "Winterangebote",
+   "winterangebote"
+  ],
+  [
+   "Aktuelle Themen und Neuigkeiten",
+   "aktuelle-themen-und-neuigkeiten"
+  ],
+  [
+   "Kuala Lumpur und weitere Ziele entdecken",
+   "kuala-lumpur-und-weitere-ziele-entdecken"
+  ],
+  [
+   "Greatness is a Group effort",
+   "greatness-is-a-group-effort"
+  ],
+  [
+   "Mit PartnerPlusBenefit, dem kostenlosen Firmenbonusprogramm",
+   "mit-partnerplusbenefit-dem-kostenlosen-firmenbonusprogramm"
+  ],
+  [
+   "Neu: Warme Mahlzeiten",
+   "neu-warme-mahlzeiten"
+  ],
+  [
+   "Bis zu 4.000 Meilen bei SIXT",
+   "bis-zu-4000-meilen-bei-sixt"
+  ],
+  [
+   "5 Meilen pro ausgegebenem Euro",
+   "meilen-pro-ausgegebenem-euro"
+  ],
+  [
+   "Suchen Sie mehr als nur einen Flug?",
+   "suchen-sie-mehr-als-nur-einen-flug"
+  ],
+  [
+   "Zahlungsmöglichkeiten",
+   "zahlungsmöglichkeiten"
+  ],
+  [
+   "Folgen Sie uns",
+   "folgen-sie-uns"
+  ],
+  [
+   "Die Welt entdecken",
+   "die-welt-entdecken"
+  ],
+  [
+   "Städtetrips weltweit",
+   "städtetrips-weltweit"
+  ],
+  [
+   "Flugziele weltweit",
+   "flugziele-weltweit"
+  ],
+  [
+   "Abflüge ab Deutschland",
+   "abflüge-ab-deutschland"
+  ]
+ ],
+ "/de/en/homepage": [
+  [
+   "Winter deals",
+   "winter-deals"
+  ],
+  [
+   "Current topics and news",
+   "current-topics-and-news"
+  ],
+  [
+   "Discover Kuala Lumpur and other destinations",
+   "discover-kuala-lumpur-and-other-destinations"
+  ],
+  [
+   "Greatness is a Group effort",
+   "greatness-is-a-group-effort"
+  ],
+  [
+   "With PartnerPlusBenefit, the free corporate bonus programme",
+   "with-partnerplusbenefit-the-free-corporate-bonus-programme"
+  ],
+  [
+   "New: hot meals on your flight",
+   "new-hot-meals-on-your-flight"
+  ],
+  [
+   "Up to 4.000 miles with SIXT",
+   "up-to-4000-miles-with-sixt"
+  ],
+  [
+   "Earn 5 miles per euro 1 spent",
+   "earn-5-miles-per-euro-1-spent"
+  ],
+  [
+   "Looking for more than just a flight?",
+   "looking-for-more-than-just-a-flight"
+  ],
+  [
+   "Payment options",
+   "payment-options"
+  ],
+  [
+   "Follow us",
+   "follow-us"
+  ],
+  [
+   "Discover the world",
+   "discover-the-world"
+  ],
+  [
+   "City trips worldwide",
+   "city-trips-worldwide"
+  ],
+  [
+   "Destinations worldwide",
+   "destinations-worldwide"
+  ],
+  [
+   "Flights from Germany",
+   "flights-from-germany"
+  ]
+ ],
+ "/de/en/100-years/destinations": [
+  [
+   "A century of iconic destinations",
+   "a-century-of-iconic-destinations"
+  ],
+  [
+   "Writing stories, moving worlds {heading-large}",
+   "writing-stories-moving-worlds-heading-large"
+  ],
+  [
+   "Berlin: In search of freedom",
+   "berlin-in-search-of-freedom"
+  ],
+  [
+   "Rio de Janeiro: Party like World Cup winners {heading-large}",
+   "rio-de-janeiro-party-like-world-cup-winners-heading-large"
+  ],
+  [
+   "Zurich: The power of beginnings {heading-large}",
+   "zurich-the-power-of-beginnings-heading-large"
+  ],
+  [
+   "Cologne: “What will be, will be” {heading-large}",
+   "cologne-what-will-be-will-be-heading-large"
+  ],
+  [
+   "New York: What a dream!",
+   "new-york-what-a-dream"
+  ],
+  [
+   "Vancouver: Adventure calls {heading-large}",
+   "vancouver-adventure-calls-heading-large"
+  ],
+  [
+   "Paris: Love at first sight {heading-large}",
+   "paris-love-at-first-sight-heading-large"
+  ],
+  [
+   "Cape Town: On the Cape of Good Hope",
+   "cape-town-on-the-cape-of-good-hope"
+  ],
+  [
+   "London: All the world’s a stage {heading-large}",
+   "london-all-the-worlds-a-stage-heading-large"
+  ],
+  [
+   "Rome: Ah, la dolce vita! {heading-large}",
+   "rome-ah-la-dolce-vita-heading-large"
+  ],
+  [
+   "Tokyo: A glimpse into the future",
+   "tokyo-a-glimpse-into-the-future"
+  ],
+  [
+   "Beijing: Incomparable, unforgettable {heading-large}",
+   "beijing-incomparable-unforgettable-heading-large"
+  ],
+  [
+   "Frankfurt: The sky’s the limit {heading-large}",
+   "frankfurt-the-skys-the-limit-heading-large"
+  ],
+  [
+   "Munich: In a great mood {heading-large}",
+   "munich-in-a-great-mood-heading-large"
+  ],
+  [
+   "Where would you like to experience your iconic moment? {heading-large}",
+   "where-would-you-like-to-experience-your-iconic-moment-heading-large"
+  ],
+  [
+   "Plenty of room for your iconic moments {heading-medium}",
+   "plenty-of-room-for-your-iconic-moments-heading-medium"
+  ]
+ ],
+ "/fr/fr/homepage": [
+  [
+   "Jusqu’à -50 % pour les enfants",
+   "jusquà--50--pour-les-enfants"
+  ],
+  [
+   "Bons plans d’hiver",
+   "bons-plans-dhiver"
+  ],
+  [
+   "Sujets d’actualité et nouveautés",
+   "sujets-dactualité-et-nouveautés"
+  ],
+  [
+   "Rejoignez-nous et découvrez une compagnie emblématique du transport aérien sous un nouveau jour",
+   "rejoignez-nous-et-découvrez-une-compagnie-emblématique-du-transport-aérien-sous-un-nouveau-jour"
+  ],
+  [
+   "Travel ID",
+   "travel-id"
+  ],
+  [
+   "Offrez à vos proches des moments inoubliables avec une Carte Cadeau Lufthansa",
+   "offrez-à-vos-proches-des-moments-inoubliables-avec-une-carte-cadeau-lufthansa"
+  ],
+  [
+   "Les saveurs de l’automne",
+   "les-saveurs-de-lautomne"
+  ],
+  [
+   "Vivez des expériences avec Coras",
+   "vivez-des-expériences-avec-coras"
+  ],
+  [
+   "eSIM by Breeze",
+   "esim-by-breeze"
+  ],
+  [
+   "Envie de plus qu’un simple vol ?",
+   "envie-de-plus-quun-simple-vol-"
+  ],
+  [
+   "Options de paiement",
+   "options-de-paiement"
+  ],
+  [
+   "Suivez-nous",
+   "suivez-nous"
+  ],
+  [
+   "Découvrir le monde",
+   "découvrir-le-monde"
+  ],
+  [
+   "Villes populaires en Europe",
+   "villes-populaires-en-europe"
+  ],
+  [
+   "Destinations internationales",
+   "destinations-internationales"
+  ],
+  [
+   "Destinations depuis la France",
+   "destinations-depuis-la-france"
+  ]
+ ],
+ "/gr/el/homepage": [
+  [
+   "Έως 50% έκπτωση για παιδιά",
+   "έως-50-έκπτωση-για-παιδιά"
+  ],
+  [
+   "Επίκαιρα θέματα και ειδήσεις",
+   "επίκαιρα-θέματα-και-ειδήσεις"
+  ],
+  [
+   "Ελάτε μαζί μας και γνωρίστε ένα εμβληματικό σύμβολο της αεροπορίας από μια νέα οπτική γωνία",
+   "ελάτε-μαζί-μας-και-γνωρίστε-ένα-εμβληματικό-σύμβολο-της-αεροπορίας-από-μια-νέα-οπτική-γωνία"
+  ],
+  [
+   "Travel ID",
+   "travel-id"
+  ],
+  [
+   "Χαρίστε στα αγαπημένα σας πρόσωπα αξέχαστες στιγμές με μια κάρτα δώρου της Lufthansa",
+   "χαρίστε-στα-αγαπημένα-σας-πρόσωπα-αξέχαστες-στιγμές-με-μια-κάρτα-δώρου-της-lufthansa"
+  ],
+  [
+   "Η γεύση του φθινοπώρου",
+   "η-γεύση-του-φθινοπώρου"
+  ],
+  [
+   "Ξεκινήστε το ταξίδι σας χαλαροί",
+   "ξεκινήστε-το-ταξίδι-σας-χαλαροί"
+  ],
+  [
+   "eSIM από την Breeze",
+   "esim-από-την-breeze"
+  ],
+  [
+   "Ψάχνετε κάτι περισσότερο από μια απλή πτήση;",
+   "ψάχνετε-κάτι-περισσότερο-από-μια-απλή-πτήση"
+  ],
+  [
+   "Επιλογές πληρωμής",
+   "επιλογές-πληρωμής"
+  ],
+  [
+   "Ακολουθήστε μας",
+   "ακολουθήστε-μας"
+  ],
+  [
+   "Ανακαλύψτε τον κόσμο",
+   "ανακαλύψτε-τον-κόσμο"
+  ],
+  [
+   "Δημοφιλείς πόλεις στην Ευρώπη",
+   "δημοφιλείς-πόλεις-στην-ευρώπη"
+  ],
+  [
+   "Προορισμοί σε όλο τον κόσμο",
+   "προορισμοί-σε-όλο-τον-κόσμο"
+  ],
+  [
+   "Πτήσεις από την Ελλάδα",
+   "πτήσεις-από-την-ελλάδα"
+  ]
+ ]
+}
