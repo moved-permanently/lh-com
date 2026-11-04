@@ -197,8 +197,8 @@ export function languageSwitch(tools, pathname, lang, languages, alternates = {}
   const authored = new Map();
   const rest = tools.filter((t) => {
     const l = t.href && homeOf(t.href);
-    if (!l || authored.has(l.lang)) return !l;
-    authored.set(l.lang, t.label);
+    if (!l || authored.has(keyOf(l))) return !l;
+    authored.set(keyOf(l), t.label);
     return false;
   });
   const first = (ll) => languages.find((x) => x.lang === ll && x.listed !== false);
@@ -220,7 +220,7 @@ export function languageSwitch(tools, pathname, lang, languages, alternates = {}
     const alternate = alternateOf(l) || sharedOf(l);
     return {
       lang: l.lang,
-      label: authored.get(l.lang) || l.name,
+      label: authored.get(keyOf(l)) || l.name,
       home: l.home,
       counterpart: counterpartPath(pathname, current, l),
       ...(alternate ? { alternate } : {}),
