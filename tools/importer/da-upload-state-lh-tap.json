@@ -1,9 +1,9 @@
 {
  "docs": {
   "/pt-pt": {
-   "uploaded": "2026-11-04T03:10:01.736Z",
-   "mtime": 1793761776298,
-   "preview": "2026-11-04T03:10:04.948Z"
+   "uploaded": "2026-11-04T05:49:23.877Z",
+   "mtime": 1793771336668,
+   "preview": "2026-11-04T05:49:26.494Z"
   },
   "/pt-pt/ajuda": {
    "uploaded": "2026-11-04T04:36:12.824Z",
@@ -31,19 +31,19 @@
    "preview": "2026-11-04T04:36:30.822Z"
   },
   "/pt-pt/info-legal": {
-   "uploaded": "2026-11-04T04:36:32.339Z",
-   "mtime": 1793766909792,
-   "preview": "2026-11-04T04:36:33.997Z"
+   "uploaded": "2026-11-04T05:49:28.511Z",
+   "mtime": 1793771336740,
+   "preview": "2026-11-04T05:49:30.551Z"
   },
   "/pt-pt/informacoes": {
-   "uploaded": "2026-11-04T04:36:35.417Z",
-   "mtime": 1793766909827,
-   "preview": "2026-11-04T04:36:38.039Z"
+   "uploaded": "2026-11-04T05:49:32.768Z",
+   "mtime": 1793771336819,
+   "preview": "2026-11-04T05:49:35.134Z"
   },
   "/pt-pt/a-bordo": {
-   "uploaded": "2026-11-04T04:36:39.414Z",
-   "mtime": 1793766909855,
-   "preview": "2026-11-04T04:36:42.024Z"
+   "uploaded": "2026-11-04T05:49:37.506Z",
+   "mtime": 1793771336892,
+   "preview": "2026-11-04T05:49:39.784Z"
   },
   "/pt-pt/promos": {
    "uploaded": "2026-11-04T04:36:43.577Z",
@@ -56,19 +56,19 @@
    "preview": "2026-11-04T04:36:49.670Z"
   },
   "/pt-pt/stopover": {
-   "uploaded": "2026-11-04T04:36:51.200Z",
-   "mtime": 1793766909955,
-   "preview": "2026-11-04T04:36:53.945Z"
+   "uploaded": "2026-11-04T05:49:42.005Z",
+   "mtime": 1793771337011,
+   "preview": "2026-11-04T05:49:44.042Z"
   },
   "/pt-pt/miles-and-go": {
-   "uploaded": "2026-11-04T04:36:55.252Z",
-   "mtime": 1793766909992,
-   "preview": "2026-11-04T04:36:57.630Z"
+   "uploaded": "2026-11-04T05:49:46.009Z",
+   "mtime": 1793771337084,
+   "preview": "2026-11-04T05:49:48.717Z"
   },
   "/pt-pt/ajuda/atrasos-cancelamentos": {
-   "uploaded": "2026-11-04T04:36:59.152Z",
-   "mtime": 1793766910028,
-   "preview": "2026-11-04T04:37:01.176Z"
+   "uploaded": "2026-11-04T05:49:50.836Z",
+   "mtime": 1793771337149,
+   "preview": "2026-11-04T05:49:53.476Z"
   },
   "/pt-pt/ajuda/reembolsos-tap": {
    "uploaded": "2026-11-04T04:37:02.616Z",
@@ -91,29 +91,29 @@
    "preview": "2026-11-04T04:37:16.960Z"
   },
   "/pt-pt/gerir-reserva/extras": {
-   "uploaded": "2026-11-04T04:37:18.767Z",
-   "mtime": 1793766911118,
-   "preview": "2026-11-04T04:37:21.221Z"
+   "uploaded": "2026-11-04T05:49:55.389Z",
+   "mtime": 1793771337229,
+   "preview": "2026-11-04T05:49:57.780Z"
   },
   "/pt-pt/info-legal/ciberseguranca": {
-   "uploaded": "2026-11-04T04:37:22.786Z",
-   "mtime": 1793766911150,
-   "preview": "2026-11-04T04:37:24.691Z"
+   "uploaded": "2026-11-04T05:49:59.548Z",
+   "mtime": 1793771337251,
+   "preview": "2026-11-04T05:50:01.541Z"
   },
   "/pt-pt/info-legal/condicoes-de-transporte": {
-   "uploaded": "2026-11-04T04:37:26.055Z",
-   "mtime": 1793766911202,
-   "preview": "2026-11-04T04:37:28.549Z"
+   "uploaded": "2026-11-04T05:50:02.868Z",
+   "mtime": 1793771337278,
+   "preview": "2026-11-04T05:50:04.965Z"
   },
   "/pt-pt/info-legal/acessibilidade": {
-   "uploaded": "2026-11-04T04:37:30.182Z",
-   "mtime": 1793766911239,
-   "preview": "2026-11-04T04:37:31.739Z"
+   "uploaded": "2026-11-04T05:50:06.394Z",
+   "mtime": 1793771337302,
+   "preview": "2026-11-04T05:50:07.912Z"
   },
   "/pt-pt/info-legal/flight-passes": {
-   "uploaded": "2026-11-04T04:37:33.156Z",
-   "mtime": 1793766911264,
-   "preview": "2026-11-04T04:37:35.233Z"
+   "uploaded": "2026-11-04T05:50:09.224Z",
+   "mtime": 1793771337324,
+   "preview": "2026-11-04T05:50:11.051Z"
   },
   "/pt-pt/info-legal/cookies": {
    "uploaded": "2026-11-04T04:37:36.904Z",
@@ -121,14 +121,14 @@
    "preview": "2026-11-04T04:37:38.809Z"
   },
   "/pt-pt/info-legal/privacidade": {
-   "uploaded": "2026-11-04T01:38:54.695Z",
-   "mtime": 1793753107058,
-   "preview": "2026-11-04T01:38:56.691Z"
+   "uploaded": "2026-11-04T05:50:12.426Z",
+   "mtime": 1793771337368,
+   "preview": "2026-11-04T05:50:14.112Z"
   },
   "/pt-pt/info-legal/politica-revelacao-vulnerabilidades": {
-   "uploaded": "2026-11-04T04:37:40.521Z",
-   "mtime": 1793766911358,
-   "preview": "2026-11-04T04:37:42.220Z"
+   "uploaded": "2026-11-04T05:50:15.624Z",
+   "mtime": 1793771337393,
+   "preview": "2026-11-04T05:50:17.857Z"
   },
   "/pt-pt/info-legal/termos-e-condicoes-miles-and-go": {
    "uploaded": "2026-11-04T04:37:43.578Z",
@@ -136,14 +136,14 @@
    "preview": "2026-11-04T04:37:45.724Z"
   },
   "/pt-pt/info-legal/termos-e-condicoes": {
-   "uploaded": "2026-11-04T04:37:47.269Z",
-   "mtime": 1793766911473,
-   "preview": "2026-11-04T04:37:48.959Z"
+   "uploaded": "2026-11-04T05:50:19.314Z",
+   "mtime": 1793771337420,
+   "preview": "2026-11-04T05:50:20.947Z"
   },
   "/pt-pt/informacoes/bagagem": {
-   "uploaded": "2026-11-04T04:37:50.312Z",
-   "mtime": 1793766911505,
-   "preview": "2026-11-04T04:37:52.482Z"
+   "uploaded": "2026-11-04T05:50:22.942Z",
+   "mtime": 1793771337493,
+   "preview": "2026-11-04T05:50:25.274Z"
   },
   "/pt-pt/nav": {
    "uploaded": "2026-11-04T02:27:00.341Z",
@@ -226,19 +226,19 @@
    "preview": "2026-11-04T04:38:26.255Z"
   },
   "/pt-pt/a-bordo/refeicoes": {
-   "uploaded": "2026-11-04T04:38:27.806Z",
-   "mtime": 1793766911862,
-   "preview": "2026-11-04T04:38:29.729Z"
+   "uploaded": "2026-11-04T05:50:35.848Z",
+   "mtime": 1793771337670,
+   "preview": "2026-11-04T05:50:38.235Z"
   },
   "/pt-pt/a-bordo/refeicoes/classe-economica": {
-   "uploaded": "2026-11-04T04:43:25.796Z",
-   "mtime": 1793766917761,
-   "preview": "2026-11-04T04:43:27.994Z"
+   "uploaded": "2026-11-04T05:52:42.564Z",
+   "mtime": 1793771341038,
+   "preview": "2026-11-04T05:52:44.208Z"
   },
   "/pt-pt/a-bordo/refeicoes/classe-executiva": {
-   "uploaded": "2026-11-04T04:43:13.793Z",
-   "mtime": 1793766917603,
-   "preview": "2026-11-04T04:43:15.865Z"
+   "uploaded": "2026-11-04T05:52:39.293Z",
+   "mtime": 1793771340998,
+   "preview": "2026-11-04T05:52:41.062Z"
   },
   "/pt-pt/a-bordo/refeicoes/economy-prime": {
    "uploaded": "2026-11-04T04:43:17.692Z",
@@ -256,29 +256,29 @@
    "preview": "2026-11-04T04:43:12.324Z"
   },
   "/pt-pt/a-bordo/voar-economica": {
-   "uploaded": "2026-11-04T04:38:31.150Z",
-   "mtime": 1793766911893,
-   "preview": "2026-11-04T04:38:33.857Z"
+   "uploaded": "2026-11-04T05:50:40.217Z",
+   "mtime": 1793771337745,
+   "preview": "2026-11-04T05:50:42.699Z"
   },
   "/pt-pt/a-bordo/voar-executiva": {
-   "uploaded": "2026-11-04T04:38:35.484Z",
-   "mtime": 1793766911928,
-   "preview": "2026-11-04T04:38:38.038Z"
+   "uploaded": "2026-11-04T05:50:44.646Z",
+   "mtime": 1793771337809,
+   "preview": "2026-11-04T05:50:47.487Z"
   },
   "/pt-pt/a-bordo/wi-fi": {
-   "uploaded": "2026-11-04T04:38:39.752Z",
-   "mtime": 1793766911976,
-   "preview": "2026-11-04T04:38:41.936Z"
+   "uploaded": "2026-11-04T05:50:49.499Z",
+   "mtime": 1793771337873,
+   "preview": "2026-11-04T05:50:51.523Z"
   },
   "/pt-pt/gerir-reserva/extras/boost-packs": {
-   "uploaded": "2026-11-04T04:41:11.234Z",
-   "mtime": 1793766915893,
-   "preview": "2026-11-04T04:41:13.589Z"
+   "uploaded": "2026-11-04T05:51:50.249Z",
+   "mtime": 1793771340235,
+   "preview": "2026-11-04T05:51:52.688Z"
   },
   "/pt-pt/gerir-reserva/extras/embarque": {
-   "uploaded": "2026-11-04T04:41:15.278Z",
-   "mtime": 1793766915931,
-   "preview": "2026-11-04T04:41:17.307Z"
+   "uploaded": "2026-11-04T05:51:54.081Z",
+   "mtime": 1793771340266,
+   "preview": "2026-11-04T05:51:56.012Z"
   },
   "/pt-pt/gerir-reserva/extras/fast-track": {
    "uploaded": "2026-11-04T04:41:18.780Z",
@@ -291,9 +291,9 @@
    "preview": "2026-11-04T04:41:24.940Z"
   },
   "/pt-pt/gerir-reserva/extras/lugar-lado-livre": {
-   "uploaded": "2026-11-04T04:41:36.437Z",
-   "mtime": 1793766916373,
-   "preview": "2026-11-04T04:41:38.572Z"
+   "uploaded": "2026-11-04T05:51:58.154Z",
+   "mtime": 1793771340335,
+   "preview": "2026-11-04T05:52:00.266Z"
   },
   "/pt-pt/gerir-reserva/extras/lugares": {
    "uploaded": "2026-11-04T04:41:28.291Z",
@@ -316,9 +316,9 @@
    "preview": "2026-11-04T04:44:15.636Z"
   },
   "/pt-pt/gerir-reserva/extras/upgrades/preco-fixo": {
-   "uploaded": "2026-11-04T04:44:17.045Z",
-   "mtime": 1793766918489,
-   "preview": "2026-11-04T04:44:19.068Z"
+   "uploaded": "2026-11-04T05:53:09.720Z",
+   "mtime": 1793771341489,
+   "preview": "2026-11-04T05:53:11.399Z"
   },
   "/pt-pt/informacoes/bagagem/armas-municoes": {
    "uploaded": "2026-11-04T04:41:40.000Z",
@@ -331,9 +331,9 @@
    "preview": "2026-11-04T04:41:46.117Z"
   },
   "/pt-pt/informacoes/bagagem/bagagem-mao": {
-   "uploaded": "2026-11-04T04:41:47.493Z",
-   "mtime": 1793766916559,
-   "preview": "2026-11-04T04:41:49.622Z"
+   "uploaded": "2026-11-04T05:52:02.190Z",
+   "mtime": 1793771340443,
+   "preview": "2026-11-04T05:52:05.192Z"
   },
   "/pt-pt/informacoes/bagagem/bagagem-porao": {
    "uploaded": "2026-11-04T04:41:51.152Z",
@@ -351,9 +351,9 @@
    "preview": "2026-11-04T04:42:01.334Z"
   },
   "/pt-pt/informacoes/bagagem/localizar-bagagem": {
-   "uploaded": "2026-11-04T04:42:06.818Z",
-   "mtime": 1793766916803,
-   "preview": "2026-11-04T04:42:08.987Z"
+   "uploaded": "2026-11-04T05:52:06.841Z",
+   "mtime": 1793771340473,
+   "preview": "2026-11-04T05:52:08.769Z"
   },
   "/pt-pt/informacoes/bagagem/problemas-bagagem": {
    "uploaded": "2026-11-04T04:42:02.812Z",
@@ -366,9 +366,9 @@
    "preview": "2026-11-04T04:37:56.016Z"
   },
   "/pt-pt/informacoes/documentacao": {
-   "uploaded": "2026-11-04T04:38:09.323Z",
-   "mtime": 1793766911696,
-   "preview": "2026-11-04T04:38:11.683Z"
+   "uploaded": "2026-11-04T05:50:27.395Z",
+   "mtime": 1793771337554,
+   "preview": "2026-11-04T05:50:29.468Z"
   },
   "/pt-pt/informacoes/documentacao/consulta-viajante": {
    "uploaded": "2026-11-04T04:42:34.433Z",
@@ -381,34 +381,34 @@
    "preview": "2026-11-04T04:42:43.830Z"
   },
   "/pt-pt/informacoes/documentacao/passaporte-eletronico": {
-   "uploaded": "2026-11-04T04:42:37.993Z",
-   "mtime": 1793766917166,
-   "preview": "2026-11-04T04:42:39.974Z"
+   "uploaded": "2026-11-04T05:52:14.186Z",
+   "mtime": 1793771340582,
+   "preview": "2026-11-04T05:52:16.256Z"
   },
   "/pt-pt/informacoes/documentacao/viajar-brasil": {
-   "uploaded": "2026-11-04T04:42:45.345Z",
-   "mtime": 1793766917230,
-   "preview": "2026-11-04T04:42:47.356Z"
+   "uploaded": "2026-11-04T05:52:18.360Z",
+   "mtime": 1793771340666,
+   "preview": "2026-11-04T05:52:20.501Z"
   },
   "/pt-pt/informacoes/documentacao/viajar-canada": {
-   "uploaded": "2026-11-04T04:42:48.922Z",
-   "mtime": 1793766917258,
-   "preview": "2026-11-04T04:42:50.852Z"
+   "uploaded": "2026-11-04T05:52:22.730Z",
+   "mtime": 1793771340737,
+   "preview": "2026-11-04T05:52:24.838Z"
   },
   "/pt-pt/informacoes/documentacao/viajar-eua": {
-   "uploaded": "2026-11-04T04:42:56.066Z",
-   "mtime": 1793766917324,
-   "preview": "2026-11-04T04:42:57.844Z"
+   "uploaded": "2026-11-04T05:52:30.894Z",
+   "mtime": 1793771340883,
+   "preview": "2026-11-04T05:52:33.429Z"
   },
   "/pt-pt/informacoes/documentacao/viajar-reino-unido": {
-   "uploaded": "2026-11-04T04:42:52.429Z",
-   "mtime": 1793766917284,
-   "preview": "2026-11-04T04:42:54.594Z"
+   "uploaded": "2026-11-04T05:52:27.036Z",
+   "mtime": 1793771340809,
+   "preview": "2026-11-04T05:52:28.942Z"
   },
   "/pt-pt/informacoes/documentacao/vistos-schengen": {
-   "uploaded": "2026-11-04T04:42:59.166Z",
-   "mtime": 1793766917367,
-   "preview": "2026-11-04T04:43:01.321Z"
+   "uploaded": "2026-11-04T05:52:35.720Z",
+   "mtime": 1793771340948,
+   "preview": "2026-11-04T05:52:37.767Z"
   },
   "/pt-pt/informacoes/frota-tap": {
    "uploaded": "2026-11-04T04:37:57.436Z",
@@ -441,9 +441,9 @@
    "preview": "2026-11-04T04:42:28.866Z"
   },
   "/pt-pt/informacoes/necessidades-especiais/perder-medo-voar": {
-   "uploaded": "2026-11-04T04:42:30.126Z",
-   "mtime": 1793766917101,
-   "preview": "2026-11-04T04:42:32.639Z"
+   "uploaded": "2026-11-04T05:52:10.031Z",
+   "mtime": 1793771340508,
+   "preview": "2026-11-04T05:52:12.055Z"
   },
   "/pt-pt/informacoes/necessidades-especiais/problemas-saude": {
    "uploaded": "2026-11-04T04:42:10.309Z",
@@ -456,9 +456,9 @@
    "preview": "2026-11-04T04:42:25.017Z"
   },
   "/pt-pt/informacoes/viajar-com-animais": {
-   "uploaded": "2026-11-04T04:38:12.984Z",
-   "mtime": 1793766911725,
-   "preview": "2026-11-04T04:38:14.709Z"
+   "uploaded": "2026-11-04T05:50:31.393Z",
+   "mtime": 1793771337611,
+   "preview": "2026-11-04T05:50:33.544Z"
   },
   "/pt-pt/informacoes/viajar-com-animais/animais-assistencia": {
    "uploaded": "2026-11-04T04:43:02.610Z",
@@ -471,14 +471,14 @@
    "preview": "2026-11-04T04:43:08.684Z"
   },
   "/pt-pt/miles-and-go/acumular-milhas": {
-   "uploaded": "2026-11-04T04:40:10.322Z",
-   "mtime": 1793766913835,
-   "preview": "2026-11-04T04:40:12.680Z"
+   "uploaded": "2026-11-04T05:51:05.844Z",
+   "mtime": 1793771338334,
+   "preview": "2026-11-04T05:51:08.270Z"
   },
   "/pt-pt/miles-and-go/acumular-milhas/a-voar": {
-   "uploaded": "2026-11-04T04:43:29.471Z",
-   "mtime": 1793766917800,
-   "preview": "2026-11-04T04:43:31.567Z"
+   "uploaded": "2026-11-04T05:52:45.626Z",
+   "mtime": 1793771341080,
+   "preview": "2026-11-04T05:52:47.712Z"
   },
   "/pt-pt/miles-and-go/acumular-milhas/cartoes-de-credito": {
    "uploaded": "2026-11-04T05:30:36.294Z",
@@ -486,9 +486,9 @@
    "preview": "2026-11-04T05:30:38.576Z"
   },
   "/pt-pt/miles-and-go/acumular-milhas/dia-a-dia": {
-   "uploaded": "2026-11-04T04:43:58.676Z",
-   "mtime": 1793766918275,
-   "preview": "2026-11-04T04:44:01.054Z"
+   "uploaded": "2026-11-04T05:53:02.579Z",
+   "mtime": 1793771341425,
+   "preview": "2026-11-04T05:53:04.714Z"
   },
   "/pt-pt/miles-and-go/club": {
    "uploaded": "2026-11-04T04:40:14.198Z",
@@ -496,9 +496,9 @@
    "preview": "2026-11-04T04:40:16.333Z"
   },
   "/pt-pt/miles-and-go/estatutos": {
-   "uploaded": "2026-11-04T04:40:18.134Z",
-   "mtime": 1793766913923,
-   "preview": "2026-11-04T04:40:20.568Z"
+   "uploaded": "2026-11-04T05:51:09.650Z",
+   "mtime": 1793771338363,
+   "preview": "2026-11-04T05:51:11.555Z"
   },
   "/pt-pt/miles-and-go/estatutos/for-life": {
    "uploaded": "2026-11-04T04:43:36.195Z",
@@ -521,14 +521,14 @@
    "preview": "2026-11-04T04:40:31.178Z"
   },
   "/pt-pt/miles-and-go/miles-and-go-pets": {
-   "uploaded": "2026-11-04T04:40:32.538Z",
-   "mtime": 1793766914077,
-   "preview": "2026-11-04T04:40:34.944Z"
+   "uploaded": "2026-11-04T05:51:13.924Z",
+   "mtime": 1793771338425,
+   "preview": "2026-11-04T05:51:16.142Z"
   },
   "/pt-pt/miles-and-go/parceiros": {
-   "uploaded": "2026-11-04T04:40:52.983Z",
-   "mtime": 1793766915245,
-   "preview": "2026-11-04T04:40:58.291Z"
+   "uploaded": "2026-11-04T05:51:41.646Z",
+   "mtime": 1793771340138,
+   "preview": "2026-11-04T05:51:48.236Z"
   },
   "/pt-pt/miles-and-go/promo": {
    "uploaded": "2026-11-04T04:40:59.796Z",
@@ -551,9 +551,9 @@
    "preview": "2026-11-04T04:41:09.890Z"
   },
   "/pt-pt/miles-and-go/utilizar-milhas/comprar-bilhete": {
-   "uploaded": "2026-11-04T04:43:47.827Z",
-   "mtime": 1793766918058,
-   "preview": "2026-11-04T04:43:49.900Z"
+   "uploaded": "2026-11-04T05:52:53.937Z",
+   "mtime": 1793771341227,
+   "preview": "2026-11-04T05:52:56.125Z"
   },
   "/pt-pt/miles-and-go/utilizar-milhas/doar-milhas": {
    "uploaded": "2026-11-04T04:43:51.334Z",
@@ -561,19 +561,19 @@
    "preview": "2026-11-04T04:43:53.654Z"
   },
   "/pt-pt/miles-and-go/utilizar-milhas/doar-milhas/milhas-doadas": {
-   "uploaded": "2026-11-04T04:44:24.029Z",
-   "mtime": 1793766918602,
-   "preview": "2026-11-04T04:44:26.278Z"
+   "uploaded": "2026-11-04T05:53:13.557Z",
+   "mtime": 1793771341573,
+   "preview": "2026-11-04T05:53:15.602Z"
   },
   "/pt-pt/miles-and-go/utilizar-milhas/lista-de-beneficiarios": {
-   "uploaded": "2026-11-04T04:43:44.742Z",
-   "mtime": 1793766918002,
-   "preview": "2026-11-04T04:43:46.432Z"
+   "uploaded": "2026-11-04T05:52:49.698Z",
+   "mtime": 1793771341156,
+   "preview": "2026-11-04T05:52:51.859Z"
   },
   "/pt-pt/miles-and-go/utilizar-milhas/miles4extras": {
-   "uploaded": "2026-11-04T04:43:54.975Z",
-   "mtime": 1793766918208,
-   "preview": "2026-11-04T04:43:57.398Z"
+   "uploaded": "2026-11-04T05:52:58.127Z",
+   "mtime": 1793771341314,
+   "preview": "2026-11-04T05:53:00.580Z"
   },
   "/pt-pt/miles-and-go/utilizar-milhas/taxas": {
    "uploaded": "2026-11-04T04:44:02.579Z",
@@ -581,9 +581,9 @@
    "preview": "2026-11-04T04:44:04.525Z"
   },
   "/pt-pt/miles-and-go/utilizar-milhas/upgrade-com-milhas": {
-   "uploaded": "2026-11-04T04:44:06.487Z",
-   "mtime": 1793766918364,
-   "preview": "2026-11-04T04:44:08.533Z"
+   "uploaded": "2026-11-04T05:53:06.333Z",
+   "mtime": 1793771341459,
+   "preview": "2026-11-04T05:53:08.265Z"
   },
   "/pt-pt/miles-and-go/utilizar-milhas/viagem-a-volta-do-mundo": {
    "uploaded": "2026-11-04T04:44:09.883Z",
@@ -651,14 +651,14 @@
    "preview": "2026-11-04T03:47:52.565Z"
   },
   "/es-es": {
-   "uploaded": "2026-11-04T03:10:10.788Z",
-   "mtime": 1793761776370,
-   "preview": "2026-11-04T03:10:13.378Z"
+   "uploaded": "2026-11-04T05:56:20.989Z",
+   "mtime": 1793771344276,
+   "preview": "2026-11-04T05:56:23.565Z"
   },
   "/es-es/a-bordo": {
-   "uploaded": "2026-11-04T04:52:46.509Z",
-   "mtime": 1793766928416,
-   "preview": "2026-11-04T04:52:48.540Z"
+   "uploaded": "2026-11-04T05:56:32.621Z",
+   "mtime": 1793771344352,
+   "preview": "2026-11-04T05:56:34.859Z"
   },
   "/es-es/a-bordo/altitude-film-festival": {
    "uploaded": "2026-11-04T04:54:29.444Z",
@@ -666,19 +666,19 @@
    "preview": "2026-11-04T04:54:31.659Z"
   },
   "/es-es/a-bordo/comidas": {
-   "uploaded": "2026-11-04T04:54:40.787Z",
-   "mtime": 1793766930106,
-   "preview": "2026-11-04T04:54:42.705Z"
+   "uploaded": "2026-11-04T05:57:27.888Z",
+   "mtime": 1793771344769,
+   "preview": "2026-11-04T05:57:29.766Z"
   },
   "/es-es/a-bordo/comidas/clase-business": {
-   "uploaded": "2026-11-04T04:58:34.536Z",
-   "mtime": 1793766932519,
-   "preview": "2026-11-04T04:58:37.107Z"
+   "uploaded": "2026-11-04T05:58:45.798Z",
+   "mtime": 1793771345477,
+   "preview": "2026-11-04T05:58:47.922Z"
   },
   "/es-es/a-bordo/comidas/clase-economica": {
-   "uploaded": "2026-11-04T04:58:45.838Z",
-   "mtime": 1793766932616,
-   "preview": "2026-11-04T04:58:48.134Z"
+   "uploaded": "2026-11-04T05:58:49.229Z",
+   "mtime": 1793771345505,
+   "preview": "2026-11-04T05:58:51.285Z"
   },
   "/es-es/a-bordo/comidas/comidas-especiales": {
    "uploaded": "2026-11-04T04:58:42.357Z",
@@ -706,19 +706,19 @@
    "preview": "2026-11-04T04:54:39.412Z"
   },
   "/es-es/a-bordo/volar-business": {
-   "uploaded": "2026-11-04T04:54:48.116Z",
-   "mtime": 1793766930185,
-   "preview": "2026-11-04T04:54:51.130Z"
+   "uploaded": "2026-11-04T05:57:35.177Z",
+   "mtime": 1793771344817,
+   "preview": "2026-11-04T05:57:37.466Z"
   },
   "/es-es/a-bordo/volar-economica": {
-   "uploaded": "2026-11-04T04:54:44.163Z",
-   "mtime": 1793766930147,
-   "preview": "2026-11-04T04:54:46.581Z"
+   "uploaded": "2026-11-04T05:57:31.312Z",
+   "mtime": 1793771344793,
+   "preview": "2026-11-04T05:57:33.718Z"
   },
   "/es-es/a-bordo/wi-fi": {
-   "uploaded": "2026-11-04T04:54:53.120Z",
-   "mtime": 1793766930221,
-   "preview": "2026-11-04T04:54:54.848Z"
+   "uploaded": "2026-11-04T05:57:38.914Z",
+   "mtime": 1793771344841,
+   "preview": "2026-11-04T05:57:40.743Z"
   },
   "/es-es/avisos-e-informacion": {
    "uploaded": "2026-11-04T04:52:22.632Z",
@@ -741,9 +741,9 @@
    "preview": "2026-11-04T04:53:11.774Z"
   },
   "/es-es/ayuda/retrasos-cancelaciones": {
-   "uploaded": "2026-11-04T04:53:05.966Z",
-   "mtime": 1793766928605,
-   "preview": "2026-11-04T04:53:08.000Z"
+   "uploaded": "2026-11-04T05:56:44.119Z",
+   "mtime": 1793771344436,
+   "preview": "2026-11-04T05:56:45.758Z"
   },
   "/es-es/ayuda/solicitudes-reclamaciones": {
    "uploaded": "2026-11-04T04:53:13.498Z",
@@ -841,14 +841,14 @@
    "preview": "2026-11-04T04:52:37.154Z"
   },
   "/es-es/gestionar-reserva/extras": {
-   "uploaded": "2026-11-04T04:53:25.177Z",
-   "mtime": 1793766929256,
-   "preview": "2026-11-04T04:53:27.703Z"
+   "uploaded": "2026-11-04T05:56:47.218Z",
+   "mtime": 1793771344463,
+   "preview": "2026-11-04T05:56:49.469Z"
   },
   "/es-es/gestionar-reserva/extras/asiento-contiguo-libre": {
-   "uploaded": "2026-11-04T04:57:05.925Z",
-   "mtime": 1793766931640,
-   "preview": "2026-11-04T04:57:08.020Z"
+   "uploaded": "2026-11-04T05:58:15.943Z",
+   "mtime": 1793771345251,
+   "preview": "2026-11-04T05:58:17.938Z"
   },
   "/es-es/gestionar-reserva/extras/asientos": {
    "uploaded": "2026-11-04T04:56:58.944Z",
@@ -856,14 +856,14 @@
    "preview": "2026-11-04T04:57:01.127Z"
   },
   "/es-es/gestionar-reserva/extras/boost-packs": {
-   "uploaded": "2026-11-04T04:56:44.393Z",
-   "mtime": 1793766931406,
-   "preview": "2026-11-04T04:56:45.981Z"
+   "uploaded": "2026-11-04T05:58:09.271Z",
+   "mtime": 1793771345203,
+   "preview": "2026-11-04T05:58:11.616Z"
   },
   "/es-es/gestionar-reserva/extras/embarque": {
-   "uploaded": "2026-11-04T04:56:47.763Z",
-   "mtime": 1793766931441,
-   "preview": "2026-11-04T04:56:50.097Z"
+   "uploaded": "2026-11-04T05:58:12.931Z",
+   "mtime": 1793771345229,
+   "preview": "2026-11-04T05:58:14.585Z"
   },
   "/es-es/gestionar-reserva/extras/fast-track": {
    "uploaded": "2026-11-04T04:56:51.398Z",
@@ -886,9 +886,9 @@
    "preview": "2026-11-04T04:59:31.056Z"
   },
   "/es-es/gestionar-reserva/extras/upgrades/precio-fijo": {
-   "uploaded": "2026-11-04T04:59:25.813Z",
-   "mtime": 1793766933031,
-   "preview": "2026-11-04T04:59:27.422Z"
+   "uploaded": "2026-11-04T05:59:08.665Z",
+   "mtime": 1793771345663,
+   "preview": "2026-11-04T05:59:10.452Z"
   },
   "/es-es/gestionar-reserva/extras/upgrades/subastas": {
    "uploaded": "2026-11-04T04:59:22.031Z",
@@ -896,19 +896,19 @@
    "preview": "2026-11-04T04:59:24.458Z"
   },
   "/es-es/info-legal/acessibilidade": {
-   "uploaded": "2026-11-04T04:53:36.043Z",
-   "mtime": 1793766929378,
-   "preview": "2026-11-04T04:53:37.872Z"
+   "uploaded": "2026-11-04T05:56:58.067Z",
+   "mtime": 1793771344545,
+   "preview": "2026-11-04T05:57:00.063Z"
   },
   "/es-es/info-legal/privacidade": {
-   "uploaded": "2026-11-04T04:53:49.329Z",
-   "mtime": 1793766929553,
-   "preview": "2026-11-04T04:53:50.920Z"
+   "uploaded": "2026-11-04T05:57:08.288Z",
+   "mtime": 1793771344624,
+   "preview": "2026-11-04T05:57:10.419Z"
   },
   "/es-es/informacion": {
-   "uploaded": "2026-11-04T04:52:42.457Z",
-   "mtime": 1793766928385,
-   "preview": "2026-11-04T04:52:45.105Z"
+   "uploaded": "2026-11-04T05:56:28.783Z",
+   "mtime": 1793771344324,
+   "preview": "2026-11-04T05:56:31.052Z"
   },
   "/es-es/informacion-check-in": {
    "uploaded": "2026-11-04T04:52:26.273Z",
@@ -916,19 +916,19 @@
    "preview": "2026-11-04T04:52:29.065Z"
   },
   "/es-es/informacion-legal": {
-   "uploaded": "2026-11-04T04:52:38.674Z",
-   "mtime": 1793766928351,
-   "preview": "2026-11-04T04:52:40.857Z"
+   "uploaded": "2026-11-04T05:56:25.227Z",
+   "mtime": 1793771344299,
+   "preview": "2026-11-04T05:56:26.870Z"
   },
   "/es-es/informacion-legal/ciberseguridad": {
-   "uploaded": "2026-11-04T04:53:29.040Z",
-   "mtime": 1793766929287,
-   "preview": "2026-11-04T04:53:31.020Z"
+   "uploaded": "2026-11-04T05:56:50.769Z",
+   "mtime": 1793771344489,
+   "preview": "2026-11-04T05:56:52.642Z"
   },
   "/es-es/informacion-legal/condiciones-de-transporte": {
-   "uploaded": "2026-11-04T04:53:32.459Z",
-   "mtime": 1793766929339,
-   "preview": "2026-11-04T04:53:34.662Z"
+   "uploaded": "2026-11-04T05:56:54.329Z",
+   "mtime": 1793771344517,
+   "preview": "2026-11-04T05:56:56.582Z"
   },
   "/es-es/informacion-legal/cookies": {
    "uploaded": "2026-11-04T04:53:42.808Z",
@@ -936,24 +936,24 @@
    "preview": "2026-11-04T04:53:44.665Z"
   },
   "/es-es/informacion-legal/flight-passes": {
-   "uploaded": "2026-11-04T04:53:39.422Z",
-   "mtime": 1793766929406,
-   "preview": "2026-11-04T04:53:41.289Z"
+   "uploaded": "2026-11-04T05:57:01.514Z",
+   "mtime": 1793771344567,
+   "preview": "2026-11-04T05:57:03.553Z"
   },
   "/es-es/informacion-legal/politica-divulgacion-vulnerabilidades": {
-   "uploaded": "2026-11-04T04:53:52.260Z",
-   "mtime": 1793766929588,
-   "preview": "2026-11-04T04:53:53.861Z"
+   "uploaded": "2026-11-04T05:57:11.852Z",
+   "mtime": 1793771344649,
+   "preview": "2026-11-04T05:57:13.447Z"
   },
   "/es-es/informacion-legal/privacidad": {
-   "uploaded": "2026-11-04T04:53:46.102Z",
-   "mtime": 1793766929501,
-   "preview": "2026-11-04T04:53:47.925Z"
+   "uploaded": "2026-11-04T05:57:05.062Z",
+   "mtime": 1793771344594,
+   "preview": "2026-11-04T05:57:06.879Z"
   },
   "/es-es/informacion-legal/terminos-y-condiciones": {
-   "uploaded": "2026-11-04T04:53:58.710Z",
-   "mtime": 1793766929714,
-   "preview": "2026-11-04T04:54:00.595Z"
+   "uploaded": "2026-11-04T05:57:14.814Z",
+   "mtime": 1793771344676,
+   "preview": "2026-11-04T05:57:16.524Z"
   },
   "/es-es/informacion-legal/terminos-y-condiciones-miles-and-go": {
    "uploaded": "2026-11-04T04:53:55.226Z",
@@ -966,9 +966,9 @@
    "preview": "2026-11-04T04:54:09.207Z"
   },
   "/es-es/informacion/documentacion": {
-   "uploaded": "2026-11-04T04:54:22.036Z",
-   "mtime": 1793766929939,
-   "preview": "2026-11-04T04:54:24.245Z"
+   "uploaded": "2026-11-04T05:57:21.134Z",
+   "mtime": 1793771344724,
+   "preview": "2026-11-04T05:57:22.989Z"
   },
   "/es-es/informacion/documentacion/asociacion-ucs": {
    "uploaded": "2026-11-04T04:57:55.015Z",
@@ -981,39 +981,39 @@
    "preview": "2026-11-04T04:58:04.218Z"
   },
   "/es-es/informacion/documentacion/pasaporte-electronico": {
-   "uploaded": "2026-11-04T04:57:58.198Z",
-   "mtime": 1793766932163,
-   "preview": "2026-11-04T04:58:00.120Z"
+   "uploaded": "2026-11-04T05:58:26.327Z",
+   "mtime": 1793771345325,
+   "preview": "2026-11-04T05:58:27.992Z"
   },
   "/es-es/informacion/documentacion/viajando-a-ee-uu": {
-   "uploaded": "2026-11-04T04:58:16.274Z",
-   "mtime": 1793766932313,
-   "preview": "2026-11-04T04:58:18.148Z"
+   "uploaded": "2026-11-04T05:58:39.380Z",
+   "mtime": 1793771345424,
+   "preview": "2026-11-04T05:58:41.089Z"
   },
   "/es-es/informacion/documentacion/viajar-a-canada": {
-   "uploaded": "2026-11-04T04:58:09.193Z",
-   "mtime": 1793766932255,
-   "preview": "2026-11-04T04:58:11.310Z"
+   "uploaded": "2026-11-04T05:58:32.587Z",
+   "mtime": 1793771345374,
+   "preview": "2026-11-04T05:58:34.752Z"
   },
   "/es-es/informacion/documentacion/viajar-brasil": {
-   "uploaded": "2026-11-04T04:58:05.641Z",
-   "mtime": 1793766932230,
-   "preview": "2026-11-04T04:58:07.721Z"
+   "uploaded": "2026-11-04T05:58:29.272Z",
+   "mtime": 1793771345351,
+   "preview": "2026-11-04T05:58:31.157Z"
   },
   "/es-es/informacion/documentacion/viajes-al-reino-unido": {
-   "uploaded": "2026-11-04T04:58:12.735Z",
-   "mtime": 1793766932282,
-   "preview": "2026-11-04T04:58:14.731Z"
+   "uploaded": "2026-11-04T05:58:36.169Z",
+   "mtime": 1793771345399,
+   "preview": "2026-11-04T05:58:37.921Z"
   },
   "/es-es/informacion/documentacion/visados-schengen": {
-   "uploaded": "2026-11-04T04:58:19.708Z",
-   "mtime": 1793766932353,
-   "preview": "2026-11-04T04:58:21.817Z"
+   "uploaded": "2026-11-04T05:58:42.557Z",
+   "mtime": 1793771345452,
+   "preview": "2026-11-04T05:58:44.506Z"
   },
   "/es-es/informacion/equipaje": {
-   "uploaded": "2026-11-04T04:54:01.920Z",
-   "mtime": 1793766929751,
-   "preview": "2026-11-04T04:54:05.047Z"
+   "uploaded": "2026-11-04T05:57:17.976Z",
+   "mtime": 1793771344701,
+   "preview": "2026-11-04T05:57:19.824Z"
   },
   "/es-es/informacion/equipaje/armas-municiones": {
    "uploaded": "2026-11-04T04:57:09.332Z",
@@ -1031,9 +1031,9 @@
    "preview": "2026-11-04T04:57:24.307Z"
   },
   "/es-es/informacion/equipaje/equipaje-mano": {
-   "uploaded": "2026-11-04T04:57:17.444Z",
-   "mtime": 1793766931777,
-   "preview": "2026-11-04T04:57:20.124Z"
+   "uploaded": "2026-11-04T05:58:19.253Z",
+   "mtime": 1793771345280,
+   "preview": "2026-11-04T05:58:21.523Z"
   },
   "/es-es/informacion/equipaje/equipo-deportivo": {
    "uploaded": "2026-11-04T04:57:26.085Z",
@@ -1046,9 +1046,9 @@
    "preview": "2026-11-04T04:57:31.640Z"
   },
   "/es-es/informacion/equipaje/localizar-equipaje": {
-   "uploaded": "2026-11-04T04:57:36.404Z",
-   "mtime": 1793766931967,
-   "preview": "2026-11-04T04:57:38.519Z"
+   "uploaded": "2026-11-04T05:58:22.827Z",
+   "mtime": 1793771345300,
+   "preview": "2026-11-04T05:58:24.881Z"
   },
   "/es-es/informacion/equipaje/problemas-equipaje": {
    "uploaded": "2026-11-04T04:57:33.169Z",
@@ -1096,9 +1096,9 @@
    "preview": "2026-11-04T04:57:53.688Z"
   },
   "/es-es/informacion/viajar-com-animales": {
-   "uploaded": "2026-11-04T04:54:25.658Z",
-   "mtime": 1793766929966,
-   "preview": "2026-11-04T04:54:27.843Z"
+   "uploaded": "2026-11-04T05:57:24.534Z",
+   "mtime": 1793771344745,
+   "preview": "2026-11-04T05:57:26.398Z"
   },
   "/es-es/informacion/viajar-com-animales/mascotas": {
    "uploaded": "2026-11-04T04:58:26.931Z",
@@ -1111,9 +1111,9 @@
    "preview": "2026-11-04T04:58:25.533Z"
   },
   "/es-es/miles-and-go": {
-   "uploaded": "2026-11-04T04:53:02.117Z",
-   "mtime": 1793766928565,
-   "preview": "2026-11-04T04:53:04.447Z"
+   "uploaded": "2026-11-04T05:56:40.460Z",
+   "mtime": 1793771344410,
+   "preview": "2026-11-04T05:56:42.711Z"
   },
   "/es-es/miles-and-go/club": {
    "uploaded": "2026-11-04T04:56:06.565Z",
@@ -1121,9 +1121,9 @@
    "preview": "2026-11-04T04:56:08.433Z"
   },
   "/es-es/miles-and-go/estados": {
-   "uploaded": "2026-11-04T04:56:09.844Z",
-   "mtime": 1793766931011,
-   "preview": "2026-11-04T04:56:12.021Z"
+   "uploaded": "2026-11-04T05:57:57.587Z",
+   "mtime": 1793771345092,
+   "preview": "2026-11-04T05:57:59.137Z"
   },
   "/es-es/miles-and-go/estados/for-life": {
    "uploaded": "2026-11-04T04:58:52.750Z",
@@ -1131,14 +1131,14 @@
    "preview": "2026-11-04T04:58:54.937Z"
   },
   "/es-es/miles-and-go/gane-millas": {
-   "uploaded": "2026-11-04T04:56:02.831Z",
-   "mtime": 1793766930921,
-   "preview": "2026-11-04T04:56:05.084Z"
+   "uploaded": "2026-11-04T05:57:54.167Z",
+   "mtime": 1793771345064,
+   "preview": "2026-11-04T05:57:56.210Z"
   },
   "/es-es/miles-and-go/gane-millas/volando": {
-   "uploaded": "2026-11-04T04:58:49.664Z",
-   "mtime": 1793766932660,
-   "preview": "2026-11-04T04:58:51.319Z"
+   "uploaded": "2026-11-04T05:58:52.641Z",
+   "mtime": 1793771345532,
+   "preview": "2026-11-04T05:58:54.409Z"
   },
   "/es-es/miles-and-go/gift": {
    "uploaded": "2026-11-04T04:56:13.668Z",
@@ -1151,9 +1151,9 @@
    "preview": "2026-11-04T04:56:19.910Z"
   },
   "/es-es/miles-and-go/miles-and-go-pets": {
-   "uploaded": "2026-11-04T04:56:25.134Z",
-   "mtime": 1793766931169,
-   "preview": "2026-11-04T04:56:27.188Z"
+   "uploaded": "2026-11-04T05:58:00.583Z",
+   "mtime": 1793771345124,
+   "preview": "2026-11-04T05:58:02.290Z"
   },
   "/es-es/miles-and-go/promo": {
    "uploaded": "2026-11-04T04:56:32.980Z",
@@ -1166,9 +1166,9 @@
    "preview": "2026-11-04T04:56:38.909Z"
   },
   "/es-es/miles-and-go/socios": {
-   "uploaded": "2026-11-04T04:56:28.534Z",
-   "mtime": 1793766931267,
-   "preview": "2026-11-04T04:56:31.522Z"
+   "uploaded": "2026-11-04T05:58:03.735Z",
+   "mtime": 1793771345176,
+   "preview": "2026-11-04T05:58:07.913Z"
   },
   "/es-es/miles-and-go/tienda-millas": {
    "uploaded": "2026-11-04T04:56:21.238Z",
@@ -1181,9 +1181,9 @@
    "preview": "2026-11-04T04:56:43.071Z"
   },
   "/es-es/miles-and-go/utilice-millas/comprar-billete": {
-   "uploaded": "2026-11-04T04:58:59.625Z",
-   "mtime": 1793766932776,
-   "preview": "2026-11-04T04:59:01.634Z"
+   "uploaded": "2026-11-04T05:58:59.112Z",
+   "mtime": 1793771345586,
+   "preview": "2026-11-04T05:59:01.308Z"
   },
   "/es-es/miles-and-go/utilice-millas/donar-millas": {
    "uploaded": "2026-11-04T04:59:03.262Z",
@@ -1191,19 +1191,19 @@
    "preview": "2026-11-04T04:59:05.524Z"
   },
   "/es-es/miles-and-go/utilice-millas/donar-millas/millas-donadas": {
-   "uploaded": "2026-11-04T04:59:32.674Z",
-   "mtime": 1793766933104,
-   "preview": "2026-11-04T04:59:35.077Z"
+   "uploaded": "2026-11-04T05:59:11.750Z",
+   "mtime": 1793771345690,
+   "preview": "2026-11-04T05:59:13.315Z"
   },
   "/es-es/miles-and-go/utilice-millas/lista-de-beneficiarios": {
-   "uploaded": "2026-11-04T04:58:56.329Z",
-   "mtime": 1793766932732,
-   "preview": "2026-11-04T04:58:57.969Z"
+   "uploaded": "2026-11-04T05:58:56.125Z",
+   "mtime": 1793771345559,
+   "preview": "2026-11-04T05:58:57.749Z"
   },
   "/es-es/miles-and-go/utilice-millas/miles4extras": {
-   "uploaded": "2026-11-04T04:59:07.385Z",
-   "mtime": 1793766932857,
-   "preview": "2026-11-04T04:59:09.336Z"
+   "uploaded": "2026-11-04T05:59:02.604Z",
+   "mtime": 1793771345611,
+   "preview": "2026-11-04T05:59:04.289Z"
   },
   "/es-es/miles-and-go/utilice-millas/tarifas": {
    "uploaded": "2026-11-04T04:59:10.878Z",
@@ -1211,9 +1211,9 @@
    "preview": "2026-11-04T04:59:12.913Z"
   },
   "/es-es/miles-and-go/utilice-millas/upgrade-con-millas": {
-   "uploaded": "2026-11-04T04:59:14.330Z",
-   "mtime": 1793766932930,
-   "preview": "2026-11-04T04:59:16.985Z"
+   "uploaded": "2026-11-04T05:59:05.631Z",
+   "mtime": 1793771345637,
+   "preview": "2026-11-04T05:59:07.234Z"
   },
   "/es-es/miles-and-go/utilice-millas/viaje-alrededor-del-mundo": {
    "uploaded": "2026-11-04T04:59:18.291Z",
@@ -1281,9 +1281,9 @@
    "preview": "2026-11-04T04:55:23.622Z"
   },
   "/es-es/stopover": {
-   "uploaded": "2026-11-04T04:52:57.928Z",
-   "mtime": 1793766928530,
-   "preview": "2026-11-04T04:53:00.551Z"
+   "uploaded": "2026-11-04T05:56:36.419Z",
+   "mtime": 1793771344381,
+   "preview": "2026-11-04T05:56:39.149Z"
   },
   "/es-es/stopover/socios": {
    "uploaded": "2026-11-04T04:55:29.652Z",
@@ -1306,9 +1306,9 @@
    "preview": "2026-11-04T02:27:15.938Z"
   },
   "/en-pt": {
-   "uploaded": "2026-11-04T03:10:06.406Z",
-   "mtime": 1793761776336,
-   "preview": "2026-11-04T03:10:09.329Z"
+   "uploaded": "2026-11-04T05:53:17.285Z",
+   "mtime": 1793771341661,
+   "preview": "2026-11-04T05:53:19.557Z"
   },
   "/en-pt/alerts-and-informations": {
    "uploaded": "2026-11-04T04:44:31.178Z",
@@ -1456,9 +1456,9 @@
    "preview": "2026-11-04T04:44:29.813Z"
   },
   "/en-pt/help/delays-cancellations": {
-   "uploaded": "2026-11-04T04:45:15.178Z",
-   "mtime": 1793766919433,
-   "preview": "2026-11-04T04:45:17.283Z"
+   "uploaded": "2026-11-04T05:53:40.708Z",
+   "mtime": 1793771341960,
+   "preview": "2026-11-04T05:53:42.665Z"
   },
   "/en-pt/help/frequently-asked-questions": {
    "uploaded": "2026-11-04T04:45:25.762Z",
@@ -1476,14 +1476,14 @@
    "preview": "2026-11-04T04:45:21.236Z"
   },
   "/en-pt/info-legal/privacidade": {
-   "uploaded": "2026-11-04T04:46:00.664Z",
-   "mtime": 1793766922976,
-   "preview": "2026-11-04T04:46:02.397Z"
+   "uploaded": "2026-11-04T05:54:04.835Z",
+   "mtime": 1793771342238,
+   "preview": "2026-11-04T05:54:06.409Z"
   },
   "/en-pt/information": {
-   "uploaded": "2026-11-04T04:44:50.619Z",
-   "mtime": 1793766918994,
-   "preview": "2026-11-04T04:44:53.097Z"
+   "uploaded": "2026-11-04T05:53:25.389Z",
+   "mtime": 1793771341744,
+   "preview": "2026-11-04T05:53:27.722Z"
   },
   "/en-pt/information/babies-and-children": {
    "uploaded": "2026-11-04T04:46:18.929Z",
@@ -1491,9 +1491,9 @@
    "preview": "2026-11-04T04:46:21.638Z"
   },
   "/en-pt/information/baggage": {
-   "uploaded": "2026-11-04T04:46:15.097Z",
-   "mtime": 1793766923165,
-   "preview": "2026-11-04T04:46:17.371Z"
+   "uploaded": "2026-11-04T05:54:13.688Z",
+   "mtime": 1793771342360,
+   "preview": "2026-11-04T05:54:15.766Z"
   },
   "/en-pt/information/baggage/dangerous-items": {
    "uploaded": "2026-11-04T04:49:31.540Z",
@@ -1506,9 +1506,9 @@
    "preview": "2026-11-04T04:49:30.096Z"
   },
   "/en-pt/information/baggage/hand-baggage": {
-   "uploaded": "2026-11-04T04:49:35.434Z",
-   "mtime": 1793766926455,
-   "preview": "2026-11-04T04:49:37.660Z"
+   "uploaded": "2026-11-04T05:55:19.245Z",
+   "mtime": 1793771343758,
+   "preview": "2026-11-04T05:55:21.707Z"
   },
   "/en-pt/information/baggage/hold-baggage": {
    "uploaded": "2026-11-04T04:49:39.224Z",
@@ -1516,9 +1516,9 @@
    "preview": "2026-11-04T04:49:41.732Z"
   },
   "/en-pt/information/baggage/locate-baggage": {
-   "uploaded": "2026-11-04T04:49:54.146Z",
-   "mtime": 1793766926648,
-   "preview": "2026-11-04T04:49:56.275Z"
+   "uploaded": "2026-11-04T05:55:23.228Z",
+   "mtime": 1793771343788,
+   "preview": "2026-11-04T05:55:25.039Z"
   },
   "/en-pt/information/baggage/musical-instruments": {
    "uploaded": "2026-11-04T04:49:46.586Z",
@@ -1536,14 +1536,14 @@
    "preview": "2026-11-04T04:49:45.121Z"
   },
   "/en-pt/information/documentation": {
-   "uploaded": "2026-11-04T04:46:31.247Z",
-   "mtime": 1793766923382,
-   "preview": "2026-11-04T04:46:33.563Z"
+   "uploaded": "2026-11-04T05:54:17.069Z",
+   "mtime": 1793771342434,
+   "preview": "2026-11-04T05:54:18.911Z"
   },
   "/en-pt/information/documentation/electronic-passport": {
-   "uploaded": "2026-11-04T04:50:22.391Z",
-   "mtime": 1793766926958,
-   "preview": "2026-11-04T04:50:24.113Z"
+   "uploaded": "2026-11-04T05:55:29.501Z",
+   "mtime": 1793771343836,
+   "preview": "2026-11-04T05:55:31.764Z"
   },
   "/en-pt/information/documentation/partnership-ucs": {
    "uploaded": "2026-11-04T04:50:18.768Z",
@@ -1551,29 +1551,29 @@
    "preview": "2026-11-04T04:50:20.748Z"
   },
   "/en-pt/information/documentation/schengen-visas": {
-   "uploaded": "2026-11-04T04:50:42.975Z",
-   "mtime": 1793766927147,
-   "preview": "2026-11-04T04:50:45.213Z"
+   "uploaded": "2026-11-04T05:55:45.958Z",
+   "mtime": 1793771343979,
+   "preview": "2026-11-04T05:55:47.772Z"
   },
   "/en-pt/information/documentation/traveling-brazil": {
-   "uploaded": "2026-11-04T04:50:29.027Z",
-   "mtime": 1793766927017,
-   "preview": "2026-11-04T04:50:30.912Z"
+   "uploaded": "2026-11-04T05:55:33.289Z",
+   "mtime": 1793771343862,
+   "preview": "2026-11-04T05:55:35.128Z"
   },
   "/en-pt/information/documentation/traveling-to-canada": {
-   "uploaded": "2026-11-04T04:50:32.315Z",
-   "mtime": 1793766927044,
-   "preview": "2026-11-04T04:50:34.350Z"
+   "uploaded": "2026-11-04T05:55:36.464Z",
+   "mtime": 1793771343886,
+   "preview": "2026-11-04T05:55:38.061Z"
   },
   "/en-pt/information/documentation/traveling-united-kingdom": {
-   "uploaded": "2026-11-04T04:50:35.727Z",
-   "mtime": 1793766927074,
-   "preview": "2026-11-04T04:50:37.644Z"
+   "uploaded": "2026-11-04T05:55:39.424Z",
+   "mtime": 1793771343910,
+   "preview": "2026-11-04T05:55:41.205Z"
   },
   "/en-pt/information/documentation/traveling-usa": {
-   "uploaded": "2026-11-04T04:50:39.095Z",
-   "mtime": 1793766927107,
-   "preview": "2026-11-04T04:50:41.037Z"
+   "uploaded": "2026-11-04T05:55:42.594Z",
+   "mtime": 1793771343939,
+   "preview": "2026-11-04T05:55:44.621Z"
   },
   "/en-pt/information/documentation/yellow-fever": {
    "uploaded": "2026-11-04T04:50:25.570Z",
@@ -1611,9 +1611,9 @@
    "preview": "2026-11-04T04:50:00.043Z"
   },
   "/en-pt/information/special-needs/lose-fear-flying": {
-   "uploaded": "2026-11-04T04:50:15.424Z",
-   "mtime": 1793766926903,
-   "preview": "2026-11-04T04:50:17.379Z"
+   "uploaded": "2026-11-04T05:55:26.303Z",
+   "mtime": 1793771343813,
+   "preview": "2026-11-04T05:55:28.064Z"
   },
   "/en-pt/information/special-needs/wheelchair": {
    "uploaded": "2026-11-04T04:50:01.510Z",
@@ -1626,9 +1626,9 @@
    "preview": "2026-11-04T04:46:25.803Z"
   },
   "/en-pt/information/traveling-with-animals": {
-   "uploaded": "2026-11-04T04:46:34.936Z",
-   "mtime": 1793766923416,
-   "preview": "2026-11-04T04:46:37.668Z"
+   "uploaded": "2026-11-04T05:54:20.198Z",
+   "mtime": 1793771342458,
+   "preview": "2026-11-04T05:54:21.919Z"
   },
   "/en-pt/information/traveling-with-animals/pets": {
    "uploaded": "2026-11-04T04:50:50.717Z",
@@ -1641,19 +1641,19 @@
    "preview": "2026-11-04T04:50:49.140Z"
   },
   "/en-pt/legal-info": {
-   "uploaded": "2026-11-04T04:44:46.773Z",
-   "mtime": 1793766918936,
-   "preview": "2026-11-04T04:44:49.049Z"
+   "uploaded": "2026-11-04T05:53:21.394Z",
+   "mtime": 1793771341695,
+   "preview": "2026-11-04T05:53:24.046Z"
   },
   "/en-pt/legal-info/accessibility": {
-   "uploaded": "2026-11-04T04:45:45.427Z",
-   "mtime": 1793766922797,
-   "preview": "2026-11-04T04:45:47.379Z"
+   "uploaded": "2026-11-04T05:53:55.274Z",
+   "mtime": 1793771342099,
+   "preview": "2026-11-04T05:53:56.928Z"
   },
   "/en-pt/legal-info/conditions-of-carriage": {
-   "uploaded": "2026-11-04T04:45:41.990Z",
-   "mtime": 1793766922757,
-   "preview": "2026-11-04T04:45:43.972Z"
+   "uploaded": "2026-11-04T05:53:50.816Z",
+   "mtime": 1793771342066,
+   "preview": "2026-11-04T05:53:53.058Z"
   },
   "/en-pt/legal-info/cookies": {
    "uploaded": "2026-11-04T04:45:52.610Z",
@@ -1661,24 +1661,24 @@
    "preview": "2026-11-04T04:45:54.646Z"
   },
   "/en-pt/legal-info/cybersecurity": {
-   "uploaded": "2026-11-04T04:45:38.639Z",
-   "mtime": 1793766922699,
-   "preview": "2026-11-04T04:45:40.410Z"
+   "uploaded": "2026-11-04T05:53:47.465Z",
+   "mtime": 1793771342032,
+   "preview": "2026-11-04T05:53:49.298Z"
   },
   "/en-pt/legal-info/flight-passes": {
-   "uploaded": "2026-11-04T04:45:48.936Z",
-   "mtime": 1793766922826,
-   "preview": "2026-11-04T04:45:51.007Z"
+   "uploaded": "2026-11-04T05:53:58.434Z",
+   "mtime": 1793771342130,
+   "preview": "2026-11-04T05:53:59.973Z"
   },
   "/en-pt/legal-info/privacy": {
-   "uploaded": "2026-11-04T04:45:56.539Z",
-   "mtime": 1793766922930,
-   "preview": "2026-11-04T04:45:58.817Z"
+   "uploaded": "2026-11-04T05:54:01.588Z",
+   "mtime": 1793771342155,
+   "preview": "2026-11-04T05:54:03.335Z"
   },
   "/en-pt/legal-info/terms-and-conditions": {
-   "uploaded": "2026-11-04T04:46:11.207Z",
-   "mtime": 1793766923129,
-   "preview": "2026-11-04T04:46:13.695Z"
+   "uploaded": "2026-11-04T05:54:10.988Z",
+   "mtime": 1793771342335,
+   "preview": "2026-11-04T05:54:12.448Z"
   },
   "/en-pt/legal-info/terms-and-conditions-miles-and-go": {
    "uploaded": "2026-11-04T04:46:07.578Z",
@@ -1686,9 +1686,9 @@
    "preview": "2026-11-04T04:46:09.751Z"
   },
   "/en-pt/legal-info/vulnerability-disclosure-policy": {
-   "uploaded": "2026-11-04T04:46:03.904Z",
-   "mtime": 1793766923008,
-   "preview": "2026-11-04T04:46:05.862Z"
+   "uploaded": "2026-11-04T05:54:07.791Z",
+   "mtime": 1793771342265,
+   "preview": "2026-11-04T05:54:09.265Z"
   },
   "/en-pt/manage-booking": {
    "uploaded": "2026-11-04T04:44:43.229Z",
@@ -1696,24 +1696,24 @@
    "preview": "2026-11-04T04:44:45.152Z"
   },
   "/en-pt/manage-booking/extras": {
-   "uploaded": "2026-11-04T04:45:34.895Z",
-   "mtime": 1793766922659,
-   "preview": "2026-11-04T04:45:37.014Z"
+   "uploaded": "2026-11-04T05:53:44.160Z",
+   "mtime": 1793771341994,
+   "preview": "2026-11-04T05:53:46.068Z"
   },
   "/en-pt/manage-booking/extras/boarding": {
-   "uploaded": "2026-11-04T04:49:04.630Z",
-   "mtime": 1793766926121,
-   "preview": "2026-11-04T04:49:07.061Z"
+   "uploaded": "2026-11-04T05:55:12.148Z",
+   "mtime": 1793771343708,
+   "preview": "2026-11-04T05:55:14.365Z"
   },
   "/en-pt/manage-booking/extras/boost-packs": {
-   "uploaded": "2026-11-04T04:49:00.909Z",
-   "mtime": 1793766926082,
-   "preview": "2026-11-04T04:49:03.310Z"
+   "uploaded": "2026-11-04T05:55:09.045Z",
+   "mtime": 1793771343680,
+   "preview": "2026-11-04T05:55:10.801Z"
   },
   "/en-pt/manage-booking/extras/empty-side-seat": {
-   "uploaded": "2026-11-04T04:49:24.472Z",
-   "mtime": 1793766926310,
-   "preview": "2026-11-04T04:49:26.525Z"
+   "uploaded": "2026-11-04T05:55:15.750Z",
+   "mtime": 1793771343729,
+   "preview": "2026-11-04T05:55:17.664Z"
   },
   "/en-pt/manage-booking/extras/fast-track": {
    "uploaded": "2026-11-04T04:49:08.576Z",
@@ -1741,9 +1741,9 @@
    "preview": "2026-11-04T04:52:02.321Z"
   },
   "/en-pt/manage-booking/extras/upgrades/fixed-price": {
-   "uploaded": "2026-11-04T04:52:03.686Z",
-   "mtime": 1793766927981,
-   "preview": "2026-11-04T04:52:05.684Z"
+   "uploaded": "2026-11-04T05:56:14.396Z",
+   "mtime": 1793771344209,
+   "preview": "2026-11-04T05:56:16.023Z"
   },
   "/en-pt/manage-booking/extras/upgrades/free": {
    "uploaded": "2026-11-04T04:52:07.187Z",
@@ -1751,9 +1751,9 @@
    "preview": "2026-11-04T04:52:09.306Z"
   },
   "/en-pt/miles-and-go": {
-   "uploaded": "2026-11-04T04:45:11.008Z",
-   "mtime": 1793766919393,
-   "preview": "2026-11-04T04:45:13.224Z"
+   "uploaded": "2026-11-04T05:53:36.749Z",
+   "mtime": 1793771341929,
+   "preview": "2026-11-04T05:53:39.194Z"
   },
   "/en-pt/miles-and-go/club": {
    "uploaded": "2026-11-04T04:48:18.890Z",
@@ -1761,14 +1761,14 @@
    "preview": "2026-11-04T04:48:21.141Z"
   },
   "/en-pt/miles-and-go/earn-miles": {
-   "uploaded": "2026-11-04T04:48:14.641Z",
-   "mtime": 1793766925368,
-   "preview": "2026-11-04T04:48:17.244Z"
+   "uploaded": "2026-11-04T05:54:47.881Z",
+   "mtime": 1793771343385,
+   "preview": "2026-11-04T05:54:49.847Z"
   },
   "/en-pt/miles-and-go/earn-miles/by-flying": {
-   "uploaded": "2026-11-04T04:51:15.251Z",
-   "mtime": 1793766927463,
-   "preview": "2026-11-04T04:51:16.895Z"
+   "uploaded": "2026-11-04T05:55:57.758Z",
+   "mtime": 1793771344062,
+   "preview": "2026-11-04T05:56:00.019Z"
   },
   "/en-pt/miles-and-go/earn-miles/credit-cards": {
    "uploaded": "2026-11-04T05:30:40.199Z",
@@ -1791,9 +1791,9 @@
    "preview": "2026-11-04T04:48:32.240Z"
   },
   "/en-pt/miles-and-go/miles-and-go-pets": {
-   "uploaded": "2026-11-04T04:48:37.210Z",
-   "mtime": 1793766925704,
-   "preview": "2026-11-04T04:48:39.900Z"
+   "uploaded": "2026-11-04T05:54:54.334Z",
+   "mtime": 1793771343443,
+   "preview": "2026-11-04T05:54:56.403Z"
   },
   "/en-pt/miles-and-go/miles-store": {
    "uploaded": "2026-11-04T04:48:33.602Z",
@@ -1801,14 +1801,14 @@
    "preview": "2026-11-04T04:48:35.475Z"
   },
   "/en-pt/miles-and-go/partners": {
-   "uploaded": "2026-11-04T04:48:42.892Z",
-   "mtime": 1793766925925,
-   "preview": "2026-11-04T04:48:48.133Z"
+   "uploaded": "2026-11-04T05:54:58.011Z",
+   "mtime": 1793771343580,
+   "preview": "2026-11-04T05:55:03.246Z"
   },
   "/en-pt/miles-and-go/promo": {
-   "uploaded": "2026-11-04T04:48:49.533Z",
-   "mtime": 1793766925972,
-   "preview": "2026-11-04T04:48:51.578Z"
+   "uploaded": "2026-11-04T05:55:05.178Z",
+   "mtime": 1793771343655,
+   "preview": "2026-11-04T05:55:07.603Z"
   },
   "/en-pt/miles-and-go/promotions": {
    "uploaded": "2026-11-04T04:48:52.929Z",
@@ -1821,9 +1821,9 @@
    "preview": "2026-11-04T04:51:28.053Z"
   },
   "/en-pt/miles-and-go/statuses": {
-   "uploaded": "2026-11-04T04:48:22.716Z",
-   "mtime": 1793766925505,
-   "preview": "2026-11-04T04:48:24.809Z"
+   "uploaded": "2026-11-04T05:54:51.339Z",
+   "mtime": 1793771343412,
+   "preview": "2026-11-04T05:54:53.007Z"
   },
   "/en-pt/miles-and-go/statuses/for-life": {
    "uploaded": "2026-11-04T04:51:21.973Z",
@@ -1836,9 +1836,9 @@
    "preview": "2026-11-04T04:48:59.415Z"
   },
   "/en-pt/miles-and-go/use-miles/buy-ticket": {
-   "uploaded": "2026-11-04T04:51:33.808Z",
-   "mtime": 1793766927660,
-   "preview": "2026-11-04T04:51:36.253Z"
+   "uploaded": "2026-11-04T05:56:04.525Z",
+   "mtime": 1793771344130,
+   "preview": "2026-11-04T05:56:06.406Z"
   },
   "/en-pt/miles-and-go/use-miles/donate-miles": {
    "uploaded": "2026-11-04T04:51:37.513Z",
@@ -1846,9 +1846,9 @@
    "preview": "2026-11-04T04:51:40.021Z"
   },
   "/en-pt/miles-and-go/use-miles/donate-miles/donated-miles": {
-   "uploaded": "2026-11-04T04:52:10.912Z",
-   "mtime": 1793766928054,
-   "preview": "2026-11-04T04:52:13.276Z"
+   "uploaded": "2026-11-04T05:56:17.530Z",
+   "mtime": 1793771344234,
+   "preview": "2026-11-04T05:56:19.306Z"
   },
   "/en-pt/miles-and-go/use-miles/fees": {
    "uploaded": "2026-11-04T04:51:49.548Z",
@@ -1856,14 +1856,14 @@
    "preview": "2026-11-04T04:51:51.746Z"
   },
   "/en-pt/miles-and-go/use-miles/list-of-beneficiaries": {
-   "uploaded": "2026-11-04T04:51:29.922Z",
-   "mtime": 1793766927613,
-   "preview": "2026-11-04T04:51:32.112Z"
+   "uploaded": "2026-11-04T05:56:01.356Z",
+   "mtime": 1793771344095,
+   "preview": "2026-11-04T05:56:03.148Z"
   },
   "/en-pt/miles-and-go/use-miles/miles4extras": {
-   "uploaded": "2026-11-04T04:51:41.401Z",
-   "mtime": 1793766927749,
-   "preview": "2026-11-04T04:51:43.955Z"
+   "uploaded": "2026-11-04T05:56:07.732Z",
+   "mtime": 1793771344156,
+   "preview": "2026-11-04T05:56:09.680Z"
   },
   "/en-pt/miles-and-go/use-miles/trip-around-the-world": {
    "uploaded": "2026-11-04T04:51:57.087Z",
@@ -1871,14 +1871,14 @@
    "preview": "2026-11-04T04:51:58.692Z"
   },
   "/en-pt/miles-and-go/use-miles/upgrade-with-miles": {
-   "uploaded": "2026-11-04T04:51:53.120Z",
-   "mtime": 1793766927869,
-   "preview": "2026-11-04T04:51:55.706Z"
+   "uploaded": "2026-11-04T05:56:10.996Z",
+   "mtime": 1793771344184,
+   "preview": "2026-11-04T05:56:13.177Z"
   },
   "/en-pt/on-board": {
-   "uploaded": "2026-11-04T04:44:54.472Z",
-   "mtime": 1793766919048,
-   "preview": "2026-11-04T04:44:56.298Z"
+   "uploaded": "2026-11-04T05:53:29.123Z",
+   "mtime": 1793771341787,
+   "preview": "2026-11-04T05:53:31.166Z"
   },
   "/en-pt/on-board/altitude-film-festival": {
    "uploaded": "2026-11-04T04:46:39.192Z",
@@ -1896,29 +1896,29 @@
    "preview": "2026-11-04T04:46:49.639Z"
   },
   "/en-pt/on-board/fly-business": {
-   "uploaded": "2026-11-04T04:46:58.516Z",
-   "mtime": 1793766923800,
-   "preview": "2026-11-04T04:47:01.271Z"
+   "uploaded": "2026-11-04T05:54:30.602Z",
+   "mtime": 1793771342619,
+   "preview": "2026-11-04T05:54:32.817Z"
   },
   "/en-pt/on-board/fly-economy": {
-   "uploaded": "2026-11-04T04:46:54.487Z",
-   "mtime": 1793766923730,
-   "preview": "2026-11-04T04:46:57.165Z"
+   "uploaded": "2026-11-04T05:54:27.180Z",
+   "mtime": 1793771342571,
+   "preview": "2026-11-04T05:54:29.184Z"
   },
   "/en-pt/on-board/meals": {
-   "uploaded": "2026-11-04T04:46:51.156Z",
-   "mtime": 1793766923677,
-   "preview": "2026-11-04T04:46:53.107Z"
+   "uploaded": "2026-11-04T05:54:23.338Z",
+   "mtime": 1793771342526,
+   "preview": "2026-11-04T05:54:25.684Z"
   },
   "/en-pt/on-board/meals/business-class": {
-   "uploaded": "2026-11-04T04:50:59.908Z",
-   "mtime": 1793766927310,
-   "preview": "2026-11-04T04:51:02.449Z"
+   "uploaded": "2026-11-04T05:55:49.095Z",
+   "mtime": 1793771344007,
+   "preview": "2026-11-04T05:55:52.659Z"
   },
   "/en-pt/on-board/meals/economy-class": {
-   "uploaded": "2026-11-04T04:51:11.681Z",
-   "mtime": 1793766927423,
-   "preview": "2026-11-04T04:51:13.779Z"
+   "uploaded": "2026-11-04T05:55:54.381Z",
+   "mtime": 1793771344037,
+   "preview": "2026-11-04T05:55:56.528Z"
   },
   "/en-pt/on-board/meals/economy-prime": {
    "uploaded": "2026-11-04T04:51:03.746Z",
@@ -1936,9 +1936,9 @@
    "preview": "2026-11-04T04:51:10.151Z"
   },
   "/en-pt/on-board/wi-fi": {
-   "uploaded": "2026-11-04T04:47:02.731Z",
-   "mtime": 1793766923836,
-   "preview": "2026-11-04T04:47:04.579Z"
+   "uploaded": "2026-11-04T05:54:34.134Z",
+   "mtime": 1793771342645,
+   "preview": "2026-11-04T05:54:35.848Z"
   },
   "/en-pt/promos": {
    "uploaded": "2026-11-04T04:44:57.743Z",
@@ -1946,9 +1946,9 @@
    "preview": "2026-11-04T04:45:00.591Z"
   },
   "/en-pt/stopover": {
-   "uploaded": "2026-11-04T04:45:07.061Z",
-   "mtime": 1793766919312,
-   "preview": "2026-11-04T04:45:09.517Z"
+   "uploaded": "2026-11-04T05:53:32.825Z",
+   "mtime": 1793771341865,
+   "preview": "2026-11-04T05:53:35.087Z"
   },
   "/en-pt/stopover/partners": {
    "uploaded": "2026-11-04T04:47:39.304Z",
@@ -1956,14 +1956,14 @@
    "preview": "2026-11-04T04:47:41.641Z"
   },
   "/fr-fr": {
-   "uploaded": "2026-11-04T03:10:14.940Z",
-   "mtime": 1793761776400,
-   "preview": "2026-11-04T03:10:17.668Z"
+   "uploaded": "2026-11-04T05:59:14.573Z",
+   "mtime": 1793771345723,
+   "preview": "2026-11-04T05:59:16.661Z"
   },
   "/fr-fr/a-bord": {
-   "uploaded": "2026-11-04T05:00:05.823Z",
-   "mtime": 1793766933412,
-   "preview": "2026-11-04T05:00:08.210Z"
+   "uploaded": "2026-11-04T05:59:24.801Z",
+   "mtime": 1793771345794,
+   "preview": "2026-11-04T05:59:26.236Z"
   },
   "/fr-fr/a-bord/altitude-film-festival": {
    "uploaded": "2026-11-04T05:01:51.899Z",
@@ -1981,19 +1981,19 @@
    "preview": "2026-11-04T05:01:57.619Z"
   },
   "/fr-fr/a-bord/repas": {
-   "uploaded": "2026-11-04T05:02:03.184Z",
-   "mtime": 1793766935021,
-   "preview": "2026-11-04T05:02:05.059Z"
+   "uploaded": "2026-11-04T06:00:16.690Z",
+   "mtime": 1793771346216,
+   "preview": "2026-11-04T06:00:18.534Z"
   },
   "/fr-fr/a-bord/repas/classe-business": {
-   "uploaded": "2026-11-04T05:06:03.149Z",
-   "mtime": 1793766937433,
-   "preview": "2026-11-04T05:06:05.465Z"
+   "uploaded": "2026-11-04T06:01:40.481Z",
+   "mtime": 1793771347023,
+   "preview": "2026-11-04T06:01:42.562Z"
   },
   "/fr-fr/a-bord/repas/classe-economique": {
-   "uploaded": "2026-11-04T05:06:14.834Z",
-   "mtime": 1793766937529,
-   "preview": "2026-11-04T05:06:17.046Z"
+   "uploaded": "2026-11-04T06:01:43.970Z",
+   "mtime": 1793771347052,
+   "preview": "2026-11-04T06:01:45.798Z"
   },
   "/fr-fr/a-bord/repas/economy-prime": {
    "uploaded": "2026-11-04T05:06:06.848Z",
@@ -2011,19 +2011,19 @@
    "preview": "2026-11-04T05:06:12.996Z"
   },
   "/fr-fr/a-bord/voyager-business": {
-   "uploaded": "2026-11-04T05:02:10.016Z",
-   "mtime": 1793766935101,
-   "preview": "2026-11-04T05:02:12.000Z"
+   "uploaded": "2026-11-04T06:00:22.874Z",
+   "mtime": 1793771346267,
+   "preview": "2026-11-04T06:00:24.913Z"
   },
   "/fr-fr/a-bord/voyager-economique": {
-   "uploaded": "2026-11-04T05:02:06.443Z",
-   "mtime": 1793766935062,
-   "preview": "2026-11-04T05:02:08.511Z"
+   "uploaded": "2026-11-04T06:00:19.990Z",
+   "mtime": 1793771346241,
+   "preview": "2026-11-04T06:00:21.486Z"
   },
   "/fr-fr/a-bord/wi-fi": {
-   "uploaded": "2026-11-04T05:02:13.482Z",
-   "mtime": 1793766935132,
-   "preview": "2026-11-04T05:02:15.058Z"
+   "uploaded": "2026-11-04T06:00:26.369Z",
+   "mtime": 1793771346299,
+   "preview": "2026-11-04T06:00:28.115Z"
   },
   "/fr-fr/aide": {
    "uploaded": "2026-11-04T04:59:40.181Z",
@@ -2046,9 +2046,9 @@
    "preview": "2026-11-04T05:00:31.134Z"
   },
   "/fr-fr/aide/retards-annulations": {
-   "uploaded": "2026-11-04T05:00:25.390Z",
-   "mtime": 1793766933578,
-   "preview": "2026-11-04T05:00:27.508Z"
+   "uploaded": "2026-11-04T05:59:30.236Z",
+   "mtime": 1793771345848,
+   "preview": "2026-11-04T05:59:32.052Z"
   },
   "/fr-fr/alertes-et-informations": {
    "uploaded": "2026-11-04T04:59:43.895Z",
@@ -2146,19 +2146,19 @@
    "preview": "2026-11-04T04:59:56.444Z"
   },
   "/fr-fr/gerer-reserves/extras": {
-   "uploaded": "2026-11-04T05:00:45.173Z",
-   "mtime": 1793766934216,
-   "preview": "2026-11-04T05:00:47.135Z"
+   "uploaded": "2026-11-04T05:59:33.337Z",
+   "mtime": 1793771345875,
+   "preview": "2026-11-04T05:59:35.026Z"
   },
   "/fr-fr/gerer-reserves/extras/boost-packs": {
-   "uploaded": "2026-11-04T05:04:03.701Z",
-   "mtime": 1793766936245,
-   "preview": "2026-11-04T05:04:05.898Z"
+   "uploaded": "2026-11-04T06:00:58.484Z",
+   "mtime": 1793771346668,
+   "preview": "2026-11-04T06:01:00.430Z"
   },
   "/fr-fr/gerer-reserves/extras/embarquement": {
-   "uploaded": "2026-11-04T05:04:07.534Z",
-   "mtime": 1793766936277,
-   "preview": "2026-11-04T05:04:09.600Z"
+   "uploaded": "2026-11-04T06:01:01.779Z",
+   "mtime": 1793771346694,
+   "preview": "2026-11-04T06:01:03.312Z"
   },
   "/fr-fr/gerer-reserves/extras/encheres": {
    "uploaded": "2026-11-04T05:04:23.666Z",
@@ -2176,9 +2176,9 @@
    "preview": "2026-11-04T05:04:17.445Z"
   },
   "/fr-fr/gerer-reserves/extras/siege-voisin-libre": {
-   "uploaded": "2026-11-04T05:04:30.736Z",
-   "mtime": 1793766936515,
-   "preview": "2026-11-04T05:04:33.011Z"
+   "uploaded": "2026-11-04T06:01:09.080Z",
+   "mtime": 1793771346796,
+   "preview": "2026-11-04T06:01:11.322Z"
   },
   "/fr-fr/gerer-reserves/extras/sieges": {
    "uploaded": "2026-11-04T05:04:19.128Z",
@@ -2186,9 +2186,9 @@
    "preview": "2026-11-04T05:04:22.139Z"
   },
   "/fr-fr/gerer-reserves/extras/upgrades": {
-   "uploaded": "2026-11-04T05:04:27.477Z",
-   "mtime": 1793766936487,
-   "preview": "2026-11-04T05:04:29.331Z"
+   "uploaded": "2026-11-04T06:01:05.507Z",
+   "mtime": 1793771346772,
+   "preview": "2026-11-04T06:01:07.476Z"
   },
   "/fr-fr/gerer-reserves/extras/upgrades/gratuit": {
    "uploaded": "2026-11-04T05:06:57.379Z",
@@ -2196,19 +2196,19 @@
    "preview": "2026-11-04T05:06:59.190Z"
   },
   "/fr-fr/gerer-reserves/extras/upgrades/prix-fixe": {
-   "uploaded": "2026-11-04T05:06:53.719Z",
-   "mtime": 1793766937895,
-   "preview": "2026-11-04T05:06:55.915Z"
+   "uploaded": "2026-11-04T06:02:03.657Z",
+   "mtime": 1793771347217,
+   "preview": "2026-11-04T06:02:06.018Z"
   },
   "/fr-fr/info-legal/privacidade": {
-   "uploaded": "2026-11-04T05:01:11.042Z",
-   "mtime": 1793766934516,
-   "preview": "2026-11-04T05:01:13.016Z"
+   "uploaded": "2026-11-04T05:59:56.335Z",
+   "mtime": 1793771346061,
+   "preview": "2026-11-04T05:59:57.949Z"
   },
   "/fr-fr/informations": {
-   "uploaded": "2026-11-04T05:00:01.527Z",
-   "mtime": 1793766933386,
-   "preview": "2026-11-04T05:00:04.227Z"
+   "uploaded": "2026-11-04T05:59:20.916Z",
+   "mtime": 1793771345768,
+   "preview": "2026-11-04T05:59:23.230Z"
   },
   "/fr-fr/informations-enregistrement": {
    "uploaded": "2026-11-04T04:59:46.930Z",
@@ -2216,9 +2216,9 @@
    "preview": "2026-11-04T04:59:49.114Z"
   },
   "/fr-fr/informations/bagage": {
-   "uploaded": "2026-11-04T05:01:25.874Z",
-   "mtime": 1793766934699,
-   "preview": "2026-11-04T05:01:28.427Z"
+   "uploaded": "2026-11-04T06:00:05.872Z",
+   "mtime": 1793771346139,
+   "preview": "2026-11-04T06:00:08.153Z"
   },
   "/fr-fr/informations/bagage/armes-munitions": {
    "uploaded": "2026-11-04T05:04:34.338Z",
@@ -2226,9 +2226,9 @@
    "preview": "2026-11-04T05:04:36.528Z"
   },
   "/fr-fr/informations/bagage/bagage-cabine": {
-   "uploaded": "2026-11-04T05:04:42.029Z",
-   "mtime": 1793766936650,
-   "preview": "2026-11-04T05:04:44.564Z"
+   "uploaded": "2026-11-04T06:01:12.729Z",
+   "mtime": 1793771346823,
+   "preview": "2026-11-04T06:01:15.188Z"
   },
   "/fr-fr/informations/bagage/bagage-en-soute": {
    "uploaded": "2026-11-04T05:04:45.952Z",
@@ -2246,9 +2246,9 @@
    "preview": "2026-11-04T05:04:55.960Z"
   },
   "/fr-fr/informations/bagage/localiser-bagages": {
-   "uploaded": "2026-11-04T05:05:01.293Z",
-   "mtime": 1793766936845,
-   "preview": "2026-11-04T05:05:03.312Z"
+   "uploaded": "2026-11-04T06:01:16.529Z",
+   "mtime": 1793771346845,
+   "preview": "2026-11-04T06:01:19.093Z"
   },
   "/fr-fr/informations/bagage/objets-dangereux": {
    "uploaded": "2026-11-04T05:04:38.268Z",
@@ -2296,9 +2296,9 @@
    "preview": "2026-11-04T05:05:17.534Z"
   },
   "/fr-fr/informations/documentation": {
-   "uploaded": "2026-11-04T05:01:44.837Z",
-   "mtime": 1793766934860,
-   "preview": "2026-11-04T05:01:47.031Z"
+   "uploaded": "2026-11-04T06:00:09.433Z",
+   "mtime": 1793771346161,
+   "preview": "2026-11-04T06:00:11.602Z"
   },
   "/fr-fr/informations/documentation/fievre-jaune": {
    "uploaded": "2026-11-04T05:05:29.689Z",
@@ -2311,34 +2311,34 @@
    "preview": "2026-11-04T05:05:24.654Z"
   },
   "/fr-fr/informations/documentation/passeport-electronique": {
-   "uploaded": "2026-11-04T05:05:26.425Z",
-   "mtime": 1793766937077,
-   "preview": "2026-11-04T05:05:28.306Z"
+   "uploaded": "2026-11-04T06:01:20.439Z",
+   "mtime": 1793771346871,
+   "preview": "2026-11-04T06:01:22.192Z"
   },
   "/fr-fr/informations/documentation/visas-schengen": {
-   "uploaded": "2026-11-04T05:05:46.646Z",
-   "mtime": 1793766937263,
-   "preview": "2026-11-04T05:05:48.855Z"
+   "uploaded": "2026-11-04T06:01:36.945Z",
+   "mtime": 1793771346995,
+   "preview": "2026-11-04T06:01:38.805Z"
   },
   "/fr-fr/informations/documentation/voyage-canada": {
-   "uploaded": "2026-11-04T05:05:36.876Z",
-   "mtime": 1793766937161,
-   "preview": "2026-11-04T05:05:38.284Z"
+   "uploaded": "2026-11-04T06:01:27.063Z",
+   "mtime": 1793771346920,
+   "preview": "2026-11-04T06:01:28.749Z"
   },
   "/fr-fr/informations/documentation/voyage-etats-unis": {
-   "uploaded": "2026-11-04T05:05:43.276Z",
-   "mtime": 1793766937222,
-   "preview": "2026-11-04T05:05:45.140Z"
+   "uploaded": "2026-11-04T06:01:33.527Z",
+   "mtime": 1793771346968,
+   "preview": "2026-11-04T06:01:35.483Z"
   },
   "/fr-fr/informations/documentation/voyage-royaume-uni": {
-   "uploaded": "2026-11-04T05:05:39.811Z",
-   "mtime": 1793766937186,
-   "preview": "2026-11-04T05:05:41.865Z"
+   "uploaded": "2026-11-04T06:01:30.219Z",
+   "mtime": 1793771346943,
+   "preview": "2026-11-04T06:01:32.173Z"
   },
   "/fr-fr/informations/documentation/voyager-bresil": {
-   "uploaded": "2026-11-04T05:05:33.185Z",
-   "mtime": 1793766937136,
-   "preview": "2026-11-04T05:05:35.233Z"
+   "uploaded": "2026-11-04T06:01:23.622Z",
+   "mtime": 1793771346897,
+   "preview": "2026-11-04T06:01:25.590Z"
   },
   "/fr-fr/informations/femmes-enceintes": {
    "uploaded": "2026-11-04T05:01:37.902Z",
@@ -2351,9 +2351,9 @@
    "preview": "2026-11-04T05:01:36.379Z"
   },
   "/fr-fr/informations/voyager-avec-animaux": {
-   "uploaded": "2026-11-04T05:01:48.374Z",
-   "mtime": 1793766934887,
-   "preview": "2026-11-04T05:01:50.559Z"
+   "uploaded": "2026-11-04T06:00:13.241Z",
+   "mtime": 1793771346183,
+   "preview": "2026-11-04T06:00:15.040Z"
   },
   "/fr-fr/informations/voyager-avec-animaux/animaux-assistance": {
    "uploaded": "2026-11-04T05:05:50.496Z",
@@ -2366,24 +2366,24 @@
    "preview": "2026-11-04T05:05:56.872Z"
   },
   "/fr-fr/mentions-legales": {
-   "uploaded": "2026-11-04T04:59:57.878Z",
-   "mtime": 1793766933352,
-   "preview": "2026-11-04T05:00:00.019Z"
+   "uploaded": "2026-11-04T05:59:18.131Z",
+   "mtime": 1793771345744,
+   "preview": "2026-11-04T05:59:19.622Z"
   },
   "/fr-fr/mentions-legales/accessibilite": {
-   "uploaded": "2026-11-04T05:00:56.442Z",
-   "mtime": 1793766934339,
-   "preview": "2026-11-04T05:00:58.500Z"
+   "uploaded": "2026-11-04T05:59:46.597Z",
+   "mtime": 1793771345978,
+   "preview": "2026-11-04T05:59:48.329Z"
   },
   "/fr-fr/mentions-legales/conditions-de-transport": {
-   "uploaded": "2026-11-04T05:00:51.912Z",
-   "mtime": 1793766934296,
-   "preview": "2026-11-04T05:00:54.543Z"
+   "uploaded": "2026-11-04T05:59:39.545Z",
+   "mtime": 1793771345928,
+   "preview": "2026-11-04T05:59:41.241Z"
   },
   "/fr-fr/mentions-legales/conditions-generales": {
-   "uploaded": "2026-11-04T05:01:21.622Z",
-   "mtime": 1793766934667,
-   "preview": "2026-11-04T05:01:23.913Z"
+   "uploaded": "2026-11-04T06:00:02.331Z",
+   "mtime": 1793771346114,
+   "preview": "2026-11-04T06:00:04.282Z"
   },
   "/fr-fr/mentions-legales/conditions-generales-tap-miles-and-go": {
    "uploaded": "2026-11-04T05:01:17.981Z",
@@ -2391,9 +2391,9 @@
    "preview": "2026-11-04T05:01:20.250Z"
   },
   "/fr-fr/mentions-legales/confidentialite": {
-   "uploaded": "2026-11-04T05:01:07.327Z",
-   "mtime": 1793766934466,
-   "preview": "2026-11-04T05:01:09.319Z"
+   "uploaded": "2026-11-04T05:59:53.092Z",
+   "mtime": 1793771346028,
+   "preview": "2026-11-04T05:59:54.837Z"
   },
   "/fr-fr/mentions-legales/cookies": {
    "uploaded": "2026-11-04T05:01:03.316Z",
@@ -2401,24 +2401,24 @@
    "preview": "2026-11-04T05:01:05.612Z"
   },
   "/fr-fr/mentions-legales/cybersecurite": {
-   "uploaded": "2026-11-04T05:00:48.644Z",
-   "mtime": 1793766934245,
-   "preview": "2026-11-04T05:00:50.350Z"
+   "uploaded": "2026-11-04T05:59:36.410Z",
+   "mtime": 1793771345898,
+   "preview": "2026-11-04T05:59:38.083Z"
   },
   "/fr-fr/mentions-legales/droits-des-passagers-france": {
-   "uploaded": "2026-11-04T01:21:57.189Z",
-   "mtime": 1793753127435,
-   "preview": "2026-11-04T01:21:59.328Z"
+   "uploaded": "2026-11-04T05:59:42.955Z",
+   "mtime": 1793771345954,
+   "preview": "2026-11-04T05:59:44.911Z"
   },
   "/fr-fr/mentions-legales/flight-passes": {
-   "uploaded": "2026-11-04T05:01:00.180Z",
-   "mtime": 1793766934365,
-   "preview": "2026-11-04T05:01:01.823Z"
+   "uploaded": "2026-11-04T05:59:49.585Z",
+   "mtime": 1793771346000,
+   "preview": "2026-11-04T05:59:51.611Z"
   },
   "/fr-fr/mentions-legales/politique-divulgation-vulnerabilites": {
-   "uploaded": "2026-11-04T05:01:14.711Z",
-   "mtime": 1793766934550,
-   "preview": "2026-11-04T05:01:16.466Z"
+   "uploaded": "2026-11-04T05:59:59.355Z",
+   "mtime": 1793771346084,
+   "preview": "2026-11-04T06:00:00.992Z"
   },
   "/fr-fr/miles-and-go": {
    "uploaded": "2026-11-04T05:00:21.331Z",
@@ -2436,14 +2436,14 @@
    "preview": "2026-11-04T05:03:27.004Z"
   },
   "/fr-fr/miles-and-go/gagnez-miles": {
-   "uploaded": "2026-11-04T05:03:21.177Z",
-   "mtime": 1793766935768,
-   "preview": "2026-11-04T05:03:23.628Z"
+   "uploaded": "2026-11-04T06:00:41.587Z",
+   "mtime": 1793771346529,
+   "preview": "2026-11-04T06:00:43.922Z"
   },
   "/fr-fr/miles-and-go/gagnez-miles/en-volant": {
-   "uploaded": "2026-11-04T05:06:18.440Z",
-   "mtime": 1793766937568,
-   "preview": "2026-11-04T05:06:20.659Z"
+   "uploaded": "2026-11-04T06:01:47.076Z",
+   "mtime": 1793771347081,
+   "preview": "2026-11-04T06:01:48.717Z"
   },
   "/fr-fr/miles-and-go/gift": {
    "uploaded": "2026-11-04T05:03:32.600Z",
@@ -2456,14 +2456,14 @@
    "preview": "2026-11-04T05:03:38.211Z"
   },
   "/fr-fr/miles-and-go/miles-and-go-pets": {
-   "uploaded": "2026-11-04T05:03:43.155Z",
-   "mtime": 1793766936012,
-   "preview": "2026-11-04T05:03:45.429Z"
+   "uploaded": "2026-11-04T06:00:48.993Z",
+   "mtime": 1793771346582,
+   "preview": "2026-11-04T06:00:51.009Z"
   },
   "/fr-fr/miles-and-go/partenaires": {
-   "uploaded": "2026-11-04T05:03:47.138Z",
-   "mtime": 1793766936101,
-   "preview": "2026-11-04T05:03:51.154Z"
+   "uploaded": "2026-11-04T06:00:52.578Z",
+   "mtime": 1793771346640,
+   "preview": "2026-11-04T06:00:56.720Z"
   },
   "/fr-fr/miles-and-go/promo": {
    "uploaded": "2026-11-04T05:03:52.633Z",
@@ -2476,9 +2476,9 @@
    "preview": "2026-11-04T05:03:58.530Z"
   },
   "/fr-fr/miles-and-go/statuts": {
-   "uploaded": "2026-11-04T05:03:28.679Z",
-   "mtime": 1793766935855,
-   "preview": "2026-11-04T05:03:31.058Z"
+   "uploaded": "2026-11-04T06:00:45.393Z",
+   "mtime": 1793771346557,
+   "preview": "2026-11-04T06:00:47.261Z"
   },
   "/fr-fr/miles-and-go/statuts/for-life": {
    "uploaded": "2026-11-04T05:06:22.733Z",
@@ -2491,9 +2491,9 @@
    "preview": "2026-11-04T05:04:02.321Z"
   },
   "/fr-fr/miles-and-go/utilisez-miles/acheter-un-billet": {
-   "uploaded": "2026-11-04T05:06:29.968Z",
-   "mtime": 1793766937684,
-   "preview": "2026-11-04T05:06:32.291Z"
+   "uploaded": "2026-11-04T06:01:53.274Z",
+   "mtime": 1793771347135,
+   "preview": "2026-11-04T06:01:55.525Z"
   },
   "/fr-fr/miles-and-go/utilisez-miles/don-miles": {
    "uploaded": "2026-11-04T05:06:33.856Z",
@@ -2501,9 +2501,9 @@
    "preview": "2026-11-04T05:06:36.566Z"
   },
   "/fr-fr/miles-and-go/utilisez-miles/don-miles/miles-donnes": {
-   "uploaded": "2026-11-04T05:07:00.532Z",
-   "mtime": 1793766937966,
-   "preview": "2026-11-04T05:07:02.892Z"
+   "uploaded": "2026-11-04T06:02:07.652Z",
+   "mtime": 1793771347244,
+   "preview": "2026-11-04T06:02:09.776Z"
   },
   "/fr-fr/miles-and-go/utilisez-miles/frais": {
    "uploaded": "2026-11-04T05:06:42.035Z",
@@ -2511,19 +2511,19 @@
    "preview": "2026-11-04T05:06:44.332Z"
   },
   "/fr-fr/miles-and-go/utilisez-miles/liste-des-beneficiaires": {
-   "uploaded": "2026-11-04T05:06:26.263Z",
-   "mtime": 1793766937643,
-   "preview": "2026-11-04T05:06:28.315Z"
+   "uploaded": "2026-11-04T06:01:50.119Z",
+   "mtime": 1793771347109,
+   "preview": "2026-11-04T06:01:51.913Z"
   },
   "/fr-fr/miles-and-go/utilisez-miles/miles4extras": {
-   "uploaded": "2026-11-04T05:06:38.066Z",
-   "mtime": 1793766937761,
-   "preview": "2026-11-04T05:06:40.637Z"
+   "uploaded": "2026-11-04T06:01:56.913Z",
+   "mtime": 1793771347160,
+   "preview": "2026-11-04T06:01:58.638Z"
   },
   "/fr-fr/miles-and-go/utilisez-miles/upgrade-avec-miles": {
-   "uploaded": "2026-11-04T05:06:46.273Z",
-   "mtime": 1793766937831,
-   "preview": "2026-11-04T05:06:48.456Z"
+   "uploaded": "2026-11-04T06:02:00.211Z",
+   "mtime": 1793771347183,
+   "preview": "2026-11-04T06:02:02.039Z"
   },
   "/fr-fr/miles-and-go/utilisez-miles/voyage-autour-du-monde": {
    "uploaded": "2026-11-04T05:06:49.864Z",
@@ -2591,9 +2591,9 @@
    "preview": "2026-11-04T05:02:43.713Z"
   },
   "/fr-fr/stopover": {
-   "uploaded": "2026-11-04T05:00:17.545Z",
-   "mtime": 1793766933504,
-   "preview": "2026-11-04T05:00:19.922Z"
+   "uploaded": "2026-11-04T05:59:27.534Z",
+   "mtime": 1793771345821,
+   "preview": "2026-11-04T05:59:28.989Z"
   },
   "/fr-fr/stopover/partenaires": {
    "uploaded": "2026-11-04T05:02:49.094Z",
@@ -2611,14 +2611,14 @@
    "preview": "2026-11-04T02:27:40.692Z"
   },
   "/de-de": {
-   "uploaded": "2026-11-04T03:10:19.204Z",
-   "mtime": 1793761776430,
-   "preview": "2026-11-04T03:10:22.516Z"
+   "uploaded": "2026-11-04T06:02:11.309Z",
+   "mtime": 1793771347281,
+   "preview": "2026-11-04T06:02:13.503Z"
   },
   "/de-de/an-bord": {
-   "uploaded": "2026-11-04T05:07:33.618Z",
-   "mtime": 1793766938243,
-   "preview": "2026-11-04T05:07:35.744Z"
+   "uploaded": "2026-11-04T06:02:22.244Z",
+   "mtime": 1793771347353,
+   "preview": "2026-11-04T06:02:24.082Z"
   },
   "/de-de/an-bord/altitude-film-festival": {
    "uploaded": "2026-11-04T05:09:16.407Z",
@@ -2631,29 +2631,29 @@
    "preview": "2026-11-04T05:09:23.124Z"
   },
   "/de-de/an-bord/fliegen-business": {
-   "uploaded": "2026-11-04T05:09:35.920Z",
-   "mtime": 1793766939986,
-   "preview": "2026-11-04T05:09:38.355Z"
+   "uploaded": "2026-11-04T06:03:29.733Z",
+   "mtime": 1793771347884,
+   "preview": "2026-11-04T06:03:31.855Z"
   },
   "/de-de/an-bord/fliegen-economy": {
-   "uploaded": "2026-11-04T05:09:32.557Z",
-   "mtime": 1793766939953,
-   "preview": "2026-11-04T05:09:34.496Z"
+   "uploaded": "2026-11-04T06:03:26.219Z",
+   "mtime": 1793771347854,
+   "preview": "2026-11-04T06:03:28.184Z"
   },
   "/de-de/an-bord/mahlzeiten": {
-   "uploaded": "2026-11-04T05:09:28.594Z",
-   "mtime": 1793766939916,
-   "preview": "2026-11-04T05:09:30.884Z"
+   "uploaded": "2026-11-04T06:03:22.639Z",
+   "mtime": 1793771347826,
+   "preview": "2026-11-04T06:03:24.584Z"
   },
   "/de-de/an-bord/mahlzeiten/business-class": {
-   "uploaded": "2026-11-04T05:13:24.385Z",
-   "mtime": 1793766942836,
-   "preview": "2026-11-04T05:13:26.339Z"
+   "uploaded": "2026-11-04T06:04:41.272Z",
+   "mtime": 1793771348577,
+   "preview": "2026-11-04T06:04:43.535Z"
   },
   "/de-de/an-bord/mahlzeiten/economy-class": {
-   "uploaded": "2026-11-04T05:13:34.053Z",
-   "mtime": 1793766942955,
-   "preview": "2026-11-04T05:13:36.129Z"
+   "uploaded": "2026-11-04T06:04:44.921Z",
+   "mtime": 1793771348603,
+   "preview": "2026-11-04T06:04:46.738Z"
   },
   "/de-de/an-bord/mahlzeiten/economy-prime": {
    "uploaded": "2026-11-04T05:13:27.831Z",
@@ -2676,9 +2676,9 @@
    "preview": "2026-11-04T05:09:27.134Z"
   },
   "/de-de/an-bord/wi-fi": {
-   "uploaded": "2026-11-04T05:09:39.910Z",
-   "mtime": 1793766940016,
-   "preview": "2026-11-04T05:09:41.906Z"
+   "uploaded": "2026-11-04T06:03:33.264Z",
+   "mtime": 1793771347909,
+   "preview": "2026-11-04T06:03:35.152Z"
   },
   "/de-de/buchungen": {
    "uploaded": "2026-11-04T05:07:40.861Z",
@@ -2816,9 +2816,9 @@
    "preview": "2026-11-04T05:08:02.018Z"
   },
   "/de-de/hilfe/flugverspatungen-annullierungen": {
-   "uploaded": "2026-11-04T05:07:53.234Z",
-   "mtime": 1793766938411,
-   "preview": "2026-11-04T05:07:54.895Z"
+   "uploaded": "2026-11-04T06:02:32.859Z",
+   "mtime": 1793771347430,
+   "preview": "2026-11-04T06:02:34.550Z"
   },
   "/de-de/hilfe/haufige-gestellte-fragen": {
    "uploaded": "2026-11-04T05:08:03.400Z",
@@ -2831,24 +2831,24 @@
    "preview": "2026-11-04T05:07:58.383Z"
   },
   "/de-de/info-legal/privacidade": {
-   "uploaded": "2026-11-04T05:08:36.760Z",
-   "mtime": 1793766939362,
-   "preview": "2026-11-04T05:08:38.822Z"
+   "uploaded": "2026-11-04T06:03:02.364Z",
+   "mtime": 1793771347678,
+   "preview": "2026-11-04T06:03:04.262Z"
   },
   "/de-de/information/dokumentations": {
-   "uploaded": "2026-11-04T05:09:09.476Z",
-   "mtime": 1793766939741,
-   "preview": "2026-11-04T05:09:10.936Z"
+   "uploaded": "2026-11-04T06:03:16.139Z",
+   "mtime": 1793771347782,
+   "preview": "2026-11-04T06:03:18.164Z"
   },
   "/de-de/information/dokumentations/bereisen-sie-kanada": {
-   "uploaded": "2026-11-04T05:12:59.982Z",
-   "mtime": 1793766942562,
-   "preview": "2026-11-04T05:13:01.776Z"
+   "uploaded": "2026-11-04T06:04:28.212Z",
+   "mtime": 1793771348485,
+   "preview": "2026-11-04T06:04:29.917Z"
   },
   "/de-de/information/dokumentations/elektronischer-reisepass": {
-   "uploaded": "2026-11-04T05:12:49.911Z",
-   "mtime": 1793766942462,
-   "preview": "2026-11-04T05:12:51.727Z"
+   "uploaded": "2026-11-04T06:04:21.893Z",
+   "mtime": 1793771348440,
+   "preview": "2026-11-04T06:04:23.577Z"
   },
   "/de-de/information/dokumentations/gelbfieber": {
    "uploaded": "2026-11-04T05:12:53.044Z",
@@ -2856,9 +2856,9 @@
    "preview": "2026-11-04T05:12:54.971Z"
   },
   "/de-de/information/dokumentations/in-die-usa-reisen": {
-   "uploaded": "2026-11-04T05:13:06.678Z",
-   "mtime": 1793766942629,
-   "preview": "2026-11-04T05:13:08.223Z"
+   "uploaded": "2026-11-04T06:04:34.925Z",
+   "mtime": 1793771348528,
+   "preview": "2026-11-04T06:04:36.546Z"
   },
   "/de-de/information/dokumentations/partnerschaft-ucs": {
    "uploaded": "2026-11-04T05:12:45.975Z",
@@ -2866,24 +2866,24 @@
    "preview": "2026-11-04T05:12:48.239Z"
   },
   "/de-de/information/dokumentations/reise-brasilien": {
-   "uploaded": "2026-11-04T05:12:56.378Z",
-   "mtime": 1793766942533,
-   "preview": "2026-11-04T05:12:58.619Z"
+   "uploaded": "2026-11-04T06:04:25.146Z",
+   "mtime": 1793771348464,
+   "preview": "2026-11-04T06:04:26.763Z"
   },
   "/de-de/information/dokumentations/reisen-vereinigtes-konigreich": {
-   "uploaded": "2026-11-04T05:13:03.131Z",
-   "mtime": 1793766942592,
-   "preview": "2026-11-04T05:13:05.284Z"
+   "uploaded": "2026-11-04T06:04:31.290Z",
+   "mtime": 1793771348505,
+   "preview": "2026-11-04T06:04:33.289Z"
   },
   "/de-de/information/dokumentations/schengen-visa": {
-   "uploaded": "2026-11-04T05:13:10.039Z",
-   "mtime": 1793766942668,
-   "preview": "2026-11-04T05:13:11.844Z"
+   "uploaded": "2026-11-04T06:04:37.965Z",
+   "mtime": 1793771348551,
+   "preview": "2026-11-04T06:04:39.970Z"
   },
   "/de-de/informationen": {
-   "uploaded": "2026-11-04T05:07:29.505Z",
-   "mtime": 1793766938217,
-   "preview": "2026-11-04T05:07:32.016Z"
+   "uploaded": "2026-11-04T06:02:18.903Z",
+   "mtime": 1793771347331,
+   "preview": "2026-11-04T06:02:20.880Z"
   },
   "/de-de/informationen/besonderen-bedurfnissen": {
    "uploaded": "2026-11-04T05:09:06.014Z",
@@ -2916,9 +2916,9 @@
    "preview": "2026-11-04T05:12:36.900Z"
   },
   "/de-de/informationen/gepack": {
-   "uploaded": "2026-11-04T05:08:50.327Z",
-   "mtime": 1793766939554,
-   "preview": "2026-11-04T05:08:52.157Z"
+   "uploaded": "2026-11-04T06:03:13.007Z",
+   "mtime": 1793771347757,
+   "preview": "2026-11-04T06:03:14.722Z"
   },
   "/de-de/informationen/gepack/aufgabegepack": {
    "uploaded": "2026-11-04T05:12:08.998Z",
@@ -2931,14 +2931,14 @@
    "preview": "2026-11-04T05:12:03.785Z"
   },
   "/de-de/informationen/gepack/gepack-finden": {
-   "uploaded": "2026-11-04T05:12:23.635Z",
-   "mtime": 1793766941957,
-   "preview": "2026-11-04T05:12:26.069Z"
+   "uploaded": "2026-11-04T06:04:18.869Z",
+   "mtime": 1793771348416,
+   "preview": "2026-11-04T06:04:20.540Z"
   },
   "/de-de/informationen/gepack/handgepack": {
-   "uploaded": "2026-11-04T05:12:05.295Z",
-   "mtime": 1793766941758,
-   "preview": "2026-11-04T05:12:07.351Z"
+   "uploaded": "2026-11-04T06:04:15.088Z",
+   "mtime": 1793771348394,
+   "preview": "2026-11-04T06:04:17.490Z"
   },
   "/de-de/informationen/gepack/musikinstrumenten": {
    "uploaded": "2026-11-04T05:12:16.511Z",
@@ -2961,9 +2961,9 @@
    "preview": "2026-11-04T05:12:00.130Z"
   },
   "/de-de/informationen/reisen-mit-tieren": {
-   "uploaded": "2026-11-04T05:09:12.516Z",
-   "mtime": 1793766939766,
-   "preview": "2026-11-04T05:09:14.763Z"
+   "uploaded": "2026-11-04T06:03:19.634Z",
+   "mtime": 1793771347805,
+   "preview": "2026-11-04T06:03:21.244Z"
   },
   "/de-de/informationen/reisen-mit-tieren/assistenztieren": {
    "uploaded": "2026-11-04T05:13:13.371Z",
@@ -2991,9 +2991,9 @@
    "preview": "2026-11-04T05:09:00.479Z"
   },
   "/de-de/miles-and-go": {
-   "uploaded": "2026-11-04T05:07:48.592Z",
-   "mtime": 1793766938370,
-   "preview": "2026-11-04T05:07:51.134Z"
+   "uploaded": "2026-11-04T06:02:29.142Z",
+   "mtime": 1793771347403,
+   "preview": "2026-11-04T06:02:31.064Z"
   },
   "/de-de/miles-and-go/angebote": {
    "uploaded": "2026-11-04T05:11:24.079Z",
@@ -3016,14 +3016,14 @@
    "preview": "2026-11-04T05:11:06.576Z"
   },
   "/de-de/miles-and-go/meilen-sammeln": {
-   "uploaded": "2026-11-04T05:10:50.572Z",
-   "mtime": 1793766940671,
-   "preview": "2026-11-04T05:10:52.424Z"
+   "uploaded": "2026-11-04T06:03:46.022Z",
+   "mtime": 1793771348147,
+   "preview": "2026-11-04T06:03:47.872Z"
   },
   "/de-de/miles-and-go/meilen-sammeln/fliegen": {
-   "uploaded": "2026-11-04T05:13:37.631Z",
-   "mtime": 1793766942999,
-   "preview": "2026-11-04T05:13:39.682Z"
+   "uploaded": "2026-11-04T06:04:48.167Z",
+   "mtime": 1793771348628,
+   "preview": "2026-11-04T06:04:49.797Z"
   },
   "/de-de/miles-and-go/meilen-shop": {
    "uploaded": "2026-11-04T05:11:08.007Z",
@@ -3031,14 +3031,14 @@
    "preview": "2026-11-04T05:11:10.863Z"
   },
   "/de-de/miles-and-go/miles-and-go-pets": {
-   "uploaded": "2026-11-04T05:11:12.328Z",
-   "mtime": 1793766940916,
-   "preview": "2026-11-04T05:11:14.032Z"
+   "uploaded": "2026-11-04T06:03:52.620Z",
+   "mtime": 1793771348204,
+   "preview": "2026-11-04T06:03:54.430Z"
   },
   "/de-de/miles-and-go/partner": {
-   "uploaded": "2026-11-04T05:11:15.534Z",
-   "mtime": 1793766941002,
-   "preview": "2026-11-04T05:11:19.037Z"
+   "uploaded": "2026-11-04T06:03:55.976Z",
+   "mtime": 1793771348258,
+   "preview": "2026-11-04T06:04:00.320Z"
   },
   "/de-de/miles-and-go/promo": {
    "uploaded": "2026-11-04T05:11:20.387Z",
@@ -3046,9 +3046,9 @@
    "preview": "2026-11-04T05:11:22.652Z"
   },
   "/de-de/miles-and-go/status": {
-   "uploaded": "2026-11-04T05:10:57.511Z",
-   "mtime": 1793766940770,
-   "preview": "2026-11-04T05:10:59.405Z"
+   "uploaded": "2026-11-04T06:03:49.279Z",
+   "mtime": 1793771348173,
+   "preview": "2026-11-04T06:03:51.318Z"
   },
   "/de-de/miles-and-go/status/for-life": {
    "uploaded": "2026-11-04T05:13:41.157Z",
@@ -3066,14 +3066,14 @@
    "preview": "2026-11-04T05:14:01.289Z"
   },
   "/de-de/miles-and-go/verwenden-meilen/liste-der-begunstigten": {
-   "uploaded": "2026-11-04T05:13:44.751Z",
-   "mtime": 1793766943076,
-   "preview": "2026-11-04T05:13:46.709Z"
+   "uploaded": "2026-11-04T06:04:51.150Z",
+   "mtime": 1793771348653,
+   "preview": "2026-11-04T06:04:52.841Z"
   },
   "/de-de/miles-and-go/verwenden-meilen/miles4extras": {
-   "uploaded": "2026-11-04T05:13:56.290Z",
-   "mtime": 1793766943220,
-   "preview": "2026-11-04T05:13:57.991Z"
+   "uploaded": "2026-11-04T06:04:57.253Z",
+   "mtime": 1793771348699,
+   "preview": "2026-11-04T06:04:59.108Z"
   },
   "/de-de/miles-and-go/verwenden-meilen/reise-um-die-welt": {
    "uploaded": "2026-11-04T05:14:06.464Z",
@@ -3086,19 +3086,19 @@
    "preview": "2026-11-04T05:13:54.621Z"
   },
   "/de-de/miles-and-go/verwenden-meilen/spenden-meilen/gespendete-meilen": {
-   "uploaded": "2026-11-04T05:14:21.017Z",
-   "mtime": 1793766943502,
-   "preview": "2026-11-04T05:14:23.050Z"
+   "uploaded": "2026-11-04T06:05:07.814Z",
+   "mtime": 1793771348773,
+   "preview": "2026-11-04T06:05:09.764Z"
   },
   "/de-de/miles-and-go/verwenden-meilen/ticket-kaufen": {
-   "uploaded": "2026-11-04T05:13:48.123Z",
-   "mtime": 1793766943127,
-   "preview": "2026-11-04T05:13:50.107Z"
+   "uploaded": "2026-11-04T06:04:54.155Z",
+   "mtime": 1793771348676,
+   "preview": "2026-11-04T06:04:55.958Z"
   },
   "/de-de/miles-and-go/verwenden-meilen/upgrade-mit-meilen": {
-   "uploaded": "2026-11-04T05:14:02.804Z",
-   "mtime": 1793766943297,
-   "preview": "2026-11-04T05:14:04.597Z"
+   "uploaded": "2026-11-04T06:05:00.690Z",
+   "mtime": 1793771348723,
+   "preview": "2026-11-04T06:05:02.527Z"
   },
   "/de-de/promos": {
    "uploaded": "2026-11-04T05:07:37.179Z",
@@ -3106,14 +3106,14 @@
    "preview": "2026-11-04T05:07:39.323Z"
   },
   "/de-de/rechtliche-informationen": {
-   "uploaded": "2026-11-04T05:07:25.174Z",
-   "mtime": 1793766938184,
-   "preview": "2026-11-04T05:07:27.958Z"
+   "uploaded": "2026-11-04T06:02:15.125Z",
+   "mtime": 1793771347305,
+   "preview": "2026-11-04T06:02:17.616Z"
   },
   "/de-de/rechtliche-informationen/beforderungsbedingungen": {
-   "uploaded": "2026-11-04T05:08:19.487Z",
-   "mtime": 1793766939163,
-   "preview": "2026-11-04T05:08:21.500Z"
+   "uploaded": "2026-11-04T06:02:46.059Z",
+   "mtime": 1793771347547,
+   "preview": "2026-11-04T06:02:48.235Z"
   },
   "/de-de/rechtliche-informationen/cookies": {
    "uploaded": "2026-11-04T05:08:29.312Z",
@@ -3121,24 +3121,24 @@
    "preview": "2026-11-04T05:08:31.482Z"
   },
   "/de-de/rechtliche-informationen/cybersicherheit": {
-   "uploaded": "2026-11-04T05:08:16.041Z",
-   "mtime": 1793766939113,
-   "preview": "2026-11-04T05:08:18.122Z"
+   "uploaded": "2026-11-04T06:02:42.496Z",
+   "mtime": 1793771347515,
+   "preview": "2026-11-04T06:02:44.405Z"
   },
   "/de-de/rechtliche-informationen/datenschutz": {
-   "uploaded": "2026-11-04T05:08:32.857Z",
-   "mtime": 1793766939316,
-   "preview": "2026-11-04T05:08:34.833Z"
+   "uploaded": "2026-11-04T06:02:59.373Z",
+   "mtime": 1793771347650,
+   "preview": "2026-11-04T06:03:00.959Z"
   },
   "/de-de/rechtliche-informationen/flight-passes": {
-   "uploaded": "2026-11-04T05:08:26.264Z",
-   "mtime": 1793766939230,
-   "preview": "2026-11-04T05:08:27.855Z"
+   "uploaded": "2026-11-04T06:02:56.440Z",
+   "mtime": 1793771347622,
+   "preview": "2026-11-04T06:02:58.051Z"
   },
   "/de-de/rechtliche-informationen/geschaftsbedingungen": {
-   "uploaded": "2026-11-04T05:08:47.161Z",
-   "mtime": 1793766939512,
-   "preview": "2026-11-04T05:08:48.888Z"
+   "uploaded": "2026-11-04T06:03:09.154Z",
+   "mtime": 1793771347733,
+   "preview": "2026-11-04T06:03:11.503Z"
   },
   "/de-de/rechtliche-informationen/geschaftsbedingungen-miles-and-go": {
    "uploaded": "2026-11-04T05:08:43.586Z",
@@ -3146,24 +3146,24 @@
    "preview": "2026-11-04T05:08:45.793Z"
   },
   "/de-de/rechtliche-informationen/rechtliche-hinweise": {
-   "uploaded": "2026-11-04T00:54:16.473Z",
-   "mtime": 1793753130473,
-   "preview": "2026-11-04T00:54:18.616Z"
+   "uploaded": "2026-11-04T06:02:39.322Z",
+   "mtime": 1793771347483,
+   "preview": "2026-11-04T06:02:41.052Z"
   },
   "/de-de/rechtliche-informationen/richtlinie-offenlegung-schwachstellen": {
-   "uploaded": "2026-11-04T05:08:40.224Z",
-   "mtime": 1793766939398,
-   "preview": "2026-11-04T05:08:42.018Z"
+   "uploaded": "2026-11-04T06:03:05.869Z",
+   "mtime": 1793771347705,
+   "preview": "2026-11-04T06:03:07.419Z"
   },
   "/de-de/rechtliche-informationen/schlichtungsstelle": {
-   "uploaded": "2026-11-04T00:54:24.014Z",
-   "mtime": 1793753130589,
-   "preview": "2026-11-04T00:54:26.074Z"
+   "uploaded": "2026-11-04T06:02:53.134Z",
+   "mtime": 1793771347600,
+   "preview": "2026-11-04T06:02:54.888Z"
   },
   "/de-de/rechtliche-informationen/zuganglichkeit": {
-   "uploaded": "2026-11-04T05:08:22.896Z",
-   "mtime": 1793766939196,
-   "preview": "2026-11-04T05:08:24.844Z"
+   "uploaded": "2026-11-04T06:02:49.684Z",
+   "mtime": 1793771347574,
+   "preview": "2026-11-04T06:02:51.346Z"
   },
   "/de-de/reiseziele": {
    "uploaded": "2026-11-04T05:07:15.893Z",
@@ -3176,9 +3176,9 @@
    "preview": "2026-11-04T05:08:10.839Z"
   },
   "/de-de/stopover": {
-   "uploaded": "2026-11-04T05:07:44.858Z",
-   "mtime": 1793766938335,
-   "preview": "2026-11-04T05:07:47.181Z"
+   "uploaded": "2026-11-04T06:02:25.504Z",
+   "mtime": 1793771347379,
+   "preview": "2026-11-04T06:02:27.812Z"
   },
   "/de-de/stopover/partner": {
    "uploaded": "2026-11-04T05:10:18.509Z",
@@ -3191,19 +3191,19 @@
    "preview": "2026-11-04T05:07:23.607Z"
   },
   "/de-de/verwalten-buchungen/extras": {
-   "uploaded": "2026-11-04T05:08:12.582Z",
-   "mtime": 1793766939072,
-   "preview": "2026-11-04T05:08:14.582Z"
+   "uploaded": "2026-11-04T06:02:36.048Z",
+   "mtime": 1793771347457,
+   "preview": "2026-11-04T06:02:37.899Z"
   },
   "/de-de/verwalten-buchungen/extras/boarding": {
-   "uploaded": "2026-11-04T05:11:35.983Z",
-   "mtime": 1793766941421,
-   "preview": "2026-11-04T05:11:38.171Z"
+   "uploaded": "2026-11-04T06:04:05.465Z",
+   "mtime": 1793771348313,
+   "preview": "2026-11-04T06:04:07.148Z"
   },
   "/de-de/verwalten-buchungen/extras/boost-packs": {
-   "uploaded": "2026-11-04T05:11:32.212Z",
-   "mtime": 1793766941385,
-   "preview": "2026-11-04T05:11:34.573Z"
+   "uploaded": "2026-11-04T06:04:01.883Z",
+   "mtime": 1793771348287,
+   "preview": "2026-11-04T06:04:03.877Z"
   },
   "/de-de/verwalten-buchungen/extras/fast-track": {
    "uploaded": "2026-11-04T05:11:39.507Z",
@@ -3211,9 +3211,9 @@
    "preview": "2026-11-04T05:11:41.937Z"
   },
   "/de-de/verwalten-buchungen/extras/freier-nachbarsitz": {
-   "uploaded": "2026-11-04T05:11:55.242Z",
-   "mtime": 1793766941618,
-   "preview": "2026-11-04T05:11:56.848Z"
+   "uploaded": "2026-11-04T06:04:11.965Z",
+   "mtime": 1793771348365,
+   "preview": "2026-11-04T06:04:13.650Z"
   },
   "/de-de/verwalten-buchungen/extras/lounges": {
    "uploaded": "2026-11-04T05:11:43.365Z",
@@ -3226,9 +3226,9 @@
    "preview": "2026-11-04T05:11:50.314Z"
   },
   "/de-de/verwalten-buchungen/extras/upgrades": {
-   "uploaded": "2026-11-04T05:11:51.740Z",
-   "mtime": 1793766941591,
-   "preview": "2026-11-04T05:11:53.786Z"
+   "uploaded": "2026-11-04T06:04:08.385Z",
+   "mtime": 1793771348335,
+   "preview": "2026-11-04T06:04:10.222Z"
   },
   "/de-de/verwalten-buchungen/extras/upgrades/auktionen": {
    "uploaded": "2026-11-04T05:14:09.862Z",
@@ -3236,9 +3236,9 @@
    "preview": "2026-11-04T05:14:11.787Z"
   },
   "/de-de/verwalten-buchungen/extras/upgrades/festpreis": {
-   "uploaded": "2026-11-04T05:14:13.311Z",
-   "mtime": 1793766943421,
-   "preview": "2026-11-04T05:14:15.392Z"
+   "uploaded": "2026-11-04T06:05:04.225Z",
+   "mtime": 1793771348747,
+   "preview": "2026-11-04T06:05:06.320Z"
   },
   "/de-de/verwalten-buchungen/extras/upgrades/kostenloses": {
    "uploaded": "2026-11-04T05:14:17.109Z",
@@ -3261,14 +3261,14 @@
    "preview": "2026-11-04T02:27:48.403Z"
   },
   "/it-it": {
-   "uploaded": "2026-11-04T03:10:24.490Z",
-   "mtime": 1793761776461,
-   "preview": "2026-11-04T03:10:27.222Z"
+   "uploaded": "2026-11-04T06:05:11.473Z",
+   "mtime": 1793771348804,
+   "preview": "2026-11-04T06:05:13.737Z"
   },
   "/it-it/a-bordo": {
-   "uploaded": "2026-11-04T05:14:51.169Z",
-   "mtime": 1793766943801,
-   "preview": "2026-11-04T05:14:53.137Z"
+   "uploaded": "2026-11-04T06:05:21.882Z",
+   "mtime": 1793771348877,
+   "preview": "2026-11-04T06:05:23.673Z"
   },
   "/it-it/a-bordo/altitude-film-festival": {
    "uploaded": "2026-11-04T05:16:31.105Z",
@@ -3286,19 +3286,19 @@
    "preview": "2026-11-04T05:16:41.214Z"
   },
   "/it-it/a-bordo/pasti": {
-   "uploaded": "2026-11-04T05:16:42.909Z",
-   "mtime": 1793766945331,
-   "preview": "2026-11-04T05:16:44.958Z"
+   "uploaded": "2026-11-04T06:06:11.017Z",
+   "mtime": 1793771349279,
+   "preview": "2026-11-04T06:06:13.206Z"
   },
   "/it-it/a-bordo/pasti/classe-business": {
-   "uploaded": "2026-11-04T05:20:08.404Z",
-   "mtime": 1793766947291,
-   "preview": "2026-11-04T05:20:10.547Z"
+   "uploaded": "2026-11-04T06:07:14.430Z",
+   "mtime": 1793771349879,
+   "preview": "2026-11-04T06:07:16.746Z"
   },
   "/it-it/a-bordo/pasti/classe-economy": {
-   "uploaded": "2026-11-04T05:20:19.798Z",
-   "mtime": 1793766947401,
-   "preview": "2026-11-04T05:20:21.807Z"
+   "uploaded": "2026-11-04T06:07:18.372Z",
+   "mtime": 1793771349904,
+   "preview": "2026-11-04T06:07:20.386Z"
   },
   "/it-it/a-bordo/pasti/economy-prime": {
    "uploaded": "2026-11-04T05:20:12.387Z",
@@ -3316,19 +3316,19 @@
    "preview": "2026-11-04T05:20:18.085Z"
   },
   "/it-it/a-bordo/volare-business": {
-   "uploaded": "2026-11-04T05:16:51.152Z",
-   "mtime": 1793766945404,
-   "preview": "2026-11-04T05:16:53.875Z"
+   "uploaded": "2026-11-04T06:06:17.965Z",
+   "mtime": 1793771349337,
+   "preview": "2026-11-04T06:06:19.875Z"
   },
   "/it-it/a-bordo/volare-economy": {
-   "uploaded": "2026-11-04T05:16:46.906Z",
-   "mtime": 1793766945365,
-   "preview": "2026-11-04T05:16:49.374Z"
+   "uploaded": "2026-11-04T06:06:14.788Z",
+   "mtime": 1793771349307,
+   "preview": "2026-11-04T06:06:16.691Z"
   },
   "/it-it/a-bordo/wi-fi": {
-   "uploaded": "2026-11-04T05:16:55.446Z",
-   "mtime": 1793766945452,
-   "preview": "2026-11-04T05:16:57.012Z"
+   "uploaded": "2026-11-04T06:06:21.375Z",
+   "mtime": 1793771349364,
+   "preview": "2026-11-04T06:06:23.023Z"
   },
   "/it-it/assistenza": {
    "uploaded": "2026-11-04T05:14:24.913Z",
@@ -3351,9 +3351,9 @@
    "preview": "2026-11-04T05:15:08.834Z"
   },
   "/it-it/assistenza/ritardi-cancellazioni": {
-   "uploaded": "2026-11-04T05:15:03.007Z",
-   "mtime": 1793766943910,
-   "preview": "2026-11-04T05:15:04.714Z"
+   "uploaded": "2026-11-04T06:05:29.082Z",
+   "mtime": 1793771348932,
+   "preview": "2026-11-04T06:05:30.962Z"
   },
   "/it-it/avvisi-e-informazioni": {
    "uploaded": "2026-11-04T05:14:29.357Z",
@@ -3446,14 +3446,14 @@
    "preview": "2026-11-04T05:14:42.131Z"
   },
   "/it-it/gestire-prenotazione/extra": {
-   "uploaded": "2026-11-04T05:15:22.966Z",
-   "mtime": 1793766944552,
-   "preview": "2026-11-04T05:15:24.701Z"
+   "uploaded": "2026-11-04T06:05:32.345Z",
+   "mtime": 1793771348960,
+   "preview": "2026-11-04T06:05:34.211Z"
   },
   "/it-it/gestire-prenotazione/extra/boost-packs": {
-   "uploaded": "2026-11-04T05:18:09.197Z",
-   "mtime": 1793766946114,
-   "preview": "2026-11-04T05:18:11.880Z"
+   "uploaded": "2026-11-04T06:06:34.699Z",
+   "mtime": 1793771349584,
+   "preview": "2026-11-04T06:06:36.382Z"
   },
   "/it-it/gestire-prenotazione/extra/fast-track": {
    "uploaded": "2026-11-04T05:18:17.597Z",
@@ -3461,9 +3461,9 @@
    "preview": "2026-11-04T05:18:19.402Z"
   },
   "/it-it/gestire-prenotazione/extra/imbarco": {
-   "uploaded": "2026-11-04T05:18:13.684Z",
-   "mtime": 1793766946148,
-   "preview": "2026-11-04T05:18:15.910Z"
+   "uploaded": "2026-11-04T06:06:37.794Z",
+   "mtime": 1793771349611,
+   "preview": "2026-11-04T06:06:39.578Z"
   },
   "/it-it/gestire-prenotazione/extra/lounge": {
    "uploaded": "2026-11-04T05:18:21.020Z",
@@ -3476,14 +3476,14 @@
    "preview": "2026-11-04T05:18:27.340Z"
   },
   "/it-it/gestire-prenotazione/extra/sedile-adiacente-libero": {
-   "uploaded": "2026-11-04T05:18:32.280Z",
-   "mtime": 1793766946356,
-   "preview": "2026-11-04T05:18:34.126Z"
+   "uploaded": "2026-11-04T06:06:44.962Z",
+   "mtime": 1793771349657,
+   "preview": "2026-11-04T06:06:47.049Z"
   },
   "/it-it/gestire-prenotazione/extra/upgrade": {
-   "uploaded": "2026-11-04T05:18:28.927Z",
-   "mtime": 1793766946327,
-   "preview": "2026-11-04T05:18:30.668Z"
+   "uploaded": "2026-11-04T06:06:41.141Z",
+   "mtime": 1793771349634,
+   "preview": "2026-11-04T06:06:43.564Z"
   },
   "/it-it/gestire-prenotazione/extra/upgrade/aste": {
    "uploaded": "2026-11-04T05:20:23.406Z",
@@ -3496,19 +3496,19 @@
    "preview": "2026-11-04T05:20:32.592Z"
   },
   "/it-it/gestire-prenotazione/extra/upgrade/prezzo-fisso": {
-   "uploaded": "2026-11-04T05:20:27.235Z",
-   "mtime": 1793766947492,
-   "preview": "2026-11-04T05:20:29.125Z"
+   "uploaded": "2026-11-04T06:07:22.116Z",
+   "mtime": 1793771349928,
+   "preview": "2026-11-04T06:07:23.709Z"
   },
   "/it-it/info-legal/privacidade": {
-   "uploaded": "2026-11-04T05:15:49.323Z",
-   "mtime": 1793766944869,
-   "preview": "2026-11-04T05:15:51.503Z"
+   "uploaded": "2026-11-04T06:05:51.341Z",
+   "mtime": 1793771349134,
+   "preview": "2026-11-04T06:05:52.988Z"
   },
   "/it-it/informazioni": {
-   "uploaded": "2026-11-04T05:14:47.156Z",
-   "mtime": 1793766943769,
-   "preview": "2026-11-04T05:14:49.552Z"
+   "uploaded": "2026-11-04T06:05:18.134Z",
+   "mtime": 1793771348855,
+   "preview": "2026-11-04T06:05:20.534Z"
   },
   "/it-it/informazioni-check-in": {
    "uploaded": "2026-11-04T05:14:32.420Z",
@@ -3516,19 +3516,19 @@
    "preview": "2026-11-04T05:14:34.449Z"
   },
   "/it-it/informazioni-legali": {
-   "uploaded": "2026-11-04T05:14:43.755Z",
-   "mtime": 1793766943728,
-   "preview": "2026-11-04T05:14:45.586Z"
+   "uploaded": "2026-11-04T06:05:15.101Z",
+   "mtime": 1793771348827,
+   "preview": "2026-11-04T06:05:16.793Z"
   },
   "/it-it/informazioni-legali/accessibilita": {
-   "uploaded": "2026-11-04T05:15:33.884Z",
-   "mtime": 1793766944669,
-   "preview": "2026-11-04T05:15:35.338Z"
+   "uploaded": "2026-11-04T06:05:41.965Z",
+   "mtime": 1793771349046,
+   "preview": "2026-11-04T06:05:43.462Z"
   },
   "/it-it/informazioni-legali/condizioni-di-trasporto": {
-   "uploaded": "2026-11-04T05:15:29.739Z",
-   "mtime": 1793766944631,
-   "preview": "2026-11-04T05:15:32.079Z"
+   "uploaded": "2026-11-04T06:05:38.619Z",
+   "mtime": 1793771349015,
+   "preview": "2026-11-04T06:05:40.399Z"
   },
   "/it-it/informazioni-legali/cookie": {
    "uploaded": "2026-11-04T05:15:41.173Z",
@@ -3536,34 +3536,34 @@
    "preview": "2026-11-04T05:15:43.534Z"
   },
   "/it-it/informazioni-legali/flight-passes": {
-   "uploaded": "2026-11-04T05:15:37.210Z",
-   "mtime": 1793766944698,
-   "preview": "2026-11-04T05:15:39.494Z"
+   "uploaded": "2026-11-04T06:05:44.773Z",
+   "mtime": 1793771349068,
+   "preview": "2026-11-04T06:05:46.189Z"
   },
   "/it-it/informazioni-legali/politica-segnalazione-vulnerabilita": {
-   "uploaded": "2026-11-04T05:15:53.562Z",
-   "mtime": 1793766944903,
-   "preview": "2026-11-04T05:15:55.295Z"
+   "uploaded": "2026-11-04T06:05:54.325Z",
+   "mtime": 1793771349159,
+   "preview": "2026-11-04T06:05:56.441Z"
   },
   "/it-it/informazioni-legali/privacy": {
-   "uploaded": "2026-11-04T05:15:45.447Z",
-   "mtime": 1793766944801,
-   "preview": "2026-11-04T05:15:47.431Z"
+   "uploaded": "2026-11-04T06:05:47.471Z",
+   "mtime": 1793771349105,
+   "preview": "2026-11-04T06:05:49.902Z"
   },
   "/it-it/informazioni-legali/sicurezza-informatica": {
-   "uploaded": "2026-11-04T05:15:26.473Z",
-   "mtime": 1793766944582,
-   "preview": "2026-11-04T05:15:28.187Z"
+   "uploaded": "2026-11-04T06:05:35.642Z",
+   "mtime": 1793771348985,
+   "preview": "2026-11-04T06:05:37.250Z"
   },
   "/it-it/informazioni-legali/termini-e-condizioni": {
-   "uploaded": "2026-11-04T05:15:57.246Z",
-   "mtime": 1793766944952,
-   "preview": "2026-11-04T05:15:59.382Z"
+   "uploaded": "2026-11-04T06:05:57.948Z",
+   "mtime": 1793771349186,
+   "preview": "2026-11-04T06:05:59.940Z"
   },
   "/it-it/informazioni/bagaglio": {
-   "uploaded": "2026-11-04T05:16:01.322Z",
-   "mtime": 1793766944985,
-   "preview": "2026-11-04T05:16:03.209Z"
+   "uploaded": "2026-11-04T06:06:01.653Z",
+   "mtime": 1793771349210,
+   "preview": "2026-11-04T06:06:03.319Z"
   },
   "/it-it/informazioni/bagaglio/armi-munizioni": {
    "uploaded": "2026-11-04T05:18:36.138Z",
@@ -3581,9 +3581,9 @@
    "preview": "2026-11-04T05:18:55.174Z"
   },
   "/it-it/informazioni/bagaglio/bagaglio-mano": {
-   "uploaded": "2026-11-04T05:18:44.966Z",
-   "mtime": 1793766946489,
-   "preview": "2026-11-04T05:18:47.531Z"
+   "uploaded": "2026-11-04T06:06:48.321Z",
+   "mtime": 1793771349688,
+   "preview": "2026-11-04T06:06:50.348Z"
   },
   "/it-it/informazioni/bagaglio/bagaglio-stiva": {
    "uploaded": "2026-11-04T05:18:49.205Z",
@@ -3591,9 +3591,9 @@
    "preview": "2026-11-04T05:18:51.584Z"
   },
   "/it-it/informazioni/bagaglio/localizzare-bagagli": {
-   "uploaded": "2026-11-04T05:19:03.881Z",
-   "mtime": 1793766946688,
-   "preview": "2026-11-04T05:19:05.983Z"
+   "uploaded": "2026-11-04T06:06:51.639Z",
+   "mtime": 1793771349712,
+   "preview": "2026-11-04T06:06:53.350Z"
   },
   "/it-it/informazioni/bagaglio/problemi-bagaglio": {
    "uploaded": "2026-11-04T05:19:00.400Z",
@@ -3636,9 +3636,9 @@
    "preview": "2026-11-04T05:19:13.038Z"
   },
   "/it-it/informazioni/documentazione": {
-   "uploaded": "2026-11-04T05:16:23.739Z",
-   "mtime": 1793766945164,
-   "preview": "2026-11-04T05:16:25.721Z"
+   "uploaded": "2026-11-04T06:06:04.720Z",
+   "mtime": 1793771349232,
+   "preview": "2026-11-04T06:06:06.573Z"
   },
   "/it-it/informazioni/documentazione/collaborazione-ucs": {
    "uploaded": "2026-11-04T05:19:25.820Z",
@@ -3651,34 +3651,34 @@
    "preview": "2026-11-04T05:19:35.618Z"
   },
   "/it-it/informazioni/documentazione/passaporto-elettronico": {
-   "uploaded": "2026-11-04T05:19:29.974Z",
-   "mtime": 1793766946930,
-   "preview": "2026-11-04T05:19:32.104Z"
+   "uploaded": "2026-11-04T06:06:54.782Z",
+   "mtime": 1793771349736,
+   "preview": "2026-11-04T06:06:56.619Z"
   },
   "/it-it/informazioni/documentazione/viaggiare-negli-stati-uniti": {
-   "uploaded": "2026-11-04T05:19:49.243Z",
-   "mtime": 1793766947074,
-   "preview": "2026-11-04T05:19:50.690Z"
+   "uploaded": "2026-11-04T06:07:08.019Z",
+   "mtime": 1793771349828,
+   "preview": "2026-11-04T06:07:09.680Z"
   },
   "/it-it/informazioni/documentazione/viaggio-brasile": {
-   "uploaded": "2026-11-04T05:19:37.362Z",
-   "mtime": 1793766946985,
-   "preview": "2026-11-04T05:19:39.024Z"
+   "uploaded": "2026-11-04T06:06:57.889Z",
+   "mtime": 1793771349761,
+   "preview": "2026-11-04T06:06:59.721Z"
   },
   "/it-it/informazioni/documentazione/viaggio-in-canada": {
-   "uploaded": "2026-11-04T05:19:41.420Z",
-   "mtime": 1793766947013,
-   "preview": "2026-11-04T05:19:43.397Z"
+   "uploaded": "2026-11-04T06:07:01.583Z",
+   "mtime": 1793771349782,
+   "preview": "2026-11-04T06:07:03.302Z"
   },
   "/it-it/informazioni/documentazione/viaggio-regno-unito": {
-   "uploaded": "2026-11-04T05:19:45.611Z",
-   "mtime": 1793766947041,
-   "preview": "2026-11-04T05:19:47.511Z"
+   "uploaded": "2026-11-04T06:07:04.856Z",
+   "mtime": 1793771349805,
+   "preview": "2026-11-04T06:07:06.609Z"
   },
   "/it-it/informazioni/documentazione/visti-schengen": {
-   "uploaded": "2026-11-04T05:19:52.487Z",
-   "mtime": 1793766947121,
-   "preview": "2026-11-04T05:19:54.341Z"
+   "uploaded": "2026-11-04T06:07:11.228Z",
+   "mtime": 1793771349854,
+   "preview": "2026-11-04T06:07:12.863Z"
   },
   "/it-it/informazioni/donne-incinte": {
    "uploaded": "2026-11-04T05:16:15.595Z",
@@ -3696,9 +3696,9 @@
    "preview": "2026-11-04T05:16:07.529Z"
   },
   "/it-it/informazioni/viaggiare-con-animali": {
-   "uploaded": "2026-11-04T05:16:27.268Z",
-   "mtime": 1793766945192,
-   "preview": "2026-11-04T05:16:29.307Z"
+   "uploaded": "2026-11-04T06:06:07.883Z",
+   "mtime": 1793771349255,
+   "preview": "2026-11-04T06:06:09.739Z"
   },
   "/it-it/informazioni/viaggiare-con-animali/animali-assistenza": {
    "uploaded": "2026-11-04T05:19:56.456Z",
@@ -3761,9 +3761,9 @@
    "preview": "2026-11-04T05:17:29.702Z"
   },
   "/it-it/stopover": {
-   "uploaded": "2026-11-04T05:14:58.807Z",
-   "mtime": 1793766943871,
-   "preview": "2026-11-04T05:15:01.367Z"
+   "uploaded": "2026-11-04T06:05:24.985Z",
+   "mtime": 1793771348904,
+   "preview": "2026-11-04T06:05:27.734Z"
   },
   "/it-it/stopover/partner": {
    "uploaded": "2026-11-04T05:17:35.135Z",
@@ -3781,9 +3781,9 @@
    "preview": "2026-11-04T02:27:55.840Z"
   },
   "/pl-pl": {
-   "uploaded": "2026-11-04T03:10:28.765Z",
-   "mtime": 1793761776491,
-   "preview": "2026-11-04T03:10:31.422Z"
+   "uploaded": "2026-11-04T06:07:25.093Z",
+   "mtime": 1793771349956,
+   "preview": "2026-11-04T06:07:27.056Z"
   },
   "/pl-pl/an-bord/mahlzeiten/local-stars": {
    "uploaded": "2026-11-04T05:25:48.860Z",
@@ -3791,24 +3791,24 @@
    "preview": "2026-11-04T05:25:50.828Z"
   },
   "/pl-pl/info-legal/privacidade": {
-   "uploaded": "2026-11-04T05:21:51.009Z",
-   "mtime": 1793766948426,
-   "preview": "2026-11-04T05:21:52.791Z"
+   "uploaded": "2026-11-04T06:07:59.391Z",
+   "mtime": 1793771350237,
+   "preview": "2026-11-04T06:08:02.282Z"
   },
   "/pl-pl/informacja": {
-   "uploaded": "2026-11-04T05:20:58.068Z",
-   "mtime": 1793766947782,
-   "preview": "2026-11-04T05:21:00.365Z"
+   "uploaded": "2026-11-04T06:07:31.777Z",
+   "mtime": 1793771350006,
+   "preview": "2026-11-04T06:07:33.735Z"
   },
   "/pl-pl/informacja/bagaz": {
-   "uploaded": "2026-11-04T05:21:57.913Z",
-   "mtime": 1793766948504,
-   "preview": "2026-11-04T05:21:59.955Z"
+   "uploaded": "2026-11-04T06:08:06.993Z",
+   "mtime": 1793771350284,
+   "preview": "2026-11-04T06:08:08.681Z"
   },
   "/pl-pl/informacja/bagaz/bagaz-podreczny": {
-   "uploaded": "2026-11-04T05:24:34.130Z",
-   "mtime": 1793766949968,
-   "preview": "2026-11-04T05:24:36.496Z"
+   "uploaded": "2026-11-04T06:08:55.112Z",
+   "mtime": 1793771350736,
+   "preview": "2026-11-04T06:08:57.142Z"
   },
   "/pl-pl/informacja/bagaz/bagaz-rejestrowany": {
    "uploaded": "2026-11-04T05:24:38.088Z",
@@ -3841,9 +3841,9 @@
    "preview": "2026-11-04T05:24:44.087Z"
   },
   "/pl-pl/informacja/bagaz/zlokalizowac-bagaz": {
-   "uploaded": "2026-11-04T05:24:52.988Z",
-   "mtime": 1793766950163,
-   "preview": "2026-11-04T05:24:55.167Z"
+   "uploaded": "2026-11-04T06:08:58.590Z",
+   "mtime": 1793771350759,
+   "preview": "2026-11-04T06:09:00.295Z"
   },
   "/pl-pl/informacja/floty-tap": {
    "uploaded": "2026-11-04T05:22:05.169Z",
@@ -3856,9 +3856,9 @@
    "preview": "2026-11-04T05:22:10.884Z"
   },
   "/pl-pl/informacja/podrozowanie-zwierzetami": {
-   "uploaded": "2026-11-04T05:22:19.886Z",
-   "mtime": 1793766948725,
-   "preview": "2026-11-04T05:22:21.999Z"
+   "uploaded": "2026-11-04T06:08:13.867Z",
+   "mtime": 1793771350327,
+   "preview": "2026-11-04T06:08:15.608Z"
   },
   "/pl-pl/informacja/podrozowanie-zwierzetami/zwierzeta": {
    "uploaded": "2026-11-04T05:25:45.101Z",
@@ -3901,9 +3901,9 @@
    "preview": "2026-11-04T05:20:44.754Z"
   },
   "/pl-pl/informacje-prawne": {
-   "uploaded": "2026-11-04T05:20:54.353Z",
-   "mtime": 1793766947748,
-   "preview": "2026-11-04T05:20:56.364Z"
+   "uploaded": "2026-11-04T06:07:28.295Z",
+   "mtime": 1793771349980,
+   "preview": "2026-11-04T06:07:29.927Z"
   },
   "/pl-pl/informacje-prawne/cookie": {
    "uploaded": "2026-11-04T05:21:43.945Z",
@@ -3911,34 +3911,34 @@
    "preview": "2026-11-04T05:21:46.100Z"
   },
   "/pl-pl/informacje-prawne/cyberbezpieczenstwo": {
-   "uploaded": "2026-11-04T05:21:29.540Z",
-   "mtime": 1793766948160,
-   "preview": "2026-11-04T05:21:31.483Z"
+   "uploaded": "2026-11-04T06:07:44.117Z",
+   "mtime": 1793771350107,
+   "preview": "2026-11-04T06:07:45.580Z"
   },
   "/pl-pl/informacje-prawne/dostepnosc": {
-   "uploaded": "2026-11-04T05:21:37.071Z",
-   "mtime": 1793766948248,
-   "preview": "2026-11-04T05:21:38.944Z"
+   "uploaded": "2026-11-04T06:07:50.225Z",
+   "mtime": 1793771350159,
+   "preview": "2026-11-04T06:07:52.145Z"
   },
   "/pl-pl/informacje-prawne/flight-passes": {
-   "uploaded": "2026-11-04T05:21:40.514Z",
-   "mtime": 1793766948277,
-   "preview": "2026-11-04T05:21:41.957Z"
+   "uploaded": "2026-11-04T06:07:53.435Z",
+   "mtime": 1793771350180,
+   "preview": "2026-11-04T06:07:54.896Z"
   },
   "/pl-pl/informacje-prawne/prywatnosc": {
-   "uploaded": "2026-11-04T05:21:47.752Z",
-   "mtime": 1793766948381,
-   "preview": "2026-11-04T05:21:49.382Z"
+   "uploaded": "2026-11-04T06:07:56.351Z",
+   "mtime": 1793771350209,
+   "preview": "2026-11-04T06:07:58.106Z"
   },
   "/pl-pl/informacje-prawne/warunki-i-postanowienia": {
-   "uploaded": "2026-11-04T05:21:54.345Z",
-   "mtime": 1793766948473,
-   "preview": "2026-11-04T05:21:56.325Z"
+   "uploaded": "2026-11-04T06:08:03.631Z",
+   "mtime": 1793771350263,
+   "preview": "2026-11-04T06:08:05.564Z"
   },
   "/pl-pl/informacje-prawne/warunki-przewozu": {
-   "uploaded": "2026-11-04T05:21:33.370Z",
-   "mtime": 1793766948212,
-   "preview": "2026-11-04T05:21:35.399Z"
+   "uploaded": "2026-11-04T06:07:46.913Z",
+   "mtime": 1793771350133,
+   "preview": "2026-11-04T06:07:48.600Z"
   },
   "/pl-pl/informacje/niemowleta-i-dzieci": {
    "uploaded": "2026-11-04T05:22:01.507Z",
@@ -3951,9 +3951,9 @@
    "preview": "2026-11-04T05:25:43.182Z"
   },
   "/pl-pl/informacyjne/dokumenty": {
-   "uploaded": "2026-11-04T05:22:16.284Z",
-   "mtime": 1793766948697,
-   "preview": "2026-11-04T05:22:18.293Z"
+   "uploaded": "2026-11-04T06:08:10.227Z",
+   "mtime": 1793771350307,
+   "preview": "2026-11-04T06:08:12.242Z"
   },
   "/pl-pl/informacyjne/dokumenty/partnerstwie-ucs": {
    "uploaded": "2026-11-04T05:25:15.507Z",
@@ -3961,29 +3961,29 @@
    "preview": "2026-11-04T05:25:17.811Z"
   },
   "/pl-pl/informacyjne/dokumenty/paszport-elektroniczny": {
-   "uploaded": "2026-11-04T05:25:19.556Z",
-   "mtime": 1793766950401,
-   "preview": "2026-11-04T05:25:21.599Z"
+   "uploaded": "2026-11-04T06:09:01.926Z",
+   "mtime": 1793771350783,
+   "preview": "2026-11-04T06:09:03.764Z"
   },
   "/pl-pl/informacyjne/dokumenty/podroz-brazylii": {
-   "uploaded": "2026-11-04T05:25:26.699Z",
-   "mtime": 1793766950463,
-   "preview": "2026-11-04T05:25:28.777Z"
+   "uploaded": "2026-11-04T06:09:05.007Z",
+   "mtime": 1793771350809,
+   "preview": "2026-11-04T06:09:06.913Z"
   },
   "/pl-pl/informacyjne/dokumenty/podroz-kanada": {
-   "uploaded": "2026-11-04T05:25:30.422Z",
-   "mtime": 1793766950492,
-   "preview": "2026-11-04T05:25:32.115Z"
+   "uploaded": "2026-11-04T06:09:08.282Z",
+   "mtime": 1793771350832,
+   "preview": "2026-11-04T06:09:09.813Z"
   },
   "/pl-pl/informacyjne/dokumenty/podroz-uk": {
-   "uploaded": "2026-11-04T05:25:33.753Z",
-   "mtime": 1793766950521,
-   "preview": "2026-11-04T05:25:35.825Z"
+   "uploaded": "2026-11-04T06:09:11.239Z",
+   "mtime": 1793771350854,
+   "preview": "2026-11-04T06:09:13.072Z"
   },
   "/pl-pl/informacyjne/dokumenty/wizy-schengen": {
-   "uploaded": "2026-11-04T05:25:37.473Z",
-   "mtime": 1793766950567,
-   "preview": "2026-11-04T05:25:39.630Z"
+   "uploaded": "2026-11-04T06:09:14.431Z",
+   "mtime": 1793771350880,
+   "preview": "2026-11-04T06:09:16.648Z"
   },
   "/pl-pl/informacyjne/dokumenty/zoltej-febry": {
    "uploaded": "2026-11-04T05:25:23.200Z",
@@ -3996,9 +3996,9 @@
    "preview": "2026-11-04T05:20:48.710Z"
   },
   "/pl-pl/na-pokladzie": {
-   "uploaded": "2026-11-04T05:21:01.821Z",
-   "mtime": 1793766947810,
-   "preview": "2026-11-04T05:21:03.950Z"
+   "uploaded": "2026-11-04T06:07:35.056Z",
+   "mtime": 1793771350027,
+   "preview": "2026-11-04T06:07:36.933Z"
   },
   "/pl-pl/na-pokladzie/altitude-film-festival": {
    "uploaded": "2026-11-04T05:22:23.648Z",
@@ -4011,19 +4011,19 @@
    "preview": "2026-11-04T05:22:29.702Z"
   },
   "/pl-pl/na-pokladzie/lot-business": {
-   "uploaded": "2026-11-04T05:22:43.211Z",
-   "mtime": 1793766948939,
-   "preview": "2026-11-04T05:22:45.732Z"
+   "uploaded": "2026-11-04T06:08:23.842Z",
+   "mtime": 1793771350399,
+   "preview": "2026-11-04T06:08:26.315Z"
   },
   "/pl-pl/na-pokladzie/lot-ekonomicznej": {
-   "uploaded": "2026-11-04T05:22:39.323Z",
-   "mtime": 1793766948903,
-   "preview": "2026-11-04T05:22:41.533Z"
+   "uploaded": "2026-11-04T06:08:20.348Z",
+   "mtime": 1793771350373,
+   "preview": "2026-11-04T06:08:22.521Z"
   },
   "/pl-pl/na-pokladzie/posilki": {
-   "uploaded": "2026-11-04T05:22:35.355Z",
-   "mtime": 1793766948870,
-   "preview": "2026-11-04T05:22:37.687Z"
+   "uploaded": "2026-11-04T06:08:17.027Z",
+   "mtime": 1793771350350,
+   "preview": "2026-11-04T06:08:18.842Z"
   },
   "/pl-pl/na-pokladzie/posilki/economy-prime": {
    "uploaded": "2026-11-04T05:25:52.580Z",
@@ -4041,9 +4041,9 @@
    "preview": "2026-11-04T05:22:33.876Z"
   },
   "/pl-pl/na-pokladzie/wi-fi": {
-   "uploaded": "2026-11-04T05:22:47.501Z",
-   "mtime": 1793766948978,
-   "preview": "2026-11-04T05:22:49.074Z"
+   "uploaded": "2026-11-04T06:08:27.816Z",
+   "mtime": 1793771350424,
+   "preview": "2026-11-04T06:08:29.725Z"
   },
   "/pl-pl/ostrzezenia-i-informacje": {
    "uploaded": "2026-11-04T05:20:37.892Z",
@@ -4116,9 +4116,9 @@
    "preview": "2026-11-04T05:23:05.435Z"
   },
   "/pl-pl/stopover": {
-   "uploaded": "2026-11-04T05:21:10.055Z",
-   "mtime": 1793766947901,
-   "preview": "2026-11-04T05:21:12.872Z"
+   "uploaded": "2026-11-04T06:07:38.364Z",
+   "mtime": 1793771350060,
+   "preview": "2026-11-04T06:07:39.948Z"
   },
   "/pl-pl/stopover/partnerzy": {
    "uploaded": "2026-11-04T05:23:23.252Z",
@@ -4131,14 +4131,14 @@
    "preview": "2026-11-04T05:20:52.655Z"
   },
   "/pl-pl/zarzadzaj-rezerwacja/dodatki": {
-   "uploaded": "2026-11-04T05:21:25.484Z",
-   "mtime": 1793766948130,
-   "preview": "2026-11-04T05:21:27.806Z"
+   "uploaded": "2026-11-04T06:07:41.237Z",
+   "mtime": 1793771350084,
+   "preview": "2026-11-04T06:07:42.863Z"
   },
   "/pl-pl/zarzadzaj-rezerwacja/dodatki/boost-packs": {
-   "uploaded": "2026-11-04T05:23:57.004Z",
-   "mtime": 1793766949604,
-   "preview": "2026-11-04T05:23:59.090Z"
+   "uploaded": "2026-11-04T06:08:41.454Z",
+   "mtime": 1793771350641,
+   "preview": "2026-11-04T06:08:44.014Z"
   },
   "/pl-pl/zarzadzaj-rezerwacja/dodatki/fast-track": {
    "uploaded": "2026-11-04T05:24:04.894Z",
@@ -4156,14 +4156,14 @@
    "preview": "2026-11-04T05:24:16.623Z"
   },
   "/pl-pl/zarzadzaj-rezerwacja/dodatki/puste-miejsce-obok": {
-   "uploaded": "2026-11-04T05:24:22.652Z",
-   "mtime": 1793766949824,
-   "preview": "2026-11-04T05:24:24.755Z"
+   "uploaded": "2026-11-04T06:08:52.008Z",
+   "mtime": 1793771350708,
+   "preview": "2026-11-04T06:08:53.775Z"
   },
   "/pl-pl/zarzadzaj-rezerwacja/dodatki/upgrades": {
-   "uploaded": "2026-11-04T05:24:18.486Z",
-   "mtime": 1793766949797,
-   "preview": "2026-11-04T05:24:20.957Z"
+   "uploaded": "2026-11-04T06:08:48.936Z",
+   "mtime": 1793771350688,
+   "preview": "2026-11-04T06:08:50.719Z"
   },
   "/pl-pl/zarzadzaj-rezerwacja/dodatki/upgrades/aukcje": {
    "uploaded": "2026-11-04T05:26:00.142Z",
@@ -4176,14 +4176,14 @@
    "preview": "2026-11-04T05:26:08.969Z"
   },
   "/pl-pl/zarzadzaj-rezerwacja/dodatki/upgrades/ustalona-oplata": {
-   "uploaded": "2026-11-04T05:26:03.833Z",
-   "mtime": 1793766951185,
-   "preview": "2026-11-04T05:26:05.727Z"
+   "uploaded": "2026-11-04T06:09:17.949Z",
+   "mtime": 1793771350906,
+   "preview": "2026-11-04T06:09:19.546Z"
   },
   "/pl-pl/zarzadzaj-rezerwacja/dodatki/wejscie-poklad": {
-   "uploaded": "2026-11-04T05:24:00.561Z",
-   "mtime": 1793766949637,
-   "preview": "2026-11-04T05:24:02.658Z"
+   "uploaded": "2026-11-04T06:08:45.231Z",
+   "mtime": 1793771350666,
+   "preview": "2026-11-04T06:08:47.245Z"
   },
   "/pt-br": {
    "uploaded": "2026-11-04T02:07:58.038Z",
@@ -4836,9 +4836,9 @@
    "preview": "2026-11-04T04:39:35.182Z"
   },
   "/pt-pt/fragments/parceiros/lisboa": {
-   "uploaded": "2026-11-04T04:39:49.661Z",
-   "mtime": 1793766913748,
-   "preview": "2026-11-04T04:39:55.510Z"
+   "uploaded": "2026-11-04T05:50:53.501Z",
+   "mtime": 1793771338227,
+   "preview": "2026-11-04T05:50:59.202Z"
   },
   "/pt-pt/fragments/parceiros/madeira": {
    "uploaded": "2026-11-04T04:39:56.862Z",
@@ -4846,9 +4846,9 @@
    "preview": "2026-11-04T04:39:59.266Z"
   },
   "/pt-pt/fragments/parceiros/porto": {
-   "uploaded": "2026-11-04T04:40:04.535Z",
-   "mtime": 1793766913800,
-   "preview": "2026-11-04T04:40:08.813Z"
+   "uploaded": "2026-11-04T05:51:00.704Z",
+   "mtime": 1793771338271,
+   "preview": "2026-11-04T05:51:03.968Z"
   },
   "/en-pt/fragments/partners/azores": {
    "uploaded": "2026-11-04T04:47:43.012Z",
@@ -4871,9 +4871,9 @@
    "preview": "2026-11-04T04:47:57.248Z"
   },
   "/en-pt/fragments/partners/lisbon": {
-   "uploaded": "2026-11-04T04:47:58.638Z",
-   "mtime": 1793766925272,
-   "preview": "2026-11-04T04:48:04.179Z"
+   "uploaded": "2026-11-04T05:54:37.226Z",
+   "mtime": 1793771343300,
+   "preview": "2026-11-04T05:54:41.553Z"
   },
   "/en-pt/fragments/partners/madeira": {
    "uploaded": "2026-11-04T04:48:05.375Z",
@@ -4881,9 +4881,9 @@
    "preview": "2026-11-04T04:48:07.993Z"
   },
   "/en-pt/fragments/partners/porto": {
-   "uploaded": "2026-11-04T04:48:09.118Z",
-   "mtime": 1793766925320,
-   "preview": "2026-11-04T04:48:13.072Z"
+   "uploaded": "2026-11-04T05:54:42.950Z",
+   "mtime": 1793771343342,
+   "preview": "2026-11-04T05:54:46.481Z"
   },
   "/es-es/fragments/socios/azores": {
    "uploaded": "2026-11-04T04:55:32.720Z",
@@ -4906,9 +4906,9 @@
    "preview": "2026-11-04T04:55:45.356Z"
   },
   "/es-es/fragments/socios/lisboa": {
-   "uploaded": "2026-11-04T04:55:46.690Z",
-   "mtime": 1793766930833,
-   "preview": "2026-11-04T04:55:51.280Z"
+   "uploaded": "2026-11-04T05:57:42.115Z",
+   "mtime": 1793771344996,
+   "preview": "2026-11-04T05:57:47.046Z"
   },
   "/es-es/fragments/socios/madeira": {
    "uploaded": "2026-11-04T04:55:52.656Z",
@@ -4916,9 +4916,9 @@
    "preview": "2026-11-04T04:55:54.683Z"
   },
   "/es-es/fragments/socios/oporto": {
-   "uploaded": "2026-11-04T04:55:55.888Z",
-   "mtime": 1793766930880,
-   "preview": "2026-11-04T04:55:59.771Z"
+   "uploaded": "2026-11-04T05:57:48.341Z",
+   "mtime": 1793771345037,
+   "preview": "2026-11-04T05:57:52.786Z"
   },
   "/fr-fr/fragments/partenaires/acores": {
    "uploaded": "2026-11-04T05:02:52.444Z",
@@ -4941,9 +4941,9 @@
    "preview": "2026-11-04T05:03:04.631Z"
   },
   "/fr-fr/fragments/partenaires/lisbonne": {
-   "uploaded": "2026-11-04T05:03:05.873Z",
-   "mtime": 1793766935682,
-   "preview": "2026-11-04T05:03:10.715Z"
+   "uploaded": "2026-11-04T06:00:29.601Z",
+   "mtime": 1793771346456,
+   "preview": "2026-11-04T06:00:34.154Z"
   },
   "/fr-fr/fragments/partenaires/madere": {
    "uploaded": "2026-11-04T05:03:12.228Z",
@@ -4951,9 +4951,9 @@
    "preview": "2026-11-04T05:03:14.552Z"
   },
   "/fr-fr/fragments/partenaires/porto": {
-   "uploaded": "2026-11-04T05:03:15.904Z",
-   "mtime": 1793766935733,
-   "preview": "2026-11-04T05:03:19.577Z"
+   "uploaded": "2026-11-04T06:00:35.623Z",
+   "mtime": 1793771346501,
+   "preview": "2026-11-04T06:00:39.803Z"
   },
   "/de-de/fragments/partner/azoren": {
    "uploaded": "2026-11-04T05:10:22.097Z",
@@ -4976,9 +4976,9 @@
    "preview": "2026-11-04T05:10:34.356Z"
   },
   "/de-de/fragments/partner/lissabon": {
-   "uploaded": "2026-11-04T05:10:35.630Z",
-   "mtime": 1793766940579,
-   "preview": "2026-11-04T05:10:40.034Z"
+   "uploaded": "2026-11-04T06:03:36.438Z",
+   "mtime": 1793771348070,
+   "preview": "2026-11-04T06:03:39.720Z"
   },
   "/de-de/fragments/partner/madeira": {
    "uploaded": "2026-11-04T05:10:41.390Z",
@@ -4986,9 +4986,9 @@
    "preview": "2026-11-04T05:10:43.900Z"
   },
   "/de-de/fragments/partner/porto": {
-   "uploaded": "2026-11-04T05:10:45.158Z",
-   "mtime": 1793766940634,
-   "preview": "2026-11-04T05:10:49.003Z"
+   "uploaded": "2026-11-04T06:03:40.965Z",
+   "mtime": 1793771348113,
+   "preview": "2026-11-04T06:03:44.403Z"
   },
   "/it-it/fragments/partner/azzorre": {
    "uploaded": "2026-11-04T05:17:38.627Z",
@@ -5011,9 +5011,9 @@
    "preview": "2026-11-04T05:17:52.470Z"
   },
   "/it-it/fragments/partner/lisbona": {
-   "uploaded": "2026-11-04T05:17:53.851Z",
-   "mtime": 1793766946032,
-   "preview": "2026-11-04T05:17:58.328Z"
+   "uploaded": "2026-11-04T06:06:24.390Z",
+   "mtime": 1793771349514,
+   "preview": "2026-11-04T06:06:28.677Z"
   },
   "/it-it/fragments/partner/madeira": {
    "uploaded": "2026-11-04T05:17:59.667Z",
@@ -5021,9 +5021,9 @@
    "preview": "2026-11-04T05:18:02.054Z"
   },
   "/it-it/fragments/partner/porto": {
-   "uploaded": "2026-11-04T05:18:03.533Z",
-   "mtime": 1793766946081,
-   "preview": "2026-11-04T05:18:07.516Z"
+   "uploaded": "2026-11-04T06:06:29.992Z",
+   "mtime": 1793771349559,
+   "preview": "2026-11-04T06:06:33.211Z"
   },
   "/pl-pl/fragments/partnerzy/azory": {
    "uploaded": "2026-11-04T05:23:26.521Z",
@@ -5046,9 +5046,9 @@
    "preview": "2026-11-04T05:23:40.835Z"
   },
   "/pl-pl/fragments/partnerzy/lizbona": {
-   "uploaded": "2026-11-04T05:23:42.205Z",
-   "mtime": 1793766949526,
-   "preview": "2026-11-04T05:23:46.655Z"
+   "uploaded": "2026-11-04T06:08:31.056Z",
+   "mtime": 1793771350570,
+   "preview": "2026-11-04T06:08:35.137Z"
   },
   "/pl-pl/fragments/partnerzy/madera": {
    "uploaded": "2026-11-04T05:23:47.954Z",
@@ -5056,9 +5056,9 @@
    "preview": "2026-11-04T05:23:50.140Z"
   },
   "/pl-pl/fragments/partnerzy/porto": {
-   "uploaded": "2026-11-04T05:23:51.506Z",
-   "mtime": 1793766949570,
-   "preview": "2026-11-04T05:23:55.322Z"
+   "uploaded": "2026-11-04T06:08:36.513Z",
+   "mtime": 1793771350613,
+   "preview": "2026-11-04T06:08:40.098Z"
   }
  },
  "media": {
@@ -10560,6 +10560,231 @@
   },
   "/media-da/tap/azoris-hotels-partner-card-5bf5b043.webp": {
    "at": "2026-11-04T04:48:41.720Z"
+  },
+  "/media-da/tap/logotap-inst-vertical-cmyk-positivo-8c877a35.jpg": {
+   "at": "2026-11-04T05:49:22.782Z"
+  },
+  "/media-da/tap/legal-information-card-c7af9105.jpg": {
+   "at": "2026-11-04T05:49:27.452Z"
+  },
+  "/media-da/tap/boarding-7e53382e.jpg": {
+   "at": "2026-11-04T05:49:31.601Z"
+  },
+  "/media-da/tap/economy-class-cd057bd8.jpg": {
+   "at": "2026-11-04T05:49:36.084Z"
+  },
+  "/media-da/tap/portugal-stopover-add-portugal-to-your-trip-1-561874e3.mp4": {
+   "at": "2026-11-04T05:49:41.063Z"
+  },
+  "/media-da/tap/promos-miles-and-go-1a5cf92f.jpg": {
+   "at": "2026-11-04T05:49:44.995Z"
+  },
+  "/media-da/tap/delays-and-cancellations-0e714951.jpg": {
+   "at": "2026-11-04T05:49:49.635Z"
+  },
+  "/media-da/tap/tap-upgrade-card-b0186511.jpg": {
+   "at": "2026-11-04T05:49:54.425Z"
+  },
+  "/media-da/tap/baggage-card-b775aa0d.jpg": {
+   "at": "2026-11-04T05:50:21.874Z"
+  },
+  "/media-da/tap/boarding-pass-a2c06390.jpg": {
+   "at": "2026-11-04T05:50:26.349Z"
+  },
+  "/media-da/tap/card-pets-832bfb49.jpg": {
+   "at": "2026-11-04T05:50:30.445Z"
+  },
+  "/media-da/tap/meals-on-board-12ae358a.jpg": {
+   "at": "2026-11-04T05:50:34.916Z"
+  },
+  "/media-da/tap/economy-80c04f46.jpg": {
+   "at": "2026-11-04T05:50:39.290Z"
+  },
+  "/media-da/tap/long-flight-meal-image-fcd82ff6.jpg": {
+   "at": "2026-11-04T05:50:43.602Z"
+  },
+  "/media-da/tap/cinema-on-board-11ca4b72.jpg": {
+   "at": "2026-11-04T05:50:48.489Z"
+  },
+  "/media-da/tap/cq5dam-thumbnail-319-319-2-93a9d6aa.webp": {
+   "at": "2026-11-04T05:50:52.470Z"
+  },
+  "/media-da/tap/club-tap-miles-and-go-8a012e94.webp": {
+   "at": "2026-11-04T05:51:04.859Z"
+  },
+  "/media-da/tap/lp-aniversario-mg-pets-card-737x442-b85a5f56.jpg": {
+   "at": "2026-11-04T05:51:12.864Z"
+  },
+  "/media-da/tap/air-canada-logo-4a972866.webp": {
+   "at": "2026-11-04T05:51:17.061Z"
+  },
+  "/media-da/tap/air-china-logo-3628ba34.webp": {
+   "at": "2026-11-04T05:51:17.648Z"
+  },
+  "/media-da/tap/air-new-zealand-logo-583614ca.webp": {
+   "at": "2026-11-04T05:51:18.192Z"
+  },
+  "/media-da/tap/all-nippon-airways-logo-89955fed.webp": {
+   "at": "2026-11-04T05:51:18.835Z"
+  },
+  "/media-da/tap/asiana-airlines-logo-c36ab8e2.webp": {
+   "at": "2026-11-04T05:51:19.516Z"
+  },
+  "/media-da/tap/austrian-airlines-logo-6a2d0177.webp": {
+   "at": "2026-11-04T05:51:20.076Z"
+  },
+  "/media-da/tap/avianca-logo-32f07723.webp": {
+   "at": "2026-11-04T05:51:20.669Z"
+  },
+  "/media-da/tap/azul-logo-217a3d7d.webp": {
+   "at": "2026-11-04T05:51:21.321Z"
+  },
+  "/media-da/tap/brussels-logo-d191c11f.webp": {
+   "at": "2026-11-04T05:51:21.873Z"
+  },
+  "/media-da/tap/copa-airlines-logo-8f853a75.webp": {
+   "at": "2026-11-04T05:51:22.440Z"
+  },
+  "/media-da/tap/croatia-airlines-logo-30755596.webp": {
+   "at": "2026-11-04T05:51:22.966Z"
+  },
+  "/media-da/tap/egyptair-logo-2e1971e4.webp": {
+   "at": "2026-11-04T05:51:23.495Z"
+  },
+  "/media-da/tap/emirates-logo-44fb867d.webp": {
+   "at": "2026-11-04T05:51:24.071Z"
+  },
+  "/media-da/tap/etihad-logo-be2e5b59.webp": {
+   "at": "2026-11-04T05:51:24.659Z"
+  },
+  "/media-da/tap/ethiopian-logo-79c0db55.webp": {
+   "at": "2026-11-04T05:51:25.264Z"
+  },
+  "/media-da/tap/eva-air-logo-10e6da80.webp": {
+   "at": "2026-11-04T05:51:25.807Z"
+  },
+  "/media-da/tap/gol-logo-68d6e3de.webp": {
+   "at": "2026-11-04T05:51:26.367Z"
+  },
+  "/media-da/tap/companhias-aereas-ita-logo-cc704d41.webp": {
+   "at": "2026-11-04T05:51:26.915Z"
+  },
+  "/media-da/tap/lot-logo-b6ed0b9e.webp": {
+   "at": "2026-11-04T05:51:27.496Z"
+  },
+  "/media-da/tap/lufthansa-logo-90ed0c89.webp": {
+   "at": "2026-11-04T05:51:28.078Z"
+  },
+  "/media-da/tap/sas-logo-54c16eab.webp": {
+   "at": "2026-11-04T05:51:28.670Z"
+  },
+  "/media-da/tap/sata-logo-f108085e.webp": {
+   "at": "2026-11-04T05:51:29.270Z"
+  },
+  "/media-da/tap/shenzhen-logo-12f4bf0a.webp": {
+   "at": "2026-11-04T05:51:29.794Z"
+  },
+  "/media-da/tap/singapore-logo-6e0b2737.webp": {
+   "at": "2026-11-04T05:51:30.451Z"
+  },
+  "/media-da/tap/south-african-airways-logo-c5204978.webp": {
+   "at": "2026-11-04T05:51:30.985Z"
+  },
+  "/media-da/tap/swiss-logo-b4f9ea68.webp": {
+   "at": "2026-11-04T05:51:31.696Z"
+  },
+  "/media-da/tap/thai-logo-3156521d.webp": {
+   "at": "2026-11-04T05:51:32.239Z"
+  },
+  "/media-da/tap/tuekish-airlines-logo-0df1deca.webp": {
+   "at": "2026-11-04T05:51:32.818Z"
+  },
+  "/media-da/tap/united-logo-9385a466.webp": {
+   "at": "2026-11-04T05:51:33.369Z"
+  },
+  "/media-da/tap/continente-partner-card-65375b9e.png": {
+   "at": "2026-11-04T05:51:34.171Z"
+  },
+  "/media-da/tap/freeport-partner-card-209714bc.png": {
+   "at": "2026-11-04T05:51:34.764Z"
+  },
+  "/media-da/tap/repsol-partner-card-beda0a7c.png": {
+   "at": "2026-11-04T05:51:35.366Z"
+  },
+  "/media-da/tap/tap-store-partner-card-5551bce1.webp": {
+   "at": "2026-11-04T05:51:35.927Z"
+  },
+  "/media-da/tap/unicambio-partner-card-f44bd503.png": {
+   "at": "2026-11-04T05:51:36.513Z"
+  },
+  "/media-da/tap/vila-do-conde-outlet-partner-card-ec2ab342.png": {
+   "at": "2026-11-04T05:51:37.177Z"
+  },
+  "/media-da/tap/admp-parceiros-miles-and-go-7248da96.png": {
+   "at": "2026-11-04T05:51:37.726Z"
+  },
+  "/media-da/tap/apoiar-partner-card-50911381.png": {
+   "at": "2026-11-04T05:51:38.263Z"
+  },
+  "/media-da/tap/leigos-partner-card-26c51979.png": {
+   "at": "2026-11-04T05:51:38.812Z"
+  },
+  "/media-da/tap/mundo-a-sorrir-parceiros-miles-and-go-57de9143.png": {
+   "at": "2026-11-04T05:51:39.334Z"
+  },
+  "/media-da/tap/orbis-partner-card-09c4c806.png": {
+   "at": "2026-11-04T05:51:39.924Z"
+  },
+  "/media-da/tap/marriott-banner-mobile-038294d3.jpg": {
+   "at": "2026-11-04T05:51:40.465Z"
+  },
+  "/media-da/tap/lp-boost-seo-1280x720-050e3481.jpg": {
+   "at": "2026-11-04T05:51:49.243Z"
+  },
+  "/media-da/tap/empty-side-seat-ca975c7c.jpg": {
+   "at": "2026-11-04T05:51:56.910Z"
+  },
+  "/media-da/tap/close-up-people-traveling-with-baggage-1-c1d1e1bb.jpg": {
+   "at": "2026-11-04T05:52:01.186Z"
+  },
+  "/media-da/tap/electronic-passport-og-image-1200x630-27766fbe.jpg": {
+   "at": "2026-11-04T05:52:13.043Z"
+  },
+  "/media-da/tap/flying-to-brazil-a7cd1e98.jpg": {
+   "at": "2026-11-04T05:52:17.232Z"
+  },
+  "/media-da/tap/travel-to-canada-ccdd48d8.jpg": {
+   "at": "2026-11-04T05:52:21.529Z"
+  },
+  "/media-da/tap/travel-to-united-kingdom-ab6c6830.jpg": {
+   "at": "2026-11-04T05:52:25.796Z"
+  },
+  "/media-da/tap/travel-to-usa-47cd9541.jpg": {
+   "at": "2026-11-04T05:52:29.930Z"
+  },
+  "/media-da/tap/boarding-pass-fd383590.jpg": {
+   "at": "2026-11-04T05:52:34.423Z"
+  },
+  "/media-da/tap/beneficiary-list-card-53bbc52d.jpg": {
+   "at": "2026-11-04T05:52:48.653Z"
+  },
+  "/media-da/tap/boarding-pass-dba180f2.jpg": {
+   "at": "2026-11-04T05:52:52.960Z"
+  },
+  "/media-da/tap/miles4extras-miles-and-go-spend-miles-ee9cff73.jpg": {
+   "at": "2026-11-04T05:52:57.144Z"
+  },
+  "/media-da/tap/lp-milhionarios-generic-card-1280x720-8dbb84d4.jpg": {
+   "at": "2026-11-04T05:53:01.581Z"
+  },
+  "/media-da/tap/donate-miles-spend-miles-tap-f8926561.jpg": {
+   "at": "2026-11-04T05:53:12.352Z"
+  },
+  "/media-da/tap/club-tap-miles-and-go-07318391.jpg": {
+   "at": "2026-11-04T05:55:04.222Z"
+  },
+  "/media-da/tap/tap-upgrades-mobile-2ad44369.jpg": {
+   "at": "2026-11-04T06:01:04.282Z"
   }
  }
 }
