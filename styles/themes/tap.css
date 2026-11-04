@@ -12,6 +12,11 @@
  * loads (next/font, cleared for the demo, also for serving from our own hosts) in fonts/tap/.
  * The logo is the image in the site's nav and footer documents. lh-com's own pages never load
  * this file.
+ * Parity with www.flytap.com (2026-11-04, tools/reports/tap/parity.md): TAP's public stylesheet's
+ * tokens (/_next/static/css/86708601e3be1e13.css: gray-1200 #424045, primary-900 #65c922,
+ * primary-700 #85f029, primary-1300 #397213, primary-1400 #2c570f, gray-100 #f7f7f8, radii
+ * 8 / 16 / 24 / 32 px, a 1240 px container with 16 / 32 / 60 px padding, 40 px buttons with 15 px
+ * labels) and, at the end, a few TAP-scoped rules where lh-com has no token (as discover.css).
  */
 @font-face {
   font-family: GTFlexa;
@@ -49,17 +54,17 @@
 
 :root {
   /* palette: the --lh-* names lh-com's blocks read, with TAP's values */
-  --lh-deepblue: #424045; /* dark grey: text, headings, dark surfaces */
+  --lh-deepblue: #424045; /* gray-1200: text, headings, dark surfaces */
   --lh-deepblue-transparent: #4240451a;
-  --lh-midnight: #020817; /* the darkest text on www */
-  --lh-whale-blue: #397213; /* dark green: links, secondary text */
-  --lh-marble-blue: #489018; /* its hover */
-  --lh-yellow: #65c922; /* TAP green: primary actions */
-  --lh-sunglow-yellow: #7cde3a; /* their hover */
+  --lh-midnight: #37363a; /* gray-1400: the strongest text */
+  --lh-whale-blue: #397213; /* primary-1300: links, secondary text */
+  --lh-marble-blue: #2c570f; /* primary-1400: their hover */
+  --lh-yellow: #65c922; /* primary-900, TAP green: primary actions */
+  --lh-sunglow-yellow: #85f029; /* primary-700: their hover */
   --lh-green: #397213;
-  --lh-red: #ed1c24; /* TAP red (the logo's) */
-  --lh-grey-1: #f2f2f3; /* quiet bands, cards */
-  --lh-grey-2: #e0dfe2; /* borders */
+  --lh-red: #d41820; /* danger */
+  --lh-grey-1: #f7f7f8; /* gray-100, surface-strong: quiet bands, panels */
+  --lh-grey-2: #e0dfe2; /* gray-400, border */
   --lh-grey-3: #e0dfe2;
   --lh-grey-4: #c6c5c9;
   --lh-grey-5: #b0aeb4;
@@ -69,41 +74,60 @@
   --text-color: #424045;
   --heading-color: #424045;
   --link-color: #397213;
-  --link-hover-color: #489018;
+  --link-hover-color: #2c570f;
   --brand-color: #65c922;
   --border-color: #e0dfe2;
   --border-light-color: #e0dfe2;
 
-  /* radius: www's cards 32 px, its buttons pills */
-  --radius-l: 32px;
+  /* radii: www's rounded-s 8, rounded-m 16 (cards' pictures), rounded-l 24 (cards, panels) */
+  --radius-s: 8px;
+  --radius-m: 16px;
+  --radius-l: 24px;
 
-  /* fonts: GT Flexa for headings, Inter for the copy (16 px) */
+  /* layout: www's container, 1240 px wide, 16 px padding (32 from 984 px, 60 from 1240 px) */
+  --content-max-width: 1240px;
+  --layout-margin: 16px;
+
+  /* fonts: GT Flexa for headings, Inter for the copy (16 / 24 px) */
   --body-font-family: inter, arial, helvetica, mammilessymbol, sans-serif;
   --heading-font-family: gtflexa, arial, helvetica, mammilessymbol, sans-serif;
   --body-font-size-m: 16px;
+  --body-line-height: 1.5;
   --heading-line-height: 1.2;
 
-  /* buttons: primary dark text on TAP green, secondary green-bordered, pills; www's 15 px labels
-     and 24 px side padding */
+  /* headings: all bold as www's; h1 and h2 40 px (phones 28 and 24), h3 24 px (title-xs) */
+  --heading-light-weight: 700;
+  --heading-font-size-xxl: calc(28px + 12 * (100vw - 375px) / 1065);
+  --heading-font-size-xl: calc(24px + 16 * (100vw - 375px) / 1065);
+  --heading-font-size-l: calc(20px + 4 * (100vw - 375px) / 1065);
+  --heading-font-size-m: calc(18px + 2 * (100vw - 375px) / 1065);
+
+  /* buttons: www's 40 px pills, 15 px labels, 0 24 px; primary dark text on TAP green,
+     secondary green-bordered, accent the electric green (primary-600) */
   --button-radius: 999px;
+  --button-min-height: 40px;
   --button-font-size: 15px;
-  --button-padding: 8px 24px;
+  --button-padding: 0 24px;
   --button-primary-text: #000;
   --button-secondary-color: #397213;
-  --button-secondary-hover: #489018;
-  --button-accent-color: #65c922;
-  --button-accent-hover: #7cde3a;
+  --button-secondary-hover: #2c570f;
+  --button-accent-color: #9efd38;
+  --button-accent-hover: #85f029;
 
   /* the hero card's headline (hero-card-overlay light) */
   --hero-card-heading-color: #424045;
 
-  /* header: white bar, dark grey text, green hover */
+  /* header: www's white bar floating 16 px from the top and the sides, rounded, a soft shadow;
+     dark grey text, green hover */
   --header-bar-surface: #fff;
   --header-bar-text: #424045;
   --header-bar-text-hover: #397213;
   --header-bar-line: #e0dfe2;
+  --header-bar-inset: 16px;
+  --header-bar-radius: 32px;
+  --header-bar-shadow: 0 4px 24px rgb(0 0 0 / 8%);
 
-  /* footer: www's light grey footer with dark grey text and green hover */
+  /* footer: www's light grey footer (gray-200) with dark grey text and green hover */
   --footer-surface: #f2f2f3;
   --footer-text-color: #424045;
   --footer-muted-text: #424045;
@@ -119,4 +143,58 @@
   --footer-link-size: 14px;
   --footer-link-weight: 400;
   --footer-heading-size: 16px;
+  --footer-badge-heading-size: 16px;
+}
+
+@media (width >= 984px) {
+  :root {
+    --layout-margin: 32px;
+  }
+}
+
+@media (width >= 1240px) {
+  :root {
+    --layout-margin: 60px;
+  }
+}
+
+/* TAP-scoped rules (lh-com has no token for these): www's regular button labels; the stage's
+   lead in Inter 20 / 600 (www's) and its button a white pill on the picture; the footer's social
+   icons dark on the light footer (lh-com's icons are drawn #EBEBEB for a dark one); accordions on
+   a grey rounded panel; a picture in the content (an image-only banner) with 32 px corners */
+body.brand-tap a.button:any-link,
+body.brand-tap button.button {
+  font-weight: 400;
+}
+
+body.brand-tap .hero-campaign .hero-campaign-content > .hero-campaign-subtitle {
+  font-family: var(--body-font-family);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+body.brand-tap :is(.hero-campaign, .hero-card-overlay) a.button.primary:any-link {
+  border-color: #fff;
+  background-color: #fff;
+  color: #000;
+}
+
+body.brand-tap :is(.hero-campaign, .hero-card-overlay) a.button.primary:hover {
+  border-color: #f7f7f8;
+  background-color: #f7f7f8;
+}
+
+body.brand-tap .footer .footer-badges img[data-icon-name] {
+  filter: brightness(0.26);
+}
+
+body.brand-tap .accordion-columns.faq {
+  border-radius: var(--radius-l);
+  padding: 8px 24px;
+  background-color: var(--lh-grey-1);
+}
+
+body.brand-tap main .default-content-wrapper > p > picture img {
+  border-radius: 32px;
 }
