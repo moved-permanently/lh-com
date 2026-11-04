@@ -72,6 +72,13 @@ function fakeWindow() {
     send(body) { calls.push(['send', this.url, body]); return 'sent'; }
 
     setRequestHeader(k, v) { calls.push(['header', k, v]); }
+
+    // as the browser's XHR: an event's on<type> handler attribute runs with its listeners
+    dispatchEvent(event) {
+      const handler = this[`on${event.type}`];
+      if (typeof handler === 'function') handler.call(this, event);
+      return super.dispatchEvent(event);
+    }
   }
   const timers = [];
   const win = {

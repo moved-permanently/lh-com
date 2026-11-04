@@ -26,6 +26,9 @@
  *   empty hook.
  * - A site without a consent tool (a brand without a OneTrust id) shows no "Change privacy
  *   settings" links (#privacy-settings): hidePrivacySettings.
+ * - OneTrust's consent receipts to Lufthansa Group's OneTrust tenant are not sent from our hosts
+ *   (guardReceipts, before the stub loads; tools/reports/consent/receipts.md): the choice
+ *   itself, OneTrust's banner and everything else it loads are unchanged.
  */
 
 import { loadCSS } from './aem.js';
@@ -69,6 +72,69 @@ export function geolocationOf(cookie = document.cookie) {
   const stateCode = (geo[2] || '').toUpperCase();
   if (countryCode === 'US' && !stateCode) return null;
   return { countryCode, stateCode };
+}
+
+/**
+ * OneTrust's consent receipt endpoint (its ConsentApi, AnonymousConsentApi and CROConsentApi):
+ * https://<tenant>.my.onetrust.com/request/v1/consentreceipts[/anonymous|/cro], query aside.
+ */
+const RECEIPT_URL = /^https:\/\/[a-z0-9-]+\.my\.onetrust\.com\/request\/v1\/consentreceipts(?:\/(?:anonymous|cro))?$/;
+
+/** Whether a request URL is OneTrust's consent receipt endpoint (relative URLs: against base). */
+export function isReceiptUrl(url, base = typeof window !== 'undefined' && window.location ? window.location.href : undefined) {
+  if (!url) return false;
+  try {
+    const u = new URL(String(url), base);
+    return RECEIPT_URL.test(`${u.protocol}//${u.host}${u.pathname}`);
+  } catch (e) {
+    return false;
+  }
+}
+
+/**
+ * Keeps OneTrust's consent receipts from being sent (Lufthansa Group's OneTrust tenant gets none
+ * from our hosts): on a choice OneTrust posts one by XHR, when the page is left a "no interaction"
+ * receipt by sendBeacon (it can't read its interaction count from its .lufthansa.com cookie here).
+ * Only that endpoint (isReceiptUrl): the XHR is not sent and fails as when the endpoint can't be
+ * reached (OneTrust's own error handler runs, as for a failed receipt), the beacon reports queued,
+ * a fetch rejects; every other request passes through unchanged. Once per window.
+ * @param {Object} [win] the window
+ */
+export function guardReceipts(win = window) {
+  if (!win || win.lhReceiptGuard) return;
+  win.lhReceiptGuard = true;
+  const base = () => (win.location ? win.location.href : undefined);
+  const xhr = win.XMLHttpRequest && win.XMLHttpRequest.prototype;
+  if (xhr) {
+    const { open, send } = xhr;
+    xhr.open = function guardedOpen(method, url, ...rest) {
+      this.lhReceipt = isReceiptUrl(url, base());
+      return open.call(this, method, url, ...rest);
+    };
+    xhr.send = function guardedSend(...args) {
+      if (!this.lhReceipt) return send.apply(this, args);
+      win.setTimeout(() => {
+        this.dispatchEvent(new win.ProgressEvent('error'));
+        this.dispatchEvent(new win.ProgressEvent('loadend'));
+      }, 0);
+      return undefined;
+    };
+  }
+  const nav = win.navigator;
+  if (nav && typeof nav.sendBeacon === 'function') {
+    const beacon = nav.sendBeacon;
+    nav.sendBeacon = function guardedBeacon(url, data) {
+      return isReceiptUrl(url, base()) ? true : beacon.call(this, url, data);
+    };
+  }
+  if (typeof win.fetch === 'function') {
+    const pass = win.fetch;
+    win.fetch = function guardedFetch(input, init) {
+      const url = input && typeof input === 'object' && 'url' in input ? input.url : input;
+      if (isReceiptUrl(url, base())) return Promise.reject(new TypeError('Failed to fetch'));
+      return pass.call(win, input, init);
+    };
+  }
 }
 
 /** OneTrust category ids: strictly necessary first */
@@ -243,6 +309,9 @@ function loadOneTrust({ onReady, fallbackView = 'banner' } = {}) {
     window.OneTrust = window.OneTrust || {};
     window.OneTrust.geolocationResponse ||= geolocation;
   }
+
+  // its consent receipts stay in the browser (guardReceipts), everything else as before
+  guardReceipts();
 
   const script = document.createElement('script');
   script.src = oneTrustStubUrl();
