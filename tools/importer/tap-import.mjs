@@ -189,13 +189,15 @@ function reference(n, c) {
   if (c.missing) c.missing.add(`${AEM}/${p.replace(/^\/+/, '')}`);
   return '';
 }
+// (www renders a rich text's subscript and superscript as plain text: none of the 265 pages with
+// the marks has a <sub> or <sup>; "Para extras de bagagem …" a sentence at the text's size)
 const FORMAT = {
-  strong: 'strong', bold: 'strong', emphasis: 'em', italic: 'em', underline: 'u', subscript: 'sub', superscript: 'sup',
+  strong: 'strong', bold: 'strong', emphasis: 'em', italic: 'em', underline: 'u',
 };
 // the marks' nesting, outside in: a bold-italic word inside a bold sentence is
 // <strong>… <em>word</em> …</strong>, not <em><strong>word</strong></em><strong>…, which the
 // preview printed as literal asterisks ("Cristo morto**,")
-const MARK_ORDER = ['strong', 'em', 'u', 'sub', 'sup'];
+const MARK_ORDER = ['strong', 'em', 'u'];
 const marksOf = (n) => {
   const s = new Set(((n.format && n.format.variants) || []).map((v) => FORMAT[v]).filter(Boolean));
   return MARK_ORDER.filter((t) => s.has(t));
@@ -536,7 +538,8 @@ const HANDLERS = {
     P.section();
   },
   ComponentHeroCardModel: (s, P, i) => {
-    const text = `${P.heading(2, s.title)}${P.rich(s.heroCardDescription)}${P.ctas(s)}`;
+    // its title an H3, as www's (43 of 43)
+    const text = `${P.heading(3, s.title)}${P.rich(s.heroCardDescription)}${P.ctas(s)}`;
     // a banner with a picture only (bagagem, info-legal): the picture in the content, as www's
     // rounded picture above the title
     if (!text.trim()) { const im = P.img(s.image); if (im) P.add(`<p>${im}</p>`); return; }
@@ -658,7 +661,8 @@ const HANDLERS = {
     ]));
   },
   ComponentFeatureCardModel: (s, P) => {
-    const text = `${P.heading(2, s.title)}${P.rich(s.featureCardDescription)}${P.rich(s.complementaryNote)}${P.link(s.ctaUrl, s.ctaLabel, 'primary')}`;
+    // its title an H3, as www's (330 of 331; the theme's TAP H3, parity 60)
+    const text = `${P.heading(3, s.title)}${P.rich(s.featureCardDescription)}${P.rich(s.complementaryNote)}${P.link(s.ctaUrl, s.ctaLabel, 'primary')}`;
     P.block('columns-media', [s.switchImageToRight ? [text, P.img(s.image)] : [P.img(s.image), text]]);
   },
   ComponentInfoSectionModel: (s, P) => {
@@ -681,7 +685,8 @@ const HANDLERS = {
   },
   ComponentInfoBlockModel: (s, P) => {
     P.section('highlight');
-    P.add(P.heading(3, s.title));
+    // its title an H4, as www's alert (130 of 130)
+    P.add(P.heading(4, s.title));
     P.add(P.rich(s.message));
     P.add(P.link(s.ctaUrl, s.ctaLabel));
     P.section();
@@ -714,7 +719,8 @@ const HANDLERS = {
     // poster only, nothing from TAP's AEM host
     const href = local && !local.link ? local.eds : '';
     P.section();
-    P.block('hero-card-overlay', [[P.img(s.backgroundImage)], [`${P.heading(2, s.title)}${P.rich(s.bannerVideoDescription)}${s.bannerVideoCaption ? `<p>${esc(plainOf(s.bannerVideoCaption))}</p>` : ''}${href ? `<p><a href="${attr(href)}">${esc(label)}</a></p>` : ''}`]]);
+    // (its title an H3, as www's: 14 of 14)
+    P.block('hero-card-overlay', [[P.img(s.backgroundImage)], [`${P.heading(3, s.title)}${P.rich(s.bannerVideoDescription)}${s.bannerVideoCaption ? `<p>${esc(plainOf(s.bannerVideoCaption))}</p>` : ''}${href ? `<p><a href="${attr(href)}">${esc(label)}</a></p>` : ''}`]]);
     P.section();
   },
   ComponentYoutubeVideoModel: (s, P) => {

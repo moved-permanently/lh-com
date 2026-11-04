@@ -299,7 +299,7 @@ describe('tap-import parity (tools/reports/tap/parity.md)', () => {
     const hero = dom(html).querySelector('.hero-card-overlay');
     assert.ok(hero, 'hero-card-overlay');
     assert.ok(hero.querySelector('img[src="/media-da/tap/poster-1.jpg"]'));
-    assert.equal(hero.querySelector('h2').textContent, 'Portugal Stopover com a TAP');
+    assert.equal(hero.querySelector('h3').textContent, 'Portugal Stopover com a TAP', 'an H3, as www (14 of 14)');
     assert.equal(hero.querySelector('a[href$=".mp4"]').getAttribute('href'), '/media-da/tap/stopover-1.mp4');
     assert.ok(!html.includes('adobeaemcloud.com'));
     assert.ok(!dom(html).querySelector('.columns-media'));
@@ -313,6 +313,24 @@ describe('tap-import parity (tools/reports/tap/parity.md)', () => {
     const none = convertPage(page, { ...ctx('https://www.flytap.com/pt-pt/stopover'), media: (k) => (k === '/content/dam/tap/poster.jpg' ? '/media-da/tap/poster-1.jpg' : null) });
     assert.ok(!none.html.includes('adobeaemcloud.com'));
     assert.ok(dom(none.html).querySelector('.hero-card-overlay'));
+  });
+
+  it('as www renders them: a hero card\'s title an H3; rich text\'s sub- and superscript plain text', () => {
+    const hero = { props: { pageProps: { page: { title: 'Extras', sections: [{ __typename: 'ComponentHeroCardModel', title: 'Adquira com antecedência e poupe', image: { _path: '/content/dam/tap/x.jpg' }, heroCardDescription: { plaintext: 'Já.' } }, { __typename: 'ComponentHeadingModel', title: 'Extras e Upgrades' }] } } } };
+    const picture = ['/media-da', 'tap', 'x-1.jpg'].join('/');
+    const h = dom(convertPage(hero, { ...ctx('https://www.flytap.com/pt-pt/gerir-reserva/extras'), media: () => picture }).html);
+    assert.equal(h.querySelector('.hero-campaign h3').textContent, 'Adquira com antecedência e poupe', 'an H3, as www (43 of 43)');
+    assert.equal(h.querySelector('h1').textContent, 'Extras e Upgrades');
+    // a feature card's title an H3 too (www 330 of 331; the theme's H3 style, parity 60)
+    const feature = { props: { pageProps: { page: { title: 'Inspire-se', sections: [{ __typename: 'ComponentHeadingModel', title: 'Inspire-se' }, { __typename: 'ComponentFeatureCardModel', title: 'Reiquiavique: descubra a nova rota TAP', featureCardDescription: { plaintext: 'Voe.' }, image: { _path: '/content/dam/tap/x.jpg' } }] } } } };
+    const f = dom(convertPage(feature, { ...ctx('https://www.flytap.com/pt-pt/destinos/inspire-se'), media: () => picture }).html);
+    assert.equal(f.querySelector('.columns-media h3').textContent, 'Reiquiavique: descubra a nova rota TAP');
+    assert.ok(!f.querySelector('.columns-media h2'));
+    const t = (value, ...v) => ({ nodeType: 'text', value, format: { variants: v } });
+    const rich = [{ nodeType: 'paragraph', content: [t('Para extras de bagagem ', 'subscript'), t('TAP', 'superscript', 'bold'), t(' e mais.')] }];
+    const r = convertPage({ props: { pageProps: { page: { title: 'X', sections: [{ __typename: 'ComponentHeadingModel', title: 'X' }, { __typename: 'ComponentRichTextBlockModel', richTextContent: { json: rich } }] } } } }, ctx()).html;
+    assert.ok(!/<su[bp]>/.test(r), 'no <sub>, no <sup> (www: none in the 265 pages with the marks)');
+    assert.ok(r.includes('Para extras de bagagem <strong>TAP</strong> e mais.'));
   });
 
   it('headings as www shows them (live-audit 154-171): a card list\'s title not shown, the page\'s only H2 its H1 when it is the title', () => {
@@ -643,6 +661,9 @@ describe('tap-import pages', () => {
     const box = d.querySelector('.section-metadata');
     assert.ok(box && box.textContent.includes('highlight'));
     assert.ok(d.body.textContent.includes('Informação importante'));
+    // its title an H4, as www's alert (130 of 130 in the captures)
+    assert.equal(box.parentElement.querySelector('h4').textContent.trim().toLowerCase(), 'informação importante');
+    assert.ok(!box.parentElement.querySelector('h2, h3'));
     // a table in an item stays a table (accordion-columns shows data tables in its panels)
     const table = d.querySelector('.accordion-columns.faq table');
     assert.ok(table && table.textContent.includes('Aeroporto'));
