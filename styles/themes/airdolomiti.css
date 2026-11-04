@@ -180,6 +180,7 @@ body.brand-airdolomiti .article-header .article-header-title {
   font-size: 38px;
   font-weight: 600;
   line-height: 40px;
+  max-width: 1200px;
 }
 
 /* stage titles light (www's fleet stage: 65px / 72px, 300) */
@@ -692,4 +693,437 @@ body.brand-airdolomiti .hero-campaign.hero-campaign-services[data-services="band
   body.brand-airdolomiti .hero-campaign.hero-campaign-services[data-services="band"] .hero-campaign-services-label {
     margin-right: 75px;
   }
+}
+
+/*
+ * the offers (carousel-cards promo: www's CardPromo), as www at 390 and 1440: a grey card
+ * (#f4f4f4, 10px radius, no border) that is one link; on phones the text above the picture
+ * (40px 24px 24px padding, 200px high; the picture 200px under it), from 1025px the picture
+ * 130px wide on the left and the text beside it (15px from the top, 16px from the picture). The
+ * route 20px / 26px regular, the price 16px / 22px, the fare 14px / 18px in capitals at the end.
+ */
+body.brand-airdolomiti .carousel-cards.promo .carousel-cards-slide {
+  flex-direction: column-reverse;
+  border: 0;
+  border-radius: 10px;
+  background-color: #f4f4f4;
+}
+
+body.brand-airdolomiti .carousel-cards.promo .carousel-cards-image {
+  aspect-ratio: auto;
+  height: 200px;
+  border-radius: 0 0 10px 10px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- another block's pictures (the tiles above) */
+body.brand-airdolomiti .carousel-cards.promo .carousel-cards-image img {
+  height: 100%;
+  object-fit: cover;
+}
+
+body.brand-airdolomiti .carousel-cards.promo .carousel-cards-body {
+  box-sizing: border-box;
+  min-height: 200px;
+  padding: 40px 24px 24px;
+}
+
+body.brand-airdolomiti .carousel-cards.promo .carousel-cards-body > * {
+  margin: 0;
+  color: var(--lh-deepblue);
+}
+
+body.brand-airdolomiti .carousel-cards.promo .carousel-cards-body > :is(h2, h3, h4) {
+  margin-bottom: 5px;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 26px;
+}
+
+body.brand-airdolomiti .carousel-cards.promo .carousel-cards-body > p {
+  font-size: 16px;
+  line-height: 22px;
+}
+
+body.brand-airdolomiti .carousel-cards.promo .carousel-cards-body > p:nth-last-child(2):not(:nth-child(2)) {
+  margin-top: auto;
+  font-size: 14px;
+  line-height: 18px;
+  text-transform: uppercase;
+}
+
+/* the card's link over the whole card, its text for screen readers */
+body.brand-airdolomiti .carousel-cards.promo .carousel-cards-cta {
+  position: static;
+  margin: 0;
+}
+
+body.brand-airdolomiti .carousel-cards.promo .carousel-cards-cta a:any-link {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  color: transparent;
+  font-size: 0;
+}
+
+body.brand-airdolomiti .carousel-cards.promo .carousel-cards-cta a:any-link::before {
+  content: none;
+}
+
+body.brand-airdolomiti .carousel-cards.promo .carousel-cards-slide:has(.carousel-cards-cta a:hover) .carousel-cards-body > :is(h2, h3, h4) {
+  text-decoration: underline;
+}
+
+@media (width >= 1025px) {
+  body.brand-airdolomiti .carousel-cards.promo .carousel-cards-slide {
+    flex-direction: row;
+    min-height: 140px;
+  }
+
+  body.brand-airdolomiti .carousel-cards.promo .carousel-cards-image {
+    flex: 0 0 130px;
+    height: auto;
+    border-radius: 10px 0 0 10px;
+  }
+
+  body.brand-airdolomiti .carousel-cards.promo .carousel-cards-body {
+    min-height: 140px;
+    padding: 15px 16px;
+  }
+}
+
+/*
+ * blog posts (article-header), as www's BlogLayout at 390 and 1440: no feature picture and no
+ * category chip at the top, the title first (left, the column's full width), under it the reading
+ * time alone (16px regular, 43px before the text); the text in the content column from its left
+ * edge, at most 1200px wide (www's 1200px column), its pictures too.
+ */
+body.brand-airdolomiti .article-header .article-header-media,
+body.brand-airdolomiti .article-header .article-header-tags,
+body.brand-airdolomiti .article-header .article-header-date {
+  display: none;
+}
+
+body.brand-airdolomiti .article-header .article-header-panel {
+  margin: 0;
+  padding: 0;
+}
+
+body.brand-airdolomiti .article-header .article-header-meta {
+  max-width: none;
+  margin: 0 0 43px;
+  padding-top: 20px;
+}
+
+body.brand-airdolomiti .article-header .article-header-byline {
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 27px;
+}
+
+@media (width >= 768px) {
+  body.brand-airdolomiti .article-header .article-header-panel {
+    margin: 0;
+    padding: 0;
+  }
+
+  body.brand-airdolomiti .article-header .article-header-meta {
+    max-width: none;
+    margin-inline: 0;
+  }
+
+  body.brand-airdolomiti main:has(.article-header) > .section:not(.carousel-cards-container, .related-articles-container) > .default-content-wrapper > :is(p, ul, ol, h2, h3, h4, h5, h6),
+  body.brand-airdolomiti main:has(.article-header) > .section:not(.carousel-cards-container, .related-articles-container) > .default-content-wrapper > p:is(:has(> picture), :has(> a > picture), .caption) {
+    max-width: 1200px;
+    margin-inline: 0;
+  }
+}
+
+/*
+ * the newsletter strip (a section of the style newsletter: www's CenteredBlock news_letter), as
+ * www at 390 and 1440: centred, at most 936px wide, 100px above the footer; the heading light
+ * 38px / 46px (34px / 42px on phones), the line 16px / 22px with 30px under it, then www's email
+ * field (300px wide, 100% on phones, 82px high, white, a 5px radius, "Email" 17px in #494949, the
+ * teal envelope 30px from its right end) as the link to the subscription page.
+ */
+body.brand-airdolomiti main > .section.newsletter > .default-content-wrapper {
+  max-width: 936px;
+  margin-bottom: 100px;
+  text-align: center;
+}
+
+body.brand-airdolomiti main > .section.newsletter .default-content-wrapper h2 {
+  margin: 0 0 10px;
+  font-size: 34px;
+  line-height: 42px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- another block's paragraphs (the offers above) */
+body.brand-airdolomiti main > .section.newsletter .default-content-wrapper > p {
+  margin: 0 0 30px;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- another block's paragraphs (the offers above) */
+body.brand-airdolomiti main > .section.newsletter .default-content-wrapper > p:last-child {
+  margin: 0;
+}
+
+body.brand-airdolomiti main > .section.newsletter .default-content-wrapper > p:last-child > a:any-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  height: 82px;
+  margin: 0 auto;
+  padding: 28px 60px 28px 30px;
+  border: 1px solid var(--lh-grey-3);
+  border-radius: 5px;
+  background-color: #fff;
+  color: #494949;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+  text-decoration: none;
+}
+
+body.brand-airdolomiti main > .section.newsletter .default-content-wrapper > p:last-child > a:any-link::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 30px;
+  width: 25px;
+  height: 25px;
+  background-color: #008293;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.6'%3E%3Crect x='2.5' y='5' width='19' height='14' rx='1.5'/%3E%3Cpath d='m3 6 9 7 9-7'/%3E%3C/svg%3E") center / contain no-repeat;
+  transform: translateY(-50%);
+}
+
+body.brand-airdolomiti main > .section.newsletter .default-content-wrapper > p:last-child > a:any-link:hover {
+  border-color: #008293;
+}
+
+@media (width >= 768px) {
+  body.brand-airdolomiti main > .section.newsletter .default-content-wrapper h2 {
+    font-size: 38px;
+    line-height: 46px;
+  }
+
+  body.brand-airdolomiti main > .section.newsletter .default-content-wrapper > p:last-child > a:any-link {
+    width: 300px;
+  }
+}
+
+/*
+ * the footer from 1025px, as www's at 1440 (2026-11-04): teal #00798a; at the top on the right
+ * the main buttons as outlined pills (16px / 22px, 500, 20px 40px, a 10px radius); then the
+ * company links on the left (318px, no title) with the address and the payment logos (36px)
+ * under them, and the other columns three per row (contacts, news, routes; assistance, legal),
+ * titles 14px / 18px regular, links 16px / 22px regular 12px apart; then a dark teal band
+ * (#00616d, 130px) with the logo in white on the left and the social links as 50px circles on the
+ * right; last the company line on a light grey bar. No search field (the bar has the search).
+ */
+@media (width >= 1025px) {
+  body.brand-airdolomiti footer .footer {
+    --footer-surface: #00798a;
+    --footer-heading-size: 14px;
+    --footer-link-size: 16px;
+    --footer-link-weight: 400;
+    --footer-link-gap: 12px;
+    --footer-link-line-height: 22px;
+    --footer-title-line: transparent;
+    --footer-column-indent: 0px;
+  }
+
+  body.brand-airdolomiti footer .footer .footer-inner.has-extras {
+    grid-template-areas:
+      'pills pills pills pills'
+      'co c1 c2 c3'
+      'addr c4 c5 .'
+      'pay c4 c5 .'
+      'social social social social'
+      'copy copy copy copy';
+    grid-template-columns: 278px repeat(3, minmax(0, 1fr));
+    column-gap: 40px;
+    padding-top: 40px;
+  }
+
+  body.brand-airdolomiti footer .footer :is(.footer-columns, .footer-badges, .footer-note) {
+    display: contents;
+  }
+
+  body.brand-airdolomiti footer .footer :is(.footer-search, .footer-divider) {
+    display: none;
+  }
+
+  body.brand-airdolomiti footer .footer .footer-column {
+    margin: 0 0 60px;
+  }
+
+  body.brand-airdolomiti footer .footer .footer-column:nth-child(1) {
+    grid-area: co;
+    margin-bottom: 20px;
+  }
+
+  body.brand-airdolomiti footer .footer .footer-column:nth-child(2) { grid-area: c1; }
+  body.brand-airdolomiti footer .footer .footer-column:nth-child(3) { grid-area: c2; }
+  body.brand-airdolomiti footer .footer .footer-column:nth-child(4) { grid-area: c3; }
+  body.brand-airdolomiti footer .footer .footer-column:nth-child(5) { grid-area: c4; }
+  body.brand-airdolomiti footer .footer .footer-column:nth-child(6) { grid-area: c5; }
+
+  body.brand-airdolomiti footer .footer .footer-column-heading {
+    margin-bottom: 16px;
+    font-family: var(--body-font-family);
+    font-weight: 400;
+    line-height: 18px;
+  }
+
+  /* the company column: www shows no title over it */
+  body.brand-airdolomiti footer .footer .footer-column:nth-child(1) .footer-column-heading {
+    display: none;
+  }
+
+  body.brand-airdolomiti footer .footer .footer-column-links {
+    padding: 0;
+  }
+
+  /* the logo row: over the dark band, the logo white on its left */
+  body.brand-airdolomiti footer .footer .footer-logos {
+    position: relative;
+    margin-top: -168px;
+    height: 130px;
+    background: none;
+    pointer-events: none;
+  }
+
+  body.brand-airdolomiti footer .footer .footer-logos-inner {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding-block: 0;
+  }
+
+  body.brand-airdolomiti footer .footer .footer-logos ul {
+    align-items: flex-start;
+  }
+
+  body.brand-airdolomiti footer .footer .footer-logos li {
+    margin: 0;
+  }
+
+  body.brand-airdolomiti footer .footer .footer-logos a {
+    pointer-events: auto;
+  }
+
+  body.brand-airdolomiti footer .footer .footer-logos img {
+    height: 40px;
+    filter: brightness(0) invert(1);
+  }
+
+  /* the badge groups: the pills, the social links, the payment logos */
+  body.brand-airdolomiti footer .footer .footer-badge-group:nth-child(1) {
+    grid-area: pills;
+    justify-self: end;
+    margin: 0 0 60px;
+  }
+
+  body.brand-airdolomiti footer .footer .footer-badge-group:nth-child(1) ul {
+    gap: 10px;
+  }
+
+  body.brand-airdolomiti footer .footer .footer-badge-group:nth-child(1) a.footer-badge-text {
+    display: flex;
+    align-items: center;
+    padding: 20px 40px;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 22px;
+    text-decoration: none;
+  }
+
+  body.brand-airdolomiti footer .footer .footer-badge-group:nth-child(1) a.footer-badge-text:hover {
+    background-color: #fff;
+    color: #00798a;
+  }
+
+  body.brand-airdolomiti footer .footer .footer-badge-group:nth-child(2) {
+    position: relative;
+    grid-area: social;
+    justify-self: stretch;
+    margin: 0;
+    padding: 40px 0;
+    background-color: #00616d;
+    box-shadow: 0 0 0 100vmax #00616d;
+    clip-path: inset(0 -100vmax);
+  }
+
+  body.brand-airdolomiti footer .footer .footer-badge-group:nth-child(2) ul {
+    justify-content: flex-end;
+    gap: 24px;
+  }
+
+  body.brand-airdolomiti footer .footer .footer-badge-group:nth-child(2) a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+  }
+
+  body.brand-airdolomiti footer .footer .footer-badge-group:nth-child(2) img {
+    width: 24px;
+    height: 24px;
+  }
+
+  body.brand-airdolomiti footer .footer .footer-badge-group:nth-child(3) {
+    grid-area: pay;
+    margin: 0 0 60px;
+  }
+
+  body.brand-airdolomiti footer .footer .footer-badge-heading {
+    margin-bottom: 16px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+  }
+
+  body.brand-airdolomiti footer .footer .footer-badge-group:nth-child(3) img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+  }
+
+  /* the address under the company links, the company line on its grey bar at the end */
+  body.brand-airdolomiti footer .footer .footer-note p:first-child {
+    grid-area: addr;
+    margin: 0 0 24px;
+    color: #fff;
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  body.brand-airdolomiti footer .footer .footer-note p:last-child {
+    grid-area: copy;
+    margin: 0;
+    padding: 10px 0;
+    background-color: #f4f4f4;
+    box-shadow: 0 0 0 100vmax #f4f4f4;
+    clip-path: inset(0 -100vmax);
+    color: #6e6e6e;
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+  }
+
 }
