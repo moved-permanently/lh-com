@@ -107,6 +107,14 @@ test('on a market root: the alerts bar on its homepage, the Message Center\'s co
   assert.ok(!isRootHomepage('/de-ch/an-bord', SITE_LANGUAGES.tap));
   const l = messageLocale({ locale: getLocale('/de-ch'), read: () => '', pathname: '/de-ch' });
   assert.deepEqual([l.lang, l.country], ['de', 'ch']);
+  // the page's language metadata (en, as every TAP document has it) names no root: the path's
+  // root counts (en-us is US, not en-pt's Portugal: the PT-only alert stays off it; brief 330)
+  const us = messageLocale({ locale: getLocale('/en-us'), read: (n) => (n === 'language' ? 'en' : ''), pathname: '/en-us' });
+  assert.deepEqual([us.lang, us.country], ['en', 'us']);
+  const ca = messageLocale({ locale: getLocale('/fr-ca/aide'), read: (n) => (n === 'language' ? 'fr' : ''), pathname: '/fr-ca/aide' });
+  assert.deepEqual([ca.lang, ca.country], ['fr', 'ca']);
+  const pt = messageLocale({ locale: getLocale('/en-pt'), read: (n) => (n === 'language' ? 'en' : ''), pathname: '/en-pt' });
+  assert.deepEqual([pt.lang, pt.country], ['en', 'pt']);
   assert.equal(marketOrigin('CH', 'GVA'), 'GVA');
   assert.equal(marketOrigin('US', 'NYC'), 'NYC');
   assert.equal(marketOrigin('PT', 'LIS'), 'LIS');
