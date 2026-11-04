@@ -308,6 +308,7 @@ body.brand-tap .header .tap-quick-icon svg {
     display: inline-flex;
     gap: 8px;
     align-items: center;
+    width: auto;
     padding: 8px;
     color: #000;
     font-size: 16px;
