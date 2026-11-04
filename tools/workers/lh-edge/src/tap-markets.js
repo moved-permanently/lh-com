@@ -72,6 +72,12 @@ function allowedIn(index, version, suffix, country) {
   return !row || marketAllows(row.markets, country);
 }
 
+/** Whether a root has a language version's page: not in its lacks, its markets allowing it. */
+function rootHas(root, index, suffix) {
+  const [, country, version, , , , , lacks = []] = TAP_MARKETS[root];
+  return !lacks.includes(suffix) && allowedIn(index, version, suffix, country);
+}
+
 const liveOf = (version, live) => live
   .filter((r) => TAP_MARKETS[r] && TAP_MARKETS[r][2] === version).sort();
 
@@ -85,8 +91,7 @@ async function alternatesOf(request, env, html, version, suffix, live) {
     const index = await versionIndex(request, env, v);
     out.push({ hreflang: hreflangOf(v), path: `/${v}${s}` });
     liveOf(v, live).forEach((r) => {
-      if (!allowedIn(index, v, s, TAP_MARKETS[r][1])) return;
-      out.push({ hreflang: hreflangOf(r), path: `/${r}${s}` });
+      if (rootHas(r, index, s)) out.push({ hreflang: hreflangOf(r), path: `/${r}${s}` });
     });
   };
   await add(version, suffix);
@@ -107,14 +112,34 @@ const tagged = (resp, extra = {}) => {
   return headers;
 };
 
+/**
+ * www's market form of a link (https://www.flytap.com/en_pt/...) and the Alternate rows for the
+ * root: www's en_us; an Alternate row the same market's root in that language where it is on.
+ */
+function rootForms(html, ctx) {
+  const [ll, vcc] = ctx.from.split('-');
+  const cc = ctx.country;
+  const www = ctx.www.replace(/\./g, '\\.');
+  const underscore = new RegExp(`(https://${www}/)${ll}_${vcc}(?=[/"?#&]|$)`, 'g');
+  return html.replace(underscore, `$1${ll}_${cc}`)
+    .replace(/(<meta name="alternate-([a-z]{2})" content=")\/([a-z]{2}-[a-z]{2})((?:\/[^"]*)?)"/g, (m, open, l2, v2, rest) => {
+      const root = `${l2}-${cc}`;
+      const row = TAP_MARKETS[root];
+      if (!row || row[2] !== v2 || !ctx.live.includes(root)) return m;
+      const lacks = row[7] || [];
+      return lacks.includes(rest.replace(/\/$/, '')) ? m : `${open}/${root}${rest}"`;
+    });
+}
+
 /** An HTML document for the root: sections, links, canonical, og:url, hreflang (marketHtml). */
 async function forRoot(request, env, doc, ctx, { sections, alternates }) {
   const headers = tagged(doc);
   const text = await doc.text();
-  const html = sections ? dropMarketSections(text, ctx.country) : text;
+  const kept = sections ? dropMarketSections(text, ctx.country) : text;
   if (request.method === 'HEAD') return new Response(null, { status: doc.status, headers });
   const list = alternates
-    ? await alternatesOf(request, env, html, ctx.from, ctx.suffix, ctx.live) : [];
+    ? await alternatesOf(request, env, kept, ctx.from, ctx.suffix, ctx.live) : [];
+  const html = rootForms(kept, ctx);
   const resp = new Response(html, { status: doc.status, headers });
   return marketHtml(resp, { ...ctx, alternates: list });
 }
@@ -130,15 +155,16 @@ const day = (lastModified) => {
  * the root's own pages, each once, by path.
  */
 export async function tapSitemapXml(request, env, root) {
-  const [, country, version, , , , own = []] = TAP_MARKETS[root];
+  const [, country, version, , , , own = [], lacks = []] = TAP_MARKETS[root];
   const index = (await versionIndex(request, env, version)) || new Map();
   const host = `https://${publicHost(request, env)}`;
   const home = index.get(`/${version}`);
   const pages = new Map();
   index.forEach((row, path) => {
     if (!path.startsWith(`/${version}/`) || NOT_PAGES.test(path)) return;
-    if (!marketAllows(row.markets, country)) return;
-    pages.set(path.slice(version.length + 1), day(row.lastModified));
+    const suffix = path.slice(version.length + 1);
+    if (!marketAllows(row.markets, country) || lacks.includes(suffix)) return;
+    pages.set(suffix, day(row.lastModified));
   });
   own.forEach((s) => { if (!pages.has(s)) pages.set(s, ''); });
   const entry = (suffix, mod) => `<url><loc>${xmlEscape(`${host}/${root}${suffix}`)}</loc>${
@@ -183,7 +209,7 @@ export async function tapMarket(request, env, { live = TAP_LIVE_MARKETS } = {}) 
     live,
     hosts: siteHosts(env),
     www: env.WWW_HOST || 'www.flytap.com',
-    allowed: (s) => allowedIn(index, version, s, country),
+    allowed: (s) => rootHas(root, index, s),
     marketPath: `/${root}${suffix}`,
   };
   // the root's own document first (its homepage is /<root>/, a folder's index)
@@ -192,10 +218,11 @@ export async function tapMarket(request, env, { live = TAP_LIVE_MARKETS } = {}) 
   if (kind === 'file') return own;
   if (own.status !== 404) {
     if (!own.ok) return own;
-    return forRoot(request, env, own, ctx, { sections: false, alternates: kind === 'page' && homepage });
+    // www's root homepages list no hreflang; the root's other own pages none either
+    return forRoot(request, env, own, ctx, { sections: false, alternates: false });
   }
-  // the language version's, unless its index leaves the country out
-  if (!allowedIn(index, version, suffix, country)) return own;
+  // the language version's, unless the root lacks it (markets.json) or the index leaves it out
+  if (!rootHas(root, index, suffix)) return own;
   const target = homepage ? `/${version}` : `/${version}${rest}`;
   const doc = await originFetch(withoutConditions(request, 'GET'), env, `https://${env.ORIGIN}${target}`);
   const location = doc.headers.get('location');
