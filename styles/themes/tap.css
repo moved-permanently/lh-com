@@ -1074,6 +1074,12 @@ body.brand-tap main > .section.extra-alert {
   background-color: #ebf2ff;
 }
 
+/* styles.css gives the first section 25 px on top once the body appears (body.appear ... :first-of-type),
+   which beats the rule above: the strip sits right under the alerts bar, as on www */
+body.brand-tap.appear main > .section.extra-alert:first-of-type {
+  margin-top: 0;
+}
+
 body.brand-tap main > .section.extra-alert > .columns-wrapper {
   max-width: none;
   padding: 8px 16px;
