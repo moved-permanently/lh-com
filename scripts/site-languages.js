@@ -185,7 +185,9 @@ export function switchAlternates(languages, read) {
  *   (switchAlternates: per language, and per root on a site with countries), taken without a probe.
  *   A site with countries (TAP): a root's own row first, the language's row only for that
  *   language's first listed root; a market root and its language version share their slugs
- *   (en-us/help, en-pt/help), unless the root lacks the page (its homepage then)
+ *   (en-us/help, en-pt/help), unless the root lacks the page (its homepage then); a market root
+ *   without a row of its own takes its language version's counterpart under the root (the same
+ *   exception)
  */
 export function languageSwitch(tools, pathname, lang, languages, alternates = {}) {
   // a site with <ll>-<cc> roots: the page's root (a language may have several)
@@ -216,8 +218,20 @@ export function languageSwitch(tools, pathname, lang, languages, alternates = {}
     if ((l.lacks || []).includes(suffix)) return null;
     return `${l.home}${suffix}`;
   };
+  // a market root without a row of its own: its language version's counterpart under the root
+  // (de-ch/an-bord's en-us: en-pt/on-board as /en-us/on-board), unless the root lacks the page
+  const derivedOf = (l) => {
+    if (!l.country || !l.version || l.version === keyOf(l)) return null;
+    const version = languages.find((x) => keyOf(x) === l.version);
+    const target = version && alternateOf(version);
+    const prefix = `/${l.version}`;
+    if (!target || (target !== prefix && !target.startsWith(`${prefix}/`))) return null;
+    const suffix = target.slice(prefix.length).replace(/\/$/, '');
+    if ((l.lacks || []).includes(suffix)) return null;
+    return `${l.home}${suffix}`;
+  };
   const links = others.map((l) => {
-    const alternate = alternateOf(l) || sharedOf(l);
+    const alternate = alternateOf(l) || sharedOf(l) || derivedOf(l);
     return {
       lang: l.lang,
       label: authored.get(keyOf(l)) || l.name,
