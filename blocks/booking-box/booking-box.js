@@ -20,6 +20,7 @@
 import { readConfigRows, toConfigKey } from '../../scripts/block-config.js';
 import { createAirportCombobox } from '../../scripts/airport-combobox.js';
 import { getLocale, siteOrigin } from '../../scripts/locale.js';
+import { overHeroPull } from './over-hero.js';
 import {
   MAX_FLIGHTS, buildTapDeeplink, marketOrigin, canChange, isBookingCode, isUkRoute, tapCheckinUrl,
   tapManageUrl,
@@ -494,7 +495,8 @@ function setError(control, holder, text) {
   return true;
 }
 
-/** Pulls the box over the hero's bottom (TAP: the card 18 px above it), short of its dots/CTA. */
+/** Pulls the box over the hero's bottom (TAP: the card 18 px above it), short of what is in the
+    tab bar's way (over-hero.js). */
 function placeOverHero(block) {
   const section = block.closest('.section');
   const prev = section && section.previousElementSibling;
@@ -506,22 +508,19 @@ function placeOverHero(block) {
     section.classList.remove('booking-box-over-hero');
     if (!wide || !wide.matches) return;
     const card = block.querySelector('.booking-box-card');
-    const h = hero.getBoundingClientRect();
-    const c = card.getBoundingClientRect();
-    if (!h.height || !c.height) return;
-    const blockers = [...hero.querySelectorAll('.hero-campaign-dots, .hero-campaign-cta, .button-container')]
-      .map((x) => x.getBoundingClientRect())
-      .filter((r) => r.height && r.right > c.left && r.left < c.right)
-      .filter((r) => r.bottom > h.top && r.top < h.bottom);
-    // the tab bar above the card stays 16 px below the lowest of them
-    const above = c.top - block.getBoundingClientRect().top;
-    const lowest = Math.max(...blockers.map((r) => r.bottom));
-    const free = blockers.length ? h.bottom - lowest - 16 - above : Infinity;
-    // the card's top this far above the hero's bottom (TAP at 1440: 204 + 18 = 222 px)
-    const overlap = Math.min(c.height + 18, free);
-    const pull = c.top - (h.bottom - overlap);
-    if (overlap <= 0 || pull <= 0) return;
-    section.style.marginTop = `${-Math.round(pull)}px`;
+    const tabs = block.querySelector('[role="tablist"]');
+    const blockers = [...hero.querySelectorAll('.hero-campaign-dots, .hero-campaign-pause, .hero-campaign-cta, .button-container')]
+      .map((x) => x.getBoundingClientRect());
+    // (over-hero.js: the card 18 px above the hero's bottom, short of what is in the tab bar's way)
+    const pull = overHeroPull({
+      hero: hero.getBoundingClientRect(),
+      card: card.getBoundingClientRect(),
+      tabs: tabs && tabs.offsetWidth ? tabs.getBoundingClientRect() : null,
+      top: block.getBoundingClientRect().top,
+      blockers,
+    });
+    if (!pull) return;
+    section.style.marginTop = `${-pull}px`;
     section.classList.add('booking-box-over-hero');
   };
   let frame = 0;

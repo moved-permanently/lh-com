@@ -746,3 +746,320 @@ body.brand-tap .columns-media .columns-media-text p > picture img {
   width: auto;
   height: 36px;
 }
+
+/* ---------------------------------------- TAP's homepage under the stage (brief 330) ---- */
+
+/* the booking box's section: www's room below the card (the pills 109 px below it at 1440, 56 on
+   phones; www's container pb-20 lg:pb-[85px]) */
+body.brand-tap main > .section.booking-box-container {
+  margin-bottom: 56px;
+}
+
+@media (width >= 1024px) {
+  body.brand-tap main > .section.booking-box-container {
+    margin-bottom: 101px;
+  }
+}
+
+/* www.flytap.com/en-pt under the booking box (2026-11-04, 1440 and 390 px): the extras as one
+   row of white pills (cards-icon with an icon on every tile, blocks/cards-icon/cards-icon-tap.js):
+   243 px slides 12 px apart, four in 1008 px between a round previous and next button from
+   1024 px; 280 px slides swiped on phones, the next one peeking in. Each pill 56 px high, the icon
+   in a 40 px light grey circle, the label Inter 15 / 500 (14 on phones) beside it, a faint
+   shadow for an edge. */
+body.brand-tap .cards-icon.cards-icon-tap {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+body.brand-tap .cards-icon-tap .cards-icon-viewport {
+  flex: 1 1 auto;
+  min-width: 0;
+  margin-inline: calc(-1 * var(--layout-margin));
+}
+
+body.brand-tap .cards-icon-tap .cards-icon-viewport > ul {
+  display: flex;
+  gap: 12px;
+  margin: 0;
+  padding: 8px var(--layout-margin) 12px;
+  overflow-x: auto;
+  list-style: none;
+  scroll-padding-inline: var(--layout-margin);
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+body.brand-tap .cards-icon-tap .cards-icon-viewport > ul::-webkit-scrollbar {
+  display: none;
+}
+
+body.brand-tap .cards-icon-tap .cards-icon-viewport > ul > li {
+  display: flex;
+  flex: 0 0 280px;
+  box-sizing: border-box;
+  padding: 0 4px;
+  scroll-snap-align: start;
+}
+
+body.brand-tap .cards-icon-tap .cards-icon-tile {
+  flex-direction: row;
+  gap: 16px;
+  align-items: center;
+  justify-content: flex-start;
+  height: 56px;
+  padding: 8px 16px 8px 8px;
+  border: 0;
+  border-radius: 9999px;
+  background-color: #fff;
+  box-shadow: 0 1px 4px rgb(0 0 0 / 10%);
+  color: var(--text-color);
+  text-align: left;
+}
+
+body.brand-tap .cards-icon-tap a.cards-icon-tile:hover {
+  box-shadow: 0 2px 8px rgb(0 0 0 / 14%);
+  color: var(--text-color);
+}
+
+body.brand-tap .cards-icon-tap a.cards-icon-tile:focus-visible {
+  outline: 2px solid var(--lh-green);
+  outline-offset: 2px;
+}
+
+body.brand-tap .cards-icon-tap .cards-icon-icon {
+  flex: none;
+  box-sizing: border-box;
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  border-radius: 9999px;
+  background-color: #f2f2f3;
+  color: var(--text-color);
+}
+
+body.brand-tap .cards-icon-tap .cards-icon-label {
+  display: -webkit-box;
+  text-align: left;
+  overflow: hidden;
+  color: inherit;
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+body.brand-tap .cards-icon-tap :is(.cards-icon-prev, .cards-icon-next) {
+  display: none;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 9999px;
+  background-color: #f7f7f8;
+  color: #020817;
+  cursor: pointer;
+}
+
+body.brand-tap .cards-icon-tap :is(.cards-icon-prev, .cards-icon-next)::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8.6 5.4 7.2 6.8l5.2 5.2-5.2 5.2 1.4 1.4 6.6-6.6z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+body.brand-tap .cards-icon-tap .cards-icon-prev::before {
+  transform: scaleX(-1);
+}
+
+body.brand-tap .cards-icon-tap :is(.cards-icon-prev, .cards-icon-next):disabled {
+  background-color: #eaeaeb;
+  cursor: default;
+  opacity: 0.3;
+}
+
+body.brand-tap .cards-icon-tap :is(.cards-icon-prev, .cards-icon-next):focus-visible {
+  outline: 2px solid var(--lh-green);
+  outline-offset: 2px;
+}
+
+@media (width >= 728px) {
+  body.brand-tap .cards-icon-tap .cards-icon-label {
+    font-size: 15px;
+  }
+}
+
+@media (width >= 768px) {
+  body.brand-tap .cards-icon-tap .cards-icon-viewport > ul > li {
+    flex-basis: calc((100% - 24px) / 3);
+  }
+}
+
+@media (width >= 1024px) {
+  body.brand-tap .cards-icon-tap .cards-icon-viewport {
+    margin-inline: 0;
+  }
+
+  body.brand-tap .cards-icon-tap .cards-icon-viewport > ul {
+    padding-inline: 0;
+    scroll-padding-inline: 0;
+  }
+
+  body.brand-tap .cards-icon-tap .cards-icon-viewport > ul > li {
+    flex-basis: calc((100% - 36px) / 4);
+  }
+
+  body.brand-tap .cards-icon-tap:not(.cards-icon-static) :is(.cards-icon-prev, .cards-icon-next) {
+    display: flex;
+  }
+}
+
+/* "Plan your trip in detail" (carousel-cards of a picture and a linked title each,
+   carousel-cards.js carousel-cards-tap): the heading centred (GT Flexa 40 / 48, 28 on phones),
+   32 px above the cards; white cards with www's 32 px corners and soft shadow, the picture on top
+   (262 x 112 at 1440: four cards, 24 px apart, no controls), the title centred below it (Inter
+   16 / 500) in a 92 px band; on phones one 358 x 273 card at a time, swiped, previous, dots and
+   next under it as www's (a grey circle disabled, green dots, the current one a pill). */
+body.brand-tap main .default-content-wrapper:has(+ .carousel-cards-wrapper > .carousel-cards-tap) > :is(h2, h3):last-child {
+  margin: 52px 0 32px;
+  font-size: 28px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  text-align: center;
+}
+
+body.brand-tap .carousel-cards-tap .carousel-cards-track {
+  gap: 24px;
+}
+
+body.brand-tap .carousel-cards-tap .carousel-cards-slide,
+body.brand-tap .carousel-cards-tap .carousel-cards-slide:not(.carousel-cards-wide) {
+  border: 0;
+  border-radius: 32px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
+}
+
+body.brand-tap .carousel-cards-tap .carousel-cards-slide:hover {
+  box-shadow: 0 4px 16px rgb(0 0 0 / 14%);
+}
+
+body.brand-tap .carousel-cards-tap .carousel-cards-slide .carousel-cards-image,
+body.brand-tap .carousel-cards-tap .carousel-cards-slide:not(.carousel-cards-wide) .carousel-cards-image {
+  aspect-ratio: 262 / 112;
+  border-radius: 0;
+}
+
+body.brand-tap .carousel-cards-tap .carousel-cards-body {
+  align-items: center;
+  justify-content: center;
+  min-height: 120px;
+  box-sizing: border-box;
+  padding: 0 16px;
+}
+
+body.brand-tap .carousel-cards-tap .carousel-cards-slide:not(.carousel-cards-wide) .carousel-cards-body > :is(h1, h2, h3, h4, h5, h6) {
+  margin: 0;
+  color: var(--text-color);
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  text-align: center;
+}
+
+body.brand-tap .carousel-cards-tap .carousel-cards-body :is(h1, h2, h3, h4, h5, h6) a:any-link {
+  color: inherit;
+  font-weight: inherit;
+  text-decoration: none;
+}
+
+body.brand-tap .carousel-cards-tap .carousel-cards-nav {
+  position: static;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 32px;
+  pointer-events: auto;
+}
+
+body.brand-tap .carousel-cards-tap .carousel-cards-nav[hidden] {
+  display: none;
+}
+
+body.brand-tap .carousel-cards-tap :is(.carousel-cards-prev, .carousel-cards-next) {
+  position: static;
+  display: flex;
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  background-color: transparent;
+  color: var(--lh-green);
+}
+
+body.brand-tap .carousel-cards-tap :is(.carousel-cards-prev, .carousel-cards-next)::before {
+  width: 20px;
+  height: 20px;
+}
+
+body.brand-tap .carousel-cards-tap :is(.carousel-cards-prev, .carousel-cards-next):disabled {
+  visibility: visible;
+  background-color: #eaeaeb;
+  color: #b0aeb4;
+  cursor: default;
+  opacity: 0.6;
+}
+
+body.brand-tap .carousel-cards-tap .carousel-cards-dots {
+  gap: 12px;
+  align-items: center;
+  margin: 0;
+}
+
+body.brand-tap .carousel-cards-tap .carousel-cards-dot {
+  width: 8px;
+  height: 8px;
+  border: 1px solid var(--lh-yellow);
+  border-radius: 9999px;
+  background-color: transparent;
+}
+
+body.brand-tap .carousel-cards-tap .carousel-cards-dot[aria-current="true"] {
+  width: 20px;
+  border-color: var(--lh-yellow);
+  background-color: var(--lh-yellow);
+}
+
+@media (width >= 768px) {
+  body.brand-tap .carousel-cards-tap .carousel-cards-slide {
+    flex-basis: calc((100% - 24px) / 2);
+  }
+
+  body.brand-tap .carousel-cards-tap .carousel-cards-body {
+    min-height: 92px;
+    padding: 16px 32px;
+  }
+}
+
+@media (width >= 1024px) {
+  body.brand-tap main .default-content-wrapper:has(+ .carousel-cards-wrapper > .carousel-cards-tap) > :is(h2, h3):last-child {
+    margin-top: 84px;
+    font-size: 40px;
+  }
+
+  body.brand-tap .carousel-cards-tap .carousel-cards-slide,
+  body.brand-tap .carousel-cards-tap .carousel-cards-slide:not(.carousel-cards-wide) {
+    flex-basis: calc((100% - 72px) / 4);
+  }
+}

@@ -1,4 +1,4 @@
-import { createOptimizedPicture } from '../../scripts/aem.js';
+import { createOptimizedPicture, getMetadata } from '../../scripts/aem.js';
 import { getLocale } from '../../scripts/locale.js';
 import {
   toConfigKey, cleanText, resolveLabels, decorateExternalLinks, keepImageSize,
@@ -255,6 +255,22 @@ async function fillAuthors(block) {
   });
 }
 
+/**
+ * TAP's card carousel (www.flytap.com's "Plan your trip in detail", ClientNeedsCardList): on brand
+ * tap, an option-less carousel whose cards are a picture and a linked title only; previous, dots
+ * and next then sit in one group under the row (styles/themes/tap.css carousel-cards-tap).
+ */
+function isTapPlanCards(block, items) {
+  if (getMetadata('brand').trim().toLowerCase() !== 'tap') return false;
+  if ([...block.classList].some((c) => !['block', 'carousel-cards'].includes(c))) return false;
+  return items.every((li) => {
+    const body = li.querySelector('.carousel-cards-body');
+    const only = body && body.children.length === 1 && body.firstElementChild;
+    return li.querySelector('.carousel-cards-image img') && only
+      && /^H[1-6]$/.test(only.tagName) && only.querySelector('a[href]');
+  });
+}
+
 /** Slides in view: 1 (one slide per dot) unless the four-up option shows several at once. */
 function slidesPerView(block, track, items) {
   if (!block.classList.contains('four-up') || !items[0].offsetWidth) return 1;
@@ -386,8 +402,14 @@ export default async function decorate(block) {
   }, { passive: true });
   if (window.ResizeObserver) new ResizeObserver(update).observe(track);
 
-  viewport.append(nav);
-  block.replaceChildren(viewport, dots);
+  if (isTapPlanCards(block, items)) {
+    block.classList.add('carousel-cards-tap');
+    nav.insertBefore(dots, next);
+    block.replaceChildren(viewport, nav);
+  } else {
+    viewport.append(nav);
+    block.replaceChildren(viewport, dots);
+  }
   update();
   await media;
 }

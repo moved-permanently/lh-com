@@ -1,4 +1,6 @@
 import { decorateExternalLinks } from '../../scripts/block-config.js';
+import { getMetadata } from '../../scripts/aem.js';
+import { getLocale } from '../../scripts/locale.js';
 
 /**
  * Compact link tiles: an icon over a label, the whole tile clickable.
@@ -6,7 +8,7 @@ import { decorateExternalLinks } from '../../scripts/block-config.js';
  * in any order and number.
  * @param {Element} block
  */
-export default function decorate(block) {
+export default async function decorate(block) {
   const ul = document.createElement('ul');
 
   [...block.children].forEach((row) => {
@@ -45,4 +47,12 @@ export default function decorate(block) {
 
   decorateExternalLinks(ul);
   block.replaceChildren(ul);
+
+  // TAP: tiles with an icon each are www's pill carousel (cards-icon-tap.js)
+  const tiles = [...ul.children];
+  if (getMetadata('brand').trim().toLowerCase() === 'tap' && tiles.length
+    && tiles.every((li) => li.querySelector('.cards-icon-icon'))) {
+    const { default: decorateTapPills } = await import('./cards-icon-tap.js');
+    decorateTapPills(block, { lang: getLocale().lang });
+  }
 }
