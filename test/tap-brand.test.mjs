@@ -58,18 +58,19 @@ test('the brand entry: name, www, and none of the live systems (links to www.fly
 // the others joined the switch when their pages were live (es-es: brief 318, fr-fr: brief 320,
 // de-de, it-it and pl-pl: brief 324)
 test('its roots: <ll>-<cc>, pt-pt first; the switch lists all seven', () => {
-  const roots = SITE_LANGUAGES.tap;
+  // the language roots (pt-br and the market roots follow: test/tap-markets.test.mjs)
+  const roots = SITE_LANGUAGES.tap.slice(0, 7);
   assert.deepEqual(roots.map((l) => [l.lang, l.country, l.path, l.home]), [
     ['pt', 'pt', '/pt-pt/', '/pt-pt'], ['en', 'pt', '/en-pt/', '/en-pt'], ['es', 'es', '/es-es/', '/es-es'], ['fr', 'fr', '/fr-fr/', '/fr-fr'],
     ['de', 'de', '/de-de/', '/de-de'], ['it', 'it', '/it-it/', '/it-it'], ['pl', 'pl', '/pl-pl/', '/pl-pl']]);
-  assert.deepEqual(roots.filter((l) => l.listed !== false).map((l) => l.path), ['/pt-pt/', '/en-pt/', '/es-es/', '/fr-fr/', '/de-de/', '/it-it/', '/pl-pl/']);
+  assert.deepEqual(SITE_LANGUAGES.tap.filter((l) => l.listed !== false).map((l) => l.path), ['/pt-pt/', '/en-pt/', '/es-es/', '/fr-fr/', '/de-de/', '/it-it/', '/pl-pl/']);
   assert.ok(roots.every((l) => l.listed === undefined));
   assert.equal(languageOfPath('/pt-pt', roots).lang, 'pt');
   assert.equal(languageOfPath('/en-pt/book', roots).lang, 'en');
   assert.equal(languageOfPath('/pt-ptx', roots), null);
   // TAP's slugs are translated (/pt-pt/ajuda, /en-pt/help, /es-es/ayuda; brief 320): a homepage's
   // counterpart is the other root's homepage, a page has none of the same path
-  assert.ok(roots.every((l) => l.slugs === 'own'));
+  assert.ok(SITE_LANGUAGES.tap.every((l) => l.slugs === 'own'));
   assert.equal(counterpartPath('/pt-pt', roots[0], roots[1]), '/en-pt');
   assert.equal(counterpartPath('/pt-pt/bagagem', roots[0], roots[1]), null);
   const { links } = languageSwitch([], '/pt-pt/bagagem', 'pt', roots);
