@@ -336,3 +336,45 @@ other page reaches it through the rewritten anchor links (5.4).
    and previewed. The steering session checks at 1440 and 390 (search to TAP's flight list once per root, no further) and then publishes.
    Rollback: restore the previous DA version of the homepages and republish.
 4. Later imports (the market roots, pt-br) write the block table the same way.
+
+## 6. Market roots
+
+Checked on 2026-11-04 (brief 340), after ema-cashub switched pt-br and the 137 market roots on (b406eb8), on
+tap.turnsthe.page: one root per language version plus the three pilots. Each root's homepage block table names its
+market, language and default origin; they match `scripts/tap-markets.js` (www's market settings) and the box hands
+them to TAP's engine as §3.1 says: `market=<CC>`, `language=<ll>`, `origin=<the root's airport>`. TAP's engine takes
+the currency from the market (no currency parameter on www's hand-off either). The calendar is in the root's language
+(the Language row), weeks from Monday on every root. Check-in sends `ln=<ll>`, manage booking `market=<CC>&language=<ll>`.
+
+**Fixed:** on every market root the airport fields had no list. `/<root>/booking/airports.json` answered 404: the
+market route rewrote the homepage's link to the language version's sheet into the root's path, and answered `.json`
+only from the root's own folder. Since 19c45c5 (lh-edge, `src/tap-markets.js`) a sheet the root has no copy of comes
+from its language version, as it is (1,553 airports on every root). pt-br has its own sheet.
+
+| Root | Default origin | Hand-off (Dec 10-17, 1 adult, return) | TAP's answer |
+| --- | --- | --- | --- |
+| pt-br | RIO (Rio De Janeiro, Brasil) | market=BR, language=pt, RIO→LIS | flight list, "Selecionar voos" |
+| de-at | VIE (Wien, Österreich) | market=AT, language=de, VIE→LIS | flight list, "Flüge wählen" (Wien → Lissabon) |
+| en-gb | LON (London, United Kingdom) | market=GB, language=en, LON→LIS | flight list, "Select flights" |
+| es-mx | CUN (Cancún, México) | market=MX, language=es, CUN→LIS | flight list, "Seleccionar vuelos" |
+| fr-be | BRU (Bruxelles, Belgique) | market=BE, language=fr, BRU→LIS | flight list, "Sélectionner des vols" |
+| pt-ao | NBJ (Luanda, Angola) | market=AO, language=pt, NBJ→OPO | flight list, "Selecionar voos" (Luanda → Porto) |
+| de-ch | GVA (Genf, Schweiz) | market=CH, language=de, GVA→LIS | flight list, "Flüge wählen" (Genf → Lissabon) |
+| fr-ca | YYZ (Toronto, Canada) | market=CA, language=fr, YYZ→LIS | flight list, "Sélectionner des vols" |
+| en-us | NYC (New York, USA) | market=US, language=en, NYC→LIS | flight list, "Select flights" |
+| it-it | FCO (Roma, Italia) | market=IT, language=it, FCO→LIS | not sent (the limit of 10 searches; built as the others) |
+| pl-pl | WAW (Warszawa, Polska) | market=PL, language=pl, WAW→LIS | not sent (as it-it) |
+
+Nine searches in all, one per root, at least 30 s apart; each reached TAP's flight list in the root's language. Italian
+and Polish have no market roots (it-it and pl-pl are their only roots; it-ch does not exist on www either).
+
+**Not verified:** www's own calendar on en-us and pt-br (www opens it only after a destination is chosen, and the
+search limit was spent on the hand-offs). Ours starts every week on Monday, as www's pt-pt calendar (§2.1).
+
+**Missing in every root's block table** (the language roots' too; the importer's, ema-lufthansa): the check-in and
+manage tabs' rows `ibe.login`, `login-and-make-easier`, `ibe.reservation-details`, `ibe.reservation-number`,
+`ibe.passenger-lastname`, `ibe.find-reservation`, `validation-invalid` (TAP's i18n keys, §2.2), and the block's own
+`same-airports`, `flight-status-text`, `remove-flight`, `previous-month`, `next-month`, `close`, `fewer`, `more`,
+`new-tab`. Without them those texts are English on every root ("Login", "Or enter your booking details", "Booking
+code", "(opens in a new tab)" …). The tab labels come from the Tabs row and the corporate link's text from its link:
+both present.
