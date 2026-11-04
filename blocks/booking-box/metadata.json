@@ -1,0 +1,21 @@
+{
+  "variantName": "booking-box",
+  "baseBlock": "booking-box",
+  "canonicalModel": "standalone",
+  "sourceUrl": "https://www.flytap.com/pt-pt",
+  "visualCharacteristics": {
+    "purpose": "TAP Air Portugal's booking box: book, check-in, manage booking and flight status tabs, handed off to TAP's booking engine in a new tab",
+    "traits": [
+      "a pill tab track above a white card with 24px corners",
+      "green round radios, fields with a bottom line and code chips",
+      "an electric green Search pill, a two-month range calendar without prices"
+    ]
+  },
+  "contentPattern": {
+    "structure": "2 columns, key | value, every row optional but Format: Format, Market, Language, Default origin, Default origin name, Airports (link), Tabs, Flight status page, Login page, Corporate link (links), then the label rows by TAP's key or English text"
+  },
+  "options": [],
+  "memberVariantIds": [],
+  "usage": "TAP roots' homepages, in the section after the hero (ema-cashub's step; no page uses it yet)",
+  "reuseGuidance": "Format tap only; labels and links per root. The hand-off, passenger rules and matching are in tap-format.js and airport-match.js; another engine would be another Format."
+}

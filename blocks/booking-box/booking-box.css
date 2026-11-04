@@ -1,0 +1,946 @@
+/* booking-box (tools/reports/tap/booking-spec.md 2.1, 5.4): TAP's look at 1440 and 390 px from the
+   theme's tokens (styles/themes/tap.css); stacked below 1024 px, one line from 1024 px. */
+.booking-box {
+  --booking-box-text: var(--text-color, #424045);
+  --booking-box-accent: var(--brand-color, #65c922);
+  --booking-box-search: #9efd38;
+  --booking-box-search-hover: var(--button-accent-hover, #7cde3a);
+  --booking-box-line: var(--border-color, #e0dfe2);
+  --booking-box-track: #f7f7f8;
+  --booking-box-quiet: var(--lh-grey-1, #f2f2f3);
+  --booking-box-link: var(--link-color, #397213);
+  --booking-box-muted: var(--lh-grey-5, #b0aeb4);
+  --booking-box-disabled: var(--lh-grey-4, #c6c5c9);
+  --booking-box-error: var(--lh-red, #ed1c24);
+  --booking-box-range: #e6f6da;
+  --booking-box-shadow: 0 4px 24px rgb(2 8 23 / 12%);
+
+  /* above the hero it overlaps, and its popovers above the next sections */
+  position: relative;
+  z-index: 2;
+  max-width: 1120px;
+  margin: 0 auto;
+  color: var(--booking-box-text);
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.booking-box [hidden] {
+  display: none !important;
+}
+
+.booking-box button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.booking-box button:disabled {
+  cursor: default;
+}
+
+.booking-box :focus-visible {
+  outline: 2px solid var(--booking-box-link);
+  outline-offset: 2px;
+}
+
+.booking-box-icon {
+  display: inline-flex;
+  flex: none;
+}
+
+/* tabs: separate chips, 2 + 2 (390 px; longer texts wrap in the chip); a pill track from 768 px */
+.booking-box-tabs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, max-content));
+  justify-content: center;
+  gap: 8px;
+  margin: 0 auto 16px;
+}
+
+.booking-box-tabs [role='tab'] {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  min-height: 40px;
+  padding: 8px 16px;
+  border: 1px solid var(--booking-box-line);
+  border-radius: 9999px;
+  background: #fff;
+  color: var(--booking-box-text);
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+}
+
+.booking-box-tabs [role='tab'][aria-selected='true'] {
+  border-color: var(--booking-box-accent);
+  background: var(--booking-box-accent);
+  color: #000;
+}
+
+/* the card */
+.booking-box-card {
+  position: relative;
+  padding: 24px;
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: var(--booking-box-shadow);
+}
+
+.booking-box-book {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* trip types, miles, the corporate link: one per line below 1024 px, the link under the search */
+.booking-box-options {
+  display: contents;
+}
+
+.booking-box-trips {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.booking-box-radio,
+.booking-box-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+.booking-box-radio input,
+.booking-box-check input {
+  appearance: none;
+  flex: none;
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  border: 1px solid var(--booking-box-accent);
+  background: #fff;
+  cursor: pointer;
+}
+
+.booking-box-radio input {
+  border-radius: 50%;
+}
+
+.booking-box-check input {
+  border-radius: 4px;
+}
+
+.booking-box-radio input:checked {
+  background: radial-gradient(circle, #000 0 4px, var(--booking-box-accent) 4.5px);
+}
+
+.booking-box-check input:checked {
+  background: var(--booking-box-accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='m3.5 8.5 3 3 6-7' fill='none' stroke='%23000' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 16px no-repeat;
+}
+
+.booking-box-corporate {
+  order: 2;
+  display: inline-flex;
+  align-items: center;
+  align-self: center;
+  gap: 4px;
+  color: var(--booking-box-link);
+  text-decoration: underline;
+  text-decoration-color: var(--booking-box-accent);
+  text-underline-offset: 3px;
+}
+
+.booking-box-fields {
+  order: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.booking-box-route {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* fields: the label above a 52 px input with a bottom line, green on focus */
+.booking-box-field {
+  position: relative;
+  min-width: 0;
+}
+
+.booking-box .airport-combobox label,
+.booking-box-label {
+  display: block;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.booking-box .airport-combobox {
+  position: relative;
+}
+
+.booking-box .airport-combobox input,
+.booking-box-field-button {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 52px;
+  margin: 0;
+  padding: 0 28px 0 0;
+  border: 0;
+  border-bottom: 1px solid var(--booking-box-line);
+  border-radius: 0;
+  background: transparent;
+  color: var(--booking-box-text);
+  font: inherit;
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.booking-box .airport-combobox input:focus,
+.booking-box-field-button:focus,
+.booking-box-field-button[aria-expanded='true'] {
+  border-bottom-color: var(--booking-box-accent);
+  outline: none;
+}
+
+.booking-box-route .booking-box-origin .airport-combobox input {
+  padding-right: 56px;
+}
+
+.booking-box-field.invalid .airport-combobox input,
+.booking-box-field.invalid .booking-box-field-button {
+  border-color: var(--booking-box-error);
+}
+
+.booking-box .airport-combobox input::placeholder,
+.booking-box-field-button.empty {
+  color: var(--booking-box-text);
+}
+
+.booking-box .airport-combobox .booking-box-chip:not([hidden]) + input {
+  padding-left: 52px;
+}
+
+.booking-box .airport-combobox > .booking-box-icon-caret,
+.booking-box .booking-box-field-button .booking-box-icon-caret {
+  position: absolute;
+  right: 4px;
+  bottom: 18px;
+  pointer-events: none;
+}
+
+.booking-box-route .booking-box-origin .airport-combobox > .booking-box-icon-caret {
+  right: 52px;
+}
+
+.booking-box-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  min-width: 40px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 9999px;
+  background: var(--booking-box-accent);
+  color: #000;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.booking-box .airport-combobox > .booking-box-chip {
+  position: absolute;
+  left: 0;
+  bottom: 16px;
+}
+
+/* the swap button: right of the fields between origin and destination (stacked) */
+.booking-box-swap {
+  position: absolute;
+  top: 58px;
+  right: 0;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 2px solid var(--booking-box-muted);
+  border-radius: 50%;
+  background: #fff;
+}
+
+/* the airport list */
+.booking-box .airport-combobox [role='listbox'] {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 20;
+  box-sizing: border-box;
+  width: 100%;
+  max-height: 360px;
+  margin: 4px 0 0;
+  padding: 8px 0;
+  overflow-y: auto;
+  list-style: none;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: var(--booking-box-shadow);
+}
+
+.booking-box .airport-combobox [role='option'] {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  cursor: pointer;
+}
+
+.booking-box .airport-combobox [role='option'][aria-selected='true'],
+.booking-box .airport-combobox [role='option']:hover {
+  background: var(--booking-box-quiet);
+}
+
+.booking-box [role='option'] .booking-box-chip {
+  background: var(--booking-box-text);
+  color: #fff;
+}
+
+.booking-box-option-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.booking-box-option-name {
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.booking-box-option-country {
+  color: #6b6970;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.booking-box .airport-combobox-status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* the search button: TAP's electric green pill, full width below 1024 px */
+.booking-box-search {
+  height: 40px;
+  padding: 0 24px;
+  border: 0;
+  border-radius: 9999px;
+  background: var(--booking-box-search);
+  color: #000 !important;
+  font-size: 15px !important;
+  font-weight: 500;
+}
+
+.booking-box-search:hover {
+  background: var(--booking-box-search-hover);
+}
+
+/* validation */
+.booking-box-error {
+  display: block;
+  margin-top: 4px;
+  color: var(--booking-box-error);
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- the boxed fields' inputs, no airport's */
+.booking-box-boxed.invalid input {
+  border-color: var(--booking-box-error);
+}
+
+/* popovers */
+.booking-box-calendar,
+.booking-box-passenger-panel {
+  position: absolute;
+  z-index: 20;
+  box-sizing: border-box;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: var(--booking-box-shadow);
+}
+
+.booking-box-passenger-panel {
+  top: 100%;
+  right: 0;
+  left: 0;
+  margin-top: 4px;
+  padding: 8px 24px;
+}
+
+.booking-box-passenger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 0;
+}
+
+.booking-box-passenger + .booking-box-passenger {
+  border-top: 1px solid var(--booking-box-line);
+}
+
+.booking-box-passenger-name {
+  display: flex;
+  flex-direction: column;
+}
+
+.booking-box-passenger-name strong {
+  font-weight: 500;
+}
+
+.booking-box-passenger-name span {
+  color: #6b6970;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.booking-box-stepper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.booking-box .booking-box-stepper button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--booking-box-accent);
+  border-radius: 50%;
+  background: #fff;
+}
+
+.booking-box-stepper button:disabled {
+  border-color: var(--booking-box-line);
+  color: var(--booking-box-disabled);
+}
+
+.booking-box-stepper output {
+  min-width: 16px;
+  text-align: center;
+}
+
+/* the calendar: one month below 768 px, two from 768 px */
+.booking-box-calendar {
+  top: 0;
+  right: -8px;
+  left: -8px;
+  padding: 16px;
+}
+
+.booking-box-calendar-head {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+.booking-box-typed-field {
+  flex: 1;
+  min-width: 0;
+}
+
+.booking-box .booking-box-typed-field label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.booking-box-typed {
+  box-sizing: border-box;
+  width: 100%;
+  height: 44px;
+  padding: 0 12px;
+  border: 1px solid var(--booking-box-line);
+  border-radius: 8px;
+  font: inherit;
+  color: var(--booking-box-text);
+}
+
+.booking-box-typed:focus {
+  border-color: var(--booking-box-accent);
+  outline: none;
+}
+
+.booking-box-typed[aria-invalid='true'] {
+  border-color: var(--booking-box-error);
+}
+
+.booking-box-close,
+.booking-box-prev,
+.booking-box-next,
+.booking-box-remove-flight {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+}
+
+.booking-box-prev:disabled {
+  color: var(--booking-box-disabled);
+}
+
+.booking-box-calendar-body {
+  position: relative;
+  display: flex;
+  gap: 24px;
+  margin-top: 16px;
+}
+
+.booking-box-calendar-body .booking-box-prev,
+.booking-box-calendar-body .booking-box-next {
+  position: absolute;
+  top: -8px;
+}
+
+.booking-box-calendar-body .booking-box-prev {
+  left: 0;
+}
+
+.booking-box-calendar-body .booking-box-next {
+  right: 0;
+}
+
+.booking-box-months {
+  display: flex;
+  flex: 1;
+  gap: 32px;
+}
+
+.booking-box-month {
+  flex: 1;
+  min-width: 0;
+}
+
+.booking-box-month h3 {
+  margin: 0 0 8px;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: center;
+}
+
+.booking-box-month h3::first-letter {
+  text-transform: uppercase;
+}
+
+.booking-box-month table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.booking-box-month th {
+  padding: 4px 0;
+  color: #6b6970;
+  font-size: 13px;
+  font-weight: 400;
+  text-transform: lowercase;
+}
+
+.booking-box-month td {
+  padding: 1px 0;
+  text-align: center;
+}
+
+.booking-box .booking-box-month td button {
+  width: 40px;
+  max-width: 100%;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  font-size: 14px;
+}
+
+.booking-box-month td button.today {
+  font-weight: 700;
+}
+
+.booking-box-month td button:disabled {
+  color: var(--booking-box-disabled);
+}
+
+.booking-box-month td button:not(:disabled):hover {
+  background: var(--booking-box-quiet);
+}
+
+.booking-box-month td button.in-range {
+  border-radius: 0;
+  background: var(--booking-box-range);
+}
+
+.booking-box-month td button.selected {
+  background: var(--booking-box-accent);
+  color: #000;
+  font-weight: 500;
+}
+
+.booking-box-calendar-foot {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.booking-box-clear,
+.booking-box-continue,
+.booking-box-add-flight,
+.booking-box-find,
+.booking-box .booking-box-login,
+.booking-box .booking-box-status-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-sizing: border-box;
+  height: 40px;
+  margin: 0;
+  padding: 0 24px;
+  border: 1px solid var(--booking-box-accent);
+  border-radius: 9999px;
+  background: #fff;
+  color: #000;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.booking-box-continue,
+.booking-box .booking-box-login,
+.booking-box .booking-box-status-link {
+  background: var(--booking-box-accent);
+}
+
+.booking-box-continue:disabled {
+  border-color: var(--booking-box-line);
+  background: var(--booking-box-line);
+  color: #6b6970;
+}
+
+/* multi-city */
+.booking-box-multi {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.booking-box-legs {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-self: stretch;
+}
+
+.booking-box-leg {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.booking-box-leg-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--booking-box-quiet);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.booking-box-remove-flight {
+  position: absolute;
+  top: -8px;
+  right: 0;
+}
+
+/* check-in and manage booking: Login and the booking's details; flight status */
+.booking-box-find-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.booking-box-find-panel h3 {
+  margin: 0 0 8px;
+  font-family: var(--body-font-family);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.booking-box-login-column p {
+  margin: 0 0 16px;
+}
+
+.booking-box-find-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.booking-box .booking-box-boxed label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- the boxed fields' inputs, no airport's */
+.booking-box-boxed input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 52px;
+  padding: 0 16px;
+  border: 1px solid var(--booking-box-line);
+  border-radius: 8px;
+  font: inherit;
+  color: var(--booking-box-text);
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- the boxed fields' inputs, no airport's */
+.booking-box-boxed input:focus {
+  border-color: var(--booking-box-accent);
+  outline: none;
+}
+
+.booking-box-find {
+  align-self: flex-start;
+}
+
+.booking-box-status {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.booking-box-status p {
+  margin: 0;
+}
+
+@media (width >= 768px) {
+  .booking-box-tabs {
+    display: flex;
+    gap: 0;
+    width: fit-content;
+    padding: 4px;
+    border-radius: 9999px;
+    background: var(--booking-box-track);
+  }
+
+  .booking-box-tabs [role='tab'] {
+    height: 40px;
+    border: 0;
+    background: transparent;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  .booking-box-calendar {
+    right: auto;
+    left: 50%;
+    width: 650px;
+    max-width: calc(100vw - 32px);
+    padding: 24px;
+    transform: translateX(-50%);
+  }
+
+  .booking-box-find-panel {
+    flex-direction: row;
+    gap: 48px;
+  }
+
+  .booking-box-login-column {
+    flex: 0 0 35%;
+  }
+
+  .booking-box-find-form {
+    flex: 1;
+    flex-flow: row wrap;
+    align-items: flex-end;
+  }
+
+  .booking-box-find-form h3 {
+    flex-basis: 100%;
+  }
+
+  .booking-box-find-form .booking-box-boxed {
+    flex: 1 1 200px;
+  }
+
+  .booking-box-status {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+/* one line from 1024 px: the radios, miles and the link; the fields and the search */
+@media (width >= 1024px) {
+  .booking-box-card {
+    padding: 32px;
+    box-shadow: none;
+  }
+
+  .booking-box-book {
+    gap: 24px;
+  }
+
+  .booking-box-options {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .booking-box-trips {
+    flex-direction: row;
+    gap: 24px;
+  }
+
+  .booking-box-corporate {
+    margin-left: auto;
+  }
+
+  .booking-box-fields {
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 24px;
+  }
+
+  .booking-box-route {
+    flex: 1 1 auto;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 24px;
+    min-width: 0;
+  }
+
+  .booking-box-route .booking-box-origin,
+  .booking-box-route .booking-box-destination {
+    flex: 1 1 169px;
+  }
+
+  .booking-box-swap {
+    position: static;
+    margin: 0 -4px 6px;
+  }
+
+  .booking-box-route .booking-box-origin .airport-combobox input {
+    padding-right: 28px;
+  }
+
+  .booking-box-route .booking-box-origin .airport-combobox > .booking-box-icon-caret {
+    right: 4px;
+  }
+
+  .booking-box-route .booking-box-dates,
+  .booking-box-fields > .booking-box-passengers {
+    padding-left: 24px;
+    border-left: 1px solid var(--booking-box-line);
+  }
+
+  .booking-box-route .booking-box-dates {
+    flex: 1 1 204px;
+  }
+
+  .booking-box-fields > .booking-box-passengers {
+    flex: none;
+    width: 176px;
+  }
+
+  .booking-box-search {
+    flex: none;
+    width: 128px;
+    margin-bottom: 6px;
+  }
+
+  .booking-box-route.booking-box-multi-on {
+    display: none;
+  }
+
+  .booking-box-multi {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .booking-box-leg {
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 24px;
+  }
+
+  .booking-box-leg .booking-box-field {
+    flex: 1 1 0;
+  }
+
+  .booking-box-leg-number {
+    margin-bottom: 14px;
+  }
+
+  .booking-box-remove-flight {
+    position: static;
+    margin-bottom: 6px;
+  }
+
+  .booking-box-leg .booking-box-remove-flight[hidden] {
+    display: inline-flex !important;
+    visibility: hidden;
+  }
+
+  .booking-box-passenger-panel {
+    left: auto;
+    width: 340px;
+  }
+
+  .booking-box .airport-combobox [role='listbox'] {
+    width: max(100%, 380px);
+  }
+
+  .booking-box-calendar {
+    top: calc(100% + 8px);
+  }
+}
