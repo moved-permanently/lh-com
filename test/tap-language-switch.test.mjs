@@ -36,7 +36,8 @@ test('pt-pt shows pt-br\'s counterpart (folder-keyed); en-pt its own; a second r
   assert.equal(targets['/pt-br'], '/pt-br/ajuda');
   assert.equal(targets['/en-pt'], '/en-pt/help');
   assert.equal(targets['/de-de'], '/de-de/hilfe');
-  assert.equal(targets['/en-us'], null, 'en-us: no row of its own, not Alternate en (en-pt\'s)');
+  // en-us: no row of its own; its language version's counterpart (en-pt/help) under en-us (brief 336)
+  assert.equal(targets['/en-us'], '/en-us/help');
 });
 
 test('pt-br shows pt-pt by its rows; the nav\'s English (en-br on www) stays its tool as the nav tool writes it', () => {
@@ -70,6 +71,42 @@ test('the nav\'s language link labels its own root only: English (to /en-pt) is 
   const { links } = languageSwitch([{ href: '/en-pt', label: 'English' }], '/pt-pt/ajuda', 'pt', rows, {});
   assert.equal(links.find((l) => l.home === '/en-pt').label, 'English');
   assert.equal(links.find((l) => l.home === '/en-us').label, 'English (United States)');
+});
+
+test('a market root\'s entry: its language version\'s counterpart under the root, its homepage where it lacks the page (brief 336)', () => {
+  const rows = tapLanguages(['de-ch', 'en-us', 'fr-ca']);
+  // de-ch/an-bord as lh-edge serves it from de-de/an-bord: de-de's rows, folder- and language-keyed
+  const anBord = {
+    'alternate-en': '/en-pt/on-board', 'alternate-en-pt': '/en-pt/on-board', 'alternate-fr': '/fr-fr/a-bord', 'alternate-fr-fr': '/fr-fr/a-bord', 'alternate-pt': '/pt-pt/a-bordo', 'alternate-pt-pt': '/pt-pt/a-bordo',
+  };
+  const fromCh = byHome(languageSwitch([], '/de-ch/an-bord', 'de', rows, switchAlternates(rows, read(anBord))).links);
+  assert.equal(fromCh['/en-us'], '/en-us/on-board');
+  assert.equal(fromCh['/fr-ca'], '/fr-ca/a-bord');
+  assert.equal(fromCh['/en-pt'], '/en-pt/on-board');
+  assert.equal(fromCh['/de-de'], '/de-de/an-bord', 'its own language version: the same path');
+  // only the language-keyed row (a document without folder rows): the same
+  const fromChOld = byHome(languageSwitch([], '/de-ch/an-bord', 'de', rows, { en: '/en-pt/on-board', fr: '/fr-fr/a-bord' }).links);
+  assert.equal(fromChOld['/en-us'], '/en-us/on-board');
+  assert.equal(fromChOld['/fr-ca'], '/fr-ca/a-bord');
+  // a page the root lacks on www (en-us: /bookings/gift-card, fr-ca: /reservations/gift-card): its homepage
+  const gift = { 'alternate-en-pt': '/en-pt/bookings/gift-card', 'alternate-fr-fr': '/fr-fr/reservations/gift-card' };
+  const fromGift = languageSwitch([], '/de-ch/an-bord', 'de', rows, switchAlternates(rows, read(gift))).links;
+  assert.equal(fromGift.find((l) => l.home === '/en-us').alternate, undefined);
+  assert.equal(fromGift.find((l) => l.home === '/en-us').counterpart, null);
+  assert.equal(fromGift.find((l) => l.home === '/fr-ca').alternate, undefined);
+  // fr-ca/a-bord and en-us/on-board the same way
+  const fromCa = byHome(languageSwitch([], '/fr-ca/a-bord', 'fr', rows, {
+    en: '/en-pt/on-board', 'en-pt': '/en-pt/on-board', de: '/de-de/an-bord', 'de-de': '/de-de/an-bord',
+  }).links);
+  assert.equal(fromCa['/en-us'], '/en-us/on-board');
+  assert.equal(fromCa['/de-ch'], '/de-ch/an-bord');
+  assert.equal(fromCa['/fr-fr'], '/fr-fr/a-bord');
+  const fromUs = byHome(languageSwitch([], '/en-us/on-board', 'en', rows, { de: '/de-de/an-bord', 'de-de': '/de-de/an-bord', fr: '/fr-fr/a-bord' }).links);
+  assert.equal(fromUs['/de-ch'], '/de-ch/an-bord');
+  assert.equal(fromUs['/fr-ca'], '/fr-ca/a-bord');
+  // a root's own row still wins (Alternate en-us, when the documents carry it)
+  const own = byHome(languageSwitch([], '/de-ch/an-bord', 'de', rows, { en: '/en-pt/on-board', 'en-us': '/en-us/on-board-us' }).links);
+  assert.equal(own['/en-us'], '/en-us/on-board-us');
 });
 
 test('the other sites as before: Air Dolomiti\'s language-keyed rows', () => {
