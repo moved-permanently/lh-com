@@ -1,0 +1,632 @@
+{
+ "source": "www.flytap.com/pt-pt __NEXT_DATA__ props.pageProps.markets (capture tap-snapshots-001, 2026-11-03): code, name (pt), airport, currency, languages",
+ "markets": [
+  {
+   "code": "DE",
+   "name": "Alemanha",
+   "airport": "FRA",
+   "currency": "EUR",
+   "languages": [
+    "de",
+    "en",
+    "pt"
+   ]
+  },
+  {
+   "code": "DZ",
+   "name": "Argélia",
+   "airport": "ALG",
+   "currency": "EUR",
+   "languages": [
+    "fr",
+    "pt",
+    "en"
+   ]
+  },
+  {
+   "code": "AO",
+   "name": "Angola",
+   "airport": "NBJ",
+   "currency": "AOA",
+   "languages": [
+    "pt",
+    "en"
+   ]
+  },
+  {
+   "code": "AR",
+   "name": "Argentina",
+   "airport": "EZE",
+   "currency": "USD",
+   "languages": [
+    "en",
+    "es",
+    "pt"
+   ]
+  },
+  {
+   "code": "AT",
+   "name": "Áustria",
+   "airport": "VIE",
+   "currency": "EUR",
+   "languages": [
+    "de",
+    "en",
+    "pt"
+   ]
+  },
+  {
+   "code": "BE",
+   "name": "Bélgica",
+   "airport": "BRU",
+   "currency": "EUR",
+   "languages": [
+    "en",
+    "fr",
+    "pt"
+   ]
+  },
+  {
+   "code": "BR",
+   "name": "Brasil",
+   "airport": "RIO",
+   "currency": "BRL",
+   "languages": [
+    "pt",
+    "en"
+   ]
+  },
+  {
+   "code": "CV",
+   "name": "Cabo Verde",
+   "airport": "SID",
+   "currency": "EUR",
+   "languages": [
+    "en",
+    "pt"
+   ]
+  },
+  {
+   "code": "CA",
+   "name": "Canadá",
+   "airport": "YYZ",
+   "currency": "CAD",
+   "languages": [
+    "en",
+    "fr",
+    "pt"
+   ]
+  },
+  {
+   "code": "CI",
+   "name": "Costa do Marfim",
+   "airport": "ABJ",
+   "currency": "XOF",
+   "languages": [
+    "en",
+    "fr",
+    "pt"
+   ]
+  },
+  {
+   "code": "CL",
+   "name": "Chile",
+   "airport": "SCL",
+   "currency": "CLP",
+   "languages": [
+    "es",
+    "pt",
+    "en"
+   ]
+  },
+  {
+   "code": "CO",
+   "name": "Colômbia",
+   "airport": "ADZ",
+   "currency": "COP",
+   "languages": [
+    "es",
+    "pt",
+    "en"
+   ]
+  },
+  {
+   "code": "HR",
+   "name": "Croácia",
+   "airport": "ZAG",
+   "currency": "EUR",
+   "languages": [
+    "en",
+    "pt"
+   ]
+  },
+  {
+   "code": "DK",
+   "name": "Dinamarca",
+   "airport": "CPH",
+   "currency": "DKK",
+   "languages": [
+    "en",
+    "pt"
+   ]
+  },
+  {
+   "code": "EE",
+   "name": "Estónia",
+   "airport": "TLL",
+   "currency": "EUR",
+   "languages": [
+    "en",
+    "pt"
+   ]
+  },
+  {
+   "code": "EG",
+   "name": "Egito",
+   "airport": "CAI",
+   "currency": "EUR",
+   "languages": [
+    "en",
+    "pt"
+   ]
+  },
+  {
+   "code": "ES",
+   "name": "Espanha",
+   "airport": "MAD",
+   "currency": "EUR",
+   "languages": [
+    "es",
+    "en",
+    "pt"
+   ]
+  },
+  {
+   "code": "US",
+   "name": "Estados Unidos da América",
+   "airport": "NYC",
+   "currency": "USD",
+   "languages": [
+    "en",
+    "pt",
+    "es"
+   ]
+  },
+  {
+   "code": "FI",
+   "name": "Finlândia",
+   "airport": "HEL",
+   "currency": "EUR",
+   "languages": [
+    "en",
+    "pt"
+   ]
+  },
+  {
+   "code": "FR",
+   "name": "França",
+   "airport": "PAR",
+   "currency": "EUR",
+   "languages": [
+    "pt",
+    "fr",
+    "en"
+   ]
+  },
+  {
+   "code": "GM",
+   "name": "Gâmbia",
+   "airport": "BJL",
+   "currency": "USD",
+   "languages": [
+    "en",
+    "pt"
+   ]
+  },
+  {
+   "code": "GH",
+   "name": "Gana",
+   "airport": "ACC",
+   "currency": "USD",
+   "languages": [
+    "en",
+    "fr",
+    "pt"
+   ]
+  },
+  {
+   "code": "GN",
+   "name": "Guiné",
+   "airport": "CKY",
+   "currency": "USD",
+   "languages": [
+    "en",
+    "fr",
+    "pt"
+   ]
+  },
+  {
+   "code": "GR",
+   "name": "Grécia",
+   "airport": "ATH",
+   "currency": "EUR",
+   "languages": [
+    "en",
+    "pt"
+   ]
+  },
+  {
+   "code": "GW",
+   "name": "Guiné-Bissau",
+   "airport": "OXB",
+   "currency": "XOF",
+   "languages": [
+    "en",
+    "pt"
+   ]
+  },
+  {
+   "code": "HK",
+   "name": "Hong Kong",
+   "airport": "HKG",
+   "currency": "EUR",
+   "languages": [
+    "en",
+    "pt"
+   ]
+  },
+  {
+   "code": "HU",
+   "name": "Hungria",
+   "airport": "BUD",
+   "currency": "HUF",
+   "languages": [
+    "en",
+    "pt"
+   ]
+  },
+  {
+   "code": "IE",
+   "name": "Irlanda",
+   "airport": "DUB",
+   "currency": "EUR",
+   "languages": [
+    "en",
+    "pt"
+   ]
+  },
+  {
+   "code": "IS",
+   "name": "Islândia",
+   "airport": "KEF",
+   "currency": "ISK",
+   "languages": [
+    "pt",
+    "en"
+   ]
+  },
+  {
+   "code": "IL",
+   "name": "Israel",
+   "airport": "TLV",
+   "currency": "USD",
+   "languages": [
+    "en",
+    "pt"
+   ]
+  },
+  {
+   "code": "IT",
+   "name": "Itália",
+   "airport": "FCO",
+   "currency": "EUR",
+   "languages": [
+    "it",
+    "en",
+    "pt"
+   ]
+  },
+  {
+   "code": "LT",
+   "name": "Lituânia",
+   "airport": "VNO",
+   "currency": "EUR",
+   "languages": [
+    "en",
+    "pt"
+   ]
+  },
+  {
+   "code": "LU",
+   "name": "Luxemburgo",
+   "airport": "LUX",
+   "currency": "EUR",
+   "languages": [
+    "fr",
+    "en",
+    "pt"
+   ]
+  },
+  {
+   "code": "LV",
+   "name": "Letónia",
+   "airport": "RIX",
+   "currency": "EUR",
+   "languages": [
+    "en",
+    "pt"
+   ]
+  },
+  {
+   "code": "ML",
+   "name": "Mali",
+   "airport": "BKO",
+   "currency": "XOF",
+   "languages": [
+    "en",
+    "fr",
+    "pt"
+   ]
+  },
+  {
+   "code": "MA",
+   "name": "Marrocos",
+   "airport": "CMN",
+   "currency": "MAD",
+   "languages": [
+    "fr",
+    "pt",
+    "en"
+   ]
+  },
+  {
+   "code": "MX",
+   "name": "México",
+   "airport": "CUN",
+   "currency": "MXN",
+   "languages": [
+    "en",
+    "es",
+    "pt"
+   ]
+  },
+  {
+   "code": "MZ",
+   "name": "Moçambique",
+   "airport": "MPM",
+   "currency": "MZN",
+   "languages": [
+    "en",
+    "pt"
+   ]
+  },
+  {
+   "code": "NO",
+   "name": "Noruega",
+   "airport": "OSL",
+   "currency": "NOK",
+   "languages": [
+    "en",
+    "pt"
+   ]
+  },
+  {
+   "code": "PA",
+   "name": "Panamá",
+   "airport": "PTY",
+   "currency": "USD",
+   "languages": [
+    "en",
+    "es",
+    "pt"
+   ]
+  },
+  {
+   "code": "NL",
+   "name": "Países Baixos",
+   "airport": "AMS",
+   "currency": "EUR",
+   "languages": [
+    "en",
+    "pt"
+   ]
+  },
+  {
+   "code": "PL",
+   "name": "Polónia",
+   "airport": "WAW",
+   "currency": "PLN",
+   "languages": [
+    "pl",
+    "en",
+    "pt"
+   ]
+  },
+  {
+   "code": "PT",
+   "name": "Portugal",
+   "airport": "LIS",
+   "currency": "EUR",
+   "languages": [
+    "pt",
+    "en"
+   ]
+  },
+  {
+   "code": "GB",
+   "name": "Reino Unido",
+   "airport": "LON",
+   "currency": "GBP",
+   "languages": [
+    "en",
+    "pt"
+   ]
+  },
+  {
+   "code": "CZ",
+   "name": "Chéquia",
+   "airport": "PRG",
+   "currency": "CZK",
+   "languages": [
+    "en",
+    "pt"
+   ]
+  },
+  {
+   "code": "RO",
+   "name": "Roménia",
+   "airport": "BUH",
+   "currency": "EUR",
+   "languages": [
+    "en",
+    "pt"
+   ]
+  },
+  {
+   "code": "RS",
+   "name": "Sérvia",
+   "airport": "BEG",
+   "currency": "EUR",
+   "languages": [
+    "en",
+    "pt"
+   ]
+  },
+  {
+   "code": "RU",
+   "name": "Rússia",
+   "airport": "DME",
+   "currency": "USD",
+   "languages": [
+    "en",
+    "pt"
+   ]
+  },
+  {
+   "code": "ST",
+   "name": "São Tomé e Príncipe",
+   "airport": "TMS",
+   "currency": "USD",
+   "languages": [
+    "en",
+    "pt"
+   ]
+  },
+  {
+   "code": "SN",
+   "name": "Senegal",
+   "airport": "DSS",
+   "currency": "XOF",
+   "languages": [
+    "fr",
+    "pt",
+    "en"
+   ]
+  },
+  {
+   "code": "SK",
+   "name": "Eslováquia",
+   "airport": "KSC",
+   "currency": "EUR",
+   "languages": [
+    "en",
+    "pt"
+   ]
+  },
+  {
+   "code": "SE",
+   "name": "Suécia",
+   "airport": "ARN",
+   "currency": "SEK",
+   "languages": [
+    "en",
+    "pt"
+   ]
+  },
+  {
+   "code": "CH",
+   "name": "Suíça",
+   "airport": "GVA",
+   "currency": "CHF",
+   "languages": [
+    "de",
+    "fr",
+    "en",
+    "pt"
+   ]
+  },
+  {
+   "code": "TG",
+   "name": "Togo",
+   "airport": "LIS",
+   "currency": "XOF",
+   "languages": [
+    "en",
+    "fr",
+    "pt"
+   ]
+  },
+  {
+   "code": "TN",
+   "name": "Tunísia",
+   "airport": "DJE",
+   "currency": "USD",
+   "languages": [
+    "en",
+    "pt"
+   ]
+  },
+  {
+   "code": "TR",
+   "name": "Turquia",
+   "airport": "ANK",
+   "currency": "TRY",
+   "languages": [
+    "en",
+    "pt"
+   ]
+  },
+  {
+   "code": "UA",
+   "name": "Ucrânia",
+   "airport": "KBP",
+   "currency": "EUR",
+   "languages": [
+    "en",
+    "pt"
+   ]
+  },
+  {
+   "code": "UY",
+   "name": "Uruguai",
+   "airport": "MVD",
+   "currency": "USD",
+   "languages": [
+    "en",
+    "es",
+    "pt"
+   ]
+  },
+  {
+   "code": "VE",
+   "name": "Venezuela",
+   "airport": "CCS",
+   "currency": "EUR",
+   "languages": [
+    "en",
+    "es",
+    "pt"
+   ]
+  },
+  {
+   "code": "ZA",
+   "name": "África do Sul",
+   "airport": "JNB",
+   "currency": "ZAR",
+   "languages": [
+    "en",
+    "pt"
+   ]
+  }
+ ]
+}
