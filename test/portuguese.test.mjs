@@ -78,7 +78,11 @@ test('xx/pt\'s query indexes: search-xx-pt as xx/es\'s, its lean copies; no othe
   assert.equal(pt.target, '/xx/pt/search-index.json');
   assert.equal(indices['market-model-xx-pt'].target, '/market-model/xx-pt.json');
   assert.ok(indices['market-llms-xx-pt']);
-  Object.entries(old).forEach(([name, def]) => assert.deepEqual(indices[name], def, `${name} as before`));
+  // message-center's weight (TAP's order, brief 326) came later; everything else as before
+  const later = (name, d) => (name === 'message-center' && d ? {
+    ...d, properties: Object.fromEntries(Object.entries(d.properties).filter(([k]) => k !== 'weight')),
+  } : d);
+  Object.entries(old).forEach(([name, def]) => assert.deepEqual(later(name, indices[name]), def, `${name} as before`));
   // appended after the indexes of 70a732f (later additions may follow them)
   const keys = Object.keys(indices);
   const lastOld = Math.max(...Object.keys(old).map((k) => keys.indexOf(k)));
