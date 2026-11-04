@@ -62,9 +62,24 @@ describe('tap-nav', () => {
     });
   });
 
+  it('footer as www\'s: "Siga-nos" over the social icons, "TAP App" over the store badges (pictures), the copyright as a note', () => {
+    const media = (k) => ({ 'https://www.flytap.com/images/download-app-store.webp': '/media-da/tap/download-app-store-1.webp', 'https://www.flytap.com/images/download-google-play.webp': '/media-da/tap/download-google-play-2.webp' }[k] || null);
+    const d = dom(footerHtml(pp, { ...site, media }));
+    const badges = [...d.querySelectorAll('main > div')].find((s) => /badges/.test(s.textContent));
+    assert.deepEqual([...badges.querySelectorAll('h3')].map((h) => h.textContent), ['Siga-nos', 'TAP App']);
+    assert.ok(badges.querySelector('a[href^="https://itunes.apple.com"] img[src="/media-da/tap/download-app-store-1.webp"]'));
+    assert.ok(badges.querySelector('a[href^="https://play.google.com"] img[src="/media-da/tap/download-google-play-2.webp"]'));
+    const note = [...d.querySelectorAll('main > div')].find((s) => s.querySelector('.section-metadata') && /note/.test(s.querySelector('.section-metadata').textContent));
+    assert.match(note.textContent, /© \d{4}, TAP\. Todos os direitos reservados\./);
+    // without the store pictures: the store names as text links, as before
+    const plain = dom(footerHtml(pp, { ...site, media: () => null }));
+    assert.ok(plain.body.textContent.includes('App Store'));
+  });
+
   it('footer: the link columns, the social and app links as badges, the logo row', () => {
     const d = dom(footerHtml(pp, site));
-    assert.deepEqual([...d.querySelectorAll('h3')].map((h) => h.textContent), ['Outros websites', 'Outros recursos importantes', 'Destinos em destaque']);
+    // the columns (the first section; the badges section has its own headings)
+    assert.deepEqual([...d.querySelector('main > div').querySelectorAll('h3')].map((h) => h.textContent), ['Outros websites', 'Outros recursos importantes', 'Destinos em destaque']);
     assert.ok(d.querySelector('a[href="https://www.facebook.com/TAPAirPortugal"]'));
     assert.ok(d.body.textContent.includes(':instagram:'));
     assert.ok([...d.querySelectorAll('.section-metadata')].some((m) => m.textContent.includes('badges')));

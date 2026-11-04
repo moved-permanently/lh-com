@@ -150,6 +150,71 @@ describe('tap-import marks and languages', () => {
   });
 });
 
+describe('tap-import parity (tools/reports/tap/parity.md)', () => {
+  const metaRows = (html) => Object.fromEntries([...dom(html).querySelectorAll('.metadata > div')].map((r) => [r.children[0].textContent, r.children[1].textContent]));
+  const one = (sections, extra = {}) => ({ props: { pageProps: { page: { title: 'Página', sections, ...extra } } } });
+
+  it('the homepage: a booking-slot section right after the stage, its link to www\'s booking box', () => {
+    const { html } = convertPage(nd('homepage'), ctx('https://www.flytap.com/pt-pt'));
+    const sections = [...dom(html).querySelectorAll('main > div')];
+    const stage = sections.findIndex((s) => s.querySelector('.hero-campaign'));
+    const slot = sections[stage + 1];
+    assert.ok(slot.querySelector('.section-metadata').textContent.includes('booking-slot'));
+    const a = slot.querySelector('a');
+    assert.equal(a.getAttribute('href'), 'https://www.flytap.com/pt-pt');
+    assert.equal(a.textContent, 'Pesquisar voos em flytap.com');
+  });
+
+  it('Miles&Go on the homepage: the visitor\'s card only (www shows the others to members), no stretched logo', () => {
+    const { html } = convertPage(nd('homepage'), ctx('https://www.flytap.com/pt-pt'));
+    const cm = dom(html).querySelector('.columns-media');
+    assert.equal(cm.querySelectorAll(':scope > div').length, 1);
+    assert.ok(cm.textContent.includes('TAP Miles&Go') && !cm.textContent.includes('Club TAP Miles&Go'));
+    assert.ok(![...cm.querySelectorAll('img')].some((i) => /logo/.test(i.getAttribute('src') + i.getAttribute('alt'))));
+  });
+
+  it('breadcrumbs: Parent the nearest ancestor we have (else the homepage), Breadcrumb Title the page\'s title; none on the homepage', () => {
+    assert.equal(metaRows(convertPage(nd('homepage'), ctx('https://www.flytap.com/pt-pt')).html).Parent, undefined);
+    const help = metaRows(convertPage(nd('ajuda'), ctx()).html);
+    assert.equal(help.Parent, '/pt-pt');
+    assert.equal(help['Breadcrumb Title'], 'Central de ajuda');
+    const crumbs = [{ url: '/informacoes', title: 'Informações de viagem' }];
+    const page = { props: { pageProps: { breadcrumbs: crumbs, page: { title: 'Bagagem', sections: [{ __typename: 'ComponentHeadingModel', title: 'Bagagem' }] } } } };
+    assert.equal(metaRows(convertPage(page, { ...ctx('https://www.flytap.com/pt-pt/informacoes/bagagem'), scope: new Set(['/pt-pt/informacoes']) }).html).Parent, '/pt-pt/informacoes');
+    assert.equal(metaRows(convertPage(page, { ...ctx('https://www.flytap.com/pt-pt/informacoes/bagagem'), scope: new Set() }).html).Parent, '/pt-pt');
+  });
+
+  it('text cards three to a row (itemsPerRow 3): cards-teaser (three-up)', () => {
+    const d = dom(convertPage(nd('ajuda'), ctx()).html);
+    const t = d.querySelector('.cards-teaser.three-up');
+    assert.ok(t && t.textContent.includes('Check-in online'));
+  });
+
+  it('a list of links to pages: cards-icon tiles (www\'s grid of tiles); links to the page\'s own anchors stay jump-links', () => {
+    const d = dom(convertPage(nd('ajuda'), ctx()).html);
+    assert.ok(d.querySelector('.cards-icon a[href="/pt-pt/ajuda/perguntas-frequentes#antes-do-voo"]'));
+    const own = convertPage(one([{ __typename: 'ComponentLinkListModel', linkList: [{ label: 'A', url: '#a' }, { label: 'B', url: '#b' }] }]), ctx()).html;
+    assert.ok(dom(own).querySelector('.jump-links'));
+  });
+
+  it('a page banner with a picture only (no title, text or button): the picture in the content, no stage', () => {
+    const img = { __typename: 'ImageRef', _dynamicUrl: '/adobe/dynamicmedia/deliver/dm-aid--bd6d1ad2-88c0-4ed9-9cc2-91a83509e5dc/baggage_tap_air_portugal_card_hp.jpg?preferwebp=true', description: 'Mala' };
+    const d = dom(convertPage(one([{ __typename: 'ComponentHeroCardModel', image: img, title: null }, { __typename: 'ComponentHeadingModel', title: 'Bagagem' }]), ctx('https://www.flytap.com/pt-pt/informacoes/bagagem')).html);
+    assert.ok(!d.querySelector('.hero-campaign, .hero-card-overlay'));
+    assert.ok(d.querySelector('main > div > p > img[src^="/media-da/tap/"]'));
+  });
+
+  it('Explore Miles&Go (InfoSection): the picture, then its groups as an accordion', () => {
+    const s = {
+      __typename: 'ComponentInfoSectionModel', title: null, image: null, infoList: [{ label: 'Conhecer o Programa', infodescription: { json: [{ nodeType: 'unordered-list', content: [{ nodeType: 'list-item', content: [{ nodeType: 'link', data: { href: '/miles-and-go/estatutos' }, content: [{ nodeType: 'text', value: 'Estatutos' }] }] }] }] } }, { label: 'Acumular milhas', infodescription: { json: [] } }],
+    };
+    const d = dom(convertPage(one([s]), ctx('https://www.flytap.com/pt-pt/miles-and-go')).html);
+    const faq = d.querySelector('.accordion-columns.faq');
+    assert.deepEqual([...faq.querySelectorAll(':scope > div > div:first-child')].map((x) => x.textContent), ['Conhecer o Programa', 'Acumular milhas']);
+    assert.ok(!d.querySelector('.columns-media'));
+  });
+});
+
 describe('tap-import rich text images', () => {
   const ref = (p) => [{ nodeType: 'paragraph', content: [{ nodeType: 'span', content: [{ nodeType: 'reference', data: { path: p, mimetype: 'image/jpeg' } }] }] }];
   it('a reference to a DAM image: the archive\'s copy, else left out and listed (www renders it from aem.flytap.com)', () => {

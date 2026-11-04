@@ -75,13 +75,13 @@ const plainOf = (v) => (v && typeof v === 'object' ? v.plaintext : v) || '';
 
 /** The texts in the page's language (pt-pt: pt, en-pt: en). */
 const LABELS = {
-  pt: { onWww: 'Ver em flytap.com', video: 'Ver o vídeo' },
-  en: { onWww: 'See on flytap.com', video: 'Watch the video' },
-  es: { onWww: 'Ver en flytap.com', video: 'Ver el vídeo' },
-  fr: { onWww: 'Voir sur flytap.com', video: 'Regarder la vidéo' },
-  de: { onWww: 'Auf flytap.com ansehen', video: 'Video ansehen' },
-  it: { onWww: 'Vedi su flytap.com', video: 'Guarda il video' },
-  pl: { onWww: 'Zobacz na flytap.com', video: 'Obejrzyj wideo' },
+  pt: { onWww: 'Ver em flytap.com', video: 'Ver o vídeo', book: 'Pesquisar voos em flytap.com' },
+  en: { onWww: 'See on flytap.com', video: 'Watch the video', book: 'Search flights on flytap.com' },
+  es: { onWww: 'Ver en flytap.com', video: 'Ver el vídeo', book: 'Buscar vuelos en flytap.com' },
+  fr: { onWww: 'Voir sur flytap.com', video: 'Regarder la vidéo', book: 'Rechercher des vols sur flytap.com' },
+  de: { onWww: 'Auf flytap.com ansehen', video: 'Video ansehen', book: 'Flüge auf flytap.com suchen' },
+  it: { onWww: 'Vedi su flytap.com', video: 'Guarda il video', book: 'Cerca voli su flytap.com' },
+  pl: { onWww: 'Zobacz na flytap.com', video: 'Obejrzyj wideo', book: 'Szukaj lotów na flytap.com' },
 };
 const labelsOf = (lang) => LABELS[lang] || LABELS.en;
 /** Page templates out of scope: no document (their links go to www). */
@@ -422,7 +422,9 @@ const slideRows = (slides, P) => slides.flatMap((s) => [[P.img(s.image)], [
 function cards(items, P, s) {
   const first = items[0] && items[0].__typename;
   if (first === 'SimpleGenericCardModel') {
-    P.block('cards', items.map((x) => [`${x.icon ? P.img(x.icon) : ''}${P.heading(3, x.title)}${P.rich(x.description)}${P.ctas(x)}`]));
+    // www's text cards, so many to a row (itemsPerRow): cards-teaser three-up / four-up, else cards
+    const up = { 3: 'cards-teaser (three-up)', 4: 'cards-teaser (four-up)' }[s.itemsPerRow] || 'cards';
+    P.block(up, items.map((x) => [`${x.icon ? P.img(x.icon) : ''}${P.heading(3, x.title)}${P.rich(x.description)}${P.ctas(x)}`]));
     return;
   }
   const rows = items.map((x) => {
@@ -446,6 +448,10 @@ const HANDLERS = {
     P.section();
     const slides = s.slides || [];
     P.block(slides.length > 1 ? 'hero-campaign (slider)' : 'hero-campaign', slideRows(slides, P));
+    // where www has its booking box: a placeholder section (style booking-slot) with a link to
+    // the box on www, for the booking block to come (tools/reports/tap/parity.md, F2)
+    P.section('booking-slot');
+    P.add(`<p><a href="${attr(`${WWW}/${P.c.locale}`)}">${esc(labelsOf(P.c.lang).book)}</a></p>`);
     P.section();
   },
   ComponentBannerCarouselModel: (s, P) => {
@@ -456,6 +462,9 @@ const HANDLERS = {
   },
   ComponentHeroCardModel: (s, P, i) => {
     const text = `${P.heading(2, s.title)}${P.rich(s.heroCardDescription)}${P.ctas(s)}`;
+    // a banner with a picture only (bagagem, info-legal): the picture in the content, as www's
+    // rounded picture above the title
+    if (!text.trim()) { const im = P.img(s.image); if (im) P.add(`<p>${im}</p>`); return; }
     P.section();
     P.block(i === 0 ? 'hero-campaign (narrow)' : 'hero-card-overlay', [[P.img(s.image)], [text]]);
     P.section();
@@ -536,8 +545,13 @@ const HANDLERS = {
     P.block('cards-icon', (s.items || []).map((x) => [P.img(x.icon), `<p><a href="${attr(linkOf(x.url, P.c))}">${esc(x.label)}</a></p>`]));
   },
   ComponentMiles_GoCardListModel: (s, P) => {
-    P.block('columns-media', (s.milesAndGoCards || []).map((x) => [
-      `${x.logo ? `<p>${P.img(x.logo)}</p>` : ''}${P.heading(2, x.title)}${x.subtitle ? `<p><strong>${esc(x.subtitle)}</strong></p>` : ''}${P.rich(x.milesAndGoCardDescription)}${P.ctas(x)}${P.rich(x.extrainfo)}`,
+    // www shows the card of the visitor's state: a visitor (no account) the first (type 1), the
+    // others to members; the logo (a small wordmark over the title) left out, columns-media
+    // stretches a picture to the cell
+    const all = s.milesAndGoCards || [];
+    const visitor = all.filter((x) => String(x.type) === '1');
+    P.block('columns-media', (visitor.length ? visitor : all.slice(0, 1)).map((x) => [
+      `${P.heading(2, x.title)}${x.subtitle ? `<p><strong>${esc(x.subtitle)}</strong></p>` : ''}${P.rich(x.milesAndGoCardDescription)}${P.ctas(x)}${P.rich(x.extrainfo)}`,
       P.img(x.image),
     ]));
   },
@@ -546,8 +560,11 @@ const HANDLERS = {
     P.block('columns-media', [s.switchImageToRight ? [text, P.img(s.image)] : [P.img(s.image), text]]);
   },
   ComponentInfoSectionModel: (s, P) => {
+    // www: a picture beside an accordion of link groups; the picture, then the accordion
     P.add(P.heading(2, s.title));
-    P.block('columns-media', [[P.img(s.image), (s.infoList || []).map((x) => `${P.heading(3, x.label)}${richText(x.infodescription, P.c, 'cell')}`).join('')]]);
+    const im = P.img(s.image);
+    if (im) P.add(`<p>${im}</p>`);
+    P.block('accordion-columns (faq)', (s.infoList || []).map((x) => [esc(x.label), richText(x.infodescription, P.c, 'cell')]));
   },
   ComponentMilesStatusCardListModel: (s, P) => {
     P.block('cards', (s.cards || []).map((x) => [P.img(x.logo), `${P.heading(3, x.title)}${(x.topics || []).length ? `<ul>${x.topics.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>` : ''}${x.link ? P.link(x.link.url, x.link.label) : ''}`]));
@@ -557,7 +574,8 @@ const HANDLERS = {
     const links = (s.linkList || []).filter((l) => l.url && l.label);
     const items = links.map((l) => `<li><a href="${attr(linkOf(l.url, P.c))}">${esc(l.label)}</a></li>`).join('');
     if (links.length && links.every((l) => l.url.startsWith('#'))) P.block('jump-links', [[`<ul>${items}</ul>`]]);
-    else if (items) P.add(`<ul>${items}</ul>`);
+    // links to pages: www's grid of tiles (a label and a chevron each): cards-icon, one tile a link
+    else if (links.length) P.block('cards-icon', links.map((l) => [`<p><a href="${attr(linkOf(l.url, P.c))}">${esc(l.label)}</a></p>`]));
   },
   ComponentInfoBlockModel: (s, P) => {
     P.section('highlight');
@@ -700,6 +718,13 @@ export function convertPage(nd, site) {
     if (!m || `${m[1]}-${m[2]}` === locale || !c.scope.has(p) || meta.some(([k]) => k === `Alternate ${m[1]}`)) return;
     meta.push([`Alternate ${m[1]}`, esc(p)]);
   });
+  // breadcrumbs (www: home, the ancestors, the page): Parent the nearest ancestor that is a page
+  // of the site, else the homepage; the page's crumb its title (blocks/breadcrumb)
+  if (page.__typename !== 'HomepageModel') {
+    const ancestors = (pp.breadcrumbs || []).map((b) => linkOf(b.url, c)).filter((u) => u.startsWith('/'));
+    meta.push(['Parent', esc(ancestors.length ? ancestors[ancestors.length - 1] : `/${locale}`)]);
+    if (page.title) meta.push(['Breadcrumb Title', esc(page.title)]);
+  } else meta.push(['Breadcrumb Title', esc(c.siteName)]);
   meta.push(['Nav', `/${locale}/nav`], ['Footer', `/${locale}/footer`], ['Language', c.lang]);
   docs = docs.map((s, i) => {
     const body = s.items.map((it) => it.html).join('');
