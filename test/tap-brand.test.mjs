@@ -89,13 +89,13 @@ test('the switch\'s targets: the page\'s Alternate <lang> metadata, else the lan
   const exists = async (p) => { probes.push(p); return true; };
   // pt-pt/ajuda with its counterparts (tap-import.mjs writes www's hrefLangs as Alternate <lang>)
   const withAlternates = languageSwitch([], '/pt-pt/ajuda', 'pt', roots, { en: '/en-pt/help', es: '/es-es/ayuda' });
-  assert.deepEqual(await Promise.all(withAlternates.links.map((l) => switchTarget(l, exists))), ['/en-pt/help', '/es-es/ayuda', '/fr-fr', '/de-de', '/it-it', '/pl-pl']);
+  assert.deepEqual(await Promise.all(withAlternates.links.map((l) => switchTarget(l, exists))), ['/en-pt/help', '/es-es/ayuda', '/fr-fr', '/de-de', '/it-it', '/pl-pl', '/de-ch', '/en-us', '/fr-ca']);
   // an es-es page without them (es-es and fr-fr's documents have none yet): the homepages
   const without = languageSwitch([], '/es-es/ayuda', 'es', roots);
-  assert.deepEqual(await Promise.all(without.links.map((l) => switchTarget(l, exists))), ['/pt-pt', '/en-pt', '/fr-fr', '/de-de', '/it-it', '/pl-pl']);
-  // one alternate only: it, and the other language's homepage
+  assert.deepEqual(await Promise.all(without.links.map((l) => switchTarget(l, exists))), ['/pt-pt', '/en-pt', '/fr-fr', '/de-de', '/it-it', '/pl-pl', '/de-ch', '/en-us', '/fr-ca']);
+  // one alternate only: it, and the other language's homepage; en-us shares en-pt's slugs (F4)
   const one = languageSwitch([], '/en-pt/help', 'en', roots, { pt: '/pt-pt/ajuda' });
-  assert.deepEqual(await Promise.all(one.links.map((l) => switchTarget(l, exists))), ['/pt-pt/ajuda', '/es-es', '/fr-fr', '/de-de', '/it-it', '/pl-pl']);
+  assert.deepEqual(await Promise.all(one.links.map((l) => switchTarget(l, exists))), ['/pt-pt/ajuda', '/es-es', '/fr-fr', '/de-de', '/it-it', '/pl-pl', '/de-ch', '/en-us/help', '/fr-ca']);
   assert.deepEqual(probes, [], 'no HEAD request');
 });
 
