@@ -1,0 +1,2457 @@
+{
+ "about": "TAP market roots on lh-tap (tools/importer/tap-markets.mjs, tools/reports/tap/markets.md): per root its language version, market, homepage, nav, footer, own documents, the language pages it lacks and its paths without a document",
+ "at": "2026-11-04T04:39:29.634Z",
+ "roots": {
+  "de-at": {
+   "language": "de-de",
+   "market": "at",
+   "homepage": "/de-at/index",
+   "nav": "/de-at/nav",
+   "footer": "/de-de/footer",
+   "own": [],
+   "sitemapPages": 118,
+   "lacks": [],
+   "noDocument": []
+  },
+  "de-ch": {
+   "language": "de-de",
+   "market": "ch",
+   "homepage": "/de-ch/index",
+   "nav": "/de-ch/nav",
+   "footer": "/de-de/footer",
+   "own": [],
+   "sitemapPages": 116,
+   "lacks": [
+    "/buchungen/gift-card",
+    "/rechtliche-informationen/schlichtungsstelle"
+   ],
+   "noDocument": []
+  },
+  "en-de": {
+   "language": "en-pt",
+   "market": "de",
+   "homepage": "/en-de/index",
+   "nav": "/en-de/nav",
+   "footer": "/en-de/footer",
+   "own": [],
+   "sitemapPages": 118,
+   "lacks": [
+    "/information/special-needs/lose-fear-flying",
+    "/miles-and-go/earn-miles/credit-cards",
+    "/miles-and-go/earn-miles/day-by-day",
+    "/miles-and-go/promotions/navigator-experiences"
+   ],
+   "noDocument": [
+    "/legal-info/legal-notices",
+    "/legal-info/arbitration-body"
+   ]
+  },
+  "pt-de": {
+   "language": "pt-pt",
+   "market": "de",
+   "homepage": "/pt-de/index",
+   "nav": "/pt-de/nav",
+   "footer": "/pt-de/footer",
+   "own": [],
+   "sitemapPages": 117,
+   "lacks": [
+    "/informacoes/necessidades-especiais/perder-medo-voar",
+    "/miles-and-go/acumular-milhas/cartoes-de-credito",
+    "/miles-and-go/acumular-milhas/dia-a-dia",
+    "/miles-and-go/promocoes/navigator-experiences"
+   ],
+   "noDocument": [
+    "/info-legal/avisos-legais",
+    "/info-legal/orgao-arbitragem"
+   ]
+  },
+  "fr-dz": {
+   "language": "fr-fr",
+   "market": "dz",
+   "homepage": "/fr-dz/index",
+   "nav": "/fr-dz/nav",
+   "footer": "/fr-dz/footer",
+   "own": [],
+   "sitemapPages": 114,
+   "lacks": [
+    "/mentions-legales/droits-des-passagers-france",
+    "/promos",
+    "/reservations/assurances",
+    "/reservations/gift-card"
+   ],
+   "noDocument": []
+  },
+  "pt-dz": {
+   "language": "pt-pt",
+   "market": "dz",
+   "homepage": "/pt-dz/index",
+   "nav": "/pt-dz/nav",
+   "footer": "/pt-dz/footer",
+   "own": [],
+   "sitemapPages": 112,
+   "lacks": [
+    "/informacoes/necessidades-especiais/perder-medo-voar",
+    "/miles-and-go/acumular-milhas/cartoes-de-credito",
+    "/miles-and-go/acumular-milhas/dia-a-dia",
+    "/miles-and-go/promocoes/navigator-experiences",
+    "/promos",
+    "/reservas/gift-card",
+    "/reservas/seguros"
+   ],
+   "noDocument": []
+  },
+  "en-dz": {
+   "language": "en-pt",
+   "market": "dz",
+   "homepage": "/en-dz/index",
+   "nav": "/en-dz/nav",
+   "footer": "/en-dz/footer",
+   "own": [],
+   "sitemapPages": 113,
+   "lacks": [
+    "/bookings/gift-card",
+    "/bookings/insurances",
+    "/information/special-needs/lose-fear-flying",
+    "/miles-and-go/earn-miles/credit-cards",
+    "/miles-and-go/earn-miles/day-by-day",
+    "/miles-and-go/promotions/navigator-experiences",
+    "/promos"
+   ],
+   "noDocument": []
+  },
+  "pt-ao": {
+   "language": "pt-pt",
+   "market": "ao",
+   "homepage": "/pt-ao/index",
+   "nav": "/pt-ao/nav",
+   "footer": "/pt-ao/footer",
+   "own": [],
+   "sitemapPages": 113,
+   "lacks": [
+    "/informacoes/necessidades-especiais/perder-medo-voar",
+    "/miles-and-go/acumular-milhas/dia-a-dia",
+    "/miles-and-go/promocoes/navigator-experiences",
+    "/promos",
+    "/reservas/gift-card",
+    "/reservas/seguros"
+   ],
+   "noDocument": []
+  },
+  "en-ao": {
+   "language": "en-pt",
+   "market": "ao",
+   "homepage": "/en-ao/index",
+   "nav": "/en-ao/nav",
+   "footer": "/en-ao/footer",
+   "own": [],
+   "sitemapPages": 114,
+   "lacks": [
+    "/bookings/gift-card",
+    "/bookings/insurances",
+    "/information/special-needs/lose-fear-flying",
+    "/miles-and-go/earn-miles/day-by-day",
+    "/miles-and-go/promotions/navigator-experiences",
+    "/promos"
+   ],
+   "noDocument": []
+  },
+  "en-ar": {
+   "language": "en-pt",
+   "market": "ar",
+   "homepage": "/en-ar/index",
+   "nav": "/en-ar/nav",
+   "footer": "/en-ar/footer",
+   "own": [],
+   "sitemapPages": 113,
+   "lacks": [
+    "/bookings/gift-card",
+    "/bookings/insurances",
+    "/information/special-needs/lose-fear-flying",
+    "/miles-and-go/earn-miles/credit-cards",
+    "/miles-and-go/earn-miles/day-by-day",
+    "/miles-and-go/promotions/navigator-experiences",
+    "/promos"
+   ],
+   "noDocument": []
+  },
+  "es-ar": {
+   "language": "es-es",
+   "market": "ar",
+   "homepage": "/es-ar/index",
+   "nav": "/es-ar/nav",
+   "footer": "/es-ar/footer",
+   "own": [],
+   "sitemapPages": 113,
+   "lacks": [
+    "/promos",
+    "/reservas/gift-card",
+    "/reservas/seguros"
+   ],
+   "noDocument": []
+  },
+  "pt-ar": {
+   "language": "pt-pt",
+   "market": "ar",
+   "homepage": "/pt-ar/index",
+   "nav": "/pt-ar/nav",
+   "footer": "/pt-ar/footer",
+   "own": [],
+   "sitemapPages": 112,
+   "lacks": [
+    "/informacoes/necessidades-especiais/perder-medo-voar",
+    "/miles-and-go/acumular-milhas/cartoes-de-credito",
+    "/miles-and-go/acumular-milhas/dia-a-dia",
+    "/miles-and-go/promocoes/navigator-experiences",
+    "/promos",
+    "/reservas/gift-card",
+    "/reservas/seguros"
+   ],
+   "noDocument": []
+  },
+  "en-at": {
+   "language": "en-pt",
+   "market": "at",
+   "homepage": "/en-at/index",
+   "nav": "/en-at/nav",
+   "footer": "/en-at/footer",
+   "own": [],
+   "sitemapPages": 118,
+   "lacks": [
+    "/information/special-needs/lose-fear-flying",
+    "/miles-and-go/earn-miles/credit-cards",
+    "/miles-and-go/earn-miles/day-by-day",
+    "/miles-and-go/promotions/navigator-experiences"
+   ],
+   "noDocument": [
+    "/legal-info/legal-notices",
+    "/legal-info/arbitration-body"
+   ]
+  },
+  "pt-at": {
+   "language": "pt-pt",
+   "market": "at",
+   "homepage": "/pt-at/index",
+   "nav": "/pt-at/nav",
+   "footer": "/pt-at/footer",
+   "own": [],
+   "sitemapPages": 117,
+   "lacks": [
+    "/informacoes/necessidades-especiais/perder-medo-voar",
+    "/miles-and-go/acumular-milhas/cartoes-de-credito",
+    "/miles-and-go/acumular-milhas/dia-a-dia",
+    "/miles-and-go/promocoes/navigator-experiences"
+   ],
+   "noDocument": [
+    "/info-legal/avisos-legais",
+    "/info-legal/orgao-arbitragem"
+   ]
+  },
+  "en-be": {
+   "language": "en-pt",
+   "market": "be",
+   "homepage": "/en-be/index",
+   "nav": "/en-be/nav",
+   "footer": "/en-be/footer",
+   "own": [],
+   "sitemapPages": 116,
+   "lacks": [
+    "/information/special-needs/lose-fear-flying",
+    "/miles-and-go/earn-miles/credit-cards",
+    "/miles-and-go/earn-miles/day-by-day",
+    "/miles-and-go/promotions/navigator-experiences"
+   ],
+   "noDocument": []
+  },
+  "fr-be": {
+   "language": "fr-fr",
+   "market": "be",
+   "homepage": "/fr-be/index",
+   "nav": "/fr-be/nav",
+   "footer": "/fr-fr/footer",
+   "own": [],
+   "sitemapPages": 117,
+   "lacks": [
+    "/mentions-legales/droits-des-passagers-france"
+   ],
+   "noDocument": []
+  },
+  "pt-be": {
+   "language": "pt-pt",
+   "market": "be",
+   "homepage": "/pt-be/index",
+   "nav": "/pt-be/nav",
+   "footer": "/pt-be/footer",
+   "own": [],
+   "sitemapPages": 115,
+   "lacks": [
+    "/informacoes/necessidades-especiais/perder-medo-voar",
+    "/miles-and-go/acumular-milhas/cartoes-de-credito",
+    "/miles-and-go/acumular-milhas/dia-a-dia",
+    "/miles-and-go/promocoes/navigator-experiences"
+   ],
+   "noDocument": []
+  },
+  "en-br": {
+   "language": "en-pt",
+   "market": "br",
+   "homepage": "/en-br/index",
+   "nav": "/en-br/nav",
+   "footer": "/en-br/footer",
+   "own": [],
+   "sitemapPages": 117,
+   "lacks": [
+    "/bookings/gift-card",
+    "/bookings/insurances",
+    "/information/special-needs/lose-fear-flying",
+    "/miles-and-go/earn-miles/day-by-day",
+    "/miles-and-go/promotions/navigator-experiences"
+   ],
+   "noDocument": [
+    "/miles-and-go/btg-pactual-black",
+    "/miles-and-go/btg-pactual"
+   ]
+  },
+  "en-cv": {
+   "language": "en-pt",
+   "market": "cv",
+   "homepage": "/en-cv/index",
+   "nav": "/en-cv/nav",
+   "footer": "/en-cv/footer",
+   "own": [],
+   "sitemapPages": 113,
+   "lacks": [
+    "/bookings/gift-card",
+    "/bookings/insurances",
+    "/information/special-needs/lose-fear-flying",
+    "/miles-and-go/earn-miles/credit-cards",
+    "/miles-and-go/earn-miles/day-by-day",
+    "/miles-and-go/promotions/navigator-experiences",
+    "/promos"
+   ],
+   "noDocument": []
+  },
+  "pt-cv": {
+   "language": "pt-pt",
+   "market": "cv",
+   "homepage": "/pt-cv/index",
+   "nav": "/pt-cv/nav",
+   "footer": "/pt-cv/footer",
+   "own": [],
+   "sitemapPages": 112,
+   "lacks": [
+    "/informacoes/necessidades-especiais/perder-medo-voar",
+    "/miles-and-go/acumular-milhas/cartoes-de-credito",
+    "/miles-and-go/acumular-milhas/dia-a-dia",
+    "/miles-and-go/promocoes/navigator-experiences",
+    "/promos",
+    "/reservas/gift-card",
+    "/reservas/seguros"
+   ],
+   "noDocument": []
+  },
+  "en-ca": {
+   "language": "en-pt",
+   "market": "ca",
+   "homepage": "/en-ca/index",
+   "nav": "/en-ca/nav",
+   "footer": "/en-ca/footer",
+   "own": [
+    "/en-ca/legal-info/passenger-rights-canada",
+    "/en-ca/legal-info/accessibility-plan-canada"
+   ],
+   "sitemapPages": 117,
+   "lacks": [
+    "/bookings/gift-card",
+    "/bookings/insurances",
+    "/information/special-needs/lose-fear-flying",
+    "/miles-and-go/earn-miles/day-by-day",
+    "/miles-and-go/promotions/navigator-experiences"
+   ],
+   "noDocument": []
+  },
+  "fr-ca": {
+   "language": "fr-fr",
+   "market": "ca",
+   "homepage": "/fr-ca/index",
+   "nav": "/fr-ca/nav",
+   "footer": "/fr-ca/footer",
+   "own": [
+    "/fr-ca/mentions-legales/droits-passagers-canada",
+    "/fr-ca/mentions-legales/plan-accessibilite-canada",
+    "/fr-ca/miles-and-go/gagnez-miles/cartes-de-credit"
+   ],
+   "sitemapPages": 118,
+   "lacks": [
+    "/mentions-legales/droits-des-passagers-france",
+    "/reservations/assurances",
+    "/reservations/gift-card"
+   ],
+   "noDocument": []
+  },
+  "pt-ca": {
+   "language": "pt-pt",
+   "market": "ca",
+   "homepage": "/pt-ca/index",
+   "nav": "/pt-ca/nav",
+   "footer": "/pt-ca/footer",
+   "own": [
+    "/pt-ca/info-legal/direitos-passageiros-canada",
+    "/pt-ca/info-legal/plano-acessibilidade-canada"
+   ],
+   "sitemapPages": 116,
+   "lacks": [
+    "/informacoes/necessidades-especiais/perder-medo-voar",
+    "/miles-and-go/acumular-milhas/dia-a-dia",
+    "/miles-and-go/promocoes/navigator-experiences",
+    "/reservas/gift-card",
+    "/reservas/seguros"
+   ],
+   "noDocument": []
+  },
+  "en-ci": {
+   "language": "en-pt",
+   "market": "ci",
+   "homepage": "/en-ci/index",
+   "nav": "/en-ci/nav",
+   "footer": "/en-ci/footer",
+   "own": [],
+   "sitemapPages": 113,
+   "lacks": [
+    "/bookings/gift-card",
+    "/bookings/insurances",
+    "/information/special-needs/lose-fear-flying",
+    "/miles-and-go/earn-miles/credit-cards",
+    "/miles-and-go/earn-miles/day-by-day",
+    "/miles-and-go/promotions/navigator-experiences",
+    "/promos"
+   ],
+   "noDocument": []
+  },
+  "fr-ci": {
+   "language": "fr-fr",
+   "market": "ci",
+   "homepage": "/fr-ci/index",
+   "nav": "/fr-ci/nav",
+   "footer": "/fr-ci/footer",
+   "own": [],
+   "sitemapPages": 114,
+   "lacks": [
+    "/mentions-legales/droits-des-passagers-france",
+    "/promos",
+    "/reservations/assurances",
+    "/reservations/gift-card"
+   ],
+   "noDocument": []
+  },
+  "pt-ci": {
+   "language": "pt-pt",
+   "market": "ci",
+   "homepage": "/pt-ci/index",
+   "nav": "/pt-ci/nav",
+   "footer": "/pt-ci/footer",
+   "own": [],
+   "sitemapPages": 112,
+   "lacks": [
+    "/informacoes/necessidades-especiais/perder-medo-voar",
+    "/miles-and-go/acumular-milhas/cartoes-de-credito",
+    "/miles-and-go/acumular-milhas/dia-a-dia",
+    "/miles-and-go/promocoes/navigator-experiences",
+    "/promos",
+    "/reservas/gift-card",
+    "/reservas/seguros"
+   ],
+   "noDocument": []
+  },
+  "es-cl": {
+   "language": "es-es",
+   "market": "cl",
+   "homepage": "/es-cl/index",
+   "nav": "/es-cl/nav",
+   "footer": "/es-cl/footer",
+   "own": [],
+   "sitemapPages": 113,
+   "lacks": [
+    "/promos",
+    "/reservas/gift-card",
+    "/reservas/seguros"
+   ],
+   "noDocument": []
+  },
+  "pt-cl": {
+   "language": "pt-pt",
+   "market": "cl",
+   "homepage": "/pt-cl/index",
+   "nav": "/pt-cl/nav",
+   "footer": "/pt-cl/footer",
+   "own": [],
+   "sitemapPages": 112,
+   "lacks": [
+    "/informacoes/necessidades-especiais/perder-medo-voar",
+    "/miles-and-go/acumular-milhas/cartoes-de-credito",
+    "/miles-and-go/acumular-milhas/dia-a-dia",
+    "/miles-and-go/promocoes/navigator-experiences",
+    "/promos",
+    "/reservas/gift-card",
+    "/reservas/seguros"
+   ],
+   "noDocument": []
+  },
+  "en-cl": {
+   "language": "en-pt",
+   "market": "cl",
+   "homepage": "/en-cl/index",
+   "nav": "/en-cl/nav",
+   "footer": "/en-cl/footer",
+   "own": [],
+   "sitemapPages": 113,
+   "lacks": [
+    "/bookings/gift-card",
+    "/bookings/insurances",
+    "/information/special-needs/lose-fear-flying",
+    "/miles-and-go/earn-miles/credit-cards",
+    "/miles-and-go/earn-miles/day-by-day",
+    "/miles-and-go/promotions/navigator-experiences",
+    "/promos"
+   ],
+   "noDocument": []
+  },
+  "en-co": {
+   "language": "en-pt",
+   "market": "co",
+   "homepage": "/en-co/index",
+   "nav": "/en-co/nav",
+   "footer": "/en-co/footer",
+   "own": [],
+   "sitemapPages": 113,
+   "lacks": [
+    "/bookings/gift-card",
+    "/bookings/insurances",
+    "/information/special-needs/lose-fear-flying",
+    "/miles-and-go/earn-miles/credit-cards",
+    "/miles-and-go/earn-miles/day-by-day",
+    "/miles-and-go/promotions/navigator-experiences",
+    "/promos"
+   ],
+   "noDocument": []
+  },
+  "es-co": {
+   "language": "es-es",
+   "market": "co",
+   "homepage": "/es-co/index",
+   "nav": "/es-co/nav",
+   "footer": "/es-co/footer",
+   "own": [],
+   "sitemapPages": 113,
+   "lacks": [
+    "/promos",
+    "/reservas/gift-card",
+    "/reservas/seguros"
+   ],
+   "noDocument": []
+  },
+  "pt-co": {
+   "language": "pt-pt",
+   "market": "co",
+   "homepage": "/pt-co/index",
+   "nav": "/pt-co/nav",
+   "footer": "/pt-co/footer",
+   "own": [],
+   "sitemapPages": 112,
+   "lacks": [
+    "/informacoes/necessidades-especiais/perder-medo-voar",
+    "/miles-and-go/acumular-milhas/cartoes-de-credito",
+    "/miles-and-go/acumular-milhas/dia-a-dia",
+    "/miles-and-go/promocoes/navigator-experiences",
+    "/promos",
+    "/reservas/gift-card",
+    "/reservas/seguros"
+   ],
+   "noDocument": []
+  },
+  "en-hr": {
+   "language": "en-pt",
+   "market": "hr",
+   "homepage": "/en-hr/index",
+   "nav": "/en-hr/nav",
+   "footer": "/en-hr/footer",
+   "own": [],
+   "sitemapPages": 114,
+   "lacks": [
+    "/bookings/gift-card",
+    "/bookings/insurances",
+    "/information/special-needs/lose-fear-flying",
+    "/miles-and-go/earn-miles/credit-cards",
+    "/miles-and-go/earn-miles/day-by-day",
+    "/promos"
+   ],
+   "noDocument": []
+  },
+  "pt-hr": {
+   "language": "pt-pt",
+   "market": "hr",
+   "homepage": "/pt-hr/index",
+   "nav": "/pt-hr/nav",
+   "footer": "/pt-hr/footer",
+   "own": [],
+   "sitemapPages": 113,
+   "lacks": [
+    "/informacoes/necessidades-especiais/perder-medo-voar",
+    "/miles-and-go/acumular-milhas/cartoes-de-credito",
+    "/miles-and-go/acumular-milhas/dia-a-dia",
+    "/promos",
+    "/reservas/gift-card",
+    "/reservas/seguros"
+   ],
+   "noDocument": []
+  },
+  "en-dk": {
+   "language": "en-pt",
+   "market": "dk",
+   "homepage": "/en-dk/index",
+   "nav": "/en-dk/nav",
+   "footer": "/en-dk/footer",
+   "own": [],
+   "sitemapPages": 115,
+   "lacks": [
+    "/bookings/gift-card",
+    "/information/special-needs/lose-fear-flying",
+    "/miles-and-go/earn-miles/credit-cards",
+    "/miles-and-go/earn-miles/day-by-day",
+    "/miles-and-go/promotions/navigator-experiences"
+   ],
+   "noDocument": []
+  },
+  "pt-dk": {
+   "language": "pt-pt",
+   "market": "dk",
+   "homepage": "/pt-dk/index",
+   "nav": "/pt-dk/nav",
+   "footer": "/pt-dk/footer",
+   "own": [],
+   "sitemapPages": 114,
+   "lacks": [
+    "/informacoes/necessidades-especiais/perder-medo-voar",
+    "/miles-and-go/acumular-milhas/cartoes-de-credito",
+    "/miles-and-go/acumular-milhas/dia-a-dia",
+    "/miles-and-go/promocoes/navigator-experiences",
+    "/reservas/gift-card"
+   ],
+   "noDocument": []
+  },
+  "en-ee": {
+   "language": "en-pt",
+   "market": "ee",
+   "homepage": "/en-ee/index",
+   "nav": "/en-ee/nav",
+   "footer": "/en-ee/footer",
+   "own": [],
+   "sitemapPages": 113,
+   "lacks": [
+    "/bookings/gift-card",
+    "/bookings/insurances",
+    "/information/special-needs/lose-fear-flying",
+    "/miles-and-go/earn-miles/credit-cards",
+    "/miles-and-go/earn-miles/day-by-day",
+    "/miles-and-go/promotions/navigator-experiences",
+    "/promos"
+   ],
+   "noDocument": []
+  },
+  "pt-ee": {
+   "language": "pt-pt",
+   "market": "ee",
+   "homepage": "/pt-ee/index",
+   "nav": "/pt-ee/nav",
+   "footer": "/pt-ee/footer",
+   "own": [],
+   "sitemapPages": 112,
+   "lacks": [
+    "/informacoes/necessidades-especiais/perder-medo-voar",
+    "/miles-and-go/acumular-milhas/cartoes-de-credito",
+    "/miles-and-go/acumular-milhas/dia-a-dia",
+    "/miles-and-go/promocoes/navigator-experiences",
+    "/promos",
+    "/reservas/gift-card",
+    "/reservas/seguros"
+   ],
+   "noDocument": []
+  },
+  "en-eg": {
+   "language": "en-pt",
+   "market": "eg",
+   "homepage": "/en-eg/index",
+   "nav": "/en-eg/nav",
+   "footer": "/en-eg/footer",
+   "own": [],
+   "sitemapPages": 113,
+   "lacks": [
+    "/bookings/gift-card",
+    "/bookings/insurances",
+    "/information/special-needs/lose-fear-flying",
+    "/miles-and-go/earn-miles/credit-cards",
+    "/miles-and-go/earn-miles/day-by-day",
+    "/miles-and-go/promotions/navigator-experiences",
+    "/promos"
+   ],
+   "noDocument": []
+  },
+  "pt-eg": {
+   "language": "pt-pt",
+   "market": "eg",
+   "homepage": "/pt-eg/index",
+   "nav": "/pt-eg/nav",
+   "footer": "/pt-eg/footer",
+   "own": [],
+   "sitemapPages": 112,
+   "lacks": [
+    "/informacoes/necessidades-especiais/perder-medo-voar",
+    "/miles-and-go/acumular-milhas/cartoes-de-credito",
+    "/miles-and-go/acumular-milhas/dia-a-dia",
+    "/miles-and-go/promocoes/navigator-experiences",
+    "/promos",
+    "/reservas/gift-card",
+    "/reservas/seguros"
+   ],
+   "noDocument": []
+  },
+  "en-es": {
+   "language": "en-pt",
+   "market": "es",
+   "homepage": "/en-es/index",
+   "nav": "/en-es/nav",
+   "footer": "/en-es/footer",
+   "own": [],
+   "sitemapPages": 116,
+   "lacks": [
+    "/information/special-needs/lose-fear-flying",
+    "/miles-and-go/earn-miles/credit-cards",
+    "/miles-and-go/earn-miles/day-by-day",
+    "/miles-and-go/promotions/navigator-experiences"
+   ],
+   "noDocument": []
+  },
+  "pt-es": {
+   "language": "pt-pt",
+   "market": "es",
+   "homepage": "/pt-es/index",
+   "nav": "/pt-es/nav",
+   "footer": "/pt-es/footer",
+   "own": [],
+   "sitemapPages": 115,
+   "lacks": [
+    "/informacoes/necessidades-especiais/perder-medo-voar",
+    "/miles-and-go/acumular-milhas/cartoes-de-credito",
+    "/miles-and-go/acumular-milhas/dia-a-dia",
+    "/miles-and-go/promocoes/navigator-experiences"
+   ],
+   "noDocument": []
+  },
+  "en-us": {
+   "language": "en-pt",
+   "market": "us",
+   "homepage": "/en-us/index",
+   "nav": "/en-us/nav",
+   "footer": "/en-us/footer",
+   "own": [],
+   "sitemapPages": 115,
+   "lacks": [
+    "/bookings/gift-card",
+    "/bookings/insurances",
+    "/information/special-needs/lose-fear-flying",
+    "/miles-and-go/earn-miles/day-by-day",
+    "/miles-and-go/promotions/navigator-experiences"
+   ],
+   "noDocument": []
+  },
+  "pt-us": {
+   "language": "pt-pt",
+   "market": "us",
+   "homepage": "/pt-us/index",
+   "nav": "/pt-us/nav",
+   "footer": "/pt-us/footer",
+   "own": [],
+   "sitemapPages": 114,
+   "lacks": [
+    "/informacoes/necessidades-especiais/perder-medo-voar",
+    "/miles-and-go/acumular-milhas/dia-a-dia",
+    "/miles-and-go/promocoes/navigator-experiences",
+    "/reservas/gift-card",
+    "/reservas/seguros"
+   ],
+   "noDocument": []
+  },
+  "es-us": {
+   "language": "es-es",
+   "market": "us",
+   "homepage": "/es-us/index",
+   "nav": "/es-us/nav",
+   "footer": "/es-us/footer",
+   "own": [
+    "/es-us/miles-and-go/gane-millas/tarjetas-de-credito"
+   ],
+   "sitemapPages": 115,
+   "lacks": [
+    "/reservas/gift-card",
+    "/reservas/seguros"
+   ],
+   "noDocument": []
+  },
+  "en-fi": {
+   "language": "en-pt",
+   "market": "fi",
+   "homepage": "/en-fi/index",
+   "nav": "/en-fi/nav",
+   "footer": "/en-fi/footer",
+   "own": [],
+   "sitemapPages": 115,
+   "lacks": [
+    "/information/special-needs/lose-fear-flying",
+    "/miles-and-go/earn-miles/credit-cards",
+    "/miles-and-go/earn-miles/day-by-day",
+    "/miles-and-go/promotions/navigator-experiences",
+    "/promos"
+   ],
+   "noDocument": []
+  },
+  "pt-fi": {
+   "language": "pt-pt",
+   "market": "fi",
+   "homepage": "/pt-fi/index",
+   "nav": "/pt-fi/nav",
+   "footer": "/pt-fi/footer",
+   "own": [],
+   "sitemapPages": 114,
+   "lacks": [
+    "/informacoes/necessidades-especiais/perder-medo-voar",
+    "/miles-and-go/acumular-milhas/cartoes-de-credito",
+    "/miles-and-go/acumular-milhas/dia-a-dia",
+    "/miles-and-go/promocoes/navigator-experiences",
+    "/promos"
+   ],
+   "noDocument": []
+  },
+  "pt-fr": {
+   "language": "pt-pt",
+   "market": "fr",
+   "homepage": "/pt-fr/index",
+   "nav": "/pt-fr/nav",
+   "footer": "/pt-fr/footer",
+   "own": [],
+   "sitemapPages": 116,
+   "lacks": [
+    "/informacoes/necessidades-especiais/perder-medo-voar",
+    "/miles-and-go/acumular-milhas/cartoes-de-credito",
+    "/miles-and-go/acumular-milhas/dia-a-dia",
+    "/miles-and-go/promocoes/navigator-experiences"
+   ],
+   "noDocument": [
+    "/info-legal/direitos-passageiros-franca"
+   ]
+  },
+  "en-fr": {
+   "language": "en-pt",
+   "market": "fr",
+   "homepage": "/en-fr/index",
+   "nav": "/en-fr/nav",
+   "footer": "/en-fr/footer",
+   "own": [],
+   "sitemapPages": 117,
+   "lacks": [
+    "/information/special-needs/lose-fear-flying",
+    "/miles-and-go/earn-miles/credit-cards",
+    "/miles-and-go/earn-miles/day-by-day",
+    "/miles-and-go/promotions/navigator-experiences"
+   ],
+   "noDocument": [
+    "/info-legal/direitos-passageiros-franca"
+   ]
+  },
+  "en-gm": {
+   "language": "en-pt",
+   "market": "gm",
+   "homepage": "/en-gm/index",
+   "nav": "/en-gm/nav",
+   "footer": "/en-gm/footer",
+   "own": [],
+   "sitemapPages": 113,
+   "lacks": [
+    "/bookings/gift-card",
+    "/bookings/insurances",
+    "/information/special-needs/lose-fear-flying",
+    "/miles-and-go/earn-miles/credit-cards",
+    "/miles-and-go/earn-miles/day-by-day",
+    "/miles-and-go/promotions/navigator-experiences",
+    "/promos"
+   ],
+   "noDocument": []
+  },
+  "pt-gm": {
+   "language": "pt-pt",
+   "market": "gm",
+   "homepage": "/pt-gm/index",
+   "nav": "/pt-gm/nav",
+   "footer": "/pt-gm/footer",
+   "own": [],
+   "sitemapPages": 112,
+   "lacks": [
+    "/informacoes/necessidades-especiais/perder-medo-voar",
+    "/miles-and-go/acumular-milhas/cartoes-de-credito",
+    "/miles-and-go/acumular-milhas/dia-a-dia",
+    "/miles-and-go/promocoes/navigator-experiences",
+    "/promos",
+    "/reservas/gift-card",
+    "/reservas/seguros"
+   ],
+   "noDocument": []
+  },
+  "en-gh": {
+   "language": "en-pt",
+   "market": "gh",
+   "homepage": "/en-gh/index",
+   "nav": "/en-gh/nav",
+   "footer": "/en-gh/footer",
+   "own": [],
+   "sitemapPages": 114,
+   "lacks": [
+    "/bookings/gift-card",
+    "/bookings/insurances",
+    "/information/special-needs/lose-fear-flying",
+    "/miles-and-go/earn-miles/credit-cards",
+    "/miles-and-go/earn-miles/day-by-day",
+    "/miles-and-go/promotions/navigator-experiences",
+    "/promos"
+   ],
+   "noDocument": [
+    "/miles-and-go/btg-pactual-black"
+   ]
+  },
+  "fr-gh": {
+   "language": "fr-fr",
+   "market": "gh",
+   "homepage": "/fr-gh/index",
+   "nav": "/fr-gh/nav",
+   "footer": "/fr-gh/footer",
+   "own": [],
+   "sitemapPages": 114,
+   "lacks": [
+    "/mentions-legales/droits-des-passagers-france",
+    "/promos",
+    "/reservations/assurances",
+    "/reservations/gift-card"
+   ],
+   "noDocument": []
+  },
+  "pt-gh": {
+   "language": "pt-pt",
+   "market": "gh",
+   "homepage": "/pt-gh/index",
+   "nav": "/pt-gh/nav",
+   "footer": "/pt-gh/footer",
+   "own": [],
+   "sitemapPages": 112,
+   "lacks": [
+    "/informacoes/necessidades-especiais/perder-medo-voar",
+    "/miles-and-go/acumular-milhas/cartoes-de-credito",
+    "/miles-and-go/acumular-milhas/dia-a-dia",
+    "/miles-and-go/promocoes/navigator-experiences",
+    "/promos",
+    "/reservas/gift-card",
+    "/reservas/seguros"
+   ],
+   "noDocument": []
+  },
+  "en-gn": {
+   "language": "en-pt",
+   "market": "gn",
+   "homepage": "/en-gn/index",
+   "nav": "/en-gn/nav",
+   "footer": "/en-gn/footer",
+   "own": [],
+   "sitemapPages": 113,
+   "lacks": [
+    "/bookings/gift-card",
+    "/bookings/insurances",
+    "/information/special-needs/lose-fear-flying",
+    "/miles-and-go/earn-miles/credit-cards",
+    "/miles-and-go/earn-miles/day-by-day",
+    "/miles-and-go/promotions/navigator-experiences",
+    "/promos"
+   ],
+   "noDocument": []
+  },
+  "fr-gn": {
+   "language": "fr-fr",
+   "market": "gn",
+   "homepage": "/fr-gn/index",
+   "nav": "/fr-gn/nav",
+   "footer": "/fr-gn/footer",
+   "own": [],
+   "sitemapPages": 114,
+   "lacks": [
+    "/mentions-legales/droits-des-passagers-france",
+    "/promos",
+    "/reservations/assurances",
+    "/reservations/gift-card"
+   ],
+   "noDocument": []
+  },
+  "pt-gn": {
+   "language": "pt-pt",
+   "market": "gn",
+   "homepage": "/pt-gn/index",
+   "nav": "/pt-gn/nav",
+   "footer": "/pt-gn/footer",
+   "own": [],
+   "sitemapPages": 112,
+   "lacks": [
+    "/informacoes/necessidades-especiais/perder-medo-voar",
+    "/miles-and-go/acumular-milhas/cartoes-de-credito",
+    "/miles-and-go/acumular-milhas/dia-a-dia",
+    "/miles-and-go/promocoes/navigator-experiences",
+    "/promos",
+    "/reservas/gift-card",
+    "/reservas/seguros"
+   ],
+   "noDocument": []
+  },
+  "en-gr": {
+   "language": "en-pt",
+   "market": "gr",
+   "homepage": "/en-gr/index",
+   "nav": "/en-gr/nav",
+   "footer": "/en-gr/footer",
+   "own": [],
+   "sitemapPages": 113,
+   "lacks": [
+    "/bookings/gift-card",
+    "/bookings/insurances",
+    "/information/special-needs/lose-fear-flying",
+    "/miles-and-go/earn-miles/credit-cards",
+    "/miles-and-go/earn-miles/day-by-day",
+    "/miles-and-go/promotions/navigator-experiences",
+    "/promos"
+   ],
+   "noDocument": []
+  },
+  "pt-gr": {
+   "language": "pt-pt",
+   "market": "gr",
+   "homepage": "/pt-gr/index",
+   "nav": "/pt-gr/nav",
+   "footer": "/pt-gr/footer",
+   "own": [],
+   "sitemapPages": 112,
+   "lacks": [
+    "/informacoes/necessidades-especiais/perder-medo-voar",
+    "/miles-and-go/acumular-milhas/cartoes-de-credito",
+    "/miles-and-go/acumular-milhas/dia-a-dia",
+    "/miles-and-go/promocoes/navigator-experiences",
+    "/promos",
+    "/reservas/gift-card",
+    "/reservas/seguros"
+   ],
+   "noDocument": []
+  },
+  "en-gw": {
+   "language": "en-pt",
+   "market": "gw",
+   "homepage": "/en-gw/index",
+   "nav": "/en-gw/nav",
+   "footer": "/en-gw/footer",
+   "own": [],
+   "sitemapPages": 113,
+   "lacks": [
+    "/bookings/gift-card",
+    "/bookings/insurances",
+    "/information/special-needs/lose-fear-flying",
+    "/miles-and-go/earn-miles/credit-cards",
+    "/miles-and-go/earn-miles/day-by-day",
+    "/miles-and-go/promotions/navigator-experiences",
+    "/promos"
+   ],
+   "noDocument": []
+  },
+  "pt-gw": {
+   "language": "pt-pt",
+   "market": "gw",
+   "homepage": "/pt-gw/index",
+   "nav": "/pt-gw/nav",
+   "footer": "/pt-gw/footer",
+   "own": [],
+   "sitemapPages": 112,
+   "lacks": [
+    "/informacoes/necessidades-especiais/perder-medo-voar",
+    "/miles-and-go/acumular-milhas/cartoes-de-credito",
+    "/miles-and-go/acumular-milhas/dia-a-dia",
+    "/miles-and-go/promocoes/navigator-experiences",
+    "/promos",
+    "/reservas/gift-card",
+    "/reservas/seguros"
+   ],
+   "noDocument": []
+  },
+  "en-hk": {
+   "language": "en-pt",
+   "market": "hk",
+   "homepage": "/en-hk/index",
+   "nav": "/en-hk/nav",
+   "footer": "/en-hk/footer",
+   "own": [],
+   "sitemapPages": 113,
+   "lacks": [
+    "/bookings/gift-card",
+    "/bookings/insurances",
+    "/information/special-needs/lose-fear-flying",
+    "/miles-and-go/earn-miles/credit-cards",
+    "/miles-and-go/earn-miles/day-by-day",
+    "/miles-and-go/promotions/navigator-experiences",
+    "/promos"
+   ],
+   "noDocument": []
+  },
+  "pt-hk": {
+   "language": "pt-pt",
+   "market": "hk",
+   "homepage": "/pt-hk/index",
+   "nav": "/pt-hk/nav",
+   "footer": "/pt-hk/footer",
+   "own": [],
+   "sitemapPages": 112,
+   "lacks": [
+    "/informacoes/necessidades-especiais/perder-medo-voar",
+    "/miles-and-go/acumular-milhas/cartoes-de-credito",
+    "/miles-and-go/acumular-milhas/dia-a-dia",
+    "/miles-and-go/promocoes/navigator-experiences",
+    "/promos",
+    "/reservas/gift-card",
+    "/reservas/seguros"
+   ],
+   "noDocument": []
+  },
+  "en-hu": {
+   "language": "en-pt",
+   "market": "hu",
+   "homepage": "/en-hu/index",
+   "nav": "/en-hu/nav",
+   "footer": "/en-hu/footer",
+   "own": [],
+   "sitemapPages": 114,
+   "lacks": [
+    "/bookings/gift-card",
+    "/information/special-needs/lose-fear-flying",
+    "/miles-and-go/earn-miles/credit-cards",
+    "/miles-and-go/earn-miles/day-by-day",
+    "/miles-and-go/promotions/navigator-experiences",
+    "/promos"
+   ],
+   "noDocument": []
+  },
+  "pt-hu": {
+   "language": "pt-pt",
+   "market": "hu",
+   "homepage": "/pt-hu/index",
+   "nav": "/pt-hu/nav",
+   "footer": "/pt-hu/footer",
+   "own": [],
+   "sitemapPages": 113,
+   "lacks": [
+    "/informacoes/necessidades-especiais/perder-medo-voar",
+    "/miles-and-go/acumular-milhas/cartoes-de-credito",
+    "/miles-and-go/acumular-milhas/dia-a-dia",
+    "/miles-and-go/promocoes/navigator-experiences",
+    "/promos",
+    "/reservas/gift-card"
+   ],
+   "noDocument": []
+  },
+  "en-ie": {
+   "language": "en-pt",
+   "market": "ie",
+   "homepage": "/en-ie/index",
+   "nav": "/en-ie/nav",
+   "footer": "/en-ie/footer",
+   "own": [],
+   "sitemapPages": 116,
+   "lacks": [
+    "/information/special-needs/lose-fear-flying",
+    "/miles-and-go/earn-miles/credit-cards",
+    "/miles-and-go/earn-miles/day-by-day",
+    "/miles-and-go/promotions/navigator-experiences"
+   ],
+   "noDocument": []
+  },
+  "pt-ie": {
+   "language": "pt-pt",
+   "market": "ie",
+   "homepage": "/pt-ie/index",
+   "nav": "/pt-ie/nav",
+   "footer": "/pt-ie/footer",
+   "own": [],
+   "sitemapPages": 115,
+   "lacks": [
+    "/informacoes/necessidades-especiais/perder-medo-voar",
+    "/miles-and-go/acumular-milhas/cartoes-de-credito",
+    "/miles-and-go/acumular-milhas/dia-a-dia",
+    "/miles-and-go/promocoes/navigator-experiences"
+   ],
+   "noDocument": []
+  },
+  "en-il": {
+   "language": "en-pt",
+   "market": "il",
+   "homepage": "/en-il/index",
+   "nav": "/en-il/nav",
+   "footer": "/en-il/footer",
+   "own": [],
+   "sitemapPages": 113,
+   "lacks": [
+    "/bookings/gift-card",
+    "/bookings/insurances",
+    "/information/special-needs/lose-fear-flying",
+    "/miles-and-go/earn-miles/credit-cards",
+    "/miles-and-go/earn-miles/day-by-day",
+    "/miles-and-go/promotions/navigator-experiences",
+    "/promos"
+   ],
+   "noDocument": []
+  },
+  "pt-il": {
+   "language": "pt-pt",
+   "market": "il",
+   "homepage": "/pt-il/index",
+   "nav": "/pt-il/nav",
+   "footer": "/pt-il/footer",
+   "own": [],
+   "sitemapPages": 112,
+   "lacks": [
+    "/informacoes/necessidades-especiais/perder-medo-voar",
+    "/miles-and-go/acumular-milhas/cartoes-de-credito",
+    "/miles-and-go/acumular-milhas/dia-a-dia",
+    "/miles-and-go/promocoes/navigator-experiences",
+    "/promos",
+    "/reservas/gift-card",
+    "/reservas/seguros"
+   ],
+   "noDocument": []
+  },
+  "en-it": {
+   "language": "en-pt",
+   "market": "it",
+   "homepage": "/en-it/index",
+   "nav": "/en-it/nav",
+   "footer": "/en-it/footer",
+   "own": [],
+   "sitemapPages": 116,
+   "lacks": [
+    "/information/special-needs/lose-fear-flying",
+    "/miles-and-go/earn-miles/credit-cards",
+    "/miles-and-go/earn-miles/day-by-day",
+    "/miles-and-go/promotions/navigator-experiences"
+   ],
+   "noDocument": []
+  },
+  "pt-it": {
+   "language": "pt-pt",
+   "market": "it",
+   "homepage": "/pt-it/index",
+   "nav": "/pt-it/nav",
+   "footer": "/pt-it/footer",
+   "own": [],
+   "sitemapPages": 115,
+   "lacks": [
+    "/informacoes/necessidades-especiais/perder-medo-voar",
+    "/miles-and-go/acumular-milhas/cartoes-de-credito",
+    "/miles-and-go/acumular-milhas/dia-a-dia",
+    "/miles-and-go/promocoes/navigator-experiences"
+   ],
+   "noDocument": []
+  },
+  "en-lt": {
+   "language": "en-pt",
+   "market": "lt",
+   "homepage": "/en-lt/index",
+   "nav": "/en-lt/nav",
+   "footer": "/en-lt/footer",
+   "own": [],
+   "sitemapPages": 113,
+   "lacks": [
+    "/bookings/gift-card",
+    "/bookings/insurances",
+    "/information/special-needs/lose-fear-flying",
+    "/miles-and-go/earn-miles/credit-cards",
+    "/miles-and-go/earn-miles/day-by-day",
+    "/miles-and-go/promotions/navigator-experiences",
+    "/promos"
+   ],
+   "noDocument": []
+  },
+  "pt-lt": {
+   "language": "pt-pt",
+   "market": "lt",
+   "homepage": "/pt-lt/index",
+   "nav": "/pt-lt/nav",
+   "footer": "/pt-lt/footer",
+   "own": [],
+   "sitemapPages": 112,
+   "lacks": [
+    "/informacoes/necessidades-especiais/perder-medo-voar",
+    "/miles-and-go/acumular-milhas/cartoes-de-credito",
+    "/miles-and-go/acumular-milhas/dia-a-dia",
+    "/miles-and-go/promocoes/navigator-experiences",
+    "/promos",
+    "/reservas/gift-card",
+    "/reservas/seguros"
+   ],
+   "noDocument": []
+  },
+  "fr-lu": {
+   "language": "fr-fr",
+   "market": "lu",
+   "homepage": "/fr-lu/index",
+   "nav": "/fr-lu/nav",
+   "footer": "/fr-fr/footer",
+   "own": [],
+   "sitemapPages": 117,
+   "lacks": [
+    "/mentions-legales/droits-des-passagers-france"
+   ],
+   "noDocument": []
+  },
+  "en-lu": {
+   "language": "en-pt",
+   "market": "lu",
+   "homepage": "/en-lu/index",
+   "nav": "/en-lu/nav",
+   "footer": "/en-lu/footer",
+   "own": [],
+   "sitemapPages": 116,
+   "lacks": [
+    "/information/special-needs/lose-fear-flying",
+    "/miles-and-go/earn-miles/credit-cards",
+    "/miles-and-go/earn-miles/day-by-day",
+    "/miles-and-go/promotions/navigator-experiences"
+   ],
+   "noDocument": []
+  },
+  "pt-lu": {
+   "language": "pt-pt",
+   "market": "lu",
+   "homepage": "/pt-lu/index",
+   "nav": "/pt-lu/nav",
+   "footer": "/pt-lu/footer",
+   "own": [],
+   "sitemapPages": 115,
+   "lacks": [
+    "/informacoes/necessidades-especiais/perder-medo-voar",
+    "/miles-and-go/acumular-milhas/cartoes-de-credito",
+    "/miles-and-go/acumular-milhas/dia-a-dia",
+    "/miles-and-go/promocoes/navigator-experiences"
+   ],
+   "noDocument": []
+  },
+  "en-lv": {
+   "language": "en-pt",
+   "market": "lv",
+   "homepage": "/en-lv/index",
+   "nav": "/en-lv/nav",
+   "footer": "/en-lv/footer",
+   "own": [],
+   "sitemapPages": 113,
+   "lacks": [
+    "/bookings/gift-card",
+    "/bookings/insurances",
+    "/information/special-needs/lose-fear-flying",
+    "/miles-and-go/earn-miles/credit-cards",
+    "/miles-and-go/earn-miles/day-by-day",
+    "/miles-and-go/promotions/navigator-experiences",
+    "/promos"
+   ],
+   "noDocument": []
+  },
+  "pt-lv": {
+   "language": "pt-pt",
+   "market": "lv",
+   "homepage": "/pt-lv/index",
+   "nav": "/pt-lv/nav",
+   "footer": "/pt-lv/footer",
+   "own": [],
+   "sitemapPages": 112,
+   "lacks": [
+    "/informacoes/necessidades-especiais/perder-medo-voar",
+    "/miles-and-go/acumular-milhas/cartoes-de-credito",
+    "/miles-and-go/acumular-milhas/dia-a-dia",
+    "/miles-and-go/promocoes/navigator-experiences",
+    "/promos",
+    "/reservas/gift-card",
+    "/reservas/seguros"
+   ],
+   "noDocument": []
+  },
+  "en-ml": {
+   "language": "en-pt",
+   "market": "ml",
+   "homepage": "/en-ml/index",
+   "nav": "/en-ml/nav",
+   "footer": "/en-ml/footer",
+   "own": [],
+   "sitemapPages": 113,
+   "lacks": [
+    "/bookings/gift-card",
+    "/bookings/insurances",
+    "/information/special-needs/lose-fear-flying",
+    "/miles-and-go/earn-miles/credit-cards",
+    "/miles-and-go/earn-miles/day-by-day",
+    "/miles-and-go/promotions/navigator-experiences",
+    "/promos"
+   ],
+   "noDocument": []
+  },
+  "fr-ml": {
+   "language": "fr-fr",
+   "market": "ml",
+   "homepage": "/fr-ml/index",
+   "nav": "/fr-ml/nav",
+   "footer": "/fr-ml/footer",
+   "own": [],
+   "sitemapPages": 114,
+   "lacks": [
+    "/mentions-legales/droits-des-passagers-france",
+    "/promos",
+    "/reservations/assurances",
+    "/reservations/gift-card"
+   ],
+   "noDocument": []
+  },
+  "pt-ml": {
+   "language": "pt-pt",
+   "market": "ml",
+   "homepage": "/pt-ml/index",
+   "nav": "/pt-ml/nav",
+   "footer": "/pt-ml/footer",
+   "own": [],
+   "sitemapPages": 112,
+   "lacks": [
+    "/informacoes/necessidades-especiais/perder-medo-voar",
+    "/miles-and-go/acumular-milhas/cartoes-de-credito",
+    "/miles-and-go/acumular-milhas/dia-a-dia",
+    "/miles-and-go/promocoes/navigator-experiences",
+    "/promos",
+    "/reservas/gift-card",
+    "/reservas/seguros"
+   ],
+   "noDocument": []
+  },
+  "fr-ma": {
+   "language": "fr-fr",
+   "market": "ma",
+   "homepage": "/fr-ma/index",
+   "nav": "/fr-ma/nav",
+   "footer": "/fr-ma/footer",
+   "own": [],
+   "sitemapPages": 114,
+   "lacks": [
+    "/mentions-legales/droits-des-passagers-france",
+    "/promos",
+    "/reservations/assurances",
+    "/reservations/gift-card"
+   ],
+   "noDocument": []
+  },
+  "pt-ma": {
+   "language": "pt-pt",
+   "market": "ma",
+   "homepage": "/pt-ma/index",
+   "nav": "/pt-ma/nav",
+   "footer": "/pt-ma/footer",
+   "own": [],
+   "sitemapPages": 112,
+   "lacks": [
+    "/informacoes/necessidades-especiais/perder-medo-voar",
+    "/miles-and-go/acumular-milhas/cartoes-de-credito",
+    "/miles-and-go/acumular-milhas/dia-a-dia",
+    "/miles-and-go/promocoes/navigator-experiences",
+    "/promos",
+    "/reservas/gift-card",
+    "/reservas/seguros"
+   ],
+   "noDocument": []
+  },
+  "en-ma": {
+   "language": "en-pt",
+   "market": "ma",
+   "homepage": "/en-ma/index",
+   "nav": "/en-ma/nav",
+   "footer": "/en-ma/footer",
+   "own": [],
+   "sitemapPages": 113,
+   "lacks": [
+    "/bookings/gift-card",
+    "/bookings/insurances",
+    "/information/special-needs/lose-fear-flying",
+    "/miles-and-go/earn-miles/credit-cards",
+    "/miles-and-go/earn-miles/day-by-day",
+    "/miles-and-go/promotions/navigator-experiences",
+    "/promos"
+   ],
+   "noDocument": []
+  },
+  "en-mx": {
+   "language": "en-pt",
+   "market": "mx",
+   "homepage": "/en-mx/index",
+   "nav": "/en-mx/nav",
+   "footer": "/en-mx/footer",
+   "own": [],
+   "sitemapPages": 113,
+   "lacks": [
+    "/bookings/gift-card",
+    "/bookings/insurances",
+    "/information/special-needs/lose-fear-flying",
+    "/miles-and-go/earn-miles/credit-cards",
+    "/miles-and-go/earn-miles/day-by-day",
+    "/miles-and-go/promotions/navigator-experiences",
+    "/promos"
+   ],
+   "noDocument": []
+  },
+  "es-mx": {
+   "language": "es-es",
+   "market": "mx",
+   "homepage": "/es-mx/index",
+   "nav": "/es-mx/nav",
+   "footer": "/es-mx/footer",
+   "own": [],
+   "sitemapPages": 113,
+   "lacks": [
+    "/promos",
+    "/reservas/gift-card",
+    "/reservas/seguros"
+   ],
+   "noDocument": []
+  },
+  "pt-mx": {
+   "language": "pt-pt",
+   "market": "mx",
+   "homepage": "/pt-mx/index",
+   "nav": "/pt-mx/nav",
+   "footer": "/pt-mx/footer",
+   "own": [],
+   "sitemapPages": 112,
+   "lacks": [
+    "/informacoes/necessidades-especiais/perder-medo-voar",
+    "/miles-and-go/acumular-milhas/cartoes-de-credito",
+    "/miles-and-go/acumular-milhas/dia-a-dia",
+    "/miles-and-go/promocoes/navigator-experiences",
+    "/promos",
+    "/reservas/gift-card",
+    "/reservas/seguros"
+   ],
+   "noDocument": []
+  },
+  "en-mz": {
+   "language": "en-pt",
+   "market": "mz",
+   "homepage": "/en-mz/index",
+   "nav": "/en-mz/nav",
+   "footer": "/en-mz/footer",
+   "own": [],
+   "sitemapPages": 113,
+   "lacks": [
+    "/bookings/gift-card",
+    "/bookings/insurances",
+    "/information/special-needs/lose-fear-flying",
+    "/miles-and-go/earn-miles/credit-cards",
+    "/miles-and-go/earn-miles/day-by-day",
+    "/miles-and-go/promotions/navigator-experiences",
+    "/promos"
+   ],
+   "noDocument": []
+  },
+  "pt-mz": {
+   "language": "pt-pt",
+   "market": "mz",
+   "homepage": "/pt-mz/index",
+   "nav": "/pt-mz/nav",
+   "footer": "/pt-mz/footer",
+   "own": [],
+   "sitemapPages": 112,
+   "lacks": [
+    "/informacoes/necessidades-especiais/perder-medo-voar",
+    "/miles-and-go/acumular-milhas/cartoes-de-credito",
+    "/miles-and-go/acumular-milhas/dia-a-dia",
+    "/miles-and-go/promocoes/navigator-experiences",
+    "/promos",
+    "/reservas/gift-card",
+    "/reservas/seguros"
+   ],
+   "noDocument": []
+  },
+  "en-no": {
+   "language": "en-pt",
+   "market": "no",
+   "homepage": "/en-no/index",
+   "nav": "/en-no/nav",
+   "footer": "/en-no/footer",
+   "own": [],
+   "sitemapPages": 115,
+   "lacks": [
+    "/bookings/gift-card",
+    "/information/special-needs/lose-fear-flying",
+    "/miles-and-go/earn-miles/credit-cards",
+    "/miles-and-go/earn-miles/day-by-day",
+    "/miles-and-go/promotions/navigator-experiences"
+   ],
+   "noDocument": []
+  },
+  "pt-no": {
+   "language": "pt-pt",
+   "market": "no",
+   "homepage": "/pt-no/index",
+   "nav": "/pt-no/nav",
+   "footer": "/pt-no/footer",
+   "own": [],
+   "sitemapPages": 114,
+   "lacks": [
+    "/informacoes/necessidades-especiais/perder-medo-voar",
+    "/miles-and-go/acumular-milhas/cartoes-de-credito",
+    "/miles-and-go/acumular-milhas/dia-a-dia",
+    "/miles-and-go/promocoes/navigator-experiences",
+    "/reservas/gift-card"
+   ],
+   "noDocument": []
+  },
+  "en-pa": {
+   "language": "en-pt",
+   "market": "pa",
+   "homepage": "/en-pa/index",
+   "nav": "/en-pa/nav",
+   "footer": "/en-pa/footer",
+   "own": [],
+   "sitemapPages": 113,
+   "lacks": [
+    "/bookings/gift-card",
+    "/bookings/insurances",
+    "/information/special-needs/lose-fear-flying",
+    "/miles-and-go/earn-miles/credit-cards",
+    "/miles-and-go/earn-miles/day-by-day",
+    "/miles-and-go/promotions/navigator-experiences",
+    "/promos"
+   ],
+   "noDocument": []
+  },
+  "es-pa": {
+   "language": "es-es",
+   "market": "pa",
+   "homepage": "/es-pa/index",
+   "nav": "/es-pa/nav",
+   "footer": "/es-pa/footer",
+   "own": [],
+   "sitemapPages": 113,
+   "lacks": [
+    "/promos",
+    "/reservas/gift-card",
+    "/reservas/seguros"
+   ],
+   "noDocument": []
+  },
+  "pt-pa": {
+   "language": "pt-pt",
+   "market": "pa",
+   "homepage": "/pt-pa/index",
+   "nav": "/pt-pa/nav",
+   "footer": "/pt-pa/footer",
+   "own": [],
+   "sitemapPages": 112,
+   "lacks": [
+    "/informacoes/necessidades-especiais/perder-medo-voar",
+    "/miles-and-go/acumular-milhas/cartoes-de-credito",
+    "/miles-and-go/acumular-milhas/dia-a-dia",
+    "/miles-and-go/promocoes/navigator-experiences",
+    "/promos",
+    "/reservas/gift-card",
+    "/reservas/seguros"
+   ],
+   "noDocument": []
+  },
+  "en-nl": {
+   "language": "en-pt",
+   "market": "nl",
+   "homepage": "/en-nl/index",
+   "nav": "/en-nl/nav",
+   "footer": "/en-nl/footer",
+   "own": [],
+   "sitemapPages": 116,
+   "lacks": [
+    "/information/special-needs/lose-fear-flying",
+    "/miles-and-go/earn-miles/credit-cards",
+    "/miles-and-go/earn-miles/day-by-day",
+    "/miles-and-go/promotions/navigator-experiences"
+   ],
+   "noDocument": []
+  },
+  "pt-nl": {
+   "language": "pt-pt",
+   "market": "nl",
+   "homepage": "/pt-nl/index",
+   "nav": "/pt-nl/nav",
+   "footer": "/pt-nl/footer",
+   "own": [],
+   "sitemapPages": 115,
+   "lacks": [
+    "/informacoes/necessidades-especiais/perder-medo-voar",
+    "/miles-and-go/acumular-milhas/cartoes-de-credito",
+    "/miles-and-go/acumular-milhas/dia-a-dia",
+    "/miles-and-go/promocoes/navigator-experiences"
+   ],
+   "noDocument": []
+  },
+  "en-pl": {
+   "language": "en-pt",
+   "market": "pl",
+   "homepage": "/en-pl/index",
+   "nav": "/en-pl/nav",
+   "footer": "/en-pl/footer",
+   "own": [],
+   "sitemapPages": 115,
+   "lacks": [
+    "/bookings/gift-card",
+    "/information/special-needs/lose-fear-flying",
+    "/miles-and-go/earn-miles/credit-cards",
+    "/miles-and-go/earn-miles/day-by-day",
+    "/miles-and-go/promotions/navigator-experiences"
+   ],
+   "noDocument": []
+  },
+  "pt-pl": {
+   "language": "pt-pt",
+   "market": "pl",
+   "homepage": "/pt-pl/index",
+   "nav": "/pt-pl/nav",
+   "footer": "/pt-pl/footer",
+   "own": [],
+   "sitemapPages": 114,
+   "lacks": [
+    "/informacoes/necessidades-especiais/perder-medo-voar",
+    "/miles-and-go/acumular-milhas/cartoes-de-credito",
+    "/miles-and-go/acumular-milhas/dia-a-dia",
+    "/miles-and-go/promocoes/navigator-experiences",
+    "/reservas/gift-card"
+   ],
+   "noDocument": []
+  },
+  "en-gb": {
+   "language": "en-pt",
+   "market": "gb",
+   "homepage": "/en-gb/index",
+   "nav": "/en-gb/nav",
+   "footer": "/en-gb/footer",
+   "own": [],
+   "sitemapPages": 114,
+   "lacks": [
+    "/bookings/gift-card",
+    "/bookings/insurances",
+    "/information/special-needs/lose-fear-flying",
+    "/miles-and-go/earn-miles/credit-cards",
+    "/miles-and-go/earn-miles/day-by-day",
+    "/miles-and-go/promotions/navigator-experiences"
+   ],
+   "noDocument": []
+  },
+  "pt-gb": {
+   "language": "pt-pt",
+   "market": "gb",
+   "homepage": "/pt-gb/index",
+   "nav": "/pt-gb/nav",
+   "footer": "/pt-gb/footer",
+   "own": [],
+   "sitemapPages": 113,
+   "lacks": [
+    "/informacoes/necessidades-especiais/perder-medo-voar",
+    "/miles-and-go/acumular-milhas/cartoes-de-credito",
+    "/miles-and-go/acumular-milhas/dia-a-dia",
+    "/miles-and-go/promocoes/navigator-experiences",
+    "/reservas/gift-card",
+    "/reservas/seguros"
+   ],
+   "noDocument": []
+  },
+  "en-cz": {
+   "language": "en-pt",
+   "market": "cz",
+   "homepage": "/en-cz/index",
+   "nav": "/en-cz/nav",
+   "footer": "/en-cz/footer",
+   "own": [],
+   "sitemapPages": 115,
+   "lacks": [
+    "/bookings/gift-card",
+    "/information/special-needs/lose-fear-flying",
+    "/miles-and-go/earn-miles/credit-cards",
+    "/miles-and-go/earn-miles/day-by-day",
+    "/miles-and-go/promotions/navigator-experiences"
+   ],
+   "noDocument": []
+  },
+  "pt-cz": {
+   "language": "pt-pt",
+   "market": "cz",
+   "homepage": "/pt-cz/index",
+   "nav": "/pt-cz/nav",
+   "footer": "/pt-cz/footer",
+   "own": [],
+   "sitemapPages": 114,
+   "lacks": [
+    "/informacoes/necessidades-especiais/perder-medo-voar",
+    "/miles-and-go/acumular-milhas/cartoes-de-credito",
+    "/miles-and-go/acumular-milhas/dia-a-dia",
+    "/miles-and-go/promocoes/navigator-experiences",
+    "/reservas/gift-card"
+   ],
+   "noDocument": []
+  },
+  "en-ro": {
+   "language": "en-pt",
+   "market": "ro",
+   "homepage": "/en-ro/index",
+   "nav": "/en-ro/nav",
+   "footer": "/en-ro/footer",
+   "own": [],
+   "sitemapPages": 113,
+   "lacks": [
+    "/bookings/gift-card",
+    "/bookings/insurances",
+    "/information/special-needs/lose-fear-flying",
+    "/miles-and-go/earn-miles/credit-cards",
+    "/miles-and-go/earn-miles/day-by-day",
+    "/miles-and-go/promotions/navigator-experiences",
+    "/promos"
+   ],
+   "noDocument": []
+  },
+  "pt-ro": {
+   "language": "pt-pt",
+   "market": "ro",
+   "homepage": "/pt-ro/index",
+   "nav": "/pt-ro/nav",
+   "footer": "/pt-ro/footer",
+   "own": [],
+   "sitemapPages": 112,
+   "lacks": [
+    "/informacoes/necessidades-especiais/perder-medo-voar",
+    "/miles-and-go/acumular-milhas/cartoes-de-credito",
+    "/miles-and-go/acumular-milhas/dia-a-dia",
+    "/miles-and-go/promocoes/navigator-experiences",
+    "/promos",
+    "/reservas/gift-card",
+    "/reservas/seguros"
+   ],
+   "noDocument": []
+  },
+  "en-rs": {
+   "language": "en-pt",
+   "market": "rs",
+   "homepage": "/en-rs/index",
+   "nav": "/en-rs/nav",
+   "footer": "/en-rs/footer",
+   "own": [],
+   "sitemapPages": 113,
+   "lacks": [
+    "/bookings/gift-card",
+    "/bookings/insurances",
+    "/information/special-needs/lose-fear-flying",
+    "/miles-and-go/earn-miles/credit-cards",
+    "/miles-and-go/earn-miles/day-by-day",
+    "/miles-and-go/promotions/navigator-experiences",
+    "/promos"
+   ],
+   "noDocument": []
+  },
+  "pt-rs": {
+   "language": "pt-pt",
+   "market": "rs",
+   "homepage": "/pt-rs/index",
+   "nav": "/pt-rs/nav",
+   "footer": "/pt-rs/footer",
+   "own": [],
+   "sitemapPages": 112,
+   "lacks": [
+    "/informacoes/necessidades-especiais/perder-medo-voar",
+    "/miles-and-go/acumular-milhas/cartoes-de-credito",
+    "/miles-and-go/acumular-milhas/dia-a-dia",
+    "/miles-and-go/promocoes/navigator-experiences",
+    "/promos",
+    "/reservas/gift-card",
+    "/reservas/seguros"
+   ],
+   "noDocument": []
+  },
+  "en-ru": {
+   "language": "en-pt",
+   "market": "ru",
+   "homepage": "/en-ru/index",
+   "nav": "/en-ru/nav",
+   "footer": "/en-ru/footer",
+   "own": [],
+   "sitemapPages": 113,
+   "lacks": [
+    "/bookings/gift-card",
+    "/bookings/insurances",
+    "/information/special-needs/lose-fear-flying",
+    "/miles-and-go/earn-miles/credit-cards",
+    "/miles-and-go/earn-miles/day-by-day",
+    "/miles-and-go/promotions/navigator-experiences",
+    "/promos"
+   ],
+   "noDocument": []
+  },
+  "pt-ru": {
+   "language": "pt-pt",
+   "market": "ru",
+   "homepage": "/pt-ru/index",
+   "nav": "/pt-ru/nav",
+   "footer": "/pt-ru/footer",
+   "own": [],
+   "sitemapPages": 112,
+   "lacks": [
+    "/informacoes/necessidades-especiais/perder-medo-voar",
+    "/miles-and-go/acumular-milhas/cartoes-de-credito",
+    "/miles-and-go/acumular-milhas/dia-a-dia",
+    "/miles-and-go/promocoes/navigator-experiences",
+    "/promos",
+    "/reservas/gift-card",
+    "/reservas/seguros"
+   ],
+   "noDocument": []
+  },
+  "en-st": {
+   "language": "en-pt",
+   "market": "st",
+   "homepage": "/en-st/index",
+   "nav": "/en-st/nav",
+   "footer": "/en-st/footer",
+   "own": [],
+   "sitemapPages": 113,
+   "lacks": [
+    "/bookings/gift-card",
+    "/bookings/insurances",
+    "/information/special-needs/lose-fear-flying",
+    "/miles-and-go/earn-miles/credit-cards",
+    "/miles-and-go/earn-miles/day-by-day",
+    "/miles-and-go/promotions/navigator-experiences",
+    "/promos"
+   ],
+   "noDocument": []
+  },
+  "pt-st": {
+   "language": "pt-pt",
+   "market": "st",
+   "homepage": "/pt-st/index",
+   "nav": "/pt-st/nav",
+   "footer": "/pt-st/footer",
+   "own": [],
+   "sitemapPages": 112,
+   "lacks": [
+    "/informacoes/necessidades-especiais/perder-medo-voar",
+    "/miles-and-go/acumular-milhas/cartoes-de-credito",
+    "/miles-and-go/acumular-milhas/dia-a-dia",
+    "/miles-and-go/promocoes/navigator-experiences",
+    "/promos",
+    "/reservas/gift-card",
+    "/reservas/seguros"
+   ],
+   "noDocument": []
+  },
+  "fr-sn": {
+   "language": "fr-fr",
+   "market": "sn",
+   "homepage": "/fr-sn/index",
+   "nav": "/fr-sn/nav",
+   "footer": "/fr-sn/footer",
+   "own": [],
+   "sitemapPages": 114,
+   "lacks": [
+    "/mentions-legales/droits-des-passagers-france",
+    "/promos",
+    "/reservations/assurances",
+    "/reservations/gift-card"
+   ],
+   "noDocument": []
+  },
+  "pt-sn": {
+   "language": "pt-pt",
+   "market": "sn",
+   "homepage": "/pt-sn/index",
+   "nav": "/pt-sn/nav",
+   "footer": "/pt-sn/footer",
+   "own": [],
+   "sitemapPages": 112,
+   "lacks": [
+    "/informacoes/necessidades-especiais/perder-medo-voar",
+    "/miles-and-go/acumular-milhas/cartoes-de-credito",
+    "/miles-and-go/acumular-milhas/dia-a-dia",
+    "/miles-and-go/promocoes/navigator-experiences",
+    "/promos",
+    "/reservas/gift-card",
+    "/reservas/seguros"
+   ],
+   "noDocument": []
+  },
+  "en-sn": {
+   "language": "en-pt",
+   "market": "sn",
+   "homepage": "/en-sn/index",
+   "nav": "/en-sn/nav",
+   "footer": "/en-sn/footer",
+   "own": [],
+   "sitemapPages": 113,
+   "lacks": [
+    "/bookings/gift-card",
+    "/bookings/insurances",
+    "/information/special-needs/lose-fear-flying",
+    "/miles-and-go/earn-miles/credit-cards",
+    "/miles-and-go/earn-miles/day-by-day",
+    "/miles-and-go/promotions/navigator-experiences",
+    "/promos"
+   ],
+   "noDocument": []
+  },
+  "en-sk": {
+   "language": "en-pt",
+   "market": "sk",
+   "homepage": "/en-sk/index",
+   "nav": "/en-sk/nav",
+   "footer": "/en-sk/footer",
+   "own": [],
+   "sitemapPages": 113,
+   "lacks": [
+    "/bookings/gift-card",
+    "/bookings/insurances",
+    "/information/special-needs/lose-fear-flying",
+    "/miles-and-go/earn-miles/credit-cards",
+    "/miles-and-go/earn-miles/day-by-day",
+    "/miles-and-go/promotions/navigator-experiences",
+    "/promos"
+   ],
+   "noDocument": []
+  },
+  "pt-sk": {
+   "language": "pt-pt",
+   "market": "sk",
+   "homepage": "/pt-sk/index",
+   "nav": "/pt-sk/nav",
+   "footer": "/pt-sk/footer",
+   "own": [],
+   "sitemapPages": 112,
+   "lacks": [
+    "/informacoes/necessidades-especiais/perder-medo-voar",
+    "/miles-and-go/acumular-milhas/cartoes-de-credito",
+    "/miles-and-go/acumular-milhas/dia-a-dia",
+    "/miles-and-go/promocoes/navigator-experiences",
+    "/promos",
+    "/reservas/gift-card",
+    "/reservas/seguros"
+   ],
+   "noDocument": []
+  },
+  "en-se": {
+   "language": "en-pt",
+   "market": "se",
+   "homepage": "/en-se/index",
+   "nav": "/en-se/nav",
+   "footer": "/en-se/footer",
+   "own": [],
+   "sitemapPages": 115,
+   "lacks": [
+    "/bookings/gift-card",
+    "/information/special-needs/lose-fear-flying",
+    "/miles-and-go/earn-miles/credit-cards",
+    "/miles-and-go/earn-miles/day-by-day",
+    "/miles-and-go/promotions/navigator-experiences"
+   ],
+   "noDocument": []
+  },
+  "pt-se": {
+   "language": "pt-pt",
+   "market": "se",
+   "homepage": "/pt-se/index",
+   "nav": "/pt-se/nav",
+   "footer": "/pt-se/footer",
+   "own": [],
+   "sitemapPages": 114,
+   "lacks": [
+    "/informacoes/necessidades-especiais/perder-medo-voar",
+    "/miles-and-go/acumular-milhas/cartoes-de-credito",
+    "/miles-and-go/acumular-milhas/dia-a-dia",
+    "/miles-and-go/promocoes/navigator-experiences",
+    "/reservas/gift-card"
+   ],
+   "noDocument": []
+  },
+  "fr-ch": {
+   "language": "fr-fr",
+   "market": "ch",
+   "homepage": "/fr-ch/index",
+   "nav": "/fr-ch/nav",
+   "footer": "/fr-fr/footer",
+   "own": [],
+   "sitemapPages": 117,
+   "lacks": [
+    "/mentions-legales/droits-des-passagers-france",
+    "/reservations/gift-card"
+   ],
+   "noDocument": [
+    "/mentions-legales/mentions-legales"
+   ]
+  },
+  "en-ch": {
+   "language": "en-pt",
+   "market": "ch",
+   "homepage": "/en-ch/index",
+   "nav": "/en-ch/nav",
+   "footer": "/en-ch/footer",
+   "own": [],
+   "sitemapPages": 116,
+   "lacks": [
+    "/bookings/gift-card",
+    "/information/special-needs/lose-fear-flying",
+    "/miles-and-go/earn-miles/credit-cards",
+    "/miles-and-go/earn-miles/day-by-day",
+    "/miles-and-go/promotions/navigator-experiences"
+   ],
+   "noDocument": [
+    "/legal-info/legal-notices"
+   ]
+  },
+  "pt-ch": {
+   "language": "pt-pt",
+   "market": "ch",
+   "homepage": "/pt-ch/index",
+   "nav": "/pt-ch/nav",
+   "footer": "/pt-ch/footer",
+   "own": [],
+   "sitemapPages": 115,
+   "lacks": [
+    "/informacoes/necessidades-especiais/perder-medo-voar",
+    "/miles-and-go/acumular-milhas/cartoes-de-credito",
+    "/miles-and-go/acumular-milhas/dia-a-dia",
+    "/miles-and-go/promocoes/navigator-experiences",
+    "/reservas/gift-card"
+   ],
+   "noDocument": [
+    "/info-legal/avisos-legais"
+   ]
+  },
+  "en-tg": {
+   "language": "en-pt",
+   "market": "tg",
+   "homepage": "/en-tg/index",
+   "nav": "/en-tg/nav",
+   "footer": "/en-tg/footer",
+   "own": [],
+   "sitemapPages": 113,
+   "lacks": [
+    "/bookings/gift-card",
+    "/bookings/insurances",
+    "/information/special-needs/lose-fear-flying",
+    "/miles-and-go/earn-miles/credit-cards",
+    "/miles-and-go/earn-miles/day-by-day",
+    "/miles-and-go/promotions/navigator-experiences",
+    "/promos"
+   ],
+   "noDocument": []
+  },
+  "fr-tg": {
+   "language": "fr-fr",
+   "market": "tg",
+   "homepage": "/fr-tg/index",
+   "nav": "/fr-tg/nav",
+   "footer": "/fr-tg/footer",
+   "own": [],
+   "sitemapPages": 114,
+   "lacks": [
+    "/mentions-legales/droits-des-passagers-france",
+    "/promos",
+    "/reservations/assurances",
+    "/reservations/gift-card"
+   ],
+   "noDocument": []
+  },
+  "pt-tg": {
+   "language": "pt-pt",
+   "market": "tg",
+   "homepage": "/pt-tg/index",
+   "nav": "/pt-tg/nav",
+   "footer": "/pt-tg/footer",
+   "own": [],
+   "sitemapPages": 112,
+   "lacks": [
+    "/informacoes/necessidades-especiais/perder-medo-voar",
+    "/miles-and-go/acumular-milhas/cartoes-de-credito",
+    "/miles-and-go/acumular-milhas/dia-a-dia",
+    "/miles-and-go/promocoes/navigator-experiences",
+    "/promos",
+    "/reservas/gift-card",
+    "/reservas/seguros"
+   ],
+   "noDocument": []
+  },
+  "en-tn": {
+   "language": "en-pt",
+   "market": "tn",
+   "homepage": "/en-tn/index",
+   "nav": "/en-tn/nav",
+   "footer": "/en-tn/footer",
+   "own": [],
+   "sitemapPages": 113,
+   "lacks": [
+    "/bookings/gift-card",
+    "/bookings/insurances",
+    "/information/special-needs/lose-fear-flying",
+    "/miles-and-go/earn-miles/credit-cards",
+    "/miles-and-go/earn-miles/day-by-day",
+    "/miles-and-go/promotions/navigator-experiences",
+    "/promos"
+   ],
+   "noDocument": []
+  },
+  "pt-tn": {
+   "language": "pt-pt",
+   "market": "tn",
+   "homepage": "/pt-tn/index",
+   "nav": "/pt-tn/nav",
+   "footer": "/pt-tn/footer",
+   "own": [],
+   "sitemapPages": 112,
+   "lacks": [
+    "/informacoes/necessidades-especiais/perder-medo-voar",
+    "/miles-and-go/acumular-milhas/cartoes-de-credito",
+    "/miles-and-go/acumular-milhas/dia-a-dia",
+    "/miles-and-go/promocoes/navigator-experiences",
+    "/promos",
+    "/reservas/gift-card",
+    "/reservas/seguros"
+   ],
+   "noDocument": []
+  },
+  "en-tr": {
+   "language": "en-pt",
+   "market": "tr",
+   "homepage": "/en-tr/index",
+   "nav": "/en-tr/nav",
+   "footer": "/en-tr/footer",
+   "own": [],
+   "sitemapPages": 113,
+   "lacks": [
+    "/bookings/gift-card",
+    "/bookings/insurances",
+    "/information/special-needs/lose-fear-flying",
+    "/miles-and-go/earn-miles/credit-cards",
+    "/miles-and-go/earn-miles/day-by-day",
+    "/miles-and-go/promotions/navigator-experiences",
+    "/promos"
+   ],
+   "noDocument": []
+  },
+  "pt-tr": {
+   "language": "pt-pt",
+   "market": "tr",
+   "homepage": "/pt-tr/index",
+   "nav": "/pt-tr/nav",
+   "footer": "/pt-tr/footer",
+   "own": [],
+   "sitemapPages": 112,
+   "lacks": [
+    "/informacoes/necessidades-especiais/perder-medo-voar",
+    "/miles-and-go/acumular-milhas/cartoes-de-credito",
+    "/miles-and-go/acumular-milhas/dia-a-dia",
+    "/miles-and-go/promocoes/navigator-experiences",
+    "/promos",
+    "/reservas/gift-card",
+    "/reservas/seguros"
+   ],
+   "noDocument": []
+  },
+  "en-ua": {
+   "language": "en-pt",
+   "market": "ua",
+   "homepage": "/en-ua/index",
+   "nav": "/en-ua/nav",
+   "footer": "/en-ua/footer",
+   "own": [],
+   "sitemapPages": 113,
+   "lacks": [
+    "/bookings/gift-card",
+    "/bookings/insurances",
+    "/information/special-needs/lose-fear-flying",
+    "/miles-and-go/earn-miles/credit-cards",
+    "/miles-and-go/earn-miles/day-by-day",
+    "/miles-and-go/promotions/navigator-experiences",
+    "/promos"
+   ],
+   "noDocument": []
+  },
+  "pt-ua": {
+   "language": "pt-pt",
+   "market": "ua",
+   "homepage": "/pt-ua/index",
+   "nav": "/pt-ua/nav",
+   "footer": "/pt-ua/footer",
+   "own": [],
+   "sitemapPages": 112,
+   "lacks": [
+    "/informacoes/necessidades-especiais/perder-medo-voar",
+    "/miles-and-go/acumular-milhas/cartoes-de-credito",
+    "/miles-and-go/acumular-milhas/dia-a-dia",
+    "/miles-and-go/promocoes/navigator-experiences",
+    "/promos",
+    "/reservas/gift-card",
+    "/reservas/seguros"
+   ],
+   "noDocument": []
+  },
+  "en-uy": {
+   "language": "en-pt",
+   "market": "uy",
+   "homepage": "/en-uy/index",
+   "nav": "/en-uy/nav",
+   "footer": "/en-uy/footer",
+   "own": [],
+   "sitemapPages": 113,
+   "lacks": [
+    "/bookings/gift-card",
+    "/bookings/insurances",
+    "/information/special-needs/lose-fear-flying",
+    "/miles-and-go/earn-miles/credit-cards",
+    "/miles-and-go/earn-miles/day-by-day",
+    "/miles-and-go/promotions/navigator-experiences",
+    "/promos"
+   ],
+   "noDocument": []
+  },
+  "es-uy": {
+   "language": "es-es",
+   "market": "uy",
+   "homepage": "/es-uy/index",
+   "nav": "/es-uy/nav",
+   "footer": "/es-uy/footer",
+   "own": [],
+   "sitemapPages": 113,
+   "lacks": [
+    "/promos",
+    "/reservas/gift-card",
+    "/reservas/seguros"
+   ],
+   "noDocument": []
+  },
+  "pt-uy": {
+   "language": "pt-pt",
+   "market": "uy",
+   "homepage": "/pt-uy/index",
+   "nav": "/pt-uy/nav",
+   "footer": "/pt-uy/footer",
+   "own": [],
+   "sitemapPages": 112,
+   "lacks": [
+    "/informacoes/necessidades-especiais/perder-medo-voar",
+    "/miles-and-go/acumular-milhas/cartoes-de-credito",
+    "/miles-and-go/acumular-milhas/dia-a-dia",
+    "/miles-and-go/promocoes/navigator-experiences",
+    "/promos",
+    "/reservas/gift-card",
+    "/reservas/seguros"
+   ],
+   "noDocument": []
+  },
+  "en-ve": {
+   "language": "en-pt",
+   "market": "ve",
+   "homepage": "/en-ve/index",
+   "nav": "/en-ve/nav",
+   "footer": "/en-ve/footer",
+   "own": [],
+   "sitemapPages": 113,
+   "lacks": [
+    "/bookings/gift-card",
+    "/bookings/insurances",
+    "/information/special-needs/lose-fear-flying",
+    "/miles-and-go/earn-miles/credit-cards",
+    "/miles-and-go/earn-miles/day-by-day",
+    "/miles-and-go/promotions/navigator-experiences",
+    "/promos"
+   ],
+   "noDocument": []
+  },
+  "es-ve": {
+   "language": "es-es",
+   "market": "ve",
+   "homepage": "/es-ve/index",
+   "nav": "/es-ve/nav",
+   "footer": "/es-ve/footer",
+   "own": [],
+   "sitemapPages": 113,
+   "lacks": [
+    "/promos",
+    "/reservas/gift-card",
+    "/reservas/seguros"
+   ],
+   "noDocument": []
+  },
+  "pt-ve": {
+   "language": "pt-pt",
+   "market": "ve",
+   "homepage": "/pt-ve/index",
+   "nav": "/pt-ve/nav",
+   "footer": "/pt-ve/footer",
+   "own": [],
+   "sitemapPages": 112,
+   "lacks": [
+    "/informacoes/necessidades-especiais/perder-medo-voar",
+    "/miles-and-go/acumular-milhas/cartoes-de-credito",
+    "/miles-and-go/acumular-milhas/dia-a-dia",
+    "/miles-and-go/promocoes/navigator-experiences",
+    "/promos",
+    "/reservas/gift-card",
+    "/reservas/seguros"
+   ],
+   "noDocument": []
+  },
+  "en-za": {
+   "language": "en-pt",
+   "market": "za",
+   "homepage": "/en-za/index",
+   "nav": "/en-za/nav",
+   "footer": "/en-za/footer",
+   "own": [],
+   "sitemapPages": 113,
+   "lacks": [
+    "/bookings/gift-card",
+    "/bookings/insurances",
+    "/information/special-needs/lose-fear-flying",
+    "/miles-and-go/earn-miles/credit-cards",
+    "/miles-and-go/earn-miles/day-by-day",
+    "/miles-and-go/promotions/navigator-experiences",
+    "/promos"
+   ],
+   "noDocument": []
+  },
+  "pt-za": {
+   "language": "pt-pt",
+   "market": "za",
+   "homepage": "/pt-za/index",
+   "nav": "/pt-za/nav",
+   "footer": "/pt-za/footer",
+   "own": [],
+   "sitemapPages": 112,
+   "lacks": [
+    "/informacoes/necessidades-especiais/perder-medo-voar",
+    "/miles-and-go/acumular-milhas/cartoes-de-credito",
+    "/miles-and-go/acumular-milhas/dia-a-dia",
+    "/miles-and-go/promocoes/navigator-experiences",
+    "/promos",
+    "/reservas/gift-card",
+    "/reservas/seguros"
+   ],
+   "noDocument": []
+  }
+ }
+}
