@@ -102,3 +102,19 @@ test('only on the FAQ page (its slug in each of TAP\'s languages): other pages\'
   ['/en-pt/help/frequently-asked-questions', '/pt-pt/ajuda/perguntas-frequentes', '/pt-br/ajuda/perguntas-frequentes', '/es-es/ayuda/preguntas-frecuentes', '/fr-fr/aide/questions-frequentes', '/de-de/hilfe/haufige-gestellte-fragen', '/it-it/assistenza/domande-frequenti', '/pl-pl/pomoc/czesto-zadawane-pytania', '/de-ch/hilfe/haufige-gestellte-fragen/'].forEach((p) => assert.equal(mod.isFaqPage(p), true, p));
   ['/en-pt/check-in-information', '/en-pt/help', '/en-pt/miles-and-go'].forEach((p) => assert.equal(mod.isFaqPage(p), false, p));
 });
+
+test('the Miles&Go partners page too (brief 386, the same CategoryAccordion on www: category pills, partners on the left, their accordion on the right), in every version; not Stopover\'s partners', async () => {
+  const { mod } = await load();
+  ['/pt-pt/miles-and-go/parceiros', '/en-pt/miles-and-go/partners', '/es-es/miles-and-go/socios', '/fr-fr/miles-and-go/partenaires', '/de-de/miles-and-go/partner', '/pt-br/miles-and-go/parceiros/'].forEach((p) => assert.equal(mod.isPickerPage(p), true, p));
+  ['/pt-pt/stopover/parceiros', '/en-pt/miles-and-go', '/en-pt/miles-and-go/partners/avis', '/en-pt/help'].forEach((p) => assert.equal(mod.isPickerPage(p), false, p));
+  assert.equal(mod.isPickerPage('/fr-fr/aide/questions-frequentes'), true, 'the FAQ page still');
+});
+
+test('a picker built in a fragment (a market\'s categories: loadFragment decorates them in a main of its own) names its pills after the page\'s title', async () => {
+  const { document, mod } = await load();
+  const frag = document.createElement('main');
+  frag.innerHTML = '<div class="section"><div class="default-content-wrapper"><h2 id="hotels">Hotels</h2><h3 id="airbnb">Airbnb</h3></div><div class="accordion-columns-wrapper"><div class="accordion-columns faq block"><details><summary>Earn miles</summary></details></div></div></div>';
+  mod.buildFaqPicker(frag);
+  assert.equal(frag.querySelector('.faq-picker-categories').getAttribute('aria-label'), 'Frequently asked questions');
+  assert.equal(frag.querySelectorAll('.faq-picker-tab').length, 1);
+});

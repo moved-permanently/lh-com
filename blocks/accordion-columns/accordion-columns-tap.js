@@ -5,8 +5,9 @@
  * then its subcategories (the H3 before each FAQ block): from 1024 px a list on the left (WAI-ARIA
  * tabs, vertical: arrow keys, Home and End) beside its questions, on phones a select over them.
  * One category and one subcategory at a time; a #hash of a category or a subcategory picks it (the
- * help centre links to #before-the-flight). accordion-columns.js hands a TAP page's FAQ blocks
- * here; the page is built once. The look: styles/themes/tap.css (.faq-picker-*).
+ * help centre links to #before-the-flight). The Miles&Go partners page is www's same component
+ * (its categories, the partners, their accordion; brief 386). accordion-columns.js hands a TAP
+ * page's FAQ blocks here; the page is built once. The look: styles/themes/tap.css (.faq-picker-*).
  */
 
 const node = (tag, attrs = {}, ...kids) => {
@@ -30,6 +31,16 @@ export const FAQ_SLUGS = [
 
 /** Whether a path is a root's FAQ page. */
 export const isFaqPage = (pathname) => FAQ_SLUGS.includes(String(pathname || '').replace(/\/+$/, '').split('/').pop());
+
+/** The Miles&Go partners page's slug in TAP's versions (www's same CategoryAccordion). */
+export const PARTNER_SLUGS = ['parceiros', 'partners', 'socios', 'partenaires', 'partner'];
+
+/** Whether a path has www's two-level picker: the FAQ page, the Miles&Go partners page. */
+export const isPickerPage = (pathname) => {
+  const parts = String(pathname || '').replace(/\/+$/, '').split('/');
+  const [slug, parent] = [parts[parts.length - 1], parts[parts.length - 2]];
+  return isFaqPage(pathname) || (parent === 'miles-and-go' && PARTNER_SLUGS.includes(slug));
+};
 
 /**
  * The page's categories, in the page's order: each H2 of a section's default content and the
@@ -80,7 +91,9 @@ export function buildFaqPicker(main) {
 
   // the categories: pills under the title
   const pills = categories.map((c) => node('button', { type: 'button', className: 'faq-picker-pill', 'aria-pressed': 'false' }, c.heading.textContent.trim()));
-  const nav = node('nav', { className: 'faq-picker-categories', 'aria-label': (main.querySelector('h1') || {}).textContent || '' }, ...pills);
+  // (a market's categories come in a fragment, built in a main of its own: the page's title)
+  const title = main.querySelector('h1') || document.querySelector('main h1');
+  const nav = node('nav', { className: 'faq-picker-categories', 'aria-label': (title || {}).textContent || '' }, ...pills);
   // each category in a container of its own where its first part was
   categories.forEach((c) => {
     c.box = node('div', { className: 'faq-picker-category' });
@@ -157,10 +170,11 @@ export function buildFaqPicker(main) {
 }
 
 /**
- * accordion-columns.js on brand tap: a FAQ block of the FAQ page builds the page's picker.
+ * accordion-columns.js on brand tap: a FAQ block of the FAQ page or the Miles&Go partners page
+ * builds the page's picker.
  * @param {Element} block
  */
 export default function decorateTapFaq(block) {
-  if (!isFaqPage((window.location && window.location.pathname) || '')) return;
+  if (!isPickerPage((window.location && window.location.pathname) || '')) return;
   buildFaqPicker(block.closest('main'));
 }
