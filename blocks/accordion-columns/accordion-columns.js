@@ -107,6 +107,17 @@ function groupColumns(block) {
 
 // option tabs: a tab bar from this width (www.lufthansa-cargo.com's tabs), the accordion below it
 export const TABS_MEDIA = '(width >= 1025px)';
+
+/**
+ * Option open-first (www.discover-airlines.com's families page: the first collapsible expanded):
+ * the first item starts open. Not with tabs, whose first tab is selected anyway.
+ * @returns {boolean} whether an item was opened
+ */
+export function openFirst(block, items) {
+  if (!block.classList.contains('open-first') || block.classList.contains('tabs') || !items.length) return false;
+  items[0].setAttribute('open', '');
+  return true;
+}
 let tabsCount = 0;
 
 /**
@@ -338,6 +349,7 @@ export default async function decorate(block) {
 
   block.replaceChildren(...items);
   if (block.classList.contains('tabs')) buildTabs(block, items);
+  openFirst(block, items);
   if (filter) buildFilter(block, items, filterTexts);
   // item grids first (one-row tables of pictures), then the data tables that are left
   block.querySelectorAll('.accordion-columns-panel').forEach(buildGrids);
