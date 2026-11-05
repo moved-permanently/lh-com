@@ -99,6 +99,6 @@ test('round 3 with row 67: a rich text\'s H3 as www\'s, 28 / 33.6 bold at every 
 });
 
 test('round 3 with row 67: a heading on its own 32 px above the next component from 728 px, as www\'s 6 px heading component', () => {
-  const md = css.slice(css.lastIndexOf('@media (width >= 728px) {'));
+  const md = css.slice(css.indexOf('/* a heading on its own (www\'s heading component'));
   assert.match(md, /body\.brand-tap :where\(header:not\(\.tap-home\)\) ~ main > \.section > \.default-content-wrapper:has\(> :is\(h2, h3\):only-child\) \+ div \{\s*margin-top: 32px;\s*\}/);
 });

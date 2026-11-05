@@ -1988,8 +1988,19 @@ body.brand-tap .columns-media:not(.stack):has(.columns-media-text > h3:first-chi
   pointer-events: none;
 }
 
+/* (www's text column pb-6: 24 px under the text, the button; its list items without gaps, 40 px
+   from the list to the button: hand baggage's "Leve tudo o que precisa!", brief 388) */
 body.brand-tap .columns-media:not(.stack):has(.columns-media-text > h3:first-child) .columns-media-text {
   margin-bottom: 0;
+  padding-bottom: 24px;
+}
+
+body.brand-tap .columns-media:not(.stack):has(.columns-media-text > h3:first-child) .columns-media-text li {
+  margin-bottom: 0;
+}
+
+body.brand-tap .columns-media:not(.stack):has(.columns-media-text > h3:first-child) .columns-media-text > ul + .button-wrapper {
+  padding-top: 16px;
 }
 
 @media (width >= 728px) {
@@ -2735,6 +2746,21 @@ body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-c
   padding-top: 16px;
 }
 
+/* (not one-up, row 98's) www's rich text without gaps between its paragraphs (its empty ones,
+   24 px lines on www, the pipeline drops), 24 px to the button row, 48 px under the text of a card
+   without a button (www's empty button row, pb-6; hand baggage's cards, brief 388) */
+body.brand-tap .cards-teaser:not(.one-up) li:has(> .cards-teaser-body > p:not(.cards-teaser-cta)) .cards-teaser-body > p:not(.cards-teaser-cta) {
+  margin-bottom: 0;
+}
+
+body.brand-tap .cards-teaser:not(.one-up) li:has(> .cards-teaser-body > p:not(.cards-teaser-cta)) .cards-teaser-cta {
+  padding-top: 24px;
+}
+
+body.brand-tap .cards-teaser:not(.one-up) li:has(> .cards-teaser-body > p:not(.cards-teaser-cta)):not(:has(.cards-teaser-cta)) .cards-teaser-body {
+  padding-bottom: 48px;
+}
+
 body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-cta)) .cards-teaser-cta-link:any-link {
   box-sizing: border-box;
   align-items: center;
@@ -3258,8 +3284,11 @@ body.brand-tap .faq-picker-categories button[aria-pressed="true"] {
   color: #000;
 }
 
+/* (www's category title 28 / 33.6 at every width; brief 388) */
 body.brand-tap main .faq-picker-category > .default-content-wrapper > h2 {
   margin-top: 64px;
+  font-size: calc(28px * var(--a11y-scale, 1));
+  line-height: 1.2;
   text-align: center;
 }
 
@@ -3309,6 +3338,22 @@ body.brand-tap .faq-picker-questions .accordion-columns.faq .accordion-columns-i
 
 body.brand-tap .faq-picker-questions > [role="tabpanel"][hidden] {
   display: none;
+}
+
+@media (width < 1024px) {
+  /* the picker on phones as www's (partners at 390, brief 388): 24 px from the category's title
+     to the select, 24 px from the select to the first question (the questions' card under it) */
+  body.brand-tap main .faq-picker-category > .default-content-wrapper > h2 {
+    margin-bottom: 24px;
+  }
+
+  body.brand-tap .faq-picker-body {
+    margin-top: 0;
+  }
+
+  body.brand-tap .faq-picker-questions {
+    margin-top: 0;
+  }
 }
 
 @media (width >= 1024px) {
@@ -3450,6 +3495,30 @@ body.brand-tap main .default-content-wrapper > h3:not(.faq-picker-sub-heading) {
 @media (width >= 728px) {
   body.brand-tap :where(header:not(.tap-home)) ~ main > .section > .default-content-wrapper:has(> :is(h2, h3):only-child) + div {
     margin-top: 32px;
+  }
+}
+
+/* www's heading component (a heading and its description, one paragraph: hand baggage's
+   "Bagagem especial de cabina", brief 388): the description 16 px under an H2 (an H1's already),
+   and from 728 px 32 px to the next component (www's box 32 px shorter than its content, as a
+   heading on its own above), in a section or at its end */
+body.brand-tap :where(header:not(.tap-home)) ~ main .default-content-wrapper > h2:first-child:has(+ p:last-child) {
+  margin-bottom: 16px;
+}
+
+@media (width >= 728px) {
+  body.brand-tap :where(header:not(.tap-home)) ~ main > .section > .default-content-wrapper:has(> :is(h1, h2):first-child + p:last-child) + div {
+    margin-top: 32px;
+  }
+
+  body.brand-tap :where(header:not(.tap-home)) ~ main > .section:has(> .default-content-wrapper:last-child > :is(h1, h2):first-child + p:last-child) {
+    margin-bottom: 32px;
+  }
+
+  /* an inner slider opening its own section (a market's: the partners page): www's rounded
+     frame around its swiper, 32 px above and below (row 68's after the breadcrumb) */
+  body.brand-tap :where(header:not(.tap-home)) ~ main > .section > .hero-campaign-wrapper:first-child:has(> .hero-campaign.slider.narrow) {
+    padding-block: 32px;
   }
 }
 
