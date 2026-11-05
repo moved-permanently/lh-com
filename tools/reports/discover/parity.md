@@ -40,7 +40,7 @@ languages, both widths, 44 runs.
 | --- | --- | --- |
 | Skip links | "Go to navigation", "Go to main content", "Go to footer" first, each with a ring | fine |
 | Header | logo, Book, My flights, Check-in, Flight status, Accessibility, Help & Contact, Shopping cart, Login, Menu, each with a ring | fine |
-| Menu, 1440 | Enter opens it with the focus on the first tab; Escape closes it and returns the focus to Menu; after Enter on a tab the Tab key goes through the other tabs and the bar's tools before the panel's links | shared finding 1 of brief 382 (left, one EMA later) |
+| Menu, 1440 | Enter opens it with the focus on the first tab; Escape closes it and returns the focus to Menu. In the pass, after Enter on a tab the Tab key went through the other tabs and the bar's tools before the panel's links (brief 382's shared finding 1); rechecked on discover.turnsthe.page after 0ce56989 (header, another agent's): Tab now goes from the tab into its panel's links (Booking, Offers and destinations, Baggage …), Escape back to the tab | fine since 0ce56989 |
 | Menu, 390 | Enter opens it on the first tab, Enter goes into the tab's links, Escape returns the focus to Menu | fine |
 | Flight search | trip type, travellers, non-stop, From, swap, To, the two date fields (Chrome's month, day, year and calendar parts), Find flights, each named and with a ring | fine |
 | Travellers panel | opens with Enter; Tab walks Adults, Children, Infants, the class and Done | fine |
