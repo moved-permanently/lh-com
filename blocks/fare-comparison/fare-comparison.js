@@ -373,7 +373,8 @@ function buildTable(columns, ctx) {
 
 function buildCaption(cabin, labels) {
   const box = el('div', 'fare-comparison-caption');
-  box.append(el('h3', 'fare-comparison-caption-title', labels['caption label']));
+  // Legend and Notes as www's H2s (brief 403, R4-2)
+  box.append(el('h2', 'fare-comparison-caption-title', labels['caption label']));
   const inner = el('div', 'fare-comparison-caption-box');
   if (cabin.caption && cabin.caption.length) {
     const list = el('ul', 'fare-comparison-legend');
@@ -386,7 +387,7 @@ function buildCaption(cabin, labels) {
     inner.append(list);
   }
   if (cabin.notes && cabin.notes.length) {
-    inner.append(el('h3', 'fare-comparison-notes-title', labels['notes label']));
+    inner.append(el('h2', 'fare-comparison-notes-title', labels['notes label']));
     const notes = el('div', 'fare-comparison-notes');
     cabin.notes.forEach((n) => notes.append(n.cloneNode(true)));
     inner.append(notes);

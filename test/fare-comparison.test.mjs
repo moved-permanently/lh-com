@@ -212,6 +212,9 @@ test('the caption box: the legend with its icons, the notes; its headings from t
   assert.deepEqual([...caption.querySelectorAll('li')].map((li) => [li.querySelector('.fare-comparison-icon').dataset.mark, li.textContent.trim()]), [['yes', 'Serviço incluído'], ['no', 'Serviço não incluído']]);
   assert.equal(caption.querySelector('.fare-comparison-notes-title').textContent, 'Notas');
   assert.match(caption.querySelector('.fare-comparison-notes').textContent, /\S/);
+  // www's Legenda and Notas are H2s (brief 403, R4-2)
+  assert.equal(caption.querySelector('.fare-comparison-caption-title').tagName, 'H2');
+  assert.equal(caption.querySelector('.fare-comparison-notes-title').tagName, 'H2');
 });
 
 test('www\'s texts per language (pt-pt, pt-br, de-ch, es, fr, it, en); a row overrides one', () => {

@@ -155,7 +155,7 @@ test('the finder: the sheet\'s default city first, one label per kind, the compa
   assert.equal(country.value, 'PT');
   assert.equal(city.value, 'Porto', 'www\'s default city');
   assert.deepEqual([...city.querySelectorAll('option')].map((o) => o.value), ['Lisbon', 'Porto'], 'www\'s order of the cities');
-  const desk = [...block.querySelectorAll('.hotline-finder-group')].find((g) => g.querySelector('h3').textContent === 'Ticket Desk');
+  const desk = [...block.querySelectorAll('.hotline-finder-group')].find((g) => g.querySelector('.hotline-finder-group-title').textContent === 'Ticket Desk');
   assert.equal(Boolean(desk), true);
   const phone = desk.querySelector('.hotline-finder-phone');
   assert.equal(phone.querySelectorAll('.hotline-finder-label').length, 1, 'one label for both numbers');
@@ -164,7 +164,7 @@ test('the finder: the sheet\'s default city first, one label per kind, the compa
   assert.deepEqual([...address.querySelectorAll('.hotline-finder-value')].map((v) => v.textContent), ['TAP Porto', 'Rua X, Porto']);
   assert.equal(desk.querySelector('.hotline-finder-main .hotline-finder-email') !== null, true);
   pick(city, 'Lisbon');
-  const center = [...block.querySelectorAll('.hotline-finder-group')].find((g) => g.querySelector('h3').textContent === 'Customer Service Desk');
+  const center = [...block.querySelectorAll('.hotline-finder-group')].find((g) => g.querySelector('.hotline-finder-group-title').textContent === 'Customer Service Desk');
   assert.equal(center.querySelector('.hotline-finder-side .hotline-finder-schedule') !== null, true, 'the schedule in its own column');
   const miles = block.querySelector('.hotline-finder-group');
   assert.equal(miles.querySelector('.hotline-finder-text').textContent, 'Please enter your TAP Miles&Go number.');

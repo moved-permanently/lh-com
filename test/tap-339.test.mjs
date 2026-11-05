@@ -261,6 +261,8 @@ test('row 40: the finder: the market\'s country and its first city, the groups w
   assert.equal(country.value, 'PT');
   assert.deepEqual([...city.querySelectorAll('option')].map((o) => o.value), ['Lisbon', 'Porto']);
   assert.deepEqual([...block.querySelectorAll('.hotline-finder-group-title')].map((h) => h.textContent), ['Contact Center']);
+  // www's contact headings are H2s (brief 403, R4-3)
+  assert.deepEqual([...block.querySelectorAll('.hotline-finder-group-title')].map((h) => h.tagName), ['H2']);
   assert.deepEqual([...block.querySelectorAll('.hotline-finder-label')].map((l) => l.textContent), ['Telephone', 'Schedule']);
   assert.equal(block.querySelector('.hotline-finder-phone a').getAttribute('href'), 'tel:+351211234400');
   assert.equal(block.querySelector('.hotline-finder-note').textContent, 'Call to national landline.');

@@ -6,7 +6,8 @@
  * and on a first tap (a second tap on the same link follows it; a tap elsewhere and Escape close
  * it). The title moves into the tooltip so the browser shows no tooltip of its own; a link without
  * text keeps it as its name (aria-label). One tooltip per block, inside the block's scrolling
- * area, kept inside it and inside the viewport.
+ * area, kept inside it and inside the viewport. The cells' notes (table-striped.js) use the same
+ * tooltip (decorateTooltips), with or without matrix.
  */
 
 let instances = 0;
@@ -57,19 +58,14 @@ function place(block, tip, link) {
   tip.style.setProperty('--arrow-x', `${arrow}px`);
 }
 
-/** The matrix behaviour on a decorated table-striped block. */
-export default function decorateMatrix(block) {
-  const table = block.querySelector('table');
-  if (!table) return;
-  let columns = 1;
-  table.querySelectorAll('tr').forEach((tr) => {
-    if (tr.firstElementChild) tr.firstElementChild.classList.add('table-striped-sticky');
-    columns = Math.max(columns, [...tr.children].reduce((n, c) => n + (c.colSpan || 1), 0));
-  });
-  // the table's least width (the CSS: the first column 9.5rem or 14rem, every other 7.5rem)
-  table.style.setProperty('--matrix-columns', String(columns));
-
-  const links = [...table.querySelectorAll('a[title]')].filter((a) => a.getAttribute('title').trim());
+/**
+ * One tooltip for the block's triggers (each with its text in data-tooltip): the links of option
+ * matrix, the cells' (i) buttons. A link's first tap shows it and its second follows the link; a
+ * button's second tap closes it.
+ * @param {Element} block
+ * @param {Element[]} links the triggers
+ */
+export function decorateTooltips(block, links) {
   if (!links.length) return;
   instances += 1;
   const tip = document.createElement('div');
@@ -81,13 +77,6 @@ export default function decorateMatrix(block) {
   text.className = 'table-striped-tooltip-text';
   tip.append(text);
   block.append(tip);
-
-  links.forEach((a) => {
-    const title = a.getAttribute('title').trim();
-    if (!hasOwnName(a)) a.setAttribute('aria-label', title);
-    a.dataset.tooltip = title;
-    a.removeAttribute('title');
-  });
 
   let current = null;
   let armed = null;
@@ -117,11 +106,13 @@ export default function decorateMatrix(block) {
     a.addEventListener('focusout', () => { if (current === a) hide(); });
     a.addEventListener('keydown', (e) => { if (e.key === 'Escape' && current === a) hide(); });
     a.addEventListener('pointerdown', (e) => { pointer = e.pointerType || 'mouse'; });
-    // touch: the first tap shows the note, a second tap on the same link follows it
+    // touch: the first tap shows the note, a second tap on the same link follows it (on a button
+    // closes it)
     a.addEventListener('click', (e) => {
       if (pointer !== 'touch' && pointer !== 'pen') return;
       if (armed === a && current === a) {
         armed = null;
+        if (a.tagName === 'BUTTON') hide();
         return;
       }
       e.preventDefault();
@@ -132,7 +123,7 @@ export default function decorateMatrix(block) {
   // a tap or click elsewhere closes it (the links' own taps are handled above)
   document.addEventListener('pointerdown', (e) => {
     if (!current) return;
-    const own = e.target && e.target.closest && e.target.closest('a[data-tooltip]');
+    const own = e.target && e.target.closest && e.target.closest('[data-tooltip]');
     if (own && links.includes(own)) return;
     armed = null;
     hide();
@@ -140,4 +131,27 @@ export default function decorateMatrix(block) {
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && current) hide(); });
   block.addEventListener('scroll', () => { if (current) place(block, tip, current); }, { passive: true });
   window.addEventListener('resize', () => { if (current) place(block, tip, current); });
+}
+
+/** The matrix behaviour on a decorated table-striped block. */
+export default function decorateMatrix(block) {
+  const table = block.querySelector('table');
+  if (!table) return;
+  let columns = 1;
+  table.querySelectorAll('tr').forEach((tr) => {
+    if (tr.firstElementChild) tr.firstElementChild.classList.add('table-striped-sticky');
+    columns = Math.max(columns, [...tr.children].reduce((n, c) => n + (c.colSpan || 1), 0));
+  });
+  // the table's least width (the CSS: the first column 9.5rem or 14rem, every other 7.5rem)
+  table.style.setProperty('--matrix-columns', String(columns));
+
+  const links = [...table.querySelectorAll('a[title]')].filter((a) => a.getAttribute('title').trim());
+  links.forEach((a) => {
+    const title = a.getAttribute('title').trim();
+    if (!hasOwnName(a)) a.setAttribute('aria-label', title);
+    a.dataset.tooltip = title;
+    a.removeAttribute('title');
+  });
+  // the cells' notes (table-striped.js) share the tooltip
+  decorateTooltips(block, [...table.querySelectorAll('a[data-tooltip], .table-striped-info')]);
 }

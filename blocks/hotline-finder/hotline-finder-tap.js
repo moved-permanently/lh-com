@@ -106,7 +106,8 @@ function valueOf(entry) {
 export function groupsOf(city, labels) {
   return city.groups.map((g) => {
     const box = el('div', { class: 'hotline-finder-group' });
-    if (g.title) box.append(el('h3', { class: 'hotline-finder-group-title' }, g.title));
+    // www's H2s (Contact Center, Lost & Found ...: brief 403, R4-3)
+    if (g.title) box.append(el('h2', { class: 'hotline-finder-group-title' }, g.title));
     const entries = el('div', { class: 'hotline-finder-entries' });
     const main = el('div', { class: 'hotline-finder-main' });
     const side = el('div', { class: 'hotline-finder-side' });
