@@ -1,7 +1,8 @@
 /* scripts/airport-combobox.js's two optional parameters (brief 324; booking-spec.md 4):
    minChars (default 2: the list after two typed characters, as before; booking-box 0: the list
    opens on focus, since brief 365 (parity row 79) as www.flytap.com's: filtered to the field's
-   text, then to what is typed; an empty field none) and renderOption(airport, li) / display(airport) (default:
+   text, then to what is typed; an empty field none) and renderOption(airport, li) /
+   display(airport) (default:
    today's "name (code)" in the list and the field; booking-box: a code chip, "City, Airport" and
    the country in the list, "City, Country" in the field). flight-search, destination-finder,
    flight-status and lounge-finder pass neither: unchanged.
@@ -22,9 +23,12 @@ const { createAirportCombobox, airportDisplay } = await import('../scripts/airpo
 const wait = (ms) => new Promise((r) => { setTimeout(r, ms); });
 const fire = (el, type) => el.dispatchEvent(new window.Event(type));
 const focus = (el) => { active = el; fire(el, 'focus'); };
+// a key on the field (linkedom has no KeyboardEvent)
+const key = (el, name) => { const e = new window.Event('keydown'); e.key = name; el.dispatchEvent(e); };
 const LIST = [{ code: 'LIS', name: 'Lisbon', cityName: 'Lisboa' }, { code: 'OPO', name: 'Porto', cityName: 'Porto' }];
 
 // scrollIntoView is not in linkedom
+window.HTMLElement.prototype.scrollIntoView = () => {};
 function li(box) { box.element.querySelector('ul').scrollIntoView = () => {}; }
 
 function make(extra = {}) {
@@ -87,15 +91,15 @@ test('minChars 0, a field with a value: the list on focus filtered to the field\
   assert.deepEqual(terms, ['Lisboa, Portugal']);
   assert.equal(box.element.querySelector('ul').hidden, false);
   // the keyboard as before: down to an option, Enter picks it, Escape closes
-  box.input.dispatchEvent(new window.KeyboardEvent('keydown', { key: 'ArrowDown' }));
-  box.input.dispatchEvent(new window.KeyboardEvent('keydown', { key: 'ArrowDown' }));
-  box.input.dispatchEvent(new window.KeyboardEvent('keydown', { key: 'Enter' }));
+  key(box.input, 'ArrowDown');
+  key(box.input, 'ArrowDown');
+  key(box.input, 'Enter');
   assert.equal(box.getValue().code, 'OPO');
   assert.equal(box.element.querySelector('ul').hidden, true);
   focus(box.input);
   await wait(300);
   assert.deepEqual(terms, ['Lisboa, Portugal', 'Porto, Portugal'], 'the new value\'s text');
-  box.input.dispatchEvent(new window.KeyboardEvent('keydown', { key: 'Escape' }));
+  key(box.input, 'Escape');
   assert.equal(box.element.querySelector('ul').hidden, true);
 });
 

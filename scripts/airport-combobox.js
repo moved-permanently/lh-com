@@ -2,7 +2,8 @@
  * Accessible airport autocomplete (ARIA 1.2 combobox with a listbox popup).
  * Used by flight-search and destination-finder. It knows nothing about the API: the block
  * passes fetchSuggestions(term) returning [{ code, name, label }]. Optional (booking-box): minChars
- * (0: the list opens on focus), renderOption(airport, li) and display(airport) for the option's
+ * (0: the list opens on focus, as www.flytap.com's: filtered to the field's text, then to what is
+ * typed, none for an empty field), renderOption(airport, li) and display(airport) for the option's
  * content and the field's text; without them as before.
  */
 
@@ -32,7 +33,8 @@ export function airportDisplay(airport) {
  *   options.fetchSuggestions
  * @param {function({code: string, name?: string}|null): void} [options.onChange]
  * @param {string} [options.noResultsLabel] announced when nothing matches
- * @param {number} [options.minChars] characters before a search (default 2; 0: on focus too)
+ * @param {number} [options.minChars] characters before a search (default 2; 0: on focus too,
+ *   with the field's text)
  * @param {function(Object, HTMLLIElement): void} [options.renderOption] fills an option (default:
  *   its label, else "name (code)")
  * @param {function(Object): string} [options.display] the field's text (default airportDisplay)
@@ -158,7 +160,8 @@ export function createAirportCombobox({
   input.addEventListener('input', () => {
     clearTimeout(timer);
     const term = input.value.trim();
-    if (term.length < minChars || (!term && minChars > 0)) {
+    // nothing typed: no list (minChars 0 as www.flytap.com: no airport list for an empty field)
+    if (!term || term.length < minChars) {
       render([]);
       status.textContent = '';
       return;
@@ -185,8 +188,10 @@ export function createAirportCombobox({
 
   input.addEventListener('focus', () => {
     input.select();
-    // minChars 0: the whole list (an empty term) as soon as the field has the focus
-    if (minChars === 0) search('');
+    // minChars 0: the list as soon as the field has the focus, filtered to the field's text (its
+    // value's "Lisboa, Portugal"), as www.flytap.com's; an empty field none
+    const term = input.value.trim();
+    if (minChars === 0 && term) search(term);
   });
 
   input.addEventListener('blur', () => {
