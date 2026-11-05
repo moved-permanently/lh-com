@@ -1,6 +1,7 @@
-import { createOptimizedPicture } from '../../scripts/aem.js';
+import { createOptimizedPicture, getMetadata } from '../../scripts/aem.js';
 import { cleanText, decorateExternalLinks, keepImageSize } from '../../scripts/block-config.js';
 import { brandWwwHost } from '../../scripts/brand.js';
+import { getLocale } from '../../scripts/locale.js';
 
 const PICTURE_BREAKPOINTS = [{ media: '(min-width: 600px)', width: '2000' }, { width: '750' }];
 
@@ -31,9 +32,11 @@ function bodyElements(row) {
  * Borderless image teasers: image on top, heading, text and an arrow CTA link.
  * One row per card. Cell 1: image; cell 2: heading (any level), paragraphs, CTA (last link).
  * Merged or missing cells: the first picture is the media, everything else the body.
+ * Option slider on brand tap: www.flytap.com's news swiper (./cards-teaser-tap.js, loaded there
+ * only).
  * @param {Element} block
  */
-export default function decorate(block) {
+export default async function decorate(block) {
   const ul = document.createElement('ul');
   // images in the first two sections load eagerly (the baggage page's first view), as hero-campaign
   const section = block.closest('.section');
@@ -103,4 +106,10 @@ export default function decorate(block) {
     });
   }
   block.replaceChildren(ul);
+
+  // TAP: the option slider is www's swiper, previous, next and bullets (R4-10)
+  if (block.classList.contains('slider') && getMetadata('brand').trim().toLowerCase() === 'tap') {
+    const { default: decorateTapNews } = await import('./cards-teaser-tap.js');
+    decorateTapNews(block, { lang: getLocale().lang });
+  }
 }

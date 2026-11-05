@@ -3619,20 +3619,155 @@ body.brand-tap .columns-media.feature-small .columns-media-text {
   }
 }
 
-/* a card list www slides on desktop (R4-4; the importer's option slider: the entertainment's
-   news, a grid on phones as www): from 1024 px one row of four, the grid's 24 px between them,
-   scrolled sideways inside the list */
-@media (width >= 1024px) {
-  body.brand-tap .cards-teaser.slider > ul {
-    grid-auto-columns: calc((100% - 3 * 24px) / 4);
+/* the entertainment's news as www's swiper (R4-10, brief 407; R4-4's option slider of the
+   importer, blocks/cards-teaser/cards-teaser-tap.js; www.flytap.com/pt-pt/a-bordo/entretenimento
+   at 1440, 1280, 1024, 768 and 390 px): on phones the grid, no controls; from 728 px the row
+   between a 40 px round previous and next, 16 px either side (#f7f7f8, Material's chevron at
+   weight 300 in #424045, the unavailable one #eaeaeb at 30 %), two cards in view and three from
+   1024 px, 24 px apart, one card a step; the bullets centred under the row (8 px rings in TAP's
+   green at 40 %, the current one a 20 px green pill), each a 24 px target (WCAG 2.5.8) */
+body.brand-tap .cards-teaser-tap-slider :is(.cards-teaser-prev, .cards-teaser-next, .cards-teaser-dots) {
+  display: none;
+}
+
+body.brand-tap .cards-teaser-tap-slider :is(.cards-teaser-prev, .cards-teaser-next) {
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 9999px;
+  background-color: #f7f7f8;
+  color: #424045;
+  cursor: pointer;
+}
+
+body.brand-tap .cards-teaser-tap-slider :is(.cards-teaser-prev, .cards-teaser-next)::before {
+  content: "";
+  width: 24px;
+  height: 24px;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9.7 18 8.65 16.95 13.6 12 8.65 7.05 9.7 6l6 6z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+body.brand-tap .cards-teaser-tap-slider .cards-teaser-prev::before {
+  transform: scaleX(-1);
+}
+
+body.brand-tap .cards-teaser-tap-slider :is(.cards-teaser-prev, .cards-teaser-next)[aria-disabled="true"] {
+  background-color: #eaeaeb;
+  cursor: default;
+  opacity: 0.3;
+}
+
+body.brand-tap .cards-teaser-tap-slider .cards-teaser-dots > button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+body.brand-tap .cards-teaser-tap-slider .cards-teaser-dots > button::before {
+  content: "";
+  box-sizing: border-box;
+  width: 8px;
+  height: 8px;
+  border: 1px solid #65c922;
+  border-radius: 1000px;
+  opacity: 0.4;
+}
+
+body.brand-tap .cards-teaser-tap-slider .cards-teaser-dots > button[aria-current="true"]::before {
+  width: 20px;
+  background-color: #65c922;
+  opacity: 1;
+}
+
+body.brand-tap .cards-teaser-tap-slider :is(.cards-teaser-prev, .cards-teaser-next, .cards-teaser-dots > button):focus-visible {
+  outline: 2px solid var(--lh-green);
+  outline-offset: 2px;
+}
+
+@media (width >= 728px) {
+  /* www's slider pulled 48 px up (its -mt-12): the cards 32 px under the heading as www's */
+  body.brand-tap .cards-teaser-tap-slider {
+    display: grid;
+    grid-template-columns: 40px minmax(0, 1fr) 40px;
+    gap: 0 16px;
+    align-items: center;
+    margin-top: -48px;
+  }
+
+  body.brand-tap .cards-teaser-tap-slider > ul {
+    grid-column: 2;
+    grid-row: 1;
+    grid-auto-columns: calc((100% - 24px) / 2);
     grid-auto-flow: column;
     grid-template-columns: none;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
+    scrollbar-width: none;
   }
 
-  body.brand-tap .cards-teaser.slider > ul > li {
+  body.brand-tap .cards-teaser-tap-slider > ul::-webkit-scrollbar {
+    display: none;
+  }
+
+  body.brand-tap .cards-teaser-tap-slider > ul > li {
     scroll-snap-align: start;
+  }
+
+  /* a text card 16 px inside its column (row 31): it snaps with its column, the first at 0 */
+  body.brand-tap .cards-teaser-tap-slider > ul > li:has(> .cards-teaser-body > p:not(.cards-teaser-cta)) {
+    scroll-margin-inline: 16px;
+  }
+
+  body.brand-tap .cards-teaser-tap-slider .cards-teaser-prev {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  body.brand-tap .cards-teaser-tap-slider .cards-teaser-next {
+    grid-column: 3;
+    grid-row: 1;
+  }
+
+  body.brand-tap .cards-teaser-tap-slider:not(.cards-teaser-static) :is(.cards-teaser-prev, .cards-teaser-next) {
+    display: flex;
+  }
+
+  body.brand-tap .cards-teaser-tap-slider:not(.cards-teaser-static) .cards-teaser-dots {
+    display: flex;
+    grid-column: 2;
+    grid-row: 2;
+    justify-content: center;
+  }
+}
+
+/* from 1024 px www's slider sits inside its column as a container of its own: 32 px more either
+   side, 60 px from 1280 px (1000 of 1120 px at 1440: the row 888 px between the buttons) */
+@media (width >= 1024px) {
+  body.brand-tap .cards-teaser-tap-slider {
+    padding-inline: 32px;
+  }
+
+  body.brand-tap .cards-teaser-tap-slider > ul {
+    grid-auto-columns: calc((100% - 2 * 24px) / 3);
+  }
+}
+
+@media (width >= 1280px) {
+  body.brand-tap .cards-teaser-tap-slider {
+    padding-inline: 60px;
   }
 }
 

@@ -40,10 +40,12 @@ test('R4-4: www\'s default feature card, 260 x 180 beside the text from 728 px, 
   assert.match(md, new RegExp(`${small} \\.columns-media-media \\{\\s*order: 0;\\s*margin: 0;`));
 });
 
-test('R4-4: a card list www slides on desktop, one row of four from 1024 px scrolled inside the list', () => {
-  const wide = css.slice(css.indexOf('/* a card list www slides on desktop'));
+// R4-4's one row of four from 1024 px became www's swiper in R4-10 (brief 407): two cards in view
+// from 728 px, three from 1024 px, with previous / next and bullets (test/tap-news-slider.test.mjs)
+test('R4-4: a card list www slides on desktop scrolls inside the list (R4-10: test/tap-news-slider.test.mjs)', () => {
+  const wide = css.slice(css.indexOf('/* the entertainment\'s news as www\'s swiper'));
   assert.ok(wide.length < css.length, 'the slider part');
-  assert.match(wide, /@media \(width >= 1024px\) \{\s*body\.brand-tap \.cards-teaser\.slider > ul \{\s*grid-auto-columns: calc\(\(100% - 3 \* 24px\) \/ 4\);\s*grid-auto-flow: column;\s*grid-template-columns: none;\s*overflow-x: auto;\s*scroll-snap-type: x mandatory;\s*\}\s*body\.brand-tap \.cards-teaser\.slider > ul > li \{\s*scroll-snap-align: start;\s*\}\s*\}/);
+  assert.match(wide, /body\.brand-tap \.cards-teaser-tap-slider > ul \{[^}]*grid-auto-flow: column;[^}]*overflow-x: auto;/);
 });
 
 test('R4-5: two-up text cards, one a row on phones and two from 728 px, as the three-up cards otherwise', () => {
