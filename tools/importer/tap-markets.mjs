@@ -539,7 +539,7 @@ async function main() {
     const stale = plain && fs.existsSync(localFile) && fs.readFileSync(localFile, 'utf8').includes('<div>Markets</div>');
     if (plain && !stale) continue;
     const site = {
-      url: p.url, scope: scopeLang, media, anchors, sourceImages: false, clickToCall, units: plain ? undefined : () => merged.units,
+      url: p.url, scope: scopeLang, media, anchors, sourceImages: false, clickToCall, phonePictures: true, units: plain ? undefined : () => merged.units,
     };
     let r = convertPage(nd, site);
     if (r.skipped) continue;
@@ -640,7 +640,7 @@ async function main() {
     for (const [p, cap, kind] of pagesToDo) {
       if (!cap || !ndOf(cap)) { rep.notes.push(`${p}: no capture`); continue; }
       const res = convertPage(ndOf(cap), {
-        url: cap.url, version: lv, scope: rootScope, media, anchors, sourceImages: false, booking, clickToCall,
+        url: cap.url, version: lv, scope: rootScope, media, anchors, sourceImages: false, booking, clickToCall, phonePictures: true,
       });
       if (res.skipped) { rep.notes.push(`${p}: ${res.skipped}`); continue; }
       const sheet = (x) => `/${x}/booking/airports.json`;

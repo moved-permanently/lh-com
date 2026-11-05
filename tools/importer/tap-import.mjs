@@ -430,7 +430,8 @@ class Page {
   /**
    * A banner's picture cell: the picture, and with site.phonePictures www's phone rendition
    * (imageMobile, www's below 728 px) as a second picture where it is another file (parity 94;
-   * off until hero-campaign and hero-card-overlay show a second picture as the phone one).
+   * hero-campaign and hero-card-overlay show it as the phone one since 137756ba: the CLIs pass
+   * phonePictures, convertPage's default stays off).
    */
   pictures(ref, phoneRef) {
     const desk = this.img(ref);
@@ -1163,6 +1164,8 @@ async function main() {
       sourceImages: argv.includes('--source-images'),
       booking: { labels: b.labels, originNameOf: (code) => b.names[code] },
       clickToCall,
+      // the banners' phone pictures: hero-campaign and hero-card-overlay show them (ema-test, row 94)
+      phonePictures: true,
     };
     let r = convertPage(p.nd, site);
     if (!r.skipped && over(r.html)) r = convertPage(p.nd, { ...site, fragments: true });
