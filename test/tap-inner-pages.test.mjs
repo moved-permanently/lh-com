@@ -30,6 +30,6 @@ test('row 21: the category cards (a picture, a linked title, maybe links): the t
 });
 
 test('row 15: the help cards\' buttons at the foot, with a chevron', () => {
-  assert.match(part, /body\.brand-tap \.cards\.three-up \.cards-card-body > \.button-wrapper:last-child \{\s*margin-top: auto;/);
-  assert.match(part, /body\.brand-tap \.cards\.three-up a\.button:any-link::after \{/);
+  assert.match(part, /body\.brand-tap \.cards:is\(\.three-up, \.two-up\) \.cards-card-body > \.button-wrapper:last-child \{\s*margin-top: auto;/);
+  assert.match(part, /body\.brand-tap \.cards:is\(\.three-up, \.two-up\) a\.button:any-link::after \{/);
 });

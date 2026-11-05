@@ -12,7 +12,7 @@
      side from 768 px (16 px apart; stacked the whole width on phones), the second a 32 px pill in
      TAP's dark green on the card's grey, its hover www's 8 % green;
    - round 3, the feature card (www's FeatureCard: the Star Alliance partners card, economy-prime's
-     cards; the columns-media with an H3 title): its picture in www's frame, 16 px corners, filled,
+     cards; the importer's option feature, www's size large): its picture in www's frame, 16 px corners, filled,
      358 x 220 first on phones 24 px above the title, 536 x 275 from 728 px (a 556 + 540 grid, 24 px
      apart, the picture on either side), www's green chevron line (its 98 x 274 SVG, #9EFD38 6 px)
      over the picture's right edge 28 px outside, as row 55's;
@@ -63,7 +63,7 @@ test('round 3: the info card as wide as its content up to 790 px, its two links 
 });
 
 test('round 3: the feature card\'s picture in www\'s green chevron frame (row 55\'s line), 358 x 220 on phones, 536 x 275 from 728 px', () => {
-  const fc = 'body\\.brand-tap \\.columns-media:not\\(\\.stack\\):has\\(\\.columns-media-text > h3:first-child\\)';
+  const fc = 'body\\.brand-tap \\.columns-media\\.feature';
   const rule = (sel, body) => assert.match(css, new RegExp(`${fc} ${sel} \\{${body}`), sel);
   rule('\\.columns-media-media', '\\s*position: relative;\\s*order: -1;\\s*height: 220px;\\s*margin: 0 0 24px;');
   rule(':is\\(\\.columns-media-media picture, \\.columns-media-media img\\)', '\\s*display: block;\\s*width: 100%;\\s*height: 100%;');
@@ -91,7 +91,7 @@ test('round 3 with row 67: the inner pages\' components 64 px apart from 728 px,
 });
 
 test('round 3 with row 67: a three-up card without a button keeps www\'s 48 px under its text', () => {
-  assert.match(css, /body\.brand-tap \.cards\.three-up \.cards-card-body:not\(:has\(> \.button-wrapper\)\) \{\s*padding-bottom: 24px;\s*\}/);
+  assert.match(css, /body\.brand-tap \.cards:is\(\.three-up, \.two-up\) \.cards-card-body:not\(:has\(> \.button-wrapper\)\) \{\s*padding-bottom: 24px;\s*\}/);
 });
 
 test('round 3 with row 67: a rich text\'s H3 as www\'s, 28 / 33.6 bold at every width', () => {

@@ -917,6 +917,68 @@ describe('tap-import pages', () => {
     assert.equal(d.querySelector('.embed a').getAttribute('href'), 'https://youtu.be/Ys3t3n6y6d8');
   });
 
+  it('a feature card carries www\'s size (option feature, large; feature-small, default: the theme lays them out as www) and a card list www slides on desktop the option slider (brief 394)', () => {
+    const t = (value) => ({ nodeType: 'text', value });
+    const para = (...content) => ({ nodeType: 'paragraph', content });
+    const img = { __typename: 'ImageRef', _path: '/content/dam/tap/x.jpg', _dynamicUrl: '/adobe/dynamicmedia/deliver/dm-aid--bd6d1ad2-88c0-4ed9-9cc2-91a83509e5dc/baggage_tap_air_portugal_card_hp.jpg' };
+    const page = {
+      props: {
+        pageProps: {
+          page: {
+            title: 'Entretenimento',
+            sections: [{ __typename: 'ComponentHeadingModel', title: 'Entretenimento a bordo' },
+              { __typename: 'ComponentGenericCardListModel', desktopType: 'slider', mobileType: 'grid', itemsPerRow: 3, items: [{ __typename: 'GenericCard1Model', title: 'Novidades do mês', genericCard1Description: { json: [para(t('Diversão sem limites.'))] }, image: img }] },
+              { __typename: 'ComponentGenericCardListModel', itemsPerRow: 3, items: [{ __typename: 'GenericCard1Model', title: 'Sem slider', genericCard1Description: { json: [para(t('Grelha.'))] }, image: img }] },
+              { __typename: 'ComponentFeatureCardModel', size: 'default', featureCardDescription: { json: [para(t('Mais de 130 filmes.'))] }, image: img },
+              { __typename: 'ComponentFeatureCardModel', size: 'large', title: 'Use os seus auscultadores Bluetooth', featureCardDescription: { json: [para(t('Ligue-os ao ecrã.'))] }, image: img }],
+          },
+        },
+      },
+    };
+    const d = dom(convertPage(page, ctx('https://www.flytap.com/pt-pt/a-bordo/entretenimento')).html);
+    const lists = [...d.querySelectorAll('.cards-teaser')].map((b) => b.className);
+    assert.deepEqual(lists, ['cards-teaser three-up slider', 'cards-teaser three-up']);
+    const fcs = [...d.querySelectorAll('.columns-media')].map((b) => b.className);
+    assert.deepEqual(fcs, ['columns-media feature-small', 'columns-media feature']);
+  });
+
+  it('text cards www lays two to a row (itemsPerRow 2: the Schengen steps, 46 lists on pt-pt) the option two-up (brief 394)', () => {
+    const t = (value) => ({ nodeType: 'text', value });
+    const card = (title) => ({ __typename: 'SimpleGenericCardModel', title, description: { json: [{ nodeType: 'paragraph', content: [t('O agente verifica os dados.')] }] } });
+    const page = { props: { pageProps: { page: { title: 'Schengen', sections: [{ __typename: 'ComponentHeadingModel', title: 'Schengen' }, { __typename: 'ComponentGenericCardListModel', itemsPerRow: 2, desktopType: 'grid', items: [card('Passo 1'), card('Passo 2')] }] } } } };
+    const d = dom(convertPage(page, ctx('https://www.flytap.com/pt-pt/informacoes/documentacao/vistos-schengen')).html);
+    assert.equal(d.querySelector('.cards').className, 'cards two-up');
+  });
+
+  it('Miles&Go cards outside the homepage: the visitor\'s card www\'s panel too (columns-media stack: title and second line H2s, the button bold italic, the photo beside; economy-prime, R4-6, brief 394)', () => {
+    const t = (value) => ({ nodeType: 'text', value });
+    const img = { __typename: 'ImageRef', _path: '/content/dam/tap/lugar.jpg', _dynamicUrl: '/adobe/dynamicmedia/deliver/dm-aid--bd6d1ad2-88c0-4ed9-9cc2-91a83509e5dc/baggage_tap_air_portugal_card_hp.jpg' };
+    const page = {
+      props: {
+        pageProps: {
+          page: {
+            __typename: 'PageModel',
+            title: 'Economy Prime',
+            sections: [{ __typename: 'ComponentHeadingModel', title: 'Voar em Economy Prime' },
+              {
+                __typename: 'ComponentMiles_GoCardListModel',
+                milesAndGoCards: [{
+                  type: '1', title: 'Lugar do Lado Livre', subtitle: 'Conforto extra ao seu lado.', milesAndGoCardDescription: { json: [{ nodeType: 'paragraph', content: [t('Na Economy Prime, os assentos…')] }] }, primaryCtaLabel: 'Saiba mais', primaryCtaUrl: '/gerir-reserva/extras/lugar-do-lado-livre', image: img,
+                }],
+              }],
+          },
+        },
+      },
+    };
+    const d = dom(convertPage(page, ctx('https://www.flytap.com/pt-pt/a-bordo/economy-prime')).html);
+    const cm = d.querySelector('.columns-media');
+    assert.equal(cm.className, 'columns-media stack');
+    const [text, photo] = cm.querySelector(':scope > div').children;
+    assert.deepEqual([...text.querySelectorAll('h2')].map((h) => h.textContent), ['Lugar do Lado Livre', 'Conforto extra ao seu lado.']);
+    assert.ok(text.querySelector('p > em > strong > a'), 'the button as the first card\'s on the homepage');
+    assert.ok(photo.querySelector('img'));
+  });
+
   it('a card\'s description without its sub- and superscript text, as www (parity 97: cards 126 of 126; rich text keeps it)', () => {
     const t = (value, ...v) => ({ nodeType: 'text', value, format: { variants: v } });
     const desc = { json: [{ nodeType: 'paragraph', content: [t('Envie mensagens com emojis incluídos '), t('(1)', 'subscript'), t('.')] }] };

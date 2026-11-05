@@ -30,7 +30,7 @@ import fs from 'node:fs';
 
 const css = fs.readFileSync(new URL('../styles/themes/tap.css', import.meta.url), 'utf8');
 const card = 'body\\.brand-tap \\.cards-teaser:not\\(\\.one-up\\) li:has\\(> \\.cards-teaser-body > p:not\\(\\.cards-teaser-cta\\)\\)';
-const fc = 'body\\.brand-tap \\.columns-media:not\\(\\.stack\\):has\\(\\.columns-media-text > h3:first-child\\)';
+const fc = 'body\\.brand-tap \\.columns-media\\.feature';
 
 test('the text cards as www\'s: no gap between paragraphs, 24 px to the button, 48 px under the text without one', () => {
   assert.match(css, new RegExp(`${card} \\.cards-teaser-body > p:not\\(\\.cards-teaser-cta\\) \\{\\s*margin-bottom: 0;\\s*\\}`));
@@ -42,7 +42,7 @@ test('the text cards as www\'s: no gap between paragraphs, 24 px to the button, 
 
 test('the feature card\'s text as www\'s: list items without gaps, 40 px from the list to the button, 24 px under the column', () => {
   assert.match(css, new RegExp(`${fc} \\.columns-media-text li \\{\\s*margin-bottom: 0;\\s*\\}`));
-  assert.match(css, new RegExp(`${fc} \\.columns-media-text > ul \\+ \\.button-wrapper \\{\\s*padding-top: 16px;\\s*\\}`));
+  assert.match(css, new RegExp(`${fc} \\.columns-media-text > \\.button-wrapper \\{\\s*padding-top: 16px;\\s*\\}`));
   assert.match(css, new RegExp(`${fc} \\.columns-media-text \\{\\s*margin-bottom: 0;\\s*padding-bottom: 24px;\\s*\\}`));
 });
 

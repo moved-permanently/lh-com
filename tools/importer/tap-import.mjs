@@ -562,8 +562,10 @@ function cards(items, P, s) {
   if (first === 'SimpleGenericCardModel') {
     // www's text cards, so many to a row (itemsPerRow): cards with the option three-up / four-up
     // (tap.css lays them out so; cards keeps the buttons, cards-teaser would make them arrows)
-    // (one a row: one-up, Wi-Fi's data packages, parity 98)
-    const up = { 1: 'cards (one-up)', 3: 'cards (three-up)', 4: 'cards (four-up)' }[s.itemsPerRow] || 'cards';
+    // (one a row: one-up, Wi-Fi's data packages, parity 98; two: two-up, the Schengen steps, 394)
+    const up = {
+      1: 'cards (one-up)', 2: 'cards (two-up)', 3: 'cards (three-up)', 4: 'cards (four-up)',
+    }[s.itemsPerRow] || 'cards';
     P.block(up, items.map((x) => [`${x.icon ? P.img(x.icon) : ''}${P.heading(3, x.title)}${P.cardRich(x.description)}${P.ctas(x)}`]));
     return;
   }
@@ -577,8 +579,10 @@ function cards(items, P, s) {
     return [P.img(x.image), `${x.category ? `<p>${esc(x.category)}</p>` : ''}${P.heading(3, x.title)}${P.cardRich(desc)}${x.date ? `<p>${esc(x.date)}</p>` : ''}${P.ctas(x)}`];
   });
   const carousel = s.desktopType === 'carousel';
-  const per = { 1: ' (one-up)', 3: ' (three-up)', 4: ' (four-up)' }[s.itemsPerRow] || '';
-  P.block(carousel ? 'carousel-cards' : `cards-teaser${per}`, rows);
+  // www's desktop slider (the entertainment's news, a grid on phones): the option slider, one row
+  // the theme scrolls from 1024 px (brief 394)
+  const opts = [{ 1: 'one-up', 3: 'three-up', 4: 'four-up' }[s.itemsPerRow], s.desktopType === 'slider' && 'slider'].filter(Boolean);
+  P.block(carousel ? 'carousel-cards' : `cards-teaser${opts.length ? ` (${opts.join(', ')})` : ''}`, rows);
 }
 
 /**
@@ -749,17 +753,26 @@ const HANDLERS = {
       return;
     }
     // elsewhere: the card of the visitor's state, a visitor (no account) the first (type 1); the
-    // logo (a small wordmark over the title) left out, columns-media stretches a picture to the cell
+    // logo (a small wordmark over the title) left out; www's same panel as the homepage's
+    // (economy-prime's "Lugar do Lado Livre", R4-6, brief 394): columns-media (stack), the second
+    // line an H2, the button bold italic as the homepage's first card's
     const visitor = all.filter((x) => String(x.type) === '1');
-    P.block('columns-media', (visitor.length ? visitor : all.slice(0, 1)).map((x) => [
-      `${P.heading(2, x.title)}${x.subtitle ? `<p><strong>${esc(x.subtitle)}</strong></p>` : ''}${P.rich(x.milesAndGoCardDescription)}${P.ctas(x)}${P.rich(x.extrainfo)}`,
+    const link = (url, label, wrap) => {
+      const href = linkOf(url, P.c);
+      return href && label ? `<p>${wrap(`<a href="${attr(href)}">${esc(label)}</a>`)}</p>` : '';
+    };
+    P.block('columns-media (stack)', (visitor.length ? visitor : all.slice(0, 1)).map((x) => [
+      `${P.heading(2, x.title)}${x.subtitle ? P.heading(2, x.subtitle) : ''}${P.rich(x.milesAndGoCardDescription)}${link(x.primaryCtaUrl, x.primaryCtaLabel, (a) => `<em><strong>${a}</strong></em>`)}${link(x.secondaryCtaUrl, x.secondaryCtaLabel, (a) => a)}${P.rich(x.extrainfo)}`,
       P.img(x.image),
     ]));
   },
   ComponentFeatureCardModel: (s, P) => {
     // its title an H3, as www's (330 of 331; the theme's TAP H3, parity 60)
     const text = `${P.heading(3, s.title)}${P.cardRich(s.featureCardDescription)}${P.cardRich(s.complementaryNote)}${P.link(s.ctaUrl, s.ctaLabel, 'primary')}`;
-    P.block('columns-media', [s.switchImageToRight ? [text, P.img(s.image)] : [P.img(s.image), text]]);
+    // www's size: large (536 x 275, the chevron frame) the option feature, default (260 x 180)
+    // feature-small; the theme lays them out (brief 394)
+    const size = s.size === 'large' ? 'feature' : 'feature-small';
+    P.block(`columns-media (${size})`, [s.switchImageToRight ? [text, P.img(s.image)] : [P.img(s.image), text]]);
   },
   ComponentInfoSectionModel: (s, P) => {
     // www: a picture beside an accordion of link groups; the picture, then the accordion

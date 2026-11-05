@@ -118,8 +118,8 @@ test('the booking box stacked as www\'s', () => {
 });
 
 test('the help cards and the footer\'s social icons', () => {
-  assert.match(css, /body\.brand-tap \.cards\.three-up \.cards-card-body > \.button-wrapper:last-child \{\s*margin-top: auto;\s*padding-top: 24px;/);
-  assert.match(css, /body\.brand-tap \.cards\.three-up \.cards-card-body a\.button:any-link \{[^}]*min-height: 40px;[^}]*font-weight: 500;/);
+  assert.match(css, /body\.brand-tap \.cards:is\(\.three-up, \.two-up\) \.cards-card-body > \.button-wrapper:last-child \{\s*margin-top: auto;\s*padding-top: 24px;/);
+  assert.match(css, /body\.brand-tap \.cards:is\(\.three-up, \.two-up\) \.cards-card-body a\.button:any-link \{[^}]*min-height: 40px;[^}]*font-weight: 500;/);
   assert.match(css, /@media \(width < 1024px\) \{[^@]*body\.brand-tap \.footer \.footer-tap-side \.footer-badge-group:has\(img\[data-icon-name\]\) ul \{\s*column-gap: 20px;/);
 });
 

@@ -197,7 +197,7 @@ test('rows 26, 27 and 35: headings; text-card titles; the breadcrumb trail on ph
   assert.match(part, /body\.brand-tap \.breadcrumb li:not\(:last-child\)::after \{/);
   assert.match(part, /body\.brand-tap \.breadcrumb li:first-child:not\(:only-child\) > a:any-link \{[^}]*text-indent: 100%;/);
   assert.match(part, /\.breadcrumb \.breadcrumb-current \{\s*color: #424045;\s*font-weight: 600;/);
-  assert.match(part, /body\.brand-tap \.cards\.three-up \.cards-card-body > :is\(h2, h3, h4\):first-child \{\s*margin-bottom: 8px;\s*font-size: 24px;\s*font-weight: 500;/);
+  assert.match(part, /body\.brand-tap \.cards:is\(\.three-up, \.two-up\) \.cards-card-body > :is\(h2, h3, h4\):first-child \{\s*margin-bottom: 8px;\s*font-size: 24px;\s*font-weight: 500;/);
 });
 
 test('rows 28 to 33: FAQ questions, link tiles, the picture above the title, text cards, tier cards, text links', () => {

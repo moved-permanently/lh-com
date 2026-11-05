@@ -1954,29 +1954,29 @@ body.brand-tap main > .section.info-card a.button:hover {
 }
 
 /* the feature card's picture in www's frame (round 3; www's FeatureCard: the Star Alliance
-   partners card, economy-prime's; the columns-media with an H3 title): filled, 16 px corners,
+   partners card, economy-prime's; the importer's option feature, www's size large): filled, 16 px corners,
    358 x 220 first on phones 24 px above the title, 536 x 275 from 728 px on either side; www's
    green chevron line (its 98 x 274 SVG, #9EFD38 6 px) over the picture's right edge, 28 px outside,
    as row 55's on the contacts picture */
-body.brand-tap .columns-media:not(.stack):has(.columns-media-text > h3:first-child) .columns-media-media {
+body.brand-tap .columns-media.feature .columns-media-media {
   position: relative;
   order: -1;
   height: 220px;
   margin: 0 0 24px;
 }
 
-body.brand-tap .columns-media:not(.stack):has(.columns-media-text > h3:first-child) :is(.columns-media-media picture, .columns-media-media img) {
+body.brand-tap .columns-media.feature :is(.columns-media-media picture, .columns-media-media img) {
   display: block;
   width: 100%;
   height: 100%;
 }
 
-body.brand-tap .columns-media:not(.stack):has(.columns-media-text > h3:first-child) .columns-media-media img {
+body.brand-tap .columns-media.feature .columns-media-media img {
   border-radius: 16px;
   object-fit: cover;
 }
 
-body.brand-tap .columns-media:not(.stack):has(.columns-media-text > h3:first-child) .columns-media-media::after {
+body.brand-tap .columns-media.feature .columns-media-media::after {
   content: "";
   position: absolute;
   z-index: 1;
@@ -1990,16 +1990,26 @@ body.brand-tap .columns-media:not(.stack):has(.columns-media-text > h3:first-chi
 
 /* (www's text column pb-6: 24 px under the text, the button; its list items without gaps, 40 px
    from the list to the button: hand baggage's "Leve tudo o que precisa!", brief 388) */
-body.brand-tap .columns-media:not(.stack):has(.columns-media-text > h3:first-child) .columns-media-text {
+body.brand-tap .columns-media.feature .columns-media-text {
   margin-bottom: 0;
   padding-bottom: 24px;
 }
 
-body.brand-tap .columns-media:not(.stack):has(.columns-media-text > h3:first-child) .columns-media-text li {
+body.brand-tap .columns-media.feature .columns-media-text li {
   margin-bottom: 0;
 }
 
-body.brand-tap .columns-media:not(.stack):has(.columns-media-text > h3:first-child) .columns-media-text > ul + .button-wrapper {
+/* (www's paragraphs 8 px apart; 24 px from a paragraph to a list, 24 from a paragraph and 40 from
+   a list to the button: brief 394) */
+body.brand-tap .columns-media.feature .columns-media-text > p:not(.button-wrapper) {
+  margin-bottom: 8px;
+}
+
+body.brand-tap .columns-media.feature .columns-media-text > ul {
+  margin-top: 24px;
+}
+
+body.brand-tap .columns-media.feature .columns-media-text > .button-wrapper {
   padding-top: 16px;
 }
 
@@ -2014,7 +2024,7 @@ body.brand-tap main {
    #65c922, #424045, Inter 15 / 500, 40 px; #7cde3a inside on hover), its links in the text TAP's
    dark green without underline, underlined in #7cde3a on hover (Star Alliance partners,
    economy-prime; brief 388) */
-body.brand-tap .columns-media:not(.stack):has(.columns-media-text > h3:first-child) .columns-media-text a.button:any-link {
+body.brand-tap .columns-media.feature .columns-media-text a.button:any-link {
   box-sizing: border-box;
   min-width: 0;
   min-height: 40px;
@@ -2027,18 +2037,18 @@ body.brand-tap .columns-media:not(.stack):has(.columns-media-text > h3:first-chi
   text-decoration: none;
 }
 
-body.brand-tap .columns-media:not(.stack):has(.columns-media-text > h3:first-child) .columns-media-text a.button:hover {
+body.brand-tap .columns-media.feature .columns-media-text a.button:hover {
   border-color: #65c922;
   background-color: #7cde3a;
   color: #424045;
 }
 
-body.brand-tap .columns-media:not(.stack):has(.columns-media-text > h3:first-child) .columns-media-text p:not(.button-wrapper) a:any-link {
+body.brand-tap .columns-media.feature .columns-media-text p:not(.button-wrapper) a:any-link {
   color: #397213;
   text-decoration: none;
 }
 
-body.brand-tap .columns-media:not(.stack):has(.columns-media-text > h3:first-child) .columns-media-text p:not(.button-wrapper) a:hover {
+body.brand-tap .columns-media.feature .columns-media-text p:not(.button-wrapper) a:hover {
   color: #7cde3a;
   text-decoration: underline;
 }
@@ -2046,16 +2056,16 @@ body.brand-tap .columns-media:not(.stack):has(.columns-media-text > h3:first-chi
 @media (width >= 728px) {
   /* the feature card from www's md: the picture's 536 px and its 20 px margin, 24 px, the text's
      540 px (1120 at 1440), the picture on either side */
-  body.brand-tap .columns-media:not(.stack):has(.columns-media-text > h3:first-child) .columns-media-row {
+  body.brand-tap .columns-media.feature .columns-media-row {
     grid-template-columns: minmax(0, 556fr) minmax(0, 540fr);
     gap: 0 24px;
   }
 
-  body.brand-tap .columns-media:not(.stack):has(.columns-media-text > h3:first-child) .columns-media-media-last {
+  body.brand-tap .columns-media.feature .columns-media-media-last {
     grid-template-columns: minmax(0, 540fr) minmax(0, 556fr);
   }
 
-  body.brand-tap .columns-media:not(.stack):has(.columns-media-text > h3:first-child) .columns-media-media {
+  body.brand-tap .columns-media.feature .columns-media-media {
     order: 0;
     height: 275px;
     margin: 0 20px 0 0;
@@ -2395,30 +2405,30 @@ body.brand-tap .cards-teaser li:has(> .cards-teaser-body > .cards-teaser-title:f
 
 /* the help cards' buttons (row 15: cards three-up, ajuda): at the card's foot, a chevron after
    the label */
-body.brand-tap .cards.three-up > ul > li {
+body.brand-tap .cards:is(.three-up, .two-up) > ul > li {
   display: flex;
   flex-direction: column;
 }
 
-body.brand-tap .cards.three-up .cards-card-body {
+body.brand-tap .cards:is(.three-up, .two-up) .cards-card-body {
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
 }
 
 /* (www: 48 px from the text to the button, the text's own 24 px and 24 more; brief 356) */
-body.brand-tap .cards.three-up .cards-card-body > .button-wrapper:last-child {
+body.brand-tap .cards:is(.three-up, .two-up) .cards-card-body > .button-wrapper:last-child {
   margin-top: auto;
   padding-top: 24px;
   margin-bottom: 0;
 }
 
-body.brand-tap .cards.three-up a.button:any-link {
+body.brand-tap .cards:is(.three-up, .two-up) a.button:any-link {
   gap: 8px;
 }
 
 /* a long label wraps inside the card, the chevron at its end (row 27, www's two-line button) */
-body.brand-tap .cards.three-up .cards-card-body a.button:any-link {
+body.brand-tap .cards:is(.three-up, .two-up) .cards-card-body a.button:any-link {
   justify-content: space-between;
   max-width: 100%;
   min-height: 40px;
@@ -2430,7 +2440,7 @@ body.brand-tap .cards.three-up .cards-card-body a.button:any-link {
   text-align: start;
 }
 
-body.brand-tap .cards.three-up a.button:any-link::after {
+body.brand-tap .cards:is(.three-up, .two-up) a.button:any-link::after {
   content: "";
   flex: none;
   width: 16px;
@@ -2544,7 +2554,7 @@ body.brand-tap .breadcrumb .breadcrumb-current {
 
 /* the text cards' titles (row 27: cards three-up, ajuda's help cards and stopover's steps):
    GT Flexa 24 / 28.8, 500, 8 px above the text */
-body.brand-tap .cards.three-up .cards-card-body > :is(h2, h3, h4):first-child {
+body.brand-tap .cards:is(.three-up, .two-up) .cards-card-body > :is(h2, h3, h4):first-child {
   margin-bottom: 8px;
   font-size: 24px;
   font-weight: 500;
@@ -3515,7 +3525,7 @@ body.brand-tap :where(header:not(.tap-home)) ~ main > .section > div:not(.breadc
 
 /* a three-up card without a button (the buy-ticket steps): www keeps 48 px under its text, the
    text's own 24 px and 24 more (229 px at 1440 and 390, as www) */
-body.brand-tap .cards.three-up .cards-card-body:not(:has(> .button-wrapper)) {
+body.brand-tap .cards:is(.three-up, .two-up) .cards-card-body:not(:has(> .button-wrapper)) {
   padding-bottom: 24px;
 }
 
@@ -3559,6 +3569,119 @@ body.brand-tap :where(header:not(.tap-home)) ~ main .default-content-wrapper > h
      frame around its swiper, 32 px above and below (row 68's after the breadcrumb) */
   body.brand-tap :where(header:not(.tap-home)) ~ main > .section > .hero-campaign-wrapper:first-child:has(> .hero-campaign.slider.narrow) {
     padding-block: 32px;
+  }
+}
+
+/* www's default feature card (R4-4, brief 394; the importer's option feature-small, www's size
+   default: the entertainment's films, series, music and games): the picture 358 x 180 above the
+   text on phones (24 px), 16 px corners, filled; its paragraphs 8 px apart */
+body.brand-tap .columns-media.feature-small .columns-media-media {
+  order: -1;
+  height: 180px;
+  margin: 0 0 24px;
+}
+
+body.brand-tap .columns-media.feature-small :is(.columns-media-media picture, .columns-media-media img) {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+body.brand-tap .columns-media.feature-small .columns-media-media img {
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+body.brand-tap .columns-media.feature-small .columns-media-text > p {
+  margin-bottom: 8px;
+}
+
+body.brand-tap .columns-media.feature-small .columns-media-text {
+  margin-bottom: 0;
+}
+
+/* www's default feature card from 728 px: the picture 260 x 180 beside the text, 24 px apart, the
+   text 560 px at most (on either side) */
+@media (width >= 728px) {
+  body.brand-tap .columns-media.feature-small .columns-media-row {
+    grid-template-columns: 260px minmax(0, 560px);
+    gap: 0 24px;
+    justify-content: start;
+  }
+
+  body.brand-tap .columns-media.feature-small .columns-media-media-last {
+    grid-template-columns: minmax(0, 560px) 260px;
+  }
+
+  body.brand-tap .columns-media.feature-small .columns-media-media {
+    order: 0;
+    margin: 0;
+  }
+}
+
+/* a card list www slides on desktop (R4-4; the importer's option slider: the entertainment's
+   news, a grid on phones as www): from 1024 px one row of four, the grid's 24 px between them,
+   scrolled sideways inside the list */
+@media (width >= 1024px) {
+  body.brand-tap .cards-teaser.slider > ul {
+    grid-auto-columns: calc((100% - 3 * 24px) / 4);
+    grid-auto-flow: column;
+    grid-template-columns: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+  }
+
+  body.brand-tap .cards-teaser.slider > ul > li {
+    scroll-snap-align: start;
+  }
+}
+
+/* text cards www lays two to a row (R4-5, brief 394; the importer's two-up, itemsPerRow 2: the
+   Schengen steps): one a row on phones, two from 728 px, as the three-up cards otherwise */
+body.brand-tap .cards.two-up > ul {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (width >= 728px) {
+  body.brand-tap .cards.two-up > ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* www's large feature card from 728 px (R4-6): 24 px under the row, the picture's or the text's
+   (www's box 299 px for its 275 px picture), not under the text alone */
+@media (width >= 728px) {
+  body.brand-tap .columns-media.feature .columns-media-row {
+    padding-bottom: 24px;
+  }
+
+  body.brand-tap .columns-media.feature .columns-media-text {
+    padding-bottom: 0;
+  }
+}
+
+/* a YouTube banner (R4-6: economy-prime, for-life; the importer's embed after the video's H3):
+   www's 380 px frame with 32 px corners at every width, the player inside it */
+body.brand-tap .embed .media-embed-youtube {
+  height: 380px;
+  overflow: hidden;
+  border-radius: 32px;
+  aspect-ratio: auto;
+}
+
+/* www's small feature card with a title (economy-prime's newspapers): 24 px under the title, 48 px
+   under its text; without a title 24 px under its text on phones (brief 394) */
+body.brand-tap .columns-media.feature-small:has(.columns-media-text > h3:first-child) .columns-media-text > h3:first-child {
+  margin-bottom: 24px;
+}
+
+body.brand-tap .columns-media.feature-small:has(.columns-media-text > h3:first-child) .columns-media-text {
+  padding-bottom: 48px;
+}
+
+@media (width < 728px) {
+  body.brand-tap .columns-media.feature-small:not(:has(.columns-media-text > h3:first-child)) .columns-media-text {
+    padding-bottom: 24px;
   }
 }
 
