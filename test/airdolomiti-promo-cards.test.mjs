@@ -8,7 +8,7 @@
    Run: node --max-old-space-size=512 --test test/airdolomiti-promo-cards.test.mjs */
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { promoCards } from '../tools/importer/airdolomiti-import.mjs';
+import { promoCards, showMoreLink } from '../tools/importer/airdolomiti-import.mjs';
 
 const page = {
   img: (x) => (x && x.url ? `<picture><img src="${x.url}" alt=""></picture>` : ''),
@@ -31,4 +31,12 @@ test('the cards: picture, route, price, fare and the link; the block carousel-ca
     ['<picture><img src="https://cms.airdolomiti.it/f.jpg" alt=""></picture>', '<h3>Milano Malpensa - Francoforte</h3><p>112€</p><p>A/R in Economy light</p><p><a href="/tratte/volo-milano-malpensa-francoforte">Milano Malpensa - Francoforte</a></p>'],
     ['', '<h3>Firenze - Monaco</h3><p>A/R in Economy Basic</p>'],
   ]);
+});
+
+test('the slider\'s "see all" link with the number of cards, as www writes it ("Vedi tutto (3)", "vedi tutte (2)")', () => {
+  const a = { showMoreText: 'Vedi tutto', showMoreTextUrl: 'https://www.airdolomiti.it/prenotazioni', cardList: [{}, {}, {}] };
+  assert.equal(showMoreLink(a, page), '<p><a href="/prenotazioni">Vedi tutto (3)</a></p>');
+  assert.equal(showMoreLink({ ...a, showMoreText: 'vedi tutte', cardList: [{}, {}] }, page), '<p><a href="/prenotazioni">vedi tutte (2)</a></p>');
+  assert.equal(showMoreLink({ ...a, showMoreTextUrl: '' }, page), '', 'no link: none');
+  assert.equal(showMoreLink({ ...a, cardList: [] }, page), '<p><a href="/prenotazioni">Vedi tutto</a></p>', 'no cards: no number');
 });
