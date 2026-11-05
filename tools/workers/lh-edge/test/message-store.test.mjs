@@ -2,10 +2,11 @@
 /* One Message Center store for the group's airlines (src/message-store.js): on the hosts of the
    sites that show Message Center tenants (SWISS, Austrian and its China alias, Brussels, ITA,
    Discover, B2B), the Message Center read paths (the index, the CTI sheet, the message documents
-   and their details pages) come from the store's origin (var MESSAGE_STORE_ORIGIN), fetched past
-   the edge cache, the visitor's revalidation kept; every other path, and every path of the sites
-   with a source of their own (TAP, Air Dolomiti, Cargo), as before. Without the var (or with a
-   value that isn't an Edge Delivery origin) each site reads its own, as before. */
+   and their details pages) come from the store's origin (scripts/message-store.js, the one
+   setting the site code reads too), fetched past the edge cache, the visitor's revalidation kept;
+   every other path, and every path of the sites with a source of their own (TAP, Air Dolomiti,
+   Cargo), as before. */
+import fs from 'node:fs';
 import { test, beforeEach } from 'node:test';
 import assert from 'node:assert/strict';
 import HTMLRewriter from './htmlrewriter-shim.mjs';
@@ -28,7 +29,6 @@ const env = (extra = {}) => ({
   SITE_HOSTS: `${SITES.map((s) => `${s}.turnsthe.page=${s}`).join('; ')}; austrian-cn.turnsthe.page=austrian`,
   SITE_ORIGINS: SITES.map((s) => `${s}=${origin(s)}`).join('; '),
   SITE_WWW_HOSTS: 'swiss=www.swiss.com; austrian=www.austrian.com',
-  MESSAGE_STORE_ORIGIN: STORE,
   ...extra,
 });
 let calls;
@@ -68,13 +68,11 @@ test('isStorePath: the index, the CTI sheet, the three message types and the det
   ].forEach((p) => assert.equal(isStorePath(p), false, p));
 });
 
-test('storeOrigin: an Edge Delivery origin host, else off', () => {
-  assert.equal(storeOrigin(env()), STORE);
-  assert.equal(storeOrigin(env({ MESSAGE_STORE_ORIGIN: ' main--lh-messages--moved-permanently.aem.live ' })), 'main--lh-messages--moved-permanently.aem.live');
-  ['', '   ', 'https://main--lh-com--moved-permanently.aem.live', 'lufthansa.turnsthe.page', 'evil.example.com', 'main--lh-com--moved-permanently.aem.live/x'].forEach((v) => {
-    assert.equal(storeOrigin(env({ MESSAGE_STORE_ORIGIN: v })), '', JSON.stringify(v));
-  });
-  assert.equal(storeOrigin({}), '');
+test('storeOrigin: the store\'s aem.live from scripts/message-store.js; no var of its own any more', () => {
+  assert.equal(storeOrigin(), STORE);
+  assert.equal(storeOrigin(env({ MESSAGE_STORE_ORIGIN: 'main--lh-messages--moved-permanently.aem.live' })), STORE);
+  const toml = fs.readFileSync(new URL('../wrangler.toml', import.meta.url), 'utf8');
+  assert.doesNotMatch(toml, /^MESSAGE_STORE_ORIGIN\s*=/m);
 });
 
 test('the Message Center sites read every Message Center path from the store, past the edge cache', async () => {
@@ -143,14 +141,12 @@ test('the sites with a source of their own (TAP, Air Dolomiti, Cargo) keep their
   }
 });
 
-test('without the var (or with a value that is not an Edge Delivery origin) each site reads its own, as before', async () => {
+test('an old MESSAGE_STORE_ORIGIN var changes nothing: the store is the one of scripts/message-store.js', async () => {
   for (const v of ['', 'lufthansa.turnsthe.page']) { // eslint-disable-line no-restricted-syntax
-    for (const s of ['swiss', 'ita']) { // eslint-disable-line no-restricted-syntax
-      calls = [];
-      const resp = await get(`https://${s}.turnsthe.page/message-center/index.json`, env({ MESSAGE_STORE_ORIGIN: v })); // eslint-disable-line no-await-in-loop
-      assert.notEqual(resp.headers.get('x-lh-edge-route'), 'message-store');
-      assert.deepEqual(calls.map((c) => c.host), [origin(s)], `${s} ${JSON.stringify(v)}`);
-    }
+    calls = [];
+    const resp = await get('https://swiss.turnsthe.page/message-center/index.json', env({ MESSAGE_STORE_ORIGIN: v })); // eslint-disable-line no-await-in-loop
+    assert.equal(resp.headers.get('x-lh-edge-route'), 'message-store');
+    assert.deepEqual(calls.map((c) => c.host), [STORE], JSON.stringify(v));
   }
 });
 
