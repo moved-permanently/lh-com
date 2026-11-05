@@ -69,6 +69,9 @@ export const BRANDS = {
     // top deals ("Recommended") first, k-class offers "Best price" where their price puts them
     // (blocks/destination-finder gridBadges)
     gridBadges: true,
+    // gridCompare: the offers grid's "Compare cities" and its compare dialog, as www's Discover
+    // grid (capture discover-parity-001; blocks/destination-finder/finder-compare.js)
+    gridCompare: true,
     portal: 'FOUR_Y',
     hub: 'FRA',
     airline: '4Y',

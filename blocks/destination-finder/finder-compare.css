@@ -1,0 +1,269 @@
+/*
+ * The offers grid's "Compare cities" (finder-compare.js), as www's Discover grid (capture
+ * discover-parity-001; www's app.css .comparison-checkbox, .compare-control, .df-compare-modal):
+ * the card's control 10 px from its left and 20 px from its bottom over the card (z-index 1),
+ * the checkbox 20 px with an 18 / 24 px label in the text colour, "See comparison" 16 px under it;
+ * the card keeps 28 px free under its price for it (www's .card-empty-space). The dialog 1231 px
+ * wide at most, the header 24 px in (16 px on phones), the destinations in columns 12 px apart
+ * (1.2 columns visible on phones, 2.5 from 768 px, 3.4 from 1025 px; the first one 24 px in),
+ * scrolling sideways; the activities on www's #f4f4f4 grey.
+ */
+.destination-finder.grid .destination-finder-tile-compare {
+  position: relative;
+}
+
+.destination-finder.grid .destination-finder-tile-compare .destination-finder-tile-body {
+  padding-bottom: calc(20px + 24px + 28px);
+}
+
+.destination-finder .destination-finder-compare {
+  position: absolute;
+  bottom: 20px;
+  left: 10px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+  max-width: calc(100% - 20px);
+}
+
+.destination-finder .destination-finder-compare-field {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.destination-finder .destination-finder-compare-checkbox {
+  appearance: none;
+  flex: 0 0 auto;
+  box-sizing: border-box;
+  width: 20px;
+  height: 20px;
+  margin: 2px 0 0;
+  border: 2px solid var(--text-color);
+  border-radius: 3px;
+  background: var(--background-color, #fff) center / 14px 14px no-repeat;
+  cursor: pointer;
+}
+
+.destination-finder .destination-finder-compare-checkbox:checked {
+  background-color: var(--text-color);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='m2.5 7.2 3 3 6-6.2' fill='none' stroke='%23fff' stroke-width='2'/%3E%3C/svg%3E");
+}
+
+.destination-finder .destination-finder-compare-checkbox:focus-visible {
+  outline: 2px solid var(--focus-color);
+  outline-offset: 2px;
+}
+
+.destination-finder .destination-finder-compare-label-text {
+  color: var(--text-color);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  cursor: pointer;
+}
+
+.destination-finder .destination-finder-compare-open {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--link-color);
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 24px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.destination-finder .destination-finder-compare-open[hidden] {
+  display: none;
+}
+
+.destination-finder .destination-finder-compare-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* the dialog */
+.destination-finder .destination-finder-compare-dialog {
+  box-sizing: border-box;
+  width: min(1231px, calc(100vw - 20px));
+  max-width: none;
+  max-height: calc(100dvh - 40px);
+  margin: 20px auto auto;
+  padding: 0;
+  overflow: auto;
+  border: 0;
+  background: var(--background-color, #fff);
+  color: var(--text-color);
+}
+
+.destination-finder .destination-finder-compare-dialog::backdrop {
+  background-color: rgb(0 0 0 / 50%);
+}
+
+.destination-finder .destination-finder-compare-header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 20px 16px;
+  background: var(--background-color, #fff);
+}
+
+.destination-finder .destination-finder-compare-headline {
+  margin: 0;
+  font-size: var(--heading-font-size-l);
+}
+
+.destination-finder .destination-finder-compare-close {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+.destination-finder .destination-finder-compare-close:focus-visible {
+  outline: 2px solid var(--focus-color);
+  outline-offset: -2px;
+}
+
+.destination-finder .destination-finder-compare-scroller {
+  overflow-x: auto;
+}
+
+/* the columns: each destination's parts share the grid's rows (www's display: contents) */
+.destination-finder .destination-finder-compare-destinations {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(6, auto);
+  grid-template-columns: calc((100% - 56px) / 1.2 + 16px) repeat(calc(var(--df-compare-destinations-count) - 1), calc((100% - 56px) / 1.2));
+  column-gap: 12px;
+  padding: 0 0 16px;
+}
+
+.destination-finder .destination-finder-compare-destination {
+  display: contents;
+}
+
+.destination-finder .destination-finder-compare-destination:first-of-type > * {
+  margin-left: 16px;
+}
+
+.destination-finder .destination-finder-compare-head {
+  padding-bottom: 16px;
+}
+
+.destination-finder .destination-finder-compare-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  margin-bottom: 12px;
+  object-fit: cover;
+}
+
+.destination-finder .destination-finder-compare-city {
+  margin: 0 0 4px;
+  font-size: var(--heading-font-size-s);
+}
+
+.destination-finder .destination-finder-compare-country,
+.destination-finder .destination-finder-compare-price {
+  margin: 0;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.destination-finder .destination-finder-compare-gray-section {
+  margin-right: -12px;
+  padding: 16px;
+  background-color: #f4f4f4;
+}
+
+.destination-finder .destination-finder-compare-destination:last-of-type .destination-finder-compare-gray-section {
+  margin-right: 0;
+}
+
+.destination-finder .destination-finder-compare-label {
+  margin: 0 0 8px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.destination-finder .destination-finder-compare-activities {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.destination-finder .destination-finder-compare-flight-headline-row {
+  min-height: 1px;
+  padding-top: 24px;
+}
+
+.destination-finder .destination-finder-compare-flight-headline {
+  position: sticky;
+  left: 16px;
+  display: inline-block;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.destination-finder .destination-finder-compare-row {
+  padding-top: 16px;
+}
+
+.destination-finder .destination-finder-compare-value {
+  margin: 0;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.destination-finder .destination-finder-compare-cta-wrap {
+  margin: 0;
+  padding-top: 24px;
+}
+
+@media (width >= 768px) {
+  .destination-finder .destination-finder-compare-header {
+    padding: 24px;
+  }
+
+  .destination-finder .destination-finder-compare-destinations {
+    grid-template-columns: calc((100% - 56px) * 0.4 + 16px) repeat(calc(var(--df-compare-destinations-count) - 1), calc((100% - 56px) * 0.4));
+  }
+}
+
+@media (width >= 1025px) {
+  .destination-finder .destination-finder-compare-destinations {
+    grid-template-columns: calc((100% - 72px) / 3.4 + 24px) repeat(calc(var(--df-compare-destinations-count) - 1), calc((100% - 72px) / 3.4));
+    padding-bottom: 24px;
+  }
+
+  .destination-finder .destination-finder-compare-destination:first-of-type > * {
+    margin-left: 24px;
+  }
+
+  .destination-finder .destination-finder-compare-flight-headline {
+    left: 24px;
+  }
+}

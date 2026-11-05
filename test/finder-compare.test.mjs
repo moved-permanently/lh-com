@@ -117,9 +117,11 @@ test('the dialog: www\'s headline, a column per ticked city in the order ticked,
   assert.equal(text(lca.querySelector('.destination-finder-compare-country')), 'Cyprus');
   assert.equal(text(lca.querySelector('.destination-finder-compare-price')), 'Round trip from 220 €');
   assert.deepEqual([...lca.querySelectorAll('.destination-finder-compare-activities li')].map(text), ['Beach', 'Culture']);
-  assert.equal(text(lca.querySelector('.destination-finder-compare-duration')), 'Duration From 3h 55min');
-  assert.equal(text(lca.querySelector('.destination-finder-compare-stops')), 'Stops Nonstop available');
-  assert.equal(text(cols[0].querySelector('.destination-finder-compare-stops')), 'Stops From 1 stop');
+  assert.equal(text(lca.querySelector('.destination-finder-compare-duration .destination-finder-compare-label')), 'Duration');
+  assert.equal(text(lca.querySelector('.destination-finder-compare-duration .destination-finder-compare-value')), 'From 3h 55min');
+  assert.equal(text(lca.querySelector('.destination-finder-compare-stops .destination-finder-compare-label')), 'Stops');
+  assert.equal(text(lca.querySelector('.destination-finder-compare-stops .destination-finder-compare-value')), 'Nonstop available');
+  assert.equal(text(cols[0].querySelector('.destination-finder-compare-stops .destination-finder-compare-value')), 'From 1 stop');
   const cta = lca.querySelector('a.destination-finder-compare-cta');
   assert.equal(text(cta), 'Calendar');
   assert.equal(cta.getAttribute('href'), '/de/en/book/destination?DestinationCode=LCA');

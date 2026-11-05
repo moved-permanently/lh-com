@@ -14,6 +14,7 @@ import {
 } from '../../scripts/lh-api.js';
 import { attachDamFallback } from '../../scripts/dam-path.js';
 import { markSource, priceRetryDelay } from '../../scripts/lh-data.js';
+import { createCompare, COMPARE_LABELS, COMPARE_LIVE_LABELS } from './finder-compare.js';
 
 /* ---------------------------------------------------------------------------------------------
  * Data contract (see scripts/lh-api.js for the live request and response shapes). The live
@@ -543,6 +544,11 @@ export function gridBadges(brand = brandEntry()) {
   return Boolean(brand && brand.gridBadges);
 }
 
+/** Whether the offers grid has www's "Compare cities" (BRANDS gridCompare: Discover). */
+export function gridCompare(brand = brandEntry()) {
+  return Boolean(brand && brand.gridCompare);
+}
+
 /**
  * Sort orders of the live grid: 'topDeal' (Recommended: the highlighted offers by price, then
  * all others by price), 'price' (ascending), 'alphabet' (city name in the page language).
@@ -702,6 +708,8 @@ const GRID_LIVE_LABELS = Object.fromEntries(Object.entries({
   'no results for filters': 'resultSection.noResultsForFilters',
   'more loaded label': 'resultSection.moreDestinationsLoaded',
   'all loaded label': 'resultSection.allOffersLoaded',
+  // the offers grid's Compare cities (finder-compare.js, a gridCompare brand)
+  ...Object.fromEntries(Object.entries(COMPARE_LIVE_LABELS).map(([k, v]) => [k, `resultSection.${v}`])),
 }).map(([key, live]) => [key, `destinationFinder.destinationFinder.${live}`]));
 
 /** The tiles' badge texts of www's Discover grid (labels/common), on a gridBadges brand only. */
@@ -1678,6 +1686,27 @@ async function decorateGrid(block, uid) {
   const group = new Intl.NumberFormat(locale.lang).formatToParts(1000)
     .find((part) => part.type === 'group');
   const fareFormat = { ...context.localeData, group: group ? group.value : undefined };
+  // www's Compare cities on the offer cards (a gridCompare brand: Discover)
+  let compare = null;
+  if (gridCompare()) {
+    const own = COMPARE_LABELS[locale.lang] || COMPARE_LABELS.en;
+    compare = createCompare({
+      labels: Object.fromEntries(Object.keys(own).map((k) => [k, labels[k] || own[k]])),
+      affinities: gridContext.affinities,
+      origin: () => state.origin,
+      tripTypeLabel: () => String((state.tripType === 'ONEWAY'
+        ? labels['one way label'] : labels['round trip label']) || '').toLowerCase(),
+      price: (o) => formatFare(o.price, o, locale, fareFormat),
+      priceLabel: () => (state.tripType === 'ONEWAY' ? labels['one way price label'] : labels['price label']),
+      link: (o) => buildDestinationLink({
+        origin: state.origin.code,
+        destination: o.code,
+        tripType: state.tripType,
+        tripDuration: settings.tripDuration,
+      }, locale, settings.destinationPage, brandEntry()),
+      image: (o) => destinationImageUrl(o.code, 720),
+    });
+  }
 
   const status = el('p', 'destination-finder-sr-only');
   status.setAttribute('role', 'status');
@@ -1872,6 +1901,7 @@ async function decorateGrid(block, uid) {
   decorateExternalLinks(footer);
 
   results.append(resultsHeading, toolbar, message, grid, moreWrap, status, footer);
+  if (compare) results.append(compare.element);
   const layout = el('div', 'destination-finder-layout');
   layout.append(filters, results);
   block.replaceChildren(layout);
@@ -1905,7 +1935,14 @@ async function decorateGrid(block, uid) {
   const showMore = (count = GRID_PAGE_SIZE) => {
     const next = sorted.slice(shown, shown + count);
     const current = view();
-    grid.append(...next.map((o) => renderTile(o, badges.get(o), current)));
+    grid.append(...next.map((o) => {
+      const tile = renderTile(o, badges.get(o), current);
+      if (compare) {
+        tile.classList.add('destination-finder-tile-compare');
+        tile.append(compare.control(o));
+      }
+      return tile;
+    }));
     shown += next.length;
     moreWrap.hidden = shown >= sorted.length;
     return next.length;
@@ -1966,6 +2003,9 @@ async function decorateGrid(block, uid) {
   }
 
   function apply(result, forQuery) {
+    // other offers (another origin or trip type): nothing ticked to compare
+    const other = forQuery.origin !== loaded.origin || forQuery.tripType !== loaded.tripType;
+    if (compare && other) compare.reset();
     loaded = {
       origin: forQuery.origin,
       tripType: forQuery.tripType,
