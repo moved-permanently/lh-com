@@ -1352,3 +1352,108 @@ body.brand-airdolomiti .flight-search .flight-search-trip-type[hidden] {
     outline-offset: -6px;
   }
 }
+
+/*
+ * the offers' "Vedi tutto (3)" and arrows, as www's MiniCardSlider: below 1025px under the cards
+ * the link on the left (15px / 20px, underlined) and the two arrows on the right (40px circles,
+ * 10px apart) instead of the dots; from 1025px the link at the right end of the heading's row
+ * (www: 10px under the heading's top; all three cards show, no arrows).
+ */
+body.brand-airdolomiti main > .section:has(> .carousel-cards-wrapper > .carousel-cards.promo) {
+  position: relative;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- another section's links (the newsletter strip) */
+body.brand-airdolomiti main > .section > .carousel-cards-wrapper:has(> .carousel-cards.promo) + .default-content-wrapper a:any-link {
+  color: var(--lh-deepblue);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
+  text-decoration: underline;
+  white-space: nowrap;
+}
+
+body.brand-airdolomiti main > .section > .carousel-cards-wrapper:has(> .carousel-cards.promo) + .default-content-wrapper a:any-link::before {
+  content: none;
+}
+
+@media (width < 1025px) {
+  body.brand-airdolomiti .carousel-cards.promo {
+    position: relative;
+    padding-bottom: 56px;
+  }
+
+  body.brand-airdolomiti .carousel-cards.promo .carousel-cards-viewport {
+    position: static;
+  }
+
+  body.brand-airdolomiti .carousel-cards.promo .carousel-cards-dots {
+    display: none;
+  }
+
+  body.brand-airdolomiti .carousel-cards.promo .carousel-cards-nav {
+    inset: auto 0 0 auto;
+    display: flex;
+    gap: 10px;
+  }
+
+  body.brand-airdolomiti .carousel-cards.promo .carousel-cards-prev,
+  body.brand-airdolomiti .carousel-cards.promo .carousel-cards-next {
+    position: static;
+    display: flex;
+    box-sizing: border-box;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--lh-grey-3);
+    border-radius: 50%;
+    background-color: #fff;
+    color: var(--lh-deepblue);
+    pointer-events: auto;
+  }
+
+  body.brand-airdolomiti .carousel-cards.promo .carousel-cards-prev::before,
+  body.brand-airdolomiti .carousel-cards.promo .carousel-cards-next::before {
+    width: 22px;
+    height: 22px;
+  }
+
+  body.brand-airdolomiti .carousel-cards.promo .carousel-cards-prev:disabled,
+  body.brand-airdolomiti .carousel-cards.promo .carousel-cards-next:disabled {
+    visibility: visible;
+    color: var(--lh-grey-3);
+    cursor: default;
+  }
+
+  body.brand-airdolomiti main > .section > .carousel-cards-wrapper:has(> .carousel-cards.promo) + .default-content-wrapper {
+    margin-top: -34px;
+    margin-bottom: 52px;
+  }
+}
+
+@media (width >= 1025px) {
+  body.brand-airdolomiti main > .section > .carousel-cards-wrapper:has(> .carousel-cards.promo) + .default-content-wrapper {
+    position: absolute;
+    top: 10px;
+    right: calc(max(0px, (100% - var(--content-max-width)) / 2) + var(--layout-margin));
+    width: auto;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+/*
+ * the breadcrumb on a page stage (hero-campaign narrow right after it: the fleet), as www's: on the
+ * photo's top left, white (the stage starts under the bar, the trail over it)
+ */
+body.brand-airdolomiti main > .section > .breadcrumb-wrapper:has(+ .hero-campaign-wrapper > .hero-campaign.narrow) {
+  position: relative;
+  z-index: 3;
+}
+
+body.brand-airdolomiti main > .section > .breadcrumb-wrapper + .hero-campaign-wrapper:has(> .hero-campaign.narrow) {
+  margin-top: -42px;
+}
+
+body.brand-airdolomiti main > .section > .breadcrumb-wrapper:has(+ .hero-campaign-wrapper > .hero-campaign.narrow) .breadcrumb :is(li, li.breadcrumb-parent, a:any-link, .breadcrumb-current) {
+  color: #fff;
+}
