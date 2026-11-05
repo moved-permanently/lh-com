@@ -11,15 +11,17 @@
  * Usage: node tools/importer/offline-importer.mjs [dir]   (default /tmp/excat-offline)
  *   prints the scripts directory; use it as EXCAT_IMPORT_SCRIPTS for discover-import.mjs and
  *   import-batch.mjs.
+ *   EXCAT_IMPORT_SCRIPTS_SOURCE: the importer scripts to copy (default excat's install); their
+ *   utils are three folders up, as the scripts import them (../../../utils).
  */
 import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 
-const SRC = '/home/node/.excat-marketplaces/excat-marketplace/excat';
+const srcScripts = path.resolve(process.env.EXCAT_IMPORT_SCRIPTS_SOURCE || '/home/node/.excat-marketplaces/excat-marketplace/excat/skills/excat-content-import/scripts');
+const SRC = path.resolve(srcScripts, '../../..');
 const dest = path.resolve(process.argv[2] || '/tmp/excat-offline');
 const scripts = path.join(dest, 'skills/excat-content-import/scripts');
-const srcScripts = path.join(SRC, 'skills/excat-content-import/scripts');
 fs.mkdirSync(scripts, { recursive: true });
 fs.mkdirSync(path.join(dest, 'utils'), { recursive: true });
 execFileSync('tar', ['cf', path.join(dest, 'scripts.tar'), '--exclude=node_modules', '-C', srcScripts, '.']);
