@@ -28,3 +28,10 @@
     padding-inline: 0;
   }
 }
+
+/* help-center-web's stage photo: the app draws it across the page, calc(100vw - 15px) and centred,
+   as on www (SWISS, ITA, Austrian contact pages); main img's max-width held it to the column. The
+   rest of the app stays in the column */
+.micro-frontend help-center-web .topic-selection-image-container img {
+  max-width: none;
+}
