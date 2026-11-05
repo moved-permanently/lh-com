@@ -541,3 +541,13 @@ body.brand-brussels {
   --travellers-dialog-question-weight: 700;
   --travellers-dialog-close-color: var(--link-color);
 }
+
+/* section style sidebar (www's .airem-sidebar: .sidebar-content 75% beside an empty aside, from
+   768 px): the section's content as wide as the columns-media sidebar's text (938 px at 1440),
+   the running text over that whole column; the breadcrumb as wide as the page */
+@media (width >= 768px) {
+  body.brand-brussels main > .section.sidebar > div:not(.breadcrumb-wrapper) > * {
+    box-sizing: border-box;
+    max-width: calc(75% - 10px);
+  }
+}
