@@ -125,7 +125,7 @@ tokens) and the computed styles of the pages above.
 | 81 | A single inner banner's picture on phones (altitude-film-festival) | a flat 20 % black veil (`bg-overlay-image-subtle`) | a dark gradient over its top half | theme | fixed (brief 363; the phone crop: row 94) |
 | 82 | Footer documents (es-es and others) | YouTube before LinkedIn; "© 2026, TAP." in bold | LinkedIn first; the note plain | import (ema-lufthansa: the footer documents) | fixed (brief 362: tap-nav.mjs, the 8 language and 132 root footers) |
 | 83 | Homepage stages (es-es) | three slides | two (pt-ao none: row 48) | import (ema-lufthansa) | needs a fresh capture of /es-es (ema-lufthansa, from the local capture): www's third slide is the Stopover one, "Descubra 2 destinos por el precio de 1."; our only capture of /es-es (tap-snapshots-006) has two slides (Islandia, Navidad en Nueva York) and no rule for a third |
-| 84 | Destinations page (en-pt/destinations, every version) | www's destination grid: filters, 16 destination cards, the continents' lists (5,084 px at 390) | the title, the lead and the inspiration banner (2,668 px) | import, perhaps a new block (ema-lufthansa) | new block (to build; brief 362, described in ema-lufthansa's report): the grid is Smartvel's widget (the page's WidgetFreeBlock, drawn in the browser from Smartvel's service): its filters and destination cards are in neither the page's data nor www's HTML, so a capture of Smartvel's data is needed too; the continents' lists are our accordion already, the map the poi-map (row 45) |
+| 84 | Destinations page (en-pt/destinations, every version) | www's destination grid: filters, 16 destination cards, the continents' lists (5,084 px at 390) | the title, the lead and the inspiration banner (2,668 px) | import, perhaps a new block (ema-lufthansa) | new block (to build; brief 362, described in ema-lufthansa's report): the grid is Smartvel's widget (the page's WidgetFreeBlock, drawn in the browser from Smartvel's service): its filters and destination cards are in neither the page's data nor www's HTML, so a capture of Smartvel's data is needed too; the continents' lists are our accordion already, the map the poi-map (row 45) Block done (brief 372; checked at 390 and 1440 with pt-pt's full sheet): `destination-grid`, Source `/<version>/destinations/destination-grid.json` from `tools/tap-data/destination-grid-sheet.mjs` (the Smartvel capture tap-smartvel-001): the search, Filters (areas, categories, Clear, Apply), the chips (AND), the cards without Smartvel's pictures (Ben decides), 16 at a time. Left, import (ema-lufthansa): the eight sheets and the block on the eight destinations pages |
 | 85 | Homepage headings (every root) | "Planeie a sua viagem ao detalhe" an H1; the Miles&Go cards' second lines H2 (Inter 14 / 21 600) | H2; paragraphs | import (ema-lufthansa; row 62 covers the hero card's H3) | the documents done (brief 362: the card list's title the H1 on all 145 homepages, www's on all 145; no hidden H1; the Miles&Go second lines H2). Theme done (brief 372; checked at 390 and 1440 on the eight homepages): the H1 takes the carousel heading's rule (`… > :is(h1, h2, h3):last-child`: 28 / 33.6 at 390, 40 / 48 from 1024 px, centred, www's place: y 1087 on pt-pt at 1440, as www), the second lines `.columns-media-text :is(h2, h3) + h2` Inter 600, 14 / 21 and 20 / 30, -1 %, as www. Today's live pages unchanged (main's code and this one give the same values on live content) |
 | 86 | Stage and card carousel dots (homepages, slider banners) | 40 px buttons, an 8 px dot inside | 8 px buttons (axe target-size, WCAG 2.5.8: 78 nodes on 22 page-widths) | theme | fixed (brief 363: 24 px targets, the dot drawn inside) |
 | 87 | Booking box: a focused field | www's line in TAP's dark green (`focus:border-primary`) | a 1 px #65c922 line, 2.3:1 on white, no other ring | booking box (TAP rules) | fixed (brief 363: 2 px #397213) |
@@ -963,5 +963,26 @@ phone browser's user agent at 390 (www serves its old mobile site to a headless 
     altitude-film-festival's banner rebuilt with a second picture. The phone file loads at 390,
     the desktop file at 1440, and no picture is left in the text.
   - Next, import (ema-lufthansa): switch phonePictures on and upload the pages.
-- **Row 84, destination-grid:** not started. The Smartvel capture (tap-smartvel-001) is not in this
-  workspace; it waits on where to fetch it.
+- **Row 84, the destination-grid block:** www's grid is Smartvel's Explore&Go widget. The block
+  draws it from a sheet per version, `/<version>/destinations/destination-grid.json`.
+  - **The sheet:** `tools/tap-data/destination-grid-sheet.mjs` writes it from the capture
+    (tap-smartvel-001, sha256 checked; its README gives the requests and the filter rules). A row
+    each: 89 destinations in the widget's order, its 9 chips, 4 areas and the widget's texts in
+    the version's language. All eight versions give 89 destinations, each with its area.
+  - **The block:** a search box, Filters, and the category chips (several selected: the
+    destinations with all of them, as www). The Filters panel has the areas (Worldwide first), the
+    categories, Clear and Apply. The cards show the city, the country and www's 200 characters of
+    text, 16 at a time with "Load more destinations"; each city links to its page on www.
+  - **Pictures:** none. Smartvel's are licensed and Ben decides; the sheet's image column stays
+    empty and the cards show their text. `--photos yes` would write the covers, left on
+    Smartvel's CDN. The test fixture (pt-pt's sheet, 20 destinations) has no picture.
+  - **Not as www:** the map beside the list (the page's poi-map has the destinations), the panel a
+    card opens (places, events, travel tips; our card links to www's city page instead), the
+    chips' icons. The country is #757575 rather than www's #999, for 4.5:1 contrast.
+  - **Checked:** on the local preview (this branch's code) at 390 and 1440, the block on
+    /pt-pt/destinos with pt-pt's full sheet, against www.flytap.com/pt-pt/destinos. Two columns
+    of cards on phones, three from 1024 px. Load more, the panel (Africa, then Praia), Clear,
+    Escape and the search ("sao": the six São cities) all work. axe (WCAG 2.2 AA and best
+    practices) finds nothing in the block.
+  - **Next, import (ema-lufthansa):** the eight sheets (`--capture <tap-smartvel-001>/smartvel
+    --version <version>`) and the block on the eight destinations pages.

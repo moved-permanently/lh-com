@@ -1,0 +1,21 @@
+{
+  "variantName": "destination-grid",
+  "baseBlock": "destination-grid",
+  "canonicalModel": "standalone",
+  "sourceUrl": "https://www.flytap.com/pt-pt/destinos",
+  "visualCharacteristics": {
+    "purpose": "TAP's destinations grid: find a destination by name, area or kind of trip",
+    "traits": [
+      "a search box, Filters and the category chips above the cards",
+      "a Filters panel with the areas, the categories, Clear and Apply",
+      "white rounded destination cards: the city, its country and a short text, 16 at a time"
+    ]
+  },
+  "contentPattern": {
+    "structure": "One row: Source, the version's sheet (/<version>/destinations/destination-grid.json)."
+  },
+  "options": [],
+  "memberVariantIds": [],
+  "usage": "www.flytap.com's destinations page of every version, where Smartvel's Explore&Go widget shows.",
+  "reuseGuidance": "TAP only. The sheet comes from tools/tap-data/destination-grid-sheet.mjs."
+}

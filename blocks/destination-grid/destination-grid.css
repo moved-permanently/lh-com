@@ -1,0 +1,370 @@
+/* destination-grid: www.flytap.com's destinations grid (Smartvel's Explore&Go, parity row 84). The
+   bar: a 55 px search pill (357 px from 1024 px), Filters and the category chips as white 53 px
+   pills with a soft shadow, the chips in one row that scrolls; the panel a white card under it.
+   The cards white with 24 px corners and www's shadow: on phones two a row (168 px at 390, the
+   picture 134 px on top), from 1024 px three a row, the picture 150 px at the left; the city GT
+   Flexa 18 / 25.2 (20 / 28 from 1024 px), the country grey, the text Inter 16 / 22.4 in three
+   lines; a chevron at the top right. Without a picture the card is its text. */
+.destination-grid {
+  --destination-grid-shadow: 0 1px 4px rgb(0 0 0 / 10%);
+
+  color: #424045;
+}
+
+.destination-grid .destination-grid-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.destination-grid .destination-grid-search {
+  box-sizing: border-box;
+  width: 100%;
+  height: 55px;
+  margin: 0;
+  padding: 0 24px 0 48px;
+  border: 1px solid #b0aeb4;
+  border-radius: 28px;
+  background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23121212' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-4-4'/%3E%3C/svg%3E") 16px center / 20px no-repeat;
+  color: #121212;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+}
+
+.destination-grid .destination-grid-search::placeholder {
+  color: #65626a;
+}
+
+.destination-grid .destination-grid-filters {
+  display: flex;
+  gap: 12px;
+  min-width: 0;
+}
+
+.destination-grid .destination-grid-chips {
+  display: flex;
+  gap: 16px;
+  min-width: 0;
+  padding: 4px 4px 8px;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.destination-grid .destination-grid-filters-toggle,
+.destination-grid .destination-grid-chips button {
+  box-sizing: border-box;
+  flex: none;
+  height: 53px;
+  margin: 4px 0 0;
+  padding: 0 16px;
+  border: 1px solid transparent;
+  border-radius: 40px;
+  background-color: #fff;
+  box-shadow: var(--destination-grid-shadow);
+  color: #424045;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.destination-grid .destination-grid-filters-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 0 7px;
+}
+
+/* on phones www's button is its icon (53 x 53), the name for assistive tech */
+.destination-grid .destination-grid-filters-label {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* the sliders icon in a grey circle, as www's */
+.destination-grid .destination-grid-filters-toggle::before {
+  content: "";
+  flex: none;
+  width: 37px;
+  height: 37px;
+  border-radius: 50%;
+  background: #f3f3f3 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23424045' stroke-width='1.6' stroke-linecap='round'%3E%3Cpath d='M4 7h10M18 7h2M4 12h4M12 12h8M4 17h12M20 17h0'/%3E%3Ccircle cx='16' cy='7' r='2'/%3E%3Ccircle cx='10' cy='12' r='2'/%3E%3Ccircle cx='18' cy='17' r='2'/%3E%3C/svg%3E") center / 20px no-repeat;
+}
+
+.destination-grid .destination-grid-filters-toggle.destination-grid-filters-active,
+.destination-grid .destination-grid-chips button[aria-pressed="true"] {
+  border-color: #65c922;
+  background-color: #f0faf2;
+}
+
+.destination-grid .destination-grid-panel {
+  margin-top: 16px;
+  padding: 24px;
+  border-radius: 24px;
+  background-color: #fff;
+  box-shadow: var(--destination-grid-shadow);
+}
+
+.destination-grid .destination-grid-panel[hidden] {
+  display: none;
+}
+
+.destination-grid .destination-grid-panel-text {
+  margin: 0 0 16px;
+  font-weight: 600;
+}
+
+.destination-grid .destination-grid-panel fieldset {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 16px;
+  padding: 0;
+  border: 0;
+}
+
+.destination-grid .destination-grid-panel legend {
+  margin-bottom: 8px;
+  padding: 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.destination-grid .destination-grid-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 0 16px 0 12px;
+  border: 1px solid #e0dfe2;
+  border-radius: 24px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.destination-grid .destination-grid-option:has(input:checked) {
+  border-color: #65c922;
+  background-color: #f0faf2;
+}
+
+.destination-grid .destination-grid-option input {
+  margin: 0;
+  accent-color: #65c922;
+}
+
+.destination-grid .destination-grid-panel-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 16px;
+}
+
+.destination-grid .destination-grid-clear,
+.destination-grid .destination-grid-apply,
+.destination-grid .destination-grid-more {
+  min-height: 40px;
+  margin: 0;
+  padding: 8px 16px;
+  border: 1px solid #65c922;
+  border-radius: 24px;
+  background-color: transparent;
+  color: #424045;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.destination-grid .destination-grid-apply {
+  background-color: #65c922;
+  color: #000;
+}
+
+.destination-grid .destination-grid-status {
+  margin: 24px 0 0;
+  text-align: center;
+}
+
+.destination-grid .destination-grid-status:empty {
+  display: none;
+}
+
+.destination-grid .destination-grid-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 24px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.destination-grid .destination-grid-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin: 0;
+  border-radius: 24px;
+  background-color: #fff;
+  box-shadow: 0 1px 4px rgb(0 0 0 / 10%);
+}
+
+.destination-grid .destination-grid-card:hover {
+  box-shadow: 0 4px 12px rgb(0 0 0 / 15%);
+}
+
+.destination-grid .destination-grid-media img {
+  display: block;
+  width: 100%;
+  height: 134px;
+  object-fit: cover;
+}
+
+.destination-grid .destination-grid-body {
+  position: relative;
+  padding: 8px 8px 16px;
+}
+
+.destination-grid .destination-grid-card-text .destination-grid-body {
+  padding: 16px;
+}
+
+.destination-grid .destination-grid-card h3 {
+  margin: 0;
+  padding-right: 24px;
+  color: #424045;
+  font-family: var(--heading-font-family);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.destination-grid .destination-grid-card h3 a:any-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* the whole card the city's link */
+.destination-grid .destination-grid-card h3 a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.destination-grid .destination-grid-card h3 a:focus-visible {
+  outline: none;
+}
+
+.destination-grid .destination-grid-card:has(h3 a:focus-visible) {
+  outline: 2px solid #424045;
+  outline-offset: 2px;
+}
+
+/* www's chevron at the top right */
+.destination-grid .destination-grid-body::after {
+  content: "";
+  position: absolute;
+  top: 12px;
+  right: 8px;
+  width: 20px;
+  height: 20px;
+  background-color: #424045;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m9 18 6-6-6-6'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.destination-grid .destination-grid-country {
+  margin: 0;
+  color: #757575;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.destination-grid .destination-grid-text {
+  display: -webkit-box;
+  overflow: hidden;
+  margin: 4px 0 0;
+  color: #121212;
+  font-size: 16px;
+  line-height: 1.4;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+}
+
+.destination-grid .destination-grid-more {
+  display: block;
+  margin: 32px auto 0;
+}
+
+.destination-grid .destination-grid-more[hidden] {
+  display: none;
+}
+
+@media (width >= 1024px) {
+  .destination-grid .destination-grid-bar {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .destination-grid .destination-grid-search {
+    flex: 0 0 357px;
+    margin-top: 4px;
+  }
+
+  .destination-grid .destination-grid-filters {
+    flex: 1 1 auto;
+  }
+
+  .destination-grid .destination-grid-filters-toggle {
+    gap: 8px;
+    padding: 0 16px 0 7px;
+  }
+
+  .destination-grid .destination-grid-filters-label {
+    position: static;
+    overflow: visible;
+    width: auto;
+    height: auto;
+    clip-path: none;
+  }
+
+  .destination-grid .destination-grid-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .destination-grid .destination-grid-card:not(.destination-grid-card-text) {
+    flex-direction: row;
+    min-height: 150px;
+  }
+
+  .destination-grid .destination-grid-media {
+    flex: 0 0 150px;
+  }
+
+  .destination-grid .destination-grid-media img {
+    height: 100%;
+    min-height: 150px;
+  }
+
+  .destination-grid .destination-grid-body {
+    flex: 1 1 auto;
+    min-width: 0;
+    padding: 16px;
+  }
+
+  .destination-grid .destination-grid-body::after {
+    top: 20px;
+    right: 16px;
+  }
+
+  .destination-grid .destination-grid-card h3 {
+    font-size: 20px;
+  }
+}
