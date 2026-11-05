@@ -8,9 +8,9 @@
  * #f2f2f2 bands and chips; the header white over the page's first picture (home: the hero,
  * article: the feature image; elsewhere a dark #333 bar), a 72 px bar; the lists in a 790 px column; the article's copy in a
  * 766 px column with the breadcrumb under the picture. www's advertisement slots and the offline
- * reading tooltip are left out. Pensum Pro: www's file at www's own path from the site's host
- * (lh-edge has no route for it yet: Georgia shows; www.swiss.com refuses the font to other sites,
- * so there is no www fallback).
+ * reading tooltip are left out. Pensum Pro (www's PensumPro, one Regular face): www's files at www's
+ * own path from the site's host, where lh-edge answers them from our copies (etc.clientlibs-copies/,
+ * brief 403); www.swiss.com refuses the font to other sites, so there is no www fallback.
  */
 /* stylelint-disable no-descending-specificity -- scoped by page part (header, home, article) and block; page order */
 @font-face {
@@ -19,6 +19,7 @@
   font-weight: 400;
   font-display: swap;
   src:
+    url('/etc.clientlibs/swissstoryhub/clientlibs/clientlib-site/resources/fonts/Pensum-Pro-Regular.woff2') format('woff2'),
     url('/etc.clientlibs/swissstoryhub/clientlibs/clientlib-site/resources/fonts/Pensum-Pro-Regular.woff') format('woff');
 }
 

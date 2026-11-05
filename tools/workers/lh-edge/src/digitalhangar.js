@@ -36,6 +36,19 @@ export const COPIES = /^\/digitalhangar\/cs-help-center\/(?:feature-manager|tran
 /** The path of our copy of a /digitalhangar/ file on the site's origin. */
 export const copyPath = (pathname) => `/digitalhangar-copies${pathname.slice('/digitalhangar'.length)}`;
 
+/*
+ * /etc.clientlibs/ files www refuses to other sites, from our copies only (brief 403): the SWISS
+ * magazine's serif (Pensum Pro, www's /etc.clientlibs/swissstoryhub/.../Pensum-Pro-Regular.woff
+ * and .woff2) on the sites of ETC_COPY_SITES, from the site's origin at /etc.clientlibs-copies/
+ * <the path below /etc.clientlibs/> (committed in the code repository); www is never asked, a
+ * missing copy is a 404.
+ */
+export const ETC_COPIES = /^\/etc\.clientlibs\/swissstoryhub\/clientlibs\/clientlib-site\/resources\/fonts\/Pensum-Pro-Regular\.woff2?$/;
+export const ETC_COPY_SITES = ['swiss'];
+export const isEtcCopyPath = (pathname) => ETC_COPIES.test(pathname);
+/** The path of our copy of an /etc.clientlibs/ file on the site's origin. */
+export const etcCopyPath = (pathname) => `/etc.clientlibs-copies${pathname.slice('/etc.clientlibs'.length)}`;
+
 const CLIENT = ['accept', 'accept-encoding', 'accept-language', 'user-agent'];
 const CONDITIONS = ['if-modified-since', 'if-none-match', 'range'];
 const FORWARDED = [...CLIENT, ...CONDITIONS];
@@ -105,6 +118,22 @@ async function ownCopy(request, env, url) {
   out.headers.delete('set-cookie');
   out.headers.set('x-lh-edge-route', 'digitalhangar');
   out.headers.set('x-lh-edge-copy', 'origin');
+  return out;
+}
+
+/** An ETC_COPIES file from our copy on the site's origin (its status and headers), never www. */
+export async function etcClientlibsCopy(request, env) {
+  const url = new URL(request.url);
+  const get = new Request(request.url, { method: request.method === 'HEAD' ? 'HEAD' : 'GET', headers: pick(request, FORWARDED) });
+  const resp = await originFetch(get, env, `https://${env.ORIGIN}${etcCopyPath(url.pathname)}`);
+  const ok = resp.status === 200 || resp.status === 304 || resp.status === 206;
+  if (!ok && resp.body) resp.body.cancel().catch(() => {});
+  const out = ok
+    ? new Response(request.method === 'HEAD' ? null : resp.body, resp)
+    : new Response('Not Found', { status: 404, headers: { 'content-type': 'text/plain; charset=utf-8' } });
+  out.headers.delete('set-cookie');
+  out.headers.set('x-lh-edge-route', 'etc-clientlibs');
+  if (ok) out.headers.set('x-lh-edge-copy', 'origin');
   return out;
 }
 

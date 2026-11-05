@@ -91,6 +91,10 @@ test('www\'s look: the header over the hero, the band, the cards, the article', 
   // the article's body in the serif (Pensum Pro, www's), 18 px
   has('--magazine-serif: "Pensum Pro", georgia, serif;');
   has('font-family: var(--magazine-serif);');
+  // its files from the site's host (lh-edge answers them from etc.clientlibs-copies/, brief 403), woff2 first
+  has("url('/etc.clientlibs/swissstoryhub/clientlibs/clientlib-site/resources/fonts/Pensum-Pro-Regular.woff2') format('woff2'), url('/etc.clientlibs/swissstoryhub/clientlibs/clientlib-site/resources/fonts/Pensum-Pro-Regular.woff') format('woff');");
+  assert.ok(!flat.includes('www.swiss.com/etc.clientlibs'), 'no www fallback');
+  assert.ok(fs.existsSync('etc.clientlibs-copies/swissstoryhub/clientlibs/clientlib-site/resources/fonts/Pensum-Pro-Regular.woff2'), 'the copy');
   // the breadcrumb under the hero
   has('order:');
 });

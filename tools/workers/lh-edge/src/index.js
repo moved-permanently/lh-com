@@ -65,7 +65,9 @@ import { BRANDS } from '../../../../scripts/brands.js';
 import {
   onetrust, isOnetrustPath, fonts, isFontsPath, withGeoCookie,
 } from './onetrust.js';
-import { digitalhangar, isDigitalhangarPath } from './digitalhangar.js';
+import {
+  digitalhangar, isDigitalhangarPath, etcClientlibsCopy, isEtcCopyPath, ETC_COPY_SITES,
+} from './digitalhangar.js';
 import { of1, isOf1Path } from './of1.js';
 import { withLiveAlternates } from './live-alternates.js';
 import { messageStore, isStorePath, readsStore } from './message-store.js';
@@ -400,6 +402,9 @@ async function siteAnswer(incoming, env, site, ctx) {
   if (read && isOnetrustPath(url.pathname)) return finish(await onetrust(incoming), incoming, senv, 'onetrust');
   if (read && isFontsPath(url.pathname)) return finish(await fonts(incoming, senv, passThrough), incoming, senv, 'fonts');
   if (read && site.design && isDigitalhangarPath(url.pathname)) return finish(await digitalhangar(incoming, senv), incoming, senv, 'digitalhangar');
+  // www files below /etc.clientlibs/ that www refuses other sites (SWISS's magazine serif), from
+  // our copies on the site's origin only (src/digitalhangar.js ETC_COPIES)
+  if (read && ETC_COPY_SITES.includes(site.name) && isEtcCopyPath(url.pathname)) return finish(await etcClientlibsCopy(incoming, senv), incoming, senv, 'etc-clientlibs');
   // lh-com's sitemaps (the code's /sitemap/sitemap_lh*.xml name www.lufthansa.com's) are not the
   // site's: 404 (www's own, sitemap_ita and sitemap_four_y, are not on the replica)
   if (read && /^\/sitemap\/sitemap_lh[._]/.test(url.pathname)) {

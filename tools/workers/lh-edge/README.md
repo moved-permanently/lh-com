@@ -383,6 +383,12 @@ For these paths the site's origin is asked first for our copy at `/digitalhangar
 (committed in this repository, served by the code bus); its 200 answers (`x-lh-edge-copy: origin`). Without a copy
 (any other answer) www's answer as before. Every other `/digitalhangar/` path never asks the origin.
 
+SWISS's magazine serif (`src/digitalhangar.js` ETC_COPIES, brief 403): on the SWISS hosts (ETC_COPY_SITES) the two
+paths `/etc.clientlibs/swissstoryhub/clientlibs/clientlib-site/resources/fonts/Pensum-Pro-Regular.woff(2)` answer from
+our copy at `/etc.clientlibs-copies/<the path below /etc.clientlibs/>` on the site's origin (`x-lh-edge-route:
+etc-clientlibs`, `x-lh-edge-copy: origin`); www (which refuses the font to other sites) is never asked, a missing copy
+is a 404.
+
 ### Design-system release files (`src/digitalhangar.js`)
 
 www publishes each design-system release in a folder of its own (`/digitalhangar/design-system/releases/mausy-v1.40.1/...`; a new release is a new folder and a new address), so a file under a release folder never changes. For a path under `/digitalhangar/design-system/releases/<release>/` whose `<release>` carries a version (`v` and three dot-separated numbers, optionally after a name: `mausy-v1.40.1`, `v1.38.0`) lh-edge keeps www's file for a year in this zone's cache with the Cache API (`caches.default`): a `fetch` of www, another Cloudflare zone, only reads through www's own cache with www's 5 minutes, whatever its `cf` options say (Cloudflare, "How the cache works"). A miss fetches the whole file (no conditions, no range) and stores only a 200, with `cache-control: public, max-age=31536000, immutable` (www's `Expires`, `Age`, `cf-cache-status` and cookies left out); the client's request is answered from the stored copy: 200, 206 for a Range, 304 for its If-None-Match, all with the year (`x-lh-edge-cache: hit` or `miss`). Every other answer of www (404, a 403 challenge page, 5xx, a redirect) goes out with www's headers and is never stored (`x-lh-edge-cache: pass`). ETag, content type and CORS headers stay as www sends them. The key holds the request's host and the upstream www (`?digitalhangar-release=1&from=<www>`). Every other `/digitalhangar/` path (no release version, e.g. `releases/latest/`) keeps www's cache-control and conditions as before.
