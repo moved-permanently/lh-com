@@ -173,6 +173,44 @@
   outline-offset: 2px;
 }
 
+/* SWISS, Austrian, ITA, Brussels Airlines, Discover, Cargo (brief 374, WCAG 2.5.8): each dot a
+   24 px target with www's 8 px dot drawn in its middle, as TAP's (tap.css); 24 px targets cannot
+   stand closer, so the dots are 24 px apart instead of 16. TAP and Air Dolomiti style their own,
+   lh-com keeps the 8 px buttons above */
+body:is(.brand-swiss, .brand-austrian, .brand-ita, .brand-brussels, .brand-discover, .brand-cargo) .carousel-images .carousel-images-dots {
+  gap: 0;
+}
+
+body:is(.brand-swiss, .brand-austrian, .brand-ita, .brand-brussels, .brand-discover, .brand-cargo) .carousel-images .carousel-images-dot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+}
+
+body:is(.brand-swiss, .brand-austrian, .brand-ita, .brand-brussels, .brand-discover, .brand-cargo) .carousel-images .carousel-images-dot::before {
+  content: "";
+  box-sizing: border-box;
+  width: 8px;
+  height: 8px;
+  border: 1px solid var(--lh-grey-7);
+  border-radius: 50%;
+  background-color: var(--lh-white);
+}
+
+body:is(.brand-swiss, .brand-austrian, .brand-ita, .brand-brussels, .brand-discover, .brand-cargo) .carousel-images .carousel-images-dot[aria-current="true"]::before {
+  border-color: var(--lh-deepblue);
+  background-color: var(--lh-deepblue);
+}
+
+body:is(.brand-swiss, .brand-austrian, .brand-ita, .brand-brussels, .brand-discover, .brand-cargo) .carousel-images .carousel-images-dot[aria-current="true"] {
+  background: none;
+}
+
 /* Insights articles: the swiper sits in the article card (.article-content col-md-10
    offset-1), 864px slides at 1425 */
 @media (width >= 768px) {
