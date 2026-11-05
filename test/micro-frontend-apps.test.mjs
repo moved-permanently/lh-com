@@ -50,13 +50,16 @@ test('trip-management: as before (www.lufthansa.com, its design system, its clas
 test('help-center-web on Austrian\'s and ITA\'s pages: their www, design system, the X-Portal meta', () => {
   const aua = mountPlan(blockOf([['help-center-web']]), BRANDS.austrian, { country: 'at', lang: 'en', brand: 'austrian' });
   assert.equal(aua.tag, 'help-center-web');
-  assert.equal(aua.css, 'https://www.austrian.com/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/css/austrian.css');
+  // from austrian.turnsthe.page since brief 397 (test/micro-frontend-austrian-help.test.mjs)
+  assert.equal(aua.css, 'https://austrian.turnsthe.page/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/css/austrian.css');
   assert.deepEqual(aua.scripts, [
-    { src: 'https://www.austrian.com/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/packages/maui-design-system.js', module: true },
-    { src: 'https://www.austrian.com/digitalhangar/cs-help-center/help-center-web/help-center-web-4.3.1.js', module: true },
+    { src: 'https://austrian.turnsthe.page/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/packages/maui-design-system.js', module: true },
+    { src: 'https://austrian.turnsthe.page/digitalhangar/cs-help-center/help-center-web/help-center-web-4.3.2.js', module: true },
   ]);
   assert.deepEqual(aua.attributes, { 'data-public-endpoint': '' });
-  assert.deepEqual(aua.meta, { 'X-Portal': 'OS', 'X-Portal-Site': 'AT', 'X-Portal-Language': 'en' });
+  assert.deepEqual(aua.meta, {
+    'X-Portal': 'OS', 'X-Portal-Site': 'AT', 'X-Portal-Language': 'en', 'X-Line': 'b',
+  });
   const ita = mountPlan(blockOf([['help-center-web']]), BRANDS.ita, { country: 'it', lang: 'it', brand: 'ita' });
   assert.equal(ita.css, 'https://ita.turnsthe.page/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/css/ita.css', 'from its turnsthe.page host (brief 391)');
   // and www's X-Line (test/micro-frontend-ita-help.test.mjs)
@@ -68,13 +71,15 @@ test('help-center-web on Austrian\'s and ITA\'s pages: their www, design system,
 test('culinary-hub: the rows after its name as data- attributes (Austrian\'s configuration and gateway)', () => {
   const plan = mountPlan(blockOf([['culinary-hub'], ['Configuration', 'apiKey:abc;tmc:13806'], ['API gateway', 'https://api.travelid.austrian.com/one-catering/v1']]), BRANDS.austrian, { country: 'at', lang: 'de', brand: 'austrian' });
   assert.equal(plan.tag, 'culinary-hub');
-  assert.deepEqual(plan.scripts[1], { src: 'https://www.austrian.com/digitalhangar/onecatering/culinary-hub/culinary-hub-latest.js', module: false });
+  assert.deepEqual(plan.scripts[1], { src: 'https://austrian.turnsthe.page/digitalhangar/onecatering/culinary-hub/culinary-hub-latest.js', module: false });
   assert.deepEqual(plan.attributes, {
     'data-public-endpoint': '', 'data-configuration': 'apiKey:abc;tmc:13806', 'data-api-gateway': 'https://api.travelid.austrian.com/one-catering/v1',
   });
   // its theme from X-Portal (www's body maui-theme-os; without the meta maui-theme-undefined) and
   // www's classes
-  assert.deepEqual(plan.meta, { 'X-Portal': 'OS', 'X-Portal-Site': 'AT', 'X-Portal-Language': 'de' });
+  assert.deepEqual(plan.meta, {
+    'X-Portal': 'OS', 'X-Portal-Site': 'AT', 'X-Portal-Language': 'de', 'X-Line': 'b',
+  });
   assert.equal(plan.className, 'full-width-bg px-0');
   assert.ok(appOf(blockOf([['no-such-app']])) === null);
 });
@@ -138,7 +143,7 @@ test('lufthansa.com\'s module apps from the page\'s own /digitalhangar/ where th
   assert.equal(cul.scripts[1].src, 'https://www.lufthansa.com/digitalhangar/onecatering/culinary-hub/culinary-hub-latest.js');
   // a brand's pages as before: its www
   const aua = mountPlan(blockOf([['help-center-web']]), BRANDS.austrian, { country: 'at', lang: 'en', brand: 'austrian' }, 'austrian.turnsthe.page');
-  assert.equal(aua.scripts[1].src, 'https://www.austrian.com/digitalhangar/cs-help-center/help-center-web/help-center-web-4.3.1.js');
+  assert.equal(aua.scripts[1].src, 'https://austrian.turnsthe.page/digitalhangar/cs-help-center/help-center-web/help-center-web-4.3.2.js');
   // without a host: the page's (main--lh-com…aem.page here, which serves no /digitalhangar/)
   assert.equal(mountPlan(blockOf([['claim-form-entry']]), null, { country: 'de', lang: 'en' }).scripts[1].src, `https://www.lufthansa.com${CLAIM}`);
 });
@@ -160,7 +165,7 @@ test('SWISS\'s apps and design system from the page\'s own /digitalhangar/ (swis
   assert.equal(cul.css, 'https://swiss.turnsthe.page/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/css/swiss.css');
   assert.ok([...hc.scripts, ...cul.scripts].every((s) => !s.src.includes('www.swiss.com')), 'nothing from www.swiss.com');
   const aua = mountPlan(blockOf([['help-center-web']]), BRANDS.austrian, { country: 'at', lang: 'en', brand: 'austrian' }, 'austrian.turnsthe.page');
-  assert.equal(aua.scripts[1].src, 'https://www.austrian.com/digitalhangar/cs-help-center/help-center-web/help-center-web-4.3.1.js', 'Austrian as before');
+  assert.equal(aua.scripts[1].src, 'https://austrian.turnsthe.page/digitalhangar/cs-help-center/help-center-web/help-center-web-4.3.2.js', 'Austrian from its own host (brief 397)');
 });
 
 // brief 293: on the hosts that serve no /digitalhangar/ (aem.page, aem.live, localhost) SWISS's
@@ -181,7 +186,7 @@ test('SWISS on aem.page, aem.live and localhost: its apps and design system from
   const www = mountPlan(blockOf([['culinary-hub']]), BRANDS.swiss, locale, 'www.swiss.com');
   assert.equal(www.scripts[1].src, 'https://www.swiss.com/digitalhangar/onecatering/culinary-hub/culinary-hub-latest.js', 'www.swiss.com: its own');
   const aua = mountPlan(blockOf([['culinary-hub']]), BRANDS.austrian, { country: 'at', lang: 'en', brand: 'austrian' }, 'main--lh-austrian--moved-permanently.aem.page');
-  assert.equal(aua.scripts[1].src, 'https://www.austrian.com/digitalhangar/onecatering/culinary-hub/culinary-hub-latest.js', 'Austrian as before');
+  assert.equal(aua.scripts[1].src, 'https://austrian.turnsthe.page/digitalhangar/onecatering/culinary-hub/culinary-hub-latest.js', 'Austrian from its own host (brief 397)');
 });
 
 // brief 300: SWISS's claim apps (swiss-snapshots-claims-20, kr/ko's capture): /<root>/fast-compensation
@@ -201,13 +206,17 @@ test('baggage-form-entry and claim-form-entry on SWISS: modules from the page\'s
     css: `${LX}/css/swiss.css`,
     scripts: [{ src: `${LX}/packages/maui-design-system.js`, module: true }, { src: `https://swiss.turnsthe.page${BAGGAGE}`, module: true }],
     attributes: { 'data-public-endpoint': '' },
-    meta: { 'X-Portal': 'LX', 'X-Portal-Site': 'CH', 'X-Portal-Language': 'en' },
+    meta: {
+      'X-Portal': 'LX', 'X-Portal-Site': 'CH', 'X-Portal-Language': 'en', 'X-Line': 'b',
+    },
     themeClass: 'maui-theme-lx',
   });
   const claim = mountPlan(blockOf([['claim-form-entry']]), BRANDS.swiss, { ...locale, country: 'kr', lang: 'ko' }, 'swiss.turnsthe.page');
   assert.equal(claim.scripts[1].src, `https://swiss.turnsthe.page${CLAIM}`);
   assert.equal(claim.css, `${LX}/css/swiss.css`);
-  assert.deepEqual(claim.meta, { 'X-Portal': 'LX', 'X-Portal-Site': 'KR', 'X-Portal-Language': 'ko' });
+  assert.deepEqual(claim.meta, {
+    'X-Portal': 'LX', 'X-Portal-Site': 'KR', 'X-Portal-Language': 'ko', 'X-Line': 'b',
+  });
   // the preview hosts: from swiss.turnsthe.page, never www.swiss.com
   const preview = mountPlan(blockOf([['baggage-form-entry']]), BRANDS.swiss, locale, 'main--lh-swiss--moved-permanently.aem.page');
   assert.equal(preview.scripts[1].src, `https://swiss.turnsthe.page${BAGGAGE}`);
@@ -236,7 +245,7 @@ test('SWISS\'s apps: the theme class maui-theme-lx, on the body before the scrip
     assert.equal(mountPlan(blockOf([[app]]), BRANDS.swiss, locale, 'swiss.turnsthe.page').themeClass, 'maui-theme-lx', app);
   });
   assert.equal('themeClass' in mountPlan(blockOf([['claim-form-entry']]), null, { country: 'de', lang: 'en' }, 'lufthansa.turnsthe.page'), false, 'lufthansa.com: no theme class');
-  assert.equal('themeClass' in mountPlan(blockOf([['help-center-web']]), BRANDS.austrian, { country: 'at', lang: 'en', brand: 'austrian' }, 'austrian.turnsthe.page'), false, 'Austrian as before');
+  assert.equal(mountPlan(blockOf([['help-center-web']]), BRANDS.austrian, { country: 'at', lang: 'en', brand: 'austrian' }, 'austrian.turnsthe.page').themeClass, 'maui-theme-os', 'Austrian since brief 397');
   const { pagePrepare } = await import('../blocks/micro-frontend/micro-frontend.js');
   const plan = mountPlan(blockOf([['claim-form-entry']]), BRANDS.swiss, locale, 'swiss.turnsthe.page');
   pagePrepare(plan, document);
@@ -296,5 +305,5 @@ test('ITA\'s apps and design system from the page\'s own /digitalhangar/ (ita.tu
     }, host);
   });
   const aua = mountPlan(blockOf([['help-center-web']]), BRANDS.austrian, { country: 'at', lang: 'en', brand: 'austrian' }, 'austrian.turnsthe.page');
-  assert.equal(aua.scripts[1].src, 'https://www.austrian.com/digitalhangar/cs-help-center/help-center-web/help-center-web-4.3.1.js', 'Austrian as before');
+  assert.equal(aua.scripts[1].src, 'https://austrian.turnsthe.page/digitalhangar/cs-help-center/help-center-web/help-center-web-4.3.2.js', 'Austrian from its own host (brief 397)');
 });

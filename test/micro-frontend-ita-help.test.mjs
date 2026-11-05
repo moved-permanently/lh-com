@@ -58,14 +58,14 @@ test('pagePrepare: the body class and the X-Line meta before the scripts', () =>
   assert.equal(d.head.querySelector('meta[name="X-Line"]').getAttribute('content'), 'b');
 });
 
-test('the other brands as before: no X-Line, their release and theme class', () => {
+test('the other brands: their release and theme class (SWISS and Austrian with X-Line since brief 397)', () => {
   const swiss = mountPlan(blockOf([['help-center-web']]), BRANDS.swiss, { country: 'ch', lang: 'en', brand: 'swiss' }, 'swiss.turnsthe.page');
   assert.equal(swiss.themeClass, 'maui-theme-lx');
-  assert.equal('X-Line' in swiss.meta, false);
+  assert.equal(swiss.meta['X-Line'], 'b');
   assert.equal(swiss.scripts[1].src, APP('swiss.turnsthe.page', '4.3.1'));
   const aua = mountPlan(blockOf([['help-center-web']]), BRANDS.austrian, { country: 'at', lang: 'en', brand: 'austrian' }, 'austrian.turnsthe.page');
-  assert.equal('themeClass' in aua, false);
-  assert.equal(aua.scripts[1].src, APP('www.austrian.com', '4.3.1'));
+  assert.equal(aua.themeClass, 'maui-theme-os');
+  assert.equal(aua.scripts[1].src, APP('austrian.turnsthe.page', '4.3.2'));
   const claim = mountPlan(blockOf([['claim-form-entry']]), BRANDS.ita, IT, 'ita.turnsthe.page');
   assert.ok(/claim-form-entry-0\.11\.16\.js$/.test(claim.scripts[1].src), 'another app keeps its release');
 });

@@ -16,8 +16,10 @@ import { isDemoHost, isTurnsThePageHost, TURNSTHE_PAGE_DOMAIN } from '../../scri
  * links, a nested block such as an accordion) is shown at once and the app is mounted next to it,
  * hidden; once the app's element shows something (a height and text, in its shadow root or light
  * DOM: hasRendered) it replaces the fallback, else after FALLBACK_TIMING.wait the fallback stays
- * and the element is removed. ITA's and Austrian's help-center-web renders nothing on our hosts
- * (its data come from the airline's Travel ID service, which refuses them).
+ * and the element is removed. The brands' help-center-web (SWISS, Brussels, ITA, Austrian) renders
+ * from their turnsthe.page hosts (OWN_HOST_BRANDS: lh-edge's /digitalhangar/ and the data copies);
+ * what the airline's Travel ID service answers (live topics, login status, the questionnaire)
+ * refuses our hosts, so those parts stay empty there.
  */
 
 /** www's design system release the apps are built against: change it here only. */
@@ -33,7 +35,12 @@ export const DESIGN_SYSTEM_JS = `${DESIGN_SYSTEM}/packages/maui-design-system.js
  * release with ita.css. The brand apps load from there.
  */
 const BRAND_DESIGN_SYSTEMS = {
-  'www.austrian.com': { release: 'mausy-v1.40.1', theme: 'austrian' },
+  // www's contact pages (at/en, at/de, read 2026-11-05): mausy-v1.40.1, austrian.css; its body's
+  // maui-theme-os makes the design system load Austrian's fonts and icons (os-fonts.css,
+  // icon.library.OS.js), its head has X-Line b, its help center is 4.3.2
+  'www.austrian.com': {
+    release: 'mausy-v1.40.1', theme: 'austrian', themeClass: 'maui-theme-os', meta: { 'X-Line': 'b' }, apps: { 'help-center-web': '4.3.2' },
+  },
   // www's help pages (ita-parity-001, it/en and it/it): its body's maui-theme-az makes the design
   // system load ITA's fonts and icons (az-fonts.css, icon.library.AZ.js; else Lufthansa's), its
   // head has X-Line b, its help center is 4.3.2
@@ -45,8 +52,10 @@ const BRAND_DESIGN_SYSTEMS = {
   // www's help center and culinary journey pages (the snapshots): mausy-v1.40.1, swiss.css; its
   // body has class maui-theme-lx, the ancestor the components take their theme from (else lh) and
   // that swiss.css sets its tokens on (claim-form-entry relies on it; baggage-form-entry sets
-  // its own)
-  'www.swiss.com': { release: 'mausy-v1.40.1', theme: 'swiss', themeClass: 'maui-theme-lx' },
+  // its own); its head has X-Line b (swiss-parity-001's contact page)
+  'www.swiss.com': {
+    release: 'mausy-v1.40.1', theme: 'swiss', themeClass: 'maui-theme-lx', meta: { 'X-Line': 'b' },
+  },
   // www's contact pages (/be/en/contact, read 2026-11-05): mausy-v1.40.1, brussels.css, its tokens
   // on the body's maui-theme-sn
   'www.brusselsairlines.com': { release: 'mausy-v1.40.1', theme: 'brussels', themeClass: 'maui-theme-sn' },
@@ -63,6 +72,9 @@ const OWN_HOST_BRANDS = {
   // ITA's help center (brief 391): www.ita-airways.com sends its module without
   // Access-Control-Allow-Origin; lh-edge answers ita.turnsthe.page/digitalhangar/ from there
   'www.ita-airways.com': `ita.${TURNSTHE_PAGE_DOMAIN}`,
+  // Austrian's (brief 397): www.austrian.com sends its module without Access-Control-Allow-Origin;
+  // lh-edge answers austrian.turnsthe.page/digitalhangar/ (the culinary hub's too)
+  'www.austrian.com': `austrian.${TURNSTHE_PAGE_DOMAIN}`,
 };
 
 /**
