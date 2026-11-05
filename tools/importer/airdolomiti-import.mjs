@@ -794,6 +794,23 @@ export function showMoreLink(a, page) {
   return page.link(a.showMoreTextUrl, n ? `${plain(a.showMoreText)} (${n})` : plain(a.showMoreText));
 }
 
+/**
+ * www's destinations on the homepages (story-card-slider, "Le nostre destinazioni") as
+ * carousel-cards (destinations): per card its picture, the city and the card's link (the theme
+ * lays them out as www's: the whole card a link, a pin before the city, no dots).
+ * @param {Object} a the slider's attributes
+ * @param {Object} page
+ * @returns {{name: string, rows: string[][]}}
+ */
+export function destinationCards(a, page) {
+  return {
+    name: 'carousel-cards (destinations)',
+    rows: (a.cardList || []).map((c) => cardRow(page, {
+      image: c.gallery || c.image, tag: a.tagCard, title: c.title, url: c.url,
+    })),
+  };
+}
+
 // blocks that are lists of items (kept as blocks where they stand, not flattened into a column)
 const LIST_BLOCKS = /^lazyblock\/(tariffe-list|tariffe-table|news-list-grid|select-flight-list|add-baggage-cards|mini-card-slider|story-card-slider|cosa-fare-carroussel|gridtwocolumns)$/;
 
@@ -863,9 +880,8 @@ const HANDLERS = {
   },
   'lazyblock/story-card-slider': (a, page) => {
     page.add(page.heading(a.tag, a.title));
-    page.block('carousel-cards', (a.cardList || []).map((c) => cardRow(page, {
-      image: c.gallery || c.image, tag: a.tagCard, title: c.title, url: c.url,
-    })));
+    const destinations = destinationCards(a, page);
+    page.block(destinations.name, destinations.rows);
     page.add(showMoreLink(a, page));
   },
   'lazyblock/cosa-fare-carroussel': (a, page) => {
