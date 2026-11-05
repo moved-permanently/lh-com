@@ -72,8 +72,8 @@
   --lh-grey-8: #262626;
 
   /* roles */
-  --text-color: #1a1a1a;
-  --heading-color: #1a1a1a;
+  --text-color: #000; /* www's copy and headings #000 (brief 386); os-text #1a1a1a elsewhere */
+  --heading-color: #000;
   --link-color: #4d4d4d;
   --link-hover-color: #ac1804;
   --focus-color: #0968f6;
@@ -85,8 +85,9 @@
   /* fonts: Portada for headings (SemiBold), CoreSans for copy, 16/24 px body */
   --body-font-family: coresans, arial, helvetica, mammilessymbol, sans-serif;
   --heading-font-family: portada, arial, helvetica, mammilessymbol, sans-serif;
-  --heading-light-weight: 500; /* every Austrian heading is Portada SemiBold */
+  --heading-light-weight: 700; /* www's heading-medium / heading-small: Portada 700 (brief 386) */
   --body-font-size-m: 16px; /* with --body-line-height 1.5: 24px */
+  --body-letter-spacing: 0.05px;
 
   /* buttons: primary white on Austrian red, secondary red on white; lh-com's radius and height */
   --button-primary-text: #fff;
@@ -96,15 +97,486 @@
   /* the hero card's headline (hero-card-overlay light) */
   --hero-card-heading-color: #1a1a1a;
 
-  /* header: white bar, text #1a1a1a, hover milano red */
+  /* header: white bar with a 1 px #d1d1d1 rule, its links #4d4d4d 14/20 regular on phones, 16/24
+     from 768 px (www 2026-11-05, brief 386), hover milano red; the logo 122 x 18 (163 x 24 from
+     1025 px) */
   --header-bar-surface: #fff;
-  --header-bar-text: #1a1a1a;
+  --header-bar-text: #4d4d4d;
   --header-bar-text-hover: #ac1804;
   --header-bar-line: #e7e7e7;
+  --header-bar-shadow: 0 1px 0 #d1d1d1;
+  --nav-logo-height: 18px;
+  --nav-logo-height-wide: 24px;
+  --nav-bar-font-size: 14px;
+  --nav-bar-font-weight: 400;
+  --nav-height: 137px; /* www's bar on phones; 113 px from 768 px */
+  --nav-quick-list-padding: 9px 0 6px 6px; /* 24 + 40 + 63 + 10 = 137 px, the links' text at y 88 */
+
+  /* the menu (flyout): white, the tabs red Portada (a rule below), group headings #1a1a1a CoreSans
+     500, links and extras #4d4d4d 16/24 regular, #d1d1d1 rules */
+  --nav-flyout-surface: #fff;
+  --nav-flyout-text: #4d4d4d;
+  --nav-flyout-heading: #1a1a1a;
+  --nav-flyout-hover: #1a1a1a;
+  --nav-flyout-chevron: #d81e05;
+  --nav-flyout-line: #d1d1d1;
+  --nav-flyout-link-size: 16px;
+  --nav-flyout-link-weight: 400;
+  --nav-flyout-link-line-height: 24px;
+  --nav-flyout-extra-size: 16px;
+  --nav-flyout-extra-weight: 400;
+
+  /* the breadcrumb: www 16/24 px regular, the parents #4d4d4d, the current page Austrian red */
+  --breadcrumb-font-size: 16px;
+  --breadcrumb-line-height: 24px;
+  --breadcrumb-parent-color: #4d4d4d;
+  --breadcrumb-hover-color: #262626;
+  --breadcrumb-chevron-color: #4d4d4d;
+  --breadcrumb-current-color: #d81e05;
 
   /* footer: red link area with white text; the logo row white (lh-com's default) */
   --footer-surface: #d81e05;
   --footer-muted-text: #fff;
   --footer-line-color: rgb(255 255 255 / 50%);
   --footer-field-color: #fff;
+
+  /* the footer's columns as www's: headings CoreSans 18/19.8 regular without a rule, links 14/21
+     regular at the column's edge */
+  --footer-heading-size: 18px;
+  --footer-title-line: transparent;
+  --footer-column-indent: 0;
+  --footer-link-size: 14px;
+  --footer-link-weight: 400;
+  --footer-link-line-height: 21px;
+}
+
+@media (width >= 768px) {
+  :root {
+    --nav-height: 113px;
+    --nav-bar-font-size: 16px;
+    --nav-quick-list-padding: 0 0 0 6px;
+    --nav-quick-link-padding: 24.5px 20px; /* 23 + 67 + 23 = 113 px */
+  }
+}
+
+/* rules where lh-com's blocks have no token (brief 386, www.austrian.com 2026-11-05, capture
+   austrian-parity-001; the rows: tools/reports/austrian/parity.md) */
+
+/* row 1: the bar's links tracked 0.4 px as www's (16/24 regular #4d4d4d, the tokens above) */
+body.brand-austrian .header :is(.nav-quick-link, .nav-tool-label) {
+  letter-spacing: 0.4px;
+}
+
+/* row 2: the menu's tabs Austrian red, its group headings CoreSans 500 (20/22 on phones, 24/26.4
+   from 768 px), the links tracked 0.4 px */
+body.brand-austrian .header .nav-flyout-item {
+  color: #d81e05;
+}
+
+body.brand-austrian .header .nav-flyout-item span::after {
+  background-color: #d81e05;
+}
+
+body.brand-austrian .header .nav-flyout-group h3 {
+  font-family: var(--body-font-family);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 22px;
+}
+
+body.brand-austrian .header :is(.nav-flyout-link, .nav-flyout-extra) {
+  letter-spacing: 0.4px;
+}
+
+/* the menu's links 36 px apart on phones, 40 px from 768 px (a 24 px line plus 12 or 16) */
+body.brand-austrian .header .nav-flyout-group li + li {
+  margin-top: 12px;
+}
+
+/* the menu's close and back: www's 28 px dark grey squares; on phones the open tab's title red
+   Portada as the tabs */
+body.brand-austrian .header :is(.nav-flyout-close, .nav-flyout-back) {
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  background-color: #4d4d4d;
+  color: #fff;
+}
+
+body.brand-austrian .header :is(.nav-flyout-close, .nav-flyout-back):hover {
+  background-color: #262626;
+  color: #fff;
+}
+
+body.brand-austrian .header .nav-flyout-title {
+  color: #d81e05;
+  font-family: var(--heading-font-family);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+@media (width >= 768px) {
+  body.brand-austrian .header .nav-flyout-group li + li {
+    margin-top: 16px;
+  }
+
+  body.brand-austrian .header .nav-flyout-group h3 {
+    font-size: 24px;
+    line-height: 26.4px;
+  }
+}
+
+/* row 6: the alert strip's text 16/24 regular #333, tracked 0.4 px, in a 50 px box from 768 px */
+body.brand-austrian .flash-teaser :is(.flash-teaser-link, .flash-teaser-link:any-link) {
+  color: #333;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.4px;
+}
+
+/* the strip 50 px high from 768 px (www), the flight search's options row 76 px under it on phones,
+   49 px from 768 px (lh-com's -11 px pull-up replaced) */
+@media (width >= 768px) {
+  body.brand-austrian .flash-teaser-bar {
+    height: 50px;
+  }
+}
+
+body.brand-austrian main > .section.flash-teaser-container > .flash-teaser-wrapper + .flight-search-wrapper {
+  margin-top: 23px;
+}
+
+@media (width >= 768px) {
+  body.brand-austrian main > .section.flash-teaser-container > .flash-teaser-wrapper + .flight-search-wrapper {
+    margin-top: 14px;
+  }
+}
+
+/* row 7: the flight search as www's: the options row #4d4d4d 16/24 regular; the fields as boxes
+   (#f6f6f6, a 1 px #262626 border, 8 px corners): From and To 56 px with the label inside (14 px over
+   the value, 18 px), the dates 50 px with the calendar at its end; on phones From and To one box
+   with the swap on the line between them, from 768 px the swap a 32 px #4d4d4d disc between the
+   fields; the button in capitals (row 7) */
+body.brand-austrian .flight-search :is(.flight-search-trip-type select, .flight-search-travellers, .flight-search-nonstop) {
+  color: #4d4d4d;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+body.brand-austrian .flight-search .airport-combobox {
+  padding-top: 0;
+}
+
+body.brand-austrian .flight-search :is(.airport-combobox label, .flight-search-dates legend) {
+  top: 8px;
+  left: 11px;
+  z-index: 1;
+  max-width: calc(100% - 22px);
+  color: #5d5d5d;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+body.brand-austrian .flight-search :is(.airport-combobox[data-code=""]:not(:focus-within) label, .flight-search-dates:not(:focus-within, :has(input:valid)) legend) {
+  top: 14px;
+  color: #4d4d4d;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+body.brand-austrian .flight-search .airport-combobox input {
+  box-sizing: border-box;
+  height: 56px;
+  padding: 21px 11px 1px 9px;
+  border: 1px solid #262626;
+  border-radius: 8px;
+  background-color: #f6f6f6;
+  color: #1a1a1a;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+body.brand-austrian .flight-search .flight-search-date input {
+  height: 31px;
+  padding: 0 0 3px;
+  color: #4d4d4d;
+  font-size: 16px;
+}
+
+body.brand-austrian .flight-search .airport-combobox input:focus {
+  padding: 21px 11px 1px 9px;
+  border-color: #333;
+  outline: 2px solid #333;
+  outline-offset: -1px;
+}
+
+body.brand-austrian .flight-search .airport-combobox[data-code=""]:not(:focus-within)::after {
+  display: none;
+}
+
+body.brand-austrian .flight-search .flight-search-dates {
+  box-sizing: border-box;
+  height: 50px;
+  padding: 17px 40px 0 11px;
+  border: 1px solid #262626;
+  border-radius: 8px;
+  background-color: #f6f6f6;
+}
+
+body.brand-austrian .flight-search .flight-search-dates:focus-within {
+  outline: 2px solid #333;
+  outline-offset: -1px;
+}
+
+body.brand-austrian .flight-search .flight-search-date:focus-within input {
+  padding-inline: 0;
+  outline: none;
+}
+
+body.brand-austrian .flight-search .flight-search-dates::after {
+  right: 12px;
+  bottom: 13px;
+  background-color: #4d4d4d;
+}
+
+body.brand-austrian .flight-search .flight-search-swap {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #4d4d4d;
+  color: #fff;
+}
+
+@media (width < 768px) {
+  /* www's From, To and dates 46 px narrower than the button (300 of 346 px at 390) */
+  body.brand-austrian .flight-search :is(.flight-search-origin, .flight-search-destination, .flight-search-dates) {
+    max-width: calc(100% - 46px);
+  }
+
+  body.brand-austrian .flight-search .flight-search-origin {
+    margin-bottom: 0;
+  }
+
+  body.brand-austrian .flight-search .flight-search-origin input {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  body.brand-austrian .flight-search .flight-search-destination input {
+    margin-top: -1px;
+    padding-right: 48px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  body.brand-austrian .flight-search .flight-search-swap {
+    place-self: start end;
+    margin: -16px 55px 0 0; /* www's at x 281-313, inside the 300 px box */
+  }
+}
+
+@media (width >= 768px) {
+  body.brand-austrian .flight-search .flight-search-swap {
+    align-self: end;
+    margin: 0 0 12px;
+  }
+}
+
+/* row 7: www's buttons in capitals, 500, tracked 1.3 px (FIND FLIGHTS, ALL OFFERS & DESTINATIONS) */
+body.brand-austrian :is(a.button, button.button, .flight-search .flight-search-submit) {
+  font-weight: 500;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+}
+
+/* row 9: the headline titles (Winter deals, Flight offers from) Portada 500 #1a1a1a, as www's
+   maui-headline */
+body.brand-austrian :is(.fare-teaser-container .default-content-wrapper h3, .destination-finder .destination-finder-heading) {
+  color: #1a1a1a;
+  font-weight: 500;
+}
+
+/* row 10: the fare cards as www's boxes: 1 px #d1d1d1, 4 px corners, the picture 150 px at the
+   left, the city 18/19.8 500, the price 16/24 500 at the right */
+body.brand-austrian .fare-teaser .fare-teaser-list {
+  row-gap: 20px;
+}
+
+body.brand-austrian .fare-teaser .fare-teaser-item {
+  grid-template:
+    "image route" auto
+    "image offer" 1fr / 150px minmax(0, 1fr);
+  column-gap: 16px;
+  min-height: 150px;
+  padding: 0 16px 0 0;
+  overflow: hidden;
+  border: 1px solid #d1d1d1;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+body.brand-austrian .fare-teaser .fare-teaser-image {
+  width: 150px;
+  height: 100%;
+  min-height: 150px;
+  margin: 0;
+  border-radius: 0;
+}
+
+body.brand-austrian .fare-teaser .fare-teaser-image::after {
+  display: none;
+}
+
+body.brand-austrian .fare-teaser .fare-teaser-route:any-link {
+  padding: 16px 0 0;
+  border-bottom: 0;
+}
+
+body.brand-austrian .fare-teaser .fare-teaser-origin {
+  font-weight: 400;
+  line-height: 19.8px;
+}
+
+body.brand-austrian .fare-teaser .fare-teaser-destination {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 19.8px;
+}
+
+body.brand-austrian .fare-teaser .fare-teaser-offer {
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 0;
+  color: #1a1a1a;
+}
+
+body.brand-austrian .fare-teaser .fare-teaser-price-label {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+body.brand-austrian .fare-teaser .fare-teaser-price {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* the Conditions links 16/24 regular, tracked 0.4 px */
+body.brand-austrian :is(.fare-teaser .fare-teaser-conditions-label, .destination-finder .destination-finder-conditions-toggle) {
+  font-weight: 400;
+  letter-spacing: 0.4px;
+}
+
+/* row 12: the flight offers' trip type pills: the chosen one Austrian red, the other white with a
+   1 px #4d4d4d edge, 500 */
+body.brand-austrian .destination-finder .destination-finder-chip {
+  border-color: #4d4d4d;
+  color: #4d4d4d;
+  font-weight: 500;
+}
+
+body.brand-austrian .destination-finder .destination-finder-chip:has(input:checked) {
+  border-color: #d81e05;
+  background-color: #d81e05;
+  color: #fff;
+}
+
+body.brand-austrian .destination-finder :is(.destination-finder-origin, .airport-combobox input) {
+  border-bottom-color: #d81e05;
+  color: #d81e05;
+}
+
+/* row 13: the icon tiles white (1 px #d1d1d1, 8 px corners, www's soft shadow), their labels
+   CoreSans 18/19.8 500; the accordion title CoreSans 24/28 500 */
+body.brand-austrian .cards-icon .cards-icon-tile {
+  border-color: #d1d1d1;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 4px 12px 0 rgb(38 38 38 / 10%);
+}
+
+body.brand-austrian .cards-icon .cards-icon-label {
+  font-family: var(--body-font-family);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 19.8px;
+}
+
+body.brand-austrian .cards-icon :is(.cards-icon-icon, .cards-icon-label) {
+  color: #1a1a1a;
+}
+
+body.brand-austrian .accordion-columns .accordion-columns-title {
+  font-family: var(--body-font-family);
+  font-size: calc(24px * var(--a11y-scale, 1));
+  font-weight: 500;
+  line-height: calc(28px * var(--a11y-scale, 1));
+  letter-spacing: 0.19px;
+}
+
+/* the faq accordions' titles (the contact page's topics, the info pages' questions) 18/28 regular
+   #4d4d4d, as www's collapsible headers */
+body.brand-austrian .accordion-columns.faq .accordion-columns-title {
+  color: #4d4d4d;
+  font-size: calc(18px * var(--a11y-scale, 1));
+  font-weight: 400;
+}
+
+/* the cards' links (Discover Austrian, the menu pages, the article) 16/24 regular, tracked 0.4 px;
+   the homepage's carousel cards with www's 0 4px 12px shadow and their titles Portada regular */
+body.brand-austrian .carousel-cards .carousel-cards-cta a:any-link {
+  font-weight: 400;
+  letter-spacing: 0.4px;
+}
+
+body.brand-austrian .carousel-cards .carousel-cards-slide {
+  border-color: #d1d1d1;
+  box-shadow: 0 4px 12px 0 rgb(38 38 38 / 10%);
+}
+
+/* row 20: the breadcrumb regular, tracked 0.45 px (the colours and size are tokens) */
+body.brand-austrian .breadcrumb :is(a, span) {
+  font-weight: 400;
+  letter-spacing: 0.45px;
+}
+
+/* row 21: the footer's column and badge headings CoreSans 18/19.8 regular, the links tracked
+   0.4 px */
+body.brand-austrian .footer :is(.footer-column-heading, .footer-badge-heading) {
+  font-family: var(--body-font-family);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 19.8px;
+}
+
+body.brand-austrian .footer .footer-link {
+  letter-spacing: 0.4px;
+}
+
+/* www's horizontal STAR ALLIANCE mark 128 px wide (maui-graphic size medium; the documents'
+   :star-alliance-horizontal:, 147 x 20) */
+body.brand-austrian .footer .footer-logo-star-alliance-horizontal img {
+  width: 128px;
+  height: auto;
+}
+
+/* the flight search's tabs (the article's search box) as www's: capitals 16/24 500, the chosen one
+   Austrian red with a red bar */
+body.brand-austrian .flight-search .flight-search-tab {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.05px;
+  text-transform: uppercase;
+}
+
+body.brand-austrian .flight-search .flight-search-tab[aria-selected="true"] {
+  color: #d81e05;
+  font-weight: 500;
+}
+
+body.brand-austrian .flight-search .flight-search-tab[aria-selected="true"]::after {
+  background-color: #d81e05;
 }

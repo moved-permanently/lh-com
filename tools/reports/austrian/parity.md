@@ -1,8 +1,8 @@
 # Austrian Airlines: austrian.turnsthe.page and www.austrian.com
 
 Site lh-austrian, host austrian.turnsthe.page, live in 64 roots since 2026-10-31. This report
-holds the accessibility pass (brief 382) and, once the capture of www.austrian.com is in
-(`austrian-parity-001`), the parity rows. www refuses agents' browsers, so www is compared from
+holds the accessibility pass (brief 382) and the parity rows from the capture of www.austrian.com
+(`austrian-parity-001`, briefs 385 and 386). www refuses agents' browsers, so www is compared from
 the capture only.
 
 Rows: what www shows, what ours shows, kind (theme, variant, import, document, shared code,
@@ -62,13 +62,67 @@ was checked on the homepages before it was closed. Plus a keyboard pass on the h
 | 3 | The airport list: from this environment www.lufthansa.com answers the airport and label calls with Cloudflare's 403 page (the browser reports a CORS failure), and a production host uses no recordings, so no list opens here | – | environment | – | not checked; brief 370's keyboard pass and the functions report found it working |
 
 Nothing to fix in Austrian's theme (`styles/themes/austrian.css`); Austrian has no brand-scoped
-block variants. Possibly www's own design (for the parity pass): none found yet.
+block variants. www's own design found in the parity pass: rows 8 and 26 below.
 
-## Parity
+## Parity (briefs 385 and 386, 2026-11-05)
 
-Waits for the capture of www.austrian.com (`austrian-parity-001.tar.gz`: full-page PNGs at 390
-and 1440, HTML and shadow HTML, measurements, the homepages' menu and search states, www's CSS
-and fonts).
+### How it was compared
 
-| Row | What | www | ours | Kind | Owner | Status |
-| --- | --- | --- | --- | --- | --- | --- |
+- **www:** the user's capture `austrian-parity-001.tar.gz` (sha256 `f59a943d…327d`, checked): the
+  same 22 pages at 1440 x 900 and 390 x 844 (full-page PNGs, HTML, shadow HTML), the homepages'
+  states (menu tabs, travellers, airports), www's CSS and fonts. The agent did not load www. The
+  capture was served locally without its scripts (www's own `serve.py` was not run); www's maui
+  components that draw only with their scripts (the divider, the feedback questionnaire, the Star
+  Alliance graphic) were read from the markup, not measured.
+- **Ours, before the fixes:** the preview and austrian.turnsthe.page (main's code) at both widths.
+- **Ours, with the fixes:** a local dev server with the working tree's code and the preview's
+  content; the changed documents first from a local folder (with the brand's metadata added in the
+  browser), then on the preview after the upload. Locally Austrian's fonts answer 404 (the host
+  serves them), so www's CoreSans and Portada were loaded from the capture: sizes, weights,
+  colours and boxes were compared, not glyph widths.
+- ema-adobe's "DEMO | Not a <brand> website" badge (brief 386) is ours and left out of the
+  comparison.
+
+Kind: **theme** = `styles/themes/austrian.css` (tokens and body.brand-austrian rules); **shared** =
+lh-com's shared code, brand-neutral; **document** = the lh-austrian documents of at/en and at/de;
+**data** = what the page loads from Group services; **design** = something www builds that the
+replica has no block for.
+
+| Row | What www shows | What ours shows | Kind | Owner | Status |
+| --- | --- | --- | --- | --- | --- |
+| 1 | Header bar 113 px (137 on phones), logo 163 x 24 (122 x 18 on phones), quick links 16/24 regular #4d4d4d tracked 0.4 px (14 px on phones), a 1 px #d1d1d1 rule | lh-com's bar: 122 px (140 on phones), bold links, its logo size | theme, shared tokens | mine | fixed (113 and 137 px measured) |
+| 2 | Menu white: tabs red Portada, group headings CoreSans 24/26.4 500 (20/22 on phones), links and extras 16/24 regular #4d4d4d, #d1d1d1 rules, close and back as 28 px #4d4d4d squares | lh-com's dark flyout | theme, shared (flyout tokens) | mine | fixed |
+| 3 | Header icons: www's own wheelchair, help, cart, login and globe | lh-com's icons | shared | lh-com shared code (blocks/header) | open: the header reads an item's role (accessibility, help, cart, login, locale) from its icon's name, so a document token such as `:austrian-cart:` would lose the cart and locale dialogs. www's five SVGs are kept locally (not committed); a brand icon needs the header to accept another icon name per role |
+| 4 | The cart item "Your Cart" / "Ihr Warenkorb" | "Shopping cart preview" / "Warenkorb-Vorschau" | document | mine | fixed in the at/en and at/de navs |
+| 5 | Burger icon: www's own lines | lh-com's | shared | lh-com shared code | open |
+| 6 | Alert strip: 16/24 regular #333 in a 50 px #f6f6f6 box (from 768 px), the search 23 px below (14 px from 768) | bold, lh-com's spacing | theme | mine | fixed |
+| 7 | Flight search: boxed fields (56 px, #f6f6f6, 1 px #262626, 8 px corners, the label inside), the dates one 50 px box, the swap a 32 px #4d4d4d disc; on phones From and To one box with the swap on the line; options row #4d4d4d 16 px regular; FIND FLIGHTS in capitals 500, tracked 1.3 px; the article's tabs in capitals, the chosen one red | lh-com's underlined fields, the swap between them | theme | mine | fixed (fields 301/56 at 1440; From 384, To 439 and the swap at x 281 at 390, as www's) |
+| 8 | Travellers: a modal | lh-com's popover panel | design | lh-com shared block (flight-search passenger picker) | open, as SWISS row 6: the user's call |
+| 9 | Headings black, h2 and h3 700; the headline titles (fare teaser, flight offers) #1a1a1a 500 | lh-com's navy and light headings | theme | mine | fixed |
+| 10 | Winter deals: boxed cards (150 px image left, 1 px #d1d1d1, 4 px corners), the city 18/19.8 500, the price 16 px 500 | unboxed rows | theme; data | mine; the user (prices) | fixed (layout). The fare API does not answer this environment, so prices are unverified: please check on the host |
+| 11 | Conditions labels regular, tracked 0.4 px | bold | theme | mine | fixed |
+| 12 | Flight offers: chips #4d4d4d 500, the chosen one red, the origin red; offer cards with prices | lh-com's chips; empty here | theme; data | mine; the user (offers) | fixed (chips, origin). The offer cards need data this environment cannot load: please check on the host |
+| 13 | Looking for more: white tiles (1 px #d1d1d1, 8 px corners, a soft shadow), labels 18/19.8 500 #1a1a1a, www's black icons | grey tiles, lh-com's navy icons | theme, document | mine | fixed: www's icons from the capture as `icons/austrian-{hotel,car-rental,airport-parking,tours,plus-circle}.svg`, the homepages' tiles use `:austrian-hotel:` etc. (48 x 48 on the preview) |
+| 14 | The footnote and "General Conditions" below the tiles; "General Conditions" a link that opens the text | both under the flight offers; the conditions as text | document; shared | mine (position); lh-com (the link) | position fixed in both homepages. The link: lh-com's importer writes these as paragraphs on every brand, as SWISS row 14; open |
+| 15 | Popular destinations: CoreSans 24/28 500; the contact page's FAQ accordions 18 px regular #4d4d4d | lh-com's accordion titles | theme | mine | fixed |
+| 16 | Card carousels: links regular, tracked; slides with a #d1d1d1 border and soft shadow | lh-com's bold links | theme | mine | fixed |
+| 16a | The carousels' current dot Austrian red | #1a1a1a (`--lh-deepblue`, Austrian's text colour) | shared | lh-com shared code (blocks/carousel-cards, ema-adobe's 24 px dots of 87f5d985) | open: brief 374's test keeps the dots out of the brands' themes, and `--lh-deepblue` colours far more than the dot; a token for the current dot (default `--lh-deepblue`) in the carousel files would let the theme set it |
+| 17 | Article cards: each card ends in a link ("More about carry-on baggage" …, "Zu unseren Handgepäckbestimmungen" …) | no link rows | document | mine | fixed: the 12 cards of at/en and at/de `/discover/inspiration/fly-with-austrian` with www's link texts (16/24 regular #4d4d4d) |
+| 18 | Article cards' copy Portada 18/27 | CoreSans | theme (variant) | mine | open |
+| 19 | A divider above "This may also interest you" (maui-divider) | the document's `{divider-25}` rule | theme | mine | open: www's divider draws only with its scripts, so its look was not compared. Needed if it matters: its colour and width from www's screen at 1440 |
+| 20 | Breadcrumb 16/24 regular #4d4d4d, the current page red; the first crumb "Homepage" in both languages | lh-com's look; "Home" in de, no home crumb in en | theme, document | mine | fixed: the homepages' metadata `Breadcrumb Title` "Homepage" (de's older "Home" row removed); the preview shows "Homepage › Inspiration › Good reasons to take off with Austrian" and "Homepage › Gute Gründe mit Austrian abzuheben" |
+| 21 | Footer: headings CoreSans 18/19.8 regular without a rule, links 14/21 regular, tracked | lh-com's headings with a rule | theme | mine | fixed |
+| 22 | Footer: no search row | "Search for topic" / "Suche nach Thema" | document | mine | fixed: the row removed from both footers |
+| 23 | Footer: the horizontal Star Alliance mark, 128 px wide | the square mark | document, theme | mine | fixed: `:star-alliance-horizontal:` in both footers, 128 x 17 |
+| 24 | Footer legal links start at the columns' edge (x 405 at 1440) and wrap, no rule above them | lh-com's row under a rule | theme | mine | open: not yet measured against the theme's tokens |
+| 25 | Klarna badge's size in the payment badges | differs | theme | mine | open: not yet measured |
+| 26 | Contact: a stage with the help search, three columns of topics with icons, "Is there a topic missing?" (Yes, No, a note, Next), an FAQs card | the help app (micro-frontend) and the FAQ accordions | document; design | mine (feedback); the user's capture (FAQs card); lh-com (stage, topics) | feedback fixed: the feedback block with www's question, answers and note in both contact pages (www's second questionnaire page is not built; the block is render-only). The FAQs card: open, its link has no target in the capture (a scripted maui-navigation-link). Needed: the card's target URL on at/en and at/de contact. Stage and topic columns: design, open |
+| 27 | Desktop menu's Tab order (accessibility finding 1) | – | shared | lh-com shared code (one EMA, later) | left, as the user asked |
+| 28 | Font metrics | the fallback font in local screens | environment | – | not a difference: the host serves CoreSans and Portada |
+
+### Documents on preview (not published)
+
+The ten documents of `preview-paths.txt` were uploaded to DA (lh-austrian) and previewed on
+main--lh-austrian--moved-permanently.aem.page with `tools/importer/da-upload.mjs --site
+lh-austrian`; the preview's text matches the local documents (the metadata moves into the head).
+Publishing is the user's.

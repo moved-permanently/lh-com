@@ -1,0 +1,11 @@
+# lh-austrian documents changed in brief 386 (uploaded to DA and previewed on main--lh-austrian--moved-permanently.aem.page; not published)
+/at/en/nav
+/at/de/nav
+/at/en/homepage
+/at/de/homepage
+/at/en/footer
+/at/de/footer
+/at/en/contact
+/at/de/contact
+/at/en/discover/inspiration/fly-with-austrian
+/at/de/discover/inspiration/fly-with-austrian
