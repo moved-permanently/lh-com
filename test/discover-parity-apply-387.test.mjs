@@ -7,7 +7,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { parseHTML } from 'linkedom';
 import {
-  addHeadingMarkers, teaserGrids, tabSets, footerTop, compact,
+  addHeadingMarkers, teaserGrids, tabSets, footerTop, compact, serialize,
 } from '../tools/importer/discover-parity-387.mjs';
 
 const doc = (html) => parseHTML(`<html><body><main>${html}</main></body></html>`).document;
@@ -72,6 +72,11 @@ test('tab sets: an older copy of a panel between the title and the set goes wher
   const kept = doc(`<div><h1>Baggage</h1><p>Intro www shows.</p><p>${pic(2)}</p><h2>One</h2><p>a</p><h2>Two</h2><p>b</p><h2>After</h2></div>`);
   tabSets(kept.querySelector('main'), [{ panels: [['1', 'One a'], ['2', 'Two b']], after: 'After' }], { wwwBefore: 'Intro www shows.' });
   assert.equal(kept.querySelector('main > div').textContent, 'BaggageIntro www shows.');
+});
+
+test('serialize: DA\'s source shape kept, an ampersand in an attribute stays &amp;amp; (linkedom writes it bare)', () => {
+  const d = doc('<div><p><a href="/offers?a=1&amp;b=2&amp;c=&#x26;">x &amp; y</a></p></div>');
+  assert.equal(serialize(d.querySelector('main')), '<div><p><a href="/offers?a=1&amp;b=2&amp;c=&amp;">x &amp; y</a></p></div>');
 });
 
 test('footer: the search and country row goes; Follow us is a link column (badges, in-columns)', () => {

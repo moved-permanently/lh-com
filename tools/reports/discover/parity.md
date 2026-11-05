@@ -126,3 +126,26 @@ The 22 documents of `preview-paths.txt` were read from DA (lh-discover), changed
 previewed on main--lh-discover--moved-permanently.aem.page with `tools/importer/da-upload.mjs
 --site lh-discover`; DA was checked unchanged since the read just before the upload, and DA's
 documents match the local ones after it. Publishing is the user's.
+
+### Commits
+
+- 47ab079d: the theme rows 1 to 13 (and A2), `test/discover-parity-387.test.mjs`,
+  `tools/importer/discover-parity-387.mjs` with `test/discover-parity-apply-387.test.mjs`, this
+  report, `preview-paths.txt` and lh-discover's upload state.
+- The commit after it: the tool keeps DA's `&amp;` in link attributes (linkedom wrote them bare; the
+  preview served the links right either way); 7 documents uploaded again with it, and this section.
+
+### Checked after the push (47ab079d)
+
+- **main--lh-discover--moved-permanently.aem.page** (main's code, the changed documents) and
+  **discover.turnsthe.page** (main's code, the published documents), de/en homepage, de/de Business
+  Class, de/en Additional services, 1440 and 390: the brand's theme loaded; h1 48 px (36 on
+  phones) #003e7b; copy LufthansaText 16/24 #002554; quick links LufthansaHead 18/24 (14/18 on
+  phones); the logo 116 x 40 (110 x 38); the tiles white with their 5 icons; the footer's stripes;
+  every picture loaded. The preview also shows the documents' changes: Business Class's two tabs
+  ("Langstrecke | Kurz- und Mittelstrecke"), the teaser grid on Additional services, no footer search
+  row. discover.turnsthe.page shows the published documents (no tabs, the footer search row) until
+  they are published.
+- **The other brands** (lufthansa /de/en/homepage, swiss, austrian, brussels, ita, tap, airdolomiti,
+  cargo, b2b, 1440): each its own brand class, Discover's theme not loaded, blocks and footer
+  loaded, no page errors and no "failed to load module".

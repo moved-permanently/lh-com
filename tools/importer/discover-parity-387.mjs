@@ -284,6 +284,9 @@ export function footerTop(main) {
   return true;
 }
 
+/** A main's documents as DA's source writes them: linkedom leaves an ampersand in an attribute bare. */
+export const serialize = (main) => main.innerHTML.replace(/(\s[a-zA-Z:-]+=")([^"]*)"/g, (m, name, value) => `${name}${value.replace(/&(?!(?:amp|lt|gt|quot|#\d+|#x[0-9a-fA-F]+);)/g, '&amp;')}"`);
+
 /* ------------------------------------------------------------------ capture --------- */
 
 const unescape = (t) => t.replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;|&rsquo;|&#x27;/g, '’')
@@ -365,7 +368,7 @@ if (isMain) {
         const h = addHeadingMarkers(main, wwwHeadingClasses(www));
         if (h) done.push(`${h} heading markers`);
       }
-      const after = main.innerHTML;
+      const after = serialize(main);
       console.log(`de/${lang}/${p}: ${done.join(', ') || 'unchanged'}`);
       if (!dry && after !== before) fs.writeFileSync(file, after);
     });
