@@ -3387,6 +3387,9 @@ body.brand-tap .faq-picker-questions > [role="tabpanel"][hidden] {
 
 /* stylelint-enable no-descending-specificity */
 
+/* stylelint-disable no-descending-specificity -- the inner pages' spacing (kept light by :where),
+   the card's and the H3's rules: other elements than the earlier selectors, after them */
+
 /* the inner pages' spacing as www's components (round 3 with row 67: buy ticket, hand baggage):
    www's column space-y-components-xs md:space-y-components-2xl puts every component 32 px apart on
    phones and 64 px from 728 px; here between sections, between a section's blocks and around a
@@ -3449,3 +3452,5 @@ body.brand-tap main .default-content-wrapper > h3:not(.faq-picker-sub-heading) {
     margin-top: 32px;
   }
 }
+
+/* stylelint-enable no-descending-specificity */
