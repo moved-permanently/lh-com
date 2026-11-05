@@ -1,0 +1,14 @@
+# The General Conditions as a dialog (scripts/fragment-dialog.js): the documents uploaded to DA and previewed on 2026-11-05 (not published), <site> <path>
+# new: the six /modals/general-conditions documents (noindex); the homepages link them (ITA's also got www's footnote)
+lh-swiss /ch/en/homepage
+lh-swiss /ch/en/modals/general-conditions
+lh-swiss /ch/de/homepage
+lh-swiss /ch/de/modals/general-conditions
+lh-austrian /at/en/homepage
+lh-austrian /at/en/modals/general-conditions
+lh-austrian /at/de/homepage
+lh-austrian /at/de/modals/general-conditions
+lh-ita /it/en/homepage
+lh-ita /it/en/modals/general-conditions
+lh-ita /it/it/homepage
+lh-ita /it/it/modals/general-conditions

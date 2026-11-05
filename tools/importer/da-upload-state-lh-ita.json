@@ -16,9 +16,9 @@
    "preview": "2026-11-05T12:52:45.812Z"
   },
   "/it/en/homepage": {
-   "uploaded": "2026-11-05T12:52:35.903Z",
-   "mtime": 1793880958451,
-   "preview": "2026-11-05T12:52:38.469Z"
+   "uploaded": "2026-11-05T14:26:54.564Z",
+   "mtime": 1793888210358,
+   "preview": "2026-11-05T14:26:56.932Z"
   },
   "/it/en/manage-my-bookings/partners/car-rental": {
    "uploaded": "2026-10-31T12:55:46.088Z",
@@ -696,9 +696,9 @@
    "preview": "2026-11-05T12:53:44.210Z"
   },
   "/it/it/homepage": {
-   "uploaded": "2026-11-05T12:53:31.296Z",
-   "mtime": 1793880958747,
-   "preview": "2026-11-05T12:53:33.214Z"
+   "uploaded": "2026-11-05T14:27:02.016Z",
+   "mtime": 1793888210405,
+   "preview": "2026-11-05T14:27:04.332Z"
   },
   "/it/it/legal": {
    "uploaded": "2026-10-31T13:06:54.216Z",
@@ -12459,6 +12459,16 @@
    "uploaded": "2026-11-01T05:54:41.153Z",
    "mtime": 1793511662279,
    "preview": "2026-11-01T05:54:42.571Z"
+  },
+  "/it/en/modals/general-conditions": {
+   "uploaded": "2026-11-05T14:26:58.363Z",
+   "mtime": 1793888210377,
+   "preview": "2026-11-05T14:27:00.250Z"
+  },
+  "/it/it/modals/general-conditions": {
+   "uploaded": "2026-11-05T14:27:05.969Z",
+   "mtime": 1793888210423,
+   "preview": "2026-11-05T14:27:07.645Z"
   }
  },
  "media": {
