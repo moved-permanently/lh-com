@@ -37,4 +37,11 @@ Not findings: the header menu passed the keyboard pass on all six brands at both
 focus stop up to the footer has a ring. The airport list works with the arrow keys, Enter and
 Escape.
 
-Rollback: `git revert` of the brief 370 commit.
+## After the push (42defbc, live on the hosts)
+
+- **axe:** all 18 pages at both widths again. Only the findings left as www remain: the carousel dots (every homepage; Cargo's at 390) and ITA's alert-strip chevrons at 1440. Every fixed finding is gone.
+- **Skip links:** 3 on each page of the five airline brands, none on Cargo.
+- **Keyboard:** the travellers panel closes on Tab out and the date fields' calendar stop has its ring (ITA at 390, Austrian de at 1440).
+- **Smoke:** the same rows as before the push on lufthansa, lufthansa-edge, cargo, airdolomiti, swiss, austrian, ita, brussels, discover and TAP.
+
+Rollback: `git revert 42defbc`.
