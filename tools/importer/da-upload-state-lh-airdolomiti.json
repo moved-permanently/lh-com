@@ -1,9 +1,9 @@
 {
  "docs": {
   "/index": {
-   "uploaded": "2026-11-04T22:08:50.860Z",
-   "mtime": 1793828830916,
-   "preview": "2026-11-04T22:08:53.357Z"
+   "uploaded": "2026-11-05T00:17:40.021Z",
+   "mtime": 1793834003997,
+   "preview": "2026-11-05T00:17:43.159Z"
   },
   "/destinazioni": {
    "uploaded": "2026-11-04T18:30:42.598Z",
@@ -216,24 +216,24 @@
    "preview": "2026-11-04T17:46:57.397Z"
   },
   "/tratte/volo-verona-monaco-di-baviera": {
-   "uploaded": "2026-11-04T19:24:11.366Z",
-   "mtime": 1793811017459,
-   "preview": "2026-11-04T19:24:13.803Z"
+   "uploaded": "2026-11-05T00:20:41.780Z",
+   "mtime": 1793837169290,
+   "preview": "2026-11-05T00:20:44.302Z"
   },
   "/tratte/volo-da-firenze-a-francoforte": {
-   "uploaded": "2026-11-04T19:22:49.473Z",
-   "mtime": 1793811016831,
-   "preview": "2026-11-04T19:22:51.614Z"
+   "uploaded": "2026-11-05T00:19:42.618Z",
+   "mtime": 1793837168291,
+   "preview": "2026-11-05T00:19:45.276Z"
   },
   "/tratte/volo-trieste-francoforte": {
-   "uploaded": "2026-11-04T19:23:40.502Z",
-   "mtime": 1793811017367,
-   "preview": "2026-11-04T19:23:42.968Z"
+   "uploaded": "2026-11-05T00:20:33.817Z",
+   "mtime": 1793837169155,
+   "preview": "2026-11-05T00:20:36.117Z"
   },
   "/tratte/volo-brindisi-monaco-di-baviera": {
-   "uploaded": "2026-11-04T19:22:41.230Z",
-   "mtime": 1793811016744,
-   "preview": "2026-11-04T19:22:43.264Z"
+   "uploaded": "2026-11-05T00:19:33.824Z",
+   "mtime": 1793837168158,
+   "preview": "2026-11-05T00:19:36.217Z"
   },
   "/informazioni-aggiornate": {
    "uploaded": "2026-11-04T19:17:52.673Z",
@@ -676,204 +676,204 @@
    "preview": "2026-11-04T21:51:02.596Z"
   },
   "/tratte/amsterdam-francoforte": {
-   "uploaded": "2026-11-04T19:20:46.663Z",
-   "mtime": 1793811015329,
-   "preview": "2026-11-04T19:20:48.867Z"
+   "uploaded": "2026-11-05T00:17:49.181Z",
+   "mtime": 1793837166539,
+   "preview": "2026-11-05T00:17:51.460Z"
   },
   "/tratte/amsterdam-monaco-di-baviera": {
-   "uploaded": "2026-11-04T19:20:51.021Z",
-   "mtime": 1793811015381,
-   "preview": "2026-11-04T19:20:53.022Z"
+   "uploaded": "2026-11-05T00:17:53.283Z",
+   "mtime": 1793837166608,
+   "preview": "2026-11-05T00:17:56.030Z"
   },
   "/tratte/basilea-francoforte": {
-   "uploaded": "2026-11-04T19:20:55.340Z",
-   "mtime": 1793811015425,
-   "preview": "2026-11-04T19:20:57.615Z"
+   "uploaded": "2026-11-05T00:17:57.600Z",
+   "mtime": 1793837166677,
+   "preview": "2026-11-05T00:18:00.074Z"
   },
   "/tratte/biarritz-francoforte": {
-   "uploaded": "2026-11-04T19:20:59.855Z",
-   "mtime": 1793811015466,
-   "preview": "2026-11-04T19:21:02.109Z"
+   "uploaded": "2026-11-05T00:18:01.882Z",
+   "mtime": 1793837166744,
+   "preview": "2026-11-05T00:18:04.690Z"
   },
   "/tratte/billund-francoforte": {
-   "uploaded": "2026-11-04T19:21:04.376Z",
-   "mtime": 1793811015507,
-   "preview": "2026-11-04T19:21:07.005Z"
+   "uploaded": "2026-11-05T00:18:06.346Z",
+   "mtime": 1793837166819,
+   "preview": "2026-11-05T00:18:08.970Z"
   },
   "/tratte/billund-monaco-di-baviera": {
-   "uploaded": "2026-11-04T19:21:09.056Z",
-   "mtime": 1793811015560,
-   "preview": "2026-11-04T19:21:11.285Z"
+   "uploaded": "2026-11-05T00:18:11.257Z",
+   "mtime": 1793837166887,
+   "preview": "2026-11-05T00:18:13.795Z"
   },
   "/tratte/birmingham-francoforte": {
-   "uploaded": "2026-11-04T19:21:13.262Z",
-   "mtime": 1793811015602,
-   "preview": "2026-11-04T19:21:15.373Z"
+   "uploaded": "2026-11-05T00:18:15.407Z",
+   "mtime": 1793837166956,
+   "preview": "2026-11-05T00:18:17.922Z"
   },
   "/tratte/bordeaux-francoforte": {
-   "uploaded": "2026-11-04T19:21:17.850Z",
-   "mtime": 1793811015643,
-   "preview": "2026-11-04T19:21:19.760Z"
+   "uploaded": "2026-11-05T00:18:19.515Z",
+   "mtime": 1793837167029,
+   "preview": "2026-11-05T00:18:21.969Z"
   },
   "/tratte/figari-francoforte": {
-   "uploaded": "2026-11-04T19:21:21.975Z",
-   "mtime": 1793811015683,
-   "preview": "2026-11-04T19:21:25.177Z"
+   "uploaded": "2026-11-05T00:18:23.453Z",
+   "mtime": 1793837167093,
+   "preview": "2026-11-05T00:18:26.290Z"
   },
   "/tratte/francoforte-graz": {
-   "uploaded": "2026-11-04T19:21:27.890Z",
-   "mtime": 1793811015729,
-   "preview": "2026-11-04T19:21:30.321Z"
+   "uploaded": "2026-11-05T00:18:28.007Z",
+   "mtime": 1793837167139,
+   "preview": "2026-11-05T00:18:30.673Z"
   },
   "/tratte/ginevra-francoforte": {
-   "uploaded": "2026-11-04T19:21:32.855Z",
-   "mtime": 1793811015774,
-   "preview": "2026-11-04T19:21:35.403Z"
+   "uploaded": "2026-11-05T00:18:32.471Z",
+   "mtime": 1793837167205,
+   "preview": "2026-11-05T00:18:34.735Z"
   },
   "/tratte/ginevra-monaco-di-baviera": {
-   "uploaded": "2026-11-04T19:21:37.460Z",
-   "mtime": 1793811015816,
-   "preview": "2026-11-04T19:21:39.612Z"
+   "uploaded": "2026-11-05T00:18:36.175Z",
+   "mtime": 1793837167278,
+   "preview": "2026-11-05T00:18:38.557Z"
   },
   "/tratte/graz-francoforte": {
-   "uploaded": "2026-11-04T19:21:42.292Z",
-   "mtime": 1793811015855,
-   "preview": "2026-11-04T19:21:44.918Z"
+   "uploaded": "2026-11-05T00:18:40.255Z",
+   "mtime": 1793837167322,
+   "preview": "2026-11-05T00:18:42.658Z"
   },
   "/tratte/graz-monaco": {
-   "uploaded": "2026-11-04T19:21:47.222Z",
-   "mtime": 1793811015895,
-   "preview": "2026-11-04T19:21:49.526Z"
+   "uploaded": "2026-11-05T00:18:44.477Z",
+   "mtime": 1793837167365,
+   "preview": "2026-11-05T00:18:46.720Z"
   },
   "/tratte/katowice-francoforte": {
-   "uploaded": "2026-11-04T19:21:51.588Z",
-   "mtime": 1793811015936,
-   "preview": "2026-11-04T19:21:53.805Z"
+   "uploaded": "2026-11-05T00:18:48.282Z",
+   "mtime": 1793837167429,
+   "preview": "2026-11-05T00:18:51.214Z"
   },
   "/tratte/lione-francoforte": {
-   "uploaded": "2026-11-04T19:21:55.990Z",
-   "mtime": 1793811016314,
-   "preview": "2026-11-04T19:21:58.096Z"
+   "uploaded": "2026-11-05T00:18:52.780Z",
+   "mtime": 1793837167496,
+   "preview": "2026-11-05T00:18:55.188Z"
   },
   "/tratte/lubiana-monaco": {
-   "uploaded": "2026-11-04T19:22:00.793Z",
-   "mtime": 1793811016374,
-   "preview": "2026-11-04T19:22:03.153Z"
+   "uploaded": "2026-11-05T00:18:56.760Z",
+   "mtime": 1793837167594,
+   "preview": "2026-11-05T00:18:59.836Z"
   },
   "/tratte/lussemburgo-monaco": {
-   "uploaded": "2026-11-04T19:22:05.203Z",
-   "mtime": 1793811016421,
-   "preview": "2026-11-04T19:22:07.453Z"
+   "uploaded": "2026-11-05T00:19:01.386Z",
+   "mtime": 1793837167665,
+   "preview": "2026-11-05T00:19:03.695Z"
   },
   "/tratte/monaco-graz": {
-   "uploaded": "2026-11-04T19:22:09.812Z",
-   "mtime": 1793811016458,
-   "preview": "2026-11-04T19:22:11.978Z"
+   "uploaded": "2026-11-05T00:19:05.687Z",
+   "mtime": 1793837167707,
+   "preview": "2026-11-05T00:19:08.142Z"
   },
   "/tratte/olbia-monaco": {
-   "uploaded": "2026-11-04T19:22:14.414Z",
-   "mtime": 1793811016494,
-   "preview": "2026-11-04T19:22:16.457Z"
+   "uploaded": "2026-11-05T00:19:09.643Z",
+   "mtime": 1793837167749,
+   "preview": "2026-11-05T00:19:12.324Z"
   },
   "/tratte/praga-francoforte": {
-   "uploaded": "2026-11-04T19:22:18.912Z",
-   "mtime": 1793811016536,
-   "preview": "2026-11-04T19:22:21.086Z"
+   "uploaded": "2026-11-05T00:19:14.052Z",
+   "mtime": 1793837167813,
+   "preview": "2026-11-05T00:19:16.137Z"
   },
   "/tratte/voli-da-torino-a-monaco-di-baviera": {
-   "uploaded": "2026-11-04T19:22:23.185Z",
-   "mtime": 1793811016578,
-   "preview": "2026-11-04T19:22:25.444Z"
+   "uploaded": "2026-11-05T00:19:17.789Z",
+   "mtime": 1793837167880,
+   "preview": "2026-11-05T00:19:20.551Z"
   },
   "/tratte/volo-ancona-monaco": {
-   "uploaded": "2026-11-04T19:22:27.493Z",
-   "mtime": 1793811016621,
-   "preview": "2026-11-04T19:22:29.822Z"
+   "uploaded": "2026-11-05T00:19:22.173Z",
+   "mtime": 1793837167948,
+   "preview": "2026-11-05T00:19:24.766Z"
   },
   "/tratte/volo-bari-monaco-di-baviera": {
-   "uploaded": "2026-11-04T22:09:28.700Z",
-   "mtime": 1793828839511,
-   "preview": "2026-11-04T22:09:30.689Z"
+   "uploaded": "2026-11-05T00:19:26.330Z",
+   "mtime": 1793837168033,
+   "preview": "2026-11-05T00:19:28.658Z"
   },
   "/tratte/volo-bologna-monaco-di-baviera": {
-   "uploaded": "2026-11-04T19:22:36.764Z",
-   "mtime": 1793811016707,
-   "preview": "2026-11-04T19:22:39.109Z"
+   "uploaded": "2026-11-05T00:19:30.177Z",
+   "mtime": 1793837168107,
+   "preview": "2026-11-05T00:19:32.336Z"
   },
   "/tratte/volo-cagliari-francoforte": {
-   "uploaded": "2026-11-04T19:22:45.424Z",
-   "mtime": 1793811016787,
-   "preview": "2026-11-04T19:22:47.575Z"
+   "uploaded": "2026-11-05T00:19:38.214Z",
+   "mtime": 1793837168224,
+   "preview": "2026-11-05T00:19:40.671Z"
   },
   "/tratte/volo-da-verona-a-francoforte": {
-   "uploaded": "2026-11-04T19:22:53.808Z",
-   "mtime": 1793811016873,
-   "preview": "2026-11-04T19:22:55.945Z"
+   "uploaded": "2026-11-05T00:19:46.838Z",
+   "mtime": 1793837168369,
+   "preview": "2026-11-05T00:19:49.241Z"
   },
   "/tratte/volo-firenze-monaco-di-baviera": {
-   "uploaded": "2026-11-04T19:22:57.876Z",
-   "mtime": 1793811016912,
-   "preview": "2026-11-04T19:22:59.902Z"
+   "uploaded": "2026-11-05T00:19:50.800Z",
+   "mtime": 1793837168444,
+   "preview": "2026-11-05T00:19:53.413Z"
   },
   "/tratte/volo-genova-monaco-di-baviera": {
-   "uploaded": "2026-11-04T19:23:01.871Z",
-   "mtime": 1793811016949,
-   "preview": "2026-11-04T19:23:03.975Z"
+   "uploaded": "2026-11-05T00:19:55.052Z",
+   "mtime": 1793837168485,
+   "preview": "2026-11-05T00:19:57.501Z"
   },
   "/tratte/volo-milano-linate-francoforte": {
-   "uploaded": "2026-11-04T19:23:05.842Z",
-   "mtime": 1793811016997,
-   "preview": "2026-11-04T19:23:08.137Z"
+   "uploaded": "2026-11-05T00:19:59.282Z",
+   "mtime": 1793837168590,
+   "preview": "2026-11-05T00:20:01.526Z"
   },
   "/tratte/volo-milano-linate-monaco-di-baviera": {
-   "uploaded": "2026-11-04T19:23:10.079Z",
-   "mtime": 1793811017038,
-   "preview": "2026-11-04T19:23:12.273Z"
+   "uploaded": "2026-11-05T00:20:03.437Z",
+   "mtime": 1793837168660,
+   "preview": "2026-11-05T00:20:06.059Z"
   },
   "/tratte/volo-milano-malpensa-francoforte": {
-   "uploaded": "2026-11-04T19:23:14.103Z",
-   "mtime": 1793811017087,
-   "preview": "2026-11-04T19:23:16.269Z"
+   "uploaded": "2026-11-05T00:20:07.798Z",
+   "mtime": 1793837168728,
+   "preview": "2026-11-05T00:20:10.362Z"
   },
   "/tratte/volo-milano-malpensa-monaco-di-baviera": {
-   "uploaded": "2026-11-04T19:23:18.354Z",
-   "mtime": 1793811017132,
-   "preview": "2026-11-04T19:23:21.127Z"
+   "uploaded": "2026-11-05T00:20:12.143Z",
+   "mtime": 1793837168799,
+   "preview": "2026-11-05T00:20:14.758Z"
   },
   "/tratte/volo-palermo-monaco-di-baviera": {
-   "uploaded": "2026-11-04T19:23:23.546Z",
-   "mtime": 1793811017178,
-   "preview": "2026-11-04T19:23:25.867Z"
+   "uploaded": "2026-11-05T00:20:16.660Z",
+   "mtime": 1793837168869,
+   "preview": "2026-11-05T00:20:19.282Z"
   },
   "/tratte/volo-pisa-francoforte": {
-   "uploaded": "2026-11-04T19:23:27.773Z",
-   "mtime": 1793811017222,
-   "preview": "2026-11-04T19:23:30.346Z"
+   "uploaded": "2026-11-05T00:20:20.954Z",
+   "mtime": 1793837168937,
+   "preview": "2026-11-05T00:20:23.639Z"
   },
   "/tratte/volo-rijeka-monaco": {
-   "uploaded": "2026-11-04T19:23:32.387Z",
-   "mtime": 1793811017263,
-   "preview": "2026-11-04T19:23:34.627Z"
+   "uploaded": "2026-11-05T00:20:25.485Z",
+   "mtime": 1793837169005,
+   "preview": "2026-11-05T00:20:27.926Z"
   },
   "/tratte/volo-torino-francoforte": {
-   "uploaded": "2026-11-04T19:23:36.643Z",
-   "mtime": 1793811017324,
-   "preview": "2026-11-04T19:23:38.649Z"
+   "uploaded": "2026-11-05T00:20:29.645Z",
+   "mtime": 1793837169073,
+   "preview": "2026-11-05T00:20:32.166Z"
   },
   "/tratte/volo-venezia-monaco-di-baviera": {
-   "uploaded": "2026-11-04T19:23:45.871Z",
-   "mtime": 1793811017411,
-   "preview": "2026-11-04T19:23:48.483Z"
+   "uploaded": "2026-11-05T00:20:37.827Z",
+   "mtime": 1793837169221,
+   "preview": "2026-11-05T00:20:40.175Z"
   },
   "/tratte/zurigo-francoforte": {
-   "uploaded": "2026-11-04T19:24:16.022Z",
-   "mtime": 1793811017505,
-   "preview": "2026-11-04T19:24:19.157Z"
+   "uploaded": "2026-11-05T00:20:45.992Z",
+   "mtime": 1793837169361,
+   "preview": "2026-11-05T00:20:48.233Z"
   },
   "/tratte/zurigo-monaco": {
-   "uploaded": "2026-11-04T19:24:21.383Z",
-   "mtime": 1793811017548,
-   "preview": "2026-11-04T19:24:23.462Z"
+   "uploaded": "2026-11-05T00:20:49.879Z",
+   "mtime": 1793837169424,
+   "preview": "2026-11-05T00:20:52.611Z"
   },
   "/destinazioni/francoforte/cosa-fare": {
    "uploaded": "2026-11-04T18:30:52.840Z",
@@ -1836,9 +1836,9 @@
    "preview": "2026-11-04T17:39:06.556Z"
   },
   "/en/index": {
-   "uploaded": "2026-11-04T22:07:49.540Z",
-   "mtime": 1793828818161,
-   "preview": "2026-11-04T22:07:52.212Z"
+   "uploaded": "2026-11-05T00:12:27.689Z",
+   "mtime": 1793834004073,
+   "preview": "2026-11-05T00:12:30.684Z"
   },
   "/en/accessibility-statement": {
    "uploaded": "2026-11-04T18:34:04.131Z",
@@ -2466,59 +2466,59 @@
    "preview": "2026-11-04T22:05:44.388Z"
   },
   "/en/routes/flight-frankfurt-graz": {
-   "uploaded": "2026-11-04T19:09:22.328Z",
-   "mtime": 1793810749660,
-   "preview": "2026-11-04T19:09:24.996Z"
+   "uploaded": "2026-11-05T00:12:32.380Z",
+   "mtime": 1793837153537,
+   "preview": "2026-11-05T00:12:35.026Z"
   },
   "/en/routes/flight-from-amsterdam-to-munich": {
-   "uploaded": "2026-11-04T19:09:26.796Z",
-   "mtime": 1793810749700,
-   "preview": "2026-11-04T19:09:28.849Z"
+   "uploaded": "2026-11-05T00:12:37.030Z",
+   "mtime": 1793837153583,
+   "preview": "2026-11-05T00:12:39.449Z"
   },
   "/en/routes/flight-from-cluj-to-munich": {
-   "uploaded": "2026-11-04T19:09:30.769Z",
-   "mtime": 1793810749743,
-   "preview": "2026-11-04T19:09:33.155Z"
+   "uploaded": "2026-11-05T00:12:41.164Z",
+   "mtime": 1793837153625,
+   "preview": "2026-11-05T00:12:43.935Z"
   },
   "/en/routes/flight-from-dresden-to-frankfurt": {
-   "uploaded": "2026-11-04T19:09:35.010Z",
-   "mtime": 1793810749786,
-   "preview": "2026-11-04T19:09:36.914Z"
+   "uploaded": "2026-11-05T00:12:45.450Z",
+   "mtime": 1793837153665,
+   "preview": "2026-11-05T00:12:48.251Z"
   },
   "/en/routes/flight-from-dresden-to-munich": {
-   "uploaded": "2026-11-04T19:09:38.916Z",
-   "mtime": 1793810749828,
-   "preview": "2026-11-04T19:09:40.883Z"
+   "uploaded": "2026-11-05T00:12:50.005Z",
+   "mtime": 1793837153719,
+   "preview": "2026-11-05T00:12:52.623Z"
   },
   "/en/routes/flight-from-frankfurt-to-basel": {
-   "uploaded": "2026-11-04T19:09:42.748Z",
-   "mtime": 1793810749962,
-   "preview": "2026-11-04T19:09:44.965Z"
+   "uploaded": "2026-11-05T00:12:54.179Z",
+   "mtime": 1793837153762,
+   "preview": "2026-11-05T00:12:56.741Z"
   },
   "/en/routes/flight-from-frankfurt-to-biarritz": {
-   "uploaded": "2026-11-04T19:09:47.393Z",
-   "mtime": 1793810750006,
-   "preview": "2026-11-04T19:09:49.549Z"
+   "uploaded": "2026-11-05T00:12:58.281Z",
+   "mtime": 1793837153804,
+   "preview": "2026-11-05T00:13:00.841Z"
   },
   "/en/routes/flight-from-frankfurt-to-bordeaux": {
-   "uploaded": "2026-11-04T19:09:51.628Z",
-   "mtime": 1793810750307,
-   "preview": "2026-11-04T19:09:53.655Z"
+   "uploaded": "2026-11-05T00:13:02.468Z",
+   "mtime": 1793837153844,
+   "preview": "2026-11-05T00:13:04.765Z"
   },
   "/en/routes/flight-from-frankfurt-to-cagliari": {
-   "uploaded": "2026-11-04T19:09:55.737Z",
-   "mtime": 1793810750359,
-   "preview": "2026-11-04T19:09:57.681Z"
+   "uploaded": "2026-11-05T00:13:06.454Z",
+   "mtime": 1793837153888,
+   "preview": "2026-11-05T00:13:09.046Z"
   },
   "/en/routes/flight-from-frankfurt-to-dresden": {
-   "uploaded": "2026-11-04T19:10:00.095Z",
-   "mtime": 1793810750402,
-   "preview": "2026-11-04T19:10:02.327Z"
+   "uploaded": "2026-11-05T00:13:10.770Z",
+   "mtime": 1793837153926,
+   "preview": "2026-11-05T00:13:13.901Z"
   },
   "/en/routes/flight-from-frankfurt-to-figari": {
-   "uploaded": "2026-11-04T19:10:04.514Z",
-   "mtime": 1793810750445,
-   "preview": "2026-11-04T19:10:06.697Z"
+   "uploaded": "2026-11-05T00:13:15.489Z",
+   "mtime": 1793837153966,
+   "preview": "2026-11-05T00:13:18.268Z"
   },
   "/en/routes/flight-from-frankfurt-to-florence": {
    "uploaded": "2026-11-04T19:10:09.173Z",
@@ -2526,309 +2526,309 @@
    "preview": "2026-11-04T19:10:11.367Z"
   },
   "/en/routes/flight-from-frankfurt-to-geneva": {
-   "uploaded": "2026-11-04T19:10:14.118Z",
-   "mtime": 1793810750528,
-   "preview": "2026-11-04T19:10:16.592Z"
+   "uploaded": "2026-11-05T00:13:19.861Z",
+   "mtime": 1793837154030,
+   "preview": "2026-11-05T00:13:22.194Z"
   },
   "/en/routes/flight-from-frankfurt-to-katowice": {
-   "uploaded": "2026-11-04T19:10:18.763Z",
-   "mtime": 1793810750573,
-   "preview": "2026-11-04T19:10:20.764Z"
+   "uploaded": "2026-11-05T00:13:24.031Z",
+   "mtime": 1793837154070,
+   "preview": "2026-11-05T00:13:26.625Z"
   },
   "/en/routes/flight-from-frankfurt-to-london-city": {
-   "uploaded": "2026-11-04T19:10:23.309Z",
-   "mtime": 1793810750624,
-   "preview": "2026-11-04T19:10:25.867Z"
+   "uploaded": "2026-11-05T00:13:28.103Z",
+   "mtime": 1793837154117,
+   "preview": "2026-11-05T00:13:30.479Z"
   },
   "/en/routes/flight-from-frankfurt-to-luxembourg": {
-   "uploaded": "2026-11-04T19:10:27.927Z",
-   "mtime": 1793810750670,
-   "preview": "2026-11-04T19:10:30.170Z"
+   "uploaded": "2026-11-05T00:13:32.114Z",
+   "mtime": 1793837154169,
+   "preview": "2026-11-05T00:13:34.488Z"
   },
   "/en/routes/flight-from-frankfurt-to-milan-linate": {
-   "uploaded": "2026-11-04T19:10:32.923Z",
-   "mtime": 1793810750718,
-   "preview": "2026-11-04T19:10:35.040Z"
+   "uploaded": "2026-11-05T00:13:36.291Z",
+   "mtime": 1793837154214,
+   "preview": "2026-11-05T00:13:38.749Z"
   },
   "/en/routes/flight-from-frankfurt-to-milan-malpensa": {
-   "uploaded": "2026-11-04T19:10:37.667Z",
-   "mtime": 1793810750764,
-   "preview": "2026-11-04T19:10:40.070Z"
+   "uploaded": "2026-11-05T00:13:40.252Z",
+   "mtime": 1793837154292,
+   "preview": "2026-11-05T00:13:42.557Z"
   },
   "/en/routes/flight-from-frankfurt-to-pisa": {
-   "uploaded": "2026-11-04T19:10:42.501Z",
-   "mtime": 1793810750812,
-   "preview": "2026-11-04T19:10:44.820Z"
+   "uploaded": "2026-11-05T00:13:44.439Z",
+   "mtime": 1793837154340,
+   "preview": "2026-11-05T00:13:47.407Z"
   },
   "/en/routes/flight-from-frankfurt-to-pula": {
-   "uploaded": "2026-11-04T19:10:46.617Z",
-   "mtime": 1793810750860,
-   "preview": "2026-11-04T19:10:48.804Z"
+   "uploaded": "2026-11-05T00:13:49.010Z",
+   "mtime": 1793837154388,
+   "preview": "2026-11-05T00:13:51.665Z"
   },
   "/en/routes/flight-from-frankfurt-to-trieste": {
-   "uploaded": "2026-11-04T19:10:51.951Z",
-   "mtime": 1793810750908,
-   "preview": "2026-11-04T19:10:54.296Z"
+   "uploaded": "2026-11-05T00:13:53.206Z",
+   "mtime": 1793837154431,
+   "preview": "2026-11-05T00:13:55.587Z"
   },
   "/en/routes/flight-from-frankfurt-to-turin": {
-   "uploaded": "2026-11-04T19:10:56.496Z",
-   "mtime": 1793810750959,
-   "preview": "2026-11-04T19:10:58.852Z"
+   "uploaded": "2026-11-05T00:13:57.198Z",
+   "mtime": 1793837154474,
+   "preview": "2026-11-05T00:13:59.683Z"
   },
   "/en/routes/flight-from-frankfurt-to-verona": {
-   "uploaded": "2026-11-04T19:11:00.624Z",
-   "mtime": 1793810751007,
-   "preview": "2026-11-04T19:11:02.666Z"
+   "uploaded": "2026-11-05T00:14:01.187Z",
+   "mtime": 1793837154517,
+   "preview": "2026-11-05T00:14:04.250Z"
   },
   "/en/routes/flight-from-frankfurt-to-wroclaw": {
-   "uploaded": "2026-11-04T19:11:04.602Z",
-   "mtime": 1793810751050,
-   "preview": "2026-11-04T19:11:06.740Z"
+   "uploaded": "2026-11-05T00:14:05.813Z",
+   "mtime": 1793837154556,
+   "preview": "2026-11-05T00:14:08.558Z"
   },
   "/en/routes/flight-from-frankfurt-to-zurich": {
-   "uploaded": "2026-11-04T19:11:08.683Z",
-   "mtime": 1793810751096,
-   "preview": "2026-11-04T19:11:10.850Z"
+   "uploaded": "2026-11-05T00:14:10.094Z",
+   "mtime": 1793837154598,
+   "preview": "2026-11-05T00:14:13.005Z"
   },
   "/en/routes/flight-from-geneva-to-frankfurt": {
-   "uploaded": "2026-11-04T19:11:12.908Z",
-   "mtime": 1793810751139,
-   "preview": "2026-11-04T19:11:15.761Z"
+   "uploaded": "2026-11-05T00:14:14.543Z",
+   "mtime": 1793837154640,
+   "preview": "2026-11-05T00:14:16.903Z"
   },
   "/en/routes/flight-from-geneva-to-munich": {
-   "uploaded": "2026-11-04T19:11:17.863Z",
-   "mtime": 1793810751181,
-   "preview": "2026-11-04T19:11:20.189Z"
+   "uploaded": "2026-11-05T00:14:18.659Z",
+   "mtime": 1793837154681,
+   "preview": "2026-11-05T00:14:21.219Z"
   },
   "/en/routes/flight-from-jersey-to-munich": {
-   "uploaded": "2026-11-04T19:11:21.893Z",
-   "mtime": 1793810751223,
-   "preview": "2026-11-04T19:11:23.950Z"
+   "uploaded": "2026-11-05T00:14:22.988Z",
+   "mtime": 1793837154724,
+   "preview": "2026-11-05T00:14:25.510Z"
   },
   "/en/routes/flight-from-katowice-to-frankfurt": {
-   "uploaded": "2026-11-04T19:11:26.157Z",
-   "mtime": 1793810751265,
-   "preview": "2026-11-04T19:11:28.181Z"
+   "uploaded": "2026-11-05T00:14:27.305Z",
+   "mtime": 1793837154761,
+   "preview": "2026-11-05T00:14:30.623Z"
   },
   "/en/routes/flight-from-krakow-to-munich": {
-   "uploaded": "2026-11-04T19:11:30.729Z",
-   "mtime": 1793810751312,
-   "preview": "2026-11-04T19:11:32.804Z"
+   "uploaded": "2026-11-05T00:14:32.413Z",
+   "mtime": 1793837154805,
+   "preview": "2026-11-05T00:14:34.943Z"
   },
   "/en/routes/flight-from-london-city-to-frankfurt": {
-   "uploaded": "2026-11-04T19:11:34.710Z",
-   "mtime": 1793810751357,
-   "preview": "2026-11-04T19:11:36.632Z"
+   "uploaded": "2026-11-05T00:14:37.143Z",
+   "mtime": 1793837154848,
+   "preview": "2026-11-05T00:14:39.138Z"
   },
   "/en/routes/flight-from-luxembourg-to-frankfurt": {
-   "uploaded": "2026-11-04T19:11:38.427Z",
-   "mtime": 1793810751417,
-   "preview": "2026-11-04T19:11:40.578Z"
+   "uploaded": "2026-11-05T00:14:40.628Z",
+   "mtime": 1793837154888,
+   "preview": "2026-11-05T00:14:43.288Z"
   },
   "/en/routes/flight-from-munich-to-amsterdam": {
-   "uploaded": "2026-11-04T19:11:42.339Z",
-   "mtime": 1793810751461,
-   "preview": "2026-11-04T19:11:44.388Z"
+   "uploaded": "2026-11-05T00:14:44.809Z",
+   "mtime": 1793837154928,
+   "preview": "2026-11-05T00:14:47.068Z"
   },
   "/en/routes/flight-from-munich-to-ancona": {
-   "uploaded": "2026-11-04T19:11:46.243Z",
-   "mtime": 1793810751508,
-   "preview": "2026-11-04T19:11:48.226Z"
+   "uploaded": "2026-11-05T00:14:48.541Z",
+   "mtime": 1793837155338,
+   "preview": "2026-11-05T00:14:51.440Z"
   },
   "/en/routes/flight-from-munich-to-bari": {
-   "uploaded": "2026-11-04T19:11:50.215Z",
-   "mtime": 1793810751558,
-   "preview": "2026-11-04T19:11:52.687Z"
+   "uploaded": "2026-11-05T00:14:52.925Z",
+   "mtime": 1793837155400,
+   "preview": "2026-11-05T00:14:55.204Z"
   },
   "/en/routes/flight-from-munich-to-bologna": {
-   "uploaded": "2026-11-04T19:11:55.134Z",
-   "mtime": 1793810751605,
-   "preview": "2026-11-04T19:11:57.066Z"
+   "uploaded": "2026-11-05T00:14:56.775Z",
+   "mtime": 1793837155441,
+   "preview": "2026-11-05T00:14:59.273Z"
   },
   "/en/routes/flight-from-munich-to-brindisi": {
-   "uploaded": "2026-11-04T19:11:59.044Z",
-   "mtime": 1793810751651,
-   "preview": "2026-11-04T19:12:01.387Z"
+   "uploaded": "2026-11-05T00:15:01.067Z",
+   "mtime": 1793837155484,
+   "preview": "2026-11-05T00:15:04.209Z"
   },
   "/en/routes/flight-from-munich-to-cluj": {
-   "uploaded": "2026-11-04T19:12:03.549Z",
-   "mtime": 1793810751697,
-   "preview": "2026-11-04T19:12:05.692Z"
+   "uploaded": "2026-11-05T00:15:05.840Z",
+   "mtime": 1793837155528,
+   "preview": "2026-11-05T00:15:08.204Z"
   },
   "/en/routes/flight-from-munich-to-dresden": {
-   "uploaded": "2026-11-04T19:12:08.023Z",
-   "mtime": 1793810751741,
-   "preview": "2026-11-04T19:12:09.904Z"
+   "uploaded": "2026-11-05T00:15:09.905Z",
+   "mtime": 1793837155571,
+   "preview": "2026-11-05T00:15:12.839Z"
   },
   "/en/routes/flight-from-munich-to-florence": {
-   "uploaded": "2026-11-04T19:12:12.506Z",
-   "mtime": 1793810751789,
-   "preview": "2026-11-04T19:12:14.583Z"
+   "uploaded": "2026-11-05T00:15:14.526Z",
+   "mtime": 1793837155617,
+   "preview": "2026-11-05T00:15:17.455Z"
   },
   "/en/routes/flight-from-munich-to-geneva": {
-   "uploaded": "2026-11-04T19:12:16.436Z",
-   "mtime": 1793810751836,
-   "preview": "2026-11-04T19:12:18.569Z"
+   "uploaded": "2026-11-05T00:15:19.090Z",
+   "mtime": 1793837155663,
+   "preview": "2026-11-05T00:15:21.850Z"
   },
   "/en/routes/flight-from-munich-to-jersey": {
-   "uploaded": "2026-11-04T19:12:20.758Z",
-   "mtime": 1793810751883,
-   "preview": "2026-11-04T19:12:22.929Z"
+   "uploaded": "2026-11-05T00:15:23.821Z",
+   "mtime": 1793837155707,
+   "preview": "2026-11-05T00:15:27.427Z"
   },
   "/en/routes/flight-from-munich-to-krakow": {
-   "uploaded": "2026-11-04T19:12:26.036Z",
-   "mtime": 1793810751928,
-   "preview": "2026-11-04T19:12:28.019Z"
+   "uploaded": "2026-11-05T00:15:29.173Z",
+   "mtime": 1793837155750,
+   "preview": "2026-11-05T00:15:31.621Z"
   },
   "/en/routes/flight-from-munich-to-palermo": {
-   "uploaded": "2026-11-04T19:12:30.146Z",
-   "mtime": 1793810751978,
-   "preview": "2026-11-04T19:12:32.517Z"
+   "uploaded": "2026-11-05T00:15:33.303Z",
+   "mtime": 1793837155794,
+   "preview": "2026-11-05T00:15:35.651Z"
   },
   "/en/routes/flight-from-munich-to-paris-orly": {
-   "uploaded": "2026-11-04T19:12:35.780Z",
-   "mtime": 1793810752020,
-   "preview": "2026-11-04T19:12:38.486Z"
+   "uploaded": "2026-11-05T00:15:37.355Z",
+   "mtime": 1793837155837,
+   "preview": "2026-11-05T00:15:39.630Z"
   },
   "/en/routes/flight-from-munich-to-pula": {
-   "uploaded": "2026-11-04T19:12:40.502Z",
-   "mtime": 1793810752107,
-   "preview": "2026-11-04T19:12:42.605Z"
+   "uploaded": "2026-11-05T00:15:41.347Z",
+   "mtime": 1793837155882,
+   "preview": "2026-11-05T00:15:43.996Z"
   },
   "/en/routes/flight-from-munich-to-turin": {
-   "uploaded": "2026-11-04T19:12:44.656Z",
-   "mtime": 1793810752155,
-   "preview": "2026-11-04T19:12:46.650Z"
+   "uploaded": "2026-11-05T00:15:45.634Z",
+   "mtime": 1793837155929,
+   "preview": "2026-11-05T00:15:47.978Z"
   },
   "/en/routes/flight-from-munich-to-venice": {
-   "uploaded": "2026-11-04T19:12:48.644Z",
-   "mtime": 1793810752205,
-   "preview": "2026-11-04T19:12:50.940Z"
+   "uploaded": "2026-11-05T00:15:50.052Z",
+   "mtime": 1793837155969,
+   "preview": "2026-11-05T00:15:52.722Z"
   },
   "/en/routes/flight-from-munich-to-verona": {
-   "uploaded": "2026-11-04T19:12:54.241Z",
-   "mtime": 1793810752256,
-   "preview": "2026-11-04T19:12:56.228Z"
+   "uploaded": "2026-11-05T00:15:54.287Z",
+   "mtime": 1793837156013,
+   "preview": "2026-11-05T00:15:56.520Z"
   },
   "/en/routes/flight-from-paris-orly-to-munich": {
-   "uploaded": "2026-11-04T19:12:58.088Z",
-   "mtime": 1793810752299,
-   "preview": "2026-11-04T19:12:59.960Z"
+   "uploaded": "2026-11-05T00:15:58.188Z",
+   "mtime": 1793837156054,
+   "preview": "2026-11-05T00:16:00.604Z"
   },
   "/en/routes/flight-from-pula-to-frankfurt": {
-   "uploaded": "2026-11-04T19:13:01.900Z",
-   "mtime": 1793810752347,
-   "preview": "2026-11-04T19:13:03.959Z"
+   "uploaded": "2026-11-05T00:16:02.248Z",
+   "mtime": 1793837156102,
+   "preview": "2026-11-05T00:16:04.633Z"
   },
   "/en/routes/flight-from-pula-to-munich": {
-   "uploaded": "2026-11-04T19:13:05.928Z",
-   "mtime": 1793810752390,
-   "preview": "2026-11-04T19:13:07.786Z"
+   "uploaded": "2026-11-05T00:16:06.270Z",
+   "mtime": 1793837156142,
+   "preview": "2026-11-05T00:16:08.726Z"
   },
   "/en/routes/flight-from-wroclaw-to-frankfurt": {
-   "uploaded": "2026-11-04T19:13:10.648Z",
-   "mtime": 1793810752433,
-   "preview": "2026-11-04T19:13:12.964Z"
+   "uploaded": "2026-11-05T00:16:10.498Z",
+   "mtime": 1793837156189,
+   "preview": "2026-11-05T00:16:12.889Z"
   },
   "/en/routes/flight-munich-milan-linate": {
-   "uploaded": "2026-11-04T19:13:15.131Z",
-   "mtime": 1793810752481,
-   "preview": "2026-11-04T19:13:17.251Z"
+   "uploaded": "2026-11-05T00:16:14.426Z",
+   "mtime": 1793837156238,
+   "preview": "2026-11-05T00:16:16.876Z"
   },
   "/en/routes/flight-munich-milan-malpensa": {
-   "uploaded": "2026-11-04T19:13:20.228Z",
-   "mtime": 1793810752525,
-   "preview": "2026-11-04T19:13:22.411Z"
+   "uploaded": "2026-11-05T00:16:18.607Z",
+   "mtime": 1793837156282,
+   "preview": "2026-11-05T00:16:20.790Z"
   },
   "/en/routes/flight-munich-olbia": {
-   "uploaded": "2026-11-04T19:13:24.411Z",
-   "mtime": 1793810752567,
-   "preview": "2026-11-04T19:13:26.459Z"
+   "uploaded": "2026-11-05T00:16:22.373Z",
+   "mtime": 1793837156328,
+   "preview": "2026-11-05T00:16:24.672Z"
   },
   "/en/routes/flight-munich-rijeka": {
-   "uploaded": "2026-11-04T19:13:29.226Z",
-   "mtime": 1793810752610,
-   "preview": "2026-11-04T19:13:31.407Z"
+   "uploaded": "2026-11-05T00:16:26.286Z",
+   "mtime": 1793837156370,
+   "preview": "2026-11-05T00:16:29.360Z"
   },
   "/en/routes/flights-frankfurt-birmingham": {
-   "uploaded": "2026-11-04T19:13:33.440Z",
-   "mtime": 1793810752661,
-   "preview": "2026-11-04T19:13:35.644Z"
+   "uploaded": "2026-11-05T00:16:30.937Z",
+   "mtime": 1793837156436,
+   "preview": "2026-11-05T00:16:33.521Z"
   },
   "/en/routes/flights-frankfurt-innsbruck": {
-   "uploaded": "2026-11-04T19:13:38.296Z",
-   "mtime": 1793810752707,
-   "preview": "2026-11-04T19:13:40.182Z"
+   "uploaded": "2026-11-05T00:16:35.057Z",
+   "mtime": 1793837156480,
+   "preview": "2026-11-05T00:16:37.599Z"
   },
   "/en/routes/flights-munich-genoa": {
-   "uploaded": "2026-11-04T19:13:42.431Z",
-   "mtime": 1793810752753,
-   "preview": "2026-11-04T19:13:44.609Z"
+   "uploaded": "2026-11-05T00:16:39.185Z",
+   "mtime": 1793837156520,
+   "preview": "2026-11-05T00:16:41.823Z"
   },
   "/en/routes/frankfurt-amsterdam-eu": {
-   "uploaded": "2026-11-04T19:13:46.478Z",
-   "mtime": 1793810752798,
-   "preview": "2026-11-04T19:13:48.548Z"
+   "uploaded": "2026-11-05T00:16:43.738Z",
+   "mtime": 1793837156565,
+   "preview": "2026-11-05T00:16:46.215Z"
   },
   "/en/routes/frankfurt-billund-eu": {
-   "uploaded": "2026-11-04T19:13:50.451Z",
-   "mtime": 1793810752852,
-   "preview": "2026-11-04T19:13:52.745Z"
+   "uploaded": "2026-11-05T00:16:47.762Z",
+   "mtime": 1793837156609,
+   "preview": "2026-11-05T00:16:50.430Z"
   },
   "/en/routes/frankfurt-bologna-eu": {
-   "uploaded": "2026-11-04T19:13:54.523Z",
-   "mtime": 1793810752932,
-   "preview": "2026-11-04T19:13:56.749Z"
+   "uploaded": "2026-11-05T00:16:52.234Z",
+   "mtime": 1793837156651,
+   "preview": "2026-11-05T00:16:54.936Z"
   },
   "/en/routes/frankfurt-prague": {
-   "uploaded": "2026-11-04T19:13:58.714Z",
-   "mtime": 1793810752978,
-   "preview": "2026-11-04T19:14:00.862Z"
+   "uploaded": "2026-11-05T00:16:56.453Z",
+   "mtime": 1793837156698,
+   "preview": "2026-11-05T00:16:59.170Z"
   },
   "/en/routes/frankfurt-to-lyon": {
-   "uploaded": "2026-11-04T19:14:02.966Z",
-   "mtime": 1793810753027,
-   "preview": "2026-11-04T19:14:05.023Z"
+   "uploaded": "2026-11-05T00:17:00.787Z",
+   "mtime": 1793837156739,
+   "preview": "2026-11-05T00:17:03.589Z"
   },
   "/en/routes/graz-frankfurt": {
-   "uploaded": "2026-11-04T19:14:06.960Z",
-   "mtime": 1793810753071,
-   "preview": "2026-11-04T19:14:08.992Z"
+   "uploaded": "2026-11-05T00:17:05.375Z",
+   "mtime": 1793837156780,
+   "preview": "2026-11-05T00:17:08.166Z"
   },
   "/en/routes/graz-munich": {
-   "uploaded": "2026-11-04T19:14:10.984Z",
-   "mtime": 1793810753123,
-   "preview": "2026-11-04T19:14:13.008Z"
+   "uploaded": "2026-11-05T00:17:09.743Z",
+   "mtime": 1793837156826,
+   "preview": "2026-11-05T00:17:12.321Z"
   },
   "/en/routes/munich-basel": {
-   "uploaded": "2026-11-04T19:14:15.125Z",
-   "mtime": 1793810753169,
-   "preview": "2026-11-04T19:14:17.326Z"
+   "uploaded": "2026-11-05T00:17:13.873Z",
+   "mtime": 1793837156871,
+   "preview": "2026-11-05T00:17:16.639Z"
   },
   "/en/routes/munich-billund": {
-   "uploaded": "2026-11-04T19:14:19.304Z",
-   "mtime": 1793810753216,
-   "preview": "2026-11-04T19:14:21.445Z"
+   "uploaded": "2026-11-05T00:17:18.161Z",
+   "mtime": 1793837156913,
+   "preview": "2026-11-05T00:17:20.854Z"
   },
   "/en/routes/munich-graz": {
-   "uploaded": "2026-11-04T19:14:23.475Z",
-   "mtime": 1793810753257,
-   "preview": "2026-11-04T19:14:25.410Z"
+   "uploaded": "2026-11-05T00:17:22.484Z",
+   "mtime": 1793837156955,
+   "preview": "2026-11-05T00:17:24.763Z"
   },
   "/en/routes/munich-ljubljana": {
-   "uploaded": "2026-11-04T19:14:27.858Z",
-   "mtime": 1793810753302,
-   "preview": "2026-11-04T19:14:29.793Z"
+   "uploaded": "2026-11-05T00:17:26.353Z",
+   "mtime": 1793837157039,
+   "preview": "2026-11-05T00:17:28.989Z"
   },
   "/en/routes/munich-luxembourg": {
-   "uploaded": "2026-11-04T19:14:31.756Z",
-   "mtime": 1793810753348,
-   "preview": "2026-11-04T19:14:33.940Z"
+   "uploaded": "2026-11-05T00:17:30.565Z",
+   "mtime": 1793837157082,
+   "preview": "2026-11-05T00:17:32.799Z"
   },
   "/en/routes/munich-zurich": {
-   "uploaded": "2026-11-04T19:14:36.376Z",
-   "mtime": 1793810753394,
-   "preview": "2026-11-04T19:14:38.387Z"
+   "uploaded": "2026-11-05T00:17:34.428Z",
+   "mtime": 1793837157123,
+   "preview": "2026-11-05T00:17:38.290Z"
   },
   "/en/destinations/amsterdam-eu": {
    "uploaded": "2026-11-04T18:53:29.122Z",
@@ -4756,9 +4756,9 @@
    "preview": "2026-11-04T21:55:41.060Z"
   },
   "/de/index": {
-   "uploaded": "2026-11-04T21:56:09.857Z",
-   "mtime": 1793828798877,
-   "preview": "2026-11-04T21:56:12.604Z"
+   "uploaded": "2026-11-05T00:07:00.347Z",
+   "mtime": 1793834004143,
+   "preview": "2026-11-05T00:07:02.935Z"
   },
   "/de/economy-basic-tarif": {
    "uploaded": "2026-11-04T18:02:30.974Z",
@@ -5341,379 +5341,379 @@
    "preview": "2026-11-04T21:55:28.009Z"
   },
   "/de/routen/munchen-graz": {
-   "uploaded": "2026-11-04T18:29:21.425Z",
-   "mtime": 1793810992506,
-   "preview": "2026-11-04T18:29:23.731Z"
+   "uploaded": "2026-11-05T00:12:18.800Z",
+   "mtime": 1793837141462,
+   "preview": "2026-11-05T00:12:21.485Z"
   },
   "/de/routen/graz-munchen": {
-   "uploaded": "2026-11-04T18:28:51.246Z",
-   "mtime": 1793810992158,
-   "preview": "2026-11-04T18:28:53.515Z"
+   "uploaded": "2026-11-05T00:11:47.913Z",
+   "mtime": 1793837140586,
+   "preview": "2026-11-05T00:11:50.111Z"
   },
   "/de/routen/flug-von-frankfurt-nach-graz": {
-   "uploaded": "2026-11-04T18:24:57.835Z",
-   "mtime": 1793810989199,
-   "preview": "2026-11-04T18:24:59.836Z"
+   "uploaded": "2026-11-05T00:07:59.924Z",
+   "mtime": 1793837135379,
+   "preview": "2026-11-05T00:08:02.214Z"
   },
   "/de/routen/graz-frankfurt-de": {
-   "uploaded": "2026-11-04T18:28:46.962Z",
-   "mtime": 1793810992109,
-   "preview": "2026-11-04T18:28:49.364Z"
+   "uploaded": "2026-11-05T00:11:42.147Z",
+   "mtime": 1793837140487,
+   "preview": "2026-11-05T00:11:46.356Z"
   },
   "/de/routen/flug-von-muenchen-nach-olbia": {
-   "uploaded": "2026-11-04T18:27:31.886Z",
-   "mtime": 1793810991172,
-   "preview": "2026-11-04T18:27:34.327Z"
+   "uploaded": "2026-11-05T00:10:24.985Z",
+   "mtime": 1793837138699,
+   "preview": "2026-11-05T00:10:27.235Z"
   },
   "/de/routen/flug-von-munchen-genua": {
-   "uploaded": "2026-11-04T18:28:00.296Z",
-   "mtime": 1793810991529,
-   "preview": "2026-11-04T18:28:02.902Z"
+   "uploaded": "2026-11-05T00:10:55.177Z",
+   "mtime": 1793837139517,
+   "preview": "2026-11-05T00:10:57.530Z"
   },
   "/de/routen/flug-von-muenchen-nach-brindisi": {
-   "uploaded": "2026-11-04T18:26:52.730Z",
-   "mtime": 1793810990711,
-   "preview": "2026-11-04T18:26:55.348Z"
+   "uploaded": "2026-11-05T00:09:47.073Z",
+   "mtime": 1793837137932,
+   "preview": "2026-11-05T00:09:49.413Z"
   },
   "/de/routen/muenchen-basel": {
-   "uploaded": "2026-11-04T18:28:59.712Z",
-   "mtime": 1793810992252,
-   "preview": "2026-11-04T18:29:01.912Z"
+   "uploaded": "2026-11-05T00:11:56.499Z",
+   "mtime": 1793837140736,
+   "preview": "2026-11-05T00:11:59.140Z"
   },
   "/de/routen/muenchen-zuerich": {
-   "uploaded": "2026-11-04T18:29:12.412Z",
-   "mtime": 1793810992401,
-   "preview": "2026-11-04T18:29:14.510Z"
+   "uploaded": "2026-11-05T00:12:09.485Z",
+   "mtime": 1793837140996,
+   "preview": "2026-11-05T00:12:12.186Z"
   },
   "/de/routen/muenchen-luxemburg": {
-   "uploaded": "2026-11-04T18:29:08.259Z",
-   "mtime": 1793810992352,
-   "preview": "2026-11-04T18:29:10.531Z"
+   "uploaded": "2026-11-05T00:12:05.014Z",
+   "mtime": 1793837140912,
+   "preview": "2026-11-05T00:12:07.908Z"
   },
   "/de/routen/frankfurt-amsterdam-de": {
-   "uploaded": "2026-11-04T18:28:21.676Z",
-   "mtime": 1793810991774,
-   "preview": "2026-11-04T18:28:23.684Z"
+   "uploaded": "2026-11-05T00:11:16.185Z",
+   "mtime": 1793837139934,
+   "preview": "2026-11-05T00:11:18.937Z"
   },
   "/de/routen/muenchen-ljubljana-laibach": {
-   "uploaded": "2026-11-04T18:29:03.819Z",
-   "mtime": 1793810992301,
-   "preview": "2026-11-04T18:29:05.846Z"
+   "uploaded": "2026-11-05T00:12:00.664Z",
+   "mtime": 1793837140829,
+   "preview": "2026-11-05T00:12:03.339Z"
   },
   "/de/routen/frankfurt-prag": {
-   "uploaded": "2026-11-04T18:28:42.814Z",
-   "mtime": 1793810992059,
-   "preview": "2026-11-04T18:28:44.875Z"
+   "uploaded": "2026-11-05T00:11:37.992Z",
+   "mtime": 1793837140388,
+   "preview": "2026-11-05T00:11:40.349Z"
   },
   "/de/routen/frankfurt-birmingham": {
-   "uploaded": "2026-11-04T18:28:30.140Z",
-   "mtime": 1793810991913,
-   "preview": "2026-11-04T18:28:32.254Z"
+   "uploaded": "2026-11-05T00:11:24.799Z",
+   "mtime": 1793837140106,
+   "preview": "2026-11-05T00:11:27.489Z"
   },
   "/de/routen/frankfurt-billund": {
-   "uploaded": "2026-11-04T18:28:26.021Z",
-   "mtime": 1793810991826,
-   "preview": "2026-11-04T18:28:28.119Z"
+   "uploaded": "2026-11-05T00:11:20.613Z",
+   "mtime": 1793837140021,
+   "preview": "2026-11-05T00:11:23.057Z"
   },
   "/de/routen/flug-muenchen-rijeka": {
-   "uploaded": "2026-11-04T18:24:02.244Z",
-   "mtime": 1793810988532,
-   "preview": "2026-11-04T18:24:04.736Z"
+   "uploaded": "2026-11-05T00:07:04.787Z",
+   "mtime": 1793837134256,
+   "preview": "2026-11-05T00:07:07.117Z"
   },
   "/de/routen/flug-von-frankfurt-nach-bordeaux": {
-   "uploaded": "2026-11-04T18:24:31.520Z",
-   "mtime": 1793810988876,
-   "preview": "2026-11-04T18:24:33.623Z"
+   "uploaded": "2026-11-05T00:07:34.618Z",
+   "mtime": 1793837134852,
+   "preview": "2026-11-05T00:07:37.129Z"
   },
   "/de/routen/flug-von-frankfurt-nach-biarritz": {
-   "uploaded": "2026-11-04T18:24:27.436Z",
-   "mtime": 1793810988832,
-   "preview": "2026-11-04T18:24:29.528Z"
+   "uploaded": "2026-11-05T00:07:30.163Z",
+   "mtime": 1793837134768,
+   "preview": "2026-11-05T00:07:32.881Z"
   },
   "/de/routen/flug-von-frankfurt-nach-zuerich": {
-   "uploaded": "2026-11-04T18:25:56.272Z",
-   "mtime": 1793810989832,
-   "preview": "2026-11-04T18:25:58.433Z"
+   "uploaded": "2026-11-05T00:08:54.136Z",
+   "mtime": 1793837136521,
+   "preview": "2026-11-05T00:08:56.716Z"
   },
   "/de/routen/flug-von-frankfurt-nach-figari": {
-   "uploaded": "2026-11-04T18:24:44.103Z",
-   "mtime": 1793810989024,
-   "preview": "2026-11-04T18:24:46.091Z"
+   "uploaded": "2026-11-05T00:07:47.247Z",
+   "mtime": 1793837135108,
+   "preview": "2026-11-05T00:07:50.111Z"
   },
   "/de/routen/munchen-billund": {
-   "uploaded": "2026-11-04T18:29:16.755Z",
-   "mtime": 1793810992451,
-   "preview": "2026-11-04T18:29:19.289Z"
+   "uploaded": "2026-11-05T00:12:14.310Z",
+   "mtime": 1793837141356,
+   "preview": "2026-11-05T00:12:17.299Z"
   },
   "/de/routen/lyon-frankfurt": {
-   "uploaded": "2026-11-04T18:28:55.565Z",
-   "mtime": 1793810992202,
-   "preview": "2026-11-04T18:28:57.855Z"
+   "uploaded": "2026-11-05T00:11:51.988Z",
+   "mtime": 1793837140653,
+   "preview": "2026-11-05T00:11:54.889Z"
   },
   "/de/routen/frankfurt-bologna": {
-   "uploaded": "2026-11-04T18:28:34.680Z",
-   "mtime": 1793810991961,
-   "preview": "2026-11-04T18:28:36.714Z"
+   "uploaded": "2026-11-05T00:11:29.411Z",
+   "mtime": 1793837140190,
+   "preview": "2026-11-05T00:11:32.341Z"
   },
   "/de/routen/frankfurt-lyon": {
-   "uploaded": "2026-11-04T18:28:38.636Z",
-   "mtime": 1793810992010,
-   "preview": "2026-11-04T18:28:40.779Z"
+   "uploaded": "2026-11-05T00:11:34.068Z",
+   "mtime": 1793837140304,
+   "preview": "2026-11-05T00:11:36.382Z"
   },
   "/de/routen/flug-von-frankfurt-nach-basel": {
-   "uploaded": "2026-11-04T18:24:23.340Z",
-   "mtime": 1793810988787,
-   "preview": "2026-11-04T18:24:25.445Z"
+   "uploaded": "2026-11-05T00:07:25.687Z",
+   "mtime": 1793837134678,
+   "preview": "2026-11-05T00:07:28.575Z"
   },
   "/de/routen/flug-von-frankfurt-nach-cagliari": {
-   "uploaded": "2026-11-04T18:24:35.392Z",
-   "mtime": 1793810988927,
-   "preview": "2026-11-04T18:24:37.872Z"
+   "uploaded": "2026-11-05T00:07:38.646Z",
+   "mtime": 1793837134941,
+   "preview": "2026-11-05T00:07:41.655Z"
   },
   "/de/routen/flug-von-pula-nach-frankfurt": {
-   "uploaded": "2026-11-04T18:28:08.813Z",
-   "mtime": 1793810991626,
-   "preview": "2026-11-04T18:28:10.947Z"
+   "uploaded": "2026-11-05T00:11:03.162Z",
+   "mtime": 1793837139684,
+   "preview": "2026-11-05T00:11:05.529Z"
   },
   "/de/routen/flug-von-frankfurt-nach-pula": {
-   "uploaded": "2026-11-04T18:25:34.201Z",
-   "mtime": 1793810989589,
-   "preview": "2026-11-04T18:25:36.456Z"
+   "uploaded": "2026-11-05T00:08:32.401Z",
+   "mtime": 1793837136079,
+   "preview": "2026-11-05T00:08:34.877Z"
   },
   "/de/routen/flug-von-pula-nach-muenchen": {
-   "uploaded": "2026-11-04T18:28:12.996Z",
-   "mtime": 1793810991678,
-   "preview": "2026-11-04T18:28:15.116Z"
+   "uploaded": "2026-11-05T00:11:07.198Z",
+   "mtime": 1793837139770,
+   "preview": "2026-11-05T00:11:10.305Z"
   },
   "/de/routen/flug-von-muenchen-nach-pula": {
-   "uploaded": "2026-11-04T18:27:44.558Z",
-   "mtime": 1793810991334,
-   "preview": "2026-11-04T18:27:46.735Z"
+   "uploaded": "2026-11-05T00:10:37.985Z",
+   "mtime": 1793837138985,
+   "preview": "2026-11-05T00:10:40.309Z"
   },
   "/de/routen/flug-von-muenchen-nach-palermo": {
-   "uploaded": "2026-11-04T18:27:36.437Z",
-   "mtime": 1793810991238,
-   "preview": "2026-11-04T18:27:38.589Z"
+   "uploaded": "2026-11-05T00:10:28.833Z",
+   "mtime": 1793837138815,
+   "preview": "2026-11-05T00:10:31.442Z"
   },
   "/de/routen/flug-von-muenchen-nach-ancona": {
-   "uploaded": "2026-11-04T18:26:39.218Z",
-   "mtime": 1793810990549,
-   "preview": "2026-11-04T18:26:41.873Z"
+   "uploaded": "2026-11-05T00:09:34.814Z",
+   "mtime": 1793837137363,
+   "preview": "2026-11-05T00:09:37.250Z"
   },
   "/de/routen/flug-von-amsterdam-nach-muenchen": {
-   "uploaded": "2026-11-04T18:24:06.836Z",
-   "mtime": 1793810988581,
-   "preview": "2026-11-04T18:24:09.019Z"
+   "uploaded": "2026-11-05T00:07:09.079Z",
+   "mtime": 1793837134341,
+   "preview": "2026-11-05T00:07:11.685Z"
   },
   "/de/routen/flug-von-muenchen-nach-amsterdam": {
-   "uploaded": "2026-11-04T18:26:34.737Z",
-   "mtime": 1793810990498,
-   "preview": "2026-11-04T18:26:37.017Z"
+   "uploaded": "2026-11-05T00:09:31.040Z",
+   "mtime": 1793837137273,
+   "preview": "2026-11-05T00:09:33.379Z"
   },
   "/de/routen/flug-von-genf-nach-frankfurt": {
-   "uploaded": "2026-11-04T18:26:00.576Z",
-   "mtime": 1793810989943,
-   "preview": "2026-11-04T18:26:02.777Z"
+   "uploaded": "2026-11-05T00:08:58.156Z",
+   "mtime": 1793837136605,
+   "preview": "2026-11-05T00:09:00.473Z"
   },
   "/de/routen/flug-von-frankfurt-nach-genf": {
-   "uploaded": "2026-11-04T18:24:53.458Z",
-   "mtime": 1793810989142,
-   "preview": "2026-11-04T18:24:55.665Z"
+   "uploaded": "2026-11-05T00:07:55.767Z",
+   "mtime": 1793837135279,
+   "preview": "2026-11-05T00:07:58.187Z"
   },
   "/de/routen/flug-von-london-city-airport-nach-frankfurt": {
-   "uploaded": "2026-11-04T18:26:26.403Z",
-   "mtime": 1793810990402,
-   "preview": "2026-11-04T18:26:28.620Z"
+   "uploaded": "2026-11-05T00:09:22.869Z",
+   "mtime": 1793837137109,
+   "preview": "2026-11-05T00:09:25.436Z"
   },
   "/de/routen/flug-von-frankfurt-nach-london-city": {
-   "uploaded": "2026-11-04T18:25:10.928Z",
-   "mtime": 1793810989343,
-   "preview": "2026-11-04T18:25:13.370Z"
+   "uploaded": "2026-11-05T00:08:11.941Z",
+   "mtime": 1793837135623,
+   "preview": "2026-11-05T00:08:14.140Z"
   },
   "/de/routen/flug-von-genf-nach-muenchen": {
-   "uploaded": "2026-11-04T18:26:04.939Z",
-   "mtime": 1793810990160,
-   "preview": "2026-11-04T18:26:07.140Z"
+   "uploaded": "2026-11-05T00:09:01.983Z",
+   "mtime": 1793837136690,
+   "preview": "2026-11-05T00:09:04.777Z"
   },
   "/de/routen/flug-von-muenchen-nach-genf": {
-   "uploaded": "2026-11-04T18:27:10.502Z",
-   "mtime": 1793810990921,
-   "preview": "2026-11-04T18:27:13.014Z"
+   "uploaded": "2026-11-05T00:10:03.896Z",
+   "mtime": 1793837138271,
+   "preview": "2026-11-05T00:10:06.197Z"
   },
   "/de/routen/flug-von-krakau-nach-muenchen": {
-   "uploaded": "2026-11-04T18:26:22.319Z",
-   "mtime": 1793810990349,
-   "preview": "2026-11-04T18:26:24.460Z"
+   "uploaded": "2026-11-05T00:09:18.433Z",
+   "mtime": 1793837136989,
+   "preview": "2026-11-05T00:09:21.336Z"
   },
   "/de/routen/flug-von-muenchen-nach-krakau": {
-   "uploaded": "2026-11-04T18:27:19.006Z",
-   "mtime": 1793810991022,
-   "preview": "2026-11-04T18:27:21.109Z"
+   "uploaded": "2026-11-05T00:10:11.917Z",
+   "mtime": 1793837138440,
+   "preview": "2026-11-05T00:10:14.812Z"
   },
   "/de/routen/flug-von-muenchen-nach-jersey": {
-   "uploaded": "2026-11-04T18:27:14.652Z",
-   "mtime": 1793810990973,
-   "preview": "2026-11-04T18:27:16.949Z"
+   "uploaded": "2026-11-05T00:10:07.864Z",
+   "mtime": 1793837138359,
+   "preview": "2026-11-05T00:10:10.294Z"
   },
   "/de/routen/flug-von-jersey-nach-muenchen": {
-   "uploaded": "2026-11-04T18:26:13.636Z",
-   "mtime": 1793810990253,
-   "preview": "2026-11-04T18:26:15.810Z"
+   "uploaded": "2026-11-05T00:09:10.412Z",
+   "mtime": 1793837136833,
+   "preview": "2026-11-05T00:09:12.744Z"
   },
   "/de/routen/flug-von-dresden-nach-muenchen": {
-   "uploaded": "2026-11-04T18:24:19.131Z",
-   "mtime": 1793810988738,
-   "preview": "2026-11-04T18:24:21.418Z"
+   "uploaded": "2026-11-05T00:07:21.390Z",
+   "mtime": 1793837134589,
+   "preview": "2026-11-05T00:07:24.091Z"
   },
   "/de/routen/flug-von-muenchen-nach-dresden": {
-   "uploaded": "2026-11-04T18:27:01.217Z",
-   "mtime": 1793810990825,
-   "preview": "2026-11-04T18:27:03.434Z"
+   "uploaded": "2026-11-05T00:09:55.264Z",
+   "mtime": 1793837138107,
+   "preview": "2026-11-05T00:09:58.140Z"
   },
   "/de/routen/flug-von-paris-orly-nach-muenchen": {
-   "uploaded": "2026-11-04T18:28:04.880Z",
-   "mtime": 1793810991577,
-   "preview": "2026-11-04T18:28:06.842Z"
+   "uploaded": "2026-11-05T00:10:59.023Z",
+   "mtime": 1793837139601,
+   "preview": "2026-11-05T00:11:01.512Z"
   },
   "/de/routen/flug-von-muenchen-nach-paris-orly": {
-   "uploaded": "2026-11-04T18:27:40.345Z",
-   "mtime": 1793810991285,
-   "preview": "2026-11-04T18:27:42.593Z"
+   "uploaded": "2026-11-05T00:10:32.945Z",
+   "mtime": 1793837138900,
+   "preview": "2026-11-05T00:10:35.367Z"
   },
   "/de/routen/flug-von-muenchen-nach-cluj": {
-   "uploaded": "2026-11-04T18:26:57.237Z",
-   "mtime": 1793810990760,
-   "preview": "2026-11-04T18:26:59.357Z"
+   "uploaded": "2026-11-05T00:09:51.036Z",
+   "mtime": 1793837138022,
+   "preview": "2026-11-05T00:09:53.665Z"
   },
   "/de/routen/flug-von-cluj-nach-muenchen": {
-   "uploaded": "2026-11-04T18:24:10.833Z",
-   "mtime": 1793810988644,
-   "preview": "2026-11-04T18:24:12.984Z"
+   "uploaded": "2026-11-05T00:07:13.294Z",
+   "mtime": 1793837134419,
+   "preview": "2026-11-05T00:07:15.947Z"
   },
   "/de/routen/flug-von-innsbruck-nach-frankfurt": {
-   "uploaded": "2026-11-04T18:26:09.113Z",
-   "mtime": 1793810990204,
-   "preview": "2026-11-04T18:26:11.434Z"
+   "uploaded": "2026-11-05T00:09:06.272Z",
+   "mtime": 1793837136753,
+   "preview": "2026-11-05T00:09:08.862Z"
   },
   "/de/routen/flug-von-frankfurt-nach-luxemburg": {
-   "uploaded": "2026-11-04T18:25:15.593Z",
-   "mtime": 1793810989391,
-   "preview": "2026-11-04T18:25:18.136Z"
+   "uploaded": "2026-11-05T00:08:15.693Z",
+   "mtime": 1793837135705,
+   "preview": "2026-11-05T00:08:18.208Z"
   },
   "/de/routen/flug-von-luxemburg-nach-frankfurt": {
-   "uploaded": "2026-11-04T18:26:30.833Z",
-   "mtime": 1793810990449,
-   "preview": "2026-11-04T18:26:32.691Z"
+   "uploaded": "2026-11-05T00:09:26.887Z",
+   "mtime": 1793837137185,
+   "preview": "2026-11-05T00:09:29.467Z"
   },
   "/de/routen/flug-von-dresden-nach-frankfurt": {
-   "uploaded": "2026-11-04T18:24:14.902Z",
-   "mtime": 1793810988689,
-   "preview": "2026-11-04T18:24:17.103Z"
+   "uploaded": "2026-11-05T00:07:17.488Z",
+   "mtime": 1793837134505,
+   "preview": "2026-11-05T00:07:19.746Z"
   },
   "/de/routen/flug-von-frankfurt-nach-dresden": {
-   "uploaded": "2026-11-04T18:24:39.815Z",
-   "mtime": 1793810988974,
-   "preview": "2026-11-04T18:24:42.055Z"
+   "uploaded": "2026-11-05T00:07:43.337Z",
+   "mtime": 1793837135028,
+   "preview": "2026-11-05T00:07:45.683Z"
   },
   "/de/routen/flug-von-frankfurt-nach-wroclaw": {
-   "uploaded": "2026-11-04T18:25:52.178Z",
-   "mtime": 1793810989784,
-   "preview": "2026-11-04T18:25:54.382Z"
+   "uploaded": "2026-11-05T00:08:48.978Z",
+   "mtime": 1793837136426,
+   "preview": "2026-11-05T00:08:52.693Z"
   },
   "/de/routen/flug-von-wroclaw-nach-frankfurt": {
-   "uploaded": "2026-11-04T18:28:17.477Z",
-   "mtime": 1793810991721,
-   "preview": "2026-11-04T18:28:19.834Z"
+   "uploaded": "2026-11-05T00:11:12.011Z",
+   "mtime": 1793837139853,
+   "preview": "2026-11-05T00:11:14.448Z"
   },
   "/de/routen/flug-von-kattowitz-nach-frankfurt": {
-   "uploaded": "2026-11-04T18:26:17.969Z",
-   "mtime": 1793810990298,
-   "preview": "2026-11-04T18:26:20.269Z"
+   "uploaded": "2026-11-05T00:09:14.399Z",
+   "mtime": 1793837136909,
+   "preview": "2026-11-05T00:09:16.843Z"
   },
   "/de/routen/flug-von-frankfurt-nach-kattowitz": {
-   "uploaded": "2026-11-04T18:25:06.478Z",
-   "mtime": 1793810989291,
-   "preview": "2026-11-04T18:25:08.824Z"
+   "uploaded": "2026-11-05T00:08:07.535Z",
+   "mtime": 1793837135543,
+   "preview": "2026-11-05T00:08:10.416Z"
   },
   "/de/routen/flug-von-frankfurt-nach-triest": {
-   "uploaded": "2026-11-04T18:25:39.024Z",
-   "mtime": 1793810989639,
-   "preview": "2026-11-04T18:25:41.331Z"
+   "uploaded": "2026-11-05T00:08:36.501Z",
+   "mtime": 1793837136164,
+   "preview": "2026-11-05T00:08:39.231Z"
   },
   "/de/routen/flug-von-frankfurt-nach-mailand-linate": {
-   "uploaded": "2026-11-04T18:25:20.366Z",
-   "mtime": 1793810989441,
-   "preview": "2026-11-04T18:25:22.704Z"
+   "uploaded": "2026-11-05T00:08:19.837Z",
+   "mtime": 1793837135790,
+   "preview": "2026-11-05T00:08:22.737Z"
   },
   "/de/routen/flug-von-frankfurt-nach-mailand-malpensa": {
-   "uploaded": "2026-11-04T18:25:24.920Z",
-   "mtime": 1793810989489,
-   "preview": "2026-11-04T18:25:27.455Z"
+   "uploaded": "2026-11-05T00:08:24.453Z",
+   "mtime": 1793837135882,
+   "preview": "2026-11-05T00:08:26.924Z"
   },
   "/de/routen/flug-von-frankfurt-nach-innsbruck": {
-   "uploaded": "2026-11-04T18:25:01.828Z",
-   "mtime": 1793810989245,
-   "preview": "2026-11-04T18:25:04.421Z"
+   "uploaded": "2026-11-05T00:08:03.925Z",
+   "mtime": 1793837135462,
+   "preview": "2026-11-05T00:08:06.104Z"
   },
   "/de/routen/flug-von-frankfurt-nach-pisa": {
-   "uploaded": "2026-11-04T18:25:29.925Z",
-   "mtime": 1793810989539,
-   "preview": "2026-11-04T18:25:32.351Z"
+   "uploaded": "2026-11-05T00:08:28.579Z",
+   "mtime": 1793837135988,
+   "preview": "2026-11-05T00:08:30.831Z"
   },
   "/de/routen/flug-von-frankfurt-nach-turin": {
-   "uploaded": "2026-11-04T18:25:43.418Z",
-   "mtime": 1793810989687,
-   "preview": "2026-11-04T18:25:45.640Z"
+   "uploaded": "2026-11-05T00:08:40.802Z",
+   "mtime": 1793837136248,
+   "preview": "2026-11-05T00:08:43.412Z"
   },
   "/de/routen/flug-von-frankfurt-nach-florenz": {
-   "uploaded": "2026-11-04T18:24:48.306Z",
-   "mtime": 1793810989073,
-   "preview": "2026-11-04T18:24:50.562Z"
+   "uploaded": "2026-11-05T00:07:51.680Z",
+   "mtime": 1793837135189,
+   "preview": "2026-11-05T00:07:54.051Z"
   },
   "/de/routen/flug-von-frankfurt-nach-verona": {
-   "uploaded": "2026-11-04T18:25:47.734Z",
-   "mtime": 1793810989736,
-   "preview": "2026-11-04T18:25:49.913Z"
+   "uploaded": "2026-11-05T00:08:44.944Z",
+   "mtime": 1793837136337,
+   "preview": "2026-11-05T00:08:47.077Z"
   },
   "/de/routen/flug-von-muenchen-nach-verona": {
-   "uploaded": "2026-11-04T18:27:56.144Z",
-   "mtime": 1793810991478,
-   "preview": "2026-11-04T18:27:58.151Z"
+   "uploaded": "2026-11-05T00:10:50.356Z",
+   "mtime": 1793837139411,
+   "preview": "2026-11-05T00:10:53.488Z"
   },
   "/de/routen/flug-von-muenchen-nach-venedig": {
-   "uploaded": "2026-11-04T18:27:52.426Z",
-   "mtime": 1793810991431,
-   "preview": "2026-11-04T18:27:54.371Z"
+   "uploaded": "2026-11-05T00:10:46.180Z",
+   "mtime": 1793837139150,
+   "preview": "2026-11-05T00:10:48.671Z"
   },
   "/de/routen/flug-von-muenchen-nach-turin": {
-   "uploaded": "2026-11-04T18:27:48.411Z",
-   "mtime": 1793810991381,
-   "preview": "2026-11-04T18:27:50.253Z"
+   "uploaded": "2026-11-05T00:10:42.114Z",
+   "mtime": 1793837139067,
+   "preview": "2026-11-05T00:10:44.521Z"
   },
   "/de/routen/flug-von-muenchen-nach-mailand-malpensa": {
-   "uploaded": "2026-11-04T18:27:27.538Z",
-   "mtime": 1793810991122,
-   "preview": "2026-11-04T18:27:29.751Z"
+   "uploaded": "2026-11-05T00:10:21.143Z",
+   "mtime": 1793837138604,
+   "preview": "2026-11-05T00:10:23.490Z"
   },
   "/de/routen/flug-von-muenchen-nach-mailand-linate": {
-   "uploaded": "2026-11-04T18:27:23.205Z",
-   "mtime": 1793810991070,
-   "preview": "2026-11-04T18:27:25.532Z"
+   "uploaded": "2026-11-05T00:10:16.822Z",
+   "mtime": 1793837138522,
+   "preview": "2026-11-05T00:10:19.374Z"
   },
   "/de/routen/flug-von-muenchen-nach-florenz": {
-   "uploaded": "2026-11-04T18:27:06.456Z",
-   "mtime": 1793810990870,
-   "preview": "2026-11-04T18:27:08.485Z"
+   "uploaded": "2026-11-05T00:09:59.624Z",
+   "mtime": 1793837138189,
+   "preview": "2026-11-05T00:10:02.083Z"
   },
   "/de/routen/flug-von-muenchen-nach-bologna": {
-   "uploaded": "2026-11-04T18:26:48.221Z",
-   "mtime": 1793810990658,
-   "preview": "2026-11-04T18:26:50.708Z"
+   "uploaded": "2026-11-05T00:09:42.945Z",
+   "mtime": 1793837137528,
+   "preview": "2026-11-05T00:09:45.638Z"
   },
   "/de/routen/flug-von-muenchen-nach-bari": {
-   "uploaded": "2026-11-04T18:26:43.859Z",
-   "mtime": 1793810990608,
-   "preview": "2026-11-04T18:26:46.350Z"
+   "uploaded": "2026-11-05T00:09:38.938Z",
+   "mtime": 1793837137443,
+   "preview": "2026-11-05T00:09:41.442Z"
   },
   "/de/reiseziele/muenchen": {
    "uploaded": "2026-11-04T21:59:35.689Z",
@@ -7676,19 +7676,19 @@
    "preview": "2026-11-04T17:49:33.422Z"
   },
   "/prenotazioni": {
-   "uploaded": "2026-11-04T19:18:55.310Z",
-   "mtime": 1793811014493,
-   "preview": "2026-11-04T19:18:57.493Z"
+   "uploaded": "2026-11-05T00:17:44.667Z",
+   "mtime": 1793834004207,
+   "preview": "2026-11-05T00:17:47.329Z"
   },
   "/en/booking": {
-   "uploaded": "2026-11-04T18:52:55.158Z",
-   "mtime": 1793810739792,
-   "preview": "2026-11-04T18:52:56.974Z"
+   "uploaded": "2026-11-05T00:12:23.289Z",
+   "mtime": 1793837148691,
+   "preview": "2026-11-05T00:12:25.564Z"
   },
   "/de/buchung": {
-   "uploaded": "2026-11-04T18:02:13.376Z",
-   "mtime": 1793810976233,
-   "preview": "2026-11-04T18:02:15.510Z"
+   "uploaded": "2026-11-05T00:06:56.358Z",
+   "mtime": 1793837116513,
+   "preview": "2026-11-05T00:06:58.767Z"
   },
   "/stato-volo": {
    "uploaded": "2026-11-04T19:20:09.831Z",
