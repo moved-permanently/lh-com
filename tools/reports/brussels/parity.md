@@ -31,8 +31,9 @@ Pages, both languages (our paths are www's):
 
 Kinds: **theme** (styles/themes/brussels.css), **document** (lh-brussels in DA, uploaded and
 previewed, not published), **shared code** (lh-com's blocks, every brand), **environment** (this
-network or the services behind it). Sizes are 390 / 1440 px. The theme fixes are 05d6f97b; the
-documents (be/en and be/fr: homepage, nav) are on preview, listed in `preview-378.txt`.
+network or the services behind it). Sizes are 390 / 1440 px. The theme fixes are 5098fd4f and
+the commit after it (the feedback question); the documents (be/en and be/fr: homepage, nav,
+contact) are on preview, listed in `preview-378.txt`.
 
 | # | Where | www | Ours (before) | Kind | Owner | Status |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -60,7 +61,7 @@ documents (be/en and be/fr: homepage, nav) are on preview, listed in `preview-37
 | P22 | Flight search labels | en "Economy, 1 traveller"; fr "Economy, 1 Voyageur", "Départ - retour", "Rechercher" | "Economy, 1 Traveller"; "Economy, 1 passager", "Aller - Retour", "Rechercher des vols" | document | lh-brussels documents | fixed: the block's label rows on be/en and be/fr/homepage |
 | P23 | Phones, fr: "Vols directs uniquement" | on its own line under the travellers | wraps to two lines beside them | theme | Brussels theme | open: the shared phone grid puts both in one row; www wraps only when the row is full |
 | P24 | Travellers panel | a modal: tabs Travel details / Redeem miles, a travel class select, steppers, "Alternative fare selection" (three radios), an access code field, Continue | lh-com's dropdown: steppers, a class select, Done | shared code | a Brussels passenger-picker variant (brand-scoped JS) | open: new work, not in this pass |
-| P25 | Contact | "Is there a link missing? Yes / No" under the requests | none | shared code | lh-com shared code (a feedback block; www sends it to its own service) | open |
+| P25 | Contact | "Is there a topic missing?" (18 px bold), a 14 px note ("Please note that your feedback will not be answered…"), Yes / No as a square segmented control, 48 px high, sn-blue-3 | none | document, theme | lh-brussels documents; Brussels theme | fixed: the feedback block (ema-adobe's, brief 380) on be/en and be/fr/contact with www's texts; its Brussels look in the theme. Render-only, as on SWISS: nothing is sent |
 | P26 | Copy column on content pages (upgrades, check-in, families) | the text in a 927 px column at 1440 | the first section 938 px, the later ones (upgrades' "How can I acquire", the accordion) 1264 px | document | lh-brussels documents (the importer's column marks) | open: a re-import with snapshots |
 | P27 | Homepage conditions | "General Conditions" as a link under the icon tiles | the conditions' full text under the destination finder (the finder is empty here: P14) | document | lh-brussels documents | open: to check with the finder loaded |
 | P28 | Footer | — | the same (links, columns, social icons, legal row) | — | — | no change |

@@ -2,3 +2,5 @@
 /be/fr/homepage
 /be/en/nav
 /be/fr/nav
+/be/en/contact
+/be/fr/contact

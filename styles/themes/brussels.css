@@ -242,6 +242,32 @@ body.brand-brussels .cards-icon:not(.usp) .cards-icon-label {
   color: var(--lh-midnight);
 }
 
+/* the feedback question (contact: "Is there a topic missing?"): the question 18 / 22 px bold,
+   the note 14 / 21 px with 40 px below, the answers square, 48 px high, sn-blue-3 */
+body.brand-brussels .feedback .feedback-label {
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 22px;
+}
+
+body.brand-brussels .feedback .feedback-note {
+  margin-bottom: 40px;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+body.brand-brussels .feedback .feedback-options {
+  border-radius: 0;
+}
+
+body.brand-brussels .feedback .feedback-option {
+  min-width: 0;
+  min-height: 48px;
+  padding: 12px 15px;
+  color: var(--lh-marble-blue);
+}
+
 /*
  * the menu (the side panel, www's homepage menu states): white; the tabs sn-blue-3 (the open one
  * sn-blue-4), the group titles sngrey8, the links and the extras Brussels red 16 / 22 px regular
