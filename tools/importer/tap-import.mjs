@@ -155,24 +155,31 @@ export function linkOf(href, c) {
 /**
  * BySide's card HTML as captured (the call-back card's title, text, schedule and small print):
  * its bold, emphasis, line breaks and links (a page in scope ours, the others as www has them);
- * any other tag dropped, its text kept.
+ * any other tag dropped, its text kept. The space before a line break a no-break space: the
+ * pipeline drops a plain one there, and where the break is hidden (the title on phones, as
+ * BySide's window) the words keep their gap.
  */
 export function bysideHtml(v, c) {
-  return String(v || '').replace(/<(script|style)\b[\s\S]*?<\/\1>/gi, '').split(/(<[^>]*>)/).map((x) => {
-    if (!x.startsWith('<')) return x.replace(/</g, '&lt;').replace(/>/g, '&gt;');
-    const t = x.match(/^<(\/?)([a-z]+)\b([^>]*)>$/i);
-    if (!t) return '';
-    const [, close, tag, rest] = t;
-    const name = { b: 'strong', strong: 'strong', i: 'em', em: 'em' }[tag.toLowerCase()];
-    if (name) return `<${close}${name}>`;
-    if (tag.toLowerCase() === 'br') return close ? '' : '<br>';
-    if (tag.toLowerCase() !== 'a') return '';
-    if (close) return '</a>';
-    const href = (rest.match(/\bhref\s*=\s*"([^"]*)"/i) || [])[1];
-    if (!href) return '<a>';
-    const local = linkOf(href.replace(/&amp;/g, '&'), c);
-    return `<a href="${attr(local.startsWith('/') ? local : href.replace(/&amp;/g, '&'))}">`;
-  }).join('');
+  return String(v || '').replace(/<(script|style)\b[\s\S]*?<\/\1>/gi, '').replace(/[ \t]+(<br\s*\/?>)/gi, '&nbsp;$1')
+    .split(/(<[^>]*>)/)
+    .map((x) => {
+      if (!x.startsWith('<')) return x.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      const t = x.match(/^<(\/?)([a-z]+)\b([^>]*)>$/i);
+      if (!t) return '';
+      const [, close, tag, rest] = t;
+      const name = {
+        b: 'strong', strong: 'strong', i: 'em', em: 'em',
+      }[tag.toLowerCase()];
+      if (name) return `<${close}${name}>`;
+      if (tag.toLowerCase() === 'br') return close ? '' : '<br>';
+      if (tag.toLowerCase() !== 'a') return '';
+      if (close) return '</a>';
+      const href = (rest.match(/\bhref\s*=\s*"([^"]*)"/i) || [])[1];
+      if (!href) return '<a>';
+      const local = linkOf(href.replace(/&amp;/g, '&'), c);
+      return `<a href="${attr(local.startsWith('/') ? local : href.replace(/&amp;/g, '&'))}">`;
+    })
+    .join('');
 }
 
 /** The anchors of a page (www's ids: the FAQ's categories, Anchor components) → our heading ids. */

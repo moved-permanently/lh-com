@@ -958,7 +958,10 @@ describe('tap-import pages', () => {
     assert.ok(b, 'a click-to-call block');
     const rows = Object.fromEntries([...b.querySelectorAll(':scope > div')].map((r) => [r.children[0].textContent, r.children[1]]));
     assert.deepEqual(Object.keys(rows), ['Title', 'Text', 'Schedule', 'Hours', 'Button', 'Button outside hours', 'Phone', 'Days', 'Slots', 'Small print', 'Image', 'Mobile image', 'Floating button', 'Link'], 'the README\'s rows, in its order');
-    assert.equal(rows.Title.innerHTML, 'Deixe-se abraçar pelos <br>benefícios do Club', 'www\'s line break');
+    // www's line break, the space before it a no-break space (the pipeline drops a plain one before
+    // a break; the theme hides the break on phones, as BySide's window, and the words keep their gap)
+    assert.equal(rows.Title.querySelectorAll('br').length, 1, 'www\'s line break');
+    assert.equal(rows.Title.textContent, 'Deixe-se abraçar pelos\u00a0benefícios do Club');
     assert.equal(rows.Text.querySelector('p strong').textContent, 'contacto consigo gratuitamente', 'www\'s bold');
     assert.ok(!rows.Text.innerHTML.includes('script') && !rows.Text.textContent.includes('x()'), 'no script');
     assert.equal(rows.Schedule.querySelector('strong').textContent, 'Horário:');
