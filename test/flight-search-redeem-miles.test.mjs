@@ -6,7 +6,7 @@
    (three points, "Continue with login" to the replica's login page, the note, "Become a member"
    to the brand's Miles & More enrolment) and Book Award Flights (three points, "Search award
    flights" to miles-and-more.com, the note); no Continue under it. Brussels and SWISS only
-   (scripts/brands.js travellersDialog.redeemMiles); Austrian's window keeps its one tab.
+   (scripts/brands.js travellersDialog.redeemMiles); Austrian's since capture redeem-miles-002.
    Values are compared as strings and booleans, never as DOM nodes (a failed node comparison
    prints the whole DOM). Run: node --max-old-space-size=256 --test test/flight-search-redeem-miles.test.mjs */
 /* global globalThis */
@@ -60,10 +60,10 @@ const key = (node, k) => {
   return node.dispatchEvent(e);
 };
 
-test('the switch: Brussels and SWISS have the tab, Austrian\'s window not', () => {
-  assert.ok(BRANDS.brussels.travellersDialog.redeemMiles, 'brussels');
-  assert.ok(BRANDS.swiss.travellersDialog.redeemMiles, 'swiss');
-  assert.equal(Boolean(BRANDS.austrian.travellersDialog.redeemMiles), false, 'austrian');
+test('the switch: Brussels, SWISS and Austrian have the tab; no other brand', () => {
+  ['brussels', 'swiss', 'austrian'].forEach((k) => assert.ok(BRANDS[k].travellersDialog.redeemMiles, k));
+  Object.keys(BRANDS).filter((k) => !['brussels', 'swiss', 'austrian'].includes(k))
+    .forEach((k) => assert.equal(Boolean(BRANDS[k].travellersDialog && BRANDS[k].travellersDialog.redeemMiles), false, k));
 });
 
 test('Brussels be/en: two tabs; Redeem miles shows www\'s panel and hides Continue', async () => {
@@ -181,11 +181,28 @@ test('SWISS ch/de and ch/en: its targets; the award search filled (accent), as w
   assert.equal(miles.querySelector('a.flight-search-miles-member').getAttribute('href'), 'https://swiss.miles-and-more.com/web/row/en/enrolment.html?client_id=sAwlvrK8fb55GvHqM5Me9iAWpF9rchZL&redirect_uri=https://www.swiss.com');
 });
 
-test('Austrian at/en: its window keeps the one tab', async () => {
+test('Austrian at/en and at/de (capture redeem-miles-002): the tab with the group\'s texts; its login pages, enrolment and award search', async () => {
   at('austrian.turnsthe.page', '/at/en/homepage', 'austrian');
-  const dialog = dialogOf(await built());
-  assert.deepEqual(tabsOf(dialog).map(text), ['Travel details']);
-  assert.equal(dialog.querySelectorAll('.flight-search-miles').length, 0);
+  let dialog = dialogOf(await built());
+  let tabs = tabsOf(dialog);
+  assert.deepEqual(tabs.map(text), ['Travel details', 'Redeem miles']);
+  let miles = panelOf(dialog, tabs[1]);
+  assert.equal(text(miles.querySelector('h3')), 'Choose from two ways to use your miles.');
+  assert.equal(text(miles.querySelector('a.flight-search-miles-login')), 'Continue with login');
+  assert.equal(miles.querySelector('a.flight-search-miles-login').getAttribute('href'), '/at/en/login');
+  assert.equal(miles.querySelector('a.flight-search-miles-member').getAttribute('href'), 'https://austrian.miles-and-more.com/web/row/en/enrolment.html?client_id=dFquxAQT637lrYALS9UKBMieeibyGaVQ&redirect_uri=https://www.austrian.com');
+  const awards = miles.querySelector('a.flight-search-miles-awards-link');
+  assert.equal(awards.getAttribute('href'), 'https://www.miles-and-more.com/de/de/spend/flights.html');
+  assert.ok(awards.classList.contains('secondary'));
+  at('austrian.turnsthe.page', '/at/de/homepage', 'austrian');
+  dialog = dialogOf(await built());
+  tabs = tabsOf(dialog);
+  assert.deepEqual(tabs.map(text), ['Reisedetails', 'Meilen einlösen']);
+  miles = panelOf(dialog, tabs[1]);
+  assert.equal(text(miles.querySelector('a.flight-search-miles-login')), 'Weiter mit Login');
+  assert.equal(miles.querySelector('a.flight-search-miles-login').getAttribute('href'), '/at/de/anmeldung');
+  assert.equal(miles.querySelector('a.flight-search-miles-member').getAttribute('href'), 'https://austrian.miles-and-more.com/web/row/de/enrolment.html?client_id=dFquxAQT637lrYALS9UKBMieeibyGaVQ&redirect_uri=https://www.austrian.com');
+  assert.equal(miles.querySelector('a.flight-search-miles-awards-link').getAttribute('href'), 'https://www.miles-and-more.com/de/de/spend/flights.html');
 });
 
 test('SWISS ch/fr and Brussels de/de (capture redeem-miles-002): the borrowed texts; ch/fr\'s enrolment SWISS\'s French page (www\'s link goes to Lufthansa\'s German one)', async () => {
