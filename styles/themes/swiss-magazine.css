@@ -1,0 +1,705 @@
+/*
+ * SWISS Magazine (/magazine/<ll>/ on SWISS's site): www.swiss.com's own magazine design, loaded on
+ * the magazine's pages only (scripts/site-languages.js SUB_SITES theme, scripts/brand.js
+ * loadSubSiteTheme), after styles/themes/swiss.css; every rule under body.brand-swiss.sub-site-magazine.
+ * Values from swiss-parity-001 (magazine-en/de and the a350 article at 1440 and 390, rendered from
+ * the archive with www's CSS, brief 400): CH Sans for headings, labels and the lead (SwissHead:
+ * Bold, Light, Regular), Pensum Pro (www's serif) for the articles' copy; black text, lxgrey1
+ * #f2f2f2 bands and chips; the header white over the page's first picture (home: the hero,
+ * article: the feature image; elsewhere a dark #333 bar), a 72 px bar; the lists in a 790 px column; the article's copy in a
+ * 766 px column with the breadcrumb under the picture. www's advertisement slots and the offline
+ * reading tooltip are left out. Pensum Pro: www's file at www's own path from the site's host
+ * (lh-edge has no route for it yet: Georgia shows; www.swiss.com refuses the font to other sites,
+ * so there is no www fallback).
+ */
+/* stylelint-disable no-descending-specificity -- scoped by page part (header, home, article) and block; page order */
+@font-face {
+  font-family: "Pensum Pro";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src:
+    url('/etc.clientlibs/swissstoryhub/clientlibs/clientlib-site/resources/fonts/Pensum-Pro-Regular.woff') format('woff');
+}
+
+body.brand-swiss.sub-site-magazine {
+  --magazine-header-height: 72px;
+  --magazine-column: 790px;
+  --magazine-copy: 766px;
+  --magazine-edge: 48px;
+  --magazine-band: #f2f2f2;
+  --magazine-serif: "Pensum Pro", georgia, serif;
+  --carousel-dot-current-color: #c00;
+}
+
+/* ---------------------------------------------------------------- header over the picture */
+
+body.brand-swiss.sub-site-magazine:has(main .hero-card-overlay, main .article-header) header {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 1001;
+  height: 0;
+}
+
+/* every magazine page: www's dark bar (#333, its menu's), white text and logo */
+body.brand-swiss.sub-site-magazine header .nav-wrapper {
+  background: #333;
+  box-shadow: none;
+
+  --nav-bar-text: #fff;
+  --nav-bar-text-hover: #fff;
+  --nav-text: #fff;
+}
+
+/* over the first picture (home, sections, articles): transparent, a shade for the white text */
+body.brand-swiss.sub-site-magazine:has(main .hero-card-overlay, main .article-header) header .nav-wrapper {
+  position: absolute;
+  background: linear-gradient(180deg, rgb(0 0 0 / 45%), rgb(0 0 0 / 0%));
+}
+
+body.brand-swiss.sub-site-magazine header .nav-wrapper.is-hidden {
+  transform: none;
+}
+
+body.brand-swiss.sub-site-magazine header .nav-bar {
+  flex-wrap: nowrap;
+  max-width: none;
+  min-height: var(--magazine-header-height);
+  padding: 32px var(--magazine-edge) 0;
+}
+
+body.brand-swiss.sub-site-magazine header .nav-brand a {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  line-height: 40px;
+  text-decoration: none;
+}
+
+body.brand-swiss.sub-site-magazine header .nav-brand img {
+  height: 40px;
+}
+
+/* www's "Magazine" next to the logo (the same word in German) */
+body.brand-swiss.sub-site-magazine header .nav-brand a::after {
+  content: "Magazine";
+  color: #fff;
+  font-family: var(--heading-font-family);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 40px;
+}
+
+body.brand-swiss.sub-site-magazine header .nav-quick {
+  flex: 0 0 auto;
+  order: 2;
+  width: auto;
+  margin-left: auto;
+}
+
+body.brand-swiss.sub-site-magazine header .nav-quick ul {
+  gap: 20px;
+  padding: 0;
+}
+
+body.brand-swiss.sub-site-magazine header .nav-quick-link {
+  padding: 6px 0;
+  font-family: var(--heading-font-family);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 28.8px;
+}
+
+body.brand-swiss.sub-site-magazine header .nav-tools {
+  order: 3;
+  height: 40px;
+  margin-left: 48px;
+}
+
+body.brand-swiss.sub-site-magazine header .nav-tools :is(.nav-tool, .nav-languages-button, .nav-menu-button) {
+  height: 40px;
+  padding-block: 0;
+}
+
+/* the tools as www's icons (their names stay for screen readers) */
+body.brand-swiss.sub-site-magazine header :is(.nav-tool-label, .nav-languages-current) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+body.brand-swiss.sub-site-magazine header :is(.nav-menu-button, .nav-languages-button, .nav-divider) {
+  color: #fff;
+}
+
+body.brand-swiss.sub-site-magazine header .nav-divider {
+  display: none;
+}
+
+/* ---------------------------------------------------------------- home: the hero */
+
+body.brand-swiss.sub-site-magazine main > .section:first-child {
+  margin: 0;
+  padding-block: 0;
+}
+
+body.brand-swiss.sub-site-magazine main > .section:first-child > :is(.hero-card-overlay-wrapper, .article-header-wrapper) {
+  margin: 0;
+  padding-top: 0;
+}
+
+body.brand-swiss.sub-site-magazine .hero-card-overlay {
+  aspect-ratio: auto;
+}
+
+body.brand-swiss.sub-site-magazine .hero-card-overlay .hero-card-overlay-media {
+  position: relative;
+  inset: auto;
+  aspect-ratio: 16 / 9;
+}
+
+body.brand-swiss.sub-site-magazine .hero-card-overlay .hero-card-overlay-media::after {
+  content: "";
+  position: absolute;
+  inset: 40% 0 0;
+  background: linear-gradient(180deg, rgb(0 0 0 / 0%), rgb(0 0 0 / 55%));
+  pointer-events: none;
+}
+
+body.brand-swiss.sub-site-magazine .hero-card-overlay .hero-card-overlay-card {
+  position: absolute;
+  inset: auto 0 0;
+  width: auto;
+  max-width: none;
+  margin: 0;
+  padding: 0 273.6px 24px var(--magazine-edge);
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  color: #fff;
+}
+
+body.brand-swiss.sub-site-magazine .hero-card-overlay .hero-card-overlay-card .hero-card-overlay-eyebrow {
+  display: inline-block;
+  margin: 0 0 16px;
+  padding: 4px 12px;
+  background: #fff;
+  color: #000;
+  font-family: var(--heading-font-family);
+  font-size: 16px;
+  font-weight: 300;
+  line-height: normal;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+body.brand-swiss.sub-site-magazine .hero-card-overlay .hero-card-overlay-card :is(h1, h2) {
+  margin: 0;
+  color: #fff;
+  font-family: var(--heading-font-family);
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 52px;
+}
+
+body.brand-swiss.sub-site-magazine .hero-card-overlay .hero-card-overlay-card :is(h1, h2) a:any-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ---------------------------------------------------------------- home: the Top Stories band */
+
+body.brand-swiss.sub-site-magazine main > .section.grey {
+  margin: 0;
+  padding: 80px 0 0 var(--magazine-edge);
+  overflow: clip;
+  background: var(--magazine-band);
+}
+
+body.brand-swiss.sub-site-magazine main > .section.grey > div {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+body.brand-swiss.sub-site-magazine main :is(h2, .default-content-wrapper > h2) {
+  margin: 0 0 32px;
+  color: #000;
+  font-family: var(--heading-font-family);
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 46px;
+}
+
+body.brand-swiss.sub-site-magazine main h2 a:any-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+body.brand-swiss.sub-site-magazine .carousel-cards .carousel-cards-slide {
+  flex-basis: 392px;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+
+body.brand-swiss.sub-site-magazine .carousel-cards .carousel-cards-image {
+  aspect-ratio: 3 / 2;
+  border-radius: 0;
+}
+
+body.brand-swiss.sub-site-magazine .carousel-cards .carousel-cards-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+body.brand-swiss.sub-site-magazine .carousel-cards .carousel-cards-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 16px 0 0;
+}
+
+body.brand-swiss.sub-site-magazine .carousel-cards .carousel-cards-body > :is(h2, h3) {
+  order: 1;
+  margin: 0 0 24px;
+  color: #000;
+  font-family: var(--heading-font-family);
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 37px;
+}
+
+body.brand-swiss.sub-site-magazine .carousel-cards .carousel-cards-body > :is(h2, h3) a:any-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* the category chip under the title, white on the band */
+body.brand-swiss.sub-site-magazine .carousel-cards .carousel-cards-body > .carousel-cards-eyebrow {
+  order: 2;
+  margin: 0;
+  padding: 4px 12px;
+  background: #fff;
+  color: #101010;
+  font-family: var(--heading-font-family);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+body.brand-swiss.sub-site-magazine main > .section.grey .carousel-cards {
+  padding-bottom: 67px;
+}
+
+/* ---------------------------------------------------------------- home: the lists */
+
+body.brand-swiss.sub-site-magazine main > .section:not(.grey, :has(.hero-card-overlay, .carousel-cards)):has(.blog-overview) {
+  max-width: var(--magazine-copy);
+  margin: 0 auto;
+  padding: 80px 48px 0;
+  box-sizing: content-box;
+}
+
+body.brand-swiss.sub-site-magazine main > .section:not(.grey, :has(.hero-card-overlay, .carousel-cards)):has(.blog-overview) > div {
+  max-width: none;
+  padding: 0;
+}
+
+/* a section's page (its hero and lists in one section, not split as the home): the headings and
+   lists in the same column */
+body.brand-swiss.sub-site-magazine main > .section:has(.hero-card-overlay):has(.blog-overview) > :is(.default-content-wrapper, .blog-overview-wrapper) {
+  max-width: var(--magazine-copy);
+  margin-inline: auto;
+  padding-inline: 0;
+}
+
+body.brand-swiss.sub-site-magazine .blog-overview {
+  padding-inline: 0;
+}
+
+body.brand-swiss.sub-site-magazine .blog-overview.grid .blog-overview-list {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 47px 24px;
+}
+
+body.brand-swiss.sub-site-magazine .blog-overview.grid .blog-overview-card {
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+
+body.brand-swiss.sub-site-magazine .blog-overview.grid .blog-overview-image {
+  border-radius: 0;
+  aspect-ratio: 3 / 2;
+}
+
+body.brand-swiss.sub-site-magazine .blog-overview.grid .blog-overview-details {
+  align-items: flex-start;
+  gap: 0;
+  padding: 16px 0 0;
+}
+
+body.brand-swiss.sub-site-magazine .blog-overview.grid .blog-overview-title {
+  order: 1;
+  margin: 0 0 24px;
+  color: #000;
+  font-family: var(--heading-font-family);
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 37px;
+}
+
+body.brand-swiss.sub-site-magazine .blog-overview.grid .blog-overview-chip {
+  order: 2;
+  padding: 4px 12px;
+  border-radius: 0;
+  background: var(--magazine-band);
+  color: #101010;
+  font-family: var(--heading-font-family);
+  font-size: 16px;
+  line-height: normal;
+}
+
+/* www's lists show no date */
+body.brand-swiss.sub-site-magazine .blog-overview.grid .blog-overview-date {
+  display: none;
+}
+
+/* variant stories (the home's lists: www's teaser containers): no pages, the More Stories link */
+body.brand-swiss.sub-site-magazine .blog-overview.stories :is(.blog-overview-pagination, .blog-overview-load-more) {
+  display: none;
+}
+
+body.brand-swiss.sub-site-magazine main .default-content-wrapper > p.link-wrapper:has(> a:only-child) {
+  max-width: none;
+  margin: 0 0 80px;
+  text-align: center;
+}
+
+body.brand-swiss.sub-site-magazine main .default-content-wrapper > p.link-wrapper > a:any-link::before {
+  content: none;
+}
+
+body.brand-swiss.sub-site-magazine main .default-content-wrapper > p.link-wrapper > a:any-link {
+  color: #101010;
+  font-family: var(--heading-font-family);
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+body.brand-swiss.sub-site-magazine main .default-content-wrapper > p.link-wrapper > a:any-link::after {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-left: 8px;
+  background: #c00;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 2v20l14-10z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+body.brand-swiss.sub-site-magazine main .default-content-wrapper > p.link-wrapper > a:hover {
+  text-decoration: underline;
+}
+
+/* ---------------------------------------------------------------- article */
+
+body.brand-swiss.sub-site-magazine main > .section:has(.article-header) {
+  position: relative;
+}
+
+/* the article's carousels peek past the column, not past the page */
+body.brand-swiss.sub-site-magazine main:has(.article-header) > .section {
+  overflow-x: clip;
+}
+
+/* the breadcrumb under the feature picture (16:9 of the page's width; 2:3 on phones) */
+body.brand-swiss.sub-site-magazine main > .section:has(.article-header) > .breadcrumb-wrapper {
+  position: absolute;
+  inset: calc(100vw * 9 / 16 + 24px) 0 auto;
+  max-width: none;
+  padding: 0 var(--magazine-edge);
+}
+
+body.brand-swiss.sub-site-magazine main > .section:has(.article-header) > .article-header-wrapper {
+  order: 1;
+}
+
+/* a section or category page: the breadcrumb right under its hero, in the flow */
+body.brand-swiss.sub-site-magazine main > .section:has(> .breadcrumb-wrapper):has(> .hero-card-overlay-wrapper) {
+  display: flex;
+  flex-direction: column;
+}
+
+body.brand-swiss.sub-site-magazine main > .section:has(> .breadcrumb-wrapper):has(> .hero-card-overlay-wrapper) > * {
+  order: 2;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+body.brand-swiss.sub-site-magazine main > .section:has(> .breadcrumb-wrapper):has(> .hero-card-overlay-wrapper) > .hero-card-overlay-wrapper {
+  order: 0;
+}
+
+body.brand-swiss.sub-site-magazine main > .section:has(> .breadcrumb-wrapper):has(> .hero-card-overlay-wrapper) > .breadcrumb-wrapper {
+  order: 1;
+  max-width: none;
+  margin: 0;
+  padding: 24px var(--magazine-edge) 0;
+}
+
+body.brand-swiss.sub-site-magazine .breadcrumb {
+  --breadcrumb-top: 0;
+  --breadcrumb-font-size: 18px;
+  --breadcrumb-line-height: 33px;
+  --breadcrumb-parent-color: #6f6660;
+  --breadcrumb-hover-color: #101010;
+  --breadcrumb-chevron-color: #c00;
+  --breadcrumb-current-color: #c00;
+
+  font-family: var(--heading-font-family);
+}
+
+body.brand-swiss.sub-site-magazine .breadcrumb a:any-link {
+  font-weight: 300;
+}
+
+body.brand-swiss.sub-site-magazine .article-header .article-header-media {
+  aspect-ratio: 16 / 9;
+}
+
+body.brand-swiss.sub-site-magazine .article-header .article-header-panel {
+  max-width: var(--magazine-copy);
+  margin: 0 auto;
+  padding: 133px 0 0;
+  background: none;
+}
+
+body.brand-swiss.sub-site-magazine .article-header .article-header-tags {
+  gap: 0 8px;
+  margin: 0 0 40px;
+}
+
+body.brand-swiss.sub-site-magazine .article-header .article-header-tags li {
+  padding: 5px;
+  margin: 0 0 10px;
+}
+
+body.brand-swiss.sub-site-magazine .article-header .article-header-tags :is(a:any-link, span) {
+  height: auto;
+  padding: 7px 12px;
+  border: 0;
+  border-radius: 0;
+  background: var(--magazine-band);
+  color: #101010;
+  font-family: var(--heading-font-family);
+  font-size: 16px;
+  line-height: normal;
+}
+
+body.brand-swiss.sub-site-magazine .article-header .article-header-tags :is(a:any-link, span)::before {
+  content: '#';
+}
+
+body.brand-swiss.sub-site-magazine .article-header .article-header-title {
+  margin: 0 0 32px;
+  color: #000;
+  font-size: 42px;
+  line-height: 52px;
+}
+
+body.brand-swiss.sub-site-magazine .article-header .article-header-intro {
+  max-width: none;
+  margin: 0 0 32px;
+  color: #000;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 31.2px;
+}
+
+body.brand-swiss.sub-site-magazine .article-header .article-header-meta {
+  display: none;
+}
+
+/* the copy: Pensum Pro 18 px in the 766 px column */
+body.brand-swiss.sub-site-magazine main:has(.article-header) > .section > :is(.default-content-wrapper, .embed-wrapper, .carousel-images-wrapper, .related-articles-wrapper) {
+  max-width: calc(var(--magazine-copy) + 24px);
+  padding: 0 12px;
+}
+
+body.brand-swiss.sub-site-magazine main:has(.article-header) .default-content-wrapper > :is(p, ul, ol) {
+  max-width: none;
+  margin: 0 0 16px;
+  color: #000;
+  font-family: var(--magazine-serif);
+  font-size: 18px;
+  line-height: 1.4;
+  letter-spacing: 0;
+}
+
+body.brand-swiss.sub-site-magazine main:has(.article-header) .default-content-wrapper > p:has(> strong:only-child) {
+  margin-top: 40px;
+  font-family: var(--heading-font-family);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 30px;
+}
+
+/* captions: an italic paragraph after a picture, video or carousel */
+body.brand-swiss.sub-site-magazine main:has(.article-header) .default-content-wrapper > p:has(> em:only-child) {
+  color: #101010;
+  font-family: var(--heading-font-family);
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 18px;
+}
+
+body.brand-swiss.sub-site-magazine main:has(.article-header) .default-content-wrapper > p:has(> em:only-child) em {
+  font-style: normal;
+}
+
+/* More Stories: the cards as the lists' */
+body.brand-swiss.sub-site-magazine .related-articles .related-articles-list {
+  gap: 47px 24px;
+}
+
+body.brand-swiss.sub-site-magazine .related-articles .related-articles-list > li {
+  flex: 1 1 calc(50% - 12px);
+  max-width: calc(50% - 12px);
+  margin: 0;
+}
+
+body.brand-swiss.sub-site-magazine .related-articles .related-articles-card {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+
+body.brand-swiss.sub-site-magazine .related-articles .related-articles-image {
+  aspect-ratio: 3 / 2;
+  border-radius: 0;
+}
+
+body.brand-swiss.sub-site-magazine .related-articles .related-articles-byline {
+  display: none;
+}
+
+body.brand-swiss.sub-site-magazine .related-articles .related-articles-title {
+  display: block;
+  margin: 16px 0 0;
+  -webkit-line-clamp: none;
+  line-clamp: none;
+  color: #000;
+  font-family: var(--heading-font-family);
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 37px;
+}
+
+/* ---------------------------------------------------------------- phones */
+
+@media (width < 768px) {
+  body.brand-swiss.sub-site-magazine {
+    --magazine-edge: 16px;
+  }
+
+  body.brand-swiss.sub-site-magazine header .nav-bar {
+    align-items: flex-start;
+    padding: 24px 16px 0;
+  }
+
+  body.brand-swiss.sub-site-magazine header .nav-brand a {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+
+  body.brand-swiss.sub-site-magazine header .nav-brand img {
+    height: 30px;
+  }
+
+  body.brand-swiss.sub-site-magazine header .nav-brand a::after {
+    padding-top: 9px;
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  body.brand-swiss.sub-site-magazine header .nav-quick {
+    display: none;
+  }
+
+  body.brand-swiss.sub-site-magazine header .nav-tools {
+    margin-left: auto;
+  }
+
+  body.brand-swiss.sub-site-magazine :is(.hero-card-overlay .hero-card-overlay-media, .article-header .article-header-media) {
+    aspect-ratio: 2 / 3;
+  }
+
+  body.brand-swiss.sub-site-magazine .hero-card-overlay .hero-card-overlay-card {
+    padding: 0 32px 16px 16px;
+  }
+
+  body.brand-swiss.sub-site-magazine .hero-card-overlay .hero-card-overlay-card :is(h1, h2),
+  body.brand-swiss.sub-site-magazine .article-header .article-header-title {
+    font-size: 34px;
+    line-height: 42px;
+  }
+
+  body.brand-swiss.sub-site-magazine main :is(h2, .default-content-wrapper > h2) {
+    font-size: 30px;
+    line-height: 37px;
+  }
+
+  body.brand-swiss.sub-site-magazine main > .section.grey {
+    padding-left: 16px;
+  }
+
+  body.brand-swiss.sub-site-magazine .carousel-cards .carousel-cards-slide {
+    flex-basis: calc(100vw - 29px);
+  }
+
+  body.brand-swiss.sub-site-magazine main > .section:not(.grey, :has(.hero-card-overlay, .carousel-cards)):has(.blog-overview) {
+    padding: 80px 16px 0;
+  }
+
+  body.brand-swiss.sub-site-magazine .blog-overview.grid .blog-overview-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  body.brand-swiss.sub-site-magazine main > .section:has(.hero-card-overlay):has(.blog-overview) > :is(.default-content-wrapper, .blog-overview-wrapper) {
+    padding-inline: 16px;
+  }
+
+  body.brand-swiss.sub-site-magazine :is(.blog-overview.grid .blog-overview-title, .carousel-cards .carousel-cards-body > :is(h2, h3), .related-articles .related-articles-title) {
+    font-size: 26px;
+    line-height: 33px;
+  }
+
+  body.brand-swiss.sub-site-magazine main > .section:has(.article-header) > .breadcrumb-wrapper {
+    inset: calc(100vw * 3 / 2 + 24px) 0 auto;
+  }
+
+  body.brand-swiss.sub-site-magazine .article-header .article-header-panel {
+    padding: 133px 0 0;
+  }
+
+  body.brand-swiss.sub-site-magazine main:has(.article-header) > .section > :is(.article-header-wrapper, .default-content-wrapper, .embed-wrapper, .carousel-images-wrapper, .related-articles-wrapper) {
+    padding-inline: 16px;
+  }
+
+  body.brand-swiss.sub-site-magazine .related-articles .related-articles-list > li {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+}

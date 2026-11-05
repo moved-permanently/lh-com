@@ -26,7 +26,7 @@ import {
   initConsent, isAuthoringContext, martechWanted, hidePrivacySettings,
 } from './consent.js';
 import { applyChannel } from './channel.js';
-import { loadBrandTheme } from './brand.js';
+import { loadBrandTheme, loadSubSiteTheme } from './brand.js';
 import { isDemoHost, turnsThePageBrandOf } from './demo.js';
 import prioritizeSecondSectionImage from './lcp-image.js';
 import decorateHeadingIcons from './heading-icon.js';
@@ -416,7 +416,8 @@ async function loadEager(doc) {
   // text size and contrast with them, while the body is still hidden (no layout shift)
   const brand = brandEntry();
   await Promise.all([
-    loadBrandTheme(),
+    // the brand's theme, then a sub-site's own (SWISS's magazine)
+    loadBrandTheme().then(() => loadSubSiteTheme(locale.subSite)),
     brand && brand.accessibility ? import('./accessibility.js').then((m) => m.restoreAccessibility(brand)) : null,
   ]);
   const main = doc.querySelector('main');

@@ -115,6 +115,27 @@ export function applyBrandIcons(read = metadata) {
  * Loads the brand's tokens (nothing for lh-com, nor for a brand with theme false) and marks the
  * body (body.brand-<key>). A theme file that isn't there (yet) leaves Lufthansa's look.
  */
+/**
+ * A brand's sub-site (scripts/site-languages.js SUB_SITES, from getLocale().subSite): marks the
+ * body (body.sub-site-<name>) and loads the sub-site's own stylesheet where it names one
+ * (theme: SWISS's magazine, styles/themes/swiss-magazine.css), after the brand's theme.
+ * @param {{name: string, theme?: string}|null} subSite
+ * @param {Function} [loadStyles] the loader (tests); default aem.js loadCSS
+ * @returns {Promise<string>} the sub-site's name, '' outside one
+ */
+export async function loadSubSiteTheme(subSite, loadStyles = null) {
+  if (!subSite || !subSite.name) return '';
+  document.body.classList.add(`sub-site-${subSite.name}`);
+  if (!subSite.theme) return subSite.name;
+  const load = loadStyles || (await import('./aem.js')).loadCSS;
+  try {
+    await load(`${window.hlx.codeBasePath}/styles/themes/${subSite.theme}.css`);
+  } catch (e) {
+    // no stylesheet: the brand's look
+  }
+  return subSite.name;
+}
+
 export async function loadBrandTheme(read = metadata, loadStyles = null) {
   const key = brandOf(read);
   if (!key) return '';

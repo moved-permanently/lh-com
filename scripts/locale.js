@@ -241,6 +241,8 @@ function subSiteLocale(site, sub, rest, prefix) {
       name: sub.name,
       header: sub.header,
       ...(sub.articleIndex ? { articleIndex: sub.articleIndex } : {}),
+      // its own stylesheet (scripts/brand.js loadSubSiteTheme)
+      ...(sub.theme ? { theme: sub.theme } : {}),
     },
   };
 }

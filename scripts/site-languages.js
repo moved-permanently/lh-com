@@ -107,9 +107,11 @@ export const SUB_SITES = {
     subSite('medicalservices', [['en', 'English'], ['de', 'Deutsch']], { menu: 'bar', search: 'button', languages: 'bar' }),
     // the magazine (/magazine/<ll>/): www's quick links in the bar and its menu in the flyout, the
     // language list in the bar (www's names); articleIndex: its articles' index per language
-    // (helix-query.yaml magazine-<ll>; scripts/articles.js), read by its overview pages
+    // (helix-query.yaml magazine-<ll>; scripts/articles.js), read by its overview pages; theme:
+    // its own design (styles/themes/swiss-magazine.css, scripts/brand.js loadSubSiteTheme)
     subSite('magazine', [['de', 'German'], ['en', 'English']], { languages: 'bar' }, {
       home: (lang) => `/magazine/${lang}`,
+      theme: 'swiss-magazine',
       articleIndex: { de: '/magazine/de/query-index.json', en: '/magazine/en/query-index.json' },
     }),
   ],
