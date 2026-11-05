@@ -34,7 +34,12 @@ export const DESIGN_SYSTEM_JS = `${DESIGN_SYSTEM}/packages/maui-design-system.js
  */
 const BRAND_DESIGN_SYSTEMS = {
   'www.austrian.com': { release: 'mausy-v1.40.1', theme: 'austrian' },
-  'www.ita-airways.com': { release: 'mausy-v1.40.1', theme: 'ita' },
+  // www's help pages (ita-parity-001, it/en and it/it): its body's maui-theme-az makes the design
+  // system load ITA's fonts and icons (az-fonts.css, icon.library.AZ.js; else Lufthansa's), its
+  // head has X-Line b, its help center is 4.3.2
+  'www.ita-airways.com': {
+    release: 'mausy-v1.40.1', theme: 'ita', themeClass: 'maui-theme-az', meta: { 'X-Line': 'b' }, apps: { 'help-center-web': '4.3.2' },
+  },
   // www's culinaryjourney pages (2026-10-27): v1.38.0, discover.css
   'www.discover-airlines.com': { release: 'v1.38.0', theme: 'discover' },
   // www's help center and culinary journey pages (the snapshots): mausy-v1.40.1, swiss.css; its
@@ -195,6 +200,9 @@ export function mountPlan(block, brand, locale, hostname = window.location.hostn
   const theme = design ? design.theme : 'lufthansa';
   const attributes = { ...(app.attributes || {}) };
   let { path } = app;
+  // the brand's www release of the app (design apps), before a page's Version row
+  const brandRelease = design && design.apps && design.apps[app.tag];
+  if (path && brandRelease) path = path.replace(/-(\d+\.\d+\.\d+|latest)\.js$/, `-${brandRelease}.js`);
   rowsOf(block).slice(1).forEach(([key, value]) => {
     const name = String(key || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
     // the Version row: the page's release of the app (www's ch/ru: claim-form-entry 0.11.9)
@@ -219,6 +227,8 @@ export function mountPlan(block, brand, locale, hostname = window.location.hostn
       'X-Portal': portalOf(locale),
       'X-Portal-Site': String(locale.country || '').toUpperCase(),
       'X-Portal-Language': locale.lang,
+      // the brand's www page meta (ITA's X-Line)
+      ...(design && design.meta ? design.meta : {}),
     } : {},
     // the brand's theme class for the body (www's), where its design system has one
     ...(design && design.themeClass ? { themeClass: design.themeClass } : {}),

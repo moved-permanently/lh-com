@@ -59,7 +59,10 @@ test('help-center-web on Austrian\'s and ITA\'s pages: their www, design system,
   assert.deepEqual(aua.meta, { 'X-Portal': 'OS', 'X-Portal-Site': 'AT', 'X-Portal-Language': 'en' });
   const ita = mountPlan(blockOf([['help-center-web']]), BRANDS.ita, { country: 'it', lang: 'it', brand: 'ita' });
   assert.equal(ita.css, 'https://ita.turnsthe.page/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/css/ita.css', 'from its turnsthe.page host (brief 391)');
-  assert.deepEqual(ita.meta, { 'X-Portal': 'ITA', 'X-Portal-Site': 'IT', 'X-Portal-Language': 'it' });
+  // and www's X-Line (test/micro-frontend-ita-help.test.mjs)
+  assert.deepEqual(ita.meta, {
+    'X-Portal': 'ITA', 'X-Portal-Site': 'IT', 'X-Portal-Language': 'it', 'X-Line': 'b',
+  });
 });
 
 test('culinary-hub: the rows after its name as data- attributes (Austrian\'s configuration and gateway)', () => {
@@ -285,9 +288,12 @@ test('ITA\'s apps and design system from the page\'s own /digitalhangar/ (ita.tu
     assert.equal(hc.css, 'https://ita.turnsthe.page/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/css/ita.css', host);
     assert.deepEqual(hc.scripts, [
       { src: 'https://ita.turnsthe.page/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/packages/maui-design-system.js', module: true },
-      { src: 'https://ita.turnsthe.page/digitalhangar/cs-help-center/help-center-web/help-center-web-4.3.1.js', module: true },
+      // www's release on ITA's pages (test/micro-frontend-ita-help.test.mjs)
+      { src: 'https://ita.turnsthe.page/digitalhangar/cs-help-center/help-center-web/help-center-web-4.3.2.js', module: true },
     ], host);
-    assert.deepEqual(hc.meta, { 'X-Portal': 'ITA', 'X-Portal-Site': 'IT', 'X-Portal-Language': 'en' }, host);
+    assert.deepEqual(hc.meta, {
+      'X-Portal': 'ITA', 'X-Portal-Site': 'IT', 'X-Portal-Language': 'en', 'X-Line': 'b',
+    }, host);
   });
   const aua = mountPlan(blockOf([['help-center-web']]), BRANDS.austrian, { country: 'at', lang: 'en', brand: 'austrian' }, 'austrian.turnsthe.page');
   assert.equal(aua.scripts[1].src, 'https://www.austrian.com/digitalhangar/cs-help-center/help-center-web/help-center-web-4.3.1.js', 'Austrian as before');
