@@ -18,6 +18,14 @@
   line-height: 24px;
 }
 
+/* the optional note (maui-copy size copy-medium, class mb-5) */
+.feedback .feedback-note {
+  margin: 0 0 20px;
+  color: var(--text-color);
+  font-size: var(--body-font-size-s);
+  line-height: 1.5;
+}
+
 .feedback .feedback-options {
   display: inline-flex;
   border: 1px solid var(--lh-grey-8);
