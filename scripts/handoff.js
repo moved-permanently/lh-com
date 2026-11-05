@@ -18,6 +18,15 @@
  *   a link target; 400 {"error":"checkin.error.<code>"} (www's text: common.checkin.error.<code>).
  * A link target: {targetURL, parameters: [{key, values}], newWindow, methodGet}, opened as www
  * does: a form with a field per value, POST unless methodGet, a new window if newWindow.
+ *
+ * The brands' booking code entry (brief 369; www's capture of 2026-11-05, fake code only):
+ * Discover, Austrian, Brussels and SWISS post filekeylogin and bookingdetailslink as above, then
+ * the target's form, whose query (lang, portalCountry) www's page repeats as fields before the
+ * answer's lastName and recLoc. bookingdetailslink answers the same for any code (the shop does
+ * the real check), so off the own host the replica builds that form itself (retrieveTarget):
+ * BOOKING_RETRIEVE has each brand's shop and the lang of each page language (the answers of
+ * bookingdetailslink per X-Portal-Language; the market does not change it); portalCountry is the
+ * page's market. ITA's www form sends nothing, so ITA has no entry.
  */
 import { getLocale, brandEntry, LIVE_ORIGIN } from './locale.js';
 import { BRANDS } from './brands.js';
@@ -33,10 +42,72 @@ export const POST_HANDOFF_HOSTS = {
 
 const API = '/service/secured/api/core';
 
+/**
+ * Per brand: the shop of its booking code form (Discover: Lufthansa's, as its www), the lang of
+ * each page language (else en-GB), and linkPortal where www's bookingdetailslink call sends
+ * another X-Portal than its filekeylogin (Discover: FOUR_Y, then LH).
+ */
+export const BOOKING_RETRIEVE = {
+  discover: {
+    shop: 'shop.lufthansa.com',
+    linkPortal: 'LH',
+    langs: { en: 'en-GB', de: 'de-DE', fr: 'fr-FR' },
+  },
+  austrian: {
+    shop: 'shop.austrian.com',
+    // pl-PO as www writes it
+    langs: {
+      en: 'en-GB', de: 'de-AT', fr: 'fr-FR', ru: 'ru-RU', it: 'it-IT', zh: 'zh-CN', es: 'es-ES', el: 'el-GR', ja: 'ja-JP', pl: 'pl-PO',
+    },
+  },
+  brussels: {
+    shop: 'shop.brusselsairlines.com',
+    langs: {
+      en: 'en-GB', fr: 'fr-FR', de: 'de-DE', nl: 'nl-NL', it: 'it-IT', es: 'es-ES',
+    },
+  },
+  swiss: {
+    shop: 'shop.swiss.com',
+    langs: {
+      de: 'de-CH', en: 'en-GB', fr: 'fr-FR', it: 'it-IT', es: 'es-ES', zh: 'zh-CN', pt: 'pt-PT', el: 'el-GR', ja: 'ja-JP', ru: 'ru-RU', ko: 'ko-KR',
+    },
+  },
+};
+
+/**
+ * The shop form www's booking code entry ends with, built from the tables (off the own host).
+ * @param {{reference: string, lastName: string}} values
+ * @param {{brand: string, country: string, lang: string}} page the page's brand key and market
+ * @returns {Object|null} a link target (openTarget), null for a brand without a table
+ */
+export function retrieveTarget({ reference, lastName }, { brand, country, lang }) {
+  const entry = BOOKING_RETRIEVE[brand];
+  if (!entry) return null;
+  const shopLang = entry.langs[lang] || 'en-GB';
+  const portalCountry = String(country || '').toUpperCase();
+  return {
+    targetURL: `https://${entry.shop}/booking/manage-booking/retrieve?lang=${shopLang}&portalCountry=${portalCountry}`,
+    methodGet: false,
+    newWindow: false,
+    parameters: [
+      { key: 'lang', values: [shopLang] },
+      { key: 'portalCountry', values: [portalCountry] },
+      { key: 'lastName', values: [lastName] },
+      { key: 'recLoc', values: [reference] },
+    ],
+  };
+}
+
 /** The page's brand key (lh: lufthansa.com). */
 function brandKey() {
   const entry = brandEntry();
   return (entry && Object.keys(BRANDS).find((k) => BRANDS[k] === entry)) || 'lh';
+}
+
+/** The page's brand key for the tables (none on lh-com). */
+export function bookingBrand() {
+  const key = brandKey();
+  return key === 'lh' ? '' : key;
 }
 
 /**
@@ -81,8 +152,9 @@ export class HandoffError extends Error {
 const NOT_FOUND = 'checkin.error.bookingNotFound';
 const LINK_ERROR = 'checkin.error.linkGenerationError';
 
-async function call(method, route, body, locale = getLocale()) {
+async function call(method, route, body, locale = getLocale(), portal = '') {
   const headers = { ...portalHeaders(locale.key), Accept: 'application/json' };
+  if (portal) headers['X-Portal'] = portal;
   if (body) headers['Content-Type'] = 'application/json';
   const resp = await fetch(route, {
     method, credentials: 'same-origin', headers, body: body ? JSON.stringify(body) : undefined,
@@ -100,6 +172,24 @@ async function call(method, route, body, locale = getLocale()) {
 const target = (data) => (data && typeof data.targetURL === 'string' && data.targetURL ? data : null);
 
 /**
+ * A POST target with its URL's query repeated as fields before its parameters, as www's page
+ * posts the manage booking target (lang, portalCountry, then lastName, recLoc; brief 369).
+ */
+function withQueryFields(link) {
+  if (link.methodGet) return link;
+  let query = [];
+  try {
+    query = [...new URL(link.targetURL).searchParams];
+  } catch (e) {
+    return link;
+  }
+  const own = new Set((link.parameters || []).map((p) => p.key));
+  const fields = query.filter(([key]) => !own.has(key))
+    .map(([key, value]) => ({ key, values: [value] }));
+  return { ...link, parameters: [...fields, ...(link.parameters || [])] };
+}
+
+/**
  * Manage booking: the file key login, then the booking's deeplink (www's my-bookings tab).
  * @returns {Promise<Object>} the link target
  */
@@ -111,10 +201,11 @@ export async function bookingTarget({ reference, firstName = '', lastName }, loc
     const code = [400, 403, 404].includes(login.status) ? NOT_FOUND : LINK_ERROR;
     throw new HandoffError(code, login.status);
   }
-  const link = await call('GET', `${API}/booking/bookingdetailslink?layout=${layout()}`, null, locale);
+  const { linkPortal = '' } = BOOKING_RETRIEVE[brandKey()] || {};
+  const link = await call('GET', `${API}/booking/bookingdetailslink?layout=${layout()}`, null, locale, linkPortal);
   const found = link.ok && link.data && target(link.data.linkTarget);
   if (!found) throw new HandoffError(link.status === 403 ? NOT_FOUND : LINK_ERROR, link.status);
-  return found;
+  return withQueryFields(found);
 }
 
 /** The hotel tab's search (dates as www sends them: the day's midnight UTC). */

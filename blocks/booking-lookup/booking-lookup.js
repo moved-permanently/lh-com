@@ -1,7 +1,9 @@
 import { getLocale, siteOrigin } from '../../scripts/locale.js';
 import {
-  postHandoffOn, isOwnWww, bookingTarget, checkinTarget, openTarget, errorText,
+  postHandoffOn, isOwnWww, bookingTarget, checkinTarget, openTarget, errorText, retrieveTarget,
+  bookingBrand, BOOKING_RETRIEVE,
 } from '../../scripts/handoff.js';
+import { BOOKING_CODE_TEXTS } from './booking-code-texts.js';
 import {
   readConfigRows, pick, resolveLabels, cleanText, toConfigKey, decorateExternalLinks,
 } from '../../scripts/block-config.js';
@@ -329,8 +331,9 @@ function createField(id, {
   message.id = `${id}-${name}-error`;
   message.hidden = true;
   wrap.append(labelEl, input, message);
-  const setError = (show) => {
-    message.textContent = show ? error : '';
+  // text: the check's own message (booking-code: required or pattern), else the field's
+  const setError = (show, text) => {
+    message.textContent = show ? text || error : '';
     message.hidden = !show;
     if (show) {
       input.setAttribute('aria-invalid', 'true');
@@ -810,6 +813,151 @@ function decorateTracking(block, id, locale, config) {
   }
 }
 
+// www's maui-input patterns of the login modal (the same on the four brands, 2026-11-05)
+const BOOKING_CODE_PATTERN = /^([A-Z0-9]{6}|\d{13})$/;
+const LAST_NAME_PATTERN = /^[A-Za-z0-9äëïöüÄËÏÖÜáéíóúÁÉÍÓÚàèìòùÀÈÌÒÙâêîôûÂÊÎÔÛåÅãñõÃÑÕçøÇØæÆÐðþÞÿß.';,\-_+&#*="\s*ĄąĆćĘęŁłŃńŚśŹźŻż]+$/;
+// the links that open the dialog: #booking-code on this page (the login card's "Enter booking
+// code", a nav link to the login page with the hash)
+const BOOKING_CODE_HASH = '#booking-code';
+
+/**
+ * Variant booking-code (brief 369): the login page's "Booking code" modal of Discover, Austrian,
+ * Brussels and SWISS (www's dcep-login-form in a maui-modal): a dialog opened by the page's links
+ * to #booking-code (and at once when the page is reached with it), with the booking code (6
+ * capitals or digits, or a 13-digit ticket number) and the last name, checked as www checks them:
+ * an error box above the fields (www's count headline, each message with "Go to error") and the
+ * message under each field. A valid entry ends as www's: the shop's form in the same window
+ * (scripts/handoff.js retrieveTarget); on the airline's own www host www's two calls first
+ * (bookingTarget). Texts: www's per brand and language (booking-code-texts.js); authored rows win.
+ * A brand without a shop table (ITA, whose www form sends nothing; lh-com): nothing rendered.
+ */
+function decorateBookingCode(block, id, locale, config) {
+  const brand = bookingBrand();
+  if (!BOOKING_RETRIEVE[brand]) {
+    block.replaceChildren();
+    block.hidden = true;
+    return;
+  }
+  const texts = resolveLabels(BOOKING_CODE_TEXTS[brand], config, locale.lang);
+  const dialog = el('dialog', 'booking-lookup-dialog');
+  dialog.id = `${id}-dialog`;
+  const title = el('h2', 'booking-lookup-dialog-title', texts.title);
+  title.id = `${id}-title`;
+  dialog.setAttribute('aria-labelledby', title.id);
+  const close = el('button', 'booking-lookup-dialog-close');
+  close.type = 'button';
+  close.setAttribute('aria-label', texts['close label']);
+  const head = el('div', 'booking-lookup-dialog-head');
+  head.append(title, close);
+
+  const form = el('form', 'booking-lookup-form');
+  form.noValidate = true;
+  const box = el('div', 'booking-lookup-errorbox');
+  box.setAttribute('role', 'alert');
+  box.tabIndex = -1;
+  box.hidden = true;
+  const reference = createField(id, {
+    name: 'reference', label: texts['reference label'], autocomplete: 'off', maxLength: 13, error: texts['reference required'],
+  });
+  reference.input.spellcheck = false;
+  const lastName = createField(id, {
+    name: 'lastName', label: texts['last name label'], autocomplete: 'family-name', maxLength: 31, error: texts['last name required'],
+  });
+  const submit = el('button', 'booking-lookup-submit button', texts['submit label']);
+  submit.type = 'submit';
+  const actions = el('div', 'booking-lookup-actions');
+  actions.append(submit);
+  form.append(box, reference.wrap, lastName.wrap, actions);
+  const error = handoffError(form, actions);
+  dialog.append(head, form);
+  block.replaceChildren(dialog);
+
+  // each check: '' when valid, else www's message (required, then the pattern's)
+  const check = (field, pattern, required, invalid) => () => {
+    const value = field.input.value.trim();
+    if (!value) return texts[required];
+    return pattern.test(value) ? '' : texts[invalid];
+  };
+  const checks = [
+    [reference, check(reference, BOOKING_CODE_PATTERN, 'reference required', 'reference pattern')],
+    [lastName, check(lastName, LAST_NAME_PATTERN, 'last name required', 'last name pattern')],
+  ];
+  checks.forEach(([f, message]) => {
+    f.input.addEventListener('input', () => {
+      if (f.input.hasAttribute('aria-invalid') && !message()) f.setError(false);
+    });
+  });
+  const showErrors = (errors) => {
+    const count = errors.length;
+    const headline = el('p', 'booking-lookup-errorbox-headline', `${count > 1 ? texts['errors plural'].replace('{COUNT}', count) : texts['errors singular']} ${texts['errors text']}`);
+    const list = el('ul');
+    errors.forEach(([f, text]) => {
+      const li = el('li');
+      const go = el('a', '', texts['go to error']);
+      go.href = `#${f.input.id}`;
+      go.addEventListener('click', (e) => {
+        e.preventDefault();
+        f.input.focus();
+      });
+      li.append(el('span', '', text), ' ', go);
+      list.append(li);
+    });
+    box.replaceChildren(headline, list);
+    box.hidden = false;
+    box.focus();
+  };
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const errors = [];
+    checks.forEach(([f, message]) => {
+      const text = message();
+      f.setError(Boolean(text), text);
+      if (text) errors.push([f, text]);
+    });
+    if (errors.length) {
+      showErrors(errors);
+      return;
+    }
+    box.hidden = true;
+    box.replaceChildren();
+    const values = {
+      reference: reference.input.value.trim(), lastName: lastName.input.value.trim(),
+    };
+    if (postHandoffOn()) {
+      postHandoff(() => bookingTarget(values, locale), { submit, error, locale });
+      return;
+    }
+    openTarget(retrieveTarget(values, { brand, country: locale.country, lang: locale.lang }));
+  });
+
+  const native = typeof dialog.showModal === 'function';
+  const open = () => {
+    if (dialog.hasAttribute('open')) return;
+    if (native) dialog.showModal();
+    else dialog.setAttribute('open', '');
+  };
+  close.addEventListener('click', () => {
+    if (native) dialog.close();
+    else dialog.removeAttribute('open');
+  });
+  const opensDialog = (a) => {
+    try {
+      const url = new URL(a.getAttribute('href'), window.location.href);
+      return url.hash === BOOKING_CODE_HASH && url.pathname === window.location.pathname;
+    } catch (e) {
+      return false;
+    }
+  };
+  document.addEventListener('click', (e) => {
+    const a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a || !opensDialog(a)) return;
+    e.preventDefault();
+    open();
+  });
+  if (window.location.hash === BOOKING_CODE_HASH) open();
+}
+
 export default function decorate(block) {
   instance += 1;
   const id = `booking-lookup-${instance}`;
@@ -821,6 +969,10 @@ export default function decorate(block) {
   }
   if (block.classList.contains('tracking')) {
     decorateTracking(block, id, locale, config);
+    return;
+  }
+  if (block.classList.contains('booking-code')) {
+    decorateBookingCode(block, id, locale, config);
     return;
   }
   const labels = applyErrorList(resolveLabels(DEFAULT_LABELS, config, locale.lang), config);

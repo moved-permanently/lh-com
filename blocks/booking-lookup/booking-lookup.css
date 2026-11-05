@@ -507,3 +507,105 @@
 .booking-lookup .booking-lookup-handoff-error[hidden] {
   display: none;
 }
+
+/* variant booking-code (brief 369): www's login modal (maui-modal size m, "Booking code"): the
+   page's links to #booking-code open it; the error box above the fields, the message under each.
+   Its look was not recorded (the capture has the modal's attributes, not its styles) */
+.booking-lookup.booking-code {
+  margin: 0;
+}
+
+.booking-lookup .booking-lookup-dialog {
+  box-sizing: border-box;
+  width: min(100% - 32px, 600px);
+  max-height: calc(100% - 32px);
+  margin: auto;
+  padding: 24px 24px 32px;
+  border: 0;
+  background: var(--background-color, #fff);
+  color: var(--lh-deepblue);
+}
+
+.booking-lookup .booking-lookup-dialog::backdrop {
+  background: rgb(0 0 0 / 50%);
+}
+
+.booking-lookup .booking-lookup-dialog-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.booking-lookup .booking-lookup-dialog-title {
+  margin: 0;
+  font-size: var(--heading-font-size-s);
+  line-height: 1.25;
+}
+
+.booking-lookup .booking-lookup-dialog-close {
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  margin: -10px -10px 0 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.booking-lookup .booking-lookup-dialog-close::before {
+  content: "";
+  display: block;
+  width: 16px;
+  height: 16px;
+  margin: auto;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M1.4 0 8 6.6 14.6 0 16 1.4 9.4 8l6.6 6.6-1.4 1.4L8 9.4 1.4 16 0 14.6 6.6 8 0 1.4z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.booking-lookup .booking-lookup-dialog-close:focus-visible {
+  outline: 2px solid var(--focus-color);
+  outline-offset: -2px;
+}
+
+.booking-lookup.booking-code .booking-lookup-dialog .booking-lookup-field {
+  max-width: none;
+}
+
+/* the error box: www's count headline, then each message with its "Go to error" link */
+.booking-lookup .booking-lookup-errorbox {
+  box-sizing: border-box;
+  width: 100%;
+  margin-bottom: 24px;
+  padding: 16px 18px;
+  border: 2px solid var(--lh-red);
+  font-size: var(--body-font-size-s);
+  line-height: 24px;
+}
+
+.booking-lookup .booking-lookup-errorbox[hidden] {
+  display: none;
+}
+
+.booking-lookup .booking-lookup-errorbox:focus-visible {
+  outline: 2px solid var(--focus-color);
+  outline-offset: 2px;
+}
+
+.booking-lookup .booking-lookup-errorbox-headline {
+  margin: 0 0 8px;
+  font-weight: 700;
+}
+
+.booking-lookup .booking-lookup-errorbox ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.booking-lookup .booking-lookup-errorbox a:any-link {
+  color: var(--link-color);
+  font-weight: 700;
+}
