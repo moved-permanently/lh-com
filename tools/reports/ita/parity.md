@@ -60,8 +60,9 @@ replica has no block for.
   - the closing flyout is inert at once (d81e71f9): the Tab right after Escape lands on the alert strip;
   - the alert strip: Next moves 1/4 to 2/4;
   - the dots are 24 x 24 (87f5d985).
-- **Shared, not changed:** Chromium's native date fields make three Tab stops per date
-  (day, month, year); lh-com's flight search, every brand.
+- **Shared, since fixed:** Chromium's native date fields made three Tab stops per date
+  (day, month, year); fixed in the flight search (3ba047f7, every brand): one stop per date, a readonly field that opens the
+  browser's calendar (Enter, Space, Alt+Down, a click), as www's one field.
 
 ## Checked after the push
 

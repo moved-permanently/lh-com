@@ -101,7 +101,7 @@ otherwise.
 | A3 | The search: the passengers field focused before the airports, shown after the dates | 2.4.3 | flight-search-airdolomiti.js | fixed: the passengers before the button in the DOM (10b7af40, 13c861e6) | lh-com migration agent |
 | A4 | The open phone search panel: Tab left it for the page behind it; no dialog semantics | 2.4.3, 4.1.2 | flight-search-airdolomiti.js | fixed: a modal dialog named by the card ("Prenota il tuo volo"), Tab and Shift+Tab kept inside, Escape and the close button as before (10b7af40, 13c861e6) | lh-com migration agent |
 | A5 | The phone card "Prenota il tuo volo": its focus ring cut off by the arrow shape (clip-path) | 2.4.7 | styles/themes/airdolomiti.css | fixed: the ring inside the card (2d48d773) | lh-com migration agent |
-| A6 | The date fields take four Tab stops each (day, month, year, the picker) | — | the browser's date field | not a finding: Chrome's native date input; each stop has a ring | — |
+| A6 | The date fields take four Tab stops each (day, month, year, the picker) | — | the browser's date field | fixed in the flight search (3ba047f7, every brand): one stop per date, a readonly field opening the calendar | lh-com shared block (flight search) |
 | A7 | No violations on the travel information pages and the articles at either width | — | — | — | — |
 
 ## Checks

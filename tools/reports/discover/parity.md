@@ -42,7 +42,7 @@ languages, both widths, 44 runs.
 | Header | logo, Book, My flights, Check-in, Flight status, Accessibility, Help & Contact, Shopping cart, Login, Menu, each with a ring | fine |
 | Menu, 1440 | Enter opens it with the focus on the first tab; Escape closes it and returns the focus to Menu. In the pass, after Enter on a tab the Tab key went through the other tabs and the bar's tools before the panel's links (brief 382's shared finding 1); rechecked on discover.turnsthe.page after 0ce56989 (header, another agent's): Tab now goes from the tab into its panel's links (Booking, Offers and destinations, Baggage …), Escape back to the tab | fine since 0ce56989 |
 | Menu, 390 | Enter opens it on the first tab, Enter goes into the tab's links, Escape returns the focus to Menu | fine |
-| Flight search | trip type, travellers, non-stop, From, swap, To, the two date fields (Chrome's month, day, year and calendar parts), Find flights, each named and with a ring | fine |
+| Flight search | trip type, travellers, non-stop, From, swap, To, the two date fields (since 3ba047f7 one stop each, opening the calendar), Find flights, each named and with a ring | fine |
 | Travellers panel | opens with Enter; Tab walks Adults, Children, Infants, the class and Done | fine |
 | Fare tiles, offer cards | each a link; the ring is drawn round the card (`::after`) | fine |
 | Alert strip | none on these pages at capture time | not applicable |
@@ -111,7 +111,7 @@ page loads from Group services.
 | 24 | Offers cards: a "Compare cities" box on each card | none | design | lh-com shared block (destination-finder) | open |
 | 25 | Travellers: a modal ("Travel details") | lh-com's popover panel | design | lh-com shared block | left, as the user decided (one EMA) |
 | 26 | Header: no cart item in the bar | a "Shopping cart" item in the bar | shared | lh-com shared code (blocks/header) | open: whether www shows it once the cart holds a flight is not in the capture (a capture with a filled cart would tell) |
-| 27 | The "Departure - Return" label above the date fields once focused | on focus the label sits over Chrome's mm/dd/yyyy | shared | lh-com shared block (flight search) | open |
+| 27 | The "Departure - Return" label above the date fields once focused | on focus the label sits over Chrome's mm/dd/yyyy | shared | lh-com shared block (flight search) | fixed in the flight search (3ba047f7, every brand): the field stays empty until a date is picked, the date then under the label (checked at 390 and 1440 on every brand host) |
 | 28 | Fares, offers, the stage campaign | other prices and the earlier campaign | data | – | not a difference (changes with time); the fare and offer APIs do not answer this environment |
 | 29 | The booking code entry (ema-adobe, 369/373) | – | – | – | left as it is (the brief) |
 

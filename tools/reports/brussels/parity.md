@@ -125,3 +125,14 @@ be/en, be/fr, ch/en and ch/de against the capture's screenshots: the parts withi
 shows a 2 px ring, Tab then reaches "Continue with login", "Become a member" and "Search award
 flights"; axe-core 4.10.2 on the open panel: no violations (contrast left undecided on a few
 items over the grid, dark text on white).
+
+### The date fields (flight search, every brand)
+
+www's date field (the parity captures' shadow HTML, every brand) is one readonly text input
+"Departure - Return" and its "Select date" button: two stops. Ours were Chromium's native date
+inputs, four stops each (day, month, year, the picker). Since 3ba047f7 each date is one stop: a
+readonly field named by its label that opens the browser's calendar (Enter, Space, Alt+Down, a
+click), Delete clears it; the label floats above an empty field, the date then under it. Checked
+after the push on brussels (be/fr), lufthansa, swiss, austrian, ita, discover and airdolomiti
+(its phone panel too) at 390 and 1440: two date stops in the search's Tab order, a ring on the
+field or its box, no overlap, axe on the dates: no violations.
