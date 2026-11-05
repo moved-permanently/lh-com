@@ -16,6 +16,10 @@
    - the two-level picker (row 65, the FAQ and partners pages): the category's title 28 / 33.6 as
      www's at every width; on phones 24 px from it to the select and 24 px from the select to the
      first question (the questions' card under the select);
+   - item 2, the feature card's links (Star Alliance partners, economy-prime): its button www's
+     outline pill (transparent, 1 px #65c922, #424045, Inter 15 / 500, 40 px, 24 px inside; on
+     hover #7cde3a inside), its links in the text TAP's dark green without underline (underlined
+     in #7cde3a on hover), at 390 and 1440;
    Run: node --max-old-space-size=512 --test test/tap-388.test.mjs */
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -59,4 +63,12 @@ test('the picker\'s category title 28 / 33.6 as www\'s; on phones 24 px to the s
   assert.match(phone, /body\.brand-tap main \.faq-picker-category > \.default-content-wrapper > h2 \{\s*margin-bottom: 24px;\s*\}/);
   assert.match(phone, /body\.brand-tap \.faq-picker-body \{\s*margin-top: 0;\s*\}/);
   assert.match(phone, /body\.brand-tap \.faq-picker-questions \{\s*margin-top: 0;\s*\}/);
+});
+
+test('item 2: the feature card\'s button www\'s outline pill, its text links without underline until hover', () => {
+  const rule = (sel, body) => assert.match(css, new RegExp(`${fc} ${sel} \\{${body}`), sel);
+  rule('\\.columns-media-text a\\.button:any-link', '[^}]*min-width: 0;[^}]*min-height: 40px;[^}]*padding: 0 24px;[^}]*border: 1px solid #65c922;[^}]*background-color: transparent;[^}]*color: #424045;[^}]*font-size: 15px;[^}]*font-weight: 500;[^}]*text-decoration: none;');
+  rule('\\.columns-media-text a\\.button:hover', '\\s*border-color: #65c922;\\s*background-color: #7cde3a;\\s*color: #424045;\\s*\\}');
+  rule('\\.columns-media-text p:not\\(\\.button-wrapper\\) a:any-link', '\\s*color: #397213;\\s*text-decoration: none;\\s*\\}');
+  rule('\\.columns-media-text p:not\\(\\.button-wrapper\\) a:hover', '\\s*color: #7cde3a;\\s*text-decoration: underline;\\s*\\}');
 });

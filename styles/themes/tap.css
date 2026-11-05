@@ -2003,6 +2003,39 @@ body.brand-tap .columns-media:not(.stack):has(.columns-media-text > h3:first-chi
   padding-top: 16px;
 }
 
+/* its button www's outline pill (the colour on the button inside www's link: transparent, 1 px
+   #65c922, #424045, Inter 15 / 500, 40 px; #7cde3a inside on hover), its links in the text TAP's
+   dark green without underline, underlined in #7cde3a on hover (Star Alliance partners,
+   economy-prime; brief 388) */
+body.brand-tap .columns-media:not(.stack):has(.columns-media-text > h3:first-child) .columns-media-text a.button:any-link {
+  box-sizing: border-box;
+  min-width: 0;
+  min-height: 40px;
+  padding: 0 24px;
+  border: 1px solid #65c922;
+  background-color: transparent;
+  color: #424045;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+body.brand-tap .columns-media:not(.stack):has(.columns-media-text > h3:first-child) .columns-media-text a.button:hover {
+  border-color: #65c922;
+  background-color: #7cde3a;
+  color: #424045;
+}
+
+body.brand-tap .columns-media:not(.stack):has(.columns-media-text > h3:first-child) .columns-media-text p:not(.button-wrapper) a:any-link {
+  color: #397213;
+  text-decoration: none;
+}
+
+body.brand-tap .columns-media:not(.stack):has(.columns-media-text > h3:first-child) .columns-media-text p:not(.button-wrapper) a:hover {
+  color: #7cde3a;
+  text-decoration: underline;
+}
+
 @media (width >= 728px) {
   /* the feature card from www's md: the picture's 536 px and its 20 px margin, 24 px, the text's
      540 px (1120 at 1440), the picture on either side */
