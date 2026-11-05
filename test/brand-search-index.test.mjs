@@ -29,9 +29,17 @@ test('the three brand search indexes exist, with the columns the search-results 
   });
 });
 
+// lh-cargo's es, fr, it and pt pages (2026-11-05, www's /<ll>/ci/... and imprints) have no search page and no search
+// index of their own yet: in none of the three
+const CARGO_UNINDEXED = /^\/(es|fr|it|pt)\//;
+
 test('every page of lh-cargo and lh-airdolomiti is in its language\'s index, nav, footer and the search pages are not', () => {
   const byLang = (p) => (p.startsWith('/en/') ? 'search-brand-en' : (p.startsWith('/de/') ? 'search-brand-de' : 'search-airdolomiti-it'));
-  [...pathsOf('lh-cargo'), ...pathsOf('lh-airdolomiti')].forEach((p) => {
+  const cargo = pathsOf('lh-cargo');
+  cargo.filter((p) => CARGO_UNINDEXED.test(p)).forEach((p) => {
+    ['search-brand-en', 'search-brand-de', 'search-airdolomiti-it'].forEach((name) => assert.ok(!covers(indices[name], p), `${p} in ${name}`));
+  });
+  [...cargo.filter((p) => !CARGO_UNINDEXED.test(p)), ...pathsOf('lh-airdolomiti')].forEach((p) => {
     const index = indices[byLang(p)];
     const own = /\/(nav|footer|search)$/.test(p) || p === '/index';
     assert.equal(covers(index, p), !own, `${p} in ${byLang(p)}`);
