@@ -660,6 +660,7 @@ function buildFlyout({
     window.clearTimeout(closeTimer);
     flyout.classList.remove('is-closing');
     flyout.hidden = false;
+    flyout.inert = false;
     // next frame so the slide-in transition runs
     requestAnimationFrame(() => requestAnimationFrame(() => flyout.classList.add('is-open')));
     menuButton.setAttribute('aria-expanded', 'true');
@@ -673,6 +674,8 @@ function buildFlyout({
     if (flyout.hidden) return;
     flyout.classList.remove('is-open');
     flyout.classList.add('is-closing');
+    // out of the Tab order at once: hidden only follows the 0.8 s slide-out
+    flyout.inert = true;
     menuButton.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
     document.removeEventListener('keydown', onKeydown);
