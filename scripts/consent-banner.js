@@ -8,6 +8,7 @@
 import { loadCSS } from './aem.js';
 import { BRANDS, brandOf } from './brand.js';
 import { pathLanguageOf } from './locale.js';
+import { focusReturnTarget, returnFocus } from './consent-focus.js';
 
 const TEXTS = {
   en: {
@@ -467,7 +468,8 @@ export function removeConsentBanner() {
   if (!root) return;
   root.remove();
   root = null;
-  if (lastFocus && lastFocus.isConnected) lastFocus.focus({ preventScroll: true });
+  // back where it was, or the first skip link (the banner on load)
+  returnFocus(focusReturnTarget(lastFocus, document), document);
 }
 
 function finish(onChoice, groups) {

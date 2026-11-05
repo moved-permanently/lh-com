@@ -34,6 +34,7 @@
 import { loadCSS } from './aem.js';
 import { isDemoHost, isTurnsThePageHost } from './demo.js';
 import { oneTrustId } from './brand.js';
+import { focusReturnTarget, returnFocus } from './consent-focus.js';
 
 const ONETRUST_STUB = 'https://cdn.cookielaw.org/scripttemplates/otSDKStub.js';
 const ONETRUST_STUB_OWN = '/onetrust/scripttemplates/otSDKStub.js';
@@ -158,6 +159,8 @@ const state = {
   fallback: null, // fallback banner module once shown
   timer: 0,
   consentedLoaded: false,
+  // the focused element before the preference center opened (null: the banner on load)
+  focusBefore: null,
 };
 
 /**
@@ -259,6 +262,15 @@ function oneTrustVisible() {
   return Boolean(el && el.offsetHeight > 0 && getComputedStyle(el).visibility !== 'hidden');
 }
 
+/** Calls back once OneTrust's banner and preference center are closed (up to 1.5 s). */
+function afterOneTrustCloses(callback, tries = 30) {
+  if (!oneTrustVisible() || tries <= 0) {
+    callback();
+    return;
+  }
+  window.setTimeout(() => afterOneTrustCloses(callback, tries - 1), 50);
+}
+
 async function showFallback(view = 'banner') {
   // the look-alike banner exists because OneTrust's .lufthansa.com cookies don't work on the
   // demo's hosts: demo hosts only
@@ -293,6 +305,11 @@ function onOneTrustReady(onReady) {
   // every later call is a choice made in OneTrust's banner or preference center
   if (!document.documentElement.classList.contains('lh-consent-fallback')) {
     choose(oneTrustGroups(), 'onetrust');
+    // OneTrust leaves the focus on body: back where it was, or the first skip link
+    afterOneTrustCloses(() => {
+      returnFocus(focusReturnTarget(state.focusBefore, document), document);
+      state.focusBefore = null;
+    });
   }
 }
 
@@ -353,6 +370,7 @@ function loadOneTrust({ onReady, fallbackView = 'banner' } = {}) {
 
 function openPreferences() {
   if (state.suppressed || isAuthoringContext()) return;
+  state.focusBefore = document.activeElement;
   const usingFallback = document.documentElement.classList.contains('lh-consent-fallback');
   const stored = getStoredConsent();
   if (usingFallback || state.oneTrust === 'failed' || (stored && stored.source === 'fallback' && state.oneTrust === 'idle')) {
