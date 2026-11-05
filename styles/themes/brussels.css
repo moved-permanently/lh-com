@@ -496,6 +496,25 @@ body.brand-brussels .flight-search .flight-search-submit {
     place-self: start end;
     margin: -16px 12px 0 0;
   }
+
+  /* fr: "Economy, 1 Voyageur" and "Vols directs uniquement" do not fit one row; www puts the
+     nonstop choice on its own line under the travellers, 30 px lower, flush left */
+  body.brand-brussels .flight-search:lang(fr) .flight-search-form {
+    grid-template-areas:
+      "trip trip"
+      "origin origin"
+      "dest dest"
+      "dates dates"
+      "trav trav"
+      "nonstop nonstop"
+      "submit submit"
+      "error error";
+  }
+
+  body.brand-brussels .flight-search:lang(fr) .flight-search-nonstop {
+    justify-self: start;
+    margin: 0;
+  }
 }
 
 @media (width >= 768px) {
