@@ -148,6 +148,9 @@ tokens) and the computed styles of the pages above.
 | 104 | Info card (round 3) | www's CardInfoBlock ("Milhas necessárias por zona" on the buy-ticket page) | a plain card | TAP's theme (ema-lufthansa) | fixed and live (brief 386 round 3, b107eeac) |
 | 105 | Inner pages' spacing (round 3) | www's components' spacing on the inner pages | lh-com's spacing | TAP's theme (ema-lufthansa) | fixed and live (brief 386 round 3, 2620d755 with row 67); 161 px short on the hand baggage page at 390 in the user's check (ema-lufthansa, brief 393); 2e28a112 (TAP's theme, on main since 5 November) gives its footer -39 px at 390 and -56 at 1440 (not measured by the lh-com migration agent) |
 | 106 | Feature card's picture frame (round 3) | the picture in www's green chevron frame (the Star Alliance partners card) | no frame | TAP's theme (ema-lufthansa) | fixed and live (brief 386 round 3, 1887f4db) |
+| 107 | Comparison tables' notes (R4-1, round 4: the Club's on miles-and-go/club; the fare pages) | each note behind a 24 px (i) 8 px after its label, value or column heading, the note in a tooltip | table-striped: the note in italics under its text | shared code (table-striped, brand-neutral) | fixed (brief 403, 9220be1): a cell ending in a line break and italic text shows the text and an (i) ("Mais informações", "More information" …), the note in the block's tooltip; the Club's tables 7 notes, its rows www's height (90 px, not 232); fare-comparison had its (i)s already. Checked on tap.turnsthe.page at 1440 and 390, /pt-pt and /en-pt/miles-and-go/club: no italics left, no sideways scroll |
+| 108 | Fare tables' Legend and Notes headings (R4-2) | H2s | H3s | shared code (fare-comparison) | fixed (brief 403, 9220be1): H2s, the look unchanged (14/21 600 at the same place); checked on /pt-pt/reservas/tarifas-tap and /en-pt/bookings/tap-fares at 1440 and 390 |
+| 109 | Help page's contact headings (R4-3: Contact Center, Lost & Found …) | H2s | H3s | TAP's hotline-finder (hotline-finder-tap.js) | fixed (brief 403, 9220be1): H2s, the look unchanged (24 px 500 green, same place); checked on /pt-pt/ajuda and /en-pt/help at 1440 and 390 |
 
 ## What was fixed (commits)
 
@@ -1062,3 +1065,13 @@ slider, info card, spacing, chevron frame: fixed and live; the spacing 161 px sh
 baggage page at 390 in the user's check, brief 393; 2e28a112, pulled before this push, gives -39 px). ema-lufthansa reports TAP's work; this file is kept by the
 lh-com migration agent. Not checked by the agent in this brief: the facts are the user's (live
 checks on www.flytap.com and tap.turnsthe.page).
+
+## Brief 403: round 4's shared rows (rows 107 to 109)
+
+ema-lufthansa's round 4 named three rows for shared code (R4-1 to R4-3, rows 107 to 109): the
+tables' notes behind an (i), the fare tables' Legend and Notes as H2s, the help contacts' headings
+as H2s. Compared with www.flytap.com in the agent's browser at 1440 and 390 (the Club's and the
+fare tables' (i)s, 24 px, 8 px after the text; Legenda and Notas H2s, 14/21 600) and checked on
+tap.turnsthe.page after the push (9220be1) on the pt-pt and en-pt pages of each row, at 1440 and
+390. The notes' (i) is brand-neutral: no other brand's table has a note so written (300 local
+documents). Nothing was uploaded: the code reads the documents as they are.
