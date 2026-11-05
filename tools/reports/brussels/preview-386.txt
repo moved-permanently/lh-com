@@ -1,0 +1,6 @@
+/be/en/homepage
+/be/fr/homepage
+/be/en/extra-services/upgrades
+/be/fr/extra-services/upgrades
+/be/en/book-a-flight/connecting-africa
+/be/fr/book-a-flight/connecting-africa
