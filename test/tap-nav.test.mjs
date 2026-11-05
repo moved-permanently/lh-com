@@ -167,6 +167,10 @@ describe('tap-nav', () => {
     assert.deepEqual([...badges.querySelectorAll('a[href*="play.google.com"], a[href*="apple.com"]')].map((a) => a.querySelector('img').alt), ['Google Play', 'App Store']);
     const note = [...d.querySelectorAll('main > div')].find((s) => s.querySelector('.section-metadata') && /note/.test(s.querySelector('.section-metadata').textContent));
     assert.match(note.textContent, /© \d{4}, TAP\. Todos os direitos reservados\./);
+    // as www (parity 82): "© 2026, TAP." in bold, the rest plain; YouTube before LinkedIn
+    assert.match(note.querySelector('p > strong').textContent, /^© \d{4}, TAP\.$/);
+    const order = [...badges.querySelectorAll('a')].map((a) => (a.textContent.match(/^:([a-z]+):$/) || [])[1]).filter(Boolean);
+    assert.ok(order.includes('youtube') && order.indexOf('youtube') < order.indexOf('linkedin'), order.join(', '));
     // without the store pictures: the store names as text links, as before
     const plain = dom(footerHtml(pp, { ...site, media: () => null }));
     assert.ok(plain.body.textContent.includes('App Store'));

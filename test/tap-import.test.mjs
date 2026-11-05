@@ -410,10 +410,11 @@ describe('tap-import parity (tools/reports/tap/parity.md)', () => {
     assert.deepEqual(rows.map((r) => r.querySelector('h2').textContent), ['TAP Miles&Go', 'Club TAP Miles&Go', 'Descontos em hotéis', 'Cartões de Crédito TAP Miles&Go'], 'www\'s order, not members only');
     rows.forEach((r) => {
       const [text, photo] = r.children;
-      // the text cell: the logo picture, the h2 title, the subtitle in bold
+      // the text cell: the logo picture, the h2 title, the second line an h2 too (as www,
+      // parity 85)
       assert.ok(text.firstElementChild.tagName === 'P' && text.firstElementChild.querySelector('img'), 'the logo first');
       assert.equal(text.children[1].tagName, 'H2');
-      assert.equal(text.children[2].innerHTML.startsWith('<strong>'), true);
+      assert.equal(text.children[2].tagName, 'H2', 'the second line an H2');
       assert.ok(photo.querySelector('img'), 'the photo next to it');
     });
     // the first card's button bold italic, the others' italic; "See here" a plain link
@@ -422,6 +423,14 @@ describe('tap-import parity (tools/reports/tap/parity.md)', () => {
     const seeHere = [...rows[3].querySelectorAll('a')].find((a) => a.textContent === 'Consulte aqui');
     assert.equal(seeHere.parentElement.tagName, 'P', 'a plain link');
     assert.ok(!rows[3].textContent.includes('TAP FLY+'), 'www shows no extrainfo');
+  });
+
+  it('the homepage\'s H1 www\'s: the card list\'s title ("Planeie a sua viagem ao detalhe"), no hidden "TAP Air Portugal" (parity 85)', () => {
+    const home = nd('homepage');
+    home.props.pageProps.page.slider = { __typename: 'ComponentSliderHomepageModel', slides: [{ __typename: 'BannerSlideModel', title: 'Islândia', image: { _path: '/content/dam/tap/x.jpg' } }] };
+    const d = dom(convertPage(home, ctx('https://www.flytap.com/pt-pt')).html);
+    assert.deepEqual([...d.querySelectorAll('h1')].map((h) => h.textContent), ['Planeie a sua viagem ao detalhe']);
+    assert.ok(!d.body.innerHTML.includes('hidden-heading'));
   });
 
   it('breadcrumbs: Parent the nearest ancestor we have (else the homepage), Breadcrumb Title the page\'s title; none on the homepage', () => {
@@ -543,8 +552,8 @@ describe('tap-import alerts page and extra link strip', () => {
     assert.equal(cells[0].querySelector('a').textContent, 'Intermediação de Crédito');
     assert.ok(!cells[0].querySelector('strong, em'), 'the message a plain link');
     assert.equal(cells[1].querySelector('em > a').textContent, 'Saiba mais');
-    // then the homepage's hidden H1 and the stage
-    assert.ok(s[1].querySelector('h1') && s[2].querySelector('.hero-campaign'));
+    // then the stage (no hidden H1: www's H1 is the card list's title, parity 85)
+    assert.ok(s[1].querySelector('.hero-campaign') && !s[1].querySelector('h1'));
   });
 
   it('no extra strip without extraAlert, nor on other pages', () => {
@@ -636,6 +645,30 @@ describe('tap-import pages', () => {
     assert.ok(report.missing.some((u) => u.startsWith('https://pic.flytap.com/')));
   });
 
+  it('the help centre\'s contacts (parity 40, 54): the hotline-finder on the version\'s sheet and www\'s picture, under the Contacts heading', () => {
+    const picture = ['/media-da', 'tap', 'help-contact-center-tap-1.jpg'].join('/');
+    const media = (k) => (/help[-_]contact[-_]center[-_]tap/.test(String(k)) ? picture : MEDIA[k] || null);
+    const rowsOf = (html) => {
+      const b = dom(html).querySelector('.hotline-finder');
+      assert.ok(b, 'a hotline-finder block');
+      return [b, Object.fromEntries([...b.querySelectorAll(':scope > div')].map((r) => [r.children[0].textContent, r.children[1]]))];
+    };
+    const { html } = convertPage(nd('ajuda'), { ...ctx(), media });
+    const [block, rows] = rowsOf(html);
+    assert.equal(rows.Sheet.textContent, '/pt-pt/help/contacts.json');
+    assert.equal(rows.Image.querySelector('img').getAttribute('src'), picture);
+    assert.equal(rows.Image.querySelector('img').getAttribute('alt'), '', 'www\'s alt: empty');
+    assert.ok(!/flytap\.com<\/a>/.test(block.parentElement.innerHTML), 'no "Ver em flytap.com" in its place');
+    // under the Contacts heading
+    const heads = [...block.parentElement.querySelectorAll('h2')].map((h) => h.textContent);
+    assert.ok(heads.some((h) => /Contactos/i.test(h)), heads.join(', '));
+    // a market root's help page: its language version's sheet (the block picks the market)
+    const [, root] = rowsOf(convertPage(nd('ajuda'), {
+      ...ctx('https://www.flytap.com/pt-ch/ajuda'), locale: 'pt-ch', version: 'pt-pt', media,
+    }).html);
+    assert.equal(root.Sheet.textContent, '/pt-pt/help/contacts.json');
+  });
+
   it('the help centre: H1 from the heading, cards, an accordion, links to the FAQ anchors', () => {
     const { html, report } = convertPage(nd('ajuda'), ctx());
     const d = dom(html);
@@ -644,8 +677,9 @@ describe('tap-import pages', () => {
     const faq = d.querySelector('.accordion-columns.faq');
     assert.ok(faq && faq.textContent.includes('Que reservas podem ser alteradas online?'));
     assert.ok(d.querySelector('a[href="/pt-pt/ajuda/perguntas-frequentes#antes-do-voo"]'));
-    // the contacts by country (www's live list): a link to the page on www, reported
-    assert.ok(report.linkedOut.some((x) => /ContactsByCountry/.test(x)));
+    // the contacts by country: the hotline-finder now, no link to www (parity 40, 54)
+    assert.ok(!report.linkedOut.some((x) => /ContactsByCountry/.test(x)));
+    assert.ok(d.querySelector('.hotline-finder'));
   });
 
   it('the FAQ: a heading per category and subcategory, an accordion per subcategory', () => {

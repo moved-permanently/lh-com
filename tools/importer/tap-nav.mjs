@@ -77,7 +77,8 @@ function otherOf(locale) {
   const to = lang === 'en' ? MARKET_LANG[cc] || 'pt' : 'en';
   return [LANG_NAME[to], `${to}-${cc}`];
 }
-const SOCIAL = ['facebook', 'instagram', 'linkedin', 'youtube', 'x', 'tiktok'];
+// www's order (parity 82: YouTube before LinkedIn)
+const SOCIAL = ['facebook', 'instagram', 'youtube', 'linkedin', 'x', 'tiktok'];
 const isWidget = (x) => Boolean(x.component);
 // www shows these only to a signed-in visitor (the flights to check in): left out
 const isSignedIn = (x) => x.requireLogin === true;
@@ -189,9 +190,9 @@ export function footerHtml(pp, site) {
   const follow = textOf(pp, lang, 'footer-follow-us') || S.follow;
   const app = textOf(pp, lang, 'footer-tap-app') || S.app;
   const badges = `<div>${social ? `<h3>${esc(follow)}</h3><ul>${social}</ul>` : ''}${apps ? `<h3>${esc(app)}</h3><ul>${apps}</ul>` : ''}<div class="section-metadata"><div><div>Style</div><div>badges</div></div></div></div>`;
-  // www's copyright bar ("© 2026, TAP. Todos os direitos reservados.")
+  // www's copyright bar ("© 2026, TAP." bold, then "Todos os direitos reservados.")
   const rights = textOf(pp, lang, 'rights-reserved') || S.rights;
-  const note = `<div><p>© ${new Date().getFullYear()}, TAP. ${esc(rights)}</p><div class="section-metadata"><div><div>Style</div><div>note</div></div></div></div>`;
+  const note = `<div><p><strong>© ${new Date().getFullYear()}, TAP.</strong> ${esc(rights)}</p><div class="section-metadata"><div><div>Style</div><div>note</div></div></div></div>`;
   // the logo row: TAP's logo and Star Alliance (www shows it at the right of the copyright bar)
   const logos = `<div><ul><li><a href="/${c.locale}"><img src="${attr(site.logo)}" alt="${attr(S.logoAlt)}"></a></li><li><a href="https://www.staralliance.com/">:star-alliance:</a></li></ul></div>`;
   return `<div>${cols}</div>\n${badges}\n${note}\n${logos}\n`;

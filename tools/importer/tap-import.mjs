@@ -10,9 +10,9 @@
  * /pt-pt).
  *
  * Components (pageProps.page):
- * - the homepage's slider (BannerSlide items): hero-campaign (slider), behind a visually hidden
- *   H1 (section style hidden-heading; www's H1 is none); BannerCarousel: hero-campaign (narrow),
- *   (slider, narrow) with several slides;
+ * - the homepage's slider (BannerSlide items): hero-campaign (slider), no H1 of its own (the
+ *   homepage's H1 is www's, the card list's title, parity 85); BannerCarousel: hero-campaign
+ *   (narrow), (slider, narrow) with several slides;
  * - HeroCard: hero-campaign (narrow) at the top of a page, else hero-card-overlay;
  * - Heading (the page's first: its H1), HeadingSection (H2), RichTextBlock: default content, the
  *   CTAs as buttons (primary bold, secondary plain), tables as table-striped;
@@ -520,8 +520,8 @@ function cards(items, P, s) {
 
 const HANDLERS = {
   ComponentSliderHomepageModel: (s, P) => {
-    P.section('hidden-heading');
-    P.add(P.heading(1, P.c.siteName));
+    // no H1 of its own: www's homepage H1 is the card list's title ("Planeie a sua viagem ao
+    // detalhe", 145 of 145 homepages; parity 85)
     P.section();
     const slides = s.slides || [];
     P.block(slides.length > 1 ? 'hero-campaign (slider)' : 'hero-campaign', slideRows(slides, P));
@@ -623,7 +623,8 @@ const HANDLERS = {
     cards(s.items || [], P, s);
   },
   ComponentClientNeedsCardListModel: (s, P) => {
-    P.add(P.heading(2, s.title));
+    // the homepage's H1 (www's), else an H2
+    P.add(P.heading(P.h1 ? 2 : 1, s.title));
     P.add(P.rich(s.clientNeedsCardListDescription));
     P.block('carousel-cards', (s.cards || []).map((x) => [P.img(x.image), `<h3><a href="${attr(linkOf(x.url, P.c))}">${esc(x.title)}</a></h3>`]));
   },
@@ -635,7 +636,7 @@ const HANDLERS = {
     const page = (P.c.pageProps && P.c.pageProps.page) || {};
     if (page.__typename === 'HomepageModel' && !P.cell) {
       // the homepage: www's stacked cards (lower-home.md), all four a visitor sees, one row each:
-      // the logo picture, the h2 title, the subtitle in bold, the description, the button (the
+      // the logo picture, the h2 title, the subtitle an h2 too (www's, parity 85), the description, the button (the
       // first card's bold italic, the others' italic), a second link plain; the photo beside it
       // (www shows no extrainfo)
       const link = (url, label, wrap) => {
@@ -646,7 +647,7 @@ const HANDLERS = {
         const logo = P.img(x.logo);
         const cta = link(x.primaryCtaUrl, x.primaryCtaLabel, (a) => (i === 0 ? `<em><strong>${a}</strong></em>` : `<em>${a}</em>`));
         return [
-          `${logo ? `<p>${logo}</p>` : ''}${P.heading(2, x.title)}${x.subtitle ? `<p><strong>${esc(x.subtitle)}</strong></p>` : ''}${P.rich(x.milesAndGoCardDescription)}${cta}${link(x.secondaryCtaUrl, x.secondaryCtaLabel, (a) => a)}`,
+          `${logo ? `<p>${logo}</p>` : ''}${P.heading(2, x.title)}${x.subtitle ? P.heading(2, x.subtitle) : ''}${P.rich(x.milesAndGoCardDescription)}${cta}${link(x.secondaryCtaUrl, x.secondaryCtaLabel, (a) => a)}`,
           P.img(x.image),
         ];
       }));
@@ -764,7 +765,14 @@ const HANDLERS = {
     P.block('poi-map', [['Source', `/${P.c.version || P.c.locale}/destinations/destinations-map.json`]]);
     P.section();
   },
-  ComponentContactsByCountryModel: (s, P) => { P.add(P.heading(2, s.title)); P.onWww('ContactsByCountry (the contacts by country picker)'); },
+  // the contacts by country (parity 40, 54): ema-test's hotline-finder on the language version's
+  // sheet (/<version>/help/contacts.json, a root's document its version's; the block picks the
+  // market's country) and www's picture (its alt empty, as www's)
+  ComponentContactsByCountryModel: (s, P) => {
+    P.add(P.heading(2, s.title));
+    const im = P.img(s.image);
+    P.block('hotline-finder', [['Sheet', `/${P.c.version || P.c.locale}/help/contacts.json`], ...(im ? [['Image', im]] : [])]);
+  },
   ComponentCoreMediaModel: (s, P) => P.onWww(`CoreMedia (${s.type})`),
   ComponentAnchorModel: () => {},
   // tap-markets.mjs: in place of a market's variant that no capture holds, the page on www
