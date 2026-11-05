@@ -156,6 +156,16 @@ function buildSlider(strip, labels, label = 'show image') {
   }, { passive: true });
   update();
   strip.after(dots);
+  // below 1025px the strip scrolls: a Tab stop, so the arrow keys scroll it (WCAG 2.1.1); from
+  // 1025px it is a row and none
+  const narrow = window.matchMedia('(width < 1025px)');
+  const focusable = () => {
+    if (narrow.matches) strip.setAttribute('tabindex', '0');
+    else strip.removeAttribute('tabindex');
+  };
+  focusable();
+  if (narrow.addEventListener) narrow.addEventListener('change', focusable);
+  else if (narrow.addListener) narrow.addListener(focusable);
 }
 
 /**
