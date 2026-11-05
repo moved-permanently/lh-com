@@ -178,7 +178,8 @@ test('the header bell in German: www\'s texts (Benachrichtigungen, Read more, Al
 
 test('header.js: a bell tool is the notifications button only on a brand with notifications', () => {
   const src = fs.readFileSync('blocks/header/header.js', 'utf8');
-  assert.match(src, /bell: 'notifications'/);
+  // (the icon names' roles live in header-tools.js since the role markers)
+  assert.ok(fs.readFileSync('blocks/header/header-tools.js', 'utf8').includes("bell: 'notifications'"), 'the role of the bell icon');
   assert.match(src, /brandEntry\(\)/);
   assert.match(src, /import\('\.\/header-notifications\.js'\)/);
   assert.match(fs.readFileSync('blocks/header/header.css', 'utf8'), /\.nav-notifications\b/);
