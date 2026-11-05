@@ -2,20 +2,20 @@
   "variantName": "click-to-call",
   "baseBlock": "click-to-call",
   "canonicalModel": "standalone",
-  "sourceUrl": "https://www.flytap.com/en-pt/manage-booking/extras/seats",
+  "sourceUrl": "https://www.flytap.com/pt-pt/gerir-reserva/extras",
   "visualCharacteristics": {
     "purpose": "TAP's call-back card on the extras pages: an agent calls the visitor back about seats and extras",
     "traits": [
-      "light green card, the picture at the right from 1024 px and on top on phones",
-      "title, text, a telephone with its country code, a day and an hour",
-      "outline button 'Schedule contact' and the service hours under it"
+      "light green card: title, text, the telephone with its country code, the day and the slot, the outline button, the schedule line",
+      "the wide picture in the right half from 601 px with TAP's green wedge at the left edge, the phone picture on top on phones",
+      "the small print under the card; a dark floating pill at the window's bottom right that scrolls to the card"
     ]
   },
   "contentPattern": {
-    "structure": "Rows of a key and a value: Title, Text, Schedule, Image, Mobile image, Link (the page on www.flytap.com)."
+    "structure": "Rows of a key and a value: Title, Text, Schedule, Hours, Button, Button outside hours, Phone, Days, Slots, Small print, Image, Mobile image, Floating button, Link (README.md)."
   },
   "options": [],
   "memberVariantIds": [],
-  "usage": "www.flytap.com's extras pages (seats, baggage, meals and others), where CoreMedia Engagement Cloud's call-back card shows.",
+  "usage": "www.flytap.com's pages with BySide's call-back card (CoreMedia's 2023-flight-extra, comfort seat, Club and Miles&Go types; the capture tap-byside-001).",
   "reuseGuidance": "TAP only. The button opens the Link on www, where TAP's call-back service takes the number; the replica sends nothing."
 }

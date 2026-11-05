@@ -1,61 +1,88 @@
-/* click-to-call: www.flytap.com's call-back card (parity row 66): light green, 16 px corners on
-   phones with the picture on top and the text 20 px in, 32 px from 1024 px with the text at the
-   left (64 px in, 1120 x 443 at 1440) and the picture at the right; GT Flexa title (24 / 28 px, 700), the fields white
-   with www's 1 px #e0dfe2 edge, the outline button in TAP green */
+/* click-to-call: TAP's call-back card as www.flytap.com draws it (BySide's window: its CSS in
+   the capture tap-byside-001, parity row 66). Phones (to 600 px, BySide's breakpoint): the phone
+   picture on top, the text 20 px in, the button across the card, 16 px corners. From 601 px: the
+   text and the form in the left half (63 px in, 53 px from the top), the wide picture in the right
+   half, TAP's green wedge at the left edge, 32 px corners. Under the card the small print; at the
+   bottom right of the window BySide's dark floating pill. (BySide sets its labels in Lato, which
+   the replica does not load: Inter.) */
 .click-to-call {
+  color: #424045;
+}
+
+.click-to-call .click-to-call-card {
+  position: relative;
   overflow: hidden;
   border-radius: 16px;
   background-color: #f0faf2;
-  color: #424045;
+
+  /* (the floating button's scroll stops under TAP's fixed bar: 16 + 70 + 16 px) */
+  scroll-margin-top: 102px;
+}
+
+.click-to-call .click-to-call-media-mobile img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .click-to-call .click-to-call-media {
   display: none;
 }
 
-.click-to-call .click-to-call-media-mobile img {
-  display: block;
-  width: 100%;
-  height: 199px;
-  object-fit: cover;
-}
-
 .click-to-call .click-to-call-content {
-  padding: 20px;
+  position: relative;
+  box-sizing: border-box;
+  padding: 10px 20px 24px;
 }
 
 .click-to-call .click-to-call-title {
   margin: 0;
+  color: #424045;
   font-family: var(--heading-font-family);
   font-size: 24px;
   font-weight: 700;
   line-height: 1.2;
-  color: #424045;
+  letter-spacing: -0.2px;
 }
 
-.click-to-call .click-to-call-text {
-  margin-top: 16px;
-  font-size: 16px;
-  line-height: 1.2;
-}
-
+.click-to-call .click-to-call-text,
 .click-to-call .click-to-call-text p {
   margin: 0;
+  color: #424045;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.2px;
+}
+
+.click-to-call .click-to-call-text strong {
+  font-weight: 600;
 }
 
 .click-to-call .click-to-call-form {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  margin-top: 24px;
+  margin-top: 23px;
 }
 
+/* the white fields: the country code and the telephone, then the day and the slot */
 .click-to-call .click-to-call-phone-row,
 .click-to-call .click-to-call-when {
+  box-sizing: border-box;
   display: flex;
+  align-items: flex-start;
+  padding-top: 6px;
   border: 1px solid #e0dfe2;
   border-radius: 4px;
   background-color: #fff;
+}
+
+.click-to-call .click-to-call-phone-row {
+  height: 62px;
+}
+
+.click-to-call .click-to-call-when {
+  height: 57px;
+  margin-top: 3px;
 }
 
 .click-to-call .click-to-call-phone-row > *,
@@ -69,32 +96,42 @@
   color: #65626a;
   font-family: var(--body-font-family);
   font-size: 16px;
+  appearance: none;
 }
 
+.click-to-call .click-to-call-phone::placeholder {
+  color: #666;
+}
+
+/* the code: 40 % of the row, BySide's green triangle at its right */
 .click-to-call .click-to-call-code {
-  flex: 0 0 130px;
-  padding: 0 12px;
-  border-right: 1px solid #e0dfe2;
+  flex: 0 0 40%;
+  padding: 0 30px 0 15px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 7'%3E%3Cpath d='M0 0h10L5 7z' fill='%2365c922'/%3E%3C/svg%3E") right 15px center / 10px 7px no-repeat;
 }
 
+/* the telephone after a 1 px line */
 .click-to-call .click-to-call-phone {
-  flex: 1;
-  padding: 0 12px;
+  flex: 1 1 auto;
+  padding: 0 15px;
+  border-left: 0;
+  background: linear-gradient(rgb(0 0 0 / 18%), rgb(0 0 0 / 18%)) left 11px / 1px 22px no-repeat;
 }
 
 .click-to-call .click-to-call-when > select {
-  flex: 1;
-  padding: 0 12px;
+  flex: 1 1 50%;
+  padding: 0 30px 0 15px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8' fill='none' stroke='%23424045' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m1 1.5 5 5 5-5'/%3E%3C/svg%3E") right 10% center / 12px 8px no-repeat;
 }
 
-.click-to-call .click-to-call-when > select + select {
-  border-left: 1px solid #e0dfe2;
+.click-to-call .click-to-call-button {
+  margin-top: 20px;
 }
 
 .click-to-call .click-to-call-submit {
   box-sizing: border-box;
   width: 100%;
-  min-height: 40px;
+  height: 40px;
   margin: 0;
   padding: 0 30px;
   border: 1px solid #65c922;
@@ -104,61 +141,177 @@
   font-family: var(--body-font-family);
   font-size: 16px;
   font-weight: 700;
-  line-height: 40px;
+  line-height: 38px;
+  text-align: center;
   cursor: pointer;
 }
 
 .click-to-call .click-to-call-submit:hover {
-  background-color: #65c922;
-  color: #000;
+  background-color: #f0faf2;
 }
 
 .click-to-call .click-to-call-schedule {
-  margin: 16px 0 0;
-  font-size: 14px;
-  line-height: 1.5;
+  margin: 20px 0 0;
+  color: #65626a;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
 }
 
-@media (width >= 1024px) {
-  .click-to-call {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+/* the small print under the card */
+.click-to-call .click-to-call-small,
+.click-to-call .click-to-call-small p {
+  margin: 0;
+  color: #65626a;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.click-to-call .click-to-call-small {
+  padding: 15px 0;
+}
+
+.click-to-call .click-to-call-small a:any-link {
+  color: #397213;
+  font-weight: inherit;
+  text-decoration: underline;
+}
+
+/* BySide's floating button: a dark pill at the window's bottom right, its phone in a green disc */
+.click-to-call .click-to-call-float {
+  position: fixed;
+  right: 10px;
+  bottom: 9px;
+  z-index: 40;
+  box-sizing: border-box;
+  display: block;
+  height: 54px;
+  margin: 0;
+  padding: 11px 61px 10px 16px;
+  border: 0;
+  border-radius: 37px;
+  background-color: #37363a;
+  color: #fff;
+  font-family: var(--body-font-family);
+  font-size: 13px;
+  line-height: 14px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.click-to-call .click-to-call-float::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: #9efd38 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M19.95 21q-3.12 0-6.17-1.36-3.05-1.36-5.55-3.86-2.5-2.5-3.86-5.55Q3 7.17 3 4.05q0-.45.3-.75T4.05 3H8.1q.35 0 .63.24.27.24.32.56l.65 3.5q.05.4-.03.68-.07.27-.27.47L6.98 10.9q.5.92 1.19 1.79.69.86 1.51 1.66.78.78 1.63 1.44.85.66 1.81 1.21l2.35-2.35q.22-.22.58-.33.36-.11.7-.06l3.45.7q.35.1.58.36.22.27.22.6v4.05q0 .45-.3.75t-.75.3z' fill='%23212121'/%3E%3C/svg%3E") center / 24px no-repeat;
+}
+
+.click-to-call .click-to-call-float-text,
+.click-to-call .click-to-call-float-sub {
+  display: block;
+  white-space: nowrap;
+}
+
+.click-to-call .click-to-call-float-sub {
+  margin-top: 4px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.click-to-call .click-to-call-float:focus-visible {
+  outline: 2px solid #9efd38;
+  outline-offset: 2px;
+}
+
+@media (width > 600px) {
+  .click-to-call .click-to-call-card {
     border-radius: 32px;
+  }
+
+  /* TAP's green wedge at the card's left edge (BySide's arrow left.png, 40 x 137) */
+  .click-to-call .click-to-call-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 40px;
+    height: 137px;
+    background-color: #65c922;
+    clip-path: polygon(0 0, 21px 0, 39px 42px, 2px 136px, 0 136px);
   }
 
   .click-to-call .click-to-call-media-mobile {
     display: none;
   }
 
+  /* the wide picture: the right half, centred on the card's height */
   .click-to-call .click-to-call-media {
+    position: absolute;
+    top: 50%;
+    right: 0;
     display: block;
+    width: 50%;
+    transform: translateY(-50%);
   }
 
   .click-to-call .click-to-call-media img {
     display: block;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
   }
 
   .click-to-call .click-to-call-content {
-    padding: 64px;
+    width: 50%;
+    padding: 53px 0 20px 63px;
   }
 
   .click-to-call .click-to-call-title {
+    margin-bottom: 20px;
     font-size: 28px;
   }
 
-  .click-to-call .click-to-call-text {
+  .click-to-call .click-to-call-text,
+  .click-to-call .click-to-call-text p {
     font-size: 18px;
   }
 
-  .click-to-call .click-to-call-code {
-    flex-basis: 210px;
+  .click-to-call .click-to-call-form {
+    margin-top: 13px;
   }
 
-  .click-to-call .click-to-call-submit {
-    width: auto;
-    align-self: flex-start;
+  .click-to-call .click-to-call-when {
+    margin-top: 1px;
+  }
+
+  .click-to-call .click-to-call-button {
+    width: 42%;
+    margin-top: 10px;
+  }
+
+  .click-to-call .click-to-call-schedule {
+    margin-bottom: 24px;
+  }
+
+  .click-to-call .click-to-call-small,
+  .click-to-call .click-to-call-small p {
+    line-height: 1.2;
+  }
+
+  .click-to-call .click-to-call-small {
+    padding: 20px 63px;
+  }
+}
+
+/* BySide: the button 20 px in from 811 px */
+@media (width > 810px) {
+  .click-to-call .click-to-call-button {
+    margin-left: 20px;
   }
 }
