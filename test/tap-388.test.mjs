@@ -20,6 +20,9 @@
      outline pill (transparent, 1 px #65c922, #424045, Inter 15 / 500, 40 px, 24 px inside; on
      hover #7cde3a inside), its links in the text TAP's dark green without underline (underlined
      in #7cde3a on hover), at 390 and 1440;
+   - round 4: the feature card's chevron 28 px past its picture made phones scroll 12 px sideways
+     (402 px at 390 on every page with one); clipped at the window's edge as www's (main's
+     overflow-x clip: no scroll container, sticky and the vertical overflow as before);
    Run: node --max-old-space-size=512 --test test/tap-388.test.mjs */
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -71,4 +74,8 @@ test('item 2: the feature card\'s button www\'s outline pill, its text links wit
   rule('\\.columns-media-text a\\.button:hover', '\\s*border-color: #65c922;\\s*background-color: #7cde3a;\\s*color: #424045;\\s*\\}');
   rule('\\.columns-media-text p:not\\(\\.button-wrapper\\) a:any-link', '\\s*color: #397213;\\s*text-decoration: none;\\s*\\}');
   rule('\\.columns-media-text p:not\\(\\.button-wrapper\\) a:hover', '\\s*color: #7cde3a;\\s*text-decoration: underline;\\s*\\}');
+});
+
+test('round 4: the page clipped at the window\'s edge as www\'s (the feature card\'s chevron no sideways scroll on phones)', () => {
+  assert.match(css, /body\.brand-tap main \{\s*overflow-x: clip;\s*\}/);
 });

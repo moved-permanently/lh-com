@@ -2003,6 +2003,13 @@ body.brand-tap .columns-media:not(.stack):has(.columns-media-text > h3:first-chi
   padding-top: 16px;
 }
 
+/* (its chevron 28 px past the picture: the page clipped at the window's edge as www's, no
+   sideways scroll on phones; overflow-x clip makes no scroll container, sticky and the vertical
+   overflow as before; round 4) */
+body.brand-tap main {
+  overflow-x: clip;
+}
+
 /* its button www's outline pill (the colour on the button inside www's link: transparent, 1 px
    #65c922, #424045, Inter 15 / 500, 40 px; #7cde3a inside on hover), its links in the text TAP's
    dark green without underline, underlined in #7cde3a on hover (Star Alliance partners,
