@@ -898,6 +898,25 @@ describe('tap-import pages', () => {
     assert.deepEqual(head, ['', 'Club Basic<br>109 EUR / ano', 'Club Platinum+<br>1 189 EUR / ano<br><em>Oferta limitada</em>']);
   });
 
+  it('a YouTube video banner: its title an H3 as www\'s (economy-prime in every version, round 4), then the embed', () => {
+    const page = {
+      props: {
+        pageProps: {
+          page: {
+            title: 'Economy Prime',
+            sections: [{ __typename: 'ComponentHeadingModel', title: 'Fliegen Sie in Economy Prime' },
+              { __typename: 'ComponentBannerVideoModel', title: 'TAP Economy Prime ', youtubeUrl: 'https://youtu.be/Ys3t3n6y6d8' }],
+          },
+        },
+      },
+    };
+    const d = dom(convertPage(page, { ...ctx('https://www.flytap.com/de-de/an-bord/economy-prime'), locale: 'de-de', lang: 'de' }).html);
+    const h = [...d.querySelectorAll('h2, h3')].find((x) => x.textContent.trim() === 'TAP Economy Prime');
+    assert.ok(h, 'the video\'s title');
+    assert.equal(h.tagName, 'H3');
+    assert.equal(d.querySelector('.embed a').getAttribute('href'), 'https://youtu.be/Ys3t3n6y6d8');
+  });
+
   it('a card\'s description without its sub- and superscript text, as www (parity 97: cards 126 of 126; rich text keeps it)', () => {
     const t = (value, ...v) => ({ nodeType: 'text', value, format: { variants: v } });
     const desc = { json: [{ nodeType: 'paragraph', content: [t('Envie mensagens com emojis incluídos '), t('(1)', 'subscript'), t('.')] }] };

@@ -802,7 +802,8 @@ const HANDLERS = {
   },
   ComponentBannerVideoModel: (s, P) => {
     if (s.youtubeUrl) {
-      P.add(P.heading(2, s.title));
+      // its title an H3, as www's (economy-prime in every version, round 4)
+      P.add(P.heading(3, s.title));
       P.block('embed', [[`<a href="${attr(s.youtubeUrl)}">${esc(s.title || s.youtubeUrl)}</a>`]]);
       return;
     }
