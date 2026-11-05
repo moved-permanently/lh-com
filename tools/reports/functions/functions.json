@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-05 05:35",
-  "change": "The booking code entry now works on the login pages of Discover, Austrian, Brussels Airlines and SWISS and hands the code to the airline's shop, as their websites do; ITA's own website has none, so its links stay.",
+  "updated": "2026-11-05 08:25",
+  "change": "TAP Air Portugal's help pages have its contacts finder in all eight versions, and its destinations page has the destination search with filters and cards, as on www.flytap.com.",
   "legend": {
     "done": {
       "label": "works on our replica",
@@ -52,8 +52,7 @@
     "adesim": "Air Dolomiti's eSIM shop (from the vendor Breeze) is built into the replica, but its switch stays off: Breeze answers every call from our address with 403, because the widget's key belongs to Air Dolomiti's site. It works once Air Dolomiti or Breeze allows our address.",
     "b2bsignin": "Lufthansa Group for Business has two sign-ins in AEM today, one for companies and one for travel agencies (eXperts), each with a member area. Their replacement follows the other airlines' sign-ins, with test data first; showing real member data needs Lufthansa to let it reach its user and role systems. Until then the replica links to the current sign-ins.",
     "lxmarkets": "Switzerland in all ten of SWISS's languages (English, German, French, Italian, Spanish, Portuguese, Chinese, Japanese, Greek, Russian), SWISS's other countries in the languages www offers them in, and Korea in Korean are on the new platform since 3 November.",
-    "tapstays": "By decision, TAP's booking engine, check-in, the manage-booking steps, the account and TAP Miles&Go sign-in, flight status, site search, forms, live fares and chat stay on TAP's current systems, and the new site links to them as www.flytap.com does. The pages about these topics are on the new platform.",
-    "tapbuild": "TAP's help contacts finder is built as a TAP version of the shared contacts block and works on a draft page. What's left is ours: the contacts by country and city (not in our copies of www) and the switch on each version's help page."
+    "tapstays": "By decision, TAP's booking engine, check-in, the manage-booking steps, the account and TAP Miles&Go sign-in, flight status, site search, forms, live fares and chat stay on TAP's current systems, and the new site links to them as www.flytap.com does. The pages about these topics are on the new platform."
   },
   "brands": [
     {
@@ -1340,8 +1339,8 @@
         },
         "tap": {
           "status": "done",
-          "note": "TAP's destinations map (TAP's version of the map, with its destinations by region) is on the destinations page of all eight versions, as on www. Smartvel's search and destination cards on www's map stay www's.",
-          "evidence": "brief 339 (c7b1d41b) + 349 documents, published 2026-11-04 ~18:00 CET (job-2026-11-04-16-51-33-4509cc63); check 2026-11-04 21:50 CET: tap.turnsthe.page /pt-pt/destinos and /en-pt/destinations 200 with poi-map, no 'See on flytap.com' link left; 8 map data files live (88-90 cities)",
+          "note": "TAP's destinations map (TAP's version of the map, with its destinations by region) is on the destinations page of all eight versions, as on www. Since 5 November the destination search beside it works as on www too (search, filters by area and category, the destination cards), with text only: the card photos are Smartvel's pictures and are not copied.",
+          "evidence": "destination-grid block 6d07793c (brief 371) and sheets + pages 8b691ed2 (brief 379), published 2026-11-05 07:29 CET (sheets job-2026-11-05-06-28-59-d3ec8980, pages job-2026-11-05-06-29-10-6bb083c3); check: tap.turnsthe.page /pt-pt/destinos carries destination-grid; brief 339 (c7b1d41b) + 349 documents, published 2026-11-04 ~18:00 CET (job-2026-11-04-16-51-33-4509cc63); check 2026-11-04 21:50 CET: tap.turnsthe.page /pt-pt/destinos and /en-pt/destinations 200 with poi-map, no 'See on flytap.com' link left; 8 map data files live (88-90 cities)",
           "page": "/pt-pt/destinos"
         }
       }
@@ -1790,11 +1789,10 @@
           "footnote": "travelidapps"
         },
         "tap": {
-          "status": "wip",
-          "note": "TAP's contacts finder (country and city, phone numbers, hours, desks) is built and works on a draft with sample data; the contacts per country are ours to collect, and the help pages link to www's finder until then.",
-          "footnote": "tapbuild",
+          "status": "done",
+          "note": "TAP's contacts finder is on the help page of all eight versions: pick a country and city to see the phone numbers, opening hours and desks, as on www.flytap.com.",
           "page": "/pt-pt/ajuda",
-          "evidence": "c7b1d41b (brief 339, parity.md row 40); check 2026-11-04 ~15:00 CET, private Studio tab on tap.turnsthe.page: aem.page /drafts/help-contacts hotline-finder-tap loaded with the Portugal/Lisbon sample; /pt-pt/ajuda 'Ver em flytap.com'"
+          "evidence": "contacts sheets per version (8bda99fc, brief 347) and the finder in the help pages (cd0facd1, brief 360); published 2026-11-05 02:31 CET (job-2026-11-05-01-31-43-7197388a; contacts.json job-2026-11-04-21-21-28-356e6bef); checks: tap.turnsthe.page /de-ch/hilfe opens on Schweiz / Genf, preview /pt-pt/ajuda on Portugal / Lisboa; c7b1d41b (brief 339, parity.md row 40); check 2026-11-04 ~15:00 CET, private Studio tab on tap.turnsthe.page: aem.page /drafts/help-contacts hotline-finder-tap loaded with the Portugal/Lisbon sample; /pt-pt/ajuda 'Ver em flytap.com'"
         }
       }
     },
