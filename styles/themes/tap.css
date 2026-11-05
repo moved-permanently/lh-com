@@ -3243,4 +3243,12 @@ body.brand-tap .faq-picker-questions > [role="tabpanel"][hidden] {
   }
 }
 
+/* row 66: the call-back card's title on phones as BySide's window (its line break hidden up to
+   600 px, www's breakpoint) */
+@media (width <= 600px) {
+  body.brand-tap .click-to-call .click-to-call-title br {
+    display: none;
+  }
+}
+
 /* stylelint-enable no-descending-specificity */
