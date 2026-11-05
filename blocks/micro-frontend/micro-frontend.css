@@ -35,3 +35,12 @@
 .micro-frontend help-center-web .topic-selection-image-container img {
   max-width: none;
 }
+
+/* help-center-web's topic rules reach the screen's edges by --full-width-horizontal-offset, www's
+   page margin from the design system (2.2rem at 390); our column's margin is --layout-margin (22 px),
+   so they ran past the screen. From 1024 px www's 0 stays */
+@media (width < 1024px) {
+  .micro-frontend help-center-web {
+    --full-width-horizontal-offset: var(--layout-margin);
+  }
+}
