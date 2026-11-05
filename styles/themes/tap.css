@@ -992,12 +992,13 @@ body.brand-tap .cards-icon-tap :is(.cards-icon-prev, .cards-icon-next):focus-vis
 }
 
 /* "Plan your trip in detail" (carousel-cards of a picture and a linked title each,
-   carousel-cards.js carousel-cards-tap): the heading centred (GT Flexa 40 / 48, 28 on phones),
+   carousel-cards.js carousel-cards-tap): the heading centred (GT Flexa 40 / 48, 28 on phones; the
+   homepage's H1 as www's once the documents make it one, row 85),
    32 px above the cards; white cards with www's 32 px corners and soft shadow, the picture on top
    (262 x 112 at 1440: four cards, 24 px apart, no controls), the title centred below it (Inter
    16 / 500) in a 92 px band; on phones one 358 x 273 card at a time, swiped, previous, dots and
    next under it as www's (a grey circle disabled, green dots, the current one a pill). */
-body.brand-tap main .default-content-wrapper:has(+ .carousel-cards-wrapper > .carousel-cards-tap) > :is(h2, h3):last-child {
+body.brand-tap main .default-content-wrapper:has(+ .carousel-cards-wrapper > .carousel-cards-tap) > :is(h1, h2, h3):last-child {
   margin: 52px 0 32px;
   font-size: 28px;
   line-height: 1.2;
@@ -1133,7 +1134,7 @@ body.brand-tap .carousel-cards-tap .carousel-cards-dot[aria-current="true"]::bef
 }
 
 @media (width >= 1024px) {
-  body.brand-tap main .default-content-wrapper:has(+ .carousel-cards-wrapper > .carousel-cards-tap) > :is(h2, h3):last-child {
+  body.brand-tap main .default-content-wrapper:has(+ .carousel-cards-wrapper > .carousel-cards-tap) > :is(h1, h2, h3):last-child {
     margin-top: 84px;
     font-size: 40px;
   }
@@ -1351,6 +1352,16 @@ body.brand-tap .columns-media.stack .columns-media-text p:has(> strong:only-chil
   font-weight: 600;
 }
 
+/* the second line as an H2 (www's; the documents of row 85): Inter 600, 14 / 21, 20 / 30 from
+   1024 px */
+body.brand-tap .columns-media.stack .columns-media-text :is(h2, h3) + h2 {
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+}
+
 /* the buttons in a row (www: pt-4), a link beside them */
 body.brand-tap .columns-media.stack .columns-media-text > :is(.button-wrapper, .button-wrapper + .link-wrapper) {
   flex: 1 1 100%;
@@ -1459,6 +1470,10 @@ body.brand-tap .columns-media.stack .columns-media-text a.button.secondary:hover
   }
 
   body.brand-tap .columns-media.stack .columns-media-text p:has(> strong:only-child) {
+    font-size: 20px;
+  }
+
+  body.brand-tap .columns-media.stack .columns-media-text :is(h2, h3) + h2 {
     font-size: 20px;
   }
 }

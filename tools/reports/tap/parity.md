@@ -126,7 +126,7 @@ tokens) and the computed styles of the pages above.
 | 82 | Footer documents (es-es and others) | YouTube before LinkedIn; "© 2026, TAP." in bold | LinkedIn first; the note plain | import (ema-lufthansa: the footer documents) | fixed (brief 362: tap-nav.mjs, the 8 language and 132 root footers) |
 | 83 | Homepage stages (es-es) | three slides | two (pt-ao none: row 48) | import (ema-lufthansa) | needs a fresh capture of /es-es (ema-lufthansa, from the local capture): www's third slide is the Stopover one, "Descubra 2 destinos por el precio de 1."; our only capture of /es-es (tap-snapshots-006) has two slides (Islandia, Navidad en Nueva York) and no rule for a third |
 | 84 | Destinations page (en-pt/destinations, every version) | www's destination grid: filters, 16 destination cards, the continents' lists (5,084 px at 390) | the title, the lead and the inspiration banner (2,668 px) | import, perhaps a new block (ema-lufthansa) | new block (to build; brief 362, described in ema-lufthansa's report): the grid is Smartvel's widget (the page's WidgetFreeBlock, drawn in the browser from Smartvel's service): its filters and destination cards are in neither the page's data nor www's HTML, so a capture of Smartvel's data is needed too; the continents' lists are our accordion already, the map the poi-map (row 45) |
-| 85 | Homepage headings (every root) | "Planeie a sua viagem ao detalhe" an H1; the Miles&Go cards' second lines H2 (Inter 14 / 21 600) | H2; paragraphs | import (ema-lufthansa; row 62 covers the hero card's H3) | the documents done (brief 362: the card list's title the H1 on all 145 homepages, www's on all 145; no hidden H1; the Miles&Go second lines H2). Theme (ema-test), before these homepages are published: the second lines as www's (Inter 600, 14 / 21 at 390, 20 / 30 from 1024 px; now the stack's 24 / 28.8 and 40 / 48), e.g. `body.brand-tap .columns-media.stack .columns-media-text h2 + h2`; the H1 28 / 33.6 at 390 (now 40 / 48), e.g. `body.brand-tap main .default-content-wrapper:has(+ .carousel-cards-wrapper) > h1` |
+| 85 | Homepage headings (every root) | "Planeie a sua viagem ao detalhe" an H1; the Miles&Go cards' second lines H2 (Inter 14 / 21 600) | H2; paragraphs | import (ema-lufthansa; row 62 covers the hero card's H3) | the documents done (brief 362: the card list's title the H1 on all 145 homepages, www's on all 145; no hidden H1; the Miles&Go second lines H2). Theme done (brief 372; checked at 390 and 1440 on the eight homepages): the H1 takes the carousel heading's rule (`… > :is(h1, h2, h3):last-child`: 28 / 33.6 at 390, 40 / 48 from 1024 px, centred, www's place: y 1087 on pt-pt at 1440, as www), the second lines `.columns-media-text :is(h2, h3) + h2` Inter 600, 14 / 21 and 20 / 30, -1 %, as www. Today's live pages unchanged (main's code and this one give the same values on live content) |
 | 86 | Stage and card carousel dots (homepages, slider banners) | 40 px buttons, an 8 px dot inside | 8 px buttons (axe target-size, WCAG 2.5.8: 78 nodes on 22 page-widths) | theme | fixed (brief 363: 24 px targets, the dot drawn inside) |
 | 87 | Booking box: a focused field | www's line in TAP's dark green (`focus:border-primary`) | a 1 px #65c922 line, 2.3:1 on white, no other ring | booking box (TAP rules) | fixed (brief 363: 2 px #397213) |
 | 88 | Booking box: the calendar and the keyboard | — | Tab past its last button leaves it open over the next fields (WCAG 2.4.11) | booking box (TAP variant) | fixed (brief 363: it closes, the focus stays where it went; Escape as before) |
@@ -939,3 +939,18 @@ phone browser's user agent at 390 (www serves its old mobile site to a headless 
     preview.
 - **Rows 91, 92 and 93:** as www. **Row 94** is ema-lufthansa's: the import is ready and off, waiting
   on hero-campaign and hero-card-overlay showing the second picture on phones (not in this brief).
+
+## Brief 372: the homepage headings (row 85)
+
+- **Row 85:** the theme rules for ema-lufthansa's homepage documents (on preview, not yet published).
+  - The H1 "Planeie a sua viagem ao detalhe" over the carousel takes the rule its H2 had, so it gets
+    the same size and place (28 / 33.6 on phones, 40 / 48 from 1024 px, centred).
+  - The Miles&Go cards' second lines, an H2 after the card's title, get www's Inter 600 at 14 / 21
+    and 20 / 30.
+  - **Checked:** the eight homepages (pt-pt, en-pt, es-es, fr-fr, de-de, it-it, pl-pl, pt-br) at 390
+    and 1440 on the local preview (this branch's code, the preview's content), against
+    www.flytap.com/pt-pt at both widths.
+  - **No change on live until publishing:** the same eight pages on live content with this branch's
+    code (a local server on aem.live) and on tap.turnsthe.page (main's code) give the same values:
+    the H2 and the bold paragraphs as today.
+  - Left: at 390 the H1 sits 6 px lower than www's (1473 to 1467 on pt-pt), as the H2 does today.
