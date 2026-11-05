@@ -12,8 +12,8 @@
      Schengen steps): one a row on phones, two from 728 px (548 px at 1440), as the three-up cards
      otherwise (round 3's and row 15's: the card at the column, its title 24 px, its button row);
    - R4-6, www's large feature card from 728 px 24 px under the row (picture or text: www's box
-     299 px for a 275 px picture), not under the text alone; a YouTube banner (economy-prime,
-     for-life) www's 380 px frame with 32 px corners at every width;
+     299 px for a 275 px picture), not under the text alone (the YouTube banner: the block
+     video-banner since brief 407);
    - the feature cards' text as www's at 390 and 1440: paragraphs 8 px apart in the large card too
      (24 px from a paragraph or 40 from a list to the button, 24 px from a paragraph to a list);
      the small card with a title 24 px under the title and 48 px under its text, without a title
@@ -54,11 +54,11 @@ test('R4-5: two-up text cards, one a row on phones and two from 728 px, as the t
   });
 });
 
-test('R4-6: the large feature card 24 px under its row from 728 px; the YouTube banner 380 px with 32 px corners', () => {
+test('R4-6: the large feature card 24 px under its row from 728 px', () => {
   const md = css.slice(css.indexOf('/* www\'s large feature card from 728 px'));
   assert.ok(md.length < css.length);
   assert.match(md, /@media \(width >= 728px\) \{\s*body\.brand-tap \.columns-media\.feature \.columns-media-row \{\s*padding-bottom: 24px;\s*\}\s*body\.brand-tap \.columns-media\.feature \.columns-media-text \{\s*padding-bottom: 0;\s*\}\s*\}/);
-  assert.match(css, /body\.brand-tap \.embed \.media-embed-youtube \{\s*height: 380px;\s*overflow: hidden;\s*border-radius: 32px;\s*aspect-ratio: auto;\s*\}/);
+  // (the YouTube banner: the block video-banner since brief 407, R4-9)
 });
 
 test('the feature cards\' text as www\'s: large 8 px between paragraphs; small with a title 24 / 48, without one 24 px under on phones', () => {

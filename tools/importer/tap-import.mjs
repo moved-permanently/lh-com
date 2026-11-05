@@ -343,6 +343,15 @@ function list(n, c) {
   return `<${tag}>${items.join('')}</${tag}>`;
 }
 
+/**
+ * The authoring convention for an empty line in a card's text (www draws a 24 px line for an empty
+ * paragraph; R4-7): the marker paragraph {blank}, in a sub so the theme finds it (a card's text has
+ * no sub of its own: cardRich drops www's sub- and superscript), one 24 px line, the word hidden.
+ * Not an empty paragraph nor a no-break space's: the pipeline drops both (checked on aem.page); not
+ * {spacer-24}: cards-teaser drops the emptied spacer.
+ */
+export const EMPTY_LINE = '<sub>{blank}</sub>';
+
 /** Block-level HTML of a node list; consecutive inline nodes become a paragraph. */
 function flow(nodes, c, mode = 'top') {
   const out = [];
@@ -355,6 +364,9 @@ function flow(nodes, c, mode = 'top') {
     if (n.nodeType === 'paragraph') {
       const p = tidy(marked(n.content, c));
       if (p.replace(/<br>/g, '').trim()) out.push(`<p>${p}</p>`);
+      // a card's empty paragraph: www's empty 24 px line, the authoring convention's paragraph
+      // (EMPTY_LINE; R4-7, brief 407)
+      else if (c.emptyLines) out.push(`<p>${EMPTY_LINE}</p>`);
     } else if (n.nodeType === 'header') {
       const lv = Math.min(6, Math.max(2, Number(String(n.style || 'h3').replace(/\D/g, '')) || 3));
       const h = tidy(marked(n.content, c)).replace(/<\/?strong>/g, '');
@@ -444,7 +456,7 @@ class Page {
   rich(v, mode) { return richText(v, this.c, this.cell ? 'cell' : (mode || 'top')); }
 
   /** A card's description: www leaves out its sub- and superscript text (parity 97). */
-  cardRich(v) { return richText(v, { ...this.c, dropSubSup: true }, this.cell ? 'cell' : 'top'); }
+  cardRich(v) { return richText(v, { ...this.c, dropSubSup: true, emptyLines: true }, this.cell ? 'cell' : 'top'); }
 
   link(url, label, kind) {
     const href = linkOf(url, this.c);
@@ -815,9 +827,15 @@ const HANDLERS = {
   },
   ComponentBannerVideoModel: (s, P) => {
     if (s.youtubeUrl) {
-      // its title an H3, as www's (economy-prime in every version, round 4)
-      P.add(P.heading(3, s.title));
-      P.block('embed', [[`<a href="${attr(s.youtubeUrl)}">${esc(s.title || s.youtubeUrl)}</a>`]]);
+      // www's banner (R4-9, brief 407): the TAP block video-banner, www's poster (when it has one)
+      // in the first cell, the title an H3 (www's) and the play link in www's text (watch-video)
+      // in the second; YouTube loads on play
+      const poster = P.img(s.backgroundImage);
+      const play = i18nOf(P.c.pageProps, P.c.lang, 'watch-video') || labelsOf(P.c.lang).video;
+      const text = `${P.heading(3, s.title)}<p><a href="${attr(s.youtubeUrl)}">${esc(play)}</a></p>`;
+      P.section();
+      P.block('video-banner', [poster ? [poster, text] : [text]]);
+      P.section();
       return;
     }
     const v = s.video || {};

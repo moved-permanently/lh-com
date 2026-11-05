@@ -3660,15 +3660,6 @@ body.brand-tap .cards.two-up > ul {
   }
 }
 
-/* a YouTube banner (R4-6: economy-prime, for-life; the importer's embed after the video's H3):
-   www's 380 px frame with 32 px corners at every width, the player inside it */
-body.brand-tap .embed .media-embed-youtube {
-  height: 380px;
-  overflow: hidden;
-  border-radius: 32px;
-  aspect-ratio: auto;
-}
-
 /* www's small feature card with a title (economy-prime's newspapers): 24 px under the title, 48 px
    under its text; without a title 24 px under its text on phones (brief 394) */
 body.brand-tap .columns-media.feature-small:has(.columns-media-text > h3:first-child) .columns-media-text > h3:first-child {
@@ -3683,6 +3674,21 @@ body.brand-tap .columns-media.feature-small:has(.columns-media-text > h3:first-c
   body.brand-tap .columns-media.feature-small:not(:has(.columns-media-text > h3:first-child)) .columns-media-text {
     padding-bottom: 24px;
   }
+}
+
+/* R4-7, empty lines in card texts (brief 407): www draws a card text's empty paragraph as a 24 px
+   line; the importer writes the marker paragraph <sub>{blank}</sub> (the card texts have no sub of
+   their own: cardRich drops www's sub- and superscript): one 24 px line, the word hidden from sight
+   and from assistive tech */
+body.brand-tap main :is(.cards-teaser, .cards, .columns-media.feature, .columns-media.feature-small) p:has(> sub:only-child) {
+  height: 24px;
+  margin: 0;
+  overflow: hidden;
+  line-height: 24px;
+}
+
+body.brand-tap main :is(.cards-teaser, .cards, .columns-media.feature, .columns-media.feature-small) p:has(> sub:only-child) > sub {
+  visibility: hidden;
 }
 
 /* stylelint-enable no-descending-specificity */

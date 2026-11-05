@@ -14,7 +14,7 @@ import { fileURLToPath } from 'node:url';
 import { parseHTML } from 'linkedom';
 import {
   altOf, slugOf, docPath, richText, linkOf, anchorsOf, convertPage, mediaIndex, mediaResolver,
-  deliveryMediaDirs,
+  deliveryMediaDirs, EMPTY_LINE,
 } from '../tools/importer/tap-import.mjs';
 import { cardsOf } from '../tools/importer/tap-click-to-call.mjs';
 
@@ -898,23 +898,38 @@ describe('tap-import pages', () => {
     assert.deepEqual(head, ['', 'Club Basic<br>109 EUR / ano', 'Club Platinum+<br>1 189 EUR / ano<br><em>Oferta limitada</em>']);
   });
 
-  it('a YouTube video banner: its title an H3 as www\'s (economy-prime in every version, round 4), then the embed', () => {
-    const page = {
+  it('a YouTube video banner (R4-9, brief 407): the TAP block video-banner, www\'s poster in the first cell, its title an H3 (www\'s) and the play link in www\'s text (watch-video) in the second; no title above it', () => {
+    const img = { __typename: 'ImageRef', _path: '/content/dam/tap/thumb.png', _dynamicUrl: '/adobe/dynamicmedia/deliver/dm-aid--bd6d1ad2-88c0-4ed9-9cc2-91a83509e5dc/baggage_tap_air_portugal_card_hp.jpg' };
+    const page = (backgroundImage) => ({
       props: {
         pageProps: {
+          _nextI18Next: { initialI18nStore: { de: { common: { 'watch-video': 'Video ansehen' } } } },
           page: {
             title: 'Economy Prime',
             sections: [{ __typename: 'ComponentHeadingModel', title: 'Fliegen Sie in Economy Prime' },
-              { __typename: 'ComponentBannerVideoModel', title: 'TAP Economy Prime ', youtubeUrl: 'https://youtu.be/Ys3t3n6y6d8' }],
+              {
+                __typename: 'ComponentBannerVideoModel', title: 'TAP Economy Prime ', youtubeUrl: 'https://youtu.be/Ys3t3n6y6d8', backgroundImage,
+              }],
           },
         },
       },
-    };
-    const d = dom(convertPage(page, { ...ctx('https://www.flytap.com/de-de/an-bord/economy-prime'), locale: 'de-de', lang: 'de' }).html);
-    const h = [...d.querySelectorAll('h2, h3')].find((x) => x.textContent.trim() === 'TAP Economy Prime');
-    assert.ok(h, 'the video\'s title');
-    assert.equal(h.tagName, 'H3');
-    assert.equal(d.querySelector('.embed a').getAttribute('href'), 'https://youtu.be/Ys3t3n6y6d8');
+    });
+    const at = { ...ctx('https://www.flytap.com/de-de/an-bord/economy-prime'), locale: 'de-de', lang: 'de' };
+    const d = dom(convertPage(page(img), at).html);
+    const b = d.querySelector('.video-banner');
+    assert.ok(b, 'the video-banner block');
+    assert.ok(!d.querySelector('.embed'), 'no embed');
+    const [poster, text] = b.querySelector(':scope > div').children;
+    assert.ok(poster.querySelector('img'), 'www\'s poster');
+    assert.equal(text.querySelector('h3').textContent.trim(), 'TAP Economy Prime');
+    const a = text.querySelector('a');
+    assert.equal(a.getAttribute('href'), 'https://youtu.be/Ys3t3n6y6d8');
+    assert.equal(a.textContent, 'Video ansehen', 'www\'s text');
+    assert.equal([...d.querySelectorAll('h2, h3')].filter((x) => x.textContent.trim() === 'TAP Economy Prime').length, 1, 'no H3 above the banner');
+    // without a poster (for-life): the text cell only
+    const n = dom(convertPage(page(null), at).html).querySelector('.video-banner > div');
+    assert.equal(n.children.length, 1);
+    assert.ok(n.querySelector('h3'));
   });
 
   it('a feature card carries www\'s size (option feature, large; feature-small, default: the theme lays them out as www) and a card list www slides on desktop the option slider (brief 394)', () => {
@@ -977,6 +992,29 @@ describe('tap-import pages', () => {
     assert.deepEqual([...text.querySelectorAll('h2')].map((h) => h.textContent), ['Lugar do Lado Livre', 'Conforto extra ao seu lado.']);
     assert.ok(text.querySelector('p > em > strong > a'), 'the button as the first card\'s on the homepage');
     assert.ok(photo.querySelector('img'));
+  });
+
+  it('R4-7: a card\'s empty paragraph (www\'s empty 24 px line) the authoring convention\'s {blank} marker paragraph (an empty one and a no-break space\'s are dropped by the pipeline); rich text elsewhere as before (brief 407)', () => {
+    const t = (value, ...v) => ({ nodeType: 'text', value, ...(v.length ? { format: { variants: v } } : {}) });
+    const para = (...content) => ({ nodeType: 'paragraph', content });
+    const desc = { json: [para(t('Peso máximo: ', 'strong'), t('30 kg')), para(t('Dimensões máximas: 155 x 42 x 25 cm')), para(), para(t('(1)', 'strong'), t(' Mediante a reserva de um assento extra.')), para()] };
+    const page = {
+      props: {
+        pageProps: {
+          page: {
+            title: 'Bagagem de mão',
+            sections: [{ __typename: 'ComponentHeadingModel', title: 'Bagagem de mão' },
+              { __typename: 'ComponentGenericCardListModel', itemsPerRow: 3, items: [{ __typename: 'GenericCard1Model', title: 'Bagagem especial de cabina (1)', genericCard1Description: desc }] },
+              { __typename: 'ComponentRichTextBlockModel', richTextContent: { json: [para(t('Antes')), para(), para(t('Depois'))] } }],
+          },
+        },
+      },
+    };
+    const html = convertPage(page, ctx('https://www.flytap.com/pt-pt/informacoes/bagagem/bagagem-mao')).html;
+    const card = dom(html).querySelector('.cards-teaser');
+    const ps = [...card.querySelectorAll('p')].map((p) => p.innerHTML);
+    assert.deepEqual(ps.slice(-5), ['<strong>Peso máximo:</strong> 30 kg', 'Dimensões máximas: 155 x 42 x 25 cm', EMPTY_LINE, '<strong>(1)</strong> Mediante a reserva de um assento extra.', EMPTY_LINE], 'the empty lines where www has them');
+    assert.ok(html.includes('<p>Antes</p><p>Depois</p>'), 'a rich text block as before');
   });
 
   it('a card\'s description without its sub- and superscript text, as www (parity 97: cards 126 of 126; rich text keeps it)', () => {

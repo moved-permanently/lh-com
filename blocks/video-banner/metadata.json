@@ -1,0 +1,21 @@
+{
+  "variantName": "video-banner",
+  "baseBlock": "video-banner",
+  "canonicalModel": "standalone",
+  "sourceUrl": "https://www.flytap.com/pt-pt/a-bordo/economy-prime",
+  "visualCharacteristics": {
+    "purpose": "TAP's YouTube banner: a poster with the video's title and a play button; the video plays in its place",
+    "traits": [
+      "380 px frame with 32 px corners, the poster filling it",
+      "the title in white over the poster, a white outline play button at the foot",
+      "the YouTube player loaded only on play"
+    ]
+  },
+  "contentPattern": {
+    "structure": "One row: the poster's cell (optional) and the text's (the title H3, the link to the YouTube video whose text is the button's). README.md."
+  },
+  "options": [],
+  "memberVariantIds": [],
+  "usage": "www.flytap.com's Economy Prime and For Life pages (ComponentBannerVideoModel with a youtubeUrl).",
+  "reuseGuidance": "TAP only. Nothing loads from YouTube before the visitor plays the video."
+}
