@@ -7,8 +7,8 @@
    Brussels' be/fr in its parity P18): the bar's icon button is named "Shopping cart preview"
    (Warenkorb-Vorschau, Aperçu du panier), the menu's item reads "Your Cart" (Ihr Warenkorb, Votre
    panier). A nav that says either gets both, on the brands whose www menus were captured (SWISS,
-   ITA, Austrian, Brussels); other wording, the other languages and the other brands (lh-com:
-   no capture of lufthansa.com's menu) stay as authored, both places.
+   ITA, Austrian, Brussels, and lh-com since lufthansa-parity-001 de/en + de/de, brief 401); other
+   wording, the other languages and the other brands stay as authored, both places.
    Run: node --max-old-space-size=512 --test test/header-tool-roles.test.mjs */
 /* global globalThis */
 import test from 'node:test';
@@ -74,10 +74,11 @@ test('cartLabels: www\'s bar name and menu label from either text; other wording
   assert.deepEqual(cartLabels('Anteprima del carrello', 'it', 'swiss'), both('Anteprima del carrello', 'Anteprima del carrello'), 'no capture of www\'s it menu');
   assert.deepEqual(cartLabels('Basket', 'en', 'swiss'), both('Basket', 'Basket'));
   assert.deepEqual(cartLabels('Shopping cart preview', 'xx', 'swiss'), both('Shopping cart preview', 'Shopping cart preview'));
-  assert.deepEqual(cartLabels('Shopping cart preview', 'en', ''), both('Shopping cart preview', 'Shopping cart preview'), 'lh-com as authored');
+  assert.deepEqual(cartLabels('Shopping cart preview', 'en', ''), both('Shopping cart preview', 'Your Cart'), 'lh-com (lufthansa-parity-001)');
+  assert.deepEqual(cartLabels('Warenkorb-Vorschau', 'de', ''), both('Warenkorb-Vorschau', 'Ihr Warenkorb'), 'lh-com de');
   assert.deepEqual(cartLabels('Shopping cart preview', 'en', 'discover'), both('Shopping cart preview', 'Shopping cart preview'), 'no capture');
   CART_TEXT_BRANDS.forEach((brand) => assert.deepEqual(cartLabels('Shopping cart preview', 'en', brand), both('Shopping cart preview', 'Your Cart'), brand));
-  assert.deepEqual(CART_TEXT_BRANDS, ['swiss', 'ita', 'austrian', 'brussels']);
+  assert.deepEqual(CART_TEXT_BRANDS, ['swiss', 'ita', 'austrian', 'brussels', '']);
 });
 
 test('header.js: roles by takeRole/toolRole, the cart\'s bar name and menu label by cartLabels', () => {

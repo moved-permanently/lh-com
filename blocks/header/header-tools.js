@@ -69,9 +69,10 @@ export function toolRole({ marker, icon, href }) {
  * The cart's texts on www (swiss-parity-001 ch/en and ch/de, ita-parity-001 it/en, Brussels'
  * be/fr, Austrian's at/en and at/de): the bar's icon button is named with the first, the menu's
  * item reads the second. The nav documents carry one of them. Only the brands whose www menus
- * were captured (lufthansa.com's and the others' were not), and the languages captured.
+ * were captured ('' is lh-com: lufthansa-parity-001 de/en + de/de, brief 401), and the
+ * languages captured.
  */
-export const CART_TEXT_BRANDS = ['swiss', 'ita', 'austrian', 'brussels'];
+export const CART_TEXT_BRANDS = ['swiss', 'ita', 'austrian', 'brussels', ''];
 
 const CART_TEXTS = {
   en: ['Shopping cart preview', 'Your Cart'],
