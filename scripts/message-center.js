@@ -11,12 +11,13 @@
  * The current travel information page per tenant: /message-center/config/cti-pages.json (tenant,
  * webPath with {cc}/{ll}, contentPath; optionally language: a row for one language, before the
  * tenant's row without one).
- * One store for the group's airlines (262cee2): the brand hosts (swiss, austrian, brussels, ita,
- * discover, b2b) read lh-com's index, sheet and message documents through lh-edge's message-store
- * route (tools/workers/lh-edge/src/message-store.js, var MESSAGE_STORE_ORIGIN). The blocks still
- * read same-origin paths and show their own tenant's messages only: the tenant of their brand
- * (scripts/brand.js BRANDS messageCenter), lh-com's 'lh' without a brand. TAP, Air Dolomiti and
- * Cargo keep their own index and sheet.
+ * One store for the group's airlines (scripts/message-store.js, the one setting): the brand sites
+ * (SWISS, Austrian, Brussels, ITA, Discover, B2B) read lh-com's index, sheet and details pages: on
+ * their .turnsthe.page hosts through lh-edge's message-store route (same-origin paths,
+ * tools/workers/lh-edge/src/message-store.js), on their own aem.page/aem.live hosts cross-origin
+ * from the store's host of the same kind (storeUrl). Each page shows its own tenant's messages
+ * only: the tenant of its brand (scripts/brand.js BRANDS messageCenter), lh-com's 'lh' without a
+ * brand. TAP, Air Dolomiti and Cargo keep their own index and sheet.
  * The sites without <cc>/<ll> roots (Cargo, Air Dolomiti; TAP's <ll>-<cc> roots): messageLocale.
  */
 
@@ -24,6 +25,7 @@ import { now as clockNow } from './clock.js';
 import { BRANDS, brandOf } from './brand.js';
 import { getLocale } from './locale.js';
 import { languageOfPath } from './site-languages.js';
+import { storeBase } from './message-store.js';
 
 /** lh-com's tenant (a site without a brand key, and no page at all). */
 export const TENANT = 'lh';
@@ -258,6 +260,17 @@ export function messageHref(msg, ctiRows, locale, tenant = siteTenant()) {
   return `${href.replace(/#.*$/, '')}#${encodeURIComponent(msg.id)}`;
 }
 
+/**
+ * A store path (INDEX_PATH, CTI_PAGES_PATH, a details page) as the page fetches it: the path, or
+ * on a brand site's own aem.page/aem.live host the store's (scripts/message-store.js storeBase).
+ * @param {string} path
+ * @returns {string}
+ */
+export function storeUrl(path) {
+  const hostname = typeof window !== 'undefined' && window.location ? window.location.hostname : '';
+  return `${storeBase(hostname, siteTenant())}${path}`;
+}
+
 const sheetRows = (json) => (json && Array.isArray(json.data) ? json.data : []);
 
 /**
@@ -279,13 +292,13 @@ let ctiRequest;
 
 /** Starts loading the index (once per page); both blocks share the request. */
 export function loadIndex() {
-  if (!indexRequest) indexRequest = fetchSheet(INDEX_PATH);
+  if (!indexRequest) indexRequest = fetchSheet(storeUrl(INDEX_PATH));
   return indexRequest;
 }
 
 /** Starts loading the current travel information pages sheet (once per page). */
 export function loadCtiPages() {
-  if (!ctiRequest) ctiRequest = fetchSheet(CTI_PAGES_PATH);
+  if (!ctiRequest) ctiRequest = fetchSheet(storeUrl(CTI_PAGES_PATH));
   return ctiRequest;
 }
 
@@ -417,7 +430,10 @@ export function loadNotifications() {
 export async function loadDetails(path) {
   if (!path || !path.startsWith('/')) return null;
   try {
-    const resp = await fetch(`${path.replace(/\.(plain\.)?html$/, '')}.plain.html`, { cache: 'no-cache' });
+    // a message's details page from the store (storeUrl); a notification's from the site itself
+    const plain = `${path.replace(/\.(plain\.)?html$/, '')}.plain.html`;
+    const url = path.startsWith('/message-center/details/') ? storeUrl(plain) : plain;
+    const resp = await fetch(url, { cache: 'no-cache' });
     if (!resp.ok) return null;
     const doc = document.createElement('div');
     doc.innerHTML = await resp.text();
@@ -425,7 +441,7 @@ export async function loadDetails(path) {
     // media of the details page are relative to it (./media_…)
     [['img', 'src'], ['source', 'srcset']].forEach(([tag, attr]) => {
       doc.querySelectorAll(`${tag}[${attr}^="./media_"]`).forEach((node) => {
-        node[attr] = new URL(node.getAttribute(attr), new URL(path, window.location)).href;
+        node[attr] = new URL(node.getAttribute(attr), new URL(url, window.location.href)).href;
       });
     });
     const nodes = [...doc.children].flatMap((section) => [...section.childNodes]);

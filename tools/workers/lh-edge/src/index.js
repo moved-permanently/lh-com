@@ -68,7 +68,7 @@ import {
 import { digitalhangar, isDigitalhangarPath } from './digitalhangar.js';
 import { of1, isOf1Path } from './of1.js';
 import { withLiveAlternates } from './live-alternates.js';
-import { messageStore, isStorePath, storeOrigin } from './message-store.js';
+import { messageStore, isStorePath, readsStore } from './message-store.js';
 
 /**
  * /service-worker.js: www's file (the code repository's copy, served by the origin) with www's
@@ -425,7 +425,7 @@ async function siteAnswer(incoming, env, site, ctx) {
   const brand = BRANDS[site.name] || {};
   // the group's Message Center (src/message-store.js): a site with a Message Center tenant reads
   // the index, the CTI sheet, the messages and their details pages from the one store
-  if (read && brand.messageCenter && storeOrigin(env) && isStorePath(url.pathname)) {
+  if (read && readsStore(brand.messageCenter) && isStorePath(url.pathname)) {
     return finish(await messageStore(incoming, senv), incoming, senv, 'message-store');
   }
   // www's long AEM paths of the brand (/content/aua/markets/at/en/login.html): 301 to the short
