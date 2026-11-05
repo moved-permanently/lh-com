@@ -23,7 +23,7 @@ The importer (`tools/importer/transformers/lufthansa-cleanup.js`) reads the live
 
 ## How the trail is resolved
 
-For each parent the block fetches the parent page's HTML (`fetch('/de/de/gepaeck')`) and reads `breadcrumb-title` / `og:title` / `parent` / `parent-title` from its `<head>` (only the head is parsed), then continues with that page's parent (at most 10 levels, cycles stop). Results are cached per tab in `sessionStorage` (`lh-breadcrumb:<path>`).
+For each parent the block fetches the parent page's HTML (`fetch('/de/de/gepaeck')`) and reads `breadcrumb-title` / `og:title` / `parent` / `parent-title` from its `<head>` (only the head is parsed), then continues with that page's parent (at most 10 levels, cycles stop). The parent's path is fetched and linked as written, a trailing slash included (Air Dolomiti's homepages `/en/` and `/de/`: aem.page answers `/en` with 404, the published host redirects it); a parent that answers 404 is tried once more with the trailing slash toggled (older documents' `/en`) and linked as it answered. Results are cached per tab in `sessionStorage` (`lh-breadcrumb:<path>`).
 
 Why the parent pages and not an index:
 

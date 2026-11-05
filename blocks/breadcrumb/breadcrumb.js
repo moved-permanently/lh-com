@@ -38,7 +38,9 @@ function devPrefix() {
 }
 
 /**
- * Path of a page of this site, or null for other sites (e.g. a parent on www.lufthansa.com).
+ * Path of a page of this site, or null for other sites (e.g. a parent on www.lufthansa.com); a
+ * trailing slash stays as written (Air Dolomiti's homepages /en/ and /de/: aem.page answers /en
+ * with 404, the published host redirects it).
  * @param {string} href
  */
 function sitePath(href) {
@@ -47,7 +49,7 @@ function sitePath(href) {
     if (url.origin !== window.location.origin && !isSitePreviewHost(url.hostname)) return null;
     const prefix = devPrefix();
     const pathname = prefix && url.pathname.startsWith(`${prefix}/`) ? url.pathname.slice(prefix.length) : url.pathname;
-    return pathname.replace(/\.html$/, '').replace(/\/$/, '') || '/';
+    return pathname.replace(/\.html$/, '') || '/';
   } catch {
     return null;
   }
@@ -72,7 +74,7 @@ function readPage(doc) {
  * @param {string} path
  * @returns {Promise<{label: string, parent: string, parentTitle: string}|null>}
  */
-async function fetchPage(path) {
+async function fetchHead(path) {
   try {
     const cached = sessionStorage.getItem(CACHE_KEY + path);
     if (cached) return JSON.parse(cached);
@@ -107,6 +109,20 @@ async function fetchPage(path) {
 }
 
 /**
+ * A parent page by its path as written; where that answers nothing (404), once more with the
+ * trailing slash toggled (older documents' /en for the homepage /en/). The root as is.
+ * @param {string} path
+ * @returns {Promise<{page: Object, path: string}|null>} the page and the path that answered
+ */
+async function fetchPage(path) {
+  const page = await fetchHead(path);
+  if (page || path === '/') return page && { page, path };
+  const other = path.endsWith('/') ? path.slice(0, -1) : `${path}/`;
+  const retry = await fetchHead(other);
+  return retry && { page: retry, path: other };
+}
+
+/**
  * The trail from the page metadata: walks up the Parent links, each parent page names its own
  * parent. Links outside the site take their labels from Parent title and end the walk unless a
  * page of the site is listed before them.
@@ -134,9 +150,11 @@ async function trailFromMetadata() {
         if (seen.has(link.path)) break;
         seen.add(link.path);
         // eslint-disable-next-line no-await-in-loop
-        const parent = await fetchPage(link.path);
+        const found = await fetchPage(link.path);
+        const parent = found && found.page;
         if (parent && parent.label) {
-          crumbs.unshift({ label: parent.label, href: `${devPrefix()}${link.path}` });
+          crumbs.unshift({ label: parent.label, href: `${devPrefix()}${found.path}` });
+          seen.add(found.path);
           page = parent;
         }
         break;
