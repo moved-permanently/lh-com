@@ -1,0 +1,4467 @@
+{
+  "targetCustomerStatus": "BASE",
+  "menu": [
+    {
+      "code": "travelBookingStatus",
+      "title": "Informazioni aggiornate sui voli",
+      "children": [
+        {
+          "code": "currentTravelInformation",
+          "title": "Avvertenze di viaggio",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/it/fly/flight-information/flight-irregularities",
+                "linkTitle": "Informazioni di viaggio",
+                "description": "Consulti le informazioni e richieda assistenza in caso di scioperi o altre modifiche relative al volo.  ",
+                "title": "Riceva aggiornamenti di viaggio",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "flightStatus",
+          "title": "Stato del volo",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/it/fly/flight-information/flight-status-and-timetable#/",
+                "linkTitle": "Verifichi subito",
+                "description": "Verifichi lo stato del suo volo inserendo il numero di volo, la tratta o l’aeroporto.",
+                "title": "Verifichi lo stato del volo",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?start=FLIGHTSTATUS&language=it",
+                "linkTitle": "Apra la chat",
+                "description": "Maria può verificare lo stato, l’orario della partenza e gli altri dettagli relativi al suo volo.",
+                "title": null,
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "FLIGHTSTATUS",
+                    "language": "it",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": "icon-flight-status",
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "checkConnection",
+          "title": "Controlli volo in coincidenza",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?start=flynet&language=it",
+                "linkTitle": "Apra la chat",
+                "description": "Maria può trovarle dei voli alternativi se perde il volo in coincidenza a causa di una cancellazione o di un ritardo.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "flynet",
+                    "language": "it",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-flight-status",
+      "imageUrl": "https://www.austrian.com/content/dam/aua/images/local_images/help-center//travel-information.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "rebookingsCancelationsRefunds",
+      "title": "Cambi prenotazione e cancellazioni",
+      "children": [
+        {
+          "code": "rebookFlight",
+          "title": "Cambio prenotazione di un volo",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?start=CONTACTCENTERDEFAULT&language=it",
+                "linkTitle": "Apra la chat",
+                "description": "Maria è a disposizione per rispondere alle sue domande e guidarla nei passaggi successivi.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "CONTACTCENTERDEFAULT",
+                    "language": "it",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/it/profile/login",
+                "linkTitle": "Gestisca la prenotazione",
+                "description": "Modifichi la data o l’ora del suo volo online per uno o più passeggeri inclusi nella prenotazione. \n \nNota: Per modificare l’itinerario del volo, può farsi aiutare dalla nostra assistente chat Maria.",
+                "title": "Cambio prenotazione del volo",
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://shop.austrian.com/booking/manage-booking/retrieve?lang=it-IT&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?start=liveagent&language=it",
+                "linkTitle": "Apra la Live Chat",
+                "description": "Il nostro team di agenti del Service Center è a disposizione tramite Live Chat 24 ore su 24, 7 giorni su 7, per offrirle assistenza.",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "it",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Chiamata al Service Center",
+                "description": "Se i nostri servizi online non sono riusciti a soddisfare la sua richiesta, il Service Center è a sua disposizione.",
+                "title": null,
+                "phone": "+496950600598",
+                "priority": 4,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": true,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "NewBoardingPass",
+          "title": "Riceva la nuova carta d’imbarco",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://once.austrian.com/connect/main-app?APPID=LHG_ONLINE&TENANT=OS&LANGUAGE=it&COUNTRY=xx&MODE=PORTAL",
+                "linkTitle": "Check-in",
+                "description": "Per ricevere la nuova carta d’imbarco, effettui nuovamente il check-in tramite il link qui di seguito.",
+                "title": "Effettui di nuovo il check-in",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "confirmRebooking",
+          "title": "Conferma del cambio di prenotazione",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?start=MISSINGCONFIRMATION&language=it",
+                "linkTitle": "Apra la chat",
+                "description": "Maria può verificare lo stato del suo cambio prenotazione.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "MISSINGCONFIRMATION",
+                    "language": "it",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?start=liveagent&language=it",
+                "linkTitle": "Apra la Live Chat",
+                "description": "Se la sua prenotazione è stata modificata, gli operatori del Service Center le invieranno una nuova conferma di prenotazione e la aiuteranno a prenotare nuovamente eventuali servizi extra (come ad esempio la selezione del posto a sedere).",
+                "title": null,
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "it",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "OvernightStay",
+          "title": "Soggiorno in hotel dovuto al ritardo di un volo",
+          "children": [
+            {
+              "code": "BookOvernightStay",
+              "title": "Ho bisogno di aiuto per prenotare un hotel",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.austrian.com/xx/it/fly/flight-information/flight-disruptions#accordion-item-section-hotel",
+                    "linkTitle": "Legga le condizioni",
+                    "description": "Se il suo volo è stato cancellato, può prenotare un pernottamento e richiedere successivamente il rimborso delle spese.  \n  \nLe ricordiamo tuttavia che sono previste alcune condizioni.",
+                    "title": "Prenoti un hotel",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.austrian.com/xx/it/fly/flight-information/flight-disruptions",
+                    "linkTitle": "Consulti le domande frequenti",
+                    "description": "Nelle nostre domande frequenti troverà informazioni sui pernottamenti in hotel in caso di ritardo del volo e sulle modalità di richiesta di rimborso delle spese alberghiere.",
+                    "title": "Assistenza per i pernottamenti in hotel",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "RefundOvernightStay",
+              "title": "Ho già prenotato un hotel",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.austrian.com/xx/it/footer-pages/help-and-contact/application-for-compensation-in-the-event-of-flight-irregularities",
+                    "linkTitle": "Apra il modulo",
+                    "description": "Compili questo modulo per richiedere il rimborso dei costi legati a un pernottamento.",
+                    "title": "Richieda un rimborso",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "FORM",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "cancelBookingGetRefund",
+          "title": "Richieda la cancellazione e/o il rimborso",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?start=refund&language=it",
+                "linkTitle": "Apra la chat",
+                "description": "Maria può aiutarla a cancellare la sua prenotazione e avviare la procedura di rimborso.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "refund",
+                    "language": "it",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/it/profile/login",
+                "linkTitle": "Gestisca la prenotazione",
+                "description": "Cancelli la sua prenotazione e richieda un rimborso online. \n \nLe prenotazioni possono essere cancellate solo per intero.",
+                "title": "Annulli la prenotazione",
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://shop.austrian.com/booking/manage-booking/retrieve?lang=it-IT&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?start=liveagent&language=it",
+                "linkTitle": "Apra la Live Chat",
+                "description": "Il nostro team di agenti del Service Center è a disposizione tramite Live Chat 24 ore su 24, 7 giorni su 7, per offrirle assistenza.",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "it",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Chiamata al Service Center",
+                "description": "Se i nostri servizi online non sono riusciti a soddisfare la sua richiesta, il Service Center è a sua disposizione.",
+                "title": null,
+                "phone": "+496950600598",
+                "priority": 4,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": true,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "delayCancelationConfirmation",
+          "title": "Conferma della cancellazione",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/it/footer-pages/help-and-contact/contact-form-booking-confirmation",
+                "linkTitle": "Apra il modulo",
+                "description": "Utilizzi il nostro modulo per richiedere la conferma della sua prenotazione o per utilizzare il suo biglietto.",
+                "title": "Richieda conferma",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?start=liveagent&language=it",
+                "linkTitle": "Apra la Live Chat",
+                "description": "Dopo la cancellazione riceverà un’e-mail di conferma che potrebbe finire nello spam. Se desidera ricevere nuovamente la conferma di cancellazione, contatti il Service Center.",
+                "title": null,
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "it",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-flight-irreg",
+      "imageUrl": "https://www.austrian.com/content/dam/aua/images/local_images/help-center//rebooking-cancellation-refund.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "RefundsAndCompensations",
+      "title": "Rimborsi e compensazioni",
+      "children": [
+        {
+          "code": "claimCompensationFlightDisruption",
+          "title": "Compensazione per modifiche al volo effettuate dalla linea aerea",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/it/fast-compensation",
+                "linkTitle": "Apra il modulo",
+                "description": "Se il suo volo è stato cancellato, ritardato di almeno tre ore o se ha perso il volo in coincidenza, utilizzi il nostro modulo di contatto per richiedere un rimborso delle spese.",
+                "title": "Richieda una compensazione",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/it/footer-pages/help-and-contact/contact-form-booking-confirmation",
+                "linkTitle": "Apra il modulo",
+                "description": "Utilizzi il nostro modulo per richiedere la conferma della cancellazione o del ritardo del suo volo.",
+                "title": "Richieda conferma",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "cancelBookingGetRefund",
+          "title": "Richieda la cancellazione e/o il rimborso",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?start=refund&language=it",
+                "linkTitle": "Apra la chat",
+                "description": "Maria può aiutarla a cancellare la sua prenotazione e avviare la procedura di rimborso.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "refund",
+                    "language": "it",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/it/profile/login",
+                "linkTitle": "Gestisca la prenotazione",
+                "description": "Cancelli la sua prenotazione e richieda un rimborso online. \n \nLe prenotazioni possono essere cancellate solo per intero.",
+                "title": "Annulli la prenotazione",
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://shop.austrian.com/booking/manage-booking/retrieve?lang=it-IT&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?start=liveagent&language=it",
+                "linkTitle": "Apra la Live Chat",
+                "description": "Il nostro team di agenti del Service Center è a disposizione tramite Live Chat 24 ore su 24, 7 giorni su 7, per offrirle assistenza.",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "it",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Chiamata al Service Center",
+                "description": "Se i nostri servizi online non sono riusciti a soddisfare la sua richiesta, il Service Center è a sua disposizione.",
+                "title": null,
+                "phone": "+496950600598",
+                "priority": 4,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": true,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "refundAdditionalService",
+          "title": "Rimborso per servizi aggiuntivi",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/it/footer-pages/help-and-contact/contact-form-refund-seat-reservation",
+                "linkTitle": "Apra il modulo",
+                "description": "Utilizzi il nostro modulo per richiedere un rimborso per la prenotazione del posto o per altri servizi extra.",
+                "title": "Richieda un rimborso",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "confirmRefund",
+          "title": "Conferma del rimborso",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?start=liveagent&language=it",
+                "linkTitle": "Apra la Live Chat",
+                "description": "Contatti il personale del Service Center per ricevere nuovamente la conferma del rimborso o per verificare lo stato del rimborso.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "it",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "refundBaggageIrregularities",
+          "title": "Rimborso per problemi relativi ai bagagli",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/it/baggage-reimbursement",
+                "linkTitle": "Apra il modulo",
+                "description": "Utilizzi il nostro modulo di contatto per richiedere un rimborso delle spese sostenute a causa di un bagaglio in ritardo o danneggiato.",
+                "title": "Richieda un rimborso",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/it/plan/baggage/missing-baggage",
+                "linkTitle": "Maggiori informazioni",
+                "description": "Troverà informazioni sui bagagli in ritardo o danneggiati e sulle modalità di richiesta di rimborso.",
+                "title": "Maggiori informazioni sui problemi relativi al bagaglio",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?language=it&start=DYNAMIC_RefundsAndCompensations-refundBaggageIrregularities",
+                "linkTitle": "Apra la chat",
+                "description": "Maria è a disposizione per rispondere alle sue domande e guidarla nei passaggi successivi.",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_RefundsAndCompensations-refundBaggageIrregularities",
+                    "language": "it",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "UploadDocuments",
+          "title": "Invii i documenti",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/it/footer-pages/help-and-contact/contact-form-requested-documents",
+                "linkTitle": "Apra il modulo",
+                "description": "Utilizzi il nostro modulo di contatto per inviarci i documenti richiesti.",
+                "title": "Invii i documenti",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "OvernightStay",
+          "title": "Soggiorno in hotel dovuto al ritardo di un volo",
+          "children": [
+            {
+              "code": "BookOvernightStay",
+              "title": "Ho bisogno di aiuto per prenotare un hotel",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.austrian.com/xx/it/fly/flight-information/flight-disruptions#accordion-item-section-hotel",
+                    "linkTitle": "Legga le condizioni",
+                    "description": "Se il suo volo è stato cancellato, può prenotare un pernottamento e richiedere successivamente il rimborso delle spese.  \n  \nLe ricordiamo tuttavia che sono previste alcune condizioni.",
+                    "title": "Prenoti un hotel",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.austrian.com/xx/it/fly/flight-information/flight-disruptions",
+                    "linkTitle": "Consulti le domande frequenti",
+                    "description": "Nelle nostre domande frequenti troverà informazioni sui pernottamenti in hotel in caso di ritardo del volo e sulle modalità di richiesta di rimborso delle spese alberghiere.",
+                    "title": "Assistenza per i pernottamenti in hotel",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "RefundOvernightStay",
+              "title": "Ho già prenotato un hotel",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.austrian.com/xx/it/footer-pages/help-and-contact/application-for-compensation-in-the-event-of-flight-irregularities",
+                    "linkTitle": "Apra il modulo",
+                    "description": "Compili questo modulo per richiedere il rimborso dei costi legati a un pernottamento.",
+                    "title": "Richieda un rimborso",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "FORM",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "MealVoucher",
+          "title": "Voucher per il pasto",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/it/fly/flight-information/flight-disruptions#accordion-item-section-voucher",
+                "linkTitle": "Maggiori informazioni",
+                "description": "Nella maggior parte dei casi, riceverà automaticamente un buono pasto che sarà collegato al QR code presente sul suo biglietto. Scopra come ricevere il buono pasto e dove utilizzarlo.",
+                "title": "Controlli le condizioni",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "TravelbyTrain",
+          "title": "Trasporto alternativo in treno",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/it/good-for-train",
+                "linkTitle": "Inserisca i dati della prenotazione",
+                "description": "Qualora non vi fossero alternative possibili per il suo volo cancellato, può cambiare il suo biglietto aereo con un voucher ferroviario. \n \nLe ricordiamo tuttavia che ciò è possibile solamente per alcuni itinerari.",
+                "title": "Ottenga un voucher ferroviario",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "passengerRights",
+          "title": "Diritti dei/delle passeggeri/e",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/it/legal/passenger-rights",
+                "linkTitle": "Maggiori informazioni",
+                "description": "Si informi sui suoi diritti in caso di cancellazioni, ritardi o altre irregolarità dei voli.",
+                "title": "Consulti i suoi diritti",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-refund-possible",
+      "imageUrl": "https://www.austrian.com/content/dam/aua/images/local_images/help-center//refund-compensations.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "checkin",
+      "title": "Check-in",
+      "children": [
+        {
+          "code": "HelpWithCheckIn",
+          "title": "Problema con il check-in",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?start=checkin&language=it",
+                "linkTitle": "Apra la chat",
+                "description": "Maria può aiutarla a capire perché non riesce a effettuare il check-in per il suo volo.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "checkin",
+                    "language": "it",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Chiamata al Service Center",
+                "description": "I nostri esperti sono lieti di rispondere a qualsiasi dubbio o domanda.",
+                "title": null,
+                "phone": "+43517663000",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "lateNightCheckin",
+          "title": "Consegna anticipata del bagaglio",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?language=it&start=DYNAMIC_checkin-lateNightCheckin",
+                "linkTitle": "Apra la chat",
+                "description": "Maria è a disposizione per rispondere alle sue domande e guidarla nei passaggi successivi.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_checkin-lateNightCheckin",
+                    "language": "it",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/it/fly/check-in/check-in-airport",
+                "linkTitle": "Maggiori informazioni",
+                "description": "Effettui il check-in e consegni i bagagli prima del giorno della partenza. Per i voli per gli Stati Uniti, la registrazione bagaglio è disponibile a partire da 24 ore prima della partenza.",
+                "title": "Registri i bagagli in anticipo",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "NewBoardingPass",
+          "title": "Riceva la nuova carta d’imbarco",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://once.austrian.com/connect/main-app?APPID=LHG_ONLINE&TENANT=OS&LANGUAGE=it&COUNTRY=xx&MODE=PORTAL",
+                "linkTitle": "Check-in",
+                "description": "Per ricevere la nuova carta d’imbarco, effettui nuovamente il check-in tramite il link qui di seguito.",
+                "title": "Effettui di nuovo il check-in",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "otherCheckinQuestions",
+          "title": "Domande sul check-in",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?language=it&start=DYNAMIC_checkin-otherCheckinQuestions",
+                "linkTitle": "Apra la chat",
+                "description": "Maria è a disposizione per rispondere alle sue domande e guidarla nei passaggi successivi.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_checkin-otherCheckinQuestions",
+                    "language": "it",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/it/fly/check-in",
+                "linkTitle": "Vada alla panoramica",
+                "description": "Trovi l’opzione migliore per il check-in del suo prossimo volo.",
+                "title": "Visualizzi le opzioni di check-in",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/it/footer-pages/faq/faq-check-in",
+                "linkTitle": "Maggiori informazioni sul check-in",
+                "description": "Qui troverà le risposte alle nostre domande più frequenti sul check-in.",
+                "title": "Consulti le domande frequenti sul check-in",
+                "phone": null,
+                "priority": 3,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-boarding-card",
+      "imageUrl": "https://www.austrian.com/content/dam/aua/images/local_images/help-center//check-in.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "baggage",
+      "title": "Bagaglio",
+      "children": [
+        {
+          "code": "baggage.rules",
+          "title": "Regole e tariffe dei bagagli",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/it/profile/login",
+                "linkTitle": "Gestisca la prenotazione",
+                "description": "Verifichi quanti bagagli può portare con sé sul suo prossimo volo.",
+                "title": "Consulti la franchigia bagaglio",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.austrian.com/booking/services/BAGGAGE?lang=it-IT&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/it/plan/baggage",
+                "linkTitle": "Panoramica",
+                "description": "Dia uno sguardo a tutti i tipi di bagagli e ai servizi relativi ai bagagli.",
+                "title": "Scopra tutti i servizi relativi ai bagagli",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?start=liveagent&language=it",
+                "linkTitle": "Apra la Live Chat",
+                "description": "Il nostro team di agenti del Service Center è a disposizione tramite Live Chat 24 ore su 24, 7 giorni su 7, per offrirle assistenza.",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "it",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Chiamata al Service Center",
+                "description": "Se ha bisogno di ulteriore assistenza, i nostri esperti saranno lieti di rispondere a qualsiasi dubbio o domanda.",
+                "title": null,
+                "phone": "+496950600598",
+                "priority": 4,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "baggage.excess",
+          "title": "Bagaglio aggiuntivo/Bagaglio in eccesso",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/it/profile/login",
+                "linkTitle": "Gestisca la prenotazione",
+                "description": "Verifichi quanti bagagli può portare con sé sul suo prossimo volo e ne aggiunga altri, se necessario.",
+                "title": "Aggiunga un bagaglio extra",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.austrian.com/booking/services/BAGGAGE?lang=it-IT&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?language=it&start=DYNAMIC_baggage-baggage_excess",
+                "linkTitle": "Apra la chat",
+                "description": "Maria è a disposizione per rispondere alle sue domande e guidarla nei passaggi successivi.",
+                "title": null,
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_baggage-baggage_excess",
+                    "language": "it",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/it/plan/baggage/excess-baggage",
+                "linkTitle": "Consulti tutte le normative",
+                "description": "Consulti ulteriori informazioni su peso e dimensioni consentiti per l’eccedenza bagaglio in base alla tariffa prenotata.",
+                "title": "Verifichi le disposizioni per il bagaglio",
+                "phone": null,
+                "priority": 3,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?start=liveagent&language=it",
+                "linkTitle": "Apra la Live Chat",
+                "description": "Il nostro team di agenti del Service Center è a disposizione tramite Live Chat 24 ore su 24, 7 giorni su 7, per offrirle assistenza.",
+                "title": null,
+                "phone": null,
+                "priority": 4,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "it",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Chiamata al Service Center",
+                "description": "Se ha bisogno di ulteriore assistenza, i nostri esperti saranno lieti di rispondere a qualsiasi dubbio o domanda.",
+                "title": null,
+                "phone": "+496950600598",
+                "priority": 5,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "baggage.sports",
+          "title": "Aggiungere attrezzatura sportiva",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/it/footer-pages/help-and-contact/contact-form-baggage",
+                "linkTitle": "Apra il modulo",
+                "description": "Compili il modulo per aggiungere attrezzatura sportiva alla sua prenotazione.",
+                "title": "Registri la sua attrezzatura sportiva",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?language=it&start=DYNAMIC_baggage-baggage_sports",
+                "linkTitle": "Apra la chat",
+                "description": "Maria è a disposizione per rispondere alle sue domande e guidarla nei passaggi successivi.",
+                "title": null,
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_baggage-baggage_sports",
+                    "language": "it",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/it/plan/baggage/sports-baggage",
+                "linkTitle": "Consulti tutte le normative",
+                "description": "Qui può trovare tutte le informazioni relative all’attrezzatura sportiva e ai bagagli speciali.",
+                "title": "Verifichi le disposizioni per il bagaglio",
+                "phone": null,
+                "priority": 3,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?start=liveagent&language=it",
+                "linkTitle": "Apra la Live Chat",
+                "description": "Il nostro team di agenti del Service Center è a disposizione tramite Live Chat 24 ore su 24, 7 giorni su 7, per offrirle assistenza.",
+                "title": null,
+                "phone": null,
+                "priority": 4,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "it",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Chiamata al Service Center",
+                "description": "I nostri esperti sono lieti di rispondere a qualsiasi dubbio o domanda.",
+                "title": null,
+                "phone": "+496950600598",
+                "priority": 5,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "pets",
+          "title": "Viaggiare con animali domestici",
+          "children": [
+            {
+              "code": "travelPetsInCabin",
+              "title": "Animali in cabina (massimo 8 kg incluso il trasportino)",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.austrian.com/xx/it/profile/login",
+                    "linkTitle": "Si registri subito",
+                    "description": "Se desidera portare con sé in cabina con il suo animale domestico, lo registri in una prenotazione esistente (fino a 72 ore prima della partenza).",
+                    "title": "Aggiunga un animale domestico",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.austrian.com/booking/services/PETS?lang=it-IT&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "CHAT_ASSISTANT",
+                    "link": "https://www.austrian.com/digitalassistant/deeplink?language=it&start=DYNAMIC_pets-travelPetsInCabin",
+                    "linkTitle": "Apra la chat",
+                    "description": "Maria è a disposizione per rispondere alle sue domande e guidarla nei passaggi successivi.",
+                    "title": null,
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": {
+                      "url": "https://www.austrian.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "DYNAMIC_pets-travelPetsInCabin",
+                        "language": "it",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.austrian.com/xx/it/plan/special-requirements/travelling-with-animals",
+                    "linkTitle": "Veda tutte le condizioni",
+                    "description": "Controlli le condizioni per viaggiare con animali domestici e si assicuri di avere tutti i documenti richiesti.",
+                    "title": "Verifichi le condizioni di viaggio",
+                    "phone": null,
+                    "priority": 3,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "LIVE_CHAT",
+                    "link": "https://www.austrian.com/digitalassistant/deeplink?start=liveagent&language=it",
+                    "linkTitle": "Apra la Live Chat",
+                    "description": "Il nostro team di agenti del Service Center è a disposizione tramite Live Chat 24 ore su 24, 7 giorni su 7, per offrirle assistenza.",
+                    "title": null,
+                    "phone": null,
+                    "priority": 4,
+                    "deeplink": {
+                      "url": "https://www.austrian.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "liveagent",
+                        "language": "it",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "Chiamata al Service Center",
+                    "description": "I nostri esperti sono lieti di rispondere a qualsiasi dubbio o domanda.",
+                    "title": null,
+                    "phone": "+496950600598",
+                    "priority": 5,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": true
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            },
+            {
+              "code": "travelPetsInCargo",
+              "title": "Animali in stiva",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.austrian.com/xx/it/footer-pages/help-and-contact/contact-form-travelling-with-animals",
+                    "linkTitle": "Si registri subito",
+                    "description": "Registri il cane o il gatto che desidera trasportare in stiva su un volo Austrian (entro 72 ore prima della partenza).",
+                    "title": "Registri un animale domestico per il trasporto",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "FORM",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "CHAT_ASSISTANT",
+                    "link": "https://www.austrian.com/digitalassistant/deeplink?language=it&start=DYNAMIC_pets-travelPetsInCargo",
+                    "linkTitle": "Apra la chat",
+                    "description": "Maria è a disposizione per rispondere alle sue domande e guidarla nei passaggi successivi.",
+                    "title": null,
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": {
+                      "url": "https://www.austrian.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "DYNAMIC_pets-travelPetsInCargo",
+                        "language": "it",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.austrian.com/xx/it/plan/special-requirements/travelling-with-animals",
+                    "linkTitle": "Veda tutte le condizioni",
+                    "description": "A bordo dei voli Austrian può portare con sé il suo cane o il suo gatto. Prima di prenotare il trasporto del suo animale domestico, legga attentamente le seguenti informazioni.",
+                    "title": "Controlli le condizioni",
+                    "phone": null,
+                    "priority": 3,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "LIVE_CHAT",
+                    "link": "https://www.austrian.com/digitalassistant/deeplink?start=liveagent&language=it",
+                    "linkTitle": "Apra la Live Chat",
+                    "description": "Il nostro team di agenti del Service Center è a disposizione tramite Live Chat 24 ore su 24, 7 giorni su 7, per offrirle assistenza.",
+                    "title": null,
+                    "phone": null,
+                    "priority": 4,
+                    "deeplink": {
+                      "url": "https://www.austrian.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "liveagent",
+                        "language": "it",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "Chiamata al Service Center",
+                    "description": "I nostri esperti sono lieti di rispondere a qualsiasi dubbio o domanda.",
+                    "title": null,
+                    "phone": "+496950600598",
+                    "priority": 5,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": true
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "lateNightCheckin",
+          "title": "Consegna anticipata del bagaglio",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?language=it&start=DYNAMIC_baggage-lateNightCheckin",
+                "linkTitle": "Apra la chat",
+                "description": "Maria è a disposizione per rispondere alle sue domande e guidarla nei passaggi successivi.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_baggage-lateNightCheckin",
+                    "language": "it",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/it/fly/check-in/check-in-airport",
+                "linkTitle": "Maggiori informazioni",
+                "description": "Effettui il check-in e consegni i bagagli prima del giorno della partenza. Per i voli per gli Stati Uniti, la registrazione bagaglio è disponibile a partire da 24 ore prima della partenza.",
+                "title": "Registri i bagagli in anticipo",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "baggage.damagedOrDelayed",
+          "title": "Problemi con il bagaglio",
+          "children": [
+            {
+              "code": "reportDelayedBaggage",
+              "title": "Segnalazione di un bagaglio in ritardo",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "CHAT_ASSISTANT",
+                    "link": "https://www.austrian.com/digitalassistant/deeplink?start=DELAYBAGCREATE&language=it",
+                    "linkTitle": "Apra la chat",
+                    "description": "Se il bagaglio che ha imbarcato non le è stato ancora riconsegnato, Maria può indicarle come segnalarne il ritardo.",
+                    "title": null,
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://www.austrian.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "DELAYBAGCREATE",
+                        "language": "it",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.austrian.com/xx/it/footer-pages/faq/faq-missing-baggage",
+                    "linkTitle": "Legga le domande frequenti",
+                    "description": "Troverà le risposte alle domande più frequenti sul bagaglio in ritardo nelle nostre Domande frequenti.",
+                    "title": "Maggiori informazioni sui bagagli in ritardo",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "statusBaggageReport",
+              "title": "Gestisca smarrimento bagaglio",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "CHAT_ASSISTANT",
+                    "link": "https://www.austrian.com/digitalassistant/deeplink?start=DELAYBAG&language=it",
+                    "linkTitle": "Apra la chat",
+                    "description": "Maria può aiutarla a monitorare o modificare la sua segnalazione di bagaglio smarrito. Può anche chiudere la segnalazione una volta che il bagaglio le è stato restituito.",
+                    "title": null,
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://www.austrian.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "DELAYBAG",
+                        "language": "it",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.austrian.com/xx/it/footer-pages/faq/faq-missing-baggage",
+                    "linkTitle": "Legga le domande frequenti",
+                    "description": "Troverà le risposte alle domande più frequenti sul bagaglio in ritardo nelle nostre Domande frequenti.",
+                    "title": "Maggiori informazioni sui bagagli in ritardo",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "reportDamagedBaggage",
+              "title": "Segnalazione di bagaglio danneggiato",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://mybag.aero/austrian/damaged/it",
+                    "linkTitle": "Compili una segnalazione",
+                    "description": "Compili una segnalazione per un bagaglio danneggiato (entro 72 ore dall’arrivo).",
+                    "title": "Segnali un bagaglio danneggiato",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "FORM",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "CHAT_ASSISTANT",
+                    "link": "https://www.austrian.com/digitalassistant/deeplink?language=it&start=DYNAMIC_baggage_damagedOrDelayed-reportDamagedBaggage",
+                    "linkTitle": "Apra la chat",
+                    "description": "Maria è a disposizione per rispondere alle sue domande e guidarla nei passaggi successivi.",
+                    "title": null,
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": {
+                      "url": "https://www.austrian.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "DYNAMIC_baggage_damagedOrDelayed-reportDamagedBaggage",
+                        "language": "it",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "refundBaggageIrregularities",
+              "title": "Rimborso per problemi relativi ai bagagli",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.austrian.com/xx/it/baggage-reimbursement",
+                    "linkTitle": "Apra il modulo",
+                    "description": "Utilizzi il nostro modulo di contatto per richiedere un rimborso delle spese sostenute a causa di un bagaglio in ritardo o danneggiato.",
+                    "title": "Richieda un rimborso",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "FORM",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.austrian.com/xx/it/plan/baggage/missing-baggage",
+                    "linkTitle": "Maggiori informazioni",
+                    "description": "Troverà informazioni sui bagagli in ritardo o danneggiati e sulle modalità di richiesta di rimborso.",
+                    "title": "Maggiori informazioni sui problemi relativi al bagaglio",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CHAT_ASSISTANT",
+                    "link": "https://www.austrian.com/digitalassistant/deeplink?language=it&start=DYNAMIC_baggage_damagedOrDelayed-refundBaggageIrregularities",
+                    "linkTitle": "Apra la chat",
+                    "description": "Maria è a disposizione per rispondere alle sue domande e guidarla nei passaggi successivi.",
+                    "title": null,
+                    "phone": null,
+                    "priority": 3,
+                    "deeplink": {
+                      "url": "https://www.austrian.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "DYNAMIC_baggage_damagedOrDelayed-refundBaggageIrregularities",
+                        "language": "it",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "baggage.lost",
+          "title": "Oggetti personali smarriti",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?language=it&start=DYNAMIC-baggage_lost-baggage",
+                "linkTitle": "Apra la chat",
+                "description": "Maria è a disposizione per rispondere alle sue domande e guidarla nei passaggi successivi.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC-baggage_lost-baggage",
+                    "language": "it",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/it/footer-pages/help-and-contact/request-for-refund-of-expenses",
+                "linkTitle": "Segnali ora",
+                "description": "Segnali eventuali articoli mancanti nel bagaglio registrato tramite il nostro modulo di contatto. \n \nSe ha smarrito un oggetto in aeroporto o a bordo di un aeromobile, contatti l’ufficio Lost & Found o si rivolga al banco assistenza bagagli della linea aerea nell’aeroporto di destinazione.",
+                "title": "Segnali un articolo smarrito",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/it/missing-baggage#3",
+                "linkTitle": "Maggiori informazioni",
+                "description": "Scoprirà maggiori informazioni su cosa fare in caso di smarrimento di oggetti personali e sulle modalità di presentazione di un reclamo.",
+                "title": "Maggiori informazioni sugli oggetti smarriti",
+                "phone": null,
+                "priority": 3,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "baggage.dangerousGoods",
+          "title": "Merci pericolose e armi da fuoco",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?language=it&start=DYNAMIC_baggage-baggage_dangerousGoods",
+                "linkTitle": "Apra la chat",
+                "description": "Maria è a disposizione per rispondere alle sue domande e guidarla nei passaggi successivi.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_baggage-baggage_dangerousGoods",
+                    "language": "it",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/it/plan/baggage/dangerous-goods",
+                "linkTitle": "Consulti tutte le normative",
+                "description": "Dia un’occhiata al nostro elenco completo di merci pericolose e articoli proibiti.",
+                "title": "Verifichi le disposizioni per il bagaglio",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?start=liveagent&language=it",
+                "linkTitle": "Apra la Live Chat",
+                "description": "Il nostro team di agenti del Service Center è a disposizione tramite Live Chat 24 ore su 24, 7 giorni su 7, per offrirle assistenza.",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "it",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Chiamata al Service Center",
+                "description": "I nostri esperti sono lieti di rispondere a qualsiasi dubbio o domanda.",
+                "title": null,
+                "phone": "+496950600598",
+                "priority": 4,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "OtherQuestionsBaggage",
+          "title": "Altre domande sui bagagli",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?language=it&start=DYNAMIC_baggage-OtherQuestionsBaggage",
+                "linkTitle": "Apra la chat",
+                "description": "Maria è a disposizione per rispondere alle sue domande e guidarla nei passaggi successivi.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_baggage-OtherQuestionsBaggage",
+                    "language": "it",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-baggage",
+      "imageUrl": "https://www.austrian.com/content/dam/aua/images/local_images/help-center//baggage.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "addFlightServices",
+      "title": "Servizi extra",
+      "children": [
+        {
+          "code": "booking.Seats",
+          "title": "Posti",
+          "children": [
+            {
+              "code": "changeSeat",
+              "title": "Aggiunga o modifichi il posto",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.austrian.com/xx/it/profile/login",
+                    "linkTitle": "Gestisca la prenotazione",
+                    "description": "Può prenotare o modificare il suo posto online fino a 2 ore prima della partenza.",
+                    "title": "Aggiunga o modifichi il posto",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.austrian.com/booking/manage-booking/retrieve?lang=it-IT&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "Chiamata al Service Center",
+                    "description": "Può prenotare o modificare il suo posto telefonicamente fino a 48 ore prima della partenza.",
+                    "title": null,
+                    "phone": "+496950600598",
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": true
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            },
+            {
+              "code": "BookNeighboringSeat",
+              "title": "Prenoti il posto accanto",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "Chiamata al Service Center",
+                    "description": "Chiami il nostro Service Center per prenotare il posto vuoto accanto al suo per un viaggio ancora più confortevole.",
+                    "title": null,
+                    "phone": "+496950600598",
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": true
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "specialMeal",
+          "title": "Pasti a bordo",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/it/profile/login",
+                "linkTitle": "Gestisca la prenotazione",
+                "description": "In caso di particolari esigenze dietetiche, religiose o nutrizionali, ordini un menu speciale. \n \nLe ricordiamo che la disponibilità di questo servizio è soggetta alle condizioni previste dalla sua prenotazione.",
+                "title": "Ordini il menu speciale",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.austrian.com/booking/manage-booking/retrieve?lang=it-IT&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/it/fly/on-board/culinary-services/culinary-journey#entry",
+                "linkTitle": "Visualizzi il menu",
+                "description": "Scopra i servizi culinari a bordo dei nostri voli e preordini un pasto per il suo prossimo viaggio.",
+                "title": "Scopra i pasti a bordo",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?language=it&start=DYNAMIC_addFlightServices-specialMeal",
+                "linkTitle": "Apra la chat",
+                "description": "Maria è a disposizione per rispondere alle sue domande e guidarla nei passaggi successivi.",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_addFlightServices-specialMeal",
+                    "language": "it",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?start=liveagent&language=it",
+                "linkTitle": "Apra la Live Chat",
+                "description": "Il nostro team di agenti del Service Center è a disposizione tramite Live Chat 24 ore su 24, 7 giorni su 7, per offrirle assistenza.",
+                "title": null,
+                "phone": null,
+                "priority": 4,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "it",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Chiamata al Service Center",
+                "description": "I nostri esperti sono lieti di rispondere a qualsiasi dubbio o domanda.",
+                "title": null,
+                "phone": "+496950600598",
+                "priority": 5,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "onBoardServices",
+          "title": "Servizi a bordo",
+          "children": [
+            {
+              "code": "ejournals",
+              "title": "Giornali e riviste digitali",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.austrian.com/xx/it/fly/on-board/inflight-entertainment#2",
+                    "linkTitle": "Visualizzi tutti gli eJournal",
+                    "description": "Scelga tra un’ampia gamma di quotidiani e riviste in lingua tedesca e internazionali. Li salvi prima del volo sul suo smartphone, tablet o laptop.",
+                    "title": "Scarichi un eJournal",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "flynet",
+              "title": "Internet a bordo",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.austrian.com/xx/it/fly/on-board/flynet-internet-access",
+                    "linkTitle": "Acquisti l’accesso in anticipo",
+                    "description": "Acquisti in anticipo il pacchetto FlyNet che preferisce per navigare direttamente su Internet durante dei voli a corto e medio raggio selezionati.",
+                    "title": "Acceda al Wi-Fi del volo",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "inflightEntertainment",
+              "title": "Intrattenimento a bordo",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.austrian.com/xx/it/fly/on-board/inflight-entertainment",
+                    "linkTitle": "Consulti tutte le opzioni",
+                    "description": "Scopra la nostra offerta di intrattenimento a bordo per rendere più piacevole il suo volo. Oltre a film e serie TV, offriamo anche audio libri, musica e giochi.",
+                    "title": "Visualizzi le opzioni d’intrattenimento a bordo",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "Lounges",
+          "title": "Lounge",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?language=it&start=DYNAMIC_addFlightServices-Lounges",
+                "linkTitle": "Apra la chat",
+                "description": "Maria è a disposizione per rispondere alle sue domande e guidarla nei passaggi successivi.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_addFlightServices-Lounges",
+                    "language": "it",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/it/fly/at-the-airport/lounges",
+                "linkTitle": "Consulti l’elenco",
+                "description": "Può trovare tutte le lounge disponibili, compresi gli orari di apertura e i servizi, nei rispettivi aeroporti.",
+                "title": "Trovi le lounge",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "TravelInsurance",
+          "title": "Assicurazione di viaggio",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/it/profile/login",
+                "linkTitle": "Selezioni l’assicurazione",
+                "description": "Sottoscriva un’assicurazione di viaggio per la sua prossima destinazione.  \n  \nLe ricordiamo che la disponibilità di questo servizio è soggetta alle condizioni previste dalla sua prenotazione.",
+                "title": "Stipuli un’assicurazione",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.austrian.com/booking/manage-booking/retrieve?lang=it-IT&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "pets",
+          "title": "Viaggiare con animali domestici",
+          "children": [
+            {
+              "code": "travelPetsInCabin",
+              "title": "Animali in cabina (massimo 8 kg incluso il trasportino)",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.austrian.com/xx/it/profile/login",
+                    "linkTitle": "Si registri subito",
+                    "description": "Se desidera portare con sé in cabina con il suo animale domestico, lo registri in una prenotazione esistente (fino a 72 ore prima della partenza).",
+                    "title": "Aggiunga un animale domestico",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.austrian.com/booking/services/PETS?lang=it-IT&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "CHAT_ASSISTANT",
+                    "link": "https://www.austrian.com/digitalassistant/deeplink?language=it&start=DYNAMIC_pets-travelPetsInCabin",
+                    "linkTitle": "Apra la chat",
+                    "description": "Maria è a disposizione per rispondere alle sue domande e guidarla nei passaggi successivi.",
+                    "title": null,
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": {
+                      "url": "https://www.austrian.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "DYNAMIC_pets-travelPetsInCabin",
+                        "language": "it",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.austrian.com/xx/it/plan/special-requirements/travelling-with-animals",
+                    "linkTitle": "Veda tutte le condizioni",
+                    "description": "Controlli le condizioni per viaggiare con animali domestici e si assicuri di avere tutti i documenti richiesti.",
+                    "title": "Verifichi le condizioni di viaggio",
+                    "phone": null,
+                    "priority": 3,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "LIVE_CHAT",
+                    "link": "https://www.austrian.com/digitalassistant/deeplink?start=liveagent&language=it",
+                    "linkTitle": "Apra la Live Chat",
+                    "description": "Il nostro team di agenti del Service Center è a disposizione tramite Live Chat 24 ore su 24, 7 giorni su 7, per offrirle assistenza.",
+                    "title": null,
+                    "phone": null,
+                    "priority": 4,
+                    "deeplink": {
+                      "url": "https://www.austrian.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "liveagent",
+                        "language": "it",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "Chiamata al Service Center",
+                    "description": "I nostri esperti sono lieti di rispondere a qualsiasi dubbio o domanda.",
+                    "title": null,
+                    "phone": "+496950600598",
+                    "priority": 5,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": true
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            },
+            {
+              "code": "travelPetsInCargo",
+              "title": "Animali in stiva",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.austrian.com/xx/it/footer-pages/help-and-contact/contact-form-travelling-with-animals",
+                    "linkTitle": "Si registri subito",
+                    "description": "Registri il cane o il gatto che desidera trasportare in stiva su un volo Austrian (entro 72 ore prima della partenza).",
+                    "title": "Registri un animale domestico per il trasporto",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "FORM",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "CHAT_ASSISTANT",
+                    "link": "https://www.austrian.com/digitalassistant/deeplink?language=it&start=DYNAMIC_pets-travelPetsInCargo",
+                    "linkTitle": "Apra la chat",
+                    "description": "Maria è a disposizione per rispondere alle sue domande e guidarla nei passaggi successivi.",
+                    "title": null,
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": {
+                      "url": "https://www.austrian.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "DYNAMIC_pets-travelPetsInCargo",
+                        "language": "it",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.austrian.com/xx/it/plan/special-requirements/travelling-with-animals",
+                    "linkTitle": "Veda tutte le condizioni",
+                    "description": "A bordo dei voli Austrian può portare con sé il suo cane o il suo gatto. Prima di prenotare il trasporto del suo animale domestico, legga attentamente le seguenti informazioni.",
+                    "title": "Controlli le condizioni",
+                    "phone": null,
+                    "priority": 3,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "LIVE_CHAT",
+                    "link": "https://www.austrian.com/digitalassistant/deeplink?start=liveagent&language=it",
+                    "linkTitle": "Apra la Live Chat",
+                    "description": "Il nostro team di agenti del Service Center è a disposizione tramite Live Chat 24 ore su 24, 7 giorni su 7, per offrirle assistenza.",
+                    "title": null,
+                    "phone": null,
+                    "priority": 4,
+                    "deeplink": {
+                      "url": "https://www.austrian.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "liveagent",
+                        "language": "it",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "Chiamata al Service Center",
+                    "description": "I nostri esperti sono lieti di rispondere a qualsiasi dubbio o domanda.",
+                    "title": null,
+                    "phone": "+496950600598",
+                    "priority": 5,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": true
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "TravelingWithChildren",
+          "title": "Viaggiare con bambini",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/it/families",
+                "linkTitle": "Maggiori informazioni",
+                "description": "Scopra tutte le informazioni utili per viaggiare con i bambini, dalla preparazione del viaggio alla scelta del posto e molto altro.",
+                "title": "Informazioni di viaggio",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?language=it&start=DYNAMIC_addFlightServices-TravelingWithChildren",
+                "linkTitle": "Apra la chat",
+                "description": "Maria è a disposizione per rispondere alle sue domande sui viaggi con bambini.",
+                "title": null,
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_addFlightServices-TravelingWithChildren",
+                    "language": "it",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?start=liveagent&language=it",
+                "linkTitle": "Apra la Live Chat",
+                "description": "Chatti direttamente con il team del nostro Service Center in caso di problemi tecnici, se desidera richiedere una culla per neonati o prenotare un volo per un minore che viaggia da solo.",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "it",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Chiamata al Service Center",
+                "description": "Parli direttamente con il team del nostro Service Center in caso di problemi tecnici, se desidera richiedere una culla per neonati o prenotare un volo per un minore che viaggia da solo.",
+                "title": null,
+                "phone": "+496950600598",
+                "priority": 4,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "confirmAdditionalServices",
+          "title": "Confermi i servizi extra",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Chiamata al Service Center",
+                "description": "Il nostro Service Center sarà lieto di verificare se i servizi richiesti sono confermati.",
+                "title": null,
+                "phone": "+496950600598",
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "addFlightServices.problem",
+          "title": "Problema con l’aggiunta di un servizio",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/it/footer-pages/help-and-contact/contact-form-other",
+                "linkTitle": "Apra il modulo",
+                "description": "Se riscontra un problema con l’aggiunta di un servizio extra, può utilizzare il nostro modulo di contatto; le risponderemo il prima possibile.",
+                "title": "Segnali un problema",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Chiamata al Service Center",
+                "description": "Se ha bisogno di ulteriore assistenza, i nostri esperti saranno lieti di rispondere a qualsiasi dubbio o domanda.",
+                "title": null,
+                "phone": "+43517663000",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "refundAdditionalService",
+          "title": "Rimborso per servizi aggiuntivi",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/it/footer-pages/help-and-contact/contact-form-refund-seat-reservation",
+                "linkTitle": "Apra il modulo",
+                "description": "Utilizzi il nostro modulo per richiedere un rimborso per la prenotazione del posto o per altri servizi extra.",
+                "title": "Richieda un rimborso",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-additional-services",
+      "imageUrl": "https://www.austrian.com/content/dam/aua/images/local_images/help-center//add-flight-service.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "booking",
+      "title": "Prenoti e si prepari",
+      "children": [
+        {
+          "code": "booking.Seats",
+          "title": "Posti",
+          "children": [
+            {
+              "code": "changeSeat",
+              "title": "Aggiunga o modifichi il posto",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.austrian.com/xx/it/profile/login",
+                    "linkTitle": "Gestisca la prenotazione",
+                    "description": "Può prenotare o modificare il suo posto online fino a 2 ore prima della partenza.",
+                    "title": "Aggiunga o modifichi il posto",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.austrian.com/booking/manage-booking/retrieve?lang=it-IT&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "Chiamata al Service Center",
+                    "description": "Può prenotare o modificare il suo posto telefonicamente fino a 48 ore prima della partenza.",
+                    "title": null,
+                    "phone": "+496950600598",
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": true
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            },
+            {
+              "code": "BookNeighboringSeat",
+              "title": "Prenoti il posto accanto",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "Chiamata al Service Center",
+                    "description": "Chiami il nostro Service Center per prenotare il posto vuoto accanto al suo per un viaggio ancora più confortevole.",
+                    "title": null,
+                    "phone": "+496950600598",
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": true
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "booking.Upgrades",
+          "title": "Upgrade",
+          "children": [
+            {
+              "code": "upgradeFlight",
+              "title": "Prenotazione di upgrade",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.austrian.com/xx/it/profile/login",
+                    "linkTitle": "Gestisca la prenotazione",
+                    "description": "Verifichi gli upgrade disponibili per il suo prossimo volo e selezioni l’opzione che preferisce.",
+                    "title": "Prenoti un upgrade",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.austrian.com/booking/cash-upgrade?lang=it-IT&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.austrian.com/xx/it/book/additional-services/upgrades",
+                    "linkTitle": "Visualizzi tutte le opzioni",
+                    "description": "Scopra le nostre opzioni di upgrade e viaggi in modo ancora più confortevole.",
+                    "title": "Consulti le opzioni di upgrade",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "Chiamata al Service Center",
+                    "description": "I nostri esperti sono lieti di rispondere a qualsiasi dubbio o domanda.",
+                    "title": null,
+                    "phone": "+496950600598",
+                    "priority": 3,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": true
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            },
+            {
+              "code": "BidUpgrade",
+              "title": "Offerta per un upgrade",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.austrian.com/xx/it/profile/login",
+                    "linkTitle": "Faccia un’offerta",
+                    "description": "Upgrade a una classe di viaggio superiore al prezzo che desidera.  \n \nLe ricordiamo che la disponibilità di questo servizio è soggetta alle condizioni previste dalla sua prenotazione.",
+                    "title": "Faccia la sua offerta per un upgrade",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.austrian.com/booking/manage-booking/retrieve?lang=it-IT&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "reconfirmation",
+          "title": "Conferma della prenotazione",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?start=MISSINGCONFIRMATION&language=it",
+                "linkTitle": "Apra la chat",
+                "description": "Maria può mostrarle dove trovare il codice di prenotazione o come richiedere una nuova e-mail di conferma.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "MISSINGCONFIRMATION",
+                    "language": "it",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/it/footer-pages/help-and-contact/contact-form-booking-confirmation",
+                "linkTitle": "Apra il modulo",
+                "description": "Utilizzi il nostro modulo per richiedere la conferma della sua prenotazione o per utilizzare il suo biglietto.",
+                "title": "Richieda conferma",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "booking.miles",
+          "title": "Prenotare con le miglia",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/it/spend/flights.html",
+                "linkTitle": "Ricerca voli",
+                "description": "Riscatti le miglia per i voli.",
+                "title": "Prenoti un Award Flight",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Chiamata al Service Center",
+                "description": "I nostri esperti sono lieti di rispondere a qualsiasi dubbio o domanda.",
+                "title": null,
+                "phone": "+4969209777777",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "booking.new.problem",
+          "title": "Problema con la prenotazione o il pagamento",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/it/footer-pages/help-and-contact/contact-form-other",
+                "linkTitle": "Apra il modulo",
+                "description": "Se riscontra un problema con una prenotazione o un pagamento, può utilizzare il nostro modulo di contatto; le risponderemo il prima possibile.",
+                "title": "Segnali un problema",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Chiamata al Service Center",
+                "description": "Se ha bisogno di ulteriore assistenza, i nostri esperti saranno lieti di rispondere a qualsiasi dubbio o domanda.",
+                "title": null,
+                "phone": "+43517663000",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "NameChangeAfterBooking",
+          "title": "Modifica del nome dopo la prenotazione",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Chiamata al Service Center",
+                "description": "Contatti il nostro Service Center per richiedere la correzione del nome sulla sua prenotazione. \n \nLe ricordiamo che possono essere effettuate solo piccole correzioni, come nel caso di errori ortografici.",
+                "title": null,
+                "phone": "+496950600598",
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "passengerReceipt",
+          "title": "Ricevuta di viaggio/Fattura",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/it/footer-pages/passenger-receipt",
+                "linkTitle": "Faccia subito la richiesta",
+                "description": "Recuperi online la sua ricevuta di viaggio.",
+                "title": "Richieda la ricevuta di viaggio",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?start=liveagent&language=it",
+                "linkTitle": "Apra la Live Chat",
+                "description": "Il nostro team di agenti del Service Center è a disposizione tramite Live Chat 24 ore su 24, 7 giorni su 7, per offrirle assistenza.",
+                "title": null,
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "it",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Chiamata al Service Center",
+                "description": "I nostri esperti sono lieti di rispondere a qualsiasi dubbio o domanda.",
+                "title": null,
+                "phone": "+496950600598",
+                "priority": 3,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "TravelRegulations",
+          "title": "Disposizioni di viaggio",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.travel-regulations.com/?language=en",
+                "linkTitle": "Inserisca l’itinerario",
+                "description": "Scopra quali sono i requisiti di ingresso, le disposizioni per il visto e le normative sanitarie per il suo prossimo viaggio.",
+                "title": "Verifichi le disposizioni di viaggio",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "booking.group",
+          "title": "Prenotazioni per gruppi (min. 10 passeggeri)",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/it/book/groups-and-enterprises/group-trips",
+                "linkTitle": "Visualizzi le condizioni",
+                "description": "Per tutte le informazioni sulle prenotazioni di gruppo, consulti la nostra pagina dedicata.",
+                "title": "Controlli le condizioni",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "GiftVouchers",
+          "title": "Voucher",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/it/footer-pages/help-and-contact/contact-form-vouchers",
+                "linkTitle": "Apra il modulo",
+                "description": "Se ha domande di natura generale riguardo ai voucher o desidera riscattarne uno e ha bisogno d’aiuto, utilizzi il modulo di contatto.",
+                "title": "Invii una richiesta",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "sustainableFlying",
+          "title": "Volare in modo più sostenibile",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/it/profile/login",
+                "linkTitle": "Selezioni il pacchetto",
+                "description": "Acquisti uno dei nostri pacchetti combinati per compensare le emissioni di CO₂ del suo volo e investire in progetti sostenibili. \n \nLe ricordiamo che la disponibilità di questo servizio è soggetta alle condizioni previste dalla sua prenotazione.",
+                "title": "Acquisti un pacchetto di compensazione",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.austrian.com/booking/manage-booking/retrieve?lang=it-IT&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/it/fly-more-sustainably-search",
+                "linkTitle": "Verifichi le opzioni di compensazione",
+                "description": "Può anche compensare in qualsiasi momento le emissioni di CO₂ calcolate per i suoi voli precedenti.",
+                "title": "Compensi il volo precedente",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-airplane-outbound",
+      "imageUrl": "https://www.austrian.com/content/dam/aua/images/local_images/help-center//booking.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "milesAndMore",
+      "title": "Miles & More",
+      "children": [
+        {
+          "code": "milesAndMore.mileageCredit",
+          "title": "Accredito di miglia dopo una prenotazione",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/it/program/at-a-glance/mileage-request.html",
+                "linkTitle": "Controlli le condizioni",
+                "description": "Riceva l’accredito di miglia e Points fino a sei mesi dopo la data dell’attività.",
+                "title": "Richieda l’accredito di miglia",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Chiami Miles & More",
+                "description": "Contatti il Service Team Miles & More per ulteriore assistenza relativa all’accredito.",
+                "title": null,
+                "phone": "+4969209777777",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.mileageAccount",
+          "title": "Estratto conto Miles & More",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/it/static/login.html",
+                "linkTitle": "Login",
+                "description": "Acceda a Miles & More per visualizzare il suo saldo del conto aggiornato e la data di scadenza delle miglia.",
+                "title": "Verifichi il saldo miglia",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Chiami Miles & More",
+                "description": "Per domande relative al suo account e alle miglia disponibili, contatti il suo Service Team Miles & More.",
+                "title": null,
+                "phone": "+4969209777777",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.spendMiles",
+          "title": "Riscattare le miglia",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/it/spend/award-overview.html",
+                "linkTitle": "Scopra i premi",
+                "description": "Utilizzi le miglia per gadget, upgrade di voli, buoni e tanto altro.",
+                "title": "Spenda le sue miglia",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Chiami Miles & More",
+                "description": "Contatti il suo Service Team Miles & More per maggiori informazioni su come utilizzare le sue miglia.",
+                "title": null,
+                "phone": "+4969209777777",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.login",
+          "title": "Problema con il login a Miles & More",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/it/general-information/help-and-contact.html?topic=pin-password-login/",
+                "linkTitle": "Acceda a Miles & More",
+                "description": "Visiti Miles & More per ricevere assistenza e informazioni sul login.",
+                "title": "Riceva assistenza con il login",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Chiami Miles & More",
+                "description": "Contatti il Service Team Miles & More se riscontra problemi di login o in caso di domande.",
+                "title": null,
+                "phone": "+4969209777777",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.upgrade",
+          "title": "Upgrade con miglia premio / eVoucher",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/it/program/flight-benefits/upgrade-award.html",
+                "linkTitle": "Maggiori informazioni sugli upgrade premio",
+                "description": "Effettui l’upgrade online a una classe di viaggio superiore utilizzando le sue miglia o un eVoucher.",
+                "title": "Prenoti upgrade premio",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Chiami Miles & More",
+                "description": "Contatti il suo Service Team Miles & More se riscontra problemi quando effettua l’upgrade.",
+                "title": null,
+                "phone": "+4969209777777",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.status",
+          "title": "Vantaggi dello status Miles & More",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/it/program/status-benefits/status-level-comparison.html",
+                "linkTitle": "Confronti gli status",
+                "description": "Scopra i privilegi di ogni status di frequent flyer.",
+                "title": "Consulti i privilegi degli status",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Chiami Miles & More",
+                "description": "Contatti il suo Service Team Miles & More se ha ulteriori domande in merito ai privilegi degli status.",
+                "title": null,
+                "phone": "+4969209777777",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.newMember",
+          "title": "Diventare socio/a Miles & More",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/it/profile/login",
+                "linkTitle": "Login",
+                "description": "Se ha già un Travel ID Austrian, acceda al suo account su austrian.com e attivi Miles & More.",
+                "title": "Attivi Miles & More",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/it/program/at-a-glance.html",
+                "linkTitle": "Si registri subito",
+                "description": "Si registri gratuitamente e inizi ad accumulare miglia per upgrade di voli e altri premi.",
+                "title": "Si iscriva",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Chiami Miles & More",
+                "description": "Contatti il suo Service Team Miles & More per ulteriori informazioni sull’iscrizione.",
+                "title": null,
+                "phone": "+4969209777777",
+                "priority": 3,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.creditCard",
+          "title": "Carte di credito Miles & More",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/it/program/credit-cards/credit-cards-overview.html",
+                "linkTitle": "Visualizzi tutte le carte",
+                "description": "Scopra tutte le carte di credito Miles & More disponibili per ogni Paese.",
+                "title": "Selezioni una carta di credito",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/it/support/faq/faq-miles-and-more",
+                "linkTitle": "Maggiori informazioni",
+                "description": "Si informi su tutti i servizi della sua carta di credito Miles & More e scarichi la nostra app per scoprire nuove offerte.",
+                "title": "Visualizzi i servizi relativi alle carte di credito",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Chiami Miles & More",
+                "description": "Il suo Service Team Miles & More è qui per aiutarla in caso di dubbi o domande.",
+                "title": null,
+                "phone": "+4969209777777",
+                "priority": 3,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "booking.miles",
+          "title": "Prenotare con le miglia",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/it/spend/flights.html",
+                "linkTitle": "Ricerca voli",
+                "description": "Riscatti le miglia per i voli.",
+                "title": "Prenoti un Award Flight",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Chiamata al Service Center",
+                "description": "I nostri esperti sono lieti di rispondere a qualsiasi dubbio o domanda.",
+                "title": null,
+                "phone": "+4969209777777",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.worldshop",
+          "title": "Worldshop",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.worldshop.eu/it/austrian/?p=UhVEO0wzj0U",
+                "linkTitle": "Visiti il Worldshop",
+                "description": "Acquisti marchi di qualità e prodotti esclusivi delle nostre ultime collezioni speciali.",
+                "title": "Visiti il Worldshop",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.otherQuestions",
+          "title": "Altre domande su Miles & More",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/it/general-information/help-and-contact.html",
+                "linkTitle": "Visiti Miles & More",
+                "description": "Se ha bisogno di aiuto con la sua richiesta, ha a disposizione moduli e articoli utili, nonché l’assistenza telefonica del Service Team Miles & More.",
+                "title": "Consulti gli articoli guida",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-miles-and-more",
+      "imageUrl": "https://www.austrian.com/content/dam/aua/images/local_images/help-center//miles-and-more.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "accessibility",
+      "title": "Viaggiare senza barriere",
+      "children": [
+        {
+          "code": "mobilityAssistance",
+          "title": "Assistenza alla mobilità in aeroporto",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/it/plan/special-requirements/accessible-travel",
+                "linkTitle": "Consulti i dettagli dei servizi",
+                "description": "Scopra di più sui nostri servizi per passeggeri con mobilità ridotta o disabilità sensoriale (prenotabili fino a 48 ore prima della partenza).",
+                "title": "Visualizzi i servizi di mobilità",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/it/footer-pages/help-and-contact/contact-form-medical-request",
+                "linkTitle": "Apra il modulo",
+                "description": "Compili il nostro modulo di contatto per comunicarci le sue esigenze di assistenza almeno 48 ore prima della partenza.",
+                "title": "Richieda il servizio di mobilità",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?language=it&start=DYNAMIC_accessibility-mobilityAssistance",
+                "linkTitle": "Apra la chat",
+                "description": "Maria è a disposizione per rispondere alle sue domande e guidarla nei passaggi successivi.",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_accessibility-mobilityAssistance",
+                    "language": "it",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?start=liveagent&language=it",
+                "linkTitle": "Apra la Live Chat",
+                "description": "Il nostro team di agenti del Service Center è a disposizione tramite Live Chat 24 ore su 24, 7 giorni su 7, per offrirle assistenza.",
+                "title": null,
+                "phone": null,
+                "priority": 4,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "it",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Chiamata al Service Center",
+                "description": "I nostri esperti sono lieti di rispondere a qualsiasi dubbio o domanda.",
+                "title": null,
+                "phone": "+496950600598",
+                "priority": 5,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "travelHealthIssues",
+          "title": "Viaggiare con problemi di salute",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/it/plan/special-requirements/healthy-travel",
+                "linkTitle": "Consulti la lista di controllo",
+                "description": "Usi la nostra lista di controllo e richieda assistenza medica per il suo prossimo viaggio se non si sente bene o se le sue condizioni di salute necessitano di particolare attenzione.",
+                "title": "Si prepari al viaggio",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?language=it&start=DYNAMIC_accessibility-travelHealthIssues",
+                "linkTitle": "Apra la chat",
+                "description": "Maria è a disposizione per rispondere alle sue domande e guidarla nei passaggi successivi.",
+                "title": null,
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_accessibility-travelHealthIssues",
+                    "language": "it",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?start=liveagent&language=it",
+                "linkTitle": "Apra la Live Chat",
+                "description": "Il nostro team di agenti del Service Center è a disposizione tramite Live Chat 24 ore su 24, 7 giorni su 7, per offrirle assistenza.",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "it",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Chiamata al Service Center",
+                "description": "I nostri esperti sono lieti di rispondere a qualsiasi dubbio o domanda.",
+                "title": null,
+                "phone": "+496950600598",
+                "priority": 4,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "moreAccessibleTravel",
+          "title": "Maggiori informazioni sui viaggi accessibili a persone con disabilità",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?language=it&start=DYNAMIC_accessibility-moreAccessibleTravel",
+                "linkTitle": "Apra la chat",
+                "description": "Maria è a disposizione per rispondere alle sue domande e guidarla nei passaggi successivi.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_accessibility-moreAccessibleTravel",
+                    "language": "it",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/it/plan/special-requirements",
+                "linkTitle": "Panoramica",
+                "description": "Acceda a una panoramica di tutti i servizi disponibili per viaggiare in totale comfort in ogni situazione.",
+                "title": "Visualizzi tutti i servizi",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?start=liveagent&language=it",
+                "linkTitle": "Apra la Live Chat",
+                "description": "Il nostro team di agenti del Service Center è a disposizione tramite Live Chat 24 ore su 24, 7 giorni su 7, per offrirle assistenza.",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "it",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Chiamata al Service Center",
+                "description": "I nostri esperti sono lieti di rispondere a qualsiasi dubbio o domanda.",
+                "title": null,
+                "phone": "+496950600598",
+                "priority": 4,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-wheelchair",
+      "imageUrl": "https://www.austrian.com/content/dam/aua/images/local_images/help-center//accessible-travel.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "TravelIDLogin",
+      "title": "Login e Travel ID",
+      "children": [],
+      "options": {
+        "recommended": [
+          {
+            "type": "SELF_SERVICE",
+            "link": "https://www.austrian.com/xx/it/faq-travelid",
+            "linkTitle": "Consulti le domande frequenti",
+            "description": "Nelle nostre Domande frequenti trova maggiori informazioni su Travel ID e supporto per eventuali problemi di accesso.",
+            "title": "Domande frequenti su login e Travel ID",
+            "phone": null,
+            "priority": 1,
+            "deeplink": null,
+            "notifications": [],
+            "trackingType": "INFORMATIONAL",
+            "profileHandoverEnabled": false
+          }
+        ],
+        "others": [
+          {
+            "type": "CALL",
+            "link": null,
+            "linkTitle": "Chiamata al Service Center",
+            "description": "Se ha bisogno di ulteriore assistenza, il nostro team è qui per aiutarla.",
+            "title": null,
+            "phone": "+43517663000",
+            "priority": 2,
+            "deeplink": null,
+            "notifications": [],
+            "trackingType": null,
+            "profileHandoverEnabled": true
+          }
+        ]
+      },
+      "icon": "icon-service-login",
+      "imageUrl": null,
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": false
+    },
+    {
+      "code": "other",
+      "title": "Feedback e altre richieste",
+      "children": [],
+      "options": {
+        "recommended": [
+          {
+            "type": "SELF_SERVICE",
+            "link": "https://www.austrian.com/xx/it/footer-pages/help-and-contact/feedback-past-flight",
+            "linkTitle": "Apra il modulo",
+            "description": "Ci racconti la sua esperienza riguardo a un volo già effettuato utilizzando il nostro modulo di contatto. Le risponderemo il prima possibile.",
+            "title": "Invii il feedback",
+            "phone": null,
+            "priority": 1,
+            "deeplink": null,
+            "notifications": [],
+            "trackingType": "FORM",
+            "profileHandoverEnabled": false
+          }
+        ],
+        "others": [
+          {
+            "type": "CHAT_ASSISTANT",
+            "link": "https://www.austrian.com/digitalassistant/deeplink?start=CONTACTCENTERDEFAULT&language=it",
+            "linkTitle": "Apra la chat",
+            "description": "Maria è a disposizione per rispondere alle sue domande e guidarla nei passaggi successivi.",
+            "title": null,
+            "phone": null,
+            "priority": 2,
+            "deeplink": {
+              "url": "https://www.austrian.com/digitalassistant/deeplink",
+              "data": {
+                "lastName": "<lastName>",
+                "firstName": "<firstName>",
+                "start": "CONTACTCENTERDEFAULT",
+                "language": "it",
+                "filekey": "<pnr>"
+              }
+            },
+            "notifications": [],
+            "trackingType": null,
+            "profileHandoverEnabled": false
+          }
+        ]
+      },
+      "icon": "icon-create-post",
+      "imageUrl": null,
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": false
+    }
+  ],
+  "_metadata": {
+    "tenant": "OS",
+    "language": "it",
+    "extracted_at": "2026-11-05T02:03:11.107987",
+    "record_count": 1
+  }
+}

@@ -1,0 +1,4831 @@
+{
+  "targetCustomerStatus": "BASE",
+  "menu": [
+    {
+      "code": "travelBookingStatus",
+      "title": "最新のフライト情報",
+      "children": [
+        {
+          "code": "currentTravelInformation",
+          "title": "渡航情報",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/ja/fly/flight-information/flight-irregularities",
+                "linkTitle": "トラベルインフォメーションを見る",
+                "description": "ストライキやその他の理由でフライトが変更になった場合の情報とサポートをご確認ください。",
+                "title": "旅行の最新情報を入手する",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "flightStatus",
+          "title": "フライトステータス",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/ja/fly/flight-information/flight-status-and-timetable#/",
+                "linkTitle": "今すぐ確認する",
+                "description": "便名、路線、空港で検索して運航状況をご確認いただけます。",
+                "title": "運航状況を確認する",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?start=FLIGHTSTATUS&language=en",
+                "linkTitle": "チャットを開始する",
+                "description": "フライトの運航状況や出発時刻などを、Mariaがお調べします。",
+                "title": null,
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "FLIGHTSTATUS",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": "icon-flight-status",
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "checkConnection",
+          "title": "乗り継ぎ便を確認する",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?start=flynet&language=en",
+                "linkTitle": "チャットを開始する",
+                "description": "欠航や遅延により乗り継ぎ便に間に合わなかった場合、Mariaが代替便をお探しします。",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "flynet",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-flight-status",
+      "imageUrl": "https://www.austrian.com/content/dam/aua/images/local_images/help-center//travel-information.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "rebookingsCancelationsRefunds",
+      "title": "予約変更とキャンセル",
+      "children": [
+        {
+          "code": "rebookFlight",
+          "title": "フライトの予約変更",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?start=CONTACTCENTERDEFAULT&language=en",
+                "linkTitle": "チャットを開始する",
+                "description": "Mariaがご質問にお答えし、次に必要な手続きをご案内します。",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "CONTACTCENTERDEFAULT",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/ja/profile/login",
+                "linkTitle": "予約の管理",
+                "description": "ご予約に含まれる1名様以上のご搭乗者について、フライトの日時をオンラインで変更いただけます。\n \nご注意：フライト経路を変更するには、チャットアシスタント「Maria」をご利用ください。",
+                "title": "フライトを予約変更する",
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://shop.austrian.com/booking/manage-booking/retrieve?lang=ja-JP&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "ライブチャットを開始する",
+                "description": "ライブチャットを通じて、サービスセンターの担当者が24時間年中無休でサポートいたします。",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "サービスセンターに電話する",
+                "description": "オンラインサービスでご要望にお応えできなかった場合は、サービスセンターがサポートいたします。",
+                "title": null,
+                "phone": "+496950600598",
+                "priority": 4,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": true,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "NewBoardingPass",
+          "title": "新しい搭乗券を入手する",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://once.austrian.com/connect/main-app?APPID=LHG_ONLINE&TENANT=OS&LANGUAGE=ja&COUNTRY=xx&MODE=PORTAL",
+                "linkTitle": "チェックインをする",
+                "description": "新しい搭乗券を受け取るには、以下のリンクから再度チェックインを行なってください。",
+                "title": "再度チェックインをする",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "confirmRebooking",
+          "title": "予約変更を確認する",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?start=MISSINGCONFIRMATION&language=en",
+                "linkTitle": "チャットを開始する",
+                "description": "Mariaを利用して予約変更の状況が確認できます。",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "MISSINGCONFIRMATION",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "ライブチャットを開始する",
+                "description": "ご予約が変更された場合は、サービスセンターの担当者が新しい予約確認書を再度お送りします。また、追加サービス（座席予約など）の予約変更についてもお手伝いいたします。",
+                "title": null,
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "OvernightStay",
+          "title": "フライトの遅延によるホテル滞在",
+          "children": [
+            {
+              "code": "BookOvernightStay",
+              "title": "ホテルの予約にサポートが必要",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.austrian.com/xx/ja/fly/flight-information/flight-disruptions#accordion-item-section-hotel",
+                    "linkTitle": "条件を読む",
+                    "description": "フライトが欠航となった場合、一旦宿泊をご予約いただき、その後に宿泊費用の払い戻しを申請してください。\n  \n一定の条件が適用されますのでご注意ください。",
+                    "title": "ホテルを予約する",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.austrian.com/xx/ja/fly/flight-information/flight-disruptions",
+                    "linkTitle": "よくある質問を見る",
+                    "description": "フライト遅延による宿泊に関するサポートや、ホテル費用の払い戻しの申請方法は、よくある質問をご覧ください。",
+                    "title": "ホテル宿泊に関するサポート",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "RefundOvernightStay",
+              "title": "すでにホテルを予約している",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.austrian.com/xx/ja/footer-pages/help-and-contact/application-for-compensation-in-the-event-of-flight-irregularities",
+                    "linkTitle": "フォームを開く\n",
+                    "description": "宿泊費用の払い戻しをご希望の場合は、こちらのフォームに記入してください。",
+                    "title": "払い戻しを申請する",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "FORM",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "cancelBookingGetRefund",
+          "title": "キャンセルおよび払い戻しの申請",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?start=refund&language=en",
+                "linkTitle": "チャットを開始する",
+                "description": "Mariaがお客様に代わって予約をキャンセルし、払い戻しの手続きを行います。",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "refund",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/ja/profile/login",
+                "linkTitle": "予約の管理",
+                "description": "オンラインで予約をキャンセルし、払い戻しを申請します。\n \nキャンセルできるのは、予約全体のみとなりますのでご注意ください。",
+                "title": "予約をキャンセルする",
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://shop.austrian.com/booking/manage-booking/retrieve?lang=ja-JP&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "ライブチャットを開始する",
+                "description": "ライブチャットを通じて、サービスセンターの担当者が24時間年中無休でサポートいたします。",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "サービスセンターに電話する",
+                "description": "オンラインサービスでご要望にお応えできなかった場合は、サービスセンターがサポートいたします。",
+                "title": null,
+                "phone": "+496950600598",
+                "priority": 4,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": true,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "delayCancelationConfirmation",
+          "title": "キャンセルを確認する",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/ja/footer-pages/help-and-contact/contact-form-booking-confirmation",
+                "linkTitle": "フォームを開く",
+                "description": "ご予約の確認書または航空券の使用証明が必要な場合は、所定のフォームよりご連絡ください。",
+                "title": "確認書をリクエストする",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "ライブチャットを開始する",
+                "description": "キャンセルのお手続き後、確認Eメールをお送りします。迷惑メールフォルダに振り分けられている可能性がありますのでご確認ください。キャンセル確認Eメールの再送をご希望の場合は、サービスセンターまでご連絡ください。",
+                "title": null,
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-flight-irreg",
+      "imageUrl": "https://www.austrian.com/content/dam/aua/images/local_images/help-center//rebooking-cancellation-refund.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "RefundsAndCompensations",
+      "title": "払い戻しと補償",
+      "children": [
+        {
+          "code": "claimCompensationFlightDisruption",
+          "title": "航空会社が行ったフライト変更に対する補償",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/ja/fast-compensation",
+                "linkTitle": "フォームを開く",
+                "description": "フライトが欠航した場合、3時間以上遅延した場合、または乗り継ぎ便に間に合わなかった場合は、お問い合わせフォームを使って費用の払い戻しを申請してください。",
+                "title": "補償を請求する",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/ja/footer-pages/help-and-contact/contact-form-booking-confirmation",
+                "linkTitle": "フォームを開く",
+                "description": "ご利用予定の便の欠航や遅延の証明が必要な場合は、所定のフォームよりご連絡ください。",
+                "title": "確認書をリクエストする",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "cancelBookingGetRefund",
+          "title": "キャンセルおよび払い戻しの申請",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?start=refund&language=en",
+                "linkTitle": "チャットを開始する",
+                "description": "Mariaがお客様に代わって予約をキャンセルし、払い戻しの手続きを行います。",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "refund",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/ja/profile/login",
+                "linkTitle": "予約の管理",
+                "description": "オンラインで予約をキャンセルし、払い戻しを申請します。\n \nキャンセルできるのは、予約全体のみとなりますのでご注意ください。",
+                "title": "予約をキャンセルする",
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://shop.austrian.com/booking/manage-booking/retrieve?lang=ja-JP&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "ライブチャットを開始する",
+                "description": "ライブチャットを通じて、サービスセンターの担当者が24時間年中無休でサポートいたします。",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "サービスセンターに電話する",
+                "description": "オンラインサービスでご要望にお応えできなかった場合は、サービスセンターがサポートいたします。",
+                "title": null,
+                "phone": "+496950600598",
+                "priority": 4,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": true,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "refundAdditionalService",
+          "title": "追加サービスの払い戻し",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/ja/footer-pages/help-and-contact/contact-form-refund-seat-reservation",
+                "linkTitle": "フォームを開く",
+                "description": "座席指定や他の追加サービスの払い戻しを申請する場合は、所定のフォームよりご連絡ください。",
+                "title": "払い戻しを申請する",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "confirmRefund",
+          "title": "払い戻しを確認する",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "ライブチャットを開始する",
+                "description": "払い戻し確認の再送や払い戻し状況の確認は、サービスセンターの担当者にお問い合わせください。",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "refundBaggageIrregularities",
+          "title": "手荷物のトラブルに対する払い戻し",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/ja/baggage-reimbursement",
+                "linkTitle": "フォームを開く",
+                "description": "手荷物の遅延あるいは破損で生じた追加費用の払い戻しを申請する場合は、お問い合わせフォームをご利用ください。",
+                "title": "払い戻しを申請する",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/ja/plan/baggage/missing-baggage",
+                "linkTitle": "詳細を見る",
+                "description": "手荷物の遅延や破損に関するサポートや、払い戻しの申請方法についてご確認ください。",
+                "title": "手荷物のトラブルに関する詳細",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?language=en&start=DYNAMIC_RefundsAndCompensations-refundBaggageIrregularities",
+                "linkTitle": "チャットを開始する",
+                "description": "Mariaがご質問にお答えし、次に必要な手続きをご案内します。",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_RefundsAndCompensations-refundBaggageIrregularities",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "UploadDocuments",
+          "title": "書類を送付する",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/ja/footer-pages/help-and-contact/contact-form-requested-documents",
+                "linkTitle": "フォームを開く",
+                "description": "お問い合わせフォームから必要書類をお送りください。",
+                "title": "書類を送付する",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "OvernightStay",
+          "title": "フライトの遅延によるホテル滞在",
+          "children": [
+            {
+              "code": "BookOvernightStay",
+              "title": "ホテルの予約にサポートが必要",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.austrian.com/xx/ja/fly/flight-information/flight-disruptions#accordion-item-section-hotel",
+                    "linkTitle": "条件を読む",
+                    "description": "フライトが欠航となった場合、一旦宿泊をご予約いただき、その後に宿泊費用の払い戻しを申請してください。\n  \n一定の条件が適用されますのでご注意ください。",
+                    "title": "ホテルを予約する",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.austrian.com/xx/ja/fly/flight-information/flight-disruptions",
+                    "linkTitle": "よくある質問を見る",
+                    "description": "フライト遅延による宿泊に関するサポートや、ホテル費用の払い戻しの申請方法は、よくある質問をご覧ください。",
+                    "title": "ホテル宿泊に関するサポート",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "RefundOvernightStay",
+              "title": "すでにホテルを予約している",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.austrian.com/xx/ja/footer-pages/help-and-contact/application-for-compensation-in-the-event-of-flight-irregularities",
+                    "linkTitle": "フォームを開く\n",
+                    "description": "宿泊費用の払い戻しをご希望の場合は、こちらのフォームに記入してください。",
+                    "title": "払い戻しを申請する",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "FORM",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "MealVoucher",
+          "title": "ミールバウチャー",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/ja/fly/flight-information/flight-disruptions#accordion-item-section-voucher",
+                "linkTitle": "詳細を見る",
+                "description": "ほとんどの場合、航空券のQRコードに紐づいたミールバウチャーが自動的に発行されます。ミールバウチャーの受け取り方法と使用場所についてはこちらをご覧ください。",
+                "title": "条件を確認する",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "TravelbyTrain",
+          "title": "鉄道による代替交通手段",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/ja/good-for-train",
+                "linkTitle": "予約の詳細を入力する",
+                "description": "欠航したフライトに適切な代替手段がない場合は、フライトチケットを鉄道バウチャーに交換することができます。\n \n一部の路線のみの適用となりますのでご注意ください。",
+                "title": "鉄道バウチャーを受け取る",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "passengerRights",
+          "title": "お客様の権利について",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/ja/legal/passenger-rights",
+                "linkTitle": "詳細を見る",
+                "description": "欠航や遅延、その他フライトの乱れが発生した場合のお客様の権利についてご確認ください。",
+                "title": "お客様の権利を見る",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-refund-possible",
+      "imageUrl": "https://www.austrian.com/content/dam/aua/images/local_images/help-center//refund-compensations.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "checkin",
+      "title": "チェックイン",
+      "children": [
+        {
+          "code": "HelpWithCheckIn",
+          "title": "チェックイン時の問題",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?start=checkin&language=en",
+                "linkTitle": "チャットを開始する",
+                "description": "フライトにチェックインできない原因を、Mariaがお調べします。",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "checkin",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "サービスセンターに電話する",
+                "description": "ご質問やご不明な点につきましては、担当者がお手伝いいたします。",
+                "title": null,
+                "phone": "+43517663000",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "lateNightCheckin",
+          "title": "早期の受託手荷物お預け",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?language=en&start=DYNAMIC_checkin-lateNightCheckin",
+                "linkTitle": "チャットを開始する",
+                "description": "Mariaがご質問にお答えし、次に必要な手続きをご案内します。",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_checkin-lateNightCheckin",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/ja/fly/check-in/check-in-airport",
+                "linkTitle": "詳細を見る",
+                "description": "出発前日にチェックインして手荷物を預けましょう。米国へのフライトの手荷物は、ご出発の24時間前からお預けいただけます。",
+                "title": "早めに手荷物を預け入れる",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "NewBoardingPass",
+          "title": "新しい搭乗券を入手する",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://once.austrian.com/connect/main-app?APPID=LHG_ONLINE&TENANT=OS&LANGUAGE=ja&COUNTRY=xx&MODE=PORTAL",
+                "linkTitle": "チェックインをする",
+                "description": "新しい搭乗券を受け取るには、以下のリンクから再度チェックインを行なってください。",
+                "title": "再度チェックインをする",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "otherCheckinQuestions",
+          "title": "チェックインに関する質問",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?language=en&start=DYNAMIC_checkin-otherCheckinQuestions",
+                "linkTitle": "チャットを開始する",
+                "description": "Mariaがご質問にお答えし、次に必要な手続きをご案内します。",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_checkin-otherCheckinQuestions",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/ja/fly/check-in",
+                "linkTitle": "概要を見る",
+                "description": "次回のご旅行に最も便利なチェックイン方法をご覧ください。",
+                "title": "チェックインのオプションを見る",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/ja/footer-pages/faq/faq-check-in",
+                "linkTitle": "チェックインに関する情報",
+                "description": "チェックインに関するよくある質問と回答はこちらでご覧ください。",
+                "title": "チェックインのよくある質問を見る",
+                "phone": null,
+                "priority": 3,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-boarding-card",
+      "imageUrl": "https://www.austrian.com/content/dam/aua/images/local_images/help-center//check-in.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "baggage",
+      "title": "手荷物",
+      "children": [
+        {
+          "code": "baggage.rules",
+          "title": "手荷物の規定と料金",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/ja/profile/login",
+                "linkTitle": "予約の管理",
+                "description": "次回のフライトでお持ちいただける手荷物の許容量をご確認ください。",
+                "title": "手荷物許容量を見る",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.austrian.com/booking/services/BAGGAGE?lang=ja-JP&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/ja/plan/baggage",
+                "linkTitle": "概要へ",
+                "description": "すべての手荷物タイプとサービスの概要をご覧ください。",
+                "title": "すべての手荷物サービスを見る",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "ライブチャットを開始する",
+                "description": "ライブチャットを通じて、サービスセンターの担当者が24時間年中無休でサポートいたします。",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "サービスセンターに電話する",
+                "description": "ご質問やご不明点など、さらにサポートが必要な場合は、担当者がお手伝いいたします。",
+                "title": null,
+                "phone": "+496950600598",
+                "priority": 4,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "baggage.excess",
+          "title": "追加手荷物／超過手荷物",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/ja/profile/login",
+                "linkTitle": "予約の管理",
+                "description": "次回のフライトでお預けいただける手荷物の量をご確認いただき、必要に応じて追加してください。",
+                "title": "手荷物を追加する",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.austrian.com/booking/services/BAGGAGE?lang=ja-JP&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?language=en&start=DYNAMIC_baggage-baggage_excess",
+                "linkTitle": "チャットを開始する",
+                "description": "Mariaがご質問にお答えし、次に必要な手続きをご案内します。",
+                "title": null,
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_baggage-baggage_excess",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/ja/plan/baggage/excess-baggage",
+                "linkTitle": "すべての規定を見る",
+                "description": "ご予約の料金に応じてお預けいただける超過手荷物の重量とサイズに関する詳細をご確認ください。",
+                "title": "手荷物規定を確認する",
+                "phone": null,
+                "priority": 3,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "ライブチャットを開始する",
+                "description": "ライブチャットを通じて、サービスセンターの担当者が24時間年中無休でサポートいたします。",
+                "title": null,
+                "phone": null,
+                "priority": 4,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "サービスセンターに電話する",
+                "description": "ご質問やご不明点など、さらにサポートが必要な場合は、担当者がお手伝いいたします。",
+                "title": null,
+                "phone": "+496950600598",
+                "priority": 5,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "baggage.sports",
+          "title": "スポーツ用品を追加する",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/ja/footer-pages/help-and-contact/contact-form-baggage",
+                "linkTitle": "フォームを開く",
+                "description": "ご予約にスポーツ用品を追加するには、フォームにご記入ください。",
+                "title": "スポーツ用品を登録する",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?language=en&start=DYNAMIC_baggage-baggage_sports",
+                "linkTitle": "チャットを開始する",
+                "description": "Mariaがご質問にお答えし、次に必要な手続きをご案内します。",
+                "title": null,
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_baggage-baggage_sports",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/ja/plan/baggage/sports-baggage",
+                "linkTitle": "すべての規定を見る",
+                "description": "スポーツ用品および特殊手荷物に関するすべての情報はこちらをご覧ください。",
+                "title": "手荷物規定を確認する",
+                "phone": null,
+                "priority": 3,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "ライブチャットを開始する",
+                "description": "ライブチャットを通じて、サービスセンターの担当者が24時間年中無休でサポートいたします。",
+                "title": null,
+                "phone": null,
+                "priority": 4,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "サービスセンターに電話する",
+                "description": "ご質問やご不明な点につきましては、担当者がお手伝いいたします。",
+                "title": null,
+                "phone": "+496950600598",
+                "priority": 5,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "pets",
+          "title": "ペット同伴のご旅行",
+          "children": [
+            {
+              "code": "travelPetsInCabin",
+              "title": "ペットの客室での輸送（キャリーケースを含み8kgまで）",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.austrian.com/xx/ja/profile/login",
+                    "linkTitle": "今すぐ登録する",
+                    "description": "客室にペットをお連れになる場合は、ご出発の72時間前までに既存のご予約にペットのご登録をお願いいたします。",
+                    "title": "ペットを追加する",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.austrian.com/booking/services/PETS?lang=ja-JP&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "CHAT_ASSISTANT",
+                    "link": "https://www.austrian.com/digitalassistant/deeplink?language=en&start=DYNAMIC_pets-travelPetsInCabin",
+                    "linkTitle": "チャットを開始する",
+                    "description": "Mariaがご質問にお答えし、次に必要な手続きをご案内します。",
+                    "title": null,
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": {
+                      "url": "https://www.austrian.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "DYNAMIC_pets-travelPetsInCabin",
+                        "language": "en",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [
+                      {
+                        "type": "info",
+                        "title": null,
+                        "message": "chatAssistant.languageNotAvailable",
+                        "reason": null
+                      }
+                    ],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.austrian.com/xx/ja/plan/special-requirements/travelling-with-animals",
+                    "linkTitle": "すべての条件を見る",
+                    "description": "ペット同伴のご旅行に関する条件をお読みになり、すべての必要書類がそろっていることをご確認ください。",
+                    "title": "旅行の条件を確認する",
+                    "phone": null,
+                    "priority": 3,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "LIVE_CHAT",
+                    "link": "https://www.austrian.com/digitalassistant/deeplink?start=liveagent&language=en",
+                    "linkTitle": "ライブチャットを開始する",
+                    "description": "ライブチャットを通じて、サービスセンターの担当者が24時間年中無休でサポートいたします。",
+                    "title": null,
+                    "phone": null,
+                    "priority": 4,
+                    "deeplink": {
+                      "url": "https://www.austrian.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "liveagent",
+                        "language": "en",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [
+                      {
+                        "type": "info",
+                        "title": null,
+                        "message": "chatAssistant.languageNotAvailable",
+                        "reason": null
+                      }
+                    ],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "サービスセンターに電話する",
+                    "description": "ご質問やご不明な点につきましては、担当者がお手伝いいたします。",
+                    "title": null,
+                    "phone": "+496950600598",
+                    "priority": 5,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": true
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            },
+            {
+              "code": "travelPetsInCargo",
+              "title": "ペットの貨物室での輸送",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.austrian.com/xx/ja/footer-pages/help-and-contact/contact-form-travelling-with-animals",
+                    "linkTitle": "今すぐ登録する",
+                    "description": "オーストリア航空便の貨物室に預け入れる犬や猫を登録してください（出発の72時間前まで）。",
+                    "title": "同伴するペットを登録する",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "FORM",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "CHAT_ASSISTANT",
+                    "link": "https://www.austrian.com/digitalassistant/deeplink?language=en&start=DYNAMIC_pets-travelPetsInCargo",
+                    "linkTitle": "チャットを開始する",
+                    "description": "Mariaがご質問にお答えし、次に必要な手続きをご案内します。",
+                    "title": null,
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": {
+                      "url": "https://www.austrian.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "DYNAMIC_pets-travelPetsInCargo",
+                        "language": "en",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [
+                      {
+                        "type": "info",
+                        "title": null,
+                        "message": "chatAssistant.languageNotAvailable",
+                        "reason": null
+                      }
+                    ],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.austrian.com/xx/ja/plan/special-requirements/travelling-with-animals",
+                    "linkTitle": "すべての条件を見る",
+                    "description": "オーストリア航空のフライトには犬や猫をご同伴いただけます。ペット同伴のフライトを予約する前に、以下の留意事項をよくお読みください。",
+                    "title": "条件を確認する",
+                    "phone": null,
+                    "priority": 3,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "LIVE_CHAT",
+                    "link": "https://www.austrian.com/digitalassistant/deeplink?start=liveagent&language=en",
+                    "linkTitle": "ライブチャットを開始する",
+                    "description": "ライブチャットを通じて、サービスセンターの担当者が24時間年中無休でサポートいたします。",
+                    "title": null,
+                    "phone": null,
+                    "priority": 4,
+                    "deeplink": {
+                      "url": "https://www.austrian.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "liveagent",
+                        "language": "en",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [
+                      {
+                        "type": "info",
+                        "title": null,
+                        "message": "chatAssistant.languageNotAvailable",
+                        "reason": null
+                      }
+                    ],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "サービスセンターに電話する",
+                    "description": "ご質問やご不明な点につきましては、担当者がお手伝いいたします。",
+                    "title": null,
+                    "phone": "+496950600598",
+                    "priority": 5,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": true
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "lateNightCheckin",
+          "title": "早期の受託手荷物お預け",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?language=en&start=DYNAMIC_baggage-lateNightCheckin",
+                "linkTitle": "チャットを開始する",
+                "description": "Mariaがご質問にお答えし、次に必要な手続きをご案内します。",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_baggage-lateNightCheckin",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/ja/fly/check-in/check-in-airport",
+                "linkTitle": "詳細を見る",
+                "description": "出発前日にチェックインして手荷物を預けましょう。米国へのフライトの手荷物は、ご出発の24時間前からお預けいただけます。",
+                "title": "早めに手荷物を預け入れる",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "baggage.damagedOrDelayed",
+          "title": "手荷物のトラブル",
+          "children": [
+            {
+              "code": "reportDelayedBaggage",
+              "title": "手荷物の遅延を申告",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "CHAT_ASSISTANT",
+                    "link": "https://www.austrian.com/digitalassistant/deeplink?start=DELAYBAGCREATE&language=en",
+                    "linkTitle": "チャットを開始する",
+                    "description": "受託手荷物が到着しなかった場合、Mariaが手荷物遅延の申告方法をご案内します。",
+                    "title": null,
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://www.austrian.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "DELAYBAGCREATE",
+                        "language": "en",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [
+                      {
+                        "type": "info",
+                        "title": null,
+                        "message": "chatAssistant.languageNotAvailable",
+                        "reason": null
+                      }
+                    ],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.austrian.com/xx/ja/footer-pages/faq/faq-missing-baggage",
+                    "linkTitle": "よくある質問を読む",
+                    "description": "手荷物の遅延に関する一般的なご質問への回答は、よくある質問をご覧ください。",
+                    "title": "手荷物の遅延に関する詳細",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "statusBaggageReport",
+              "title": "遅延手荷物申告の管理",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "CHAT_ASSISTANT",
+                    "link": "https://www.austrian.com/digitalassistant/deeplink?start=DELAYBAG&language=en",
+                    "linkTitle": "チャットを開始する",
+                    "description": "Mariaが手荷物遅延の申告後の進捗確認や申告内容の変更をお手伝いします。手荷物がお手元に戻った後は、申告を終了することもできます。",
+                    "title": null,
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://www.austrian.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "DELAYBAG",
+                        "language": "en",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [
+                      {
+                        "type": "info",
+                        "title": null,
+                        "message": "chatAssistant.languageNotAvailable",
+                        "reason": null
+                      }
+                    ],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.austrian.com/xx/ja/footer-pages/faq/faq-missing-baggage",
+                    "linkTitle": "よくある質問を読む",
+                    "description": "手荷物の遅延に関する一般的なご質問への回答は、よくある質問をご覧ください。",
+                    "title": "手荷物の遅延に関する詳細",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "reportDamagedBaggage",
+              "title": "手荷物の破損を申告",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://mybag.aero/austrian/damaged/en",
+                    "linkTitle": "申告書を提出",
+                    "description": "破損した手荷物の申告書を提出します（到着後72時間以内）。",
+                    "title": "手荷物の破損を申告する",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "FORM",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "CHAT_ASSISTANT",
+                    "link": "https://www.austrian.com/digitalassistant/deeplink?language=en&start=DYNAMIC_baggage_damagedOrDelayed-reportDamagedBaggage",
+                    "linkTitle": "チャットを開始する",
+                    "description": "Mariaがご質問にお答えし、次に必要な手続きをご案内します。",
+                    "title": null,
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": {
+                      "url": "https://www.austrian.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "DYNAMIC_baggage_damagedOrDelayed-reportDamagedBaggage",
+                        "language": "en",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [
+                      {
+                        "type": "info",
+                        "title": null,
+                        "message": "chatAssistant.languageNotAvailable",
+                        "reason": null
+                      }
+                    ],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "refundBaggageIrregularities",
+              "title": "手荷物のトラブルに対する払い戻し",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.austrian.com/xx/ja/baggage-reimbursement",
+                    "linkTitle": "フォームを開く",
+                    "description": "手荷物の遅延あるいは破損で生じた追加費用の払い戻しを申請する場合は、お問い合わせフォームをご利用ください。",
+                    "title": "払い戻しを申請する",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "FORM",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.austrian.com/xx/ja/plan/baggage/missing-baggage",
+                    "linkTitle": "詳細を見る",
+                    "description": "手荷物の遅延や破損に関するサポートや、払い戻しの申請方法についてご確認ください。",
+                    "title": "手荷物のトラブルに関する詳細",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CHAT_ASSISTANT",
+                    "link": "https://www.austrian.com/digitalassistant/deeplink?language=en&start=DYNAMIC_baggage_damagedOrDelayed-refundBaggageIrregularities",
+                    "linkTitle": "チャットを開始する",
+                    "description": "Mariaがご質問にお答えし、次に必要な手続きをご案内します。",
+                    "title": null,
+                    "phone": null,
+                    "priority": 3,
+                    "deeplink": {
+                      "url": "https://www.austrian.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "DYNAMIC_baggage_damagedOrDelayed-refundBaggageIrregularities",
+                        "language": "en",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [
+                      {
+                        "type": "info",
+                        "title": null,
+                        "message": "chatAssistant.languageNotAvailable",
+                        "reason": null
+                      }
+                    ],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "baggage.lost",
+          "title": "身の回り品の紛失",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?language=en&start=DYNAMIC-baggage_lost-baggage",
+                "linkTitle": "チャットを開始する",
+                "description": "Mariaがご質問にお答えし、次に必要な手続きをご案内します。",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC-baggage_lost-baggage",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/ja/footer-pages/help-and-contact/request-for-refund-of-expenses",
+                "linkTitle": "今すぐ申告する",
+                "description": "無料受託手荷物から紛失した物品については、お問い合わせフォームから申告してください。\n \n空港または機内で紛失した物品については、遺失物取扱所または目的地の空港にある航空会社の手荷物サービスデスクにお問い合わせください。",
+                "title": "紛失物を申告する",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/ja/missing-baggage#3",
+                "linkTitle": "詳細を見る",
+                "description": "私物が紛失した場合の対処方法や、申請の提出方法に関する詳細をご覧ください。",
+                "title": "紛失物に関する詳細",
+                "phone": null,
+                "priority": 3,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "baggage.dangerousGoods",
+          "title": "危険物および武器",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?language=en&start=DYNAMIC_baggage-baggage_dangerousGoods",
+                "linkTitle": "チャットを開始する",
+                "description": "Mariaがご質問にお答えし、次に必要な手続きをご案内します。",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_baggage-baggage_dangerousGoods",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/ja/plan/baggage/dangerous-goods",
+                "linkTitle": "すべての規定を見る",
+                "description": "危険物および禁制品がすべて記載されたリストをご確認ください。",
+                "title": "手荷物規定を確認する",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "ライブチャットを開始する",
+                "description": "ライブチャットを通じて、サービスセンターの担当者が24時間年中無休でサポートいたします。",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "サービスセンターに電話する",
+                "description": "ご質問やご不明な点につきましては、担当者がお手伝いいたします。",
+                "title": null,
+                "phone": "+496950600598",
+                "priority": 4,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "OtherQuestionsBaggage",
+          "title": "その他の手荷物に関するご質問",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?language=en&start=DYNAMIC_baggage-OtherQuestionsBaggage",
+                "linkTitle": "チャットを開始する",
+                "description": "Mariaがご質問にお答えし、次に必要な手続きをご案内します。",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_baggage-OtherQuestionsBaggage",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-baggage",
+      "imageUrl": "https://www.austrian.com/content/dam/aua/images/local_images/help-center//baggage.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "addFlightServices",
+      "title": "追加のサービス",
+      "children": [
+        {
+          "code": "booking.Seats",
+          "title": "座席",
+          "children": [
+            {
+              "code": "changeSeat",
+              "title": "座席を追加または変更する",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.austrian.com/xx/ja/profile/login",
+                    "linkTitle": "予約の管理",
+                    "description": "ご出発の2時間前までオンラインで座席の予約や変更が可能です。",
+                    "title": "座席を追加または変更する",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.austrian.com/booking/manage-booking/retrieve?lang=ja-JP&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "サービスセンターに電話する",
+                    "description": "ご出発の48時間前までお電話で座席の予約や変更が可能です。",
+                    "title": null,
+                    "phone": "+496950600598",
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": true
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            },
+            {
+              "code": "BookNeighboringSeat",
+              "title": "隣の席を予約する",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "サービスセンターに電話する",
+                    "description": "サービスセンターに電話して隣の空席を予約すれば、さらに快適な旅をお楽しみいただけます。",
+                    "title": null,
+                    "phone": "+496950600598",
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": true
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "specialMeal",
+          "title": "機内食",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/ja/profile/login",
+                "linkTitle": "予約の管理",
+                "description": "食事制限や宗教、または栄養上の事情に配慮した特別食をご注文ください。\n \nこのサービスをご利用いただけるかどうかは、お客様のご予約条件により異なりますのでご注意ください。",
+                "title": "特別食を注文する",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.austrian.com/booking/manage-booking/retrieve?lang=ja-JP&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/ja/fly/on-board/culinary-services/culinary-journey#entry",
+                "linkTitle": "メニューを表示",
+                "description": "機内食サービスについてご覧いただき、次回のご旅行のお食事を事前注文していただけます。",
+                "title": "機内食を見る",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?language=en&start=DYNAMIC_addFlightServices-specialMeal",
+                "linkTitle": "チャットを開始する",
+                "description": "Mariaがご質問にお答えし、次に必要な手続きをご案内します。",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_addFlightServices-specialMeal",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "ライブチャットを開始する",
+                "description": "ライブチャットを通じて、サービスセンターの担当者が24時間年中無休でサポートいたします。",
+                "title": null,
+                "phone": null,
+                "priority": 4,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "サービスセンターに電話する",
+                "description": "ご質問やご不明な点につきましては、担当者がお手伝いいたします。",
+                "title": null,
+                "phone": "+496950600598",
+                "priority": 5,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "onBoardServices",
+          "title": "機内サービス",
+          "children": [
+            {
+              "code": "ejournals",
+              "title": "デジタル新聞・雑誌",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.austrian.com/xx/ja/fly/on-board/inflight-entertainment#2",
+                    "linkTitle": "すべてのeジャーナルを見る",
+                    "description": "ドイツ語およびその他の言語の新聞や雑誌など、幅広いセレクションからお好きなものをお選びください。ご出発の前にスマートフォンやタブレット、ノートパソコンに保存できます。",
+                    "title": "eジャーナルをダウンロードする",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "flynet",
+              "title": "機内インターネット",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.austrian.com/xx/ja/fly/on-board/flynet-internet-access",
+                    "linkTitle": "事前にアクセス権を購入する",
+                    "description": "一部の短距離および中距離路線ではインターネットがご利用いただけます。お客様に適したFlyNetパッケージを事前にご購入ください。",
+                    "title": "フライトのWLANにアクセスする",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "inflightEntertainment",
+              "title": "機内エンターテイメント",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.austrian.com/xx/ja/fly/on-board/inflight-entertainment",
+                    "linkTitle": "すべてのオプションを見る",
+                    "description": "機内で過ごす時間を充実させる、機内エンターテイメントの数々をご覧ください。映画やテレビシリーズに加えて、オーディオブック、音楽、ゲームもご用意しています。",
+                    "title": "機内エンターテインメントを見る",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "Lounges",
+          "title": "ラウンジ",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?language=en&start=DYNAMIC_addFlightServices-Lounges",
+                "linkTitle": "チャットを開始する",
+                "description": "Mariaがご質問にお答えし、次に必要な手続きをご案内します。",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_addFlightServices-Lounges",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/ja/fly/at-the-airport/lounges",
+                "linkTitle": "ディレクトリを見る",
+                "description": "営業時間やサービスを含め、各空港の利用可能なラウンジをすべてご確認ください。",
+                "title": "ラウンジを探す",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "TravelInsurance",
+          "title": "旅行保険",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/ja/profile/login",
+                "linkTitle": "保険を選択する",
+                "description": "次回の旅行に備えて、旅行保険に加入しましょう。\n  \nこのサービスをご利用いただけるかどうかは、お客様のご予約条件により異なりますのでご注意ください。",
+                "title": "保険に加入する",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.austrian.com/booking/manage-booking/retrieve?lang=ja-JP&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "pets",
+          "title": "ペット同伴のご旅行",
+          "children": [
+            {
+              "code": "travelPetsInCabin",
+              "title": "ペットの客室での輸送（キャリーケースを含み8kgまで）",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.austrian.com/xx/ja/profile/login",
+                    "linkTitle": "今すぐ登録する",
+                    "description": "客室にペットをお連れになる場合は、ご出発の72時間前までに既存のご予約にペットのご登録をお願いいたします。",
+                    "title": "ペットを追加する",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.austrian.com/booking/services/PETS?lang=ja-JP&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "CHAT_ASSISTANT",
+                    "link": "https://www.austrian.com/digitalassistant/deeplink?language=en&start=DYNAMIC_pets-travelPetsInCabin",
+                    "linkTitle": "チャットを開始する",
+                    "description": "Mariaがご質問にお答えし、次に必要な手続きをご案内します。",
+                    "title": null,
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": {
+                      "url": "https://www.austrian.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "DYNAMIC_pets-travelPetsInCabin",
+                        "language": "en",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [
+                      {
+                        "type": "info",
+                        "title": null,
+                        "message": "chatAssistant.languageNotAvailable",
+                        "reason": null
+                      }
+                    ],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.austrian.com/xx/ja/plan/special-requirements/travelling-with-animals",
+                    "linkTitle": "すべての条件を見る",
+                    "description": "ペット同伴のご旅行に関する条件をお読みになり、すべての必要書類がそろっていることをご確認ください。",
+                    "title": "旅行の条件を確認する",
+                    "phone": null,
+                    "priority": 3,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "LIVE_CHAT",
+                    "link": "https://www.austrian.com/digitalassistant/deeplink?start=liveagent&language=en",
+                    "linkTitle": "ライブチャットを開始する",
+                    "description": "ライブチャットを通じて、サービスセンターの担当者が24時間年中無休でサポートいたします。",
+                    "title": null,
+                    "phone": null,
+                    "priority": 4,
+                    "deeplink": {
+                      "url": "https://www.austrian.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "liveagent",
+                        "language": "en",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [
+                      {
+                        "type": "info",
+                        "title": null,
+                        "message": "chatAssistant.languageNotAvailable",
+                        "reason": null
+                      }
+                    ],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "サービスセンターに電話する",
+                    "description": "ご質問やご不明な点につきましては、担当者がお手伝いいたします。",
+                    "title": null,
+                    "phone": "+496950600598",
+                    "priority": 5,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": true
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            },
+            {
+              "code": "travelPetsInCargo",
+              "title": "ペットの貨物室での輸送",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.austrian.com/xx/ja/footer-pages/help-and-contact/contact-form-travelling-with-animals",
+                    "linkTitle": "今すぐ登録する",
+                    "description": "オーストリア航空便の貨物室に預け入れる犬や猫を登録してください（出発の72時間前まで）。",
+                    "title": "同伴するペットを登録する",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "FORM",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "CHAT_ASSISTANT",
+                    "link": "https://www.austrian.com/digitalassistant/deeplink?language=en&start=DYNAMIC_pets-travelPetsInCargo",
+                    "linkTitle": "チャットを開始する",
+                    "description": "Mariaがご質問にお答えし、次に必要な手続きをご案内します。",
+                    "title": null,
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": {
+                      "url": "https://www.austrian.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "DYNAMIC_pets-travelPetsInCargo",
+                        "language": "en",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [
+                      {
+                        "type": "info",
+                        "title": null,
+                        "message": "chatAssistant.languageNotAvailable",
+                        "reason": null
+                      }
+                    ],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.austrian.com/xx/ja/plan/special-requirements/travelling-with-animals",
+                    "linkTitle": "すべての条件を見る",
+                    "description": "オーストリア航空のフライトには犬や猫をご同伴いただけます。ペット同伴のフライトを予約する前に、以下の留意事項をよくお読みください。",
+                    "title": "条件を確認する",
+                    "phone": null,
+                    "priority": 3,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "LIVE_CHAT",
+                    "link": "https://www.austrian.com/digitalassistant/deeplink?start=liveagent&language=en",
+                    "linkTitle": "ライブチャットを開始する",
+                    "description": "ライブチャットを通じて、サービスセンターの担当者が24時間年中無休でサポートいたします。",
+                    "title": null,
+                    "phone": null,
+                    "priority": 4,
+                    "deeplink": {
+                      "url": "https://www.austrian.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "liveagent",
+                        "language": "en",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [
+                      {
+                        "type": "info",
+                        "title": null,
+                        "message": "chatAssistant.languageNotAvailable",
+                        "reason": null
+                      }
+                    ],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "サービスセンターに電話する",
+                    "description": "ご質問やご不明な点につきましては、担当者がお手伝いいたします。",
+                    "title": null,
+                    "phone": "+496950600598",
+                    "priority": 5,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": true
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "TravelingWithChildren",
+          "title": "お子様連れのご旅行",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/ja/families",
+                "linkTitle": "詳細を見る",
+                "description": "旅行の準備や座席指定など、お子様連れのご旅行に関する情報をご覧ください。",
+                "title": "トラベルインフォメーション",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?language=en&start=DYNAMIC_addFlightServices-TravelingWithChildren",
+                "linkTitle": "チャットを開始する",
+                "description": "お子様連れのご旅行に関するご質問に、Mariaがお答えします。",
+                "title": null,
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_addFlightServices-TravelingWithChildren",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "ライブチャットを開始する",
+                "description": "技術的な問題が発生した場合、またはベビーベッドのリクエストや一人旅のお子様のフライト予約をご希望の場合は、サービスセンターの担当者とチャットでご相談ください。",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "サービスセンターに電話する",
+                "description": "技術的な問題が発生した場合、またはベビーベッドのリクエストや一人旅のお子様のフライト予約をご希望の場合は、サービスセンターの担当者に直接ご相談ください。",
+                "title": null,
+                "phone": "+496950600598",
+                "priority": 4,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "confirmAdditionalServices",
+          "title": "追加サービスを確認する",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "サービスセンターに電話する",
+                "description": "サービスセンターにて、ご要望いただいたサービスが確定したかどうかをご確認いただけます。",
+                "title": null,
+                "phone": "+496950600598",
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "addFlightServices.problem",
+          "title": "サービスの追加時に発生する問題",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/ja/footer-pages/help-and-contact/contact-form-other",
+                "linkTitle": "フォームを開く",
+                "description": "追加サービスを加える際に問題が発生した場合は、お問い合わせフォームからお知らせください。できるだけ早くご連絡いたします。",
+                "title": "問題を報告する",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "サービスセンターに電話する",
+                "description": "ご質問やご不明点など、さらにサポートが必要な場合は、担当者がお手伝いいたします。",
+                "title": null,
+                "phone": "+43517663000",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "refundAdditionalService",
+          "title": "追加サービスの払い戻し",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/ja/footer-pages/help-and-contact/contact-form-refund-seat-reservation",
+                "linkTitle": "フォームを開く",
+                "description": "座席指定や他の追加サービスの払い戻しを申請する場合は、所定のフォームよりご連絡ください。",
+                "title": "払い戻しを申請する",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-additional-services",
+      "imageUrl": "https://www.austrian.com/content/dam/aua/images/local_images/help-center//add-flight-service.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "booking",
+      "title": "予約と準備",
+      "children": [
+        {
+          "code": "booking.Seats",
+          "title": "座席",
+          "children": [
+            {
+              "code": "changeSeat",
+              "title": "座席を追加または変更する",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.austrian.com/xx/ja/profile/login",
+                    "linkTitle": "予約の管理",
+                    "description": "ご出発の2時間前までオンラインで座席の予約や変更が可能です。",
+                    "title": "座席を追加または変更する",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.austrian.com/booking/manage-booking/retrieve?lang=ja-JP&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "サービスセンターに電話する",
+                    "description": "ご出発の48時間前までお電話で座席の予約や変更が可能です。",
+                    "title": null,
+                    "phone": "+496950600598",
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": true
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            },
+            {
+              "code": "BookNeighboringSeat",
+              "title": "隣の席を予約する",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "サービスセンターに電話する",
+                    "description": "サービスセンターに電話して隣の空席を予約すれば、さらに快適な旅をお楽しみいただけます。",
+                    "title": null,
+                    "phone": "+496950600598",
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": true
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "booking.Upgrades",
+          "title": "アップグレード",
+          "children": [
+            {
+              "code": "upgradeFlight",
+              "title": "アップグレードの予約",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.austrian.com/xx/ja/profile/login",
+                    "linkTitle": "予約の管理",
+                    "description": "次回のフライトでご利用可能なアップグレードを比較し、ご希望のオプションをお選びください。",
+                    "title": "アップグレードを予約する",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.austrian.com/booking/cash-upgrade?lang=ja-JP&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.austrian.com/xx/ja/book/additional-services/upgrades",
+                    "linkTitle": "すべてのオプションを見る",
+                    "description": "アップグレードオプションをご検討いただき、より快適な空の旅をお楽しみください。",
+                    "title": "アップグレードオプションを見る",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "サービスセンターに電話する",
+                    "description": "ご質問やご不明な点につきましては、担当者がお手伝いいたします。",
+                    "title": null,
+                    "phone": "+496950600598",
+                    "priority": 3,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": true
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            },
+            {
+              "code": "BidUpgrade",
+              "title": "アップグレードに入札する",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.austrian.com/xx/ja/profile/login",
+                    "linkTitle": "オファーを提示する",
+                    "description": "ご希望の料金でワンランク上の搭乗クラスへのアップグレードが可能です。\n \nこのサービスをご利用いただけるかどうかは、お客様のご予約条件により異なりますのでご注意ください。",
+                    "title": "アップグレードに入札する",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.austrian.com/booking/manage-booking/retrieve?lang=ja-JP&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "reconfirmation",
+          "title": "予約を確認する",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?start=MISSINGCONFIRMATION&language=en",
+                "linkTitle": "チャットを開始する",
+                "description": "予約番号の確認方法や確認Eメール再送の依頼方法を、Mariaがご案内します。",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "MISSINGCONFIRMATION",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/ja/footer-pages/help-and-contact/contact-form-booking-confirmation",
+                "linkTitle": "フォームを開く",
+                "description": "ご予約の確認書または航空券の使用証明が必要な場合は、所定のフォームよりご連絡ください。",
+                "title": "確認書をリクエストする",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "booking.miles",
+          "title": "マイルを使って予約する",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/en/spend/flights.html",
+                "linkTitle": "フライトを探す",
+                "description": "獲得したマイルをフライトにご利用ください。",
+                "title": "Award Flightを予約する",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "サービスセンターに電話する",
+                "description": "ご質問やご不明な点につきましては、担当者がお手伝いいたします。",
+                "title": null,
+                "phone": "+4969209777777",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "booking.new.problem",
+          "title": "ご予約またはお支払いに関する問題",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/ja/footer-pages/help-and-contact/contact-form-other",
+                "linkTitle": "フォームを開く",
+                "description": "予約やお支払いで問題が発生した場合は、お問い合わせフォームからお知らせください。できるだけ早くご連絡いたします。",
+                "title": "問題を報告する",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "サービスセンターに電話する",
+                "description": "ご質問やご不明点など、さらにサポートが必要な場合は、担当者がお手伝いいたします。",
+                "title": null,
+                "phone": "+43517663000",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "NameChangeAfterBooking",
+          "title": "ご予約後の氏名変更",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "サービスセンターに電話する",
+                "description": "ご予約の氏名訂正をご希望の場合は、サービスセンターまでお問い合わせください。\n \n承ることができるのは、スペルミスの修正など小規模な訂正に限られますのでご了承ください。",
+                "title": null,
+                "phone": "+496950600598",
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "passengerReceipt",
+          "title": "お客様控え／請求書",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/ja/footer-pages/passenger-receipt",
+                "linkTitle": "今すぐリクエストする",
+                "description": "ご旅行のお客様控えをオンラインでご取得いただけます。",
+                "title": "お客様控えをリクエストする",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "ライブチャットを開始する",
+                "description": "ライブチャットを通じて、サービスセンターの担当者が24時間年中無休でサポートいたします。",
+                "title": null,
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "サービスセンターに電話する",
+                "description": "ご質問やご不明な点につきましては、担当者がお手伝いいたします。",
+                "title": null,
+                "phone": "+496950600598",
+                "priority": 3,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "TravelRegulations",
+          "title": "渡航規制",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.travel-regulations.com/?language=en",
+                "linkTitle": "旅程を入力する",
+                "description": "次のご旅行に向けて入国、ビザおよび健康に関する規制を調べる。",
+                "title": "渡航規制を確認する",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "booking.group",
+          "title": "団体のご予約（10名様以上）",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/ja/book/groups-and-enterprises/group-trips",
+                "linkTitle": "条件を見る",
+                "description": "団体予約に関する情報はすべて当社のインフォメーションページでご覧になれます。",
+                "title": "条件を確認する",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "GiftVouchers",
+          "title": "バウチャー",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/ja/footer-pages/help-and-contact/contact-form-vouchers",
+                "linkTitle": "フォームを開く",
+                "description": "バウチャーに関する一般的なご質問や、ご利用方法についてご不明点がありましたら、お問い合わせフォームからご連絡ください。",
+                "title": "質問を送信する",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "sustainableFlying",
+          "title": "フライトの持続可能性を推進",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/ja/profile/login",
+                "linkTitle": "パッケージを選択する",
+                "description": "フライトで排出されるCO₂をオフセットし、持続可能なプロジェクトに投資するコンビネーションパッケージのいずれかをご購入ください。\n \nこのサービスをご利用いただけるかどうかは、お客様のご予約条件により異なりますのでご注意ください。",
+                "title": "オフセットパッケージを購入する",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.austrian.com/booking/manage-booking/retrieve?lang=ja-JP&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/ja/fly-more-sustainably-search",
+                "linkTitle": "オフセットオプションを確認する",
+                "description": "また、過去のフライトに伴う計算上のCO₂排出量をいつでも相殺できます。",
+                "title": "過去のフライトでのCO₂排出量をオフセットする",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-airplane-outbound",
+      "imageUrl": "https://www.austrian.com/content/dam/aua/images/local_images/help-center//booking.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "milesAndMore",
+      "title": "Miles & More",
+      "children": [
+        {
+          "code": "milesAndMore.mileageCredit",
+          "title": "予約後のマイル加算",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/en/program/at-a-glance/mileage-request.html",
+                "linkTitle": "条件を確認する",
+                "description": "マイルとPointは、獲得対象のご利用日から6か月以内であれば、後日加算ができます。",
+                "title": "マイルの加算をリクエストする",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Miles & Moreに問い合わせる",
+                "description": "マイルの加算申請に関して別途サポートが必要の場合は、Miles & Moreサービスデスクにお問い合わせください。",
+                "title": null,
+                "phone": "+4969209777777",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.mileageAccount",
+          "title": "Miles & Moreアカウントのマイル残高",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/en/static/login.html",
+                "linkTitle": "ログイン",
+                "description": "現在のアカウントの残高とマイルの有効期限を見るには、Miles & Moreにログインしてください。",
+                "title": "アカウントの残高を確認する",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Miles & Moreに問い合わせる",
+                "description": "アカウントおよび利用可能なマイルについてのご質問は、Miles & Moreサービスデスクにお問い合わせください。",
+                "title": null,
+                "phone": "+4969209777777",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.spendMiles",
+          "title": "マイルの利用",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/en/spend/award-overview.html",
+                "linkTitle": "特典を見る",
+                "description": "獲得したマイルは小物やフライトアップグレード、クーポンなどにご利用いただけます。",
+                "title": "マイルの利用",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Miles & Moreに問い合わせる",
+                "description": "Miles & Moreサービスデスクが、マイルのご利用方法についてご説明します。",
+                "title": null,
+                "phone": "+4969209777777",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.login",
+          "title": "Miles & Moreログインの問題",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/en/general-information/help-and-contact.html?topic=pin-password-login/",
+                "linkTitle": "Miles & Moreのウェブサイトへ",
+                "description": "ログインに関するヘルプや情報は、Miles & Moreにアクセスしてください。",
+                "title": "ログインサポートを受ける",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Miles & Moreに問い合わせる",
+                "description": "ログインにお困りの場合、またはご質問がある場合は、Miles & Moreサービスデスクにお問い合わせください。",
+                "title": null,
+                "phone": "+4969209777777",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.upgrade",
+          "title": "アワードマイル／eVoucherを使ってアップグレードする",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/en/program/flight-benefits/upgrade-award.html",
+                "linkTitle": "アップグレードアワードの詳細",
+                "description": "マイルまたはeVoucherを使用して、オンラインでさらに上の搭乗クラスにアップグレードできます。",
+                "title": "アップグレードアワードを予約する",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Miles & Moreに問い合わせる",
+                "description": "アップグレードの際に何かお困りの点がございましたら、Miles & Moreサービスデスクにお問い合わせください。",
+                "title": null,
+                "phone": "+4969209777777",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.status",
+          "title": "Miles&Moreステータスの特典",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/en/program/status-benefits/status-level-comparison.html",
+                "linkTitle": "ステータスを比較する",
+                "description": "それぞれのフリークエント フライヤーステータスの特典をご覧ください。",
+                "title": "ステータスの特典を見る",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Miles & Moreに問い合わせる",
+                "description": "ステータス特典についてその他にご質問がある場合は、Miles & Moreサービスデスクにお問い合わせください。",
+                "title": null,
+                "phone": "+4969209777777",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.newMember",
+          "title": "Miles & Moreへの入会",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/ja/profile/login",
+                "linkTitle": "ログイン",
+                "description": "すでにオーストリア航空のTravel IDをお持ちの方は、austrian.comからアカウントにログインしてMiles & Moreを有効化してください。",
+                "title": "Miles & Moreを有効化する",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/en/program/at-a-glance.html",
+                "linkTitle": "今すぐ登録する",
+                "description": "無料で登録して、フライトのアップグレードやその他の特典にご利用いただけるマイルをご獲得ください。",
+                "title": "会員になる",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Miles & Moreに問い合わせる",
+                "description": "メンバーシップに関する詳細は、Miles & Moreサービスデスクにお問い合わせください。",
+                "title": null,
+                "phone": "+4969209777777",
+                "priority": 3,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.creditCard",
+          "title": "Miles & Moreクレジットカード",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/en/program/credit-cards/credit-cards-overview.html",
+                "linkTitle": "すべてのカードを見る",
+                "description": "それぞれの国で利用可能なMiles & Moreクレジットカードをご覧ください。",
+                "title": "クレジットカードを選ぶ",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/ja/support/faq/faq-miles-and-more",
+                "linkTitle": "詳細を見る",
+                "description": "Miles & Moreクレジットカードに関する詳しいサービス情報をぜひご確認ください。また、アプリをダウンロードしていただくと、新しい特典情報を入手できます。",
+                "title": "クレジットカードサービスを見る",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Miles & Moreに問い合わせる",
+                "description": "他にご不明な点や気になる点がございましたら、Miles & Moreサービスデスクにお問い合わせください。",
+                "title": null,
+                "phone": "+4969209777777",
+                "priority": 3,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "booking.miles",
+          "title": "マイルを使って予約する",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/en/spend/flights.html",
+                "linkTitle": "フライトを探す",
+                "description": "獲得したマイルをフライトにご利用ください。",
+                "title": "Award Flightを予約する",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "サービスセンターに電話する",
+                "description": "ご質問やご不明な点につきましては、担当者がお手伝いいたします。",
+                "title": null,
+                "phone": "+4969209777777",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.worldshop",
+          "title": "Worldshop",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.worldshop.eu/en/austrian/?p=UhVEO0wzj0U",
+                "linkTitle": "Worldshopへ",
+                "description": "プレミアムブランドや 最新のスペシャルエディションから限定商品をお買い求めください。",
+                "title": "Worldshopにアクセスする",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.otherQuestions",
+          "title": "Miles & Moreについてのその他のご質問",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/en/general-information/help-and-contact.html",
+                "linkTitle": "Miles & Moreへ",
+                "description": "お役立ち記事や各種フォーム、その他のお問い合わせやご要望にお応えするMiles & Moreサービスデスクホットラインは、こちらをご確認ください。",
+                "title": "ヘルプ記事を探す",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-miles-and-more",
+      "imageUrl": "https://www.austrian.com/content/dam/aua/images/local_images/help-center//miles-and-more.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "accessibility",
+      "title": "バリアフリーな旅",
+      "children": [
+        {
+          "code": "mobilityAssistance",
+          "title": "空港での移動サポート",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/ja/plan/special-requirements/accessible-travel",
+                "linkTitle": "サービスの詳細を見る",
+                "description": "お身体の不自由なお客様や感覚に障がいのあるお客様へのサービス（ご出発の48時間前までご予約可能）についてはこちらをご覧ください。",
+                "title": "移動補助サービスを見る",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/ja/footer-pages/help-and-contact/contact-form-medical-request",
+                "linkTitle": "フォームを開く",
+                "description": "お手伝いが必要なお客様は、出発の48時間前までにお問い合わせフォームから弊社までお知らせください。",
+                "title": "移動補助サービスをリクエストする",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?language=en&start=DYNAMIC_accessibility-mobilityAssistance",
+                "linkTitle": "チャットを開始する",
+                "description": "Mariaがご質問にお答えし、次に必要な手続きをご案内します。",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_accessibility-mobilityAssistance",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "ライブチャットを開始する",
+                "description": "ライブチャットを通じて、サービスセンターの担当者が24時間年中無休でサポートいたします。",
+                "title": null,
+                "phone": null,
+                "priority": 4,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "サービスセンターに電話する",
+                "description": "ご質問やご不明な点につきましては、担当者がお手伝いいたします。",
+                "title": null,
+                "phone": "+496950600598",
+                "priority": 5,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "travelHealthIssues",
+          "title": "健康上の問題がある場合のご旅行",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/ja/plan/special-requirements/healthy-travel",
+                "linkTitle": "チェックリストを見る",
+                "description": "体調に不安を感じたり、特別な配慮を必要とする健康状態にあったりする場合は、次のご旅行に備えて弊社のチェックリストをご利用いただき、医療ケアをリクエストしてください。",
+                "title": "旅行の準備",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?language=en&start=DYNAMIC_accessibility-travelHealthIssues",
+                "linkTitle": "チャットを開始する",
+                "description": "Mariaがご質問にお答えし、次に必要な手続きをご案内します。",
+                "title": null,
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_accessibility-travelHealthIssues",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "ライブチャットを開始する",
+                "description": "ライブチャットを通じて、サービスセンターの担当者が24時間年中無休でサポートいたします。",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "サービスセンターに電話する",
+                "description": "ご質問やご不明な点につきましては、担当者がお手伝いいたします。",
+                "title": null,
+                "phone": "+496950600598",
+                "priority": 4,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "moreAccessibleTravel",
+          "title": "バリアフリーのご旅行について",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?language=en&start=DYNAMIC_accessibility-moreAccessibleTravel",
+                "linkTitle": "チャットを開始する",
+                "description": "Mariaがご質問にお答えし、次に必要な手続きをご案内します。",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_accessibility-moreAccessibleTravel",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.austrian.com/xx/ja/plan/special-requirements",
+                "linkTitle": "概要へ",
+                "description": "どのような状況でも快適にご旅行いただけるよう、ご利用可能なすべてのサービスの概要をご覧ください。",
+                "title": "すべてのサービスを見る",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.austrian.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "ライブチャットを開始する",
+                "description": "ライブチャットを通じて、サービスセンターの担当者が24時間年中無休でサポートいたします。",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.austrian.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "サービスセンターに電話する",
+                "description": "ご質問やご不明な点につきましては、担当者がお手伝いいたします。",
+                "title": null,
+                "phone": "+496950600598",
+                "priority": 4,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-wheelchair",
+      "imageUrl": "https://www.austrian.com/content/dam/aua/images/local_images/help-center//accessible-travel.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "TravelIDLogin",
+      "title": "ログインと Travel ID",
+      "children": [],
+      "options": {
+        "recommended": [
+          {
+            "type": "SELF_SERVICE",
+            "link": "https://www.austrian.com/xx/ja/faq-travelid",
+            "linkTitle": "よくある質問を見る",
+            "description": "Travel IDに関する詳細情報やログインに関する問題の解決方法については、よくある質問（FAQ）をご覧ください。",
+            "title": "ログインおよびTravel IDに関するよくある質問",
+            "phone": null,
+            "priority": 1,
+            "deeplink": null,
+            "notifications": [],
+            "trackingType": "INFORMATIONAL",
+            "profileHandoverEnabled": false
+          }
+        ],
+        "others": [
+          {
+            "type": "CALL",
+            "link": null,
+            "linkTitle": "サービスセンターに電話する",
+            "description": "さらにサポートが必要な場合は、当社の専門スタッフがお手伝いします。",
+            "title": null,
+            "phone": "+43517663000",
+            "priority": 2,
+            "deeplink": null,
+            "notifications": [],
+            "trackingType": null,
+            "profileHandoverEnabled": true
+          }
+        ]
+      },
+      "icon": "icon-service-login",
+      "imageUrl": null,
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": false
+    },
+    {
+      "code": "other",
+      "title": "ご意見やその他のお問い合わせ",
+      "children": [],
+      "options": {
+        "recommended": [
+          {
+            "type": "SELF_SERVICE",
+            "link": "https://www.austrian.com/xx/ja/footer-pages/help-and-contact/feedback-past-flight",
+            "linkTitle": "フォームを開く",
+            "description": "お問い合わせフォームより、過去のフライトに関するご体験をお聞かせください。可能な限り早急に対応いたします。",
+            "title": "フィードバックを送信する",
+            "phone": null,
+            "priority": 1,
+            "deeplink": null,
+            "notifications": [],
+            "trackingType": "FORM",
+            "profileHandoverEnabled": false
+          }
+        ],
+        "others": [
+          {
+            "type": "CHAT_ASSISTANT",
+            "link": "https://www.austrian.com/digitalassistant/deeplink?start=CONTACTCENTERDEFAULT&language=en",
+            "linkTitle": "チャットを開始する",
+            "description": "Mariaがご質問にお答えし、次に必要な手続きをご案内します。",
+            "title": null,
+            "phone": null,
+            "priority": 2,
+            "deeplink": {
+              "url": "https://www.austrian.com/digitalassistant/deeplink",
+              "data": {
+                "lastName": "<lastName>",
+                "firstName": "<firstName>",
+                "start": "CONTACTCENTERDEFAULT",
+                "language": "en",
+                "filekey": "<pnr>"
+              }
+            },
+            "notifications": [
+              {
+                "type": "info",
+                "title": null,
+                "message": "chatAssistant.languageNotAvailable",
+                "reason": null
+              }
+            ],
+            "trackingType": null,
+            "profileHandoverEnabled": false
+          }
+        ]
+      },
+      "icon": "icon-create-post",
+      "imageUrl": null,
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": false
+    }
+  ],
+  "_metadata": {
+    "tenant": "OS",
+    "language": "ja",
+    "extracted_at": "2026-11-05T02:03:12.915164",
+    "record_count": 1
+  }
+}

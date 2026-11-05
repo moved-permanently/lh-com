@@ -1,0 +1,534 @@
+{
+  "accentHint": "Accented characters are converted to non-accented characters. This will not change the information in your booking confirmation.",
+  "backBookingLink": {
+    "enter": "Enter a different booking",
+    "select": "Select a different flight"
+  },
+  "backTopicList": "Back to topic list",
+  "boardingPass": {
+    "cameraOption": "Scan boarding pass (camera access required)",
+    "cameraTitle": "Center the barcode or QR code on your boarding pass in the frame.",
+    "checking": "Checking your boarding pass",
+    "closeAction": "Close",
+    "continue": "Continue",
+    "continueWithoutBookingAction": "Continue without a booking",
+    "errors": {
+      "bookingNotFound": {
+        "message": "We could not find a matching booking in our system.",
+        "title": "Booking details unavailable"
+      },
+      "bookingServiceUnavailable": {
+        "message": "This is due to a technical issue. Please continue without a booking.",
+        "title": "Booking details cannot be retrieved"
+      },
+      "cameraAccessDenied": {
+        "message": "Allow camera access to scan your boarding pass.",
+        "title": "Camera access denied"
+      },
+      "passNotDetected": {
+        "message": "Please upload a valid boarding pass.",
+        "title": "No boarding pass detected"
+      },
+      "uploadFailed": {
+        "message": "Your file could not be uploaded. Please try again.",
+        "title": "Upload failed"
+      }
+    },
+    "methodSelectionTitle": "Add your booking details",
+    "open": "Use your boarding pass",
+    "processing": "Uploading file",
+    "retryAction": "Retry",
+    "selectDifferentFileAction": "Select a different file",
+    "uploadOnlyAction": "Select file",
+    "uploadOnlySupportedFormats": "Supported file types: jpg, jpeg, png, pdf ",
+    "uploadOption": "Upload boarding pass (jpg, jpeg, png, pdf)",
+    "uploadTitle": "Upload your boarding pass"
+  },
+  "bookingInfo": {
+    "formTitle": "Enter booking details",
+    "loading": "Retrieving booking",
+    "message": {
+      "internal": {
+        "message": "Due to technical issues, we could not load your booking. You automatically proceeded to this step with the information you provided.",
+        "title": "Unable to retrieve booking"
+      },
+      "notFound": {
+        "message": "We could not find the booking you provided. You can still use any of our help and contact options.",
+        "retryMessage": "Please review your input and try again. If we still cannot find your booking, you will automatically proceed to the next step.",
+        "title": "Booking not found"
+      },
+      "title": {
+        "withData": "Ok - how can we help?",
+        "withoutData": "How can we help you?"
+      }
+    },
+    "title": "Is your question about a flight?"
+  },
+  "bookingList": {
+    "anotherBooking": "Access another booking",
+    "code": "Booking: <sensitive>{{ code }}</sensitive>",
+    "error": {
+      "message": "We could not automatically load your flight overview. For help with a specific flight, please select \"Access another booking\".",
+      "title": "Flight overview cannot be displayed "
+    },
+    "select": {
+      "message": "Select flight"
+    },
+    "wcag": {
+      "card": "Booking {{ current }} of {{ total }}, Booking code {{ code }} from {{ origin }} to {{ destination }} on {{ date }}",
+      "end": "There are no more bookings to load",
+      "next": "Next bookings",
+      "previous": "Previous bookings",
+      "slide": "Booking"
+    }
+  },
+  "chatAssistant": {
+    "languageNotAvailable": "This service is set to English because your selected language is currently unavailable."
+  },
+  "continue": "Continue",
+  "country": {
+    "AD": "Andorra",
+    "AE": "United Arab Emirates",
+    "AF": "Afghanistan",
+    "AG": "Antigua and Barbuda",
+    "AI": "Anguilla",
+    "AL": "Albania",
+    "AM": "Armenia",
+    "AN": "Netherlands Antilles",
+    "AO": "Angola",
+    "AR": "Argentina",
+    "AS": "American Samoa",
+    "AT": "Austria",
+    "AU": "Australia",
+    "AW": "Aruba",
+    "AX": "Åland Islands",
+    "AZ": "Azerbaijan",
+    "BA": "Bosnia and Herzegovina",
+    "BB": "Barbados",
+    "BD": "Bangladesh",
+    "BE": "Belgium",
+    "BF": "Burkina Faso",
+    "BG": "Bulgaria",
+    "BH": "Bahrain",
+    "BI": "Burundi",
+    "BJ": "Benin",
+    "BL": "Saint Barthelemy",
+    "BM": "Bermuda",
+    "BN": "Brunei Darussalam",
+    "BO": "Bolivia",
+    "BR": "Brazil",
+    "BS": "Bahamas",
+    "BT": "Bhutan",
+    "BW": "Botswana",
+    "BY": "Belarus",
+    "BZ": "Belize",
+    "CA": "Canada",
+    "CC": "Cocos (Keeling) Islands",
+    "CD": "Congo, The Democratic Republic of the Congo",
+    "CF": "Central African Republic",
+    "CG": "Congo",
+    "CH": "Switzerland",
+    "CI": "Côte d'Ivoire",
+    "CK": "Cook Islands",
+    "CL": "Chile",
+    "CM": "Cameroon",
+    "CN": "China",
+    "CO": "Colombia",
+    "CR": "Costa Rica",
+    "CU": "Cuba",
+    "CV": "Cape Verde",
+    "CX": "Christmas Island",
+    "CY": "Cyprus",
+    "CZ": "Czech Republic",
+    "DE": "Germany",
+    "DJ": "Djibouti",
+    "DK": "Denmark",
+    "DM": "Dominica",
+    "DO": "Dominican Republic",
+    "DZ": "Algeria",
+    "EC": "Ecuador",
+    "EE": "Estonia",
+    "EG": "Egypt",
+    "ER": "Eritrea",
+    "ES": "Spain",
+    "ET": "Ethiopia",
+    "FI": "Finland",
+    "FJ": "Fiji",
+    "FK": "Falkland Islands (Malvinas)",
+    "FM": "Micronesia, Federated States of Micronesia",
+    "FO": "Faroe Islands",
+    "FR": "France",
+    "GA": "Gabon",
+    "GB": "United Kingdom",
+    "GD": "Grenada",
+    "GE": "Georgia",
+    "GF": "French Guiana",
+    "GG": "Guernsey",
+    "GH": "Ghana",
+    "GI": "Gibraltar",
+    "GL": "Greenland",
+    "GM": "Gambia",
+    "GN": "Guinea",
+    "GP": "Guadeloupe",
+    "GQ": "Equatorial Guinea",
+    "GR": "Greece",
+    "GS": "South Georgia and the South Sandwich Islands",
+    "GT": "Guatemala",
+    "GU": "Guam",
+    "GW": "Guinea-Bissau",
+    "GY": "Guyana",
+    "HK": "Hong Kong",
+    "HM": "Heard Island and Mcdonald Islands",
+    "HN": "Honduras",
+    "HR": "Croatia",
+    "HT": "Haiti",
+    "HU": "Hungary",
+    "ID": "Indonesia",
+    "IE": "Ireland",
+    "IL": "Israel",
+    "IM": "Isle of Man",
+    "IN": "India",
+    "IO": "British Indian Ocean Territory",
+    "IQ": "Iraq",
+    "IR": "Iran",
+    "IS": "Iceland",
+    "IT": "Italy",
+    "JE": "Jersey",
+    "JM": "Jamaica",
+    "JO": "Jordan",
+    "JP": "Japan",
+    "KE": "Kenya",
+    "KG": "Kyrgyzstan",
+    "KH": "Cambodia",
+    "KI": "Kiribati",
+    "KM": "Comoros",
+    "KN": "Saint Kitts and Nevis",
+    "KP": "Korea, Democratic People's Republic of Korea",
+    "KR": "Korea, Republic of South Korea",
+    "KW": "Kuwait",
+    "KY": "Cayman Islands",
+    "KZ": "Kazakhstan",
+    "LA": "Laos",
+    "LB": "Lebanon",
+    "LC": "Saint Lucia",
+    "LI": "Liechtenstein",
+    "LK": "Sri Lanka",
+    "LR": "Liberia",
+    "LS": "Lesotho",
+    "LT": "Lithuania",
+    "LU": "Luxembourg",
+    "LV": "Latvia",
+    "LY": "Libyan Arab Jamahiriya",
+    "MA": "Morocco",
+    "MC": "Monaco",
+    "MD": "Moldova",
+    "ME": "Montenegro",
+    "MF": "Saint Martin",
+    "MG": "Madagascar",
+    "MH": "Marshall Islands",
+    "MK": "Macedonia",
+    "ML": "Mali",
+    "MM": "Myanmar",
+    "MN": "Mongolia",
+    "MO": "Macao",
+    "MP": "Northern Mariana Islands",
+    "MQ": "Martinique",
+    "MR": "Mauritania",
+    "MS": "Montserrat",
+    "MT": "Malta",
+    "MU": "Mauritius",
+    "MV": "Maldives",
+    "MW": "Malawi",
+    "MX": "Mexico",
+    "MY": "Malaysia",
+    "MZ": "Mozambique",
+    "NA": "Namibia",
+    "NC": "New Caledonia",
+    "NE": "Niger",
+    "NF": "Norfolk Island",
+    "NG": "Nigeria",
+    "NI": "Nicaragua",
+    "NL": "Netherlands",
+    "NO": "Norway",
+    "NP": "Nepal",
+    "NR": "Nauru",
+    "NU": "Niue",
+    "NZ": "New Zealand",
+    "OM": "Oman",
+    "PA": "Panama",
+    "PE": "Peru",
+    "PF": "French Polynesia",
+    "PG": "Papua New Guinea",
+    "PH": "Philippines",
+    "PK": "Pakistan",
+    "PL": "Poland",
+    "PM": "Saint Pierre and Miquelon",
+    "PN": "Pitcairn",
+    "PR": "Puerto Rico",
+    "PS": "Palestinian Territories",
+    "PT": "Portugal",
+    "PW": "Palau",
+    "PY": "Paraguay",
+    "QA": "Qatar",
+    "RE": "Reunion",
+    "RO": "Romania",
+    "RS": "Serbia",
+    "RU": "Russia",
+    "RW": "Rwanda",
+    "SA": "Saudi Arabia",
+    "SB": "Solomon Islands",
+    "SC": "Seychelles",
+    "SD": "Sudan",
+    "SE": "Sweden",
+    "SG": "Singapore",
+    "SH": "Saint Helena, Ascension and Tristan Da Cunha",
+    "SI": "Slovenia",
+    "SJ": "Svalbard and Jan Mayen",
+    "SK": "Slovakia",
+    "SL": "Sierra Leone",
+    "SM": "San Marino",
+    "SN": "Senegal",
+    "SO": "Somalia",
+    "SR": "Suriname",
+    "SS": "South Sudan",
+    "ST": "Sao Tome and Principe",
+    "SV": "El Salvador",
+    "SY": "Syrian Arab Republic",
+    "SZ": "Swaziland",
+    "TC": "Turks and Caicos Islands",
+    "TD": "Chad",
+    "TG": "Togo",
+    "TH": "Thailand",
+    "TJ": "Tajikistan",
+    "TK": "Tokelau",
+    "TL": "Timor-Leste",
+    "TM": "Turkmenistan",
+    "TN": "Tunisia",
+    "TO": "Tonga",
+    "TR": "Turkey",
+    "TT": "Trinidad and Tobago",
+    "TV": "Tuvalu",
+    "TW": "Taiwan",
+    "TZ": "Tanzania, United Republic of Tanzania",
+    "UA": "Ukraine",
+    "UG": "Uganda",
+    "US": "United States",
+    "UY": "Uruguay",
+    "UZ": "Uzbekistan",
+    "VA": "Holy See (Vatican City State)",
+    "VC": "Saint Vincent and the Grenadines",
+    "VE": "Venezuela",
+    "VG": "Virgin Islands, British",
+    "VI": "Virgin Islands, U.S.",
+    "VN": "Vietnam",
+    "VU": "Vanuatu",
+    "WF": "Wallis and Futuna",
+    "WS": "Samoa",
+    "XK": "Kosovo",
+    "YE": "Yemen",
+    "YT": "Mayotte",
+    "ZA": "South Africa",
+    "ZM": "Zambia",
+    "ZW": "Zimbabwe"
+  },
+  "faqInfoCard": {
+    "imageAlt": "",
+    "link": "Go to FAQs",
+    "text": "Get answers to the most frequently asked questions about our services, policies and more.",
+    "title": "FAQs"
+  },
+  "firstName": {
+    "invalid": "Please, enter your first name.",
+    "label": "First name"
+  },
+  "flightInfo": {
+    "booking": "Booking <sensitive>{{ pnr }}</sensitive>",
+    "status": {
+      "cancelled": "Cancelled",
+      "delayed": "Delayed",
+      "onTime": "On time",
+      "pending": "Pending",
+      "scheduled": "Scheduled",
+      "standby": "Standby",
+      "waitlisted": "Waitlist"
+    },
+    "stops": "stops",
+    "travelClass": {
+      "business": "Business",
+      "default": "Mixed Class",
+      "eco": "Economy",
+      "first": "First",
+      "premium-eco": "Premium Economy"
+    },
+    "wcag": {
+      "card": "Card {{ current }} of {{ total }}, Flight {{ flightNumber }} from {{ origin }} to {{ destination }} on {{ date }} - {{ bookingClass }}. {{ numberOfStops }} stops. {{ originStatus }} departure at {{ originTime }}. Duration {{ duration }}. {{ destinationStatus }} arrival at {{ destinationTime }}",
+      "cardWithoutFlightNumber": "Card {{ current }} of {{ total }}. From {{ origin }} to {{ destination }} on {{ date }} - {{ bookingClass }}. {{ numberOfStops }} stops. {{ originStatus }} departure at {{ originTime }}. Duration {{ duration }}. {{ destinationStatus }} arrival at {{ destinationTime }}"
+    }
+  },
+  "flightStatus": {
+    "inbound": "Inbound",
+    "new": "New",
+    "notification": {
+      "success": "All flights are operating as scheduled",
+      "warning": "Your itinerary has changed. Please check your email for more information."
+    },
+    "old": "Old",
+    "outbound": "Outbound",
+    "segment": "Flight segment {{ number }}"
+  },
+  "helpCenter": {
+    "bootstrapping": "One moment please"
+  },
+  "helpOptions": {
+    "back": "Back to contact options",
+    "phoneInfo": {
+      "full": "Phone support is not available for this topic. If you would find it helpful, we would appreciate your feedback in the survey below.",
+      "short": "Phone support is not available for this topic."
+    },
+    "title": "Help & Contact"
+  },
+  "identifier": {
+    "hint": "The booking code contains 6 letters and numbers combined (e.g. ABCD12). The ticket number is 13 digits (e.g. 7391538503519).",
+    "invalid": "The booking code contains 6 letters and numbers combined (e.g. ABCD12). The ticket number is 13 digits (e.g. 7391538503519).",
+    "label": "Booking code or ticket number"
+  },
+  "informationalMessage": "",
+  "lastName": {
+    "invalid": "Please, enter your last name.",
+    "label": "Last name"
+  },
+  "notBookingDetails": "Skip",
+  "notifications": {
+    "milesAndMore": {
+      "call": {
+        "message": "First 2 minutes: 0.08 CHF per minute; Next 10 minutes: 0.86 CHF per minute; All subsequent minutes: 0.08 CHF per minute; Price includes VAT."
+      }
+    }
+  },
+  "phoneHandover": {
+    "error": "We couldn’t share your details this time. Please have them ready when you call.",
+    "form": {
+      "buttons": {
+        "withSharing": "Confirm & call"
+      },
+      "recording": {
+        "consent": "I consent to my call being recorded for training and quality purposes. I can withdraw my consent at any time.",
+        "privacyPolicy": "Data protection"
+      }
+    },
+    "message": "Our agents can already view relevant details (such as your name and Miles & More status) as soon as you call – no need to repeat them.",
+    "title": "Ready for your call"
+  },
+  "salutation": {
+    "female": "Ms.",
+    "male": "Mr."
+  },
+  "searchInput": {
+    "button": "Search",
+    "error": {
+      "maxLengthExceeded": "{{ inputCount }}. Enter no more than {{ maxLength }} characters.",
+      "minLengthNotMet": "{{ inputCount }}. Enter at least {{ minLength }} characters."
+    },
+    "wcag": {
+      "clear": "Clear",
+      "search": "Search"
+    }
+  },
+  "selectedTopicInfo": {
+    "link": "Select a different request"
+  },
+  "stepBreadcrumb": {
+    "home": "Home"
+  },
+  "steps": {
+    "bookingInfo": "Flight details (optional)",
+    "helpOptions": "Help options",
+    "screenReader": "{{ stepName }} page loaded.",
+    "topicSelection": "Help"
+  },
+  "supportOptionCard": {
+    "recommended": "Recommended"
+  },
+  "supportOptions": {
+    "call": "Phone call",
+    "chat_assistant": "Chat Assistant",
+    "live_chat": "Live Chat",
+    "self_service": "Easy self-service"
+  },
+  "topicAirport": {
+    "listTitle": "Other help topics",
+    "notification": {
+      "message": "In case of cancellations, we automatically rebook you onto a new flight. Please check your email for a rebooking confirmation.",
+      "title": "Was your flight canceled?"
+    },
+    "suggestedTitle": "Recommended help topics"
+  },
+  "topicSearch": {
+    "error": {
+      "description": "We cannot show your search results right now. Please select one of our help topics instead.",
+      "title": "Results for your search"
+    },
+    "humanSupportRequest": {
+      "message": "Looking to contact us? Tell us what you need help with so we can show you the right contact options."
+    },
+    "noResults": {
+      "action": "Start chat",
+      "description": "Please rephrase your search or ask our Chat Assistant {{ chatAssistantName }} for help.",
+      "title": "No results found"
+    },
+    "results": {
+      "title": "Results for your search",
+      "wcag": {
+        "list": "{{ resultsCount }} results for your search."
+      }
+    },
+    "searching": {
+      "ariaLabel": "Loading results",
+      "title": "Results for your search"
+    }
+  },
+  "topicSelection": {
+    "list": {
+      "description": "Topics we can assist you with.",
+      "error": {
+        "action": "See contact options",
+        "message": "Please try again later or contact us without selecting a topic.",
+        "title": "Unable to load topic list"
+      },
+      "title": "Select your request"
+    },
+    "loader": "Loading your help options",
+    "searchBar": {
+      "label": "Find a topic",
+      "placeholders": {
+        "default": [
+          "My upgrade didn't work",
+          "I need my boarding pass again",
+          "How can I get my invoice?"
+        ],
+        "desktop": [],
+        "mobile": [],
+        "tablet": []
+      },
+      "wcag": {
+        "clear": "Search cleared."
+      }
+    },
+    "subtitle": "Find answers and contact options for your request.",
+    "title": {
+      "loggedIn": "How can we help you, <sensitive>{{ greet }}</sensitive>?",
+      "loggedOut": "How can we help you?"
+    }
+  },
+  "wcag": {
+    "close": "Close",
+    "dialogOpened": "Opens in a dialog",
+    "modalOpened": "Opens in a modal",
+    "newTabOpened": "Opens in a new tab",
+    "overlayOpened": "Opens in an overlay dialog",
+    "phoneCall": "Initiates a phone call",
+    "samePageOpened": "Opens in the same page",
+    "selected": "selected",
+    "systemFolderOpened": "Opens system folder in a dialog"
+  }
+}
