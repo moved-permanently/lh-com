@@ -37,3 +37,8 @@ sitemaps:
         destination: /sitemap/sitemap_lh_xx_fr.xml
         hreflang: fr
         alternate: /xx/fr/{path}
+      xx-es:
+        source: /xx/es/search-index.json
+        destination: /sitemap/sitemap_lh_xx_es.xml
+        hreflang: es
+        alternate: /xx/es/{path}
