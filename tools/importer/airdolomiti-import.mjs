@@ -299,6 +299,26 @@ function manageRows(a, page) {
  * a preselected choice (www sends it with the sign-up), the confirmation page on success.
  */
 const NEWSLETTER_LANGUAGES = { label: { it: 'Lingua', en: 'Language', de: 'Sprache' }, options: [['it', 'Italiano'], ['en', 'English'], ['de', 'Deutsch']] };
+/**
+ * The sign-up page's form (core) rows: the email (from the page address: Rules prefill=email, the
+ * strip's newsletter-signup block opens the page with ?email=), the consent, the language, the
+ * button, the lh-forms form id and the success page.
+ * @param {{email: string, consent: string, language: string, languages: string, submit: string,
+ *   form: string, success: string}} parts the cells' HTML (escaped), success the page's path
+ * @returns {string[][]}
+ */
+export function newsletterRows(parts) {
+  return [
+    ['Label', 'Type', 'Name', 'Required', 'Options', 'Rules'],
+    [parts.email, 'email', 'email', 'yes', '', 'prefill=email'],
+    [parts.consent, 'checkbox', 'privacy', 'yes', '', ''],
+    [parts.language, 'select', 'language', 'yes', parts.languages, ''],
+    [parts.submit, 'submit', '', '', '', ''],
+    [parts.form, 'config', 'form', '', '', ''],
+    [`<a href="${attr(parts.success)}">${esc(parts.success)}</a>`, 'config', 'success', '', '', ''],
+  ];
+}
+
 function newsletterForm(page) {
   const { document } = parseHTML(page.rendered);
   const box = document.querySelector('[class*="CenteredBlock_news_letter"]');
@@ -313,19 +333,17 @@ function newsletterForm(page) {
   let consent = esc(field('checkbox').label || '');
   if (privacy && consent.includes(esc(privacy[2]))) consent = consent.replace(esc(privacy[2]), `<a href="${attr(page.href(privacy[1]))}">${esc(privacy[2])}</a>`);
   const { form, confirmation } = NEWSLETTER[page.lang];
-  const header = ['Label', 'Type', 'Name', 'Required', 'Options'];
-  const rows = [
-    header,
-    [esc(field('email').label || 'Email'), 'email', 'email', 'yes', ''],
-    [consent, 'checkbox', 'privacy', 'yes', ''],
-    [esc(NEWSLETTER_LANGUAGES.label[page.lang]), 'select', 'language', 'yes',
-      NEWSLETTER_LANGUAGES.options.map(([v, l]) => `<p>${v}=${esc(l)}${v === page.lang ? '{selected}' : ''}</p>`).join('')],
+  const rows = newsletterRows({
+    email: esc(field('email').label || 'Email'),
+    consent,
+    language: esc(NEWSLETTER_LANGUAGES.label[page.lang]),
+    languages: NEWSLETTER_LANGUAGES.options.map(([v, l]) => `<p>${v}=${esc(l)}${v === page.lang ? '{selected}' : ''}</p>`).join(''),
     // the button as www labels it, 1:1 (www's German page says "Zeichnen", checked 2026-11-01:
     // kept as www's own wording)
-    [esc(field('submit').text || 'Submit'), 'submit', '', '', ''],
-    [esc(form), 'config', 'form', '', ''],
-    [`<a href="${attr(confirmation)}">${esc(confirmation)}</a>`, 'config', 'success', '', ''],
-  ];
+    submit: esc(field('submit').text || 'Submit'),
+    form: esc(form),
+    success: confirmation,
+  });
   page.block('form (core)', rows);
   page.note(`newsletter form: form (core) sent by lh-forms (${form}), success ${confirmation}`);
 }
@@ -346,9 +364,19 @@ export function newsletterStrip(rendered, { label, href }) {
   const intro = plain(box && box.querySelector('[class*="RichText"]') ? box.querySelector('[class*="RichText"]').textContent : '');
   const input = box && box.querySelector('input[type="email"]');
   const field = plain(input && input.getAttribute('placeholder')) || 'Email';
+  const sr = box && box.querySelector('label .sr-only');
   return {
     style: 'newsletter',
-    html: `<h2>${esc(title)}</h2>${intro ? `<p>${esc(intro)}</p>` : ''}<p><a href="${attr(href)}">${esc(field)}</a></p>`,
+    html: `<h2>${esc(title)}</h2>${intro ? `<p>${esc(intro)}</p>` : ''}`,
+    block: {
+      name: 'newsletter-signup',
+      rows: [
+        ['Sign-up page', `<a href="${attr(href)}">${esc(href)}</a>`],
+        ['Placeholder', esc(field)],
+        ['Field label', esc(plain(sr && sr.textContent) || title)],
+        ['Button label', esc(title)],
+      ],
+    },
   };
 }
 
@@ -948,6 +976,7 @@ const HANDLERS = {
     const strip = newsletterStrip(page.rendered, { label: page.live.newsletterLabel, href: page.href(`${page.live.host}${page.live.newsletter}`) });
     page.section(strip.style);
     page.add(strip.html);
+    page.block(strip.block.name, strip.block.rows);
     page.section();
   },
   'lazyblock/blog-posts': (a, page) => {

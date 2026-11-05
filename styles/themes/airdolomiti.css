@@ -920,6 +920,17 @@ body.brand-airdolomiti main > .section.newsletter .default-content-wrapper > p:l
   border-color: #008293;
 }
 
+/* with the field block (newsletter-signup) after the text: 30px between them, 100px under the field */
+body.brand-airdolomiti main > .section.newsletter > .default-content-wrapper:has(+ .newsletter-signup-wrapper) {
+  margin-bottom: 30px;
+}
+
+body.brand-airdolomiti main > .section.newsletter > .newsletter-signup-wrapper {
+  max-width: 936px;
+  margin-top: 0;
+  margin-bottom: 100px;
+}
+
 @media (width >= 768px) {
   body.brand-airdolomiti main > .section.newsletter .default-content-wrapper h2 {
     font-size: 38px;
