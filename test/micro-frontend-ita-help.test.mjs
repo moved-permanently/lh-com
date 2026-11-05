@@ -9,6 +9,7 @@
 /* global globalThis */
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
 import { parseHTML } from 'linkedom';
 
 const { window, document } = parseHTML('<!DOCTYPE html><html><head></head><body></body></html>');
@@ -67,4 +68,10 @@ test('the other brands as before: no X-Line, their release and theme class', () 
   assert.equal(aua.scripts[1].src, APP('www.austrian.com', '4.3.1'));
   const claim = mountPlan(blockOf([['claim-form-entry']]), BRANDS.ita, IT, 'ita.turnsthe.page');
   assert.ok(/claim-form-entry-0\.11\.16\.js$/.test(claim.scripts[1].src), 'another app keeps its release');
+});
+
+test('ITA: the topic rules are not drawn (www\'s design system defines no --border-color for them; ours is the page\'s token)', () => {
+  const css = fs.readFileSync('blocks/micro-frontend/micro-frontend.css', 'utf8').replace(/\/\*[\s\S]*?\*\//g, '').replace(/\s+/g, ' ');
+  assert.ok(css.includes('body.maui-theme-az .micro-frontend help-center-web { --border-color: initial; }'));
+  assert.ok(!/maui-theme-(lx|sn|lh|os) [^{]*\{ --border-color/.test(css), 'SWISS and Brussels keep theirs');
 });

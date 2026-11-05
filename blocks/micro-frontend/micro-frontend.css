@@ -44,3 +44,9 @@
     --full-width-horizontal-offset: var(--layout-margin);
   }
 }
+
+/* ITA's help app: www's design system (maui-theme-az) defines no --border-color, so www draws no
+   topic rules; the app here saw the page's token (styles/themes/ita.css) and drew grey lines */
+body.maui-theme-az .micro-frontend help-center-web {
+  --border-color: initial;
+}
