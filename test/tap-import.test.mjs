@@ -1017,6 +1017,33 @@ describe('tap-import pages', () => {
     assert.ok(convertPage(page('2022-lugares-bordo-comfortseat'), brAt).html.includes('Voe na área Comfort<'));
   });
 
+  it('fares in a language the block has no texts for (pl-pl, round 4): its label rows in www\'s texts of the page (the common store), none for a text www lacks', () => {
+    const page = nd('tarifas-tap');
+    page.props.pageProps._nextI18Next = {
+      initialI18nStore: {
+        pl: {
+          common: {
+            caption: 'Podpis', notes: 'Notatki', 'fare-compare': 'Porównaj taryfy', 'max-element-to-compare': 'Możesz wybrać maksymalnie cztery taryfy do porównania.', clean: 'Wyczyść', compare: 'Porównaj', services: 'Usługi', previous: 'Poprzedni', next: 'Następny',
+          },
+        },
+      },
+    };
+    const d = dom(convertPage(page, { ...ctx('https://www.flytap.com/pl-pl/rezerwacje/stawki-tap'), locale: 'pl-pl', lang: 'pl' }).html);
+    const rows = [...d.querySelector('.fare-comparison').querySelectorAll(':scope > div')].map((r) => [r.children[0].textContent.trim(), r.children[1].textContent]);
+    const labels = Object.fromEntries(rows.slice(0, rows.findIndex(([k]) => k === 'Group')));
+    assert.deepEqual(labels, {
+      'Caption label': 'Podpis',
+      'Notes label': 'Notatki',
+      'Compare label': 'Porównaj taryfy',
+      'Dialog note': 'Możesz wybrać maksymalnie cztery taryfy do porównania.',
+      'Clear label': 'Wyczyść',
+      'Apply label': 'Porównaj',
+      'Services label': 'Usługi',
+      'Previous label': 'Poprzedni',
+      'Next label': 'Następny',
+    });
+  });
+
   it('a fare table at the top level is table-striped (header)', () => {
     const tabs = nd('tarifas-tap').props.pageProps.page.sections[1];
     const table = tabs.tabs[0].tabsItems[0].sections.find((s) => s.__typename === 'ComponentTableModel');

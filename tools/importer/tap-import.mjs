@@ -849,6 +849,13 @@ const HANDLERS = {
       // Cabin a tab, its header and service rows, its Caption and Notes; the groups' H2s the block's
       const { labels } = tableParts({}, P);
       const rows = [['Caption label', esc(labels.caption)], ['Notes label', esc(labels.notes)]];
+      // the block's other texts in www's of the page (its common store; pl-pl, which the block
+      // has no texts for, round 4), a row only where www has the text
+      [['Compare label', 'fare-compare'], ['Dialog note', 'max-element-to-compare'], ['Clear label', 'clean'], ['Apply label', 'compare'],
+        ['Services label', 'services'], ['Previous label', 'previous'], ['Next label', 'next']].forEach(([row, key]) => {
+        const v = i18nOf(P.c.pageProps, P.c.lang, key);
+        if (v) rows.push([row, esc(v)]);
+      });
       tabs.forEach((t) => {
         rows.push(['Group', esc(t.fieldLabel)]);
         t.tabsItems.forEach((i) => {
