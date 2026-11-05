@@ -217,7 +217,7 @@ test('brief 352 (ema-lufthansa\'s 336): the stopover\'s centred button and info 
   assert.match(css, /body\.brand-tap main > \.section:has\(\+ \.section\.centred-button\) \{\s*margin-bottom: 32px;/);
   assert.match(css, /body\.brand-tap main > \.section\.centred-button \.default-content-wrapper \{\s*text-align: center;/);
   assert.match(css, /body\.brand-tap main > \.section\.centred-button a\.button:any-link \{[^}]*background-color: #9efd38;[^}]*font-size: 16px;\s*font-weight: 500;/);
-  assert.match(css, /body\.brand-tap main > \.section\.info-card > \.default-content-wrapper \{[^}]*max-width: min\(567px, calc\(100% - 2 \* var\(--layout-margin\)\)\);[^}]*padding: 24px;[^}]*border-left: 4px solid #65c922;[^}]*border-radius: 4px;[^}]*background-color: #fcfcfc;/);
+  assert.match(css, /body\.brand-tap main > \.section\.info-card > \.default-content-wrapper \{[^}]*width: fit-content;[^}]*max-width: min\(790px, calc\(100% - 2 \* var\(--layout-margin\)\)\);[^}]*padding: 24px;[^}]*border-left: 4px solid #65c922;[^}]*border-radius: 4px;[^}]*background-color: #fcfcfc;/);
   assert.match(css, /body\.brand-tap main > \.section\.info-card > \.default-content-wrapper > p:first-child \{[^}]*font-family: var\(--heading-font-family\);[^}]*font-size: 18px;[^}]*font-weight: 500;/);
   assert.match(css, /body\.brand-tap main > \.section\.info-card a\.button:any-link \{[^}]*min-height: 32px;[^}]*border: 1px solid #65c922;[^}]*background-color: transparent;/);
 });

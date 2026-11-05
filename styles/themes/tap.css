@@ -1841,12 +1841,15 @@ body.brand-tap main > .section.centred-button a.button:hover {
   background-color: var(--button-accent-hover);
 }
 
-/* info-card (www's FAQ card under the stopover): a light card with a green edge, 567 px at most
-   and centred, its title GT Flexa 18 / 500, the text 14 / 21 grey, an outline button (32 px,
-   16 / 500), the whole width on phones */
+/* info-card (www's CardInfoBlock: the stopover's FAQ card, "Milhas necessárias por zona" on the
+   buy-ticket pages): a light card with a green edge, as wide as its content up to 790 px (www's
+   max-w-[790px]: 570 on the stopover, 790 on buy-ticket) and centred, its title GT Flexa 18 / 500,
+   the text 14 / 21 grey, an outline button (32 px, 16 / 500) and a second link as a pill beside it
+   (round 3), the whole width on phones */
 body.brand-tap main > .section.info-card > .default-content-wrapper {
   box-sizing: border-box;
-  max-width: min(567px, calc(100% - 2 * var(--layout-margin)));
+  width: fit-content;
+  max-width: min(790px, calc(100% - 2 * var(--layout-margin)));
   margin: 0 auto;
   padding: 24px;
   border-left: 4px solid #65c922;
@@ -1870,15 +1873,51 @@ body.brand-tap main > .section.info-card > .default-content-wrapper > p:first-ch
   font-weight: inherit;
 }
 
-body.brand-tap main > .section.info-card > .default-content-wrapper > p:not(:first-child, .button-wrapper) {
+body.brand-tap main > .section.info-card > .default-content-wrapper > p:not(:first-child, .button-wrapper, .link-wrapper) {
   margin-top: 8px;
   color: #65626a;
   font-size: 14px;
   line-height: 21px;
 }
 
+/* the texts after the first one paragraph of www's rich text: no gap between them */
+body.brand-tap main > .section.info-card > .default-content-wrapper > p:not(:first-child, .button-wrapper, .link-wrapper) + p:not(.button-wrapper, .link-wrapper) {
+  margin-top: 0;
+}
+
 body.brand-tap main > .section.info-card > .default-content-wrapper > .button-wrapper {
   margin-top: 16px;
+}
+
+body.brand-tap main > .section.info-card > .default-content-wrapper > .link-wrapper {
+  margin-top: 16px;
+}
+
+/* the second link: www's 32 px pill, TAP's dark green on the card's grey, 8 % green on hover */
+body.brand-tap main > .section.info-card .link-wrapper > a:any-link {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 32px;
+  padding: 0 16px;
+  border-radius: 999px;
+  background-color: #fcfcfc;
+  color: #397213;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+body.brand-tap main > .section.info-card .link-wrapper > a:hover {
+  background-color: rgb(101 201 34 / 8%);
+}
+
+/* (www's pill has no arrow: lh-com's link-wrapper arrow off) */
+body.brand-tap main > .section.info-card .link-wrapper > a:any-link::before {
+  content: none;
 }
 
 body.brand-tap main > .section.info-card a.button:any-link {
@@ -1901,6 +1940,16 @@ body.brand-tap main > .section.info-card a.button:hover {
 @media (width >= 768px) {
   body.brand-tap main > .section.info-card a.button:any-link {
     width: auto;
+  }
+
+  /* the two links side by side, 16 px apart */
+  body.brand-tap main > .section.info-card > .default-content-wrapper > :is(.button-wrapper, .link-wrapper) {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  body.brand-tap main > .section.info-card > .default-content-wrapper > .button-wrapper + .link-wrapper {
+    margin-left: 16px;
   }
 }
 
