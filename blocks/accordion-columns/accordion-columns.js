@@ -351,4 +351,9 @@ export default async function decorate(block) {
   cleanTextNodes(block);
   decorateExternalLinks(block);
   await decorateMedia(block);
+  // brand tap: the FAQ page's two-level picker, as www.flytap.com's (./accordion-columns-tap.js)
+  if (single && (document.querySelector('meta[name="brand"]')?.getAttribute('content') || '').trim().toLowerCase() === 'tap') {
+    const { default: decorateTapFaq } = await import('./accordion-columns-tap.js');
+    decorateTapFaq(block);
+  }
 }
