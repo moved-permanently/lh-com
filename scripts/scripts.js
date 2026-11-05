@@ -510,6 +510,9 @@ async function loadLazy(doc) {
   const main = doc.querySelector('main');
   await loadSections(main);
 
+  // links to /modals/ open their documents as dialogs (the General Conditions)
+  import('./fragment-dialog.js').then(({ initFragmentDialogs }) => initFragmentDialogs(document));
+
   // page metadata Links: new-tab (meta pages such as the guides): links in main open in a new tab
   if (/^new-tab$/i.test(getMetadata('links').trim())) {
     const { default: openLinksInNewTab } = await import('./link-target.js');

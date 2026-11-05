@@ -1,0 +1,62 @@
+/* a document opened as a dialog from a link to /modals/ (scripts/fragment-dialog.js): a white
+   panel on a dimmed page, the close button top right; a brand's theme sets the tokens */
+.fragment-dialog {
+  box-sizing: border-box;
+  width: min(var(--fragment-dialog-width, 800px), calc(100vw - 32px));
+  max-height: calc(100vh - 64px);
+  padding: 56px 32px 32px;
+  border: 0;
+  border-radius: var(--fragment-dialog-radius, 8px);
+  background: var(--fragment-dialog-surface, #fff);
+  color: var(--fragment-dialog-text, inherit);
+  overflow: auto;
+}
+
+.fragment-dialog::backdrop {
+  background: rgb(0 0 0 / 50%);
+}
+
+.fragment-dialog-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.fragment-dialog-close svg {
+  width: 24px;
+  height: 24px;
+}
+
+.fragment-dialog-close:focus-visible {
+  outline: 2px solid var(--focus-color);
+  outline-offset: 2px;
+}
+
+.fragment-dialog-body > .section > div {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.fragment-dialog-body :is(h1, h2, h3, h4, h5, h6):first-child {
+  margin-top: 0;
+}
+
+.fragment-dialog-body p:last-child {
+  margin-bottom: 0;
+}
+
+body.fragment-dialog-open {
+  overflow: hidden;
+}

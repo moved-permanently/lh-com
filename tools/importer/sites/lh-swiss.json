@@ -2863,7 +2863,9 @@
   "/ch/ru/search-results",
   "/kr/ko/search-results",
   "/medicalservices/en/search-results",
-  "/medicalservices/de/search-results"
+  "/medicalservices/de/search-results",
+  "/ch/en/modals/general-conditions",
+  "/ch/de/modals/general-conditions"
  ],
  "linkOuts": [
   "/ch/en/culinaryjourney",

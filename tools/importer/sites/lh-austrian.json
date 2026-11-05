@@ -2363,7 +2363,9 @@
   "/cn/zh/book/flights",
   "/cn/zh/flightbooking",
   "/cn/zh/travel-briefing",
-  "/cn/zh/contact"
+  "/cn/zh/contact",
+  "/at/en/modals/general-conditions",
+  "/at/de/modals/general-conditions"
  ],
  "linkOuts": [
   "/at/en/check-in-deadlines",
