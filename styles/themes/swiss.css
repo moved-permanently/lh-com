@@ -1,5 +1,5 @@
 /*
- * SWISS: design tokens only, loaded by scripts/brand.js on a site whose metadata sets
+ * SWISS: design tokens and brand rules, loaded by scripts/brand.js on a site whose metadata sets
  * `brand: swiss` (lh-swiss' /metadata.json). Values from the group design system's SWISS
  * stylesheet (/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/css/swiss.css, theme
  * maui-theme-lx, 2026-11-02) and the measurements of www.swiss.com's ch/en and ch/de homepages:
@@ -13,6 +13,8 @@
  * from the site's own host where lh-edge serves it, else www.swiss.com's absolute URL of the same
  * file (the second src), as the austrian and brussels themes do. The logos are images in the
  * site's nav and footer documents (www's /etc/designs/lx/clientlib-all/vite/img/swiss-logo.svg).
+ * Tokens first; below them the rules lh-com's blocks have no token for (body.brand-swiss, brief 380: www.swiss.com
+ * 2026-11-05, tests in test/swiss-parity-380.test.mjs).
  * lh-com's own pages never load this file.
  */
 @font-face {
@@ -134,7 +136,39 @@
   --header-bar-line: #ccc;
   --header-bar-shadow: 0 1px 0 #ccc; /* the 1 px rule under the bar (no layout shift) */
   --nav-logo-height: 28px;
-  --nav-logo-height-wide: 28px;
+  --nav-logo-height-wide: 34px; /* www 147 x 34 from 1281 px (brief 380) */
+  --nav-height: 143px; /* phones: www's bar 143 px, the logo at 32 px */
+  --header-bar-padding: 26px 22px 11px;
+
+  /* the bar's links, login and menu button: www 12/16 px regular on phones, 16/22 px from 768 px;
+     the four quick links fit 390 px (www's first at 38 px) */
+  --nav-bar-font-size: 12px;
+  --nav-bar-font-weight: 400;
+  --nav-quick-link-padding: 15px 16px;
+
+  /* the menu (flyout): www's white panel, #101010 tabs and group headings, red chevrons, warm grey
+     16/25 px regular links and extras (pine grey on hover), #ccc rules */
+  --nav-flyout-surface: #fff;
+  --nav-flyout-text: #6f6660;
+  --nav-flyout-heading: #101010;
+  --nav-flyout-hover: #554e49;
+  --nav-flyout-chevron: #c00;
+  --nav-flyout-line: #ccc;
+  --nav-flyout-link-size: 16px;
+  --nav-flyout-link-weight: 400;
+  --nav-flyout-link-line-height: 25px;
+  --nav-flyout-extra-size: 16px;
+  --nav-flyout-extra-weight: 400;
+
+  /* the breadcrumb: www 16/24 px 18 px under the bar, the parents warm grey (pine grey on hover),
+     red chevrons, the current page red bold */
+  --breadcrumb-top: 18px;
+  --breadcrumb-font-size: 16px;
+  --breadcrumb-line-height: 24px;
+  --breadcrumb-parent-color: #6f6660;
+  --breadcrumb-hover-color: #554e49;
+  --breadcrumb-chevron-color: #c00;
+  --breadcrumb-current-color: #c00;
 
   /* footer: white, not dark: a 1 px #ccc rule on top, headings #101010 18 px bold, links warm
      grey 16 px regular (pine grey on hover); the logo row white with the 80x20 logo */
@@ -148,19 +182,561 @@
   --footer-field-color: #6f6660;
   --footer-toggle-line: #ccc;
   --footer-divider-color: #ccc;
-  --footer-title-line: transparent; /* the column headings without a rule under them */
+  --footer-title-line: #ccc; /* www: a rule under each column heading (brief 380) */
+  --footer-column-indent: 0; /* the columns' text at the content edge (www x 88 at 1440) */
   --footer-locale-color: #6f6660;
   --footer-locale-hover-color: #554e49;
-  --footer-heading-size: 18px;
+  --footer-heading-size: 16px; /* the accordion rows on phones; 18 px from 768 px */
   --footer-link-size: 16px;
   --footer-link-weight: 400;
-  --footer-link-line-height: 22px;
-  --footer-logo-home-height: 20px;
+  --footer-link-line-height: 25px;
+  --footer-link-gap: 0; /* the rows' padding and rule below */
+  --footer-logo-home-height: 18.5px; /* www's logo 80 px wide */
 }
 
-/* the header bar: 121 px from 768 px (www at 1280) */
+/* the header bar: www 143 px on phones (the logo at 32 px), 127 px from 768 px with its content
+   centred (the logo at 46 px at 1440; brief 380), the side padding as lh-com's per width; its
+   links 16 px from 768 px (the phones' values with the other header tokens above) */
 @media (width >= 768px) {
   :root {
-    --nav-height: 121px;
+    --nav-height: 127px;
+    --nav-bar-font-size: 16px;
+    --header-bar-padding: 38px 24px 39px;
+    --nav-quick-list-padding: 1px 0 1px 6px;
+  }
+}
+
+@media (width >= 1025px) {
+  :root {
+    --header-bar-padding: 38px 80px 39px;
+  }
+}
+
+@media (width >= 1281px) {
+  :root {
+    --header-bar-padding: 38px 88px 39px;
+  }
+}
+
+/* rules where lh-com's blocks have no token (brief 380, www.swiss.com 2026-11-05) */
+
+/* the header: no dividers around the login (www has none) */
+body.brand-swiss .header .nav-divider {
+  display: none;
+}
+
+/* the footer (www 2026-11-05): on phones the accordion rows 47 px inside the side margin, 16 px
+   headings; from 768 px the columns' headings 18 px above a #ccc rule and their links as 46 px rows
+   with a #ccc rule and a small triangle; the social icons centred without a rule, 45 px apart; a
+   rule across the footer above the bottom bar; there the logos, the legal links without arrows
+   and the STAR ALLIANCE mark (the documents' :star-alliance-horizontal:, 132 x 18) stacked and
+   centred, in one row from 1025 px */
+body.brand-swiss .footer .footer-inner {
+  padding-top: 24px;
+}
+
+body.brand-swiss .footer .footer-columns {
+  margin: 0;
+}
+
+body.brand-swiss .footer .footer-column-toggle {
+  padding: 14px 2px 14px 4px;
+}
+
+body.brand-swiss .footer .footer-column-links li {
+  padding: 10px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+body.brand-swiss .footer .footer-column-links .footer-link {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+body.brand-swiss .footer .footer-column-links .footer-link::after {
+  flex: 0 0 auto;
+  width: 0;
+  height: 0;
+  margin-right: 8px;
+  border-block: 3.5px solid transparent;
+  border-left: 4px solid currentcolor;
+  content: '';
+}
+
+body.brand-swiss .footer .footer-badges {
+  justify-content: center;
+  padding: 48px 0 47px;
+  border-top: 0;
+}
+
+body.brand-swiss .footer .footer-badges ul {
+  justify-content: center;
+  gap: 12px 13px;
+}
+
+body.brand-swiss .footer .footer-divider {
+  width: auto;
+  margin: 0 calc(-1 * var(--footer-margin));
+}
+
+body.brand-swiss .footer .footer-subfooter {
+  align-items: center;
+  gap: 21px;
+  padding: 22px 0 20px;
+}
+
+body.brand-swiss .footer .footer-subfooter-logos ul {
+  flex-direction: column;
+  gap: 33px;
+}
+
+body.brand-swiss .footer .footer-legal {
+  justify-content: center;
+  gap: 0 10px;
+  padding: 0;
+}
+
+/* line height 24 px: the wrapped rows' targets 24 px apart (WCAG 2.5.8; www 14 px) */
+body.brand-swiss .footer .footer-legal .footer-link {
+  margin: 0;
+  line-height: 24px;
+}
+
+body.brand-swiss .footer .footer-legal .footer-link .lh-icon {
+  display: none;
+}
+
+body.brand-swiss .footer .footer-logo-star-alliance-horizontal img {
+  height: 18px;
+}
+
+@media (width >= 768px) {
+  body.brand-swiss .footer {
+    --footer-heading-size: 18px;
+  }
+
+  body.brand-swiss .footer .footer-inner {
+    padding-top: 37px;
+  }
+
+  body.brand-swiss .footer .footer-column-title {
+    margin-bottom: 0;
+    padding-bottom: 18px;
+  }
+
+  body.brand-swiss .footer .footer-badges {
+    padding: 72px 0 48px;
+  }
+
+  body.brand-swiss .footer .footer-legal {
+    padding-left: 0;
+  }
+}
+
+@media (width >= 1025px) {
+  /* the legal links centred on the page (www at 720 px of 1440), the logos either side */
+  body.brand-swiss .footer .footer-subfooter {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    padding: 23px 0 44px;
+  }
+
+  body.brand-swiss .footer .footer-subfooter-partner {
+    justify-self: end;
+  }
+
+  body.brand-swiss .footer .footer-subfooter-logos ul {
+    flex-direction: row;
+    gap: 39px;
+  }
+
+  body.brand-swiss .footer .footer-legal {
+    gap: 0 20px;
+  }
+
+  body.brand-swiss .footer .footer-subfooter .footer-legal {
+    grid-area: auto;
+  }
+}
+
+/* the cards' links (a link paragraph, rows 10 and 17) as www's teaser links: a 4 x 8 px triangle
+   before the text, regular, warm grey (pine grey on hover); in the grid cards 16/25 px pine grey
+   underlined below a #ccc rule 40 px under the description; in the wide cards 18 px, their titles
+   regular */
+body.brand-swiss .carousel-cards .carousel-cards-body > .carousel-cards-cta {
+  font-weight: 400;
+}
+
+body.brand-swiss .carousel-cards .carousel-cards-wide .carousel-cards-body > .carousel-cards-cta {
+  font-size: 18px;
+}
+
+body.brand-swiss .carousel-cards .carousel-cards-cta a:any-link {
+  gap: 12px;
+  color: #6f6660;
+  font-weight: 400;
+}
+
+body.brand-swiss .carousel-cards .carousel-cards-cta a:any-link:hover {
+  color: #554e49;
+}
+
+body.brand-swiss .carousel-cards .carousel-cards-cta a:any-link::before {
+  width: 4px;
+  height: 8px;
+  margin-left: 6px;
+  mask: none;
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+}
+
+body.brand-swiss .carousel-cards .carousel-cards-wide .carousel-cards-cta a:any-link {
+  gap: 14px;
+}
+
+body.brand-swiss .carousel-cards .carousel-cards-wide .carousel-cards-cta a:any-link::before {
+  margin-left: 9px;
+}
+
+body.brand-swiss .carousel-cards:is(.grid, .four-up) .carousel-cards-slide:not(.carousel-cards-wide) .carousel-cards-cta {
+  margin-top: 0;
+  padding-top: 8px;
+  border-top: 1px solid #ccc;
+  line-height: 25px;
+}
+
+body.brand-swiss .carousel-cards:is(.grid, .four-up) .carousel-cards-body > p:has(+ .carousel-cards-cta) {
+  margin-bottom: 40px;
+}
+
+/* the descriptions 16/22 px (lh-com's compact cards 24 px) */
+body.brand-swiss .carousel-cards:is(.grid, .four-up) .carousel-cards-slide:not(.carousel-cards-wide) .carousel-cards-body > p:not(.carousel-cards-cta) {
+  line-height: 22px;
+}
+
+body.brand-swiss .carousel-cards:is(.grid, .four-up) .carousel-cards-body:has(> .carousel-cards-cta:last-child) {
+  padding-bottom: 8px;
+}
+
+/* underlined on the card's hover (www's captures of the menu pages show the first card hovered) */
+body.brand-swiss .carousel-cards:is(.grid, .four-up) .carousel-cards-slide:hover .carousel-cards-cta a:any-link {
+  color: #554e49;
+  text-decoration: underline;
+}
+
+body.brand-swiss .carousel-cards .carousel-cards-wide .carousel-cards-body :is(h1, h2, h3, h4, h5, h6) {
+  font-weight: 400;
+}
+
+/* the menu pages' cards (row 18): 80 px under the H1 from 1025 px (43 px below; flights 72), a 1 px #ccc
+   border, square, the shadow only on hover; a grid with image cards keeps three per row from
+   1025 px when one card has no image (flights' Fly more sustainably), that card as the others
+   (lh-com's text-only cards are the login strips: two per row, padded) */
+body.brand-swiss main .default-content-wrapper:has(+ .carousel-cards-wrapper) > h1:last-child {
+  margin-bottom: 43px;
+}
+
+body.brand-swiss .carousel-cards:is(.grid, .four-up) .carousel-cards-track:has(> .carousel-cards-slide:not(.carousel-cards-text-only)) > .carousel-cards-slide {
+  border-color: #ccc;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+body.brand-swiss .carousel-cards:is(.grid, .four-up) .carousel-cards-track:has(> .carousel-cards-slide:not(.carousel-cards-text-only)) > .carousel-cards-slide:hover {
+  box-shadow: 0 2px 8px rgb(0 0 0 / 20%);
+}
+
+body.brand-swiss .carousel-cards.grid .carousel-cards-track:has(> .carousel-cards-slide:not(.carousel-cards-text-only)) .carousel-cards-text-only .carousel-cards-body {
+  padding: 20px 20px 8px;
+}
+
+body.brand-swiss .carousel-cards.grid .carousel-cards-track:has(> .carousel-cards-slide:not(.carousel-cards-text-only)) .carousel-cards-text-only .carousel-cards-body > :is(h1, h2, h3, h4, h5, h6) {
+  margin-bottom: 10px;
+}
+
+body.brand-swiss .carousel-cards.grid .carousel-cards-track:has(> .carousel-cards-slide:not(.carousel-cards-text-only)) .carousel-cards-text-only .carousel-cards-body > :is(h1, h2, h3, h4, h5, h6) + p {
+  margin-top: auto;
+}
+
+@media (width < 768px) {
+  body.brand-swiss .carousel-cards.grid .carousel-cards-track:has(> .carousel-cards-slide:not(.carousel-cards-text-only)) {
+    gap: 40px;
+  }
+}
+
+@media (width >= 1025px) {
+  body.brand-swiss main .default-content-wrapper:has(+ .carousel-cards-wrapper) > h1:last-child {
+    margin-bottom: 80px;
+  }
+
+  /* the H1 in a section of its own above the cards' (flights): www 72 px */
+  body.brand-swiss main > .section:has(+ .section > .carousel-cards-wrapper:first-child) > .default-content-wrapper:last-child > h1:last-child {
+    margin-bottom: 72px;
+  }
+
+  body.brand-swiss .carousel-cards.grid:not(.two-up, .four-up) .carousel-cards-track:has(> .carousel-cards-slide:not(.carousel-cards-text-only)) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* the homepage blocks (www 2026-11-05): the alert strip regular (row 4); the flight search's options
+   row warm grey 16 px regular (row 5); the Winter deals and Flight offers headings bold (rows 8,
+   11); the deals as boxed cards, the 126 px image at the left, Zurich 14 px and the city 18 px bold,
+   the price red at the right (row 8); the Conditions links warm grey 16/22 px regular (rows 9,
+   14); the offers' origin red bold on a red line, the trip type pills red (row 11); the icon
+   tiles white and square (row 12); the accordion title warm grey 20 px (row 13) */
+body.brand-swiss .flash-teaser .flash-teaser-link,
+body.brand-swiss .flash-teaser .flash-teaser-link:any-link {
+  font-weight: 400;
+}
+
+body.brand-swiss .flight-search :is(.flight-search-trip-type select, .flight-search-travellers, .flight-search-nonstop) {
+  color: #6f6660;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+body.brand-swiss .flight-search .flight-search-trip-type select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 7'%3E%3Cpath d='M1 1.2 5 5.2l4-4' fill='none' stroke='%236f6660' stroke-width='1.4'/%3E%3C/svg%3E");
+}
+
+body.brand-swiss .flight-search .flight-search-trip-type select:hover {
+  color: #554e49;
+}
+
+body.brand-swiss .flight-search .flight-search-nonstop [type="checkbox"] {
+  border: 1px solid #6f6660;
+}
+
+body.brand-swiss .fare-teaser-container .default-content-wrapper h3,
+body.brand-swiss .destination-finder .destination-finder-heading {
+  font-weight: 700;
+}
+
+body.brand-swiss .fare-teaser .fare-teaser-list {
+  row-gap: 20px;
+}
+
+body.brand-swiss .fare-teaser .fare-teaser-item {
+  grid-template:
+    "image route" auto
+    "image offer" 1fr / 126px minmax(0, 1fr);
+  column-gap: 20px;
+  min-height: 126px;
+  padding: 0 20px 0 0;
+  border: 1px solid #ccc;
+}
+
+body.brand-swiss .fare-teaser .fare-teaser-image {
+  width: 126px;
+  height: 126px;
+  margin: 0;
+}
+
+body.brand-swiss .fare-teaser .fare-teaser-image::after {
+  display: none;
+}
+
+body.brand-swiss .fare-teaser .fare-teaser-route:any-link {
+  padding: 9px 0 0;
+  border-bottom: 0;
+}
+
+body.brand-swiss .fare-teaser .fare-teaser-origin {
+  line-height: 17px;
+}
+
+body.brand-swiss .fare-teaser .fare-teaser-destination {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 19.8px;
+}
+
+body.brand-swiss .fare-teaser .fare-teaser-offer {
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  row-gap: 3px;
+  padding: 0;
+  color: #c00;
+}
+
+body.brand-swiss .fare-teaser .fare-teaser-price-label {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 22px;
+}
+
+body.brand-swiss .fare-teaser .fare-teaser-price {
+  font-size: 20px;
+}
+
+body.brand-swiss :is(.fare-teaser .fare-teaser-conditions-label, .destination-finder .destination-finder-conditions-toggle) {
+  color: #6f6660;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+}
+
+body.brand-swiss :is(.fare-teaser .fare-teaser-conditions-label, .destination-finder .destination-finder-conditions-toggle):hover {
+  color: #554e49;
+}
+
+body.brand-swiss .destination-finder :is(.destination-finder-origin, .airport-combobox input) {
+  border-bottom-color: #c00;
+  color: #c00;
+  font-weight: 700;
+}
+
+body.brand-swiss .destination-finder .destination-finder-chip {
+  border-color: #6f6660;
+  color: #6f6660;
+}
+
+body.brand-swiss .destination-finder .destination-finder-chip:hover {
+  border-color: #554e49;
+  color: #554e49;
+}
+
+body.brand-swiss .destination-finder .destination-finder-chip:has(input:checked) {
+  border-color: #c00;
+  background-color: #c00;
+  color: #fff;
+}
+
+body.brand-swiss .cards-icon .cards-icon-tile {
+  padding: 20px 20px 42px;
+  border-color: #ccc;
+  border-radius: 0;
+  background-color: #fff;
+}
+
+body.brand-swiss .cards-icon :is(.cards-icon-icon, .cards-icon-label) {
+  color: #101010;
+}
+
+body.brand-swiss .accordion-columns .accordion-columns-title {
+  color: #6f6660;
+  font-size: calc(20px * var(--a11y-scale, 1));
+  line-height: calc(27px * var(--a11y-scale, 1));
+}
+
+body.brand-swiss .accordion-columns .accordion-columns-title::after {
+  background-color: #101010;
+}
+
+/* the flight search's fields (row 5) as www's boxes: 50 px, #f2f2f2 with a 1 px warm grey border,
+   the label inside (12 px over the value; 18 px as the placeholder while empty), the value 18 px;
+   the dates one box with the calendar at its end; on phones From and To one box, the swap on the
+   line between them; from 768 px the swap a 32 px grey circle between the fields */
+body.brand-swiss .flight-search .airport-combobox {
+  padding-top: 0;
+}
+
+body.brand-swiss .flight-search :is(.airport-combobox label, .flight-search-dates legend) {
+  top: 5px;
+  left: 11px;
+  max-width: calc(100% - 22px);
+  color: #6f6660;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+body.brand-swiss .flight-search :is(.airport-combobox[data-code=""]:not(:focus-within) label, .flight-search-dates:not(:focus-within, :has(input:valid)) legend) {
+  top: 11px;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+body.brand-swiss .flight-search .airport-combobox input {
+  height: 50px;
+  padding: 17px 11px 3px;
+  border: 1px solid #6f6660;
+  background-color: #f2f2f2;
+  color: #101010;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+body.brand-swiss .flight-search .flight-search-date input {
+  height: 31px;
+  padding: 0 0 3px;
+  color: #101010;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+body.brand-swiss .flight-search .airport-combobox input:focus {
+  padding: 17px 11px 3px;
+  border-color: #101010;
+  outline: 2px solid #101010;
+  outline-offset: -1px;
+}
+
+body.brand-swiss .flight-search .airport-combobox[data-code=""]:not(:focus-within)::after {
+  display: none;
+}
+
+body.brand-swiss .flight-search .flight-search-dates {
+  box-sizing: border-box;
+  height: 50px;
+  padding: 17px 40px 0 11px;
+  border: 1px solid #6f6660;
+  background-color: #f2f2f2;
+}
+
+body.brand-swiss .flight-search .flight-search-dates:focus-within {
+  outline: 2px solid #101010;
+  outline-offset: -1px;
+}
+
+body.brand-swiss .flight-search .flight-search-date:focus-within input {
+  padding-inline: 0;
+  outline: none;
+}
+
+body.brand-swiss .flight-search .flight-search-dates::after {
+  right: 12px;
+  bottom: 16px;
+  background-color: #101010;
+}
+
+@media (width < 768px) {
+  body.brand-swiss .flight-search .flight-search-origin {
+    margin-bottom: 0;
+  }
+
+  body.brand-swiss .flight-search .flight-search-origin input {
+    border-bottom-color: transparent;
+  }
+
+  body.brand-swiss .flight-search .flight-search-destination input {
+    padding-right: 48px;
+  }
+
+  body.brand-swiss .flight-search .flight-search-swap {
+    place-self: start end;
+    width: 32px;
+    height: 32px;
+    margin: -16px 16px 0 0;
+    background-color: #f2f2f2;
+    color: #101010;
+  }
+}
+
+@media (width >= 768px) {
+  body.brand-swiss .flight-search .flight-search-swap {
+    align-self: end;
+    width: 32px;
+    height: 32px;
+    margin: 0 0 9px;
+    background-color: #f2f2f2;
+    color: #101010;
+  }
+}
+
+@media (width >= 1025px) {
+  body.brand-swiss .flight-search .flight-search-submit {
+    margin-top: 0;
   }
 }

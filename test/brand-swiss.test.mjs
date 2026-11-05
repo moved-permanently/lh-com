@@ -115,16 +115,16 @@ test('the theme: SWISS\'s colours, type, buttons, header and footer on lh-com\'s
     '--header-bar-line': '#ccc',
     '--header-bar-shadow': '0 1px 0 #ccc',
     '--nav-logo-height': '28px',
-    '--nav-logo-height-wide': '28px',
+    '--nav-logo-height-wide': '34px', // www 147 x 34 from 1281 px (brief 380)
     '--footer-surface': '#fff',
     '--footer-text-color': '#101010',
     '--footer-link-color': '#6f6660',
     '--footer-link-hover-color': '#554e49',
     '--footer-top-line': '1px solid #ccc',
-    '--footer-heading-size': '18px',
+    '--footer-heading-size': '16px', // the accordion rows on phones; 18 px from 768 px (brief 380)
     '--footer-link-size': '16px',
     '--footer-link-weight': '400',
-    '--footer-logo-home-height': '20px',
+    '--footer-logo-home-height': '18.5px', // www's logo 80 px wide (brief 380)
   };
   Object.entries(expect).forEach(([name, value]) => assert.equal(token(name), value, name));
   assert.match(token('--body-font-family'), /^swisstext,/);

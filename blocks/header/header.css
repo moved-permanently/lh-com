@@ -361,8 +361,10 @@
   width: 100%;
   max-width: 506px;
   overflow: hidden auto;
-  background-color: var(--nav-brand);
-  color: var(--nav-text);
+
+  /* --nav-flyout-*: a brand theme's flyout (SWISS: www's white menu); defaults as before */
+  background-color: var(--nav-flyout-surface, var(--nav-brand));
+  color: var(--nav-flyout-text, var(--nav-text));
   overscroll-behavior: contain;
   transform: translateX(100%);
   transition: transform 0.8s var(--nav-ease), width 0.8s var(--nav-ease), max-width 0.8s var(--nav-ease);
@@ -384,7 +386,7 @@
   height: 71px;
   padding: 20px;
   border-bottom: 1px solid transparent;
-  background-color: var(--nav-brand);
+  background-color: var(--nav-flyout-surface, var(--nav-brand));
 }
 
 .header .nav-flyout-back,
@@ -399,7 +401,7 @@
   padding: 0;
   border: 0;
   background: none;
-  color: var(--nav-text);
+  color: var(--nav-flyout-text, var(--nav-text));
   cursor: pointer;
 }
 
@@ -413,7 +415,7 @@
 
 .header .nav-flyout-back:hover,
 .header .nav-flyout-close:hover {
-  color: #fff;
+  color: var(--nav-flyout-hover, #fff);
 }
 
 .header .nav-flyout-title {
@@ -475,7 +477,7 @@
   padding: 2px 0;
   border: 0;
   background: none;
-  color: #fff;
+  color: var(--nav-flyout-heading, #fff);
   font-family: var(--heading-font-family);
   font-size: calc(22px + 6 * (100vw - 375px) / 1065);
   font-weight: 700;
@@ -495,9 +497,13 @@
   left: 0;
   width: 0;
   height: 1px;
-  background-color: #fff;
+  background-color: var(--nav-flyout-heading, #fff);
   content: '';
   transition: width 0.6s var(--nav-ease);
+}
+
+.header .nav-flyout-item .lh-icon {
+  color: var(--nav-flyout-chevron, currentcolor);
 }
 
 .header .nav-flyout-item:hover span::after,
@@ -524,7 +530,7 @@
 
 .header .nav-flyout-group h3 {
   margin: 0 0 20px;
-  color: #fff;
+  color: var(--nav-flyout-heading, #fff);
   font-family: var(--heading-font-family);
   font-size: 20px;
   font-weight: 700;
@@ -549,15 +555,15 @@
 
 .header .nav-flyout-link,
 .header .nav-flyout-extra .nav-tool-label {
-  background: linear-gradient(#fff, #fff) 0 100% / 0 1px no-repeat;
+  background: linear-gradient(var(--nav-flyout-hover, #fff), var(--nav-flyout-hover, #fff)) 0 100% / 0 1px no-repeat;
   transition: background-size 0.6s var(--nav-ease);
 }
 
 .header .nav-flyout-link {
-  color: var(--nav-text);
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 27px;
+  color: var(--nav-flyout-text, var(--nav-text));
+  font-size: var(--nav-flyout-link-size, 18px);
+  font-weight: var(--nav-flyout-link-weight, 700);
+  line-height: var(--nav-flyout-link-line-height, 27px);
   text-decoration: none;
 }
 
@@ -588,10 +594,10 @@
   padding: 2px 0;
   border: 0;
   background: none;
-  color: var(--nav-text);
+  color: var(--nav-flyout-text, var(--nav-text));
   font-family: var(--body-font-family);
-  font-size: 14px;
-  font-weight: 700;
+  font-size: var(--nav-flyout-extra-size, 14px);
+  font-weight: var(--nav-flyout-extra-weight, 700);
   line-height: 1.5;
   text-align: left;
   text-decoration: none;
@@ -600,7 +606,7 @@
 
 .header .nav-flyout-link:hover,
 .header .nav-flyout-extra:hover {
-  color: #fff;
+  color: var(--nav-flyout-hover, #fff);
 }
 
 .header .nav-flyout-link:hover,
@@ -611,7 +617,7 @@
 .header .nav-flyout-login {
   margin-top: 20px;
   padding-top: 20px;
-  border-top: 1px solid var(--nav-line);
+  border-top: 1px solid var(--nav-flyout-line, var(--nav-line));
 }
 
 @media (width >= 1025px) {
@@ -678,7 +684,7 @@
     display: flex;
     flex: 0 0 50%;
     max-width: 50%;
-    border-right: 1px solid var(--nav-line);
+    border-right: 1px solid var(--nav-flyout-line, var(--nav-line));
   }
 
   .header .nav-flyout-menu > li + li {
