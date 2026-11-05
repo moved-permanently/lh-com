@@ -10,6 +10,7 @@ import { uiIcon, inlineIcon, takeIconName } from '../../scripts/lh-icons.js';
 import { getChannel, isFlynetHiddenLink, FLYNET_LOCALES } from '../../scripts/channel.js';
 import { isDemoHost } from '../../scripts/demo.js';
 import { isOwnWwwHost } from '../../scripts/brand.js';
+import { panelTabOrder, nextInOrder } from './header-focus.js';
 
 /*
  * Lufthansa header. Nav document (/{cc}/{ll}/nav), one section each:
@@ -630,22 +631,23 @@ function buildFlyout({
     if (document.querySelector('dialog.nav-locale[open]')) return;
     if (e.key === 'Escape') {
       e.preventDefault();
+      // an open panel first, the focus back on its tab; then the menu, the focus on its button
+      if (active >= 0) {
+        collapse();
+        return;
+      }
       // eslint-disable-next-line no-use-before-define
       closeFlyout();
       return;
     }
     if (e.key === 'Tab') {
-      const nodes = focusables(panel);
-      if (!nodes.length) return;
-      const first = nodes[0];
-      const last = nodes[nodes.length - 1];
-      if (e.shiftKey && document.activeElement === first) {
-        e.preventDefault();
-        last.focus();
-      } else if (!e.shiftKey && document.activeElement === last) {
-        e.preventDefault();
-        first.focus();
-      }
+      // the open panel's links right after its tab (./header-focus.js), wrapping inside the menu
+      const [tab, sub] = active >= 0 ? [buttons[active], subs[active]] : [null, null];
+      const order = panelTabOrder(focusables(panel), tab, sub);
+      const next = nextInOrder(order, document.activeElement, e.shiftKey);
+      if (!next) return;
+      e.preventDefault();
+      next.focus();
       return;
     }
     const at = buttons.indexOf(document.activeElement);
