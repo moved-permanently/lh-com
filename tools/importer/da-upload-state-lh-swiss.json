@@ -16146,9 +16146,9 @@
    "preview": "2026-11-03T01:38:52.481Z"
   },
   "/magazine/de": {
-   "uploaded": "2026-11-02T23:35:28.593Z",
-   "mtime": 1793662091271,
-   "preview": "2026-11-02T23:35:30.943Z"
+   "uploaded": "2026-11-05T18:23:58.902Z",
+   "mtime": 1793902218913,
+   "preview": "2026-11-05T18:24:02.173Z"
   },
   "/magazine/de/contact": {
    "uploaded": "2026-11-02T23:35:32.835Z",
@@ -16156,14 +16156,14 @@
    "preview": "2026-11-02T23:35:34.731Z"
   },
   "/magazine/de/inside-swiss": {
-   "uploaded": "2026-11-02T23:35:36.662Z",
-   "mtime": 1793662091325,
-   "preview": "2026-11-02T23:35:38.953Z"
+   "uploaded": "2026-11-05T18:24:07.730Z",
+   "mtime": 1793902218959,
+   "preview": "2026-11-05T18:24:10.409Z"
   },
   "/magazine/de/inside-swiss/behind-the-scenes": {
-   "uploaded": "2026-11-02T23:35:40.745Z",
-   "mtime": 1793662091349,
-   "preview": "2026-11-02T23:35:42.626Z"
+   "uploaded": "2026-11-05T18:24:12.224Z",
+   "mtime": 1793902218982,
+   "preview": "2026-11-05T18:24:14.435Z"
   },
   "/magazine/de/inside-swiss/sustainability": {
    "uploaded": "2026-11-02T23:35:44.367Z",
@@ -16231,9 +16231,9 @@
    "preview": "2026-11-02T23:36:34.608Z"
   },
   "/magazine/en": {
-   "uploaded": "2026-11-03T01:56:12.032Z",
-   "mtime": 1793670839709,
-   "preview": "2026-11-03T01:56:14.724Z"
+   "uploaded": "2026-11-05T18:23:37.310Z",
+   "mtime": 1793902218764,
+   "preview": "2026-11-05T18:23:40.594Z"
   },
   "/magazine/en/contact": {
    "uploaded": "2026-11-02T23:36:40.970Z",
@@ -16241,14 +16241,14 @@
    "preview": "2026-11-02T23:36:42.795Z"
   },
   "/magazine/en/inside-swiss": {
-   "uploaded": "2026-11-03T01:56:16.499Z",
-   "mtime": 1793670837701,
-   "preview": "2026-11-03T01:56:18.574Z"
+   "uploaded": "2026-11-05T18:23:47.051Z",
+   "mtime": 1793902218836,
+   "preview": "2026-11-05T18:23:49.124Z"
   },
   "/magazine/en/inside-swiss/behind-the-scenes": {
-   "uploaded": "2026-11-02T23:36:48.227Z",
-   "mtime": 1793662091788,
-   "preview": "2026-11-02T23:36:49.889Z"
+   "uploaded": "2026-11-05T18:23:50.846Z",
+   "mtime": 1793902218861,
+   "preview": "2026-11-05T18:23:53.177Z"
   },
   "/magazine/en/inside-swiss/behind-the-scenes/a330-retrofit-in-hongkong": {
    "uploaded": "2026-11-02T23:36:51.527Z",
@@ -16411,9 +16411,9 @@
    "preview": "2026-11-02T23:38:50.670Z"
   },
   "/magazine/de/inside-swiss/behind-the-scenes/a350-special-livery": {
-   "uploaded": "2026-11-02T23:38:52.587Z",
-   "mtime": 1793662092625,
-   "preview": "2026-11-02T23:38:54.481Z"
+   "uploaded": "2026-11-05T18:24:16.449Z",
+   "mtime": 1793902219010,
+   "preview": "2026-11-05T18:24:18.925Z"
   },
   "/magazine/de/inside-swiss/behind-the-scenes/across-time-zones-new-years-eve-with-the-crew": {
    "uploaded": "2026-11-02T23:38:56.299Z",
@@ -18711,9 +18711,9 @@
    "preview": "2026-11-03T00:14:03.345Z"
   },
   "/magazine/en/inside-swiss/behind-the-scenes/a350-special-livery": {
-   "uploaded": "2026-11-03T00:14:04.712Z",
-   "mtime": 1793663289141,
-   "preview": "2026-11-03T00:14:06.704Z"
+   "uploaded": "2026-11-05T18:23:54.810Z",
+   "mtime": 1793902218887,
+   "preview": "2026-11-05T18:23:57.120Z"
   },
   "/magazine/en/inside-swiss/behind-the-scenes/across-time-zones-new-years-eve-with-the-crew": {
    "uploaded": "2026-11-03T00:14:08.388Z",
@@ -19126,9 +19126,9 @@
    "preview": "2026-11-03T00:19:27.358Z"
   },
   "/magazine/de/nav": {
-   "uploaded": "2026-11-03T00:19:28.943Z",
-   "mtime": 1793663293425,
-   "preview": "2026-11-03T00:19:31.827Z"
+   "uploaded": "2026-11-05T18:24:03.877Z",
+   "mtime": 1793902218935,
+   "preview": "2026-11-05T18:24:05.826Z"
   },
   "/magazine/de/footer": {
    "uploaded": "2026-11-03T00:19:33.137Z",
@@ -19136,9 +19136,9 @@
    "preview": "2026-11-03T00:19:35.478Z"
   },
   "/magazine/en/nav": {
-   "uploaded": "2026-11-03T00:19:36.879Z",
-   "mtime": 1793663293491,
-   "preview": "2026-11-03T00:19:38.786Z"
+   "uploaded": "2026-11-05T18:23:42.917Z",
+   "mtime": 1793902218788,
+   "preview": "2026-11-05T18:23:45.269Z"
   },
   "/magazine/en/footer": {
    "uploaded": "2026-11-03T00:19:40.260Z",
@@ -25459,6 +25459,9 @@
  "media": {
   "/media-da/swiss/product-voucher.png": {
    "at": "2026-11-02T11:00:19.660Z"
+  },
+  "/media-da/magazine/swiss-magazine-logo.svg": {
+   "at": "2026-11-05T18:23:41.657Z"
   }
  }
 }

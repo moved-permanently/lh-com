@@ -1,0 +1,11 @@
+# lh-swiss magazine documents changed in brief 400 (uploaded to DA and previewed on main--lh-swiss--moved-permanently.aem.page; not published), plus the logo file /media-da/magazine/swiss-magazine-logo.svg
+/magazine/en
+/magazine/en/nav
+/magazine/en/inside-swiss
+/magazine/en/inside-swiss/behind-the-scenes
+/magazine/en/inside-swiss/behind-the-scenes/a350-special-livery
+/magazine/de
+/magazine/de/nav
+/magazine/de/inside-swiss
+/magazine/de/inside-swiss/behind-the-scenes
+/magazine/de/inside-swiss/behind-the-scenes/a350-special-livery
