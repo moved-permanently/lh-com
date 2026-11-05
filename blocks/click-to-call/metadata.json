@@ -1,0 +1,21 @@
+{
+  "variantName": "click-to-call",
+  "baseBlock": "click-to-call",
+  "canonicalModel": "standalone",
+  "sourceUrl": "https://www.flytap.com/en-pt/manage-booking/extras/seats",
+  "visualCharacteristics": {
+    "purpose": "TAP's call-back card on the extras pages: an agent calls the visitor back about seats and extras",
+    "traits": [
+      "light green card, the picture at the right from 1024 px and on top on phones",
+      "title, text, a telephone with its country code, a day and an hour",
+      "outline button 'Schedule contact' and the service hours under it"
+    ]
+  },
+  "contentPattern": {
+    "structure": "Rows of a key and a value: Title, Text, Schedule, Image, Mobile image, Link (the page on www.flytap.com)."
+  },
+  "options": [],
+  "memberVariantIds": [],
+  "usage": "www.flytap.com's extras pages (seats, baggage, meals and others), where CoreMedia Engagement Cloud's call-back card shows.",
+  "reuseGuidance": "TAP only. The button opens the Link on www, where TAP's call-back service takes the number; the replica sends nothing."
+}

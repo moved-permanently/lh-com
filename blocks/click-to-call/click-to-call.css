@@ -1,0 +1,164 @@
+/* click-to-call: www.flytap.com's call-back card (parity row 66): light green, 16 px corners on
+   phones with the picture on top and the text 20 px in, 32 px from 1024 px with the text at the
+   left (64 px in, 1120 x 443 at 1440) and the picture at the right; GT Flexa title (24 / 28 px, 700), the fields white
+   with www's 1 px #e0dfe2 edge, the outline button in TAP green */
+.click-to-call {
+  overflow: hidden;
+  border-radius: 16px;
+  background-color: #f0faf2;
+  color: #424045;
+}
+
+.click-to-call .click-to-call-media {
+  display: none;
+}
+
+.click-to-call .click-to-call-media-mobile img {
+  display: block;
+  width: 100%;
+  height: 199px;
+  object-fit: cover;
+}
+
+.click-to-call .click-to-call-content {
+  padding: 20px;
+}
+
+.click-to-call .click-to-call-title {
+  margin: 0;
+  font-family: var(--heading-font-family);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #424045;
+}
+
+.click-to-call .click-to-call-text {
+  margin-top: 16px;
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+.click-to-call .click-to-call-text p {
+  margin: 0;
+}
+
+.click-to-call .click-to-call-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.click-to-call .click-to-call-phone-row,
+.click-to-call .click-to-call-when {
+  display: flex;
+  border: 1px solid #e0dfe2;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+.click-to-call .click-to-call-phone-row > *,
+.click-to-call .click-to-call-when > * {
+  box-sizing: border-box;
+  min-width: 0;
+  height: 40px;
+  margin: 0;
+  border: 0;
+  background-color: transparent;
+  color: #65626a;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+}
+
+.click-to-call .click-to-call-code {
+  flex: 0 0 130px;
+  padding: 0 12px;
+  border-right: 1px solid #e0dfe2;
+}
+
+.click-to-call .click-to-call-phone {
+  flex: 1;
+  padding: 0 12px;
+}
+
+.click-to-call .click-to-call-when > select {
+  flex: 1;
+  padding: 0 12px;
+}
+
+.click-to-call .click-to-call-when > select + select {
+  border-left: 1px solid #e0dfe2;
+}
+
+.click-to-call .click-to-call-submit {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 40px;
+  margin: 0;
+  padding: 0 30px;
+  border: 1px solid #65c922;
+  border-radius: 20px;
+  background-color: #fff;
+  color: #2c7839;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 40px;
+  cursor: pointer;
+}
+
+.click-to-call .click-to-call-submit:hover {
+  background-color: #65c922;
+  color: #000;
+}
+
+.click-to-call .click-to-call-schedule {
+  margin: 16px 0 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+@media (width >= 1024px) {
+  .click-to-call {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    border-radius: 32px;
+  }
+
+  .click-to-call .click-to-call-media-mobile {
+    display: none;
+  }
+
+  .click-to-call .click-to-call-media {
+    display: block;
+  }
+
+  .click-to-call .click-to-call-media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .click-to-call .click-to-call-content {
+    padding: 64px;
+  }
+
+  .click-to-call .click-to-call-title {
+    font-size: 28px;
+  }
+
+  .click-to-call .click-to-call-text {
+    font-size: 18px;
+  }
+
+  .click-to-call .click-to-call-code {
+    flex-basis: 210px;
+  }
+
+  .click-to-call .click-to-call-submit {
+    width: auto;
+    align-self: flex-start;
+  }
+}
