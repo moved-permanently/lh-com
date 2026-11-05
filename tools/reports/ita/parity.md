@@ -62,7 +62,9 @@ replica has no block for.
   - the dots are 24 x 24 (87f5d985).
 - **Shared, since fixed:** Chromium's native date fields made three Tab stops per date
   (day, month, year); fixed in the flight search (3ba047f7, every brand): one stop per date, a readonly field that opens the
-  browser's calendar (Enter, Space, Alt+Down, a click), as www's one field.
+  browser's calendar (Enter, Space, Alt+Down, a click), as www's one field. Checked against
+  ita-parity-001: www's date field is a readonly "Departure - Return" input and its "Select date"
+  button (two stops), as on the other brands; ours two stops (departure, return).
 
 ## Checked after the push
 
