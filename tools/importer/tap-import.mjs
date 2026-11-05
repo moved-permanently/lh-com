@@ -230,6 +230,7 @@ function marked(nodes, c) {
   run.forEach((n, i) => {
     if (!n || typeof n !== 'object') return;
     if (n.nodeType === 'text') {
+      if (c.dropSubSup && ((n.format && n.format.variants) || []).some((v) => v === 'subscript' || v === 'superscript')) return;
       const [, lead, core, trail] = esc(n.value).match(/^(\s*)([\s\S]*?)(\s*)$/);
       if (!core) { pending += lead; return; }
       const want = new Set(marksOf(n));
@@ -412,6 +413,9 @@ class Page {
 
   rich(v, mode) { return richText(v, this.c, this.cell ? 'cell' : (mode || 'top')); }
 
+  /** A card's description: www leaves out its sub- and superscript text (parity 97). */
+  cardRich(v) { return richText(v, { ...this.c, dropSubSup: true }, this.cell ? 'cell' : 'top'); }
+
   link(url, label, kind) {
     const href = linkOf(url, this.c);
     if (!href || !label) return '';
@@ -513,8 +517,9 @@ function cards(items, P, s) {
   if (first === 'SimpleGenericCardModel') {
     // www's text cards, so many to a row (itemsPerRow): cards with the option three-up / four-up
     // (tap.css lays them out so; cards keeps the buttons, cards-teaser would make them arrows)
-    const up = { 3: 'cards (three-up)', 4: 'cards (four-up)' }[s.itemsPerRow] || 'cards';
-    P.block(up, items.map((x) => [`${x.icon ? P.img(x.icon) : ''}${P.heading(3, x.title)}${P.rich(x.description)}${P.ctas(x)}`]));
+    // (one a row: one-up, Wi-Fi's data packages, parity 98)
+    const up = { 1: 'cards (one-up)', 3: 'cards (three-up)', 4: 'cards (four-up)' }[s.itemsPerRow] || 'cards';
+    P.block(up, items.map((x) => [`${x.icon ? P.img(x.icon) : ''}${P.heading(3, x.title)}${P.cardRich(x.description)}${P.ctas(x)}`]));
     return;
   }
   const rows = items.map((x) => {
@@ -524,10 +529,10 @@ function cards(items, P, s) {
       return [P.img(x.image), `${cat}${links ? `<ul>${links}</ul>` : ''}`];
     }
     const desc = x.genericCard1Description || x.genericCard2Description || x.description;
-    return [P.img(x.image), `${x.category ? `<p>${esc(x.category)}</p>` : ''}${P.heading(3, x.title)}${P.rich(desc)}${x.date ? `<p>${esc(x.date)}</p>` : ''}${P.ctas(x)}`];
+    return [P.img(x.image), `${x.category ? `<p>${esc(x.category)}</p>` : ''}${P.heading(3, x.title)}${P.cardRich(desc)}${x.date ? `<p>${esc(x.date)}</p>` : ''}${P.ctas(x)}`];
   });
   const carousel = s.desktopType === 'carousel';
-  const per = { 3: ' (three-up)', 4: ' (four-up)' }[s.itemsPerRow] || '';
+  const per = { 1: ' (one-up)', 3: ' (three-up)', 4: ' (four-up)' }[s.itemsPerRow] || '';
   P.block(carousel ? 'carousel-cards' : `cards-teaser${per}`, rows);
 }
 
@@ -676,7 +681,7 @@ const HANDLERS = {
   },
   ComponentFeatureCardModel: (s, P) => {
     // its title an H3, as www's (330 of 331; the theme's TAP H3, parity 60)
-    const text = `${P.heading(3, s.title)}${P.rich(s.featureCardDescription)}${P.rich(s.complementaryNote)}${P.link(s.ctaUrl, s.ctaLabel, 'primary')}`;
+    const text = `${P.heading(3, s.title)}${P.cardRich(s.featureCardDescription)}${P.cardRich(s.complementaryNote)}${P.link(s.ctaUrl, s.ctaLabel, 'primary')}`;
     P.block('columns-media', [s.switchImageToRight ? [text, P.img(s.image)] : [P.img(s.image), text]]);
   },
   ComponentInfoSectionModel: (s, P) => {
@@ -749,7 +754,21 @@ const HANDLERS = {
       const [title, note] = String(t).split('|');
       return `${esc(title.trim())}${note ? `<br><em>${esc(note.trim())}</em>` : ''}`;
     });
-    const rows = [['', ...cols.map((c) => esc(c.heading))], ...titles.map((t, i) => [t, ...cols.map((c) => esc((c.items || [])[i] ?? ''))])];
+    // a value: "[yes]" www's check (✓), "[no]" its cross (✕), "value|note" the value and its note
+    // (www's tooltip) under it, as the row titles' (parity 95)
+    const mark = { '[yes]': '✓', '[no]': '✕' };
+    const cellOf = (v) => {
+      const [value, note] = String(v ?? '').split('|');
+      const t = value.trim();
+      return `${mark[t] || esc(t)}${note && note.trim() ? `<br><em>${esc(note.trim())}</em>` : ''}`;
+    };
+    // a column's heading, its description (the Club's price) and tooltip under it, as www's (parity 96)
+    const headOf = (c) => {
+      const desc = plainOf(c.tableColumnDescription);
+      return `${esc(c.heading)}${desc && desc.trim() ? `<br>${esc(desc.trim())}` : ''}${c.tooltip && String(c.tooltip).trim() ? `<br><em>${esc(String(c.tooltip).trim())}</em>` : ''}`;
+    };
+    const rows = [['', ...cols.map(headOf)], ...titles.map((t, i) => [t, ...cols.map((c) => cellOf((c.items || [])[i]))])];
+    const marks = cols.some((c) => (c.items || []).some((v) => mark[String(v).split('|')[0].trim()]));
     const ctas = cols.map((c) => P.link(c.ctaUrl, c.ctaLabel, 'primary').replace(/^<p>|<\/p>$/g, ''));
     if (ctas.some(Boolean)) rows.push(['', ...ctas]);
     if (P.cell) {
@@ -757,7 +776,11 @@ const HANDLERS = {
     } else {
       P.block(cols.length > 3 ? 'table-striped (header, matrix)' : 'table-striped (header)', rows);
     }
-    P.add(P.rich(s.tableComplementaryNotes));
+    // www's legend of the marks and its notes, each under its H2 (its texts, the common store)
+    const t = (k, d) => i18nOf(P.c.pageProps, P.c.lang, k) || d;
+    if (marks) P.add(`${P.heading(2, t('caption', 'Legenda'))}<ul><li>✓ ${esc(t('service-included', 'Serviço incluído'))}</li><li>✕ ${esc(t('service-not-included', 'Serviço não incluído'))}</li></ul>`);
+    const notes = P.rich(s.tableComplementaryNotes);
+    if (notes) P.add(`${marks ? P.heading(2, t('notes', 'Notas')) : ''}${notes}`);
   },
   ComponentTabsItemsListModel: (s, P) => {
     // tabs in tabs (route group, cabin): a heading per group, its items as accordion-columns

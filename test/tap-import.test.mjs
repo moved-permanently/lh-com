@@ -776,7 +776,8 @@ describe('tap-import pages', () => {
   it('fares: a heading per route group, its cabins as accordion-columns (tabs) with the fare table in each panel', () => {
     const { html, report } = convertPage(nd('tarifas-tap'), ctx('https://www.flytap.com/pt-pt/reservas/tarifas-tap'));
     const d = dom(html);
-    assert.deepEqual([...d.querySelectorAll('h2')].map((h) => h.textContent), ['Voos para Europa e Norte de África', 'Voos intercontinentais']);
+    // (each fare table's legend and notes under their H2s, as www: parity 95)
+    assert.deepEqual([...d.querySelectorAll('h2')].map((h) => h.textContent).filter((t) => !/^(Legenda|Notas)$/.test(t)), ['Voos para Europa e Norte de África', 'Voos intercontinentais']);
     const tabs = d.querySelectorAll('.accordion-columns.tabs');
     assert.equal(tabs.length, 2);
     const first = tabs[0].querySelector(':scope > div');
@@ -786,6 +787,67 @@ describe('tap-import pages', () => {
     assert.deepEqual([...table.querySelectorAll('tr:first-child th')].map((x) => x.textContent), ['', 'Discount', 'Classic', 'Plus']);
     assert.ok(table.querySelector('tr:nth-child(2)').textContent.startsWith('Bagagem de mão'));
     assert.deepEqual(report.generic, []);
+  });
+
+  it('a fare table\'s cells as www shows them (parity 95): [yes] ✓, [no] ✕, "value|note" the value and its note; www\'s legend and notes after it', () => {
+    const tabs = nd('tarifas-tap').props.pageProps.page.sections[1];
+    const table = structuredClone(tabs.tabs[0].tabsItems[0].sections.find((s) => s.__typename === 'ComponentTableModel'));
+    table.columns[0].items.push('[no]');
+    table.rowTitles = [...(table.rowTitles || []), 'Bagagem prioritária'];
+    const store = { pt: { common: { caption: 'Legenda', 'service-included': 'Serviço incluído', 'service-not-included': 'Serviço não incluído', notes: 'Notas' } } };
+    const page = { props: { pageProps: { _nextI18Next: { initialI18nStore: store }, page: { title: 'T', sections: [{ __typename: 'ComponentHeadingModel', title: 'T' }, { ...table, tableComplementaryNotes: { plaintext: 'As tarifas aqui apresentadas podem não estar disponíveis em todos os voos TAP.' } }] } } } };
+    const html = convertPage(page, ctx('https://www.flytap.com/pt-pt/reservas/tarifas-tap')).html;
+    assert.ok(!/\[(yes|no)\]/.test(html), 'no raw [yes] / [no]');
+    assert.ok(!/50 lbs\|/.test(html), 'no raw "value|note"');
+    const d = dom(html);
+    const cells = [...d.querySelectorAll('.table-striped > div > div')].map((c) => c.textContent);
+    assert.ok(cells.some((c) => c.startsWith('✓')) && cells.includes('✕'));
+    const noted = [...d.querySelectorAll('.table-striped > div > div')].find((c) => c.querySelector('em') && c.textContent.startsWith('1 x 23 kg / 50 lbs'));
+    assert.ok(noted && /^Em voos entre Portugal/.test(noted.querySelector('em').textContent), 'the note under its value');
+    // www's legend and notes: H2s with its texts
+    const after = [...d.querySelectorAll('h2')].map((h) => h.textContent);
+    assert.deepEqual(after.filter((t) => /Legenda|Notas/.test(t)), ['Legenda', 'Notas']);
+    assert.ok(d.body.textContent.includes('✓ Serviço incluído') && d.body.textContent.includes('✕ Serviço não incluído'));
+  });
+
+  it('a table column\'s description (the Club\'s price) and tooltip under its heading, as www (parity 96)', () => {
+    const col = (heading, price, tooltip) => ({
+      __typename: 'TableColumnModel', heading, tableColumnDescription: { plaintext: price }, tooltip, items: ['2.000', '[yes]'], ctaLabel: 'Aderir', ctaUrl: '/minha-conta/gestao-milhas/club',
+    });
+    const table = { __typename: 'ComponentTableModel', rowTitles: ['Milhas Bónus imediatas na adesão', 'Embarque Premium'], columns: [col('Club Basic', '109 EUR / ano'), col('Club Platinum+', '1 189 EUR / ano', 'Oferta limitada')] };
+    const page = { props: { pageProps: { page: { title: 'Club', sections: [{ __typename: 'ComponentHeadingModel', title: 'Club' }, table] } } } };
+    const d = dom(convertPage(page, ctx('https://www.flytap.com/pt-pt/miles-and-go/club')).html);
+    const head = [...d.querySelector('.table-striped > div').children].map((c) => c.innerHTML);
+    assert.deepEqual(head, ['', 'Club Basic<br>109 EUR / ano', 'Club Platinum+<br>1 189 EUR / ano<br><em>Oferta limitada</em>']);
+  });
+
+  it('a card\'s description without its sub- and superscript text, as www (parity 97: cards 126 of 126; rich text keeps it)', () => {
+    const t = (value, ...v) => ({ nodeType: 'text', value, format: { variants: v } });
+    const desc = { json: [{ nodeType: 'paragraph', content: [t('Envie mensagens com emojis incluídos '), t('(1)', 'subscript'), t('.')] }] };
+    const page = {
+      props: {
+        pageProps: {
+          page: {
+            title: 'Wi-Fi',
+            sections: [{ __typename: 'ComponentHeadingModel', title: 'Wi-Fi' },
+              { __typename: 'ComponentGenericCardListModel', items: [{ __typename: 'GenericCard1Model', title: 'Free messaging', genericCard1Description: desc }] },
+              { __typename: 'ComponentFeatureCardModel', title: 'Bagagem', featureCardDescription: { json: [{ nodeType: 'paragraph', content: [t('Compre online '), t('(1)', 'superscript'), t(', e poupe.')] }] } },
+              { __typename: 'ComponentRichTextBlockModel', richTextContent: { json: [{ nodeType: 'paragraph', content: [t('(1) Renovação gratuita', 'subscript')] }] } }],
+          },
+        },
+      },
+    };
+    const html = convertPage(page, ctx('https://www.flytap.com/pt-pt/a-bordo/wi-fi')).html;
+    assert.ok(html.includes('Envie mensagens com emojis incluídos .'), 'the card: "(1)" left out, as www');
+    assert.ok(html.includes('Compre online , e poupe.'), 'the feature card alike');
+    assert.ok(html.includes('(1) Renovação gratuita'), 'a rich text keeps it (www shows it there)');
+  });
+
+  it('a card list of one a row (itemsPerRow 1, Wi-Fi\'s data packages): the option one-up (parity 98)', () => {
+    const list = (type) => ({ __typename: 'ComponentGenericCardListModel', itemsPerRow: 1, desktopType: 'grid', items: [{ __typename: type, title: 'Light', description: { plaintext: '1 h.' }, genericCard1Description: { plaintext: '1 h.' } }] });
+    const page = (type) => ({ props: { pageProps: { page: { title: 'Wi-Fi', sections: [{ __typename: 'ComponentHeadingModel', title: 'Wi-Fi' }, list(type)] } } } });
+    assert.ok(dom(convertPage(page('GenericCard1Model'), ctx()).html).querySelector('.cards-teaser.one-up'));
+    assert.ok(dom(convertPage(page('SimpleGenericCardModel'), ctx()).html).querySelector('.cards.one-up'));
   });
 
   it('a fare table at the top level is table-striped (header)', () => {
