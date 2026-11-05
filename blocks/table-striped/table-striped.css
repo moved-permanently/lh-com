@@ -258,6 +258,27 @@
   mask: var(--table-striped-info) center / 24px no-repeat;
 }
 
+/* a column heading's (i) at the cell's top right, beside the heading as www.flytap.com's (the
+   Club's "Club Platinum+"): out of the text's flow; a float keeps the heading's first line clear
+   of it (the lines under it keep the cell's width) */
+.table-striped thead th:has(> .table-striped-info) {
+  position: relative;
+}
+
+.table-striped thead th:has(> .table-striped-info)::before {
+  content: '';
+  float: right;
+  width: 24px;
+  height: 24px;
+}
+
+.table-striped thead .table-striped-info {
+  position: absolute;
+  top: 23px;
+  right: 8px;
+  margin: 0;
+}
+
 .table-striped .table-striped-info:focus-visible {
   outline: 2px solid var(--focus-color);
   outline-offset: 2px;

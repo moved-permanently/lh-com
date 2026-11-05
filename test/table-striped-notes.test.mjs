@@ -90,7 +90,7 @@ test('the notes: the text, then an (i) with the note; no line break or italics l
   assert.equal(value.tagName, 'TD');
   assert.ok(wrapped.querySelector('.table-striped-info'));
   [head, label, value, wrapped].forEach((c) => {
-    assert.equal(c.querySelector('em, i'), null);
+    assert.ok(c.querySelector('em, i') === null);
     assert.ok(!/<br>\s*<button/.test(c.innerHTML), c.innerHTML);
   });
   assert.equal(label.textContent, 'Embarque Premium');
@@ -177,4 +177,22 @@ test('CSS: the (i) 24px, 8px after the text; the block a box for the tooltip', (
   assert.match(rule('.table-striped .table-striped-info::before'), /mask: var\(--table-striped-info\)/);
   assert.match(rule('.table-striped .table-striped-info:focus-visible'), /outline: 2px solid var\(--focus-color\)/);
   assert.match(rule('.table-striped:has(> .table-striped-tooltip)'), /position: relative;/);
+});
+
+test('CSS: a column heading\'s (i) at the cell\'s top right beside the heading, room kept for it (brief 406: www keeps it beside "Club Platinum+")', () => {
+  const css = fs.readFileSync('blocks/table-striped/table-striped.css', 'utf8');
+  const rule = (sel) => (css.match(new RegExp(`(?:^|\\n)${sel.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')} \\{([^}]*)\\}`)) || [])[1] || '';
+  const heading = rule('.table-striped thead th:has(> .table-striped-info)');
+  assert.match(heading, /position: relative;/);
+  assert.ok(!/padding/.test(heading), 'the lines under the first keep the cell\'s width');
+  const room = rule('.table-striped thead th:has(> .table-striped-info)::before');
+  assert.match(room, /float: right;/);
+  assert.match(room, /width: 24px;/);
+  const info = rule('.table-striped thead .table-striped-info');
+  assert.match(info, /position: absolute;/);
+  assert.match(info, /top: 23px;/);
+  assert.match(info, /right: 8px;/);
+  assert.match(info, /margin: 0;/);
+  // after option matrix's heading padding, so it wins there too
+  assert.ok(css.indexOf('.table-striped thead th:has(> .table-striped-info)') > css.indexOf('.table-striped.matrix thead th {'));
 });
