@@ -3,7 +3,8 @@
  * information, insurance, time to think …; tools/reports/tap/parity.md row 63). One cell: a
  * heading (www's H4) and its text or list. Shown as a light info-blue box with Material's info
  * icon beside the text and a close button at the top right. The close hides the alert for this
- * page view only, as www's: nothing is stored, the next load shows it again. The look:
+ * page view only, as www's: nothing is stored, the next load shows it again. Option static: no
+ * close button (the alerts www's data marks dismissable: false; row 101). The look:
  * info-alert.css.
  */
 
@@ -31,6 +32,12 @@ export default async function decorate(block) {
   const body = document.createElement('div');
   body.className = 'info-alert-body';
   body.append(icon, text);
+  // option static: an alert www shows without its close button (its data's dismissable: false,
+  // row 101)
+  if (block.classList.contains('static')) {
+    block.replaceChildren(body);
+    return;
+  }
   const lang = (document.documentElement.lang || '').slice(0, 2);
   const close = document.createElement('button');
   close.type = 'button';

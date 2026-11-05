@@ -50,7 +50,6 @@
 .info-alert .info-alert-text {
   flex: 1 1 auto;
   min-width: 0;
-  padding-right: 32px;
 }
 
 .info-alert .info-alert-text :is(h1, h2, h3, h4, h5, h6) {
@@ -65,15 +64,17 @@
 .info-alert .info-alert-text :is(p, li) {
   margin: 0;
   font-size: 14px;
+  font-weight: 500;
   line-height: 21px;
 }
 
+/* www: the text 4 px under the title (gap-1), a list in a 12 px margin and 12 px padding (m-3 p-3),
+   the markers in its padding */
 .info-alert .info-alert-text :is(p, ul, ol) {
-  margin-top: 12px;
+  margin-top: 4px;
 }
 
-/* (www: the list 16 px under the title's line and 24 px over the box's padding) */
 .info-alert .info-alert-text :is(ul, ol) {
-  margin-bottom: 0;
-  padding: 16px 0 24px 24px;
+  margin: 16px 12px 12px;
+  padding: 12px;
 }

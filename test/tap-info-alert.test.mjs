@@ -42,3 +42,29 @@ test('the look: www\'s blue box (#ebf2ff, a 4 px #99c0ff edge, 4 px corners, 16 
   css.replace(/\/\*[\s\S]*?\*\//g, '').split('}').map((r) => r.split('{')[0].trim()).filter((sel) => sel && !sel.startsWith('@'))
     .forEach((sel) => sel.split(/,(?![^(]*\))/).forEach((one) => assert.equal(one.trim().startsWith('.info-alert'), true, one)));
 });
+
+test('row 101: an alert www shows without its close button (dismissable: false, the import\'s info-alert (static)): no close; the text as wide as www lets it, under the close\'s corner too', async () => {
+  const { document: doc } = parseHTML('<!DOCTYPE html><html lang="en"><head></head><body><main><div class="section"><div class="info-alert static"><div><div><h4>Important information</h4><p>Insurance.</p></div></div></div></div></main></body></html>');
+  const was = globalThis.document;
+  globalThis.document = doc;
+  const block = doc.querySelector('.info-alert');
+  await decorate(block);
+  globalThis.document = was;
+  // (booleans: a failing assert on a linkedom node prints the whole document)
+  assert.equal(Boolean(block.querySelector('.info-alert-close')), false, 'no close button');
+  assert.equal(String((block.querySelector('.info-alert-text h4') || {}).textContent), 'Important information');
+  assert.equal(Boolean(block.querySelector('.info-alert-icon')), true, 'the icon');
+  const css = fs.readFileSync(new URL('../blocks/info-alert/info-alert.css', import.meta.url), 'utf8');
+  assert.equal(/\.info-alert \.info-alert-text \{[^}]*padding-right/.test(css), false, 'www keeps no room for the close at the right');
+});
+
+test('row 101: the text as www lays it out: 4 px under the title, the list in a 12 px margin and 12 px padding (m-3 p-3), so its items wrap as www\'s', () => {
+  const css = fs.readFileSync(new URL('../blocks/info-alert/info-alert.css', import.meta.url), 'utf8');
+  assert.match(css, /\.info-alert \.info-alert-text :is\(p, ul, ol\) \{\s*margin-top: 4px;/);
+  assert.match(css, /\.info-alert \.info-alert-text :is\(ul, ol\) \{\s*margin: 16px 12px 12px;\s*padding: 12px;/);
+});
+
+test('row 101: the text www\'s font-medium (Inter 500)', () => {
+  const css = fs.readFileSync(new URL('../blocks/info-alert/info-alert.css', import.meta.url), 'utf8');
+  assert.match(css, /\.info-alert \.info-alert-text :is\(p, li\) \{[^}]*font-size: 14px;[^}]*font-weight: 500;[^}]*line-height: 21px;/);
+});

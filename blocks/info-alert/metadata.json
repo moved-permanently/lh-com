@@ -14,7 +14,12 @@
   "contentPattern": {
     "structure": "One cell: a heading (H4) and its text or list."
   },
-  "options": [],
+  "options": [
+    {
+      "class": "static",
+      "label": "Static (no close button)"
+    }
+  ],
   "memberVariantIds": [],
   "usage": "www.flytap.com's 'Informação importante' alerts (check-in information, insurance, time to think and others).",
   "reuseGuidance": "TAP only. For a plain grey note use the section style highlight."
