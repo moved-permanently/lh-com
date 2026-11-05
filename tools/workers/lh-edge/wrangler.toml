@@ -135,6 +135,12 @@ URL_FORMS = "on"
 SITE_HOSTS = "discover.turnsthe.page=discover; ita.turnsthe.page=ita; austrian.turnsthe.page=austrian; austrian-cn.turnsthe.page=austrian; cargo.turnsthe.page=cargo; airdolomiti.turnsthe.page=airdolomiti; brussels.turnsthe.page=brussels; b2b.turnsthe.page=b2b; swiss.turnsthe.page=swiss; swiss-cn.turnsthe.page=swiss; tap.turnsthe.page=tap"
 SITE_ORIGINS = "discover=main--lh-discover--moved-permanently.aem.live; ita=main--lh-ita--moved-permanently.aem.live; austrian=main--lh-austrian--moved-permanently.aem.live; cargo=main--lh-cargo--moved-permanently.aem.live; airdolomiti=main--lh-airdolomiti--moved-permanently.aem.live; brussels=main--lh-brussels--moved-permanently.aem.live; b2b=main--lh-b2b--moved-permanently.aem.live; swiss=main--lh-swiss--moved-permanently.aem.live; tap=main--lh-tap--moved-permanently.aem.live"
 SITE_WWW_HOSTS = "discover=www.discover-airlines.com; ita=www.ita-airways.com; austrian=www.austrian.com; cargo=www.lufthansa-cargo.com; airdolomiti=www.airdolomiti.it; brussels=www.brusselsairlines.com; b2b=business.lufthansagroup.com; swiss=www.swiss.com; tap=www.flytap.com"
+# the group's one Message Center store (src/message-store.js): on the hosts of the sites with a
+# Message Center tenant (SWISS, Austrian, Brussels, ITA, Discover, B2B; not TAP, Air Dolomiti, Cargo,
+# which have their own source) the index, the CTI sheet, the messages and their details pages come
+# from this Edge Delivery origin; moving the store to a site of its own is a change of this var;
+# rollback / off: "" (each site reads its own /message-center/ again)
+MESSAGE_STORE_ORIGIN = "main--lh-com--moved-permanently.aem.live"
 # where a site's /digitalhangar/ (www's design-system files, the brand fonts) comes from; Cargo uses
 # Lufthansa's (www.lufthansa-cargo.com doesn't serve them), so does Austrian (www.lufthansa.com has the
 # same release with its fonts/austrian/; www.austrian.com refuses plain requests) and Brussels (its
