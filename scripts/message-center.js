@@ -11,8 +11,12 @@
  * The current travel information page per tenant: /message-center/config/cti-pages.json (tenant,
  * webPath with {cc}/{ll}, contentPath; optionally language: a row for one language, before the
  * tenant's row without one).
- * Each site reads its own index and sheet (same origin) and shows its own tenant's messages: the
- * tenant of its brand (scripts/brand.js BRANDS messageCenter), lh-com's 'lh' without a brand.
+ * One store for the group's airlines (262cee2): the brand hosts (swiss, austrian, brussels, ita,
+ * discover, b2b) read lh-com's index, sheet and message documents through lh-edge's message-store
+ * route (tools/workers/lh-edge/src/message-store.js, var MESSAGE_STORE_ORIGIN). The blocks still
+ * read same-origin paths and show their own tenant's messages only: the tenant of their brand
+ * (scripts/brand.js BRANDS messageCenter), lh-com's 'lh' without a brand. TAP, Air Dolomiti and
+ * Cargo keep their own index and sheet.
  * The sites without <cc>/<ll> roots (Cargo, Air Dolomiti; TAP's <ll>-<cc> roots): messageLocale.
  */
 
