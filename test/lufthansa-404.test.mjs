@@ -67,7 +67,7 @@ test('row 4: lh-com\'s article list as www\'s (titles, date line, descriptions, 
 
 test('row 21: lh-com\'s teaser CTAs keep the plain arrow when they open a new tab (www\'s maui-navigation-link variant hyper)', () => {
   const css = read('blocks/cards-teaser/cards-teaser.css');
-  const arrow = "M13.3 4.3 12 5.6l5.4 5.5H3v1.8h14.4L12 18.4l1.3 1.3L21 12z";
+  const arrow = 'M13.3 4.3 12 5.6l5.4 5.5H3v1.8h14.4L12 18.4l1.3 1.3L21 12z';
   // as specific as the external rule (its :not() parts), so it wins after it
   const m = css.match(/body\.brand-lufthansa \.cards-teaser \.cards-teaser-cta-link\[target="_blank"\]:not\(\[href\*="\/\/www\.lufthansa\.com"\]\):not\(\.cards-teaser-cta-own\)::before \{([^}]*)\}/);
   assert.ok(m, 'an lh-com rule after the external one');
