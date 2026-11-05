@@ -187,3 +187,25 @@ test('Austrian at/en: its window keeps the one tab', async () => {
   assert.deepEqual(tabsOf(dialog).map(text), ['Travel details']);
   assert.equal(dialog.querySelectorAll('.flight-search-miles').length, 0);
 });
+
+test('SWISS ch/fr and Brussels de/de (capture redeem-miles-002): the borrowed texts; ch/fr\'s enrolment SWISS\'s French page (www\'s link goes to Lufthansa\'s German one)', async () => {
+  at('swiss.turnsthe.page', '/ch/fr/homepage', 'swiss');
+  let dialog = dialogOf(await built());
+  let tabs = tabsOf(dialog);
+  assert.deepEqual(tabs.map(text), ['Informations sur le voyage', 'Échanger des Miles']);
+  let miles = panelOf(dialog, tabs[1]);
+  assert.equal(text(miles.querySelector('h3')), 'Vous avez le choix entre deux façons d’utiliser vos Miles.');
+  assert.equal(miles.querySelector('a.flight-search-miles-login').getAttribute('href'), '/ch/fr/login');
+  assert.equal(miles.querySelector('a.flight-search-miles-member').getAttribute('href'), 'https://swiss.miles-and-more.com/web/row/fr/enrolment.html?client_id=sAwlvrK8fb55GvHqM5Me9iAWpF9rchZL&redirect_uri=https://www.swiss.com');
+  assert.equal(miles.querySelector('a.flight-search-miles-awards-link').getAttribute('href'), 'https://www.miles-and-more.com/de/de/spend/flights.html');
+  at('brussels.turnsthe.page', '/de/de/homepage', 'brussels');
+  dialog = dialogOf(await built());
+  tabs = tabsOf(dialog);
+  assert.deepEqual(tabs.map(text), ['Reisedetails', 'Meilen einlösen']);
+  miles = panelOf(dialog, tabs[1]);
+  assert.equal(text(miles.querySelector('h3')), 'Sie haben zwei Möglichkeiten, Ihre Meilen einzulösen.');
+  assert.equal(text(miles.querySelector('a.flight-search-miles-member')), 'Jetzt anmelden');
+  assert.equal(miles.querySelector('a.flight-search-miles-login').getAttribute('href'), '/de/de/profile/login');
+  assert.equal(miles.querySelector('a.flight-search-miles-member').getAttribute('href'), 'https://brusselsairlines.miles-and-more.com/web/row/de/enrolment.html?client_id=FuBoxl39ln5fAfvIAX18xIi2BI4d6rny&redirect_uri=https://www.brusselsairlines.com');
+  assert.equal(miles.querySelector('a.flight-search-miles-awards-link').getAttribute('href'), 'https://www.miles-and-more.com/be/en/spend/flights.html');
+});
