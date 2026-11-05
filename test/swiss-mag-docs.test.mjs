@@ -16,7 +16,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { parseHTML } from 'linkedom';
 import {
-  transformDocument, parentOf, kindOf, MORE, LOGO, prepare,
+  transformDocument, parentOf, kindOf, MORE, LOGO, prepare, uploadArgs,
 } from '../tools/importer/swiss-mag-docs.mjs';
 
 const list = (p, rows = '') => `<div class="blog-overview grid"><div><div>Path</div><div>${p}</div></div><div><div>Page size</div><div>5</div></div>${rows}</div>`;
@@ -99,7 +99,9 @@ test('prepare from a folder: the changed documents as <path>.plain.html, changes
   put('/magazine/en/inside-swiss/behind-the-scenes/a350', doc(`<div><p>x</p>${meta({ 'page-type': 'article', Parent: '/magazine/en/inside-swiss/behind-the-scenes' })}</div>`));
   put('/magazine/en/inside-swiss/behind-the-scenes', doc(`<div>${HERO}${list('/magazine/en/inside-swiss/behind-the-scenes')}${meta({ 'page-type': 'overview' })}</div>`));
   const summary = await prepare({ from: src, out, langs: ['en'] });
-  assert.deepEqual(summary, { read: 4, changed: 3, unchanged: 1 });
+  assert.deepEqual(summary, {
+    read: 4, changed: 3, unchanged: 1, failed: 0,
+  });
   const changed = fs.readFileSync(path.join(out, 'changed-paths.txt'), 'utf8').trim().split('\n');
   assert.deepEqual(changed.sort(), ['/magazine/en', '/magazine/en/inside-swiss', '/magazine/en/inside-swiss/behind-the-scenes']);
   const tsv = fs.readFileSync(path.join(out, 'changes.tsv'), 'utf8');
@@ -109,4 +111,71 @@ test('prepare from a folder: the changed documents as <path>.plain.html, changes
   assert.ok(!plain.includes('<main>') && plain.includes('section-metadata'), 'the main\'s inner HTML, as da-upload sends it');
   assert.ok(fs.existsSync(path.join(out, LOGO.slice(1))), 'the logo next to the documents (da-upload uploads it once)');
   fs.rmSync(dir, { recursive: true, force: true });
+});
+
+// brief 409: admin.da.live's passing errors retried (status 0, 429, 5xx: three more tries with
+// a growing pause), a document still failing after them left out and listed (failed.tsv), the
+// others prepared; a list that fails stops the run (no partial list)
+const daFake = (answers) => {
+  const calls = [];
+  const request = (url) => {
+    calls.push(url);
+    const queue = answers[url.replace(/^https:\/\/admin\.da\.live\/(list|source)\/moved-permanently\/lh-swiss/, '$1:')];
+    if (!queue) return { status: 404, body: '' };
+    return queue.length > 1 ? queue.shift() : queue[0];
+  };
+  return { request, calls };
+};
+const listing = (items) => ({ status: 200, body: JSON.stringify(items.map(([p, ext]) => ({ path: `/moved-permanently/lh-swiss${p}${ext ? `.${ext}` : ''}`, ext }))) });
+
+test('prepare from DA: passing errors retried, a document that keeps failing listed, the others written', async () => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'mag-da-'));
+  const article = doc(`<div><p>x</p>${meta({ 'page-type': 'article' })}</div>`);
+  const { request, calls } = daFake({
+    'list:/magazine/en': [{ status: 503, body: '' }, listing([['/magazine/en/inside-swiss', ''], ['/magazine/en/nav', 'html']])],
+    'list:/magazine/en/inside-swiss': [listing([['/magazine/en/inside-swiss/a', 'html'], ['/magazine/en/inside-swiss/b', 'html']])],
+    'source:/magazine/en.html': [{ status: 0, body: '' }, { status: 429, body: '' }, { status: 200, body: home() }],
+    'source:/magazine/en/nav.html': [{ status: 200, body: doc('<div><p>nav</p></div>') }],
+    'source:/magazine/en/inside-swiss/a.html': [{ status: 502, body: '' }, { status: 200, body: article }],
+    'source:/magazine/en/inside-swiss/b.html': [{ status: 500, body: '' }],
+  });
+  const summary = await prepare({
+    from: 'da', out: dir, langs: ['en'], request, pause: () => {},
+  });
+  assert.deepEqual(summary, {
+    read: 3, changed: 2, unchanged: 1, failed: 1,
+  });
+  assert.equal(calls.filter((u) => u.endsWith('/magazine/en/inside-swiss/b.html')).length, 4, 'one try and three more');
+  assert.equal(calls.filter((u) => u.endsWith('/source/moved-permanently/lh-swiss/magazine/en.html')).length, 3);
+  assert.equal(fs.readFileSync(path.join(dir, 'failed.tsv'), 'utf8'), 'path\tstatus\n/magazine/en/inside-swiss/b\t500\n');
+  assert.deepEqual(fs.readFileSync(path.join(dir, 'changed-paths.txt'), 'utf8').trim().split('\n').sort(), ['/magazine/en', '/magazine/en/inside-swiss/a']);
+  fs.rmSync(dir, { recursive: true, force: true });
+});
+
+test('prepare from DA: a 404 is no passing error (no retry); a list that keeps failing stops the run', async () => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'mag-da-'));
+  const gone = daFake({
+    'list:/magazine/en': [listing([['/magazine/en/gone', 'html']])],
+  });
+  const summary = await prepare({
+    from: 'da', out: dir, langs: ['en'], request: gone.request, pause: () => {},
+  });
+  assert.equal(summary.failed, 2, 'the home and the gone document');
+  assert.equal(gone.calls.filter((u) => u.endsWith('/gone.html')).length, 1);
+  const down = daFake({ 'list:/magazine/en': [{ status: 503, body: '' }] });
+  await assert.rejects(prepare({
+    from: 'da', out: dir, langs: ['en'], request: down.request, pause: () => {},
+  }), /DA list \/magazine\/en: 503/);
+  assert.equal(down.calls.length, 4);
+  fs.rmSync(dir, { recursive: true, force: true });
+});
+
+test('upload: da-upload\'s arguments, a state file of the run\'s own with --state', () => {
+  const base = uploadArgs({ dir: '/tmp/out' });
+  assert.deepEqual(base.slice(1), ['--site', 'lh-swiss', '--content-dir', '/tmp/out', '--list', '/tmp/out/changed-paths.txt']);
+  assert.match(base[0], /tools\/importer\/da-upload\.mjs$/);
+  assert.deepEqual(uploadArgs({
+    dir: '/tmp/out', list: '/tmp/l.txt', state: 'run-b', dryRun: true,
+  }).slice(5), ['--list', '/tmp/l.txt', '--state', 'run-b', '--dry-run']);
+  assert.throws(() => uploadArgs({ dir: '/tmp/out', state: '../x' }), /--state/);
 });

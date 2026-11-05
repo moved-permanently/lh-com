@@ -22,10 +22,14 @@
  *     reads every magazine document (DA: admin.da.live's list and sources, GET only; a folder: its
  *     <path>.html DA sources or <path>.plain.html), writes the changed ones to <dir>/<path>.plain.html
  *     (the main's inner HTML, as da-upload sends it), <dir>/changes.tsv (path, kind, what changed),
- *     <dir>/changed-paths.txt and the logo file; nothing is written to DA.
- *   node tools/importer/swiss-mag-docs.mjs upload --dir <dir> [--list <file>] [--dry-run]
+ *     <dir>/changed-paths.txt and the logo file; nothing is written to DA. admin.da.live's passing
+ *     errors (no answer, 429, 5xx) are tried three more times (1, 3, 9 s apart); a document DA
+ *     still refuses is left out and listed in <dir>/failed.tsv (exit code 1), a list that keeps
+ *     failing stops the run.
+ *   node tools/importer/swiss-mag-docs.mjs upload --dir <dir> [--list <file>] [--state <name>] [--dry-run]
  *     da-upload.mjs --site lh-swiss --content-dir <dir> --list <dir>/changed-paths.txt: uploads and
- *     previews (never publishes).
+ *     previews (never publishes); --state <name>: the run's own state file
+ *     (tools/importer/da-upload-state-lh-swiss-<name>.json), for runs side by side.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -170,11 +174,30 @@ function curl(args) {
   }
 }
 
-/** Every DA document under /magazine/<ll> (GET list). */
-function daList(langs) {
+/** A passing admin.da.live error: no answer, too many requests, a server error. */
+const passing = (status) => status === 0 || status === 429 || status >= 500;
+const RETRY_PAUSES_MS = [1000, 3000, 9000];
+const sleep = (ms) => { execFileSync('sleep', [String(ms / 1000)]); };
+
+/**
+ * One admin.da.live GET, once more after each pause while its error is a passing one.
+ * @param {Function} request url => {status, body}
+ * @param {Function} pause ms => void
+ */
+function daGet(url, request, pause) {
+  let r = request(url);
+  for (let i = 0; i < RETRY_PAUSES_MS.length && passing(r.status); i += 1) {
+    pause(RETRY_PAUSES_MS[i]);
+    r = request(url);
+  }
+  return r;
+}
+
+/** Every DA document under /magazine/<ll> (GET list); a list that keeps failing stops the run. */
+function daList(langs, request, pause) {
   const docs = [];
   const walk = (folder) => {
-    const r = curl([`https://admin.da.live/list/${ORG}/${SITE}${folder}`]);
+    const r = daGet(`https://admin.da.live/list/${ORG}/${SITE}${folder}`, request, pause);
     if (r.status !== 200) throw new Error(`DA list ${folder}: ${r.status}`);
     JSON.parse(r.body).forEach((it) => {
       const rel = it.path.replace(`/${ORG}/${SITE}`, '');
@@ -193,37 +216,47 @@ function daList(langs) {
 function folderList(dir, langs) {
   const docs = [];
   const walk = (d) => fs.readdirSync(d, { withFileTypes: true }).forEach((e) => {
-    const f = path.join(d, e.name);
-    if (e.isDirectory()) walk(f);
-    else if (/\.html$/.test(e.name)) docs.push(`/${path.relative(dir, f).split(path.sep).join('/')}`.replace(/(\.plain)?\.html$/, ''));
+    const file = path.join(d, e.name);
+    if (e.isDirectory()) walk(file);
+    else if (/\.html$/.test(e.name)) docs.push(`/${path.relative(dir, file).split(path.sep).join('/')}`.replace(/(\.plain)?\.html$/, ''));
   });
   if (fs.existsSync(path.join(dir, 'magazine'))) walk(path.join(dir, 'magazine'));
   return [...new Set(docs)].filter((p) => langs.includes(langOf(p))).sort();
 }
 
-function readDoc(from, p) {
+/** A document's source, or {status} when DA keeps refusing it. */
+function readDoc(from, p, request, pause) {
   if (from === 'da') {
-    const r = curl([`https://admin.da.live/source/${ORG}/${SITE}${p}.html`]);
-    if (r.status !== 200) throw new Error(`DA source ${p}: ${r.status}`);
-    return r.body;
+    const r = daGet(`https://admin.da.live/source/${ORG}/${SITE}${p}.html`, request, pause);
+    return r.status === 200 ? { html: r.body } : { status: r.status };
   }
   const plain = path.join(from, `${p}.plain.html`);
-  return fs.readFileSync(fs.existsSync(path.join(from, `${p}.html`)) ? path.join(from, `${p}.html`) : plain, 'utf8');
+  return { html: fs.readFileSync(fs.existsSync(path.join(from, `${p}.html`)) ? path.join(from, `${p}.html`) : plain, 'utf8') };
 }
 
 /**
- * Reads the documents, writes the changed ones, changes.tsv and changed-paths.txt to out.
- * @returns {Promise<{read: number, changed: number, unchanged: number}>}
+ * Reads the documents, writes the changed ones, changes.tsv and changed-paths.txt to out; the
+ * documents DA kept refusing (after the retries) in failed.tsv, left out.
+ * @param {Object} opts
+ * @param {Function} [opts.request] url => {status, body} (tests; curl by default)
+ * @param {Function} [opts.pause] ms => void, between retries (tests)
+ * @returns {Promise<{read: number, changed: number, unchanged: number, failed: number}>}
  */
 export async function prepare({
-  from, out, langs = LANGS, paths = null,
+  from, out, langs = LANGS, paths = null, request = (url) => curl([url]), pause = sleep,
 }) {
-  const all = from === 'da' ? daList(langs) : folderList(from, langs);
+  const all = from === 'da' ? daList(langs, request, pause) : folderList(from, langs);
   const known = new Set(all);
   const todo = paths ? all.filter((p) => paths.includes(p)) : all;
   const rows = [];
+  const failed = [];
   todo.forEach((p) => {
-    const { html, changes, kind } = transformDocument(readDoc(from, p), p, { known });
+    const source = readDoc(from, p, request, pause);
+    if (source.html === undefined) {
+      failed.push([p, source.status]);
+      return;
+    }
+    const { html, changes, kind } = transformDocument(source.html, p, { known });
     if (!changes.length) return;
     const file = path.join(out, `${p}.plain.html`);
     fs.mkdirSync(path.dirname(file), { recursive: true });
@@ -234,10 +267,28 @@ export async function prepare({
   fs.mkdirSync(out, { recursive: true });
   fs.writeFileSync(path.join(out, 'changes.tsv'), `path\tkind\tchanges\n${rows.map((r) => r.join('\t')).join('\n')}${rows.length ? '\n' : ''}`);
   fs.writeFileSync(path.join(out, 'changed-paths.txt'), rows.length ? `${rows.map((r) => r[0]).join('\n')}\n` : '');
+  if (failed.length) fs.writeFileSync(path.join(out, 'failed.tsv'), `path\tstatus\n${failed.map((r) => r.join('\t')).join('\n')}\n`);
+  else if (fs.existsSync(path.join(out, 'failed.tsv'))) fs.rmSync(path.join(out, 'failed.tsv'));
   const logoOut = path.join(out, LOGO.slice(1));
   fs.mkdirSync(path.dirname(logoOut), { recursive: true });
   fs.copyFileSync(LOGO_FILE, logoOut);
-  return { read: todo.length, changed: rows.length, unchanged: todo.length - rows.length };
+  const read = todo.length - failed.length;
+  return {
+    read, changed: rows.length, unchanged: read - rows.length, failed: failed.length,
+  };
+}
+
+/**
+ * da-upload.mjs's arguments for a prepared folder: its list (changed-paths.txt unless another),
+ * a state file of the run's own (--state <name>: tools/importer/da-upload-state-lh-swiss-<name>.json,
+ * for runs side by side), --dry-run.
+ */
+export function uploadArgs({
+  dir, list, state, dryRun = false,
+}) {
+  if (state !== undefined && state !== null && !/^[a-z0-9-]+$/.test(state)) throw new Error(`--state ${state}: not a state name (a-z, 0-9, -)`);
+  return [path.join(root, 'tools/importer/da-upload.mjs'), '--site', SITE, '--content-dir', dir, '--list', list || path.join(dir, 'changed-paths.txt'),
+    ...(state ? ['--state', state] : []), ...(dryRun ? ['--dry-run'] : [])];
 }
 
 /* ------------------------------------------------------------------ cli ---------------- */
@@ -254,13 +305,15 @@ if (isMain) {
     const summary = await prepare({
       from, out: path.resolve(opt('--out')), langs, paths: list,
     });
-    console.log(`swiss-mag-docs: ${summary.read} read, ${summary.changed} changed, ${summary.unchanged} unchanged; ${opt('--out')}/changes.tsv, changed-paths.txt`);
+    console.log(`swiss-mag-docs: ${summary.read} read, ${summary.changed} changed, ${summary.unchanged} unchanged, ${summary.failed} failed; ${opt('--out')}/changes.tsv, changed-paths.txt${summary.failed ? ', failed.tsv' : ''}`);
+    if (summary.failed) process.exitCode = 1;
   } else if (mode === 'upload' && opt('--dir')) {
     const dir = path.resolve(opt('--dir'));
-    const list = opt('--list') || path.join(dir, 'changed-paths.txt');
-    execFileSync('node', [path.join(root, 'tools/importer/da-upload.mjs'), '--site', SITE, '--content-dir', dir, '--list', list, ...(argv.includes('--dry-run') ? ['--dry-run'] : [])], { stdio: 'inherit' });
+    execFileSync('node', uploadArgs({
+      dir, list: opt('--list') && path.resolve(opt('--list')), state: opt('--state'), dryRun: argv.includes('--dry-run'),
+    }), { stdio: 'inherit' });
   } else {
-    console.error('usage: swiss-mag-docs.mjs prepare --from da|<folder> --out <dir> [--lang en,de] [--paths <file>]\n       swiss-mag-docs.mjs upload --dir <dir> [--list <file>] [--dry-run]');
+    console.error('usage: swiss-mag-docs.mjs prepare --from da|<folder> --out <dir> [--lang en,de] [--paths <file>]\n       swiss-mag-docs.mjs upload --dir <dir> [--list <file>] [--state <name>] [--dry-run]');
     process.exit(2);
   }
 }
