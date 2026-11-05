@@ -43,7 +43,9 @@ test('fonts.css: the Lufthansa faces from /digitalhangar/, then www.lufthansa.co
     ['LufthansaText', '300', 'lufthansa/LufthansaTextWeb-Light.woff2'],
     ['LufthansaText', '400', 'lufthansa/LufthansaTextWeb-Regular.woff2'],
     ['LufthansaText', '700', 'lufthansa/LufthansaTextWeb-Bold.woff2'],
-    ['lufthansahead-digital-assistant', '100 900', 'lufthansa/LufthansaHeadWeb-Bold.woff2'],
+    // brief 401: 300 stays Light on the digital assistant pages, 400 and up Bold (www's lh.css face)
+    ['lufthansahead-digital-assistant', '100 300', 'lufthansa/LufthansaHeadWeb-Light.woff2'],
+    ['lufthansahead-digital-assistant', '400 900', 'lufthansa/LufthansaHeadWeb-Bold.woff2'],
   ], 'woff2');
 });
 

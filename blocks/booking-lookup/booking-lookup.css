@@ -67,7 +67,7 @@
 .booking-lookup .booking-lookup-notice {
   position: relative;
   margin-bottom: 12px;
-  padding: 20px 18px 17px 49px;
+  padding: 20px 18px 15px 49px;
   background-color: var(--lh-grey-1);
   color: var(--lh-deepblue);
   font-size: var(--body-font-size-s);
@@ -89,13 +89,15 @@
   margin: 0;
 }
 
-/* maui-navigation-link variant hyper, slot action: 14px bold, arrow-right */
+/* maui-navigation-link variant hyper, slot action: 14px bold, arrow-right; a 24px target
+   (WCAG 2.5.8) around the 20px line, 2px each taken from the space above and below */
 .booking-lookup .booking-lookup-notice a:any-link {
   display: flex;
   align-items: center;
   gap: 8px;
   width: fit-content;
-  margin-top: 13px;
+  min-height: 24px;
+  margin-top: 11px;
   color: var(--link-color);
   font-size: var(--body-font-size-xs);
   font-weight: 700;

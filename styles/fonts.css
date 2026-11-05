@@ -57,11 +57,23 @@
 }
 
 /* body.digital-assistant (styles.css): LufthansaHead as the digital assistant stylesheet leaves
-   it on those pages, Bold for every weight */
+   it on those pages: its face without a weight (400) on the Bold file follows the design system's
+   300 / 400 Light faces, so 300 stays Light and 400 and up draw Bold (www's light headings on
+   /de/en/all-check-in, capture lufthansa-parity-001) */
 @font-face {
   font-family: lufthansahead-digital-assistant;
   font-style: normal;
-  font-weight: 100 900;
+  font-weight: 100 300;
+  font-display: swap;
+  src:
+    url('/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/fonts/lufthansa/LufthansaHeadWeb-Light.woff2') format('woff2'),
+    url('https://www.lufthansa.com/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/fonts/lufthansa/LufthansaHeadWeb-Light.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: lufthansahead-digital-assistant;
+  font-style: normal;
+  font-weight: 400 900;
   font-display: swap;
   src:
     url('/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/fonts/lufthansa/LufthansaHeadWeb-Bold.woff2') format('woff2'),
