@@ -16,6 +16,15 @@
      358 x 220 first on phones 24 px above the title, 536 x 275 from 728 px (a 556 + 540 grid, 24 px
      apart, the picture on either side), www's green chevron line (its 98 x 274 SVG, #9EFD38 6 px)
      over the picture's right edge 28 px outside, as row 55's;
+   - round 3 with row 67, the inner pages' spacing (buy ticket 280 px and hand baggage 500 px
+     shorter than www at 1440): www's components 64 px apart from 728 px and 32 px on phones
+     (space-y-components-xs md:space-y-components-2xl), between sections, between a section's
+     blocks and around a market's sections (flush elsewhere); not the homepage (header.tap-home), not
+     after the breadcrumb (its own spacing), the theme's specific spacings kept; a three-up card
+     without a button 48 px under its text as www's (229 px for the buy-ticket steps at 1440 and 390);
+     a rich text's H3 as www's (font-tap bold 28 / 33.6, -2 %, every width: buy-ticket's "Como
+     reservar uma viagem com milhas em Companhias da rede Star Alliance?"); a heading on its own
+     (www's 6 px heading component, its H2 over it) 32 px above the next component from 728 px;
    Run: node --max-old-space-size=512 --test test/tap-386.test.mjs */
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -66,4 +75,30 @@ test('round 3: the feature card\'s picture in www\'s green chevron frame (row 55
   assert.match(md, new RegExp(`${fc} \\.columns-media-row \\{\\s*grid-template-columns: minmax\\(0, 556fr\\) minmax\\(0, 540fr\\);\\s*gap: 0 24px;`));
   assert.match(md, new RegExp(`${fc} \\.columns-media-media-last \\{\\s*grid-template-columns: minmax\\(0, 540fr\\) minmax\\(0, 556fr\\);`));
   assert.match(md, new RegExp(`${fc} \\.columns-media-media \\{\\s*order: 0;\\s*height: 275px;\\s*margin: 0 20px 0 0;`));
+});
+
+test('round 3 with row 67: the inner pages\' components 64 px apart from 728 px, 32 px on phones, as www', () => {
+  // (:where: no weight of its own, so the theme's specific spacings stay: the centred button, the stage)
+  const inner = 'body\\.brand-tap :where\\(header:not\\(\\.tap-home\\)\\) ~ main';
+  const block = css.slice(css.indexOf('/* the inner pages\' spacing as www\'s components'));
+  assert.ok(block.length < css.length, 'the spacing rules');
+  [['32px', 0], ['64px', block.indexOf('@media (width >= 728px)')]].forEach(([gap, from]) => {
+    const part = block.slice(from);
+    assert.match(part, new RegExp(`${inner} > \\.section,\\s*${inner} > \\.section:has\\(\\+ \\.section\\[data-markets\\]\\),\\s*${inner} > \\.section\\[data-markets\\] \\{\\s*margin-bottom: ${gap};`), `sections ${gap}`);
+    assert.match(part, new RegExp(`${inner} > \\.section\\[data-markets\\],\\s*${inner} > \\.section\\[data-markets\\] \\+ \\.section \\{\\s*margin-top: 0;`), 'no extra top margin on market sections');
+    assert.match(part, new RegExp(`${inner} > \\.section > div:not\\(\\.breadcrumb-wrapper\\) \\+ div \\{\\s*margin-top: ${gap};`), `blocks ${gap}`);
+  });
+});
+
+test('round 3 with row 67: a three-up card without a button keeps www\'s 48 px under its text', () => {
+  assert.match(css, /body\.brand-tap \.cards\.three-up \.cards-card-body:not\(:has\(> \.button-wrapper\)\) \{\s*padding-bottom: 24px;\s*\}/);
+});
+
+test('round 3 with row 67: a rich text\'s H3 as www\'s, 28 / 33.6 bold at every width', () => {
+  assert.match(css, /body\.brand-tap main \.default-content-wrapper > h3:not\(\.faq-picker-sub-heading\) \{\s*font-size: calc\(28px \* var\(--a11y-scale, 1\)\);\s*line-height: 1\.2;\s*font-weight: 700;\s*letter-spacing: -0\.02em;\s*\}/);
+});
+
+test('round 3 with row 67: a heading on its own 32 px above the next component from 728 px, as www\'s 6 px heading component', () => {
+  const md = css.slice(css.lastIndexOf('@media (width >= 728px) {'));
+  assert.match(md, /body\.brand-tap :where\(header:not\(\.tap-home\)\) ~ main > \.section > \.default-content-wrapper:has\(> :is\(h2, h3\):only-child\) \+ div \{\s*margin-top: 32px;\s*\}/);
 });

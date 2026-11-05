@@ -3386,3 +3386,66 @@ body.brand-tap .faq-picker-questions > [role="tabpanel"][hidden] {
 }
 
 /* stylelint-enable no-descending-specificity */
+
+/* the inner pages' spacing as www's components (round 3 with row 67: buy ticket, hand baggage):
+   www's column space-y-components-xs md:space-y-components-2xl puts every component 32 px apart on
+   phones and 64 px from 728 px; here between sections, between a section's blocks and around a
+   market's sections (flush elsewhere, styles.css). Not the homepage (header.tap-home), not after
+   the breadcrumb (its own spacing); :where keeps the theme's specific spacings ahead (the centred
+   button, the stage) */
+body.brand-tap :where(header:not(.tap-home)) ~ main > .section,
+body.brand-tap :where(header:not(.tap-home)) ~ main > .section:has(+ .section[data-markets]),
+body.brand-tap :where(header:not(.tap-home)) ~ main > .section[data-markets] {
+  margin-bottom: 32px;
+}
+
+body.brand-tap :where(header:not(.tap-home)) ~ main > .section[data-markets],
+body.brand-tap :where(header:not(.tap-home)) ~ main > .section[data-markets] + .section {
+  margin-top: 0;
+}
+
+body.brand-tap :where(header:not(.tap-home)) ~ main > .section > div:not(.breadcrumb-wrapper) + div {
+  margin-top: 32px;
+}
+
+@media (width >= 728px) {
+  body.brand-tap :where(header:not(.tap-home)) ~ main > .section,
+  body.brand-tap :where(header:not(.tap-home)) ~ main > .section:has(+ .section[data-markets]),
+  body.brand-tap :where(header:not(.tap-home)) ~ main > .section[data-markets] {
+    margin-bottom: 64px;
+  }
+
+  body.brand-tap :where(header:not(.tap-home)) ~ main > .section[data-markets],
+  body.brand-tap :where(header:not(.tap-home)) ~ main > .section[data-markets] + .section {
+    margin-top: 0;
+  }
+
+  body.brand-tap :where(header:not(.tap-home)) ~ main > .section > div:not(.breadcrumb-wrapper) + div {
+    margin-top: 64px;
+  }
+}
+
+/* a three-up card without a button (the buy-ticket steps): www keeps 48 px under its text, the
+   text's own 24 px and 24 more (229 px at 1440 and 390, as www) */
+body.brand-tap .cards.three-up .cards-card-body:not(:has(> .button-wrapper)) {
+  padding-bottom: 24px;
+}
+
+/* a rich text's H3 as www's (its renderer's font-tap font-bold, 28 / 33.6, -2 %, every width;
+   buy-ticket's "Como reservar uma viagem com milhas em Companhias da rede Star Alliance?"); the
+   picker's subcategory headings keep theirs */
+body.brand-tap main .default-content-wrapper > h3:not(.faq-picker-sub-heading) {
+  font-size: calc(28px * var(--a11y-scale, 1));
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* a heading on its own (www's heading component: a 6 px box its H2 overflows) 32 px above the
+   next component from 728 px, as www's 64 px less the heading's overflow (hand baggage's "Regras
+   da bagagem de mão"; the heading's own 32 px margin collapses into it) */
+@media (width >= 728px) {
+  body.brand-tap :where(header:not(.tap-home)) ~ main > .section > .default-content-wrapper:has(> :is(h2, h3):only-child) + div {
+    margin-top: 32px;
+  }
+}
