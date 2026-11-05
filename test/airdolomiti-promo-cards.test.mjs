@@ -8,7 +8,7 @@
    Run: node --max-old-space-size=512 --test test/airdolomiti-promo-cards.test.mjs */
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { promoCards, showMoreLink } from '../tools/importer/airdolomiti-import.mjs';
+import { promoCards, showMoreLink, destinationCards } from '../tools/importer/airdolomiti-import.mjs';
 
 const page = {
   img: (x) => (x && x.url ? `<picture><img src="${x.url}" alt=""></picture>` : ''),
@@ -39,4 +39,13 @@ test('the slider\'s "see all" link with the number of cards, as www writes it ("
   assert.equal(showMoreLink({ ...a, showMoreText: 'vedi tutte', cardList: [{}, {}] }, page), '<p><a href="/prenotazioni">vedi tutte (2)</a></p>');
   assert.equal(showMoreLink({ ...a, showMoreTextUrl: '' }, page), '', 'no link: none');
   assert.equal(showMoreLink({ ...a, cardList: [] }, page), '<p><a href="/prenotazioni">Vedi tutto</a></p>', 'no cards: no number');
+});
+
+test('the destinations (www\'s story-card-slider, "Le nostre destinazioni") as carousel-cards (destinations): the picture, the city, the card\'s link', () => {
+  const { name, rows } = destinationCards({
+    tagCard: 'h3',
+    cardList: [{ gallery: { url: 'https://cms.airdolomiti.it/fra.jpg' }, title: 'Francoforte', url: 'https://www.airdolomiti.it/destinazioni/francoforte' }],
+  }, page);
+  assert.equal(name, 'carousel-cards (destinations)');
+  assert.deepEqual(rows, [['<picture><img src="https://cms.airdolomiti.it/fra.jpg" alt=""></picture>', '<h3>Francoforte</h3><p><a href="/destinazioni/francoforte">Francoforte</a></p>']]);
 });
