@@ -193,8 +193,9 @@ test('wiring: the delayed phase loads it on demo hosts where the notice was ackn
   const click = notice.slice(notice.indexOf("button.addEventListener('click'"));
   assert.match(click, /const from = dialog\.getBoundingClientRect\(\);/);
   assert.match(click, /import\('\.\/demo-badge\.js'\)\.then\(\(\{ default: showDemoBadge \}\) => showDemoBadge\(\{ from \}\)\)/, 'also without storage: the badge for this page view');
-  assert.match(read('scripts/showcase-scope.js'), /export function noticeApplies\(\)/, 'one rule for both');
-  assert.match(notice, /import \{ noticeApplies \} from '\.\/showcase-scope\.js';/);
-  assert.match(read('scripts/demo-badge.js'), /import \{ noticeApplies \} from '\.\/showcase-scope\.js';/);
+  assert.match(read('scripts/consent.js'), /export function noticeApplies\(\)/, 'one rule for both, in a module every page loads already (no request PageSpeed would see)');
+  assert.ok(!fs.existsSync(new URL('../scripts/showcase-scope.js', import.meta.url)), 'no file of its own');
+  assert.match(notice, /import \{ noticeApplies \} from '\.\/consent\.js';/);
+  assert.match(read('scripts/demo-badge.js'), /import \{ noticeApplies \} from '\.\/consent\.js';/);
   assert.match(notice, /return noticeApplies\(\) && !isAcknowledged\(\);/, 'the notice\'s own rules unchanged');
 });

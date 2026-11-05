@@ -186,6 +186,20 @@ export function isAuthoringContext() {
   return false;
 }
 
+/**
+ * Where the showcase notice (scripts/showcase-notice.js) and the demo badge after it
+ * (scripts/demo-badge.js) apply: not in DA authoring contexts, inside iframes or under /tools/
+ * (the demo hosts are their caller's rule, scripts/scripts.js isDemoHost). Here because every
+ * page loads this module already.
+ * @returns {boolean}
+ */
+export function noticeApplies() {
+  if (isAuthoringContext()) return false;
+  if (window.self !== window.top) return false;
+  const path = window.location.pathname.replace(/^\/content(?=\/)/, '');
+  return !path.startsWith('/tools/');
+}
+
 /* ------------------------------------------------------------------ storage + events -- */
 
 /**

@@ -23,7 +23,7 @@
  *   opens when the focus leaves the fields; nobody typing, at its time.
  */
 import { loadCSS } from './aem.js';
-import { noticeApplies } from './showcase-scope.js';
+import { noticeApplies } from './consent.js';
 import { brandName, brandOf, BRANDS } from './brand.js';
 
 export const STORAGE_KEY = 'lh-showcase-acknowledged';
@@ -128,7 +128,7 @@ function acknowledge() {
 }
 
 /**
- * Whether the notice shows in the current page view: it applies (scripts/showcase-scope.js:
+ * Whether the notice shows in the current page view: it applies (consent.js noticeApplies:
  * not in authoring, iframes or /tools/) and isn't acknowledged.
  * @returns {boolean}
  */

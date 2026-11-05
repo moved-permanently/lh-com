@@ -6,8 +6,8 @@
  *
  * - Started in the delayed phase (scripts/scripts.js loadDelayed) on demo hosts when the notice's
  *   acknowledgement is stored, and by the notice's "I understand" (it shrinks from the dialog into
- *   the corner; without storage the badge stays for that page view). Where the notice applies only
- *   (noticeApplies: not in DA authoring contexts, inside iframes or under /tools/).
+ *   the corner; without storage the badge stays for that page view). Where the notice applies
+ *   only (scripts/consent.js noticeApplies: not in DA authoring, inside iframes or under /tools/).
  * - Site flag demo-badge (scripts/flags.js, the site's /config/flags sheet): on by default; only a
  *   row with off or false turns it off. A missing or unreadable sheet: on.
  * - Layout: position fixed (nothing shifts), the page's body font (no font of its own), about
@@ -22,7 +22,7 @@
 import { loadCSS } from './aem.js';
 import { brandName } from './brand.js';
 import { loadFlags } from './flags.js';
-import { noticeApplies } from './showcase-scope.js';
+import { noticeApplies } from './consent.js';
 
 export const FLAG = 'demo-badge';
 export const BADGE_TAG = 'DEMO';
