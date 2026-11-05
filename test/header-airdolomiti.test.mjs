@@ -26,7 +26,7 @@ const key = (target, k) => {
 };
 const click = (target) => target.dispatchEvent(new window.Event('click', { bubbles: true }));
 
-const { buildAirDolomitiMenu, readAirDolomitiMenu } = await import('../blocks/header/header-airdolomiti.js');
+const { buildAirDolomitiMenu, readAirDolomitiMenu, arrangeTools } = await import('../blocks/header/header-airdolomiti.js');
 
 // the menu section of the nav document as the page has it (decorated: a section with its wrapper)
 const section = () => {
@@ -152,4 +152,15 @@ test('header.js: the Air Dolomiti menu on the brand airdolomiti only, with its s
   const css = fs.readFileSync('blocks/header/header-airdolomiti.css', 'utf8');
   assert.match(css, /\.header \.nav-airdolomiti \.nav-ad-menu \{/);
   assert.doesNotMatch(css, /^\.header \.nav-(bar|tools|brand)\b/m, 'every rule under .nav-airdolomiti');
+});
+
+test('the bar\'s tools in the order they show (www\'s: assistance, search, accessibility, language), so the focus follows it (WCAG 2.4.3)', () => {
+  const tools = document.createElement('div');
+  tools.innerHTML = '<a class="nav-tool nav-tool-accessibility"></a><span class="nav-accessibility-wrapper"></span><div class="nav-languages"></div><a class="nav-tool nav-tool-search"></a><span class="nav-divider"></span><button class="nav-menu-button"></button>';
+  arrangeTools(tools);
+  assert.deepEqual([...tools.children].map((c) => c.className.split(' ').pop()), ['nav-tool-accessibility', 'nav-tool-search', 'nav-accessibility-wrapper', 'nav-languages', 'nav-divider', 'nav-menu-button']);
+  const js = fs.readFileSync('blocks/header/header.js', 'utf8');
+  assert.match(js, /if \(airdolomiti\) airdolomiti\.arrangeTools\(toolsEl\);/);
+  const css = fs.readFileSync('blocks/header/header-airdolomiti.css', 'utf8');
+  assert.doesNotMatch(css, /\border: [0-9]/, 'no visual reordering left');
 });

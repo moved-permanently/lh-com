@@ -34,7 +34,7 @@ const { default: decorateAirDolomiti } = await import('../blocks/flight-search/f
 const build = () => {
   const block = document.createElement('div');
   block.className = 'flight-search airdolomiti block';
-  block.innerHTML = '<form class="flight-search-form"><div class="flight-search-options"><div class="flight-search-trip-type"><label class="flight-search-sr-only" for="tt">Tipo di viaggio</label><select id="tt" name="tripType"><option value="RETURN" selected>Andata / Ritorno</option><option value="ONEWAY">Solo andata</option></select></div></div><div class="flight-search-fields"><div class="airport-combobox"><input name="origin"></div></div></form>';
+  block.innerHTML = '<form class="flight-search-form"><div class="flight-search-options"><div class="flight-search-trip-type"><label class="flight-search-sr-only" for="tt">Tipo di viaggio</label><select id="tt" name="tripType"><option value="RETURN" selected>Andata / Ritorno</option><option value="ONEWAY">Solo andata</option></select></div></div><div class="flight-search-passengers"><button type="button" class="flight-search-travellers">1 Passeggero</button></div></div><div class="flight-search-fields"><div class="airport-combobox"><input name="origin"></div><fieldset class="flight-search-dates"><input name="departure"></fieldset><button type="submit" class="flight-search-submit">Cerca</button></div></form>';
   document.body.replaceChildren(block);
   return block;
 };
@@ -103,4 +103,43 @@ test('flight-search.js: the module for the variant airdolomiti only, with the Op
   const js = fs.readFileSync('blocks/flight-search/flight-search.js', 'utf8');
   assert.match(js, /if \(block\.classList\.contains\('airdolomiti'\)\) \{\n\s+import\('\.\/flight-search-airdolomiti\.js'\)/);
   assert.match(js, /openLabel: text\('open-label'\)/);
+});
+
+test('the passengers after the dates, before the button, as they show (WCAG 2.4.3)', () => {
+  const block = build();
+  decorateAirDolomiti(block, { form: block.querySelector('form'), select: block.querySelector('select'), lang: 'it' });
+  const order = [...block.querySelectorAll('input[name="origin"], fieldset.flight-search-dates, .flight-search-passengers, .flight-search-submit')].map((e) => e.className || e.name);
+  assert.deepEqual(order, ['origin', 'flight-search-dates', 'flight-search-passengers', 'flight-search-submit']);
+});
+
+test('the open panel is a modal dialog named by the card; Tab stays inside it; closed, no dialog', () => {
+  const block = build();
+  const form = block.querySelector('form');
+  decorateAirDolomiti(block, {
+    form, select: block.querySelector('select'), openLabel: 'Prenota il tuo volo', lang: 'it',
+  });
+  const card = block.querySelector('.flight-search-open');
+  assert.equal(form.getAttribute('role'), null);
+  click(card);
+  assert.equal(form.getAttribute('role'), 'dialog');
+  assert.equal(form.getAttribute('aria-modal'), 'true');
+  assert.equal(form.getAttribute('aria-label'), 'Prenota il tuo volo');
+  const close = form.querySelector('.flight-search-close-panel');
+  const submit = form.querySelector('.flight-search-submit');
+  const tab = (target, shift) => {
+    const e = new window.Event('keydown', { bubbles: true, cancelable: true });
+    e.key = 'Tab';
+    e.shiftKey = shift;
+    target.dispatchEvent(e);
+    return e.defaultPrevented;
+  };
+  focused = submit;
+  assert.ok(tab(submit, false), 'Tab on the last control: back to the first');
+  assert.ok(focused === close);
+  focused = close;
+  assert.ok(tab(close, true), 'Shift+Tab on the first: to the last');
+  assert.ok(focused === submit);
+  key(close, 'Escape');
+  assert.equal(form.getAttribute('role'), null);
+  assert.equal(form.getAttribute('aria-modal'), null);
 });
