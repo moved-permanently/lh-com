@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-05 14:20",
-  "change": "Lufthansa, SWISS, Austrian, Brussels Airlines, ITA and Discover now share one Message Center, as on www: a notice is written and published once, ticked for the airlines it is for, and shows on each of their sites.",
+  "updated": "2026-11-05 23:50",
+  "change": "Lufthansa's market versions are on the replica: 190 countries in English and German, 14 in French and 13 in Spanish. The Message Center also shows on the brand sites' Edge Delivery addresses, TAP's destination cards have their photos, and Air Dolomiti's eSIM shop is built but switched off until the vendor allows our address.",
   "legend": {
     "done": {
       "label": "works on our replica",
@@ -782,9 +782,9 @@
       "cells": {
         "lufthansa": {
           "status": "done",
-          "note": "The waiting time page is on the replica in all four Lufthansa locales and shows Lufthansa's live waiting times per airport, terminal and area, as on www; if the service doesn't answer, it links to www's page.",
+          "note": "The waiting time page is on the replica in English and German for every market and shows Lufthansa's live waiting times per airport, terminal and area, as on www; if the service doesn't answer, it links to www's page.",
           "page": "/de/en/prepare-for-your-trip/airport-information/services-at-the-airport/security-waiting-time",
-          "evidence": "204 (a97500b) published 2026-11-01; browser check lufthansa.turnsthe.page de/de ?airport=MUC: 2 terminals, live times and a closed area"
+          "evidence": "204 (a97500b) published 2026-11-01; browser check lufthansa.turnsthe.page de/de ?airport=MUC: 2 terminals, live times and a closed area; 2026-11-05 23:4x: bg/en and mk/de waiting time page 200 after the market go-live"
         },
         "discover": {
           "status": "done",
@@ -843,9 +843,9 @@
       "cells": {
         "lufthansa": {
           "status": "done",
-          "note": "Lufthansa's check-in deadline page is on the replica with the search block, in four markets; it shows www's live counters and deadlines.",
+          "note": "Lufthansa's check-in deadline page is on the replica with the search block, in English and German for every market; it shows www's live counters and deadlines.",
           "page": "/de/en/check-in-deadlines",
-          "evidence": "ema-test 237 (9576724f, 95237246, dd6c60c5; 28 documents); published 2026-11-01 lh-com job-2026-11-01-19-38-07-299b35cc; my preview check de/de: 120 countries, Frankfurt Terminal 1 Hall B 60 minutes"
+          "evidence": "ema-test 237 (9576724f, 95237246, dd6c60c5; 28 documents); published 2026-11-01 lh-com job-2026-11-01-19-38-07-299b35cc; my preview check de/de: 120 countries, Frankfurt Terminal 1 Hall B 60 minutes; 2026-11-05 23:4x after the market go-live: bg/en, in/en, mk/de, de/en check-in-deadlines 200 with the block"
         },
         "discover": {
           "status": "none",
@@ -994,9 +994,9 @@
         },
         "airdolomiti": {
           "status": "lh",
-          "note": "Air Dolomiti's eSIM shop is built into the replica but stays switched off: Breeze, the eSIM vendor, refuses our address.",
+          "note": "Air Dolomiti's eSIM shop is built into the replica behind its own switch, which stays off until Air Dolomiti or Breeze, the eSIM vendor, allows our address.",
           "footnote": "adesim",
-          "evidence": "flag test on preview 2026-11-01 16:20: widgets.breezesim.com answers 403 to products, countries and currencies with Air Dolomiti's widget token from our host; flag sheet removed again"
+          "evidence": "flag test on preview 2026-11-01 16:20: widgets.breezesim.com answers 403 to products, countries and currencies with Air Dolomiti's widget token from our host; flag sheet removed again; flag esim-widget, check on preview 2026-11-05 21:35: Breeze still answers 403 to our host with Air Dolomiti's token; flag off (same treatment as Air Dolomiti's chat)"
         },
         "brussels": {
           "status": "elsewhere",
@@ -1339,8 +1339,8 @@
         },
         "tap": {
           "status": "done",
-          "note": "TAP's destinations map (TAP's version of the map, with its destinations by region) is on the destinations page of all eight versions, as on www. Since 5 November the destination search beside it works as on www too (search, filters by area and category, the destination cards), with text only: the card photos are Smartvel's pictures and are not copied.",
-          "evidence": "destination-grid block 6d07793c (brief 371) and sheets + pages 8b691ed2 (brief 379), published 2026-11-05 07:29 CET (sheets job-2026-11-05-06-28-59-d3ec8980, pages job-2026-11-05-06-29-10-6bb083c3); check: tap.turnsthe.page /pt-pt/destinos carries destination-grid; brief 339 (c7b1d41b) + 349 documents, published 2026-11-04 ~18:00 CET (job-2026-11-04-16-51-33-4509cc63); check 2026-11-04 21:50 CET: tap.turnsthe.page /pt-pt/destinos and /en-pt/destinations 200 with poi-map, no 'See on flytap.com' link left; 8 map data files live (88-90 cities)",
+          "note": "TAP's destinations map (TAP's version of the map, with its destinations by region) is on the destinations page of all eight versions, as on www. Since 5 November the destination search beside it works as on www too (search, filters by area and category, the destination cards), with Smartvel's card photos, loaded from Smartvel's own image service as on www (no copies).",
+          "evidence": "destination-grid block 6d07793c (brief 371) and sheets + pages 8b691ed2 (brief 379), published 2026-11-05 07:29 CET (sheets job-2026-11-05-06-28-59-d3ec8980, pages job-2026-11-05-06-29-10-6bb083c3); check: tap.turnsthe.page /pt-pt/destinos carries destination-grid; brief 339 (c7b1d41b) + 349 documents, published 2026-11-04 ~18:00 CET (job-2026-11-04-16-51-33-4509cc63); check 2026-11-04 21:50 CET: tap.turnsthe.page /pt-pt/destinos and /en-pt/destinations 200 with poi-map, no 'See on flytap.com' link left; 8 map data files live (88-90 cities); photos from Smartvel's CDN live 2026-11-05 23:06 CET (job-2026-11-05-22-06-04-a2032046)",
           "page": "/pt-pt/destinos"
         }
       }
@@ -1415,25 +1415,25 @@
           "status": "done",
           "note": "Disruption and flash notices are written once, in one Message Center for all the group's airlines, and ticked for the airlines they are for, as on www; they show on the homepages and the current travel information page.",
           "page": "/de/en/prepare-for-your-trip/current-travel-information",
-          "evidence": "functions scan 2026-10-31: Information on flights to Dubai; 2026-11-05 one store: brand hosts read the group's Message Center through lh-edge (route message-store, lh-com 262cee2b); brand copies off live; test message for lh, lx and os shown on lufthansa, swiss and austrian.turnsthe.page 4 s after publish (job-2026-11-05-12-55-08-439a9567) and gone 79 s after one unpublish (job-2026-11-05-12-57-15-1035688e), not on brussels, ita or discover"
+          "evidence": "functions scan 2026-10-31: Information on flights to Dubai; 2026-11-05 one store: brand hosts read the group's Message Center through lh-edge (route message-store, lh-com 262cee2b); brand copies off live; test message for lh, lx and os shown on lufthansa, swiss and austrian.turnsthe.page 4 s after publish (job-2026-11-05-12-55-08-439a9567) and gone 79 s after one unpublish (job-2026-11-05-12-57-15-1035688e), not on brussels, ita or discover; 365bf20d: brand sites' own aem.page/aem.live read the same store (headers /message-center/** ACAO *, scripts/message-store.js)"
         },
         "discover": {
           "status": "done",
           "note": "Discover's notices show from the group's one Message Center, as on www; there are none to show today.",
           "page": "/de/en/homepage",
-          "evidence": "functions scan 2026-10-31; 2026-11-05 one store (lh-com 262cee2b): discover.turnsthe.page reads the group index"
+          "evidence": "functions scan 2026-10-31; 2026-11-05 one store (lh-com 262cee2b): discover.turnsthe.page reads the group index; 2026-11-05 365bf20d: the store also on the brand's own aem.page/aem.live (lh-com headers /message-center/** ACAO *, one setting scripts/message-store.js)"
         },
         "ita": {
           "status": "done",
-          "note": "ITA's notices show from the group's one Message Center, as on www.",
+          "note": "ITA's notices show from the group's one Message Center, as on www. They show on the airline's own address and on its Edge Delivery preview and live addresses.",
           "page": "/it/en/homepage",
-          "evidence": "functions scan 2026-10-31; 2026-11-05 one store (lh-com 262cee2b): ita.turnsthe.page 4 messages on all 64 roots, as before, linking to www.ita-airways.com"
+          "evidence": "functions scan 2026-10-31; 2026-11-05 one store, lh-com 262cee2b + 365bf20d, CORS on /message-center/**: ita.turnsthe.page 4 messages on all 64 roots, as before, linking to www.ita-airways.com"
         },
         "austrian": {
           "status": "done",
-          "note": "Austrian's notices show from the group's one Message Center, as on www, and its current travel information page opens each notice's details.",
+          "note": "Austrian's notices show from the group's one Message Center, as on www, and its current travel information page opens each notice's details. They show on the airline's own address and on its Edge Delivery preview and live addresses.",
           "page": "/at/en/homepage",
-          "evidence": "functions scan 2026-10-31: rail services notice; 2026-11-05 one store (lh-com 262cee2b): austrian.turnsthe.page same messages on all 64 roots, details now open; test message shown and withdrawn"
+          "evidence": "functions scan 2026-10-31: rail services notice; 2026-11-05 one store (lh-com 262cee2b): austrian.turnsthe.page same messages on all 64 roots, details now open; test message shown and withdrawn; 2026-11-05 365bf20d: the store also on the brand's own aem.page/aem.live (lh-com headers /message-center/** ACAO *, one setting scripts/message-store.js)"
         },
         "cargo": {
           "status": "done",
@@ -1451,7 +1451,7 @@
           "status": "done",
           "note": "Brussels Airlines' notices show from the group's one Message Center, as on www, which has none for it today.",
           "page": "/be/en/plan-your-trip/flight-information",
-          "evidence": "2026-11-05 one store (lh-com 262cee2b): brussels.turnsthe.page reads the group index and its row of the group current travel information sheet; brands.js messageCenter sn; nothing to show, as on www"
+          "evidence": "2026-11-05 one store, lh-com 262cee2b + 365bf20d, CORS on /message-center/**: brussels.turnsthe.page reads the group index and its row of the group current travel information sheet; brands.js messageCenter sn; nothing to show, as on www"
         },
         "b2b": {
           "status": "none",
@@ -1460,9 +1460,9 @@
         },
         "swiss": {
           "status": "done",
-          "note": "SWISS's notices show from the group's one Message Center, as on www; the twice-daily sync copies www's messages into it.",
+          "note": "SWISS's notices show from the group's one Message Center, as on www; the twice-daily sync copies www's messages into it. They show on the airline's own address and on its Edge Delivery preview and live addresses.",
           "page": "/ch/en/fly/flight-information/current-information",
-          "evidence": "2026-11-02 17:13: swiss.turnsthe.page /message-center/index.json 5 rows; homepage strip 2 slides on ch/en and ch/de; Message Center sync 6th run, publish job-2026-11-02-16-12-48-809595d2; 2026-11-05 one store (lh-com 262cee2b): swiss.turnsthe.page same messages, order and links on all 227 roots as before; test message shown and withdrawn"
+          "evidence": "2026-11-02 17:13: swiss.turnsthe.page /message-center/index.json 5 rows; homepage strip 2 slides on ch/en and ch/de; Message Center sync 6th run, publish job-2026-11-02-16-12-48-809595d2; 2026-11-05 one store (lh-com 262cee2b): swiss.turnsthe.page same messages, order and links on all 227 roots as before; test message shown and withdrawn; 2026-11-05 365bf20d: the store also on the brand's own aem.page/aem.live (lh-com headers /message-center/** ACAO *, one setting scripts/message-store.js)"
         },
         "tap": {
           "status": "done",
@@ -2198,9 +2198,9 @@
       "cells": {
         "lufthansa": {
           "status": "done",
-          "note": "The country and language dialog leads to the replica's market and language versions.",
+          "note": "The country and language dialog leads to the replica's market and language versions: 190 countries in English and German, 14 in French and 13 in Spanish (\"Autres pays | Français\", \"Otros paises | Español\"), all on the replica since 5 November.",
           "page": "/de/en/homepage",
-          "evidence": "functions scan 2026-10-31"
+          "evidence": "functions scan 2026-10-31; market roots go-live 2026-11-05 (waves 00, 0-12; switches 5e50c08c ... dc444df2; work/market-golive/report.md): 190 en/de roots, xx/fr 14 roots, xx/es 13 roots on lufthansa.turnsthe.page; forms bg/en, il/en, mk/de, fr/fr and es/es emergency-contact sent"
         },
         "discover": {
           "status": "done",
