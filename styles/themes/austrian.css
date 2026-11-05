@@ -148,6 +148,10 @@
   --footer-link-size: 14px;
   --footer-link-weight: 400;
   --footer-link-line-height: 21px;
+
+  /* the carousels' current dot Austrian red, as www's (row 16a; the drawn dot's tokens in the
+     carousel files) */
+  --carousel-dot-current-color: #d81e05;
 }
 
 @media (width >= 768px) {

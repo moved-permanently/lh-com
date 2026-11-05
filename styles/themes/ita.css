@@ -148,6 +148,15 @@
   --footer-link-gap: 20px;
   --footer-divider-color: rgb(255 255 255 / 20%);
   --footer-toggle-line: rgb(255 255 255 / 50%);
+
+  /* the carousels' dots as www's swiper bullets (row 7): 12 px rings, 1 px ITA blue on white, the
+     current one a 20 x 12 px blue pill; in lh-com's 24 px targets (the carousel files' tokens) */
+  --carousel-dot-size: 12px;
+  --carousel-dot-color: #0171cf;
+  --carousel-dot-fill: #fff;
+  --carousel-dot-radius: 6px;
+  --carousel-dot-current-color: #0171cf;
+  --carousel-dot-current-width: 20px;
 }
 
 /* the header bar (brief 391, www.ita-airways.com 2026-11-05): 132 px on phones with the logo

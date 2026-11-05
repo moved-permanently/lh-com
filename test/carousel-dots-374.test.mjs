@@ -20,8 +20,8 @@ for (const [block, file] of [['carousel-cards', 'blocks/carousel-cards/carousel-
     const sel = (rest) => esc(`${BRANDS} .${block} .${block}-${rest}`);
     assert.match(css, new RegExp(`${sel('dots')} \\{ gap: 0; \\}`), 'no gap: the targets touch');
     assert.match(css, new RegExp(`${sel('dot')} \\{[^}]*width: 24px; height: 24px;[^}]*border: 0;[^}]*background: none;`));
-    assert.match(css, new RegExp(`${sel('dot')}::before \\{[^}]*box-sizing: border-box; width: 8px; height: 8px; border: 1px solid var\\(--lh-grey-7\\); border-radius: 50%; background-color: var\\(--lh-white\\);`), 'the drawn dot as the button was');
-    assert.match(css, new RegExp(`${sel('dot')}\\[aria-current="true"\\]::before \\{ border-color: var\\(--lh-deepblue\\); background-color: var\\(--lh-deepblue\\); \\}`));
+    assert.match(css, new RegExp(`${sel('dot')}::before \\{[^}]*box-sizing: border-box; width: var\\(--carousel-dot-size, 8px\\); height: var\\(--carousel-dot-size, 8px\\); border: 1px solid var\\(--carousel-dot-color, var\\(--lh-grey-7\\)\\); border-radius: var\\(--carousel-dot-radius, 50%\\); background-color: var\\(--carousel-dot-fill, var\\(--lh-white\\)\\);`), 'the drawn dot as the button was (by default: tokens, test/carousel-dot-tokens.test.mjs)');
+    assert.match(css, new RegExp(`${sel('dot')}\\[aria-current="true"\\]::before \\{ width: var\\(--carousel-dot-current-width, var\\(--carousel-dot-size, 8px\\)\\); border-color: var\\(--carousel-dot-current-color, var\\(--lh-deepblue\\)\\); background-color: var\\(--carousel-dot-current-color, var\\(--lh-deepblue\\)\\); \\}`));
     // the base dot (lh-com, the other sites) unchanged
     assert.match(css, new RegExp(`${esc(`.${block} .${block}-dot`)} \\{ width: 8px; height: 8px; margin: 0; padding: 0; border: 1px solid var\\(--lh-grey-7\\); border-radius: 50%; background-color: var\\(--lh-white\\); cursor: pointer; \\}`));
     assert.doesNotMatch(css, /brand-tap|brand-airdolomiti/);
