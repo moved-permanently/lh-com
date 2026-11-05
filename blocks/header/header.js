@@ -992,6 +992,8 @@ export default async function decorate(block) {
     el('span', { className: 'nav-tool-label', 'aria-hidden': 'true' }, menuLabel),
   );
   toolsEl.append(menuButton);
+  // (Air Dolomiti: its tools in the order they show, ./header-airdolomiti.js)
+  if (airdolomiti) airdolomiti.arrangeTools(toolsEl);
 
   // flyout: mega menu, accessibility/help/cart/other tools, locale selector, login
   // (live additional links: wheelchair, question, shopping cart, country/language)

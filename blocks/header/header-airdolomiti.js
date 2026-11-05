@@ -112,6 +112,23 @@ function quickColumn(quick, link) {
 }
 
 /**
+ * The bar's tools in the order www shows them: assistance, search, accessibility settings, the
+ * language (then the divider and the Menu button), so the focus follows what shows (WCAG 2.4.3).
+ * @param {Element} tools the bar's tools (header.js nav-tools)
+ */
+export function arrangeTools(tools) {
+  const order = ['.nav-tool-accessibility', '.nav-tool-search', '.nav-accessibility-wrapper', '.nav-languages'];
+  const found = order.map((sel) => tools.querySelector(`:scope > ${sel}`)).filter(Boolean);
+  const start = [...tools.children].find((c) => found.includes(c));
+  if (!start) return;
+  // all of them, in www's order, where the first of them stood
+  const mark = document.createComment('');
+  tools.insertBefore(mark, start);
+  found.forEach((node) => tools.insertBefore(node, mark));
+  mark.remove();
+}
+
+/**
  * Air Dolomiti's menu in the bar.
  * @param {Element} section the nav document's menu section
  * @param {{link: Function}} opts link(href, label, className): a link as the header makes them

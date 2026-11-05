@@ -70,12 +70,36 @@ function bookingOverlay(block, form, openLabel, lang) {
   const toggle = (open) => {
     block.classList.toggle('flight-search-overlay-open', open);
     card.setAttribute('aria-expanded', String(open));
+    // the open panel: a modal dialog named by the card (WCAG 4.1.2), the focus kept inside (2.4.3)
+    if (open) {
+      form.setAttribute('role', 'dialog');
+      form.setAttribute('aria-modal', 'true');
+      form.setAttribute('aria-label', openLabel);
+    } else {
+      ['role', 'aria-modal', 'aria-label'].forEach((a) => form.removeAttribute(a));
+    }
     (open ? close : card).focus();
   };
   card.addEventListener('click', () => toggle(true));
   close.addEventListener('click', () => toggle(false));
   form.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && block.classList.contains('flight-search-overlay-open')) toggle(false);
+    if (!block.classList.contains('flight-search-overlay-open')) return;
+    if (e.key === 'Escape') {
+      toggle(false);
+      return;
+    }
+    if (e.key !== 'Tab') return;
+    const stops = [...form.querySelectorAll('button, input, select, a[href]')]
+      .filter((n) => !n.disabled && !n.closest('[hidden]') && n.type !== 'hidden');
+    const first = stops[0];
+    const last = stops[stops.length - 1];
+    if (e.shiftKey && e.target === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && e.target === last) {
+      e.preventDefault();
+      first.focus();
+    }
   });
   form.prepend(close);
   form.before(card);
@@ -91,5 +115,9 @@ export default function decorateAirDolomiti(block, {
   form, select, openLabel = '', lang = 'it',
 }) {
   if (select) tripTypeTabs(select);
+  // the passengers where they show, after the dates and before the button (WCAG 2.4.3)
+  const passengers = form && form.querySelector('.flight-search-passengers');
+  const submit = form && form.querySelector('.flight-search-fields .flight-search-submit');
+  if (passengers && submit) submit.before(passengers);
   if (openLabel && form) bookingOverlay(block, form, openLabel, lang);
 }

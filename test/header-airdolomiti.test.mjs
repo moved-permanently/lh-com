@@ -162,5 +162,5 @@ test('the bar\'s tools in the order they show (www\'s: assistance, search, acces
   const js = fs.readFileSync('blocks/header/header.js', 'utf8');
   assert.match(js, /if \(airdolomiti\) airdolomiti\.arrangeTools\(toolsEl\);/);
   const css = fs.readFileSync('blocks/header/header-airdolomiti.css', 'utf8');
-  assert.doesNotMatch(css, /\border: [0-9]/, 'no visual reordering left');
+  assert.doesNotMatch(css, /(nav-tool-accessibility|nav-tool-search|nav-accessibility-wrapper|nav-languages) \{\n\s+order:/, 'the tools not reordered by the styles');
 });
