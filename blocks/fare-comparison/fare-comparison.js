@@ -168,7 +168,16 @@ function readRows(block, labelKeys) {
       else shared[key] = content;
       return;
     }
-    if (!cabin) return;
+    if (!cabin) {
+      // one table (README): no Group and no Cabin rows, its header row first
+      if (groups.length) return;
+      group = { title: '', cabins: [], single: true };
+      groups.push(group);
+      cabin = {
+        name: '', fares: null, rows: [], caption: null, notes: null, services: '',
+      };
+      group.cabins.push(cabin);
+    }
     if (!cabin.fares) {
       // the header row: the first cell (empty, or the "Services" text), then the fares
       cabin.services = cleanText(cells[0]);
@@ -320,7 +329,8 @@ function buildTable(columns, ctx) {
     const th = el('th');
     th.scope = 'col';
     th.dataset.fare = fare.key;
-    th.append(el('span', 'fare-comparison-fare-cabin', cabin.name), el('span', 'fare-comparison-fare', fare.name));
+    if (cabin.name) th.append(el('span', 'fare-comparison-fare-cabin', cabin.name));
+    th.append(el('span', 'fare-comparison-fare', fare.name));
     head.append(th);
   });
   thead.append(head);
@@ -465,11 +475,39 @@ function buildDialog(labels, uid) {
 
 /* ------------------------------------------------------------------ the block ------------ */
 
+/** The table's sideways scroller and its phone buttons (Previous, Next: a column each). */
+function scrollParts(labels) {
+  const scroller = el('div', 'fare-comparison-scroll');
+  const nav = el('div', 'fare-comparison-nav');
+  nav.append(...['previous', 'next'].map((dir) => {
+    const b = el('button', `fare-comparison-${dir}`);
+    b.type = 'button';
+    b.setAttribute('aria-label', labels[`${dir} label`]);
+    b.addEventListener('click', () => {
+      if (typeof scroller.scrollBy === 'function') scroller.scrollBy({ left: dir === 'next' ? COLUMN : -COLUMN, behavior: 'smooth' });
+    });
+    return b;
+  }));
+  return { scroller, nav };
+}
+
+/** One table (no Group, no Cabin): its fares as columns, the scroll buttons, the caption box. */
+function singleTable(block, cabin, ctx) {
+  const body = el('div', 'fare-comparison-body fare-comparison-single');
+  const { scroller, nav } = scrollParts(ctx.labels);
+  scroller.append(buildTable(cabin.fares.map((fare) => ({ fare, cabin })), ctx));
+  body.style.setProperty('--fare-comparison-columns', String(cabin.fares.length));
+  body.append(scroller, nav, buildCaption(cabin, ctx.labels));
+  block.replaceChildren(body);
+}
+
 /**
  * fare-comparison (TAP's fare pages, www.flytap.com): the route groups as pills, each with its
  * cabins as tabs, the cabin's fares as columns (from 1024 px) or a table that scrolls sideways
  * (phones), ✓ / ✕ as icons, the notes as (i) tooltips, "Compare fares" (up to four fares of the
- * group side by side), the caption and notes below. The authored table: README.
+ * group side by side), the caption and notes below; one table without route groups and cabins
+ * (TAP's other comparison tables: table-striped-tap.js) only its table and caption box. The
+ * authored table: README.
  * @param {Element} block
  */
 export default function decorate(block) {
@@ -488,6 +526,10 @@ export default function decorate(block) {
   }
   watchTips();
   const ctx = { labels, uid, tips: 0 };
+  if (groups.length === 1 && groups[0].single) {
+    singleTable(block, groups[0].cabins[0], ctx);
+    return;
+  }
   const { dialog, open } = buildDialog(labels, uid);
 
   const panels = groups.map((group, g) => {
@@ -506,18 +548,7 @@ export default function decorate(block) {
     compare.append(compareText, el('span', 'fare-comparison-filter'));
     compare.lastChild.setAttribute('aria-hidden', 'true');
     tools.append(compare);
-    const scroller = el('div', 'fare-comparison-scroll');
-    const nav = el('div', 'fare-comparison-nav');
-    const [prev, next] = ['previous', 'next'].map((dir) => {
-      const b = el('button', `fare-comparison-${dir}`);
-      b.type = 'button';
-      b.setAttribute('aria-label', labels[`${dir} label`]);
-      b.addEventListener('click', () => {
-        if (typeof scroller.scrollBy === 'function') scroller.scrollBy({ left: dir === 'next' ? COLUMN : -COLUMN, behavior: 'smooth' });
-      });
-      return b;
-    });
-    nav.append(prev, next);
+    const { scroller, nav } = scrollParts(labels);
     const captions = group.cabins.map((cabin) => buildCaption(cabin, labels));
     body.append(cabinTitle, tools, scroller, nav, ...captions);
     const state = { cabin: 0, chosen: [] };

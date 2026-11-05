@@ -8,7 +8,9 @@ Model: `standalone`
 
 Single block table. Content: One row per table row; without an option every row is data. Option `header` ("Table Striped (header)"): the first row is the column header row. Any number of cells per row; typically 2 (Cell 1: label, Cell 2: value). A short text first cell (not a number) becomes a row header (th scope=row) when the row has 2 or more cells. Rows with fewer cells than the widest row stretch their last cell across the remaining columns. Empty rows are ignored. Cell content (text, links, lists) is kept as authored; zero-width characters are removed.
 
-A cell's note: italic text after a line break at the end of a cell (`Embarque Premium<br><em>To get it, add your customer number.</em>`; the TAP import writes www.flytap.com's "text|note" so) shows as a 24px (i) 8px after the cell's text, the note in the block's tooltip (as matrix's link titles: hover, keyboard focus, a tap; a second tap, Escape or a tap elsewhere closes it). The (i) is named "More information" in the page's language. Row labels, values and column headings alike. Italic text elsewhere in a cell stays as it is.
+A cell's note: italic text after a line break at the end of a cell (`Embarque Premium<br><em>To get it, add your customer number.</em>`; the TAP import writes www.flytap.com's "text|note" so) shows as a 24px (i) 8px after the cell's text, the note in the block's tooltip (as matrix's link titles: hover, keyboard focus, a tap; a second tap, Escape or a tap elsewhere closes it). The (i) is named "More information" in the page's language. Row labels, values and column headings alike; a column heading's (i) sits at the cell's top right beside the heading, its first line kept clear of it (www.flytap.com's Club tables). Italic text elsewhere in a cell stays as it is.
+
+On brand tap a comparison table, option `header` without `matrix`, with ✓ / ✕ values and followed by the legend's heading and list (and the notes' heading and text), is drawn as www.flytap.com draws it: a `fare-comparison` block of one table, the legend and notes in its caption box (`table-striped-tap.js`, blocks/fare-comparison/README.md; the Economy Prime pages).
 
 ## Layout
 

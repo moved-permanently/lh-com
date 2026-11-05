@@ -196,9 +196,9 @@
   background: var(--fare-comparison-surface);
 }
 
+/* the label cell 8px all round as www's; the label's 12px right margin is the (i)'s room */
 .fare-comparison .fare-comparison-table tbody th[scope="row"] {
   position: relative;
-  padding-right: 24px;
   color: var(--fare-comparison-text);
   text-align: left;
 }
@@ -238,6 +238,11 @@
   height: 100%;
   background-color: #fff;
   mask: var(--fare-comparison-check) center / 16px no-repeat;
+}
+
+/* in the table a ✓ sits in a 24px box as www's (its rows 40px on phones) */
+.fare-comparison .fare-comparison-table .fare-comparison-icon[data-mark="yes"] {
+  margin: 2px;
 }
 
 .fare-comparison .fare-comparison-icon[data-mark="no"] {
@@ -701,6 +706,10 @@
   .fare-comparison .fare-comparison-icon[data-mark="yes"] {
     width: 24px;
     height: 24px;
+  }
+
+  .fare-comparison .fare-comparison-table .fare-comparison-icon[data-mark="yes"] {
+    margin: 0;
   }
 
   .fare-comparison .fare-comparison-info {

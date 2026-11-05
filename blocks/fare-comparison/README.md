@@ -57,6 +57,8 @@ Example (one group, one cabin, shortened):
 | Group | Intercontinental flights | | |
 | … | | | |
 
+**One table (no `Group`, no `Cabin`):** the header row comes first (after any label rows), then the service rows, `Caption` and `Notes`. The block shows only the table (card columns from 1024px, the phone table with its scroll buttons) and the caption box: no pills, tabs, titles or Compare, and no cabin name over the fares. TAP's comparison tables outside the fare pages (the Economy Prime pages' Prime and Top Prime) take this form: on brand tap a `table-striped (header)` with ✓ / ✕ values followed by the legend's heading and list (and the notes' heading and text) becomes this block, built in the page by `blocks/table-striped/table-striped-tap.js` (brief 406, TAP parity R4-8).
+
 The page's intro (H1, "Choose how you want to travel", the fare list) stays default content before the block. The route groups' H2s that the documents had before come from the block now, so the import leaves them out.
 
 The test fixtures are today's documents (2026-11-05) converted to this shape: `test/fixtures/fare-comparison/en-pt.plain.html` and `pt-pt.plain.html`. Each `accordion-columns (tabs)` block of a document became a `Group` with one `Cabin` per tab. A tab's table rows became the header and service rows, unchanged. Its Caption list and Notes became the cabin's `Caption` and `Notes` rows, and their headings became the `Caption label` and `Notes label` rows.

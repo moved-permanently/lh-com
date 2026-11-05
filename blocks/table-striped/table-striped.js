@@ -9,6 +9,9 @@ function isLabel(cell, cellCount) {
   return !/^[\d\s.,:%+\-–/()€$£]+$/.test(text);
 }
 
+/** Brand tap (TAP Air Portugal): the page's brand metadata (lh-tap's metadata.json). */
+const isTap = () => (document.querySelector('meta[name="brand"]')?.getAttribute('content') || '').trim().toLowerCase() === 'tap';
+
 /** The (i)'s name in the page's language (English for any other). */
 const INFO_LABELS = {
   en: 'More information',
@@ -80,9 +83,16 @@ export function keepScrollFocusable(box) {
  * drawn white with a line under it as the Lufthansa maui-table-head (/green-fare); else every
  * authored row is a data row. Option "matrix": wide comparison tables (table-striped-matrix.js).
  * A cell ending in a line break and italic text: that text its note, behind an (i) after the text.
+ * On brand tap a comparison table (✓ / ✕, the legend after it) becomes a fare-comparison block.
  * @param {Element} block
+ * @param {{load?: Function}} [opts] the fare-comparison block's loader (tests)
  */
-export default async function decorate(block) {
+export default async function decorate(block, opts = {}) {
+  // brand tap: www.flytap.com's comparison tables as its fare pages' (./table-striped-tap.js)
+  if (isTap() && block.classList.contains('header') && !block.classList.contains('matrix')) {
+    const { toComparison } = await import('./table-striped-tap.js');
+    if (await toComparison(block, opts)) return;
+  }
   const rows = [...block.children]
     .map((row) => [...row.children])
     .filter((cells) => cells.some((c) => cleanText(c) || c.querySelector('img')));
