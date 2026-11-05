@@ -9,7 +9,8 @@ import {
 
 /**
  * UI strings: an authored row ("No results | ..."), else www's label bundle blogOverview
- * (GET /service/api/labels/blogOverview/lh/{lang}), else these defaults (www's texts).
+ * (GET /service/api/labels/blogOverview/lh/{lang}; lh-com's pages only), else these defaults
+ * (www's texts; a brand page's texts).
  * {TOTAL}, {TITLE}, {CURRENT_PAGE} are replaced.
  */
 const DEFAULT_LABELS = {
@@ -492,9 +493,14 @@ export default async function decorate(block) {
   block.replaceChildren();
   block.setAttribute('aria-busy', 'true');
 
+  // a brand page asks www for no labels: the bundle is lufthansa.com's and www refuses the
+  // brands' hosts (CORS; SWISS's magazine, brief 406); the block's own texts and authored rows
+  const labelsPromise = brand
+    ? Promise.resolve({ labels: {}, sources: { blogOverview: 'built-in' } })
+    : fetchLabels(['blogOverview'], locale).catch(() => ({ labels: {}, sources: { blogOverview: 'none' } }));
   const [articlesResult, live] = await Promise.all([
     loadArticles(locale, brand).then((list) => ({ list }), (error) => ({ error })),
-    fetchLabels(['blogOverview'], locale).catch(() => ({ labels: {}, sources: { blogOverview: 'none' } })),
+    labelsPromise,
   ]);
   const defaults = DEFAULT_LABELS[locale.lang] || DEFAULT_LABELS.en;
   const liveLabels = pickLabels(live.labels, LIVE_LABELS);
