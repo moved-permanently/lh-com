@@ -1,0 +1,23 @@
+# lh-discover documents changed in brief 387 (uploaded to DA and previewed on main--lh-discover--moved-permanently.aem.page; not published)
+/de/en/homepage
+/de/en/footer
+/de/en/my-bookings/check-in/check-in-at-the-airport
+/de/en/book/special-requests/families
+/de/en/my-bookings/check-in
+/de/en/my-bookings/services/additional-services
+/de/en/discover/travel-classes/business-class
+/de/en/discover/services-on-board/entertainment
+/de/en/travel-inspiration/inspiration/destinations/santorini
+/de/en/travel-inspiration/inspiration/destinations/punta-cana
+/de/en/book/baggage
+/de/de/homepage
+/de/de/footer
+/de/de/my-bookings/check-in/check-in-at-the-airport
+/de/de/book/special-requests/families
+/de/de/my-bookings/check-in
+/de/de/my-bookings/services/additional-services
+/de/de/discover/travel-classes/business-class
+/de/de/discover/services-on-board/entertainment
+/de/de/travel-inspiration/inspiration/destinations/santorini
+/de/de/travel-inspiration/inspiration/destinations/punta-cana
+/de/de/book/baggage

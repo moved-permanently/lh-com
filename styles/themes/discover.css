@@ -3,8 +3,9 @@
  * section at the end), loaded by scripts/brand.js on a site whose
  * metadata sets `brand: discover` (lh-discover's /metadata.json). Values from www's design system
  * release v1.38.0 (/digitalhangar/design-system/releases/v1.38.0/standalone/css/discover.css,
- * --maui-color-brand-*) and the Discover site's own stylesheet: headlines sky blue, text and links
- * dark sky blue, the primary action sunny yellow. Fonts: Discover uses the same LufthansaHead and
+ * --maui-color-brand-*) and the Discover site's own stylesheet; brief 387 to www's pages as the
+ * capture discover-parity-001 measures them: headings dark sky blue, copy and links night sky blue
+ * 16/24, the primary action sunny yellow. Fonts: Discover uses the same LufthansaHead and
  * LufthansaText faces as Lufthansa (only the font stacks gain the Miles & More symbol font). The
  * logo is the image in the site's nav documents. lh-com's own pages never load this file.
  */
@@ -28,10 +29,11 @@
   --lh-grey-7: #373b3f;
   --lh-grey-8: #373b3f;
 
-  /* roles */
-  --text-color: #003e7b;
-  --heading-color: #1e73af; /* sky blue */
-  --link-color: #003e7b;
+  /* roles: www's copy and links night sky blue, headings dark sky blue (capture discover-parity-001,
+     brief 387; the design system's headline token is sky blue, www's pages draw #003e7b) */
+  --text-color: #002554;
+  --heading-color: #003e7b;
+  --link-color: #002554;
   --link-hover-color: #1e73af;
   --brand-color: #1e73af;
   --border-color: #dedede;
@@ -41,15 +43,23 @@
   --body-font-family: lufthansatext, lufthansatext-fallback, arial, helvetica, mammilessymbol, sans-serif;
   --heading-font-family: lufthansahead, lufthansahead-fallback, arial, helvetica, mammilessymbol, sans-serif;
 
+  /* sizes (brief 387): www's copy is copytext-medium, 16/24 (lh-com's 18/27); Discover's copytext
+     headings are a size smaller than Lufthansa's: heading-copytext-large 16 to 18 px,
+     heading-copytext-medium 14 to 16 px (LufthansaHead 700, 110 %) */
+  --body-font-size-m: 16px;
+  --heading-font-size-m: clamp(16px, calc(16px + 2 * (100vw - 375px) / 1065), 18px);
+  --heading-font-size-s: clamp(14px, calc(14px + 2 * (100vw - 375px) / 1065), 16px);
+
   /* buttons: www's maui-button (measured 2026-11-01): pills 48px high, primary night sky blue on
      sunny yellow, secondary sky blue */
   --button-radius: 99999px;
   --button-min-height: 48px;
   --button-primary-text: #002554;
   --button-secondary-color: #1e73af;
+  --button-font-size: 20px; /* LufthansaHead 20/24 (the family: the rules below) */
 
-  /* the hero card's headline (hero-card-overlay light): sky blue, as Discover's main stage */
-  --hero-card-heading-color: #1e73af;
+  /* the hero card's headline (hero-card-overlay light): dark sky blue, as www's stage teaser */
+  --hero-card-heading-color: #003e7b;
 
   /* header: Discover's top bar is white with dark sky blue text (the menu panel keeps the brand) */
   --header-bar-surface: #fff;
@@ -57,13 +67,33 @@
   --header-bar-text-hover: #1e73af;
   --header-bar-line: #dedede;
 
-  /* footer: the logo row (Discover's inverted logo, the white "Member of Lufthansa Group") on the
-     footer's dark sky blue, as www's (no row surface of its own there) */
+  /* the bar's logo 110 x 38 on phones, 116 x 40 from 1281 px; its links 14/18 (18/24 from 1025 px) */
+  --nav-logo-height: 38px;
+  --nav-logo-height-wide: 40px;
+
+  /* footer: www's link area sky blue under a yellow and a light sky blue stripe (the gradient: the
+     rules below), headings LufthansaHead 18/19.8 without a rule, links 14/18 #f4f4f4; the logo row
+     (Discover's inverted logo, the white "Member of Lufthansa Group") dark sky blue, then night sky
+     blue */
+  --footer-surface: #1e73af;
+  --footer-heading-size: 18px;
+  --footer-title-line: transparent;
+  --footer-link-size: 14px;
+  --footer-link-line-height: 18px;
+  --footer-link-color: #f4f4f4;
+  --footer-locale-color: #fff; /* 5.09:1 on sky blue (lh-com's #ebebeb 4.27) */
+  --footer-muted-text: #f4f4f4; /* 4.63:1 (lh-com's #b4b4b4 2.45) */
   --footer-logos-surface: var(--lh-deepblue);
 
   /* spacing: Discover's grid unit is 12px (Lufthansa 10px): a fifth more space between blocks */
   --spacing-default: 28px;
   --section-gap: 56px;
+}
+
+@media (width >= 1025px) {
+  :root {
+    --nav-bar-font-size: 18px;
+  }
 }
 
 /* fields (brief 210): www's maui-select / maui-input as Discover draws them, measured on
@@ -78,6 +108,7 @@ body.brand-discover {
   --discover-field-fill: #e9f2fb;
   --discover-field-radius: 9999px;
   --discover-field-inline: 18px;
+  --discover-field-font: 18px; /* www's fields 18/24 (the copy is 16 px, brief 387) */
 }
 
 /* the security waiting times' airport select: the label is the select's own first option, as
@@ -103,7 +134,7 @@ body.brand-discover .security-waiting-time .security-waiting-time-select:has(opt
   border-radius: var(--discover-field-radius);
   background-color: var(--discover-field-fill);
   color: var(--lh-deepblue);
-  font-size: var(--body-font-size-m);
+  font-size: var(--discover-field-font);
   line-height: 24px;
 }
 
@@ -169,7 +200,7 @@ body.brand-discover .flight-search .flight-search-dates legend {
 body.brand-discover .flight-search .airport-combobox[data-code=""]:not(:focus-within) label,
 body.brand-discover .flight-search .flight-search-dates:not(:focus-within, :has(input:valid)) legend {
   top: 12px;
-  font-size: var(--body-font-size-m);
+  font-size: var(--discover-field-font);
   line-height: 24px;
 }
 
@@ -247,14 +278,14 @@ body.brand-discover .form :is(.form-field-text, .form-field-email, .form-field-t
 
 body.brand-discover .form .form-field:where(:has(> .form-control[placeholder=" "]:placeholder-shown:not(:focus))) > .form-label {
   top: 13px;
-  font-size: var(--body-font-size-m);
+  font-size: var(--discover-field-font);
   line-height: 24px;
 }
 
 /* a select without a value: its label in the field, as www's trigger */
 body.brand-discover .form.core .form-field-empty > .form-label {
   top: 13px;
-  font-size: var(--body-font-size-m);
+  font-size: var(--discover-field-font);
   line-height: 24px;
 }
 
@@ -290,4 +321,105 @@ body.brand-discover .form .form-field-invalid .form-control,
 body.brand-discover .form .form-control:user-invalid,
 body.brand-discover .form.core .form-field-invalid > textarea.form-control {
   border-color: var(--lh-red);
+}
+
+/* rules where lh-com's blocks have no token (brief 387, www.discover-airlines.com 2026-11-05,
+   capture discover-parity-001; the rows: tools/reports/discover/parity.md) */
+
+/* the fields keep www's 18/24 where the copy is 16/24 (the blocks size them by the copy token) */
+body.brand-discover :is(.flight-search, .form, .security-waiting-time, .search-results) {
+  --body-font-size-m: var(--discover-field-font);
+}
+
+/* row 1: the bar's quick links and the menu button LufthansaHead (Login LufthansaText), 18/24 from
+   1025 px */
+body.brand-discover .header :is(.nav-quick-link, .nav-menu-button .nav-tool-label) {
+  font-family: var(--heading-font-family);
+}
+
+@media (width >= 1025px) {
+  body.brand-discover .header :is(.nav-quick-link, .nav-tool-label) {
+    line-height: 24px;
+  }
+}
+
+/* row 5: www's maui buttons LufthansaHead 20/24 bold */
+body.brand-discover :is(a.button, button.button, .flight-search .flight-search-submit) {
+  font-family: var(--heading-font-family);
+}
+
+/* row 6: the stage teaser's eyebrow LufthansaHead 16 to 24 px regular (www 24/26.4 at 1440) */
+body.brand-discover .hero-card-overlay .hero-card-overlay-eyebrow {
+  font-size: clamp(16px, calc(16px + 8 * (100vw - 375px) / 1065), 24px);
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+/* row 7: accordion titles LufthansaHead 20/26 bold sky blue; the travellers button 18/24 */
+body.brand-discover .accordion-columns .accordion-columns-title {
+  color: #1e73af;
+  font-size: 20px;
+  line-height: 26px;
+}
+
+body.brand-discover .flight-search .flight-search-travellers {
+  font-family: var(--heading-font-family);
+  font-size: 18px;
+  line-height: 24px;
+}
+
+/* row 8: the icon tiles (Looking for more than just a flight?) white, www's 30 % dark sky blue
+   border, 10 px corners and soft shadow; labels night sky blue */
+body.brand-discover .cards-icon .cards-icon-tile {
+  border: 1px solid rgb(0 62 123 / 30%);
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgb(0 37 84 / 10%);
+}
+
+body.brand-discover .cards-icon .cards-icon-label { color: #002554; }
+
+/* row 9: the footer's stripes (www's .footer-container: sunny yellow 20 px, light sky blue 24 px,
+   then sky blue) and the logo row (dark sky blue, night sky blue below the logos: 115 px on
+   phones, 69 px from 768 px) */
+body.brand-discover .footer .footer-main { background-image: linear-gradient(#ffcd00 0 20px, #6aaae4 20px 44px, #1e73af 44px); }
+
+body.brand-discover .footer .footer-logos { background-image: linear-gradient(#003e7b 0 115px, #002554 115px); }
+
+@media (width >= 768px) {
+  body.brand-discover .footer .footer-logos { background-image: linear-gradient(#003e7b 0 69px, #002554 69px); }
+}
+
+/* row 10: the teaser cards (carousel-cards grid: www's a.teaser.card) titled as www's teaser-heading,
+   LufthansaHead 14 to 16 px bold night sky blue */
+body.brand-discover .carousel-cards:is(.grid, .four-up) .carousel-cards-slide:not(.carousel-cards-wide) .carousel-cards-body > :is(h1, h2, h3, h4, h5, h6) {
+  color: #002554;
+  font-size: var(--heading-font-size-s);
+}
+
+/* row 11: links in running text regular (www's .richtext a inherits the copy's 400; the arrow
+   before them as lh-com's) */
+body.brand-discover main :is(.default-content-wrapper, .columns-media-text) :is(p:not(.link-wrapper, .button-wrapper), li) a:any-link:not(.button) {
+  font-weight: 400;
+}
+
+/* row 12: a tab set on phones (an accordion, scripts/section-tabs.js): the panels' titles as www's
+   tab control there, LufthansaHead 20/26 bold sky blue */
+body.brand-discover .section-tab-panel > .section-tab-toggle {
+  color: #1e73af;
+  font-family: var(--heading-font-family);
+  font-size: 20px;
+  line-height: 26px;
+}
+
+/* row 13: the offers page (destination-finder): the filter column's title bold, its group titles
+   18 px, the toggles (Filters, More information, General conditions) LufthansaHead 18/24 */
+body.brand-discover .destination-finder .destination-finder-filters-heading { font-weight: 700; }
+
+body.brand-discover .destination-finder .destination-finder-filter-heading { font-size: 18px; }
+
+body.brand-discover .destination-finder :is(.destination-finder-conditions-toggle, .destination-finder-activities-toggle, .destination-finder-filters-toggle) {
+  font-family: var(--heading-font-family);
+  font-size: 18px;
+  line-height: 24px;
 }

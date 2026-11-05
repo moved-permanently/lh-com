@@ -1,14 +1,14 @@
 {
  "docs": {
   "/de/en/homepage": {
-   "uploaded": "2026-11-01T18:46:42.837Z",
-   "mtime": 1793557134188,
-   "preview": "2026-11-01T18:46:44.676Z"
+   "uploaded": "2026-11-05T12:56:13.274Z",
+   "mtime": 1793883049685,
+   "preview": "2026-11-05T12:56:15.087Z"
   },
   "/de/de/homepage": {
-   "uploaded": "2026-11-01T18:46:26.594Z",
-   "mtime": 1793557133948,
-   "preview": "2026-11-01T18:46:29.421Z"
+   "uploaded": "2026-11-05T12:56:53.745Z",
+   "mtime": 1793883049991,
+   "preview": "2026-11-05T12:56:56.256Z"
   },
   "/de/en/nav": {
    "uploaded": "2026-10-30T08:09:58.630Z",
@@ -21,14 +21,14 @@
    "preview": "2026-10-30T14:27:06.446Z"
   },
   "/de/en/footer": {
-   "uploaded": "2026-11-01T18:44:57.060Z",
-   "mtime": 1793556494142,
-   "preview": "2026-11-01T18:44:59.206Z"
+   "uploaded": "2026-11-05T12:56:16.571Z",
+   "mtime": 1793883049965,
+   "preview": "2026-11-05T12:56:18.400Z"
   },
   "/de/de/footer": {
-   "uploaded": "2026-11-01T18:45:00.849Z",
-   "mtime": 1793556494202,
-   "preview": "2026-11-01T18:45:02.833Z"
+   "uploaded": "2026-11-05T12:56:57.858Z",
+   "mtime": 1793883050275,
+   "preview": "2026-11-05T12:56:59.797Z"
   },
   "/de/en/new-destinations": {
    "uploaded": "2026-11-01T18:45:26.293Z",
@@ -46,9 +46,9 @@
    "preview": "2026-10-30T05:32:23.386Z"
   },
   "/de/en/book/baggage": {
-   "uploaded": "2026-10-29T14:54:00.087Z",
-   "mtime": 1793285298233,
-   "preview": "2026-10-29T14:54:02.125Z"
+   "uploaded": "2026-11-05T12:56:50.316Z",
+   "mtime": 1793883049948,
+   "preview": "2026-11-05T12:56:52.121Z"
   },
   "/de/en/my-bookings/services/upgrades": {
    "uploaded": "2026-10-29T14:54:03.941Z",
@@ -81,9 +81,9 @@
    "preview": "2026-10-30T05:10:54.992Z"
   },
   "/de/de/book/baggage": {
-   "uploaded": "2026-10-30T05:12:20.210Z",
-   "mtime": 1793335929046,
-   "preview": "2026-10-30T05:12:22.008Z"
+   "uploaded": "2026-11-05T12:57:30.843Z",
+   "mtime": 1793883050258,
+   "preview": "2026-11-05T12:57:32.712Z"
   },
   "/de/de/my-bookings/services/upgrades": {
    "uploaded": "2026-10-30T05:11:09.497Z",
@@ -251,9 +251,9 @@
    "preview": "2026-10-29T12:04:17.308Z"
   },
   "/de/en/book/special-requests/families": {
-   "uploaded": "2026-10-30T07:19:45.905Z",
-   "mtime": 1793344749214,
-   "preview": "2026-10-30T07:19:48.104Z"
+   "uploaded": "2026-11-05T12:56:23.403Z",
+   "mtime": 1793883049749,
+   "preview": "2026-11-05T12:56:25.812Z"
   },
   "/de/en/book/special-requests/pets/animal-cargo-hold": {
    "uploaded": "2026-10-30T05:32:47.692Z",
@@ -471,14 +471,14 @@
    "preview": "2026-10-29T12:23:10.931Z"
   },
   "/de/en/travel-inspiration/inspiration/destinations/punta-cana": {
-   "uploaded": "2026-10-29T12:23:12.033Z",
-   "mtime": 1793276436633,
-   "preview": "2026-10-29T12:23:15.517Z"
+   "uploaded": "2026-11-05T12:56:45.688Z",
+   "mtime": 1793883049900,
+   "preview": "2026-11-05T12:56:48.360Z"
   },
   "/de/en/travel-inspiration/inspiration/destinations/santorini": {
-   "uploaded": "2026-10-29T12:23:16.805Z",
-   "mtime": 1793276436657,
-   "preview": "2026-10-29T12:23:20.718Z"
+   "uploaded": "2026-11-05T12:56:42.062Z",
+   "mtime": 1793883049875,
+   "preview": "2026-11-05T12:56:44.213Z"
   },
   "/de/en/travel-inspiration/inspiration/destinations/tampa": {
    "uploaded": "2026-10-29T12:23:22.004Z",
@@ -546,14 +546,14 @@
    "preview": "2026-10-29T14:51:41.903Z"
   },
   "/de/en/my-bookings/check-in": {
-   "uploaded": "2026-10-29T14:51:43.274Z",
-   "mtime": 1793285299033,
-   "preview": "2026-10-29T14:51:45.463Z"
+   "uploaded": "2026-11-05T12:56:27.493Z",
+   "mtime": 1793883049772,
+   "preview": "2026-11-05T12:56:29.416Z"
   },
   "/de/en/my-bookings/check-in/check-in-at-the-airport": {
-   "uploaded": "2026-10-29T20:58:12.957Z",
-   "mtime": 1793307372785,
-   "preview": "2026-10-29T20:58:15.404Z"
+   "uploaded": "2026-11-05T12:56:19.958Z",
+   "mtime": 1793883049721,
+   "preview": "2026-11-05T12:56:21.871Z"
   },
   "/de/en/my-bookings/check-in/online-check-in": {
    "uploaded": "2026-10-31T10:19:38.457Z",
@@ -611,9 +611,9 @@
    "preview": "2026-10-30T02:12:01.284Z"
   },
   "/de/en/my-bookings/services/additional-services": {
-   "uploaded": "2026-10-30T02:12:03.086Z",
-   "mtime": 1793325668885,
-   "preview": "2026-10-30T02:12:05.715Z"
+   "uploaded": "2026-11-05T12:56:30.961Z",
+   "mtime": 1793883049796,
+   "preview": "2026-11-05T12:56:33.001Z"
   },
   "/de/en/my-bookings/services/additional-services/express-rail": {
    "uploaded": "2026-10-29T14:52:34.738Z",
@@ -661,9 +661,9 @@
    "preview": "2026-10-30T02:12:13.548Z"
   },
   "/de/en/discover/services-on-board/entertainment": {
-   "uploaded": "2026-10-30T02:12:14.995Z",
-   "mtime": 1793325667912,
-   "preview": "2026-10-30T02:12:17.748Z"
+   "uploaded": "2026-11-05T12:56:38.345Z",
+   "mtime": 1793883049843,
+   "preview": "2026-11-05T12:56:40.021Z"
   },
   "/de/en/discover/services-on-board/entertainment/inflight-entertainment": {
    "uploaded": "2026-10-29T14:53:13.243Z",
@@ -681,9 +681,9 @@
    "preview": "2026-10-30T05:33:02.335Z"
   },
   "/de/en/discover/travel-classes/business-class": {
-   "uploaded": "2026-10-29T14:53:26.402Z",
-   "mtime": 1793285298878,
-   "preview": "2026-10-29T14:53:28.822Z"
+   "uploaded": "2026-11-05T12:56:34.571Z",
+   "mtime": 1793883049821,
+   "preview": "2026-11-05T12:56:36.472Z"
   },
   "/de/en/discover/travel-classes/business-class/services-long-haul": {
    "uploaded": "2026-10-30T02:12:23.046Z",
@@ -941,9 +941,9 @@
    "preview": "2026-11-01T18:37:31.228Z"
   },
   "/de/de/book/special-requests/families": {
-   "uploaded": "2026-10-30T07:19:42.593Z",
-   "mtime": 1793344749188,
-   "preview": "2026-10-30T07:19:44.525Z"
+   "uploaded": "2026-11-05T12:57:05.313Z",
+   "mtime": 1793883050047,
+   "preview": "2026-11-05T12:57:07.625Z"
   },
   "/de/de/book/assistance-requirements": {
    "uploaded": "2026-10-30T04:22:32.314Z",
@@ -1361,14 +1361,14 @@
    "preview": "2026-10-30T04:42:19.315Z"
   },
   "/de/de/travel-inspiration/inspiration/destinations/punta-cana": {
-   "uploaded": "2026-10-30T04:42:20.413Z",
-   "mtime": 1793335201946,
-   "preview": "2026-10-30T04:42:22.217Z"
+   "uploaded": "2026-11-05T12:57:27.476Z",
+   "mtime": 1793883050208,
+   "preview": "2026-11-05T12:57:29.229Z"
   },
   "/de/de/travel-inspiration/inspiration/destinations/santorini": {
-   "uploaded": "2026-10-30T04:42:23.256Z",
-   "mtime": 1793335201973,
-   "preview": "2026-10-30T04:42:25.472Z"
+   "uploaded": "2026-11-05T12:57:23.654Z",
+   "mtime": 1793883050185,
+   "preview": "2026-11-05T12:57:25.854Z"
   },
   "/de/de/travel-inspiration/inspiration/destinations/tampa": {
    "uploaded": "2026-10-30T04:42:26.533Z",
@@ -1436,14 +1436,14 @@
    "preview": "2026-10-30T05:10:06.251Z"
   },
   "/de/de/my-bookings/check-in": {
-   "uploaded": "2026-10-30T05:10:07.482Z",
-   "mtime": 1793336275285,
-   "preview": "2026-10-30T05:10:09.221Z"
+   "uploaded": "2026-11-05T12:57:09.234Z",
+   "mtime": 1793883050067,
+   "preview": "2026-11-05T12:57:10.985Z"
   },
   "/de/de/my-bookings/check-in/check-in-at-the-airport": {
-   "uploaded": "2026-10-30T05:10:10.355Z",
-   "mtime": 1793336918580,
-   "preview": "2026-10-30T05:10:12.290Z"
+   "uploaded": "2026-11-05T12:57:01.563Z",
+   "mtime": 1793883050023,
+   "preview": "2026-11-05T12:57:03.736Z"
   },
   "/de/de/my-bookings/check-in/online-check-in": {
    "uploaded": "2026-10-31T10:19:35.373Z",
@@ -1501,9 +1501,9 @@
    "preview": "2026-10-30T05:33:20.922Z"
   },
   "/de/de/my-bookings/services/additional-services": {
-   "uploaded": "2026-10-30T05:33:22.179Z",
-   "mtime": 1793337880671,
-   "preview": "2026-10-30T05:33:24.078Z"
+   "uploaded": "2026-11-05T12:57:12.562Z",
+   "mtime": 1793883050089,
+   "preview": "2026-11-05T12:57:14.504Z"
   },
   "/de/de/my-bookings/services/additional-services/express-rail": {
    "uploaded": "2026-10-30T05:10:56.077Z",
@@ -1561,9 +1561,9 @@
    "preview": "2026-10-30T05:33:30.227Z"
   },
   "/de/de/discover/services-on-board/entertainment": {
-   "uploaded": "2026-10-30T05:33:31.652Z",
-   "mtime": 1793337879667,
-   "preview": "2026-10-30T05:33:33.653Z"
+   "uploaded": "2026-11-05T12:57:19.970Z",
+   "mtime": 1793883050137,
+   "preview": "2026-11-05T12:57:21.816Z"
   },
   "/de/de/discover/services-on-board/entertainment/inflight-entertainment": {
    "uploaded": "2026-10-30T05:11:39.238Z",
@@ -1581,9 +1581,9 @@
    "preview": "2026-10-30T05:33:36.910Z"
   },
   "/de/de/discover/travel-classes/business-class": {
-   "uploaded": "2026-10-30T05:11:48.851Z",
-   "mtime": 1793336275102,
-   "preview": "2026-10-30T05:11:51.042Z"
+   "uploaded": "2026-11-05T12:57:16.259Z",
+   "mtime": 1793883050115,
+   "preview": "2026-11-05T12:57:18.195Z"
   },
   "/de/de/discover/travel-classes/business-class/services-long-haul": {
    "uploaded": "2026-10-30T05:33:38.217Z",
