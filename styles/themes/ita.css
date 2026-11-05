@@ -1,5 +1,5 @@
 /*
- * ITA Airways: design tokens only, loaded by scripts/brand.js on a site whose metadata sets
+ * ITA Airways: design tokens and brand rules, loaded by scripts/brand.js on a site whose metadata sets
  * `brand: ita` (lh-ita's /metadata.json). Values from www.ita-airways.com's design system
  * (mausy v1.40.1): text and headings ITA dark blue, ITA blue for the header bar, the footer, the
  * primary button and links, ITA's greys and status colours. Fonts: www's Open Sans (Regular and
@@ -7,7 +7,9 @@
  * /digitalhangar/design-system/releases/mausy-v1.40.1/standalone/fonts/ita/: from the site's own
  * host where lh-edge serves it (its digitalhangar route: www.ita-airways.com's file and headers),
  * else www.ita-airways.com's absolute URL of the same file (the second src). The logo is the image
- * in the site's nav documents. lh-com's own pages never load this file.
+ * in the site's nav documents. Tokens first; below them the rules lh-com's blocks have no token for
+ * (body.brand-ita, brief 391: www's capture ita-parity-001, tests in test/ita-parity-391.test.mjs).
+ * lh-com's own pages never load this file.
  */
 @font-face {
   font-family: OpenSans;
@@ -81,9 +83,44 @@
   --button-secondary-hover: #01569d;
   --button-radius: 8px;
   --button-min-height: 48px;
+  --button-font-size: 16px; /* www's maui buttons 16/24 bold, 48 px high (brief 391) */
+  --button-padding: 10px 24px;
 
   /* the hero card's headline (hero-card-overlay light) */
   --hero-card-heading-color: #0b2340;
+
+  /* the menu (flyout): www's white panel, dark blue tabs, headings and 18/27 px regular links,
+     16 px bold extras, ITA blue chevrons and hover, #d1d1d5 rules (brief 391) */
+  --nav-flyout-surface: #fff;
+  --nav-flyout-text: #0b2340;
+  --nav-flyout-heading: #0b2340;
+  --nav-flyout-hover: #0171cf;
+  --nav-flyout-chevron: #0171cf;
+  --nav-flyout-line: #d1d1d5;
+  --nav-flyout-link-size: 18px;
+  --nav-flyout-link-weight: 400;
+  --nav-flyout-link-line-height: 27px;
+  --nav-flyout-extra-size: 16px;
+  --nav-flyout-extra-weight: 700;
+
+  /* the breadcrumb (brief 391): 17 px under the bar, 16/24 px, Home ITA blue bold, the current
+     page regular dark blue, dark blue chevrons */
+  --breadcrumb-top: 17px;
+  --breadcrumb-font-size: 16px;
+  --breadcrumb-line-height: 24px;
+  --breadcrumb-parent-color: #0171cf;
+  --breadcrumb-hover-color: #01569d;
+  --breadcrumb-chevron-color: #0b2340;
+  --breadcrumb-current-color: #0b2340;
+
+  /* the bar on phones (brief 391): 132 px, the logo 24 px high (29 px from 1281 px), 12 px links */
+  --nav-logo-height: 24px;
+  --nav-logo-height-wide: 29px;
+  --nav-height: 132px;
+  --nav-bar-font-size: 12px;
+  --header-bar-padding: 25px 22px 9px;
+  --nav-quick-link-padding: 12px 16px;
+  --nav-quick-list-padding: 12px 0 4px 6px;
 
   /* header: ITA blue bar with white text */
   --header-bar-surface: #0171cf;
@@ -99,4 +136,480 @@
   --footer-locale-color: #fff; /* the language button white as the rest (#ebebeb: 4.13:1, brief 370) */
   --footer-logos-surface: #0b2340;
   --footer-star-alliance-filter: brightness(0) invert(1); /* www's inverted graphic: white */
+
+  /* the footer's columns, links and rules as www's (brief 391): headings 18 px without a rule
+     (20 px accordion rows on phones), 12/16.8 px bold links 37 px apart, rules white at 20 %
+     (the accordion rows' at 50 %) */
+  --footer-title-line: transparent;
+  --footer-column-indent: 3px;
+  --footer-link-size: 12px;
+  --footer-link-weight: 700;
+  --footer-link-line-height: 16.8px;
+  --footer-link-gap: 20px;
+  --footer-divider-color: rgb(255 255 255 / 20%);
+  --footer-toggle-line: rgb(255 255 255 / 50%);
+}
+
+/* the header bar (brief 391, www.ita-airways.com 2026-11-05): 132 px on phones with the logo
+   162 x 24 at 33 px and the quick links 12 px under it, 112 px from 768 px with the 16 px links
+   beside the logo (196 x 29 from 1281 px) */
+@media (width >= 768px) {
+  :root {
+    --nav-height: 112px;
+    --nav-bar-font-size: 16px;
+    --header-bar-padding: 31px 24px;
+    --nav-quick-list-padding: 0 0 0 6px;
+  }
+}
+
+@media (width >= 1025px) {
+  :root {
+    --header-bar-padding: 31px 80px;
+  }
+}
+
+@media (width >= 1281px) {
+  :root {
+    --header-bar-padding: 31px 88px;
+  }
+}
+
+/* rules where lh-com's blocks have no token (brief 391) */
+
+/* the menu: www's links ask for LufthansaText, which ita-airways.com never loads: Arial shows */
+body.brand-ita .header .nav-flyout-link {
+  font-family: arial, helvetica, sans-serif;
+}
+
+body.brand-ita .header :is(.nav-flyout-back, .nav-flyout-close) {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  background-color: #0171cf;
+  color: #fff;
+}
+
+body.brand-ita .header :is(.nav-flyout-back, .nav-flyout-close):hover {
+  background-color: #01569d;
+  color: #fff;
+}
+
+body.brand-ita .header .nav-flyout-title {
+  color: #0b2340;
+  font-size: 24px;
+  line-height: 26.4px;
+}
+
+/* the alert strip: www's .flash-teaser (70 px from 768 px, the headline 16/24 bold), its tints,
+   its round ! and i; previous / next 24 px targets 6 px apart (www's chevrons sit 30 px apart) */
+body.brand-ita .flash-teaser-strip {
+  --flash-teaser-color: #0b2340;
+
+  background-color: #f4f8fc;
+}
+
+body.brand-ita .flash-teaser-strip:is([data-type="irreg"], [data-type="tech-outage"])[data-criticality="high"] {
+  --flash-teaser-color: #b01411;
+
+  background-color: #fdf5f5;
+}
+
+body.brand-ita .flash-teaser .flash-teaser-link:any-link {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+body.brand-ita .flash-teaser-icon:is(.flash-teaser-icon-warning, .flash-teaser-icon-info) {
+  width: 12px;
+  height: 12px;
+  margin-top: 6px;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM7 3h2v6.5H7zm0 8h2v2H7z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+body.brand-ita .flash-teaser-icon-info {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM7 6.5h2V13H7zm0-3.5h2v2H7z'/%3E%3C/svg%3E");
+}
+
+body.brand-ita .flash-teaser-icon:is(.flash-teaser-icon-warning, .flash-teaser-icon-info) svg {
+  display: none;
+}
+
+body.brand-ita .flash-teaser-nav {
+  gap: 6px;
+}
+
+body.brand-ita .flash-teaser-nav .flash-teaser-button {
+  height: 24px;
+}
+
+@media (width >= 768px) {
+  body.brand-ita .flash-teaser-bar {
+    height: 70px;
+  }
+}
+
+/* the flight search (row 5): www's maui inputs, 50 px boxes with a 1 px #72727f border and 8 px
+   corners, the label 12/18 inside (16/24 as the placeholder while empty), the value 16/24; the
+   dates one 48 px box with the calendar at its end; on phones From and To separate boxes, the
+   swap inside To at its end; the swap icon ITA blue */
+body.brand-ita .flight-search .airport-combobox {
+  padding-top: 0;
+}
+
+body.brand-ita .flight-search :is(.airport-combobox label, .flight-search-dates legend) {
+  top: 6px;
+  left: 16px;
+  max-width: calc(100% - 32px);
+  color: #72727f;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+body.brand-ita .flight-search :is(.airport-combobox[data-code=""]:not(:focus-within) label, .flight-search-dates:not(:focus-within, :has(input:valid)) legend) {
+  top: 12px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+body.brand-ita .flight-search .airport-combobox input {
+  height: 50px;
+  padding: 20px 30px 4px 15px;
+  border: 1px solid #72727f;
+  border-radius: 8px;
+  background-color: #fff;
+  color: #0b2340;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+body.brand-ita .flight-search .flight-search-date input {
+  height: 46px;
+  padding: 16px 0 0;
+  color: #0b2340;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+body.brand-ita .flight-search .airport-combobox input:focus {
+  padding: 20px 30px 4px 15px;
+  border-color: #0b2340;
+  outline: 2px solid #0b2340;
+  outline-offset: -1px;
+}
+
+body.brand-ita .flight-search .airport-combobox[data-code=""]:not(:focus-within)::after {
+  display: none;
+}
+
+body.brand-ita .flight-search .flight-search-dates {
+  box-sizing: border-box;
+  height: 48px;
+  padding: 0 44px 0 16px;
+  border: 1px solid #72727f;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+body.brand-ita .flight-search .flight-search-dates:focus-within {
+  outline: 2px solid #0b2340;
+  outline-offset: -1px;
+}
+
+body.brand-ita .flight-search .flight-search-date:focus-within input {
+  padding-inline: 0;
+  outline: none;
+}
+
+body.brand-ita .flight-search .flight-search-dates::after {
+  right: 16px;
+  bottom: 15px;
+  background-color: #0b2340;
+}
+
+body.brand-ita .flight-search .flight-search-swap {
+  color: #0171cf;
+}
+
+body.brand-ita .flight-search :is(.flight-search-travellers, .flight-search-nonstop) {
+  font-size: 16px;
+}
+
+@media (width < 768px) {
+  body.brand-ita .flight-search .flight-search-destination input {
+    padding-right: 48px;
+  }
+
+  body.brand-ita .flight-search .flight-search-swap {
+    margin: 0 6px 5px 0;
+  }
+}
+
+@media (width >= 768px) {
+  body.brand-ita .flight-search .flight-search-swap {
+    margin: 0 0 5px;
+  }
+}
+
+@media (width >= 1025px) {
+  body.brand-ita .flight-search .flight-search-submit {
+    margin-top: 0;
+  }
+}
+
+/* the homepage's wide teaser cards (row 7): www's .wide-teaser .card-container (1 px #d1d1d5,
+   12 px corners, its shadow), 36/39.6 px titles 32 px above the link (the dots stay the block's,
+   brief 374) */
+body.brand-ita .carousel-cards .carousel-cards-slide.carousel-cards-wide {
+  border-color: #d1d1d5;
+  border-radius: 12px;
+  box-shadow: 0 3px 6px #0b23401a;
+}
+
+body.brand-ita .carousel-cards .carousel-cards-wide .carousel-cards-body :is(h1, h2, h3, h4, h5, h6) {
+  margin-bottom: 32px;
+  font-size: 36px;
+  line-height: 39.6px;
+}
+
+/* the flight offers (row 8): the heading 28/30.8 bold, the origin ITA blue bold on a blue line,
+   the trip type pills outlined ITA blue, the chosen one filled */
+body.brand-ita .destination-finder .destination-finder-heading {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 30.8px;
+}
+
+body.brand-ita .destination-finder :is(.destination-finder-origin, .airport-combobox input) {
+  border-bottom-color: #0171cf;
+  color: #0171cf;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+body.brand-ita .destination-finder .destination-finder-chip {
+  border-color: #0171cf;
+  color: #0171cf;
+  font-weight: 400;
+}
+
+body.brand-ita .destination-finder .destination-finder-chip:has(input:checked) {
+  border-color: #0171cf;
+  background-color: #0171cf;
+  color: #fff;
+  font-weight: 700;
+}
+
+/* the icon tiles (row 9): www's .icon-teaser-link.container-brand, ITA blue, white icons and
+   labels, 168 px high */
+body.brand-ita .cards-icon .cards-icon-tile {
+  min-height: 168px;
+  border-color: #0171cf;
+  background-color: #0171cf;
+  box-shadow: 0 3px 6px #0b23401a;
+}
+
+body.brand-ita .cards-icon .cards-icon-label {
+  color: #fff;
+}
+
+body.brand-ita .cards-icon .cards-icon-icon img {
+  filter: brightness(0) invert(1);
+}
+
+/* the footer (row 11): www's link lists in Arial (their unloaded LufthansaText), the payment and
+   social rows with their headings, the legal links with the language button at their end, the
+   company note centred; on phones the accordion rows 12 px in, 32 px apart, as www's */
+body.brand-ita .footer {
+  --footer-heading-size: 20px;
+}
+
+body.brand-ita .footer :is(.footer-column-links .footer-link, .footer-legal .footer-link) {
+  font-family: arial, helvetica, sans-serif;
+}
+
+body.brand-ita .footer .footer-inner.has-extras {
+  grid-template-areas: "columns" "badges" "divider" "legal" "locale" "note";
+}
+
+body.brand-ita .footer .footer-columns {
+  margin: 0;
+}
+
+body.brand-ita .footer .footer-column-toggle {
+  margin-bottom: 32px;
+  padding: 12px 16px;
+}
+
+body.brand-ita .footer .footer-badges {
+  flex-flow: column;
+  gap: 32px;
+  padding: 26px 2px 38px;
+  border-top: 1px solid rgb(255 255 255 / 20%);
+}
+
+body.brand-ita .footer .footer-badge-heading {
+  margin-bottom: 16px;
+  font-size: 20px;
+  line-height: 22px;
+}
+
+/* www's icons draw larger than the documents' (their own padding): 40 px images match them */
+body.brand-ita .footer .footer-badges img {
+  height: 40px;
+}
+
+body.brand-ita .footer .footer-legal {
+  padding: 25px 2px 0;
+}
+
+body.brand-ita .footer .footer-legal .footer-link {
+  margin-bottom: 24px;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+body.brand-ita .footer .footer-locale-button .lh-icon {
+  display: none;
+}
+
+body.brand-ita .footer .footer-legal .footer-link .lh-icon {
+  width: 12px;
+  height: 12px;
+}
+
+body.brand-ita .footer .footer-locale {
+  justify-self: end;
+  margin: 0 0 24px;
+}
+
+body.brand-ita .footer .footer-locale-button {
+  font-size: 18px;
+  line-height: 27px;
+}
+
+/* the rule across the column, the text in www's 800 px */
+body.brand-ita .footer .footer-note {
+  margin: 0;
+  padding: 27px max(0px, calc((100% - 800px) / 2)) 24px;
+  border-top: 1px solid rgb(255 255 255 / 20%);
+  font-size: 14px;
+  line-height: 21px;
+  text-align: center;
+}
+
+body.brand-ita .footer .footer-logos a.footer-logo-star-alliance-horizontal {
+  filter: brightness(0) invert(1);
+}
+
+body.brand-ita .footer .footer-logos .footer-logo-ita-airways-logo-inverted img,
+body.brand-ita .footer .footer-logos .footer-logo-star-alliance-horizontal img {
+  height: 20px;
+}
+
+@media (width >= 768px) {
+  body.brand-ita .footer {
+    --footer-heading-size: 18px;
+  }
+
+  body.brand-ita .footer .footer-inner {
+    padding-top: 32px;
+  }
+
+  body.brand-ita .footer .footer-inner.has-extras {
+    grid-template-areas: "columns columns" "badges badges" "divider divider" "legal locale" "note note";
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  body.brand-ita .footer .footer-column-title {
+    margin-bottom: 28px;
+    padding-bottom: 0;
+  }
+
+  body.brand-ita .footer .footer-badges {
+    flex-flow: row nowrap;
+    gap: 0;
+    margin-top: 30px;
+  }
+
+  body.brand-ita .footer .footer-badge-group {
+    flex: 0 0 50%;
+  }
+
+  body.brand-ita .footer .footer-badge-heading {
+    font-size: 24px;
+    line-height: 26.4px;
+  }
+
+  body.brand-ita .footer .footer-locale {
+    align-self: start;
+    margin: 43px 0 0;
+  }
+}
+
+/* the breadcrumb (row 12): www's maui-breadcrumb, the parents bold, the current page regular */
+body.brand-ita .breadcrumb a:any-link {
+  font-weight: 700;
+}
+
+body.brand-ita .breadcrumb .breadcrumb-current {
+  font-weight: 400;
+}
+
+/* the menu pages' cards (row 13): www's .teaser.card, a 1 px #f8f8f9 border, its shadow (stronger
+   on hover), titles 22 px to 28 px, 16/24 descriptions 20 px above the link */
+body.brand-ita .carousel-cards:is(.grid, .four-up) .carousel-cards-slide:not(.carousel-cards-text-only),
+body.brand-ita .carousel-cards:is(.grid, .four-up) .carousel-cards-slide:not(.carousel-cards-text-only):hover {
+  border-color: #f8f8f9;
+  box-shadow: 0 3px 6px #0b23401a;
+}
+
+body.brand-ita .carousel-cards:is(.grid, .four-up) .carousel-cards-slide:not(.carousel-cards-text-only):hover {
+  box-shadow: 0 1px 20px 1px #0003;
+}
+
+body.brand-ita .carousel-cards:is(.grid, .four-up) .carousel-cards-slide:not(.carousel-cards-wide) .carousel-cards-body > :is(h1, h2, h3, h4, h5, h6) {
+  font-size: clamp(22px, calc(22px + 6 * (100vw - 375px) / 1065), 28px);
+  line-height: 1.1;
+}
+
+body.brand-ita .carousel-cards:is(.grid, .four-up) .carousel-cards-body > p:has(+ .carousel-cards-cta) {
+  margin-bottom: 20px;
+}
+
+body.brand-ita .carousel-cards:is(.grid, .four-up) .carousel-cards-slide:not(.carousel-cards-wide) .carousel-cards-body > .carousel-cards-cta {
+  font-size: 16px;
+  line-height: 17.6px;
+}
+
+body.brand-ita .carousel-cards:is(.grid, .four-up) .carousel-cards-slide:not(.carousel-cards-wide) .carousel-cards-body > p:not(.carousel-cards-cta) {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+/* the info pages' accordions (row 15): www's maui-collapsible items, each boxed (1 px #d1d1d5,
+   8 px corners, its shadow), 8 px apart, titles 20/28 */
+body.brand-ita .accordion-columns.faq .accordion-columns-item {
+  margin-bottom: 8px;
+  border: 1px solid #d1d1d5;
+  border-radius: 8px;
+  box-shadow: 0 3px 6px #0b23401a;
+}
+
+body.brand-ita .accordion-columns.faq .accordion-columns-title {
+  padding: 12px 48px 12px 16px;
+  font-size: calc(20px * var(--a11y-scale, 1));
+  line-height: calc(28px * var(--a11y-scale, 1));
+}
+
+/* the contact page's question (row 14): www's feedback questionnaire, the question bold, the note
+   14/21 px 40 px above the answers */
+body.brand-ita .feedback .feedback-label {
+  font-weight: 700;
+}
+
+body.brand-ita .feedback .feedback-note {
+  margin-bottom: 40px;
+  font-size: 14px;
+  line-height: 21px;
 }
