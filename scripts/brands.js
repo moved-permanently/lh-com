@@ -47,7 +47,9 @@
  * paths (/content/<aemContent>/markets/<cc>/<ll>/...), which lh-edge redirects to the short path.
  * travellersDialog: the flight search's traveller line opens the group platform's travellers
  * window (blocks/flight-search/travellers-dialog.js) instead of the dropdown; its labels: the
- * brand's own wording of the window per language, where www's differs from the group's.
+ * brand's own wording of the window per language, where www's differs from the group's;
+ * redeemMiles: its Redeem miles tab (travellers-miles.js), the targets with {cc}, {ll} and
+ * {clientId} (travelId.clientId) filled, awardsStyle the award search's button.
  */
 export const BRANDS = {
   discover: {
@@ -225,7 +227,17 @@ export const BRANDS = {
     hub: 'BRU',
     airline: 'SN',
     // www's travellers window (capture brussels-parity-001, be/en and be/fr): the group's wording
-    travellersDialog: {},
+    travellersDialog: {
+      // www's Redeem miles tab (capture redeem-miles-001): the login on the replica (Travel ID
+      // returns only to www), the enrolment and the award search as www's; be/fr's enrolment
+      // link on www is broken (/content/sn/gc/fr): the French enrolment page
+      redeemMiles: {
+        login: '/{cc}/{ll}/profile/login',
+        member: 'https://brusselsairlines.miles-and-more.com/web/row/{ll}/enrolment.html?client_id={clientId}&redirect_uri=https://www.brusselsairlines.com',
+        awards: 'https://www.miles-and-more.com/be/en/spend/flights.html',
+        awardsStyle: 'secondary',
+      },
+    },
     // articleIndex: per language, the query index of its posts (helix-query.yaml articles-be-en,
     // -fr, -nl): the posts list reads its language version's on every root (a market root has no
     // index of its own)
@@ -286,7 +298,17 @@ export const BRANDS = {
     hub: 'ZRH',
     airline: 'LX',
     // www's travellers window (capture swiss-parity-001, ch/en and ch/de): ch/de's Swiss spelling
-    travellersDialog: { labels: { de: { 'close label': 'Schliessen' } } },
+    travellersDialog: {
+      labels: { de: { 'close label': 'Schliessen' } },
+      // www's Redeem miles tab (capture redeem-miles-001): the login on the replica, the
+      // enrolment and the award search (de/de for every language) as www's, the search filled
+      redeemMiles: {
+        login: '/{cc}/{ll}/login',
+        member: 'https://swiss.miles-and-more.com/web/row/{ll}/enrolment.html?client_id={clientId}&redirect_uri=https://www.swiss.com',
+        awards: 'https://www.miles-and-more.com/de/de/spend/flights.html',
+        awardsStyle: 'accent',
+      },
+    },
     consentLinks: {
       en: {
         privacy: 'https://www.swiss.com/ch/en/terms-conditions/privacy-statement',

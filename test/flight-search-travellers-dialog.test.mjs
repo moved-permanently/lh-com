@@ -104,7 +104,7 @@ test('Brussels be/en: the line opens a modal dialog with www\'s parts and names'
   assert.equal(block.querySelector('.flight-search-passengers-panel'), null, 'no dropdown');
   assert.equal(text(document.getElementById(dialog.getAttribute('aria-labelledby'))), 'Travel details');
   const tabs = dialog.querySelector('[role="tablist"]');
-  assert.deepEqual([...tabs.querySelectorAll('[role="tab"]')].map(text), ['Travel details'], 'Redeem miles waits for its capture');
+  assert.deepEqual([...tabs.querySelectorAll('[role="tab"]')].map(text), ['Travel details', 'Redeem miles'], 'Redeem miles: test/flight-search-redeem-miles.test.mjs');
   const tab = tabs.querySelector('[role="tab"]');
   assert.equal(tab.getAttribute('aria-selected'), 'true');
   const panel = document.getElementById(tab.getAttribute('aria-controls'));

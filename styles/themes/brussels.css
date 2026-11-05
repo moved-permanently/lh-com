@@ -540,6 +540,39 @@ body.brand-brussels {
   --travellers-dialog-stepper-divider: transparent;
   --travellers-dialog-question-weight: 700;
   --travellers-dialog-close-color: var(--link-color);
+
+  /* the tabs (redeem-miles-001): both sn-blue-3, the other regular, 20 px inside (40 px from 768 px), a 5 px line;
+     Redeem miles: points 18 / 24 regular, notes 14 / 21, Become a member 14 / 22 red with an
+     arrow, the award search's arrow before its text */
+  --travellers-dialog-tab-idle-color: var(--lh-marble-blue);
+  --travellers-dialog-tab-idle-weight: 400;
+  --travellers-dialog-tab-line: 5px;
+  --travellers-dialog-tab-padding: 20px;
+  --travellers-dialog-point-size: 18px;
+  --travellers-dialog-point-line: 24px;
+  --travellers-dialog-point-weight: 400;
+  --travellers-dialog-note-line: 21px;
+  --travellers-dialog-note-gap: 20px;
+  --travellers-dialog-member-size: 14px;
+  --travellers-dialog-member-line: 22px;
+  --travellers-dialog-member-color: var(--link-color);
+  --travellers-dialog-member-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M6.6 1.5 5.7 2.4 8.6 5.4H1v1.2h7.6L5.7 9.6l.9.9L11 6z'/%3E%3C/svg%3E");
+  --travellers-dialog-awards-icon-order: -1;
+}
+
+@media (width >= 768px) {
+  body.brand-brussels {
+    --travellers-dialog-tab-padding: 40px;
+  }
+}
+
+/* phones: the two tabs share the bar, their labels on two lines from 20 px in (www's 139 + 149
+   px) */
+@media (width < 768px) {
+  body.brand-brussels .flight-search .flight-search-travellers-tab {
+    flex: 1 1 0;
+    text-align: start;
+  }
 }
 
 /* section style sidebar (www's .airem-sidebar: .sidebar-content 75% beside an empty aside, from

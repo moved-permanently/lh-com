@@ -53,7 +53,12 @@ const text = (node) => (node ? node.textContent.replace(/\s+/g, ' ').trim() : ''
 const dialogOf = (block) => block.querySelector('dialog.flight-search-travellers-dialog');
 const tabsOf = (dialog) => [...dialog.querySelectorAll('[role="tab"]')];
 const panelOf = (dialog, tab) => dialog.querySelector(`#${tab.getAttribute('aria-controls')}`);
-const key = (node, k) => node.dispatchEvent(new window.KeyboardEvent('keydown', { key: k, bubbles: true }));
+// linkedom has no KeyboardEvent: an Event carrying the key
+const key = (node, k) => {
+  const e = new window.Event('keydown', { bubbles: true, cancelable: true });
+  e.key = k;
+  return node.dispatchEvent(e);
+};
 
 test('the switch: Brussels and SWISS have the tab, Austrian\'s window not', () => {
   assert.ok(BRANDS.brussels.travellersDialog.redeemMiles, 'brussels');

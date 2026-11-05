@@ -17,6 +17,7 @@ import {
 } from './passenger-picker.js';
 import { readPickerOptions, applyPickerChoices } from './picker-options.js';
 import { createTravellersDialog, dialogDefaults } from './travellers-dialog.js';
+import { milesOptions } from './travellers-miles.js';
 import { pagePrefillParams, parsePrefill } from './url-prefill.js';
 
 /* ---------------------------------------------------------------------------------------------
@@ -922,6 +923,8 @@ export default function decorate(block) {
       value: { adults: settings.adults, cabin: settings.cabin, ...(prefill.passengers || {}) },
       groupBooking: settings.groupBooking,
       youngAdults: pickerOptions.youngAdults,
+      // the Redeem miles tab where the brand has it (travellers-miles.js: Brussels, SWISS)
+      miles: milesOptions(locale, brandEntry()),
     });
     optionsRow.append(passengers.element);
   } else if (settings.passengerPicker) {

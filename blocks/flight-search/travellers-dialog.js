@@ -22,6 +22,7 @@ import {
   clampPassengers, passengerSummary, PASSENGER_LABELS, PICKER_CABINS, MAX_TRAVELLERS,
 } from './passenger-picker.js';
 import { FARE_PREFERENCES } from './picker-options.js';
+import { buildMilesPanel } from './travellers-miles.js';
 
 /** www's texts of the window per language (be/en, be/fr, ch/de; the group's shared wording). */
 export const DIALOG_LABELS = {
@@ -136,10 +137,11 @@ const CLOSE_ICON = '<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden=
  *   infants?: number}} options.value the starting values
  * @param {Object} [options.groupBooking] the Group booking row's link ({href, text})
  * @param {boolean} [options.youngAdults] the young adults' stepper (picker-options.js)
+ * @param {Object} [options.miles] the Redeem miles tab (travellers-miles.js milesOptions)
  * @returns {{element: Element, getValue: () => Object}}
  */
 export function createTravellersDialog({
-  labels, cabins, value, groupBooking = null, youngAdults = false,
+  labels, cabins, value, groupBooking = null, youngAdults = false, miles = null,
 }) {
   loadStyles();
   const offered = PICKER_CABINS.filter(([code]) => cabins.includes(code));
@@ -171,21 +173,24 @@ export function createTravellersDialog({
   close.setAttribute('aria-label', labels['close label']);
   close.innerHTML = CLOSE_ICON;
 
-  // the tab bar (www's .tab-links): Travel details
+  // the tab bar (www's .tab-links): Travel details, and Redeem miles where the brand has it
   const tabs = el('div', 'flight-search-travellers-tabs');
   tabs.setAttribute('role', 'tablist');
-  const tab = el('button', 'flight-search-travellers-tab');
-  tab.type = 'button';
-  tab.id = id('tab');
-  tab.setAttribute('role', 'tab');
-  tab.setAttribute('aria-selected', 'true');
-  tab.setAttribute('aria-controls', id('panel'));
-  tab.append(el('span', '', labels['travel details label']));
-  tabs.append(tab);
-  dialog.setAttribute('aria-labelledby', tab.id);
+  const makeTab = (name, text) => {
+    const button = el('button', 'flight-search-travellers-tab');
+    button.type = 'button';
+    button.id = id(`${name}-tab`);
+    button.setAttribute('role', 'tab');
+    button.setAttribute('aria-controls', id(`${name}-panel`));
+    button.append(el('span', '', text));
+    tabs.append(button);
+    return button;
+  };
+  const tab = makeTab('details', labels['travel details label']);
+  const milesTab = miles ? makeTab('miles', miles.labels['miles tab label']) : null;
 
   const panel = el('div', 'flight-search-travellers-panel');
-  panel.id = id('panel');
+  panel.id = id('details-panel');
   panel.setAttribute('role', 'tabpanel');
   panel.setAttribute('aria-labelledby', tab.id);
   const left = el('div', 'flight-search-travellers-column');
@@ -305,10 +310,48 @@ export function createTravellersDialog({
   done.type = 'button';
   const footer = el('div', 'flight-search-travellers-footer');
   footer.append(done);
-  dialog.append(close, tabs, panel, footer);
+  dialog.append(close, tabs, panel);
+  let milesPanel = null;
+  if (milesTab) {
+    milesPanel = el('div', 'flight-search-travellers-panel flight-search-travellers-miles-panel');
+    milesPanel.id = id('miles-panel');
+    milesPanel.setAttribute('role', 'tabpanel');
+    milesPanel.setAttribute('aria-labelledby', milesTab.id);
+    milesPanel.append(buildMilesPanel(miles, id));
+    dialog.append(milesPanel);
+  }
+  dialog.append(footer);
+
+  // tabs as tabs: the open one in the Tab order, arrows (Home, End) move between them and open
+  // them; Continue belongs to Travel details only, as on www
+  const allTabs = [tab, milesTab].filter(Boolean);
+  const panels = [panel, milesPanel].filter(Boolean);
+  const openTab = (index, focus) => {
+    allTabs.forEach((t, i) => {
+      t.setAttribute('aria-selected', String(i === index));
+      t.setAttribute('tabindex', i === index ? '0' : '-1');
+      panels[i].hidden = i !== index;
+    });
+    footer.hidden = index !== 0;
+    dialog.setAttribute('aria-labelledby', allTabs[index].id);
+    if (focus) allTabs[index].focus();
+  };
+  allTabs.forEach((t, i) => t.addEventListener('click', () => openTab(i, false)));
+  tabs.addEventListener('keydown', (e) => {
+    const at = allTabs.findIndex((t) => t.getAttribute('aria-selected') === 'true');
+    const n = allTabs.length;
+    const next = {
+      ArrowRight: (at + 1) % n, ArrowLeft: (at - 1 + n) % n, Home: 0, End: n - 1,
+    }[e.key];
+    if (next === undefined) return;
+    e.preventDefault();
+    openTab(next, true);
+  });
+  openTab(0, false);
 
   // the window shows the draft: a copy of the kept values when it opens
   const show = () => {
+    openTab(0, false);
     draft = { ...kept, counts: { ...kept.counts } };
     if (select) {
       select.querySelectorAll('option').forEach((o) => {
