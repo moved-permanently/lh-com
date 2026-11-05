@@ -14,6 +14,13 @@ import { buildShopHandoff } from '../scripts/shop-handoff.js';
 import { portalHeaders } from '../scripts/lh-data.js';
 import { LANGUAGE_VERSIONS, NEUTRAL_VERSIONS } from '../scripts/locale-table.js';
 
+// the live roots with documents of their own: the four, and a language version with documents of
+// its own once its wave is live (xx/fr: wave 11, xx/es: wave 12; tools/reports/markets/go-live.md)
+const ownLiveRoots = () => {
+  const { liveWaves = [] } = JSON.parse(fs.readFileSync('tools/markets/locale-data.json', 'utf8'));
+  return ['de/en', 'de/de', 'at/de', 'gb/en', ...(liveWaves.includes(11) ? ['xx/fr'] : []), ...(liveWaves.includes(12) ? ['xx/es'] : [])];
+};
+
 // today's values of the four roots (scripts/locale.js before the table)
 const BEFORE = {
   'de/en': {
@@ -41,7 +48,7 @@ test('scripts/locale-table.js is up to date (node tools/markets/build-locale-tab
 });
 
 test('the four roots: LOCALES, getLocale and the migrated checks exactly as before', () => {
-  assert.deepEqual(LIVE_ROOTS, ['de/en', 'de/de', 'at/de', 'gb/en']);
+  assert.deepEqual(LIVE_ROOTS, ownLiveRoots());
   Object.entries(BEFORE).forEach(([key, row]) => {
     assert.deepEqual(core(LOCALES[key]), row, key);
     const l = getLocale(`/${key}/homepage`);
@@ -153,7 +160,7 @@ test('a language version still pilot (French, batch 11): allowed while its marke
 
 test('French (batch 11, pilot; brief 281: www\'s xx/fr has pages): xx/fr the language version with its own documents, 14 market roots from it (fr/fr among them); the four live roots as before', () => {
   const { liveWaves = [] } = JSON.parse(fs.readFileSync('tools/markets/locale-data.json', 'utf8'));
-  assert.deepEqual(LIVE_ROOTS, ['de/en', 'de/de', 'at/de', 'gb/en']);
+  assert.deepEqual(LIVE_ROOTS, ownLiveRoots());
   assert.deepEqual({ en: LANGUAGE_VERSIONS.en, de: LANGUAGE_VERSIONS.de, fr: LANGUAGE_VERSIONS.fr }, { en: 'de/en', de: 'de/de', fr: 'xx/fr' });
   const french = Object.entries(LOCALE_TABLE).filter(([, r]) => r.lang === 'fr');
   assert.equal(french.length, 15);
@@ -206,7 +213,7 @@ test('a market-neutral language version (Spanish, brief 268: www\'s xx/es has pa
 
 test('Spanish (batch 12, pilot): xx/es the language version with its own documents, 13 market roots from it (es/es among them)', () => {
   const { liveWaves = [] } = JSON.parse(fs.readFileSync('tools/markets/locale-data.json', 'utf8'));
-  assert.deepEqual(LIVE_ROOTS, ['de/en', 'de/de', 'at/de', 'gb/en']);
+  assert.deepEqual(LIVE_ROOTS, ownLiveRoots());
   assert.equal(LANGUAGE_VERSIONS.es, 'xx/es');
   const spanish = Object.entries(LOCALE_TABLE).filter(([, r]) => r.lang === 'es');
   assert.equal(spanish.length, 14);
