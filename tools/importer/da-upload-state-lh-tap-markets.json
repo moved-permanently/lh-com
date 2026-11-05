@@ -2121,9 +2121,9 @@
    "preview": "2026-11-05T05:57:09.631Z"
   },
   "/pt-pt/promos": {
-   "uploaded": "2026-11-04T08:21:51.569Z",
-   "mtime": 1793778811514,
-   "preview": "2026-11-04T08:21:53.777Z"
+   "uploaded": "2026-11-05T21:10:38.456Z",
+   "mtime": 1793912649477.5742,
+   "preview": "2026-11-05T21:10:41.452Z"
   },
   "/pt-pt/reservas": {
    "uploaded": "2026-11-04T08:22:04.492Z",
@@ -2131,9 +2131,9 @@
    "preview": "2026-11-04T08:22:06.892Z"
   },
   "/pt-pt/miles-and-go": {
-   "uploaded": "2026-11-05T04:36:04.744Z",
-   "mtime": 1793850954445,
-   "preview": "2026-11-05T04:36:07.209Z"
+   "uploaded": "2026-11-05T21:10:05.058Z",
+   "mtime": 1793912649529.5525,
+   "preview": "2026-11-05T21:10:08.130Z"
   },
   "/pt-pt/ajuda/atrasos-cancelamentos": {
    "uploaded": "2026-11-04T16:23:18.143Z",
@@ -2156,9 +2156,9 @@
    "preview": "2026-11-05T10:05:29.635Z"
   },
   "/pt-pt/info-legal/condicoes-de-transporte": {
-   "uploaded": "2026-11-04T08:22:40.969Z",
-   "mtime": 1793778624023,
-   "preview": "2026-11-04T08:22:44.632Z"
+   "uploaded": "2026-11-05T21:10:22.326Z",
+   "mtime": 1793912649618.3142,
+   "preview": "2026-11-05T21:10:26.284Z"
   },
   "/pt-pt/info-legal/privacidade": {
    "uploaded": "2026-11-04T08:22:46.055Z",
@@ -2291,9 +2291,9 @@
    "preview": "2026-11-05T05:56:49.851Z"
   },
   "/en-pt/promos": {
-   "uploaded": "2026-11-04T08:25:15.240Z",
-   "mtime": 1793778814104,
-   "preview": "2026-11-04T08:25:17.217Z"
+   "uploaded": "2026-11-05T21:10:30.918Z",
+   "mtime": 1793912650143.3965,
+   "preview": "2026-11-05T21:10:34.832Z"
   },
   "/en-pt/bookings": {
    "uploaded": "2026-11-04T08:25:18.670Z",
@@ -2331,9 +2331,9 @@
    "preview": "2026-11-05T10:02:13.246Z"
   },
   "/en-pt/legal-info/conditions-of-carriage": {
-   "uploaded": "2026-11-04T08:25:44.966Z",
-   "mtime": 1793778627136,
-   "preview": "2026-11-04T08:25:49.036Z"
+   "uploaded": "2026-11-05T21:10:12.644Z",
+   "mtime": 1793912650243.794,
+   "preview": "2026-11-05T21:10:17.553Z"
   },
   "/en-pt/legal-info/accessibility": {
    "uploaded": "2026-11-04T08:25:50.290Z",
@@ -6659,6 +6659,71 @@
    "uploaded": "2026-11-05T06:54:13.965Z",
    "mtime": 1793861176364,
    "preview": "2026-11-05T06:54:16.528Z"
+  },
+  "/en-de/legal-info/legal-notices": {
+   "uploaded": "2026-11-05T21:10:44.160Z",
+   "mtime": 1793912651601.682,
+   "preview": "2026-11-05T21:10:46.601Z"
+  },
+  "/en-de/legal-info/arbitration-body": {
+   "uploaded": "2026-11-05T21:10:49.254Z",
+   "mtime": 1793912651603.945,
+   "preview": "2026-11-05T21:10:51.843Z"
+  },
+  "/pt-de/info-legal/avisos-legais": {
+   "uploaded": "2026-11-05T21:10:53.988Z",
+   "mtime": 1793912651743.6995,
+   "preview": "2026-11-05T21:10:56.060Z"
+  },
+  "/pt-de/info-legal/orgao-arbitragem": {
+   "uploaded": "2026-11-05T21:10:58.383Z",
+   "mtime": 1793912651746.147,
+   "preview": "2026-11-05T21:11:00.494Z"
+  },
+  "/en-at/legal-info/legal-notices": {
+   "uploaded": "2026-11-05T21:11:03.320Z",
+   "mtime": 1793912651993.4575,
+   "preview": "2026-11-05T21:11:06.173Z"
+  },
+  "/en-at/legal-info/arbitration-body": {
+   "uploaded": "2026-11-05T21:11:08.439Z",
+   "mtime": 1793912651995.8171,
+   "preview": "2026-11-05T21:11:10.439Z"
+  },
+  "/pt-at/info-legal/avisos-legais": {
+   "uploaded": "2026-11-05T21:11:13.053Z",
+   "mtime": 1793912652005.111,
+   "preview": "2026-11-05T21:11:15.395Z"
+  },
+  "/pt-at/info-legal/orgao-arbitragem": {
+   "uploaded": "2026-11-05T21:11:17.550Z",
+   "mtime": 1793912652007.4414,
+   "preview": "2026-11-05T21:11:19.627Z"
+  },
+  "/en-fr/info-legal/direitos-passageiros-franca": {
+   "uploaded": "2026-11-05T21:11:21.826Z",
+   "mtime": 1793912652294.5867,
+   "preview": "2026-11-05T21:11:24.132Z"
+  },
+  "/pt-fr/info-legal/direitos-passageiros-franca": {
+   "uploaded": "2026-11-05T21:11:26.205Z",
+   "mtime": 1793912652285.6057,
+   "preview": "2026-11-05T21:11:28.412Z"
+  },
+  "/en-ch/legal-info/legal-notices": {
+   "uploaded": "2026-11-05T21:11:31.121Z",
+   "mtime": 1793912652785.7888,
+   "preview": "2026-11-05T21:11:33.223Z"
+  },
+  "/pt-ch/info-legal/avisos-legais": {
+   "uploaded": "2026-11-05T21:11:35.321Z",
+   "mtime": 1793912652797.2163,
+   "preview": "2026-11-05T21:11:38.217Z"
+  },
+  "/fr-ch/mentions-legales/mentions-legales": {
+   "uploaded": "2026-11-05T21:11:40.484Z",
+   "mtime": 1793912652777.2864,
+   "preview": "2026-11-05T21:11:42.879Z"
   }
  },
  "media": {
@@ -10393,6 +10458,9 @@
   },
   "/media-da/tap/bg-c2call-full-2-52554978.png": {
    "at": "2026-11-05T10:02:37.188Z"
+  },
+  "/media-da/tap/card-1280x720-2d99a639.jpg": {
+   "at": "2026-11-05T21:10:27.982Z"
   }
  }
 }

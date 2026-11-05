@@ -1640,7 +1640,14 @@
   "/ug/fr/footer",
   "/us/en/nav",
   "/us/en/footer",
-  "/be/en/my-bookings/invoices/invoice-success"
+  "/be/en/my-bookings/invoices/invoice-success",
+  "/ae/en/local-page/black-friday",
+  "/ao/fr/local-page/black-friday",
+  "/nl/nl/local-page/black-friday",
+  "/bf/en/local-page/an-unforgettable-reunion",
+  "/bf/fr/local-page/retrouvailles-inoubliables",
+  "/cm/en/local-page/an-unforgettable-reunion",
+  "/cm/fr/local-page/retrouvailles-inoubliables"
  ],
  "linkOuts": [
   "/be/en/book-a-flight/our-payment-methods",

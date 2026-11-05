@@ -2495,7 +2495,13 @@
   "/br/pt/book-and-prepare/group-travel-and-charter",
   "/jp/ja/book-and-prepare/group-travel-and-charter",
   "/it/en/modals/general-conditions",
-  "/it/it/modals/general-conditions"
+  "/it/it/modals/general-conditions",
+  "/us/es/homepage",
+  "/ve/es/homepage",
+  "/us/es/nav",
+  "/us/es/footer",
+  "/ve/es/nav",
+  "/ve/es/footer"
  ],
  "linkOuts": [
   "/it/en/manage-my-bookings/manage/manage-my-bookings",

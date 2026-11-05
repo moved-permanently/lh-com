@@ -4624,6 +4624,311 @@
    "uploaded": "2026-11-01T10:24:54.553Z",
    "mtime": 1793528603485,
    "preview": "2026-11-01T10:24:56.068Z"
+  },
+  "/es/ci/digitalization": {
+   "uploaded": "2026-11-05T21:16:11.193Z",
+   "mtime": 1793913158802.6663,
+   "preview": "2026-11-05T21:16:13.919Z"
+  },
+  "/es/ci/environmental": {
+   "uploaded": "2026-11-05T21:16:16.082Z",
+   "mtime": 1793913158816.5383,
+   "preview": "2026-11-05T21:16:18.515Z"
+  },
+  "/es/ci/facts-figures": {
+   "uploaded": "2026-11-05T21:16:20.727Z",
+   "mtime": 1793913158832.3054,
+   "preview": "2026-11-05T21:16:23.448Z"
+  },
+  "/es/ci/fleet-infrastructure": {
+   "uploaded": "2026-11-05T21:16:25.802Z",
+   "mtime": 1793913158856.0493,
+   "preview": "2026-11-05T21:16:28.140Z"
+  },
+  "/es/ci/newsroom": {
+   "uploaded": "2026-11-05T21:16:30.502Z",
+   "mtime": 1793913158862.5955,
+   "preview": "2026-11-05T21:16:32.619Z"
+  },
+  "/es/ci/partnerships-subsidiaries": {
+   "uploaded": "2026-11-05T21:16:35.455Z",
+   "mtime": 1793913158878.2463,
+   "preview": "2026-11-05T21:16:38.019Z"
+  },
+  "/es/ci/recycling": {
+   "uploaded": "2026-11-05T21:16:40.390Z",
+   "mtime": 1793913158894.5107,
+   "preview": "2026-11-05T21:16:42.883Z"
+  },
+  "/es/ci/security": {
+   "uploaded": "2026-11-05T21:16:45.280Z",
+   "mtime": 1793913158902.789,
+   "preview": "2026-11-05T21:16:47.620Z"
+  },
+  "/es/ci/social": {
+   "uploaded": "2026-11-05T21:16:49.961Z",
+   "mtime": 1793913158914.6677,
+   "preview": "2026-11-05T21:16:52.295Z"
+  },
+  "/es/ci/sustainable-development-goals": {
+   "uploaded": "2026-11-05T21:16:54.354Z",
+   "mtime": 1793913158930.938,
+   "preview": "2026-11-05T21:16:56.659Z"
+  },
+  "/es/ci/transport-stories": {
+   "uploaded": "2026-11-05T21:16:58.956Z",
+   "mtime": 1793913158953.761,
+   "preview": "2026-11-05T21:17:01.897Z"
+  },
+  "/es/ci/whats-up-now": {
+   "uploaded": "2026-11-05T21:17:04.196Z",
+   "mtime": 1793913158967.3887,
+   "preview": "2026-11-05T21:17:07.927Z"
+  },
+  "/es/eservices/efreight": {
+   "uploaded": "2026-11-05T21:17:10.221Z",
+   "mtime": 1793913158981.8838,
+   "preview": "2026-11-05T21:17:12.754Z"
+  },
+  "/es/footer/bottomnav/imprint": {
+   "uploaded": "2026-11-05T21:17:15.156Z",
+   "mtime": 1793913158991.9397,
+   "preview": "2026-11-05T21:17:17.592Z"
+  },
+  "/fr/ci/digitalization": {
+   "uploaded": "2026-11-05T21:17:20.235Z",
+   "mtime": 1793913158998.605,
+   "preview": "2026-11-05T21:17:22.301Z"
+  },
+  "/fr/ci/environmental": {
+   "uploaded": "2026-11-05T21:17:24.868Z",
+   "mtime": 1793913159004.105,
+   "preview": "2026-11-05T21:17:27.203Z"
+  },
+  "/fr/ci/facts-figures": {
+   "uploaded": "2026-11-05T21:17:29.673Z",
+   "mtime": 1793913159013.7175,
+   "preview": "2026-11-05T21:17:32.220Z"
+  },
+  "/fr/ci/fleet-infrastructure": {
+   "uploaded": "2026-11-05T21:17:34.812Z",
+   "mtime": 1793913159040.0256,
+   "preview": "2026-11-05T21:17:37.261Z"
+  },
+  "/fr/ci/newsroom": {
+   "uploaded": "2026-11-05T21:17:39.699Z",
+   "mtime": 1793913159043.4495,
+   "preview": "2026-11-05T21:17:41.687Z"
+  },
+  "/fr/ci/partnerships-subsidiaries": {
+   "uploaded": "2026-11-05T21:17:44.163Z",
+   "mtime": 1793913159050.6313,
+   "preview": "2026-11-05T21:17:46.618Z"
+  },
+  "/fr/ci/recycling": {
+   "uploaded": "2026-11-05T21:17:50.410Z",
+   "mtime": 1793913159061.3013,
+   "preview": "2026-11-05T21:17:52.875Z"
+  },
+  "/fr/ci/security": {
+   "uploaded": "2026-11-05T21:17:55.425Z",
+   "mtime": 1793913159076.2385,
+   "preview": "2026-11-05T21:17:57.446Z"
+  },
+  "/fr/ci/social": {
+   "uploaded": "2026-11-05T21:17:59.846Z",
+   "mtime": 1793913159082.474,
+   "preview": "2026-11-05T21:18:02.515Z"
+  },
+  "/fr/ci/sustainable-development-goals": {
+   "uploaded": "2026-11-05T21:18:05.059Z",
+   "mtime": 1793913159088.5505,
+   "preview": "2026-11-05T21:18:07.524Z"
+  },
+  "/fr/ci/transport-stories": {
+   "uploaded": "2026-11-05T21:18:09.653Z",
+   "mtime": 1793913159096.3772,
+   "preview": "2026-11-05T21:18:13.576Z"
+  },
+  "/fr/ci/whats-up-now": {
+   "uploaded": "2026-11-05T21:18:15.817Z",
+   "mtime": 1793913159103.5989,
+   "preview": "2026-11-05T21:18:18.214Z"
+  },
+  "/fr/footer/bottomnav/imprint": {
+   "uploaded": "2026-11-05T21:18:20.423Z",
+   "mtime": 1793913159109.9358,
+   "preview": "2026-11-05T21:18:22.663Z"
+  },
+  "/it/ci/digitalization": {
+   "uploaded": "2026-11-05T21:18:24.792Z",
+   "mtime": 1793913159115.6523,
+   "preview": "2026-11-05T21:18:27.168Z"
+  },
+  "/it/ci/environmental": {
+   "uploaded": "2026-11-05T21:18:29.235Z",
+   "mtime": 1793913159120.6965,
+   "preview": "2026-11-05T21:18:31.278Z"
+  },
+  "/it/ci/facts-figures": {
+   "uploaded": "2026-11-05T21:18:34.129Z",
+   "mtime": 1793913159167.6545,
+   "preview": "2026-11-05T21:18:36.646Z"
+  },
+  "/it/ci/fleet-infrastructure": {
+   "uploaded": "2026-11-05T21:18:38.820Z",
+   "mtime": 1793913159182.2114,
+   "preview": "2026-11-05T21:18:41.032Z"
+  },
+  "/it/ci/newsroom": {
+   "uploaded": "2026-11-05T21:18:43.685Z",
+   "mtime": 1793913159186.0168,
+   "preview": "2026-11-05T21:18:45.667Z"
+  },
+  "/it/ci/partnerships-subsidiaries": {
+   "uploaded": "2026-11-05T21:18:48.100Z",
+   "mtime": 1793913159192.2886,
+   "preview": "2026-11-05T21:18:50.526Z"
+  },
+  "/it/ci/recycling": {
+   "uploaded": "2026-11-05T21:18:52.690Z",
+   "mtime": 1793913159197.2534,
+   "preview": "2026-11-05T21:18:55.097Z"
+  },
+  "/it/ci/security": {
+   "uploaded": "2026-11-05T21:18:57.742Z",
+   "mtime": 1793913159201.692,
+   "preview": "2026-11-05T21:19:00.154Z"
+  },
+  "/it/ci/social": {
+   "uploaded": "2026-11-05T21:19:02.685Z",
+   "mtime": 1793913159206.4036,
+   "preview": "2026-11-05T21:19:04.960Z"
+  },
+  "/it/ci/sustainable-development-goals": {
+   "uploaded": "2026-11-05T21:19:07.427Z",
+   "mtime": 1793913159211.4634,
+   "preview": "2026-11-05T21:19:10.315Z"
+  },
+  "/it/ci/transport-stories": {
+   "uploaded": "2026-11-05T21:19:12.448Z",
+   "mtime": 1793913159217.613,
+   "preview": "2026-11-05T21:19:15.456Z"
+  },
+  "/it/ci/whats-up-now": {
+   "uploaded": "2026-11-05T21:19:17.494Z",
+   "mtime": 1793913159223.2957,
+   "preview": "2026-11-05T21:19:20.016Z"
+  },
+  "/it/footer/bottomnav/imprint": {
+   "uploaded": "2026-11-05T21:19:22.452Z",
+   "mtime": 1793913159228.3723,
+   "preview": "2026-11-05T21:19:24.239Z"
+  },
+  "/pt/ci/digitalization": {
+   "uploaded": "2026-11-05T21:19:26.300Z",
+   "mtime": 1793913159234.1243,
+   "preview": "2026-11-05T21:19:28.470Z"
+  },
+  "/pt/ci/environmental": {
+   "uploaded": "2026-11-05T21:19:30.694Z",
+   "mtime": 1793913159238.666,
+   "preview": "2026-11-05T21:19:32.799Z"
+  },
+  "/pt/ci/facts-figures": {
+   "uploaded": "2026-11-05T21:19:35.129Z",
+   "mtime": 1793913159246.1003,
+   "preview": "2026-11-05T21:19:37.397Z"
+  },
+  "/pt/ci/fleet-infrastructure": {
+   "uploaded": "2026-11-05T21:19:40.158Z",
+   "mtime": 1793913159261.3828,
+   "preview": "2026-11-05T21:19:42.523Z"
+  },
+  "/pt/ci/newsroom": {
+   "uploaded": "2026-11-05T21:19:45.005Z",
+   "mtime": 1793913159266.4966,
+   "preview": "2026-11-05T21:19:47.100Z"
+  },
+  "/pt/ci/partnerships-subsidiaries": {
+   "uploaded": "2026-11-05T21:19:49.368Z",
+   "mtime": 1793913159275.8745,
+   "preview": "2026-11-05T21:19:51.831Z"
+  },
+  "/pt/ci/recycling": {
+   "uploaded": "2026-11-05T21:19:54.328Z",
+   "mtime": 1793913159282.0984,
+   "preview": "2026-11-05T21:19:56.685Z"
+  },
+  "/pt/ci/security": {
+   "uploaded": "2026-11-05T21:19:58.912Z",
+   "mtime": 1793913159286.6516,
+   "preview": "2026-11-05T21:20:01.713Z"
+  },
+  "/pt/ci/social": {
+   "uploaded": "2026-11-05T21:20:04.110Z",
+   "mtime": 1793913159293.1675,
+   "preview": "2026-11-05T21:20:06.668Z"
+  },
+  "/pt/ci/sustainable-development-goals": {
+   "uploaded": "2026-11-05T21:20:09.047Z",
+   "mtime": 1793913159298.5044,
+   "preview": "2026-11-05T21:20:11.833Z"
+  },
+  "/pt/ci/transport-stories": {
+   "uploaded": "2026-11-05T21:20:14.430Z",
+   "mtime": 1793913159306.0652,
+   "preview": "2026-11-05T21:20:17.265Z"
+  },
+  "/pt/ci/whats-up-now": {
+   "uploaded": "2026-11-05T21:20:19.384Z",
+   "mtime": 1793913159322.0806,
+   "preview": "2026-11-05T21:20:21.590Z"
+  },
+  "/pt/footer/bottomnav/imprint": {
+   "uploaded": "2026-11-05T21:20:24.078Z",
+   "mtime": 1793913159326.174,
+   "preview": "2026-11-05T21:20:26.903Z"
+  },
+  "/es/nav": {
+   "uploaded": "2026-11-05T21:20:29.540Z",
+   "mtime": 1793913247500.8489,
+   "preview": "2026-11-05T21:20:31.849Z"
+  },
+  "/es/footer": {
+   "uploaded": "2026-11-05T21:20:34.134Z",
+   "mtime": 1793913256686.4294,
+   "preview": "2026-11-05T21:20:37.157Z"
+  },
+  "/fr/nav": {
+   "uploaded": "2026-11-05T21:20:39.455Z",
+   "mtime": 1793913247502.455,
+   "preview": "2026-11-05T21:20:42.058Z"
+  },
+  "/fr/footer": {
+   "uploaded": "2026-11-05T21:20:44.186Z",
+   "mtime": 1793913256697.432,
+   "preview": "2026-11-05T21:20:46.909Z"
+  },
+  "/it/nav": {
+   "uploaded": "2026-11-05T21:20:49.203Z",
+   "mtime": 1793913247504.2476,
+   "preview": "2026-11-05T21:20:52.064Z"
+  },
+  "/it/footer": {
+   "uploaded": "2026-11-05T21:20:54.366Z",
+   "mtime": 1793913256708.6934,
+   "preview": "2026-11-05T21:20:57.003Z"
+  },
+  "/pt/nav": {
+   "uploaded": "2026-11-05T21:20:59.501Z",
+   "mtime": 1793913247505.5378,
+   "preview": "2026-11-05T21:21:01.838Z"
+  },
+  "/pt/footer": {
+   "uploaded": "2026-11-05T21:21:04.310Z",
+   "mtime": 1793913256719.755,
+   "preview": "2026-11-05T21:21:06.802Z"
   }
  },
  "media": {
