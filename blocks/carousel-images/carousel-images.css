@@ -29,6 +29,12 @@
   display: none;
 }
 
+/* the track as a Tab stop (the arrow keys move the slides): the ring inside its edge */
+.carousel-images .carousel-images-track:focus-visible {
+  outline: 2px solid var(--focus-color);
+  outline-offset: -2px;
+}
+
 .carousel-images .carousel-images-slide {
   flex: 0 0 var(--carousel-images-slide);
   min-width: 0;

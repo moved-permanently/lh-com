@@ -501,6 +501,11 @@ async function loadLazy(doc) {
   }
   const header = doc.querySelector('body > header');
   if (header) loadHeader(header);
+  // www's skip links on the Group airlines' sites (scripts/skip-links.js has the brands); brand
+  // pages only, not on the library's and the app screens' bare pages
+  if (header && brandEntry() && !barePage) {
+    import('./skip-links.js').then(({ addSkipLinks }) => addSkipLinks(document, getMetadata('brand'), document.documentElement.lang));
+  }
 
   const main = doc.querySelector('main');
   await loadSections(main);

@@ -281,14 +281,28 @@ main > .section > .flash-teaser-wrapper.flash-teaser-empty + div {
 
 /* the brands' control colours: recorded live CSS (Austrian, www.austrian.com 2026-11-01: #4d4d4d,
    hover #ac1804, its theme's own), SWISS's live strip (#6f6660, hover #554e49); the others (no
-   recorded CSS) their theme's control and hover colours */
+   recorded CSS) their theme's control and hover colours; ITA and Brussels their link hover colour
+   with their dark text colour for the hover, as their link colours (#0171cf, #e5002b) are below
+   4.5:1 on the strip's grey or red tint (brief 370: 4.32, 4.22) */
 body.brand-swiss .flash-teaser-strip {
   --flash-teaser-control: #6f6660;
   --flash-teaser-control-hover: #554e49;
 }
 
-body:is(.brand-austrian, .brand-brussels, .brand-discover, .brand-ita, .brand-airdolomiti) .flash-teaser-strip {
+body.brand-ita .flash-teaser-strip {
+  --flash-teaser-control: #01569d;
+}
+
+body.brand-brussels .flash-teaser-strip {
+  --flash-teaser-control: #ac0020;
+}
+
+body:is(.brand-austrian, .brand-discover, .brand-airdolomiti) .flash-teaser-strip {
   --flash-teaser-control-hover: var(--link-hover-color, #414e63);
+}
+
+body:is(.brand-brussels, .brand-ita) .flash-teaser-strip {
+  --flash-teaser-control-hover: var(--lh-deepblue);
 }
 
 .flash-teaser-sr-only {

@@ -440,6 +440,11 @@ export function createPassengerPicker({
   });
   done.addEventListener('click', () => close(true));
   wrap.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(true); });
+  // the focus leaves the panel (Tab past its last control): closed, the focus stays where it went;
+  // a press on the panel's text moves it nowhere (no relatedTarget): open (brief 370)
+  wrap.addEventListener('focusout', (e) => {
+    if (e.relatedTarget && !wrap.contains(e.relatedTarget)) close(false);
+  });
   document.addEventListener('click', (e) => { if (!wrap.contains(e.target)) close(false); });
   wrap.append(opener, panel);
   update();

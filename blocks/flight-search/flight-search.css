@@ -221,9 +221,11 @@
   padding-right: 40px;
 }
 
-/* .input.is-active .input-border-wrapper { border-color transparent; padding 0 1rem; outline .2rem solid #333 } */
+/* .input.is-active .input-border-wrapper { border-color transparent; padding 0 1rem; outline .2rem solid #333 };
+   a date field by :focus-within: its calendar stop (the invisible native picker button over it)
+   is focused without the input matching :focus (brief 370) */
 .flight-search .airport-combobox input:focus,
-.flight-search .flight-search-date input:focus {
+.flight-search .flight-search-date:focus-within input {
   outline: 2px solid var(--flight-search-line);
   outline-offset: 0;
   border-bottom-color: transparent;
@@ -724,7 +726,8 @@
   line-height: 27px;
 }
 
-.flight-search .flight-search-hotel-input:focus {
+.flight-search .flight-search-hotel-input:focus,
+.flight-search :is(.flight-search-hotel-check-in, .flight-search-hotel-check-out):focus-within .flight-search-hotel-input {
   outline: 2px solid var(--flight-search-line);
   outline-offset: 0;
   border-bottom-color: transparent;

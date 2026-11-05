@@ -14,6 +14,12 @@
   overflow: auto;
 }
 
+/* a table that scrolls is a Tab stop (table-striped.js keepScrollFocusable) */
+.table-striped:focus-visible {
+  outline: 2px solid var(--focus-color);
+  outline-offset: 2px;
+}
+
 /* what follows a table starts 40px below it (live: 40px from the table box to the next text
    component at 1440 and 768, /de/en/admission-rules; the replica had the 24px block gap) */
 .table-striped-wrapper:not(:last-child) > .table-striped {

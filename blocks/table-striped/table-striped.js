@@ -20,6 +20,23 @@ function cleanTextNodes(root) {
 }
 
 /**
+ * A box that scrolls (wider or taller than it is) is a Tab stop, so the keyboard scrolls it (axe
+ * scrollable-region-focusable; brief 370); one that fits is none. Again on each resize.
+ * @param {Element} box
+ */
+export function keepScrollFocusable(box) {
+  const update = () => {
+    if (box.scrollWidth > box.clientWidth || box.scrollHeight > box.clientHeight) box.tabIndex = 0;
+    else box.removeAttribute('tabindex');
+  };
+  update();
+  if (window.ResizeObserver && !box.dataset.scrollFocusable) {
+    box.dataset.scrollFocusable = 'true';
+    new ResizeObserver(update).observe(box);
+  }
+}
+
+/**
  * Striped table, any number of columns. A short text first cell becomes a row header.
  * Option "header": the first authored row is the column header row (thead, th scope col),
  * drawn white with a line under it as the Lufthansa maui-table-head (/green-fare); else every
@@ -72,6 +89,7 @@ export default async function decorate(block) {
   table.append(tbody);
 
   block.replaceChildren(table);
+  keepScrollFocusable(block);
   cleanTextNodes(table);
   decorateExternalLinks(table);
   // option matrix (wide comparison tables): sticky first column, the link titles as tooltips;

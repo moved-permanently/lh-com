@@ -1264,3 +1264,30 @@ body.brand-swiss main .default-content-wrapper:has(> .column-start):has(> :is(h2
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
+
+/* skip links (scripts/skip-links.js, www's on the Group airlines): above the page while one has
+   the focus, else clipped to nothing where they are (not moved off the top: there they would lie
+   over the header scrolled away); eager, so none shows before the lazy styles */
+.skip-links .skip-link {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 1100;
+  padding: 8px 16px;
+  background: var(--background-color, #fff);
+  color: var(--link-color);
+}
+
+.skip-links .skip-link:not(:focus) {
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* a skip link's target (tabindex -1 while it has the focus) without a ring round it */
+:is(main, footer, #nav)[tabindex="-1"]:focus {
+  outline: none;
+}

@@ -137,7 +137,8 @@ function readRows(block) {
 }
 
 function buildSlide(slide, label) {
-  const li = el('li', 'carousel-images-slide');
+  // a group, not a list item (axe list: a ul holds only listitems; brief 370)
+  const li = el('div', 'carousel-images-slide');
   li.setAttribute('role', 'group');
   li.setAttribute('aria-roledescription', 'slide');
   li.setAttribute('aria-label', label);
@@ -187,7 +188,7 @@ export default function decorate(block) {
   }
 
   const slideLabel = (i) => labels['slide label'].replace('{n}', i + 1).replace('{total}', slides.length);
-  const track = el('ul', 'carousel-images-track');
+  const track = el('div', 'carousel-images-track');
   track.id = `${uid}-track`;
   const items = slides.map((slide, i) => buildSlide(slide, slideLabel(i)));
   track.append(...items);
@@ -233,6 +234,8 @@ export default function decorate(block) {
     btn.addEventListener('click', () => goTo(currentIndex() + (dir === 'next' ? 1 : -1)));
     return btn;
   };
+  // the track scrolls with the arrow keys (below): a Tab stop (axe scrollable-region-focusable)
+  track.tabIndex = 0;
   const prev = makeButton('prev');
   const next = makeButton('next');
 
