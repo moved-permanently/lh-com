@@ -58,7 +58,7 @@ test('help-center-web on Austrian\'s and ITA\'s pages: their www, design system,
   assert.deepEqual(aua.attributes, { 'data-public-endpoint': '' });
   assert.deepEqual(aua.meta, { 'X-Portal': 'OS', 'X-Portal-Site': 'AT', 'X-Portal-Language': 'en' });
   const ita = mountPlan(blockOf([['help-center-web']]), BRANDS.ita, { country: 'it', lang: 'it', brand: 'ita' });
-  assert.equal(ita.css, 'https://www.ita-airways.com/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/css/ita.css');
+  assert.equal(ita.css, 'https://ita.turnsthe.page/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/css/ita.css', 'from its turnsthe.page host (brief 391)');
   assert.deepEqual(ita.meta, { 'X-Portal': 'ITA', 'X-Portal-Site': 'IT', 'X-Portal-Language': 'it' });
 });
 
@@ -273,4 +273,22 @@ test('Brussels: the help center from the page\'s own /digitalhangar/ (brussels.t
   });
   const swiss = mountPlan(blockOf([['help-center-web']]), BRANDS.swiss, { country: 'ch', lang: 'en', brand: 'swiss' }, 'swiss.turnsthe.page');
   assert.equal(swiss.scripts[1].src, 'https://swiss.turnsthe.page/digitalhangar/cs-help-center/help-center-web/help-center-web-4.3.1.js', 'SWISS as before');
+});
+
+// brief 391: ITA's help center the same way (lh-edge answers ita.turnsthe.page/digitalhangar/ from
+// www.ita-airways.com, which sends its module without Access-Control-Allow-Origin: refused from
+// our hosts); on aem.page and localhost from ita.turnsthe.page; Austrian as before
+test('ITA\'s apps and design system from the page\'s own /digitalhangar/ (ita.turnsthe.page), never www.ita-airways.com', () => {
+  const locale = { country: 'it', lang: 'en', brand: 'ita' };
+  ['ita.turnsthe.page', 'main--lh-ita--moved-permanently.aem.page', 'localhost'].forEach((host) => {
+    const hc = mountPlan(blockOf([['help-center-web']]), BRANDS.ita, locale, host);
+    assert.equal(hc.css, 'https://ita.turnsthe.page/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/css/ita.css', host);
+    assert.deepEqual(hc.scripts, [
+      { src: 'https://ita.turnsthe.page/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/packages/maui-design-system.js', module: true },
+      { src: 'https://ita.turnsthe.page/digitalhangar/cs-help-center/help-center-web/help-center-web-4.3.1.js', module: true },
+    ], host);
+    assert.deepEqual(hc.meta, { 'X-Portal': 'ITA', 'X-Portal-Site': 'IT', 'X-Portal-Language': 'en' }, host);
+  });
+  const aua = mountPlan(blockOf([['help-center-web']]), BRANDS.austrian, { country: 'at', lang: 'en', brand: 'austrian' }, 'austrian.turnsthe.page');
+  assert.equal(aua.scripts[1].src, 'https://www.austrian.com/digitalhangar/cs-help-center/help-center-web/help-center-web-4.3.1.js', 'Austrian as before');
 });

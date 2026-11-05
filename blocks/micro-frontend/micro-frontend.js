@@ -55,6 +55,9 @@ const OWN_HOST_BRANDS = {
   // Brussels' help center (brief 358): lh-edge answers its /digitalhangar/ from www.lufthansa.com,
   // the feature and translation files www refuses lh-edge from the code's copies
   'www.brusselsairlines.com': `brussels.${TURNSTHE_PAGE_DOMAIN}`,
+  // ITA's help center (brief 391): www.ita-airways.com sends its module without
+  // Access-Control-Allow-Origin; lh-edge answers ita.turnsthe.page/digitalhangar/ from there
+  'www.ita-airways.com': `ita.${TURNSTHE_PAGE_DOMAIN}`,
 };
 
 /**
