@@ -896,7 +896,8 @@ const HANDLERS = {
     const card = byVersion[P.c.locale] || byVersion[P.c.lang];
     if (card && ((card.noCard || []).includes(own) || (card.pages && !card.pages.includes(own)))) return;
     if (!card || !card.title) { P.onWww(`CoreMedia (${s.type})`); return; }
-    const pic = (url) => (url ? P.img({ _path: url, description: card.alt || '' }) : '');
+    // the wide picture is the card's background on www (no alt), the phone one an img with its alt
+    const pic = (url, alt = '') => (url ? P.img({ _path: url, description: alt }) : '');
     const page = `${WWW}${docPath(P.c.url)}`;
     const html = (v) => bysideHtml(v, P.c);
     const rows = [
@@ -911,7 +912,7 @@ const HANDLERS = {
       ['Slots', esc(card.slots || '')],
       ['Small print', card.smallPrint ? `<p>${html(card.smallPrint)}</p>` : ''],
       ['Image', pic(card.image)],
-      ['Mobile image', pic(card.mobileImage)],
+      ['Mobile image', pic(card.mobileImage, card.alt || '')],
       ['Floating button', (card.floating || []).filter(Boolean).map((t) => `<p>${esc(t)}</p>`).join('')],
       ['Link', `<a href="${attr(page)}">${esc(page)}</a>`],
     ].filter(([, v]) => v);

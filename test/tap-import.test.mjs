@@ -973,6 +973,7 @@ describe('tap-import pages', () => {
     assert.ok(!rows['Small print'].innerHTML.includes('onclick'));
     assert.ok(rows['Small print'].textContent.includes('Miles&Go'));
     assert.equal(rows.Image.querySelector('img').getAttribute('src'), local[wide]);
+    assert.equal(rows.Image.querySelector('img').getAttribute('alt'), '', 'www\'s wide picture is the card\'s background: no alt');
     assert.equal(rows['Mobile image'].querySelector('img').getAttribute('alt'), 'Operador');
     assert.deepEqual([...rows['Floating button'].querySelectorAll('p')].map((p) => p.textContent), ['Quero Club', 'Ligamos grátis']);
     assert.equal(rows.Link.querySelector('a').getAttribute('href'), 'https://www.flytap.com/pt-pt/gerir-reserva/extras/lugares', 'the same page on www');
