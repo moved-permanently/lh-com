@@ -252,27 +252,62 @@ function stageEager(block) {
 }
 
 /**
+ * TAP's banners (parity 94): the picture cell's second picture is the phone one (www's
+ * imageMobile, the import's phonePictures). One picture: the first's sources from 768 px, then the
+ * phone picture's (its size and the first picture's text).
+ * @param {Element} img the first picture's image
+ * @param {Element} phoneImg the second picture's image
+ * @param {boolean} eager
+ * @param {string} width the first picture's width from 768 px
+ * @param {string} phoneWidth the phone picture's width
+ * @returns {Element} the picture
+ */
+export function phonePicture(img, phoneImg, eager, width, phoneWidth) {
+  const wide = createOptimizedPicture(img.src, img.alt || '', eager, [
+    { media: '(min-width: 768px)', width },
+    { width: phoneWidth },
+  ]);
+  const phone = keepImageSize(phoneImg, createOptimizedPicture(phoneImg.src, img.alt || '', eager, [{ width: phoneWidth }]));
+  phone.prepend(...wide.querySelectorAll('source[media]'));
+  return phone;
+}
+
+/** The second picture in the first picture's cell (TAP's phone picture), or null. */
+export function phonePictureOf(picture) {
+  const cell = picture.closest('div');
+  const second = cell ? [...cell.querySelectorAll('picture')][1] : null;
+  return second && second.querySelector('img[src]') ? second : null;
+}
+
+/**
  * One stage: background image (optionally with a muted looping background video) and text placed
  * directly on the media, out of the rows the element holds.
  * @param {Element} block the block, or one slide of option slider
  * @param {Object} labels
- * @param {{eager: boolean, region: boolean, uid: string}} options region: the block is the region
- *   its heading names (a slide is a group of the slider instead)
+ * @param {{eager: boolean, region: boolean, uid: string, phone?: boolean}} options region: the
+ *   block is the region its heading names (a slide is a group of the slider instead); phone: a
+ *   second picture in the picture's cell is its phone picture (brand tap)
  */
-function decorateStage(block, labels, { eager, region, uid }) {
+function decorateStage(block, labels, {
+  eager, region, uid, phone = false,
+}) {
   // background image: the first picture anywhere in the block
   const media = document.createElement('div');
   media.className = 'hero-campaign-media';
   const picture = block.querySelector('picture');
   if (picture) {
     const img = picture.querySelector('img');
-    const optimized = img && img.src
-      ? keepImageSize(img, createOptimizedPicture(img.src, img.alt || '', eager, [
+    const second = phone && img && img.src ? phonePictureOf(picture) : null;
+    let optimized = picture;
+    if (second) optimized = phonePicture(img, second.querySelector('img'), eager, '2000', '750');
+    else if (img && img.src) {
+      optimized = keepImageSize(img, createOptimizedPicture(img.src, img.alt || '', eager, [
         { media: '(min-width: 600px)', width: '2000' },
         { width: '750' },
-      ]))
-      : picture;
+      ]));
+    }
     picture.remove();
+    if (second) second.remove();
     media.append(optimized);
   }
 
@@ -445,7 +480,7 @@ function slideRows(block) {
  *   goTo: Function, current: Function, motion: {scroll: Function}}} the slider's parts (brand tap
  *   adds its own to them and replaces motion.scroll)
  */
-function buildSlider(block, labels, eager, minSlides = 2) {
+function buildSlider(block, labels, eager, minSlides = 2, phone = false) {
   const groups = slideRows(block);
   if (groups.length < minSlides) return false;
   const uid = `hero-campaign-${instanceCount}`;
@@ -458,7 +493,9 @@ function buildSlider(block, labels, eager, minSlides = 2) {
     const slide = document.createElement('div');
     slide.className = ['hero-campaign', 'hero-campaign-slide', ...options].join(' ');
     slide.append(...rows);
-    decorateStage(slide, labels, { eager: eager && i === 0, region: false, uid: `${instanceCount}-${i + 1}` });
+    decorateStage(slide, labels, {
+      eager: eager && i === 0, region: false, uid: `${instanceCount}-${i + 1}`, phone,
+    });
     slide.setAttribute('role', 'group');
     slide.setAttribute('aria-roledescription', 'slide');
     slide.setAttribute('aria-label', slideLabel(i));
@@ -544,7 +581,8 @@ export default async function decorate(block) {
   const eager = stageEager(block);
   // TAP: its stage also with one slide (pl-pl), without the controls (hero-campaign-tap.js)
   const tap = getMetadata('brand').trim().toLowerCase() === 'tap';
-  const slider = block.classList.contains('slider') && buildSlider(block, labels, eager, tap ? 1 : 2);
+  // TAP: a banner's second picture its phone picture (parity 94)
+  const slider = block.classList.contains('slider') && buildSlider(block, labels, eager, tap ? 1 : 2, tap);
   if (slider) {
     if (tap) {
       const { default: decorateTapSlider } = await import('./hero-campaign-tap.js');
@@ -553,7 +591,9 @@ export default async function decorate(block) {
     trackScrollbar(block);
     return;
   }
-  decorateStage(block, labels, { eager, region: true, uid: String(instanceCount) });
+  decorateStage(block, labels, {
+    eager, region: true, uid: String(instanceCount), phone: tap,
+  });
   decorateServices(block, String(instanceCount));
   trackScrollbar(block);
 }

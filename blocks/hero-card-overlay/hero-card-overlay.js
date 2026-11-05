@@ -1,4 +1,4 @@
-import { createOptimizedPicture } from '../../scripts/aem.js';
+import { createOptimizedPicture, getMetadata } from '../../scripts/aem.js';
 import { keepImageSize } from '../../scripts/block-config.js';
 import { getLocale } from '../../scripts/locale.js';
 import { now as clockNow, parseLocalTime, MARKET_TIME_ZONES } from '../../scripts/clock.js';
@@ -278,6 +278,30 @@ function buildVideo(src, img) {
 }
 
 /**
+ * TAP's banners (parity 94): the picture cell's second picture is the phone one (www's
+ * imageMobile, the import's phonePictures): one picture, the first's sources from 768 px, then
+ * the phone picture's (as hero-campaign.js phonePicture; blocks import no other block).
+ * @param {Element} picture the first picture
+ * @param {boolean} eager
+ * @returns {Element|null} the picture, or null (no second picture in the cell)
+ */
+function tapPhonePicture(picture, eager) {
+  const img = picture.querySelector('img[src]');
+  const cell = picture.closest('div');
+  const second = img && cell ? [...cell.querySelectorAll('picture')][1] : null;
+  const phoneImg = second && second.querySelector('img[src]');
+  if (!phoneImg) return null;
+  const wide = createOptimizedPicture(img.src, img.alt || '', eager, [
+    { media: '(min-width: 768px)', width: '2000' },
+    { width: '900' },
+  ]);
+  const phone = keepImageSize(phoneImg, createOptimizedPicture(phoneImg.src, img.alt || '', eager, [{ width: '900' }]));
+  phone.prepend(...wide.querySelectorAll('source[media]'));
+  second.remove();
+  return phone;
+}
+
+/**
  * Full-bleed image with a text card overlaid on it.
  * Content: a background image (first picture anywhere in the block) and the card content
  * (optional eyebrow paragraph, heading, text, CTA links) in any other cell.
@@ -300,12 +324,13 @@ export default function decorate(block) {
     // isn't fetched), desktop and tablet as before
     const hidden = block.classList.contains('no-mobile-image') && !matchMedia('(min-width: 768px)').matches;
     const eager = !hidden && (!section || sections.indexOf(section) < 2);
-    const optimized = img
+    const tap = getMetadata('brand').trim().toLowerCase() === 'tap';
+    const optimized = (tap && tapPhonePicture(picture, eager)) || (img
       ? keepImageSize(img, createOptimizedPicture(img.src, img.alt || '', eager, [
         { media: '(min-width: 900px)', width: '2000' },
         { width: '900' },
       ]))
-      : picture;
+      : picture);
     // paragraphs left empty by the moved picture are dropped below
     picture.remove();
     media.append(optimized);
