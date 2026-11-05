@@ -290,7 +290,7 @@ function createCalendar(labels, lang, today) {
     render(focusDay);
   }
 
-  function hide(commit) {
+  function hide(commit, refocus = true) {
     if (!state) return;
     const {
       onDone, trigger, from, to,
@@ -298,7 +298,7 @@ function createCalendar(labels, lang, today) {
     root.hidden = true;
     state = null;
     if (commit) onDone(from, to);
-    if (trigger && trigger.focus) trigger.focus();
+    if (refocus && trigger && trigger.focus) trigger.focus();
   }
 
   months.addEventListener('click', (e) => {
@@ -368,6 +368,13 @@ function createCalendar(labels, lang, today) {
       e.stopPropagation();
       hide(false);
     }
+  });
+  // the focus leaving it (Tab past its last button): closed, the focus left where it went, so no
+  // open calendar hides the next field (WCAG 2.4.11; brief 363)
+  root.addEventListener('focusout', (e) => {
+    const to = e.relatedTarget;
+    if (!state || !to || root.contains(to) || (state.trigger && state.trigger.contains(to))) return;
+    hide(false, false);
   });
 
   return {

@@ -195,6 +195,31 @@ body.brand-tap .header .tap-flag img {
   transform: scale(1.5);
 }
 
+/* ---------------------------------------------------------------- the skip link ------------ */
+
+/* www's "Skip to main content" first in the page (header-tap.js addSkipLink): out of sight until
+   it has the focus, then a white pill over the top left (brief 363) */
+body.brand-tap .tap-skip {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 1000;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: #fff;
+  color: #424045;
+  font-weight: 500;
+  text-decoration: underline;
+  box-shadow: 0 4px 24px rgb(0 0 0 / 16%);
+  transform: translateY(-200%);
+}
+
+body.brand-tap .tap-skip:focus {
+  transform: none;
+  outline: 2px solid #397213;
+  outline-offset: 2px;
+}
+
 /* ---------------------------------------------------------------- the quick-action tab ----- */
 
 /* inner pages (parity 39): www's lime tab under the bar with the booking box's four tabs, the

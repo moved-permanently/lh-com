@@ -405,6 +405,14 @@ body.brand-tap .booking-box :is(.airport-combobox input, .booking-box-field-butt
   color: #020817;
 }
 
+/* the focused field: www's line in TAP's dark green (border-primary), 2 px so it shows (#65c922 is
+   2.3:1 on white; brief 363) */
+body.brand-tap .booking-box :is(.airport-combobox input, .booking-box-field-button):focus,
+body.brand-tap .booking-box .booking-box-field-button[aria-expanded='true'] {
+  border-bottom-color: #397213;
+  box-shadow: inset 0 -1px 0 #397213;
+}
+
 body.brand-tap .booking-box-swap .booking-box-icon-swap {
   width: 24px;
   height: 24px;

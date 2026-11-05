@@ -433,12 +433,25 @@ body.brand-tap .hero-campaign-tap :is(.hero-campaign-prev, .hero-campaign-next)[
 
 body.brand-tap .hero-campaign-tap .hero-campaign-dots {
   position: static;
-  gap: 4px;
+  gap: 0;
   align-items: center;
   transform: none;
 }
 
+/* each dot a 24 px target (WCAG 2.5.8; www's are 40 px), the 8 px dot drawn inside (brief 363) */
 body.brand-tap .hero-campaign-tap .hero-campaign-dot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: 0;
+  background: none;
+}
+
+body.brand-tap .hero-campaign-tap .hero-campaign-dot::before {
+  content: "";
+  box-sizing: border-box;
   width: 8px;
   height: 8px;
   border: 1px solid var(--lh-yellow);
@@ -447,6 +460,10 @@ body.brand-tap .hero-campaign-tap .hero-campaign-dot {
 }
 
 body.brand-tap .hero-campaign-tap .hero-campaign-dot[aria-current="true"] {
+  background: none;
+}
+
+body.brand-tap .hero-campaign-tap .hero-campaign-dot[aria-current="true"]::before {
   width: 24px;
   background: var(--lh-yellow);
 }
@@ -489,7 +506,7 @@ body.brand-tap .hero-campaign-tap :is(.hero-campaign-prev, .hero-campaign-next, 
 }
 
 @media (prefers-reduced-motion: reduce) {
-  body.brand-tap .hero-campaign-tap .hero-campaign-dot {
+  body.brand-tap .hero-campaign-tap .hero-campaign-dot::before {
     transition: none;
   }
 }
@@ -568,12 +585,12 @@ body.brand-tap .hero-campaign-tap :is(.hero-campaign-prev, .hero-campaign-next, 
     color: var(--lh-green);
   }
 
-  body.brand-tap .hero-campaign-tap .hero-campaign-dot {
+  body.brand-tap .hero-campaign-tap .hero-campaign-dot::before {
     border: 0;
     background: rgb(255 255 255 / 50%);
   }
 
-  body.brand-tap .hero-campaign-tap .hero-campaign-dot[aria-current="true"] {
+  body.brand-tap .hero-campaign-tap .hero-campaign-dot[aria-current="true"]::before {
     width: 24px;
     background: #fff;
   }
@@ -1064,12 +1081,25 @@ body.brand-tap .carousel-cards-tap :is(.carousel-cards-prev, .carousel-cards-nex
 }
 
 body.brand-tap .carousel-cards-tap .carousel-cards-dots {
-  gap: 12px;
+  gap: 0;
   align-items: center;
   margin: 0;
 }
 
+/* each dot a 24 px target (WCAG 2.5.8), the 8 px dot drawn inside (brief 363) */
 body.brand-tap .carousel-cards-tap .carousel-cards-dot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: 0;
+  background: none;
+}
+
+body.brand-tap .carousel-cards-tap .carousel-cards-dot::before {
+  content: "";
+  box-sizing: border-box;
   width: 8px;
   height: 8px;
   border: 1px solid var(--lh-yellow);
@@ -1077,7 +1107,7 @@ body.brand-tap .carousel-cards-tap .carousel-cards-dot {
   background-color: transparent;
 }
 
-body.brand-tap .carousel-cards-tap .carousel-cards-dot[aria-current="true"] {
+body.brand-tap .carousel-cards-tap .carousel-cards-dot[aria-current="true"]::before {
   width: 20px;
   border-color: var(--lh-yellow);
   background-color: var(--lh-yellow);
@@ -1835,6 +1865,12 @@ body.brand-tap main > .section:not(.hidden-heading) .default-content-wrapper > h
   max-width: 726px;
   margin-inline: auto;
   text-align: center;
+}
+
+/* main as the skip link's target (header-tap.js: tabindex -1) takes the focus without a ring
+   round the whole page (brief 363) */
+body.brand-tap main[tabindex="-1"]:focus {
+  outline: none;
 }
 
 /* the trail at main's top (a market section's 24 px aside) and the title right under it: 24 px on

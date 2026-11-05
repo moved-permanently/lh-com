@@ -9,28 +9,29 @@
  * the other brands' floating bar. The look: styles/themes/tap.css.
  */
 
-/** The bar's search and account texts in TAP's languages (www's aria labels; English else). */
+/** The bar's search and account texts in TAP's languages (www's aria labels; English else), and the
+ * skip link's (www's "Skip to main content", in each language; brief 363). */
 export const TAP_HEADER_TEXTS = {
   pt: {
-    search: 'Pesquisar', account: 'Login', close: 'Fechar', language: 'Português',
+    search: 'Pesquisar', account: 'Login', close: 'Fechar', language: 'Português', skip: 'Ir para o conteúdo principal',
   },
   en: {
-    search: 'Search', account: 'Login', close: 'Close', language: 'English',
+    search: 'Search', account: 'Login', close: 'Close', language: 'English', skip: 'Skip to main content',
   },
   es: {
-    search: 'Buscar', account: 'Iniciar sesión', close: 'Cerrar', language: 'Español',
+    search: 'Buscar', account: 'Iniciar sesión', close: 'Cerrar', language: 'Español', skip: 'Ir al contenido principal',
   },
   fr: {
-    search: 'Rechercher', account: 'Se connecter', close: 'Fermer', language: 'Français',
+    search: 'Rechercher', account: 'Se connecter', close: 'Fermer', language: 'Français', skip: 'Aller au contenu principal',
   },
   de: {
-    search: 'Suchen', account: 'Anmelden', close: 'Schließen', language: 'Deutsch',
+    search: 'Suchen', account: 'Anmelden', close: 'Schließen', language: 'Deutsch', skip: 'Zum Hauptinhalt springen',
   },
   it: {
-    search: 'Cerca', account: 'Accedi', close: 'Chiudi', language: 'Italiano',
+    search: 'Cerca', account: 'Accedi', close: 'Chiudi', language: 'Italiano', skip: 'Vai al contenuto principale',
   },
   pl: {
-    search: 'Szukaj', account: 'Zaloguj się', close: 'Zamknij', language: 'Polski',
+    search: 'Szukaj', account: 'Zaloguj się', close: 'Zamknij', language: 'Polski', skip: 'Przejdź do treści głównej',
   },
 };
 
@@ -204,6 +205,24 @@ export function tapQuickTabs(pathname) {
 
 let menus = 0;
 
+/**
+ * The skip link first in the page, as www's ("Skip to main content"): to main, which takes the
+ * focus (tabindex -1). Once per page.
+ * @param {Document} doc
+ */
+export function addSkipLink(doc = document) {
+  const main = doc.querySelector('main');
+  if (!main || doc.querySelector('a.tap-skip')) return;
+  if (!main.id) main.id = 'main';
+  if (!main.hasAttribute('tabindex')) main.setAttribute('tabindex', '-1');
+  const texts = TAP_HEADER_TEXTS[(doc.documentElement.lang || '').slice(0, 2)] || TAP_HEADER_TEXTS.en;
+  const a = doc.createElement('a');
+  a.className = 'tap-skip';
+  a.href = `#${main.id}`;
+  a.textContent = texts.skip;
+  doc.body.prepend(a);
+}
+
 // www's menu icon (Material Symbols' menu at weight 300: three 1.5 px lines)
 const MENU_ICON = '<svg class="lh-icon tap-menu-icon" viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M3 17.75v-1.5h18v1.5zm0-5v-1.5h18v1.5zm0-5v-1.5h18v1.5z"/></svg>';
 
@@ -322,8 +341,16 @@ export function buildTapMenu(section, { link, menuButton, quickLinks = [] }) {
       button.setAttribute('aria-expanded', 'true');
       panel.hidden = false;
     });
-    panel.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(entry, true); });
-    button.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !panel.hidden) close(entry, true); });
+    panel.addEventListener('keydown', (e) => {
+      if (e.key !== 'Escape') return;
+      e.stopPropagation();
+      close(entry, true);
+    });
+    button.addEventListener('keydown', (e) => {
+      if (e.key !== 'Escape' || panel.hidden) return;
+      e.stopPropagation();
+      close(entry, true);
+    });
     root.append(node('li', { className: 'nav-bar-menu-item' }, button, panel));
   });
   // the market button as www's: the market's flag (the nav document's) and the page's language
@@ -347,6 +374,7 @@ export function buildTapMenu(section, { link, menuButton, quickLinks = [] }) {
     const lang = (r ? r.slice(1, 3) : (document.documentElement.lang || '').slice(0, 2)).toUpperCase();
     if (current && lang) current.textContent = lang;
   });
+  addSkipLink(document);
   // inner pages: www's quick-action tab under the bar (header-tap.css keeps the room for it)
   Promise.resolve().then(() => {
     const tabs = tapQuickTabs(pathOf());
@@ -400,19 +428,32 @@ export function buildTapMenu(section, { link, menuButton, quickLinks = [] }) {
     if (own) own.replaceWith(icon);
     else menuButton.prepend(icon);
     let menuLabel = null;
-    menuButton.addEventListener('click', () => {
-      const open = !root.classList.contains('is-open');
+    // the card comes before the button in the page: the focus goes into it when it opens and back
+    // to the button when Escape closes it; the quick-action tab under it inert (brief 363)
+    const quickTab = () => (root.closest('.nav-wrapper') || document).querySelector('.tap-quick');
+    const toggle = (open) => {
       root.classList.toggle('is-open', open);
       menuButton.setAttribute('aria-expanded', String(open));
       menuButton.classList.toggle('tap-menu-open', open);
+      const tab = quickTab();
+      if (tab) tab.toggleAttribute('inert', open);
       if (open) {
         menuLabel = menuButton.getAttribute('aria-label');
         menuButton.setAttribute('aria-label', texts.close);
         fillMarket();
+        const first = root.querySelector('.nav-bar-menu-button, .nav-bar-menu-link');
+        if (first) first.focus();
       } else {
         if (menuLabel !== null) menuButton.setAttribute('aria-label', menuLabel);
         close();
       }
+    };
+    menuButton.addEventListener('click', () => toggle(!root.classList.contains('is-open')));
+    // Escape anywhere (the card, the bar's tools) closes it
+    document.addEventListener('keydown', (e) => {
+      if (e.key !== 'Escape' || !root.classList.contains('is-open')) return;
+      toggle(false);
+      menuButton.focus();
     });
   }
   return { root, close: () => close() };
