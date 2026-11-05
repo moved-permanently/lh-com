@@ -13,7 +13,9 @@
  * own host where lh-edge serves it, else www.brusselsairlines.com's absolute URL of the same file
  * (the second src), as the austrian theme does. The logos are images in the site's nav and footer
  * documents (www's /etc/designs/sn/clientlib-all/vite/img/brussel-logo.svg). lh-com's own pages
- * never load this file.
+ * never load this file. The page rules after the tokens (body.brand-brussels) follow www as the
+ * capture brussels-parity-001 shows it (22 pages at 390 and 1440 px with the menu and travellers
+ * states, 2026-11-05; tools/reports/brussels/parity.md).
  */
 @font-face {
   font-family: Intelo;
@@ -72,10 +74,24 @@
   --heading-light-weight: 700; /* Brussels' headings are Intelo Bold */
   --body-font-size-m: 16px;
 
-  /* buttons: primary white on Brussels red, secondary red outline (www's); lh-com's 4 px radius */
+  /* headings: titles (heading-large) uppercase; heading-copytext-large 16 px on phones, 18 px at
+     1440 (lh-com's 20 and 24); margins below the titles 26 / 28 px, heading-medium 22 / 26,
+     heading-small 18 / 22; paragraphs and lists 16 / 20 px apart (lh-com's 24) */
+  --heading-large-transform: uppercase;
+  --heading-font-size-m: clamp(16px, calc(16px + 2 * (100vw - 375px) / 1065), 18px);
+  --heading-margin-xxl: clamp(26px, calc(26px + 2 * (100vw - 375px) / 1065), 28px);
+  --heading-margin-xl: clamp(22px, calc(22px + 4 * (100vw - 375px) / 1065), 26px);
+  --heading-margin-l: clamp(18px, calc(18px + 4 * (100vw - 375px) / 1065), 22px);
+  --spacing-default: clamp(16px, calc(16px + 4 * (100vw - 375px) / 1065), 20px);
+
+  /* buttons (maui-button and maui-button-link, sn): primary white on Brussels red, secondary a
+     red outline; 18 / 22 px regular, 10 px 33 px, a 6 px radius, 50 px high */
   --button-primary-text: #fff;
   --button-secondary-color: #e5002b;
   --button-secondary-hover: #ac0020;
+  --button-radius: 6px;
+  --button-padding: 10px 33px;
+  --button-font-size: 18px;
 
   /* the hero card's headline (hero-card-overlay light) */
   --hero-card-heading-color: #1a1a1a;
@@ -86,6 +102,7 @@
   --header-bar-text: #e5002b;
   --header-bar-text-hover: #ac0020;
   --header-bar-line: #e8e8e8;
+  --header-bar-shadow: inset 0 -1px 0 #c5c5c5; /* the 1 px border-30 rule at the bar's foot */
   --nav-bar-font-size: 16px;
   --nav-bar-font-weight: 400;
   --nav-logo-height: 26px;
@@ -114,4 +131,356 @@
   --footer-legal-direction: column; /* www's legal links one per line below 768 px */
   --footer-toggle-line: transparent;
   --footer-logo-home-height: 30px; /* the logo row: small-logo.svg 130x30 */
+}
+
+/* page titles Brussels red (www's h1.headline.heading-large and h1.article-headline) */
+body.brand-brussels main h1,
+body.brand-brussels main .heading-large,
+body.brand-brussels .article-header .article-header-title {
+  color: var(--brand-color);
+}
+
+/* the copy (.richtext p and li): 18 / 24 px at every width */
+body.brand-brussels main :is(.default-content-wrapper, .columns-media-text) > :is(p, ul, ol) {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+/* heading-copytext-large: 14 / 16 px below it (the paragraphs 16 / 20) */
+body.brand-brussels main :is(h1, h2, h3, h4, h5, h6).heading-copytext-large {
+  margin-bottom: clamp(14px, calc(14px + 2 * (100vw - 375px) / 1065), 16px);
+}
+
+/* a section title above the fare teaser (maui-headline h3, heading-xl): bold as every Brussels
+   headline */
+body.brand-brussels .fare-teaser-container .default-content-wrapper h3 {
+  font-weight: 700;
+}
+
+/* buttons regular (maui-button sn: Intelo 18 / 22 px, 400) */
+body.brand-brussels :is(a.button:any-link, button.button) {
+  font-weight: 400;
+  line-height: 22px;
+}
+
+/* breadcrumb (maui-breadcrumb sn): every crumb and chevron sn-blue-3, 16 / 24 px, the current
+   page bold */
+body.brand-brussels .breadcrumb ol {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+body.brand-brussels .breadcrumb li,
+body.brand-brussels .breadcrumb a:any-link,
+body.brand-brussels .breadcrumb a:any-link:hover,
+body.brand-brussels .breadcrumb .breadcrumb-current {
+  color: var(--lh-marble-blue);
+}
+
+body.brand-brussels .breadcrumb li::before {
+  background-color: var(--lh-marble-blue);
+}
+
+/* the stage card's headline (display-text) uppercase */
+body.brand-brussels .hero-card-overlay .hero-card-overlay-card :is(h1, h2, h3, h4, h5, h6) {
+  text-transform: uppercase;
+}
+
+/* article: the intro Intelo 20 / 30 px regular (www's .article-description p) */
+body.brand-brussels .article-header .article-header-intro {
+  font-family: var(--body-font-family);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 30px;
+}
+
+/* teaser cards (a.teaser): a 1 px sngrey2 border, 6 px radius, www's shadow; the title
+   heading-copytext-large as the teaser heading: 14 / 15.4 px on phones, 16 / 17.6 px at 1440,
+   bold, uppercase; stacked cards 64 px apart, rows of cards 85 px from 768 px */
+body.brand-brussels .carousel-cards:is(.article, .grid, .four-up) .carousel-cards-slide,
+body.brand-brussels .carousel-cards:is(.article, .grid, .four-up) .carousel-cards-slide:hover {
+  border-color: var(--border-light-color);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgb(5 20 70 / 10%);
+}
+
+body.brand-brussels .carousel-cards:is(.grid, .four-up) .carousel-cards-slide:not(.carousel-cards-wide) .carousel-cards-body > :is(h1, h2, h3, h4, h5, h6) {
+  font-size: clamp(14px, calc(14px + 2 * (100vw - 375px) / 1065), 16px);
+  text-transform: uppercase;
+}
+
+body.brand-brussels .carousel-cards.grid .carousel-cards-track {
+  gap: 64px;
+}
+
+@media (width >= 768px) {
+  body.brand-brussels .carousel-cards.grid .carousel-cards-track {
+    gap: 20px;
+  }
+
+  body.brand-brussels .carousel-cards-wrapper + .carousel-cards-wrapper > .carousel-cards.grid {
+    margin-top: 85px;
+  }
+}
+
+/* the wide teasers' eyebrow (.teaser-title): regular, uppercase */
+body.brand-brussels .carousel-cards .carousel-cards-body > .carousel-cards-eyebrow,
+body.brand-brussels .carousel-cards .carousel-cards-slide:not(.carousel-cards-wide) .carousel-cards-body > .carousel-cards-eyebrow {
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+/* icon tiles (a.icon-teaser-link): white, a 2 px radius, the label sn-blue-4 */
+body.brand-brussels .cards-icon:not(.usp) .cards-icon-tile {
+  border-color: var(--border-light-color);
+  border-radius: 2px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgb(5 20 70 / 10%);
+}
+
+body.brand-brussels .cards-icon:not(.usp) .cards-icon-label {
+  color: var(--lh-midnight);
+}
+
+/*
+ * the menu (the side panel, www's homepage menu states): white; the tabs sn-blue-3 (the open one
+ * sn-blue-4), the group titles sngrey8, the links and the extras Brussels red 16 / 22 px regular
+ * 16 px apart, a sngrey2 line between the columns and above Login; close and back 32 px squares
+ * with a 2 px red border, a 6 px radius and a small red icon
+ */
+body.brand-brussels .header .nav-flyout-panel,
+body.brand-brussels .header .nav-flyout-top {
+  background-color: #fff;
+  color: var(--lh-marble-blue);
+}
+
+body.brand-brussels .header .nav-flyout-item {
+  color: var(--lh-marble-blue);
+}
+
+body.brand-brussels .header .nav-flyout-item[aria-expanded='true'] {
+  color: var(--lh-midnight);
+}
+
+body.brand-brussels .header .nav-flyout-item span::after {
+  background-color: currentcolor;
+}
+
+body.brand-brussels .header .nav-flyout-group h3 {
+  color: var(--heading-color);
+}
+
+body.brand-brussels .header .nav-flyout-group ul {
+  line-height: 22px;
+}
+
+body.brand-brussels .header .nav-flyout-group li + li {
+  margin-top: 16px;
+}
+
+/* phones: the open tab's name over the panel 20 px */
+body.brand-brussels .header .nav-flyout-title {
+  font-size: 20px;
+  line-height: 22px;
+}
+
+body.brand-brussels .header .nav-flyout-link,
+body.brand-brussels .header .nav-flyout-extra {
+  color: var(--link-color);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+}
+
+body.brand-brussels .header .nav-flyout-link,
+body.brand-brussels .header .nav-flyout-extra .nav-tool-label {
+  background-image: linear-gradient(currentcolor, currentcolor);
+}
+
+body.brand-brussels .header .nav-flyout-link:hover,
+body.brand-brussels .header .nav-flyout-extra:hover {
+  color: var(--link-hover-color);
+}
+
+body.brand-brussels .header .nav-flyout-login {
+  border-top-color: var(--border-light-color);
+}
+
+body.brand-brussels .header .nav-flyout-back,
+body.brand-brussels .header .nav-flyout-close {
+  box-sizing: border-box;
+  width: 32px;
+  height: 32px;
+  margin-inline: 4px;
+  border: 2px solid var(--link-color);
+  border-radius: 6px;
+  color: var(--link-color);
+}
+
+body.brand-brussels .header .nav-flyout-close {
+  margin-left: auto;
+}
+
+body.brand-brussels .header .nav-flyout-back:hover,
+body.brand-brussels .header .nav-flyout-close:hover {
+  border-color: var(--link-hover-color);
+  color: var(--link-hover-color);
+}
+
+body.brand-brussels .header :is(.nav-flyout-back, .nav-flyout-close) svg {
+  width: 16px;
+  height: 16px;
+}
+
+@media (width >= 1025px) {
+  body.brand-brussels .header .nav-flyout-panel.is-expanded .nav-flyout-main {
+    border-right-color: var(--border-light-color);
+  }
+}
+
+/*
+ * flight search (www's flight manager, sn): boxed fields 50 px high, sngrey1 with a 1 px sngrey8
+ * border and an 8 px radius (the dates 6 px); the label sngrey7 14 / 21 px in the box, 6 px from
+ * its top, the value 16 / 24 px below it; an empty field shows its label as the placeholder. On
+ * phones From and To are one box of two rows with the swap button on the line between them; the
+ * swap a 32 px white circle with a 2 px sn-blue-4 border. The options row regular, 16 px.
+ */
+body.brand-brussels .flight-search .airport-combobox {
+  padding-top: 0;
+}
+
+body.brand-brussels .flight-search .airport-combobox label,
+body.brand-brussels .flight-search .flight-search-dates legend {
+  top: 6px;
+  left: 10px;
+  max-width: calc(100% - 20px);
+  color: var(--lh-grey-7);
+  font-size: 14px;
+  line-height: 21px;
+}
+
+body.brand-brussels .flight-search .airport-combobox[data-code=""]:not(:focus-within) label,
+body.brand-brussels .flight-search .flight-search-dates:not(:focus-within, :has(input:valid)) legend {
+  top: 13px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+body.brand-brussels .flight-search .airport-combobox input {
+  height: 50px;
+  border: 1px solid var(--lh-grey-8);
+  border-radius: 8px;
+  padding: 20px 10px 4px 9px;
+  background-color: var(--lh-grey-1);
+  color: var(--text-color);
+  font-size: 16px;
+  line-height: 24px;
+}
+
+body.brand-brussels .flight-search .airport-combobox[data-code=""]:not(:focus-within)::after {
+  content: none;
+}
+
+body.brand-brussels .flight-search .flight-search-dates {
+  box-sizing: border-box;
+  height: 50px;
+  border: 1px solid var(--lh-grey-8);
+  border-radius: 6px;
+  padding: 0 40px 0 10px;
+  background-color: var(--lh-grey-1);
+}
+
+body.brand-brussels .flight-search .flight-search-dates:focus-within {
+  outline: 2px solid var(--lh-grey-8);
+  outline-offset: -2px;
+}
+
+body.brand-brussels .flight-search .flight-search-date input,
+body.brand-brussels .flight-search .flight-search-date:focus-within input {
+  height: 48px;
+  outline: 0;
+  padding: 20px 0 4px;
+  color: var(--text-color);
+  font-size: 16px;
+  line-height: 24px;
+}
+
+body.brand-brussels .flight-search .airport-combobox input:focus {
+  outline: 2px solid var(--lh-grey-8);
+  outline-offset: -2px;
+  border-color: var(--lh-grey-8);
+  padding-inline: 9px 10px;
+}
+
+body.brand-brussels .flight-search .flight-search-dates::after {
+  bottom: 16px;
+  background-color: var(--lh-marble-blue);
+}
+
+body.brand-brussels .flight-search .flight-search-swap {
+  box-sizing: border-box;
+  width: 32px;
+  height: 32px;
+  border: 2px solid var(--lh-midnight);
+  background-color: #fff;
+  color: var(--lh-midnight);
+}
+
+body.brand-brussels .flight-search .flight-search-swap::before {
+  width: 18px;
+  height: 18px;
+}
+
+body.brand-brussels .flight-search .flight-search-swap:hover {
+  background-color: var(--lh-grey-2);
+}
+
+body.brand-brussels .flight-search :is(.flight-search-trip-type select, .flight-search-travellers, .flight-search-nonstop) {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+body.brand-brussels .flight-search .flight-search-nonstop [type="checkbox"] {
+  border-width: 1px;
+  border-radius: 2px;
+}
+
+body.brand-brussels .flight-search .flight-search-submit {
+  min-height: 50px;
+}
+
+@media (width < 768px) {
+  body.brand-brussels .flight-search .flight-search-origin {
+    margin-bottom: 0;
+  }
+
+  body.brand-brussels .flight-search .flight-search-origin input {
+    border-radius: 8px 8px 0 0;
+  }
+
+  body.brand-brussels .flight-search .flight-search-destination {
+    margin-top: -1px;
+  }
+
+  body.brand-brussels .flight-search .flight-search-destination input {
+    border-radius: 0 0 8px 8px;
+  }
+
+  body.brand-brussels .flight-search .flight-search-swap {
+    place-self: start end;
+    margin: -16px 12px 0 0;
+  }
+}
+
+@media (width >= 768px) {
+  body.brand-brussels .flight-search .flight-search-swap {
+    align-self: center;
+    margin: 0;
+  }
+}
+
+@media (width >= 1025px) {
+  body.brand-brussels .flight-search .flight-search-submit {
+    margin-top: 0;
+  }
 }

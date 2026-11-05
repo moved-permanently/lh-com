@@ -25,5 +25,7 @@ test('Discover: www\'s pill buttons', () => {
 test('the other themes keep their buttons', () => {
   assert.equal(tokens('ita')['--button-radius'], '8px');
   assert.equal(tokens('airdolomiti')['--button-radius'], '10px');
-  ['austrian', 'brussels'].forEach((k) => assert.equal(tokens(k)['--button-radius'], undefined, k));
+  // Brussels: maui-button sn's 6px (brussels-parity-001, 2026-11-05; brief 378)
+  assert.equal(tokens('brussels')['--button-radius'], '6px');
+  assert.equal(tokens('austrian')['--button-radius'], undefined);
 });
