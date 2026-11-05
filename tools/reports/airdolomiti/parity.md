@@ -53,7 +53,7 @@ All rows' fixes are Air Dolomiti only:
 | 1 | Page titles (h1 of inner pages) | light 300, 38px / 46px at every width; subtitle 22px / 30px | bold 700, 36px at 390 and 48px at 1440; subtitle 16px | fixed, 1ccf46c4 | lh-com migration agent |
 | 2 | Section headings (h2) | light 300, 38px / 46px at 390 and 42px / 50px at 1440 | 28px at 390, 36px at 1440 | fixed, 1ccf46c4 | lh-com migration agent |
 | 3 | Blog posts: title and lead h3 | title semibold 600, 38px / 40px (65px / 72px at 1440); lead h3 regular 400, 26px / 32px (35px / 40px) | title bold 36px; lead h3 bold 20px | fixed, 1ccf46c4 | lh-com migration agent |
-| 4 | Breadcrumb | "Home \| Orario Voli" under the header on every inner page and at every width | none | fixed: ac06caa4 (test c762ac11), look 1ccf46c4; 1557 documents with Parent / Breadcrumb Title rows. 356: the English and German pages' Parent now names the homepage by its address, /en/ and /de/ (613bec49 test, 4833a764; 245 documents on preview, /en/assistance held back by the upload's guard, which reads the change as a link back to www). Open: on aem.page those trails still miss "Home": blocks/breadcrumb drops the slash before fetching the parent (sitePath) and aem.page answers /en and /de with 404; the published host redirects them, so the live trails are whole | the breadcrumb block's owner (shared code, outside 356's files) |
+| 4 | Breadcrumb | "Home \| Orario Voli" under the header on every inner page and at every width | none | fixed: ac06caa4 (test c762ac11), look 1ccf46c4; 1557 documents with Parent / Breadcrumb Title rows. The English and German homepages as their Parent by their address, /en/ and /de/ (613bec49 test, 4833a764; 245 documents). 2026-11-05: blocks/breadcrumb kept dropping the slash and fetched /en, which aem.page answers with 404, so those trails missed "Home" on preview: the block now fetches the parent as written and, on a 404, once with the slash toggled (d43b973a, its test before). Checked on preview and live: en and de "Home | ..."; lufthansa, swiss and tap trails unchanged. /en/assistance (its document still names /en) shows "Home" on both hosts through the retry, so it needs no upload | lh-com migration agent |
 | 5 | Header on phones | logo, search and menu only | a quick-links row under the logo | fixed, 1ccf46c4. 355: the gap the hidden row left under the bar closed (the header 74px high, 86px from 768px, 120px from 1025px), f0f9621d | lh-com migration agent |
 | 6 | Baggage and contact link tiles | image cards with the title as a beige chip; the whole card links; a sideways row on phones | image, bold title and an arrow link | fixed, 1ccf46c4 | lh-com migration agent |
 | 7 | Stage titles (fleet): weight | light 300 | bold 700 | fixed, 1ccf46c4 | lh-com migration agent |
@@ -70,6 +70,39 @@ All rows' fixes are Air Dolomiti only:
 | 18 | Footer (1440) | outlined pills at the top right; the company links (no title) with the address and payment logos under them; three columns a row (contacts, news, routes; assistance, legal) with 14px regular titles; a dark teal band with the white logo and round social links; the company line on a grey bar | the search field, five titled columns, a row of text buttons with small icons, a separate legal row, a white logo row | fixed: the footer documents 62277212 (test dfbcfb1b: legal links as the column "Info legali", buttons, social links and payments as three badge sections), the layout 70dfe307; on preview. Phones keep the accordion (with "Info legali" now one of its rows) | lh-com migration agent |
 | 19 | Newsletter strip above the footer | "Iscriviti alla nostra newsletter", a line of text and an email field (300 x 82, the teal envelope) that takes the address | a link "Iscriviti alla nostra newsletter" | fixed: the strip d90df76a, 70dfe307; 356: the field as the block newsletter-signup (0fbc6936 test, 735d679b): an email field and its envelope button open the sign-up page (/iscrizione-newsletter, /en/newsletter-subscription, /de/newsletter-anmeldung) with ?email=, and the sign-up form takes it (Rules prefill=email, 625e9f26; 283 strips and the three sign-up pages on preview). Nothing is sent from the strip; the sign-up page's form sends, as before | lh-com migration agent |
 | 20 | Fleet stage: breadcrumb | the trail in white on the top of the stage photo, the stage right under the bar | the trail above the stage | fixed in 356, fb9e2ee5 | lh-com migration agent |
+
+## Accessibility (2026-11-05)
+
+How it was checked:
+
+- **axe-core 4.10.2** (the npm tarball, its sha512 checked against the registry): WCAG 2.0, 2.1 and
+  2.2 A and AA, at 390 x 844 and 1440 x 900, the page scrolled through and settled.
+  - **Pages:** the three homepages, the travel information pages (`/informazioni-aggiornate`,
+    `/en/current-flight-information`, `/de/fluginformationen`) and the article in each language,
+    on airdolomiti.turnsthe.page.
+  - **The fixes:** checked again on a local dev server (the working tree's code, the importer's
+    documents) before the push, then on preview.
+- **Keyboard pass at both widths:**
+  - the Tab order from the top of the homepages;
+  - the desktop menu: Enter opens it, Tab goes into the panel, Escape closes it and gives the focus
+    back;
+  - the search: the tabs (arrow keys), its fields, and on phones the card, the panel and its close
+    button;
+  - the newsletter field and its button;
+  - the alert strip's link.
+
+A ring shows on every focus stop and every control is named, except where the rows below say
+otherwise.
+
+| # | Finding | WCAG | Where | State | Owner |
+| --- | --- | --- | --- | --- | --- |
+| A1 | The homepage destinations' dots: 8 x 8px targets (axe target-size, all three homepages at 390; en and de at 1440). www has no dots there: four cards a row at 1440, "vedi tutte (2)" and two 40px round arrows on phones | 2.5.8 | the destinations slider | fixed: carousel-cards (destinations) as www's (eaafb6d3 test, 2d48d773); axe clean on the local and preview pages | lh-com migration agent |
+| A2 | The header tools were focused in another order than they show (assistance, accessibility, language, search; shown: assistance, search, accessibility, language) | 2.4.3 | blocks/header/header-airdolomiti.* | fixed: the DOM in the shown order, no CSS reordering (10b7af40 test, 13c861e6) | lh-com migration agent |
+| A3 | The search: the passengers field focused before the airports, shown after the dates | 2.4.3 | flight-search-airdolomiti.js | fixed: the passengers before the button in the DOM (10b7af40, 13c861e6) | lh-com migration agent |
+| A4 | The open phone search panel: Tab left it for the page behind it; no dialog semantics | 2.4.3, 4.1.2 | flight-search-airdolomiti.js | fixed: a modal dialog named by the card ("Prenota il tuo volo"), Tab and Shift+Tab kept inside, Escape and the close button as before (10b7af40, 13c861e6) | lh-com migration agent |
+| A5 | The phone card "Prenota il tuo volo": its focus ring cut off by the arrow shape (clip-path) | 2.4.7 | styles/themes/airdolomiti.css | fixed: the ring inside the card (2d48d773) | lh-com migration agent |
+| A6 | The date fields take four Tab stops each (day, month, year, the picker) | — | the browser's date field | not a finding: Chrome's native date input; each stop has a ring | — |
+| A7 | No violations on the travel information pages and the articles at either width | — | — | — | — |
 
 ## Checks
 
