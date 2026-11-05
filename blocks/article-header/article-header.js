@@ -226,19 +226,26 @@ function parseDate(value) {
   return null;
 }
 
+/** The German-speaking markets, whose English pages write the date the German way. */
+const GERMAN_MARKETS = ['de', 'at', 'ch'];
+
 /**
- * Publication date as live prints it in the article header: "20. August 2026" in every language
- * (day, dot, month name in the page language, year; at/de: Austrian month names, "22. Jänner
- * 2025"), or the authored text.
+ * Publication date as www prints it in the article header: the page language's own long date
+ * (Intl: "May 11, 2026" on be/en, "11 mai 2026" on be/fr, "20. August 2026" in German; at/de
+ * with Austrian month names, "22. Jänner 2025"); English in a German-speaking market as
+ * www.lufthansa.com's de/en and www.swiss.com's ch/en: day, dot, month, year ("16. October
+ * 2025"). Not a date: the authored text.
  */
-function formatDate(value, locale) {
+export function formatPublicationDate(value, locale) {
   const date = parseDate(value);
   if (!date || Number.isNaN(date.getTime())) return String(value ?? '').trim();
   try {
     const tag = locale.lang === 'de' && locale.country === 'at' ? 'de-AT' : locale.lang;
-    const parts = new Intl.DateTimeFormat(tag, {
+    const format = new Intl.DateTimeFormat(tag, {
       day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC',
-    }).formatToParts(date);
+    });
+    if (locale.lang !== 'en' || !GERMAN_MARKETS.includes(locale.country)) return format.format(date);
+    const parts = format.formatToParts(date);
     const part = (type) => (parts.find((p) => p.type === type) || {}).value;
     return `${part('day')}. ${part('month')} ${part('year')}`;
   } catch (e) {
@@ -466,7 +473,7 @@ export function buildTags(labels, locale) {
 
 function buildByline(locale) {
   const parts = [
-    ['date', formatDate(getMetadata('publication-date'), locale)],
+    ['date', formatPublicationDate(getMetadata('publication-date'), locale)],
     ['reading-time', getMetadata('reading-time').trim()],
     ['author', getMetadata('author').trim()],
   ].filter(([, text]) => text);
