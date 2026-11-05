@@ -136,6 +136,9 @@ test('Continue keeps the changes; the close button and Escape leave the search a
   const block = await built();
   const opener = block.querySelector('.flight-search-travellers');
   const dialog = dialogOf(block);
+  // linkedom keeps no focus: the calls are counted (assert.equal on two nodes would print the DOM)
+  let focused = 0;
+  opener.focus = () => { focused += 1; };
   assert.equal(text(opener), 'Economy, 1 Traveller');
   opener.click();
   assert.ok(dialog.open || dialog.hasAttribute('open'), 'open');
@@ -145,7 +148,7 @@ test('Continue keeps the changes; the close button and Escape leave the search a
   dialog.querySelector('.flight-search-travellers-done').click();
   assert.ok(!dialog.hasAttribute('open'), 'closed');
   assert.equal(opener.getAttribute('aria-expanded'), 'false');
-  assert.equal(document.activeElement, opener, 'the focus back on the line');
+  assert.equal(focused, 1, 'the focus back on the line');
   assert.equal(text(opener), 'Economy, 3 Travellers');
   opener.click();
   more(dialog, 'infants').click();
