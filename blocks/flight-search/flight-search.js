@@ -1032,26 +1032,74 @@ export default function decorate(block) {
   });
   [origin, destination].forEach((c) => c.input.addEventListener('change', updateSwapLabel));
 
+  // the dates: one Tab stop each, as www's field (a readonly text field and its calendar): the
+  // date shows in a readonly field named by its label; Enter, Space, Alt+Down or a click opens the
+  // browser's calendar of the date input behind it (showPicker), which keeps the value out of the
+  // Tab order (its own three segments and picker button were four stops); Delete clears it
   const dates = el('fieldset', 'flight-search-dates');
   const legend = el('legend');
   dates.append(legend);
+  const shownDate = new Intl.DateTimeFormat(locale.lang === 'en' && ['us', 'ca'].includes(locale.country) ? 'en-US' : `${locale.lang}-${String(locale.country || '').toUpperCase()}`, {
+    day: '2-digit', month: '2-digit', year: 'numeric', timeZone: 'UTC',
+  });
   const makeDate = (name) => {
     const label = el('label', `flight-search-date flight-search-${name}`);
     const span = el('span', 'flight-search-date-label');
-    const input = el('input');
+    span.id = `flight-search-${name}-label-${Math.random().toString(36).slice(2, 8)}`;
+    const input = el('input', 'flight-search-date-native');
     input.type = 'date';
     input.name = name;
     input.required = true; // form is noValidate; lets the CSS tell empty fields (:invalid) apart
     input.min = isoDate(new Date());
-    label.append(span, input);
+    input.tabIndex = -1;
+    input.setAttribute('aria-hidden', 'true');
+    const display = el('input', 'flight-search-date-value');
+    display.type = 'text';
+    display.readOnly = true;
+    display.setAttribute('aria-labelledby', span.id);
+    display.autocomplete = 'off';
+    const sync = () => {
+      const d = input.value ? new Date(`${input.value}T00:00:00Z`) : null;
+      display.value = d && !Number.isNaN(d.getTime()) ? shownDate.format(d) : '';
+    };
+    const openCalendar = () => {
+      if (input.disabled) return;
+      if (typeof input.showPicker === 'function') {
+        try {
+          input.showPicker();
+          return;
+        } catch (e) {
+          // no user activation or not supported: the date input itself
+        }
+      }
+      input.click();
+    };
+    display.addEventListener('click', openCalendar);
+    display.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ' || (e.key === 'ArrowDown' && e.altKey)) {
+        e.preventDefault();
+        openCalendar();
+      } else if (e.key === 'Delete' || e.key === 'Backspace') {
+        e.preventDefault();
+        input.value = '';
+        input.dispatchEvent(new Event('change', { bubbles: true }));
+      }
+    });
+    input.addEventListener('change', sync);
+    label.append(span, input, display);
     dates.append(label);
-    return { label, input, span };
+    return {
+      label, input, span, display, sync,
+    };
   };
   const departure = makeDate('departure');
   const ret = makeDate('return');
   departure.input.addEventListener('change', () => {
     ret.input.min = departure.input.value || isoDate(new Date());
-    if (ret.input.value && ret.input.value < departure.input.value) ret.input.value = '';
+    if (ret.input.value && ret.input.value < departure.input.value) {
+      ret.input.value = '';
+      ret.sync();
+    }
   });
 
   const submit = el('button', 'flight-search-submit button primary');
@@ -1072,6 +1120,7 @@ export default function decorate(block) {
       ? tripTypeSelect.value === 'ONEWAY' : prefill.tripType === 'ONEWAY';
     ret.label.hidden = oneWay;
     ret.input.disabled = oneWay;
+    ret.display.disabled = oneWay;
     form.dataset.tripType = oneWay ? 'ONEWAY' : 'RETURN';
     const parts = dateLabels(labels, config);
     legend.textContent = oneWay ? labels['one way date label'] : labels['date label'];
@@ -1087,6 +1136,8 @@ export default function decorate(block) {
     ret.input.min = prefill.departureDate;
   }
   if (prefill.returnDate && form.dataset.tripType === 'RETURN') ret.input.value = prefill.returnDate;
+  departure.sync();
+  ret.sync();
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -1119,10 +1170,10 @@ export default function decorate(block) {
       focus = destination.input;
     } else if (!query.departureDate) {
       message = labels['date error'];
-      focus = departure.input;
+      focus = departure.display;
     } else if (query.tripType === 'RETURN' && !query.returnDate) {
       message = labels['return date error'];
-      focus = ret.input;
+      focus = ret.display;
     }
     error.textContent = message;
     error.hidden = !message;

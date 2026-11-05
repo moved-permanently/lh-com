@@ -217,6 +217,24 @@
   cursor: pointer;
 }
 
+/* the date input behind each date's field (flight-search.js): rendered at the field's foot, where
+   the browser's calendar opens (showPicker), but not seen, not clicked and out of the Tab order;
+   the readonly field (.flight-search-date-value) is the one stop */
+.flight-search .flight-search-dates .flight-search-date input.flight-search-date-native {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  min-height: 0;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  outline: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
 .flight-search .flight-search-destination input {
   padding-right: 40px;
 }
