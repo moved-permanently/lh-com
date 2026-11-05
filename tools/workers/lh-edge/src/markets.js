@@ -112,6 +112,32 @@ export function servedMarketRoots(request, env, t = tables(env)) {
 export { marketAllows, dropMarketSections };
 
 /**
+ * Whether a `markets` value lists a market root: the root itself (`gb/en`, as the brand importers
+ * write it) or its country (`gb`); not another language's root of the country (`gb/de`), not an
+ * exclusion (`-gb`); an empty value lists none.
+ */
+export function listsRoot(value, root) {
+  const items = String(value || '').toLowerCase().split(/[\s,;]+/).filter(Boolean);
+  const [cc] = root.split('/');
+  return items.includes(root) || items.includes(cc);
+}
+
+/**
+ * Another root whose own document of the path lists the root (the brand importers put a page only
+ * market roots have on the first root that has it and list the others in its `markets` row): of
+ * the root's language, in the market index (its markets column, helix-query.yaml market-pages);
+ * else null.
+ */
+export function donorOf(model, t, root, suffix) {
+  const { lang } = t.table[root];
+  return t.marketRoots.find((r) => {
+    if (r === root || t.table[r].lang !== lang) return false;
+    const own = model.own.get(`/${r}${suffix}`);
+    return Boolean(own) && listsRoot(own.markets, root);
+  }) || null;
+}
+
+/**
  * The market root and the rest of a path (/ch/en/x -> {root: 'ch/en', rest: '/x'}), or null;
  * t: the tables (lh-com's unless given).
  */
@@ -1040,12 +1066,17 @@ export async function market(request, env) {
   if (model.own.has(`/${root}${suffix}`)) return own;
   const v = model.versions[t.table[root].lang];
   const indexed = v.index.has(`/${from}${suffix}`);
-  if (indexed && !serves(model, root, suffix)) return own;
+  // neither its own document nor an allowed language-version one: another root's own document of
+  // the language whose `markets` lists the root (a brand's black friday on its first root)
+  const donor = !(indexed && serves(model, root, suffix)) && !LANGUAGE_ONLY.test(suffix)
+    ? donorOf(model, t, root, suffix) : null;
+  if (indexed && !serves(model, root, suffix) && !donor) return own;
   // a page the language version lacks: www's market-neutral document of the path (lh-com's
   // NEUTRAL_VERSIONS, xx/en and xx/de, brief 267) when its markets allow the country
-  const neutral = !indexed && !LANGUAGE_ONLY.test(suffix) && (t.neutral || {})[t.table[root].lang];
+  const neutral = !donor && !indexed && !LANGUAGE_ONLY.test(suffix)
+    && (t.neutral || {})[t.table[root].lang];
   const neutralDoc = neutral ? await originFetch(versionRequest, env, `https://${env.ORIGIN}/${neutral}${rest}`) : null;
-  if (!indexed && !LANGUAGE_ONLY.test(suffix) && !(neutralDoc && neutralDoc.ok)) {
+  if (!donor && !indexed && !LANGUAGE_ONLY.test(suffix) && !(neutralDoc && neutralDoc.ok)) {
     // not a page of the language version: its redirect (redirect sheet), else the 404
     if (kind !== 'page') return own;
     const moved = await originFetch(versionRequest, env, `https://${env.ORIGIN}/${from}${rest}`);
@@ -1063,6 +1094,15 @@ export async function market(request, env) {
   const rowOf = indexed ? v.index.get(`/${from}${suffix}`) : null;
   const leftOut = Boolean(rowOf && rowOf.markets && !marketAllows(rowOf.markets, cc));
   let source = leftOut && restOfWorld && restOfWorld !== root ? restOfWorld : from;
+  if (donor) {
+    source = donor;
+    // its links: into the donor root become the root's where the root has the page (its own
+    // document, the language version's, another root's that lists it), into the language
+    // version as every page's
+    const served = ctx.allowed;
+    ctx.also = { from, allowed: served };
+    ctx.allowed = (x) => model.own.has(`/${root}${x}`) || served(x) || Boolean(donorOf(model, t, root, x));
+  }
   if (neutralDoc && neutralDoc.ok) {
     source = neutral;
     // its links: into the neutral version where the market index has the document (it fills on
@@ -1087,8 +1127,9 @@ export async function market(request, env) {
   const meta = (kind === 'page' || source !== from) && (html.match(/<meta name="markets" content="([^"]*)"/)
     || html.match(/<div><div>markets<\/div><div>([^<]*)<\/div><\/div>/i));
   if (meta && !marketAllows(meta[1], cc)) return own;
-  // a rest-of-world document names its markets; a neutral one without them is every market's
-  if (source !== from && source !== neutral && !meta) return own;
+  // a rest-of-world document names its markets; a neutral one without them is every market's; a
+  // donor's index row listed the root (its .plain.html has no metadata)
+  if (source !== from && source !== neutral && source !== donor && !meta) return own;
   // sections whose section metadata `markets` excludes the country are left out; the nav and
   // footer of a root with a label of its own (a site's row) name the root, not the language version
   // nav and footer name the root (a site's label, lh-com's name: www's label for the root) and the

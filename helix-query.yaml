@@ -1208,6 +1208,11 @@ indices:
       robots:
         select: head > meta[name="page-robots"]
         value: attribute(el, "content")
+      # the other roots a brand's page on its first root serves (lh-edge src/markets.js donorOf),
+      # as market-model-own
+      markets:
+        select: head > meta[name="markets"]
+        value: attribute(el, "content")
       # llms.txt of market roots (lh-edge src/llms.js): as search-<cc>-<ll>
       llms-include:
         select: head > meta[name="llms-include"]

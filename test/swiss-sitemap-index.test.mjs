@@ -30,6 +30,10 @@ test('sitemap-ch-<ll>: the language index\'s pages, robots and lastModified only
 
 test('the existing indexes as they were (only sitemap-ch-<ll> added)', () => {
   const before = yaml.load(execFileSync('git', ['show', '29b2db6:helix-query.yaml'], { encoding: 'utf8' })).indices;
-  Object.entries(before).forEach(([name, index]) => assert.deepEqual(indices[name], index, name));
+  // since then: market-pages' markets column (brief 411, lh-edge's donor documents), nothing else
+  const { markets, ...pagesBefore } = indices['market-pages'].properties;
+  assert.deepEqual(markets, indices['market-model-own'].properties.markets);
+  const now = { ...indices, 'market-pages': { ...indices['market-pages'], properties: pagesBefore } };
+  Object.entries(before).forEach(([name, index]) => assert.deepEqual(now[name], index, name));
   assert.deepEqual(Object.keys(indices).filter((n) => !(n in before)).sort(), LANGS.map((ll) => `sitemap-ch-${ll}`).sort());
 });
