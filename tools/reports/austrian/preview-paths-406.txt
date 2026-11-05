@@ -1,2 +1,4 @@
 /at/en/contact
 /at/de/contact
+/at/en/discover/inspiration/fly-with-austrian
+/at/de/discover/inspiration/fly-with-austrian

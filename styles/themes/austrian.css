@@ -149,6 +149,11 @@
   --footer-link-weight: 400;
   --footer-link-line-height: 21px;
 
+  /* row 24: no rule above the legal links (and none above the badges: the rule below), the legal
+     links one per line on phones (a wrapping row from 768 px, below) */
+  --footer-divider-color: transparent;
+  --footer-legal-direction: column;
+
   /* the carousels' current dot Austrian red, as www's (row 16a; the drawn dot's tokens in the
      carousel files) */
   --carousel-dot-current-color: #d81e05;
@@ -645,5 +650,82 @@ body.brand-austrian .columns-media.panel .columns-media-text > p:not(.link-wrapp
   body.brand-austrian .columns-media.panel .columns-media-text > p:not(.link-wrapper, .button-wrapper) {
     font-size: 18px;
     line-height: 20px;
+  }
+}
+
+/* row 5: the burger as www's list-menu icon (three 1 px lines, 10 of 16 units wide), 24 px at every
+   width; the header's drawn lines hidden */
+body.brand-austrian .header .nav-menu-button .lh-icon {
+  width: 24px;
+  height: 24px;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M12.5 4.5h-9a.5.5 0 0 1 0-1h9a.5.5 0 0 1 0 1m0 4h-9a.5.5 0 0 1 0-1h9a.5.5 0 0 1 0 1m0 4h-9a.5.5 0 0 1 0-1h9a.5.5 0 0 1 0 1'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+body.brand-austrian .header .nav-menu-button .lh-icon > * {
+  display: none;
+}
+
+/* row 18: the article cards (Good reasons to take off: carousel-cards grid) as www's a.teaser:
+   6 px corners, 30 px inside, titles heading-l (22 to 28 px) 21 px above the copy, the copy
+   Portada 18/27 black */
+body.brand-austrian .carousel-cards.grid .carousel-cards-slide {
+  border-radius: 6px;
+}
+
+body.brand-austrian .carousel-cards.grid .carousel-cards-body {
+  padding: 30px;
+}
+
+body.brand-austrian .carousel-cards.grid .carousel-cards-slide:not(.carousel-cards-wide) .carousel-cards-body > :is(h1, h2, h3, h4, h5, h6) {
+  margin-bottom: 21px;
+  font-size: var(--heading-font-size-l);
+}
+
+body.brand-austrian .carousel-cards.grid .carousel-cards-slide:not(.carousel-cards-wide) .carousel-cards-body > p:not(.carousel-cards-cta, .carousel-cards-eyebrow) {
+  color: #000;
+  font-family: var(--heading-font-family);
+  font-size: 18px;
+  line-height: 27px;
+}
+
+/* row 19: the divider www's 1 px maui-divider in #b0b0b0 (its screen at 1440: two rows of
+   #d7d7d7 for a line between pixels, one row of #b0b0b0 at 390) */
+body.brand-austrian main .default-content-wrapper > p.spacer.divider {
+  border-top-color: #b0b0b0;
+}
+
+/* rows 24 and 25: the badges 27 x 27 px, 17 px apart, without the rule above them (Klarna's and
+   Apple Pay's wide logos inside their squares); the legal links (a wrapping row from 768 px) from
+   the links' edge, from 1025 px under the link columns (x 409 at 1440, as www's) */
+body.brand-austrian .footer .footer-badges {
+  border-top: 0;
+}
+
+body.brand-austrian .footer .footer-badges ul {
+  gap: 12px 17px;
+}
+
+body.brand-austrian .footer .footer-inner .footer-badges img {
+  width: 27px;
+  height: 27px;
+  object-fit: contain;
+}
+
+@media (width >= 768px) {
+  body.brand-austrian .footer .footer-legal {
+    padding-left: 0;
+  }
+}
+
+@media (width >= 1025px) {
+  body.brand-austrian .footer .footer-inner.has-wordmark {
+    grid-template-areas:
+      'wordmark columns'
+      '. badges'
+      'search locale'
+      'divider divider'
+      '. legal'
+      'note note';
   }
 }

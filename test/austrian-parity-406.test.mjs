@@ -39,8 +39,8 @@ test('rows 24 and 25: the legal links from the columns\' edge, no rules; the bad
   has(/--footer-divider-color: transparent;/);
   has(/--footer-legal-direction: column;/);
   has(/body\.brand-austrian \.footer \.footer-badges \{ border-top: 0; \}/);
-  has(/@media \(width >= 768px\) \{ body\.brand-austrian \.footer \.footer-legal \{ flex-direction: row; \} \}/);
+  has(/@media \(width >= 768px\) \{ body\.brand-austrian \.footer \.footer-legal \{ padding-left: 0; \} \}/);
   has(/@media \(width >= 1025px\) \{ body\.brand-austrian \.footer \.footer-inner\.has-wordmark \{ grid-template-areas: 'wordmark columns' '\. badges' 'search locale' 'divider divider' '\. legal' 'note note'; \} \}/);
   has(/body\.brand-austrian \.footer \.footer-badges ul \{ gap: 12px 17px; \}/);
-  has(/body\.brand-austrian \.footer \.footer-badges img \{ width: 27px; height: 27px; object-fit: contain; \}/);
+  has(/body\.brand-austrian \.footer \.footer-inner \.footer-badges img \{ width: 27px; height: 27px; object-fit: contain; \}/);
 });
