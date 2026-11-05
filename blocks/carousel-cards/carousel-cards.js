@@ -281,6 +281,15 @@ function slidesPerView(block, track, items) {
 export default async function decorate(block) {
   instanceCount += 1;
   const uid = `carousel-cards-${instanceCount}`;
+  // option phone-slider (Lufthansa's three-card column views, www's .hidden-lg-up swiper): below
+  // 1025px the four-up carousel, from 1025px the grid rows (the carousel's controls hidden)
+  const phoneSlider = block.classList.contains('phone-slider');
+  const narrow = phoneSlider ? window.matchMedia('(width < 1025px)') : null;
+  const applyPhoneSlider = () => {
+    block.classList.toggle('four-up', narrow.matches);
+    block.classList.toggle('grid', !narrow.matches);
+  };
+  if (phoneSlider) applyPhoneSlider();
   if (block.classList.contains('authors')) await fillAuthors(block);
   const { config, slides } = readRows(block);
   const labels = resolveLabels(DEFAULT_LABELS, config, getLocale().lang);
@@ -306,8 +315,8 @@ export default async function decorate(block) {
   // outside the site open in the same tab, as on live; article and grid are cards in rows, no
   // carousel controls
   const article = block.classList.contains('article');
-  const grid = article || block.classList.contains('grid');
-  if (grid || block.classList.contains('four-up')) {
+  const grid = article || (block.classList.contains('grid') && !phoneSlider);
+  if (grid || phoneSlider || block.classList.contains('four-up')) {
     track.querySelectorAll('a[target="_blank"]').forEach((a) => {
       if (isOwnWwwHost(new URL(a.href).hostname)) a.removeAttribute('target');
     });
@@ -401,6 +410,15 @@ export default async function decorate(block) {
     frame = requestAnimationFrame(update);
   }, { passive: true });
   if (window.ResizeObserver) new ResizeObserver(update).observe(track);
+  if (narrow) {
+    const change = () => {
+      applyPhoneSlider();
+      if (track.scrollTo) track.scrollTo({ left: 0 });
+      update();
+    };
+    if (narrow.addEventListener) narrow.addEventListener('change', change);
+    else if (narrow.addListener) narrow.addListener(change);
+  }
 
   if (isTapPlanCards(block, items)) {
     block.classList.add('carousel-cards-tap');
