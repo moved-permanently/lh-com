@@ -1,4 +1,1338 @@
 {
- "_note": "TAP's call-back cards (CoreMedia Engagement Cloud / BySide's widget, parity.md row 66) as www.flytap.com renders them: the page's data holds the widget's type only (ComponentCoreMediaModel), so the cards come from a capture. cards: <CoreMedia type> -> <locale (pt-br) or language (pt, en, es, fr, de, it, pl)> -> { title, text, schedule, image (the wide picture's URL on sa1.byside.com), mobileImage (the phone one's), alt }; the pictures' local copies from a picture archive (--media). tap-import.mjs and tap-markets.mjs write ema-test's click-to-call block where a card is here, else the link to www.",
- "cards": {}
+ "_note": "TAP's call-back cards (CoreMedia Engagement Cloud / BySide's widget, parity.md row 66) as www.flytap.com renders them: the page's data holds the widget's type only (ComponentCoreMediaModel), so the cards come from the capture tap-byside-001 (built by tap-click-to-call.mjs from its click-to-call.json). cards: <CoreMedia type> -> <version (pt-pt, en-pt, es-es, fr-fr, de-de, it-it, pl-pl, pt-br; a language key is the fallback)> -> { title, text, schedule, smallPrint (BySide's HTML), hours, button, buttonOutside, phone, days, slots, image (the wide picture's URL on bysa1.byside.com), mobileImage (the phone one's), alt, floating ([text, subText]), pages (the pages www shows it on), noCard (pages www served none on) }, or { noCard } for a version www serves no card for. The pictures' local copies: the capture's byside directory as a --media of the import. tap-import.mjs and tap-markets.mjs write ema-test's click-to-call block on the card's pages, nothing on its noCard pages, else the link to www.",
+ "captured": "2026-11-05T05:22:24Z .. 2026-11-05T05:45:58Z",
+ "cards": {
+  "2023-flight-extra": {
+   "pt-pt": {
+    "title": "Dê um boost à sua viagem",
+    "text": "Já tem reserva, mas quer mais conforto e experiência extra? Indique-nos o seu número de telefone e entraremos em <strong>contacto consigo gratuitamente</strong>.",
+    "schedule": "<strong>Horário:</strong> Seg a Sex – 9:00 às 24:00 (GMT Lisboa)",
+    "hours": "Mon-Fri 09:00-24:00",
+    "button": "Liguem-me",
+    "buttonOutside": "Agendar Contacto",
+    "phone": "Telemóvel",
+    "days": [
+     "Hoje",
+     "Amanhã"
+    ],
+    "slots": "08:00-23:30",
+    "smallPrint": "Este formulário de contacto é de uso exclusivo para a venda de extras para o voo. Para outros assuntos, por favor, <a href=\"https://www.flytap.com/pt-pt/ajuda#contactos\">contacte-nos através dos canais de atendimento da TAP</a>. A TAP respeita a sua privacidade.  Para saber mais, consulte: <a href=\"https://www.flytap.com/privacy\">Política de Privacidade</a>.",
+    "image": "https://bysa1.byside.com/files/B414516D6E/window/29971/bg_c2call_full_2.png",
+    "mobileImage": "https://sa1.byside.com/files/B414516D6E/window/29964/Image_container_mobile.png",
+    "alt": "Operador",
+    "floating": [
+     "Quero mais conforto!",
+     "Ligamos grátis"
+    ],
+    "pages": [
+     "/pt-pt/gerir-reserva/extras",
+     "/pt-pt/gerir-reserva/extras/embarque",
+     "/pt-pt/gerir-reserva/extras/fast-track",
+     "/pt-pt/gerir-reserva/extras/lounges"
+    ]
+   },
+   "en-pt": {
+    "title": "Give a boost to your journey",
+    "text": "Already have a reservation but want more comfort and extra experiences? Please fill in your phone number and we will <strong>contact you free</strong> of charge.",
+    "schedule": "<strong>Schedule:</strong> Mon to Fri – 9:00am to 12:00am (GMT Lisbon)",
+    "hours": "Mon-Fri 09:00-24:00",
+    "button": "Call me now",
+    "buttonOutside": "Schedule contact",
+    "phone": "Phone number",
+    "days": [
+     "Today",
+     "Tomorrow"
+    ],
+    "slots": "08:00-23:30",
+    "smallPrint": "This contact form is exclusive for the sale of flight extras. <a href=\"null\">For other subject, please contact us through the designated TAP service channels.</a> TAP respects your privacy. To learn more, see: <a href=\"https://www.flytap.com/privacy\">privacy policies</a>",
+    "image": "https://bysa1.byside.com/files/B414516D6E/window/29971/bg_c2call_full_2.png",
+    "mobileImage": "https://sa1.byside.com/files/B414516D6E/window/29964/Image_container_mobile.png",
+    "alt": "Operador",
+    "floating": [
+     "I want more comfort!",
+     "Call me free"
+    ],
+    "pages": [
+     "/en-pt/manage-booking/extras",
+     "/en-pt/manage-booking/extras/boarding",
+     "/en-pt/manage-booking/extras/fast-track",
+     "/en-pt/manage-booking/extras/lounges"
+    ]
+   },
+   "es-es": {
+    "title": "Give a boost to your journey",
+    "text": "Already have a reservation but want more comfort and extra experiences? Please fill in your phone number and we will <strong>contact you free</strong> of charge.",
+    "schedule": "<strong>Schedule:</strong> Mon to Fri – 9:00am to 12:00am (GMT Lisbon)",
+    "hours": "Mon-Fri 09:00-24:00",
+    "button": "Call me now",
+    "buttonOutside": "Schedule contact",
+    "phone": "Phone number",
+    "days": [
+     "Today",
+     "Tomorrow"
+    ],
+    "slots": "08:00-23:30",
+    "smallPrint": "This contact form is exclusive for the sale of flight extras. <a href=\"https://www.flytap.com/es-es/ayuda#contactos\">For other subject, please contact us through the designated TAP service channels.</a> TAP respects your privacy. To learn more, see: <a href=\"https://www.flytap.com/privacy\">privacy policies</a>",
+    "image": "https://bysa1.byside.com/files/B414516D6E/window/29971/bg_c2call_full_2.png",
+    "mobileImage": "https://sa1.byside.com/files/B414516D6E/window/29964/Image_container_mobile.png",
+    "alt": "Operador",
+    "floating": [
+     "I want more comfort!",
+     "Call me free"
+    ],
+    "pages": [
+     "/es-es/gestionar-reserva/extras",
+     "/es-es/gestionar-reserva/extras/embarque",
+     "/es-es/gestionar-reserva/extras/fast-track",
+     "/es-es/gestionar-reserva/extras/lounges"
+    ]
+   },
+   "fr-fr": {
+    "title": "Give a boost to your journey",
+    "text": "Already have a reservation but want more comfort and extra experiences? Please fill in your phone number and we will <strong>contact you free</strong> of charge.",
+    "schedule": "<strong>Schedule:</strong> Mon to Fri – 9:00am to 12:00am (GMT Lisbon)",
+    "hours": "Mon-Fri 09:00-24:00",
+    "button": "Call me now",
+    "buttonOutside": "Schedule contact",
+    "phone": "Phone number",
+    "days": [
+     "Today",
+     "Tomorrow"
+    ],
+    "slots": "08:00-23:30",
+    "smallPrint": "This contact form is exclusive for the sale of flight extras. <a href=\"https://www.flytap.com/fr-fr/aide#contactos\">For other subject, please contact us through the designated TAP service channels.</a> TAP respects your privacy. To learn more, see: <a href=\"https://www.flytap.com/privacy\">privacy policies</a>",
+    "image": "https://bysa1.byside.com/files/B414516D6E/window/29971/bg_c2call_full_2.png",
+    "mobileImage": "https://sa1.byside.com/files/B414516D6E/window/29964/Image_container_mobile.png",
+    "alt": "Operador",
+    "floating": [
+     "I want more comfort!",
+     "Call me free"
+    ],
+    "pages": [
+     "/fr-fr/gerer-reserves/extras",
+     "/fr-fr/gerer-reserves/extras/embarquement",
+     "/fr-fr/gerer-reserves/extras/fast-track",
+     "/fr-fr/gerer-reserves/extras/lounges"
+    ]
+   },
+   "de-de": {
+    "title": "Give a boost to your journey",
+    "text": "Already have a reservation but want more comfort and extra experiences? Please fill in your phone number and we will <strong>contact you free</strong> of charge.",
+    "schedule": "<strong>Schedule:</strong> Mon to Fri – 9:00am to 12:00am (GMT Lisbon)",
+    "hours": "Mon-Fri 09:00-24:00",
+    "button": "Call me now",
+    "buttonOutside": "Schedule contact",
+    "phone": "Phone number",
+    "days": [
+     "Today",
+     "Tomorrow"
+    ],
+    "slots": "08:00-23:30",
+    "smallPrint": "This contact form is exclusive for the sale of flight extras. <a href=\"https://www.flytap.com/de-de/hilfe#contactos\">For other subject, please contact us through the designated TAP service channels.</a> TAP respects your privacy. To learn more, see: <a href=\"https://www.flytap.com/privacy\">privacy policies</a>",
+    "image": "https://bysa1.byside.com/files/B414516D6E/window/29971/bg_c2call_full_2.png",
+    "mobileImage": "https://sa1.byside.com/files/B414516D6E/window/29964/Image_container_mobile.png",
+    "alt": "Operador",
+    "floating": [
+     "I want more comfort!",
+     "Call me free"
+    ],
+    "pages": [
+     "/de-de/verwalten-buchungen/extras",
+     "/de-de/verwalten-buchungen/extras/boarding",
+     "/de-de/verwalten-buchungen/extras/lounges"
+    ],
+    "noCard": [
+     "/de-de/verwalten-buchungen/extras/fast-track"
+    ]
+   },
+   "it-it": {
+    "title": "Give a boost to your journey",
+    "text": "Already have a reservation but want more comfort and extra experiences? Please fill in your phone number and we will <strong>contact you free</strong> of charge.",
+    "schedule": "<strong>Schedule:</strong> Mon to Fri – 9:00am to 12:00am (GMT Lisbon)",
+    "hours": "Mon-Fri 09:00-24:00",
+    "button": "Call me now",
+    "buttonOutside": "Schedule contact",
+    "phone": "Phone number",
+    "days": [
+     "Today",
+     "Tomorrow"
+    ],
+    "slots": "08:00-23:30",
+    "smallPrint": "This contact form is exclusive for the sale of flight extras. <a href=\"https://www.flytap.com/it-it/assistenza#contactos\">For other subject, please contact us through the designated TAP service channels.</a> TAP respects your privacy. To learn more, see: <a href=\"https://www.flytap.com/privacy\">privacy policies</a>",
+    "image": "https://bysa1.byside.com/files/B414516D6E/window/29971/bg_c2call_full_2.png",
+    "mobileImage": "https://sa1.byside.com/files/B414516D6E/window/29964/Image_container_mobile.png",
+    "alt": "Operador",
+    "floating": [
+     "I want more comfort!",
+     "Call me free"
+    ],
+    "pages": [
+     "/it-it/gestire-prenotazione/extra",
+     "/it-it/gestire-prenotazione/extra/fast-track",
+     "/it-it/gestire-prenotazione/extra/imbarco",
+     "/it-it/gestire-prenotazione/extra/lounge"
+    ]
+   },
+   "pl-pl": {
+    "title": "Give a boost to your journey",
+    "text": "Already have a reservation but want more comfort and extra experiences? Please fill in your phone number and we will <strong>contact you free</strong> of charge.",
+    "schedule": "<strong>Schedule:</strong> Mon to Fri – 9:00am to 12:00am (GMT Lisbon)",
+    "hours": "Mon-Fri 09:00-24:00",
+    "button": "Call me now",
+    "buttonOutside": "Schedule contact",
+    "phone": "Phone number",
+    "days": [
+     "Today",
+     "Tomorrow"
+    ],
+    "slots": "08:00-23:30",
+    "smallPrint": "This contact form is exclusive for the sale of flight extras. <a href=\"https://www.flytap.com/pl-pl/pomoc#contactos\">For other subject, please contact us through the designated TAP service channels.</a> TAP respects your privacy. To learn more, see: <a href=\"https://www.flytap.com/privacy\">privacy policies</a>",
+    "image": "https://bysa1.byside.com/files/B414516D6E/window/29971/bg_c2call_full_2.png",
+    "mobileImage": "https://sa1.byside.com/files/B414516D6E/window/29964/Image_container_mobile.png",
+    "alt": "Operador",
+    "floating": [
+     "I want more comfort!",
+     "Call me free"
+    ],
+    "pages": [
+     "/pl-pl/zarzadzaj-rezerwacja/dodatki",
+     "/pl-pl/zarzadzaj-rezerwacja/dodatki/fast-track",
+     "/pl-pl/zarzadzaj-rezerwacja/dodatki/lounges",
+     "/pl-pl/zarzadzaj-rezerwacja/dodatki/wejscie-poklad"
+    ]
+   },
+   "pt-br": {
+    "title": "Dê um boost à sua viagem",
+    "text": "Já tem reserva, mas quer mais conforto e experiência extra? Indique-nos o seu número de telefone e entraremos em <strong>contacto consigo gratuitamente</strong>.",
+    "schedule": "<strong>Horário:</strong> Seg a Sex – 9:00 às 24:00 (GMT Lisboa)",
+    "hours": "Mon-Fri 09:00-24:00",
+    "button": "Liguem-me",
+    "buttonOutside": "Agendar Contacto",
+    "phone": "Telemóvel",
+    "days": [
+     "Hoje",
+     "Amanhã"
+    ],
+    "slots": "08:00-23:30",
+    "smallPrint": "Este formulário de contacto é de uso exclusivo para a venda de extras para o voo. Para outros assuntos, por favor, <a href=\"https://www.flytap.com/pt-br/ajuda#contactos\">contacte-nos através dos canais de atendimento da TAP</a>. A TAP respeita a sua privacidade.  Para saber mais, consulte: <a href=\"https://www.flytap.com/privacy\">Política de Privacidade</a>.",
+    "image": "https://bysa1.byside.com/files/B414516D6E/window/29971/bg_c2call_full_2.png",
+    "mobileImage": "https://sa1.byside.com/files/B414516D6E/window/29964/Image_container_mobile.png",
+    "alt": "Operador",
+    "floating": [
+     "Quero mais conforto!",
+     "Ligamos grátis"
+    ],
+    "pages": [
+     "/pt-br/gerenciar-reserva/extras",
+     "/pt-br/gerenciar-reserva/extras/embarque",
+     "/pt-br/gerenciar-reserva/extras/fast-track",
+     "/pt-br/gerenciar-reserva/extras/lounges"
+    ]
+   }
+  },
+  "2022-lugares-bordo-comfortseat": {
+   "pt-pt": {
+    "title": "Voe na área Comfort",
+    "text": "Já tem reserva, mas precisa de espaço e conforto extra? Indique-nos o seu número de telefone e entraremos em <strong>contacto consigo gratuitamente</strong>.",
+    "schedule": "<strong>Horário:</strong> Seg a Sex – 9:00 às 24:00 (GMT Lisboa)",
+    "hours": "Mon-Fri 09:00-24:00",
+    "button": "Liguem-me",
+    "buttonOutside": "Agendar Contacto",
+    "phone": "Telemóvel",
+    "days": [
+     "Hoje",
+     "Amanhã"
+    ],
+    "slots": "08:00-23:30",
+    "smallPrint": "Este formulário de contacto é de uso exclusivo para a venda de lugares e extras para o voo. Para outros assuntos, por favor, <a href=\"https://www.flytap.com/pt-pt/ajuda#contactos\">contacte-nos através dos canais de atendimento da TAP</a>. A TAP respeita a sua privacidade.  Para saber mais, consulte: <a href=\"https://www.flytap.com/privacy\">Política de Privacidade</a>.",
+    "image": "https://bysa1.byside.com/files/B414516D6E/window/29966/bg_c2call_full_2.png",
+    "mobileImage": "https://sa1.byside.com/files/B414516D6E/window/29964/Image_container_mobile.png",
+    "alt": "Operador",
+    "floating": [
+     "Quero Comfort Seat",
+     "Ligamos grátis"
+    ],
+    "pages": [
+     "/pt-pt/gerir-reserva/extras/lugares"
+    ]
+   },
+   "en-pt": {
+    "title": "Fly in the Comfort area",
+    "text": "Already have a reservation but want to fly with extra comfort? Please fill in your phone number and we will <strong>contact you free</strong> of charge.",
+    "schedule": "<strong>Schedule:</strong> Mon to Fri – 9:00am to 12:00am (GMT Lisbon)",
+    "hours": "Mon-Fri 09:00-24:00",
+    "button": "Call me now",
+    "buttonOutside": "Schedule contact",
+    "phone": "Phone number",
+    "days": [
+     "Today",
+     "Tomorrow"
+    ],
+    "slots": "08:00-23:30",
+    "smallPrint": "This contact form is exclusive for the sale of seats and flight extras. <a href=\"null\">For other subject, please contact us through the designated TAP service channels.</a> TAP respects your privacy. To learn more, see: <a href=\"https://www.flytap.com/privacy\">privacy policies</a>",
+    "image": "https://bysa1.byside.com/files/B414516D6E/window/29966/bg_c2call_full_2.png",
+    "mobileImage": "https://sa1.byside.com/files/B414516D6E/window/29964/Image_container_mobile.png",
+    "alt": "Operador",
+    "floating": [
+     "I want Comfort Seat",
+     "Call me free"
+    ],
+    "pages": [
+     "/en-pt/manage-booking/extras/seats"
+    ]
+   },
+   "es-es": {
+    "title": "Fly in the Comfort area",
+    "text": "Already have a reservation but want to fly with extra comfort? Please fill in your phone number and we will <strong>contact you free</strong> of charge.",
+    "schedule": "<strong>Schedule:</strong> Mon to Fri – 9:00am to 12:00am (GMT Lisbon)",
+    "hours": "Mon-Fri 09:00-24:00",
+    "button": "Call me now",
+    "buttonOutside": "Schedule contact",
+    "phone": "Phone number",
+    "days": [
+     "Today",
+     "Tomorrow"
+    ],
+    "slots": "08:00-23:30",
+    "smallPrint": "This contact form is exclusive for the sale of seats and flight extras. <a href=\"https://www.flytap.com/es-es/ayuda#contactos\">For other subject, please contact us through the designated TAP service channels.</a> TAP respects your privacy. To learn more, see: <a href=\"https://www.flytap.com/privacy\">privacy policies</a>",
+    "image": "https://bysa1.byside.com/files/B414516D6E/window/29966/bg_c2call_full_2.png",
+    "mobileImage": "https://sa1.byside.com/files/B414516D6E/window/29964/Image_container_mobile.png",
+    "alt": "Operador",
+    "floating": [
+     "I want Comfort Seat",
+     "Call me free"
+    ],
+    "pages": [
+     "/es-es/gestionar-reserva/extras/asientos"
+    ]
+   },
+   "fr-fr": {
+    "title": "Fly in the Comfort area",
+    "text": "Already have a reservation but want to fly with extra comfort? Please fill in your phone number and we will <strong>contact you free</strong> of charge.",
+    "schedule": "<strong>Schedule:</strong> Mon to Fri – 9:00am to 12:00am (GMT Lisbon)",
+    "hours": "Mon-Fri 09:00-24:00",
+    "button": "Call me now",
+    "buttonOutside": "Schedule contact",
+    "phone": "Phone number",
+    "days": [
+     "Today",
+     "Tomorrow"
+    ],
+    "slots": "08:00-23:30",
+    "smallPrint": "This contact form is exclusive for the sale of seats and flight extras. <a href=\"https://www.flytap.com/fr-fr/aide#contactos\">For other subject, please contact us through the designated TAP service channels.</a> TAP respects your privacy. To learn more, see: <a href=\"https://www.flytap.com/privacy\">privacy policies</a>",
+    "image": "https://bysa1.byside.com/files/B414516D6E/window/29966/bg_c2call_full_2.png",
+    "mobileImage": "https://sa1.byside.com/files/B414516D6E/window/29964/Image_container_mobile.png",
+    "alt": "Operador",
+    "floating": [
+     "I want Comfort Seat",
+     "Call me free"
+    ],
+    "pages": [
+     "/fr-fr/gerer-reserves/extras/sieges"
+    ]
+   },
+   "de-de": {
+    "title": "Fly in the Comfort area",
+    "text": "Already have a reservation but want to fly with extra comfort? Please fill in your phone number and we will <strong>contact you free</strong> of charge.",
+    "schedule": "<strong>Schedule:</strong> Mon to Fri – 9:00am to 12:00am (GMT Lisbon)",
+    "hours": "Mon-Fri 09:00-24:00",
+    "button": "Call me now",
+    "buttonOutside": "Schedule contact",
+    "phone": "Phone number",
+    "days": [
+     "Today",
+     "Tomorrow"
+    ],
+    "slots": "08:00-23:30",
+    "smallPrint": "This contact form is exclusive for the sale of seats and flight extras. <a href=\"https://www.flytap.com/de-de/hilfe#contactos\">For other subject, please contact us through the designated TAP service channels.</a> TAP respects your privacy. To learn more, see: <a href=\"https://www.flytap.com/privacy\">privacy policies</a>",
+    "image": "https://bysa1.byside.com/files/B414516D6E/window/29966/bg_c2call_full_2.png",
+    "mobileImage": "https://sa1.byside.com/files/B414516D6E/window/29964/Image_container_mobile.png",
+    "alt": "Operador",
+    "floating": [
+     "I want Comfort Seat",
+     "Call me free"
+    ],
+    "pages": [
+     "/de-de/verwalten-buchungen/extras/sitzplatze"
+    ]
+   },
+   "it-it": {
+    "title": "Fly in the Comfort area",
+    "text": "Already have a reservation but want to fly with extra comfort? Please fill in your phone number and we will <strong>contact you free</strong> of charge.",
+    "schedule": "<strong>Schedule:</strong> Mon to Fri – 9:00am to 12:00am (GMT Lisbon)",
+    "hours": "Mon-Fri 09:00-24:00",
+    "button": "Call me now",
+    "buttonOutside": "Schedule contact",
+    "phone": "Phone number",
+    "days": [
+     "Today",
+     "Tomorrow"
+    ],
+    "slots": "08:00-23:30",
+    "smallPrint": "This contact form is exclusive for the sale of seats and flight extras. <a href=\"https://www.flytap.com/it-it/assistenza#contactos\">For other subject, please contact us through the designated TAP service channels.</a> TAP respects your privacy. To learn more, see: <a href=\"https://www.flytap.com/privacy\">privacy policies</a>",
+    "image": "https://bysa1.byside.com/files/B414516D6E/window/29966/bg_c2call_full_2.png",
+    "mobileImage": "https://sa1.byside.com/files/B414516D6E/window/29964/Image_container_mobile.png",
+    "alt": "Operador",
+    "floating": [
+     "I want Comfort Seat",
+     "Call me free"
+    ],
+    "pages": [
+     "/it-it/gestire-prenotazione/extra/posti"
+    ]
+   },
+   "pl-pl": {
+    "title": "Fly in the Comfort area",
+    "text": "Already have a reservation but want to fly with extra comfort? Please fill in your phone number and we will <strong>contact you free</strong> of charge.",
+    "schedule": "<strong>Schedule:</strong> Mon to Fri – 9:00am to 12:00am (GMT Lisbon)",
+    "hours": "Mon-Fri 09:00-24:00",
+    "button": "Call me now",
+    "buttonOutside": "Schedule contact",
+    "phone": "Phone number",
+    "days": [
+     "Today",
+     "Tomorrow"
+    ],
+    "slots": "08:00-23:30",
+    "smallPrint": "This contact form is exclusive for the sale of seats and flight extras. <a href=\"https://www.flytap.com/pl-pl/pomoc#contactos\">For other subject, please contact us through the designated TAP service channels.</a> TAP respects your privacy. To learn more, see: <a href=\"https://www.flytap.com/privacy\">privacy policies</a>",
+    "image": "https://bysa1.byside.com/files/B414516D6E/window/29966/bg_c2call_full_2.png",
+    "mobileImage": "https://sa1.byside.com/files/B414516D6E/window/29964/Image_container_mobile.png",
+    "alt": "Operador",
+    "floating": [
+     "I want Comfort Seat",
+     "Call me free"
+    ],
+    "pages": [
+     "/pl-pl/zarzadzaj-rezerwacja/dodatki/miejsca"
+    ]
+   },
+   "pt-br": {
+    "title": "Voe na área Comfort",
+    "text": "Já tem reserva, mas precisa de espaço e conforto extra? Indique-nos o seu número de telefone e entraremos em <strong>contacto consigo gratuitamente</strong>.",
+    "schedule": "<strong>Horário:</strong> Seg a Sex – 9:00 às 24:00 (GMT Lisboa)",
+    "hours": "Mon-Fri 09:00-24:00",
+    "button": "Liguem-me",
+    "buttonOutside": "Agendar Contacto",
+    "phone": "Telemóvel",
+    "days": [
+     "Hoje",
+     "Amanhã"
+    ],
+    "slots": "08:00-23:30",
+    "smallPrint": "Este formulário de contacto é de uso exclusivo para a venda de lugares e extras para o voo. Para outros assuntos, por favor, <a href=\"https://www.flytap.com/pt-br/ajuda#contactos\">contacte-nos através dos canais de atendimento da TAP</a>. A TAP respeita a sua privacidade.  Para saber mais, consulte: <a href=\"https://www.flytap.com/privacy\">Política de Privacidade</a>.",
+    "image": "https://bysa1.byside.com/files/B414516D6E/window/29966/bg_c2call_full_2.png",
+    "mobileImage": "https://sa1.byside.com/files/B414516D6E/window/29964/Image_container_mobile.png",
+    "alt": "Operador",
+    "floating": [
+     "Quero Comfort Seat",
+     "Ligamos grátis"
+    ],
+    "pages": [
+     "/pt-br/gerenciar-reserva/extras/assentos"
+    ]
+   }
+  },
+  "2020-c2call-economyxtra": {
+   "pt-pt": {
+    "title": "Voe na área Comfort",
+    "text": "Já tem reserva, mas precisa de espaço e conforto extra? Indique-nos o seu número de telefone e entraremos em <strong>contacto consigo gratuitamente</strong>.",
+    "schedule": "<strong>Horário:</strong> Seg a Sex – 9:00 às 24:00 (GMT Lisboa)",
+    "hours": "Mon-Fri 09:00-24:00",
+    "button": "Liguem-me",
+    "buttonOutside": "Agendar Contacto",
+    "phone": "Telemóvel",
+    "days": [
+     "Hoje",
+     "Amanhã"
+    ],
+    "slots": "08:00-23:30",
+    "smallPrint": "Este formulário de contacto é de uso exclusivo para a venda de lugares e extras para o voo. Para outros assuntos, por favor, <a href=\"https://www.flytap.com/pt-pt/ajuda#contactos\">contacte-nos através dos canais de atendimento da TAP</a>. A TAP respeita a sua privacidade.  Para saber mais, consulte: <a href=\"https://www.flytap.com/privacy\">Política de Privacidade</a>.",
+    "image": "https://bysa1.byside.com/files/B414516D6E/window/29966/bg_c2call_full_2.png",
+    "mobileImage": "https://sa1.byside.com/files/B414516D6E/window/29964/Image_container_mobile.png",
+    "alt": "Operador",
+    "floating": [
+     "Quero Comfort Seat",
+     "Ligamos grátis"
+    ],
+    "pages": [
+     "/pt-pt/a-bordo/voar-economica"
+    ]
+   },
+   "en-pt": {
+    "title": "Fly in the Comfort area",
+    "text": "Already have a reservation but want to fly with extra comfort? Please fill in your phone number and we will <strong>contact you free</strong> of charge.",
+    "schedule": "<strong>Schedule:</strong> Mon to Fri – 9:00am to 12:00am (GMT Lisbon)",
+    "hours": "Mon-Fri 09:00-24:00",
+    "button": "Call me now",
+    "buttonOutside": "Schedule contact",
+    "phone": "Phone number",
+    "days": [
+     "Today",
+     "Tomorrow"
+    ],
+    "slots": "08:00-23:30",
+    "smallPrint": "This contact form is exclusive for the sale of seats and flight extras. <a href=\"null\">For other subject, please contact us through the designated TAP service channels.</a> TAP respects your privacy. To learn more, see: <a href=\"https://www.flytap.com/privacy\">privacy policies</a>",
+    "image": "https://bysa1.byside.com/files/B414516D6E/window/29966/bg_c2call_full_2.png",
+    "mobileImage": "https://sa1.byside.com/files/B414516D6E/window/29964/Image_container_mobile.png",
+    "alt": "Operador",
+    "floating": [
+     "I want Comfort Seat",
+     "Call me free"
+    ],
+    "pages": [
+     "/en-pt/on-board/fly-economy"
+    ]
+   },
+   "es-es": {
+    "title": "Fly in the Comfort area",
+    "text": "Already have a reservation but want to fly with extra comfort? Please fill in your phone number and we will <strong>contact you free</strong> of charge.",
+    "schedule": "<strong>Schedule:</strong> Mon to Fri – 9:00am to 12:00am (GMT Lisbon)",
+    "hours": "Mon-Fri 09:00-24:00",
+    "button": "Call me now",
+    "buttonOutside": "Schedule contact",
+    "phone": "Phone number",
+    "days": [
+     "Today",
+     "Tomorrow"
+    ],
+    "slots": "08:00-23:30",
+    "smallPrint": "This contact form is exclusive for the sale of seats and flight extras. <a href=\"https://www.flytap.com/es-es/ayuda#contactos\">For other subject, please contact us through the designated TAP service channels.</a> TAP respects your privacy. To learn more, see: <a href=\"https://www.flytap.com/privacy\">privacy policies</a>",
+    "image": "https://bysa1.byside.com/files/B414516D6E/window/29966/bg_c2call_full_2.png",
+    "mobileImage": "https://sa1.byside.com/files/B414516D6E/window/29964/Image_container_mobile.png",
+    "alt": "Operador",
+    "floating": [
+     "I want Comfort Seat",
+     "Call me free"
+    ],
+    "pages": [
+     "/es-es/a-bordo/volar-economica"
+    ]
+   },
+   "fr-fr": {
+    "title": "Fly in the Comfort area",
+    "text": "Already have a reservation but want to fly with extra comfort? Please fill in your phone number and we will <strong>contact you free</strong> of charge.",
+    "schedule": "<strong>Schedule:</strong> Mon to Fri – 9:00am to 12:00am (GMT Lisbon)",
+    "hours": "Mon-Fri 09:00-24:00",
+    "button": "Call me now",
+    "buttonOutside": "Schedule contact",
+    "phone": "Phone number",
+    "days": [
+     "Today",
+     "Tomorrow"
+    ],
+    "slots": "08:00-23:30",
+    "smallPrint": "This contact form is exclusive for the sale of seats and flight extras. <a href=\"https://www.flytap.com/fr-fr/aide#contactos\">For other subject, please contact us through the designated TAP service channels.</a> TAP respects your privacy. To learn more, see: <a href=\"https://www.flytap.com/privacy\">privacy policies</a>",
+    "image": "https://bysa1.byside.com/files/B414516D6E/window/29966/bg_c2call_full_2.png",
+    "mobileImage": "https://sa1.byside.com/files/B414516D6E/window/29964/Image_container_mobile.png",
+    "alt": "Operador",
+    "floating": [
+     "I want Comfort Seat",
+     "Call me free"
+    ],
+    "pages": [
+     "/fr-fr/a-bord/voyager-economique"
+    ]
+   },
+   "de-de": {
+    "title": "Fly in the Comfort area",
+    "text": "Already have a reservation but want to fly with extra comfort? Please fill in your phone number and we will <strong>contact you free</strong> of charge.",
+    "schedule": "<strong>Schedule:</strong> Mon to Fri – 9:00am to 12:00am (GMT Lisbon)",
+    "hours": "Mon-Fri 09:00-24:00",
+    "button": "Call me now",
+    "buttonOutside": "Schedule contact",
+    "phone": "Phone number",
+    "days": [
+     "Today",
+     "Tomorrow"
+    ],
+    "slots": "08:00-23:30",
+    "smallPrint": "This contact form is exclusive for the sale of seats and flight extras. <a href=\"https://www.flytap.com/de-de/hilfe#contactos\">For other subject, please contact us through the designated TAP service channels.</a> TAP respects your privacy. To learn more, see: <a href=\"https://www.flytap.com/privacy\">privacy policies</a>",
+    "image": "https://bysa1.byside.com/files/B414516D6E/window/29966/bg_c2call_full_2.png",
+    "mobileImage": "https://sa1.byside.com/files/B414516D6E/window/29964/Image_container_mobile.png",
+    "alt": "Operador",
+    "floating": [
+     "I want Comfort Seat",
+     "Call me free"
+    ],
+    "pages": [
+     "/de-de/an-bord/fliegen-economy"
+    ]
+   },
+   "it-it": {
+    "title": "Fly in the Comfort area",
+    "text": "Already have a reservation but want to fly with extra comfort? Please fill in your phone number and we will <strong>contact you free</strong> of charge.",
+    "schedule": "<strong>Schedule:</strong> Mon to Fri – 9:00am to 12:00am (GMT Lisbon)",
+    "hours": "Mon-Fri 09:00-24:00",
+    "button": "Call me now",
+    "buttonOutside": "Schedule contact",
+    "phone": "Phone number",
+    "days": [
+     "Today",
+     "Tomorrow"
+    ],
+    "slots": "08:00-23:30",
+    "smallPrint": "This contact form is exclusive for the sale of seats and flight extras. <a href=\"https://www.flytap.com/it-it/assistenza#contactos\">For other subject, please contact us through the designated TAP service channels.</a> TAP respects your privacy. To learn more, see: <a href=\"https://www.flytap.com/privacy\">privacy policies</a>",
+    "image": "https://bysa1.byside.com/files/B414516D6E/window/29966/bg_c2call_full_2.png",
+    "mobileImage": "https://sa1.byside.com/files/B414516D6E/window/29964/Image_container_mobile.png",
+    "alt": "Operador",
+    "floating": [
+     "I want Comfort Seat",
+     "Call me free"
+    ],
+    "pages": [
+     "/it-it/a-bordo/volare-economy"
+    ]
+   },
+   "pl-pl": {
+    "noCard": [
+     "/pl-pl/na-pokladzie/lot-ekonomicznej"
+    ]
+   },
+   "pt-br": {
+    "title": "Voe na área Comfort",
+    "text": "Já tem reserva, mas precisa de espaço e conforto extra? Indique-nos o seu número de telefone e entraremos em <strong>contacto consigo gratuitamente</strong>.",
+    "schedule": "<strong>Horário:</strong> Seg a Sex – 9:00 às 24:00 (GMT Lisboa)",
+    "hours": "Mon-Fri 09:00-24:00",
+    "button": "Liguem-me",
+    "buttonOutside": "Agendar Contacto",
+    "phone": "Telemóvel",
+    "days": [
+     "Hoje",
+     "Amanhã"
+    ],
+    "slots": "08:00-23:30",
+    "smallPrint": "Este formulário de contacto é de uso exclusivo para a venda de lugares e extras para o voo. Para outros assuntos, por favor, <a href=\"https://www.flytap.com/pt-br/ajuda#contactos\">contacte-nos através dos canais de atendimento da TAP</a>. A TAP respeita a sua privacidade.  Para saber mais, consulte: <a href=\"https://www.flytap.com/privacy\">Política de Privacidade</a>.",
+    "image": "https://bysa1.byside.com/files/B414516D6E/window/29966/bg_c2call_full_2.png",
+    "mobileImage": "https://sa1.byside.com/files/B414516D6E/window/29964/Image_container_mobile.png",
+    "alt": "Operador",
+    "floating": [
+     "Quero Comfort Seat",
+     "Ligamos grátis"
+    ],
+    "pages": [
+     "/pt-br/a-bordo/voar-economica"
+    ]
+   }
+  },
+  "2021-c2call-club-go": {
+   "pt-pt": {
+    "title": "Deixe-se abraçar pelos <br>benefícios do Club",
+    "text": "Precisa de mais informações ou ajuda para aderir ao Club? Indique-nos o seu número de telefone e entraremos em <strong>contacto consigo gratuitamente</strong>.",
+    "schedule": "<strong>Horário:</strong> Seg a Sex – 9:00 às 24:00 (GMT Lisboa)",
+    "hours": "Mon-Fri 09:00-24:00",
+    "button": "Liguem-me",
+    "buttonOutside": "Agendar Contacto",
+    "phone": "Telemóvel",
+    "days": [
+     "Hoje",
+     "Amanhã"
+    ],
+    "slots": "08:00-23:30",
+    "smallPrint": "Este formulário de contacto é de uso exclusivo para a venda de Club TAP Miles&amp;Go. Para outros assuntos, por favor, <a href=\"https://www.flytap.com/pt-pt/ajuda#contactos\">contacte-nos através dos canais de atendimento da TAP</a>. A TAP respeita a sua privacidade.  Para saber mais, consulte: <a href=\"https://www.flytap.com/privacy\">Política de Privacidade</a>.",
+    "image": "https://bysa1.byside.com/files/B414516D6E/window/29964/bg_c2call_full_2.png",
+    "mobileImage": "https://sa1.byside.com/files/B414516D6E/window/29964/Image_container_mobile.png",
+    "alt": "Operador",
+    "floating": [
+     "Quero Club",
+     "Ligamos grátis"
+    ],
+    "pages": [
+     "/pt-pt/miles-and-go/club"
+    ]
+   },
+   "en-pt": {
+    "title": "Embrace the benefits <br>of the Club",
+    "text": "Want more information or help to join the Club? Please fill in your phone number and we will <strong>contact you free</strong> of charge.",
+    "schedule": "<strong>Schedule:</strong> Mon to Fri – 9:00am to 12:00am (GMT Lisbon)",
+    "hours": "Mon-Fri 09:00-24:00",
+    "button": "Call me now",
+    "buttonOutside": "Schedule contact",
+    "phone": "Phone number",
+    "days": [
+     "Today",
+     "Tomorrow"
+    ],
+    "slots": "08:00-23:30",
+    "smallPrint": "This contact form is exclusive for the sale of Club TAP Miles&amp;Go. <a href=\"null\">For other subject, please contact us through the designated TAP service channels.</a> TAP respects your privacy. To learn more, see: <a href=\"https://www.flytap.com/privacy\">privacy policies</a>",
+    "image": "https://bysa1.byside.com/files/B414516D6E/window/29964/bg_c2call_full_2.png",
+    "mobileImage": "https://sa1.byside.com/files/B414516D6E/window/29964/Image_container_mobile.png",
+    "alt": "Operador",
+    "floating": [
+     "I want Club",
+     "Call me free"
+    ],
+    "pages": [
+     "/en-pt/miles-and-go/club"
+    ]
+   },
+   "es-es": {
+    "title": "Embrace the benefits <br>of the Club",
+    "text": "Want more information or help to join the Club? Please fill in your phone number and we will <strong>contact you free</strong> of charge.",
+    "schedule": "<strong>Schedule:</strong> Mon to Fri – 9:00am to 12:00am (GMT Lisbon)",
+    "hours": "Mon-Fri 09:00-24:00",
+    "button": "Call me now",
+    "buttonOutside": "Schedule contact",
+    "phone": "Phone number",
+    "days": [
+     "Today",
+     "Tomorrow"
+    ],
+    "slots": "08:00-23:30",
+    "smallPrint": "This contact form is exclusive for the sale of Club TAP Miles&amp;Go. <a href=\"https://www.flytap.com/es-es/ayuda#contactos\">For other subject, please contact us through the designated TAP service channels.</a> TAP respects your privacy. To learn more, see: <a href=\"https://www.flytap.com/privacy\">privacy policies</a>",
+    "image": "https://bysa1.byside.com/files/B414516D6E/window/29964/bg_c2call_full_2.png",
+    "mobileImage": "https://sa1.byside.com/files/B414516D6E/window/29964/Image_container_mobile.png",
+    "alt": "Operador",
+    "floating": [
+     "I want Club",
+     "Call me free"
+    ],
+    "pages": [
+     "/es-es/miles-and-go/club"
+    ]
+   },
+   "fr-fr": {
+    "title": "Embrace the benefits <br>of the Club",
+    "text": "Want more information or help to join the Club? Please fill in your phone number and we will <strong>contact you free</strong> of charge.",
+    "schedule": "<strong>Schedule:</strong> Mon to Fri – 9:00am to 12:00am (GMT Lisbon)",
+    "hours": "Mon-Fri 09:00-24:00",
+    "button": "Call me now",
+    "buttonOutside": "Schedule contact",
+    "phone": "Phone number",
+    "days": [
+     "Today",
+     "Tomorrow"
+    ],
+    "slots": "08:00-23:30",
+    "smallPrint": "This contact form is exclusive for the sale of Club TAP Miles&amp;Go. <a href=\"https://www.flytap.com/fr-fr/aide#contactos\">For other subject, please contact us through the designated TAP service channels.</a> TAP respects your privacy. To learn more, see: <a href=\"https://www.flytap.com/privacy\">privacy policies</a>",
+    "image": "https://bysa1.byside.com/files/B414516D6E/window/29964/bg_c2call_full_2.png",
+    "mobileImage": "https://sa1.byside.com/files/B414516D6E/window/29964/Image_container_mobile.png",
+    "alt": "Operador",
+    "floating": [
+     "I want Club",
+     "Call me free"
+    ],
+    "pages": [
+     "/fr-fr/miles-and-go/club"
+    ]
+   },
+   "de-de": {
+    "title": "Embrace the benefits <br>of the Club",
+    "text": "Want more information or help to join the Club? Please fill in your phone number and we will <strong>contact you free</strong> of charge.",
+    "schedule": "<strong>Schedule:</strong> Mon to Fri – 9:00am to 12:00am (GMT Lisbon)",
+    "hours": "Mon-Fri 09:00-24:00",
+    "button": "Call me now",
+    "buttonOutside": "Schedule contact",
+    "phone": "Phone number",
+    "days": [
+     "Today",
+     "Tomorrow"
+    ],
+    "slots": "08:00-23:30",
+    "smallPrint": "This contact form is exclusive for the sale of Club TAP Miles&amp;Go. <a href=\"https://www.flytap.com/de-de/hilfe#contactos\">For other subject, please contact us through the designated TAP service channels.</a> TAP respects your privacy. To learn more, see: <a href=\"https://www.flytap.com/privacy\">privacy policies</a>",
+    "image": "https://bysa1.byside.com/files/B414516D6E/window/29964/bg_c2call_full_2.png",
+    "mobileImage": "https://sa1.byside.com/files/B414516D6E/window/29964/Image_container_mobile.png",
+    "alt": "Operador",
+    "floating": [
+     "I want Club",
+     "Call me free"
+    ],
+    "pages": [
+     "/de-de/miles-and-go/club"
+    ]
+   },
+   "pt-br": {
+    "title": "Deixe-se abraçar pelos <br>benefícios do Club",
+    "text": "Precisa de mais informações ou ajuda para aderir ao Club? Indique-nos o seu número de telefone e entraremos em <strong>contacto consigo gratuitamente</strong>.",
+    "schedule": "<strong>Horário:</strong> Seg a Sex – 9:00 às 24:00 (GMT Lisboa)",
+    "hours": "Mon-Fri 09:00-24:00",
+    "button": "Liguem-me",
+    "buttonOutside": "Agendar Contacto",
+    "phone": "Telemóvel",
+    "days": [
+     "Hoje",
+     "Amanhã"
+    ],
+    "slots": "08:00-23:30",
+    "smallPrint": "Este formulário de contacto é de uso exclusivo para a venda de Club TAP Miles&amp;Go. Para outros assuntos, por favor, <a href=\"https://www.flytap.com/pt-br/ajuda#contactos\">contacte-nos através dos canais de atendimento da TAP</a>. A TAP respeita a sua privacidade.  Para saber mais, consulte: <a href=\"https://www.flytap.com/privacy\">Política de Privacidade</a>.",
+    "image": "https://bysa1.byside.com/files/B414516D6E/window/29964/bg_c2call_full_2.png",
+    "mobileImage": "https://sa1.byside.com/files/B414516D6E/window/29964/Image_container_mobile.png",
+    "alt": "Operador",
+    "floating": [
+     "Quero Club",
+     "Ligamos grátis"
+    ],
+    "pages": [
+     "/pt-br/miles-and-go/club"
+    ]
+   }
+  },
+  "2021-c2call-promo": {
+   "pt-pt": {
+    "title": "Um mundo de milhas e benefícios",
+    "text": "Precisa de ajuda para aderir ao Club ou comprar milhas na nossa Loja? Indique-nos o seu número de telefone e entraremos em <strong>contacto consigo gratuitamente</strong>.",
+    "schedule": "<strong>Horário:</strong> Seg a Sex – 9:00 às 24:00 (GMT Lisboa)",
+    "hours": "Mon-Fri 09:00-24:00",
+    "button": "Liguem-me",
+    "buttonOutside": "Agendar Contacto",
+    "phone": "Telemóvel",
+    "days": [
+     "Hoje",
+     "Amanhã"
+    ],
+    "slots": "08:00-23:30",
+    "smallPrint": "Este formulário de contacto é de uso exclusivo para a compra de Club e milhas. Para outros assuntos, por favor, <a href=\"https://www.flytap.com/pt-pt/ajuda#contactos\">contacte-nos através dos canais de atendimento da TAP</a>. A TAP respeita a sua privacidade.  Para saber mais, consulte: <a href=\"https://www.flytap.com/privacy\">Política de Privacidade</a>.",
+    "image": "https://bysa1.byside.com/files/B414516D6E/window/29969/bg_c2call_full_2.png",
+    "mobileImage": "https://sa1.byside.com/files/B414516D6E/window/29964/Image_container_mobile.png",
+    "alt": "Operador",
+    "floating": [
+     "Quero Club/Loja Milhas",
+     "Ligamos grátis"
+    ],
+    "pages": [
+     "/pt-pt/miles-and-go/promocoes"
+    ]
+   },
+   "en-pt": {
+    "title": "A world of miles and benefits",
+    "text": "Do you need some help to join the Club or buy miles in our Store? Please fill in your phone number and we will <strong>contact you free</strong> of charge.",
+    "schedule": "<strong>Schedule:</strong> Mon to Fri – 9:00am to 12:00am (GMT Lisbon)",
+    "hours": "Mon-Fri 09:00-24:00",
+    "button": "Call me now",
+    "buttonOutside": "Schedule contact",
+    "phone": "Phone number",
+    "days": [
+     "Today",
+     "Tomorrow"
+    ],
+    "slots": "08:00-23:30",
+    "smallPrint": "This contact form is exclusive for the sale of Club and purchasing Miles. <a href=\"null\">For other subject, please contact us through the designated TAP service channels.</a> TAP respects your privacy. To learn more, see: <a href=\"https://www.flytap.com/privacy\">privacy policies</a>",
+    "image": "https://bysa1.byside.com/files/B414516D6E/window/29969/bg_c2call_full_2.png",
+    "mobileImage": "https://sa1.byside.com/files/B414516D6E/window/29964/Image_container_mobile.png",
+    "alt": "Operador",
+    "floating": [
+     "I want Club/Miles Store",
+     "Call me free"
+    ],
+    "pages": [
+     "/en-pt/miles-and-go/promotions"
+    ]
+   },
+   "es-es": {
+    "noCard": [
+     "/es-es/miles-and-go/promociones"
+    ]
+   },
+   "fr-fr": {
+    "title": "A world of miles and benefits",
+    "text": "Do you need some help to join the Club or buy miles in our Store? Please fill in your phone number and we will <strong>contact you free</strong> of charge.",
+    "schedule": "<strong>Schedule:</strong> Mon to Fri – 9:00am to 12:00am (GMT Lisbon)",
+    "hours": "Mon-Fri 09:00-24:00",
+    "button": "Call me now",
+    "buttonOutside": "Schedule contact",
+    "phone": "Phone number",
+    "days": [
+     "Today",
+     "Tomorrow"
+    ],
+    "slots": "08:00-23:30",
+    "smallPrint": "This contact form is exclusive for the sale of Club and purchasing Miles. <a href=\"https://www.flytap.com/fr-fr/aide#contactos\">For other subject, please contact us through the designated TAP service channels.</a> TAP respects your privacy. To learn more, see: <a href=\"https://www.flytap.com/privacy\">privacy policies</a>",
+    "image": "https://bysa1.byside.com/files/B414516D6E/window/29969/bg_c2call_full_2.png",
+    "mobileImage": "https://sa1.byside.com/files/B414516D6E/window/29964/Image_container_mobile.png",
+    "alt": "Operador",
+    "floating": [
+     "I want Club/Miles Store",
+     "Call me free"
+    ],
+    "pages": [
+     "/fr-fr/miles-and-go/promotions"
+    ]
+   },
+   "de-de": {
+    "noCard": [
+     "/de-de/miles-and-go/angebote"
+    ]
+   },
+   "pt-br": {
+    "title": "Um mundo de milhas e benefícios",
+    "text": "Precisa de ajuda para aderir ao Club ou comprar milhas na nossa Loja? Indique-nos o seu número de telefone e entraremos em <strong>contacto consigo gratuitamente</strong>.",
+    "schedule": "<strong>Horário:</strong> Seg a Sex – 9:00 às 24:00 (GMT Lisboa)",
+    "hours": "Mon-Fri 09:00-24:00",
+    "button": "Liguem-me",
+    "buttonOutside": "Agendar Contacto",
+    "phone": "Telemóvel",
+    "days": [
+     "Hoje",
+     "Amanhã"
+    ],
+    "slots": "08:00-23:30",
+    "smallPrint": "Este formulário de contacto é de uso exclusivo para a compra de Club e milhas. Para outros assuntos, por favor, <a href=\"https://www.flytap.com/pt-br/ajuda#contactos\">contacte-nos através dos canais de atendimento da TAP</a>. A TAP respeita a sua privacidade.  Para saber mais, consulte: <a href=\"https://www.flytap.com/privacy\">Política de Privacidade</a>.",
+    "image": "https://bysa1.byside.com/files/B414516D6E/window/29969/bg_c2call_full_2.png",
+    "mobileImage": "https://sa1.byside.com/files/B414516D6E/window/29964/Image_container_mobile.png",
+    "alt": "Operador",
+    "floating": [
+     "Quero Club/Loja Milhas",
+     "Ligamos grátis"
+    ],
+    "pages": [
+     "/pt-br/miles-and-go/promocoes"
+    ]
+   }
+  },
+  "2021-c2call-loja-milhas": {
+   "pt-pt": {
+    "title": "A sua viagem de sonho <br>a poucas milhas de distância",
+    "text": "Precisa de informações ou ajuda para comprar milhas na nossa Loja? Indique-nos o seu número de telefone e entraremos em <strong>contacto consigo gratuitamente</strong>.",
+    "schedule": "<strong>Horário:</strong> Seg a Sex – 9:00 às 24:00 (GMT Lisboa)",
+    "hours": "Mon-Fri 09:00-24:00",
+    "button": "Liguem-me",
+    "buttonOutside": "Agendar Contacto",
+    "phone": "Telemóvel",
+    "days": [
+     "Hoje",
+     "Amanhã"
+    ],
+    "slots": "08:00-23:30",
+    "smallPrint": "Este formulário de contacto é de uso exclusivo para a compra de milhas na Loja de Milhas. Para outros assuntos, por favor, <a href=\"https://www.flytap.com/pt-pt/ajuda#contactos\">contacte-nos através dos canais de atendimento da TAP</a>. A TAP respeita a sua privacidade.  Para saber mais, consulte: <a href=\"https://www.flytap.com/privacy\">Política de Privacidade</a>.",
+    "image": "https://bysa1.byside.com/files/B414516D6E/window/29967/bg_c2call_full_2.png",
+    "mobileImage": "https://sa1.byside.com/files/B414516D6E/window/29964/Image_container_mobile.png",
+    "alt": "Operador",
+    "floating": [
+     "Quero Milhas",
+     "Ligamos grátis"
+    ],
+    "pages": [
+     "/pt-pt/miles-and-go/loja-de-milhas"
+    ]
+   },
+   "en-pt": {
+    "title": "Your dream trip is just <br>a few miles away",
+    "text": "Want more information or help to manage miles in our Store? Please fill in your phone number and we will <strong>contact you free</strong> of charge.",
+    "schedule": "<strong>Schedule:</strong> Mon to Fri – 9:00am to 12:00am (GMT Lisbon)",
+    "hours": "Mon-Fri 09:00-24:00",
+    "button": "Call me now",
+    "buttonOutside": "Schedule contact",
+    "phone": "Phone number",
+    "days": [
+     "Today",
+     "Tomorrow"
+    ],
+    "slots": "08:00-23:30",
+    "smallPrint": "This contact form is exclusive for purchasing miles at Miles Store. <a href=\"null\">For other subject, please contact us through the designated TAP service channels.</a> TAP respects your privacy. To learn more, see: <a href=\"https://www.flytap.com/privacy\">privacy policies</a>",
+    "image": "https://bysa1.byside.com/files/B414516D6E/window/29967/bg_c2call_full_2.png",
+    "mobileImage": "https://sa1.byside.com/files/B414516D6E/window/29964/Image_container_mobile.png",
+    "alt": "Operador",
+    "floating": [
+     "I want miles",
+     "Call me free"
+    ],
+    "pages": [
+     "/en-pt/miles-and-go/miles-store"
+    ]
+   },
+   "es-es": {
+    "title": "Your dream trip is just <br>a few miles away",
+    "text": "Want more information or help to manage miles in our Store? Please fill in your phone number and we will <strong>contact you free</strong> of charge.",
+    "schedule": "<strong>Schedule:</strong> Mon to Fri – 9:00am to 12:00am (GMT Lisbon)",
+    "hours": "Mon-Fri 09:00-24:00",
+    "button": "Call me now",
+    "buttonOutside": "Schedule contact",
+    "phone": "Phone number",
+    "days": [
+     "Today",
+     "Tomorrow"
+    ],
+    "slots": "08:00-23:30",
+    "smallPrint": "This contact form is exclusive for purchasing miles at Miles Store. <a href=\"https://www.flytap.com/es-es/ayuda#contactos\">For other subject, please contact us through the designated TAP service channels.</a> TAP respects your privacy. To learn more, see: <a href=\"https://www.flytap.com/privacy\">privacy policies</a>",
+    "image": "https://bysa1.byside.com/files/B414516D6E/window/29967/bg_c2call_full_2.png",
+    "mobileImage": "https://sa1.byside.com/files/B414516D6E/window/29964/Image_container_mobile.png",
+    "alt": "Operador",
+    "floating": [
+     "I want miles",
+     "Call me free"
+    ],
+    "pages": [
+     "/es-es/miles-and-go/tienda-millas"
+    ]
+   },
+   "fr-fr": {
+    "title": "Your dream trip is just <br>a few miles away",
+    "text": "Want more information or help to manage miles in our Store? Please fill in your phone number and we will <strong>contact you free</strong> of charge.",
+    "schedule": "<strong>Schedule:</strong> Mon to Fri – 9:00am to 12:00am (GMT Lisbon)",
+    "hours": "Mon-Fri 09:00-24:00",
+    "button": "Call me now",
+    "buttonOutside": "Schedule contact",
+    "phone": "Phone number",
+    "days": [
+     "Today",
+     "Tomorrow"
+    ],
+    "slots": "08:00-23:30",
+    "smallPrint": "This contact form is exclusive for purchasing miles at Miles Store. <a href=\"https://www.flytap.com/fr-fr/aide#contactos\">For other subject, please contact us through the designated TAP service channels.</a> TAP respects your privacy. To learn more, see: <a href=\"https://www.flytap.com/privacy\">privacy policies</a>",
+    "image": "https://bysa1.byside.com/files/B414516D6E/window/29967/bg_c2call_full_2.png",
+    "mobileImage": "https://sa1.byside.com/files/B414516D6E/window/29964/Image_container_mobile.png",
+    "alt": "Operador",
+    "floating": [
+     "I want miles",
+     "Call me free"
+    ],
+    "pages": [
+     "/fr-fr/miles-and-go/boutique-miles"
+    ]
+   },
+   "de-de": {
+    "title": "Your dream trip is just <br>a few miles away",
+    "text": "Want more information or help to manage miles in our Store? Please fill in your phone number and we will <strong>contact you free</strong> of charge.",
+    "schedule": "<strong>Schedule:</strong> Mon to Fri – 9:00am to 12:00am (GMT Lisbon)",
+    "hours": "Mon-Fri 09:00-24:00",
+    "button": "Call me now",
+    "buttonOutside": "Schedule contact",
+    "phone": "Phone number",
+    "days": [
+     "Today",
+     "Tomorrow"
+    ],
+    "slots": "08:00-23:30",
+    "smallPrint": "This contact form is exclusive for purchasing miles at Miles Store. <a href=\"https://www.flytap.com/de-de/hilfe#contactos\">For other subject, please contact us through the designated TAP service channels.</a> TAP respects your privacy. To learn more, see: <a href=\"https://www.flytap.com/privacy\">privacy policies</a>",
+    "image": "https://bysa1.byside.com/files/B414516D6E/window/29967/bg_c2call_full_2.png",
+    "mobileImage": "https://sa1.byside.com/files/B414516D6E/window/29964/Image_container_mobile.png",
+    "alt": "Operador",
+    "floating": [
+     "I want miles",
+     "Call me free"
+    ],
+    "pages": [
+     "/de-de/miles-and-go/meilen-shop"
+    ]
+   },
+   "pt-br": {
+    "title": "A sua viagem de sonho <br>a poucas milhas de distância",
+    "text": "Precisa de informações ou ajuda para comprar milhas na nossa Loja? Indique-nos o seu número de telefone e entraremos em <strong>contacto consigo gratuitamente</strong>.",
+    "schedule": "<strong>Horário:</strong> Seg a Sex – 9:00 às 24:00 (GMT Lisboa)",
+    "hours": "Mon-Fri 09:00-24:00",
+    "button": "Liguem-me",
+    "buttonOutside": "Agendar Contacto",
+    "phone": "Telemóvel",
+    "days": [
+     "Hoje",
+     "Amanhã"
+    ],
+    "slots": "08:00-23:30",
+    "smallPrint": "Este formulário de contacto é de uso exclusivo para a compra de milhas na Loja de Milhas. Para outros assuntos, por favor, <a href=\"https://www.flytap.com/pt-br/ajuda#contactos\">contacte-nos através dos canais de atendimento da TAP</a>. A TAP respeita a sua privacidade.  Para saber mais, consulte: <a href=\"https://www.flytap.com/privacy\">Política de Privacidade</a>.",
+    "image": "https://bysa1.byside.com/files/B414516D6E/window/29967/bg_c2call_full_2.png",
+    "mobileImage": "https://sa1.byside.com/files/B414516D6E/window/29964/Image_container_mobile.png",
+    "alt": "Operador",
+    "floating": [
+     "Quero Milhas",
+     "Ligamos grátis"
+    ],
+    "pages": [
+     "/pt-br/miles-and-go/loja-de-milhas"
+    ]
+   }
+  },
+  "2021-c2call-miles4extras": {
+   "pt-pt": {
+    "title": "Troque as suas milhas por extras para o seu voo",
+    "text": "Precisa de ajuda para comprar extras para o seu voo? Indique-nos o seu número de telefone e entraremos em <strong>contacto consigo gratuitamente</strong>.",
+    "schedule": "<strong>Horário:</strong> Seg a Sex – 9:00 às 24:00 (GMT Lisboa)",
+    "hours": "Mon-Fri 09:00-24:00",
+    "button": "Liguem-me",
+    "buttonOutside": "Agendar Contacto",
+    "phone": "Telemóvel",
+    "days": [
+     "Hoje",
+     "Amanhã"
+    ],
+    "slots": "08:00-23:30",
+    "smallPrint": "Este formulário de contacto é de uso exclusivo para a venda de extras para o voo. Para outros assuntos, por favor, <a href=\"https://www.flytap.com/pt-pt/ajuda#contactos\">contacte-nos através dos canais de atendimento da TAP</a>. A TAP respeita a sua privacidade.  Para saber mais, consulte: <a href=\"https://www.flytap.com/privacy\">Política de Privacidade</a>.",
+    "image": "https://bysa1.byside.com/files/B414516D6E/window/29968/bg_c2call_full_2.png",
+    "mobileImage": "https://sa1.byside.com/files/B414516D6E/window/29964/Image_container_mobile.png",
+    "alt": "Operador",
+    "floating": [
+     "Quero aderir",
+     "Ligamos grátis"
+    ],
+    "pages": [
+     "/pt-pt/miles-and-go/utilizar-milhas/miles4extras"
+    ]
+   },
+   "en-pt": {
+    "title": "Redeem your miles for extra flight services",
+    "text": "Do you need some help to buy extras for your flight? Please fill in your phone number and we will <strong>contact you free</strong> of charge.",
+    "schedule": "<strong>Schedule:</strong> Mon to Fri – 9:00am to 12:00am (GMT Lisbon)",
+    "hours": "Mon-Fri 09:00-24:00",
+    "button": "Call me now",
+    "buttonOutside": "Schedule contact",
+    "phone": "Phone number",
+    "days": [
+     "Today",
+     "Tomorrow"
+    ],
+    "slots": "08:00-23:30",
+    "smallPrint": "This contact form is exclusive for the sale of flight extras. <a href=\"null\">For other subject, please contact us through the designated TAP service channels.</a> TAP respects your privacy. To learn more, see: <a href=\"https://www.flytap.com/privacy\">privacy policies</a>",
+    "image": "https://bysa1.byside.com/files/B414516D6E/window/29968/bg_c2call_full_2.png",
+    "mobileImage": "https://sa1.byside.com/files/B414516D6E/window/29964/Image_container_mobile.png",
+    "alt": "Operador",
+    "floating": [
+     "I want extras with miles",
+     "Call me free"
+    ],
+    "pages": [
+     "/en-pt/miles-and-go/use-miles/miles4extras"
+    ]
+   },
+   "es-es": {
+    "title": "Redeem your miles for extra flight services",
+    "text": "Do you need some help to buy extras for your flight? Please fill in your phone number and we will <strong>contact you free</strong> of charge.",
+    "schedule": "<strong>Schedule:</strong> Mon to Fri – 9:00am to 12:00am (GMT Lisbon)",
+    "hours": "Mon-Fri 09:00-24:00",
+    "button": "Call me now",
+    "buttonOutside": "Schedule contact",
+    "phone": "Phone number",
+    "days": [
+     "Today",
+     "Tomorrow"
+    ],
+    "slots": "08:00-23:30",
+    "smallPrint": "This contact form is exclusive for the sale of flight extras. <a href=\"https://www.flytap.com/es-es/ayuda#contactos\">For other subject, please contact us through the designated TAP service channels.</a> TAP respects your privacy. To learn more, see: <a href=\"https://www.flytap.com/privacy\">privacy policies</a>",
+    "image": "https://bysa1.byside.com/files/B414516D6E/window/29968/bg_c2call_full_2.png",
+    "mobileImage": "https://sa1.byside.com/files/B414516D6E/window/29964/Image_container_mobile.png",
+    "alt": "Operador",
+    "floating": [
+     "I want extras with miles",
+     "Call me free"
+    ],
+    "pages": [
+     "/es-es/miles-and-go/utilice-millas/miles4extras"
+    ]
+   },
+   "fr-fr": {
+    "title": "Redeem your miles for extra flight services",
+    "text": "Do you need some help to buy extras for your flight? Please fill in your phone number and we will <strong>contact you free</strong> of charge.",
+    "schedule": "<strong>Schedule:</strong> Mon to Fri – 9:00am to 12:00am (GMT Lisbon)",
+    "hours": "Mon-Fri 09:00-24:00",
+    "button": "Call me now",
+    "buttonOutside": "Schedule contact",
+    "phone": "Phone number",
+    "days": [
+     "Today",
+     "Tomorrow"
+    ],
+    "slots": "08:00-23:30",
+    "smallPrint": "This contact form is exclusive for the sale of flight extras. <a href=\"https://www.flytap.com/fr-fr/aide#contactos\">For other subject, please contact us through the designated TAP service channels.</a> TAP respects your privacy. To learn more, see: <a href=\"https://www.flytap.com/privacy\">privacy policies</a>",
+    "image": "https://bysa1.byside.com/files/B414516D6E/window/29968/bg_c2call_full_2.png",
+    "mobileImage": "https://sa1.byside.com/files/B414516D6E/window/29964/Image_container_mobile.png",
+    "alt": "Operador",
+    "floating": [
+     "I want extras with miles",
+     "Call me free"
+    ],
+    "pages": [
+     "/fr-fr/miles-and-go/utilisez-miles/miles4extras"
+    ]
+   },
+   "de-de": {
+    "title": "Redeem your miles for extra flight services",
+    "text": "Do you need some help to buy extras for your flight? Please fill in your phone number and we will <strong>contact you free</strong> of charge.",
+    "schedule": "<strong>Schedule:</strong> Mon to Fri – 9:00am to 12:00am (GMT Lisbon)",
+    "hours": "Mon-Fri 09:00-24:00",
+    "button": "Call me now",
+    "buttonOutside": "Schedule contact",
+    "phone": "Phone number",
+    "days": [
+     "Today",
+     "Tomorrow"
+    ],
+    "slots": "08:00-23:30",
+    "smallPrint": "This contact form is exclusive for the sale of flight extras. <a href=\"https://www.flytap.com/de-de/hilfe#contactos\">For other subject, please contact us through the designated TAP service channels.</a> TAP respects your privacy. To learn more, see: <a href=\"https://www.flytap.com/privacy\">privacy policies</a>",
+    "image": "https://bysa1.byside.com/files/B414516D6E/window/29968/bg_c2call_full_2.png",
+    "mobileImage": "https://sa1.byside.com/files/B414516D6E/window/29964/Image_container_mobile.png",
+    "alt": "Operador",
+    "floating": [
+     "I want extras with miles",
+     "Call me free"
+    ],
+    "pages": [
+     "/de-de/miles-and-go/verwenden-meilen/miles4extras"
+    ]
+   },
+   "pt-br": {
+    "title": "Troque as suas milhas por extras para o seu voo",
+    "text": "Precisa de ajuda para comprar extras para o seu voo? Indique-nos o seu número de telefone e entraremos em <strong>contacto consigo gratuitamente</strong>.",
+    "schedule": "<strong>Horário:</strong> Seg a Sex – 9:00 às 24:00 (GMT Lisboa)",
+    "hours": "Mon-Fri 09:00-24:00",
+    "button": "Liguem-me",
+    "buttonOutside": "Agendar Contacto",
+    "phone": "Telemóvel",
+    "days": [
+     "Hoje",
+     "Amanhã"
+    ],
+    "slots": "08:00-23:30",
+    "smallPrint": "Este formulário de contacto é de uso exclusivo para a venda de extras para o voo. Para outros assuntos, por favor, <a href=\"https://www.flytap.com/pt-br/ajuda#contactos\">contacte-nos através dos canais de atendimento da TAP</a>. A TAP respeita a sua privacidade.  Para saber mais, consulte: <a href=\"https://www.flytap.com/privacy\">Política de Privacidade</a>.",
+    "image": "https://bysa1.byside.com/files/B414516D6E/window/29968/bg_c2call_full_2.png",
+    "mobileImage": "https://sa1.byside.com/files/B414516D6E/window/29964/Image_container_mobile.png",
+    "alt": "Operador",
+    "floating": [
+     "Quero aderir",
+     "Ligamos grátis"
+    ],
+    "pages": [
+     "/pt-br/miles-and-go/utilizar-milhas/miles4extras"
+    ]
+   }
+  },
+  "2021-c2call-milhas": {
+   "pt-pt": {
+    "title": "Abrace o conforto da Classe Business",
+    "text": "Já tem reserva e quer fazer Upgrade? Indique-nos o seu número de telefone e entraremos em <strong>contacto consigo gratuitamente</strong>.",
+    "schedule": "<strong>Horário:</strong> Seg a Sex – 9:00 às 24:00 (GMT Lisboa)",
+    "hours": "Mon-Fri 09:00-24:00",
+    "button": "Liguem-me",
+    "buttonOutside": "Agendar Contacto",
+    "phone": "Telemóvel",
+    "days": [
+     "Hoje",
+     "Amanhã"
+    ],
+    "slots": "08:00-23:30",
+    "smallPrint": "Este formulário de contacto é de uso exclusivo para a venda de Upgrade para Business. Para outros assuntos, por favor, <a href=\"https://www.flytap.com/pt-pt/ajuda#contactos\">contacte-nos através dos canais de atendimento da TAP</a>. A TAP respeita a sua privacidade.  Para saber mais, consulte: <a href=\"https://www.flytap.com/privacy\">Política de Privacidade</a>.",
+    "image": "https://bysa1.byside.com/files/B414516D6E/window/29970/bg_c2call_full_2.png",
+    "mobileImage": "https://sa1.byside.com/files/B414516D6E/window/29964/Image_container_mobile.png",
+    "alt": "Operador",
+    "floating": [
+     "Quero Upgrade",
+     "Ligamos grátis"
+    ],
+    "pages": [
+     "/pt-pt/miles-and-go/utilizar-milhas/upgrade-com-milhas"
+    ]
+   },
+   "en-pt": {
+    "title": "Embrace the comfort of Business Class",
+    "text": "Already have a reservation and want to Upgrade? Please fill in your phone number and we will <strong>contact you free</strong> of charge.",
+    "schedule": "<strong>Schedule:</strong> Mon to Fri – 9:00am to 12:00am (GMT Lisbon)",
+    "hours": "Mon-Fri 09:00-24:00",
+    "button": "Call me now",
+    "buttonOutside": "Schedule contact",
+    "phone": "Phone number",
+    "days": [
+     "Today",
+     "Tomorrow"
+    ],
+    "slots": "08:00-23:30",
+    "smallPrint": "This contact form is exclusive for sale of Upgrade to Business. <a href=\"null\">For other subject, please contact us through the designated TAP service channels.</a> TAP respects your privacy. To learn more, see: <a href=\"https://www.flytap.com/privacy\">privacy policies</a>",
+    "image": "https://bysa1.byside.com/files/B414516D6E/window/29970/bg_c2call_full_2.png",
+    "mobileImage": "https://sa1.byside.com/files/B414516D6E/window/29964/Image_container_mobile.png",
+    "alt": "Operador",
+    "floating": [
+     "I want to Upgrade",
+     "Call me free"
+    ],
+    "pages": [
+     "/en-pt/miles-and-go/use-miles/upgrade-with-miles"
+    ]
+   },
+   "es-es": {
+    "title": "Embrace the comfort of Business Class",
+    "text": "Already have a reservation and want to Upgrade? Please fill in your phone number and we will <strong>contact you free</strong> of charge.",
+    "schedule": "<strong>Schedule:</strong> Mon to Fri – 9:00am to 12:00am (GMT Lisbon)",
+    "hours": "Mon-Fri 09:00-24:00",
+    "button": "Call me now",
+    "buttonOutside": "Schedule contact",
+    "phone": "Phone number",
+    "days": [
+     "Today",
+     "Tomorrow"
+    ],
+    "slots": "08:00-23:30",
+    "smallPrint": "This contact form is exclusive for sale of Upgrade to Business. <a href=\"https://www.flytap.com/es-es/ayuda#contactos\">For other subject, please contact us through the designated TAP service channels.</a> TAP respects your privacy. To learn more, see: <a href=\"https://www.flytap.com/privacy\">privacy policies</a>",
+    "image": "https://bysa1.byside.com/files/B414516D6E/window/29970/bg_c2call_full_2.png",
+    "mobileImage": "https://sa1.byside.com/files/B414516D6E/window/29964/Image_container_mobile.png",
+    "alt": "Operador",
+    "floating": [
+     "I want to Upgrade",
+     "Call me free"
+    ],
+    "pages": [
+     "/es-es/miles-and-go/utilice-millas/upgrade-con-millas"
+    ]
+   },
+   "fr-fr": {
+    "title": "Embrace the comfort of Business Class",
+    "text": "Already have a reservation and want to Upgrade? Please fill in your phone number and we will <strong>contact you free</strong> of charge.",
+    "schedule": "<strong>Schedule:</strong> Mon to Fri – 9:00am to 12:00am (GMT Lisbon)",
+    "hours": "Mon-Fri 09:00-24:00",
+    "button": "Call me now",
+    "buttonOutside": "Schedule contact",
+    "phone": "Phone number",
+    "days": [
+     "Today",
+     "Tomorrow"
+    ],
+    "slots": "08:00-23:30",
+    "smallPrint": "This contact form is exclusive for sale of Upgrade to Business. <a href=\"https://www.flytap.com/fr-fr/aide#contactos\">For other subject, please contact us through the designated TAP service channels.</a> TAP respects your privacy. To learn more, see: <a href=\"https://www.flytap.com/privacy\">privacy policies</a>",
+    "image": "https://bysa1.byside.com/files/B414516D6E/window/29970/bg_c2call_full_2.png",
+    "mobileImage": "https://sa1.byside.com/files/B414516D6E/window/29964/Image_container_mobile.png",
+    "alt": "Operador",
+    "floating": [
+     "I want to Upgrade",
+     "Call me free"
+    ],
+    "pages": [
+     "/fr-fr/miles-and-go/utilisez-miles/upgrade-avec-miles"
+    ]
+   },
+   "de-de": {
+    "title": "Embrace the comfort of Business Class",
+    "text": "Already have a reservation and want to Upgrade? Please fill in your phone number and we will <strong>contact you free</strong> of charge.",
+    "schedule": "<strong>Schedule:</strong> Mon to Fri – 9:00am to 12:00am (GMT Lisbon)",
+    "hours": "Mon-Fri 09:00-24:00",
+    "button": "Call me now",
+    "buttonOutside": "Schedule contact",
+    "phone": "Phone number",
+    "days": [
+     "Today",
+     "Tomorrow"
+    ],
+    "slots": "08:00-23:30",
+    "smallPrint": "This contact form is exclusive for sale of Upgrade to Business. <a href=\"https://www.flytap.com/de-de/hilfe#contactos\">For other subject, please contact us through the designated TAP service channels.</a> TAP respects your privacy. To learn more, see: <a href=\"https://www.flytap.com/privacy\">privacy policies</a>",
+    "image": "https://bysa1.byside.com/files/B414516D6E/window/29970/bg_c2call_full_2.png",
+    "mobileImage": "https://sa1.byside.com/files/B414516D6E/window/29964/Image_container_mobile.png",
+    "alt": "Operador",
+    "floating": [
+     "I want to Upgrade",
+     "Call me free"
+    ],
+    "pages": [
+     "/de-de/miles-and-go/verwenden-meilen/upgrade-mit-meilen"
+    ]
+   },
+   "pt-br": {
+    "title": "Abrace o conforto da Classe Business",
+    "text": "Já tem reserva e quer fazer Upgrade? Indique-nos o seu número de telefone e entraremos em <strong>contacto consigo gratuitamente</strong>.",
+    "schedule": "<strong>Horário:</strong> Seg a Sex – 9:00 às 24:00 (GMT Lisboa)",
+    "hours": "Mon-Fri 09:00-24:00",
+    "button": "Liguem-me",
+    "buttonOutside": "Agendar Contacto",
+    "phone": "Telemóvel",
+    "days": [
+     "Hoje",
+     "Amanhã"
+    ],
+    "slots": "08:00-23:30",
+    "smallPrint": "Este formulário de contacto é de uso exclusivo para a venda de Upgrade para Business. Para outros assuntos, por favor, <a href=\"https://www.flytap.com/pt-br/ajuda#contactos\">contacte-nos através dos canais de atendimento da TAP</a>. A TAP respeita a sua privacidade.  Para saber mais, consulte: <a href=\"https://www.flytap.com/privacy\">Política de Privacidade</a>.",
+    "image": "https://bysa1.byside.com/files/B414516D6E/window/29970/bg_c2call_full_2.png",
+    "mobileImage": "https://sa1.byside.com/files/B414516D6E/window/29964/Image_container_mobile.png",
+    "alt": "Operador",
+    "floating": [
+     "Quero Upgrade",
+     "Ligamos grátis"
+    ],
+    "pages": [
+     "/pt-br/miles-and-go/utilizar-milhas/upgrade-com-milhas"
+    ]
+   }
+  }
+ }
 }

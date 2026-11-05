@@ -152,6 +152,29 @@ export function linkOf(href, c) {
   return `${WWW}${p}${u.search}${u.hash}`;
 }
 
+/**
+ * BySide's card HTML as captured (the call-back card's title, text, schedule and small print):
+ * its bold, emphasis, line breaks and links (a page in scope ours, the others as www has them);
+ * any other tag dropped, its text kept.
+ */
+export function bysideHtml(v, c) {
+  return String(v || '').replace(/<(script|style)\b[\s\S]*?<\/\1>/gi, '').split(/(<[^>]*>)/).map((x) => {
+    if (!x.startsWith('<')) return x.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    const t = x.match(/^<(\/?)([a-z]+)\b([^>]*)>$/i);
+    if (!t) return '';
+    const [, close, tag, rest] = t;
+    const name = { b: 'strong', strong: 'strong', i: 'em', em: 'em' }[tag.toLowerCase()];
+    if (name) return `<${close}${name}>`;
+    if (tag.toLowerCase() === 'br') return close ? '' : '<br>';
+    if (tag.toLowerCase() !== 'a') return '';
+    if (close) return '</a>';
+    const href = (rest.match(/\bhref\s*=\s*"([^"]*)"/i) || [])[1];
+    if (!href) return '<a>';
+    const local = linkOf(href.replace(/&amp;/g, '&'), c);
+    return `<a href="${attr(local.startsWith('/') ? local : href.replace(/&amp;/g, '&'))}">`;
+  }).join('');
+}
+
 /** The anchors of a page (www's ids: the FAQ's categories, Anchor components) → our heading ids. */
 export function anchorsOf(nd) {
   const page = nd.props.pageProps.page || {};
@@ -862,21 +885,34 @@ const HANDLERS = {
     P.block('hotline-finder', [['Sheet', `/${P.c.version || P.c.locale}/help/contacts.json`], ...(im ? [['Image', im]] : [])]);
   },
   // CoreMedia's call-back card (BySide's widget; the page's data holds its type only): ema-test's
-  // click-to-call from the captured card of the type in the page's language (site.clickToCall:
-  // tools/importer/tap-click-to-call.json; pt-br its own, else its language's), its button to the
-  // same page on www (parity 66); without a captured card the link to www, as before
+  // click-to-call (its README's rows) from the captured card of the type in the page's version
+  // (site.clickToCall: tools/importer/tap-click-to-call.json, the capture tap-byside-001; the
+  // version's own, else its language's), its button to the same page on www (parity 66). A page
+  // www shows no card on (the version's noCard, or outside the card's pages): nothing; without a
+  // captured card the link to www, as before
   ComponentCoreMediaModel: (s, P) => {
-    const byLang = (P.c.clickToCall || {})[s.type] || {};
-    const card = byLang[P.c.locale] || byLang[P.c.lang];
+    const byVersion = (P.c.clickToCall || {})[s.type] || {};
+    const own = docPath(P.c.url);
+    const card = byVersion[P.c.locale] || byVersion[P.c.lang];
+    if (card && ((card.noCard || []).includes(own) || (card.pages && !card.pages.includes(own)))) return;
     if (!card || !card.title) { P.onWww(`CoreMedia (${s.type})`); return; }
     const pic = (url) => (url ? P.img({ _path: url, description: card.alt || '' }) : '');
     const page = `${WWW}${docPath(P.c.url)}`;
+    const html = (v) => bysideHtml(v, P.c);
     const rows = [
-      ['Title', esc(card.title)],
-      ['Text', card.text ? `<p>${esc(card.text)}</p>` : ''],
-      ['Schedule', esc(card.schedule || '')],
+      ['Title', html(card.title)],
+      ['Text', card.text ? `<p>${html(card.text)}</p>` : ''],
+      ['Schedule', html(card.schedule)],
+      ['Hours', esc(card.hours || '')],
+      ['Button', esc(card.button || '')],
+      ['Button outside hours', esc(card.buttonOutside || '')],
+      ['Phone', esc(card.phone || '')],
+      ['Days', esc((card.days || []).join(', '))],
+      ['Slots', esc(card.slots || '')],
+      ['Small print', card.smallPrint ? `<p>${html(card.smallPrint)}</p>` : ''],
       ['Image', pic(card.image)],
       ['Mobile image', pic(card.mobileImage)],
+      ['Floating button', (card.floating || []).filter(Boolean).map((t) => `<p>${esc(t)}</p>`).join('')],
       ['Link', `<a href="${attr(page)}">${esc(page)}</a>`],
     ].filter(([, v]) => v);
     P.section();
@@ -1084,7 +1120,8 @@ export function deliveryMediaDirs(indexFile, top = '/tmp/lh-arch') {
 export function mediaIndex(dirs) {
   const idx = new Map();
   dirs.forEach((dir) => {
-    const m = readJson(path.join(dir, 'manifest.json'), []);
+    // a media archive's manifest, else the call-back capture's pictures (tap-byside-001)
+    const m = readJson(path.join(dir, 'manifest.json'), null) || readJson(path.join(dir, 'click-to-call.json'), {}).pictures || [];
     (Array.isArray(m) ? m : m.files || []).forEach((e) => {
       // the archive's file: manifest path (<host>/<URL path>) or file, else from the URL
       const rel = e.path || (e.file || '').replace(/^snapshots\//, '');

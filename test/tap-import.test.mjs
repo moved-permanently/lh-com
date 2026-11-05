@@ -16,6 +16,7 @@ import {
   altOf, slugOf, docPath, richText, linkOf, anchorsOf, convertPage, mediaIndex, mediaResolver,
   deliveryMediaDirs,
 } from '../tools/importer/tap-import.mjs';
+import { cardsOf } from '../tools/importer/tap-click-to-call.mjs';
 
 const dir = path.join(path.dirname(fileURLToPath(import.meta.url)), 'fixtures/tap');
 const nd = (name) => JSON.parse(fs.readFileSync(path.join(dir, `${name}.json`), 'utf8'));
@@ -103,6 +104,21 @@ describe('tap-import media', () => {
     assert.ok(fs.existsSync(path.join(out, m.eds)));
     assert.ok(/over Edge Delivery's 20 MB/.test(media('/adobe/dynamicmedia/deliver/dm-aid--2/stopover.jpg').link));
     assert.equal(media('/adobe/dynamicmedia/deliver/dm-aid--3/none.jpg'), null);
+  });
+
+  it('the call-back capture\'s pictures (tap-byside-001: click-to-call.json\'s pictures, no manifest) as /media-da/tap/ copies too', () => {
+    const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'tap-byside-'));
+    const file = 'pictures/bysa1.byside.com/files/B414516D6E/window/29971/bg_c2call_full_2.png';
+    fs.mkdirSync(path.join(tmp, path.dirname(file)), { recursive: true });
+    fs.writeFileSync(path.join(tmp, file), 'p');
+    const url = 'https://bysa1.byside.com/files/B414516D6E/window/29971/bg_c2call_full_2.png';
+    fs.writeFileSync(path.join(tmp, 'click-to-call.json'), JSON.stringify({ entries: [], pictures: [{ file, url, width: 533, height: 584 }, { file: '../outside.png', url: 'https://bysa1.byside.com/x.png' }] }));
+    const out = fs.mkdtempSync(path.join(os.tmpdir(), 'tap-out-'));
+    const media = mediaResolver(mediaIndex([tmp]), { out });
+    const m = media(url);
+    assert.ok(m && /^\/media-da\/tap\/bg-c2call-full-2-[0-9a-f]{8}\.png$/.test(m.eds), JSON.stringify(m));
+    assert.equal(fs.readFileSync(path.join(out, m.eds), 'utf8'), 'p');
+    assert.equal(media('https://bysa1.byside.com/x.png'), null, 'nothing outside the capture');
   });
 });
 
@@ -911,37 +927,70 @@ describe('tap-import pages', () => {
     assert.ok(dom(convertPage(page('SimpleGenericCardModel'), ctx()).html).querySelector('.cards.one-up'));
   });
 
-  it('the call-back card (CoreMedia\'s widget, parity 66): ema-test\'s click-to-call from the captured card (site.clickToCall), else the link to www', () => {
+  it('the call-back card (CoreMedia\'s widget, parity 66): ema-test\'s click-to-call with every row of the captured card (site.clickToCall), none where www shows none, else the link to www', () => {
     const page = (type) => ({ props: { pageProps: { page: { title: 'Lugares', sections: [{ __typename: 'ComponentHeadingModel', title: 'Lugares' }, { __typename: 'ComponentCoreMediaModel', type }] } } } });
-    const wide = 'https://sa1.byside.com/files/B414516D6E/window/29964/Image_container.png';
+    const wide = 'https://bysa1.byside.com/files/B414516D6E/window/29964/bg_c2call_full_2.png';
     const narrow = 'https://sa1.byside.com/files/B414516D6E/window/29964/Image_container_mobile.png';
-    const local = { [wide]: ['/media-da', 'tap', 'c2c-wide-1.png'].join('/'), [narrow]: ['/media-da', 'tap', 'c2c-1.png'].join('/') };
+    const local = { [wide]: ['/media-da', 'tap', 'bg-c2call-full-2-1.png'].join('/'), [narrow]: ['/media-da', 'tap', 'image-container-mobile-1.png'].join('/') };
+    const card = {
+      title: 'Deixe-se abraçar pelos <br>benefícios do Club',
+      text: 'Precisa de mais informações? Entraremos em <strong>contacto consigo gratuitamente</strong>.<script>x()</script>',
+      schedule: '<strong>Horário:</strong> Seg a Sex – 9:00 às 24:00 (GMT Lisboa)',
+      hours: 'Mon-Fri 09:00-24:00',
+      button: 'Liguem-me',
+      buttonOutside: 'Agendar Contacto',
+      phone: 'Telemóvel',
+      days: ['Hoje', 'Amanhã'],
+      slots: '08:00-23:30',
+      smallPrint: 'Uso exclusivo do Club TAP Miles&amp;Go. <a href="https://www.flytap.com/pt-pt/ajuda#contactos" onclick="x()">contacte-nos</a>. Consulte: <a href="https://www.flytap.com/privacy">Política de Privacidade</a>.',
+      image: wide,
+      mobileImage: narrow,
+      alt: 'Operador',
+      floating: ['Quero Club', 'Ligamos grátis'],
+      pages: ['/pt-pt/gerir-reserva/extras/lugares'],
+    };
     const clickToCall = {
-      '2022-lugares-bordo-comfortseat': {
-        pt: {
-          title: 'Voe na área Comfort', text: 'Já tem reserva, mas precisa de espaço e conforto extra? Indique-nos o seu número de telefone e entraremos em contacto consigo gratuitamente.', schedule: 'Horário: Seg a Sex – 5:00 às 19:00', image: wide, mobileImage: narrow, alt: 'Operador',
-        },
-      },
+      '2022-lugares-bordo-comfortseat': { 'pt-pt': card, 'de-de': { noCard: ['/de-de/verwalten-buchungen/extras/sitzplatze'] } },
     };
     const at = { ...ctx('https://www.flytap.com/pt-pt/gerir-reserva/extras/lugares'), media: (k) => local[k] || null, clickToCall };
     const d = dom(convertPage(page('2022-lugares-bordo-comfortseat'), at).html);
     const b = d.querySelector('.click-to-call');
     assert.ok(b, 'a click-to-call block');
     const rows = Object.fromEntries([...b.querySelectorAll(':scope > div')].map((r) => [r.children[0].textContent, r.children[1]]));
-    assert.deepEqual(Object.keys(rows), ['Title', 'Text', 'Schedule', 'Image', 'Mobile image', 'Link']);
-    assert.equal(rows.Title.textContent, 'Voe na área Comfort');
-    assert.equal(rows.Schedule.textContent, 'Horário: Seg a Sex – 5:00 às 19:00');
+    assert.deepEqual(Object.keys(rows), ['Title', 'Text', 'Schedule', 'Hours', 'Button', 'Button outside hours', 'Phone', 'Days', 'Slots', 'Small print', 'Image', 'Mobile image', 'Floating button', 'Link'], 'the README\'s rows, in its order');
+    assert.equal(rows.Title.innerHTML, 'Deixe-se abraçar pelos <br>benefícios do Club', 'www\'s line break');
+    assert.equal(rows.Text.querySelector('p strong').textContent, 'contacto consigo gratuitamente', 'www\'s bold');
+    assert.ok(!rows.Text.innerHTML.includes('script') && !rows.Text.textContent.includes('x()'), 'no script');
+    assert.equal(rows.Schedule.querySelector('strong').textContent, 'Horário:');
+    assert.equal(rows.Hours.textContent, 'Mon-Fri 09:00-24:00');
+    assert.equal(rows.Button.textContent, 'Liguem-me');
+    assert.equal(rows['Button outside hours'].textContent, 'Agendar Contacto');
+    assert.equal(rows.Phone.textContent, 'Telemóvel');
+    assert.equal(rows.Days.textContent, 'Hoje, Amanhã');
+    assert.equal(rows.Slots.textContent, '08:00-23:30');
+    const sp = [...rows['Small print'].querySelectorAll('a')];
+    assert.deepEqual(sp.map((a) => a.getAttribute('href')), ['/pt-pt/ajuda#contactos', 'https://www.flytap.com/privacy'], 'a page in scope local, the others as www has them');
+    assert.ok(!rows['Small print'].innerHTML.includes('onclick'));
+    assert.ok(rows['Small print'].textContent.includes('Miles&Go'));
     assert.equal(rows.Image.querySelector('img').getAttribute('src'), local[wide]);
     assert.equal(rows['Mobile image'].querySelector('img').getAttribute('alt'), 'Operador');
+    assert.deepEqual([...rows['Floating button'].querySelectorAll('p')].map((p) => p.textContent), ['Quero Club', 'Ligamos grátis']);
     assert.equal(rows.Link.querySelector('a').getAttribute('href'), 'https://www.flytap.com/pt-pt/gerir-reserva/extras/lugares', 'the same page on www');
     assert.ok(!d.body.textContent.includes('Ver em flytap.com'));
-    // no captured card for the type or the language: the link to www, as before
+    // a page www shows no card on (the version's noCard, or a page outside the card's pages): nothing
+    const de = convertPage(page('2022-lugares-bordo-comfortseat'), { ...at, url: 'https://www.flytap.com/de-de/verwalten-buchungen/extras/sitzplatze', locale: 'de-de', lang: 'de' }).html;
+    assert.ok(!de.includes('click-to-call') && !de.includes('Auf flytap.com ansehen'), 'no card, no link');
+    const other = convertPage(page('2022-lugares-bordo-comfortseat'), { ...at, url: 'https://www.flytap.com/pt-pt/gerir-reserva/extras/fast-track' }).html;
+    assert.ok(!other.includes('click-to-call') && !other.includes('Ver em flytap.com'), 'a page outside the card\'s pages: nothing');
+    // no captured card for the type or the version: the link to www, as before
     assert.ok(convertPage(page('2023-flight-extra'), at).html.includes('Ver em flytap.com'));
-    assert.ok(convertPage(page('2022-lugares-bordo-comfortseat'), { ...at, url: 'https://www.flytap.com/de-de/verwalten-buchungen/extras/sitzplatze', locale: 'de-de', lang: 'de' }).html.includes('Auf flytap.com ansehen'));
-    // pt-br its own card where captured, else pt's
-    const br = { ...clickToCall['2022-lugares-bordo-comfortseat'], 'pt-br': { ...clickToCall['2022-lugares-bordo-comfortseat'].pt, title: 'Voe na área Comfort (BR)' } };
-    const brHtml = convertPage(page('2022-lugares-bordo-comfortseat'), { ...at, url: 'https://www.flytap.com/pt-br/gerenciar-reserva/extras/assentos', locale: 'pt-br', lang: 'pt', clickToCall: { '2022-lugares-bordo-comfortseat': br } }).html;
-    assert.ok(brHtml.includes('Voe na área Comfort (BR)'));
+    assert.ok(convertPage(page('2022-lugares-bordo-comfortseat'), { ...at, url: 'https://www.flytap.com/fr-fr/gerer-reserves/extras/sieges', locale: 'fr-fr', lang: 'fr' }).html.includes('Voir sur flytap.com'));
+    // a version's own card first (pt-br's, es-es's English), else the language's
+    const br = { pt: { ...card, pages: undefined, title: 'Voe na área Comfort' }, 'pt-br': { ...card, pages: undefined, title: 'Voe na área Comfort (BR)' } };
+    const brAt = { ...at, url: 'https://www.flytap.com/pt-br/gerenciar-reserva/extras/assentos', locale: 'pt-br', lang: 'pt', clickToCall: { '2022-lugares-bordo-comfortseat': br } };
+    assert.ok(convertPage(page('2022-lugares-bordo-comfortseat'), brAt).html.includes('Voe na área Comfort (BR)'));
+    delete br['pt-br'];
+    assert.ok(convertPage(page('2022-lugares-bordo-comfortseat'), brAt).html.includes('Voe na área Comfort<'));
   });
 
   it('a fare table at the top level is table-striped (header)', () => {
@@ -974,5 +1023,55 @@ describe('tap-import pages', () => {
   it('the registration form page is out of scope (a form): skipped', () => {
     const r = convertPage(nd('registo'), ctx('https://www.flytap.com/pt-pt/registo'));
     assert.ok(r.skipped && /register/.test(r.skipped));
+  });
+});
+
+describe('tap-click-to-call: the cards from the capture', () => {
+  const entry = (version, type, extra = {}) => ({
+    version,
+    type,
+    pages: [`/${version}/a`, `/${version}/b`],
+    byside: { scheduleSetForLanguageList: 'time_ranges_pt' },
+    buttonLabels: { inOpeningHours: 'Call me now', outsideOpeningHours: 'Schedule contact' },
+    title: 'Embrace the benefits\nof the Club',
+    titleHtml: 'Embrace the benefits <br>of the Club',
+    textHtml: 'We will <strong>contact you free</strong> of charge.',
+    scheduleHtml: '<strong>Schedule:</strong> Mon to Fri – 9:00am to 12:00am (GMT Lisbon)',
+    form: { phonePlaceholder: 'Phone number', dayOptions: ['Today', 'Tomorrow'], timeSlots: { firstLast: ['08:00', '23:30'] } },
+    smallPrintHtml: 'See <a href="https://www.flytap.com/privacy">Privacy Policy</a>.',
+    pictures: { wide: 'pictures/bysa1.byside.com/w/29964/bg_c2call_full_2.png', mobile: 'pictures/sa1.byside.com/w/29964/Image_container_mobile.png', mobileNote: 'img alt="Operador", shown above the text on narrow screens only' },
+    floatingAnchor: { text: 'I want Club', subText: 'Call me free', shownAtCapture: true },
+    ...extra,
+  });
+  const capture = {
+    entries: [entry('es-es', 'club'), { version: 'de-de', type: 'promo', pages: ['/de-de/angebote'] }, entry('de-de', 'extra')],
+    pictures: [
+      { file: 'pictures/bysa1.byside.com/w/29964/bg_c2call_full_2.png', url: 'https://bysa1.byside.com/w/29964/bg_c2call_full_2.png' },
+      { file: 'pictures/sa1.byside.com/w/29964/Image_container_mobile.png', url: 'https://sa1.byside.com/w/29964/Image_container_mobile.png' },
+    ],
+    noCardRechecks: [{ page: 'https://www.flytap.com/de-de/b', type: 'extra', card: 'none served' }],
+  };
+  it('a card per type and version with the block\'s fields; noCard where www served none', () => {
+    const cards = cardsOf(capture);
+    assert.deepEqual(cards.club['es-es'], {
+      title: 'Embrace the benefits <br>of the Club',
+      text: 'We will <strong>contact you free</strong> of charge.',
+      schedule: '<strong>Schedule:</strong> Mon to Fri – 9:00am to 12:00am (GMT Lisbon)',
+      hours: 'Mon-Fri 09:00-24:00',
+      button: 'Call me now',
+      buttonOutside: 'Schedule contact',
+      phone: 'Phone number',
+      days: ['Today', 'Tomorrow'],
+      slots: '08:00-23:30',
+      smallPrint: 'See <a href="https://www.flytap.com/privacy">Privacy Policy</a>.',
+      image: 'https://bysa1.byside.com/w/29964/bg_c2call_full_2.png',
+      mobileImage: 'https://sa1.byside.com/w/29964/Image_container_mobile.png',
+      alt: 'Operador',
+      floating: ['I want Club', 'Call me free'],
+      pages: ['/es-es/a', '/es-es/b'],
+    });
+    assert.deepEqual(cards.promo['de-de'], { noCard: ['/de-de/angebote'] }, 'a version www serves no card for');
+    assert.deepEqual(cards.extra['de-de'].pages, ['/de-de/a'], 'a page www served none on is out of the pages');
+    assert.deepEqual(cards.extra['de-de'].noCard, ['/de-de/b']);
   });
 });
