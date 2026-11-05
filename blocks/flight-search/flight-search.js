@@ -593,6 +593,65 @@ function isoDate(date) {
  * Splits the grouped date label "Departure - Return" into its two parts; an authored
  * Departure label / Return label row wins.
  */
+/** The format of a chosen date in the page's language (de 21.11.2026, en-GB 21/11/2026). */
+function dateFormat(locale) {
+  const tag = locale.lang === 'en' && ['us', 'ca'].includes(locale.country)
+    ? 'en-US' : `${locale.lang}-${String(locale.country || '').toUpperCase()}`;
+  return new Intl.DateTimeFormat(tag, {
+    day: '2-digit', month: '2-digit', year: 'numeric', timeZone: 'UTC',
+  });
+}
+
+/**
+ * One Tab stop for a date, as www's date field (a readonly text field and its calendar): the
+ * date shows in a readonly field (returned, for its label); Enter, Space, Alt+Down or a click
+ * opens the browser's calendar of the date input behind it (showPicker), which keeps the value
+ * and stays out of the Tab order (its own three segments and picker button were four stops);
+ * Delete or Backspace clears it. sync() shows a value set from code.
+ * @param {HTMLInputElement} input the date input
+ * @param {Intl.DateTimeFormat} format dateFormat()
+ * @returns {{display: HTMLInputElement, sync: function}}
+ */
+function oneStopDate(input, format) {
+  input.classList.add('flight-search-date-native');
+  input.tabIndex = -1;
+  input.setAttribute('aria-hidden', 'true');
+  const display = el('input', 'flight-search-date-value');
+  display.type = 'text';
+  display.readOnly = true;
+  display.autocomplete = 'off';
+  const sync = () => {
+    const d = input.value ? new Date(`${input.value}T00:00:00Z`) : null;
+    display.value = d && !Number.isNaN(d.getTime()) ? format.format(d) : '';
+  };
+  const openCalendar = () => {
+    if (input.disabled) return;
+    if (typeof input.showPicker === 'function') {
+      try {
+        input.showPicker();
+        return;
+      } catch (e) {
+        // no user activation or not supported: the date input itself
+      }
+    }
+    input.click();
+  };
+  display.addEventListener('click', openCalendar);
+  display.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ' || (e.key === 'ArrowDown' && e.altKey)) {
+      e.preventDefault();
+      openCalendar();
+    } else if (e.key === 'Delete' || e.key === 'Backspace') {
+      e.preventDefault();
+      input.value = '';
+      input.dispatchEvent(new Event('change', { bubbles: true }));
+    }
+  });
+  input.addEventListener('change', sync);
+  sync();
+  return { display, sync };
+}
+
 function dateLabels(labels, config) {
   const parts = (labels['date label'] || '').split(/\s+[-–/]\s+/);
   const authored = (key) => config[key] && config[key].text;
@@ -757,14 +816,32 @@ function buildHotelPanel(config, locale, onClose) {
     return input;
   };
   const today = new Date();
-  const checkIn = field('check-in', dateInput('checkInDate', today));
-  const checkOut = field('check-out', dateInput('checkOutDate', new Date(today.getTime() + DAY_MS)));
+  // one Tab stop per date, as the flight dates (oneStopDate): the label, the hint and the error
+  // name and describe the readonly field; the date input behind it keeps the value
+  const format = dateFormat(locale);
+  const oneStop = (f) => {
+    const { input } = f;
+    const { display, sync } = oneStopDate(input, format);
+    input.classList.remove('flight-search-hotel-input');
+    display.classList.add('flight-search-hotel-input');
+    display.id = `${input.id}-value`;
+    display.setAttribute('aria-describedby', input.getAttribute('aria-describedby'));
+    input.removeAttribute('aria-describedby');
+    f.wrap.querySelector('.flight-search-hotel-label').setAttribute('for', display.id);
+    input.after(display);
+    return { ...f, display, sync };
+  };
+  const checkIn = oneStop(field('check-in', dateInput('checkInDate', today)));
+  const checkOut = oneStop(field('check-out', dateInput('checkOutDate', new Date(today.getTime() + DAY_MS))));
   checkOut.input.min = checkOut.input.value;
   checkIn.input.addEventListener('change', () => {
     if (!checkIn.input.value) return;
     const next = isoDate(new Date(new Date(`${checkIn.input.value}T12:00`).getTime() + DAY_MS));
     checkOut.input.min = next;
-    if (!checkOut.input.value || checkOut.input.value < next) checkOut.input.value = next;
+    if (!checkOut.input.value || checkOut.input.value < next) {
+      checkOut.input.value = next;
+      checkOut.sync();
+    }
   });
   form.append(fields);
 
@@ -814,11 +891,11 @@ function buildHotelPanel(config, locale, onClose) {
       f.error.textContent = message || '';
       f.error.hidden = !message;
       f.wrap.classList.toggle('invalid', Boolean(message));
-      f.input.setAttribute('aria-invalid', message ? 'true' : 'false');
+      (f.display || f.input).setAttribute('aria-invalid', message ? 'true' : 'false');
     });
     const invalid = checks.find(([, message]) => message);
     if (invalid) {
-      invalid[0].input.focus();
+      (invalid[0].display || invalid[0].input).focus();
       return;
     }
     // the airline's own host, whose page this would open again: www's hotel call, its target
@@ -1039,53 +1116,18 @@ export default function decorate(block) {
   const dates = el('fieldset', 'flight-search-dates');
   const legend = el('legend');
   dates.append(legend);
-  const shownDate = new Intl.DateTimeFormat(locale.lang === 'en' && ['us', 'ca'].includes(locale.country) ? 'en-US' : `${locale.lang}-${String(locale.country || '').toUpperCase()}`, {
-    day: '2-digit', month: '2-digit', year: 'numeric', timeZone: 'UTC',
-  });
+  const shownDate = dateFormat(locale);
   const makeDate = (name) => {
     const label = el('label', `flight-search-date flight-search-${name}`);
     const span = el('span', 'flight-search-date-label');
     span.id = `flight-search-${name}-label-${Math.random().toString(36).slice(2, 8)}`;
-    const input = el('input', 'flight-search-date-native');
+    const input = el('input');
     input.type = 'date';
     input.name = name;
     input.required = true; // form is noValidate; lets the CSS tell empty fields (:invalid) apart
     input.min = isoDate(new Date());
-    input.tabIndex = -1;
-    input.setAttribute('aria-hidden', 'true');
-    const display = el('input', 'flight-search-date-value');
-    display.type = 'text';
-    display.readOnly = true;
+    const { display, sync } = oneStopDate(input, shownDate);
     display.setAttribute('aria-labelledby', span.id);
-    display.autocomplete = 'off';
-    const sync = () => {
-      const d = input.value ? new Date(`${input.value}T00:00:00Z`) : null;
-      display.value = d && !Number.isNaN(d.getTime()) ? shownDate.format(d) : '';
-    };
-    const openCalendar = () => {
-      if (input.disabled) return;
-      if (typeof input.showPicker === 'function') {
-        try {
-          input.showPicker();
-          return;
-        } catch (e) {
-          // no user activation or not supported: the date input itself
-        }
-      }
-      input.click();
-    };
-    display.addEventListener('click', openCalendar);
-    display.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ' || (e.key === 'ArrowDown' && e.altKey)) {
-        e.preventDefault();
-        openCalendar();
-      } else if (e.key === 'Delete' || e.key === 'Backspace') {
-        e.preventDefault();
-        input.value = '';
-        input.dispatchEvent(new Event('change', { bubbles: true }));
-      }
-    });
-    input.addEventListener('change', sync);
     label.append(span, input, display);
     dates.append(label);
     return {
