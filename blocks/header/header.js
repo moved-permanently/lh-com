@@ -9,8 +9,9 @@ import { languageSwitch, switchTarget, switchAlternates } from '../../scripts/si
 import { uiIcon, inlineIcon, takeIconName } from '../../scripts/lh-icons.js';
 import { getChannel, isFlynetHiddenLink, FLYNET_LOCALES } from '../../scripts/channel.js';
 import { isDemoHost } from '../../scripts/demo.js';
-import { isOwnWwwHost } from '../../scripts/brand.js';
+import { isOwnWwwHost, brandOf } from '../../scripts/brand.js';
 import { panelTabOrder, nextInOrder } from './header-focus.js';
+import { takeRole, toolRole, cartLabels } from './header-tools.js';
 
 /*
  * Lufthansa header. Nav document (/{cc}/{ll}/nav), one section each:
@@ -20,7 +21,8 @@ import { panelTabOrder, nextInOrder } from './header-focus.js';
  *  4. tools: list of ":icon: link" items (wheelchair, help, search, cart, login; search is
  *     not shown, live has none in the header) and
  *     ":globe: Country | Language" with an optional sub-list of countries; a paragraph
- *     with the menu button label
+ *     with the menu button label; an item's role by a marker (":austrian-cart: Your Cart {cart}",
+ *     a brand's own icon) or else its icon's name (./header-tools.js)
  * Sections are recognised by their content, the order above is the fallback.
  * FlyNet channel (scripts/channel.js): no booking, login or flight search links and tools, a
  * sample flight bar from the site's /flight sheet (columns flight, from, to, departure,
@@ -249,25 +251,6 @@ const LABELS = {
   },
 };
 
-const TOOL_ROLES = {
-  wheelchair: 'accessibility',
-  accessibility: 'accessibility',
-  help: 'help',
-  question: 'help',
-  search: 'search',
-  cart: 'cart',
-  'shopping-cart': 'cart',
-  login: 'login',
-  profile: 'login',
-  user: 'login',
-  globe: 'locale',
-  earth: 'locale',
-  // the notifications bell (a brand with notifications: the panel, ./header-notifications.js)
-  bell: 'notifications',
-  notification: 'notifications',
-  notifications: 'notifications',
-};
-
 /* ------------------------------------------------------------------ content ---------- */
 
 function text(node) {
@@ -338,19 +321,25 @@ function readMenu(section) {
   }).filter((item) => item.label);
 }
 
-function readTools(section) {
+function readTools(section, lang, brand) {
   return topItems(section).map((li) => {
     const sub = subList(li);
     if (sub) sub.remove();
+    // the role: a marker ("{cart}"), else the icon's name (./header-tools.js)
+    const marker = takeRole(li);
     const icon = takeIconName(li);
     const a = ownLink(li);
-    let role = TOOL_ROLES[icon] || null;
-    if (!role && a && /travelid|login/i.test(a.href)) role = 'login';
+    const role = toolRole({ marker, icon, href: a ? a.href : null });
+    // the cart: www's bar name and menu label ("Shopping cart preview", "Your Cart")
+    const label = text(li);
+    const cartTexts = role === 'cart' ? cartLabels(label, lang, brand) : null;
     return {
       icon,
       role,
       href: a ? a.getAttribute('href') : null,
-      label: text(li),
+      label: cartTexts ? cartTexts.menu : label,
+      // the name of the bar's icon-only link or button
+      barLabel: cartTexts ? cartTexts.bar : label,
       countries: sub ? [...sub.querySelectorAll('a[href]')].map((c) => ({ name: text(c), href: c.getAttribute('href') })) : [],
       // (a cart item's sub-list: its dialog's texts, header-cart.js)
       list: sub,
@@ -785,8 +774,8 @@ async function toolLink(tool, className, withLabel) {
   const icon = tool.icon ? await inlineIcon(tool.icon) : null;
   const a = el('a', { href: tool.href, className }, icon);
   if (withLabel) a.append(el('span', { className: 'nav-tool-label' }, tool.label));
-  else a.setAttribute('aria-label', tool.label);
-  if (!withLabel) a.title = tool.label;
+  else a.setAttribute('aria-label', tool.barLabel || tool.label);
+  if (!withLabel) a.title = tool.barLabel || tool.label;
   if (isExternal(tool.href)) {
     a.target = '_blank';
     a.rel = 'noopener noreferrer';
@@ -877,7 +866,7 @@ export default async function decorate(block) {
 
   // tools
   // FlyNet: no login and no shopping cart
-  const navTools = (tools ? readTools(tools) : [])
+  const navTools = (tools ? readTools(tools, locale.lang, brandOf()) : [])
     .filter((t) => !flynet || !['login', 'cart', 'search'].includes(t.role));
   // a brand site without <cc>/<ll> roots (scripts/site-languages.js): a switch between its
   // languages (the nav's links to their homepages become it) instead of the country selector;
@@ -912,7 +901,7 @@ export default async function decorate(block) {
     if (items.length) {
       const icon = cartTool.icon ? await inlineIcon(cartTool.icon) : null;
       cart = buildCart({
-        label: cartTool.label, items, close: labels.close, icon,
+        label: cartTool.barLabel || cartTool.label, items, close: labels.close, icon,
       });
     }
   }
