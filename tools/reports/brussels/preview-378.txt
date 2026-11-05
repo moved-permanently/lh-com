@@ -1,0 +1,4 @@
+/be/en/homepage
+/be/fr/homepage
+/be/en/nav
+/be/fr/nav

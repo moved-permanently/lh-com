@@ -6,9 +6,12 @@ www.brusselsairlines.com at 390 and 1440 px.
 ## Parity
 
 www refuses this environment's browser: 403 with Cloudflare's "Security check" on the be/en
-homepage on 2026-11-05, on the first request, with no retry and no proxy. The user captures the
-pages locally (22 pages at both widths, the menu tabs, the travellers panel and the airport list,
-www's stylesheets and fonts, computed styles), and the parity rows follow from that capture.
+homepage on 2026-11-05, on the first request, with no retry and no proxy. The user captured the
+pages (`brussels-parity-001.tar.gz`, sha256 0a19e359…73e9ed: 22 pages at both widths, the menu
+tabs, the travellers panel and the airport list, www's stylesheets, fonts and computed styles).
+The rows below compare that capture, its HTML rendered with its own CSS and fonts (no scripts),
+with ours: brussels.turnsthe.page before the fixes, and main's code plus the theme changes
+through a local dev server on lh-brussels' preview after them.
 
 Pages, both languages (our paths are www's):
 
@@ -26,9 +29,42 @@ Pages, both languages (our paths are www's):
 - `articles/lyon`
 - the footer, on the homepages.
 
-| # | Where | www | Ours | Kind | Owner | Status |
+Kinds: **theme** (styles/themes/brussels.css), **document** (lh-brussels in DA, uploaded and
+previewed, not published), **shared code** (lh-com's blocks, every brand), **environment** (this
+network or the services behind it). Sizes are 390 / 1440 px. The theme fixes are 05d6f97b; the
+documents (be/en and be/fr: homepage, nav) are on preview, listed in `preview-378.txt`.
+
+| # | Where | www | Ours (before) | Kind | Owner | Status |
 | --- | --- | --- | --- | --- | --- | --- |
-| | (from the capture) | | | | | |
+| P1 | Page titles (h1, heading-large), every content page and the article | Brussels red #e5002b, uppercase; 36 / 48 px; 26 / 28 px below | #1a1a1a, as written; 32 / 40 px below | theme | Brussels theme | fixed |
+| P2 | Headings' space below | heading-medium 22 / 26 px, heading-small 18 / 22 px | 28 / 32, 24 / 32 | theme | Brussels theme | fixed (sizes already the same) |
+| P3 | heading-copytext-large (h3/h4 by default, the article's date) | 16 / 17.6 px, 18 / 19.8 px; 14 / 16 px below | 20 / 22 px, 24 / 26.4 px; 24 px below | theme | Brussels theme | fixed (the token: every block that reads it) |
+| P4 | Copy (.richtext p, li) | 18 / 24 px; paragraphs 16 / 20 px apart, items 10 px | 16 / 24 px; 24 px apart | theme | Brussels theme | fixed |
+| P5 | Buttons (maui-button, maui-button-link) | 18 / 22 px regular, 10 px 33 px, 6 px radius, 50 px high ("Book your upgrade now!" 263 x 50) | 16 / 24 px bold, 11 px 30 px, 4 px radius | theme | Brussels theme | fixed (263 x 50 now) |
+| P6 | Breadcrumb, first crumb | "Home" / "Accueil" | the homepage's title ("Discover the world – book flights…", "Découvrez le monde…"), two lines on phones | document | lh-brussels documents | fixed: `Breadcrumb Title` on be/en and be/fr/homepage. The other markets' homepages (be/nl and the rest) have the same gap; their labels are not in the capture |
+| P7 | Breadcrumb style | every crumb and chevron sn-blue-3 #0a1f62, 16 / 24 px, the current page bold; phones "< Home" | 14 / 20 px, the link red, the current #1a1a1a | theme | Brussels theme | fixed |
+| P8 | Teaser cards (link cards on the hubs and under "Related topics") | border 1 px #e8e8e8, 6 px radius, shadow 0 2px 4px rgb(5 20 70 / 10%); title 14 / 15.4 px and 16 / 17.6 px bold uppercase; stacked cards 64 px apart, rows 85 px | #b0b0b0, 4 px, 0 1px 4px #0003; title 20 / 24 px; 40 / 64 px | theme | Brussels theme | fixed |
+| P9 | Wide teasers' eyebrow ("Snow season is calling") | regular, uppercase | bold, as written | theme | Brussels theme | fixed |
+| P10 | Icon tiles ("Looking for more than just a flight?") | white, 2 px radius, label sn-blue-4 #051446 | sngrey1, 8 px radius, label #1a1a1a | theme | Brussels theme | fixed |
+| P11 | Stage card headline (homepages) | uppercase (display-text) | as written | theme | Brussels theme | fixed |
+| P12 | Stage card content (homepages) | "Family time, far away / UP TO 50% OFF FOR KIDS" | "Limited-time offer / 10 % off to Kinshasa with FIH10" | document | lh-brussels documents | open: www's campaign changed after the import; a re-import needs fresh snapshots (tools/importer/bd-snapshots is not in this workspace) or the user's word to edit the two cards by hand |
+| P13 | "Winter deals" (the fare teaser's title) | bold (maui-headline h3, 36 px) | light (300) | theme | Brussels theme | fixed |
+| P14 | Fare teaser prices, destination finder (homepages) | prices and destinations | the cards without prices, the finder empty | environment | — | environment, no change (A5) |
+| P15 | Article: title, intro, date | title red uppercase; intro 20 / 30 px regular; date 16 / 18 px bold | title #1a1a1a; intro 22 / 24.3 px and 28 / 30.8 px light; date 20 / 24 px | theme | Brussels theme | fixed |
+| P16 | Article date format | "May 11, 2026" | "11. May 2026" | shared code | lh-com shared code (article-header formats every brand's date as Lufthansa's) | open |
+| P17 | Menu panel | white; tabs 28 / 30.8 px bold sn-blue-3 (the open one sn-blue-4); group titles sngrey8; links and extras red 16 / 22 px regular, 16 px apart; a sngrey2 line between the columns and above Login; close and back 32 px squares with a 2 px red border, 6 px radius; phones: the tab's name 20 px over the panel | #1a1a1a panel, white text; links 18 / 27 px bold, 14 px apart; extras 14 px bold; white icons without a box | theme | Brussels theme | fixed |
+| P18 | Menu cart entry | "Your Cart" / "Votre panier" | "Shopping cart preview" / "Aperçu du panier" | document | lh-brussels documents | fixed: be/en/nav and be/fr/nav. The other markets' navs: the same label, not in the capture |
+| P19 | Header bar's foot | a 1 px #c5c5c5 rule | none | theme | Brussels theme | fixed |
+| P20 | Flight search fields | boxed: sngrey1, 1 px sngrey8 border, 8 px radius (dates 6 px), 50 px high, the label 14 / 21 px sngrey7 inside; phones: From and To one box of two rows, the swap on the line between them; swap a 32 px white circle with a 2 px sn-blue-4 border; calendar icon sn-blue-3 | underlined fields, the label above; a half border; swap a bare icon; calendar red | theme | Brussels theme | fixed |
+| P21 | Flight search options row and button | 16 px regular; checkbox 1 px border, 2 px radius; button 18 / 22 px regular, 6 px radius | the trip type 16 px bold, the travellers and nonstop 14 px bold; 2 px border; button bold | theme | Brussels theme | fixed |
+| P22 | Flight search labels | en "Economy, 1 traveller"; fr "Economy, 1 Voyageur", "Départ - retour", "Rechercher" | "Economy, 1 Traveller"; "Economy, 1 passager", "Aller - Retour", "Rechercher des vols" | document | lh-brussels documents | fixed: the block's label rows on be/en and be/fr/homepage |
+| P23 | Phones, fr: "Vols directs uniquement" | on its own line under the travellers | wraps to two lines beside them | theme | Brussels theme | open: the shared phone grid puts both in one row; www wraps only when the row is full |
+| P24 | Travellers panel | a modal: tabs Travel details / Redeem miles, a travel class select, steppers, "Alternative fare selection" (three radios), an access code field, Continue | lh-com's dropdown: steppers, a class select, Done | shared code | a Brussels passenger-picker variant (brand-scoped JS) | open: new work, not in this pass |
+| P25 | Contact | "Is there a link missing? Yes / No" under the requests | none | shared code | lh-com shared code (a feedback block; www sends it to its own service) | open |
+| P26 | Copy column on content pages (upgrades, check-in, families) | the text in a 927 px column at 1440 | the first section 938 px, the later ones (upgrades' "How can I acquire", the accordion) 1264 px | document | lh-brussels documents (the importer's column marks) | open: a re-import with snapshots |
+| P27 | Homepage conditions | "General Conditions" as a link under the icon tiles | the conditions' full text under the destination finder (the finder is empty here: P14) | document | lh-brussels documents | open: to check with the finder loaded |
+| P28 | Footer | — | the same (links, columns, social icons, legal row) | — | — | no change |
+| P29 | be/fr | the same layout, longer labels | the same as be/en after the fixes | — | — | checked at 390: the homepage, the menu, the breadcrumb ("Accueil"), the flight search labels |
 
 ## Accessibility (2026-11-05)
 
@@ -54,11 +90,13 @@ Every focus stop has a visible ring and a name.
 | # | Finding | WCAG | Pages, widths | State | Owner |
 | --- | --- | --- | --- | --- | --- |
 | A1 | Carousel dots 8 x 8px: the homepages' card carousel (`carousel-cards-dot`, 6) and the Lyon article's image carousel (`carousel-images-dot`, 30) | 2.5.8 | both homepages and both Lyon articles, 390 and 1440 | fixed by ema-adobe in 87f5d985 (brief 377, during this pass): 24 x 24px targets; the second axe run, after it, finds none | ema-adobe (shared carousel code) |
-| A2 | The menu's flyout, closed, stays in the Tab order: after the menu closes, Tab reaches its close button and items off-screen (9 controls; Lufthansa's has 10, so every brand) | 2.4.3, 2.4.7 | both homepages, 390 and 1440 | open: shared header code (`blocks/header`), not Brussels' files. A brand-neutral fix would keep the closed flyout out of the Tab order (hidden or inert) | lh-com shared code (header) |
-| A3 | Phones: the travellers button and "Nonstop only" come in the Tab order before From and To, but show under the dates | 2.4.3 | both homepages, 390 | for the parity pass: the shared flight search's phone layout places the options row under the dates as the Group's flight manager shows it; whether www's DOM order is the same comes from the capture | shared flight search (lh-com); www's design if www does the same |
-| A4 | The destination finder at 390: "All offers & destinations" (shown above "Conditions") comes after it in the Tab order | 2.4.3 | both homepages, 390 | for the parity pass (www's order from the capture) | shared destination finder (lh-com) |
-| A5 | The fare teaser's route links named by the airport codes alone ("BRU WAS"): the prices, and with them the card's label ("Round trip from …"), do not load. Its request (`lh-proxy…/lhg-fare-teaser/fareteaser/recommend`) answers 502 | 2.4.4 (with the prices missing) | both homepages | open: the fare teaser's data, not Brussels' files | lh-com shared code (fare teaser, lh-proxy) |
-| A6 | The airport list could not be tried by keyboard here: this environment's requests to www.lufthansa.com (`/service/api/suggestions/airports`) get 403 on the CORS preflight, from every origin (brussels, lufthansa and airdolomiti alike), so no suggestions show. The list's keys (arrows, Enter, Escape) were checked on the other brands in brief 370 | — | — | not a site finding (the environment); to check from a normal network | — |
+| A2 | The menu's flyout, closing, stays in the Tab order: during its 0.8 s slide-out, Tab reaches its close button and items off-screen (9 controls; Lufthansa's has 10, so every brand) | 2.4.3, 2.4.7 | both homepages, 390 and 1440 | fixed in 4e999266 (test) and d81e71f9: inert from the moment it starts closing, not inert when it opens. Checked after the push on brussels (1440), lufthansa (1440) and ita (390): Tab 100 ms after Escape lands outside the flyout; every host's smoke the same | lh-com shared code (header) |
+| A3 | Phones: the travellers button and "Nonstop only" come in the Tab order before From and To, but show under the dates | 2.4.3 | both homepages, 390 | www's design, no change: the capture's DOM has the options row before the fields, as ours | — |
+| A4 | The destination finder at 390: "All offers & destinations" (shown above "Conditions") comes after it in the Tab order | 2.4.3 | both homepages, 390 | open: www's DOM has the link (maui-button-link) before `.recommender-footer-conditional-content` (the disclaimer and Conditions); ours has Conditions first | lh-com shared code (destination finder) |
+| A5 | The fare teaser's route links named by the airport codes alone ("BRU WAS"): the prices, and with them the card's label ("Round trip from …"), do not load. Its request (`lh-proxy…/lhg-fare-teaser/fareteaser/recommend`) has answered 502 since 29 October; the site then uses its recorded list | 2.4.4 (with the prices missing) | both homepages | environment, no change | — |
+| A6 | The airport list could not be tried by keyboard here: www.lufthansa.com's Cloudflare refuses non-browser clients and this environment (`/service/api/suggestions/airports`: 403 on the CORS preflight, from every origin), so no suggestions show. The list's keys (arrows, Enter, Escape) were checked on the other brands in brief 370 | — | — | environment, no change | — |
 
-No finding lies in Brussels' own theme or brand-scoped variants, so nothing was changed there.
-The login page's booking code form (ema-adobe's) was left as it is.
+No accessibility finding lies in Brussels' own theme or brand-scoped variants. The parity fixes
+keep the focus rings: the boxed fields show a 2 px sngrey8 ring inside the box (the dates on the
+whole box), the menu's close and back buttons the default ring. The login page's booking code form
+(ema-adobe's) was left as it is.
