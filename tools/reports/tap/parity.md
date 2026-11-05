@@ -135,7 +135,7 @@ tokens) and the computed styles of the pages above.
 | 91 | Booking box: the empty dates field | "Selecionar datas" #b0aeb4 on white (2.19:1) | the same | www's design (axe flags ours, not www's) | noted, not changed: a TAP design decision |
 | 92 | Help page heading levels | H1, then the cards' H3 with no H2 (axe heading-order on www too) | the same | www's design / import (ema-lufthansa) | noted |
 | 93 | Alerts bar rotation | every 5 s, no pause button (stops on hover and focus) | the same: stops on hover and focus, off under reduced motion | `blocks/flash-teaser/flash-teaser-tap.js` (ema-adobe), if a pause button is wanted (WCAG 2.2.2) | noted |
-| 94 | A single inner banner's picture on phones (altitude-film-festival) | a phone crop (1280 x 630) | the 1920 x 450 desktop picture | import (ema-lufthansa: the banner's phone image) | open |
+| 94 | A single inner banner's picture on phones (altitude-film-festival) | a phone crop (1280 x 630) | the 1920 x 450 desktop picture | import (ema-lufthansa: the banner's phone image) | the import ready, off (brief 363): www's hero cards (98) and stage / carousel slides (113) carry a phone rendition (imageMobile, www's below 728 px; 41 distinct files, all in our picture archives); with `phonePictures` tap-import.mjs writes it as the picture cell's second picture. Block (ema-test): hero-campaign and hero-card-overlay keep a second picture as content today; once they show it as the phone picture below 728 px (`<source media="(min-width: 728px)">` the first), ema-lufthansa switches the import on and uploads the pages. Checked /pt-pt/a-bordo/altitude-film-festival: at 390 www 728 x 358 of the 1280 x 630, ours 750 x 176 of the 1920 x 450 in the 358 x 380 box |
 
 ## What was fixed (commits)
 

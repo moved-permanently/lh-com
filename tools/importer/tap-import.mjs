@@ -423,6 +423,19 @@ class Page {
     return `${this.link(o[`${pre}Url`], o[`${pre}Label`], 'primary')}${this.link(o[`${sec}Url`], o[`${sec}Label`])}`;
   }
 
+  /**
+   * A banner's picture cell: the picture, and with site.phonePictures www's phone rendition
+   * (imageMobile, www's below 728 px) as a second picture where it is another file (parity 94;
+   * off until hero-campaign and hero-card-overlay show a second picture as the phone one).
+   */
+  pictures(ref, phoneRef) {
+    const desk = this.img(ref);
+    if (!this.c.phonePictures || !phoneRef || !desk) return desk;
+    const phone = this.img(phoneRef);
+    const src = (h) => (h.match(/src="([^"]*)"/) || [])[1];
+    return phone && src(phone) !== src(desk) ? `${desk}${phone}` : desk;
+  }
+
   img(ref) {
     if (!ref) return '';
     const keys = [ref._dynamicUrl && ref._dynamicUrl.split('?')[0], ref._path, ref._publishUrl].filter(Boolean);
@@ -491,7 +504,7 @@ function bookingRows(P) {
   return rows;
 }
 
-const slideRows = (slides, P) => slides.flatMap((s) => [[P.img(s.image)], [
+const slideRows = (slides, P) => slides.flatMap((s) => [[P.pictures(s.image, s.imageMobile)], [
   `${P.heading(2, s.title)}${P.rich(s.description)}${P.link(s.buttonUrl, s.buttonLabel, 'primary')}${P.link(s.secondaryButtonUrl, s.secondaryButtonLabel)}`,
 ]]);
 
@@ -544,7 +557,7 @@ const HANDLERS = {
     // rounded picture above the title
     if (!text.trim()) { const im = P.img(s.image); if (im) P.add(`<p>${im}</p>`); return; }
     P.section();
-    P.block(i === 0 ? 'hero-campaign (narrow)' : 'hero-card-overlay', [[P.img(s.image)], [text]]);
+    P.block(i === 0 ? 'hero-campaign (narrow)' : 'hero-card-overlay', [[P.pictures(s.image, s.imageMobile)], [text]]);
     P.section();
   },
   ComponentHeadingModel: (s, P) => {

@@ -315,6 +315,37 @@ describe('tap-import parity (tools/reports/tap/parity.md)', () => {
     assert.ok(dom(none.html).querySelector('.hero-card-overlay'));
   });
 
+  it('a banner\'s phone picture (www\'s imageMobile, below 728 px; parity 94): the picture cell\'s second picture once the blocks show it (site.phonePictures), else the desktop one only', () => {
+    const desk = ['/media-da', 'tap', 'fest-1920x450-1.jpg'].join('/');
+    const phone = ['/media-da', 'tap', 'fest-1280x630-2.jpg'].join('/');
+    const media = (k) => ({ '/content/dam/tap/fest-1920x450.jpg': desk, '/content/dam/tap/fest-1280x630.jpg': phone }[k] || null);
+    const hero = (extra = {}) => ({
+      props: {
+        pageProps: {
+          page: {
+            title: 'Festival', slider: extra.slider,
+            sections: [{
+              __typename: 'ComponentHeroCardModel', title: 'Festival de cinema a bordo', heroCardDescription: { plaintext: 'Já.' }, image: { _path: '/content/dam/tap/fest-1920x450.jpg' }, imageMobile: { _path: '/content/dam/tap/fest-1280x630.jpg' },
+            }, { __typename: 'ComponentHeadingModel', title: 'Festival' }],
+          },
+        },
+      },
+    });
+    const cell = (html) => dom(html).querySelector('.hero-campaign > div > div');
+    const at = { ...ctx('https://www.flytap.com/pt-pt/a-bordo/altitude-film-festival'), media };
+    // off (the blocks don't show a second picture yet): the desktop picture only, as before
+    assert.deepEqual([...cell(convertPage(hero(), at).html).querySelectorAll('img')].map((i) => i.getAttribute('src')), [desk]);
+    // on: the desktop picture, then the phone one
+    assert.deepEqual([...cell(convertPage(hero(), { ...at, phonePictures: true }).html).querySelectorAll('img')].map((i) => i.getAttribute('src')), [desk, phone]);
+    // the same phone picture as the desktop one: one picture
+    const same = hero(); same.props.pageProps.page.sections[0].imageMobile = { _path: '/content/dam/tap/fest-1920x450.jpg' };
+    assert.equal(cell(convertPage(same, { ...at, phonePictures: true }).html).querySelectorAll('img').length, 1);
+    // a stage's slide alike
+    const slider = { __typename: 'ComponentSliderHomepageModel', slides: [{ __typename: 'BannerSlideModel', title: 'Islândia', image: { _path: '/content/dam/tap/fest-1920x450.jpg' }, imageMobile: { _path: '/content/dam/tap/fest-1280x630.jpg' } }] };
+    const s = dom(convertPage(hero({ slider }), { ...at, phonePictures: true }).html).querySelector('.hero-campaign');
+    assert.deepEqual([...s.querySelector(':scope > div > div').querySelectorAll('img')].map((i) => i.getAttribute('src')), [desk, phone]);
+  });
+
   it('as www renders them: a hero card\'s title an H3; rich text\'s sub- and superscript plain text', () => {
     const hero = { props: { pageProps: { page: { title: 'Extras', sections: [{ __typename: 'ComponentHeroCardModel', title: 'Adquira com antecedência e poupe', image: { _path: '/content/dam/tap/x.jpg' }, heroCardDescription: { plaintext: 'Já.' } }, { __typename: 'ComponentHeadingModel', title: 'Extras e Upgrades' }] } } } };
     const picture = ['/media-da', 'tap', 'x-1.jpg'].join('/');
