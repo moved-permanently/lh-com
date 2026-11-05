@@ -1,0 +1,23 @@
+# lh-swiss documents changed in brief 380 (uploaded to DA and previewed on main--lh-swiss--moved-permanently.aem.page; not published)
+/ch/en/footer
+/ch/en/homepage
+/ch/en/customer-support/contact-us
+/ch/en/prepare/overview-flights
+/ch/en/prepare/overview-travel-information
+/ch/en/prepare/special-care
+/ch/en/book-and-manage/overview-manage
+/ch/en/book-and-manage/overview-extra-services
+/ch/en/fly/on-board/travel-classes
+/ch/en/fly/on-board
+/ch/en/discover/overview-inspiration
+/ch/de/footer
+/ch/de/homepage
+/ch/de/customer-support/contact-us
+/ch/de/prepare/overview-flights
+/ch/de/prepare/overview-travel-information
+/ch/de/prepare/special-care
+/ch/de/book-and-manage/overview-manage
+/ch/de/book-and-manage/overview-extra-services
+/ch/de/fly/on-board/travel-classes
+/ch/de/fly/on-board
+/ch/de/discover/overview-inspiration
