@@ -2275,9 +2275,12 @@ export default async function decorate(block) {
   const notes = el('div', 'destination-finder-notes');
   if (disclaimer) notes.append(disclaimer);
   if (conditions) notes.append(conditions);
-  if (notes.children.length) footer.append(notes);
+  // www's DOM order (the parity captures, every brand): the controls and the link before the
+  // disclaimer and Conditions, so the Tab order follows the phone layout (the link above them);
+  // from 768 px the notes are drawn first (CSS order), as www's reversed .recommender-footer
   footer.append(controls);
   if (cta) footer.append(cta);
+  if (notes.children.length) footer.append(notes);
 
   const finderItem = finderCard ? el('li', 'destination-finder-item destination-finder-finder') : null;
   if (finderItem) finderItem.append(finderCard);

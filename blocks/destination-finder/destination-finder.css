@@ -387,15 +387,11 @@ main > .section > .destination-finder-wrapper {
   mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13.3 4.3 12 5.6l5.4 5.5H3v1.8h14.4L12 18.4l1.3 1.3L21 12z'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 
-/* footer: .recommender-footer (column below 768px, CTA first) */
+/* footer: .recommender-footer (column below 768px, the CTA first as in the DOM) */
 .destination-finder .destination-finder-footer {
   display: flex;
   flex-direction: column;
   gap: 20px;
-}
-
-.destination-finder .destination-finder-cta {
-  order: -1;
 }
 
 .destination-finder .destination-finder-cta a.button:any-link {
@@ -546,8 +542,11 @@ main > .section > .destination-finder-wrapper {
     gap: 16px;
   }
 
+  /* the notes drawn left of the controls and the link, which come first in the DOM (www's
+     row-reverse .recommender-footer) */
   .destination-finder .destination-finder-notes {
     flex: 1 1 auto;
+    order: -1;
     margin-right: 4px;
   }
 
@@ -558,7 +557,6 @@ main > .section > .destination-finder-wrapper {
 
   .destination-finder .destination-finder-cta {
     flex-shrink: 0;
-    order: 0;
   }
 
   .destination-finder.destination-finder-empty .destination-finder-controls {
