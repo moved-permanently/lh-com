@@ -89,10 +89,14 @@ test('xx/pt\'s query indexes: search-xx-pt as xx/es\'s, its lean copies; no othe
     ...d,
     properties: Object.fromEntries(Object.entries(d.properties).map(([k, p]) => [k, p && p.value === CARD ? { ...p, value: CARD_BEFORE } : p])),
   } : d);
+  // and market-pages' markets column (brief 411, lh-edge's donor documents)
+  const pagesAsBefore = (name, d) => (name === 'market-pages' && d ? {
+    ...d, properties: Object.fromEntries(Object.entries(d.properties).filter(([k]) => k !== 'markets')),
+  } : d);
   const later = (name, d) => cardAsBefore(name === 'message-center' && d ? {
     ...d, properties: Object.fromEntries(Object.entries(d.properties).filter(([k]) => k !== 'weight')),
   } : d);
-  Object.entries(old).forEach(([name, def]) => assert.deepEqual(later(name, indices[name]), def, `${name} as before`));
+  Object.entries(old).forEach(([name, def]) => assert.deepEqual(later(name, pagesAsBefore(name, indices[name])), def, `${name} as before`));
   // appended after the indexes of 70a732f (later additions may follow them)
   const keys = Object.keys(indices);
   const lastOld = Math.max(...Object.keys(old).map((k) => keys.indexOf(k)));

@@ -91,10 +91,14 @@ test('xx/ru\'s query indexes: search-xx-ru as xx/es\'s, its lean copies after xx
     ...d,
     properties: Object.fromEntries(Object.entries(d.properties).map(([k, p]) => [k, p && p.value === CARD ? { ...p, value: CARD_BEFORE } : p])),
   } : d);
+  // and market-pages' markets column (brief 411, lh-edge's donor documents)
+  const pagesAsBefore = (name, d) => (name === 'market-pages' && d ? {
+    ...d, properties: Object.fromEntries(Object.entries(d.properties).filter(([k]) => k !== 'markets')),
+  } : d);
   const later = (name, d) => cardAsBefore(name === 'message-center' && d ? {
     ...d, properties: Object.fromEntries(Object.entries(d.properties).filter(([k]) => k !== 'weight')),
   } : d);
-  Object.entries(old).forEach(([name, def]) => assert.deepEqual(later(name, indices[name]), def, `${name} as before`));
+  Object.entries(old).forEach(([name, def]) => assert.deepEqual(later(name, pagesAsBefore(name, indices[name])), def, `${name} as before`));
   const keys = Object.keys(indices);
   const at = keys.indexOf('market-llms-xx-pt');
   assert.deepEqual(keys.slice(at + 1, at + 4), ['search-xx-ru', 'market-model-xx-ru', 'market-llms-xx-ru'], 'after xx/pt\'s');
