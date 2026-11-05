@@ -519,9 +519,13 @@ const slideOf = (s, P) => {
     title: s.title || d.title, image: d.image, buttonLabel: i18nOf(P.c.pageProps, P.c.lang, 'book-now'), buttonUrl: '#special-anchor-book-flight',
   };
 };
-const slideRows = (slides, P) => slides.map((x) => slideOf(x, P)).flatMap((s) => [[P.pictures(s.image, s.imageMobile)], [
-  `${P.heading(2, s.title)}${P.rich(s.description)}${P.link(s.buttonUrl, s.buttonLabel, 'primary')}${P.link(s.secondaryButtonUrl, s.secondaryButtonLabel)}`,
-]]);
+// (a destination slide only with its picture: a root's destinations other than the captured ones
+// have no copy, and a stage slide without its picture would show an empty frame)
+const slideRows = (slides, P) => slides
+  .filter((x) => x.__typename !== 'DestinationSlideModel' || P.img((x.destination || {}).image))
+  .map((x) => slideOf(x, P)).flatMap((s) => [[P.pictures(s.image, s.imageMobile)], [
+    `${P.heading(2, s.title)}${P.rich(s.description)}${P.link(s.buttonUrl, s.buttonLabel, 'primary')}${P.link(s.secondaryButtonUrl, s.secondaryButtonLabel)}`,
+  ]]);
 
 function cards(items, P, s) {
   const first = items[0] && items[0].__typename;

@@ -374,6 +374,12 @@ describe('tap-import parity (tools/reports/tap/parity.md)', () => {
     assert.equal(a.textContent, 'Rezerwuj teraz');
     assert.equal(a.getAttribute('href'), '/pl-pl#book-flight');
     assert.ok(!/Loty z|zł/.test(s.textContent), 'no fare');
+    // a destination slide whose picture we have no copy of (a root's Washington): left out, as before
+    const none = { ...at, media: () => null };
+    const two = structuredClone(page);
+    two.props.pageProps.page.slider.slides.push({ __typename: 'BannerSlideModel', title: 'Islândia', image: { _path: '/content/dam/tap/x.jpg' } });
+    const stage = dom(convertPage(two, { ...none, media: (k) => (/x\.jpg/.test(String(k)) ? fortaleza : null) }).html).querySelector('.hero-campaign');
+    assert.deepEqual([...stage.querySelectorAll('h2')].map((h) => h.textContent), ['Islândia'], 'only the slide with its picture');
   });
 
   it('as www renders them: a hero card\'s title an H3; rich text\'s sub- and superscript plain text', () => {
