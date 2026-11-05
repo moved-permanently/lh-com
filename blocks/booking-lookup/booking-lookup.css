@@ -300,6 +300,11 @@
     transform: rotate(180deg);
   }
 
+  /* lh-com's disclosure rows (buildTabs collapsible, brief 404): an open row turns its chevron */
+  .booking-lookup:not(.my-bookings) .booking-lookup-tab[aria-expanded="true"]::after {
+    transform: rotate(180deg);
+  }
+
   .booking-lookup .booking-lookup-tabs ~ .booking-lookup-panel {
     padding: 40px 20px;
   }

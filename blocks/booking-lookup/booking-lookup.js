@@ -4,6 +4,7 @@ import {
   bookingBrand, BOOKING_RETRIEVE,
 } from '../../scripts/handoff.js';
 import { BOOKING_CODE_TEXTS } from './booking-code-texts.js';
+import { brandOf } from '../../scripts/brand.js';
 import {
   readConfigRows, pick, resolveLabels, cleanText, toConfigKey, decorateExternalLinks,
 } from '../../scripts/block-config.js';
@@ -267,23 +268,29 @@ function toRegExp(source, fallback) {
   }
 }
 
-/** WAI-ARIA tabs with automatic activation and arrow/Home/End keys. */
-function buildTabs(id, tabs, panels, label) {
+/**
+ * WAI-ARIA tabs with automatic activation and arrow/Home/End keys. Option collapsible (lh-com:
+ * www's maui-tab-control-panel-responsive, a maui-collapsible-item per tab on phones, all
+ * collapsed): below 768px the tabs are disclosure buttons (aria-expanded), all closed at first,
+ * each opening and closing its own panel; from 768px the tab set.
+ */
+export function buildTabs(id, tabs, panels, label, { collapsible = false } = {}) {
   const tablist = el('div', 'booking-lookup-tabs');
-  tablist.setAttribute('role', 'tablist');
   tablist.setAttribute('aria-label', label);
   const buttons = tabs.map((tab, i) => {
     const button = el('button', 'booking-lookup-tab', tab.label);
     button.type = 'button';
     button.id = `${id}-tab-${i}`;
-    button.setAttribute('role', 'tab');
     button.setAttribute('aria-controls', panels[i].id);
-    panels[i].setAttribute('role', 'tabpanel');
     panels[i].setAttribute('aria-labelledby', button.id);
-    panels[i].tabIndex = 0;
     return button;
   });
+  const narrow = collapsible ? window.matchMedia('(width < 768px)') : null;
+  const accordion = () => !!narrow && narrow.matches;
+  const open = new Set();
+  let selected = 0;
   const select = (index, focus) => {
+    selected = index;
     buttons.forEach((button, i) => {
       const active = i === index;
       button.setAttribute('aria-selected', active ? 'true' : 'false');
@@ -292,9 +299,45 @@ function buildTabs(id, tabs, panels, label) {
     });
     if (focus) buttons[index].focus();
   };
+  const render = () => {
+    if (accordion()) {
+      tablist.removeAttribute('role');
+      buttons.forEach((button, i) => {
+        button.removeAttribute('role');
+        button.removeAttribute('aria-selected');
+        button.removeAttribute('tabindex');
+        button.setAttribute('aria-expanded', String(open.has(i)));
+        panels[i].setAttribute('role', 'region');
+        panels[i].removeAttribute('tabindex');
+        panels[i].hidden = !open.has(i);
+      });
+      return;
+    }
+    tablist.setAttribute('role', 'tablist');
+    buttons.forEach((button, i) => {
+      button.setAttribute('role', 'tab');
+      button.removeAttribute('aria-expanded');
+      panels[i].setAttribute('role', 'tabpanel');
+      panels[i].tabIndex = 0;
+    });
+    select(selected, false);
+  };
+  if (narrow) {
+    if (narrow.addEventListener) narrow.addEventListener('change', render);
+    else if (narrow.addListener) narrow.addListener(render);
+  }
   buttons.forEach((button, i) => {
-    button.addEventListener('click', () => select(i, false));
+    button.addEventListener('click', () => {
+      if (!accordion()) {
+        select(i, false);
+        return;
+      }
+      if (open.has(i)) open.delete(i);
+      else open.add(i);
+      render();
+    });
     button.addEventListener('keydown', (e) => {
+      if (accordion()) return;
       const last = buttons.length - 1;
       const next = {
         ArrowRight: i === last ? 0 : i + 1,
@@ -308,7 +351,7 @@ function buildTabs(id, tabs, panels, label) {
     });
   });
   tablist.append(...buttons);
-  select(0, false);
+  render();
   return tablist;
 }
 
@@ -1088,7 +1131,8 @@ export default function decorate(block) {
 
   if (extraPanels.length) {
     const panels = [formPanel, ...extraPanels];
-    const tablist = buildTabs(id, tabs, panels, labels['tabs label']);
+    // lh-com: on phones www's maui-collapsible-items, all closed (brief 404)
+    const tablist = buildTabs(id, tabs, panels, labels['tabs label'], { collapsible: !brandOf() });
     block.replaceChildren(tablist, ...panels);
   } else {
     block.replaceChildren(formPanel);
