@@ -177,6 +177,8 @@ byte-identical with and without the change).
 
 Every site host (brief 349): a page path with a trailing slash the site answers 404 (`/ch/en/homepage/`, `/pt-pt/`, `/en/home/`) is one 301 to the path without it, the query kept (route `url-form`, as lufthansa.com's); a slash path the site answers keeps its answer (Air Dolomiti's `/en/`, TAP's `/de-ch/`, the entry redirects), as does one whose path without it is an entry redirect to it (no loop), and `/` stays as it is.
 
+Brussels' host (brief 411): www's alias country, `/xx/<ll>/<path>`, is one 301 to `/be/<ll>/<path>`, the query kept (route `url-form`, `src/sites.js` `aliasPathTarget`, GET/HEAD, where the site has the `be/<ll>` root); `/xx/<ll>[/]` stays the entry redirect (302).
+
 Every site host (brief 342): its 404 is the brand's (`src/not-found.js`): the origin's 404 page (the code's
 `404.html`, Lufthansa's title and text until its script runs) gets the brand's title, `og:title`, `<html lang>`, the
 brand, nav, footer (and language) metadata of the path's root or language version (else the site's first) and its

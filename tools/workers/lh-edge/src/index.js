@@ -40,7 +40,7 @@ import { mfe, isMfePath } from './mfe.js';
 import { csiOffline, isOfflinePath } from './offline.js';
 import { aliasHostOf, forAlias } from './alias.js';
 import {
-  siteOf, siteEnv, siteHostsOf, ALTERNATES_SITES, AMPERSAND_SITES,
+  siteOf, siteEnv, siteHostsOf, ALTERNATES_SITES, AMPERSAND_SITES, aliasPathTarget,
 } from './sites.js';
 import {
   market, marketPath, marketSitemap, isMarketSitemapPath, withoutConditions,
@@ -453,6 +453,11 @@ async function siteAnswer(incoming, env, site, ctx) {
   const amp = read && AMPERSAND_SITES.has(site.name) && ampersandTarget(url);
   if (amp) {
     return finish(new Response(null, { status: 301, headers: { location: amp, 'cache-control': 'public, max-age=3600', 'x-lh-edge-route': 'url-form' } }), incoming, senv, 'url-form');
+  }
+  // www's alias country (Brussels' /xx/<ll>/<path>): 301 to the path under its country (/be/<ll>/)
+  const alias = read && aliasPathTarget(url, site.name, site.tables.table);
+  if (alias) {
+    return finish(new Response(null, { status: 301, headers: { location: alias, 'cache-control': 'public, max-age=3600', 'x-lh-edge-route': 'url-form' } }), incoming, senv, 'url-form');
   }
   // a brand whose tenant lh-backends has (scripts/brands.js backends): the sign-in return and
   // lh-backends' paths as on lh-com's hosts, the request (its host) unchanged: lh-backends picks

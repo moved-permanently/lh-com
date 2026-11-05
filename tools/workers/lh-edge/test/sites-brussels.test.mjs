@@ -130,6 +130,28 @@ test('brussels: entry paths: /, /be, /be/en and www\'s /xx/<ll> to a homepage (3
   assert.equal(Object.keys(SITE_ENTRIES.austrian).some((p) => p.startsWith('/be/fr') || p.startsWith('/be/nl')), false);
 });
 
+test('brussels: www\'s /xx/<ll>/<path> to /be/<ll>/<path> (301, query kept, no origin request); Austrian\'s /xx/ paths as before', async () => {
+  const expect = {
+    '/xx/en/baggage': '/be/en/baggage',
+    '/xx/fr/bagages?x=1': '/be/fr/bagages?x=1',
+    '/xx/nl/local-page/black-friday': '/be/nl/local-page/black-friday',
+    '/xx/en/homepage': '/be/en/homepage',
+  };
+  const answers = await Promise.all(Object.keys(expect).map((p) => get(`https://brussels.example${p}`)));
+  answers.forEach((resp, i) => {
+    const p = Object.keys(expect)[i];
+    assert.equal(resp.status, 301, p);
+    assert.equal(resp.headers.get('location'), expect[p], p);
+    assert.equal(resp.headers.get('x-lh-edge-route'), 'url-form', p);
+  });
+  assert.deepEqual(calls, []);
+  // a language Brussels has no be/ root of, the entry paths (302 as before), POST, Austrian's host
+  assert.notEqual((await get('https://brussels.example/xx/de/gepaeck')).status, 301);
+  assert.equal((await get('https://brussels.example/xx/en/')).status, 302);
+  assert.notEqual((await get('https://brussels.example/xx/en/baggage', { method: 'POST' })).status, 301);
+  assert.notEqual((await get('https://austrian.example/xx/en/baggage')).status, 301);
+});
+
 test('brussels: market roots from their language document where the markets row lists them', async () => {
   const gb = await get('https://brussels.example/gb/en/baggage');
   assert.equal(gb.status, 200);

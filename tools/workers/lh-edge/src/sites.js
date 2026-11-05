@@ -65,6 +65,19 @@ function rootEntries(rows, aliases = {}) {
 
 // alias countries of a site's roots (Brussels: www sends /xx/<ll>/* to /be/<ll>/*)
 const ENTRY_ALIASES = { brussels: { xx: 'be' } };
+
+/**
+ * A page path under a site's alias country (Brussels' /xx/<ll>/<path>, brief 411): the path under
+ * the country it stands for (/be/<ll>/<path>, query kept), where the site has that root; else null.
+ * /xx/<ll>[/] itself is an entry path (SITE_ENTRIES).
+ */
+export function aliasPathTarget(url, siteName, table) {
+  const aliases = ENTRY_ALIASES[siteName];
+  const m = aliases && url.pathname.match(/^\/([a-z]{2})\/([a-z]{2})(\/.+)$/);
+  const cc = m && aliases[m[1]];
+  if (!cc || !table[`${cc}/${m[2]}`]) return null;
+  return `/${cc}/${m[2]}${m[3]}${url.search}`;
+}
 // entry paths besides its roots', as on the source: Austrian's www sends /xx/en to
 // /at/en/homepage and /at to a 404 (/at/at/en/homepage), here to /at/en/homepage too
 // SWISS's www sends /ch to /ch/de/homepage, /xx/<ll>[/homepage] to /ch/<ll>/homepage and the
