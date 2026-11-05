@@ -276,6 +276,13 @@ body.brand-tap .cards .cards-card-image img {
   }
 }
 
+/* one card a row at every width (row 98: the importer's one-up, www's itemsPerRow 1, Wi-Fi's data
+   packages): the cells 24 px apart, each card 16 px inside its cell as the others */
+body.brand-tap :is(.cards, .cards-teaser).one-up > ul {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+}
+
 /* ------------------------------------------------ TAP's first screen (brief 311) ------- */
 
 /* www.flytap.com/pt-pt's first screen (2026-11-04, 1440 and 390 px; TAP's stylesheet
@@ -2548,6 +2555,11 @@ body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-c
 
 body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-cta)) .cards-teaser-body > * {
   margin-bottom: 8px;
+}
+
+/* a one-up card's text 40 px above its foot (www's 133 px Wi-Fi package at 1440, row 98) */
+body.brand-tap .cards-teaser.one-up li:has(> .cards-teaser-body > p:not(.cards-teaser-cta)) .cards-teaser-body {
+  padding-bottom: 40px;
 }
 
 body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-cta)) .cards-teaser-title {
