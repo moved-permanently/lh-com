@@ -62,6 +62,12 @@
   margin: 0 0 var(--spacing-default);
 }
 
+/* a {heading-small} title keeps the class's margin (styles.css: the markers win; www's
+   h3.heading-small 3.2rem, /de/en/baggage's cards; the rule above outranked it, brief 404) */
+.cards-teaser .cards-teaser-body > :is(h1, h2, h3, h4, h5, h6).heading-small {
+  margin-bottom: var(--heading-margin-l);
+}
+
 .cards-teaser .cards-teaser-body > :last-child {
   margin-bottom: 0;
 }
@@ -121,6 +127,13 @@
 /* variant external (off-site links): lh-arrow-up-right; not www.lufthansa.com nor the brand's own www */
 .cards-teaser .cards-teaser-cta-link[target="_blank"]:not([href*="//www.lufthansa.com"]):not(.cards-teaser-cta-own)::before {
   mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6.3 19 5 17.7 15.7 7H8V5.2h10.8V16H17V8.3z'/%3E%3C/svg%3E");
+}
+
+/* lh-com (brief 404, parity row 21): www.lufthansa.com's teaser cards keep variant hyper, the plain
+   arrow, also for a new tab (the Miles & More Credit Card on /de/en/flight-search); its external
+   arrow belongs to link lists, which are not teaser cards */
+body.brand-lufthansa .cards-teaser .cards-teaser-cta-link[target="_blank"]:not([href*="//www.lufthansa.com"]):not(.cards-teaser-cta-own)::before {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13.3 4.3 12 5.6l5.4 5.5H3v1.8h14.4L12 18.4l1.3 1.3L21 12z'/%3E%3C/svg%3E");
 }
 
 @media (width >= 768px) {

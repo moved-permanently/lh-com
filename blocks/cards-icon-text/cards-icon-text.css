@@ -259,3 +259,8 @@
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
+
+/* one tile (a one-column view of its own: carry-on baggage's TSA notice, brief 404): the row */
+.cards-icon-text.partner > ul:has(> li:only-child) {
+  grid-template-columns: minmax(0, 1fr);
+}

@@ -331,8 +331,12 @@ main > .section > .columns-media-wrapper:first-child > .columns-media.sidebar.pa
   display: none;
 }
 
-.columns-media.slider .columns-media-row > .columns-media-text:not(:last-child) {
-  margin-bottom: 68px;
+/* stacked (below 768px): 68px between the text and the slider; beside the pictures none
+   (online-check-in's app band was 68px taller than www's, brief 404) */
+@media (width < 768px) {
+  .columns-media.slider .columns-media-row > .columns-media-text:not(:last-child) {
+    margin-bottom: 68px;
+  }
 }
 
 @media (width < 1025px) {
@@ -417,6 +421,38 @@ main > .section > .columns-media-wrapper:first-child > .columns-media.sidebar.pa
   .columns-media .columns-media-dots button:focus-visible {
     outline: 2px solid var(--focus-color);
     outline-offset: 2px;
+  }
+
+  /* lh-com (brief 404, as the carousels' dots of 87f5d985): each dot a 24px target (WCAG 2.5.8)
+     with the 8px dot drawn in its middle; the targets touch, so the dots stand 24px apart */
+  body.brand-lufthansa .columns-media .columns-media-dots {
+    gap: 0;
+  }
+
+  body.brand-lufthansa .columns-media .columns-media-dots button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border: 0;
+    border-radius: 50%;
+    background: none;
+  }
+
+  body.brand-lufthansa .columns-media .columns-media-dots button::before {
+    content: "";
+    box-sizing: border-box;
+    width: 8px;
+    height: 8px;
+    border: 1px solid var(--lh-grey-7);
+    border-radius: 50%;
+    background-color: var(--lh-white);
+  }
+
+  body.brand-lufthansa .columns-media .columns-media-dots button[aria-current="true"]::before {
+    border-color: var(--lh-deepblue);
+    background-color: var(--lh-deepblue);
   }
 }
 
@@ -666,4 +702,42 @@ body.brand-b2b .columns-media .columns-media-text > :is(h2, h3) + p > a:has(> pi
 body.brand-b2b .columns-media .columns-media-text > :is(h2, h3) + p > a > picture img {
   width: 100%;
   height: auto;
+}
+
+/* option link-list (brief 404): the icon headings of www's .imagelinklist (.link-list.nav-link-list
+   [class*=heading-]: heading-copytext-large, padding 0 0 1.8rem; .image-wrapper img 2.6rem square,
+   margin-right 1.2rem, bottom .2rem), carry-on baggage's travel class columns; no indent */
+.columns-media.link-list .columns-media-row > .columns-media-text :is(h3, h4):has(> picture) {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0 0 18px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 110%;
+}
+
+.columns-media.link-list .columns-media-row > .columns-media-text :is(h3, h4) > picture {
+  position: relative;
+  top: auto;
+  bottom: 2px;
+  flex: 0 0 auto;
+  margin-right: 12px;
+}
+
+.columns-media.link-list .columns-media-row > .columns-media-text :is(h3, h4) > picture img {
+  width: 26px;
+  height: 26px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- the option's paragraphs after the shared ones */
+.columns-media.link-list .columns-media-row > .columns-media-text :is(h3, h4):has(> picture) ~ p:not(.link-wrapper, .button-wrapper) {
+  margin-left: 0;
+}
+
+/* .col-md-6 .col-lg: two per row from 768px, the row's cells from 1025px */
+@media (width >= 768px) and (width < 1025px) {
+  .columns-media.link-list .columns-media-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }

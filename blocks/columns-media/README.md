@@ -14,6 +14,7 @@ Single block table. Content: 2 columns, one or more rows (one row per text/media
 | --- | --- |
 | Wide media (75/25) | `wide-media` |
 | Sidebar (first cell 75%, second 25%) | `sidebar` |
+| Icon link lists (www's .imagelinklist / .link-list.nav-link-list: a 26px icon before each heading's text, no indent; two cells per row from 768px, the row's cells from 1025px; carry-on baggage's travel classes) | `link-list` |
 | Slider (several images in a media cell: slides with dots below 1025px) | `slider` |
 | Alternating rows, media above the text on mobile, tag chips (Insights category list) | `media-first` |
 | Several images in a media cell one under the other (Insights galleries, /de/en/onboard-delights dean&david) | `stacked` |

@@ -443,3 +443,64 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
+
+/* lh-com (brief 404, www.lufthansa.com's /de/en/articles, capture lufthansa-parity-001): the
+   .blog-article-container items touch, each padded 20px above and below on phones and 40px around
+   from 1025px (the block then without its side padding); h2.article-title LufthansaHead 36/39.6
+   light (28.1 on phones), 30px below; .blog-article-details-info LufthansaHead 24/26.4 bold (20.1);
+   descriptions 18/27, 10px below each; the count "571 Blog entries" LufthansaHead light with the
+   number bold. SWISS's magazine and Brussels keep the block's look */
+body.brand-lufthansa .blog-overview:not(.grid) .blog-overview-list {
+  gap: 0;
+}
+
+body.brand-lufthansa .blog-overview:not(.grid) .blog-overview-card {
+  padding: 20px 0;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- lh-com's list, never the grid variant */
+body.brand-lufthansa .blog-overview:not(.grid) .blog-overview-title {
+  margin: 0 0 30px;
+  font-size: var(--heading-font-size-xl);
+  font-weight: 300;
+  line-height: 1.1;
+}
+
+body.brand-lufthansa .blog-overview:not(.grid) .blog-overview-title a:any-link {
+  font-weight: inherit;
+}
+
+body.brand-lufthansa .blog-overview:not(.grid) .blog-overview-info {
+  margin: 0 0 10px;
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-m);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+body.brand-lufthansa .blog-overview:not(.grid) .blog-overview-description {
+  margin: 0 0 10px;
+  font-size: 18px;
+  line-height: 27px;
+}
+
+body.brand-lufthansa .blog-overview:not(.grid) .blog-overview-count {
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-xl);
+  font-weight: 300;
+  line-height: 1.1;
+}
+
+body.brand-lufthansa .blog-overview:not(.grid) .blog-overview-count strong {
+  font-weight: 700;
+}
+
+@media (width >= 1025px) {
+  body.brand-lufthansa .blog-overview:not(.grid) {
+    padding-inline: 0;
+  }
+
+  body.brand-lufthansa .blog-overview:not(.grid) .blog-overview-card {
+    padding: 40px;
+  }
+}

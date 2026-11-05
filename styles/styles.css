@@ -747,6 +747,27 @@ body.flow-spacing main .default-content-wrapper > * + h2 {
   margin-top: 0;
 }
 
+/* an icon in a default-content heading (www's .link-list.nav-link-list [class*=heading-]
+   .image-wrapper img: 2.6rem square, 1.2rem before the text, .2rem up; the carry-on baggage
+   pages' "1 personal item"; brief 404): an SVG without its own width would fill the column */
+main .default-content-wrapper :is(h2, h3, h4, h5, h6):has(> picture) {
+  display: flex;
+  align-items: center;
+}
+
+main .default-content-wrapper :is(h2, h3, h4, h5, h6) > picture {
+  position: relative;
+  bottom: 2px;
+  flex: 0 0 auto;
+  margin-right: 12px;
+}
+
+main .default-content-wrapper :is(h2, h3, h4, h5, h6) > picture img {
+  display: block;
+  width: 26px;
+  height: 26px;
+}
+
 main .default-content-wrapper > p > picture,
 main .default-content-wrapper > p > picture img,
 main .default-content-wrapper > p > a > picture,

@@ -175,16 +175,16 @@
 
 /* SWISS, Austrian, ITA, Brussels Airlines, Discover, Cargo (brief 374, WCAG 2.5.8): each dot a
    24 px target with www's 8 px dot drawn in its middle, as TAP's (tap.css); 24 px targets cannot
-   stand closer, so the dots are 24 px apart instead of 16. TAP and Air Dolomiti style their own,
-   lh-com keeps the 8 px buttons above. The drawn dot by tokens, set by a brand's theme (defaults:
+   stand closer, so the dots are 24 px apart instead of 16. TAP and Air Dolomiti style their own;
+   lh-com (body.brand-lufthansa) since brief 404 (the user's decision, www's dots are 8 px too). The drawn dot by tokens, set by a brand's theme (defaults:
    www's 8 px dot, the current one --lh-deepblue): --carousel-dot-size, -color (border), -fill,
    -radius, --carousel-dot-current-color and --carousel-dot-current-width (Austrian's red, ITA's
    rings and pill) */
-body:is(.brand-swiss, .brand-austrian, .brand-ita, .brand-brussels, .brand-discover, .brand-cargo) .carousel-images .carousel-images-dots {
+body:is(.brand-swiss, .brand-austrian, .brand-ita, .brand-brussels, .brand-discover, .brand-cargo, .brand-lufthansa) .carousel-images .carousel-images-dots {
   gap: 0;
 }
 
-body:is(.brand-swiss, .brand-austrian, .brand-ita, .brand-brussels, .brand-discover, .brand-cargo) .carousel-images .carousel-images-dot {
+body:is(.brand-swiss, .brand-austrian, .brand-ita, .brand-brussels, .brand-discover, .brand-cargo, .brand-lufthansa) .carousel-images .carousel-images-dot {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -195,7 +195,7 @@ body:is(.brand-swiss, .brand-austrian, .brand-ita, .brand-brussels, .brand-disco
   background: none;
 }
 
-body:is(.brand-swiss, .brand-austrian, .brand-ita, .brand-brussels, .brand-discover, .brand-cargo) .carousel-images .carousel-images-dot::before {
+body:is(.brand-swiss, .brand-austrian, .brand-ita, .brand-brussels, .brand-discover, .brand-cargo, .brand-lufthansa) .carousel-images .carousel-images-dot::before {
   content: "";
   box-sizing: border-box;
   width: var(--carousel-dot-size, 8px);
@@ -205,13 +205,13 @@ body:is(.brand-swiss, .brand-austrian, .brand-ita, .brand-brussels, .brand-disco
   background-color: var(--carousel-dot-fill, var(--lh-white));
 }
 
-body:is(.brand-swiss, .brand-austrian, .brand-ita, .brand-brussels, .brand-discover, .brand-cargo) .carousel-images .carousel-images-dot[aria-current="true"]::before {
+body:is(.brand-swiss, .brand-austrian, .brand-ita, .brand-brussels, .brand-discover, .brand-cargo, .brand-lufthansa) .carousel-images .carousel-images-dot[aria-current="true"]::before {
   width: var(--carousel-dot-current-width, var(--carousel-dot-size, 8px));
   border-color: var(--carousel-dot-current-color, var(--lh-deepblue));
   background-color: var(--carousel-dot-current-color, var(--lh-deepblue));
 }
 
-body:is(.brand-swiss, .brand-austrian, .brand-ita, .brand-brussels, .brand-discover, .brand-cargo) .carousel-images .carousel-images-dot[aria-current="true"] {
+body:is(.brand-swiss, .brand-austrian, .brand-ita, .brand-brussels, .brand-discover, .brand-cargo, .brand-lufthansa) .carousel-images .carousel-images-dot[aria-current="true"] {
   background: none;
 }
 

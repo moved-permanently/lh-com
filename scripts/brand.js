@@ -113,7 +113,8 @@ export function applyBrandIcons(read = metadata) {
 
 /**
  * Loads the brand's tokens (nothing for lh-com, nor for a brand with theme false) and marks the
- * body (body.brand-<key>). A theme file that isn't there (yet) leaves Lufthansa's look.
+ * body (body.brand-<key>; lh-com: body.brand-lufthansa). A theme file that isn't there (yet)
+ * leaves Lufthansa's look.
  */
 /**
  * A brand's sub-site (scripts/site-languages.js SUB_SITES, from getLocale().subSite): marks the
@@ -138,7 +139,11 @@ export async function loadSubSiteTheme(subSite, loadStyles = null) {
 
 export async function loadBrandTheme(read = metadata, loadStyles = null) {
   const key = brandOf(read);
-  if (!key) return '';
+  // lh-com (no brand key): body.brand-lufthansa scopes the rules where another brand's www differs
+  if (!key) {
+    if (typeof document !== 'undefined' && document.body) document.body.classList.add('brand-lufthansa');
+    return '';
+  }
   document.body.classList.add(`brand-${key}`);
   applyBrandIcons(read);
   if (BRANDS[key].theme === false) return key;
