@@ -551,6 +551,38 @@ function cards(items, P, s) {
   P.block(carousel ? 'carousel-cards' : `cards-teaser${per}`, rows);
 }
 
+/**
+ * A comparison table's parts (ComponentTableModel): rows (the header: an empty corner and the
+ * columns' headings, then a row per row title, its values; a row of the columns' buttons where
+ * there are), www's legend of the marks (a list) where a value is one, its notes, and the legend's
+ * and notes' headings in www's texts (the common store).
+ * - a row title or value "text|note": the text and the note in italics after a line break;
+ * - a value "[yes]" www's check (✓), "[no]" its cross (✕) (parity 95);
+ * - a column's heading with its description (the Club's price) and tooltip under it (parity 96).
+ */
+function tableParts(s, P) {
+  const cols = s.columns || [];
+  const noted = (text, note) => `${text}${note && note.trim() ? `<br><em>${esc(note.trim())}</em>` : ''}`;
+  const mark = { '[yes]': '✓', '[no]': '✕' };
+  const titles = (s.rowTitles || []).map((t) => { const [title, note] = String(t).split('|'); return noted(esc(title.trim()), note); });
+  const cellOf = (v) => { const [value, note] = String(v ?? '').split('|'); const t = value.trim(); return noted(mark[t] || esc(t), note); };
+  const headOf = (c) => {
+    const desc = plainOf(c.tableColumnDescription);
+    return noted(`${esc(c.heading)}${desc && desc.trim() ? `<br>${esc(desc.trim())}` : ''}`, c.tooltip && String(c.tooltip));
+  };
+  const rows = [['', ...cols.map(headOf)], ...titles.map((t, i) => [t, ...cols.map((c) => cellOf((c.items || [])[i]))])];
+  const ctas = cols.map((c) => P.link(c.ctaUrl, c.ctaLabel, 'primary').replace(/^<p>|<\/p>$/g, ''));
+  if (ctas.some(Boolean)) rows.push(['', ...ctas]);
+  const t = (k, d) => i18nOf(P.c.pageProps, P.c.lang, k) || d;
+  const marks = cols.some((c) => (c.items || []).some((v) => mark[String(v).split('|')[0].trim()]));
+  return {
+    rows,
+    legend: marks ? `<ul><li>✓ ${esc(t('service-included', 'Serviço incluído'))}</li><li>✕ ${esc(t('service-not-included', 'Serviço não incluído'))}</li></ul>` : '',
+    notes: P.rich(s.tableComplementaryNotes),
+    labels: { caption: t('caption', 'Legenda'), notes: t('notes', 'Notas') },
+  };
+}
+
 const HANDLERS = {
   ComponentSliderHomepageModel: (s, P) => {
     // no H1 of its own: www's homepage H1 is the card list's title ("Planeie a sua viagem ao
@@ -765,45 +797,42 @@ const HANDLERS = {
     if (u) P.block('embed', [[`<a href="${attr(u)}">${esc(s.title || u)}</a>`]]);
   },
   ComponentTableModel: (s, P) => {
-    // www's fare comparison: a column per fare (its heading and values), a row per row title
-    // ("title|note"); in a panel a table, at the top table-striped (header; matrix when wide)
-    const cols = s.columns || [];
-    const titles = (s.rowTitles || []).map((t) => {
-      const [title, note] = String(t).split('|');
-      return `${esc(title.trim())}${note ? `<br><em>${esc(note.trim())}</em>` : ''}`;
-    });
-    // a value: "[yes]" www's check (✓), "[no]" its cross (✕), "value|note" the value and its note
-    // (www's tooltip) under it, as the row titles' (parity 95)
-    const mark = { '[yes]': '✓', '[no]': '✕' };
-    const cellOf = (v) => {
-      const [value, note] = String(v ?? '').split('|');
-      const t = value.trim();
-      return `${mark[t] || esc(t)}${note && note.trim() ? `<br><em>${esc(note.trim())}</em>` : ''}`;
-    };
-    // a column's heading, its description (the Club's price) and tooltip under it, as www's (parity 96)
-    const headOf = (c) => {
-      const desc = plainOf(c.tableColumnDescription);
-      return `${esc(c.heading)}${desc && desc.trim() ? `<br>${esc(desc.trim())}` : ''}${c.tooltip && String(c.tooltip).trim() ? `<br><em>${esc(String(c.tooltip).trim())}</em>` : ''}`;
-    };
-    const rows = [['', ...cols.map(headOf)], ...titles.map((t, i) => [t, ...cols.map((c) => cellOf((c.items || [])[i]))])];
-    const marks = cols.some((c) => (c.items || []).some((v) => mark[String(v).split('|')[0].trim()]));
-    const ctas = cols.map((c) => P.link(c.ctaUrl, c.ctaLabel, 'primary').replace(/^<p>|<\/p>$/g, ''));
-    if (ctas.some(Boolean)) rows.push(['', ...ctas]);
+    // www's comparison table: in a panel a table, at the top table-striped (header; matrix when
+    // wide), then www's legend of the marks and its notes, each under its H2
+    const x = tableParts(s, P);
     if (P.cell) {
-      P.add(`<table><tbody>${rows.map((r, i) => `<tr>${r.map((x) => (i === 0 ? `<th>${x}</th>` : `<td>${x}</td>`)).join('')}</tr>`).join('')}</tbody></table>`);
+      P.add(`<table><tbody>${x.rows.map((r, i) => `<tr>${r.map((c) => (i === 0 ? `<th>${c}</th>` : `<td>${c}</td>`)).join('')}</tr>`).join('')}</tbody></table>`);
     } else {
-      P.block(cols.length > 3 ? 'table-striped (header, matrix)' : 'table-striped (header)', rows);
+      P.block((s.columns || []).length > 3 ? 'table-striped (header, matrix)' : 'table-striped (header)', x.rows);
     }
-    // www's legend of the marks and its notes, each under its H2 (its texts, the common store)
-    const t = (k, d) => i18nOf(P.c.pageProps, P.c.lang, k) || d;
-    if (marks) P.add(`${P.heading(2, t('caption', 'Legenda'))}<ul><li>✓ ${esc(t('service-included', 'Serviço incluído'))}</li><li>✕ ${esc(t('service-not-included', 'Serviço não incluído'))}</li></ul>`);
-    const notes = P.rich(s.tableComplementaryNotes);
-    if (notes) P.add(`${marks ? P.heading(2, t('notes', 'Notas')) : ''}${notes}`);
+    if (x.legend) P.add(`${P.heading(2, x.labels.caption)}${x.legend}`);
+    if (x.notes) P.add(`${x.legend ? P.heading(2, x.labels.notes) : ''}${x.notes}`);
   },
   ComponentTabsItemsListModel: (s, P) => {
+    const tabs = s.tabs || [];
+    const fares = tabs.length && tabs.every((t) => (t.tabsItems || []).length
+      && t.tabsItems.every((i) => (i.sections || []).length === 1 && i.sections[0].__typename === 'ComponentTableModel'));
+    if (fares && !P.cell) {
+      // the fare pages (route groups of cabins, a table each): ema-adobe's fare-comparison
+      // (blocks/fare-comparison/README.md, parity 99): its label rows, a Group a route group, a
+      // Cabin a tab, its header and service rows, its Caption and Notes; the groups' H2s the block's
+      const { labels } = tableParts({}, P);
+      const rows = [['Caption label', esc(labels.caption)], ['Notes label', esc(labels.notes)]];
+      tabs.forEach((t) => {
+        rows.push(['Group', esc(t.fieldLabel)]);
+        t.tabsItems.forEach((i) => {
+          const x = tableParts(i.sections[0], P);
+          rows.push(['Cabin', esc(i.label)], ...x.rows);
+          if (x.legend) rows.push(['Caption', x.legend]);
+          if (x.notes) rows.push(['Notes', x.notes]);
+        });
+      });
+      P.block('fare-comparison', rows);
+      return;
+    }
     // tabs in tabs (route group, cabin): a heading per group, its items as accordion-columns
     // (tabs), each item's components in its panel
-    (s.tabs || []).forEach((t) => {
+    tabs.forEach((t) => {
       P.add(P.heading(2, t.fieldLabel));
       P.block('accordion-columns (tabs)', (t.tabsItems || []).map((x) => [esc(x.label), `${P.rich(x.description)}${nested(x.sections, P)}`]));
     });

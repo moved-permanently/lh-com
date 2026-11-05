@@ -818,19 +818,35 @@ describe('tap-import pages', () => {
     assert.equal(items, cats.flatMap((c) => c.subCategories.flatMap((s) => s.items)).length);
   });
 
-  it('fares: a heading per route group, its cabins as accordion-columns (tabs) with the fare table in each panel', () => {
-    const { html, report } = convertPage(nd('tarifas-tap'), ctx('https://www.flytap.com/pt-pt/reservas/tarifas-tap'));
+  it('fares (parity 99): ema-adobe\'s fare-comparison, a Group a route group, a Cabin a tab, its fares and services, its Caption and Notes (blocks/fare-comparison/README.md)', () => {
+    const page = nd('tarifas-tap');
+    page.props.pageProps._nextI18Next = { initialI18nStore: { pt: { common: { caption: 'Legenda', 'service-included': 'Serviço incluído', 'service-not-included': 'Serviço não incluído', notes: 'Notas' } } } };
+    const { html, report } = convertPage(page, ctx('https://www.flytap.com/pt-pt/reservas/tarifas-tap'));
     const d = dom(html);
-    // (each fare table's legend and notes under their H2s, as www: parity 95)
-    assert.deepEqual([...d.querySelectorAll('h2')].map((h) => h.textContent).filter((t) => !/^(Legenda|Notas)$/.test(t)), ['Voos para Europa e Norte de África', 'Voos intercontinentais']);
-    const tabs = d.querySelectorAll('.accordion-columns.tabs');
-    assert.equal(tabs.length, 2);
-    const first = tabs[0].querySelector(':scope > div');
-    assert.equal(first.firstElementChild.textContent, 'Economy');
-    const table = first.querySelector('table');
-    // the header row: the fares; a row: its title (and note), the fares' values
-    assert.deepEqual([...table.querySelectorAll('tr:first-child th')].map((x) => x.textContent), ['', 'Discount', 'Classic', 'Plus']);
-    assert.ok(table.querySelector('tr:nth-child(2)').textContent.startsWith('Bagagem de mão'));
+    const b = d.querySelector('.fare-comparison');
+    assert.ok(b, 'a fare-comparison block');
+    assert.ok(!d.querySelector('.accordion-columns.tabs, .table-striped'), 'no tabs or tables of their own');
+    assert.ok(![...d.querySelectorAll('h2')].some((h) => /Voos para Europa|Voos intercontinentais|^Legenda$|^Notas$/.test(h.textContent)), 'the route groups\' H2s and the legend\'s come from the block');
+    const rows = [...b.querySelectorAll(':scope > div')].map((r) => [...r.children]);
+    const keys = rows.map((r) => r[0].textContent.trim());
+    assert.deepEqual(keys.slice(0, 4), ['Caption label', 'Notes label', 'Group', 'Cabin']);
+    assert.equal(rows[0][1].textContent, 'Legenda');
+    assert.equal(rows[1][1].textContent, 'Notas');
+    assert.deepEqual(rows.filter((r) => r[0].textContent === 'Group').map((r) => r[1].textContent), ['Voos para Europa e Norte de África', 'Voos intercontinentais']);
+    assert.deepEqual(rows.filter((r) => r[0].textContent === 'Cabin').map((r) => r[1].textContent), ['Economy', 'Business', 'Economy', 'Economy Prime']);
+    // after a Cabin its header row: the first cell empty, the fares
+    const head = rows[keys.indexOf('Cabin') + 1];
+    assert.deepEqual(head.map((c) => c.textContent), ['', 'Discount', 'Classic', 'Plus']);
+    // a service row: its name with the note in italics, the fares' values (✓ / ✕, a value's note)
+    const hand = rows.find((r) => r[0].textContent.startsWith('Bagagem de mão'));
+    assert.ok(hand[0].querySelector('br + em'), 'the note in italics after a line break');
+    assert.ok(rows.some((r) => r.slice(1).some((c) => c.textContent.startsWith('✓'))));
+    // each cabin's Caption (www's legend) and Notes
+    const caption = rows.find((r) => r[0].textContent === 'Caption');
+    assert.deepEqual([...caption[1].querySelectorAll('li')].map((li) => li.textContent), ['✓ Serviço incluído', '✕ Serviço não incluído']);
+    assert.ok(rows.find((r) => r[0].textContent === 'Notes')[1].querySelector('p'));
+    assert.equal(keys.filter((k) => k === 'Caption').length, 4, 'a Caption a cabin');
+    assert.ok(!/\[(yes|no)\]/.test(html));
     assert.deepEqual(report.generic, []);
   });
 
