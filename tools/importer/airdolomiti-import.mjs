@@ -781,6 +781,19 @@ export function promoCards(a, page) {
   return { name: 'carousel-cards (promo)', rows };
 }
 
+/**
+ * A slider's "see all" link as www writes it: its text with the number of cards ("Vedi tutto (3)",
+ * "vedi tutte (2)"); no link, none.
+ * @param {Object} a the slider's attributes
+ * @param {{link: Function}} page
+ * @returns {string}
+ */
+export function showMoreLink(a, page) {
+  if (!a.showMoreTextUrl || !a.showMoreText) return '';
+  const n = (a.cardList || []).length;
+  return page.link(a.showMoreTextUrl, n ? `${plain(a.showMoreText)} (${n})` : plain(a.showMoreText));
+}
+
 // blocks that are lists of items (kept as blocks where they stand, not flattened into a column)
 const LIST_BLOCKS = /^lazyblock\/(tariffe-list|tariffe-table|news-list-grid|select-flight-list|add-baggage-cards|mini-card-slider|story-card-slider|cosa-fare-carroussel|gridtwocolumns)$/;
 
@@ -846,14 +859,14 @@ const HANDLERS = {
     page.add(page.heading(a.tag, a.title));
     const promo = promoCards(a, page);
     page.block(promo.name, promo.rows);
-    if (a.showMoreTextUrl && a.showMoreText) page.add(page.link(a.showMoreTextUrl, a.showMoreText));
+    page.add(showMoreLink(a, page));
   },
   'lazyblock/story-card-slider': (a, page) => {
     page.add(page.heading(a.tag, a.title));
     page.block('carousel-cards', (a.cardList || []).map((c) => cardRow(page, {
       image: c.gallery || c.image, tag: a.tagCard, title: c.title, url: c.url,
     })));
-    if (a.showMoreTextUrl && a.showMoreText) page.add(page.link(a.showMoreTextUrl, a.showMoreText));
+    page.add(showMoreLink(a, page));
   },
   'lazyblock/cosa-fare-carroussel': (a, page) => {
     // www's small picture inline before the heading: a section of its own with the style
@@ -1186,10 +1199,13 @@ export function breadcrumbRows(rendered, sourceUrl, { exists = sitePage, home = 
   if (crumbs.length < 2) return [];
   const prefix = HOMES[langOf(sourceUrl)] || '/';
   const parents = crumbs.slice(0, -1).filter((c) => c.href).map((c) => edsPath(new URL(c.href, sourceUrl).href)).filter(Boolean);
-  const parent = [...parents].reverse().find((p) => p !== prefix && exists(p)) || prefix;
+  const found = [...parents].reverse().find((p) => p !== prefix && exists(p)) || prefix;
+  // (the English and German homepages by their pages' address: aem.page answers the slash-less one with 404)
+  const parent = HOME_PAGES[found] || found;
   return [['Parent', `<a href="${attr(parent)}">${esc(parent)}</a>`], ['Breadcrumb Title', esc(crumbs[crumbs.length - 1].text)]];
 }
 const HOMES = { it: '/', en: '/en', de: '/de' };
+const HOME_PAGES = { '/en': '/en/', '/de': '/de/' };
 const sitePage = (p) => Object.values(loadSite().paths).includes(p) || Object.values(HOMES).includes(p);
 
 /** Converts one snapshot to the document's HTML; returns { html, report }. */
