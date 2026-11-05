@@ -10,7 +10,12 @@
     "pt": "xx/pt",
     "ru": "xx/ru",
     "hk": "xx/hk",
-    "zh": "xx/zh"
+    "zh": "xx/zh",
+    "it": "xx/it",
+    "el": "xx/el",
+    "ja": "xx/ja",
+    "ko": "xx/ko",
+    "pl": "xx/pl"
   },
   "fallbackLanguageVersion": "de/en",
   "neutralVersions": {
@@ -4380,6 +4385,244 @@
         "shopLang"
       ],
       "batch": 16
+    },
+    "xx/it": {
+      "status": "pilot",
+      "documents": "own",
+      "name": "Altri paesi | Italiano",
+      "countryName": {
+        "en": null,
+        "de": null,
+        "it": "Altri paesi"
+      },
+      "homeAirport": "FRA",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "countryName.en",
+        "countryName.de",
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 17
+    },
+    "ch/it": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Svizzera | Italiano",
+      "countryName": {
+        "en": "Switzerland",
+        "de": "Schweiz",
+        "it": "Svizzera"
+      },
+      "homeAirport": "ZRH",
+      "currency": "CHF",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 17
+    },
+    "it/it": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Italia | Italiano",
+      "countryName": {
+        "en": "Italy",
+        "de": "Italien",
+        "it": "Italia"
+      },
+      "homeAirport": "MIL",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 17
+    },
+    "xx/el": {
+      "status": "pilot",
+      "documents": "own",
+      "name": "Παγκόσμιος ιστότοπος | Ελληνικά",
+      "countryName": {
+        "en": null,
+        "de": null,
+        "el": "Παγκόσμιος ιστότοπος"
+      },
+      "homeAirport": "FRA",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "countryName.en",
+        "countryName.de",
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 18
+    },
+    "cy/el": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Κύπρος | Ελληνικά",
+      "countryName": {
+        "en": "Cyprus",
+        "de": "Zypern",
+        "el": "Κύπρος"
+      },
+      "homeAirport": "LCA",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 18
+    },
+    "gr/el": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Ελλάδα | Ελληνικά",
+      "countryName": {
+        "en": "Greece",
+        "de": "Griechenland",
+        "el": "Ελλάδα"
+      },
+      "homeAirport": "ATH",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 18
+    },
+    "xx/ja": {
+      "status": "pilot",
+      "documents": "own",
+      "name": "その他の国 | 日本語",
+      "countryName": {
+        "en": null,
+        "de": null,
+        "ja": "その他の国"
+      },
+      "homeAirport": "FRA",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "countryName.en",
+        "countryName.de",
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 19
+    },
+    "jp/ja": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Japan | 日本語",
+      "countryName": {
+        "en": "Japan",
+        "de": "Japan",
+        "ja": "Japan"
+      },
+      "homeAirport": "TYO",
+      "currency": "JPY",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 19
+    },
+    "xx/ko": {
+      "status": "pilot",
+      "documents": "own",
+      "name": "다른 국가들 | 한국어",
+      "countryName": {
+        "en": null,
+        "de": null,
+        "ko": "다른 국가들"
+      },
+      "homeAirport": "FRA",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "countryName.en",
+        "countryName.de",
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 20
+    },
+    "kr/ko": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "대한민국 | 한국어",
+      "countryName": {
+        "en": "Korea, Republic of",
+        "de": "Korea, Republik",
+        "ko": "대한민국"
+      },
+      "homeAirport": "SEL",
+      "currency": "KRW",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 20
+    },
+    "xx/pl": {
+      "status": "pilot",
+      "documents": "own",
+      "name": "Inne kraje | Polski",
+      "countryName": {
+        "en": null,
+        "de": null,
+        "pl": "Inne kraje"
+      },
+      "homeAirport": "FRA",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "countryName.en",
+        "countryName.de",
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 21
+    },
+    "pl/pl": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Polska | Polski",
+      "countryName": {
+        "en": "Poland",
+        "de": "Polen",
+        "pl": "Polska"
+      },
+      "homeAirport": "WAW",
+      "currency": "PLN",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 21
     }
   }
 }

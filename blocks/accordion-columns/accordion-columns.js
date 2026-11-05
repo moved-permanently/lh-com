@@ -209,6 +209,10 @@ export const FILTER_LABELS = {
   ru: { label: 'Начните вводить тему', empty: 'Темы не найдены.', clear: 'Удалить' },
   hk: { label: '輸入文字以尋找主題', empty: '找不到主題。', clear: '移除' },
   zh: { label: '输入文字以查找主题', empty: '未找到主题。', clear: '移除' },
+  el: { label: 'Βρείτε ένα θέμα πληκτρολογώντας', empty: 'Δεν βρέθηκαν θέματα.', clear: 'Αφαίρεση' },
+  ja: { label: '入力してトピックを検索', empty: 'トピックが見つかりません。', clear: '削除' },
+  ko: { label: '입력하여 주제 찾기', empty: '주제를 찾을 수 없습니다.', clear: '삭제' },
+  pl: { label: 'Znajdź temat, wpisując tekst', empty: 'Nie znaleziono tematów.', clear: 'Usuń' },
 };
 // rows of option filter: their first cell (lower case) -> the text they set
 const FILTER_ROWS = { 'filter label': 'label', 'no results': 'empty' };

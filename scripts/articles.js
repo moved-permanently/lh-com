@@ -188,6 +188,9 @@ const MONTHS = {
   de: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
   pt: ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'],
   ru: ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'],
+  it: ['gennaio', 'febbraio', 'marzo', 'aprile', 'maggio', 'giugno', 'luglio', 'agosto', 'settembre', 'ottobre', 'novembre', 'dicembre'],
+  el: ['Ιανουαρίου', 'Φεβρουαρίου', 'Μαρτίου', 'Απριλίου', 'Μαΐου', 'Ιουνίου', 'Ιουλίου', 'Αυγούστου', 'Σεπτεμβρίου', 'Οκτωβρίου', 'Νοεμβρίου', 'Δεκεμβρίου'],
+  pl: ['stycznia', 'lutego', 'marca', 'kwietnia', 'maja', 'czerwca', 'lipca', 'sierpnia', 'września', 'października', 'listopada', 'grudnia'],
 };
 
 /**
@@ -219,8 +222,13 @@ export function formatArticleDate(value, locale, style = 'market') {
   if (locale.lang === 'pt') return `${day} de ${month} de ${year}`;
   // Russian: the month in the genitive, then "г." ("3 ноября 2026 г.")
   if (locale.lang === 'ru') return `${day} ${month} ${year} г.`;
-  // Chinese (Traditional hk, Simplified zh): year, month and day with 年, 月, 日 ("2026年11月3日")
-  if (locale.lang === 'hk' || locale.lang === 'zh') return `${year}年${d.getUTCMonth() + 1}月${day}日`;
+  // Chinese (Traditional hk, Simplified zh) and Japanese: year, month and day with 年, 月, 日
+  // ("2026年11月3日")
+  if (['hk', 'zh', 'ja'].includes(locale.lang)) return `${year}年${d.getUTCMonth() + 1}月${day}日`;
+  // Korean: 년, 월, 일 ("2026년 11월 3일")
+  if (locale.lang === 'ko') return `${year}년 ${d.getUTCMonth() + 1}월 ${day}일`;
+  // Italian, Greek (the month in the genitive), Polish (the genitive): "3 novembre 2026"
+  if (['it', 'el', 'pl'].includes(locale.lang)) return `${day} ${month} ${year}`;
   return `${day}. ${month} ${year}`;
 }
 

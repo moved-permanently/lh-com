@@ -101,10 +101,19 @@ test('a root without a row: its own country and language, no home airport or cur
   }
   const de = rowless('de');
   if (de) assert.equal(getLocale(`/${de}/x`).key, 'de/de', `German: de/de's documents (${de})`);
-  const it = getLocale('/it/it/homepage');
-  assert.deepEqual({ ...core(it), key: it.key }, {
-    country: 'it', lang: 'it', homeAirport: null, currency: null, key: 'de/en',
-  }, 'no Italian version yet: de/en\'s documents, Italian texts fall back to English');
+  // a root of a language without a version (it/it until batch 17): de/en's documents, its texts
+  // fall back to English; since batch 21 every root of www's has a row
+  const other = roots.filter((r) => r.ownSitemap).map((r) => `${r.cc}/${r.ll}`).find((k) => !LOCALE_TABLE[k] && !['en', 'de'].includes(k.split('/')[1]));
+  if (other) {
+    const l = getLocale(`/${other}/homepage`);
+    const [cc, ll] = other.split('/');
+    assert.deepEqual({ ...core(l), key: l.key }, {
+      country: cc, lang: ll, homeAirport: null, currency: null, key: 'de/en',
+    }, `no version of ${ll}: de/en's documents, its texts fall back to English`);
+    assert.deepEqual(portalHeaders(other), {});
+  } else {
+    assert.deepEqual(roots.filter((r) => r.ownSitemap && !LOCALE_TABLE[r.root]).map((r) => r.root), []);
+  }
   assert.equal(languageDefaults('jp', 'ja').hreflang, 'ja-JP');
 });
 
@@ -119,7 +128,9 @@ test('the readers of the table: time zones, shop language, portal headers (four 
     'X-Portal': 'LH', 'X-Portal-Site': 'AT', 'X-Portal-Language': 'de', 'X-Portal-Taxonomy': '', 'X-Portal-CountryId': '',
   });
   assert.equal(portalHeaders('ch/de')['X-Portal-Site'], 'CH');
-  assert.deepEqual(portalHeaders('it/it'), {});
+  // a row's headers (it/it's since batch 17); a path that is no row, none
+  assert.equal(portalHeaders('it/it')['X-Portal-Site'], 'IT');
+  assert.deepEqual(portalHeaders('zz/it'), {});
 });
 
 test('a language version still pilot (French, batch 11): allowed while its market roots are; a wave makes both live, a country wave not the root of a pilot version', () => {

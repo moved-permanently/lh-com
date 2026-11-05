@@ -246,6 +246,18 @@ export const LOCALE_TABLE = {
   'cn/zh': { country: 'cn', lang: 'zh', hreflang: 'zh-CN', status: 'pilot', documents: 'language', name: '中国内地 (China Mainland) | 简体中文', countryName: { en: 'China (Mainland)', de: 'China (Mainland)', zh: '中国内地 (China Mainland)' }, homeAirport: 'SHA', currency: 'CNY', timeZone: null, shopLang: null },
   'hk/zh': { country: 'hk', lang: 'zh', hreflang: 'zh-HK', status: 'pilot', documents: 'language', name: '中国香港 (Hong Kong, China) | 简体中文', countryName: { en: 'Hong Kong, China', de: 'Hong Kong, China', zh: '中国香港 (Hong Kong, China)' }, homeAirport: 'HKG', currency: 'HKD', timeZone: null, shopLang: null },
   'tw/zh': { country: 'tw', lang: 'zh', hreflang: 'zh-TW', status: 'pilot', documents: 'language', name: '中国台湾 (Taiwan, China) | 简体中文', countryName: { en: 'Taiwan, China', de: 'Taiwan, China', zh: '中国台湾 (Taiwan, China)' }, homeAirport: 'TPE', currency: 'TWD', timeZone: null, shopLang: null },
+  'xx/it': { country: 'xx', lang: 'it', hreflang: 'it', status: 'pilot', documents: 'own', name: 'Altri paesi | Italiano', countryName: { en: null, de: null, it: 'Altri paesi' }, homeAirport: 'FRA', currency: 'EUR', timeZone: null, shopLang: null },
+  'ch/it': { country: 'ch', lang: 'it', hreflang: 'it-CH', status: 'pilot', documents: 'language', name: 'Svizzera | Italiano', countryName: { en: 'Switzerland', de: 'Schweiz', it: 'Svizzera' }, homeAirport: 'ZRH', currency: 'CHF', timeZone: null, shopLang: null },
+  'it/it': { country: 'it', lang: 'it', hreflang: 'it-IT', status: 'pilot', documents: 'language', name: 'Italia | Italiano', countryName: { en: 'Italy', de: 'Italien', it: 'Italia' }, homeAirport: 'MIL', currency: 'EUR', timeZone: null, shopLang: null },
+  'xx/el': { country: 'xx', lang: 'el', hreflang: 'el', status: 'pilot', documents: 'own', name: 'Παγκόσμιος ιστότοπος | Ελληνικά', countryName: { en: null, de: null, el: 'Παγκόσμιος ιστότοπος' }, homeAirport: 'FRA', currency: 'EUR', timeZone: null, shopLang: null },
+  'cy/el': { country: 'cy', lang: 'el', hreflang: 'el-CY', status: 'pilot', documents: 'language', name: 'Κύπρος | Ελληνικά', countryName: { en: 'Cyprus', de: 'Zypern', el: 'Κύπρος' }, homeAirport: 'LCA', currency: 'EUR', timeZone: null, shopLang: null },
+  'gr/el': { country: 'gr', lang: 'el', hreflang: 'el-GR', status: 'pilot', documents: 'language', name: 'Ελλάδα | Ελληνικά', countryName: { en: 'Greece', de: 'Griechenland', el: 'Ελλάδα' }, homeAirport: 'ATH', currency: 'EUR', timeZone: null, shopLang: null },
+  'xx/ja': { country: 'xx', lang: 'ja', hreflang: 'ja', status: 'pilot', documents: 'own', name: 'その他の国 | 日本語', countryName: { en: null, de: null, ja: 'その他の国' }, homeAirport: 'FRA', currency: 'EUR', timeZone: null, shopLang: null },
+  'jp/ja': { country: 'jp', lang: 'ja', hreflang: 'ja-JP', status: 'pilot', documents: 'language', name: 'Japan | 日本語', countryName: { en: 'Japan', de: 'Japan', ja: 'Japan' }, homeAirport: 'TYO', currency: 'JPY', timeZone: null, shopLang: null },
+  'xx/ko': { country: 'xx', lang: 'ko', hreflang: 'ko', status: 'pilot', documents: 'own', name: '다른 국가들 | 한국어', countryName: { en: null, de: null, ko: '다른 국가들' }, homeAirport: 'FRA', currency: 'EUR', timeZone: null, shopLang: null },
+  'kr/ko': { country: 'kr', lang: 'ko', hreflang: 'ko-KR', status: 'pilot', documents: 'language', name: '대한민국 | 한국어', countryName: { en: 'Korea, Republic of', de: 'Korea, Republik', ko: '대한민국' }, homeAirport: 'SEL', currency: 'KRW', timeZone: null, shopLang: null },
+  'xx/pl': { country: 'xx', lang: 'pl', hreflang: 'pl', status: 'pilot', documents: 'own', name: 'Inne kraje | Polski', countryName: { en: null, de: null, pl: 'Inne kraje' }, homeAirport: 'FRA', currency: 'EUR', timeZone: null, shopLang: null },
+  'pl/pl': { country: 'pl', lang: 'pl', hreflang: 'pl-PL', status: 'pilot', documents: 'language', name: 'Polska | Polski', countryName: { en: 'Poland', de: 'Polen', pl: 'Polska' }, homeAirport: 'WAW', currency: 'PLN', timeZone: null, shopLang: null },
 };
 
 /** Every market-language root of www (its sitemap dataset), space-separated. */
@@ -264,6 +276,11 @@ export const LANGUAGE_VERSIONS = {
   ru: 'xx/ru',
   hk: 'xx/hk',
   zh: 'xx/zh',
+  it: 'xx/it',
+  el: 'xx/el',
+  ja: 'xx/ja',
+  ko: 'xx/ko',
+  pl: 'xx/pl',
 };
 
 /** A language without a version of its own (texts fall back to English). */

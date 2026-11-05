@@ -49,7 +49,9 @@ test('lh-com (no brand), and the brands without a portal: LH, as before', () => 
     assert.deepEqual(portalHeaders(m), headers('LH', row[0].toUpperCase(), row[1]), `${m} without a page`);
   });
   assert.deepEqual(onPage({ brand: 'cargo' }, () => portalHeaders('de/en')), headers('LH', 'DE', 'en'));
-  assert.deepEqual(onPage({}, () => portalHeaders('it/it')), {}, 'not a locale of lh-com: none, as before');
+  // it/it is a row of lh-com's since batch 17 (pilot): LH; a path that is no locale: none
+  assert.deepEqual(onPage({}, () => portalHeaders('it/it')), headers('LH', 'IT', 'it'));
+  assert.deepEqual(onPage({}, () => portalHeaders('zz/it')), {}, 'not a locale of lh-com: none, as before');
   assert.equal(portalOf({ country: 'de', lang: 'en' }), 'LH');
   assert.equal(labelTenant({ country: 'de', lang: 'en' }), 'lh');
 });
