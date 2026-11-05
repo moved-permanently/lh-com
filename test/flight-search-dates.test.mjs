@@ -148,3 +148,58 @@ test('a date from the page URL shows in its field', async () => {
   assert.equal(parts(block, 'return').shown.value, '11/05/2030');
   at('main--lh-com--moved-permanently.aem.page', '/de/en/homepage', null);
 });
+
+const hotelBlock = async () => {
+  const block = document.createElement('div');
+  block.className = 'flight-search';
+  block.innerHTML = '<div><div>Tabs</div><div>Hotel</div></div>';
+  document.body.replaceChildren(block);
+  decorate(block);
+  await flush();
+  return block.querySelector('.flight-search-hotel-form');
+};
+const hotelParts = (form, name) => {
+  const field = form.querySelector(`.flight-search-hotel-${name}`);
+  return {
+    field,
+    native: field.querySelector('input[type="date"]'),
+    shown: field.querySelector('input.flight-search-date-value'),
+    label: field.querySelector('label.flight-search-hotel-label'),
+  };
+};
+
+test('the hotel tab\'s check-in and check-out: one Tab stop each, named by their labels, the date in the page\'s language', async () => {
+  at('main--lh-com--moved-permanently.aem.page', '/de/de/homepage', null);
+  const form = await hotelBlock();
+  ['check-in', 'check-out'].forEach((name) => {
+    const { native, shown, label } = hotelParts(form, name);
+    assert.ok(shown, `${name}: the field`);
+    assert.equal(shown.readOnly, true);
+    assert.equal(shown.hasAttribute('tabindex'), false);
+    assert.equal(native.getAttribute('tabindex'), '-1');
+    assert.equal(native.getAttribute('aria-hidden'), 'true');
+    assert.equal(label.getAttribute('for'), shown.id, 'the label names the field');
+    assert.ok(shown.getAttribute('aria-describedby').includes('-hint'), 'the hint describes the field');
+    assert.match(shown.value, /^\d\d\.\d\d\.\d{4}$/, 'today and tomorrow, as before, in German');
+  });
+  const stops = [...form.querySelectorAll('.flight-search-hotel-fields input')]
+    .filter((e) => e.getAttribute('tabindex') !== '-1');
+  assert.equal(stops.length, 3, 'the location and the two dates');
+});
+
+test('the hotel dates\' keys and the check-out following the check-in', async () => {
+  at('main--lh-com--moved-permanently.aem.page', '/de/de/homepage', null);
+  const form = await hotelBlock();
+  const cin = hotelParts(form, 'check-in');
+  const cout = hotelParts(form, 'check-out');
+  let opened = 0;
+  cin.native.showPicker = () => { opened += 1; };
+  key(cin.shown, 'Enter');
+  cin.shown.click();
+  assert.equal(opened, 2);
+  cin.native.value = '2026-12-01';
+  cin.native.dispatchEvent(new window.Event('change', { bubbles: true }));
+  assert.equal(cin.shown.value, '01.12.2026');
+  assert.equal(cout.native.value, '2026-12-02', 'the night after, as before');
+  assert.equal(cout.shown.value, '02.12.2026');
+});
