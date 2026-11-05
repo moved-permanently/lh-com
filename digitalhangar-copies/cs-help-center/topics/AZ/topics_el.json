@@ -1,0 +1,1977 @@
+{
+  "targetCustomerStatus": "BASE",
+  "menu": [
+    {
+      "code": "travelBookingStatus",
+      "title": "Τρέχουσες πληροφορίες πτήσης",
+      "children": [],
+      "options": {
+        "recommended": [
+          {
+            "type": "SELF_SERVICE",
+            "link": "https://www.ita-airways.com/xx/el/manage-my-bookings/manage/flight-status",
+            "linkTitle": "Ελέγξτε τώρα",
+            "description": "Αναζήτηση ανά αριθμό πτήσης, δρομολόγιο πτήσης ή αεροδρόμιο για να μάθετε σχετικά με την κατάσταση την πτήσης σας.",
+            "title": "Έλεγχος κατάστασης πτήσης",
+            "phone": null,
+            "priority": 1,
+            "deeplink": null,
+            "notifications": [],
+            "trackingType": "TRANSACTIONAL",
+            "profileHandoverEnabled": false
+          }
+        ],
+        "others": []
+      },
+      "icon": "icon-flight-status",
+      "imageUrl": "https://www.ita-airways.com/content/dam/ita/images/local_images/help-center//travel-information.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": false
+    },
+    {
+      "code": "rebookingsCancelationsRefunds",
+      "title": "Αλλαγές κράτησης και ακυρώσεις",
+      "children": [
+        {
+          "code": "rebookFlight",
+          "title": "Επανακράτηση πτήσης",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/el/manage-my-bookings/manage/manage-my-bookings",
+                "linkTitle": "Διαχείριση κράτησης",
+                "description": "Αλλάξτε την ημερομηνία ή την ώρα της πτήσης σας ηλεκτρονικά για έναν ή περισσότερους επιβάτες στην κράτησή σας.",
+                "title": "Αλλαγή κράτησης",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.ita-airways.com/booking/manage-booking/retrieve?lang=el-GR&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Καλέστε το Κέντρο Εξυπηρέτησης",
+                "description": "Εάν οι online υπηρεσίες μας δεν μπόρεσαν να σας βοηθήσουν με το αίτημά σας, το Κέντρο Εξυπηρέτησης είναι εδώ για να σας υποστηρίξει.",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "NewBoardingPass",
+          "title": "Λήψη νέας κάρτας επιβίβασης",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://once.ita-airways.com/connect/main-app?APPID=LHG_ONLINE&TENANT=AZ&LANGUAGE=el&COUNTRY=xx&MODE=PORTAL",
+                "linkTitle": "Μετάβαση στο check-in",
+                "description": "Για να λάβετε τη νέα σας κάρτα επιβίβασης, κάντε ξανά check-in μέσω του παρακάτω συνδέσμου.",
+                "title": "Κάντε ξανά check-in",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "confirmRebooking",
+          "title": "Επιβεβαίωση αλλαγής κράτησης",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Καλέστε το Κέντρο Εξυπηρέτησης",
+                "description": "Οι ειδικοί μας θα σας βοηθήσουν ευχαρίστως για οποιεσδήποτε ερωτήσεις ή ανησυχίες.",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "cancelBookingGetRefund",
+          "title": "Αίτημα ακύρωσης ή/και επιστροφής χρημάτων",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/el/manage-my-bookings/manage/manage-my-bookings",
+                "linkTitle": "Διαχείριση κράτησης",
+                "description": "Ακυρώστε την κράτησή σας και ζητήστε επιστροφή χρημάτων online. \n \nΛάβετε υπόψη ότι μπορείτε να ακυρώσετε μόνον ολόκληρες κρατήσεις.",
+                "title": "Ακύρωση κράτησης",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.ita-airways.com/booking/manage-booking/retrieve?lang=el-GR&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Καλέστε το Κέντρο Εξυπηρέτησης",
+                "description": "Οι ειδικοί μας θα σας βοηθήσουν ευχαρίστως για οποιεσδήποτε ερωτήσεις ή ανησυχίες.",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-flight-irreg",
+      "imageUrl": "https://www.ita-airways.com/content/dam/ita/images/local_images/help-center//rebooking-cancellation-refund.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "RefundsAndCompensations",
+      "title": "Επιστροφές χρημάτων και αποζημιώσεις",
+      "children": [
+        {
+          "code": "claimCompensationFlightDisruption",
+          "title": "Αποζημίωση για αλλαγές πτήσεων που έγιναν από την αεροπορική εταιρεία",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.complaint.ita-airways.com/s/complaint?lang_code=el&market=xx",
+                "linkTitle": "Άνοιγμα φόρμας",
+                "description": "Αν επηρεαστήκατε από κάποια διαταραχή στο πρόγραμμα πτήσεων, μπορείτε να υποβάλετε αίτημα αποζημίωσης μέσω της φόρμας επικοινωνίας μας.",
+                "title": "Αίτημα αποζημίωσης",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "cancelBookingGetRefund",
+          "title": "Αίτημα ακύρωσης ή/και επιστροφής χρημάτων",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/el/manage-my-bookings/manage/manage-my-bookings",
+                "linkTitle": "Διαχείριση κράτησης",
+                "description": "Ακυρώστε την κράτησή σας και ζητήστε επιστροφή χρημάτων online. \n \nΛάβετε υπόψη ότι μπορείτε να ακυρώσετε μόνον ολόκληρες κρατήσεις.",
+                "title": "Ακύρωση κράτησης",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.ita-airways.com/booking/manage-booking/retrieve?lang=el-GR&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Καλέστε το Κέντρο Εξυπηρέτησης",
+                "description": "Οι ειδικοί μας θα σας βοηθήσουν ευχαρίστως για οποιεσδήποτε ερωτήσεις ή ανησυχίες.",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "refundBaggageIrregularities",
+          "title": "Αποζημίωση για προβλήματα αποσκευών",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.complaint.ita-airways.com/s/complaint?lang_code=el&market=xx",
+                "linkTitle": "Άνοιγμα φόρμας",
+                "description": "Χρησιμοποιήστε τη φόρμα επικοινωνίας για να ζητήσετε αποζημίωση για πρόσθετα έξοδα λόγω καθυστέρησης ή ζημιάς σε αποσκευές.",
+                "title": "Αίτημα αποζημίωσης",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "passengerRights",
+          "title": "Δικαιώματα επιβάτη",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/el/legal/passenger-rights",
+                "linkTitle": "Μάθετε περισσότερα",
+                "description": "Μάθετε για τα δικαιώματα των επιβατών σας σε περίπτωση ακύρωσης, καθυστέρησης ή άλλων προβλημάτων στην εκτέλεση πτήσεων.",
+                "title": "Προβολή δικαιωμάτων επιβάτη",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-refund-possible",
+      "imageUrl": "https://www.ita-airways.com/content/dam/ita/images/local_images/help-center//refund-compensations.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "checkin",
+      "title": "Check-in",
+      "children": [
+        {
+          "code": "HelpWithCheckIn",
+          "title": "Πρόβλημα με το check-in",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Καλέστε το Κέντρο Εξυπηρέτησης",
+                "description": "Οι ειδικοί μας θα σας βοηθήσουν ευχαρίστως για οποιεσδήποτε ερωτήσεις ή ανησυχίες.",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "NewBoardingPass",
+          "title": "Λήψη νέας κάρτας επιβίβασης",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://once.ita-airways.com/connect/main-app?APPID=LHG_ONLINE&TENANT=AZ&LANGUAGE=el&COUNTRY=xx&MODE=PORTAL",
+                "linkTitle": "Μετάβαση στο check-in",
+                "description": "Για να λάβετε τη νέα σας κάρτα επιβίβασης, κάντε ξανά check-in μέσω του παρακάτω συνδέσμου.",
+                "title": "Κάντε ξανά check-in",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "otherCheckinQuestions",
+          "title": "Ερωτήσεις σχετικά με το check-in",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/el/book-and-prepare/travel-information/check-in-information",
+                "linkTitle": "Μετάβαση στις πληροφορίες",
+                "description": "Μπορείτε να βρείτε περισσότερες πληροφορίες και απαντήσεις στις συχνές ερωτήσεις και απαντήσεις μας σχετικά με το check-in.",
+                "title": "Περισσότερα σχετικά με το check-in",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-boarding-card",
+      "imageUrl": "https://www.ita-airways.com/content/dam/ita/images/local_images/help-center//check-in.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "baggage",
+      "title": "Αποσκευές",
+      "children": [
+        {
+          "code": "baggage.rules",
+          "title": "Κανόνες & τιμές αποσκευών",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/el/manage-my-bookings/manage/manage-my-bookings",
+                "linkTitle": "Διαχείριση κράτησης",
+                "description": "Δείτε πόσες αποσκευές μπορείτε να πάρετε στην προσεχή πτήση σας.",
+                "title": "Δείτε τον αριθμό δωρεάν αποσκευών",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.ita-airways.com/booking/manage-booking/retrieve?lang=el-GR&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/el/book-and-prepare/travel-information/baggage",
+                "linkTitle": "Μετάβαση στην επισκόπηση",
+                "description": "Βρείτε μια επισκόπηση όλων των τύπων, των υπηρεσιών και των ισχύοντων χρεώσεων των αποσκευών.",
+                "title": "Δείτε όλες τις πληροφορίες σχετικά με τις αποσκευές",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Καλέστε το Κέντρο Εξυπηρέτησης",
+                "description": "Οι ειδικοί μας θα σας βοηθήσουν ευχαρίστως για οποιεσδήποτε ερωτήσεις ή ανησυχίες.",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 3,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "baggage.excess",
+          "title": "Επιπλέον αποσκευή / υπέρβαρη αποσκευή",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/el/manage-my-bookings/manage/manage-my-bookings",
+                "linkTitle": "Διαχείριση κράτησης",
+                "description": "Δείτε πόσες αποσκευές μπορείτε να πάρετε στην προσεχή πτήση σας και προσθέστε περισσότερες εάν χρειάζεται.",
+                "title": "Προσθήκη επιπλέον αποσκευής",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.ita-airways.com/booking/manage-booking/retrieve?lang=el-GR&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/el/manage-my-bookings/extra-services/extra-baggage",
+                "linkTitle": "Μάθετε περισσότερα",
+                "description": "Περισσότερες πληροφορίες για το πώς να προσθέσετε επιπλέον αποσκευές στην πτήση της κράτησής σας.",
+                "title": "Δείτε τους κανονισμούς για αποσκευές",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Καλέστε το Κέντρο Εξυπηρέτησης",
+                "description": "Οι ειδικοί μας θα σας βοηθήσουν ευχαρίστως για οποιεσδήποτε ερωτήσεις ή ανησυχίες.",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 3,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "baggage.sports",
+          "title": "Προσθήκη αθλητικού εξοπλισμού",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/el/manage-my-bookings/manage/manage-my-bookings",
+                "linkTitle": "Διαχείριση κράτησης",
+                "description": "Προσθέστε απευθείας αθλητικό εξοπλισμό για την πτήση της κράτησής σας.",
+                "title": "Προσθήκη αθλητικού εξοπλισμού",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.ita-airways.com/booking/manage-booking/retrieve?lang=el-GR&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/el/book-and-prepare/travel-information/baggage/special-baggage",
+                "linkTitle": "Δείτε όλους τους κανονισμούς",
+                "description": "Βρείτε εδώ όλες τις πληροφορίες σχετικά με τον αθλητικό εξοπλισμό και τις ειδικές αποσκευές.",
+                "title": "Δείτε τους κανονισμούς για αποσκευές",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Καλέστε το Κέντρο Εξυπηρέτησης",
+                "description": "Οι ειδικοί μας θα σας βοηθήσουν ευχαρίστως για οποιεσδήποτε ερωτήσεις ή ανησυχίες.",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 3,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "pets",
+          "title": "Ταξίδι με κατοικίδιο",
+          "children": [
+            {
+              "code": "travelPetsInCabin",
+              "title": "Ζώα στην καμπίνα (έως 8 kg μαζί με το κλουβί μεταφοράς)",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/el/manage-my-bookings/manage/manage-my-bookings",
+                    "linkTitle": "Εγγραφείτε τώρα",
+                    "description": "Καταχωρίστε τα κατοικίδιά σας για μια υπάρχουσα κράτηση για να τα έχετε μαζί σας στην καμπίνα.",
+                    "title": "Προσθήκη κατοικίδιου",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.ita-airways.com/booking/manage-booking/retrieve?lang=el-GR&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/el/book-and-prepare/other-requests/travelling-with-pets/pets-in-cabin",
+                    "linkTitle": "Δείτε όλους τους όρους",
+                    "description": "Ελέγξτε τους όρους και τα απαιτούμενα έγγραφα για το ταξίδι με κατοικίδια ζώα.",
+                    "title": "Ελέγξτε τους ταξιδιωτικούς όρους",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "Καλέστε το Κέντρο Εξυπηρέτησης",
+                    "description": "Οι ειδικοί μας θα σας βοηθήσουν ευχαρίστως για οποιεσδήποτε ερωτήσεις ή ανησυχίες.",
+                    "title": null,
+                    "phone": "+496966102730",
+                    "priority": 3,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "travelPetsInCargo",
+              "title": "Ζώα στον χώρο αποσκευών του αεροσκάφους",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/el/book-and-prepare/other-requests/travelling-with-pets/pets-as-cargo",
+                    "linkTitle": "Δείτε όλους τους όρους",
+                    "description": "Ελέγξτε τους όρους για το ταξίδι με κατοικίδια ζώα και βεβαιωθείτε ότι έχετε όλα τα απαιτούμενα έγγραφα.",
+                    "title": "Ελέγξτε τους ταξιδιωτικούς όρους",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "Καλέστε το Κέντρο Εξυπηρέτησης",
+                    "description": "Οι ειδικοί μας θα σας βοηθήσουν ευχαρίστως για οποιεσδήποτε ερωτήσεις ή ανησυχίες.",
+                    "title": null,
+                    "phone": "+496966102730",
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "baggage.damagedOrDelayed",
+          "title": "Προβλήματα με αποσκευές",
+          "children": [
+            {
+              "code": "statusBaggageReport",
+              "title": "Διαχείριση αναφοράς καθυστέρησης αποσκευής",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://wtrweb.worldtracer.aero/WorldTracerWeb/pax.do?airlineCode=az",
+                    "linkTitle": "Μετάβαση στην αναφορά αποσκευών",
+                    "description": "Μπορείτε να ελέγξετε την κατάσταση της αναφοράς αποσκευών σας ή να αλλάξετε τη διεύθυνση και τα στοιχεία επικοινωνίας σας.",
+                    "title": "Προβολή ή επεξεργασία αναφοράς αποσκευών",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "FORM",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "refundBaggageIrregularities",
+              "title": "Αποζημίωση για προβλήματα αποσκευών",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.complaint.ita-airways.com/s/complaint?lang_code=el&market=xx",
+                    "linkTitle": "Άνοιγμα φόρμας",
+                    "description": "Χρησιμοποιήστε τη φόρμα επικοινωνίας για να ζητήσετε αποζημίωση για πρόσθετα έξοδα λόγω καθυστέρησης ή ζημιάς σε αποσκευές.",
+                    "title": "Αίτημα αποζημίωσης",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "FORM",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "baggage.lost",
+          "title": "Απώλεια προσωπικού είδους",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/el/book-and-prepare/travel-information/baggage/baggage-assistance",
+                "linkTitle": "Μάθετε περισσότερα",
+                "description": "Δείτε πώς μπορείτε να αναφέρετε προσωπικά αντικείμενα που χάθηκαν στο αεροδρόμιο, σε ένα αεροσκάφος ή λείπουν από τις παραδοτέες αποσκευές σας.",
+                "title": "Αναφορά χαμένου αντικειμένου",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "baggage.dangerousGoods",
+          "title": "Επικίνδυνα αντικείμενα και όπλα",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/el/book-and-prepare/travel-information/baggage/restricted-and-prohibited-items",
+                "linkTitle": "Μάθετε περισσότερα",
+                "description": "Ρίξτε μια ματιά στον περιεκτικό κατάλογο επικίνδυνων και απαγορευμένων ειδών μας.",
+                "title": "Δείτε τους κανονισμούς για αποσκευές",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Καλέστε το Κέντρο Εξυπηρέτησης",
+                "description": "Οι ειδικοί μας θα σας βοηθήσουν ευχαρίστως για οποιεσδήποτε ερωτήσεις ή ανησυχίες.",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-baggage",
+      "imageUrl": "https://www.ita-airways.com/content/dam/ita/images/local_images/help-center//baggage.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "addFlightServices",
+      "title": "Επιπλέον υπηρεσίες",
+      "children": [
+        {
+          "code": "booking.Seats",
+          "title": "Θέσεις",
+          "children": [
+            {
+              "code": "changeSeat",
+              "title": "Προσθήκη/Αλλαγή θέσης",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/el/manage-my-bookings/manage/manage-my-bookings",
+                    "linkTitle": "Διαχείριση κράτησης",
+                    "description": "Κάντε κράτηση ή αλλάξτε τη θέση για την επόμενη πτήση σας.",
+                    "title": "Προσθήκη/Αλλαγή θέσης",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.ita-airways.com/booking/manage-booking/retrieve?lang=el-GR&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/el/manage-my-bookings/extra-services/seats-selection",
+                    "linkTitle": "Δείτε την επισκόπηση",
+                    "description": "Λάβετε πληροφορίες για όλες τις κατηγορίες θέσεων και τις τιμές τους ανά διαδρομή.",
+                    "title": "Προβολή όλων των κατηγοριών θέσεων",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "Καλέστε το Κέντρο Εξυπηρέτησης",
+                    "description": "Οι ειδικοί μας θα σας βοηθήσουν ευχαρίστως για οποιεσδήποτε ερωτήσεις ή ανησυχίες.",
+                    "title": null,
+                    "phone": "+496966102730",
+                    "priority": 3,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            },
+            {
+              "code": "BookNeighboringSeat",
+              "title": "Κράτηση διπλανής θέσης",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/el/manage-my-bookings/manage/manage-my-bookings",
+                    "linkTitle": "Διαχείριση κράτησης",
+                    "description": "Κάντε κράτηση της κενής θέσης δίπλα σας για ένα ακόμα πιο άνετο ταξίδι.",
+                    "title": "Κράτηση διπλανής θέσης",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.ita-airways.com/booking/manage-booking/retrieve?lang=el-GR&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "Καλέστε το Κέντρο Εξυπηρέτησης",
+                    "description": "Οι ειδικοί μας θα σας βοηθήσουν ευχαρίστως για οποιεσδήποτε ερωτήσεις ή ανησυχίες.",
+                    "title": null,
+                    "phone": "+496966102730",
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "specialMeal",
+          "title": "Γεύματα στο αεροσκάφος",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/el/manage-my-bookings/manage/manage-my-bookings",
+                "linkTitle": "Διαχείριση κράτησης",
+                "description": "Παραγγείλετε ένα ειδικό γεύμα για διαιτητικούς, θρησκευτικούς ή διατροφικούς λόγους.  \n \nΣημειώστε ότι η διαθεσιμότητα αυτής της υπηρεσίας εξαρτάται από τις προϋποθέσεις κράτησής σας.",
+                "title": "Παραγγελία ειδικού γεύματος",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.ita-airways.com/booking/manage-booking/retrieve?lang=el-GR&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Καλέστε το Κέντρο Εξυπηρέτησης",
+                "description": "Οι ειδικοί μας θα σας βοηθήσουν ευχαρίστως για οποιεσδήποτε ερωτήσεις ή ανησυχίες.",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "onBoardServices",
+          "title": "Υπηρεσίες εν πτήσει",
+          "children": [
+            {
+              "code": "ejournals",
+              "title": "Ψηφιακές εφημερίδες και περιοδικά",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/el/book-and-prepare/travel-information/at-the-airport/digital-newsstand",
+                    "linkTitle": "Μάθετε περισσότερα",
+                    "description": "Δείτε πώς μπορείτε να χρησιμοποιήσετε την ψηφιακή μας έκθεση ειδήσεων εν πτήσει.",
+                    "title": "Περισσότερα για την ψηφιακή έκθεση ειδήσεων",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "flynet",
+              "title": "Διαδίκτυο στο αεροπλάνο",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/el/world-of-ita-airways/services-on-board/connectivity-on-board",
+                    "linkTitle": "Μάθετε περισσότερα",
+                    "description": "Βρείτε περισσότερες πληροφορίες σχετικά με την υπηρεσία διαδικτυακής πρόσβασης εν πτήσει και τον τρόπο χρήσης της.",
+                    "title": "Λάβετε Wi-Fi εν πτήσει",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "inflightEntertainment",
+              "title": "Ψυχαγωγία εν πτήσει",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/el/world-of-ita-airways/services-on-board/entertainment-on-board",
+                    "linkTitle": "Προβολή όλων των επιλογών",
+                    "description": "Απολαύστε τον χρόνο σας εν πτήσει με τη μεγάλη ποικιλία ταινιών, ηχητικών βιβλίων και άλλων.",
+                    "title": "Προβολή ψυχαγωγίας εν πτήσει",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "Lounges",
+          "title": "Lounge",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/el/book-and-prepare/travel-information/at-the-airport/lounges",
+                "linkTitle": "Βλ. κατάλογο",
+                "description": "Βρείτε όλα τα διαθέσιμα lounge ανά αεροδρόμιο και πώς μπορείτε να έχετε πρόσβαση σε αυτά.",
+                "title": "Εύρεση lounge",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Καλέστε το Κέντρο Εξυπηρέτησης",
+                "description": "Οι ειδικοί μας θα σας βοηθήσουν ευχαρίστως για οποιεσδήποτε ερωτήσεις ή ανησυχίες.",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "TravelInsurance",
+          "title": "Ταξιδιωτική ασφάλιση",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/el/manage-my-bookings/manage/manage-my-bookings",
+                "linkTitle": "Επιλέξτε ασφάλιση",
+                "description": "Αγοράστε ταξιδιωτική ασφάλιση για το επόμενο ταξίδι σας.  \n  \nΣημειώστε ότι η διαθεσιμότητα αυτής της υπηρεσίας εξαρτάται από τις προϋποθέσεις κράτησής σας.",
+                "title": "Αγορά ασφάλισης",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.ita-airways.com/booking/manage-booking/retrieve?lang=el-GR&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "pets",
+          "title": "Ταξίδι με κατοικίδιο",
+          "children": [
+            {
+              "code": "travelPetsInCabin",
+              "title": "Ζώα στην καμπίνα (έως 8 kg μαζί με το κλουβί μεταφοράς)",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/el/manage-my-bookings/manage/manage-my-bookings",
+                    "linkTitle": "Εγγραφείτε τώρα",
+                    "description": "Καταχωρίστε τα κατοικίδιά σας για μια υπάρχουσα κράτηση για να τα έχετε μαζί σας στην καμπίνα.",
+                    "title": "Προσθήκη κατοικίδιου",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.ita-airways.com/booking/manage-booking/retrieve?lang=el-GR&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/el/book-and-prepare/other-requests/travelling-with-pets/pets-in-cabin",
+                    "linkTitle": "Δείτε όλους τους όρους",
+                    "description": "Ελέγξτε τους όρους και τα απαιτούμενα έγγραφα για το ταξίδι με κατοικίδια ζώα.",
+                    "title": "Ελέγξτε τους ταξιδιωτικούς όρους",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "Καλέστε το Κέντρο Εξυπηρέτησης",
+                    "description": "Οι ειδικοί μας θα σας βοηθήσουν ευχαρίστως για οποιεσδήποτε ερωτήσεις ή ανησυχίες.",
+                    "title": null,
+                    "phone": "+496966102730",
+                    "priority": 3,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "travelPetsInCargo",
+              "title": "Ζώα στον χώρο αποσκευών του αεροσκάφους",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/el/book-and-prepare/other-requests/travelling-with-pets/pets-as-cargo",
+                    "linkTitle": "Δείτε όλους τους όρους",
+                    "description": "Ελέγξτε τους όρους για το ταξίδι με κατοικίδια ζώα και βεβαιωθείτε ότι έχετε όλα τα απαιτούμενα έγγραφα.",
+                    "title": "Ελέγξτε τους ταξιδιωτικούς όρους",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "Καλέστε το Κέντρο Εξυπηρέτησης",
+                    "description": "Οι ειδικοί μας θα σας βοηθήσουν ευχαρίστως για οποιεσδήποτε ερωτήσεις ή ανησυχίες.",
+                    "title": null,
+                    "phone": "+496966102730",
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "TravelingWithChildren",
+          "title": "Ταξιδεύοντας με παιδιά",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/el/book-and-prepare/other-requests/families-and-children",
+                "linkTitle": "Μάθετε περισσότερα",
+                "description": "Βρείτε πληροφορίες σχετικά με το ταξίδι με παιδιά, από την προετοιμασία για το ταξίδι σας μέχρι τις θέσεις και πολλά άλλα.",
+                "title": "Ταξιδιωτικές πληροφορίες",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Καλέστε το Κέντρο Εξυπηρέτησης",
+                "description": "Μιλήστε απευθείας σε έναν από τους αντιπροσώπους του Κέντρου Εξυπηρέτησης εάν αντιμετωπίσετε τεχνικά προβλήματα ή θα θέλατε να ζητήσετε βρεφική κούνια ή να κάνετε κράτηση πτήσης για παιδί που ταξιδεύει μόνο του.",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "confirmAdditionalServices",
+          "title": "Επιβεβαίωση πρόσθετων υπηρεσιών",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Καλέστε το Κέντρο Εξυπηρέτησης",
+                "description": "Το Κέντρο Εξυπηρέτησής μας θα χαρεί να επαληθεύσει εάν οι ζητούμενες υπηρεσίες σας έχουν επιβεβαιωθεί.",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "addFlightServices.problem",
+          "title": "Πρόβλημα με την προσθήκη υπηρεσίας",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Καλέστε το Κέντρο Εξυπηρέτησης",
+                "description": "Οι ειδικοί μας θα σας βοηθήσουν ευχαρίστως για οποιεσδήποτε ερωτήσεις ή ανησυχίες.",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "MoreServices",
+          "title": "Πρόσθετες υπηρεσίες",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/el/manage-my-bookings/extra-services",
+                "linkTitle": "Επισκόπηση υπηρεσίας",
+                "description": "Ανακαλύψτε πρόσθετες υπηρεσίες που σας βοηθούν να προετοιμάσετε και να απολαύσετε κάθε μέρος του ταξιδιού σας.",
+                "title": "Προβολή όλων των υπηρεσιών",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Καλέστε το Κέντρο Εξυπηρέτησης",
+                "description": "Οι ειδικοί μας θα σας βοηθήσουν ευχαρίστως για οποιεσδήποτε ερωτήσεις ή ανησυχίες.",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-additional-services",
+      "imageUrl": "https://www.ita-airways.com/content/dam/ita/images/local_images/help-center//add-flight-service.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "booking",
+      "title": "Κάντε κράτηση και προετοιμαστείτε",
+      "children": [
+        {
+          "code": "booking.Seats",
+          "title": "Θέσεις",
+          "children": [
+            {
+              "code": "changeSeat",
+              "title": "Προσθήκη/Αλλαγή θέσης",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/el/manage-my-bookings/manage/manage-my-bookings",
+                    "linkTitle": "Διαχείριση κράτησης",
+                    "description": "Κάντε κράτηση ή αλλάξτε τη θέση για την επόμενη πτήση σας.",
+                    "title": "Προσθήκη/Αλλαγή θέσης",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.ita-airways.com/booking/manage-booking/retrieve?lang=el-GR&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/el/manage-my-bookings/extra-services/seats-selection",
+                    "linkTitle": "Δείτε την επισκόπηση",
+                    "description": "Λάβετε πληροφορίες για όλες τις κατηγορίες θέσεων και τις τιμές τους ανά διαδρομή.",
+                    "title": "Προβολή όλων των κατηγοριών θέσεων",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "Καλέστε το Κέντρο Εξυπηρέτησης",
+                    "description": "Οι ειδικοί μας θα σας βοηθήσουν ευχαρίστως για οποιεσδήποτε ερωτήσεις ή ανησυχίες.",
+                    "title": null,
+                    "phone": "+496966102730",
+                    "priority": 3,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            },
+            {
+              "code": "BookNeighboringSeat",
+              "title": "Κράτηση διπλανής θέσης",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/el/manage-my-bookings/manage/manage-my-bookings",
+                    "linkTitle": "Διαχείριση κράτησης",
+                    "description": "Κάντε κράτηση της κενής θέσης δίπλα σας για ένα ακόμα πιο άνετο ταξίδι.",
+                    "title": "Κράτηση διπλανής θέσης",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.ita-airways.com/booking/manage-booking/retrieve?lang=el-GR&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "Καλέστε το Κέντρο Εξυπηρέτησης",
+                    "description": "Οι ειδικοί μας θα σας βοηθήσουν ευχαρίστως για οποιεσδήποτε ερωτήσεις ή ανησυχίες.",
+                    "title": null,
+                    "phone": "+496966102730",
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "booking.Upgrades",
+          "title": "Αναβαθμίσεις",
+          "children": [
+            {
+              "code": "upgradeFlight",
+              "title": "Κράτηση αναβάθμισης ",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/el/manage-my-bookings/extra-services/upgrade/immediate-upgrade",
+                    "linkTitle": "Μάθετε περισσότερα",
+                    "description": "Κάντε αμέσως αναβάθμιση σε Business Class ή Premium Economy με την Άμεση αναβάθμιση, χωρίς να απαιτείται υποβολή προσφορών.",
+                    "title": "Κράτηση αναβάθμισης",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "BidUpgrade",
+              "title": "Κάντε προσφορά για αναβάθμιση",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/el/manage-my-bookings/extra-services/upgrade/bid-upgrade",
+                    "linkTitle": "Υποβάλλετε προσφορά",
+                    "description": "Αναβάθμιση σε υψηλότερη κατηγορία θέσης ταξιδιού στην τιμή που επιθυμείτε.  \n \nΛάβετε υπόψη ότι η διαθεσιμότητα είναι περιορισμένη και υπόκειται στους ισχύοντες όρους και προϋποθέσεις.",
+                    "title": "Κάντε προσφορά για αναβάθμιση",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "reconfirmation",
+          "title": "Επιβεβαίωση κράτησης",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Καλέστε το Κέντρο Εξυπηρέτησης",
+                "description": "Οι ειδικοί μας θα σας βοηθήσουν ευχαρίστως για οποιεσδήποτε ερωτήσεις ή ανησυχίες.",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "booking.SupportBookingPayment",
+          "title": "Υποστήριξη σχετικά με την κράτηση ή την πληρωμή",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Καλέστε το Κέντρο Εξυπηρέτησης",
+                "description": "Οι ειδικοί μας θα σας βοηθήσουν ευχαρίστως για οποιεσδήποτε ερωτήσεις ή ανησυχίες.",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "NameChangeAfterBooking",
+          "title": "Αλλαγή ονόματος μετά την κράτηση",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Καλέστε το Κέντρο Εξυπηρέτησης",
+                "description": "Επικοινωνήστε με το Κέντρο Εξυπηρέτησης για να ζητήσετε διόρθωση ονόματος στην κράτησή σας. \n \nΛάβετε υπόψη ότι μπορούν να γίνουν μόνο μικρές διορθώσεις, όπως διόρθωση ορθογραφικών σφαλμάτων.",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "passengerReceipt",
+          "title": "Απόδειξη / τιμολόγιο επιβάτη",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/el/manage-my-bookings/manage/passenger-receipt",
+                "linkTitle": "Αίτημα τώρα",
+                "description": "Ανακτήστε ηλεκτρονικά την απόδειξη επιβάτη για το ταξίδι σας. \n \nΕάν κάνατε την κράτησή σας μέσω ταξιδιωτικού γραφείου, επικοινωνήστε με το ταξιδιωτικό γραφείο για να ζητήσετε απόδειξη.",
+                "title": "Αίτημα για απόδειξη επιβάτη",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Καλέστε το Κέντρο Εξυπηρέτησης",
+                "description": "Οι ειδικοί μας θα σας βοηθήσουν ευχαρίστως για οποιεσδήποτε ερωτήσεις ή ανησυχίες.",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "sustainableFlying",
+          "title": "Πιο βιώσιμα αεροπορικά ταξίδια",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/el/world-of-ita-airways/discover-ita-airways/sustainability",
+                "linkTitle": "Εξερευνήστε πρωτοβουλίες",
+                "description": "Μάθετε περισσότερα για τις πρωτοβουλίες μας για τη βιωσιμότητα.",
+                "title": "Υποστήριξη της βιωσιμότητας",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-airplane-outbound",
+      "imageUrl": "https://www.ita-airways.com/content/dam/ita/images/local_images/help-center//booking.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "accessibility",
+      "title": "Ταξίδια και εύκολη πρόσβαση",
+      "children": [],
+      "options": {
+        "recommended": [
+          {
+            "type": "SELF_SERVICE",
+            "link": "https://www.ita-airways.com/xx/el/book-and-prepare/other-requests/accessible-travel",
+            "linkTitle": "Μετάβαση στην επισκόπηση",
+            "description": "Βρείτε μια επισκόπηση όλων των διαθέσιμων υπηρεσιών για άνετο ταξίδι σε οποιαδήποτε περίσταση.",
+            "title": "Προβολή όλων των υπηρεσιών",
+            "phone": null,
+            "priority": 1,
+            "deeplink": null,
+            "notifications": [],
+            "trackingType": "INFORMATIONAL",
+            "profileHandoverEnabled": false
+          }
+        ],
+        "others": [
+          {
+            "type": "CALL",
+            "link": null,
+            "linkTitle": "Καλέστε το Κέντρο Εξυπηρέτησης",
+            "description": "Οι ειδικοί μας θα σας βοηθήσουν ευχαρίστως για οποιεσδήποτε ερωτήσεις ή ανησυχίες.",
+            "title": null,
+            "phone": "+496966102730",
+            "priority": 2,
+            "deeplink": null,
+            "notifications": [],
+            "trackingType": null,
+            "profileHandoverEnabled": false
+          }
+        ]
+      },
+      "icon": "icon-wheelchair",
+      "imageUrl": "https://www.ita-airways.com/content/dam/ita/images/local_images/help-center//accessible-travel.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": false
+    },
+    {
+      "code": "TravelIDLogin",
+      "title": "Σύνδεση και Travel ID",
+      "children": [],
+      "options": {
+        "recommended": [
+          {
+            "type": "SELF_SERVICE",
+            "link": "https://www.ita-airways.com/xx/el/profile/travel-id/travel-id-faq",
+            "linkTitle": "Δείτε τις συχνές ερωτήσεις",
+            "description": "Βρείτε περισσότερες πληροφορίες σχετικά με το Travel ID και βοήθεια για προβλήματα σύνδεσης στις Συχνές Ερωτήσεις.",
+            "title": "Συχνές ερωτήσεις για τη σύνδεση και το Travel ID",
+            "phone": null,
+            "priority": 1,
+            "deeplink": null,
+            "notifications": [],
+            "trackingType": "INFORMATIONAL",
+            "profileHandoverEnabled": false
+          }
+        ],
+        "others": [
+          {
+            "type": "CALL",
+            "link": null,
+            "linkTitle": "Καλέστε το Κέντρο Εξυπηρέτησης",
+            "description": "Εάν χρειάζεστε περαιτέρω υποστήριξη, οι ειδικοί μας είναι εδώ για να σας βοηθήσουν.",
+            "title": null,
+            "phone": "+496966102730",
+            "priority": 2,
+            "deeplink": null,
+            "notifications": [],
+            "trackingType": null,
+            "profileHandoverEnabled": false
+          }
+        ]
+      },
+      "icon": "icon-service-login",
+      "imageUrl": null,
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": false
+    }
+  ],
+  "_metadata": {
+    "tenant": "AZ",
+    "language": "el",
+    "extracted_at": "2026-11-05T02:03:09.360249",
+    "record_count": 1
+  }
+}

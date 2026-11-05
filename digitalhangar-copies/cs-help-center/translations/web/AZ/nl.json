@@ -1,0 +1,520 @@
+{
+  "accentHint": "Tekens met accenten worden geconverteerd naar tekens zonder accenten. Dit zal de informatie in je boekingsbevestiging niet wijzigen.",
+  "backBookingLink": {
+    "enter": "Voer een andere boeking in",
+    "select": "Selecteer een andere vlucht"
+  },
+  "backTopicList": "Terug naar de onderwerpenlijst",
+  "boardingPass": {
+    "cameraOption": "Instapkaart scannen (cameratoegang vereist)",
+    "cameraTitle": "Plaats de barcode of QR-code van je instapkaart in het midden van het kader.",
+    "checking": "Je instapkaart aan het controleren",
+    "closeAction": "Sluiten",
+    "continue": "Verdergaan",
+    "continueWithoutBookingAction": "Verdergaan zonder boeking",
+    "errors": {
+      "bookingNotFound": {
+        "message": "We konden geen overeenkomstige boeking vinden in ons systeem.",
+        "title": "Boekingsgegevens niet beschikbaar"
+      },
+      "bookingServiceUnavailable": {
+        "message": "Dit is vanwege een technisch probleem. Ga verder zonder boeking.",
+        "title": "Boekingsgegevens kunnen niet worden opgehaald"
+      },
+      "cameraAccessDenied": {
+        "message": "Sta cameratoegang toe om je instapkaart te scannen.",
+        "title": "Cameratoegang geweigerd"
+      },
+      "passNotDetected": {
+        "message": "Upload een geldige instapkaart.",
+        "title": "Geen instapkaart gevonden"
+      },
+      "uploadFailed": {
+        "message": "Je bestand kon niet worden geüpload. Probeer het opnieuw.",
+        "title": "Uploaden mislukt"
+      }
+    },
+    "methodSelectionTitle": "Voeg je boekingsgegevens toe",
+    "open": "Gebruik je instapkaart",
+    "processing": "Bezig met uploaden van bestand",
+    "retryAction": "Opnieuw proberen",
+    "selectDifferentFileAction": "Selecteer een ander bestand",
+    "uploadOnlyAction": "Selecteer een bestand",
+    "uploadOnlySupportedFormats": "Ondersteunde bestandstypen: jpg, jpeg, png, pdf ",
+    "uploadOption": "Upload je instapkaart (jpg, jpeg, png, pdf)",
+    "uploadTitle": "Upload je instapkaart"
+  },
+  "bookingInfo": {
+    "formTitle": "Voer boekingsgegevens in",
+    "loading": "Boeking ophalen",
+    "message": {
+      "internal": {
+        "message": "Vanwege technische problemen konden we je boeking niet laden. Je bent automatisch verdergegaan naar deze stap met de informatie die je hebt verstrekt.",
+        "title": "Kan boeking niet ophalen"
+      },
+      "notFound": {
+        "message": "We konden de door jou opgegeven boeking niet vinden. Je kunt nog steeds gebruikmaken van onze hulp- en contactopties.",
+        "retryMessage": "Controleer wat je hebt ingevoerd en probeer het nogmaals. Als we je boeking nog steeds niet kunnen vinden, ga je automatisch verder naar de volgende stap.",
+        "title": "Boeking niet gevonden"
+      },
+      "title": {
+        "withData": "Oké, hoe kunnen we helpen?",
+        "withoutData": "Hoe kunnen we je helpen?"
+      }
+    },
+    "title": "Gaat je vraag over een vlucht?"
+  },
+  "bookingList": {
+    "anotherBooking": "Ga naar een andere boeking",
+    "code": "Boeking: <sensitive>{{ code }}</sensitive>",
+    "error": {
+      "message": "We konden je vluchtoverzicht niet automatisch laden. Selecteer voor hulp bij een specifieke vlucht “Ga naar een andere boeking”. ",
+      "title": "Vluchtoverzicht kan niet worden weergegeven "
+    },
+    "select": {
+      "message": "Selecteer een vlucht"
+    },
+    "wcag": {
+      "card": "Boeking {{ current }} van {{ total }}, boekingscode {{ code }} van {{ origin }} naar {{ destination }} op {{ date }}",
+      "end": "Er zijn geen boekingen meer om te laden",
+      "next": "Volgende boekingen",
+      "previous": "Vorige boekingen",
+      "slide": "Boeking"
+    }
+  },
+  "chatAssistant": {
+    "languageNotAvailable": "Deze dienst is ingesteld op Engels omdat de taal die u heeft geselecteerd momenteel niet beschikbaar is."
+  },
+  "continue": "Verdergaan",
+  "country": {
+    "AD": "Andorra",
+    "AE": "Verenigde Arabische Emiraten",
+    "AF": "Afghanistan",
+    "AG": "Antigua en Barbuda",
+    "AI": "Anguilla",
+    "AL": "Albanië",
+    "AM": "Armenië",
+    "AN": "Nederlandse Antillen",
+    "AO": "Angola",
+    "AR": "Argentinië",
+    "AS": "Amerikaans-Samoa",
+    "AT": "Oostenrijk",
+    "AU": "Australië",
+    "AW": "Aruba",
+    "AX": "Ålandeilanden",
+    "AZ": "Azerbeidzjan",
+    "BA": "Bosnië en Herzegovina",
+    "BB": "Barbados",
+    "BD": "Bangladesh",
+    "BE": "België",
+    "BF": "Burkina Faso",
+    "BG": "Bulgarije",
+    "BH": "Bahrein",
+    "BI": "Burundi",
+    "BJ": "Benin",
+    "BL": "Saint-Barthélemy",
+    "BM": "Bermuda",
+    "BN": "Brunei",
+    "BO": "Bolivia",
+    "BR": "Brazilië",
+    "BS": "Bahama’s",
+    "BT": "Bhutan",
+    "BW": "Botswana",
+    "BY": "Wit-Rusland",
+    "BZ": "Belize",
+    "CA": "Canada",
+    "CC": "Cocoseilanden",
+    "CD": "Congo, Democratische Republiek",
+    "CF": "Centraal-Afrikaanse Republiek",
+    "CG": "Congo",
+    "CH": "Zwitserland",
+    "CI": "Ivoorkust",
+    "CK": "Cookeilanden",
+    "CL": "Chili",
+    "CM": "Kameroen",
+    "CN": "China",
+    "CO": "Colombia",
+    "CR": "Costa Rica",
+    "CU": "Cuba",
+    "CV": "Kaapverdië",
+    "CX": "Christmaseiland",
+    "CY": "Cyprus",
+    "CZ": "Tsjechië",
+    "DE": "Duitsland",
+    "DJ": "Djibouti",
+    "DK": "Denemarken",
+    "DM": "Dominica",
+    "DO": "Dominicaanse Republiek",
+    "DZ": "Algerije",
+    "EC": "Ecuador",
+    "EE": "Estland",
+    "EG": "Egypte",
+    "ER": "Eritrea",
+    "ES": "Spanje",
+    "ET": "Ethiopië",
+    "FI": "Finland",
+    "FJ": "Fiji",
+    "FK": "Falklandeilanden (Malvinas)",
+    "FM": "Micronesië",
+    "FO": "Faeröer",
+    "FR": "Frankrijk",
+    "GA": "Gabon",
+    "GB": "Verenigd Koninkrijk",
+    "GD": "Grenada",
+    "GE": "Georgië",
+    "GF": "Frans-Guyana",
+    "GG": "Guernsey",
+    "GH": "Ghana",
+    "GI": "Gibraltar",
+    "GL": "Groenland",
+    "GM": "Gambia",
+    "GN": "Guinee",
+    "GP": "Guadeloupe",
+    "GQ": "Equatoriaal-Guinea",
+    "GR": "Griekenland",
+    "GS": "Zuid-Georgia en Zuidelijke Sandwicheilanden",
+    "GT": "Guatemala",
+    "GU": "Guam",
+    "GW": "Guinee-Bissau",
+    "GY": "Guyana",
+    "HK": "Hongkong",
+    "HM": "Heard- en McDonaldeilanden",
+    "HN": "Honduras",
+    "HR": "Kroatië",
+    "HT": "Haïti",
+    "HU": "Hongarije",
+    "ID": "Indonesië",
+    "IE": "Ierland",
+    "IL": "Israël",
+    "IM": "Isle of Man",
+    "IN": "India",
+    "IO": "Brits Indisch Oceaanterritorium",
+    "IQ": "Irak",
+    "IR": "Iran",
+    "IS": "IJsland",
+    "IT": "Italië",
+    "JE": "Jersey",
+    "JM": "Jamaica",
+    "JO": "Jordanië",
+    "JP": "Japan",
+    "KE": "Kenia",
+    "KG": "Kirgizië",
+    "KH": "Cambodja",
+    "KI": "Kiribati",
+    "KM": "Comoren",
+    "KN": "Saint Kitts en Nevis",
+    "KP": "Noord-Korea",
+    "KR": "Zuid-Korea",
+    "KW": "Koeweit",
+    "KY": "Kaaimaneilanden",
+    "KZ": "Kazachstan",
+    "LA": "Laos",
+    "LB": "Libanon",
+    "LC": "Saint Lucia",
+    "LI": "Liechtenstein",
+    "LK": "Sri Lanka",
+    "LR": "Liberia",
+    "LS": "Lesotho",
+    "LT": "Litouwen",
+    "LU": "Luxemburg",
+    "LV": "Letland",
+    "LY": "Libië",
+    "MA": "Marokko",
+    "MC": "Monaco",
+    "MD": "Moldavië",
+    "ME": "Montenegro",
+    "MF": "Saint-Martin",
+    "MG": "Madagaskar",
+    "MH": "Marshalleilanden",
+    "MK": "Noord-Macedonië",
+    "ML": "Mali",
+    "MM": "Myanmar",
+    "MN": "Mongolië",
+    "MO": "Macau",
+    "MP": "Noordelijke Marianen",
+    "MQ": "Martinique",
+    "MR": "Mauritanië",
+    "MS": "Montserrat",
+    "MT": "Malta",
+    "MU": "Mauritius",
+    "MV": "Maldiven",
+    "MW": "Malawi",
+    "MX": "Mexico",
+    "MY": "Maleisië",
+    "MZ": "Mozambique",
+    "NA": "Namibië",
+    "NC": "Nieuw-Caledonië",
+    "NE": "Niger",
+    "NF": "Norfolk",
+    "NG": "Nigeria",
+    "NI": "Nicaragua",
+    "NL": "Nederland",
+    "NO": "Noorwegen",
+    "NP": "Nepal",
+    "NR": "Nauru",
+    "NU": "Niue",
+    "NZ": "Nieuw-Zeeland",
+    "OM": "Oman",
+    "PA": "Panama",
+    "PE": "Peru",
+    "PF": "Frans-Polynesië",
+    "PG": "Papoea-Nieuw-Guinea",
+    "PH": "Filipijnen",
+    "PK": "Pakistan",
+    "PL": "Polen",
+    "PM": "Saint-Pierre en Miquelon",
+    "PN": "Pitcairneilanden",
+    "PR": "Puerto Rico",
+    "PS": "Palestijnse gebieden",
+    "PT": "Portugal",
+    "PW": "Palau",
+    "PY": "Paraguay",
+    "QA": "Qatar",
+    "RE": "Réunion",
+    "RO": "Roemenië",
+    "RS": "Servië",
+    "RU": "Rusland",
+    "RW": "Rwanda",
+    "SA": "Saoedi-Arabië",
+    "SB": "Salomonseilanden",
+    "SC": "Seychellen",
+    "SD": "Soedan",
+    "SE": "Zweden",
+    "SG": "Singapore",
+    "SH": "Sint-Helena, Ascension en Tristan da Cunha",
+    "SI": "Slovenië",
+    "SJ": "Svalbard en Jan Mayen",
+    "SK": "Slowakije",
+    "SL": "Sierra Leone",
+    "SM": "San Marino",
+    "SN": "Senegal",
+    "SO": "Somalië",
+    "SR": "Suriname",
+    "SS": "Zuid-Soedan",
+    "ST": "Sao Tomé en Principe",
+    "SV": "El Salvador",
+    "SY": "Syrië",
+    "SZ": "Eswatini",
+    "TC": "Turks- en Caicoseilanden",
+    "TD": "Tsjaad",
+    "TG": "Togo",
+    "TH": "Thailand",
+    "TJ": "Tadzjikistan",
+    "TK": "Tokelau",
+    "TL": "Oost-Timor",
+    "TM": "Turkmenistan",
+    "TN": "Tunesië",
+    "TO": "Tonga",
+    "TR": "Turkije",
+    "TT": "Trinidad en Tobago",
+    "TV": "Tuvalu",
+    "TW": "Taiwan",
+    "TZ": "Tanzania",
+    "UA": "Oekraïne",
+    "UG": "Oeganda",
+    "US": "Verenigde Staten",
+    "UY": "Uruguay",
+    "UZ": "Oezbekistan",
+    "VA": "Vaticaanstad",
+    "VC": "Saint Vincent en de Grenadines",
+    "VE": "Venezuela",
+    "VG": "Britse Maagdeneilanden",
+    "VI": "Amerikaanse Maagdeneilanden",
+    "VN": "Vietnam",
+    "VU": "Vanuatu",
+    "WF": "Wallis en Futuna",
+    "WS": "Samoa",
+    "XK": "Kosovo",
+    "YE": "Jemen",
+    "YT": "Mayotte",
+    "ZA": "Zuid-Afrika",
+    "ZM": "Zambia",
+    "ZW": "Zimbabwe"
+  },
+  "firstName": {
+    "invalid": "Voer je voornaam in.",
+    "label": "Voornaam"
+  },
+  "flightInfo": {
+    "booking": "Boeking <sensitive>{{ pnr }}</sensitive>",
+    "status": {
+      "cancelled": "Geannuleerd",
+      "delayed": "Vertraagd",
+      "onTime": "Op tijd",
+      "pending": "In afwachting",
+      "scheduled": "Gepland",
+      "standby": "Stand-by",
+      "waitlisted": "Wachtlijst"
+    },
+    "stops": "stops",
+    "travelClass": {
+      "business": "Business",
+      "default": "Reisklassecombinatie",
+      "eco": "Economy",
+      "first": "First",
+      "premium-eco": "Premium Economy"
+    },
+    "wcag": {
+      "card": "Kaart {{ current }} van {{ total }}, Vlucht {{ flightNumber }} van {{ origin }} naar {{ destination }} op {{ date }} - {{ bookingClass }}. {{ numberOfStops }} tussenstop(s). {{ originStatus }} vertrek om {{ originTime }}. Duur {{ duration }}. {{ destinationStatus }} aankomst om {{ destinationTime }}",
+      "cardWithoutFlightNumber": "Kaart {{ current }} van {{ total }}. Van {{ origin }} naar {{ destination }} op {{ date }} - {{ bookingClass }}. {{ numberOfStops }} tussenstop(s). {{ originStatus }} vertrek om {{ originTime }}. Duur {{ duration }}. {{ destinationStatus }} aankomst om {{ destinationTime }}"
+    }
+  },
+  "flightStatus": {
+    "inbound": "Terugvlucht",
+    "new": "Nieuw",
+    "notification": {
+      "success": "Alle vluchten verlopen volgens schema",
+      "warning": "Je reisroute is gewijzigd. Controleer je e-mail voor meer informatie."
+    },
+    "old": "Oud",
+    "outbound": "Heenvlucht",
+    "segment": "Vluchtsegment {{ number }}"
+  },
+  "helpCenter": {
+    "bootstrapping": "Een moment alstublieft"
+  },
+  "helpOptions": {
+    "back": "Terug naar contactopties",
+    "phoneInfo": {
+      "full": "Voor dit onderwerp is er geen telefonische ondersteuning beschikbaar. Als je het nuttig vindt, zouden we je feedback in de onderstaande enquête op prijs stellen.",
+      "short": "Voor dit onderwerp is er geen telefonische ondersteuning beschikbaar."
+    },
+    "title": "Hulp en contact"
+  },
+  "identifier": {
+    "hint": "De boekingscode bevat een combinatie van 6 letters en cijfers (bijv. ABCD12). Het ticketnummer bestaat uit 13 cijfers (bijv. 7391538503519).",
+    "invalid": "De boekingscode bevat een combinatie van 6 letters en cijfers (bijv. ABCD12). Het ticketnummer bestaat uit 13 cijfers (bijv. 7391538503519).",
+    "label": "Boekingscode of ticketnummer"
+  },
+  "informationalMessage": "",
+  "lastName": {
+    "invalid": "Voer je familienaam in.",
+    "label": "Familienaam"
+  },
+  "notBookingDetails": "Overslaan",
+  "phoneHandover": {
+    "error": "We konden je gegevens deze keer niet delen. Houd ze bij de hand wanneer je belt.",
+    "form": {
+      "buttons": {
+        "withSharing": "Instemmen en bellen"
+      },
+      "recording": {
+        "consent": "Ik stem ermee in dat mijn gesprek wordt opgenomen voor opleidings- en kwaliteitsdoeleinden. Ik kan mijn toestemming op elk moment intrekken.",
+        "privacyPolicy": "Gegevensbescherming"
+      }
+    },
+    "message": "Onze medewerkers kunnen de relevante gegevens (zoals je naam en Miles & More-status) al zien zodra je belt – je hoeft deze dus niet te herhalen.",
+    "title": "Klaar voor je oproep"
+  },
+  "salutation": {
+    "female": "Mevr.",
+    "male": "Dhr."
+  },
+  "searchInput": {
+    "button": "Zoeken",
+    "error": {
+      "maxLengthExceeded": "{{ inputCount }}. Voer niet meer dan {{ maxLength }} tekens in.",
+      "minLengthNotMet": "{{ inputCount }}. Voer minstens {{ minLength }} tekens in."
+    },
+    "wcag": {
+      "clear": "Wissen",
+      "search": "Zoeken"
+    }
+  },
+  "selectedTopicInfo": {
+    "link": "Selecteer een andere aanvraag"
+  },
+  "stepBreadcrumb": {
+    "home": "Startpagina"
+  },
+  "steps": {
+    "bookingInfo": "Vluchtgegevens (optioneel)",
+    "helpOptions": "Hulp opties",
+    "screenReader": "{{ stepName }} pagina geladen.",
+    "topicSelection": "Hulp"
+  },
+  "supportOptionCard": {
+    "recommended": "Aanbevolen"
+  },
+  "supportOptions": {
+    "call": "Bel met het Service Center",
+    "chat_assistant": "Chat Assistant",
+    "live_chat": "Live Chat",
+    "self_service": "Eenvoudige self-service"
+  },
+  "topicSearch": {
+    "error": {
+      "description": "We kunnen de resultaten van je zoekopdracht nu niet tonen. Kies in plaats daarvan een van onze hulponderwerpen.",
+      "title": "Resultaten voor je zoekopdracht"
+    },
+    "humanSupportRequest": {
+      "message": "Wil je contact met ons opnemen? Vertel ons waarvoor je hulp nodig hebt, zodat we je de juiste contactopties kunnen tonen."
+    },
+    "noResults": {
+      "action": "Bel het Service Center",
+      "description": "Herformuleer je zoekopdracht of neem contact op met ons Service Center.",
+      "title": "Geen resultaten gevonden"
+    },
+    "results": {
+      "title": "Resultaten voor je zoekopdracht",
+      "wcag": {
+        "list": "{{ resultsCount }} resultaten voor je zoekopdracht."
+      }
+    },
+    "searching": {
+      "ariaLabel": "Resultaten aan het laden",
+      "title": "Resultaten voor je zoekopdracht"
+    }
+  },
+  "topicSelection": {
+    "list": {
+      "description": "Onderwerpen waarmee we je kunnen helpen.",
+      "error": {
+        "action": "Zie contactopties",
+        "message": "Probeer het later opnieuw of contacteer ons zonder een onderwerp te selecteren.",
+        "title": "Lijst met onderwerpen kan niet geladen worden"
+      },
+      "title": "Selecteer je verzoek"
+    },
+    "loader": "Je helpopties aan het laden",
+    "searchBar": {
+      "label": "Een onderwerp zoeken",
+      "placeholders": {
+        "default": [
+          "Mijn upgrade is niet gelukt"
+        ],
+        "desktop": [
+          "Ik heb mijn instapkaart opnieuw nodig",
+          "Hoe kan ik mijn factuur ontvangen?"
+        ],
+        "mobile": [
+          "Boardingpass opnieuw",
+          "Factuurvraag"
+        ],
+        "tablet": [
+          "Boardingpass opnieuw",
+          "Factuurvraag"
+        ]
+      },
+      "wcag": {
+        "clear": "Zoekopdracht gewist."
+      }
+    },
+    "subtitle": "Zoek antwoorden en contactmogelijkheden voor je verzoek.",
+    "title": {
+      "loggedIn": "Hoe kunnen we je helpen, <sensitive>{{ greet }}</sensitive>?",
+      "loggedOut": "Hoe kunnen we je helpen?"
+    }
+  },
+  "wcag": {
+    "close": "Sluiten",
+    "dialogOpened": "Opent in een dialoogvenster",
+    "modalOpened": "Opent in een modaal venster",
+    "newTabOpened": "Opent in een nieuw tabblad",
+    "overlayOpened": "Opent in een overlay dialoog",
+    "phoneCall": "Start een telefoongesprek",
+    "samePageOpened": "Opent op dezelfde pagina",
+    "selected": "geselecteerd",
+    "systemFolderOpened": "Opent de systeemmap in een dialoogvenster"
+  }
+}

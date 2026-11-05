@@ -1,0 +1,1977 @@
+{
+  "targetCustomerStatus": "BASE",
+  "menu": [
+    {
+      "code": "travelBookingStatus",
+      "title": "Actuele vluchtinformatie",
+      "children": [],
+      "options": {
+        "recommended": [
+          {
+            "type": "SELF_SERVICE",
+            "link": "https://www.ita-airways.com/xx/nl/manage-my-bookings/manage/flight-status",
+            "linkTitle": "Nu bekijken",
+            "description": "Zoek op vluchtnummer, vluchtroute of luchthaven om meer te weten te komen over de status van je vlucht.",
+            "title": "Controleer vluchtstatus",
+            "phone": null,
+            "priority": 1,
+            "deeplink": null,
+            "notifications": [],
+            "trackingType": "TRANSACTIONAL",
+            "profileHandoverEnabled": false
+          }
+        ],
+        "others": []
+      },
+      "icon": "icon-flight-status",
+      "imageUrl": "https://www.ita-airways.com/content/dam/ita/images/local_images/help-center//travel-information.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": false
+    },
+    {
+      "code": "rebookingsCancelationsRefunds",
+      "title": "Omboekingen en annuleringen",
+      "children": [
+        {
+          "code": "rebookFlight",
+          "title": "Een vlucht omboeken",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/nl/manage-my-bookings/manage/manage-my-bookings",
+                "linkTitle": "Boeking beheren",
+                "description": "Wijzig de datum of tijd van je vlucht online voor een of meer passagiers in je boeking.",
+                "title": "Vlucht omboeken",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.ita-airways.com/booking/manage-booking/retrieve?lang=nl-NL&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Bel het Service Center",
+                "description": "Als onze online services je niet konden helpen met je vraag, staat ons Service Center klaar om je te ondersteunen.",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "NewBoardingPass",
+          "title": "Nieuwe instapkaart verkrijgen",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://once.ita-airways.com/connect/main-app?APPID=LHG_ONLINE&TENANT=AZ&LANGUAGE=nl&COUNTRY=xx&MODE=PORTAL",
+                "linkTitle": "Ga naar inchecken",
+                "description": "Om je nieuwe instapkaart te ontvangen, check je opnieuw in via de onderstaande link.",
+                "title": "Opnieuw inchecken",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "confirmRebooking",
+          "title": "Herboeking bevestigen",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Bel het Service Center",
+                "description": "Onze experts helpen je graag als je vragen of zorgen hebt.",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "cancelBookingGetRefund",
+          "title": "Annulering en/of terugbetaling aanvragen",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/nl/manage-my-bookings/manage/manage-my-bookings",
+                "linkTitle": "Boeking beheren",
+                "description": "Annuleer je boeking en vraag online een terugbetaling aan. \n \nHoud er rekening mee dat je alleen volledige boekingen kan annuleren.",
+                "title": "Boeking annuleren",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.ita-airways.com/booking/manage-booking/retrieve?lang=nl-NL&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Bel het Service Center",
+                "description": "Onze experts helpen je graag als je vragen of zorgen hebt.",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-flight-irreg",
+      "imageUrl": "https://www.ita-airways.com/content/dam/ita/images/local_images/help-center//rebooking-cancellation-refund.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "RefundsAndCompensations",
+      "title": "Terugbetalingen en compensaties",
+      "children": [
+        {
+          "code": "claimCompensationFlightDisruption",
+          "title": "Compensatie voor door de luchtvaartmaatschappij gemaakte vluchtwijzigingen",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.complaint.ita-airways.com/s/complaint?lang_code=nl&market=xx",
+                "linkTitle": "Formulier openen",
+                "description": "Als je hinder ondervond door een vluchtverstoring, kan je een compensatie aanvragen via ons contactformulier.",
+                "title": "Vergoeding aanvragen",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "cancelBookingGetRefund",
+          "title": "Annulering en/of terugbetaling aanvragen",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/nl/manage-my-bookings/manage/manage-my-bookings",
+                "linkTitle": "Boeking beheren",
+                "description": "Annuleer je boeking en vraag online een terugbetaling aan. \n \nHoud er rekening mee dat je alleen volledige boekingen kan annuleren.",
+                "title": "Boeking annuleren",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.ita-airways.com/booking/manage-booking/retrieve?lang=nl-NL&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Bel het Service Center",
+                "description": "Onze experts helpen je graag als je vragen of zorgen hebt.",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "refundBaggageIrregularities",
+          "title": "Vergoeding voor bagageproblemen",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.complaint.ita-airways.com/s/complaint?lang_code=nl&market=xx",
+                "linkTitle": "Formulier openen",
+                "description": "Gebruik ons contactformulier om terugbetaling te vragen voor extra kosten als gevolg van vertraagde of beschadigde bagage.",
+                "title": "Terugbetaling aanvragen",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "passengerRights",
+          "title": "Passagiersrechten",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/nl/legal/passenger-rights",
+                "linkTitle": "Meer informatie",
+                "description": "Meer informatie over je passagiersrechten in geval van vluchtannuleringen, vertragingen of andere vluchtonderbrekingen.",
+                "title": "Passagiersrechten bekijken",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-refund-possible",
+      "imageUrl": "https://www.ita-airways.com/content/dam/ita/images/local_images/help-center//refund-compensations.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "checkin",
+      "title": "Check-in",
+      "children": [
+        {
+          "code": "HelpWithCheckIn",
+          "title": "Probleem met inchecken",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Bel het Service Center",
+                "description": "Onze experts helpen je graag als je vragen of zorgen hebt.",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "NewBoardingPass",
+          "title": "Nieuwe instapkaart verkrijgen",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://once.ita-airways.com/connect/main-app?APPID=LHG_ONLINE&TENANT=AZ&LANGUAGE=nl&COUNTRY=xx&MODE=PORTAL",
+                "linkTitle": "Ga naar inchecken",
+                "description": "Om je nieuwe instapkaart te ontvangen, check je opnieuw in via de onderstaande link.",
+                "title": "Opnieuw inchecken",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "otherCheckinQuestions",
+          "title": "Vragen over inchecken",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/nl/book-and-prepare/travel-information/check-in-information",
+                "linkTitle": "Ga naar informatie",
+                "description": "Meer informatie en antwoorden op vaak gestelde vragen over inchecken.",
+                "title": "Meer over inchecken",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-boarding-card",
+      "imageUrl": "https://www.ita-airways.com/content/dam/ita/images/local_images/help-center//check-in.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "baggage",
+      "title": "Bagage",
+      "children": [
+        {
+          "code": "baggage.rules",
+          "title": "Bagageregels en prijzen",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/nl/manage-my-bookings/manage/manage-my-bookings",
+                "linkTitle": "Boeking beheren",
+                "description": "Bekijk hoeveel bagage je mag meenemen op je aanstaande vlucht.",
+                "title": "Bekijk de gratis toegelaten bagage",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.ita-airways.com/booking/manage-booking/retrieve?lang=nl-NL&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/nl/book-and-prepare/travel-information/baggage",
+                "linkTitle": "Naar het overzicht",
+                "description": "Vind een overzicht van alle soorten bagage, diensten en geldende tarieven.",
+                "title": "Bekijk alle bagage-informatie",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Bel het Service Center",
+                "description": "Onze experts helpen je graag als je vragen of zorgen hebt.",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 3,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "baggage.excess",
+          "title": "Extra bagage/overbagage",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/nl/manage-my-bookings/manage/manage-my-bookings",
+                "linkTitle": "Boeking beheren",
+                "description": "Bekijk hoeveel bagage je mag meenemen op je volgende vlucht en voeg indien nodig meer toe.",
+                "title": "Extra bagage toevoegen",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.ita-airways.com/booking/manage-booking/retrieve?lang=nl-NL&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/nl/manage-my-bookings/extra-services/extra-baggage",
+                "linkTitle": "Meer informatie",
+                "description": "Krijg meer informatie over het toevoegen van overbagage voor je geboekte vlucht.",
+                "title": "Controleer de bagagevoorschriften",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Bel het Service Center",
+                "description": "Onze experts helpen je graag als je vragen of zorgen hebt.",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 3,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "baggage.sports",
+          "title": "Sportbagage toevoegen",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/nl/manage-my-bookings/manage/manage-my-bookings",
+                "linkTitle": "Boeking beheren",
+                "description": "Voeg rechtstreeks sportbagage toe voor je geboekte vlucht.",
+                "title": "Sportbagage toevoegen",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.ita-airways.com/booking/manage-booking/retrieve?lang=nl-NL&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/nl/book-and-prepare/travel-information/baggage/special-baggage",
+                "linkTitle": "Bekijk alle voorschriften",
+                "description": "Vind alle informatie over sportuitrusting en speciale bagage hier.",
+                "title": "Controleer de bagagevoorschriften",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Bel het Service Center",
+                "description": "Onze experts helpen je graag als je vragen of zorgen hebt.",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 3,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "pets",
+          "title": "Reizen met huisdieren",
+          "children": [
+            {
+              "code": "travelPetsInCabin",
+              "title": "Dieren in de cabine (max. 8 kg incl. transportbox)",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/nl/manage-my-bookings/manage/manage-my-bookings",
+                    "linkTitle": "Nu registreren",
+                    "description": "Registreer je huisdier voor een bestaande boeking en neem het mee in de cabine.",
+                    "title": "Een huisdier toevoegen",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.ita-airways.com/booking/manage-booking/retrieve?lang=nl-NL&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/nl/book-and-prepare/other-requests/travelling-with-pets/pets-in-cabin",
+                    "linkTitle": "Bekijk alle voorwaarden",
+                    "description": "Controleer de voorwaarden voor het reizen met huisdieren en zorg ervoor dat je alle vereiste documenten hebt.",
+                    "title": "Controleer de reisvoorwaarden",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "Bel het Service Center",
+                    "description": "Onze experts helpen je graag als je vragen of zorgen hebt.",
+                    "title": null,
+                    "phone": "+496966102730",
+                    "priority": 3,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "travelPetsInCargo",
+              "title": "Dieren in het vrachtruim",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/nl/book-and-prepare/other-requests/travelling-with-pets/pets-as-cargo",
+                    "linkTitle": "Bekijk alle voorwaarden",
+                    "description": "Controleer de voorwaarden voor het reizen met huisdieren en zorg ervoor dat je alle vereiste documenten hebt.",
+                    "title": "Controleer de reisvoorwaarden",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "Bel het Service Center",
+                    "description": "Onze experts helpen je graag als je vragen of zorgen hebt.",
+                    "title": null,
+                    "phone": "+496966102730",
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "baggage.damagedOrDelayed",
+          "title": "Problemen met bagage",
+          "children": [
+            {
+              "code": "statusBaggageReport",
+              "title": "Melding vertraagde bagage beheren",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://wtrweb.worldtracer.aero/WorldTracerWeb/pax.do?airlineCode=az",
+                    "linkTitle": "Ga naar het bagagerapport",
+                    "description": "Je kan de status van je bagagerapport controleren of je adres en contactgegevens wijzigen.",
+                    "title": "Bagagerapport bekijken of bewerken",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "FORM",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "refundBaggageIrregularities",
+              "title": "Vergoeding voor bagageproblemen",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.complaint.ita-airways.com/s/complaint?lang_code=nl&market=xx",
+                    "linkTitle": "Formulier openen",
+                    "description": "Gebruik ons contactformulier om terugbetaling te vragen voor extra kosten als gevolg van vertraagde of beschadigde bagage.",
+                    "title": "Terugbetaling aanvragen",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "FORM",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "baggage.lost",
+          "title": "Verlies van persoonlijk voorwerp",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/nl/book-and-prepare/travel-information/baggage/baggage-assistance",
+                "linkTitle": "Meer informatie",
+                "description": "Bekijk hoe je persoonlijke items die je op de luchthaven, in een vliegtuig of uit je ingecheckte bagage bent kwijtgeraakt, kan melden.",
+                "title": "Verloren voorwerp melden",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "baggage.dangerousGoods",
+          "title": "Gevaarlijke goederen en wapens",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/nl/book-and-prepare/travel-information/baggage/restricted-and-prohibited-items",
+                "linkTitle": "Meer informatie",
+                "description": "Bekijk onze uitgebreide lijst met gevaarlijke goederen en verboden artikelen.",
+                "title": "Controleer de bagagevoorschriften",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Bel het Service Center",
+                "description": "Onze experts helpen je graag als je vragen of zorgen hebt.",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-baggage",
+      "imageUrl": "https://www.ita-airways.com/content/dam/ita/images/local_images/help-center//baggage.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "addFlightServices",
+      "title": "Extra diensten",
+      "children": [
+        {
+          "code": "booking.Seats",
+          "title": "Stoelen",
+          "children": [
+            {
+              "code": "changeSeat",
+              "title": "Stoel toevoegen of wijzigen",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/nl/manage-my-bookings/manage/manage-my-bookings",
+                    "linkTitle": "Boeking beheren",
+                    "description": "Boek of wijzig de stoel voor je volgende vlucht.",
+                    "title": "Stoel toevoegen of veranderen",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.ita-airways.com/booking/manage-booking/retrieve?lang=nl-NL&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/nl/manage-my-bookings/extra-services/seats-selection",
+                    "linkTitle": "Bekijk het overzicht",
+                    "description": "Krijg informatie over alle stoelcategorieën en hun prijzen per route.",
+                    "title": "Bekijk alle stoelcategorieën",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "Bel het Service Center",
+                    "description": "Onze experts helpen je graag als je vragen of zorgen hebt.",
+                    "title": null,
+                    "phone": "+496966102730",
+                    "priority": 3,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            },
+            {
+              "code": "BookNeighboringSeat",
+              "title": "De stoel naast u boeken",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/nl/manage-my-bookings/manage/manage-my-bookings",
+                    "linkTitle": "Boeking beheren",
+                    "description": "Boek de lege stoel naast je voor een nog comfortabelere reis.",
+                    "title": "Boek de aanpalende stoel",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.ita-airways.com/booking/manage-booking/retrieve?lang=nl-NL&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "Bel het Service Center",
+                    "description": "Onze experts helpen je graag als je vragen of zorgen hebt.",
+                    "title": null,
+                    "phone": "+496966102730",
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "specialMeal",
+          "title": "Maaltijden aan boord",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/nl/manage-my-bookings/manage/manage-my-bookings",
+                "linkTitle": "Boeking beheren",
+                "description": "Bestel een speciale maaltijd omwille van je dieet, religieuze of nutritionele noden.  \n \nHoud er rekening mee dat de beschikbaarheid van deze service afhankelijk is van de voorwaarden die je hebt geboekt.",
+                "title": "Bestel een speciale maaltijd",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.ita-airways.com/booking/manage-booking/retrieve?lang=nl-NL&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Bel het Service Center",
+                "description": "Onze experts helpen je graag als je vragen of zorgen hebt.",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "onBoardServices",
+          "title": "Diensten aan boord",
+          "children": [
+            {
+              "code": "ejournals",
+              "title": "Digitale kranten en tijdschriften",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/nl/book-and-prepare/travel-information/at-the-airport/digital-newsstand",
+                    "linkTitle": "Meer informatie",
+                    "description": "Bekijk hoe je ons digitaal nieuwsaanbod aan boord kunt gebruiken.",
+                    "title": "Meer over het digitaal nieuwsaanbod",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "flynet",
+              "title": "Internet aan boord",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/nl/world-of-ita-airways/services-on-board/connectivity-on-board",
+                    "linkTitle": "Meer informatie",
+                    "description": "Vind meer informatie over onze internetservice aan boord en hoe je deze kunt gebruiken.",
+                    "title": "Krijg WLAN aan boord",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "inflightEntertainment",
+              "title": "Inflight Entertainment",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/nl/world-of-ita-airways/services-on-board/entertainment-on-board",
+                    "linkTitle": "Bekijk alle opties",
+                    "description": "Geniet van je tijd aan boord met ons brede assortiment films, luisterboeken en meer.",
+                    "title": "Bekijk het entertainment aan boord",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "Lounges",
+          "title": "Lounges",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/nl/book-and-prepare/travel-information/at-the-airport/lounges",
+                "linkTitle": "Zie adressengids",
+                "description": "Vind alle beschikbare lounges per luchthaven en hoe je er toegang toe krijgt.",
+                "title": "Zoek lounges",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Bel het Service Center",
+                "description": "Onze experts helpen je graag als je vragen of zorgen hebt.",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "TravelInsurance",
+          "title": "Reisverzekering",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/nl/manage-my-bookings/manage/manage-my-bookings",
+                "linkTitle": "Een verzekering selecteren",
+                "description": "Sluit een reisverzekering af voor je volgende reis.  \n  \nHoud er rekening mee dat de beschikbaarheid van deze service afhankelijk is van de voorwaarden die je hebt geboekt.",
+                "title": "Een verzekering afsluiten",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.ita-airways.com/booking/manage-booking/retrieve?lang=nl-NL&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "pets",
+          "title": "Reizen met huisdieren",
+          "children": [
+            {
+              "code": "travelPetsInCabin",
+              "title": "Dieren in de cabine (max. 8 kg incl. transportbox)",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/nl/manage-my-bookings/manage/manage-my-bookings",
+                    "linkTitle": "Nu registreren",
+                    "description": "Registreer je huisdier voor een bestaande boeking en neem het mee in de cabine.",
+                    "title": "Een huisdier toevoegen",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.ita-airways.com/booking/manage-booking/retrieve?lang=nl-NL&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/nl/book-and-prepare/other-requests/travelling-with-pets/pets-in-cabin",
+                    "linkTitle": "Bekijk alle voorwaarden",
+                    "description": "Controleer de voorwaarden voor het reizen met huisdieren en zorg ervoor dat je alle vereiste documenten hebt.",
+                    "title": "Controleer de reisvoorwaarden",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "Bel het Service Center",
+                    "description": "Onze experts helpen je graag als je vragen of zorgen hebt.",
+                    "title": null,
+                    "phone": "+496966102730",
+                    "priority": 3,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "travelPetsInCargo",
+              "title": "Dieren in het vrachtruim",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/nl/book-and-prepare/other-requests/travelling-with-pets/pets-as-cargo",
+                    "linkTitle": "Bekijk alle voorwaarden",
+                    "description": "Controleer de voorwaarden voor het reizen met huisdieren en zorg ervoor dat je alle vereiste documenten hebt.",
+                    "title": "Controleer de reisvoorwaarden",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "Bel het Service Center",
+                    "description": "Onze experts helpen je graag als je vragen of zorgen hebt.",
+                    "title": null,
+                    "phone": "+496966102730",
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "TravelingWithChildren",
+          "title": "Reizen met kinderen",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/nl/book-and-prepare/other-requests/families-and-children",
+                "linkTitle": "Meer informatie",
+                "description": "Vind informatie over reizen met kinderen, van de voorbereiding op je reis tot stoelen en meer.",
+                "title": "Reisinformatie",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Bel het Service Center",
+                "description": "Neem rechtstreeks contact op met een van onze Service Center-medewerkers als je technische problemen ondervindt, een babybedje wilt aanvragen of een vlucht wilt boeken voor een kind dat alleen reist.",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "confirmAdditionalServices",
+          "title": "Extra diensten bevestigen",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Bel het Service Center",
+                "description": "Ons Service Center zal graag nakijken of je aangevraagde diensten zijn bevestigd.",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "addFlightServices.problem",
+          "title": "Probleem met het toevoegen van een extra dienst",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Bel het Service Center",
+                "description": "Onze experts helpen je graag als je vragen of zorgen hebt.",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "MoreServices",
+          "title": "Meer aanvullende diensten",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/nl/manage-my-bookings/extra-services",
+                "linkTitle": "Zie het dienstenoverzicht",
+                "description": "Ontdek meer extra diensten die je helpen om je reis voor te bereiden en te genieten van elk aspect ervan.",
+                "title": "Bekijk alle diensten",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Bel het Service Center",
+                "description": "Onze experts helpen je graag als je vragen of zorgen hebt.",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-additional-services",
+      "imageUrl": "https://www.ita-airways.com/content/dam/ita/images/local_images/help-center//add-flight-service.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "booking",
+      "title": "Boek en bereid je voor",
+      "children": [
+        {
+          "code": "booking.Seats",
+          "title": "Stoelen",
+          "children": [
+            {
+              "code": "changeSeat",
+              "title": "Stoel toevoegen of wijzigen",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/nl/manage-my-bookings/manage/manage-my-bookings",
+                    "linkTitle": "Boeking beheren",
+                    "description": "Boek of wijzig de stoel voor je volgende vlucht.",
+                    "title": "Stoel toevoegen of veranderen",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.ita-airways.com/booking/manage-booking/retrieve?lang=nl-NL&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/nl/manage-my-bookings/extra-services/seats-selection",
+                    "linkTitle": "Bekijk het overzicht",
+                    "description": "Krijg informatie over alle stoelcategorieën en hun prijzen per route.",
+                    "title": "Bekijk alle stoelcategorieën",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "Bel het Service Center",
+                    "description": "Onze experts helpen je graag als je vragen of zorgen hebt.",
+                    "title": null,
+                    "phone": "+496966102730",
+                    "priority": 3,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            },
+            {
+              "code": "BookNeighboringSeat",
+              "title": "De stoel naast u boeken",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/nl/manage-my-bookings/manage/manage-my-bookings",
+                    "linkTitle": "Boeking beheren",
+                    "description": "Boek de lege stoel naast je voor een nog comfortabelere reis.",
+                    "title": "Boek de aanpalende stoel",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.ita-airways.com/booking/manage-booking/retrieve?lang=nl-NL&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "Bel het Service Center",
+                    "description": "Onze experts helpen je graag als je vragen of zorgen hebt.",
+                    "title": null,
+                    "phone": "+496966102730",
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "booking.Upgrades",
+          "title": "Upgrades",
+          "children": [
+            {
+              "code": "upgradeFlight",
+              "title": "Een upgrade boeken",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/nl/manage-my-bookings/extra-services/upgrade/immediate-upgrade",
+                    "linkTitle": "Meer informatie",
+                    "description": "Upgrade rechtstreeks naar Business Class of Premium Economy met onze Instant Upgrade – bieden is niet nodig.",
+                    "title": "Een upgrade boeken",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "BidUpgrade",
+              "title": "Bied voor een upgrade",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/nl/manage-my-bookings/extra-services/upgrade/bid-upgrade",
+                    "linkTitle": "Doe een bod",
+                    "description": "Upgrade naar een hogere reisklasse tegen de door jou gewenste prijs.  \n \nHoud er rekening mee dat de beschikbaarheid beperkt is en onderhevig aan de toepasselijke algemene voorwaarden.",
+                    "title": "Bod voor een upgrade",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "reconfirmation",
+          "title": "Boeking bevestigen",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Bel het Service Center",
+                "description": "Onze experts helpen je graag als je vragen of zorgen hebt.",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "booking.SupportBookingPayment",
+          "title": "Ondersteuning bij boeking of betaling",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Bel het Service Center",
+                "description": "Onze experts helpen je graag als je vragen of zorgen hebt.",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "NameChangeAfterBooking",
+          "title": "Naamswijziging na boeking",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Bel het Service Center",
+                "description": "Neem contact op met ons Service Center om een naamscorrectie op je boeking aan te vragen. \n \nHoud er rekening mee dat er slechts kleine correcties kunnen worden uitgevoerd, zoals het verbeteren van spelfouten.",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "passengerReceipt",
+          "title": "Passenger receipt/factuur",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/nl/manage-my-bookings/manage/passenger-receipt",
+                "linkTitle": "Nu aanvragen",
+                "description": "Haal het passenger receipt voor je reis online op. \n \nAls je je boeking via een reisagentschap hebt gemaakt, neem dan contact op met het reisagentschap om een receipt aan te vragen.",
+                "title": "Passenger receipt aanvragen",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Bel het Service Center",
+                "description": "Onze experts helpen je graag als je vragen of zorgen hebt.",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "sustainableFlying",
+          "title": "Vlieg duurzamer",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/nl/world-of-ita-airways/discover-ita-airways/sustainability",
+                "linkTitle": "Ontdek de initiatieven",
+                "description": "Kom meer te weten over onze duurzaamheidsinitiatieven.",
+                "title": "Duurzaamheid ondersteunen",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-airplane-outbound",
+      "imageUrl": "https://www.ita-airways.com/content/dam/ita/images/local_images/help-center//booking.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "accessibility",
+      "title": "Toegankelijk reizen",
+      "children": [],
+      "options": {
+        "recommended": [
+          {
+            "type": "SELF_SERVICE",
+            "link": "https://www.ita-airways.com/xx/nl/book-and-prepare/other-requests/accessible-travel",
+            "linkTitle": "Naar het overzicht",
+            "description": "Vind een overzicht van alle beschikbare diensten voor comfortabel reizen in alle omstandigheden.",
+            "title": "Bekijk alle diensten",
+            "phone": null,
+            "priority": 1,
+            "deeplink": null,
+            "notifications": [],
+            "trackingType": "INFORMATIONAL",
+            "profileHandoverEnabled": false
+          }
+        ],
+        "others": [
+          {
+            "type": "CALL",
+            "link": null,
+            "linkTitle": "Bel het Service Center",
+            "description": "Onze experts helpen je graag als je vragen of zorgen hebt.",
+            "title": null,
+            "phone": "+496966102730",
+            "priority": 2,
+            "deeplink": null,
+            "notifications": [],
+            "trackingType": null,
+            "profileHandoverEnabled": false
+          }
+        ]
+      },
+      "icon": "icon-wheelchair",
+      "imageUrl": "https://www.ita-airways.com/content/dam/ita/images/local_images/help-center//accessible-travel.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": false
+    },
+    {
+      "code": "TravelIDLogin",
+      "title": "Inloggen en Travel ID",
+      "children": [],
+      "options": {
+        "recommended": [
+          {
+            "type": "SELF_SERVICE",
+            "link": "https://www.ita-airways.com/xx/nl/profile/travel-id/travel-id-faq",
+            "linkTitle": "Bekijk de vaak gestelde vragen",
+            "description": "Meer informatie over Travel ID en hulp bij inlogproblemen vind je in onze vaak gestelde vragen.",
+            "title": "Vaak gestelde vragen over inloggen en Travel ID",
+            "phone": null,
+            "priority": 1,
+            "deeplink": null,
+            "notifications": [],
+            "trackingType": "INFORMATIONAL",
+            "profileHandoverEnabled": false
+          }
+        ],
+        "others": [
+          {
+            "type": "CALL",
+            "link": null,
+            "linkTitle": "Bel het Service Center",
+            "description": "Als je meer ondersteuning nodig hebt, staan onze experts klaar om je te helpen.",
+            "title": null,
+            "phone": "+496966102730",
+            "priority": 2,
+            "deeplink": null,
+            "notifications": [],
+            "trackingType": null,
+            "profileHandoverEnabled": false
+          }
+        ]
+      },
+      "icon": "icon-service-login",
+      "imageUrl": null,
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": false
+    }
+  ],
+  "_metadata": {
+    "tenant": "AZ",
+    "language": "nl",
+    "extracted_at": "2026-11-05T02:03:08.540301",
+    "record_count": 1
+  }
+}

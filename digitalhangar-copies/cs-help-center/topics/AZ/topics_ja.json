@@ -1,0 +1,1977 @@
+{
+  "targetCustomerStatus": "BASE",
+  "menu": [
+    {
+      "code": "travelBookingStatus",
+      "title": "最新のフライト情報",
+      "children": [],
+      "options": {
+        "recommended": [
+          {
+            "type": "SELF_SERVICE",
+            "link": "https://www.ita-airways.com/xx/ja/manage-my-bookings/manage/flight-status",
+            "linkTitle": "今すぐ確認する",
+            "description": "便名、路線、空港で検索して運航状況をご確認いただけます。",
+            "title": "運航状況を確認する",
+            "phone": null,
+            "priority": 1,
+            "deeplink": null,
+            "notifications": [],
+            "trackingType": "TRANSACTIONAL",
+            "profileHandoverEnabled": false
+          }
+        ],
+        "others": []
+      },
+      "icon": "icon-flight-status",
+      "imageUrl": "https://www.ita-airways.com/content/dam/ita/images/local_images/help-center//travel-information.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": false
+    },
+    {
+      "code": "rebookingsCancelationsRefunds",
+      "title": "予約変更とキャンセル",
+      "children": [
+        {
+          "code": "rebookFlight",
+          "title": "フライトの予約変更",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/ja/manage-my-bookings/manage/manage-my-bookings",
+                "linkTitle": "予約の管理",
+                "description": "ご予約に含まれる1名様以上のご搭乗者について、フライトの日時をオンラインで変更いただけます。",
+                "title": "フライトを予約変更する",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.ita-airways.com/booking/manage-booking/retrieve?lang=ja-JP&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "サービスセンターに電話する",
+                "description": "オンラインサービスでご要望にお応えできなかった場合は、サービスセンターがサポートいたします。",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "NewBoardingPass",
+          "title": "新しい搭乗券を入手する",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://once.ita-airways.com/connect/main-app?APPID=LHG_ONLINE&TENANT=AZ&LANGUAGE=ja&COUNTRY=xx&MODE=PORTAL",
+                "linkTitle": "チェックインをする",
+                "description": "新しい搭乗券を受け取るには、以下のリンクから再度チェックインを行なってください。",
+                "title": "再度チェックインをする",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "confirmRebooking",
+          "title": "予約変更を確認する",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "サービスセンターに電話する",
+                "description": "ご質問やご不明な点につきましては、担当者がお手伝いいたします。",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "cancelBookingGetRefund",
+          "title": "キャンセルおよび払い戻しの申請",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/ja/manage-my-bookings/manage/manage-my-bookings",
+                "linkTitle": "予約の管理",
+                "description": "オンラインで予約をキャンセルし、払い戻しを申請します。\n \nキャンセルできるのは、予約全体のみとなりますのでご注意ください。",
+                "title": "予約をキャンセルする",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.ita-airways.com/booking/manage-booking/retrieve?lang=ja-JP&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "サービスセンターに電話する",
+                "description": "ご質問やご不明な点につきましては、担当者がお手伝いいたします。",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-flight-irreg",
+      "imageUrl": "https://www.ita-airways.com/content/dam/ita/images/local_images/help-center//rebooking-cancellation-refund.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "RefundsAndCompensations",
+      "title": "払い戻しと補償",
+      "children": [
+        {
+          "code": "claimCompensationFlightDisruption",
+          "title": "航空会社が行ったフライト変更に対する補償",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.complaint.ita-airways.com/s/complaint?lang_code=ja&market=xx",
+                "linkTitle": "フォームを開く",
+                "description": "フライトの遅延や欠航によって影響を受けた場合は、お問い合わせフォームをご使用の上、補償をご請求いただけます。",
+                "title": "補償を請求する",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "cancelBookingGetRefund",
+          "title": "キャンセルおよび払い戻しの申請",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/ja/manage-my-bookings/manage/manage-my-bookings",
+                "linkTitle": "予約の管理",
+                "description": "オンラインで予約をキャンセルし、払い戻しを申請します。\n \nキャンセルできるのは、予約全体のみとなりますのでご注意ください。",
+                "title": "予約をキャンセルする",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.ita-airways.com/booking/manage-booking/retrieve?lang=ja-JP&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "サービスセンターに電話する",
+                "description": "ご質問やご不明な点につきましては、担当者がお手伝いいたします。",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "refundBaggageIrregularities",
+          "title": "手荷物のトラブルに対する払い戻し",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.complaint.ita-airways.com/s/complaint?lang_code=ja&market=xx",
+                "linkTitle": "フォームを開く",
+                "description": "手荷物の遅延あるいは破損で生じた追加費用の払い戻しを申請する場合は、お問い合わせフォームをご利用ください。",
+                "title": "払い戻しを申請する",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "passengerRights",
+          "title": "お客様の権利について",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/ja/legal/passenger-rights",
+                "linkTitle": "詳細を見る",
+                "description": "欠航や遅延、その他フライトの乱れが発生した場合のお客様の権利についてご確認ください。",
+                "title": "お客様の権利を見る",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-refund-possible",
+      "imageUrl": "https://www.ita-airways.com/content/dam/ita/images/local_images/help-center//refund-compensations.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "checkin",
+      "title": "チェックイン",
+      "children": [
+        {
+          "code": "HelpWithCheckIn",
+          "title": "チェックイン時の問題",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "サービスセンターに電話する",
+                "description": "ご質問やご不明な点につきましては、担当者がお手伝いいたします。",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "NewBoardingPass",
+          "title": "新しい搭乗券を入手する",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://once.ita-airways.com/connect/main-app?APPID=LHG_ONLINE&TENANT=AZ&LANGUAGE=ja&COUNTRY=xx&MODE=PORTAL",
+                "linkTitle": "チェックインをする",
+                "description": "新しい搭乗券を受け取るには、以下のリンクから再度チェックインを行なってください。",
+                "title": "再度チェックインをする",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "otherCheckinQuestions",
+          "title": "チェックインに関する質問",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/ja/book-and-prepare/travel-information/check-in-information",
+                "linkTitle": "情報を見る",
+                "description": "チェックインに関してよくある質問とその回答で詳細情報をご確認いただけます。",
+                "title": "チェックインに関する情報",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-boarding-card",
+      "imageUrl": "https://www.ita-airways.com/content/dam/ita/images/local_images/help-center//check-in.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "baggage",
+      "title": "手荷物",
+      "children": [
+        {
+          "code": "baggage.rules",
+          "title": "手荷物の規定と料金",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/ja/manage-my-bookings/manage/manage-my-bookings",
+                "linkTitle": "予約の管理",
+                "description": "次回のフライトでお持ちいただける手荷物の許容量をご確認ください。",
+                "title": "手荷物許容量を見る",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.ita-airways.com/booking/manage-booking/retrieve?lang=ja-JP&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/ja/book-and-prepare/travel-information/baggage",
+                "linkTitle": "一覧を見る",
+                "description": "手荷物の種類、各種サービス、適用される料金の一覧をご確認ください。",
+                "title": "手荷物に関するすべての情報を見る",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "サービスセンターに電話する",
+                "description": "ご質問やご不明な点につきましては、担当者がお手伝いいたします。",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 3,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "baggage.excess",
+          "title": "追加手荷物／超過手荷物",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/ja/manage-my-bookings/manage/manage-my-bookings",
+                "linkTitle": "予約の管理",
+                "description": "次回のフライトでお預けいただける手荷物の量をご確認いただき、必要に応じて追加してください。",
+                "title": "手荷物を追加する",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.ita-airways.com/booking/manage-booking/retrieve?lang=ja-JP&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/ja/manage-my-bookings/extra-services/extra-baggage",
+                "linkTitle": "詳細を見る",
+                "description": "ご予約のフライトに超過手荷物を追加する方法についての詳細をご確認ください。",
+                "title": "手荷物規定を確認する",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "サービスセンターに電話する",
+                "description": "ご質問やご不明な点につきましては、担当者がお手伝いいたします。",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 3,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "baggage.sports",
+          "title": "スポーツ用品を追加する",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/ja/manage-my-bookings/manage/manage-my-bookings",
+                "linkTitle": "予約の管理",
+                "description": "ご予約のフライトにスポーツ用品を直接追加できます。",
+                "title": "スポーツ用品を追加する",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.ita-airways.com/booking/manage-booking/retrieve?lang=ja-JP&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/ja/book-and-prepare/travel-information/baggage/special-baggage",
+                "linkTitle": "すべての規定を見る",
+                "description": "スポーツ用品および特殊手荷物に関するすべての情報はこちらをご覧ください。",
+                "title": "手荷物規定を確認する",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "サービスセンターに電話する",
+                "description": "ご質問やご不明な点につきましては、担当者がお手伝いいたします。",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 3,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "pets",
+          "title": "ペット同伴のご旅行",
+          "children": [
+            {
+              "code": "travelPetsInCabin",
+              "title": "ペットの客室での輸送（キャリーケースを含み8kgまで）",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/ja/manage-my-bookings/manage/manage-my-bookings",
+                    "linkTitle": "今すぐ登録する",
+                    "description": "客室にペットをお連れになる場合は、既存のご予約にペットのご登録をお願いいたします。",
+                    "title": "ペットを追加する",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.ita-airways.com/booking/manage-booking/retrieve?lang=ja-JP&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/ja/book-and-prepare/other-requests/travelling-with-pets/pets-in-cabin",
+                    "linkTitle": "すべての条件を見る",
+                    "description": "ペットを同伴する場合の条件と必要書類をご確認ください。",
+                    "title": "旅行の条件を確認する",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "サービスセンターに電話する",
+                    "description": "ご質問やご不明な点につきましては、担当者がお手伝いいたします。",
+                    "title": null,
+                    "phone": "+496966102730",
+                    "priority": 3,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "travelPetsInCargo",
+              "title": "ペットの貨物室での輸送",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/ja/book-and-prepare/other-requests/travelling-with-pets/pets-as-cargo",
+                    "linkTitle": "すべての条件を見る",
+                    "description": "ペットを同伴する場合の条件をご覧いただき、必要書類がすべて揃っていることを確認してください。",
+                    "title": "旅行の条件を確認する",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "サービスセンターに電話する",
+                    "description": "ご質問やご不明な点につきましては、担当者がお手伝いいたします。",
+                    "title": null,
+                    "phone": "+496966102730",
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "baggage.damagedOrDelayed",
+          "title": "手荷物のトラブル",
+          "children": [
+            {
+              "code": "statusBaggageReport",
+              "title": "遅延手荷物申告の管理",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://wtrweb.worldtracer.aero/WorldTracerWeb/pax.do?airlineCode=az",
+                    "linkTitle": "手荷物申告へ",
+                    "description": "手荷物の申告状況を確認したり、住所や連絡先を変更したりできます。",
+                    "title": "手荷物申告を表示・編集する",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "FORM",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "refundBaggageIrregularities",
+              "title": "手荷物のトラブルに対する払い戻し",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.complaint.ita-airways.com/s/complaint?lang_code=ja&market=xx",
+                    "linkTitle": "フォームを開く",
+                    "description": "手荷物の遅延あるいは破損で生じた追加費用の払い戻しを申請する場合は、お問い合わせフォームをご利用ください。",
+                    "title": "払い戻しを申請する",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "FORM",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "baggage.lost",
+          "title": "身の回り品の紛失",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/ja/book-and-prepare/travel-information/baggage/baggage-assistance",
+                "linkTitle": "詳細を見る",
+                "description": "空港や機内で紛失した品物や、お預けになった手荷物からなくなった品物がある場合の申告方法をご覧ください。",
+                "title": "紛失物を申告する",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "baggage.dangerousGoods",
+          "title": "危険物および武器",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/ja/book-and-prepare/travel-information/baggage/restricted-and-prohibited-items",
+                "linkTitle": "詳細を見る",
+                "description": "危険物および禁制品がすべて記載されたリストをご確認ください。",
+                "title": "手荷物規定を確認する",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "サービスセンターに電話する",
+                "description": "ご質問やご不明な点につきましては、担当者がお手伝いいたします。",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-baggage",
+      "imageUrl": "https://www.ita-airways.com/content/dam/ita/images/local_images/help-center//baggage.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "addFlightServices",
+      "title": "追加のサービス",
+      "children": [
+        {
+          "code": "booking.Seats",
+          "title": "座席",
+          "children": [
+            {
+              "code": "changeSeat",
+              "title": "座席を追加または変更する",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/ja/manage-my-bookings/manage/manage-my-bookings",
+                    "linkTitle": "予約の管理",
+                    "description": "次のフライトの座席を予約または変更します。",
+                    "title": "座席を追加または変更する",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.ita-airways.com/booking/manage-booking/retrieve?lang=ja-JP&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/ja/manage-my-bookings/extra-services/seats-selection",
+                    "linkTitle": "概要を見る",
+                    "description": "すべての座席カテゴリと路線ごとの料金の情報を見る",
+                    "title": "すべての座席カテゴリを見る",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "サービスセンターに電話する",
+                    "description": "ご質問やご不明な点につきましては、担当者がお手伝いいたします。",
+                    "title": null,
+                    "phone": "+496966102730",
+                    "priority": 3,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            },
+            {
+              "code": "BookNeighboringSeat",
+              "title": "隣の席を予約する",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/ja/manage-my-bookings/manage/manage-my-bookings",
+                    "linkTitle": "予約の管理",
+                    "description": "隣の空席を予約すれば、さらに快適な旅をお楽しみいただけます。",
+                    "title": "隣の席を予約する",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.ita-airways.com/booking/manage-booking/retrieve?lang=ja-JP&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "サービスセンターに電話する",
+                    "description": "ご質問やご不明な点につきましては、担当者がお手伝いいたします。",
+                    "title": null,
+                    "phone": "+496966102730",
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "specialMeal",
+          "title": "機内食",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/ja/manage-my-bookings/manage/manage-my-bookings",
+                "linkTitle": "予約の管理",
+                "description": "食事制限や宗教、または栄養上の事情に配慮した特別食をご注文ください。\n \nこのサービスをご利用いただけるかどうかは、お客様のご予約条件により異なりますのでご注意ください。",
+                "title": "特別食を注文する",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.ita-airways.com/booking/manage-booking/retrieve?lang=ja-JP&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "サービスセンターに電話する",
+                "description": "ご質問やご不明な点につきましては、担当者がお手伝いいたします。",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "onBoardServices",
+          "title": "機内サービス",
+          "children": [
+            {
+              "code": "ejournals",
+              "title": "デジタル新聞・雑誌",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/ja/book-and-prepare/travel-information/at-the-airport/digital-newsstand",
+                    "linkTitle": "詳細を見る",
+                    "description": "機内でデジタルニューススタンドを利用する方法をご案内します。",
+                    "title": "デジタルニューススタンドの詳細",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "flynet",
+              "title": "機内インターネット",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/ja/world-of-ita-airways/services-on-board/connectivity-on-board",
+                    "linkTitle": "詳細を見る",
+                    "description": "機内インターネットサービスの詳細とご利用方法をご覧ください。",
+                    "title": "機内Wi-Fi接続を購入",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "inflightEntertainment",
+              "title": "機内エンターテイメント",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/ja/world-of-ita-airways/services-on-board/entertainment-on-board",
+                    "linkTitle": "すべてのオプションを見る",
+                    "description": "バラエティ豊かな映画やオーディオブックなどを楽しみながら機内でのひとときをお過ごしください。",
+                    "title": "機内エンターテインメントを見る",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "Lounges",
+          "title": "ラウンジ",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/ja/book-and-prepare/travel-information/at-the-airport/lounges",
+                "linkTitle": "ディレクトリを見る",
+                "description": "各空港でご利用可能なラウンジとご利用方法をご案内します。",
+                "title": "ラウンジを探す",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "サービスセンターに電話する",
+                "description": "ご質問やご不明な点につきましては、担当者がお手伝いいたします。",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "TravelInsurance",
+          "title": "旅行保険",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/ja/manage-my-bookings/manage/manage-my-bookings",
+                "linkTitle": "保険を選択する",
+                "description": "次回の旅行に備えて、旅行保険に加入しましょう。\n  \nこのサービスをご利用いただけるかどうかは、お客様のご予約条件により異なりますのでご注意ください。",
+                "title": "保険に加入する",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.ita-airways.com/booking/manage-booking/retrieve?lang=ja-JP&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "pets",
+          "title": "ペット同伴のご旅行",
+          "children": [
+            {
+              "code": "travelPetsInCabin",
+              "title": "ペットの客室での輸送（キャリーケースを含み8kgまで）",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/ja/manage-my-bookings/manage/manage-my-bookings",
+                    "linkTitle": "今すぐ登録する",
+                    "description": "客室にペットをお連れになる場合は、既存のご予約にペットのご登録をお願いいたします。",
+                    "title": "ペットを追加する",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.ita-airways.com/booking/manage-booking/retrieve?lang=ja-JP&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/ja/book-and-prepare/other-requests/travelling-with-pets/pets-in-cabin",
+                    "linkTitle": "すべての条件を見る",
+                    "description": "ペットを同伴する場合の条件と必要書類をご確認ください。",
+                    "title": "旅行の条件を確認する",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "サービスセンターに電話する",
+                    "description": "ご質問やご不明な点につきましては、担当者がお手伝いいたします。",
+                    "title": null,
+                    "phone": "+496966102730",
+                    "priority": 3,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "travelPetsInCargo",
+              "title": "ペットの貨物室での輸送",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/ja/book-and-prepare/other-requests/travelling-with-pets/pets-as-cargo",
+                    "linkTitle": "すべての条件を見る",
+                    "description": "ペットを同伴する場合の条件をご覧いただき、必要書類がすべて揃っていることを確認してください。",
+                    "title": "旅行の条件を確認する",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "サービスセンターに電話する",
+                    "description": "ご質問やご不明な点につきましては、担当者がお手伝いいたします。",
+                    "title": null,
+                    "phone": "+496966102730",
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "TravelingWithChildren",
+          "title": "お子様連れのご旅行",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/ja/book-and-prepare/other-requests/families-and-children",
+                "linkTitle": "詳細を見る",
+                "description": "旅行の準備や座席指定など、お子様連れのご旅行に関する情報をご覧ください。",
+                "title": "トラベルインフォメーション",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "サービスセンターに電話する",
+                "description": "技術的な問題が発生した場合、またはベビーベッドのリクエストや一人旅のお子様のフライト予約をご希望の場合は、サービスセンターの担当者に直接ご相談ください。",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "confirmAdditionalServices",
+          "title": "追加サービスを確認する",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "サービスセンターに電話する",
+                "description": "サービスセンターにて、ご要望いただいたサービスが確定したかどうかをご確認いただけます。",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "addFlightServices.problem",
+          "title": "サービスの追加時に発生する問題",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "サービスセンターに電話する",
+                "description": "ご質問やご不明な点につきましては、担当者がお手伝いいたします。",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "MoreServices",
+          "title": "その他の追加サービス",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/ja/manage-my-bookings/extra-services",
+                "linkTitle": "サービスの一覧を見る",
+                "description": "準備万端で旅のすべてを楽しんでいただくために、その他の追加サービスをご用意しております。",
+                "title": "すべてのサービスを見る",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "サービスセンターに電話する",
+                "description": "ご質問やご不明な点につきましては、担当者がお手伝いいたします。",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-additional-services",
+      "imageUrl": "https://www.ita-airways.com/content/dam/ita/images/local_images/help-center//add-flight-service.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "booking",
+      "title": "予約と準備",
+      "children": [
+        {
+          "code": "booking.Seats",
+          "title": "座席",
+          "children": [
+            {
+              "code": "changeSeat",
+              "title": "座席を追加または変更する",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/ja/manage-my-bookings/manage/manage-my-bookings",
+                    "linkTitle": "予約の管理",
+                    "description": "次のフライトの座席を予約または変更します。",
+                    "title": "座席を追加または変更する",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.ita-airways.com/booking/manage-booking/retrieve?lang=ja-JP&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/ja/manage-my-bookings/extra-services/seats-selection",
+                    "linkTitle": "概要を見る",
+                    "description": "すべての座席カテゴリと路線ごとの料金の情報を見る",
+                    "title": "すべての座席カテゴリを見る",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "サービスセンターに電話する",
+                    "description": "ご質問やご不明な点につきましては、担当者がお手伝いいたします。",
+                    "title": null,
+                    "phone": "+496966102730",
+                    "priority": 3,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            },
+            {
+              "code": "BookNeighboringSeat",
+              "title": "隣の席を予約する",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/ja/manage-my-bookings/manage/manage-my-bookings",
+                    "linkTitle": "予約の管理",
+                    "description": "隣の空席を予約すれば、さらに快適な旅をお楽しみいただけます。",
+                    "title": "隣の席を予約する",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.ita-airways.com/booking/manage-booking/retrieve?lang=ja-JP&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "サービスセンターに電話する",
+                    "description": "ご質問やご不明な点につきましては、担当者がお手伝いいたします。",
+                    "title": null,
+                    "phone": "+496966102730",
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "booking.Upgrades",
+          "title": "アップグレード",
+          "children": [
+            {
+              "code": "upgradeFlight",
+              "title": "アップグレードの予約",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/ja/manage-my-bookings/extra-services/upgrade/immediate-upgrade",
+                    "linkTitle": "詳細を見る",
+                    "description": "インスタントアップグレードで、ビジネスクラスやプレミアムエコノミーに即座にアップグレード。入札は不要です。",
+                    "title": "アップグレードを予約する",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "BidUpgrade",
+              "title": "アップグレードに入札する",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/ja/manage-my-bookings/extra-services/upgrade/bid-upgrade",
+                    "linkTitle": "オファーを提示する",
+                    "description": "ご希望の料金でワンランク上の搭乗クラスへのアップグレードが可能です。\n \n座席数には限りがあり、該当するご利用規約が適用されますのでご注意ください。",
+                    "title": "アップグレードに入札する",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "reconfirmation",
+          "title": "予約を確認する",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "サービスセンターに電話する",
+                "description": "ご質問やご不明な点につきましては、担当者がお手伝いいたします。",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "booking.SupportBookingPayment",
+          "title": "ご予約またはお支払いに関するサポート",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "サービスセンターに電話する",
+                "description": "ご質問やご不明な点につきましては、担当者がお手伝いいたします。",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "NameChangeAfterBooking",
+          "title": "ご予約後の氏名変更",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "サービスセンターに電話する",
+                "description": "ご予約の氏名訂正をご希望の場合は、サービスセンターまでお問い合わせください。\n \n承ることができるのは、スペルミスの修正など小規模な訂正に限られますのでご了承ください。",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "passengerReceipt",
+          "title": "お客様控え／請求書",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/ja/manage-my-bookings/manage/passenger-receipt",
+                "linkTitle": "今すぐリクエストする",
+                "description": "ご旅行のお客様控えをオンラインでご取得いただけます。\n \n旅行会社を通じてご予約いただいた場合は、旅行会社に領収書の発行をご請求ください。",
+                "title": "お客様控えをリクエストする",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "サービスセンターに電話する",
+                "description": "ご質問やご不明な点につきましては、担当者がお手伝いいたします。",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "sustainableFlying",
+          "title": "フライトの持続可能性を推進",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/ja/world-of-ita-airways/discover-ita-airways/sustainability",
+                "linkTitle": "取り組みを見る",
+                "description": "当社の持続可能性への取り組みについてご紹介します。",
+                "title": "持続可能性を支援",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-airplane-outbound",
+      "imageUrl": "https://www.ita-airways.com/content/dam/ita/images/local_images/help-center//booking.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "accessibility",
+      "title": "バリアフリーな旅",
+      "children": [],
+      "options": {
+        "recommended": [
+          {
+            "type": "SELF_SERVICE",
+            "link": "https://www.ita-airways.com/xx/ja/book-and-prepare/other-requests/accessible-travel",
+            "linkTitle": "概要へ",
+            "description": "どのような状況でも快適にご旅行いただけるよう、ご利用可能なすべてのサービスの概要をご覧ください。",
+            "title": "すべてのサービスを見る",
+            "phone": null,
+            "priority": 1,
+            "deeplink": null,
+            "notifications": [],
+            "trackingType": "INFORMATIONAL",
+            "profileHandoverEnabled": false
+          }
+        ],
+        "others": [
+          {
+            "type": "CALL",
+            "link": null,
+            "linkTitle": "サービスセンターに電話する",
+            "description": "ご質問やご不明な点につきましては、担当者がお手伝いいたします。",
+            "title": null,
+            "phone": "+496966102730",
+            "priority": 2,
+            "deeplink": null,
+            "notifications": [],
+            "trackingType": null,
+            "profileHandoverEnabled": false
+          }
+        ]
+      },
+      "icon": "icon-wheelchair",
+      "imageUrl": "https://www.ita-airways.com/content/dam/ita/images/local_images/help-center//accessible-travel.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": false
+    },
+    {
+      "code": "TravelIDLogin",
+      "title": "ログインと Travel ID",
+      "children": [],
+      "options": {
+        "recommended": [
+          {
+            "type": "SELF_SERVICE",
+            "link": "https://www.ita-airways.com/xx/ja/profile/travel-id/travel-id-faq",
+            "linkTitle": "よくある質問を見る",
+            "description": "Travel IDに関する詳細情報やログインに関する問題の解決方法については、よくある質問（FAQ）をご覧ください。",
+            "title": "ログインおよびTravel IDに関するよくある質問",
+            "phone": null,
+            "priority": 1,
+            "deeplink": null,
+            "notifications": [],
+            "trackingType": "INFORMATIONAL",
+            "profileHandoverEnabled": false
+          }
+        ],
+        "others": [
+          {
+            "type": "CALL",
+            "link": null,
+            "linkTitle": "サービスセンターに電話する",
+            "description": "さらにサポートが必要な場合は、当社の専門スタッフがお手伝いします。",
+            "title": null,
+            "phone": "+496966102730",
+            "priority": 2,
+            "deeplink": null,
+            "notifications": [],
+            "trackingType": null,
+            "profileHandoverEnabled": false
+          }
+        ]
+      },
+      "icon": "icon-service-login",
+      "imageUrl": null,
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": false
+    }
+  ],
+  "_metadata": {
+    "tenant": "AZ",
+    "language": "ja",
+    "extracted_at": "2026-11-05T02:03:09.886763",
+    "record_count": 1
+  }
+}

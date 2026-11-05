@@ -1,0 +1,1977 @@
+{
+  "targetCustomerStatus": "BASE",
+  "menu": [
+    {
+      "code": "travelBookingStatus",
+      "title": "Información actual sobre vuelos",
+      "children": [],
+      "options": {
+        "recommended": [
+          {
+            "type": "SELF_SERVICE",
+            "link": "https://www.ita-airways.com/xx/es/manage-my-bookings/manage/flight-status",
+            "linkTitle": "Consultar ahora",
+            "description": "Busque por número de vuelo, ruta de vuelo o aeropuerto para averiguar el estado de su vuelo.",
+            "title": "Verificar el estado del vuelo",
+            "phone": null,
+            "priority": 1,
+            "deeplink": null,
+            "notifications": [],
+            "trackingType": "TRANSACTIONAL",
+            "profileHandoverEnabled": false
+          }
+        ],
+        "others": []
+      },
+      "icon": "icon-flight-status",
+      "imageUrl": "https://www.ita-airways.com/content/dam/ita/images/local_images/help-center//travel-information.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": false
+    },
+    {
+      "code": "rebookingsCancelationsRefunds",
+      "title": "Cambios de reserva y cancelaciones",
+      "children": [
+        {
+          "code": "rebookFlight",
+          "title": "Cambiar la reserva de un vuelo",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/es/manage-my-bookings/manage/manage-my-bookings",
+                "linkTitle": "Gestionar reserva",
+                "description": "Cambie la fecha u hora de su vuelo online para uno o más pasajeros de su reserva.",
+                "title": "Cambiar la reserva del vuelo",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.ita-airways.com/booking/manage-booking/retrieve?lang=es-ES&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Llamar al Centro de atención al cliente",
+                "description": "Si nuestra atención al cliente online no ha podido ayudarle con su solicitud, nuestro centro de atención al cliente está aquí para atenderle.",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "NewBoardingPass",
+          "title": "Obtener una nueva tarjeta de embarque",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://once.ita-airways.com/connect/main-app?APPID=LHG_ONLINE&TENANT=AZ&LANGUAGE=es&COUNTRY=xx&MODE=PORTAL",
+                "linkTitle": "Ir al check-in",
+                "description": "Para recibir su nueva tarjeta de embarque, vuelva a realizar el check-in a través del siguiente enlace.",
+                "title": "Vuelva a realizar el check-in",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "confirmRebooking",
+          "title": "Confirmar la nueva reserva",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Llamar al Centro de atención al cliente",
+                "description": "Nuestros expertos estarán encantados de ayudarle con sus preguntas o inquietudes.",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "cancelBookingGetRefund",
+          "title": "Solicitar cancelación y/o reembolso",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/es/manage-my-bookings/manage/manage-my-bookings",
+                "linkTitle": "Gestionar reserva",
+                "description": "Cancele su reserva y solicite un reembolso online. \n \nTenga en cuenta que solo puede cancelar reservas completas.",
+                "title": "Cancelar reserva",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.ita-airways.com/booking/manage-booking/retrieve?lang=es-ES&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Llamar al Centro de atención al cliente",
+                "description": "Nuestros expertos estarán encantados de ayudarle con sus preguntas o inquietudes.",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-flight-irreg",
+      "imageUrl": "https://www.ita-airways.com/content/dam/ita/images/local_images/help-center//rebooking-cancellation-refund.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "RefundsAndCompensations",
+      "title": "Reembolsos y compensaciones",
+      "children": [
+        {
+          "code": "claimCompensationFlightDisruption",
+          "title": "Compensación por cambios de vuelo realizados por la aerolínea",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.complaint.ita-airways.com/s/complaint?lang_code=es&market=xx",
+                "linkTitle": "Abrir el formulario",
+                "description": "Si se ha visto afectado por una interrupción de vuelo, puede solicitar una compensación a través de nuestro formulario de contacto.",
+                "title": "Solicitar compensación",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "cancelBookingGetRefund",
+          "title": "Solicitar cancelación y/o reembolso",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/es/manage-my-bookings/manage/manage-my-bookings",
+                "linkTitle": "Gestionar reserva",
+                "description": "Cancele su reserva y solicite un reembolso online. \n \nTenga en cuenta que solo puede cancelar reservas completas.",
+                "title": "Cancelar reserva",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.ita-airways.com/booking/manage-booking/retrieve?lang=es-ES&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Llamar al Centro de atención al cliente",
+                "description": "Nuestros expertos estarán encantados de ayudarle con sus preguntas o inquietudes.",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "refundBaggageIrregularities",
+          "title": "Reembolso por problemas con el equipaje",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.complaint.ita-airways.com/s/complaint?lang_code=es&market=xx",
+                "linkTitle": "Abrir el formulario",
+                "description": "Use nuestro formulario de contacto para solicitar un reembolso de gastos adicionales a causa del retraso o daño de su equipaje.",
+                "title": "Solicitar reembolso",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "passengerRights",
+          "title": "Derechos de los pasajeros",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/es/legal/passenger-rights",
+                "linkTitle": "Más información",
+                "description": "Conozca sus derechos como pasajero en caso de cancelaciones de vuelos, retrasos u otras interrupciones de vuelos.",
+                "title": "Ver los derechos del pasajero",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-refund-possible",
+      "imageUrl": "https://www.ita-airways.com/content/dam/ita/images/local_images/help-center//refund-compensations.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "checkin",
+      "title": "Check-in",
+      "children": [
+        {
+          "code": "HelpWithCheckIn",
+          "title": "Problema con el check-in",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Llamar al Centro de atención al cliente",
+                "description": "Nuestros expertos estarán encantados de ayudarle con sus preguntas o inquietudes.",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "NewBoardingPass",
+          "title": "Obtener una nueva tarjeta de embarque",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://once.ita-airways.com/connect/main-app?APPID=LHG_ONLINE&TENANT=AZ&LANGUAGE=es&COUNTRY=xx&MODE=PORTAL",
+                "linkTitle": "Ir al check-in",
+                "description": "Para recibir su nueva tarjeta de embarque, vuelva a realizar el check-in a través del siguiente enlace.",
+                "title": "Vuelva a realizar el check-in",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "otherCheckinQuestions",
+          "title": "Preguntas sobre el check-in",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/es/book-and-prepare/travel-information/check-in-information",
+                "linkTitle": "Ir a la información",
+                "description": "Consulte más información y respuestas a las preguntas frecuentes sobre el check-in.",
+                "title": "Más información sobre el check-in",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-boarding-card",
+      "imageUrl": "https://www.ita-airways.com/content/dam/ita/images/local_images/help-center//check-in.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "baggage",
+      "title": "Equipaje",
+      "children": [
+        {
+          "code": "baggage.rules",
+          "title": "Reglas y precios de equipaje",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/es/manage-my-bookings/manage/manage-my-bookings",
+                "linkTitle": "Gestionar reserva",
+                "description": "Vea cuánto equipaje puede llevar en su próximo vuelo.",
+                "title": "Ver franquicia de equipaje",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.ita-airways.com/booking/manage-booking/retrieve?lang=es-ES&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/es/book-and-prepare/travel-information/baggage",
+                "linkTitle": "Ir al resumen",
+                "description": "Encuentre una descripción general de todos los tipos y servicios de equipaje, así como de los costes asociados.",
+                "title": "Ver toda la información sobre el equipaje",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Llamar al Centro de atención al cliente",
+                "description": "Nuestros expertos estarán encantados de ayudarle con sus preguntas o inquietudes.",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 3,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "baggage.excess",
+          "title": "Equipaje adicional/exceso de equipaje",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/es/manage-my-bookings/manage/manage-my-bookings",
+                "linkTitle": "Gestionar reserva",
+                "description": "Vea cuánto equipaje puede llevar en su próximo vuelo y añada más si es necesario.",
+                "title": "Agregar equipaje adicional",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.ita-airways.com/booking/manage-booking/retrieve?lang=es-ES&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/es/manage-my-bookings/extra-services/extra-baggage",
+                "linkTitle": "Más información",
+                "description": "Obtenga más información sobre cómo añadir exceso de equipaje para su vuelo reservado.",
+                "title": "Consultar la normativa de equipaje",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Llamar al Centro de atención al cliente",
+                "description": "Nuestros expertos estarán encantados de ayudarle con sus preguntas o inquietudes.",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 3,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "baggage.sports",
+          "title": "Añadir equipaje deportivo",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/es/manage-my-bookings/manage/manage-my-bookings",
+                "linkTitle": "Gestionar reserva",
+                "description": "Añada directamente equipaje deportivo para su vuelo reservado.",
+                "title": "Agregar equipaje deportivo",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.ita-airways.com/booking/manage-booking/retrieve?lang=es-ES&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/es/book-and-prepare/travel-information/baggage/special-baggage",
+                "linkTitle": "Ver toda la normativa",
+                "description": "Encuentre toda la información relacionada con el equipaje deportivo y el equipaje especial aquí.",
+                "title": "Consultar la normativa de equipaje",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Llamar al Centro de atención al cliente",
+                "description": "Nuestros expertos estarán encantados de ayudarle con sus preguntas o inquietudes.",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 3,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "pets",
+          "title": "Viajar con mascotas",
+          "children": [
+            {
+              "code": "travelPetsInCabin",
+              "title": "Animales en la cabina (máximo 8 kg, incluida la caja transportadora)",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/es/manage-my-bookings/manage/manage-my-bookings",
+                    "linkTitle": "Registrarse ahora",
+                    "description": "Registre a su mascota para llevarla en la cabina en una reserva existente.",
+                    "title": "Añadir una mascota",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.ita-airways.com/booking/manage-booking/retrieve?lang=es-ES&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/es/book-and-prepare/other-requests/travelling-with-pets/pets-in-cabin",
+                    "linkTitle": "Ver todas las condiciones",
+                    "description": "Revise las condiciones y la documentación requerida para viajar con mascotas.",
+                    "title": "Verificar las condiciones de viaje",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "Llamar al Centro de atención al cliente",
+                    "description": "Nuestros expertos estarán encantados de ayudarle con sus preguntas o inquietudes.",
+                    "title": null,
+                    "phone": "+496966102730",
+                    "priority": 3,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "travelPetsInCargo",
+              "title": "Animales en la bodega de carga",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/es/book-and-prepare/other-requests/travelling-with-pets/pets-as-cargo",
+                    "linkTitle": "Ver todas las condiciones",
+                    "description": "Revise las condiciones para viajar con mascotas y asegúrese de tener toda la documentación requerida.",
+                    "title": "Verificar las condiciones de viaje",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "Llamar al Centro de atención al cliente",
+                    "description": "Nuestros expertos estarán encantados de ayudarle con sus preguntas o inquietudes.",
+                    "title": null,
+                    "phone": "+496966102730",
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "baggage.damagedOrDelayed",
+          "title": "Problemas con el equipaje",
+          "children": [
+            {
+              "code": "statusBaggageReport",
+              "title": "Gestionar el informe de equipaje retrasado",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://wtrweb.worldtracer.aero/WorldTracerWeb/pax.do?airlineCode=az",
+                    "linkTitle": "Ir al informe de equipaje",
+                    "description": "Puede consultar el estado de su informe de equipaje o cambiar su dirección y detalles de contacto.",
+                    "title": "Ver o editar el informe de equipaje",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "FORM",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "refundBaggageIrregularities",
+              "title": "Reembolso por problemas con el equipaje",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.complaint.ita-airways.com/s/complaint?lang_code=es&market=xx",
+                    "linkTitle": "Abrir el formulario",
+                    "description": "Use nuestro formulario de contacto para solicitar un reembolso de gastos adicionales a causa del retraso o daño de su equipaje.",
+                    "title": "Solicitar reembolso",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "FORM",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "baggage.lost",
+          "title": "Pérdida de artículo personal",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/es/book-and-prepare/travel-information/baggage/baggage-assistance",
+                "linkTitle": "Más información",
+                "description": "Descubra cómo informar sobre artículos personales perdidos en el aeropuerto o en un avión, o que faltan en el equipaje facturado.",
+                "title": "Informar sobre artículos perdidos",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "baggage.dangerousGoods",
+          "title": "Mercancías peligrosas y armas",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/es/book-and-prepare/travel-information/baggage/restricted-and-prohibited-items",
+                "linkTitle": "Más información",
+                "description": "Eche un vistazo a nuestra lista completa de artículos peligrosos y artículos prohibidos.",
+                "title": "Consultar la normativa de equipaje",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Llamar al Centro de atención al cliente",
+                "description": "Nuestros expertos estarán encantados de ayudarle con sus preguntas o inquietudes.",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-baggage",
+      "imageUrl": "https://www.ita-airways.com/content/dam/ita/images/local_images/help-center//baggage.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "addFlightServices",
+      "title": "Servicios adicionales",
+      "children": [
+        {
+          "code": "booking.Seats",
+          "title": "Asientos",
+          "children": [
+            {
+              "code": "changeSeat",
+              "title": "Añadir o cambiar asiento",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/es/manage-my-bookings/manage/manage-my-bookings",
+                    "linkTitle": "Gestionar reserva",
+                    "description": "Reserve o cambie el asiento de su próximo vuelo.",
+                    "title": "Agregar o cambiar asiento",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.ita-airways.com/booking/manage-booking/retrieve?lang=es-ES&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/es/manage-my-bookings/extra-services/seats-selection",
+                    "linkTitle": "Ver resumen",
+                    "description": "Obtenga información sobre todas las categorías de asientos y sus precios por ruta.",
+                    "title": "Ver todas las categorías de asientos",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "Llamar al Centro de atención al cliente",
+                    "description": "Nuestros expertos estarán encantados de ayudarle con sus preguntas o inquietudes.",
+                    "title": null,
+                    "phone": "+496966102730",
+                    "priority": 3,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            },
+            {
+              "code": "BookNeighboringSeat",
+              "title": "Reservar el asiento contiguo",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/es/manage-my-bookings/manage/manage-my-bookings",
+                    "linkTitle": "Gestionar reserva",
+                    "description": "Reserve el asiento contiguo y disfrute de un viaje aún más cómodo.",
+                    "title": "Reservar el asiento contiguo",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.ita-airways.com/booking/manage-booking/retrieve?lang=es-ES&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "Llamar al Centro de atención al cliente",
+                    "description": "Nuestros expertos estarán encantados de ayudarle con sus preguntas o inquietudes.",
+                    "title": null,
+                    "phone": "+496966102730",
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "specialMeal",
+          "title": "Comidas a bordo",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/es/manage-my-bookings/manage/manage-my-bookings",
+                "linkTitle": "Gestionar reserva",
+                "description": "Pida un menú especial para sus necesidades dietéticas, religiosas o nutricionales.  \n \nTenga en cuenta que la disponibilidad de este servicio depende de las condiciones de su reserva.",
+                "title": "Solicitar un menú especial",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.ita-airways.com/booking/manage-booking/retrieve?lang=es-ES&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Llamar al Centro de atención al cliente",
+                "description": "Nuestros expertos estarán encantados de ayudarle con sus preguntas o inquietudes.",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "onBoardServices",
+          "title": "Servicios a bordo",
+          "children": [
+            {
+              "code": "ejournals",
+              "title": "Periódicos y revistas digitales",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/es/book-and-prepare/travel-information/at-the-airport/digital-newsstand",
+                    "linkTitle": "Más información",
+                    "description": "Vea cómo puede utilizar nuestro quiosco de periódicos digital a bordo.",
+                    "title": "Más información sobre el quiosco de periódicos digital",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "flynet",
+              "title": "Internet a bordo",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/es/world-of-ita-airways/services-on-board/connectivity-on-board",
+                    "linkTitle": "Más información",
+                    "description": "Encuentre más información sobre nuestro servicio de Internet a bordo y cómo utilizarlo.",
+                    "title": "Obtenga Wi-Fi a bordo",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "inflightEntertainment",
+              "title": "Entretenimiento a bordo",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/es/world-of-ita-airways/services-on-board/entertainment-on-board",
+                    "linkTitle": "Ver todas las opciones ",
+                    "description": "Disfrute de su tiempo a bordo con nuestra amplia gama de películas, audiolibros y más.",
+                    "title": "Ver entretenimiento a bordo",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "Lounges",
+          "title": "Lounges",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/es/book-and-prepare/travel-information/at-the-airport/lounges",
+                "linkTitle": "Ver directorio",
+                "description": "Consulte todas las lounges disponibles en el aeropuerto y cómo puede acceder a ellas.",
+                "title": "Buscar lounges",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Llamar al Centro de atención al cliente",
+                "description": "Nuestros expertos estarán encantados de ayudarle con sus preguntas o inquietudes.",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "TravelInsurance",
+          "title": "Seguro de viaje",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/es/manage-my-bookings/manage/manage-my-bookings",
+                "linkTitle": "Seleccionar seguro",
+                "description": "Contrate un seguro de viaje para su próximo viaje.  \n  \nTenga en cuenta que la disponibilidad de este servicio depende de las condiciones de su reserva.",
+                "title": "Contratar seguro",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.ita-airways.com/booking/manage-booking/retrieve?lang=es-ES&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "pets",
+          "title": "Viajar con mascotas",
+          "children": [
+            {
+              "code": "travelPetsInCabin",
+              "title": "Animales en la cabina (máximo 8 kg, incluida la caja transportadora)",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/es/manage-my-bookings/manage/manage-my-bookings",
+                    "linkTitle": "Registrarse ahora",
+                    "description": "Registre a su mascota para llevarla en la cabina en una reserva existente.",
+                    "title": "Añadir una mascota",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.ita-airways.com/booking/manage-booking/retrieve?lang=es-ES&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/es/book-and-prepare/other-requests/travelling-with-pets/pets-in-cabin",
+                    "linkTitle": "Ver todas las condiciones",
+                    "description": "Revise las condiciones y la documentación requerida para viajar con mascotas.",
+                    "title": "Verificar las condiciones de viaje",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "Llamar al Centro de atención al cliente",
+                    "description": "Nuestros expertos estarán encantados de ayudarle con sus preguntas o inquietudes.",
+                    "title": null,
+                    "phone": "+496966102730",
+                    "priority": 3,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "travelPetsInCargo",
+              "title": "Animales en la bodega de carga",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/es/book-and-prepare/other-requests/travelling-with-pets/pets-as-cargo",
+                    "linkTitle": "Ver todas las condiciones",
+                    "description": "Revise las condiciones para viajar con mascotas y asegúrese de tener toda la documentación requerida.",
+                    "title": "Verificar las condiciones de viaje",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "Llamar al Centro de atención al cliente",
+                    "description": "Nuestros expertos estarán encantados de ayudarle con sus preguntas o inquietudes.",
+                    "title": null,
+                    "phone": "+496966102730",
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "TravelingWithChildren",
+          "title": "Viajar con niños",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/es/book-and-prepare/other-requests/families-and-children",
+                "linkTitle": "Más información",
+                "description": "Consulte información sobre viajar con niños, desde la preparación de su viaje hasta los asientos y más.",
+                "title": "Información de viaje",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Llamar al Centro de atención al cliente",
+                "description": "Póngase en contacto directamente con uno de los agentes de nuestro centro de atención al cliente si tiene problemas técnicos o si desea solicitar un moisés o reservar un vuelo para un niño que viaja solo.",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "confirmAdditionalServices",
+          "title": "Confirmar servicios adicionales",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Llamar al Centro de atención al cliente",
+                "description": "Nuestro centro de atención al cliente estará encantado de verificar si los servicios que ha solicitado están confirmados.",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "addFlightServices.problem",
+          "title": "Problemas para añadir un servicio",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Llamar al Centro de atención al cliente",
+                "description": "Nuestros expertos estarán encantados de ayudarle con sus preguntas o inquietudes.",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "MoreServices",
+          "title": "Más servicios adicionales",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/es/manage-my-bookings/extra-services",
+                "linkTitle": "Ver resumen de los servicios",
+                "description": "Descubra más servicios adicionales que le ayudarán a prepararse y disfrutar de cada parte de su viaje.",
+                "title": "Ver todos los servicios",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Llamar al Centro de atención al cliente",
+                "description": "Nuestros expertos estarán encantados de ayudarle con sus preguntas o inquietudes.",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-additional-services",
+      "imageUrl": "https://www.ita-airways.com/content/dam/ita/images/local_images/help-center//add-flight-service.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "booking",
+      "title": "Reserve y prepárese",
+      "children": [
+        {
+          "code": "booking.Seats",
+          "title": "Asientos",
+          "children": [
+            {
+              "code": "changeSeat",
+              "title": "Añadir o cambiar asiento",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/es/manage-my-bookings/manage/manage-my-bookings",
+                    "linkTitle": "Gestionar reserva",
+                    "description": "Reserve o cambie el asiento de su próximo vuelo.",
+                    "title": "Agregar o cambiar asiento",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.ita-airways.com/booking/manage-booking/retrieve?lang=es-ES&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/es/manage-my-bookings/extra-services/seats-selection",
+                    "linkTitle": "Ver resumen",
+                    "description": "Obtenga información sobre todas las categorías de asientos y sus precios por ruta.",
+                    "title": "Ver todas las categorías de asientos",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "Llamar al Centro de atención al cliente",
+                    "description": "Nuestros expertos estarán encantados de ayudarle con sus preguntas o inquietudes.",
+                    "title": null,
+                    "phone": "+496966102730",
+                    "priority": 3,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            },
+            {
+              "code": "BookNeighboringSeat",
+              "title": "Reservar el asiento contiguo",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/es/manage-my-bookings/manage/manage-my-bookings",
+                    "linkTitle": "Gestionar reserva",
+                    "description": "Reserve el asiento contiguo y disfrute de un viaje aún más cómodo.",
+                    "title": "Reservar el asiento contiguo",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.ita-airways.com/booking/manage-booking/retrieve?lang=es-ES&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "Llamar al Centro de atención al cliente",
+                    "description": "Nuestros expertos estarán encantados de ayudarle con sus preguntas o inquietudes.",
+                    "title": null,
+                    "phone": "+496966102730",
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "booking.Upgrades",
+          "title": "Upgrades",
+          "children": [
+            {
+              "code": "upgradeFlight",
+              "title": "Reservar un upgrade",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/es/manage-my-bookings/extra-services/upgrade/immediate-upgrade",
+                    "linkTitle": "Más información",
+                    "description": "Mejore a Business Class o Premium Economy de inmediato con nuestro upgrade instantáneo, sin necesidad de pujar.",
+                    "title": "Reservar un upgrade",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "BidUpgrade",
+              "title": "Haga una oferta para obtener un upgrade",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.ita-airways.com/xx/es/manage-my-bookings/extra-services/upgrade/bid-upgrade",
+                    "linkTitle": "Realizar oferta",
+                    "description": "Realice un upgrade a una clase de servicio superior al precio que usted desea.  \n \nTenga en cuenta que la disponibilidad es limitada y está sujeta a los términos y condiciones aplicables.",
+                    "title": "Puje por su upgrade",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "reconfirmation",
+          "title": "Confirmar la reserva",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Llamar al Centro de atención al cliente",
+                "description": "Nuestros expertos estarán encantados de ayudarle con sus preguntas o inquietudes.",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "booking.SupportBookingPayment",
+          "title": "Asistencia con la reserva o el pago",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Llamar al Centro de atención al cliente",
+                "description": "Nuestros expertos estarán encantados de ayudarle con sus preguntas o inquietudes.",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "NameChangeAfterBooking",
+          "title": "Cambio de nombre después de la reserva",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Llamar al Centro de atención al cliente",
+                "description": "Póngase en contacto con nuestro centro de atención al cliente para solicitar una corrección del nombre en su reserva. \n \nTenga en cuenta que solo se pueden realizar pequeños cambios, como la corrección de errores ortográficos.",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "passengerReceipt",
+          "title": "Recibo del pasajero/Factura",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/es/manage-my-bookings/manage/passenger-receipt",
+                "linkTitle": "Solicitar ahora",
+                "description": "Obtenga online el recibo del pasajero de su viaje. \n \nSi reservó a través de una agencia de viajes, póngase en contacto con la agencia de viajes para solicitar un recibo.",
+                "title": "Solicitar recibo del pasajero",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Llamar al Centro de atención al cliente",
+                "description": "Nuestros expertos estarán encantados de ayudarle con sus preguntas o inquietudes.",
+                "title": null,
+                "phone": "+496966102730",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "sustainableFlying",
+          "title": "Vuele de manera más sostenible",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.ita-airways.com/xx/es/world-of-ita-airways/discover-ita-airways/sustainability",
+                "linkTitle": "Explorar iniciativas",
+                "description": "Obtenga más información sobre nuestras iniciativas de sostenibilidad.",
+                "title": "Apoyamos la sostenibilidad",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-airplane-outbound",
+      "imageUrl": "https://www.ita-airways.com/content/dam/ita/images/local_images/help-center//booking.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "accessibility",
+      "title": "Viaje accesible",
+      "children": [],
+      "options": {
+        "recommended": [
+          {
+            "type": "SELF_SERVICE",
+            "link": "https://www.ita-airways.com/xx/es/book-and-prepare/other-requests/accessible-travel",
+            "linkTitle": "Ir al resumen",
+            "description": "Encuentre una descripción general de todos los servicios disponibles para viajar con comodidad en cualquier circunstancia.",
+            "title": "Ver todos los servicios",
+            "phone": null,
+            "priority": 1,
+            "deeplink": null,
+            "notifications": [],
+            "trackingType": "INFORMATIONAL",
+            "profileHandoverEnabled": false
+          }
+        ],
+        "others": [
+          {
+            "type": "CALL",
+            "link": null,
+            "linkTitle": "Llamar al Centro de atención al cliente",
+            "description": "Nuestros expertos estarán encantados de ayudarle con sus preguntas o inquietudes.",
+            "title": null,
+            "phone": "+496966102730",
+            "priority": 2,
+            "deeplink": null,
+            "notifications": [],
+            "trackingType": null,
+            "profileHandoverEnabled": false
+          }
+        ]
+      },
+      "icon": "icon-wheelchair",
+      "imageUrl": "https://www.ita-airways.com/content/dam/ita/images/local_images/help-center//accessible-travel.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": false
+    },
+    {
+      "code": "TravelIDLogin",
+      "title": "Login y Travel ID",
+      "children": [],
+      "options": {
+        "recommended": [
+          {
+            "type": "SELF_SERVICE",
+            "link": "https://www.ita-airways.com/xx/es/profile/travel-id/travel-id-faq",
+            "linkTitle": "Ver preguntas frecuentes",
+            "description": "Consulte más información sobre Travel ID y obtenga ayuda con los problemas de login en nuestras preguntas frecuentes.",
+            "title": "Preguntas frecuentes sobre el login y Travel ID",
+            "phone": null,
+            "priority": 1,
+            "deeplink": null,
+            "notifications": [],
+            "trackingType": "INFORMATIONAL",
+            "profileHandoverEnabled": false
+          }
+        ],
+        "others": [
+          {
+            "type": "CALL",
+            "link": null,
+            "linkTitle": "Llamar al Centro de atención al cliente",
+            "description": "Si necesita más ayuda, nuestros expertos están aquí para ayudarle.",
+            "title": null,
+            "phone": "+496966102730",
+            "priority": 2,
+            "deeplink": null,
+            "notifications": [],
+            "trackingType": null,
+            "profileHandoverEnabled": false
+          }
+        ]
+      },
+      "icon": "icon-service-login",
+      "imageUrl": null,
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": false
+    }
+  ],
+  "_metadata": {
+    "tenant": "AZ",
+    "language": "es",
+    "extracted_at": "2026-11-05T02:03:07.449676",
+    "record_count": 1
+  }
+}

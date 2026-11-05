@@ -1,0 +1,20 @@
+{
+  "enabledFeatures": [
+    "analytics",
+    "bookingIdentification",
+    "feedbackAI",
+    "topicFinder"
+  ],
+  "helpOptions": {
+    "call": true,
+    "chatAssistant": true,
+    "liveAgent": true,
+    "selfService": true
+  },
+  "featureConfig": {
+    "boardingPass": [
+      "upload",
+      "scan"
+    ]
+  }
+}
