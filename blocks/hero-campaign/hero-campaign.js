@@ -253,18 +253,18 @@ function stageEager(block) {
 
 /**
  * TAP's banners (parity 94): the picture cell's second picture is the phone one (www's
- * imageMobile, the import's phonePictures). One picture: the first's sources from 768 px, then the
- * phone picture's (its size and the first picture's text).
+ * imageMobile, the import's phonePictures). One picture: the first's sources from 728 px
+ * (www's), then the phone picture's (its size and the first picture's text).
  * @param {Element} img the first picture's image
  * @param {Element} phoneImg the second picture's image
  * @param {boolean} eager
- * @param {string} width the first picture's width from 768 px
+ * @param {string} width the first picture's width from 728 px
  * @param {string} phoneWidth the phone picture's width
  * @returns {Element} the picture
  */
 export function phonePicture(img, phoneImg, eager, width, phoneWidth) {
   const wide = createOptimizedPicture(img.src, img.alt || '', eager, [
-    { media: '(min-width: 768px)', width },
+    { media: '(min-width: 728px)', width },
     { width: phoneWidth },
   ]);
   const phone = keepImageSize(phoneImg, createOptimizedPicture(phoneImg.src, img.alt || '', eager, [{ width: phoneWidth }]));

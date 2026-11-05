@@ -279,8 +279,9 @@ function buildVideo(src, img) {
 
 /**
  * TAP's banners (parity 94): the picture cell's second picture is the phone one (www's
- * imageMobile, the import's phonePictures): one picture, the first's sources from 768 px, then
- * the phone picture's (as hero-campaign.js phonePicture; blocks import no other block).
+ * imageMobile, the import's phonePictures): one picture, the first's sources from 728 px
+ * (www's), then the phone picture's (as hero-campaign.js phonePicture; blocks import no
+ * other block).
  * @param {Element} picture the first picture
  * @param {boolean} eager
  * @returns {Element|null} the picture, or null (no second picture in the cell)
@@ -292,7 +293,7 @@ function tapPhonePicture(picture, eager) {
   const phoneImg = second && second.querySelector('img[src]');
   if (!phoneImg) return null;
   const wide = createOptimizedPicture(img.src, img.alt || '', eager, [
-    { media: '(min-width: 768px)', width: '2000' },
+    { media: '(min-width: 728px)', width: '2000' },
     { width: '900' },
   ]);
   const phone = keepImageSize(phoneImg, createOptimizedPicture(phoneImg.src, img.alt || '', eager, [{ width: '900' }]));
