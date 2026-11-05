@@ -27,7 +27,7 @@ A row each, columns `type, id, name, country, area, tags, text, link, image`:
 
 | type | id | name | other columns |
 | --- | --- | --- | --- |
-| destination | Smartvel's region id | the city | country; area (the slug of its country's area in `geo/sm_areas.json`, of the four the config offers); tags (the category chips it carries, their ids, comma-separated); text (the description without HTML); link (the widget's shop button: the market's banner link, else the shop link); image (empty, see below) |
+| destination | Smartvel's region id | the city | country; area (the slug of its country's area in `geo/sm_areas.json`, of the four the config offers); tags (the category chips it carries, their ids, comma-separated); text (the description without HTML); link (the widget's shop button: the market's banner link, else the shop link); image (the cover on Smartvel's CDN, see below) |
 | chip | the chip id | its name | |
 | area | the area slug | its name in the version's language | |
 | label | the widget's key (`SEARCH_PLACEHOLDER`, `FILTERS_BTN` …) | its text | |
@@ -35,10 +35,11 @@ A row each, columns `type, id, name, country, area, tags, text, link, image`:
 The destinations come in the widget's order (`region_priority` first). For en-pt, fr-fr, pt-br and
 pl-pl the widget's market has no per-city links, so every link is the shop link, as on www.
 
-**Pictures:** Smartvel's pictures are licensed (Shutterstock, credited in each picture's fields).
-The sheet leaves the image column empty until that is decided; `--photos yes` writes each cover as
-the widget loads it (`cover.cc_photo` + `_medium`, on Smartvel's CDN). A card without a picture
-shows its text only.
+**Pictures:** Smartvel's pictures are licensed (Shutterstock, credited in each picture's fields), so
+they are not copied: the cards load them straight from Smartvel's CDN, as www does (row 84, Ben's
+call). The sheet writes each cover as www's srcset loads it, `cover.cc_photo` + `_medium` (about
+150 KB, not the original of up to ~1.8 MB); their alt is empty, as on www. `--photos no` leaves the
+column empty; a card without a picture shows its text only.
 
 ## Behaviour
 

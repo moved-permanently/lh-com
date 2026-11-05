@@ -52,11 +52,12 @@ test('the sheet tool: one row a destination, chip, area or label; the chips the 
   const rows = tool.sheetRows(capture);
   assert.deepEqual(Object.keys(rows[0]), tool.COLUMNS);
   const dests = rows.filter((r) => r.type === 'destination');
-  assert.deepEqual(dests.map((r) => [r.id, r.name, r.country, r.area, r.tags, r.text, r.image]), [['2', 'Faro', 'Portugal', 'europe', '1,10', 'Sol.', ''], ['1', 'Viena', 'Áustria', 'europe', '10', 'Graciosa.', '']]);
+  // (row 84, Ben's call: the photos from Smartvel's CDN, www's _medium rendition, no copy)
+  assert.deepEqual(dests.map((r) => [r.id, r.name, r.country, r.area, r.tags, r.text, r.image]), [['2', 'Faro', 'Portugal', 'europe', '1,10', 'Sol.', 'https://cdn.smartvel.com/ccpictures/region/faro.jpg_medium'], ['1', 'Viena', 'Áustria', 'europe', '10', 'Graciosa.', 'https://cdn.smartvel.com/ccpictures/region/vienna.jpg_medium']]);
   assert.deepEqual(rows.filter((r) => r.type === 'chip').map((r) => [r.id, r.name]), [['10', 'Cultura'], ['1', 'Praia']]);
   assert.deepEqual(rows.filter((r) => r.type === 'area').map((r) => [r.id, r.name]), [['europe', 'Europa']]);
   assert.deepEqual(rows.filter((r) => r.type === 'label').map((r) => [r.id, r.name]), [['SEARCH_PLACEHOLDER', 'Destinos'], ['FILTERS_BTN', 'Filtros']]);
-  assert.equal(tool.sheetRows({ ...capture, photos: true }).find((r) => r.id === '1').image, 'https://cdn.smartvel.com/ccpictures/region/vienna.jpg_medium', 'only with --photos (Ben decides)');
+  assert.equal(tool.sheetRows({ ...capture, photos: false }).find((r) => r.id === '1').image, '', '--photos no leaves the column empty');
 });
 
 test('the fixture: pt-pt\'s sheet from the capture, 20 destinations, no Smartvel picture', () => {
@@ -194,4 +195,18 @@ test('the look, scoped to the block: www\'s white cards (24 px corners, soft sha
   assert.match(css, /@media \(width >= 1024px\) \{[^@]*\.destination-grid \.destination-grid-list \{\s*grid-template-columns: repeat\(3, minmax\(0, 1fr\)\);/);
   css.replace(/\/\*[\s\S]*?\*\//g, '').split('}').map((r) => r.split('{')[0].trim()).filter((sel) => sel && !sel.startsWith('@'))
     .forEach((sel) => sel.split(/,(?![^(]*\))/).forEach((one) => assert.equal(one.trim().startsWith('.destination-grid'), true, one)));
+});
+
+test('row 84: a cover whose _medium rendition Smartvel\'s CDN lacks (New York, Montreal: 403) the ?width=800 one the widget also loads, checked once per URL', async () => {
+  const rows = [
+    { type: 'destination', id: '1', image: 'https://cdn.smartvel.com/ccpictures/region/ny.jpg_medium' },
+    { type: 'destination', id: '2', image: 'https://cdn.smartvel.com/ccpictures/region/faro.jpg_medium' },
+    { type: 'destination', id: '3', image: 'https://cdn.smartvel.com/ccpictures/region/ny.jpg_medium' },
+    { type: 'chip', id: '10', image: '' },
+  ];
+  const asked = [];
+  const fetcher = async (url) => { asked.push(url); return { ok: !url.includes('ny.jpg_medium'), status: url.includes('ny.jpg_medium') ? 403 : 200 }; };
+  const out = await tool.checkImages(rows, fetcher);
+  assert.deepEqual(out.map((r) => r.image), ['https://cdn.smartvel.com/ccpictures/region/ny.jpg?width=800', 'https://cdn.smartvel.com/ccpictures/region/faro.jpg_medium', 'https://cdn.smartvel.com/ccpictures/region/ny.jpg?width=800', '']);
+  assert.deepEqual(asked, ['https://cdn.smartvel.com/ccpictures/region/ny.jpg_medium', 'https://cdn.smartvel.com/ccpictures/region/faro.jpg_medium'], 'once per URL');
 });
