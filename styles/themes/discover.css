@@ -72,13 +72,15 @@
   --nav-logo-height-wide: 40px;
 
   /* footer: www's link area sky blue under a yellow and a light sky blue stripe (the gradient: the
-     rules below), headings LufthansaHead 18/19.8 without a rule, links 14/18 #f4f4f4; the logo row
+     rules below), headings LufthansaHead 18/19.8 without a rule, links 18/18 bold #f4f4f4 (www's
+     a.link-large, brief 394), the legal links too, one per line on phones; the logo row
      (Discover's inverted logo, the white "Member of Lufthansa Group") dark sky blue, then night sky
      blue */
   --footer-surface: #1e73af;
   --footer-heading-size: 18px;
   --footer-title-line: transparent;
-  --footer-link-size: 14px;
+  --footer-link-size: 18px;
+  --footer-legal-direction: column;
   --footer-link-line-height: 18px;
   --footer-link-color: #f4f4f4;
   --footer-locale-color: #fff; /* 5.09:1 on sky blue (lh-com's #ebebeb 4.27) */
@@ -397,9 +399,10 @@ body.brand-discover .carousel-cards:is(.grid, .four-up) .carousel-cards-slide:no
   font-size: var(--heading-font-size-s);
 }
 
-/* row 11: links in running text regular (www's .richtext a inherits the copy's 400; the arrow
-   before them as lh-com's) */
+/* row 11: links in running text 18 px regular in the 16 px copy (www's .richtext a: 18/18 400, brief
+   394; the arrow before them as lh-com's) */
 body.brand-discover main :is(.default-content-wrapper, .columns-media-text) :is(p:not(.link-wrapper, .button-wrapper), li) a:any-link:not(.button) {
+  font-size: 18px;
   font-weight: 400;
 }
 
@@ -422,4 +425,64 @@ body.brand-discover .destination-finder :is(.destination-finder-conditions-toggl
   font-family: var(--heading-font-family);
   font-size: 18px;
   line-height: 24px;
+}
+
+/* brief 394: the footer's legal links 18 px as the column links (www's a.link-large; lh-com's 14 px) */
+body.brand-discover .footer .footer-legal .footer-link {
+  font-size: 18px;
+}
+
+/* brief 394: table row headers (a short first cell, blocks/table-striped) regular as www's cells */
+body.brand-discover .table-striped tbody th {
+  font-weight: 400;
+}
+
+/* brief 394: columns-media option side-picture, www's column view nested in a column (Customer
+   service: the WhatsApp text beside its QR code under the column's heading): a text cell ending in a
+   picture puts it beside the text from 768 px, below it on phones */
+body.brand-discover .columns-media.side-picture .columns-media-text:has(> p > picture) {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  column-gap: 20px;
+  align-content: start;
+}
+
+body.brand-discover .columns-media.side-picture .columns-media-text:has(> p > picture) > * {
+  grid-column: 1;
+}
+
+body.brand-discover .columns-media.side-picture .columns-media-text:has(> p > picture) > :is(h2, h3, h4):first-child {
+  grid-column: 1 / -1;
+}
+
+@media (width >= 768px) {
+  body.brand-discover .columns-media.side-picture .columns-media-text:has(> p > picture) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  body.brand-discover .columns-media.side-picture .columns-media-text > p:has(> picture) {
+    grid-column: 2;
+    grid-row: 2 / span 20;
+  }
+}
+
+/* brief 394: text-only teaser cards (www's a.teaser.card without image: Santorini's flight info and
+   weather) 20 px padded, the 30 % dark sky blue border, 6 px corners and the soft shadow */
+body.brand-discover .carousel-cards.grid .carousel-cards-slide.carousel-cards-text-only,
+body.brand-discover .carousel-cards.grid .carousel-cards-slide.carousel-cards-text-only:hover {
+  border: 1px solid rgb(0 62 123 / 30%);
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgb(0 37 84 / 10%);
+}
+
+body.brand-discover .carousel-cards.grid .carousel-cards-slide.carousel-cards-text-only .carousel-cards-body {
+  padding: 20px;
+}
+
+body.brand-discover .carousel-cards.grid .carousel-cards-slide.carousel-cards-text-only .carousel-cards-body > :is(h1, h2, h3, h4, h5, h6) {
+  margin-bottom: 10px;
+}
+
+body.brand-discover .carousel-cards.grid .carousel-cards-slide.carousel-cards-text-only .carousel-cards-body > :last-child {
+  margin-bottom: 0;
 }

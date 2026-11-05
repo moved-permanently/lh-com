@@ -1,0 +1,7 @@
+# lh-discover documents changed in brief 394 (read from DA, uploaded and previewed on main--lh-discover--moved-permanently.aem.page; not published)
+/de/en/book/special-requests/families
+/de/de/book/special-requests/families
+/de/en/travel-inspiration/inspiration/destinations/santorini
+/de/de/travel-inspiration/inspiration/destinations/santorini
+/de/en/my-bookings/manage/customer-service
+/de/de/my-bookings/manage/customer-service

@@ -93,7 +93,7 @@ page loads from Group services.
 | 6 | Stage teaser eyebrow LufthansaHead 24/26.4 regular | 18/19.8 | theme | mine | fixed |
 | 7 | Accordion titles LufthansaHead 20/26 bold sky blue; the travellers button LufthansaHead 18/24 | 18/24 dark sky blue; LufthansaText 14/21 | theme | mine | fixed |
 | 8 | "Looking for more" tiles white, 1 px rgb(0 62 123 / 30%), 10 px corners, soft shadow; labels #002554 | grey tiles, #e9e9e9 border, 8 px | theme | mine | fixed |
-| 9 | Footer: a yellow 20 px and a light sky blue 24 px stripe over sky blue #1e73af; headings 18/19.8 without a rule; links 14/18 #f4f4f4; the logo row dark sky blue, then night sky blue | one dark sky blue area, 24 px headings with a rule | theme | mine | fixed |
+| 9 | Footer: a yellow 20 px and a light sky blue 24 px stripe over sky blue #1e73af; headings 18/19.8 without a rule; links 18/18 bold #f4f4f4 (corrected in brief 394: www's a.link-large; 14 px came from a rule for other links); the logo row dark sky blue, then night sky blue | one dark sky blue area, 24 px headings with a rule | theme | mine | fixed (brief 394: the links 18 px) |
 | 10 | Teaser cards' titles (a.teaser.card) LufthansaHead 14 to 16 px #002554 | 18 to 24 px | theme | mine | fixed |
 | 11 | Links in running text regular (`.richtext a` inherits 400), an arrow before them | bold | theme | mine | fixed |
 | 12 | A tab set on phones: accordion toggles LufthansaHead 20/26 bold sky blue | 16/24 night sky blue | theme | mine | fixed |
@@ -103,11 +103,11 @@ page loads from Group services.
 | 16 | Teaser cards two per row: Additional services (9), "This might also be of interest to you" on Traveling with children and Baggage, "You might also be interested in this" on Check-in | loose full-width pictures with a heading under each | document | mine | fixed: carousel-cards grid two-up |
 | 17 | Headings in column views sized by their class (heading-copytext-large: "Economy Light fare", "Kids' entertainment …", "Online check-in with tour operator's code", Santorini's and Punta Cana's subheads …) | the class lost in the import: 28 px light | document | mine | fixed: the marker from www's own markup, 65 headings in 18 documents |
 | 18 | Footer without a search field or country switch; Follow us a fourth link column | a search and country row on top; Follow us under the columns | document | mine | fixed in both footers (badges, in-columns) |
-| 19 | Footer: legal links one per line on phones and larger; more space round the rows at 1440 | two per line, 14 px | theme | mine | open: the links are slotted maui-navigation-links whose size the static capture does not give; needs www's computed size of a legal link (390 and 1440) |
-| 20 | Santorini: "Flight time approx. 3 hours" and "JTR Airport" as two boxed cards side by side | stacked text in the grey band | document | mine | open |
-| 21 | Customer service: "You can also contact us via WhatsApp" and "Is your baggage delayed" side by side, a small QR code | stacked, a large QR code | document | mine | open |
-| 22 | Traveling with children: two accordion groups (one item open, with two pictures, then eight), "Important information about children's travel documents" | one group of nine, that item missing | document (import) | mine | open: needs the item's text from www (it is in the capture) and a decision on the open first item |
-| 23 | The phone number on Customer service 18 px regular; Baggage's table values regular; "Your benefits on board" night sky blue | 16/24; bold; dark sky blue | document; theme | mine | open, small |
+| 19 | Footer: legal links one per line on phones and larger; more space round the rows at 1440 | two per line, 14 px | theme | mine | fixed (brief 394): www's a.link-large is 18/18 bold #f4f4f4 for the column and the legal links (the rendered capture); Discover's theme: --footer-link-size 18 px, the legal row 18 px, one per line on phones (--footer-legal-direction: column); 38 px from link to link as www's |
+| 20 | Santorini: "Flight time approx. 3 hours" and "JTR Airport" as two boxed cards side by side | stacked text in the grey band | document | mine | fixed (brief 394): www's two text-only teaser cards to the flight search (a.teaser.card) as a carousel-cards grid two-up in the grey band, 615/622 x 94 at 1440 and 331/346 x 91 at 390 as www's (20 px padding, 1 px 30 % dark sky blue border, 6 px corners, the soft shadow, also Santorini's weather cards) |
+| 21 | Customer service: "You can also contact us via WhatsApp" and "Is your baggage delayed" side by side, a small QR code | stacked, a large QR code | document | mine | fixed (brief 394): www's column rows ([before the trip | feedback], [WhatsApp | delayed baggage]) as columns-media with the Discover option side-picture: the WhatsApp text and the QR code side by side (301 px each at 1440, www 297), the QR code under the text on phones; de/de had all of it as loose paragraphs, now both rows |
+| 22 | Traveling with children: one accordion of nine items, the first ("Baggage regulations for children", with two pictures) open, the second "Important information about children's travel documents" (corrected in brief 394: not two groups) | one group of nine, that item missing | document (import) | mine | fixed (brief 394): the item "Important information about children's travel documents" / "Wichtige Informationen zu Reisedokumenten von Kindern" (www's text) second of 9; the first item open as www's, by the new accordion-columns option open-first (brand-neutral, test/accordion-columns-open-first.test.mjs) |
+| 23 | The phone number on Customer service 18 px regular; Baggage's table values regular; "Your benefits on board" night sky blue | 16/24; bold; dark sky blue | document; theme | mine | fixed (brief 394): links in running text 18 px regular as www's .richtext a (the phone number with them); table row headers regular as www's cells. "Your benefits on board" stays dark sky blue: www colours only the titles of its column views night sky blue, which our documents do not mark |
 | 24 | Offers cards: a "Compare cities" box on each card | none | design | lh-com shared block (destination-finder) | open |
 | 25 | Travellers: a modal ("Travel details") | lh-com's popover panel | design | lh-com shared block | left, as the user decided (one EMA) |
 | 26 | Header: no cart item in the bar | a "Shopping cart" item in the bar | shared | lh-com shared code (blocks/header) | open: whether www shows it once the cart holds a flight is not in the capture (a capture with a filled cart would tell) |
@@ -126,6 +126,11 @@ The 22 documents of `preview-paths.txt` were read from DA (lh-discover), changed
 previewed on main--lh-discover--moved-permanently.aem.page with `tools/importer/da-upload.mjs
 --site lh-discover`; DA was checked unchanged since the read just before the upload, and DA's
 documents match the local ones after it. Publishing is the user's.
+
+Brief 394: 6 documents read from DA (unchanged since brief 387's upload, published by the user),
+changed by a scratch script (the accordion item and option, Santorini's cards, Customer service's
+rows), DA checked unchanged just before the upload, uploaded and previewed, not published
+(`preview-paths-394.txt`).
 
 ### Commits
 

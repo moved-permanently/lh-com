@@ -49,11 +49,11 @@ test('row 8: the icon tiles white with www\'s 30 % dark sky blue border, 10 px c
   has(/body\.brand-discover \.cards-icon \.cards-icon-label \{ color: #002554; \}/);
 });
 
-test('row 9: the footer as www\'s: the yellow and light blue stripes over sky blue, headings 18/19.8 without a rule, links 14/18 #f4f4f4, the logo row dark then night sky blue', () => {
+test('row 9: the footer as www\'s: the yellow and light blue stripes over sky blue, headings 18/19.8 without a rule, links 18/18 bold #f4f4f4 (brief 394: www\'s a.link-large, 14 px was wrong), the logo row dark then night sky blue', () => {
   has(/--footer-surface: #1e73af;/);
   has(/--footer-heading-size: 18px;/);
   has(/--footer-title-line: transparent;/);
-  has(/--footer-link-size: 14px;/);
+  has(/--footer-link-size: 18px;/);
   has(/--footer-link-line-height: 18px;/);
   has(/--footer-link-color: #f4f4f4;/);
   // on sky blue: white 5.09:1, #f4f4f4 4.63:1 (lh-com's muted #b4b4b4 2.45, the language button's #ebebeb 4.27)
@@ -66,7 +66,7 @@ test('row 9: the footer as www\'s: the yellow and light blue stripes over sky bl
 
 test('rows 10 and 11: the teaser cards\' titles (carousel-cards grid) LufthansaHead 14 to 16 px night sky blue, as www\'s teaser-heading; links in running text regular, as www\'s .richtext a', () => {
   has(/body\.brand-discover \.carousel-cards:is\(\.grid, \.four-up\) \.carousel-cards-slide:not\(\.carousel-cards-wide\) \.carousel-cards-body > :is\(h1, h2, h3, h4, h5, h6\) \{[^}]*color: #002554;[^}]*font-size: var\(--heading-font-size-s\);/);
-  has(/body\.brand-discover main :is\(\.default-content-wrapper, \.columns-media-text\) :is\(p:not\(\.link-wrapper, \.button-wrapper\), li\) a:any-link:not\(\.button\) \{ font-weight: 400; \}/);
+  has(/body\.brand-discover main :is\(\.default-content-wrapper, \.columns-media-text\) :is\(p:not\(\.link-wrapper, \.button-wrapper\), li\) a:any-link:not\(\.button\) \{ font-size: 18px; font-weight: 400; \}/, 'brief 394: 18 px as www\'s .richtext a');
 });
 
 test('rows 12 and 13: a tab set\'s panels on phones titled LufthansaHead 20/26 sky blue (www\'s accordion of the tab control); the offers page\'s filter titles bold and 18 px, its toggles LufthansaHead 18/24', () => {
