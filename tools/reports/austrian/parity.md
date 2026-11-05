@@ -126,3 +126,26 @@ The ten documents of `preview-paths.txt` were uploaded to DA (lh-austrian) and p
 main--lh-austrian--moved-permanently.aem.page with `tools/importer/da-upload.mjs --site
 lh-austrian`; the preview's text matches the local documents (the metadata moves into the head).
 Publishing is the user's.
+
+### Commits
+
+- e849a467: the theme rows, www's five tile icons, `test/austrian-parity-386.test.mjs`, these rows,
+  `preview-paths.txt` and lh-austrian's upload state.
+- The commit after it: the Star Alliance mark's ratio (aem.js gives icon images 16 x 16, so the
+  lazy image held a 128 px square on the preview until it loaded) and this section.
+
+### Checked after the push (e849a467)
+
+- **main--lh-austrian--moved-permanently.aem.page** (main's code, the changed documents) and
+  **austrian.turnsthe.page** (main's code, the published documents) at 1440 and 390: the bar
+  113 / 137 px, the logo 163 x 24 / 122 x 18, From 56 px high with the swap at x 383 / 281, CoreSans
+  and Portada loaded from the site's host. The preview also shows the changed documents: the tiles'
+  icons 48 x 48, the article's 12 card links, "Homepage" first in the breadcrumb, "Your Cart" /
+  "Ihr Warenkorb". austrian.turnsthe.page still shows the published documents (the old cart label,
+  "Home", the square Star Alliance mark) until they are published.
+- **The other brands** (swiss, brussels, ita, tap, discover, airdolomiti, cargo, b2b and
+  lufthansa.turnsthe.page/de/en/homepage, 1440): each its own brand class, Austrian's theme not
+  loaded, header, blocks and footer rendered, no page errors. One "failed to load module for
+  footer" on swiss and discover on the first load did not come back on the next two loads (both
+  footers loaded); the commit touched no footer code. lufthansa.turnsthe.page's root redirects to
+  www.lufthansa.com, so lh-com was checked on /de/en/homepage.

@@ -557,10 +557,12 @@ body.brand-austrian .footer .footer-link {
 }
 
 /* www's horizontal STAR ALLIANCE mark 128 px wide (maui-graphic size medium; the documents'
-   :star-alliance-horizontal:, 147 x 20) */
+   :star-alliance-horizontal:, 147 x 20); its ratio set, as aem.js gives icon images 16 x 16 and
+   the lazy image would hold a 128 px square until it loads */
 body.brand-austrian .footer .footer-logo-star-alliance-horizontal img {
   width: 128px;
   height: auto;
+  aspect-ratio: 147 / 20;
 }
 
 /* the flight search's tabs (the article's search box) as www's: capitals 16/24 500, the chosen one

@@ -62,7 +62,7 @@ test('rows 20, 21 and 23: the breadcrumb 16/24 regular #4d4d4d, the current page
   has(/--footer-link-size: 14px; --footer-link-weight: 400; --footer-link-line-height: 21px;/);
   has(/body\.brand-austrian \.footer :is\(\.footer-column-heading, \.footer-badge-heading\) \{[^}]*font-family: var\(--body-font-family\);[^}]*font-weight: 400;/);
   has(/--footer-title-line: transparent;/, 'no rule under the column headings');
-  has(/body\.brand-austrian \.footer \.footer-logo-star-alliance-horizontal img \{ width: 128px; height: auto; \}/, 'www\'s horizontal Star Alliance mark');
+  has(/body\.brand-austrian \.footer \.footer-logo-star-alliance-horizontal img \{ width: 128px; height: auto; aspect-ratio: 147 \/ 20; \}/, 'www\'s horizontal Star Alliance mark, 128 x 17 before it loads');
 });
 
 test('every rule scoped to body.brand-austrian (the brand test checks the same)', () => {
