@@ -51,8 +51,13 @@ test('brand: lh-com loads no theme; the theme files are tokens, font faces and r
     assert.match(css, /^:root \{/m, `${key}: tokens on :root`);
     // tokens and the brand's own font faces (@font-face, ita); rules only under the brand's body
     // class (Discover's fields, brief 210), so a theme reaches no other brand
+    // (@media and @supports wrap rules that are checked as well; @keyframes only named after the
+    // brand, <key>-…, so no other brand's animation is overridden)
+    const frames = [...css.matchAll(/@keyframes\s+([\w-]+)/g)].map((m) => m[1]);
+    frames.forEach((name) => assert.ok(name.startsWith(`${key}-`), `${key}: @keyframes ${name}`));
     const rules = css.replace(/\/\*[\s\S]*?\*\//g, '').replace(/@font-face\s*\{[^}]*\}/g, '')
-      .replace(/@media[^{]*\{/g, '');
+      .replace(/@keyframes\s+[\w-]+\s*\{(?:[^{}]*\{[^{}]*\})*[^{}]*\}/g, '')
+      .replace(/@(media|supports)[^{]*\{/g, '');
     const selectors = rules.split('}').map((r) => r.split('{')[0].trim()).filter(Boolean)
       .filter((s) => s !== ':root')
       .flatMap(selectorList);

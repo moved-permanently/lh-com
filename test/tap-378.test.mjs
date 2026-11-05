@@ -21,6 +21,12 @@ test('row 98: one-up one card a row at every width (cards-teaser and cards), 24 
   assert.match(css, /body\.brand-tap \.cards-teaser\.one-up li:has\(> \.cards-teaser-body > p:not\(\.cards-teaser-cta\)\) \.cards-teaser-body \{\s*padding-bottom: 40px;/);
 });
 
+test('row 23: the bar stays on screen as www\'s (never hidden on scroll; the homepage\'s rises with the page to 16 px from the top, from 1025 px)', () => {
+  assert.match(css, /body\.brand-tap \.header \.nav-wrapper\.nav-tap\.is-hidden \{\s*transform: none;/);
+  assert.match(css, /@supports \(animation-timeline: scroll\(\)\) \{\s*body\.brand-tap header\.tap-home \.nav-wrapper\.nav-tap \{\s*position: fixed;\s*top: 16px;\s*animation: tap-bar-rise linear both;\s*animation-timeline: scroll\(root block\);\s*animation-range: 0 var\(--tap-stage-top, 0\);/);
+  assert.match(css, /@keyframes tap-bar-rise \{\s*from \{\s*transform: translateY\(var\(--tap-stage-top, 0\)\);\s*\}\s*to \{\s*transform: none;\s*\}\s*\}/);
+});
+
 test('the phone picture below 728 px, as www (hero-campaign and hero-card-overlay on TAP)', () => {
   ['../blocks/hero-campaign/hero-campaign.js', '../blocks/hero-card-overlay/hero-card-overlay.js'].forEach((f) => {
     const src = fs.readFileSync(new URL(f, import.meta.url), 'utf8');

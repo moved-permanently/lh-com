@@ -626,6 +626,34 @@ body.brand-tap .hero-campaign-tap :is(.hero-campaign-prev, .hero-campaign-next, 
     top: calc(var(--tap-stage-top, 0px) + 16px);
     transform: none;
   }
+
+  /* www's bar rises with the page until it is 16 px from the top and stays there (row 23): fixed
+     at 16 px, moved down by the stage's top at first and up with the scroll (a browser without
+     scroll timelines keeps the bar in the stage) */
+  @supports (animation-timeline: scroll()) {
+    body.brand-tap header.tap-home .nav-wrapper.nav-tap {
+      position: fixed;
+      top: 16px;
+      animation: tap-bar-rise linear both;
+      animation-timeline: scroll(root block);
+      animation-range: 0 var(--tap-stage-top, 0);
+    }
+  }
+}
+
+@keyframes tap-bar-rise {
+  from {
+    transform: translateY(var(--tap-stage-top, 0));
+  }
+
+  to {
+    transform: none;
+  }
+}
+
+/* the bar stays on screen while the page scrolls, as www's (lh-com's hides it going down) */
+body.brand-tap .header .nav-wrapper.nav-tap.is-hidden {
+  transform: none;
 }
 
 /* phones, a homepage with the extra link strip first (pt-pt, en-pt, fr-fr): as www the strip right
