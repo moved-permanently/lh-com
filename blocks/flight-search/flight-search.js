@@ -16,6 +16,7 @@ import {
   createPassengerPicker, passengerSummary, PASSENGER_LABELS, PICKER_CABINS,
 } from './passenger-picker.js';
 import { readPickerOptions, applyPickerChoices } from './picker-options.js';
+import { createTravellersDialog, dialogDefaults } from './travellers-dialog.js';
 import { pagePrefillParams, parsePrefill } from './url-prefill.js';
 
 /* ---------------------------------------------------------------------------------------------
@@ -909,7 +910,21 @@ export default function decorate(block) {
     optionsRow.append(wrap);
   }
   let passengers;
-  if (settings.passengerPicker) {
+  // the group brands' travellers window (travellers-dialog.js: Brussels, SWISS, Austrian in the
+  // languages of its texts); elsewhere the dropdown
+  const dialogTexts = settings.passengerPicker ? dialogDefaults(locale.lang, brandEntry()) : null;
+  if (dialogTexts) {
+    // a hint row left empty (pickerOptions.labels: '') hides that hint as in the dropdown
+    const hidden = Object.fromEntries(Object.entries(pickerOptions.labels).filter(([, v]) => v === ''));
+    passengers = createTravellersDialog({
+      labels: { ...resolveLabels({ [locale.lang]: dialogTexts }, config, locale.lang), ...hidden },
+      cabins: settings.cabins,
+      value: { adults: settings.adults, cabin: settings.cabin, ...(prefill.passengers || {}) },
+      groupBooking: settings.groupBooking,
+      youngAdults: pickerOptions.youngAdults,
+    });
+    optionsRow.append(passengers.element);
+  } else if (settings.passengerPicker) {
     const options = pickerOptions;
     passengers = createPassengerPicker({
       labels: { ...resolveLabels(PASSENGER_LABELS, config, locale.lang), ...options.labels },

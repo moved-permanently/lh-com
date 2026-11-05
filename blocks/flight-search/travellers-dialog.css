@@ -1,0 +1,347 @@
+/*
+ * The group brands' travellers window (travellers-dialog.js), as www's maui-modal
+ * .modal-travel-details (www.brusselsairlines.com, www.swiss.com, www.austrian.com; 390 and
+ * 1440 px): a white box 835 px wide, 50 px from the top, 40 px inside (21 px and 10 px from the
+ * screen's sides on phones); the close button top right; the tab bar under it; two columns from
+ * 768 px (the class and the steppers, the fare selection and the access code); Continue at the
+ * bottom left. A brand's look through its theme's tokens:
+ * --travellers-dialog-accent (the open tab's line; the brand colour), --travellers-dialog-tab-color
+ * (the tab's text), --travellers-dialog-field-radius (the class and access code boxes, 0),
+ * --travellers-dialog-field-surface, --travellers-dialog-stepper-divider (the lines between − ,
+ * the count and +), --travellers-dialog-close-color (the cross), --travellers-dialog-question-weight ("Which fare benefits…", 400).
+ */
+.flight-search .flight-search-travellers-dialog {
+  box-sizing: border-box;
+  width: min(835px, calc(100vw - 20px));
+  max-width: none;
+  max-height: calc(100dvh - 60px);
+  margin: 50px auto auto;
+  padding: 37px 21px 21px;
+  overflow: auto;
+  border: 0;
+  border-radius: 0;
+  background: var(--background-color, #fff);
+  color: var(--text-color);
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.flight-search .flight-search-travellers-dialog::backdrop {
+  background-color: rgb(0 0 0 / 50%);
+}
+
+.flight-search .flight-search-travellers-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* the close button: a 32 px square with a thin ring, the cross 16 px */
+.flight-search .flight-search-travellers-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 32px;
+  height: 32px;
+  margin: 0 0 0 auto;
+  padding: 0;
+  border: 2px solid var(--focus-color, #0968f6);
+  border-radius: 2px;
+  background: transparent;
+  color: var(--travellers-dialog-close-color, var(--text-color));
+  cursor: pointer;
+}
+
+.flight-search .flight-search-travellers-close:hover {
+  color: var(--link-hover-color);
+}
+
+/* the tab bar: the open tab's 4 px line over the bar's 1 px rule */
+.flight-search .flight-search-travellers-tabs {
+  display: flex;
+  margin: 34px 0 0;
+  border-bottom: 1px solid var(--border-color, #c5c5c5);
+}
+
+.flight-search .flight-search-travellers-tab {
+  margin: 0 0 -1px;
+  padding: 10px 15px 12px;
+  border: 0;
+  border-bottom: 4px solid var(--travellers-dialog-accent, var(--brand-color));
+  background: none;
+  color: var(--travellers-dialog-tab-color, var(--text-color));
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+  cursor: default;
+}
+
+.flight-search .flight-search-travellers-panel {
+  display: grid;
+  gap: 24px;
+  padding: 30px 0 0;
+}
+
+.flight-search .flight-search-travellers-column {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+/* the travel class: the label in the box over the value, 50 px high */
+.flight-search .flight-search-travellers-dialog .flight-search-passenger-cabin {
+  position: relative;
+  display: block;
+  margin: 0 0 14px;
+}
+
+.flight-search .flight-search-travellers-dialog .flight-search-passenger-cabin .flight-search-passenger-label {
+  position: absolute;
+  top: 5px;
+  left: 11px;
+  color: var(--lh-grey-7, #696969);
+  font-size: 12px;
+  line-height: 16px;
+  pointer-events: none;
+}
+
+.flight-search .flight-search-travellers-dialog .flight-search-passenger-cabin-select {
+  appearance: none;
+  box-sizing: border-box;
+  width: 100%;
+  height: 50px;
+  margin: 0;
+  padding: 18px 44px 2px 10px;
+  border: 1px solid var(--lh-grey-8, #1a1a1a);
+  border-radius: var(--travellers-dialog-field-radius, 0);
+  background: var(--travellers-dialog-field-surface, var(--lh-grey-1, #f8f8f8)) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 10'%3E%3Cpath d='M1.5 1.5 8 8l6.5-6.5' fill='none' stroke='%231a1a1a' stroke-width='2'/%3E%3C/svg%3E") right 16px center / 16px 10px no-repeat;
+  color: var(--text-color);
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 24px;
+  cursor: pointer;
+}
+
+/* the steppers: the label and hint left, − count + right, rows 64 px apart */
+.flight-search .flight-search-travellers-steppers {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.flight-search .flight-search-travellers-dialog .flight-search-passenger {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.flight-search .flight-search-travellers-dialog .flight-search-passenger-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.flight-search .flight-search-travellers-dialog .flight-search-passenger .flight-search-passenger-label {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.flight-search .flight-search-travellers-dialog .flight-search-passenger .flight-search-passenger-hint {
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.flight-search .flight-search-travellers-dialog .flight-search-passenger-stepper {
+  display: flex;
+  flex: 0 0 auto;
+  border: 1px solid var(--lh-grey-8, #1a1a1a);
+}
+
+.flight-search .flight-search-travellers-dialog .flight-search-passenger-fewer,
+.flight-search .flight-search-travellers-dialog .flight-search-passenger-more {
+  position: relative;
+  box-sizing: border-box;
+  width: 40px;
+  height: 38px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+.flight-search .flight-search-travellers-dialog .flight-search-passenger-fewer::before,
+.flight-search .flight-search-travellers-dialog .flight-search-passenger-more::before,
+.flight-search .flight-search-travellers-dialog .flight-search-passenger-more::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 14px;
+  height: 2px;
+  background-color: currentcolor;
+  transform: translate(-50%, -50%);
+}
+
+.flight-search .flight-search-travellers-dialog .flight-search-passenger-more::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.flight-search .flight-search-travellers-dialog .flight-search-passenger-fewer:disabled,
+.flight-search .flight-search-travellers-dialog .flight-search-passenger-more:disabled {
+  color: var(--lh-grey-5, #bababa);
+  cursor: default;
+}
+
+.flight-search .flight-search-travellers-dialog .flight-search-passenger-count {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 54px;
+  border-inline: 1px solid var(--travellers-dialog-stepper-divider, var(--lh-grey-8, #1a1a1a));
+  font-size: 18px;
+}
+
+.flight-search .flight-search-travellers-dialog .flight-search-passengers-group {
+  align-self: flex-start;
+  margin: 24px 0 0;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+/* Alternative fare selection */
+.flight-search .flight-search-travellers-dialog .flight-search-fare-label {
+  margin: 0 0 16px;
+  font-size: 28px;
+  line-height: 1.1;
+}
+
+.flight-search .flight-search-travellers-dialog .flight-search-fare-choices {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+  margin: 0 0 24px;
+  padding: 0;
+  border: 0;
+}
+
+.flight-search .flight-search-travellers-dialog .flight-search-fare-question {
+  margin: 0 0 12px;
+  padding: 0;
+  color: var(--text-color);
+  font-weight: var(--travellers-dialog-question-weight, 400);
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.flight-search .flight-search-travellers-dialog .flight-search-fare-choice {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  font-size: 18px;
+  line-height: 24px;
+  cursor: pointer;
+}
+
+.flight-search .flight-search-travellers-dialog .flight-search-fare-radio {
+  appearance: none;
+  flex: 0 0 auto;
+  box-sizing: border-box;
+  width: 22px;
+  height: 22px;
+  margin: 1px 0 0;
+  border: 2px solid var(--text-color);
+  border-radius: 50%;
+  background: var(--background-color, #fff);
+  cursor: pointer;
+}
+
+.flight-search .flight-search-travellers-dialog .flight-search-fare-radio:checked {
+  border-width: 7px;
+}
+
+.flight-search .flight-search-travellers-dialog .flight-search-fare-radio:focus-visible {
+  outline: 2px solid var(--focus-color, #0968f6);
+  outline-offset: 2px;
+}
+
+/* the access code: the box with "optional" at its right end, the hint under it */
+.flight-search .flight-search-travellers-dialog .flight-search-access-box {
+  position: relative;
+}
+
+.flight-search .flight-search-travellers-dialog .flight-search-access-code {
+  box-sizing: border-box;
+  width: 100%;
+  height: 50px;
+  margin: 0;
+  padding: 0 90px 0 10px;
+  border: 1px solid var(--lh-grey-8, #1a1a1a);
+  border-radius: var(--travellers-dialog-field-radius, 0);
+  background: var(--travellers-dialog-field-surface, var(--lh-grey-1, #f8f8f8));
+  color: var(--text-color);
+  font-family: inherit;
+  font-size: 16px;
+}
+
+.flight-search .flight-search-travellers-dialog .flight-search-access-code::placeholder {
+  color: var(--lh-grey-7, #696969);
+  opacity: 1;
+}
+
+.flight-search .flight-search-travellers-dialog .flight-search-access-optional {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  color: var(--lh-grey-7, #696969);
+  font-size: 12px;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.flight-search .flight-search-travellers-dialog .flight-search-access-hint {
+  margin: 6px 0 0;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.flight-search .flight-search-travellers-footer {
+  padding: 40px 0 0;
+}
+
+.flight-search .flight-search-travellers-dialog .flight-search-travellers-done {
+  width: auto;
+}
+
+@media (width >= 768px) {
+  .flight-search .flight-search-travellers-dialog {
+    padding: 37px 40px 41px;
+  }
+
+  .flight-search .flight-search-travellers-tab {
+    padding-inline: 5px;
+    margin-inline-start: 0;
+  }
+
+  .flight-search .flight-search-travellers-panel {
+    grid-template-columns: minmax(0, 335fr) minmax(0, 362fr);
+    gap: 57px;
+    padding-top: 40px;
+  }
+
+  .flight-search .flight-search-travellers-footer {
+    padding-top: 50px;
+  }
+}

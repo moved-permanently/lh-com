@@ -45,6 +45,9 @@
  * backend Worker) has the brand's tenant, so lh-edge sends its host's deeplink, sign-in, booking
  * and check-in paths there (tools/workers/lh-edge, brief 212); aemContent: the root of www's AEM
  * paths (/content/<aemContent>/markets/<cc>/<ll>/...), which lh-edge redirects to the short path.
+ * travellersDialog: the flight search's traveller line opens the group platform's travellers
+ * window (blocks/flight-search/travellers-dialog.js) instead of the dropdown; its labels: the
+ * brand's own wording of the window per language, where www's differs from the group's.
  */
 export const BRANDS = {
   discover: {
@@ -120,6 +123,14 @@ export const BRANDS = {
     portal: 'OS',
     hub: 'VIE',
     airline: 'OS',
+    // www's travellers window (capture austrian-parity-001, at/en and at/de): its button Save /
+    // Weiter, the children's "(2 to 11 years)", "Reiseklassen"
+    travellersDialog: {
+      labels: {
+        en: { 'continue label': 'Save', 'children hint': '(2 to 11 years)' },
+        de: { 'continue label': 'Weiter', 'cabin label': 'Reiseklassen' },
+      },
+    },
     embeds: {
       // the floating chat button (Cognigy webchat, served by www.austrian.com outside AEM) as www's
       // tag manager loads it (Tealium os-main tag 110, 2026-11-01): scripts/site-embeds.js, on the
@@ -213,6 +224,8 @@ export const BRANDS = {
     portal: 'SN',
     hub: 'BRU',
     airline: 'SN',
+    // www's travellers window (capture brussels-parity-001, be/en and be/fr): the group's wording
+    travellersDialog: {},
     // articleIndex: per language, the query index of its posts (helix-query.yaml articles-be-en,
     // -fr, -nl): the posts list reads its language version's on every root (a market root has no
     // index of its own)
@@ -272,6 +285,8 @@ export const BRANDS = {
     portal: 'LX',
     hub: 'ZRH',
     airline: 'LX',
+    // www's travellers window (capture swiss-parity-001, ch/en and ch/de): ch/de's Swiss spelling
+    travellersDialog: { labels: { de: { 'close label': 'Schliessen' } } },
     consentLinks: {
       en: {
         privacy: 'https://www.swiss.com/ch/en/terms-conditions/privacy-statement',

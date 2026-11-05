@@ -529,3 +529,15 @@ body.brand-brussels .flight-search .flight-search-submit {
     margin-top: 0;
   }
 }
+
+/* the travellers window (blocks/flight-search/travellers-dialog.css): the open tab sn-blue-3 with
+   its line, the travel class and access code boxes with an 8 px radius, the steppers one box, the
+   fare question bold, the close cross red */
+body.brand-brussels {
+  --travellers-dialog-accent: var(--lh-marble-blue);
+  --travellers-dialog-tab-color: var(--lh-marble-blue);
+  --travellers-dialog-field-radius: 8px;
+  --travellers-dialog-stepper-divider: transparent;
+  --travellers-dialog-question-weight: 700;
+  --travellers-dialog-close-color: var(--link-color);
+}

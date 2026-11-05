@@ -119,8 +119,10 @@ export const FARE_PREFERENCES = [['DEFAULT', 'fare default label'], ['COUPON', '
 
 /**
  * The handoff with the picker's young adults and fare preference, as www sends them: B15 after
- * the adults (before the children and infants), farePreference right after the cabin. Nothing to
- * add, or not the shop's search (Air Dolomiti's): the same handoff.
+ * the adults (before the children and infants), farePreference right after the cabin; the
+ * travellers window's access code as universalCode after them (the name of www's form field
+ * flightQuery.universalCode), only when filled. Nothing to add, or not the shop's search (Air
+ * Dolomiti's): the same handoff.
  * @param {{action: string, fields: Object<string, string>}} handoff result of buildShopHandoff
  * @param {Object} [value] the picker's value
  */
@@ -128,7 +130,9 @@ export function applyPickerChoices(handoff, value) {
   const young = Math.max(0, parseInt((value || {}).youngAdults, 10) || 0);
   const fare = (value || {}).farePreference;
   const preference = FARE_PREFERENCES.some(([code]) => code === fare) && fare !== 'DEFAULT' ? fare : '';
-  if (!young && !preference) return handoff;
+  // the travellers window's access code (travellers-dialog.js), as www's form names it
+  const universal = String((value || {}).universalCode || '').trim();
+  if (!young && !preference && !universal) return handoff;
   let search;
   try {
     search = JSON.parse(handoff.fields.search);
@@ -145,7 +149,10 @@ export function applyPickerChoices(handoff, value) {
   ];
   const next = Object.fromEntries(Object.entries(search).flatMap(([key, v]) => {
     if (key === 'travelers') return [[key, travelers]];
-    if (key === 'cabin' && preference) return [[key, v], ['farePreference', preference]];
+    if (key === 'cabin') {
+      return [[key, v], ...(preference ? [['farePreference', preference]] : []),
+        ...(universal ? [['universalCode', universal]] : [])];
+    }
     return [[key, v]];
   }));
   return { ...handoff, fields: { ...handoff.fields, search: JSON.stringify(next) } };
