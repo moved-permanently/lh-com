@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-/* The flight search's travellers window (blocks/flight-search/travellers-dialog.js; brief 386
+/* The flight search's travellers window (blocks/flight-search/travellers-dialog.js; brief 388
    item 1, Brussels parity P24, SWISS row 6): on the group brands whose www shows it
    (scripts/brands.js travellersDialog: Brussels, SWISS, Austrian; the captures
    brussels-parity-001, swiss-parity-001, austrian-parity-001, the homepages' travellers states)

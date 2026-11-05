@@ -1,5 +1,5 @@
 /* The article header's publication date in each locale's own long format (Intl), every brand
-   alike (brief 386 item 4, Brussels parity P16): www.brusselsairlines.com's be/en "May 11, 2026"
+   alike (brief 388 item 4, Brussels parity P16): www.brusselsairlines.com's be/en "May 11, 2026"
    and be/fr "11 mai 2026" (capture brussels-parity-001, 2026-11-05); German "20. August 2026"
    (at/de with Austrian month names: "22. Jänner 2025"); English in a German-speaking market
    (de, at, ch) as www.lufthansa.com's de/en and www.swiss.com's ch/en write it: "16. October 2025"
