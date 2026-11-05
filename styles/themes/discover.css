@@ -486,3 +486,10 @@ body.brand-discover .carousel-cards.grid .carousel-cards-slide.carousel-cards-te
 body.brand-discover .carousel-cards.grid .carousel-cards-slide.carousel-cards-text-only .carousel-cards-body > :last-child {
   margin-bottom: 0;
 }
+
+/* www's column-view titles ("Your benefits on board" over Business Class's column view) night sky
+   blue, its other headings dark sky blue (row 23, brief 396): the section style column-titles marks
+   a section whose heading right before a block is such a title */
+body.brand-discover main .section.column-titles > .default-content-wrapper:has(+ div:not(.default-content-wrapper)) > :is(h2, h3):last-child {
+  color: var(--lh-midnight);
+}
