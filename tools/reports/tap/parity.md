@@ -121,12 +121,21 @@ tokens) and the computed styles of the pages above.
 | 77 | Footer on phones | the social icons 44 px from one to the next | 48 px | footer (TAP rules) | fixed (brief 356) |
 | 78 | Miles&Go cards' buttons (homepages) | 15 / 500 | 15 / 400 | theme | fixed (brief 356) |
 | 79 | Booking box's airport list (open) | the list filtered to the field's value (Madrid: MAD, MSN), as wide as the field, a clear button and the arrow in a light green circle | every airport from A, 310 px, the value selected | `scripts/airport-combobox.js` (shared, not in my files; ema-adobe) | open |
-| 80 | Stage controls on phones (homepages, slider banners) | Material's thin chevrons, the last slide's next button a grey disc | lucide's 2 px chevrons, no disabled state | theme | open |
-| 81 | A single inner banner's picture on phones (altitude-film-festival) | the picture as it is (the arch and the sky) | a dark scrim over its top half | theme | open |
+| 80 | Stage controls on phones (homepages, slider banners) | Material's thin chevrons, the last slide's next button a grey disc | lucide's 2 px chevrons, no disabled state | theme and the stage's TAP variant | fixed (brief 363) |
+| 81 | A single inner banner's picture on phones (altitude-film-festival) | a flat 20 % black veil (`bg-overlay-image-subtle`) | a dark gradient over its top half | theme | fixed (brief 363; the phone crop: row 94) |
 | 82 | Footer documents (es-es and others) | YouTube before LinkedIn; "© 2026, TAP." in bold | LinkedIn first; the note plain | import (ema-lufthansa: the footer documents) | open |
 | 83 | Homepage stages (es-es) | three slides | two (pt-ao none: row 48) | import (ema-lufthansa) | open |
 | 84 | Destinations page (en-pt/destinations, every version) | www's destination grid: filters, 16 destination cards, the continents' lists (5,084 px at 390) | the title, the lead and the inspiration banner (2,668 px) | import, perhaps a new block (ema-lufthansa) | open |
 | 85 | Homepage headings (every root) | "Planeie a sua viagem ao detalhe" an H1; the Miles&Go cards' second lines H2 (Inter 14 / 21 600) | H2; paragraphs | import (ema-lufthansa; row 62 covers the hero card's H3) | open |
+| 86 | Stage and card carousel dots (homepages, slider banners) | 40 px buttons, an 8 px dot inside | 8 px buttons (axe target-size, WCAG 2.5.8: 78 nodes on 22 page-widths) | theme | fixed (brief 363: 24 px targets, the dot drawn inside) |
+| 87 | Booking box: a focused field | www's line in TAP's dark green (`focus:border-primary`) | a 1 px #65c922 line, 2.3:1 on white, no other ring | booking box (TAP rules) | fixed (brief 363: 2 px #397213) |
+| 88 | Booking box: the calendar and the keyboard | — | Tab past its last button leaves it open over the next fields (WCAG 2.4.11) | booking box (TAP variant) | fixed (brief 363: it closes, the focus stays where it went; Escape as before) |
+| 89 | Phone menu by keyboard | — | the card sits before its button, so Tab went past it to the quick-action tab under it; Escape did nothing | header (TAP variant) | fixed (brief 363: the focus goes to the card's first item, Escape anywhere closes it and returns to the button, the tab inert while it is open) |
+| 90 | Skip link | "Skip to main content" first in the page | none (first stop the alerts bar) | header (TAP variant) | fixed (brief 363: in the page's language, to main) |
+| 91 | Booking box: the empty dates field | "Selecionar datas" #b0aeb4 on white (2.19:1) | the same | www's design (axe flags ours, not www's) | noted, not changed: a TAP design decision |
+| 92 | Help page heading levels | H1, then the cards' H3 with no H2 (axe heading-order on www too) | the same | www's design / import (ema-lufthansa) | noted |
+| 93 | Alerts bar rotation | every 5 s, no pause button (stops on hover and focus) | the same: stops on hover and focus, off under reduced motion | `blocks/flash-teaser/flash-teaser-tap.js` (ema-adobe), if a pause button is wanted (WCAG 2.2.2) | noted |
+| 94 | A single inner banner's picture on phones (altitude-film-festival) | a phone crop (1280 x 630) | the 1920 x 450 desktop picture | import (ema-lufthansa: the banner's phone image) | open |
 
 ## What was fixed (commits)
 
@@ -806,5 +815,87 @@ Each page:
   compared in a browser this time.
 
 Screenshots (not committed, can be lost on a restart): `/tmp/tap-356/p`.
+
+Rollback: `git revert` of the commits.
+
+## Brief 363: rows 80 and 81, accessibility on TAP (rows 80, 81, 86 to 94)
+
+### Rows 80 and 81
+
+- **Row 80:** www's previous and next are Material Symbols' chevrons at weight 300, 24 px, in #397213,
+  on a white disc from 1024 px. At the ends of the stage www's swiper disables the button: a #c6c5c9
+  disc at 20 % opacity.
+  - Ours now draws the same chevron and colour at both widths.
+  - `hero-campaign-tap.js` gives TAP its own previous and next. They don't wrap; the button at an end
+    is `aria-disabled`, keeps the focus and does nothing. The rotation still starts over from the
+    last slide.
+- **Row 81:** www puts a flat 20 % black veil over the article banner (`bg-overlay-image-subtle`), not
+  a plain picture and not a gradient. Ours now does the same at both widths. www's phone picture is a
+  different crop (row 94, content).
+- Checked at 390 and 1440 on the local preview (this branch's code, the preview's content) against
+  www.flytap.com: es-es and Miles&Go for the arrows, altitude-film-festival for the veil.
+
+### Accessibility: what was checked
+
+- **Pages:** the eight homepages, de-ch, pt-ao and the five inner pages of brief 362, at 390 and 1440.
+- **axe-core 4.10.2:** WCAG 2.0, 2.1 and 2.2 A and AA, plus best practices.
+  - Language versions and inner pages on the local preview (this branch's code, the preview's content).
+  - de-ch and pt-ao on tap.turnsthe.page (main's code; the preview has no market pages).
+  - www.flytap.com on 11 of the same pages at both widths, one page every 10 s or more.
+- **Open states, at both widths:** the desktop menu panel and the phone menu card, the calendar, the
+  passengers, the airport list, the other three tabs and the demo notice.
+- **Keyboard pass:**
+  - the homepage at 1440: 70 Tab stops, the focus ring of each;
+  - the help page at 390 and 1440: the skip link and the phone menu;
+  - the booking box's airport list, calendar, passengers and tabs (arrow keys);
+  - the market button;
+  - Escape on each of them.
+
+### Results
+
+- **Before:** two WCAG failures on our side.
+  - target-size: 78 nodes, the dots.
+  - color-contrast: 20 nodes, the empty dates field (www's own colour: row 91).
+  - Plus one best-practice note: heading-order on the help page (row 92).
+- **After:** only the dates field's colour and the help page's heading order remain. Both are www's.
+- **Keyboard, before:**
+  - the four booking fields had no visible focus beyond a light-green line (row 87);
+  - the calendar stayed open after Tab left it (row 88);
+  - the phone menu's order and Escape (row 89);
+  - no skip link (row 90).
+- **Fine already:**
+  - the desktop menu: Enter opens a panel, Tab enters it, Escape closes it and returns the focus;
+  - the airport list: Escape closes it, the focus stays;
+  - the passengers: Escape closes them and returns the focus;
+  - the tabs: arrow keys;
+  - the market list: Escape closes it;
+  - the alerts bar: named buttons, a green ring, stops on focus;
+  - every control has a name.
+- **www's own findings, not ours** (for the record, not changed):
+  - untranslated labels ("aria.pause-slider", "aria.slide-navigation 1");
+  - the bar's search, login and market have no focus ring;
+  - `aria-hidden` content that takes the focus;
+  - nested interactive controls;
+  - grey country names on the destinations cards (2.84:1).
+
+### For other owners
+
+- **Row 93:** a pause button for the alerts bar's rotation, if wanted (`flash-teaser-tap.js`,
+  ema-adobe). www has none.
+- **Row 94:** the article banner's phone picture (ema-lufthansa).
+- **Rows 91 and 92:** www's design. The empty dates field's grey would need a TAP design decision.
+
+Screenshots (not committed, can be lost on a restart): `/tmp/tap-363`.
+
+### Checks (brief 363)
+
+- **Lint:** passes (eslint and stylelint).
+- **Full suite:** 259 of 260 test files pass. `test/library-entries.test.mjs` fails only in this
+  workspace, because it reads the untracked local `content/library/blocks`. A clean clone passes it.
+- **Tests:** `test/tap-363.test.mjs`. `test/tap-menu.test.mjs`, `test/tap-first-screen.test.mjs`,
+  `test/booking-box-block.test.mjs` and the hero-campaign tests are unchanged and pass.
+- **Other sites:** every new rule is under `body.brand-tap`. The JS changes are in TAP's variants:
+  the stage's `hero-campaign-tap.js`, `header-tap.js` and the TAP booking box. So the other
+  brands are unchanged by construction. They were not compared in a browser.
 
 Rollback: `git revert` of the commits.
