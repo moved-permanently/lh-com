@@ -1993,6 +1993,29 @@ body.brand-tap .hero-campaign-tap .hero-campaign-slide.narrow {
   border-radius: 0;
 }
 
+/* the inner slider's text as www's swiper (pt-pt/miles-and-go and its partners page at 1440 and
+   390; round 3): the title whole (the homepage stage's two-line clamp would cut www's three-line
+   titles), 24 px to the lead and to the button, 56 px from the slide's top on phones */
+body.brand-tap .hero-campaign-tap.narrow .hero-campaign-content :is(h1, h2, h3, h4, h5, h6) {
+  display: block;
+  margin-bottom: 24px;
+  overflow: visible;
+  -webkit-line-clamp: none;
+}
+
+body.brand-tap .hero-campaign-tap.narrow .hero-campaign-content > .hero-campaign-subtitle {
+  margin-bottom: 24px;
+}
+
+body.brand-tap .hero-campaign-tap.narrow .hero-campaign-inner {
+  padding-top: 56px;
+}
+
+/* a slide without a lead: www's empty lead keeps its 24 px (the button 48 px under the title) */
+body.brand-tap .hero-campaign-tap.narrow .hero-campaign-content > :is(h1, h2, h3, h4, h5, h6) + .hero-campaign-cta {
+  padding-top: 24px;
+}
+
 /* on phones the banner's title 32 px and its lead Inter 20 / 30 (row 37; the homepage stage's
    are 24 and 18) */
 @media (width < 1024px) {
@@ -2044,13 +2067,17 @@ body.brand-tap .hero-campaign-tap .hero-campaign-slide.narrow {
     min-height: 404px;
   }
 
+  /* www's slide text from 1024 px: 64 px from the top, 60 from the left; the title 48 / 48 in
+     512 px */
   body.brand-tap .hero-campaign-tap.narrow .hero-campaign-inner {
-    padding: 64px 64px 0;
+    padding: 64px 60px 0;
   }
 
   body.brand-tap .hero-campaign-tap.narrow .hero-campaign-content :is(h1, h2, h3, h4, h5, h6) {
-    margin-bottom: 16px;
-    font-size: calc(40px * var(--a11y-scale, 1));
+    max-width: 512px;
+    margin-bottom: 24px;
+    font-size: calc(48px * var(--a11y-scale, 1));
+    line-height: 1;
   }
 
   body.brand-tap .hero-campaign-tap.narrow .hero-campaign-content > .hero-campaign-subtitle {
