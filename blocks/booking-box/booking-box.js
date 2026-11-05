@@ -26,7 +26,7 @@ import {
   tapManageUrl,
 } from './tap-format.js';
 import {
-  airportsFromSheet, fieldText, matchAirports, optionText,
+  airportsFromSheet, fieldText, matchAirports, optionText, searchTerm,
 } from './airport-match.js';
 
 /** English texts: TAP's en-pt (booking-labels.json), then the other tabs' texts. */
@@ -551,23 +551,29 @@ function bookPanel({
   let dates = { from: '', to: '' };
   const legs = [];
 
-  const comboOpts = (key, value, onChange) => createAirportCombobox({
-    label: labels[`${key}-label`],
-    placeholder: labels[`${key}-placeholder`],
-    value,
-    minChars: 0,
-    noResultsLabel: labels['no-results-search'],
-    fetchSuggestions: (term) => airports().then((list) => matchAirports(list, term)),
-    renderOption: (a, li) => {
-      const t = optionText(a);
-      li.append(
-        el('span', { className: 'booking-box-chip', text: a.code }),
-        el('span', { className: 'booking-box-option-text' }, el('span', { className: 'booking-box-option-name', text: t.name }), el('span', { className: 'booking-box-option-country', text: t.country })),
-      );
-    },
-    display: fieldText,
-    onChange,
-  });
+  const comboOpts = (key, value, onChange) => {
+    let combo = null;
+    combo = createAirportCombobox({
+      label: labels[`${key}-label`],
+      placeholder: labels[`${key}-placeholder`],
+      value,
+      minChars: 0,
+      noResultsLabel: labels['no-results-search'],
+      // the field's text for its airport: the list for the airport's code, as www (row 79)
+      fetchSuggestions: (term) => airports()
+        .then((list) => matchAirports(list, searchTerm(term, combo && combo.getValue()))),
+      renderOption: (a, li) => {
+        const t = optionText(a);
+        li.append(
+          el('span', { className: 'booking-box-chip', text: a.code }),
+          el('span', { className: 'booking-box-option-text' }, el('span', { className: 'booking-box-option-name', text: t.name }), el('span', { className: 'booking-box-option-country', text: t.country })),
+        );
+      },
+      display: fieldText,
+      onChange,
+    });
+    return combo;
+  };
   /** An airport field: the combobox with its code chip. */
   const airportField = (key, value, onPicked) => {
     let box;

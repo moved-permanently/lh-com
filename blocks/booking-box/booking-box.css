@@ -1063,8 +1063,9 @@ body.brand-tap .booking-box-search {
     width: 340px;
   }
 
+  /* as wide as its field, as www's (172 px at 1440; brief 368, row 79) */
   .booking-box .airport-combobox [role='listbox'] {
-    width: max(100%, 380px);
+    width: 100%;
   }
 
   .booking-box-calendar {

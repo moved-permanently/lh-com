@@ -11,7 +11,6 @@ export const MAX_SUGGESTIONS = 30;
 /** Lower case, accents folded, trimmed. */
 export const fold = (s) => String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
   .trim();
-const words = (s) => fold(s).split(/[^a-z0-9]+/).filter(Boolean);
 const flag = (v) => v === true || /^(true|1|yes|x)$/i.test(String(v || '').trim());
 
 /** The sheet's rows (a sheet, a workbook's "data" sheet) as airports; no code: left out. */
@@ -30,48 +29,57 @@ export function airportsFromSheet(json) {
   }));
 }
 
+/** www's accent folding (Oo: NFD, the marks out); no lower case, no trim of its own. */
+const strip = (s) => String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+
 /**
- * TAP's score of an airport for a typed term: its rules in its order, the first that matches
- * (0: no match).
+ * TAP's score of an airport for a typed term, as www.flytap.com's booking widget scores it (its
+ * _app chunk, brief 368): the term lower-cased and folded (not trimmed), the names folded,
+ * "city, country" lower-cased only; its rules in its order, the first that matches (0: none).
  */
 export function scoreAirport(a, term) {
-  const t = fold(term);
-  if (!t || !a) return 0;
-  const city = fold(a.cityName);
-  const cityCountry = fold(`${a.cityName}, ${a.countryName}`);
-  const airport = fold(a.airportName);
-  const country = fold(a.countryName);
-  const ends = (s) => Boolean(s) && (s.startsWith(t) || s.endsWith(t));
+  const r = strip(String(term || '').toLowerCase());
+  if (!r || !a) return 0;
+  const l = strip(String(a.airportName || '').toLowerCase());
+  const c = strip(String(a.cityName || '').toLowerCase());
+  const u = strip(String(a.countryName || '').toLowerCase());
+  const g = `${a.cityName}, ${a.countryName}`.toLowerCase();
+  const d = (s) => s.startsWith(r) || s.endsWith(r) || s.includes(` ${r} `);
+  const f = (s) => s.startsWith(`${r} `) || s.endsWith(` ${r}`) || s.includes(` ${r} `);
   const rules = [
-    [cityCountry === t, 1],
-    [airport === t, 0.92],
-    [city === t, 0.8],
-    [t.length === 3 && fold(a.code) === t, 0.79],
-    [country === t, 0.72],
-    [fold(a.country) === t, 0.71],
-    [words(a.cityName).includes(t), 0.8],
-    [words(`${a.cityName}, ${a.countryName}`).includes(t), 0.78],
-    [words(a.airportName).includes(t), 0.75],
-    [words(a.countryName).includes(t), 0.7],
-    [ends(city), 0.7],
-    [ends(cityCountry), 0.68],
-    [ends(airport), 0.65],
-    [ends(country), 0.5],
-    [country.includes(t), 0.1],
+    [() => g === r, 1],
+    [() => r.length === 3 && String(a.code || '').toLowerCase() === r, 0.79],
+    [() => l === r, 0.92],
+    [() => c === r, 0.8],
+    [() => u === r, 0.72],
+    [() => String(a.country || '').toLowerCase() === r, 0.71],
+    [() => f(c), 0.8],
+    [() => f(g), 0.78],
+    [() => f(l), 0.75],
+    [() => f(u) || d(c), 0.7],
+    [() => d(g), 0.68],
+    [() => d(l), 0.65],
+    [() => d(u), 0.5],
+    [() => u.includes(r), 0.1],
   ];
-  const first = rules.find(([hit]) => hit);
+  const first = rules.find(([hit]) => hit());
   return first ? first[1] : 0;
 }
 
 /**
- * The suggestions for a term: highest score first, equal scores by city name, at most 30; an
- * empty term the list's first 30.
+ * The suggestions for a term as www's: highest score first, equal scores by "city, city" as
+ * plain strings (else the list's order), at most 30; an empty term the list's first 30.
  */
 export function matchAirports(list, term, limit = MAX_SUGGESTIONS) {
-  if (!fold(term)) return list.slice(0, limit);
+  if (!term) return list.slice(0, limit);
+  const key = (a) => `${a.cityName}, ${a.cityName}`;
   return list.map((a, i) => ({ a, i, s: scoreAirport(a, term) }))
     .filter((x) => x.s > 0)
-    .sort((x, y) => y.s - x.s || fold(x.a.cityName).localeCompare(fold(y.a.cityName)) || x.i - y.i)
+    .sort((x, y) => {
+      if (x.s !== y.s) return y.s - x.s;
+      if (key(x.a) !== key(y.a)) return key(x.a) > key(y.a) ? 1 : -1;
+      return x.i - y.i;
+    })
     .slice(0, limit)
     .map((x) => x.a);
 }
@@ -87,4 +95,12 @@ export function fieldText(a) {
 export function optionText(a) {
   const name = a.airportName ? `${a.cityName}, ${a.airportName}` : a.cityName || a.code;
   return { name, country: a.countryName || '' };
+}
+
+/**
+ * The term to match: the field's own text for its chosen airport is that airport's code (www, on
+ * focus: Lisboa, Portugal lists LIS, Florianópolis, Indianápolis), else what was typed.
+ */
+export function searchTerm(term, chosen) {
+  return chosen && chosen.code && term === fieldText(chosen) ? chosen.code : term;
 }

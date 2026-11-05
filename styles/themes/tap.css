@@ -2346,7 +2346,8 @@ body.brand-tap main .default-content-wrapper:has(+ .accordion-columns-wrapper > 
     padding-top: 80px;
   }
 
-  body.brand-tap main > .section:has(> .default-content-wrapper:has(> p:last-child > picture) + .accordion-columns-wrapper > .accordion-columns.faq)::after {
+  /* (two :has() side by side: one nested in the other makes the browser drop the rule; row 64) */
+  body.brand-tap main > .section:has(> .default-content-wrapper > p:last-child > picture):has(> .accordion-columns-wrapper > .accordion-columns.faq)::after {
     content: "";
     display: block;
     clear: both;
