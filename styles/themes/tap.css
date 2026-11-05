@@ -218,7 +218,15 @@ body.brand-tap .cards .cards-card-body {
    72 px row inside 24 px of padding; the homepage's "Planeie a sua viagem" cards four to a row,
    their pictures 28:12; the explore picture beside its accordion (InfoSection) half the column */
 body.brand-tap .cards-teaser.three-up > ul {
-  column-gap: 24px;
+  gap: 24px;
+}
+
+/* the rows 24 px apart on phones too (www's gap-6: 281 px from one card to the next; the grid's
+   gap alone, no margin of its own; row 67) */
+@media (width < 768px) {
+  body.brand-tap .cards-teaser.three-up > ul > li + li {
+    margin-top: 0;
+  }
 }
 
 body.brand-tap .cards-teaser.three-up > ul > li {
@@ -1519,6 +1527,11 @@ body.brand-tap .hero-card-overlay .hero-card-overlay-cta a.button:any-link {
   font-weight: 500;
 }
 
+/* the stopover's video (row 42): www's frame 420 px high at every width */
+body.brand-tap .hero-card-overlay.hero-card-overlay-has-video {
+  min-height: 420px;
+}
+
 @media (width >= 1024px) {
   body.brand-tap .hero-card-overlay {
     min-height: 305px;
@@ -1889,6 +1902,13 @@ body.brand-tap main > .section > .breadcrumb-wrapper + .default-content-wrapper 
   }
 }
 
+/* the stopover's video from 1024 px: its title 44 px from the frame's top, 64 px in (row 42) */
+@media (width >= 1024px) {
+  body.brand-tap .hero-card-overlay.hero-card-overlay-has-video .hero-card-overlay-card {
+    padding: 44px 64px;
+  }
+}
+
 /* the inner pages' banners (row 18: hero-campaign narrow, a slider or a single stage): inset in the
    content column (www: 1176 x 404 at 1440, 32 px corners), the controls inside at the bottom
    (previous / dots / next 60 px from the left, the pause button 64 px from the right, 20 px up) */
@@ -1910,6 +1930,11 @@ body.brand-tap .hero-campaign.narrow:not(.slider) {
 body.brand-tap .hero-campaign.narrow:not(.slider, .hero-campaign-slide) .hero-campaign-media::after {
   background: rgb(0 0 0 / 20%);
   mix-blend-mode: normal;
+}
+
+/* a single banner's title and lead centred alone, no margins under them (www; row 68) */
+body.brand-tap .hero-campaign.narrow:not(.slider, .hero-campaign-slide) .hero-campaign-content > * {
+  margin-bottom: 0;
 }
 
 /* the slides inside the rounded frame square (they carry the block's options): while one slides
@@ -1992,6 +2017,46 @@ body.brand-tap .hero-campaign-tap .hero-campaign-slide.narrow {
   body.brand-tap .hero-campaign-tap.narrow .hero-campaign-pause {
     right: 64px;
     bottom: 20px;
+  }
+}
+
+/* from 1024 px a single top banner (extras, altitude-film-festival) in the content column, as
+   www's 1120 x 305, and the banners 64 px under the trail, a slider's own frame 32 px more (www's
+   rounded container around its swiper; row 68) */
+@media (width >= 1024px) {
+  body.brand-tap .hero-campaign.narrow:not(.slider, .hero-campaign-slide) {
+    --tap-banner-width: min(1120px, calc(var(--hero-campaign-viewport, 100vw) - 2 * var(--layout-margin)));
+
+    min-height: 305px;
+  }
+
+  body.brand-tap .hero-campaign.narrow:not(.slider, .hero-campaign-slide) .hero-campaign-inner {
+    padding: 24px 64px;
+  }
+
+  body.brand-tap .hero-campaign.narrow:not(.slider, .hero-campaign-slide) .hero-campaign-content {
+    max-width: none;
+  }
+
+  body.brand-tap .hero-campaign.narrow:not(.slider, .hero-campaign-slide) .hero-campaign-content :is(h1, h2, h3, h4, h5, h6) {
+    font-size: 32px;
+    line-height: 1.2;
+    font-weight: 700;
+  }
+
+  body.brand-tap .hero-campaign.narrow:not(.slider, .hero-campaign-slide) .hero-campaign-content > .hero-campaign-subtitle {
+    padding-top: 8px;
+    font-size: 18px;
+    line-height: 27px;
+  }
+
+  body.brand-tap main > .section > .breadcrumb-wrapper + .hero-campaign-wrapper {
+    margin-top: 64px;
+  }
+
+  body.brand-tap main > .section > .breadcrumb-wrapper + .hero-campaign-wrapper:has(> .hero-campaign.slider) {
+    margin-top: 96px;
+    padding-bottom: 48px;
   }
 }
 

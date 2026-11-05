@@ -56,3 +56,24 @@ test('row 79: the airport list as wide as its field at 1440', () => {
   assert.equal(/max\(100%, 380px\)/.test(box), false);
   assert.match(box, /@media \(width >= 1024px\) \{[^@]*\.booking-box \.airport-combobox \[role='listbox'\] \{\s*width: 100%;/);
 });
+
+test('row 42: the stopover video\'s frame 420 px, its title 44 px from the top and 64 px in from 1024 px', () => {
+  assert.match(css, /body\.brand-tap \.hero-card-overlay\.hero-card-overlay-has-video \{\s*min-height: 420px;/);
+  assert.match(css, /@media \(width >= 1024px\) \{\s*body\.brand-tap \.hero-card-overlay\.hero-card-overlay-has-video \.hero-card-overlay-card \{\s*padding: 44px 64px;/);
+});
+
+test('row 67: the card grids\' rows 24 px apart (281 px from one to the next), as www\'s gap-6', () => {
+  assert.match(css, /body\.brand-tap \.cards-teaser\.three-up > ul \{\s*gap: 24px;/);
+  assert.match(css, /@media \(width < 768px\) \{\s*body\.brand-tap \.cards-teaser\.three-up > ul > li \+ li \{\s*margin-top: 0;/);
+});
+
+test('row 68: a single top banner 1120 x 305 from 1024 px; the banners 64 px under the trail (a slider\'s frame 32 more)', () => {
+  assert.match(css, /@media \(width >= 1024px\) \{\s*body\.brand-tap \.hero-campaign\.narrow:not\(\.slider, \.hero-campaign-slide\) \{\s*--tap-banner-width: min\(1120px, calc\(var\(--hero-campaign-viewport, 100vw\) - 2 \* var\(--layout-margin\)\)\);\s*min-height: 305px;/);
+  assert.match(css, /body\.brand-tap main > \.section > \.breadcrumb-wrapper \+ \.hero-campaign-wrapper \{\s*margin-top: 64px;/);
+  assert.match(css, /body\.brand-tap main > \.section > \.breadcrumb-wrapper \+ \.hero-campaign-wrapper:has\(> \.hero-campaign\.slider\) \{\s*margin-top: 96px;\s*padding-bottom: 48px;/);
+});
+
+test('row 68: the single banner\'s text centred as www\'s, no margins under it; 64 px in, 32 / 38.4 700 and 18 / 27 from 1024 px', () => {
+  assert.match(css, /body\.brand-tap \.hero-campaign\.narrow:not\(\.slider, \.hero-campaign-slide\) \.hero-campaign-content > \* \{\s*margin-bottom: 0;/);
+  assert.match(css, /@media \(width >= 1024px\) \{[^@]*body\.brand-tap \.hero-campaign\.narrow:not\(\.slider, \.hero-campaign-slide\) \.hero-campaign-inner \{\s*padding: 24px 64px;[^@]*body\.brand-tap \.hero-campaign\.narrow:not\(\.slider, \.hero-campaign-slide\) \.hero-campaign-content \{\s*max-width: none;[^@]*body\.brand-tap \.hero-campaign\.narrow:not\(\.slider, \.hero-campaign-slide\) \.hero-campaign-content :is\(h1, h2, h3, h4, h5, h6\) \{\s*font-size: 32px;\s*line-height: 1\.2;\s*font-weight: 700;[^@]*body\.brand-tap \.hero-campaign\.narrow:not\(\.slider, \.hero-campaign-slide\) \.hero-campaign-content > \.hero-campaign-subtitle \{\s*padding-top: 8px;\s*font-size: 18px;\s*line-height: 27px;/);
+});
