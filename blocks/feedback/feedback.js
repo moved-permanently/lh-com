@@ -2,15 +2,16 @@ import { cleanText } from '../../scripts/block-config.js';
 
 /**
  * Answer options of the authored block: list items, else paragraphs, else the comma-separated
- * text of the answers cell.
+ * text of the answers cell (also when the page's decoration has wrapped that text in one
+ * paragraph: "Yes, No" is two answers; several paragraphs keep their commas).
  * @param {Element} cell
  * @returns {string[]}
  */
 function readOptions(cell) {
   if (!cell) return [];
   const items = [...cell.querySelectorAll('li, p')].map(cleanText).filter(Boolean);
-  if (items.length) return items;
-  return cleanText(cell).split(',').map((s) => s.trim()).filter(Boolean);
+  if (items.length > 1 || cell.querySelector('li')) return items;
+  return (items[0] || cleanText(cell)).split(',').map((s) => s.trim()).filter(Boolean);
 }
 
 /**
