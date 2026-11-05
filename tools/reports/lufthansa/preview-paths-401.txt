@@ -1,0 +1,12 @@
+# lh-com documents changed in brief 401 (read from DA, uploaded and previewed on main--lh-com--moved-permanently.aem.page; not published)
+/de/en/footer
+/de/de/footer
+/de/en/all-check-in
+/de/de/all-check-in
+/de/en/travelling-with-children
+/de/de/fliegen-mit-kindern
+/de/en/articles
+/de/de/articles
+/de/de/100-years
+/de/en/100-years/campaigns
+/de/de/100-years/campaigns
