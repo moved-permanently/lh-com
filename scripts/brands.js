@@ -749,6 +749,30 @@ export const SWISS_OWN_ROOTS = {
 };
 export const SWISS_OWN_ROOTS_LIVE = ['kr/ko'];
 
+// ITA's market roots added after its table (Ben's locales of 2026-11-05, brief 411: us/es and
+// ve/es, each with its own homepage, nav and footer), behind their switch as SWISS's new roots:
+// off, not in ITA's table (ita.turnsthe.page and the country dialog as before); its key in
+// ITA_MARKETS_LIVE (once its documents are published) makes it a market root of its language
+// version's documents, as ar/es. airport: its flight search's origin (as us/en's and ve/en's).
+export const ITA_MARKETS = {
+  'us/es': { airport: 'NYC' },
+  've/es': { airport: 'CCS' },
+};
+export const ITA_MARKETS_LIVE = [];
+
+/** ITA's site entry with the market roots of ITA_MARKETS switched on. */
+export function withItaMarkets(site, live = ITA_MARKETS_LIVE) {
+  const on = Object.keys(ITA_MARKETS).filter((r) => live.includes(r));
+  if (!on.length) return site;
+  return {
+    ...site,
+    rows: { ...site.rows, ...rowsOf('language', on) },
+    airports: {
+      ...site.airports, ...Object.fromEntries(on.map((r) => [r, ITA_MARKETS[r].airport])),
+    },
+  };
+}
+
 /** SWISS's site entry with the own roots switched on as roots, the others among its pilots. */
 export function withSwissOwnRoots(site, live = SWISS_OWN_ROOTS_LIVE) {
   const on = Object.keys(SWISS_OWN_ROOTS).filter((r) => live.includes(r));
@@ -834,7 +858,7 @@ export const BRAND_SITES = {
       'de/en': 'FRA', 'de/de': 'FRA', 'us/en': 'TPA', 'us/de': 'TPA', 'ca/en': 'YYC', 'ca/fr': 'YYC',
     },
   },
-  ita: {
+  ita: withItaMarkets({
     rows: {
       ...rowsOf('own', ['it/en', 'it/it', 'fr/fr', 'es/es', 'de/de', 'nl/nl', 'br/pt', 'gr/el', 'jp/ja']),
       ...rowsOf('language', [
@@ -921,7 +945,7 @@ export const BRAND_SITES = {
       'us/en': 'NYC',
       've/en': 'CCS',
     },
-  },
+  }),
   austrian: {
     rows: {
       ...rowsOf('own', ['at/en', 'at/de', 'fr/fr', 'it/it', 'ru/ru', 'cn/zh', 'es/es', 'gr/el', 'jp/ja', 'pl/pl']),
