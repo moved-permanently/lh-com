@@ -1,0 +1,21 @@
+{
+  "variantName": "info-alert",
+  "baseBlock": "info-alert",
+  "canonicalModel": "standalone",
+  "sourceUrl": "https://www.flytap.com/en-pt/check-in-information",
+  "visualCharacteristics": {
+    "purpose": "TAP's info alert: an important note in a light blue box that the visitor can close",
+    "traits": [
+      "light info-blue box with a 4 px blue edge at the left",
+      "info icon beside the title and the text",
+      "close button at the top right, closed for the page view only"
+    ]
+  },
+  "contentPattern": {
+    "structure": "One cell: a heading (H4) and its text or list."
+  },
+  "options": [],
+  "memberVariantIds": [],
+  "usage": "www.flytap.com's 'Informação importante' alerts (check-in information, insurance, time to think and others).",
+  "reuseGuidance": "TAP only. For a plain grey note use the section style highlight."
+}

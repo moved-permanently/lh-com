@@ -1,0 +1,79 @@
+/* info-alert: TAP's info alert as www.flytap.com's (row 63): `relative rounded-xs p-4
+   bg-info-subtle border-l-[4px] border-info-press`, 1120 px in the content column at 1440, the
+   close button 16 px from the top right, the icon and the text 12 px apart, the title GT Flexa
+   18 / 21.6 500, the text Inter 14 / 21 */
+.info-alert {
+  position: relative;
+  box-sizing: border-box;
+  padding: 16px;
+  border-left: 4px solid #99c0ff;
+  border-radius: 4px;
+  background-color: #ebf2ff;
+  color: #424045;
+}
+
+.info-alert[hidden] {
+  display: none;
+}
+
+.info-alert .info-alert-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #424045;
+  cursor: pointer;
+}
+
+.info-alert .info-alert-close:focus-visible {
+  outline: 2px solid #397213;
+  outline-offset: 2px;
+}
+
+.info-alert .info-alert-body {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.info-alert .info-alert-icon {
+  display: flex;
+  flex: none;
+}
+
+.info-alert .info-alert-text {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding-right: 32px;
+}
+
+.info-alert .info-alert-text :is(h1, h2, h3, h4, h5, h6) {
+  margin: 0;
+  color: #424045;
+  font-family: var(--heading-font-family);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.info-alert .info-alert-text :is(p, li) {
+  margin: 0;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.info-alert .info-alert-text :is(p, ul, ol) {
+  margin-top: 12px;
+}
+
+/* (www: the list 16 px under the title's line and 24 px over the box's padding) */
+.info-alert .info-alert-text :is(ul, ol) {
+  margin-bottom: 0;
+  padding: 16px 0 24px 24px;
+}
