@@ -1,0 +1,728 @@
+/* fare-comparison (TAP's fare pages, www.flytap.com /en-pt/bookings/tap-fares, measured 2026-11-05
+   at 1440 and 390): route-group pills, cabin tabs, the fares as card columns from 1024px (a table
+   that scrolls sideways below), ✓ / ✕ icons, (i) tooltips, "Compare fares" and its dialog, the
+   caption box */
+.fare-comparison {
+  --fare-comparison-text: var(--lh-deepblue, #424045);
+  --fare-comparison-surface: #f7f7f8;
+  --fare-comparison-line: rgb(0 0 0 / 8%);
+  --fare-comparison-green: #65c922;
+  --fare-comparison-yes: #272;
+  --fare-comparison-check: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='m9.55 18-5.7-5.7 1.43-1.42 4.27 4.27 9.17-9.18 1.43 1.43z'/%3E%3C/svg%3E");
+  --fare-comparison-cross: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6.4 19 5 17.6l5.6-5.6L5 6.4 6.4 5l5.6 5.6L17.6 5 19 6.4 13.4 12l5.6 5.6-1.4 1.4-5.6-5.6z'/%3E%3C/svg%3E");
+  --fare-comparison-info: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M11 17h2v-6h-2zm1-8q.42 0 .71-.29T13 8t-.29-.71T12 7t-.71.29T11 8t.29.71T12 9m0 13q-2.08 0-3.9-.79t-3.17-2.14-2.14-3.17T2 12t.79-3.9 2.14-3.17T8.1 2.79 12 2t3.9.79 3.17 2.14 2.14 3.17T22 12t-.79 3.9-2.14 3.17-3.17 2.14T12 22m0-2q3.35 0 5.68-2.32T20 12t-2.32-5.68T12 4 6.32 6.32 4 12t2.32 5.68T12 20'/%3E%3C/svg%3E");
+  --fare-comparison-filter: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M11 20q-.42 0-.71-.29T10 19v-6L4.2 5.6q-.38-.5-.11-1.05T5 4h14q.65 0 .91.55t-.11 1.05L14 13v6q0 .42-.29.71T13 20zm1-7.7L16.95 6h-9.9zm0 0'/%3E%3C/svg%3E");
+  --fare-comparison-chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 6 12'%3E%3Cpath d='M.7 12 0 11.3 5.3 6 0 .7.7 0l6 6z'/%3E%3C/svg%3E");
+
+  color: var(--fare-comparison-text);
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.fare-comparison [hidden] {
+  display: none !important;
+}
+
+/* the pills and the phone's cabin pills: 40px, 15/16.5 500, the chosen one TAP green */
+.fare-comparison .fare-comparison-groups,
+.fare-comparison .fare-comparison-cabins {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.fare-comparison .fare-comparison-tab {
+  box-sizing: border-box;
+  min-height: 40px;
+  margin: 0;
+  padding: 8px 16px;
+  border: 1px solid #e0dfe2;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--fare-comparison-text);
+  font-family: var(--body-font-family);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 16.5px;
+  cursor: pointer;
+}
+
+.fare-comparison .fare-comparison-tab[aria-selected="true"] {
+  border-color: var(--fare-comparison-green);
+  background: var(--fare-comparison-green);
+  color: #000;
+}
+
+.fare-comparison .fare-comparison-tab:focus-visible,
+.fare-comparison button:focus-visible {
+  outline: 2px solid var(--focus-color, #424045);
+  outline-offset: 2px;
+}
+
+.fare-comparison .fare-comparison-group {
+  padding-top: 8px;
+}
+
+.fare-comparison .fare-comparison-group-title,
+.fare-comparison .fare-comparison-cabin-title {
+  margin: 24px 0;
+  color: var(--fare-comparison-text);
+  font-family: var(--heading-font-family);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 28.8px;
+  text-align: center;
+}
+
+.fare-comparison .fare-comparison-cabin-title {
+  margin: 32px 0 40px;
+}
+
+/* "Compare fares": outlined pill, filter icon; above the table on phones */
+.fare-comparison .fare-comparison-tools {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.fare-comparison .fare-comparison-compare {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-sizing: border-box;
+  min-height: 40px;
+  margin: 0;
+  padding: 0 24px;
+  border: 1px solid var(--fare-comparison-green);
+  border-radius: 999px;
+  background: #fff;
+  color: #2c7839;
+  font-family: var(--body-font-family);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 16.5px;
+  cursor: pointer;
+}
+
+.fare-comparison .fare-comparison-filter {
+  width: 24px;
+  height: 24px;
+  background-color: currentcolor;
+  mask: var(--fare-comparison-filter) center / 24px no-repeat;
+}
+
+/* the phone table: 128px columns, scrolling sideways; dark "Services" corner, tinted fare heads
+   with a 4px bar (by the fare: README), bold 11px rows, white and grey in turn */
+.fare-comparison .fare-comparison-scroll {
+  position: relative;
+  overflow-x: auto;
+}
+
+.fare-comparison .fare-comparison-table {
+  width: calc(var(--fare-comparison-columns, 3) * 128px + 128px);
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.fare-comparison .fare-comparison-table th,
+.fare-comparison .fare-comparison-table td {
+  box-sizing: border-box;
+  width: 128px;
+  padding: 8px;
+  border-bottom: 1px solid #e0dfe2;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 16.5px;
+  vertical-align: middle;
+}
+
+.fare-comparison .fare-comparison-table thead th {
+  --fare-top: #bfd730;
+  --fare-bar: #bfd730;
+  --fare-tint: #f2f8dd;
+
+  height: 56px;
+  padding: 0 8px;
+  border-top: 4px solid var(--fare-bar);
+  background: var(--fare-tint);
+  color: #293102;
+  text-align: center;
+}
+
+.fare-comparison .fare-comparison-table thead th:first-child {
+  padding: 1px 16px;
+  border-top: 0;
+  background: #37363a;
+  color: #fff;
+  font-size: 14px;
+  line-height: 15.4px;
+  text-align: left;
+}
+
+.fare-comparison .fare-comparison-table thead th:is([data-fare="discount"], [data-fare="executive"], [data-fare="top-executive"]) {
+  --fare-bar: #1e5227;
+  --fare-tint: #d2efd7;
+}
+
+.fare-comparison .fare-comparison-table thead th:is([data-fare="discount"], [data-fare="executive"]) {
+  --fare-top: #424045;
+}
+
+.fare-comparison .fare-comparison-table thead th[data-fare="top-executive"] {
+  --fare-top: #173f1e;
+}
+
+.fare-comparison .fare-comparison-table thead th:is([data-fare="prime"], [data-fare="top-prime"]) {
+  --fare-top: #a11218;
+  --fare-bar: #a11218;
+  --fare-tint: #fbe0e0;
+}
+
+.fare-comparison .fare-comparison-fare-cabin {
+  display: block;
+  font-size: 11px;
+  line-height: 16.5px;
+}
+
+.fare-comparison .fare-comparison-fare {
+  display: block;
+  font-size: 14px;
+  line-height: 15.4px;
+  text-transform: uppercase;
+}
+
+.fare-comparison .fare-comparison-table tbody tr:nth-child(even) {
+  background: var(--fare-comparison-surface);
+}
+
+.fare-comparison .fare-comparison-table tbody th[scope="row"] {
+  position: relative;
+  padding-right: 24px;
+  color: var(--fare-comparison-text);
+  text-align: left;
+}
+
+.fare-comparison .fare-comparison-table tbody td {
+  position: relative;
+  color: #65626a;
+  text-align: center;
+}
+
+.fare-comparison .fare-comparison-label {
+  margin-right: 12px;
+  vertical-align: middle;
+}
+
+.fare-comparison .fare-comparison-table td.fare-comparison-has-info {
+  padding-right: 24px;
+}
+
+/* ✓ a green circle with a white check, ✕ a thin cross (20px / 24px from 1024px) */
+.fare-comparison .fare-comparison-icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+}
+
+.fare-comparison .fare-comparison-icon[data-mark="yes"] {
+  border-radius: 50%;
+  background: var(--fare-comparison-yes) no-repeat;
+}
+
+.fare-comparison .fare-comparison-icon[data-mark="yes"]::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  mask: var(--fare-comparison-check) center / 16px no-repeat;
+}
+
+.fare-comparison .fare-comparison-icon[data-mark="no"] {
+  width: 24px;
+  height: 24px;
+  background-color: var(--fare-comparison-text);
+  mask: var(--fare-comparison-cross) center / 24px no-repeat;
+}
+
+.fare-comparison .fare-comparison-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* the (i): 12px on phones, 24px from 1024px; its tooltip above it (fixed: the table scrolls) */
+.fare-comparison .fare-comparison-info-wrap {
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+.fare-comparison .fare-comparison-table td .fare-comparison-info-wrap {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  margin-top: -12px;
+}
+
+/* a label's (i) at the cell's right on phones (www: absolute right-0), after the label from 1024px */
+.fare-comparison .fare-comparison-table tbody th .fare-comparison-info-wrap {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  margin-top: -12px;
+}
+
+.fare-comparison .fare-comparison-info {
+  width: 24px;
+  height: 24px;
+  margin: -6px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.fare-comparison .fare-comparison-info::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: currentcolor;
+  mask: var(--fare-comparison-info) center / 12px no-repeat;
+}
+
+.fare-comparison .fare-comparison-tooltip {
+  position: fixed;
+  z-index: 1200;
+  display: flex;
+  gap: 8px;
+  box-sizing: border-box;
+  max-width: 384px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  background: #424045;
+  box-shadow: 0 8px 16px rgb(0 0 0 / 10%);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 19.5px;
+  text-align: left;
+  white-space: normal;
+}
+
+.fare-comparison .fare-comparison-tooltip::before {
+  content: "";
+  flex: 0 0 24px;
+  height: 24px;
+  margin: -2px 0;
+  background-color: #fff;
+  mask: var(--fare-comparison-info) center / 24px no-repeat;
+}
+
+/* the phone table's scroll buttons, at its right under it */
+.fare-comparison .fare-comparison-nav {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.fare-comparison .fare-comparison-nav button {
+  width: 48px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--fare-comparison-text);
+  cursor: pointer;
+}
+
+.fare-comparison .fare-comparison-nav button::before {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 24px;
+  margin: auto;
+  background-color: currentcolor;
+  mask: var(--fare-comparison-chevron) center / 6px 12px no-repeat;
+}
+
+.fare-comparison .fare-comparison-previous::before {
+  transform: scaleX(-1);
+}
+
+/* the caption box: 2px #eaeaeb, 16px corners, the legend and the notes */
+.fare-comparison .fare-comparison-caption {
+  margin-top: 32px;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.fare-comparison .fare-comparison-caption-title,
+.fare-comparison .fare-comparison-notes-title {
+  margin: 0 0 8px;
+  color: var(--fare-comparison-text);
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 21px;
+}
+
+.fare-comparison .fare-comparison-caption-box {
+  box-sizing: border-box;
+  padding: 20px;
+  border: 2px solid #eaeaeb;
+  border-radius: 16px;
+}
+
+.fare-comparison .fare-comparison-legend {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.fare-comparison .fare-comparison-legend li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.fare-comparison .fare-comparison-legend .fare-comparison-icon[data-mark="yes"] {
+  margin: 2px;
+}
+
+.fare-comparison .fare-comparison-notes-title {
+  margin: 16px 0 4px;
+}
+
+.fare-comparison .fare-comparison-caption-box .fare-comparison-notes > * {
+  margin: 0;
+}
+
+/* the dialog: 630px, 24px corners and padding, a fieldset per cabin, the info note, Clear and
+   Compare */
+.fare-comparison .fare-comparison-dialog {
+  box-sizing: border-box;
+  width: min(100% - 32px, 630px);
+  max-height: calc(100% - 32px);
+  padding: 24px;
+  border: 1px solid #e0dfe2;
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 16px 32px rgb(0 0 0 / 10%);
+  color: var(--fare-comparison-text);
+}
+
+.fare-comparison .fare-comparison-dialog::backdrop {
+  background: rgb(0 0 0 / 80%);
+}
+
+.fare-comparison .fare-comparison-dialog-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+.fare-comparison .fare-comparison-dialog-title {
+  margin: 0;
+  font-family: var(--heading-font-family);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 28.8px;
+}
+
+.fare-comparison .fare-comparison-dialog-close {
+  width: 32px;
+  height: 32px;
+  margin: 0;
+  padding: 4px;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.fare-comparison .fare-comparison-dialog-close::before {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 24px;
+  background-color: currentcolor;
+  mask: var(--fare-comparison-cross) center / 24px no-repeat;
+}
+
+.fare-comparison .fare-comparison-dialog-cabin {
+  margin: 0 0 24px;
+  padding: 0;
+  border: 0;
+}
+
+.fare-comparison .fare-comparison-dialog-cabin legend {
+  margin-bottom: 16px;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.fare-comparison .fare-comparison-dialog-fare {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+  cursor: pointer;
+}
+
+.fare-comparison .fare-comparison-dialog-fare input {
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  accent-color: var(--fare-comparison-green);
+}
+
+.fare-comparison .fare-comparison-dialog-note {
+  margin: 0 0 24px;
+  padding: 20px 20px 20px 60px;
+  border-left: 4px solid #0ea5e9;
+  border-radius: 4px;
+  background: #ebf2ff var(--fare-comparison-info) 20px center / 24px no-repeat;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.fare-comparison .fare-comparison-dialog-actions {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+  border-top: 1px solid #e0dfe2;
+}
+
+.fare-comparison .fare-comparison-dialog-actions .button {
+  min-height: 40px;
+  margin: 0;
+  padding: 0 24px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.fare-comparison .fare-comparison-clear {
+  border: 1px solid var(--fare-comparison-green);
+  background: #fff;
+  color: var(--fare-comparison-text);
+}
+
+.fare-comparison .fare-comparison-apply {
+  border: 0;
+  background: var(--fare-comparison-green);
+  color: #000;
+}
+
+/* from 1024px: pills side by side, the cabins as underlined tabs, the fares as card columns
+   (24px apart, the label column as wide), 14px rows */
+@media (width >= 1024px) {
+  .fare-comparison .fare-comparison-groups {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .fare-comparison .fare-comparison-group-title {
+    margin: 24px 0 48px;
+    font-size: 32px;
+    line-height: 38.4px;
+  }
+
+  .fare-comparison .fare-comparison-cabins {
+    flex-direction: row;
+    gap: 0;
+    width: fit-content;
+    margin: 0 auto;
+    border-bottom: 1px solid #e0dfe2;
+  }
+
+  .fare-comparison .fare-comparison-cabins .fare-comparison-tab {
+    position: relative;
+    padding: 0 25px;
+    border: 0;
+    border-radius: 0;
+    background: none;
+    color: #000;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 15.4px;
+  }
+
+  .fare-comparison .fare-comparison-cabins .fare-comparison-tab[aria-selected="true"] {
+    background: none;
+    color: #397213;
+  }
+
+  .fare-comparison .fare-comparison-cabins .fare-comparison-tab[aria-selected="true"]::after {
+    content: "";
+    position: absolute;
+    right: 13px;
+    bottom: -1px;
+    left: 13px;
+    height: 3px;
+    border-radius: 8px 8px 0 0;
+    background: var(--fare-comparison-green);
+  }
+
+  .fare-comparison .fare-comparison-cabin-title {
+    margin: 32px 0 39px;
+    font-size: 28px;
+    line-height: 33.6px;
+  }
+
+  .fare-comparison .fare-comparison-body {
+    position: relative;
+  }
+
+  .fare-comparison .fare-comparison-tools {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    justify-content: flex-start;
+    margin: 0;
+  }
+
+  .fare-comparison .fare-comparison-scroll {
+    overflow: visible;
+  }
+
+  .fare-comparison .fare-comparison-table {
+    width: calc(100% + 48px);
+    margin: 0 -24px;
+    border-collapse: separate;
+    border-spacing: 24px 0;
+  }
+
+  .fare-comparison .fare-comparison-table th,
+  .fare-comparison .fare-comparison-table td {
+    width: auto;
+    height: 65px;
+    padding: 20px;
+    border-bottom: 1px solid var(--fare-comparison-line);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+  }
+
+  .fare-comparison .fare-comparison-table thead th {
+    height: 66px;
+    padding: 20px;
+    border-top: 4px solid var(--fare-top);
+    border-bottom: 0;
+    border-radius: 24px 24px 0 0;
+    background: var(--fare-comparison-surface);
+    color: var(--fare-comparison-text);
+  }
+
+  .fare-comparison .fare-comparison-table thead th:first-child {
+    padding: 0;
+    border: 0;
+    background: none;
+  }
+
+  .fare-comparison .fare-comparison-table thead th:first-child .fare-comparison-services {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .fare-comparison .fare-comparison-fare-cabin {
+    display: none;
+  }
+
+  .fare-comparison .fare-comparison-comparing .fare-comparison-fare-cabin {
+    display: block;
+    font-size: 11px;
+    font-weight: 400;
+  }
+
+  .fare-comparison .fare-comparison-fare {
+    font-family: var(--heading-font-family);
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 21.6px;
+    text-transform: none;
+  }
+
+  .fare-comparison .fare-comparison-table tbody tr:nth-child(even) {
+    background: none;
+  }
+
+  .fare-comparison .fare-comparison-table tbody th[scope="row"] {
+    padding: 16px 0;
+    font-weight: 600;
+  }
+
+  .fare-comparison .fare-comparison-table tbody td {
+    background: var(--fare-comparison-surface);
+    color: var(--fare-comparison-text);
+  }
+
+  .fare-comparison .fare-comparison-table tbody tr:last-child td {
+    border-bottom: 0;
+    border-radius: 0 0 24px 24px;
+  }
+
+  .fare-comparison .fare-comparison-label {
+    margin-right: 8px;
+  }
+
+  .fare-comparison .fare-comparison-table td.fare-comparison-has-info {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+
+  .fare-comparison .fare-comparison-table td .fare-comparison-info-wrap {
+    right: 16px;
+  }
+
+  .fare-comparison .fare-comparison-table tbody th .fare-comparison-info-wrap {
+    position: static;
+    margin-top: 0;
+  }
+
+  .fare-comparison .fare-comparison-icon[data-mark="yes"] {
+    width: 24px;
+    height: 24px;
+  }
+
+  .fare-comparison .fare-comparison-info {
+    margin: 0;
+  }
+
+  .fare-comparison .fare-comparison-info::before {
+    mask-size: 24px;
+  }
+
+  .fare-comparison .fare-comparison-nav {
+    display: none;
+  }
+
+  .fare-comparison .fare-comparison-caption-box {
+    width: fit-content;
+    min-width: 437px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fare-comparison .fare-comparison-scroll {
+    scroll-behavior: auto;
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "variantName": "fare-comparison",
+  "baseBlock": "fare-comparison",
+  "canonicalModel": "standalone",
+  "sourceUrl": "https://www.flytap.com/en-pt/bookings/tap-fares",
+  "visualCharacteristics": {
+    "purpose": "TAP's fare comparison: route-group pills over cabin tabs, the fares as columns",
+    "traits": [
+      "route groups as pills, cabins as underlined tabs (pills on phones)",
+      "fares as card columns with a top border coloured by the fare from 1024px; a sideways-scrolling table on phones",
+      "✓ as a green circle, ✕ as a thin cross; notes as (i) tooltips",
+      "Compare fares: a dialog to put up to four fares side by side",
+      "a caption box with the legend and the notes"
+    ]
+  },
+  "contentPattern": {
+    "structure": "One block table: rows Group | name, Cabin | name, the cabin's header row (empty first cell, then the fares), service rows (label, one cell per fare; italic text = the note), Caption | list, Notes | text; optional label rows. See README."
+  },
+  "options": [],
+  "memberVariantIds": [],
+  "usage": {
+    "description": "TAP's fare pages (tarifas-tap, tap-fares, tarife-tap, tarifs-tap, tariffe-tap) in each language.",
+    "pagesUsing": [
+      "/pt-pt/reservas/tarifas-tap",
+      "/en-pt/bookings/tap-fares",
+      "/pt-br/reservas/tarifas-tap"
+    ],
+    "reuseCount": 0,
+    "lastUsed": "2026-11-05"
+  },
+  "reuseGuidance": "TAP only. For other comparison tables use table-striped (matrix)."
+}
