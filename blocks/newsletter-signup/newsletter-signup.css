@@ -1,0 +1,85 @@
+/*
+ * newsletter-signup: www.airdolomiti.it's newsletter field (390 and 1440 px, 2026-11-04): centred,
+ * 300px wide (the full width on phones), 82px high, white with a 1px border and a 5px radius, the
+ * text 17px / 24px (#494949), 28px 60px 28px 30px padding; the button the envelope 30px from the
+ * field's right end (a 44px target). The field's name for screen readers only.
+ */
+.newsletter-signup .newsletter-signup-form {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.newsletter-signup .newsletter-signup-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.newsletter-signup .newsletter-signup-input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 82px;
+  margin: 0;
+  padding: 28px 70px 28px 30px;
+  border: 1px solid var(--lh-grey-3, #d2d2d2);
+  border-radius: 5px;
+  background-color: #fff;
+  color: #494949;
+  font-family: var(--body-font-family);
+  font-size: 17px;
+  line-height: 24px;
+}
+
+.newsletter-signup .newsletter-signup-input::placeholder {
+  color: #494949;
+  opacity: 1;
+}
+
+.newsletter-signup .newsletter-signup-input:focus {
+  outline: 2px solid var(--brand-color, #008293);
+  outline-offset: -1px;
+  border-color: var(--brand-color, #008293);
+}
+
+.newsletter-signup .newsletter-signup-submit {
+  position: absolute;
+  top: 50%;
+  right: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 5px;
+  background: none;
+  color: var(--brand-color, #008293);
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+
+.newsletter-signup .newsletter-signup-submit::before {
+  content: "";
+  width: 25px;
+  height: 25px;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.6'%3E%3Crect x='2.5' y='5' width='19' height='14' rx='1.5'/%3E%3Cpath d='m3 6 9 7 9-7'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.newsletter-signup .newsletter-signup-submit:hover,
+.newsletter-signup .newsletter-signup-submit:focus-visible {
+  background-color: color-mix(in srgb, var(--brand-color, #008293) 10%, transparent);
+}
+
+@media (width >= 768px) {
+  .newsletter-signup .newsletter-signup-form {
+    width: 300px;
+  }
+}
