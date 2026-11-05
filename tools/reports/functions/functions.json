@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-05 08:25",
-  "change": "TAP Air Portugal's help pages have its contacts finder in all eight versions, and its destinations page has the destination search with filters and cards, as on www.flytap.com.",
+  "updated": "2026-11-05 14:20",
+  "change": "Lufthansa, SWISS, Austrian, Brussels Airlines, ITA and Discover now share one Message Center, as on www: a notice is written and published once, ticked for the airlines it is for, and shows on each of their sites.",
   "legend": {
     "done": {
       "label": "works on our replica",
@@ -1413,27 +1413,27 @@
       "cells": {
         "lufthansa": {
           "status": "done",
-          "note": "Disruption and flash notices are written as messages and show on the homepages and the current travel information page.",
+          "note": "Disruption and flash notices are written once, in one Message Center for all the group's airlines, and ticked for the airlines they are for, as on www; they show on the homepages and the current travel information page.",
           "page": "/de/en/prepare-for-your-trip/current-travel-information",
-          "evidence": "functions scan 2026-10-31: Information on flights to Dubai"
+          "evidence": "functions scan 2026-10-31: Information on flights to Dubai; 2026-11-05 one store: brand hosts read the group's Message Center through lh-edge (route message-store, lh-com 262cee2b); brand copies off live; test message for lh, lx and os shown on lufthansa, swiss and austrian.turnsthe.page 4 s after publish (job-2026-11-05-12-55-08-439a9567) and gone 79 s after one unpublish (job-2026-11-05-12-57-15-1035688e), not on brussels, ita or discover"
         },
         "discover": {
           "status": "done",
-          "note": "Discover's notices work the same way; there are none to show today.",
+          "note": "Discover's notices show from the group's one Message Center, as on www; there are none to show today.",
           "page": "/de/en/homepage",
-          "evidence": "functions scan 2026-10-31"
+          "evidence": "functions scan 2026-10-31; 2026-11-05 one store (lh-com 262cee2b): discover.turnsthe.page reads the group index"
         },
         "ita": {
           "status": "done",
-          "note": "ITA's notices show from its own messages.",
+          "note": "ITA's notices show from the group's one Message Center, as on www.",
           "page": "/it/en/homepage",
-          "evidence": "functions scan 2026-10-31: lh-ita message-center index has messages"
+          "evidence": "functions scan 2026-10-31; 2026-11-05 one store (lh-com 262cee2b): ita.turnsthe.page 4 messages on all 64 roots, as before, linking to www.ita-airways.com"
         },
         "austrian": {
           "status": "done",
-          "note": "Austrian's notices show from its own messages.",
+          "note": "Austrian's notices show from the group's one Message Center, as on www, and its current travel information page opens each notice's details.",
           "page": "/at/en/homepage",
-          "evidence": "functions scan 2026-10-31: rail services notice"
+          "evidence": "functions scan 2026-10-31: rail services notice; 2026-11-05 one store (lh-com 262cee2b): austrian.turnsthe.page same messages on all 64 roots, details now open; test message shown and withdrawn"
         },
         "cargo": {
           "status": "done",
@@ -1449,9 +1449,9 @@
         },
         "brussels": {
           "status": "done",
-          "note": "Brussels Airlines' notices work the same way; the twice-daily sync copies them from www, which has none to show today.",
+          "note": "Brussels Airlines' notices show from the group's one Message Center, as on www, which has none for it today.",
           "page": "/be/en/plan-your-trip/flight-information",
-          "evidence": "Message Center sync 2026-11-01b: sn -> lh-brussels; brands.js messageCenter sn; cti-pages sheet live"
+          "evidence": "2026-11-05 one store (lh-com 262cee2b): brussels.turnsthe.page reads the group index and its row of the group current travel information sheet; brands.js messageCenter sn; nothing to show, as on www"
         },
         "b2b": {
           "status": "none",
@@ -1460,9 +1460,9 @@
         },
         "swiss": {
           "status": "done",
-          "note": "SWISS's notices show from its own messages; the twice-daily sync copies them from www, which showed two on 2 November (flights to Dubai, the Edelweiss booking outage).",
+          "note": "SWISS's notices show from the group's one Message Center, as on www; the twice-daily sync copies www's messages into it.",
           "page": "/ch/en/fly/flight-information/current-information",
-          "evidence": "2026-11-02 17:13: swiss.turnsthe.page /message-center/index.json 5 rows; homepage strip 2 slides on ch/en and ch/de; Message Center sync 6th run, publish job-2026-11-02-16-12-48-809595d2"
+          "evidence": "2026-11-02 17:13: swiss.turnsthe.page /message-center/index.json 5 rows; homepage strip 2 slides on ch/en and ch/de; Message Center sync 6th run, publish job-2026-11-02-16-12-48-809595d2; 2026-11-05 one store (lh-com 262cee2b): swiss.turnsthe.page same messages, order and links on all 227 roots as before; test message shown and withdrawn"
         },
         "tap": {
           "status": "done",
