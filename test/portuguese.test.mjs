@@ -14,8 +14,9 @@ import fs from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import yaml from 'js-yaml';
 import { LANGUAGE_VERSIONS } from '../scripts/locale-table.js';
-import { getLocale, LIVE_ROOTS, LOCALE_TABLE } from '../scripts/locale.js';
+import { getLocale, liveOwnRoots, LOCALE_TABLE } from '../scripts/locale.js';
 import { formatArticleDate } from '../scripts/articles.js';
+import { buildTable } from '../tools/markets/build-locale-table.mjs';
 
 const BEFORE = '70a732f';
 
@@ -38,13 +39,15 @@ function table(src, name) {
   return new Function(`return (${src.slice(start, i + 1)});`)();
 }
 const show = (rev, file) => (rev ? execFileSync('git', ['show', `${rev}:${file}`], { encoding: 'utf8' }) : fs.readFileSync(file, 'utf8'));
+// the table as built with the pinned commit's go-live setting (tools/reports/markets/go-live.md: the
+// switch turns pilot rows live; as test/go-live.test.mjs, these checks hold with any liveWaves)
+const PINNED = buildTable(undefined, { ...JSON.parse(show(null, 'tools/markets/locale-data.json')), liveWaves: JSON.parse(show(BEFORE, 'tools/markets/locale-data.json')).liveWaves }).rows;
 
 test('the rows: xx/pt the language version (own documents, hreflang pt), ao/pt, br/pt, pt/pt its market roots; all pilot, batch 13', () => {
   const data = JSON.parse(fs.readFileSync('tools/markets/locale-data.json', 'utf8'));
   assert.equal(LANGUAGE_VERSIONS.pt, 'xx/pt');
   assert.equal(data.languageVersions.pt, 'xx/pt');
-  assert.deepEqual(data.liveWaves, JSON.parse(show(BEFORE, 'tools/markets/locale-data.json')).liveWaves, 'the switch as before');
-  assert.deepEqual(LIVE_ROOTS, ['de/en', 'de/de', 'at/de', 'gb/en']);
+  assert.deepEqual(liveOwnRoots(PINNED), ['de/en', 'de/de', 'at/de', 'gb/en']);
   const pt = Object.entries(LOCALE_TABLE).filter(([, r]) => r.lang === 'pt').map(([k]) => k).sort();
   assert.deepEqual(pt, ['ao/pt', 'br/pt', 'pt/pt', 'xx/pt']);
   const expect = {
@@ -56,7 +59,7 @@ test('the rows: xx/pt the language version (own documents, hreflang pt), ao/pt, 
   Object.entries(expect).forEach(([k, [name, airport, currency, documents]]) => {
     const r = data.roots[k];
     assert.deepEqual([r.name, r.homeAirport, r.currency, r.documents, r.status, r.batch], [name, airport, currency, documents, 'pilot', 13], k);
-    assert.equal(LOCALE_TABLE[k].status, 'pilot', k);
+    assert.equal(PINNED[k].status, 'pilot', k);
   });
   assert.equal(LOCALE_TABLE['xx/pt'].hreflang, 'pt');
   assert.equal(LOCALE_TABLE['br/pt'].hreflang, 'pt-BR');

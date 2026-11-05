@@ -16,9 +16,10 @@ import { execFileSync } from 'node:child_process';
 import yaml from 'js-yaml';
 import { LANGUAGE_VERSIONS } from '../scripts/locale-table.js';
 import {
-  getLocale, LIVE_ROOTS, LOCALE_TABLE, HTML_LANGS, htmlLangOf, pathLanguageOf,
+  getLocale, liveOwnRoots, LOCALE_TABLE, HTML_LANGS, htmlLangOf, pathLanguageOf,
 } from '../scripts/locale.js';
 import { formatArticleDate } from '../scripts/articles.js';
+import { buildTable } from '../tools/markets/build-locale-table.mjs';
 
 const BEFORE = '27a3318';
 
@@ -41,6 +42,9 @@ function table(src, name) {
   return new Function(`return (${src.slice(start, i + 1)});`)();
 }
 const show = (rev, file) => (rev ? execFileSync('git', ['show', `${rev}:${file}`], { encoding: 'utf8' }) : fs.readFileSync(file, 'utf8'));
+// the table as built with the pinned commit's go-live setting (tools/reports/markets/go-live.md: the
+// switch turns pilot rows live; as test/go-live.test.mjs, these checks hold with any liveWaves)
+const PINNED = buildTable(undefined, { ...JSON.parse(show(null, 'tools/markets/locale-data.json')), liveWaves: JSON.parse(show(BEFORE, 'tools/markets/locale-data.json')).liveWaves }).rows;
 // characters only Traditional Chinese writes (their Simplified forms differ)
 const TRADITIONAL = /[們這個選擇檔頁輸請關時間話語認證帳號碼錯誤載傳刪發開處無務換題類級飛機積饋僅為與總訂體轉彈較艙數價優預覽謝欄資]/;
 
@@ -48,8 +52,7 @@ test('the rows: xx/zh the language version (own documents), cn/zh, hk/zh, tw/zh 
   const data = JSON.parse(fs.readFileSync('tools/markets/locale-data.json', 'utf8'));
   assert.equal(LANGUAGE_VERSIONS.zh, 'xx/zh');
   assert.equal(data.languageVersions.zh, 'xx/zh');
-  assert.deepEqual(data.liveWaves, JSON.parse(show(BEFORE, 'tools/markets/locale-data.json')).liveWaves, 'the switch as before');
-  assert.deepEqual(LIVE_ROOTS, ['de/en', 'de/de', 'at/de', 'gb/en']);
+  assert.deepEqual(liveOwnRoots(PINNED), ['de/en', 'de/de', 'at/de', 'gb/en']);
   const zh = Object.entries(LOCALE_TABLE).filter(([, r]) => r.lang === 'zh').map(([k]) => k).sort();
   assert.deepEqual(zh, ['cn/zh', 'hk/zh', 'tw/zh', 'xx/zh']);
   const expect = {
@@ -62,7 +65,7 @@ test('the rows: xx/zh the language version (own documents), cn/zh, hk/zh, tw/zh 
     const r = data.roots[k];
     assert.deepEqual([r.name, r.countryName, r.homeAirport, r.currency, r.documents, r.status, r.batch], [name, countryName, airport, currency, documents, 'pilot', 16], k);
     assert.equal(r.unverified.includes('currency'), currency === null, `${k}: the currency unverified only where www shows none`);
-    assert.equal(LOCALE_TABLE[k].status, 'pilot', k);
+    assert.equal(PINNED[k].status, 'pilot', k);
   });
   assert.equal(getLocale('/xx/zh/homepage').key, 'xx/zh');
   ['cn/zh', 'hk/zh', 'tw/zh'].forEach((k) => assert.equal(getLocale(`/${k}/baggage`).versionBase, '/xx/zh', k));
@@ -75,7 +78,7 @@ test('the rows: xx/zh the language version (own documents), cn/zh, hk/zh, tw/zh 
 test('hreflang as www\'s sitemaps give it per root; every other row of the table as before; <html lang> zh, no new mapping', () => {
   assert.deepEqual(['xx/zh', 'cn/zh', 'hk/zh', 'tw/zh'].map((k) => LOCALE_TABLE[k].hreflang), ['zh', 'zh-CN', 'zh-HK', 'zh-TW']);
   const old = table(show(BEFORE, 'scripts/locale-table.js'), 'LOCALE_TABLE');
-  Object.entries(old).forEach(([k, r]) => assert.deepEqual(LOCALE_TABLE[k], r, k));
+  Object.entries(old).forEach(([k, r]) => assert.deepEqual(PINNED[k], r, k));
   assert.deepEqual(HTML_LANGS, { hk: 'zh-HK' });
   assert.equal(htmlLangOf('zh'), 'zh');
   assert.equal(pathLanguageOf('zh'), 'zh');

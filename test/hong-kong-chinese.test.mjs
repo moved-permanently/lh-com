@@ -17,7 +17,7 @@ import { execFileSync } from 'node:child_process';
 import yaml from 'js-yaml';
 import { LANGUAGE_VERSIONS } from '../scripts/locale-table.js';
 import {
-  getLocale, LIVE_ROOTS, LOCALE_TABLE, HTML_LANGS, htmlLangOf, pathLanguageOf,
+  getLocale, liveOwnRoots, LOCALE_TABLE, HTML_LANGS, htmlLangOf, pathLanguageOf,
 } from '../scripts/locale.js';
 import { formatArticleDate } from '../scripts/articles.js';
 import { buildTable } from '../tools/markets/build-locale-table.mjs';
@@ -43,6 +43,9 @@ function table(src, name) {
   return new Function(`return (${src.slice(start, i + 1)});`)();
 }
 const show = (rev, file) => (rev ? execFileSync('git', ['show', `${rev}:${file}`], { encoding: 'utf8' }) : fs.readFileSync(file, 'utf8'));
+// the table as built with the pinned commit's go-live setting (tools/reports/markets/go-live.md: the
+// switch turns pilot rows live; as test/go-live.test.mjs, these checks hold with any liveWaves)
+const PINNED = buildTable(undefined, { ...JSON.parse(show(null, 'tools/markets/locale-data.json')), liveWaves: JSON.parse(show(BEFORE, 'tools/markets/locale-data.json')).liveWaves }).rows;
 // characters only Simplified Chinese writes (their Traditional forms differ)
 const SIMPLIFIED = /[们这个选择档页输请关时间话语认证账号码错误载传删发开处无务换题类级飞机积馈仅为与总订]/;
 
@@ -50,8 +53,7 @@ test('the rows: xx/hk the language version (own documents), cn/hk, hk/hk, tw/hk 
   const data = JSON.parse(fs.readFileSync('tools/markets/locale-data.json', 'utf8'));
   assert.equal(LANGUAGE_VERSIONS.hk, 'xx/hk');
   assert.equal(data.languageVersions.hk, 'xx/hk');
-  assert.deepEqual(data.liveWaves, JSON.parse(show(BEFORE, 'tools/markets/locale-data.json')).liveWaves, 'the switch as before');
-  assert.deepEqual(LIVE_ROOTS, ['de/en', 'de/de', 'at/de', 'gb/en']);
+  assert.deepEqual(liveOwnRoots(PINNED), ['de/en', 'de/de', 'at/de', 'gb/en']);
   const hk = Object.entries(LOCALE_TABLE).filter(([, r]) => r.lang === 'hk').map(([k]) => k).sort();
   assert.deepEqual(hk, ['cn/hk', 'hk/hk', 'tw/hk', 'xx/hk']);
   const expect = {
@@ -64,7 +66,7 @@ test('the rows: xx/hk the language version (own documents), cn/hk, hk/hk, tw/hk 
     const r = data.roots[k];
     assert.deepEqual([r.name, r.countryName, r.homeAirport, r.currency, r.documents, r.status, r.batch], [name, countryName, airport, null, documents, 'pilot', 15], k);
     assert.ok(r.unverified.includes('currency'), `${k}: the currency unverified (www shows none)`);
-    assert.equal(LOCALE_TABLE[k].status, 'pilot', k);
+    assert.equal(PINNED[k].status, 'pilot', k);
   });
   assert.equal(getLocale('/xx/hk/homepage').key, 'xx/hk');
   ['cn/hk', 'hk/hk', 'tw/hk'].forEach((k) => assert.equal(getLocale(`/${k}/baggage`).versionBase, '/xx/hk', k));
@@ -77,7 +79,7 @@ test('the rows: xx/hk the language version (own documents), cn/hk, hk/hk, tw/hk 
 test('hreflang as www\'s sitemaps give it per root; every other row of the table as before', () => {
   assert.deepEqual(['xx/hk', 'hk/hk', 'cn/hk', 'tw/hk'].map((k) => LOCALE_TABLE[k].hreflang), ['zh', 'zh-HK', 'zh-CN', 'zh-TW']);
   const old = table(show(BEFORE, 'scripts/locale-table.js'), 'LOCALE_TABLE');
-  Object.entries(old).forEach(([k, r]) => assert.deepEqual(LOCALE_TABLE[k], r, k));
+  Object.entries(old).forEach(([k, r]) => assert.deepEqual(PINNED[k], r, k));
   // the builder: an xx root takes www's own hreflang (zh), its language only when www gives none
   const roots = [{ root: 'de/de', hreflang: ['de-DE'], ownSitemap: true }, { root: 'xx/hk', hreflang: ['zh'], ownSitemap: false }, { root: 'xx/fr', hreflang: [], ownSitemap: false }];
   const row = { status: 'live', documents: 'own' };

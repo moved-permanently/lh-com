@@ -15,8 +15,9 @@ import fs from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import yaml from 'js-yaml';
 import { LANGUAGE_VERSIONS } from '../scripts/locale-table.js';
-import { getLocale, LIVE_ROOTS, LOCALE_TABLE } from '../scripts/locale.js';
+import { getLocale, liveOwnRoots, LOCALE_TABLE } from '../scripts/locale.js';
 import { formatArticleDate } from '../scripts/articles.js';
+import { buildTable } from '../tools/markets/build-locale-table.mjs';
 
 const BEFORE = '4865efb';
 
@@ -39,13 +40,15 @@ function table(src, name) {
   return new Function(`return (${src.slice(start, i + 1)});`)();
 }
 const show = (rev, file) => (rev ? execFileSync('git', ['show', `${rev}:${file}`], { encoding: 'utf8' }) : fs.readFileSync(file, 'utf8'));
+// the table as built with the pinned commit's go-live setting (tools/reports/markets/go-live.md: the
+// switch turns pilot rows live; as test/go-live.test.mjs, these checks hold with any liveWaves)
+const PINNED = buildTable(undefined, { ...JSON.parse(show(null, 'tools/markets/locale-data.json')), liveWaves: JSON.parse(show(BEFORE, 'tools/markets/locale-data.json')).liveWaves }).rows;
 
 test('the rows: xx/ru the language version (own documents, hreflang ru), by/ru, kz/ru, ru/ru its market roots; all pilot, batch 14', () => {
   const data = JSON.parse(fs.readFileSync('tools/markets/locale-data.json', 'utf8'));
   assert.equal(LANGUAGE_VERSIONS.ru, 'xx/ru');
   assert.equal(data.languageVersions.ru, 'xx/ru');
-  assert.deepEqual(data.liveWaves, JSON.parse(show(BEFORE, 'tools/markets/locale-data.json')).liveWaves, 'the switch as before');
-  assert.deepEqual(LIVE_ROOTS, ['de/en', 'de/de', 'at/de', 'gb/en']);
+  assert.deepEqual(liveOwnRoots(PINNED), ['de/en', 'de/de', 'at/de', 'gb/en']);
   const ru = Object.entries(LOCALE_TABLE).filter(([, r]) => r.lang === 'ru').map(([k]) => k).sort();
   assert.deepEqual(ru, ['by/ru', 'kz/ru', 'ru/ru', 'xx/ru']);
   const expect = {
@@ -58,7 +61,7 @@ test('the rows: xx/ru the language version (own documents, hreflang ru), by/ru, 
     const r = data.roots[k];
     assert.deepEqual([r.name, r.countryName, r.homeAirport, r.currency, r.documents, r.status, r.batch], [name, countryName, airport, currency, documents, 'pilot', 14], k);
     if (currency === null) assert.ok(r.unverified.includes('currency'), `${k}: the currency unverified (www shows none)`);
-    assert.equal(LOCALE_TABLE[k].status, 'pilot', k);
+    assert.equal(PINNED[k].status, 'pilot', k);
   });
   assert.equal(LOCALE_TABLE['xx/ru'].hreflang, 'ru');
   assert.equal(LOCALE_TABLE['kz/ru'].hreflang, 'ru-KZ');
