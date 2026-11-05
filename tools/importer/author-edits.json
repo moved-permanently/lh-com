@@ -10,5 +10,27 @@
         "<h3 id=\"entertainment-on-board-heading-small\">Entertainment on board {heading-small}</h3>"
       ]
     ]
+  },
+  "/xx/fr/emergency-contact": {
+    "by": "lh-com migration agent",
+    "date": "2026-11-05",
+    "note": "Brief 409: www's French page shows the flights step and the data-processing consent twice ('Vols {n}' Subsection-Flight-data other and 'Veuillez confirmer les conditions d’utilisation.'); the second set left out, as the other languages' single one",
+    "replace": [
+      [
+        "<div><div>Vols</div><div>step</div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div><div><div>Vols {n}</div><div>fieldset</div><div>Subsection-Flight-data other</div><div></div><div></div><div></div><div></div><div></div><div></div><div>repeat=3<br> add=ajouter un vol<br> remove=Delete Vols<br> remaining=Vous pouvez encore {n} ajouter d’autres vols</div></div><div><div>Numéro de vol</div><div>text</div><div>flightno</div><div></div><div></div><div></div><div></div><div>Saisissez ici votre numéro de vol.</div><div></div><div>maxlength=7</div></div><div><div>Date du vol</div><div>date</div><div>flightdate</div><div></div><div></div><div>- DD/MM/YYYY</div><div></div><div>Veuillez indiquer la date du vol.</div><div></div><div>mask=DD/MM/YYYY</div></div><div><div></div><div>end</div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div><div><div>Veuillez confirmer les conditions d’utilisation.</div><div>fieldset</div><div>Subsection-data-processing</div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div><div><div></div><div>checkbox</div><div>Data-processing</div><div>yes</div><div>1=Les données fournies sont exclusivement utilisées afin de traiter votre demande. Vos données ne sont pas communiquées à des tiers, sauf si Lufthansa y est tenue en vertu d’obligations légales.</div><div></div><div></div><div>Veuillez confirmer les conditions d’utilisation.</div><div></div><div></div></div><div><div></div><div>end</div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>",
+        ""
+      ]
+    ]
+  },
+  "/fr/fr/emergency-contact": {
+    "by": "lh-com migration agent",
+    "date": "2026-11-05",
+    "note": "Brief 409: www's French page shows the flights step and the data-processing consent twice ('Vols {n}' Subsection-Flight-data other and 'Veuillez confirmer les conditions d’utilisation.'); the second set left out, as the other languages' single one",
+    "replace": [
+      [
+        "<div><div>Vols</div><div>step</div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div><div><div>Vols {n}</div><div>fieldset</div><div>Subsection-Flight-data other</div><div></div><div></div><div></div><div></div><div></div><div></div><div>repeat=3<br> add=ajouter un vol<br> remove=Delete Vols<br> remaining=Vous pouvez encore {n} ajouter d’autres vols</div></div><div><div>Numéro de vol</div><div>text</div><div>flightno</div><div></div><div></div><div></div><div></div><div>Saisissez ici votre numéro de vol.</div><div></div><div>maxlength=7</div></div><div><div>Date du vol</div><div>date</div><div>flightdate</div><div></div><div></div><div>- DD/MM/YYYY</div><div></div><div>Veuillez indiquer la date du vol.</div><div></div><div>mask=DD/MM/YYYY</div></div><div><div></div><div>end</div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div><div><div>Veuillez confirmer les conditions d’utilisation.</div><div>fieldset</div><div>Subsection-data-processing</div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div><div><div></div><div>checkbox</div><div>Data-processing</div><div>yes</div><div>1=Les données fournies sont exclusivement utilisées afin de traiter votre demande. Vos données ne sont pas communiquées à des tiers, sauf si Lufthansa y est tenue en vertu d’obligations légales.</div><div></div><div></div><div>Veuillez confirmer les conditions d’utilisation.</div><div></div><div></div></div><div><div></div><div>end</div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>",
+        ""
+      ]
+    ]
   }
 }

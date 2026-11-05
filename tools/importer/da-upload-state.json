@@ -29020,9 +29020,10 @@
    "preview": "2026-11-02T15:23:30.153Z"
   },
   "/fr/fr/emergency-contact": {
-   "uploaded": "2026-11-02T22:04:49.645Z",
-   "mtime": 1793657046119,
-   "preview": "2026-11-02T22:04:51.811Z"
+   "uploaded": "2026-11-05T23:05:59.756Z",
+   "mtime": 1793919945811,
+   "preview": "2026-11-05T23:06:01.774Z",
+   "edits": "[[\"<div><div>Vols</div><div>step</div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div><div><div>Vols {n}</div><div>fieldset</div><div>Subsection-Flight-data other</div><div></div><div></div><div></div><div></div><div></div><div></div><div>repeat=3<br> add=ajouter un vol<br> remove=Delete Vols<br> remaining=Vous pouvez encore {n} ajouter d’autres vols</div></div><div><div>Numéro de vol</div><div>text</div><div>flightno</div><div></div><div></div><div></div><div></div><div>Saisissez ici votre numéro de vol.</div><div></div><div>maxlength=7</div></div><div><div>Date du vol</div><div>date</div><div>flightdate</div><div></div><div></div><div>- DD/MM/YYYY</div><div></div><div>Veuillez indiquer la date du vol.</div><div></div><div>mask=DD/MM/YYYY</div></div><div><div></div><div>end</div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div><div><div>Veuillez confirmer les conditions d’utilisation.</div><div>fieldset</div><div>Subsection-data-processing</div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div><div><div></div><div>checkbox</div><div>Data-processing</div><div>yes</div><div>1=Les données fournies sont exclusivement utilisées afin de traiter votre demande. Vos données ne sont pas communiquées à des tiers, sauf si Lufthansa y est tenue en vertu d’obligations légales.</div><div></div><div></div><div>Veuillez confirmer les conditions d’utilisation.</div><div></div><div></div></div><div><div></div><div>end</div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>\",\"\"]]"
   },
   "/fr/fr/entryprocesses": {
    "uploaded": "2026-11-02T15:23:34.954Z",
@@ -32805,9 +32806,10 @@
    "preview": "2026-11-03T08:02:49.176Z"
   },
   "/xx/fr/emergency-contact": {
-   "uploaded": "2026-11-03T08:02:50.256Z",
-   "mtime": 1793692065318,
-   "preview": "2026-11-03T08:02:51.650Z"
+   "uploaded": "2026-11-05T23:05:55.799Z",
+   "mtime": 1793919945790,
+   "preview": "2026-11-05T23:05:57.950Z",
+   "edits": "[[\"<div><div>Vols</div><div>step</div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div><div><div>Vols {n}</div><div>fieldset</div><div>Subsection-Flight-data other</div><div></div><div></div><div></div><div></div><div></div><div></div><div>repeat=3<br> add=ajouter un vol<br> remove=Delete Vols<br> remaining=Vous pouvez encore {n} ajouter d’autres vols</div></div><div><div>Numéro de vol</div><div>text</div><div>flightno</div><div></div><div></div><div></div><div></div><div>Saisissez ici votre numéro de vol.</div><div></div><div>maxlength=7</div></div><div><div>Date du vol</div><div>date</div><div>flightdate</div><div></div><div></div><div>- DD/MM/YYYY</div><div></div><div>Veuillez indiquer la date du vol.</div><div></div><div>mask=DD/MM/YYYY</div></div><div><div></div><div>end</div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div><div><div>Veuillez confirmer les conditions d’utilisation.</div><div>fieldset</div><div>Subsection-data-processing</div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div><div><div></div><div>checkbox</div><div>Data-processing</div><div>yes</div><div>1=Les données fournies sont exclusivement utilisées afin de traiter votre demande. Vos données ne sont pas communiquées à des tiers, sauf si Lufthansa y est tenue en vertu d’obligations légales.</div><div></div><div></div><div>Veuillez confirmer les conditions d’utilisation.</div><div></div><div></div></div><div><div></div><div>end</div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>\",\"\"]]"
   },
   "/xx/fr/entryprocesses": {
    "uploaded": "2026-11-03T08:02:52.781Z",
