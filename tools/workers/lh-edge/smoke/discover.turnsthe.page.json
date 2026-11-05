@@ -283,11 +283,11 @@
   "key": "GET /message-center/config/cti-pages.json",
   "path": "/message-center/config/cti-pages.json",
   "method": "GET",
-  "status": 404,
+  "status": 200,
   "location": "",
-  "type": "text/plain; charset=utf-8",
-  "hash": "e3b0c44298fc1c14",
-  "route": ""
+  "type": "application/json",
+  "hash": "a9547ac053c36dd3",
+  "route": "message-store"
  },
  {
   "key": "HEAD /content/dam/lufthansa-group/pdfs/lhg-power-of-attorney-form-en.pdf",

@@ -286,8 +286,8 @@
   "status": 200,
   "location": "",
   "type": "application/json",
-  "hash": "cb8305a3fb191d96",
-  "route": ""
+  "hash": "a9547ac053c36dd3",
+  "route": "message-store"
  },
  {
   "key": "HEAD /content/dam/lufthansa-group/pdfs/lhg-power-of-attorney-form-en.pdf",
