@@ -734,6 +734,10 @@ describe('tap-import pages', () => {
     assert.ok(!box.querySelector('h2, h3'));
     assert.ok(![...d.querySelectorAll('.section-metadata')].some((m) => /highlight/.test(m.textContent)));
     assert.equal(box.parentElement.children.length, 1, 'a section of its own');
+    assert.ok(!box.classList.contains('static'), 'www\'s dismissable: a close button');
+    // an alert www shows without its close button (dismissable false, 30 of 152): the option static
+    const fixed = { props: { pageProps: { page: { title: 'Seguros', sections: [{ __typename: 'ComponentHeadingModel', title: 'Seguros' }, { __typename: 'ComponentInfoBlockModel', title: 'Informação importante', dismissable: false, message: { plaintext: 'Leia as condições.' } }] } } } };
+    assert.ok(dom(convertPage(fixed, ctx('https://www.flytap.com/pt-pt/reservas/seguros')).html).querySelector('.info-alert.static'));
     // a table in an item stays a table (accordion-columns shows data tables in its panels)
     const table = d.querySelector('.accordion-columns.faq table');
     assert.ok(table && table.textContent.includes('Aeroporto'));

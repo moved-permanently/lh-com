@@ -710,7 +710,8 @@ const HANDLERS = {
     if (!cell.trim()) return;
     if (P.cell) { P.add(cell); return; }
     P.section();
-    P.block('info-alert', [[cell]]);
+    // (www's without a close button where it is not dismissable: the option static)
+    P.block(s.dismissable === false ? 'info-alert (static)' : 'info-alert', [[cell]]);
     P.section();
   },
   ComponentCardInfoBlockModel: (s, P) => {
