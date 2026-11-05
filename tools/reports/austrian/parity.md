@@ -99,9 +99,9 @@ replica has no block for.
 | 7 | Flight search: boxed fields (56 px, #f6f6f6, 1 px #262626, 8 px corners, the label inside), the dates one 50 px box, the swap a 32 px #4d4d4d disc; on phones From and To one box with the swap on the line; options row #4d4d4d 16 px regular; FIND FLIGHTS in capitals 500, tracked 1.3 px; the article's tabs in capitals, the chosen one red | lh-com's underlined fields, the swap between them | theme | mine | fixed (fields 301/56 at 1440; From 384, To 439 and the swap at x 281 at 390, as www's) |
 | 8 | Travellers: a modal | lh-com's popover panel | design | lh-com shared block (flight-search passenger picker) | open, as SWISS row 6: the user's call |
 | 9 | Headings black, h2 and h3 700; the headline titles (fare teaser, flight offers) #1a1a1a 500 | lh-com's navy and light headings | theme | mine | fixed |
-| 10 | Winter deals: boxed cards (150 px image left, 1 px #d1d1d1, 4 px corners), the city 18/19.8 500, the price 16 px 500 | unboxed rows | theme; data | mine; the user (prices) | fixed (layout). The fare API does not answer this environment, so prices are unverified: please check on the host |
+| 10 | Winter deals: boxed cards (150 px image left, 1 px #d1d1d1, 4 px corners), the city 18/19.8 500, the price 16 px 500 | unboxed rows | theme; data | mine; the user (prices) | fixed (layout); prices: done, checked by the user on austrian.turnsthe.page in a real browser (2026-11-05 13:2x): the fare teaser shows live prices in both languages (from Vienna: Naples 97 EUR, Los Angeles 679 EUR …) |
 | 11 | Conditions labels regular, tracked 0.4 px | bold | theme | mine | fixed |
-| 12 | Flight offers: chips #4d4d4d 500, the chosen one red, the origin red; offer cards with prices | lh-com's chips; empty here | theme; data | mine; the user (offers) | fixed (chips, origin). The offer cards need data this environment cannot load: please check on the host |
+| 12 | Flight offers: chips #4d4d4d 500, the chosen one red, the origin red; offer cards with prices | lh-com's chips; empty here | theme; data | mine; the user (offers) | fixed (chips, origin); offers: done, the destination finder shows live prices in both languages (the user's check on austrian.turnsthe.page, 2026-11-05 13:2x) |
 | 13 | Looking for more: white tiles (1 px #d1d1d1, 8 px corners, a soft shadow), labels 18/19.8 500 #1a1a1a, www's black icons | grey tiles, lh-com's navy icons | theme, document | mine | fixed: www's icons from the capture as `icons/austrian-{hotel,car-rental,airport-parking,tours,plus-circle}.svg`, the homepages' tiles use `:austrian-hotel:` etc. (48 x 48 on the preview) |
 | 14 | The footnote and "General Conditions" below the tiles; "General Conditions" a link that opens the text | both under the flight offers; the conditions as text | document; shared | mine (position); lh-com (the link) | position fixed in both homepages. The link fixed (9b47738, scripts/fragment-dialog.js): "General Conditions" / "Allgemeine Bedingungen" opens /at/en (de)/modals/general-conditions as a dialog; on preview (tools/reports/general-conditions/preview-paths.txt) |
 | 15 | Popular destinations: CoreSans 24/28 500; the contact page's FAQ accordions 18 px regular #4d4d4d | lh-com's accordion titles | theme | mine | fixed |
@@ -116,7 +116,7 @@ replica has no block for.
 | 23 | Footer: the horizontal Star Alliance mark, 128 px wide | the square mark | document, theme | mine | fixed: `:star-alliance-horizontal:` in both footers, 128 x 17 |
 | 24 | Footer legal links start at the columns' edge (x 405 at 1440) and wrap, no rule above them | lh-com's row under a rule | theme | mine | open: not yet measured against the theme's tokens |
 | 25 | Klarna badge's size in the payment badges | differs | theme | mine | open: not yet measured |
-| 26 | Contact: a stage with the help search, three columns of topics with icons, "Is there a topic missing?" (Yes, No, a note, Next), an FAQs card | the help app (micro-frontend) and the FAQ accordions | document; design | mine (feedback); the user's capture (FAQs card); lh-com (stage, topics) | feedback fixed: the feedback block with www's question, answers and note in both contact pages (www's second questionnaire page is not built; the block is render-only). The FAQs card: open, its link has no target in the capture (a scripted maui-navigation-link). Needed: the card's target URL on at/en and at/de contact. Topic columns: design, open. Stage: where the help app renders its photo runs across the page (4250353); on austrian.turnsthe.page the app does not load (www.austrian.com sends its module without CORS; Austrian is not served from its own /digitalhangar/ and lh-edge holds no OS copies): open |
+| 26 | Contact: a stage with the help search, three columns of topics with icons, "Is there a topic missing?" (Yes, No, a note, Next), an FAQs card | the help app (micro-frontend) and the FAQ accordions | document; design | mine (feedback); the user's capture (FAQs card); lh-com (stage, topics) | feedback fixed: the feedback block with www's question, answers and note in both contact pages (www's second questionnaire page is not built; the block is render-only). The FAQs card: fixed (brief 394): www's info card in a grey band at the end of both contact pages, the picture left and a white panel with "FAQs", the line and "Go to FAQs" / "Zu den FAQs" to www's https://www.austrian.com/AT/en/footer-pages/faq and /AT/de/footer-pages/faq (the replica has no such page); columns-media option panel in Austrian's theme (test/austrian-394.test.mjs). Topic columns: design, open. Stage: where the help app renders its photo runs across the page (4250353); on austrian.turnsthe.page the app does not load (www.austrian.com sends its module without CORS; Austrian is not served from its own /digitalhangar/ and lh-edge holds no OS copies): open |
 | 27 | Desktop menu's Tab order (accessibility finding 1) | – | shared | lh-com shared code (one EMA, later) | fixed (0ce5698, every brand), as finding 1 |
 | 28 | Font metrics | the fallback font in local screens | environment | – | not a difference: the host serves CoreSans and Portada |
 
@@ -126,6 +126,14 @@ The ten documents of `preview-paths.txt` were uploaded to DA (lh-austrian) and p
 main--lh-austrian--moved-permanently.aem.page with `tools/importer/da-upload.mjs --site
 lh-austrian`; the preview's text matches the local documents (the metadata moves into the head).
 Publishing is the user's.
+
+Correction (brief 394): the uploads of `/at/en/nav` and `/at/de/nav` were built on local copies older
+than DA and put "My flights" back to www's `/deeplink/cockpit`, undoing 369/373's `/at/en/login` and
+`/at/de/anmeldung`; the user fixed both in DA before publishing. Since then each document is read
+from DA before an edit and checked unchanged just before the upload.
+
+Brief 394: `/at/en/contact` and `/at/de/contact` (the FAQs card, row 26) read from DA, uploaded and
+previewed, not published (`preview-paths-394.txt`).
 
 ### Commits
 

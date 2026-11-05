@@ -586,3 +586,64 @@ body.brand-austrian .flight-search .flight-search-tab[aria-selected="true"] {
 body.brand-austrian .flight-search .flight-search-tab[aria-selected="true"]::after {
   background-color: #d81e05;
 }
+
+/* brief 394: columns-media option panel, www's help center info card (the FAQs card on contact):
+   the picture and a white text panel side by side without a gap in a grey band (stacked on
+   phones), the panel 36 px padded (24 px from 768 px) with 24 px between title, text and link */
+body.brand-austrian .columns-media.panel .columns-media-row { gap: 0; }
+
+body.brand-austrian .columns-media.panel .columns-media-text {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-self: stretch;
+  box-sizing: border-box;
+  padding: 36px;
+  background-color: #fff;
+}
+
+/* the picture cropped to www's 636:280 on phones; beside the panel as high as the row */
+body.brand-austrian .columns-media.panel .columns-media-media img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 159 / 70;
+  object-fit: cover;
+}
+
+/* the grey band 48 px above and below the card (www's topic-selection-info-cards-container) */
+body.brand-austrian main .section.grey:has(.columns-media.panel) {
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+
+body.brand-austrian .columns-media.panel .columns-media-text > :is(h2, h3, h4) {
+  margin: 0;
+  color: #1a1a1a;
+  font-family: var(--body-font-family);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 22px;
+}
+
+body.brand-austrian .columns-media.panel .columns-media-text > p { margin: 0; }
+
+body.brand-austrian .columns-media.panel .columns-media-text > p:not(.link-wrapper, .button-wrapper) {
+  font-size: 16px;
+  line-height: 18px;
+}
+
+@media (width >= 768px) {
+  body.brand-austrian .columns-media.panel .columns-media-text { padding: 24px; }
+
+  body.brand-austrian .columns-media.panel .columns-media-media img { height: 100%; }
+
+  body.brand-austrian .columns-media.panel .columns-media-text > :is(h2, h3, h4) {
+    font-size: 24px;
+    line-height: 26px;
+  }
+
+  body.brand-austrian .columns-media.panel .columns-media-text > p:not(.link-wrapper, .button-wrapper) {
+    font-size: 18px;
+    line-height: 20px;
+  }
+}
