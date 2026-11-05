@@ -509,7 +509,17 @@ function bookingRows(P) {
   return rows;
 }
 
-const slideRows = (slides, P) => slides.flatMap((s) => [[P.pictures(s.image, s.imageMobile)], [
+// a destination slide (pl-pl's Fortaleza): www draws the destination's name and picture with its
+// live fare and a booking link; as a slide: the name and picture, www's "book now" to the root's
+// booking box, no fare (live fares stay on TAP, parity 48)
+const slideOf = (s, P) => {
+  if (s.__typename !== 'DestinationSlideModel') return s;
+  const d = s.destination || {};
+  return {
+    title: s.title || d.title, image: d.image, buttonLabel: i18nOf(P.c.pageProps, P.c.lang, 'book-now'), buttonUrl: '#special-anchor-book-flight',
+  };
+};
+const slideRows = (slides, P) => slides.map((x) => slideOf(x, P)).flatMap((s) => [[P.pictures(s.image, s.imageMobile)], [
   `${P.heading(2, s.title)}${P.rich(s.description)}${P.link(s.buttonUrl, s.buttonLabel, 'primary')}${P.link(s.secondaryButtonUrl, s.secondaryButtonLabel)}`,
 ]]);
 
@@ -798,11 +808,16 @@ const HANDLERS = {
   ComponentTrackBagaggeModel: (s, P) => { P.add(P.heading(2, s.title)); P.onWww('TrackBagagge (the baggage tracking form)'); },
   // the destinations map (mapa-destinos): the poi-map block on ema-test's sheet of the language
   // version (/<version>/destinations/destinations-map.json in every version; a root's document
-  // its version's); the other widgets (Luggit's baggage tracker) link www
+  // its version's), before it Smartvel's grid of the same widget (Explore&Go) as ema-test's
+  // destination-grid on the version's /<version>/destinations/destination-grid.json (parity 84),
+  // each a section of its own; the other widgets (Luggit's baggage tracker) link www
   ComponentWidgetFreeBlockModel: (s, P) => {
     if (!/\/components\/destinos\/mapa-destinos/.test(s._path || '')) { P.onWww('WidgetFreeBlock (Luggit\'s baggage tracker)'); return; }
+    const version = P.c.version || P.c.locale;
     P.section();
-    P.block('poi-map', [['Source', `/${P.c.version || P.c.locale}/destinations/destinations-map.json`]]);
+    P.block('destination-grid', [['Source', `/${version}/destinations/destination-grid.json`]]);
+    P.section();
+    P.block('poi-map', [['Source', `/${version}/destinations/destinations-map.json`]]);
     P.section();
   },
   // the contacts by country (parity 40, 54): ema-test's hotline-finder on the language version's

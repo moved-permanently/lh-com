@@ -146,6 +146,14 @@ describe('tap-import marks and languages', () => {
     };
     const en = convertPage(map('en'), at('https://www.flytap.com/en-pt/destinations')).html;
     assert.deepEqual(source(en), [['Source', '/en-pt/destinations/destinations-map.json']]);
+    // the grid of the same widget (Smartvel's Explore&Go, parity 84): ema-test's destination-grid
+    // on the version's sheet, a section of its own, before the map
+    const grid = dom(en).querySelector('.destination-grid');
+    assert.ok(grid, 'a destination-grid block');
+    assert.deepEqual([...grid.querySelectorAll(':scope > div')].map((r) => [...r.children].map((c) => c.textContent)), [['Source', '/en-pt/destinations/destination-grid.json']]);
+    assert.equal(grid.parentElement.children.length, 1, 'alone in its section');
+    const blocks = [...dom(en).querySelectorAll('.destination-grid, .poi-map')].map((b) => b.className.split(' ')[0]);
+    assert.deepEqual(blocks, ['destination-grid', 'poi-map']);
     assert.ok(!en.includes('See on flytap.com'), 'no link to www in its place');
     assert.deepEqual(source(convertPage(map('pt'), at('https://www.flytap.com/pt-pt/destinos')).html), [['Source', '/pt-pt/destinations/destinations-map.json']], 'the sheets are at /<version>/destinations/ in every version');
     // a market root's document: its language version's sheet
@@ -344,6 +352,28 @@ describe('tap-import parity (tools/reports/tap/parity.md)', () => {
     const slider = { __typename: 'ComponentSliderHomepageModel', slides: [{ __typename: 'BannerSlideModel', title: 'Islândia', image: { _path: '/content/dam/tap/fest-1920x450.jpg' }, imageMobile: { _path: '/content/dam/tap/fest-1280x630.jpg' } }] };
     const s = dom(convertPage(hero({ slider }), { ...at, phonePictures: true }).html).querySelector('.hero-campaign');
     assert.deepEqual([...s.querySelector(':scope > div > div').querySelectorAll('img')].map((i) => i.getAttribute('src')), [desk, phone]);
+  });
+
+  it('a stage\'s destination slide (pl-pl\'s Fortaleza): the destination\'s name and picture, www\'s "book now" to the root\'s booking box, no fare (live fares stay on TAP)', () => {
+    const fortaleza = ['/media-da', 'tap', 'fortaleza-1.jpg'].join('/');
+    const slider = {
+      __typename: 'ComponentSliderHomepageModel',
+      slides: [{
+        __typename: 'DestinationSlideModel', title: null, flightType: 'round-trip',
+        destination: { title: 'Fortaleza', airports: ['FOR'], lowestPrice: null, image: { _path: '/content/dam/tap/media/global/destinations/fortaleza.jpeg' } },
+      }],
+    };
+    const store = { pl: { common: { 'book-now': 'Rezerwuj teraz', 'flight-price': 'Loty z' } } };
+    const page = { props: { pageProps: { _nextI18Next: { initialI18nStore: store }, page: { title: 'TAP', slider, sections: [] } } } };
+    const at = { ...ctx('https://www.flytap.com/pl-pl'), lang: 'pl', locale: 'pl-pl', media: (k) => (/fortaleza/.test(String(k)) ? fortaleza : null) };
+    const s = dom(convertPage(page, at).html).querySelector('.hero-campaign');
+    assert.ok(s, 'the stage');
+    assert.equal(s.querySelector('img').getAttribute('src'), fortaleza);
+    assert.equal(s.querySelector('h2').textContent, 'Fortaleza');
+    const a = s.querySelector('a');
+    assert.equal(a.textContent, 'Rezerwuj teraz');
+    assert.equal(a.getAttribute('href'), '/pl-pl#book-flight');
+    assert.ok(!/Loty z|zł/.test(s.textContent), 'no fare');
   });
 
   it('as www renders them: a hero card\'s title an H3; rich text\'s sub- and superscript plain text', () => {
