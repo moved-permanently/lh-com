@@ -132,6 +132,14 @@ export const BRANDS = {
         en: { 'continue label': 'Save', 'children hint': '(2 to 11 years)' },
         de: { 'continue label': 'Weiter', 'cabin label': 'Reiseklassen' },
       },
+      // www's Redeem miles tab (capture redeem-miles-002, at/en and at/de): the login on the
+      // replica's own pages (per language), the enrolment and the award search as www's
+      redeemMiles: {
+        login: { en: '/{cc}/en/login', de: '/{cc}/de/anmeldung' },
+        member: 'https://austrian.miles-and-more.com/web/row/{ll}/enrolment.html?client_id={clientId}&redirect_uri=https://www.austrian.com',
+        awards: 'https://www.miles-and-more.com/de/de/spend/flights.html',
+        awardsStyle: 'secondary',
+      },
     },
     embeds: {
       // the floating chat button (Cognigy webchat, served by www.austrian.com outside AEM) as www's

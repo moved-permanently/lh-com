@@ -6,8 +6,9 @@
  * login", a note, "Become a member") and Book Award Flights (three points, "Search award flights",
  * a note). No fields: two buttons and a link, plain links in this tab.
  * The targets per brand (scripts/brands.js travellersDialog.redeemMiles, {cc}, {ll}, {clientId}
- * filled): the login the replica's own login page (Travel ID returns only to www, so www's
- * authorize link would fail here), the enrolment and the award search as www's.
+ * filled; a target per language where the brand's pages are named per language): the login the
+ * replica's own login page (Travel ID returns only to www, so www's authorize link would fail
+ * here), the enrolment and the award search as www's.
  */
 
 /** www's texts per language (the labels file flightmanager/<sn|lx>/<ll>). */
@@ -86,6 +87,9 @@ const fill = (template, values) => Object.entries(values)
 export function milesOptions(locale, brand) {
   const setting = brand && brand.travellersDialog && brand.travellersDialog.redeemMiles;
   if (!setting || !MILES_LABELS[locale.lang]) return null;
+  // a target per language (Austrian's login pages: /at/en/login, /at/de/anmeldung) or one for all
+  const target = (value) => (value && typeof value === 'object' ? value[locale.lang] : value);
+  if (!target(setting.login)) return null;
   const values = {
     cc: locale.country,
     ll: locale.lang,
@@ -93,9 +97,9 @@ export function milesOptions(locale, brand) {
   };
   return {
     labels: MILES_LABELS[locale.lang],
-    login: fill(setting.login, values),
-    member: fill(setting.member, values),
-    awards: fill(setting.awards, values),
+    login: fill(target(setting.login), values),
+    member: fill(target(setting.member), values),
+    awards: fill(target(setting.awards), values),
     awardsStyle: setting.awardsStyle || 'secondary',
   };
 }
