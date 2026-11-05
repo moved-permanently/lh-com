@@ -270,6 +270,13 @@ route: every path passes through to the site's origin as it is (the site's `/red
 site's `entry` paths redirect (302, `cache-control: max-age=60`). OneTrust and the immutable fonts as on every host.
 Lufthansa Cargo (`cargo`, DA `moved-permanently/lh-cargo`, www.lufthansa-cargo.com): `/`, `/en`, `/en/` to `/en/home`,
 `/de`, `/de/` to `/de/home` (the source redirects `/` to `/en/home` and serves the homepage at `/en/` and `/de/`).
+Its old article addresses (`/<lang>/-/<url title>`, Liferay's) that aem.live refuses before it reads the
+`/redirects` sheet (umlauts and „ quotes as %-escapes: "Unsupported characters in path"; a trailing dot; a double
+slash, `/de/-//de/it-does-fly-54`): lh-edge decodes the title, takes `tools/importer/cargo-paths.mjs`'s slug
+(`src/url-forms.js` `cargoArticleTarget`) and answers 301 to `/<lang>/news/<slug>` when the site's index
+(`/<lang>/search-index.json`) has that page, else for de to the English `/en/news/<slug>` when that exists, else
+passes the path through (`src/cargo-articles.js`, `x-lh-edge-route: cargo-article`; `PLAIN_SITES.cargo.articles`).
+Every other article path stays the sheet's, its collisions (`-2`) included.
 Air Dolomiti (`airdolomiti`, DA `moved-permanently/lh-airdolomiti`, www.airdolomiti.it): Italian at `/`, English at
 `/en/...`, German at `/de/...`; `/en` and `/de` (www: its English and German homepages, 200) to `/en/` and `/de/`.
 

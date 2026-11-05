@@ -120,6 +120,8 @@ export const PLAIN_SITES = {
   // Lufthansa Cargo (DA moved-permanently/lh-cargo, www.lufthansa-cargo.com): / redirects to
   // /en/home there, /en/ and /de/ serve the homepage, whose documents are /en/home and /de/home
   cargo: {
+    // its old article addresses aem.live refuses before /redirects (src/cargo-articles.js)
+    articles: true,
     entry: {
       '/': '/en/home', '/en': '/en/home', '/en/': '/en/home', '/de': '/de/home', '/de/': '/de/home',
     },

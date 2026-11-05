@@ -57,8 +57,10 @@ import { headUrlHost, rewriteHeadUrls } from './head-urls.js';
 import { rewriteBrandIcons } from './brand-icons.js';
 import { brandNotFoundPage } from './not-found.js';
 import { siteSitemap } from './site-sitemaps.js';
+import { cargoArticleLocation } from './cargo-articles.js';
 import {
   urlForm, urlFormUnlessPage, isLongPagePath, brandLongPathTarget, ampersandTarget, siteSlashForm,
+  cargoArticleTarget,
 } from './url-forms.js';
 /* eslint-disable-next-line import/no-relative-packages */
 import { BRANDS } from '../../../../scripts/brands.js';
@@ -421,6 +423,13 @@ async function siteAnswer(incoming, env, site, ctx) {
     const target = read && site.plain.entry[url.pathname];
     if (target) {
       return finish(new Response(null, { status: 302, headers: { location: `${target}${url.search}`, 'cache-control': 'max-age=60', 'x-lh-edge-route': 'site-entry' } }), incoming, senv, 'site-entry');
+    }
+    // Cargo's old article addresses aem.live refuses before its /redirects sheet (umlauts, a
+    // trailing dot, a double slash): 301 to the page of the site's index (src/cargo-articles.js)
+    const article = read && site.plain.articles && cargoArticleTarget(url);
+    const articleTo = article && await cargoArticleLocation(incoming, senv, article);
+    if (articleTo) {
+      return finish(new Response(null, { status: 301, headers: { location: articleTo, 'cache-control': 'public, max-age=3600', 'x-lh-edge-route': 'cargo-article' } }), incoming, senv, 'cargo-article');
     }
     // its market roots that are on (TAP's de-ch …, src/tap-markets.js); every other path as it is
     const marketResp = site.plain.markets ? await tapMarket(incoming, senv) : null;

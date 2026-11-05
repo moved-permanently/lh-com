@@ -92,6 +92,43 @@ export function ampersandTarget(url) {
   return `${target}${search}`;
 }
 
+const GERMAN = {
+  ä: 'ae', ö: 'oe', ü: 'ue', Ä: 'ae', Ö: 'oe', Ü: 'ue', ß: 'ss',
+};
+
+/**
+ * Lufthansa Cargo's article slug, as tools/importer/cargo-paths.mjs's slug: the title decoded,
+ * German letters spelled out (ä ae, ö oe, ü ue, ß ss), other accents dropped, anything else not
+ * a-z or 0-9 a hyphen, no hyphen at either end.
+ */
+export function cargoSlug(text) {
+  let s = text;
+  try { s = decodeURIComponent(text); } catch (e) { /* keep the raw text */ }
+  return s.replace(/[äöüÄÖÜß]/g, (c) => GERMAN[c]).normalize('NFD').replace(/[̀-ͯ]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+/**
+ * Lufthansa Cargo's old article address (/<lang>/-/<url title>, Liferay's) that aem.live refuses
+ * before it reads lh-cargo's /redirects sheet: a title with %-escapes (umlauts, „ quotes:
+ * "Unsupported characters in path"), a trailing dot ("invalid path") or a double slash
+ * (/de/-//de/it-does-fly-54: 400). {lang, slug} (a leading language folder dropped, as the
+ * importer), else null: the sheet answers the other article paths, its collisions (-2) included.
+ */
+export function cargoArticleTarget(url) {
+  const m = url.pathname.match(/^\/(en|de)\/-\/(.+)$/);
+  if (!m) return null;
+  const raw = m[2];
+  // eslint-disable-next-line no-control-regex -- non-ASCII: anything past \x7f
+  if (!(/%[0-9a-f]{2}/i.test(raw) || /[^\x00-\x7f]/.test(raw) || raw.endsWith('.') || raw.startsWith('/'))) return null;
+  let title = raw;
+  try { title = decodeURIComponent(raw); } catch (e) { /* keep the raw title */ }
+  const slug = cargoSlug(title.replace(/^\/+/, '').replace(/^(?:en|de)\/+/, ''));
+  return slug ? { lang: m[1], slug } : null;
+}
+
 /**
  * The long path of a long-path form's page (/content/lh/markets/<cc>/<ll>/<page>, spelled as the
  * page), or null (a short path, /content/lh/markets/<cc>/<ll>, no URL form).
