@@ -13,7 +13,9 @@
  *   only the "I understand" button does.
  * - The button stores the acknowledgement in localStorage 'lh-showcase-acknowledged': the
  *   notice shows once per browser for every page and locale. Without storage the button still
- *   closes it for the current page view.
+ *   closes it for the current page view. The acknowledgement means: the demo badge instead
+ *   (scripts/demo-badge.js), which the button starts at once and every later page in its
+ *   delayed phase.
  * - Never shown in DA authoring contexts (isAuthoringContext), inside iframes or under /tools/.
  * - Independent of the consent banner (scripts/consent.js): whichever shows first is handled
  *   first, the other works afterwards.
@@ -21,7 +23,7 @@
  *   opens when the focus leaves the fields; nobody typing, at its time.
  */
 import { loadCSS } from './aem.js';
-import { isAuthoringContext } from './consent.js';
+import { noticeApplies } from './showcase-scope.js';
 import { brandName, brandOf, BRANDS } from './brand.js';
 
 export const STORAGE_KEY = 'lh-showcase-acknowledged';
@@ -126,15 +128,12 @@ function acknowledge() {
 }
 
 /**
- * Whether the notice applies to the current page view.
+ * Whether the notice shows in the current page view: it applies (scripts/showcase-scope.js:
+ * not in authoring, iframes or /tools/) and isn't acknowledged.
  * @returns {boolean}
  */
 export function shouldShowNotice() {
-  if (isAuthoringContext()) return false;
-  if (window.self !== window.top) return false;
-  const path = window.location.pathname.replace(/^\/content(?=\/)/, '');
-  if (path.startsWith('/tools/')) return false;
-  return !isAcknowledged();
+  return noticeApplies() && !isAcknowledged();
 }
 
 function buildDialog() {
@@ -186,9 +185,12 @@ export default async function showShowcaseNotice() {
   button.addEventListener('click', () => {
     confirmed = true;
     acknowledge();
+    // the notice shrinks into the demo badge (also without storage: for this page view)
+    const from = dialog.getBoundingClientRect();
     dialog.close();
     dialog.remove();
     document.documentElement.classList.remove('showcase-notice-open');
+    import('./demo-badge.js').then(({ default: showDemoBadge }) => showDemoBadge({ from }));
   });
 
   document.body.append(dialog);

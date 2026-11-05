@@ -4,6 +4,7 @@
  * case); a missing sheet, a missing row, any other value, a failed fetch or one slower than
  * TIMEOUT: off. The sheet is read once per page, by the first caller, and shared; nothing that
  * renders the page waits for it (the embeds behind a flag show their link to www until it answers).
+ * demo-badge reads its row the other way round: on unless off or false (scripts/demo-badge.js).
  */
 const FLAGS_URL = '/config/flags.json';
 const TIMEOUT = 3000;

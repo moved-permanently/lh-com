@@ -542,6 +542,15 @@ async function loadLazy(doc) {
   }
 }
 
+/** Whether the showcase notice's acknowledgement is stored (key: scripts/showcase-notice.js). */
+function showcaseAcknowledged() {
+  try {
+    return Boolean(window.localStorage.getItem('lh-showcase-acknowledged'));
+  } catch (e) {
+    return false;
+  }
+}
+
 /**
  * Loads everything that happens a lot later,
  * without impacting the user experience.
@@ -561,6 +570,11 @@ function loadDelayed() {
   const brand = brandEntry();
   if (brand && brand.embeds) {
     import('./site-embeds.js').then(({ default: loadSiteEmbeds }) => loadSiteEmbeds());
+  }
+  // the demo badge ("DEMO | Not a <brand> website", scripts/demo-badge.js): on demo hosts where
+  // the showcase notice was acknowledged; the notice itself starts it on "I understand"
+  if (isDemoHost() && showcaseAcknowledged()) {
+    import('./demo-badge.js').then(({ default: showDemoBadge }) => showDemoBadge());
   }
   // OF1's "the site notices you" (scripts/of1/index.js: off without the site flag of1): lh-com's
   // pages on Lufthansa's turnsthe.page hosts only, so other pages load neither it nor the flags
