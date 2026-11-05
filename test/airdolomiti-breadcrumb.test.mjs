@@ -4,6 +4,8 @@
    services | eSIM") as lh-com's breadcrumb rows: Parent the nearest linked crumb that is a page of
    the site (else the language's homepage), Breadcrumb Title the page's own crumb; a homepage
    "Breadcrumb Title | Home" for its children; no trail on www, no rows.
+   The English and German homepages by their pages' address, /en/ and /de/ (/en answers 404 on
+   aem.page).
    Run: node --max-old-space-size=512 --test test/airdolomiti-breadcrumb.test.mjs */
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -21,7 +23,7 @@ test('an inner page: Parent the language\'s homepage, its crumb the page\'s titl
   // an unlinked middle crumb (www: "extra services") is no page: Parent the homepage
   assert.deepEqual(
     breadcrumbRows(trail([['Home', '/'], ['extra services'], ['eSIM']], 'Breadcrumb'), 'https://www.airdolomiti.eu/extra-services/plans-esim', { exists }),
-    [['Parent', '<a href="/en">/en</a>'], ['Breadcrumb Title', 'eSIM']],
+    [['Parent', '<a href="/en/">/en/</a>'], ['Breadcrumb Title', 'eSIM']],
   );
 });
 
@@ -33,7 +35,7 @@ test('a linked ancestor that is a page of the site is the Parent (www\'s absolut
   // an ancestor the site doesn't have: the next one up
   assert.deepEqual(
     breadcrumbRows(trail([['Home', '/'], ['Hub', '/de/hub'], ['Seite']]), 'https://www.airdolomiti.de/hub/seite', { exists }),
-    [['Parent', '<a href="/de">/de</a>'], ['Breadcrumb Title', 'Seite']],
+    [['Parent', '<a href="/de/">/de/</a>'], ['Breadcrumb Title', 'Seite']],
   );
 });
 
