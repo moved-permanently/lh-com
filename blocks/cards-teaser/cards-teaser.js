@@ -70,7 +70,17 @@ export default function decorate(block) {
       // CTA: the last link of the card, when it sits alone in the last paragraph
       const last = elements[elements.length - 1];
       const links = last.querySelectorAll('a[href]');
-      if (last.tagName === 'P' && links.length === 1 && cleanText(last) === cleanText(links[0])) {
+      // an italic CTA (scripts.js decorateButtons makes it a.button.secondary) is www's secondary
+      // maui-button-link (the 100-years teasers' outlined buttons): it stays a secondary button
+      const italic = links.length === 1 && !last.querySelector('strong')
+        && (last.querySelector('em a, a em') || (links[0].classList.contains('secondary')
+          && !links[0].classList.contains('primary') && !links[0].classList.contains('accent')));
+      if (last.tagName === 'P' && links.length === 1 && cleanText(last) === cleanText(links[0]) && italic) {
+        const a = links[0];
+        last.className = 'cards-teaser-cta cards-teaser-cta-button button-wrapper';
+        a.classList.remove('primary', 'accent');
+        a.classList.add('button', 'secondary');
+      } else if (last.tagName === 'P' && links.length === 1 && cleanText(last) === cleanText(links[0])) {
         const a = links[0];
         last.className = 'cards-teaser-cta';
         a.classList.remove('button', 'primary', 'secondary', 'accent');
