@@ -1,6 +1,6 @@
 {
   "about": "Hand-kept locale data that www's sitemap dataset (tools/source-export/feeds/sitemaps/roots.json) does not have. tools/markets/build-locale-table.mjs joins both into scripts/locale-table.js. status: live (on Edge Delivery: the site treats it as migrated) or pilot (rendered with its own row, links to it still go to www). shopLang null: the shop handoff's default (en-GB). documents: own (the root has every page as its own document) or language (lh-edge answers the root from its language version's documents, tools/workers/lh-edge/src/markets.js; the root holds its own documents only where it differs). A country's first row is its default language at the entry redirect. liveWaves: the go-live switch (tools/reports/markets/go-live.md): the pilot rows of these waves become live in the table (a rollout batch by number, a country by its code, e.g. [1, 2] or [\"ch\", 1]); [] : every row as its status says. neutralVersions: www's market-neutral roots (xx/en, xx/de; no rows): their documents are the pages a market root shows on www that its language version lacks (brief 267).",
-  "liveWaves": ["ch", 1, 2, 3, 4, 5, 6],
+  "liveWaves": ["ch", 1, 2, 3, 4, 5, 6, 7],
   "defaultLocale": "de/de",
   "languageVersions": {
     "en": "de/en",
