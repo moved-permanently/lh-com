@@ -702,12 +702,14 @@ const HANDLERS = {
     // links to pages: www's grid of tiles (a label and a chevron each): cards-icon, one tile a link
     else if (links.length) P.block('cards-icon', links.map((l) => [`<p><a href="${attr(linkOf(l.url, P.c))}">${esc(l.label)}</a></p>`]));
   },
+  // www's info alert: ema-test's info-alert block in a section of its own (parity 63), one cell:
+  // its title an H4 (www's, 130 of 130), its text and link
   ComponentInfoBlockModel: (s, P) => {
-    P.section('highlight');
-    // its title an H4, as www's alert (130 of 130)
-    P.add(P.heading(4, s.title));
-    P.add(P.rich(s.message));
-    P.add(P.link(s.ctaUrl, s.ctaLabel));
+    const cell = `${P.heading(4, s.title)}${P.rich(s.message)}${P.link(s.ctaUrl, s.ctaLabel)}`;
+    if (!cell.trim()) return;
+    if (P.cell) { P.add(cell); return; }
+    P.section();
+    P.block('info-alert', [[cell]]);
     P.section();
   },
   ComponentCardInfoBlockModel: (s, P) => {
@@ -809,7 +811,28 @@ const HANDLERS = {
     const im = P.img(s.image);
     P.block('hotline-finder', [['Sheet', `/${P.c.version || P.c.locale}/help/contacts.json`], ...(im ? [['Image', im]] : [])]);
   },
-  ComponentCoreMediaModel: (s, P) => P.onWww(`CoreMedia (${s.type})`),
+  // CoreMedia's call-back card (BySide's widget; the page's data holds its type only): ema-test's
+  // click-to-call from the captured card of the type in the page's language (site.clickToCall:
+  // tools/importer/tap-click-to-call.json; pt-br its own, else its language's), its button to the
+  // same page on www (parity 66); without a captured card the link to www, as before
+  ComponentCoreMediaModel: (s, P) => {
+    const byLang = (P.c.clickToCall || {})[s.type] || {};
+    const card = byLang[P.c.locale] || byLang[P.c.lang];
+    if (!card || !card.title) { P.onWww(`CoreMedia (${s.type})`); return; }
+    const pic = (url) => (url ? P.img({ _path: url, description: card.alt || '' }) : '');
+    const page = `${WWW}${docPath(P.c.url)}`;
+    const rows = [
+      ['Title', esc(card.title)],
+      ['Text', card.text ? `<p>${esc(card.text)}</p>` : ''],
+      ['Schedule', esc(card.schedule || '')],
+      ['Image', pic(card.image)],
+      ['Mobile image', pic(card.mobileImage)],
+      ['Link', `<a href="${attr(page)}">${esc(page)}</a>`],
+    ].filter(([, v]) => v);
+    P.section();
+    P.block('click-to-call', rows);
+    P.section();
+  },
   ComponentAnchorModel: () => {},
   // tap-markets.mjs: in place of a market's variant that no capture holds, the page on www
   MarketVariantOnWww: (s, P) => P.onWww('a market variant no capture holds (tap-markets.mjs)'),
@@ -1076,6 +1099,8 @@ async function main() {
   // --only <path,...>: write only these documents (the others are read for links and anchors)
   const only = opt('only') ? new Set(opt('only').split(',')) : null;
   const bookingLabels = readJson(path.join(root, 'tools/reports/tap/booking-labels.json'), {});
+  // the call-back cards as captured (CoreMedia type → language → card, parity 66)
+  const clickToCall = readJson(path.join(root, 'tools/importer/tap-click-to-call.json'), {}).cards || {};
   const dry = argv.includes('--dry-run');
   // the pages: a later archive replaces an earlier one's copy
   const pages = new Map();
@@ -1137,6 +1162,7 @@ async function main() {
       anchors,
       sourceImages: argv.includes('--source-images'),
       booking: { labels: b.labels, originNameOf: (code) => b.names[code] },
+      clickToCall,
     };
     let r = convertPage(p.nd, site);
     if (!r.skipped && over(r.html)) r = convertPage(p.nd, { ...site, fragments: true });

@@ -723,12 +723,17 @@ describe('tap-import pages', () => {
   it('check-in information: the info box, the accordion with the airports\' table in its panel', () => {
     const { html } = convertPage(nd('informacoes-check-in'), ctx('https://www.flytap.com/pt-pt/informacoes-check-in'));
     const d = dom(html);
-    const box = d.querySelector('.section-metadata');
-    assert.ok(box && box.textContent.includes('highlight'));
-    assert.ok(d.body.textContent.includes('Informação importante'));
-    // its title an H4, as www's alert (130 of 130 in the captures)
-    assert.equal(box.parentElement.querySelector('h4').textContent.trim().toLowerCase(), 'informação importante');
-    assert.ok(!box.parentElement.querySelector('h2, h3'));
+    // the info box: ema-test's info-alert block (parity 63), one cell: its H4 (www's, 130 of 130)
+    // and its text, in a section of its own; no lh-com highlight section
+    const box = d.querySelector('.info-alert');
+    assert.ok(box, 'an info-alert block');
+    assert.equal(box.querySelectorAll(':scope > div').length, 1);
+    assert.equal(box.querySelectorAll(':scope > div > div').length, 1, 'one cell');
+    assert.equal(box.querySelector('h4').textContent.trim().toLowerCase(), 'informação importante');
+    assert.ok(box.querySelector('li, p'), 'its text');
+    assert.ok(!box.querySelector('h2, h3'));
+    assert.ok(![...d.querySelectorAll('.section-metadata')].some((m) => /highlight/.test(m.textContent)));
+    assert.equal(box.parentElement.children.length, 1, 'a section of its own');
     // a table in an item stays a table (accordion-columns shows data tables in its panels)
     const table = d.querySelector('.accordion-columns.faq table');
     assert.ok(table && table.textContent.includes('Aeroporto'));
@@ -848,6 +853,39 @@ describe('tap-import pages', () => {
     const page = (type) => ({ props: { pageProps: { page: { title: 'Wi-Fi', sections: [{ __typename: 'ComponentHeadingModel', title: 'Wi-Fi' }, list(type)] } } } });
     assert.ok(dom(convertPage(page('GenericCard1Model'), ctx()).html).querySelector('.cards-teaser.one-up'));
     assert.ok(dom(convertPage(page('SimpleGenericCardModel'), ctx()).html).querySelector('.cards.one-up'));
+  });
+
+  it('the call-back card (CoreMedia\'s widget, parity 66): ema-test\'s click-to-call from the captured card (site.clickToCall), else the link to www', () => {
+    const page = (type) => ({ props: { pageProps: { page: { title: 'Lugares', sections: [{ __typename: 'ComponentHeadingModel', title: 'Lugares' }, { __typename: 'ComponentCoreMediaModel', type }] } } } });
+    const wide = 'https://sa1.byside.com/files/B414516D6E/window/29964/Image_container.png';
+    const narrow = 'https://sa1.byside.com/files/B414516D6E/window/29964/Image_container_mobile.png';
+    const local = { [wide]: ['/media-da', 'tap', 'c2c-wide-1.png'].join('/'), [narrow]: ['/media-da', 'tap', 'c2c-1.png'].join('/') };
+    const clickToCall = {
+      '2022-lugares-bordo-comfortseat': {
+        pt: {
+          title: 'Voe na área Comfort', text: 'Já tem reserva, mas precisa de espaço e conforto extra? Indique-nos o seu número de telefone e entraremos em contacto consigo gratuitamente.', schedule: 'Horário: Seg a Sex – 5:00 às 19:00', image: wide, mobileImage: narrow, alt: 'Operador',
+        },
+      },
+    };
+    const at = { ...ctx('https://www.flytap.com/pt-pt/gerir-reserva/extras/lugares'), media: (k) => local[k] || null, clickToCall };
+    const d = dom(convertPage(page('2022-lugares-bordo-comfortseat'), at).html);
+    const b = d.querySelector('.click-to-call');
+    assert.ok(b, 'a click-to-call block');
+    const rows = Object.fromEntries([...b.querySelectorAll(':scope > div')].map((r) => [r.children[0].textContent, r.children[1]]));
+    assert.deepEqual(Object.keys(rows), ['Title', 'Text', 'Schedule', 'Image', 'Mobile image', 'Link']);
+    assert.equal(rows.Title.textContent, 'Voe na área Comfort');
+    assert.equal(rows.Schedule.textContent, 'Horário: Seg a Sex – 5:00 às 19:00');
+    assert.equal(rows.Image.querySelector('img').getAttribute('src'), local[wide]);
+    assert.equal(rows['Mobile image'].querySelector('img').getAttribute('alt'), 'Operador');
+    assert.equal(rows.Link.querySelector('a').getAttribute('href'), 'https://www.flytap.com/pt-pt/gerir-reserva/extras/lugares', 'the same page on www');
+    assert.ok(!d.body.textContent.includes('Ver em flytap.com'));
+    // no captured card for the type or the language: the link to www, as before
+    assert.ok(convertPage(page('2023-flight-extra'), at).html.includes('Ver em flytap.com'));
+    assert.ok(convertPage(page('2022-lugares-bordo-comfortseat'), { ...at, url: 'https://www.flytap.com/de-de/verwalten-buchungen/extras/sitzplatze', locale: 'de-de', lang: 'de' }).html.includes('Auf flytap.com ansehen'));
+    // pt-br its own card where captured, else pt's
+    const br = { ...clickToCall['2022-lugares-bordo-comfortseat'], 'pt-br': { ...clickToCall['2022-lugares-bordo-comfortseat'].pt, title: 'Voe na área Comfort (BR)' } };
+    const brHtml = convertPage(page('2022-lugares-bordo-comfortseat'), { ...at, url: 'https://www.flytap.com/pt-br/gerenciar-reserva/extras/assentos', locale: 'pt-br', lang: 'pt', clickToCall: { '2022-lugares-bordo-comfortseat': br } }).html;
+    assert.ok(brHtml.includes('Voe na área Comfort (BR)'));
   });
 
   it('a fare table at the top level is table-striped (header)', () => {

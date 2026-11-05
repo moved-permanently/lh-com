@@ -485,6 +485,8 @@ async function main() {
   const allowFile = path.join(root, 'tools/importer/sites/lh-tap.json');
   const allow = readJson(allowFile, { paths: [] });
   const langDocs = new Set(allow.paths);
+  // the call-back cards as captured (CoreMedia type → language → card, parity 66)
+  const clickToCall = readJson(path.join(root, 'tools/importer/tap-click-to-call.json'), {}).cards || {};
   const media = mediaResolver(mediaIndex(all('media')), { out: OUT, dry });
   const anchors = new Map([...langPages].filter(([, p]) => ndOf(p)).map(([d, p]) => [d, anchorsOf(ndOf(p))]));
   const report = {
@@ -537,7 +539,7 @@ async function main() {
     const stale = plain && fs.existsSync(localFile) && fs.readFileSync(localFile, 'utf8').includes('<div>Markets</div>');
     if (plain && !stale) continue;
     const site = {
-      url: p.url, scope: scopeLang, media, anchors, sourceImages: false, units: plain ? undefined : () => merged.units,
+      url: p.url, scope: scopeLang, media, anchors, sourceImages: false, clickToCall, units: plain ? undefined : () => merged.units,
     };
     let r = convertPage(nd, site);
     if (r.skipped) continue;
@@ -638,7 +640,7 @@ async function main() {
     for (const [p, cap, kind] of pagesToDo) {
       if (!cap || !ndOf(cap)) { rep.notes.push(`${p}: no capture`); continue; }
       const res = convertPage(ndOf(cap), {
-        url: cap.url, version: lv, scope: rootScope, media, anchors, sourceImages: false, booking,
+        url: cap.url, version: lv, scope: rootScope, media, anchors, sourceImages: false, booking, clickToCall,
       });
       if (res.skipped) { rep.notes.push(`${p}: ${res.skipped}`); continue; }
       const sheet = (x) => `/${x}/booking/airports.json`;

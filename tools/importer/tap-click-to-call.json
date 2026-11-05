@@ -1,0 +1,4 @@
+{
+ "_note": "TAP's call-back cards (CoreMedia Engagement Cloud / BySide's widget, parity.md row 66) as www.flytap.com renders them: the page's data holds the widget's type only (ComponentCoreMediaModel), so the cards come from a capture. cards: <CoreMedia type> -> <locale (pt-br) or language (pt, en, es, fr, de, it, pl)> -> { title, text, schedule, image (the wide picture's URL on sa1.byside.com), mobileImage (the phone one's), alt }; the pictures' local copies from a picture archive (--media). tap-import.mjs and tap-markets.mjs write ema-test's click-to-call block where a card is here, else the link to www.",
+ "cards": {}
+}
