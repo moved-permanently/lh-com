@@ -52,13 +52,16 @@ beforeEach(() => {
 
 after(() => badge.resetDemoBadge());
 
-test('the texts: DEMO, then "Not a <brand> website" with each brand\'s own name; lh-com Lufthansa; a brand added later by its entry', () => {
+test('the texts: DEMO, then "Not a(n) <brand> website" with each brand\'s own name (an before a vowel: ITA, Austrian, Air Dolomiti); lh-com Lufthansa; a brand added later by its entry', () => {
   assert.equal(badge.BADGE_TAG, 'DEMO');
   const expected = {
     discover: 'Discover Airlines', ita: 'ITA Airways', austrian: 'Austrian Airlines', brussels: 'Brussels Airlines', swiss: 'SWISS', b2b: 'Lufthansa Group for Business', cargo: 'Lufthansa Cargo', airdolomiti: 'Air Dolomiti', tap: 'TAP Air Portugal',
   };
   Object.entries(expected).forEach(([key, name]) => assert.equal(BRANDS[key].name, name, key));
-  Object.entries(BRANDS).forEach(([key, entry]) => assert.equal(badge.badgeText((n) => (n === 'brand' ? key : '')), `Not a ${entry.name} website`, key));
+  const article = (name) => (/^[aeiou]/i.test(name) ? 'an' : 'a');
+  Object.entries(BRANDS).forEach(([key, entry]) => assert.equal(badge.badgeText((n) => (n === 'brand' ? key : '')), `Not ${article(entry.name)} ${entry.name} website`, key));
+  [['ita', 'Not an ITA Airways website'], ['austrian', 'Not an Austrian Airlines website'], ['airdolomiti', 'Not an Air Dolomiti website'], ['swiss', 'Not a SWISS website'], ['tap', 'Not a TAP Air Portugal website']]
+    .forEach(([key, text]) => assert.equal(badge.badgeText((n) => (n === 'brand' ? key : '')), text, `${key}: "an" before a vowel`));
   assert.equal(badge.badgeText(() => ''), 'Not a Lufthansa website', 'lh-com');
 });
 

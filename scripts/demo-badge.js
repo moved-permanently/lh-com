@@ -2,7 +2,7 @@
  * Demo badge (brief 389): once a visitor has acknowledged the showcase notice
  * (scripts/showcase-notice.js), a small label fixed in the bottom right corner of every page says
  * it on: "DEMO", then "Not a <brand> website" (the brand's own name, scripts/brands.js; Lufthansa
- * on lh-com), in English on every locale.
+ * on lh-com; "an" before a vowel: an ITA Airways website), in English on every locale.
  *
  * - Started in the delayed phase (scripts/scripts.js loadDelayed) on demo hosts when the notice's
  *   acknowledgement is stored, and by the notice's "I understand" (it shrinks from the dialog into
@@ -38,8 +38,14 @@ const metadata = (name) => {
   return meta ? meta.content : '';
 };
 
-/** "Not a <brand> website". */
-export const badgeText = (read = metadata) => `Not a ${brandName(read)} website`;
+/** "a" or "an" before a brand's name (an ITA Airways, an Austrian Airlines, an Air Dolomiti). */
+const article = (name) => (/^[aeiou]/i.test(name) ? 'an' : 'a');
+
+/** "Not a(n) <brand> website". */
+export const badgeText = (read = metadata) => {
+  const name = brandName(read);
+  return `Not ${article(name)} ${name} website`;
+};
 
 /**
  * Whether the site's flags leave the badge on: no row or any value but off / false.
@@ -129,7 +135,7 @@ function build(read) {
   const sr = document.createElement('p');
   sr.className = 'demo-badge-sr';
   sr.setAttribute('lang', 'en');
-  sr.textContent = `Demo: not a ${brandName(read)} website.`;
+  sr.textContent = `Demo: ${badgeText(read).replace(/^Not/, 'not')}.`;
   return { badge, sr };
 }
 
