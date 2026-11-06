@@ -466,6 +466,31 @@ main > .section > .accordion-columns-row > .accordion-columns-wrapper {
   display: none;
 }
 
+/* with tabs (a finder over them): the matching topics under the field, each its title and links */
+.accordion-columns .accordion-columns-filter-results {
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.accordion-columns .accordion-columns-filter-results[hidden] {
+  display: none;
+}
+
+.accordion-columns .accordion-columns-filter-results > li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.accordion-columns .accordion-columns-filter-results > li > * {
+  margin: 0 0 4px;
+}
+
+.accordion-columns .accordion-columns-filter-results .accordion-columns-filter-result-title {
+  color: var(--lh-deepblue);
+  font-weight: 700;
+}
+
 /* ------------------------------------------------------------------ option tabs ------- */
 
 /* tabs: the accordion below 1025px (the tab bar hidden, its first item has the top border); from

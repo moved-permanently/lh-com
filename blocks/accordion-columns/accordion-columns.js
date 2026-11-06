@@ -118,6 +118,27 @@ export function openFirst(block, items) {
   items[0].setAttribute('open', '');
   return true;
 }
+let exclusiveCount = 0;
+
+/**
+ * Option exclusive (www.lufthansa-cargo.com's image lists: one item's text at a time): the items
+ * share a details name, so the browser closes the open one when another opens; a toggle listener
+ * does the same where name is not supported. Not with tabs.
+ * @returns {boolean} whether the items were grouped
+ */
+export function exclusive(block, items) {
+  if (!block.classList.contains('exclusive') || block.classList.contains('tabs') || !items.length) return false;
+  exclusiveCount += 1;
+  const name = `accordion-columns-exclusive-${exclusiveCount}`;
+  items.forEach((item) => {
+    item.setAttribute('name', name);
+    item.addEventListener('toggle', () => {
+      if (!item.hasAttribute('open')) return;
+      items.forEach((other) => { if (other !== item) other.removeAttribute('open'); });
+    });
+  });
+  return true;
+}
 let tabsCount = 0;
 
 /**
@@ -225,15 +246,51 @@ const searchable = (value) => String(value).normalize('NFD').replace(/\p{M}/gu, 
   .trim();
 
 /**
+ * The finder's topics: each heading of a panel with what follows it up to the next one; a panel
+ * without headings: its item (title and text).
+ * @param {HTMLDetailsElement[]} items
+ * @returns {{title: string, nodes: Element[]}[]}
+ */
+function topicsOf(items) {
+  return items.flatMap((item) => {
+    const nodes = [...item.querySelectorAll(':scope > .accordion-columns-panel > .accordion-columns-intro > *, :scope > .accordion-columns-panel > .accordion-columns-columns > .accordion-columns-column > *')];
+    const topics = [];
+    nodes.forEach((n) => {
+      if (n.matches(HEADINGS)) topics.push({ title: n.textContent.trim(), nodes: [] });
+      else if (topics.length) topics[topics.length - 1].nodes.push(n);
+    });
+    return topics.length ? topics : [{ title: item.querySelector(':scope > summary').textContent.trim(), nodes }];
+  });
+}
+
+/** A finder result: the topic's title and a copy of its content (its headings as paragraphs). */
+function topicResult(topic) {
+  const li = document.createElement('li');
+  const title = document.createElement('p');
+  title.className = 'accordion-columns-filter-result-title';
+  title.textContent = topic.title;
+  li.append(title, ...topic.nodes.map((n) => n.cloneNode(true)));
+  li.querySelectorAll(HEADINGS).forEach((h) => {
+    const p = document.createElement('p');
+    p.append(...h.childNodes);
+    h.replaceWith(p);
+  });
+  return li;
+}
+
+/**
  * Option filter (www.lufthansa-cargo.com's "Find topic by typing", /en/support-and-contact): a
  * search field over the items; typing narrows them to those whose title or text holds every typed
  * word (case and accents ignored), none left: the no-results line (a polite live region). Remove
- * empties the field and shows every item again.
+ * empties the field and shows every item again. With tabs (finder): the field stays above the
+ * tab bar and the items as they are; typing lists the matching topics of every tab under it
+ * (topicsOf), as www's topic finder over its tabs.
  * @param {Element} block
  * @param {HTMLDetailsElement[]} items
  * @param {{label: string, empty: string, clear: string}} texts
+ * @param {{finder?: boolean}} [options]
  */
-export function buildFilter(block, items, texts) {
+export function buildFilter(block, items, texts, { finder = false } = {}) {
   filterCount += 1;
   const id = `accordion-columns-filter-${filterCount}`;
   if (!block.id) block.id = `${id}-items`;
@@ -258,20 +315,42 @@ export function buildFilter(block, items, texts) {
   const status = document.createElement('p');
   status.className = 'accordion-columns-filter-status';
   status.setAttribute('aria-live', 'polite');
-  wrap.append(label, field, status);
+  const results = finder ? document.createElement('ul') : null;
+  if (results) {
+    results.className = 'accordion-columns-filter-results';
+    results.id = `${id}-results`;
+    results.hidden = true;
+    input.setAttribute('aria-controls', results.id);
+  }
+  wrap.append(...[label, field, results, status].filter(Boolean));
 
   // read on the first input: after decorate has cleaned the texts
   let haystacks = null;
+  let topics = null;
+  const find = (words) => {
+    topics = topics || topicsOf(items).map((t) => ({
+      ...t, text: searchable(`${t.title} ${t.nodes.map((x) => x.textContent).join(' ')}`),
+    }));
+    const hit = (t) => words.every((w) => t.text.includes(w));
+    const matches = words.length ? topics.filter(hit) : [];
+    results.replaceChildren(...matches.map(topicResult));
+    results.hidden = !words.length;
+    status.textContent = words.length && !matches.length ? texts.empty : '';
+  };
   const apply = () => {
-    haystacks = haystacks || items.map((item) => searchable(item.textContent));
     const words = searchable(input.value).split(' ').filter(Boolean);
+    clear.hidden = !input.value;
+    if (finder) {
+      find(words);
+      return;
+    }
+    haystacks = haystacks || items.map((item) => searchable(item.textContent));
     let shown = 0;
     items.forEach((item, i) => {
       const match = words.every((w) => haystacks[i].includes(w));
       item.hidden = !match;
       if (match) shown += 1;
     });
-    clear.hidden = !input.value;
     status.textContent = shown ? '' : texts.empty;
   };
   input.addEventListener('input', apply);
@@ -304,8 +383,9 @@ export default async function decorate(block) {
   if (block.classList.contains('column')) groupColumns(block);
   // faq: questions and answers (headings inside an answer stay in the one text column)
   const single = block.classList.contains('faq');
-  // filter: a type-to-filter field over the items (not with tabs); its rows set its texts
-  const filter = block.classList.contains('filter') && !block.classList.contains('tabs');
+  // filter: a type-to-filter field over the items (with tabs a finder over them); its rows set
+  // its texts
+  const filter = block.classList.contains('filter');
   const lang = pathLanguageOf(document.documentElement.lang);
   const filterTexts = { ...(FILTER_LABELS[lang] || FILTER_LABELS.en) };
   const items = [];
@@ -354,7 +434,8 @@ export default async function decorate(block) {
   block.replaceChildren(...items);
   if (block.classList.contains('tabs')) buildTabs(block, items);
   openFirst(block, items);
-  if (filter) buildFilter(block, items, filterTexts);
+  exclusive(block, items);
+  if (filter) buildFilter(block, items, filterTexts, { finder: block.classList.contains('tabs') });
   // item grids first (one-row tables of pictures), then the data tables that are left
   block.querySelectorAll('.accordion-columns-panel').forEach(buildGrids);
   // tables in a panel (Discover's fee and rule tables) scroll sideways in their own box

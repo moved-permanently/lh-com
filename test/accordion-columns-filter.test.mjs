@@ -138,3 +138,33 @@ test('two filtered accordions on a page keep their ids apart', async () => {
   await decorate(b);
   assert.notEqual(b.querySelector('.accordion-columns-filter input').id, idA);
 });
+
+// with tabs (Cargo parity round 3, www's Support & Contact: the topic finder over the tabs): the
+// field is a finder above the tab bar; typing lists the matching topics of every tab (a panel's
+// heading and what follows it; a panel without headings: the item) under the field, with their
+// links; the tabs and their items stay as they are; empty field: no list
+test('filter with tabs: a finder over the tabs, the matching topics of every tab listed under it with their links, the items untouched', async () => {
+  const el = block('faq tabs filter');
+  await decorate(el);
+  const filter = el.firstElementChild;
+  assert.ok(filter.classList.contains('accordion-columns-filter'), 'the finder first');
+  assert.ok(filter.nextElementSibling.classList.contains('accordion-columns-tablist'), 'then the tab bar');
+  const input = filter.querySelector('input');
+  const results = filter.querySelector('.accordion-columns-filter-results');
+  assert.ok(results && results.hidden, 'no list while empty');
+  type(input, 'ebooking');
+  assert.equal(results.hidden, false);
+  const titles = [...results.querySelectorAll('.accordion-columns-filter-result-title')].map((t) => t.textContent.trim());
+  assert.deepEqual(titles, ['Technical support']);
+  assert.equal(results.querySelector('a').getAttribute('href'), '/en/contact-us');
+  assert.equal(results.querySelector('h3'), null, 'no headings copied into the page outline');
+  assert.deepEqual(shown(el), ['Bookings & Shipments', 'General request', 'Technical support', 'Réclamations'], 'every tab stays');
+  type(input, 'claim');
+  assert.deepEqual([...results.querySelectorAll('.accordion-columns-filter-result-title')].map((t) => t.textContent.trim()), ['Réclamations'], 'a panel without headings: its item');
+  type(input, 'nothing like this');
+  assert.equal(results.children.length, 0);
+  assert.equal(filter.querySelector('.accordion-columns-filter-status').textContent, 'No topics found.');
+  type(input, '');
+  assert.equal(results.hidden, true);
+  assert.equal(filter.querySelector('.accordion-columns-filter-status').textContent, '');
+});
