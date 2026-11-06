@@ -78,7 +78,8 @@ Heights are ours over www's.
 | 33 | FAQ questions as headings in the accordion (food and beverage: 8) | accordion buttons, the text present | shared | — | noted (the measure counts headings; the content is there) |
 | 34 | Miles & More's tier headings (Frequent Travellers, Senators, HON Circle) | in a tab set, not headings (0.87) | document | mine | open |
 | 35 | The offers page's destination finder with fares | no results (Group fare data; the agent cannot verify it) | data | — | open, as row 13 |
-| 36 | New destinations, accessible travel at 1440 | 1.14, 1.13 | document | mine | open: to look at |
+| 36 | New destinations: the Toulouse photo, its text and button beside the magazine card | the photo above the sidebar at the full width (1.14 at 1440) | document | mine | fixed (1180c48: a picture opening the sidebar's content is the content's): 1.04 on aem.page |
+| 37 | Accessible travel: the sidebar from the intro on, its grey notice in the content column | the notice a grey section of its own at the full width, the sidebar from the first heading (1.13 at 1440) | document | mine | open: the step joins parts of one section only; the content starts with texts and a styled section before www's first heading |
 
 ## Accessibility (WCAG 2.0-2.2 A/AA)
 
@@ -93,6 +94,23 @@ Heights are ours over www's.
 - **Fixed in SWISS's files:** the footer's wrapped legal links are 24 px apart (WCAG 2.5.8; www 14 px).
 - **Shared, fixed (0ce5698, every brand):** at 1440 an open tab's panel links come right after
   the tab, Shift+Tab goes back to it, Escape closes the panel (the focus on its tab), then the menu.
+
+### Pass 2 (brief 432): the 84 SWISS pages of swiss-parity-001 and -002 on aem.page
+
+- **axe-core 4.10.2**, same tags, at 390 and 1440 on main--lh-swiss--moved-permanently.aem.page
+  after the pass 2 documents were previewed, the DEMO notice acknowledged (it is a modal dialog:
+  with it open axe tests only the dialog, which a first run did), scrolled through: **0 violations
+  on all 168 page-widths.**
+- **Fixed (shared, brand-neutral):** frames with a title of their own: the magazine's "SWISS behind
+  the wings" had 18 YouTube frames titled "YouTube-Video" (axe frame-title-unique, needs review);
+  scripts/media.js numbers the next ones (4e55b9a; on aem.page after the push: 19 frames, 19 titles).
+- **Needs review, not ours:** OneTrust's banner (`#onetrust-banner-sdk`, an aria-label on a div
+  without a role: aria-prohibited-attr, every page); colour contrast axe cannot decide where the
+  banner overlaps the page (110 page-widths).
+- **Needs review, ours, left:** the flight search's travellers button points `aria-controls` at its
+  dialog, which is built when it first opens (aria-valid-attr-value, the 10 pages with the flight
+  search: the attribute names an id not yet in the page); the date field's contrast behind its
+  floating label (axe cannot decide; the text is #101010 on white).
 
 ## Commits and documents
 

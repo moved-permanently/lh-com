@@ -57,7 +57,9 @@ What was ours, and fixed:
 Commits (main, each with lint, the full suite and the smoke before and after):
 86ce78b (sidebar step, decorateMain order: asides before tab sets), d085a29 (image | text views),
 54b91c4 (the sidebar look, aside cards, h3 / h4, links; image pairs), 4029b37 (text column views,
-empty tabs, screen-reader words), bda2b87 (sections split off a tab).
+empty tabs, screen-reader words), e482bfe (sections split off a tab), 1180c48 (a picture opening
+the sidebar's content). SWISS has no smoke baseline: after each push its live and preview hosts
+answered as before and served the new theme (logs/b432/swiss-smoke.sh).
 
 Pilot (23 pages, ours on the local server with the new documents, height against www's):
 Business 1.74 -> 0.94, Economy 1.77 -> 0.96, advance seat reservation 1.72 -> 0.98, Recraft
@@ -71,9 +73,12 @@ copy the step started from (logs/b432/da/, the rollback per page): none had chan
 pages were last changed by my own upload at 10:20 UTC).
 1. ch/en, ch/de: 190 documents, 190 previewed, 0 problems.
 2. ch/fr, ch/it, ch/es, ch/pt: 366 documents, 366 previewed, 0 problems.
-3. ch/zh, ch/ru, ch/ja, ch/el, kr/ko, corporate (en, de, fr) and 19 market pages: 549 documents
-   (state below when done).
-The path list of batches 1 and 2: [../swiss/preview-paths-432.txt](../swiss/preview-paths-432.txt).
+3. ch/zh, ch/ru, ch/ja, ch/el, kr/ko, corporate (en, de, fr) and 19 market pages: 549 documents,
+   549 previewed, 0 problems.
+4. new destinations in the 11 languages again, after 1180c48 (the Toulouse photo): 11 documents,
+   11 previewed, 0 problems (each last changed in DA by my own upload of batches 1 to 3).
+In all 1,105 documents ([../swiss/preview-paths-432.txt](../swiss/preview-paths-432.txt), one path
+per line; batch 4's paths are among them).
 Checked on main--lh-swiss--moved-permanently.aem.page: the 23 pilot pages at 1440 and 390 measure as
 they did locally (all 46 pairs the same ratio, no broken images); a French page's blocks as its
 document.
@@ -85,8 +90,9 @@ the earlier layout's blocks without the SWISS styling).
 Open (rows 30 to 36 of parity.md): 50 ch/en+de pages whose sidebar the step leaves as it is (the
 content starts inside a block, or the aside is only partly in the document); the aside's video
 card (www plays the video in the card); grey boxes covering part of a tab panel; Miles & More's
-tier headings in a tab set (0.87); the offers page's fares (data); new destinations and accessible
-travel at 1440 (1.14, 1.13), not looked at yet.
+tier headings in a tab set (0.87); the offers page's fares (data); accessible travel at 1440
+(1.13: its sidebar starts with texts and a grey section before www's first heading; the step joins
+parts of one section only). New destinations: fixed (1.14 -> 1.04 on aem.page).
 
 The restart in the afternoon (about 12:00 to 15:50 UTC) stopped the local servers and a batch run;
 the uploads had finished, the batch was run again.
@@ -99,7 +105,15 @@ main--lh-swiss--moved-permanently.aem.page, after the documents of item 2 were p
 - A first run counted no violations but tested little: the DEMO notice is a modal dialog, so the
   page behind it is inert and axe skips it. Run again with the notice acknowledged (its own
   localStorage key, as after its button): **0 violations on all 168 page-widths**, all 200.
-- Items axe asks a person to review: (in progress, listed below when the run is done).
+- **Fixed (ours, shared, brand-neutral):** frames with a title of their own. The magazine's
+  "SWISS behind the wings" had 18 YouTube frames all titled "YouTube-Video" (frame-title-unique);
+  scripts/media.js now numbers the next ones (4e55b9a, test/media-embed-titles.test.mjs, failing
+  first). Locally: 19 frames, 19 titles.
+- **The rest (needs review, listed in parity.md):** OneTrust's banner (an aria-label on a div
+  without a role, every page; not ours); colour contrast axe cannot decide where that banner
+  overlaps the page; the flight search's travellers button names a dialog id that exists only
+  once the dialog has opened (10 pages; ours, left: aria-valid-attr-value is a review item, the
+  dialog is there when the button opens it); the date field's contrast behind its floating label.
 
 ## 4. ITA regression compare (ita-parity-001)
 
