@@ -127,6 +127,12 @@ const pageMeta = (name) => {
   return meta ? meta.content.trim().toLowerCase() : '';
 };
 
+// a brand site's language never follows lh-com's market go-live (tools/reports/markets/go-live.md):
+// it is looked up among the four roots with documents of their own that were live before the waves,
+// else the default, as before wave 11 (test/brand-site-locale-waves.test.mjs)
+const BRAND_LANGUAGE_ROOTS = ['de/en', 'de/de', 'at/de', 'gb/en'];
+const brandLanguageKey = (lang) => BRAND_LANGUAGE_ROOTS.find((k) => k.endsWith(`/${lang}`)) || DEFAULT_LOCALE;
+
 /**
  * The locale of a page of a brand site without <cc>/<ll> roots (scripts/site-languages.js:
  * Cargo, Air Dolomiti): the interface language from the page's `language` metadata, English
@@ -140,7 +146,7 @@ export function brandSiteLocale(prefix = '', read = pageMeta, rest = '') {
   if (!languages) return null;
   if (languages.some((l) => l.country)) {
     const own = languageOfPath(rest, languages) || languages[0];
-    const key = Object.keys(LOCALES).find((k) => k.endsWith(`/${own.lang}`)) || DEFAULT_LOCALE;
+    const key = brandLanguageKey(own.lang);
     return {
       ...LOCALE_TABLE[key],
       // the root's own currency and home airport (TAP's roots: www's market settings)
@@ -156,7 +162,7 @@ export function brandSiteLocale(prefix = '', read = pageMeta, rest = '') {
     };
   }
   const lang = (/^[a-z]{2}$/.test(read('language')) && read('language')) || 'en';
-  const key = Object.keys(LOCALES).find((k) => k.endsWith(`/${lang}`)) || DEFAULT_LOCALE;
+  const key = brandLanguageKey(lang);
   return {
     ...LOCALE_TABLE[key], lang, key, base: `${prefix}/${key}`, root: key, siteLanguages: languages,
   };
