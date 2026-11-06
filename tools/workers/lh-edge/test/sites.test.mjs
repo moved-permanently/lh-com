@@ -187,8 +187,9 @@ test('sites: ITA on its host: nine language roots, the market roots, its origin'
   assert.deepEqual(site.tables.versions, {
     en: 'it/en', it: 'it/it', fr: 'fr/fr', es: 'es/es', de: 'de/de', nl: 'nl/nl', pt: 'br/pt', el: 'gr/el', ja: 'jp/ja',
   });
-  assert.equal(site.tables.marketRoots.length, 55);
-  assert.equal(Object.keys(site.tables.table).length, 64);
+  // 55 and us/es, ve/es (scripts/brands.js ITA_MARKETS_LIVE, brief 413)
+  assert.equal(site.tables.marketRoots.length, 57);
+  assert.equal(Object.keys(site.tables.table).length, 66);
   assert.deepEqual(SITES.ita.ownRoots, []);
   assert.equal(site.tables.table['xx/fr'].hreflang, 'fr');
   assert.equal(site.tables.table['ch/fr'].hreflang, 'fr-CH');

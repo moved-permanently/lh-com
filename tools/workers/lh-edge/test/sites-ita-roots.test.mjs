@@ -73,8 +73,10 @@ test('ITA\'s table: the five roots are market roots of de/de, gr/el and nl/nl wi
     assert.equal(table[r].label, label, r);
     assert.ok(marketRoots.includes(r), r);
   });
-  assert.equal(marketRoots.length, 55);
-  assert.equal(Object.keys(table).length, 64);
+  // and us/es, ve/es (scripts/brands.js ITA_MARKETS_LIVE, brief 413)
+  assert.equal(marketRoots.length, 57);
+  assert.equal(Object.keys(table).length, 66);
+  ['us/es', 've/es'].forEach((r) => assert.equal(table[r].documents, 'language', r));
 });
 
 test('a page under the five roots from its language document where the markets row lists the root; else 404', async () => {

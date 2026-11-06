@@ -754,11 +754,12 @@ export const SWISS_OWN_ROOTS_LIVE = ['kr/ko'];
 // off, not in ITA's table (ita.turnsthe.page and the country dialog as before); its key in
 // ITA_MARKETS_LIVE (once its documents are published) makes it a market root of its language
 // version's documents, as ar/es. airport: its flight search's origin (as us/en's and ve/en's).
+// us/es and ve/es on since their documents are live (2026-11-06).
 export const ITA_MARKETS = {
   'us/es': { airport: 'NYC' },
   've/es': { airport: 'CCS' },
 };
-export const ITA_MARKETS_LIVE = [];
+export const ITA_MARKETS_LIVE = ['us/es', 've/es'];
 
 /** ITA's site entry with the market roots of ITA_MARKETS switched on. */
 export function withItaMarkets(site, live = ITA_MARKETS_LIVE) {
