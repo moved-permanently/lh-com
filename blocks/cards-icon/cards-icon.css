@@ -151,6 +151,13 @@
   .cards-icon.usp.four-up > ul {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
+
+  /* dcep's column view drops its items' last bottom margin from 1025px (.column-view > .row >
+     .column-view-item > :last-child > :last-child > :last-child { margin-bottom: 0 }): the tile
+     120px as www's, not 130 (row 22) */
+  .cards-icon.usp .cards-icon-label {
+    margin-bottom: 0;
+  }
 }
 
 @media (width >= 1281px) {
