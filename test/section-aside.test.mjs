@@ -84,3 +84,27 @@ test('decorateMain joins the asides before it builds the tab sets', () => {
   const js = fs.readFileSync(new URL('../scripts/scripts.js', import.meta.url), 'utf8');
   assert.ok(/joinAsideSections\(main\);[\s\S]{0,400}decorateSectionTabs\(main\);/.test(js));
 });
+
+/* brief 437 (SWISS row 32): a tab panel in parts (sections with the same Tab label and set, as
+   section-tabs.js shows them: a grey box inside www's panel, then the panel's other content), the
+   aside after the last part: the parts join the panel's first section, each in a div.section-part
+   with its own section styles (grey), so the aside stands beside all of them; a panel of one
+   section as before */
+test('a tab panel in parts: the parts in the first section, each a section-part with its styles, the aside beside them', () => {
+  const part = (cls, h, tab = 'General') => `<div class="section${cls}" data-tab="${tab}" data-tabs="1"><div class="default-content-wrapper"><h2>${h}</h2></div></div>`;
+  const main = page(`<div class="section"><div class="default-content-wrapper"><h1>Animals</h1></div></div>${part(' flush grey accordion-columns-container', 'New entry regulations')}${part(' flush', 'Travel documents')}<div class="section sidebar-aside"><div class="default-content-wrapper"><h4>Quick Links</h4></div></div>${part('', 'Second tab', 'Extended')}`);
+  joinAsideSections(main);
+  const sections = [...main.children];
+  assert.equal(sections.length, 3, 'the intro, the panel, the next tab');
+  const panel = sections[1];
+  assert.ok(panel.classList.contains('with-aside'));
+  assert.equal(panel.dataset.tab, 'General');
+  assert.equal(panel.classList.contains('grey'), false, 'the panel itself not grey');
+  assert.ok(panel.classList.contains('accordion-columns-container'), 'the parts\' block containers on the panel');
+  const parts = [...panel.querySelectorAll(':scope > .section-part')];
+  assert.deepEqual(parts.map((p) => p.className), ['section-part flush grey', 'section-part flush']);
+  assert.deepEqual(parts.map((p) => p.querySelector('h2').textContent), ['New entry regulations', 'Travel documents']);
+  assert.equal(panel.style.getPropertyValue('--section-aside-rows'), '2');
+  assert.ok(panel.lastElementChild.classList.contains('section-aside'));
+  assert.equal(sections[2].dataset.tab, 'Extended', 'the next tab as it was');
+});

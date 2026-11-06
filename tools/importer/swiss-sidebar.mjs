@@ -89,7 +89,16 @@ export function sidebarsOf(html) {
     const aside = s.querySelector(':scope > .sidebar-aside');
     const firstHead = content && content.querySelector('h1, h2, h3, h4');
     return {
-      first: firstHead ? norm(firstHead.textContent) : '', byHeading: !!firstHead, content: partTexts(content), aside: partTexts(aside), teasers: teasersOf(aside), asideImagesAfter: trailingImages(aside), imagesBefore: leadingImages(content),
+      first: firstHead ? norm(firstHead.textContent) : '',
+      byHeading: !!firstHead,
+      content: partTexts(content),
+      aside: partTexts(aside),
+      teasers: teasersOf(aside),
+      asideImagesAfter: trailingImages(aside),
+      imagesBefore: leadingImages(content),
+      // www's grey boxes in the content (.container-gray column views): their first and last text
+      greyBoxes: content ? [...content.querySelectorAll('.container-gray')].filter((g) => !g.parentElement.closest('.container-gray'))
+        .map((g) => partTexts(g)).filter((t) => t.length).map((t) => ({ first: t[0], last: t[t.length - 1] })) : [],
     };
   });
 }
@@ -523,9 +532,45 @@ export function withSwissSidebar(doc, html) {
     asideMeta.className = 'section-metadata';
     asideMeta.innerHTML = '<div><div>Style</div><div>sidebar-aside</div></div>';
     asideSection.append(asideMeta);
+    // in a tab, www's grey boxes in the content: parts of the same tab (section-tabs.js shows them
+    // as one panel, section-aside.js joins them beside the aside), the box's part grey, the others not
+    const styled = (nodes, grey) => {
+      const d = part(nodes, true);
+      const m = d.querySelector(':scope > .section-metadata');
+      let row = m && [...m.children].find((r) => /^style$/i.test((r.firstElementChild || { textContent: '' }).textContent.trim()));
+      if (!row && grey) {
+        row = document.createElement('div');
+        row.innerHTML = '<div>style</div><div></div>';
+        m.prepend(row);
+      }
+      if (row) {
+        const names = row.lastElementChild.textContent.split(',').map((x) => x.trim()).filter((x) => x && x.toLowerCase() !== 'grey');
+        if (grey) names.push('grey');
+        if (names.length) row.lastElementChild.textContent = names.join(', ');
+        else row.remove();
+      }
+      return d;
+    };
+    const greyParts = () => {
+      const segments = [];
+      let at = 0;
+      sb.greyBoxes.forEach((box) => {
+        const g0 = content.findIndex((el, i) => i >= at && starts(el, box.first));
+        if (g0 < 0) return;
+        let g1 = -1;
+        content.forEach((el, i) => { if (i >= g0 && contains(el, box.last)) g1 = i; });
+        if (g1 < 0) return;
+        if (g0 > at) segments.push([content.slice(at, g0), false]);
+        segments.push([content.slice(g0, g1 + 1), true]);
+        at = g1 + 1;
+      });
+      if (!segments.length) return null;
+      if (at < content.length) segments.push([content.slice(at), false]);
+      return segments.map(([nodes, grey]) => styled(nodes, grey));
+    };
     const parts = [];
     if (before.length) parts.push(part(before, true));
-    parts.push(part(content, true), asideSection);
+    parts.push(...((inTab && sb.greyBoxes.length && greyParts()) || [part(content, true)]), asideSection);
     const afterSection = part(after, true);
     if (after.length) parts.push(afterSection);
     section.replaceWith(...parts);

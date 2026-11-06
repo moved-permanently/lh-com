@@ -66,3 +66,13 @@ test('the aside\'s link lists: no bullets, 27 px items, the links as the standal
   has(css, new RegExp(`${list} > li > a:any-link, body\\.brand-swiss main :is\\(\\.default-content-wrapper, \\.columns-media-text\\) p\\.link-wrapper a:any-link, `), 'the standalone link\'s look');
   has(css, new RegExp(`${list} > li > a:any-link\\[href\\^="http"\\]:not\\(\\[href\\*="//www\\.swiss\\.com"\\]\\)::before, `), 'up-right off-site');
 });
+
+/* brief 437, row 32: a grey box inside a tab panel's sidebar content (a section-part grey,
+   scripts/section-aside.js): www's .container-gray, #f2f2f2, 32 px above and below the text, the
+   grey to the page's left edge and 40 px short of the content column's end (from 768 px), across
+   the page on phones */
+test('the grey part of a panel beside the aside: www\'s grey box', () => {
+  const css = swiss();
+  has(css, /body\.brand-swiss main > \.section > \.section-part\.grey \{ padding: 32px var\(--layout-margin\); background-color: #f2f2f2; box-shadow: 0 0 0 100vmax #f2f2f2; clip-path: inset\(0 -100vmax\); \}/);
+  has(css, /@media \(width >= 768px\) \{ body\.brand-swiss main > \.section\.with-aside > \.section-part\.grey \{ margin-right: 40px; padding: 32px 40px 32px 0; clip-path: inset\(0 0 0 -100vmax\); \} \}/);
+});

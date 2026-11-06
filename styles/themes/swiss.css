@@ -902,4 +902,23 @@ body.brand-swiss main .section-aside .default-content-wrapper :is(ul, ol) > li {
   padding: 0 0 5px;
 }
 
+/* a grey box inside a tab panel's sidebar content (www's .container-gray: animals travelling's US
+   entry rules, entertainment's eJournals notice; a section-part grey, scripts/section-aside.js):
+   #f2f2f2, 32 px above and below the text, across the page on phones; from 768 px the grey to the
+   page's left edge and 40 px short of the content column's end, the text 40 px from it */
+body.brand-swiss main > .section > .section-part.grey {
+  padding: 32px var(--layout-margin);
+  background-color: #f2f2f2;
+  box-shadow: 0 0 0 100vmax #f2f2f2;
+  clip-path: inset(0 -100vmax);
+}
+
+@media (width >= 768px) {
+  body.brand-swiss main > .section.with-aside > .section-part.grey {
+    margin-right: 40px;
+    padding: 32px 40px 32px 0;
+    clip-path: inset(0 0 0 -100vmax);
+  }
+}
+
 /* stylelint-enable no-descending-specificity */

@@ -281,6 +281,23 @@ test('row 34: an accordion whose first item www opens gets open-first', () => {
   assert.equal(withSwissSidebar(r.doc, html).doc, r.doc, 'again: unchanged');
 });
 
+/* brief 437, row 32: a grey box covering part of a tab panel's sidebar content (www's
+   .container-gray: animals travelling's US entry rules, entertainment's eJournals notice): the
+   content section splits into parts of the same tab (scripts/section-aside.js joins them back
+   beside the aside, section-tabs.js shows them as one panel): the box's part grey, the others not */
+test('row 32: the grey box of a tab\'s sidebar content its own part, the rest of the panel not grey', () => {
+  const tab = '<div><div>Tab</div><div>General</div></div><div><div>Tabs</div><div>1</div></div>';
+  const doc = `<body><header></header><main><div><h1>Animals</h1></div><div><div class="section-metadata">${tab}</div></div><div><h2>New entry regulations</h2><p>Dogs entering the USA</p><h2>Travel documents</h2><p>Various regulations apply</p><h4>Quick links</h4><p>FAQs about animals</p><div class="section-metadata"><div><div>style</div><div>flush, grey</div></div></div></div><div><div class="metadata"><div><div>nav</div><div>/ch/en/nav</div></div></div></div></main><footer></footer></body>`;
+  const html = '<html><body><maui-tab-control-panel-responsive><div class="airem-sidebar"><div class="sidebar-content"><div class="column-view container-gray"><h2>New entry regulations</h2><p>Dogs entering the USA</p></div><h2>Travel documents</h2><p>Various regulations apply</p></div><div class="sidebar-aside"><h4>Quick links</h4><p>FAQs about animals</p></div></div></maui-tab-control-panel-responsive></body></html>';
+  const r = withSwissSidebar(doc, html);
+  assert.equal(r.made, 1, r.skipped.join('; '));
+  const all = sections(r.doc);
+  const rows = (s) => style(s).filter((x) => !x.startsWith('Tabs'));
+  assert.deepEqual(all.map(rows), [[], ['style: flush, grey', 'Tab: General'], ['style: flush', 'Tab: General'], ['Style: sidebar-aside'], []]);
+  assert.equal(text(all[1].querySelector('h2')), 'New entry regulations', 'the grey part: www\'s box');
+  assert.equal(text(all[2].querySelector('h2')), 'Travel documents', 'the panel\'s rest after it, not grey');
+});
+
 /* www's words for screen readers inside a link (maui-screen-reader-label, .sr-only) are not in the
    document: they are not the snapshot's text (animals travelling de: its aside's last link) */
 test('screen-reader words in www\'s links are not the text to find', () => {
