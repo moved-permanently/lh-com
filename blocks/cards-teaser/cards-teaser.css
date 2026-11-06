@@ -136,6 +136,32 @@ body.brand-lufthansa .cards-teaser .cards-teaser-cta-link[target="_blank"]:not([
   mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13.3 4.3 12 5.6l5.4 5.5H3v1.8h14.4L12 18.4l1.3 1.3L21 12z'/%3E%3C/svg%3E");
 }
 
+/* lh-com (parity 2026-11-06, /de/en/services-on-board and the overview hubs): www's rows are
+   .column-view with 32px padding, so the first image sits 32px lower than the grid's start; a
+   grid right after a grid keeps its 91px (above) */
+body.brand-lufthansa .cards-teaser:not(.overlay) > ul {
+  padding-top: 32px;
+}
+
+body.brand-lufthansa .cards-teaser-wrapper + .cards-teaser-wrapper > .cards-teaser:not(.overlay) > ul {
+  padding-top: 0;
+}
+
+/* lh-com: the titles keep their own margins (h3.heading-small 3.2rem, h2.heading-medium 3.2rem at
+   1440); the body rule above (.cards-teaser-body > *: 24px) outranked the :where() title rules.
+   A size marker keeps the marker's margin */
+body.brand-lufthansa .cards-teaser:not(.overlay) .cards-teaser-body > .cards-teaser-title:not([class*="heading-"]) {
+  margin-bottom: var(--heading-margin-l);
+}
+
+body.brand-lufthansa .cards-teaser:not(.overlay, .three-up, :has(:is(h3, h4, h5, h6).cards-teaser-title)) .cards-teaser-body > h2.cards-teaser-title:not([class*="heading-"]) {
+  margin-bottom: var(--heading-margin-xl);
+}
+
+body.brand-lufthansa .cards-teaser.three-up:not(.overlay) .cards-teaser-body > .cards-teaser-title:not([class*="heading-"]) {
+  margin-bottom: var(--spacing-default);
+}
+
 @media (width >= 768px) {
   .cards-teaser > ul {
     grid-template-columns: repeat(2, minmax(0, 1fr));
