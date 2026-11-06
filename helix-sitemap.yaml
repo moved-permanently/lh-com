@@ -47,3 +47,8 @@ sitemaps:
         destination: /sitemap/sitemap_lh_xx_pt.xml
         hreflang: pt
         alternate: /xx/pt/{path}
+      xx-ru:
+        source: /xx/ru/search-index.json
+        destination: /sitemap/sitemap_lh_xx_ru.xml
+        hreflang: ru
+        alternate: /xx/ru/{path}
