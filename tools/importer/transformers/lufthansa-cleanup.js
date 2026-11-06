@@ -1344,7 +1344,9 @@ function aliasPath(pagePath) {
  * In scope: "/de/en/flights?x=1#y". Not in scope: "https://www.lufthansa.com/de/en/x.html?x=1".
  */
 function rewriteHref(href, origins) {
-  const raw = (href || '').trim();
+  // www's typo of a root path as a protocol-relative URL (//content/dam/…: a host "content",
+  // /xx/ru/register-animal-cabin's PDF): www's /content/…
+  const raw = (href || '').trim().replace(/^\/\/content\//, '/content/');
   if (!raw || raw.startsWith('#') || /^(mailto|tel|javascript|data|sms):/i.test(raw)) return null;
   const isProtocolRelative = raw.startsWith('//');
   const isAbsolute = /^[a-z][a-z0-9+.-]*:/i.test(raw) || isProtocolRelative;

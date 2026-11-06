@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-campaign.js
-  var tmp_bundle_campaign_71532_exports = {};
-  __export(tmp_bundle_campaign_71532_exports, {
-    default: () => tmp_bundle_campaign_71532_default
+  var tmp_bundle_campaign_96052_exports = {};
+  __export(tmp_bundle_campaign_96052_exports, {
+    default: () => tmp_bundle_campaign_96052_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -3864,7 +3864,7 @@ var CustomImportScript = (() => {
     return alias && SCOPE_PATHS.has(alias) ? alias : null;
   }
   function rewriteHref(href, origins) {
-    const raw = (href || "").trim();
+    const raw = (href || "").trim().replace(/^\/\/content\//, "/content/");
     if (!raw || raw.startsWith("#") || /^(mailto|tel|javascript|data|sms):/i.test(raw)) return null;
     const isProtocolRelative = raw.startsWith("//");
     const isAbsolute = /^[a-z][a-z0-9+.-]*:/i.test(raw) || isProtocolRelative;
@@ -4627,7 +4627,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_campaign_71532_default = {
+  var tmp_bundle_campaign_96052_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -4657,5 +4657,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_campaign_71532_exports);
+  return __toCommonJS(tmp_bundle_campaign_96052_exports);
 })();
