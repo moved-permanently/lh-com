@@ -38,7 +38,13 @@ const MARKER = 'data-excat-section-id';
 const BREAK = 'data-excat-section-break';
 const FIRST = 'data-excat-section-first';
 const SOURCE_STYLE = 'data-excat-section-source-style';
+// a tab panel's section: its name, the section metadata Tab (scripts/section-tabs.js)
+const TAB = 'data-excat-section-tab';
 const FOLLOWING = 4; // Node.DOCUMENT_POSITION_FOLLOWING
+// a tab panel that holds column views (pictures and text side by side) is a section of its own;
+// text-only panels are profile-tabs' (a template block)
+const TAB_PANEL = 'maui-tab-control-panel-responsive';
+const TAB_COLUMNS = '.twocolumn, .threecolumn, .fourcolumn';
 
 /** Source backgrounds that become a section style: [selector, style]. */
 const SOURCE_STYLES = [['.container-gray', 'grey'], ['.image-wrapper.full-width-bg', 'full-bleed']];
@@ -220,12 +226,13 @@ function dropEmptyBreaks(document, root) {
       prev = hr;
       return;
     }
-    // prev and hr enclose nothing: keep prev, with the styles of both
+    // prev and hr enclose nothing: keep prev, with the styles of both (and the tab of the later)
     [MARKER, SOURCE_STYLE].forEach((attr) => {
       if (!hr.hasAttribute(attr)) return;
       const merged = [prev.getAttribute(attr), hr.getAttribute(attr)].filter(Boolean).join(' ');
       prev.setAttribute(attr, merged);
     });
+    if (hr.hasAttribute(TAB)) prev.setAttribute(TAB, hr.getAttribute(TAB));
     hr.remove();
   });
 }
@@ -302,6 +309,28 @@ export default function transform(hookName, element, payload) {
       s.before(start);
       if (next) next.before(createBreak(document));
     });
+    // tabs whose panels hold column views (www's maui-tab-control-responsive, e.g. a panel per
+    // travel class on /advance-seat-reservation): a section per panel, Tab its name, and a break
+    // after the control; scripts/section-tabs.js makes the tab list. Not a control a template
+    // block takes (profile-tabs) nor one without column views.
+    const blockSelectors = (template.blocks || []).flatMap((b) => b.instances || []);
+    const taken = (el) => blockSelectors.some((sel) => {
+      try {
+        return !!el.closest(sel);
+      } catch (e) {
+        return false;
+      }
+    });
+    document.querySelectorAll('maui-tab-control-responsive').forEach((control) => {
+      const panels = [...control.querySelectorAll(TAB_PANEL)].filter((p) => p.closest('maui-tab-control-responsive') === control);
+      if (!panels.length || taken(control) || !panels.some((p) => p.querySelector(TAB_COLUMNS))) return;
+      panels.forEach((panel, i) => {
+        const hr = createBreak(document);
+        hr.setAttribute(TAB, (panel.getAttribute('name') || '').trim() || `Tab ${i + 1}`);
+        panel.before(hr);
+      });
+      control.after(createBreak(document));
+    });
   }
 
   if (hookName === 'afterTransform') {
@@ -317,13 +346,14 @@ export default function transform(hookName, element, payload) {
       });
       return styles.join(', ');
     };
-    const marked = [...document.querySelectorAll(`hr[${MARKER}], hr[${SOURCE_STYLE}]`)].filter((hr) => !hr.closest('table'));
+    const marked = [...document.querySelectorAll(`hr[${MARKER}], hr[${SOURCE_STYLE}], hr[${TAB}]`)].filter((hr) => !hr.closest('table'));
     marked.reverse().forEach((marker) => {
       const style = styleOf(marker);
-      if (style) {
+      const tab = marker.getAttribute(TAB);
+      if (style || tab) {
         const meta = WebImporter.Blocks.createBlock(document, {
           name: 'Section Metadata',
-          cells: { style },
+          cells: { ...(style ? { style } : {}), ...(tab ? { Tab: tab } : {}) },
         });
         // End of the section: right before the next break in document order, else end of main.
         const next = nextBreak(document, marker);
@@ -336,7 +366,7 @@ export default function transform(hookName, element, payload) {
         hr.remove();
         return;
       }
-      [MARKER, SOURCE_STYLE, BREAK].forEach((attr) => hr.removeAttribute(attr));
+      [MARKER, SOURCE_STYLE, TAB, BREAK].forEach((attr) => hr.removeAttribute(attr));
     });
   }
 }

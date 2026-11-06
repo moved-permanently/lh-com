@@ -1,0 +1,8 @@
+# tab panels with picture | text rows as Tab sections and columns-media (brief 424): rebuild the info and campaign bundles (build-bundles.mjs), then re-import from the de/en snapshots
+/de/en/advance-seat-reservation
+/de/en/baggage-irregularities
+/de/en/book-and-manage/stopover
+/de/en/carry-on-baggage
+/de/en/discover-lufthansa/carbon-offsetting/climate-protection-projects
+/de/en/first-class
+/de/en/unterhaltung-an-bord

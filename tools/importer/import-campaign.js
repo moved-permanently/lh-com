@@ -51,7 +51,8 @@ const PAGE_TEMPLATE = {
       "instances": [
         ".sidebar",
         ".section-content > .twocolumn:not(:has(.column-view-item > .image + .headline))",
-        ".videoViewer, .image:has(video)"
+        ".videoViewer, .image:has(video)",
+        "maui-tab-control-panel-responsive :is(.twocolumn, .threecolumn):has(> .column-view > .row > .column-view-item > .image img):not(:has(.teaser, .table, .accordion, .tabs, form, iframe, .column-view-item .column-view-item))"
       ]
     },
     {
