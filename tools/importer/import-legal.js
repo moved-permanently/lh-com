@@ -4,6 +4,7 @@
 
 import columnsMediaParser from './parsers/columns-media.js';
 import tableStripedParser from './parsers/table-striped.js';
+import accordionColumnsParser from './parsers/accordion-columns.js';
 import lufthansaCleanupTransformer from './transformers/lufthansa-cleanup.js';
 import lufthansaSectionsTransformer from './transformers/lufthansa-sections.js';
 
@@ -25,6 +26,12 @@ const PAGE_TEMPLATE = {
       "name": "table-striped",
       "instances": [
         "div.table:has(.cms-table-maui-wrapper):not(.accordion div.table)"
+      ]
+    },
+    {
+      "name": "accordion-columns",
+      "instances": [
+        ".accordion"
       ]
     }
   ],
@@ -99,6 +106,7 @@ const PAGE_TEMPLATE = {
 const parsers = {
   'columns-media': columnsMediaParser,
   'table-striped': tableStripedParser,
+  'accordion-columns': accordionColumnsParser,
 };
 const transformers = [lufthansaCleanupTransformer, lufthansaSectionsTransformer];
 

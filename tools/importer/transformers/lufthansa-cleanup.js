@@ -1102,6 +1102,20 @@ function convertMauiLinks(document) {
  * Links without a target (<a slot="trigger"> around an image inside a maui-tooltip) are not
  * links on the live page: their content stays, the <a> goes (else they become <a href="">).
  */
+/**
+ * Links with nothing to read or see (www's articles: <a href="…">&#8203;</a> right before the real
+ * link): an unnamed link for screen readers and a few pixels to tap (axe link-name, target-size;
+ * the 2026-11-06 accessibility pass). Links with text, an image, an icon or a label stay.
+ */
+function removeEmptyLinks(document) {
+  document.querySelectorAll('a[href]').forEach((a) => {
+    if (a.textContent.replace(/[\u200B-\u200D\uFEFF\s]/g, '')) return;
+    if (a.querySelector('img, picture, svg, video, iframe')) return;
+    if ((a.getAttribute('aria-label') || '').trim() || (a.getAttribute('title') || '').trim()) return;
+    a.remove();
+  });
+}
+
 function unwrapLinksWithoutHref(document) {
   document.querySelectorAll('a:not([href])').forEach((a) => {
     if (a.closest('table') && !a.querySelector('img, picture')) return;
@@ -1662,6 +1676,7 @@ export default function transform(hookName, element, payload) {
     convertMauiLinks(document);
     unwrapLinksWithoutHref(document);
     removeIconsAndZeroWidth(document);
+    removeEmptyLinks(document);
     splitBrParagraphs(document);
     convertSeparators(document);
     normalizeImages(document, false);

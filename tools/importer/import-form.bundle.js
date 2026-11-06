@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-form.js
-  var tmp_bundle_form_540217_exports = {};
-  __export(tmp_bundle_form_540217_exports, {
-    default: () => tmp_bundle_form_540217_default
+  var tmp_bundle_form_42721_exports = {};
+  __export(tmp_bundle_form_42721_exports, {
+    default: () => tmp_bundle_form_42721_default
   });
 
   // tools/importer/parsers/form-core.js
@@ -2332,6 +2332,14 @@ var CustomImportScript = (() => {
     });
     return links.length;
   }
+  function removeEmptyLinks(document) {
+    document.querySelectorAll("a[href]").forEach((a) => {
+      if (a.textContent.replace(/[\u200B-\u200D\uFEFF\s]/g, "")) return;
+      if (a.querySelector("img, picture, svg, video, iframe")) return;
+      if ((a.getAttribute("aria-label") || "").trim() || (a.getAttribute("title") || "").trim()) return;
+      a.remove();
+    });
+  }
   function unwrapLinksWithoutHref(document) {
     document.querySelectorAll("a:not([href])").forEach((a) => {
       if (a.closest("table") && !a.querySelector("img, picture")) return;
@@ -2772,6 +2780,7 @@ var CustomImportScript = (() => {
       convertMauiLinks(document);
       unwrapLinksWithoutHref(document);
       removeIconsAndZeroWidth(document);
+      removeEmptyLinks(document);
       splitBrParagraphs(document);
       convertSeparators(document);
       normalizeImages(document, false);
@@ -3158,7 +3167,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_form_540217_default = {
+  var tmp_bundle_form_42721_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -3188,5 +3197,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_form_540217_exports);
+  return __toCommonJS(tmp_bundle_form_42721_exports);
 })();

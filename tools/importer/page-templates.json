@@ -4957,6 +4957,12 @@
           "instances": [
             "div.table:has(.cms-table-maui-wrapper):not(.accordion div.table)"
           ]
+        },
+        {
+          "name": "accordion-columns",
+          "instances": [
+            ".accordion"
+          ]
         }
       ],
       "sections": [

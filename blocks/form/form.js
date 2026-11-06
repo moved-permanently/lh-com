@@ -604,7 +604,9 @@ function renderChoiceGroup(row, ctx) {
   const list = el('div', row.type === 'radio-cards' ? 'form-cards' : 'form-options');
   const inputType = isCheckbox ? 'checkbox' : 'radio';
   if (!isCheckbox) fieldset.setAttribute('role', 'radiogroup');
-  if (row.required) fieldset.setAttribute('aria-required', 'true');
+  // aria-required is allowed on a radiogroup, not on a checkbox group's fieldset (role group):
+  // that one is data-required (the block's check) with the legend's required marker
+  if (row.required && !isCheckbox) fieldset.setAttribute('aria-required', 'true');
   const inputs = options.map((option, index) => {
     const input = el('input');
     input.type = inputType;
