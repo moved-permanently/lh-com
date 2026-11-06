@@ -187,6 +187,19 @@ export const withPartnerCarousels = (html) => ['<div class="twocolumn', '<div cl
   }), html);
 
 /**
+ * A column view of teaser cards with www's .hidden-lg-up swiper copy (/at/de/bearbeitungsgebuehren: three
+ * cards a row from 1025 px, a one-card slider with dots below; parity row 41) marked
+ * data-import-phone-slider: lh-com's cleanup drops that copy before the carousel-cards parser when it
+ * equals the grid (Austrian's swipers have no loop duplicates), so the parser reads the mark.
+ */
+export const withPhoneSliders = (html) => ['<div class="threecolumn', '<div class="fourcolumn']
+  .reduce((out, open) => editDivs(out, open, (el) => {
+    if (/^<div [^>]*data-import-phone-slider/.test(el) || !el.includes('class="teaser card')
+      || !/<div class="hidden-lg-up"[\s\S]*?class="swiper[ "][\s\S]*?class="teaser card/.test(el)) return el;
+    return el.replace(/^<div class="([^"]*)"/, '<div class="$1" data-import-phone-slider=""');
+  }), html);
+
+/**
  * Austrian's teaser cards with their link line (www shows ".teaser-link-text", "→ Zur
  * Reisevorbereitung"; lufthansa.com hides it): marked for the carousel-cards parser, which keeps a
  * marked card's line as a link paragraph.
@@ -283,7 +296,7 @@ export function withFlightSearch(doc, p) {
  * maui-tab-control-responsive with column views, accordions, tables), no loads, no screen-reader
  * announcement (the help centre app's "Help page loaded." is no page text).
  */
-export const mappedOf = (html, p) => withoutLoads(withNestedOnecolumnUnwrapped(withPanelWrappersUnwrapped(withTabMarkers(withTeaserCta(withTeaserColumns(withPartnerCarousels(withCheckinTabs(withCopytextLarge(withLinkOuts(withPlaceholder(stripScripts(html)), p))))))))))
+export const mappedOf = (html, p) => withoutLoads(withNestedOnecolumnUnwrapped(withPanelWrappersUnwrapped(withTabMarkers(withTeaserCta(withPhoneSliders(withTeaserColumns(withPartnerCarousels(withCheckinTabs(withCopytextLarge(withLinkOuts(withPlaceholder(stripScripts(html)), p)))))))))))
   .replace(/<output[^>]*class="screen-reader-announcer"[^>]*>[\s\S]*?<\/output>/g, '');
 
 /**

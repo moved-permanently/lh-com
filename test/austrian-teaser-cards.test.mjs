@@ -79,8 +79,32 @@ test('row 41: lh-com\'s parser makes Austrian\'s card row with www\'s .hidden-lg
   assert.equal(table.querySelectorAll('tr').length, 3, 'the desktop copy only');
 });
 
+test('row 41: the cleanup drops a mobile copy the same as the desktop one before the parser (removeMobileDuplicates), so the view marked data-import-phone-slider (Austrian: withPhoneSliders) is phone-slider without it', async () => {
+  const { default: parse } = await import('../tools/importer/parsers/carousel-cards.js');
+  const run = (attr) => {
+    const { document } = parseHTML(`<!DOCTYPE html><html><body><main><div class="container-content">${view('threecolumn', [card(), card(), card()]).replace('section">', `section"${attr}>`)}</div></main></body></html>`);
+    parse(document.querySelector('.threecolumn'), { document });
+    return document.querySelector('table[data-name]').getAttribute('data-name');
+  };
+  assert.equal(run(' data-import-phone-slider=""'), 'carousel-cards grid phone-slider');
+  assert.equal(run(''), 'carousel-cards grid', 'unmarked as before');
+  assert.equal(run(' data-import-two-up="" data-import-phone-slider=""'), 'carousel-cards grid two-up', 'two-up as main has it');
+});
+
+test('austrian-import.mjs withPhoneSliders: a column view of teaser cards with a .hidden-lg-up swiper copy marked; others as they were', async () => {
+  const { withPhoneSliders } = await import('../tools/importer/austrian-import.mjs');
+  const swiper = `<div class="carousel"><div class="hidden-md-down"><div class="row"><div class="col-lg column-view-item">${card()}</div></div></div><div class="hidden-lg-up"><div><div class="swiper"><div class="swiper-wrapper"><div class="swiper-slide">${card()}</div></div></div></div></div></div>`;
+  const three = `<div class="threecolumn column event section"><div class="column-view flex-column container-gray">${swiper}</div></div>`;
+  assert.match(withPhoneSliders(three), /^<div class="threecolumn column event section" data-import-phone-slider="">/);
+  assert.equal(withPhoneSliders(withPhoneSliders(three)).match(/data-import-phone-slider/g).length, 1, 'once');
+  const noSwiper = view('threecolumn', [card(), card()]);
+  assert.equal(withPhoneSliders(noSwiper), noSwiper);
+  const noCards = three.split(card()).join('<div class="image"></div>');
+  assert.equal(withPhoneSliders(noCards), noCards);
+});
+
 test('the mapping chain marks the cards', async () => {
   const fs = await import('node:fs');
   const src = fs.readFileSync(new URL('../tools/importer/austrian-import.mjs', import.meta.url), 'utf8');
-  assert.match(src, /export const mappedOf = \(html, p\) => withoutLoads\(withNestedOnecolumnUnwrapped\(withPanelWrappersUnwrapped\(withTabMarkers\(withTeaserCta\(withTeaserColumns\(/);
+  assert.match(src, /export const mappedOf = \(html, p\) => withoutLoads\(withNestedOnecolumnUnwrapped\(withPanelWrappersUnwrapped\(withTabMarkers\(withTeaserCta\(withPhoneSliders\(withTeaserColumns\(/);
 });

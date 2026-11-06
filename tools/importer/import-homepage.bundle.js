@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-homepage.js
-  var tmp_bundle_homepage_130893_exports = {};
-  __export(tmp_bundle_homepage_130893_exports, {
-    default: () => tmp_bundle_homepage_130893_default
+  var tmp_bundle_homepage_127252_exports = {};
+  __export(tmp_bundle_homepage_127252_exports, {
+    default: () => tmp_bundle_homepage_127252_default
   });
 
   // tools/importer/parsers/flash-teaser.js
@@ -843,7 +843,7 @@ var CustomImportScript = (() => {
       else if (element.matches(".fourcolumn")) variants = ["grid", "four-up"];
       else if (element.matches(".twocolumn, [data-import-two-up]")) variants = ["grid", "two-up"];
       else if (!element.matches(".carousel")) variants = ["grid"];
-      if (variants[0] === "grid" && variants.length === 1 && hasDesktopTwin && element.querySelector(".hidden-lg-up a.teaser")) variants.push("phone-slider");
+      if (variants[0] === "grid" && variants.length === 1 && (hasDesktopTwin && element.querySelector(".hidden-lg-up a.teaser") || element.hasAttribute("data-import-phone-slider"))) variants.push("phone-slider");
       const block2 = WebImporter.Blocks.createBlock(document, { name: "carousel-cards", variants, cells: rows });
       element.replaceWith(...titles, block2);
       return;
@@ -3149,7 +3149,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_homepage_130893_default = {
+  var tmp_bundle_homepage_127252_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -3179,5 +3179,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_homepage_130893_exports);
+  return __toCommonJS(tmp_bundle_homepage_127252_exports);
 })();
