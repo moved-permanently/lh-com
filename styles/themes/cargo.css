@@ -1,0 +1,281 @@
+/*
+ * Lufthansa Cargo: design tokens and brand rules, loaded by scripts/brand.js on a site whose
+ * metadata sets `brand: cargo` (lh-cargo's /metadata.json). Lufthansa's palette and fonts
+ * (LufthansaHead, LufthansaText: lh-com's faces, the same files www.lufthansa-cargo.com loads), with
+ * www's sizes, grid, buttons, header and footer: brief 417, www's capture cargo-parity-001 of
+ * 2026-11-06 (en and de at 390 and 1440 px; computed styles of its Liferay theme eportal-theme).
+ * Measured at 390 and 1440 only: the phone values apply below 768 px (www's main breakpoint), the
+ * desktop values from there; between 768 and 1280 px lh-com's margins stay. Tokens first; below
+ * them the rules lh-com's blocks have no token for (body.brand-cargo; tests in
+ * test/cargo-parity-417.test.mjs, rows in tools/reports/cargo/parity.md). lh-com's own pages never
+ * load this file.
+ */
+:root {
+  /* type (row 3): h1 LufthansaHead Bold 32/36 on phones, h2 Bold 28/32, h3 Light 24/28, h4 Bold
+     18/24; copy LufthansaText 18/24; 20 px below headings and paragraphs */
+  --heading-font-size-xxl: 32px;
+  --heading-font-size-xl: 28px;
+  --heading-font-size-l: 24px;
+  --heading-font-size-m: 24px;
+  --heading-font-size-s: 18px;
+  --heading-light-weight: 700;
+  --heading-line-height: 1.143;
+  --heading-margin-xxl: 20px;
+  --heading-margin-xl: 20px;
+  --heading-margin-l: 20px;
+  --spacing-default: 20px;
+  --body-font-size-m: 18px;
+  --body-line-height: 1.3334;
+
+  /* the grid (row 4): 16 px margins on phones */
+  --layout-margin: 16px;
+
+  /* buttons (row 5): 50 px, 18/24 bold, padding 10 30, 4 px corners (Lufthansa's yellow) */
+  --button-min-height: 50px;
+  --button-font-size: 18px;
+  --button-padding: 10px 30px;
+  --button-radius: 4px;
+
+  /* the bar (row 1): 60 px on phones (10 px around the 40 px tool buttons), the logo 24 px high,
+     16 px from the edge */
+  --nav-height: 60px;
+  --nav-logo-height: 24px;
+  --nav-logo-height-wide: 30px;
+  --header-bar-padding: 10px 16px;
+  --nav-bar-font-size: 18px;
+  --nav-bar-font-weight: 300;
+
+  /* footer (row 6): titles 18/24 bold, links 14/18 regular 11 px apart */
+  --footer-heading-size: 18px;
+  --footer-link-size: 14px;
+  --footer-link-weight: 400;
+  --footer-link-line-height: 18px;
+  --footer-link-gap: 11px;
+}
+
+@media (width >= 768px) {
+  :root {
+    /* desktop type: h1 42/48, h2 32/36, h3 28/32 */
+    --heading-font-size-xxl: 42px;
+    --heading-font-size-xl: 32px;
+    --heading-font-size-l: 28px;
+    --heading-font-size-m: 28px;
+
+    /* the bar: 90 px (20 px around the 50 px tool buttons), the logo 30 px high, 24 px from the
+       left edge, the tools 72 px from the right */
+    --nav-height: 90px;
+    --nav-logo-height: 30px;
+    --header-bar-padding: 20px 72px 20px 24px;
+  }
+}
+
+@media (width >= 1281px) {
+  :root {
+    --layout-margin: 72px;
+    --heading-font-size-xxl: 42px;
+    --heading-font-size-xl: 32px;
+    --heading-font-size-l: 28px;
+    --heading-font-size-m: 28px;
+    --heading-margin-xxl: 20px;
+    --heading-margin-xl: 20px;
+    --heading-margin-l: 20px;
+  }
+}
+
+/* row 3: www's section headings (h3) are LufthansaHead Light; its card and teaser titles (h4)
+   Bold 18/24 */
+body.brand-cargo main h3 {
+  font-weight: 300;
+}
+
+body.brand-cargo main h4 {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+/* row 1: no quick links row (www's bar has none; Book, Track and Schedule are in Book & Track) */
+body.brand-cargo .header .nav-quick {
+  display: none;
+}
+
+/* row 1: the tools as www's: Support & Contact, the bell, the language, Login; on phones Support &
+   Contact, Login and the menu (the bell and the languages are in it) */
+body.brand-cargo .header .nav-tools .nav-languages {
+  order: 1;
+}
+
+body.brand-cargo .header .nav-tools .nav-tool-login,
+body.brand-cargo .header .nav-tools .nav-divider,
+body.brand-cargo .header .nav-tools .nav-menu-button {
+  order: 2;
+}
+
+@media (width < 768px) {
+  body.brand-cargo .header .nav-tools .nav-tool-notifications,
+  body.brand-cargo .header .nav-tools .nav-languages {
+    display: none;
+  }
+}
+
+/* row 1: the menu items as www's, LufthansaHead Light 18/24 #ebebeb, 40 px apart, at the bar's
+   right end before the tools; the open item outlined white */
+body.brand-cargo .header .nav-bar-menu-button,
+body.brand-cargo .header .nav-bar-menu-link {
+  padding: 4px 12px;
+  color: #ebebeb;
+  font-family: var(--heading-font-family);
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 24px;
+}
+
+body.brand-cargo .header .nav-bar-menu-button::after {
+  display: none;
+}
+
+body.brand-cargo .header .nav-bar-menu-button:hover,
+body.brand-cargo .header .nav-bar-menu-link:hover {
+  background: none;
+  color: #fff;
+}
+
+body.brand-cargo .header .nav-bar-menu-button[aria-expanded="true"] {
+  background: none;
+  color: #fff;
+  outline: 1px solid #fff;
+  outline-offset: 0;
+}
+
+@media (width >= 1025px) {
+  body.brand-cargo .header .nav-bar-menu {
+    justify-content: flex-end;
+    gap: 16px;
+    margin-right: 16px;
+  }
+}
+
+/* row 2: the panel white under the bar, as wide as the page; four columns 24 px apart in the
+   1296 px grid; titles LufthansaHead Bold 18/24 deep blue over a light rule, links 14/18 whale
+   blue 11 px apart */
+body.brand-cargo .header .nav-dropdown {
+  top: 100%;
+  border-radius: 0;
+  background-color: #fff;
+  box-shadow: 0 8px 16px rgb(0 0 0 / 15%);
+}
+
+body.brand-cargo .header .nav-dropdown-inner {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 74px 72px 56px;
+}
+
+body.brand-cargo .header .nav-dropdown-section {
+  width: auto;
+}
+
+body.brand-cargo .header .nav-dropdown-title {
+  margin: 0 0 22px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #ccc;
+  color: #05164d;
+  font-family: var(--heading-font-family);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+body.brand-cargo .header .nav-dropdown-list {
+  gap: 11px;
+  padding-left: 10px;
+  line-height: 18px;
+}
+
+body.brand-cargo .header .nav-dropdown-link {
+  color: #52627c;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+/* row 6: the three link columns across the width, 24 px apart; the social links in the legal row */
+@media (width >= 768px) {
+  body.brand-cargo .footer .footer-columns {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  /* the social links at the right end of the legal row */
+  body.brand-cargo .footer .footer-inner.has-extras {
+    grid-template-areas:
+      'search locale'
+      'columns columns'
+      'divider divider'
+      'legal badges'
+      'note note';
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  body.brand-cargo .footer .footer-badges {
+    align-items: center;
+    justify-self: end;
+    padding: 0;
+  }
+}
+
+/* row 14: www's icon collapsibles (the SDG goals: accordion-columns items titled by an icon): a
+   light grey row per goal, the icon 126 px square at its left, the line LufthansaText 20/24
+   regular beside it (its lead-in bold), a rule below, 10 px between the rows */
+body.brand-cargo .accordion-columns .accordion-columns-title:has(> picture) {
+  display: block;
+  min-height: 126px;
+  margin-bottom: 10px;
+  padding: 0 56px 0 0;
+  border-bottom: 1px solid #ccc;
+  background-color: #f5f5f5;
+  font-family: var(--body-font-family);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+body.brand-cargo .accordion-columns .accordion-columns-title:has(> picture) img {
+  float: left;
+  width: 126px;
+  height: 126px;
+  margin: 0 24px 0 0;
+  object-fit: cover;
+}
+
+body.brand-cargo .accordion-columns .accordion-columns-title:has(> picture)::before {
+  content: '';
+  display: block;
+  height: 51px;
+}
+
+body.brand-cargo .accordion-columns .accordion-columns-title:has(> picture) strong {
+  font-weight: 700;
+}
+
+/* phones: www's icon 28 px, the line 16/20, 8 px inside the row */
+@media (width < 768px) {
+  body.brand-cargo .accordion-columns .accordion-columns-title:has(> picture) {
+    min-height: 0;
+    padding: 8px 40px 8px 8px;
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  body.brand-cargo .accordion-columns .accordion-columns-title:has(> picture) img {
+    width: 28px;
+    height: 28px;
+    margin: 0 8px 4px 0;
+  }
+
+  body.brand-cargo .accordion-columns .accordion-columns-title:has(> picture)::before {
+    display: none;
+  }
+}

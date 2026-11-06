@@ -225,9 +225,11 @@
   visibility: hidden;
 }
 
-/* pagination: .swiper.swiper .swiper-pagination-bullet */
+/* pagination: .swiper.swiper .swiper-pagination-bullet; with many slides (Cargo's history
+   timeline: 25) the dots wrap instead of widening the page */
 .carousel-cards .carousel-cards-dots {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 8px;
   margin: 8px 0 0;

@@ -39,10 +39,11 @@ test('brand: only known keys count; lh-com (no key) is Lufthansa', () => {
   assert.equal(brandOf(meta({ brand: 'toString' })), '');
 });
 
-test('brand: lh-com loads no theme; the theme files are tokens, font faces and rules under the brand\'s body class only (Discover\'s and ITA\'s exist)', async () => {
+test('brand: lh-com loads no theme; the theme files are tokens, font faces and rules under the brand\'s body class only (Discover\'s, ITA\'s and Cargo\'s exist)', async () => {
   assert.equal(await loadBrandTheme(meta({})), '');
-  ['discover', 'ita'].forEach((key) => assert.ok(fs.existsSync(new URL(`../styles/themes/${key}.css`, import.meta.url)), key));
-  assert.equal(BRANDS.cargo.theme, false, 'Cargo: Lufthansa\'s look, no theme file');
+  ['discover', 'ita', 'cargo'].forEach((key) => assert.ok(fs.existsSync(new URL(`../styles/themes/${key}.css`, import.meta.url)), key));
+  // Cargo: its own theme since its parity pass (brief 417, styles/themes/cargo.css)
+  assert.notEqual(BRANDS.cargo.theme, false);
   Object.keys(BRANDS).filter((key) => BRANDS[key].theme !== false).forEach((key) => {
     const file = new URL(`../styles/themes/${key}.css`, import.meta.url);
     // Air Dolomiti's arrives with its session's work; until then loadBrandTheme keeps lh-com's
@@ -66,7 +67,7 @@ test('brand: lh-com loads no theme; the theme files are tokens, font faces and r
   });
 });
 
-test('loadBrandTheme: Cargo marks the body and loads no theme; a missing theme file (Air Dolomiti today) leaves the page as it is', async () => {
+test('loadBrandTheme: Cargo marks the body and loads its theme; a missing theme file (Air Dolomiti today) leaves the page as it is', async () => {
   const { parseHTML } = await import('linkedom');
   const { document } = parseHTML('<!DOCTYPE html><html><head></head><body></body></html>');
   const saved = { document: globalThis.document, window: globalThis.window };
@@ -76,7 +77,8 @@ test('loadBrandTheme: Cargo marks the body and loads no theme; a missing theme f
     const loaded = [];
     const loader = async (href) => { loaded.push(href); throw new Error('404'); };
     assert.equal(await loadBrandTheme(meta({ brand: 'cargo' }), loader), 'cargo');
-    assert.deepEqual(loaded, []);
+    assert.deepEqual(loaded, ['/styles/themes/cargo.css']);
+    loaded.length = 0;
     assert.ok(document.body.classList.contains('brand-cargo'));
     assert.equal(await loadBrandTheme(meta({ brand: 'airdolomiti' }), loader), 'airdolomiti');
     assert.deepEqual(loaded, ['/styles/themes/airdolomiti.css']);

@@ -91,13 +91,15 @@ test('a click opens one drop-down at a time; again, Escape or a click outside cl
   assert.equal(programs.getAttribute('aria-expanded'), 'false');
 });
 
-test('brands.js: the bar menu, the unlinked logo and the search button on Lufthansa Group for Business; TAP\'s own layout (brief 311); no other brand', () => {
+test('brands.js: the bar menu, the unlinked logo and the search button on Lufthansa Group for Business; TAP\'s own layout (brief 311); Cargo\'s menu and language in the bar (brief 417); no other brand', () => {
   assert.deepEqual(BRANDS.b2b.header, {
     menu: 'bar', logoLink: false, search: 'button', locale: false,
   });
   // TAP: the bar menu with the language list and its layout (test/tap-first-screen.test.mjs)
   assert.deepEqual(BRANDS.tap.header, { menu: 'bar', languages: 'bar', layout: 'tap' });
-  assert.deepEqual(Object.keys(BRANDS).filter((k) => BRANDS[k].header), ['b2b', 'tap']);
+  // Lufthansa Cargo: www's Book & Track, Info-Hub, Cargo inside and "EN" in the bar (test/cargo-parity-417.test.mjs)
+  assert.deepEqual(BRANDS.cargo.header, { menu: 'bar', languages: 'bar' });
+  assert.deepEqual(Object.keys(BRANDS).filter((k) => BRANDS[k].header).sort(), ['b2b', 'cargo', 'tap']);
 });
 
 test('header.js: the options read from the brand entry; without them as before', () => {

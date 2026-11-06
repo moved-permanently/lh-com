@@ -331,12 +331,15 @@ export const BRANDS = {
       },
     },
   },
-  // Lufthansa Cargo (lh-cargo): Lufthansa's look; www.lufthansa-cargo.com shows no cookie banner;
-  // its notifications (www's own CMS, switched off) move to the site's Message Center, tenant cargo
+  // Lufthansa Cargo (lh-cargo): Lufthansa's palette and fonts with www's sizes, header and footer
+  // (styles/themes/cargo.css, brief 417); its notifications (www's own CMS, switched off) move to
+  // the site's Message Center, tenant cargo
   cargo: {
     name: 'Lufthansa Cargo',
-    theme: false,
     www: 'www.lufthansa-cargo.com',
+    // www's header: Book & Track, Info-Hub and Cargo inside in the bar, each a panel below it;
+    // the language a globe button ("EN") in the bar
+    header: { menu: 'bar', languages: 'bar' },
     messageCenter: 'cargo',
     // notifications: the header's bell tool opens www's notification panel (the nav's :bell: tool,
     // blocks/header/header-notifications.js; other brands keep it a link), its overview page
