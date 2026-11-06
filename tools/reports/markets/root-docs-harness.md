@@ -42,7 +42,7 @@ document). The 19 homepages and the 27 own pages `tools/importer/sites/lh-com.js
   `20-ko`, `21-pl-confirmations-own.txt`, on main): each version's ammunition form links one that
   answers 404 until it is captured and imported.
 
-## Run by the local import harness (2026-11-06, 01:58-02:40 CET)
+## Run by the local import harness (2026-11-06, 01:58-02:24 CET)
 
 - **Inputs**: main at c41ea1fa (the rows of bf9a13a3); `content/` filled from Document Authoring
   just before the run: the 70 documents of the 19 roots and the 2,370 documents of xx/it, xx/el,
