@@ -41,3 +41,29 @@ austrian.turnsthe.page and main--lh-austrian--moved-permanently.aem.page (equal 
   (`test/digital-assistant-brand.test.mjs`). Checked locally: Austrian's h1 Portada (loaded), lufthansa.com's
   digital-assistant page still in its face. For ema-lufthansa (Brussels) and ema-adobe (SWISS): your
   digital-assistant pages get your theme's heading font back with this commit.
+
+### 2b. Components and type of the deeper pages (importer, theme, 42 documents)
+
+- 002b arrived 09:06 (sha256 `a79e58fa…3454`, checked; 29 pages); compared with 002a: 60 pages x 2 widths.
+- `663b69a0` feat(austrian) and `e441c469` (bundles rebuilt after the rebase): Austrian templates for the
+  check-in and flight-status pages (info's mappings plus their block), the teaser cards' link line, two-up
+  card rows, the intro (copytext-large), the default h3 / h4, the lists. Rows 29-43 in
+  `tools/reports/austrian/parity.md`.
+- Documents (release order; no files): the 42 paths in `tools/reports/austrian/preview-paths-002.txt`,
+  re-imported from the Austrian snapshots, read from DA first and rechecked unchanged before the upload,
+  uploaded and previewed (`da-upload.mjs --site lh-austrian`: 46 uploaded, 0 problems), DA equal to local
+  afterwards. Not published.
+- Restored: four tab pages (missing-baggage, travelling-with-animals, unterhaltung-an-bord, austrian-app):
+  their re-import lost the Tab rows of a grey band's section (lh-com's sections transformer now makes Tab
+  sections itself, 515475be, besides Austrian's markers), so the content after the band showed under every
+  tab. Uploaded again from their DA versions before mine and previewed: as they were. For ema-cashub: the
+  interplay of lufthansa-sections.js's Tab sections with swiss-import.mjs's tab markers (row 43).
+- Not uploaded: culinaryjourney (today's import drops its micro-frontend block) and new-destinations (its
+  poi maps sit in accordion items, today's accordion parser keeps them inside): row 42.
+- Checked on main--lh-austrian--moved-permanently.aem.page at 1440 and 390 (all 60 measured, the
+  changed ones side by side with www): familien's two-up cards with link lines, online-check-in's steps,
+  accordion and card row, Portada intros, CoreSans h3 / h4, the lists 5 px apart.
+- Open (rows 36-43): steps in a tab panel, culinary-services' expanding panels and stage, QR / badge
+  pairs, giftvoucher's icon steps, a card row's grey band, the two not uploaded, the tab pages.
+- Rollback: `git revert e441c469 663b69a0` (and the documents: DA's versions before 11:00 UTC; the
+  originals read at 08:30 / 09:30 are in /tmp/s407/da-orig until this machine restarts).
