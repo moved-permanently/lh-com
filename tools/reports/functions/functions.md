@@ -277,7 +277,7 @@ The Lufthansa Cargo replica, on the lufthansa.com code; Cargo's current site run
 - **Newsletter sign-up** ✈️ Cargo's sign-up form comes from Cargo's Microsoft Dynamics, which accepts sign-ups only from addresses Cargo allows; until Lufthansa Cargo adds ours, the page links to Cargo's own newsletter page. (https://cargo.turnsthe.page/en/ci/newsletter)
 - **Login, My flights, cart** 💬 Cargo's customer login stays on Cargo's current system, and the new site links to it.
 - **Personalised content** – Cargo shows no personal content outside its customer portal.
-- **Country / language selector** ✅ The language switch lists Cargo's six languages (English, German, Spanish, French, Italian, Portuguese), and each answers on the replica; as on www, most pages in the four newer languages have English text. (https://cargo.turnsthe.page/en/home)
+- **Country / language selector** ✅ The language switch lists Cargo's six languages (English, German, Spanish, French, Italian, Portuguese). English and German are complete on the replica; the pages www has in the four newer languages are there too (most with English text, as on www), and their start addresses lead to Cargo's homepage in that language on www. (https://cargo.turnsthe.page/en/home)
 - **Cookie consent** ✅ The replica loads nothing for Cargo that needs consent, so it shows no banner and no cookie settings link until a tag manager runs there.
 - **Accessibility toolbar** – Cargo's header has no contrast or text size controls.
 - **Shipment tracking** ✅ The tracking form on Cargo's homepage hands the air waybill number to Cargo's tracking platform, with Cargo's prefix 020 filled in, as on www. (https://cargo.turnsthe.page/en/home)

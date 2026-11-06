@@ -2222,9 +2222,9 @@
         },
         "cargo": {
           "status": "done",
-          "note": "The language switch lists Cargo's six languages (English, German, Spanish, French, Italian, Portuguese), and each answers on the replica; as on www, most pages in the four newer languages have English text.",
+          "note": "The language switch lists Cargo's six languages (English, German, Spanish, French, Italian, Portuguese). English and German are complete on the replica; the pages www has in the four newer languages are there too (most with English text, as on www), and their start addresses lead to Cargo's homepage in that language on www.",
           "page": "/en/home",
-          "evidence": "functions scan 2026-10-31; es, fr, it, pt live 2026-11-06 ~05:05 CET (65 documents published 04:20, switch 96951980; /<ll> and /<ll>/ go to /<ll>/home, checked 200 in a real browser 05:35; sitemaps per language)"
+          "evidence": "functions scan 2026-10-31; es, fr, it, pt live 2026-11-06 ~05:05 CET (65 documents published 04:20, switch 96951980; /<ll> and /<ll>/ go to /<ll>/home, checked 200 in a real browser 05:35; sitemaps per language); 2026-11-06 05:5x curl: /es /fr /it /pt 302 to www.lufthansa-cargo.com/<ll>/home; sitemaps es 14, fr 13, it 13, pt 13 pages, /es/ci/digitalization 200"
         },
         "airdolomiti": {
           "status": "done",
