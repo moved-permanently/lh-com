@@ -1,0 +1,60 @@
+# lh-cargo (brief 422, 2026-11-06): uploaded to DA moved-permanently/lh-cargo and previewed on main--lh-cargo--moved-permanently.aem.page; not published. Publish after brief 422's code is on main (the newsroom block, the menu's note and locks, cards-teaser boxed and mosaic), in this order
+# 1. the newsroom pages (newsroom block; with no newsroom row in /config/flags they show the link as today)
+/en/ci/newsroom
+/de/ci/newsroom
+# 2. navs and footers (locks, the menu note, social and logo icons)
+/en/nav
+/en/footer
+/de/nav
+/de/footer
+# 3. inner pages: breadcrumbs, boxed industry cards, the eBooking columns, What's up tiles, story boxes (47)
+/en/ebooking-info
+/en/ci/whats-up-now
+/de/ebooking-info
+/de/ci/whats-up-now
+/de/portfolio
+/de/speed-flash
+/en/active-temp-control
+/en/cookie-information
+/en/process-changes
+/en/dangerous-goods
+/en/onerecord
+/en/valuables
+/en/airmail
+/en/speed-pro
+/en/emergency
+/en/eservices-app
+/en/general-cargo
+/en/vulnerables
+/en/speed-zoom
+/en/industries-in-focus
+/en/portfolio
+/en/current-information
+/en/support-and-contact
+/en/live-animals
+/en/perishables
+/en/product-road-feeder-service
+/en/industries-healthcare
+/en/passive-temp-support
+/en/speed-flash
+/en/add-on-services/todoor
+/en/add-on-services/sustainable-choice
+/en/add-on-services/insurance
+/en/add-on-services/personal-supervision
+/en/add-on-services/smartuld
+/en/products/customer-owned-tracker
+/en/ci/241126-cargotalk
+/en/eservices/efreight
+/en/fleet-ulds/fleet
+/en/fleet-ulds/ulds
+/en/news/142-arctic-temperatures-on-board
+/en/news/the-value-of-the-rose-17
+/en/fleet-ulds/fleet/a321f
+/en/fleet-ulds/fleet/b777f
+/en/fleet-ulds/fleet/belly-fleet
+/en/fleet-ulds/ulds/containers
+/de/industries-in-focus
+/de/fleet-ulds/fleet
+# 4. notifications overviews (the breadcrumb)
+/en/notification-overview
+/de/notification-overview
