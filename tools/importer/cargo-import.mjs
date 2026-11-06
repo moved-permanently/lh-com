@@ -48,7 +48,7 @@ import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { parseHTML } from 'linkedom';
 import {
-  HOST, sourcePath, REDIRECT_ONLY, LANGUAGE_LESS, ADDED_PAGES, CONTACT_FORM, contactForm, contactFormHref,
+  HOST, sourcePath, REDIRECT_ONLY, LANGUAGE_LESS, ADDED_PAGES, CONTACT_FORM, contactForm, contactFormHref, contactDialog,
 } from './cargo-paths.mjs';
 import { fileKey, edsName, baseName } from './cargo-assets.mjs';
 
@@ -239,8 +239,9 @@ export class Page {
     const { paths, alternates, capture } = loadSite();
     // Liferay's default site prefix (/en/web/guest/x) is the same page as /en/x
     const p = webGuest(sourcePath(u.href));
-    // our contact form pages (no page on www; supportTopics links its entries to them)
-    if (p === CONTACT_FORM || p === contactForm('de')) return `${p}${u.search}`;
+    // our contact form pages and dialogs (no page on www; supportTopics links its entries to the
+    // dialogs)
+    if ([CONTACT_FORM, contactForm('de'), contactDialog()].includes(p)) return `${p}${u.search}`;
     // www's contact form links: /support-and-contact?reason=&subreason= opens the form with both,
     // on the form page of the link's language (a language-less link: this page's)
     const q = u.searchParams;
@@ -581,8 +582,8 @@ function dynamicsForm(c, page, mode) {
 
 /**
  * Support & Contact's contact portlet: www's "Contact us" card (heading, text, the "Open contact
- * form" button that opens its form) with the button as a link to our form page; the form itself
- * is that page (cargo-contact-form.mjs).
+ * form" button that opens its form) with the button as a link to the form's dialog (round 3: as
+ * www, the form opens over the page; cargo-contact-form.mjs writes it, and the form page).
  */
 function contactCard(c, page) {
   page.formLinked = true;
@@ -591,10 +592,39 @@ function contactCard(c, page) {
   const h = text(card.querySelector('h1, h2, h3, h4'));
   const p = text(card.querySelector('p'));
   const label = text(card.querySelector('.contactBtn .lfr-btn-label, .contactBtn, button'));
+  // www's navy band: a section of its own (style contact, round 3)
+  page.section('contact');
   if (h) page.add(`<h2>${esc(h)}</h2>`);
   if (p) page.add(`<p>${esc(p)}</p>`);
-  if (label) page.add(`<p><strong><a href="${contactForm(page.lang)}">${esc(label)}</a></strong></p>`);
-  page.note(`contact form: www's card, its button a link to ${contactForm(page.lang)} (cargo-contact-us)`);
+  if (label) page.add(`<p><strong><a href="${contactDialog()}">${esc(label)}</a></strong></p>`);
+  page.section(null);
+  page.note(`contact form: www's card, its button opening ${contactDialog()} as a dialog (cargo-contact-us)`);
+}
+
+/**
+ * Support & Contact's station search portlet (row 21, round 3): its technical support (text, the
+ * phone as a tel: link, the opening hours) beside "Find your local sales contact", whose station
+ * search stays a link to www's station finder (decided: portal function), as columns.
+ */
+function techSupport(c, page) {
+  const t = c.querySelector('.techSupport');
+  const left = t ? [...t.children].map((x) => {
+    if (/^H\d$/.test(x.tagName)) return `<h3>${esc(text(x))}</h3>`;
+    const a = x.querySelector('a[href^="callto:"], a[href^="tel:"]');
+    if (a) return `<p><a href="tel:${a.getAttribute('href').replace(/^(callto|tel):/, '').replace('(0)', '').replace(/[^+\d]/g, '')}">${esc(text(a))}</a></p>`;
+    if (x.tagName === 'SMALL') {
+      const lines = [''];
+      x.childNodes.forEach((n) => { if (n.tagName === 'BR') lines.push(''); else lines[lines.length - 1] += n.textContent; });
+      return `<p><small>${lines.map((l) => esc(l.replace(/\s+/g, ' ').trim())).filter(Boolean).join('<br>')}</small></p>`;
+    }
+    return text(x) ? `<p>${esc(text(x))}</p>` : '';
+  }).join('') : '';
+  const sales = c.querySelector('.stationSearch');
+  const salesHead = sales ? text(sales.querySelector('h1, h2, h3, h4')) : '';
+  const salesLabel = sales ? text(sales.querySelector('label')) : '';
+  const right = salesHead ? `<h3>${esc(salesHead)}</h3><p><a href="${HOST}/${page.lang}/network/maps/stations">${esc(salesLabel || salesHead)}</a></p>` : '';
+  page.block('columns (support)', [[left, right]]);
+  page.note('support: www\'s technical support beside the local sales contact (columns; the station search a link to www\'s station finder)');
 }
 
 function mapLink(page) {
@@ -719,6 +749,7 @@ function component(c, page) {
     return true;
   }
   if (/(^|\s)LCAGCP-lcagEventSlider(\s|$)/.test(k)) { timeline(c, page); return true; }
+  if (/(^|\s)LCAGCP-lcagImageList(\s|$)/.test(k)) { imageList(c, page); return true; }
   if (/(^|\s)LCAGCP-lcagIconLinks(\s|$)/.test(k)) { iconLinks(c, page); return true; }
   if (/(^|\s)content-slider(\s|$)/.test(k)) { carousel(c, page); return true; }
   if (/(^|\s)newssectiondetail(\s|$)/.test(k)) { article(c, page); return true; }
@@ -729,6 +760,7 @@ function component(c, page) {
   if (/(^|\s)(owl-carousel|flexslider|swiper)(\s|$)/.test(k) && isImageSlider(c)) { carousel(c, page); return true; }
   if (/portlet_com_lhcargo_eportal_maps_of_networks/.test(c.id || '')) { mapLink(page).forEach((h) => page.add(h)); return true; }
   if (/portlet_com_lhcargo_eportal_contact_support_web/.test(c.id || '')) { contactCard(c, page); return true; }
+  if (/portlet_com_lhcargo_eportal_contact_support_station_search/.test(c.id || '') && c.querySelector('.techSupport')) { techSupport(c, page); return true; }
   if (/portlet_com_lhcargo_eportal_contact_support_(topic|station)_search/.test(c.id || '')) {
     // the topic search's page heading (Support & Contact's H1); its search and the station
     // search need www (the topics are the tabs, the stations the topics' station link)
@@ -792,14 +824,15 @@ function tabs(c, page) {
     || body.querySelector('.gallerySlider, .owl-carousel, .swiper, .flexslider, .component-tabs, .lfr-layout-structure-item-gallery---cf15'));
   if (!heavy) {
     const rows = items.map(({ title, body }) => [esc(title), flow(body, page, 'cell').join('')]);
-    // Support & Contact's topics: www's topic search becomes the accordion's filter (once)
+    // Support & Contact's topics: www's tabs with its topic search over them, the accordion's
+    // filter (once; with tabs a finder over them, round 3)
     const filter = page.topicFilter && !page.topicFiltered;
     if (filter) {
       page.topicFiltered = true;
       rows.push(['Filter label', esc(page.topicFilter.label)], ['No results', esc(page.topicFilter.noResults)]);
-      page.note('support topics: accordion-columns (faq, filter), www\'s "Find topic by typing"');
+      page.note('support topics: accordion-columns (faq, tabs, filter), www\'s tabs and its "Find topic by typing" over them');
     }
-    page.block(filter ? 'accordion-columns (faq, filter)' : 'accordion-columns (faq)', rows);
+    page.block(filter ? 'accordion-columns (faq, tabs, filter)' : 'accordion-columns (faq)', rows);
     return;
   }
   page.note('tabs with a wide table, gallery or carousel: one section per tab (H2 = tab title)');
@@ -1115,7 +1148,31 @@ function timeline(c, page) {
     clone.querySelectorAll('h1').forEach((x) => x.remove());
     return ['', `${year ? `<p>${esc(year)}</p>` : ''}${flow(clone, page, 'cell').join('')}`];
   });
-  if (rows.length) page.block('carousel-cards', rows);
+  // www's timeline: the events in a row on a line (carousel-cards (timeline), round 3)
+  if (rows.length) page.block('carousel-cards (timeline)', rows);
+}
+
+/**
+ * www's image lists (LCAGCP-lcagImageList: Facts & Figures' Meet the Executive Board and
+ * Compliance, round 3): the band's picture, the heading and the items as an accordion that opens
+ * one item at a time, in a section of style image-list (Cargo's theme: the picture behind the
+ * list). www keeps each item's text only in its phone copy (collapse d-md-none; its script copies
+ * it into the desktop overlay, whose placeholder reads "lorem"), so that copy is read.
+ */
+function imageList(c, page) {
+  const i = c.querySelector('img');
+  const h = c.querySelector('.LCAGCP-imageListHeadline');
+  const rows = [...c.querySelectorAll('.LCAGCP-imageListItemHeadline')].map((t) => {
+    const next = t.nextElementSibling;
+    const body = next && hasCls(next, /LCAGCP-imageListMobileContent/) ? next.cloneNode(true) : null;
+    if (body) body.removeAttribute('class');
+    return [esc(text(t.querySelector('.LCAGCP-imageListToggle') || t)), body ? flow(body, page, 'cell').join('') : ''];
+  });
+  page.section('image-list');
+  if (i) page.add(`<p>${page.img(i)}</p>`);
+  if (h) page.add(`<h2>${esc(text(h))}</h2>`);
+  page.block('accordion-columns (faq, exclusive)', rows);
+  page.section(null);
 }
 
 function iconLinks(c, page) {
@@ -1208,7 +1265,7 @@ function supportTopics(content, page) {
   const topicLabel = text(content.querySelector('label[for$="_topicSearch"]'));
   if (topicLabel) page.topicFilter = { label: topicLabel, noResults: TOPIC_NO_RESULTS };
   // entries without a link: www's script opens its contact form with the entry's reason and
-  // subreason (.faqReason / .faqSubreason beside it): links to our form page with both
+  // subreason (.faqReason / .faqSubreason beside it): links to the form's dialog with both
   let linked = 0;
   content.querySelectorAll('.faqEntryTitle').forEach((e) => {
     const a = e.querySelector('a[href]');
@@ -1221,12 +1278,12 @@ function supportTopics(content, page) {
     if (!reason || !subreason) return;
     const h = e.querySelector('h1, h2, h3, h4, h5, h6') || e;
     const link = content.ownerDocument.createElement('a');
-    link.setAttribute('href', contactFormHref(reason, subreason, page.lang));
+    link.setAttribute('href', contactFormHref(reason, subreason, page.lang, { dialog: true }));
     link.append(...[...(a || h).childNodes]);
     if (a) a.replaceWith(link); else h.replaceChildren(link);
     linked += 1;
   });
-  if (linked) page.note(`support topics: ${linked} entries opening www's contact form linked to ${contactForm(page.lang)} with their reason and subreason`);
+  if (linked) page.note(`support topics: ${linked} entries opening www's contact form linked to ${contactDialog()} with their reason and subreason`);
   content.querySelectorAll('.requiresLogin, .faqReason, .faqSubreason').forEach((x) => x.remove());
   // the topic search's section: the .topicSection outside the tabs (a category heading in each
   // .topicSearchTriggerContainer, its entries the .faqEntryTitle after it)

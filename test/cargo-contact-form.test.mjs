@@ -127,3 +127,17 @@ test('links: www\'s reason and subreason in the query, else the plain form page'
   assert.equal(contactFormHref('General request', 'Feedback / Complaints', 'de'), '/de/contact-us?reason=General%20request&subreason=Feedback%20%2F%20Complaints');
   assert.equal(contactFormHref('', '', 'de'), '/de/contact-us');
 });
+
+test('the dialog (round 3, www\'s form opens over Support & Contact): /modals/contact-us for both languages (outside the /en/ and /de/ search indexes), the card\'s heading as the dialog\'s H2, its text and the same form, no page metadata', async () => {
+  const { contactFormDialog } = await import('../tools/importer/cargo-contact-form.mjs');
+  const { contactDialog } = await import('../tools/importer/cargo-paths.mjs');
+  assert.equal(contactDialog(), '/modals/contact-us');
+  assert.equal(contactFormHref('General request', 'Feedback / Complaints', 'en', { dialog: true }), '/modals/contact-us?reason=General%20request&subreason=Feedback%20%2F%20Complaints');
+  assert.equal(contactFormHref('', '', 'de', { dialog: true }), '/modals/contact-us');
+  const doc = contactFormDialog(PAGE);
+  assert.match(doc, /^<div><h2>Contact us<\/h2><p>Do you have a question\? Fill out the form and we'll get back to you shortly\.<\/p><div class="form core">/);
+  assert.doesNotMatch(doc, /class="metadata"/);
+  const form = (d) => d.slice(d.indexOf('<div class="form core">'), d.indexOf('</div>\n', d.lastIndexOf('<div class="form core">')));
+  assert.equal(form(doc).length > 1000, true);
+  assert.ok(contactFormPage(PAGE).includes(form(doc)), 'the same form block as the page');
+});

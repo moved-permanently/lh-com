@@ -28,27 +28,27 @@ ${entry('<a href="javascript:void(0)">Have feedback or a complaint? Let us know 
 <div id="portlet_com_lhcargo_eportal_contact_support_station_search"><h2>Station search</h2><form><input name="s"></form></div>
 </div></body></html>`;
 
-test('Support & Contact: entries that open www\'s form link to /en/contact-us with their reason and subreason; login entries stay www\'s', () => {
+test('Support & Contact: entries that open www\'s form link to the form as a dialog over the page (/modals/contact-us, round 3) with their reason and subreason; login entries stay www\'s', () => {
   const { html, report } = convert(PAGE, '/en/support-and-contact', 'en');
-  assert.match(html, /<a href="\/en\/contact-us\?reason=Technical%20support&amp;subreason=Technical%20support%20%2F%20Issue%20with%20a%20particular%20service">Get technical support from our service team with eBooking\.<\/a>/);
-  assert.match(html, /<a href="\/en\/contact-us\?reason=General%20request&amp;subreason=Feedback%20%2F%20Complaints">Have feedback or a complaint\? Let us know here\.<\/a>/);
+  assert.match(html, /<a href="\/modals\/contact-us\?reason=Technical%20support&amp;subreason=Technical%20support%20%2F%20Issue%20with%20a%20particular%20service">Get technical support from our service team with eBooking\.<\/a>/);
+  assert.match(html, /<a href="\/modals\/contact-us\?reason=General%20request&amp;subreason=Feedback%20%2F%20Complaints">Have feedback or a complaint\? Let us know here\.<\/a>/);
   assert.match(html, /<a href="https:\/\/www\.lufthansa-cargo\.com\/en\/contact-cst\?reason=Damaged(%20| )cargo">Get support with damaged cargo\.<\/a>/);
   assert.ok(!/faqReason|Technical support \/ Issue with a particular service<\/div>/.test(html), 'the reason fields themselves are not content');
-  assert.ok(report.notes.some((n) => /2 entries opening www's contact form linked to \/en\/contact-us/.test(n)), report.notes.join(' | '));
+  assert.ok(report.notes.some((n) => /2 entries opening www's contact form linked to \/modals\/contact-us/.test(n)), report.notes.join(' | '));
 });
 
-test('Support & Contact: the H1, www\'s contact card with its button linking to the form page; no link to www\'s form, no station search', () => {
+test('Support & Contact: the H1, www\'s contact card with its button opening the form as a dialog (/modals/contact-us, round 3); no link to www\'s form, no station search', () => {
   const { html } = convert(PAGE, '/en/support-and-contact', 'en');
   assert.equal((html.match(/<h1>/g) || []).length, 1);
   assert.match(html, /<h1>Support &amp; Contact<\/h1>/);
-  assert.match(html, /<h2>Contact us<\/h2><p>Do you have a question\? Fill out the form and we'll get back to you shortly\.<\/p><p><strong><a href="\/en\/contact-us">Open contact form<\/a><\/strong><\/p>/);
+  assert.match(html, /<h2>Contact us<\/h2><p>Do you have a question\? Fill out the form and we'll get back to you shortly\.<\/p><p><strong><a href="\/modals\/contact-us">Open contact form<\/a><\/strong><\/p>/);
   assert.ok(!/Go to the form on www/.test(html));
   assert.ok(!/Station search/.test(html));
 });
 
-test('Support & Contact: the topics as accordion-columns (faq, filter) with www\'s field label and www\'s no-results text', () => {
+test('Support & Contact: the topics as accordion-columns (faq, tabs, filter): www\'s tabs and its topic finder over them (round 3), www\'s field label and no-results text', () => {
   const { html } = convert(PAGE, '/en/support-and-contact', 'en');
-  assert.match(html, /<div class="accordion-columns faq filter">/);
+  assert.match(html, /<div class="accordion-columns faq tabs filter">/);
   assert.match(html, /<div><div>Filter label<\/div><div>Find topic by typing<\/div><\/div>/);
   // www's topic search shows no line for no match; its screen readers hear jQuery UI's "No search results."
   assert.match(html, /<div><div>No results<\/div><div>No search results\.<\/div><\/div>/);

@@ -68,12 +68,23 @@ export function contactForm(lang = 'en') {
 }
 
 /**
+ * The form as a dialog (round 3: www opens it over Support & Contact): the form's document under
+ * /modals/ (scripts/fragment-dialog.js opens such links as a dialog), /modals/contact-us for both
+ * languages (the same English form, as the pages; outside the /en/ and /de/ search indexes, which
+ * helix-query.yaml keeps as they are).
+ */
+export function contactDialog() {
+  return '/modals/contact-us';
+}
+
+/**
  * The form page's address for www's contact form links: /support-and-contact?reason=&subreason=
  * (www opens the form with both chosen) and the entries that open it with them; without both,
- * the plain address; lang: the form page's language (the link's, else the linking page's).
+ * the plain address; lang: the form page's language (the link's, else the linking page's);
+ * dialog: the form's dialog document instead (Support & Contact's own links).
  */
-export function contactFormHref(reason, subreason, lang = 'en') {
-  const form = contactForm(lang);
+export function contactFormHref(reason, subreason, lang = 'en', { dialog = false } = {}) {
+  const form = dialog ? contactDialog() : contactForm(lang);
   if (!reason || !subreason) return form;
   return `${form}?${new URLSearchParams({ reason, subreason }).toString().replace(/\+/g, '%20')}`;
 }

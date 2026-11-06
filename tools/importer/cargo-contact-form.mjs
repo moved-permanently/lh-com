@@ -23,7 +23,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseHTML } from 'linkedom';
-import { contactForm } from './cargo-paths.mjs';
+import { contactForm, contactDialog } from './cargo-paths.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const W = path.join(root, 'content-sites/lh-cargo');
@@ -143,20 +143,33 @@ export function contactFormPage(html, lang = 'en') {
   return `<div><h1>${esc(heading)}</h1>${intro ? `<p>${esc(intro)}</p>` : ''}${block}<div class="metadata">${meta}</div></div>\n`;
 }
 
+/**
+ * The form as a dialog over Support & Contact (round 3, as www's "Contact us" modal): the card's
+ * heading as the dialog's H2, its text and the same form block, no page metadata (a fragment,
+ * opened by scripts/fragment-dialog.js from links under /modals/); the same English dialog for
+ * both languages, as the page.
+ */
+export function contactFormDialog(html) {
+  const page = contactFormPage(html);
+  const body = page.slice(0, page.indexOf('<div class="metadata">')).replace(/^<div><h1>(.*?)<\/h1>/, '<div><h2>$1</h2>');
+  return `${body}</div>\n`;
+}
+
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
-  // --lang en|de (default both): the form pages /en/contact-us and /de/contact-us
+  // --lang en|de (default both): the form pages /en/contact-us and /de/contact-us; the dialog
+  // /modals/contact-us (both languages')
   const argv = process.argv.slice(2);
   const only = argv.includes('--lang') ? argv[argv.indexOf('--lang') + 1] : null;
   const html = fs.readFileSync(SNAPSHOT, 'utf8');
   ['en', 'de'].filter((lang) => !only || lang === only).forEach((lang) => {
-    const target = contactForm(lang);
-    const out = path.join(W, `content${target}.plain.html`);
-    const doc = contactFormPage(html, lang);
-    const before = fs.existsSync(out) ? fs.readFileSync(out, 'utf8') : null;
-    if (before !== doc) {
-      fs.mkdirSync(path.dirname(out), { recursive: true });
-      fs.writeFileSync(out, doc);
-    }
-    console.log(`${target}: ${before === doc ? 'unchanged' : 'written'} (${FORM_ID})`);
+    [[contactForm(lang), contactFormPage(html, lang)], ...(lang === 'en' ? [[contactDialog(), contactFormDialog(html)]] : [])].forEach(([target, doc]) => {
+      const out = path.join(W, `content${target}.plain.html`);
+      const before = fs.existsSync(out) ? fs.readFileSync(out, 'utf8') : null;
+      if (before !== doc) {
+        fs.mkdirSync(path.dirname(out), { recursive: true });
+        fs.writeFileSync(out, doc);
+      }
+      console.log(`${target}: ${before === doc ? 'unchanged' : 'written'} (${FORM_ID})`);
+    });
   });
 }
