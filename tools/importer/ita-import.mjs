@@ -37,6 +37,7 @@ import {
 } from './own-links.mjs';
 import { relativeDamLinks } from './ita-dam.mjs';
 import { withQuickLinksSidebar } from './ita-quick-links.mjs';
+import { stripScripts } from './excat-plugin.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const argv = process.argv.slice(2);
@@ -48,7 +49,6 @@ const CI = '/home/node/.excat-marketplaces/excat-marketplace/excat/skills/excat-
 // the source pages' own lufthansa.com URLs on a placeholder host during the import (as Discover)
 export const PLACEHOLDER = 'www.lufthansa-com.invalid';
 const MAPPED = path.join(W, 'snapshots');
-const { stripScripts } = await import(path.join(CI, '../../excat-scrape-webpage/scripts/strip-scripts.js'));
 export const withPlaceholder = (html) => html.replace(/(?:https?:)?\/\/(?:www\.)?lufthansa\.com(?![\w.-])/gi, `https://${PLACEHOLDER}`);
 
 // links out to the page on www (a widget a service answers there): on this host during the import

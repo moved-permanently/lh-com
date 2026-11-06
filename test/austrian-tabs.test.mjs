@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+/* eslint-disable max-len, import/extensions -- dev tooling */
 /* Austrian's tab sets that hold blocks (www.austrian.com's maui-tab-control-responsive with column
    views, accordions, tables): tools/importer/austrian-import.mjs marks them (mappedOf, SWISS's
    withTabMarkers) and makes Tab sections of them after the import (withAustrianTabs, SWISS's
@@ -8,6 +8,10 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 
 const { mappedOf, withAustrianTabs } = await import('../tools/importer/austrian-import.mjs');
+// mappedOf runs the excat plugin's stripScripts first: without the plugin (a clean clone on another
+// machine) that test skips (tools/importer/excat-plugin.mjs)
+const { hasStripScripts, STRIP_SCRIPTS } = await import('../tools/importer/excat-plugin.mjs');
+const needsPlugin = { skip: !hasStripScripts && `the excat plugin is not on this machine (${STRIP_SCRIPTS})` };
 
 const snapshot = '<main><div class="text section"><div class="richtext"><p>Before</p></div></div>'
   + '<div class="tabs panelcontainer"><maui-tab-control-responsive>'
@@ -15,7 +19,7 @@ const snapshot = '<main><div class="text section"><div class="richtext"><p>Befor
   + '<maui-tab-control-panel-responsive name="Flüssigkeiten im&nbsp;Handgepäck"><div class="accordion section"><p>Liquids</p></div></maui-tab-control-panel-responsive>'
   + '</maui-tab-control-responsive></div><div class="text section"><div class="richtext"><p>After</p></div></div></main>';
 
-test('the snapshot: a tab set that holds blocks as its panels, a marker before each and after the set', () => {
+test('the snapshot: a tab set that holds blocks as its panels, a marker before each and after the set', needsPlugin, () => {
   const out = mappedOf(`<html><body>${snapshot}</body></html>`, '/at/de/handgepaeck');
   assert.match(out, /<p>@@tab@@1@@Handgepäcksregeln@@<\/p><\/div><\/div><div class="twocolumn column">/);
   assert.match(out, /<p>@@tab@@1@@Flüssigkeiten im&nbsp;Handgepäck@@<\/p><\/div><\/div><div class="accordion section">/);

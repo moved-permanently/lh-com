@@ -47,6 +47,7 @@ import { docName, LANGUAGE_VERSIONS } from './b2b-scope.mjs';
 import { relativeDamLinks } from './b2b-dam.mjs';
 import { labelsOf, imageOf } from './b2b-hotlines.mjs';
 import { withTabMarkers, splitTabSections } from './swiss-import.mjs';
+import { stripScripts } from './excat-plugin.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const argv = process.argv.slice(2);
@@ -56,7 +57,6 @@ const W = path.join(root, 'content-sites/lh-b2b');
 const SNAP = path.join(root, 'tools/importer/bd-snapshots', HOST);
 const CI = '/home/node/.excat-marketplaces/excat-marketplace/excat/skills/excat-content-import/scripts';
 const MAPPED = path.join(W, 'snapshots-mapped');
-const { stripScripts } = await import(path.join(CI, '../../excat-scrape-webpage/scripts/strip-scripts.js'));
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const clean = (s) => String(s || '').replace(/[\u200B-\u200D\uFEFF]/g, '').replace(/\s+/g, ' ').trim();
