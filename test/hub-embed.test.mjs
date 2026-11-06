@@ -5,6 +5,7 @@
    info template mapped www's video component (.video > .video-player > iframe) to the embed block.
    The hub template now has the info template's embed block (every brand's hub pages: a video there
    was dropped before), its import script and bundle regenerated.
+   The snapshots as committed fixtures (test/fixtures/hub-embed/, brief 419).
    Run: node --test test/hub-embed.test.mjs */
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -14,11 +15,12 @@ import { templateOf } from '../tools/importer/brussels-import.mjs';
 const read = (p) => fs.readFileSync(new URL(`../${p}`, import.meta.url), 'utf8');
 const { templates } = JSON.parse(read('tools/importer/page-templates.json'));
 const byName = Object.fromEntries(templates.map((t) => [t.name, t]));
-const SNAP = 'tools/importer/bd-snapshots/www.brusselsairlines.com';
+// the two pages' snapshots trimmed to what this test reads (the snapshots are gitignored): test/fixtures/hub-embed/
+const fixture = (p) => read(`test/fixtures/hub-embed/${p.split('/').slice(1, 3).join('-')}-${p.split('/').pop()}.html`);
 
 test('the reunion pages import with the hub template and their snapshot has the three videos', () => {
   ['/bf/en/local-page/an-unforgettable-reunion', '/bf/fr/local-page/retrouvailles-inoubliables'].forEach((p) => {
-    const html = read(`${SNAP}${p}.html`);
+    const html = fixture(p);
     assert.equal(templateOf(p, html), 'hub', p);
     assert.equal((html.match(/<div class="video-player"[^>]*>\s*<iframe[^>]*src="https:\/\/www\.youtube-nocookie\.com\/embed\//g) || []).length, 3, p);
   });
