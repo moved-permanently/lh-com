@@ -136,3 +136,32 @@ click), Delete clears it; the label floats above an empty field, the date then u
 after the push on brussels (be/fr), lufthansa, swiss, austrian, ita, discover and airdolomiti
 (its phone panel too) at 390 and 1440: two date stops in the search's Tab order, a ring on the
 field or its box, no overlap, axe on the dates: no violations.
+
+## Pass 2 (brussels-parity-002, offline package 2026-11-06)
+
+The user's capture `brussels-parity-002a.tar.gz` (sha256 d81b5e3f…) and `-002b` (7c7591fd…): 58 more
+pages (deeper pages of every menu section, help and contact, legal, a form page, articles, the
+us/en, ke/en and fr/fr homepages; en and fr), compared at 1440 and 390 with lh-brussels' preview:
+the capture's measurements (heights, headings, copy, breadcrumb) against ours, www's text (its
+flattened shadow HTML between header and footer) against our pages' text, and its screenshots.
+Before the fixes 75 of the 116 page-widths showed no difference; after them 83 (the rest below).
+The Studio's snapshots for the re-imports: `brussels-snapshots-001` to `-012` (1504 pages, the R2
+drop; no sha256 files next to them).
+
+| # | Where | www | Ours (before) | Kind | Owner | Status |
+| --- | --- | --- | --- | --- | --- | --- |
+| P30 | Pages with a photo gallery (58 across the markets: the travel classes, the Belgian icons, the lounges, belgian-star-chefs, …) | picture and text rows, teaser cards, tabs, the gallery | the gallery, the rest as plain content (lh-com's fleet template, taken for the gallery, has none of the other parsers): /be/fr/travel-classes/business 15924 px high (www 6458) | import | Brussels importer | fixed (4d56b6e): the info template, the gallery spliced in from a fleet import of the page; business now as high as www's |
+| P31 | Pages with tab panels of column views (38, e.g. new-destinations: Intercontinental / En Europe) | one panel at a time | both panels one under the other, as plain content (15446 px, www 4623) | import | shared import bundles | fixed: main's bundles were built before 515475be (tab panels as Tab sections); built from main's sources (upstream meanwhile) they import as tabs: 5401 px |
+| P32 | Travel class pages' stage | right under the class tabs, 810 px at 1440 (16:9), 804 px on phones, the title in capitals 48 / 36 px | 350 px, 25 px below the tabs, 42 px as written | theme | Brussels theme | fixed (c5050dd) |
+| P33 | Travel class pages' tabs | labels #0a1f62, the chosen one bold over a 3 px red line | grey labels, a black line | theme | Brussels theme | fixed (c5050dd) |
+| P34 | Gift card (/be/en/book-a-flight/flightvoucher): "Your Gift Card" | each card's icon, title, text and button | icon and title only | import | lh-com's cards-icon-text parser (ema-cashub) | open: the parser takes the teaser (icon, heading) and leaves the column item's text and link; brand-neutral fix in the parser |
+| P35 | Children travelling alone (fr): "Un formulaire supplémentaire devant être rempli…" | the list item's text around its link | the link alone | import | lh-com's accordion parser (ema-cashub) | open: a list item with a link becomes the link |
+| P36 | Problems with your baggage (fr): its three tabs (accordions in each) | one tab at a time | the three one under the other (3617 px, www 2619) | import | lh-com's sections transformer (ema-cashub) | open: tabs become sections only when their panels hold column views (by design so far) |
+| P37 | Travel regulations (en) | six picture and text rows | not imported as rows (7077 px, www 4354) | import | lh-com's columns-media selectors (ema-cashub) | open: re-imported with main's current bundles, the rows still come in as plain content (the same document as DA's): a selector in lh-com's info template |
+| P38 | www's newer text | our-company "reste toujours", the class pages' stage text, the fr/fr and ke/en homepages' stage and teasers ("Jusqu'à -50 % pour les enfants", Laponie) | the Studio's snapshot of 2026-10-31 | document | the user (a new snapshot) | open: not in the snapshots; a re-import needs a newer capture |
+| P39 | Our destinations, Cancel and refund requests | the destination finder's list (32059 px), the chat assistant "Charlie" | the finder without results, no chat | environment | — | environment, no change (the services behind them) |
+| P40 | Beobank Mastercard (fr): the title | #1a1a1a | Brussels red (P1) | theme | Brussels theme | open: www's title there is not red; the cause not found yet |
+| P41 | Online check-in options (fr), Our payment methods (fr), the articles hub (fr) | 4617, 3752, 4740 px | 7031, 2674, 10862 px | import / document | Brussels | open: not investigated in this pass (the hub lists more articles than www's first page; www's newest, Milan, is not imported) |
+
+Documents re-imported, uploaded and previewed, not published: `preview-offline-2026-11-06.txt` (87;
+each against DA's copy: no passage, picture or metadata row lost).

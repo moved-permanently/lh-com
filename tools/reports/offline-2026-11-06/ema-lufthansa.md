@@ -60,7 +60,7 @@ sideways scroll.
 Preview paths (no files: every picture is DA's): the 263 "uploaded and previewed" rows of
 tools/importer/cargo-runs/stories-offline-2026-11-06.tsv, in any order (the code is on main).
 
-## 3. Brussels, deeper visual parity (brussels-parity-002a and -002b; in progress)
+## 3. Brussels, deeper visual parity (brussels-parity-002a and -002b; done, open rows below)
 
 What so far: both archives from the R2 drop (sha256 checked: d81b5e3f… and 7c7591fd…), 58 pages at
 1440 and 390, compared with lh-brussels' preview (main--lh-brussels--moved-permanently.aem.page):
@@ -88,3 +88,20 @@ c3bc782 and the next for the state).
 
 Note: a service restart (about 12:35 CET) wiped /tmp mid-upload; the upload state file it was
 writing came back from git and every document was uploaded again from the list.
+
+Theme (styles/themes/brussels.css, commit c5050dd): the travel class pages' stage right under the
+class tabs, 810 px at 1440 (16:9) and 804 px on phones, the title in capitals; the class tabs'
+labels #0a1f62 with a red line under the chosen one. Rows P30 to P41 in
+tools/reports/brussels/parity.md ("Pass 2"); before the fixes 75 of the 116 page-widths showed no
+difference, after them 83.
+
+Checked on main--lh-brussels--moved-permanently.aem.page at 1440 and 390 (the 58 pages measured
+again after the uploads), the theme on a local dev server with lh-brussels' preview content
+(economy at 1440 and 390: stage 0,186 1440x810, www 0,183 1440x810; phones 804, www 804); smoke
+of brussels.turnsthe.page and cargo before and after each push: no difference.
+
+Open (with why, in parity.md): three in lh-com's shared parsers and transformer, for ema-cashub
+(P34 the gift card items' text and buttons, P35 a list item's text around its link, P36 tabs
+holding accordions, P37 travel-regulations' picture rows); P38 www's newer text (needs a newer
+capture); P39 environment; P40 beobank's title colour and P41 three page heights not
+investigated yet.
