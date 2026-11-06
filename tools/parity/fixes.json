@@ -552,5 +552,28 @@
   "change": "Hotel submit button: the live label flightmanager.hotel.default.searchButton from labels/flightmanager per locale (de 'Hotelsuche', en 'Search hotel'), as the flight tab gets its labels, also on the hotel-only standalone card; an authored row other than the built-in 'Search hotel' still wins. Note: the live de/de snapshot itself renders the English built-in 'Search hotel'.",
   "commit": "hotel-label",
   "date": "2026-10-25"
+ },
+ {
+  "block": "cards-teaser",
+  "change": "lufthansa.com (body.brand-lufthansa): the teaser rows 32px under the intro, as www's .column-view padding; the card titles' own margins (32px at 1440, 28px at 390), which \".cards-teaser-body > * { margin: 0 0 24px }\" had outranked. Measured on www's archived /de/en/services-on-board. Parity 2026-11-06 (aem.live): hub 1440/768/390 mean 22.7/22.0/20.9% -> 16.5/17.0/17.5%.",
+  "commit": "6713a23a",
+  "date": "2026-11-06"
+ },
+ {
+  "change": "lufthansa.com header on phones: 144px (was 140) with the quick links 4px lower (16px above them), as www's on all 293 captured pages; everything below the header had sat 4px too high at 390. Parity 2026-11-06: info 390 passes 27 -> 47.",
+  "commit": "92293015",
+  "date": "2026-11-06"
+ },
+ {
+  "block": "article-header",
+  "change": "lufthansa.com article tag chips 16px with 14px padding, as www's maui-chip (were 18/16, 8 to 13px wider each).",
+  "commit": "ad29435b",
+  "date": "2026-11-06"
+ },
+ {
+  "template": "insights",
+  "change": "Importer: a two-column row of teaser cards (.twocolumn of a.teaser.card) on insights pages as carousel-cards, as hub and info (info since 65afd3a2); before, the cards came in as default content stacked full width. Takes a re-import (tools/reports/parity-2026-11-06/reimport-importer-fixes.txt).",
+  "commit": "2b85374b",
+  "date": "2026-11-06"
  }
 ]

@@ -1,0 +1,4 @@
+# content changed on www since our import: a fresh de/en snapshot first, then the re-import
+/de/en/homepage
+/de/en/discover-lufthansa/new-onboard-experience
+/de/en/meetings-and-events
