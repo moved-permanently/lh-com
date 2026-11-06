@@ -325,7 +325,41 @@ export default function parse(element, { document }) {
       if (child.matches(SKIP_COMPONENTS)) return;
       if (child.matches(MOBILE) && child.parentElement && child.parentElement.querySelector(`:scope > :is(${DESKTOP})`)) return;
       const cl = child.classList;
-      if (cl.contains('headline')) {
+      if (cl.contains('imagelinklist')) {
+        // www's icon link lists (/carry-on-baggage's allowances per class): the heading with its
+        // icon before the text (option link-list, blocks/columns-media), the links as a list
+        child.querySelectorAll('.link-list').forEach((ll) => {
+          const h = ll.querySelector('h1, h2, h3, h4, h5, h6');
+          if (h) {
+            const head = document.createElement(h.tagName.toLowerCase());
+            const icon = [...h.querySelectorAll('img')].find((i) => i.getAttribute('src'));
+            if (icon) {
+              const img = document.createElement('img');
+              img.setAttribute('alt', icon.getAttribute('alt') || '');
+              img.setAttribute('src', icon.getAttribute('src'));
+              head.append(img);
+            }
+            const text = visibleText(h);
+            if (text) head.append(document.createTextNode(text));
+            if (text || icon) out.push(head);
+          }
+          const links = [...ll.querySelectorAll('ul a[href], ul maui-navigation-link[href], ul maui-link[href]')];
+          if (links.length) {
+            const list = document.createElement('ul');
+            links.forEach((l) => {
+              const label = visibleText(l);
+              if (!label) return;
+              const a = document.createElement('a');
+              a.setAttribute('href', l.getAttribute('href'));
+              a.textContent = label;
+              const li = document.createElement('li');
+              li.append(a);
+              list.append(li);
+            });
+            if (list.children.length) out.push(list);
+          }
+        });
+      } else if (cl.contains('headline')) {
         const h = headingFrom(child);
         if (h) out.push(h);
       } else if (cl.contains('text') && child.querySelector('.richtext')) {
@@ -333,6 +367,15 @@ export default function parse(element, { document }) {
       } else if (cl.contains('link') && child.querySelector(MAUI)) {
         const p = linkPara(child);
         if (p) out.push(p);
+      } else if (cl.contains('link') && child.querySelector('maui-button-link, maui-navigation-link, maui-link')) {
+        // a button without a target (www's advance-seat-reservation "Book your Privacy Seat now"):
+        // its text as a paragraph, there is no link to give
+        const text = visibleText(child.querySelector('maui-button-link, maui-navigation-link, maui-link'));
+        if (text) {
+          const p = document.createElement('p');
+          p.textContent = text;
+          out.push(p);
+        }
       } else if (cl.contains('image') && child.querySelector('img, video')) {
         out.push(...mediaNodes(child));
       } else if (child.parentElement.classList.contains('column-view') && !child.matches('.row, .carousel')
@@ -542,6 +585,8 @@ export default function parse(element, { document }) {
       .filter((img) => img.closest('.column-view-item') === it && !img.parentElement.closest('.image')
         && img.querySelector('img, video')).length > 1);
     if (stacked) variants.push('stacked');
+    // www's icon link lists in the items (.imagelinklist .nav-link-list): option link-list
+    if (items.some((it) => it.querySelector('.imagelinklist .nav-link-list'))) variants.push('link-list');
     // a column view whose own items have carousel behaviour (.column-view > .carousel: the
     // .hidden-md-down grid from 1025px, a .hidden-lg-up swiper below) with media | text items
     // (/onboard-delights Dallmayr): below 1025px the cells are slides with dots (cell-slider)

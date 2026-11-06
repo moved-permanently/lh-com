@@ -43,3 +43,13 @@ test('campaign: a sidebar after another component in its column item is part of 
   assert.ok(block('campaign', 'columns-media').instances.includes('.sidebar:not(.column-view-item > * ~ .sidebar)'));
   assert.ok(!block('campaign', 'columns-media').instances.includes('.sidebar'));
 });
+
+// brief 441, /de/en/carry-on-baggage (lh-snapshots-064): www moved two things the first import
+// mapped. The baggage allowance columns (columns-media link-list) now sit in a tab panel
+// (maui-tab-control-panel-responsive > div > .onecolumn > … > .fourcolumn), and the "Important
+// information for flights departing from the USA" card (cards-icon-text partner) stands alone in
+// its section (.section-content > .teaser > a.teaser.partner); both came out as plain text.
+test('info: a one-column view in a tab panel, and a partner teaser alone in a section', () => {
+  assert.ok(block('info', 'columns-media').instances.some((s) => s.startsWith(':is(.section-content, .container-content, maui-tab-control-panel-responsive > div) > .onecolumn > .column-view > .row > .column-view-item > :is(.twocolumn, .threecolumn, .fourcolumn):not(')));
+  assert.ok(block('info', 'cards-icon-text').instances.includes('.section-content > .teaser:has(> a.teaser.partner)'));
+});
