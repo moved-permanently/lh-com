@@ -271,9 +271,12 @@ function isTapPlanCards(block, items) {
   });
 }
 
-/** Slides in view: 1 (one slide per dot) unless the four-up option shows several at once. */
+/**
+ * Slides in view: 1 (one slide per dot) unless the four-up or slides option shows several at once
+ * (slides: Cargo's eServices, www's .eservicesSlider with a dot per page of two at 1440).
+ */
 function slidesPerView(block, track, items) {
-  if (!block.classList.contains('four-up') || !items[0].offsetWidth) return 1;
+  if (!['four-up', 'slides'].some((c) => block.classList.contains(c)) || !items[0].offsetWidth) return 1;
   const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
   return Math.max(1, Math.floor((track.clientWidth + gap) / (items[0].offsetWidth + gap)));
 }
