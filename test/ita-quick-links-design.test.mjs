@@ -42,3 +42,22 @@ test('the body, title, text and link', () => {
   assert.match(rule(`${ASIDE} .cards-teaser .cards-teaser-body > p`), /font-size: 16px; line-height: 24px;/);
   assert.match(rule(`${ASIDE} .cards-teaser .cards-teaser-cta-link`), /font-size: 18px; line-height: 27px; font-weight: 700; color: #0171cf;/);
 });
+
+/* brief 425 (ita-parity-002, online check-in it/en and it/it at 1440 and 390): the seat teaser beside
+   the box is www's grey two-column view (container-gray full-width-bg inside the sidebar's content):
+   #f8f8f9 from the screen's left edge to the content column's end (x 0 to 1026 at 1440), the whole
+   width below 768 px; 32 px above and below, 32 px right of the text from 768 px; the picture 16:9
+   with 4 px corners (443 x 248 at 1440, 346 x 194 at 390), the heading level with its top. */
+const BAND = 'body.brand-ita main .columns-media.grey';
+test('the seat teaser: a grey band to the screen\'s edge, the picture 16:9', () => {
+  const band = rule(BAND);
+  assert.match(band, /padding-block: 32px;/);
+  assert.match(band, /background: var\(--lh-grey-1\);/);
+  assert.match(band, /box-shadow: 0 0 0 100vmax var\(--lh-grey-1\);/);
+  assert.match(band, /clip-path: inset\(0 -100vmax\);/);
+  const bandWide = rule(BAND, css.slice(css.indexOf(`@media (width >= 768px) { ${BAND}`)));
+  assert.match(bandWide, /padding-right: 32px;/);
+  assert.match(bandWide, /clip-path: inset\(0 0 0 -100vmax\);/, 'from 768 px the band ends with the column');
+  assert.match(rule(`${BAND} .columns-media-media img`), /aspect-ratio: 16 \/ 9; object-fit: cover; border-radius: 4px;/);
+  assert.match(rule(`${BAND} .columns-media-text > h2:first-child`), /margin-top: 0;/);
+});

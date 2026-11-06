@@ -685,6 +685,18 @@ main > .section.with-aside > .section-aside {
     grid-row: 1 / -1;
     margin-top: 0;
   }
+
+  /* a page without a hero has its breadcrumb at the start of the content's section: across both
+     columns, the aside from the row after it, as far down as the content's next wrapper (div + div)
+     (www's ITA it/it online check-in: the box level with the H1) */
+  main > .section.with-aside > .breadcrumb-wrapper:first-child {
+    grid-column: 1 / -1;
+  }
+
+  main > .section.with-aside:has(> .breadcrumb-wrapper:first-child) > .section-aside {
+    grid-row: 2 / -1;
+    margin-top: var(--spacing-default);
+  }
 }
 
 /* a section for some markets only (section metadata `markets`): flush with its neighbours, as

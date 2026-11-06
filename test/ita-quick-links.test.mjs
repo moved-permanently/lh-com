@@ -28,7 +28,7 @@ test('en: the intro, the sidebar\'s content, the Quick Links box beside it', () 
   const [intro, content, aside, ...rest] = sections(out);
   assert.ok(rest.every((r) => !text(r)), "only the document's empty last section after it");
   assert.equal(text(intro.querySelector('h1')), 'Hand Luggage');
-  assert.equal(intro.querySelector('h2'), null);
+  assert.ok(intro.querySelector('h2') === null);
   assert.deepEqual([...content.querySelectorAll('h2')].map(text), ['Additional Information', 'Restrictions and Prohibited Items in the Cabin']);
   assert.equal(content.querySelectorAll('.accordion-columns').length, 2);
   assert.equal(text(aside.querySelector('h4')), 'Quick Links');
@@ -39,9 +39,9 @@ test('en: the intro, the sidebar\'s content, the Quick Links box beside it', () 
   assert.equal(rows.length, 2);
   const [media, body] = rows[0].children;
   assert.ok(media.querySelector('picture img'));
-  assert.equal(media.querySelector('a'), null, 'the picture unlinked');
+  assert.ok(media.querySelector('a') === null, 'the picture unlinked');
   assert.equal(text(body.querySelector('h3')), 'Baggage Assistance');
-  assert.equal(body.querySelector('h3 a'), null, 'the title unlinked (the card links once, its last line)');
+  assert.ok(body.querySelector('h3 a') === null, 'the title unlinked (the card links once, its last line)');
   const ps = [...body.querySelectorAll('p')];
   assert.equal(text(ps[0]), 'ITA Airways\' assistance service in Italy can provide you with all the information you need in the event of lost, damaged, or tampered baggage.');
   assert.equal(ps[0].querySelector('a'), null);
@@ -72,10 +72,54 @@ test('ita-import.mjs runs the step on every document', () => {
   assert.ok(/withQuickLinksSidebar\(withItaMetadata\(/.test(js));
 });
 
-test('the section\'s own section metadata (online check-in: flush, grey) stays with its content, not the box', () => {
-  const [, , content, aside] = sections(withQuickLinksSidebar(fixture('online-check-in-en')));
+test('the section\'s own section metadata (online check-in: flush, its grey now the seat teaser\'s) stays with its content, not the box', () => {
+  const [, content, aside] = sections(withQuickLinksSidebar(fixture('online-check-in-en')));
   const style = (s) => [...s.querySelectorAll(':scope > .section-metadata > div')].map((r) => [...r.children].map(text).join(': '));
-  assert.deepEqual(style(content), ['style: flush, grey']);
+  assert.deepEqual(style(content), ['style: flush']);
   assert.deepEqual(style(aside), ['Style: sidebar-aside']);
   assert.equal(aside.querySelectorAll('.cards-teaser > div').length, 1);
+});
+
+/* Online check-in (brief 425, capture ita-parity-002, it/en and it/it at 1440 and 390): www's
+   sidebar component holds the H1, so the box starts level with it (en y 675, it y 218) and the
+   intro, the seven accordion items and the seat teaser come beside it; the hero picture and the
+   breadcrumb above, "Related" / "Temi correlati" after it. In the documents the box's section starts
+   with the H1 (en's hero picture in a section of its own; it/it has none, as www's blank image
+   component): the content is the whole section. www's grey is the seat teaser's own (a two-column
+   view, container-gray: the picture | the heading, text and link), not the component's; the
+   import gave the whole section the style grey: the teaser becomes a columns-media (grey) of one
+   row, the section's style keeps the rest (flush). */
+[['en', 'Online Check-in on the Web and App', 'Choose Your Favorite Seat in All Travel Classes', 'Quick Links', 'Check-in online', 'Related', true],
+  ['it', 'Check-in online tramite sito web e app', 'Scegli il posto che preferisci in tutte le classi di viaggio', 'Link rapidi', 'Effettua il check-in online', 'Temi correlati', false]].forEach(([lang, h1, seat, quick, card, related, hasHero]) => {
+  test(`online check-in ${lang}: the content from the H1 (as www's), the box after it, then ${related}`, () => {
+    const all = sections(withQuickLinksSidebar(fixture(`online-check-in-${lang}`)));
+    const [content, aside, next] = all.slice(hasHero ? 1 : 0);
+    if (hasHero) {
+      assert.ok(all[0].querySelector('picture'), 'the hero picture stays above, in its own section');
+      assert.ok(all[0].querySelector('h1') === null);
+    }
+    assert.equal(text(content.firstElementChild), h1, 'the H1 first in the content');
+    assert.equal(content.firstElementChild.tagName, 'H1');
+    assert.equal(content.querySelectorAll(':scope > .accordion-columns > div').length, 7, 'the seven accordion items beside the box');
+    assert.equal(content.querySelectorAll(':scope > h2').length, 0);
+    const teaser = content.querySelector(':scope > .columns-media.grey');
+    assert.ok(teaser, 'the seat teaser a grey columns-media beside the box');
+    assert.ok(teaser === content.querySelector(':scope > .section-metadata').previousElementSibling, 'last before the section metadata');
+    assert.equal(teaser.children.length, 1);
+    const [media, body] = teaser.firstElementChild.children;
+    assert.ok(media.querySelector('picture img') && !text(media));
+    assert.equal(text(body.querySelector('h2')), seat);
+    assert.equal(body.querySelectorAll('p').length, 2);
+    assert.ok(body.querySelector('p:last-child > a[href*="/manage-my-bookings/extra-services/seats-selection"]'));
+    assert.ok(body.querySelector('strong'), 'the text keeps its bold');
+    assert.ok(content.querySelector('h4') === null);
+    assert.equal(text(aside.querySelector('h4')), quick);
+    assert.deepEqual([...aside.querySelectorAll('.cards-teaser h3')].map(text), [card]);
+    assert.ok(text(next.querySelector('h2')).startsWith(related));
+  });
+});
+
+test('online check-in: again on its output, unchanged', () => {
+  const once = withQuickLinksSidebar(fixture('online-check-in-it'));
+  assert.equal(withQuickLinksSidebar(once), once);
 });

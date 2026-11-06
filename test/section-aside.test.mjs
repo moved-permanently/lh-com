@@ -61,6 +61,16 @@ test('CSS: two columns from 768 px, the aside a quarter wide beside every row; b
   assert.match(css, /main > \.section\.with-aside > \.section-aside \{ grid-column: 2; grid-row: 1 \/ -1; margin-top: 0; \}/);
 });
 
+/* brief 425 (ITA online check-in it/it, ita-parity-002): a page without a hero gets the breadcrumb at
+   the start of its first section, the content's; www's breadcrumb spans the page above the sidebar
+   component and the box starts level with the H1 (it y 218): the breadcrumb across both columns,
+   the aside from the second row */
+test('CSS: a breadcrumb that opens the section spans both columns, the aside starts beside what follows it', () => {
+  const css = fs.readFileSync(new URL('../styles/styles.css', import.meta.url), 'utf8').replace(/\s+/g, ' ');
+  assert.match(css, /main > \.section\.with-aside > \.breadcrumb-wrapper:first-child \{ grid-column: 1 \/ -1; \}/);
+  assert.match(css, /main > \.section\.with-aside:has\(> \.breadcrumb-wrapper:first-child\) > \.section-aside \{ grid-row: 2 \/ -1; margin-top: var\(--spacing-default\); \}/, 'level with the next wrapper (main > .section > div + div)');
+});
+
 test('decorateMain joins them after the blocks are marked', () => {
   const js = fs.readFileSync(new URL('../scripts/scripts.js', import.meta.url), 'utf8');
   assert.ok(js.includes("import joinAsideSections from './section-aside.js';"));

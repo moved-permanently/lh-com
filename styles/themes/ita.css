@@ -702,3 +702,35 @@ body.brand-ita main .section-aside .cards-teaser .cards-teaser-cta-link {
 }
 
 /* stylelint-enable no-descending-specificity */
+
+/* online check-in's seat teaser beside the box (columns-media grey; www's two-column view,
+   container-gray full-width-bg in the sidebar's content, ita-parity-002): #f8f8f9 to the screen's
+   edges below 768 px, from the screen's left edge to the column's end from 768 px (x 0 to 1026 at
+   1440), 32 px above and below and right of the text; the picture 16:9 with 4 px corners, the
+   heading level with its top */
+body.brand-ita main .columns-media.grey {
+  padding-block: 32px;
+  background: var(--lh-grey-1);
+  box-shadow: 0 0 0 100vmax var(--lh-grey-1);
+  clip-path: inset(0 -100vmax);
+}
+
+body.brand-ita main .columns-media.grey .columns-media-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+body.brand-ita main .columns-media.grey .columns-media-text > h2:first-child {
+  margin-top: 0;
+}
+
+@media (width >= 768px) {
+  body.brand-ita main .columns-media.grey {
+    padding-right: 32px;
+    clip-path: inset(0 0 0 -100vmax);
+  }
+}

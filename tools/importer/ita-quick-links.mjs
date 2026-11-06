@@ -5,10 +5,12 @@
  * sidebar-content beside sidebar-aside; capture ita-parity-001, the carry-on baggage page). The
  * import writes the box flattened after the content: an H4, then per card a linked picture, a
  * linked H3, a linked text, a link. This step makes it www's: the sidebar's content (from the
- * section's first H2 to the box) a section of its own, then the box a section with the section
- * style sidebar-aside (shown beside the section before it: scripts/section-aside.js), its heading
- * and a cards-teaser of the cards (picture | title, text, the link). A document without the box,
- * or one this step made already, stays as it is.
+ * section's first H2 to the box; the whole section when it starts with the H1, as on online
+ * check-in: www's component holds the H1 there, ita-parity-002) a section of its own, then the
+ * box a section with the section style sidebar-aside (shown beside the section before it:
+ * scripts/section-aside.js), its heading and a cards-teaser of the cards (picture | title, text,
+ * the link); online check-in's seat teaser www's grey two-column view (withGreyTeaser). A
+ * document without the box, or one this step made already, stays as it is.
  */
 import { parseHTML } from 'linkedom';
 
@@ -43,6 +45,38 @@ function readCards(heading) {
     n = m;
   }
   return { cards, taken };
+}
+
+/**
+ * Online check-in's seat teaser (ita-parity-002): www's grey is a two-column view of its own
+ * (container-gray: the picture | the heading, text and link) inside the sidebar's content, where
+ * the import gave the whole section the style grey. The teaser (the section's last unlinked
+ * picture, then an H2 and its paragraphs) becomes a columns-media (grey) of one row and the
+ * section's style loses grey. Only when the section's style has grey and the teaser ends it.
+ * @param {Document} document
+ * @param {Element} section the sidebar's content
+ * @param {Element[]} ownMeta the section's own section metadata
+ */
+function withGreyTeaser(document, section, ownMeta) {
+  const style = ownMeta.flatMap((m) => [...m.children]).find((r) => /^style$/i.test(r.firstElementChild?.textContent.trim() || ''));
+  const value = style && style.children[1];
+  if (!value || !/(^|,)\s*grey\s*(,|$)/i.test(value.textContent)) return;
+  const kids = [...section.children].filter((el) => !ownMeta.includes(el));
+  const at = kids.findLastIndex((el) => el.tagName === 'P' && only(el, 'PICTURE') && !el.textContent.trim());
+  const rest = kids.slice(at + 1);
+  if (at < 0 || !rest.length || rest[0].tagName !== 'H2' || rest.slice(1).some((el) => el.tagName !== 'P')) return;
+  const block = document.createElement('div');
+  block.className = 'columns-media grey';
+  const row = document.createElement('div');
+  const media = document.createElement('div');
+  const body = document.createElement('div');
+  media.append(kids[at].firstElementChild);
+  kids[at].remove();
+  body.append(...rest);
+  row.append(media, body);
+  block.append(row);
+  section.append(block);
+  value.textContent = value.textContent.split(',').map((s) => s.trim()).filter((s) => s && !/^grey$/i.test(s)).join(', ');
 }
 
 /**
@@ -95,15 +129,17 @@ export function withQuickLinksSidebar(doc) {
   const ownMeta = after.filter((el) => el.classList.contains('section-metadata'));
   taken.forEach((el) => el.remove());
   aside.append(heading, block, meta, ...after.filter((el) => !ownMeta.includes(el)));
-  // the sidebar's content: from the section's first H2 to the box
+  // the sidebar's content: from the section's first H2 to the box (carry-on: the H1 and intro
+  // above www's component), the whole section when it starts with the H1 (online check-in)
   const firstH2 = section.querySelector(':scope > h2');
-  if (firstH2 && firstH2 !== section.firstElementChild) {
+  if (firstH2 && firstH2 !== section.firstElementChild && section.firstElementChild.tagName !== 'H1') {
     const content = document.createElement('div');
     let m = firstH2;
     while (m) { const next = m.nextElementSibling; content.append(m); m = next; }
     content.append(...ownMeta);
     section.after(content, aside);
   } else {
+    withGreyTeaser(document, section, ownMeta);
     section.append(...ownMeta);
     section.after(aside);
   }
