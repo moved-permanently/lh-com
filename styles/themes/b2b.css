@@ -151,6 +151,8 @@ body.brand-b2b main > .section:last-child:has(> .default-content-wrapper:last-ch
 }
 
 body.brand-b2b main > .section:has(> .default-content-wrapper:last-child > p.column-mark.column-end-outer:last-child):has(+ .section.grey),
+body.brand-b2b main > .section:has(> .default-content-wrapper:last-child > p.column-mark.column-end-outer + p.spacer:last-child):has(+ .section.grey),
+body.brand-b2b main > .section:has(> .default-content-wrapper:last-child > p.column-mark.column-end-outer + p.spacer + p.spacer:last-child):has(+ .section.grey),
 body.brand-b2b main > .section.grey:has(+ .section > .default-content-wrapper:first-child > p.spacer:first-child + p:not(.spacer, .column-mark)) {
   margin-bottom: 0;
 }
@@ -167,12 +169,22 @@ body.brand-b2b main .default-content-wrapper > p.column-mark.column-end-outer + 
   margin-top: 20px;
 }
 
+/* a heading after a divider opens a column view too (contact's "Passenger Receipts": www 72 px under
+   the line) */
+body.brand-b2b main .default-content-wrapper > p.spacer.divider + :is(h1, h2, h3, h4, h5, h6) {
+  margin-top: 20px;
+}
+
 @media (width >= 768px) {
   body.brand-b2b main > .section > div:not(.default-content-wrapper) + div:not(.default-content-wrapper) {
     margin-top: 80px;
   }
 
   body.brand-b2b main .default-content-wrapper > p.column-mark.column-end-outer + :is(h1, h2, h3, h4, h5, h6) {
+    margin-top: 40px;
+  }
+
+  body.brand-b2b main .default-content-wrapper > p.spacer.divider + :is(h1, h2, h3, h4, h5, h6) {
     margin-top: 40px;
   }
 }
@@ -541,5 +553,96 @@ body.brand-b2b .footer .footer-inner.has-brand-row .footer-badges a.footer-badge
 
   body.brand-b2b .footer .footer-inner.has-brand-row .footer-locale {
     margin: 20px 0;
+  }
+}
+
+/* row 29: the inspirational stage (hero-campaign, celebrating-shared-stories: www's .inspirationalstage
+   .promo-hero--right): in the content's width with 4 px corners, the picture a 450 px panel on the left,
+   the item's brand colour (teal, linear-gradient 170deg) beside it, the text 88 px in, the heading 32 /
+   38 light, the copy 18 / 24, a white 52 px button; below 1025 px the picture's 290 px above the text;
+   its grey band joins the next as the other bands do */
+body.brand-b2b main > .section.hero-campaign-container {
+  margin-bottom: var(--section-gap);
+}
+
+body.brand-b2b .hero-campaign {
+  width: auto;
+  min-height: 450px;
+  margin-inline: 0;
+  overflow: hidden;
+  border-radius: 4px;
+  background: linear-gradient(170deg, #199ca2 0%, #045064 100%);
+}
+
+body.brand-b2b .hero-campaign .hero-campaign-media {
+  inset: 0 0 auto;
+  height: 290px;
+  background-color: transparent;
+}
+
+body.brand-b2b .hero-campaign .hero-campaign-media::after {
+  display: none;
+}
+
+body.brand-b2b .hero-campaign .hero-campaign-inner {
+  margin-top: 290px;
+  padding: 40px 20px;
+}
+
+body.brand-b2b .hero-campaign .hero-campaign-content {
+  max-width: 600px;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 24px;
+}
+
+body.brand-b2b .hero-campaign .hero-campaign-content :is(h1, h2, h3, h4, h5, h6) {
+  margin-bottom: 32px;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 38px;
+}
+
+body.brand-b2b .hero-campaign .hero-campaign-content > :is(p, .hero-campaign-cta) {
+  padding-left: 0;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- the stage's own, not the cards' or the columns' */
+body.brand-b2b .hero-campaign .hero-campaign-content > p:not(.hero-campaign-cta) {
+  margin-bottom: 44px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- the stage's own, not the cards' or the columns' */
+body.brand-b2b .hero-campaign .hero-campaign-cta a.button:any-link {
+  min-height: 52px;
+  padding: 12px 28px;
+  border: 2px solid #fff;
+  border-radius: 4px;
+  background: #fff;
+  color: #000;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+@media (width >= 1025px) {
+  body.brand-b2b .hero-campaign .hero-campaign-media {
+    inset: 0 auto 0 0;
+    width: 450px;
+    height: auto;
+  }
+
+  body.brand-b2b .hero-campaign .hero-campaign-inner {
+    max-width: none;
+    margin: 0 0 0 450px;
+    padding: 88px;
+  }
+
+  body.brand-b2b .hero-campaign.right .hero-campaign-inner {
+    justify-content: flex-start;
+  }
+
+  body.brand-b2b .hero-campaign.right .hero-campaign-content {
+    max-width: 600px;
+    margin-left: 0;
   }
 }

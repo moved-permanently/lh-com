@@ -67,3 +67,23 @@ austrian.turnsthe.page and main--lh-austrian--moved-permanently.aem.page (equal 
   pairs, giftvoucher's icon steps, a card row's grey band, the two not uploaded, the tab pages.
 - Rollback: `git revert e441c469 663b69a0` (and the documents: DA's versions before 11:00 UTC; the
   originals read at 08:30 / 09:30 are in /tmp/s407/da-orig until this machine restarts).
+
+## 3. B2B: what was still open and ours after round 3
+
+- Fixed (B2B-scoped CSS, `styles/themes/b2b.css`; rows 29-31 in `tools/reports/b2b/parity.md`; no document
+  changed, no preview paths):
+  - the inspirational stage on celebrating-shared-stories as www's promo-hero (content width, a 450 px picture
+    panel, the teal gradient, the text 88 px in; stacked on phones): the page at 1440 +189 -> -137 px, the rest
+    spread over the page (-18 to -92);
+  - contact's heading after a divider 40 px down (www's column view), and de/en contact's first column (a column
+    end followed by a separator) without the 48 px gap before the grey band;
+  - round 3's "column end before a grey band" rule had been dropped whole by the browser after I added a
+    selector with a :has() inside a :has(); rewritten, and a guard test (`test/b2b-parity-427.test.mjs`) fails
+    on any nested :has() in the theme.
+- For ema-cashub (shared, not changed): `styles/styles.css` has seven selectors with a :has() inside a :has()
+  (the table-striped section rules after a band, the picture-before-a-block rule): browsers drop each of those
+  rules whole today.
+- Still apart: contact's hotline finder (an opening-hours table this hotline record has not), the news
+  overview (+37 / +88 px), the airlines page at 390 (+83 to +131 px).
+- A service restart (between about 12:00 and 15:50 UTC) wiped this machine's /tmp (the captures, my measuring scripts, the DA
+  originals read this morning): DA's version history is the rollback for the documents from here on.

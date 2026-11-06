@@ -73,6 +73,9 @@ panels too (the five entries, their sections side by side, the same links).
 | 26 | Video beside text (homepage's Summer 2027 film) | www's player 16:9 (622 x 350) | the poster's ratio (622 x 280) | theme | mine | fixed (brief 427): 16:9 beside text; a full-width stage video keeps its poster's ratio |
 | 27 | Card copy and partner tile titles (homepage's Travel solutions, LinkedIn tile) | icon modules 18 / 24 regular; the partner teaser's title 18 / 24 bold | 16 / 24 light; 24 / 28 | theme | mine | fixed (brief 427) |
 | 28 | A stage outside a column (de/de and xx/de contact: "Erhalten Sie einen Einblick in die Lufthansa Group") | www's .stage in the content's width (1264 x 404, 346 x 110 on a phone), the title 18 / 24 bold and a small outlined button top left over a dark gradient, the footer right under it | a full-width stage with a navy card (42 px title) | theme | mine | fixed (brief 427): B2B rules for hero-card-overlay (the only two B2B documents with it); de/de contact at 390 +473 -> -62 px |
+| 29 | Inspirational stage (celebrating-shared-stories: "Looking forward to the next century of aviation") | www's promo-hero in the content's width: the picture a 450 px panel, the teal gradient beside it, the text 88 px in, a light 32 px heading, a white button (508 px high); stacked on phones | a full-bleed hero-campaign with a bold 42 px heading on the picture (810 px), a white strip under its band | theme | mine | fixed (offline package, item 3): B2B-scoped; the stage 500 x 1264 px, its text at x 626 as www's; celebrating at 1440 +189 -> -137 px (the rest spread over the page, -18 to -92) |
+| 30 | Contact: a heading after a divider ("Passenger Receipts …") | 72 px under the line (the next column view's padding) | 29 px | theme | mine | fixed (item 3): 20 px, 40 from 768 px |
+| 31 | Contact de/en: the first column's end, then a separator, then the grey band | the band's view right under the column | the 48 px section gap too: round 3's rule only matched a column end that ends the section | theme | mine | fixed (item 3); round 3's rule had also been dropped whole while it held a :has() inside a :has() (a guard test now) |
 
 ## Brief 418
 
@@ -97,3 +100,8 @@ finder 46 px shorter, www shows an opening-hours table this hotline record does 
 keeps the 48 px gap), the de/de contact stage 20 px closer to the airline picture than www's on
 phones, celebrating-shared-stories (+170 to +189 px at 1440, -143 to -149 at 390), the news
 overview (+37 px at 1440, +88 at 390), the airlines page at 390 (+83 to +131 px).
+
+Offline package (2026-11-06, item 3): rows 29-31 fixed, B2B-scoped CSS only, no document changed.
+Still apart: contact's hotline finder (www's capture shows an opening-hours table this hotline record
+has not), contact de/de -78 px at 1440, the news overview (+37 / +88 px), the airlines page at 390
+(+83 to +131 px), celebrating (-137 / -117 px, spread).
