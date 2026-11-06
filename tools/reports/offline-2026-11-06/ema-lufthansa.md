@@ -429,3 +429,68 @@ passage or picture lost. The es to pt pages' hero video now DA's copy (/document
 02-186d57.mp4, as en and de) instead of www's static.lufthansa-cargo.com link (the only line the
 check flagged). Uploaded and previewed; one h1, no broken picture, no sideways scroll at 1440 and
 390 (local dev server with the code).
+
+### 4. Phone-only passages in the story import
+
+cargo-import.mjs (tests first: test/cargo-story-phone-442.test.mjs): after a story module's
+desktop copy, the paragraphs of its phone copies (d-block d-sm-none) whose sentences the page's
+desktop copy lacks are kept: as they are when none of their sentences is on the desktop, else only
+their missing sentences, each once. A sentence counts as on the desktop when a desktop sentence has
+80 % of its words (a word also inside one two characters longer: www's bullet glyph glued on,
+"uCare/td"). That keeps the phone copy's older wording out ("Kühne+Nagel" next to "Kuehne+Nagel",
+the "xcustomers" typo, another word order). A phone paragraph in the page's other language (www's
+English phone copy of a German story) is not kept. A first run without those two rules would have
+added near-duplicates to 9 stories; they are what the tests now check.
+
+All 740 captured stories imported again, each against DA's current copy: 738 identical, 2 change, none
+loses anything:
+
+- /en/news/theculture (held in brief 439): its ten phone-only sentences and the photo credit kept,
+  plus www's breadcrumb; uploaded and previewed.
+- /de/news/night-shift-in-chicago-44 (held in item 2 of the package): its photo credit ("Fotos:
+  Cornelia Garmann, Natalia Pekhanova") kept, plus the breadcrumb; uploaded and previewed.
+
+No other story has phone-only text: none of the 740 gains text. Both on
+main--lh-cargo--moved-permanently.aem.page at 1440 and 390: one h1, no passage twice, no broken
+picture, no sideways scroll. stories-offline-2026-11-06.tsv: both rows "uploaded and previewed".
+
+### 5. Brussels: brussels-snapshots-013
+
+The archive (sha256 05911132…0793f4a, as its .sha256) holds 36 pages of 18 market roots that the
+replica answered 404 for (its README: Canada and US legal pages, invoice and contact confirmations,
+feedback topics, fare alert, aviation services law, luggage promotion 2025, birthright rebooking,
+Bruegel). Neither the articles hub nor Milan (P41) nor any P38 page is in it, so nothing imported
+from it (those 36 were not asked for).
+
+Pages a capture would need (parity.md P38 and P41):
+
+- P38 (www's newer text): /be/fr/our-company, /be/en/travel-classes/economy,
+  /be/fr/travel-classes/business, /be/fr/travel-classes/premium-economy, /fr/fr (the homepage),
+  /ke/en (the homepage).
+- P41 (the hub's newest article): /be/fr/articles, /be/fr/articles/milan-citytrip; and, to keep the
+  English hub alike, /be/en/articles with its Milan article.
+
+### Summary
+
+| Item | Commit | What | Rollback |
+| --- | --- | --- | --- |
+| 1 | e0d6a35f | cargo-import.mjs: the ULD teaser keeps www's phone picture; /en/home and /de/home import identical to DA (nothing uploaded) | revert |
+| 2 | 5b96eb0c | cargo-import.mjs and cargo.css: key facts on phones as www's (phone slides, the link) | revert, and re-upload the six Facts & Figures pages' previous copies |
+| 2, 3 | e0821a67 | Facts & Figures en, de, es, fr, it, pt re-imported (phone slides; es to pt with the nine pictures), uploaded and previewed | re-upload DA's previous copies (kept on this machine) |
+| 4 | (this push) | cargo-import.mjs: phone-only story passages kept | revert |
+| 4 | (this push) | theculture and night-shift-in-chicago-44 uploaded and previewed; the stories table, parity P38/P41 | re-upload their previous copies; revert the docs |
+| 5 | (this push) | brussels-snapshots-013 checked, the capture list | nothing to roll back |
+
+### Preview path lists, in release order
+
+1. Code: e0d6a35f, 5b96eb0c and item 4's commit.
+2. /en/ci/facts-figures, /de/ci/facts-figures, /es/ci/facts-figures, /fr/ci/facts-figures,
+   /it/ci/facts-figures, /pt/ci/facts-figures (their files are already in DA).
+3. /en/news/theculture, /de/news/night-shift-in-chicago-44.
+
+### Open after brief 442
+
+- The key facts' phone slide icons (six SVGs in www's /documents/20184/30701803/) and the
+  2025 Facts & Figures PDFs (EN, DE) are not in lh-cargo's DA: the slides show text only and the link
+  goes to www's PDF.
+- Brussels P38 and P41: the captures listed under item 5.
