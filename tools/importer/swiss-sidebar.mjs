@@ -515,14 +515,14 @@ export function withSwissSidebar(doc, html) {
       asideEnd = end;
     }
     const meta = kids.filter((el) => el.classList && el.classList.contains('section-metadata'));
-    // a tab panel (section metadata Tab): one section per panel, so what comes before the sidebar
-    // stays in it and nothing may follow the sidebar in the panel
+    // a tab panel (section metadata Tab): what comes before the sidebar stays in its content
     const inTab = meta.some((m) => [...m.querySelectorAll(':scope > div > div:first-child')].some((c) => /^tab$/i.test(c.textContent.trim())));
     const before = inTab ? [] : kids.slice(0, start).filter((el) => !meta.includes(el));
     const content = kids.slice(inTab ? 0 : start, end + 1).filter((el) => !meta.includes(el));
     const aside = kids.slice(end + 1, asideEnd + 1).filter((el) => !meta.includes(el));
     const after = kids.slice(asideEnd + 1).filter((el) => !meta.includes(el));
-    if (inTab && after.length) { skipped.push(`sidebar ${n}: in a tab with content after it`); return; }
+    // in a tab, what follows the sidebar is a part of the same panel (its Tab rows: section-aside.js
+    // joins the aside first, section-tabs.js shows the part in the panel)
     const part = (nodes, withMeta) => {
       const d = document.createElement('div');
       d.append(...nodes);

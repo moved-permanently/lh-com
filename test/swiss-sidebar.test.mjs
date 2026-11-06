@@ -113,9 +113,13 @@ test('a tab panel: its label on the content section only, the aside after it', (
   assert.match(text(all[1]), /^Intro text of the tab/, 'what comes before the sidebar stays in the panel');
   assert.deepEqual(style(all[2]), ['Style: sidebar-aside']);
   const after = doc.replace('<p>Teaser text here</p>', '<p>Teaser text here</p><p>More text after the sidebar in this tab</p>');
+  // brief 440 (row 30): content after the sidebar in the same tab is a part of the panel (its Tab
+  // rows; section-aside.js joins the aside first, section-tabs.js shows the part in the panel)
   const r = withSwissSidebar(after, html);
-  assert.equal(r.made, 0);
-  assert.match(r.skipped[0], /tab/);
+  assert.equal(r.made, 1, r.skipped.join('; '));
+  const parts = sections(r.doc);
+  assert.deepEqual(parts.map((x) => style(x).filter((row) => row.startsWith('Tab:')).join('') || style(x).join('')), ['', 'Tab: One', 'Style: sidebar-aside', 'Tab: One', 'Tab: Two']);
+  assert.match(text(parts[3]), /More text after the sidebar in this tab/, 'nothing lost: the rest of the panel after the sidebar');
 });
 
 /* the aside's teasers (www's teaser cards: an image or a video, the title, the text, the link with
@@ -163,7 +167,9 @@ test('a picture under the aside\'s last text belongs to the aside', () => {
   assert.deepEqual(style(aside), ['Style: sidebar-aside']);
   assert.ok(aside.querySelector('picture img[src$="artwork.png"]') !== null);
   const twoPics = withSwissSidebar(doc.replace(pic, pic + pic.replace('artwork', 'other')), html);
-  assert.equal(twoPics.made, 0, 'one picture under the text on www: a second one is the panel\'s, after the sidebar');
+  const [, , aside2, rest2] = sections(twoPics.doc);
+  assert.ok(aside2.querySelector('img[src$="artwork.png"]') !== null && aside2.querySelector('img[src$="other.png"]') === null, 'one picture under the text on www: the aside\'s');
+  assert.ok(rest2.querySelector('img[src$="other.png"]') !== null, 'the second the panel\'s, after the sidebar (brief 440)');
 });
 
 /* www's image | image views (Miles & More: two pictures side by side; recraft's design process: two
