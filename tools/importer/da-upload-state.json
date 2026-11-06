@@ -516,9 +516,9 @@
    "preview": "2026-10-24T11:06:26.613Z"
   },
   "/de/en/business-class": {
-   "uploaded": "2026-11-06T18:49:04.620Z",
-   "mtime": 1793990854600.881,
-   "preview": "2026-11-06T18:49:07.547Z"
+   "uploaded": "2026-11-06T22:14:13.482Z",
+   "mtime": 1794002073790.7432,
+   "preview": "2026-11-06T22:14:16.092Z"
   },
   "/de/en/business-class-on-short-and-medium-haul": {
    "uploaded": "2026-10-24T03:08:33.467Z",
@@ -1227,9 +1227,9 @@
    "preview": "2026-11-06T10:58:30.556Z"
   },
   "/de/en/book-and-manage/stopover": {
-   "uploaded": "2026-11-06T19:33:57.704Z",
-   "mtime": 1793993000989.372,
-   "preview": "2026-11-06T19:34:01.356Z"
+   "uploaded": "2026-11-06T22:14:07.699Z",
+   "mtime": 1794002073789.8818,
+   "preview": "2026-11-06T22:14:10.685Z"
   },
   "/de/en/book-and-manage/stopover/bayerischer-hof": {
    "uploaded": "2026-10-24T04:18:36.917Z",
@@ -1277,14 +1277,14 @@
    "preview": "2026-10-24T02:38:42.036Z"
   },
   "/de/en/320": {
-   "uploaded": "2026-11-06T10:58:35.547Z",
-   "mtime": 1793962058773,
-   "preview": "2026-11-06T10:58:37.408Z"
+   "uploaded": "2026-11-06T22:13:46.020Z",
+   "mtime": 1794002073724.3232,
+   "preview": "2026-11-06T22:13:48.811Z"
   },
   "/de/en/32n": {
-   "uploaded": "2026-11-06T10:58:38.750Z",
-   "mtime": 1793962058791,
-   "preview": "2026-11-06T10:58:40.967Z"
+   "uploaded": "2026-11-06T22:13:51.472Z",
+   "mtime": 1794002073724.8237,
+   "preview": "2026-11-06T22:13:54.260Z"
   },
   "/de/en/744": {
    "uploaded": "2026-10-26T20:43:26.489Z",
@@ -1292,14 +1292,14 @@
    "preview": "2026-10-26T20:43:28.860Z"
   },
   "/de/en/boeing787": {
-   "uploaded": "2026-11-06T10:58:49.396Z",
-   "mtime": 1793962058828,
-   "preview": "2026-11-06T10:58:51.363Z"
+   "uploaded": "2026-11-06T22:14:02.315Z",
+   "mtime": 1794002073788.198,
+   "preview": "2026-11-06T22:14:04.948Z"
   },
   "/de/en/discover-lufthansa/lufthansa-fleet/351": {
-   "uploaded": "2026-11-06T10:58:58.971Z",
-   "mtime": 1793962058849,
-   "preview": "2026-11-06T10:59:00.861Z"
+   "uploaded": "2026-11-06T22:14:23.825Z",
+   "mtime": 1794002073793.6868,
+   "preview": "2026-11-06T22:14:26.502Z"
   },
   "/de/en/lufthansa-first-class-fleet": {
    "uploaded": "2026-10-24T02:38:44.162Z",
@@ -1307,9 +1307,9 @@
    "preview": "2026-10-24T02:38:47.288Z"
   },
   "/de/en/seat-maps": {
-   "uploaded": "2026-11-06T10:59:59.385Z",
-   "mtime": 1793961834573,
-   "preview": "2026-11-06T11:00:01.335Z"
+   "uploaded": "2026-11-06T22:14:29.328Z",
+   "mtime": 1794002073802.8452,
+   "preview": "2026-11-06T22:14:31.829Z"
   },
   "/de/en/articles/authors/florian-tomberg": {
    "uploaded": "2026-10-26T02:47:43.752Z",
@@ -1467,9 +1467,9 @@
    "preview": "2026-10-28T03:47:48.443Z"
   },
   "/de/en/advance-seat-reservations-terms-and-conditions": {
-   "uploaded": "2026-10-24T01:14:14.446Z",
-   "mtime": 1792803302745,
-   "preview": "2026-10-24T01:14:17.672Z"
+   "uploaded": "2026-11-06T22:13:56.862Z",
+   "mtime": 1794002073726.8423,
+   "preview": "2026-11-06T22:13:59.470Z"
   },
   "/de/en/besondere-befoerderungsbedingungen-bus": {
    "uploaded": "2026-10-24T08:19:03.424Z",
@@ -1542,9 +1542,9 @@
    "preview": "2026-10-24T04:20:22.832Z"
   },
   "/de/en/datenschutz": {
-   "uploaded": "2026-10-24T04:20:24.407Z",
-   "mtime": 1792815323213,
-   "preview": "2026-10-24T04:20:26.188Z"
+   "uploaded": "2026-11-06T22:14:19.091Z",
+   "mtime": 1794002073792.9033,
+   "preview": "2026-11-06T22:14:21.209Z"
   },
   "/de/en/faq-data-security": {
    "uploaded": "2026-11-06T19:34:15.016Z",
@@ -4742,9 +4742,9 @@
    "preview": "2026-10-24T11:07:37.111Z"
   },
   "/gb/en/business-class": {
-   "uploaded": "2026-10-26T17:51:01.186Z",
-   "mtime": 1793033864774,
-   "preview": "2026-10-26T17:51:03.910Z"
+   "uploaded": "2026-11-06T22:15:14.869Z",
+   "mtime": 1794002073858.2334,
+   "preview": "2026-11-06T22:15:17.873Z"
   },
   "/gb/en/business-class-on-short-and-medium-haul": {
    "uploaded": "2026-10-24T03:22:38.278Z",
@@ -5492,9 +5492,9 @@
    "preview": "2026-10-26T17:50:46.790Z"
   },
   "/gb/en/book-and-manage/stopover": {
-   "uploaded": "2026-11-01T19:57:58.856Z",
-   "mtime": 1793561853729,
-   "preview": "2026-11-01T19:58:00.924Z"
+   "uploaded": "2026-11-06T22:15:08.462Z",
+   "mtime": 1794002073857.1975,
+   "preview": "2026-11-06T22:15:11.849Z"
   },
   "/gb/en/book-and-manage/stopover/bayerischer-hof": {
    "uploaded": "2026-10-24T04:31:11.634Z",
@@ -5547,14 +5547,14 @@
    "preview": "2026-10-24T02:39:52.534Z"
   },
   "/gb/en/320": {
-   "uploaded": "2026-10-26T20:44:27.337Z",
-   "mtime": 1793046808521,
-   "preview": "2026-10-26T20:44:29.092Z"
+   "uploaded": "2026-11-06T22:14:40.494Z",
+   "mtime": 1794002073812.7437,
+   "preview": "2026-11-06T22:14:42.821Z"
   },
   "/gb/en/32n": {
-   "uploaded": "2026-10-26T20:44:41.113Z",
-   "mtime": 1793046808628,
-   "preview": "2026-10-26T20:44:43.089Z"
+   "uploaded": "2026-11-06T22:14:45.609Z",
+   "mtime": 1794002073812.9343,
+   "preview": "2026-11-06T22:14:48.138Z"
   },
   "/gb/en/359": {
    "uploaded": "2026-10-26T20:44:30.432Z",
@@ -5567,14 +5567,14 @@
    "preview": "2026-10-26T20:44:35.800Z"
   },
   "/gb/en/boeing787": {
-   "uploaded": "2026-10-26T20:44:44.540Z",
-   "mtime": 1793046808660,
-   "preview": "2026-10-26T20:44:46.790Z"
+   "uploaded": "2026-11-06T22:15:02.829Z",
+   "mtime": 1794002073855.4036,
+   "preview": "2026-11-06T22:15:05.398Z"
   },
   "/gb/en/discover-lufthansa/lufthansa-fleet/351": {
-   "uploaded": "2026-10-26T20:44:37.287Z",
-   "mtime": 1793046808601,
-   "preview": "2026-10-26T20:44:39.556Z"
+   "uploaded": "2026-11-06T22:15:25.886Z",
+   "mtime": 1794002073861.4092,
+   "preview": "2026-11-06T22:15:29.221Z"
   },
   "/gb/en/lufthansa-first-class-fleet": {
    "uploaded": "2026-10-24T02:39:54.314Z",
@@ -5582,9 +5582,9 @@
    "preview": "2026-10-24T02:39:57.212Z"
   },
   "/gb/en/seat-maps": {
-   "uploaded": "2026-10-24T01:26:12.234Z",
-   "mtime": 1792803443628,
-   "preview": "2026-10-24T01:26:14.632Z"
+   "uploaded": "2026-11-06T22:15:31.958Z",
+   "mtime": 1794002073870.9011,
+   "preview": "2026-11-06T22:15:34.995Z"
   },
   "/gb/en/articles/authors/florian-tomberg": {
    "uploaded": "2026-10-26T02:47:54.814Z",
@@ -5717,9 +5717,9 @@
    "preview": "2026-10-28T04:14:49.081Z"
   },
   "/gb/en/articles/highlights": {
-   "uploaded": "2026-10-26T04:45:27.540Z",
-   "mtime": 1792989763937,
-   "preview": "2026-10-26T04:45:29.465Z"
+   "uploaded": "2026-11-06T22:14:57.056Z",
+   "mtime": 1794002073844.6545,
+   "preview": "2026-11-06T22:14:59.908Z"
   },
   "/gb/en/articles/highlights/all-it-takes-is-a-yes": {
    "uploaded": "2026-10-26T17:50:52.112Z",
@@ -5747,9 +5747,9 @@
    "preview": "2026-10-28T04:25:24.108Z"
   },
   "/gb/en/advance-seat-reservations-terms-and-conditions": {
-   "uploaded": "2026-10-24T01:26:16.112Z",
-   "mtime": 1792803313840,
-   "preview": "2026-10-24T01:26:18.252Z"
+   "uploaded": "2026-11-06T22:14:50.927Z",
+   "mtime": 1794002073813.9146,
+   "preview": "2026-11-06T22:14:54.131Z"
   },
   "/gb/en/besondere-befoerderungsbedingungen-bus": {
    "uploaded": "2026-10-24T08:20:26.872Z",
@@ -5822,9 +5822,9 @@
    "preview": "2026-10-24T04:33:02.803Z"
   },
   "/gb/en/datenschutz": {
-   "uploaded": "2026-10-24T04:33:04.386Z",
-   "mtime": 1792815323260,
-   "preview": "2026-10-24T04:33:06.517Z"
+   "uploaded": "2026-11-06T22:15:20.870Z",
+   "mtime": 1794002073860.5789,
+   "preview": "2026-11-06T22:15:23.062Z"
   },
   "/gb/en/faq-data-security": {
    "uploaded": "2026-11-06T19:35:26.846Z",
@@ -25215,9 +25215,9 @@
    "preview": "2026-10-28T01:12:56.907Z"
   },
   "/dk/en/homepage": {
-   "uploaded": "2026-10-28T01:12:58.271Z",
-   "mtime": 1793149910069,
-   "preview": "2026-10-28T01:13:01.126Z"
+   "uploaded": "2026-11-06T22:14:34.871Z",
+   "mtime": 1794002073806.3325,
+   "preview": "2026-11-06T22:14:37.793Z"
   },
   "/ee/de/homepage": {
    "uploaded": "2026-10-28T01:13:02.899Z",
@@ -25600,9 +25600,9 @@
    "preview": "2026-10-28T08:28:37.578Z"
   },
   "/il/en/homepage": {
-   "uploaded": "2026-10-28T08:28:38.741Z",
-   "mtime": 1793176012908,
-   "preview": "2026-10-28T08:28:40.757Z"
+   "uploaded": "2026-11-06T22:15:37.848Z",
+   "mtime": 1794002073878.3054,
+   "preview": "2026-11-06T22:15:40.480Z"
   },
   "/in/de/homepage": {
    "uploaded": "2026-10-28T08:28:42.096Z",
@@ -26315,9 +26315,9 @@
    "preview": "2026-10-29T02:24:00.480Z"
   },
   "/nl/en/homepage": {
-   "uploaded": "2026-10-29T02:24:01.671Z",
-   "mtime": 1793240508548,
-   "preview": "2026-10-29T02:24:03.613Z"
+   "uploaded": "2026-11-06T22:15:48.444Z",
+   "mtime": 1794002073890.4548,
+   "preview": "2026-11-06T22:15:51.098Z"
   },
   "/no/de/homepage": {
    "uploaded": "2026-10-29T02:24:04.975Z",
@@ -26325,9 +26325,9 @@
    "preview": "2026-10-29T02:24:07.427Z"
   },
   "/no/en/homepage": {
-   "uploaded": "2026-10-29T02:24:08.709Z",
-   "mtime": 1793240514342,
-   "preview": "2026-10-29T02:24:10.551Z"
+   "uploaded": "2026-11-06T22:15:53.674Z",
+   "mtime": 1794002073891.0183,
+   "preview": "2026-11-06T22:15:56.660Z"
   },
   "/nz/de/homepage": {
    "uploaded": "2026-10-29T02:24:11.813Z",
@@ -26670,9 +26670,9 @@
    "preview": "2026-10-29T08:29:38.750Z"
   },
   "/se/en/homepage": {
-   "uploaded": "2026-10-29T08:29:39.884Z",
-   "mtime": 1793262426841,
-   "preview": "2026-10-29T08:29:42.009Z"
+   "uploaded": "2026-11-06T22:15:59.363Z",
+   "mtime": 1794002073897.649,
+   "preview": "2026-11-06T22:16:01.423Z"
   },
   "/sg/de/homepage": {
    "uploaded": "2026-10-29T08:29:43.225Z",
@@ -27080,9 +27080,9 @@
    "preview": "2026-10-31T17:36:39.781Z"
   },
   "/br/en/homepage": {
-   "uploaded": "2026-10-31T17:36:40.930Z",
-   "mtime": 1793468096903,
-   "preview": "2026-10-31T17:36:43.251Z"
+   "uploaded": "2026-11-06T22:13:40.389Z",
+   "mtime": 1794002073712.4968,
+   "preview": "2026-11-06T22:13:43.270Z"
   },
   "/by/de/homepage": {
    "uploaded": "2026-10-31T17:36:44.541Z",
@@ -27925,9 +27925,9 @@
    "preview": "2026-11-02T04:30:25.316Z"
   },
   "/kr/en/homepage": {
-   "uploaded": "2026-11-02T04:30:26.628Z",
-   "mtime": 1793593695089,
-   "preview": "2026-11-02T04:30:29.331Z"
+   "uploaded": "2026-11-06T22:15:42.956Z",
+   "mtime": 1794002073882.8591,
+   "preview": "2026-11-06T22:15:46.094Z"
   },
   "/kz/de/homepage": {
    "uploaded": "2026-11-02T04:30:30.472Z",
@@ -28300,9 +28300,9 @@
    "preview": "2026-11-02T08:21:36.906Z"
   },
   "/us/en/homepage": {
-   "uploaded": "2026-11-02T08:21:38.150Z",
-   "mtime": 1793607639927,
-   "preview": "2026-11-02T08:21:40.693Z"
+   "uploaded": "2026-11-06T22:16:04.165Z",
+   "mtime": 1794002073902.8474,
+   "preview": "2026-11-06T22:16:07.256Z"
   },
   "/ve/de/homepage": {
    "uploaded": "2026-11-02T08:21:41.814Z",
@@ -45985,6 +45985,1031 @@
    "uploaded": "2026-11-06T01:35:56.378Z",
    "mtime": 1793928882123.5398,
    "preview": "2026-11-06T01:35:58.146Z"
+  },
+  "/de/en/319": {
+   "uploaded": "2026-11-06T21:57:09.711Z",
+   "mtime": 1794001705653.3184,
+   "preview": "2026-11-06T21:57:12.472Z"
+  },
+  "/de/en/31h": {
+   "uploaded": "2026-11-06T21:57:14.537Z",
+   "mtime": 1794002046486.2986,
+   "preview": "2026-11-06T21:57:17.165Z"
+  },
+  "/de/en/31w": {
+   "uploaded": "2026-11-06T21:57:19.046Z",
+   "mtime": 1794001708821.2686,
+   "preview": "2026-11-06T21:57:21.414Z"
+  },
+  "/de/en/321": {
+   "uploaded": "2026-11-06T21:57:23.083Z",
+   "mtime": 1794002046486.5737,
+   "preview": "2026-11-06T21:57:26.414Z"
+  },
+  "/de/en/32a": {
+   "uploaded": "2026-11-06T21:57:28.302Z",
+   "mtime": 1794001710837.6814,
+   "preview": "2026-11-06T21:57:30.577Z"
+  },
+  "/de/en/32h": {
+   "uploaded": "2026-11-06T21:57:32.814Z",
+   "mtime": 1794001712630.224,
+   "preview": "2026-11-06T21:57:35.144Z"
+  },
+  "/de/en/32l": {
+   "uploaded": "2026-11-06T21:57:36.898Z",
+   "mtime": 1794001714331.461,
+   "preview": "2026-11-06T21:57:39.354Z"
+  },
+  "/de/en/32m": {
+   "uploaded": "2026-11-06T21:57:41.581Z",
+   "mtime": 1794001716046.8606,
+   "preview": "2026-11-06T21:57:43.846Z"
+  },
+  "/de/en/32q": {
+   "uploaded": "2026-11-06T21:57:45.797Z",
+   "mtime": 1794002046486.9949,
+   "preview": "2026-11-06T21:57:48.816Z"
+  },
+  "/de/en/32v": {
+   "uploaded": "2026-11-06T21:57:50.511Z",
+   "mtime": 1794001718765.0498,
+   "preview": "2026-11-06T21:57:53.129Z"
+  },
+  "/de/en/333": {
+   "uploaded": "2026-11-06T21:57:54.879Z",
+   "mtime": 1794001720362.481,
+   "preview": "2026-11-06T21:57:57.666Z"
+  },
+  "/de/en/33p": {
+   "uploaded": "2026-11-06T21:57:59.541Z",
+   "mtime": 1794001721876.6409,
+   "preview": "2026-11-06T21:58:01.902Z"
+  },
+  "/de/en/33q": {
+   "uploaded": "2026-11-06T21:58:03.653Z",
+   "mtime": 1794001723070.6626,
+   "preview": "2026-11-06T21:58:06.022Z"
+  },
+  "/de/en/343": {
+   "uploaded": "2026-11-06T21:58:07.731Z",
+   "mtime": 1794001725226.2368,
+   "preview": "2026-11-06T21:58:10.642Z"
+  },
+  "/de/en/346": {
+   "uploaded": "2026-11-06T21:58:12.744Z",
+   "mtime": 1794001726752.4072,
+   "preview": "2026-11-06T21:58:15.750Z"
+  },
+  "/de/en/34p": {
+   "uploaded": "2026-11-06T21:58:17.714Z",
+   "mtime": 1794001727954.3108,
+   "preview": "2026-11-06T21:58:20.122Z"
+  },
+  "/de/en/34q": {
+   "uploaded": "2026-11-06T21:58:21.973Z",
+   "mtime": 1794001729223.8794,
+   "preview": "2026-11-06T21:58:24.162Z"
+  },
+  "/de/en/35a": {
+   "uploaded": "2026-11-06T21:58:26.129Z",
+   "mtime": 1794002046487.5334,
+   "preview": "2026-11-06T21:58:28.809Z"
+  },
+  "/de/en/388": {
+   "uploaded": "2026-11-06T21:58:30.902Z",
+   "mtime": 1794002046487.8147,
+   "preview": "2026-11-06T21:58:33.687Z"
+  },
+  "/de/en/73g": {
+   "uploaded": "2026-11-06T21:58:35.541Z",
+   "mtime": 1794001733603.3723,
+   "preview": "2026-11-06T21:58:37.885Z"
+  },
+  "/de/en/74e": {
+   "uploaded": "2026-11-06T21:58:39.628Z",
+   "mtime": 1794001734778.795,
+   "preview": "2026-11-06T21:58:42.072Z"
+  },
+  "/de/en/74h": {
+   "uploaded": "2026-11-06T21:58:43.953Z",
+   "mtime": 1794002046488.128,
+   "preview": "2026-11-06T21:58:46.617Z"
+  },
+  "/de/en/74p": {
+   "uploaded": "2026-11-06T21:58:48.871Z",
+   "mtime": 1794001737696.152,
+   "preview": "2026-11-06T21:58:51.446Z"
+  },
+  "/de/en/74q": {
+   "uploaded": "2026-11-06T21:58:53.407Z",
+   "mtime": 1794001739291.7864,
+   "preview": "2026-11-06T21:58:56.039Z"
+  },
+  "/de/en/74z": {
+   "uploaded": "2026-11-06T21:58:57.908Z",
+   "mtime": 1794001741089.4307,
+   "preview": "2026-11-06T21:59:00.444Z"
+  },
+  "/de/en/articles/highlights/fashion-guide": {
+   "uploaded": "2026-11-06T21:59:02.334Z",
+   "mtime": 1794001983012.997,
+   "preview": "2026-11-06T21:59:05.849Z"
+  },
+  "/de/en/articles/highlights/winter-destinations": {
+   "uploaded": "2026-11-06T21:59:07.879Z",
+   "mtime": 1794001984574.9404,
+   "preview": "2026-11-06T21:59:10.702Z"
+  },
+  "/de/en/book-and-manage": {
+   "uploaded": "2026-11-06T21:59:12.834Z",
+   "mtime": 1794001803317.0166,
+   "preview": "2026-11-06T21:59:16.543Z"
+  },
+  "/de/en/book-and-manage/best-price": {
+   "uploaded": "2026-11-06T21:59:18.495Z",
+   "mtime": 1794001814489.6309,
+   "preview": "2026-11-06T21:59:20.867Z"
+  },
+  "/de/en/book-and-manage/stopover/breuninger": {
+   "uploaded": "2026-11-06T21:59:22.661Z",
+   "mtime": 1794001667857.7068,
+   "preview": "2026-11-06T21:59:25.756Z"
+  },
+  "/de/en/book-and-manage/stopover/garmisch-classic": {
+   "uploaded": "2026-11-06T21:59:27.665Z",
+   "mtime": 1794001669447.4822,
+   "preview": "2026-11-06T21:59:30.533Z"
+  },
+  "/de/en/book-and-manage/stopover/hop-on-hop-off-muc": {
+   "uploaded": "2026-11-06T21:59:32.639Z",
+   "mtime": 1794001671339.444,
+   "preview": "2026-11-06T21:59:35.056Z"
+  },
+  "/de/en/book-and-manage/stopover/ingolstadt-village": {
+   "uploaded": "2026-11-06T21:59:37.694Z",
+   "mtime": 1794001672695.7651,
+   "preview": "2026-11-06T21:59:40.905Z"
+  },
+  "/de/en/book-and-manage/stopover/leonardo-hotel": {
+   "uploaded": "2026-11-06T21:59:43.082Z",
+   "mtime": 1794001673988.6997,
+   "preview": "2026-11-06T21:59:46.099Z"
+  },
+  "/de/en/book-and-manage/stopover/muc-city-pass": {
+   "uploaded": "2026-11-06T21:59:48.084Z",
+   "mtime": 1794001675809.8997,
+   "preview": "2026-11-06T21:59:51.106Z"
+  },
+  "/de/en/book-and-manage/stopover/munich-airport": {
+   "uploaded": "2026-11-06T21:59:52.804Z",
+   "mtime": 1794001677501.5947,
+   "preview": "2026-11-06T21:59:55.465Z"
+  },
+  "/de/en/book-and-manage/stopover/rosewood": {
+   "uploaded": "2026-11-06T21:59:57.209Z",
+   "mtime": 1794001679815.4346,
+   "preview": "2026-11-06T22:00:00.218Z"
+  },
+  "/de/en/book-and-manage/stopover/sixt-muc": {
+   "uploaded": "2026-11-06T22:00:02.137Z",
+   "mtime": 1794001681678.4329,
+   "preview": "2026-11-06T22:00:05.178Z"
+  },
+  "/de/en/book-and-manage/stopover/sixt-ride-bavaria": {
+   "uploaded": "2026-11-06T22:00:07.118Z",
+   "mtime": 1794001683876.5706,
+   "preview": "2026-11-06T22:00:10.420Z"
+  },
+  "/de/en/common/fast-compensation": {
+   "uploaded": "2026-11-06T22:00:12.424Z",
+   "mtime": 1794001992832.3936,
+   "preview": "2026-11-06T22:00:14.660Z"
+  },
+  "/de/en/common/privacy-statement/privacy-policy-for-the-lufthansa-facebook-page": {
+   "uploaded": "2026-11-06T22:00:16.789Z",
+   "mtime": 1794001994512.8855,
+   "preview": "2026-11-06T22:00:20.030Z"
+  },
+  "/de/en/common/seatreservation-condtions/economy-light-fare": {
+   "uploaded": "2026-11-06T22:00:21.911Z",
+   "mtime": 1794001995585.2314,
+   "preview": "2026-11-06T22:00:24.403Z"
+  },
+  "/de/en/common/seatreservation-condtions/rebookings-cancellation": {
+   "uploaded": "2026-11-06T22:00:26.626Z",
+   "mtime": 1794001996566.7803,
+   "preview": "2026-11-06T22:00:29.006Z"
+  },
+  "/de/en/common/seatreservation-condtions/refund": {
+   "uploaded": "2026-11-06T22:00:31.003Z",
+   "mtime": 1794001999008.1855,
+   "preview": "2026-11-06T22:00:33.648Z"
+  },
+  "/de/en/common/terms-and-conditions/terms-and-conditions-promocode": {
+   "uploaded": "2026-11-06T22:00:35.451Z",
+   "mtime": 1794002046278.6196,
+   "preview": "2026-11-06T22:00:37.645Z"
+  },
+  "/de/en/concur-terms-and-conditions": {
+   "uploaded": "2026-11-06T22:00:39.547Z",
+   "mtime": 1794002002234.4998,
+   "preview": "2026-11-06T22:00:42.261Z"
+  },
+  "/de/en/crn": {
+   "uploaded": "2026-11-06T22:00:44.324Z",
+   "mtime": 1794001815694.907,
+   "preview": "2026-11-06T22:00:47.634Z"
+  },
+  "/de/en/discover-lufthansa": {
+   "uploaded": "2026-11-06T22:00:49.502Z",
+   "mtime": 1794001804950.7424,
+   "preview": "2026-11-06T22:00:52.324Z"
+  },
+  "/de/en/during-your-trip": {
+   "uploaded": "2026-11-06T22:00:54.315Z",
+   "mtime": 1794001806269.7598,
+   "preview": "2026-11-06T22:00:57.038Z"
+  },
+  "/de/en/e9n-1": {
+   "uploaded": "2026-11-06T22:00:58.920Z",
+   "mtime": 1794001817530.617,
+   "preview": "2026-11-06T22:01:01.375Z"
+  },
+  "/de/en/e9n-2": {
+   "uploaded": "2026-11-06T22:01:03.304Z",
+   "mtime": 1794001819061.1592,
+   "preview": "2026-11-06T22:01:05.885Z"
+  },
+  "/de/en/event/13-dt-arbeitsrechtskonferenz-2026": {
+   "uploaded": "2026-11-06T22:01:08.116Z",
+   "mtime": 1794002046280.5195,
+   "preview": "2026-11-06T22:01:11.849Z"
+  },
+  "/de/en/event/dwg-2026": {
+   "uploaded": "2026-11-06T22:01:13.870Z",
+   "mtime": 1794002046281.2866,
+   "preview": "2026-11-06T22:01:17.014Z"
+  },
+  "/de/en/event/entertainment": {
+   "uploaded": "2026-11-06T22:01:19.453Z",
+   "mtime": 1794002046282.2207,
+   "preview": "2026-11-06T22:01:23.226Z"
+  },
+  "/de/en/event/exclusive-event-offer-dxb": {
+   "uploaded": "2026-11-06T22:01:25.143Z",
+   "mtime": 1794002046283.5063,
+   "preview": "2026-11-06T22:01:28.549Z"
+  },
+  "/de/en/event/sustainabale-event-dxb-2023": {
+   "uploaded": "2026-11-06T22:01:30.327Z",
+   "mtime": 1794002046284.1323,
+   "preview": "2026-11-06T22:01:32.508Z"
+  },
+  "/de/en/fascination-northern-europe": {
+   "uploaded": "2026-11-06T22:01:34.672Z",
+   "mtime": 1794002046285.1514,
+   "preview": "2026-11-06T22:01:38.096Z"
+  },
+  "/de/en/flex-fare-booking": {
+   "uploaded": "2026-11-06T22:01:39.961Z",
+   "mtime": 1794002046285.9592,
+   "preview": "2026-11-06T22:01:42.848Z"
+  },
+  "/de/en/flight-frankfurt-ivalo": {
+   "uploaded": "2026-11-06T22:01:45.108Z",
+   "mtime": 1794002046286.6194,
+   "preview": "2026-11-06T22:01:47.510Z"
+  },
+  "/de/en/flight-frankfurt-kuusamo": {
+   "uploaded": "2026-11-06T22:01:49.728Z",
+   "mtime": 1794002046287.159,
+   "preview": "2026-11-06T22:01:51.964Z"
+  },
+  "/de/en/flight-munich-oulu": {
+   "uploaded": "2026-11-06T22:01:53.806Z",
+   "mtime": 1794002046287.7651,
+   "preview": "2026-11-06T22:01:57.591Z"
+  },
+  "/de/en/local-page/discover-japan1": {
+   "uploaded": "2026-11-06T22:01:59.381Z",
+   "mtime": 1794002046288.6047,
+   "preview": "2026-11-06T22:02:02.830Z"
+  },
+  "/de/en/lufthansa-ana": {
+   "uploaded": "2026-11-06T22:02:04.996Z",
+   "mtime": 1794002046289.7754,
+   "preview": "2026-11-06T22:02:08.568Z"
+  },
+  "/de/en/opc": {
+   "uploaded": "2026-11-06T22:02:10.776Z",
+   "mtime": 1794001840435.8176,
+   "preview": "2026-11-06T22:02:13.300Z"
+  },
+  "/de/en/prepare-for-your-trip": {
+   "uploaded": "2026-11-06T22:02:15.177Z",
+   "mtime": 1794001807542.5876,
+   "preview": "2026-11-06T22:02:17.243Z"
+  },
+  "/de/en/prepare-for-your-trip/getting-to-and-from-the-airport/brussels-express-rail": {
+   "uploaded": "2026-11-06T22:02:19.361Z",
+   "mtime": 1794002046291.2766,
+   "preview": "2026-11-06T22:02:22.261Z"
+  },
+  "/de/en/support/social-media": {
+   "uploaded": "2026-11-06T22:02:24.488Z",
+   "mtime": 1794001844162.4268,
+   "preview": "2026-11-06T22:02:26.748Z"
+  },
+  "/de/en/unionpay": {
+   "uploaded": "2026-11-06T22:02:28.475Z",
+   "mtime": 1794002046292.7397,
+   "preview": "2026-11-06T22:02:32.375Z"
+  },
+  "/gb/en/319": {
+   "uploaded": "2026-11-06T22:02:34.188Z",
+   "mtime": 1794001743294.2383,
+   "preview": "2026-11-06T22:02:36.604Z"
+  },
+  "/gb/en/31h": {
+   "uploaded": "2026-11-06T22:02:38.457Z",
+   "mtime": 1794002046491.6013,
+   "preview": "2026-11-06T22:02:41.044Z"
+  },
+  "/gb/en/31w": {
+   "uploaded": "2026-11-06T22:02:42.801Z",
+   "mtime": 1794001746625.3792,
+   "preview": "2026-11-06T22:02:45.377Z"
+  },
+  "/gb/en/321": {
+   "uploaded": "2026-11-06T22:02:47.362Z",
+   "mtime": 1794002046491.9187,
+   "preview": "2026-11-06T22:02:49.925Z"
+  },
+  "/gb/en/32a": {
+   "uploaded": "2026-11-06T22:02:51.669Z",
+   "mtime": 1794001749892.5945,
+   "preview": "2026-11-06T22:02:53.900Z"
+  },
+  "/gb/en/32h": {
+   "uploaded": "2026-11-06T22:02:55.769Z",
+   "mtime": 1794001751436.0422,
+   "preview": "2026-11-06T22:02:57.908Z"
+  },
+  "/gb/en/32l": {
+   "uploaded": "2026-11-06T22:03:00.013Z",
+   "mtime": 1794001752517.7986,
+   "preview": "2026-11-06T22:03:02.560Z"
+  },
+  "/gb/en/32m": {
+   "uploaded": "2026-11-06T22:03:04.374Z",
+   "mtime": 1794001754386.37,
+   "preview": "2026-11-06T22:03:07.052Z"
+  },
+  "/gb/en/32q": {
+   "uploaded": "2026-11-06T22:03:08.980Z",
+   "mtime": 1794002046492.3801,
+   "preview": "2026-11-06T22:03:11.609Z"
+  },
+  "/gb/en/32v": {
+   "uploaded": "2026-11-06T22:03:13.475Z",
+   "mtime": 1794001757140.7197,
+   "preview": "2026-11-06T22:03:15.960Z"
+  },
+  "/gb/en/333": {
+   "uploaded": "2026-11-06T22:03:17.817Z",
+   "mtime": 1794001758538.2168,
+   "preview": "2026-11-06T22:03:19.997Z"
+  },
+  "/gb/en/33p": {
+   "uploaded": "2026-11-06T22:03:22.212Z",
+   "mtime": 1794001760981.9346,
+   "preview": "2026-11-06T22:03:24.225Z"
+  },
+  "/gb/en/33q": {
+   "uploaded": "2026-11-06T22:03:26.074Z",
+   "mtime": 1794001763295.7124,
+   "preview": "2026-11-06T22:03:27.941Z"
+  },
+  "/gb/en/343": {
+   "uploaded": "2026-11-06T22:03:29.918Z",
+   "mtime": 1794001765562.8027,
+   "preview": "2026-11-06T22:03:32.331Z"
+  },
+  "/gb/en/346": {
+   "uploaded": "2026-11-06T22:03:34.260Z",
+   "mtime": 1794001766869.8132,
+   "preview": "2026-11-06T22:03:36.570Z"
+  },
+  "/gb/en/34p": {
+   "uploaded": "2026-11-06T22:03:38.588Z",
+   "mtime": 1794001768643.7534,
+   "preview": "2026-11-06T22:03:40.857Z"
+  },
+  "/gb/en/34q": {
+   "uploaded": "2026-11-06T22:03:42.784Z",
+   "mtime": 1794001770532.5466,
+   "preview": "2026-11-06T22:03:45.336Z"
+  },
+  "/gb/en/35a": {
+   "uploaded": "2026-11-06T22:03:47.097Z",
+   "mtime": 1794002046492.9033,
+   "preview": "2026-11-06T22:03:49.854Z"
+  },
+  "/gb/en/388": {
+   "uploaded": "2026-11-06T22:03:51.629Z",
+   "mtime": 1794002046493.1978,
+   "preview": "2026-11-06T22:03:54.135Z"
+  },
+  "/gb/en/73g": {
+   "uploaded": "2026-11-06T22:03:56.009Z",
+   "mtime": 1794001775793.5852,
+   "preview": "2026-11-06T22:03:58.889Z"
+  },
+  "/gb/en/74e": {
+   "uploaded": "2026-11-06T22:04:00.983Z",
+   "mtime": 1794001777222.3044,
+   "preview": "2026-11-06T22:04:03.620Z"
+  },
+  "/gb/en/74h": {
+   "uploaded": "2026-11-06T22:04:05.907Z",
+   "mtime": 1794002046493.5986,
+   "preview": "2026-11-06T22:04:08.377Z"
+  },
+  "/gb/en/74p": {
+   "uploaded": "2026-11-06T22:04:10.603Z",
+   "mtime": 1794001781540.7092,
+   "preview": "2026-11-06T22:04:13.604Z"
+  },
+  "/gb/en/74q": {
+   "uploaded": "2026-11-06T22:04:15.865Z",
+   "mtime": 1794001783676.5107,
+   "preview": "2026-11-06T22:04:17.924Z"
+  },
+  "/gb/en/74z": {
+   "uploaded": "2026-11-06T22:04:19.799Z",
+   "mtime": 1794001784916.45,
+   "preview": "2026-11-06T22:04:21.813Z"
+  },
+  "/gb/en/articles/highlights/fashion-guide": {
+   "uploaded": "2026-11-06T22:04:23.767Z",
+   "mtime": 1794001986552.947,
+   "preview": "2026-11-06T22:04:26.587Z"
+  },
+  "/gb/en/articles/highlights/soccer-event-in-north-america": {
+   "uploaded": "2026-11-06T22:04:28.483Z",
+   "mtime": 1794002046494.085,
+   "preview": "2026-11-06T22:04:31.353Z"
+  },
+  "/gb/en/articles/highlights/winter-destinations": {
+   "uploaded": "2026-11-06T22:04:33.277Z",
+   "mtime": 1794001989727.5576,
+   "preview": "2026-11-06T22:04:35.832Z"
+  },
+  "/gb/en/autumn-campaign22": {
+   "uploaded": "2026-11-06T22:04:37.850Z",
+   "mtime": 1794001846657.3428,
+   "preview": "2026-11-06T22:04:43.099Z"
+  },
+  "/gb/en/book-and-manage": {
+   "uploaded": "2026-11-06T22:04:44.983Z",
+   "mtime": 1794001809037.971,
+   "preview": "2026-11-06T22:04:48.246Z"
+  },
+  "/gb/en/book-and-manage/best-price": {
+   "uploaded": "2026-11-06T22:04:50.125Z",
+   "mtime": 1794001848001.5818,
+   "preview": "2026-11-06T22:04:52.205Z"
+  },
+  "/gb/en/book-and-manage/offers-and-destination/business-class-special": {
+   "uploaded": "2026-11-06T22:04:54.160Z",
+   "mtime": 1794001849696.8162,
+   "preview": "2026-11-06T22:04:56.673Z"
+  },
+  "/gb/en/book-and-manage/stopover/breuninger": {
+   "uploaded": "2026-11-06T22:04:58.741Z",
+   "mtime": 1794001686095.4253,
+   "preview": "2026-11-06T22:05:01.044Z"
+  },
+  "/gb/en/book-and-manage/stopover/garmisch-classic": {
+   "uploaded": "2026-11-06T22:05:02.844Z",
+   "mtime": 1794001687486.5696,
+   "preview": "2026-11-06T22:05:05.174Z"
+  },
+  "/gb/en/book-and-manage/stopover/hop-on-hop-off-muc": {
+   "uploaded": "2026-11-06T22:05:07.308Z",
+   "mtime": 1794001689360.2383,
+   "preview": "2026-11-06T22:05:09.733Z"
+  },
+  "/gb/en/book-and-manage/stopover/ingolstadt-village": {
+   "uploaded": "2026-11-06T22:05:11.816Z",
+   "mtime": 1794001690411.9675,
+   "preview": "2026-11-06T22:05:13.982Z"
+  },
+  "/gb/en/book-and-manage/stopover/leonardo-hotel": {
+   "uploaded": "2026-11-06T22:05:16.226Z",
+   "mtime": 1794001692741.6394,
+   "preview": "2026-11-06T22:05:18.537Z"
+  },
+  "/gb/en/book-and-manage/stopover/muc-city-pass": {
+   "uploaded": "2026-11-06T22:05:20.796Z",
+   "mtime": 1794001694107.8987,
+   "preview": "2026-11-06T22:05:23.146Z"
+  },
+  "/gb/en/book-and-manage/stopover/munich-airport": {
+   "uploaded": "2026-11-06T22:05:24.956Z",
+   "mtime": 1794001695529.5867,
+   "preview": "2026-11-06T22:05:27.251Z"
+  },
+  "/gb/en/book-and-manage/stopover/rosewood": {
+   "uploaded": "2026-11-06T22:05:29.174Z",
+   "mtime": 1794001696667.7847,
+   "preview": "2026-11-06T22:05:31.717Z"
+  },
+  "/gb/en/book-and-manage/stopover/sixt-muc": {
+   "uploaded": "2026-11-06T22:05:55.927Z",
+   "mtime": 1794001697760.86,
+   "preview": "2026-11-06T22:05:58.448Z"
+  },
+  "/gb/en/book-and-manage/stopover/sixt-ride-bavaria": {
+   "uploaded": "2026-11-06T22:06:00.247Z",
+   "mtime": 1794001698994.314,
+   "preview": "2026-11-06T22:06:02.641Z"
+  },
+  "/gb/en/common/fast-compensation": {
+   "uploaded": "2026-11-06T22:06:04.540Z",
+   "mtime": 1794002004369.2178,
+   "preview": "2026-11-06T22:06:07.638Z"
+  },
+  "/gb/en/common/privacy-statement/privacy-policy-for-the-lufthansa-facebook-page": {
+   "uploaded": "2026-11-06T22:06:09.396Z",
+   "mtime": 1794002005915.6497,
+   "preview": "2026-11-06T22:06:12.143Z"
+  },
+  "/gb/en/common/seatreservation-condtions/economy-light-fare": {
+   "uploaded": "2026-11-06T22:06:14.364Z",
+   "mtime": 1794002007949.7346,
+   "preview": "2026-11-06T22:06:16.380Z"
+  },
+  "/gb/en/common/seatreservation-condtions/rebookings-cancellation": {
+   "uploaded": "2026-11-06T22:06:18.269Z",
+   "mtime": 1794002008970.4915,
+   "preview": "2026-11-06T22:06:20.540Z"
+  },
+  "/gb/en/common/seatreservation-condtions/refund": {
+   "uploaded": "2026-11-06T22:06:22.545Z",
+   "mtime": 1794002010830.3958,
+   "preview": "2026-11-06T22:06:24.809Z"
+  },
+  "/gb/en/companion-special-business-class": {
+   "uploaded": "2026-11-06T22:06:26.682Z",
+   "mtime": 1794001851445.3765,
+   "preview": "2026-11-06T22:06:29.841Z"
+  },
+  "/gb/en/concur-terms-and-conditions": {
+   "uploaded": "2026-11-06T22:06:31.575Z",
+   "mtime": 1794002012496.8843,
+   "preview": "2026-11-06T22:06:33.733Z"
+  },
+  "/gb/en/crn": {
+   "uploaded": "2026-11-06T22:06:35.526Z",
+   "mtime": 1794001853338.8147,
+   "preview": "2026-11-06T22:06:37.746Z"
+  },
+  "/gb/en/e9n-1": {
+   "uploaded": "2026-11-06T22:06:39.480Z",
+   "mtime": 1794001854869.956,
+   "preview": "2026-11-06T22:06:42.177Z"
+  },
+  "/gb/en/e9n-2": {
+   "uploaded": "2026-11-06T22:06:43.965Z",
+   "mtime": 1794001856214.6296,
+   "preview": "2026-11-06T22:06:46.144Z"
+  },
+  "/gb/en/grouptravel": {
+   "uploaded": "2026-11-06T22:06:48.219Z",
+   "mtime": 1794001858594.9814,
+   "preview": "2026-11-06T22:06:51.294Z"
+  },
+  "/gb/en/opc": {
+   "uploaded": "2026-11-06T22:06:53.160Z",
+   "mtime": 1794001859791.7007,
+   "preview": "2026-11-06T22:06:55.194Z"
+  },
+  "/gb/en/prepare-for-your-trip": {
+   "uploaded": "2026-11-06T22:06:56.941Z",
+   "mtime": 1794001811045.1523,
+   "preview": "2026-11-06T22:06:59.590Z"
+  },
+  "/gb/en/sale": {
+   "uploaded": "2026-11-06T22:07:01.586Z",
+   "mtime": 1794001860780.5203,
+   "preview": "2026-11-06T22:07:03.786Z"
+  },
+  "/gb/en/support/social-media": {
+   "uploaded": "2026-11-06T22:07:05.876Z",
+   "mtime": 1794001862579.5845,
+   "preview": "2026-11-06T22:07:07.842Z"
+  },
+  "/gb/en/unhide-fashion": {
+   "uploaded": "2026-11-06T22:07:09.550Z",
+   "mtime": 1794002143163.6865,
+   "preview": "2026-11-06T22:07:12.976Z"
+  },
+  "/gb/en/unionpay": {
+   "uploaded": "2026-11-06T22:07:14.909Z",
+   "mtime": 1794001865841.4807,
+   "preview": "2026-11-06T22:07:18.319Z"
+  },
+  "/ae/en/companion-special-business-class": {
+   "uploaded": "2026-11-06T22:07:20.574Z",
+   "mtime": 1794002143164.0093,
+   "preview": "2026-11-06T22:07:22.726Z"
+  },
+  "/ae/en/companion-special-jun2021": {
+   "uploaded": "2026-11-06T22:07:24.605Z",
+   "mtime": 1794002143164.3406,
+   "preview": "2026-11-06T22:07:28.096Z"
+  },
+  "/ae/en/companion-special-premium-economy-class": {
+   "uploaded": "2026-11-06T22:07:29.868Z",
+   "mtime": 1794002143164.5654,
+   "preview": "2026-11-06T22:07:32.671Z"
+  },
+  "/ae/en/offers-to-europe": {
+   "uploaded": "2026-11-06T22:07:35.014Z",
+   "mtime": 1794002143164.7253,
+   "preview": "2026-11-06T22:07:37.159Z"
+  },
+  "/ae/en/promotion-code-information": {
+   "uploaded": "2026-11-06T22:07:38.826Z",
+   "mtime": 1794002143164.951,
+   "preview": "2026-11-06T22:07:40.890Z"
+  },
+  "/ae/en/special-offers-to-north-america": {
+   "uploaded": "2026-11-06T22:07:42.824Z",
+   "mtime": 1794002143165.1392,
+   "preview": "2026-11-06T22:07:46.591Z"
+  },
+  "/at/en/book-and-manage/offers-and-destination/companion-special-business-class": {
+   "uploaded": "2026-11-06T22:07:48.457Z",
+   "mtime": 1794002143165.3608,
+   "preview": "2026-11-06T22:07:51.110Z"
+  },
+  "/at/en/book-and-manage/offers-and-destination/nordamerika-angebote": {
+   "uploaded": "2026-11-06T22:07:53.372Z",
+   "mtime": 1794002143165.541,
+   "preview": "2026-11-06T22:07:55.980Z"
+  },
+  "/at/en/companion-special-business-class-eu": {
+   "uploaded": "2026-11-06T22:07:58.032Z",
+   "mtime": 1794002143165.7356,
+   "preview": "2026-11-06T22:08:01.313Z"
+  },
+  "/at/en/companion-special-first-class": {
+   "uploaded": "2026-11-06T22:08:03.227Z",
+   "mtime": 1794002143166.0203,
+   "preview": "2026-11-06T22:08:05.355Z"
+  },
+  "/at/en/event/esorics-2027": {
+   "uploaded": "2026-11-06T22:08:07.156Z",
+   "mtime": 1794002143166.2534,
+   "preview": "2026-11-06T22:08:09.948Z"
+  },
+  "/ba/en/invoice-request-bosnia": {
+   "uploaded": "2026-11-06T22:08:11.780Z",
+   "mtime": 1794002143166.6323,
+   "preview": "2026-11-06T22:08:14.021Z"
+  },
+  "/be/en/local-page/experience-america": {
+   "uploaded": "2026-11-06T22:08:15.774Z",
+   "mtime": 1794002143167.011,
+   "preview": "2026-11-06T22:08:19.009Z"
+  },
+  "/bg/en/full-flex-promo-aug2021": {
+   "uploaded": "2026-11-06T22:08:20.771Z",
+   "mtime": 1794002143167.2449,
+   "preview": "2026-11-06T22:08:24.177Z"
+  },
+  "/bg/en/local-page/companion-special-in-business-class": {
+   "uploaded": "2026-11-06T22:08:26.443Z",
+   "mtime": 1794002143167.4214,
+   "preview": "2026-11-06T22:08:29.284Z"
+  },
+  "/bh/en/promotion-code-information-kaust": {
+   "uploaded": "2026-11-06T22:08:31.182Z",
+   "mtime": 1794002143167.5874,
+   "preview": "2026-11-06T22:08:34.823Z"
+  },
+  "/br/en/btg-terminal-en": {
+   "uploaded": "2026-11-06T22:08:36.750Z",
+   "mtime": 1794002143167.9553,
+   "preview": "2026-11-06T22:08:39.677Z"
+  },
+  "/br/en/local-page/ski-campaign-2026": {
+   "uploaded": "2026-11-06T22:08:41.559Z",
+   "mtime": 1794002143168.2346,
+   "preview": "2026-11-06T22:08:44.228Z"
+  },
+  "/ca/en/best-price-search": {
+   "uploaded": "2026-11-06T22:08:46.150Z",
+   "mtime": 1794002143168.446,
+   "preview": "2026-11-06T22:08:48.683Z"
+  },
+  "/ca/en/local-page/flightreservation-priceguarantee": {
+   "uploaded": "2026-11-06T22:08:50.485Z",
+   "mtime": 1794002143168.7256,
+   "preview": "2026-11-06T22:08:53.257Z"
+  },
+  "/cn/en/local-page/cnypromocode26": {
+   "uploaded": "2026-11-06T22:08:54.991Z",
+   "mtime": 1794002143169.0835,
+   "preview": "2026-11-06T22:08:58.947Z"
+  },
+  "/cn/en/visa-mastercard-with-unionpay": {
+   "uploaded": "2026-11-06T22:09:00.993Z",
+   "mtime": 1794002143169.4036,
+   "preview": "2026-11-06T22:09:04.248Z"
+  },
+  "/cz/en/autumn-campaign22": {
+   "uploaded": "2026-11-06T22:09:06.453Z",
+   "mtime": 1794002143169.653,
+   "preview": "2026-11-06T22:09:09.451Z"
+  },
+  "/cz/en/invoice-request-czech-republic": {
+   "uploaded": "2026-11-06T22:09:11.447Z",
+   "mtime": 1794002143170.0483,
+   "preview": "2026-11-06T22:09:13.712Z"
+  },
+  "/dk/en/companion-special-2024": {
+   "uploaded": "2026-11-06T22:09:15.816Z",
+   "mtime": 1794002143170.2483,
+   "preview": "2026-11-06T22:09:18.792Z"
+  },
+  "/dk/en/europe-offers": {
+   "uploaded": "2026-11-06T22:09:21.053Z",
+   "mtime": 1794002143170.422,
+   "preview": "2026-11-06T22:09:24.964Z"
+  },
+  "/dk/en/local-page/north-america-offers": {
+   "uploaded": "2026-11-06T22:09:26.919Z",
+   "mtime": 1794002143170.587,
+   "preview": "2026-11-06T22:09:30.061Z"
+  },
+  "/dk/en/sale": {
+   "uploaded": "2026-11-06T22:09:31.787Z",
+   "mtime": 1794002143170.7537,
+   "preview": "2026-11-06T22:09:34.002Z"
+  },
+  "/ee/en/local-page/worldwide-offers1": {
+   "uploaded": "2026-11-06T22:09:36.263Z",
+   "mtime": 1794002143170.9048,
+   "preview": "2026-11-06T22:09:38.466Z"
+  },
+  "/eg/en/discover-lufthansa/carbon-offsetting1/climate-protection-projects": {
+   "uploaded": "2026-11-06T22:09:40.208Z",
+   "mtime": 1794002143171.102,
+   "preview": "2026-11-06T22:09:42.774Z"
+  },
+  "/eg/en/discover-lufthansa/carbon-offsetting1/environmental-cost-surcharge": {
+   "uploaded": "2026-11-06T22:09:44.646Z",
+   "mtime": 1794002143171.4167,
+   "preview": "2026-11-06T22:09:46.911Z"
+  },
+  "/eg/en/discover-lufthansa/carbon-offsetting1/faq-saf": {
+   "uploaded": "2026-11-06T22:09:48.591Z",
+   "mtime": 1794002143171.5889,
+   "preview": "2026-11-06T22:09:51.106Z"
+  },
+  "/eg/en/discover-lufthansa/carbon-offsetting1/saf": {
+   "uploaded": "2026-11-06T22:09:53.231Z",
+   "mtime": 1794002143171.8296,
+   "preview": "2026-11-06T22:09:55.528Z"
+  },
+  "/es/en/local-page/all-colors-on-board": {
+   "uploaded": "2026-11-06T22:09:57.553Z",
+   "mtime": 1794002143172.207,
+   "preview": "2026-11-06T22:10:01.512Z"
+  },
+  "/fi/en/local-page/europe-offers": {
+   "uploaded": "2026-11-06T22:10:03.501Z",
+   "mtime": 1794002143172.7446,
+   "preview": "2026-11-06T22:10:06.557Z"
+  },
+  "/fr/en/all-colors-on-board": {
+   "uploaded": "2026-11-06T22:10:08.406Z",
+   "mtime": 1794002143173.1013,
+   "preview": "2026-11-06T22:10:10.629Z"
+  },
+  "/ge/en/worldwide-sale": {
+   "uploaded": "2026-11-06T22:10:12.598Z",
+   "mtime": 1794002143173.4595,
+   "preview": "2026-11-06T22:10:17.043Z"
+  },
+  "/gr/en/invoice-request-greece-en": {
+   "uploaded": "2026-11-06T22:10:18.851Z",
+   "mtime": 1794002143173.7585,
+   "preview": "2026-11-06T22:10:21.082Z"
+  },
+  "/hk/en/local-page/companion-deal": {
+   "uploaded": "2026-11-06T22:10:22.818Z",
+   "mtime": 1794002143173.9875,
+   "preview": "2026-11-06T22:10:26.036Z"
+  },
+  "/hk/en/local-page/fps": {
+   "uploaded": "2026-11-06T22:10:28.160Z",
+   "mtime": 1794002143174.1694,
+   "preview": "2026-11-06T22:10:31.218Z"
+  },
+  "/hk/en/local-page/one-way-special-fare": {
+   "uploaded": "2026-11-06T22:10:32.950Z",
+   "mtime": 1794002143174.3442,
+   "preview": "2026-11-06T22:10:36.014Z"
+  },
+  "/hr/en/invoice-request-croatia": {
+   "uploaded": "2026-11-06T22:10:37.958Z",
+   "mtime": 1794002143174.5503,
+   "preview": "2026-11-06T22:10:40.229Z"
+  },
+  "/hu/en/invoice-request-hungary": {
+   "uploaded": "2026-11-06T22:10:42.128Z",
+   "mtime": 1794002143174.819,
+   "preview": "2026-11-06T22:10:44.343Z"
+  },
+  "/it/en/first-class-chauffeur-service": {
+   "uploaded": "2026-11-06T22:10:46.238Z",
+   "mtime": 1794002143175.0737,
+   "preview": "2026-11-06T22:10:48.764Z"
+  },
+  "/it/en/invoice-italy": {
+   "uploaded": "2026-11-06T22:10:50.562Z",
+   "mtime": 1794002143175.337,
+   "preview": "2026-11-06T22:10:52.715Z"
+  },
+  "/jo/en/local-page/companion-special": {
+   "uploaded": "2026-11-06T22:10:54.751Z",
+   "mtime": 1794002143175.5667,
+   "preview": "2026-11-06T22:10:58.063Z"
+  },
+  "/jp/en/local-page/lufthansa-ana": {
+   "uploaded": "2026-11-06T22:10:59.938Z",
+   "mtime": 1794002143175.901,
+   "preview": "2026-11-06T22:11:03.229Z"
+  },
+  "/jp/en/local-page/schedule-for-japan-routes": {
+   "uploaded": "2026-11-06T22:11:04.940Z",
+   "mtime": 1794002143176.5068,
+   "preview": "2026-11-06T22:11:08.471Z"
+  },
+  "/ke/en/2-pieces-of-checked-bag": {
+   "uploaded": "2026-11-06T22:11:10.202Z",
+   "mtime": 1794002143177.2021,
+   "preview": "2026-11-06T22:11:13.491Z"
+  },
+  "/ke/en/black-friday-2024": {
+   "uploaded": "2026-11-06T22:11:15.595Z",
+   "mtime": 1794002143177.3977,
+   "preview": "2026-11-06T22:11:19.710Z"
+  },
+  "/ke/en/local-page/companion-special0": {
+   "uploaded": "2026-11-06T22:11:21.662Z",
+   "mtime": 1794002143177.6084,
+   "preview": "2026-11-06T22:11:24.045Z"
+  },
+  "/kr/en/local-page/lufthansa-rail-air": {
+   "uploaded": "2026-11-06T22:11:26.014Z",
+   "mtime": 1794002143177.8408,
+   "preview": "2026-11-06T22:11:29.051Z"
+  },
+  "/kr/en/local-page/naverpay-points": {
+   "uploaded": "2026-11-06T22:11:31.538Z",
+   "mtime": 1794002143178.0623,
+   "preview": "2026-11-06T22:11:35.042Z"
+  },
+  "/kr/en/premiumoffers": {
+   "uploaded": "2026-11-06T22:11:36.884Z",
+   "mtime": 1794002143178.2788,
+   "preview": "2026-11-06T22:11:39.896Z"
+  },
+  "/lu/en/companion-special-in-business-class": {
+   "uploaded": "2026-11-06T22:11:41.858Z",
+   "mtime": 1794002143178.4475,
+   "preview": "2026-11-06T22:11:44.215Z"
+  },
+  "/mk/en/73w": {
+   "uploaded": "2026-11-06T22:11:46.304Z",
+   "mtime": 1794002143178.616,
+   "preview": "2026-11-06T22:11:49.233Z"
+  },
+  "/mk/en/currency-converter": {
+   "uploaded": "2026-11-06T22:11:51.108Z",
+   "mtime": 1794002143178.7769,
+   "preview": "2026-11-06T22:11:53.287Z"
+  },
+  "/mk/en/flight-disruptions-faq": {
+   "uploaded": "2026-11-06T22:11:55.036Z",
+   "mtime": 1794002143179.072,
+   "preview": "2026-11-06T22:11:58.731Z"
+  },
+  "/mk/en/hiking-areas": {
+   "uploaded": "2026-11-06T22:12:00.654Z",
+   "mtime": 1794002143179.315,
+   "preview": "2026-11-06T22:12:04.053Z"
+  },
+  "/mk/en/munich-mountains": {
+   "uploaded": "2026-11-06T22:12:06.364Z",
+   "mtime": 1794002143179.6245,
+   "preview": "2026-11-06T22:12:09.868Z"
+  },
+  "/mk/en/panorama-viewer": {
+   "uploaded": "2026-11-06T22:12:11.760Z",
+   "mtime": 1794002143179.8296,
+   "preview": "2026-11-06T22:12:14.018Z"
+  },
+  "/mk/en/private-jet-conditions-of-carriage": {
+   "uploaded": "2026-11-06T22:12:16.170Z",
+   "mtime": 1794002143180.1536,
+   "preview": "2026-11-06T22:12:18.109Z"
+  },
+  "/mk/en/summer-destinations": {
+   "uploaded": "2026-11-06T22:12:19.938Z",
+   "mtime": 1794002143180.74,
+   "preview": "2026-11-06T22:12:26.640Z"
+  },
+  "/mk/en/transfer-to-mountains": {
+   "uploaded": "2026-11-06T22:12:28.534Z",
+   "mtime": 1794002143181.117,
+   "preview": "2026-11-06T22:12:31.482Z"
+  },
+  "/mk/en/winterdestinations": {
+   "uploaded": "2026-11-06T22:12:33.242Z",
+   "mtime": 1794002143181.3843,
+   "preview": "2026-11-06T22:12:36.172Z"
+  },
+  "/ng/en/companion-special-jul2021": {
+   "uploaded": "2026-11-06T22:12:38.354Z",
+   "mtime": 1794002143181.567,
+   "preview": "2026-11-06T22:12:40.545Z"
+  },
+  "/nl/en/companion-special": {
+   "uploaded": "2026-11-06T22:12:42.326Z",
+   "mtime": 1794002143181.8118,
+   "preview": "2026-11-06T22:12:44.530Z"
+  },
+  "/no/en/yes": {
+   "uploaded": "2026-11-06T22:12:46.170Z",
+   "mtime": 1794002143182.0876,
+   "preview": "2026-11-06T22:12:48.513Z"
+  },
+  "/pl/en/invoice-request-poland": {
+   "uploaded": "2026-11-06T22:12:50.337Z",
+   "mtime": 1794002143182.4,
+   "preview": "2026-11-06T22:12:52.402Z"
+  },
+  "/pl/en/local-page/spring-holiday-planner": {
+   "uploaded": "2026-11-06T22:12:54.531Z",
+   "mtime": 1794002143182.7046,
+   "preview": "2026-11-06T22:12:58.962Z"
+  },
+  "/pl/en/lodz": {
+   "uploaded": "2026-11-06T22:13:01.040Z",
+   "mtime": 1794002143182.8943,
+   "preview": "2026-11-06T22:13:04.536Z"
+  },
+  "/pt/en/book-and-manage/offers-and-destination/ofertas-especiais": {
+   "uploaded": "2026-11-06T22:13:06.402Z",
+   "mtime": 1794002143183.125,
+   "preview": "2026-11-06T22:13:08.784Z"
+  },
+  "/rs/en/invoice-request-serbia": {
+   "uploaded": "2026-11-06T22:13:10.633Z",
+   "mtime": 1794002143183.3777,
+   "preview": "2026-11-06T22:13:12.753Z"
+  },
+  "/ru/en/first-class-offers": {
+   "uploaded": "2026-11-06T22:13:14.607Z",
+   "mtime": 1794002143183.58,
+   "preview": "2026-11-06T22:13:17.957Z"
+  },
+  "/ru/en/north-america-offers": {
+   "uploaded": "2026-11-06T22:13:19.775Z",
+   "mtime": 1794002143183.788,
+   "preview": "2026-11-06T22:13:22.962Z"
+  },
+  "/si/en/invoice-request-slovenia": {
+   "uploaded": "2026-11-06T22:13:24.889Z",
+   "mtime": 1794002143184.2483,
+   "preview": "2026-11-06T22:13:27.118Z"
+  },
+  "/tw/en/double-11-promotion": {
+   "uploaded": "2026-11-06T22:13:29.915Z",
+   "mtime": 1794002143184.4868,
+   "preview": "2026-11-06T22:13:33.258Z"
+  },
+  "/us/en/local-page/tarmac-delay-contingency-plan": {
+   "uploaded": "2026-11-06T22:13:35.161Z",
+   "mtime": 1794002143184.6968,
+   "preview": "2026-11-06T22:13:37.688Z"
   }
  },
  "media": {
