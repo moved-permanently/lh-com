@@ -48,7 +48,7 @@ import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { parseHTML } from 'linkedom';
 import {
-  HOST, sourcePath, REDIRECT_ONLY, LANGUAGE_LESS, ADDED_PAGES, CONTACT_FORM, contactForm, contactFormHref, contactDialog,
+  HOST, sourcePath, edsPath, REDIRECT_ONLY, LANGUAGE_LESS, ADDED_PAGES, CONTACT_FORM, contactForm, contactFormHref, contactDialog,
 } from './cargo-paths.mjs';
 import { fileKey, edsName, baseName } from './cargo-assets.mjs';
 
@@ -990,8 +990,88 @@ function nwAccordion(c, page) {
   if (rows.length) page.block('accordion-columns (faq)', rows);
 }
 
-/** The transport stories' tiles (masonry grid): cards-teaser (three-up). */
+/**
+ * www's story list on the transport stories hub (brief 439): the page's script holds every story
+ * (var diaries = [...]: teaserImage, teaserHeadline, teaserDescription, viewUrl, moreText, ...), its
+ * grid renders them as the visitor scrolls (a capture holds only the first tiles). The entries in
+ * www's order, the strings unescaped; [] without the list.
+ */
+export function diariesOf(doc) {
+  const script = [...doc.querySelectorAll('script')].map((s) => s.textContent).find((t) => /var diaries\s*=\s*\[/.test(t));
+  if (!script) return [];
+  const from = script.search(/var diaries\s*=\s*\[/);
+  const list = script.slice(script.indexOf('[', from) + 1, script.indexOf('];', from));
+  const unjs = (v) => { try { return JSON.parse(`"${v.replace(/\\'/g, "'")}"`); } catch (e) { return v; } };
+  return [...list.matchAll(/\{([\s\S]*?)\}\s*(?=,\s*\{|$)/g)]
+    .map(([, o]) => Object.fromEntries([...o.matchAll(/(\w+):"((?:[^"\\]|\\.)*)"/g)].map(([, k, v]) => [k, unjs(v)])));
+}
+
+// a story's imported document (its .plain.html in the workspace), for the hub's tile pictures;
+// tests set their own (useStoryDocs)
+const workspaceDoc = (p) => {
+  const f = path.join(OUT, `${p}.plain.html`);
+  return fs.existsSync(f) ? fs.readFileSync(f, 'utf8') : null;
+};
+let storyDoc = workspaceDoc;
+/** The story documents the hub's tiles take their pictures from (null: the workspace's). */
+export function useStoryDocs(fn) {
+  storyDoc = fn || workspaceDoc;
+}
+
+/**
+ * A hub tile's picture (brief 439): the teaser's own when lh-cargo's DA has it, else the story's
+ * first picture in DA (its imported document; for a language whose stories are not ours, the
+ * English or German story of the same address), else none.
+ */
+function storyPicture(entry, page) {
+  const pic = (src) => `<picture><img src="${attr(src)}" alt=""></picture>`;
+  if (entry.teaserImage) {
+    const copy = page.file(entry.teaserImage);
+    if (copy) return pic(copy);
+    page.missing.delete(fileKey(entry.teaserImage));
+  }
+  const own = edsPath(entry.viewUrl);
+  const rest = own.replace(/^\/[a-z]{2}\/news\//, '');
+  for (const p of new Set([own, `/en/news/${rest}`, `/de/news/${rest}`])) {
+    const m = (storyDoc(p) || '').match(/<img[^>]*src="(?:https:\/\/content\.da\.live\/moved-permanently\/lh-cargo)?(\/media-da\/[^"?#]+)/);
+    if (m) return pic(m[1]);
+  }
+  return '';
+}
+
+/**
+ * The hub's tiles from www's story list (diariesOf), each as www's tile: picture | headline, text,
+ * More. A story www rendered keeps its tile's text (www's Portuguese page shows its tiles
+ * translated; its list is English).
+ */
+function storyList(list, c, page) {
+  const rendered = new Map([...c.querySelectorAll(':scope > .masonryItem')].map((item) => {
+    const a = item.querySelector('.storyTeaserHeadline a[href]');
+    const box = item.querySelector('.storyTeaserTile');
+    if (!a || !box) return null;
+    const more = [...box.querySelectorAll(':scope > a[href]')].pop();
+    return [sourcePath(a.getAttribute('href')), {
+      head: text(a), desc: [...box.querySelectorAll(':scope > p')].filter((p) => text(p)).map((p) => p.outerHTML).join(''), more: more ? text(more) : '',
+    }];
+  }).filter(Boolean));
+  const rows = list.map((e) => {
+    const r = e.viewUrl ? rendered.get(sourcePath(e.viewUrl)) : null;
+    const head = ((r && r.head) || e.teaserHeadline || e.teaserTitle || '').trim();
+    if (!e.viewUrl || !head) return null;
+    const href = page.href(e.viewUrl);
+    const desc = c.ownerDocument.createElement('div');
+    desc.innerHTML = r ? r.desc : (e.teaserDescription || '');
+    const more = ((r && r.more) || e.moreText || '').trim();
+    return [storyPicture(e, page), `<h3><a href="${attr(href)}">${esc(head)}</a></h3>${flow(desc, page, 'cell').join('')}${more ? `<p><a href="${attr(href)}">${esc(more)}</a></p>` : ''}`];
+  }).filter(Boolean);
+  page.block('cards-teaser (three-up)', rows);
+  page.note(`transport stories: all ${rows.length} of www's story list (its grid renders them as the visitor scrolls)`);
+}
+
+/** The transport stories' tiles (masonry grid): cards-teaser (three-up); www's whole list when the page has it. */
 function storyGrid(c, page) {
+  const list = diariesOf(c.ownerDocument);
+  if (list.length && list.length >= c.querySelectorAll(':scope > .masonryItem').length) { storyList(list, c, page); return; }
   const rows = [...c.querySelectorAll(':scope > .masonryItem')].map((item) => {
     const imgs = images(item, page);
     const clone = item.cloneNode(true);
