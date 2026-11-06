@@ -23,7 +23,8 @@
  *   on www (withCheckinHandoff); the booking login's "Enter booking code" opens the page on www;
  * - two-column teaser rows import as carousel-cards (withTeaserColumns);
  * - metadata (withItaMetadata): the root's nav and footer, `markets` (scope.json), www's noindex;
- * - links to www's DAM files become site-relative edsDamPath links (brussels-dam.mjs).
+ * - links to www's DAM files become site-relative edsDamPath links (brussels-dam.mjs);
+ * - a share image www doesn't serve becomes Brussels' own logo (brussels-share-image.mjs).
  * Writes content-sites/lh-brussels/runs/<name>-import.json: path -> template.
  *
  * Usage: node tools/importer/brussels-import.mjs --list content-sites/lh-brussels/runs/batch-01.txt [--dry-run]
@@ -38,6 +39,7 @@ import {
 } from './own-links.mjs';
 import { relativeDamLinks } from './brussels-dam.mjs';
 import { withLocalImages } from './brussels-nav.mjs';
+import { withShareImage } from './brussels-share-image.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const argv = process.argv.slice(2);
@@ -397,7 +399,8 @@ if (isMain) {
     made.forEach((p) => {
       const f = path.join(W, 'content', `${p}.plain.html`);
       const doc = fs.readFileSync(f, 'utf8');
-      const next = withOwnLinks(withLocalImages(relativeDamLinks(doc.split(`https://${LINK_OUT}`).join(`https://${HOST}`))), HOST, pages, aliases, { linkOut: linkOutDocs.has(p) ? p : null, served }).doc;
+      // a share image www doesn't serve: Brussels' own logo (brussels-share-image.mjs)
+      const next = withShareImage(withOwnLinks(withLocalImages(relativeDamLinks(doc.split(`https://${LINK_OUT}`).join(`https://${HOST}`))), HOST, pages, aliases, { linkOut: linkOutDocs.has(p) ? p : null, served }).doc);
       if (next !== doc) fs.writeFileSync(f, next);
     });
     fs.writeFileSync(path.join(W, 'runs', `${name}-import.json`), `${JSON.stringify({ templates: out, documents: made, missing }, null, 1)}\n`);
