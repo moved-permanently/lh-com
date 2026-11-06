@@ -1347,11 +1347,75 @@ function story(c, page) {
   if (i && box) {
     const right = Boolean(box.querySelector('[class*="offset-md-"], [class*="offset-lg-"]'));
     page.block(`hero-card-overlay (light${right ? ', right' : ''})`, [[page.img(i)], [`${head}${flow(clone, page, 'cell').join('')}`]]);
-    return;
+  } else {
+    if (i) page.add(`<p>${page.img(i)}</p>`);
+    if (head) page.add(head);
+    flow(clone, page, 'top').forEach((x) => page.add(x));
   }
-  if (i) page.add(`<p>${page.img(i)}</p>`);
-  if (head) page.add(head);
-  flow(clone, page, 'top').forEach((x) => page.add(x));
+  phoneOnly(c, page).forEach((x) => page.add(x));
+}
+
+// a passage's sentences (3+ words), compared with punctuation, case and spaces evened out
+const evened = (t) => ` ${t.normalize('NFC').toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim()} `;
+const sentencesOf = (t) => t.split(/(?<=[.!?"”])\s+/).map((x) => x.trim()).filter((x) => x.split(/\s+/).length >= 3);
+const PHONE_COPY = '.d-sm-none, .d-md-none';
+const wordsOf = (t) => new Set(evened(t).trim().split(' ').filter(Boolean));
+// a passage's language by its function words (en or de: Cargo's story languages), '' when unclear
+const FUNCTION_WORDS = {
+  en: new Set(['the', 'and', 'of', 'to', 'is', 'with', 'for', 'which', 'that', 'are', 'its', 'from', 'by', 'this']),
+  de: new Set(['der', 'die', 'das', 'und', 'mit', 'für', 'ist', 'von', 'den', 'dem', 'ein', 'eine', 'zu', 'auf', 'nicht', 'sich']),
+};
+function languageOf(t) {
+  const w = [...wordsOf(t)];
+  const en = w.filter((x) => FUNCTION_WORDS.en.has(x)).length;
+  const de = w.filter((x) => FUNCTION_WORDS.de.has(x)).length;
+  if (en >= 2 && en > de) return 'en';
+  if (de >= 2 && de > en) return 'de';
+  return '';
+}
+
+/**
+ * A story module's phone-only passages (brief 442): www keeps some text only in a module's phone
+ * copy (d-block d-sm-none, otherwise left out as the desktop copy's duplicate). Each paragraph of
+ * the module's phone copies whose sentences the page's desktop copy lacks, after the module: as it
+ * is when none of its sentences is on the desktop, else only its missing sentences; each once. A
+ * sentence counts as on the desktop when a desktop sentence has nearly its words (80 %: the phone
+ * copy's older wording, "Kühne+Nagel" for "Kuehne+Nagel", another word order); a paragraph in the
+ * page's other language (www's English phone copy of a German story) is no phone-only passage.
+ */
+function phoneOnly(c, page) {
+  const phones = [...c.querySelectorAll(PHONE_COPY)].filter((x) => !x.parentElement.closest(PHONE_COPY));
+  if (!phones.length) return [];
+  if (page.desktopText === undefined) {
+    const doc = c.ownerDocument;
+    const root = (doc.querySelector('#main-content') || doc.body).cloneNode(true);
+    root.querySelectorAll(`${PHONE_COPY}, script, style`).forEach((x) => x.remove());
+    root.querySelectorAll('p, li, h1, h2, h3, h4, td').forEach((x) => x.append(' '));
+    page.desktopText = evened(root.textContent);
+    page.desktopSentences = sentencesOf(root.textContent.replace(/\s+/g, ' ')).map(wordsOf);
+    page.phoneKept = new Set();
+  }
+  // a word in a desktop sentence: the same, or inside one at most two characters longer (www's
+  // bullet glyph glued to a list item's first word: "uCare/td")
+  const inSentence = (x, d) => d.has(x) || [...d].some((y) => y.length - x.length <= 2 && y.length > x.length && y.includes(x));
+  const onDesktop = (s) => {
+    if (page.desktopText.includes(evened(s))) return true;
+    const w = wordsOf(s);
+    return page.desktopSentences.some((d) => [...w].filter((x) => inSentence(x, d)).length >= 0.8 * w.size);
+  };
+  const other = { en: 'de', de: 'en' }[page.lang];
+  const out = [];
+  phones.forEach((ph) => ph.querySelectorAll('p').forEach((p) => {
+    const t = text(p);
+    if (other && languageOf(t) === other) return;
+    const sentences = sentencesOf(t);
+    const missing = sentences.filter((s) => !onDesktop(s) && !page.phoneKept.has(evened(s)));
+    if (!missing.length) return;
+    missing.forEach((s) => page.phoneKept.add(evened(s)));
+    out.push(missing.length === sentences.length ? `<p>${tidy(inline(p, page))}</p>` : `<p>${esc(missing.join(' '))}</p>`);
+  }));
+  if (out.length) page.note(`story: ${out.length} passage(s) only in www's phone copy kept`);
+  return out;
 }
 
 /* ------------------------------------------------------------------ the document ------- */
