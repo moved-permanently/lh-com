@@ -8199,6 +8199,156 @@
    "uploaded": "2026-11-06T01:32:50.250Z",
    "mtime": 1793928751102,
    "preview": "2026-11-06T01:32:52.200Z"
+  },
+  "/am/en/non-encrypt-mail/contact-form-confirmation": {
+   "uploaded": "2026-11-06T21:13:55.202Z",
+   "mtime": 1793999553279.1033,
+   "preview": "2026-11-06T21:13:57.724Z"
+  },
+  "/am/en/non-encrypt-mail/contact-form-error": {
+   "uploaded": "2026-11-06T21:13:59.870Z",
+   "mtime": 1793999553279.2935,
+   "preview": "2026-11-06T21:14:02.625Z"
+  },
+  "/ao/fr/legal-notices/aviation-services-law": {
+   "uploaded": "2026-11-06T21:14:05.322Z",
+   "mtime": 1793999553279.572,
+   "preview": "2026-11-06T21:14:07.529Z"
+  },
+  "/bf/en/book-a-flight/our-payment-methods/secure-your-fare": {
+   "uploaded": "2026-11-06T21:14:09.626Z",
+   "mtime": 1793999553279.806,
+   "preview": "2026-11-06T21:14:12.800Z"
+  },
+  "/bf/en/farealert": {
+   "uploaded": "2026-11-06T21:14:15.277Z",
+   "mtime": 1793999553279.971,
+   "preview": "2026-11-06T21:14:17.862Z"
+  },
+  "/bf/en/flying-with-us/new-brussels-airlines-website": {
+   "uploaded": "2026-11-06T21:14:20.655Z",
+   "mtime": 1793999553280.9675,
+   "preview": "2026-11-06T21:14:23.881Z"
+  },
+  "/bf/en/flying-with-us/the-belgian-icons/bruegel": {
+   "uploaded": "2026-11-06T21:14:26.140Z",
+   "mtime": 1793999553281.1777,
+   "preview": "2026-11-06T21:14:31.284Z"
+  },
+  "/bf/en/my-bookings/invoices/invoice-error": {
+   "uploaded": "2026-11-06T21:14:34.029Z",
+   "mtime": 1793999553281.548,
+   "preview": "2026-11-06T21:14:36.170Z"
+  },
+  "/bf/fr/book-a-flight/our-promotions": {
+   "uploaded": "2026-11-06T21:14:38.494Z",
+   "mtime": 1793999553281.7524,
+   "preview": "2026-11-06T21:14:40.560Z"
+  },
+  "/bf/fr/contact/feedback/before-the-flight/baggage-allowances-rules": {
+   "uploaded": "2026-11-06T21:14:43.292Z",
+   "mtime": 1793999553282.132,
+   "preview": "2026-11-06T21:14:45.882Z"
+  },
+  "/bf/fr/contact/feedback/before-the-flight/delays-and-cancellation": {
+   "uploaded": "2026-11-06T21:14:48.171Z",
+   "mtime": 1793999553282.5544,
+   "preview": "2026-11-06T21:14:50.523Z"
+  },
+  "/bf/fr/contact/feedback/before-the-flight/loyalty-programs": {
+   "uploaded": "2026-11-06T21:14:52.723Z",
+   "mtime": 1793999553282.8599,
+   "preview": "2026-11-06T21:14:55.285Z"
+  },
+  "/bf/fr/contact/feedback/before-the-flight/special-assistance": {
+   "uploaded": "2026-11-06T21:14:57.591Z",
+   "mtime": 1793999553283.1177,
+   "preview": "2026-11-06T21:15:00.002Z"
+  },
+  "/bf/fr/farealert": {
+   "uploaded": "2026-11-06T21:15:02.388Z",
+   "mtime": 1793999553283.2546,
+   "preview": "2026-11-06T21:15:04.677Z"
+  },
+  "/bf/fr/flying-with-us/new-brussels-airlines-website": {
+   "uploaded": "2026-11-06T21:15:07.732Z",
+   "mtime": 1793999553284.0674,
+   "preview": "2026-11-06T21:15:10.499Z"
+  },
+  "/bf/fr/my-bookings/invoices/invoice-error": {
+   "uploaded": "2026-11-06T21:15:12.743Z",
+   "mtime": 1793999553284.2417,
+   "preview": "2026-11-06T21:15:15.088Z"
+  },
+  "/bf/fr/my-bookings/invoices/invoice-success": {
+   "uploaded": "2026-11-06T21:15:17.442Z",
+   "mtime": 1793999553284.3806,
+   "preview": "2026-11-06T21:15:19.740Z"
+  },
+  "/ca/en/brussels-airlines-in-canada": {
+   "uploaded": "2026-11-06T21:15:21.980Z",
+   "mtime": 1793999553284.8762,
+   "preview": "2026-11-06T21:15:24.443Z"
+  },
+  "/ca/en/tarmac-delay-contingency-plan": {
+   "uploaded": "2026-11-06T21:15:27.069Z",
+   "mtime": 1793999553285.1052,
+   "preview": "2026-11-06T21:15:30.525Z"
+  },
+  "/ca/fr/brussels-airlines-in-canada": {
+   "uploaded": "2026-11-06T21:15:32.676Z",
+   "mtime": 1793999553285.3325,
+   "preview": "2026-11-06T21:15:35.085Z"
+  },
+  "/ca/fr/plan-de-retard-sur-le-tarmac": {
+   "uploaded": "2026-11-06T21:15:37.449Z",
+   "mtime": 1793999553285.5059,
+   "preview": "2026-11-06T21:15:40.067Z"
+  },
+  "/ci/en/contest-rules-brussels-airlines-semaine-ivoirienne-culture-2023": {
+   "uploaded": "2026-11-06T21:15:43.230Z",
+   "mtime": 1793999553285.6687,
+   "preview": "2026-11-06T21:15:45.435Z"
+  },
+  "/ci/en/local-page/luggage-promotion-2025": {
+   "uploaded": "2026-11-06T21:15:47.675Z",
+   "mtime": 1793999553286.9265,
+   "preview": "2026-11-06T21:15:50.876Z"
+  },
+  "/es/en/retain-your-status": {
+   "uploaded": "2026-11-06T21:16:15.982Z",
+   "mtime": 1793999553287.1077,
+   "preview": "2026-11-06T21:16:18.390Z"
+  },
+  "/il/en/legal-notices/aviation-services-law": {
+   "uploaded": "2026-11-06T21:16:20.878Z",
+   "mtime": 1793999553287.2698,
+   "preview": "2026-11-06T21:16:23.321Z"
+  },
+  "/il/en/local-page/rebooking-request-birthright/rebooking-request-birthright-thank-you": {
+   "uploaded": "2026-11-06T21:16:25.830Z",
+   "mtime": 1793999553287.3994,
+   "preview": "2026-11-06T21:16:27.551Z"
+  },
+  "/nl/en/worryfreetraveltobrusselsairport": {
+   "uploaded": "2026-11-06T21:16:29.786Z",
+   "mtime": 1793999553287.6365,
+   "preview": "2026-11-06T21:16:34.188Z"
+  },
+  "/nl/nl/worryfreetraveltobrusselsairport": {
+   "uploaded": "2026-11-06T21:16:36.429Z",
+   "mtime": 1793999553287.7698,
+   "preview": "2026-11-06T21:16:38.662Z"
+  },
+  "/us/en/legal-notices/do-not-sell-my-personal-information": {
+   "uploaded": "2026-11-06T21:16:41.076Z",
+   "mtime": 1793999553288.0242,
+   "preview": "2026-11-06T21:16:43.344Z"
+  },
+  "/us/en/legal-notices/privacy-statement-for-california-residents": {
+   "uploaded": "2026-11-06T21:16:45.713Z",
+   "mtime": 1793999553288.144,
+   "preview": "2026-11-06T21:16:48.727Z"
   }
  },
  "media": {
