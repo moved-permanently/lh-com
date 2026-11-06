@@ -143,7 +143,7 @@ Then (aem.live, before) -> now:
 | 29 | /de/en/overview-manage | 390 | 41.7 % | 16.5 % | spacious (pass 2) | done; but its 1440 went 6.6 -> 16.9 %: www's de/en rows are in a section (32 / 66 px), unlike xx/hk's: spacious taken off that document |
 | 30 | /de/en/discover-lufthansa/new-onboard-experience | 390 | 41.4 % | 30.0 % | re-import | done (item 2) |
 
-Fixed for item 4 (commits `31fa6266`, and the campaign mapping in the next commit; tests first):
+Fixed for item 4 (commits `05be2f7b` and `35039517`; tests first):
 - the legal template maps `.accordion` (accordion-columns): the FAQ and conditions pages had lost
   every question. Re-imported and previewed where snapshots exist: xx/hk, xx/pt, xx/ru
   faq-data-security, faq-password-security, common/accessibility-statement,
@@ -174,7 +174,7 @@ living-in-oslo, schanzenviertel-hamburg, raleigh-nc-winter); campaign (100-years
 feedback-past-flight, refund-form, anmeldung-tiere-frachtraum, feedbackai); flight-status
 (timetable-and-flight-status). 25 pages without a violation at either width.
 
-Fixed (commit `31fa6266`, tests first):
+Fixed (commit `05be2f7b`, tests first):
 - **aria-allowed-attr (critical)**, forms: `aria-required` on a required checkbox group's fieldset
   (not allowed on role group): now only on radio groups (special-needs, feedback-past-flight,
   refund-form, anmeldung-tiere-frachtraum; the form block of every brand).
@@ -191,3 +191,30 @@ Preview paths of items 4 and 5, release order (no files first): `ema-cashub-prev
 Checked on aem.page at 1440 and 390: take-off (de/en, gb/en, xx/hk), xx/hk faq-data-security,
 xx/pt seat-reservations, overview-manage, experience-nature, freigepaeck-regeln: 200, every block
 loaded, no overflow; DA equal to the local copies after the upload.
+
+## Status at 18:20 UTC
+
+Items 1-3 done; items 4 and 5 done as far as the inputs reach. Commits pushed (smoke of the 11 hosts
+before and after each push): `bb42c99c`, `e5a46b2b`, `05be2f7b`, `35039517`, `92eb35d2` and this report.
+After the last push the de/en sitemap answered differently on the three lufthansa.com hosts: it is
+built from the published pages' index (nothing was published here; the push held importer code and
+reports), so a publish or an index run elsewhere.
+
+Notes:
+- A service restart at about 12:15 UTC wiped `/tmp`: the archives (fetched and checked again), the
+  offline importer copy and the parity staging (rebuilt). Work resumed at 15:50 UTC.
+- main moves about six times an hour: the push loop gave up once (five suites, behind each time);
+  `migration-work/brussels/push-loop-docs.sh` pushes when main moved by reports, documents or upload
+  state only after the green suite (one more pull), and runs the suite again for anything else.
+- An import run while the push loop's pull held its autostash used main's older importer files (the
+  legal accordions came out missing); imports now wait for the chain.
+- The DA token still worked at 18:00 UTC (no 401).
+
+Open, in one place:
+- Ben: /de/en/business-class and /de/en/first-class (held, item 2); link-in-text-block (item 5);
+  the receipt service's config on the own host (item 1).
+- Inputs: de/en snapshots of the 6 tab pages (reimport-tabs.txt) and of the 4 legal accordion pages
+  for de/en, de/de, at/de, gb/en.
+- Ours: the importer gaps (100-years/campaigns' sidebar image in the full import, xx/hk's accordion
+  answers' inline links, add-fleet-metadata on roots without local documents); de/de's stage
+  promotions; the 390 heights and spacings listed under item 4.
