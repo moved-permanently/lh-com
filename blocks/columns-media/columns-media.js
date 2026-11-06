@@ -169,6 +169,22 @@ function buildSlider(strip, labels, label = 'show image') {
 }
 
 /**
+ * Option band (a band across the screen behind the column): the layout's width as
+ * --columns-media-viewport (documentElement.clientWidth, without a classic scrollbar, as
+ * hero-campaign's stage), for a theme's layer that spans the screen without sideways scroll.
+ * @param {Element} block
+ */
+function trackViewport(block) {
+  const update = () => {
+    block.style.setProperty('--columns-media-viewport', `${document.documentElement.clientWidth}px`);
+  };
+  update();
+  window.addEventListener('resize', update, { passive: true });
+  // the scrollbar appears once the page grows taller than the viewport (no resize event)
+  if (window.ResizeObserver) new window.ResizeObserver(update).observe(document.body);
+}
+
+/**
  * Two-column text and media rows.
  * Each row has (usually) two cells; a cell holding only pictures or links to media is a media
  * cell, any other cell is a text cell (image captions, p.caption, count as media). Media cells
@@ -264,5 +280,6 @@ export default async function decorate(block) {
   }
 
   decorateExternalLinks(block);
+  if (block.classList.contains('band')) trackViewport(block);
   if (block.querySelector('.media-video, .media-embed')) await loadMediaStyles();
 }

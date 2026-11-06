@@ -86,7 +86,8 @@ test('the bands: infrastructure, products and about as columns-media options, th
   assert.equal(head.length, 1);
   assert.equal(text(head[0].querySelector('h2')), 'Infrastructure');
   assert.equal(counters.length, 2);
-  assert.match(text(counters[0]), /350\+ Stations worldwide.*60\+ Stations in North America/);
+  // the region's label on two lines as www's spans (brief 429): "Stations in<br>North America"
+  assert.match(text(counters[0]), /350\+ Stations worldwide.*60\+ Stations in\s*North America/);
   assert.ok(counters[1].querySelector('img[alt="Global station network map"]'), 'the map beside the counters');
   const products = document.querySelector('.columns-media.band.dark.features');
   const prows = rowsOf(products);

@@ -963,3 +963,250 @@ body.brand-cargo .columns-media.facts .columns-media-text > ul > li > strong {
     gap: 23px;
   }
 }
+
+/* ------------------------------------- Lufthansa Cargo's homepage icons and artwork ------- */
+
+/* brief 429 (cargo-media-001: www's own SVGs, in lh-cargo's DA under /documents/, which the site
+   serves; cargo-parity-001 at 1440 and 390). The products band: www's OurProduct-BG.svg across the
+   screen (www's .ourProducts: #05164d, 75% / cover), a layer as wide as the layout
+   (--columns-media-viewport, set by the block on its band options) behind the column */
+body.brand-cargo .columns-media.band.dark.features {
+  position: relative;
+  isolation: isolate;
+}
+
+body.brand-cargo .columns-media.band.dark.features::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset-block: 0;
+  left: calc(50% - var(--columns-media-viewport, 100%) / 2);
+  width: var(--columns-media-viewport, 100%);
+  background: #05164d url("/documents/ourproduct-bg-97be05.svg") no-repeat 75% / cover;
+}
+
+/* stylelint-disable no-descending-specificity -- the icons after the bands' rules */
+
+/* option icons with features: each item's 88px icon over its label, cut from www's sprites at
+   www's positions (its homepage's inline .icon.<name> rules), the item known by its link (the
+   same in every language); 103px wide items 20 / 16px apart on phones, 88px and 22px from 768px */
+body.brand-cargo .columns-media.features.icons .columns-media-text > ul {
+  gap: 20px 16px;
+
+  /* www's: eight 88px items 22px apart need 858px of the 857px column at 1440 */
+  margin-right: -1px;
+}
+
+body.brand-cargo .columns-media.features.icons .columns-media-text > ul > li {
+  width: 103px;
+}
+
+/* the label www's small: LufthansaText regular 14/18 */
+body.brand-cargo .columns-media.features.icons .columns-media-text > ul > li > a:any-link {
+  display: block;
+  font-family: var(--body-font-family);
+  font-weight: 400;
+}
+
+body.appear.brand-cargo main .columns-media.features.icons .columns-media-text > ul > li > a:any-link::before {
+  content: "";
+  display: block;
+  width: 88px;
+  height: 88px;
+  margin: 0 auto 4px;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  mask: none;
+}
+
+body.appear.brand-cargo main .columns-media.features.icons .columns-media-text > ul > li > a[href$="/general-cargo"]::before {
+  background-image: url("/documents/sprite-product-2-34a548.svg");
+  background-position: -201px -105px;
+}
+
+body.appear.brand-cargo main .columns-media.features.icons .columns-media-text > ul > li > a[href$="/dangerous-goods"]::before {
+  background-image: url("/documents/sprite-product-2-34a548.svg");
+  background-position: -202px -6px;
+}
+
+body.appear.brand-cargo main .columns-media.features.icons .columns-media-text > ul > li > a[href$="/active-temp-control"]::before {
+  background-image: url("/documents/sprite-product-2-34a548.svg");
+  background-position: -104px -7px;
+}
+
+body.appear.brand-cargo main .columns-media.features.icons .columns-media-text > ul > li > a[href$="/passive-temp-support"]::before {
+  background-image: url("/documents/sprite-product-2-34a548.svg");
+  background-position: -104px -203px;
+}
+
+body.appear.brand-cargo main .columns-media.features.icons .columns-media-text > ul > li > a[href$="/perishables"]::before {
+  background-image: url("/documents/sprite-product-2-34a548.svg");
+  background-position: -201px -203px;
+}
+
+body.appear.brand-cargo main .columns-media.features.icons .columns-media-text > ul > li > a[href$="/live-animals"]::before {
+  background-image: url("/documents/sprite-product-2-34a548.svg");
+  background-position: -6px -203px;
+}
+
+body.appear.brand-cargo main .columns-media.features.icons .columns-media-text > ul > li > a[href$="/valuables"]::before {
+  background-image: url("/documents/sprite-product-2-34a548.svg");
+  background-position: -300px -7px;
+}
+
+body.appear.brand-cargo main .columns-media.features.icons .columns-media-text > ul > li > a[href$="/vulnerables"]::before {
+  background-image: url("/documents/sprite-product-2-34a548.svg");
+  background-position: -299px -105px;
+}
+
+body.appear.brand-cargo main .columns-media.features.icons .columns-media-text > ul > li > a[href$="/airmail"]::before {
+  background-image: url("/documents/sprite-product-2-34a548.svg");
+  background-position: -6px -104px;
+}
+
+body.appear.brand-cargo main .columns-media.features.icons .columns-media-text > ul > li > a[href$="/products/customer-owned-tracker"]::before {
+  background-image: url("/documents/sprite-product-2-34a548.svg");
+  background-position: -103px -104px;
+}
+
+body.appear.brand-cargo main .columns-media.features.icons .columns-media-text > ul > li > a[href$="/speed-pro"]::before {
+  background-image: url("/documents/sprite-product-speed-c94f8d.svg");
+  background-position: -103px -5px;
+}
+
+body.appear.brand-cargo main .columns-media.features.icons .columns-media-text > ul > li > a[href$="/speed-flash"]::before {
+  background-image: url("/documents/sprite-product-speed-c94f8d.svg");
+  background-position: -5px -5px;
+}
+
+body.appear.brand-cargo main .columns-media.features.icons .columns-media-text > ul > li > a[href$="/speed-zoom"]::before {
+  background-image: url("/documents/sprite-product-speed-c94f8d.svg");
+  background-position: -5px -104px;
+}
+
+body.appear.brand-cargo main .columns-media.features.icons .columns-media-text > ul > li > a[href$="/emergency"]::before {
+  background-image: url("/documents/sprite-product-aos-0ce801.svg");
+  background-position: -5px -6px;
+}
+
+body.appear.brand-cargo main .columns-media.features.icons .columns-media-text > ul > li > a[href$="/add-on-services/sustainable-choice"]::before {
+  background-image: url("/documents/sprite-product-aos-0ce801.svg");
+  background-position: -199px -6px;
+}
+
+body.appear.brand-cargo main .columns-media.features.icons .columns-media-text > ul > li > a[href$="/add-on-services/todoor"]::before {
+  background-image: url("/documents/sprite-product-aos-0ce801.svg");
+  background-position: -199px -104px;
+}
+
+body.appear.brand-cargo main .columns-media.features.icons .columns-media-text > ul > li > a[href$="/add-on-services/personal-supervision"]::before {
+  background-image: url("/documents/sprite-product-aos-0ce801.svg");
+  background-position: -1px -104px;
+}
+
+body.appear.brand-cargo main .columns-media.features.icons .columns-media-text > ul > li > a[href$="/add-on-services/insurance"]::before {
+  background-image: url("/documents/sprite-product-aos-0ce801.svg");
+  background-position: -101px -6px;
+}
+
+body.appear.brand-cargo main .columns-media.features.icons .columns-media-text > ul > li > a[href$="/add-on-services/smartuld"]::before {
+  background-image: url("/documents/sprite-product-aos-0ce801.svg");
+  background-position: -101px -104px;
+}
+
+/* option icons with stats: www's 40px infra icons (its .Earth_A, .icon-airport, .Map_* positions)
+   in the importer's order, www's: the two big counters, then North America, South America,
+   Europe, Africa, Asia; on phones the icon, the figure in a 64px column and the label beside it,
+   16px apart; from 1025px the regions' figure over its two-line label, 24px from the icon */
+body.brand-cargo .columns-media.stats.icons .columns-media-text > ul > li {
+  position: relative;
+  padding-left: 56px;
+}
+
+body.brand-cargo .columns-media.stats.icons .columns-media-text > ul > li::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  margin-top: -20px;
+  background: url("/documents/sprite-infra-homepage-1-c6f447.svg") no-repeat;
+}
+
+body.brand-cargo .columns-media.stats.icons .columns-media-text > ul:first-of-type > li:nth-child(1)::before { background-position: -5px -5px; }
+
+body.brand-cargo .columns-media.stats.icons .columns-media-text > ul:first-of-type > li:nth-child(2)::before { background-position: -2px -106px; }
+
+body.brand-cargo .columns-media.stats.icons .columns-media-text > ul:nth-of-type(2) > li:nth-child(1)::before { background-position: -105px -6px; }
+
+body.brand-cargo .columns-media.stats.icons .columns-media-text > ul:nth-of-type(2) > li:nth-child(2)::before { background-position: -105px -54px; }
+
+body.brand-cargo .columns-media.stats.icons .columns-media-text > ul:nth-of-type(2) > li:nth-child(3)::before { background-position: -56px -56px; }
+
+body.brand-cargo .columns-media.stats.icons .columns-media-text > ul:nth-of-type(2) > li:nth-child(4)::before { background-position: -55px -4px; }
+
+body.brand-cargo .columns-media.stats.icons .columns-media-text > ul:nth-of-type(2) > li:nth-child(5)::before { background-position: -5px -55px; }
+
+body.brand-cargo .columns-media.stats.icons .columns-media-text > ul > li > strong {
+  display: inline-block;
+  width: 64px;
+}
+
+body.brand-cargo .columns-media.stats.icons .columns-media-text > ul:first-of-type > li {
+  gap: 16px;
+}
+
+body.brand-cargo .columns-media.stats.icons .columns-media-text > ul:nth-of-type(2) > li {
+  display: flow-root;
+  padding-left: 56px;
+}
+
+body.brand-cargo .columns-media.stats.icons .columns-media-text > ul:nth-of-type(2) > li > strong {
+  float: left;
+  margin-right: 16px;
+  line-height: 36px;
+}
+
+@media (width >= 768px) {
+  /* www's rows of items without a gap from 768px (its column-gap only) */
+  body.brand-cargo .columns-media.features.icons .columns-media-text > ul {
+    gap: 0 22px;
+  }
+
+  body.brand-cargo .columns-media.features.icons .columns-media-text > ul > li {
+    width: 88px;
+  }
+
+  body.brand-cargo .columns-media.stats.icons .columns-media-text > ul:first-of-type > li {
+    gap: 10px;
+    padding-left: 60px;
+  }
+
+  body.brand-cargo .columns-media.stats.icons .columns-media-text > ul:first-of-type > li > strong {
+    width: auto;
+  }
+}
+
+@media (width >= 1025px) {
+  body.brand-cargo .columns-media.stats.icons .columns-media-text > ul:nth-of-type(2) > li {
+    padding-left: 64px;
+  }
+
+  body.brand-cargo .columns-media.stats.icons .columns-media-text > ul:nth-of-type(2) > li:not(:nth-child(3n + 1)) {
+    padding-left: 88px;
+  }
+
+  body.brand-cargo .columns-media.stats.icons .columns-media-text > ul:nth-of-type(2) > li:not(:nth-child(3n + 1))::before {
+    left: 24px;
+  }
+
+  body.brand-cargo .columns-media.stats.icons .columns-media-text > ul:nth-of-type(2) > li > strong {
+    display: block;
+    float: none;
+    width: auto;
+    margin-right: 0;
+    line-height: 32px;
+  }
+}
+/* stylelint-enable no-descending-specificity */

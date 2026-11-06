@@ -24,8 +24,9 @@
  * (slider), its slides; the booking/track/schedule/stations widget in the stage's section, over its
  * foot: cards-icon (widget) linking the portal on www and the Track tab's form; Mynewsdesk news:
  * news-feed reading www's pressroom list; the bands (brief 425): station map with counters
- * columns-media (band, gradient, stats), products columns-media (band, dark, features), about
- * columns-media (band, dark, facts), each with its heading inside; fleet tiles: cards-teaser
+ * columns-media (band, gradient, stats, icons), products columns-media (band, dark, features,
+ * icons) (icons: www's sprites, brief 429), about columns-media (band, dark, facts), each with its
+ * heading inside; fleet tiles: cards-teaser
  * (overlay); eServices slider: carousel-cards; ULD teaser: hero-card-overlay), the company pages (video header:
  * hero-campaign; facts slider: carousel-images; history timeline: carousel-cards), articles
  * (asset publisher: H1, dateline, text, image), legal pages (tables: table-striped).
@@ -1014,12 +1015,17 @@ const statItem = (value, label) => `<li><strong>${esc(value)}</strong> ${esc(lab
 function infra(c, page) {
   const inner = c.querySelector('.infraInner');
   const stats = [...c.querySelectorAll('.infraStat')].map((s) => statItem(text(s.querySelector('.infraStatValue')), text(s.querySelector('.infraStatLabel'))));
-  const regions = [...c.querySelectorAll('.infraRegion')].map((r) => statItem(text(r.querySelector('.infraRegionValue')), text(r.querySelector('.infraRegionLabel'))));
+  // a region's label on two lines as www's spans ("Stations in" / "North America")
+  const regionLabel = (r) => {
+    const spans = [...r.querySelectorAll('.infraRegionLabel span')].map(text).filter(Boolean);
+    return spans.length > 1 ? spans.map(esc).join('<br>') : esc(text(r.querySelector('.infraRegionLabel')));
+  };
+  const regions = [...c.querySelectorAll('.infraRegion')].map((r) => `<li><strong>${esc(text(r.querySelector('.infraRegionValue')))}</strong> ${regionLabel(r)}</li>`);
   // the station network map (an image on www), then the counters
   const map = c.querySelector('img.infraMapImg');
   const mapImg = map ? page.img(map) : '';
   const counters = `${stats.length ? `<ul>${stats.join('')}</ul>` : ''}${regions.length ? `<ul>${regions.join('')}</ul>` : ''}${mapLink(page).join('')}`;
-  page.block('columns-media (band, gradient, stats)', [[inner ? flow(inner, page, 'cell').join('') : ''], [counters, mapImg ? `<p>${mapImg}</p>` : '']]);
+  page.block('columns-media (band, gradient, stats, icons)', [[inner ? flow(inner, page, 'cell').join('') : ''], [counters, mapImg ? `<p>${mapImg}</p>` : '']]);
 }
 
 function ourFleet(c, page) {
@@ -1050,7 +1056,7 @@ function ourProducts(c, page) {
     });
     return [info ? flow(info, page, 'cell').join('') : '', links.length ? `<ul>${links.join('')}</ul>` : ''];
   });
-  if (rows.length) page.block('columns-media (band, dark, features)', [[head], ...rows]);
+  if (rows.length) page.block('columns-media (band, dark, features, icons)', [[head], ...rows]);
   else if (head) page.add(head);
 }
 
