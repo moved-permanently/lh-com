@@ -152,6 +152,7 @@ tokens) and the computed styles of the pages above.
 | 108 | Fare tables' Legend and Notes headings (R4-2) | H2s | H3s | shared code (fare-comparison) | fixed (brief 403, 9220be1): H2s, the look unchanged (14/21 600 at the same place); checked on /pt-pt/reservas/tarifas-tap and /en-pt/bookings/tap-fares at 1440 and 390 |
 | 109 | Help page's contact headings (R4-3: Contact Center, Lost & Found …) | H2s | H3s | TAP's hotline-finder (hotline-finder-tap.js) | fixed (brief 403, 9220be1): H2s, the look unchanged (24 px 500 green, same place); checked on /pt-pt/ajuda and /en-pt/help at 1440 and 390 |
 | 110 | Economy Prime pages' comparison table (R4-8: Prime / Top Prime, /pt-pt/a-bordo/economy-prime, /en-pt/on-board/economy-prime) | as on the fare pages: card columns from 1024 px, the phone table with its scroll buttons, ✓ / ✕ icons, the legend and notes in a box under it; 1,263 px at 1440, 1,006 at 390 (pt-pt) | table-striped in an 840 px box and a 263 px legend under it (1440), 1,103 px at 390 | shared code, TAP-scoped (table-striped-tap.js, fare-comparison's one-table form) | fixed (brief 406, c3555af): on brand tap such a table becomes a fare-comparison block of one table, the legend and notes its caption box; 1,270 px at 1440 and 994 / 952 at 390 (pt-pt / en-pt) on tap.turnsthe.page after the push. The phone rows as www's (label cells 8 px all round, ✓ in a 24 px box), which also brings the fare pages' phone table to www's (pt-pt 696 px, www 707; en-pt 641, www 640). The Club's tables (matrix) stay table-striped |
+| 111 | Entertainment pages' news (R4-10: cards-teaser option slider, /pt-pt/a-bordo/entretenimento, /en-pt/on-board/entertainment) | from 728 px a round previous and next (40 px, #f7f7f8, Material's chevron at weight 300) 16 px either side of the row, three cards in view from 1024 px (two below), one a step, bullets under the row; the slider 60 px inside its column at 1440 (the row 888 px), 48 px up; a grid on phones | one row of four from 1024 px scrolled inside the list, no controls | shared code, TAP-scoped (cards-teaser-tap.js, tap.css) | fixed (brief 407, aed8177f): measured on www.flytap.com/pt-pt/a-bordo/entretenimento at 1440, 1280, 1024, 768 and 390 (two loads); on the local preview with this code at the same widths: the row 888 px, the buttons at x 220 and 1180, the cards 32 px under the heading, as www's at 1440 and 1280; previous unavailable at the start (aria-disabled, the focus kept), one card a step, the bullets follow; phones the grid; axe clean at 1440 and 390 (pt-pt, en-pt) |
 
 ## What was fixed (commits)
 
@@ -1083,4 +1084,13 @@ Row 110 (R4-8): the Economy Prime pages' table drawn as www's fare tables (a far
 table, its legend and notes in the caption box; TAP-scoped, no document changed). Row 107: the
 Club's column heading keeps its (i) beside the heading. Compared with www.flytap.com in the
 agent's browser and checked on tap.turnsthe.page after the push (bae28c8), pt-pt and en-pt, 1440
+and 390.
+
+## Brief 407: R4-10, the entertainment's news (row 111)
+
+Row 111 (R4-10): the news list (the importer's option slider) as www's swiper: previous, next and
+bullets from 728 px, three cards in view from 1024 px (R4-4's one row of four was not www's), the
+slider inside its column as www's. TAP-scoped (blocks/cards-teaser/cards-teaser-tap.js, loaded on
+brand tap only; tap.css); no document changed. Compared with www.flytap.com in the agent's browser
+(two loads, 10 s apart) and checked with this code on TAP's preview content, pt-pt and en-pt, 1440
 and 390.

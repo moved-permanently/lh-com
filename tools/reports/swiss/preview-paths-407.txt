@@ -1,0 +1,11 @@
+/ch/en/prepare/baggage/hand-baggage
+/ch/de/prepare/baggage/hand-baggage
+/ch/fr/prepare/baggage/hand-baggage
+/ch/it/prepare/baggage/hand-baggage
+/ch/es/prepare/baggage/hand-baggage
+/ch/pt/prepare/baggage/hand-baggage
+/ch/zh/prepare/baggage/hand-baggage
+/ch/ja/prepare/baggage/hand-baggage
+/ch/el/prepare/baggage/hand-baggage
+/ch/ru/prepare/baggage/hand-baggage
+/kr/ko/prepare/baggage/hand-baggage

@@ -1,0 +1,10 @@
+/at/en/handgepaeck
+/at/de/handgepaeck
+/fr/fr/handgepaeck
+/it/it/handgepaeck
+/ru/ru/handgepaeck
+/es/es/handgepaeck
+/gr/el/handgepaeck
+/jp/ja/handgepaeck
+/pl/pl/handgepaeck
+/cn/zh/handgepaeck

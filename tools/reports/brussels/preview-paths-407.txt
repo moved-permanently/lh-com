@@ -1,0 +1,6 @@
+/be/en/extra-services/baggage/carry-on-baggage
+/be/fr/extra-services/baggage/carry-on-baggage
+/be/nl/extra-services/baggage/carry-on-baggage
+/de/de/extra-services/baggage/carry-on-baggage
+/it/it/extra-services/baggage/carry-on-baggage
+/es/es/extra-services/baggage/carry-on-baggage
