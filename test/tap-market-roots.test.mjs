@@ -46,8 +46,14 @@ test('the table: markets.json\'s 137 roots with www\'s currency and airport, own
     ['/mentions-legales/droits-passagers-canada', '/mentions-legales/plan-accessibilite-canada', '/miles-and-go/gagnez-miles/cartes-de-credit'],
     ['/aide/demandes-reclamations/informations-miles-go', '/aide/demandes-reclamations/reclamation', '/aide/demandes-reclamations/suggestion-ou-compliment', '/inscription',
       '/mentions-legales/droits-des-passagers-france', '/reservations/assurances', '/reservations/gift-card']]);
-  // lacks and the paths without a document (en-ch's legal notices) both answer 404
-  assert.ok(TAP_MARKETS['en-ch'][7].includes('/legal-info/legal-notices'));
+  // lacks and the paths without a document both answer 404 (en-ch's sign-up); the 13 legal pages the
+  // user's harness published on their roots (brief 414: en-ch's legal notices, en-de's and en-at's
+  // legal notices and arbitration body …) are the roots' own pages now
+  assert.ok(TAP_MARKETS['en-ch'][7].includes('/sign-up'));
+  assert.ok(TAP_MARKETS['en-ch'][6].includes('/legal-info/legal-notices') && !TAP_MARKETS['en-ch'][7].includes('/legal-info/legal-notices'));
+  assert.deepEqual(TAP_MARKETS['en-de'][6], ['/legal-info/arbitration-body', '/legal-info/legal-notices']);
+  assert.deepEqual(TAP_MARKETS['fr-ch'][6], ['/mentions-legales/mentions-legales']);
+  assert.equal(Object.values(TAP_MARKETS).reduce((n, row) => n + row[6].filter((p) => /legal|legais|mentions/.test(p)).length, 0), 19, 'the 13 and the Canadian roots\' six (en-ca, fr-ca, pt-ca)');
   assert.deepEqual(TAP_MARKETS['de-at'].slice(6), [[], [...FORMS_DE, '/registrierung']]);
   assert.deepEqual(TAP_MARKETS['en-us'].slice(0, 5), ['en', 'us', 'en-pt', 'USD', 'NYC']);
   assert.deepEqual(TAP_MARKETS['en-br'].slice(0, 5), ['en', 'br', 'en-pt', 'BRL', 'RIO'], 'en-br from en-pt; pt-br is a language version');
