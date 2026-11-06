@@ -205,8 +205,15 @@ export function destinationContentRequest(destination) {
   return { method: 'GET', route: `/service/api/destinationfinder/destination/content/${encodeURIComponent(destination)}` };
 }
 
+/**
+ * One destination, or several as www's compare dialog asks (?destination=SZG&destination=LCA,
+ * in the order given): {"flightInformation":{"SZG":{"flightTime":60,"stops":0,...},...}}.
+ * @param {string} origin
+ * @param {string|string[]} destination
+ */
 export function flightInfoRequest(origin, destination) {
-  return { method: 'GET', route: `/service/api/destinationfinder/flightinfo/${encodeURIComponent(origin)}?${new URLSearchParams({ destination })}` };
+  const params = new URLSearchParams([destination].flat().map((d) => ['destination', d]));
+  return { method: 'GET', route: `/service/api/destinationfinder/flightinfo/${encodeURIComponent(origin)}?${params}` };
 }
 
 /** A local day's midnight written in UTC without milliseconds and zone, as www sends it. */

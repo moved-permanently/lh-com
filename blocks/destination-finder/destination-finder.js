@@ -14,7 +14,9 @@ import {
 } from '../../scripts/lh-api.js';
 import { attachDamFallback } from '../../scripts/dam-path.js';
 import { markSource, priceRetryDelay } from '../../scripts/lh-data.js';
-import { createCompare, COMPARE_LABELS, COMPARE_LIVE_LABELS } from './finder-compare.js';
+import {
+  createCompare, loadFlightInfo, COMPARE_LABELS, COMPARE_LIVE_LABELS,
+} from './finder-compare.js';
 
 /* ---------------------------------------------------------------------------------------------
  * Data contract (see scripts/lh-api.js for the live request and response shapes). The live
@@ -1705,6 +1707,8 @@ async function decorateGrid(block, uid) {
         tripDuration: settings.tripDuration,
       }, locale, settings.destinationPage, brandEntry()),
       image: (o) => destinationImageUrl(o.code, 720),
+      // www's flight information of the ticked cities, asked when the dialog opens
+      flightInfo: (codes) => loadFlightInfo(state.origin.code, codes, locale),
     });
   }
 

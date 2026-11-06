@@ -1,0 +1,22 @@
+{
+ "source": "discover-compare-001 (2026-11-05)",
+ "url": "https://www.discover-airlines.com/service/api/destinationfinder/flightinfo/FRA?destination=SZG&destination=LCA",
+ "status": 200,
+ "x-portal": "FOUR_Y",
+ "x-portal-site": "DE",
+ "x-portal-language": "en",
+ "body": {
+  "flightInformation": {
+   "SZG": {
+    "flightTime": 60,
+    "stops": 0,
+    "flightsPerWeek": 7
+   },
+   "LCA": {
+    "flightTime": 225,
+    "stops": 0,
+    "flightsPerWeek": 7
+   }
+  }
+ }
+}

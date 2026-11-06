@@ -6,14 +6,19 @@
  * sets gridCompare (scripts/brands.js; the other brands' captures show no compare). A ticked card
  * says "Added to compare" and offers "See comparison", which opens a modal dialog: the headline,
  * one column per ticked destination (picture, city, country, price), a grey section with its
- * activities, "Flight Information" with the duration and the stops (the offer's
- * minimumFlightDuration and numberOfStopovers) and "Calendar" to the destination's page. Texts:
- * www's labels destinationFinder.resultSection.comparison.* (the grid's live labels replace
- * these). Escape or the close button close it, the focus back on the button that opened it.
- * Styles: finder-compare.css, loaded with the first control.
+ * activities, "Flight Information" with the duration and the stops and "Calendar" to the
+ * destination's page. As www (capture discover-compare-001, brief 412): ticking sends nothing; the
+ * button asks www once, GET /service/api/destinationfinder/flightinfo/<ORIGIN>?destination=..
+ * (one per ticked city, in tick order; loadFlightInfo, the finder's way), and the dialog shows its
+ * flightTime and stops (a city it lacks, or no answer: the offer's minimumFlightDuration and
+ * numberOfStopovers). Texts: www's labels destinationFinder.resultSection.comparison.* of four_y
+ * (the grid's live labels replace these). Escape or the close button close it, the focus back on
+ * the "See comparison" button that opened it (the same card's new one when the grid was drawn
+ * again). Styles: finder-compare.css, loaded with the first control.
  */
+import { fetchRequest, flightInfoRequest } from '../../scripts/lh-api.js';
 
-/** www's texts (labels/destinationFinder, recorded de/en and de/de). */
+/** www's texts (labels/destinationFinder/four_y, de/en and de/de: discover-compare-001). */
 export const COMPARE_LABELS = {
   en: {
     'compare label': 'Compare cities',
@@ -21,7 +26,7 @@ export const COMPARE_LABELS = {
     'compare open label': 'See comparison',
     'compare added label': '{DESTINATION} has been added to comparison list',
     'compare removed label': '{DESTINATION} has been removed from comparison list',
-    'compare headline': 'Compare {TRIPTYPE} destination and flights from {ORIGIN}',
+    'compare headline': 'Compare destinations and flights from {ORIGIN}',
     'compare activities label': 'Activities',
     'compare flight information label': 'Flight Information',
     'compare duration label': 'Duration',
@@ -36,16 +41,16 @@ export const COMPARE_LABELS = {
     'compare label': 'Städte vergleichen',
     'compare checked label': 'Zum Vergleich hinzugefügt',
     'compare open label': 'Vergleich ansehen',
-    'compare added label': '{DESTINATION} wurde zur Vergleichsliste hinzugefügt',
-    'compare removed label': '{DESTINATION} wurde aus der Vergleichsliste entfernt',
-    'compare headline': 'Reiseziel und Flüge ab {ORIGIN} vergleichen',
+    'compare added label': '{DESTINATION} wurde der Vergleichsliste hinzugefügt',
+    'compare removed label': '{DESTINATION} wurde von der Vergleichsliste entfernt',
+    'compare headline': 'Reiseziele und Flüge ab {ORIGIN} vergleichen',
     'compare activities label': 'Aktivitäten',
     'compare flight information label': 'Fluginformationen',
     'compare duration label': 'Dauer',
-    'compare duration': 'Ab {HOURS, select, 0 {} other { {HOURS}h }}{MINUTES, select, 0 {} other {{MINUTES}min}}',
+    'compare duration': 'Ab {HOURS, select, 0 {} other { {HOURS}Std. }}{MINUTES, select, 0 {} other {{MINUTES}Min.}}',
     'compare stops label': 'Zwischenstopps',
     'compare nonstop label': 'Nonstop-Flüge verfügbar',
-    'compare stops': 'Ab {COUNT} {COUNT, plural, =0 {} one {Zwischenstopp} other {Zwischenstopps}}',
+    'compare stops': 'Ab {COUNT} {COUNT, plural, =0 {} one {Zwischenstop} other {Zwischenstops}}',
     'compare cta label': 'Kalender',
     'compare close label': 'Schließen',
   },
@@ -141,6 +146,27 @@ export function stopsText(labels, stops) {
   return n === 0 ? labels['compare nonstop label'] : formatMessage(labels['compare stops'], { COUNT: n });
 }
 
+/**
+ * www's flight information of the ticked cities, by code: {SZG: {duration, stops}} from
+ * {"flightInformation":{"SZG":{"flightTime":60,"stops":0,"flightsPerWeek":7}}} (flightsPerWeek is
+ * not shown). The finder's other destinationfinder calls' way (scripts/lh-api.js fetchRequest);
+ * a recorded answer only for this very request.
+ * @param {string} origin the grid's origin code
+ * @param {string[]} codes the ticked cities, in tick order
+ * @param {Object} locale getLocale()
+ * @param {Function} [fetcher] fetchRequest (tests)
+ */
+export async function loadFlightInfo(origin, codes, locale, fetcher = fetchRequest) {
+  if (!origin || !codes.length) return {};
+  const { data } = await fetcher(flightInfoRequest(origin, codes), locale, { exact: true });
+  const all = (data && data.flightInformation) || {};
+  return Object.fromEntries(Object.entries(all).filter(([, v]) => v && typeof v === 'object')
+    .map(([code, v]) => [code, { duration: v.flightTime, stops: v.stops }]));
+}
+
+/** How long the dialog waits for www's flight information before it shows the offers' own. */
+const FLIGHT_INFO_WAIT_MS = 3000;
+
 function el(tag, className, text) {
   const node = document.createElement(tag);
   if (className) node.className = className;
@@ -171,11 +197,13 @@ const CLOSE_ICON = '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden=
  * @param {(offer: Object) => string} options.priceLabel "Round trip from"
  * @param {(offer: Object) => string} options.link the destination's page
  * @param {(offer: Object) => string} [options.image] the destination's picture
+ * @param {(codes: string[]) => Promise<Object>} [options.flightInfo] www's flight information of
+ *   the ticked cities ({CODE: {duration, stops}}, loadFlightInfo), asked when the dialog opens
  * @returns {{element: Element, control: (offer: Object) => Element, selected: () => Object[],
- *   reset: () => void}}
+ *   reset: () => void, open: (from: Element) => Promise<void>}}
  */
 export function createCompare({
-  labels, affinities = [], origin, tripTypeLabel, price, priceLabel, link, image = () => '',
+  labels, affinities = [], origin, tripTypeLabel, price, priceLabel, link, image = () => '', flightInfo = null,
 }) {
   loadStyles();
   const uid = Math.random().toString(36).slice(2, 8);
@@ -188,6 +216,7 @@ export function createCompare({
   dialog.id = `destination-finder-compare-${uid}`;
   element.append(live, dialog);
   let opener = null;
+  let openerCode = '';
   const say = (key, offer) => {
     live.textContent = formatMessage(labels[key], { DESTINATION: offer.name || offer.code });
   };
@@ -198,7 +227,13 @@ export function createCompare({
     if (!isOpen()) return;
     if (typeof dialog.close === 'function') dialog.close();
     dialog.removeAttribute('open');
-    if (opener) opener.focus();
+    // the clicked card's button; the same card's new one when the grid drew it again
+    let back = opener;
+    if (back && !back.isConnected) {
+      back = [...document.querySelectorAll('.destination-finder-compare')]
+        .find((w) => w.dataset.compareCode === openerCode)?.querySelector('button.destination-finder-compare-open') || null;
+    }
+    if (back) back.focus();
   };
   dialog.addEventListener('cancel', (e) => {
     e.preventDefault();
@@ -212,7 +247,7 @@ export function createCompare({
     if (!inside) close();
   });
 
-  const column = (offer, first) => {
+  const column = (offer, first, info = {}) => {
     const col = el('div', 'destination-finder-compare-destination');
     const head = el('div', 'destination-finder-compare-head');
     const src = image(offer);
@@ -246,8 +281,10 @@ export function createCompare({
       r.append(el('h5', 'destination-finder-compare-label', label), el('p', 'destination-finder-compare-value', value || '–'));
       return r;
     };
-    const duration = row('destination-finder-compare-duration', labels['compare duration label'], durationText(labels, offer.duration));
-    const stops = row('destination-finder-compare-stops', labels['compare stops label'], stopsText(labels, offer.stops));
+    // www's flight information when it has the city, else the offer's own
+    const has = (k) => info[k] !== undefined && info[k] !== null;
+    const duration = row('destination-finder-compare-duration', labels['compare duration label'], durationText(labels, has('duration') ? info.duration : offer.duration));
+    const stops = row('destination-finder-compare-stops', labels['compare stops label'], stopsText(labels, has('stops') ? info.stops : offer.stops));
     const ctaWrap = el('p', 'destination-finder-compare-cta-wrap');
     const cta = el('a', 'destination-finder-compare-cta button secondary', labels['compare cta label']);
     cta.href = link(offer);
@@ -256,9 +293,7 @@ export function createCompare({
     return col;
   };
 
-  const open = (from) => {
-    opener = from;
-    const offers = [...picked.values()];
+  const render = (offers, infos) => {
     const o = origin() || {};
     const headline = el('h2', 'destination-finder-compare-headline', formatMessage(labels['compare headline'], {
       ORIGIN: o.name || o.code || '', TRIPTYPE: tripTypeLabel(),
@@ -275,7 +310,7 @@ export function createCompare({
     sticky.append(headline);
     header.append(sticky, closeButton);
     const grid = el('div', 'destination-finder-compare-destinations');
-    offers.forEach((offer, i) => grid.append(column(offer, i === 0)));
+    offers.forEach((offer, i) => grid.append(column(offer, i === 0, infos[offer.code])));
     const scroller = el('div', 'destination-finder-compare-scroller');
     scroller.append(grid);
     dialog.style.setProperty('--df-compare-destinations-count', String(offers.length));
@@ -285,8 +320,37 @@ export function createCompare({
     closeButton.focus();
   };
 
+  let opening = false;
+  const open = async (from) => {
+    if (opening) return;
+    opener = from;
+    openerCode = (from && from.closest && from.closest('.destination-finder-compare')?.dataset.compareCode) || '';
+    const offers = [...picked.values()];
+    if (!flightInfo) {
+      render(offers, {});
+      return;
+    }
+    // www asks for the flight information first, then shows the dialog
+    opening = true;
+    let timer;
+    const wait = new Promise((resolve) => {
+      timer = setTimeout(() => resolve({}), FLIGHT_INFO_WAIT_MS);
+    });
+    let infos = {};
+    try {
+      infos = (await Promise.race([flightInfo(offers.map((o) => o.code)), wait])) || {};
+    } catch (e) {
+      infos = {};
+    } finally {
+      clearTimeout(timer);
+      opening = false;
+    }
+    render(offers, infos);
+  };
+
   const control = (offer) => {
     const wrap = el('div', 'destination-finder-compare');
+    wrap.dataset.compareCode = offer.code;
     const box = el('input', 'destination-finder-compare-checkbox');
     box.type = 'checkbox';
     box.id = `destination-finder-compare-${uid}-${offer.code}`;
@@ -323,5 +387,6 @@ export function createCompare({
     control,
     selected: () => [...picked.values()],
     reset: () => picked.clear(),
+    open,
   };
 }

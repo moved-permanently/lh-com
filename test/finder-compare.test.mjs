@@ -7,7 +7,7 @@
    ticked destination with its picture, city, country and price, a grey section with its
    activities, "Flight Information" (duration and stops from the offer: minimumFlightDuration,
    numberOfStopovers) and "Calendar" to the destination's page. Texts: www's labels
-   (destinationFinder.resultSection.comparison.*, recorded de/en and de/de). Escape or the close
+   (destinationFinder.resultSection.comparison.* of four_y, discover-compare-001; brief 412). Escape or the close
    button closes it, the focus back on the button that opened it. Values compared as strings and
    booleans, never as DOM nodes. Run: node --max-old-space-size=256 --test test/finder-compare.test.mjs */
 /* global globalThis */
@@ -65,8 +65,8 @@ test('www\'s flight information texts: the duration and the stops', () => {
   assert.equal(stopsText(l, 0), 'Nonstop available');
   assert.equal(stopsText(l, 1), 'From 1 stop');
   assert.equal(stopsText(l, 2), 'From 2 stops');
-  assert.equal(durationText(COMPARE_LABELS.de, 155), 'Ab 2h 35min');
-  assert.equal(stopsText(COMPARE_LABELS.de, 2), 'Ab 2 Zwischenstopps');
+  assert.equal(durationText(COMPARE_LABELS.de, 155), 'Ab 2Std. 35Min.');
+  assert.equal(stopsText(COMPARE_LABELS.de, 2), 'Ab 2 Zwischenstops');
 });
 
 test('a card\'s control: the checkbox named "Compare cities"; ticked "Added to compare" with "See comparison", announced', () => {
@@ -110,7 +110,7 @@ test('the dialog: www\'s headline, a column per ticked city in the order ticked,
   a.querySelector('button.destination-finder-compare-open').click();
   const dialog = compare.element.querySelector('dialog.destination-finder-compare-dialog');
   assert.ok(dialog.open || dialog.hasAttribute('open'), 'open');
-  assert.equal(text(document.getElementById(dialog.getAttribute('aria-labelledby'))), 'Compare round trip destination and flights from Frankfurt');
+  assert.equal(text(document.getElementById(dialog.getAttribute('aria-labelledby'))), 'Compare destinations and flights from Frankfurt');
   const cols = [...dialog.querySelectorAll('.destination-finder-compare-destination')];
   assert.deepEqual(cols.map((c) => text(c.querySelector('h3'))), ['Calgary', 'Larnaca']);
   const lca = cols[1];
@@ -139,7 +139,7 @@ test('Escape and the close button close it, the focus back on the button that op
   tick(a.querySelector('input'));
   open.click();
   const dialog = compare.element.querySelector('dialog.destination-finder-compare-dialog');
-  assert.equal(text(document.getElementById(dialog.getAttribute('aria-labelledby'))), 'Reiseziel und Flüge ab Frankfurt vergleichen');
+  assert.equal(text(document.getElementById(dialog.getAttribute('aria-labelledby'))), 'Reiseziele und Flüge ab Frankfurt vergleichen');
   dialog.dispatchEvent(new window.Event('cancel', { cancelable: true }));
   assert.equal(dialog.hasAttribute('open'), false);
   assert.equal(focused, 1);

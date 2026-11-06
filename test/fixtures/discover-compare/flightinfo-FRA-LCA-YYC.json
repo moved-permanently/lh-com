@@ -1,0 +1,22 @@
+{
+ "source": "discover-compare-001 (2026-11-05)",
+ "url": "https://www.discover-airlines.com/service/api/destinationfinder/flightinfo/FRA?destination=LCA&destination=YYC",
+ "status": 200,
+ "x-portal": "FOUR_Y",
+ "x-portal-site": "DE",
+ "x-portal-language": "de",
+ "body": {
+  "flightInformation": {
+   "YYC": {
+    "flightTime": 575,
+    "stops": 0,
+    "flightsPerWeek": 7
+   },
+   "LCA": {
+    "flightTime": 225,
+    "stops": 0,
+    "flightsPerWeek": 7
+   }
+  }
+ }
+}
