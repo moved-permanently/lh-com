@@ -129,11 +129,13 @@ export function withCheckinTabs(html) {
  * A snapshot whose teaser rows in a two-column view (ITA's "Related", "This might also interest
  * you": two teasers side by side) are a three-column view, which lh-com's info importer makes a
  * carousel-cards block (".threecolumn:has(.teaser)"; its two-column views with teasers are left
- * to the text flow, where the teasers stack). Column views nested in it are left as they are.
+ * to the text flow, where the teasers stack), marked data-import-two-up so the block keeps www's two
+ * per row (travel-classes, brief 432; as austrian-import.mjs). Column views nested in it are left
+ * as they are.
  */
 export const withTeaserColumns = (html) => editDivs(html, '<div class="twocolumn', (el) => {
   if (!el.includes('class="teaser') || /<div class="(?:two|three|four)column/.test(el.slice(1))) return el;
-  return el.replace('<div class="twocolumn', '<div class="threecolumn').replace('data-identifier="twocolumn"', 'data-identifier="threecolumn"');
+  return el.replace(/^<div class="twocolumn([^"]*)"/, '<div class="threecolumn$1" data-import-two-up=""').replace('data-identifier="twocolumn"', 'data-identifier="threecolumn"');
 });
 
 // the booking-lookup's hand-off: www's check-in app is not reachable from the replica (and its
