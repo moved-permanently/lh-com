@@ -733,12 +733,17 @@ body.brand-cargo main > .section.image-list .accordion-columns-panel {
    year 36 px, the title 16 px bold, the text 13/22. On phones the cards down a navy line at the
    left, a dot beside each; from 768 px a third of the row each, above and below a white line in
    turn (each slide a grid of three rows: its card in the first or the last, the line and its dot
-   in the middle one), the arrows round at the line's ends, no dots row. The band grey: www's
-   photo behind it (History_Slider_BG.jpg) is not in lh-cargo's DA */
+   in the middle one), the arrows round at the line's ends, no dots row. The band grey where it has
+   no photo; www's photo (History_Slider_BG.jpg, section timeline, brief 439) covers it behind the
+   cards at every width (the rules shared with key facts below) */
 body.brand-cargo main .section:has(.carousel-cards.timeline) {
   margin-bottom: 0;
   padding: 80px 0;
   background-color: #8a8a8a;
+}
+
+body.brand-cargo main > .section.timeline {
+  position: relative;
 }
 
 body.brand-cargo .carousel-cards.timeline .carousel-cards-slide,
@@ -973,8 +978,10 @@ body.brand-cargo .accordion-columns.tabs.filter .accordion-columns-filter-result
 
 /* row 21 (round 3): Support & Contact's "Contact us" band (section contact) as www's: a navy box
    in the grid on a grey band, 92 px above and below its text, white text, the button a white
-   outline (www's photo beside it is not in lh-cargo's DA); then technical support beside the local
-   sales contact (columns (support)), a rule between them from 768 px */
+   outline; www's photo (brief 439) from 768 px the box's right half (16:9: the box two halves
+   high, taller when the text needs it; the text centred in the left half), on phones under the
+   text across the box; 4 px corners. Then technical support beside the local sales contact
+   (columns (support)), a rule between them from 768 px */
 body.brand-cargo main > .section.contact {
   margin-bottom: 0;
   padding: 40px 0;
@@ -984,9 +991,52 @@ body.brand-cargo main > .section.contact {
 body.brand-cargo main > .section.contact > .default-content-wrapper {
   box-sizing: border-box;
   max-width: calc(min(var(--content-max-width), 100%) - 2 * var(--layout-margin));
+  overflow: hidden;
   padding: 92px 24px;
+  border-radius: 4px;
   background-color: #05164d;
   color: #fff;
+}
+
+body.brand-cargo main > .section.contact > .default-content-wrapper:has(> p > picture) {
+  padding-top: 40px;
+  padding-bottom: 0;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- a section's photo paragraph, not a card's text */
+body.brand-cargo main > .section.contact > .default-content-wrapper > p:has(> picture) {
+  max-width: none;
+  margin: 40px -24px 0;
+}
+
+body.brand-cargo main > .section.contact > .default-content-wrapper > p:has(> picture) img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+@media (width >= 768px) {
+  body.brand-cargo main > .section.contact > .default-content-wrapper:has(> p > picture) {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    aspect-ratio: 32 / 9;
+    padding: 24px calc(50% + 24px) 24px 24px;
+  }
+
+  body.brand-cargo main > .section.contact > .default-content-wrapper > p:has(> picture) {
+    position: absolute;
+    inset: 0 0 0 50%;
+    margin: 0;
+  }
+
+  body.brand-cargo main > .section.contact > .default-content-wrapper > p:has(> picture) img {
+    height: 100%;
+    aspect-ratio: auto;
+  }
 }
 
 body.brand-cargo main > .section.contact :is(h2, p) {
@@ -1004,6 +1054,110 @@ body.brand-cargo main > .section.contact a.button:any-link {
 body.brand-cargo main > .section.contact a.button:is(:hover, :focus-visible) {
   background-color: #fff;
   color: #05164d;
+}
+
+/* row 18 (brief 439): Facts & Figures' key facts (section key-facts) as www's slider: the band
+   across the screen, www's photo covering it behind the slides (.parallax-bg, cover), the phone
+   photo below 768 px (www's LCAGCP-lcagMobileFactsSlider), the slides the screen's width, "Key
+   Facts" over them 20 px down and 16 px in, calc(21.23px + .769vw) (www's LCAGCP-FSTextContainer).
+   The section photos of key facts and the timeline: the first paragraphs of the section's text,
+   over its whole box, the blocks above them */
+body.brand-cargo main > .section.key-facts {
+  position: relative;
+  margin-bottom: 0;
+}
+
+body.brand-cargo main > .section.key-facts > div {
+  max-width: none;
+  padding: 0;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- a section's photo paragraph, not a card's text */
+body.brand-cargo main > .section:is(.key-facts, .timeline) > .default-content-wrapper > p:has(> picture) {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+}
+
+body.brand-cargo main > .section:is(.key-facts, .timeline) > .default-content-wrapper > p:has(> picture) picture {
+  display: block;
+  height: 100%;
+}
+
+body.brand-cargo main > .section:is(.key-facts, .timeline) > .default-content-wrapper > p:has(> picture) img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- a section's photo paragraph, not a card's text */
+body.brand-cargo main > .section.key-facts > .default-content-wrapper > p:has(> picture):has(+ p > picture) {
+  display: none;
+}
+
+body.brand-cargo main > .section.key-facts > .default-content-wrapper > h2 {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  padding: 16px 16px 0;
+  color: #05164d;
+  font-size: calc(21.23px + 0.769vw);
+}
+
+body.brand-cargo main > .section:is(.key-facts, .timeline) > div:not(.default-content-wrapper) {
+  position: relative;
+  z-index: 1;
+  margin-top: 0;
+}
+
+/* the slider as www's swiper: one slide the band's width (no bleed into the page margin, no next
+   slide peeking), the arrows inside the band, the dots over the slide's foot */
+body.brand-cargo main > .section.key-facts .carousel-images {
+  margin-bottom: 0;
+}
+
+body.brand-cargo main > .section.key-facts .carousel-images .carousel-images-viewport {
+  --carousel-images-slide: 100cqw;
+}
+
+body.brand-cargo main > .section.key-facts .carousel-images .carousel-images-track {
+  gap: 0;
+  margin: 0;
+  padding: 0;
+}
+
+body.brand-cargo main > .section.key-facts .carousel-images .carousel-images-prev {
+  left: 0;
+}
+
+body.brand-cargo main > .section.key-facts .carousel-images .carousel-images-next {
+  right: 0;
+}
+
+body.brand-cargo main > .section.key-facts .carousel-images .carousel-images-dots {
+  position: absolute;
+  right: 0;
+  bottom: 20px;
+  left: 0;
+  margin: 0;
+}
+
+@media (width >= 768px) {
+  body.brand-cargo main > .section.key-facts > .default-content-wrapper > h2 {
+    position: absolute;
+    top: 20px;
+    left: 16px;
+    padding: 0;
+  }
+
+  body.brand-cargo main > .section.key-facts > .default-content-wrapper > p:has(> picture):has(+ p > picture) {
+    display: block;
+  }
+
+  body.brand-cargo main > .section.key-facts > .default-content-wrapper > p:has(> picture) + p:has(> picture) {
+    display: none;
+  }
 }
 
 body.brand-cargo .columns.support {

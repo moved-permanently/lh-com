@@ -597,6 +597,10 @@ function contactCard(c, page) {
   if (h) page.add(`<h2>${esc(h)}</h2>`);
   if (p) page.add(`<p>${esc(p)}</p>`);
   if (label) page.add(`<p><strong><a href="${contactDialog()}">${esc(label)}</a></strong></p>`);
+  // www's photo beside the card (under it on phones; brief 439)
+  const photo = c.querySelector('.contactSupportWrapper .imageBox img');
+  const pic = photo ? page.img(photo) : '';
+  if (pic) page.add(`<p>${pic}</p>`);
   page.section(null);
   page.note(`contact form: www's card, its button opening ${contactDialog()} as a dialog (cargo-contact-us)`);
 }
@@ -743,9 +747,17 @@ function component(c, page) {
   if (/(^|\s)aboutWrapper(\s|$)/.test(k)) { about(c, page); return true; }
   if (/(^|\s)LCAGCP-HeaderImageVideo(\s|$)/.test(k)) { headerVideo(c, page); return true; }
   if (/(^|\s)LCAGCP-lcagFactsSlider(\s|$)/.test(k)) {
+    // a section of its own (style key-facts, brief 439): the slider's photo and the phone
+    // slider's (its sibling, www's phone copy, otherwise left out), which Cargo's theme draws
+    // behind the heading and the slides
+    page.section('key-facts');
+    const bgs = [c.querySelector('.parallax-bg'), c.parentElement?.querySelector(':scope > .LCAGCP-lcagMobileFactsSlider')]
+      .map((n) => (n ? page.bg(n) : '')).filter(Boolean);
+    bgs.forEach((b) => page.add(`<p>${b}</p>`));
     const h = text(c.querySelector('.LCAGCP-lcagFactsHeadline'));
     if (h) page.add(`<h2>${esc(h)}</h2>`);
     carousel(c, page);
+    page.section(null);
     return true;
   }
   if (/(^|\s)LCAGCP-lcagEventSlider(\s|$)/.test(k)) { timeline(c, page); return true; }
@@ -1148,8 +1160,15 @@ function timeline(c, page) {
     clone.querySelectorAll('h1').forEach((x) => x.remove());
     return ['', `${year ? `<p>${esc(year)}</p>` : ''}${flow(clone, page, 'cell').join('')}`];
   });
-  // www's timeline: the events in a row on a line (carousel-cards (timeline), round 3)
-  if (rows.length) page.block('carousel-cards (timeline)', rows);
+  // www's timeline: the events in a row on a line (carousel-cards (timeline), round 3), in a
+  // section of its own (style timeline, brief 439) with www's photo behind it, which Cargo's theme
+  // draws
+  if (!rows.length) return;
+  page.section('timeline');
+  const bg = page.bg(c);
+  if (bg) page.add(`<p>${bg}</p>`);
+  page.block('carousel-cards (timeline)', rows);
+  page.section(null);
 }
 
 /**
