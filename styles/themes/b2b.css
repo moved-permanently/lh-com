@@ -126,6 +126,147 @@
   }
 }
 
+/* the blocks' type as www's (row 21, brief 421: the homepage at 390 and 1440): the cards' titles
+   their size + 4 px (28 / 32, 24 / 28), the carousel's compact cards' titles and copy 24 px (not 19.8 / 27) */
+body.brand-b2b .cards-icon-text .cards-icon-text-card .cards-icon-text-body > .cards-icon-text-title {
+  line-height: calc(1em + 4px);
+}
+
+body.brand-b2b .carousel-cards .carousel-cards-slide:not(.carousel-cards-wide) .carousel-cards-body > :is(p, h1, h2, h3, h4, h5, h6) {
+  line-height: 24px;
+}
+
+/* round 3 (brief 427): www's column-view rhythm. Every www component sits in a column view (2rem
+   above, 1rem below and the items' 1rem from 768 px doubled: 40 / 20 + 20), the views stacked
+   without a gap; so blocks one after the other are 40 px apart (80 from 768 px), a heading that
+   opens the view after a column 20 (40) under the column end's own padding; no 48 px section gap
+   where www's views touch: a column end before a grey band (the band's view starts there), a band
+   before a separator and text (an article's "Published", the separator makes the space) */
+
+/* an article's last "Back to News" and a stage that ends the page 8 px above the footer (www's link
+   component and .stage end the page without a view's padding) */
+body.brand-b2b main > .section:last-child:has(> .hero-card-overlay-wrapper:last-child),
+body.brand-b2b main > .section:last-child:has(> .default-content-wrapper:last-child > p.link-wrapper:last-child) {
+  margin-bottom: 8px;
+}
+
+body.brand-b2b main > .section:has(> .default-content-wrapper:last-child > p.column-mark.column-end-outer:last-child):has(+ .section.grey),
+body.brand-b2b main > .section.grey:has(+ .section > .default-content-wrapper:first-child > p.spacer:first-child + p:not(.spacer, .column-mark)) {
+  margin-bottom: 0;
+}
+
+body.brand-b2b main > .section > div:not(.default-content-wrapper) + div:not(.default-content-wrapper) {
+  margin-top: 40px;
+}
+
+body.brand-b2b main .carousel-cards-wrapper + .carousel-cards-wrapper > .carousel-cards.grid {
+  margin-top: 0;
+}
+
+body.brand-b2b main .default-content-wrapper > p.column-mark.column-end-outer + :is(h1, h2, h3, h4, h5, h6) {
+  margin-top: 20px;
+}
+
+@media (width >= 768px) {
+  body.brand-b2b main > .section > div:not(.default-content-wrapper) + div:not(.default-content-wrapper) {
+    margin-top: 80px;
+  }
+
+  body.brand-b2b main .default-content-wrapper > p.column-mark.column-end-outer + :is(h1, h2, h3, h4, h5, h6) {
+    margin-top: 40px;
+  }
+}
+
+/* a video beside text in a column row (columns-media media-video) 16:9 as www's player, whatever
+   its poster's ratio (the homepage's Summer 2027 film: 622 x 350, not 280); a full-width stage
+   video keeps its poster's */
+body.brand-b2b .columns-media .columns-media-row:has(> .columns-media-text) .media-video {
+  aspect-ratio: 16 / 9;
+}
+
+body.brand-b2b .columns-media .columns-media-row:has(> .columns-media-text) .media-video :is(picture, img) {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* the cards' copy as www's icon modules (18 / 24 regular), the partner tiles' title its teaser
+   heading (18 / 24 bold, www's heading-copytext-large) */
+body.brand-b2b .cards-icon-text.stacked .cards-icon-text-body > p:not(.cards-icon-text-link) {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+body.brand-b2b .cards-icon-text.partner .cards-icon-text-card .cards-icon-text-body > .cards-icon-text-title {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+/* a stage outside a column (hero-card-overlay; de/de and xx/de contact's "Erhalten Sie einen
+   Einblick in die Lufthansa Group"): www's .stage in the content's width (1264 / 404, 346 x 110 on
+   a phone), the title 18 / 24 bold and a small outlined button on its top left (20 px in, 40 from
+   768 px) over www's dark gradient (gradient-black-horizontal, the light link), no navy card */
+body.brand-b2b main > .section > .hero-card-overlay-wrapper {
+  max-width: var(--content-max-width);
+  padding: 0 var(--layout-margin);
+}
+
+body.brand-b2b .hero-card-overlay {
+  aspect-ratio: 1264 / 404;
+  min-height: 0;
+}
+
+body.brand-b2b .hero-card-overlay .hero-card-overlay-media {
+  position: absolute;
+  inset: 0;
+  aspect-ratio: auto;
+}
+
+body.brand-b2b .hero-card-overlay .hero-card-overlay-media::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #0009 0, #0000 66%);
+  content: "";
+}
+
+body.brand-b2b .hero-card-overlay .hero-card-overlay-card {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: auto;
+  max-width: calc(100% - 40px);
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  background: none;
+}
+
+body.brand-b2b .hero-card-overlay .hero-card-overlay-card h2 {
+  margin: 0 0 10px;
+  color: #f5f5f5;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+body.brand-b2b .hero-card-overlay .hero-card-overlay-card .button {
+  min-height: 30px;
+  padding: 5px 30px;
+  border-color: #f5f5f5;
+  color: #f5f5f5;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+@media (width >= 768px) {
+  body.brand-b2b .hero-card-overlay .hero-card-overlay-card {
+    top: 40px;
+    left: 40px;
+    max-width: calc(100% - 80px);
+  }
+}
+
 /* line heights as www's (row 21, brief 421; its headline classes at 390 and 1440): the large size
    x 1.2 - 2.4 px (48 at 42, 36.2 at 32), the medium x 1.5 - 10 px (38 at 32, 32 at 28), the small
    + 4 px, the copytext headings 24 px; in the content (default content, column text) and the
@@ -401,14 +542,4 @@ body.brand-b2b .footer .footer-inner.has-brand-row .footer-badges a.footer-badge
   body.brand-b2b .footer .footer-inner.has-brand-row .footer-locale {
     margin: 20px 0;
   }
-}
-
-/* the blocks' type as www's (row 21, brief 421: the homepage at 390 and 1440): the cards' titles
-   their size + 4 px (28 / 32, 24 / 28), the carousel's compact cards' titles and copy 24 px (not 19.8 / 27) */
-body.brand-b2b .cards-icon-text .cards-icon-text-card .cards-icon-text-body > .cards-icon-text-title {
-  line-height: calc(1em + 4px);
-}
-
-body.brand-b2b .carousel-cards .carousel-cards-slide:not(.carousel-cards-wide) .carousel-cards-body > :is(p, h1, h2, h3, h4, h5, h6) {
-  line-height: 24px;
 }
