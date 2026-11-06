@@ -158,3 +158,12 @@ row 23) read from DA, checked unchanged just before the upload, uploaded and pre
 - **The other brands** (lufthansa /de/en/homepage, swiss, austrian, brussels, ita, tap, airdolomiti,
   cargo, b2b, 1440): each its own brand class, Discover's theme not loaded, blocks and footer
   loaded, no page errors and no "failed to load module".
+
+## Regression check (offline package 2026-11-06, item 4)
+
+Shared code changed a lot since 5 November, so the 26 pages of `discover-parity-001` (sha256 `b08cb37e…330eb`,
+checked again) were rendered at 1440 and 390 with main's code of 2026-11-05 17:02 UTC (`0098269a`, the last
+Discover commit) and with main's code of 2026-11-06 16:20 UTC, both over the same lh-discover preview content:
+the page heights are equal on all 52, and the full-page screenshots are identical pixel for pixel (a check
+of the comparison on two different pages: 6.68 % differ). No regression, nothing to fix; the rows above
+stand as they were (their differences to www are the ones listed: the offers app, the forms, the content).

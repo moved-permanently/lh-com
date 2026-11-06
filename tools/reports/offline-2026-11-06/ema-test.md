@@ -87,3 +87,11 @@ austrian.turnsthe.page and main--lh-austrian--moved-permanently.aem.page (equal 
   overview (+37 / +88 px), the airlines page at 390 (+83 to +131 px).
 - A service restart (between about 12:00 and 15:50 UTC) wiped this machine's /tmp (the captures, my measuring scripts, the DA
   originals read this morning): DA's version history is the rollback for the documents from here on.
+
+## 4. Discover: the 26 pages of discover-parity-001 on the current code
+
+- `discover-parity-001.tar.gz` downloaded again (sha256 `b08cb37e…330eb`, the one on record). Rendered at 1440
+  and 390 with main's code of 2026-11-05 17:02 UTC (`0098269a`, a worktree) and with today's main, over the same
+  lh-discover preview content: heights equal on all 52 page/width pairs, full-page screenshots identical pixel
+  for pixel (the pixel check itself verified on two different pages). No regression; nothing to fix, no new
+  rows (`tools/reports/discover/parity.md`, "Regression check"). No document changed.
