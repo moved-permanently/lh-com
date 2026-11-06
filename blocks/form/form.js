@@ -305,6 +305,38 @@ const DEFAULT_LABELS = {
     'stepper increase': '增加',
     'repeat remove': '移除',
   },
+  // Polish: the submit button, the file row's drop prompt and select as www's xx/pl feedback form
+  // has them; the total line as FILE_TOTAL_LABELS; the rest the replica's own ("Remove" as www's
+  // destination finder writes it)
+  pl: {
+    'sent message': 'To jest formularz podglądu. Nic nie zostało wysłane.',
+    'success message': 'Dziękujemy. Twoja prośba została wysłana.',
+    sending: 'Wysyłanie…',
+    yes: 'Tak',
+    no: 'Nie',
+    'submit label': 'Prześlij',
+    'required marker': '*',
+    'required text': '(wymagane)',
+    'file none label': 'Nie wybrano pliku',
+    'checkbox group error': 'Wybierz co najmniej jedną opcję.',
+    'required error': 'Wypełnij to pole.',
+    'format error': 'Sprawdź wprowadzone dane.',
+    'file prompt': 'Przeciągnij i upuść pliki tutaj',
+    'file or': 'lub',
+    'file select': 'Wybierz plik(i)',
+    'file list headline': 'Przesłane pliki',
+    'file remove': 'Usuń {NAME}',
+    'file required': 'Przesłanie pliku jest wymagane',
+    'file invalid type': 'Prześlij plik w akceptowanym formacie',
+    'file too big': 'Prześlij plik o akceptowanym rozmiarze',
+    'file invalid name': 'Nazwa pliku zawiera niedozwolony znak',
+    'file too many': 'Można przesłać maksymalnie {MAX}',
+    'file total': 'Wszystkie pliki łącznie: maks. {TOTAL}',
+    'send error': 'Niestety nie udało się wysłać Twojej prośby. Spróbuj ponownie.',
+    'stepper decrease': 'Zmniejsz',
+    'stepper increase': 'Zwiększ',
+    'repeat remove': 'Usuń',
+  },
 };
 
 /**
