@@ -113,3 +113,81 @@ explore-the-world articles (no parity job, no www screenshot), south-africa-wint
 www), the alias pages business-class and flynet (www redirects them). Summary updated:
 `tools/reports/parity-2026-11-06/summary-de-en.md` (section and open rows), every page-width in
 `reimport-then-now.md`.
+
+## 4. The worst 30 page-widths of summary-de-en.md, one by one
+
+Measured again on aem.page (14 pages of the 30 not yet in item 3; `/tmp` was wiped by a service
+restart at about 12:15 UTC, so the parity archives were fetched and checked again and the staging rebuilt).
+Then (aem.live, before) -> now:
+
+| # | Page | Width | Then | Now | What it is | Done |
+|---|---|---:|---:|---:|---|---|
+| 1, 3 | /de/en/book-and-manage/stopover | 1440, 768 | 56.5, 51.3 % | 56.5, 51.3 % | tab panels with picture rows came in flat (importer fixed in pass 2) | blocked: no de/en snapshot of the 6 tab pages (reimport-tabs.txt) to re-import |
+| 2, 7, 22 | /de/en/discover-lufthansa/take-off | 1440, 768, 390 | 51.5, 49.7, 43.9 % | two-up now (not measured again) | www's two-up teaser rows straight in the page column came in as plain content (campaign mapped .section-content rows only) | importer: campaign maps them; de/en, de/de, at/de, gb/en converted from DA's copies into cards-teaser (spacious); xx/hk, pt, ru re-imported |
+| 4, 8, 9 | /de/en/book-and-manage/pax-receipt | 1440, 390, 768 | 50.6, 49.3, 48.2 % | 4.9, 9.2, 7.3 % | the form (item 1) | done |
+| 5, 16, 17 | /de/en/first-class | 1440, 768, 390 | 50.5, 44.8, 44.5 % | unchanged | www's new content (Skytrax, schedules in tabs) | held for a person's DA edit (item 2): Ben |
+| 6, 11, 15 | /de/en/homepage | 1440, 768, 390 | 50.0, 46.1, 45.0 % | 16.5, 13.9, 9.5 % | www's new content | done (item 2) |
+| 10 | /de/en/flights | 390 | 48.0 % | 48.0 % | www's offer grid full, ours empty: the offer API does not answer here (impossible.md) | row (live data); its 768 "then" of 1.2 % was a short capture |
+| 12 | /de/en/doctor-on-board-news | 390 | 45.8 % | 45.8 % | ours 30 % taller at 390 | open |
+| 13 | /de/en/business-class-on-short-and-medium-haul | 390 | 45.7 % | 45.7 % | ours taller at 390 | open |
+| 14 | /de/en/book-and-manage/digital-self-services/airline-apps | 768 | 45.2 % | 45.2 % | | open |
+| 18 | /de/en/advance-seat-reservation | 1440 | 44.4 % | 44.4 % | tab panels (as stopover) | blocked: no de/en snapshot |
+| 19 | /de/en/faq-data-security | 390 | 44.3 % | 44.3 % | the legal template lost every accordion: answers only, no questions | importer fixed (legal maps .accordion); xx/hk, pt, ru re-imported; de/en, de/de, at/de, gb/en need snapshots (4 pages each) |
+| 20, 24 | /de/en/during-your-trip/internet-overview | 390, 1440 | 44.0, 42.5 % | 22.6, 13.9 % | re-import | done (item 2) |
+| 21 | /de/en/prepare-for-your-trip/special-travel-needs/medical-travel-companions | 390 | 44.0 % | 44.0 % | ours taller at 390 | open |
+| 23 | /de/en/articles/tags | 768 | 43.2 % | 2.5 % | pass 2 | done |
+| 25 | /de/en/traveltricks | 390 | 42.1 % | 41.0 % | ours taller at 390 | open |
+| 26 | /de/en/first-class-terminal | 768 | 41.8 % | 41.8 % | the image carousel and the rows 40-60 px lower on www (spacing) | open |
+| 27 | /de/en/lufthansa-first-class-fleet | 1440 | 41.8 % | 41.8 % | | open |
+| 28 | /de/en/special-meals | 1440 | 41.7 % | 9.4 % | re-import | done (item 2) |
+| 29 | /de/en/overview-manage | 390 | 41.7 % | 16.5 % | spacious (pass 2) | done; but its 1440 went 6.6 -> 16.9 %: www's de/en rows are in a section (32 / 66 px), unlike xx/hk's: spacious taken off that document |
+| 30 | /de/en/discover-lufthansa/new-onboard-experience | 390 | 41.4 % | 30.0 % | re-import | done (item 2) |
+
+Fixed for item 4 (commits `31fa6266`, and the campaign mapping in the next commit; tests first):
+- the legal template maps `.accordion` (accordion-columns): the FAQ and conditions pages had lost
+  every question. Re-imported and previewed where snapshots exist: xx/hk, xx/pt, xx/ru
+  faq-data-security, faq-password-security, common/accessibility-statement,
+  common/seatreservation-condtions/seat-reservations (10; xx/hk's seat-reservations and
+  accessibility-statement held: their answers' inline links and a mailto link don't come through the
+  accordion, open: importer). de/en, de/de, at/de and gb/en need snapshots of those 4 pages.
+- the campaign template maps teaser rows straight in the page column
+  (`:is(.section-content, .container-content) > .twocolumn`, as hub): take-off's ten cards were plain
+  content. xx/hk, pt, ru re-imported; de/en, de/de, at/de, gb/en converted from DA's copies into the
+  block the parser writes (cards-teaser spacious, two per row from 768 px).
+- /de/en/overview-manage: `spacious` taken off (www's de/en rows are in a section).
+
+Rows (not ours or blocked): stopover and advance-seat-reservation (no de/en snapshots of the tab
+pages); first-class (held, Ben); flights (live data); overview-manage's share image
+(`/etc/designs/dcep/logo-lh-og.jpg` on www, about:error on preview and live, before this package).
+Open (ours, not reached): the 390 heights of doctor-on-board-news, business-class-on-short-and-medium-haul,
+medical-travel-companions and traveltricks (ours 12-30 % taller), airline-apps at 768,
+lufthansa-first-class-fleet at 1440, first-class-terminal's spacing.
+
+## 5. Accessibility pass on lufthansa.com's top templates (aem.page)
+
+axe-core 4.10.2 (npm, integrity checked; WCAG 2.0-2.2 A and AA) at 1440 and 390 on 31 de/en pages:
+homepage; hub (baggage, overview-travel-information, services-on-board, special-needs, flights,
+miles-and-more); info (flying-with-small-children, accessible-travel, travel-companion, hertz,
+get-your-guide, tiere-als-handgepaeck); insights (articles, experience-nature, tags/kuala-lumpur,
+living-in-oslo, schanzenviertel-hamburg, raleigh-nc-winter); campaign (100-years, culinaryjourney,
+100-years/destinations, chronicle, munich-fair); form (feedback, best-price-alert,
+feedback-past-flight, refund-form, anmeldung-tiere-frachtraum, feedbackai); flight-status
+(timetable-and-flight-status). 25 pages without a violation at either width.
+
+Fixed (commit `31fa6266`, tests first):
+- **aria-allowed-attr (critical)**, forms: `aria-required` on a required checkbox group's fieldset
+  (not allowed on role group): now only on radio groups (special-needs, feedback-past-flight,
+  refund-form, anmeldung-tiere-frachtraum; the form block of every brand).
+- **link-name, target-size (serious)**, articles: www's empty links (`<a href="…">&#8203;</a>` before
+  the real link) dropped by the importer, and removed from the 70 documents that had them (de/en 8,
+  de/de 25, at/de 25, gb/en 8, xx/hk 2, xx/ru 1, ru/ru 1; uploaded and previewed).
+
+Not changed, for Ben: **link-in-text-block (serious)**, refund-form: a link in small text is told apart
+from the text by its colour only (2.76:1 against the text; 3:1 needed) and not underlined. That is
+www's own style (`.richtext a` underlined on hover and focus only), which ours keeps; underlining
+links in running text would change the look.
+
+Preview paths of items 4 and 5, release order (no files first): `ema-cashub-preview-items45.txt` (88).
+Checked on aem.page at 1440 and 390: take-off (de/en, gb/en, xx/hk), xx/hk faq-data-security,
+xx/pt seat-reservations, overview-manage, experience-nature, freigepaeck-regeln: 200, every block
+loaded, no overflow; DA equal to the local copies after the upload.
