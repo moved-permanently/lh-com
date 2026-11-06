@@ -1705,3 +1705,10 @@ body.brand-swiss .header .nav-sub-site .nav-tool.nav-tool-search {
   vertical-align: -1px;
   mask: url('/icons/lock.svg') center / contain no-repeat;
 }
+
+/* Lufthansa Cargo: the bar as high as the header it sits in (--nav-height, 90px from 768px; the
+   tools are 40px below 1440px, which left the bar 80px and a 10px white strip under it; www's bar:
+   90px from 1025px, brief 426) */
+body.brand-cargo .header .nav-bar {
+  min-height: var(--nav-height);
+}

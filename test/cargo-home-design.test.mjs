@@ -97,3 +97,19 @@ test('about: 640 px high, the text 856 px, five key facts', () => {
   assert.match(rules(wide, A), /min-height: 640px;/);
   assert.match(rules(wide, `${A} .columns-media-text > ul > li`), /flex: 0 0 calc\(\(100% - 96px\) \/ 5\);/);
 });
+
+/* brief 426 (cargo.turnsthe.page/en/home at 1280 after the publish, against cargo-parity-001 at 1440):
+   - www's slide button starts with the title (both x 72 at 1440): not lh-com's 64 px indent of the
+     stage's links and buttons (from 1025 px, www.lufthansa.com's .campaign-information);
+   - the bar fills the header's height (--nav-height, 90 px from 768 px): its tools are 40 px below
+     1440 px, so the bar was 80 px and a 10 px white strip showed under it (www's bar: 90 px from
+     1025 px, padding-block 31px, no strip). */
+test('the slide\'s button under the title, not indented', () => {
+  const css = read('blocks/hero-campaign/hero-campaign.css');
+  assert.match(rules(css, 'body.brand-cargo .hero-campaign.slider .hero-campaign-content > .hero-campaign-cta'), /padding-left: 0;/);
+});
+
+test('Cargo\'s bar as high as the header it sits in', () => {
+  const css = read('blocks/header/header.css');
+  assert.match(rules(css, 'body.brand-cargo .header .nav-bar'), /min-height: var\(--nav-height\);/);
+});

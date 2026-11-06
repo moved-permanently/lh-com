@@ -873,6 +873,11 @@ body.brand-cargo .hero-campaign.slider .hero-campaign-subtitle {
   line-height: 32px;
 }
 
+/* the button under the title, as www's (not lh-com's 64px indent from 1025px) */
+body.brand-cargo .hero-campaign.slider .hero-campaign-content > .hero-campaign-cta {
+  padding-left: 0;
+}
+
 body.brand-cargo .hero-campaign.slider .hero-campaign-dots {
   top: 316px;
   bottom: auto;
