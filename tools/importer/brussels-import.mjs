@@ -315,6 +315,19 @@ export function withFlightSearch(doc, p) {
   });
 }
 
+// www's destination finder titles its offers itself (maui-headline type h1). A capture with the
+// widget rendered keeps the title in the import; the others (be/en, be/fr our-destinations) left
+// the page without one (axe page-has-heading-one). The labels www's captures show, per language.
+export const FINDER_TITLES = { en: 'Best offers', fr: 'Meilleures offres', es: 'Las mejores ofertas' };
+
+/** A finder page without an h1: www's finder title in the page's language above the finder (not
+ * the homepages: www's homepage finder has no title). */
+export function withFinderTitle(doc, p) {
+  const title = FINDER_TITLES[p.split('/')[2]];
+  if (!title || /\/homepage$/.test(p) || /<h1[\s>]/.test(doc)) return doc;
+  return doc.replace(/<div class="destination-finder(?: [^"]*)?">/, (m) => `<h1>${title}</h1>${m}`);
+}
+
 /** The template of a page from its path and snapshot. */
 export function templateOf(p, html) {
   // (homepage-new: the variant homepage some Italian-language roots have, al/it, be/it, ch/it)
@@ -444,7 +457,7 @@ if (isMain) {
       const fleetDoc = path.join(GALLERY_W, 'content', `${p}.plain.html`);
       const galleried = galleries.some((u) => new URL(u).pathname === src)
         ? spliceGalleries(doc, fs.existsSync(fleetDoc) ? fs.readFileSync(fleetDoc, 'utf8') : '') : doc;
-      const next = withItaMetadata(withCheckinHandoff(withFlightSearch(withItaForm(galleried, p, fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8')), p), p), p, fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8'), markets);
+      const next = withItaMetadata(withCheckinHandoff(withFlightSearch(withFinderTitle(withItaForm(galleried, p, fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8')), p), p), p), p, fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8'), markets);
       if (next !== doc) fs.writeFileSync(f, next);
     });
     const mapOnly = path.join(W, 'runs', `${name}-upload.txt`);

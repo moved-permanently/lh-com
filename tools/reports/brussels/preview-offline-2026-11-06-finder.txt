@@ -1,0 +1,2 @@
+/be/en/book-a-flight/our-destinations
+/be/fr/book-a-flight/our-destinations
