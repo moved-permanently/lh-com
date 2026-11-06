@@ -8,7 +8,8 @@
  * the page's snapshot: per sidebar, the content (from its first heading, else its first text, to the aside, or to its
  * last text when the aside is empty) a section of its own, then the aside a section with the
  * section style sidebar-aside (shown beside the content: scripts/section-aside.js; an empty aside
- * still keeps the content in www's 3 / 4 column). Anywhere on the page, an image | text view whose
+ * still keeps the content in www's 3 / 4 column); the aside's teaser cards a cards-teaser block (a
+ * row per card: its picture | its title, text and link). Anywhere on the page, an image | text view whose
  * document form is clean (the picture right next to its text) becomes a columns-media row (picture |
  * text, or text | picture as the snapshot has it); a heading above the view stays above it. A sidebar the document does not show
  * in that order is left as it is (listed in the result). A document this step made already stays.
@@ -34,7 +35,29 @@ function partTexts(part) {
   return out;
 }
 
-/** The snapshot's sidebars: their content's first heading and texts, the aside's texts, the two-column views. */
+/** An aside's teaser cards: title, whether an image or a video tops it, its link text, its texts. */
+function teasersOf(aside) {
+  if (!aside) return [];
+  return [...aside.querySelectorAll('.teaser.card')].map((c) => {
+    const h = c.querySelector('.teaser-heading, h1, h2, h3, h4, h5, h6');
+    const cta = c.querySelector('.teaser-link-text span:last-child, .teaser-link-text');
+    return {
+      title: h ? norm(h.textContent) : '', image: !!c.querySelector('.image-wrapper img'), video: !!c.querySelector('.video-player, iframe'), cta: cta ? norm(cta.textContent) : '', texts: partTexts(c),
+    };
+  }).filter((t) => t.title);
+}
+
+/** The images of a part after its last text (a picture under the aside's last heading). */
+function trailingImages(part) {
+  if (!part) return 0;
+  const all = [...part.querySelectorAll('*')];
+  const texts = 'h1, h2, h3, h4, h5, h6, p, li, a';
+  let last = -1;
+  all.forEach((el, i) => { if (el.matches(texts) && norm(el.textContent).length >= 4) last = i; });
+  return all.filter((el, i) => i > last && el.tagName === 'IMG').length;
+}
+
+/** The snapshot's sidebars: their content's first heading and texts, the aside's texts and teaser cards. */
 export function sidebarsOf(html) {
   const { document } = parseHTML(html);
   return [...document.querySelectorAll('.airem-sidebar')].map((s) => {
@@ -42,7 +65,7 @@ export function sidebarsOf(html) {
     const aside = s.querySelector(':scope > .sidebar-aside');
     const firstHead = content && content.querySelector('h1, h2, h3, h4');
     return {
-      first: firstHead ? norm(firstHead.textContent) : '', byHeading: !!firstHead, content: partTexts(content), aside: partTexts(aside),
+      first: firstHead ? norm(firstHead.textContent) : '', byHeading: !!firstHead, content: partTexts(content), aside: partTexts(aside), teasers: teasersOf(aside), asideImagesAfter: trailingImages(aside),
     };
   });
 }
@@ -51,9 +74,26 @@ const starts = (el, needle) => needle && textOf(el).startsWith(needle.slice(0, 6
 const contains = (el, needle) => needle && textOf(el).includes(needle.slice(0, 60));
 
 /**
+ * An image's file name as DA keeps it (www's …/Still006.jpeg.transform/…/img.jpg is DA's
+ * …/still006.jpeg: lower case, dots and underscores dashes), without its extension.
+ */
+const slug = (name) => name.toLowerCase().replace(/\.[a-z0-9]+$/, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+const fileOf = (src) => {
+  if (!src) return '';
+  const p = decodeURIComponent(new URL(src, 'https://www.swiss.com').pathname);
+  const i = p.indexOf('.transform/');
+  const path = i > 0 ? p.slice(0, i) : p;
+  return path.includes('/content/dam/') ? slug(path.split('/').pop()) : '';
+};
+const hasFile = (el, file) => {
+  const img = isPicture(el) && el.querySelector('img');
+  return !!img && fileOf(img.getAttribute('src') || '') === file;
+};
+
+/**
  * The snapshot's image | text views (www's twocolumn column views with an image item and a text
  * item; not the teaser rows, not in a sidebar's aside), in page order: whether the image comes
- * first, the text item's first and last text.
+ * first, the text item's first and last text; and its image | image views: each item's files (pair).
  */
 export function twoColumnsOf(html) {
   const { document } = parseHTML(html);
@@ -63,6 +103,11 @@ export function twoColumnsOf(html) {
     if (c.closest('.sidebar-aside') || c.querySelector('.teaser, .twocolumn')) return null;
     const items = [...c.querySelectorAll('.column-view-item')];
     if (items.length !== 2) return null;
+    // images side by side (an item's images one under the other): each item's files
+    if (items.every((i) => img(i) && !txt(i))) {
+      const cols = items.map((i) => [...i.querySelectorAll('img')].map((m) => fileOf(m.getAttribute('src'))));
+      return cols.every((col) => col.length && col.every(Boolean)) ? { pair: cols } : null;
+    }
     const imageFirst = img(items[0]) && !txt(items[0]) && txt(items[1]);
     const imageSecond = img(items[1]) && !txt(items[1]) && txt(items[0]);
     if (!imageFirst && !imageSecond) return null;
@@ -74,7 +119,9 @@ export function twoColumnsOf(html) {
 /**
  * The image | text views in the document (flattened by the import: the picture, then the text,
  * or the text, then the picture) as columns-media rows; a heading above the view stays above it.
- * Only where the document has the picture right next to the text, in one section.
+ * Only where the document has the picture right next to the text, in one section. An image | image
+ * view: its pictures, one after the other in the document, a row of a picture cell per item (option
+ * stacked when an item has several).
  */
 function withTwoColumns(document, main, views) {
   let rows = 0;
@@ -82,6 +129,29 @@ function withTwoColumns(document, main, views) {
   views.forEach((v) => {
     const flat = [...main.children].flatMap((sec) => [...sec.children].map((el) => ({ sec, el })));
     const from = after ? flat.findIndex((x) => x.el === after) + 1 : 0;
+    if (v.pair) {
+      const files = v.pair.flat();
+      const i = flat.findIndex((x, k) => k >= from && files.every((f, j) => flat[k + j] && flat[k + j].sec === x.sec && hasFile(flat[k + j].el, f)));
+      if (i < 0) return;
+      const block = document.createElement('div');
+      block.className = v.pair.some((c) => c.length > 1) ? 'columns-media stacked' : 'columns-media';
+      const row = document.createElement('div');
+      flat[i].el.before(block);
+      let k = i;
+      v.pair.forEach((col) => {
+        const cell = document.createElement('div');
+        col.forEach(() => {
+          cell.append(flat[k].el.querySelector('picture'));
+          flat[k].el.remove();
+          k += 1;
+        });
+        row.append(cell);
+      });
+      block.append(row);
+      rows += 1;
+      after = block;
+      return;
+    }
     const t0 = flat.findIndex((x, i) => i >= from && !isBlock(x.el) && !isPicture(x.el) && starts(x.el, v.first));
     if (t0 < 0) return;
     let t1 = -1;
@@ -107,6 +177,53 @@ function withTwoColumns(document, main, views) {
     after = block;
   });
   return rows;
+}
+
+const headingText = (el) => textOf(el).replace(/\s*\{[a-z0-9 -]+\}$/, '');
+
+/** The element's links replaced by their content (the card is the link on www). */
+function unlink(el) {
+  el.querySelectorAll('a').forEach((a) => a.replaceWith(...a.childNodes));
+}
+
+/**
+ * The aside's teaser cards (the document has each as its picture, the title, the text and the link
+ * text, one after the other) as cards-teaser rows: the picture | the title, the text and the link.
+ * Cards next to each other share a block. The title and the text lose the card's link when the
+ * card has a link of its own; a card the document does not show so stays as it is.
+ */
+function withAsideTeasers(document, section, teasers) {
+  let block = null;
+  let from = 0;
+  teasers.forEach((t) => {
+    const kids = [...section.children];
+    const h = kids.findIndex((el, i) => i >= from && isHeading(el) && headingText(el) === t.title);
+    if (h < 0) return;
+    const s = t.image && h - 1 >= from && isPicture(kids[h - 1]) ? h - 1 : h;
+    const ofCard = (el) => el && el.tagName === 'P' && !isPicture(el) && t.texts.some((x) => textOf(el).startsWith(x.slice(0, 60)) || x.startsWith(textOf(el).slice(0, 60)));
+    let e = h;
+    while (ofCard(kids[e + 1])) e += 1;
+    const row = document.createElement('div');
+    const media = document.createElement('div');
+    const body = document.createElement('div');
+    if (s < h) {
+      media.append(kids[s].querySelector('picture'));
+      kids[s].remove();
+    }
+    const parts = kids.slice(h, e + 1);
+    const cta = parts.length > 1 && t.cta && textOf(parts[parts.length - 1]) === t.cta ? parts[parts.length - 1] : null;
+    if (cta) parts.filter((el) => el !== cta).forEach(unlink);
+    else parts.slice(1).forEach(unlink);
+    if (!block || block.nextElementSibling !== kids[h]) {
+      block = document.createElement('div');
+      block.className = 'cards-teaser';
+      kids[h].before(block);
+    }
+    body.append(...parts);
+    row.append(media, body);
+    block.append(row);
+    from = [...section.children].indexOf(block) + 1;
+  });
 }
 
 /**
@@ -160,7 +277,8 @@ export function withSwissSidebar(doc, html) {
       while (a - 1 > start && isPicture(kids[a - 1])) a -= 1;
       end = a - 1;
       asideEnd = lastAt;
-      // a teaser's picture right after its last text (image under the text) stays with the aside
+      // the pictures www shows under the aside's last text stay with the aside
+      for (let k = 0; k < sb.asideImagesAfter && isPicture(kids[asideEnd + 1]); k += 1) asideEnd += 1;
     } else {
       const last = sb.content[sb.content.length - 1];
       end = -1;
@@ -184,6 +302,7 @@ export function withSwissSidebar(doc, html) {
       return d;
     };
     const asideSection = part(aside, false);
+    withAsideTeasers(document, asideSection, sb.teasers);
     const asideMeta = document.createElement('div');
     asideMeta.className = 'section-metadata';
     asideMeta.innerHTML = '<div><div>Style</div><div>sidebar-aside</div></div>';

@@ -740,3 +740,142 @@ body.brand-swiss .flight-search .flight-search-dates::after {
     margin-top: 0;
   }
 }
+
+/* brief 432 (swiss-parity-002, ch/en Premium Economy and the other sidebar pages at 390 to 1440,
+   tests in test/swiss-sidebar-look.test.mjs): www's sidebar (airem-sidebar, the documents' section
+   style sidebar-aside): the content two thirds (sidebar-content col-md-8), the aside a third with
+   40 px in (sidebar-aside col-md-4, padding-left 4rem), no gap, from 768 px */
+@media (width >= 768px) {
+  body.brand-swiss main > .section.with-aside {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    column-gap: 0;
+  }
+
+  body.brand-swiss main > .section.with-aside > .section-aside {
+    padding-left: 40px;
+  }
+}
+
+/* the text's h3 and h4 (www's h3.heading-copytext-large in text and column views): 16 / 17.6 px
+   bold, 18 / 19.8 px from 1025 px, 20 px to the text (lh-com's 20 to 24 px) */
+body.brand-swiss main :is(.default-content-wrapper, .columns-media-text) > :is(h3, h4):not([class*="heading-"]),
+body.brand-swiss main :is(.default-content-wrapper, .columns-media-text) > :is(h3, h4, h5, h6).heading-copytext-large {
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+@media (width >= 1025px) {
+  body.brand-swiss main :is(.default-content-wrapper, .columns-media-text) > :is(h3, h4):not([class*="heading-"]),
+  body.brand-swiss main :is(.default-content-wrapper, .columns-media-text) > :is(h3, h4, h5, h6).heading-copytext-large {
+    font-size: 18px;
+  }
+}
+
+/* a link alone in its paragraph and the aside cards' link (www's maui-navigation-link, variant
+   hyper, size medium): warm grey 16 / 22 px regular, pine grey on hover; its icon in a 16 px box,
+   5 px to the text: arrow-right the triangle, arrow-up-right off-site, arrow-down in-page */
+/* stylelint-disable-next-line no-descending-specificity -- text links and the aside cards' link, not the carousel cards' above */
+body.brand-swiss main :is(.default-content-wrapper, .columns-media-text) p.link-wrapper a:any-link,
+body.brand-swiss main .section-aside .cards-teaser .cards-teaser-cta-link:any-link {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 5px;
+  color: #6f6660;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  vertical-align: top;
+}
+
+body.brand-swiss main :is(.default-content-wrapper, .columns-media-text) p.link-wrapper {
+  line-height: 22px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- text links and the aside cards' link, not the carousel cards' above */
+body.brand-swiss main :is(.default-content-wrapper, .columns-media-text) p.link-wrapper a:any-link:hover,
+body.brand-swiss main .section-aside .cards-teaser .cards-teaser-cta-link:any-link:hover {
+  color: #554e49;
+  text-decoration: none;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- text links and the aside cards' link, not the carousel cards' above */
+body.brand-swiss main :is(.default-content-wrapper, .columns-media-text) p.link-wrapper a:any-link::before,
+body.brand-swiss main .section-aside .cards-teaser .cards-teaser-cta-link:any-link::before {
+  content: "";
+  flex: 0 0 auto;
+  align-self: flex-start;
+  width: 16px;
+  height: 16px;
+  margin-top: 3px;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='m10 8-4 4V4z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+body.brand-swiss main :is(.default-content-wrapper, .columns-media-text) p.link-wrapper a:any-link[target="_blank"]:not([href*="//www.swiss.com"])::before,
+body.brand-swiss main .section-aside .cards-teaser .cards-teaser-cta-link:any-link[target="_blank"]:not([href*="//www.swiss.com"], .cards-teaser-cta-own)::before {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M13 3v5.981h-2V6.414L4.112 13.3 2.7 11.886 9.585 5H7V3z'/%3E%3C/svg%3E");
+}
+
+body.brand-swiss main :is(.default-content-wrapper, .columns-media-text) p.link-wrapper a:any-link[href^="#"]::before {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='m12 7-4 4-4-4z'/%3E%3C/svg%3E");
+}
+
+/* the aside's teaser cards (www's a.teaser.card; cards-teaser rows from swiss-sidebar.mjs): one
+   column at every width, 20 px apart (40 px from 768 px), a 1 px #ccc frame on white; the picture at its own ratio
+   (a video card's player is not drawn: its title links to the video); the body 20 px in and 40 px
+   above the frame, the title 20 / 22 px bold (24 / 26.4 px from 1025 px) 15 px above the text;
+   the link 40 px below the text under a 1 px #ccc rule (10 px between), 10 px above the frame */
+body.brand-swiss main .section-aside .cards-teaser > ul {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 20px;
+}
+
+body.brand-swiss main .section-aside .cards-teaser > ul > li:nth-child(n) {
+  margin-top: 0;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+
+body.brand-swiss main .section-aside .cards-teaser .cards-teaser-image {
+  margin-bottom: 0;
+}
+
+body.brand-swiss main .section-aside .cards-teaser .cards-teaser-body {
+  padding: 20px 20px 40px;
+}
+
+body.brand-swiss main .section-aside .cards-teaser .cards-teaser-body:has(> .cards-teaser-cta) {
+  padding-bottom: 10px;
+}
+
+body.brand-swiss main .section-aside .cards-teaser .cards-teaser-body > * {
+  margin: 0;
+}
+
+body.brand-swiss main .section-aside .cards-teaser .cards-teaser-body > .cards-teaser-title {
+  margin-bottom: 15px;
+  color: #101010;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0.3px;
+}
+
+body.brand-swiss main .section-aside .cards-teaser .cards-teaser-body > .cards-teaser-cta {
+  margin-top: 40px;
+  padding-top: 10px;
+  border-top: 1px solid #ccc;
+  line-height: 22px;
+}
+
+@media (width >= 768px) {
+  body.brand-swiss main .section-aside .cards-teaser > ul {
+    gap: 40px;
+  }
+}
+
+@media (width >= 1025px) {
+  body.brand-swiss main .section-aside .cards-teaser .cards-teaser-body > .cards-teaser-title {
+    font-size: 24px;
+  }
+}

@@ -39,7 +39,9 @@ test('Premium Economy: the intro above, the content beside the aside\'s teasers,
   assert.equal(rows[0].previousElementSibling.tagName, 'H3');
   assert.equal(text(rows[0].previousElementSibling), 'Travel in comfort');
   assert.deepEqual(style(aside), ['Style: sidebar-aside']);
-  assert.deepEqual([...aside.querySelectorAll(':scope > h4')].map(text), ['SWISS Premium Economy in detail', 'Explore SWISS Premium Economy', 'Upgrade to SWISS Premium Economy', 'More affordable lounge access', 'SWISS Business']);
+  const cards = aside.querySelectorAll(':scope > .cards-teaser');
+  assert.equal(cards.length, 1, 'the aside\'s teasers one cards-teaser block');
+  assert.deepEqual([...cards[0].children].map((r) => text(r.querySelector('h4'))), ['SWISS Premium Economy in detail', 'Explore SWISS Premium Economy', 'Upgrade to SWISS Premium Economy', 'More affordable lounge access', 'SWISS Business']);
   assert.ok(content.querySelector('h4') === null, 'no teaser left in the content');
   assert.ok(rest.querySelector('.metadata') !== null, 'the page metadata after the sidebar');
   assert.equal((doc.match(/<div class="metadata">/g) || []).length, 1);
@@ -111,6 +113,67 @@ test('a tab panel: its label on the content section only, the aside after it', (
   const r = withSwissSidebar(after, html);
   assert.equal(r.made, 0);
   assert.match(r.skipped[0], /tab/);
+});
+
+/* the aside's teasers (www's teaser cards: an image or a video, the title, the text, the link with
+   its triangle under a rule) one cards-teaser row each: the picture in the first cell, the title,
+   the text and the link in the second; the title and the text without the card's link (on www the
+   whole card is the link), a card without its own link keeps it on the title (the video card) */
+test('Premium Economy: the aside\'s five teasers as cards-teaser rows', () => {
+  const { doc } = withSwissSidebar(fixture('premium-economy-en.da.html'), fixture('premium-economy-en.snapshot.html'));
+  const aside = sections(doc)[2];
+  const rows = [...aside.querySelector(':scope > .cards-teaser').children];
+  assert.equal(rows.length, 5);
+  const [video, explore] = rows;
+  const [vMedia, vBody] = video.children;
+  assert.equal(vMedia.children.length, 0, 'the video card: no picture');
+  assert.equal(vBody.querySelector('h4 a').getAttribute('href'), 'https://www.youtube.com/watch?v=JMEaiuOKtyQ', 'its title keeps the link');
+  const [media, body] = explore.children;
+  assert.ok(media.querySelector('picture img') !== null && !text(media));
+  assert.deepEqual([...body.children].map((el) => el.tagName), ['H4', 'P', 'P']);
+  const [title, desc, cta] = body.children;
+  assert.ok(title.querySelector('a') === null && desc.querySelector('a') === null, 'the title and the text without the card\'s link');
+  assert.match(text(desc), /^Experience our new SWISS Premium Economy from your own living room/);
+  assert.equal(text(cta), 'Explore SWISS Premium Economy');
+  assert.equal(cta.querySelector('a').getAttribute('href'), '/ch/en/fly/on-board/travel-classes/swiss-premium-economy/discover-premium-economy');
+  assert.ok([...aside.children].every((el) => el.tagName !== 'P'), 'no picture or text of a teaser left beside the block');
+  assert.deepEqual(sidebarsOf(fixture('premium-economy-en.snapshot.html'))[0].teasers.map((t) => [t.image, t.video]), [[false, true], [true, false], [true, false], [true, false], [true, false]]);
+});
+
+/* an aside whose picture comes after its last text (recraft's Design tab: "From aircraft part to
+   furniture or accessory" over its artwork): the picture stays with the aside, so nothing follows
+   the sidebar in the tab */
+test('a picture under the aside\'s last text belongs to the aside', () => {
+  const pic = '<p><picture><img src="https://content.da.live/x/artwork.png" alt=""></picture></p>';
+  const doc = `<body><header></header><main><div><h1>T</h1></div><div><h2>Unique and minimalist design</h2><p>Text of the design tab</p><h4>From aircraft part to furniture</h4>${pic}<div class="section-metadata"><div><div>Tab</div><div>Design</div></div><div><div>Tabs</div><div>1</div></div></div></div></main><footer></footer></body>`;
+  const html = '<html><body><div class="airem-sidebar"><div class="sidebar-content"><h2>Unique and minimalist design</h2><p>Text of the design tab</p></div><div class="sidebar-aside"><div class="headline"><h4>From aircraft part to furniture</h4></div><div class="image"><img src="/a.png"></div></div></div></body></html>';
+  const r = withSwissSidebar(doc, html);
+  assert.equal(r.made, 1, r.skipped.join('; '));
+  const aside = sections(r.doc)[2];
+  assert.deepEqual(style(aside), ['Style: sidebar-aside']);
+  assert.ok(aside.querySelector('picture img[src$="artwork.png"]') !== null);
+  const twoPics = withSwissSidebar(doc.replace(pic, pic + pic.replace('artwork', 'other')), html);
+  assert.equal(twoPics.made, 0, 'one picture under the text on www: a second one is the panel\'s, after the sidebar');
+});
+
+/* www's image | image views (Miles & More: two pictures side by side; recraft's design process: two
+   items of two photos each, two by two): found by their files (DA's names are www's in lower case
+   with dashes), a columns-media row of a picture cell per item; an item's photos one under the other
+   (option stacked) */
+test('an image | image view: a picture cell per item, its photos stacked', () => {
+  const pic = (f) => `<p><picture><img src="https://content.da.live/moved-permanently/lh-swiss/content/dam/lx/images/recraft/${f.toLowerCase().replace(/[._]/g, '-')}.jpeg" alt=""></picture></p>`;
+  const img = (f) => `<div class="image"><img src="/content/dam/lx/images/recraft/${f}.jpeg.transform/lh-dcep-transform-width-1440/img.jpg"></div>`;
+  const view = (a, b) => `<div class="twocolumn"><div class="column-view-item">${a.map(img).join('')}</div><div class="column-view-item">${b.map(img).join('')}</div></div>`;
+  const doc = `<body><header></header><main><div><h2>The design process</h2><p>The collection comprises</p>${['A', 'B', 'C_1', 'D.Still2', 'E', 'F'].map(pic).join('')}<p>In order to preserve</p></div></main><footer></footer></body>`;
+  const r = withSwissSidebar(doc, `<html><body>${view(['A', 'B'], ['C_1', 'D.Still2'])}${view(['E'], ['F'])}</body></html>`);
+  assert.equal(r.rows, 2);
+  const [sec] = sections(r.doc);
+  const blocks = [...sec.querySelectorAll(':scope > .columns-media')];
+  assert.deepEqual(blocks.map((b) => b.className), ['columns-media stacked', 'columns-media']);
+  const files = (b) => [...b.firstElementChild.children].map((c) => [...c.querySelectorAll('img')].map((i) => i.getAttribute('src').split('/').pop()));
+  assert.deepEqual(files(blocks[0]), [['a.jpeg', 'b.jpeg'], ['c-1.jpeg', 'd-still2.jpeg']]);
+  assert.deepEqual(files(blocks[1]), [['e.jpeg'], ['f.jpeg']]);
+  assert.deepEqual([...sec.children].map((el) => el.tagName), ['H2', 'P', 'DIV', 'DIV', 'P']);
 });
 
 /* the image | text views outside the sidebar too (advance seat reservation: the seat types in the
