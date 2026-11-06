@@ -52,6 +52,8 @@ const CI = '/home/node/.excat-marketplaces/excat-marketplace/excat/skills/excat-
 // the source pages' own lufthansa.com URLs on a placeholder host during the import (as Discover)
 export const PLACEHOLDER = 'www.lufthansa-com.invalid';
 const MAPPED = path.join(W, 'snapshots');
+// the gallery pages' fleet import (spliceGalleries): a workspace of its own
+const GALLERY_W = path.join(W, 'gallery-import');
 export const withPlaceholder = (html) => html.replace(/(?:https?:)?\/\/(?:www\.)?lufthansa\.com(?![\w.-])/gi, `https://${PLACEHOLDER}`);
 
 // links out to the page on www (a widget a service answers there): on this host during the import
@@ -168,6 +170,47 @@ function editDivs(html, open, edit) {
   return out + html.slice(from);
 }
 
+/*
+ * www's photo galleries (.slideshow: a picture that opens a lightbox). lh-com's fleet template
+ * takes them (carousel-lightbox) but none of a content page's other components (picture and text
+ * rows, teaser cards, accordions: plain content on /be/fr/travel-classes/business). A page with a
+ * gallery imports with the info template, each gallery a numbered placeholder
+ * (withGalleryPlaceholders); the fleet template's import of the same page gives the galleries back
+ * in their places (spliceGalleries). Offline package 2026-11-06, brussels-parity-002.
+ */
+const GALLERY = 'BRUSSELS-GALLERY-';
+
+/** The snapshot with each gallery a numbered placeholder paragraph. */
+export function withGalleryPlaceholders(html) {
+  let n = 0;
+  return editDivs(html, '<div class="slideshow', () => {
+    const p = `<div class="text section"><div class="richtext"><p>${GALLERY}${n}</p></div></div>`;
+    n += 1;
+    return p;
+  });
+}
+
+/** A document's blocks of a name, in order, each its whole outer html. */
+export function blocksOf(doc, name) {
+  const out = [];
+  const re = new RegExp(`<div class="${name}(?: [^"]*)?">`, 'g');
+  let m = re.exec(doc);
+  while (m) {
+    const end = divEnd(doc, m.index);
+    out.push(doc.slice(m.index, end));
+    re.lastIndex = end;
+    m = re.exec(doc);
+  }
+  return out;
+}
+
+/** The info import's placeholders replaced by the fleet import's galleries (none left: nothing). */
+export function spliceGalleries(doc, fleetDoc) {
+  const galleries = blocksOf(fleetDoc, 'carousel-lightbox');
+  // (the import may add its layout markers after it: "BRUSSELS-GALLERY-0 {full-width}")
+  return doc.replace(new RegExp(`<p>${GALLERY}(\\d+)(?: \\{[a-z-]+\\})*</p>`, 'g'), (m, i) => galleries[Number(i)] || '');
+}
+
 /**
  * A snapshot whose check-in entry sits in a tabs container as on lufthansa.com (ITA's
  * .checkinpassengerreceiptentry stands alone; lh-com's app-entry importer reads it from
@@ -280,7 +323,7 @@ export function templateOf(p, html) {
   if (/<meta name="template" content="article"/.test(html) || /class="dcep-blog-overview/.test(html)) return 'insights';
   if (/class="topoffersdestinationfinder/.test(html)) return 'hub';
   if (/class="flightstatustimetable/.test(html)) return 'flight-status';
-  if (/class="slideshow/.test(html)) return 'fleet';
+  // (a gallery page: info, its galleries from a fleet import of the page, spliceGalleries)
   if (/checkinpassengerreceiptentry|class="[^"]*dcep-quick-actions/.test(html)) return 'app-entry';
   return 'info';
 }
@@ -297,6 +340,8 @@ if (isMain) {
   const missing = [];
   const out = {};
   const linkOuts = [];
+  // pages with a gallery (withGalleryPlaceholders): their snapshots as they are for the fleet import
+  const galleries = [];
   urls.forEach((u) => {
     const p = new URL(u).pathname;
     const f = path.join(SNAP, `${p}.html`);
@@ -311,11 +356,17 @@ if (isMain) {
     const mapped = withoutLoads(withTeaserColumns(withCheckinTabs(withLinkOuts(withHotlines(withPaymentTable(withPlaceholder(editDivs(stripScripts(html), '<div id="ui-datepicker-div"', () => '')))), p))))
       .replace(/<output[^>]*class="screen-reader-announcer"[^>]*>[\s\S]*?<\/output>/g, '');
     if (mapped.includes(`https://${LINK_OUT}`)) linkOuts.push(p);
-    fs.writeFileSync(copy, mapped);
+    if (/<div class="slideshow/.test(mapped)) {
+      const fleetCopy = path.join(GALLERY_W, 'snapshots', HOST, `${p}.html`);
+      fs.mkdirSync(path.dirname(fleetCopy), { recursive: true });
+      fs.writeFileSync(fleetCopy, mapped);
+      galleries.push(u);
+    }
+    fs.writeFileSync(copy, galleries.includes(u) ? withGalleryPlaceholders(mapped) : mapped);
     (byTemplate[t] ||= []).push(u);
     out[p] = t;
   });
-  console.log(`${name}: ${Object.entries(byTemplate).map(([t, l]) => `${t} ${l.length}`).join(', ')}; no snapshot: ${missing.length ? missing.join(' ') : 'none'}`);
+  console.log(`${name}: ${Object.entries(byTemplate).map(([t, l]) => `${t} ${l.length}`).join(', ')}; no snapshot: ${missing.length ? missing.join(' ') : 'none'}; galleries: ${galleries.length}`);
   if (!argv.includes('--dry-run')) {
     // the bulk importer loads a page live (page.goto) unless its workspace is flagged protected:
     // the flag first, so every page comes from its snapshot and nothing is requested from www
@@ -336,6 +387,20 @@ if (isMain) {
       fs.mkdirSync(path.dirname(path.join(ASIDE, `${p}.report.json`)), { recursive: true });
       fs.copyFileSync(path.join(REPORTS, `${p}.report.json`), path.join(ASIDE, `${p}.report.json`));
     });
+    // the gallery pages once more with the fleet template, in a workspace of their own: their
+    // galleries (carousel-lightbox) go into the info import's placeholders (spliceGalleries)
+    if (galleries.length) {
+      const gflag = path.join(GALLERY_W, '.migration/project.json');
+      fs.mkdirSync(path.dirname(gflag), { recursive: true });
+      fs.writeFileSync(gflag, `${JSON.stringify({ botProtected: true }, null, 2)}\n`);
+      const glist = path.join(GALLERY_W, `urls-${name}.txt`);
+      fs.writeFileSync(glist, `${galleries.join('\n')}\n`);
+      const glog = execFileSync('node', [`${CI}/run-bulk-import.js`, '--import-script', 'tools/importer/import-fleet.bundle.js', '--urls', glist, '--force', '--html-dir', path.join(GALLERY_W, 'snapshots')], {
+        cwd: root, env: { ...process.env, WORKSPACE_PATH: GALLERY_W, BD_ENDPOINT: '' }, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'], maxBuffer: 64 * 1024 * 1024,
+      });
+      glog.split('\n').filter((x) => /Snapshot import failed|falling through to live/i.test(x)).forEach((x) => console.log(`WARNING (live fallback): ${x.trim()}`));
+      console.log(`galleries (fleet): ${glog.split('\n').filter((x) => /imported|failed|error/i.test(x) && !/wss:|endpoint/i.test(x)).slice(-2).join(' | ')}`);
+    }
     Object.entries(byTemplate).forEach(([t, l]) => {
       const listFile = path.join(W, `urls-${name}-${t}.txt`);
       fs.writeFileSync(listFile, `${l.join('\n')}\n`);
@@ -376,7 +441,10 @@ if (isMain) {
       const doc = fs.readFileSync(f, 'utf8');
       const src = Object.keys(out).find((k) => docName(k) === p);
       const markets = scope.documents[src]?.markets || [];
-      const next = withItaMetadata(withCheckinHandoff(withFlightSearch(withItaForm(doc, p, fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8')), p), p), p, fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8'), markets);
+      const fleetDoc = path.join(GALLERY_W, 'content', `${p}.plain.html`);
+      const galleried = galleries.some((u) => new URL(u).pathname === src)
+        ? spliceGalleries(doc, fs.existsSync(fleetDoc) ? fs.readFileSync(fleetDoc, 'utf8') : '') : doc;
+      const next = withItaMetadata(withCheckinHandoff(withFlightSearch(withItaForm(galleried, p, fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8')), p), p), p, fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8'), markets);
       if (next !== doc) fs.writeFileSync(f, next);
     });
     const mapOnly = path.join(W, 'runs', `${name}-upload.txt`);
