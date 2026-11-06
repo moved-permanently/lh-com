@@ -33,20 +33,25 @@ test('row 3, type: www\'s sizes (h1 32/36 and 42/48, h2 28/32 and 32/36 bold, h3
   has(css, /body\.brand-cargo main h4 \{[^}]*font-size: 18px;[^}]*line-height: 24px;/);
 });
 
-test('row 4, the grid: 16 px margins on phones, 72 px at 1440 (content 1296 px)', () => {
+test('row 4, the grid as www\'s (round 3, its CSS at 768 to 1920 px): 16 px margins on phones, 24 px from 768 px, 48 px from 1025 px, from 1281 px the content 1296 px wide in the middle with at least 16 px beside it (72 px at 1440)', () => {
   const css = cargo();
   tokens(css, ['--layout-margin: 16px;']);
-  has(css, /@media \(width >= 1281px\) \{ :root \{[^}]*--layout-margin: 72px;/);
+  has(css, /@media \(width >= 768px\) \{ :root \{[^}]*--layout-margin: 24px;/);
+  has(css, /@media \(width >= 1025px\) \{ :root \{[^}]*--layout-margin: 48px;/);
+  has(css, /@media \(width >= 1281px\) \{ :root \{[^}]*--content-max-width: 1328px;[^}]*--layout-margin: 16px;/);
+  assert.doesNotMatch(css, /--layout-margin: 72px;/);
 });
 
 test('row 5, buttons: 50 px, 18/24 bold, padding 10 30, 4 px corners', () => {
   tokens(cargo(), ['--button-min-height: 50px;', '--button-font-size: 18px;', '--button-padding: 10px 30px;', '--button-radius: 4px;']);
 });
 
-test('row 1, the bar: 60 px on phones (logo 24 px high, no quick links row, the bell in the menu), 90 px from 768 px (logo 30 px); the items Head Light 18/24 #ebebeb, the open one outlined', () => {
+test('row 1, the bar: 60 px on phones (logo 24 px high, no quick links row, the bell in the menu), from 768 px still 60 px with 24 px sides, 90 px from 1025 px (logo 30 px; round 3, ema-adobe\'s homepage pass); the items Head Light 18/24 #ebebeb, the open one outlined', () => {
   const css = cargo();
   tokens(css, ['--nav-height: 60px;', '--nav-logo-height: 24px;', '--header-bar-padding: 10px 16px;']);
-  has(css, /@media \(width >= 768px\) \{ :root \{[^}]*--nav-height: 90px;[^}]*--nav-logo-height: 30px;[^}]*--header-bar-padding: 20px 72px 20px 24px;/);
+  has(css, /@media \(width >= 768px\) \{ :root \{[^}]*--header-bar-padding: 10px 24px;/);
+  assert.doesNotMatch(css, /@media \(width >= 768px\) \{ :root \{[^}]*--nav-height: 90px;/, 'www\'s bar is 60 px up to 1024 px');
+  has(css, /@media \(width >= 1025px\) \{ :root \{[^}]*--nav-height: 90px;[^}]*--nav-logo-height: 30px;[^}]*--header-bar-padding: 20px 72px 20px 24px;/);
   has(css, /@media \(width < 768px\) \{ body\.brand-cargo \.header \.nav-tools \.nav-tool-notifications, body\.brand-cargo \.header \.nav-tools \.nav-languages \{ display: none; \}/);
   has(css, /body\.brand-cargo \.header \.nav-tools \.nav-languages \{ order: 1; \}/);
   has(css, /body\.brand-cargo \.header \.nav-quick \{ display: none; \}/);
@@ -112,7 +117,7 @@ test('row 18, the company pages\' video headers (hero-campaign (narrow): What\'s
 test('row 22, the contact form\'s fields as www\'s dialog: a 900 px card, three columns from 768 px, the note, the request and the file drop across', () => {
   const css = cargo();
   has(css, /body\.brand-cargo \.form \.form-step-card \{[^}]*max-width: 900px;/);
-  has(css, /@media \(width >= 768px\) \{[^@]*body\.brand-cargo \.form \.form-fields \{[^}]*grid-template-columns: repeat\(3, minmax\(0, 1fr\)\);[^}]*\}[^@]*body\.brand-cargo \.form \.form-field-note, body\.brand-cargo \.form \.form-field-textarea, body\.brand-cargo \.form \.form-filedrop \{[^}]*grid-column: 1 \/ -1;/);
+  has(css, /@media \(width >= 768px\) \{[^@]*body\.brand-cargo \.form\.core \.form-fields \{[^}]*display: grid;[^}]*grid-template-columns: repeat\(3, minmax\(0, 1fr\)\);[^}]*\}[^@]*body\.brand-cargo \.form \.form-field-note, body\.brand-cargo \.form \.form-field-textarea, body\.brand-cargo \.form \.form-filedrop \{[^}]*grid-column: 1 \/ -1;/);
 });
 
 test('row 28, the header stays at the top while the page scrolls (www\'s sticky bar): Cargo\'s bar never hides', () => {
