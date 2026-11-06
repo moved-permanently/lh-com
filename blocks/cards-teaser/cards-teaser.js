@@ -2,6 +2,7 @@ import { createOptimizedPicture, getMetadata } from '../../scripts/aem.js';
 import { cleanText, decorateExternalLinks, keepImageSize } from '../../scripts/block-config.js';
 import { brandWwwHost } from '../../scripts/brand.js';
 import { getLocale } from '../../scripts/locale.js';
+import { buildEmbed, isEmbedLink, loadMediaStyles } from '../../scripts/media.js';
 
 const PICTURE_BREAKPOINTS = [{ media: '(min-width: 600px)', width: '2000' }, { width: '750' }];
 
@@ -47,6 +48,18 @@ export default async function decorate(block) {
   [...block.children].forEach((row) => {
     const img = row.querySelector('picture img, img');
     let picture = null;
+    // a video's link alone in the first cell (SWISS's aside video teasers: www's a.teaser.card with
+    // its .video-player): the player as the card's media, the link's text its title
+    const firstCell = row.children.length > 1 ? row.firstElementChild : null;
+    const video = !img && firstCell && firstCell.children.length === 1
+      && firstCell.querySelector(':scope > p > a[href]:only-child');
+    if (video && isEmbedLink(video)) {
+      picture = buildEmbed(video);
+      if (picture) {
+        firstCell.remove();
+        loadMediaStyles();
+      }
+    }
     if (img) {
       picture = keepImageSize(img, createOptimizedPicture(img.src, img.alt || '', eager, PICTURE_BREAKPOINTS));
       (img.closest('picture') || img).remove();

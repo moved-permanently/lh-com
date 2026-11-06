@@ -54,3 +54,15 @@ test('the aside\'s teaser cards: one column 20 px apart (40 px from 768 px), a 1
   has(css, /@media \(width >= 768px\) \{ body\.brand-swiss main \.section-aside \.cards-teaser > ul \{ gap: 40px; \} \}/);
   has(css, /@media \(width >= 1025px\) \{ body\.brand-swiss main \.section-aside \.cards-teaser \.cards-teaser-body > \.cards-teaser-title \{ font-size: 24px; \} \}/);
 });
+
+/* brief 437: the aside's link lists ("More about Miles & More", "Quick links": www's ul of
+   maui-navigation-link, no bullets, each item 27 px, warm grey 16 / 22 regular with the link's icon,
+   up-right off-site), not lh-com's red bold links with the small arrow */
+test('the aside\'s link lists: no bullets, 27 px items, the links as the standalone ones', () => {
+  const css = swiss();
+  const list = 'body\\.brand-swiss main \\.section-aside \\.default-content-wrapper :is\\(ul, ol\\)';
+  has(css, new RegExp(`${list} \\{ padding-left: 0; list-style: none; \\}`));
+  has(css, new RegExp(`${list} > li \\{ margin: 0; padding: 0 0 5px; \\}`));
+  has(css, new RegExp(`${list} > li > a:any-link, body\\.brand-swiss main :is\\(\\.default-content-wrapper, \\.columns-media-text\\) p\\.link-wrapper a:any-link, `), 'the standalone link\'s look');
+  has(css, new RegExp(`${list} > li > a:any-link\\[href\\^="http"\\]:not\\(\\[href\\*="//www\\.swiss\\.com"\\]\\)::before, `), 'up-right off-site');
+});

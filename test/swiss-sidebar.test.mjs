@@ -126,8 +126,15 @@ test('Premium Economy: the aside\'s five teasers as cards-teaser rows', () => {
   assert.equal(rows.length, 5);
   const [video, explore] = rows;
   const [vMedia, vBody] = video.children;
-  assert.equal(vMedia.children.length, 0, 'the video card: no picture');
-  assert.equal(vBody.querySelector('h4 a').getAttribute('href'), 'https://www.youtube.com/watch?v=JMEaiuOKtyQ', 'its title keeps the link');
+  // the video card (brief 437, row 31): www plays the video in the card; its first cell the video's
+  // link alone in its paragraph (cards-teaser builds the player), the title its text, the title
+  // without the link
+  assert.equal(vMedia.querySelector('picture'), null, 'the video card: no picture');
+  const vLink = vMedia.querySelector(':scope > p > a');
+  assert.equal(vLink.getAttribute('href'), 'https://www.youtube.com/watch?v=JMEaiuOKtyQ');
+  assert.equal(text(vLink), 'SWISS Premium Economy in detail', 'the player\'s title');
+  assert.equal(vBody.querySelector('h4 a'), null, 'the title without the link');
+  assert.equal(text(vBody.querySelector('h4')), 'SWISS Premium Economy in detail');
   const [media, body] = explore.children;
   assert.ok(media.querySelector('picture img') !== null && !text(media));
   assert.deepEqual([...body.children].map((el) => el.tagName), ['H4', 'P', 'P']);
@@ -218,6 +225,60 @@ test('a picture opening the sidebar\'s content is part of the content', () => {
   assert.ok(before.querySelector('picture') === null, 'the picture not above the sidebar');
   assert.ok(content.firstElementChild.querySelector('picture img[src$="toulouse.jpg"]') !== null, 'the content opens with it');
   assert.ok(sidebarsOf(html)[0].imagesBefore === 1);
+});
+
+/* brief 437, row 30: sidebars the step left as they were.
+   - lh-com's import wrote some as a columns-media sidebar block (content | aside cells, lh-com's
+     75 / 25; the competitions' terms, helvetic's CO2 offset): the block flattened into its section
+     (the content's children, then the aside's), so the step makes them www's sections;
+   - a sidebar whose content opens with a block (an FAQ accordion, icon cards): the block is the start;
+   - a sidebar whose first heading on www is a paragraph in the document: the paragraph is the start */
+const sidebarHtml = (content, aside) => `<html><body><div class="airem-sidebar"><div class="sidebar-content">${content}</div><div class="sidebar-aside">${aside}</div></div></body></html>`;
+
+test('row 30: lh-com\'s columns-media sidebar block becomes the content and aside sections', () => {
+  const doc = '<body><header></header><main><div><h1>Verlosung</h1><p>Intro text</p><div class="columns-media sidebar"><div><div><h2>Teilnahmebedingungen</h2><p>Das Gewinnspiel wird von SWISS durchgeführt.</p></div><div><h4>Kontakt</h4><p>Schreiben Sie uns</p></div></div></div></div></main><footer></footer></body>';
+  const html = sidebarHtml('<h2>Teilnahmebedingungen</h2><p>Das Gewinnspiel wird von SWISS durchgeführt.</p>', '<h4>Kontakt</h4><p>Schreiben Sie uns</p>');
+  const r = withSwissSidebar(doc, html);
+  assert.equal(r.made, 1, r.skipped.join('; '));
+  const [intro, content, aside] = sections(r.doc);
+  assert.equal(text(intro.querySelector('h1')), 'Verlosung');
+  assert.ok(content.querySelector('.columns-media') === null, 'the block is gone');
+  assert.equal(text(content.firstElementChild), 'Teilnahmebedingungen');
+  assert.deepEqual(style(aside), ['Style: sidebar-aside']);
+  assert.equal(text(aside.querySelector('h4')), 'Kontakt');
+});
+
+test('row 30: a columns-media sidebar block no snapshot sidebar matches stays a block', () => {
+  const doc = '<body><header></header><main><div><div class="columns-media sidebar"><div><div><h2>Something else</h2><p>Other text here</p></div><div><p>Aside text</p></div></div></div></div></main><footer></footer></body>';
+  const html = sidebarHtml('<h2>Teilnahmebedingungen</h2><p>Das Gewinnspiel wird von SWISS durchgeführt.</p>', '<p>Kontakt</p>');
+  const r = withSwissSidebar(doc, html);
+  assert.equal(r.made, 0);
+  assert.equal(r.doc, doc);
+});
+
+test('row 30: a sidebar whose content opens with a block, or with a paragraph for www\'s heading', () => {
+  const faq = '<body><header></header><main><div><h1>FAQ</h1><div class="accordion-columns faq"><div><div>Which credit cards can you use with online bookings?</div><div><p>Visa and others</p></div></div></div><h4>Contact</h4><p>Write to us</p></div></main><footer></footer></body>';
+  const html = sidebarHtml('<div class="accordion"><h3>Which credit cards can you use with online bookings?</h3><p>Visa and others</p></div>', '<h4>Contact</h4><p>Write to us</p>');
+  const r = withSwissSidebar(faq, html);
+  assert.equal(r.made, 1, r.skipped.join('; '));
+  assert.ok(sections(r.doc)[1].firstElementChild.classList.contains('accordion-columns'), 'the accordion opens the content');
+  const para = '<body><header></header><main><div><h1>Schengen</h1><p>List of current Schengen member states:</p><ul><li>Austria</li></ul><h4>Visa</h4><p>Apply in time</p></div></main><footer></footer></body>';
+  const r2 = withSwissSidebar(para, sidebarHtml('<h3>List of current Schengen member states:</h3><ul><li>Austria</li></ul>', '<h4>Visa</h4><p>Apply in time</p>'));
+  assert.equal(r2.made, 1, r2.skipped.join('; '));
+  assert.equal(text(sections(r2.doc)[1].firstElementChild), 'List of current Schengen member states:');
+});
+
+/* brief 437, row 34: www's accordions whose first item is authored expanded (maui-collapsible-item
+   expanded: Miles & More's "Frequent Travellers", 16 accordions on ch/en+de) start with it open:
+   the accordion-columns block, found by its first item's title, gets the option open-first */
+test('row 34: an accordion whose first item www opens gets open-first', () => {
+  const acc = (first) => `<div class="accordion-columns faq"><div><div>${first}</div><div><p>Access: 650 Points</p></div></div><div><div>Senators</div><div><p>Access: 2000 Points</p></div></div></div>`;
+  const doc = `<body><header></header><main><div><h2>Travel with privileges</h2>${acc('Frequent Travellers')}${acc('Other accordion')}</div></main><footer></footer></body>`;
+  const html = '<html><body><maui-collapsible><maui-collapsible-item headline="Frequent Travellers" expanded=""><p>Access</p></maui-collapsible-item><maui-collapsible-item headline="Senators"><p>Access</p></maui-collapsible-item></maui-collapsible><maui-collapsible><maui-collapsible-item headline="Other accordion"><p>x</p></maui-collapsible-item></maui-collapsible></body></html>';
+  const r = withSwissSidebar(doc, html);
+  const blocks = [...sections(r.doc)[0].querySelectorAll('.accordion-columns')];
+  assert.deepEqual(blocks.map((b) => b.className), ['accordion-columns faq open-first', 'accordion-columns faq']);
+  assert.equal(withSwissSidebar(r.doc, html).doc, r.doc, 'again: unchanged');
 });
 
 /* www's words for screen readers inside a link (maui-screen-reader-label, .sr-only) are not in the

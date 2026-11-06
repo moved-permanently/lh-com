@@ -53,8 +53,12 @@ function teasersOf(aside) {
   return [...aside.querySelectorAll('.teaser.card')].map((c) => {
     const h = c.querySelector('.teaser-heading, h1, h2, h3, h4, h5, h6');
     const cta = c.querySelector('.teaser-link-text span:last-child, .teaser-link-text');
+    // a video card's video: the card's own link (YouTube's watch page), else its player's source
+    const frame = c.querySelector('.video-player iframe, iframe');
+    const href = c.getAttribute('href') || '';
+    const videoHref = /youtube\.com\/watch|youtu\.be\//.test(href) ? href : ((frame && (frame.getAttribute('src') || frame.getAttribute('data-src'))) || '');
     return {
-      title: h ? norm(h.textContent) : '', image: !!c.querySelector('.image-wrapper img'), video: !!c.querySelector('.video-player, iframe'), cta: cta ? norm(cta.textContent) : '', texts: partTexts(c),
+      title: h ? norm(h.textContent) : '', image: !!c.querySelector('.image-wrapper img'), video: !!frame, videoHref, cta: cta ? norm(cta.textContent) : '', texts: partTexts(c),
     };
   }).filter((t) => t.title);
 }
@@ -302,6 +306,19 @@ function withAsideTeasers(document, section, teasers) {
       kids[s].remove();
     }
     const parts = kids.slice(h, e + 1);
+    // a video card (www plays the video in the card): the video's link in the first cell, the
+    // title its text (cards-teaser builds the player); the title without the link
+    const titleLink = kids[h].querySelector('a[href]');
+    const videoHref = t.video && s === h && ((titleLink && /youtube\.com\/watch|youtu\.be\//.test(titleLink.href) && titleLink.getAttribute('href')) || t.videoHref);
+    if (videoHref) {
+      const p = document.createElement('p');
+      const a = document.createElement('a');
+      a.setAttribute('href', videoHref);
+      a.textContent = kids[h].textContent.replace(/\s*\{[a-z0-9 -]+\}\s*$/, '').trim();
+      p.append(a);
+      media.append(p);
+      unlink(kids[h]);
+    }
     const cta = parts.length > 1 && t.cta && textOf(parts[parts.length - 1]) === t.cta ? parts[parts.length - 1] : null;
     if (cta) parts.filter((el) => el !== cta).forEach(unlink);
     else parts.slice(1).forEach(unlink);
@@ -382,9 +399,29 @@ function joinTabPanels(main, panels) {
 }
 
 /**
+ * www's accordions whose first item is authored expanded (maui-collapsible-item expanded: Miles &
+ * More's "Frequent Travellers"): the document's accordion-columns block with that first item gets
+ * the option open-first (the block opens it). Returns how many.
+ */
+function withOpenFirst(main, html) {
+  const firsts = [...parseHTML(html).document.querySelectorAll('maui-collapsible')].map((c) => {
+    const item = [...c.querySelectorAll('maui-collapsible-item')].find((i) => i.closest('maui-collapsible') === c);
+    return item && item.hasAttribute('expanded') ? norm(item.getAttribute('headline')) : '';
+  }).filter(Boolean);
+  let opened = 0;
+  main.querySelectorAll('div.accordion-columns').forEach((block) => {
+    const label = block.firstElementChild && block.firstElementChild.firstElementChild;
+    if (!label || block.classList.contains('open-first') || !firsts.includes(textOf(label))) return;
+    block.classList.add('open-first');
+    opened += 1;
+  });
+  return opened;
+}
+
+/**
  * @param {string} doc a document (<body><header></header><main>…</main>…) or its sections (.plain.html)
  * @param {string} html the page's snapshot
- * @returns {{doc: string, made: number, rows: number, skipped: string[]}} made: the sidebars, rows: the views
+ * @returns {{doc: string, made: number, rows: number, skipped: string[]}} made: the sidebars, rows: the views and the accordions opened
  */
 export function withSwissSidebar(doc, html) {
   const skipped = [];
@@ -407,19 +444,39 @@ export function withSwissSidebar(doc, html) {
     // the content's first heading, else its first text (a sidebar whose content has no heading)
     const first = sb.first || sb.content[0];
     if (!first) { skipped.push(`sidebar ${n}: no text in its content`); return; }
-    const isStart = (el) => (sb.byHeading ? isHeading(el) && starts(el, first) : starts(el, first));
-    // the section holding the content's first heading, at or after the previous sidebar
-    let { section } = from;
-    let start = -1;
+    const byHeadingStart = (el) => (sb.byHeading ? isHeading(el) && starts(el, first) : starts(el, first));
+    // else any element opening with the text: a block (an FAQ accordion, icon cards) or a paragraph
+    // for www's heading
+    const anyStart = (el) => !isPicture(el) && starts(el, first);
     const fromSection = from.section;
     const fromIndex = from.index;
-    while (section) {
-      const here = section;
-      start = [...here.children].findIndex((el, i) => (here !== fromSection || i >= fromIndex) && isStart(el));
-      if (start >= 0) break;
-      section = section.nextElementSibling;
+    // the section holding the content's start, at or after the previous sidebar
+    const find = (isStart) => {
+      let here = fromSection;
+      while (here) {
+        const sec = here;
+        const at = [...sec.children].findIndex((el, i) => (sec !== fromSection || i >= fromIndex) && isStart(el));
+        if (at >= 0) return { section: sec, start: at };
+        here = here.nextElementSibling;
+      }
+      return null;
+    };
+    let found = find(byHeadingStart);
+    // lh-com's columns-media sidebar block (content | aside cells) opening with the content: its
+    // cells' children in its place, then the search again
+    if (!found) {
+      const block = [...main.querySelectorAll(':scope > div > div.columns-media')].find((b) => b.classList.contains('sidebar')
+        && b.children.length === 1 && b.firstElementChild.children.length === 2 && starts(b.firstElementChild.firstElementChild, first)
+        && (!sb.aside.length || contains(b.firstElementChild.lastElementChild, sb.aside[0])));
+      if (block) {
+        block.replaceWith(...[...block.firstElementChild.children].flatMap((cell) => [...cell.children]));
+        found = find(byHeadingStart);
+      }
     }
-    if (!section || start < 0) { skipped.push(`sidebar ${n}: "${first.slice(0, 40)}" not found`); return; }
+    if (!found) found = find(anyStart);
+    if (!found) { skipped.push(`sidebar ${n}: "${first.slice(0, 40)}" not found`); return; }
+    const { section } = found;
+    let { start } = found;
     // the pictures www shows before the content's first text open the content
     for (let k = 0; k < sb.imagesBefore && start > 0 && (section !== fromSection || start - 1 >= fromIndex) && isPicture(section.children[start - 1]); k += 1) start -= 1;
     const kids = [...section.children];
@@ -476,7 +533,7 @@ export function withSwissSidebar(doc, html) {
     from = after.length ? { section: afterSection, index: 0 } : { section: asideSection.nextElementSibling, index: 0 };
   });
   // the image | text views anywhere on the page (in the sidebars' content and outside them)
-  const rows = withTwoColumns(document, main, twoColumnsOf(html));
+  const rows = withTwoColumns(document, main, twoColumnsOf(html)) + withOpenFirst(main, html);
   if (!made && !rows && !joined) {
     return {
       doc, made, rows, skipped,

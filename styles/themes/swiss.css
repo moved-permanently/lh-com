@@ -771,10 +771,14 @@ body.brand-swiss main :is(.default-content-wrapper, .columns-media-text) > :is(h
   }
 }
 
-/* a link alone in its paragraph and the aside cards' link (www's maui-navigation-link, variant
-   hyper, size medium): warm grey 16 / 22 px regular, pine grey on hover; its icon in a 16 px box,
-   5 px to the text: arrow-right the triangle, arrow-up-right off-site, arrow-down in-page */
-/* stylelint-disable-next-line no-descending-specificity -- text links and the aside cards' link, not the carousel cards' above */
+/* stylelint-disable no-descending-specificity -- SWISS's text links, the aside's cards and link
+   lists below: other elements than the carousel cards' links above */
+
+/* a link alone in its paragraph, the aside cards' link and the aside's link lists (www's
+   maui-navigation-link, variant hyper, size medium; off-site links variant external): warm grey
+   16 / 22 px regular, pine grey on hover; its icon in a 16 px box, 5 px to the text: arrow-right
+   the triangle, arrow-up-right off-site, arrow-down in-page */
+body.brand-swiss main .section-aside .default-content-wrapper :is(ul, ol) > li > a:any-link,
 body.brand-swiss main :is(.default-content-wrapper, .columns-media-text) p.link-wrapper a:any-link,
 body.brand-swiss main .section-aside .cards-teaser .cards-teaser-cta-link:any-link {
   display: inline-flex;
@@ -791,14 +795,14 @@ body.brand-swiss main :is(.default-content-wrapper, .columns-media-text) p.link-
   line-height: 22px;
 }
 
-/* stylelint-disable-next-line no-descending-specificity -- text links and the aside cards' link, not the carousel cards' above */
+body.brand-swiss main .section-aside .default-content-wrapper :is(ul, ol) > li > a:any-link:hover,
 body.brand-swiss main :is(.default-content-wrapper, .columns-media-text) p.link-wrapper a:any-link:hover,
 body.brand-swiss main .section-aside .cards-teaser .cards-teaser-cta-link:any-link:hover {
   color: #554e49;
   text-decoration: none;
 }
 
-/* stylelint-disable-next-line no-descending-specificity -- text links and the aside cards' link, not the carousel cards' above */
+body.brand-swiss main .section-aside .default-content-wrapper :is(ul, ol) > li > a:any-link::before,
 body.brand-swiss main :is(.default-content-wrapper, .columns-media-text) p.link-wrapper a:any-link::before,
 body.brand-swiss main .section-aside .cards-teaser .cards-teaser-cta-link:any-link::before {
   content: "";
@@ -811,6 +815,7 @@ body.brand-swiss main .section-aside .cards-teaser .cards-teaser-cta-link:any-li
   mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='m10 8-4 4V4z'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 
+body.brand-swiss main .section-aside .default-content-wrapper :is(ul, ol) > li > a:any-link[href^="http"]:not([href*="//www.swiss.com"])::before,
 body.brand-swiss main :is(.default-content-wrapper, .columns-media-text) p.link-wrapper a:any-link[target="_blank"]:not([href*="//www.swiss.com"])::before,
 body.brand-swiss main .section-aside .cards-teaser .cards-teaser-cta-link:any-link[target="_blank"]:not([href*="//www.swiss.com"], .cards-teaser-cta-own)::before {
   mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M13 3v5.981h-2V6.414L4.112 13.3 2.7 11.886 9.585 5H7V3z'/%3E%3C/svg%3E");
@@ -862,7 +867,6 @@ body.brand-swiss main .section-aside .cards-teaser .cards-teaser-body > .cards-t
 }
 
 /* a card without a link line keeps the link on its title (the video card): black, as www's title */
-/* stylelint-disable-next-line no-descending-specificity -- the aside cards' titles, not the carousel cards' links */
 body.brand-swiss main .section-aside .cards-teaser .cards-teaser-title a:any-link {
   color: inherit;
 }
@@ -885,3 +889,17 @@ body.brand-swiss main .section-aside .cards-teaser .cards-teaser-body > .cards-t
     font-size: 24px;
   }
 }
+
+/* the aside's link lists ("More about Miles & More", "Quick links": www's ul of
+   maui-navigation-link): no bullets, each item 27 px (the link 22 px and 5 px), the links as above */
+body.brand-swiss main .section-aside .default-content-wrapper :is(ul, ol) {
+  padding-left: 0;
+  list-style: none;
+}
+
+body.brand-swiss main .section-aside .default-content-wrapper :is(ul, ol) > li {
+  margin: 0;
+  padding: 0 0 5px;
+}
+
+/* stylelint-enable no-descending-specificity */
