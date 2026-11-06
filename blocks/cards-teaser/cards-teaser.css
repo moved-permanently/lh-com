@@ -469,3 +469,86 @@ body.brand-cargo .cards-teaser.overlay.fleet .cards-teaser-cta-link:any-link {
     margin-top: 40px;
   }
 }
+
+/*
+ * option phone-slider (www's .hidden-lg-up swiper of a three-card column view: /de/en/traveltricks'
+ * "This might also be of interest to you", brief 441): below 1025px one card per view, as wide as
+ * the page column, the next one peeking into the page margin, a dot per card under the row
+ * (cards-teaser-slider.js; www's link line to its dots 55px at 390 and 768); from 1025px the rows,
+ * no dots. The dots as carousel-cards': 24px targets, the drawn 8px dot by the same tokens.
+ */
+@media (width < 1025px) {
+  .cards-teaser.phone-slider > ul {
+    display: flex;
+    gap: 0;
+    margin-inline: calc(-1 * var(--layout-margin));
+    padding-inline: var(--layout-margin);
+    overflow-x: auto;
+    scroll-padding-inline: var(--layout-margin);
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .cards-teaser.phone-slider > ul::-webkit-scrollbar {
+    display: none;
+  }
+
+  .cards-teaser.phone-slider > ul > li:nth-child(n) {
+    flex: 0 0 100%;
+    margin-top: 0;
+    scroll-snap-align: start;
+  }
+}
+
+.cards-teaser .cards-teaser-dots {
+  display: flex;
+  justify-content: center;
+  margin: 43px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cards-teaser .cards-teaser-dots[hidden] {
+  display: none;
+}
+
+.cards-teaser .cards-teaser-dot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  cursor: pointer;
+}
+
+.cards-teaser .cards-teaser-dot::before {
+  content: "";
+  box-sizing: border-box;
+  width: var(--carousel-dot-size, 8px);
+  height: var(--carousel-dot-size, 8px);
+  border: 1px solid var(--carousel-dot-color, var(--lh-grey-7));
+  border-radius: var(--carousel-dot-radius, 50%);
+  background-color: var(--carousel-dot-fill, var(--lh-white));
+}
+
+.cards-teaser .cards-teaser-dot[aria-current="true"]::before {
+  width: var(--carousel-dot-current-width, var(--carousel-dot-size, 8px));
+  border-color: var(--carousel-dot-current-color, var(--lh-deepblue));
+  background-color: var(--carousel-dot-current-color, var(--lh-deepblue));
+}
+
+.cards-teaser .cards-teaser-dot:focus-visible {
+  outline: 2px solid var(--focus-color);
+  outline-offset: 2px;
+}
+
+@media (width >= 1025px) {
+  .cards-teaser.phone-slider .cards-teaser-dots {
+    display: none;
+  }
+}

@@ -13,7 +13,8 @@
  * stage teasers (".stage .stage-teaser", Insights "Explore more") add the option "overlay":
  * image | headline as h3, subheadline as the CTA link to the tile's target. A column view
  * straight in the page column (".container-content > .twocolumn", not in a section) adds the
- * option "spacious" (www's wider row padding there).
+ * option "spacious" (www's wider row padding there). A column view whose carousel holds a swiper
+ * copy of its rows for phones and tablets (.carousel > .hidden-lg-up) adds "phone-slider".
  *
  * Column title (".column-view > div:not(.row) > h2") is default content: it is emitted before
  * the block table. When the source splits one teaser grid over several adjacent column views
@@ -188,6 +189,12 @@ export default function parse(element, { document }) {
   if (element.classList.contains('threecolumn')) variants = ['three-up'];
   else if (element.classList.contains('fourcolumn')) variants = ['four-up'];
   if (overlay) variants.push('overlay');
+  // a column view with carousel behaviour whose cards are a swiper below lg (.carousel >
+  // .hidden-lg-up, /de/en/traveltricks' "This might also be of interest to you", brief 441): option
+  // phone-slider (the block's slider below 1025px, its rows from 1025px)
+  // (the cleanup drops the swiper when its cards are the rows' and marks the rows)
+  const rowsCopy = view.querySelector(':scope > .carousel > .hidden-md-down');
+  if (rowsCopy && (rowsCopy.hasAttribute('data-lh-swiper-below-lg') || view.querySelector(':scope > .carousel > .hidden-lg-up .swiper-slide'))) variants.push('phone-slider');
   // a row straight in www's page column (.container-content > .twocolumn, the overview hubs), not
   // in a section: www's plain .column-view padding (2rem / 1rem, 4rem / 2rem from 768px) and item
   // margins, more than a section's rows (3.2rem): option "spacious" (parity pass 2, brief 424)

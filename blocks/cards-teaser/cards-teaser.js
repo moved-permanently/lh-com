@@ -34,7 +34,8 @@ function bodyElements(row) {
  * One row per card. Cell 1: image; cell 2: heading (any level), paragraphs, CTA (last link).
  * Merged or missing cells: the first picture is the media, everything else the body.
  * Option slider on brand tap: www.flytap.com's news swiper (./cards-teaser-tap.js, loaded there
- * only).
+ * only). Option phone-slider: below 1025px one card per view and a dot per card
+ * (./cards-teaser-slider.js).
  * @param {Element} block
  */
 export default async function decorate(block) {
@@ -119,6 +120,12 @@ export default async function decorate(block) {
     });
   }
   block.replaceChildren(ul);
+
+  // option phone-slider: www's swiper below 1025px (./cards-teaser-slider.js, loaded with it only)
+  if (block.classList.contains('phone-slider')) {
+    const { default: decorateSlider } = await import('./cards-teaser-slider.js');
+    decorateSlider(block);
+  }
 
   // TAP: the option slider is www's swiper, previous, next and bullets (R4-10)
   if (block.classList.contains('slider') && getMetadata('brand').trim().toLowerCase() === 'tap') {
