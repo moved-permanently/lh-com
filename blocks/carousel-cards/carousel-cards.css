@@ -789,3 +789,13 @@ body.brand-cargo .carousel-cards.slides .carousel-cards-dots {
   }
 }
 /* stylelint-enable no-descending-specificity */
+
+/* Cargo's homepage spacing (brief 440, cargo-parity-001): www's components are boxes 40 px above and
+   below their content (.whiteBgBox padding-block 40px, 20px below 1025px), one after the other */
+
+/* the eServices' heading 40 px below the band before it from 1025 px (lh-com's 20 px gap) */
+@media (width >= 1025px) {
+  body.brand-cargo main:has(.news-feed) > .section > .default-content-wrapper:has(+ .carousel-cards-wrapper > .carousel-cards.slides) {
+    margin-top: 40px;
+  }
+}

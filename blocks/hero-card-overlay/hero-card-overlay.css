@@ -392,3 +392,13 @@ body.brand-cargo .hero-card-overlay.plain .hero-card-overlay-cta a:any-link:not(
   }
 }
 /* stylelint-enable no-descending-specificity */
+
+/* Cargo's homepage spacing (brief 440, cargo-parity-001): www's components are boxes 40 px above and
+   below their content (.whiteBgBox padding-block 40px, 20px below 1025px), one after the other */
+
+/* the ULD teaser 40 px below the eServices from 1025 px (their box's padding; lh-com's 20 px gap) */
+@media (width >= 1025px) {
+  body.brand-cargo main:has(.news-feed) > .section > .hero-card-overlay-wrapper:has(> .hero-card-overlay.plain) {
+    margin-top: 40px;
+  }
+}

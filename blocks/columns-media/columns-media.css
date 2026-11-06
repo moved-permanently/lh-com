@@ -1357,3 +1357,57 @@ body.brand-cargo .columns-media.band.facts .columns-media-text > ul > li > stron
   }
 }
 /* stylelint-enable no-descending-specificity */
+
+/* Cargo's homepage spacing (brief 440, cargo-parity-001): www's components are boxes 40 px above and
+   below their content (.whiteBgBox padding-block 40px, 20px below 1025px), one after the other */
+
+/* a band 40 px below the component before it from 1025 px (lh-com's 20 px gap); About, the last,
+   40 px above the footer (20 px below 1025 px: lh-com's 48 px section gap) */
+body.brand-cargo main:has(.news-feed) > .section:has(> .columns-media-wrapper:last-child > .columns-media.band.facts) {
+  margin-bottom: 20px;
+}
+
+@media (width >= 1025px) {
+  body.brand-cargo main:has(.news-feed) > .section > .columns-media-wrapper:has(> .columns-media.band) {
+    margin-top: 40px;
+  }
+
+  body.brand-cargo main:has(.news-feed) > .section:has(> .columns-media-wrapper:last-child > .columns-media.band.facts) {
+    margin-bottom: 40px;
+  }
+}
+
+/* the Infrastructure band below 1025 px: www's box 20 px above and below */
+@media (width < 1025px) {
+  body.brand-cargo main:has(.news-feed) .columns-media.band.gradient {
+    padding-block: 20px;
+  }
+}
+
+/* on phones (www below 767.5px) the Infrastructure counters www's 24 / 28 px; its rows 61 px as
+   www's (the counters' row at least the 40 px icon, the regions 12 px above and below their two-line
+   labels, no gap between them: lh-com's lists 10 px); 20 px from the stats to the map (lh-com's
+   stacked 36 px) */
+@media (width < 768px) {
+  body.brand-cargo main:has(.news-feed) .columns-media.stats .columns-media-text > ul:first-of-type > li,
+  body.brand-cargo main:has(.news-feed) .columns-media.stats .columns-media-text li > strong {
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  body.brand-cargo main:has(.news-feed) .columns-media.stats.icons .columns-media-text > ul:first-of-type > li {
+    min-height: 40px;
+    margin-bottom: 0;
+    align-items: center;
+  }
+
+  body.brand-cargo main:has(.news-feed) .columns-media.stats.icons .columns-media-text > ul:nth-of-type(2) > li {
+    margin-bottom: 0;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  body.brand-cargo main:has(.news-feed) .columns-media.band.gradient .columns-media-row > .columns-media-text:not(:last-child) {
+    margin-bottom: 20px;
+  }
+}

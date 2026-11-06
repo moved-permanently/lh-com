@@ -102,3 +102,17 @@
     flex: 1;
   }
 }
+
+/* Cargo's homepage spacing (brief 440, cargo-parity-001): www's components are boxes 40 px above and
+   below their content (.whiteBgBox padding-block 40px, 20px below 1025px), one after the other */
+
+/* the news 40 px under the booking strip from 1025 px, 20 px below (lh-com's 48 px section gap) */
+body.brand-cargo main:has(.news-feed) > .section:has(+ .section > .news-feed-wrapper) {
+  margin-bottom: 20px;
+}
+
+@media (width >= 1025px) {
+  body.brand-cargo main:has(.news-feed) > .section:has(+ .section > .news-feed-wrapper) {
+    margin-bottom: 40px;
+  }
+}
