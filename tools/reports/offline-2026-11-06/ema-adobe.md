@@ -267,7 +267,7 @@ Cargo's preview and live hosts checked by hand after the pushes; upload and prev
 - carousel-cards' slides option counts the slides in view as four-up does: 2 dots at 1440 ("1 of
   2", "2 of 2"), 3 on phones, as www; checked on preview and live. Rollback: `git revert ca50617`.
 
-### 3. SWISS row 33, accordion titles as headings (not changed: www's are not headings)
+### 3. SWISS row 33, accordion titles as headings (closed: www's are not headings)
 
 - On www every accordion title is `maui-headline type="none"`, which renders a `div`, no heading
   element or role: all 155 accordion items of the 60 captured SWISS pages. The 8 "missing
@@ -275,8 +275,8 @@ Cargo's preview and live hosts checked by hand after the pushes; upload and prev
   maui-headline whatever its type.
 - axe on food and beverage and the payment options FAQ (aem.page, 390 and 1440): 0 violations;
   needs review only OneTrust's banner.
-- So the shared accordion stays as it is; making the titles headings would differ from www. Your
-  call (asked at the end of the brief).
+- Decision (yours, asked at the end of the brief): keep as www. The shared accordion stays as it is;
+  row 33 closed. No commit.
 
 ### 4. SWISS row 37, accessible travel (done, 5a8f7cb)
 
