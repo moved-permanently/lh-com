@@ -47,13 +47,13 @@ test('row 16: the search field focused as www\'s: its label floats up small, the
   assert.match(css, /body\.brand-b2b \.search-results \.search-results-form:focus-within \{[^}]*border-bottom-color: transparent;/);
 });
 
-test('row 18: links alone in their paragraph as www\'s maui-navigation-link medium (14 / 18 bold, a 16 px arrow 5 px before the text, one below the other 21 px apart); "Back to News" with the left arrow (variant back)', () => {
+test('row 18: links alone in their paragraph as www\'s maui-navigation-link medium (14 / 18 bold, a 16 px arrow 5 px before the text, one below the other 24 px apart: www\'s 21 px are under WCAG 2.5.8\'s 24 px target spacing, offline package item 5); "Back to News" with the left arrow (variant back)', () => {
   const css = theme();
   const scope = String.raw`body\.brand-b2b main :is\(\.default-content-wrapper, \.columns-media-text\) p\.link-wrapper`;
   assert.match(css, new RegExp(`${scope} \\{ font-size: 14px; line-height: 18px; \\}`));
   assert.match(css, new RegExp(`${scope} a:any-link \\{ gap: 5px; \\}`));
   assert.match(css, new RegExp(`${scope} a:any-link::before \\{ align-self: flex-start; width: 16px; height: 16px; margin-top: 1px; \\}`));
-  assert.match(css, /body\.brand-b2b main \.columns-media \.columns-media-text p\.link-wrapper:has\(\+ p\.link-wrapper\) \{ margin-bottom: 3px; \}/);
+  assert.match(css, /body\.brand-b2b main \.columns-media \.columns-media-text p\.link-wrapper:has\(\+ p\.link-wrapper\) \{ margin-bottom: 6px; \}/);
   assert.match(css, /body\.brand-b2b main \.default-content-wrapper p\.link-wrapper a:any-link\[href\$="\/news"\]::before \{ transform: scaleX\(-1\); \}/);
 });
 

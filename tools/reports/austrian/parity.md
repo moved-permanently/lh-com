@@ -186,3 +186,11 @@ previewed, not published (`preview-paths-394.txt`).
   (`tools/importer/bd-snapshots/www.austrian.com`), uploaded and previewed, not published
   (`preview-paths-002.txt`); 12 came out unchanged; culinaryjourney and new-destinations kept as DA
   has them (row 42); four tab pages uploaded, then restored to their versions before (row 43).
+
+## Accessibility, deeper pages (offline package 2026-11-06, item 5)
+
+axe on the 60 pages of austrian-parity-002 on main--lh-austrian--moved-permanently.aem.page at 1440 and
+390: link-name on 7 pages (linked teaser pictures without alt text: fixed brand-neutrally in
+columns-media, 6 pages clean; /at/de/lhg-staralliance-partner's airline logos need alt texts, open);
+target-size of the bar's logo link at 390 on one or two pages (www's size, open). Details in
+`tools/reports/offline-2026-11-06/ema-test.md`, item 5.

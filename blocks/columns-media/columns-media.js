@@ -123,6 +123,28 @@ function linkPictures(cell) {
 }
 
 /**
+ * A link that holds only pictures without a text alternative (www's linked teaser pictures): a
+ * repeat of a text link to the same page in its row stays a pointer target only (out of the tab
+ * order and hidden from assistive tech); otherwise the row's heading names it.
+ */
+function nameImageLinks(block) {
+  block.querySelectorAll('a[href]').forEach((a) => {
+    if (a.textContent.trim() || a.getAttribute('aria-label') || (a.getAttribute('title') || '').trim()) return;
+    const imgs = [...a.querySelectorAll('img')];
+    if (!imgs.length || imgs.some((img) => (img.getAttribute('alt') || '').trim())) return;
+    const row = a.closest('.columns-media-row') || block;
+    const twin = [...row.querySelectorAll('a[href]')].find((x) => x !== a && x.getAttribute('href') === a.getAttribute('href') && x.textContent.trim());
+    if (twin) {
+      a.setAttribute('aria-hidden', 'true');
+      a.setAttribute('tabindex', '-1');
+      return;
+    }
+    const heading = row.querySelector('h1, h2, h3, h4, h5, h6');
+    if (heading && heading.textContent.trim()) a.setAttribute('aria-label', heading.textContent.trim());
+  });
+}
+
+/**
  * Option slider: below 1025px the images of a strip are slides, one at a time, with dots
  * (Lufthansa column view with carousel behaviour, .hidden-lg-up swiper). Option cell-slider:
  * the same for the cells of a row (media | text items with carousel behaviour).
@@ -279,6 +301,7 @@ export default async function decorate(block) {
     });
   }
 
+  nameImageLinks(block);
   decorateExternalLinks(block);
   if (block.classList.contains('band')) trackViewport(block);
   if (block.querySelector('.media-video, .media-embed')) await loadMediaStyles();

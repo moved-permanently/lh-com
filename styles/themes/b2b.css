@@ -471,8 +471,10 @@ body.brand-b2b main :is(.default-content-wrapper, .columns-media-text) p.link-wr
   margin-top: 1px;
 }
 
+/* 24 px from link to link (WCAG 2.5.8's target spacing; www's 21 px are under it: accessibility pass,
+   offline package item 5) */
 body.brand-b2b main .columns-media .columns-media-text p.link-wrapper:has(+ p.link-wrapper) {
-  margin-bottom: 3px;
+  margin-bottom: 6px;
 }
 
 /* an article's "Back to News" / "Zurück zu Aktuelles" (www's variant back): the arrow to the left;
@@ -645,4 +647,12 @@ body.brand-b2b .hero-campaign .hero-campaign-cta a.button:any-link {
     max-width: 600px;
     margin-left: 0;
   }
+}
+
+/* accessibility (offline package item 5): the outlined button on a grey band 4.64 : 1 (#49748b);
+   www's #4d7b93 is 4.21 : 1 on #f5f5f5, under the 4.5 18 px bold text needs (on white it stays) */
+/* stylelint-disable-next-line no-descending-specificity -- tokens only, not the bands' margins */
+body.brand-b2b main > .section.grey {
+  --button-secondary-color: #49748b;
+  --button-secondary-hover: #49748b;
 }

@@ -14,7 +14,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 
 const read = (p) => fs.readFileSync(p, 'utf8').replace(/\s+/g, ' ');
-const BRANDS = 'body:is(.brand-swiss, .brand-austrian, .brand-ita, .brand-brussels, .brand-discover, .brand-cargo, .brand-lufthansa)';
+const BRANDS = 'body:is(.brand-swiss, .brand-austrian, .brand-ita, .brand-brussels, .brand-discover, .brand-cargo, .brand-lufthansa, .brand-b2b)';
 const rule = (css, selector) => {
   const at = css.indexOf(`${selector} {`);
   assert.ok(at >= 0, selector);

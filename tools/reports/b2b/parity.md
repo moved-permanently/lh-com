@@ -105,3 +105,8 @@ Offline package (2026-11-06, item 3): rows 29-31 fixed, B2B-scoped CSS only, no 
 Still apart: contact's hotline finder (www's capture shows an opening-hours table this hotline record
 has not), contact de/de -78 px at 1440, the news overview (+37 / +88 px), the airlines page at 390
 (+83 to +131 px), celebrating (-137 / -117 px, spread).
+
+Accessibility (offline package item 5): axe on the 26 pages at 1440 and 390 on the preview; fixed: the
+linked pictures without a name (columns-media), the outlined button on grey bands (#49748b, 4.64 : 1),
+the link lists 24 px apart and the carousel dots as 24 px targets (WCAG 2.5.8; www's 21 px and 8 px
+dots are under it). Rechecked: 0 findings on all 52.

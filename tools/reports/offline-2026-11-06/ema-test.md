@@ -95,3 +95,33 @@ austrian.turnsthe.page and main--lh-austrian--moved-permanently.aem.page (equal 
   lh-discover preview content: heights equal on all 52 page/width pairs, full-page screenshots identical pixel
   for pixel (the pixel check itself verified on two different pages). No regression; nothing to fix, no new
   rows (`tools/reports/discover/parity.md`, "Regression check"). No document changed.
+
+## 5. Accessibility pass: Austrian's and B2B's captured pages on aem.page
+
+axe-core 4.10.2 (WCAG 2.0 / 2.1 A and AA, 2.2 AA) on main--lh-austrian--moved-permanently.aem.page (the 60
+pages of austrian-parity-002) and main--lh-b2b--moved-permanently.aem.page (the 26 pages of b2b-parity-001),
+1440 and 390, one page at a time; the demo notice removed first (its modal leaves the page inert: a first run
+with it open missed findings), the consent accepted. A keyboard check of the new card link lines (familien):
+a logical order, a 2 px blue focus ring on every stop.
+
+Fixed (tests first):
+- link-name (Austrian 6 pages, B2B 9 page / width pairs): a link holding only a picture without an alt text
+  (www's linked teaser pictures) in columns-media. `blocks/columns-media/columns-media.js` (brand-neutral):
+  when its row links the same page in text, the picture link is aria-hidden and out of the tab order (it
+  stays clickable); otherwise its row's heading names it (`test/columns-media-image-links.test.mjs`).
+- color-contrast (B2B: route-network, celebrating-shared-stories): the outlined button on a grey band,
+  www's #4d7b93 on #f5f5f5 is 4.21 : 1; on grey bands #49748b (4.64 : 1), on white as before
+  (`test/b2b-a11y-offline.test.mjs`).
+- target-size (B2B contact, celebrating): the link lists 24 px from link to link (www's and round 2's 21 px
+  are under WCAG 2.5.8; 3 px a link off www's), and B2B joins the brands whose carousel dots are 24 px targets
+  (carousel-cards and carousel-images; `test/carousel-dots-374.test.mjs`, `test/carousel-dot-tokens.test.mjs`).
+- Rechecked with the fixes (local code over the previews): B2B 0 findings on all 52; Austrian's 7 pages:
+  the 6 columns-media pages clean.
+
+Listed, not fixed:
+- /at/de/lhg-staralliance-partner: the Star Alliance airlines' logo links have no alt text (not
+  columns-media): the documents need the airlines' names as alt texts (content; next pass).
+- The Austrian logo link in the bar (122 x 18 px at 390): target-size on one or two pages at 390 depending
+  on what sits next to it; the logo's size is www's (shared header).
+- Each Austrian teaser card has two tab stops to one page (title and link line), as the card's link line
+  is its own link now; not a failure.
