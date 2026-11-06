@@ -4134,6 +4134,15 @@
     "/xx/pl/upgrades-at-online-check-in",
     "/xx/pl/with-children-at-the-airport",
     "/xx/pl/nav",
-    "/xx/pl/footer"
+    "/xx/pl/footer",
+    "/xx/hk/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm1/confirmation",
+    "/xx/hk/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/thank-you-confirmation",
+    "/xx/zh/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm1/confirmation",
+    "/xx/it/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm1/confirmation",
+    "/xx/el/prepare-for-your-trip/baggage/sport-baggage/register-ammunition1/confirmation1",
+    "/xx/ja/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm1/confirmation",
+    "/xx/ko/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm1/confirmation",
+    "/xx/pl/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm1/confirmation",
+    "/bg/en/local-page/invoice-request-bg/thank-you-for-your-request"
   ]
 }

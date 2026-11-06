@@ -65,3 +65,18 @@ document). The 19 homepages and the 27 own pages `tools/importer/sites/lh-com.js
   country and language row ("Japan | 日本語", "Polska | Polski", ...) and links into its own root
   (header 55 to 61, main 8 to 15); the www links left in the main are the targets without a document.
 - **Not published.** Backup of the 46 B documents' DA sources before the run (private notes).
+
+## The own confirmations and bg/en's invoice success page (local harness, 2026-11-06, 02:30-02:50 CET)
+
+- **Captured** in a headful Chrome with a copied profile, one page every 10 s, no block: the 8 URLs of
+  `15-hk` … `21-pl-confirmations-own.txt` and `/bg/en/local-page/invoice-request-bg/thank-you-for-your-request`,
+  all 200 with their own canonical. Archive `lh-snapshots-060` (9 pages; it replaces xx/hk's two and xx/zh's
+  copies in 036 and 043, which were never imported). xx/hk's `register-animal/thank-you-confirmation` and
+  bg/en's page are English on www itself.
+- **Imported** as the other confirmations (info template, `root-docs.mjs --own-root`), uploaded and previewed: the
+  9 confirmation documents (new) and the 9 form documents whose success link goes there (the 8 ammunition forms
+  `prepare-for-your-trip/baggage/sport-baggage/register-ammunition`, xx/hk's `register-animal-cabin`, bg/en's
+  `local-page/invoice-request-bg`), where only that link changed (www -> relative). 18 of 18 read back: preview
+  200, DA equal to the local document. Each form's success link answers 200 on preview.
+- **Not published.** On lufthansa.turnsthe.page bg/en's form page answers 200 (live) and its success page 404
+  until the 18 documents are published (confirmations first, then the forms).
