@@ -36,9 +36,9 @@ const path = require('path');
 const { spawnSync } = require('child_process');
 const {
   DEFAULT_STATE, getArgs, writeJsonAtomic, readJson, rmSafe, mkdirp,
+  MAX_ATTEMPTS, isOk, needsCapture,
 } = require('./lib.js');
 
-const MAX_ATTEMPTS = 2; // first try + one retry
 const DEFAULT_WIDTHS = [1440, 768, 390];
 
 const args = getArgs({
@@ -163,7 +163,6 @@ function itemFor(job, width) {
   return item;
 }
 
-const isOk = (c) => c && (c.status === 'ok' || c.status === 'provided');
 const exhausted = (c) => !isOk(c) && c.status !== 'missing' && c.attempts >= MAX_ATTEMPTS;
 
 function updateItemStatus(item) {
@@ -367,7 +366,6 @@ function runCompare(item) {
     + ` (all ${(r.mismatchRatio * 100).toFixed(2)}%, ${r.maskBoxes} masks; h ${r.heightA} vs ${r.heightB}${div})`);
 }
 
-const needsCapture = (c) => c && !isOk(c) && !exhausted(c);
 // fresh work first, retries (failed or skipped-inflight) after
 const priority = (item) => Math.max(0, ...Object.values(item.captures)
   .filter(needsCapture).map((c) => c.attempts || 0));

@@ -63,6 +63,28 @@ function rmSafe(file) {
   }
 }
 
+/** A capture is tried once and retried once. */
+const MAX_ATTEMPTS = 2;
+const isOk = (c) => Boolean(c) && (c.status === 'ok' || c.status === 'provided');
+/**
+ * Whether run-batch.js should run a capture: it has a URL, is not ok and has attempts left. A
+ * source screenshot given as a file (srcPng: "provided", or "missing" while it is not there yet)
+ * has no URL and is never captured; its page waits for the file.
+ */
+function needsCapture(c) {
+  return Boolean(c) && Boolean(c.url) && c.status !== 'missing' && !isOk(c) && (c.attempts || 0) < MAX_ATTEMPTS;
+}
+
 module.exports = {
-  ROOT, DEFAULT_STATE, getArgs, mkdirp, writeJsonAtomic, readJson, appendJsonl, rmSafe,
+  ROOT,
+  DEFAULT_STATE,
+  getArgs,
+  mkdirp,
+  writeJsonAtomic,
+  readJson,
+  appendJsonl,
+  rmSafe,
+  MAX_ATTEMPTS,
+  isOk,
+  needsCapture,
 };
