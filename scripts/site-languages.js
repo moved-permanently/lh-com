@@ -62,9 +62,11 @@ export const CARGO_LANGUAGES = [['es', 'Español'], ['fr', 'Français'], ['it', 
 /**
  * The switch: the CARGO_LANGUAGES that are on (published), listed in the header's switch and the
  * sitemaps and given their entry paths by lh-edge (tools/workers/lh-edge/src/sites.js
- * cargoEntry). Off ([]) until the user publishes them; their pages resolve either way.
+ * cargoEntry). All four on since their documents (navs, footers, pages) went live on lh-cargo
+ * (2026-11-06); off ([]) they are not listed and have no entry paths; their pages resolve
+ * either way.
  */
-export const CARGO_LIVE_LANGUAGES = [];
+export const CARGO_LIVE_LANGUAGES = ['es', 'fr', 'it', 'pt'];
 
 /**
  * Cargo's languages: en and de (the same slugs, homepages /en/home and /de/home), then

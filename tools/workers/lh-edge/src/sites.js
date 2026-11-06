@@ -132,8 +132,9 @@ export const AMPERSAND_SITES = new Set(['swiss']);
  */
 /**
  * Lufthansa Cargo's entry paths: / to /en/home as there, /en/ and /de/ to their homepage
- * documents; the languages of scripts/site-languages.js CARGO_LIVE_LANGUAGES (es, fr, it, pt once
- * the user publishes them) to www's /<ll>/home, their homepage, which the site doesn't have.
+ * documents; the languages of scripts/site-languages.js CARGO_LIVE_LANGUAGES (es, fr, it, pt, on
+ * since their documents went live) to www's /<ll>/home, their homepage, which the site doesn't
+ * have.
  * @param {string[]} [live] the languages that are on (default: CARGO_LIVE_LANGUAGES)
  */
 export function cargoEntry(live = CARGO_LIVE_LANGUAGES) {

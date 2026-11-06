@@ -11,13 +11,15 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {
-  SITE_LANGUAGES, counterpartPath, languageSwitch, switchTarget,
+  SITE_LANGUAGES, CARGO_LIVE_LANGUAGES, counterpartPath, languageSwitch, switchTarget,
 } from '../scripts/site-languages.js';
 
 const AD = SITE_LANGUAGES.airdolomiti;
 const CARGO = SITE_LANGUAGES.cargo;
 const [it, adEn, adDe] = AD;
 const [en, de] = CARGO;
+// Cargo's languages after English and German that are on (the same slugs: probed as German)
+const ON = CARGO_LIVE_LANGUAGES;
 const probe = () => {
   const calls = [];
   const exists = async (p) => {
@@ -50,16 +52,16 @@ test('a page\'s Alternate metadata: its counterparts as they are, no probe (both
   const s = languageSwitch([], '/iscrizione-newsletter', 'it', AD, { en: '/en/newsletter-subscription' });
   assert.deepEqual(await targets(s, exists), [['en', '/en/newsletter-subscription'], ['de', '/de/']]);
   const c = languageSwitch([], '/en/contact-us', 'en', CARGO, { de: '/de/kontakt' });
-  assert.deepEqual(await targets(c, exists), [['de', '/de/kontakt']]);
-  assert.deepEqual(calls, []);
+  assert.deepEqual(await targets(c, exists), [['de', '/de/kontakt'], ...ON.map((l) => [l, `/${l}/contact-us`])]);
+  assert.deepEqual(calls, ON.map((l) => `/${l}/contact-us`), 'the named ones not probed');
 });
 
 test('Cargo: the same path in the other language, probed as before', async () => {
   const { calls, exists } = probe();
   assert.equal(counterpartPath('/en/speed-flash', en, de), '/de/speed-flash');
   const s = languageSwitch([], '/en/speed-flash', 'en', CARGO);
-  assert.deepEqual(await targets(s, exists), [['de', '/de/speed-flash']]);
-  assert.deepEqual(calls, ['/de/speed-flash']);
+  assert.deepEqual(await targets(s, exists), [['de', '/de/speed-flash'], ...ON.map((l) => [l, `/${l}/speed-flash`])]);
+  assert.deepEqual(calls, ['/de/speed-flash', ...ON.map((l) => `/${l}/speed-flash`)]);
 });
 
 test('header.js: the Alternate rows of the page\'s metadata go to the switch', () => {

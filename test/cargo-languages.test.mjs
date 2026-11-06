@@ -2,8 +2,8 @@
 /* Lufthansa Cargo's Spanish, French, Italian and Portuguese pages (brief 414: the user's harness
    imported www's /<ll>/ci/... pages, eFreight and the imprint, their nav and footer: 61 documents
    on lh-cargo's preview; www keeps their homepage, /<ll>/home, where their nav's logo leads).
-   Behind one switch, CARGO_LIVE_LANGUAGES (scripts/site-languages.js, empty until the user
-   publishes them):
+   Behind one switch, CARGO_LIVE_LANGUAGES (scripts/site-languages.js; all four on since their
+   documents went live on lh-cargo on 2026-11-06, [] turns them off; the tests hold either way):
    - SITE_LANGUAGES.cargo has them (their pages take their locale and switch to en / de), listed in
      the header's switch and in the sitemaps only once on;
    - lh-edge's entry paths /<ll> and /<ll>/ (302 to www's /<ll>/home) only once on;
@@ -28,14 +28,19 @@ const NEW = ['es', 'fr', 'it', 'pt'];
 const WWW = 'https://www.lufthansa-cargo.com';
 
 test('SITE_LANGUAGES.cargo: en and de, then es, fr, it, pt (their homepage on www), off: not listed', () => {
-  assert.deepEqual(CARGO_LIVE_LANGUAGES, [], 'off until the user publishes them');
+  assert.deepEqual(CARGO_LIVE_LANGUAGES, NEW.filter((l) => CARGO_LIVE_LANGUAGES.includes(l)), 'some of the four, in their order');
   assert.deepEqual(CARGO_LANGUAGES.map(([l]) => l), NEW);
   const { cargo } = SITE_LANGUAGES;
+  assert.deepEqual(cargo, cargoLanguages(CARGO_LIVE_LANGUAGES));
   assert.deepEqual(cargo.map((l) => l.lang), ['en', 'de', ...NEW]);
   assert.deepEqual(cargo[0], {
     lang: 'en', path: '/en/', home: '/en/home', name: 'English',
   });
   assert.deepEqual(cargo[2], {
+    lang: 'es', path: '/es/', home: `${WWW}/es/home`, name: 'Español', ...(CARGO_LIVE_LANGUAGES.includes('es') ? {} : { listed: false }),
+  });
+  assert.deepEqual(cargo.slice(2).map((l) => l.listed !== false), NEW.map((l) => CARGO_LIVE_LANGUAGES.includes(l)), 'listed: the ones on');
+  assert.deepEqual(cargoLanguages([])[2], {
     lang: 'es', path: '/es/', home: `${WWW}/es/home`, name: 'Español', listed: false,
   });
   assert.deepEqual(cargo.slice(2).map((l) => l.name), ['Español', 'Français', 'Italiano', 'Português']);
@@ -52,9 +57,14 @@ test('a Spanish page: its locale Spanish; the switch offers English and German (
   assert.equal(locale.lang, 'es');
   assert.equal(locale.siteLanguages, SITE_LANGUAGES.cargo);
   const { links } = languageSwitch([], '/es/ci/social', 'es', SITE_LANGUAGES.cargo);
-  assert.deepEqual(links.map((l) => [l.lang, l.counterpart]), [['en', '/en/ci/social'], ['de', '/de/ci/social']]);
+  const on = CARGO_LIVE_LANGUAGES.filter((l) => l !== 'es');
+  assert.deepEqual(links.map((l) => [l.lang, l.counterpart]), [['en', '/en/ci/social'], ['de', '/de/ci/social'], ...on.map((l) => [l, `/${l}/ci/social`])]);
   const en = languageSwitch([], '/en/ci/social', 'en', SITE_LANGUAGES.cargo).links;
-  assert.deepEqual(en.map((l) => l.lang), ['de'], 'off: not offered');
+  assert.deepEqual(en.map((l) => l.lang), ['de', ...CARGO_LIVE_LANGUAGES], 'the ones on');
+  const off = languageSwitch([], '/en/ci/social', 'en', cargoLanguages([])).links;
+  assert.deepEqual(off.map((l) => l.lang), ['de'], 'off: not offered');
+  const esOff = languageSwitch([], '/es/ci/social', 'es', cargoLanguages([])).links;
+  assert.deepEqual(esOff.map((l) => [l.lang, l.counterpart]), [['en', '/en/ci/social'], ['de', '/de/ci/social']]);
   const live = languageSwitch([], '/en/ci/social', 'en', cargoLanguages(['es'])).links;
   assert.deepEqual(live.map((l) => [l.lang, l.counterpart, l.home]), [['de', '/de/ci/social', '/de/home'], ['es', '/es/ci/social', `${WWW}/es/home`]]);
 });
@@ -63,8 +73,11 @@ test('lh-edge: Cargo\'s entry paths as before while off; on: /<ll> and /<ll>/ to
   const before = {
     '/': '/en/home', '/en': '/en/home', '/en/': '/en/home', '/de': '/de/home', '/de/': '/de/home',
   };
-  assert.deepEqual(cargoEntry(), before);
-  assert.deepEqual(PLAIN_SITES.cargo.entry, before);
+  assert.deepEqual(cargoEntry([]), before);
+  const live = { ...before };
+  CARGO_LIVE_LANGUAGES.forEach((l) => Object.assign(live, { [`/${l}`]: `${WWW}/${l}/home`, [`/${l}/`]: `${WWW}/${l}/home` }));
+  assert.deepEqual(cargoEntry(), live);
+  assert.deepEqual(PLAIN_SITES.cargo.entry, live);
   assert.deepEqual(cargoEntry(['es', 'it']), {
     ...before, '/es': `${WWW}/es/home`, '/es/': `${WWW}/es/home`, '/it': `${WWW}/it/home`, '/it/': `${WWW}/it/home`,
   });

@@ -19,6 +19,8 @@ import worker from '../src/index.js';
 import { resetMarketCache } from '../src/markets.js';
 // eslint-disable-next-line import/no-relative-packages
 import { TAP_LIVE_MARKETS, TAP_MARKETS } from '../../../../scripts/tap-markets.js';
+// eslint-disable-next-line import/no-relative-packages
+import { CARGO_LIVE_LANGUAGES } from '../../../../scripts/site-languages.js';
 
 globalThis.HTMLRewriter = HTMLRewriter;
 
@@ -85,6 +87,10 @@ const INDEXES = {
       { path: '/en/home', lastModified: T },
       { path: '/en/ci/bold-moves', lastModified: T },
       { path: '/en/nav', lastModified: T },
+    ],
+    '/es/search-index.json': [
+      { path: '/es/ci/social', lastModified: T },
+      { path: '/es/nav', lastModified: T },
     ],
   },
   'lh-airdolomiti': {
@@ -185,10 +191,15 @@ test('a site with <cc>/<ll> roots (Discover): the index, a language version\'s, 
 });
 
 test('sites without roots: Cargo per language, Air Dolomiti\'s Italian at /sitemap-it.xml', async () => {
-  assert.deepEqual(locs(await (await get('cargo.turnsthe.page', '/sitemap.xml')).text()), ['https://cargo.turnsthe.page/en/sitemap.xml', 'https://cargo.turnsthe.page/de/sitemap.xml']);
+  assert.deepEqual(locs(await (await get('cargo.turnsthe.page', '/sitemap.xml')).text()), ['en', 'de', ...CARGO_LIVE_LANGUAGES].map((l) => `https://cargo.turnsthe.page/${l}/sitemap.xml`));
   assert.deepEqual(locs(await (await get('cargo.turnsthe.page', '/en/sitemap.xml')).text()), ['https://cargo.turnsthe.page/en/home', 'https://cargo.turnsthe.page/en/ci/bold-moves']);
-  // Cargo's es, fr, it, pt (brief 414): no sitemap of their own until CARGO_LIVE_LANGUAGES has them
-  assert.notEqual((await get('cargo.turnsthe.page', '/es/sitemap.xml')).headers.get('x-lh-edge-route'), 'site-sitemap');
+  // Cargo's es, fr, it, pt (brief 414): a sitemap of their own once CARGO_LIVE_LANGUAGES has them
+  // (on since 2026-11-06), its pages without nav and footer; their homepage is www's: none heads it
+  const es = await get('cargo.turnsthe.page', '/es/sitemap.xml');
+  assert.equal(es.headers.get('x-lh-edge-route') === 'site-sitemap', CARGO_LIVE_LANGUAGES.includes('es'));
+  assert.deepEqual(locs(await es.text()), CARGO_LIVE_LANGUAGES.includes('es') ? ['https://cargo.turnsthe.page/es/ci/social'] : []);
+  const others = await Promise.all(['fr', 'it', 'pt'].map((l) => get('cargo.turnsthe.page', `/${l}/sitemap.xml`, 'HEAD')));
+  assert.deepEqual(others.map((r) => r.headers.get('x-lh-edge-route') === 'site-sitemap'), ['fr', 'it', 'pt'].map((l) => CARGO_LIVE_LANGUAGES.includes(l)));
   assert.deepEqual(locs(await (await get('airdolomiti.turnsthe.page', '/sitemap.xml')).text()), ['https://airdolomiti.turnsthe.page/sitemap-it.xml', 'https://airdolomiti.turnsthe.page/en/sitemap.xml', 'https://airdolomiti.turnsthe.page/de/sitemap.xml']);
   assert.deepEqual(locs(await (await get('airdolomiti.turnsthe.page', '/sitemap-it.xml')).text()), ['https://airdolomiti.turnsthe.page/', 'https://airdolomiti.turnsthe.page/aeroporti/bari', 'https://airdolomiti.turnsthe.page/stato-volo']);
   assert.deepEqual(locs(await (await get('airdolomiti.turnsthe.page', '/de/sitemap.xml')).text()), ['https://airdolomiti.turnsthe.page/de/', 'https://airdolomiti.turnsthe.page/de/flughaefen/bari']);
@@ -199,7 +210,7 @@ test('as before: lh-com\'s host, robots.txt, a path that is no sitemap of the si
   assert.notEqual(lh.headers.get('x-lh-edge-route'), 'site-sitemap');
   const robots = await get('tap.turnsthe.page', '/robots.txt');
   assert.equal(await robots.text(), 'User-agent: *\nDisallow: /\n');
-  assert.notEqual((await get('cargo.turnsthe.page', '/fr/sitemap.xml')).headers.get('x-lh-edge-route'), 'site-sitemap');
+  assert.notEqual((await get('cargo.turnsthe.page', '/nl/sitemap.xml')).headers.get('x-lh-edge-route'), 'site-sitemap');
 });
 
 test('SWISS ch/<ll>: the small sitemap index once it is filled (its total the language index\'s), else the language index as before', async () => {

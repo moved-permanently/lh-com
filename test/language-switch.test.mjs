@@ -6,10 +6,12 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  SITE_LANGUAGES, siteLanguagesOf, languageOfPath, counterpartPath, languageSwitch, switchTarget,
+  SITE_LANGUAGES, CARGO_LIVE_LANGUAGES, siteLanguagesOf, languageOfPath, counterpartPath, languageSwitch, switchTarget,
 } from '../scripts/site-languages.js';
 
 const CARGO = SITE_LANGUAGES.cargo;
+// Cargo's languages after English and German that are on (CARGO_LIVE_LANGUAGES), in the switch too
+const cargoOn = CARGO.filter((l) => CARGO_LIVE_LANGUAGES.includes(l.lang));
 const AD = SITE_LANGUAGES.airdolomiti;
 const [en, de] = CARGO;
 const [it, adEn, adDe] = AD;
@@ -47,10 +49,12 @@ test('languageSwitch: the nav\'s "Deutsch" link is the German entry (its label k
   const s = languageSwitch(tools, '/en/speed-flash', 'en', CARGO);
   assert.deepEqual(s.links, [{
     lang: 'de', label: 'Deutsch', home: '/de/home', counterpart: '/de/speed-flash',
-  }]);
+  }, ...cargoOn.map((l) => ({
+    lang: l.lang, label: l.name, home: l.home, counterpart: `/${l.lang}/speed-flash`,
+  }))]);
   assert.deepEqual(s.tools.map((t) => t.label), ['Support & Contact', 'Login']);
   const back = languageSwitch([{ href: '/en/home', label: 'English' }], '/de/speed-flash', 'de', CARGO);
-  assert.deepEqual(back.links.map((l) => [l.label, l.counterpart]), [['English', '/en/speed-flash']]);
+  assert.deepEqual(back.links.map((l) => [l.label, l.counterpart]), [['English', '/en/speed-flash'], ...cargoOn.map((l) => [l.name, `/${l.lang}/speed-flash`])]);
 });
 
 test('languageSwitch: without authored links every other language with its own name (Air Dolomiti)', () => {
