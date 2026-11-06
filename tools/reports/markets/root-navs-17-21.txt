@@ -1,0 +1,14 @@
+/ch/it/nav
+/ch/it/footer
+/it/it/nav
+/it/it/footer
+/cy/el/nav
+/cy/el/footer
+/gr/el/nav
+/gr/el/footer
+/jp/ja/nav
+/jp/ja/footer
+/kr/ko/nav
+/kr/ko/footer
+/pl/pl/nav
+/pl/pl/footer

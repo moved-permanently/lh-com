@@ -77,6 +77,8 @@ back: preview's `.plain.html` and DA's source against the local document):
 
 ## What ko still needs before it can go live
 
+Done since (2026-11-06): **the locale rows** as the table below proposes them, all pilot behind the switch (no wave; `languageVersions.ko = xx/ko`), with the user's calls: kr/ko's currency KRW (its fare teaser's prices); hreflang ko, ko-KR; **the built-in texts** in this language (the picker options, the accordion filter, the article dates; `test/languages-17-21.test.mjs`); **the own confirmation's list**: `20-ko-confirmations-own.txt` written (on main), for the capture. **The roots' nav and footer** (kr/ko) and the roots' homepages' links into their root (`root-docs.mjs --own-root` again, now that the roots have rows): commands and path lists for the local harness in `root-docs-harness.md`, not run yet. The query indexes come in a later brief.
+
 1. **Locale rows (an EMA: `tools/markets/locale-data.json`, `scripts/locale-table.js` are shared)**:
    the values from the homepage captures (`rollout.mjs --rows 20`, not applied):
 

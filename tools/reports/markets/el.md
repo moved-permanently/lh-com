@@ -79,6 +79,8 @@ against DA's without the metadata tables; DA's against the local document's):
 
 ## What el still needs before it can go live
 
+Done since (2026-11-06): **the locale rows** as the table below proposes them, all pilot behind the switch (no wave; `languageVersions.el = xx/el`), with the user's calls: xx/el's label as www writes it; hreflang el, el-CY, el-GR; **the built-in texts** in this language (the picker options, the accordion filter, the article dates; `test/languages-17-21.test.mjs`); **the own confirmation's list**: `18-el-confirmations-own.txt` (on main before) waits for the capture. **The roots' nav and footer** (cy/el and gr/el) and the roots' homepages' links into their root (`root-docs.mjs --own-root` again, now that the roots have rows): commands and path lists for the local harness in `root-docs-harness.md`, not run yet. The query indexes come in a later brief.
+
 1. **Locale rows (ema-adobe)**: the values from the homepage captures (`rollout.mjs --rows 18`,
    not applied):
 

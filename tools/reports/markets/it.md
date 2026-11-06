@@ -90,6 +90,8 @@ against DA's without the metadata tables; DA's against the local document's):
 
 ## What it still needs before it can go live
 
+Done since (2026-11-06): **the locale rows** as the table below proposes them, all pilot behind the switch (no wave; `languageVersions.it = xx/it`), with the user's calls: it/it's country names the right way round (Italy / Italien); hreflang it, it-CH, it-IT; **the built-in texts** in this language (the picker options, the accordion filter, the article dates; `test/languages-17-21.test.mjs`); **the own confirmation's list**: `17-it-confirmations-own.txt` (on main before) waits for the capture. **The roots' nav and footer** (ch/it and it/it) and the roots' homepages' links into their root (`root-docs.mjs --own-root` again, now that the roots have rows): commands and path lists for the local harness in `root-docs-harness.md`, not run yet. The query indexes come in a later brief.
+
 1. **Locale rows (ema-adobe)**: the values from the homepage captures (`rollout.mjs --rows 17`,
    not applied):
 
