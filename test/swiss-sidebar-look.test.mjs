@@ -49,6 +49,7 @@ test('the aside\'s teaser cards: one column 20 px apart (40 px from 768 px), a 1
   has(css, /body\.brand-swiss main \.section-aside \.cards-teaser \.cards-teaser-body:has\(> \.cards-teaser-cta\) \{ padding-bottom: 10px; \}/);
   has(css, /body\.brand-swiss main \.section-aside \.cards-teaser \.cards-teaser-body > \* \{ margin: 0; \}/);
   has(css, /body\.brand-swiss main \.section-aside \.cards-teaser \.cards-teaser-body > \.cards-teaser-title \{ margin-bottom: 15px; color: #101010; font-size: 20px; font-weight: 700; line-height: 1\.1; letter-spacing: 0\.3px; \}/);
+  has(css, /body\.brand-swiss main \.section-aside \.cards-teaser \.cards-teaser-title a:any-link \{ color: inherit; \}/, 'a card without a link line keeps the link on its title: black as www\'s title');
   has(css, /body\.brand-swiss main \.section-aside \.cards-teaser \.cards-teaser-body > \.cards-teaser-cta \{ margin-top: 40px; padding-top: 10px; border-top: 1px solid #ccc; line-height: 22px; \}/);
   has(css, /@media \(width >= 768px\) \{ body\.brand-swiss main \.section-aside \.cards-teaser > ul \{ gap: 40px; \} \}/);
   has(css, /@media \(width >= 1025px\) \{ body\.brand-swiss main \.section-aside \.cards-teaser \.cards-teaser-body > \.cards-teaser-title \{ font-size: 24px; \} \}/);

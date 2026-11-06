@@ -861,6 +861,12 @@ body.brand-swiss main .section-aside .cards-teaser .cards-teaser-body > .cards-t
   letter-spacing: 0.3px;
 }
 
+/* a card without a link line keeps the link on its title (the video card): black, as www's title */
+/* stylelint-disable-next-line no-descending-specificity -- the aside cards' titles, not the carousel cards' links */
+body.brand-swiss main .section-aside .cards-teaser .cards-teaser-title a:any-link {
+  color: inherit;
+}
+
 body.brand-swiss main .section-aside .cards-teaser .cards-teaser-body > .cards-teaser-cta {
   margin-top: 40px;
   padding-top: 10px;

@@ -11,7 +11,8 @@
  * still keeps the content in www's 3 / 4 column); the aside's teaser cards a cards-teaser block (a
  * row per card: its picture | its title, text and link). Anywhere on the page, an image | text view whose
  * document form is clean (the picture right next to its text) becomes a columns-media row (picture |
- * text, or text | picture as the snapshot has it); a heading above the view stays above it. A sidebar the document does not show
+ * text, or text | picture as the snapshot has it); a heading above the view stays above it. A tab the
+ * import left empty gets the section after it as its panel. A sidebar the document does not show
  * in that order is left as it is (listed in the result). A document this step made already stays.
  */
 import { parseHTML } from 'linkedom';
@@ -22,14 +23,25 @@ const isPicture = (el) => el && el.tagName === 'P' && el.querySelector('picture'
 const isHeading = (el) => el && /^H[1-6]$/.test(el.tagName);
 const isBlock = (el) => el && el.tagName === 'DIV' && el.className;
 
+// www's words for screen readers only (not in the documents)
+const SR_ONLY = '.sr-only, .visually-hidden, maui-screen-reader-label';
+
+/** An element's text without the words for screen readers. */
+function shownText(el) {
+  if (!el.querySelector(SR_ONLY)) return norm(el.textContent);
+  const copy = el.cloneNode(true);
+  copy.querySelectorAll(SR_ONLY).forEach((x) => x.remove());
+  return norm(copy.textContent);
+}
+
 /** The texts that identify a part of the snapshot, in order: headings, paragraphs, list items, link texts. */
 function partTexts(part) {
   if (!part) return [];
   const out = [];
   part.querySelectorAll('h1, h2, h3, h4, h5, h6, p, li, maui-navigation-link, .teaser-link-text span, a').forEach((el) => {
-    if (el.closest('.d-none, [hidden], .sr-only, .visually-hidden')) return;
+    if (el.closest(`.d-none, [hidden], ${SR_ONLY}`)) return;
     if (el.tagName === 'A' && el.querySelector('h1, h2, h3, h4, p')) return;
-    const t = norm(el.textContent);
+    const t = shownText(el);
     if (t.length >= 4 && out[out.length - 1] !== t) out.push(t);
   });
   return out;
@@ -90,19 +102,36 @@ const hasFile = (el, file) => {
   return !!img && fileOf(img.getAttribute('src') || '') === file;
 };
 
+const firstLast = (texts) => ({ first: texts[0], last: texts[texts.length - 1] });
+
+/** Where an item's image is: above its texts ('before'), under them ('after'), or none. */
+function imageAt(item) {
+  const all = [...item.querySelectorAll('*')];
+  const im = all.findIndex((el) => el.tagName === 'IMG');
+  if (im < 0) return null;
+  const tx = all.findIndex((el) => el.matches('h1, h2, h3, h4, h5, h6, p, li, a, maui-navigation-link') && norm(el.textContent).length >= 4);
+  return tx < 0 || im < tx ? 'before' : 'after';
+}
+
 /**
  * The snapshot's image | text views (www's twocolumn column views with an image item and a text
  * item; not the teaser rows, not in a sidebar's aside), in page order: whether the image comes
- * first, the text item's first and last text; and its image | image views: each item's files (pair).
+ * first, the text item's first and last text; its image | image views: each item's files (pair); its
+ * views of text items (two, three or four columns): each item's first and last text and image (cols).
  */
 export function twoColumnsOf(html) {
   const { document } = parseHTML(html);
   const img = (i) => !!i.querySelector('.image img, .dcep-moving-image, img');
   const txt = (i) => partTexts(i).length > 0;
-  return [...document.querySelectorAll('.twocolumn')].map((c) => {
-    if (c.closest('.sidebar-aside') || c.querySelector('.teaser, .twocolumn')) return null;
+  const views = '.twocolumn, .threecolumn, .fourcolumn';
+  return [...document.querySelectorAll(views)].map((c) => {
+    if (c.closest('.sidebar-aside') || c.querySelector(`.teaser, ${views}`)) return null;
     const items = [...c.querySelectorAll('.column-view-item')];
-    if (items.length !== 2) return null;
+    // items that all hold text (www's steps, text columns): each item's texts and where its image is
+    if (items.length >= 2 && !c.querySelector('.accordion') && items.every(txt)) {
+      return { cols: items.map((i) => ({ ...firstLast(partTexts(i)), image: imageAt(i) })) };
+    }
+    if (!c.classList.contains('twocolumn') || items.length !== 2) return null;
     // images side by side (an item's images one under the other): each item's files
     if (items.every((i) => img(i) && !txt(i))) {
       const cols = items.map((i) => [...i.querySelectorAll('img')].map((m) => fileOf(m.getAttribute('src'))));
@@ -117,11 +146,57 @@ export function twoColumnsOf(html) {
 }
 
 /**
+ * A view of text items in the document (each item's picture, if www shows one above or under its
+ * texts, then its texts; one item right after the other, in one section) as a columns-media row of
+ * a cell per item. Returns the block, or null when the document does not show the view so.
+ */
+function textColumns(document, flat, from, cols) {
+  const k = flat.findIndex((x, i) => i >= from && !isBlock(x.el) && !isPicture(x.el) && starts(x.el, cols[0].first));
+  if (k < 0) return null;
+  const { sec } = flat[k];
+  const ok = (i) => flat[i] && flat[i].sec === sec;
+  const cells = [];
+  let at = cols[0].image === 'before' ? k - 1 : k;
+  for (let j = 0; j < cols.length; j += 1) {
+    const col = cols[j];
+    const begin = at;
+    if (col.image === 'before' && !(ok(at) && isPicture(flat[at].el))) return null;
+    const t0 = col.image === 'before' ? at + 1 : at;
+    if (!ok(t0) || isBlock(flat[t0].el) || !starts(flat[t0].el, col.first)) return null;
+    let end = -1;
+    for (let i = t0; ok(i) && i < t0 + 25; i += 1) {
+      const { el } = flat[i];
+      if (isBlock(el) || (i > t0 && isPicture(el))) break;
+      if (i > t0 && cols[j + 1] && starts(el, cols[j + 1].first)) break;
+      if (contains(el, col.last)) end = i;
+    }
+    if (end < 0) return null;
+    if (col.image === 'after') {
+      if (!(ok(end + 1) && isPicture(flat[end + 1].el))) return null;
+      end += 1;
+    }
+    cells.push(flat.slice(begin, end + 1).map((x) => x.el));
+    at = end + 1;
+  }
+  const block = document.createElement('div');
+  block.className = 'columns-media';
+  const row = document.createElement('div');
+  cells[0][0].before(block);
+  cells.forEach((els) => {
+    const cell = document.createElement('div');
+    cell.append(...els);
+    row.append(cell);
+  });
+  block.append(row);
+  return block;
+}
+
+/**
  * The image | text views in the document (flattened by the import: the picture, then the text,
  * or the text, then the picture) as columns-media rows; a heading above the view stays above it.
  * Only where the document has the picture right next to the text, in one section. An image | image
  * view: its pictures, one after the other in the document, a row of a picture cell per item (option
- * stacked when an item has several).
+ * stacked when an item has several). A view of text items: textColumns.
  */
 function withTwoColumns(document, main, views) {
   let rows = 0;
@@ -129,6 +204,14 @@ function withTwoColumns(document, main, views) {
   views.forEach((v) => {
     const flat = [...main.children].flatMap((sec) => [...sec.children].map((el) => ({ sec, el })));
     const from = after ? flat.findIndex((x) => x.el === after) + 1 : 0;
+    if (v.cols) {
+      const block = textColumns(document, flat, from, v.cols);
+      if (block) {
+        rows += 1;
+        after = block;
+      }
+      return;
+    }
     if (v.pair) {
       const files = v.pair.flat();
       const i = flat.findIndex((x, k) => k >= from && files.every((f, j) => flat[k + j] && flat[k + j].sec === x.sec && hasFile(flat[k + j].el, f)));
@@ -226,6 +309,34 @@ function withAsideTeasers(document, section, teasers) {
   });
 }
 
+const metaRows = (sec) => [...sec.querySelectorAll(':scope > .section-metadata > div')];
+const isTabRow = (r) => /^tabs?$/i.test((r.firstElementChild || { textContent: '' }).textContent.trim());
+
+/**
+ * A tab whose section the import left empty (its metadata only) and its content in the next section
+ * (animals travelling: then a "flush, grey" section): the tab's rows go to that section's metadata,
+ * so the panel holds the content. Returns how many.
+ */
+function joinEmptyTabs(document, main) {
+  let joined = 0;
+  [...main.children].forEach((sec) => {
+    const next = sec.nextElementSibling;
+    const rows = metaRows(sec);
+    if (!next || !rows.some(isTabRow) || [...sec.children].some((c) => !c.classList.contains('section-metadata'))) return;
+    if (metaRows(next).some(isTabRow) || ![...next.children].some((c) => !c.classList.contains('section-metadata'))) return;
+    let meta = next.querySelector(':scope > .section-metadata');
+    if (!meta) {
+      meta = document.createElement('div');
+      meta.className = 'section-metadata';
+      next.append(meta);
+    }
+    meta.append(...rows.filter(isTabRow));
+    sec.remove();
+    joined += 1;
+  });
+  return joined;
+}
+
 /**
  * @param {string} doc a document (<body><header></header><main>…</main>…) or its sections (.plain.html)
  * @param {string} html the page's snapshot
@@ -244,6 +355,7 @@ export function withSwissSidebar(doc, html) {
   const sidebars = sidebarsOf(html);
   const { document } = parseHTML(`<!DOCTYPE html><html><body><main>${inner}</main></body></html>`);
   const main = document.querySelector('main');
+  const joined = joinEmptyTabs(document, main);
   let made = 0;
   let from = { section: main.firstElementChild, index: 0 };
   sidebars.forEach((sb, n) => {
@@ -318,7 +430,7 @@ export function withSwissSidebar(doc, html) {
   });
   // the image | text views anywhere on the page (in the sidebars' content and outside them)
   const rows = withTwoColumns(document, main, twoColumnsOf(html));
-  if (!made && !rows) {
+  if (!made && !rows && !joined) {
     return {
       doc, made, rows, skipped,
     };

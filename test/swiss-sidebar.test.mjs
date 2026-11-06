@@ -176,6 +176,54 @@ test('an image | image view: a picture cell per item, its photos stacked', () =>
   assert.deepEqual([...sec.children].map((el) => el.tagName), ['H2', 'P', 'DIV', 'DIV', 'P']);
 });
 
+/* a tab whose panel the import left empty, its content the next section (animals travelling: the
+   General provisions tab, then a "flush, grey" section): the tab's rows join that section, so the
+   panel holds its content and the sidebar in it */
+test('an empty tab section: its Tab rows on the section that follows', () => {
+  const doc = '<body><header></header><main><div><h1>T</h1></div><div><div class="section-metadata"><div><div>Tab</div><div>General</div></div><div><div>Tabs</div><div>1</div></div></div></div><div><h2>New entry regulations</h2><p>Text of the first tab</p><div class="section-metadata"><div><div>style</div><div>flush, grey</div></div></div></div><div><h2>Second tab heading</h2><div class="section-metadata"><div><div>Tab</div><div>Two</div></div><div><div>Tabs</div><div>1</div></div></div></div></main><footer></footer></body>';
+  const html = '<html><body><div class="contentpage"></div></body></html>';
+  const { doc: out } = withSwissSidebar(doc, html);
+  const all = sections(out);
+  assert.equal(all.length, 3);
+  assert.deepEqual(style(all[1]), ['style: flush, grey', 'Tab: General', 'Tabs: 1']);
+  assert.match(text(all[1]), /^New entry regulations/);
+});
+
+/* www's words for screen readers inside a link (maui-screen-reader-label, .sr-only) are not in the
+   document: they are not the snapshot's text (animals travelling de: its aside's last link) */
+test('screen-reader words in www\'s links are not the text to find', () => {
+  const doc = '<body><header></header><main><div><h2>Neue Bestimmungen</h2><p>Text des Inhalts hier</p><h2>Quick Links</h2><ul><li><a href="/x.pdf">Checkliste (PDF)</a></li></ul></div></main><footer></footer></body>';
+  const html = '<html><body><div class="airem-sidebar"><div class="sidebar-content"><h2>Neue Bestimmungen</h2><p>Text des Inhalts hier</p></div><div class="sidebar-aside"><h2>Quick Links</h2><ul><li><maui-navigation-link>Checkliste (PDF)<span class="sr-only">Der Link wird in einem neuen Browser-Tab geöffnet</span><maui-screen-reader-label>&nbsp;, Dieser Link führt Sie auf eine externe Website.</maui-screen-reader-label></maui-navigation-link></li></ul></div></div></body></html>';
+  const r = withSwissSidebar(doc, html);
+  assert.equal(r.made, 1, r.skipped.join('; '));
+  assert.deepEqual(sidebarsOf(html)[0].aside, ['quick links', 'checkliste (pdf)']);
+});
+
+/* www's column views whose items all hold text (baggage irregularities' four steps: a number
+   image, a heading, text and links per item; three text columns; text | text): a columns-media
+   row of a cell per item, the item's picture and texts in it; only where the document has the
+   items one right after the other */
+test('a column view of text items: a columns-media row of a cell per item', () => {
+  const pic = (n) => `<p><picture><img src="https://content.da.live/x/number-${n}.svg" alt=""></picture></p>`;
+  const item = (n) => `<div class="column-view-item"><div class="image"><img src="/content/dam/lx/number-${n}.svg"></div><h3>Step ${n} heading</h3><p>Step ${n} text here</p><maui-navigation-link>Step ${n} link</maui-navigation-link></div>`;
+  const html = `<html><body><h2>What happens</h2><div class="fourcolumn"><div class="row">${[1, 2, 3, 4].map(item).join('')}</div></div><div class="twocolumn"><div class="column-view-item"><p>Left column text</p></div><div class="column-view-item"><p>Right column text</p></div></div></body></html>`;
+  const steps = [1, 2, 3, 4].map((n) => `${pic(n)}<h3>Step ${n} heading</h3><p>Step ${n} text here</p><p><a href="/s${n}">Step ${n} link</a></p>`).join('');
+  const doc = `<body><header></header><main><div><h2>What happens</h2>${steps}<h2>More</h2><p>Left column text</p><p>Right column text</p></div></main><footer></footer></body>`;
+  const r = withSwissSidebar(doc, html);
+  assert.equal(r.rows, 2);
+  const [sec] = sections(r.doc);
+  const blocks = [...sec.querySelectorAll(':scope > .columns-media')];
+  assert.equal(blocks.length, 2);
+  const cells = [...blocks[0].firstElementChild.children];
+  assert.equal(cells.length, 4);
+  assert.deepEqual([...cells[2].children].map((el) => el.tagName), ['P', 'H3', 'P', 'P']);
+  assert.ok(cells[2].firstElementChild.querySelector('img[src$="number-3.svg"]') !== null);
+  assert.deepEqual([...blocks[1].firstElementChild.children].map(text), ['Left column text', 'Right column text']);
+  assert.deepEqual([...sec.children].map((el) => el.tagName), ['H2', 'DIV', 'H2', 'DIV']);
+  const apart = doc.replace('<h3>Step 3 heading</h3>', '<p>Something else between</p><h3>Step 3 heading</h3>');
+  assert.equal(withSwissSidebar(apart, html).rows, 1, 'items not one after the other: left as they are');
+});
+
 /* the image | text views outside the sidebar too (advance seat reservation: the seat types in the
    travel classes' tab panels, the heading inside the text item beside the picture, 23 views) */
 test('advance seat reservation: the 23 seat views beside their pictures, the heading in the text', () => {
