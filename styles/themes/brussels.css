@@ -584,3 +584,53 @@ body.brand-brussels {
     max-width: calc(75% - 10px);
   }
 }
+
+/* brussels-parity-002 (offline package 2026-11-06): the travel class pages' stage (hero-campaign
+   narrow, www's full-width inspiration teaser) right under the class tabs, 804 px high on phones,
+   16:9 from 768 px (810 px at 1440), the title in capitals 36 / 39.6 px, 48 / 52.8 px from 768 px.
+   The stage of the section right after the class tabs (a narrow stage elsewhere, our-company's
+   boxed teaser, as it is) */
+body.brand-brussels main > .section.profile-nav-container:has(+ .section .hero-campaign.narrow) {
+  margin-bottom: 0;
+}
+
+body.brand-brussels main > .section.profile-nav-container + .section .hero-campaign.narrow {
+  min-height: 804px;
+}
+
+body.brand-brussels main > .section.profile-nav-container + .section .hero-campaign.narrow :is(h1, h2) {
+  font-size: 36px;
+  line-height: 39.6px;
+  text-transform: uppercase;
+}
+
+@media (width >= 768px) {
+  body.brand-brussels main > .section.profile-nav-container + .section .hero-campaign.narrow {
+    min-height: 0;
+    aspect-ratio: 16 / 9;
+  }
+
+  body.brand-brussels main > .section.profile-nav-container + .section .hero-campaign.narrow :is(h1, h2) {
+    font-size: 48px;
+    line-height: 52.8px;
+  }
+}
+
+/* the class tabs (profile-nav, www's maui-sub-navigation): every label sn-blue-3, the chosen one
+   bold over a 3 px Brussels red line */
+@media (width >= 1024px) {
+  body.brand-brussels .profile-nav li a:any-link {
+    color: #0a1f62;
+    font-weight: 400;
+  }
+
+  body.brand-brussels .profile-nav li a[aria-current="page"] {
+    color: #0a1f62;
+    font-weight: 700;
+  }
+
+  body.brand-brussels .profile-nav li a[aria-current="page"]::after {
+    height: 3px;
+    background: #e5002b;
+  }
+}
