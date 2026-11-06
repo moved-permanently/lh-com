@@ -62,3 +62,8 @@ sitemaps:
         destination: /sitemap/sitemap_lh_xx_zh.xml
         hreflang: zh
         alternate: /xx/zh/{path}
+      xx-it:
+        source: /xx/it/search-index.json
+        destination: /sitemap/sitemap_lh_xx_it.xml
+        hreflang: it
+        alternate: /xx/it/{path}
