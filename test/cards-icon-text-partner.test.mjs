@@ -45,3 +45,18 @@ test('a teaser with its own description, alone in its item: as before', () => {
   parse(document.querySelector('.threecolumn'), { document });
   assert.equal(cellsOut[0][1], '<h3><a href="/de/en/app">Lufthansa app</a></h3><p>All in one app</p>');
 });
+
+/* The column view's own title (the gift card page's "Your Gift Card", h2.heading-small above the
+   row; brief 441, item 3): the parser dropped it. It stays before the block with its size class,
+   as the icon modules keep theirs. */
+test('the column view\'s title stays before the block', () => {
+  const { document } = parseHTML(`<html><body><div class="section-content"><div class="threecolumn"><div class="column-view"><div><h2 class="heading-small">Your Gift Card</h2></div><div class="row">${item('Digital card', 'You’ll receive the Gift Card immediately')}</div></div></div></div></body></html>`);
+  parse(document.querySelector('.threecolumn'), { document });
+  assert.equal(document.querySelector('.section-content').innerHTML, '<h2 class="heading-small">Your Gift Card</h2><table><tr><th>cards-icon-text (partner)</th></tr></table>');
+});
+
+test('no title: the block alone', () => {
+  const { document } = parseHTML(`<html><body><div class="section-content"><div class="threecolumn"><div class="column-view"><div class="row">${item('The perfect gift', 'Treat someone you love')}</div></div></div></div></body></html>`);
+  parse(document.querySelector('.threecolumn'), { document });
+  assert.equal(document.querySelector('.section-content').innerHTML, '<table><tr><th>cards-icon-text (partner)</th></tr></table>');
+});

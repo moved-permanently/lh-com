@@ -31,7 +31,8 @@ function bodyElements(row, icon) {
 /**
  * Transparent link cards with an icon left of a title and a description.
  * One row per card. Cell 1: icon (:icon-name: token or small image); cell 2: H3 title,
- * description, link. The link makes the whole card clickable.
+ * description, link. The link makes the whole card clickable; a card with an authored button keeps
+ * the button and is no link.
  * @param {Element} block
  */
 export default function decorate(block) {
@@ -50,7 +51,10 @@ export default function decorate(block) {
     }
     const iconEl = icon && icon.tagName === 'IMG' && icon.closest('picture') ? icon.closest('picture') : icon;
     const links = [...row.querySelectorAll('a[href]')];
-    const link = links[links.length - 1] || null;
+    // an authored button (bold or italic, decorated or not: Brussels' gift cards) is the card's
+    // action: the card is no link and the button stays
+    const button = links.some((a) => a.classList.contains('button') || /^(STRONG|EM)$/.test(a.parentElement.tagName));
+    const link = button ? null : links[links.length - 1] || null;
     const elements = bodyElements(row, iconEl);
     if (!iconEl && !elements.length) return;
 

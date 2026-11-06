@@ -19,6 +19,8 @@
  * - the core forms get a form config row with a proposed lh-forms id brussels-<page> (withForm;
  *   preview only until lh-forms knows them);
  * - www's leftover test forms ("… Test" section titles) are dropped (withoutTestForms);
+ * - a sidebar whose content holds column views: its content as sections with style sidebar, a grey
+ *   column view in it a section of its own (withSidebarContent, withSidebarSections);
  * - the flight search hands off to shop.brusselsairlines.com from Brussels (withFlightSearch);
  * - the check-in entry becomes the booking-lookup block (withCheckinTabs), its hand-off the page
  *   on www (withCheckinHandoff); the booking login's "Enter booking code" opens the page on www;
@@ -234,6 +236,87 @@ export const withTeaserColumns = (html) => editDivs(html, '<div class="twocolumn
   return el.replace('<div class="twocolumn', '<div class="threecolumn').replace('data-identifier="twocolumn"', 'data-identifier="threecolumn"');
 });
 
+/*
+ * www's sidebar component (.airem-sidebar: .sidebar-content 75% beside .sidebar-aside) whose content
+ * holds column views (travel-regulations' picture rows and its grey "Current Travel Regulations"
+ * box, brief 441). lh-com's info template takes only sidebars without column views as a
+ * columns-media sidebar; this one's content came in as one full-width section, all of it grey
+ * (the section transformer's grey region climbs up to the sidebar component). withSidebarContent
+ * marks it before the import: the content column gets a col- class, where the transformer's grey
+ * region stops (lufthansa-sections.js REGION_STOP [class*="col-"]), so a grey column view in it is
+ * a section of its own and the template's other section breaks stay; and a marker paragraph at its
+ * start and end. withSidebarSections gives the sections from the start marker's to the end
+ * marker's the section style sidebar (the Brussels theme's 75% column) and removes the markers
+ * (the cleanup may have added a style token: "{full-width}"). A sidebar that starts inside a
+ * section narrows that whole section.
+ */
+export const SIDEBAR_START = 'brussels-sidebar-start';
+export const SIDEBAR_END = 'brussels-sidebar-end';
+const sidebarMarker = (t) => `<div class="text section"><div class="richtext"><p>${t}</p></div></div>`;
+const COLUMN_VIEWS = /<div class="(?:one|two|three|four)column[ "]/;
+
+export const withSidebarContent = (html) => editDivs(html, '<div class="sidebar ', (el) => {
+  const open = '<div class="sidebar-content"';
+  const i = el.indexOf(open);
+  if (i < 0) return el;
+  const body = el.indexOf('>', i) + 1;
+  const end = divEnd(el, i) - '</div>'.length;
+  if (!COLUMN_VIEWS.test(el.slice(body, end))) return el;
+  return `${el.slice(0, i)}<div class="sidebar-content col-sidebar-content"${el.slice(i + open.length, body)}${sidebarMarker(SIDEBAR_START)}${el.slice(body, end)}${sidebarMarker(SIDEBAR_END)}${el.slice(end)}`;
+});
+
+const SIDEBAR_MARK = new RegExp(`<p>(${SIDEBAR_START}|${SIDEBAR_END})(?: [{][^}<]*[}])?</p>`, 'g');
+const META_OPEN = '<div class="section-metadata">';
+
+/** Section metadata (its outer div, or '') with `style` added to its style row (made when it has none). */
+function withSectionStyle(meta, style) {
+  const row = /(<div><div>style<\/div><div>)([^<]*)(<\/div><\/div>)/i;
+  if (row.test(meta)) return meta.replace(row, (m, x, v, y) => `${x}${v ? `${v}, ` : ''}${style}${y}`);
+  const rowHtml = `<div><div>style</div><div>${style}</div></div>`;
+  return meta ? meta.replace(META_OPEN, `${META_OPEN}${rowHtml}`) : `${META_OPEN}${rowHtml}</div>`;
+}
+
+/** Whether `html` closes every div it opens (a marker there is a direct child of its section). */
+const balanced = (html) => (html.match(/<div\b/g) || []).length === (html.match(/<\/div>/g) || []).length;
+
+export function withSidebarSections(doc) {
+  if (doc.search(SIDEBAR_MARK) < 0) return doc;
+  let out = '';
+  let from = 0;
+  let inside = false;
+  let i = doc.indexOf('<div', from);
+  while (i >= 0) {
+    const close = divEnd(doc, i);
+    const section = doc.slice(i, close);
+    const open = section.indexOf('>') + 1;
+    let body = section.slice(open, -'</div>'.length);
+    const m = body.lastIndexOf(META_OPEN);
+    const meta = m >= 0 && balanced(body.slice(0, m)) ? body.slice(m, divEnd(body, m)) : '';
+    if (meta) body = body.slice(0, m) + body.slice(m + meta.length);
+    // the section's parts between markers; a marker inside a block only toggles
+    const split = [...body.matchAll(SIDEBAR_MARK)].reduce((acc, mark) => {
+      const part = acc.part + body.slice(acc.last, mark.index);
+      const done = balanced(part);
+      return {
+        parts: done ? [...acc.parts, [part, acc.inside]] : acc.parts,
+        part: done ? '' : part,
+        last: mark.index + mark[0].length,
+        inside: mark[1] === SIDEBAR_START,
+      };
+    }, {
+      parts: [], part: '', last: 0, inside,
+    });
+    const parts = [...split.parts, [split.part + body.slice(split.last), split.inside]];
+    inside = split.inside;
+    const sections = parts.filter(([html]) => html.replace(/\s/g, ''))
+      .map(([html, side]) => `${section.slice(0, open)}${html}${side ? withSectionStyle(meta, 'sidebar') : meta}</div>`);
+    out += doc.slice(from, i) + sections.join('\n');
+    from = close;
+    i = doc.indexOf('<div', from);
+  }
+  return out + doc.slice(from);
+}
+
 // the booking-lookup's hand-off: www's check-in app is not reachable from the replica (and its
 // target is not in the page), so a valid search opens the same page on www, nothing in the URL
 export const withCheckinHandoff = (doc, p) => doc
@@ -389,7 +472,7 @@ if (isMain) {
     // (the help centre app's screen-reader announcement "Help page loaded." is no page text;
     // the Studio's snapshots keep www's scripts, which must not run in the import browser)
     // (the form's jQuery UI date picker, appended to the body and hidden on www, is no content)
-    const mapped = withoutLoads(withTeaserColumns(withCheckinTabs(withLinkOuts(withHotlines(withPaymentTable(withPlaceholder(withoutTestForms(editDivs(stripScripts(html), '<div id="ui-datepicker-div"', () => ''))))), p))))
+    const mapped = withoutLoads(withTeaserColumns(withCheckinTabs(withLinkOuts(withHotlines(withPaymentTable(withPlaceholder(withSidebarContent(withoutTestForms(editDivs(stripScripts(html), '<div id="ui-datepicker-div"', () => '')))))), p))))
       .replace(/<output[^>]*class="screen-reader-announcer"[^>]*>[\s\S]*?<\/output>/g, '');
     if (mapped.includes(`https://${LINK_OUT}`)) linkOuts.push(p);
     if (/<div class="slideshow/.test(mapped)) {
@@ -480,7 +563,7 @@ if (isMain) {
       const fleetDoc = path.join(GALLERY_W, 'content', `${p}.plain.html`);
       const galleried = galleries.some((u) => new URL(u).pathname === src)
         ? spliceGalleries(doc, fs.existsSync(fleetDoc) ? fs.readFileSync(fleetDoc, 'utf8') : '') : doc;
-      const next = withItaMetadata(withCheckinHandoff(withFlightSearch(withFinderTitle(withItaForm(galleried, p, fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8')), p), p), p), p, fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8'), markets);
+      const next = withSidebarSections(withItaMetadata(withCheckinHandoff(withFlightSearch(withFinderTitle(withItaForm(galleried, p, fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8')), p), p), p), p, fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8'), markets));
       if (next !== doc) fs.writeFileSync(f, next);
     });
     const mapOnly = path.join(W, 'runs', `${name}-upload.txt`);

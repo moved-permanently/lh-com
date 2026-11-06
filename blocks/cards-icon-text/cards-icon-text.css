@@ -84,6 +84,12 @@
   font-weight: 700;
 }
 
+/* a card's authored button (the card is no link then: Brussels' gift cards, www's maui-button-link
+   about 20px under the text, brief 441) */
+.cards-icon-text .cards-icon-text-body > .button-wrapper {
+  margin-top: 20px;
+}
+
 /* .icon-links:hover h4 { text-decoration: underline } */
 .cards-icon-text a.cards-icon-text-card:hover .cards-icon-text-title,
 .cards-icon-text a.cards-icon-text-card:hover .cards-icon-text-link {

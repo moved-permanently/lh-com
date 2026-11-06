@@ -12,7 +12,8 @@
  * Lufthansa partner teasers (hub /digital-self-services: .threecolumn / .twocolumn of
  * a.teaser.partner > h4.teaser-heading (img.icon-svg + .teaser-heading-text) +
  * .teaser-description .desc-inline): same rows, the icon kept as an <img>, option "partner"; the
- * column item's text and buttons after the teaser follow in the card (Brussels' gift cards).
+ * column item's text and buttons after the teaser follow in the card (Brussels' gift cards); the
+ * column view's own title stays before the block.
  *
  * Lufthansa Group for Business' icon modules (business.lufthansagroup.com homepages: a column row
  * of .iconmodule > .icon-module: img.icon-module__icon, h3.icon-module__heading,
@@ -145,5 +146,9 @@ export default function parse(element, { document }) {
     if (!iconCell && !content.length) return;
     rows.push([iconCell, content.length ? content : '']);
   });
+  // the column view's own title (Brussels' gift card page: "Your Gift Card", h2.heading-small
+  // above the row, brief 441) stays before the block, as the icon modules keep theirs
+  const columnTitle = element.querySelector(':scope > .column-view > div:not(.row) > :is(h1, h2, h3, h4, h5, h6)');
+  if (columnTitle && clean(columnTitle.textContent)) element.before(columnTitle);
   element.replaceWith(WebImporter.Blocks.createBlock(document, { name: 'cards-icon-text', variants: ['partner'], cells: rows }));
 }
