@@ -1203,7 +1203,18 @@ function teaserOverlay(c, page) {
   const eyebrow = text(o.querySelector('.subtitle'));
   const clone = o.cloneNode(true);
   clone.querySelectorAll('.subtitle').forEach((x) => x.remove());
-  page.block('hero-card-overlay (plain)', [[i ? page.img(i) : ''], [`${eyebrow ? `<p>${esc(eyebrow)}</p>` : ''}${flow(clone, page, 'cell').join('')}`]]);
+  // www's phone picture (the picture's max-width source: Teaser-ULD-Mobile@2x.jpg up to 767 px)
+  // as the cell's second picture, which hero-card-overlay shows on Cargo below 768 px (brief 442)
+  const source = i && i.closest('picture')?.querySelector('source[media*="max-width"][srcset]');
+  const phoneSrc = source ? source.getAttribute('srcset').trim().split(/[\s,]+/)[0] : '';
+  let phone = '';
+  if (phoneSrc && fileKey(phoneSrc) !== fileKey(i.getAttribute('src') || '')) {
+    const n = c.ownerDocument.createElement('img');
+    n.setAttribute('src', phoneSrc);
+    n.setAttribute('alt', '');
+    phone = page.img(n);
+  }
+  page.block('hero-card-overlay (plain)', [[i ? `${page.img(i)}${phone}` : ''], [`${eyebrow ? `<p>${esc(eyebrow)}</p>` : ''}${flow(clone, page, 'cell').join('')}`]]);
 }
 
 function about(c, page) {
