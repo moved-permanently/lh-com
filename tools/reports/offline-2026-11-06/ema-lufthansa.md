@@ -329,3 +329,51 @@ stays as it is; it needs a capture, then the same run.
 
 Preview paths (any order; no files): /en/ci/transport-stories, /es/ci/transport-stories,
 /fr/ci/transport-stories, /it/ci/transport-stories, /pt/ci/transport-stories.
+
+### 5. carousel-cards' scrolling track by keyboard
+
+blocks/carousel-cards/carousel-cards.js (shared, brand-neutral; tests first:
+test/carousel-cards-track-focus.test.mjs): a track that scrolls sideways is a Tab stop
+(tabindex 0) named as the carousel (the block's translated label), and drops it when its cards fit;
+carousel-cards.css draws the focus ring inside its edge (as carousel-images' track). The arrow keys
+scroll a focused track (the browser's own). On a local dev server with the code and lh-cargo's
+preview content: /en and /de/ci/facts-figures at 1440, the timeline's track reached by Tab, two
+ArrowRight presses scroll it 432 px, the ring 2 px; at 390 the timeline runs down the page (no
+sideways scroll, no Tab stop). axe (WCAG A/AA) on both pages at 1440 and 390: 0 violations (before:
+scrollable-region-focusable, serious, at 1440). Every brand's smoke before and after the push.
+
+### Summary
+
+| Item | Commit | What | Rollback |
+| --- | --- | --- | --- |
+| 1 | e428f498 | cargo.css: the story picture modules no wider than a phone (one grid column the block's width) | revert e428f498 |
+| 1, 3 | 2cc59a42 | 118 stories of cargo-snapshots-005 uploaded and previewed; the stories tables (399 rows added, the not-captured list the 5 404s, the 59 dead pictures noted) | upload DA's previous copies back (read before the upload: the 118 documents as DA had them); the tables: revert |
+| 2 | b99b88b2 | cargo-import.mjs and cargo.css: key facts, the timeline and "Contact us" with www's photos | revert b99b88b2 (the four pages then show their photos as plain pictures: re-upload DA's previous copies too) |
+| 2 | 2cc59a42 | the ten files of cargo-media-002 in DA; Facts & Figures and Support & Contact (en, de) re-imported, uploaded and previewed; parity rows 14, 18, 21 | upload DA's previous copies of the four pages back (the files can stay: nothing else uses them) |
+| 4 | 2842a2d0 | cargo-import.mjs: the hub from www's whole story list | revert 2842a2d0 |
+| 4 | ac2cadee | the en, es, fr, it, pt hubs with all 100 stories, uploaded and previewed | upload DA's previous copies of the five hubs back |
+| 5 | 08315222 | carousel-cards: a scrolling track a Tab stop with a name, its focus ring | revert the commit |
+
+DA's previous copies of every document this brief uploaded are kept on this machine (not in git:
+the drop-derived scratch folder) for those rollbacks.
+
+### Preview path lists, in release order
+
+1. Code: e428f498, b99b88b2, 2842a2d0 and 08315222 (merging is shipping: on main).
+2. Files with their pages (da-upload sent them together): /en/ci/facts-figures,
+   /de/ci/facts-figures (with the nine Facts & Figures pictures), /en/support-and-contact,
+   /de/support-and-contact (with the contact photo).
+3. The hubs: /en/ci/transport-stories, /es/ci/transport-stories, /fr/ci/transport-stories,
+   /it/ci/transport-stories, /pt/ci/transport-stories.
+4. The 118 stories: the rows of tools/importer/cargo-runs/stories-offline-2026-11-06.tsv whose
+   result is "uploaded and previewed" and note starts "cargo-snapshots-005 (brief 439)"
+   (also tools/importer/cargo-runs/stories-439-upload.txt, one path a line).
+
+### Open after brief 439
+
+- /en/news/theculture held (its ten phone-only sentences): DA keeps its copy.
+- /de/ci/transport-stories: no capture; stays as it is.
+- Key facts on phones: www's phone text slider (seven slides with icons) is not imported; the
+  "Facts & Figures >" link in the slider and www's arrows beside the dots neither.
+- The es to pt Facts & Figures pages could take the nine new pictures with one run (not asked).
+- styles/styles.css's :has() inside :has() (lines 763-790, 1183-1184): never applied; for ema-cashub.
