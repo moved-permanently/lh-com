@@ -133,3 +133,106 @@ sideways scroll. Look-alike scores of the full-page screens picked out travel cl
 - Known rows, unchanged: the help page's questionnaire after the app (row 14), the homepage's
   fares (data), the carry-on page's accordion titles (not headings, the text present).
 - No regression found.
+
+## After the offline window (brief 437)
+
+Functional work first, then visual parity. Nothing published; uploads to DA and preview only.
+Each push: lint and the full suite before it, the smoke before and after it (every brand's
+lh-edge host the same before and after), SWISS's and TAP's hosts checked after it.
+
+### 1. Cargo homepage: the phones' ULD photo (done)
+
+- cargo-media-002.tar.gz (sha256 343c4945…5f5c, checked): only `Teaser-ULD-Mobile@2x.jpg` taken
+  (750 x 1280, sha256 70fc5b7e… as its manifest entry); the other ten are ema-lufthansa's.
+- www's `.teaserULD` is one picture: the phone file up to 767 px, the desktop one from 768 px; the
+  teaser stays 640 px high at every width.
+- Code: 3c4c099, hero-card-overlay's phone picture with its width per brand (TAP 728 px as before,
+  Cargo 768 px); test/cargo-uld-phone.test.mjs (failing first); test/tap-378.test.mjs's source check
+  follows the per-brand form (TAP's behaviour test unchanged and passing).
+- Documents: the ULD teaser's picture cell got the phone picture second (DA's current homepages,
+  unchanged since my copies; the local copies in content-sites/ were older and were replaced by
+  DA's). Uploaded and previewed, release order: the code (on main), the file, the pages:
+  1. `/media-da/cargo/teaser-uld-mobile-2x-36ef8d7e.jpg` (Cargo's naming, cargo-assets.mjs edsName)
+  2. `/en/home`, `/de/home`
+- Checked on main--lh-cargo--moved-permanently.aem.page: the phone photo at 390 and 767, the desktop
+  one at 768 and 1440 (en, de); the card at www's place (184 px down at 390, 272 high); the
+  preview's image byte for byte the file; DA's documents as the local ones.
+- For ema-lufthansa (the Cargo importer is theirs): a re-import of the homepages drops the phone
+  picture unless cargo-import.mjs writes it as the cell's second picture.
+- Rollback: `git revert 3c4c099`; the homepages' earlier DA copies in logs/b437/da/ (this machine).
+
+### 2. TAP Message Center (done)
+
+- a. The box anchors: www.flytap.com's alert texts link `#special-anchor-flight-status` and
+  `-my-travels` (Madeira's details, 7 languages); www's script opens its booking box on that tab
+  (tools/reports/tap/booking-spec.md 2.4; tap-snapshots-001's pages link these anchors so). Ours now
+  go to the root homepage's box tab, `/<root>#flight-status` and `/<root>#my-travels` (as TAP's
+  importer writes them for the pages): in the alerts page's texts, as a message's link (the strip)
+  and on the details page itself. TAP only; checked: pt-pt's alerts page links `/pt-pt#flight-status`
+  and `/pt-pt#my-travels`, which open "Estado do voo" and "Gerir reserva".
+- b. Same weight: TAP's ties now the older first (/pt-il: ASL of 2024-12-19, then Madeira).
+  lufthansa.com's own order is unchanged: its captures (the Message Center export of 2026-10-25,
+  lufthansa-parity-001's homepages) hold one message only, so nothing shows how www sorts its
+  ties; the change stays with the tenants that sort by weight (TAP).
+- Code: f7908a5 (scripts/message-center.js, scripts/scripts.js), test/tap-message-anchors.test.mjs
+  (failing first). No documents.
+- Checked on main--lh-tap--moved-permanently.aem.page and tap.turnsthe.page after the push: /pt-il's
+  strip ASL then Madeira; pt-pt's alerts page with the mapped links.
+- Rollback: `git revert f7908a5`.
+
+### 3. SWISS parity, open rows of pass 2 (rows 30 to 34 of ../swiss/parity.md)
+
+- Row 30, sidebars the step left: lh-com's columns-media sidebar blocks (the competitions' terms,
+  helvetic's CO2 offset) now become www's sections; a content opening with a block (an FAQ
+  accordion, icon cards) or with a paragraph for www's heading starts there. ch/en+de: pages with a
+  skipped sidebar 50 -> 37, sidebars 242 -> 255. Left: sidebars in a tab with content after them
+  (20), asides and content ends the documents don't have as www does (12), first texts the
+  documents have otherwise (20: an FAQ accordion's group label for www's question, texts the
+  import left out). Those pages keep the full-width layout.
+- Row 31, the aside's video card: the video plays in the card (cards-teaser builds the player from a
+  video link alone in the first cell; brand-neutral). Premium Economy: 379 x 213 (www 383 x 215).
+- Row 32, grey boxes in a tab panel: the content splits at www's box into parts of the same tab;
+  scripts/section-aside.js (every brand) joins a panel's parts beside the aside, each with its own
+  styles; the grey part as www's box. Animals travelling: grey from the panel's top to "Assistance
+  dogs", the rest white, the aside beside both; entertainment's eJournals: the notice grey.
+  Pages without tab parts as before (ITA's carry-on page checked: its 3 : 1 sidebar unchanged).
+- Row 34, Miles & More: www opens the first tier (maui-collapsible-item expanded): the accordion
+  gets open-first (16 on ch/en+de); the aside's link list as www's (no bullets, warm grey, up-right
+  off-site). Miles & More 0.87 -> 1.06 at 1440, 0.87 -> 0.97 at 390. The tier names are accordion
+  titles on www as well (row 33).
+- Code: 283360b (rows 30, 31, 34), 67a4107 (row 32). Tests failing first:
+  test/swiss-sidebar.test.mjs, test/swiss-sidebar-look.test.mjs, test/cards-teaser-video.test.mjs,
+  test/section-aside.test.mjs.
+- Documents: the step again on every language from DA's original copies; each new output compared
+  with DA's current document, and DA's last change checked to be my own upload (or DA still the
+  original): 196 to upload, none changed by anyone else, 196 uploaded and previewed, 0 problems
+  (ch/en+de 37, ch/fr, it, es, pt 59, the others 100). Paths: [../swiss/preview-paths-437.txt](../swiss/preview-paths-437.txt)
+  (release order: the code above on main, no new files, these pages).
+- Checked on main--lh-swiss--moved-permanently.aem.page: Premium Economy's video card, Miles & More
+  (en, fr) with its first tier open and the grey links, a competition's sidebar, animals' grey box,
+  as on the local server.
+- Rollback: `git revert 67a4107 283360b`; per page DA's earlier version (my uploads of the
+  offline package, or the copies in logs/b432/da/).
+
+### 4. ITA, the open rows that are mine (done as far as they can be)
+
+- Order by height ratio: ita-parity-001's 26 pages on the current code (after item 1 of the offline
+  package's travel classes fix) are all within 0.95 to 1.05 of www's height at 1440 and 390 on the
+  live host (on the preview the help page measures 0.83 to 0.86: its app renders only on the live
+  host, row 14). So the open rows were taken as they stand: 14 (help page) and 8 (offers).
+- Row 14: the FAQs card on its band across the page as www's: styles/themes/ita.css (862eca0,
+  test/ita-help-band.test.mjs failing first); checked on ita.turnsthe.page (it/en 1440, it/it 390).
+  Left: www's questionnaire sits above the card; ours is the feedback block after the help app,
+  because www's questionnaire service refuses our host.
+- Row 8: the offer cards need ITA's fare service, which refuses the agent and foreign
+  origins; unchanged, your browser check stands.
+- No documents. Rollback: `git revert 862eca0`.
+
+### Still open after brief 437
+
+- SWISS row 30's remaining 37 pages, row 33 (accordion titles as headings, shared), row 37
+  (accessible travel: its sidebar starts with texts and a grey section before www's first heading).
+- Cargo: the homepage's phone picture comes from the document; a re-import keeps it only if
+  ema-lufthansa's cargo-import.mjs writes it.
+- ITA row 14's questionnaire place, row 8's fares (both need www's services).
+
