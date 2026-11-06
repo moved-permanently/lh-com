@@ -123,6 +123,14 @@
   }
 }
 
+/* lh-com phones (parity 2026-11-06): www's header 144px, the quick links' text at y 95 */
+@media (width < 768px) {
+  body.brand-lufthansa {
+    --nav-height: 144px;
+    --nav-quick-list-padding: 16px 0 6px 6px;
+  }
+}
+
 @media (width >= 768px) {
   :root {
     --layout-margin: 24px;
