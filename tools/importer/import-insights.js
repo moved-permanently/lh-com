@@ -54,7 +54,8 @@ const PAGE_TEMPLATE = {
         ".threecolumn:has(.teaser)",
         ".authorslider",
         ".carousel:has(.swiper-multi-slide .videoViewer)",
-        ".carousel:has(.swiper-multi-slide a.teaser.card)"
+        ".carousel:has(.swiper-multi-slide a.teaser.card)",
+        ".twocolumn:has(a.teaser.card)"
       ]
     },
     {
