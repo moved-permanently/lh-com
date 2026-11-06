@@ -1,14 +1,14 @@
 {
  "docs": {
   "/be/en/homepage": {
-   "uploaded": "2026-11-05T12:59:31.821Z",
-   "mtime": 1793883536279,
-   "preview": "2026-11-05T12:59:34.009Z"
+   "uploaded": "2026-11-06T01:32:53.995Z",
+   "mtime": 1793928751032,
+   "preview": "2026-11-06T01:32:56.304Z"
   },
   "/be/fr/homepage": {
-   "uploaded": "2026-11-05T12:59:35.509Z",
-   "mtime": 1793883536299,
-   "preview": "2026-11-05T12:59:37.451Z"
+   "uploaded": "2026-11-06T01:32:57.933Z",
+   "mtime": 1793928751078,
+   "preview": "2026-11-06T01:33:00.119Z"
   },
   "/be/en/check-in-options-and-info/online-check-in-options": {
    "uploaded": "2026-11-01T09:06:54.425Z",
@@ -8189,6 +8189,16 @@
    "uploaded": "2026-11-05T20:53:09.894Z",
    "mtime": 1793911938261.1575,
    "preview": "2026-11-05T20:53:12.055Z"
+  },
+  "/be/en/modals/general-conditions": {
+   "uploaded": "2026-11-06T01:32:47.165Z",
+   "mtime": 1793928751051,
+   "preview": "2026-11-06T01:32:48.967Z"
+  },
+  "/be/fr/modals/general-conditions": {
+   "uploaded": "2026-11-06T01:32:50.250Z",
+   "mtime": 1793928751102,
+   "preview": "2026-11-06T01:32:52.200Z"
   }
  },
  "media": {

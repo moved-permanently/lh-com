@@ -1,0 +1,4 @@
+/be/en/modals/general-conditions
+/be/fr/modals/general-conditions
+/be/en/homepage
+/be/fr/homepage
