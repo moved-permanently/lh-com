@@ -239,3 +239,12 @@ body.brand-b2b .columns-media.stage.light .columns-media-text > p:has(> a.button
     line-height: 32px;
   }
 }
+
+/* two-column rows as www's column views from 768 px (row 10, brief 421: .column-view 4rem above and
+   2rem below, the item's 2rem, 2.6rem to the next view: the homepage's teaser rows 106 px apart, not
+   columns-media's 66); phones as before */
+@media (width >= 768px) {
+  body.brand-b2b .columns-media {
+    gap: 106px;
+  }
+}
