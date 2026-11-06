@@ -278,22 +278,29 @@ function buildVideo(src, img) {
 }
 
 /**
- * TAP's banners (parity 94): the picture cell's second picture is the phone one (www's
- * imageMobile, the import's phonePictures): one picture, the first's sources from 728 px
- * (www's), then the phone picture's (as hero-campaign.js phonePicture; blocks import no
+ * The brands whose picture cell's second picture is the phone one, and from where the first
+ * picture shows: TAP's banners (parity 94, www's imageMobile, the import's phonePictures) from
+ * 728 px; Cargo's ULD teaser (www's .teaserULD: Teaser-ULD-Mobile@2x.jpg up to 767 px) from 768 px.
+ */
+const PHONE_PICTURE_FROM = { tap: 728, cargo: 768 };
+
+/**
+ * The picture cell's second picture as the phone one: one picture, the first's sources from the
+ * brand's width, then the phone picture's (as hero-campaign.js phonePicture; blocks import no
  * other block).
  * @param {Element} picture the first picture
  * @param {boolean} eager
+ * @param {number} from the width (px) from which the first picture shows
  * @returns {Element|null} the picture, or null (no second picture in the cell)
  */
-function tapPhonePicture(picture, eager) {
+function phonePicture(picture, eager, from) {
   const img = picture.querySelector('img[src]');
   const cell = picture.closest('div');
   const second = img && cell ? [...cell.querySelectorAll('picture')][1] : null;
   const phoneImg = second && second.querySelector('img[src]');
   if (!phoneImg) return null;
   const wide = createOptimizedPicture(img.src, img.alt || '', eager, [
-    { media: '(min-width: 728px)', width: '2000' },
+    { media: `(min-width: ${from}px)`, width: '2000' },
     { width: '900' },
   ]);
   const phone = keepImageSize(phoneImg, createOptimizedPicture(phoneImg.src, img.alt || '', eager, [{ width: '900' }]));
@@ -325,8 +332,8 @@ export default function decorate(block) {
     // isn't fetched), desktop and tablet as before
     const hidden = block.classList.contains('no-mobile-image') && !matchMedia('(min-width: 768px)').matches;
     const eager = !hidden && (!section || sections.indexOf(section) < 2);
-    const tap = getMetadata('brand').trim().toLowerCase() === 'tap';
-    const optimized = (tap && tapPhonePicture(picture, eager)) || (img
+    const phoneFrom = PHONE_PICTURE_FROM[getMetadata('brand').trim().toLowerCase()];
+    const optimized = (phoneFrom && phonePicture(picture, eager, phoneFrom)) || (img
       ? keepImageSize(img, createOptimizedPicture(img.src, img.alt || '', eager, [
         { media: '(min-width: 900px)', width: '2000' },
         { width: '900' },

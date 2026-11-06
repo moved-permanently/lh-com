@@ -28,9 +28,14 @@ test('row 23: the bar stays on screen as www\'s (never hidden on scroll; the hom
 });
 
 test('the phone picture below 728 px, as www (hero-campaign and hero-card-overlay on TAP)', () => {
-  ['../blocks/hero-campaign/hero-campaign.js', '../blocks/hero-card-overlay/hero-card-overlay.js'].forEach((f) => {
+  ['../blocks/hero-campaign/hero-campaign.js'].forEach((f) => {
     const src = fs.readFileSync(new URL(f, import.meta.url), 'utf8');
     assert.match(src, /media: '\(min-width: 728px\)'/, f);
     assert.equal(src.includes("media: '(min-width: 768px)'"), false, f);
   });
+  // hero-card-overlay: the width per brand since brief 437 (Cargo's ULD teaser from 768 px): TAP's
+  // 728 (the behaviour in test/tap-phone-picture.test.mjs)
+  const overlay = fs.readFileSync(new URL('../blocks/hero-card-overlay/hero-card-overlay.js', import.meta.url), 'utf8');
+  assert.match(overlay, /const PHONE_PICTURE_FROM = \{ tap: 728, cargo: 768 \};/);
+  assert.match(overlay, /media: `\(min-width: \$\{from\}px\)`/);
 });
