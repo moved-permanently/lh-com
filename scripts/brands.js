@@ -365,6 +365,15 @@ export const BRANDS = {
         script: 'https://cxppusa1formui01cdnsa01-endpoint.azureedge.net/eur/FormLoader/FormLoader.bundle.js',
         formHost: '.mkt.dynamics.com',
       },
+      // the newsroom (Mynewsdesk) as www's ci/newsroom pages embed it (brief 422): the
+      // newsroom's own hosted_newsroom.js (its host from the block: www's English and German
+      // newsrooms) writes its iframe after #mnd-script (blocks/newsroom); only with the
+      // visitor's consent to third-party content (C0005), as www waits for its consent manager
+      newsroom: {
+        hosts: ['lufthansa-cargo-ag-com.mynewsdesk.com', 'lufthansa-cargo-ag.mynewsdesk.com'],
+        script: '/hosted_newsroom.js',
+        consent: 'C0005',
+      },
     },
   },
   // Air Dolomiti (lh-airdolomiti): its own theme (styles/themes/airdolomiti.css, the Air Dolomiti

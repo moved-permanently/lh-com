@@ -1,0 +1,11 @@
+/* Newsroom: the link to the newsroom until Mynewsdesk's iframe is there (newsroom.js), the
+   iframe as wide as the content, its height Mynewsdesk's */
+.newsroom #mnd-iframe {
+  display: block;
+  width: 100%;
+  border: 0;
+}
+
+.newsroom .newsroom-fallback[hidden] {
+  display: none;
+}
