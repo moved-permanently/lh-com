@@ -157,3 +157,88 @@ Open, by owner:
 - ema-cashub: lufthansa-sections.js's Tab sections and Austrian's tab markers (Austrian row 43); seven `styles.css`
   selectors with a :has() inside a :has() that browsers drop.
 - ema-lufthansa (Brussels), ema-adobe (SWISS): your digital-assistant pages draw in your own heading font since `71cbf543`.
+
+## Brief 438 (Austrian, B2B and Discover after the offline window)
+
+### 1. Austrian rows 36 to 43 (tools/reports/austrian/parity.md)
+
+Against austrian-parity-002a / 002b (sha256 as in the drop's files), 1440 and 390, www / before / now in px:
+
+| row | page | 1440 | 390 | what |
+| --- | --- | --- | --- | --- |
+| 36 | /at/de/missing-baggage | 4604 / 5413 / 4561 | 6522 / 6654 / ~5920 | the first tab's steps four columns (the panel's bare wrapper unwrapped); 390 stacked as www; the rest of 390's gap is the FAQ accordion's type (not this row) |
+| 39 | /at/en/austrian-app | 5360 / 6797 / 5266 | 6703 / 6332 / 6457 | the QR / badge pair side by side (a one-column view in a one-column view unwrapped); each tab panel text beside its picture as www |
+| 40 | /at/en/book/flights/giftvoucher | 4066 / 4192 / 3773 | 5756 / 7685 / 5474 | "How does it work?" as cards-icon-text partner rows (32 px icons beside the titles, Portada 18 / 27 copy), its title kept |
+| 41 | /at/de/bearbeitungsgebuehren | 3141 / 3785 / 3139 | 4125 / 5051 / 4090 | the grey band was there; three cards a row though one has no picture; a one-card slider below 1025 px (phone-slider) |
+| 43 | the four tab pages | – | – | Austrian's side: withTabRuns gives a band inside a panel its Tab rows; missing-baggage and austrian-app re-imported; travelling-with-animals and unterhaltung-an-bord stay as DA has them (their re-import is no closer to www) |
+
+Also: long button labels wrap as on www (missing-baggage's "Weitere häufig gestellte Fragen zu verspätetem Gepäck" was
+clipped at 390, on the live preview too).
+
+Found and fixed on the way: a re-import dropped the page metadata row `chat-button` (written outside the importer in
+briefs 197 / 210). 11 of the 42 documents published at 17:05 had lost it: /at/de/pre-order-food, /at/de/familien,
+/at/de/gesundes-reisen, /at/de/check-in, /at/en/at-the-airport, /at/en/accessible-travel, /at/en/unaccompanied-minors,
+/at/en/online-check-in, /at/en/baggage, /at/en/international-lounges and doctor-on-board-news. The import now writes the row
+from www's webchat topic (equal to the row on all 139 documents that have both). The 11 were taken from DA, given their
+row, uploaded and previewed: **they need publishing again** to get the chat button back on live.
+
+The video's caption and audio-description links on missing-baggage are not lost by a re-import: austrian-dam.mjs --switch
+adds them after the import (run for every re-imported document here).
+
+lh-com's phone-slider import (115ea542, from ema-cashub's side) only fires when the view still holds www's swiper copy, but
+lufthansa-cleanup's removeMobileDuplicates drops that copy first when it equals the grid (Austrian's swipers have no loop
+duplicates). The parser now also reads a mark the Austrian import sets (7befb610). The mark applies to 740 Austrian
+documents' card rows; only this brief's pages were re-imported. The rest show as a slider on phones after their next
+re-import.
+
+Still open, mine:
+- row 37: culinary-services' expanding panels are www's .herobanner (three hero items, the active one widened, its title
+  over it). lh-com has no block for it; it needs a block variant and a parser (design work). The document is unchanged.
+- row 42: culinaryjourney (micro-frontend) and new-destinations (two poi maps inside accordion items): today's import still
+  drops these blocks, so DA keeps both documents as they were.
+
+For ema-cashub (row 43's shared part, left as it is): lufthansa-sections.js' Tab sections next to Austrian's tab markers.
+
+### 2. The Star Alliance partner pages
+
+Done (f0878b75): the 10 lhg-staralliance-partner documents (at/de, at/en, cn/zh, es/es, fr/fr, gr/el, it/it, jp/ja, pl/pl,
+ru/ru): 68 logo links without a name now carry their airline's name from www's page (www's own alt texts kept). Uploaded and
+previewed, DA = local, axe link-name gone.
+
+### 3. B2B (against b2b-parity-001, sha256 1c391af6…, fetched again after /tmp was wiped; 1440 / 390, www / before / now)
+
+- Contact's hotline hours: no change was needed. The DE record has www's hours (Monday to Friday 08:00 - 18:00) and the
+  finder shows them on de/en and de/de exactly as www's capture does; www's xx pages show none either. My earlier note
+  that "this hotline record has not" the hours was wrong. Contact is -44 / +17 (de/en) and -78 / -21 (de/de), with the
+  rest spread over the page.
+- News overview: at 390 the tab set is now www's accordion: 30 px under the heading, closed rows on white without their
+  grey band, the footer right after the last row (1298 / 1386 / ~1296, de/de likewise). At 1440 it stays +36 (not
+  changed).
+- Airlines page at 390: a stacked text cell that ends with its link line sits 14 px above the picture, and the block's
+  rows are 42 px apart, as www (de/en 5286 / 5417 / 5304, de/de 5454 / 5537 / 5424). The same rule reaches contact's two
+  such cells (both 14 px on www) and route-network (no change).
+B2B-scoped, below 768 px, no :has() inside a :has() (1b30bdeb). No B2B document changed.
+
+### 4. Discover accessibility (discover-parity-001's 26 pages on main--lh-discover--, 1440 and 390)
+
+axe 4.10.2 (WCAG 2.0 to 2.2 A / AA): no violations of ours on any page at either width. The one finding, target-size on
+the logo of whichever page comes first at 390, is the first skip link: it holds the focus after the consent banner
+closes (OneTrust returns focus to the page start), and like any focused skip link it shows over the top of the logo.
+That is expected, not a defect. Nothing changed.
+
+### Summary (brief 438)
+
+| item | commit | what | rollback |
+| --- | --- | --- | --- |
+| 2 | `f0878b75` | Star Alliance partner logos named (import), 10 documents | `git revert`; the documents: DA's versions before 2026-11-06 21:00 UTC |
+| 1 | `45e75f77` | Austrian rows 36, 39, 40, 41, 43 (import, theme), chat-button row kept | `git revert`; the 4 + 11 documents: DA's versions before 2026-11-06 23:30 UTC |
+| 1 | `7befb610` | the phone slider of a view the cleanup left without its swiper copy (parser, Austrian mark, bundles) | `git revert` |
+| 3 | `1b30bdeb` | B2B news tab set and airlines page below 768 px | `git revert` |
+| 1-4 | this commit | parity rows 36-43, `preview-paths-438.txt`, this report | – |
+
+Preview paths (uploaded to DA and previewed, not published), release order, no files:
+`tools/reports/austrian/preview-paths-438.txt`, 25 Austrian pages:
+- the 10 lhg-staralliance-partner pages (item 2);
+- /at/de/missing-baggage, /at/en/austrian-app, /at/de/bearbeitungsgebuehren, /at/en/book/flights/giftvoucher (item 1);
+- the 11 pages with their chat-button row back (item 1; already live once, so they need re-publishing).
+No B2B or Discover document changed.
