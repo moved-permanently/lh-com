@@ -477,13 +477,13 @@ Pages a capture would need (parity.md P38 and P41):
 | 1 | e0d6a35f | cargo-import.mjs: the ULD teaser keeps www's phone picture; /en/home and /de/home import identical to DA (nothing uploaded) | revert |
 | 2 | 5b96eb0c | cargo-import.mjs and cargo.css: key facts on phones as www's (phone slides, the link) | revert, and re-upload the six Facts & Figures pages' previous copies |
 | 2, 3 | e0821a67 | Facts & Figures en, de, es, fr, it, pt re-imported (phone slides; es to pt with the nine pictures), uploaded and previewed | re-upload DA's previous copies (kept on this machine) |
-| 4 | (this push) | cargo-import.mjs: phone-only story passages kept | revert |
-| 4 | (this push) | theculture and night-shift-in-chicago-44 uploaded and previewed; the stories table, parity P38/P41 | re-upload their previous copies; revert the docs |
-| 5 | (this push) | brussels-snapshots-013 checked, the capture list | nothing to roll back |
+| 4 | 2dbb5b36 | cargo-import.mjs: phone-only story passages kept | revert |
+| 4 | 58409f7c | theculture and night-shift-in-chicago-44 uploaded and previewed; the stories table, parity P38/P41 | re-upload their previous copies; revert the docs |
+| 5 | 58409f7c | brussels-snapshots-013 checked, the capture list | nothing to roll back |
 
 ### Preview path lists, in release order
 
-1. Code: e0d6a35f, 5b96eb0c and item 4's commit.
+1. Code: e0d6a35f, 5b96eb0c, 2dbb5b36.
 2. /en/ci/facts-figures, /de/ci/facts-figures, /es/ci/facts-figures, /fr/ci/facts-figures,
    /it/ci/facts-figures, /pt/ci/facts-figures (their files are already in DA).
 3. /en/news/theculture, /de/news/night-shift-in-chicago-44.
