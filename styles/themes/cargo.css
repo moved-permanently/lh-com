@@ -515,8 +515,11 @@ body.brand-cargo main > .section > .hero-card-overlay-wrapper:has(> .hero-card-o
   margin-inline: auto;
 }
 
+/* (one column as wide as the block: sized by the content it grew to the card's longest title word,
+   wider than a phone, brief 439) */
 body.brand-cargo .hero-card-overlay.light {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   border-bottom: 2px solid #d1d1d1;
   background-color: #eaeaea;
 }
