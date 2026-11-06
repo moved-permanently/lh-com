@@ -1,0 +1,9 @@
+# lh-cargo (round 3, 2026-11-06): uploaded to DA moved-permanently/lh-cargo and previewed on main--lh-cargo--moved-permanently.aem.page; not published. The code is on main (6a9448e5). Publish in this order
+# 1. the contact form's dialog document (Support & Contact's links open it; no page of its own: outside the search indexes)
+/modals/contact-us
+# 2. Support & Contact: the topic finder over the tabs, the links opening the dialog, "Contact us" band, technical support beside the local sales contact
+/en/support-and-contact
+/de/support-and-contact
+# 3. Facts & Figures: the Executive Board and Compliance as www's image lists (their texts), the timeline
+/en/ci/facts-figures
+/de/ci/facts-figures

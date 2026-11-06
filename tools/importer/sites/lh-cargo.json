@@ -983,6 +983,7 @@
   "^/(en|de|es|fr|it|pt)/(nav|footer)$",
   "^/(en|de)/search$",
   "^/message-center/(notification|details)/[a-z0-9-]+/(en|de)$",
-  "^/(en|de)/notification-overview$"
+  "^/(en|de)/notification-overview$",
+  "^/modals/contact-us$"
  ]
 }
