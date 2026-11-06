@@ -23,3 +23,21 @@ Running report, committed as I go. Nothing is published: documents are uploaded 
 - Preview paths: none (no document changed).
 - Open (item 3): contact's hotline hours and Corporate -> Passenger Receipts gaps, de/en contact's
   missing column marker, celebrating-shared-stories, the news overview, the airlines page at 390.
+
+## 2. Austrian, deeper visual parity (austrian-parity-002)
+
+Archive: `austrian-parity-002a.tar.gz` (sha256 `ea26c50e…9527`, checked; 31 pages). 002 and 002b not in the
+drop yet at 08:25 (polled every 15 min, see the end). Compared at 1440 and 390 against
+austrian.turnsthe.page and main--lh-austrian--moved-permanently.aem.page (equal on every page).
+
+### 2a. Headings in Portada again (shared, brand-neutral)
+
+- Every heading of 213 Austrian documents drew in LufthansaHead, not Portada: lh-com's cleanup gives a page
+  whose www loads the digital assistant the metadata "Theme: digital-assistant", and `styles/styles.css`
+  set the LufthansaHead face of lufthansa.com's assistant stylesheet on `body.digital-assistant`, over the
+  brand theme. The same documents exist on lh-brussels (467) and lh-swiss / lh-swiss-mk (22): their
+  headings lose Intelo / SWISS's face the same way.
+- Fix: the rule is lufthansa.com's, now `body.brand-lufthansa.digital-assistant`
+  (`test/digital-assistant-brand.test.mjs`). Checked locally: Austrian's h1 Portada (loaded), lufthansa.com's
+  digital-assistant page still in its face. For ema-lufthansa (Brussels) and ema-adobe (SWISS): your
+  digital-assistant pages get your theme's heading font back with this commit.

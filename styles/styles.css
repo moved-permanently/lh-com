@@ -309,10 +309,12 @@ main :is(h1, h2, h3, h4, h5, h6).copytext-large {
   line-height: var(--body-line-height);
 }
 
-/* pages with the digital assistant (metadata "Theme: digital-assistant"): its stylesheet
-   (/digitalassistant/support/Styles/lh.css) maps LufthansaHead 400 to LufthansaHeadWeb-Bold
-   and overrides the Light face, so light head-font text (300/400) draws bold there */
-body.digital-assistant {
+/* lufthansa.com's pages with the digital assistant (metadata "Theme: digital-assistant"): its
+   stylesheet (/digitalassistant/support/Styles/lh.css) maps LufthansaHead 400 to
+   LufthansaHeadWeb-Bold and overrides the Light face, so light head-font text (300/400) draws bold
+   there. lufthansa.com's only: the other brands' pages get the theme too (lh-com's cleanup, from
+   www's script) and keep their own heading font (test/digital-assistant-brand.test.mjs) */
+body.brand-lufthansa.digital-assistant {
   --heading-font-family: lufthansahead-digital-assistant, lufthansahead-fallback, arial, helvetica, sans-serif;
 }
 
