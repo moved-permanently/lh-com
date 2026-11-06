@@ -52,6 +52,7 @@
   --heading-large-transform: uppercase;
   --heading-light-weight: 400;
   --heading-line-height: 1.15;
+  --breadcrumb-line-height: 18px; /* www's 14 / 18 (row 21, brief 421) */
   --body-font-weight: 300;
   --body-font-size-m: 18px;
   --body-line-height: 1.3334;
@@ -123,6 +124,29 @@
     --heading-font-size-m: 18px;
     --heading-font-size-s: 16px;
   }
+}
+
+/* line heights as www's (row 21, brief 421; its headline classes at 390 and 1440): the large size
+   x 1.2 - 2.4 px (48 at 42, 36.2 at 32), the medium x 1.5 - 10 px (38 at 32, 32 at 28), the small
+   + 4 px, the copytext headings 24 px; in the content (default content, column text) and the
+   hotline finder only, the blocks keep the headings they size themselves */
+body.brand-b2b main :is(.default-content-wrapper, .columns-media-text) > h1,
+body.brand-b2b main :is(.default-content-wrapper, .columns-media-text) > :is(h1, h2, h3, h4, h5, h6).heading-large {
+  line-height: calc(var(--heading-font-size-xxl) * 1.2 - 2.4px);
+}
+
+body.brand-b2b main :is(.default-content-wrapper, .columns-media-text) > h2:not([class*="heading-"]),
+body.brand-b2b main :is(.default-content-wrapper, .columns-media-text) > :is(h1, h2, h3, h4, h5, h6).heading-medium {
+  line-height: calc(var(--heading-font-size-xl) * 1.5 - 10px);
+}
+
+body.brand-b2b main :is(.default-content-wrapper, .columns-media-text) > :is(h1, h2, h3, h4, h5, h6).heading-small {
+  line-height: calc(var(--heading-font-size-l) + 4px);
+}
+
+body.brand-b2b main .hotline-finder :is(h3, h4),
+body.brand-b2b main :is(.default-content-wrapper, .columns-media-text) > :is(h3, h4):not([class*="heading-"]) {
+  line-height: 24px;
 }
 
 /* a stage inside a column view (b2b-import.mjs: columns-media option stage, www's .stage >
@@ -273,4 +297,118 @@ body.brand-b2b .search-results .search-results-input:focus {
 
 body.brand-b2b .search-results .search-results-form:focus-within {
   border-bottom-color: transparent;
+}
+
+/* links alone in their paragraph (row 18, brief 421): www's maui-navigation-link medium, 14 / 18
+   bold, a 16 px arrow 5 px before the text, links one below the other 21 px apart (contact's
+   airline links, the column views' "More information") */
+body.brand-b2b main :is(.default-content-wrapper, .columns-media-text) p.link-wrapper {
+  font-size: 14px;
+  line-height: 18px;
+}
+
+body.brand-b2b main :is(.default-content-wrapper, .columns-media-text) p.link-wrapper a:any-link {
+  gap: 5px;
+}
+
+body.brand-b2b main :is(.default-content-wrapper, .columns-media-text) p.link-wrapper a:any-link::before {
+  align-self: flex-start;
+  width: 16px;
+  height: 16px;
+  margin-top: 1px;
+}
+
+body.brand-b2b main .columns-media .columns-media-text p.link-wrapper:has(+ p.link-wrapper) {
+  margin-bottom: 3px;
+}
+
+/* an article's "Back to News" / "Zurück zu Aktuelles" (www's variant back): the arrow to the left;
+   in the content only the back links go to the news list (the joint ventures' "Lufthansa Group" is
+   in a column) */
+body.brand-b2b main .default-content-wrapper p.link-wrapper a:any-link[href$="/news"]::before {
+  transform: scaleX(-1);
+}
+
+/* contact's country select (row 19, brief 421; blocks/hotline-finder): www's maui-select, its label
+   shown above the field (12 / 14 grey), the field a 2 px line under the value (18 / 24) with a 24 px
+   chevron, no box: 58 px in all as before */
+body.brand-b2b .hotline-finder .hotline-finder-field label {
+  position: static;
+  display: block;
+  width: auto;
+  height: auto;
+  margin-bottom: 6px;
+  overflow: visible;
+  clip-path: none;
+  color: #666;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14px;
+  white-space: normal;
+}
+
+body.brand-b2b .hotline-finder .hotline-finder-field select {
+  min-height: 38px;
+  padding: 6px 29px 6px 0;
+  border: 0;
+  border-bottom: 2px solid #333;
+  border-radius: 0;
+  appearance: none;
+  background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='m5 9 7 7 7-7' fill='none' stroke='%2305164d' stroke-width='1.5'/%3E%3C/svg%3E") right 5px center / 24px no-repeat;
+  color: var(--lh-deepblue, #05164d);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+/* the footer (row 20, brief 421; www's footer at 1440 and 390): the tagline 28 / 36.4 on phones,
+   80 px under it from 1025 px, the legal links 22 px under the note; LinkedIn www's "in" (LI_Icon)
+   in a 48 px circle, not the shared square logo (the badge link keeps its aria-label), 40 px under
+   the links (the list's 20 px and 20) and 20 px above the footer's end on phones */
+@media (width < 768px) {
+  body.brand-b2b .footer .footer-brand-tagline p {
+    font-size: 28px;
+    line-height: 36.4px;
+  }
+}
+
+@media (width >= 1025px) {
+  body.brand-b2b .footer .footer-brand-row {
+    padding-bottom: 80px;
+  }
+}
+
+body.brand-b2b .footer .footer-inner.has-brand-row .footer-legal {
+  padding-top: 22px;
+}
+
+body.brand-b2b .footer .footer-inner.has-brand-row .footer-badges a.footer-badge-linkedin {
+  width: 48px;
+  height: 48px;
+  border-color: rgb(255 255 255 / 50%);
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M4.27 20h3.31V9.31H4.27zM4 5.93a1.93 1.93 0 1 0 3.85 0 1.93 1.93 0 0 0-3.85 0M16.69 20H20v-5.87c0-2.88-.62-5.09-3.98-5.09-1.61 0-2.69.89-3.13 1.73h-.05V9.31H9.67V20h3.31v-5.29c0-1.4.26-2.75 1.99-2.75 1.7 0 1.72 1.6 1.72 2.84z'/%3E%3C/svg%3E") center / 24px no-repeat;
+}
+
+body.brand-b2b .footer .footer-inner.has-brand-row .footer-badges a.footer-badge-linkedin img {
+  opacity: 0;
+}
+
+@media (width < 1025px) {
+  body.brand-b2b .footer .footer-inner.has-brand-row .footer-badges {
+    padding: 20px 0;
+  }
+
+  body.brand-b2b .footer .footer-inner.has-brand-row .footer-locale {
+    margin: 20px 0;
+  }
+}
+
+/* the blocks' type as www's (row 21, brief 421: the homepage at 390 and 1440): the cards' titles
+   their size + 4 px (28 / 32, 24 / 28), the carousel's compact cards' titles and copy 24 px (not 19.8 / 27) */
+body.brand-b2b .cards-icon-text .cards-icon-text-card .cards-icon-text-body > .cards-icon-text-title {
+  line-height: calc(1em + 4px);
+}
+
+body.brand-b2b .carousel-cards .carousel-cards-slide:not(.carousel-cards-wide) .carousel-cards-body > :is(p, h1, h2, h3, h4, h5, h6) {
+  line-height: 24px;
 }
