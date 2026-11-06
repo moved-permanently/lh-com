@@ -1,9 +1,9 @@
 {
  "docs": {
   "/de/en/homepage": {
-   "uploaded": "2026-11-06T02:33:44.676Z",
-   "mtime": 1793932166853,
-   "preview": "2026-11-06T02:33:47.451Z"
+   "uploaded": "2026-11-06T04:33:19.681Z",
+   "mtime": 1793939447749.8208,
+   "preview": "2026-11-06T04:33:22.210Z"
   },
   "/de/en/news": {
    "uploaded": "2026-11-06T02:47:49.713Z",
@@ -11,9 +11,9 @@
    "preview": "2026-11-06T02:47:52.588Z"
   },
   "/de/en/program/experts/news": {
-   "uploaded": "2026-11-06T02:33:55.425Z",
-   "mtime": 1793932166897,
-   "preview": "2026-11-06T02:33:58.824Z"
+   "uploaded": "2026-11-06T04:33:06.776Z",
+   "mtime": 1793939447751.744,
+   "preview": "2026-11-06T04:33:09.572Z"
   },
   "/de/en/news/celebrating-shared-stories": {
    "uploaded": "2026-11-06T02:34:01.032Z",
@@ -261,9 +261,9 @@
    "preview": "2026-11-02T02:33:52.665Z"
   },
   "/de/de/homepage": {
-   "uploaded": "2026-11-06T02:34:15.452Z",
-   "mtime": 1793932167097,
-   "preview": "2026-11-06T02:34:17.396Z"
+   "uploaded": "2026-11-06T04:33:25.652Z",
+   "mtime": 1793939447750.64,
+   "preview": "2026-11-06T04:33:28.316Z"
   },
   "/de/de/news": {
    "uploaded": "2026-11-06T02:47:54.887Z",
@@ -271,9 +271,9 @@
    "preview": "2026-11-06T02:47:57.621Z"
   },
   "/de/de/program/experts/news": {
-   "uploaded": "2026-11-02T02:34:07.660Z",
-   "mtime": 1793586358529,
-   "preview": "2026-11-02T02:34:10.168Z"
+   "uploaded": "2026-11-06T04:33:12.780Z",
+   "mtime": 1793939447752.376,
+   "preview": "2026-11-06T04:33:16.152Z"
   },
   "/de/de/news/celebrating-shared-stories": {
    "uploaded": "2026-11-06T02:34:25.511Z",
@@ -3389,6 +3389,71 @@
    "uploaded": "2026-11-02T03:14:11.274Z",
    "mtime": 1793586018487,
    "preview": "2026-11-02T03:14:13.511Z"
+  },
+  "/de/en/program/experts/news/green-fares-become-impact-fares": {
+   "uploaded": "2026-11-06T04:32:05.298Z",
+   "mtime": 1793939447744.2988,
+   "preview": "2026-11-06T04:32:08.035Z"
+  },
+  "/de/en/program/experts/news/lufthansa-and-fraport-test-gate-of-the-future-in-frankfurt": {
+   "uploaded": "2026-11-06T04:32:10.417Z",
+   "mtime": 1793939447744.4578,
+   "preview": "2026-11-06T04:32:13.224Z"
+  },
+  "/de/en/program/experts/news/lufthansa-group-expands-service-to-beirut": {
+   "uploaded": "2026-11-06T04:32:15.358Z",
+   "mtime": 1793939447744.673,
+   "preview": "2026-11-06T04:32:17.663Z"
+  },
+  "/de/en/program/experts/news/new-lufthansa-airbus-a350-1000-more-premium-options-to-asia": {
+   "uploaded": "2026-11-06T04:32:19.958Z",
+   "mtime": 1793939447744.822,
+   "preview": "2026-11-06T04:32:22.609Z"
+  },
+  "/de/en/program/experts/news/swiss-wins-world-travel-award-for-europe-s-leading-business-clas": {
+   "uploaded": "2026-11-06T04:32:25.020Z",
+   "mtime": 1793939447744.9473,
+   "preview": "2026-11-06T04:32:27.660Z"
+  },
+  "/de/en/program/experts/news/u-s-entry-new-mandatory-attestation-and-entry-restrictions": {
+   "uploaded": "2026-11-06T04:32:29.747Z",
+   "mtime": 1793939447745.0461,
+   "preview": "2026-11-06T04:32:32.225Z"
+  },
+  "/de/de/program/experts/news/green-fares-become-impact-fares": {
+   "uploaded": "2026-11-06T04:32:34.715Z",
+   "mtime": 1793939447745.7134,
+   "preview": "2026-11-06T04:32:37.009Z"
+  },
+  "/de/de/program/experts/news/lufthansa-and-fraport-test-gate-of-the-future-in-frankfurt": {
+   "uploaded": "2026-11-06T04:32:38.992Z",
+   "mtime": 1793939447746.0637,
+   "preview": "2026-11-06T04:32:41.122Z"
+  },
+  "/de/de/program/experts/news/lufthansa-group-expands-service-to-beirut": {
+   "uploaded": "2026-11-06T04:32:43.497Z",
+   "mtime": 1793939447746.3948,
+   "preview": "2026-11-06T04:32:45.787Z"
+  },
+  "/de/de/program/experts/news/new-lufthansa-airbus-a350-1000-more-premium-options-to-asia": {
+   "uploaded": "2026-11-06T04:32:48.715Z",
+   "mtime": 1793939447746.7869,
+   "preview": "2026-11-06T04:32:50.767Z"
+  },
+  "/de/de/program/experts/news/ready-for-take-off-eurowings-blickt-hinter-die-kulissen": {
+   "uploaded": "2026-11-06T04:32:53.081Z",
+   "mtime": 1793939447747.1309,
+   "preview": "2026-11-06T04:32:56.188Z"
+  },
+  "/de/de/program/experts/news/swiss-wins-world-travel-award-for-europe-s-leading-business-clas": {
+   "uploaded": "2026-11-06T04:32:58.032Z",
+   "mtime": 1793939447747.5393,
+   "preview": "2026-11-06T04:32:59.748Z"
+  },
+  "/de/de/program/experts/news/u-s-entry-new-mandatory-attestation-and-entry-restrictions": {
+   "uploaded": "2026-11-06T04:33:01.671Z",
+   "mtime": 1793939447747.883,
+   "preview": "2026-11-06T04:33:03.599Z"
   }
  },
  "media": {
