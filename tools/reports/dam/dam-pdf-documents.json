@@ -1,13 +1,33 @@
 {
- "checkedAt": "2026-10-27T10:44:13.524Z",
- "documents": 10,
- "changedNow": 4,
- "links": 4,
- "pdfs": 4,
+ "checkedAt": "2026-11-06T11:23:56.539Z",
+ "documents": 17,
+ "changedNow": 0,
+ "links": 0,
+ "pdfs": 10,
  "waiting": [
+  {
+   "www": "/content/dam/lh/documents/FRA_Germany_Concur_Anleitung_210x297_EN.PDF",
+   "eds": "/content/dam/lh/documents/fra-germany-concur-anleitung-210x297-en.pdf",
+   "status": "not published (404)"
+  },
+  {
+   "www": "/content/dam/lh/documents/SPEEDLab_EG_branches.pdf",
+   "eds": "/content/dam/lh/documents/speedlab-eg-branches.pdf",
+   "status": "not published (404)"
+  },
+  {
+   "www": "/content/dam/lh/documents/SPEED_Lab_Drive_thru.pdf",
+   "eds": "/content/dam/lh/documents/speed-lab-drive-thru.pdf",
+   "status": "not published (404)"
+  },
   {
    "www": "/content/dam/lh/documents/discover-lufthansa/lufthansa-fleet/74p/seatmap-747-400.43c.32p.308m.pdf",
    "eds": "/content/dam/lh/documents/discover-lufthansa/lufthansa-fleet/74p/seatmap-747-400-43c-32p-308m.pdf",
+   "status": "not published (404)"
+  },
+  {
+   "www": "/content/dam/lh/documents/local-pages/br/condicoes-gerais-de-transporte-aereo-jun2024.pdf",
+   "eds": "/content/dam/lh/documents/local-pages/br/condicoes-gerais-de-transporte-aereo-jun2024.pdf",
    "status": "not published (404)"
   },
   {
@@ -19,12 +39,22 @@
    "www": "/content/dam/lh/documents/prepare-for-your-trip/special-travel-needs/travelling-healthy/lh_medif_EN.pdf",
    "eds": "/content/dam/lh/documents/prepare-for-your-trip/special-travel-needs/travelling-healthy/lh-medif-en-2.pdf",
    "status": "not published (404)"
+  },
+  {
+   "www": "/content/dam/lh/documents/terms-conditions/2026_08_ABB_HK.pdf",
+   "eds": "/content/dam/lh/documents/terms-conditions/2026-08-abb-hk.pdf",
+   "status": "not published (404)"
+  },
+  {
+   "www": "/content/dam/lh/documents/terms-conditions/2026_08_ABB_PT.pdf",
+   "eds": "/content/dam/lh/documents/terms-conditions/2026-08-abb-pt.pdf",
+   "status": "not published (404)"
+  },
+  {
+   "www": "/content/dam/lh/documents/terms-conditions/2026_08_ABB_RU.pdf",
+   "eds": "/content/dam/lh/documents/terms-conditions/2026-08-abb-ru.pdf",
+   "status": "not published (404)"
   }
  ],
- "changed": [
-  "/at/de/articles/highlights/allegris-new-york",
-  "/de/de/articles/highlights/allegris-new-york",
-  "/de/en/articles/highlights/allegris-new-york",
-  "/gb/en/articles/highlights/allegris-new-york"
- ]
+ "changed": []
 }

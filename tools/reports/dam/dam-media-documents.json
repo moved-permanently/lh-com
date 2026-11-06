@@ -1,14 +1,19 @@
 {
- "checkedAt": "2026-10-26T17:44:20.192Z",
- "edge": "https://lhedge.bbird.live",
- "documents": 486,
+ "checkedAt": "2026-11-06T11:25:39.559Z",
+ "edge": "https://lufthansa-edge.turnsthe.page",
+ "documents": 550,
  "changedNow": 0,
  "links": 0,
  "tracks": 0,
  "files": {
   "da": 77,
-  "r2": 697,
-  "missing": []
+  "aem": 697,
+  "r2": 0,
+  "missing": [
+   "/content/dam/lh/videos/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-rail/260916-lha-express-rail-en-v01-8118929.mp4",
+   "/content/dam/lh/videos/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-rail/lha-express-rail-en-ad-8118927.vtt",
+   "/content/dam/lh/videos/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-rail/lha-express-rail-en-cc-8118928.vtt"
+  ]
  },
  "daOnly": [
   "/at/de/100-years/cabin-design",
@@ -169,6 +174,7 @@
   "/de/en/economy-class",
   "/de/en/first-class-terminal",
   "/de/en/premium-economy-class",
+  "/de/en/prepare-for-your-trip/travel-classes/business-class",
   "/gb/en/100-years/cabin-design",
   "/gb/en/100-years/chronicle",
   "/gb/en/100-years/fleet",
@@ -220,7 +226,39 @@
   "/gb/en/business-class",
   "/gb/en/economy-class",
   "/gb/en/first-class-terminal",
-  "/gb/en/premium-economy-class"
+  "/gb/en/premium-economy-class",
+  "/library/blocks/article-header",
+  "/xx/hk/100-years/cabin-design",
+  "/xx/hk/100-years/chronicle",
+  "/xx/hk/100-years/fleet",
+  "/xx/hk/100-years/history/menu-on-board",
+  "/xx/hk/baggage-irregularities",
+  "/xx/hk/carry-on-baggage",
+  "/xx/hk/economy-class",
+  "/xx/hk/first-class-terminal",
+  "/xx/hk/flight-disruptions",
+  "/xx/hk/premium-economy-class",
+  "/xx/pt/100-years/cabin-design",
+  "/xx/pt/100-years/chronicle",
+  "/xx/pt/100-years/fleet",
+  "/xx/pt/100-years/history/menu-on-board",
+  "/xx/pt/baggage-irregularities",
+  "/xx/pt/business-class",
+  "/xx/pt/economy-class",
+  "/xx/pt/first-class-terminal",
+  "/xx/pt/flugunregelmaessigkeiten",
+  "/xx/pt/handgepaeck",
+  "/xx/pt/premium-economy-class",
+  "/xx/ru/100-years/cabin-design",
+  "/xx/ru/100-years/chronicle",
+  "/xx/ru/100-years/fleet",
+  "/xx/ru/100-years/history/menu-on-board",
+  "/xx/ru/baggage-irregularities",
+  "/xx/ru/carry-on-baggage",
+  "/xx/ru/economy-class",
+  "/xx/ru/first-class-terminal",
+  "/xx/ru/flight-disruptions",
+  "/xx/ru/premium-economy-class"
  ],
  "withR2": [
   "/at/de/100-years",
@@ -498,9 +536,41 @@
   "/gb/en/first-class",
   "/gb/en/flight-disruptions",
   "/gb/en/lufthansa-terminal-muenchen",
-  "/gb/en/tiere-als-uebergepaeck"
+  "/gb/en/tiere-als-uebergepaeck",
+  "/library/blocks/carousel-cards",
+  "/library/blocks/columns-media",
+  "/xx/hk/100-years",
+  "/xx/hk/100-years/crane",
+  "/xx/hk/100-years/destinations",
+  "/xx/hk/100-years/history",
+  "/xx/hk/check-in-baggage",
+  "/xx/hk/discover-lufthansa/new-onboard-experience",
+  "/xx/hk/first-class",
+  "/xx/hk/tiere-als-uebergepaeck",
+  "/xx/pt/100-years",
+  "/xx/pt/100-years/crane",
+  "/xx/pt/100-years/destinations",
+  "/xx/pt/100-years/history",
+  "/xx/pt/check-in-baggage",
+  "/xx/pt/discover-lufthansa/new-onboard-experience",
+  "/xx/pt/first-class",
+  "/xx/pt/lufthansa-terminal-muenchen",
+  "/xx/pt/tiere-als-uebergepaeck",
+  "/xx/ru/100-years",
+  "/xx/ru/100-years/crane",
+  "/xx/ru/100-years/destinations",
+  "/xx/ru/100-years/history",
+  "/xx/ru/check-in-baggage",
+  "/xx/ru/discover-lufthansa/new-onboard-experience",
+  "/xx/ru/first-class",
+  "/xx/ru/lufthansa-terminal-muenchen",
+  "/xx/ru/tiere-als-uebergepaeck"
  ],
- "wwwOnly": [],
+ "wwwOnly": [
+  "/xx/hk/lufthansa-express-rail",
+  "/xx/pt/lufthansa-express-rail",
+  "/xx/ru/lufthansa-express-rail"
+ ],
  "kept": [
   {
    "doc": "/at/de/articles/tags/munich",
@@ -561,6 +631,21 @@
    "doc": "/de/de/articles/tags/munich",
    "file": "/content/dam/video/c3/audiotravelguide/muc/01_interessensbasiert/de/munich_lhcom_geschichte_de.mp4",
    "why": "gone on www (404)"
+  },
+  {
+   "doc": "/xx/hk/lufthansa-express-rail",
+   "file": "/content/dam/lh/videos/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-rail/260916 LHA Express Rail EN V01_8118929.mp4",
+   "why": "not recorded yet"
+  },
+  {
+   "doc": "/xx/pt/lufthansa-express-rail",
+   "file": "/content/dam/lh/videos/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-rail/260916 LHA Express Rail EN V01_8118929.mp4",
+   "why": "not recorded yet"
+  },
+  {
+   "doc": "/xx/ru/lufthansa-express-rail",
+   "file": "/content/dam/lh/videos/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-rail/260916 LHA Express Rail EN V01_8118929.mp4",
+   "why": "not recorded yet"
   }
  ]
 }

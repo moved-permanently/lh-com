@@ -1,10 +1,10 @@
 # Documents that play the site's own videos
 
-2026-10-26T17:44:20.192Z, files checked on https://lhedge.bbird.live
+2026-11-06T11:25:39.559Z, files checked on https://lufthansa-edge.turnsthe.page
 
-486 documents play videos; 486 use the site's own files (0 video links, 0 subtitle links). Files: 77 in DA, 697 in R2, 0 not there yet.
+550 documents play videos; 547 use the site's own files (0 video links, 0 subtitle links). Files: 77 in DA, 697 on the AEM publish tier, 0 in R2, 3 not there yet.
 
-## Every file in DA (210)
+## Every file in DA (243)
 
 - /at/de/100-years/cabin-design
 - /at/de/100-years/chronicle
@@ -164,6 +164,7 @@
 - /de/en/economy-class
 - /de/en/first-class-terminal
 - /de/en/premium-economy-class
+- /de/en/prepare-for-your-trip/travel-classes/business-class
 - /gb/en/100-years/cabin-design
 - /gb/en/100-years/chronicle
 - /gb/en/100-years/fleet
@@ -216,8 +217,40 @@
 - /gb/en/economy-class
 - /gb/en/first-class-terminal
 - /gb/en/premium-economy-class
+- /library/blocks/article-header
+- /xx/hk/100-years/cabin-design
+- /xx/hk/100-years/chronicle
+- /xx/hk/100-years/fleet
+- /xx/hk/100-years/history/menu-on-board
+- /xx/hk/baggage-irregularities
+- /xx/hk/carry-on-baggage
+- /xx/hk/economy-class
+- /xx/hk/first-class-terminal
+- /xx/hk/flight-disruptions
+- /xx/hk/premium-economy-class
+- /xx/pt/100-years/cabin-design
+- /xx/pt/100-years/chronicle
+- /xx/pt/100-years/fleet
+- /xx/pt/100-years/history/menu-on-board
+- /xx/pt/baggage-irregularities
+- /xx/pt/business-class
+- /xx/pt/economy-class
+- /xx/pt/first-class-terminal
+- /xx/pt/flugunregelmaessigkeiten
+- /xx/pt/handgepaeck
+- /xx/pt/premium-economy-class
+- /xx/ru/100-years/cabin-design
+- /xx/ru/100-years/chronicle
+- /xx/ru/100-years/fleet
+- /xx/ru/100-years/history/menu-on-board
+- /xx/ru/baggage-irregularities
+- /xx/ru/carry-on-baggage
+- /xx/ru/economy-class
+- /xx/ru/first-class-terminal
+- /xx/ru/flight-disruptions
+- /xx/ru/premium-economy-class
 
-## At least one file in R2 (276): plays through lh-edge only
+## At least one file in R2 (304): plays through lh-edge only
 
 - /at/de/100-years
 - /at/de/100-years/crane
@@ -495,9 +528,40 @@
 - /gb/en/flight-disruptions
 - /gb/en/lufthansa-terminal-muenchen
 - /gb/en/tiere-als-uebergepaeck
+- /library/blocks/carousel-cards
+- /library/blocks/columns-media
+- /xx/hk/100-years
+- /xx/hk/100-years/crane
+- /xx/hk/100-years/destinations
+- /xx/hk/100-years/history
+- /xx/hk/check-in-baggage
+- /xx/hk/discover-lufthansa/new-onboard-experience
+- /xx/hk/first-class
+- /xx/hk/tiere-als-uebergepaeck
+- /xx/pt/100-years
+- /xx/pt/100-years/crane
+- /xx/pt/100-years/destinations
+- /xx/pt/100-years/history
+- /xx/pt/check-in-baggage
+- /xx/pt/discover-lufthansa/new-onboard-experience
+- /xx/pt/first-class
+- /xx/pt/lufthansa-terminal-muenchen
+- /xx/pt/tiere-als-uebergepaeck
+- /xx/ru/100-years
+- /xx/ru/100-years/crane
+- /xx/ru/100-years/destinations
+- /xx/ru/100-years/history
+- /xx/ru/check-in-baggage
+- /xx/ru/discover-lufthansa/new-onboard-experience
+- /xx/ru/first-class
+- /xx/ru/lufthansa-terminal-muenchen
+- /xx/ru/tiere-als-uebergepaeck
 
-## Only www's videos left (0): nothing switched
+## Only www's videos left (3): nothing switched
 
+- /xx/hk/lufthansa-express-rail
+- /xx/pt/lufthansa-express-rail
+- /xx/ru/lufthansa-express-rail
 
 ## gone on www (404) (12)
 
@@ -514,8 +578,11 @@
 - /de/de/articles/tags/munich: /content/dam/video/c3/audiotravelguide/muc/01_interessensbasiert/de/munich_lhcom_food_de.mp4
 - /de/de/articles/tags/munich: /content/dam/video/c3/audiotravelguide/muc/01_interessensbasiert/de/munich_lhcom_geschichte_de.mp4
 
-## not recorded yet (0)
+## not recorded yet (3)
 
+- /xx/hk/lufthansa-express-rail: /content/dam/lh/videos/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-rail/260916 LHA Express Rail EN V01_8118929.mp4
+- /xx/pt/lufthansa-express-rail: /content/dam/lh/videos/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-rail/260916 LHA Express Rail EN V01_8118929.mp4
+- /xx/ru/lufthansa-express-rail: /content/dam/lh/videos/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-rail/260916 LHA Express Rail EN V01_8118929.mp4
 
 ## subtitles not recorded yet (0)
 

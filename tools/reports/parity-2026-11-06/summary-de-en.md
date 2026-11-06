@@ -116,14 +116,34 @@ Per template and width (page-widths: pass / review / fail, mean unmasked mismatc
 | Teaser rows straight in www's page column (option spacious): the first image 40 px (20) under the intro, 80 px (40) between rows, 40 px (20) to the footer, as www's .column-view there; ours had 32, 66, 48 | hub, info, campaign, app-entry, insights (importer + block) | 4cb9f04c | www's /de/en/overview-travel-information (lh-parity-003 html/) |
 | Rows of column accordions: the title 64 px (44) under the text, 72 px to the accordions from 768 px, 30 px between stacked accordions, 80 px (40) to the next heading, as www's page-column .threecolumn and .accordion-maui | insights | f5d01a3c | www's /de/en/articles/tags (lh-parity-003 html/) |
 
+## The re-imports and the chat-panel recaptures on aem.page (offline package of 2026-11-06, item 3)
+
+The 45 re-import pages that have parity jobs (the 5 explore-the-world articles have none) and the 6
+chat-panel pages, at 1440, 768 and 390, on main--lh-com--moved-permanently.aem.page (previewed, not
+published) against www: this morning's lh-parity-002 screenshots, the chat-panel pages lh-parity-003's
+recaptures with the chat closed. 144 page-widths compared (9 without a www screenshot:
+south-africa-winter-promotion, a 404 on www, and the alias pages business-class and flynet, which
+redirect there). Against report-final (aem.live, before):
+
+| | then | now |
+|---|---|---|
+| mean unmasked mismatch | 21.8 % | 17.7 % |
+| pass / review / fail | 17 / 55 / 72 | 20 / 75 / 49 |
+
+42 page-widths better by more than 2 points, none worse by more than 2. The largest: the homepage
+50.0 -> 16.5 % (1440), 45.0 -> 9.5 % (390); special-meals 41.7 -> 9.4 %; contact-form-confirmation
+(390) 39.3 -> 10.7 %; internet-overview 42.5 -> 13.9 %. Unchanged: the pages whose documents did not
+change (seat-maps, shopping, meetings-and-events: 061 imports it as DA has it, its difference is
+not in the document). Every page-width: reimport-then-now.md.
+
 ## Open rows
 
 | Row | Pages | Kind | Owner |
 |---|---|---|---|
-| www's Lufthansa Chat Assistant panel is open in the www screenshot (support and refund pages; full screen at 390), so these page-widths compare against the panel | 6 pages x 3 widths: chat-panel.txt | www capture | the user's capture child: recapture with the chat closed |
+| www's chat panel in the www screenshots: recaptured with the chat closed (lh-parity-003) and compared again (item 3 below) | chat-panel.txt | www capture | done |
 | Not captured on www: 6 aliases redirect (lounges, business-class, digital-travel-companion, flynet, freigepaeck-regeln, rechnungsbeleg); 3 are www 404s now (child-restraint-systems, local-page/south-africa-winter-promotion, event/dghm-2026) | 9 | content | the user: keep, redirect or retire the 3 pages www dropped |
-| Content changed on www since our import (the homepage's Black Friday stage and news; the Skytrax award on new-onboard-experience; meetings-and-events' 01-03 steps and "Request offer now", content or the import, the fresh import tells) | reimport-content.txt | content | the user's harness: fresh de/en snapshot, re-import |
-| Imported before the importer could: the regular stage (640 px) and two-column teaser cards | reimport-importer-fixes.txt (48) | import | the user's harness: re-import from the de/en snapshots |
+| Content changed on www since our import: re-imported from lh-snapshots-061/062 and previewed (offline package, item 2), except business-class and first-class, held for a person's DA edit | reimport-content.txt | content | done; the 2 held: Ben |
+| Imported before the importer could: re-imported with rebuilt bundles and previewed (offline package, item 2), 2 held (above) | reimport-importer-fixes.txt (48) | import | done |
 | The flights hub's destination finder: www's grid full of offers, ours empty (the offer API does not answer this environment); masked, but the page is 4,000 px shorter | /de/en/flights | live data (impossible.md) | none |
 | pax-receipt's receipt form: built (passenger-receipt, pass 2). Open: on the own www host the block needs www's runtime-config (the receipt service's URL and key) on its origin to download; off it, a valid form opens www's page | 16 pax-receipt pages (preview-pax-receipt.txt) | functional | the user: who serves the config on the own host (lh-edge or a backend) |
 | Tabs whose panels hold image and text rows: the importer makes them Tab sections (pass 2); the documents come with a re-import once the info and campaign bundles are rebuilt | reimport-tabs.txt (7) | import | the user's harness: rebuild the bundles, re-import |
