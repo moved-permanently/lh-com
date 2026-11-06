@@ -42,3 +42,8 @@ sitemaps:
         destination: /sitemap/sitemap_lh_xx_es.xml
         hreflang: es
         alternate: /xx/es/{path}
+      xx-pt:
+        source: /xx/pt/search-index.json
+        destination: /sitemap/sitemap_lh_xx_pt.xml
+        hreflang: pt
+        alternate: /xx/pt/{path}
