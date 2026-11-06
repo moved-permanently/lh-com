@@ -256,8 +256,8 @@ export const LOCALE_TABLE = {
   'jp/ja': { country: 'jp', lang: 'ja', hreflang: 'ja-JP', status: 'live', documents: 'language', name: 'Japan | 日本語', countryName: { en: 'Japan', de: 'Japan', ja: 'Japan' }, homeAirport: 'TYO', currency: 'JPY', timeZone: null, shopLang: null },
   'xx/ko': { country: 'xx', lang: 'ko', hreflang: 'ko', status: 'live', documents: 'own', name: '다른 국가들 | 한국어', countryName: { en: null, de: null, ko: '다른 국가들' }, homeAirport: 'FRA', currency: 'EUR', timeZone: null, shopLang: null },
   'kr/ko': { country: 'kr', lang: 'ko', hreflang: 'ko-KR', status: 'live', documents: 'language', name: '대한민국 | 한국어', countryName: { en: 'Korea, Republic of', de: 'Korea, Republik', ko: '대한민국' }, homeAirport: 'SEL', currency: 'KRW', timeZone: null, shopLang: null },
-  'xx/pl': { country: 'xx', lang: 'pl', hreflang: 'pl', status: 'pilot', documents: 'own', name: 'Inne kraje | Polski', countryName: { en: null, de: null, pl: 'Inne kraje' }, homeAirport: 'FRA', currency: 'EUR', timeZone: null, shopLang: null },
-  'pl/pl': { country: 'pl', lang: 'pl', hreflang: 'pl-PL', status: 'pilot', documents: 'language', name: 'Polska | Polski', countryName: { en: 'Poland', de: 'Polen', pl: 'Polska' }, homeAirport: 'WAW', currency: 'PLN', timeZone: null, shopLang: null },
+  'xx/pl': { country: 'xx', lang: 'pl', hreflang: 'pl', status: 'live', documents: 'own', name: 'Inne kraje | Polski', countryName: { en: null, de: null, pl: 'Inne kraje' }, homeAirport: 'FRA', currency: 'EUR', timeZone: null, shopLang: null },
+  'pl/pl': { country: 'pl', lang: 'pl', hreflang: 'pl-PL', status: 'live', documents: 'language', name: 'Polska | Polski', countryName: { en: 'Poland', de: 'Polen', pl: 'Polska' }, homeAirport: 'WAW', currency: 'PLN', timeZone: null, shopLang: null },
 };
 
 /** Every market-language root of www (its sitemap dataset), space-separated. */
