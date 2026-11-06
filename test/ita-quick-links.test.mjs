@@ -71,3 +71,11 @@ test('ita-import.mjs runs the step on every document', () => {
   assert.ok(js.includes("import { withQuickLinksSidebar } from './ita-quick-links.mjs';"));
   assert.ok(/withQuickLinksSidebar\(withItaMetadata\(/.test(js));
 });
+
+test('the section\'s own section metadata (online check-in: flush, grey) stays with its content, not the box', () => {
+  const [, , content, aside] = sections(withQuickLinksSidebar(fixture('online-check-in-en')));
+  const style = (s) => [...s.querySelectorAll(':scope > .section-metadata > div')].map((r) => [...r.children].map(text).join(': '));
+  assert.deepEqual(style(content), ['style: flush, grey']);
+  assert.deepEqual(style(aside), ['Style: sidebar-aside']);
+  assert.equal(aside.querySelectorAll('.cards-teaser > div').length, 1);
+});

@@ -87,20 +87,24 @@ export function withQuickLinksSidebar(doc) {
   const meta = document.createElement('div');
   meta.className = 'section-metadata';
   meta.innerHTML = '<div><div>Style</div><div>sidebar-aside</div></div>';
-  // what follows the cards in the section (the page's metadata) stays after the box
+  // what follows the cards in the section stays after the box (the page's metadata); the
+  // section's own section metadata (its style) stays with the section's content
   const after = [];
   let n = taken[taken.length - 1].nextElementSibling;
   while (n) { after.push(n); n = n.nextElementSibling; }
+  const ownMeta = after.filter((el) => el.classList.contains('section-metadata'));
   taken.forEach((el) => el.remove());
-  aside.append(heading, block, meta, ...after);
+  aside.append(heading, block, meta, ...after.filter((el) => !ownMeta.includes(el)));
   // the sidebar's content: from the section's first H2 to the box
   const firstH2 = section.querySelector(':scope > h2');
   if (firstH2 && firstH2 !== section.firstElementChild) {
     const content = document.createElement('div');
     let m = firstH2;
     while (m) { const next = m.nextElementSibling; content.append(m); m = next; }
+    content.append(...ownMeta);
     section.after(content, aside);
   } else {
+    section.append(...ownMeta);
     section.after(aside);
   }
   return doc.replace(/<main>[\s\S]*<\/main>/, () => `<main>${main.innerHTML}</main>`);
