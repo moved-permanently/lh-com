@@ -1,5 +1,5 @@
 {
- "checkedAt": "2026-11-06T11:25:39.559Z",
+ "checkedAt": "2026-11-06T19:29:44.287Z",
  "edge": "https://lufthansa-edge.turnsthe.page",
  "documents": 550,
  "changedNow": 0,
@@ -7,12 +7,13 @@
  "tracks": 0,
  "files": {
   "da": 77,
-  "aem": 697,
+  "aem": 696,
   "r2": 0,
   "missing": [
    "/content/dam/lh/videos/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-rail/260916-lha-express-rail-en-v01-8118929.mp4",
    "/content/dam/lh/videos/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-rail/lha-express-rail-en-ad-8118927.vtt",
-   "/content/dam/lh/videos/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-rail/lha-express-rail-en-cc-8118928.vtt"
+   "/content/dam/lh/videos/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-rail/lha-express-rail-en-cc-8118928.vtt",
+   "/content/dam/video/c3/audiotravelguide/cpt/01_video/cpt-music-de.mp4"
   ]
  },
  "daOnly": [

@@ -218,3 +218,46 @@ Open, in one place:
 - Ours: the importer gaps (100-years/campaigns' sidebar image in the full import, xx/hk's accordion
   answers' inline links, add-fleet-metadata on roots without local documents); de/de's stage
   promotions; the 390 heights and spacings listed under item 4.
+
+## After the offline window
+
+Answers taken from the user: the receipt form's host rule stays (the own-host config is a cutover
+item); business-class and first-class are the harness's (re-imported, live), left alone; the 22
+snapshot pages (6 tab pages, 4 legal accordion pages in four locales) are the harness's;
+link-in-text-block on refund-form is www's own style, kept (Ben decides).
+
+### register-animal-cabin (xx/hk, xx/ru): done
+
+- xx/hk: from DA's current copy (the harness's relative success link of 6 Nov 02:36 kept), the PDF
+  links switched to the site's copies (switch-dam-pdfs: the assistance-dog form, the cabin checklist).
+- xx/ru: www links the form as `//content/dam/…pdf` (a host called "content"). The cleanup now reads
+  `//content/` as www's `/content/` (commit `7c285f33`, test first); the document fixed from DA's copy,
+  its PDF link the site's copy (200 on aem.page).
+- Preview paths: /xx/hk/register-animal-cabin, /xx/ru/register-animal-cabin (DA equal to the local copies).
+
+### A. styles.css: the seven rules with a nested :has() (done)
+
+Commit `1d88c6b8`. The rules never applied (browsers drop the whole rule). Rewritten without the
+nesting and scoped to lufthansa.com, so every other brand renders as it did:
+- fleet "Technical data" (11 lufthansa.com pages: 359 and 744 in de/en, de/de, at/de, gb/en, xx/pt,
+  and the tech guide): /de/en/359 links to heading 38 / 70 / 87 px at 390 / 768 / 1440, www 48 / 89 /
+  96 px of ink (the rule's measure); was 48 at every width (pages +39 px at 1440, -10 at 390).
+- the picture before a block (36 lufthansa.com pages per width): 40 px as www's (/de/en/lh-rentalcar:
+  www 730 -> 770, ours 730 -> 754 before), +16 px each.
+- SWISS: 66 pages carry the picture pattern (+16 to +40 px had the rule applied there, at 1440): with
+  the scoped rules measured unchanged at 1440 and 390. For ema-adobe: if SWISS wants www's 40 px too,
+  it is one theme rule.
+- Before and after measured on aem.page at 1440 and 390 for every page the rules reach (rules injected
+  into the served page); guard `test/styles-no-nested-has.test.mjs` for all of styles/.
+
+### B. Brussels P34-P37 (done, re-import by the harness)
+
+Commit `cbb23dd7`, tests first, checked on www's captured pages (brussels-parity-001/002a/002b, fetched
+from the drop and checked against the hashes in parity.md):
+- P34 the gift cards: text and buttons now follow each teaser (cards-icon-text partner).
+- P35 a list item's text around its link kept (accordion-columns).
+- P36 tabs whose panels hold accordions become Tab sections (lufthansa-sections).
+- P37 picture rows inside a sidebar's content are columns-media rows (info template).
+- Path list for the harness: `tools/reports/brussels/reimport-p34-37.txt` (6 captured pages; their
+  other language versions very likely too). lufthansa.com pages with the same patterns get them on
+  their next import.

@@ -1,8 +1,8 @@
 # Documents that link the site's own PDFs
 
-2026-11-06T11:23:56.539Z
+2026-11-06T19:21:30.241Z
 
-17 documents still link www's PDFs (10 PDFs); this run switched 0 links in 0 documents.
+19 documents still link www's PDFs (12 PDFs); this run switched 4 links in 2 documents.
 
 ## PDFs that keep www's link (10)
 
@@ -17,5 +17,7 @@
 - /content/dam/lh/documents/terms-conditions/2026_08_ABB_PT.pdf -> /content/dam/lh/documents/terms-conditions/2026-08-abb-pt.pdf: not published (404)
 - /content/dam/lh/documents/terms-conditions/2026_08_ABB_RU.pdf -> /content/dam/lh/documents/terms-conditions/2026-08-abb-ru.pdf: not published (404)
 
-## Documents changed (0)
+## Documents changed (2)
 
+- /xx/hk/register-animal-cabin
+- /xx/ru/register-animal-cabin

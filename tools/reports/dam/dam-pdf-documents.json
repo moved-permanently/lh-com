@@ -1,9 +1,9 @@
 {
- "checkedAt": "2026-11-06T11:23:56.539Z",
- "documents": 17,
- "changedNow": 0,
- "links": 0,
- "pdfs": 10,
+ "checkedAt": "2026-11-06T19:21:30.241Z",
+ "documents": 19,
+ "changedNow": 2,
+ "links": 4,
+ "pdfs": 12,
  "waiting": [
   {
    "www": "/content/dam/lh/documents/FRA_Germany_Concur_Anleitung_210x297_EN.PDF",
@@ -56,5 +56,8 @@
    "status": "not published (404)"
   }
  ],
- "changed": []
+ "changed": [
+  "/xx/hk/register-animal-cabin",
+  "/xx/ru/register-animal-cabin"
+ ]
 }

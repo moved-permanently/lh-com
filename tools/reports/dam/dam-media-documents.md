@@ -1,8 +1,8 @@
 # Documents that play the site's own videos
 
-2026-11-06T11:25:39.559Z, files checked on https://lufthansa-edge.turnsthe.page
+2026-11-06T19:29:44.287Z, files checked on https://lufthansa-edge.turnsthe.page
 
-550 documents play videos; 547 use the site's own files (0 video links, 0 subtitle links). Files: 77 in DA, 697 on the AEM publish tier, 0 in R2, 3 not there yet.
+550 documents play videos; 547 use the site's own files (0 video links, 0 subtitle links). Files: 77 in DA, 696 on the AEM publish tier, 0 in R2, 4 not there yet.
 
 ## Every file in DA (243)
 
