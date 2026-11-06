@@ -51,6 +51,7 @@ test('the tab bar from 1025px: one tab per item, the first selected, panels labe
   assert.ok(block.classList.contains('is-tabbed'));
   assert.deepEqual(state(block), ['Benefits:true:0', 'Conditions:false:-1', 'Booking:false:-1']);
   const tabs = [...bar.children];
+  assert.deepEqual(tabs.map((t) => t.getAttribute('role')), ['tab', 'tab', 'tab'], 'the tablist\'s buttons are tabs (axe aria-required-children, aria-allowed-attr)');
   items.forEach((item, i) => {
     const panel = item.querySelector('.accordion-columns-panel');
     assert.equal(panel.getAttribute('role'), 'tabpanel');

@@ -164,6 +164,7 @@ export function buildTabs(block, items, media = window.matchMedia(TABS_MEDIA)) {
     const tab = document.createElement('button');
     tab.type = 'button';
     tab.className = 'accordion-columns-tab';
+    tab.setAttribute('role', 'tab');
     tab.id = `${id}-tab-${i + 1}`;
     tab.textContent = item.querySelector(':scope > summary').textContent.trim();
     tab.setAttribute('aria-controls', panel.id);
