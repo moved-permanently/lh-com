@@ -759,12 +759,13 @@ main > .section.columns-logos-container {
    section before it on mobile (collapses with its 48px), 70px from 768px, 87px from 1025px
    (live /de/en/359: seat map links to the heading 48 / 89 / 96px of ink); after a grey band
    (boeing787 Allegris) 76px, 97px, 95px (live grey end to the heading 102 / 143 / 143px). Only a heading-and-table section after
-   another section: info tables (C4-3) sit elsewhere and keep the normal spacing */
-main > .section + .section.table-striped-container:has(> .default-content-wrapper:first-child:has(> h2:only-child) + .table-striped-wrapper:last-child) {
+   another section: info tables (C4-3) sit elsewhere and keep the normal spacing. (Until 2026-11-06 a :has() inside the :has():
+   browsers dropped these rules; now two :has() side by side, lufthansa.com only, the other brands as they rendered) */
+body.brand-lufthansa main > .section + .section.table-striped-container:has(> .default-content-wrapper:first-child > h2:only-child):has(> .default-content-wrapper:first-child + .table-striped-wrapper:last-child) {
   margin-top: -10px;
 }
 
-main > .section.grey + .section.table-striped-container:has(> .default-content-wrapper:first-child:has(> h2:only-child) + .table-striped-wrapper:last-child) {
+body.brand-lufthansa main > .section.grey + .section.table-striped-container:has(> .default-content-wrapper:first-child > h2:only-child):has(> .default-content-wrapper:first-child + .table-striped-wrapper:last-child) {
   margin-top: 76px;
 }
 
@@ -773,21 +774,21 @@ main > .section.grey + .section.table-striped-container:has(> .default-content-w
     margin-bottom: 78px;
   }
 
-  main > .section + .section.table-striped-container:has(> .default-content-wrapper:first-child:has(> h2:only-child) + .table-striped-wrapper:last-child) {
+  body.brand-lufthansa main > .section + .section.table-striped-container:has(> .default-content-wrapper:first-child > h2:only-child):has(> .default-content-wrapper:first-child + .table-striped-wrapper:last-child) {
     margin-top: 70px;
   }
 
-  main > .section.grey + .section.table-striped-container:has(> .default-content-wrapper:first-child:has(> h2:only-child) + .table-striped-wrapper:last-child) {
+  body.brand-lufthansa main > .section.grey + .section.table-striped-container:has(> .default-content-wrapper:first-child > h2:only-child):has(> .default-content-wrapper:first-child + .table-striped-wrapper:last-child) {
     margin-top: 97px;
   }
 }
 
 @media (width >= 1025px) {
-  main > .section + .section.table-striped-container:has(> .default-content-wrapper:first-child:has(> h2:only-child) + .table-striped-wrapper:last-child) {
+  body.brand-lufthansa main > .section + .section.table-striped-container:has(> .default-content-wrapper:first-child > h2:only-child):has(> .default-content-wrapper:first-child + .table-striped-wrapper:last-child) {
     margin-top: 87px;
   }
 
-  main > .section.grey + .section.table-striped-container:has(> .default-content-wrapper:first-child:has(> h2:only-child) + .table-striped-wrapper:last-child) {
+  body.brand-lufthansa main > .section.grey + .section.table-striped-container:has(> .default-content-wrapper:first-child > h2:only-child):has(> .default-content-wrapper:first-child + .table-striped-wrapper:last-child) {
     margin-top: 95px;
   }
 }
@@ -1180,14 +1181,16 @@ main > .section > div + .default-content-wrapper:not(:first-child):has(> p.colum
   margin-top: 0;
 }
 
-main:has(.column-start, .column-start-outer) > .section > .default-content-wrapper:has(> p:last-child:is(:has(> picture), :has(> a > picture)):not(.column-end, .column-end-outer)) + div:not(.default-content-wrapper),
-body.flow-spacing main > .section > .default-content-wrapper:has(> p:last-child:is(:has(> picture), :has(> a > picture)):not(.column-end, .column-end-outer)) + div:not(.default-content-wrapper) {
-  margin-top: 40px;
-}
-
 main:has(.column-start, .column-start-outer) > .section > .default-content-wrapper:has(> :not(p.spacer)):has(> p.spacer:last-child) + div:not(.default-content-wrapper),
 body.flow-spacing main > .section > .default-content-wrapper:has(> :not(p.spacer)):has(> p.spacer:last-child) + div:not(.default-content-wrapper) {
   margin-top: 0;
+}
+
+/* (until 2026-11-06 a :has() inside the :has(), dropped by browsers: lufthansa.com only now, www's
+   40px from the picture to the block, /de/en/lh-rentalcar; the other brands as they rendered) */
+body.brand-lufthansa main:has(.column-start, .column-start-outer) > .section > .default-content-wrapper:is(:has(> p:last-child:not(.column-end, .column-end-outer) > picture), :has(> p:last-child:not(.column-end, .column-end-outer) > a > picture)) + div:not(.default-content-wrapper),
+body.brand-lufthansa.flow-spacing main > .section > .default-content-wrapper:is(:has(> p:last-child:not(.column-end, .column-end-outer) > picture), :has(> p:last-child:not(.column-end, .column-end-outer) > a > picture)) + div:not(.default-content-wrapper) {
+  margin-top: 40px;
 }
 
 /* a page whose content ends with a column view: its padding is the space to the footer (live:
