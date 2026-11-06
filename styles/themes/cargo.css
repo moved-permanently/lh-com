@@ -1160,6 +1160,159 @@ body.brand-cargo main > .section.key-facts .carousel-images .carousel-images-dot
   }
 }
 
+/* brief 442: below 768 px (www's md breakpoint) www's phone slider (LCAGCP-lcagMobileFactsSlider,
+   carousel-cards (facts), measured on cargo-parity-001 at 390): the band as tall as the phone photo
+   (556 x 864), "Key Facts" at its top, one slide at a time, its lines 24/28.8 bold navy, centred,
+   10 px apart; the arrows (48 px) either side of the dots (20 px navy rings, the current one filled)
+   in one row 100 px above the band's foot; the "Facts & Figures" link 16 px navy, 16 px in, 30 px
+   above the foot; the desktop slides hidden. From 768 px the desktop slider as before */
+body.brand-cargo main > .section.key-facts:has(.carousel-cards.facts) {
+  display: flex;
+  flex-direction: column;
+  aspect-ratio: 556 / 864;
+}
+
+/* (each wrapper the band's width: in a column the margins would centre them at their content's) */
+body.brand-cargo main > .section.key-facts:has(.carousel-cards.facts) > div {
+  width: 100%;
+  margin-inline: 0;
+}
+
+body.brand-cargo main > .section.key-facts .carousel-images-wrapper:has(~ .carousel-cards-wrapper .carousel-cards.facts) {
+  display: none;
+}
+
+body.brand-cargo main > .section.key-facts .carousel-cards-wrapper:has(> .carousel-cards.facts) {
+  margin-top: auto;
+}
+
+body.brand-cargo main > .section.key-facts .carousel-cards.facts {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+body.brand-cargo main > .section.key-facts .carousel-cards.facts :is(.carousel-cards-viewport, .carousel-cards-nav:not([hidden])) {
+  display: contents;
+}
+
+body.brand-cargo main > .section.key-facts .carousel-cards.facts .carousel-cards-track {
+  flex: 0 0 100%;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+}
+
+body.brand-cargo main > .section.key-facts .carousel-cards.facts .carousel-cards-slide {
+  flex: 0 0 100%;
+  justify-content: center;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+
+body.brand-cargo main > .section.key-facts .carousel-cards.facts .carousel-cards-image {
+  align-self: center;
+  width: 50%;
+  aspect-ratio: auto;
+  border-radius: 0;
+}
+
+body.brand-cargo main > .section.key-facts .carousel-cards.facts .carousel-cards-image:not(:has(img)) {
+  display: none;
+}
+
+body.brand-cargo main > .section.key-facts .carousel-cards.facts .carousel-cards-body {
+  padding: 0 16px;
+}
+
+body.brand-cargo main > .section.key-facts .carousel-cards.facts .carousel-cards-body p {
+  margin: 10px 0;
+  color: #05164d;
+  text-align: center;
+}
+
+body.brand-cargo main > .section.key-facts .carousel-cards.facts .carousel-cards-body p:has(> strong) {
+  font-family: var(--heading-font-family);
+  font-size: 24px;
+  line-height: 28.8px;
+}
+
+body.brand-cargo main > .section.key-facts .carousel-cards.facts :is(.carousel-cards-prev, .carousel-cards-next) {
+  position: static;
+  display: flex;
+  width: 48px;
+  height: 48px;
+  background: none;
+  color: #05164d;
+}
+
+body.brand-cargo main > .section.key-facts .carousel-cards.facts :is(.carousel-cards-prev, .carousel-cards-next)::before {
+  width: 40px;
+  height: 40px;
+}
+
+body.brand-cargo main > .section.key-facts .carousel-cards.facts .carousel-cards-prev {
+  order: 1;
+}
+
+body.brand-cargo main > .section.key-facts .carousel-cards.facts .carousel-cards-dots {
+  order: 2;
+  gap: 10px;
+  margin: 0 5px;
+}
+
+body.brand-cargo main > .section.key-facts .carousel-cards.facts .carousel-cards-next {
+  order: 3;
+}
+
+body.brand-cargo main > .section.key-facts .carousel-cards.facts .carousel-cards-dot {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #05164d;
+  background-color: transparent;
+}
+
+body.brand-cargo main > .section.key-facts .carousel-cards.facts .carousel-cards-dot[aria-current="true"] {
+  background-color: #05164d;
+}
+
+body.brand-cargo main > .section.key-facts .carousel-cards.facts .carousel-cards-dot::before {
+  content: none;
+}
+
+body.brand-cargo main > .section.key-facts .carousel-cards-wrapper ~ .default-content-wrapper {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  padding: 51px 16px 30px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- the key facts link, not a slide's or a card's text */
+body.brand-cargo main > .section.key-facts .carousel-cards-wrapper ~ .default-content-wrapper p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 19.2px;
+}
+
+@media (width >= 768px) {
+  body.brand-cargo main > .section.key-facts:has(.carousel-cards.facts) {
+    display: block;
+    aspect-ratio: auto;
+  }
+
+  body.brand-cargo main > .section.key-facts :is(.carousel-cards-wrapper:has(> .carousel-cards.facts), .carousel-cards-wrapper ~ .default-content-wrapper) {
+    display: none;
+  }
+
+  body.brand-cargo main > .section.key-facts .carousel-images-wrapper:has(~ .carousel-cards-wrapper .carousel-cards.facts) {
+    display: block;
+  }
+}
+
 body.brand-cargo .columns.support {
   padding: 40px 0;
 }
@@ -1288,4 +1441,10 @@ body.brand-cargo .cards-teaser.mosaic .cards-teaser-body a {
   font-weight: 400;
   line-height: 24px;
   text-decoration: none;
+}
+
+/* brief 442: the key facts' "Facts & Figures" link on phones navy, as www's (last: no later link rule
+   of lower specificity) */
+body.brand-cargo main > .section.key-facts .carousel-cards-wrapper ~ .default-content-wrapper a:any-link {
+  color: #05164d;
 }

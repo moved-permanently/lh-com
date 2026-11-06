@@ -757,6 +757,31 @@ function component(c, page) {
     const h = text(c.querySelector('.LCAGCP-lcagFactsHeadline'));
     if (h) page.add(`<h2>${esc(h)}</h2>`);
     carousel(c, page);
+    // www's phone slides (its phone copy, brief 442): carousel-cards (facts), which Cargo's theme
+    // shows below 768 px instead of the desktop slides; an icon only when lh-cargo's DA has it.
+    // Then the slider's "Facts & Figures" link (www's at the band's foot)
+    const mobile = c.parentElement?.querySelector(':scope > .LCAGCP-lcagMobileFactsSlider');
+    const slides = mobile ? [...mobile.querySelectorAll('.LCAGCP-mobileSlide:not(.slick-cloned)')] : [];
+    const rows = slides.map((s) => {
+      const icon = s.querySelector('img.LCAGCP-factIcon');
+      const src = icon && icon.getAttribute('src');
+      let pic = '';
+      if (src) {
+        const copy = page.file(src);
+        if (copy) pic = `<picture><img src="${attr(copy)}" alt=""></picture>`;
+        else page.missing.delete(fileKey(src));
+      }
+      const lines = [...s.querySelectorAll('.LCAGCP-mobileFactsText > *')].map((x) => {
+        const t = inline(x, page).trim();
+        if (!t) return '';
+        return /^H\d$/.test(x.tagName) ? `<p><strong>${t}</strong></p>` : `<p>${t}</p>`;
+      }).join('');
+      return [pic, lines];
+    }).filter((r) => r[1]);
+    if (rows.length) page.block('carousel-cards (facts)', rows);
+    const more = (mobile || c).querySelector('.LCAGCP-lcagFactsLink a[href]') || c.querySelector('.LCAGCP-lcagFactsLink a[href]');
+    const moreHref = more ? page.href(more.getAttribute('href')) : null;
+    if (moreHref && text(more)) page.add(`<p><a href="${attr(moreHref)}">${esc(text(more))}</a></p>`);
     page.section(null);
     return true;
   }
