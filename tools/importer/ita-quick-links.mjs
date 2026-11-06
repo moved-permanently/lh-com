@@ -1,4 +1,4 @@
-/* eslint-disable import/extensions, import/prefer-default-export -- tooling */
+/* eslint-disable max-len, import/extensions, import/prefer-default-export -- tooling */
 /* eslint-disable import/no-extraneous-dependencies -- linkedom: a dev dependency */
 /**
  * ITA's info pages with www's "Quick Links" sidebar (www.ita-airways.com's airem-sidebar:
@@ -80,12 +80,15 @@ function withGreyTeaser(document, section, ownMeta) {
 }
 
 /**
- * @param {string} doc a document (<body><header></header><main>…</main>…)
+ * @param {string} doc a document (<body><header></header><main>…</main>…) or its sections (.plain.html)
  * @returns {string} the document with the sidebar, or doc itself
  */
 export function withQuickLinksSidebar(doc) {
-  if (!/<main>/.test(doc) || /<div>sidebar-aside<\/div>/.test(doc)) return doc;
-  const { document } = parseHTML(`<!DOCTYPE html><html><body>${doc}</body></html>`);
+  if (/<div>sidebar-aside<\/div>/.test(doc)) return doc;
+  // a whole document (<main>…</main>) or the import's .plain.html (the sections only)
+  const isPlain = !/<main>/.test(doc);
+  const inner = isPlain ? doc : doc.match(/<main>([\s\S]*)<\/main>/)[1];
+  const { document } = parseHTML(`<!DOCTYPE html><html><body><main>${inner}</main></body></html>`);
   const main = document.querySelector('main');
   const heading = [...main.querySelectorAll(':scope > div > h4')].find((h) => isCardPicture(h.nextElementSibling));
   if (!heading) return doc;
@@ -143,5 +146,5 @@ export function withQuickLinksSidebar(doc) {
     section.append(...ownMeta);
     section.after(aside);
   }
-  return doc.replace(/<main>[\s\S]*<\/main>/, () => `<main>${main.innerHTML}</main>`);
+  return isPlain ? main.innerHTML : doc.replace(/<main>[\s\S]*<\/main>/, () => `<main>${main.innerHTML}</main>`);
 }

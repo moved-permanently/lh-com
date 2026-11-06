@@ -123,3 +123,12 @@ test('online check-in: again on its output, unchanged', () => {
   const once = withQuickLinksSidebar(fixture('online-check-in-it'));
   assert.equal(withQuickLinksSidebar(once), once);
 });
+
+test('the import\'s .plain.html (no <main>, as ita-import.mjs passes it): the same sections back', () => {
+  const full = fixture('carry-on-baggage-en');
+  const plain = full.match(/<main>([\s\S]*)<\/main>/)[1];
+  const out = withQuickLinksSidebar(plain);
+  assert.ok(out !== plain, 'the step runs on a plain document');
+  assert.ok(!out.includes('<main>'));
+  assert.equal(out, withQuickLinksSidebar(full).match(/<main>([\s\S]*)<\/main>/)[1]);
+});

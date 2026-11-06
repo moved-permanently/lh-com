@@ -76,3 +76,11 @@ test('decorateMain joins them after the blocks are marked', () => {
   assert.ok(js.includes("import joinAsideSections from './section-aside.js';"));
   assert.ok(/decorateBlocks\(main\);[\s\S]{0,400}joinAsideSections\(main\);/.test(js));
 });
+
+/* brief 432 (SWISS's tab panels with a sidebar, swiss-business): the asides are joined before the
+   tab sets are built, so an aside section between two Tab sections joins its panel instead of
+   splitting the set */
+test('decorateMain joins the asides before it builds the tab sets', () => {
+  const js = fs.readFileSync(new URL('../scripts/scripts.js', import.meta.url), 'utf8');
+  assert.ok(/joinAsideSections\(main\);[\s\S]{0,400}decorateSectionTabs\(main\);/.test(js));
+});

@@ -23,6 +23,8 @@
  * - the check-in entry becomes the booking-lookup block (withCheckinTabs), its hand-off the page
  *   on www (withCheckinHandoff); the booking login's "Enter booking code" opens the page on www;
  * - two-column teaser rows import as carousel-cards (withTeaserColumns);
+ * - www's sidebar component (airem-sidebar) as its content beside a sidebar-aside section, its
+ *   two-column views as columns-media rows (swiss-sidebar.mjs withSwissSidebar, brief 432);
  * - metadata (withItaMetadata): the root's nav and footer, `markets` (scope.json), www's noindex;
  * - a path Edge Delivery refuses (capitals, "&", double, leading or trailing hyphens) becomes its
  *   document name (docName) and a row of content-sites/lh-swiss/runs/redirects.tsv;
@@ -43,6 +45,7 @@ import { relativeDamLinks } from './swiss-dam.mjs';
 import { edsDamPath } from '../../scripts/dam-path.js';
 import { withLocalImages } from './swiss-nav.mjs';
 import { stripScripts } from './excat-plugin.mjs';
+import { withSwissSidebar } from './swiss-sidebar.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const argv = process.argv.slice(2);
@@ -878,7 +881,8 @@ if (isMain) {
       const src = Object.keys(out).find((k) => docName(k) === p);
       const markets = scope.documents[src]?.markets || [];
       const snapHtml = fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8');
-      const next = splitTabSections(withFlightSearchTeaser(withFlightSearchVideo(withHeroVideo(withItaMetadata(withCheckinHandoff(withFlightSearch(withPageLanguageMessages(withItaForm(doc, p, snapHtml), p), p), p), p, snapHtml, markets), snapHtml), snapHtml), snapHtml));
+      // www's sidebar component (airem-sidebar) as the content beside a sidebar-aside section (swiss-sidebar.mjs)
+      const next = withSwissSidebar(splitTabSections(withFlightSearchTeaser(withFlightSearchVideo(withHeroVideo(withItaMetadata(withCheckinHandoff(withFlightSearch(withPageLanguageMessages(withItaForm(doc, p, snapHtml), p), p), p), p, snapHtml, markets), snapHtml), snapHtml), snapHtml)), snapHtml).doc;
       if (next !== doc) fs.writeFileSync(f, next);
     });
     const mapOnly = path.join(W, 'runs', `${name}-upload.txt`);

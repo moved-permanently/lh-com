@@ -347,10 +347,10 @@ export function decorateMain(main) {
   decorateHeadingIcons(main);
   decorateBlocks(main);
   decorateButtons(main);
-  // sections with the section metadata Tab (tab sets that hold blocks): a tab list over them
-  decorateSectionTabs(main);
   // a section with the style sidebar-aside: beside the section before it
   joinAsideSections(main);
+  // sections with the section metadata Tab (tab sets that hold blocks): a tab list over them
+  decorateSectionTabs(main);
 }
 
 /**
