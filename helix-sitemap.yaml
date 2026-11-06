@@ -52,3 +52,8 @@ sitemaps:
         destination: /sitemap/sitemap_lh_xx_ru.xml
         hreflang: ru
         alternate: /xx/ru/{path}
+      xx-hk:
+        source: /xx/hk/search-index.json
+        destination: /sitemap/sitemap_lh_xx_hk.xml
+        hreflang: zh
+        alternate: /xx/hk/{path}
