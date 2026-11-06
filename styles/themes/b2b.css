@@ -248,3 +248,29 @@ body.brand-b2b .columns-media.stage.light .columns-media-text > p:has(> a.button
     gap: 106px;
   }
 }
+
+/* the search field focused as www's (row 16, brief 421: the 390 and 1440 search-focused snapshots):
+   its label floats up to the field's top edge, 12 px grey, the entry below it, the placeholder and
+   the line under the field go; the focus outline stays, the keyboard's indicator */
+body.brand-b2b .search-results .search-results-form:focus-within .search-results-label {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  clip-path: none;
+  color: var(--lh-grey-7);
+  font-size: 12px;
+  line-height: 16px;
+}
+
+body.brand-b2b .search-results .search-results-input:focus::placeholder { color: transparent; }
+
+body.brand-b2b .search-results .search-results-input:focus {
+  padding-top: 16px;
+}
+
+body.brand-b2b .search-results .search-results-form:focus-within {
+  border-bottom-color: transparent;
+}

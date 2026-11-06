@@ -516,7 +516,7 @@ function focusables(root) {
 }
 
 function buildFlyout({
-  items, image, extras, login, labels, menuLabel,
+  items, image, extras, login, labels, menuLabel, logo,
 }) {
   const flyout = el('div', { className: 'nav-flyout', id: 'nav-flyout', hidden: true });
   const fog = el('div', { className: 'nav-flyout-fog' });
@@ -528,7 +528,10 @@ function buildFlyout({
   }, uiIcon('arrow-left'));
   const title = el('p', { className: 'nav-flyout-title', 'aria-hidden': 'true' });
   const close = el('button', { type: 'button', className: 'nav-flyout-close', 'aria-label': labels.close }, uiIcon('close'));
-  const top = el('div', { className: 'nav-flyout-top' }, back, title, close);
+  // a brand whose phone menu shows its logo in the head (header option flyoutLogo: B2B), a copy of
+  // the bar's; decorative, the bar's own logo is the one announced
+  const brandLogo = logo ? el('span', { className: 'nav-flyout-logo', 'aria-hidden': 'true' }, logo) : null;
+  const top = el('div', { className: 'nav-flyout-top' }, ...[back, brandLogo, title, close].filter(Boolean));
 
   const menu = el('ul', { className: 'nav-flyout-menu' });
   const subs = [];
@@ -1047,6 +1050,7 @@ export default async function decorate(block) {
     login: flyoutLogin,
     labels,
     menuLabel,
+    logo: headerStyle.flyoutLogo && brandEl.querySelector('img') ? brandEl.querySelector('img').cloneNode(true) : null,
   });
   // (TAP: the menu button opens its own menu, below)
   if (!tap) flyout.bind(menuButton);

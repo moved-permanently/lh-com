@@ -280,9 +280,10 @@ export const BRANDS = {
     www: 'business.lufthansagroup.com',
     portal: 'B2BNEO',
     // www's header (blocks/header): the menu's top items in the bar with drop-downs, the logo not
-    // a link, a boxed search button to the search page, no country selector (the footer's)
+    // a link, a boxed search button to the search page, no country selector (the footer's); the
+    // phone menu shows the logo in its head (brief 421)
     header: {
-      menu: 'bar', logoLink: false, search: 'button', locale: false,
+      menu: 'bar', logoLink: false, search: 'button', locale: false, flyoutLogo: true,
     },
     // the cookie banner's links: www's Data protection page (its cookie categories too) and Imprint
     consentLinks: {

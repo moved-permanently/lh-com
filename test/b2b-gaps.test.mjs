@@ -15,12 +15,14 @@ const b2bRules = (css) => [...css.replace(/\/\*[\s\S]*?\*\//g, '').matchAll(/([^
 
 test('header.css: the bar padding and the open item\'s fill, only under body.brand-b2b', () => {
   const rules = b2bRules(read('blocks/header/header.css'));
-  assert.deepEqual(rules.map((r) => r.body), [
+  // (then brief 421's phone menu, test/b2b-parity-421.test.mjs)
+  assert.deepEqual(rules.slice(0, 3).map((r) => r.body), [
     '--header-bar-padding: 10.5px 24px;',
     '--header-bar-padding: 16px 24px 17px;',
     'background-color: #e6f2ff;',
   ]);
-  rules.forEach((r) => r.sel.split(',').forEach((s) => assert.ok(s.trim().startsWith('body.brand-b2b '), s)));
+  // (a comma inside :is() doesn't start a selector)
+  rules.forEach((r) => r.sel.split(/,(?![^(]*\))/).forEach((s) => assert.ok(s.trim().startsWith('body.brand-b2b '), s)));
   assert.ok(read('blocks/header/header.css').includes('background-color: #e8eef9;'), 'the shared hover fill as before');
 });
 

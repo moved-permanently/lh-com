@@ -1472,6 +1472,125 @@ body.brand-b2b .header .nav-bar-menu-button[aria-expanded="true"] {
   background-color: #e6f2ff;
 }
 
+/* lh-b2b round 2 (brief 421, tools/reports/b2b/parity.md rows 14-17, 22; www's 390-menu and
+   390-menu-login snapshots): the phone menu a white card 15 px from the top and the sides (radius
+   12 px, www's shadow), its head the logo and the close button (72 px), entries 18 px semi-bold
+   58 px apart from 24 px in, the search a 56 px box at the bottom; the sub-panel's head the back
+   chevron and the title (64 px); the bar's menu buttons and the entries in the plain sans-serif
+   www's visitors see (www's own CSS names a face it doesn't load and falls back); the menu icon
+   www's three thin lines (32 x 24 px); .nav-wrapper.nav-has-bar-menu: above the bar menu's flyout rules (lh-b2b, SWISS
+   sub-sites, TAP) */
+@media (width < 1025px) {
+  body.brand-b2b .header .nav-flyout-panel {
+    inset: 15px 15px 0 auto;
+    width: calc(100% - 30px);
+    border-radius: 12px;
+    box-shadow: rgb(0 0 0 / 10%) -2px 0 8px 0;
+  }
+
+  body.brand-b2b .header .nav-flyout-panel:not(.is-expanded) .nav-flyout-top {
+    height: 72px;
+    padding: 16px 20px 16px 24px;
+  }
+
+  body.brand-b2b .header .nav-flyout-panel.is-expanded .nav-flyout-top {
+    gap: 4px;
+    height: 64px;
+    padding: 12px 24px 12px 16px;
+  }
+
+  body.brand-b2b .header .nav-flyout-main {
+    min-height: calc(100dvh - 87px);
+    padding: 0 24px 34px;
+  }
+
+  body.brand-b2b .header .nav-flyout-sub {
+    padding: 24px 24px max(32px, env(safe-area-inset-bottom));
+  }
+}
+
+body.brand-b2b .header .nav-menu-button .lh-icon {
+  display: none;
+}
+
+body.brand-b2b .header .nav-menu-button::before {
+  content: "";
+  width: 32px;
+  height: 24px;
+  background:
+    linear-gradient(currentcolor, currentcolor) 0 2px / 100% 2px no-repeat,
+    linear-gradient(currentcolor, currentcolor) 0 11px / 100% 2px no-repeat,
+    linear-gradient(currentcolor, currentcolor) 0 20px / 100% 2px no-repeat;
+}
+
+body.brand-b2b .header .nav-flyout-logo {
+  display: flex;
+  flex: 0 0 auto;
+}
+
+/* www's 164 x 28 px */
+body.brand-b2b .header .nav-flyout-logo img {
+  width: auto;
+  height: 28px;
+}
+
+body.brand-b2b .header .nav-flyout-panel.is-expanded :is(.nav-flyout-close, .nav-flyout-logo) {
+  display: none;
+}
+
+body.brand-b2b .header .nav-wrapper.nav-has-bar-menu :is(.nav-bar-menu-button, .nav-flyout-item) {
+  font-family: sans-serif;
+}
+
+body.brand-b2b .header .nav-wrapper.nav-has-bar-menu .nav-flyout-item {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* the entries 58 px apart (17 px above and below the 24 px chevron, no margin between) */
+body.brand-b2b .header .nav-wrapper.nav-has-bar-menu .nav-flyout-menu .nav-flyout-item {
+  padding: 17px 0;
+}
+
+body.brand-b2b .header .nav-wrapper.nav-has-bar-menu .nav-flyout-group + .nav-flyout-group {
+  margin-top: 40px;
+}
+
+body.brand-b2b .header .nav-flyout-menu > li + li {
+  margin-top: 0;
+}
+
+body.brand-b2b .header .nav-flyout-title {
+  font-size: 18px;
+  font-weight: 600;
+  text-align: left;
+}
+
+body.brand-b2b .header .nav-wrapper.nav-has-bar-menu .nav-flyout-extra {
+  box-sizing: border-box;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  padding: 0;
+  border: 1px solid #ebebeb;
+  border-radius: 8px;
+}
+
+body.brand-b2b .header .nav-wrapper.nav-has-bar-menu .nav-flyout-extra .lh-icon {
+  width: 32px;
+  height: 32px;
+}
+
+/* the box's label for screen readers only */
+body.brand-b2b .header .nav-wrapper.nav-has-bar-menu .nav-flyout-extra .nav-tool-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
 /* the language list in the bar (header.languages 'bar', header-languages.js: SWISS's corporate site
    and medical services): www's globe and the current language's code, its screen-reader text
    hidden, the other languages in a list below it */
