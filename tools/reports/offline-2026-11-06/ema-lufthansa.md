@@ -145,3 +145,71 @@ Open:
   10 or 22 the captures show?
 - Local only: content-sites/lh-cargo/paths.json (not in git) has 53 es/fr/it/pt entries added for
   this run.
+
+## 5. Accessibility pass on Cargo's and Brussels's captured pages (done, open below)
+
+axe-core 4.10.2 (the npm package, sha512 checked; nothing from www) on the aem.page previews: Cargo's
+24 captured pages (cargo-parity-001) and Brussels's 80 (brussels-parity-002a/b), each at 1440 and
+390, WCAG 2.0 to 2.2 A and AA, after the consent choice ("Only necessary"), the page scrolled through.
+Then axe's best-practice rules at 1440.
+
+Method note: the first runs found almost nothing, because the replica's showcase notice (a modal
+dialog) sometimes opened after the script had looked for it, and axe treats everything outside an
+open modal as hidden. The runner now closes any modal right before axe and records a sanity check
+per page (rules passed, any modal still open). Every result was run again that way: 23 to 33 rules
+passed on each page, none blinded.
+
+Fixed (ours):
+- accordion-columns' tab bar: the buttons inside role="tablist" had no role="tab" (axe
+  aria-required-children and aria-allowed-attr, critical; Cargo's support and contact pages).
+  Brand-neutral fix in blocks/accordion-columns/accordion-columns.js, test first; every brand's
+  smoke before and after (commit 2a0bf51).
+- Brussels' our-destinations (be/en, be/fr) had no page title (best practice page-has-heading-one;
+  www has its finder's "Best offers" h1). Brussels importer and documents, parity.md P42
+  (commit e077925). Preview paths: tools/reports/brussels/preview-offline-2026-11-06-finder.txt.
+
+After the fixes: WCAG A/AA, Brussels 0 violations on all 160 page-widths, Cargo one (below).
+
+Open, not ours:
+- Cargo /de/ci/facts-figures and /en/ci/facts-figures at 1440: carousel-cards' track scrolls sideways but
+  can't be reached by keyboard (scrollable-region-focusable, serious; the slides hold no links).
+  carousel-cards is Cargo's homepage block family (ema-adobe); the fix would be tabindex="0" with a
+  label on the track when it scrolls.
+- Best practice, shared code: the replica's demo badge text (.demo-badge-sr, "Demo: not a ...
+  website") sits outside the landmarks on every page (region); the footer's column headings are h3
+  where main has no h2 (heading-order); carousel-cards and carousel-images as role="region" with the
+  same label more than once on a page (landmark-unique, 25 Brussels pages).
+- Best practice, as www has it: card titles that skip a level (h2 to h4, www's own levels, 60
+  Brussels page-widths); no h1 on the homepages, Cargo's SDG pages and two travel class pages (www has
+  none there either); one picture whose alt repeats its caption (the Belgian icons, "Trident").
+- Brussels be/nl and it/it our-destinations: still without a title (no capture shows the finder's
+  Dutch or Italian label).
+
+## Also done in this package
+
+- Brussels P40 (from item 3): Beobank's title was red where www's is #1a1a1a: www's h1 there has
+  the "medium" heading style, which the document already carries ({heading-medium}). The Brussels
+  theme now makes only titles without a smaller style red (commit 485ee47; checked locally with
+  lh-brussels' preview content at 1440 and 390 against brussels-parity-002b).
+- Brussels P41 (from item 3), causes found: online check-in options imports through lh-com's
+  app-entry template, which has no mapping for www's four-column teaser cards ("Autres sujets"
+  comes out as four full-width pictures): for ema-cashub (page-templates.json). Payment methods:
+  nothing missing. The articles hub: www's newest article (Milan) needs a newer capture.
+- ema-adobe's note on Cargo's --spacing-default (cargo.css): left at 20 px. It sets the space
+  below headings and paragraphs and between blocks in one section, 20 px as www's text. The
+  homepage's differences are padding inside some of www's components, not one gap (cargo-parity-001,
+  en at 1440: ours shorter by 53 px at the news, 64 at the fleet, 51 at eServices, 80 at About, the
+  ULD teaser 20 px taller; at 390 our homepage is 171 px taller than www's). Raising the shared gap
+  would make phones worse. This belongs in the homepage blocks' CSS, per component (ema-adobe).
+
+## Left at the end
+
+- Not in git, on purpose: .migration/project.json (workspace setup); content-sites/ (ignored; it
+  holds the imported documents, lh-cargo's paths.json with the 53 language entries, the runs);
+  .scratch/ (excluded locally: the downloaded archives, measurements, axe results, scratch tools).
+- Every commit of this package is on main and pushed; smoke of every brand before and after each
+  push: no difference except lufthansa.com's sitemaps, which change with lh-com's own uploads
+  (ema-cashub's), not with these commits.
+- Questions for Ben: the Cargo transport stories hub (item 4: all 100 stories or as now). Inputs
+  that would close open rows: captures of the 12 en/de Cargo pages (item 4), a newer Brussels
+  capture (P38, P41's Milan), the finder's Dutch and Italian labels.
