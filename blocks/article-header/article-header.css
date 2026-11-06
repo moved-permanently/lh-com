@@ -321,3 +321,11 @@
     padding: 0 10px;
   }
 }
+
+/* lh-com (parity 2026-11-06): www's maui-chip 16px/24px, padding 0 14px (shadow DOM of the
+   archived /de/en/articles/explore-the-world/on-the-scene-sports-miami, 390 and 1440) */
+body.brand-lufthansa .article-header .article-header-tags a:any-link,
+body.brand-lufthansa .article-header .article-header-tags span {
+  padding: 0 14px;
+  font-size: 16px;
+}
