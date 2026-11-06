@@ -312,3 +312,83 @@ main > .section > .hero-card-overlay-wrapper {
     margin-bottom: 30px;
   }
 }
+
+/* stylelint-disable no-descending-specificity -- Cargo's ULD teaser after the shared rules */
+
+/* option plain (Lufthansa Cargo's homepage ULD teaser, brief 430; www's .teaserULD,
+   cargo-parity-001): the photo 640px high across the screen at every width, no card: the text on the
+   photo in the column, centred top to bottom, #05164d (20px in on phones, 40px from 768px): the line
+   above the heading LufthansaHead Light 32/36, the heading bold 32/36 (28/32 on phones), 20px apart,
+   the link bold 18/24 #52627c */
+body.brand-cargo .hero-card-overlay.plain {
+  justify-content: center;
+  min-height: 640px;
+  aspect-ratio: auto;
+}
+
+body.brand-cargo .hero-card-overlay.plain .hero-card-overlay-media {
+  position: absolute;
+  inset: 0;
+  aspect-ratio: auto;
+}
+
+body.brand-cargo .hero-card-overlay.plain .hero-card-overlay-card {
+  width: 100%;
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: 20px var(--layout-margin);
+  border-radius: 0;
+  background: none;
+  color: #05164d;
+}
+
+body.brand-cargo .hero-card-overlay.plain .hero-card-overlay-card .hero-card-overlay-eyebrow {
+  margin-bottom: 20px;
+  font-size: 32px;
+  font-weight: 300;
+  line-height: 36px;
+}
+
+body.brand-cargo .hero-card-overlay.plain .hero-card-overlay-card :is(h1, h2, h3, h4, h5, h6) {
+  margin-bottom: 20px;
+  color: #05164d;
+  font-size: 28px;
+  line-height: 32px;
+}
+
+body.brand-cargo .hero-card-overlay.plain .hero-card-overlay-cta a:any-link:not(.button) {
+  color: #52627c;
+  font-family: var(--body-font-family);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+@media (width >= 768px) {
+  body.brand-cargo .hero-card-overlay.plain .hero-card-overlay-card {
+    padding: 40px var(--layout-margin);
+  }
+
+  body.brand-cargo .hero-card-overlay.plain .hero-card-overlay-card :is(h1, h2, h3, h4, h5, h6) {
+    font-size: 32px;
+    line-height: 36px;
+  }
+}
+
+@media (width >= 1025px) {
+  body.brand-cargo .hero-card-overlay.plain {
+    aspect-ratio: auto;
+  }
+
+  body.brand-cargo .hero-card-overlay.plain .hero-card-overlay-card {
+    width: 100%;
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+    border-radius: 0;
+  }
+
+  body.brand-cargo .hero-card-overlay.plain .hero-card-overlay-card :is(h1, h2, h3, h4, h5, h6) {
+    margin-bottom: 20px;
+  }
+}
+/* stylelint-enable no-descending-specificity */

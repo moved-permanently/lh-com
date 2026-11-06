@@ -27,7 +27,8 @@
  * columns-media (band, gradient, stats, icons), products columns-media (band, dark, features,
  * icons) (icons: www's sprites, brief 429), about columns-media (band, dark, facts), each with its
  * heading inside; fleet tiles: cards-teaser
- * (overlay); eServices slider: carousel-cards; ULD teaser: hero-card-overlay), the company pages (video header:
+ * (overlay, fleet); eServices slider: carousel-cards (slides); ULD teaser: hero-card-overlay
+ * (plain), brief 430), the company pages (video header:
  * hero-campaign; facts slider: carousel-images; history timeline: carousel-cards), articles
  * (asset publisher: H1, dateline, text, image), legal pages (tables: table-striped).
  * Everywhere: forms, the portal's tools and Google Maps become a link to the page on www; the
@@ -1041,7 +1042,7 @@ function ourFleet(c, page) {
     const label = text(card.querySelector('.overlay p')) || figure;
     return [i ? page.img(i) : '', `<h3>${esc(figure || label)}</h3>${href ? `<p><a href="${attr(href)}">${esc(label)}</a></p>` : ''}`];
   });
-  if (cards.length) page.block('cards-teaser (overlay)', cards);
+  if (cards.length) page.block('cards-teaser (overlay, fleet)', cards);
 }
 
 function ourProducts(c, page) {
@@ -1068,7 +1069,7 @@ function slideCards(c, page) {
     const body = s.querySelector('.slide-content') || s;
     return [i ? page.img(i) : '', flow(body, page, 'cell').join('')];
   });
-  if (rows.length) page.block('carousel-cards', rows);
+  if (rows.length) page.block('carousel-cards (slides)', rows);
 }
 
 function teaserOverlay(c, page) {
@@ -1077,7 +1078,7 @@ function teaserOverlay(c, page) {
   const eyebrow = text(o.querySelector('.subtitle'));
   const clone = o.cloneNode(true);
   clone.querySelectorAll('.subtitle').forEach((x) => x.remove());
-  page.block('hero-card-overlay', [[i ? page.img(i) : ''], [`${eyebrow ? `<p>${esc(eyebrow)}</p>` : ''}${flow(clone, page, 'cell').join('')}`]]);
+  page.block('hero-card-overlay (plain)', [[i ? page.img(i) : ''], [`${eyebrow ? `<p>${esc(eyebrow)}</p>` : ''}${flow(clone, page, 'cell').join('')}`]]);
 }
 
 function about(c, page) {

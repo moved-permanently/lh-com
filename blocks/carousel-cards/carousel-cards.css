@@ -642,3 +642,149 @@ body:is(.brand-swiss, .brand-austrian, .brand-ita, .brand-brussels, .brand-disco
 .carousel-cards.phone-slider.grid :is(.carousel-cards-nav, .carousel-cards-dots) {
   display: none;
 }
+
+/* stylelint-disable no-descending-specificity -- Cargo's slides after the shared rules */
+
+/* option slides (Lufthansa Cargo's homepage eServices, brief 430; www's .eservicesSlider,
+   cargo-parity-001): one slide to the row below 1025px, two from 1025px (636px at 1440, 24px apart,
+   the third peeking into the margin); no card box: the 16:9 photo with 5px corners, the text 20px
+   under it (the title LufthansaHead Light 28/32, 24/28 on phones; the text 18/24; the link bold 18/24
+   #52627c); www's arrows: 50px #ebebeb squares 8px from the screen's edges from 1025px, 32px at the
+   top right below (the slider 42px lower), #dcdcdc at an end; 8px dots 20px under the slides (10px
+   on phones) */
+body.brand-cargo .carousel-cards.slides {
+  padding-top: 42px;
+}
+
+body.brand-cargo .carousel-cards.slides .carousel-cards-track {
+  padding-block: 0;
+}
+
+body.brand-cargo .carousel-cards.slides .carousel-cards-slide {
+  flex-basis: 100%;
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+
+body.brand-cargo .carousel-cards.slides .carousel-cards-slide:hover {
+  box-shadow: none;
+}
+
+body.brand-cargo .carousel-cards.slides .carousel-cards-image {
+  aspect-ratio: 16 / 9;
+  border-radius: 5px;
+}
+
+body.brand-cargo .carousel-cards.slides .carousel-cards-image img {
+  object-fit: cover;
+}
+
+body.brand-cargo .carousel-cards.slides .carousel-cards-body {
+  padding: 20px 0 0;
+}
+
+body.brand-cargo .carousel-cards.slides .carousel-cards-body > h3 {
+  margin: 0 0 20px;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 28px;
+}
+
+body.brand-cargo .carousel-cards.slides .carousel-cards-body > p {
+  margin: 0 0 20px;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+body.brand-cargo .carousel-cards.slides .carousel-cards-body > p:last-child {
+  margin-bottom: 0;
+}
+
+body.brand-cargo .carousel-cards.slides .carousel-cards-cta a:any-link {
+  color: #52627c;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+body.brand-cargo .carousel-cards.slides :is(.carousel-cards-prev, .carousel-cards-next) {
+  top: 0;
+  display: flex;
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  background-color: #ebebeb;
+  color: #05164d;
+}
+
+body.brand-cargo .carousel-cards.slides .carousel-cards-prev {
+  right: calc(var(--layout-margin) + 40px);
+  left: auto;
+}
+
+body.brand-cargo .carousel-cards.slides .carousel-cards-next {
+  right: var(--layout-margin);
+}
+
+body.brand-cargo .carousel-cards.slides :is(.carousel-cards-prev, .carousel-cards-next)::before {
+  width: 24px;
+  height: 24px;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13.3 4.3 12 5.6l5.4 5.5H3v1.8h14.4L12 18.4l1.3 1.3L21 12z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+body.brand-cargo .carousel-cards.slides :is(.carousel-cards-prev, .carousel-cards-next):disabled {
+  visibility: visible;
+  background-color: #dcdcdc;
+  color: #b4b4b4;
+}
+
+body.brand-cargo .carousel-cards.slides .carousel-cards-dots {
+  margin-top: 10px;
+}
+
+@media (width >= 1025px) {
+  body.brand-cargo .carousel-cards.slides {
+    padding-top: 0;
+  }
+
+  body.brand-cargo .carousel-cards.slides .carousel-cards-track {
+    gap: 24px;
+  }
+
+  body.brand-cargo .carousel-cards.slides .carousel-cards-slide,
+  body.brand-cargo .carousel-cards.slides .carousel-cards-slide.carousel-cards-wide {
+    flex-basis: calc((100% - 24px) / 2);
+  }
+
+  body.brand-cargo .carousel-cards.slides .carousel-cards-slide:not(.carousel-cards-wide) .carousel-cards-image {
+    aspect-ratio: 16 / 9;
+  }
+
+  body.brand-cargo .carousel-cards.slides :is(.carousel-cards-prev, .carousel-cards-next) {
+    top: calc(50% - 25px);
+    width: 50px;
+    height: 50px;
+  }
+
+  body.brand-cargo .carousel-cards.slides .carousel-cards-prev {
+    right: auto;
+    left: 8px;
+  }
+
+  body.brand-cargo .carousel-cards.slides .carousel-cards-next {
+    right: 8px;
+  }
+
+  body.brand-cargo .carousel-cards.slides .carousel-cards-body > h3 {
+    font-size: 28px;
+    line-height: 32px;
+  }
+
+  body.brand-cargo .carousel-cards.slides .carousel-cards-dots {
+    margin-top: 20px;
+  }
+}
+/* stylelint-enable no-descending-specificity */
