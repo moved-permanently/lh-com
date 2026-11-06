@@ -458,6 +458,11 @@ async function loadEager(doc) {
     if (alertsBarBlock || main.querySelector('.flash-teaser, .message-center')) {
       import('./message-center.js').then((mc) => { mc.loadIndex(); mc.loadCtiPages(); });
     }
+    // a message's details page itself: its booking box anchors (TAP's #special-anchor-<tab>) to
+    // the box (scripts/message-center.js withBoxAnchors; other tenants as they are)
+    if (window.location.pathname.includes('/message-center/details/') && main.querySelector('a[href^="#special-anchor-"]')) {
+      import('./message-center.js').then((mc) => mc.withBoxAnchors(main));
+    }
     // the flight search: its recorded data index the same way (the block reads it on render)
     if (main.querySelector('.flight-search')) {
       import('./lh-data.js').then((data) => data.loadRecordedIndex());

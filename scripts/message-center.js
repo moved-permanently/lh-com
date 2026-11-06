@@ -33,7 +33,11 @@ export const TOUCHPOINT = 'web';
 export const TYPES = ['irreg', 'tech-outage', 'promo'];
 export const INDEX_PATH = '/message-center/index.json';
 export const CTI_PAGES_PATH = '/message-center/config/cti-pages.json';
-/** The tenants whose messages show in their weight order (1 first), not by rank: TAP's (www's). */
+/**
+ * The tenants whose messages show in their weight order (1 first), not by rank: TAP's (www's);
+ * two of the same weight the older first (www.flytap.com /pt-il, 2026-11-06: the ASL notice of
+ * 2024 before Madeira's).
+ */
 export const WEIGHT_TENANTS = ['tap'];
 
 /**
@@ -81,6 +85,46 @@ export function messageLocale({
   const own = rooted || locale.siteLanguages.find((l) => l.lang === authored)
     || languageOfPath(pathname, locale.siteLanguages);
   return { ...locale, lang: own ? own.lang : locale.lang, country: (own && own.country) || '' };
+}
+
+/**
+ * The tenants whose texts carry www's booking box anchors (#special-anchor-<tab>: www.flytap.com's
+ * script opens its booking box on that tab, tools/reports/tap/booking-spec.md 2.4): TAP's.
+ */
+export const BOX_ANCHOR_TENANTS = ['tap'];
+const BOX_ANCHOR = /^#special-anchor-(book-flight|check-in|my-travels|flight-status)$/;
+
+/**
+ * A box anchor as lh-tap links it: the page's root homepage's booking box on that tab
+ * (/<root>#<tab>, as tools/importer/tap-import.mjs linkOf writes it for the pages); null for any
+ * other link.
+ * @param {string} href
+ * @param {Object} locale getLocale() result (base: the root, /pt-il/)
+ * @returns {string|null}
+ */
+export function boxAnchorHref(href, locale) {
+  const m = String(href || '').trim().match(BOX_ANCHOR);
+  if (!m) return null;
+  const root = String((locale && locale.base) || '').replace(/^\/content(?=\/)/, '').replace(/^\/+|\/+$/g, '');
+  return root ? `/${root}#${m[1]}` : `#${m[1]}`;
+}
+
+/**
+ * The box anchors of a message's text (an element, or a list of nodes) on a tenant that has them
+ * (BOX_ANCHOR_TENANTS); other tenants, links and anchors as they are.
+ * @param {Element|Node[]} root
+ * @param {Object} [locale] default: messageLocale()
+ * @param {string} [tenant] default: the site's (siteTenant)
+ */
+export function withBoxAnchors(root, locale, tenant = siteTenant()) {
+  if (!BOX_ANCHOR_TENANTS.includes(tenant) || !root) return;
+  const loc = locale || messageLocale();
+  const links = (Array.isArray(root) ? root : [root]).flatMap((n) => (n.querySelectorAll
+    ? [...(n.matches && n.matches('a[href]') ? [n] : []), ...n.querySelectorAll('a[href]')] : []));
+  links.forEach((a) => {
+    const href = boxAnchorHref(a.getAttribute('href'), loc);
+    if (href) a.setAttribute('href', href);
+  });
 }
 
 /** Display order: irreg high, tech-outage high, irreg low, tech-outage low, promo high, low. */
@@ -198,9 +242,14 @@ export function selectMessages(rows, {
   const alerts = visible.some((msg) => msg.type !== 'promo');
   const byRank = (a, b) => RANK[`${a.type}/${a.criticality}`] - RANK[`${b.type}/${b.criticality}`]
     || recency(b) - recency(a);
-  // a tenant with its own order (TAP): by weight, the rows without one after them by rank
+  // a tenant with its own order (TAP): by weight (the same weight: by type and criticality, then
+  // the older first, as www), the rows without one after them by rank
   const byWeight = (a, b) => {
-    if (a.weight !== null && b.weight !== null) return a.weight - b.weight || byRank(a, b);
+    if (a.weight !== null && b.weight !== null) {
+      return a.weight - b.weight
+        || RANK[`${a.type}/${a.criticality}`] - RANK[`${b.type}/${b.criticality}`]
+        || recency(a) - recency(b);
+    }
     if (a.weight !== null || b.weight !== null) return a.weight !== null ? -1 : 1;
     return byRank(a, b);
   };
@@ -255,6 +304,9 @@ export function ctiPagePath(ctiRows, locale, tenant = siteTenant()) {
  * @returns {string} the href, or '' when there is none
  */
 export function messageHref(msg, ctiRows, locale, tenant = siteTenant()) {
+  // a box anchor as the message's link (TAP): the root homepage's booking box tab
+  const box = BOX_ANCHOR_TENANTS.includes(tenant) && boxAnchorHref(msg.link, locale);
+  if (box) return box;
   const href = msg.link || ctiPagePath(ctiRows, locale, tenant);
   if (!href) return '';
   return `${href.replace(/#.*$/, '')}#${encodeURIComponent(msg.id)}`;
@@ -444,6 +496,8 @@ export async function loadDetails(path) {
         node[attr] = new URL(node.getAttribute(attr), new URL(url, window.location.href)).href;
       });
     });
+    // TAP's booking box anchors in the text (#special-anchor-flight-status): the box's tab
+    withBoxAnchors(doc);
     const nodes = [...doc.children].flatMap((section) => [...section.childNodes]);
     return nodes.some((n) => n.textContent.trim() || n.querySelector?.('img')) ? nodes : null;
   } catch (e) {
