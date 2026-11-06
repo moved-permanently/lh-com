@@ -152,3 +152,44 @@ test('ownPages: a document outside the language versions with a markets row of r
     fs.rmSync(path.join(process.cwd(), 'content-sites/lh-test-ownpages'), { recursive: true, force: true });
   }
 });
+
+// brief 413: ITA's es/es rows get us/es and ve/es (tools/importer/add-market-roots.mjs); before the
+// harness's local documents have the new rows, --with-markets counts the pages as they will be,
+// --only writes the listed documents alone; --content-dir another tree (its runs/ beside it)
+test('ownPages withMarkets and the CLI\'s --with-markets, --only and --content-dir: the rows as the list makes them, only the listed documents written', async () => {
+  const fs = await import('node:fs');
+  const os = await import('node:os');
+  const path = await import('node:path');
+  const { execFileSync } = await import('node:child_process');
+  const { ownPages } = await import('../tools/importer/own-links.mjs');
+  const base = fs.mkdtempSync(path.join(os.tmpdir(), 'own-links-413-'));
+  const dir = path.join(base, 'content');
+  const write = (p, html) => {
+    fs.mkdirSync(path.dirname(path.join(dir, `${p}.plain.html`)), { recursive: true });
+    fs.writeFileSync(path.join(dir, `${p}.plain.html`), html);
+  };
+  const row = (v) => `<div class="metadata"><div><div>markets</div><div>${v}</div></div></div>`;
+  try {
+    write('/es/es/book', `<div><p>book</p>${row('ar/es, do/es')}</div>`);
+    write('/es/es/legal', `<div><p>legal</p>${row('')}</div>`);
+    write('/us/es/doc', '<div><a href="https://www.ita-airways.com/us/es/book">B</a> <a href="https://www.ita-airways.com/us/es/legal">L</a></div>');
+    write('/ve/es/doc', '<div><a href="https://www.ita-airways.com/ve/es/book">B</a> <a href="https://www.ita-airways.com/ve/es/legal">L</a></div>');
+    const before = ownPages('lh-ita', { dir });
+    assert.ok(!before.has('/us/es/book'), 'the row as it is: ar/es, do/es only');
+    assert.ok(before.has('/us/es/legal'), 'an empty row: every Spanish root');
+    const after = ownPages('lh-ita', { dir, withMarkets: new Map([['/es/es/book', ['us/es']]]) });
+    assert.ok(after.has('/us/es/book'));
+    assert.ok(!after.has('/ve/es/book'), 'only the list\'s roots');
+    fs.writeFileSync(path.join(base, 'markets.txt'), '# the list\n/es/es/book us/es\n');
+    fs.writeFileSync(path.join(base, 'only.txt'), '/us/es/doc\n');
+    const out = execFileSync('node', ['tools/importer/own-links.mjs', '--site', 'lh-ita', '--host', 'www.ita-airways.com', '--content-dir', dir, '--with-markets', path.join(base, 'markets.txt'), '--only', path.join(base, 'only.txt'), '--write'], { encoding: 'utf8' });
+    assert.match(out, /lh-ita: \d+ pages; 1 documents changed/);
+    const us = fs.readFileSync(path.join(dir, 'us/es/doc.plain.html'), 'utf8');
+    assert.match(us, /href="\/us\/es\/book"/);
+    assert.match(us, /href="\/us\/es\/legal"/);
+    assert.doesNotMatch(fs.readFileSync(path.join(dir, 've/es/doc.plain.html'), 'utf8'), /href="\/ve/, 'not in --only: as it was');
+    assert.equal(fs.readFileSync(path.join(base, 'runs/own-links-upload.txt'), 'utf8'), '/us/es/doc\n', 'runs/ beside the tree');
+  } finally {
+    fs.rmSync(base, { recursive: true, force: true });
+  }
+});

@@ -1,0 +1,85 @@
+# brief 413: es/es documents whose markets row gets us/es and/or ve/es (tools/importer/add-market-roots.mjs).
+# Evidence: www's own us/es and ve/es homepage, nav and footer (the six documents on lh-ita, captured by
+# the harness) link the page under that root; the es/es document exists (es/es/search-index.json,
+# 2026-11-06) and its row names other Spanish roots only. www's sitemap index (2026-10-30, 64 roots,
+# tools/reports/lh-ita.md) has no us_es or ve_es file, so no sitemap backs these: links only.
+# Left out: 6 es/es documents with an empty row (every Spanish root already); 6 linked paths with no
+# es/es document (us/es's local-page customer-service-plan, summer-destinations,
+# tarmac-delay-contingency-plan, winter-destinations; /sitemap and support/utilities/cash-and-miles).
+/es/es/book-and-prepare/book-flights us/es,ve/es
+/es/es/book-and-prepare/destination us/es
+/es/es/book-and-prepare/flight-and-train us/es,ve/es
+/es/es/book-and-prepare/flightpass us/es,ve/es
+/es/es/book-and-prepare/flights-overview us/es,ve/es
+/es/es/book-and-prepare/multi-leg us/es,ve/es
+/es/es/book-and-prepare/offers us/es,ve/es
+/es/es/book-and-prepare/offers-and-destinations us/es,ve/es
+/es/es/book-and-prepare/offers/mice us/es,ve/es
+/es/es/book-and-prepare/offers/territorial-continuity us/es,ve/es
+/es/es/book-and-prepare/offers/youth-offers us/es,ve/es
+/es/es/book-and-prepare/other-requests us/es,ve/es
+/es/es/book-and-prepare/other-requests/accessible-travel us/es,ve/es
+/es/es/book-and-prepare/other-requests/accessible-travel-us us/es
+/es/es/book-and-prepare/other-requests/families-and-children us/es,ve/es
+/es/es/book-and-prepare/other-requests/families-and-children/unaccompained-minors us/es,ve/es
+/es/es/book-and-prepare/other-requests/pregnancy us/es,ve/es
+/es/es/book-and-prepare/other-requests/travelling-with-pets us/es,ve/es
+/es/es/book-and-prepare/travel-information us/es,ve/es
+/es/es/book-and-prepare/travel-information/at-the-airport us/es,ve/es
+/es/es/book-and-prepare/travel-information/at-the-airport/lounges us/es,ve/es
+/es/es/book-and-prepare/travel-information/baggage us/es,ve/es
+/es/es/book-and-prepare/travel-information/check-in-information us/es,ve/es
+/es/es/book-and-prepare/travel-information/entry-regulations us/es,ve/es
+/es/es/book-and-prepare/travel-information/travel-briefing us/es,ve/es
+/es/es/help-and-contact us/es,ve/es
+/es/es/legal us/es,ve/es
+/es/es/legal/accessibility-statement us/es,ve/es
+/es/es/legal/conditions-of-carriage-group/conditions-of-carriage-ita us/es,ve/es
+/es/es/legal/cookie-policy us/es,ve/es
+/es/es/legal/health-and-safety-at-work us/es,ve/es
+/es/es/legal/passenger-rights us/es,ve/es
+/es/es/legal/privacy-policy-for-suppliers us/es,ve/es
+/es/es/legal/services-statement us/es,ve/es
+/es/es/manage-my-bookings/extra-services us/es,ve/es
+/es/es/manage-my-bookings/extra-services/extra-baggage us/es,ve/es
+/es/es/manage-my-bookings/extra-services/seats-selection us/es,ve/es
+/es/es/manage-my-bookings/extra-services/travel-insurance us/es,ve/es
+/es/es/manage-my-bookings/extra-services/upgrade us/es,ve/es
+/es/es/manage-my-bookings/manage us/es,ve/es
+/es/es/manage-my-bookings/manage/cancellation-and-refund us/es,ve/es
+/es/es/manage-my-bookings/manage/change-and-refund us/es,ve/es
+/es/es/manage-my-bookings/manage/check-in us/es,ve/es
+/es/es/manage-my-bookings/manage/flight-status us/es,ve/es
+/es/es/manage-my-bookings/partners us/es,ve/es
+/es/es/manage-my-bookings/partners/airport-in-the-city us/es,ve/es
+/es/es/manage-my-bookings/partners/airport-parking us/es,ve/es
+/es/es/manage-my-bookings/partners/airport-transfer us/es,ve/es
+/es/es/manage-my-bookings/partners/car-rental us/es,ve/es
+/es/es/manage-my-bookings/partners/get-your-guide us/es,ve/es
+/es/es/manage-my-bookings/partners/hotel us/es,ve/es
+/es/es/support/utilities/payment-methods us/es,ve/es
+/es/es/world-of-ita-airways/discover-ita-airways us/es,ve/es
+/es/es/world-of-ita-airways/discover-ita-airways/awards-for-ita us/es,ve/es
+/es/es/world-of-ita-airways/discover-ita-airways/corporate us/es,ve/es
+/es/es/world-of-ita-airways/discover-ita-airways/corporate/about-us us/es,ve/es
+/es/es/world-of-ita-airways/discover-ita-airways/corporate/all-our-news us/es,ve/es
+/es/es/world-of-ita-airways/discover-ita-airways/corporate/press-release us/es,ve/es
+/es/es/world-of-ita-airways/discover-ita-airways/corporate/work-with-us us/es,ve/es
+/es/es/world-of-ita-airways/discover-ita-airways/fleet us/es,ve/es
+/es/es/world-of-ita-airways/discover-ita-airways/ita-airways-app us/es,ve/es
+/es/es/world-of-ita-airways/discover-ita-airways/network us/es,ve/es
+/es/es/world-of-ita-airways/discover-ita-airways/roma-fiumicino us/es,ve/es
+/es/es/world-of-ita-airways/discover-ita-airways/sustainability us/es,ve/es
+/es/es/world-of-ita-airways/discover-ita-airways/sustainability/autism-program us/es,ve/es
+/es/es/world-of-ita-airways/discover-ita-airways/voglia-di-volare us/es,ve/es
+/es/es/world-of-ita-airways/services-on-board us/es,ve/es
+/es/es/world-of-ita-airways/services-on-board/catering us/es,ve/es
+/es/es/world-of-ita-airways/services-on-board/catering/special-meals us/es,ve/es
+/es/es/world-of-ita-airways/services-on-board/connectivity-on-board us/es,ve/es
+/es/es/world-of-ita-airways/services-on-board/entertainment-on-board us/es,ve/es
+/es/es/world-of-ita-airways/services-on-board/health-and-travel us/es,ve/es
+/es/es/world-of-ita-airways/travel-classes us/es,ve/es
+/es/es/world-of-ita-airways/travel-classes/business-class-medium-haul us/es,ve/es
+/es/es/world-of-ita-airways/travel-classes/business-long-haul us/es,ve/es
+/es/es/world-of-ita-airways/travel-classes/economy us/es,ve/es
+/es/es/world-of-ita-airways/travel-classes/premium-economy us/es,ve/es

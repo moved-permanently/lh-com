@@ -11,6 +11,10 @@
  * Everything else stays on www, counted by reason (keptReason).
  * Used by ita-import.mjs and austrian-import.mjs after site-postprocess.mjs, and by hand:
  *   node tools/importer/own-links.mjs --site lh-ita --host www.ita-airways.com [--write]
+ *     [--content-dir <tree>] (default content-sites/<site>/content; the report in runs/ beside it)
+ *     [--with-markets <list>] (add-market-roots.mjs's list: the pages counted with those roots
+ *       added to the rows, as the tool writes them, before the local documents have them)
+ *     [--only <list>] (the documents changed and written: the list's paths, one per line, alone)
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -18,6 +22,7 @@ import { fileURLToPath } from 'node:url';
 /* eslint-disable import/no-relative-packages, import/extensions */
 import { BRAND_SITES } from '../../scripts/brands.js';
 import { marketAllows } from '../../scripts/market-rules.js';
+import { addRoots, readList } from './add-market-roots.mjs';
 /* eslint-enable import/no-relative-packages, import/extensions */
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
@@ -85,10 +90,10 @@ export function onlyBatch(site, keep, step) {
  * The site's pages: its documents, and the market roots' pages lh-edge answers from a language
  * version's document, by lh-edge's rule (scripts/market-rules.js marketAllows: the document's
  * `markets` row lists the root or its country; no row or an empty one: every market root of the
- * language).
+ * language). withMarkets: path -> roots added to the document's row (add-market-roots.mjs's rule);
+ * dir: the document tree (default content-sites/<site>/content).
  */
-export function ownPages(site) {
-  const dir = path.join(root, 'content-sites', site, 'content');
+export function ownPages(site, { withMarkets = new Map(), dir = path.join(root, 'content-sites', site, 'content') } = {}) {
   const brand = BRAND_SITES[BRAND_OF[site]] || { rows: {}, versions: {} };
   const versions = Object.entries(brand.versions);
   const marketsOf = (lang) => Object.keys(brand.rows).filter((r) => brand.rows[r].documents === 'language' && brand.rows[r].lang === lang);
@@ -99,7 +104,8 @@ export function ownPages(site) {
     const m = p.match(/^\/([a-z]{2}\/[a-z]{2})(\/.*)$/);
     if (!m || /^\/(nav|footer)$/.test(m[2])) return;
     const version = versions.find(([, r]) => r === m[1]);
-    const html = fs.readFileSync(f, 'utf8');
+    const read = fs.readFileSync(f, 'utf8');
+    const html = withMarkets.has(p) ? addRoots(read, withMarkets.get(p)).html : read;
     const row = html.match(/<div><div>markets<\/div><div>([^<]*)<\/div><\/div>/i);
     if (!version) {
       // a document of another root (lh-b2b's rest-of-world documents on xx/<ll>, a market root's
@@ -250,11 +256,14 @@ if (isMain) {
     console.error('usage: node tools/importer/own-links.mjs --site lh-ita --host www.ita-airways.com [--write]');
     process.exit(1);
   }
-  const pages = ownPages(site);
+  const dir = opt('content-dir') ? path.resolve(opt('content-dir')) : path.join(root, 'content-sites', site, 'content');
+  const runs = path.join(dir, '..', 'runs');
+  const withMarkets = new Map(opt('with-markets') ? readList(fs.readFileSync(opt('with-markets'), 'utf8')).map((d) => [d.path, d.roots]) : []);
+  const only = opt('only') ? new Set(fs.readFileSync(opt('only'), 'utf8').split(/\r?\n/).map((l) => l.replace(/#.*/, '').trim().split(/\s+/)[0]).filter(Boolean)) : null;
+  const pages = ownPages(site, { withMarkets, dir });
   const aliases = ownAliases(site);
   const linkOuts = ownLinkOuts(site);
   const served = ownServed(site);
-  const dir = path.join(root, 'content-sites', site, 'content');
   const total = {
     href: 0, text: 0, back: 0, alias: 0,
   };
@@ -262,8 +271,9 @@ if (isMain) {
   const examples = {};
   const changed = [];
   walk(dir).filter((f) => f.endsWith('.plain.html')).forEach((f) => {
-    const before = fs.readFileSync(f, 'utf8');
     const p = `/${path.relative(dir, f).replace(/\.plain\.html$/, '')}`;
+    if (only && !only.has(p)) return;
+    const before = fs.readFileSync(f, 'utf8');
     const r = withOwnLinks(before, host, pages, aliases, { linkOut: linkOuts.has(p) ? p : null, served });
     total.href += r.made.href;
     total.text += r.made.text;
@@ -279,8 +289,8 @@ if (isMain) {
   const report = {
     site, host, pages: pages.size, documentsChanged: changed.length, made: total, kept, examples: Object.fromEntries(Object.entries(examples).map(([k, v]) => [k, [...v].sort().slice(0, 40)])),
   };
-  fs.mkdirSync(path.join(root, 'content-sites', site, 'runs'), { recursive: true });
-  fs.writeFileSync(path.join(root, 'content-sites', site, 'runs', 'own-links.json'), `${JSON.stringify(report, null, 1)}\n`);
-  if (argv.includes('--write')) fs.writeFileSync(path.join(root, 'content-sites', site, 'runs', 'own-links-upload.txt'), `${changed.join('\n')}\n`);
+  fs.mkdirSync(runs, { recursive: true });
+  fs.writeFileSync(path.join(runs, 'own-links.json'), `${JSON.stringify(report, null, 1)}\n`);
+  if (argv.includes('--write')) fs.writeFileSync(path.join(runs, 'own-links-upload.txt'), `${changed.join('\n')}\n`);
   console.log(`${site}: ${pages.size} pages; ${changed.length} documents ${argv.includes('--write') ? 'changed' : 'would change'}; made relative: ${total.href} links (${total.alias} by alias), ${total.text} link texts; back to www: ${total.back}; kept on www: ${JSON.stringify(kept)}`);
 }
