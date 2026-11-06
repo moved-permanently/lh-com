@@ -36,6 +36,7 @@
  * and adds the documents to the allowlist tools/importer/sites/lh-cargo.json.
  *
  * Usage: node tools/importer/cargo-import.mjs --list content-sites/lh-cargo/batches/batch-01.txt [--name batch-1] [--dry-run]
+ *          [--known-from <dir of DA copies>] (no asset map here: the files lh-cargo's DA has, knownCopy)
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -43,9 +44,9 @@ import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { parseHTML } from 'linkedom';
 import {
-  HOST, sourcePath, REDIRECT_ONLY, LANGUAGE_LESS, CONTACT_FORM, contactFormHref,
+  HOST, sourcePath, REDIRECT_ONLY, LANGUAGE_LESS, ADDED_PAGES, CONTACT_FORM, contactForm, contactFormHref,
 } from './cargo-paths.mjs';
-import { fileKey, edsName } from './cargo-assets.mjs';
+import { fileKey, edsName, baseName } from './cargo-assets.mjs';
 
 const sha1 = (s) => crypto.createHash('sha1').update(s).digest('hex');
 
@@ -82,6 +83,37 @@ export const MYNEWSDESK = 'https://lufthansa-cargo-ag-com.mynewsdesk.com';
 
 /* ------------------------------------------------------------------ site data ---------- */
 
+/**
+ * The files lh-cargo's DA has (brief 417): the upload state's media (da-upload.mjs) and the
+ * pictures and links of DA documents (full documents or .plain.html: their content.da.live URLs
+ * as paths), for a re-import on a machine without the asset map.
+ * @param {{media?: Object}} state tools/importer/da-upload-state-lh-cargo.json
+ * @param {string[]} docs the documents' HTML
+ */
+export function knownPaths(state, docs = []) {
+  const known = new Set(Object.keys((state && state.media) || {}).filter((p) => /^\/(media-da|documents)\//.test(p)));
+  docs.forEach((html) => {
+    [...html.matchAll(/(?:src|href)="(?:https:\/\/content\.da\.live\/moved-permanently\/lh-cargo)?(\/(?:media-da|documents)\/[^"?#]+)/g)].forEach((m) => known.add(m[1]));
+  });
+  return known;
+}
+
+/**
+ * Without the asset map (content-sites/lh-cargo/assets/files.json): the copy of a www file that
+ * lh-cargo's DA already has, by cargo-assets.mjs's name (edsName: a picture
+ * /media-da/cargo/<name>-<sha1 8>.<ext>, a document or video /documents/<name>-<sha1 6>.<ext>),
+ * whatever its extension; else null.
+ */
+export function knownCopy(key, known) {
+  const sha = sha1(key);
+  const name = baseName(key);
+  const stems = [`/media-da/cargo/${name}-${sha.slice(0, 8)}.`, `/documents/${name}-${sha.slice(0, 6)}.`];
+  return [...known].find((p) => stems.some((stem) => p.startsWith(stem))) || null;
+}
+
+// the --known-from documents (main): DA copies of the pages to import
+let knownDocs = [];
+
 let site;
 /** The site's paths, files and counterparts (loaded once). */
 export function loadSite() {
@@ -98,9 +130,17 @@ export function loadSite() {
         if (alt) alternates[sourcePath(url)] = sourcePath(alt);
       });
   }
+  // the added pages and their counterparts, both ways (cargo-paths.mjs ADDED_PAGES)
+  Object.entries(ADDED_PAGES).forEach(([p, { alternate }]) => {
+    alternates[p] = alternate;
+    alternates[alternate] = alternates[alternate] || p;
+  });
   const capture = readJson(path.join(W, 'capture-state.json'), {});
+  // no asset map here: the files lh-cargo's DA has (knownCopy)
+  const known = Object.keys(files).length ? null
+    : knownPaths(readJson(path.join(root, 'tools/importer/da-upload-state-lh-cargo.json'), {}), knownDocs);
   site = {
-    paths, files, state, alternates, capture,
+    paths, files, state, alternates, capture, known,
   };
   return site;
 }
@@ -121,7 +161,7 @@ export function isSkipped(n) {
   if (/^(SCRIPT|STYLE|NOSCRIPT|TEMPLATE|SVG|BUTTON|INPUT|SELECT|TEXTAREA|LABEL|LINK|META|OPTION)$/i.test(n.tagName)) return true;
   if (n.hasAttribute('hidden') || n.getAttribute('aria-hidden') === 'true') return !n.querySelector('img');
   const c = cls(n);
-  if (/(^|\s)(videoOverlayConsent|googleMapsOverlayConsent|consentText|portlet-header|portlet-title-text|owl-nav|owl-dots|swiper-pagination|swiper-button-(prev|next)|flex-control-nav|flex-direction-nav|carousel-indicators|tab-indicator|scrollArrowWrapper|LCAGCP-ScrollButtonContainer|eportalBreadcrumb|diariesBackLinkContainer|story-scrollLink|sr-only|visually-hidden|hide|d-md-none|d-lg-none|visible-xs|visible-sm)(\s|$)/.test(c)) return true;
+  if (/(^|\s)(videoOverlayConsent|googleMapsOverlayConsent|consentText|portlet-header|portlet-title-text|owl-nav|owl-dots|swiper-pagination|swiper-button-(prev|next)|flex-control-nav|flex-direction-nav|carousel-indicators|tab-indicator|scrollArrowWrapper|LCAGCP-ScrollButtonContainer|eportalBreadcrumb|diariesBackLinkContainer|story-scrollLink|sr-only|visually-hidden|hide|d-sm-none|d-md-none|d-lg-none|visible-xs|visible-sm)(\s|$)/.test(c)) return true;
   if (/(^|\s)(cloned|clone)(\s|$)/.test(c) || /_clone$/.test(n.id || '')) return true;
   if (/LCAGCP-lcagMobile|(^|\s)mobile(View|Only|Slider)/.test(c)) return true;
   if (/(^|\s)d-none(\s|$)/.test(c) && !/(^|\s)d-(sm|md|lg|xl)-(block|flex|inline|inline-block|table|grid)(\s|$)/.test(c)) return true;
@@ -189,15 +229,18 @@ export class Page {
     const { paths, alternates, capture } = loadSite();
     // Liferay's default site prefix (/en/web/guest/x) is the same page as /en/x
     const p = webGuest(sourcePath(u.href));
-    // our contact form page (no page on www; supportTopics links its entries to it)
-    if (p === CONTACT_FORM) return `${CONTACT_FORM}${u.search}`;
-    // www's contact form links: /support-and-contact?reason=&subreason= opens the form with both
+    // our contact form pages (no page on www; supportTopics links its entries to them)
+    if (p === CONTACT_FORM || p === contactForm('de')) return `${p}${u.search}`;
+    // www's contact form links: /support-and-contact?reason=&subreason= opens the form with both,
+    // on the form page of the link's language (a language-less link: this page's)
     const q = u.searchParams;
-    if (/^(\/[a-z]{2})?\/support-and-contact$/.test(p) && q.get('reason') && q.get('subreason')) return contactFormHref(q.get('reason'), q.get('subreason'));
+    const support = p.match(/^(?:\/([a-z]{2}))?\/support-and-contact$/);
+    if (support && q.get('reason') && q.get('subreason')) return contactFormHref(q.get('reason'), q.get('subreason'), support[1] || this.lang);
     const local = (sp) => {
       // a page in scope that answers 404 on www stays a link to www
       if (capture[sp] && capture[sp].status === 'not-found') return null;
       if (paths[sp]) return paths[sp];
+      if (ADDED_PAGES[sp]) return sp;
       if (REDIRECT_ONLY[sp]) return REDIRECT_ONLY[sp];
       return null;
     };
@@ -229,7 +272,12 @@ export class Page {
   file(src) {
     const key = fileKey(src);
     if (!key) return null;
-    const { files, state } = loadSite();
+    const { files, state, known } = loadSite();
+    if (known) {
+      const copy = knownCopy(key, known);
+      if (!copy) this.missing.add(key);
+      return copy;
+    }
     const f = files[key];
     if (!f || !f.eds) return null;
     const d = state.done[key];
@@ -341,6 +389,10 @@ function flow(node, page, mode = 'cell') {
       return;
     }
     flush();
+    // on the page's top level a component adds its block at once: what came before it goes on
+    // the page first, so a heading stays above its cards (brief 417: www's "Our fleet in detail");
+    // every 'top' caller adds the rest in order
+    if (mode === 'top') out.splice(0).filter(Boolean).forEach((h) => page.add(h));
     out.push(...element(c, page, mode));
   });
   flush();
@@ -412,6 +464,12 @@ function tableRows(table, page) {
 function tableBlock(table, page) {
   const rows = tableRows(table, page);
   if (!rows.length) return;
+  // a transport story's layout table (rmsDiariesTable, one row of text cells): www's two text
+  // columns, as cf3's (brief 417)
+  if (hasCls(table, /(^|\s)rmsDiariesTable(\s|$)/) && rows.length === 1 && rows[0].length > 1 && !rows[0].some((x) => x.th)) {
+    page.block('columns-media', [rows[0].map((x) => x.html)]);
+    return;
+  }
   const header = rows[0].length > 1 && rows[0].every((x) => x.th) && rows.length > 1;
   page.block(header ? 'table-striped (header)' : 'table-striped', rows.map((r) => r.map((x) => x.html.replace(/^<p>(.*)<\/p>$/, '$1'))));
 }
@@ -513,8 +571,8 @@ function contactCard(c, page) {
   const label = text(card.querySelector('.contactBtn .lfr-btn-label, .contactBtn, button'));
   if (h) page.add(`<h2>${esc(h)}</h2>`);
   if (p) page.add(`<p>${esc(p)}</p>`);
-  if (label) page.add(`<p><strong><a href="${CONTACT_FORM}">${esc(label)}</a></strong></p>`);
-  page.note(`contact form: www's card, its button a link to ${CONTACT_FORM} (cargo-contact-us)`);
+  if (label) page.add(`<p><strong><a href="${contactForm(page.lang)}">${esc(label)}</a></strong></p>`);
+  page.note(`contact form: www's card, its button a link to ${contactForm(page.lang)} (cargo-contact-us)`);
 }
 
 function mapLink(page) {
@@ -641,6 +699,7 @@ function component(c, page) {
   if (/(^|\s)content-slider(\s|$)/.test(k)) { carousel(c, page); return true; }
   if (/(^|\s)newssectiondetail(\s|$)/.test(k)) { article(c, page); return true; }
   if (/(^|\s)module--story(\s|$)/.test(k)) { story(c, page); return true; }
+  if (/(^|\s)LhcIconCollapsible(\s|$)/.test(k)) { iconCollapsible(c, page); return true; }
   if (/(^|\s)LHCTabs(\s|$)/.test(k)) { lhcTabs(c, page); return true; }
   if (/(^|\s)(owl-carousel|flexslider|swiper)(\s|$)/.test(k) && isImageSlider(c)) { carousel(c, page); return true; }
   if (/portlet_com_lhcargo_eportal_maps_of_networks/.test(c.id || '')) { mapLink(page).forEach((h) => page.add(h)); return true; }
@@ -760,6 +819,22 @@ function cardRow(c, page) {
   const n = cols.length;
   const option = n >= 4 ? ' (four-up)' : (n === 3 ? ' (three-up)' : '');
   page.block(`cards-teaser${option}`, rows);
+}
+
+/**
+ * www's icon collapsibles (LhcIconCollapsible: the SDG goals, brief 417): accordion-columns (faq),
+ * one item per goal, its icon and bold title line as the item's title, its text as the panel.
+ */
+function iconCollapsible(c, page) {
+  const rows = [...c.querySelectorAll('.LhcIconCollapsibleItem')].filter((item) => !isSkipped(item)).map((item) => {
+    const head = item.querySelector('.LhcIconCollapsibleHeadContainer');
+    const icon = head && head.querySelector('img');
+    const line = head && head.querySelector('.LhcIconCollapsibleHeadText');
+    const body = item.querySelector('.LhcIconCollapsibleText');
+    const title = [icon ? page.img(icon) : '', line ? tidy(inline(line, page)) : ''].filter(Boolean).join(' ');
+    return [title, body ? flow(body, page, 'cell').join('') : ''];
+  }).filter((r) => !isEmptyHtml(r[0]));
+  if (rows.length) page.block('accordion-columns (faq)', rows);
 }
 
 function accordion(c, page) {
@@ -976,11 +1051,21 @@ function article(c, page) {
   flow(clone, page, 'top').forEach((x) => page.add(x));
 }
 
+/** The first match under root that no skipped element holds (www's phone-only copies, brief 417). */
+function shown(root, sel) {
+  return [...root.querySelectorAll(sel)].find((el) => {
+    for (let n = el; n && n !== root; n = n.parentNode) if (isSkipped(n)) return false;
+    return true;
+  }) || null;
+}
+
 function story(c, page) {
-  const i = c.querySelector('.story-imageWrap img');
+  const i = shown(c, '.story-imageWrap img');
   if (i) page.add(`<p>${page.img(i)}</p>`);
   const clone = (c.querySelector('.story-textWrap') || c).cloneNode(true);
-  const h = clone.querySelector('.story-headline, h1, h2');
+  // the headline of the copy that is imported: a module without a picture holds a phone copy
+  // (d-sm-none, left out) before the desktop one
+  const h = shown(clone, '.story-headline, h1, h2');
   if (h) { page.add(`<h1>${tidy(inline(h, page))}</h1>`); h.remove(); }
   flow(clone, page, 'top').forEach((x) => page.add(x));
 }
@@ -1044,12 +1129,12 @@ function supportTopics(content, page) {
     if (!reason || !subreason) return;
     const h = e.querySelector('h1, h2, h3, h4, h5, h6') || e;
     const link = content.ownerDocument.createElement('a');
-    link.setAttribute('href', contactFormHref(reason, subreason));
+    link.setAttribute('href', contactFormHref(reason, subreason, page.lang));
     link.append(...[...(a || h).childNodes]);
     if (a) a.replaceWith(link); else h.replaceChildren(link);
     linked += 1;
   });
-  if (linked) page.note(`support topics: ${linked} entries opening www's contact form linked to ${CONTACT_FORM} with their reason and subreason`);
+  if (linked) page.note(`support topics: ${linked} entries opening www's contact form linked to ${contactForm(page.lang)} with their reason and subreason`);
   content.querySelectorAll('.requiresLogin, .faqReason, .faqSubreason').forEach((x) => x.remove());
   // the topic search's section: the .topicSection outside the tabs (a category heading in each
   // .topicSearchTriggerContainer, its entries the .faqEntryTitle after it)
@@ -1179,7 +1264,14 @@ async function main() {
   if (!listFile) { console.log('usage: --list <batch file> [--name batch-1] [--dry-run]'); process.exit(1); }
   const name = opt('name') || path.basename(listFile, '.txt').replace(/^batch-0*/, 'batch-');
   const urls = fs.readFileSync(path.resolve(root, listFile), 'utf8').split(/\r?\n/).map((l) => l.trim()).filter(Boolean);
-  const { paths, capture } = loadSite();
+  // --known-from <dir>: DA copies of the pages (<path>.html), whose files the import may use
+  // where there is no asset map (knownCopy)
+  if (opt('known-from')) {
+    const walk = (d) => fs.readdirSync(d, { withFileTypes: true }).flatMap((e) => (e.isDirectory() ? walk(path.join(d, e.name)) : [path.join(d, e.name)]));
+    knownDocs = walk(path.resolve(opt('known-from'))).filter((f) => f.endsWith('.html')).map((f) => fs.readFileSync(f, 'utf8'));
+  }
+  const { paths, capture, known } = loadSite();
+  if (known) console.log(`no asset map: the files lh-cargo's DA has (${known.size})`);
   const svgs = await prepareImages();
   if (svgs) console.log(`${svgs} SVG images as PNG`);
   const report = {};

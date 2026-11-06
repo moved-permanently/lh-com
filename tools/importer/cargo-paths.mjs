@@ -32,8 +32,15 @@ export const REDIRECT_ONLY = {
   '/de/': '/de/home',
   '/en/newsroom': '/en/ci/newsroom',
   '/en/footer/bottomnav/privacy': '/en/data-protection',
-  // www's German Support & Contact is the English page (its contact form too)
-  '/de/support-and-contact': '/en/support-and-contact',
+};
+
+/**
+ * Pages the scope list lacks that the site has: source path -> its counterpart. www's German
+ * Support & Contact (brief 417, cargo-parity-001): the English body and contact form under the
+ * German header and footer (html lang de-DE), no longer a redirect to the English page.
+ */
+export const ADDED_PAGES = {
+  '/de/support-and-contact': { alternate: '/en/support-and-contact' },
 };
 
 /** Language-less addresses of the source (logo, footer links) -> the English page. */
@@ -43,25 +50,32 @@ export const LANGUAGE_LESS = {
   '/data-protection': '/en/data-protection',
   '/footer/bottomnav/terms-of-use': '/en/footer/bottomnav/terms-of-use',
   '/meta/meta/company/general-terms': '/en/meta/meta/company/general-terms',
-  // the German header's Support & Contact (www's /de/support-and-contact is the English page)
+  // the header's Support & Contact (a German page: /de/support-and-contact, Page.href)
   '/support-and-contact': '/en/support-and-contact',
 };
 
 /**
  * Cargo's contact form (www: the "Contact us" form of /<lang>/support-and-contact, a modal, English
  * on both languages' pages, as that page): our form page, sent by lh-forms as cargo-contact-us
- * (tools/importer/cargo-contact-form.mjs). The German pages link to it as to Support & Contact.
+ * (tools/importer/cargo-contact-form.mjs), one per language (the same English form; the German
+ * one under the German header and footer, brief 417).
  */
 export const CONTACT_FORM = '/en/contact-us';
+
+/** The form page of a language: /en/contact-us, /de/contact-us. */
+export function contactForm(lang = 'en') {
+  return lang === 'de' ? '/de/contact-us' : CONTACT_FORM;
+}
 
 /**
  * The form page's address for www's contact form links: /support-and-contact?reason=&subreason=
  * (www opens the form with both chosen) and the entries that open it with them; without both,
- * the plain address.
+ * the plain address; lang: the form page's language (the link's, else the linking page's).
  */
-export function contactFormHref(reason, subreason) {
-  if (!reason || !subreason) return CONTACT_FORM;
-  return `${CONTACT_FORM}?${new URLSearchParams({ reason, subreason }).toString().replace(/\+/g, '%20')}`;
+export function contactFormHref(reason, subreason, lang = 'en') {
+  const form = contactForm(lang);
+  if (!reason || !subreason) return form;
+  return `${form}?${new URLSearchParams({ reason, subreason }).toString().replace(/\+/g, '%20')}`;
 }
 
 const GERMAN = {
@@ -110,7 +124,10 @@ export const EXTRA_URLS = path.join(path.dirname(fileURLToPath(import.meta.url))
 
 /** The in-scope pages of urls-all.tsv and the extra list: [{ source, eds, lang, row }], redirects-only rows apart. */
 export function scopePages(tsvFile, extraFile = EXTRA_URLS) {
-  const all = [...readTsv(tsvFile), ...(fs.existsSync(extraFile) ? readTsv(extraFile) : [])];
+  const added = Object.entries(ADDED_PAGES).map(([p, { alternate }]) => ({
+    url: `${HOST}${p}`, language: p.slice(1, 3), alternate_url: `${HOST}${alternate}`, in_out: 'in', reason: 'added (cargo-paths.mjs ADDED_PAGES)',
+  }));
+  const all = [...readTsv(tsvFile), ...(fs.existsSync(extraFile) ? readTsv(extraFile) : []), ...added];
   const known = new Set();
   const rows = all.filter((r) => {
     const p = sourcePath(r.url);

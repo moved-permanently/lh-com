@@ -11,7 +11,7 @@ import assert from 'node:assert/strict';
 import {
   contactFormRows, contactFormPage, SUBREASONS, FORM_ID,
 } from '../tools/importer/cargo-contact-form.mjs';
-import { CONTACT_FORM, contactFormHref } from '../tools/importer/cargo-paths.mjs';
+import { CONTACT_FORM, contactForm, contactFormHref } from '../tools/importer/cargo-paths.mjs';
 
 const NS = '_com_lhcargo_eportal_contact_support_web_';
 const col = (cls, label, input, extra = '') => `<div class="${cls}"><label class="control-label">${label}</label>${extra}<div class="form-group input-text-wrapper">${input}</div></div>`;
@@ -108,10 +108,22 @@ test('the page: www\'s card heading as H1, its text, the block, English metadata
   assert.throws(() => contactFormRows('<html><body></body></html>'), /no contactSupportForm/);
 });
 
+test('the German page (/de/contact-us, brief 417): www\'s English form and card under the German header and footer', () => {
+  const en = contactFormPage(PAGE);
+  const de = contactFormPage(PAGE, 'de');
+  assert.match(de, /<div><div>Nav<\/div><div>\/de\/nav<\/div><\/div><div><div>Footer<\/div><div>\/de\/footer<\/div><\/div><div><div>Language<\/div><div>de<\/div><\/div>/);
+  assert.equal(de.split('<div class="metadata">')[0], en.split('<div class="metadata">')[0], 'the same heading, text and form');
+});
+
 test('links: www\'s reason and subreason in the query, else the plain form page', () => {
   assert.equal(CONTACT_FORM, '/en/contact-us');
   assert.equal(contactFormHref('General request', 'Feedback / Complaints'), '/en/contact-us?reason=General%20request&subreason=Feedback%20%2F%20Complaints');
   assert.equal(contactFormHref('Bookings & Shipments', 'Other'), '/en/contact-us?reason=Bookings%20%26%20Shipments&subreason=Other');
   assert.equal(contactFormHref('', ''), '/en/contact-us');
   assert.equal(contactFormHref('General request', ''), '/en/contact-us');
+  // the German pages' form page (brief 417): www's form in English under the German header
+  assert.equal(contactForm('de'), '/de/contact-us');
+  assert.equal(contactForm('en'), CONTACT_FORM);
+  assert.equal(contactFormHref('General request', 'Feedback / Complaints', 'de'), '/de/contact-us?reason=General%20request&subreason=Feedback%20%2F%20Complaints');
+  assert.equal(contactFormHref('', '', 'de'), '/de/contact-us');
 });

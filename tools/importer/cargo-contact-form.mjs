@@ -1,6 +1,6 @@
 /* eslint-disable no-console, max-len, import/extensions, import/no-extraneous-dependencies -- tooling */
 /**
- * Lufthansa Cargo's contact form page (lh-cargo) /en/contact-us: www's "Contact us" form (the
+ * Lufthansa Cargo's contact form pages (lh-cargo) /en/contact-us and /de/contact-us: www's "Contact us" form (the
  * modal behind Support & Contact's "Open contact form", its topic entries and the menus'
  * Feedback/Complaints link; the same English form on /en/ and /de/support-and-contact) as one
  * Form (core) block, sent by the lh-forms worker as cargo-contact-us to its configured recipients.
@@ -23,7 +23,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseHTML } from 'linkedom';
-import { CONTACT_FORM } from './cargo-paths.mjs';
+import { contactForm } from './cargo-paths.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const W = path.join(root, 'content-sites/lh-cargo');
@@ -125,24 +125,38 @@ export function contactFormRows(html) {
   return rows;
 }
 
-/** The page: H1 and intro as www's contact card, the form, the metadata. */
-export function contactFormPage(html) {
+/**
+ * The page: H1 and intro as www's contact card, the form, the metadata; lang: the page's language
+ * (de: the same English form and card, as www's German Support & Contact, with the German nav,
+ * footer and language, brief 417).
+ */
+export function contactFormPage(html, lang = 'en') {
   const { document } = parseHTML(html);
   const card = document.querySelector('.contactSupportWrapper .contactBox');
   const heading = clean((card && card.querySelector('h3')) ? card.querySelector('h3').textContent : 'Contact us');
   const intro = clean((card && card.querySelector('p')) ? card.querySelector('p').textContent : '');
   const rows = contactFormRows(html);
   const block = `<div class="form core">${rows.map((r) => `<div>${r.map((c) => `<div>${c}</div>`).join('')}</div>`).join('')}</div>`;
-  const meta = [['Title', `${heading} - Lufthansa Cargo`], ['Description', intro], ['Nav', '/en/nav'], ['Footer', '/en/footer'], ['Language', 'en']]
+  const meta = [['Title', `${heading} - Lufthansa Cargo`], ['Description', intro], ['Nav', `/${lang}/nav`], ['Footer', `/${lang}/footer`], ['Language', lang]]
     .filter(([, v]) => v)
     .map(([k, v]) => `<div><div>${k}</div><div>${esc(v)}</div></div>`).join('');
   return `<div><h1>${esc(heading)}</h1>${intro ? `<p>${esc(intro)}</p>` : ''}${block}<div class="metadata">${meta}</div></div>\n`;
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
-  const out = path.join(W, `content${CONTACT_FORM}.plain.html`);
-  const doc = contactFormPage(fs.readFileSync(SNAPSHOT, 'utf8'));
-  const before = fs.existsSync(out) ? fs.readFileSync(out, 'utf8') : null;
-  if (before !== doc) fs.writeFileSync(out, doc);
-  console.log(`${CONTACT_FORM}: ${before === doc ? 'unchanged' : 'written'} (${FORM_ID})`);
+  // --lang en|de (default both): the form pages /en/contact-us and /de/contact-us
+  const argv = process.argv.slice(2);
+  const only = argv.includes('--lang') ? argv[argv.indexOf('--lang') + 1] : null;
+  const html = fs.readFileSync(SNAPSHOT, 'utf8');
+  ['en', 'de'].filter((lang) => !only || lang === only).forEach((lang) => {
+    const target = contactForm(lang);
+    const out = path.join(W, `content${target}.plain.html`);
+    const doc = contactFormPage(html, lang);
+    const before = fs.existsSync(out) ? fs.readFileSync(out, 'utf8') : null;
+    if (before !== doc) {
+      fs.mkdirSync(path.dirname(out), { recursive: true });
+      fs.writeFileSync(out, doc);
+    }
+    console.log(`${target}: ${before === doc ? 'unchanged' : 'written'} (${FORM_ID})`);
+  });
 }

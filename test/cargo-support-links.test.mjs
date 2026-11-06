@@ -59,12 +59,25 @@ test('Support & Contact: the topics as accordion-columns (faq, filter) with www\
   assert.ok(!/Filter label/.test(other.html));
 });
 
-test('links: /support-and-contact?reason=&subreason= to the form page; plain and German Support & Contact to our page; the form page itself', () => {
+test('links: /support-and-contact?reason=&subreason= to the form page of the link\'s language (a language-less one: the page\'s); Support & Contact to our page of that language; the form pages themselves', () => {
+  // www's German Support & Contact is a page of its own (the English body and form with the German
+  // header and footer, cargo-parity-001, brief 417): /de/support-and-contact and /de/contact-us
   const page = new Page('/de/home', 'de', '<html></html>');
-  assert.equal(page.href('/support-and-contact?reason=General request&subreason=Feedback / Complaints'), '/en/contact-us?reason=General%20request&subreason=Feedback%20%2F%20Complaints');
+  assert.equal(page.href('/support-and-contact?reason=General request&subreason=Feedback / Complaints'), '/de/contact-us?reason=General%20request&subreason=Feedback%20%2F%20Complaints');
+  assert.equal(page.href('https://www.lufthansa-cargo.com/de/support-and-contact?reason=General%20request&amp;subreason=Other'), '/de/contact-us?reason=General%20request&subreason=Other');
   assert.equal(page.href('https://www.lufthansa-cargo.com/en/support-and-contact?reason=General%20request&amp;subreason=Other'), '/en/contact-us?reason=General%20request&subreason=Other');
-  assert.equal(page.href('https://www.lufthansa-cargo.com/de/support-and-contact'), '/en/support-and-contact');
-  assert.equal(page.href('/support-and-contact?reason=General request'), '/en/support-and-contact', 'a reason only: the page, as www opens no form');
+  assert.equal(page.href('https://www.lufthansa-cargo.com/de/support-and-contact'), '/de/support-and-contact');
+  assert.equal(page.href('/support-and-contact?reason=General request'), '/de/support-and-contact', 'a reason only: the page, as www opens no form');
   assert.equal(page.href('/en/contact-us?reason=a&subreason=b'), '/en/contact-us?reason=a&subreason=b');
+  assert.equal(page.href('/de/contact-us?reason=a&subreason=b'), '/de/contact-us?reason=a&subreason=b');
   assert.equal(page.href('https://www.lufthansa-cargo.com/en/contact-cst'), 'https://www.lufthansa-cargo.com/en/contact-cst', 'behind the login: www');
+  const en = new Page('/en/home', 'en', '<html></html>');
+  assert.equal(en.href('/support-and-contact?reason=General request&subreason=Feedback / Complaints'), '/en/contact-us?reason=General%20request&subreason=Feedback%20%2F%20Complaints');
+  assert.equal(en.href('/support-and-contact'), '/en/support-and-contact');
+});
+
+test('the German Support & Contact is no redirect to the English page any more; its own page in scope', async () => {
+  const { REDIRECT_ONLY, ADDED_PAGES } = await import('../tools/importer/cargo-paths.mjs');
+  assert.equal(REDIRECT_ONLY['/de/support-and-contact'], undefined);
+  assert.deepEqual(ADDED_PAGES['/de/support-and-contact'], { alternate: '/en/support-and-contact' });
 });
