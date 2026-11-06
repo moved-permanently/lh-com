@@ -125,3 +125,35 @@ Listed, not fixed:
   on what sits next to it; the logo's size is www's (shared header).
 - Each Austrian teaser card has two tab stops to one page (title and link line), as the card's link line
   is its own link now; not a failure.
+
+## Summary (19:10 UTC)
+
+All five items done; nothing published. On main, in release order:
+
+| item | commit | what | rollback |
+| --- | --- | --- | --- |
+| 1 | `af6a8973`, `cf906784` | importers without the excat plugin; B2B round 3 | `git revert` |
+| 1 | `64348de9` | this report | – |
+| 2 | `71cbf543` | the digital assistant's face on lufthansa.com only (every brand's headings) | `git revert` |
+| 2 | `663b69a0`, `e441c469` | Austrian templates, cards, intro, h3 / h4, lists; bundles | `git revert`; the 42 documents: DA's versions before 11:00 UTC |
+| 2 | `8fd60c71` | Austrian parity rows 28-43, `preview-paths-002.txt` | – |
+| 3 | `08abae8c` | B2B rows 29-31 (stage, contact) | `git revert` |
+| 4 | `4011c4d4` | Discover regression check (none) | – |
+| 5 | `0f50d704` | accessibility fixes (columns-media, B2B button, link lists, dots) | `git revert` |
+
+Preview paths (documents uploaded to DA and previewed, not published), release order, no files:
+`tools/reports/austrian/preview-paths-002.txt` (42 Austrian pages); the four Austrian tab pages re-uploaded as they
+were before (row 43). No B2B or Discover document changed.
+
+Every push: lint and the suite (one failure throughout, `library-entries`, only in this workspace: its
+untracked `content/library` copy is stale; it passes in a clean clone), smoke of the 12 hosts before and after (0
+differences from my pushes; body changes on Austrian pages and lufthansa.com's sitemaps came from others'
+publishing), builds green. Checked on main--lh-austrian--, main--lh-b2b-- and main--lh-discover--moved-permanently.aem.page.
+
+Open, by owner:
+- mine: Austrian rows 36-43 (steps in a tab panel, culinary-services' panels, QR / badge pairs, giftvoucher, a card row's
+  band, culinaryjourney and new-destinations not re-imported, the tab pages); the Star Alliance logos' alt texts;
+  B2B's hotline hours, news overview, airlines at 390.
+- ema-cashub: lufthansa-sections.js's Tab sections and Austrian's tab markers (Austrian row 43); seven `styles.css`
+  selectors with a :has() inside a :has() that browsers drop.
+- ema-lufthansa (Brussels), ema-adobe (SWISS): your digital-assistant pages draw in your own heading font since `71cbf543`.
