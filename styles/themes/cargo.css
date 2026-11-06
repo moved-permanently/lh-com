@@ -219,19 +219,41 @@ body.brand-cargo .header .nav-dropdown-note {
   line-height: 18px;
 }
 
-body.brand-cargo .header .nav-dropdown-note a {
+/* the phone menu (the bar menu's white flyout): www's navy text and grey lines; the flyout takes
+   the bar's text colour, light on Cargo's navy bar, so it is re-set inside the flyout only */
+body.brand-cargo .header .nav-wrapper.nav-has-bar-menu .nav-flyout {
+  --nav-bar-text: #05164d;
+  --nav-line: #ccc;
+}
+
+/* the phone menu's copy of the note (www's: the lock left of the text, the text and its link
+   wrapping as one paragraph, under the menu's last line) */
+body.brand-cargo .header .nav-flyout-note {
+  position: relative;
+  padding-left: 26px;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+body.brand-cargo .header :is(.nav-dropdown-note, .nav-flyout-note) a {
   color: inherit;
   font-weight: 400;
   text-decoration: underline;
 }
 
-body.brand-cargo .header .nav-dropdown-note .icon-lock {
+body.brand-cargo .header :is(.nav-dropdown-note, .nav-flyout-note) .icon-lock {
   display: inline-block;
   flex: none;
   width: 14px;
   height: 14px;
   background-color: currentcolor;
   mask: url('/icons/lock.svg') center / contain no-repeat;
+}
+
+body.brand-cargo .header .nav-flyout-note .icon-lock {
+  position: absolute;
+  top: 22px;
+  left: 0;
 }
 
 body.brand-cargo .header .nav-dropdown-title {

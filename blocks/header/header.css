@@ -620,6 +620,12 @@
   border-top: 1px solid var(--nav-flyout-line, var(--nav-line));
 }
 
+.header .nav-flyout-note {
+  margin: 20px 0 0;
+  padding-top: 20px;
+  border-top: 1px solid var(--nav-flyout-line, var(--nav-line));
+}
+
 @media (width >= 1025px) {
   .header .nav-flyout-image {
     position: fixed;

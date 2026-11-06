@@ -152,10 +152,23 @@ test('a link with a lock icon in the nav document (:lock:, www\'s portal links) 
 
 test('header.js: the note and Close for a brand with header.menuClose (Cargo); the shared CSS draws the lock', () => {
   const js = fs.readFileSync('blocks/header/header.js', 'utf8');
-  assert.match(js, /note: headerStyle\.menuClose && menu \? menu\.querySelector\(':scope \.default-content-wrapper > p'\) : null,/);
+  assert.match(js, /const menuNote = headerStyle\.menuClose && menu \? menu\.querySelector\(':scope \.default-content-wrapper > p'\) : null;/);
+  assert.match(js, /buildBarMenu\(menuItems, \{[^}]*note: menuNote,/);
   assert.match(js, /closeLabel: headerStyle\.menuClose \? labels\.close : '',/);
   assert.match(fs.readFileSync('blocks/header/header.css', 'utf8'), /\.header \.nav-link-locked::after \{[^}]*mask: url\('\/icons\/lock\.svg'\)/);
   assert.ok(fs.existsSync('icons/lock.svg'));
+});
+
+test('header.js: the phone menu (flyout) shows the same note once below its menu, as www\'s phone menu (Cargo, brief 422)', () => {
+  const js = fs.readFileSync('blocks/header/header.js', 'utf8');
+  assert.match(js, /const flyout = buildFlyout\(\{[^}]*note: menuNote,/);
+  assert.match(js, /function buildFlyout\(\{\n\s+items, image, extras, login, labels, menuLabel, logo, note = null,\n\}\)/);
+  assert.match(js, /note \? el\('p', \{ className: 'nav-flyout-note' \}, \.\.\.\[\.\.\.note\.cloneNode\(true\)\.childNodes\]\) : null,\n\s+\);\n\s+const columns/);
+  assert.match(fs.readFileSync('blocks/header/header.css', 'utf8'), /\.header \.nav-flyout-note \{[^}]*border-top: 1px solid/);
+  const theme = fs.readFileSync('styles/themes/cargo.css', 'utf8');
+  assert.match(theme, /body\.brand-cargo \.header \.nav-flyout-note \{[^}]*padding-left: 26px;[^}]*font-size: 14px;/, 'the text and its link one paragraph beside the lock');
+  assert.match(theme, /body\.brand-cargo \.header \.nav-flyout-note \.icon-lock \{[^}]*position: absolute;/);
+  assert.match(theme, /body\.brand-cargo \.header :is\(\.nav-dropdown-note, \.nav-flyout-note\) \.icon-lock \{[^}]*mask: url\('\/icons\/lock\.svg'\)/);
 });
 
 test('classifySections: the tools are the section whose own items carry icons, not a mega menu whose links and note carry locks (Cargo, brief 422)', async () => {
@@ -171,4 +184,12 @@ test('classifySections: the tools are the section whose own items carry icons, n
   assert.equal(found.menu, sections[2]);
   assert.equal(found.brand, sections[0]);
   assert.equal(found.quick, sections[1]);
+});
+
+test('Cargo\'s phone menu: navy text and grey lines on its white flyout, its navy bar keeps the light text (brief 422)', () => {
+  // the bar menu's flyout is white with the bar's text colour (B2B's deep blue); Cargo's bar text
+  // is light (#ebebeb on navy), so its flyout re-sets the colour inside the flyout only
+  const theme = fs.readFileSync('styles/themes/cargo.css', 'utf8');
+  assert.match(theme, /body\.brand-cargo \.header \.nav-wrapper\.nav-has-bar-menu \.nav-flyout \{[^}]*--nav-bar-text: #05164d;[^}]*--nav-line: #ccc;/);
+  assert.doesNotMatch(theme, /body\.brand-cargo \.header \.nav-wrapper[^{]*\.nav-bar \{[^}]*--nav-bar-text/, 'the bar as before');
 });

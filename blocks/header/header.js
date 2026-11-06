@@ -498,7 +498,7 @@ function focusables(root) {
 }
 
 function buildFlyout({
-  items, image, extras, login, labels, menuLabel, logo,
+  items, image, extras, login, labels, menuLabel, logo, note = null,
 }) {
   const flyout = el('div', { className: 'nav-flyout', id: 'nav-flyout', hidden: true });
   const fog = el('div', { className: 'nav-flyout-fog' });
@@ -558,6 +558,8 @@ function buildFlyout({
     menu,
     el('div', { className: 'nav-flyout-extras' }, extraList),
     login ? el('div', { className: 'nav-flyout-login' }, login) : null,
+    // the menu's note (header.menuClose: Cargo's access note), once below the menu
+    note ? el('p', { className: 'nav-flyout-note' }, ...[...note.cloneNode(true).childNodes]) : null,
   );
   const columns = el('div', { className: 'nav-flyout-columns' }, main, subs);
   const panel = el('div', {
@@ -1025,6 +1027,9 @@ export default async function decorate(block) {
   const menuItems = tap
     ? tap.tapMenuItems(readMenu(menu), quick ? [...quick.querySelectorAll('a[href]')] : [])
     : readMenu(menu);
+  // header.menuClose (Lufthansa Cargo, brief 422): the menu section's own paragraph (www's access
+  // note) below the bar menu's panels and the phone menu
+  const menuNote = headerStyle.menuClose && menu ? menu.querySelector(':scope .default-content-wrapper > p') : null;
   const flyout = buildFlyout({
     items: menuItems,
     image: menuImage || null,
@@ -1033,6 +1038,7 @@ export default async function decorate(block) {
     labels,
     menuLabel,
     logo: headerStyle.flyoutLogo && brandEl.querySelector('img') ? brandEl.querySelector('img').cloneNode(true) : null,
+    note: menuNote,
   });
   // (TAP: the menu button opens its own menu, below)
   if (!tap) flyout.bind(menuButton);
@@ -1071,9 +1077,8 @@ export default async function decorate(block) {
     const { default: buildBarMenu } = await import('./header-bar-menu.js');
     barMenu = buildBarMenu(menuItems, {
       link: (href, label, className) => navLink(href, label, className, labels),
-      // header.menuClose (Lufthansa Cargo, brief 422): a Close button in each panel and the menu
-      // section's own paragraph (www's access note) below its sections
-      note: headerStyle.menuClose && menu ? menu.querySelector(':scope .default-content-wrapper > p') : null,
+      // header.menuClose: a Close button in each panel and the note below its sections
+      note: menuNote,
       closeLabel: headerStyle.menuClose ? labels.close : '',
     });
     menuButton.addEventListener('click', () => barMenu.close());
