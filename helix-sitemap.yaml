@@ -82,3 +82,8 @@ sitemaps:
         destination: /sitemap/sitemap_lh_xx_ko.xml
         hreflang: ko
         alternate: /xx/ko/{path}
+      xx-pl:
+        source: /xx/pl/search-index.json
+        destination: /sitemap/sitemap_lh_xx_pl.xml
+        hreflang: pl
+        alternate: /xx/pl/{path}
