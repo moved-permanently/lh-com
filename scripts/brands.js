@@ -16,7 +16,8 @@
  * The known brands: metadata value -> display name, OneTrust id (the data-domain-script of the
  * brand's www pages, 2026-10-30; scripts/consent.js) and theme (styles/themes/<key>.css; false:
  * Lufthansa's look). Unknown values are ignored. A brand without a oneTrust id gets no consent
- * banner (and nothing that needs consent runs on its pages). messageCenter: the brand's Message
+ * banner (and nothing that needs consent runs on its pages), unless consent is 'fallback' (the
+ * look-alike banner without OneTrust: Cargo). messageCenter: the brand's Message
  * Center tenant on www (its messages' tenant in the site's own /message-center/index.json and its
  * row of /message-center/config/cti-pages.json; scripts/message-center.js siteTenant), for Cargo
  * and Air Dolomiti, no tenants of www's Message Center, their brand key (their documents come
@@ -341,6 +342,15 @@ export const BRANDS = {
     // www's header: Book & Track, Info-Hub and Cargo inside in the bar, each a panel below it;
     // the language a globe button ("EN") in the bar
     header: { menu: 'bar', languages: 'bar' },
+    // consent (brief 422): www's Usercentrics is not ours; the brand sites' handling without
+    // OneTrust (Cargo has no tenant): the look-alike banner (scripts/consent-banner.js) and the
+    // footer's Cookie Settings, with Cargo's own pages in it (German: its imprint; it has no
+    // German data protection or cookie page)
+    consent: 'fallback',
+    consentLinks: {
+      en: { privacy: '/en/data-protection', cookies: '/en/cookie-information', imprint: '/en/footer/bottomnav/imprint' },
+      de: { privacy: '/en/data-protection', cookies: '/en/cookie-information', imprint: '/de/footer/bottomnav/imprint' },
+    },
     messageCenter: 'cargo',
     // notifications: the header's bell tool opens www's notification panel (the nav's :bell: tool,
     // blocks/header/header-notifications.js; other brands keep it a link), its overview page

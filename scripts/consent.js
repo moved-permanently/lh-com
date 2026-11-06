@@ -26,6 +26,9 @@
  *   empty hook.
  * - A site without a consent tool (a brand without a OneTrust id) shows no "Change privacy
  *   settings" links (#privacy-settings): hidePrivacySettings.
+ * - A brand with consent 'fallback' (scripts/brands.js; Lufthansa Cargo, whose www runs
+ *   Usercentrics, brief 422) has the look-alike banner without OneTrust: it shows when no choice
+ *   is stored, and the footer's link opens its preference center (demo hosts, as the fallback).
  * - OneTrust's consent receipts to Lufthansa Group's OneTrust tenant are not sent from our hosts
  *   (guardReceipts, before the stub loads; tools/reports/consent/receipts.md): the choice
  *   itself, OneTrust's banner and everything else it loads are unchanged.
@@ -33,7 +36,7 @@
 
 import { loadCSS } from './aem.js';
 import { isDemoHost, isTurnsThePageHost } from './demo.js';
-import { oneTrustId } from './brand.js';
+import { oneTrustId, BRANDS, brandOf } from './brand.js';
 import { focusReturnTarget, returnFocus } from './consent-focus.js';
 
 const ONETRUST_STUB = 'https://cdn.cookielaw.org/scripttemplates/otSDKStub.js';
@@ -368,12 +371,18 @@ function loadOneTrust({ onReady, fallbackView = 'banner' } = {}) {
 
 /* ------------------------------------------------------------------- preferences link -- */
 
+/** Whether the brand has the look-alike banner without OneTrust (brands.js consent 'fallback'). */
+export function fallbackOnly(read) {
+  const key = brandOf(read);
+  return Boolean(key && BRANDS[key] && BRANDS[key].consent === 'fallback');
+}
+
 function openPreferences() {
   if (state.suppressed || isAuthoringContext()) return;
   state.focusBefore = document.activeElement;
   const usingFallback = document.documentElement.classList.contains('lh-consent-fallback');
   const stored = getStoredConsent();
-  if (usingFallback || state.oneTrust === 'failed' || (stored && stored.source === 'fallback' && state.oneTrust === 'idle')) {
+  if (fallbackOnly() || usingFallback || state.oneTrust === 'failed' || (stored && stored.source === 'fallback' && state.oneTrust === 'idle')) {
     showFallback('preferences');
     return;
   }
@@ -392,13 +401,13 @@ function openPreferences() {
 }
 
 /**
- * Whether the site runs a consent tool: a brand with a OneTrust id (lh-com: Lufthansa's). Cargo's
- * own (Usercentrics through Tealium) comes with the martech switch.
+ * Whether the site runs a consent tool: a brand with a OneTrust id (lh-com: Lufthansa's), or the
+ * look-alike banner alone (fallbackOnly: Cargo).
  * @param {Function} [read] metadata reader
  * @returns {boolean}
  */
 export function hasConsentTool(read) {
-  return Boolean(oneTrustId(read));
+  return Boolean(oneTrustId(read)) || fallbackOnly(read);
 }
 
 /**
@@ -468,6 +477,16 @@ export function initConsent() {
   if (OF1_HOST.test(window.location.hostname)) {
     state.suppressed = true;
     announce([NECESSARY], 'of1-host');
+    return;
+  }
+  // the look-alike banner without OneTrust (consent 'fallback': Cargo): shown when no choice is
+  // stored, the footer's link its preference center
+  if (fallbackOnly()) {
+    window.addEventListener('consent.preferences', openPreferences);
+    watchQuickEdit();
+    const stored = getStoredConsent();
+    announce(stored ? stored.groups : [NECESSARY], stored ? stored.source : 'default');
+    if (!stored) showFallback('banner');
     return;
   }
   // a brand without a OneTrust id: no banner (not another brand's), no preferences, necessary only

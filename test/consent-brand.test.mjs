@@ -32,14 +32,34 @@ test('initConsent: the stub carries the brand\'s OneTrust id', async () => {
   assert.equal(ita.stub.dataset.domainScript, '01994cb4-04ea-768d-baf8-f6ed09be97dd');
 });
 
-test('initConsent: Lufthansa Cargo and Air Dolomiti (no OneTrust on their www) show no banner, not Lufthansa\'s', async () => {
-  assert.equal(oneTrustId(meta({ brand: 'cargo' })), '');
+test('initConsent: Air Dolomiti (no consent tool on its www) shows no banner, not Lufthansa\'s', async () => {
   assert.equal(oneTrustId(meta({ brand: 'airdolomiti' })), '');
-  for (const brand of ['cargo', 'airdolomiti']) { // eslint-disable-line no-restricted-syntax
-    const { stub, events } = await consentOn(brand); // eslint-disable-line no-await-in-loop
-    assert.equal(stub, null, brand);
-    assert.deepEqual(events.map((e) => [e.consented, e.groups.join()]), [[false, 'C0001']], brand);
-  }
+  const { stub, events } = await consentOn('airdolomiti');
+  assert.equal(stub, null);
+  assert.deepEqual(events.map((e) => [e.consented, e.groups.join()]), [[false, 'C0001']]);
+});
+
+// Lufthansa Cargo (brief 422): www's Usercentrics is not ours; the same handling as the brand
+// sites, without OneTrust: the look-alike banner (consent-banner.js) at once, the footer's Cookie
+// Settings its preference center, Cargo's own privacy, cookie and imprint pages in it
+test('initConsent: Lufthansa Cargo (consent: fallback) shows the look-alike banner without OneTrust; Cookie Settings opens its preferences', async () => {
+  assert.equal(oneTrustId(meta({ brand: 'cargo' })), '');
+  assert.equal(BRANDS.cargo.consent, 'fallback');
+  const { stub, events, window } = await consentOn('cargo', { hostname: 'cargo.turnsthe.page' });
+  assert.equal(stub, null, 'no OneTrust stub');
+  assert.ok(window.document.documentElement.classList.contains('lh-consent-fallback'), 'the fallback banner');
+  assert.deepEqual(events.map((e) => [e.consented, e.groups.join()]), [[false, 'C0001']]);
+  window.document.documentElement.classList.remove('lh-consent-fallback');
+  window.dispatchEvent(new window.CustomEvent('consent.preferences'));
+  assert.ok(window.document.documentElement.classList.contains('lh-consent-fallback'), 'the preferences');
+  assert.equal(window.document.querySelector('script[data-domain-script]'), null);
+});
+
+test('Cargo\'s consent links: its data protection, cookie information and imprint pages (German: its imprint, the English pages it lacks)', () => {
+  assert.deepEqual(BRANDS.cargo.consentLinks, {
+    en: { privacy: '/en/data-protection', cookies: '/en/cookie-information', imprint: '/en/footer/bottomnav/imprint' },
+    de: { privacy: '/en/data-protection', cookies: '/en/cookie-information', imprint: '/de/footer/bottomnav/imprint' },
+  });
 });
 
 test('initConsent: a brand without an id loads no banner and announces the necessary group only', async () => {

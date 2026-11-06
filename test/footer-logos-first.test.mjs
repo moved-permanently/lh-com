@@ -5,7 +5,8 @@
    logos left, the legal links in the middle, Star Alliance right, nothing below the link area.
    Every other brand's footer (their documents on preview, 2026-11-02: lufthansa.com, Discover,
    ITA, Austrian, Brussels, Cargo, Air Dolomiti, B2B) decorates as before: its markup's hash from
-   before the change (test/fixtures/footers/hashes.json).
+   before the change (test/fixtures/footers/hashes.json). Cargo's hash changed once since (brief
+   422): Cargo has the consent handling now, so its Cookie Settings link stays; nothing else moved.
    Run: node --max-old-space-size=512 --test test/footer-logos-first.test.mjs */
 import test from 'node:test';
 import assert from 'node:assert/strict';
