@@ -213,3 +213,94 @@ Open, not ours:
 - Questions for Ben: the Cargo transport stories hub (item 4: all 100 stories or as now). Inputs
   that would close open rows: captures of the 12 en/de Cargo pages (item 4), a newer Brussels
   capture (P38, P41's Milan), the finder's Dutch and Italian labels.
+
+## Brief 439: Cargo stories and pictures
+
+Nothing published: documents and files uploaded to DA and previewed (da-upload.mjs --site
+lh-cargo). The upload state (tools/importer/da-upload-state-lh-cargo.json) merged with origin's
+entry by entry before each push (the user's harness writes it too). The three German articles with
+umlauts were left alone (the user's).
+
+### 1. The stories of cargo-snapshots-005
+
+The archive (sha256 11fed94d…5c6694, as the brief) holds 399 stories (398 English, 1 German): its
+captures into content-sites/lh-cargo/snapshots/ (none was there), imported as the 341 of item 2
+(cargo-import.mjs, files from what lh-cargo's DA has), each against DA's current copy (read from
+DA's source API), by passage and by picture. The passage check now compares sentence by sentence
+(www's phone and desktop copies split the same text into different paragraphs; DA's copies came
+from either).
+
+- 118 uploaded and previewed. 107 of them gain www's breadcrumb (DA's copies had none; the German
+  stories of item 2 have it). Four had passages that differ from DA's, all www's text or a fix,
+  uploaded and noted in the table: engine-mission (www's "Kuehne+Nagel", DA "Kühne+Nagel"),
+  everything-except-pepperoni-pizza-102 (DA's typo "xcustomers"), venus-egypt (www's word order),
+  rettet-das-nashorn ("AnimalLogistics FRA GmbH", www's desktop copy).
+- 280 unchanged: not uploaded.
+- 1 held: /en/news/theculture. Ten sentences (Kai Nissen's quote, the 130 cm box, the art trucks,
+  the SCHIRN opening) are only in www's phone copy (d-block d-sm-none); the import takes the
+  desktop copy. DA keeps its copy with them (as night-shift-in-chicago-44 in item 2).
+- 58 pictures (67 places) only on www, not in lh-cargo's DA: left out (DA's copies had none of them).
+- All rows added to tools/importer/cargo-runs/stories-offline-2026-11-06.tsv (now 740: 381 uploaded,
+  357 unchanged, 2 held), the pictures to stories-offline-2026-11-06-files.tsv, the not-captured
+  list (stories-offline-2026-11-06-not-captured.tsv) now the 5 www answers 404 for.
+
+On phones two of them scrolled sideways (123-flying-horses 83 px, from-above-48 54 px): the story
+module's one grid column (cargo.css row 14) grew to the card's longest title word. Fixed in
+cargo.css, test first (test/cargo-stories-439.test.mjs): the column is the block's width. All 399
+checked at 390 on a local dev server with the fix and lh-cargo's preview content: one h1 each, no
+broken picture, no sideways scroll, no passage twice except lhc-press-media-details-2012-page3-7
+(unchanged; www and DA repeat its first paragraph too). A sample of 10 uploaded stories on
+main--lh-cargo--moved-permanently.aem.page at 1440 and 390: the same.
+
+Preview paths: the 118 "uploaded and previewed" rows of stories-offline-2026-11-06.tsv marked
+"cargo-snapshots-005 (brief 439)"; any order after the cargo.css commit.
+
+### 2. cargo-media-002
+
+The archive (sha256 343c4945…08f5f5c, as the brief): each of the ten files checked against its
+manifest row (bytes, sha256), named as cargo-assets.mjs names files (edsName:
+/media-da/cargo/<name>-<sha1 8>.<ext>) and uploaded to lh-cargo's DA with the pages that use them.
+Teaser-ULD-Mobile@2x.jpg left alone (ema-adobe's).
+
+- /media-da/cargo/250701-executive-board-lufthansa-cargo-1000x465-jpg-37ea74fa.jpg,
+  210301-ashwin-bhat-lhc-001-330x248-webseite-jpeg-39a0f8fe.jpg,
+  gregor-schleussner-250701-248x330-jpg-53c1f225.jpg, frank-bauer-230720-v1-248x330-73a1d2da.jpg,
+  compliance-tails-76caf4a4.jpg, compliance-cockpit-e03ba551.jpg (the board and compliance lists);
+  facts-bg-paralaxe-01-864px-b82ad10b.jpg, mobile-facts-bg-01-92327d72.jpg (key facts);
+  history-slider-bg-5ef3a125.jpg (timeline); 042b0cfe-5e6c-74b0-8652-a93835861949-ebc126d7.png
+  (Support & Contact's "Contact us").
+
+The six list pictures the importer already placed. For the other four the importer and the theme
+had to use them (tests first: test/cargo-import-439.test.mjs, test/cargo-media-439.test.mjs):
+
+- key facts a section of their own (style key-facts): www's photo covering the band behind the
+  slides, the phone photo below 768 px, the slides the screen's width, "Key Facts" over them. 1440:
+  1440 x 649 (www 1440 x 649), no sideways scroll;
+- the timeline (section timeline) on www's photo at every width (the grey band before);
+- "Contact us": from 768 px the photo the box's right half, 16:9 (1440: the box 1296 x 364.5, www
+  1296 x 364), under the text on phones (451 px high, www 461), 4 px corners.
+
+/en and /de ci/facts-figures and support-and-contact re-imported, each against DA's copy (no
+passage or picture lost, nothing left on www), uploaded and previewed. Checked on a local dev
+server with the code and lh-cargo's preview content at 1440 and 390 against cargo-parity-001's
+screenshots: one h1, no broken picture, no sideways scroll. parity.md rows 18 and 21.
+
+Differs (open): on phones the key facts slides are the desktop ones over the phone photo (www's
+phone slider, seven text slides with icons, is its phone copy and not imported; the icons are not
+in DA); www's "Facts & Figures >" link in the slider and its arrows beside the dots are not
+imported. The es to pt Facts & Figures pages could take the same pictures with one run (not in the
+brief; not done).
+
+Release order: the code commit first (cargo.css and the importer), then the files with their pages
+(da-upload sends them together): /en/ci/facts-figures, /de/ci/facts-figures,
+/en/support-and-contact, /de/support-and-contact.
+
+Found on the way, not ours: styles/styles.css has :has() inside :has() at lines 763-790 (the table
+sections after a heading) and 1183-1184 (a column's last picture). Browsers reject such selectors
+(CSS.supports: false in Chromium), so those rules never apply. For lh-com's owner (ema-cashub).
+
+### 3. The 59 story pictures of item 2
+
+Noted in stories-offline-2026-11-06-files.tsv (a third column): those 59 answer 404 on www itself
+(also with ?t=, the user's check), so www's stories link dead pictures and leaving them out is
+right. The 58 new ones from cargo-snapshots-005 are marked not checked on www (no requests to www).
