@@ -21,3 +21,9 @@ test('legal: .accordion is accordion-columns, as on info and hub', () => {
 test('legal: a striped table inside an accordion is still the accordion\'s', () => {
   assert.match(block('legal', 'table-striped').instances[0], /:not\(\.accordion div\.table\)/);
 });
+
+// campaign: teaser rows straight in the page column (/de/en/discover-lufthansa/take-off: five
+// .container-content > .twocolumn rows of image + headline + text + link) came in as plain content
+test('campaign: teaser rows in the page column are cards-teaser too, as on hub', () => {
+  assert.deepEqual(block('campaign', 'cards-teaser').instances, [':is(.section-content, .container-content) > .twocolumn:has(.column-view-item > .image + .headline)']);
+});

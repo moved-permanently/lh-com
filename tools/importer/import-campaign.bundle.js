@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-campaign.js
-  var tmp_bundle_campaign_42721_exports = {};
-  __export(tmp_bundle_campaign_42721_exports, {
-    default: () => tmp_bundle_campaign_42721_default
+  var tmp_bundle_campaign_71532_exports = {};
+  __export(tmp_bundle_campaign_71532_exports, {
+    default: () => tmp_bundle_campaign_71532_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -4428,7 +4428,7 @@ var CustomImportScript = (() => {
       {
         "name": "cards-teaser",
         "instances": [
-          ".section-content > .twocolumn:has(.column-view-item > .image + .headline)"
+          ":is(.section-content, .container-content) > .twocolumn:has(.column-view-item > .image + .headline)"
         ]
       },
       {
@@ -4627,7 +4627,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_campaign_42721_default = {
+  var tmp_bundle_campaign_71532_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -4657,5 +4657,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_campaign_42721_exports);
+  return __toCommonJS(tmp_bundle_campaign_71532_exports);
 })();

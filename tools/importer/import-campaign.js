@@ -58,7 +58,7 @@ const PAGE_TEMPLATE = {
     {
       "name": "cards-teaser",
       "instances": [
-        ".section-content > .twocolumn:has(.column-view-item > .image + .headline)"
+        ":is(.section-content, .container-content) > .twocolumn:has(.column-view-item > .image + .headline)"
       ]
     },
     {
