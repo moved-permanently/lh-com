@@ -50,7 +50,7 @@ const ITEMS = [
 const F = 'body.appear.brand-cargo main .columns-media.features.icons .columns-media-text > ul > li > a';
 
 test('products: an 88 px icon over each label, the band\'s items as www\'s', () => {
-  assert.match(rules(`${F}:any-link::before`), /content: ""; display: block; width: 88px; height: 88px; margin: 0 auto 4px; background-color: transparent; background-repeat: no-repeat; mask: none;/, 'not the running text links\' arrow (its mask and colour)');
+  assert.match(rules(`${F}:any-link::before`), /content: ""; display: block; width: 88px; height: 88px; margin: 0 auto; background-color: transparent; background-repeat: no-repeat; mask: none;/, 'not the running text links\' arrow (its mask and colour)');
   assert.match(rules('body.brand-cargo .columns-media.features.icons .columns-media-text > ul'), /margin-right: -1px;/, 'eight to a row at 1440 as www\'s (858 px in 857)');
   ITEMS.forEach(([href, sprite, pos]) => {
     const r = rules(`${F}[href$="/${href}"]::before`);

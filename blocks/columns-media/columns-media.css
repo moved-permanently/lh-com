@@ -1013,7 +1013,7 @@ body.appear.brand-cargo main .columns-media.features.icons .columns-media-text >
   display: block;
   width: 88px;
   height: 88px;
-  margin: 0 auto 4px;
+  margin: 0 auto;
   background-color: transparent;
   background-repeat: no-repeat;
   mask: none;
@@ -1206,6 +1206,152 @@ body.brand-cargo .columns-media.stats.icons .columns-media-text > ul:nth-of-type
     float: none;
     width: auto;
     margin-right: 0;
+    line-height: 32px;
+  }
+}
+/* stylelint-enable no-descending-specificity */
+
+/* --------------------------------- Lufthansa Cargo's homepage bands, brief 430 ------- */
+
+/* stylelint-disable no-descending-specificity -- the bands' www measures after the shared rules */
+
+/* the products band as www's .ourProducts (cargo-parity-001 with its own stylesheets): the
+   heading row's h2 20px over "Explore all", then the rows under their rules back to back, 20px in
+   (the last one none below), the first 20px under the heading row; each row's text 20px over its
+   link; the links LufthansaText bold 14/18; 20px above and below below 1025px (www's whiteBgBox) */
+body.brand-cargo .columns-media.band.features {
+  gap: 0;
+}
+
+body.brand-cargo .columns-media.band.features .columns-media-row:first-child {
+  margin-bottom: 20px;
+}
+
+body.brand-cargo .columns-media.band.features .columns-media-row:first-child h2 {
+  margin-bottom: 20px;
+}
+
+body.brand-cargo .columns-media.band.features .columns-media-row:last-child {
+  padding-bottom: 0;
+}
+
+body.brand-cargo .columns-media.band.features .columns-media-text > p {
+  margin: 0 0 20px;
+}
+
+body.brand-cargo .columns-media.band.features .columns-media-text > p:last-child {
+  margin-bottom: 0;
+}
+
+body.appear.brand-cargo main .columns-media.band.features .columns-media-text p.link-wrapper a:any-link {
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 18px;
+}
+
+@media (width < 1025px) {
+  body.brand-cargo .columns-media.band.features {
+    padding-block: 20px;
+  }
+
+  body.brand-cargo .columns-media.band.features .columns-media-row > .columns-media-text:not(:last-child) {
+    margin-bottom: 24px;
+  }
+}
+
+/* the about band's artwork as www's About-BG-Desktop-Updated.svg and About_BG-Mobile-Updated.svg
+   in a smaller form (their 292KB were refused by the preview): their vector part as SVGs of their
+   own and their embedded grain PNG on its own, multiplied over the vector as the SVGs do; across
+   the screen behind the column as the products band's artwork. Desktop both bottom right / cover
+   (pixel-identical to www's SVG); below 768px the mobile vector, the grain over the band (the
+   mobile SVG stretches it so) */
+body.brand-cargo .columns-media.band.dark.facts {
+  position: relative;
+  isolation: isolate;
+}
+
+body.brand-cargo .columns-media.band.dark.facts::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset-block: 0;
+  left: calc(50% - var(--columns-media-viewport, 100%) / 2);
+  width: var(--columns-media-viewport, 100%);
+  background: url("/documents/about-bg-grain-bedb93.png") 0 0 / 100% 100% no-repeat, url("/documents/about-bg-mobile-vector-cfeaac.svg") bottom right / cover no-repeat, #05164d;
+  background-blend-mode: multiply, normal;
+}
+
+@media (width >= 768px) {
+  body.brand-cargo .columns-media.band.dark.facts::before {
+    background-image: url("/documents/about-bg-grain-bedb93.png"), url("/documents/about-bg-desktop-vector-da7231.svg");
+    background-position: bottom right;
+    background-size: cover;
+  }
+}
+
+/* the about band as www's .contentAbout: the h2 and the lead 20px over what follows (the lead 18/24
+   regular), "Key Facts" bold 18/24 20px over the facts, each fact's 10px inside its fifth (half
+   below 768px) of the row; on phones 20px above, the figures 24/28 and the artwork's 166px under
+   the content (www's padding-bottom), 40px above and below from 768px */
+body.brand-cargo .columns-media.band.facts {
+  padding: 20px 0 186px;
+}
+
+body.brand-cargo .columns-media.band.facts .columns-media-text {
+  margin-bottom: 0;
+}
+
+body.brand-cargo .columns-media.band.facts .columns-media-text > h2 {
+  margin: 0 0 20px;
+}
+
+body.brand-cargo .columns-media.band.facts .columns-media-text > p:not(.link-wrapper) {
+  margin: 0 0 20px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+body.brand-cargo .columns-media.band.facts .columns-media-text > h3 {
+  margin: 0 0 20px;
+  font-weight: 700;
+}
+
+body.brand-cargo .columns-media.band.facts .columns-media-text > ul > li {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body.brand-cargo .columns-media.band.facts .columns-media-text > p.link-wrapper {
+  margin: 0;
+}
+
+body.brand-cargo .columns-media.band.features .columns-media-text > p.link-wrapper {
+  display: flex;
+  margin: 0;
+  line-height: 18px;
+}
+
+/* the arrow inside the link's 18px line (www's hyperlinkIcon), not the theme's 20px */
+body.appear.brand-cargo main .columns-media.band.features .columns-media-text p.link-wrapper a:any-link::before {
+  width: 16px;
+  height: 16px;
+  margin-top: 1px;
+}
+
+body.brand-cargo .columns-media.band.facts .columns-media-text > ul > li > strong {
+  font-size: 24px;
+  line-height: 28px;
+}
+
+@media (width >= 768px) {
+  body.brand-cargo .columns-media.band.facts {
+    padding: 40px 0;
+  }
+
+  body.brand-cargo .columns-media.band.facts .columns-media-text > ul > li > strong {
+    font-size: 28px;
     line-height: 32px;
   }
 }
