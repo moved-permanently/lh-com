@@ -427,9 +427,15 @@ export function bannerLinks(lang, read) {
   return links.map(([label], i) => [label, urls[LINK_KEYS[i]]]).filter(([, href]) => href);
 }
 
-function texts() {
+/**
+ * The banner's texts for the page language (English without its own), with their language and
+ * the links.
+ * @returns {Object}
+ */
+export function bannerTexts() {
   const lang = pathLanguageOf(document.documentElement.lang);
-  return { ...(TEXTS[lang] || TEXTS.en), links: bannerLinks(lang) };
+  const shown = TEXTS[lang] ? lang : 'en';
+  return { ...TEXTS[shown], lang: shown, links: bannerLinks(lang) };
 }
 
 /** banner description: intro, purposes, withdrawal note */
@@ -616,9 +622,8 @@ export async function showConsentBanner({ view = 'banner', groups = [NECESSARY],
   removeConsentBanner();
   lastFocus = document.activeElement;
 
-  const t = texts();
-  const lang = t === TEXTS.de ? 'de' : 'en';
-  root = el('div', { className: 'lh-consent', lang, 'data-nosnippet': 'true' }, el('div', { className: 'lh-consent-overlay' }));
+  const t = bannerTexts();
+  root = el('div', { className: 'lh-consent', lang: t.lang, 'data-nosnippet': 'true' }, el('div', { className: 'lh-consent-overlay' }));
   const render = (which) => {
     const current = root.querySelector('.lh-consent-banner, .lh-consent-pc');
     const dialog = which === 'preferences'
