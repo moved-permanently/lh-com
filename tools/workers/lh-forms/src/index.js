@@ -197,6 +197,8 @@ const FORMS = {
     'loyalty-programs': ['LOYALTY PROGRAMMES', 'TREUEPROGRAMME'],
     other: ['Other', 'Sonstiges'],
     'personal-injury': ['Personal injury', 'Personenschaden'],
+    // il/en only (brussels-snapshots-013, brief 441): its page's h1
+    'rebooking-request-birthright': ['Rebooking request for Birthright participants'],
     'register-ppb': ['Your registration'],
     'request-for-proposal': ['Your enquiry for a Lufthansa Group Meetings & Events cooperation'],
     'special-assistance': ['Special assistance', 'Besondere Unterstützung'],

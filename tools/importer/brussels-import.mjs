@@ -18,6 +18,7 @@
  *   price-bar), slideshows with fleet (carousel-lightbox);
  * - the core forms get a form config row with a proposed lh-forms id brussels-<page> (withForm;
  *   preview only until lh-forms knows them);
+ * - www's leftover test forms ("… Test" section titles) are dropped (withoutTestForms);
  * - the flight search hands off to shop.brusselsairlines.com from Brussels (withFlightSearch);
  * - the check-in entry becomes the booking-lookup block (withCheckinTabs), its hand-off the page
  *   on www (withCheckinHandoff); the booking login's "Enter booking code" opens the page on www;
@@ -241,11 +242,33 @@ export const withCheckinHandoff = (doc, p) => doc
 
 // the core forms: a proposed lh-forms id per page name (brussels-<page>; lh-forms does not know
 // them yet, so the form pages stay on preview)
-export const formIdOf = (p) => `brussels-${p.split('/').pop().replace(/[^a-z0-9-]/gi, '-').toLowerCase()}`;
+// www's copies of a form under another page name: the form's id (ro/en's ask-invoice1 is the invoice
+// request, brief 441)
+const FORM_ALIASES = { 'ask-invoice1': 'ask-invoice' };
+export const formIdOf = (p) => {
+  const name = p.split('/').pop().replace(/[^a-z0-9-]/gi, '-').toLowerCase();
+  return `brussels-${FORM_ALIASES[name] || name}`;
+};
 const CONFIG_ROW = /<div><div>(?:(?!<\/div><div>)[\s\S])*?<\/div><div>config<\/div><div>(?:form|success|error)<\/div>(?:<div><\/div>){7}<\/div>/g;
 const ERROR_ROW = /<div><div>(?:(?!<\/div><div>)[\s\S])*?<\/div><div>config<\/div><div>error<\/div>(?:<div><\/div>){7}<\/div>/g;
 const configRow = (name, value) => `<div><div>${value}</div><div>config</div><div>${name}</div>${'<div></div>'.repeat(7)}</div>`;
 const linkRow = (name, href) => configRow(name, `<a href="${href}">${href}</a>`);
+
+/**
+ * The snapshot without www's leftover test forms: a form whose first section title ends in "Test"
+ * (ro/en's ask-invoice1: "Invoicing details Biztalk Test", a second form posting to the same
+ * handler, brief 441), with its container. A container that holds more than one form is looked
+ * into.
+ */
+export function withoutTestForms(html) {
+  const open = '<div class="container responsivegrid">';
+  return editDivs(html, open, (el) => {
+    const forms = el.split('<form').length - 1;
+    if (forms > 1) return open + withoutTestForms(el.slice(open.length));
+    const title = (el.match(/class="(?:[^"]*\s)?form-section-headline(?:\s[^"]*)?">([^<]*)</) || [])[1] || '';
+    return forms === 1 && /\sTest\s*$/.test(title) ? '' : el;
+  });
+}
 
 /** www's confirmation page of a form (its :redirect) as the public path on the site. */
 export function successOf(html) {
@@ -366,7 +389,7 @@ if (isMain) {
     // (the help centre app's screen-reader announcement "Help page loaded." is no page text;
     // the Studio's snapshots keep www's scripts, which must not run in the import browser)
     // (the form's jQuery UI date picker, appended to the body and hidden on www, is no content)
-    const mapped = withoutLoads(withTeaserColumns(withCheckinTabs(withLinkOuts(withHotlines(withPaymentTable(withPlaceholder(editDivs(stripScripts(html), '<div id="ui-datepicker-div"', () => '')))), p))))
+    const mapped = withoutLoads(withTeaserColumns(withCheckinTabs(withLinkOuts(withHotlines(withPaymentTable(withPlaceholder(withoutTestForms(editDivs(stripScripts(html), '<div id="ui-datepicker-div"', () => ''))))), p))))
       .replace(/<output[^>]*class="screen-reader-announcer"[^>]*>[\s\S]*?<\/output>/g, '');
     if (mapped.includes(`https://${LINK_OUT}`)) linkOuts.push(p);
     if (/<div class="slideshow/.test(mapped)) {

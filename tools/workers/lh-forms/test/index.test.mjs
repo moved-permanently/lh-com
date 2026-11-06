@@ -1252,7 +1252,7 @@ test('Austrian file rules: types, per-file size, count, the 18.5 MB total', asyn
 const BRUSSELS_IDS = ['ask-invoice', 'baggage', 'baggage-allowances-rules', 'cabin-comfort', 'charter',
   'delays-and-cancellation', 'denied-boarding', 'dsar-start', 'emergency-contact',
   'fc8552d5-c1e8-4576-8b35-0d588d828b10', 'group-travel-request', 'loyalty-programs', 'other',
-  'personal-injury', 'register-ppb', 'request-for-proposal', 'special-assistance'].map((n) => `brussels-${n}`);
+  'personal-injury', 'rebooking-request-birthright', 'register-ppb', 'request-for-proposal', 'special-assistance'].map((n) => `brussels-${n}`);
 const BRU = 'https://brussels.turnsthe.page';
 
 test('Brussels: its host and Edge Delivery hosts are allowed origins; look-alikes are not', async () => {
@@ -1270,7 +1270,7 @@ test('Brussels: its host and Edge Delivery hosts are allowed origins; look-alike
 });
 
 test('Brussels: every form id is accepted from its site, to the default recipient; an unknown id is not', async () => {
-  assert.equal(BRUSSELS_IDS.length, 17);
+  assert.equal(BRUSSELS_IDS.length, 18);
   const results = await Promise.all(BRUSSELS_IDS.map((form, i) => post({
     form, locale: 'be-fr', origin: BRU, ip: `198.51.100.${i + 50}`,
   })));
@@ -1293,6 +1293,8 @@ test('Brussels: titles from the be/en and de/de pages; the subject names lh-brus
   const cases = [
     [{ form: 'brussels-charter', locale: 'be-en', origin: BRU }, '[lh-brussels] Rent a plane (be-en)'],
     [{ form: 'brussels-charter', locale: 'de-de', origin: 'https://main--lh-brussels--moved-permanently.aem.live' }, '[lh-brussels] Ein Flugzeug mieten (de-de)'],
+    // il/en's own form (brussels-snapshots-013, brief 441): its page's h1
+    [{ form: 'brussels-rebooking-request-birthright', locale: 'il-en', origin: BRU }, '[lh-brussels] Rebooking request for Birthright participants (il-en)'],
     [{ form: 'brussels-baggage', locale: 'be-nl', origin: 'https://main--lh-brussels--moved-permanently.aem.page' }, '[lh-brussels] BAGGAGE ISSUES (be-nl)'],
     [{ form: 'brussels-request-for-proposal', locale: 'be-fr', origin: ORIGIN }, '[lh-brussels] Your enquiry for a Lufthansa Group Meetings & Events cooperation (be-fr)'],
   ];
@@ -1323,6 +1325,7 @@ test('Brussels file rules: the feedback forms 5 x 2,000,000 PDF or JPEG; the req
     ['brussels-request-for-proposal', [pdf('a.pdf', 2048001)], 413, 'file-too-large'],
     ['brussels-charter', [pdf('a.pdf')], 400, 'files-not-allowed'],
     ['brussels-ask-invoice', [pdf('a.pdf')], 400, 'files-not-allowed'],
+    ['brussels-rebooking-request-birthright', [pdf('a.pdf')], 400, 'files-not-allowed'],
   ];
   const results = await Promise.all(cases.map(([form, files], i) => post({
     ...be, form, files, ip: `192.0.2.${100 + i}`,
