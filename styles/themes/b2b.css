@@ -656,3 +656,40 @@ body.brand-b2b main > .section.grey {
   --button-secondary-color: #49748b;
   --button-secondary-hover: #49748b;
 }
+
+/* brief 438: the tab set below 768 px as www's accordion (the news overview, de/en and de/de): 30 px
+   under the heading before it, the closed items' rows on white without their grey band (an open
+   item keeps it), the footer right after the last row */
+@media (width < 768px) {
+  body.brand-b2b main > .section:has(+ .section.section-tabs) {
+    margin-bottom: 30px;
+  }
+
+  body.brand-b2b main > .section.section-tab-panel:not(:has(> .section-tab-toggle[aria-expanded="true"])) {
+    margin-top: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    background-color: transparent;
+  }
+
+  body.brand-b2b main > .section.section-tab-panel:not(:has(> .section-tab-toggle[aria-expanded="true"]), :has(~ .section-tab-panel, ~ .section-tab-part, ~ .section > *)) {
+    margin-bottom: 0;
+  }
+
+  body.brand-b2b main > .section.section-tab-panel ~ .section:not(:has(*)) {
+    display: none;
+  }
+}
+
+/* brief 438: the airlines page below 768 px: a stacked text cell that ends with its link line 14 px
+   above the picture (www's link 1469, the picture 1483 at 390; lh-com's 36 px), the rows of such
+   cells 42 px apart (the link line 45 px above the next row's picture; 66 px rows before) */
+@media (width < 768px) {
+  body.brand-b2b .columns-media .columns-media-row > .columns-media-text:not(:last-child):has(> p.link-wrapper:last-child) {
+    margin-bottom: 14px;
+  }
+
+  body.brand-b2b .columns-media:has(> .columns-media-row > .columns-media-text:last-child > p.link-wrapper:last-child) {
+    gap: 42px;
+  }
+}
