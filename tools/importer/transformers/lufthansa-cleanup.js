@@ -998,7 +998,9 @@ function rewriteAnchors(document, pagePath) {
       let u;
       try { u = new URL(href, `${LIVE_ORIGIN}/`); } catch (e) { return; }
       if (!SOURCE_HOSTS.includes(u.hostname) || !pagePath || u.search) return;
-      if (normalizePath(u.pathname).replace(/^\/content\/lh(?=\/)/, '') !== pagePath) return;
+      const linkPath = normalizePath(u.pathname).replace(/^\/content\/lh(?=\/)/, '');
+      // an alias page (imported at /de/en/flynet) links its sections by www's long path
+      if (linkPath !== pagePath && aliasPath(linkPath) !== pagePath) return;
     }
     let target = null;
     try { target = document.getElementById(decodeURIComponent(fragment)); } catch (e) { return; }
@@ -1305,6 +1307,24 @@ const PAGE_PATH = /^\/[a-z]{2}\/[a-z]{2}(?:\/|$)/;
 const MARKET_PATH = /^\/content\/lh\/markets\/[a-z]{2}\/[a-z]{2}(?:\/|$)/;
 const LOCALE_ROOT = /^\/[a-z]{2}\/[a-z]{2}$/;
 
+// www's short URLs whose pages the site has at the short path (the alias documents, imported from
+// the long path's page): www links them by the long path, which is not in scope (brief 435)
+const ALIASES = {
+  'prepare-for-your-trip/travel-classes/business-class': 'business-class',
+  'book-and-manage/digital-self-services/digital-travel-companion': 'digital-travel-companion',
+  'during-your-trip/internet-on-board': 'flynet',
+  'prepare-for-your-trip/baggage/free-baggage': 'freigepaeck-regeln',
+  'during-your-trip/lounges': 'lounges',
+};
+
+/** The site's alias page of a long path (/de/en/during-your-trip/internet-on-board ->
+ * /de/en/flynet) when it is in scope, else null. */
+function aliasPath(pagePath) {
+  const m = (pagePath || '').match(/^(\/[a-z]{2}\/[a-z]{2})\/(.+)$/);
+  const alias = m && ALIASES[m[2]] && `${m[1]}/${ALIASES[m[2]]}`;
+  return alias && SCOPE_PATHS.has(alias) ? alias : null;
+}
+
 /**
  * Returns the rewritten href, or null to leave it untouched.
  * In scope: "/de/en/flights?x=1#y". Not in scope: "https://www.lufthansa.com/de/en/x.html?x=1".
@@ -1338,6 +1358,8 @@ function rewriteHref(href, origins) {
   if (PAGE_PATH.test(pagePath) && SCOPE_PATHS.has(pagePath)) {
     return `${pagePath}${u.search}${u.hash}`;
   }
+  const alias = PAGE_PATH.test(pagePath) && aliasPath(pagePath);
+  if (alias) return `${alias}${u.search}${u.hash}`;
   return `${LIVE_ORIGIN}${u.pathname}${u.search}${u.hash}`;
 }
 

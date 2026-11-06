@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-austrian-flight-status.js
-  var tmp_bundle_austrian_flight_status_514098_exports = {};
-  __export(tmp_bundle_austrian_flight_status_514098_exports, {
-    default: () => tmp_bundle_austrian_flight_status_514098_default
+  var tmp_bundle_austrian_flight_status_540217_exports = {};
+  __export(tmp_bundle_austrian_flight_status_540217_exports, {
+    default: () => tmp_bundle_austrian_flight_status_540217_default
   });
 
   // tools/importer/parsers/flight-status.js
@@ -5097,7 +5097,8 @@ var CustomImportScript = (() => {
           return;
         }
         if (!SOURCE_HOSTS.includes(u.hostname) || !pagePath || u.search) return;
-        if (normalizePath(u.pathname).replace(/^\/content\/lh(?=\/)/, "") !== pagePath) return;
+        const linkPath = normalizePath(u.pathname).replace(/^\/content\/lh(?=\/)/, "");
+        if (linkPath !== pagePath && aliasPath(linkPath) !== pagePath) return;
       }
       let target = null;
       try {
@@ -5348,6 +5349,18 @@ var CustomImportScript = (() => {
   var PAGE_PATH = /^\/[a-z]{2}\/[a-z]{2}(?:\/|$)/;
   var MARKET_PATH = /^\/content\/lh\/markets\/[a-z]{2}\/[a-z]{2}(?:\/|$)/;
   var LOCALE_ROOT = /^\/[a-z]{2}\/[a-z]{2}$/;
+  var ALIASES = {
+    "prepare-for-your-trip/travel-classes/business-class": "business-class",
+    "book-and-manage/digital-self-services/digital-travel-companion": "digital-travel-companion",
+    "during-your-trip/internet-on-board": "flynet",
+    "prepare-for-your-trip/baggage/free-baggage": "freigepaeck-regeln",
+    "during-your-trip/lounges": "lounges"
+  };
+  function aliasPath(pagePath) {
+    const m = (pagePath || "").match(/^(\/[a-z]{2}\/[a-z]{2})\/(.+)$/);
+    const alias = m && ALIASES[m[2]] && `${m[1]}/${ALIASES[m[2]]}`;
+    return alias && SCOPE_PATHS.has(alias) ? alias : null;
+  }
   function rewriteHref(href, origins) {
     const raw = (href || "").trim();
     if (!raw || raw.startsWith("#") || /^(mailto|tel|javascript|data|sms):/i.test(raw)) return null;
@@ -5372,6 +5385,8 @@ var CustomImportScript = (() => {
     if (PAGE_PATH.test(pagePath) && SCOPE_PATHS.has(pagePath)) {
       return `${pagePath}${u.search}${u.hash}`;
     }
+    const alias = PAGE_PATH.test(pagePath) && aliasPath(pagePath);
+    if (alias) return `${alias}${u.search}${u.hash}`;
     return `${LIVE_ORIGIN}${u.pathname}${u.search}${u.hash}`;
   }
   var TAG_DOT = /^(?:https?:\/\/[^/]+)?(?:\/content\/lh\/markets)?(\/[a-z]{2}\/[a-z]{2}\/articles\/tags\/[^/?#.]+)\.(?:html)?$/;
@@ -6173,7 +6188,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_austrian_flight_status_514098_default = {
+  var tmp_bundle_austrian_flight_status_540217_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -6203,5 +6218,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_austrian_flight_status_514098_exports);
+  return __toCommonJS(tmp_bundle_austrian_flight_status_540217_exports);
 })();

@@ -1,4 +1,4 @@
-/* eslint-disable no-console, no-await-in-loop, max-len */
+/* eslint-disable no-console, no-await-in-loop, max-len, import/extensions */
 /**
  * The documents that play www's videos (links to https://www.lufthansa.com/content/dam/...mp4)
  * get the site's own copies: the link becomes /content/dam/<Edge Delivery name>
@@ -23,6 +23,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { edsDamPath, decodePath } from '../../scripts/dam-path.js';
+import { placeOf, served } from './dam-route.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const argv = process.argv.slice(2);
@@ -69,8 +70,9 @@ const playing = walk(CONTENT).filter((f) => f.endsWith('.plain.html') && !/\/(lh
   file, docPath: `/${path.relative(CONTENT, file).replace(/\.plain\.html$/, '')}`, html: fs.readFileSync(file, 'utf8'),
 })).filter((d) => d.html.match(WWW_VIDEO) || d.html.match(OWN));
 
-// every file the documents would use, and where it is: lh-edge answers it from R2 (route
-// dam-media) or from the DA copies (route dam); anything else is missing (not recorded yet)
+// every file the documents would use, and where it is: lh-edge answers it from the DA copies
+// (route dam), the AEM publish tier (dam-aem: the videos over 36 MB, the subtitles) or R2
+// (dam-media, gone); anything else is missing (not recorded yet). dam-route.mjs
 const wanted = new Set();
 playing.forEach((d) => {
   d.viewers = viewersOf(d.docPath);
@@ -88,13 +90,10 @@ const list = [...wanted].sort();
 for (let i = 0; i < list.length; i += 8) {
   await Promise.all(list.slice(i, i + 8).map(async (p) => {
     const r = await fetch(`${edge}${p}`, { method: 'HEAD' });
-    const route = r.headers.get('x-lh-edge-route');
-    if (r.ok && route === 'dam-media') where.set(p, 'r2');
-    else if (r.ok && route === 'dam') where.set(p, 'da');
-    else where.set(p, `missing (${r.status})`);
+    where.set(p, placeOf(r.ok, r.headers.get('x-lh-edge-route'), r.status));
   }));
 }
-const there = (p) => where.get(p) === 'r2' || where.get(p) === 'da';
+const there = (p) => served(where.get(p));
 
 const changed = [];
 const uses = new Map(); // doc path -> Set of the site's own files (mp4, vtt)
@@ -153,7 +152,9 @@ const report = {
   changedNow: changed.length,
   links,
   tracks,
-  files: { da: count('da'), r2: count('r2'), missing: list.filter((p) => !there(p)) },
+  files: {
+    da: count('da'), aem: count('aem'), r2: count('r2'), missing: list.filter((p) => !there(p)),
+  },
   daOnly,
   withR2,
   wwwOnly,
@@ -164,7 +165,7 @@ fs.mkdirSync(path.join(root, 'tools/reports/dam'), { recursive: true });
 fs.writeFileSync(path.join(root, 'tools/reports/dam/dam-media-documents.json'), `${JSON.stringify(report, null, 1)}\n`);
 fs.writeFileSync(path.join(root, 'tools/reports/dam/dam-media-documents.md'), [
   '# Documents that play the site\'s own videos', '', `${report.checkedAt}, files checked on ${edge}`, '',
-  `${playing.length} documents play videos; ${uses.size} use the site's own files (${links} video links, ${tracks} subtitle links). Files: ${report.files.da} in DA, ${report.files.r2} in R2, ${report.files.missing.length} not there yet.`, '',
+  `${playing.length} documents play videos; ${uses.size} use the site's own files (${links} video links, ${tracks} subtitle links). Files: ${report.files.da} in DA, ${report.files.aem} on the AEM publish tier, ${report.files.r2} in R2, ${report.files.missing.length} not there yet.`, '',
   `## Every file in DA (${daOnly.length})`, '', ...daOnly.map((d) => `- ${d}`), '',
   `## At least one file in R2 (${withR2.length}): plays through lh-edge only`, '', ...withR2.map((d) => `- ${d}`), '',
   `## Only www's videos left (${wwwOnly.length}): nothing switched`, '', ...wwwOnly.map((d) => `- ${d}`), '',
@@ -174,4 +175,4 @@ fs.writeFileSync(path.join(root, 'tools/reports/dam/dam-media-documents.md'), [
   }),
 ].join('\n'));
 if (!dry) fs.writeFileSync(path.join(root, 'tools/importer/dam-media-documents.txt'), `${changed.sort().join('\n')}\n`);
-console.log(`switch-dam-media: ${playing.length} documents, ${uses.size} with own files (${changed.length} changed now): ${links} video links, ${tracks} subtitle links; DA only ${daOnly.length}, with R2 ${withR2.length}, www only ${wwwOnly.length}; files da ${report.files.da}, r2 ${report.files.r2}, missing ${report.files.missing.length}; kept ${kept.length}`);
+console.log(`switch-dam-media: ${playing.length} documents, ${uses.size} with own files (${changed.length} changed now): ${links} video links, ${tracks} subtitle links; DA only ${daOnly.length}, with R2 ${withR2.length}, www only ${wwwOnly.length}; files da ${report.files.da}, aem ${report.files.aem}, r2 ${report.files.r2}, missing ${report.files.missing.length}; kept ${kept.length}`);

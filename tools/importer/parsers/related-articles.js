@@ -9,7 +9,9 @@
  * tags first, and one of the page's category); www's three picked cards are not written as rows,
  * since rows are fixed picks an editor adds and come first.
  * The section heading (maui-headline.related-articles-headline) is default content and is
- * emitted as an H2 before the block table.
+ * emitted before the block table at www's level (type, www: h3) with www's size (format, www: h2:
+ * the heading-medium class, which the cleanup writes as the "{heading-medium}" marker); an h2
+ * without type.
  */
 export default function parse(element, { document }) {
   const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style';
@@ -25,8 +27,16 @@ export default function parse(element, { document }) {
   const headline = element.querySelector('.related-articles-headline, maui-headline, h2, h3');
   const headlineText = visibleText(headline) || clean(headline && (headline.getAttribute('text') || headline.getAttribute('headline')));
   if (headlineText) {
-    const h = document.createElement('h2');
+    const level = (el) => {
+      const m = /^h([1-6])$/i.exec((el && el.getAttribute && el.getAttribute('type')) || '');
+      return m ? m[1] : null;
+    };
+    const type = level(headline) || (headline && /^H[1-6]$/.test(headline.tagName) ? headline.tagName[1] : '2');
+    const format = /^h([1-6])$/i.exec((headline && headline.getAttribute && headline.getAttribute('format')) || '');
+    const SIZES = { 1: 'heading-large', 2: 'heading-medium', 3: 'heading-copytext-large', 4: 'heading-copytext-large', 5: 'heading-copytext-medium', 6: 'heading-copytext-medium' };
+    const h = document.createElement(`h${type}`);
     h.textContent = headlineText;
+    if (format && format[1] !== type) h.className = SIZES[format[1]];
     before.push(h);
   }
 
