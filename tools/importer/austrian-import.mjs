@@ -149,6 +149,44 @@ export const withTeaserColumns = (html) => editDivs(html, '<div class="twocolumn
 });
 
 /**
+ * A column view of partner teasers only (a.teaser.partner: a 32 px icon in the title, no card; /at/en/book/
+ * flights/giftvoucher's "How does it work?", parity row 40) in a .carousel: its desktop row (.hidden-md-down)
+ * out of the carousel, the .hidden-lg-up swiper copy dropped, so lh-com's info importer finds
+ * ".threecolumn > .column-view > .row > .column-view-item > .teaser > a.teaser.partner" (cards-icon-text
+ * partner rows), not teaser cards.
+ */
+export const withPartnerCarousels = (html) => ['<div class="twocolumn', '<div class="threecolumn', '<div class="fourcolumn']
+  .reduce((out, open) => editDivs(out, open, (el) => {
+    if (!el.includes('class="teaser partner') || el.includes('class="teaser card')) return el;
+    const c = el.indexOf('<div class="carousel">');
+    if (c < 0) return el;
+    const carousel = el.slice(c, divEnd(el, c));
+    const d = carousel.indexOf('<div class="hidden-md-down">');
+    if (d < 0) return el;
+    const desktop = carousel.slice(d, divEnd(carousel, d));
+    const rowHtml = desktop.slice('<div class="hidden-md-down">'.length, -'</div>'.length);
+    let view = `${el.slice(0, c)}${rowHtml}${el.slice(c + carousel.length)}`;
+    // the column view's title (a bare <div> with its heading; cards-icon-text keeps none) before the view
+    const titles = [];
+    const v = view.indexOf('<div class="column-view');
+    if (v >= 0) {
+      const re = /<div\b[^>]*>/g;
+      re.lastIndex = view.indexOf('>', v) + 1;
+      let m = re.exec(view);
+      while (m && m.index < divEnd(view, v)) {
+        const end = divEnd(view, m.index);
+        if (m[0] === '<div>' && /<h[1-6]\b/.test(view.slice(m.index, end))) titles.push([m.index, end]);
+        re.lastIndex = end;
+        m = re.exec(view);
+      }
+    }
+    // (in a one-column view of its own: the band's section keeps lufthansa-sections.js' column-view style)
+    const lead = titles.map(([s, e]) => view.slice(s, e)).join('');
+    titles.reverse().forEach(([s, e]) => { view = `${view.slice(0, s)}${view.slice(e).replace(/^\n/, '')}`; });
+    return `${lead ? `<div class="onecolumn column event"><div class="column-view flex-column">${lead}</div></div>` : ''}${view}`;
+  }), html);
+
+/**
  * Austrian's teaser cards with their link line (www shows ".teaser-link-text", "→ Zur
  * Reisevorbereitung"; lufthansa.com hides it): marked for the carousel-cards parser, which keeps a
  * marked card's line as a link paragraph.
@@ -245,7 +283,7 @@ export function withFlightSearch(doc, p) {
  * maui-tab-control-responsive with column views, accordions, tables), no loads, no screen-reader
  * announcement (the help centre app's "Help page loaded." is no page text).
  */
-export const mappedOf = (html, p) => withoutLoads(withTabMarkers(withTeaserCta(withTeaserColumns(withCheckinTabs(withCopytextLarge(withLinkOuts(withPlaceholder(stripScripts(html)), p)))))))
+export const mappedOf = (html, p) => withoutLoads(withNestedOnecolumnUnwrapped(withPanelWrappersUnwrapped(withTabMarkers(withTeaserCta(withTeaserColumns(withPartnerCarousels(withCheckinTabs(withCopytextLarge(withLinkOuts(withPlaceholder(stripScripts(html)), p))))))))))
   .replace(/<output[^>]*class="screen-reader-announcer"[^>]*>[\s\S]*?<\/output>/g, '');
 
 /**
@@ -261,6 +299,171 @@ export const withAustrianTabs = (doc) => splitTabSections(doc.replace(
     return `<p>${mark}</p>${rest.length ? `<p>{${rest.join(' ')}}</p>` : ''}`;
   },
 ));
+
+/**
+ * A tab panel's own bare wrapper (www: <maui-tab-control-panel-responsive><div>…) left under the section
+ * content once the tab markers replaced the tab control (withTabMarkers): unwrapped when it holds a column
+ * view, so lh-com's info importer finds ".section-content > .onecolumn > … > .fourcolumn" (the numbered steps
+ * of /at/de/missing-baggage's first tab, parity row 36). String-based, the rest of the snapshot as it was.
+ */
+export function withPanelWrappersUnwrapped(html) {
+  const tags = [...html.matchAll(/<(\/?)div\b[^>]*>/g)];
+  const remove = new Set();
+  tags.forEach((open, i) => {
+    if (open[1] || !/^<div class="section-content\b/.test(open[0])) return;
+    // the section content's direct children
+    let depth = 0;
+    let child = null;
+    for (let j = i + 1; j < tags.length; j += 1) {
+      const t = tags[j];
+      if (!t[1]) {
+        if (depth === 0) child = j;
+        depth += 1;
+      } else {
+        if (depth === 0) break;
+        depth -= 1;
+        if (depth === 0 && tags[child][0] === '<div>') {
+          const inner = html.slice(tags[child].index + 5, t.index);
+          if (/<div class="(?:one|two|three|four)column\b/.test(inner)) remove.add(child).add(j);
+        }
+      }
+    }
+  });
+  if (!remove.size) return html;
+  let out = '';
+  let last = 0;
+  tags.forEach((t, i) => {
+    if (!remove.has(i)) return;
+    out += html.slice(last, t.index);
+    last = t.index + t[0].length;
+  });
+  return out + html.slice(last);
+}
+
+// the divs of an html as a tree: { open, close (indexes into tags), cls, parent, kids }
+const divTree = (tags) => {
+  const top = { kids: [] };
+  let at = top;
+  tags.forEach((t, i) => {
+    if (!t[1]) {
+      const node = {
+        open: i, cls: (t[0].match(/class="([^"]*)"/) || [])[1] || '', parent: at, kids: [],
+      };
+      at.kids.push(node);
+      at = node;
+    } else if (at !== top) {
+      at.close = i;
+      at = at.parent;
+    }
+  });
+  return top;
+};
+const hasClass = (n, c) => n && n.cls.split(/\s+/).includes(c);
+
+/**
+ * A one-column view in another one-column view's item, with no band of its own (its column view only
+ * "column-view flex-column"), gives its item's content to the outer item: lh-com's info importer maps a
+ * two-column view one level into a one-column view (columns-media), not two (/at/en/austrian-app's QR code
+ * and store badge pair, parity row 39). String-based, the rest of the snapshot as it was.
+ */
+export function withNestedOnecolumnUnwrapped(html) {
+  const tags = [...html.matchAll(/<(\/?)div\b[^>]*>/g)];
+  const remove = new Set();
+  const visit = (n) => {
+    const [view] = n.kids;
+    const row = view?.kids[0];
+    const item = row?.kids[0];
+    const outer = n.parent?.parent?.parent?.parent;
+    if (hasClass(n, 'onecolumn') && hasClass(n.parent, 'column-view-item') && hasClass(n.parent.parent, 'row')
+      && hasClass(n.parent.parent.parent, 'column-view') && hasClass(outer, 'onecolumn')
+      && n.kids.length === 1 && view.cls.trim().split(/\s+/).sort().join(' ') === 'column-view flex-column'
+      && view.kids.length === 1 && hasClass(row, 'row') && row.kids.length === 1 && hasClass(item, 'column-view-item')
+      && [n, view, row, item].every((x) => x.close !== undefined)) {
+      [n, view, row, item].forEach((x) => remove.add(x.open).add(x.close));
+    }
+    n.kids.forEach(visit);
+  };
+  divTree(tags).kids.forEach(visit);
+  if (!remove.size) return html;
+  let out = '';
+  let last = 0;
+  tags.forEach((t, i) => {
+    if (!remove.has(i)) return;
+    out += html.slice(last, t.index);
+    last = t.index + t[0].length;
+  });
+  return out + html.slice(last);
+}
+
+// the top-level sections of a document: [start, end] of each top-level <div>
+const topSections = (doc) => {
+  const spans = [];
+  let depth = 0;
+  let start = -1;
+  [...doc.matchAll(/<(\/?)div\b[^>]*>/g)].forEach((m) => {
+    if (!m[1]) {
+      if (depth === 0) start = m.index;
+      depth += 1;
+    } else {
+      depth -= 1;
+      if (depth === 0) spans.push([start, m.index + m[0].length]);
+    }
+  });
+  return spans;
+};
+const TAB_ROWS = /<div><div>Tab<\/div><div>([^<]*)<\/div><\/div><div><div>Tabs<\/div><div>([^<]*)<\/div><\/div>/;
+const META = /<div class="section-metadata">((?:<div><div>[^<]*<\/div><div>[^<]*<\/div><\/div>)*)<\/div>/;
+
+/**
+ * A tab panel's sections that came out without its Tab rows (a grey band in the panel and the separator
+ * after it: lh-com's sections transformer makes Tab sections itself since 515475be, besides Austrian's tab
+ * markers, parity row 43): a section without Tab rows between two sections of the same tab set takes the
+ * rows of the panel before it, and so does the band (full-bleed or flush) right after the last tab;
+ * other sections before the first tab and after the last stay as they are.
+ */
+export function withTabRuns(doc) {
+  const spans = topSections(doc);
+  const tabs = spans.map(([s, e]) => {
+    const m = doc.slice(s, e).match(TAB_ROWS);
+    return m ? { tab: m[1], set: m[2] } : null;
+  });
+  let out = '';
+  let last = 0;
+  spans.forEach(([s, e], i) => {
+    out += doc.slice(last, s);
+    let sec = doc.slice(s, e);
+    const prev = tabs.slice(0, i).reverse().find(Boolean);
+    const next = tabs.slice(i + 1).find(Boolean);
+    // (the last panel's band: the section right after the set's last tab, styled full-bleed or flush)
+    const band = !next && i > 0 && tabs[i - 1] && /<div><div>style<\/div><div>[^<]*\b(?:full-bleed|flush)\b/.test(sec);
+    if (!tabs[i] && prev && ((next && prev.set === next.set) || band)) {
+      const rows = `<div><div>Tab</div><div>${prev.tab}</div></div><div><div>Tabs</div><div>${prev.set}</div></div>`;
+      if (META.test(sec)) sec = sec.replace(META, (m, own) => `<div class="section-metadata">${own}${rows}</div>`);
+      else if (!sec.includes('class="section-metadata"')) sec = `${sec.slice(0, -'</div>'.length)}<div class="section-metadata">${rows}</div></div>`;
+    }
+    out += sec;
+    last = e;
+  });
+  return out + doc.slice(last);
+}
+
+/**
+ * The chat button's page metadata row (chat-button: the webchat's start topic), from www's page
+ * (webchat_init.js?...start=DYNAMIC_web-<topic>, equal to the row on all 139 documents that had both):
+ * written outside the importer before, so a re-import dropped it. A row that is there stays.
+ */
+export function withChatButton(doc, html = '') {
+  if (/<div><div>chat-button<\/div>/.test(doc)) return doc;
+  const m = html.match(/webchat_init\.js\?[^"']*?start=DYNAMIC_web-([A-Za-z0-9_-]+)/);
+  if (!m) return doc;
+  const i = doc.lastIndexOf('<div class="metadata">');
+  if (i < 0) return doc;
+  // the metadata block's end: its own closing tag after its rows
+  const rows = doc.slice(i).match(/^<div class="metadata">((?:<div><div>[^<]*<\/div><div>(?:(?!<\/div><\/div>)[\s\S])*<\/div><\/div>)*)<\/div>/);
+  if (!rows) return doc;
+  const end = i + rows[0].length - '</div>'.length;
+  return `${doc.slice(0, end)}<div><div>chat-button</div><div>${m[1]}</div></div>${doc.slice(end)}`;
+}
 
 export function templateOf(p, html) {
   // (homepage-new: the variant homepage some Italian-language roots have, al/it, be/it, ch/it)
@@ -363,7 +566,7 @@ if (isMain) {
       const doc = fs.readFileSync(f, 'utf8');
       const src = Object.keys(out).find((k) => docName(k) === p);
       const markets = scope.documents[src]?.markets || [];
-      const next = withPartnerLogoAlts(withAustrianTabs(withItaMetadata(withCheckinHandoff(withFlightSearch(withItaForm(doc, p, fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8')), p), p), p, fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8'), markets)));
+      const next = withChatButton(withPartnerLogoAlts(withTabRuns(withAustrianTabs(withItaMetadata(withCheckinHandoff(withFlightSearch(withItaForm(doc, p, fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8')), p), p), p, fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8'), markets)))), fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8'));
       if (next !== doc) fs.writeFileSync(f, next);
     });
     const mapOnly = path.join(W, 'runs', `${name}-upload.txt`);

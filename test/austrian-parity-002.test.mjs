@@ -21,7 +21,7 @@ test('withCopytextLarge: www\'s intro paragraphs keep their style as a marker th
   assert.equal(withCopytextLarge('<p class="copytext-large"> </p>'), '<p class="copytext-large"> </p>', 'empty');
   assert.equal(withCopytextLarge('<p class="text">B</p>'), '<p class="text">B</p>');
   const src = fs.readFileSync(new URL('../tools/importer/austrian-import.mjs', import.meta.url), 'utf8');
-  assert.match(src, /withTeaserCta\(withTeaserColumns\(withCheckinTabs\(withCopytextLarge\(withLinkOuts\(/);
+  assert.match(src, /withCheckinTabs\(withCopytextLarge\(withLinkOuts\(/);
 });
 
 test('the theme: the intro, the default h3 / h4, the lists as www\'s', () => {
@@ -31,4 +31,14 @@ test('the theme: the intro, the default h3 / h4, the lists as www\'s', () => {
   assert.match(css, /@media \(width >= 1025px\) \{ body\.brand-austrian main :is\(\.default-content-wrapper, \.columns-media-text\) > :is\(h3, h4\):not\(\[class\*="heading-"\]\) \{ font-size: 18px; \} \}/);
   assert.match(css, /body\.brand-austrian main :is\(\.default-content-wrapper, \.columns-media-text, \.accordion-columns\) li \{ margin-bottom: 5px; \}/);
   assert.match(css, /body\.brand-austrian main :is\(\.default-content-wrapper, \.columns-media-text, \.accordion-columns\) li > p \{ margin-bottom: 0; \}/);
+});
+
+test('row 41: a grid of picture cards with a text-only card among them three a row from 1025 px, as www\'s three-column view (/at/de/bearbeitungsgebuehren: Tarifvergleich has no picture); login cards (all text-only) two', () => {
+  const css = theme();
+  assert.match(css, /@media \(width >= 1025px\) \{ body\.brand-austrian \.carousel-cards\.grid:not\(\.two-up, \.four-up\) \.carousel-cards-track:has\(> \.carousel-cards-text-only\):has\(> \.carousel-cards-slide:not\(\.carousel-cards-text-only\)\) \{ grid-template-columns: repeat\(3, minmax\(0, 1fr\)\); \} \}/);
+});
+
+test('a button label wider than the column wraps as on www (/at/de/missing-baggage at 390: "Weitere häufig gestellte Fragen zu verspätetem Gepäck" in three lines), not clipped', () => {
+  const css = theme();
+  assert.match(css, /body\.brand-austrian :is\(a\.button, button\.button\) \{ white-space: normal; \}/);
 });

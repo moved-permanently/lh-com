@@ -400,6 +400,12 @@ body.brand-austrian :is(a.button, button.button, .flight-search .flight-search-s
   text-transform: uppercase;
 }
 
+/* a label wider than its column wraps as on www (/at/de/missing-baggage at 390: "Weitere häufig gestellte
+   Fragen zu verspätetem Gepäck" in three lines), not clipped as lh-com's one-line button */
+body.brand-austrian :is(a.button, button.button) {
+  white-space: normal;
+}
+
 /* row 9: the headline titles (Winter deals, Flight offers from) Portada 500 #1a1a1a, as www's
    maui-headline */
 body.brand-austrian :is(.fare-teaser-container .default-content-wrapper h3, .destination-finder .destination-finder-heading) {
@@ -615,6 +621,14 @@ body.brand-austrian .columns-media.panel .columns-media-media img {
   object-fit: cover;
 }
 
+/* row 40: the icon steps' copy (cards-icon-text partner, /at/en/book/flights/giftvoucher) Portada 18 / 27
+   as www's .teaser.partner .desc-inline */
+body.brand-austrian .cards-icon-text.partner .cards-icon-text-body > p {
+  font-family: var(--heading-font-family);
+  font-size: 18px;
+  line-height: 27px;
+}
+
 /* the grey band 48 px above and below the card (www's topic-selection-info-cards-container) */
 body.brand-austrian main .section.grey:has(.columns-media.panel) {
   padding-top: 48px;
@@ -687,6 +701,15 @@ body.brand-austrian .carousel-cards.grid .carousel-cards-slide:not(.carousel-car
   font-family: var(--heading-font-family);
   font-size: 18px;
   line-height: 27px;
+}
+
+/* row 41: picture cards with a text-only card among them (/at/de/bearbeitungsgebuehren: Tarifvergleich
+   has no picture) three a row from 1025 px, as www's three-column view; lh-com's login cards (all
+   text-only) stay two a row */
+@media (width >= 1025px) {
+  body.brand-austrian .carousel-cards.grid:not(.two-up, .four-up) .carousel-cards-track:has(> .carousel-cards-text-only):has(> .carousel-cards-slide:not(.carousel-cards-text-only)) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 /* row 19: the divider www's 1 px maui-divider in #b0b0b0 (its screen at 1440: two rows of

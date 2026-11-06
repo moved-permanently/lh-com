@@ -69,8 +69,18 @@ test('austrian-import.mjs: its cards marked; a two-column view of teasers a thre
   assert.match(pure, /^<div class="threecolumn column event section" data-import-two-up="">/);
 });
 
+test('row 41: lh-com\'s parser makes Austrian\'s card row with www\'s .hidden-lg-up swiper copy a phone-slider grid (115ea542)', async () => {
+  const { default: parse } = await import('../tools/importer/parsers/carousel-cards.js');
+  const swiper = `<div class="carousel"><div class="hidden-md-down"><div class="row">${[card(), card(), card()].map((c) => `<div class="col-lg column-view-item">${c}</div>`).join('')}</div></div><div class="hidden-lg-up"><div><div class="swiper"><div class="swiper-wrapper">${[card(), card(), card()].map((c) => `<div class="swiper-slide">${c}</div>`).join('')}</div></div></div></div></div>`;
+  const { document } = parseHTML(`<!DOCTYPE html><html><body><main><div class="container-content"><div class="threecolumn column event section"><div class="column-view flex-column container-gray full-width-bg">${swiper}</div></div></div></main></body></html>`);
+  parse(document.querySelector('.threecolumn'), { document });
+  const table = document.querySelector('table[data-name]');
+  assert.equal(table.getAttribute('data-name'), 'carousel-cards grid phone-slider');
+  assert.equal(table.querySelectorAll('tr').length, 3, 'the desktop copy only');
+});
+
 test('the mapping chain marks the cards', async () => {
   const fs = await import('node:fs');
   const src = fs.readFileSync(new URL('../tools/importer/austrian-import.mjs', import.meta.url), 'utf8');
-  assert.match(src, /export const mappedOf = \(html, p\) => withoutLoads\(withTabMarkers\(withTeaserCta\(withTeaserColumns\(/);
+  assert.match(src, /export const mappedOf = \(html, p\) => withoutLoads\(withNestedOnecolumnUnwrapped\(withPanelWrappersUnwrapped\(withTabMarkers\(withTeaserCta\(withTeaserColumns\(/);
 });
