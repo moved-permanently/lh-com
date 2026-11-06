@@ -5,8 +5,7 @@
       { "name": "Black Friday", "source": "homepage-stage" }
     ],
     "de/de": [
-      { "name": "Südafrika FLYZA", "source": "homepage-stage", "end": "2026-10-31" },
-      { "name": "Kuala Lumpur", "source": { "card": "Kuala Lumpur und weitere Ziele entdecken" }, "start": "2026-11-01" }
+      { "name": "Homepage stage", "source": "homepage-stage" }
     ],
     "at/de": [
       { "name": "Starlink Wi-Fi", "source": "homepage-stage" },

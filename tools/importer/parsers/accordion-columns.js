@@ -42,6 +42,13 @@ export default function parse(element, { document }) {
     return a;
   };
 
+  /** Icon elements (em.lh, i.lh) go; one holding text (www's link text inside the link's icon,
+   * /xx/hk/common/seatreservation-condtions/seat-reservations) is unwrapped. */
+  const dropIcons = (root) => root.querySelectorAll('em.lh, i.lh').forEach((n) => {
+    if (clean(n.textContent)) n.replaceWith(...n.childNodes);
+    else n.remove();
+  });
+
   /** Converts one rich-text block (paragraphs/lists) to clean nodes. */
   const convertRichText = (root) => {
     const out = [];
@@ -86,7 +93,8 @@ export default function parse(element, { document }) {
           rest.querySelectorAll(`${LINKS}, ${SR_ONLY}, ul, ol`).forEach((n) => n.remove());
           if (link && clean(rest.textContent)) {
             const c = li.cloneNode(true);
-            c.querySelectorAll(`${SR_ONLY}, em.lh, i.lh, ul, ol, br`).forEach((n) => n.remove());
+            c.querySelectorAll(`${SR_ONLY}, ul, ol, br`).forEach((n) => n.remove());
+            dropIcons(c);
             c.querySelectorAll(LINKS).forEach((x) => {
               const l = makeLink(x);
               if (l) x.replaceWith(l);
@@ -128,7 +136,8 @@ export default function parse(element, { document }) {
         if (text) {
           const p = document.createElement('p');
           p.innerHTML = child.innerHTML;
-          p.querySelectorAll(`${SR_ONLY}, em.lh, i.lh`).forEach((n) => n.remove());
+          p.querySelectorAll(SR_ONLY).forEach((n) => n.remove());
+          dropIcons(p);
           p.querySelectorAll('a[href]').forEach((a) => {
             const link = makeLink(a);
             if (link) a.replaceWith(link);

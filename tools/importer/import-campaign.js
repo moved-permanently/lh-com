@@ -49,7 +49,7 @@ const PAGE_TEMPLATE = {
     {
       "name": "columns-media",
       "instances": [
-        ".sidebar",
+        ".sidebar:not(.column-view-item > * ~ .sidebar)",
         ".section-content > .twocolumn:not(:has(.column-view-item > .image + .headline))",
         ".videoViewer, .image:has(video)",
         "maui-tab-control-panel-responsive :is(.twocolumn, .threecolumn):has(> .column-view > .row > .column-view-item > .image img):not(:has(.teaser, .table, .accordion, .tabs, form, iframe, .column-view-item .column-view-item))"

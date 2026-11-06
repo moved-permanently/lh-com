@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-campaign.js
-  var tmp_bundle_campaign_106433_exports = {};
-  __export(tmp_bundle_campaign_106433_exports, {
-    default: () => tmp_bundle_campaign_106433_default
+  var tmp_bundle_campaign_116599_exports = {};
+  __export(tmp_bundle_campaign_116599_exports, {
+    default: () => tmp_bundle_campaign_116599_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -4419,7 +4419,7 @@ var CustomImportScript = (() => {
       {
         "name": "columns-media",
         "instances": [
-          ".sidebar",
+          ".sidebar:not(.column-view-item > * ~ .sidebar)",
           ".section-content > .twocolumn:not(:has(.column-view-item > .image + .headline))",
           ".videoViewer, .image:has(video)",
           "maui-tab-control-panel-responsive :is(.twocolumn, .threecolumn):has(> .column-view > .row > .column-view-item > .image img):not(:has(.teaser, .table, .accordion, .tabs, form, iframe, .column-view-item .column-view-item))"
@@ -4627,7 +4627,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_campaign_106433_default = {
+  var tmp_bundle_campaign_116599_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -4657,5 +4657,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_campaign_106433_exports);
+  return __toCommonJS(tmp_bundle_campaign_116599_exports);
 })();

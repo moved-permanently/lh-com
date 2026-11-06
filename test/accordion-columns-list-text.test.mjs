@@ -38,3 +38,17 @@ test('an item with text around its link keeps the text', () => {
 test('an item that is only a link stays a link item', () => {
   assert.match(run('<li><a href="/de/en/articles/tags/art">Art</a></li><li>Plain text</li>'), /<li><a href="\/de\/en\/articles\/tags\/art">Art<\/a><\/li><li>Plain text<\/li>/);
 });
+
+// www's link text inside the link's icon element (/xx/hk/common/seatreservation-condtions/
+// seat-reservations: <a href="/xx/hk/terms-of-service-group"><em class="lh lh-arrow-right">旅客和行李的
+// 一般承運條件</em></a>): the icon removal took the text, and the link was lost
+const runP = (p) => {
+  const { document } = parseHTML(`<html><body><div class="accordion"><maui-collapsible class="accordion-maui"><div class="accordionitem"><maui-collapsible-item headline="什麼是座位預訂？"><div><div class="text"><div class="richtext">${p}</div></div></div></maui-collapsible-item></div></maui-collapsible></div></body></html>`);
+  parse(document.querySelector('.accordion'), { document });
+  return cellsOut[0][1];
+};
+
+test('a link whose text sits in its icon element keeps the text', () => {
+  assert.match(runP('<p>所有座位預訂均須遵守<a href="/xx/hk/terms-of-service-group"><em class="lh lh-arrow-right">旅客和行李的一般承運條件</em></a>。</p>'), /<p>所有座位預訂均須遵守<a href="\/xx\/hk\/terms-of-service-group">旅客和行李的一般承運條件<\/a>。<\/p>/);
+  assert.match(runP('<p>透過<a href="/xx/hk/overview-manage"><em class="lh lh-arrow-right"></em>「我的預訂」</a></p>'), /<p>透過<a href="\/xx\/hk\/overview-manage">「我的預訂」<\/a><\/p>/);
+});

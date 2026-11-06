@@ -34,3 +34,12 @@ test('campaign: teaser rows in the page column are cards-teaser too, as on hub',
 test('info: rows in a sidebar\'s content are columns-media, as rows in a section', () => {
   assert.ok(block('info', 'columns-media').instances.some((s) => s.startsWith(':is(.section-content, .container-content, .sidebar-content) > .twocolumn:not(')));
 });
+
+// campaign: a sidebar after another component in its column item (/de/en/100-years/campaigns: the
+// "Made in Germany" text, then a sidebar with its picture) was a block of its own inside the row,
+// and the row's parser dropped it with the picture; the row (columns-media) takes it now. A sidebar
+// alone in its column item (100-years' "Under the symbol of the crane") stays a block.
+test('campaign: a sidebar after another component in its column item is part of the row', () => {
+  assert.ok(block('campaign', 'columns-media').instances.includes('.sidebar:not(.column-view-item > * ~ .sidebar)'));
+  assert.ok(!block('campaign', 'columns-media').instances.includes('.sidebar'));
+});

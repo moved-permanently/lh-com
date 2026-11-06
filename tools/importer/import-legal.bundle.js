@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-legal.js
-  var tmp_bundle_legal_106433_exports = {};
-  __export(tmp_bundle_legal_106433_exports, {
-    default: () => tmp_bundle_legal_106433_default
+  var tmp_bundle_legal_116599_exports = {};
+  __export(tmp_bundle_legal_116599_exports, {
+    default: () => tmp_bundle_legal_116599_default
   });
 
   // tools/importer/parsers/media-nodes.js
@@ -630,6 +630,10 @@ var CustomImportScript = (() => {
       a.textContent = label;
       return a;
     };
+    const dropIcons = (root) => root.querySelectorAll("em.lh, i.lh").forEach((n) => {
+      if (clean2(n.textContent)) n.replaceWith(...n.childNodes);
+      else n.remove();
+    });
     const convertRichText = (root) => {
       const out = [];
       [...root.children].forEach((child) => {
@@ -668,7 +672,8 @@ var CustomImportScript = (() => {
             rest.querySelectorAll(`${LINKS}, ${SR_ONLY2}, ul, ol`).forEach((n) => n.remove());
             if (link && clean2(rest.textContent)) {
               const c = li.cloneNode(true);
-              c.querySelectorAll(`${SR_ONLY2}, em.lh, i.lh, ul, ol, br`).forEach((n) => n.remove());
+              c.querySelectorAll(`${SR_ONLY2}, ul, ol, br`).forEach((n) => n.remove());
+              dropIcons(c);
               c.querySelectorAll(LINKS).forEach((x) => {
                 const l = makeLink(x);
                 if (l) x.replaceWith(l);
@@ -709,7 +714,8 @@ var CustomImportScript = (() => {
           if (text) {
             const p = document.createElement("p");
             p.innerHTML = child.innerHTML;
-            p.querySelectorAll(`${SR_ONLY2}, em.lh, i.lh`).forEach((n) => n.remove());
+            p.querySelectorAll(SR_ONLY2).forEach((n) => n.remove());
+            dropIcons(p);
             p.querySelectorAll("a[href]").forEach((a) => {
               const link = makeLink(a);
               if (link) a.replaceWith(link);
@@ -2458,7 +2464,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_legal_106433_default = {
+  var tmp_bundle_legal_116599_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -2488,5 +2494,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_legal_106433_exports);
+  return __toCommonJS(tmp_bundle_legal_116599_exports);
 })();
