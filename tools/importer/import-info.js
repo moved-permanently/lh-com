@@ -27,6 +27,7 @@ import loungeFinderParser from './parsers/lounge-finder.js';
 import securityWaitingTimeParser from './parsers/security-waiting-time.js';
 import checkinDeadlinesParser from './parsers/checkin-deadlines.js';
 import ejournalsParser from './parsers/ejournals.js';
+import passengerReceiptParser from './parsers/passenger-receipt.js';
 import fareTeaserParser from './parsers/fare-teaser.js';
 import lufthansaCleanupTransformer from './transformers/lufthansa-cleanup.js';
 import lufthansaSectionsTransformer from './transformers/lufthansa-sections.js';
@@ -212,6 +213,12 @@ const PAGE_TEMPLATE = {
       ]
     },
     {
+      "name": "passenger-receipt",
+      "instances": [
+        ".wrapper:has(> passenger-receipt-portal)"
+      ]
+    },
+    {
       "name": "fare-teaser",
       "instances": [
         ".fareteaserstatic"
@@ -289,6 +296,7 @@ const parsers = {
   'security-waiting-time': securityWaitingTimeParser,
   'checkin-deadlines': checkinDeadlinesParser,
   'ejournals': ejournalsParser,
+  'passenger-receipt': passengerReceiptParser,
   'fare-teaser': fareTeaserParser,
 };
 const transformers = [lufthansaCleanupTransformer, lufthansaSectionsTransformer];

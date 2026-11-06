@@ -1353,6 +1353,12 @@
           ]
         },
         {
+          "name": "passenger-receipt",
+          "instances": [
+            ".wrapper:has(> passenger-receipt-portal)"
+          ]
+        },
+        {
           "name": "fare-teaser",
           "instances": [
             ".fareteaserstatic"
