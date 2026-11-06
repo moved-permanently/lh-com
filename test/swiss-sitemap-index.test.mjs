@@ -30,12 +30,14 @@ test('sitemap-ch-<ll>: the language index\'s pages, robots and lastModified only
 
 test('the existing indexes as they were (only sitemap-ch-<ll> added)', () => {
   const before = yaml.load(execFileSync('git', ['show', '29b2db6:helix-query.yaml'], { encoding: 'utf8' })).indices;
-  // since then: market-pages' markets column (brief 411, lh-edge's donor documents), nothing else
+  // since then: market-pages' markets column (brief 411, lh-edge's donor documents) and the query
+  // indexes of lh-com's language versions xx/it, xx/el, xx/ja, xx/ko, xx/pl (batches 17-21), nothing else
   const { markets, ...pagesBefore } = indices['market-pages'].properties;
   assert.deepEqual(markets, indices['market-model-own'].properties.markets);
   const now = { ...indices, 'market-pages': { ...indices['market-pages'], properties: pagesBefore } };
   Object.entries(before).forEach(([name, index]) => assert.deepEqual(now[name], index, name));
   // and Cargo's es, fr, it, pt indexes (brief 414, test/cargo-languages.test.mjs)
   const cargo = ['es', 'fr', 'it', 'pt'].map((ll) => `search-brand-${ll}`);
-  assert.deepEqual(Object.keys(indices).filter((n) => !(n in before)).sort(), [...cargo, ...LANGS.map((ll) => `sitemap-ch-${ll}`)].sort());
+  const versions = ['it', 'el', 'ja', 'ko', 'pl'].flatMap((ll) => [`search-xx-${ll}`, `market-model-xx-${ll}`, `market-llms-xx-${ll}`]);
+  assert.deepEqual(Object.keys(indices).filter((n) => !(n in before)).sort(), [...cargo, ...LANGS.map((ll) => `sitemap-ch-${ll}`), ...versions].sort());
 });

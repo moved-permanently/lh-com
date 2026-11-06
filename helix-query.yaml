@@ -6262,6 +6262,695 @@ indices:
         select: head > meta[name="ai-guidance"]
         value: attribute(el, "content")
 
+  # xx/it, xx/el, xx/ja, xx/ko, xx/pl: lh-com's Italian, Greek, Japanese, Korean and Polish language
+  # versions (batches 17-21), as xx/zh's: the full index, then its lean copies
+  # (tools/markets/lean-indexes.mjs). They fill on publish; the rows stay pilot until a wave.
+  search-xx-it:
+    include:
+      - /xx/it/**
+    exclude:
+      - /xx/it/nav
+      - /xx/it/footer
+      - /xx/it/fragments/**
+      - /xx/it/drafts/**
+      - /xx/it/**/confirmation
+      - /xx/it/**/*-confirmation
+      - /xx/it/support/search/**
+      - /xx/it/articles/config/**
+    target: /xx/it/search-index.json
+    properties:
+      title:
+        select: head > title
+        value: textContent(el)
+      description:
+        select: head > meta[name="description"]
+        value: attribute(el, "content")
+      image:
+        select: head > meta[property="og:image"]
+        value: match(attribute(el, "content"), "https:\/\/[^/]+(/.*)")
+      headings:
+        select: main h1, main h2, main h3
+        values: textContent(el)
+      content:
+        select: main p, main li, main div > a
+        values: textContent(el)
+      parent:
+        select: head > meta[name="parent"]
+        value: attribute(el, "content")
+      hide-in-search:
+        select: head > meta[name="hide-in-search"]
+        value: attribute(el, "content")
+      # the XML sitemaps (helix-sitemap.yaml, AMS rest A7): the de/en page a translated slug
+      # pairs with, and the page's OWN robots value: page-robots, which the site-wide
+      # /metadata.json row (noindex on every page until go-live) does not set;
+      # meta[name="robots"] would carry that inherited noindex and empty every sitemap. No
+      # canonical column: Edge Delivery fills it with the production host, and the sitemap
+      # builder drops every row whose canonical differs from origin plus path
+      primary-language-url:
+        select: head > meta[name="primary-language-url"]
+        value: attribute(el, "content")
+      robots:
+        select: head > meta[name="page-robots"]
+        value: attribute(el, "content")
+      # llms.txt (AMS rest A8, AUTHORING.md): which pages lh-edge lists in /<cc>/llms.txt and
+      # how; ai-guidance on the locale's homepage
+      llms-include:
+        select: head > meta[name="llms-include"]
+        value: attribute(el, "content")
+      llms-title:
+        select: head > meta[name="llms-title"]
+        value: attribute(el, "content")
+      llms-description:
+        select: head > meta[name="llms-description"]
+        value: attribute(el, "content")
+      llms-category:
+        select: head > meta[name="llms-category"]
+        value: attribute(el, "content")
+      ai-guidance:
+        select: head > meta[name="ai-guidance"]
+        value: attribute(el, "content")
+      # Market roots (lh-edge src/markets.js): the countries of the language whose market roots
+      # get this page from its language version (include "de, at", exclude "-ch, -us"; empty:
+      # all). tools/markets/seed-markets.mjs seeded it; authors keep it in DA (AUTHORING.md)
+      markets:
+        select: head > meta[name="markets"]
+        value: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+  market-model-xx-it:
+    include:
+      - /xx/it/**
+    exclude:
+      - /xx/it/nav
+      - /xx/it/footer
+      - /xx/it/fragments/**
+      - /xx/it/drafts/**
+      - /xx/it/**/confirmation
+      - /xx/it/**/*-confirmation
+      - /xx/it/support/search/**
+      - /xx/it/articles/config/**
+    target: /market-model/xx-it.json
+    properties:
+      markets:
+        select: head > meta[name="markets"]
+        value: attribute(el, "content")
+      robots:
+        select: head > meta[name="page-robots"]
+        value: attribute(el, "content")
+      primary-language-url:
+        select: head > meta[name="primary-language-url"]
+        value: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+  market-llms-xx-it:
+    include:
+      - /xx/it/**
+    exclude:
+      - /xx/it/nav
+      - /xx/it/footer
+      - /xx/it/fragments/**
+      - /xx/it/drafts/**
+      - /xx/it/**/confirmation
+      - /xx/it/**/*-confirmation
+      - /xx/it/support/search/**
+      - /xx/it/articles/config/**
+    target: /market-llms/xx-it.json
+    properties:
+      title:
+        select: head > title
+        value: textContent(el)
+      description:
+        select: head > meta[name="description"]
+        value: attribute(el, "content")
+      markets:
+        select: head > meta[name="markets"]
+        value: attribute(el, "content")
+      llms-include:
+        select: head > meta[name="llms-include"]
+        value: attribute(el, "content")
+      llms-title:
+        select: head > meta[name="llms-title"]
+        value: attribute(el, "content")
+      llms-description:
+        select: head > meta[name="llms-description"]
+        value: attribute(el, "content")
+      llms-category:
+        select: head > meta[name="llms-category"]
+        value: attribute(el, "content")
+      ai-guidance:
+        select: head > meta[name="ai-guidance"]
+        value: attribute(el, "content")
+  search-xx-el:
+    include:
+      - /xx/el/**
+    exclude:
+      - /xx/el/nav
+      - /xx/el/footer
+      - /xx/el/fragments/**
+      - /xx/el/drafts/**
+      - /xx/el/**/confirmation
+      - /xx/el/**/*-confirmation
+      - /xx/el/support/search/**
+      - /xx/el/articles/config/**
+    target: /xx/el/search-index.json
+    properties:
+      title:
+        select: head > title
+        value: textContent(el)
+      description:
+        select: head > meta[name="description"]
+        value: attribute(el, "content")
+      image:
+        select: head > meta[property="og:image"]
+        value: match(attribute(el, "content"), "https:\/\/[^/]+(/.*)")
+      headings:
+        select: main h1, main h2, main h3
+        values: textContent(el)
+      content:
+        select: main p, main li, main div > a
+        values: textContent(el)
+      parent:
+        select: head > meta[name="parent"]
+        value: attribute(el, "content")
+      hide-in-search:
+        select: head > meta[name="hide-in-search"]
+        value: attribute(el, "content")
+      # the XML sitemaps (helix-sitemap.yaml, AMS rest A7): the de/en page a translated slug
+      # pairs with, and the page's OWN robots value: page-robots, which the site-wide
+      # /metadata.json row (noindex on every page until go-live) does not set;
+      # meta[name="robots"] would carry that inherited noindex and empty every sitemap. No
+      # canonical column: Edge Delivery fills it with the production host, and the sitemap
+      # builder drops every row whose canonical differs from origin plus path
+      primary-language-url:
+        select: head > meta[name="primary-language-url"]
+        value: attribute(el, "content")
+      robots:
+        select: head > meta[name="page-robots"]
+        value: attribute(el, "content")
+      # llms.txt (AMS rest A8, AUTHORING.md): which pages lh-edge lists in /<cc>/llms.txt and
+      # how; ai-guidance on the locale's homepage
+      llms-include:
+        select: head > meta[name="llms-include"]
+        value: attribute(el, "content")
+      llms-title:
+        select: head > meta[name="llms-title"]
+        value: attribute(el, "content")
+      llms-description:
+        select: head > meta[name="llms-description"]
+        value: attribute(el, "content")
+      llms-category:
+        select: head > meta[name="llms-category"]
+        value: attribute(el, "content")
+      ai-guidance:
+        select: head > meta[name="ai-guidance"]
+        value: attribute(el, "content")
+      # Market roots (lh-edge src/markets.js): the countries of the language whose market roots
+      # get this page from its language version (include "de, at", exclude "-ch, -us"; empty:
+      # all). tools/markets/seed-markets.mjs seeded it; authors keep it in DA (AUTHORING.md)
+      markets:
+        select: head > meta[name="markets"]
+        value: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+  market-model-xx-el:
+    include:
+      - /xx/el/**
+    exclude:
+      - /xx/el/nav
+      - /xx/el/footer
+      - /xx/el/fragments/**
+      - /xx/el/drafts/**
+      - /xx/el/**/confirmation
+      - /xx/el/**/*-confirmation
+      - /xx/el/support/search/**
+      - /xx/el/articles/config/**
+    target: /market-model/xx-el.json
+    properties:
+      markets:
+        select: head > meta[name="markets"]
+        value: attribute(el, "content")
+      robots:
+        select: head > meta[name="page-robots"]
+        value: attribute(el, "content")
+      primary-language-url:
+        select: head > meta[name="primary-language-url"]
+        value: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+  market-llms-xx-el:
+    include:
+      - /xx/el/**
+    exclude:
+      - /xx/el/nav
+      - /xx/el/footer
+      - /xx/el/fragments/**
+      - /xx/el/drafts/**
+      - /xx/el/**/confirmation
+      - /xx/el/**/*-confirmation
+      - /xx/el/support/search/**
+      - /xx/el/articles/config/**
+    target: /market-llms/xx-el.json
+    properties:
+      title:
+        select: head > title
+        value: textContent(el)
+      description:
+        select: head > meta[name="description"]
+        value: attribute(el, "content")
+      markets:
+        select: head > meta[name="markets"]
+        value: attribute(el, "content")
+      llms-include:
+        select: head > meta[name="llms-include"]
+        value: attribute(el, "content")
+      llms-title:
+        select: head > meta[name="llms-title"]
+        value: attribute(el, "content")
+      llms-description:
+        select: head > meta[name="llms-description"]
+        value: attribute(el, "content")
+      llms-category:
+        select: head > meta[name="llms-category"]
+        value: attribute(el, "content")
+      ai-guidance:
+        select: head > meta[name="ai-guidance"]
+        value: attribute(el, "content")
+  search-xx-ja:
+    include:
+      - /xx/ja/**
+    exclude:
+      - /xx/ja/nav
+      - /xx/ja/footer
+      - /xx/ja/fragments/**
+      - /xx/ja/drafts/**
+      - /xx/ja/**/confirmation
+      - /xx/ja/**/*-confirmation
+      - /xx/ja/support/search/**
+      - /xx/ja/articles/config/**
+    target: /xx/ja/search-index.json
+    properties:
+      title:
+        select: head > title
+        value: textContent(el)
+      description:
+        select: head > meta[name="description"]
+        value: attribute(el, "content")
+      image:
+        select: head > meta[property="og:image"]
+        value: match(attribute(el, "content"), "https:\/\/[^/]+(/.*)")
+      headings:
+        select: main h1, main h2, main h3
+        values: textContent(el)
+      content:
+        select: main p, main li, main div > a
+        values: textContent(el)
+      parent:
+        select: head > meta[name="parent"]
+        value: attribute(el, "content")
+      hide-in-search:
+        select: head > meta[name="hide-in-search"]
+        value: attribute(el, "content")
+      # the XML sitemaps (helix-sitemap.yaml, AMS rest A7): the de/en page a translated slug
+      # pairs with, and the page's OWN robots value: page-robots, which the site-wide
+      # /metadata.json row (noindex on every page until go-live) does not set;
+      # meta[name="robots"] would carry that inherited noindex and empty every sitemap. No
+      # canonical column: Edge Delivery fills it with the production host, and the sitemap
+      # builder drops every row whose canonical differs from origin plus path
+      primary-language-url:
+        select: head > meta[name="primary-language-url"]
+        value: attribute(el, "content")
+      robots:
+        select: head > meta[name="page-robots"]
+        value: attribute(el, "content")
+      # llms.txt (AMS rest A8, AUTHORING.md): which pages lh-edge lists in /<cc>/llms.txt and
+      # how; ai-guidance on the locale's homepage
+      llms-include:
+        select: head > meta[name="llms-include"]
+        value: attribute(el, "content")
+      llms-title:
+        select: head > meta[name="llms-title"]
+        value: attribute(el, "content")
+      llms-description:
+        select: head > meta[name="llms-description"]
+        value: attribute(el, "content")
+      llms-category:
+        select: head > meta[name="llms-category"]
+        value: attribute(el, "content")
+      ai-guidance:
+        select: head > meta[name="ai-guidance"]
+        value: attribute(el, "content")
+      # Market roots (lh-edge src/markets.js): the countries of the language whose market roots
+      # get this page from its language version (include "de, at", exclude "-ch, -us"; empty:
+      # all). tools/markets/seed-markets.mjs seeded it; authors keep it in DA (AUTHORING.md)
+      markets:
+        select: head > meta[name="markets"]
+        value: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+  market-model-xx-ja:
+    include:
+      - /xx/ja/**
+    exclude:
+      - /xx/ja/nav
+      - /xx/ja/footer
+      - /xx/ja/fragments/**
+      - /xx/ja/drafts/**
+      - /xx/ja/**/confirmation
+      - /xx/ja/**/*-confirmation
+      - /xx/ja/support/search/**
+      - /xx/ja/articles/config/**
+    target: /market-model/xx-ja.json
+    properties:
+      markets:
+        select: head > meta[name="markets"]
+        value: attribute(el, "content")
+      robots:
+        select: head > meta[name="page-robots"]
+        value: attribute(el, "content")
+      primary-language-url:
+        select: head > meta[name="primary-language-url"]
+        value: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+  market-llms-xx-ja:
+    include:
+      - /xx/ja/**
+    exclude:
+      - /xx/ja/nav
+      - /xx/ja/footer
+      - /xx/ja/fragments/**
+      - /xx/ja/drafts/**
+      - /xx/ja/**/confirmation
+      - /xx/ja/**/*-confirmation
+      - /xx/ja/support/search/**
+      - /xx/ja/articles/config/**
+    target: /market-llms/xx-ja.json
+    properties:
+      title:
+        select: head > title
+        value: textContent(el)
+      description:
+        select: head > meta[name="description"]
+        value: attribute(el, "content")
+      markets:
+        select: head > meta[name="markets"]
+        value: attribute(el, "content")
+      llms-include:
+        select: head > meta[name="llms-include"]
+        value: attribute(el, "content")
+      llms-title:
+        select: head > meta[name="llms-title"]
+        value: attribute(el, "content")
+      llms-description:
+        select: head > meta[name="llms-description"]
+        value: attribute(el, "content")
+      llms-category:
+        select: head > meta[name="llms-category"]
+        value: attribute(el, "content")
+      ai-guidance:
+        select: head > meta[name="ai-guidance"]
+        value: attribute(el, "content")
+  search-xx-ko:
+    include:
+      - /xx/ko/**
+    exclude:
+      - /xx/ko/nav
+      - /xx/ko/footer
+      - /xx/ko/fragments/**
+      - /xx/ko/drafts/**
+      - /xx/ko/**/confirmation
+      - /xx/ko/**/*-confirmation
+      - /xx/ko/support/search/**
+      - /xx/ko/articles/config/**
+    target: /xx/ko/search-index.json
+    properties:
+      title:
+        select: head > title
+        value: textContent(el)
+      description:
+        select: head > meta[name="description"]
+        value: attribute(el, "content")
+      image:
+        select: head > meta[property="og:image"]
+        value: match(attribute(el, "content"), "https:\/\/[^/]+(/.*)")
+      headings:
+        select: main h1, main h2, main h3
+        values: textContent(el)
+      content:
+        select: main p, main li, main div > a
+        values: textContent(el)
+      parent:
+        select: head > meta[name="parent"]
+        value: attribute(el, "content")
+      hide-in-search:
+        select: head > meta[name="hide-in-search"]
+        value: attribute(el, "content")
+      # the XML sitemaps (helix-sitemap.yaml, AMS rest A7): the de/en page a translated slug
+      # pairs with, and the page's OWN robots value: page-robots, which the site-wide
+      # /metadata.json row (noindex on every page until go-live) does not set;
+      # meta[name="robots"] would carry that inherited noindex and empty every sitemap. No
+      # canonical column: Edge Delivery fills it with the production host, and the sitemap
+      # builder drops every row whose canonical differs from origin plus path
+      primary-language-url:
+        select: head > meta[name="primary-language-url"]
+        value: attribute(el, "content")
+      robots:
+        select: head > meta[name="page-robots"]
+        value: attribute(el, "content")
+      # llms.txt (AMS rest A8, AUTHORING.md): which pages lh-edge lists in /<cc>/llms.txt and
+      # how; ai-guidance on the locale's homepage
+      llms-include:
+        select: head > meta[name="llms-include"]
+        value: attribute(el, "content")
+      llms-title:
+        select: head > meta[name="llms-title"]
+        value: attribute(el, "content")
+      llms-description:
+        select: head > meta[name="llms-description"]
+        value: attribute(el, "content")
+      llms-category:
+        select: head > meta[name="llms-category"]
+        value: attribute(el, "content")
+      ai-guidance:
+        select: head > meta[name="ai-guidance"]
+        value: attribute(el, "content")
+      # Market roots (lh-edge src/markets.js): the countries of the language whose market roots
+      # get this page from its language version (include "de, at", exclude "-ch, -us"; empty:
+      # all). tools/markets/seed-markets.mjs seeded it; authors keep it in DA (AUTHORING.md)
+      markets:
+        select: head > meta[name="markets"]
+        value: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+  market-model-xx-ko:
+    include:
+      - /xx/ko/**
+    exclude:
+      - /xx/ko/nav
+      - /xx/ko/footer
+      - /xx/ko/fragments/**
+      - /xx/ko/drafts/**
+      - /xx/ko/**/confirmation
+      - /xx/ko/**/*-confirmation
+      - /xx/ko/support/search/**
+      - /xx/ko/articles/config/**
+    target: /market-model/xx-ko.json
+    properties:
+      markets:
+        select: head > meta[name="markets"]
+        value: attribute(el, "content")
+      robots:
+        select: head > meta[name="page-robots"]
+        value: attribute(el, "content")
+      primary-language-url:
+        select: head > meta[name="primary-language-url"]
+        value: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+  market-llms-xx-ko:
+    include:
+      - /xx/ko/**
+    exclude:
+      - /xx/ko/nav
+      - /xx/ko/footer
+      - /xx/ko/fragments/**
+      - /xx/ko/drafts/**
+      - /xx/ko/**/confirmation
+      - /xx/ko/**/*-confirmation
+      - /xx/ko/support/search/**
+      - /xx/ko/articles/config/**
+    target: /market-llms/xx-ko.json
+    properties:
+      title:
+        select: head > title
+        value: textContent(el)
+      description:
+        select: head > meta[name="description"]
+        value: attribute(el, "content")
+      markets:
+        select: head > meta[name="markets"]
+        value: attribute(el, "content")
+      llms-include:
+        select: head > meta[name="llms-include"]
+        value: attribute(el, "content")
+      llms-title:
+        select: head > meta[name="llms-title"]
+        value: attribute(el, "content")
+      llms-description:
+        select: head > meta[name="llms-description"]
+        value: attribute(el, "content")
+      llms-category:
+        select: head > meta[name="llms-category"]
+        value: attribute(el, "content")
+      ai-guidance:
+        select: head > meta[name="ai-guidance"]
+        value: attribute(el, "content")
+  search-xx-pl:
+    include:
+      - /xx/pl/**
+    exclude:
+      - /xx/pl/nav
+      - /xx/pl/footer
+      - /xx/pl/fragments/**
+      - /xx/pl/drafts/**
+      - /xx/pl/**/confirmation
+      - /xx/pl/**/*-confirmation
+      - /xx/pl/support/search/**
+      - /xx/pl/articles/config/**
+    target: /xx/pl/search-index.json
+    properties:
+      title:
+        select: head > title
+        value: textContent(el)
+      description:
+        select: head > meta[name="description"]
+        value: attribute(el, "content")
+      image:
+        select: head > meta[property="og:image"]
+        value: match(attribute(el, "content"), "https:\/\/[^/]+(/.*)")
+      headings:
+        select: main h1, main h2, main h3
+        values: textContent(el)
+      content:
+        select: main p, main li, main div > a
+        values: textContent(el)
+      parent:
+        select: head > meta[name="parent"]
+        value: attribute(el, "content")
+      hide-in-search:
+        select: head > meta[name="hide-in-search"]
+        value: attribute(el, "content")
+      # the XML sitemaps (helix-sitemap.yaml, AMS rest A7): the de/en page a translated slug
+      # pairs with, and the page's OWN robots value: page-robots, which the site-wide
+      # /metadata.json row (noindex on every page until go-live) does not set;
+      # meta[name="robots"] would carry that inherited noindex and empty every sitemap. No
+      # canonical column: Edge Delivery fills it with the production host, and the sitemap
+      # builder drops every row whose canonical differs from origin plus path
+      primary-language-url:
+        select: head > meta[name="primary-language-url"]
+        value: attribute(el, "content")
+      robots:
+        select: head > meta[name="page-robots"]
+        value: attribute(el, "content")
+      # llms.txt (AMS rest A8, AUTHORING.md): which pages lh-edge lists in /<cc>/llms.txt and
+      # how; ai-guidance on the locale's homepage
+      llms-include:
+        select: head > meta[name="llms-include"]
+        value: attribute(el, "content")
+      llms-title:
+        select: head > meta[name="llms-title"]
+        value: attribute(el, "content")
+      llms-description:
+        select: head > meta[name="llms-description"]
+        value: attribute(el, "content")
+      llms-category:
+        select: head > meta[name="llms-category"]
+        value: attribute(el, "content")
+      ai-guidance:
+        select: head > meta[name="ai-guidance"]
+        value: attribute(el, "content")
+      # Market roots (lh-edge src/markets.js): the countries of the language whose market roots
+      # get this page from its language version (include "de, at", exclude "-ch, -us"; empty:
+      # all). tools/markets/seed-markets.mjs seeded it; authors keep it in DA (AUTHORING.md)
+      markets:
+        select: head > meta[name="markets"]
+        value: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+  market-model-xx-pl:
+    include:
+      - /xx/pl/**
+    exclude:
+      - /xx/pl/nav
+      - /xx/pl/footer
+      - /xx/pl/fragments/**
+      - /xx/pl/drafts/**
+      - /xx/pl/**/confirmation
+      - /xx/pl/**/*-confirmation
+      - /xx/pl/support/search/**
+      - /xx/pl/articles/config/**
+    target: /market-model/xx-pl.json
+    properties:
+      markets:
+        select: head > meta[name="markets"]
+        value: attribute(el, "content")
+      robots:
+        select: head > meta[name="page-robots"]
+        value: attribute(el, "content")
+      primary-language-url:
+        select: head > meta[name="primary-language-url"]
+        value: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+  market-llms-xx-pl:
+    include:
+      - /xx/pl/**
+    exclude:
+      - /xx/pl/nav
+      - /xx/pl/footer
+      - /xx/pl/fragments/**
+      - /xx/pl/drafts/**
+      - /xx/pl/**/confirmation
+      - /xx/pl/**/*-confirmation
+      - /xx/pl/support/search/**
+      - /xx/pl/articles/config/**
+    target: /market-llms/xx-pl.json
+    properties:
+      title:
+        select: head > title
+        value: textContent(el)
+      description:
+        select: head > meta[name="description"]
+        value: attribute(el, "content")
+      markets:
+        select: head > meta[name="markets"]
+        value: attribute(el, "content")
+      llms-include:
+        select: head > meta[name="llms-include"]
+        value: attribute(el, "content")
+      llms-title:
+        select: head > meta[name="llms-title"]
+        value: attribute(el, "content")
+      llms-description:
+        select: head > meta[name="llms-description"]
+        value: attribute(el, "content")
+      llms-category:
+        select: head > meta[name="llms-category"]
+        value: attribute(el, "content")
+      ai-guidance:
+        select: head > meta[name="ai-guidance"]
+        value: attribute(el, "content")
+
   # SWISS's sitemaps (lh-swiss, brief 349): per language version the columns a sitemap needs, the
   # same pages as language-ch-<ll> (its include and exclude): robots (the page's own page-robots,
   # as there) and the last modification. lh-edge's /ch/<ll>/sitemap.xml (src/site-sitemaps.js)
