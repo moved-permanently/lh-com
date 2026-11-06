@@ -223,9 +223,10 @@ export function indexPath(block, locale) {
 }
 
 // the brands whose www shows the empty search box for a page without a search word (SWISS: its
-// header magnifier and /<root>/search-results, as www.swiss.com today); elsewhere www's search API
+// header magnifier and /<root>/search-results, as www.swiss.com today; B2B: the header's search
+// icon links its pre-login search page, the box alone, brief 418); elsewhere www's search API
 // refuses an empty query ("could not be loaded", lufthansa.com's recording)
-const EMPTY_BOX_BRANDS = ['swiss'];
+const EMPTY_BOX_BRANDS = ['swiss', 'b2b'];
 
 /** What the page shows: 'empty' (the box alone), 'failed' or 'results'. */
 export function resultState(query, failed, brand) {

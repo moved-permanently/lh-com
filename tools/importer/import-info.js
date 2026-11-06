@@ -142,6 +142,7 @@ const PAGE_TEMPLATE = {
       "name": "cards-icon-text",
       "instances": [
         ".threecolumn:has(> .column-view > .row > .column-view-item > .teaser > a.teaser.partner)",
+        ":is(.section-content, .container-content) > :is(.twocolumn, .onecolumn):has(> .column-view > .row > .column-view-item > .teaser > a.teaser.partner):not(:has(> .column-view > .row > .column-view-item > :not(.teaser)))",
         ".b2b-iconmodules"
       ]
     },
@@ -150,6 +151,8 @@ const PAGE_TEMPLATE = {
       "instances": [
         ".threecolumn:has(.teaser)",
         ".fourcolumn:has(a.teaser.card)",
+        ":is(.section-content, .container-content) > .twocolumn:has(> .column-view > .row > .column-view-item > .teaser > a.teaser.card):not(:has(> .column-view > .row > .column-view-item > :not(.teaser)))",
+        ":is(.section-content, .container-content) > .carousel:has(> .new-carousel a.teaser.card)",
         ".loginform:has(.login-oneid-card)"
       ]
     },

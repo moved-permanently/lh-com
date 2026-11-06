@@ -55,7 +55,13 @@ export default function parse(element, { document }) {
       }
       if (text.length) cards.push([icon, text]);
     });
-    if (cards.length) element.replaceWith(WebImporter.Blocks.createBlock(document, { name: 'cards-icon-text', variants: ['stacked'], cells: cards }));
+    if (cards.length) {
+      // the column view's own title (B2B's homepage "Travel solutions": h2.heading-medium) stays
+      // before the block, with its size class, as carousel-cards keeps a column title
+      const title = element.querySelector(':scope > .column-view > div:not(.row) > :is(h1, h2, h3, h4, h5, h6)');
+      if (title && clean(title.textContent)) element.before(title);
+      element.replaceWith(WebImporter.Blocks.createBlock(document, { name: 'cards-icon-text', variants: ['stacked'], cells: cards }));
+    }
     return;
   }
 

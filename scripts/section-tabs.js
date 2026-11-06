@@ -6,16 +6,20 @@
  * section before its panels with the tab list (role tablist; tabs with aria-selected,
  * aria-controls and a roving tabindex; arrow keys, Home and End select and focus; the panels
  * role tabpanel, aria-labelledby, the others hidden), shown from 768px; below 768px each panel is
- * an accordion item (a toggle with aria-expanded over it, the first open). A deep link (#id) into
+ * an accordion item (a toggle with aria-expanded over it, the first open; on brand b2b all
+ * closed, as www's). A deep link (#id) into
  * a panel selects its tab. A section with the same `Tab` label (and set) as the one before it is a
  * part of that panel (www.austrian.com's austrian-app: a panel's text, then its image in a
  * full-bleed section; a grey box inside a panel): shown and hidden with the panel, its own section
  * style kept. Pages without such sections: nothing changes.
  * Styles: styles/section-tabs.css (loaded with the first set).
  */
-import { loadCSS, toClassName } from './aem.js';
+import { getMetadata, loadCSS, toClassName } from './aem.js';
 
 const DESKTOP = '(width >= 768px)';
+// the brands whose www shows every accordion item closed below 768px (business.lufthansagroup.com's
+// Newsroom, maui-tab-control-responsive theme b2b, brief 418); the others open the first
+const CLOSED_BRANDS = ['b2b'];
 let setCount = 0;
 
 /**
@@ -97,7 +101,7 @@ function buildSet(groups) {
 
   const media = window.matchMedia(DESKTOP);
   let active = 0;
-  let open = 0;
+  let open = CLOSED_BRANDS.includes(getMetadata('brand').trim().toLowerCase()) ? -1 : 0;
   const render = () => {
     const desktop = media.matches;
     tabs.forEach(({

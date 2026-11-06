@@ -15,6 +15,8 @@
  *   Lufthansa's contact catalog) as the hotline-finder block (withHotlines, withHotlineFinder);
  * - e-mail addresses Cloudflare obfuscated (/cdn-cgi/l/email-protection#..., __cf_email__) as
  *   mailto: links and their text (withEmails);
+ * - a tab set holding blocks (the Newsroom's categories: maui-tab-control-responsive) as Tab
+ *   sections, swiss-import.mjs's withTabMarkers and splitTabSections (scripts/section-tabs.js);
  * - the pre-login search: the search bar and the results widget as one search-results block
  *   (the site search, /<root>/search-index.json);
  * - the core forms get a form config row with the lh-forms id b2b-<page> and their success page
@@ -42,6 +44,7 @@ import {
 import { docName, LANGUAGE_VERSIONS } from './b2b-scope.mjs';
 import { relativeDamLinks } from './b2b-dam.mjs';
 import { labelsOf, imageOf } from './b2b-hotlines.mjs';
+import { withTabMarkers, splitTabSections } from './swiss-import.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const argv = process.argv.slice(2);
@@ -251,11 +254,66 @@ export const withLocalImages = (doc) => doc.replace(/<img src="(?:https:\/\/busi
 export const withoutHelperLinks = (html) => html
   .replace(/<a\b[^>]*>(?:\s|&nbsp;|<span class="sr-only">[^<]*<\/span>|<(i|em) class="lh lh-link-popup"><\/\1>)*<\/a>/g, '');
 
+/** The ranges [start, end) of a document's top-level <div> elements, in order. */
+const topDivs = (doc) => {
+  const out = [];
+  let depth = 0;
+  let start = 0;
+  [...doc.matchAll(/<(\/?)div\b[^>]*>/g)].forEach((m) => {
+    if (!m[1]) {
+      if (!depth) start = m.index;
+      depth += 1;
+    } else {
+      depth -= 1;
+      if (!depth) out.push([start, m.index + m[0].length]);
+    }
+  });
+  return out;
+};
+
+const TAB_ROW = /<div><div>Tabs?<\/div><div>[^<]*<\/div><\/div>/g;
+
+/**
+ * A tab panel whose content is a section of its own (the Newsroom's categories: each panel a grey
+ * AEM section, so the import leaves a section holding only the panel's Tab and Tabs rows before
+ * it): the rows go to the section after it, which becomes the panel, and the empty one goes. The
+ * set's panels are then consecutive (one tab set, scripts/section-tabs.js), their cards inside.
+ */
+export function withTabPanels(doc) {
+  let out = doc;
+  for (;;) {
+    const cur = out;
+    const sections = topDivs(cur);
+    const i = sections.findIndex(([a, b], k) => {
+      const sec = cur.slice(a, b);
+      const rest = sec.slice(5, -6).replace(/<div class="section-metadata">[\s\S]*<\/div>$/, '').trim();
+      const next = sections[k + 1] && cur.slice(...sections[k + 1]);
+      return /<div class="section-metadata">/.test(sec) && (sec.match(TAB_ROW) || []).length && !rest
+        && next && !/<div><div>Tab<\/div>/.test(next) && !/<div class="metadata">/.test(next);
+    });
+    if (i < 0) return out;
+    const [a] = sections[i];
+    const b = sections[i][1];
+    const rows = out.slice(a, b).match(TAB_ROW).join('');
+    const [c, d] = sections[i + 1];
+    let next = out.slice(c, d);
+    const meta = next.lastIndexOf('<div class="section-metadata">');
+    if (meta >= 0) {
+      // the rows at the end of its section-metadata block (the section's last element)
+      next = `${next.slice(0, -12)}${rows}</div></div>`;
+    } else {
+      next = `${next.slice(0, -6)}<div class="section-metadata">${rows}</div></div>`;
+    }
+    // the empty section, what lay between it and the next, and the next as it was: the panel
+    out = `${out.slice(0, a)}${next}${out.slice(d)}`;
+  }
+}
+
 /** The template of a page: lh-com's info template (B2B has no homepage widgets of lh-com's). */
 export const templateOf = () => 'info';
 
 /** A snapshot as the import reads it. */
-export const mappedOf = (html) => withoutLoads(withSearch(withB2bComponents(withHotlines(withEmails(withoutHelperLinks(withPlaceholder(stripScripts(html)))))))
+export const mappedOf = (html) => withoutLoads(withSearch(withTabMarkers(withB2bComponents(withHotlines(withEmails(withoutHelperLinks(withPlaceholder(stripScripts(html))))))))
   .replace(/<output[^>]*class="screen-reader-announcer"[^>]*>[\s\S]*?<\/output>/g, ''));
 
 const isMain = process.argv[1] && fs.realpathSync(process.argv[1]) === fileURLToPath(import.meta.url);
@@ -340,7 +398,8 @@ if (isMain) {
       const src = out[p].source;
       const html = fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8');
       const markets = scope.documents[src]?.markets || [];
-      const next = withB2bMetadata(withHotlineFinder(withB2bQuotes(withB2bForm(doc, p, html), html), labelsOf(hotlineRecord, p.split('/')[2]), imageOf(hotlineRecord)), p, html, markets);
+      // a tab set's panels as Tab sections (the markers withTabMarkers left, scripts/section-tabs.js)
+      const next = withB2bMetadata(withHotlineFinder(withB2bQuotes(withB2bForm(withTabPanels(splitTabSections(doc)), p, html), html), labelsOf(hotlineRecord, p.split('/')[2]), imageOf(hotlineRecord)), p, html, markets);
       if (next !== doc) fs.writeFileSync(f, next);
     });
     const mapOnly = path.join(W, 'runs', `${name}-upload.txt`);

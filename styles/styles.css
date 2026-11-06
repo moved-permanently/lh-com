@@ -268,24 +268,28 @@ main :is(h1, h2, h3, h4, h5, h6).heading-medium {
   margin-bottom: var(--heading-margin-xl);
   font-size: var(--heading-font-size-xl);
   font-weight: var(--heading-light-weight, 300);
+  text-transform: none;
 }
 
 main :is(h1, h2, h3, h4, h5, h6).heading-small {
   margin-bottom: var(--heading-margin-l);
   font-size: var(--heading-font-size-l);
   font-weight: var(--heading-light-weight, 300);
+  text-transform: none;
 }
 
 main :is(h1, h2, h3, h4, h5, h6).heading-copytext-large {
   margin-bottom: var(--spacing-default);
   font-size: var(--heading-font-size-m);
   font-weight: 700;
+  text-transform: none;
 }
 
 main :is(h1, h2, h3, h4, h5, h6).heading-copytext-medium {
   margin-bottom: 18px;
   font-size: var(--heading-font-size-s);
   font-weight: 700;
+  text-transform: none;
 }
 
 /* .copytext-large on a heading: reads as body text */
@@ -563,10 +567,12 @@ button.button.primary:focus-visible {
   color: var(--button-primary-text, var(--lh-deepblue));
 }
 
+/* --button-secondary-surface: a brand theme's fill of the outlined button (b2b: none, www's
+   buttonsecondary on grey bands too); white as before */
 a.button.secondary,
 button.button.secondary {
   border-color: var(--button-secondary-color, var(--lh-deepblue));
-  background-color: var(--lh-white);
+  background-color: var(--button-secondary-surface, var(--lh-white));
   color: var(--button-secondary-color, var(--lh-deepblue));
 }
 
@@ -1237,9 +1243,11 @@ main .section.heading-icon h2 .heading-icon-image img {
   height: 1.25em;
 }
 
-/* lh-b2b: the stage's copy (its image, the h1, then the text; www's .text .richtext under the
-   headline: max-width 800 px at every width, business.lufthansagroup.com's homepages) */
-body.brand-b2b main > .section:first-child > .default-content-wrapper > p:has(> picture) + h1 ~ p {
+/* lh-b2b: every paragraph of the content at most 800 px, as www's .b2b-neo p { max-width: 80rem }
+   (business.lufthansagroup.com's design: the stage's copy, the pages' running text, a column's
+   text where the column is wider; brief 418); a paragraph holding a picture keeps the column */
+/* stylelint-disable-next-line no-descending-specificity -- a brand's paragraph width, apart from the image paragraph rules */
+body.brand-b2b main p:not(:has(> picture)) {
   max-width: 800px;
 }
 

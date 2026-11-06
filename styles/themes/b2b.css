@@ -69,6 +69,12 @@
   --button-accent-color: #4d7b93;
   --button-accent-hover: #4d7b93;
 
+  /* the outlined button: www's buttonsecondary, b2b-blue text and 2 px border on no fill (brief 418;
+     its hover filled b2b-blue, white text) */
+  --button-secondary-color: #4d7b93;
+  --button-secondary-hover: #4d7b93;
+  --button-secondary-surface: transparent;
+
   /* the hero card's headline (hero-card-overlay light) */
   --hero-card-heading-color: #05164d;
 

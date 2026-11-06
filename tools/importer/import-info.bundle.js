@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-info.js
-  var tmp_bundle_info_262672_exports = {};
-  __export(tmp_bundle_info_262672_exports, {
-    default: () => tmp_bundle_info_262672_default
+  var tmp_bundle_info_317218_exports = {};
+  __export(tmp_bundle_info_317218_exports, {
+    default: () => tmp_bundle_info_317218_default
   });
 
   // tools/importer/parsers/search-results.js
@@ -3231,7 +3231,11 @@ var CustomImportScript = (() => {
         }
         if (text.length) cards.push([icon, text]);
       });
-      if (cards.length) element.replaceWith(WebImporter.Blocks.createBlock(document, { name: "cards-icon-text", variants: ["stacked"], cells: cards }));
+      if (cards.length) {
+        const title = element.querySelector(":scope > .column-view > div:not(.row) > :is(h1, h2, h3, h4, h5, h6)");
+        if (title && clean2(title.textContent)) element.before(title);
+        element.replaceWith(WebImporter.Blocks.createBlock(document, { name: "cards-icon-text", variants: ["stacked"], cells: cards }));
+      }
       return;
     }
     const partners = [...element.querySelectorAll("a.teaser.partner")];
@@ -5849,6 +5853,7 @@ var CustomImportScript = (() => {
         "name": "cards-icon-text",
         "instances": [
           ".threecolumn:has(> .column-view > .row > .column-view-item > .teaser > a.teaser.partner)",
+          ":is(.section-content, .container-content) > :is(.twocolumn, .onecolumn):has(> .column-view > .row > .column-view-item > .teaser > a.teaser.partner):not(:has(> .column-view > .row > .column-view-item > :not(.teaser)))",
           ".b2b-iconmodules"
         ]
       },
@@ -5857,6 +5862,8 @@ var CustomImportScript = (() => {
         "instances": [
           ".threecolumn:has(.teaser)",
           ".fourcolumn:has(a.teaser.card)",
+          ":is(.section-content, .container-content) > .twocolumn:has(> .column-view > .row > .column-view-item > .teaser > a.teaser.card):not(:has(> .column-view > .row > .column-view-item > :not(.teaser)))",
+          ":is(.section-content, .container-content) > .carousel:has(> .new-carousel a.teaser.card)",
           ".loginform:has(.login-oneid-card)"
         ]
       },
@@ -6015,7 +6022,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_info_262672_default = {
+  var tmp_bundle_info_317218_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -6045,5 +6052,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_info_262672_exports);
+  return __toCommonJS(tmp_bundle_info_317218_exports);
 })();

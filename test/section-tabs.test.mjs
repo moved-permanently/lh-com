@@ -210,3 +210,28 @@ test('a panel of several sections (the same Tab label in a row): one tab, its pa
   toggles[1].click();
   assert.deepEqual(parts.map(shown), [false, false, true, true]);
 });
+
+// brief 418: business.lufthansagroup.com's Newsroom (maui-tab-control-responsive, theme b2b) shows
+// every category closed on phones; the other brands' sets keep the first open
+test('below 768px on brand b2b: every item closed at first (www\'s Newsroom), a toggle opens its own', () => {
+  desktop = false;
+  const meta = document.createElement('meta');
+  meta.name = 'brand';
+  meta.content = 'b2b';
+  document.head.append(meta);
+  try {
+    const main = SWISS();
+    decorateSectionTabs(main);
+    const toggles = [...main.querySelectorAll('.section-tab-toggle')];
+    assert.deepEqual(toggles.map((t) => t.getAttribute('aria-expanded')), ['false', 'false']);
+    toggles[1].click();
+    assert.deepEqual(toggles.map((t) => t.getAttribute('aria-expanded')), ['false', 'true']);
+    // from 768px the first tab is selected as before
+    desktop = true;
+    const wide = SWISS();
+    decorateSectionTabs(wide);
+    assert.deepEqual([...wide.querySelectorAll('[role="tab"]')].map((t) => t.getAttribute('aria-selected')), ['true', 'false']);
+  } finally {
+    meta.remove();
+  }
+});
