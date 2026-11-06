@@ -25,8 +25,10 @@ const pick = (l) => ({ lang: l.lang, key: l.key, base: l.base });
 test('Cargo (no roots): the page\'s language metadata, English without it', () => {
   withPage({ brand: 'cargo', language: 'en' }, () => {
     assert.deepEqual(pick(getLocale('/en/speed-flash')), { lang: 'en', key: 'de/en', base: '/de/en' });
-    assert.deepEqual(getLocale('/en/home').siteLanguages.map((l) => l.lang), ['en', 'de']);
+    // es, fr, it, pt since brief 414 (test/cargo-languages.test.mjs), listed once on
+    assert.deepEqual(getLocale('/en/home').siteLanguages.map((l) => l.lang), ['en', 'de', 'es', 'fr', 'it', 'pt']);
   });
+  withPage({ brand: 'cargo', language: 'es' }, () => assert.equal(getLocale('/es/ci/social').lang, 'es'));
   withPage({ brand: 'cargo', language: 'de' }, () => {
     assert.deepEqual(pick(getLocale('/de/speed-flash')), { lang: 'de', key: 'de/de', base: '/de/de' });
     assert.equal(getLocale('/de/home').lang, 'de');

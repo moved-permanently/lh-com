@@ -14,6 +14,7 @@
 /* eslint-disable import/no-relative-packages */
 import { LOCALE_TABLE, LANGUAGE_VERSIONS, NEUTRAL_VERSIONS } from '../../../../scripts/locale-table.js';
 import { BRAND_SITES } from '../../../../scripts/brands.js';
+import { CARGO_LIVE_LANGUAGES, CARGO_WWW } from '../../../../scripts/site-languages.js';
 /* eslint-enable import/no-relative-packages */
 
 /**
@@ -129,15 +130,31 @@ export const AMPERSAND_SITES = new Set(['swiss']);
  * The sites without <cc>/<ll> roots (no locale table, no market roots): every path passes through
  * to the site's origin as it is; entry: the paths that redirect (302) as on the source.
  */
+/**
+ * Lufthansa Cargo's entry paths: / to /en/home as there, /en/ and /de/ to their homepage
+ * documents; the languages of scripts/site-languages.js CARGO_LIVE_LANGUAGES (es, fr, it, pt once
+ * the user publishes them) to www's /<ll>/home, their homepage, which the site doesn't have.
+ * @param {string[]} [live] the languages that are on (default: CARGO_LIVE_LANGUAGES)
+ */
+export function cargoEntry(live = CARGO_LIVE_LANGUAGES) {
+  const entry = {
+    '/': '/en/home', '/en': '/en/home', '/en/': '/en/home', '/de': '/de/home', '/de/': '/de/home',
+  };
+  live.forEach((l) => {
+    entry[`/${l}`] = `${CARGO_WWW}/${l}/home`;
+    entry[`/${l}/`] = `${CARGO_WWW}/${l}/home`;
+  });
+  return entry;
+}
+
 export const PLAIN_SITES = {
   // Lufthansa Cargo (DA moved-permanently/lh-cargo, www.lufthansa-cargo.com): / redirects to
   // /en/home there, /en/ and /de/ serve the homepage, whose documents are /en/home and /de/home
+  // (cargoEntry: its other languages once on)
   cargo: {
     // its old article addresses aem.live refuses before /redirects (src/cargo-articles.js)
     articles: true,
-    entry: {
-      '/': '/en/home', '/en': '/en/home', '/en/': '/en/home', '/de': '/de/home', '/de/': '/de/home',
-    },
+    entry: cargoEntry(),
   },
   // Air Dolomiti (DA moved-permanently/lh-airdolomiti, www.airdolomiti.it): Italian at /, English
   // at /en/..., German at /de/...; www answers /en and /de as its English and German homepages

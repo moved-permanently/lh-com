@@ -978,7 +978,8 @@
   "/pt/nav"
  ],
  "patterns": [
-  "^/(en|de)/(nav|footer|search)$",
+  "^/(en|de|es|fr|it|pt)/(nav|footer)$",
+  "^/(en|de)/search$",
   "^/message-center/(notification|details)/[a-z0-9-]+/(en|de)$",
   "^/(en|de)/notification-overview$"
  ]

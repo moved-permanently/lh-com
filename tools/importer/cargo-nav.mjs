@@ -1,8 +1,9 @@
 /* eslint-disable no-console, max-len, import/extensions, import/no-extraneous-dependencies -- tooling */
 /**
- * Lufthansa Cargo's nav and footer documents (lh-cargo: /en/nav, /en/footer, /de/nav, /de/footer)
- * from the header and footer of the homepage snapshots (content-sites/lh-cargo/delivery/snapshots/
- * www.lufthansa-cargo.com/<lang>/home.html), in the shape of lh-com's documents (blocks/header,
+ * Lufthansa Cargo's nav and footer documents (lh-cargo: /<lang>/nav, /<lang>/footer for en, de and,
+ * since brief 414, es, fr, it, pt) from the header and footer of the homepage snapshots
+ * (content-sites/lh-cargo/delivery/snapshots/www.lufthansa-cargo.com/<lang>/home.html; a language
+ * without its snapshot is left out), in the shape of lh-com's documents (blocks/header,
  * blocks/footer), so the site keeps lh-com's header and footer with Cargo's logo and links:
  * - nav: 1. the "Lufthansa Cargo" logo (www's brand-logo.svg, white, as a PNG: lh-com's nav logo is
  *   a PNG) linking the homepage; 2. quick actions: book, track and schedule (portal, on www);
@@ -16,7 +17,12 @@
  * - search (/<lang>/search): the search-results block over /<lang>/search-index.json
  *   (helix-query.yaml search-brand-en, search-brand-de), www's search page texts.
  * Portal and sign-in links point at www.lufthansa-cargo.com; links to pages in scope become the
- * site's paths (cargo-import.mjs Page.href).
+ * site's paths (cargo-import.mjs Page.href). es, fr, it, pt have no homepage, notifications or
+ * search page on the site (linksOf): the logo leads to www's homepage, the bell, the search row and
+ * the other language to the English pages; no search page is written for them. Their quick links,
+ * login and cookie labels are www's (as the harness's import of 2026-11-06 took them); the logo's
+ * alt, the menu and the bell are the agent's translations (www.lufthansa-cargo.com refused the
+ * agent's requests, 403), the snapshot's texts win where nav() reads them.
  *
  * Usage: node tools/importer/cargo-nav.mjs
  */
@@ -40,24 +46,57 @@ const LOGIN = (lang) => `${HOST}/${lang}/home?p_p_id=com_liferay_login_web_portl
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const attr = (s) => esc(s).replace(/"/g, '&quot;');
 
-const LABELS = {
+export const LABELS = {
   en: {
-    logo: 'Lufthansa Cargo logo, back to the homepage', book: 'Book', track: 'Track', schedule: 'Schedule', other: 'Deutsch', otherHome: '/de/home', login: 'Login', menu: 'Menu', cookies: 'Cookie Settings', group: 'Lufthansa Group', cargoiq: 'IATA Cargo iQ',
+    logo: 'Lufthansa Cargo logo, back to the homepage', book: 'Book', track: 'Track', schedule: 'Schedule', other: 'Deutsch', login: 'Login', menu: 'Menu', cookies: 'Cookie Settings', group: 'Lufthansa Group', cargoiq: 'IATA Cargo iQ',
   },
   de: {
-    logo: 'Lufthansa Cargo Logo, zurück zur Startseite', book: 'Buchen', track: 'Tracking', schedule: 'Flugplan', other: 'English', otherHome: '/en/home', login: 'Login', menu: 'Menü', cookies: 'Cookie Einstellungen', group: 'Lufthansa Group', cargoiq: 'IATA Cargo iQ',
+    logo: 'Lufthansa Cargo Logo, zurück zur Startseite', book: 'Buchen', track: 'Tracking', schedule: 'Flugplan', other: 'English', login: 'Login', menu: 'Menü', cookies: 'Cookie Einstellungen', group: 'Lufthansa Group', cargoiq: 'IATA Cargo iQ',
   },
+  es: {
+    logo: 'Logotipo de Lufthansa Cargo, volver a la página de inicio', book: 'Reserva', track: 'Seguimiento', schedule: 'Horario', other: 'English', login: 'Login', menu: 'Menú', cookies: 'Configuración de cookies', group: 'Lufthansa Group', cargoiq: 'IATA Cargo iQ',
+  },
+  fr: {
+    logo: 'Logo Lufthansa Cargo, retour à la page d’accueil', book: 'Réserver', track: 'Suivre', schedule: 'Calendrier', other: 'English', login: 'Authentification', menu: 'Menu', cookies: 'Paramètres des cookies', group: 'Lufthansa Group', cargoiq: 'IATA Cargo iQ',
+  },
+  it: {
+    logo: 'Logo Lufthansa Cargo, torna alla homepage', book: 'Prenotazioni', track: 'Tracking', schedule: 'Schedulato', other: 'English', login: 'Accesso', menu: 'Menu', cookies: 'Impostazioni dei cookie', group: 'Lufthansa Group', cargoiq: 'IATA Cargo iQ',
+  },
+  pt: {
+    logo: 'Logótipo da Lufthansa Cargo, voltar à página inicial', book: 'Reservar', track: 'Rastreamento de AWBs', schedule: 'Programação de Voos', other: 'English', login: 'Autenticação', menu: 'Menu', cookies: 'Definições de cookies', group: 'Lufthansa Group', cargoiq: 'IATA Cargo iQ',
+  },
+};
+
+// the languages with their own homepage, notifications and search page on the site
+const OWN = ['en', 'de'];
+
+/** A language's links the site may lack: its homepage, the bell, the search row, the other language. */
+export const linksOf = (lang) => {
+  const own = OWN.includes(lang);
+  const pages = own ? lang : 'en';
+  return {
+    home: own ? `/${lang}/home` : `${HOST}/${lang}/home`,
+    bell: `/${pages}/notification-overview`,
+    search: `/${pages}/search?query=`,
+    other: lang === 'en' ? '/de/home' : '/en/home',
+    ownSearch: own,
+  };
 };
 
 // www's search page (www.lufthansa-cargo.com/<lang>/search): its title, heading and texts; the
 // header's bell (www's bell has no label: "Notification", in German its panel's heading)
-const SEARCH = {
+export const SEARCH = {
   en: {
     bell: 'Notification', search: 'Search', searchButton: 'Search', searchFor: 'Your search for {QUERY}', searchHeading: 'Search Results', searchTitle: 'Search - Lufthansa Cargo',
   },
   de: {
     bell: 'Benachrichtigungen', search: 'Suchen', searchButton: 'Suchen', searchFor: 'Ihre Suche nach {QUERY}', searchHeading: 'Suchergebnisse', searchTitle: 'Suche - Lufthansa Cargo',
   },
+  // the footer's search row (the snapshot's search bar label wins) and the bell; no search page
+  es: { bell: 'Notificaciones', search: 'Buscar' },
+  fr: { bell: 'Notifications', search: 'Rechercher' },
+  it: { bell: 'Notifiche', search: 'Ricerca' },
+  pt: { bell: 'Notificações', search: 'Pesquisar' },
 };
 
 /** The logo as PNGs (white for the header bar, deep blue for the footer's white logo row). */
@@ -82,7 +121,8 @@ const link = (page, a, label) => {
 
 function nav(document, page, L) {
   const { lang } = page;
-  const brand = `<div><p><a href="/${lang}/home"><picture><img src="${LOGO_WHITE}" alt="${attr(L.logo)}"></picture></a></p></div>`;
+  const targets = linksOf(lang);
+  const brand = `<div><p><a href="${attr(targets.home)}"><picture><img src="${LOGO_WHITE}" alt="${attr(L.logo)}"></picture></a></p></div>`;
   const quick = `<div><ul><li><a href="${HOST}/${lang}/ebooking/booking/basic-information">${esc(L.book)}</a></li><li><a href="${HOST}/${lang}/eservices/etracking">${esc(L.track)}</a></li><li><a href="${HOST}/${lang === 'de' ? 'de/network/flugplan' : 'en/network/schedule-routings'}">${esc(L.schedule)}</a></li></ul></div>`;
   const tops = [...document.querySelectorAll('#banner .headerComponents > div')].filter((d) => d.querySelector(':scope > a.headerItem'));
   const menu = tops.map((d) => {
@@ -94,7 +134,7 @@ function nav(document, page, L) {
   }).join('');
   const support = document.querySelector('#banner .headerComponents > a[href*="support-and-contact"]');
   const supportLabel = text(document.querySelector('#banner .smallText a')) || 'Support & Contact';
-  const tools = `<div><ul><li>:help: <a href="${attr(page.href(support ? support.getAttribute('href') : '/support-and-contact'))}">${esc(supportLabel)}</a></li><li>:bell: <a href="/${lang}/notification-overview">${esc(L.bell)}</a></li><li><a href="${L.otherHome}">${esc(L.other)}</a></li><li>:login: <a href="${attr(LOGIN(lang))}">${esc(L.login)}</a></li></ul><p>${esc(L.menu)}</p></div>`;
+  const tools = `<div><ul><li>:help: <a href="${attr(page.href(support ? support.getAttribute('href') : '/support-and-contact'))}">${esc(supportLabel)}</a></li><li>:bell: <a href="${targets.bell}">${esc(L.bell)}</a></li><li><a href="${targets.other}">${esc(L.other)}</a></li><li>:login: <a href="${attr(LOGIN(lang))}">${esc(L.login)}</a></li></ul><p>${esc(L.menu)}</p></div>`;
   return `${brand}\n${quick}\n<div><ul>${menu}</ul></div>\n${tools}\n`;
 }
 
@@ -112,12 +152,13 @@ function footer(document, page, L) {
   }).join('');
   const group = f.querySelector('.brandMember');
   const iq = f.querySelector('.partnerCargoiq');
-  const logoRow = `<ul><li><a href="/${page.lang}/home"><picture><img src="${LOGO_BLUE}" alt="Lufthansa Cargo"></picture></a></li>${group ? `<li><a href="${attr(group.getAttribute('href'))}">${esc(L.group)}</a></li>` : ''}${iq ? `<li><a href="${attr(iq.getAttribute('href').replace(/^http:/, 'https:'))}">${esc(L.cargoiq)}</a></li>` : ''}</ul>`;
+  const links = linksOf(page.lang);
+  const logoRow = `<ul><li><a href="${attr(links.home)}"><picture><img src="${LOGO_BLUE}" alt="Lufthansa Cargo"></picture></a></li>${group ? `<li><a href="${attr(group.getAttribute('href'))}">${esc(L.group)}</a></li>` : ''}${iq ? `<li><a href="${attr(iq.getAttribute('href').replace(/^http:/, 'https:'))}">${esc(L.cargoiq)}</a></li>` : ''}</ul>`;
   const badges = `<ul>${social}</ul><div class="section-metadata"><div><div>Style</div><div>badges</div></div></div>`;
   // www's search bar at the bottom of its pages: the footer's search row (as lh-com's footers),
   // leading to the site's search page with the term in its query parameter
   const searchLabel = (f.querySelector('input.search-bar-keywords-input') || document.querySelector('input.search-bar-keywords-input'))?.getAttribute('aria-label') || L.search;
-  const search = `<p>:search: <a href="/${page.lang}/search?query=">${esc(searchLabel)}</a></p>`;
+  const search = `<p>:search: <a href="${links.search}">${esc(searchLabel)}</a></p>`;
   return `<div>${search}</div>\n<div>${columns}</div>\n<div>${badges}</div>\n<div><ul>${legal}</ul></div>\n<div>${logoRow}</div>\n`;
 }
 
@@ -133,21 +174,35 @@ function searchPage(page, L) {
   return `<div><h1>${esc(L.searchHeading)}</h1>${block}<div class="metadata">${meta.map(([k, v]) => `<div><div>${k}</div><div>${esc(v)}</div></div>`).join('')}</div></div>\n`;
 }
 
-await logos();
-const written = [];
-['en', 'de'].forEach((lang) => {
-  const html = fs.readFileSync(path.join(SNAP, `${lang}/home.html`), 'utf8');
-  const { document } = parseHTML(html);
-  const page = new Page(`/${lang}/home`, lang, html);
-  const L = { ...LABELS[lang], ...SEARCH[lang] };
-  // unchanged documents keep their file (and time): da-upload.mjs sends only changed ones
-  const write = (file, doc) => {
-    const out = path.join(OUT, file);
-    if (!fs.existsSync(out) || fs.readFileSync(out, 'utf8') !== doc) fs.writeFileSync(out, doc);
-  };
-  write(`${lang}/nav.plain.html`, nav(document, page, L));
-  write(`${lang}/footer.plain.html`, footer(document, page, L));
-  write(`${lang}/search.plain.html`, searchPage(page, L));
-  written.push(`/${lang}/nav`, `/${lang}/footer`, `/${lang}/search`);
-});
-console.log(`written: ${written.join(' ')}`);
+async function main() {
+  await logos();
+  const written = [];
+  Object.keys(LABELS).forEach((lang) => {
+    const snapshot = path.join(SNAP, `${lang}/home.html`);
+    if (!fs.existsSync(snapshot)) {
+      console.log(`${lang}: no snapshot (${path.relative(root, snapshot)}), left out`);
+      return;
+    }
+    const html = fs.readFileSync(snapshot, 'utf8');
+    const { document } = parseHTML(html);
+    const page = new Page(`/${lang}/home`, lang, html);
+    const L = { ...LABELS[lang], ...SEARCH[lang] };
+    // unchanged documents keep their file (and time): da-upload.mjs sends only changed ones
+    const write = (file, doc) => {
+      const out = path.join(OUT, file);
+      fs.mkdirSync(path.dirname(out), { recursive: true });
+      if (!fs.existsSync(out) || fs.readFileSync(out, 'utf8') !== doc) fs.writeFileSync(out, doc);
+    };
+    write(`${lang}/nav.plain.html`, nav(document, page, L));
+    write(`${lang}/footer.plain.html`, footer(document, page, L));
+    written.push(`/${lang}/nav`, `/${lang}/footer`);
+    if (linksOf(lang).ownSearch) {
+      write(`${lang}/search.plain.html`, searchPage(page, L));
+      written.push(`/${lang}/search`);
+    }
+  });
+  console.log(`written: ${written.join(' ')}`);
+}
+
+const direct = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+if (direct) await main();

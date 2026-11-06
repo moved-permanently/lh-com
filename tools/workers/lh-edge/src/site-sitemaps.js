@@ -100,7 +100,9 @@ function sitemapsOf(site, request, env) {
   }
   const languages = SITE_LANGUAGES[site.name];
   if (site.plain && languages) {
-    return languages.map((l) => ({
+    // only the languages that are on (Cargo's es, fr, it, pt once published: listed); a homepage
+    // the site doesn't have (theirs is on www) heads no sitemap
+    return languages.filter((l) => l.listed !== false).map((l) => ({
       path: l.path === '/' ? `/sitemap-${l.lang}.xml` : `${l.path}sitemap.xml`,
       make: async (host) => {
         const index = await compactIndex(request, env, `${l.path}search-index.json`);
@@ -110,7 +112,8 @@ function sitemapsOf(site, request, env) {
           if (mine && listed(p, row)) rows.push([p, row.lastModified]);
         });
         rows.sort(([a], [b]) => (a < b ? -1 : Number(a > b)));
-        return urlset(host, [[l.home, index.get(l.home)?.lastModified], ...rows]);
+        const home = l.home.startsWith('/') ? [[l.home, index.get(l.home)?.lastModified]] : [];
+        return urlset(host, [...home, ...rows]);
       },
     }));
   }

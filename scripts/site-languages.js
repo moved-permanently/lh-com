@@ -49,16 +49,45 @@ export function tapLanguages(live = TAP_LIVE_MARKETS) {
   ].map(tapRoot);
 }
 
-export const SITE_LANGUAGES = {
-  // Lufthansa Cargo (lh-cargo): the same slugs in both languages, homepages /en/home and /de/home
-  cargo: [
+/** www.lufthansa-cargo.com: the homepage of the languages the site has no homepage for. */
+export const CARGO_WWW = 'https://www.lufthansa-cargo.com';
+
+/**
+ * Lufthansa Cargo's languages beyond English and German (brief 414: the user's harness imported
+ * www's /<ll>/ci/... pages, eFreight and the imprint with their nav and footer; www keeps their
+ * homepage, /<ll>/home, where their nav's logo leads), each with its own name.
+ */
+export const CARGO_LANGUAGES = [['es', 'Español'], ['fr', 'Français'], ['it', 'Italiano'], ['pt', 'Português']];
+
+/**
+ * The switch: the CARGO_LANGUAGES that are on (published), listed in the header's switch and the
+ * sitemaps and given their entry paths by lh-edge (tools/workers/lh-edge/src/sites.js
+ * cargoEntry). Off ([]) until the user publishes them; their pages resolve either way.
+ */
+export const CARGO_LIVE_LANGUAGES = [];
+
+/**
+ * Cargo's languages: en and de (the same slugs, homepages /en/home and /de/home), then
+ * CARGO_LANGUAGES (the same slugs; their homepage on www), listed only when on.
+ * @param {string[]} [live] the languages that are on (default: CARGO_LIVE_LANGUAGES)
+ */
+export function cargoLanguages(live = CARGO_LIVE_LANGUAGES) {
+  return [
     {
       lang: 'en', path: '/en/', home: '/en/home', name: 'English',
     },
     {
       lang: 'de', path: '/de/', home: '/de/home', name: 'Deutsch',
     },
-  ],
+    ...CARGO_LANGUAGES.map(([lang, name]) => ({
+      lang, path: `/${lang}/`, home: `${CARGO_WWW}/${lang}/home`, name, ...(live.includes(lang) ? {} : { listed: false }),
+    })),
+  ];
+}
+
+export const SITE_LANGUAGES = {
+  // Lufthansa Cargo (lh-cargo): cargoLanguages
+  cargo: cargoLanguages(),
   // Air Dolomiti (lh-airdolomiti): Italian at the root, English at /en/, German at /de/, each
   // with slugs of its own (/iscrizione-newsletter, /en/newsletter-subscription)
   airdolomiti: [
