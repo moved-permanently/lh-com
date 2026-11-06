@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-app-entry.js
-  var tmp_bundle_app_entry_498857_exports = {};
-  __export(tmp_bundle_app_entry_498857_exports, {
-    default: () => tmp_bundle_app_entry_498857_default
+  var tmp_bundle_app_entry_514098_exports = {};
+  __export(tmp_bundle_app_entry_514098_exports, {
+    default: () => tmp_bundle_app_entry_514098_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -2143,6 +2143,8 @@ var CustomImportScript = (() => {
     if (element.classList.contains("threecolumn")) variants = ["three-up"];
     else if (element.classList.contains("fourcolumn")) variants = ["four-up"];
     if (overlay) variants.push("overlay");
+    const parent = element.parentElement;
+    if (parent && parent.classList.contains("container-content")) variants.push("spacious");
     const block = WebImporter.Blocks.createBlock(document, { name: "cards-teaser", variants, cells });
     const headerText = (t) => clean2((t.querySelector("tr") || t).textContent).toLowerCase();
     const previousSameBlock = () => {
@@ -4005,7 +4007,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_app_entry_498857_default = {
+  var tmp_bundle_app_entry_514098_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -4035,5 +4037,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_app_entry_498857_exports);
+  return __toCommonJS(tmp_bundle_app_entry_514098_exports);
 })();

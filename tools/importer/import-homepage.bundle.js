@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-homepage.js
-  var tmp_bundle_homepage_498857_exports = {};
-  __export(tmp_bundle_homepage_498857_exports, {
-    default: () => tmp_bundle_homepage_498857_default
+  var tmp_bundle_homepage_514098_exports = {};
+  __export(tmp_bundle_homepage_514098_exports, {
+    default: () => tmp_bundle_homepage_514098_default
   });
 
   // tools/importer/parsers/flash-teaser.js
@@ -3066,7 +3066,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_homepage_498857_default = {
+  var tmp_bundle_homepage_514098_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -3096,5 +3096,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_homepage_498857_exports);
+  return __toCommonJS(tmp_bundle_homepage_514098_exports);
 })();
