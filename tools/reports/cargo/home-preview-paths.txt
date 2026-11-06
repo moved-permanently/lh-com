@@ -1,0 +1,4 @@
+# Cargo rows 10-12 (brief 425): the homepages re-imported from cargo-snapshots-001 (stage slider, widget, news feed, bands), uploaded and previewed, not published.
+# publish after the code is on main (feat(cargo): the homepage's stage slider and widget, ...; brief 425)
+/en/home
+/de/home
