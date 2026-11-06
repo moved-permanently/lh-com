@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-06 05:44",
-  "change": "All of lufthansa.com's country and language versions are on the replica: 251 in all, now with Portuguese, Russian, Chinese, Italian, Greek, Japanese, Korean and Polish. Cargo has its six languages, and Discover's offers page compares two cities as on www.",
+  "updated": "2026-11-06 17:23",
+  "change": "Lufthansa's passenger receipt form is the replica's own in all 16 language versions, and Cargo's support page searches every tab and opens the contact form over the page with the topic's reason chosen.",
   "legend": {
     "done": {
       "label": "works on our replica",
@@ -1759,9 +1759,9 @@
         },
         "cargo": {
           "status": "done",
-          "note": "Cargo's support page lists every topic and narrows them as you type, as www's topic search does; its contact form is our own.",
+          "note": "Cargo's support page lists every topic and narrows them as you type across all its tabs, as www's topic search does; a topic's form link opens our own contact form over the page with the reason already chosen.",
           "page": "/en/support-and-contact",
-          "evidence": "ema-adobe 203 (40e5f10) + ema-cashub 227 (e63bd32d); published 2026-11-01 ~14:05; filter narrows topic groups"
+          "evidence": "ema-adobe 203 (40e5f10) + ema-cashub 227 (e63bd32d); published 2026-11-01 ~14:05; filter narrows topic groups; 2026-11-06: tab-wide filter 1a6214c6, contact dialog a5352fe9 + 03864d18, live 17:02 (job-...16-02-37-2bc3b90c dialog, ...16-02-51-ac03a2b9 pages); my check 17:2x on cargo.turnsthe.page/en/support-and-contact: 'registration' finds Registration / User account from the Technical support tab; 8 topic links open the dialog (reason technical, subreason preselected), 5 customer-service links still go to www's contact-cst page"
         },
         "airdolomiti": {
           "status": "none",
@@ -1868,9 +1868,9 @@
       "cells": {
         "lufthansa": {
           "status": "done",
-          "note": "Lufthansa's forms send their entries by mail, behind a bot check; for now to a test mailbox.",
+          "note": "Lufthansa's forms send their entries by mail, behind a bot check; for now to a test mailbox. The passenger receipt form is the replica's own, with www's checks and error texts, in all 16 language versions; on the replica's address a valid entry opens the same page on www and sends nothing, and on www.lufthansa.com it will ask Lufthansa's receipt service as www does.",
           "page": "/de/en/feedback",
-          "evidence": "AGENTS.md: 66 form pages live"
+          "evidence": "AGENTS.md: 66 form pages live; passenger receipt: 333e172e + 601f9428 (ema-cashub 430), live 2026-11-06 17:06 (job-2026-11-06-16-06-00-6d93b985) on 16 /<root>/book-and-manage/pax-receipt pages (de/en, de/de, at/de, gb/en, fr/fr, xx/el es fr hk it ja ko pl pt ru zh: all 200 with the passenger-receipt block, curl 17:2x); my check 17:2x in a private Studio tab on lufthansa.turnsthe.page/de/en: fields ticketNumber, firstName, lastName, isBusiness; empty submit '3 errors have occurred' (ticket number, first name, last name); valid entry -> www.lufthansa.com/de/en/book-and-manage/pax-receipt, no receipt service call from the replica page"
         },
         "discover": {
           "status": "done",
@@ -1892,8 +1892,8 @@
         },
         "cargo": {
           "status": "done",
-          "note": "Cargo's public contact form is a form on our own forms service, linked from Support & Contact and the menu; forms behind Cargo's login stay on Cargo's systems.",
-          "evidence": "ema-cashub 202 (8b1c1c7f) + 225; test submission 2026-11-01 11:55 on cargo.turnsthe.page (lh-forms 200, mail with PDF in Inbox); published 11:5x + job-2026-11-01-10-58-25-4929465c",
+          "note": "Cargo's public contact form is a form on our own forms service, linked from Support & Contact and the menu, and opens over the support page from a topic with its reason preselected; forms behind Cargo's login stay on Cargo's systems.",
+          "evidence": "ema-cashub 202 (8b1c1c7f) + 225; test submission 2026-11-01 11:55 on cargo.turnsthe.page (lh-forms 200, mail with PDF in Inbox); published 11:5x + job-2026-11-01-10-58-25-4929465c; 2026-11-06 contact form as a dialog from Support & Contact topics (a5352fe9, 03864d18; live 17:02), reason and subreason preselected (checked 17:2x)",
           "page": "/en/contact-us"
         },
         "airdolomiti": {
