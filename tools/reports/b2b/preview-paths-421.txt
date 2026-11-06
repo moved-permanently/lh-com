@@ -1,0 +1,10 @@
+/at/de/program/experts
+/ch/en/program/experts
+/de/de/program/experts
+/de/en/program/experts
+/de/de/program/partner-plus-benefit
+/de/en/program/partner-plus-benefit
+/de/de/travel-management/hygiene-and-safety
+/de/en/travel-management/hygiene-and-safety
+/xx/de/travel-management/hygiene-and-safety
+/xx/en/travel-management/hygiene-and-safety
