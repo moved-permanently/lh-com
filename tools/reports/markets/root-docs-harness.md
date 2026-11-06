@@ -66,7 +66,7 @@ document). The 19 homepages and the 27 own pages `tools/importer/sites/lh-com.js
   (header 55 to 61, main 8 to 15); the www links left in the main are the targets without a document.
 - **Not published.** Backup of the 46 B documents' DA sources before the run (private notes).
 
-## The own confirmations and bg/en's invoice success page (local harness, 2026-11-06, 02:30-02:50 CET)
+## The own confirmations and bg/en's invoice success page (local harness, 2026-11-06, 02:31-02:37 CET)
 
 - **Captured** in a headful Chrome with a copied profile, one page every 10 s, no block: the 8 URLs of
   `15-hk` … `21-pl-confirmations-own.txt` and `/bg/en/local-page/invoice-request-bg/thank-you-for-your-request`,
