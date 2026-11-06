@@ -9,13 +9,13 @@
 /it/it/book-and-prepare/travel-information/baggage/carry-on-baggage
 /jp/ja/book-and-prepare/travel-information/baggage/carry-on-baggage
 /nl/nl/book-and-prepare/travel-information/baggage/carry-on-baggage
-# held (online check-in: no capture shows where www's sidebar starts there):
-# /br/pt/book-and-prepare/travel-information/check-in-information/online-check-in
-# /de/de/book-and-prepare/travel-information/check-in-information/online-check-in
-# /es/es/book-and-prepare/travel-information/check-in-information/online-check-in
-# /fr/fr/book-and-prepare/travel-information/check-in-information/online-check-in
-# /gr/el/book-and-prepare/travel-information/check-in-information/online-check-in
-# /it/en/book-and-prepare/travel-information/check-in-information/online-check-in
-# /it/it/book-and-prepare/travel-information/check-in-information/online-check-in
-# /jp/ja/book-and-prepare/travel-information/check-in-information/online-check-in
-# /nl/nl/book-and-prepare/travel-information/check-in-information/online-check-in
+# uploaded and previewed (brief 425, online check-in: ita-parity-002 shows where www's sidebar starts):
+/br/pt/book-and-prepare/travel-information/check-in-information/online-check-in
+/de/de/book-and-prepare/travel-information/check-in-information/online-check-in
+/es/es/book-and-prepare/travel-information/check-in-information/online-check-in
+/fr/fr/book-and-prepare/travel-information/check-in-information/online-check-in
+/gr/el/book-and-prepare/travel-information/check-in-information/online-check-in
+/it/en/book-and-prepare/travel-information/check-in-information/online-check-in
+/it/it/book-and-prepare/travel-information/check-in-information/online-check-in
+/jp/ja/book-and-prepare/travel-information/check-in-information/online-check-in
+/nl/nl/book-and-prepare/travel-information/check-in-information/online-check-in
