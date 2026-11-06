@@ -205,6 +205,21 @@ test('sections of www\'s tab panel after the tab section join it', () => {
   assert.ok(all[3].querySelector('.metadata') !== null, 'the page metadata stays after the tabs');
 });
 
+/* a sidebar whose content opens with a picture (new destinations' Toulouse: the photo, the text and
+   its button beside the magazine card): the picture right before the content's first text is the
+   content's, not the page's above the sidebar */
+test('a picture opening the sidebar\'s content is part of the content', () => {
+  const pic = '<p><picture><img src="https://content.da.live/x/toulouse.jpg" alt=""></picture></p>';
+  const doc = `<body><header></header><main><div><h2>Ihr nächstes Reiseziel: Toulouse</h2>${pic}<p>Toulouse begeistert mit rosafarbenen Fassaden</p><h4>Bengaluru in all seinen Farben</h4><p>Farbenprächtige Blumenmärkte</p></div></main><footer></footer></body>`;
+  const html = '<html><body><h2>Ihr nächstes Reiseziel: Toulouse</h2><div class="airem-sidebar"><div class="sidebar-content"><div class="image"><img src="/t.jpg"></div><p>Toulouse begeistert mit rosafarbenen Fassaden</p></div><div class="sidebar-aside"><h4>Bengaluru in all seinen Farben</h4><p>Farbenprächtige Blumenmärkte</p></div></div></body></html>';
+  const r = withSwissSidebar(doc, html);
+  assert.equal(r.made, 1, r.skipped.join('; '));
+  const [before, content] = sections(r.doc);
+  assert.ok(before.querySelector('picture') === null, 'the picture not above the sidebar');
+  assert.ok(content.firstElementChild.querySelector('picture img[src$="toulouse.jpg"]') !== null, 'the content opens with it');
+  assert.ok(sidebarsOf(html)[0].imagesBefore === 1);
+});
+
 /* www's words for screen readers inside a link (maui-screen-reader-label, .sr-only) are not in the
    document: they are not the snapshot's text (animals travelling de: its aside's last link) */
 test('screen-reader words in www\'s links are not the text to find', () => {

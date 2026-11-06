@@ -69,6 +69,14 @@ function trailingImages(part) {
   return all.filter((el, i) => i > last && el.tagName === 'IMG').length;
 }
 
+/** The images of a part before its first text (a picture opening the sidebar's content). */
+function leadingImages(part) {
+  if (!part) return 0;
+  const all = [...part.querySelectorAll('*')];
+  const first = all.findIndex((el) => el.matches('h1, h2, h3, h4, h5, h6, p, li, a') && norm(el.textContent).length >= 4);
+  return all.filter((el, i) => (first < 0 || i < first) && el.tagName === 'IMG').length;
+}
+
 /** The snapshot's sidebars: their content's first heading and texts, the aside's texts and teaser cards. */
 export function sidebarsOf(html) {
   const { document } = parseHTML(html);
@@ -77,7 +85,7 @@ export function sidebarsOf(html) {
     const aside = s.querySelector(':scope > .sidebar-aside');
     const firstHead = content && content.querySelector('h1, h2, h3, h4');
     return {
-      first: firstHead ? norm(firstHead.textContent) : '', byHeading: !!firstHead, content: partTexts(content), aside: partTexts(aside), teasers: teasersOf(aside), asideImagesAfter: trailingImages(aside),
+      first: firstHead ? norm(firstHead.textContent) : '', byHeading: !!firstHead, content: partTexts(content), aside: partTexts(aside), teasers: teasersOf(aside), asideImagesAfter: trailingImages(aside), imagesBefore: leadingImages(content),
     };
   });
 }
@@ -412,6 +420,8 @@ export function withSwissSidebar(doc, html) {
       section = section.nextElementSibling;
     }
     if (!section || start < 0) { skipped.push(`sidebar ${n}: "${first.slice(0, 40)}" not found`); return; }
+    // the pictures www shows before the content's first text open the content
+    for (let k = 0; k < sb.imagesBefore && start > 0 && (section !== fromSection || start - 1 >= fromIndex) && isPicture(section.children[start - 1]); k += 1) start -= 1;
     const kids = [...section.children];
     let end;
     let asideEnd;
