@@ -622,3 +622,83 @@ body.brand-ita .feedback .feedback-note {
   font-size: 14px;
   line-height: 21px;
 }
+
+/* stylelint-disable no-descending-specificity -- scoped to the aside; page order */
+
+/* the Quick Links box beside the info pages' content (section style sidebar-aside,
+   scripts/section-aside.js; www's airem-sidebar, ita-parity-001's carry-on baggage page at 1440
+   and 390): its heading, then the cards one under the other, white, a hairline, 4px corners and
+   www's shadow, the picture 3:2, the body 20px in */
+body.brand-ita main .section-aside h4 {
+  font-size: 20px;
+  line-height: 22px;
+  font-weight: 700;
+  margin: 0 0 24px;
+}
+
+body.brand-ita main .section-aside .cards-teaser > ul {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 20px;
+}
+
+body.brand-ita main .section-aside .cards-teaser > ul > li {
+  overflow: hidden;
+  margin: 0;
+  border: 1px solid #f8f8f9;
+  border-radius: 4px;
+  box-shadow: 0 3px 6px rgb(11 35 64 / 10%);
+  background: #fff;
+}
+
+body.brand-ita main .section-aside .cards-teaser .cards-teaser-image {
+  margin: 0;
+}
+
+body.brand-ita main .section-aside .cards-teaser .cards-teaser-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+
+body.brand-ita main .section-aside .cards-teaser .cards-teaser-body {
+  padding: 20px;
+}
+
+body.brand-ita main .section-aside .cards-teaser .cards-teaser-title {
+  font-size: 22px;
+  line-height: 24.3px;
+  font-weight: 700;
+  margin: 0 0 10px;
+}
+
+body.brand-ita main .section-aside .cards-teaser .cards-teaser-body > p {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+body.brand-ita main .section-aside .cards-teaser .cards-teaser-cta-link {
+  font-size: 18px;
+  line-height: 27px;
+  font-weight: 700;
+  color: #0171cf;
+}
+
+@media (width >= 768px) {
+  body.brand-ita main .section-aside h4 {
+    font-size: 24px;
+    line-height: 26.4px;
+  }
+
+  body.brand-ita main .section-aside .cards-teaser > ul {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  body.brand-ita main .section-aside .cards-teaser .cards-teaser-title {
+    font-size: 28px;
+    line-height: 30.8px;
+  }
+}
+
+/* stylelint-enable no-descending-specificity */

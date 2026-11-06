@@ -31,6 +31,7 @@ import { isDemoHost, turnsThePageBrandOf } from './demo.js';
 import prioritizeSecondSectionImage from './lcp-image.js';
 import decorateHeadingIcons from './heading-icon.js';
 import decorateSectionTabs from './section-tabs.js';
+import joinAsideSections from './section-aside.js';
 import { placeAlertsBar } from './alerts-bar.js';
 import {
   isLibraryPath, isAppScreenPath, addHeadingIds, removeLibraryMetadata, applyBarePage, followHash,
@@ -348,6 +349,8 @@ export function decorateMain(main) {
   decorateButtons(main);
   // sections with the section metadata Tab (tab sets that hold blocks): a tab list over them
   decorateSectionTabs(main);
+  // a section with the style sidebar-aside: beside the section before it
+  joinAsideSections(main);
 }
 
 /**

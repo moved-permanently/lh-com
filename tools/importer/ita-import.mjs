@@ -19,6 +19,8 @@
  * - metadata (withItaMetadata): the root's nav and footer documents (lh-com's locale table maps
  *   ITA's roots to lh-com's), `markets` (the market roots with the same page, from scope.json),
  *   www's robots value on noindex pages;
+ * - www's Quick Links sidebar (info pages): the content and the box as sections side by side
+ *   (ita-quick-links.mjs withQuickLinksSidebar, the box a cards-teaser);
  * - links to www's DAM files become site-relative edsDamPath links (ita-dam.mjs relativeDamLinks;
  *   the files are copied with ita-dam.mjs --list --download --upload --switch).
  * Pages whose snapshot is missing are listed.
@@ -34,6 +36,7 @@ import {
   ownPages, ownAliases, withOwnLinks, onlyBatch,
 } from './own-links.mjs';
 import { relativeDamLinks } from './ita-dam.mjs';
+import { withQuickLinksSidebar } from './ita-quick-links.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const argv = process.argv.slice(2);
@@ -302,7 +305,7 @@ if (isMain) {
       const doc = fs.readFileSync(f, 'utf8');
       const src = Object.keys(out).find((k) => docName(k) === p);
       const markets = scope.documents[src]?.markets || [];
-      const next = withItaMetadata(withCheckinHandoff(withFlightSearch(withItaForm(doc, p), p), p), p, fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8'), markets);
+      const next = withQuickLinksSidebar(withItaMetadata(withCheckinHandoff(withFlightSearch(withItaForm(doc, p), p), p), p, fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8'), markets));
       if (next !== doc) fs.writeFileSync(f, next);
     });
     const mapOnly = path.join(W, 'runs', `${name}-upload.txt`);

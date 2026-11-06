@@ -645,6 +645,42 @@ main > .section:first-of-type {
   margin-top: 0;
 }
 
+/* a section beside the one before it (section style sidebar-aside, scripts/section-aside.js;
+   www.ita-airways.com's Quick Links): below 768px under the content, from 768px the second
+   column, a quarter wide, beside every row of the content */
+main > .section.with-aside > .section-aside {
+  margin-top: 40px;
+}
+
+@media (width >= 768px) {
+  main > .section.with-aside {
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(0, 1fr);
+
+    /* a row for each of the content's children, then one that takes what a taller aside adds */
+    grid-template-rows: repeat(var(--section-aside-rows, 1), auto) 1fr;
+    column-gap: 20px;
+    align-items: start;
+    box-sizing: border-box;
+    max-width: var(--content-max-width);
+    margin-inline: auto;
+    padding: 0 var(--layout-margin);
+  }
+
+  main > .section.with-aside > * {
+    grid-column: 1;
+    max-width: none;
+    margin-inline: 0;
+    padding-inline: 0;
+  }
+
+  main > .section.with-aside > .section-aside {
+    grid-column: 2;
+    grid-row: 1 / -1;
+    margin-top: 0;
+  }
+}
+
 /* a section for some markets only (section metadata `markets`): flush with its neighbours, as
    a block inside one section, so a market variant can replace part of a section */
 main > .section:has(+ .section[data-markets]),
