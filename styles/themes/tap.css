@@ -2423,8 +2423,10 @@ body.brand-tap .cards:is(.three-up, .two-up) .cards-card-body > .button-wrapper:
   margin-bottom: 0;
 }
 
+/* the label in www's gray-1200, its chevron_right 4 px after it (row 15, brief 416) */
 body.brand-tap .cards:is(.three-up, .two-up) a.button:any-link {
-  gap: 8px;
+  gap: 4px;
+  color: #424045;
 }
 
 /* a long label wraps inside the card, the chevron at its end (row 27, www's two-line button) */
@@ -2443,8 +2445,8 @@ body.brand-tap .cards:is(.three-up, .two-up) .cards-card-body a.button:any-link 
 body.brand-tap .cards:is(.three-up, .two-up) a.button:any-link::after {
   content: "";
   flex: none;
-  width: 16px;
-  height: 16px;
+  width: 24px;
+  height: 24px;
   background-color: currentcolor;
   mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8.6 5.4 7.2 6.8l5.2 5.2-5.2 5.2 1.4 1.4 6.6-6.6z'/%3E%3C/svg%3E") center / contain no-repeat;
 }
