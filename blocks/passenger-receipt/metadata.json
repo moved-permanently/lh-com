@@ -1,0 +1,21 @@
+{
+  "variantName": "passenger-receipt",
+  "baseBlock": "passenger-receipt",
+  "canonicalModel": "standalone",
+  "sourceUrl": "https://www.lufthansa.com/de/en/book-and-manage/pax-receipt",
+  "visualCharacteristics": {
+    "purpose": "passenger receipt download form (ticket number, first and last name) as www's passenger-receipt-portal: validates in the browser and hands off",
+    "traits": [
+      "headline 'Please enter your booking information' and www's small note",
+      "boxed fields with the label above; first and last name side by side from 768px",
+      "error box above the fields with a link to each field; a message under each field",
+      "business-purpose checkbox; primary 'Download Passenger Receipt' button"
+    ]
+  },
+  "contentPattern": {
+    "structure": "An empty block table; every text is built in (en and de as www's labels) or comes from the label service passengerreceipt."
+  },
+  "options": [],
+  "memberVariantIds": [],
+  "usage": "/{cc}/{ll}/book-and-manage/pax-receipt in every language of lufthansa.com, right after the 'Request passenger receipt' link."
+}
