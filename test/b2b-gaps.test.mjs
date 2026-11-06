@@ -1,7 +1,7 @@
 /* lh-b2b's small gaps against business.lufthansagroup.com (2026-11-02), B2B-only rules: the bar 61
    px below 1025 px and 81 px from 1025 px (blocks/header/header.css), the open menu item's fill
-   #e6f2ff (www's menu snapshot), the stage copy at most 800 px (styles/styles.css); every rule under
-   body.brand-b2b, so the other brands keep theirs.
+   #e6f2ff (www's menu snapshot), the copy at most 800 px (styles/styles.css); every rule
+   under body.brand-b2b, so the other brands keep theirs.
    Run: node --max-old-space-size=512 --test test/b2b-gaps.test.mjs */
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -24,9 +24,11 @@ test('header.css: the bar padding and the open item\'s fill, only under body.bra
   assert.ok(read('blocks/header/header.css').includes('background-color: #e8eef9;'), 'the shared hover fill as before');
 });
 
-test('styles.css: the stage copy at most 800 px, only under body.brand-b2b', () => {
+// since brief 418 every paragraph of the content (www's .b2b-neo p { max-width: 80rem }), not only
+// the stage copy; one that holds a picture keeps the column (test/b2b-parity-418.test.mjs)
+test('styles.css: the copy at most 800 px, only under body.brand-b2b', () => {
   const rules = b2bRules(read('styles/styles.css'));
   assert.equal(rules.length, 1);
-  assert.equal(rules[0].sel, 'body.brand-b2b main > .section:first-child > .default-content-wrapper > p:has(> picture) + h1 ~ p');
+  assert.equal(rules[0].sel, 'body.brand-b2b main p:not(:has(> picture))');
   assert.equal(rules[0].body, 'max-width: 800px;');
 });
