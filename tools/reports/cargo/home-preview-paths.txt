@@ -1,11 +1,12 @@
-# Cargo rows 10-12 (briefs 425, 429), not published. Release order: the code on main first (brief 429's columns-media icons: inert without the option), then the files, then the pages.
-# files (brief 429, cargo-media-001; previewed, tools/reports/cargo/media-001.tsv):
-/documents/sprite-infra-homepage-1-c6f447.svg
-/documents/sprite-product-2-34a548.svg
-/documents/sprite-product-speed-c94f8d.svg
-/documents/sprite-product-aos-0ce801.svg
-/documents/ourproduct-bg-97be05.svg
-# in DA, not on preview (the preview answered 409): /documents/about-bg-desktop-updated-bc71bf.svg, /documents/about-bg-mobile-updated-97b007.svg
-# pages (re-imported with the icons option and the regions' two-line labels, brief 429):
-/en/home
-/de/home
+# Cargo rows 10-12 (briefs 425, 429, 430), not published. Release order: the code on main first, then the files, then the pages.
+# files published by the user (job-2026-11-06-07-57-59-3da82c51):
+# /documents/sprite-infra-homepage-1-c6f447.svg, /documents/sprite-product-2-34a548.svg, /documents/sprite-product-speed-c94f8d.svg,
+# /documents/sprite-product-aos-0ce801.svg, /documents/ourproduct-bg-97be05.svg
+# files (brief 430: the about artwork's smaller form; previewed, tools/reports/cargo/media-001.tsv):
+/documents/about-bg-desktop-vector-da7231.svg
+/documents/about-bg-mobile-vector-cfeaac.svg
+/documents/about-bg-grain-bedb93.png
+# in DA, not on preview (the preview answered 409; replaced by the three above): /documents/about-bg-desktop-updated-bc71bf.svg, /documents/about-bg-mobile-updated-97b007.svg
+# pages (published by the user 2026-11-06 08:59 CET; brief 430 changes no document so far):
+# /en/home
+# /de/home
