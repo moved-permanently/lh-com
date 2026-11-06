@@ -68,6 +68,58 @@ test('a heading before a component in the same container stays before its block 
   assert.ok(heading < cards, html);
 });
 
+test('www\'s breadcrumb (Liferay\'s desktopBreadcrumb) as the breadcrumb block where it stands: Home linked, the menu\'s section labels as text, the page last (brief 422)', async () => {
+  const { convert } = await import('../tools/importer/cargo-import.mjs');
+  const crumbs = '<li><a href="/home">Home </a></li><li class=""><span class="breadcrumb-text-truncate">Info-Hub</span></li><li><span>Fleet &amp; ULD</span></li><li class="active"><span>Our fleet</span></li>';
+  const page = `<!DOCTYPE html><html><head><title>Our fleet - Lufthansa Cargo</title></head><body><div id="main-content"><p>Hero</p><div class="portlet-boundary portlet-breadcrumb"><section class="portlet"><div class="portlet-content"><div class="autofit-float autofit-row portlet-header"><h2 class="portlet-title-text">Breadcrumb</h2></div><div class="portlet-body"><nav aria-label="Breadcrumb"><div class="eportalBreadcrumb"><ul class="breadcrumb breadcrumb-horizontal d-none d-md-flex desktopBreadcrumb">${crumbs}</ul><div class="d-md-none mobileBreadcrumb"><a href="javascript:history.back()">Back</a></div></div></nav></div></div></section></div><h1>Our fleet</h1></div></body></html>`;
+  const { html } = convert(page, '/en/fleet-ulds/fleet', 'en');
+  assert.match(html, /<div class="breadcrumb"><div><div><ul><li><a href="\/en\/home">Home<\/a><\/li><li>Info-Hub<\/li><li>Fleet &amp; ULD<\/li><li>Our fleet<\/li><\/ul><\/div><\/div><\/div>/, html);
+  assert.ok(html.indexOf('Hero') < html.indexOf('class="breadcrumb"') && html.indexOf('class="breadcrumb"') < html.indexOf('<h1>'), 'where www has it');
+  assert.ok(!/>Breadcrumb</.test(html) && !/Back/.test(html), 'no portlet title, no phone back link');
+});
+
+test('www\'s text one third, picture right (Text-Image-horizontal-CF7, eBooking\'s features): columns-media (wide-media), the text first (brief 422)', async () => {
+  const { convert } = await import('../tools/importer/cargo-import.mjs');
+  const page = '<!DOCTYPE html><html><head><title>eBooking - Lufthansa Cargo</title></head><body><div id="main-content"><div class="lfr-layout-structure-item-text--one-third--left-image-right--horizontal----cf7"><div class="Text-Image-horizontal-CF7 mobile-mt-20 marginTopMobile text-one-third"><div class="row"><div class="col-md-4 content-section"><h3>eBooking features and functions</h3><ul><li>Get real-time offers</li></ul></div><div class="col-md-8 image-section"><div class="component-image"><img src="https://www.lufthansa-cargo.com/documents/20184/1/built.png/x" alt=""></div></div></div></div></div></div></body></html>';
+  const { html } = convert(page, '/en/ebooking-info', 'en');
+  assert.match(html, /<div class="columns-media wide-media"><div><div><h3>eBooking features and functions<\/h3><ul><li>Get real-time offers<\/li><\/ul><\/div><div>(<p>)?<picture>/, html);
+});
+
+test('a story module with its picture: the text box over it as www\'s (hero-card-overlay (light), at the right where www\'s box is: offset-md-8), its headline the page\'s H1 first (brief 422)', async () => {
+  const { convert } = await import('../tools/importer/cargo-import.mjs');
+  const module = (offset, title, body) => `<div class="row-fluid module--story"><div class="story-imageWrap"><img src="https://www.lufthansa-cargo.com/documents/20184/1/${title.length}.jpg/x" alt="Story Image"></div><div class="story-textWrap "><div class="col-md-4 ${offset}"><div class="story-text-background"><h2 class="story-headline">${title}</h2><div class="row"><div class="col-md-12"><p>${body}</p></div></div></div></div></div></div>`;
+  const page = `<!DOCTYPE html><html><head><title>142.- Arctic temperatures on board - Lufthansa Cargo</title></head><body><div id="main-content">${module('', 'Arctic temperatures on board.', 'On Greenland\'s ice cap.')}${module('offset-md-8', 'Where is the airport of Biberach?', 'The distance from North America.')}</div></body></html>`;
+  const { html } = convert(page, '/en/-/142.-arctic-temperatures-on-board', 'en');
+  assert.match(html, /<div class="hero-card-overlay light"><div><div><picture><img[^>]*><\/picture><\/div><\/div><div><div><h1>Arctic temperatures on board\.<\/h1><p>On Greenland's ice cap\.<\/p><\/div><\/div><\/div>/, html);
+  assert.match(html, /<div class="hero-card-overlay light right"><div><div><picture><img[^>]*><\/picture><\/div><\/div><div><div><h2>Where is the airport of Biberach\?<\/h2><p>The distance from North America\.<\/p><\/div><\/div><\/div>/, html);
+});
+
+test('www\'s image tiles (LCAGCP-lcagTile, What\'s up now?) as cards-teaser (overlay, mosaic): the text over the picture, edge to edge (brief 422)', async () => {
+  const { convert } = await import('../tools/importer/cargo-import.mjs');
+  const tile = (t, w) => `<div class="col-md-${w} lcagTileSmallOverlay LCAGCP-lcagTile LCAGCP-custom-x"><div class="LCAGCP-lcagTileImage" style="background-image:url('https://www.lufthansa-cargo.com/documents/20184/1/${t}.jpg/x')"></div><div class="LCAGCP-lcagTileTextContainer"><div class="LCAGCP-headerImageHeadline LCAGCP-lcagFontHeadBold">${t}</div><a class="primaryButton" href="/en/ci/${t}">Details</a></div></div>`;
+  const page = `<!DOCTYPE html><html><head><title>What's up now? - Lufthansa Cargo</title></head><body><div id="main-content"><div class="journal-content-article"><div class="container-fluid"><div class="row">${tile('berggruen', 6)}${tile('desert', 6)}</div></div></div></div></body></html>`;
+  const { html } = convert(page, '/en/ci/whats-up-now', 'en');
+  assert.match(html, /<div class="cards-teaser overlay mosaic">/, html);
+});
+
+test('www\'s boxed cards (lcagCard: the industries) as cards-teaser (four-up, boxed); plain card rows as before (brief 422)', async () => {
+  const { convert } = await import('../tools/importer/cargo-import.mjs');
+  const card = (t, boxed) => `<div class="col-12 col-xs-3 col-lg-3 col-md-6">${boxed ? '<div class="lcagCard">' : '<div>'}<div class="content"><h4 class="cardHeadline">${t}</h4><p>${t} text</p></div></div></div>`;
+  const row = (boxed) => `<!DOCTYPE html><html><head><title>Industries - Lufthansa Cargo</title></head><body><div id="main-content"><div class="cf-12 four-columns"><div class="row">${['Pharma', 'Aviation', 'Automotive', 'Agriculture'].map((t) => card(t, boxed)).join('')}</div></div></div></body></html>`;
+  assert.match(convert(row(true), '/en/industries-in-focus', 'en').html, /<div class="cards-teaser four-up boxed">/);
+  assert.match(convert(row(false), '/en/industries-in-focus', 'en').html, /<div class="cards-teaser four-up">/);
+});
+
+test('www\'s Mynewsdesk newsroom (brief 422): the newsroom block with the page\'s own newsroom (the German page: the German newsroom) and its link as the fallback', async () => {
+  const { convert } = await import('../tools/importer/cargo-import.mjs');
+  const page = (host) => `<!DOCTYPE html><html><head><title>Newsroom - Lufthansa Cargo</title></head><body><div id="main-content"><div class="journal-content-article"><div id="mnd-script"><script>(function(){var s=document.createElement("script");s.src="//${host}/hosted_newsroom.js";})();</script></div><iframe id="mnd-iframe" src="//${host}" height="3840"></iframe></div></div></body></html>`;
+  const de = convert(page('lufthansa-cargo-ag.mynewsdesk.com'), '/de/ci/newsroom', 'de').html;
+  assert.match(de, /<div class="newsroom"><div><div>Newsroom<\/div><div><a href="https:\/\/lufthansa-cargo-ag\.mynewsdesk\.com">https:\/\/lufthansa-cargo-ag\.mynewsdesk\.com<\/a><\/div><\/div><div><div><p><a href="https:\/\/lufthansa-cargo-ag\.mynewsdesk\.com">Newsroom von Lufthansa Cargo auf Mynewsdesk<\/a><\/p><\/div><\/div><\/div>/, de);
+  const en = convert(page('lufthansa-cargo-ag-com.mynewsdesk.com'), '/en/ci/newsroom', 'en').html;
+  assert.match(en, /<div class="newsroom"><div><div>Newsroom<\/div><div><a href="https:\/\/lufthansa-cargo-ag-com\.mynewsdesk\.com">/);
+  assert.ok(!/hosted_newsroom/.test(en), 'no script in the document');
+});
+
 test('www\'s icon collapsibles (LhcIconCollapsible: the SDG goals) as accordion-columns (faq): the icon and the bold title as the item\'s title, the text as its panel', async () => {
   const { convert } = await import('../tools/importer/cargo-import.mjs');
   const item = (n, title, text) => `<div class="LhcIconCollapsibleItem"><div class="LhcIconCollapsibleHeadContainer LhcICTrigger"><img class="LhcIconCollapsibleIcon" src="https://www.lufthansa-cargo.com/documents/20184/1/0${n}.jpg/x" alt=""><div class="LhcIconCollapsibleHeadText"><p><strong>${title}: </strong>${text}</p></div></div><div class="LhcIconCollapsibleText"><div class="row iconCollapsibleRow"><div class="columns col-md-5"><ul><li>${title} detail</li></ul></div></div></div></div>`;

@@ -9,9 +9,10 @@
  *   bell panel's short text), tenants cargo, details, from (www's date, Berlin time, as ISO UTC),
  *   internal-title. <id>: the English headline's slug, the same for the German one (same place).
  * - /message-center/details/<id>/<lang>: the notification's full text (the overview's).
- * - /<lang>/notification-overview: the H1 ("Notifications", "Benachrichtigungen") and the
- *   Notifications block, its row the text shown when nothing is current (www shows none today:
- *   a notification is current; the text is ours).
+ * - /<lang>/notification-overview: www's header picture (where lh-cargo's DA has its copy, brief
+ *   422) and breadcrumb (Home > Notifications), the H1 ("Notifications", "Benachrichtigungen") and
+ *   the Notifications block, its row the text shown when nothing is current (www shows none
+ *   today: a notification is current; the text is ours).
  * The indexes fill when the documents are published (helix-query.yaml message-center-notifications).
  *
  * Usage: node tools/importer/cargo-notifications.mjs
@@ -20,7 +21,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseHTML } from 'linkedom';
-import { Page, text } from './cargo-import.mjs';
+import { Page, text, breadcrumbHtml } from './cargo-import.mjs';
 import { HOST } from './cargo-paths.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
@@ -77,6 +78,19 @@ function clean(node, page) {
 const table = (name, rows) => `<div class="${name}">${rows.map((r) => `<div>${r.map((c) => `<div>${c}</div>`).join('')}</div>`).join('')}</div>`;
 const field = (key, value) => [`<h3>${esc(key)}</h3>`, value];
 
+/**
+ * The overview page: www's header picture where lh-cargo's DA has its copy (Page.file; without
+ * one it is left out, no link to www's file), www's breadcrumb, the H1, the Notifications block.
+ */
+export function overviewPage(document, page, lang) {
+  const p = PAGE[lang];
+  const header = document.querySelector('#main-content img[src*="notifications-header"]');
+  const hero = header && page.file(header.getAttribute('src')) ? `<p>${page.img(header)}</p>` : '';
+  if (header && !hero) console.log(`${lang}: the header picture is not in lh-cargo's DA yet (cargo-assets.mjs --download), left out`);
+  const meta = [['Title', p.meta], ['Nav', `/${lang}/nav`], ['Footer', `/${lang}/footer`], ['Language', lang]];
+  return `<div>${hero}${breadcrumbHtml(document, page)}<h1>${esc(p.title)}</h1>${table('notifications', [[`<p>${esc(p.none)}</p>`]])}${table('metadata', meta.map(([k, v]) => [k, esc(v)]))}</div>\n`;
+}
+
 const write = (file, doc) => {
   const out = path.join(OUT, file);
   fs.mkdirSync(path.dirname(out), { recursive: true });
@@ -118,9 +132,7 @@ function main() {
       write(`${details}.plain.html`, `<div>${clean(li.querySelector('.notificationDetail'), page)}</div>\n`);
       written.push(`/message-center/notification/${id}/${lang}`, details);
     });
-    const p = PAGE[lang];
-    const meta = [['Title', p.meta], ['Nav', `/${lang}/nav`], ['Footer', `/${lang}/footer`], ['Language', lang]];
-    write(`/${lang}/notification-overview.plain.html`, `<div><h1>${esc(p.title)}</h1>${table('notifications', [[`<p>${esc(p.none)}</p>`]])}${table('metadata', meta.map(([k, v]) => [k, esc(v)]))}</div>\n`);
+    write(`/${lang}/notification-overview.plain.html`, overviewPage(document, page, lang));
     written.push(`/${lang}/notification-overview`);
   });
   console.log(`written (${written.length}): ${written.join(' ')} (from ${HOST})`);

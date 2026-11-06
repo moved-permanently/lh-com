@@ -1675,3 +1675,33 @@ body.brand-swiss .header .nav-sub-site .nav-bar-menu-button[aria-expanded="true"
 body.brand-swiss .header .nav-sub-site .nav-tool.nav-tool-search {
   border-radius: 0;
 }
+
+/* the bar menu's options (header-bar-menu.js; Lufthansa Cargo, brief 422): a Close button at the
+   panel's top right, a note below its sections, a lock after the links whose document text holds
+   a lock icon (:lock:); a brand theme gives them their look */
+.header .nav-dropdown-close {
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.header .nav-dropdown-note {
+  margin: 0;
+  padding: 0 49px 24px;
+}
+
+.header .nav-link-locked::after {
+  content: '';
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-left: 4px;
+  background-color: currentcolor;
+  vertical-align: -1px;
+  mask: url('/icons/lock.svg') center / contain no-repeat;
+}

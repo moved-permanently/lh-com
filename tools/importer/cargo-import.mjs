@@ -117,6 +117,12 @@ export function knownCopy(key, known) {
 let knownDocs = [];
 
 let site;
+
+/** The DA copies whose files a run without the asset map may use (knownCopy; cargo-nav.mjs too). */
+export function useKnownDocs(docs) {
+  knownDocs = docs;
+  site = null;
+}
 /** The site's paths, files and counterparts (loaded once). */
 export function loadSite() {
   if (site) return site;
@@ -427,7 +433,7 @@ function element(c, page, mode) {
     if (mode === 'top') { tableBlock(c, page); return []; }
     return tableAsList(c, page);
   }
-  if (t === 'IFRAME') return iframe(c, page);
+  if (t === 'IFRAME') return iframe(c, page, mode);
   if (t === 'FORM') return formLink(page);
   if (t === 'VIDEO') {
     if (mode === 'top') { video(c.parentElement || c, page); return []; }
@@ -492,11 +498,23 @@ function tableAsList(table, page) {
 
 const MATTERPORT = /https:\/\/my\.matterport\.com\/show\/\?m=[A-Za-z0-9]+/;
 
-function iframe(c, page) {
+function iframe(c, page, mode) {
   const src = c.getAttribute('src') || c.getAttribute('data-src') || '';
   if (/mynewsdesk\.com/.test(src)) {
+    // the page's own newsroom (www: the English lufthansa-cargo-ag-com, the German
+    // lufthansa-cargo-ag); on the page's top level the newsroom block (blocks/newsroom, behind
+    // the site flag newsroom, brief 422) with the link as its fallback, in a cell the link
+    let host = '';
+    try { host = new URL(src.replace(/^\/\//, 'https://')).hostname; } catch (e) { /* the default */ }
+    const url = /^[a-z0-9-]+\.mynewsdesk\.com$/.test(host) ? `https://${host}` : MYNEWSDESK;
+    const link = `<p><a href="${attr(url)}">${esc(page.labels.newsroom)}</a></p>`;
+    if (mode === 'top') {
+      page.note(`Mynewsdesk newsroom iframe: the newsroom block (${url}), its link as the fallback`);
+      page.block('newsroom', [['Newsroom', `<a href="${attr(url)}">${esc(url)}</a>`], [link]]);
+      return [];
+    }
     page.note('Mynewsdesk newsroom iframe: a link to the newsroom on Mynewsdesk');
-    return [`<p><a href="${MYNEWSDESK}">${esc(page.labels.newsroom)}</a></p>`];
+    return [link];
   }
   if (/youtube(-nocookie)?\.com|youtu\.be/.test(src)) {
     page.block('embed', [[`<p><a href="${attr(src.replace(/^\/\//, 'https://'))}">${attr(src.replace(/^\/\//, 'https://'))}</a></p>`]]);
@@ -665,11 +683,13 @@ function component(c, page) {
   if (/(^|\s)pageHeaderSlider(\s|$)/.test(k)) { carousel(c, page); return true; }
   if (/(^|\s)service-widget(\s|$)/.test(k)) { serviceWidget(c, page); return true; }
   if (/(^|\s)(component-tabs|customTabFragment)(\s|$)/.test(k)) { tabs(c, page); return true; }
-  if (/(^|\s)image-text-h(\s|$)/.test(k)) { textImage(c, page); return true; }
+  // text and picture side by side (cf5-cf8; CF7, text one third: www's class has no image-text-h)
+  if (/(^|\s)(image-text-h|Text-Image-horizontal-CF[5-8])(\s|$)/.test(k)) { textImage(c, page); return true; }
   if (/(^|\s)Introduction-CF3(\s|$)/.test(k)) { twoColumns(c, page); return true; }
   if (/(^|\s)(cf-12|four-columns|three-columns|two-columns)(\s|$)/.test(k) && c.querySelector(':scope > .row')) { cardRow(c, page); return true; }
-  // the company pages' image tiles (.LCAGCP-lcagTile columns): cards-teaser
-  if (/(^|\s)row(\s|$)/.test(k) && c.children.length && [...c.children].every((x) => hasCls(x, /LCAGCP-lcagTile/))) { cardRow({ querySelector: () => c }, page); return true; }
+  // the company pages' image tiles (.LCAGCP-lcagTile columns): cards-teaser (overlay, mosaic),
+  // their text over the picture, edge to edge (What's up now?, brief 422)
+  if (/(^|\s)row(\s|$)/.test(k) && c.children.length && [...c.children].every((x) => hasCls(x, /LCAGCP-lcagTile/))) { cardRow({ querySelector: () => c }, page, ['overlay', 'mosaic']); return true; }
   if (/(^|\s)(videoWrapper|flexi-video)(\s|$)/.test(k)) { video(c, page); return true; }
   if (/lfr-layout-structure-item-gallery---cf15/.test(k)) {
     c.querySelectorAll('h1, h2, h3').forEach((h) => { if (!h.closest('.owl-carousel')) page.add(element(h, page, 'cell').join('')); });
@@ -700,6 +720,7 @@ function component(c, page) {
   if (/(^|\s)LCAGCP-lcagIconLinks(\s|$)/.test(k)) { iconLinks(c, page); return true; }
   if (/(^|\s)content-slider(\s|$)/.test(k)) { carousel(c, page); return true; }
   if (/(^|\s)newssectiondetail(\s|$)/.test(k)) { article(c, page); return true; }
+  if (/(^|\s)portlet-breadcrumb(\s|$)/.test(k)) { breadcrumb(c, page); return true; }
   if (/(^|\s)module--story(\s|$)/.test(k)) { story(c, page); return true; }
   if (/(^|\s)LhcIconCollapsible(\s|$)/.test(k)) { iconCollapsible(c, page); return true; }
   if (/(^|\s)LHCTabs(\s|$)/.test(k)) { lhcTabs(c, page); return true; }
@@ -797,6 +818,11 @@ function textImage(c, page) {
   if (!media) { page.add(txt); return; }
   const key = keyOf(c);
   const imageFirst = /text-right-image-left|right--image-left|image-left/.test(key);
+  // www's text one third, picture two thirds (CF7, eBooking's features): wide-media's 25 | 75
+  if (/(^|\s)text-one-third(\s|$)/.test(cls(c))) {
+    page.block('columns-media (wide-media)', [imageFirst ? [media, txt] : [txt, media]]);
+    return;
+  }
   page.block('columns-media', [imageFirst ? [media, txt] : [txt, media]], 'text-image');
 }
 
@@ -809,7 +835,7 @@ function twoColumns(c, page) {
   });
 }
 
-function cardRow(c, page) {
+function cardRow(c, page, extra = []) {
   const row = c.querySelector(':scope > .row');
   const cols = [...row.children].filter((x) => !isSkipped(x) && text(x) + x.querySelectorAll('img').length);
   const rows = cols.map((col) => {
@@ -820,8 +846,36 @@ function cardRow(c, page) {
   }).filter((r) => r.some((x) => !isEmptyHtml(x)));
   if (!rows.length) return;
   const n = cols.length;
-  const option = n >= 4 ? ' (four-up)' : (n === 3 ? ' (three-up)' : '');
-  page.block(`cards-teaser${option}`, rows);
+  // www's boxed cards (lcagCard: a white card with a border and shadow): option boxed (Cargo's
+  // theme, brief 422)
+  const options = [n >= 4 ? 'four-up' : (n === 3 ? 'three-up' : ''), ...extra, cols.some((col) => col.querySelector('.lcagCard') || hasCls(col, /(^|\s)lcagCard(\s|$)/)) ? 'boxed' : ''].filter(Boolean);
+  page.block(`cards-teaser${options.length ? ` (${options.join(', ')})` : ''}`, rows);
+}
+
+/**
+ * www's breadcrumb (Liferay's desktopBreadcrumb, brief 422): the breadcrumb block where it stands,
+ * its items as www's (Home and the hub pages linked, the menu's section labels as text, the page
+ * last); its phone version (a back link) and the portlet title left out.
+ */
+function breadcrumbItems(scope, page) {
+  return [...scope.querySelectorAll('.desktopBreadcrumb > li')].map((li) => {
+    const label = esc(text(li).replace(/\s+/g, ' ').trim());
+    if (!label) return '';
+    const a = li.querySelector('a[href]');
+    const href = a ? page.href(a.getAttribute('href')) : null;
+    return href ? `<li><a href="${attr(href)}">${label}</a></li>` : `<li>${label}</li>`;
+  }).filter(Boolean);
+}
+
+function breadcrumb(c, page) {
+  const items = breadcrumbItems(c, page);
+  if (items.length > 1) page.block('breadcrumb', [[`<ul>${items.join('')}</ul>`]]);
+}
+
+/** www's breadcrumb under scope as the breadcrumb block's HTML, else '' (cargo-notifications.mjs). */
+export function breadcrumbHtml(scope, page) {
+  const items = breadcrumbItems(scope, page);
+  return items.length > 1 ? `<div class="breadcrumb"><div><div><ul>${items.join('')}</ul></div></div></div>` : '';
 }
 
 /**
@@ -1069,22 +1123,35 @@ function article(c, page) {
   flow(clone, page, 'top').forEach((x) => page.add(x));
 }
 
-/** The first match under root that no skipped element holds (www's phone-only copies, brief 417). */
-function shown(root, sel) {
-  return [...root.querySelectorAll(sel)].find((el) => {
-    for (let n = el; n && n !== root; n = n.parentNode) if (isSkipped(n)) return false;
+/** The first match under scope that no skipped element holds (www's phone-only copies, brief 417). */
+function shown(scope, sel) {
+  return [...scope.querySelectorAll(sel)].find((el) => {
+    for (let n = el; n && n !== scope; n = n.parentNode) if (isSkipped(n)) return false;
     return true;
   }) || null;
 }
 
 function story(c, page) {
   const i = shown(c, '.story-imageWrap img');
-  if (i) page.add(`<p>${page.img(i)}</p>`);
-  const clone = (c.querySelector('.story-textWrap') || c).cloneNode(true);
+  const box = c.querySelector('.story-textWrap');
+  const clone = (box || c).cloneNode(true);
   // the headline of the copy that is imported: a module without a picture holds a phone copy
-  // (d-sm-none, left out) before the desktop one
+  // (d-sm-none, left out) before the desktop one; the story's first headline is the page's H1
   const h = shown(clone, '.story-headline, h1, h2');
-  if (h) { page.add(`<h1>${tidy(inline(h, page))}</h1>`); h.remove(); }
+  const headline = h ? tidy(inline(h, page)) : '';
+  if (h) h.remove();
+  const level = page.storyHeadline ? 'h2' : 'h1';
+  if (headline) page.storyHeadline = true;
+  const head = headline ? `<${level}>${headline}</${level}>` : '';
+  // the picture with www's text box over it (brief 422): hero-card-overlay (light), at the right
+  // where www's box sits at the right (offset-md-8)
+  if (i && box) {
+    const right = Boolean(box.querySelector('[class*="offset-md-"], [class*="offset-lg-"]'));
+    page.block(`hero-card-overlay (light${right ? ', right' : ''})`, [[page.img(i)], [`${head}${flow(clone, page, 'cell').join('')}`]]);
+    return;
+  }
+  if (i) page.add(`<p>${page.img(i)}</p>`);
+  if (head) page.add(head);
   flow(clone, page, 'top').forEach((x) => page.add(x));
 }
 

@@ -821,3 +821,14 @@
     justify-content: center;
   }
 }
+
+/* a lock after the links whose document text holds a lock icon (:lock:, Cargo's portal links) */
+.footer .footer-link-locked::after {
+  content: '';
+  display: inline-block;
+  flex: none;
+  width: 12px;
+  height: 12px;
+  background-color: currentcolor;
+  mask: url('/icons/lock.svg') center / contain no-repeat;
+}

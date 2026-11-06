@@ -11,3 +11,16 @@ test('www\'s notification dates (Berlin time) as ISO UTC: summer and winter time
   assert.equal(berlinToUtc('3 Dez. 25, 08:00'), '2025-12-03T07:00:00.000Z');
   assert.equal(berlinToUtc('soon'), '');
 });
+
+// brief 422: the overview page as www's: its breadcrumb (Home > Notifications), the header picture
+// where lh-cargo's DA has its copy (else left out: the harness's cargo-assets.mjs downloads it)
+test('the overview page: www\'s breadcrumb above the H1 and the Notifications block; the header picture only with a copy in DA', async () => {
+  const { parseHTML } = await import('linkedom');
+  const { overviewPage } = await import('../tools/importer/cargo-notifications.mjs');
+  const { Page } = await import('../tools/importer/cargo-import.mjs');
+  const html = '<!DOCTYPE html><html><body><div id="main-content"><img src="/documents/20184/0/notifications-header-4000x1200-min.jpg/fe154888-d75d-f49c-a64c-3f06f4a34c93?t=1" alt=""><div class="portlet-boundary portlet-breadcrumb"><ul class="breadcrumb desktopBreadcrumb"><li><a href="/home">Home </a></li><li><span>Notifications</span></li></ul></div></div></body></html>';
+  const { document } = parseHTML(html);
+  const doc = overviewPage(document, new Page('/en/notification-overview', 'en', html), 'en');
+  assert.match(doc, /^<div><div class="breadcrumb"><div><div><ul><li><a href="\/en\/home">Home<\/a><\/li><li>Notifications<\/li><\/ul><\/div><\/div><\/div><h1>Notifications<\/h1><div class="notifications">/, doc);
+  assert.ok(!/notifications-header/.test(doc), 'no copy in DA here: no picture, no link to www');
+});

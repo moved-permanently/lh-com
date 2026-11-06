@@ -45,6 +45,14 @@
   --nav-bar-font-size: 18px;
   --nav-bar-font-weight: 300;
 
+  /* the breadcrumb (row 9): LufthansaText 14/18, links whale blue, the section labels and the
+     page grey, 16 px under the content above */
+  --breadcrumb-font-size: 14px;
+  --breadcrumb-line-height: 18px;
+  --breadcrumb-parent-color: #52627c;
+  --breadcrumb-current-color: #666;
+  --breadcrumb-chevron-color: #666;
+
   /* footer (row 6): titles 18/24 bold, links 14/18 regular 11 px apart */
   --footer-heading-size: 18px;
   --footer-link-size: 14px;
@@ -155,27 +163,75 @@ body.brand-cargo .header .nav-bar-menu-button[aria-expanded="true"] {
   }
 }
 
-/* row 2: the panel white under the bar, as wide as the page; four columns 24 px apart in the
-   1296 px grid; titles LufthansaHead Bold 18/24 deep blue over a light rule, links 14/18 whale
-   blue 11 px apart */
+/* row 2: the panel under the bar (#f5f5f5, brief 422), as wide as the page; its sections in one
+   row of equal columns 24 px apart in the 1296 px grid; titles LufthansaHead Bold 18/24 deep
+   blue over a light rule, links 14/18 whale blue 11 px apart */
 body.brand-cargo .header .nav-dropdown {
   top: 100%;
   border-radius: 0;
-  background-color: #fff;
+  background-color: #f5f5f5;
   box-shadow: 0 8px 16px rgb(0 0 0 / 15%);
 }
 
 body.brand-cargo .header .nav-dropdown-inner {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-columns: minmax(0, 1fr);
+  grid-auto-flow: column;
   gap: 24px;
   max-width: 1440px;
   margin: 0 auto;
-  padding: 74px 72px 56px;
+  padding: 74px 72px 32px;
 }
 
 body.brand-cargo .header .nav-dropdown-section {
   width: auto;
+}
+
+/* row 2 (brief 422): www's "Close ✕" at the panel's top right (LufthansaText 18/24 whale blue)
+   and its access note below the sections (14/18 deep blue over a light rule, a lock before it) */
+body.brand-cargo .header .nav-dropdown-close {
+  top: 30px;
+  right: 72px;
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  color: #52627c;
+  font-family: var(--body-font-family);
+  font-size: 18px;
+  line-height: 24px;
+}
+
+body.brand-cargo .header .nav-dropdown-close::after {
+  content: '\2715';
+  font-size: 16px;
+}
+
+body.brand-cargo .header .nav-dropdown-note {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  max-width: 1296px;
+  margin: 0 auto;
+  padding: 16px 0 32px;
+  border-top: 1px solid #ccc;
+  color: #05164d;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+body.brand-cargo .header .nav-dropdown-note a {
+  color: inherit;
+  font-weight: 400;
+  text-decoration: underline;
+}
+
+body.brand-cargo .header .nav-dropdown-note .icon-lock {
+  display: inline-block;
+  flex: none;
+  width: 14px;
+  height: 14px;
+  background-color: currentcolor;
+  mask: url('/icons/lock.svg') center / contain no-repeat;
 }
 
 body.brand-cargo .header .nav-dropdown-title {
@@ -278,4 +334,178 @@ body.brand-cargo .accordion-columns .accordion-columns-title:has(> picture) stro
   body.brand-cargo .accordion-columns .accordion-columns-title:has(> picture)::before {
     display: none;
   }
+}
+
+/* round 2 (brief 422): the inner pages */
+
+/* row 28: the bar stays at the top while the page scrolls, as www's sticky header (lh-com's hides
+   while scrolling down) */
+body.brand-cargo .header .nav-wrapper.is-hidden {
+  transform: none;
+}
+
+/* row 27: the footer search focused as www's: the field white with its glow, whale blue text and
+   underline, 10 px inside */
+body.brand-cargo .footer .footer-search input:focus {
+  outline: none;
+  background-color: #fff;
+  box-shadow: 0 0 6px 1px #fff;
+  border-bottom: 2px solid #52627c;
+  color: #52627c;
+  padding-left: 10px;
+}
+
+/* row 24: boxed cards (cards-teaser (boxed), www's lcagCard: the industries): a white card with
+   www's border and shadow, the text 20 px inside */
+body.brand-cargo .cards-teaser.boxed > ul > li {
+  overflow: hidden;
+  border: 1px solid #dcdcdc;
+  background-color: #fff;
+  box-shadow: 0 1px 4px 0 rgb(0 0 0 / 20%);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+body.brand-cargo .cards-teaser.boxed > ul > li:hover {
+  box-shadow: 0 4px 12px 0 rgb(0 0 0 / 25%);
+}
+
+body.brand-cargo .cards-teaser.boxed .cards-teaser-body {
+  padding: 20px;
+}
+
+/* their titles www's card headlines: LufthansaHead Bold 18/24 */
+body.brand-cargo .cards-teaser.boxed .cards-teaser-body h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+/* row 19: What's up now?'s tiles (cards-teaser (overlay, mosaic), www's LCAGCP-lcagTile): edge to
+   edge without gaps, two tiles 526 px or three 214 px high (stacked on phones: 285 and 174 px),
+   the picture covering the tile, the title (24 px, 18 on phones) and its button on a navy band
+   at the bottom instead of the overlay's gradient */
+body.brand-cargo .cards-teaser.mosaic {
+  margin-inline: calc(50% - 50vw);
+}
+
+body.brand-cargo .cards-teaser.mosaic > ul {
+  gap: 0;
+}
+
+body.brand-cargo .cards-teaser.mosaic > ul > li:nth-child(n) {
+  height: 285px;
+  margin: 0;
+}
+
+body.brand-cargo .cards-teaser.mosaic.three-up > ul > li:nth-child(n) {
+  height: 174px;
+}
+
+body.brand-cargo .cards-teaser.mosaic .cards-teaser-image,
+body.brand-cargo .cards-teaser.mosaic .cards-teaser-image picture {
+  height: 100%;
+}
+
+body.brand-cargo .cards-teaser.mosaic .cards-teaser-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+body.brand-cargo .cards-teaser.mosaic .cards-teaser-image::after {
+  background-image: none;
+}
+
+body.brand-cargo .cards-teaser.mosaic .cards-teaser-image + .cards-teaser-body {
+  inset: auto 0 0;
+  padding: 17px;
+  background-color: rgb(5 22 77 / 70%);
+  color: #fff;
+}
+
+body.brand-cargo .cards-teaser.mosaic .cards-teaser-body h3 {
+  margin: 0 0 10px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+@media (width >= 768px) {
+  body.brand-cargo .cards-teaser.mosaic > ul > li:nth-child(n) { height: 526px; }
+  body.brand-cargo .cards-teaser.mosaic.three-up > ul > li:nth-child(n) { height: 214px; }
+  body.brand-cargo .cards-teaser.mosaic .cards-teaser-body h3 { font-size: 24px; }
+}
+
+/* row 18: the company pages' video headers (hero-campaign (narrow), www's LCAGCP header: What's up
+   now?, Facts & Figures, SDG): the window's height at desktop (900 px), about 320 px on phones,
+   the title near the bottom, 60/72 bold (24/29 on phones) */
+body.brand-cargo .hero-campaign.narrow {
+  min-height: 320px;
+  align-items: flex-end;
+  padding-bottom: 24px;
+}
+
+body.brand-cargo .hero-campaign.narrow h1 {
+  margin-bottom: 12px;
+  font-size: 24px;
+  line-height: 29px;
+}
+
+@media (width >= 768px) {
+  body.brand-cargo .hero-campaign.narrow {
+    min-height: 900px;
+    padding-bottom: 120px;
+  }
+
+  body.brand-cargo .hero-campaign.narrow h1 {
+    font-size: 60px;
+    line-height: 72px;
+  }
+}
+
+/* row 22: the contact form's fields as www's "Contact us" dialog: a 900 px card, three columns
+   from 768 px (company, first and last name; phone, email, country; reason, subreason, AWB), the
+   note, the request and the file drop across (the dialog itself: open) */
+body.brand-cargo .form .form-step-card {
+  max-width: 900px;
+}
+
+@media (width >= 768px) {
+  body.brand-cargo .form .form-fields {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  body.brand-cargo .form .form-field-note,
+  body.brand-cargo .form .form-field-textarea,
+  body.brand-cargo .form .form-filedrop {
+    grid-column: 1 / -1;
+  }
+}
+
+/* rows 18, 19: the video header and the tile rows edge to edge, as www's: no gaps between them,
+   the tiles' links www's outlined white buttons */
+body.brand-cargo main .section:has(.hero-campaign.narrow, .cards-teaser.mosaic) {
+  margin-bottom: 0;
+}
+
+body.brand-cargo main .cards-teaser-wrapper:has(> .cards-teaser.mosaic) {
+  margin-top: 0;
+}
+
+body.brand-cargo main .cards-teaser-wrapper > .cards-teaser.mosaic {
+  margin-block: 0;
+}
+
+body.brand-cargo .cards-teaser.mosaic .cards-teaser-body a {
+  display: inline-block;
+  padding: 5px 16px;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-decoration: none;
 }

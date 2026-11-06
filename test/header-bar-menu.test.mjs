@@ -99,7 +99,7 @@ test('brands.js: the bar menu, the unlinked logo and the search button on Luftha
   // TAP: the bar menu with the language list and its layout (test/tap-first-screen.test.mjs)
   assert.deepEqual(BRANDS.tap.header, { menu: 'bar', languages: 'bar', layout: 'tap' });
   // Lufthansa Cargo: www's Book & Track, Info-Hub, Cargo inside and "EN" in the bar (test/cargo-parity-417.test.mjs)
-  assert.deepEqual(BRANDS.cargo.header, { menu: 'bar', languages: 'bar' });
+  assert.deepEqual(BRANDS.cargo.header, { menu: 'bar', languages: 'bar', menuClose: true });
   assert.deepEqual(Object.keys(BRANDS).filter((k) => BRANDS[k].header).sort(), ['b2b', 'cargo', 'tap']);
 });
 
@@ -114,4 +114,61 @@ test('header.js: the options read from the brand entry; without them as before',
   const css = fs.readFileSync('blocks/header/header.css', 'utf8');
   assert.match(css, /\.header \.nav-bar-menu \{/);
   assert.match(css, /\.header \.nav-dropdown \{/);
+});
+
+// Lufthansa Cargo (brief 422): www's panels carry a "Close" link and the access note (the nav
+// document's menu section paragraph: "Some services may be limited…"); its portal links a lock
+test('options: a Close button in each panel (closes, the focus back), the note under each panel\'s sections; without them as before', () => {
+  const note = document.createElement('p');
+  note.innerHTML = '<span class="icon icon-lock"></span>Some services may be limited based on your access. For assistance, see <a href="/en/support-and-contact">Support &amp; Contact</a>';
+  const menu = buildBarMenu(items(), { link, note, closeLabel: 'Close' });
+  document.body.replaceChildren(menu.root);
+  const [login, programs] = [...menu.root.querySelectorAll('button.nav-bar-menu-button')];
+  const panel = (b) => document.getElementById(b.getAttribute('aria-controls'));
+  [login, programs].forEach((b) => {
+    const close = panel(b).querySelector('button.nav-dropdown-close');
+    assert.ok(close, 'a Close button');
+    assert.equal(close.textContent.trim(), 'Close');
+    const n = panel(b).querySelector('.nav-dropdown-note');
+    assert.ok(n && /Some services may be limited/.test(n.textContent), 'the note');
+    assert.equal(n.querySelector('a').getAttribute('href'), '/en/support-and-contact');
+  });
+  assert.notEqual(panel(login).querySelector('.nav-dropdown-note'), panel(programs).querySelector('.nav-dropdown-note'), 'a copy per panel');
+  click(programs);
+  click(panel(programs).querySelector('button.nav-dropdown-close'));
+  assert.equal(panel(programs).hidden, true);
+  assert.ok(focused === programs, 'the focus back on its button');
+  const plain = buildBarMenu(items(), { link });
+  assert.equal(plain.root.querySelector('.nav-dropdown-close, .nav-dropdown-note'), null, 'B2B: as before');
+});
+
+test('a link with a lock icon in the nav document (:lock:, www\'s portal links) gets nav-link-locked', () => {
+  const locked = a('https://www.lufthansa-cargo.com/en/dgr-booking', 'DGR request');
+  locked.insertAdjacentHTML('beforeend', ' <span class="icon icon-lock"></span>');
+  const menu = buildBarMenu([{ label: 'Book & Track', link: null, groups: [{ label: 'Book', links: [locked, a('/en/x', 'Rates')] }] }], { link });
+  const links = [...menu.root.querySelectorAll('a.nav-dropdown-link')];
+  assert.deepEqual(links.map((x) => [x.textContent, x.classList.contains('nav-link-locked')]), [['DGR request', true], ['Rates', false]]);
+});
+
+test('header.js: the note and Close for a brand with header.menuClose (Cargo); the shared CSS draws the lock', () => {
+  const js = fs.readFileSync('blocks/header/header.js', 'utf8');
+  assert.match(js, /note: headerStyle\.menuClose && menu \? menu\.querySelector\(':scope \.default-content-wrapper > p'\) : null,/);
+  assert.match(js, /closeLabel: headerStyle\.menuClose \? labels\.close : '',/);
+  assert.match(fs.readFileSync('blocks/header/header.css', 'utf8'), /\.header \.nav-link-locked::after \{[^}]*mask: url\('\/icons\/lock\.svg'\)/);
+  assert.ok(fs.existsSync('icons/lock.svg'));
+});
+
+test('classifySections: the tools are the section whose own items carry icons, not a mega menu whose links and note carry locks (Cargo, brief 422)', async () => {
+  const { default: classifySections } = await import('../blocks/header/header-sections.js');
+  const frag = document.createElement('div');
+  frag.innerHTML = `<div class="section"><p><a href="/en/home"><picture><img src="/logo.png" alt=""></picture></a></p></div>
+<div class="section"><ul><li><a href="/book">Book</a></li></ul></div>
+<div class="section"><div class="default-content-wrapper"><ul><li><p>Book &amp; Track</p><ul><li><p>Book</p><ul><li><a href="/dgr">DGR request <span class="icon icon-lock"></span></a></li></ul></li></ul></li></ul><p><span class="icon icon-lock"></span>Some services may be limited</p></div></div>
+<div class="section"><div class="default-content-wrapper"><ul><li><span class="icon icon-help"></span><a href="/en/support-and-contact">Support &amp; Contact</a></li></ul><p>Menu</p></div></div>`;
+  const sections = [...frag.querySelectorAll(':scope > .section')];
+  const found = classifySections(frag);
+  assert.equal(found.tools, sections[3]);
+  assert.equal(found.menu, sections[2]);
+  assert.equal(found.brand, sections[0]);
+  assert.equal(found.quick, sections[1]);
 });

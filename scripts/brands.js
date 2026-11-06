@@ -340,8 +340,9 @@ export const BRANDS = {
     name: 'Lufthansa Cargo',
     www: 'www.lufthansa-cargo.com',
     // www's header: Book & Track, Info-Hub and Cargo inside in the bar, each a panel below it;
-    // the language a globe button ("EN") in the bar
-    header: { menu: 'bar', languages: 'bar' },
+    // the language a globe button ("EN") in the bar; each panel's Close link and its access note
+    // (the nav's menu paragraph, brief 422)
+    header: { menu: 'bar', languages: 'bar', menuClose: true },
     // consent (brief 422): www's Usercentrics is not ours; the brand sites' handling without
     // OneTrust (Cargo has no tenant): the look-alike banner (scripts/consent-banner.js) and the
     // footer's Cookie Settings, with Cargo's own pages in it (German: its imprint; it has no

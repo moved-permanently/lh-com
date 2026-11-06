@@ -128,6 +128,8 @@ function footerLink(a, className, labels, ...prefix) {
   const href = a.getAttribute('href');
   const link = el('a', { href, className }, prefix, el('span', {}, text(a)));
   if (a.title && a.title !== text(a)) link.title = a.title;
+  // a lock icon in the link's document text (:lock:, Cargo's portal links): drawn after the text
+  if (a.querySelector('.icon-lock')) link.classList.add('footer-link-locked');
   if (isExternal(href)) {
     link.target = '_blank';
     link.rel = 'noopener noreferrer';

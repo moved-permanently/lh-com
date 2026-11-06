@@ -12,8 +12,12 @@
  *   language, login (www's sign-in), the menu label.
  * - footer: the search row (www's search bar: :search: and a link to /<lang>/search?query=), the
  *   three link columns, the legal row (Cookie Settings: #privacy-settings), the social
- *   links (badges, text links: www draws the icons from its stylesheet), the logos (Lufthansa Cargo, a dark copy of the same logo for the white row;
- *   Lufthansa Group, IATA Cargo iQ as text links: www draws them from its stylesheet).
+ *   links (badges: icon tokens :facebook:, :youtube:, :instagram:, :linkedin:, brief 422), the
+ *   logos (Lufthansa Cargo, a dark copy of the same logo for the white row; Lufthansa Group and
+ *   IATA Cargo iQ as icon tokens :lufthansa-group:, :iata-cargo-iq:, footer.js's /icons/).
+ * - www's portal links (lockedIcon, behind its sign-in) with :lock: in their text (the header's
+ *   bar menu and the footer draw a lock, brief 422); the menu panels' access note (www's
+ *   .smallText) as the menu section's paragraph (header.menuClose: below each panel).
  * - search (/<lang>/search): the search-results block over /<lang>/search-index.json
  *   (helix-query.yaml search-brand-en, search-brand-de), www's search page texts.
  * Portal and sign-in links point at www.lufthansa-cargo.com; links to pages in scope become the
@@ -114,12 +118,28 @@ async function logos() {
   await write(LOGO_BLUE, '#05164d');
 }
 
+// www's portal links behind its sign-in (lockedIcon): a lock after their text (:lock:)
+const lock = (a) => (/(^|\s)lockedIcon(\s|$)/.test(a.getAttribute('class') || '') ? ' :lock:' : '');
+
 const link = (page, a, label) => {
   const href = page.href(a.getAttribute('href'));
-  return href ? `<a href="${attr(href)}">${esc(label || text(a))}</a>` : esc(label || text(a));
+  const words = `${esc(label || text(a))}${lock(a)}`;
+  return href ? `<a href="${attr(href)}">${words}</a>` : words;
 };
 
-function nav(document, page, L) {
+/** www's access note under the menu panels (.smallText): its text and link, a lock before it. */
+function menuNote(document, page) {
+  const note = document.querySelector('#banner .navMenuItems ~ .smallText span, #banner .smallText span');
+  if (!note) return '';
+  const html = [...note.childNodes].map((n) => {
+    if (n.nodeType === 3) return esc(n.textContent);
+    if (n.tagName === 'A') return link(page, n);
+    return esc(n.textContent || '');
+  }).join('').replace(/\s+/g, ' ').trim();
+  return html ? `<p>:lock: ${html}</p>` : '';
+}
+
+export function nav(document, page, L) {
   const { lang } = page;
   const targets = linksOf(lang);
   const brand = `<div><p><a href="${attr(targets.home)}"><picture><img src="${LOGO_WHITE}" alt="${attr(L.logo)}"></picture></a></p></div>`;
@@ -135,25 +155,24 @@ function nav(document, page, L) {
   const support = document.querySelector('#banner .headerComponents > a[href*="support-and-contact"]');
   const supportLabel = text(document.querySelector('#banner .smallText a')) || 'Support & Contact';
   const tools = `<div><ul><li>:help: <a href="${attr(page.href(support ? support.getAttribute('href') : '/support-and-contact'))}">${esc(supportLabel)}</a></li><li>:bell: <a href="${targets.bell}">${esc(L.bell)}</a></li><li><a href="${targets.other}">${esc(L.other)}</a></li><li>:login: <a href="${attr(LOGIN(lang))}">${esc(L.login)}</a></li></ul><p>${esc(L.menu)}</p></div>`;
-  return `${brand}\n${quick}\n<div><ul>${menu}</ul></div>\n${tools}\n`;
+  return `${brand}\n${quick}\n<div><ul>${menu}</ul>${menuNote(document, page)}</div>\n${tools}\n`;
 }
 
-function footer(document, page, L) {
+export function footer(document, page, L) {
   const f = document.querySelector('#footer');
   const columns = [...f.querySelectorAll('.footerLinksRow > .col')].map((col) => `<h3>${esc(text(col.querySelector('h4')))}</h3><ul>${[...col.querySelectorAll('li a[href]')].map((a) => `<li>${link(page, a)}</li>`).join('')}</ul>`).join('');
   const legal = [...f.querySelectorAll('.legalLinks a[href]')].map((a) => (a.getAttribute('href') === '#'
     ? `<li><a href="#privacy-settings">${esc(text(a) || L.cookies)}</a></li>`
     : `<li>${link(page, a)}</li>`)).join('');
+  // the social links as icons (footer.js badges: /icons/<name>.svg), as www's
   const social = [...f.querySelectorAll('.socialIcons a[href]')].map((a) => {
-    const name = {
-      facebook: 'Facebook', youtube: 'YouTube', instagram: 'Instagram', linkedin: 'LinkedIn',
-    }[(a.className.match(/facebook|youtube|instagram|linkedin/) || [])[0]] || text(a);
-    return `<li><a href="${attr(a.getAttribute('href'))}">${esc(name)}</a></li>`;
+    const name = (a.className.match(/facebook|youtube|instagram|linkedin/) || [])[0];
+    return `<li><a href="${attr(a.getAttribute('href'))}">${name ? `:${name}:` : esc(text(a))}</a></li>`;
   }).join('');
   const group = f.querySelector('.brandMember');
   const iq = f.querySelector('.partnerCargoiq');
   const links = linksOf(page.lang);
-  const logoRow = `<ul><li><a href="${attr(links.home)}"><picture><img src="${LOGO_BLUE}" alt="Lufthansa Cargo"></picture></a></li>${group ? `<li><a href="${attr(group.getAttribute('href'))}">${esc(L.group)}</a></li>` : ''}${iq ? `<li><a href="${attr(iq.getAttribute('href').replace(/^http:/, 'https:'))}">${esc(L.cargoiq)}</a></li>` : ''}</ul>`;
+  const logoRow = `<ul><li><a href="${attr(links.home)}"><picture><img src="${LOGO_BLUE}" alt="Lufthansa Cargo"></picture></a></li>${group ? `<li><a href="${attr(group.getAttribute('href'))}">:lufthansa-group:</a></li>` : ''}${iq ? `<li><a href="${attr(iq.getAttribute('href').replace(/^http:/, 'https:'))}">:iata-cargo-iq:</a></li>` : ''}</ul>`;
   const badges = `<ul>${social}</ul><div class="section-metadata"><div><div>Style</div><div>badges</div></div></div>`;
   // www's search bar at the bottom of its pages: the footer's search row (as lh-com's footers),
   // leading to the site's search page with the term in its query parameter

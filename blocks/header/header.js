@@ -12,6 +12,7 @@ import { isDemoHost } from '../../scripts/demo.js';
 import { isOwnWwwHost, brandOf } from '../../scripts/brand.js';
 import { panelTabOrder, nextInOrder } from './header-focus.js';
 import { takeRole, toolRole, cartLabels } from './header-tools.js';
+import classifySections from './header-sections.js';
 
 /*
  * Lufthansa header. Nav document (/{cc}/{ll}/nav), one section each:
@@ -276,25 +277,6 @@ function topItems(section) {
   if (!section) return [];
   const list = section.querySelector('ul, ol');
   return list ? [...list.children].filter((c) => c.tagName === 'LI') : [];
-}
-
-function hasIconTokens(section) {
-  return Boolean(section.querySelector('span.icon')) || /(^|\s):[a-z0-9-]+:/.test(section.textContent);
-}
-
-/** Finds the nav sections by content; the authored order is the fallback. */
-function classifySections(fragment) {
-  const sections = [...fragment.querySelectorAll(':scope > .section')];
-  const tools = sections.find(hasIconTokens) || sections[3];
-  const menu = sections.find((s) => s !== tools && s.querySelector('li > ul, li > ol')) || sections[2];
-  const brand = sections.find((s) => s !== tools && s !== menu && s.querySelector('img'))
-    || sections[0];
-  // a nav without quick actions (e.g. FlyNet) must not show the menu as quick actions
-  const quick = sections.find((s) => ![tools, menu, brand].includes(s) && s.querySelector('a[href]'))
-    || (![tools, menu, brand].includes(sections[1]) ? sections[1] : null);
-  return {
-    brand, quick, menu, tools,
-  };
 }
 
 function readMenu(section) {
@@ -1089,6 +1071,10 @@ export default async function decorate(block) {
     const { default: buildBarMenu } = await import('./header-bar-menu.js');
     barMenu = buildBarMenu(menuItems, {
       link: (href, label, className) => navLink(href, label, className, labels),
+      // header.menuClose (Lufthansa Cargo, brief 422): a Close button in each panel and the menu
+      // section's own paragraph (www's access note) below its sections
+      note: headerStyle.menuClose && menu ? menu.querySelector(':scope .default-content-wrapper > p') : null,
+      closeLabel: headerStyle.menuClose ? labels.close : '',
     });
     menuButton.addEventListener('click', () => barMenu.close());
   }
