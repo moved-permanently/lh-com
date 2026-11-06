@@ -285,7 +285,14 @@ export function buildEmbed(link) {
   if (!embed) return null;
   const wrapper = document.createElement('div');
   wrapper.className = `media-embed media-embed-${embed.type}`;
-  const title = isUrlText(link) ? label(embed.type) : cleanText(link);
+  // a link whose text is its URL: the type's label; the page's next such embed of the type the
+  // label and its number, so each frame has a title of its own ("YouTube video 2")
+  let title = cleanText(link);
+  if (isUrlText(link)) {
+    wrapper.dataset.labelled = embed.type;
+    const before = document.querySelectorAll(`.media-embed[data-labelled="${embed.type}"]`).length;
+    title = before ? `${label(embed.type)} ${before + 1}` : label(embed.type);
+  }
   const iframe = document.createElement('iframe');
   // the lazy embeds' attributes in their order of today (src, title, loading, ...)
   if (!embed.onClick) iframe.src = embed.src;
