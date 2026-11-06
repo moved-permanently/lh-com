@@ -24,6 +24,12 @@
   display: none;
 }
 
+/* a track that scrolls is a Tab stop (carousel-cards.js): the ring inside its edge */
+.carousel-cards .carousel-cards-track:focus-visible {
+  outline: 2px solid var(--focus-color);
+  outline-offset: -2px;
+}
+
 /* card: .compact-teaser .card / .wide-teaser .card-container */
 .carousel-cards .carousel-cards-slide {
   position: relative;

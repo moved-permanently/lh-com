@@ -394,6 +394,15 @@ export default async function decorate(block) {
     const scrollable = track.scrollWidth > track.clientWidth + 1;
     nav.hidden = !scrollable;
     dots.hidden = !scrollable;
+    // a track that scrolls is a Tab stop, named as the carousel (axe scrollable-region-focusable:
+    // slides without links); the arrow keys scroll it
+    if (scrollable) {
+      track.tabIndex = 0;
+      track.setAttribute('aria-label', labels['carousel label']);
+    } else {
+      track.removeAttribute('tabindex');
+      track.removeAttribute('aria-label');
+    }
   };
 
   const step = (dir) => {
