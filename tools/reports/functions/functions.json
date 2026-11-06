@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-05 23:43",
-  "change": "Lufthansa's market versions are on the replica: 190 countries in English and German, 14 in French and 13 in Spanish. The Message Center also shows on the brand sites' Edge Delivery addresses, TAP's destination cards have their photos, and Air Dolomiti's eSIM shop is built but switched off until the vendor allows our address.",
+  "updated": "2026-11-06 05:44",
+  "change": "All of lufthansa.com's country and language versions are on the replica: 251 in all, now with Portuguese, Russian, Chinese, Italian, Greek, Japanese, Korean and Polish. Cargo has its six languages, and Discover's offers page compares two cities as on www.",
   "legend": {
     "done": {
       "label": "works on our replica",
@@ -1166,9 +1166,9 @@
         },
         "discover": {
           "status": "done",
-          "note": "The offers page shows destinations with live prices and filters; from the menu link it preselects Discover's own flights, as on www.",
+          "note": "The offers page shows destinations with live prices and filters; from the menu link it preselects Discover's own flights, and 'Compare cities' opens the comparison of two destinations with flight times and stops, as on www.",
           "page": "/de/en/book/flights/offers",
-          "evidence": "fill check 2026-11-01; cb96345a (?PartnerFlights=one); investigation p_mvxkmclz6n 09:35: 49 live prices"
+          "evidence": "fill check 2026-11-01; cb96345a (?PartnerFlights=one); investigation p_mvxkmclz6n 09:35: 49 live prices; Compare cities: ema-cashub 946b46dc, ema-adobe 90c47539; checked 2026-11-06 01:59 in a real browser on discover.turnsthe.page/de/en: one flightinfo request (LCA+YYC) 200 from the visitor's browser on 'See comparison', 'From 3h 45min' / 'From 9h 35min', 'Nonstop available', focus on Close, Escape back to Calgary's button"
         },
         "ita": {
           "status": "done",
@@ -2198,9 +2198,9 @@
       "cells": {
         "lufthansa": {
           "status": "done",
-          "note": "The country and language dialog leads to the replica's market and language versions: 190 countries in English and German, 14 in French and 13 in Spanish (\"Autres pays | Français\", \"Otros paises | Español\"), all on the replica since 5 November.",
+          "note": "The country and language dialog leads to every country and language version of lufthansa.com, all on the replica since 6 November (251 in all): the four main versions, the 'other countries' versions in eleven more languages (French, Spanish, Portuguese, Russian, Traditional Chinese, Simplified Chinese, Italian, Greek, Japanese, Korean, Polish), and each country's own versions.",
           "page": "/de/en/homepage",
-          "evidence": "functions scan 2026-10-31; market roots go-live 2026-11-05 (waves 00, 0-12; switches 5e50c08c ... dc444df2; work/market-golive/report.md): 190 en/de roots, xx/fr 14 roots, xx/es 13 roots on lufthansa.turnsthe.page; forms bg/en, il/en, mk/de, fr/fr and es/es emergency-contact sent"
+          "evidence": "functions scan 2026-10-31; market roots go-live 2026-11-05 (waves 00, 0-12; switches 5e50c08c ... dc444df2; work/market-golive/report.md) and 2026-11-06 ~06:00 (waves 13-21: pt, ru, hk, zh, it, el, ja, ko, pl; switches c4c0969f ... daa6a618; 2,462 documents): all 251 locale rows live (four own roots, 11 xx/<ll> versions, ch, 233 other market roots); dialog: four roots, then the 11 other-countries versions, then the page's own country roots; one form per language submitted on lufthansa.turnsthe.page; brand sites keep de/de or de/en (eab2f73b)"
         },
         "discover": {
           "status": "done",
@@ -2212,19 +2212,19 @@
           "status": "done",
           "note": "The dialog lists ITA's language versions, and each answers on the replica.",
           "page": "/it/en/homepage",
-          "evidence": "fill check 2026-11-01"
+          "evidence": "fill check 2026-11-01; 2026-11-06 00:21-00:22 CET: pages www lists under many roots answer on every root from one document (lh-edge a3c89350, markets rows); us/es and ve/es roots live (c41ea1fa)"
         },
         "austrian": {
           "status": "done",
           "note": "The dialog lists 64 country and language versions, and each answers on the replica.",
           "page": "/at/en/homepage",
-          "evidence": "fill check 2026-11-01"
+          "evidence": "fill check 2026-11-01; 2026-11-06 00:21-00:22 CET: pages www lists under many roots answer on every root from one document (lh-edge a3c89350, markets rows)"
         },
         "cargo": {
           "status": "done",
-          "note": "The switch between English and German works.",
+          "note": "The language switch lists Cargo's six languages (English, German, Spanish, French, Italian, Portuguese), and each answers on the replica; as on www, most pages in the four newer languages have English text.",
           "page": "/en/home",
-          "evidence": "functions scan 2026-10-31"
+          "evidence": "functions scan 2026-10-31; es, fr, it, pt live 2026-11-06 ~05:05 CET (65 documents published 04:20, switch 96951980; /<ll> and /<ll>/ go to /<ll>/home, checked 200 in a real browser 05:35; sitemaps per language)"
         },
         "airdolomiti": {
           "status": "done",
@@ -2236,7 +2236,7 @@
           "status": "done",
           "note": "The dialog lists Brussels Airlines' country and language versions, and every one of them answers on the replica.",
           "page": "/be/en/homepage",
-          "evidence": "Brussels go-live 2026-11-01 (child p_mvxofhz36r: all six language roots and 92 market roots live); lh-edge site entry with entry redirects (/, /be, /<cc>, /<cc>/<ll>)"
+          "evidence": "Brussels go-live 2026-11-01 (child p_mvxofhz36r: all six language roots and 92 market roots live); lh-edge site entry with entry redirects (/, /be, /<cc>, /<cc>/<ll>); 2026-11-06 00:21-00:22 CET: pages www lists under many roots answer on every root from one document (lh-edge a3c89350, markets rows); /xx/<ll>/<path> 301 to /be/<ll>/<path> (5571034c)"
         },
         "b2b": {
           "status": "done",
@@ -2249,7 +2249,7 @@
           "note": "The country dialog lists Switzerland in ten languages, SWISS's other countries in their languages and Korea (227 entries), all on the replica.",
           "page": "/ch/en/homepage",
           "footnote": "lxmarkets",
-          "evidence": "2026-11-03 ~08:05: lh-com 05d8eb1b, c48f1ce8 (and 34203142, 7eb18162, 839a6ab9 before); private Studio tab on swiss.turnsthe.page at 1440 and 390: 227 entries, ch/el and ch/ru open their homepages"
+          "evidence": "2026-11-03 ~08:05: lh-com 05d8eb1b, c48f1ce8 (and 34203142, 7eb18162, 839a6ab9 before); private Studio tab on swiss.turnsthe.page at 1440 and 390: 227 entries, ch/el and ch/ru open their homepages; 2026-11-06 00:21-00:22 CET: pages www lists under many roots answer on every root from one document (lh-edge a3c89350, markets rows)"
         },
         "tap": {
           "status": "done",
