@@ -371,6 +371,34 @@ main > .section > .accordion-columns-row > .accordion-columns-wrapper {
   }
 }
 
+/* lh-com (parity pass 2, /de/en/articles/tags): www's row is a .threecolumn straight in the page
+   column (.column-view padding 2rem / 1rem, 4rem / 2rem from 768px) holding its title and the
+   accordions (.accordion-maui margin 0 0 2rem, 4rem 0 from 768px; the last ones' margins 0, items
+   1rem / 2rem apart): the title 44px (64px) under the text before it, 72px from the title to the
+   accordions from 768px, 30px between stacked accordions (100px between a tablet row's lines),
+   40px (80px) from the last accordion to the next heading. A title right after a row: the row's
+   margin is the space */
+body.brand-lufthansa main > .section > .accordion-columns-row {
+  row-gap: 30px;
+  margin-bottom: 40px;
+}
+
+body.brand-lufthansa main > .section > .default-content-wrapper:has(+ .accordion-columns-row) > :is(h1, h2, h3, h4, h5, h6):last-child:not(:first-child) {
+  margin-top: 44px;
+}
+
+@media (width >= 768px) {
+  body.brand-lufthansa main > .section > .accordion-columns-row {
+    row-gap: 100px;
+    margin-bottom: 80px;
+    padding-top: 40px;
+  }
+
+  body.brand-lufthansa main > .section > .default-content-wrapper:has(+ .accordion-columns-row) > :is(h1, h2, h3, h4, h5, h6):last-child:not(:first-child) {
+    margin-top: 64px;
+  }
+}
+
 /* limited-width (parser: inside maui-limited-width): two thirds of the grid from 1025px
    (833px of 1249px at 1425px); full-width faq answers keep the 66% text width */
 @media (width >= 1025px) {
