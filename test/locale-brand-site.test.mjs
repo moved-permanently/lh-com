@@ -1,7 +1,8 @@
 /* The locale of a brand site without <cc>/<ll> roots (scripts/locale.js brandSiteLocale,
    scripts/site-languages.js: Cargo, Air Dolomiti): the page's `language` metadata sets the
    interface language, English without it; pages under <cc>/<ll> roots and every other site
-   (lh-com) keeps today's rule; Discover and ITA have their own roots (scripts/brands.js). Run: node --test test/*.test.mjs */
+   (lh-com) keeps today's rule; Discover and ITA have their own roots (scripts/brands.js).
+   Run: node --test test/locale-brand-site.test.mjs */
 /* global globalThis */
 import test from 'node:test';
 import assert from 'node:assert/strict';

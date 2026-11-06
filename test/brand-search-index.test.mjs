@@ -1,4 +1,4 @@
-/* eslint-disable max-len, import/no-extraneous-dependencies -- dev tooling; js-yaml is a dev dependency */
+/* eslint-disable max-len, no-nested-ternary, import/no-extraneous-dependencies -- dev tooling; js-yaml is a dev dependency */
 /* Site search on lh-cargo and lh-airdolomiti (helix-query.yaml search-brand-en, search-brand-de,
    search-airdolomiti-it): the pages of the two sites in their language's index, the search
    pages, nav and footer out, and no other site's pages in them (helix-query.yaml serves every

@@ -35,5 +35,7 @@ test('the existing indexes as they were (only sitemap-ch-<ll> added)', () => {
   assert.deepEqual(markets, indices['market-model-own'].properties.markets);
   const now = { ...indices, 'market-pages': { ...indices['market-pages'], properties: pagesBefore } };
   Object.entries(before).forEach(([name, index]) => assert.deepEqual(now[name], index, name));
-  assert.deepEqual(Object.keys(indices).filter((n) => !(n in before)).sort(), LANGS.map((ll) => `sitemap-ch-${ll}`).sort());
+  // and Cargo's es, fr, it, pt indexes (brief 414, test/cargo-languages.test.mjs)
+  const cargo = ['es', 'fr', 'it', 'pt'].map((ll) => `search-brand-${ll}`);
+  assert.deepEqual(Object.keys(indices).filter((n) => !(n in before)).sort(), [...cargo, ...LANGS.map((ll) => `sitemap-ch-${ll}`)].sort());
 });
