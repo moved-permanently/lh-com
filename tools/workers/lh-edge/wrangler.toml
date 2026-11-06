@@ -61,7 +61,7 @@ SDUI_WEB_LINKS = "external"
 EDGE_TTL = "60"
 # version of lh-edge's edge cache (?lh-edge-cache=<value> on every cached origin request): a new
 # value drops the cache (no custom cache keys or per-host purge on this plan); empty: not added
-EDGE_CACHE_VERSION = "2026-11-05a"
+EDGE_CACHE_VERSION = "2026-11-06a"
 # hosts that answer the pilot rows of the locale table (src/markets.js: ch/en, ch/de from their
 # language's documents, their sitemaps, /ch entry redirects), the public host (X-LH-Public-Host,
 # X-Forwarded-Host, PUBLIC_HOST, the request's host); elsewhere those paths pass through as before.
