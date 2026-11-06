@@ -16,9 +16,12 @@ import {
 /**
  * Loads a fragment.
  * @param {string} path The path to the fragment
+ * @param {{search?: string}} [options] search: a query for the fragment's blocks (its main's
+ *   data-search, set before they decorate: the form's prefill in a dialog,
+ *   scripts/fragment-dialog.js)
  * @returns {HTMLElement} The root element of the fragment
  */
-export async function loadFragment(path) {
+export async function loadFragment(path, { search = '' } = {}) {
   if (path && path.startsWith('/') && !path.startsWith('//')) {
     const resp = await fetch(`${path}.plain.html`);
     if (resp.ok) {
@@ -34,6 +37,7 @@ export async function loadFragment(path) {
       resetAttributeBase('img', 'src');
       resetAttributeBase('source', 'srcset');
 
+      if (search) main.dataset.search = search;
       decorateMain(main);
       await loadSections(main);
       return main;

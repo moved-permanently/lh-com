@@ -104,6 +104,24 @@ test('initFragmentDialogs: the links to /modals/ open the dialog (aria-haspopup)
   assert.equal(CLOSE_LABELS.en, 'Close');
 });
 
+test('a link\'s query goes to the dialog\'s document (round 3, Cargo\'s contact form: the form\'s prefill reads it from the fragment\'s main)', async () => {
+  // a document of its own: the earlier tests' listeners on the page's document take its clicks
+  const { document: own } = parseHTML('<!DOCTYPE html><html><body><a id="query" href="/en/modals/contact-us?reason=General%20request&amp;subreason=Other">Feedback</a></body></html>');
+  const opened = [];
+  const open = async (p, link, o) => { opened.push([p, link.id, o && o.search]); return {}; };
+  initFragmentDialogs(own, { open });
+  click(own.getElementById('query'));
+  await new Promise((r) => { setTimeout(r, 0); });
+  assert.deepEqual(opened, [['/en/modals/contact-us', 'query', '?reason=General%20request&subreason=Other']]);
+  const loads = [];
+  const dialog = await openFragmentDialog('/en/modals/contact-us', $('link'), { search: '?reason=General%20request', load: async (p, o) => { loads.push([p, o && o.search]); return fragment(); } });
+  assert.deepEqual(loads, [['/en/modals/contact-us', '?reason=General%20request']]);
+  dialog.close();
+  const js = fs.readFileSync('blocks/fragment/fragment.js', 'utf8');
+  assert.match(js, /export async function loadFragment\(path, \{ search = '' \} = \{\}\)/);
+  assert.match(js, /if \(search\) main\.dataset\.search = search;\n\s+decorateMain\(main\);/, 'set before the blocks decorate');
+});
+
 test('Tab and Shift+Tab stay inside the dialog (its first and last focusable wrap)', () => {
   const js = fs.readFileSync('scripts/fragment-dialog.js', 'utf8');
   const trap = js.slice(js.indexOf("dialog.addEventListener('keydown'"), js.indexOf("dialog.addEventListener('close'"));

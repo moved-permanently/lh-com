@@ -1306,13 +1306,17 @@ function setupToggles(form, ctx) {
 
 /**
  * Rows with "prefill=<param>": the field's value from the page address's query (www's
- * /support-and-contact?reason=...&subreason=...): a select the option whose value or text it is,
- * other fields the text (up to their maxlength). Fields in a hidden section wait until it shows
- * (called before and after the toggles); each field once, at load.
+ * /support-and-contact?reason=...&subreason=...), in a dialog from the query of the link that
+ * opened it (its fragment's main data-search, scripts/fragment-dialog.js): a select the option
+ * whose value or text it is, other fields the text (up to their maxlength). Fields in a hidden
+ * section wait until it shows (called before and after the toggles); each field once, at load.
  */
 function setupPrefill(form, ctx) {
   if (!ctx.prefills.length) return;
-  const params = new URLSearchParams(window.location.search || '');
+  const main = form.closest('main');
+  const search = main && main.dataset.search !== undefined
+    ? main.dataset.search : window.location.search;
+  const params = new URLSearchParams(search || '');
   ctx.prefills = ctx.prefills.filter(({ wrapper, key }) => {
     if (wrapper.closest('fieldset[hidden]')) return true;
     const wanted = (params.get(key) || '').trim();

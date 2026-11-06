@@ -48,22 +48,24 @@ function ensureStyles() {
   cssLoaded = loadCSS(`${window.hlx.codeBasePath}/styles/fragment-dialog.css`);
 }
 
-async function loadDocument(path) {
+async function loadDocument(path, { search = '' } = {}) {
   // eslint-disable-next-line import/no-cycle
   const { loadFragment } = await import('../blocks/fragment/fragment.js');
-  return loadFragment(path);
+  return loadFragment(path, { search });
 }
 
 /**
  * Opens a document as a modal dialog.
  * @param {string} path the document's path
  * @param {Element} trigger the link (the focus returns to it)
- * @param {{load?: Function}} [options] load(path): the document's decorated main (tests)
+ * @param {{load?: Function, search?: string}} [options] load(path, {search}): the document's
+ *   decorated main (tests); search: the link's query, for the document's blocks (the form's
+ *   prefill: Cargo's contact form opened with its reason and subreason)
  * @returns {Promise<HTMLDialogElement|null>} null when the document does not load
  */
-export async function openFragmentDialog(path, trigger, { load = loadDocument } = {}) {
+export async function openFragmentDialog(path, trigger, { load = loadDocument, search = '' } = {}) {
   ensureStyles();
-  const content = await load(path).catch(() => null);
+  const content = await load(path, { search }).catch(() => null);
   if (!content) return null;
   const lang = (document.documentElement.lang || 'en').slice(0, 2);
   count += 1;
@@ -119,7 +121,7 @@ export async function openFragmentDialog(path, trigger, { load = loadDocument } 
 /**
  * The page's links to /modals/ open their documents as dialogs.
  * @param {Document} doc
- * @param {{open?: Function}} [options] open(path, link): openFragmentDialog (tests)
+ * @param {{open?: Function}} [options] open(path, link, {search}): openFragmentDialog (tests)
  */
 export function initFragmentDialogs(doc = document, { open = openFragmentDialog } = {}) {
   const links = [...doc.querySelectorAll('a[href*="/modals/"]')].filter(isDialogLink);
@@ -134,8 +136,8 @@ export function initFragmentDialogs(doc = document, { open = openFragmentDialog 
     e.preventDefault();
     if (opening) return;
     opening = true;
-    const { pathname } = new URL(a.getAttribute('href'), window.location.href);
-    open(pathname, a).then((dialog) => {
+    const { pathname, search } = new URL(a.getAttribute('href'), window.location.href);
+    open(pathname, a, { search }).then((dialog) => {
       if (!dialog) window.location.href = a.href;
     }).finally(() => { opening = false; });
   });

@@ -108,3 +108,14 @@ test('fields without prefill ignore the query; a field with prefill leaves an ab
   assert.equal(value(b, 'companyName'), '');
   assert.equal(value(b, 'reason'), '');
 });
+
+test('prefill in a dialog (round 3, Cargo\'s form over Support & Contact): the query of the link that opened it (data-search on the fragment\'s main), not the page\'s', () => {
+  setPage('/en/support-and-contact', '?reason=Technical%20support');
+  globalThis.fetch = async () => new Response('{}', { status: 404 });
+  const { document } = parseHTML(`<!DOCTYPE html><html><head><meta name="brand" content="cargo"></head><body><main data-search="?reason=General%20request&amp;subreason=Feedback%20%2F%20Complaints"><div class="form core">${TABLE}</div></main></body></html>`);
+  globalThis.document = document;
+  const b = document.querySelector('.form');
+  F.default(b);
+  assert.equal(value(b, 'reason'), 'general');
+  assert.equal(chosen(b, 'subreasonGeneral'), 'Feedback / Complaints');
+});
