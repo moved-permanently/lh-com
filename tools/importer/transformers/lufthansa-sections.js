@@ -44,7 +44,9 @@ const FOLLOWING = 4; // Node.DOCUMENT_POSITION_FOLLOWING
 // a tab panel that holds column views (pictures and text side by side) is a section of its own;
 // text-only panels are profile-tabs' (a template block)
 const TAB_PANEL = 'maui-tab-control-panel-responsive';
-const TAB_COLUMNS = '.twocolumn, .threecolumn, .fourcolumn';
+// what makes a tab control's panels sections of their own: column views (lufthansa.com's travel
+// classes) or accordions (Brussels' /be/fr/extra-services/baggage/problems-with-your-baggage, P36)
+const TAB_COLUMNS = '.twocolumn, .threecolumn, .fourcolumn, .accordion';
 
 /** Source backgrounds that become a section style: [selector, style]. */
 const SOURCE_STYLES = [['.container-gray', 'grey'], ['.image-wrapper.full-width-bg', 'full-bleed']];

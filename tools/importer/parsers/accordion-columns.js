@@ -79,7 +79,22 @@ export default function parse(element, { document }) {
           // links are still Lufthansa link components when parsers run (/articles/tags lists)
           const a = li.querySelector('a[href], maui-navigation-link[href], maui-link[href], maui-button-link[href]');
           const link = a && makeLink(a);
-          if (link) item.append(link);
+          // text around the link (Brussels: "Un <a>formulaire</a> supplémentaire…"): the item's
+          // own content, its links cleaned, icons, screen-reader texts and spans dropped
+          const LINKS = 'a[href], maui-navigation-link[href], maui-link[href], maui-button-link[href]';
+          const rest = li.cloneNode(true);
+          rest.querySelectorAll(`${LINKS}, ${SR_ONLY}, ul, ol`).forEach((n) => n.remove());
+          if (link && clean(rest.textContent)) {
+            const c = li.cloneNode(true);
+            c.querySelectorAll(`${SR_ONLY}, em.lh, i.lh, ul, ol, br`).forEach((n) => n.remove());
+            c.querySelectorAll(LINKS).forEach((x) => {
+              const l = makeLink(x);
+              if (l) x.replaceWith(l);
+              else x.replaceWith(...x.childNodes);
+            });
+            c.querySelectorAll('span, font').forEach((n) => n.replaceWith(...n.childNodes));
+            item.innerHTML = c.innerHTML.replace(ZW, '').replace(/\s+/g, ' ').trim();
+          } else if (link) item.append(link);
           else if (visibleText(li)) item.textContent = visibleText(li);
           if (item.childNodes.length) list.append(item);
         });

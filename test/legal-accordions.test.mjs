@@ -27,3 +27,10 @@ test('legal: a striped table inside an accordion is still the accordion\'s', () 
 test('campaign: teaser rows in the page column are cards-teaser too, as on hub', () => {
   assert.deepEqual(block('campaign', 'cards-teaser').instances, [':is(.section-content, .container-content) > .twocolumn:has(.column-view-item > .image + .headline)']);
 });
+
+// info: picture and text rows inside a sidebar's content (Brussels /be/en/plan-your-trip/
+// travel-regulations: .sidebar > .airem-sidebar > .sidebar-content > .twocolumn, six rows) came in
+// as plain content (tools/reports/brussels/parity.md P37)
+test('info: rows in a sidebar\'s content are columns-media, as rows in a section', () => {
+  assert.ok(block('info', 'columns-media').instances.some((s) => s.startsWith(':is(.section-content, .container-content, .sidebar-content) > .twocolumn:not(')));
+});

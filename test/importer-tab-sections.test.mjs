@@ -119,3 +119,14 @@ test('info: the rows of a tab panel (picture | text) as columns-media, in the te
   assert.ok(info.instances.some((s) => s.startsWith(SEL)));
   assert.ok(fs.readFileSync('tools/importer/import-info.js', 'utf8').includes(SEL));
 });
+
+// Brussels' /be/fr/extra-services/baggage/problems-with-your-baggage (tools/reports/brussels/parity.md
+// P36): three tabs, accordions in each, came in one under the other (3617 px, www 2619)
+test('a tab control whose panels hold accordions: a section per panel with Tab', () => {
+  const acc = (q) => `<div class="accordion commonevent"><maui-collapsible class="accordion-maui"><div class="accordionitem"><maui-collapsible-item headline="${q}"><p>Answer</p></maui-collapsible-item></div></maui-collapsible></div>`;
+  const document = page(`<div class="tabs panelcontainer"><maui-tab-control-responsive><maui-tab-control-panel-responsive name="Bagage retardé ou perdu">${acc('Que faire ?')}</maui-tab-control-panel-responsive><maui-tab-control-panel-responsive name="Bagage endommagé">${acc('Comment déclarer ?')}</maui-tab-control-panel-responsive><maui-tab-control-panel-responsive name="Objets disparus">${acc('Où chercher ?')}</maui-tab-control-panel-responsive></maui-tab-control-responsive></div>`);
+  const s = sections(run(document));
+  assert.equal(s.length, 5);
+  assert.deepEqual(s.slice(1, 4).map((x) => x.meta), [['Tab: Bagage retardé ou perdu'], ['Tab: Bagage endommagé'], ['Tab: Objets disparus']]);
+  assert.match(s[4].text, /^After the tabs$/);
+});

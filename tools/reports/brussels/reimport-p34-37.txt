@@ -1,0 +1,15 @@
+# P34-P37 of tools/reports/brussels/parity.md, fixed in lh-com's shared parsers and transformer (ema-cashub, 2026-11-06).
+# The captured pages (brussels-parity-001, -002a, -002b) that hold the changed patterns; their other language versions
+# very likely too (same structure), not captured. Re-import by the harness with rebuilt bundles. Rows per page:
+#   /be/en/book-a-flight/flightvoucher P34
+#   /be/en/extra-services/upgrades P35
+#   /be/en/plan-your-trip/travel-regulations P37
+#   /be/fr/extra-services/baggage/problems-with-your-baggage P35,P36
+#   /be/fr/extra-services/upgrades P35
+#   /be/fr/special-care/families-and-children/children-travelling-alone P35
+/be/en/book-a-flight/flightvoucher
+/be/en/extra-services/upgrades
+/be/en/plan-your-trip/travel-regulations
+/be/fr/extra-services/baggage/problems-with-your-baggage
+/be/fr/extra-services/upgrades
+/be/fr/special-care/families-and-children/children-travelling-alone

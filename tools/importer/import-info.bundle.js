@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-info.js
-  var tmp_bundle_info_96052_exports = {};
-  __export(tmp_bundle_info_96052_exports, {
-    default: () => tmp_bundle_info_96052_default
+  var tmp_bundle_info_106433_exports = {};
+  __export(tmp_bundle_info_106433_exports, {
+    default: () => tmp_bundle_info_106433_default
   });
 
   // tools/importer/parsers/search-results.js
@@ -2977,7 +2977,20 @@ var CustomImportScript = (() => {
             const item = document.createElement("li");
             const a = li.querySelector("a[href], maui-navigation-link[href], maui-link[href], maui-button-link[href]");
             const link = a && makeLink(a);
-            if (link) item.append(link);
+            const LINKS = "a[href], maui-navigation-link[href], maui-link[href], maui-button-link[href]";
+            const rest = li.cloneNode(true);
+            rest.querySelectorAll(`${LINKS}, ${SR_ONLY2}, ul, ol`).forEach((n) => n.remove());
+            if (link && clean2(rest.textContent)) {
+              const c = li.cloneNode(true);
+              c.querySelectorAll(`${SR_ONLY2}, em.lh, i.lh, ul, ol, br`).forEach((n) => n.remove());
+              c.querySelectorAll(LINKS).forEach((x) => {
+                const l = makeLink(x);
+                if (l) x.replaceWith(l);
+                else x.replaceWith(...x.childNodes);
+              });
+              c.querySelectorAll("span, font").forEach((n) => n.replaceWith(...n.childNodes));
+              item.innerHTML = c.innerHTML.replace(ZW2, "").replace(/\s+/g, " ").trim();
+            } else if (link) item.append(link);
             else if (visibleText(li)) item.textContent = visibleText(li);
             if (item.childNodes.length) list.append(item);
           });
@@ -3272,6 +3285,45 @@ var CustomImportScript = (() => {
         p.textContent = t;
         content.push(p);
       });
+      const item = card.closest(".column-view-item");
+      const teaserComp = item && [...item.children].find((c) => c.contains(card));
+      if (item && teaserComp) {
+        let after = false;
+        [...item.children].forEach((comp) => {
+          if (comp === teaserComp) {
+            after = true;
+            return;
+          }
+          if (!after) return;
+          if (comp.classList.contains("text")) {
+            comp.querySelectorAll(".richtext > p, .richtext > ul, .richtext > ol").forEach((n) => {
+              const c = n.cloneNode(true);
+              c.querySelectorAll(".sr-only, .visually-hidden, maui-screen-reader-label").forEach((x) => x.remove());
+              if (clean2(c.textContent)) content.push(c);
+            });
+          } else if (comp.classList.contains("link")) {
+            comp.querySelectorAll("maui-button-link[href], maui-navigation-link[href], maui-link[href], a[href]").forEach((m) => {
+              const c = m.cloneNode(true);
+              c.querySelectorAll(".sr-only, .visually-hidden, maui-screen-reader-label").forEach((x) => x.remove());
+              const label = clean2(c.textContent) || clean2(m.getAttribute("label"));
+              if (!label) return;
+              const a = document.createElement("a");
+              a.href = m.getAttribute("href");
+              a.textContent = label;
+              const para = document.createElement("p");
+              const type = m.tagName === "MAUI-BUTTON-LINK" ? m.getAttribute("type") : null;
+              if (type === "primary" || type === "secondary") {
+                const wrap = document.createElement(type === "primary" ? "strong" : "em");
+                wrap.append(a);
+                para.append(wrap);
+              } else {
+                para.append(a);
+              }
+              content.push(para);
+            });
+          }
+        });
+      }
       if (!iconCell && !content.length) return;
       rows.push([iconCell, content.length ? content : ""]);
     });
@@ -5559,7 +5611,7 @@ var CustomImportScript = (() => {
   var TAB = "data-excat-section-tab";
   var FOLLOWING = 4;
   var TAB_PANEL = "maui-tab-control-panel-responsive";
-  var TAB_COLUMNS = ".twocolumn, .threecolumn, .fourcolumn";
+  var TAB_COLUMNS = ".twocolumn, .threecolumn, .fourcolumn, .accordion";
   var SOURCE_STYLES = [[".container-gray", "grey"], [".image-wrapper.full-width-bg", "full-bleed"]];
   var STYLE_SKIP = ".sticky-price-wrapper, .dcep-sticky-price";
   var REGION_STOP = '.section-content, .container-content, .author-details-page, .column-view-item, [class*="col-"], .contentpage, main, body';
@@ -5941,7 +5993,7 @@ var CustomImportScript = (() => {
         "name": "columns-media",
         "instances": [
           ".sidebar:not(:has(.twocolumn, .threecolumn, .fourcolumn, .onecolumn, .poimapping, .messagecenterwrapper, .videoViewer, .teaser, .imagelinklist, .authorquote, .accordion, .table))",
-          ':is(.section-content, .container-content) > .twocolumn:not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe:not(.video-player > iframe), maui-navigation-link[variant="anchor-down"]))',
+          ':is(.section-content, .container-content, .sidebar-content) > .twocolumn:not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe:not(.video-player > iframe), maui-navigation-link[variant="anchor-down"]))',
           ':is(.section-content, .container-content) > :is(.threecolumn, .fourcolumn):not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .video, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe, maui-navigation-link[variant="anchor-down"]))',
           ":is(.section-content, .container-content) > :is(.threecolumn, .fourcolumn):has(> .column-view > .row > .column-view-item > :is(.twocolumn, .threecolumn, .fourcolumn) .image img):not(:has(.column-view-item .column-view-item :is(.text, .headline, .link, .teaser))):not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .sidebar, .experiencefragment, .video, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe))",
           ':is(.section-content, .container-content) > .onecolumn > .column-view > .row > .column-view-item > :is(.twocolumn, .threecolumn, .fourcolumn):not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .video, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe, maui-navigation-link[variant="anchor-down"]))',
@@ -6094,7 +6146,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_info_96052_default = {
+  var tmp_bundle_info_106433_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -6124,5 +6176,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_info_96052_exports);
+  return __toCommonJS(tmp_bundle_info_106433_exports);
 })();

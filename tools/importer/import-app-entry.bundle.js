@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-app-entry.js
-  var tmp_bundle_app_entry_96052_exports = {};
-  __export(tmp_bundle_app_entry_96052_exports, {
-    default: () => tmp_bundle_app_entry_96052_default
+  var tmp_bundle_app_entry_106433_exports = {};
+  __export(tmp_bundle_app_entry_106433_exports, {
+    default: () => tmp_bundle_app_entry_106433_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -3609,7 +3609,7 @@ var CustomImportScript = (() => {
   var TAB = "data-excat-section-tab";
   var FOLLOWING = 4;
   var TAB_PANEL = "maui-tab-control-panel-responsive";
-  var TAB_COLUMNS = ".twocolumn, .threecolumn, .fourcolumn";
+  var TAB_COLUMNS = ".twocolumn, .threecolumn, .fourcolumn, .accordion";
   var SOURCE_STYLES = [[".container-gray", "grey"], [".image-wrapper.full-width-bg", "full-bleed"]];
   var STYLE_SKIP = ".sticky-price-wrapper, .dcep-sticky-price";
   var REGION_STOP = '.section-content, .container-content, .author-details-page, .column-view-item, [class*="col-"], .contentpage, main, body';
@@ -4031,7 +4031,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_app_entry_96052_default = {
+  var tmp_bundle_app_entry_106433_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -4061,5 +4061,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_app_entry_96052_exports);
+  return __toCommonJS(tmp_bundle_app_entry_106433_exports);
 })();

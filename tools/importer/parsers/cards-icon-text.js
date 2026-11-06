@@ -11,7 +11,8 @@
  *
  * Lufthansa partner teasers (hub /digital-self-services: .threecolumn / .twocolumn of
  * a.teaser.partner > h4.teaser-heading (img.icon-svg + .teaser-heading-text) +
- * .teaser-description .desc-inline): same rows, the icon kept as an <img>, option "partner".
+ * .teaser-description .desc-inline): same rows, the icon kept as an <img>, option "partner"; the
+ * column item's text and buttons after the teaser follow in the card (Brussels' gift cards).
  *
  * Lufthansa Group for Business' icon modules (business.lufthansagroup.com homepages: a column row
  * of .iconmodule > .icon-module: img.icon-module__icon, h3.icon-module__heading,
@@ -102,6 +103,45 @@ export default function parse(element, { document }) {
       p.textContent = t;
       content.push(p);
     });
+    // the column item's text and buttons after the teaser (Brussels' gift card page: "You'll
+    // receive the Gift Card immediately…", "Continue"): in the card, a primary button bold, a
+    // secondary one italic, as the other parsers write them
+    const item = card.closest('.column-view-item');
+    const teaserComp = item && [...item.children].find((c) => c.contains(card));
+    if (item && teaserComp) {
+      let after = false;
+      [...item.children].forEach((comp) => {
+        if (comp === teaserComp) { after = true; return; }
+        if (!after) return;
+        if (comp.classList.contains('text')) {
+          comp.querySelectorAll('.richtext > p, .richtext > ul, .richtext > ol').forEach((n) => {
+            const c = n.cloneNode(true);
+            c.querySelectorAll('.sr-only, .visually-hidden, maui-screen-reader-label').forEach((x) => x.remove());
+            if (clean(c.textContent)) content.push(c);
+          });
+        } else if (comp.classList.contains('link')) {
+          comp.querySelectorAll('maui-button-link[href], maui-navigation-link[href], maui-link[href], a[href]').forEach((m) => {
+            const c = m.cloneNode(true);
+            c.querySelectorAll('.sr-only, .visually-hidden, maui-screen-reader-label').forEach((x) => x.remove());
+            const label = clean(c.textContent) || clean(m.getAttribute('label'));
+            if (!label) return;
+            const a = document.createElement('a');
+            a.href = m.getAttribute('href');
+            a.textContent = label;
+            const para = document.createElement('p');
+            const type = m.tagName === 'MAUI-BUTTON-LINK' ? m.getAttribute('type') : null;
+            if (type === 'primary' || type === 'secondary') {
+              const wrap = document.createElement(type === 'primary' ? 'strong' : 'em');
+              wrap.append(a);
+              para.append(wrap);
+            } else {
+              para.append(a);
+            }
+            content.push(para);
+          });
+        }
+      });
+    }
     if (!iconCell && !content.length) return;
     rows.push([iconCell, content.length ? content : '']);
   });
