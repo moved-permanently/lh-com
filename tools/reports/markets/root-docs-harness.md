@@ -41,3 +41,27 @@ document). The 19 homepages and the 27 own pages `tools/importer/sites/lh-com.js
   `15-hk`, `16-zh`, `17-it`, `18-el-confirmations-own.txt`) and now xx/ja, xx/ko, xx/pl (`19-ja`,
   `20-ko`, `21-pl-confirmations-own.txt`, on main): each version's ammunition form links one that
   answers 404 until it is captured and imported.
+
+## Run by the local import harness (2026-11-06, 01:58-02:40 CET)
+
+- **Inputs**: main at c41ea1fa (the rows of bf9a13a3); `content/` filled from Document Authoring
+  just before the run: the 70 documents of the 19 roots and the 2,370 documents of xx/it, xx/el,
+  xx/ja, xx/ko, xx/pl, xx/hk, xx/zh, xx/pt and xx/ru. The 26 `root-docs.mjs` commands of
+  `root-docs-commands.sh` ran as written; the two `da-upload.mjs` lines ran as one upload of the
+  changed documents.
+- **A, 14 of 14 written**: each nav has 59 or 60 links into its own root and each footer 17, the root's label,
+  no link into xx/<ll> or another root; 5 (nav) and 7 (footer) www links moved to www's same root.
+  None existed in DA before.
+- **B, 46 run, 25 changed**: the 19 homepages had 7 to 12 links each made relative (by/ru, kz/ru,
+  ru/ru 12; kr/ko and br/pt 7; the others 8), 2 to 5 stay on www (no document: for example
+  `payment-options`, `discover-lufthansa/allegris`, `book-and-manage/offers-and-destination`);
+  six own pages changed too (it/it's two offers, pt/pt's two companion offers, kr/ko's
+  `korea-customer-info`, br/pt's `pix`). The other 21 own pages have no link into their root that
+  the replica serves, so they came out unchanged and were not uploaded again. Only `href`s changed
+  (and a Parent row's link text in four offers).
+- **Upload**: the 39 changed documents (14 A, 25 B) uploaded and previewed, 0 problems. All 60
+  read back: preview 200 and DA's text equal to the local document, 60 of 60.
+- **Render on preview, 1440 px, all 19 roots' homepages**: each shows its own label in the menu's
+  country and language row ("Japan | 日本語", "Polska | Polski", ...) and links into its own root
+  (header 55 to 61, main 8 to 15); the www links left in the main are the targets without a document.
+- **Not published.** Backup of the 46 B documents' DA sources before the run (private notes).
