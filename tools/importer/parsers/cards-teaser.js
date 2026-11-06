@@ -11,7 +11,9 @@
  * A ".threecolumn" source adds the option "three-up" (Cards Teaser (three-up)), a ".fourcolumn"
  * the option "four-up" (hub /at/de/flughafeninformation). Column views of
  * stage teasers (".stage .stage-teaser", Insights "Explore more") add the option "overlay":
- * image | headline as h3, subheadline as the CTA link to the tile's target.
+ * image | headline as h3, subheadline as the CTA link to the tile's target. A column view
+ * straight in the page column (".container-content > .twocolumn", not in a section) adds the
+ * option "spacious" (www's wider row padding there).
  *
  * Column title (".column-view > div:not(.row) > h2") is default content: it is emitted before
  * the block table. When the source splits one teaser grid over several adjacent column views
@@ -186,6 +188,11 @@ export default function parse(element, { document }) {
   if (element.classList.contains('threecolumn')) variants = ['three-up'];
   else if (element.classList.contains('fourcolumn')) variants = ['four-up'];
   if (overlay) variants.push('overlay');
+  // a row straight in www's page column (.container-content > .twocolumn, the overview hubs), not
+  // in a section: www's plain .column-view padding (2rem / 1rem, 4rem / 2rem from 768px) and item
+  // margins, more than a section's rows (3.2rem): option "spacious" (parity pass 2, brief 424)
+  const parent = element.parentElement;
+  if (parent && parent.classList.contains('container-content')) variants.push('spacious');
   const block = WebImporter.Blocks.createBlock(document, { name: 'cards-teaser', variants, cells });
 
   // --- merge into the previous Cards Teaser table when this is its continuation
