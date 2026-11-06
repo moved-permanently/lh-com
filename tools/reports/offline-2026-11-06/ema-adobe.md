@@ -236,3 +236,87 @@ lh-edge host the same before and after), SWISS's and TAP's hosts checked after i
   ema-lufthansa's cargo-import.mjs writes it.
 - ITA row 14's questionnaire place, row 8's fares (both need www's services).
 
+
+## Brief 440 (Cargo homepage, SWISS's last rows)
+
+Same rules: tests first, brand-scoped CSS, lint and the full suite before each push, the smoke of
+every brand before and after each push (the same before and after each time), SWISS's, TAP's and
+Cargo's preview and live hosts checked by hand after the pushes; upload and preview only.
+
+### 1. Cargo homepage spacing (done, 9a2349f)
+
+- www (cargo-parity-001's CSS): every homepage component is a box 40 px above and below its content
+  (`.whiteBgBox` padding-block 40px, 20px below 1025px), one after the other; ours had lh-com's 20 px
+  wrapper gap and 48 px section gap. Per component in its block's CSS, the homepage only
+  (`main:has(.news-feed)`); `--spacing-default` untouched.
+- Below 768 px the Infrastructure band's rows as www's (24 / 28 px counters, 61 px rows, no list
+  gaps); below 1025 px its box 20 px above and below.
+- News to footer against www (preview and cargo.turnsthe.page after the push, the same as locally):
+  en 1440 -101 -> +11 px (each component within 9 px), de 1440 -102 -> +10, en 390 +225 -> +75,
+  de 390 +249 -> +99.
+- Left, not spacing: the documents' "Show the map on www.lufthansa-cargo.com" link under the stats
+  (68 px at 390, not on www; the Cargo importer's, ema-lufthansa's); the news cards' live texts
+  (de +37 at 390); and the booking strip, where www opens the Booking tab's form and ours the
+  tracking form (73 px shorter at 1440).
+- Rollback: `git revert 9a2349f`.
+- The Cargo importer now writes the ULD teaser's phone picture (ema-lufthansa's e0d6a35), so a
+  re-import keeps it.
+
+### 2. Cargo eServices dots (done, ca50617)
+
+- carousel-cards' slides option counts the slides in view as four-up does: 2 dots at 1440 ("1 of
+  2", "2 of 2"), 3 on phones, as www; checked on preview and live. Rollback: `git revert ca50617`.
+
+### 3. SWISS row 33, accordion titles as headings (not changed: www's are not headings)
+
+- On www every accordion title is `maui-headline type="none"`, which renders a `div`, no heading
+  element or role: all 155 accordion items of the 60 captured SWISS pages. The 8 "missing
+  headings" of food and beverage came from the capture's measurement, which lists every
+  maui-headline whatever its type.
+- axe on food and beverage and the payment options FAQ (aem.page, 390 and 1440): 0 violations;
+  needs review only OneTrust's banner.
+- So the shared accordion stays as it is; making the titles headings would differ from www. Your
+  call (asked at the end of the brief).
+
+### 4. SWISS row 37, accessible travel (done, 5a8f7cb)
+
+- A sidebar whose content has texts before its first heading starts at the first text; outside a
+  tab www's grey box is a part (section style `sidebar-part`, scripts/section-aside.js joins such
+  parts beside the aside, every brand; pages without the style as before, ITA's sidebar checked);
+  SWISS's sidebar text over its content column as www's (1,750 of 1,761 texts in www's sidebars
+  run the column; ours were two thirds: 556 px lines where www has 784).
+- Local, the pilot pages at 1440: accessible travel 1.13 -> 1.03, animals 1.12 -> 1.00, Recraft
+  1.09 -> 1.04; online check-in 0.94 -> 0.87: its form now in the content column beside the aside as
+  www, its text over the column; what is left is the import's (no accordion for www's open "So
+  funktioniert es", the form without www's field hints).
+- Rollback: `git revert 5a8f7cb`.
+
+### 5. SWISS row 30, sidebars in a tab with content after them (done, 3997f61)
+
+- That content is now a section with the panel's Tab rows after the aside: section-tabs.js shows it
+  in the panel, as www. The 20 such sidebars on 8 ch/en+de pages placed; no word of DA's documents
+  lost (219 changed pages compared word for word); the tabs and panels checked locally.
+- ch/en+de: pages with a skipped sidebar 37 -> 21 (with item 4), sidebars 263 -> 283. Left: 12
+  sidebars whose first text the document has otherwise (an FAQ accordion's group label for www's
+  question, texts the import left out), 8 asides and 4 content ends the documents don't have as
+  www shows them.
+- Rollback: `git revert 3997f61` (importer only; the documents: DA's earlier versions).
+
+### Documents (SWISS)
+
+- 336 uploaded and previewed, 0 problems; nothing published. Paths, in release order (the code
+  above on main, no new files, these pages): [../swiss/preview-paths-440.txt](../swiss/preview-paths-440.txt).
+- Checked on main--lh-swiss--moved-permanently.aem.page: accessible travel 1.03 of www's height at
+  1440 and 390 (the grey box only the notice, the aside level with the intro); airbus long-haul's
+  four tabs, each panel's aside beside its sidebar and the rest of the panel after it; online
+  check-in 0.87 at 1440 (see item 4).
+
+- The step again on every language from DA's original copies; each new output compared with DA's
+  current document and its last change: 336 to upload; 8 left out because someone else changed them
+  in DA at 21:23 UTC today (/al/de/prepare-lxmas-2024,
+  /al/de/prepare/travel-regulations/immigration-regulations-worldwide1,
+  /al/en/customer-support/travel-and-corona/travel-briefing/destinations-masks,
+  /al/fr/book-and-manage/conditions/aig-travel-insurance, /al/fr/book-and-manage/swiss-choice/privacy-seat,
+  /al/fr/prepare-lxmas-2024, /al/it/book-and-manage/swiss-choice/privacy-seat, /al/it/prepare-lxmas-2024).
+- Noted for its owner: test/own-links.test.mjs fails on a clean checkout of origin/main (ownPages,
+  /xx/en/about-us/contact), with or without my commits; it passes in this workspace.
