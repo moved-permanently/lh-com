@@ -4,10 +4,10 @@
      include, its language's excludes, its columns with the markets column), market-model-xx-<ll>
      and market-llms-xx-<ll> as tools/markets/lean-indexes.mjs makes them; after xx/zh's, SWISS's
      pair still last, every other index as before;
-   - the form's built-in texts in pl: the submit button, the file row's drop prompt and select
-     button as www's xx/pl feedback form has them (its previewed document, imported from www's
-     capture), the rest the replica's own; it, el and ja
-     wait (their tables would change the brand sites' forms too);
+   - the form's built-in texts in it, el, ja and pl: the submit button, the file row's drop prompt
+     and select button as www's xx/<ll> feedback form has them (its previewed document, imported from
+     www's capture), the rest the replica's own; the brand sites' forms in these languages (SWISS
+     ch/it, ch/el, ch/ja; Air Dolomiti) get them too where their rows set no text (the user's call);
    - the timetable's weekdays in el, ja, ko and pl (the browser's short names; www has no
      timetable in them);
    - zh, hk, pt and ru: every form key, www's three form texts, their weekdays (no gap).
@@ -75,6 +75,9 @@ test('the query indexes of xx/it, xx/el, xx/ja, xx/ko, xx/pl: as xx/zh\'s, after
 
 // www's xx/<ll> feedback form (feedback-past-flight, its previewed document)
 const WWW = {
+  it: ['Inviare', 'Trascini qui i suoi file', 'Seleziona file'],
+  el: ['Υποβολή', 'Σύρετε και αποθέστε τα αρχεία σας εδώ', 'Επιλέξτε αρχείο(α)'],
+  ja: ['送信する', 'ファイルをこちらにドラッグアンドドロップしてください', 'ファイルを選択'],
   pl: ['Prześlij', 'Przeciągnij i upuść pliki tutaj', 'Wybierz plik(i)'],
   // ko's drop prompt is the replica's (www: 여기에 파일을 가져다 놓으십시오.), kept as it was
   ko: ['제출', '여기에 파일을 끌어다 놓으십시오', '파일 선택'],
@@ -84,7 +87,7 @@ const WWW = {
   ru: ['Отправить', 'Перетащите сюда файлы', 'Выбрать файл(-ы)'],
 };
 
-test('the form\'s built-in texts in pl (and every language with a table): every en key, the same placeholders, not the English text; www\'s submit, drop prompt and select', () => {
+test('the form\'s built-in texts in it, el, ja, pl (and every language with a table): every en key, the same placeholders, not the English text; www\'s submit, drop prompt and select', () => {
   const src = show(null, 'blocks/form/form.js');
   const t = table(src, 'DEFAULT_LABELS');
   const totals = table(src, 'FILE_TOTAL_LABELS');
@@ -100,10 +103,10 @@ test('the form\'s built-in texts in pl (and every language with a table): every 
     assert.deepEqual([t[l]['submit label'], t[l]['file prompt'], t[l]['file select']], [submit, prompt, select], `${l}: www's`);
   });
   // the total line as FILE_TOTAL_LABELS has it; "Remove" as www's destination finder writes it
-  assert.equal(t.pl['file total'], totals.pl);
-  assert.equal(t.pl['repeat remove'], 'Usuń');
+  ['it', 'el', 'ja', 'pl'].forEach((l) => assert.equal(t[l]['file total'], totals[l], l));
+  assert.deepEqual(['it', 'el', 'ja', 'pl'].map((l) => t[l]['repeat remove']), ['Rimuovi', 'Αφαίρεση', '削除', 'Usuń']);
+  assert.equal(t.ja.yes, 'はい');
   assert.equal(t.pl.no, 'Nie');
-  ['it', 'el', 'ja'].forEach((l) => assert.equal(t[l], undefined));
   // every other language as before
   const b = table(show(BEFORE, 'blocks/form/form.js'), 'DEFAULT_LABELS');
   Object.keys(b).forEach((l) => assert.deepEqual(t[l], b[l], `${l} as before`));
