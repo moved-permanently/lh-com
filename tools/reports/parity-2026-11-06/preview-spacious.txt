@@ -1,0 +1,6 @@
+/de/en/airport-information
+/de/en/digital-self-services
+/de/en/overview-manage
+/de/en/overview-travel-information
+/de/en/services-at-the-airport
+/de/en/traveltricks

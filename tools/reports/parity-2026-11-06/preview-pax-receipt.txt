@@ -1,0 +1,16 @@
+/de/en/book-and-manage/pax-receipt
+/de/de/book-and-manage/pax-receipt
+/at/de/book-and-manage/pax-receipt
+/gb/en/book-and-manage/pax-receipt
+/xx/hk/book-and-manage/pax-receipt
+/xx/pt/book-and-manage/pax-receipt
+/xx/ru/book-and-manage/pax-receipt
+/xx/el/book-and-manage/pax-receipt
+/xx/es/book-and-manage/pax-receipt
+/xx/fr/book-and-manage/pax-receipt
+/xx/it/book-and-manage/pax-receipt
+/xx/ja/book-and-manage/pax-receipt
+/xx/ko/book-and-manage/pax-receipt
+/xx/pl/book-and-manage/pax-receipt
+/xx/zh/book-and-manage/pax-receipt
+/fr/fr/book-and-manage/pax-receipt

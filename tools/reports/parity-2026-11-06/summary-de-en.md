@@ -107,6 +107,15 @@ Per template and width (page-widths: pass / review / fail, mean unmasked mismatc
 | The importer: a two-column row of teaser cards on insights pages as carousel-cards (info got it with 65afd3a2) | insights, info | 2b85374b | xx/hk's snapshot of childrens-menus-on-board, imported offline |
 | The parity runner: a www screenshot that is not there yet waits instead of failing the page | (tooling) | 9f583b34 | test |
 
+## Fixed in pass 2 (brief 424; lufthansa.com only where styling)
+
+| What | Template | Commit | Measured against |
+|---|---|---|---|
+| Tab panels with picture and text rows (www's maui tab control) as Tab sections, their rows as columns-media; scripts/section-tabs.js forms the tabs (a tab list from 768 px, accordions below) | info, campaign (importer) | 515475be | xx/hk's snapshot of advance-seat-reservation, imported offline with a scratch bundle |
+| The passenger receipt form (passenger-receipt block): www's fields, rules, errors, accent table and texts (en and de www's, 11 more languages ours), the hand-off; the importer maps www's passenger-receipt-portal to it | info | 333e172e, 601f9428 | www's pax-receipt capture (lh-parity-003 pax-receipt/, 1440 and 390) |
+| Teaser rows straight in www's page column (option spacious): the first image 40 px (20) under the intro, 80 px (40) between rows, 40 px (20) to the footer, as www's .column-view there; ours had 32, 66, 48 | hub, info, campaign, app-entry, insights (importer + block) | 4cb9f04c | www's /de/en/overview-travel-information (lh-parity-003 html/) |
+| Rows of column accordions: the title 64 px (44) under the text, 72 px to the accordions from 768 px, 30 px between stacked accordions, 80 px (40) to the next heading, as www's page-column .threecolumn and .accordion-maui | insights | f5d01a3c | www's /de/en/articles/tags (lh-parity-003 html/) |
+
 ## Open rows
 
 | Row | Pages | Kind | Owner |
@@ -116,11 +125,11 @@ Per template and width (page-widths: pass / review / fail, mean unmasked mismatc
 | Content changed on www since our import (the homepage's Black Friday stage and news; the Skytrax award on new-onboard-experience; meetings-and-events' 01-03 steps and "Request offer now", content or the import, the fresh import tells) | reimport-content.txt | content | the user's harness: fresh de/en snapshot, re-import |
 | Imported before the importer could: the regular stage (640 px) and two-column teaser cards | reimport-importer-fixes.txt (48) | import | the user's harness: re-import from the de/en snapshots |
 | The flights hub's destination finder: www's grid full of offers, ours empty (the offer API does not answer this environment); masked, but the page is 4,000 px shorter | /de/en/flights | live data (impossible.md) | none |
-| pax-receipt's receipt form (www's receipt-portal app: booking code and name, downloads the receipt from Lufthansa's back end) is not built; the import dropped it | /de/en/book-and-manage/pax-receipt | functional | the user: a functional brief |
-| Tabs whose panels hold image and text rows (www's maui tab control per travel class) come in flat; profile-tabs takes text-only panels | /de/en/advance-seat-reservation and pages like it | import + block | next parity pass (needs a tabs block with media rows) |
-| The overview hubs' rows: 16 px more between rows on www on overview-travel-information than services-on-board's archived markup shows; not explained without that page's www HTML | overview-* hubs | unknown | next pass, with www HTML of an overview page |
-| The article tags overview: www 40 px more above "Destinations" and 57 px more from a list's last row to the next heading | /de/en/articles/tags | styling | next pass, with www HTML of the page |
+| pax-receipt's receipt form: built (passenger-receipt, pass 2). Open: on the own www host the block needs www's runtime-config (the receipt service's URL and key) on its origin to download; off it, a valid form opens www's page | 16 pax-receipt pages (preview-pax-receipt.txt) | functional | the user: who serves the config on the own host (lh-edge or a backend) |
+| Tabs whose panels hold image and text rows: the importer makes them Tab sections (pass 2); the documents come with a re-import once the info and campaign bundles are rebuilt | reimport-tabs.txt (7) | import | the user's harness: rebuild the bundles, re-import |
+| The overview hubs' rows: fixed (pass 2, option spacious); other markets and the de/en pages whose page-column rows are other blocks get it with their next import | preview-spacious.txt (6, de/en) | import | the user's harness: rebuild the hub, info, campaign, app-entry and insights bundles |
+| The article tags overview: fixed (pass 2). At 390 www's headed capture wraps the intro one line longer (27 px) than ours; the same text at the same width wraps alike in a headless browser (the renderer, not CSS) | /de/en/articles/tags | renderer | none |
 | Moving images and stage videos at another frame; the sticky price bar over the lede in www's phone screenshots | campaign, insights | impossible.md (animated content, live data) | none |
 | Consent: www was captured with full consent (C0001, C0002, C0004, C0005), ours necessary-only | all | by design (impossible.md) | none |
 
-Path lists in this folder: reimport-importer-fixes.txt (48), reimport-content.txt (3), chat-panel.txt (www recaptures).
+Path lists in this folder: reimport-importer-fixes.txt (48), reimport-content.txt (3), chat-panel.txt (www recaptures); pass 2: reimport-tabs.txt (7, after the info and campaign bundles are rebuilt), preview-pax-receipt.txt (16, the form, uploaded and previewed), preview-spacious.txt (6, the option spacious, uploaded and previewed). Nothing published.
