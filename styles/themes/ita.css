@@ -734,3 +734,11 @@ body.brand-ita main .columns-media.grey .columns-media-text > h2:first-child {
     clip-path: inset(0 0 0 -100vmax);
   }
 }
+
+/* row 14 (brief 437): the help app's FAQs card (help-center-web's own markup, no shadow root) on a
+   band across the page, as www.ita-airways.com (#f8f8f9 edge to edge at 1440 and 390; www's page CSS
+   gives its .full-width-bg the negative margins, which ours lacks) */
+body.brand-ita .micro-frontend .topic-selection-info-cards-container.full-width-bg {
+  box-shadow: 0 0 0 100vmax #f8f8f9;
+  clip-path: inset(0 -100vmax);
+}
