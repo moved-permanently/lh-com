@@ -21,6 +21,11 @@ test('the class pages\' stage: 804 px on phones, 16:9 from 768 px, right under t
   has(new RegExp(`@media \\(width >= 768px\\) \\{[^@]*${S} :is\\(h1, h2\\) \\{[^}]*font-size: 48px;[^}]*line-height: 52\\.8px;`));
 });
 
+test('page titles red only at www\'s large style: an h1 its author gave a smaller style ({heading-medium}, Beobank) as other headings', () => {
+  has(/body\.brand-brussels main h1:not\(\.heading-medium, \.heading-small, \.heading-copytext-large, \.heading-copytext-medium\), body\.brand-brussels main \.heading-large, body\.brand-brussels \.article-header \.article-header-title \{ color: var\(--brand-color\); \}/);
+  assert.ok(!/body\.brand-brussels main h1,/.test(css), 'no rule makes every h1 red');
+});
+
 test('the class tabs: every label #0a1f62, the chosen one bold over a 3 px red line', () => {
   has(/@media \(width >= 1024px\) \{[^@]*body\.brand-brussels \.profile-nav li a:any-link \{[^}]*color: #0a1f62;[^}]*font-weight: 400;/);
   has(/@media \(width >= 1024px\) \{[^@]*body\.brand-brussels \.profile-nav li a\[aria-current="page"\] \{[^}]*color: #0a1f62;[^}]*font-weight: 700;/);

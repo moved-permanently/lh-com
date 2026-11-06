@@ -133,8 +133,9 @@
   --footer-logo-home-height: 30px; /* the logo row: small-logo.svg 130x30 */
 }
 
-/* page titles Brussels red (www's h1.headline.heading-large and h1.article-headline) */
-body.brand-brussels main h1,
+/* page titles Brussels red (www's h1.headline.heading-large and h1.article-headline); an h1 its
+   author gave a smaller style ({heading-medium}: Beobank, P40) as www's other headings */
+body.brand-brussels main h1:not(.heading-medium, .heading-small, .heading-copytext-large, .heading-copytext-medium),
 body.brand-brussels main .heading-large,
 body.brand-brussels .article-header .article-header-title {
   color: var(--brand-color);
