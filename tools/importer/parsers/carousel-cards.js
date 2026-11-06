@@ -229,6 +229,10 @@ export default function parse(element, { document }) {
     // (a three-column view marked data-import-two-up: a brand's converted two-column one, Austrian)
     else if (element.matches('.twocolumn, [data-import-two-up]')) variants = ['grid', 'two-up'];
     else if (!element.matches('.carousel')) variants = ['grid'];
+    // www's three-card views hold the cards twice: a grid for lg (.hidden-md-down) and a swiper
+    // below it (.hidden-lg-up); the swiper only on phones and tablets: option phone-slider
+    // (/de/en/doctor-on-board-news, medical-travel-companions, miles-and-more)
+    if (variants[0] === 'grid' && variants.length === 1 && hasDesktopTwin && element.querySelector('.hidden-lg-up a.teaser')) variants.push('phone-slider');
     const block = WebImporter.Blocks.createBlock(document, { name: 'carousel-cards', variants, cells: rows });
     element.replaceWith(...titles, block);
     return;

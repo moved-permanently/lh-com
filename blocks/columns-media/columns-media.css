@@ -165,7 +165,8 @@ main > .section > .columns-media-wrapper:first-child > .columns-media.sidebar.pa
 
 /* linked badge images in a text paragraph (app store badges, /online-check-in):
    full width and stacked on mobile (.col-md-6 image items), 40px high side by side from 768px;
-   a linked image that opens the cell is the cell's picture (kinder-an-bord 'Fliegen mit Kind') */
+   a linked image that opens the cell is the cell's picture (kinder-an-bord 'Fliegen mit Kind'); from
+   768px also one right after the cell's opening heading (the airline apps' icons, full width as www's) */
 .columns-media .columns-media-text p:not(:first-child):has(> a > picture) {
   display: flex;
   flex-direction: column;
@@ -567,16 +568,16 @@ main > .section > .columns-media-wrapper:has(> .columns-media.sidebar) + .defaul
     display: block;
   }
 
-  .columns-media .columns-media-text p:not(:first-child):has(> a > picture) {
+  .columns-media .columns-media-text p:not(:first-child, :is(h1, h2, h3, h4, h5, h6):first-child + p):has(> a > picture) {
     flex-flow: row wrap;
     gap: var(--grid-gutter);
   }
 
-  .columns-media .columns-media-text p:not(:first-child) > a:has(> picture) {
+  .columns-media .columns-media-text p:not(:first-child, :is(h1, h2, h3, h4, h5, h6):first-child + p) > a:has(> picture) {
     width: auto;
   }
 
-  .columns-media .columns-media-text p:not(:first-child) > a > picture img {
+  .columns-media .columns-media-text p:not(:first-child, :is(h1, h2, h3, h4, h5, h6):first-child + p) > a > picture img {
     width: auto;
     height: 40px;
   }
