@@ -261,3 +261,43 @@ from the drop and checked against the hashes in parity.md):
 - Path list for the harness: `tools/reports/brussels/reimport-p34-37.txt` (6 captured pages; their
   other language versions very likely too). lufthansa.com pages with the same patterns get them on
   their next import.
+
+### C. Own open rows (part done, the rest listed)
+
+Done (commits `ecb30136`, `115ea542`; tests first):
+- 100-years/campaigns' sidebar picture: campaign's `.sidebar` took the sidebar inside the text column
+  as a block of its own; now `.sidebar:not(.column-view-item > * ~ .sidebar)`. The full import keeps
+  the picture (the import equals DA's copy now).
+- xx/hk's accordion answers' inline links: www's link text sits inside the link's icon element;
+  the icon is unwrapped instead of removed. xx/hk seat-reservations and accessibility-statement
+  re-imported, uploaded and previewed (accessibility-statement's lost mailto link is www's empty
+  one, dropped since item 5).
+- add-fleet-metadata: roots without local documents skipped and listed, every root's redirect rows kept.
+- de/de's stage promotions: the imported stage alone (the Kuala Lumpur card is gone from www), for
+  the next de/de import (the preview's de/de fragment still has FLYZA and Kuala Lumpur until then).
+- the 390 heights of doctor-on-board-news and medical-travel-companions: www's three-card views
+  are a slider below lg; the importer sets the carousel-cards option phone-slider for them, and the
+  five de/en documents www shows that way have it (2392 px at 390, www 2383; 2758, www 2747;
+  flying-with-small-children, onboard-delights, travel-insurances within 75 px of www).
+- airline-apps at 768: the app icons were 48 x 40 px (a store-badge rule); now full column width as www's.
+- The Austrian templates regenerated from info (`austrian-templates.mjs`; `test/austrian-templates.test.mjs`
+  guards that they don't drift: the first push of this round went red on it and stopped).
+
+Rows (not ours):
+- business-class-on-short-and-medium-haul at 390: www's capture has the first card's picture unrendered
+  (lazy), 227 px of the 227 px difference.
+
+Open (ours, not reached):
+- traveltricks at 390: "This might also be of interest to you" is a slider on www below lg; ours is a
+  cards-teaser (three-up), which has no phone-slider option yet.
+- airline-apps at 1440: www shows the four apps in one row (a .fourcolumn); check ours after the icon fix.
+- lufthansa-first-class-fleet at 1440 and first-class-terminal's carousel and row spacing (40-60 px).
+
+Preview paths (release order, no files first): /xx/hk/common/seatreservation-condtions/seat-reservations,
+/xx/hk/common/accessibility-statement; /de/en/doctor-on-board-news, /de/en/flying-with-small-children,
+/de/en/onboard-delights, /de/en/book-and-manage/additional-services/travel-insurances,
+/de/en/prepare-for-your-trip/special-travel-needs/medical-travel-companions. All from DA's copies
+(or re-imported), DA equal to the local copies after the upload; checked on aem.page at 1440 and 390.
+
+Note: one read of DA's online-check-in source (for a local render check) was stopped by the
+remote-content guard as if it were a write; nothing changed, the check used the preview's copy.
