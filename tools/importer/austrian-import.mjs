@@ -34,6 +34,7 @@ import { withLocalImages } from './austrian-nav.mjs';
 // SWISS's tab sets that hold blocks (ema-cashub, 2b35553d): the same component on www.austrian.com
 import { withTabMarkers, splitTabSections } from './swiss-import.mjs';
 import { stripScripts } from './excat-plugin.mjs';
+import { withPartnerLogoAlts } from './austrian-partner-logos.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const argv = process.argv.slice(2);
@@ -362,7 +363,7 @@ if (isMain) {
       const doc = fs.readFileSync(f, 'utf8');
       const src = Object.keys(out).find((k) => docName(k) === p);
       const markets = scope.documents[src]?.markets || [];
-      const next = withAustrianTabs(withItaMetadata(withCheckinHandoff(withFlightSearch(withItaForm(doc, p, fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8')), p), p), p, fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8'), markets));
+      const next = withPartnerLogoAlts(withAustrianTabs(withItaMetadata(withCheckinHandoff(withFlightSearch(withItaForm(doc, p, fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8')), p), p), p, fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8'), markets)));
       if (next !== doc) fs.writeFileSync(f, next);
     });
     const mapOnly = path.join(W, 'runs', `${name}-upload.txt`);
