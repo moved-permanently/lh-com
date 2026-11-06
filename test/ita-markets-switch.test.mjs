@@ -19,6 +19,9 @@ test('us/es and ve/es: on as shipped (their documents are live, 2026-11-06): mar
   assert.equal(site.rows['ve/es'].documents, 'language');
   assert.equal(site.airports['us/es'], 'NYC');
   assert.equal(site.airports['ve/es'], 'CCS');
+  // the country selector's names, as the roots' navs and footers write them (brief 422)
+  assert.equal(site.names['us/es'], 'Estados Unidos de América | Español');
+  assert.equal(site.names['ve/es'], 'Venezuela | Español');
   assert.deepEqual(withItaMarkets(site, ITA_MARKETS_LIVE), site, 'on twice: the site as it is');
 });
 
@@ -45,6 +48,9 @@ test('us/es and ve/es on: market roots of es/es\'s documents, New York and Carac
   });
   assert.equal(site.airports['us/es'], 'NYC');
   assert.equal(site.airports['ve/es'], 'CCS');
+  // the country selector's names, as the roots' navs and footers write them (brief 422)
+  assert.equal(site.names['us/es'], 'Estados Unidos de América | Español');
+  assert.equal(site.names['ve/es'], 'Venezuela | Español');
   assert.equal(site.versions.es, 'es/es');
   // one on, the other as before; the other roots unchanged
   const one = withItaMarkets(base, ['us/es']);

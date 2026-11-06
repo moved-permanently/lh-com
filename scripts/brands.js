@@ -757,11 +757,12 @@ export const SWISS_OWN_ROOTS_LIVE = ['kr/ko'];
 // ve/es, each with its own homepage, nav and footer), behind their switch as SWISS's new roots:
 // off, not in ITA's table (ita.turnsthe.page and the country dialog as before); its key in
 // ITA_MARKETS_LIVE (once its documents are published) makes it a market root of its language
-// version's documents, as ar/es. airport: its flight search's origin (as us/en's and ve/en's).
+// version's documents, as ar/es. airport: its flight search's origin (as us/en's and ve/en's);
+// name: the country selector's label, as the roots' navs and footers write it (brief 422).
 // us/es and ve/es on since their documents are live (2026-11-06).
 export const ITA_MARKETS = {
-  'us/es': { airport: 'NYC' },
-  've/es': { airport: 'CCS' },
+  'us/es': { airport: 'NYC', name: 'Estados Unidos de América | Español' },
+  've/es': { airport: 'CCS', name: 'Venezuela | Español' },
 };
 export const ITA_MARKETS_LIVE = ['us/es', 've/es'];
 
@@ -772,6 +773,7 @@ export function withItaMarkets(site, live = ITA_MARKETS_LIVE) {
   return {
     ...site,
     rows: { ...site.rows, ...rowsOf('language', on) },
+    names: { ...site.names, ...Object.fromEntries(on.map((r) => [r, ITA_MARKETS[r].name])) },
     airports: {
       ...site.airports, ...Object.fromEntries(on.map((r) => [r, ITA_MARKETS[r].airport])),
     },
