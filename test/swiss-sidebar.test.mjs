@@ -112,3 +112,18 @@ test('a tab panel: its label on the content section only, the aside after it', (
   assert.equal(r.made, 0);
   assert.match(r.skipped[0], /tab/);
 });
+
+/* the image | text views outside the sidebar too (advance seat reservation: the seat types in the
+   travel classes' tab panels, the heading inside the text item beside the picture, 23 views) */
+test('advance seat reservation: the 23 seat views beside their pictures, the heading in the text', () => {
+  const { doc, made, rows } = withSwissSidebar(fixture('advance-seat-reservation-en.da.html'), fixture('advance-seat-reservation-en.snapshot.html'));
+  assert.equal(made, 1);
+  assert.equal(rows, 23);
+  const blocks = sections(doc).flatMap((s) => [...s.querySelectorAll(':scope > .columns-media')]);
+  assert.equal(blocks.length, 23);
+  const [media, body] = blocks[0].firstElementChild.children;
+  assert.ok(media.querySelector('picture img') !== null && !text(media));
+  assert.equal(text(body.firstElementChild), 'Classic seat');
+  assert.match(text(body), /free of charge for HON Circle Members/);
+  assert.ok(sections(doc).every((s) => [...s.children].every((el) => !(el.tagName === 'P' && el.querySelector('picture') && el.nextElementSibling && /^Classic seat/.test(text(el.nextElementSibling))))), 'no picture left above a seat\'s text');
+});
