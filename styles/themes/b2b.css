@@ -124,3 +124,118 @@
     --heading-font-size-s: 16px;
   }
 }
+
+/* a stage inside a column view (b2b-import.mjs: columns-media option stage, www's .stage >
+   .stage-teaser in a column item; brief 421): the cell's picture with the headline, the
+   subheadline and a small outlined button over it, 20 px from its top left (40 px from 768 px), on
+   a white gradient from the left (option light: white text on a black one); the button not on
+   phones, where the picture is the link */
+body.brand-b2b .columns-media.stage .columns-media-text:has(> p:first-child > a > picture) {
+  display: grid;
+  grid-template-rows: auto auto auto 1fr;
+  grid-template-columns: minmax(0, 1fr);
+  align-content: start;
+  padding: 0;
+}
+
+body.brand-b2b .columns-media.stage .columns-media-text:has(> p:first-child > a > picture) > p:first-child {
+  grid-area: 1 / 1 / -1 / 2;
+  position: relative;
+  max-width: none;
+  margin: 0;
+}
+
+body.brand-b2b .columns-media.stage .columns-media-text:has(> p:first-child > a > picture) > p:first-child :is(a, picture, img) {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+body.brand-b2b .columns-media.stage .columns-media-text:has(> p:first-child > a > picture) > p:first-child::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(90deg, rgb(255 255 255 / 85%) 0, transparent 66%);
+  pointer-events: none;
+}
+
+body.brand-b2b .columns-media.stage.light .columns-media-text:has(> p:first-child > a > picture) > p:first-child::after {
+  background-image: linear-gradient(90deg, rgb(0 0 0 / 60%) 0, transparent 66%);
+}
+
+body.brand-b2b .columns-media.stage .columns-media-text:has(> p:first-child > a > picture) > :not(:first-child) {
+  position: relative;
+  z-index: 1;
+  grid-column: 1;
+  margin-inline: 20px;
+  pointer-events: none;
+}
+
+body.brand-b2b .columns-media.stage .columns-media-text:has(> p:first-child > a > picture) > h2 {
+  grid-row: 1;
+  margin-top: 20px;
+  margin-bottom: 0;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 700;
+  text-transform: none;
+}
+
+body.brand-b2b .columns-media.stage .columns-media-text:has(> p:first-child > a > picture) > h3 {
+  grid-row: 2;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: 400;
+}
+
+/* the button: www's small buttonsecondary (14 / 18 bold, 30 px high, 30 px inside), clickable */
+body.brand-b2b .columns-media.stage .columns-media-text:has(> p:first-child > a > picture) > p:has(> em > a, > a.button) {
+  grid-row: 3;
+  margin-top: 16px;
+  pointer-events: auto;
+}
+
+body.brand-b2b .columns-media.stage .columns-media-text > p:has(> a.button) > a.button {
+  min-height: 30px;
+  padding: 5px 30px;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+body.brand-b2b .columns-media.stage.light .columns-media-text:has(> p:first-child > a > picture) > :not(:first-child) {
+  color: #f5f5f5;
+}
+
+body.brand-b2b .columns-media.stage.light .columns-media-text > p:has(> a.button) > a.button {
+  border-color: #f5f5f5;
+  color: #f5f5f5;
+}
+
+body.brand-b2b .columns-media.stage.light .columns-media-text > p:has(> a.button) > a.button:is(:hover, :focus-visible) {
+  border-color: #fff;
+  background-color: #fff;
+  color: #05164d;
+}
+
+@media (width < 768px) {
+  body.brand-b2b .columns-media.stage .columns-media-text:has(> p:first-child > a > picture) > p:has(> em > a, > a.button) { display: none; }
+}
+
+@media (width >= 768px) {
+  body.brand-b2b .columns-media.stage .columns-media-text:has(> p:first-child > a > picture) > :not(:first-child) {
+    margin-inline: 40px;
+  }
+
+  body.brand-b2b .columns-media.stage .columns-media-text:has(> p:first-child > a > picture) > h2 {
+    margin-top: 40px;
+  }
+}
+
+@media (width >= 1281px) {
+  body.brand-b2b .columns-media.stage .columns-media-text:has(> p:first-child > a > picture) > h3 {
+    font-size: 28px;
+    line-height: 32px;
+  }
+}

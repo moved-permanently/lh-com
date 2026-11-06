@@ -15,6 +15,8 @@
  *   Lufthansa's contact catalog) as the hotline-finder block (withHotlines, withHotlineFinder);
  * - e-mail addresses Cloudflare obfuscated (/cdn-cgi/l/email-protection#..., __cf_email__) as
  *   mailto: links and their text (withEmails);
+ * - a column view holding a stage as a columns-media block of option stage, the stage in its
+ *   half as www's (withStageColumnMarkers, withStageColumns);
  * - a tab set holding blocks (the Newsroom's categories: maui-tab-control-responsive) as Tab
  *   sections, swiss-import.mjs's withTabMarkers and splitTabSections (scripts/section-tabs.js);
  * - the pre-login search: the search bar and the results widget as one search-results block
@@ -254,6 +256,89 @@ export const withLocalImages = (doc) => doc.replace(/<img src="(?:https:\/\/busi
 export const withoutHelperLinks = (html) => html
   .replace(/<a\b[^>]*>(?:\s|&nbsp;|<span class="sr-only">[^<]*<\/span>|<(i|em) class="lh lh-link-popup"><\/\1>)*<\/a>/g, '');
 
+const stageMarker = (label) => `<div class="text section"><div class="richtext"><p>${label}</p></div></div>`;
+// (the import's cleanup may write a text style after a marker: "@@stage-columns@@light@@ {full-width}")
+const STAGE_MARK = /^@@stage-columns@@(light|default)@@(?:\s*\{[^}]*\})?$/;
+const STAGE_END = /^@@stage-columns-end@@(?:\s*\{[^}]*\})?$/;
+
+/**
+ * A column view that holds a stage (www's .stage > .stage-teaser in a column item: partner-plus-
+ * benefit, eXperts, hygiene-and-safety) between two marker paragraphs, the opening one naming the
+ * variant (light: .stage-teaser-link-light, white text on a black gradient); withStageColumns makes
+ * the run between them one columns-media block after the import.
+ */
+export function withStageColumnMarkers(html) {
+  let out = html;
+  ['twocolumn', 'threecolumn', 'fourcolumn'].forEach((col) => {
+    out = editDivs(out, `<div class="${col}`, (el) => {
+      if (!/class="stage-teaser"/.test(el) || el.includes('@@stage-columns')) return el;
+      const variant = /stage-teaser-link-light/.test(el) ? 'light' : 'default';
+      return `${stageMarker(`@@stage-columns@@${variant}@@`)}${el}${stageMarker('@@stage-columns-end@@')}`;
+    });
+  });
+  return out;
+}
+
+/** An element's trailing marker without the column-view tokens (the block keeps its own spacing). */
+const withoutColumnTokens = (el) => {
+  const walker = el.ownerDocument.createTreeWalker(el, 4);
+  let last = null;
+  for (let n = walker.nextNode(); n; n = walker.nextNode()) if (n.nodeValue.trim()) last = n;
+  if (!last) return;
+  last.nodeValue = last.nodeValue.replace(/\s*\{([a-z0-9 -]+)\}\s*$/, (m, tokens) => {
+    const rest = tokens.trim().split(/\s+/).filter((t) => !/^column-(?:start|end)(?:-outer)?$|^column-spaced$/.test(t));
+    return rest.length ? ` {${rest.join(' ')}}` : '';
+  });
+};
+
+/**
+ * The stage column views (withStageColumnMarkers) as columns-media blocks of option stage (light):
+ * a cell per stage (the import's hero-card-overlay: its picture linked to the stage's target, the
+ * headline, the subheadline as an h3, the button) and a cell per run of other content, in www's
+ * order; the column view's markers inside go. Styles: styles/themes/b2b.css.
+ */
+export function withStageColumns(doc) {
+  if (!doc.includes('@@stage-columns')) return doc;
+  const { document } = parseHTML(`<html><body>${doc}</body></html>`);
+  const isMark = (el, re) => el && el.tagName === 'P' && re.test(el.textContent.trim());
+  [...document.querySelectorAll('p')].filter((p) => isMark(p, STAGE_MARK)).forEach((start) => {
+    const variant = start.textContent.trim().match(STAGE_MARK)[1];
+    const run = [];
+    let end = start.nextElementSibling;
+    while (end && !isMark(end, STAGE_END)) { run.push(end); end = end.nextElementSibling; }
+    const cells = [];
+    let text = null;
+    run.forEach((el) => {
+      if (el.matches('div.hero-card-overlay')) {
+        text = null;
+        const picture = el.querySelector('picture');
+        const body = el.querySelectorAll(':scope > div')[1]?.firstElementChild;
+        const kids = body ? [...body.children] : [];
+        const link = [...(body ? body.querySelectorAll('a[href]') : [])].pop();
+        const cell = [];
+        if (picture) cell.push(link ? `<p><a href="${link.getAttribute('href')}">${picture.outerHTML}</a></p>` : `<p>${picture.outerHTML}</p>`);
+        kids.forEach((k) => {
+          if (/^H[1-6]$/.test(k.tagName) && !cell.some((c) => c.startsWith('<h'))) cell.push(k.outerHTML);
+          else if (k.tagName === 'P' && !k.querySelector('a') && !cell.some((c) => c.startsWith('<h3'))) cell.push(`<h3>${k.innerHTML}</h3>`);
+          else cell.push(k.outerHTML);
+        });
+        cells.push(cell);
+        return;
+      }
+      if (el.tagName === 'P' && /^\{[a-z0-9 -]+\}$/.test(el.textContent.trim()) && /column-/.test(el.textContent)) return;
+      withoutColumnTokens(el);
+      if (!text) { text = []; cells.push(text); }
+      text.push(el.outerHTML);
+    });
+    const block = document.createElement('div');
+    block.className = `columns-media stage${variant === 'light' ? ' light' : ''}`;
+    block.innerHTML = `<div>${cells.map((c) => `<div>${c.join('')}</div>`).join('')}</div>`;
+    start.before(block);
+    [start, ...run, end].filter(Boolean).forEach((el) => el.remove());
+  });
+  return document.body.innerHTML;
+}
+
 /** The ranges [start, end) of a document's top-level <div> elements, in order. */
 const topDivs = (doc) => {
   const out = [];
@@ -313,7 +398,7 @@ export function withTabPanels(doc) {
 export const templateOf = () => 'info';
 
 /** A snapshot as the import reads it. */
-export const mappedOf = (html) => withoutLoads(withSearch(withTabMarkers(withB2bComponents(withHotlines(withEmails(withoutHelperLinks(withPlaceholder(stripScripts(html))))))))
+export const mappedOf = (html) => withoutLoads(withSearch(withStageColumnMarkers(withTabMarkers(withB2bComponents(withHotlines(withEmails(withoutHelperLinks(withPlaceholder(stripScripts(html)))))))))
   .replace(/<output[^>]*class="screen-reader-announcer"[^>]*>[\s\S]*?<\/output>/g, ''));
 
 const isMain = process.argv[1] && fs.realpathSync(process.argv[1]) === fileURLToPath(import.meta.url);
@@ -399,7 +484,7 @@ if (isMain) {
       const html = fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8');
       const markets = scope.documents[src]?.markets || [];
       // a tab set's panels as Tab sections (the markers withTabMarkers left, scripts/section-tabs.js)
-      const next = withB2bMetadata(withHotlineFinder(withB2bQuotes(withB2bForm(withTabPanels(splitTabSections(doc)), p, html), html), labelsOf(hotlineRecord, p.split('/')[2]), imageOf(hotlineRecord)), p, html, markets);
+      const next = withB2bMetadata(withHotlineFinder(withB2bQuotes(withB2bForm(withStageColumns(withTabPanels(splitTabSections(doc))), p, html), html), labelsOf(hotlineRecord, p.split('/')[2]), imageOf(hotlineRecord)), p, html, markets);
       if (next !== doc) fs.writeFileSync(f, next);
     });
     const mapOnly = path.join(W, 'runs', `${name}-upload.txt`);
