@@ -14,6 +14,7 @@ import destinationFinderParser from './parsers/destination-finder.js';
 import loungeFinderParser from './parsers/lounge-finder.js';
 import accordionColumnsParser from './parsers/accordion-columns.js';
 import cardsIconTextParser from './parsers/cards-icon-text.js';
+import embedParser from './parsers/embed.js';
 import lufthansaCleanupTransformer from './transformers/lufthansa-cleanup.js';
 import lufthansaSectionsTransformer from './transformers/lufthansa-sections.js';
 
@@ -104,6 +105,17 @@ const PAGE_TEMPLATE = {
       "instances": [
         ".onecolumn .column-view-item > :is(.threecolumn, .twocolumn):has(a.teaser.partner)"
       ]
+    },
+    {
+      "name": "embed",
+      "instances": [
+        ".video:has(> .video-player iframe)",
+        ".iframe:has(> .iframe-wrapper iframe[src*=\"lufthansa-inflightentertainment.com\"])",
+        ".iframe:has(> .iframe-wrapper iframe[src*=\"box.media-carrier.de\"])",
+        ".iframe:has(> .iframe-wrapper iframe[src*=\"lhg-network.com\"])",
+        ".iframe:has(> .iframe-wrapper iframe[src*=\"swiss-inflightentertainment.com\"])",
+        ".iframe:has(> .iframe-wrapper iframe[src^=\"https://www.google.com/maps/embed\"])"
+      ]
     }
   ],
   "sections": [
@@ -191,6 +203,7 @@ const parsers = {
   'lounge-finder': loungeFinderParser,
   'accordion-columns': accordionColumnsParser,
   'cards-icon-text': cardsIconTextParser,
+  'embed': embedParser,
 };
 const transformers = [lufthansaCleanupTransformer, lufthansaSectionsTransformer];
 
