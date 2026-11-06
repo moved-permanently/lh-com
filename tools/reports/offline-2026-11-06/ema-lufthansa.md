@@ -59,3 +59,32 @@ sideways scroll.
 
 Preview paths (no files: every picture is DA's): the 263 "uploaded and previewed" rows of
 tools/importer/cargo-runs/stories-offline-2026-11-06.tsv, in any order (the code is on main).
+
+## 3. Brussels, deeper visual parity (brussels-parity-002a and -002b; in progress)
+
+What so far: both archives from the R2 drop (sha256 checked: d81b5e3f… and 7c7591fd…), 58 pages at
+1440 and 390, compared with lh-brussels' preview (main--lh-brussels--moved-permanently.aem.page):
+page heights, titles, headings, text, copy sizes, breadcrumbs, sideways scroll, the blocks against
+www's components. The Studio's snapshots (brussels-snapshots-001 to -012 in the drop, 1504 pages;
+no .sha256 files next to them) placed in tools/importer/bd-snapshots/ for the re-imports.
+
+Found and fixed in the import:
+- pages with a photo gallery (58 across the markets, e.g. /be/fr/travel-classes/business) took
+  lh-com's fleet template, which has the gallery but none of a content page's other parsers:
+  their picture and text rows, teaser cards and tabs came in as plain content. Now they import with
+  the info template, the gallery spliced in from a fleet import of the same page
+  (brussels-import.mjs, test/brussels-galleries.test.mjs; commit 4d56b6e).
+- pages with tab panels (38, e.g. /be/fr/flying-with-us/new-destinations: both tabs one under the
+  other, three times www's height): main's import bundles were older than 515475be (tab panels as
+  Tab sections); with bundles built from main's sources (rebuilt upstream meanwhile) they import
+  with their tabs.
+
+87 documents re-imported (the gallery pages and the tab pages that lh-brussels has), each against
+DA's current copy: no passage, picture or metadata row lost (DA's `markets` and `chat-button` rows
+carried over, the workspace's scope.json is not on this machine; links DA has relative kept
+relative; two amare pictures DA keeps its own copy of point at DA's copy). Uploaded and previewed:
+tools/reports/brussels/preview-offline-2026-11-06.txt (87, any order: the code is on main; commit
+c3bc782 and the next for the state).
+
+Note: a service restart (about 12:35 CET) wiped /tmp mid-upload; the upload state file it was
+writing came back from git and every document was uploaded again from the list.

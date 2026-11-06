@@ -79,3 +79,9 @@
 /it/it/flying-with-us/the-belgian-icons/rackham
 /it/it/flying-with-us/the-belgian-icons/trident
 /it/it/travel-classes/business/amenity-kit
+/be/en/flying-with-us/the-belgian-icons/amare
+/be/fr/flying-with-us/the-belgian-icons/amare
+/be/nl/flying-with-us/the-belgian-icons/amare
+/de/de/flying-with-us/the-belgian-icons/amare
+/es/es/flying-with-us/the-belgian-icons/amare
+/it/it/flying-with-us/the-belgian-icons/amare
