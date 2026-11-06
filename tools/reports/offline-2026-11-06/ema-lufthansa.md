@@ -304,3 +304,28 @@ sections after a heading) and 1183-1184 (a column's last picture). Browsers reje
 Noted in stories-offline-2026-11-06-files.tsv (a third column): those 59 answer 404 on www itself
 (also with ?t=, the user's check), so www's stories link dead pictures and leaving them out is
 right. The 58 new ones from cargo-snapshots-005 are marked not checked on www (no requests to www).
+
+### 4. The transport stories hub, all 100 stories
+
+www's hub page holds its whole list in a script (var diaries = [...], 100 stories in www's order);
+its grid renders the tiles as the visitor scrolls, which is why the captures had 10 (en) and 22 (es
+to pt). The importer (cargo-import.mjs, tests first: test/cargo-hub-439.test.mjs) now builds the
+hub's tiles from that list, each as www's tile (the headline linked, the text, "More"). A story www
+rendered keeps its tile's text: www's Portuguese page shows its tiles translated while its list is
+English (without this the Portuguese hub lost 8 passages against DA). The picture: the teaser's own
+when lh-cargo's DA has it, else the story's first picture in DA, else none. All 500 tiles got the
+teaser's own picture: DA already had every one (uuid-named, uploaded with the stories). Nothing
+requested from www.
+
+/en, /es, /fr, /it and /pt/ci/transport-stories re-imported (100 tiles each), each against DA's
+copy (no passage or picture lost), uploaded and previewed. Checked on main--lh-cargo--moved-
+permanently.aem.page at 1440 and 390 (en, pt): one h1, 101 pictures, none broken, no sideways
+scroll; the last tile www's last story. English links three stories to www (artcube, hanoi,
+isotope-institute: on www's list, not in Cargo's story scope); es to pt link www's stories in their
+language, as before (those are not ours).
+
+Open: /de/ci/transport-stories has no capture on this machine (as in item 4 of the package), so it
+stays as it is; it needs a capture, then the same run.
+
+Preview paths (any order; no files): /en/ci/transport-stories, /es/ci/transport-stories,
+/fr/ci/transport-stories, /it/ci/transport-stories, /pt/ci/transport-stories.
