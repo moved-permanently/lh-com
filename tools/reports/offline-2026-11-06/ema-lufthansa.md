@@ -377,3 +377,55 @@ the drop-derived scratch folder) for those rollbacks.
   "Facts & Figures >" link in the slider and www's arrows beside the dots neither.
 - The es to pt Facts & Figures pages could take the nine new pictures with one run (not asked).
 - styles/styles.css's :has() inside :has() (lines 763-790, 1183-1184): never applied; for ema-cashub.
+
+## Brief 442: Cargo follow-ups and Brussels
+
+Nothing published: documents uploaded to DA and previewed (da-upload.mjs), the upload state merged
+with origin's entry by entry before each push. styles/styles.css on current main (after ema-cashub's
+0b5e12f8): no :has() inside :has() left.
+
+### 1. The homepage's phone ULD picture in the importer
+
+cargo-import.mjs (tests first: test/cargo-uld-import-442.test.mjs): the ULD teaser (www's
+.teaserULD, one picture with a max-width: 767px source) writes the phone picture as its picture
+cell's second picture, after the desktop one, without alt text (the same picture), which
+hero-card-overlay shows on Cargo below 768 px (ema-adobe's 3c4c099). /en/home and /de/home imported
+once against DA's current copies: identical (every line of main the same), so nothing uploaded.
+Commit e0d6a35f.
+
+### 2. Key facts on phones as www's
+
+www shows its phone copy below 768 px (LCAGCP-lcagMobileFactsSlider: seven text slides, arrows and
+dots, the "Facts & Figures" link, over the phone photo). Measured on cargo-parity-001 rendered with its
+own stylesheets (its serve.py, copied into my tools and run there; nothing requested from www).
+
+- cargo-import.mjs: after the desktop slides, the phone slides as carousel-cards (facts), one row
+  per slide (www's slick clones left out): the icon when lh-cargo's DA has it, the lines (www's h2 as
+  strong; the footnote as it is); then the link, all in the key-facts section.
+- cargo.css below 768 px: the band as tall as the phone photo (556 x 864: 606 px at 390), "Key Facts"
+  at its top, one slide at a time, the lines 24/28.8 bold navy centred 10 px apart, the arrows
+  (48 px) either side of the dots (20 px navy rings, the current one filled) in one row 100 px above
+  the band's foot, the link 16 px navy 16 px in and 30 px above the foot; the desktop slides hidden.
+  From 768 px as before (www's desktop slider from its md breakpoint).
+- Tests first: test/cargo-kf-phone-442.test.mjs.
+
+Checked on a local dev server with the code and lh-cargo's preview content: 390, www's layout
+(dots 200 px wide, www 210; the row's foot 100 px above the band's; the link at x 16, 30 px above the
+foot; no sideways scroll); 768 and 1440 the desktop slider as before (1440 x 649 at 1440). axe on
+/en and /de at 1440 and 390: 0 violations.
+
+Differs: the slides' icons (six SVGs on www: lh-icon-earth-pin, fact-icon_63%, lh-icon-money,
+lh-icon-people-group, lh-icon-airplane-booking, in /documents/20184/30701803/) are not in
+lh-cargo's DA, so the slides show their text only (www shows each icon at half the width above the
+text; its first slide has none); the link goes to www's PDF (2025-Facts-Figures_EN.pdf, _DE for
+German), which lh-cargo's DA does not have. Our first slide has no "previous" arrow (www's slider
+loops).
+
+### 3. The es, fr, it and pt Facts & Figures pages
+
+Imported in the same run as en and de (six documents), each against DA's current copy: the nine
+pictures of cargo-media-002 in every language, the key facts' phone slides and link as item 2; no
+passage or picture lost. The es to pt pages' hero video now DA's copy (/documents/home-impressions-
+02-186d57.mp4, as en and de) instead of www's static.lufthansa-cargo.com link (the only line the
+check flagged). Uploaded and previewed; one h1, no broken picture, no sideways scroll at 1440 and
+390 (local dev server with the code).
