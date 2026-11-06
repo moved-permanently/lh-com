@@ -741,3 +741,225 @@ body.brand-b2b .columns-media .columns-media-text > :is(h2, h3) + p > a > pictur
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+/* ------------------------------------------------- Lufthansa Cargo's homepage bands ------- */
+
+/* option band (brief 425, cargo row 12; cargo-parity-001 and www's stylesheets): a band behind the
+   column across the screen (a border image's outset: no sideways scroll), 40px above and below,
+   20px between its rows; gradient: www's .infraWrapper, 90deg rgba(132,154,194,.6) to #f5f5f5
+   over the screen's width (the stops at its edges); dark: www's .ourProducts and .contentAbout,
+   #05164d with white text (www draws its own SVG artwork over it: not among our files) */
+body.brand-cargo .columns-media.band {
+  padding-block: 40px;
+  gap: 20px;
+}
+
+body.brand-cargo .columns-media.band.gradient {
+  border-image: linear-gradient(90deg, rgb(132 154 194 / 60%) calc(50% - 50vw), #f5f5f5 calc(50% + 50vw)) fill 0 // 0 100vw;
+}
+
+body.brand-cargo .columns-media.band.dark {
+  border-image: linear-gradient(#05164d, #05164d) fill 0 // 0 100vw;
+  color: #fff;
+}
+
+/* stylelint-disable no-descending-specificity -- Cargo's bands after the shared rules */
+body.brand-cargo .columns-media.band.dark :is(h2, h3, h4, p, li, a:any-link) {
+  color: #fff;
+}
+
+/* option stats (www's infrastructure): the heading and text up to 856px, then the counters
+   beside the map (636px | the rest, 24px apart, from 1025px; the map 419px high, right); the two
+   big counters 28/32 in rows between #52627c rules, the regions three to a row (one below 1025px),
+   the number 28/32 over its 14/18 label */
+body.brand-cargo .columns-media.stats .columns-media-row:first-child .columns-media-text {
+  max-width: 856px;
+}
+
+body.brand-cargo .columns-media.stats .columns-media-row:first-child h2 {
+  margin-bottom: 10px;
+}
+
+body.brand-cargo .columns-media.stats .columns-media-row:first-child h3 {
+  font-size: 32px;
+  line-height: 36px;
+}
+
+body.brand-cargo .columns-media.stats .columns-media-text > ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+body.brand-cargo .columns-media.stats .columns-media-text > ul:first-of-type > li {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid #52627c;
+  font-size: 28px;
+  line-height: 32px;
+}
+
+body.brand-cargo .columns-media.stats .columns-media-text > ul:first-of-type > li:first-child {
+  border-top: 1px solid #52627c;
+}
+
+body.brand-cargo .columns-media.stats .columns-media-text > ul:nth-of-type(2) {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+body.brand-cargo .columns-media.stats .columns-media-text > ul:nth-of-type(2) > li {
+  padding: 10px 0;
+  border-bottom: 1px solid #52627c;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+body.brand-cargo .columns-media.stats .columns-media-text li > strong {
+  font-family: var(--heading-font-family);
+  font-size: 28px;
+  line-height: 32px;
+}
+
+body.brand-cargo .columns-media.stats .columns-media-text > ul:nth-of-type(2) > li > strong {
+  display: block;
+}
+
+body.brand-cargo .columns-media.stats .columns-media-text > ul + p {
+  margin-top: 20px;
+}
+
+/* option features (www's products, speeds and add-on services): the heading row, then each row
+   under a #52627c rule, 20px above and below: the text 416px, the features beside it (from
+   1025px), 88px wide, 22px apart, centred, white */
+body.brand-cargo .columns-media.features .columns-media-row + .columns-media-row {
+  padding-block: 20px;
+  border-top: 1px solid #52627c;
+}
+
+body.brand-cargo .columns-media.features .columns-media-row h2 {
+  margin-bottom: 10px;
+}
+
+body.brand-cargo .columns-media.features .columns-media-row + .columns-media-row h2 {
+  font-size: 28px;
+  line-height: 32px;
+}
+
+body.brand-cargo .columns-media.features .columns-media-text > ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 22px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+body.brand-cargo .columns-media.features .columns-media-text > ul > li {
+  width: 88px;
+  margin: 0;
+  text-align: center;
+}
+
+body.brand-cargo .columns-media.features .columns-media-text > ul > li a:any-link {
+  font-size: 14px;
+  line-height: 18px;
+  text-decoration: none;
+}
+
+body.appear.brand-cargo main .columns-media.features .columns-media-text > ul > li a:any-link::before {
+  content: none;
+}
+
+/* option facts (www's about): 640px high from 768px, the text up to 856px, Key Facts under the
+   lead: five to a row (two below 768px) left of a #52627c rule, the figure 28/32 over its label */
+body.brand-cargo .columns-media.facts .columns-media-row {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 856px;
+}
+
+body.brand-cargo .columns-media.facts .columns-media-text > h3 {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+body.brand-cargo .columns-media.facts .columns-media-text > ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  margin: 0;
+  padding: 0 0 20px;
+  list-style: none;
+}
+
+body.brand-cargo .columns-media.facts .columns-media-text > ul > li {
+  flex: 0 0 calc((100% - 16px) / 2);
+  padding-left: 10px;
+  border-left: 1px solid #52627c;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+body.brand-cargo .columns-media.facts .columns-media-text > ul > li > strong {
+  display: block;
+  margin-bottom: 10px;
+  font-family: var(--heading-font-family);
+  font-size: 28px;
+  line-height: 32px;
+}
+/* stylelint-enable no-descending-specificity */
+
+@media (width >= 768px) {
+  body.brand-cargo .columns-media.facts {
+    box-sizing: border-box;
+    min-height: 640px;
+  }
+
+  body.brand-cargo .columns-media.facts .columns-media-text > ul {
+    gap: 10px 24px;
+    padding-bottom: 32px;
+  }
+
+  body.brand-cargo .columns-media.facts .columns-media-text > ul > li {
+    flex: 0 0 calc((100% - 96px) / 5);
+  }
+}
+
+@media (width >= 1025px) {
+  body.brand-cargo .columns-media.stats .columns-media-row + .columns-media-row {
+    grid-template-columns: 636px minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  body.brand-cargo .columns-media.stats .columns-media-media {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  body.brand-cargo .columns-media.stats .columns-media-media img {
+    height: 419px;
+    object-fit: contain;
+  }
+
+  /* three to a row, the rules unbroken, a divider between them (www's 48px gap, the line in it) */
+  body.brand-cargo .columns-media.stats .columns-media-text > ul:nth-of-type(2) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 0;
+  }
+
+  body.brand-cargo .columns-media.stats .columns-media-text > ul:nth-of-type(2) > li:not(:nth-child(3n + 1)) {
+    padding-left: 24px;
+    border-left: 1px solid #52627c;
+  }
+
+  body.brand-cargo .columns-media.stats .columns-media-text > ul:nth-of-type(2) > li:not(:nth-child(3n)) {
+    padding-right: 24px;
+  }
+
+  body.brand-cargo .columns-media.features .columns-media-row + .columns-media-row {
+    grid-template-columns: 416px minmax(0, 1fr);
+    gap: 23px;
+  }
+}

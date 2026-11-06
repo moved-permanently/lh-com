@@ -165,3 +165,84 @@
     font-size: 24px;
   }
 }
+
+/* option widget (Lufthansa Cargo's homepage, brief 425, cargo row 10; cargo-parity-001): www's
+   Booking / Track / Schedule / Stations widget, its tabs links to the portal on www (decided),
+   the Track tab's form (booking-lookup (tracking)) its panel: a white card over the stage's foot,
+   its top 446px into the stage at 1440 (617 high: 171px up), 438px at 390 (749: 311px up); 24px
+   in, the four tabs side by side, 62px, under a 1px rule; below 768px icons only */
+body.brand-cargo main .cards-icon-wrapper:has(> .cards-icon.widget) {
+  position: relative;
+  z-index: 2;
+  margin-top: -311px;
+}
+
+body.brand-cargo .cards-icon.widget {
+  padding: 0 24px;
+  border-radius: 4px 4px 0 0;
+  background: #fff;
+  box-shadow: 0 1px 4px 0 rgb(0 0 0 / 20%);
+  clip-path: inset(-8px -8px 0);
+}
+
+body.brand-cargo .cards-icon.widget > ul {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  border-bottom: 1px solid #dcdcdc;
+}
+
+body.brand-cargo .cards-icon.widget > ul > li {
+  width: auto;
+}
+
+body.brand-cargo .cards-icon.widget .cards-icon-tile {
+  flex-direction: row;
+  justify-content: center;
+  gap: 8px;
+  min-height: 62px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+
+body.brand-cargo .cards-icon.widget .cards-icon-icon {
+  align-self: center;
+  margin: 0;
+  padding: 0;
+}
+
+body.brand-cargo .cards-icon.widget .cards-icon-icon .icon,
+body.brand-cargo .cards-icon.widget .cards-icon-icon img {
+  width: 24px;
+  height: 24px;
+}
+
+body.brand-cargo .cards-icon.widget .cards-icon-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (width >= 768px) {
+  body.brand-cargo main .cards-icon-wrapper:has(> .cards-icon.widget) {
+    margin-top: -171px;
+  }
+
+  body.brand-cargo .cards-icon.widget .cards-icon-label {
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip-path: none;
+    font-family: var(--body-font-family);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+  }
+}

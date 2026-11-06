@@ -21,10 +21,12 @@
  *   table-striped; citation (cf23): a quote; the rest (heading, paragraph, image, button, html,
  *   list view, collection): default content.
  * Web content pages (journal articles in portlets): the homepage components (slider: hero-campaign
- * for the first slide, cards-teaser (overlay) for the others; the booking/track/schedule/stations
- * widget: cards-icon linking the portal on www; Mynewsdesk news: a link to the newsroom; station
- * map with counters, about, products: columns-media; fleet tiles: cards-teaser (overlay); eServices
- * slider: carousel-cards; ULD teaser: hero-card-overlay), the company pages (video header:
+ * (slider), its slides; the booking/track/schedule/stations widget in the stage's section, over its
+ * foot: cards-icon (widget) linking the portal on www and the Track tab's form; Mynewsdesk news:
+ * news-feed reading www's pressroom list; the bands (brief 425): station map with counters
+ * columns-media (band, gradient, stats), products columns-media (band, dark, features), about
+ * columns-media (band, dark, facts), each with its heading inside; fleet tiles: cards-teaser
+ * (overlay); eServices slider: carousel-cards; ULD teaser: hero-card-overlay), the company pages (video header:
  * hero-campaign; facts slider: carousel-images; history timeline: carousel-cards), articles
  * (asset publisher: H1, dateline, text, image), legal pages (tables: table-striped).
  * Everywhere: forms, the portal's tools and Google Maps become a link to the page on www; the
@@ -732,12 +734,12 @@ function serviceWidget(c, page) {
   ];
   // the tab labels as on the page
   const labels = [...c.querySelectorAll('.nav-tabs .nav-link span')].map(text);
-  page.block('cards-icon', tiles.map(([icon, label, href], i) => [`<p>${icon}</p>`, `<p><a href="${href}">${esc(labels[i] || label)}</a></p>`]));
+  page.block('cards-icon (widget)', tiles.map(([icon, label, href], i) => [`<p>${icon}</p>`, `<p><a href="${href}">${esc(labels[i] || label)}</a></p>`]));
   page.note('booking / track / schedule / stations widget (portal): cards-icon linking the portal on www');
   // the Track tab's form (eTracking: prefix and serial of the air waybill): booking-lookup
   // (tracking), its texts as www's form has them; the tab named as www's own link to eTracking
   const form = c.querySelector('form[name="etrk-tracking-form"]');
-  if (!form) return;
+  if (!form) { page.section(null); return; }
   const doc = c.ownerDocument;
   // (the footer's "Frequently used" link: "Track your shipment", "Shipment tracken")
   const tab = text(doc.querySelector(`.footerLinkSection a[href="/${page.lang}/eservices/etracking"]`));
@@ -757,6 +759,7 @@ function serviceWidget(c, page) {
   if (submit) rows.push(['Submit label', submit]);
   page.block('booking-lookup (tracking)', rows.map(([k, v]) => [k, esc(v)]));
   page.note('shipment tracking form: booking-lookup (tracking), the air waybill handed to eTracking on www');
+  page.section(null);
 }
 
 function tabs(c, page) {
@@ -919,23 +922,37 @@ const slideParts = (s, page) => {
 function homeSlider(c, page) {
   const slides = [...c.querySelectorAll('.owl-item')].filter((s) => !isSkipped(s)).map((s) => slideParts(s, page)).filter((s) => s.head);
   if (!slides.length) return;
-  const [first, ...rest] = slides;
-  page.block('hero-campaign', [[first.img], [`<h1>${first.head}</h1>${first.sub ? `<p>${esc(first.sub)}</p>` : ''}${first.link ? `<p><strong>${first.link}</strong></p>` : ''}`]]);
-  if (rest.length) {
-    page.block('cards-teaser (overlay)', rest.map((s) => [s.img, `<h3>${s.head}</h3>${s.sub ? `<p>${esc(s.sub)}</p>` : ''}${s.link ? `<p>${s.link}</p>` : ''}`]));
-    page.note(`home slider: slide 1 hero-campaign, slides 2-${slides.length} cards-teaser (overlay) (lh-com has no stage slider)`);
-  }
-  page.section(null);
+  // one stage per slide (hero-campaign (slider): a picture row starts a slide), the first slide's
+  // headline the page's H1, the others' H2; the widget follows in the same section (serviceWidget)
+  const rows = slides.flatMap((s, i) => {
+    const h = i ? 'h2' : 'h1';
+    return [[s.img], [`<${h}>${s.head}</${h}>${s.sub ? `<p>${esc(s.sub)}</p>` : ''}${s.link ? `<p><strong>${s.link}</strong></p>` : ''}`]];
+  });
+  page.block(slides.length > 1 ? 'hero-campaign (slider)' : 'hero-campaign', rows);
+  if (!c.ownerDocument.querySelector('.service-widget')) page.section(null);
 }
 
 function latestNews(c, page) {
   const h = c.querySelector('.latestNewsTitle, h2');
   const a = c.querySelector('a.readAllNews, .readAllWrapper a');
   if (h) page.add(`<h2>${esc(text(h))}</h2>`);
-  const href = a ? page.href(a.getAttribute('href')) : null;
+  // the list www's script reads (var apiUrl = "https://www.mynewsdesk.com/services/pressroom/list/…")
+  const script = [...c.ownerDocument.querySelectorAll('script')].map((s) => s.textContent).find((s) => /services\/pressroom\/list\//.test(s)) || '';
+  const feed = (script.match(/https:\/\/www\.mynewsdesk\.com\/services\/pressroom\/list\/[^"'\s]+/) || [])[0];
+  if (feed) {
+    const url = feed.replace(/&amp;/g, '&');
+    page.block('news-feed', [['Feed', `<a href="${attr(url)}">${esc(url)}</a>`]]);
+    page.note('Mynewsdesk news: news-feed reads www\'s pressroom list');
+  }
+  // "Read all news": the newsroom in the page's language (www's script sets /newsroom on German
+  // pages; the newsroom is /<lang>/ci/newsroom), else www's link
+  const local = [`/${page.lang}/newsroom`, `/${page.lang}/ci/newsroom`].map((p) => page.href(p)).find((x) => x && !x.startsWith(HOST));
+  const href = a ? (local || page.href(a.getAttribute('href'))) : null;
   page.add(`<p>${href ? `<a href="${attr(href)}">${esc(text(a))}</a>` : ''}</p>`);
-  page.add(`<p><a href="${MYNEWSDESK}">${esc(page.labels.newsroom)}</a></p>`);
-  page.note('Mynewsdesk news list: links to the newsroom (not copied)');
+  if (!feed) {
+    page.add(`<p><a href="${MYNEWSDESK}">${esc(page.labels.newsroom)}</a></p>`);
+    page.note('Mynewsdesk news list: links to the newsroom (not copied)');
+  }
 }
 
 const statItem = (value, label) => `<li><strong>${esc(value)}</strong> ${esc(label)}</li>`;
@@ -947,8 +964,8 @@ function infra(c, page) {
   // the station network map (an image on www), then the counters
   const map = c.querySelector('img.infraMapImg');
   const mapImg = map ? page.img(map) : '';
-  const right = `${mapImg ? `<p>${mapImg}</p>` : ''}${stats.length ? `<ul>${stats.join('')}</ul>` : ''}${regions.length ? `<ul>${regions.join('')}</ul>` : ''}${mapLink(page).join('')}`;
-  page.block('columns-media', [[inner ? flow(inner, page, 'cell').join('') : '', right]]);
+  const counters = `${stats.length ? `<ul>${stats.join('')}</ul>` : ''}${regions.length ? `<ul>${regions.join('')}</ul>` : ''}${mapLink(page).join('')}`;
+  page.block('columns-media (band, gradient, stats)', [[inner ? flow(inner, page, 'cell').join('') : ''], [counters, mapImg ? `<p>${mapImg}</p>` : '']]);
 }
 
 function ourFleet(c, page) {
@@ -969,7 +986,7 @@ function ourFleet(c, page) {
 
 function ourProducts(c, page) {
   const box = c.querySelector('.whiteBgBox') || c;
-  [...box.children].filter((x) => /^(H2|A|P)$/.test(x.tagName)).forEach((x) => page.add(element(x, page, 'cell').join('') || (x.tagName === 'A' ? `<p>${inline({ childNodes: [x] }, page)}</p>` : '')));
+  const head = [...box.children].filter((x) => /^(H2|A|P)$/.test(x.tagName)).map((x) => element(x, page, 'cell').join('') || (x.tagName === 'A' ? `<p>${inline({ childNodes: [x] }, page)}</p>` : '')).join('');
   const rows = [...box.querySelectorAll('.productBlock, .speedBlock, .aosBlock')].map((b) => {
     const info = b.querySelector('.info');
     const links = [...b.querySelectorAll('.features a[href]')].map((a) => {
@@ -979,7 +996,8 @@ function ourProducts(c, page) {
     });
     return [info ? flow(info, page, 'cell').join('') : '', links.length ? `<ul>${links.join('')}</ul>` : ''];
   });
-  if (rows.length) page.block('columns-media', rows);
+  if (rows.length) page.block('columns-media (band, dark, features)', [[head], ...rows]);
+  else if (head) page.add(head);
 }
 
 function slideCards(c, page) {
@@ -1011,7 +1029,7 @@ function about(c, page) {
   const right = facts ? `<h3>${esc(text(facts.querySelector('.keyFactsTitle')))}</h3><ul>${items.join('')}</ul>${moreHref ? `<p><a href="${attr(moreHref)}">${esc(text(more))}</a></p>` : ''}` : '';
   const clone = c.cloneNode(true);
   clone.querySelectorAll('.aboutHeroHeader, .keyFacts').forEach((x) => x.remove());
-  page.block('columns-media', [[head ? flow(head, page, 'cell').join('') : '', right]]);
+  page.block('columns-media (band, dark, facts)', [[head ? flow(head, page, 'cell').join('') : '', right]]);
   flow(clone, page, 'cell').forEach((h) => page.add(h));
 }
 

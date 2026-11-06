@@ -840,3 +840,75 @@ main > .section:is(.stage.flush.before-padded, .section):has(> .hero-campaign-wr
     min-height: 96px;
   }
 }
+
+/* ------------------------------------------------- Lufthansa Cargo's homepage stage ------- */
+
+/* stylelint-disable no-descending-specificity -- Cargo's stage after the shared rules */
+
+/* the stage right under the header (lh-com's pages start 25px below it) */
+body.brand-cargo main > .section:first-of-type:has(> .hero-campaign-wrapper > .hero-campaign.slider) {
+  margin-top: 0;
+}
+
+/* www.lufthansa-cargo.com's home slider (brief 425, cargo row 10; cargo-parity-001 at 1440 and
+   390): 617px high (749px below 768px, where the widget's card takes the stage's lower part), the
+   text 40px from the top (20px), up to 856px wide, the subline 28/32; the dots under the text at
+   the left (their middle 306px into the stage at 1440, 322px at 390); the arrows 50 x 49 light grey
+   squares 8px in, in the stage's middle */
+body.brand-cargo .hero-campaign.slider .hero-campaign-slide {
+  min-height: 749px;
+  align-items: flex-start;
+}
+
+body.brand-cargo .hero-campaign.slider .hero-campaign-inner {
+  padding-top: 20px;
+}
+
+body.brand-cargo .hero-campaign.slider .hero-campaign-content {
+  max-width: 856px;
+}
+
+body.brand-cargo .hero-campaign.slider .hero-campaign-subtitle {
+  font-size: 28px;
+  line-height: 32px;
+}
+
+body.brand-cargo .hero-campaign.slider .hero-campaign-dots {
+  top: 316px;
+  bottom: auto;
+  left: 24px;
+  gap: 18px;
+  transform: none;
+}
+
+body.brand-cargo .hero-campaign.slider :is(.hero-campaign-prev, .hero-campaign-next) {
+  width: 50px;
+  height: 49px;
+  margin-top: -25px;
+  border-radius: 0;
+  background: #dcdcdc;
+}
+
+body.brand-cargo .hero-campaign.slider .hero-campaign-prev {
+  left: 8px;
+}
+
+body.brand-cargo .hero-campaign.slider .hero-campaign-next {
+  right: 8px;
+}
+/* stylelint-enable no-descending-specificity */
+
+@media (width >= 768px) {
+  body.brand-cargo .hero-campaign.slider .hero-campaign-slide {
+    min-height: 617px;
+  }
+
+  body.brand-cargo .hero-campaign.slider .hero-campaign-inner {
+    padding-top: 40px;
+  }
+
+  body.brand-cargo .hero-campaign.slider .hero-campaign-dots {
+    top: 300px;
+    left: 79px;
+  }
+}

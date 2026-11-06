@@ -616,3 +616,35 @@
   color: var(--link-color);
   font-weight: 700;
 }
+
+/* Lufthansa Cargo's homepage widget (brief 425, cargo row 10): the Track form right under the
+   widget's tabs (cards-icon (widget)), the card's panel: white, 24px in, the card's lower corners
+   and shadow, over the stage's foot as the tabs */
+body.brand-cargo main .cards-icon-wrapper:has(> .cards-icon.widget) + .booking-lookup-wrapper {
+  position: relative;
+  z-index: 2;
+  margin-top: 0;
+}
+
+body.brand-cargo main .cards-icon-wrapper:has(> .cards-icon.widget) + .booking-lookup-wrapper > .booking-lookup {
+  padding: 24px;
+  border-radius: 0 0 4px 4px;
+  background: #fff;
+  box-shadow: 0 1px 4px 0 rgb(0 0 0 / 20%);
+  clip-path: inset(0 -8px -8px);
+}
+
+/* stylelint-disable no-descending-specificity -- the widget's form after the shared rules */
+body.brand-cargo main .cards-icon-wrapper:has(> .cards-icon.widget) + .booking-lookup-wrapper .booking-lookup-panel {
+  padding-top: 0;
+}
+
+/* from 768px the button beside the fields, level with them (www's Track tab: the air waybill
+   field, then its button) */
+@media (width >= 768px) {
+  body.brand-cargo main .cards-icon-wrapper:has(> .cards-icon.widget) + .booking-lookup-wrapper .booking-lookup-actions {
+    width: auto;
+    margin-top: 4px;
+  }
+}
+/* stylelint-enable no-descending-specificity */

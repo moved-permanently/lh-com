@@ -1,0 +1,21 @@
+{
+  "variantName": "news-feed",
+  "baseBlock": "news-feed",
+  "canonicalModel": "standalone",
+  "sourceUrl": "https://www.lufthansa-cargo.com/en",
+  "visualCharacteristics": {
+    "purpose": "live press releases from a Mynewsdesk pressroom as cards (www.lufthansa-cargo.com's homepage \"Latest news\")",
+    "traits": [
+      "two cards side by side from 1025px, one under the other below",
+      "picture beside the text from 768px (320px, 17:10), above it on phones (16:9)",
+      "date line \"Press Release - 02 NOV 26 | 14:30\", the title, Read more with an arrow; white card with a light shadow"
+    ]
+  },
+  "contentPattern": {
+    "structure": "2 columns, label | value: Feed | the pressroom list URL (https://www.mynewsdesk.com/services/pressroom/list/<key>/?format=json&type_of_media=pressrelease&limit=6&order=published); optional Count | 2, Press release label, Read more label. Calls the feed from the browser (it answers any origin); the page language's releases first."
+  },
+  "options": [],
+  "memberVariantIds": [],
+  "usage": "Lufthansa Cargo /en/home and /de/home: \"Latest news\" in the place of www's .latestNewsHome.",
+  "reuseGuidance": "Reuse unchanged for any Mynewsdesk pressroom. Only feeds on www.mynewsdesk.com are read; a failed or empty feed hides the block."
+}
