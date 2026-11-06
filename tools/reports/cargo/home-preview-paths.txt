@@ -7,6 +7,6 @@
 /documents/about-bg-mobile-vector-cfeaac.svg
 /documents/about-bg-grain-bedb93.png
 # in DA, not on preview (the preview answered 409; replaced by the three above): /documents/about-bg-desktop-updated-bc71bf.svg, /documents/about-bg-mobile-updated-97b007.svg
-# pages (published by the user 2026-11-06 08:59 CET; brief 430 changes no document so far):
-# /en/home
-# /de/home
+# pages (brief 430: re-imported with the fleet, slides and plain options; uploaded and previewed):
+/en/home
+/de/home
