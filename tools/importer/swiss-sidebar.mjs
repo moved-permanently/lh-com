@@ -12,7 +12,7 @@
  * row per card: its picture | its title, text and link). Anywhere on the page, an image | text view whose
  * document form is clean (the picture right next to its text) becomes a columns-media row (picture |
  * text, or text | picture as the snapshot has it); a heading above the view stays above it. A tab the
- * import left empty gets the section after it as its panel. A sidebar the document does not show
+ * import left empty gets the section after it as its panel; sections split off a tab join it. A sidebar the document does not show
  * in that order is left as it is (listed in the result). A document this step made already stays.
  */
 import { parseHTML } from 'linkedom';
@@ -337,6 +337,42 @@ function joinEmptyTabs(document, main) {
   return joined;
 }
 
+// a document element's text without DA's style markers ({heading-small}, a {spacer-40} paragraph)
+const plainText = (el) => textOf(el).replace(/\s*\{[a-z0-9 ,-]+\}\s*$/, '');
+const firstText = (sec) => [...sec.children].find((c) => !c.classList.contains('section-metadata') && plainText(c));
+const inPanel = (texts, el) => {
+  const t = plainText(el).slice(0, 60);
+  return texts.some((x) => x.startsWith(t) || t.startsWith(x.slice(0, 60)));
+};
+
+/**
+ * Sections the import split off a tab (entertainment's eJournals tab: its "Hinweis" box a flush
+ * grey section, its login another, both under the tab set): a section without Tab rows after a
+ * tab's section joins it when www's tab panel (maui-tab-control-panel-responsive) holds its first
+ * text. Returns how many.
+ */
+function joinTabPanels(main, panels) {
+  let joined = 0;
+  [...main.children].forEach((sec) => {
+    if (!sec.isConnected || !metaRows(sec).some(isTabRow)) return;
+    const head = firstText(sec);
+    const own = head && panels.find((texts) => inPanel(texts, head));
+    if (!own) return;
+    let next = sec.nextElementSibling;
+    while (next && !metaRows(next).some(isTabRow) && !next.querySelector(':scope > .metadata')) {
+      const f = firstText(next);
+      if (!f || !inPanel(own, f)) break;
+      const meta = sec.querySelector(':scope > .section-metadata');
+      [...next.children].filter((c) => !c.classList.contains('section-metadata')).forEach((c) => (meta ? meta.before(c) : sec.append(c)));
+      const later = next.nextElementSibling;
+      next.remove();
+      next = later;
+      joined += 1;
+    }
+  });
+  return joined;
+}
+
 /**
  * @param {string} doc a document (<body><header></header><main>…</main>…) or its sections (.plain.html)
  * @param {string} html the page's snapshot
@@ -355,7 +391,8 @@ export function withSwissSidebar(doc, html) {
   const sidebars = sidebarsOf(html);
   const { document } = parseHTML(`<!DOCTYPE html><html><body><main>${inner}</main></body></html>`);
   const main = document.querySelector('main');
-  const joined = joinEmptyTabs(document, main);
+  const panels = [...parseHTML(html).document.querySelectorAll('maui-tab-control-panel-responsive')].map(partTexts);
+  const joined = joinEmptyTabs(document, main) + joinTabPanels(main, panels);
   let made = 0;
   let from = { section: main.firstElementChild, index: 0 };
   sidebars.forEach((sb, n) => {

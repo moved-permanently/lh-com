@@ -189,6 +189,22 @@ test('an empty tab section: its Tab rows on the section that follows', () => {
   assert.match(text(all[1]), /^New entry regulations/);
 });
 
+/* sections the import split off a tab (entertainment's eJournals tab: its "Hinweis" box a flush grey
+   section, its login and titles another, both under the tab set, so on every tab): when www's tab
+   panel holds their text, they join the tab's section */
+test('sections of www\'s tab panel after the tab section join it', () => {
+  const tab = (label, body) => `<div>${body}<div class="section-metadata"><div><div>Tab</div><div>${label}</div></div><div><div>Tabs</div><div>1</div></div></div></div>`;
+  const doc = `<body><header></header><main><div><h1>T</h1></div>${tab('One', '<h2>First tab heading</h2><p>First tab text</p>')}${tab('eJournals', '<h2>eJournals heading</h2><p>eJournals text</p>')}<div><h2>Hinweis</h2><p>Not available at the moment</p><div class="section-metadata"><div><div>style</div><div>flush, grey</div></div></div></div><div><h3>Login</h3><p>Log in with your profile</p></div><div><div class="metadata"><div><div>nav</div><div>/ch/de/nav</div></div></div></div></main><footer></footer></body>`;
+  const panel = (body) => `<maui-tab-control-panel-responsive>${body}</maui-tab-control-panel-responsive>`;
+  const html = `<html><body><maui-tab-control-responsive>${panel('<h2>First tab heading</h2><p>First tab text</p>')}${panel('<h2>eJournals heading</h2><p>eJournals text</p><h2>Hinweis</h2><p>Not available at the moment</p><h3>Login</h3><p>Log in with your profile</p>')}</maui-tab-control-responsive></body></html>`;
+  const { doc: out } = withSwissSidebar(doc, html);
+  const all = sections(out);
+  assert.equal(all.length, 4, 'the two split-off sections in the tab\'s');
+  assert.deepEqual([...all[2].children].filter((el) => !el.classList.contains('section-metadata')).map((el) => text(el)), ['eJournals heading', 'eJournals text', 'Hinweis', 'Not available at the moment', 'Login', 'Log in with your profile']);
+  assert.deepEqual(style(all[2]), ['Tab: eJournals', 'Tabs: 1']);
+  assert.ok(all[3].querySelector('.metadata') !== null, 'the page metadata stays after the tabs');
+});
+
 /* www's words for screen readers inside a link (maui-screen-reader-label, .sr-only) are not in the
    document: they are not the snapshot's text (animals travelling de: its aside's last link) */
 test('screen-reader words in www\'s links are not the text to find', () => {
