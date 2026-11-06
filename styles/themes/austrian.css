@@ -729,3 +729,37 @@ body.brand-austrian .footer .footer-inner .footer-badges img {
       'note note';
   }
 }
+
+/* austrian-parity-002 (brief 427 package): www's intro paragraph (p.copytext-large) Portada 18 / 27;
+   the default h3 and h4 (www's heading-copytext-large) CoreSans 500, 16 / 17.6 on phones and 18 /
+   19.8 from 1025 px, not Portada (the cards keep their titles); list items 5 px apart, the
+   paragraph inside an item without its 24 px */
+body.brand-austrian main p.copytext-large {
+  font-family: var(--heading-font-family);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 27px;
+}
+
+body.brand-austrian main :is(.default-content-wrapper, .columns-media-text) > :is(h3, h4):not([class*="heading-"]) {
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+@media (width >= 1025px) {
+  body.brand-austrian main :is(.default-content-wrapper, .columns-media-text) > :is(h3, h4):not([class*="heading-"]) {
+    font-size: 18px;
+  }
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- content lists, not the menu's or the panels' */
+body.brand-austrian main :is(.default-content-wrapper, .columns-media-text, .accordion-columns) li {
+  margin-bottom: 5px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- content lists, not the menu's or the panels' */
+body.brand-austrian main :is(.default-content-wrapper, .columns-media-text, .accordion-columns) li > p {
+  margin-bottom: 0;
+}

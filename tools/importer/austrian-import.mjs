@@ -60,6 +60,17 @@ const h1Of = (html) => text((html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/g) || []).map
  * culinary-hub micro-frontend (labelled with the page's H1), the FAQ search bar (with its own
  * label), iframes the embed block doesn't play (with their title, else the H1).
  */
+/**
+ * www's p.copytext-large (the intro under the title, Portada 18 / 27 on www.austrian.com; 200 times on
+ * at/en and at/de) with its style as a marker: lh-com's cleanup marks it only with a link
+ * (lufthansa.com's default copy is that size) and leaves a paragraph that ends in a marker alone.
+ */
+export const withCopytextLarge = (html) => html.replace(/(<p class="copytext-large"[^>]*>)([\s\S]*?)(<\/p>)/g, (m, open, inner, close) => {
+  const plain = inner.replace(/<[^>]+>/g, '').trim();
+  if (!plain || /\{[a-z0-9 -]+\}\s*$/.test(plain)) return m;
+  return `${open}${inner.replace(/\s+$/, '')} {copytext-large}${close}`;
+});
+
 export function withLinkOuts(html, p) {
   const linkOut = (label) => `<div class="text section"><div class="richtext"><p><a href="https://${LINK_OUT}${p}">${label}</a></p></div></div>`;
   let out = editDivs(html, '<div class="checkindeadlinesearch', () => linkOut(h1Of(html) || HOST));
@@ -127,12 +138,21 @@ export function withCheckinTabs(html) {
  * A snapshot whose teaser rows in a two-column view (Austrian's "Related", "This might also interest
  * you": two teasers side by side) are a three-column view, which lh-com's info importer makes a
  * carousel-cards block (".threecolumn:has(.teaser)"; its two-column views with teasers are left
- * to the text flow, where the teasers stack). Column views nested in it are left as they are.
+ * to the text flow, where the teasers stack), marked data-import-two-up so the block keeps www's two
+ * cards a row. Column views nested in it are left as they are.
  */
 export const withTeaserColumns = (html) => editDivs(html, '<div class="twocolumn', (el) => {
   if (!el.includes('class="teaser') || /<div class="(?:two|three|four)column/.test(el.slice(1))) return el;
-  return el.replace('<div class="twocolumn', '<div class="threecolumn').replace('data-identifier="twocolumn"', 'data-identifier="threecolumn"');
+  // marked for the carousel-cards parser's two-up grid: www's two cards a row (/at/de/familien)
+  return el.replace(/^<div class="twocolumn([^"]*)"/, '<div class="threecolumn$1" data-import-two-up=""').replace('data-identifier="twocolumn"', 'data-identifier="threecolumn"');
 });
+
+/**
+ * Austrian's teaser cards with their link line (www shows ".teaser-link-text", "→ Zur
+ * Reisevorbereitung"; lufthansa.com hides it): marked for the carousel-cards parser, which keeps a
+ * marked card's line as a link paragraph.
+ */
+export const withTeaserCta = (html) => html.replace(/(<a\b[^>]*class="teaser card[^"]*")(?![^>]*data-import-cta)/g, '$1 data-import-cta=""');
 
 // the booking-lookup's hand-off: www's check-in app is not reachable from the replica (and its
 // target is not in the page), so a valid search opens the same page on www, nothing in the URL
@@ -224,7 +244,7 @@ export function withFlightSearch(doc, p) {
  * maui-tab-control-responsive with column views, accordions, tables), no loads, no screen-reader
  * announcement (the help centre app's "Help page loaded." is no page text).
  */
-export const mappedOf = (html, p) => withoutLoads(withTabMarkers(withTeaserColumns(withCheckinTabs(withLinkOuts(withPlaceholder(stripScripts(html)), p)))))
+export const mappedOf = (html, p) => withoutLoads(withTabMarkers(withTeaserCta(withTeaserColumns(withCheckinTabs(withCopytextLarge(withLinkOuts(withPlaceholder(stripScripts(html)), p)))))))
   .replace(/<output[^>]*class="screen-reader-announcer"[^>]*>[\s\S]*?<\/output>/g, '');
 
 /**
@@ -245,9 +265,11 @@ export function templateOf(p, html) {
   // (homepage-new: the variant homepage some Italian-language roots have, al/it, be/it, ch/it)
   if (/^\/[a-z]{2}\/[a-z]{2}\/homepage(-new)?$/.test(p)) return 'homepage';
   if (/class="topoffersdestinationfinder/.test(html)) return 'hub';
-  if (/class="flightstatustimetable/.test(html)) return 'flight-status';
+  // the timetable and the check-in entry: info's components plus that block (austrian-templates.mjs;
+  // lh-com's flight-status and app-entry templates keep only lufthansa.com's hub pages' few)
+  if (/class="flightstatustimetable/.test(html)) return 'austrian-flight-status';
   if (/class="slideshow/.test(html)) return 'fleet';
-  if (/checkinpassengerreceiptentry|class="[^"]*dcep-quick-actions/.test(html)) return 'app-entry';
+  if (/checkinpassengerreceiptentry|class="[^"]*dcep-quick-actions/.test(html)) return 'austrian-checkin';
   return 'info';
 }
 

@@ -19,7 +19,8 @@ import { viewerNodes } from './media-nodes.js';
  *
  * Teaser cards of the source (a.teaser.card: ".threecolumn" / ".fourcolumn" column views,
  * ".carousel" swipers of them): 2 columns per row (image | heading linked to the card target,
- * description). The card's ".teaser-link-text" is display:none on live and is not imported.
+ * description). The card's ".teaser-link-text" is display:none on live and is not imported (a card
+ * marked data-import-cta, a brand whose www shows it: Austrian, keeps it as a link paragraph).
  * Heading level as in the source (h3-h6; h1/h2 card titles become h3). The column title is
  * emitted as default content before the table, with its size class (h2.heading-small, which
  * the cleanup marks as {heading-small}); a swiper copy below lg is skipped when the
@@ -204,6 +205,17 @@ export default function parse(element, { document }) {
       }
       const description = visibleText(card.querySelector('.teaser-description'));
       if (description) content.push(para(description));
+      // a brand whose www shows the card's link line (Austrian: the import marks its cards with
+      // data-import-cta, austrian-import.mjs withTeaserCta): the line as a link after the description
+      const cta = card.hasAttribute('data-import-cta') && visibleText(card.querySelector('.teaser-link-text'));
+      if (cta && href) {
+        const p = document.createElement('p');
+        const a = document.createElement('a');
+        a.href = href;
+        a.textContent = cta;
+        p.append(a);
+        content.push(p);
+      }
       if (!imageCell && !content.length) return;
       rows.push([imageCell, content.length ? content : '']);
     });
@@ -214,7 +226,8 @@ export default function parse(element, { document }) {
     if (isArticle) variants = ['article'];
     else if (element.querySelector('.swiper-multi-slide')) variants = ['four-up'];
     else if (element.matches('.fourcolumn')) variants = ['grid', 'four-up'];
-    else if (element.matches('.twocolumn')) variants = ['grid', 'two-up'];
+    // (a three-column view marked data-import-two-up: a brand's converted two-column one, Austrian)
+    else if (element.matches('.twocolumn, [data-import-two-up]')) variants = ['grid', 'two-up'];
     else if (!element.matches('.carousel')) variants = ['grid'];
     const block = WebImporter.Blocks.createBlock(document, { name: 'carousel-cards', variants, cells: rows });
     element.replaceWith(...titles, block);

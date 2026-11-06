@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-insights.js
-  var tmp_bundle_insights_677266_exports = {};
-  __export(tmp_bundle_insights_677266_exports, {
-    default: () => tmp_bundle_insights_677266_default
+  var tmp_bundle_insights_498857_exports = {};
+  __export(tmp_bundle_insights_498857_exports, {
+    default: () => tmp_bundle_insights_498857_default
   });
 
   // tools/importer/parsers/poi-data.js
@@ -3943,6 +3943,15 @@ var CustomImportScript = (() => {
         }
         const description = visibleText(card.querySelector(".teaser-description"));
         if (description) content.push(para(description));
+        const cta = card.hasAttribute("data-import-cta") && visibleText(card.querySelector(".teaser-link-text"));
+        if (cta && href) {
+          const p = document.createElement("p");
+          const a = document.createElement("a");
+          a.href = href;
+          a.textContent = cta;
+          p.append(a);
+          content.push(p);
+        }
         if (!imageCell && !content.length) return;
         rows.push([imageCell, content.length ? content : ""]);
       });
@@ -3950,7 +3959,7 @@ var CustomImportScript = (() => {
       if (isArticle) variants = ["article"];
       else if (element.querySelector(".swiper-multi-slide")) variants = ["four-up"];
       else if (element.matches(".fourcolumn")) variants = ["grid", "four-up"];
-      else if (element.matches(".twocolumn")) variants = ["grid", "two-up"];
+      else if (element.matches(".twocolumn, [data-import-two-up]")) variants = ["grid", "two-up"];
       else if (!element.matches(".carousel")) variants = ["grid"];
       const block2 = WebImporter.Blocks.createBlock(document, { name: "carousel-cards", variants, cells: rows });
       element.replaceWith(...titles, block2);
@@ -6207,7 +6216,10 @@ var CustomImportScript = (() => {
   var BREAK = "data-excat-section-break";
   var FIRST = "data-excat-section-first";
   var SOURCE_STYLE = "data-excat-section-source-style";
+  var TAB = "data-excat-section-tab";
   var FOLLOWING = 4;
+  var TAB_PANEL = "maui-tab-control-panel-responsive";
+  var TAB_COLUMNS = ".twocolumn, .threecolumn, .fourcolumn";
   var SOURCE_STYLES = [[".container-gray", "grey"], [".image-wrapper.full-width-bg", "full-bleed"]];
   var STYLE_SKIP = ".sticky-price-wrapper, .dcep-sticky-price";
   var REGION_STOP = '.section-content, .container-content, .author-details-page, .column-view-item, [class*="col-"], .contentpage, main, body';
@@ -6339,6 +6351,7 @@ var CustomImportScript = (() => {
         const merged = [prev.getAttribute(attr), hr.getAttribute(attr)].filter(Boolean).join(" ");
         prev.setAttribute(attr, merged);
       });
+      if (hr.hasAttribute(TAB)) prev.setAttribute(TAB, hr.getAttribute(TAB));
       hr.remove();
     });
   }
@@ -6396,6 +6409,24 @@ var CustomImportScript = (() => {
         s.before(start);
         if (next) next.before(createBreak(document));
       });
+      const blockSelectors = (template.blocks || []).flatMap((b) => b.instances || []);
+      const taken = (el) => blockSelectors.some((sel) => {
+        try {
+          return !!el.closest(sel);
+        } catch (e) {
+          return false;
+        }
+      });
+      document.querySelectorAll("maui-tab-control-responsive").forEach((control) => {
+        const panels = [...control.querySelectorAll(TAB_PANEL)].filter((p) => p.closest("maui-tab-control-responsive") === control);
+        if (!panels.length || taken(control) || !panels.some((p) => p.querySelector(TAB_COLUMNS))) return;
+        panels.forEach((panel, i) => {
+          const hr = createBreak(document);
+          hr.setAttribute(TAB, (panel.getAttribute("name") || "").trim() || `Tab ${i + 1}`);
+          panel.before(hr);
+        });
+        control.after(createBreak(document));
+      });
     }
     if (hookName === "afterTransform") {
       dropEmptyBreaks(document, element);
@@ -6410,13 +6441,14 @@ var CustomImportScript = (() => {
         });
         return styles.join(", ");
       };
-      const marked = [...document.querySelectorAll(`hr[${MARKER}], hr[${SOURCE_STYLE}]`)].filter((hr) => !hr.closest("table"));
+      const marked = [...document.querySelectorAll(`hr[${MARKER}], hr[${SOURCE_STYLE}], hr[${TAB}]`)].filter((hr) => !hr.closest("table"));
       marked.reverse().forEach((marker) => {
         const style = styleOf(marker);
-        if (style) {
+        const tab = marker.getAttribute(TAB);
+        if (style || tab) {
           const meta = WebImporter.Blocks.createBlock(document, {
             name: "Section Metadata",
-            cells: { style }
+            cells: __spreadValues(__spreadValues({}, style ? { style } : {}), tab ? { Tab: tab } : {})
           });
           const next = nextBreak(document, marker);
           if (next) next.parentNode.insertBefore(meta, next);
@@ -6428,7 +6460,7 @@ var CustomImportScript = (() => {
           hr.remove();
           return;
         }
-        [MARKER, SOURCE_STYLE, BREAK].forEach((attr) => hr.removeAttribute(attr));
+        [MARKER, SOURCE_STYLE, TAB, BREAK].forEach((attr) => hr.removeAttribute(attr));
       });
     }
   }
@@ -6672,7 +6704,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_insights_677266_default = {
+  var tmp_bundle_insights_498857_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -6702,5 +6734,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_insights_677266_exports);
+  return __toCommonJS(tmp_bundle_insights_498857_exports);
 })();
