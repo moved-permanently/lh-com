@@ -108,3 +108,22 @@ test('a tab panel in parts: the parts in the first section, each a section-part 
   assert.ok(panel.lastElementChild.classList.contains('section-aside'));
   assert.equal(sections[2].dataset.tab, 'Extended', 'the next tab as it was');
 });
+
+/* brief 440 (SWISS row 37): outside a tab, the sections with the style sidebar-part are parts of the
+   section before them (the content of a sidebar with www's grey box inside it): they join it as tab
+   parts do, each a section-part with its styles, the aside beside all of them */
+test('sidebar-part sections join the section before them, the aside beside all', () => {
+  const main = page('<div class="section"><div class="default-content-wrapper"><h1>Accessible travel</h1></div></div>'
+    + '<div class="section"><div class="default-content-wrapper"><p>Consult your doctor</p></div></div>'
+    + '<div class="section grey sidebar-part"><div class="default-content-wrapper"><p>Please note</p></div></div>'
+    + '<div class="section sidebar-part accordion-columns-container"><div class="default-content-wrapper"><h2>Assistance</h2></div></div>'
+    + '<div class="section sidebar-aside"><div class="default-content-wrapper"><h4>For bookings</h4></div></div>');
+  joinAsideSections(main);
+  const sections = [...main.children];
+  assert.equal(sections.length, 2);
+  const host = sections[1];
+  assert.ok(host.classList.contains('with-aside'));
+  assert.ok(host.classList.contains('accordion-columns-container'));
+  assert.deepEqual([...host.querySelectorAll(':scope > .section-part')].map((p) => p.className), ['section-part', 'section-part grey', 'section-part']);
+  assert.equal(host.style.getPropertyValue('--section-aside-rows'), '3');
+});

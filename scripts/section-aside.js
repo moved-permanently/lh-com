@@ -8,12 +8,14 @@
  * a section before it the aside stays a section of its own. After a tab panel in parts (sections
  * with the same Tab label and set, scripts/section-tabs.js: www.swiss.com's grey box inside a
  * panel, then the panel's other content) the parts join the panel's first section first, each in a
- * div.section-part with its own section styles, so the aside stands beside all of them.
+ * div.section-part with its own section styles, so the aside stands beside all of them. Outside a
+ * tab, sections with the style sidebar-part are parts of the section before them (www.swiss.com's
+ * grey box inside a sidebar's content) and join it the same way.
  */
 
 /** A section's style classes (its metadata's Style): not its own, not its blocks' containers. */
 const styleClasses = (section) => [...section.classList]
-  .filter((c) => c !== 'section' && c !== 'with-aside' && !c.endsWith('-container'));
+  .filter((c) => !['section', 'with-aside', 'sidebar-part'].includes(c) && !c.endsWith('-container'));
 
 /**
  * A tab panel in parts ending with the section: the parts in the panel's first section, each in a
@@ -23,13 +25,21 @@ const styleClasses = (section) => [...section.classList]
  */
 function joinPanelParts(last) {
   const { tab, tabs = '' } = last.dataset;
-  if (!tab) return last;
+  const isSection = (el) => el && el.classList.contains('section') && !el.classList.contains('sidebar-aside');
   const parts = [last];
   let prev = last.previousElementSibling;
-  while (prev && prev.classList.contains('section') && !prev.classList.contains('sidebar-aside')
-    && prev.dataset.tab === tab && (prev.dataset.tabs || '') === tabs) {
-    parts.unshift(prev);
-    prev = prev.previousElementSibling;
+  if (tab) {
+    while (isSection(prev) && prev.dataset.tab === tab && (prev.dataset.tabs || '') === tabs) {
+      parts.unshift(prev);
+      prev = prev.previousElementSibling;
+    }
+  } else if (last.classList.contains('sidebar-part')) {
+    // sidebar-part sections, then the section they belong to
+    while (isSection(prev) && prev.classList.contains('sidebar-part')) {
+      parts.unshift(prev);
+      prev = prev.previousElementSibling;
+    }
+    if (isSection(prev)) parts.unshift(prev);
   }
   if (parts.length < 2) return last;
   const [first] = parts;

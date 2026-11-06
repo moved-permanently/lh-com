@@ -54,9 +54,12 @@ test('online check-in: two sidebars, the first aside\'s text and teasers, the se
   const asides = all.filter((s) => style(s).includes('Style: sidebar-aside'));
   assert.equal(asides.length, 2);
   const [first, second] = asides;
-  assert.equal(text(first.previousElementSibling.firstElementChild), 'So erhalten Sie Ihre Bordkarte');
+  // www's sidebar content opens with the check-in text and form, then the boarding pass steps
+  // (brief 440: the content from its first text; before, the form stood above the sidebar)
+  assert.equal(text(first.previousElementSibling.firstElementChild), 'Das Online-Check-in öffnet 24 Stunden vor Abflug.');
+  assert.match(text(first.previousElementSibling), /So erhalten Sie Ihre Bordkarte/);
   assert.match(text(first), /Optionen für das Self-Check-in/);
-  assert.ok(first.previousElementSibling.querySelector('.booking-lookup') === null, 'the check-in form above the sidebar');
+  assert.ok(first.previousElementSibling.querySelector('.booking-lookup') !== null, 'the check-in form in the content, beside the aside, as www');
   assert.equal(second.children.length, 1, 'the second aside empty: its section metadata only');
   assert.equal(text(second.previousElementSibling.firstElementChild), 'Ihre Vorteile');
   assert.match(text(second.previousElementSibling), /Zusätzliche Fluggastdaten/);
@@ -296,6 +299,22 @@ test('row 32: the grey box of a tab\'s sidebar content its own part, the rest of
   assert.deepEqual(all.map(rows), [[], ['style: flush, grey', 'Tab: General'], ['style: flush', 'Tab: General'], ['Style: sidebar-aside'], []]);
   assert.equal(text(all[1].querySelector('h2')), 'New entry regulations', 'the grey part: www\'s box');
   assert.equal(text(all[2].querySelector('h2')), 'Travel documents', 'the panel\'s rest after it, not grey');
+});
+
+/* brief 440, row 37 (accessible travel): www's sidebar content opens with texts before its first
+   heading, and its grey box holds only the notice inside it; the import wrote one grey section.
+   The sidebar starts at the content's first text; outside a tab the grey box's parts carry the
+   section style sidebar-part (section-aside.js joins them beside the aside, as a tab's parts) */
+test('row 37: texts before the first heading open the sidebar; a grey box outside a tab as parts', () => {
+  const doc = '<body><header></header><main><div><h1>Accessible travel</h1><p>We will assist passengers</p></div><div><p>Consult your doctor about your trip</p><p>Please note: from October 1, 2025, wheelchairs</p><h2>Assistance at the airport</h2><p>Specially trained staff</p><h4>For bookings and questions</h4><p>Book your flight in good time</p><div class="section-metadata"><div><div>style</div><div>grey</div></div></div></div><div><div class="metadata"><div><div>nav</div><div>/ch/en/nav</div></div></div></div></main><footer></footer></body>';
+  const html = '<html><body><div class="airem-sidebar"><div class="sidebar-content"><p>Consult your doctor about your trip</p><div class="column-view container-gray"><p>Please note: from October 1, 2025, wheelchairs</p></div><h2>Assistance at the airport</h2><p>Specially trained staff</p></div><div class="sidebar-aside"><h4>For bookings and questions</h4><p>Book your flight in good time</p></div></div></body></html>';
+  const r = withSwissSidebar(doc, html);
+  assert.equal(r.made, 1, r.skipped.join('; '));
+  const all = sections(r.doc);
+  assert.deepEqual(all.map(style), [[], [], ['style: grey, sidebar-part'], ['style: sidebar-part'], ['Style: sidebar-aside'], []]);
+  assert.equal(text(all[1].firstElementChild), 'Consult your doctor about your trip', 'the content from its first text');
+  assert.match(text(all[2]), /^Please note/);
+  assert.equal(text(all[3].firstElementChild), 'Assistance at the airport');
 });
 
 /* www's words for screen readers inside a link (maui-screen-reader-label, .sr-only) are not in the

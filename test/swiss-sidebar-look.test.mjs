@@ -76,3 +76,10 @@ test('the grey part of a panel beside the aside: www\'s grey box', () => {
   has(css, /body\.brand-swiss main > \.section > \.section-part\.grey \{ padding: 32px var\(--layout-margin\); background-color: #f2f2f2; box-shadow: 0 0 0 100vmax #f2f2f2; clip-path: inset\(0 -100vmax\); \}/);
   has(css, /@media \(width >= 768px\) \{ body\.brand-swiss main > \.section\.with-aside > \.section-part\.grey \{ margin-right: 40px; padding: 32px 40px 32px 0; clip-path: inset\(0 0 0 -100vmax\); \} \}/);
 });
+
+/* brief 440 (row 37): the sidebar's running text over the content column, as www's sidebar-content
+   texts without .limited-width (1,750 of 1,761 on ch/en+de); lh-com's two thirds (styles.css,
+   from 1025 px) made every SWISS sidebar page taller (accessible travel 556 px lines, www 784) */
+test('the sidebar\'s running text over its content column from 1025 px', () => {
+  has(swiss(), /@media \(width >= 1025px\) \{ body\.brand-swiss main > \.section\.with-aside \.default-content-wrapper > :is\(p, ul, ol\) \{ max-width: none; \} \}/);
+});

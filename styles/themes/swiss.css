@@ -921,4 +921,12 @@ body.brand-swiss main > .section > .section-part.grey {
   }
 }
 
+/* the sidebar's running text over its content column, as www's sidebar-content texts without
+   .limited-width (1,750 of 1,761 on ch/en+de; lh-com's two thirds from 1025 px, styles.css) */
+@media (width >= 1025px) {
+  body.brand-swiss main > .section.with-aside .default-content-wrapper > :is(p, ul, ol) {
+    max-width: none;
+  }
+}
+
 /* stylelint-enable no-descending-specificity */

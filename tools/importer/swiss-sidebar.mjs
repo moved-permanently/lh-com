@@ -88,9 +88,12 @@ export function sidebarsOf(html) {
     const content = s.querySelector(':scope > .sidebar-content');
     const aside = s.querySelector(':scope > .sidebar-aside');
     const firstHead = content && content.querySelector('h1, h2, h3, h4');
+    const texts = partTexts(content);
+    // texts before the first heading (accessible travel's intro): the content starts with them
+    const headFirst = firstHead && texts[0] === norm(firstHead.textContent);
     return {
-      first: firstHead ? norm(firstHead.textContent) : '',
-      byHeading: !!firstHead,
+      first: headFirst ? norm(firstHead.textContent) : '',
+      byHeading: !!headFirst,
       content: partTexts(content),
       aside: partTexts(aside),
       teasers: teasersOf(aside),
@@ -532,20 +535,23 @@ export function withSwissSidebar(doc, html) {
     asideMeta.className = 'section-metadata';
     asideMeta.innerHTML = '<div><div>Style</div><div>sidebar-aside</div></div>';
     asideSection.append(asideMeta);
-    // in a tab, www's grey boxes in the content: parts of the same tab (section-tabs.js shows them
-    // as one panel, section-aside.js joins them beside the aside), the box's part grey, the others not
-    const styled = (nodes, grey) => {
+    // www's grey boxes in the content: parts (in a tab of the same tab, section-tabs.js shows them as
+    // one panel; else with the style sidebar-part), section-aside.js joins them beside the aside;
+    // the box's part grey, the others not
+    const styled = (nodes, grey, partOf) => {
       const d = part(nodes, true);
       const m = d.querySelector(':scope > .section-metadata');
       let row = m && [...m.children].find((r) => /^style$/i.test((r.firstElementChild || { textContent: '' }).textContent.trim()));
-      if (!row && grey) {
+      if (!row && (grey || partOf)) {
         row = document.createElement('div');
         row.innerHTML = '<div>style</div><div></div>';
         m.prepend(row);
       }
       if (row) {
-        const names = row.lastElementChild.textContent.split(',').map((x) => x.trim()).filter((x) => x && x.toLowerCase() !== 'grey');
+        const names = row.lastElementChild.textContent.split(',').map((x) => x.trim()).filter((x) => x && !['grey', 'sidebar-part'].includes(x.toLowerCase()));
         if (grey) names.push('grey');
+        // outside a tab the parts after the first carry sidebar-part (section-aside.js joins them)
+        if (partOf) names.push('sidebar-part');
         if (names.length) row.lastElementChild.textContent = names.join(', ');
         else row.remove();
       }
@@ -566,11 +572,11 @@ export function withSwissSidebar(doc, html) {
       });
       if (!segments.length) return null;
       if (at < content.length) segments.push([content.slice(at), false]);
-      return segments.map(([nodes, grey]) => styled(nodes, grey));
+      return segments.map(([nodes, grey], i) => styled(nodes, grey, !inTab && i > 0));
     };
     const parts = [];
     if (before.length) parts.push(part(before, true));
-    parts.push(...((inTab && sb.greyBoxes.length && greyParts()) || [part(content, true)]), asideSection);
+    parts.push(...((sb.greyBoxes.length && greyParts()) || [part(content, true)]), asideSection);
     const afterSection = part(after, true);
     if (after.length) parts.push(afterSection);
     section.replaceWith(...parts);
