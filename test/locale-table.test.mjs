@@ -15,10 +15,12 @@ import { portalHeaders } from '../scripts/lh-data.js';
 import { LANGUAGE_VERSIONS, NEUTRAL_VERSIONS } from '../scripts/locale-table.js';
 
 // the live roots with documents of their own: the four, and a language version with documents of
-// its own once its wave is live (xx/fr: wave 11, xx/es: wave 12; tools/reports/markets/go-live.md)
+// its own once its wave is live (xx/fr: wave 11, xx/es: 12, xx/pt: 13 ... xx/pl: 21, in the table's
+// order; tools/reports/markets/go-live.md)
+const VERSION_WAVES = [['xx/fr', 11], ['xx/es', 12], ['xx/pt', 13], ['xx/ru', 14], ['xx/hk', 15], ['xx/zh', 16], ['xx/it', 17], ['xx/el', 18], ['xx/ja', 19], ['xx/ko', 20], ['xx/pl', 21]];
 const ownLiveRoots = () => {
   const { liveWaves = [] } = JSON.parse(fs.readFileSync('tools/markets/locale-data.json', 'utf8'));
-  return ['de/en', 'de/de', 'at/de', 'gb/en', ...(liveWaves.includes(11) ? ['xx/fr'] : []), ...(liveWaves.includes(12) ? ['xx/es'] : [])];
+  return ['de/en', 'de/de', 'at/de', 'gb/en', ...VERSION_WAVES.filter(([, w]) => liveWaves.includes(w)).map(([k]) => k)];
 };
 
 // today's values of the four roots (scripts/locale.js before the table)

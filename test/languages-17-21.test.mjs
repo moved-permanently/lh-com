@@ -78,21 +78,19 @@ test('the rows: each language\'s version xx/<ll> (own documents) and its market 
     assert.equal(getLocale(`/xx/${l}/homepage`).key, `xx/${l}`, l);
     Object.keys(EXPECT).filter((k) => k.endsWith(`/${l}`) && !k.startsWith('xx/')).forEach((k) => assert.equal(getLocale(`/${k}/baggage`).versionBase, `/xx/${l}`, k));
   });
-  // every row that was there stays as it was; no new wave
+  // every row that was there stays as it was (the go-live waves change liveWaves, not the rows)
   Object.entries(before.roots).forEach(([k, r]) => assert.deepEqual(data.roots[k], r, k));
   Object.entries(before.languageVersions).forEach(([l, v]) => assert.equal(data.languageVersions[l], v, l));
-  assert.deepEqual(data.liveWaves, before.liveWaves);
-  assert.ok(!data.liveWaves.some((w) => w >= 17 && w <= 21));
 });
 
 test('behind the switch: the live roots as before; ch/it pilot in the ch wave while xx/it is', () => {
   const old = buildTable(undefined, before).rows;
   assert.deepEqual(liveOwnRoots(PINNED), liveOwnRoots(old));
-  Object.keys(EXPECT).forEach((k) => assert.equal(LOCALE_TABLE[k].status, 'pilot', k));
+  Object.keys(EXPECT).forEach((k) => assert.equal(PINNED[k].status, 'pilot', k));
   assert.equal(data.liveWaves.includes('ch'), true);
-  assert.equal(LOCALE_TABLE['ch/it'].status, 'pilot');
+  assert.equal(PINNED['ch/it'].status, 'pilot');
   // switched on, a wave turns its version and roots live together
-  const on = buildTable(undefined, { ...data, liveWaves: [...data.liveWaves, 17] }).rows;
+  const on = buildTable(undefined, { ...data, liveWaves: [...before.liveWaves, 17] }).rows;
   ['xx/it', 'ch/it', 'it/it'].forEach((k) => assert.equal(on[k].status, 'live', k));
   ['xx/el', 'gr/el', 'jp/ja'].forEach((k) => assert.equal(on[k].status, 'pilot', k));
 });

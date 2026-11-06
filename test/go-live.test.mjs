@@ -65,9 +65,11 @@ const LIVE = Object.fromEntries(Object.entries(TABLE).filter(([, r]) => r.status
 const VERSIONS = { en: 'de/en', de: 'de/de' };
 
 test('LIVE_ROOTS: the live roots with documents of their own (today the four); a live market root is not one', () => {
-  // the four, and a language version with documents of its own once its wave is live (xx/fr: 11, xx/es: 12)
+  // the four, and a language version with documents of its own once its wave is live (xx/fr: 11,
+  // xx/es: 12, xx/pt: 13 ... xx/pl: 21, in the table's order)
   const waves = DATA.liveWaves || [];
-  assert.deepEqual(LIVE_ROOTS, ['de/en', 'de/de', 'at/de', 'gb/en', ...(waves.includes(11) ? ['xx/fr'] : []), ...(waves.includes(12) ? ['xx/es'] : [])]);
+  const versions = [['xx/fr', 11], ['xx/es', 12], ['xx/pt', 13], ['xx/ru', 14], ['xx/hk', 15], ['xx/zh', 16], ['xx/it', 17], ['xx/el', 18], ['xx/ja', 19], ['xx/ko', 20], ['xx/pl', 21]];
+  assert.deepEqual(LIVE_ROOTS, ['de/en', 'de/de', 'at/de', 'gb/en', ...versions.filter(([, w]) => waves.includes(w)).map(([k]) => k)]);
   assert.deepEqual(liveOwnRoots(TABLE), ['de/en', 'de/de', 'at/de', 'gb/en']);
 });
 
