@@ -343,6 +343,41 @@ const DEFAULT_LABELS = {
   },
 };
 
+/**
+ * The trip type announcement (www's text
+ * fareteaserdynamicevo.fullApp.offers.selectionAnnouncementTripType, a polite live region after
+ * the chips; brief 447): www's English and French (Brussels' fr/fr, brussels-parity-003), the
+ * other languages ours until a capture has www's. {TRIPTYPE}: the chosen
+ * chip's label.
+ */
+export const SELECTION_ANNOUNCEMENTS = {
+  en: '{TRIPTYPE} offers are displayed',
+  fr: 'Les offres pour {TRIPTYPE} sont affichées',
+  de: 'Angebote für {TRIPTYPE} werden angezeigt',
+  it: 'Vengono mostrate le offerte per {TRIPTYPE}',
+  es: 'Se muestran las ofertas para {TRIPTYPE}',
+  nl: 'Aanbiedingen voor {TRIPTYPE} worden weergegeven',
+  pt: 'São apresentadas as ofertas para {TRIPTYPE}',
+  el: 'Εμφανίζονται προσφορές για {TRIPTYPE}',
+  ja: '{TRIPTYPE}の運賃を表示しています',
+  ru: 'Показаны предложения: {TRIPTYPE}',
+  zh: '正在显示{TRIPTYPE}的优惠',
+  pl: 'Wyświetlane są oferty: {TRIPTYPE}',
+  ko: '{TRIPTYPE} 특가가 표시됩니다',
+};
+
+/** The announcement's text for a trip type's label; none without a text. */
+export function selectionAnnouncement(template, tripLabel) {
+  return template ? template.replace('{TRIPTYPE}', tripLabel) : '';
+}
+
+/** The labels with each language's announcement (a block row "Selection announcement" wins). */
+function withAnnouncements(defaults) {
+  return Object.fromEntries(Object.entries(defaults).map(([lang, labels]) => [lang, {
+    ...labels, 'selection announcement': SELECTION_ANNOUNCEMENTS[lang],
+  }]));
+}
+
 let instanceCount = 0;
 
 function el(tag, className, text) {
@@ -2217,7 +2252,7 @@ export default async function decorate(block) {
   }
   const locale = getLocale();
   const config = readConfigRows(block);
-  const labels = resolveLabels(DEFAULT_LABELS, config, locale.lang);
+  const labels = resolveLabels(withAnnouncements(DEFAULT_LABELS), config, locale.lang);
   const text = (...keys) => (pick(config, ...keys) || {}).text || '';
   const cell = (...keys) => (pick(config, ...keys) || {}).cell;
 
@@ -2282,7 +2317,24 @@ export default async function decorate(block) {
       label.append(input, el('span', '', type));
       chipRow.append(label);
     });
+  }
+  // the trip type announcement (www's polite live region after the chips): the current type's
+  // text, updated once the list for a newly chosen type shows
+  let status = null;
+  const announce = () => {
+    if (!status) return;
+    const i = TRIP_TYPE_CODES.indexOf(state.tripType);
+    status.textContent = selectionAnnouncement(labels['selection announcement'], tripTypes[i] || '');
+  };
+  if (chips) {
+    if (labels['selection announcement']) {
+      status = el('div', 'destination-finder-sr-only destination-finder-status');
+      status.setAttribute('aria-live', 'polite');
+      status.setAttribute('aria-atomic', 'true');
+      announce();
+    }
     header.append(chips);
+    if (status) header.append(status);
   }
 
   // slider
@@ -2418,7 +2470,7 @@ export default async function decorate(block) {
     chips.addEventListener('change', (e) => {
       if (e.target.name !== `${uid}-trip-type`) return;
       state.tripType = e.target.value;
-      load();
+      load().then(() => announce());
     });
   }
 
