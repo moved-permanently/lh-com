@@ -762,3 +762,58 @@ nothing else is open in parity.md.
 Documents (uploaded to DA and previewed, not published): no files; `tools/reports/offline-2026-11-06/preview-paths-after-464.txt`,
 per site in release order: lh-austrian 261 (210 links, 50 more one-h1 documents, se/en), lh-ita 2, lh-com 4. Plus 18
 Austrian local copies refreshed from DA (not uploaded).
+
+## The brief after 467b (two lufthansa.com items from ema-cashub's queue)
+
+Left from the last one, not in git by design: `.migration/project.json` (the import's local workspace flag),
+`tools/importer/reports/**` (the bulk importer's per-page reports), `content/` and `migration-work/` (the local lh-com
+workspace), `content-sites/` (the local document trees), `logs/` and /tmp (scripts, captures, DA backups).
+lh-snapshots-083 downloaded into /tmp/lhs083 (sha256 5e10888e…a76e, equal to its .sha256); lh-snapshots-084's URL is in
+none of my briefs, so 084 was not used.
+
+### 1. /de/en/travelling-healthy: no importer change
+
+Main's info bundle imports 083's page with both things www shows. A fresh import into a scratch workspace has every content
+picture of www's page, `LH_timeshifter-app_1440x720px.png` included (in the Jet lag item, after the Timeshifter link, as
+www's two-column view of picture and text), and the six teasers (Timeshifter Jetlag App among them) as two
+cards-icon-text partner blocks with www's icons. The carousel-cards block DA has is www's old card row: DA's cards carry
+pictures that 083 no longer has (`LH_timeshifter-app_1440x617px.png`, the Cube and a stock photo); in 083 www shows those
+cards as icon teasers (two `.threecolumn` views of `a.teaser.partner`, no picture, no carousel). Keeping the carousel
+would put back a block www has dropped, so the importer stays as it is and there is no bundle commit for this item. The
+harness's import of de/en, de/de and at/de gesund-reisen and gb/en travelling-healthy with main's bundles (e9b967d4 or
+later) gives www's current layout. www.lufthansa.com refuses a direct fetch (403), so 083 is the only reference.
+
+### 2. One h1 per page (`e9b967d4`)
+
+www itself has no h1 on giftvoucher (its campaign stage's title is an h2) and on 100-years cabin-design, campaigns,
+crane, destinations and history, and several on chronicle (5), global-network (2) and electronic-devices-and-batteries
+(2). The cleanup's `oneMainHeading` (lufthansa.com only, info and campaign templates), right before the size markers:
+no h1 -> the first heading becomes the h1; every later h1 becomes an h2; each keeps its size (its www heading-* class,
+else its old level's, as a marker). The hero-campaign block styles every heading level alike, so its stage title as h1
+looks as before (not changed). Six fresh imports (083's giftvoucher, electronic-devices, travelling-healthy; xx/el
+chronicle, history, global-network): one h1 each. Test first: lh-one-h1-467.
+DA's current copies of the 74 affected documents (the nine roots at/de, de/de, de/en, gb/en, xx/el, xx/hk, xx/it, xx/ja,
+xx/zh of the seven 100-years pages and electronic-devices-and-batteries, giftvoucher's de/en and de/de; backed up in
+logs/da/pre-h1lh467): 47 with a promoted title, 18 and 9 with later h1s as h2, every other byte as DA has it; uploaded and
+previewed, DA equal to local. Read back on main--lh-com--moved-permanently.aem.page: all 74 answer 200 with one h1; the
+promoted stage titles 42 / 46.2 px bold as an untouched h2 title (100-years/fleet), chronicle's former h1 years 48 px as
+before.
+The bundle rebuild also brings main's parser and transformer changes into the bundles whose authors had rebuilt only their
+own.
+
+### Checks
+
+- Lint and the full suite before the push, in a fresh worktree: 509 passed.
+- Smoke on all 12 hosts before and after the push: 0 differences.
+- Previews: main--lh-com-- (the 74 read back, sizes on chronicle, history, fleet).
+
+### Summary (the brief after 467b)
+
+| item | commit | what | rollback |
+| --- | --- | --- | --- |
+| 1 | – | travelling-healthy: the import keeps www's picture; the carousel is gone from www | – |
+| 2 | `e9b967d4` | one h1 per lufthansa.com info and campaign page; bundles | `git revert`; the 74 documents: logs/da/pre-h1lh467 |
+| 1-2 | this report's commit | report, `preview-paths-after-467b.txt` | – |
+
+Documents (uploaded to DA and previewed, not published): no files; 74 lufthansa.com pages in
+`tools/reports/offline-2026-11-06/preview-paths-after-467b.txt`.
