@@ -824,6 +824,28 @@ body.brand-austrian main .section.fare-teaser-container > .default-content-wrapp
   }
 }
 
+/* the brief after 474: the page title (www's .contentpage h1.heading-large) 36 px above the content, 60 px from
+   1281 px (special-requirements, the book overviews, fly/travel-classes: 20 px short at 1440); a card grid from
+   www's column views (fly-with-austrian's nine reasons) keeps the column view's 3.2rem padding above its first
+   row after text and below its last row before more content */
+body.brand-austrian main .default-content-wrapper > h1 {
+  margin-bottom: 36px;
+}
+
+body.brand-austrian main > .section:not(.grey) > .carousel-cards-wrapper:has(> .carousel-cards.grid):has(+ .default-content-wrapper, + .flight-search-wrapper) {
+  padding-bottom: 32px;
+}
+
+body.brand-austrian main > .section:not(.grey) > .default-content-wrapper:not(:has(> :is(h1, h2, h3, h4, h5, h6):last-child)) + .carousel-cards-wrapper:has(> .carousel-cards.grid) {
+  padding-top: 32px;
+}
+
+@media (width >= 1281px) {
+  body.brand-austrian main .default-content-wrapper > h1 {
+    margin-bottom: 60px;
+  }
+}
+
 /* stylelint-disable-next-line no-descending-specificity -- content lists, not the menu's or the panels' */
 body.brand-austrian main :is(.default-content-wrapper, .columns-media-text, .accordion-columns) li {
   margin-bottom: 5px;
