@@ -214,6 +214,20 @@ export function templateOf(p, html) {
   return 'info';
 }
 
+/**
+ * The snapshot as the import reads it. The help centre app's screen-reader announcement "Help page
+ * loaded." is no page text; the Studio's snapshots keep www's scripts, which must not run in the
+ * import browser; the forms' jQuery UI date picker, appended to the body and hidden on www, is no
+ * content: it imported as a calendar (xx/en's group-travel and emergency-contact), its table a
+ * block named lu (its first cell) that nothing renders (/xx/it/.../emergency-contact,
+ * /it/it/.../voglia-di-volare-registration-form, imported before this).
+ */
+export function mappedOf(html, p) {
+  const noPicker = editDivs(stripScripts(html), '<div id="ui-datepicker-div"', () => '');
+  return withoutLoads(withFareTeaserConfig(withTeaserColumns(withCheckinTabs(withLinkOuts(withPlaceholder(noPicker), p)))))
+    .replace(/<output[^>]*class="screen-reader-announcer"[^>]*>[\s\S]*?<\/output>/g, '');
+}
+
 const isMain = process.argv[1] && fs.realpathSync(process.argv[1]) === fileURLToPath(import.meta.url);
 if (isMain) {
   const started = Date.now();
@@ -234,13 +248,7 @@ if (isMain) {
     const t = templateOf(p, html);
     const copy = path.join(MAPPED, HOST, `${p}.html`);
     fs.mkdirSync(path.dirname(copy), { recursive: true });
-    // (the help centre app's screen-reader announcement "Help page loaded." is no page text;
-    // the Studio's snapshots keep www's scripts, which must not run in the import browser; the
-    // forms' jQuery UI date picker, appended to the body and hidden on www, is no content: it
-    // imported as a calendar on xx/en's group-travel and emergency-contact)
-    const noPicker = editDivs(stripScripts(html), '<div id="ui-datepicker-div"', () => '');
-    const mapped = withoutLoads(withFareTeaserConfig(withTeaserColumns(withCheckinTabs(withLinkOuts(withPlaceholder(noPicker), p)))))
-      .replace(/<output[^>]*class="screen-reader-announcer"[^>]*>[\s\S]*?<\/output>/g, '');
+    const mapped = mappedOf(html, p);
     if (mapped.includes(`https://${LINK_OUT}`)) linkOuts.push(p);
     fs.writeFileSync(copy, mapped);
     (byTemplate[t] ||= []).push(u);
