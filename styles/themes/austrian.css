@@ -819,3 +819,41 @@ body.brand-austrian .hero-banner .hero-banner-tab {
     font-size: 18px;
   }
 }
+
+/* brief 444: the footer's spacing as www's (austrian-parity-002, the same on every page; ours was about
+   100 px shorter): the payment heading 23 px further from the link columns; below 1025 px the follow-us
+   group 46 px further from the payment badges, the legal links 19 px closer to the social icons and 38 px
+   from the band's end; from 1025 px the legal links 29 px further from the badges and 27 px from the band's
+   end (our link columns start 8 px lower than www's); the logo strip 17 (19) px more under the logos */
+body.brand-austrian .footer .footer-inner .footer-badges {
+  padding-top: 47px;
+}
+
+@media (width < 1025px) {
+  body.brand-austrian .footer .footer-badge-group + .footer-badge-group {
+    margin-top: 46px;
+  }
+
+  body.brand-austrian .footer .footer-inner .footer-legal {
+    padding-top: 11px;
+    padding-bottom: 38px;
+  }
+
+  body.brand-austrian .footer .footer-logos-inner {
+    padding-bottom: 55px;
+  }
+}
+
+@media (width >= 1025px) {
+  body.brand-austrian .footer .footer-inner .footer-badges {
+    padding-bottom: 53px;
+  }
+
+  body.brand-austrian .footer .footer-inner .footer-legal {
+    padding-bottom: 27px;
+  }
+
+  body.brand-austrian .footer .footer-logos-inner {
+    padding-bottom: 47px;
+  }
+}
