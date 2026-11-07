@@ -15,11 +15,17 @@ import fs from 'node:fs';
 const css = fs.readFileSync(new URL('../blocks/columns-media/columns-media.css', import.meta.url), 'utf8').replace(/\s+/g, ' ');
 
 test('lufthansa.com: an unmarked column h3 is 24 px bold with 24 px below, as the global h3', () => {
-  assert.match(css, /body\.brand-lufthansa main:not\(:has\(\.article-header\)\) \.columns-media \.columns-media-text h3:not\(\[class\*="heading-"\]\) \{ margin-bottom: var\(--spacing-default\); font-size: var\(--heading-font-size-m\); font-weight: 700; \}/);
+  assert.match(css, /body\.brand-lufthansa main:not\(:has\(\.article-header\)\) \.columns-media \.columns-media-text h3:not\(\[class\*="heading-"\], :has\(> picture\)\) \{ margin-bottom: var\(--spacing-default\); font-size: var\(--heading-font-size-m\); font-weight: 700; \}/);
 });
 
 test('lufthansa.com: a column h3 marked heading-copytext-large keeps 24 px below (not the 32 px of the column rule)', () => {
-  assert.match(css, /body\.brand-lufthansa main:not\(:has\(\.article-header\)\) \.columns-media \.columns-media-text h3\.heading-copytext-large \{ margin-bottom: var\(--spacing-default\); \}/);
+  assert.match(css, /body\.brand-lufthansa main:not\(:has\(\.article-header\)\) \.columns-media \.columns-media-text h3\.heading-copytext-large:not\(:has\(> picture\)\) \{ margin-bottom: var\(--spacing-default\); \}/);
+});
+
+// an icon heading (a.teaser.partner: picture in the heading) keeps its own 10 px below (the rule
+// above outranked it: advance-seat-reservations-terms-and-conditions 69 px taller, 10.2 -> 15.3 %)
+test('an icon heading keeps the icon-heading rule (10 px below)', () => {
+  assert.match(css, /\.columns-media \.columns-media-row > \.columns-media-text :is\(h3, h4\):has\(> picture\) \{ position: relative; margin-bottom: 10px;/);
 });
 
 test('the brand sites keep the column h3 as before (28 px light, 32 px below)', () => {

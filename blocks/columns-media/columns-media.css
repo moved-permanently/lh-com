@@ -147,14 +147,15 @@ main > .section > .columns-media-wrapper:first-child > .columns-media.sidebar.pa
 /* lufthansa.com: the documents mark a heading-small h3 since 2026-10-22 ({heading-small}), so an
    unmarked one is www's default h3.heading-copytext-large: 24px bold, 24px below (brief 456; the
    brand sites' importers write no heading markers and keep the rules above; Insights articles,
-   main:has(.article-header), keep them too until their owner sequences it) */
-body.brand-lufthansa main:not(:has(.article-header)) .columns-media .columns-media-text h3:not([class*="heading-"]) {
+   main:has(.article-header), keep them too until their owner sequences it); an icon heading
+   (picture inside) keeps the icon-heading rule below */
+body.brand-lufthansa main:not(:has(.article-header)) .columns-media .columns-media-text h3:not([class*="heading-"], :has(> picture)) {
   margin-bottom: var(--spacing-default);
   font-size: var(--heading-font-size-m);
   font-weight: 700;
 }
 
-body.brand-lufthansa main:not(:has(.article-header)) .columns-media .columns-media-text h3.heading-copytext-large {
+body.brand-lufthansa main:not(:has(.article-header)) .columns-media .columns-media-text h3.heading-copytext-large:not(:has(> picture)) {
   margin-bottom: var(--spacing-default);
 }
 
