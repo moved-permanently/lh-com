@@ -432,13 +432,22 @@ export function withEndSpacer(doc, html = '') {
 /**
  * A document without an h1 (the airlines-at-a-glance pages: the stage's logo, then "<Airline>
  * Products & Services" as an h2; the brief after 463): its first h2 is the page's h1, its id and
- * size marker kept, so it looks as before. A document with an h1, or without an h2, as it is.
+ * size marker kept, so it looks as before; an h2 without a size marker gets {heading-medium} (an
+ * unmarked h2's size; an unmarked h1 is the page title's: the brief after 467). A document with an
+ * h1, or without an h2, as it is.
  */
 export function withPageHeading(doc) {
   if (/<h1[\s>]/.test(doc)) return doc;
   const m = doc.match(/<h2(\s[^>]*)?>([\s\S]*?)<\/h2>/);
   if (!m) return doc;
-  return `${doc.slice(0, m.index)}<h1${m[1] || ''}>${m[2]}</h1>${doc.slice(m.index + m[0].length)}`;
+  let text = m[2];
+  if (!/\{[^}]*\bheading-[a-z-]+[^}]*\}\s*$/.test(text)) {
+    const group = text.match(/\{([^}]*)\}\s*$/);
+    text = group
+      ? `${text.slice(0, group.index)}{heading-medium ${group[1].trim()}}`
+      : `${text.trimEnd()} {heading-medium}`;
+  }
+  return `${doc.slice(0, m.index)}<h1${m[1] || ''}>${text}</h1>${doc.slice(m.index + m[0].length)}`;
 }
 
 export const templateOf = () => 'info';

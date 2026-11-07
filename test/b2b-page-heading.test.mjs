@@ -19,6 +19,17 @@ test('no h1: the first h2 becomes the h1, its attributes and markers kept; the o
   assert.equal((out.match(/<h1[\s>]/g) || []).length, 1);
 });
 
+test('an h2 without a size marker keeps the h2 size as the h1: {heading-medium} (in its marker group, or added)', () => {
+  // (an unmarked h1 is the page title's size: 42 px light capitals on B2B; an unmarked h2 is
+  // heading-medium)
+  const plain = withPageHeading('<div><h2 id="dangerous-goods">Gefährliche Gegenstände</h2><p>Text</p></div>');
+  assert.ok(plain.includes('<h1 id="dangerous-goods">Gefährliche Gegenstände {heading-medium}</h1>'), plain);
+  const grouped = withPageHeading('<div><h2>Route network {column-start-outer}</h2></div>');
+  assert.ok(grouped.includes('<h1>Route network {heading-medium column-start-outer}</h1>'), grouped);
+  const sized = withPageHeading('<div><h2>Airlines at a Glance {heading-large}</h2></div>');
+  assert.ok(sized.includes('<h1>Airlines at a Glance {heading-large}</h1>'), sized);
+});
+
 test('an h1 already, or no h2: as it is', () => {
   const withH1 = '<div><h1>Welcome to eXperts</h1><h2>News</h2></div>';
   assert.equal(withPageHeading(withH1), withH1);
