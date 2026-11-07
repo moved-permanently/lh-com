@@ -162,14 +162,14 @@ Open, by owner:
 
 ### 1. Austrian rows 36 to 43 (tools/reports/austrian/parity.md)
 
-Against austrian-parity-002a / 002b (sha256 as in the drop's files), 1440 and 390, www / before / now in px:
+Against austrian-parity-002a / 002b (sha256 as in the drop's files), 1440 and 390, www / before / now in px (now: measured on main--lh-austrian-- after the push):
 
 | row | page | 1440 | 390 | what |
 | --- | --- | --- | --- | --- |
-| 36 | /at/de/missing-baggage | 4604 / 5413 / 4561 | 6522 / 6654 / ~5920 | the first tab's steps four columns (the panel's bare wrapper unwrapped); 390 stacked as www; the rest of 390's gap is the FAQ accordion's type (not this row) |
-| 39 | /at/en/austrian-app | 5360 / 6797 / 5266 | 6703 / 6332 / 6457 | the QR / badge pair side by side (a one-column view in a one-column view unwrapped); each tab panel text beside its picture as www |
-| 40 | /at/en/book/flights/giftvoucher | 4066 / 4192 / 3773 | 5756 / 7685 / 5474 | "How does it work?" as cards-icon-text partner rows (32 px icons beside the titles, Portada 18 / 27 copy), its title kept |
-| 41 | /at/de/bearbeitungsgebuehren | 3141 / 3785 / 3139 | 4125 / 5051 / 4090 | the grey band was there; three cards a row though one has no picture; a one-card slider below 1025 px (phone-slider) |
+| 36 | /at/de/missing-baggage | 4604 / 5413 / 4565 | 6522 / 6654 / 5972 | the first tab's steps four columns (the panel's bare wrapper unwrapped); 390 stacked as www; the rest of 390's gap is the FAQ accordion's type (not this row) |
+| 39 | /at/en/austrian-app | 5360 / 6797 / 5267 | 6703 / 6332 / 6460 | the QR / badge pair side by side (a one-column view in a one-column view unwrapped); each tab panel text beside its picture as www |
+| 40 | /at/en/book/flights/giftvoucher | 4066 / 4192 / 3777 | 5756 / 7685 / 5479 | "How does it work?" as cards-icon-text partner rows (32 px icons beside the titles, Portada 18 / 27 copy), its title kept |
+| 41 | /at/de/bearbeitungsgebuehren | 3141 / 3785 / 3181 | 4125 / 5051 / 4131 | the grey band was there; three cards a row though one has no picture; a one-card slider below 1025 px (phone-slider) |
 | 43 | the four tab pages | – | – | Austrian's side: withTabRuns gives a band inside a panel its Tab rows; missing-baggage and austrian-app re-imported; travelling-with-animals and unterhaltung-an-bord stay as DA has them (their re-import is no closer to www) |
 
 Also: long button labels wrap as on www (missing-baggage's "Weitere häufig gestellte Fragen zu verspätetem Gepäck" was
@@ -187,7 +187,7 @@ adds them after the import (run for every re-imported document here).
 
 lh-com's phone-slider import (115ea542, from ema-cashub's side) only fires when the view still holds www's swiper copy, but
 lufthansa-cleanup's removeMobileDuplicates drops that copy first when it equals the grid (Austrian's swipers have no loop
-duplicates). The parser now also reads a mark the Austrian import sets (7befb610). The mark applies to 740 Austrian
+duplicates). The parser now also reads a mark the Austrian import sets (3c382f28). The mark applies to 740 Austrian
 documents' card rows; only this brief's pages were re-imported. The rest show as a slider on phones after their next
 re-import.
 
@@ -201,7 +201,7 @@ For ema-cashub (row 43's shared part, left as it is): lufthansa-sections.js' Tab
 
 ### 2. The Star Alliance partner pages
 
-Done (f0878b75): the 10 lhg-staralliance-partner documents (at/de, at/en, cn/zh, es/es, fr/fr, gr/el, it/it, jp/ja, pl/pl,
+Done (5616b6ef): the 10 lhg-staralliance-partner documents (at/de, at/en, cn/zh, es/es, fr/fr, gr/el, it/it, jp/ja, pl/pl,
 ru/ru): 68 logo links without a name now carry their airline's name from www's page (www's own alt texts kept). Uploaded and
 previewed, DA = local, axe link-name gone.
 
@@ -209,15 +209,15 @@ previewed, DA = local, axe link-name gone.
 
 - Contact's hotline hours: no change was needed. The DE record has www's hours (Monday to Friday 08:00 - 18:00) and the
   finder shows them on de/en and de/de exactly as www's capture does; www's xx pages show none either. My earlier note
-  that "this hotline record has not" the hours was wrong. Contact is -44 / +17 (de/en) and -78 / -21 (de/de), with the
-  rest spread over the page.
+  that "this hotline record has not" the hours was wrong. Contact now -44 / -27 (de/en) and -78 / -65 (de/de), spread over the page.
 - News overview: at 390 the tab set is now www's accordion: 30 px under the heading, closed rows on white without their
-  grey band, the footer right after the last row (1298 / 1386 / ~1296, de/de likewise). At 1440 it stays +36 (not
+  grey band, the footer right after the last row (1298 / 1386 / 1296, de/de 1294 / 1382 / 1292). At 1440 it stays +36 (not
   changed).
 - Airlines page at 390: a stacked text cell that ends with its link line sits 14 px above the picture, and the block's
-  rows are 42 px apart, as www (de/en 5286 / 5417 / 5304, de/de 5454 / 5537 / 5424). The same rule reaches contact's two
+  rows are 42 px apart, as www: every airline's heading now within 5 px of www's (it was 24 px more per airline); the pages' ends
+  were already about 80 px short after the last airline (de/en 5286 / 5417 / 5257, de/de 5454 / 5537 / 5377), open. The same rule reaches contact's two
   such cells (both 14 px on www) and route-network (no change).
-B2B-scoped, below 768 px, no :has() inside a :has() (1b30bdeb). No B2B document changed.
+B2B-scoped, below 768 px, no :has() inside a :has() (bba68615). No B2B document changed.
 
 ### 4. Discover accessibility (discover-parity-001's 26 pages on main--lh-discover--, 1440 and 390)
 
@@ -230,11 +230,12 @@ That is expected, not a defect. Nothing changed.
 
 | item | commit | what | rollback |
 | --- | --- | --- | --- |
-| 2 | `f0878b75` | Star Alliance partner logos named (import), 10 documents | `git revert`; the documents: DA's versions before 2026-11-06 21:00 UTC |
-| 1 | `45e75f77` | Austrian rows 36, 39, 40, 41, 43 (import, theme), chat-button row kept | `git revert`; the 4 + 11 documents: DA's versions before 2026-11-06 23:30 UTC |
-| 1 | `7befb610` | the phone slider of a view the cleanup left without its swiper copy (parser, Austrian mark, bundles) | `git revert` |
-| 3 | `1b30bdeb` | B2B news tab set and airlines page below 768 px | `git revert` |
-| 1-4 | this commit | parity rows 36-43, `preview-paths-438.txt`, this report | – |
+| 2 | `5616b6ef` | Star Alliance partner logos named (import), 10 documents | `git revert`; the documents: DA's versions before 2026-11-06 21:00 UTC |
+| 1 | `ad617d90` | Austrian rows 36, 39, 40, 41, 43 (import, theme), chat-button row kept | `git revert`; the 4 + 11 documents: DA's versions before 2026-11-06 23:30 UTC |
+| 1 | `3c382f28` | the phone slider of a view the cleanup left without its swiper copy (parser, Austrian mark, bundles) | `git revert` |
+| 3 | `bba68615` | B2B news tab set and airlines page below 768 px | `git revert` |
+| 1-4 | `e81fcd08`, `c7a7d0ac` | parity rows 36-43, `preview-paths-438.txt`, this report; the upload state | – |
+| 1-4 | this commit | the measurements after the push, smoke | – |
 
 Preview paths (uploaded to DA and previewed, not published), release order, no files:
 `tools/reports/austrian/preview-paths-438.txt`, 25 Austrian pages:
@@ -242,3 +243,8 @@ Preview paths (uploaded to DA and previewed, not published), release order, no f
 - /at/de/missing-baggage, /at/en/austrian-app, /at/de/bearbeitungsgebuehren, /at/en/book/flights/giftvoucher (item 1);
 - the 11 pages with their chat-button row back (item 1; already live once, so they need re-publishing).
 No B2B or Discover document changed.
+
+Checks: lint and the full suite before the push (one failure, `library-entries`, only in this workspace: its untracked
+`content/library` copy is stale; a clean clone skips it), my own tests after the last rebase (docs and data only came
+in); smoke of the 12 hosts before and after: 0 differences from these commits (lufthansa's three hosts: a sitemap's
+content changed, others' publishing). Pushed `d9b97cae..c7a7d0ac`.
