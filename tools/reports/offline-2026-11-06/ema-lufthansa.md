@@ -1175,3 +1175,106 @@ All in preview-paths-after-456.txt:
 1. **After 14479dee, lh-b2b (12):** /de/en/fund, history, usermanagement, reports, profile,
    lhghome, then the same six under /de/de/.
 2. **After f74df512, lh-airdolomiti (3):** /flotta, /en/fleet, /de/flotte.
+
+## The brief after 461: Air Dolomiti rows 54, 28, 29, 48, 50
+
+Nothing was published. **4 documents** were uploaded to DA and previewed, then read back from DA;
+each equals the local copy. They are listed in preview-paths-after-461.txt:
+
+- /articoli, /en/articles, /de/artikel;
+- /orario-voli.
+
+At the start of this turn only .migration/project.json was uncommitted (local tool state, kept out
+of git).
+
+Before each of the three pushes:
+
+- a pull (fetch and rebase);
+- lint and the full suite (2,492, then 2,513, then this push's count; 0 failures);
+- every brand's smoke before and after: 0 differences, except two answers that were transient on
+  their hosts:
+  - lufthansa-cn's /de/de/homepage.solo.continue.solo_continue answered 503 once after the first
+    push; then 200 three times, and a full lufthansa-cn rerun showed 0 differences;
+  - lufthansa's /gb/en answered 503 in the run before the second push and its 302 after;
+- TAP's 40 pages by hand after each push: all 200, the same as before.
+
+The capture (airdolomiti-booking-001.tar.gz) matched the brief's sha256. It was unpacked into its
+own folder, and nothing in it was run.
+
+### Row 54: the flexible dates box (5205a1f3; no documents)
+
+- **What the capture shows:** the box only sets `"flexible"` in the JSON body of www's own
+  `POST https://api.airdolomiti.it/v1/bookings`. The form posted to the booking engine (`search`,
+  `portalFacts`) and the engine's search (`flexibility: 7`) are the same ticked or not.
+- **So ours shows it as www does and sends nothing:**
+  - the checkbox has no name, and nothing calls api.airdolomiti.it;
+  - the booking engine sees the same as with www's box, ticked or not.
+- **Labels:** "Date flessibili +/- 3 giorni", "Flexible dates +/- 3 days", "im Zeitraum +/- 3
+  Tage" (German from the archive's /de/buchung); unticked at first.
+- **Position:**
+  - from 1025 px a row of its own under the fields, in the white box (206 px high, www's 209);
+  - 768 to 1024 px under From and To (the shared grid's other fields where they were);
+  - below 768 px above the button.
+- **Look:** www's 20 px box with a 1 px teal ring, teal with a white tick when ticked; the label
+  14/23.8.
+
+### Rows 28 and 29: the phone bar and menu (5205a1f3; no documents)
+
+- **The plane button** (row 28): below 1025 px it sits 15 px before the Menu button, named with
+  www's alt ("Cerca un volo", "Search a flight", "Suche einen Flug").
+  - It opens the page's booking panel (row 13), and the focus comes back to it when the panel
+    closes.
+  - On a page with the search in place (the booking pages) it focuses the departure field.
+  - On a page without a search it goes to the booking page.
+- **The accessibility settings** leave the phone bar; from 1025 px they stay in the bar, as on
+  www's desktop. The phone menu has www's "Dimensione / Dimensions / Dimension" row under the
+  language, with the three text sizes. The choice is the bar's: stored and applied the same way,
+  and each control follows the other.
+- **The menu icon** (row 29): www's three 31 px lines, on Air Dolomiti only. The shared burger
+  stays for the other brands; header.js is not changed.
+- **Left:** our phone header runs to 1024 px, www's to 929 px (the bar's split since brief 447).
+
+### Rows 48 and 50: the blog list and the Italian timetable (78c330d8; 4 documents)
+
+- **Row 48:** "Categorie / Categories / Kategorien" is now the blog list's one h1 (www has no h1):
+  semibold 37.8/40, 43.2/48 from 930 px.
+  - The categories under it are www's pills (#003061, white, 16 px apart, 8 px from 930 px), which
+    were a plain list before.
+  - The importer and the three documents changed; each page has one h1.
+- **Row 50:** www's Title (lazyblock/title) on /orario-voli is light 34/42, 38/46 from 930 px, with
+  2 px letter spacing from 530 px.
+  - The importer marks the section of a lazyblock/title written as the h1 with the style
+    compact-title (section metadata), and the theme sizes it. No path in the code.
+  - /orario-voli's document got the marker.
+
+### Checks per host
+
+- **The local dev server** (main's preview content and, for the new documents, the local copies),
+  at 390, 929, 930 and 1440:
+  - the bar's boxes;
+  - the box's place and look, ticked and unticked, by keyboard;
+  - the plane by keyboard: Tab, Enter, Escape (the panel, the focus back);
+  - the size row (the text 16 to 18.37 px);
+  - axe: 0 violations in the bar, the open menu with the size row, and the panel, at 390 and 929;
+  - the two titles and the pills.
+- **main--lh-airdolomiti--moved-permanently.aem.page:**
+  - the bar at 390 and 1440, and the plane on /de/reiseziele (the panel, the focus back on "Suche
+    einen Flug");
+  - the box at 1440 ("im Zeitraum +/- 3 Tage");
+  - /orario-voli and /articoli at 390, 929, 930 and 1440;
+  - one h1 on each blog list.
+
+### Summary
+
+| Item | Commit | What | Rollback |
+| --- | --- | --- | --- |
+| 54, 28, 29 | 5205a1f3 | flight-search-airdolomiti.js (the box, the panel on request), header-airdolomiti.js/.css (the plane, the lines, the size row), scripts/accessibility.js (one choice for both), airdolomiti.css (the box) | revert |
+| 48, 50 | 78c330d8 | importer (the blog list's h1, the compact-title section), airdolomiti.css (the heading and pills, the title size) | revert; the 4 documents then keep their new headings, unstyled |
+| — | (this push) | parity rows 28, 29, 48, 50, 54; this report; preview-paths-after-461.txt; the upload state | revert |
+
+### Preview path list, in release order
+
+preview-paths-after-461.txt:
+
+1. 5205a1f3: no documents.
+2. After 78c330d8: /articoli, /en/articles, /de/artikel, /orario-voli.

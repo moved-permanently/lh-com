@@ -1,0 +1,7 @@
+# The brief after 461: documents uploaded to DA and previewed (not published), in release order. All read back from DA afterwards: each equals the local copy.
+# 1. Code on main: 5205a1f3 (rows 54, 28, 29): no documents.
+# 2. Code on main: 78c330d8 (rows 48, 50). Then lh-airdolomiti: the 3 blog lists ("Categorie" the h1) and the Italian timetable (section style compact-title).
+lh-airdolomiti /articoli
+lh-airdolomiti /en/articles
+lh-airdolomiti /de/artikel
+lh-airdolomiti /orario-voli
