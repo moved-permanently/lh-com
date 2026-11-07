@@ -475,7 +475,7 @@ others publish; they don't come from the market route).
 - 49 uploaded and previewed, 0 problems; nothing published. In release order (both pushes are on
   main): [../swiss/preview-paths-445.txt](../swiss/preview-paths-445.txt). Items 2 to 4 are the
   first 31 paths: the 11 check-in pages, the 19 row-30 pages, then the /al/ page. Item 6 is the
-  last 18: the 16 menu pages, then the two legal pages.
+  last 18: ch/en's eight menu pages and its legal page, then ch/de's.
 - No word of DA's documents lost (49 pages compared word for word).
 
 ### Summary
