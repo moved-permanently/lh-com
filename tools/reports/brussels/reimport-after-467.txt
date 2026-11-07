@@ -1,0 +1,35 @@
+# The brief after 467: Brussels documents to re-import with main's bundles (the harness; nothing imported into content-sites here).
+# P41 (2ff55ae2, the app-entry bundle): online check-in options, the four-column teaser cards as carousel-cards. 6 (the captured languages; /nl/nl/check-in-options-and-info/online-check-in-options has no snapshot).
+/be/en/check-in-options-and-info/online-check-in-options
+/be/fr/check-in-options-and-info/online-check-in-options
+/be/nl/check-in-options-and-info/online-check-in-options
+/de/de/check-in-options-and-info/online-check-in-options
+/es/es/check-in-options-and-info/online-check-in-options
+/it/it/check-in-options-and-info/online-check-in-options
+# P36 (6b3c3df9, the info bundle): tab controls holding accordions as Tab sections (2 or 3 per page with main's bundles). 24.
+/be/en/extra-services/baggage/carry-on-baggage
+/be/en/extra-services/baggage/problems-with-your-baggage
+/be/en/extra-services/lounges/brussels-airport-lounges
+/be/en/flying-with-us/social-responsibility/climate-protection-projects
+/be/fr/extra-services/baggage/carry-on-baggage
+/be/fr/extra-services/baggage/problems-with-your-baggage
+/be/fr/extra-services/lounges/brussels-airport-lounges
+/be/fr/flying-with-us/social-responsibility/climate-protection-projects
+/be/nl/extra-services/baggage/carry-on-baggage
+/be/nl/extra-services/baggage/problems-with-your-baggage
+/be/nl/extra-services/lounges/brussels-airport-lounges
+/be/nl/flying-with-us/social-responsibility/climate-protection-projects
+/de/de/extra-services/baggage/carry-on-baggage
+/de/de/extra-services/baggage/problems-with-your-baggage
+/de/de/extra-services/lounges/brussels-airport-lounges
+/de/de/flying-with-us/social-responsibility/climate-protection-projects
+/es/es/extra-services/baggage/carry-on-baggage
+/es/es/extra-services/baggage/problems-with-your-baggage
+/es/es/extra-services/lounges/brussels-airport-lounges
+/es/es/flying-with-us/social-responsibility/climate-protection-projects
+/it/it/extra-services/baggage/carry-on-baggage
+/it/it/extra-services/baggage/problems-with-your-baggage
+/it/it/extra-services/lounges/brussels-airport-lounges
+/it/it/flying-with-us/social-responsibility/climate-protection-projects
+# lufthansa.com: no app-entry page in lh-com's documents shows the teaser cards as plain content. One page outside app-entry's list does (/fr/fr/yes, three cards as plain content); its template isn't recorded here: re-import it only if the harness imports it with app-entry.
+# SWISS: none (no lh-swiss document with the pattern).

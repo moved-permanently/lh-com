@@ -1,0 +1,28 @@
+# The brief after 467: lh-b2b documents uploaded to DA and previewed (not published), in release order. All read back: 200 with one h1, DA equal to the local copy.
+# 1. Code on main first: efcdc94b (the importer's rule). Then the 26 pages, their first h2 the h1, {heading-medium} where it had no size marker (the look unchanged).
+lh-b2b /de/de/news/lh-fra-kul
+lh-b2b /de/de/news/lhg-invoice-receipt-download
+lh-b2b /de/de/program/businesstogo
+lh-b2b /de/de/program/experts/at-the-airport/arrival-departure/lufthansa-express-rail
+lh-b2b /de/de/program/experts/at-the-airport/arrival-departure/rail-fly
+lh-b2b /de/de/program/experts/baggage/airportr
+lh-b2b /de/de/program/experts/baggage/dangerous-goods
+lh-b2b /de/de/program/experts/baggage/excess-and-sports-baggage
+lh-b2b /de/de/program/experts/experts-program-benefits
+lh-b2b /de/de/program/experts/route-network
+lh-b2b /de/de/program/experts/route-network/airdolomiti
+lh-b2b /de/de/program/experts/route-network/austrian-airlines
+lh-b2b /de/de/program/experts/route-network/brussels-airlines
+lh-b2b /de/de/program/experts/route-network/codeshares
+lh-b2b /de/de/program/experts/route-network/edelweiss
+lh-b2b /de/de/program/experts/route-network/eurowings
+lh-b2b /de/de/program/experts/route-network/lufthansa
+lh-b2b /de/de/program/experts/route-network/swiss
+lh-b2b /de/en/news/lh-fra-kul
+lh-b2b /de/en/news/lhg-invoice-receipt-download
+lh-b2b /de/en/program/businesstogo
+lh-b2b /de/en/program/experts/route-network/codeshares
+lh-b2b /xx/de/program/businesstogo
+lh-b2b /xx/de/program/experts/at-the-airport/arrival-departure/rail-fly
+lh-b2b /xx/de/program/experts/baggage/dangerous-goods
+lh-b2b /xx/en/program/businesstogo

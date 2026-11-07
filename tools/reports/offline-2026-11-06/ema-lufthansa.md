@@ -1377,3 +1377,103 @@ preview-paths-after-463.txt (33):
 1. After cd7152a6: fund, history, usermanagement, reports and lhghome under /de/en/, then the same
    five under /de/de/.
 2. After 327d3fee: the 23 airlines-at-a-glance pages.
+
+## The brief after 467: the 26 other B2B pages' h1, Brussels P34-P37 and P41
+
+Nothing was published. **26 documents in lh-b2b** were uploaded to DA and previewed; they are
+listed in preview-paths-after-467.txt. Brussels documents go to the harness for re-import:
+tools/reports/brussels/reimport-after-467.txt (30). Nothing was imported into content-sites.
+
+At the start of this turn only .migration/project.json was uncommitted (local tool state, kept out
+of git).
+
+Before each of the three pushes:
+
+- a pull (fetch and rebase);
+- lint and the full suite (2,551, then 2,561, then this push's count; 0 failures);
+- every brand's smoke before and after: 0 differences;
+- TAP's 40 pages by hand after each push: all 200, the same as before.
+
+**A slip to report:** my first scratch import of the five Brussels pages requested them live from
+www.brusselsairlines.com.
+
+- The bulk importer loads pages live unless its workspace is flagged bot-protected, and my scratch
+  workspace wasn't flagged. brussels-import.mjs sets the flag for this reason.
+- Five page loads went to www before I saw it in the log. That output was discarded.
+- Every import after it ran with the flag and read only the snapshots (the logs show "Protected —
+  importing from snapshot" for every page). The scratch tool now sets the flag itself.
+
+### 1. The 26 other B2B pages without an h1 (efcdc94b; 26 documents)
+
+- **Backed up first:** DA's current copies of all 26 are in the scratch folder (b468/h1/backup).
+- **A problem found with 327d3fee's rule:** an h2 without a size marker becomes an unmarked h1,
+  which B2B shows at the page title's size (42 px light capitals instead of 32 px regular). 22 of
+  the 26 had such headings.
+- **The fix:** withPageHeading now gives such a heading {heading-medium}, the size of an unmarked
+  h2, inside its marker group or added. The importer and the 26 documents changed alike.
+- **Checked:**
+  - on the local dev server against preview, all 26 at 1440 and 390: the same font, size, line
+    height, weight, case, colour, margins and box (52 of 52);
+  - after the upload, each read back: 200 with one h1, and DA equals the local copy, 26 of 26;
+  - on preview: /de/de/program/experts/baggage/dangerous-goods' h1 at 32/38 regular (28/32 at
+    390), as its h2 was.
+- **The 23 airline pages from 467** all had size markers, so they needed nothing more.
+
+### 2. Brussels P34-P37 and P41 (2ff55ae2)
+
+What I did:
+
+- Imported the rows' pages from their snapshots in a scratch workspace with main's bundles.
+- Compared that output with the documents on main--lh-brussels--moved-permanently.aem.page.
+
+Results:
+
+- **P34 (gift cards), P35 (a list item's text), P37 (travel regulations' rows):** already fixed in
+  the shared code in 6b3c3df9 (2026-11-06, with tests). The documents on preview have the fix in
+  every captured language (P37: 3481 px at 1440, www 4354). Only parity.md was behind; it's
+  updated now.
+- **P36 (tabs holding accordions):** the code was fixed in 6b3c3df9, but no document was
+  re-imported.
+  - 24 captured pages have the pattern: problems-with-your-baggage, carry-on-baggage,
+    brussels-airport-lounges and climate-protection-projects, in 6 languages.
+  - All 24 import with 2 or 3 Tab sections now, but their documents on preview have none.
+  - They are on the re-import list.
+- **P41 (online check-in options):** fixed now, test first (test/app-entry-teaser-cards.test.mjs,
+  with the snapshot's view as a fixture).
+  - The app-entry template maps www's four-column teaser cards to carousel-cards, as info does.
+    A four-column view in tabs stays cards-steps'.
+  - Only the app-entry bundle was rebuilt (bundle commit 2ff55ae2, with the installed
+    aem-import-helper 1.6.2; the offline npx cache has none).
+  - The rebuild also brings main's current shared code into this bundle, none of which changes
+    app-entry output:
+    - cards-teaser's lone stage teaser (7992a5c6), which acts only on .stage, and no app-entry
+      mapping takes .stage;
+    - the offer cards' pictures through the cleanup (7152e272);
+    - the column marks' template list (adds fleet).
+  - Imported from the be/fr snapshot: carousel-cards (grid, four-up) with the four cards.
+
+### The re-import list (tools/reports/brussels/reimport-after-467.txt)
+
+- **Brussels:** 30 documents.
+  - P41: online-check-in-options in be/en, be/fr, be/nl, de/de, es/es and it/it. nl/nl has no
+    snapshot.
+  - P36: the 24 pages above.
+- **lufthansa.com:** I can't import those pages here (no lufthansa.com or SWISS snapshots on this
+  machine), so I scanned all 4,748 lh-com documents on preview for www's teaser cards as plain
+  content.
+  - No app-entry page has them.
+  - One page outside app-entry's list does: /fr/fr/yes, three cards. Its template isn't recorded
+    here, so it needs re-importing only if the harness imports it with app-entry.
+- **SWISS:** none of the 2,827 lh-swiss documents has the pattern.
+
+### Summary
+
+| Item | Commit | What | Rollback |
+| --- | --- | --- | --- |
+| 1 | efcdc94b | b2b-import.mjs withPageHeading: {heading-medium} for an unmarked heading; test | revert; the 26 documents keep their h1 with its marker |
+| 2 | 2ff55ae2 | page-templates.json app-entry carousel-cards, import-app-entry.js, the app-entry bundle; test | revert, then rebuild the app-entry bundle |
+| — | (this push) | this report; Brussels parity P34-P37, P41; reimport-after-467.txt; preview-paths-after-467.txt; the lh-b2b upload state | revert |
+
+### Preview path list, in release order
+
+preview-paths-after-467.txt (26): after efcdc94b, the 26 lh-b2b pages.
