@@ -235,3 +235,28 @@ test('below 768px on brand b2b: every item closed at first (www\'s Newsroom), a 
     meta.remove();
   }
 });
+
+// the brief after 470 (sweep): www.discover-airlines.com's tab sets (maui-tab-control-responsive,
+// theme four_y: check-in at the airport, Business Class, Santorini) show every item closed on
+// phones in discover-parity-001; SWISS keeps the first open
+test('below 768px on brand discover: every item closed at first, as www\'s four_y theme', () => {
+  desktop = false;
+  const meta = document.createElement('meta');
+  meta.name = 'brand';
+  meta.content = 'discover';
+  document.head.append(meta);
+  try {
+    const main = SWISS();
+    decorateSectionTabs(main);
+    const toggles = [...main.querySelectorAll('.section-tab-toggle')];
+    assert.deepEqual(toggles.map((t) => t.getAttribute('aria-expanded')), ['false', 'false']);
+    toggles[0].click();
+    assert.deepEqual(toggles.map((t) => t.getAttribute('aria-expanded')), ['true', 'false']);
+  } finally {
+    meta.remove();
+  }
+  const swiss = SWISS();
+  decorateSectionTabs(swiss);
+  assert.deepEqual([...swiss.querySelectorAll('.section-tab-toggle')].map((t) => t.getAttribute('aria-expanded')), ['true', 'false']);
+  desktop = true;
+});

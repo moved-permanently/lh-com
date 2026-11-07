@@ -392,6 +392,15 @@ body.brand-discover .footer .footer-logos { background-image: linear-gradient(#0
   body.brand-discover .footer .footer-logos { background-image: linear-gradient(#003e7b 0 69px, #002554 69px); }
 }
 
+/* row 30 (the sweep after brief 470): two-up teaser cards as www's rows of .twocolumn (Additional
+   services: one column view a row, 40 px above and below it): from 768 px each row 80 px under the
+   one above */
+@media (width >= 768px) {
+  body.brand-discover .carousel-cards.grid.two-up .carousel-cards-track {
+    row-gap: 80px;
+  }
+}
+
 /* row 10: the teaser cards (carousel-cards grid: www's a.teaser.card) titled as www's teaser-heading,
    LufthansaHead 14 to 16 px bold night sky blue */
 body.brand-discover .carousel-cards:is(.grid, .four-up) .carousel-cards-slide:not(.carousel-cards-wide) .carousel-cards-body > :is(h1, h2, h3, h4, h5, h6) {
