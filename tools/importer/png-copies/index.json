@@ -1,0 +1,54 @@
+{
+ "/content/dam/lh/icons/Klarna_Badge_Secondary_Vertical_White.svg": {
+  "key": "136fcc5ab7a29551b4620771e19d6e94",
+  "svgSha256": "a1de21af8836996c73bca7f4311be8fd004853e9641c6bd1f2af01aaae8b8dd6"
+ },
+ "/content/dam/lh/icons/payment/americanexpress.svg": {
+  "key": "a0b23514db5a02155b922493ac43b399",
+  "svgSha256": "77691815df9d4c72c763d9e19e08797826200637605efbd815c42af2f5523007"
+ },
+ "/content/dam/lh/icons/payment/degussa.svg": {
+  "key": "45d947fa725b813d023cb54fb69f4c80",
+  "svgSha256": "1397bc1cfb501de101c6c99d25d1b89d49babbd735135eb191c4ca9f33928a4b"
+ },
+ "/content/dam/lh/icons/payment/dinersclub.svg": {
+  "key": "e981b8a8f421a21169fe97b6654ef04f",
+  "svgSha256": "3b8e818d69a5e1c3900d85a7a0217022197bd2a3d21a0d49b0c8334f290cb3ce"
+ },
+ "/content/dam/lh/icons/payment/jcb.svg": {
+  "key": "3b8957b338e4a0729ff3ccaa57285f96",
+  "svgSha256": "00fff9b31059015e9bc695a1e688b756a07ee5aae1250b7e1b2652207ae40cf0"
+ },
+ "/content/dam/lh/icons/payment/mastercard.svg": {
+  "key": "27a90bd12073b1a31490cb4f1fb6bec9",
+  "svgSha256": "7c377229f487efdf32f6a28f09223ff2b523aff8287a56e443a2ef986f0dc426"
+ },
+ "/content/dam/lh/icons/payment/paypal.svg": {
+  "key": "107d51a50917e72ada6bf59854a3723f",
+  "svgSha256": "bea8af25dbe45e859e8d39d4637465f145931b5250768b1a0725c6350cb7ccec"
+ },
+ "/content/dam/lh/icons/payment/uatp.svg": {
+  "key": "605fed093bb4a5da448ba2e1c1f71148",
+  "svgSha256": "4b6e4da33d2354c94dabf04e9e571dae1c4e3d73cde8f2a63ba30deef641c924"
+ },
+ "/content/dam/lh/icons/payment/visa.svg": {
+  "key": "1b373abbaab0b986c34b1d03407c4337",
+  "svgSha256": "9f3d4023fa884c0ae0eafd4e12656243bf8c240c81575e4e08dfb1a89109d00b"
+ },
+ "/content/dam/lh/icons/social-media/facebook.svg": {
+  "key": "36c4c97eadb32adbdc23d09d291138a5",
+  "svgSha256": "2525d9df5f7cf3ed1e0d4a22a72e15555a2de3a0d490eda3cfd3b0969f362fdf"
+ },
+ "/content/dam/lh/icons/social-media/x.svg": {
+  "key": "32ad87277ade6a0a5fcae4daaca4b5b7",
+  "svgSha256": "37ee5c532713eeab93cc8a4c9a520015b44bddd39bf75372f73b2436575fd625"
+ },
+ "/content/dam/lh/icons/social-media/youtube.svg": {
+  "key": "a222e99a857b0a4a8a3f37748a65b7ca",
+  "svgSha256": "7fd8d7791eebf9488c17a6a280bc2112ea36e06588a7ca984b9b2a9cd9057748"
+ },
+ "/content/dam/lh/images/local_images/homepage/ig_logo_200x200%20(1).svg": {
+  "key": "9e4b1f896c002aac7ffe3fbb8a686950",
+  "svgSha256": "7d3af0ee65b13d894794b196ed766dd1c756d8b5792b9b19cc84defbeb566386"
+ }
+}

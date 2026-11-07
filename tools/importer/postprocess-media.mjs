@@ -17,6 +17,7 @@
  *     result goes to content/media-da/{md5}.{ext} and the document references
  *     /media-da/{md5}.{ext} (tools/importer/da-upload.mjs uploads those to DA).
  *     Manifest: tools/importer/media-manifest.json (url → cache file, size, decision, local file).
+ *     SVGs with a known PNG copy (the payment and social icons, png-copies.mjs) get that copy.
  *  3. Checks: no document over 200 images, no remaining SVG over 40 KB, no measured image over
  *     20 MB or wider than 2560 px. Images on other hosts are listed as unchecked.
  *
@@ -33,6 +34,7 @@ import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
 import { splitDocument, countImages, LIMIT } from './split-fragments.mjs';
+import { pngCopyOf } from './png-copies.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const CONTENT = path.join(root, 'content');
@@ -295,6 +297,7 @@ async function processImages(html) {
     rasterized: [],
     resized: [],
     replaced: [],
+    copies: [],
     unchecked: [],
     errors: [],
     violations: [],
@@ -311,6 +314,15 @@ async function processImages(html) {
     if (kind === 'rendition') { seen.set(ref.url, null); continue; }
     if (kind === 'other') {
       stats.unchecked.push(ref.url);
+      seen.set(ref.url, null);
+      continue;
+    }
+    // an SVG whose PNG copy DA and live already hold (the payment and social icons,
+    // tools/importer/png-copies.mjs): that copy, as it is
+    const copy = kind === 'static' || (kind === 'local' && /\.svg$/i.test(ref.url)) ? pngCopyOf(ref.url, MEDIA_DIR, dryRun) : null;
+    if (copy) {
+      if (ref.raw !== null) out = out.split(`src="${ref.raw}"`).join(`src="${copy}"`);
+      stats.copies.push({ url: ref.url, local: copy });
       seen.set(ref.url, null);
       continue;
     }
@@ -422,6 +434,7 @@ while (queue.length) {
     rasterized: stats.rasterized,
     resized: stats.resized,
     replaced: stats.replaced,
+    copies: stats.copies,
     maxWidth: stats.maxWidth,
     maxBytes: stats.maxBytes,
     unchecked: stats.unchecked,
@@ -434,6 +447,7 @@ while (queue.length) {
   if (stats.rasterized.length) parts.push(`svg rasterized ${stats.rasterized.length}`);
   if (stats.resized.length) parts.push(`resized ${stats.resized.length}`);
   if (stats.replaced.length) parts.push(`broken original -> rendition ${stats.replaced.length}`);
+  if (stats.copies.length) parts.push(`png copies ${stats.copies.length}`);
   if (stats.unchecked.length) parts.push(`unchecked ${stats.unchecked.length}`);
   if (stats.errors.length) parts.push(`errors ${stats.errors.length}`);
   if (violations.length) parts.push(`FAIL ${violations.join('; ')}`);
