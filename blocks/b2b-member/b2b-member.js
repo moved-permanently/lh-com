@@ -1,17 +1,20 @@
 import { readConfigRows, resolveLabels, toConfigKey } from '../../scripts/block-config.js';
 import {
-  fetchJson, loadSession, loginUrl, pageRoot, ROLES_PATH,
+  fetchJson, loadSession, loginUrl, pageRoot, personName, ROLES_PATH,
 } from '../../scripts/b2b-session.js';
 
 /*
  * Lufthansa Group for Business' member pages (lh-b2b /<root>/home, fund, history, usermanagement,
  * reports, profile, lhghome): one variant per view, its texts from the block's rows, its data from
  * lh-backends on the site's own host. What the block reads is the brief's contract, nothing more:
- * the session ({ company, experts }: the person's name, e-mail and home), the accounts of
- * user/roles ({ accountId, accountName, companyId, companyName, programme, roles }; 401 signed
- * out) and the views' endpoints (403 without the rights). The fund, history, users and reports
- * answers are shown as they come: an object as the list of its fields, a list of objects as a
- * table (labels "Label <field>", values "Value <value>", "Hide | fields"). README.md.
+ * the session ({ company: { firstName, lastName, email, loginType, home }, experts: { name,
+ * surname, email, country, language, home } }), the accounts of user/roles ({ accountId,
+ * accountName, companyId, companyName, programme, roles }; 401 signed out) and the views' endpoints
+ * (403 without the rights). The roles decide the member home's tiles and the account a view asks
+ * for (RIGHTS); an answer without roles leaves it to the backend's 403. The fund, history, users
+ * and reports answers are shown as they come: an object as the list of its fields, a list of
+ * objects as a table (labels "Label <the field's words>", values "Value <value>", booleans as
+ * yes / no, role codes as "Role <code>", "Hide | fields"). README.md.
  */
 
 const API = '/service/secured/api/b2bneo';
@@ -35,6 +38,12 @@ const TEXTS = {
     'account label': 'Account',
     'programme label': 'Programme',
     'roles label': 'Roles',
+    'value true': 'Yes',
+    'value false': 'No',
+    'role csf': 'Corporate Service Fund',
+    'role reporting': 'Reports',
+    'role admin': 'User management',
+    'role kam': 'Key Account Management',
   },
   de: {
     loading: 'Wird geladen …',
@@ -52,11 +61,26 @@ const TEXTS = {
     'account label': 'Konto',
     'programme label': 'Programm',
     'roles label': 'Rollen',
+    'value true': 'Ja',
+    'value false': 'Nein',
+    'role csf': 'Corporate Service Fund',
+    'role reporting': 'Berichte',
+    'role admin': 'Benutzerverwaltung',
+    'role kam': 'Key Account Management',
   },
 };
 
-/** The dashboard's tiles: row key, page. */
-const TILES = [['fund tile', 'fund'], ['history tile', 'history'], ['reports tile', 'reports'], ['users tile', 'usermanagement']];
+/** The dashboard's tiles: row key, page, view. */
+const TILES = [['fund tile', 'fund', 'fund'], ['history tile', 'history', 'history'], ['reports tile', 'reports', 'reports'], ['users tile', 'usermanagement', 'users']];
+
+/** The roles (user/roles accounts[].roles) that open a view (the brief). */
+const RIGHTS = {
+  fund: ['CSF'], history: ['CSF'], reports: ['REPORTING'], users: ['ADMIN', 'KAM'],
+};
+
+/** An account's role codes in capitals, or null when the answer gives it none. */
+const rolesOf = (a) => (a && Array.isArray(a.roles) ? a.roles.filter((r) => typeof r === 'string').map((r) => r.trim().toUpperCase()) : null);
+const mayOpen = (a, view) => (rolesOf(a) || []).some((r) => RIGHTS[view].includes(r));
 
 function el(tag, attrs = {}, ...children) {
   const node = document.createElement(tag);
@@ -78,18 +102,20 @@ const DATE = /^\d{4}-\d{2}-\d{2}(?:T[\d:.]+(?:Z|[+-]\d{2}:?\d{2})?)?$/;
  * The generic view of an answer: fields' labels and values from the rows, numbers and dates in
  * the page's language.
  */
-function presenter(config, lang) {
+function presenter(config, lang, t) {
   const hidden = new Set(((config.hide && config.hide.text) || '').split(',').map((x) => x.trim()).filter(Boolean));
+  // a field's words: accountId, account_id and account-id are "account id"
+  const wordsOf = (key) => String(key).replace(/([a-z\d])([A-Z])/g, '$1 $2').replace(/[_-]+/g, ' ').trim()
+    .toLowerCase();
   const label = (key) => {
-    const row = config[toConfigKey(`label ${key}`)];
+    const row = config[toConfigKey(`label ${key}`)] || config[toConfigKey(`label ${wordsOf(key)}`)];
     if (row && row.text) return row.text;
-    const words = String(key).replace(/([a-z\d])([A-Z])/g, '$1 $2').replace(/[_-]+/g, ' ').trim()
-      .toLowerCase();
+    const words = wordsOf(key);
     return words.charAt(0).toUpperCase() + words.slice(1);
   };
   const scalar = (v) => {
     if (typeof v === 'number') return new Intl.NumberFormat(lang).format(v);
-    if (typeof v === 'boolean') return String(v);
+    if (typeof v === 'boolean') return t[`value ${v}`];
     const s = String(v);
     const row = config[toConfigKey(`value ${s}`)];
     if (row && row.text) return row.text;
@@ -142,7 +168,8 @@ export function pickAccount(accounts, wanted = {}) {
     || (wanted.company && a.companyId === wanted.company)) || list[0] || null;
 }
 
-const nameOf = (p) => (p && typeof p.name === 'string' ? p.name.trim() : '');
+/** Role codes as words (rows "Role <code>", the built-in four); codes without words left out. */
+const roleWords = (codes, t) => [...new Set(codes.map((c) => t[`role ${c.toLowerCase()}`]).filter(Boolean))];
 
 /** A row's link (text and href) or the built-in text with the default page. */
 function tileOf(config, key, text, href) {
@@ -191,17 +218,21 @@ async function render(view, ctx) {
   const bad = stateOf(roles);
   if (bad) return bad;
   const accounts = Array.isArray(roles.data.accounts) ? roles.data.accounts : [];
+  // with roles in the answer they decide; without, every tile and the backend's 403
+  const known = accounts.some((a) => rolesOf(a) !== null);
 
   if (view === 'dashboard') {
     const session = await loadSession();
     const person = session && (session.company || session.experts);
     const authored = TILES.filter(([key]) => config[toConfigKey(key)]);
-    const tiles = (authored.length ? authored : TILES).map(([key, page]) => tileOf(config, key, t[key], `/${root}/${page}`));
+    const tiles = (authored.length ? authored : TILES)
+      .filter(([, , v]) => !known || accounts.some((a) => mayOpen(a, v)))
+      .map(([key, page]) => tileOf(config, key, t[key], `/${root}/${page}`));
     return {
       node: el(
         'div',
         {},
-        nameOf(person) ? el('h2', { className: 'b2b-member-greeting' }, t.greeting.replace('{name}', nameOf(person))) : null,
+        personName(person) ? el('h2', { className: 'b2b-member-greeting' }, t.greeting.replace('{name}', personName(person))) : null,
         el('ul', { className: 'b2b-member-tiles' }, tiles.map((x) => el('li', {}, x))),
         accounts.length ? el('h3', {}, t['accounts title']) : null,
         accounts.length ? el('ul', { className: 'b2b-member-accounts' }, accounts.map((a) => el('li', {}, a.accountName || a.accountId, a.companyName && a.companyName !== a.accountName ? el('span', { className: 'b2b-member-company' }, ` (${a.companyName})`) : null))) : null,
@@ -213,12 +244,14 @@ async function render(view, ctx) {
     const session = await loadSession();
     const person = session && (session.company || session.experts);
     if (!person) return { state: 'empty' };
-    const { show, hidden } = presenter(config, lang);
+    const { show, hidden } = presenter(config, lang, t);
+    // the name once (its fields), no home and no sign-in type (a code)
+    const skip = ['home', 'name', 'surname', 'firstName', 'lastName', 'loginType'];
     const own = Object.entries(person)
-      .filter(([k, v]) => k !== 'home' && k !== 'name' && !hidden.has(k) && v !== null && typeof v !== 'object');
+      .filter(([k, v]) => !skip.includes(k) && !hidden.has(k) && v !== null && typeof v !== 'object');
     const first = accounts[0];
     const parts = [
-      facts([[t['name label'], nameOf(person)]]),
+      facts([[t['name label'], personName(person)]]),
       own.length ? show(Object.fromEntries(own)) : null,
       facts([
         [t['company label'], first ? first.companyName || '' : ''],
@@ -238,13 +271,16 @@ async function render(view, ctx) {
         facts([
           [t['programme label'], c.programme || ''],
           [t['account label'], c.accounts.map((a) => a.accountName || a.accountId).join(', ')],
-          [t['roles label'], [...new Set(c.accounts.flatMap((a) => a.roles || []))].join(', ')],
+          [t['roles label'], roleWords(c.accounts.flatMap((a) => rolesOf(a) || []), t).join(', ')],
         ]),
       ))),
     };
   }
 
-  const account = pickAccount(accounts, wanted);
+  if (!RIGHTS[view]) return { state: 'error' };
+  const open = known ? accounts.filter((a) => mayOpen(a, view)) : accounts;
+  if (known && !open.length) return { state: 'forbidden' };
+  const account = pickAccount(open, wanted);
   if (!account) return { state: 'empty' };
   const id = encodeURIComponent(view === 'users' || view === 'reports' ? account.companyId : account.accountId);
   const request = {
@@ -257,7 +293,7 @@ async function render(view, ctx) {
   const r = await fetchJson(...request);
   const state = stateOf(r);
   if (state) return state;
-  const node = presenter(config, lang).show(r.data);
+  const node = presenter(config, lang, t).show(r.data);
   return node && typeof node === 'object' ? { node } : { state: 'empty' };
 }
 

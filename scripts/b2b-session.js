@@ -88,6 +88,19 @@ export async function fetchJson(path, { method = 'GET', body, timeout = 8000 } =
   }
 }
 
+/**
+ * The person's name from the session's company ({ firstName, lastName, … }: company users and
+ * staff) or experts ({ name, surname, … }) object (the brief's two shapes), '' when it has none.
+ * @param {Object|null} person
+ */
+export function personName(person) {
+  if (!person || typeof person !== 'object') return '';
+  const part = (v) => (typeof v === 'string' ? v.trim() : '');
+  const first = part(person.firstName) || part(person.name);
+  const last = part(person.lastName) || part(person.surname);
+  return [first, last].filter(Boolean).join(' ');
+}
+
 /** Who is signed in on this host: { company, experts } (each null), null when unknown. */
 export async function loadSession({ timeout = 2500 } = {}) {
   const { status, data } = await fetchJson(SESSION_PATH, { timeout });

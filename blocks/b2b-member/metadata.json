@@ -12,7 +12,7 @@
     ]
   },
   "contentPattern": {
-    "structure": "2 columns, label | value; every row optional. The variant names the view (dashboard, fund, history, users, reports, profile, accounts). Rows override the built-in English and German texts; Fund tile / History tile / Reports tile / Users tile | link set the dashboard tiles; Label <field> / Value <value> | text and Hide | fields shape an answer's display; Login page | link."
+    "structure": "2 columns, label | value; every row optional. The variant names the view (dashboard, fund, history, users, reports, profile, accounts). Rows override the built-in English and German texts; Fund tile / History tile / Reports tile / Users tile | link set the dashboard tiles (shown by the roles: CSF fund and history, REPORTING reports, ADMIN or KAM user management); Label <the field's words> / Value <value> (booleans: Value true / Value false) / Role <code> | text and Hide | fields shape an answer's display; Login page | link."
   },
   "options": ["dashboard", "fund", "history", "users", "reports", "profile", "accounts"],
   "memberVariantIds": [],

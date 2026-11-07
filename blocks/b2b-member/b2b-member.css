@@ -81,11 +81,25 @@
   color: var(--lh-whale-blue, #52627c);
 }
 
+/* phones: a field's label above its value; from 600px side by side. The values may shrink (a
+   table in one scrolls in its own box), so nothing makes the page wider than the screen */
+.b2b-member .b2b-member-view {
+  min-width: 0;
+  max-width: 100%;
+}
+
 .b2b-member .b2b-member-facts {
   display: grid;
-  grid-template-columns: max-content 1fr;
-  gap: 8px 24px;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 4px 24px;
   margin: 0 0 24px;
+}
+
+@media (width >= 600px) {
+  .b2b-member .b2b-member-facts {
+    grid-template-columns: max-content minmax(0, 1fr);
+    gap: 8px 24px;
+  }
 }
 
 .b2b-member .b2b-member-facts dt {
@@ -93,7 +107,15 @@
 }
 
 .b2b-member .b2b-member-facts dd {
-  margin: 0;
+  min-width: 0;
+  margin: 0 0 8px;
+  overflow-wrap: anywhere;
+}
+
+@media (width >= 600px) {
+  .b2b-member .b2b-member-facts dd {
+    margin-bottom: 0;
+  }
 }
 
 /* wide tables scroll inside the block on a phone */

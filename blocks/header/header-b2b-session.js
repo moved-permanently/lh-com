@@ -6,7 +6,7 @@
  * member home and Log out; signed out, or the session unknown, the menu as it is.
  */
 import {
-  companyLogoutUrl, EXPERTS_LOGOUT_PATH, loadSession, pageRoot,
+  companyLogoutUrl, EXPERTS_LOGOUT_PATH, loadSession, pageRoot, personName,
 } from '../../scripts/b2b-session.js';
 
 export { loadSession };
@@ -33,9 +33,6 @@ function link(href, text) {
   a.textContent = text;
   return a;
 }
-
-// the session's company and experts objects carry the person's name (the brief's contract)
-const nameOf = (p) => (typeof p.name === 'string' ? p.name.trim() : '');
 
 /**
  * The menu's items with the signed-in Login item.
@@ -66,6 +63,7 @@ export function withSession(items, session, where = pageRoot()) {
       links: [link(session.experts.home || `/${where.root}/experts-members`, t.home), link(EXPERTS_LOGOUT_PATH, t.logout)],
     });
   }
-  const label = nameOf(session.company || session.experts) || item.label;
+  // company: firstName and lastName; eXperts: name and surname (the brief's contract)
+  const label = personName(session.company) || personName(session.experts) || item.label;
   return items.map((x, i) => (i === index ? { ...item, label, groups } : x));
 }

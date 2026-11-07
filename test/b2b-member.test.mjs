@@ -2,7 +2,8 @@
 /* blocks/b2b-member (Lufthansa Group for Business' member pages): one variant per view, its texts
    from the block's rows, its data from lh-backends on the site's own host, read as the brief's
    contract describes it (and nothing more):
-   - session: { company, experts }, each null or an object with the person's name, e-mail and home;
+   - session: { company: { firstName, lastName, email, loginType, home }, experts: { name, surname,
+     email, country, language, home } }, each null when not signed in that way;
    - user/roles: { accounts: [{ accountId, accountName, companyId, companyName, programme, roles }] },
      401 when not signed in;
    - csf/accounts/{id}, …/orders/history, companies/{companyId}/users, POST
@@ -29,14 +30,20 @@ const at = (pathname, search = '') => {
 };
 
 const API = '/service/secured/api/b2bneo';
-const SESSION = { company: { name: 'Anna Example', mail: 'anna@example.test', home: '/de/en/home' }, experts: null };
+// (the brief's shapes; every right on both accounts: test/b2b-member-roles.test.mjs has the roles)
+const SESSION = {
+  company: {
+    firstName: 'Anna', lastName: 'Example', email: 'anna@example.test', loginType: 'EXT', home: '/de/en/home',
+  },
+  experts: null,
+};
 const ROLES = {
   accounts: [
     {
-      accountId: 'A-1', accountName: 'Example GmbH, Germany', companyId: 'C-1', companyName: 'Example GmbH', programme: 'Programme X', roles: ['role-a'],
+      accountId: 'A-1', accountName: 'Example GmbH, Germany', companyId: 'C-1', companyName: 'Example GmbH', programme: 'Programme X', roles: ['CSF', 'REPORTING', 'ADMIN'],
     },
     {
-      accountId: 'A-2', accountName: 'Example GmbH, Austria', companyId: 'C-2', companyName: 'Example Austria', programme: 'Programme X', roles: ['role-b'],
+      accountId: 'A-2', accountName: 'Example GmbH, Austria', companyId: 'C-2', companyName: 'Example Austria', programme: 'Programme X', roles: ['CSF', 'REPORTING', 'ADMIN'],
     },
   ],
 };
@@ -135,7 +142,7 @@ test('?account= picks that account', async () => {
 
 test('profile: the person\'s fields (home left out), company and account; accounts: the companies', async () => {
   at('/de/en/profile');
-  const p = await block('profile', [['Label mail', 'E-mail']]);
+  const p = await block('profile', [['Label email', 'E-mail']]);
   assert.match(text(p), /Name Anna Example/);
   assert.match(text(p), /E-mail anna@example\.test/);
   assert.match(text(p), /Company Example GmbH/);
