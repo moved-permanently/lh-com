@@ -275,7 +275,10 @@ sign-in post (`POST /j_security_check`, `POST /<cc>/<ll>/j_security_check`: `j_u
 before any cache: `GET https://<host>/_lh-backends/b2b/gate?path=<path and query>` with the request's `cookie`. 204:
 the page as the site answers it, `cache-control: private, no-store`, the gate's `Set-Cookie` passed on (route
 `b2b-member`); any other answer (302 to the sign-in page with `?redirect=`, or to the eXperts sign-in; an error): the
-gate's, as it is. Every other path and every other brand's host as before. Rollback: `git revert`, deploy.
+gate's, as it is (asked with `redirect: 'manual'`: the visitor follows it, not lh-edge). www's staff sign-in address
+`/<cc>/<ll>/login_internal`, where lh-backends sends staff, is a 301 to the document's `/<cc>/<ll>/login-internal` with
+the query (route `b2b-login-internal`; Edge Delivery has no `_` in page names). Every other path and every other
+brand's host as before. Rollback: `git revert`, deploy.
 
 Sites without `<cc>/<ll>` roots (`PLAIN_SITES` in `src/sites.js`, brief 162) have no locale table and no market
 route: every path passes through to the site's origin as it is (the site's `/redirects` sheet answers there), only the

@@ -16,6 +16,6 @@
   },
   "options": [],
   "memberVariantIds": [],
-  "usage": "lh-b2b /<root>/login (companies) and /<root>/login_internal (staff, Type | staff).",
+  "usage": "lh-b2b /<root>/login (companies) and /<root>/login-internal (staff, Type | staff).",
   "reuseGuidance": "One block per sign-in page; change texts with rows. The answer handling is outcome() in b2b-login.js; the session helpers are scripts/b2b-session.js."
 }

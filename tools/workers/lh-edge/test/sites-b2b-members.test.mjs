@@ -131,6 +131,18 @@ test('b2b: the gate\'s other answers as they are (302 to the sign-in), the page 
   assert.ok(backendCalls.length === 3 && backendCalls.every((c) => c.redirect === 'manual'), JSON.stringify(backendCalls.map((c) => c.redirect)));
 });
 
+test('b2b: www\'s staff sign-in address /<cc>/<ll>/login_internal (lh-backends\' redirect) as a 301 to the document\'s /<cc>/<ll>/login-internal, the query kept', async () => {
+  const resp = await get('https://b2b.example/de/en/login_internal?redirect=%2Fde%2Fen%2Flhghome');
+  assert.equal(resp.status, 301);
+  assert.equal(resp.headers.get('location'), '/de/en/login-internal?redirect=%2Fde%2Fen%2Flhghome');
+  assert.equal(resp.headers.get('x-lh-edge-route'), 'b2b-login-internal');
+  assert.equal((await get('https://b2b.example/gb/en/login_internal')).headers.get('location'), '/gb/en/login-internal');
+  assert.equal(backendCalls.length, 0);
+  assert.equal(originCalls.length, 0, 'no page fetched');
+  // another brand's host: not this rule
+  assert.notEqual((await get('https://brussels.example/be/en/login_internal')).status, 301);
+});
+
 test('b2b: other paths as before (no gate), public pages keep their caching', async () => {
   const login = await get('https://b2b.example/de/en/login');
   assert.equal(login.status, 200);

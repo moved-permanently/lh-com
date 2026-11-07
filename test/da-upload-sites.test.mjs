@@ -89,7 +89,7 @@ test('a site\'s own login and profile pages (allowlist ownPages, exact paths): l
     assert.ok(b2b.allowed(p), `${p}: in lh-b2b's allowlist`);
   });
   assert.ok(b2b.appShell('/de/en/profile/miles') && b2b.appShell('/gb/en/login'), 'exact paths only');
-  ['/de/en/login_internal', '/de/en/home', '/de/en/fund', '/de/en/history', '/de/en/usermanagement', '/de/en/reports', '/de/en/lhghome', '/de/en/experts-members']
+  ['/de/en/login-internal', '/de/en/home', '/de/en/fund', '/de/en/history', '/de/en/usermanagement', '/de/en/reports', '/de/en/lhghome', '/de/en/experts-members']
     .forEach((p) => assert.ok(b2b.allowed(p) && b2b.allowed(p.replace('/de/en/', '/de/de/')), p));
   // ownPages lifts the refusal only: a path there must be an app shell path
   const list = JSON.parse(fs.readFileSync(path.join(root, 'tools/importer/sites/lh-b2b.json'), 'utf8'));

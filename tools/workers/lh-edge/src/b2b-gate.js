@@ -22,6 +22,22 @@ export function isSignInPost(url, request) {
   return request.method === 'POST' && SIGN_IN.test(url.pathname);
 }
 
+/** www's staff sign-in page; its document is login-internal (Edge Delivery has no _ in names). */
+const STAFF_LOGIN = /^\/([a-z]{2})\/([a-z]{2})\/login_internal$/;
+
+/**
+ * www's staff sign-in address (lh-backends sends staff there): a 301 to the document's address,
+ * the query (?redirect=, ?error=) kept; null for any other path.
+ */
+export function staffLoginMoved(url) {
+  const m = STAFF_LOGIN.exec(url.pathname);
+  if (!m) return null;
+  return new Response(null, {
+    status: 301,
+    headers: { location: `/${m[1]}/${m[2]}/login-internal${url.search}`, 'cache-control': 'max-age=3600' },
+  });
+}
+
 /** Whether a path is one of the member pages. */
 export function isMemberPath(pathname) {
   return MEMBER.test(pathname);

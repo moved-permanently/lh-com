@@ -68,6 +68,12 @@ test('the Login item found by its links (www\'s absolute ones too); German texts
   items[0].label = 'Anmelden';
   const out = withSession(items, { company: { firstName: 'Anna', lastName: 'Example', home: '/de/de/home' } }, { lang: 'de', root: 'de/de' });
   assert.deepEqual(view(out)[0][1][0][1].map(([t]) => t), ['Mitgliederbereich', 'Abmelden']);
+  // the staff sign-in, the document's address and www's
+  ['/de/en/login-internal', '/de/en/login_internal'].forEach((href) => {
+    const staff = menu();
+    staff[0].groups[0].links = [a(href, 'Employees')];
+    assert.equal(view(withSession(staff, { company: { firstName: 'Kim', lastName: 'Staff', home: '/de/en/lhghome' } }))[0][0], 'Kim Staff', href);
+  });
 });
 
 test('loadSession: the session JSON; any failure: null', async () => {

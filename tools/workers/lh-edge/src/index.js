@@ -17,7 +17,9 @@ import { graphql, isGraphqlPath, graphqlPath } from './graphql.js';
 import { dam, isDamPath } from './dam.js';
 import { siteSearch, isSearchPath } from './search.js';
 import { backends, isBackendsPath, isLoginReturn } from './backends.js';
-import { isMemberPath, isSignInPost, memberGate } from './b2b-gate.js';
+import {
+  isMemberPath, isSignInPost, memberGate, staffLoginMoved,
+} from './b2b-gate.js';
 import { entry, entryPath } from './entry.js';
 import { loginUrl, LOGIN_PATH } from './login.js';
 import {
@@ -471,6 +473,9 @@ async function siteAnswer(incoming, env, site, ctx) {
   if (brand.memberGate && isSignInPost(url, incoming)) {
     return finish(await backends(incoming, env), incoming, senv, 'b2b-login');
   }
+  // www's staff sign-in address: the document's (Edge Delivery has no _ in page names)
+  const staffLogin = brand.memberGate && read ? staffLoginMoved(url) : null;
+  if (staffLogin) return finish(staffLogin, incoming, senv, 'b2b-login-internal');
   // www's DAM URLs: lh-com's DAM route with the site's origin (its DA copies), then AEM
   if (isDamPath(url.pathname)) return finish(await dam(incoming, senv, ctx), incoming, senv, 'dam');
   // / to the first language version's homepage (on the site's alias host, www.austrian.cn's

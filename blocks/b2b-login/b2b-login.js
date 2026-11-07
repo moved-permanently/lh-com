@@ -2,7 +2,7 @@ import { readConfigRows, resolveLabels } from '../../scripts/block-config.js';
 import { pageRoot, sameHostPath } from '../../scripts/b2b-session.js';
 
 /*
- * Lufthansa Group for Business' sign-in (the pages /<root>/login and /<root>/login_internal):
+ * Lufthansa Group for Business' sign-in (the pages /<root>/login and /<root>/login-internal):
  * a plain HTML form (POST /<cc>/<ll>/j_security_check; without script lh-backends answers with
  * redirects, ?error= back on this page) that the script sends with j_validate=true and follows to
  * the answer's redirectURL. README.md.

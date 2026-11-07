@@ -1,6 +1,6 @@
 # b2b-login
 
-Custom **b2b-login** block. Purpose: Lufthansa Group for Business' sign-in (lh-b2b `/<root>/login` for companies, `/<root>/login_internal` for Lufthansa Group staff), sent to lh-backends on the site's own host.
+Custom **b2b-login** block. Purpose: Lufthansa Group for Business' sign-in (lh-b2b `/<root>/login` for companies, `/<root>/login-internal` for Lufthansa Group staff: www's `/<root>/login_internal`, where lh-backends sends staff, is lh-edge's 301 to it, as Edge Delivery has no `_` in page names), sent to lh-backends on the site's own host.
 
 ## Authoring (Document Authoring)
 

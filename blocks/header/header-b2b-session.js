@@ -23,7 +23,8 @@ const pathOf = (a) => {
     return '';
   }
 };
-const isCompanyLogin = (a) => /^\/[a-z]{2}\/[a-z]{2}\/login(?:_internal)?$/.test(pathOf(a));
+// (the staff sign-in: the document login-internal, www's login_internal)
+const isCompanyLogin = (a) => /^\/[a-z]{2}\/[a-z]{2}\/login(?:[-_]internal)?$/.test(pathOf(a));
 const isExpertsLogin = (a) => pathOf(a) === '/service/secured/api/experts/login';
 
 function link(href, text) {

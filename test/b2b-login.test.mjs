@@ -79,7 +79,7 @@ test('the plain form: action, fields, loginType EXT, resource the root\'s home; 
 });
 
 test('staff (Type | staff): DESMON, the staff home', () => {
-  at('/de/de/login_internal');
+  at('/de/de/login-internal');
   const b = block([['Type', 'staff']]);
   assert.equal(b.querySelector('input[name="loginType"]').value, 'DESMON');
   assert.equal(b.querySelector('input[name="resource"]').value, '/de/de/lhghome');
