@@ -849,7 +849,19 @@ function serviceWidget(c, page) {
   if (serialError) rows.push(['Serial error', serialError]);
   const submit = text(form.querySelector('#etrk_awbsearch'));
   if (submit) rows.push(['Submit label', submit]);
-  page.block('booking-lookup (tracking)', rows.map(([k, v]) => [k, esc(v)]));
+  const cells = rows.map(([k, v]) => [k, esc(v)]);
+  // www opens on the Booking tab (brief 447): its create button (eBooking on www, which needs
+  // the portal's login) and the eBooking dashboard link as the form tab's panel, which
+  // booking-lookup (tracking) shows above the tracking form, in the same card
+  const create = c.querySelector('form[name="create-booking-form"]');
+  const createLabel = create ? text(create.querySelector('#bookingSearchButton')) : '';
+  if (create && createLabel && tab) {
+    const dashboard = c.querySelector('#book a[href^="/my-dashboard"]');
+    const panel = `<p><strong><a href="${attr(`${HOST}${create.getAttribute('action')}`)}">${esc(createLabel)}</a></strong></p>${dashboard ? `<p><a href="${attr(`${HOST}${dashboard.getAttribute('href')}`)}">${esc(text(dashboard))}</a></p>` : ''}`;
+    cells.splice(1, 0, ['Panel', panel]);
+    page.note('the service widget\'s open Booking tab: its create button and dashboard link (www) above the tracking form');
+  }
+  page.block('booking-lookup (tracking)', cells);
   page.note('shipment tracking form: booking-lookup (tracking), the air waybill handed to eTracking on www');
   page.section(null);
 }
@@ -1175,7 +1187,8 @@ function infra(c, page) {
   // the station network map (an image on www), then the counters
   const map = c.querySelector('img.infraMapImg');
   const mapImg = map ? page.img(map) : '';
-  const counters = `${stats.length ? `<ul>${stats.join('')}</ul>` : ''}${regions.length ? `<ul>${regions.join('')}</ul>` : ''}${mapLink(page).join('')}`;
+  // (no link to a map on www: the band's map is this picture, www has no Google map here; brief 447)
+  const counters = `${stats.length ? `<ul>${stats.join('')}</ul>` : ''}${regions.length ? `<ul>${regions.join('')}</ul>` : ''}`;
   page.block('columns-media (band, gradient, stats, icons)', [[inner ? flow(inner, page, 'cell').join('') : ''], [counters, mapImg ? `<p>${mapImg}</p>` : '']]);
 }
 
