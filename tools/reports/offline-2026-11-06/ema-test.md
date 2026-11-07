@@ -638,7 +638,7 @@ Checked on main--lh-com--moved-permanently.aem.page at 1440: /xx/hk/flight-searc
 Found on the way, not changed: /xx/zh's picker still says "Children (2-11 years)", "Infants without seat" and the English
 group link; those come from its documents' authored rows, not the built-in table.
 
-### 3. doctor-on-board-news at 390 (`9343cbcf`)
+### 3. doctor-on-board-news at 390 (`70d0f480`)
 
 From www's own stylesheet: `.column-view.container-gray { padding: 4.8rem 0 }`, and the items' 1.2rem (2.4rem from 768
 px) below. A grey column view nested in a column item (the contact box, the card band) had our plain grey section
@@ -652,6 +652,10 @@ about 32 px above the accordion (www's gap between the h1 and the intro differs 
 72 here) and the item's 12 px top padding inside the contact box.
 114 Austrian documents have such a band (from the snapshots): imported fresh into a scratch workspace with the new
 bundles, then only the token moved into DA's copies (136 sections); every other byte as DA has it.
+Ten of them (the green-fare pages) changed in DA meanwhile (another session's share images): taken again from DA,
+the token moved again, then all 114 uploaded and previewed; DA equal to local after. On the preview at 390 the band's
+heading 50 px above www's (was 146), the card titles 46 (was 142); at 1440 within 6 px, the card titles equal; the bar's
+logo link 122 x 24.
 Test first: importer-grey-in-column.
 
 ### 4. The Austrian parity rows still open
@@ -659,7 +663,7 @@ Test first: importer-grey-in-column.
 Rows 3 (the airport list from this environment) and 38 (www's offers app, a link out) are not ours to change; row 28's
 font point was row 29, fixed. The deeper pages' accessibility items: the Star Alliance logos' alt texts were done in
 brief 438 (5616b6ef: 0 linked pictures without one on at/de and at/en); the bar's logo link was 122 x 18 px at 390 (axe
-target-size): now 24 px tall with 3 px of padding taken back by the margin (`9343cbcf`). parity.md updated.
+target-size): now 24 px tall with 3 px of padding taken back by the margin (`70d0f480`). parity.md updated.
 
 ### Checks
 
@@ -677,8 +681,8 @@ target-size): now 24 px tall with 3 px of padding taken back by the margin (`934
 | item | commit | what | rollback |
 | --- | --- | --- | --- |
 | 2 | `16c0f338` | the hk passenger picker in www's Traditional Chinese | `git revert` |
-| 3, 4 | `9343cbcf` | in-column grey bands with www's 4.8rem (Austrian); the logo link a 24 px target; bundles | `git revert`; the 114 documents: DA's versions before 2026-11-07 17:00 UTC (logs/da/pre-ic462) |
-| 1-4 | this report's commit | report, `local-vs-da-462.txt`, `preview-paths-after-462.txt`, parity.md | – |
+| 3, 4 | `70d0f480` | in-column grey bands with www's 4.8rem (Austrian); the logo link a 24 px target; bundles | `git revert`; the 114 documents: DA's versions before 2026-11-07 17:00 UTC (logs/da/pre-ic462) |
+| 1-4 | `df42c3a8` and this commit | report, `local-vs-da-462.txt`, `preview-paths-after-462.txt`, parity.md | – |
 
 Documents (uploaded to DA and previewed, not published): no files; 114 Austrian pages in
 `tools/reports/offline-2026-11-06/preview-paths-after-462.txt`. None is published.
