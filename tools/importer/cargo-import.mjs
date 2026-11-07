@@ -663,7 +663,12 @@ function videoCell(node, page) {
 
 function video(node, page) {
   const cell = videoCell(node, page);
-  if (cell) page.block('columns-media', [[cell]]);
+  if (!cell) return;
+  // the fragment's own heading (h2.videoHeading, eBooking's "Introduction video to our new
+  // eBooking") before its block (the sweep after brief 470, row 31)
+  const heading = node.querySelector('.videoHeading');
+  if (heading && text(heading)) page.add(`<h2>${esc(text(heading))}</h2>`);
+  page.block('columns-media', [[cell]]);
 }
 
 /** The distinct images of a node (carousel clones and thumbnails dropped). */
@@ -711,7 +716,9 @@ function component(c, page) {
   const k = cls(c);
   // structure fragment: a section, grey when the source band is grey
   if (/(^|\s)fullWidthFragmentContainer(\s|$)/.test(k)) {
-    page.section(/grey-background/.test(k) ? 'grey' : null);
+    // www's navy band (blue-background: eBooking's Add-on Services) the section style navy (the
+    // sweep after brief 470, row 32)
+    page.section(/grey-background/.test(k) ? 'grey' : (/(^|\s)blue-background(\s|$)/.test(k) ? 'navy' : null));
     flow(c, page, 'top').forEach((h) => page.add(h));
     page.section(null);
     return true;
@@ -720,7 +727,9 @@ function component(c, page) {
   if (/(^|\s)service-widget(\s|$)/.test(k)) { serviceWidget(c, page); return true; }
   if (/(^|\s)(component-tabs|customTabFragment)(\s|$)/.test(k)) { tabs(c, page); return true; }
   // text and picture side by side (cf5-cf8; CF7, text one third: www's class has no image-text-h)
-  if (/(^|\s)(image-text-h|Text-Image-horizontal-CF[5-8])(\s|$)/.test(k)) { textImage(c, page); return true; }
+  // CF8 (text one third, the picture or video left) has text-one-third only (the sweep after brief
+  // 470, row 32)
+  if (/(^|\s)(image-text-h|Text-Image-horizontal-CF[5-8]|text-one-third)(\s|$)/.test(k)) { textImage(c, page); return true; }
   if (/(^|\s)Introduction-CF3(\s|$)/.test(k)) { twoColumns(c, page); return true; }
   if (/(^|\s)(cf-12|four-columns|three-columns|two-columns)(\s|$)/.test(k) && c.querySelector(':scope > .row')) { cardRow(c, page); return true; }
   // the company pages' image tiles (.LCAGCP-lcagTile columns): cards-teaser (overlay, mosaic),

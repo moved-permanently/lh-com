@@ -419,6 +419,104 @@ body.brand-cargo .cards-teaser.boxed .cards-teaser-body h3 {
   line-height: 24px;
 }
 
+/* row 30 (the sweep after brief 470): the boxed cards as www's lcagCard on Industries in focus: each
+   card 20 px under the one above (its margin-top), the columns 24 px apart, the picture straight on
+   the text, the card headline (www's h4.cardHeadline) navy 18/24 bold 20 px over the text, the text
+   three lines at most (clipTeaserboxText) */
+body.brand-cargo .cards-teaser.boxed > ul {
+  gap: 20px 24px;
+}
+
+body.brand-cargo .cards-teaser.boxed > ul > li:nth-child(n) {
+  margin-top: 0;
+}
+
+body.brand-cargo .cards-teaser.boxed .cards-teaser-image {
+  margin-bottom: 0;
+}
+
+body.brand-cargo .cards-teaser.boxed .cards-teaser-body h4 {
+  margin: 0 0 20px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+body.brand-cargo .cards-teaser.boxed .cards-teaser-body h4 a:any-link {
+  color: #05164d;
+}
+
+body.brand-cargo .cards-teaser.boxed .cards-teaser-body p {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+/* on phones the picture across the screen, over the card's edges (www: 390 px over the 358 px
+   card): the 16 px page margin and the card's 1 px border */
+@media (width < 768px) {
+  body.brand-cargo .cards-teaser.boxed > ul > li {
+    overflow: visible;
+  }
+
+  body.brand-cargo .cards-teaser.boxed .cards-teaser-image {
+    margin-inline: -17px;
+  }
+}
+
+/* row 32 (the sweep after brief 470): eBooking's Add-on Services band (section navy, www's
+   blue-background fragment): navy across the screen, 30 px above and 40 px below, white text; in it
+   www's CF8 (columns-media (wide-media), the video first): the video 746 and the text 526 of the
+   1296 px grid, 24 px apart, the heading 28/32. On phones the video across the screen at the band's
+   top, the text 20 px under it, the heading 24/28 */
+body.brand-cargo main > .section.navy {
+  margin-bottom: 0;
+  padding: 30px 0 40px;
+  background-color: #05164d;
+  color: #fff;
+}
+
+body.brand-cargo main > .section.navy :is(h2, h3, p, li, a:any-link) {
+  color: #fff;
+}
+
+body.brand-cargo main > .section.navy :is(h2, h3) {
+  margin-top: 0;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 32px;
+}
+
+@media (width >= 768px) {
+  /* CF8 elsewhere (the eServices app's picture, then its text): www's col-8 | col-4, row 25 the
+     other way round */
+  body.brand-cargo .columns-media.wide-media .columns-media-media-first {
+    grid-template-columns: minmax(0, 1fr) calc((100% - 48px) / 3);
+    column-gap: 24px;
+  }
+
+  body.brand-cargo main > .section.navy .columns-media.wide-media .columns-media-media-first {
+    grid-template-columns: minmax(0, 746fr) minmax(0, 526fr);
+    column-gap: 24px;
+  }
+}
+
+@media (width < 768px) {
+  body.brand-cargo main > .section.navy {
+    padding: 0 0 20px;
+  }
+
+  body.brand-cargo main > .section.navy .columns-media.wide-media .columns-media-media {
+    margin: 0 calc(-1 * var(--layout-margin)) 20px;
+  }
+
+  body.brand-cargo main > .section.navy :is(h2, h3) {
+    font-size: 24px;
+    line-height: 28px;
+  }
+}
+
 /* row 19: What's up now?'s tiles (cards-teaser (overlay, mosaic), www's LCAGCP-lcagTile): edge to
    edge without gaps, two tiles 526 px or three 214 px high (stacked on phones: 285 and 174 px),
    the picture covering the tile, the title (24 px, 18 on phones) and its button on a navy band
@@ -1431,6 +1529,7 @@ body.brand-cargo main .cards-teaser-wrapper > .cards-teaser.mosaic {
   margin-block: 0;
 }
 
+/* stylelint-disable-next-line no-descending-specificity -- the mosaic tiles' button, not a boxed card's headline link */
 body.brand-cargo .cards-teaser.mosaic .cards-teaser-body a {
   display: inline-block;
   padding: 5px 16px;
