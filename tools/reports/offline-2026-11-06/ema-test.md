@@ -248,3 +248,125 @@ Checks: lint and the full suite before the push (one failure, `library-entries`,
 `content/library` copy is stale; a clean clone skips it), my own tests after the last rebase (docs and data only came
 in); smoke of the 12 hosts before and after: 0 differences from these commits (lufthansa's three hosts: a sitemap's
 content changed, others' publishing). Pushed `d9b97cae..c7a7d0ac`.
+
+## Brief 444 (Austrian's last rows and B2B)
+
+### 1. Row 37, culinary-services' expanding panels
+
+www's `.herobanner` (`.dcep-hero-banner`) is the component lh-com's `hero-banner` block was built for (Lufthansa's
+food pages), so no new block was needed. The import maps it through a new Austrian template `austrian-hero-banner` (info
+plus hub's hero-banner, austrian-templates.mjs). The content model stays simple: one row per panel, picture | H2 label,
+H3 title, link, plus the overlay colour. Austrian theme: the title 48 / 50 below 1025 px, the button 10 px (20 px) under
+it, the tab labels a plain sans 16 / 17.6 (18 / 19.8) as wide as the pane. Against austrian-parity-002a: 720 px at 1440
+with panes 1029 / 206 / 206 (www 1028 / 206 / 206), 760 at 390x844 with 543 / 109 / 109 (www 542 / 108 / 108); each
+label opens its pane. The page is 8244 / 8791 px against www's 8422 / 9166 (10714 / 9320 before).
+
+Found on the way: lh-com's cleanup gave column markers and flow spacing (and the sections transformer its padded first
+section) to the `info` template by name only, so Austrian's info-plus-a-block templates (check-in and flight status
+since brief 427, now hero-banner) had neither. The templates now say `base: info` and both transformers take that as
+info (99295754). lh-com's own templates are unchanged. Austrian's check-in and flight-status pages pick this up at
+their next import.
+
+### 2. Row 42, culinaryjourney and new-destinations
+
+- culinaryjourney (10 languages): the import made www's `<culinary-hub>` a link to www and read the page with the info
+  template, which has no micro-frontend mapping. Now the hub stays, and a page with it takes lh-com's `mfe` template
+  (micro-frontend culinary-hub with its Configuration and API gateway rows). Against DA nothing is lost; the only
+  difference is the `Theme: flow-spacing` row, which styles running text only, and these pages have none.
+- new-destinations (10): www's points-of-interest maps sit inside accordion items, and the parser nested the map table
+  in the accordion's cell, which lost both blocks. `withAccordionMapsHoisted` splits the accordion before each item
+  with a map and puts the map first. The maps' points (21 maps) were only in DA's documents (an earlier import step);
+  they are now recorded in `tools/importer/austrian-poi-points.json` and written in place of the parser's `Source`
+  row (www doesn't answer aem.page). Against DA: nothing lost; the card row is now a phone slider, and the cards keep
+  their link lines.
+
+All 21 documents were re-imported, uploaded and previewed (the culinary hub app, both maps and both accordions render).
+
+### 3. Row 43's shared part: lufthansa-sections.js
+
+A grey band inside a tab panel opened a section of its own without the panel's Tab, so it showed under every tab
+(c0b1d928). Now:
+- in lh-com's own panels, a break inside a panel takes the panel's Tab, and a band stops at its panel (before, it made
+  the whole tab control grey);
+- in the panels SWISS's and Austrian's import mark with paragraphs, a break between two markers takes the panel's Tab
+  and Tabs, and a panel that holds a break ends at the next marker, so its rows stay with it.
+
+Austrian's own patch, withTabRuns, is removed. Its "band right after the last tab" guess gave a band outside the set
+the last panel's rows (on /at/de/austrian-app and the ten advertise-with-austrian pages).
+
+Checked offline: the four tab pages come out with DA's Tab rows, and the two other samples keep their Tab sections
+(only brief 438's column markers differ). An ITA page with a band in a panel is unchanged. No lufthansa.com, SWISS or
+Brussels snapshot has a grey band inside a tab panel. Every brand's smoke before and after: no differences from these
+commits. No document needed uploading for this item.
+
+### 4. B2B airlines page at 390
+
+www ends 12 pages with a separator whose inline margin shows (30 px here). lh-com's cleanup drops a separator at a
+section's end. `withEndSpacer` writes it back as `{spacer-N}` (496ed894). The last link's ink now sits 30 px further
+from the footer, as on www (121 px at 1440, 81 at 390). The rest of de/de's gap at 390, about 48 px, is an empty
+paragraph www has after Air Dolomiti's text (`<p><br></p>`). The import doesn't reproduce empty paragraphs, so it
+stays. Both documents re-imported, uploaded and previewed; the only change against DA is the spacer.
+
+### 5. All captured pages against austrian-parity-002a / 002b and b2b-parity-001 (1440 and 390, on the previews)
+
+B2B: none of the 52 page/width pairs is more than 5 % off.
+
+Austrian, at first: 69 of 120 more than 5 % off. Fixed this round:
+- the footer (1dbddd8c): about 100 px short on every page (716 / 962 px against 815 / 1065). Its spacing was taken
+  from the captures' pixel rows; now 814 / 1067;
+- card rows www shows as a one-card slider on phones: 23 captured pages still had them stacked (+600 to +1400 px at
+  390); `phone-slider` set on their one card row, uploaded and previewed. Below 1025 px the slider's cards then lost
+  Austrian's card style (the block is four-up there, not grid); the rule now covers both (commit below; +50 to +70 px
+  per page, measured on two pages with it injected);
+- new-destinations: www opens its destination items; `withOpenFirst` gives such an accordion `open-first` (df5b6b5c).
+
+Still more than 5 % off on the preview (39 of 120, measured before the slider card rule; with it, about five of the
+390 widths come within 5 %), cause in one line each:
+
+| page | 1440 | 390 | cause |
+| --- | --- | --- | --- |
+| /at/de/angebote-destinationen | -92 % | -93 % | www's offers and destinations app (every route listed); ours links to it on www (row 38) |
+| /at/en/book/flights/new-destinations | +55 % | -20 % | www opens three destination items, ours the first item of each of the two accordions (two of three); inside an open item www sets picture and text side by side, ours stacks them |
+| /at/de/unterhaltung-an-bord | -19 % | -20 % | www's in-flight entertainment carousel (an iframe app, about 530 px) is a link on ours |
+| /at/de/legal | +11 % | -16 % | www's four icon teasers (four-column view of a.teaser.usp: 64 px icons, Portada labels, one row at 1440) are linked headings with small icons on ours; cards-icon-text has no four-up option |
+| /at/en/accessible-travel | +7 % | – | the same four-column icon teasers (eight, stacked on ours) and the three-column "Services" view stacked |
+| ch/en homepage | -18 % | – | the flight offers from Zurich: www's large picture tiles; ours the fare rows (live data) |
+| /at/en/discover-inspiration | +20 % | – | the picture at the content's full width on ours, half width on www |
+| /at/de/notfallkontakt, /at/en/emergency-contact | -9 % | -7 % | www's form groups (Passagierdaten, Flüge) as labelled boxes side by side at 1440 and taller fields; ours one box (the form block's layout) |
+| /at/en/baggage, /at/en/book/additional-services/extra-services | – | -14 %, -8 % | the teaser list: www's cards about 70 px taller each (picture and copy) |
+| /at/en/legal/conditions-of-carriage | – | -10 % | the article accordion's titles: www's type wraps more (284 px before "ATTACHMENTS") |
+| /at/en/plan/special-requirements/travelling-with-animals | +7 % | -9 % | 1440: the pictures in the tab panels full width on ours, small beside the text on www; 390: the card row's band white |
+| /at/en/plan/.../doctor-on-board-news, /at/de/flugstatus-und-flugplan, /at/de/pre-order-food, /at/en/international-lounges, /at/en/online-check-in, /at/en/premium-economy-class, /at/de/book/additional-services/seat-reservation, /at/en/entryregulations | (premium -6 %, seat -6 %, entry -5 %) | -5 to -9 % | the card row's grey band comes out white (a grey three-column view inside a one-column view's item: lh-com's sections transformer stops at the column item) and the slider card's style (fixed after this measurement) |
+| /at/de/missing-baggage | – | -7 % | the FAQ accordion's titles larger on www, and the card row's band |
+| /at/de/check-in | – | -7 % | 235 px shorter above "Verwandte Inhalte" (the check-in entry's teaser list) |
+| /at/de/familien | – | -7 % | spread over the page, not located this round |
+| /at/de/book/rebook | -6 % | – | less space before "Sie sind sich nicht sicher…" and above the footer |
+| /at/en/fly/flight-information/flight-irregularities | -8 % | -10 % | not located this round |
+| /at/en/economy-class | – | +7 % | not located this round |
+| de/de homepage | – | +5 % | the offers block taller on ours (693 px before "Suchen Sie mehr als nur einen Flug?") |
+
+Ours and not quick: the four-column icon teasers (a four-up cards-icon-text option and its parser), the grey band of a
+card row inside a one-column view (lufthansa-sections' region stop), the open accordion items' side-by-side rows, and the
+emergency-contact form's layout. Not ours to change: www's apps (offers list, entertainment carousel) and live fare
+data.
+
+### Summary (brief 444)
+
+| item | commit | what | rollback |
+| --- | --- | --- | --- |
+| 3 | `c0b1d928` | lufthansa-sections: a break in a tab panel carries the panel's Tab (shared) | `git revert` |
+| 1, 2 | `62cf2909` | hero-banner template and theme (row 37); culinary hub, maps and their points (row 42); withTabRuns removed | `git revert`; the 21 documents: DA's versions before 2026-11-07 |
+| 3 | `19b44b7c` | bundles rebuilt after the rebase; Austrian templates from the current info | `git revert` |
+| 1, 2 | `99295754` | info-based templates get info's column markers and flow spacing (shared) | `git revert` |
+| 4 | `496ed894` | B2B: a page www ends with a separator keeps its space | `git revert`; the 2 airlines documents: DA's versions before 2026-11-07 |
+| 5 | `1dbddd8c` | Austrian footer's spacing as www's | `git revert` |
+| 5 | `df5b6b5c` | an accordion open first on www opens it (new-destinations) | `git revert`; the 10 documents: DA's versions before their second upload |
+| – | `9c64dae0`, `d8f4a76d` | upload state | – |
+| 5 | `cdec33ef` (local, see below) | phone slider cards keep Austrian's card style below 1025 px | `git revert` |
+| 1-5 | this commit | parity rows 37, 42, 43, `preview-paths-444.txt`, this report | – |
+
+Documents (uploaded to DA and previewed, not published): no files; pages in release order:
+- `tools/reports/austrian/preview-paths-444.txt` (44 pages): the 10 culinaryjourney pages, the 10 new-destinations
+  pages, /at/en/fly/on-board/culinary-services, then the 23 pages whose card row became a phone slider;
+- lh-b2b: /de/en/travel-solutions/lufthansa-group-airlines, /de/de/travel-solutions/lufthansa-group-airlines.
+None is published; all 46 need publishing to show the changes on live.
