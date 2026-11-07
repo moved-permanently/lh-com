@@ -15,6 +15,7 @@ Single block table. Content: 2 columns, one row per card. Cell 1: image (alt req
 | Three up | `three-up` |
 | Four up | `four-up` |
 | Overlay (text on the image, whole tile linked) | `overlay` |
+| Route cards (Air Dolomiti's select-flight-list, with `three-up`; styled in styles/themes/airdolomiti.css only) | `routes` |
 
 With `overlay`, tiles that end their section (Insights "Explore more" above the footer) leave 41px below them (21px below 768px) instead of the 48px section gap, as the live column view.
 

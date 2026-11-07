@@ -840,6 +840,14 @@ export function newsListGrid(a, page) {
   })));
 }
 
+// a text block (www's TitleDescriptionTextCta and TitleDescriptionCta): its title, its text and an
+// optional CTA as the given button
+function titleText(a, page, button) {
+  page.add(page.heading(a.tag, a.title));
+  page.add(rich(a.description || a.text, page, 'top'));
+  if (a.url && a.ctaText) page.add(page.link(a.url, a.ctaText, button));
+}
+
 const HANDLERS = {
   'lazyblock/herohome': (a, page) => {
     // the Message Center's flash teaser at the top (www's navbar alert: the site's notices)
@@ -866,15 +874,13 @@ const HANDLERS = {
   'lazyblock/title': (a, page) => { page.add(page.heading(a.tag, a.title)); if (a.subtitle) page.add(`<p>${esc(plain(a.subtitle))}</p>`); },
   'lazyblock/title-margin': (a, page) => HANDLERS['lazyblock/title'](a, page),
   'lazyblock/title-news': (a, page) => HANDLERS['lazyblock/title'](a, page),
-  // title, text (subTitle) and an optional CTA, as title-description-text-cta
-  'lazyblock/title-description-cta': (a, page) => HANDLERS['lazyblock/title-description-text-cta']({
+  // title, text (subTitle) and an optional CTA, as title-description-text-cta with the primary
+  // button (not in the archive)
+  'lazyblock/title-description-cta': (a, page) => titleText({
     ...a, description: a.subTitle || a.description, ctaText: a.ctaText || a.textCta, url: a.url || a.ctaUrl,
-  }, page),
-  'lazyblock/title-description-text-cta': (a, page) => {
-    page.add(page.heading(a.tag, a.title));
-    page.add(rich(a.description || a.text, page, 'top'));
-    if (a.url && a.ctaText) page.add(page.link(a.url, a.ctaText, 'primary'));
-  },
+  }, page, 'primary'),
+  // www's CTA here is its outline button (style_btn_outline, 9 of 9 in the archive; brief 456)
+  'lazyblock/title-description-text-cta': (a, page) => titleText(a, page, 'secondary'),
   'lazyblock/cardfullwidth': (a, page) => {
     page.section();
     page.block('hero-card-overlay', [[page.img(a.backgroundImage || a.backgroundImageLeft)], [`${page.heading(a.tag || 'h2', a.title)}${rich(a.subtitle, page)}${a.urlBtn ? page.link(a.urlBtn, a.ctaText, 'primary') : ''}`]]);
@@ -944,7 +950,8 @@ const HANDLERS = {
   'lazyblock/select-flight-list': (a, page) => {
     page.add(page.heading(a.tag, a.title));
     if (a.description) page.add(`<p>${esc(plain(a.description))}</p>`);
-    page.block('cards-teaser (three-up)', (a.cardList || []).map((c) => cardRow(page, {
+    // www's CardPromo route cards (the theme's option routes; brief 456)
+    page.block('cards-teaser (three-up, routes)', (a.cardList || []).map((c) => cardRow(page, {
       image: c.imgUrl || c.image, tag: a.tagCard || 'h3', title: c.title, text: [c.textPrice, c.price, c.bottomText].filter(Boolean).map(plain).join(' '), url: c.ctaUrl || c.url,
     })));
   },

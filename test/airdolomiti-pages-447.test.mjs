@@ -108,7 +108,8 @@ test('section headings as most of www\'s (MiniCardSlider, Title, CosaFareCarrous
 });
 
 test('the destination hub\'s cards as www\'s CardNews: white, shadowed, 470 px high, the picture 60 %, the title regular 20 / 26 px, the line grey and underlined, the card one link', () => {
-  const C = `${B} \\.cards-teaser\\.three-up > ul > li:has\\(> \\.cards-teaser-image \\+ \\.cards-teaser-body > \\.cards-teaser-title:first-child \\+ p:not\\(\\.cards-teaser-cta\\) \\+ \\.cards-teaser-cta:last-child\\)`;
+  // (not the route cards, brief 456)
+  const C = `${B} \\.cards-teaser\\.three-up:not\\(\\.routes\\) > ul > li:has\\(> \\.cards-teaser-image \\+ \\.cards-teaser-body > \\.cards-teaser-title:first-child \\+ p:not\\(\\.cards-teaser-cta\\) \\+ \\.cards-teaser-cta:last-child\\)`;
   has(new RegExp(`${C} \\{[^}]*position: relative;[^}]*height: 470px;[^}]*border-radius: 10px;[^}]*background-color: #fff;[^}]*box-shadow: 0 12px 25px rgb\\(0 0 0 / 5%\\);`));
   has(new RegExp(`${C} \\.cards-teaser-image \\{[^}]*flex: 0 0 60%;`));
   has(new RegExp(`${C} \\.cards-teaser-title \\{[^}]*font-size: 20px;[^}]*font-weight: 400;[^}]*line-height: 26px;`));
