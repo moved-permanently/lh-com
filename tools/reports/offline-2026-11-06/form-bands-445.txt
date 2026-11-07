@@ -1,0 +1,25 @@
+# brief 445 item 5: documents whose core form gains step rows on re-import (form-core parser: a band without a
+# headline, its description beside its own card). Austrian's 155 are uploaded and previewed (tools/reports/austrian/
+# preview-paths-445.txt); these are for their sites' owners. Path, then whether a local document exists.
+
+## lh-brussels (www.brusselsairlines.com): 8
+/be/en/book-a-flight/groups-and-charter/groups/group-travel-request local
+/be/en/my-bookings/emergency-contact local
+/be/fr/book-a-flight/groups-and-charter/groups/group-travel-request local
+/be/fr/my-bookings/emergency-contact local
+/be/nl/my-bookings/emergency-contact local
+/de/de/my-bookings/emergency-contact local
+/es/es/my-bookings/emergency-contact local
+/it/it/my-bookings/emergency-contact local
+
+## lh-ita (www.ita-airways.com): 3
+/it/it/world-of-ita-airways/discover-ita-airways/voglia-di-volare/voglia-di-volare-registration-form local
+/xx/en/book-and-prepare/travel-information/check-in-information/emergency-contact local
+/xx/it/book-and-prepare/travel-information/check-in-information/emergency-contact local
+
+## lh-com (www.lufthansa.com): 5
+/xx/el/special-needs local
+/xx/it/special-needs local
+/xx/ja/special-needs local
+/xx/ko/special-needs no local document
+/xx/zh/special-needs local

@@ -370,3 +370,134 @@ Documents (uploaded to DA and previewed, not published): no files; pages in rele
   pages, /at/en/fly/on-board/culinary-services, then the 23 pages whose card row became a phone slider;
 - lh-b2b: /de/en/travel-solutions/lufthansa-group-airlines, /de/de/travel-solutions/lufthansa-group-airlines.
 None is published; all 46 need publishing to show the changes on live.
+
+## Brief 445 (padded pairs, four-up teasers, Austrian rows from brief 444's list)
+
+Left from brief 444 and pushed with this round: `fd91923d`, the report's two commit hashes (now `a34d45cd` after the
+rebase). Not in git, by design: `.migration/project.json` (the import's local workspace flag), `tools/importer/reports/**`
+(the bulk importer's per-page reports), `content-sites/` (the local document trees), `logs/` and /tmp (scripts,
+captures, screenshots, DA backups).
+
+### 1. Padded sections back to back (lufthansa-sections.js)
+
+When a padded section followed another padded section, the earlier one kept its own bottom gap, so we added 48 px
+that www doesn't (first-class-terminal had it twice). Now (`89d84423`), the break before the second section marks
+the first one `spaced` if www gives it a bottom margin (`.mb-default`) and `flush` otherwise; styles.css sets
+48 px or 0. Test first: importer-padded-pairs. Checked at 1440 on /at/de/lhg-staralliance-partner: the end
+difference was +190 px, now +2 px.
+
+Documents whose look changes: Austrian's 67 (uploaded and previewed). DA's copies were the base: only the section
+tokens were moved into them, 137 tokens (one wasn't found on /jp/ja/travel-insurances). Other sites change at their
+next import: `tools/reports/offline-2026-11-06/padded-pairs-445.txt` lists them for their owners (lh-com 131,
+Brussels 34, ITA 37, SWISS-MK 3).
+
+### 2. Four-up icon teasers
+
+`cards-icon-text` has a brand-neutral `four-up` option (four a row from 1025 px, README row). The parser sets it for
+www's `.fourcolumn` views, and the info template maps the four-column `a.teaser.usp` views to `cards-icon` with
+`four-up` (`4d694bf6`). The Austrian theme draws those tiles without a box: the icon over a Portada 500 label,
+22 / 27.5 px, and 28 / 35 px from 1025 px. Tests first: icon-teasers-four-up and austrian-usp-tiles.
+
+22 documents re-imported from DA's copies (10 legal, 10 accessible-travel, 2 digital-services), uploaded and
+previewed. Against DA, only the new blocks changed. On the preview: /at/de/legal is −3.2 % at 1440 (was +11 %);
+/at/en/accessible-travel is +0.3 % (was +7 %).
+
+### 3. Card-row grey bands nested in a column
+
+The premise didn't hold this round: the card rows inside a one-column view's item are grey in our documents and on
+the previews. What does differ, on /at/en/plan/.../doctor-on-board-news at 390: www leaves a 70 px white gap between
+the grey contact box and the grey card band; ours joins the two bands, with the `{spacer-70}` inside the grey. The
+band is 57 px shorter, and there is 57 px more white before the footer (−6.7 % at 390). Not changed; it needs the
+sections transformer to end a grey band before a separator, a shared change for its own round.
+
+### 4. new-destinations: picture and text side by side in the open items (`518184e6`)
+
+- The accordion-columns parser writes a two-column view of a picture item and a text item with facts as the view's
+  title plus a one-row table of two cells, in www's order (Bilbao's picture is on the right). Each facts view becomes a
+  one-row table, one cell per fact. The row's secondary button becomes an italic link (the outlined button). Only the
+  10 new-destinations documents have this shape; the 39 other pages with a text | picture view stay running text.
+- The block turns such a row into `.accordion-columns-media-row` (side by side from 768 px) and the facts into
+  `.accordion-columns-facts` (three a row from 992 px), with spacing and type from the capture.
+- No other document on any site holds such a table (all local copies scanned). Tests first: accordion-media-rows,
+  accordion-columns-grid.
+
+The 10 documents were re-imported from DA's copies, uploaded and previewed (text identical to DA). /at/en at 1440: the
+headings are −18 px against www (the page was 15287 px in brief 444, now 8924; www 9862), and −92 px at 390. What's
+left of the page height is the third item, which www opens: ours opens the first item of each of the two
+accordions. Opening a third would need a new block option.
+
+### 5. Austrian emergency-contact form (`a8ac8ab3`)
+
+- The cause, shared: the import browser drops the empty `h2.form-section-headline` before the parsers run (linkedom
+  keeps it), and form-core needed it to see a band. Every band without a headline was therefore read as plain fields:
+  its description ("Passagierdaten", "Flüge") was lost and its fieldsets merged into the previous card. Now the
+  headline container or the description container is enough.
+- The snapshots have such bands on 156 Austrian pages, 8 Brussels, 3 ITA and 5 lufthansa.com pages
+  (`tools/reports/offline-2026-11-06/form-bands-445.txt` for the other sites' owners).
+- austrian.css styles the core forms as www's: 300 × 50 boxed fields (1 px #262626, 8 px radius, #f6f6f6 fill, the
+  label inside), the band's card 72 px below its top and 108 px from the next card, 24 px card padding, CoreSans 500
+  descriptions and subsection titles, 14 / 20 hints. Tests first: form-core-parser and austrian-core-forms.
+
+155 of the 156 Austrian form documents were uploaded and previewed. A full re-import would have undone DA's own
+changes (for example a removed `phone-slider`), so only the new step rows were moved into DA's copies
+(logs/da/transfer-steps.py: the other rows had to match DA's, apart from the config rows' order).
+/il/en/legal/cancellation-refund-via-document-upload was left out because its file-upload rows differ from DA's
+(another parser change); it is unchanged. On the preview: /at/de/notfallkontakt −0.1 % at 1440 and +2.5 % at 390 (was
+−9 % / −7 %); /at/en/emergency-contact +0.3 % / +2.1 %. Left: "* Pflichtfelder" sits in the last card, where www has
+it in the left column.
+
+### 6. The pages more than 5 % off again, and the next largest of ours (`f7823e23`)
+
+The 38 pages of brief 444's list, measured on main--lh-austrian--moved-permanently.aem.page after the pushes above: 29
+of 76 page/width pairs are more than 5 % off (46 in brief 444). Of those:
+- not ours to change: www's apps (offers and destinations −92 %, the entertainment carousel −19 %) and the
+  Zurich fares on the ch/en homepage (−18 %, live data);
+- ours, next largest:
+  - /at/en/discover/inspiration (+20 % at 1440): www's two-column view has one teaser and an empty item, so the
+    teaser stays half width; columns-media drops the empty item. The same shape is on 274 Austrian snapshots, 115
+    lufthansa.com, 148 ITA, 63 Brussels and 83 B2B, so the shared parser change needs its own round with every site's
+    check. Not changed.
+  - /at/en/baggage (−13.5 % at 390): the capture shows a newer www page (white teaser cards with a shadow, other
+    texts) than the Studio snapshot we import from (plain two-column items). It needs a fresh snapshot, not an
+    import change.
+  - The accordion titles, fixed: brief 386 gave every faq accordion 18 / 28 regular grey titles, measured on the
+    contact page's help topics, but all 23 captured collapsibles wrap as 24 px type does. All Austrian accordion
+    titles are now 24 / 28 500 with 12 px padding; the 18 px style stays on the accordion after the help centre app
+    (the 12 contact pages). CSS only. Measured on the previews with it injected: conditions-of-carriage 390
+    −9.7 % → −1.2 %, missing-baggage 390 −5.7 → −2.0, international-lounges 390 −5.9 → −2.9, entryregulations
+    −5.1 / −5.3 → −4.8 / −4.2, travelling-with-animals 390 −8.5 → −4.9 (gesundes-reisen 1440 +4.7 → +5.7, from the
+    longer titles). Test first: austrian-accordion-titles.
+
+Still over 5 % after this and not located this round: /at/de/legal 390 (−8.2 %), seat-reservation (−6 / −9 %),
+online-check-in 390, economy-class 390 (+8 %), familien, check-in, rebook, flight-irregularities.
+
+### Checks
+
+- Lint and the full suite before each push, in a fresh worktree of the commit (logs/suite-wt.sh): 465, 466, 467,
+  468 and 470 files, all passing. The first pull brought code (ded93847), so the suite ran again on the rebased
+  commits. Its four conflicting bundles were rebuilt from the merged sources; the rebuilt Austrian bundles also carry
+  ded93847's flight-search change, whose commit hadn't rebuilt them.
+- Smoke on all 12 lh-edge hosts before and after each of the three pushes: 0 differences, except b2b's
+  /xx/en/search-index.json hash after the first push. That is index content (the B2B pages publishing then), and no
+  commit of this round touches b2b or lh-edge.
+- Local checks on the lh-austrian document folder (aem up with --html-folder, brand set in the browser); page
+  heights on main--lh-austrian--moved-permanently.aem.page against austrian-parity-002a / 002b at 1440 and 390.
+- DA: each document read before, checked unchanged right before upload, and DA equal to local after; nothing
+  published.
+
+### Summary (brief 445)
+
+| item | commit | what | rollback |
+| --- | --- | --- | --- |
+| – | `a34d45cd` | brief 444's report with the pushed hashes | – |
+| 1 | `89d84423` | padded sections back to back: the earlier one `spaced` or `flush` as www's (shared) | `git revert`; the 67 documents: DA's versions before 2026-11-07 (logs/da/pre-padded) |
+| 2 | `4d694bf6` | cards-icon-text `four-up`; four-column usp teasers as cards-icon four-up; Austrian usp tiles | `git revert`; the 22 documents: DA's versions before 2026-11-07 |
+| 4 | `518184e6` | accordion panels' picture and text rows and facts side by side (parser and block) | `git revert`; the 10 documents: DA's versions before 2026-11-07 |
+| 5 | `a8ac8ab3` | form-core: bands without a headline; Austrian core form styles | `git revert`; the 155 documents: DA's versions before 2026-11-07 |
+| 6 | `f7823e23` | Austrian accordion titles 24 / 28 500, contact topics 18 px | `git revert` |
+| 1-6 | this report's commit | report, `preview-paths-445.txt`, `form-bands-445.txt` | – |
+
+Documents (uploaded to DA and previewed, not published): no files; pages in release order,
+`tools/reports/austrian/preview-paths-445.txt` (254 pages): the 67 padded-pair documents, the 22 four-up documents,
+the 10 new-destinations documents, then the 155 form documents. None is published; all 254 need publishing to show
+the changes on live.
