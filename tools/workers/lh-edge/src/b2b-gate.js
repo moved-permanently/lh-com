@@ -54,7 +54,8 @@ export async function memberGate(request, env, serve) {
   const headers = new Headers();
   const cookie = request.headers.get('cookie');
   if (cookie) headers.set('cookie', cookie);
-  const answer = await env.BACKENDS.fetch(new Request(gate.href, { method: 'GET', headers }));
+  // redirect manual: the gate's 302 (to the sign-in) is the visitor's to follow
+  const answer = await env.BACKENDS.fetch(new Request(gate.href, { method: 'GET', headers, redirect: 'manual' }));
   if (answer.status !== 204) return answer;
   const page = await serve();
   const out = new Response(page.body, page);

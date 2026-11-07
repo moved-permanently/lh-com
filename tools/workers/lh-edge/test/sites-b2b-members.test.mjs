@@ -26,7 +26,7 @@ const BACKENDS = {
   fetch: async (request) => {
     const u = new URL(request.url);
     backendCalls.push({
-      url: request.url, path: u.pathname, method: request.method, cookie: request.headers.get('cookie'), body: ['GET', 'HEAD'].includes(request.method) ? '' : await request.text(),
+      url: request.url, path: u.pathname, method: request.method, cookie: request.headers.get('cookie'), redirect: request.redirect, body: ['GET', 'HEAD'].includes(request.method) ? '' : await request.text(),
     });
     if (u.pathname === '/_lh-backends/b2b/gate') return gateAnswer();
     return new Response('{"worker":"lh-backends"}', { headers: { 'content-type': 'application/json', 'set-cookie': 'b2bsession=abc; Path=/; HttpOnly' } });
@@ -126,6 +126,9 @@ test('b2b: the gate\'s other answers as they are (302 to the sign-in), the page 
   assert.equal(ex.headers.get('location'), '/service/secured/api/experts/login?country=de&language=en');
   gateAnswer = () => new Response('{"error":"gate-down"}', { status: 503, headers: { 'content-type': 'application/json' } });
   assert.equal((await get('https://b2b.example/de/en/common/support')).status, 503);
+  // the gate's redirect is the visitor's to follow, never lh-edge's (a followed 302 asked
+  // lh-backends for /de/en/login: its 404 on b2b.turnsthe.page, 2026-11-07)
+  assert.ok(backendCalls.length === 3 && backendCalls.every((c) => c.redirect === 'manual'), JSON.stringify(backendCalls.map((c) => c.redirect)));
 });
 
 test('b2b: other paths as before (no gate), public pages keep their caching', async () => {
