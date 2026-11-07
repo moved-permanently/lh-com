@@ -458,3 +458,98 @@ Preview path lists (release order; no files first, the code first: merge main, t
 - For the harness to re-import (not uploaded here): `tools/reports/brussels/reimport-441.txt` (8
   Brussels pages), `tools/reports/offline-2026-11-06/reimport-441-lh-com.txt` (2 + 7 lufthansa.com
   pages).
+
+## Brief 446
+
+Step 0: brief 441 left nothing unpushed (main was at `c429610e`); out of git as before: the
+importer's run output (run state), migration-work/ (scratch), the old stash@{0}, content-sites/
+(local site data). The optional plugins stay off (the forms plugin the session offered: not
+enabled).
+
+### 1. The 24 held form pages, from www's forms (lh-snapshots-065 to -080)
+
+The sixteen archives fetched from the drop, each sha256 equal to lh-deliveries.json, entries
+checked (files and folders only), nothing run from them. Each held page's form read from its
+snapshot (fields, required marks, file drops, `:redirect`), DA's copy compared (all 24 have their
+form block with www's fields, success and error rows, no id row):
+
+- The invoice requests, working forms: ba, cz, hr, hu, rs, si (12 fields), pl (21: up to four
+  travellers, KSeF), gr/en and gr/el (14, the same form in two languages). New lh-forms ids, each
+  titled with its page's h1, recipients from FORM_CONFIG as the other lh-com forms (the default
+  unless the secret names the ids): `invoice-request-bosnia`, `-czech-republic`, `-croatia`,
+  `-hungary`, `-poland`, `-serbia`, `-slovenia`, and `invoice-request-greece` for both Greek pages
+  (English and Greek title). lufthansa.com had no Hungarian id of its own: the worker's
+  invoice-request-hungary entries are Austrian's and SWISS's (`austrian-…`, `swiss-…`).
+- group-check-in-counter (de/de, at/de), a working form (22 fields, www's logo upload): new id
+  `group-check-in-counter` ("Gruppen Check-in Schalter"), its file rule as www's drop zone (JPEG,
+  one file, 3,700,000 bytes).
+- register-ammunition1 (xx/es, pt, hk, el, zh, pl, ja, ko, fr, it): www's second copy of the
+  ammunition form, the same 20 fields and confirmation page as register-ammunition. No new id: the
+  page name maps to `register-ammunition` (as betreuungsbedarf to special-needs).
+- Not real forms, no id:
+  - kr/en and kr/ko local-page/naverpay-points: a promotion whose applications closed on
+    November 30, 2025 (its own text; travel until February 28, 2026). It should be published
+    without its form block (the promotion text alone, as a record) or not at all; I'd not publish
+    it.
+  - mk/en/support/refund: a form without fields on www (the title "Refund" and an empty form,
+    already so in the 2026-11-02 captures, commit `3e4328e3`). The page should not be published; a redirect to the
+    root's refund form `/mk/en/book-and-manage/cancellation-and-refund/refund/refund-form`
+    (served, 200) instead.
+- /it/en/invoice-italy (in the archives, not held): no form, two links to
+  /it/en/invoice-italy-corporate and -private, which the captures don't have.
+
+Commit `f36a5a50` (rebased: pushed as part of `431fe538..717696f5`), tests first: lh-forms (titles,
+both Greek languages, the logo upload, no files on the invoice requests, NaverPay unknown),
+formIdFromPath and the form-core parser; FORM_IDS in scripts/lh-forms.js and the parser; the
+README's id list; the bundles with the form parser rebuilt. The block takes the id from the page
+name when a document has no id row, so the 22 pages need no document change for it (a re-import
+writes the row too). After the push: the preview and lufthansa.turnsthe.page serve the new
+FORM_IDS; the worker's deploy workflow runs on pushes to tools/workers/lh-forms (no gh CLI here to
+see the run: the first test submission shows it, 200 for the new ids instead of unknown-form).
+
+### 2. Pages per form id, and what the documents need
+
+The success pages: register-ammunition1's ten confirmation pages are in DA. The invoice
+requests' thank-you pages and the group check-in counter's confirmation are not (DA 404, and 404
+on lufthansa.turnsthe.page): a submission would land on a 404. www has them (cz, gr/el, hr, hu: 200
+"Thank you for your request"; ba and gr/en answered with www's bot check). Either the harness
+imports them (the paths below), or the documents' success row links www's page, as bg/en's
+invoice request does.
+
+| Form id | Pages | Success page (www's :redirect) | In DA |
+| --- | --- | --- | --- |
+| invoice-request-bosnia | /ba/en/invoice-request-bosnia | /ba/en/local-page/invoice-request1/thank-you-for-your-request | no |
+| invoice-request-czech-republic | /cz/en/invoice-request-czech-republic | /cz/en/local-page/invoice-request1/thank-you-for-your-request | no |
+| invoice-request-croatia | /hr/en/invoice-request-croatia | /hr/en/local-page/invoice-request1/thank-you-for-your-request | no |
+| invoice-request-hungary | /hu/en/invoice-request-hungary | /hu/en/local-page/invoice-request1/thank-you-for-your-request | no |
+| invoice-request-poland | /pl/en/invoice-request-poland | /pl/en/local-page/invoice-request1/thank-you-for-your-request | no |
+| invoice-request-serbia | /rs/en/invoice-request-serbia | /rs/en/local-page/invoice-request1/thank-you-for-your-request | no |
+| invoice-request-slovenia | /si/en/invoice-request-slovenia | /si/en/local-page/invoice-request1/thank-you-for-your-request | no |
+| invoice-request-greece | /gr/en/invoice-request-greece-en, /gr/el/invoice-request-greece-el | /gr/en/… and /gr/el/local-page/invoice-request/thank-you-for-your-request | no |
+| group-check-in-counter | /de/de/prepare-for-your-trip/all-check-in/group-check-in-counter, /at/de/… (same path) | /de/de/ and /at/de/prepare-for-your-trip/all-check-in/emergency-contact-form/confirmation | no |
+| register-ammunition | /xx/{es,pt,hk,el,zh,pl,ja,ko,fr,it}/prepare-for-your-trip/baggage/sport-baggage/register-ammunition1 | xx/es: …/sport-baggage/register-sports-baggage/confirmation; xx/el: …/sport-baggage/register-ammunition1/confirmation1; the other eight: …/sport-baggage/register-sporting-firearm1/confirmation | yes |
+| (none) | /kr/en/local-page/naverpay-points, /kr/ko/local-page/naverpay-points | (expired promotion) | – |
+| (none) | /mk/en/support/refund | (no fields) | – |
+
+The brief counts 12 language versions waiting for register-ammunition1; the archives and DA have
+the page in 10 (es, pt, hk, el, zh, pl, ja, ko, fr, it). The other two languages' relinked pages
+probably link another ammunition page (xx/ru has register-ammunition under dangerous-goods): for
+the harness to confirm.
+
+### The push
+
+Lint ok; the full suite 421 of 422 files (the red one test/cargo-kf-phone-442.test.mjs, the local
+Cargo asset map, ema-adobe's this round), lh-edge 372 of 372. Rebased twice on main's state and
+Brussels commits (no overlap; their tests rerun green), pushed `431fe538..717696f5`. Smoke of every
+brand before and after: no difference on airdolomiti, austrian, austrian-cn, b2b, brussels, cargo,
+discover, ita; lufthansa, -cn, -edge only the published indexes (de/en search index, sitemaps:
+the publishing in progress).
+
+### Summary
+
+| Item | Commit | What | Rollback |
+| --- | --- | --- | --- |
+| 1 | `f36a5a50` | lh-forms ids for 8 invoice requests (Greece one id, two titles) and the group check-in counter (logo upload); FORM_IDS for them and register-ammunition1 -> register-ammunition; NaverPay and mk/en refund no id | `git revert f36a5a50` (the deploy workflow redeploys the worker) |
+| 2 | (this commit) | this report: the form ids' pages, their success pages, the two pages that are no forms | revert this commit |
+
+Nothing uploaded or published this round; no document needed a change for the ids.
