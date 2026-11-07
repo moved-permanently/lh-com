@@ -307,3 +307,93 @@
 .cards-icon-text.partner > ul:has(> li:only-child) {
   grid-template-columns: minmax(0, 1fr);
 }
+
+/*
+ * option mini (lh-com, brief 460): www's "Exclusive Offers & Benefits" cards (the Monetate
+ * experiment .vt-comm551-offers on the de/en homepage): white cards, 8px radius, a soft navy
+ * shadow, 20px padding, a 56px round image 12px before the text; LufthansaHead 18px bold title 5px
+ * above a 14px / 1.5 #333 text; 4 a row from 1200px, 2 from 768px, 1 below; 20px apart (rows 10px
+ * below 768px), and www's list items keep 24px under each card (de/en homepage 2026-11-06: the band
+ * 324 / 429 / 683px at 1440 / 768 / 390)
+ */
+/* stylelint-disable-next-line no-descending-specificity -- another option than the partner tile rule above */
+.cards-icon-text.mini > ul {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 10px 20px;
+}
+
+/* the grey band: www's 32px padding below 768px (40px from 768px, as the grey section's) */
+@media (width < 768px) {
+  main > .section.grey:has(> .cards-icon-text-wrapper > .cards-icon-text.mini) {
+    padding: 32px 0;
+  }
+}
+
+.cards-icon-text.mini > ul > li {
+  margin: 0 0 24px;
+}
+
+.cards-icon-text.mini .cards-icon-text-card {
+  align-items: stretch;
+  gap: 12px;
+  padding: 20px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 2px 4px rgb(5 22 77 / 10%);
+  color: #333;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.cards-icon-text.mini a.cards-icon-text-card:hover {
+  border-color: #333;
+  box-shadow: 0 6px 12px rgb(5 22 77 / 10%);
+  color: #333;
+}
+
+.cards-icon-text.mini .cards-icon-text-icon {
+  align-self: center;
+  padding-right: 0;
+}
+
+.cards-icon-text.mini .cards-icon-text-icon :is(picture, img) {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- the option's own title; hover keeps it (below) */
+.cards-icon-text.mini .cards-icon-text-title {
+  margin: 0 0 5px;
+  color: #05164d;
+  font-family: var(--heading-font-family);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.cards-icon-text.mini a.cards-icon-text-card:hover .cards-icon-text-title {
+  text-decoration: none;
+}
+
+@media (width >= 768px) {
+  .cards-icon-text.mini > ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 20px;
+  }
+
+  .cards-icon-text.mini > ul > li {
+    margin-right: 0;
+  }
+}
+
+@media (width >= 1200px) {
+  .cards-icon-text.mini > ul {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}

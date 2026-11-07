@@ -2807,6 +2807,58 @@ var CustomImportScript = (() => {
     }
     document.body.append(WebImporter.Blocks.getMetadataBlock(document, meta));
   }
+  function convertOfferCards(document) {
+    document.querySelectorAll("section.vt-comm551-offers").forEach((sec) => {
+      const text = (el) => el ? el.textContent.replace(/\s+/g, " ").trim() : "";
+      const cells = [...sec.querySelectorAll(".vt-comm551-offers__card[href]")].map((card) => {
+        const title = text(card.querySelector(".vt-comm551-offers__title"));
+        const copy = text(card.querySelector(".vt-comm551-offers__text"));
+        const src = card.querySelector("img") && card.querySelector("img").getAttribute("src");
+        let image = "";
+        if (src) {
+          image = document.createElement("img");
+          image.setAttribute("src", src);
+          image.setAttribute("alt", "");
+        }
+        const body = document.createElement("div");
+        const h3 = document.createElement("h3");
+        h3.textContent = title;
+        body.append(h3);
+        if (copy) {
+          const p2 = document.createElement("p");
+          p2.textContent = copy;
+          body.append(p2);
+        }
+        const p = document.createElement("p");
+        const a = document.createElement("a");
+        a.setAttribute("href", card.getAttribute("href"));
+        a.textContent = title;
+        p.append(a);
+        body.append(p);
+        return [image, body];
+      }).filter(([, body]) => text(body.querySelector("h3")));
+      if (!cells.length) {
+        sec.remove();
+        return;
+      }
+      const band = document.createElement("div");
+      band.className = "container-gray";
+      const headline = text(sec.querySelector(".vt-comm551-offers__headline"));
+      if (headline) {
+        const holder = document.createElement("div");
+        holder.className = "headline section";
+        const h2 = document.createElement("h2");
+        h2.textContent = headline;
+        holder.append(h2);
+        band.append(holder);
+      }
+      band.append(WebImporter.Blocks.createBlock(document, { name: "Cards Icon Text (mini)", cells }));
+      const content = document.createElement("div");
+      content.className = "section-content container-fluid section-regular";
+      content.append(band);
+      sec.replaceWith(content);
+    });
+  }
   function convertFooterDisclaimer(document, pagePath) {
     const box = document.querySelector(".footer-disclaimer");
     if (!box) return;
@@ -2855,6 +2907,7 @@ var CustomImportScript = (() => {
       if (titleEl) titleEl.textContent = titleEl.textContent.replace(/(\s*\|\s*Lufthansa)+\s*$/, " | Lufthansa");
       const pagePath = currentPagePath(document, payload);
       convertFooterDisclaimer(document, pagePath);
+      convertOfferCards(document);
       detectTheme(document);
       convertBreadcrumbs(document, pagePath);
       convertFeedbackQuestionnaires(document);

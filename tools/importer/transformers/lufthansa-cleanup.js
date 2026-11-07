@@ -1689,6 +1689,68 @@ function addPageMetadata(document, payload) {
   document.body.append(WebImporter.Blocks.getMetadataBlock(document, meta));
 }
 
+/* -------------------------------------------------------------- offer cards -------------- */
+
+/**
+ * www's "Exclusive Offers & Benefits" (brief 460: a Monetate experiment, section.vt-comm551-offers,
+ * injected after the de/en homepage's destination finder; the user's decision: render www's four
+ * cards). A grey band (.container-gray in a .section-content: lufthansa-sections makes it a grey
+ * section) with the headline and a Cards Icon Text (mini) block, one row per card: the round image
+ * | the title (h3), the text and the link.
+ */
+function convertOfferCards(document) {
+  document.querySelectorAll('section.vt-comm551-offers').forEach((sec) => {
+    const text = (el) => (el ? el.textContent.replace(/\s+/g, ' ').trim() : '');
+    const cells = [...sec.querySelectorAll('.vt-comm551-offers__card[href]')].map((card) => {
+      const title = text(card.querySelector('.vt-comm551-offers__title'));
+      const copy = text(card.querySelector('.vt-comm551-offers__text'));
+      const src = card.querySelector('img') && card.querySelector('img').getAttribute('src');
+      let image = '';
+      if (src) {
+        image = document.createElement('img');
+        image.setAttribute('src', src);
+        image.setAttribute('alt', '');
+      }
+      const body = document.createElement('div');
+      const h3 = document.createElement('h3');
+      h3.textContent = title;
+      body.append(h3);
+      if (copy) {
+        const p = document.createElement('p');
+        p.textContent = copy;
+        body.append(p);
+      }
+      const p = document.createElement('p');
+      const a = document.createElement('a');
+      a.setAttribute('href', card.getAttribute('href'));
+      a.textContent = title;
+      p.append(a);
+      body.append(p);
+      return [image, body];
+    }).filter(([, body]) => text(body.querySelector('h3')));
+    if (!cells.length) {
+      sec.remove();
+      return;
+    }
+    const band = document.createElement('div');
+    band.className = 'container-gray';
+    const headline = text(sec.querySelector('.vt-comm551-offers__headline'));
+    if (headline) {
+      const holder = document.createElement('div');
+      holder.className = 'headline section';
+      const h2 = document.createElement('h2');
+      h2.textContent = headline;
+      holder.append(h2);
+      band.append(holder);
+    }
+    band.append(WebImporter.Blocks.createBlock(document, { name: 'Cards Icon Text (mini)', cells }));
+    const content = document.createElement('div');
+    content.className = 'section-content container-fluid section-regular';
+    content.append(band);
+    sec.replaceWith(content);
+  });
+}
+
 /* -------------------------------------------------------------- footer disclaimer -------- */
 
 /**
@@ -1764,6 +1826,7 @@ export default function transform(hookName, element, payload) {
     if (titleEl) titleEl.textContent = titleEl.textContent.replace(/(\s*\|\s*Lufthansa)+\s*$/, ' | Lufthansa');
     const pagePath = currentPagePath(document, payload); // before <link rel=canonical> goes
     convertFooterDisclaimer(document, pagePath); // before anything takes its modal
+    convertOfferCards(document);
     detectTheme(document); // before the <link> elements go
     convertBreadcrumbs(document, pagePath);
     convertFeedbackQuestionnaires(document);
