@@ -488,3 +488,121 @@ others publish; they don't come from the market route).
 | 4 | ffd9d6d | row 30: 19 of 21 pages placed (airportr en/de left) | revert; DA's earlier versions |
 | 5 | 80b890b | own-links and cargo-kf-phone-442 with their own fixtures | `git revert 80b890b` |
 | 6 | c8fbca6, 392ff5c | card link rows, icon teasers (legal, FAQ hub), heading spacing; 18 documents | revert each; DA's earlier versions |
+
+## Brief 450 (lufthansa.com my/en Message Center; SWISS row 30, fleet, airportr, the pinned stages)
+
+Same rules: tests first, brand-scoped CSS (shared code only as options or with every brand's smoke),
+lint and the full suite before the push, the smoke of every brand before and after, SWISS's and
+TAP's hosts by hand; upload and preview only, nothing published.
+
+- One code push, after a pull: `72ec765..9d89b91`.
+- The smoke after was the same as before on every brand (the differing counts are the same rows
+  in both runs).
+
+### 1. Message Center, my/en (done: the page's document; no code, no message data)
+
+- On www the flash teaser's messages are built on the server. Each homepage's
+  `.dcep-flash-teaser` carries them in its `data-dcep` (`flashTeaserMessages`).
+  - In the recorded my/en homepage (2026-10-29, and your 2026-11-06 recording) that list holds
+    only the MYR 450 promo.
+  - On all 220 other recorded homepages (tools/importer/bd-snapshots, tools/source-export/pages)
+    it holds the Dubai notice: my/de, sg/en, th/en, kr/en and every other root.
+- The message data can't explain that. Both Dubai messages have no markets (`markets` [] in
+  /message-center/index.json; on www no `lufthansa-group:markets/…` tag) and both have an `en`
+  document. No field of either could leave out my/en alone without leaving out my/de or sg/en
+  too. The difference is the my/en page's own flash teaser on www.
+- Fix: lh-com's own /my/en/homepage document's flash-teaser block gets the row `Types | promo`
+  (blocks/flash-teaser's option). It was made from DA's current copy (rollback:
+  logs/b450/da/my/en/homepage.html), uploaded and previewed.
+- On main--lh-com--moved-permanently.aem.page (Chrome, 1440):
+  - my/en: "Promotion: Save an extra MYR 450 on flights to Europe with promo code KULDEAL";
+  - my/de: "Achtung: Information über den Flugverkehr nach Dubai";
+  - kr/ko: "주의: Information on flights to Dubai" (its promo held back, as before);
+  - sg/en: the Dubai notice.
+- A re-import of my/en would drop the row: lh-com's flash-teaser parser writes an empty block.
+- No message document to change.
+
+### 2. SWISS row 30, the other languages (done, documents only)
+
+- The 81 pages built in brief 445: ch/el 9, es 8, fr 11, it 9, ja 7, pt 9, ru 8, zh 8, kr/ko 9,
+  and corporate de, en and fr procurement.
+- Rebuilt from brief 432's originals with DA's current metadata. Every DA copy was as brief 440 had
+  left it; no word lost. Uploaded and previewed; all 81 have their sidebar-aside on the preview.
+- The 3 corporate lat-switzerland pages (sidebar start moved from the title to www's h2) were not
+  among the 81 and stay as they are.
+
+### 3. Two cards to a row (done, 4c274bf, 9d89b91)
+
+- Fleet: www's two cards are a two-column teaser view; withTeaserColumns had made it a
+  three-column grid. swiss-import.mjs withTwoUpCards gives such a grid the existing
+  carousel-cards option two-up.
+  - 11 fleet pages: ch/de, el, en, es, fr, it, ja, pt, ru, zh and kr/ko.
+  - In the 9 non-English, non-German languages the cards also get www's link rows (brief 445's
+    withCardLinks).
+  - ch/en on the preview: 0.92 -> 0.945 at 1440, 0.95 -> 0.955 at 390. What's left is www's taller
+    card body and 90 px more before the footer.
+- Travel regulations: www shows its cards four to a row too (a fourcolumn view). My 445 line that
+  put it with fleet was wrong, so its layout stays.
+  - Its titles broke "Einreisebestimmunge n": lh-com's 0.7 px heading tracking and the card's
+    259 px text width. SWISS's card titles are now tracked 0.3 px, as www's teaser headings, and
+    the grid cards' text is as wide as www's (18 px padding inside the 1 px border).
+  - The theme sets no wrapping rule (test/heading-wrap.test.mjs).
+  - ch/de stays 0.93: 80 px less space before the footer, and www's footer is 25 px taller in
+    German.
+
+### 4. SWISS row 30, airportr (done, 81a813f)
+
+- www: the sidebar's content is the intro, "Your benefits", and "Departure and arrival services"
+  with two tabs; the "Travel lighter, stay informed" teaser sits beside all of it.
+- Importer (swiss-sidebar.mjs withTabSidebar): when the aside follows the tab panels after the
+  content's section, the content starts at its first text, the panels become parts of it (their
+  Tab rows plus the style sidebar-part), then the aside (sidebar-aside) and what follows.
+- Shared code, every brand:
+  - section-aside.js: sidebar-part sections also join when they are tab panels, each part keeping
+    its data-tab and data-tabs;
+  - section-tabs.js: a set's panels can be such parts (the tab list goes before the first, and the
+    grid rows are counted again); a part that is no panel ends no set.
+- Sections without the style are as before, and a tab set going on after a panel in parts is
+  tested. On brief 432's originals only airportr in ch/en, ch/de and ch/fr changes; the other
+  2,030 pages are as before.
+- Preview, ch/en, de and fr: the aside beside the content, both tabs inside the content column,
+  4 grid rows.
+- Rollback: `git revert 81a813f`, and DA's earlier versions.
+
+### 5. The next largest: A350 and SWISS Senses (done, f91a605)
+
+- www's .inspiration-teaser-animation stages are pinned by GSAP. Each stays at the top of the
+  window while the page scrolls on by half of the window's and the stage's height together:
+  810 + 855 px at a 900 px window, 640 + 770 px for SWISS Senses. The full-page captures show
+  that as white space.
+- blocks/hero-campaign has a new option, pinned: the stage is sticky at the top and its wrapper
+  that much longer. swiss-import.mjs withPinnedTeasers sets pinned and www's height option per
+  teaser.
+- ch/de's A350 is tall (810) on www's 2026-11-06 capture, but narrow (350) in the snapshot of
+  11-02. It was rebuilt from the capture.
+- 11 pages: ch/de A350, and SWISS Senses in ch/de, el, en, es, fr, it, ja, pt, ru, zh.
+- Preview, 900 px window:
+  - A350 0.31 -> 1.00 at 1440, 1.02 at 390 (www's capture had an 844 px window);
+  - SWISS Senses 0.64 -> 1.006 at 1440, 1.02 at 390.
+- The other languages' A350 pages stay narrow: their snapshots are from 11-02. A fresh capture
+  would show whether www changed them too.
+- Next, not done: the magazine galleries (jungfrau-region 0.85, inside-swiss 0.87, travel 0.87,
+  hello-boston 0.90). www's slides are as wide as the 766 px column, with square pictures and
+  the next slide peeking in; ours are 529 px and 3:2, so about half as tall.
+- Rollback: `git revert f91a605`, and DA's earlier versions.
+
+### Documents
+
+- lh-com: 1 (/my/en/homepage).
+- lh-swiss: 106, uploaded and previewed, 0 problems, nothing published.
+  - Release order (the code is on main): [../swiss/preview-paths-450.txt](../swiss/preview-paths-450.txt).
+  - The 81 row-30 pages, the 11 fleet pages, the 3 airportr pages, then the 11 pinned-stage pages.
+  - No word of DA's documents lost.
+
+| Item | Commit | What | Rollback |
+| --- | --- | --- | --- |
+| 1 | (document) | my/en homepage flash teaser `Types \| promo`, as www's server list | DA's earlier version (logs/b450/da) |
+| 2 | (documents) | row 30's 81 other-language pages | DA's earlier versions |
+| 3 | 4c274bf, 9d89b91 | fleet two-up in 11 languages; card titles tracked 0.3 px, grid card text 261 px | revert each; DA's earlier versions |
+| 4 | 81a813f | sidebars with a tab set (airportr en, de, fr) | `git revert 81a813f`; DA's earlier versions |
+| 5 | f91a605 | hero-campaign pinned; A350 de and SWISS Senses in 10 languages | `git revert f91a605`; DA's earlier versions |
