@@ -120,7 +120,9 @@ test('the built-in texts in the five languages: picker options, accordion filter
       assert.deepEqual(Object.keys(t[l]).sort(), Object.keys(t.en).sort(), `${file} ${l}: only en's keys`);
     });
     const b = table(show(BEFORE, file), name);
-    Object.keys(b).forEach((l) => assert.deepEqual(t[l], b[l], `${file} ${name} ${l} as before`));
+    // picker-options' hk took www's wording later (the brief after 462, test/hk-picker-labels.test.mjs)
+    Object.keys(b).filter((l) => !(name === 'PICKER_OPTION_LABELS' && l === 'hk'))
+      .forEach((l) => assert.deepEqual(t[l], b[l], `${file} ${name} ${l} as before`));
   });
   // the scripts the texts are written in
   const SCRIPT = {

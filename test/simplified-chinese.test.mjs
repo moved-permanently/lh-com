@@ -134,7 +134,9 @@ test('the built-in texts in Simplified Chinese: form, picker options, accordion 
       assert.doesNotMatch(t.zh[k], TRADITIONAL, `${file} ${k}: Traditional`);
     });
     const b = table(show(BEFORE, file), name);
-    Object.keys(b).forEach((l) => assert.deepEqual(t[l], b[l], `${file} ${name} ${l} as before`));
+    // picker-options' hk took www's wording later (the brief after 462, test/hk-picker-labels.test.mjs)
+    Object.keys(b).filter((l) => !(name === 'PICKER_OPTION_LABELS' && l === 'hk'))
+      .forEach((l) => assert.deepEqual(t[l], b[l], `${file} ${name} ${l} as before`));
   });
   // www's xx/zh feedback form (preview document): its own wording
   const form = table(show(null, 'blocks/form/form.js'), 'DEFAULT_LABELS').zh;

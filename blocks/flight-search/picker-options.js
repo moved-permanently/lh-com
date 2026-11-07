@@ -57,11 +57,12 @@ export const PICKER_OPTION_LABELS = {
   hk: {
     'young adults label': '青少年',
     'young adults hint': '（12–15 歲）',
-    'fare label': '選擇其他票價',
-    'fare question': '您希望享有哪些票價優惠？',
-    'fare default label': '最優惠價格',
-    'fare coupon label': '更改我的航班次序',
-    'fare high label': '彈性／較高訂位艙等，可累積更多里數',
+    // the wording of www (hk/hk/homepage, 2026-11-07)
+    'fare label': '其他票價選擇',
+    'fare question': '您想要什麼樣的票價優惠?',
+    'fare default label': '最佳票價優惠',
+    'fare coupon label': '變更航班次序',
+    'fare high label': '彈性/最高等級預訂艙等以累積更多哩程',
     'fare applied': '已套用您選擇的票價。',
   },
   zh: {

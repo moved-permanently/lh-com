@@ -223,6 +223,27 @@ export const PASSENGER_LABELS = {
     'fewer label': '减少一位：{TYPE}',
     'done label': '完成',
   },
+  // Traditional Chinese (lufthansa.com's path language hk: xx/hk, hk/hk, cn/hk, tw/hk): www's
+  // wording (hk/hk/homepage with the picker open, 2026-11-07); the stepper buttons in its style
+  hk: {
+    'passengers label': '調整旅客和預訂艙等選擇。',
+    'adults label': '成人',
+    'adults hint': '',
+    'children label': '兒童',
+    'children hint': '(2 至 11 歲)',
+    'infants label': '嬰兒不佔位',
+    'infants hint': '(0 - 23 個月)',
+    'cabin label': '旅行艙等',
+    'economy label': '經濟艙',
+    'premium economy label': '優選經濟艙',
+    'business label': '商務艙',
+    'first label': '頭等',
+    'traveller summary': '{CABIN}, {COUNT} 旅客',
+    'travellers summary': '{CABIN}, {COUNT} 旅客',
+    'more label': '增加一位：{TYPE}',
+    'fewer label': '減少一位：{TYPE}',
+    'done label': '儲存',
+  },
   pl: {
     'passengers label': 'Pasażerowie i klasa podróży',
     'adults label': 'Dorośli',
