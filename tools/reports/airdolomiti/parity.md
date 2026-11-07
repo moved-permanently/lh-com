@@ -104,6 +104,65 @@ otherwise.
 | A6 | The date fields take four Tab stops each (day, month, year, the picker) | — | the browser's date field | fixed in the flight search (3ba047f7, every brand): one stop per date, a readonly field opening the calendar | lh-com shared block (flight search) |
 | A7 | No violations on the travel information pages and the articles at either width | — | — | — | — |
 
+## Pass 2 (2026-11-07, brief 447): airdolomiti-parity-001
+
+**The archive.** 48 pages (it, en, de; the homepage, the destinations hub and a destination, a
+service page, the fleet, the blog list and an article, booking, routes, baggage, on board, travel
+information, assistance, support and contacts, manage booking, the timetable) at 1440 and 390, plus
+the homepages' 21 menu states (the desktop panels at 1440, the phone menu and its sections at 390).
+It was captured from www.airdolomiti.it / .eu / .de on 2026-11-07, with its own stylesheets and
+measurements, and served from this machine (requests off it aborted).
+
+**How it was compared.**
+- Ours: a local dev server while working (the tree's code, the site's preview content), then
+  main--lh-airdolomiti--moved-permanently.aem.page after each push.
+- Per page and width: every visible text line's box and type, matched by text; backgrounds and
+  borders box by box; page height, title, headings, text passages and first copy (bcompare.py).
+- The 48 pages at both widths: 11 of 96 page-widths matched before, 42 of 96 after.
+
+Code only. Each fix is matched on markup the documents already have, Air Dolomiti only
+(`body.brand-airdolomiti`, header-airdolomiti.*), except row 49, which is the shared
+destination-finder block.
+
+| # | Where | www | Ours (before) | State | Owner |
+| --- | --- | --- | --- | --- | --- |
+| 21 | Page width | 90vw below 930 px, 95vw from 930 px, at most 1440 px (36 px in at 1440, 19.5 at 390) | 5vw everywhere (72 px in at 1440): the 2.5vw rule came before the 5vw default in the file | fixed, 75ddd523 | lh-com migration agent |
+| 22 | Page titles | 38/46, 42/50 from 930 px; 25 px under them, 20 from 930 px (TitleMargin) | 38/46 at every width, 40 px under | fixed, 75ddd523 | lh-com migration agent |
+| 23 | Section headings | most 34/42, 38/46 from 930 px (MiniCardSlider, Title, CosaFareCarroussel, CenteredBlock); the text blocks' and the destination grid's 38/46, 42/50 | 38/46, 42/50 from 1025 px | fixed, 0f22c8b6 | lh-com migration agent |
+| 24 | Bar on phones | 80 px (20 px above and below), logo 169 x 32 at x 19 | 74 px, logo 153 x 28 at x 22 | fixed, 75ddd523 | lh-com migration agent |
+| 25 | Bar from 1025 px | logo 8 px above the middle | centred | fixed, 75ddd523 | lh-com migration agent |
+| 26 | Desktop panels | bold links 36 px under the column above; the card 350 px with a 226 px title chip and www's solid button (teal 16/22 500, 18px 40px, the arrow 16 px after); "View all" underlined | 30 px; 314 px card, navy 15 px button with a chevron; "View all" plain | fixed, 75ddd523: the three panels within 1 px of www's | lh-com migration agent |
+| 27 | Phone menu | a white page over the screen: "Close" with a circled cross; the search field; the quick actions on teal (half the screen); the three items opening their columns in place, one at a time; the languages behind the current one ("EN", a globe) | lh-com's flyout: the items sliding in their columns, the tools and languages as links | fixed, 75ddd523 (header-airdolomiti.js buildAirDolomitiPhoneMenu): the three sections at 390 to the pixel; axe 0 violations; Tab kept inside, Escape and Close back to the Menu button | lh-com migration agent |
+| 28 | Phone menu and bar: www's extras | the bar's "Book your flight" plane button; the menu's text size setting ("Dimensions") | the accessibility settings button in the bar | open: moving the accessibility settings into the menu, and the bar's booking button, are feature work | lh-com migration agent |
+| 29 | Phone bar: menu icon | three 31 px lines | lh-com's 16 x 12 burger | open (minor; the shared icon) | lh-com migration agent |
+| 30 | Footer from 1025 px | 85 px in; the pills across the columns (69 px); the company quarter with a faint line; links underlined, 16/22, back to back; external links' icon; payment logos three a row; white social circles; www's logo with "Member of LUFTHANSA GROUP" | 80 / 88 px in, row 18's layout | fixed, 75ddd523: every part within 0 to 4 px of www's at 1440 | lh-com migration agent |
+| 31 | Footer below 768 px | one teal column: the company links, the five sections as rows in capitals (www's order), the address and payment logos centred, the dark band with the stacked logo and 40 px circles, the company line | lh-com's accordions with the search field, the pills and a white logo row | fixed, 75ddd523: 1046 px high on both, each line within 1 px | lh-com migration agent |
+| 32 | Footer 768 to 1024 px | the phone footer up to 929 px | lh-com's tablet columns | open | lh-com migration agent |
+| 33 | Footer: "Change Cookie Settings" | a link to the consent settings | none (Air Dolomiti has no consent tool here, so the link is left out) | open: your decision | the user |
+| 34 | Running-text links | underlined, without arrows (RichText a) | bold, lh-com's small arrow before them | fixed, 75ddd523 | lh-com migration agent |
+| 35 | Text hubs (destinations, flights to Europe, assistance; the fleet's text) | www's TitleDescriptionTextCta: a centred 70vw column from 930 px, the text 22/37.4 with a blank line between paragraphs | the text 16/27.2 at two thirds of the width from the left | fixed, 75ddd523 (the lines word for word as www's at 1440 and 390) | lh-com migration agent |
+| 36 | Booking widget strip | the flight search bar under the header on the hubs and destination pages (DisplayBookingWidget) | a "Book your flight" button above the title (the importer's) | open: the importer (the flight-search block as on the homepage), then an upload | lh-com migration agent |
+| 37 | Destination hub: cards | www's CardNews: white, shadowed, 470 px, the picture 60%, title 20/26, the line grey and underlined, one link | the picture at its own height, a bold title, the line and an arrow link | fixed, 0f22c8b6 | lh-com migration agent |
+| 38 | Destination hub: paging | 15 cards a page with page numbers | all 24 at once (the page 3400 px taller at 1440) | open: a paging option in cards-teaser | lh-com migration agent |
+| 39 | Manage booking | title and line centred in 50vw; the line 16/22, 40 px over the form (TitleDescriptionPnr) | left, the line 22/30 | fixed, 75ddd523 | lh-com migration agent |
+| 40 | Manage booking: text | 19.44/33 | 16/27.2 | open | lh-com migration agent |
+| 41 | FAQ pages (lounges, seat reservation, parking) | www's HalfPage: the title 34/42 (38/46 from 930 px), 2 px apart; light accordion titles with the teal arrow; from 930 px the grey help card (410 px) beside them | one column, bold accordion titles, the card under them | fixed, 75ddd523 | lh-com migration agent |
+| 42 | Breadcrumb | the middle level ("Home \| Servizi \| Parcheggi Convenzionati") | "Home \| Parcheggi Convenzionati" | open: the documents' Parent rows (importer), then an upload | lh-com migration agent |
+| 43 | Destination stage | www's HeroSecond: the picture across the screen under a 50% veil, the lines centred in a light box (title 64.8/72 light); the price and button on a white bar | a navy card on the left, the title white and bold | fixed, 75ddd523 | lh-com migration agent |
+| 44 | Destination stage: links | "What to do / see / eat" as white pills inside the stage | tiles under the stage | open | lh-com migration agent |
+| 45 | Destination stage: price bar | fixed at the screen's foot (from 530 px), a fixed button on phones | at the stage's foot | open: kept in the page on purpose (a fixed bar covers content) | lh-com migration agent |
+| 46 | Baggage | the cards 40 px under the title's line | 24 px | fixed, 75ddd523 | lh-com migration agent |
+| 47 | In-flight entertainment | its lead 28.08 px (DescritionNews) | 16 px | open | lh-com migration agent |
+| 48 | Blog list | first heading "Categorie / Categories / Kategorien" (43.2 px) | the h1 "Articoli / Articles / Artikel" | open: the documents | lh-com migration agent |
+| 49 | Destination finder (shared) | (Brussels) a polite live region after the trip type chips | none | fixed, a5a14127 (every brand) | lh-com migration agent |
+| 50 | Italian timetable | the FAQ pages' title (34 px) on /orario-voli only | the page title as en/de's | open: no marker in the document | lh-com migration agent |
+| 51 | Page heights left | booking, the timetable, assistance and the article shorter than www's; flights to Europe longer | | open: per block, next pass | lh-com migration agent |
+| 52 | Homepage title | no h1 on www | a hidden h1 "Air Dolomiti" | kept (a page heading for screen readers) | — |
+
+| # | Finding | WCAG | Where | State | Owner |
+| --- | --- | --- | --- | --- | --- |
+| A8 | The phone footer shows its sections in www's order (CSS order) while Tab follows the documents' (Contacts, Travel tips, Routes, Passenger Assistance, Legal info), and reaches the social links before the logo | 2.4.3 | the footer documents | open: the footer documents in www's order would make both the same (an upload) | lh-com migration agent |
+
 ## Checks
 
 - **Lint and tests:** the full suite before each push, after each rebase (254 files, 0 fail at

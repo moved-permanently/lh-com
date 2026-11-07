@@ -621,3 +621,142 @@ Release order: the two PDFs (/documents/2025-facts-figures-en-df297c.pdf,
 - The Milan article shows on the Brussels hubs once it is published and indexed (P41).
 - The www destination finder's status line ("Les offres pour Aller-retour sont affichées") is not
   rendered by the shared destination-finder block.
+
+## Brief 447: Air Dolomiti's look, then two smaller fixes
+
+Nothing was published. The two Cargo documents were uploaded to DA and previewed only, and the
+upload state was merged with origin's entry by entry before the push. Lint and the full suite ran
+before each of the four pushes. Every brand's smoke ran before and after each push (0 differences
+every time), and TAP's 40 pages were checked by hand after each push: all 200, the same as
+brief 443's last check.
+
+At the start of this turn, these were not committed or pushed:
+- .migration/project.json: local tool state, kept out of git.
+- The Air Dolomiti theme, its footer logo and three tests: brief 447's half-done item 1. They are
+  pushed now, in 75ddd523.
+
+### 1. Air Dolomiti against airdolomiti-parity-001 (pass 2)
+
+**The archive.** Prefix S0cxjp_4Yl8ABoeoIgJKtq4s, sha256 a2b8d33e…, which matches its .sha256. It
+holds 48 pages (it, en, de, at 1440 and 390) and 21 menu states. It sits in its own directory, and
+its serve.py was copied into my tools directory and run from there with `python3 -I`, serving the
+archive with its own stylesheets (requests off the machine aborted).
+
+**How it was compared.**
+- Measurements: the archive's own, plus our pages measured the same way (admeasure.mjs).
+  - Ours were measured on a local dev server (this tree's code, lh-airdolomiti's preview content)
+    while working, and on main--lh-airdolomiti--moved-permanently.aem.page after each push.
+- Per page type: every visible text line's box and type, matched by its text (foot-leaves.mjs,
+  leaves-cmp.py).
+- Backgrounds and borders: compared box by box.
+- Menu states: the 21 rendered and compared the same way.
+
+The rows are in tools/reports/airdolomiti/parity.md, "Pass 2" (rows 21 to 52, A8).
+
+**Fixed (ours), the elements on every page first:**
+- 75ddd523:
+  - the page width (www's 90vw / 95vw);
+  - page titles;
+  - the footer from 1025 px, and below 768 px as www's phone footer (1046 px high on both at 390);
+  - the 80 px phone bar;
+  - the desktop bar and panels (all three panels within 1 px of www's);
+  - www's phone menu in place of lh-com's flyout (www's three sections at 390, to the pixel; axe 0
+    violations; the focus kept inside, Escape back to the Menu button);
+  - running-text links;
+  - the text hubs (destinations, flights, assistance; the fleet's text);
+  - manage booking;
+  - the FAQ pages' two columns (lounges, seat reservation, parking);
+  - the destination stage;
+  - the baggage cards.
+  It also includes a fix to my own earlier change: the 2.5vw margin from 930 px came before the
+  5vw default in the file, so the default won and pages at 1440 were 72 px in, not www's 36.
+- 0f22c8b6:
+  - section headings as most of www's (34/42, 38/46 from 930 px);
+  - the destination hub's cards as www's CardNews.
+
+**The 48 pages against www, at 1440 and 390** (bcompare.py; "ok" means the same height within 15%,
+the same title text, size and colour, no missing headings or text passages, the same first copy
+size, the same breadcrumb, no sideways scroll):
+- before: 11 of 96 page-widths ok;
+- after the three pushes, on preview: 42 of 96.
+- Left are mostly page heights:
+  - the destinations hub is 3,400 px longer at 1440 and 8,000 at 390: its 24 cards are each as
+    tall as www's now, but www shows 15 a page (row 38);
+  - the text hubs' "first copy 16 px" is the "Book your flight" line above their title (row 36).
+
+**Open** (all in parity.md, with owners):
+- The documents (importer and upload; this brief asked for no Air Dolomiti uploads):
+  - the booking widget strip that www shows under the header on the hubs and destination pages
+    (ours: a "Book your flight" button above the title);
+  - the breadcrumb's middle level (Home | Servizi | Parcheggi);
+  - the blog list's first heading ("Categorie" on www);
+  - the footer columns' order on phones (A8: the Tab order follows the documents', the screen
+    www's);
+  - it-orario-voli, which on www has the FAQ pages' title.
+- Blocks:
+  - www shows the destination hub 15 cards a page, with page numbers;
+  - the destination stage's what-to-do links sit inside the stage on www, as white pills;
+  - the IFE page's lead (28.08 px);
+  - manage booking's text (19.44 px);
+  - the footer from 768 to 1024 px (www keeps its phone footer up to 929 px).
+- The phone bar's booking button and the phone menu's text-size setting (www's "Dimensions"): ours
+  has the accessibility button in the bar instead.
+- The hamburger icon (www's three 31 px lines).
+- "Change Cookie Settings" in the footer: Air Dolomiti has no consent tool here, your decision.
+
+### 2. Cargo homepage (ema-adobe's brief 440 notes)
+
+Both fixes are in cargo-import.mjs, tests first (test/cargo-import-447.test.mjs).
+- The Infrastructure band no longer writes the documents' "Show the map on www.lufthansa-cargo.com"
+  / "Karte auf www.lufthansa-cargo.com anzeigen" link. www doesn't show one there, and it took
+  68 px at 390. Pages with www's Google map keep theirs.
+- The service widget now opens on www's Booking tab. www's create button ("Create booking" /
+  "Buchung erstellen", to eBooking on www, which needs the portal's login) and its "eBooking
+  dashboard" link are the form tab's panel, which booking-lookup (tracking) shows above the tracking
+  form in the same card. The tracking form stays under them, as before. www's Origin and
+  Destination fields only fill eBooking's form behind its login, so they are not copied.
+
+/en/home and /de/home were imported against DA's copies, read just before. The diff shows only the
+two intended changes on each page: the Panel row added and the map link paragraph removed. Both
+pages were uploaded and previewed. On main--lh-cargo--moved-permanently.aem.page:
+- at 1440 the card shows Create booking, the dashboard link, then the tracking form;
+- at 390 the same;
+- the map link is gone.
+
+The strip is now 307 px high at 1440 (www's 272): ours puts the dashboard link on a line of its own.
+
+### 3. Brussels: the destination finder's status line
+
+www's fare teaser has a polite, screen-reader-only live region after its trip type chips ("Les
+offres pour Aller-retour sont affichées", fareteaserdynamicevo.fullApp.offers
+.selectionAnnouncementTripType). The shared destination-finder block now renders it after its
+chips for every brand, and updates it once the list for a newly chosen trip type shows.
+- The English and French texts are www's. The other eleven languages are ours until a capture has
+  www's wording. A block row "Selection announcement" overrides the text.
+- Tests first: test/destination-finder-announcement-447.test.mjs.
+- Checked locally and on main--lh-brussels--moved-permanently.aem.page: /fr/fr/homepage at 1440
+  ("Les offres pour Aller-retour sont affichées", then "… Aller simple …" after choosing one way),
+  and /be/en/homepage at 390.
+- Every brand's smoke: 0 differences before and after.
+
+### Summary
+
+| Item | Commit | What | Rollback |
+| --- | --- | --- | --- |
+| 1 | 75ddd523 | Air Dolomiti: page width, titles, footer (desktop and phone), phone bar, desktop panels, www's phone menu (header-airdolomiti.js), running-text links, text hubs, manage booking, FAQ pages, destination stage, baggage cards; test/tap-menu.test.mjs follows the menu binding | revert |
+| 1 | 0f22c8b6 | Air Dolomiti: section headings as www's, the destination hub's cards | revert |
+| 1 | (this push) | parity.md pass 2 (rows 21 to 52, A8) and this report | revert |
+| 2 | 0eb17599 | cargo-import.mjs: no map link under the Infrastructure band; the service widget opens on the Booking tab | revert, re-import /en/home and /de/home, upload |
+| 2 | 7caff747 | /en/home and /de/home re-imported, uploaded and previewed | re-upload DA's previous copies (kept on this machine: .scratch/offline/b447/home/da) |
+| 3 | a5a14127 | destination-finder: the trip type announcement, every brand | revert |
+
+### Preview path lists, in release order
+
+1. Code (on main): 75ddd523, 0f22c8b6, 0eb17599, a5a14127. Air Dolomiti's and Brussels' changes are
+   code only: they show on their previews already and go live with no publishing.
+2. Cargo pages: /en/home, /de/home.
+
+### Open after brief 447
+
+- Air Dolomiti: the open rows above (parity.md pass 2).
+- For ema-cashub: none new.
