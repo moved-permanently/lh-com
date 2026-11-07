@@ -140,12 +140,19 @@ export const TABS_MEDIA = '(width >= 1025px)';
 
 /**
  * Option open-first (www.discover-airlines.com's families page: the first collapsible expanded):
- * the first item starts open. Not with tabs, whose first tab is selected anyway.
+ * the first item starts open; open-2 … open-9 (Austrian's new-destinations: www's first items
+ * expanded) the first N. Not with tabs, whose first tab is selected anyway; with exclusive (one
+ * item open at a time) only the first.
  * @returns {boolean} whether an item was opened
  */
 export function openFirst(block, items) {
-  if (!block.classList.contains('open-first') || block.classList.contains('tabs') || !items.length) return false;
-  items[0].setAttribute('open', '');
+  if (block.classList.contains('tabs') || !items.length) return false;
+  const option = [...block.classList].find((c) => /^open-[2-9]$/.test(c));
+  let n = option ? Number(option.slice(5)) : 0;
+  if (!n && block.classList.contains('open-first')) n = 1;
+  if (!n) return false;
+  if (block.classList.contains('exclusive')) n = 1;
+  items.slice(0, n).forEach((item) => item.setAttribute('open', ''));
   return true;
 }
 let exclusiveCount = 0;

@@ -354,16 +354,40 @@ export const withPoiPoints = (doc, points = POI_POINTS) => doc.replace(
 );
 
 /**
- * An accordion whose first item is open on www (maui-collapsible-item expanded: new-destinations'
- * "New in Summer 2026" and the winter items) gets accordion-columns' option open-first, as SWISS's import
- * does; the parts withAccordionMapsHoisted makes start with such an item.
+ * An accordion whose first items are open on www (maui-collapsible-item expanded: new-destinations'
+ * "New in Summer 2026" and the two winter items) gets accordion-columns' option open-first (one) or
+ * open-N (the leading N), as SWISS's import does; the parts withAccordionMapsHoisted makes start with
+ * such an item.
  */
 export function withOpenFirst(doc, html = '') {
-  const clean = (s) => s.replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').replace(/\s+/g, ' ').trim();
+  // www's headline attributes write non-breaking spaces as &nbsp; ("Nouveautés pour l’été&nbsp;2026")
+  const clean = (s) => s.replace(/<[^>]+>/g, '').replace(/&nbsp;|&#160;/g, ' ').replace(/&amp;/g, '&')
+    .replace(/\s+/g, ' ')
+    .trim();
   const open = new Set([...html.matchAll(/<maui-collapsible-item\b[^>]*\sheadline="([^"]*)"[^>]*\sexpanded=""/g)].map((m) => clean(m[1])));
   if (!open.size) return doc;
-  return doc.replace(/<div class="accordion-columns([^"]*)"><div><div>([\s\S]*?)<\/div>/g, (m, cls, title) => (
-    open.has(clean(title)) && !cls.split(/\s+/).includes('open-first') ? m.replace(`accordion-columns${cls}"`, `accordion-columns${cls} open-first"`) : m));
+  let out = '';
+  let at = 0;
+  const start = /<div class="accordion-columns([^"]*)">/g;
+  for (let m = start.exec(doc); m; m = start.exec(doc)) {
+    const end = divEnd(doc, m.index);
+    // the item titles: each row's first cell
+    const titles = [];
+    for (let i = m.index + m[0].length; doc.startsWith('<div>', i); i = divEnd(doc, i)) {
+      const cell = doc.slice(i + 5, divEnd(doc, i + 5));
+      titles.push(clean(cell));
+    }
+    let n = 0;
+    while (n < titles.length && open.has(titles[n])) n += 1;
+    const cls = m[1].split(/\s+/).filter((c) => c && c !== 'open-first' && !/^open-[2-9]$/.test(c));
+    const option = n === 1 ? 'open-first' : `open-${Math.min(n, 9)}`;
+    if (n) {
+      out += `${doc.slice(at, m.index)}<div class="accordion-columns${[...cls, option].map((c) => ` ${c}`).join('')}">`;
+      at = m.index + m[0].length;
+    }
+    start.lastIndex = end;
+  }
+  return out + doc.slice(at);
 }
 
 /**

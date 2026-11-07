@@ -90,3 +90,15 @@ test('withOpenFirst: an accordion whose first item is open on www gets open-firs
   const s = fs.readFileSync(new URL('../tools/importer/austrian-import.mjs', import.meta.url), 'utf8');
   assert.match(s, /const next = withChatButton\(withOpenFirst\(withPoiPoints\(/);
 });
+
+test('withOpenFirst: an accordion whose first N items are open on www gets open-N (new-destinations: the second accordion\'s two of three)', async () => {
+  const { withOpenFirst } = await import('../tools/importer/austrian-import.mjs');
+  const three = (cls = '') => `<div class="accordion-columns${cls}"><div><div>Winter 25</div><div><p>A</p></div></div><div><div>Winter 24</div><div><p>B</p></div></div><div><div>Summer 25</div><div><p>C</p></div></div></div>`;
+  const snap = '<maui-collapsible-item headline="Winter 25" expanded=""></maui-collapsible-item><maui-collapsible-item headline="Winter 24" expanded=""></maui-collapsible-item><maui-collapsible-item headline="Summer 25"></maui-collapsible-item>';
+  assert.equal(withOpenFirst(three(' faq'), snap), three(' faq open-2'));
+  assert.equal(withOpenFirst(three(' faq open-first'), snap), three(' faq open-2'), 'open-first widened');
+  const gap = '<maui-collapsible-item headline="Winter 25" expanded=""></maui-collapsible-item><maui-collapsible-item headline="Winter 24"></maui-collapsible-item><maui-collapsible-item headline="Summer 25" expanded=""></maui-collapsible-item>';
+  assert.equal(withOpenFirst(three(' faq'), gap), three(' faq open-first'), 'the leading open items only');
+  const nbsp = snap.replace('headline="Winter 25"', 'headline="Winter&nbsp;25"');
+  assert.equal(withOpenFirst(three(' faq'), nbsp), three(' faq open-2'), 'www\'s &nbsp; in the headline');
+});

@@ -45,3 +45,17 @@ test('without the option, or with tabs, the items stay as they are', () => {
   assert.equal(openFirst(tabs.block, tabs.items), false);
   assert.equal(opened(tabs.items), '- -');
 });
+
+test('open-N (brief 454, Austrian\'s new-destinations: www opens the second accordion\'s first two items): the first N items open', () => {
+  const two = accordion('faq open-2', 3);
+  assert.equal(openFirst(two.block, two.items), true);
+  assert.equal(opened(two.items), 'open open -');
+  const many = accordion('faq open-5', 3);
+  assert.equal(openFirst(many.block, many.items), true);
+  assert.equal(opened(many.items), 'open open open', 'more than there are: all');
+  const tabs = accordion('faq tabs open-2', 3);
+  assert.equal(openFirst(tabs.block, tabs.items), false, 'not with tabs');
+  const exclusive = accordion('faq exclusive open-2', 3);
+  openFirst(exclusive.block, exclusive.items);
+  assert.equal(opened(exclusive.items), 'open - -', 'one at a time: only the first');
+});
