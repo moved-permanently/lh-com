@@ -1,0 +1,20 @@
+# Brief 461 item 2: lufthansa.com pages with a separator between two text components of a column item (www's
+# two-column text rows): import again with main's bundles after the cell-spacer commit (legal, info, campaign;
+# found in the xx/pt snapshots, all roots of these pages). Template in brackets; [?] = no import record (alias pages).
+/de/en/100-years/chronicle  # [campaign] 1 separator(s)
+/de/en/advance-seat-reservations-terms-and-conditions  # [legal] 4 separator(s)
+/de/en/baggage-irregularities  # [info] 2 separator(s)
+/de/en/book-and-manage/flights/giftvoucher  # [info] 3 separator(s)
+/de/en/book-and-manage/stopover/bayerischer-hof  # [campaign] 1 separator(s)
+/de/en/book-and-manage/stopover/munich-airport  # [?] 1 separator(s)
+/de/en/book-and-manage/stopover/neuschwanstein  # [campaign] 1 separator(s)
+/de/en/book-and-manage/stopover/zugspitze  # [campaign] 1 separator(s)
+/de/en/book-and-manage/stopover  # [campaign] 1 separator(s)
+/de/en/electronic-bag-tags  # [info] 1 separator(s)
+/de/en/gesund-reisen  # [info] 1 separator(s)
+/de/en/handgepaeck  # [info] 1 separator(s)
+/de/en/hotel-offers  # [info] 1 separator(s)
+/de/en/prepare-for-your-trip/entry-regulations/entering-schengen/entry-exit-system  # [info] 2 separator(s)
+/de/en/terms-of-service-group  # [legal] 7 separator(s)
+/de/en/tips-senior-travellers  # [info] 1 separator(s)
+/de/en/traveltricks  # [info] 1 separator(s)

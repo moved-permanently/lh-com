@@ -1,0 +1,34 @@
+# Brief 461 item 3: the fleet template's documents (page-templates.json fleet urls): import again with main's
+# fleet bundle after the column-marks commit (each one-column view's padding as www's).
+/de/en/359
+/de/en/320
+/de/de/320
+/at/de/320
+/gb/en/320
+/de/en/32n
+/de/de/32n
+/at/de/32n
+/gb/en/32n
+/de/de/359
+/at/de/359
+/gb/en/359
+/de/en/744
+/de/de/744
+/at/de/744
+/gb/en/744
+/de/en/boeing787
+/de/de/boeing787
+/at/de/boeing787
+/gb/en/boeing787
+/de/en/discover-lufthansa/lufthansa-fleet/351
+/de/de/discover-lufthansa/lufthansa-fleet/351
+/at/de/discover-lufthansa/lufthansa-fleet/351
+/gb/en/discover-lufthansa/lufthansa-fleet/351
+/de/en/lufthansa-first-class-fleet
+/de/de/lufthansa-first-class-flotte
+/at/de/lufthansa-first-class-flotte
+/gb/en/lufthansa-first-class-fleet
+/de/en/seat-maps
+/de/de/sitzplaene
+/at/de/sitzplaene
+/gb/en/seat-maps

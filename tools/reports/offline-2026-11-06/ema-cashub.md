@@ -1060,3 +1060,116 @@ The optional plugins stay off. No documents were changed or uploaded in this bri
 Documents changed: none (0). Path lists in tools/reports/parity-2026-11-07/:
 - reimport-stale-de-en.txt (24, re-import with main's bundles);
 - recapture-content-de-en.txt (10, capture and import).
+
+## Brief 461: campaign three- and four-column rows, legal cell separators, fleet column views
+
+Step 0: brief 456 left nothing unpushed (main was at `44ec395b`). Out of git as before:
+- the importer's run output (run state);
+- migration-work/ (scratch; this brief's tools in migration-work/parity-456);
+- the old stash@{0};
+- content-sites/.
+
+The optional plugins stay off. No documents were changed or uploaded (0); every fix needs a
+re-import, listed below.
+
+**Live www:** I read nothing from www myself. But my two edits to lufthansa-cleanup.js triggered
+a validation hook that ran the transformer on a live fetch of www.lufthansa.com/de/en/homepage, once
+per edit (two fetches). After that I changed transformer files only through scripts, which the hook
+does not run on.
+
+### 1. Campaign: top-level three- and four-column views (`1abf9cbd`)
+
+- **Change:** the campaign entry of page-templates.json gets info's columns-media selector for a
+  top-level .threecolumn / .fourcolumn; a row of teaser cards stays carousel-cards'. Test first:
+  campaign-multicolumn-461.
+- **Bundle:** campaign rebuilt. ema-adobe's 5b8e3e1 was already bundled (e9b216d8, 14:47), so the
+  rebuild only adds this selector. Item 2 rebuilt the campaign bundle once more (`7e7315d8`). Import
+  the 46 pages of reimport-460-lh-com.txt section 3 with main at `7c7cc92b` or later: they then get
+  both.
+- **Checked on the xx/pt snapshots,** imported in a scratch worktree:
+  - frankfurt-fair: one columns-media row of 3 cells (was stacked);
+  - 100-years/fleet: a 3-cell image row;
+  - 100-years/chronicle: a 3-cell text row.
+- **new-onboard-experience:** its four-column view is four jump links, which the cleanup already
+  makes a `jump-links columns` block (old and new import alike). Its stacking is not this selector.
+
+### 2. Two-column text rows: www's separator kept in the cell (`7e7315d8`)
+
+- **Change:** a separator (10 px and more) between two text components (.text, .link, .headline)
+  of a multi-column view's item:
+  - lufthansa-cleanup.js: the separator becomes a `{spacer-N}` element, www.lufthansa.com pages
+    only (SWISS's importer shares the cleanup);
+  - the columns-media parser keeps it as a paragraph of the cell;
+  - columns-media.css: the cell spacer is N + 1 px with no margin, as default content's spacers;
+  - columns-media.js `removeEmpty` keeps p.spacer.
+- **Scope:** none at the start or end of an item; teaser rows as before. Test first:
+  columns-media-cell-separator-461.
+- **Bundles rebuilt:** legal, info, campaign, fleet, form, app-entry. Not homepage, hub or
+  insights (ema-adobe's), not Austrian (ema-test's): those keep today's cleanup until their owners
+  rebuild them.
+- **Measured:** xx/pt/terms-of-service-group imported with it (7 spacers, one per www separator)
+  and rendered by the local preview at 1440. Link → next airline 74 px (was 48; www's de/en 81).
+- **Pages:** `tools/reports/parity-2026-11-07/reimport-cell-separators-461.txt` (17):
+  - legal 2: terms-of-service-group, advance-seat-reservations-terms-and-conditions;
+  - info 8;
+  - campaign 5 (the stopover pages, chronicle);
+  - 3 alias pages without an import record.
+- **The push:** the rebase hit conflicts in the six bundles (70d0f480 had rebuilt them in
+  between). I took main's bundles and rebuilt them from the merged sources; against main they
+  differ only by this change's 34 lines.
+
+### 3. Fleet: the column views' padding (`7c7cc92b`)
+
+- **Cause:** lufthansa-first-class-fleet is one-column views in the page column, one per aircraft
+  (headline, text, picture, accordion). www pads such a view 4rem above and below from 768 px (2rem
+  below), its last component without margin. Info's documents carry that as
+  `{column-start-outer}` / `{column-end-outer}`, but the marks were info-only.
+- **Measured on www's lh-parity-002 screenshots** (ink to ink, same method on both sides):
+
+  | | www | ours |
+  | --- | ---: | ---: |
+  | picture → accordion, 1440 | 80 px | 65 px |
+  | accordion → next heading's ink, 1440 | 87 px | 72 px |
+
+  Each aircraft is 25 px short (the heading data agrees: −25 / −26 per group).
+- **Change:** COLUMN_MARK_TEMPLATES gets fleet; the fleet bundle rebuilt. Test first:
+  fleet-column-marks-461.
+- **Checked:** xx/hk's snapshot imported with it, rendered by the local preview: 80 / 80 px at 1440
+  (www 80 / about 80 to the heading's text), 40 / 40 at 390 (www 40 / 46 of ink, about 40 to the
+  text).
+- **Info:** info already has the marks. Its similar gaps (cancellations-and-refunds, accordions
+  without the spaced option) are documents imported without them, which brief 456's
+  reimport-stale-de-en.txt covers.
+- **Pages:** `tools/reports/parity-2026-11-07/reimport-fleet-column-marks-461.txt` (32: the fleet
+  template's 8 pages in de/en, de/de, at/de, gb/en).
+
+### The pushes
+
+- **Every push:** lint ok, the full suite green (487 to 497 files, 0 fail), lh-edge's tests, pulled
+  right before with a named stash.
+- **Item 1 (`1abf9cbd`):** pushed on the third try.
+- **Items 2 and 3 (`7e7315d8`, `7c7cc92b`):** the standard loop lost the race three times (suite
+  green each time, main moved during its 10 minutes). The last run used the variant from brief 455:
+  after a green suite it pulled once more and pushed without another suite run, because none of the
+  new main commits touch these files.
+- **Smoke of every brand host before and after each push:** no difference, except that the site
+  search's answer (POST /service/secured/api/search) changed on the three lufthansa hosts. The
+  search data is rebuilt every 10 minutes from published content (search-data workflow); these
+  commits don't touch it.
+
+### Summary
+
+| Item | Commit | What | Rollback |
+| --- | --- | --- | --- |
+| 1 | `1abf9cbd` | campaign: three- and four-column views as columns-media; campaign bundle | `git revert 1abf9cbd`, rebuild the campaign bundle |
+| 2 | `7e7315d8` | a separator between two text components of a column item as a cell spacer, lufthansa.com; 6 bundles | `git revert 7e7315d8`, rebuild the 6 bundles |
+| 3 | `7c7cc92b` | fleet gets the column-view marks; fleet bundle | `git revert 7c7cc92b`, rebuild the fleet bundle |
+| - | (this commit) | this report, the two lists | revert this commit |
+
+Documents changed: none (0). Path lists for the harness, main at `7c7cc92b` or later:
+- campaign: reimport-460-lh-com.txt section 3 (46, ema-adobe's list);
+- tools/reports/parity-2026-11-07/reimport-cell-separators-461.txt (17);
+- tools/reports/parity-2026-11-07/reimport-fleet-column-marks-461.txt (32).
+
+Item 4: the footer's "Change Privacy Settings" wrap and articles/highlights/all-it-takes-is-a-yes
+left to ema-adobe, as you said.
