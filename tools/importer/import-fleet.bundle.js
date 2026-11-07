@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-fleet.js
-  var tmp_bundle_fleet_236477_exports = {};
-  __export(tmp_bundle_fleet_236477_exports, {
-    default: () => tmp_bundle_fleet_236477_default
+  var tmp_bundle_fleet_237974_exports = {};
+  __export(tmp_bundle_fleet_237974_exports, {
+    default: () => tmp_bundle_fleet_237974_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -2784,7 +2784,7 @@ var CustomImportScript = (() => {
       if (el.isConnected && !el.closest("form.cmp-form") && isEmpty(el)) el.remove();
     });
   }
-  var COLUMN_MARK_TEMPLATES = ["info"];
+  var COLUMN_MARK_TEMPLATES = ["info", "fleet"];
   var COLUMN_ATTR = "data-lh-column";
   var COLUMN_KINDS = ".onecolumn, .twocolumn, .threecolumn, .fourcolumn";
   function columnMarksEnabled(payload) {
@@ -4065,7 +4065,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_fleet_236477_default = {
+  var tmp_bundle_fleet_237974_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -4095,5 +4095,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_fleet_236477_exports);
+  return __toCommonJS(tmp_bundle_fleet_237974_exports);
 })();

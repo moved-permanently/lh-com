@@ -24,7 +24,7 @@
  *    get a "{parallax}" paragraph marker
  *  - removes empty AEM components (empty flash teaser, quick actions, React mount points,
  *    separators) and AEM sections left empty
- *  - info: marks the column views whose padding becomes "{column-start}" / "{column-end}"
+ *  - info, fleet: marks the column views whose padding becomes "{column-start}" / "{column-end}"
  *    markers in afterTransform (see "column views")
  *  - normalizes images: largest srcset/<source> rendition, absolute
  *    https://www.lufthansa.com URLs, lazy-load data-src, drops broken "undefined.transform" images
@@ -859,7 +859,9 @@ function removeEmptyComponents(document, keepInFlow, payload) {
  * above the footer); the end marker gets "column-spaced" too ("{column-end column-spaced}"),
  * styles.css then keeps 24px below the last section instead of none.
  */
-const COLUMN_MARK_TEMPLATES = ['info'];
+// fleet (brief 461): its pages are one-column views in the page column one after another
+// (lufthansa-first-class-fleet: each aircraft 25px short without the views' padding)
+const COLUMN_MARK_TEMPLATES = ['info', 'fleet'];
 const COLUMN_ATTR = 'data-lh-column';
 const COLUMN_KINDS = '.onecolumn, .twocolumn, .threecolumn, .fourcolumn';
 
