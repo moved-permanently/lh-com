@@ -130,3 +130,41 @@ test('a tab control whose panels hold accordions: a section per panel with Tab',
   assert.deepEqual(s.slice(1, 4).map((x) => x.meta), [['Tab: Bagage retardé ou perdu'], ['Tab: Bagage endommagé'], ['Tab: Objets disparus']]);
   assert.match(s[4].text, /^After the tabs$/);
 });
+
+// Austrian parity row 43 (brief 444): a grey band inside a tab panel opens a section of its own (style grey) and a
+// break after it; those sections had no Tab, so the band (and what follows it in the panel) showed under every tab.
+// A break inside a panel now carries the panel's Tab: lh-com's own panels (maui-tab-control-panel-responsive) and
+// the panels SWISS's and Austrian's import mark with paragraphs (withTabMarkers: @@tab@@<set>@@<label>@@ ...
+// @@tabs-end@@, split by splitTabSections after the import), there with the set as Tabs.
+const band = '<div class="twocolumn column"><div class="column-view container-gray full-width-bg"><div class="row"><div class="column-view-item"><h2>In the band</h2></div></div></div></div>';
+const mark = (t) => `<div class="text section"><div class="richtext"><p>${t}</p></div></div>`;
+
+test('a grey band inside lh-com\'s own tab panel: its section and the one after it carry the panel\'s Tab', () => {
+  const document = page(`<div class="tabs panelcontainer"><maui-tab-control-responsive><maui-tab-control-panel-responsive name="Economy Class">${row('Classic Seat')}${band}<p>After the band</p></maui-tab-control-panel-responsive><maui-tab-control-panel-responsive name="Business Class">${row('Business Seat')}</maui-tab-control-panel-responsive></maui-tab-control-responsive></div>`);
+  const s = sections(run(document));
+  const tabs = s.filter((x) => x.meta.some((m) => m.startsWith('Tab: ')));
+  assert.deepEqual(tabs.map((x) => x.meta.find((m) => m.startsWith('Tab: '))), ['Tab: Economy Class', 'Tab: Economy Class', 'Tab: Economy Class', 'Tab: Business Class']);
+  assert.ok(tabs[1].meta.some((m) => m.startsWith('style: ') && m.split(/[:,]\s*/).includes('grey')), 'the band keeps its style');
+  assert.match(tabs[2].text, /After the band/);
+  assert.match(s.at(-1).text, /^After the tabs$/);
+  assert.deepEqual(s.at(-1).meta, []);
+});
+
+test('a grey band inside a marked panel (SWISS / Austrian tab markers): its sections carry the panel\'s Tab and Tabs; outside the set none', () => {
+  const document = page(`${mark('@@tab@@1@@Verspätet@@')}<p>A</p>${band}<p>After the band</p>${mark('@@tab@@1@@Beschädigt@@')}<p>B</p>${mark('@@tabs-end@@')}${band}`);
+  const s = sections(run(document));
+  const tabRows = (x) => x.meta.filter((m) => m.startsWith('Tab: ') || m.startsWith('Tabs: '));
+  const i = s.findIndex((x) => x.text.startsWith('In the band') && !x.text.includes('After the band'));
+  assert.ok(i > 0, 'the band a section');
+  assert.deepEqual(tabRows(s[i]), ['Tab: Verspätet', 'Tabs: 1']);
+  assert.ok(s[i].meta.some((m) => m.startsWith('style: ') && m.split(/[:,]\s*/).includes('grey')));
+  assert.match(s[i + 1].text, /^After the band/);
+  assert.deepEqual(tabRows(s[i + 1]), ['Tab: Verspätet', 'Tabs: 1'], 'the panel after the band');
+  const last = s.filter((x) => x.text.includes('In the band')).at(-1);
+  assert.deepEqual(tabRows(last), [], 'a band after the set: no Tab');
+  // the panel's part after the band ends at the next marker (a break before it), so its Tab rows stay with it:
+  // splitTabSections gives a section's own rows to what follows the set's end marker
+  const after = s[i + 1];
+  assert.ok(!after.text.includes('B'), 'the next panel not in it');
+  assert.ok(s.some((x) => x.text.startsWith('@@tab@@1@@Beschädigt@@')), 'the next panel opens a section at its marker');
+});

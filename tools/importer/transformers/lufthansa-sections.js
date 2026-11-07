@@ -40,6 +40,11 @@ const FIRST = 'data-excat-section-first';
 const SOURCE_STYLE = 'data-excat-section-source-style';
 // a tab panel's section: its name, the section metadata Tab (scripts/section-tabs.js)
 const TAB = 'data-excat-section-tab';
+// a marked tab set's number (SWISS's and Austrian's tab markers: the section metadata Tabs)
+const TABS = 'data-excat-section-tabs';
+// the tab markers SWISS's and Austrian's import write (swiss-import.mjs withTabMarkers)
+const TAB_MARK = /^@@tab@@(\d+)@@(.*?)@@/;
+const END_MARK = /^@@tabs-end@@/;
 const FOLLOWING = 4; // Node.DOCUMENT_POSITION_FOLLOWING
 // a tab panel that holds column views (pictures and text side by side) is a section of its own;
 // text-only panels are profile-tabs' (a template block)
@@ -51,8 +56,9 @@ const TAB_COLUMNS = '.twocolumn, .threecolumn, .fourcolumn, .accordion';
 /** Source backgrounds that become a section style: [selector, style]. */
 const SOURCE_STYLES = [['.container-gray', 'grey'], ['.image-wrapper.full-width-bg', 'full-bleed']];
 const STYLE_SKIP = '.sticky-price-wrapper, .dcep-sticky-price';
-// .author-details-page: only the author banner (.author-feature-image) is full-bleed, not the page
-const REGION_STOP = '.section-content, .container-content, .author-details-page, .column-view-item, [class*="col-"], .contentpage, main, body';
+// .author-details-page: only the author banner (.author-feature-image) is full-bleed, not the page;
+// a tab panel: a band inside it, not the whole tab control (Austrian parity row 43)
+const REGION_STOP = '.section-content, .container-content, .author-details-page, .column-view-item, [class*="col-"], .contentpage, maui-tab-control-panel-responsive, main, body';
 const MEDIA = 'img, picture, video, iframe, svg, table, input, select, textarea, button';
 
 /** First section break after `marker` in document order (inserted <hr>, else any <hr> outside a block table). */
@@ -235,7 +241,44 @@ function dropEmptyBreaks(document, root) {
       prev.setAttribute(attr, merged);
     });
     if (hr.hasAttribute(TAB)) prev.setAttribute(TAB, hr.getAttribute(TAB));
+    if (hr.hasAttribute(TABS)) prev.setAttribute(TABS, hr.getAttribute(TABS));
     hr.remove();
+  });
+}
+
+/**
+ * A break inside a tab panel (a grey band's, before it and after it: Austrian's missing-baggage,
+ * parity row 43) carries the panel's Tab, else its section showed under every tab: lh-com's own
+ * panels (a Tab break before the panel), and the panels SWISS's and Austrian's import mark with
+ * paragraphs (@@tab@@<set>@@<label>@@ ... @@tabs-end@@, split by splitTabSections after the
+ * import), there with the set as Tabs. A break that has a Tab keeps it.
+ */
+function markPanelBreaks(document) {
+  document.querySelectorAll(TAB_PANEL).forEach((panel) => {
+    const own = panel.previousElementSibling;
+    if (!own || !own.matches(`hr[${TAB}]`)) return;
+    panel.querySelectorAll(`hr[${BREAK}]`).forEach((hr) => {
+      if (!hr.hasAttribute(TAB)) hr.setAttribute(TAB, own.getAttribute(TAB));
+    });
+  });
+  let set = null;
+  document.querySelectorAll(`hr[${BREAK}], p`).forEach((node) => {
+    if (node.tagName === 'P') {
+      const line = (node.textContent || '').trim();
+      const m = line.match(TAB_MARK);
+      if (!m && !END_MARK.test(line)) return;
+      // a panel that holds a break ends at the next marker: its last section's rows go right
+      // before it (else at the next break after the set, which splitTabSections gives to what
+      // follows the set)
+      if (set && set.broken) (node.closest('.text') || node).before(createBreak(document));
+      set = m ? { tabs: m[1], tab: m[2].trim() } : null;
+      return;
+    }
+    if (!set) return;
+    set.broken = true;
+    if (node.hasAttribute(TAB)) return;
+    node.setAttribute(TAB, set.tab);
+    node.setAttribute(TABS, set.tabs);
   });
 }
 
@@ -333,6 +376,7 @@ export default function transform(hookName, element, payload) {
       });
       control.after(createBreak(document));
     });
+    markPanelBreaks(document);
   }
 
   if (hookName === 'afterTransform') {
@@ -352,10 +396,11 @@ export default function transform(hookName, element, payload) {
     marked.reverse().forEach((marker) => {
       const style = styleOf(marker);
       const tab = marker.getAttribute(TAB);
+      const tabs = marker.getAttribute(TABS);
       if (style || tab) {
         const meta = WebImporter.Blocks.createBlock(document, {
           name: 'Section Metadata',
-          cells: { ...(style ? { style } : {}), ...(tab ? { Tab: tab } : {}) },
+          cells: { ...(style ? { style } : {}), ...(tab ? { Tab: tab } : {}), ...(tab && tabs ? { Tabs: tabs } : {}) },
         });
         // End of the section: right before the next break in document order, else end of main.
         const next = nextBreak(document, marker);
@@ -368,7 +413,7 @@ export default function transform(hookName, element, payload) {
         hr.remove();
         return;
       }
-      [MARKER, SOURCE_STYLE, TAB, BREAK].forEach((attr) => hr.removeAttribute(attr));
+      [MARKER, SOURCE_STYLE, TAB, TABS, BREAK].forEach((attr) => hr.removeAttribute(attr));
     });
   }
 }
