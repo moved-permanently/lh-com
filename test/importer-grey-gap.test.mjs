@@ -95,7 +95,7 @@ const styles = (s) => s.map((x) => `${x.text.replace(/ ?Section Metadata.*$/, ''
 test('only a separator between two grey bands: a section of its own, style gap', () => {
   const s = styles(sections(run(page(`${grey('Contact box')}<p>{spacer-70}</p>${grey('Cards')}`))));
   const at = (re) => s.findIndex((x) => re.test(x));
-  assert.ok(at(/^Contact box \[grey/) >= 0 && at(/^\{spacer-70\} \[gap\]$/) === at(/^Contact box/) + 1 && at(/^Cards \[grey/) === at(/^Contact box/) + 2, s.join(' | '));
+  assert.ok(at(/^Contact box \[[^\]]*grey/) >= 0 && at(/^\{spacer-70\} \[gap\]$/) === at(/^Contact box/) + 1 && at(/^Cards \[[^\]]*grey/) === at(/^Contact box/) + 2, s.join(' | '));
 });
 
 test('a separator between a grey band and white content, or two greys without one: as before', () => {

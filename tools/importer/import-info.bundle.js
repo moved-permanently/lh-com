@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-info.js
-  var tmp_bundle_info_473092_exports = {};
-  __export(tmp_bundle_info_473092_exports, {
-    default: () => tmp_bundle_info_473092_default
+  var tmp_bundle_info_549211_exports = {};
+  __export(tmp_bundle_info_549211_exports, {
+    default: () => tmp_bundle_info_549211_default
   });
 
   // tools/importer/parsers/search-results.js
@@ -3834,7 +3834,10 @@ var CustomImportScript = (() => {
         titles.push(out);
       });
     });
-    const items = [...element.querySelectorAll(".column-view-item")].filter((it) => !it.parentElement.closest(".column-view-item"));
+    const items = [...element.querySelectorAll(".column-view-item")].filter((it) => {
+      const outer = it.parentElement.closest(".column-view-item");
+      return !outer || !element.contains(outer);
+    });
     const cells = [];
     items.forEach((item) => {
       let media = null;
@@ -5824,6 +5827,14 @@ var CustomImportScript = (() => {
     }
     document.body.append(WebImporter.Blocks.getMetadataBlock(document, meta));
   }
+  function markEmptyHeadlines(document, payload) {
+    if ((payload && payload.template || {}).name !== "insights") return;
+    document.querySelectorAll(".headline").forEach((headline) => {
+      const h = headline.querySelector("h1, h2, h3, h4, h5, h6");
+      if (!h || headline.children.length !== 1 || h.textContent.replace(/[\s\u00A0]+/g, "") !== "") return;
+      headline.replaceWith(document.createComment(`${SEPARATOR_COMMENT} spacer-42`));
+    });
+  }
   function convertOfferCards(document) {
     document.querySelectorAll("section.vt-comm551-offers").forEach((sec) => {
       const text = (el) => el ? el.textContent.replace(/\s+/g, " ").trim() : "";
@@ -5940,6 +5951,7 @@ var CustomImportScript = (() => {
       padCarouselSections(document);
       restoreMovingImages(document);
       markParallaxImages(document);
+      markEmptyHeadlines(document, payload);
       const flow = columnMarksEnabled(payload);
       if (flow) {
         markColumnViews(document, payload);
@@ -6057,6 +6069,7 @@ var CustomImportScript = (() => {
     if (grey.classList.contains("column-view")) {
       const column = grey.parentElement;
       if (ownColumnView(column) && column.parentElement && column.parentElement.classList.contains("section-content")) styles.push("column-band");
+      else if (ownColumnView(column) && column.parentElement && column.parentElement.matches('.column-view-item, [class*="col-"]')) styles.push("in-column");
     } else {
       const content = grey.querySelector(".section-content");
       const parts = content ? [...content.children].filter(meaningful) : [];
@@ -6572,7 +6585,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_info_473092_default = {
+  var tmp_bundle_info_549211_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -6602,5 +6615,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_info_473092_exports);
+  return __toCommonJS(tmp_bundle_info_549211_exports);
 })();

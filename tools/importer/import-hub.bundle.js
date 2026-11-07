@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-hub.js
-  var import_hub_exports = {};
-  __export(import_hub_exports, {
-    default: () => import_hub_default
+  var tmp_bundle_hub_549211_exports = {};
+  __export(tmp_bundle_hub_549211_exports, {
+    default: () => tmp_bundle_hub_549211_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -4683,6 +4683,7 @@ var CustomImportScript = (() => {
     if (grey.classList.contains("column-view")) {
       const column = grey.parentElement;
       if (ownColumnView(column) && column.parentElement && column.parentElement.classList.contains("section-content")) styles.push("column-band");
+      else if (ownColumnView(column) && column.parentElement && column.parentElement.matches('.column-view-item, [class*="col-"]')) styles.push("in-column");
     } else {
       const content = grey.querySelector(".section-content");
       const parts = content ? [...content.children].filter(meaningful) : [];
@@ -5110,7 +5111,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var import_hub_default = {
+  var tmp_bundle_hub_549211_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -5140,5 +5141,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(import_hub_exports);
+  return __toCommonJS(tmp_bundle_hub_549211_exports);
 })();

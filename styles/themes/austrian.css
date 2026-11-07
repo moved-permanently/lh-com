@@ -171,6 +171,14 @@
 /* rules where lh-com's blocks have no token (brief 386, www.austrian.com 2026-11-05, capture
    austrian-parity-001; the rows: tools/reports/austrian/parity.md) */
 
+/* the bar's logo link at least 24 px tall (WCAG 2.2 target size; the 18 px phone logo, axe on the
+   austrian-parity-002 pages): 3 px of padding above and below, taken back by the margin, so the
+   logo stays where www has it */
+body.brand-austrian .header .nav-brand a {
+  margin-block: -3px;
+  padding-block: 3px;
+}
+
 /* row 1: the bar's links tracked 0.4 px as www's (16/24 regular #4d4d4d, the tokens above) */
 body.brand-austrian .header :is(.nav-quick-link, .nav-tool-label) {
   letter-spacing: 0.4px;
@@ -633,6 +641,21 @@ body.brand-austrian .cards-icon-text.partner .cards-icon-text-body > p {
   font-family: var(--heading-font-family);
   font-size: 18px;
   line-height: 27px;
+}
+
+/* item 3 of the brief after 462: a grey column view nested in a column item (importer: in-column) as
+   www's .column-view.container-gray, 4.8rem above and below, the items' 1.2rem (2.4rem from 768 px) below the
+   last one (doctor-on-board-news: the contact box text 60 / 47 px under its top, the card band's heading
+   49 / 47 px, at 390 / 1440); a band that is its section's own column view (column-band) keeps 32 px, as
+   www's .section-content .column > .column-view:only-child 3.2rem outranks it */
+body.brand-austrian main > .section.grey.in-column {
+  padding: 48px 0 60px;
+}
+
+@media (width >= 768px) {
+  body.brand-austrian main > .section.grey.in-column {
+    padding-bottom: 72px;
+  }
 }
 
 /* the grey band 48 px above and below the card (www's topic-selection-info-cards-container) */

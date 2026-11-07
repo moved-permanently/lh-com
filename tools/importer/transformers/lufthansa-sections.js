@@ -177,6 +177,9 @@ function greyStyles(region, template) {
   if (grey.classList.contains('column-view')) {
     const column = grey.parentElement;
     if (ownColumnView(column) && column.parentElement && column.parentElement.classList.contains('section-content')) styles.push('column-band');
+    // in-column: the grey column view is nested in another view's item (Austrian's
+    // doctor-on-board-news: the contact box and the card band); themes give it the band padding
+    else if (ownColumnView(column) && column.parentElement && column.parentElement.matches('.column-view-item, [class*="col-"]')) styles.push('in-column');
   } else {
     const content = grey.querySelector('.section-content');
     const parts = content ? [...content.children].filter(meaningful) : [];

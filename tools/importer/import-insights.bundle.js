@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-insights.js
-  var import_insights_exports = {};
-  __export(import_insights_exports, {
-    default: () => import_insights_default
+  var tmp_bundle_insights_549211_exports = {};
+  __export(tmp_bundle_insights_549211_exports, {
+    default: () => tmp_bundle_insights_549211_default
   });
 
   // tools/importer/parsers/poi-data.js
@@ -4110,7 +4110,10 @@ var CustomImportScript = (() => {
         titles.push(out);
       });
     });
-    const items = [...element.querySelectorAll(".column-view-item")].filter((it) => !it.parentElement.closest(".column-view-item"));
+    const items = [...element.querySelectorAll(".column-view-item")].filter((it) => {
+      const outer = it.parentElement.closest(".column-view-item");
+      return !outer || !element.contains(outer);
+    });
     const cells = [];
     items.forEach((item) => {
       let media = null;
@@ -6595,6 +6598,7 @@ var CustomImportScript = (() => {
     if (grey.classList.contains("column-view")) {
       const column = grey.parentElement;
       if (ownColumnView(column) && column.parentElement && column.parentElement.classList.contains("section-content")) styles.push("column-band");
+      else if (ownColumnView(column) && column.parentElement && column.parentElement.matches('.column-view-item, [class*="col-"]')) styles.push("in-column");
     } else {
       const content = grey.querySelector(".section-content");
       const parts = content ? [...content.children].filter(meaningful) : [];
@@ -7052,7 +7056,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var import_insights_default = {
+  var tmp_bundle_insights_549211_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -7082,5 +7086,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(import_insights_exports);
+  return __toCommonJS(tmp_bundle_insights_549211_exports);
 })();
