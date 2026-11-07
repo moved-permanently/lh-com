@@ -395,6 +395,40 @@ export function withTabPanels(doc) {
 }
 
 /** The template of a page: lh-com's info template (B2B has no homepage widgets of lh-com's). */
+// www's main content ending with a separator: its inline margin-bottom (in px)
+const END_SEPARATOR = /<div class="separator[^"]*">\s*<div aria-hidden="true" style="margin-bottom:\s*(\d+)px;?"[^>]*>\s*<maui-divider[^>]*>\s*<\/maui-divider>\s*<\/div>\s*<\/div>(?:\s|<\/div>|<!--[\s\S]*?-->)*(?:<\/main>\s*)?(?:<link[^>]*>\s*)*<footer/;
+
+/**
+ * A page www ends with a separator (12 pages, 30 to 90 px of inline margin; brief 444, the airlines page's
+ * end): lh-com's cleanup drops a separator at a section's end (lufthansa.com's last component has no
+ * margin), business.lufthansagroup.com shows its margin. Written back as {spacer-N} at the end of the
+ * document's last content section (before its metadata), unless the document ends with a spacer already.
+ */
+export function withEndSpacer(doc, html = '') {
+  const m = html.match(END_SEPARATOR);
+  if (!m) return doc;
+  const spans = [];
+  let depth = 0;
+  let start = -1;
+  [...doc.matchAll(/<(\/?)div\b[^>]*>/g)].forEach((t) => {
+    if (!t[1]) {
+      if (depth === 0) start = t.index;
+      depth += 1;
+    } else {
+      depth -= 1;
+      if (depth === 0) spans.push([start, t.index + t[0].length]);
+    }
+  });
+  const onlyMeta = (s) => /^<div>\s*<div class="metadata">/.test(s) || !s.replace(/<[^>]+>/g, '').trim();
+  const last = [...spans].reverse().find(([s, e]) => !onlyMeta(doc.slice(s, e)));
+  if (!last) return doc;
+  const sec = doc.slice(last[0], last[1]);
+  const at = ['<div class="metadata">', '<div class="section-metadata">'].map((x) => sec.indexOf(x)).filter((i) => i >= 0);
+  const cut = at.length ? Math.min(...at) : sec.length - '</div>'.length;
+  if (/<p>\{spacer-[^}]*\}<\/p>\s*$/.test(sec.slice(0, cut))) return doc;
+  return `${doc.slice(0, last[0])}${sec.slice(0, cut)}<p>{spacer-${m[1]}}</p>${sec.slice(cut)}${doc.slice(last[1])}`;
+}
+
 export const templateOf = () => 'info';
 
 /** A snapshot as the import reads it. */
@@ -484,7 +518,7 @@ if (isMain) {
       const html = fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8');
       const markets = scope.documents[src]?.markets || [];
       // a tab set's panels as Tab sections (the markers withTabMarkers left, scripts/section-tabs.js)
-      const next = withB2bMetadata(withHotlineFinder(withB2bQuotes(withB2bForm(withStageColumns(withTabPanels(splitTabSections(doc))), p, html), html), labelsOf(hotlineRecord, p.split('/')[2]), imageOf(hotlineRecord)), p, html, markets);
+      const next = withEndSpacer(withB2bMetadata(withHotlineFinder(withB2bQuotes(withB2bForm(withStageColumns(withTabPanels(splitTabSections(doc))), p, html), html), labelsOf(hotlineRecord, p.split('/')[2]), imageOf(hotlineRecord)), p, html, markets), html);
       if (next !== doc) fs.writeFileSync(f, next);
     });
     const mapOnly = path.join(W, 'runs', `${name}-upload.txt`);
