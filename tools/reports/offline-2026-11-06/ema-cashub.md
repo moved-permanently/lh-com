@@ -700,7 +700,7 @@ is one I don't use, even an invented one, so the end-to-end sign-ins below are n
 - **`b2b-login`:**
   - a plain HTML form to `/<root>/j_security_check`: `j_username`, `j_password` with show/hide,
     `loginType` (`EXT`, or `DESMON` with `Type | staff`), `resource`;
-  - `resource` is a same-host `?redirect=` (corrected in brief 450: no default);
+  - `resource` is a same-host `?redirect=` (corrected in brief 455: no default);
   - the script sends the form with `j_validate=true` and follows `redirectURL` (same host only);
   - the page's texts for invalid-login (403), no rights (`auth_status: NOT_AUTHORIZED`), backend
     down (`login_status`) and an `?error=` after a sign-in without script;
@@ -711,7 +711,7 @@ is one I don't use, even an invented one, so the end-to-end sign-ins below are n
   - roles first: 401 goes to the login and back; 403 shows the forbidden text;
   - empty and error states;
   - numbers and dates in the page language;
-  - texts from the document's rows (brief 450 replaced what came from the lh-backends clone).
+  - texts from the document's rows (brief 455 replaced what came from the lh-backends clone).
 - **Header:** with `header.session: 'b2b'`, a session (company or eXperts) shows the name on the
   Login item. Under the nav's own group headings it shows the member home and Log out
   (company: `/sso/b2bneo/logout?redirect=https://<host>/<root>/login`; eXperts:
@@ -780,3 +780,131 @@ Path list for your publish (release order, `preview-paths-449.txt`, 20): /de/en/
 /de/en/login-internal, /de/en/home, /de/en/fund, /de/en/history, /de/en/usermanagement,
 /de/en/reports, /de/en/profile, /de/en/lhghome, /de/en/experts-members, then the same ten under
 /de/de/.
+
+## Brief 455: the lh-backends clone, the b2b nav switch, three importer follow-ups
+
+Step 0: brief 449 left nothing unpushed (main was at `1e2ae574`). Out of git as before:
+- the importer's run output (run state);
+- migration-work/ (scratch);
+- the old stash@{0};
+- content-sites/ (local site data).
+
+The optional plugins stay off. The first turn of this brief ended mid-way (a session restart,
+likely a red linkedom test's failed DOM-node assertion); this one resumed from disk. I labelled
+this brief "450" in two pushed commits (`ccdcf22d`, `f599e0ba`) before seeing your number; 450 is
+ema-adobe's. Everything after them says 455.
+
+### 0. The lh-backends clone
+
+Deleted (`/tmp/lh-backends-read`); not cloned or read again. Not everything from it stayed out
+of lh-com, so here is what went in, where, and what replaced it. The brief's table and the public
+host's answers are now the only sources.
+
+| What came from the clone | Where it went (commit) | Now (`ccdcf22d`, docs `f599e0ba`) |
+| --- | --- | --- |
+| role names per view (fund and history, reports, users) | b2b-member.js, its README, metadata, test (`48ec0d2f`) | no role names: the backend's 403 decides; every authored tile shown |
+| the fund, history, users and reporting answer fields | b2b-member.js and its labels, test fixtures, README (`48ec0d2f`) | answers shown as they come (an object's fields, a list of objects as a table); rows `Label <field>`, `Value <value>`, `Hide`; fixtures invented |
+| the `?error=` codes of a sign-in without script | b2b-login.js, README, test (`48ec0d2f`) | any `?error=` shows the page's "Login failed" text |
+| staff's home (`lhghome`) as the default `resource` | b2b-login.js, README, metadata, test (`48ec0d2f`) | `resource` only from `?redirect=`; after a sign-in without `redirectURL` the session's `home` |
+| the safe-path regex | scripts/b2b-session.js `isSafePath` (`48ec0d2f`) | written anew (same origin, one leading slash, no backslash, whitespace or control characters) |
+| the session's name fields (first, last, surname) | header-b2b-session.js, b2b-member.js, tests (`48ec0d2f`) | the session's `name` (the brief's "name") |
+| the history's type and status codes, intro wording ("orders and credits", "what it can be used for", "flights", "roles") | lh-b2b history, fund, reports, usermanagement documents in de/en and de/de (`71fc5faa`'s upload) | no code rows; intros from the brief's terms; re-uploaded (12 documents) |
+| the same details in the text | brief 449's report section (`1e2ae574`) | corrected in place |
+
+What I kept, and why:
+- **lh-edge's gate test and README:** they expect the gate's 302 to `/<root>/login?redirect=<path>`,
+  and `lhghome` to `login_internal`. I wrote both with the clone in front of me. They are the
+  answers b2b.turnsthe.page gives in public, recorded in brief 449's section 1.
+- **The rest:** the brief's own contract (`EXT`/`DESMON`, 403 `invalid-login`, the `auth_status`
+  and `login_status` headers, the endpoints, the roles' account fields, the session's
+  `{company, experts}` with name, e-mail and home).
+- **Commit messages:** brief 449's messages name nothing beyond those.
+- **Elsewhere:** nothing in my memory notes. Only this session's own local transcript still
+  holds the excerpts I read.
+
+### 1. Nav switch (b2b, step d of 449)
+
+- **Trigger:** `/de/en/login` and `/de/de/login` answered 200 on b2b.turnsthe.page.
+- **Change:** in the de/en and de/de navs, three links each:
+  - Login > "Lufthansa Group for Business Programm" to `/<root>/login`;
+  - Login > eXperts to `/service/secured/api/experts/login?country=de&language=<ll>`;
+  - News > "eXperts News" to `/<root>/experts-members`.
+- **Untouched:** PartnerPlusBenefit; nothing else changed against DA's copies (diffed).
+- **Uploaded and previewed:**
+  - DA matches the local files, 2 of 2;
+  - the preview's `nav.plain.html` has the new links;
+  - the rendered preview header shows them.
+- **b2b.turnsthe.page:** www's links until you publish the navs.
+
+### 2. The stray documents
+
+- **Deleted in DA:** `/de/en/login_internal` and `/de/de/login_internal` (204; 404 after).
+- **Preview:** neither had one of its own. Edge Delivery serves that name at the same address as
+  the real `login-internal` pages, so removing a preview would have taken down the real one.
+  `login-internal` is still 200 in DA and on preview.
+- **Upload state:** their entries removed.
+- **Local copies:** the two old local files stay in content-sites/, because the workspace guard
+  refuses deleting content files. They are out of git and match nothing in DA now.
+
+### 3. Importer follow-ups (commit below; tests first)
+
+- **3a, the picker's language:** the parser now takes the page path's language first (`/xx/hk`:
+  hk), then the group link's market, then `<html lang>`.
+  - Why: xx/hk's pages say `en-US` and link a global-content group page without a market.
+  - Same on `cn/hk` and `hk/hk`: brief 448 put their homepages on its re-import list, but the
+    re-import kept the English rows.
+  - Result: hk now has no text rows, so the block's fallback applies (no hk texts recorded, as in
+    448).
+- **3b, cash-and-miles' group link:** www's `groupBookingsUrl` there is the bare market root
+  (`/content/lh/markets/xx/hk`). A group link to a bare root is now the root's `/group-travel`.
+- **3c, stopover's tab panels:** my own brief 441 change (`ecb30136`) caused this.
+  - What it did: it kept 100-years/campaigns' sidebar inside its row, but the exclusion was too
+    broad. It also dropped the four stopover sidebars, which sit after a text in a one-column
+    view's item.
+  - Now only a sidebar in a multi-column row's column is the row's.
+  - Result: the three tab sections with their Tab rows and the four `columns-media sidebar` blocks
+    together, section for section as de/en's document.
+- **Bundles rebuilt:** homepage, info, campaign, app-entry. Not the Austrian ones (ema-test's),
+  which still carry the old flight-search parser.
+- **Checked by importing in a scratch worktree** (not the shared content folder): all ten pages
+  below with the new code.
+  - None has English picker texts.
+  - The group links go to `/<root>/group-travel` with the page's own text.
+  - The stopover pages have 3 Tab rows and 4 sidebar blocks, each with its picture and heading.
+- **The list:** computed over every lufthansa.com snapshot with the picker and every campaign
+  snapshot with a sidebar. It is in `tools/reports/offline-2026-11-06/reimport-455-lh-com.txt`
+  (10): `/xx/hk/flight-search`, `/xx/hk/homepage`, `/cn/hk/homepage`, `/hk/hk/homepage`,
+  `/xx/hk/cash-and-miles`, `/xx/pt/cash-and-miles`, `/xx/ru/cash-and-miles`,
+  `/xx/hk/book-and-manage/stopover`, `/xx/pt/book-and-manage/stopover`,
+  `/xx/ru/book-and-manage/stopover`.
+
+### Checks per host
+
+- **main--lh-b2b--moved-permanently.aem.page:**
+  - the two navs (source and rendered header);
+  - the 12 re-uploaded documents (200);
+  - the real `login-internal` pages after the deletion.
+- **b2b.turnsthe.page:**
+  - `/de/en/login`, `/de/de/login` and `/de/en/login-internal` 200;
+  - `/de/de/experts-members` 302 to the eXperts sign-in;
+  - the sign-in page renders the new code (no `resource` field without `?redirect=`), no script
+    errors.
+- **Every push:** smoke of the 11 brand hosts before and after.
+- **Documents:** 2 navs and 12 sign-in and member documents in lh-b2b, uploaded and previewed,
+  not published. DA matches the local files: 20 of 20 for the member set, 2 of 2 for the navs.
+
+### Summary
+
+| Item | Commit | What | Rollback |
+| --- | --- | --- | --- |
+| 0 | `ccdcf22d` | b2b blocks, session, header and tests on the brief's contract only; 449's report corrected | `git revert ccdcf22d` |
+| 0-2 | `f599e0ba` | navs relinked, 12 documents updated, stray documents deleted (upload state) | DA: upload the previous copies again; the deletions can't be undone except by upload |
+| 3 | (the importer commit) | picker language, bare-root group link, campaign sidebars; four bundles | `git revert`, rebuild those bundles |
+| - | (this commit) | this report, reimport-455-lh-com.txt, preview-paths-455.txt | revert this commit |
+
+Path lists:
+- **Publish (lh-b2b, release order, `preview-paths-455.txt`, 14):**
+  - the navs: `/de/en/nav`, `/de/de/nav`;
+  - then the 12 updated documents: login, login-internal, fund, history, usermanagement, reports
+    in de/en, then the same in de/de.
+- **Re-import (lufthansa.com, harness):** `reimport-455-lh-com.txt`, the 10 above.

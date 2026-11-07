@@ -1,0 +1,14 @@
+/de/en/nav
+/de/de/nav
+/de/en/login
+/de/en/login-internal
+/de/en/fund
+/de/en/history
+/de/en/usermanagement
+/de/en/reports
+/de/de/login
+/de/de/login-internal
+/de/de/fund
+/de/de/history
+/de/de/usermanagement
+/de/de/reports

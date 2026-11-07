@@ -1,0 +1,17 @@
+# Brief 455 item 3 (ema-cashub, 2026-11-07): lufthansa.com documents whose import changes with the
+# importer fix of brief 455 (computed over every lufthansa.com snapshot with the flight search's
+# picker and every campaign snapshot with a sidebar); import again with main's bundles.
+# picker language (the path's hk, not <html lang="en-US">): no English picker rows
+/xx/hk/flight-search
+/xx/hk/homepage
+/cn/hk/homepage
+/hk/hk/homepage
+# picker language and the group link to the root's group travel page (www links the bare root)
+/xx/hk/cash-and-miles
+/xx/pt/cash-and-miles
+/xx/ru/cash-and-miles
+# the three Munich tab sections with their Tab rows and the four columns-media sidebar blocks
+# (xx/hk also the picker language)
+/xx/hk/book-and-manage/stopover
+/xx/pt/book-and-manage/stopover
+/xx/ru/book-and-manage/stopover
