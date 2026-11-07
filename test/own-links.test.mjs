@@ -132,25 +132,13 @@ test('served paths: the back-to-www step leaves them relative; without the optio
 // market roots: the pages of those roots are the site's pages too (lh-edge answers them from the
 // document), as a language version's are
 test('ownPages: a document outside the language versions with a markets row of roots: those roots\' pages too', async () => {
-  const fs = await import('node:fs');
-  const path = await import('node:path');
   const { ownPages } = await import('../tools/importer/own-links.mjs');
-  const dir = path.join(process.cwd(), 'content-sites/lh-test-ownpages/content');
-  const write = (p, html) => {
-    fs.mkdirSync(path.dirname(path.join(dir, `${p}.plain.html`)), { recursive: true });
-    fs.writeFileSync(path.join(dir, `${p}.plain.html`), html);
-  };
-  try {
-    write('/xx/en/about-us/contact', '<div><p>x</p><div class="metadata"><div><div>markets</div><div>ae/en, at/en, ch/en</div></div></div></div>');
-    write('/ch/en/program/experts', '<div><p>own</p></div>');
-    write('/xx/en/nav', '<div><p>nav</p><div class="metadata"><div><div>markets</div><div>ae/en</div></div></div></div>');
-    const pages = ownPages('lh-test-ownpages');
-    ['/xx/en/about-us/contact', '/ae/en/about-us/contact', '/at/en/about-us/contact', '/ch/en/about-us/contact', '/ch/en/program/experts'].forEach((p) => assert.ok(pages.has(p), p));
-    assert.ok(!pages.has('/de/en/about-us/contact'), 'only the listed roots');
-    assert.ok(!pages.has('/ae/en/nav'), 'nav and footer stay their root\'s');
-  } finally {
-    fs.rmSync(path.join(process.cwd(), 'content-sites/lh-test-ownpages'), { recursive: true, force: true });
-  }
+  // the documents: test/fixtures/own-links/content (brief 445: no tree under the current directory)
+  const dir = new URL('./fixtures/own-links/content', import.meta.url).pathname;
+  const pages = ownPages('lh-test-ownpages', { dir });
+  ['/xx/en/about-us/contact', '/ae/en/about-us/contact', '/at/en/about-us/contact', '/ch/en/about-us/contact', '/ch/en/program/experts'].forEach((p) => assert.ok(pages.has(p), p));
+  assert.ok(!pages.has('/de/en/about-us/contact'), 'only the listed roots');
+  assert.ok(!pages.has('/ae/en/nav'), 'nav and footer stay their root\'s');
 });
 
 // brief 413: ITA's es/es rows get us/es and ve/es (tools/importer/add-market-roots.mjs); before the
@@ -182,7 +170,8 @@ test('ownPages withMarkets and the CLI\'s --with-markets, --only and --content-d
     assert.ok(!after.has('/ve/es/book'), 'only the list\'s roots');
     fs.writeFileSync(path.join(base, 'markets.txt'), '# the list\n/es/es/book us/es\n');
     fs.writeFileSync(path.join(base, 'only.txt'), '/us/es/doc\n');
-    const out = execFileSync('node', ['tools/importer/own-links.mjs', '--site', 'lh-ita', '--host', 'www.ita-airways.com', '--content-dir', dir, '--with-markets', path.join(base, 'markets.txt'), '--only', path.join(base, 'only.txt'), '--write'], { encoding: 'utf8' });
+    const cli = new URL('../tools/importer/own-links.mjs', import.meta.url).pathname;
+    const out = execFileSync('node', [cli, '--site', 'lh-ita', '--host', 'www.ita-airways.com', '--content-dir', dir, '--with-markets', path.join(base, 'markets.txt'), '--only', path.join(base, 'only.txt'), '--write'], { encoding: 'utf8' });
     assert.match(out, /lh-ita: \d+ pages; 1 documents changed/);
     const us = fs.readFileSync(path.join(dir, 'us/es/doc.plain.html'), 'utf8');
     assert.match(us, /href="\/us\/es\/book"/);

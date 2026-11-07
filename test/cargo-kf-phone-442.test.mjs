@@ -10,6 +10,10 @@
      one filled) in one row 100 px above the band's foot; the link 16 px navy, 16 px in, 30 px above
      the foot; the desktop slides hidden. From 768 px the desktop slider as before (the phone slides
      and the link hidden).
+   The importer reads the site's data from content-sites/lh-cargo (git-ignored: a workspace's asset
+   map made the link site-relative) and, without an asset map, lh-cargo's DA files from the upload
+   state: the test sets its own (brief 445, item 5): no asset map, lh-cargo's DA with the files of
+   test/fixtures/cargo-kf-phone-442/known.json (the 777F slide's icon, not the PDF).
    Run: node --max-old-space-size=512 --test test/cargo-kf-phone-442.test.mjs */
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -28,16 +32,22 @@ const body = '<div class="journal-content-article">'
 const page = `<!DOCTYPE html><html><head><title>Facts &amp; Figures - Lufthansa Cargo</title></head><body><div id="main-content"><div class="journal-content-article"><h1>Facts &amp; Figures</h1></div>${body}</div></body></html>`;
 
 test('the importer: www\'s phone slides (no clones) as carousel-cards (facts) after the desktop slides, then the link, all in the key-facts section', async () => {
-  const { convert } = await import('../tools/importer/cargo-import.mjs');
+  const { convert, loadSite } = await import('../tools/importer/cargo-import.mjs');
+  const { known } = JSON.parse(fs.readFileSync(new URL('./fixtures/cargo-kf-phone-442/known.json', import.meta.url), 'utf8'));
+  // loadSite's object is the one convert reads
+  Object.assign(loadSite(), {
+    paths: {}, files: {}, state: { done: {} }, capture: {}, known: new Set(known),
+  });
   const { html } = convert(page, '/en/ci/facts-figures', 'en');
   const section = html.match(/<div>(?:(?!<div><p><picture>)[\s\S])*?<h2>Key Facts<\/h2>[\s\S]*?<div class="section-metadata"><div><div>Style<\/div><div>key-facts<\/div><\/div><\/div>/);
   assert.ok(section, html);
   const s = section[0];
   assert.ok(s.indexOf('<div class="carousel-images">') < s.indexOf('<div class="carousel-cards facts">'), 'the desktop slides, then the phone slides');
-  assert.match(s, /<div class="carousel-cards facts"><div><div><\/div><div><p><strong>14,450 m\. freight tonne-kilometres offered<\/strong><\/p><p><strong>&amp;<\/strong><\/p><p><strong>9,103 m\. freight tonne-kilometres sold<\/strong><\/p><\/div><\/div><div><div>(?:<picture>[\s\S]*?<\/picture>)?<\/div><div><p><strong>18\*<\/strong><\/p><p><strong>Boeing 777F<\/strong><\/p><p>\(\*6 Boeing 777F are operated by the joint venture AeroLogic\)<\/p><\/div><\/div><\/div>/);
+  assert.match(s, /<div class="carousel-cards facts"><div><div><\/div><div><p><strong>14,450 m\. freight tonne-kilometres offered<\/strong><\/p><p><strong>&amp;<\/strong><\/p><p><strong>9,103 m\. freight tonne-kilometres sold<\/strong><\/p><\/div><\/div><div><div><picture>(?:(?!<\/picture>)[\s\S])*?\/media-da\/cargo\/47f7e603-d2ad7f48\.png[\s\S]*?<\/picture><\/div><div><p><strong>18\*<\/strong><\/p><p><strong>Boeing 777F<\/strong><\/p><p>\(\*6 Boeing 777F are operated by the joint venture AeroLogic\)<\/p><\/div><\/div><\/div>/);
   assert.doesNotMatch(s, /350 destinations/, 'www\'s slick clones left out');
   assert.match(s, /<\/div><p><a href="[^"]*2025-Facts-Figures_EN\.pdf[^"]*">Facts &amp; Figures<\/a><\/p><div class="section-metadata">/, 'the link once, last in the section');
   assert.equal((html.match(/2025-Facts-Figures_EN/g) || []).length, 1);
+  assert.match(s, /<a href="https:\/\/www\.lufthansa-cargo\.com\/documents\/20184\/30686690\/2025-Facts-Figures_EN\.pdf/, 'www\'s link (DA has no copy of the PDF)');
 });
 
 test('the theme below 768 px: www\'s phone slider; from 768 px the desktop slider as before', () => {
