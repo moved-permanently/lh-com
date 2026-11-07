@@ -650,3 +650,133 @@ Path lists (the code is on main; nothing uploaded or published here):
 - lufthansa.com (`tools/reports/offline-2026-11-06/reimport-448-lh-com.txt`, 22): the homepages of
   ao/pt, br/pt, by/ru, cn/hk, hk/hk, kz/ru, pt/pt, ru/ru, tw/hk, xx/hk, xx/pt, xx/ru; /br/pt/pix;
   book-and-manage/stopover, cash-and-miles and flight-search in xx/hk, xx/pt, xx/ru.
+
+## Brief 449: Lufthansa Group for Business sign-in and member pages
+
+Step 0: brief 448 left nothing unpushed (main was at `14a321da`). Out of git as before:
+- the importer's run output (run state);
+- migration-work/ (scratch);
+- the old stash@{0};
+- content-sites/ (local site data; lh-b2b's 20 documents are there now, see 3).
+
+The optional plugins stay off; the session offered two again, and neither is enabled.
+
+The test-account password from the brief has not been used. A credential pasted into the chat
+is one I don't use, even an invented one, so the end-to-end sign-ins below are not done yet.
+
+### 1. lh-edge (b2b host only)
+
+- `scripts/brands.js` b2b: `backends: true`. lh-backends' paths (`/service/secured/api/*`, `/sso/*`,
+  `/_lh-backends/*`) go to `BACKENDS`, keeping the host and the cookies, as on the other backends
+  brands.
+- `memberGate: true` (`src/b2b-gate.js`):
+  - `POST /j_security_check` and `/<cc>/<ll>/j_security_check` go to `BACKENDS` as they are
+    (route `b2b-login`).
+  - GET/HEAD of the member pages ask lh-backends' gate first, before any cache:
+    `/<cc>/<ll>/{home,profile,reports,fund,history,usermanagement,lhghome,experts-members}[/…]`
+    and `/<cc>/<ll>/common/{support,terms-and-conditions}`.
+  - The gate's 204 serves the page with `private, no-store` and the gate's `Set-Cookie`. Any other
+    answer goes back as it is (route `b2b-member`).
+- Found after the first deploy: the gate request followed redirects (fetch's default).
+  - A signed-out `/de/en/home` got lh-backends' 404 for `/de/en/login`.
+  - `/de/en/experts-members` got the mock eXperts sign-in under its own address.
+  - Fixed with `redirect: 'manual'`, test first.
+- Found with the documents: Edge Delivery has no `_` in page names, so the staff sign-in document
+  is `login-internal`. www's `/<cc>/<ll>/login_internal`, where lh-backends sends staff, is now a
+  301 to it, keeping the query (route `b2b-login-internal`).
+- Checked on b2b.turnsthe.page after the deploys, signed out:
+
+  | Request | Answer |
+  | --- | --- |
+  | `/de/en/home` | 302 to `/de/en/login?redirect=%2Fde%2Fen%2Fhome` |
+  | `/de/en/fund?account=x` | 302 to the login with the query in `redirect` |
+  | `/gb/en/home` | 302 to `/gb/en/login?redirect=…` |
+  | `/de/en/lhghome` | 302 to `/de/en/login_internal?redirect=…`, then 301 to `/de/en/login-internal?redirect=…` |
+  | `/de/en/experts-members` | 302 to `/service/secured/api/experts/login?country=de&language=en&return=%2Fde%2Fen%2Fexperts-members` |
+  | `/de/en/homepage` | 200 as before |
+
+### 2. Blocks (on main, used only by the lh-b2b documents)
+
+- **`b2b-login`:**
+  - a plain HTML form to `/<root>/j_security_check`: `j_username`, `j_password` with show/hide,
+    `loginType` (`EXT`, or `DESMON` with `Type | staff`), `resource`;
+  - `resource` is a same-host `?redirect=`, else the member home (`lhghome` for staff);
+  - the script sends the form with `j_validate=true` and follows `redirectURL` (same host only);
+  - the page's texts for invalid-login (403), no rights (`auth_status: NOT_AUTHORIZED`), backend
+    down (`login_status`) and the `?error=` codes of a sign-in without script;
+  - Forgotten Password links to www's page.
+- **`b2b-member`:**
+  - variants `dashboard`, `fund`, `history`, `users`, `reports` (no Tableau), `profile`,
+    `accounts`;
+  - roles first: 401 goes to the login and back; 403 or a missing role shows the forbidden text;
+  - empty and error states;
+  - money, numbers and dates in the page language;
+  - texts from the document's rows (history codes as `Type-<code>` / `Status-<code>`).
+- **Header:** with `header.session: 'b2b'`, a session (company or eXperts) shows the name on the
+  Login item. Under the nav's own group headings it shows the member home and Log out
+  (company: `/sso/b2bneo/logout?redirect=https://<host>/<root>/login`; eXperts:
+  `/service/secured/api/experts/logout`). Signed out, or with the session unknown, the menu stays
+  as it is.
+- **Upload tool:** `da-upload` still refuses the login and profile app shells on every site,
+  except exact paths a site lists as `ownPages` (lh-b2b: de/en and de/de login and profile).
+
+### 3. Documents (DA lh-b2b, uploaded and previewed, not published)
+
+- **Count:** 20, de/en and de/de, listed in release order in
+  `tools/reports/offline-2026-11-06/preview-paths-449.txt`.
+- **Pages:** login, login-internal, home, fund, history, usermanagement, reports, profile,
+  lhghome, experts-members.
+- **Metadata:** `robots: noindex, nofollow`, the `markets` of the eXperts pages (the other roots).
+- **Wording:** our own; www's member pages are behind its sign-in and its login page behind a bot
+  check. A capture of www's login texts (en, de) would let me use its words.
+- **experts-members:** a landing page in our own words linking to the four public
+  `/program/experts` pages, and Log out.
+- **Verified:** DA's copies match the local files, 20 of 20.
+- **Stray documents:** the first upload also created `/de/en/login_internal` and
+  `/de/de/login_internal` in DA (not previewable, nothing links there). I left them; I'll delete
+  them if you ask.
+- **Checked on main--lh-b2b--moved-permanently.aem.page, signed out, 1440 and 390:**
+  - all 200 with `noindex`, no script errors, no sideways scroll;
+  - the four sign-in pages with the right fields, `loginType`, `resource`, their language's texts
+    and the forgotten link;
+  - the member pages show their error text there, since preview has no lh-backends;
+  - the header's menu unchanged.
+- **States covered by tests only:** the empty, forbidden and signed-out (401) states.
+
+### 4. Nav documents: not yet
+
+They wait for your publish of the 20 pages and for the pages to answer on b2b.turnsthe.page.
+Prepared: the de/en and de/de navs' three links (Login > Lufthansa Group for Business Programm,
+Login > eXperts, News > eXperts News) become relative links. PartnerPlusBenefit stays.
+
+### The pushes
+
+- Every push:
+  - lint ok and the full suite green (443 to 450 files, 0 fail), plus lh-edge's tests (384, then
+    385);
+  - pulled right before, with a named stash rather than autostash;
+  - smoke on every brand host before and after: no difference on any of the 11 hosts.
+- Pushed:
+  - the blocks: `48ec0d2f`, `c1141a0f`;
+  - lh-edge: `02220287`, then the fixes `cba9ddb4` and `73610a9e`;
+  - the upload state: `71fc5faa`.
+- This report's own commit (report files only) was green three times and behind again each time.
+  Its push pulls once more after a green suite and goes ahead without another suite run when the
+  new main commits touch none of its files (logged in the run's log).
+
+### Summary
+
+| Item | Commit | What | Rollback |
+| --- | --- | --- | --- |
+| a | `48ec0d2f` | b2b-login, b2b-member, the header's signed-in Login item, scripts/b2b-session.js | `git revert 48ec0d2f` |
+| a | `c1141a0f` | da-upload `ownPages`; lh-b2b's allowlist | `git revert c1141a0f` |
+| b | `02220287` | lh-edge: b2b backends, sign-in posts, member gate | `git revert 02220287`, deploy (the workflow) |
+| b | `cba9ddb4` | the gate's redirect to the visitor | `git revert cba9ddb4`, deploy |
+| b | `73610a9e` | `login_internal` as a 301 to `login-internal`; header and docs for the name | `git revert 73610a9e`, deploy |
+| c | `71fc5faa` | 20 documents uploaded and previewed (state) | unpublish nothing (not published); DA documents can be deleted |
+| - | (this commit) | this report, preview-paths-449.txt | revert this commit |
+
+Path list for your publish (release order, `preview-paths-449.txt`, 20): /de/en/login,
+/de/en/login-internal, /de/en/home, /de/en/fund, /de/en/history, /de/en/usermanagement,
+/de/en/reports, /de/en/profile, /de/en/lhghome, /de/en/experts-members, then the same ten under
+/de/de/.
