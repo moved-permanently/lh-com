@@ -772,3 +772,14 @@ published.
 | 2 | — | cause: www's ad slots at 390 (decision pending) | — |
 | 3 | ed9be02 | stage headings as text; 20 documents from swiss-snapshots-046 | revert; DA's earlier versions |
 | 4 | 2a26e44, 97de029 | booking lookup fields as www's; paragraphs 20 px apart | revert each |
+
+### Brief 453, item 2 after your answer (done, 8960b01)
+
+- The ad slots stay out (your answer: keep them out).
+- The cards were 9 px closer than www's on phones (65 px from a card's label to the next picture
+  on www, 56 on ours). The magazine lists' and More Stories' cards are now 56 px apart below
+  768 px; 1440 is as before.
+- On the preview, travel is 0.88 at 390 (8,793 px, was 8,685); locally inside-swiss is 0.88 too.
+  What's left is the ad rows and one card more on www (content).
+- A second push after a pull: `a17b2d8..8960b01`. The smoke after was the same as before on
+  every brand; SWISS's and TAP's hosts checked by hand.
