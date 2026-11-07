@@ -96,9 +96,9 @@
    "preview": "2026-11-01T07:41:27.296Z"
   },
   "/en/ci/facts-figures": {
-   "uploaded": "2026-11-06T23:00:34.606Z",
-   "mtime": 1794005993654,
-   "preview": "2026-11-06T23:00:37.125Z"
+   "uploaded": "2026-11-07T01:51:51.517Z",
+   "mtime": 1794014825353,
+   "preview": "2026-11-07T01:51:54.521Z"
   },
   "/en/ci/partnerships-subsidiaries": {
    "uploaded": "2026-11-06T17:41:38.867Z",
@@ -571,9 +571,9 @@
    "preview": "2026-10-31T04:04:34.570Z"
   },
   "/de/ci/facts-figures": {
-   "uploaded": "2026-11-06T23:00:38.901Z",
-   "mtime": 1794005993733,
-   "preview": "2026-11-06T23:00:41.884Z"
+   "uploaded": "2026-11-07T01:51:56.425Z",
+   "mtime": 1794014825444,
+   "preview": "2026-11-07T01:51:58.621Z"
   },
   "/de/ci/fleet-infrastructure": {
    "uploaded": "2026-10-31T04:04:41.652Z",
@@ -4636,9 +4636,9 @@
    "preview": "2026-11-06T17:13:59.335Z"
   },
   "/es/ci/facts-figures": {
-   "uploaded": "2026-11-06T23:00:43.588Z",
-   "mtime": 1794005993814,
-   "preview": "2026-11-06T23:00:45.357Z"
+   "uploaded": "2026-11-07T01:52:00.336Z",
+   "mtime": 1794014825512,
+   "preview": "2026-11-07T01:52:02.403Z"
   },
   "/es/ci/fleet-infrastructure": {
    "uploaded": "2026-11-06T17:14:05.360Z",
@@ -4706,9 +4706,9 @@
    "preview": "2026-11-06T17:14:58.495Z"
   },
   "/fr/ci/facts-figures": {
-   "uploaded": "2026-11-06T23:00:47.343Z",
-   "mtime": 1794005993895,
-   "preview": "2026-11-06T23:00:50.135Z"
+   "uploaded": "2026-11-07T01:52:03.996Z",
+   "mtime": 1794014825575,
+   "preview": "2026-11-07T01:52:06.603Z"
   },
   "/fr/ci/fleet-infrastructure": {
    "uploaded": "2026-11-06T17:15:04.750Z",
@@ -4771,9 +4771,9 @@
    "preview": "2026-11-06T17:15:56.359Z"
   },
   "/it/ci/facts-figures": {
-   "uploaded": "2026-11-06T23:00:51.844Z",
-   "mtime": 1794005993988,
-   "preview": "2026-11-06T23:00:53.899Z"
+   "uploaded": "2026-11-07T01:52:08.221Z",
+   "mtime": 1794014825640,
+   "preview": "2026-11-07T01:52:10.260Z"
   },
   "/it/ci/fleet-infrastructure": {
    "uploaded": "2026-11-06T17:16:03.557Z",
@@ -4836,9 +4836,9 @@
    "preview": "2026-11-06T17:16:58.905Z"
   },
   "/pt/ci/facts-figures": {
-   "uploaded": "2026-11-06T23:00:55.912Z",
-   "mtime": 1794005994069,
-   "preview": "2026-11-06T23:00:57.853Z"
+   "uploaded": "2026-11-07T01:52:11.850Z",
+   "mtime": 1794014825692,
+   "preview": "2026-11-07T01:52:13.763Z"
   },
   "/pt/ci/fleet-infrastructure": {
    "uploaded": "2026-11-06T17:17:05.680Z",
@@ -8779,6 +8779,21 @@
   },
   "/media-da/cargo/042b0cfe-5e6c-74b0-8652-a93835861949-ebc126d7.png": {
    "at": "2026-11-06T20:53:59.731Z"
+  },
+  "/media-da/cargo/fact-icon-63-ab297000.png": {
+   "at": "2026-11-07T01:51:47.823Z"
+  },
+  "/media-da/cargo/lh-icon-money-7ed4b32e.png": {
+   "at": "2026-11-07T01:51:48.436Z"
+  },
+  "/media-da/cargo/lh-icon-people-group-905bfd29.png": {
+   "at": "2026-11-07T01:51:49.077Z"
+  },
+  "/media-da/cargo/lh-icon-airplane-booking-146e1d0a.png": {
+   "at": "2026-11-07T01:51:49.687Z"
+  },
+  "/media-da/cargo/lh-icon-earth-pin-03eed020.png": {
+   "at": "2026-11-07T01:51:50.326Z"
   }
  }
 }
