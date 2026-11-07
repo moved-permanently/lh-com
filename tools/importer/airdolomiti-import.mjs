@@ -720,7 +720,19 @@ function flow(node, page, mode) {
       return;
     }
     flush();
-    if (/^H[1-6]$/.test(t)) { const h = tidy(inline(c, page)).replace(/<br>/g, ' '); if (!empty(h)) out.push(`<${t.toLowerCase()}>${h}</${t.toLowerCase()}>`); return; }
+    if (/^H[1-6]$/.test(t)) {
+      // a picture inside the heading (WordPress' "<h2><img …><strong>The Frasassi Caves…</strong></h2>",
+      // which www shows across the column above it): its own paragraph before the heading (the sweep
+      // after brief 470, row 59)
+      c.querySelectorAll('img').forEach((im) => {
+        const p = page.img({ url: im.getAttribute('src'), alt: im.getAttribute('alt') || '' });
+        if (p) out.push(`<p>${p}</p>`);
+        im.remove();
+      });
+      const h = tidy(inline(c, page)).replace(/<br>/g, ' ');
+      if (!empty(h)) out.push(`<${t.toLowerCase()}>${h}</${t.toLowerCase()}>`);
+      return;
+    }
     if (t === 'P') { const h = fileLink(tidy(inline(c, page))); if (!empty(h)) out.push(`<p>${h}</p>`); return; }
     if (t === 'UL' || t === 'OL') { out.push(list(c, page)); return; }
     if (t === 'TABLE') {

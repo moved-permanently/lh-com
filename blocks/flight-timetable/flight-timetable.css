@@ -10,7 +10,16 @@
   --ft-calendar: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2300798A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='4' width='18' height='18' rx='2'/%3E%3Cpath d='M16 2v4M8 2v4M3 10h18'/%3E%3C/svg%3E");
   --ft-chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M3 2h8l10 10-10 10H3l10-10Z' fill='%23fff'/%3E%3C/svg%3E");
 
-  margin: 32px 0;
+  /* www's WidgetFullPage container: 150 px under the title (200 from 930 px), the screen less
+     220 px tall, 20 px to the footer (the sweep after brief 470) */
+  min-height: calc(100vh - 220px);
+  margin: 150px 0 20px;
+}
+
+@media (width >= 930px) {
+  .flight-timetable {
+    margin-top: 200px;
+  }
 }
 
 .flight-timetable .flight-timetable-form {
@@ -18,7 +27,7 @@
   padding: 20px;
   border-radius: 10px;
   background: #fff;
-  box-shadow: 0 4px 20px rgb(0 0 0 / 8%);
+  box-shadow: 0 12px 25px rgb(0 0 0 / 10%);
   color: var(--ft-navy);
 }
 
