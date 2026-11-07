@@ -49,9 +49,12 @@ test('www\'s booking widget on any other page (hubs, destinations, services; bri
     add: () => calls.push(['add']),
   };
   bookingWidget(page);
-  assert.deepEqual(calls, [['section'], ['block', 'flight-search (airdolomiti)', ['Open label', 'Book your flight']], ['section']]);
+  // (brief 452: the option strip, www's widget there: no trip type tabs in the row, the departure empty)
+  assert.deepEqual(calls, [['section'], ['block', 'flight-search (airdolomiti, strip)', ['Open label', 'Book your flight']], ['section']]);
   // the route and booking pages as before: the rows now, the block after the page's hero
-  const route = { ...page, isRoute: false, tool: 'booking', search: null };
+  const route = {
+    ...page, isRoute: false, tool: 'booking', search: null,
+  };
   calls.length = 0;
   bookingWidget(route);
   assert.deepEqual(calls, [], 'placed later (after the hero)');
@@ -72,4 +75,10 @@ test('www\'s news-list-grid (GridTreNews, the destinations hubs: 9 cards a page 
   };
   newsListGrid({ title: 'Discover our destinations', cardList: [{ title: 'Ancona', subtitle: 'Discover the Marche region', url: 'https://www.airdolomiti.eu/destinations/ancona-eu' }] }, page);
   assert.deepEqual(calls.find(([k]) => k === 'block'), ['block', 'cards-teaser (three-up, paged)', 1]);
+});
+
+test('the booking pages: www\'s form in the page on phones too, no card (brief 452: no Open label row)', () => {
+  const rows = flightSearchRows({ rendered: widget('Prenota il tuo volo'), lang: 'it', tool: 'booking' });
+  assert.equal(rows.find(([k]) => k === 'Open label'), undefined);
+  assert.ok(rows.find(([k]) => k === 'Trip types'), 'the other rows as before');
 });

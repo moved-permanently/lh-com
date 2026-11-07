@@ -185,11 +185,6 @@ body.brand-airdolomiti main .default-content-wrapper h1 {
     font-size: 42px;
     line-height: 50px;
   }
-
-  body.brand-airdolomiti main .default-content-wrapper h2 {
-    font-size: 38px;
-    line-height: 46px;
-  }
 }
 
 body.brand-airdolomiti main .default-content-wrapper h1 + p {
@@ -204,6 +199,14 @@ body.brand-airdolomiti main .default-content-wrapper h2 {
   font-size: 34px;
   font-weight: 300;
   line-height: 42px;
+}
+
+/* (after the default above, which it overrides from 930px; brief 452: it came first and lost) */
+@media (width >= 930px) {
+  body.brand-airdolomiti main .default-content-wrapper h2 {
+    font-size: 38px;
+    line-height: 46px;
+  }
 }
 
 /* the blog posts' html content: h3 leads regular, 26px / 32px (35px / 40px from 1025px); the
@@ -1974,10 +1977,38 @@ body.brand-airdolomiti main > .section.hero-campaign-container + .section > .def
   line-height: 37.4px;
 }
 
+/* its lists as its text (www's rich text: the assistance page's contacts), 1.625em in */
+/* stylelint-disable-next-line no-descending-specificity -- another page type's lists */
+body.brand-airdolomiti main .default-content-wrapper:has(> h1 ~ p ~ p) > :is(ul, ol) {
+  max-width: none;
+  margin: 0 0 37.4px;
+  padding-left: 1.625em;
+  font-size: 22px;
+  line-height: 37.4px;
+}
+
 @media (width >= 930px) {
+  body.brand-airdolomiti main .default-content-wrapper:has(> h1 ~ p ~ p) > :is(ul, ol) {
+    margin-inline: calc((100% - 70vw) / 2);
+  }
+
   body.brand-airdolomiti main .default-content-wrapper:has(> h1 ~ p ~ p) > :is(h1, p:not(.button-wrapper), p.button-wrapper),
   body.brand-airdolomiti main > .section.hero-campaign-container + .section > .default-content-wrapper:has(> h2:first-child ~ p ~ p) > :is(h2, p:not(.button-wrapper), p.button-wrapper) {
     margin-inline: calc((100% - 70vw) / 2);
+  }
+}
+
+/* a section heading ends the text block (flights to Europe's "Flights from Frankfurt": www's
+   styles_title, its line 16px / 22px across the page; brief 452) */
+body.brand-airdolomiti main .default-content-wrapper:has(> h1 ~ p ~ p) > h2 ~ :is(p:not(.button-wrapper), ul, ol) {
+  margin: 0 0 20px;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+@media (width >= 930px) {
+  body.brand-airdolomiti main .default-content-wrapper:has(> h1 ~ p ~ p) > h2 ~ :is(p:not(.button-wrapper), ul, ol) {
+    margin-inline: 0;
   }
 }
 
@@ -2001,7 +2032,8 @@ body.brand-airdolomiti main > .section.hero-campaign-container + .section > .def
 
 /*
  * the pages with the FAQ accordions and the help card (www's HalfPage, Title_h2_headline,
- * TogleTariffe and CardPromoCta: lounges, seat reservation, parking): the title 34px / 42px,
+ * TogleTariffe and CardPromoCta: lounges, seat reservation, parking; the accordions' look on every
+ * FAQ accordion, the assistance page's too, brief 452): the title 34px / 42px,
  * 38px / 46px from 930px, 2px apart from 530px; the line under it 16px / 22px; the accordions'
  * titles light (34px, 38px from 930px, www's 1.7 line height), 20px above and below, grey lines,
  * www's teal arrow after them (down when open), the answers 16px / 22px grey; the card (grey, 10px
@@ -2028,11 +2060,11 @@ body.brand-airdolomiti main > .section.accordion-columns-container.columns-media
   margin-top: 20px;
 }
 
-body.brand-airdolomiti main > .section.accordion-columns-container.columns-media-container .accordion-columns-item {
+body.brand-airdolomiti main .accordion-columns.faq .accordion-columns-item {
   border-color: #d2d2d2;
 }
 
-body.brand-airdolomiti main > .section.accordion-columns-container.columns-media-container .accordion-columns-title {
+body.brand-airdolomiti main .accordion-columns.faq .accordion-columns-title {
   justify-content: flex-start;
   gap: 0;
   padding: 20px 0;
@@ -2043,7 +2075,7 @@ body.brand-airdolomiti main > .section.accordion-columns-container.columns-media
   line-height: 57.8px;
 }
 
-body.brand-airdolomiti main > .section.accordion-columns-container.columns-media-container .accordion-columns-title::after {
+body.brand-airdolomiti main .accordion-columns.faq .accordion-columns-title::after {
   position: static;
   flex: 0 0 25px;
   width: 25px;
@@ -2053,11 +2085,11 @@ body.brand-airdolomiti main > .section.accordion-columns-container.columns-media
   mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Cpath d='M26.73 13.33H13.53L2 0h13.2zM2 28h13.2l11.53-13.33H13.53z'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 
-body.brand-airdolomiti main > .section.accordion-columns-container.columns-media-container .accordion-columns-item[open] > .accordion-columns-title::after {
+body.brand-airdolomiti main .accordion-columns.faq .accordion-columns-item[open] > .accordion-columns-title::after {
   transform: rotate(90deg);
 }
 
-body.brand-airdolomiti main > .section.accordion-columns-container.columns-media-container .accordion-columns-panel {
+body.brand-airdolomiti main .accordion-columns.faq .accordion-columns-panel {
   padding: 0 0 20px;
   color: #757575;
   font-size: 16px;
@@ -2186,7 +2218,7 @@ body.brand-airdolomiti main > .section.accordion-columns-container.columns-media
     line-height: 46px;
   }
 
-  body.brand-airdolomiti main > .section.accordion-columns-container.columns-media-container .accordion-columns-title {
+  body.brand-airdolomiti main .accordion-columns.faq .accordion-columns-title {
     font-size: 38px;
     line-height: 64.6px;
   }
@@ -2416,4 +2448,12 @@ body.brand-airdolomiti .cards-teaser.three-up > ul > li:has(> .cards-teaser-imag
 
 body.brand-airdolomiti .cards-teaser.three-up > ul > li:has(> .cards-teaser-image + .cards-teaser-body > .cards-teaser-title:first-child + p:not(.cards-teaser-cta) + .cards-teaser-cta:last-child) .cards-teaser-cta-link::before {
   content: none;
+}
+
+/* the booking strip under the header (flight-search airdolomiti, option strip; brief 452): www's
+   widget there has no trip type tabs in its row (its phone panel keeps them) */
+@media (width >= 1025px) {
+  body.brand-airdolomiti .flight-search.airdolomiti.strip .flight-search-trip-tabs {
+    display: none;
+  }
 }

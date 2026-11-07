@@ -197,19 +197,21 @@ export function flightSearchRows(page, route = {}) {
   const submit = [...box.querySelectorAll('button[type="submit"]')].map(t).find(Boolean);
   if (submit) rows.push(['Submit label', submit]);
   // www's phone card that opens the widget ("Prenota il tuo volo"): the variant's Open label
-  const card = t(document.querySelector('[class*="_searchBtnMobile_"]'));
+  // (not on the booking pages: www shows its form in the page there on phones too; brief 452)
+  const card = page.tool === 'booking' ? '' : t(document.querySelector('[class*="_searchBtnMobile_"]'));
   if (card) rows.push(['Open label', card]);
   return rows;
 }
 
 /**
  * The flight-search block once per page, in a section of its own (after the page's hero): the
- * variant airdolomiti (www's trip type tabs; with Open label the phone card).
+ * variant airdolomiti (www's trip type tabs; with Open label the phone card); option strip: www's
+ * widget under the header (no trip type tabs in its row, the departure empty; brief 452).
  */
-export function placeSearch(page) {
+export function placeSearch(page, option = '') {
   if (!page.search || page.searchPlaced) return;
   page.section();
-  page.block('flight-search (airdolomiti)', page.search.map(([k, v]) => [k, esc(v)]));
+  page.block(`flight-search (airdolomiti${option ? `, ${option}` : ''})`, page.search.map(([k, v]) => [k, esc(v)]));
   page.section();
   page.searchPlaced = true;
   page.note('booking widget: flight-search (the booking engine by the page\'s brand and language)');
@@ -224,7 +226,7 @@ export function placeSearch(page) {
  */
 export function bookingWidget(page) {
   page.search = page.search || flightSearchRows(page, page.isRoute ? routeAirports(page.source) : {});
-  if (!page.isRoute && page.tool !== 'booking') placeSearch(page);
+  if (!page.isRoute && page.tool !== 'booking') placeSearch(page, 'strip');
 }
 
 /**

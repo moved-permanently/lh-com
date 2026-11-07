@@ -3,7 +3,7 @@
  * at a time, 9 a page (paged-N: N), under them "previous page", the page numbers and "next page";
  * the current number marked (aria-current="page"), the arrows disabled at the ends. A number or an
  * arrow shows its page; the list's top comes back into view when it is above the window. One page
- * only: no controls.
+ * only: a lone "1" between the disabled arrows, as www's (brief 452); no cards: no controls.
  */
 
 // www's labels (airdolomiti-parity-001: it, en, de); English for the other languages
@@ -25,7 +25,7 @@ export default function decoratePager(block, lang) {
   const option = [...block.classList].find((c) => /^paged(-\d+)?$/.test(c)) || 'paged';
   const size = Math.max(1, parseInt(option.split('-')[1], 10) || 9);
   const pages = Math.ceil(cards.length / size);
-  if (pages < 2) return;
+  if (pages < 1) return;
   instances += 1;
   if (!ul.id) ul.id = `cards-teaser-pager-${instances}`;
   const labels = LABELS[lang] || LABELS.en;

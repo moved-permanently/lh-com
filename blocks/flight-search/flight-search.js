@@ -933,6 +933,9 @@ export default function decorate(block) {
     adults: authored.adults,
   }) : {};
   const settings = withPrefill(authored, prefill);
+  // Air Dolomiti's booking strip (variant airdolomiti, option strip: www's widget under the header,
+  // brief 452): the departure empty, no market airport, unless authored or prefilled
+  const emptyOrigin = block.classList.contains('airdolomiti') && block.classList.contains('strip') && !settings.origin;
   let labels = resolveLabels(DEFAULT_LABELS, config, locale.lang);
   const text = (...keys) => (pick(config, ...keys) || {}).text || '';
   const links = (pick(config, 'where-we-fly', 'links', 'link') || {}).cell;
@@ -1056,7 +1059,7 @@ export default function decorate(block) {
   const origin = createAirportCombobox({
     label: text('origin-label', 'from') || labels['from label'],
     name: 'origin',
-    value: allowed(settings.origin || { code: settings.fallbackOrigin, name: '' }),
+    value: emptyOrigin ? null : allowed(settings.origin || { code: settings.fallbackOrigin, name: '' }),
     fetchSuggestions: (term) => suggest(term),
     onChange: () => {
       originTouched = true;
@@ -1337,7 +1340,7 @@ export default function decorate(block) {
     refreshers.forEach((fn) => fn(labels));
     // prefill like the live site (authored origin named, else the market default airport)
     // unless the visitor already picked an origin
-    if (!originTouched) {
+    if (!originTouched && !emptyOrigin) {
       origin.setValue(allowed(data.origin), { silent: true });
       updateSwapLabel();
     }

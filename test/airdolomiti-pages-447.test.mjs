@@ -43,6 +43,18 @@ test('a title with more than one paragraph: www\'s text block', () => {
   has(new RegExp(`@media \\(width >= 930px\\) \\{[^@]*${T} > :is\\(h1, p:not\\(\\.button-wrapper\\), p\\.button-wrapper\\),[^}]*margin-inline: calc\\(\\(100% - 70vw\\) / 2\\);`));
 });
 
+test('the text block\'s lists as its text (brief 452: the assistance page\'s contacts), in its column', () => {
+  const T = `${B} main \\.default-content-wrapper:has\\(> h1 ~ p ~ p\\)`;
+  has(new RegExp(`${T} > :is\\(ul, ol\\) \\{[^}]*max-width: none;[^}]*margin: 0 0 37\\.4px;[^}]*padding-left: 1\\.625em;[^}]*font-size: 22px;[^}]*line-height: 37\\.4px;`));
+  has(new RegExp(`@media \\(width >= 930px\\) \\{[^@]*${T} > :is\\(ul, ol\\) \\{[^}]*margin-inline: calc\\(\\(100% - 70vw\\) / 2\\);`));
+});
+
+test('a section heading in the text block ends it (brief 452: flights to Europe\'s "Flights from Frankfurt", www\'s styles_title and its 16 / 22 px line, across the page)', () => {
+  const T = `${B} main \\.default-content-wrapper:has\\(> h1 ~ p ~ p\\)`;
+  has(new RegExp(`${T} > h2 ~ :is\\(p:not\\(\\.button-wrapper\\), ul, ol\\) \\{[^}]*margin: 0 0 20px;[^}]*font-size: 16px;[^}]*line-height: 22px;`));
+  has(new RegExp(`@media \\(width >= 930px\\) \\{[^@]*${T} > h2 ~ :is\\(p:not\\(\\.button-wrapper\\), ul, ol\\) \\{[^}]*margin-inline: 0;`));
+});
+
 test('the fleet\'s text under its stage as the same text block', () => {
   has(/body\.brand-airdolomiti main > \.section\.hero-campaign-container \+ \.section > \.default-content-wrapper:has\(> h2:first-child ~ p ~ p\) > p:not\(\.button-wrapper\) \{[^}]*font-size: 22px;/);
 });
@@ -60,9 +72,11 @@ test('the FAQ pages: title, line and accordions as www\'s; the card beside them 
   has(new RegExp(`@media \\(width >= 530px\\) \\{[^@]*${S} \\.default-content-wrapper h1 \\{[^}]*letter-spacing: 2px;`));
   has(new RegExp(`@media \\(width >= 930px\\) \\{[^@]*${S} \\.default-content-wrapper h1 \\{[^}]*font-size: 38px;[^}]*line-height: 46px;`));
   has(new RegExp(`${S} \\.default-content-wrapper h1 \\+ p \\{[^}]*font-size: 16px;[^}]*line-height: 22px;`));
-  has(new RegExp(`${S} \\.accordion-columns-title \\{[^}]*padding: 20px 0;[^}]*font-size: 34px;[^}]*font-weight: 300;[^}]*line-height: 57\\.8px;`));
-  has(new RegExp(`@media \\(width >= 930px\\) \\{[^@]*${S} \\.accordion-columns-title \\{[^}]*font-size: 38px;[^}]*line-height: 64\\.6px;`));
-  has(new RegExp(`${S} \\.accordion-columns-title::after \\{[^}]*background-color: #00798a;`));
+  // (brief 452: every FAQ accordion, www's TogleTariffe on the assistance page too, not only beside the help card)
+  const A = `${B} main \\.accordion-columns\\.faq`;
+  has(new RegExp(`${A} \\.accordion-columns-title \\{[^}]*padding: 20px 0;[^}]*font-size: 34px;[^}]*font-weight: 300;[^}]*line-height: 57\\.8px;`));
+  has(new RegExp(`@media \\(width >= 930px\\) \\{[^@]*${A} \\.accordion-columns-title \\{[^}]*font-size: 38px;[^}]*line-height: 64\\.6px;`));
+  has(new RegExp(`${A} \\.accordion-columns-title::after \\{[^}]*background-color: #00798a;`));
   has(new RegExp(`@media \\(width >= 930px\\) \\{[^@]*${S} \\{[^}]*display: grid;[^}]*grid-template-columns: minmax\\(0, 50%\\) minmax\\(0, 1fr\\);`));
   has(new RegExp(`@media \\(width < 930px\\) \\{[^@]*${S} > \\.columns-media-wrapper \\{[^}]*margin-top: 110px;`));
   has(new RegExp(`${S} > \\.columns-media-wrapper \\{[^}]*grid-column: 2;[^}]*grid-row: 2 / span 2;[^}]*justify-self: end;[^}]*width: 410px;`));
@@ -86,6 +100,10 @@ test('section headings as most of www\'s (MiniCardSlider, Title, CosaFareCarrous
   has(new RegExp(`${B} main \\.default-content-wrapper h2 \\{[^}]*font-size: 34px;[^}]*font-weight: 300;[^}]*line-height: 42px;`));
   has(new RegExp(`@media \\(width >= 930px\\) \\{[^@]*${B} main \\.default-content-wrapper h2 \\{[^}]*font-size: 38px;[^}]*line-height: 46px;`));
   assert.equal(/@media \(width >= 1025px\) \{[^@]*body\.brand-airdolomiti main \.default-content-wrapper h2 \{[^}]*font-size: 42px;/.test(css), false, 'no 42 px from 1025 px for every heading');
+  // the 930 px rule after the default one in the file, or the default wins (same selector; brief 452)
+  const wide = css.search(/@media \(width >= 930px\) \{[^@]*body\.brand-airdolomiti main \.default-content-wrapper h2 \{[^}]*font-size: 38px;/);
+  const narrow = css.search(/body\.brand-airdolomiti main \.default-content-wrapper h2 \{[^}]*font-size: 34px;/);
+  assert.ok(wide > narrow, '38 px from 930 px after the 34 px default');
   has(/body\.brand-airdolomiti main \.default-content-wrapper:has\(> h1 ~ p ~ p\):has\(\+ \.cards-teaser-wrapper\) > h2:last-child, body\.brand-airdolomiti main > \.section\.hero-campaign-container \+ \.section > \.default-content-wrapper:has\(> h2:first-child ~ p ~ p\) > h2:first-child \{[^}]*font-size: 38px;[^}]*line-height: 46px;/);
 });
 

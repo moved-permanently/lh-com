@@ -3,7 +3,7 @@
    destinations hubs, www's GridTreNews in airdolomiti-parity-001: 9 cards a page, under them
    "previous page", the page numbers, "next page"; the current number aria-current="page", the
    arrows disabled at the ends). Only the current page's cards show; a number or an arrow shows
-   its page. paged-N: N cards a page. One page only: no controls. The labels in the page's
+   its page. paged-N: N cards a page. One page: a lone "1" between disabled arrows (as www, brief 452). The labels in the page's
    language (www's it, en, de; English otherwise). Without the option nothing changes.
    Run: node --max-old-space-size=256 --test test/cards-teaser-paged-448.test.mjs */
 /* global globalThis */
@@ -52,13 +52,17 @@ test('paged: 9 cards a page, www\'s controls under them', async () => {
   assert.deepEqual(shown(b)[0], 'City 10', 'previous: the second page');
 });
 
-test('paged-N: N a page; one page: no controls; no option: nothing changes', async () => {
+test('paged-N: N a page; one page: a lone 1 between disabled arrows (www\'s /destinazioni, brief 452); no option: nothing changes', async () => {
   const b = await block('three-up paged-4', 10);
   assert.equal(shown(b).length, 4);
   assert.equal(b.querySelectorAll('nav.cards-teaser-pager button').length, 5, 'previous, 1 to 3, next');
   const one = await block('three-up paged', 2);
   assert.equal(shown(one).length, 2);
-  assert.equal(one.querySelector('nav.cards-teaser-pager'), null);
+  const lone = [...one.querySelectorAll('nav.cards-teaser-pager button')];
+  assert.deepEqual(lone.map((x) => x.getAttribute('aria-label') || x.textContent), ['Previous page', '1', 'Next page']);
+  assert.equal(lone[1].getAttribute('aria-current'), 'page');
+  assert.ok(lone[0].disabled && lone[2].disabled, 'both arrows disabled');
+  assert.equal((await block('three-up paged', 0)).querySelector('nav.cards-teaser-pager'), null, 'no cards, no controls');
   const plain = await block('three-up', 24);
   assert.equal(shown(plain).length, 24);
   assert.equal(plain.querySelector('nav.cards-teaser-pager'), null);
