@@ -223,6 +223,9 @@ function isHiddenFrame(el) {
     || style.includes('top:-50000px');
 }
 
+// an image the cleanup itself wrote as content, on a host the tracking filter names
+const OFFER_IMAGE = 'data-lh-offer-image';
+
 function removeTracking(document) {
   document.querySelectorAll('iframe').forEach((f) => {
     const src = f.getAttribute('src') || '';
@@ -230,6 +233,11 @@ function removeTracking(document) {
   });
   document.querySelectorAll('img').forEach((img) => {
     const src = img.getAttribute('src') || '';
+    // the offer cards' pictures (convertOfferCards: Monetate's own image host) are content
+    if (img.hasAttribute(OFFER_IMAGE)) {
+      img.removeAttribute(OFFER_IMAGE);
+      return;
+    }
     if (TRACKING_URL.test(src) || (isHiddenFrame(img) && !img.closest('.container-content'))) img.remove();
     else if (isHiddenFrame(img) && /^(https?:)?\/\//.test(src) && !/\/content\/dam\//.test(src)) img.remove();
   });
@@ -1768,6 +1776,7 @@ function convertOfferCards(document) {
         image = document.createElement('img');
         image.setAttribute('src', src);
         image.setAttribute('alt', '');
+        image.setAttribute(OFFER_IMAGE, ''); // kept by removeTracking (sb.monetate.net)
       }
       const body = document.createElement('div');
       const h3 = document.createElement('h3');

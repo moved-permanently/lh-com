@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-homepage.js
-  var tmp_bundle_homepage_549211_exports = {};
-  __export(tmp_bundle_homepage_549211_exports, {
-    default: () => tmp_bundle_homepage_549211_default
+  var import_homepage_exports = {};
+  __export(import_homepage_exports, {
+    default: () => import_homepage_default
   });
 
   // tools/importer/parsers/flash-teaser.js
@@ -1741,6 +1741,7 @@ var CustomImportScript = (() => {
     const style = (el.getAttribute("style") || "").replace(/\s/g, "").toLowerCase();
     return w === "0" || w === "1" || h === "0" || h === "1" || style.includes("visibility:hidden") || style.includes("display:none") || /(^|;)width:[01]px/.test(style) || /(^|;)height:[01]px/.test(style) || style.includes("top:-50000px");
   }
+  var OFFER_IMAGE = "data-lh-offer-image";
   function removeTracking(document) {
     document.querySelectorAll("iframe").forEach((f) => {
       const src = f.getAttribute("src") || "";
@@ -1748,6 +1749,10 @@ var CustomImportScript = (() => {
     });
     document.querySelectorAll("img").forEach((img) => {
       const src = img.getAttribute("src") || "";
+      if (img.hasAttribute(OFFER_IMAGE)) {
+        img.removeAttribute(OFFER_IMAGE);
+        return;
+      }
       if (TRACKING_URL.test(src) || isHiddenFrame(img) && !img.closest(".container-content")) img.remove();
       else if (isHiddenFrame(img) && /^(https?:)?\/\//.test(src) && !/\/content\/dam\//.test(src)) img.remove();
     });
@@ -1973,9 +1978,30 @@ var CustomImportScript = (() => {
     }
     return null;
   }
+  var CELL_ITEM = ":is(.twocolumn, .threecolumn, .fourcolumn) > .column-view > .row > .column-view-item";
+  var CELL_TEXT = ".text, .link, .headline";
+  var CELL_SPACER = "lh-cell-spacer";
+  function isLufthansaPage(payload) {
+    const url = payload && (payload.params && payload.params.originalURL || payload.url) || "";
+    try {
+      return /(^|\.)lufthansa\.com$/.test(new URL(url).hostname);
+    } catch (e) {
+      return false;
+    }
+  }
+  function inTextCell(run) {
+    const first = run[0];
+    const last = run[run.length - 1];
+    const item = first.parentElement;
+    if (!item || !item.matches(CELL_ITEM)) return false;
+    const prev = first.previousElementSibling;
+    const next = last.nextElementSibling;
+    return !!prev && !!next && prev.matches(CELL_TEXT) && next.matches(CELL_TEXT);
+  }
   function markSeparators(document, keepInFlow, payload) {
     const template = (payload && payload.template || {}).name;
     const fillGaps = !SEPARATOR_AS_IS_TEMPLATES.includes(template);
+    const cellSpacers = isLufthansaPage(payload);
     const runs = [];
     document.querySelectorAll(".separator").forEach((sep) => {
       const last = runs[runs.length - 1];
@@ -1988,6 +2014,15 @@ var CustomImportScript = (() => {
     };
     runs.forEach((run) => {
       const infos = run.map(separatorInfo);
+      if (cellSpacers && inTextCell(run) && run.every((sep) => separatorSpace(sep) >= 10)) {
+        run.forEach((sep, i) => {
+          const div = document.createElement("div");
+          div.className = CELL_SPACER;
+          div.textContent = `{${infos[i].marker}}`;
+          sep.replaceWith(div);
+        });
+        return;
+      }
       let markers = null;
       if (infos.some((i) => i.keep) || afterGrey(run[0]) || keepInFlow && inFlow(run)) {
         markers = infos.map((i) => i.marker);
@@ -2130,7 +2165,7 @@ var CustomImportScript = (() => {
       if (el.isConnected && !el.closest("form.cmp-form") && isEmpty(el)) el.remove();
     });
   }
-  var COLUMN_MARK_TEMPLATES = ["info"];
+  var COLUMN_MARK_TEMPLATES = ["info", "fleet"];
   var COLUMN_ATTR = "data-lh-column";
   var COLUMN_KINDS = ".onecolumn, .twocolumn, .threecolumn, .fourcolumn";
   function columnMarksEnabled(payload) {
@@ -2827,6 +2862,7 @@ var CustomImportScript = (() => {
           image = document.createElement("img");
           image.setAttribute("src", src);
           image.setAttribute("alt", "");
+          image.setAttribute(OFFER_IMAGE, "");
         }
         const body = document.createElement("div");
         const h3 = document.createElement("h3");
@@ -3477,7 +3513,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_homepage_549211_default = {
+  var import_homepage_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -3507,5 +3543,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_homepage_549211_exports);
+  return __toCommonJS(import_homepage_exports);
 })();
