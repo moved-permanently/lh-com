@@ -700,18 +700,18 @@ is one I don't use, even an invented one, so the end-to-end sign-ins below are n
 - **`b2b-login`:**
   - a plain HTML form to `/<root>/j_security_check`: `j_username`, `j_password` with show/hide,
     `loginType` (`EXT`, or `DESMON` with `Type | staff`), `resource`;
-  - `resource` is a same-host `?redirect=`, else the member home (`lhghome` for staff);
+  - `resource` is a same-host `?redirect=` (corrected in brief 450: no default);
   - the script sends the form with `j_validate=true` and follows `redirectURL` (same host only);
   - the page's texts for invalid-login (403), no rights (`auth_status: NOT_AUTHORIZED`), backend
-    down (`login_status`) and the `?error=` codes of a sign-in without script;
+    down (`login_status`) and an `?error=` after a sign-in without script;
   - Forgotten Password links to www's page.
 - **`b2b-member`:**
   - variants `dashboard`, `fund`, `history`, `users`, `reports` (no Tableau), `profile`,
     `accounts`;
-  - roles first: 401 goes to the login and back; 403 or a missing role shows the forbidden text;
+  - roles first: 401 goes to the login and back; 403 shows the forbidden text;
   - empty and error states;
-  - money, numbers and dates in the page language;
-  - texts from the document's rows (history codes as `Type-<code>` / `Status-<code>`).
+  - numbers and dates in the page language;
+  - texts from the document's rows (brief 450 replaced what came from the lh-backends clone).
 - **Header:** with `header.session: 'b2b'`, a session (company or eXperts) shows the name on the
   Login item. Under the nav's own group headings it shows the member home and Log out
   (company: `/sso/b2bneo/logout?redirect=https://<host>/<root>/login`; eXperts:

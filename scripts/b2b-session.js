@@ -17,9 +17,19 @@ export function pageRoot(pathname = window.location.pathname) {
   return { country, lang, root: `${country}/${lang}` };
 }
 
-/** A path on this host: one leading slash, no scheme or second slash, no backslash or spaces. */
+/**
+ * A path on this host: starts with one slash (not //), no backslash, whitespace or control
+ * characters, and resolves to this origin.
+ */
 export function isSafePath(value) {
-  return typeof value === 'string' && /^\/(?![/\\])[\x21-\x7E]*$/.test(value) && !value.includes('\\');
+  if (typeof value !== 'string' || !value.startsWith('/') || value.startsWith('//')) return false;
+  // eslint-disable-next-line no-control-regex -- control characters are what is refused
+  if (/[\\\s\u0000-\u001f\u007f]/.test(value)) return false;
+  try {
+    return new URL(value, window.location.origin).origin === window.location.origin;
+  } catch (e) {
+    return false;
+  }
 }
 
 /**

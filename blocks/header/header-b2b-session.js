@@ -34,7 +34,8 @@ function link(href, text) {
   return a;
 }
 
-const nameOf = (p) => [p.firstName || p.name, p.lastName || p.surname].filter(Boolean).join(' ');
+// the session's company and experts objects carry the person's name (the brief's contract)
+const nameOf = (p) => (typeof p.name === 'string' ? p.name.trim() : '');
 
 /**
  * The menu's items with the signed-in Login item.

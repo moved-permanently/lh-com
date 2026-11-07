@@ -1,11 +1,11 @@
 import { readConfigRows, resolveLabels } from '../../scripts/block-config.js';
-import { pageRoot, sameHostPath } from '../../scripts/b2b-session.js';
+import { loadSession, pageRoot, sameHostPath } from '../../scripts/b2b-session.js';
 
 /*
  * Lufthansa Group for Business' sign-in (the pages /<root>/login and /<root>/login-internal):
  * a plain HTML form (POST /<cc>/<ll>/j_security_check; without script lh-backends answers with
- * redirects, ?error= back on this page) that the script sends with j_validate=true and follows to
- * the answer's redirectURL. README.md.
+ * redirects) that the script sends with j_validate=true and follows to the answer's redirectURL.
+ * The answers it reads are the brief's contract (README.md).
  */
 
 /** Built-in texts (the rows override them; the documents carry the page's own). */
@@ -20,6 +20,7 @@ const TEXTS = {
     'invalid login': 'The user name or password is not correct.',
     'no rights': 'This account has no access to Lufthansa Group for Business.',
     'backend error': 'The login is not available at the moment. Please try again later.',
+    'login failed': 'The login did not work. Please check your details and try again.',
   },
   de: {
     'user name label': 'Benutzername',
@@ -31,14 +32,8 @@ const TEXTS = {
     'invalid login': 'Benutzername oder Passwort ist nicht korrekt.',
     'no rights': 'Dieses Konto hat keinen Zugang zu Lufthansa Group for Business.',
     'backend error': 'Die Anmeldung ist im Moment nicht möglich. Bitte versuchen Sie es später noch einmal.',
+    'login failed': 'Die Anmeldung hat nicht geklappt. Bitte prüfen Sie Ihre Angaben und versuchen Sie es noch einmal.',
   },
-};
-
-/** The ?error= codes lh-backends sends a form without script back with, and their text. */
-const ERRORS = {
-  'invalid-login': 'invalid login',
-  'not-authorized': 'no rights',
-  'backend-not-available': 'backend error',
 };
 
 let count = 0;
@@ -75,8 +70,8 @@ export default function decorate(block) {
   const t = resolveLabels(TEXTS, config, lang);
   const staff = /^staff$/i.test((config.type && config.type.text) || '');
   const params = new URLSearchParams(window.location.search);
-  const home = `/${root}/${staff ? 'lhghome' : 'home'}`;
-  const resource = sameHostPath(params.get('redirect') || '') || home;
+  // where the backend sends the visitor after the sign-in: the page's ?redirect= (this host only)
+  const resource = sameHostPath(params.get('redirect') || '');
   const forgotten = (config['forgotten-password'] && config['forgotten-password'].link)
     ? config['forgotten-password'].link.getAttribute('href')
     : `https://business.lufthansagroup.com/${root}/forgotten-password`;
@@ -113,14 +108,13 @@ export default function decorate(block) {
     el('div', { className: 'b2b-login-field' }, el('label', { for: id('user') }, t['user name label']), user),
     el('div', { className: 'b2b-login-field' }, el('label', { for: id('pass') }, t['password label']), el('div', { className: 'b2b-login-password' }, pass, toggle)),
     el('input', { type: 'hidden', name: 'loginType', value: staff ? 'DESMON' : 'EXT' }),
-    el('input', { type: 'hidden', name: 'resource', value: resource }),
+    resource ? el('input', { type: 'hidden', name: 'resource', value: resource }) : null,
     el('p', { className: 'b2b-login-forgotten' }, el('a', { href: forgotten }, t['forgotten password'])),
     el('p', { className: 'b2b-login-actions' }, submit),
   );
 
-  // after a sign-in without script: lh-backends' ?error= on this page
-  const error = ERRORS[params.get('error')];
-  if (error) show(error);
+  // back on this page after a sign-in without script, with an ?error=
+  if (params.get('error')) show('login failed');
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -141,7 +135,13 @@ export default function decorate(block) {
         show(key);
         return;
       }
-      window.location.assign(sameHostPath(data && data.redirectURL) || resource);
+      let target = sameHostPath(data && data.redirectURL) || resource;
+      if (!target) {
+        const session = await loadSession();
+        const who = session && (session.company || session.experts);
+        target = sameHostPath(who && who.home) || `/${root}/home`;
+      }
+      window.location.assign(target);
     } catch (err) {
       show('backend error');
     } finally {

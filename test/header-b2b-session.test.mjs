@@ -46,7 +46,7 @@ test('signed out or unknown: the menu as it is', () => {
 test('a company user: the name, the member home and Log out under "For Companies"', () => {
   const items = withSession(menu(), {
     company: {
-      firstName: 'Anna', lastName: 'Example', home: '/de/en/home', loginType: 'EXT',
+      name: 'Anna Example', home: '/de/en/home',
     },
     experts: null,
   });
@@ -55,9 +55,9 @@ test('a company user: the name, the member home and Log out under "For Companies
 });
 
 test('an eXperts agent; both signed in: two groups', () => {
-  const ex = withSession(menu(), { company: null, experts: { name: 'Petra', surname: 'Hahn', home: '/de/en/experts-members' } });
+  const ex = withSession(menu(), { company: null, experts: { name: 'Petra Hahn', home: '/de/en/experts-members' } });
   assert.deepEqual(view(ex)[0], ['Petra Hahn', [['For Travel Agencies', [['Member area', '/de/en/experts-members'], ['Log out', '/service/secured/api/experts/logout']]]]]);
-  const both = withSession(menu(), { company: { firstName: 'Anna', lastName: 'Example', home: '/de/en/home' }, experts: { name: 'Petra', surname: 'Hahn', home: '/de/en/experts-members' } });
+  const both = withSession(menu(), { company: { name: 'Anna Example', home: '/de/en/home' }, experts: { name: 'Petra Hahn', home: '/de/en/experts-members' } });
   assert.equal(view(both)[0][0], 'Anna Example');
   assert.deepEqual(view(both)[0][1].map(([g]) => g), ['For Companies', 'For Travel Agencies']);
 });
@@ -66,22 +66,26 @@ test('the Login item found by its links (www\'s absolute ones too); German texts
   const items = menu();
   items[0].groups[0].links[1] = a('https://business.lufthansagroup.com/de/de/login', 'Programm');
   items[0].label = 'Anmelden';
-  const out = withSession(items, { company: { firstName: 'Anna', lastName: 'Example', home: '/de/de/home' } }, { lang: 'de', root: 'de/de' });
+  const out = withSession(items, { company: { name: 'Anna Example', home: '/de/de/home' } }, { lang: 'de', root: 'de/de' });
   assert.deepEqual(view(out)[0][1][0][1].map(([t]) => t), ['Mitgliederbereich', 'Abmelden']);
   // the staff sign-in, the document's address and www's
   ['/de/en/login-internal', '/de/en/login_internal'].forEach((href) => {
     const staff = menu();
     staff[0].groups[0].links = [a(href, 'Employees')];
-    assert.equal(view(withSession(staff, { company: { firstName: 'Kim', lastName: 'Staff', home: '/de/en/lhghome' } }))[0][0], 'Kim Staff', href);
+    assert.equal(view(withSession(staff, { company: { name: 'Kim Staff', home: '/de/en/lhghome' } }))[0][0], 'Kim Staff', href);
   });
+});
+
+test('a session without a name: the Login item keeps its label', () => {
+  assert.equal(view(withSession(menu(), { company: { home: '/de/en/home' } }))[0][0], 'Login');
 });
 
 test('loadSession: the session JSON; any failure: null', async () => {
   globalThis.fetch = async (url) => {
     assert.equal(String(url), '/service/secured/api/b2bneo/session');
-    return new Response(JSON.stringify({ company: { firstName: 'A' }, experts: null }), { headers: { 'content-type': 'application/json' } });
+    return new Response(JSON.stringify({ company: { name: 'A' }, experts: null }), { headers: { 'content-type': 'application/json' } });
   };
-  assert.deepEqual(await loadSession(), { company: { firstName: 'A' }, experts: null });
+  assert.deepEqual(await loadSession(), { company: { name: 'A' }, experts: null });
   globalThis.fetch = async () => new Response('Not found', { status: 404 });
   assert.equal(await loadSession(), null);
   globalThis.fetch = async () => { throw new Error('offline'); };

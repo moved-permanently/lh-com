@@ -12,7 +12,7 @@
     ]
   },
   "contentPattern": {
-    "structure": "2 columns, label | value; every row optional. Type | staff (DESMON, home lhghome); Forgotten password | link; texts: User name label, Password label, Show password, Hide password, Forgotten password, Submit label, Invalid login, No rights, Backend error (English and German built in)."
+    "structure": "2 columns, label | value; every row optional. Type | staff (DESMON); Forgotten password | link; texts: User name label, Password label, Show password, Hide password, Forgotten password, Submit label, Invalid login, No rights, Backend error, Login failed (English and German built in)."
   },
   "options": [],
   "memberVariantIds": [],
