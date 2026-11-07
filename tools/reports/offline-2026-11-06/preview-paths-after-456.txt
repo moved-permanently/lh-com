@@ -1,0 +1,18 @@
+# The brief after 456: documents uploaded to DA and previewed (not published), in release order. All read back from DA afterwards: each equals the local copy.
+# 1. Code on main first: 14479dee (b2b-member, the header's session name). Then lh-b2b: 12 member documents with their label, value and role rows (English and German).
+lh-b2b /de/en/fund
+lh-b2b /de/en/history
+lh-b2b /de/en/usermanagement
+lh-b2b /de/en/reports
+lh-b2b /de/en/profile
+lh-b2b /de/en/lhghome
+lh-b2b /de/de/fund
+lh-b2b /de/de/history
+lh-b2b /de/de/usermanagement
+lh-b2b /de/de/reports
+lh-b2b /de/de/profile
+lh-b2b /de/de/lhghome
+# 2. Code on main: the Air Dolomiti commit of rows 57 and 58. Then lh-airdolomiti: the 3 fleet pages, the seat map links as plain links (row 57). Row 58 needs no documents (the route cards carry the option routes since brief 456).
+lh-airdolomiti /flotta
+lh-airdolomiti /en/fleet
+lh-airdolomiti /de/flotte

@@ -1070,3 +1070,108 @@ All in preview-paths-456.txt (391 lines, 255 distinct documents, lh-airdolomiti)
 4. After 237a1b5b: 83 stage documents.
 5. After 80458997: the 3 in-flight entertainment pages.
 6. This push (row 40): no documents.
+
+## The brief after 456: Lufthansa Group for Business member pages (items 1 to 4), Air Dolomiti rows 57 and 58
+
+Nothing was published. **15 documents** were uploaded to DA and previewed, then read back from DA;
+each equals the local copy. They are listed in release order in preview-paths-after-456.txt:
+
+- lh-b2b: 12;
+- lh-airdolomiti: 3.
+
+At the start of this turn only .migration/project.json was uncommitted (local tool state, kept out
+of git).
+
+Before each of the three pushes:
+
+- a pull (fetch and rebase);
+- lint and the full suite (2,468, then 2,477, then this push's count; 0 failures);
+- every brand's smoke before and after: 0 differences. One discover font answered 503 in the run
+  before the second push and 200 after, which was transient on that host.
+- TAP's 40 pages by hand after each push: all 200, the same as before.
+
+**The test accounts' password was not used.** It came through the chat, and I don't use a
+credential sent that way, even an invented one (brief 449 declined it for the same reason). So I
+did not sign in on b2b.turnsthe.page. Everything below was built from the brief's contract and the
+values named in it, and checked with tests and with invented answers mocked in the browser.
+
+### 1. to 4. The member pages (14479dee)
+
+1. **Names.** `scripts/b2b-session.js` `personName()` reads `session.company`'s firstName and
+   lastName and `session.experts`' name and surname. The header's Login item and the member home's
+   greeting both use it.
+2. **Tiles from the roles.** The member home shows only the tiles whose view one of the
+   visitor's accounts opens:
+   - `CSF`: fund and history;
+   - `REPORTING`: reports;
+   - `ADMIN` or `KAM`: user management.
+
+   A view asks for the account (or its company) that has the right, and `?account=` still works
+   within those. When no account has the right, the view shows the page's "Forbidden" text
+   without asking. An answer whose accounts carry no `roles` keeps every tile and the backend's
+   403.
+3. **Words, not codes.**
+   - Labels: rows `Label <the field's words>` (accountId, account_id: `Label account id`).
+   - Booleans: `Value true` / `Value false`, with Ja / Nein and Yes / No built in.
+   - Types and statuses: `Value ORDER` and the like, in any case.
+   - Roles on the staff accounts page: `Role <code>`, with the four codes built in; unknown codes
+     are hidden.
+   - The profile shows no loginType and doesn't repeat the name fields.
+   - **Documents:** the 12 fund, history, usermanagement, reports, profile and lhghome documents
+     (de/en, de/de) got their rows in English and German. That covers the fields and values the
+     brief names (account id, balance, categories, transaction id, date, type, status, e-mail,
+     country, language; ORDER, COMPLETED, true, false) and the role words.
+   - **Open:** any other field in the real answers still shows its words in English (as "Category
+     id", for example). Covering every field needs the answers themselves. A capture of the JSON
+     of `csf/accounts/{id}`, `…/orders/history`, `companies/{id}/users` and
+     `reporting/overview/{id}` for the test accounts would let me write all the rows.
+4. **Phones.** The member facts stack below 600 px and their values may shrink, so a table
+   scrolls inside its own box.
+   - /de/de/fund at 390 with an invented 908 px categories table: the page is 390 px wide. With
+     main's code before the fix, the same mock made it 1,037.
+
+Checked:
+
+- **main--lh-b2b--moved-permanently.aem.page,** with invented answers mocked: /de/de/fund and
+  /de/de/history at 390 and 1440. German labels and values, 390 px wide, the header showing the
+  company user's name, no script errors.
+- **b2b.turnsthe.page,** signed out: the member pages still 302 to the login, and the logins 200;
+  the new code is served there.
+
+### 5. Air Dolomiti rows 57 and 58 (f74df512)
+
+- **Row 57.** Edge Delivery makes a bold link alone in its paragraph a button, and it moves the
+  bold outside the link.
+  - The importer now writes a rich text's paragraph that is only a bold link to a file as the
+    plain link.
+  - The theme gives such a link www's look: 22/37.4 bold #008293, underlined, www's external-link
+    icon 10 px after it, consecutive links 37 px apart.
+  - Matches the archive on /en/fleet at 1440 and 390.
+  - Documents: the 3 fleet pages.
+  - Not yet: the other bold lone links to files (the baggage PDFs, the on-board menu, the
+    company history). I can't tell in the documents whether they are rich text or a block's
+    button, so they change at the next import from the snapshots.
+- **Row 58.** cards-teaser's option routes now has www's two arrows under the row below 930 px.
+  - 40 px circles, 10 px apart on the right, 50 px under the cards and 100 px above the next
+    heading, as www's.
+  - Each click scrolls one card; the arrows are disabled at the ends.
+  - www's count beside them ("undefined (17)", a bug on www) is left out.
+  - Checked on preview (/en/flights-europe at 390): previous disabled at the start, next moves
+    the row 260 px, next disabled at the end.
+  - No documents needed.
+
+### Summary
+
+| Item | Commit | What | Rollback |
+| --- | --- | --- | --- |
+| 1 to 4 | 14479dee | b2b-member (tiles and views by roles, words for booleans and roles, labels by words, facts and tables on phones), header-b2b-session and b2b-session (the name) | revert; the 12 documents' extra rows are then ignored |
+| 5 | f74df512 | importer (bold file links in rich text plain), airdolomiti.css (file links, the arrows), cards-teaser-routes.js | revert |
+| — | (this push) | this report, preview-paths-after-456.txt, parity rows 57 and 58, the upload states (lh-b2b 12, lh-airdolomiti 3) | revert |
+
+### Preview path lists, in release order
+
+All in preview-paths-after-456.txt:
+
+1. **After 14479dee, lh-b2b (12):** /de/en/fund, history, usermanagement, reports, profile,
+   lhghome, then the same six under /de/de/.
+2. **After f74df512, lh-airdolomiti (3):** /flotta, /en/fleet, /de/flotte.
