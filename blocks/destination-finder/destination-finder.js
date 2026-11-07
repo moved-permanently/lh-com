@@ -347,8 +347,9 @@ const DEFAULT_LABELS = {
  * The trip type announcement (www's text
  * fareteaserdynamicevo.fullApp.offers.selectionAnnouncementTripType, a polite live region after
  * the chips; brief 447): www's English and French (Brussels' fr/fr, brussels-parity-003), German,
- * Spanish, Italian and Dutch (Brussels' Studio captures, brief 448); pt, el, ja, ru, zh, pl and ko
- * ours until a capture has www's. {TRIPTYPE}: the chosen
+ * Spanish, Italian and Dutch (Brussels' Studio captures, brief 448), Portuguese, Russian, Chinese,
+ * Greek, Japanese, Korean and Polish (lufthansa.com's rendered live region with the chip's label as
+ * {TRIPTYPE}, lh-snapshots-001 to -056, brief 452): every language www's. {TRIPTYPE}: the chosen
  * chip's label.
  */
 export const SELECTION_ANNOUNCEMENTS = {
@@ -358,13 +359,13 @@ export const SELECTION_ANNOUNCEMENTS = {
   it: 'Sono visualizzate le offerte per {TRIPTYPE}',
   es: 'Se muestran {TRIPTYPE} ofertas',
   nl: 'Er worden {TRIPTYPE} aanbiedingen weergegeven',
-  pt: 'São apresentadas as ofertas para {TRIPTYPE}',
-  el: 'Εμφανίζονται προσφορές για {TRIPTYPE}',
-  ja: '{TRIPTYPE}の運賃を表示しています',
-  ru: 'Показаны предложения: {TRIPTYPE}',
-  zh: '正在显示{TRIPTYPE}的优惠',
-  pl: 'Wyświetlane są oferty: {TRIPTYPE}',
-  ko: '{TRIPTYPE} 특가가 표시됩니다',
+  pt: '{TRIPTYPE} ofertas são mostradas',
+  el: 'Εμφανίζονται {TRIPTYPE} προσφορές',
+  ja: '{TRIPTYPE}のオファーを表示しています',
+  ru: 'Показано предложений: {TRIPTYPE}',
+  zh: '{TRIPTYPE} 优惠已显示',
+  pl: 'Wyświetlono oferty: {TRIPTYPE}',
+  ko: '{TRIPTYPE} 특가 표시됨',
 };
 
 /** The announcement's text for a trip type's label; none without a text. */

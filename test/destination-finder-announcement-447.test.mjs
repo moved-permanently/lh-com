@@ -5,9 +5,9 @@
    fareteaserdynamicevo.fullApp.offers.selectionAnnouncementTripType with the chosen chip's label;
    English "{TRIPTYPE} offers are displayed"). The block renders it after its chips with the
    current trip type and updates it once the list for a newly chosen trip type is shown. www's
-   wording for English, French, German, Spanish, Italian and Dutch (brief 448: Brussels' captures);
-   pt, el, ja, ru, zh, pl and ko ours until a capture has www's; a block row "Selection
-   announcement" wins.
+   wording for English, French, German, Spanish, Italian and Dutch (brief 448: Brussels' captures)
+   and for pt, ru, zh, el, ja, ko and pl (brief 452: lufthansa.com's rendered live region); a block
+   row "Selection announcement" wins.
    Run: node --max-old-space-size=256 --test test/destination-finder-announcement-447.test.mjs */
 /* global globalThis */
 import test from 'node:test';
@@ -36,6 +36,16 @@ test('www\'s texts in English and French, one for every language the finder has 
   assert.equal(SELECTION_ANNOUNCEMENTS.es, 'Se muestran {TRIPTYPE} ofertas');
   assert.equal(SELECTION_ANNOUNCEMENTS.it, 'Sono visualizzate le offerte per {TRIPTYPE}');
   assert.equal(SELECTION_ANNOUNCEMENTS.nl, 'Er worden {TRIPTYPE} aanbiedingen weergegeven');
+  // brief 452: lufthansa.com's captures (lh-snapshots-001, -006, -019, -039, -046, -051, -056) carry
+  // no label bundle (their scripts removed), but the rendered live region: its text with the
+  // checked chip's label as {TRIPTYPE}
+  assert.equal(SELECTION_ANNOUNCEMENTS.pt, '{TRIPTYPE} ofertas são mostradas');
+  assert.equal(SELECTION_ANNOUNCEMENTS.ru, 'Показано предложений: {TRIPTYPE}');
+  assert.equal(SELECTION_ANNOUNCEMENTS.zh, '{TRIPTYPE} 优惠已显示');
+  assert.equal(SELECTION_ANNOUNCEMENTS.el, 'Εμφανίζονται {TRIPTYPE} προσφορές');
+  assert.equal(SELECTION_ANNOUNCEMENTS.ja, '{TRIPTYPE}のオファーを表示しています');
+  assert.equal(SELECTION_ANNOUNCEMENTS.ko, '{TRIPTYPE} 특가 표시됨');
+  assert.equal(SELECTION_ANNOUNCEMENTS.pl, 'Wyświetlono oferty: {TRIPTYPE}');
   assert.deepEqual(Object.keys(SELECTION_ANNOUNCEMENTS).sort(), ['de', 'el', 'en', 'es', 'fr', 'it', 'ja', 'ko', 'nl', 'pl', 'pt', 'ru', 'zh']);
   Object.values(SELECTION_ANNOUNCEMENTS).forEach((t) => assert.ok(t.includes('{TRIPTYPE}'), t));
 });
