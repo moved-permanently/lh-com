@@ -679,3 +679,96 @@ before and after, SWISS's and TAP's hosts by hand; upload and preview only, noth
 | 2 | 137bbb0 | the message center in a sidebar's content column; 11 documents | revert; DA's earlier versions |
 | 3 | 6b596e5 | magazine article galleries as www's | `git revert 6b596e5` |
 | 4 | 53034eb | withTeaserTexts; onboard catering en and A350 de | revert; DA's earlier versions |
+
+## Brief 453 (your 452's follow-up: SWISS chat link, magazine landings at 390, fresh stages)
+
+(My last section was headed "Brief 455"; it was your brief 452.)
+
+Same rules: tests first, brand-scoped CSS, lint and the full suite before the push, the smoke of
+every brand before and after it, SWISS's and TAP's hosts by hand; upload and preview only, nothing
+published.
+
+- One code push, after a pull: `1bcb579..ed9be02`. Your 0db5ce5 (the pinned stages' spacer) was
+  already on main below my commits.
+- The smoke after was the same as before on every brand.
+
+### 1. The chat assistant link (done, 831a324, 8a92580)
+
+- Cause: my brief 445 step (withSwissAccordions, current information's imported accordion) made
+  every www link relative. That turned www's
+  `https://www.swiss.com/digitalassistant/webchat.html` into `/digitalassistant/webchat.html`,
+  which answers 404 on swiss.turnsthe.page, on 8 pages: ch/el, es, it, ja, pt, ru, zh and kr/ko.
+- Fix (swiss-sidebar.mjs `wwwHref`):
+  - a www link stays relative only when the replica serves its path (`<cc>/<ll>`, /magazine,
+    /corporate, /medicalservices);
+  - www's AEM path `/content/lx/markets/<cc>/<ll>/…` becomes the page's own path;
+  - every other www link stays on www.swiss.com, also when www wrote it relative;
+  - withTeaserTexts' button links go through the same rule.
+- Other www-only paths the import makes relative: none. I checked every relative link in the
+  SWISS documents (DA's originals and all my uploads since) against swiss.turnsthe.page:
+  /deeplink, /corporate, /medicalservices and /content/dam answer 200, /content/lx/markets
+  301s to the page, and only /digitalassistant answered 404.
+- da-upload refused the 8 documents: its check that a local copy doesn't take back to www a link
+  DA has relative did its job. It now has an option `--keep-www <path prefix,…>`: the given
+  prefixes are left out of the check. Without the option it works as before.
+- The 8 pages were rebuilt (DA's copies were exactly as I'd uploaded them; no word lost), then
+  uploaded and previewed with `--keep-www /digitalassistant/`.
+- On the preview, all 8 now link `https://www.swiss.com/digitalassistant/webchat.html`. Their
+  login links went from `/content/lx/markets/ch/en/profile/login…` to `/ch/en/profile/login…`.
+
+### 2. inside-swiss and travel at 390 (cause found; the fix is your decision)
+
+- The main cause is www's advertisement slots. My brief 400 magazine design leaves them out.
+  - On www each slot is a grid cell (`col-12 col-md-6 has-ad`).
+  - At 1440 a slot sits in a card's place, so the heights match (0.99).
+  - At 390 each slot is a row of its own, about 380 to 460 px.
+  - travel has 2 such rows, inside-swiss 3.
+- The rest comes from two things:
+  - each card is about 12 px shorter than www's;
+  - the card lists differ: on travel, www shows Florence where ours shows Bologna. That is
+    content, not layout.
+- Options:
+  - keep the slots out, as now (www's own grey "Advertisement" placeholder only shows while no ad
+    loads);
+  - or reserve their space on phones with an empty slot.
+- Nothing changed yet.
+
+### 3. Stages from the fresh capture (done, ed9be02 and documents)
+
+- swiss-snapshots-046 (2026-11-07, all 22 pages captured: A350 and onboard catering in the 11
+  language versions) is in logs/b453/snap046.
+- Both pages were rebuilt in every language from DA's current copies, as for ch/de and ch/en:
+  www's stage heights and pins (withPinnedTeasers) and their texts and buttons (withTeaserTexts).
+  20 documents changed; ch/de A350 and ch/en onboard catering were already right. No word lost.
+- Fix along the way: ch/es and ch/ru write `Airbus&nbsp;A350-900`, so withPinnedTeasers now
+  reads www's headings as text.
+- Preview at 1440: ch/fr A350 8,324 px and ch/ja 8,308 (www's ch/de 8,283); onboard catering
+  ch/de 4,344 and ch/it 4,317 (www's ch/en 4,473).
+
+### 4. Next largest (done, 2a26e44, 97de029)
+
+- Booking lookup fields as www's maui-input: a 50 px box, #f2f2f2 with a 1 px warm grey border,
+  the label inside, 20 px to the next field, 250 px wide from 1025 px. The check-in hints are
+  untracked, so they break over two lines as on www. Applies to online check-in and manage
+  bookings.
+  - The culinary journey form is a micro-frontend, not this block, so its 1.09 at 390 stays.
+- Paragraphs 20 px apart, as www's `.richtext p` on all 60 parity pages (lh-com's are 24 px).
+  - Travel insurances: 1.09 -> 1.08 at 390.
+  - Locally with both changes: 20 page widths nearer www's height and 17 a little further (1 to 2
+    percent, all pages already shorter than www's for other reasons).
+- Still more than 5 % off (33 widths): the rows listed in briefs 445 and 450, plus the magazine
+  ads above.
+
+### Documents
+
+- lh-swiss: 28 uploaded and previewed, 0 problems, nothing published. In release order (the code
+  is on main): [../swiss/preview-paths-453.txt](../swiss/preview-paths-453.txt).
+  - The 8 current information pages first; they can be released now.
+  - Then the 20 stage pages.
+
+| Item | Commit | What | Rollback |
+| --- | --- | --- | --- |
+| 1 | 831a324, 8a92580 | wwwHref (www-only paths absolute); da-upload --keep-www; 8 documents | revert each; DA's earlier versions (logs/b453/da) |
+| 2 | — | cause: www's ad slots at 390 (decision pending) | — |
+| 3 | ed9be02 | stage headings as text; 20 documents from swiss-snapshots-046 | revert; DA's earlier versions |
+| 4 | 2a26e44, 97de029 | booking lookup fields as www's; paragraphs 20 px apart | revert each |
