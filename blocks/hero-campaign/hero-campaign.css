@@ -917,3 +917,26 @@ body.brand-cargo .hero-campaign.slider .hero-campaign-next {
     left: 79px;
   }
 }
+
+/* option pinned (www.swiss.com's .inspiration-teaser-animation stages, the A350 and SWISS Senses
+   pages; GSAP pins them): the stage stays at the top of the window while the page scrolls on by
+   half of the window's and the stage's height together (www's pin spacers: 810 px + 855 px at a
+   900 px window), then goes on with the page */
+.hero-campaign-wrapper:has(> .hero-campaign.pinned) {
+  --hero-campaign-stage: 810px;
+
+  padding-bottom: calc((100vh + var(--hero-campaign-stage)) / 2);
+}
+
+.hero-campaign-wrapper:has(> .hero-campaign.pinned.narrow) {
+  --hero-campaign-stage: 350px;
+}
+
+.hero-campaign-wrapper:has(> .hero-campaign.pinned.regular) {
+  --hero-campaign-stage: 640px;
+}
+
+.hero-campaign.pinned {
+  position: sticky;
+  top: 0;
+}

@@ -29,7 +29,8 @@
  * - the check-in form with www's first name and field hints (withCheckinFields, brief 445);
  * - the cards' link rows with www's link texts (withCardLinks), www's icon teasers the cards'
  *   option usp (withUspTeasers, brief 445), www's two-column teaser views two-up
- *   (withTwoUpCards, brief 450);
+ *   (withTwoUpCards, brief 450), www's teaser heights and pinned
+ *   stages (withPinnedTeasers, brief 450);
  * - metadata (withItaMetadata): the root's nav and footer, `markets` (scope.json), www's noindex;
  * - a path Edge Delivery refuses (capitals, "&", double, leading or trailing hyphens) becomes its
  *   document name (docName) and a row of content-sites/lh-swiss/runs/redirects.tsv;
@@ -369,6 +370,38 @@ export function withTwoUpCards(doc, html) {
     if (!heads || !views.includes(heads)) return m;
     made += 1;
     return `<div class="carousel-cards grid${opts || ''} two-up">`;
+  });
+  return { doc: out, made };
+}
+
+/**
+ * www's inspiration teasers as the page has them now (brief 450): each one's height (tall: no
+ * option, inspiration-teaser-narrow, -regular) and, for an animated one (.inspiration-teaser-
+ * animation: pinned at the top while the page scrolls on, www.swiss.com's A350 and SWISS Senses),
+ * the hero-campaign option pinned. Blocks matched by their heading; others as they are.
+ * @returns {{doc: string, made: number}}
+ */
+export function withPinnedTeasers(doc, html) {
+  const t = (s) => s.replace(/<[^>]+>/g, '').replace(/&#8203;|\u200B/g, '').replace(/&amp;/g, '&').replace(/\s+/g, ' ')
+    .trim();
+  const teasers = new Map([...parseHTML(html).document.querySelectorAll('.cms-inspiration-teaser')].map((el) => {
+    const h = el.querySelector('h1, h2, h3');
+    const height = ['narrow', 'regular'].find((x) => el.classList.contains(`inspiration-teaser-${x}`)) || '';
+    return [h ? t(h.innerHTML) : '', { height, pinned: el.classList.contains('inspiration-teaser-animation') }];
+  }).filter(([title]) => title));
+  if (!teasers.size) return { doc, made: 0 };
+  let made = 0;
+  const out = doc.replace(/<div class="hero-campaign( [^"]*)?">/g, (m, opts, at) => {
+    const block = doc.slice(at, divEnd(doc, at));
+    const h = block.match(/<h[1-3][^>]*>([\s\S]*?)<\/h[1-3]>/);
+    const www = h && teasers.get(t(h[1]));
+    if (!www) return m;
+    const names = (opts || '').trim().split(/\s+/).filter((x) => x && !['narrow', 'regular', 'pinned'].includes(x));
+    if (www.height) names.push(www.height);
+    if (www.pinned) names.push('pinned');
+    const next = `<div class="hero-campaign${names.length ? ` ${names.join(' ')}` : ''}">`;
+    if (next !== m) made += 1;
+    return next;
   });
   return { doc: out, made };
 }
@@ -1002,7 +1035,7 @@ if (isMain) {
       const snapHtml = fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8');
       // www's sidebar component (airem-sidebar) as the content beside a sidebar-aside section (swiss-sidebar.mjs)
       // (www's accordions the import wrote as text first: the sidebar's content can end with one)
-      const next = withSwissSidebar(withSwissAccordions(withTwoUpCards(withUspTeasers(withCardLinks(splitTabSections(withFlightSearchTeaser(withFlightSearchVideo(withHeroVideo(withItaMetadata(withCheckinFields(withCheckinHandoff(withFlightSearch(withPageLanguageMessages(withItaForm(doc, p, snapHtml), p), p), p), snapHtml), p, snapHtml, markets), snapHtml), snapHtml), snapHtml)), snapHtml).doc, snapHtml).doc, snapHtml).doc, snapHtml).doc, snapHtml).doc;
+      const next = withSwissSidebar(withSwissAccordions(withPinnedTeasers(withTwoUpCards(withUspTeasers(withCardLinks(splitTabSections(withFlightSearchTeaser(withFlightSearchVideo(withHeroVideo(withItaMetadata(withCheckinFields(withCheckinHandoff(withFlightSearch(withPageLanguageMessages(withItaForm(doc, p, snapHtml), p), p), p), snapHtml), p, snapHtml, markets), snapHtml), snapHtml), snapHtml)), snapHtml).doc, snapHtml).doc, snapHtml).doc, snapHtml).doc, snapHtml).doc, snapHtml).doc;
       if (next !== doc) fs.writeFileSync(f, next);
     });
     const mapOnly = path.join(W, 'runs', `${name}-upload.txt`);
