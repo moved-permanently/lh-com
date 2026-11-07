@@ -1,0 +1,19 @@
+# lh-tap: the market-diff import of 2026-11-07 (brief 462), in release order. Nothing is published yet.
+# Uploaded to DA (moved-permanently/lh-tap) and previewed on main--lh-tap--moved-permanently.aem.page.
+#
+# Media: none new. Every picture these documents reference is already in DA's media-da/tap
+# (checked with GET on admin.da.live/source); no fragment documents.
+#
+# Left out, for TAP's media archive: the picture of the US American Express card on the three
+# miles-and-go promotions pages (dm-aid--23792432-d801-4de2-872c-de1c36b5e0ff,
+# lp_cardless_generic_card_1280x7202.jpg); the card is in with its text and link, without a picture.
+#
+# Pages
+/pt-pt/reservas/modalidades-de-pagamento
+/en-pt/promos
+/pt-pt/promos
+/es-es/promos
+/fr-fr/promos
+/en-pt/miles-and-go/promotions
+/es-es/miles-and-go/promociones
+/pt-pt/miles-and-go/promocoes
