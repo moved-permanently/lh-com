@@ -116,3 +116,7 @@ test('the pills: one row 70px under the box, 8px apart, centred, scrolling sidew
   assert.match(icon, /height: 28px;/);
   assert.match(body(`${S} .hero-card-overlay-card > ul > li a::after`), /inset: 0;/);
 });
+
+test('an item\'s paragraphs (DA wraps the link and the icon in one each: the pill 88px high on preview) add nothing to the pill', () => {
+  assert.match(body(`${S} .hero-card-overlay-card > ul > li > p`), /display: contents;/);
+});

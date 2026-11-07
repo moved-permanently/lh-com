@@ -2346,6 +2346,12 @@ body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-ov
   white-space: nowrap;
 }
 
+/* (DA keeps an item's link and icon in a paragraph each: they are the pill's own) */
+/* stylelint-disable-next-line no-descending-specificity -- the stage pills' paragraphs, not the stage's text (above) */
+body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination .hero-card-overlay-card > ul > li > p {
+  display: contents;
+}
+
 /* stylelint-disable-next-line no-descending-specificity -- the stage's pills, not the cards' items (above) */
 body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination .hero-card-overlay-card > ul > li:hover {
   color: #05164d;
@@ -2710,6 +2716,55 @@ body.brand-airdolomiti .cards-teaser.three-up.routes .cards-teaser-cta-link::bef
 @media (width >= 1230px) {
   body.brand-airdolomiti .cards-teaser.three-up.routes > ul {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/*
+ * the lead with its picture (columns-media, option news: www's DescritionNews, the in-flight
+ * entertainment pages; brief 456): the picture across the page (600px high, a 10px radius), 50px
+ * under it the text, from 930px in a centred column of 50vw; its title 28.08px / 36px navy 25px
+ * above the text, the text 19.44px / 33px grey
+ */
+/* stylelint-disable-next-line no-descending-specificity -- the lead's row, not the help card's (above) */
+body.brand-airdolomiti .columns-media.news .columns-media-row {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+body.brand-airdolomiti .columns-media.news .columns-media-row > .columns-media-media {
+  margin: 0 0 50px;
+}
+
+body.brand-airdolomiti .columns-media.news .columns-media-media :is(picture, img) {
+  display: block;
+  width: 100%;
+  height: 600px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- the lead's title, not the help card's (above) */
+body.brand-airdolomiti .columns-media.news .columns-media-text h3 {
+  margin: 0 0 25px;
+  color: #05164d;
+  font-family: var(--body-font-family);
+  font-size: 28.08px;
+  font-weight: 400;
+  line-height: 36px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- the lead's text, not the promo cards' (above) */
+body.brand-airdolomiti .columns-media.news .columns-media-text p {
+  max-width: none;
+  margin: 0;
+  color: #494949;
+  font-size: 19.44px;
+  line-height: 33px;
+}
+
+@media (width >= 930px) {
+  body.brand-airdolomiti .columns-media.news .columns-media-text {
+    width: 50vw;
+    margin-inline: auto;
   }
 }
 

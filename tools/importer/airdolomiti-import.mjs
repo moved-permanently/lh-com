@@ -975,7 +975,9 @@ const HANDLERS = {
   'lazyblock/description-news': (a, page) => {
     const text = `${a.subtitle ? page.heading('h3', a.subtitle) : ''}${rich(a.description, page)}${a.urlBtn ? page.link(a.urlBtn, a.textBtn, 'primary') : ''}`;
     const im = page.img(a.backgroundImage);
-    if (im) page.block('columns-media', [[im, text]]);
+    // with its picture, www's DescritionNews: the picture across the page, the text under it (the
+    // theme's option news; brief 456)
+    if (im) page.block('columns-media (news)', [[im, text]]);
     else page.add(text);
   },
   'lazyblock/half-page': (a, page, b) => {
