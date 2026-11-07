@@ -1477,3 +1477,35 @@ Results:
 ### Preview path list, in release order
 
 preview-paths-after-467.txt (26): after efcdc94b, the 26 lh-b2b pages.
+
+
+## The brief after 470: the parity sweep of Air Dolomiti, Cargo, Discover, Group for Business and ITA
+
+Nothing was published, and nothing was requested from the live sites.
+
+- **The sweep:** tools/reports/parity-2026-11-08/sweep-brands.md, 252 page widths (126 pages at 1440 and 390),
+  worst first, with causes.
+- **The captures' integrity:**
+  - Air Dolomiti's .sha256 sidecar matches.
+  - The other four sidecar URLs answer a 404 page; their archive hashes are listed in the sweep.
+  - Every file in each assets.json matches its sha256, and no listed page file is missing.
+- **The documents:** 8 uploaded to DA and previewed, listed in release order in
+  tools/reports/parity-2026-11-08/preview-paths-sweep.txt.
+
+At the start of this turn only .migration/project.json was uncommitted (local tool state, kept out of git).
+
+Before each of the two pushes:
+
+- a pull (fetch and rebase);
+- lint and the full suite (2,575 tests at the first push; 0 failures);
+- every brand's smoke before and after: 0 differences, except lufthansa.turnsthe.page's
+  apple-app-site-association (503 before, 200 JSON after; lh-edge's route, not touched here);
+- TAP's 40 pages by hand: all 200, the same before and after.
+
+| Item | Commit | What | Rollback |
+| --- | --- | --- | --- |
+| Discover rows 30, 31 | f43d5ef1 | tab sets closed on phones (scripts/section-tabs.js, brand discover); two-up teaser rows 80 px apart (discover.css); tests | revert |
+| Cargo rows 30 to 32 | 2cae04ff | boxed cards as lcagCard; section navy and CF8's columns (cargo.css); cargo-import.mjs: the video heading, CF8 with a video, blue-background as navy; tests | revert; DA's copies of the 4 documents backed up outside git |
+| Cargo row 33 | (document) | German story 142 re-imported | DA's copy backed up |
+| Air Dolomiti rows 59, 60 | 421ee7dc | a heading's picture before the heading (airdolomiti-import.mjs); the timetable widget placed as WidgetFullPage (flight-timetable.css); tests | revert; DA's copies of the 4 posts backed up |
+| — | (this push) | sweep-brands.md, preview-paths-sweep.txt, the parity rows (Cargo 30 to 33, Discover 30, 31, Air Dolomiti 59, 60), this section, the lh-cargo and lh-airdolomiti upload state | revert |

@@ -1,0 +1,11 @@
+# The sweep after brief 470 (2026-11-08): documents uploaded to DA and previewed, not published. Publish after the code of f43d5ef1, 2cae04ff and 421ee7dc (on main), in this order
+# 1. lh-cargo (Cargo rows 31 to 33): needs 2cae04ff (section navy, CF8 columns)
+/en/ebooking-info
+/de/ebooking-info
+/en/eservices-app
+/de/news/142-arktische-temperaturen-an-bord
+# 2. lh-airdolomiti (Air Dolomiti row 59)
+/articoli/avgeek/dentro-il-cockpit-di-un-aereo-air-dolomiti
+/articoli/destinazioni/dove-ladriatico-si-fa-selvaggio
+/en/articles/destinations/where-the-adriatic-becomes-wild
+/de/artikel/reiseziele/die-wilde-seite-der-adria
