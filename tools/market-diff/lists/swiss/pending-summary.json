@@ -1,0 +1,12 @@
+{
+ "pairs": 42140,
+ "done": 5935,
+ "pending": 36205,
+ "doneButNotSame": {
+  "differs/widget": 500,
+  "differs/links": 411,
+  "differs/content": 9,
+  "differs/attributes": 2,
+  "differs/meta": 2
+ }
+}

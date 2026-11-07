@@ -1,0 +1,86 @@
+# tools/market-diff
+
+Compares every www page of a market root (`/ch/de/...`, TAP: `/en-us/...`) with the same page of its language version
+(`/de/de/...`, `/en-pt/...`) and lists what the replica has to import as the root's own content. Our replica answers a market
+root's page from the language version's document unless the root has its own document or a section of the version
+document carries `markets` for it; where www's root page differs (a local phone number, prices in local currency, a legal
+paragraph), the replica shows the version's text until the root's content is imported.
+
+Each tool has its usage in its header. All of them are Node scripts (ES modules).
+
+## Setup
+
+- `npm ci` in the repository root installs `linkedom` and `playwright-core` (root devDependencies); this folder's
+  `package.json` names the same two.
+- A browser for `md-fetch.mjs`: `npx playwright install chromium` (Playwright's own Chromium), or pass `--chrome <path>`
+  (or set `MD_CHROME`) for an installed Chrome or Chromium. On Linux without a display the browser runs headless by itself;
+  `--headless` forces it anywhere.
+- Run folders go under `tools/market-diff/runs/` (gitignored): fetched page bodies, `fetch.jsonl`, `fetch.log` and the
+  browser profile never go into git.
+
+## Airlines
+
+| key | host | warm-up page | profile | replica | language versions |
+| --- | --- | --- | --- | --- | --- |
+| lh | www.lufthansa.com | /de/en/homepage | aem-html | https://lufthansa.turnsthe.page | de/en, de/de, xx/&lt;ll&gt; (asked by the long path `/content/lh/markets/xx/<ll>/...`) |
+| swiss | www.swiss.com | /ch/en/homepage | aem-html | https://swiss.turnsthe.page | ch/&lt;ll&gt; |
+| b2b | business.lufthansagroup.com | /de/en/homepage | aem-html | https://b2b.turnsthe.page | de/en, de/de; rest of world xx/en, xx/de |
+| ita | www.ita-airways.com | /it/en/homepage | aem-html | https://ita.turnsthe.page | it/en, it/it, fr/fr, es/es, de/de, nl/nl, br/pt, gr/el, jp/ja |
+| tap | www.flytap.com | /en-pt | tap-next | https://tap.turnsthe.page | pt-pt, en-pt, es-es, fr-fr, de-de, it-it, pl-pl, pt-br |
+
+Austrian, Brussels and Discover are compared already; Cargo and Air Dolomiti have no market roots.
+
+## Lists (`lists/<key>/`)
+
+Built from the pair lists of 2026-11-07 and what a first fetch run had already read (`md-pending.mjs`):
+
+- `pairs-pending.tsv.gz`: the pairs still to compare (root, version, root_path, version_path, rest, source). It holds every
+  pair that run had not read in full, plus the pairs it had read whose comparison was not "same", so that a new run fetches
+  their pages again and its report and import cover them. The pairs that run found the same are left out
+  (`pending-summary.json`: `done`).
+- `urls-pilot.txt`: the first 100 paths of that list in fetch order, for a first look at a host.
+- `pairs-summary.json`, `not-served.tsv.gz`: the pair list's counts and the www pages of market roots that our replica
+  does not serve at all (for the report).
+
+`md-order.mjs` turns `pairs-pending.tsv.gz` into the fetch list (each version page, then its roots; service pages first,
+short codes next, editorial pages last). Every tool that reads a list reads `.gz` files directly.
+
+## Steps for one airline (`A` = key, values from the table)
+
+```
+cd tools/market-diff
+# pilot: 100 pages, then a status line (answered, blocked, the first block's status and title)
+bash bin/md-run.sh runs/A HOST WARM 500 lists/A/urls-pilot.txt
+node bin/md-status.mjs --run runs/A --urls lists/A/urls-pilot.txt
+# full fetch (same run folder: what the pilot read is skipped)
+node bin/md-order.mjs --pairs lists/A/pairs-pending.tsv.gz --out runs/A-urls.txt
+bash bin/md-run.sh runs/A HOST WARM 500 runs/A-urls.txt
+# compare, check the differing pairs against our replica, report
+node bin/md-compare.mjs --pairs lists/A/pairs-pending.tsv.gz --fetch runs/A --out runs/A-compare --host HOST --profile PROFILE
+node bin/md-replica-check.mjs --results runs/A-compare --fetch runs/A --replica REPLICA --host HOST --profile PROFILE
+node bin/md-report.mjs --airline 'NAME' --runs runs/A-compare --out ../reports/market-diff/A \
+  --pairs-summary lists/A/pairs-summary.json --not-served lists/A/not-served.tsv.gz --summary ../reports/market-diff/A/summary.md
+# check of the normaliser on pairs of this run (exit 0: every planted change found, no noise flagged)
+node bin/md-selftest.mjs --pairs lists/A/pairs-pending.tsv.gz --fetch runs/A --host HOST --profile PROFILE --max 15
+```
+
+`md-run.sh` runs one stream per host (a second start on the same host exits 6); streams on different hosts may run side
+by side. It asks one page at a time, 500 ms start to start (2 pages a second), inside a browser tab that has opened the
+host's warm-up page (same-origin `fetch` of the raw server HTML; no rendering). It stops at the first block: a Cloudflare
+challenge page ("Just a moment"), a `cf-mitigated` header, 429 or any 403. Exit codes: 0 done, 2 stopped by a `STOP`
+file in the run folder or a limit, 3 blocked, 4 the warm-up page is blocked, 5 the warm-up page failed without a block
+(network, timeout), 6 another stream holds the host. A stopped run resumes where it stopped (`fetch.jsonl`).
+
+## What the classes mean
+
+`lib/verdict.mjs`, first match wins: `differs/content` (text or images differ: import or fix), `differs/meta` (title or
+description), `differs/widget` (a widget's settings or an app widget on one side only: review, usually import),
+`differs/version-missing` (www has the root page but no version page), `differs/links` (a link target differs: import when
+a phone, mail or external link differs), `differs/attributes` (alt texts, tooltips, form values: review), `same/*`
+(nothing to do), `missing/*` (www redirects or lacks the root page: a separate decision), `unknown/*` (no verdict yet).
+The normaliser drops what the replica re-creates or what changes per request: links into the root's own tree and into
+other market roots, ids, tracking attributes, market codes in widget settings, date formats, markup around the same text.
+
+`md-report.mjs` groups the roots of each version page by their content: `own document` (one root differs),
+`one document with markets` (several roots show the same variant), `version-local` (most roots agree with each other and
+differ from the version: the version carries its home market's content).

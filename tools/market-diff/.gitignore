@@ -1,0 +1,8 @@
+# fetched pages, browser profiles and logs stay out of git (runs/ is the default place for run folders)
+runs/
+node_modules/
+bodies/
+chrome-profile/
+chrome-profile-render/
+fetch.jsonl
+fetch.log

@@ -1,0 +1,11 @@
+{
+ "pairs": 14857,
+ "done": 9056,
+ "pending": 5801,
+ "doneButNotSame": {
+  "missing/root-redirect": 268,
+  "differs/links": 3,
+  "unknown/version-redirect": 237,
+  "differs/content": 766
+ }
+}

@@ -1,0 +1,17 @@
+{
+ "www": 53754,
+ "marketRootUrls": 53754,
+ "leftOut": 0,
+ "own": 96,
+ "languageOnly": 185,
+ "pairs": 53473,
+ "notServed": 0,
+ "bySource": {
+  "version": 45640,
+  "rest-of-world": 7833
+ },
+ "versionPages": 583,
+ "rootPages": 53473,
+ "requests": 54056,
+ "roots": 185
+}

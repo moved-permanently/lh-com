@@ -1,0 +1,15 @@
+{
+ "pairs": 205068,
+ "done": 31589,
+ "pending": 173479,
+ "doneButNotSame": {
+  "differs/links": 164,
+  "differs/content": 1222,
+  "differs/widget": 308,
+  "missing/root-redirect": 1124,
+  "missing/both-missing": 387,
+  "differs/meta": 3,
+  "differs/attributes": 9,
+  "missing/root-not-found": 3
+ }
+}

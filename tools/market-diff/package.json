@@ -1,0 +1,10 @@
+{
+  "name": "market-diff",
+  "private": true,
+  "type": "module",
+  "description": "Compares the www pages of market roots with their language versions (tools/market-diff/README.md)",
+  "dependencies": {
+    "linkedom": "^0.18.14",
+    "playwright-core": "1.58.2"
+  }
+}

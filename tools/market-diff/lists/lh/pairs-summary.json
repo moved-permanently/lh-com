@@ -1,0 +1,18 @@
+{
+ "www": 230171,
+ "marketRootUrls": 220098,
+ "leftOut": 10158,
+ "own": 272,
+ "languageOnly": 0,
+ "pairs": 205068,
+ "notServed": 4600,
+ "bySource": {
+  "version": 204589,
+  "neutral": 399,
+  "donor": 80
+ },
+ "versionPages": 5444,
+ "rootPages": 205068,
+ "requests": 210512,
+ "roots": 236
+}

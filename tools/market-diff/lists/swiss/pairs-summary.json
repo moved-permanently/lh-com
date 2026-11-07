@@ -1,0 +1,17 @@
+{
+ "www": 49807,
+ "marketRootUrls": 47366,
+ "leftOut": 4666,
+ "own": 117,
+ "languageOnly": 216,
+ "pairs": 42140,
+ "notServed": 227,
+ "bySource": {
+  "version": 41907,
+  "donor": 233
+ },
+ "versionPages": 1968,
+ "rootPages": 42140,
+ "requests": 44108,
+ "roots": 216
+}
