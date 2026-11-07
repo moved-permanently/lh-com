@@ -1278,3 +1278,102 @@ preview-paths-after-461.txt:
 
 1. 5205a1f3: no documents.
 2. After 78c330d8: /articoli, /en/articles, /de/artikel, /orario-voli.
+
+## The brief after 463: Lufthansa Group for Business, the German member views and the airlines' h1
+
+Nothing was published. **33 documents in lh-b2b** were uploaded to DA and previewed, then read back
+from DA; each equals the local copy. They are listed in release order in
+preview-paths-after-463.txt:
+
+- 10 member pages;
+- 23 airlines-at-a-glance pages.
+
+At the start of this turn only .migration/project.json was uncommitted (local tool state, kept out
+of git).
+
+Before each of the three pushes:
+
+- a pull (fetch and rebase);
+- lint and the full suite (2,526, then 2,538, then this push's count; 0 failures);
+- every brand's smoke before and after: 0 differences;
+- TAP's 40 pages by hand after each push: all 200, the same as before.
+
+The answers archive (b2b-member-answers-001.tar.gz) matched the brief's sha256 and its `.sha256`.
+It was unpacked into its own folder; nothing in it was run. Only its JSON answers are in git, as
+test fixtures; its README, which names the test password, is not.
+
+### 1. The German member views (cd7152a6; 10 documents)
+
+- **Code:** an answer's `roles` field (the users' role codes) now shows role words: rows
+  `Role <code>`, with built-in words, and codes without words are left out. BOOKER is built in
+  ("Booking", "Buchung"), and KAM is German on de/de ("Kundenbetreuung").
+- **The rows:** tools/importer/lh-b2b-member-rows.json holds the rows in English and German for
+  every field and code value of the recorded answers (fund, history, users, reports, profile, the
+  accounts page), and the documents are written from it.
+  - fund: Konto-ID, Guthaben, Betrag, Währung, Gültig bis, Kategorien, Name, Verfügbar; the
+    category ids hidden (`Hide | categoryId`).
+  - history: Konto-ID, Transaktionen, Transaktions-ID, Datum, Art, Produkt, Betrag, Währung,
+    Status; Bestellung, Gutschrift, Abgeschlossen, In Bearbeitung.
+  - users: Unternehmens-ID, Benutzer, Benutzer-ID, Vorname, Nachname, E-Mail, Rollen; the roles
+    Benutzerverwaltung, Berichte, Corporate Service Fund, Buchung, Kundenbetreuung.
+  - reports: Unternehmens-ID, Zeitraum, Von, Bis, Flüge, Segmente, Umsatz, Betrag, Währung,
+    CO₂-Emissionen, Tonnen, Meistgeflogene Strecken, Strecke.
+  - The accounts page's role words in German.
+  - Category names, product texts and routes stay as the backend sends them; currencies stay ISO
+    codes.
+- **Test:** test/b2b-member-answers-001.test.mjs, with the three accounts' recorded answers as
+  fixtures.
+  - The rows cover every field, code and role.
+  - Rendered on de/de, every label comes from the rows and no code or role shows raw.
+  - booker's and ppb's 403 answers show the page's Forbidden text.
+- **Documents:** the fund, history, usermanagement, reports and lhghome pages in de/en and de/de.
+  The profile pages already had their rows.
+
+### 2. The airlines' h1 (327d3fee; 23 documents)
+
+- **Found:** none of the 23 airlines-at-a-glance pages (de/en, de/de, xx/de, ch/en: the overview
+  and the eight airlines) has an h1, live or in its document.
+  - Each airline page opens with the airline's logo, and its stage's text cells came through the
+    import empty.
+  - Its first heading is the h2 "<Airline> Products & Services".
+  - There is no snapshot of www's pages here, and no requests to www.
+- **With your choice:** b2b-import.mjs `withPageHeading` makes a document's first h2 its h1 when
+  it has none, keeping the id and the size marker. The 23 documents got the same change.
+  - The look is the same at 1440 and 390: font, size, weight, colour, case, margins and box.
+  - On preview each page has one h1.
+  - If a capture of www shows a different h1, the rule and the documents change then.
+- **Not changed yet:** 26 other lh-b2b documents have no h1 either (each has an h2). A re-import
+  would now give them their first h2 as the h1:
+  - the route network pages;
+  - businesstogo;
+  - codeshares;
+  - rail-fly and lufthansa-express-rail;
+  - dangerous goods, airportr, excess baggage;
+  - eXperts programme benefits;
+  - two news pages.
+
+### Checks per host
+
+- **main--lh-b2b--moved-permanently.aem.page,** with mocked answers (mock.travelmanager's
+  recording): /de/de/fund, history, usermanagement and reports, and /de/en/history, at 390.
+  German or English throughout, 390 px wide. One h1 on each of the 23 airline pages.
+- **The local dev server,** with the new documents: the four German member views at 1440 and 390,
+  and the airline headings before and after at 1440 and 390.
+- **b2b.turnsthe.page:** the airline pages without an h1 (the starting point), the live stage's
+  look, and the new code served.
+
+### Summary
+
+| Item | Commit | What | Rollback |
+| --- | --- | --- | --- |
+| 1 | cd7152a6 | b2b-member (role words in answers, BOOKER, German KAM), the rows file, the recorded answers as fixtures, tests | revert; the 10 documents' extra rows are then labels only |
+| 2 | 327d3fee | b2b-import.mjs withPageHeading, tests | revert; the 23 documents keep their h1 |
+| — | (this push) | this report, preview-paths-after-463.txt, the lh-b2b upload state | revert |
+
+### Preview path list, in release order
+
+preview-paths-after-463.txt (33):
+
+1. After cd7152a6: fund, history, usermanagement, reports and lhghome under /de/en/, then the same
+   five under /de/de/.
+2. After 327d3fee: the 23 airlines-at-a-glance pages.

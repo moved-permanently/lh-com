@@ -1,0 +1,36 @@
+# The brief after 463: lh-b2b documents uploaded to DA and previewed (not published), in release order. All read back from DA afterwards: each equals the local copy.
+# 1. Code on main first: cd7152a6 (role words). Then 10 member documents with their rows for every field of the recorded answers (English de/en, German de/de).
+lh-b2b /de/en/fund
+lh-b2b /de/en/history
+lh-b2b /de/en/usermanagement
+lh-b2b /de/en/reports
+lh-b2b /de/en/lhghome
+lh-b2b /de/de/fund
+lh-b2b /de/de/history
+lh-b2b /de/de/usermanagement
+lh-b2b /de/de/reports
+lh-b2b /de/de/lhghome
+# 2. Code on main: 327d3fee (the importer's rule). Then the 23 airlines-at-a-glance documents, the first h2 as the h1 (the look unchanged).
+lh-b2b /de/en/program/experts/airlines-at-a-glance
+lh-b2b /de/en/program/experts/airlines-at-a-glance/airdolomiti
+lh-b2b /de/en/program/experts/airlines-at-a-glance/austrian-airlines
+lh-b2b /de/en/program/experts/airlines-at-a-glance/brussels-airlines
+lh-b2b /de/en/program/experts/airlines-at-a-glance/discover-airlines
+lh-b2b /de/en/program/experts/airlines-at-a-glance/edelweiss
+lh-b2b /de/en/program/experts/airlines-at-a-glance/eurowings
+lh-b2b /de/en/program/experts/airlines-at-a-glance/lufthansa
+lh-b2b /de/en/program/experts/airlines-at-a-glance/swiss
+lh-b2b /de/de/program/experts/airlines-at-a-glance
+lh-b2b /de/de/program/experts/airlines-at-a-glance/airdolomiti
+lh-b2b /de/de/program/experts/airlines-at-a-glance/austrian-airlines
+lh-b2b /de/de/program/experts/airlines-at-a-glance/brussels-airlines
+lh-b2b /de/de/program/experts/airlines-at-a-glance/discover-airlines
+lh-b2b /de/de/program/experts/airlines-at-a-glance/edelweiss
+lh-b2b /de/de/program/experts/airlines-at-a-glance/eurowings
+lh-b2b /de/de/program/experts/airlines-at-a-glance/lufthansa
+lh-b2b /de/de/program/experts/airlines-at-a-glance/swiss
+lh-b2b /xx/de/program/experts/airlines-at-a-glance/brussels-airlines
+lh-b2b /xx/de/program/experts/airlines-at-a-glance/lufthansa
+lh-b2b /xx/de/program/experts/airlines-at-a-glance/swiss
+lh-b2b /ch/en/program/experts/airlines-at-a-glance/discover-airlines
+lh-b2b /ch/en/program/experts/airlines-at-a-glance/eurowings
