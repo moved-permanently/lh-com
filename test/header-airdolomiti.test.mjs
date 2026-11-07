@@ -158,7 +158,8 @@ test('the bar\'s tools in the order they show (www\'s: assistance, search, acces
   const tools = document.createElement('div');
   tools.innerHTML = '<a class="nav-tool nav-tool-accessibility"></a><span class="nav-accessibility-wrapper"></span><div class="nav-languages"></div><a class="nav-tool nav-tool-search"></a><span class="nav-divider"></span><button class="nav-menu-button"></button>';
   arrangeTools(tools);
-  assert.deepEqual([...tools.children].map((c) => c.className.split(' ').pop()), ['nav-tool-accessibility', 'nav-tool-search', 'nav-accessibility-wrapper', 'nav-languages', 'nav-divider', 'nav-menu-button']);
+  // (and the phone bar's plane before the Menu button: test/airdolomiti-phone-bar.test.mjs)
+  assert.deepEqual([...tools.children].map((c) => c.className.split(' ').pop()), ['nav-tool-accessibility', 'nav-tool-search', 'nav-accessibility-wrapper', 'nav-languages', 'nav-divider', 'nav-ad-book', 'nav-menu-button']);
   const js = fs.readFileSync('blocks/header/header.js', 'utf8');
   assert.match(js, /if \(airdolomiti\) airdolomiti\.arrangeTools\(toolsEl\);/);
   const css = fs.readFileSync('blocks/header/header-airdolomiti.css', 'utf8');

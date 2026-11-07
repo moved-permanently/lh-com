@@ -487,6 +487,93 @@ body.brand-airdolomiti .flight-search .flight-search-dates:not(:focus-within, :h
   color: var(--lh-grey-7);
 }
 
+/* www's flexible dates box (blocks/flight-search/flight-search-airdolomiti.js; capture
+   airdolomiti-booking-001): the label 14px / 23.8px #1f1f1f 28px in, a 20px box with a 1px teal
+   ring and a 4px radius, teal with a white tick when ticked; the native box over it, invisible */
+body.brand-airdolomiti .flight-search .flight-search-flexible {
+  position: relative;
+  justify-self: start;
+  margin: 0;
+  padding-left: 28px;
+  color: #1f1f1f;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 23.8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- the box's checkbox, not the fields' inputs (above) */
+body.brand-airdolomiti .flight-search .flight-search-flexible input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+body.brand-airdolomiti .flight-search .flight-search-flexible .flight-search-flexible-mark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #00798a;
+  border-radius: 4px;
+  background-color: transparent;
+  pointer-events: none;
+}
+
+body.brand-airdolomiti .flight-search .flight-search-flexible input:checked ~ .flight-search-flexible-mark {
+  background-color: #00798a;
+}
+
+body.brand-airdolomiti .flight-search .flight-search-flexible input:checked ~ .flight-search-flexible-mark::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: #f4f4f4;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath d='M14.6 5.2 7 12.8 3.5 9.3' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 14px no-repeat;
+}
+
+body.brand-airdolomiti .flight-search .flight-search-flexible:has(input:focus-visible) {
+  outline: 2px solid var(--focus-color, #05164d);
+  outline-offset: 4px;
+}
+
+/* tablets (the shared fields grid: From, swap, To, the dates; the button under the dates): in the
+   free cell under From and To, level with the button */
+@media (width >= 768px) and (width < 1025px) {
+  body.brand-airdolomiti .flight-search .flight-search-flexible {
+    grid-area: 2 / 1 / 3 / 4;
+    align-self: center;
+  }
+}
+
+/* phones: its row above the button (the shared grid's rows with it) */
+@media (width < 768px) {
+  body.brand-airdolomiti .flight-search .flight-search-form {
+    grid-template-areas:
+      "trip trip"
+      "origin origin"
+      "dest dest"
+      "dates dates"
+      "trav nonstop"
+      "flex flex"
+      "submit submit"
+      "error error";
+  }
+
+  body.brand-airdolomiti .flight-search .flight-search-flexible {
+    grid-area: flex;
+    margin-bottom: 20px;
+  }
+}
+
 /* the button: teal, 56px, a 10px radius */
 body.brand-airdolomiti .flight-search .flight-search-submit {
   min-height: 56px;
@@ -507,7 +594,9 @@ body.brand-airdolomiti .flight-search .flight-search-submit {
       "trip trip trip . . . . ." 50px
       ". . . . . . . ." 19px
       ". origin dest dep ret trav submit ." auto
-      ". . . . . . . ." 19px
+      ". . . . . . . ." 20px
+      ". flex flex flex flex flex flex ." auto
+      ". . . . . . . ." 11px
       ". error error error error error error ." auto
       / 0 minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) 81px 40px;
     column-gap: 14px;
@@ -516,7 +605,7 @@ body.brand-airdolomiti .flight-search .flight-search-submit {
   /* the white box under the tab, its right end as www's arrow */
   body.brand-airdolomiti .flight-search:not(.standalone) .flight-search-form::before {
     content: "";
-    grid-area: 2 / 1 / 5 / -1;
+    grid-area: 2 / 1 / 7 / -1;
     align-self: stretch;
 
     /* (its clip-path makes it a layer of its own: under the fields) */
@@ -633,6 +722,11 @@ body.brand-airdolomiti .flight-search .flight-search-submit {
 
   body.brand-airdolomiti .flight-search:not(.standalone) .flight-search-error {
     grid-area: error;
+  }
+
+  /* www's flexible dates box: a row of its own under the fields, in the white box */
+  body.brand-airdolomiti .flight-search:not(.standalone) .flight-search-flexible {
+    grid-area: flex;
   }
 
   /* the homepage: the box over the bottom of the stage, the band 243px high under it */

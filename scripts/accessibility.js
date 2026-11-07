@@ -75,6 +75,25 @@ export function applyChoice(choice, root = document.documentElement) {
   root.classList.toggle('a11y-contrast', choice.contrast);
 }
 
+// a choice made anywhere (the bar's panel, Air Dolomiti's phone menu): the other controls follow
+export const CHANGE_EVENT = 'lh:accessibility-change';
+
+/**
+ * A choice made: merged with the stored one, applied, kept, and announced (CHANGE_EVENT).
+ * @param {{size?: string, contrast?: boolean}} next
+ * @param {Storage} [storage]
+ * @returns {{size: string, contrast: boolean}}
+ */
+export function chooseAccessibility(next, storage = localStore()) {
+  const choice = { ...readChoice(storage), ...next };
+  applyChoice(choice);
+  storeChoice(choice, storage);
+  // (the document's own window's CustomEvent: the one its dispatchEvent takes)
+  const Custom = (document.defaultView && document.defaultView.CustomEvent) || CustomEvent;
+  document.dispatchEvent(new Custom(CHANGE_EVENT, { detail: choice }));
+  return choice;
+}
+
 /**
  * The stored choice applied before the page shows (scripts.js loadEager), its stylesheet awaited.
  * @param {Object|null} [brand] the page's brand entry
@@ -164,10 +183,14 @@ export function buildAccessibility({
   ));
 
   const update = (next) => {
-    choice = { ...choice, ...next };
-    applyChoice(choice);
-    storeChoice(choice, storage);
+    choice = chooseAccessibility({ ...choice, ...next }, storage);
   };
+  // a choice made elsewhere (the phone menu): the panel shows it
+  document.addEventListener(CHANGE_EVENT, (e) => {
+    choice = e.detail;
+    sizes.querySelectorAll('input').forEach((input) => { input.checked = input.value === choice.size; });
+    contrast.checked = choice.contrast;
+  });
   sizes.addEventListener('change', (e) => {
     if (e.target.checked && SIZES.includes(e.target.value)) update({ size: e.target.value });
   });

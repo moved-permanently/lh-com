@@ -16,14 +16,73 @@
   display: none;
 }
 
-/* below 1025px the languages stay in the Menu button's flyout, as before */
+/* below 1025px the languages stay in the Menu button's flyout, as before. The bar as www's phone
+   bar (parity rows 28, 29: Navbar_navbar_flex, NavBurger_box_icon): the logo, the plane button
+   (header-airdolomiti.js phoneBar: the booking panel) 15px before the Menu button with www's three
+   31px lines; the accessibility settings in the phone menu (its Dimensione row), not in the bar */
 @media (width < 1025px) {
   .header .nav-airdolomiti .nav-languages {
     display: none;
   }
+
+  .header .nav-airdolomiti .nav-tools > .nav-accessibility-wrapper {
+    display: none;
+  }
+
+  .header .nav-airdolomiti .nav-ad-book {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    box-sizing: content-box;
+    width: 30px;
+    min-height: 40px;
+    margin: 0;
+    margin-right: 15px;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--nav-bar-text);
+    cursor: pointer;
+  }
+
+  .header .nav-airdolomiti .nav-ad-book .nav-ad-icon,
+  .header .nav-airdolomiti .nav-ad-book svg {
+    display: block;
+    width: 30px;
+    height: 30px;
+  }
+
+  .header .nav-airdolomiti .nav-menu-button:has(.nav-ad-icon-menu) {
+    justify-content: center;
+    box-sizing: content-box;
+    width: 31px;
+    min-width: 31px;
+    padding: 0;
+  }
+
+  .header .nav-airdolomiti .nav-menu-button .nav-ad-icon-menu {
+    flex: 0 0 auto;
+    width: 31px;
+    height: 24px;
+  }
+
+  .header .nav-airdolomiti .nav-menu-button .nav-tool-label {
+    display: none;
+  }
+
+  .header .nav-airdolomiti :is(.nav-ad-book, .nav-menu-button):focus-visible {
+    outline: 2px solid var(--focus-color, #05164d);
+    outline-offset: 2px;
+  }
 }
 
 @media (width >= 1025px) {
+  /* (the plane is the phone bar's: www's desktop bar has the booking widget in the page) */
+  .header .nav-airdolomiti .nav-ad-book {
+    display: none;
+  }
+
   .header .nav-airdolomiti .nav-bar {
     max-width: none;
     min-height: 120px;
@@ -470,8 +529,44 @@
   height: 20px;
 }
 
-.header .nav-airdolomiti .nav-ad-phone-language {
+.header .nav-airdolomiti .nav-ad-phone-language,
+.header .nav-airdolomiti .nav-ad-phone-sizes-row {
   padding: 0 20px;
+}
+
+/* the text size row (www's "Dimensione", parity row 28): as the language's, its three sizes as
+   radios under it */
+.header .nav-airdolomiti .nav-ad-icon-size {
+  width: 20px;
+  height: 20px;
+  margin-right: 20px;
+}
+
+.header .nav-airdolomiti .nav-ad-phone-sizes {
+  display: grid;
+  gap: 15px;
+  margin: 0 0 20px;
+  padding: 0 0 0 40px;
+}
+
+.header .nav-airdolomiti .nav-ad-phone-sizes[hidden] {
+  display: none;
+}
+
+.header .nav-airdolomiti .nav-ad-phone-size-option {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: #002e54;
+  font-size: 15.12px;
+  line-height: 20px;
+}
+
+.header .nav-airdolomiti .nav-ad-phone-size-option input {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: #00798a;
 }
 
 .header .nav-airdolomiti .nav-ad-phone-lang {
