@@ -32,7 +32,7 @@ function bodyElements(row, icon) {
  * Transparent link cards with an icon left of a title and a description.
  * One row per card. Cell 1: icon (:icon-name: token or small image); cell 2: H3 title,
  * description, link. The link makes the whole card clickable; a card with an authored button keeps
- * the button and is no link.
+ * the button and is no link. Cell 3 (optional): content shown full width under the card.
  * @param {Element} block
  */
 export default function decorate(block) {
@@ -55,8 +55,13 @@ export default function decorate(block) {
     // action: the card is no link and the button stays
     const button = links.some((a) => a.classList.contains('button') || /^(STRONG|EM)$/.test(a.parentElement.tagName));
     const link = button ? null : links[links.length - 1] || null;
+    // a third cell (the partner parser's content after the teaser: www's text and buttons full
+    // width under the title, Brussels' gift cards): shown under the card, not beside the icon
+    const third = row.children.length > 2 ? row.children[2] : null;
+    if (third) third.remove();
+    const more = third && cleanText(third) ? bodyElements({ children: [third] }, null) : [];
     const elements = bodyElements(row, iconEl);
-    if (!iconEl && !elements.length) return;
+    if (!iconEl && !elements.length && !more.length) return;
 
     const heading = elements.find((el) => /^H[1-6]$/.test(el.tagName));
     const titleText = cleanText(heading);
@@ -99,6 +104,12 @@ export default function decorate(block) {
     card.append(body);
 
     li.append(card);
+    if (more.length) {
+      const part = document.createElement('div');
+      part.className = 'cards-icon-text-more';
+      part.append(...more);
+      li.append(part);
+    }
     ul.append(li);
   });
 

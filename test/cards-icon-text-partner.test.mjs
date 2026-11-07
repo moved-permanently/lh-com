@@ -36,14 +36,25 @@ test('the item\'s text and button follow the teaser in the card', () => {
   const rows = run(item('Digital card', 'You’ll receive the Gift Card immediately', '<div class="link event section"><div class="maui-link"><maui-button-link href="https://voucher.brusselsairlines.com/sn/sales/new?locale=en" type="primary" target="_blank">Continue <span class="sr-only">The link will be opened in a new browser tab</span></maui-button-link></div></div>')
     + item('Do you already have a Gift Card?', 'If you’ve already received a Gift Card, redeem it', '<div class="link event section"><div class="maui-link"><maui-button-link href="/be/en/book-a-flight/flight-search" type="secondary">Redeem now</maui-button-link></div></div>'));
   assert.equal(rows.length, 2);
-  assert.equal(rows[0][1], '<h3>Digital card</h3><p>You’ll receive the Gift Card immediately</p><p><strong><a href="https://voucher.brusselsairlines.com/sn/sales/new?locale=en">Continue</a></strong></p>');
-  assert.equal(rows[1][1], '<h3>Do you already have a Gift Card?</h3><p>If you’ve already received a Gift Card, redeem it</p><p><em><a href="/be/en/book-a-flight/flight-search">Redeem now</a></em></p>');
+  // brief 448: the teaser's own content in the second cell, what follows it in the item (www's
+  // text and link components, full width under the title) in a third
+  assert.equal(rows[0][1], '<h3>Digital card</h3>');
+  assert.equal(rows[0][2], '<p>You’ll receive the Gift Card immediately</p><p><strong><a href="https://voucher.brusselsairlines.com/sn/sales/new?locale=en">Continue</a></strong></p>');
+  assert.equal(rows[1][1], '<h3>Do you already have a Gift Card?</h3>');
+  assert.equal(rows[1][2], '<p>If you’ve already received a Gift Card, redeem it</p><p><em><a href="/be/en/book-a-flight/flight-search">Redeem now</a></em></p>');
+});
+
+test('a card without content after its teaser, beside cards with it: an empty third cell', () => {
+  const rows = run(item('Digital card', 'You’ll receive the Gift Card immediately') + item('Frequently asked questions', ''));
+  assert.deepEqual(rows.map((r) => r.length), [3, 3]);
+  assert.equal(rows[1][2], '');
 });
 
 test('a teaser with its own description, alone in its item: as before', () => {
   const { document } = parseHTML('<html><body><div class="threecolumn"><div class="column-view"><div class="row"><div class="column-view-item"><a class="teaser partner" href="/de/en/app"><h4 class="teaser-heading"><img class="icon-svg" src="/content/dam/lh/icons/app.svg" alt=""><div class="teaser-heading-text">Lufthansa app</div></h4><div class="teaser-description"><p>All in one app</p></div></a></div></div></div></div></body></html>');
   parse(document.querySelector('.threecolumn'), { document });
   assert.equal(cellsOut[0][1], '<h3><a href="/de/en/app">Lufthansa app</a></h3><p>All in one app</p>');
+  assert.equal(cellsOut[0].length, 2);
 });
 
 /* The column view's own title (the gift card page's "Your Gift Card", h2.heading-small above the

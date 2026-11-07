@@ -90,6 +90,35 @@
   margin-top: 20px;
 }
 
+/* a card's third cell: content under the card, full width (www's text and buttons after a partner
+   teaser, Brussels' gift cards, brief 448: 27px under the title row, the button 20px under the
+   text); the item a column, its button at the foot, so the buttons of a row line up */
+.cards-icon-text > ul > li:has(> .cards-icon-text-more) {
+  flex-direction: column;
+}
+
+.cards-icon-text .cards-icon-text-more {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  margin-top: 22px;
+  font-size: 16px;
+  line-height: 150%;
+}
+
+.cards-icon-text .cards-icon-text-more > * {
+  margin: 0;
+}
+
+.cards-icon-text .cards-icon-text-more > * + * {
+  margin-top: 16px;
+}
+
+.cards-icon-text .cards-icon-text-more > .button-wrapper {
+  margin-top: auto;
+  padding-top: 20px;
+}
+
 /* .icon-links:hover h4 { text-decoration: underline } */
 .cards-icon-text a.cards-icon-text-card:hover .cards-icon-text-title,
 .cards-icon-text a.cards-icon-text-card:hover .cards-icon-text-link {

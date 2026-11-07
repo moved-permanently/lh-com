@@ -12,8 +12,8 @@
  * Lufthansa partner teasers (hub /digital-self-services: .threecolumn / .twocolumn of
  * a.teaser.partner > h4.teaser-heading (img.icon-svg + .teaser-heading-text) +
  * .teaser-description .desc-inline): same rows, the icon kept as an <img>, option "partner"; the
- * column item's text and buttons after the teaser follow in the card (Brussels' gift cards); the
- * column view's own title stays before the block.
+ * column item's text and buttons after the teaser follow in a third cell (Brussels' gift cards: full
+ * width under the title); the column view's own title stays before the block.
  *
  * Lufthansa Group for Business' icon modules (business.lufthansagroup.com homepages: a column row
  * of .iconmodule > .icon-module: img.icon-module__icon, h3.icon-module__heading,
@@ -105,8 +105,10 @@ export default function parse(element, { document }) {
       content.push(p);
     });
     // the column item's text and buttons after the teaser (Brussels' gift card page: "You'll
-    // receive the Gift Card immediately…", "Continue"): in the card, a primary button bold, a
-    // secondary one italic, as the other parsers write them
+    // receive the Gift Card immediately…", "Continue"): the card's third cell (www shows them full
+    // width under the title, brief 448), a primary button bold, a secondary one italic, as the
+    // other parsers write them
+    const more = [];
     const item = card.closest('.column-view-item');
     const teaserComp = item && [...item.children].find((c) => c.contains(card));
     if (item && teaserComp) {
@@ -118,7 +120,7 @@ export default function parse(element, { document }) {
           comp.querySelectorAll('.richtext > p, .richtext > ul, .richtext > ol').forEach((n) => {
             const c = n.cloneNode(true);
             c.querySelectorAll('.sr-only, .visually-hidden, maui-screen-reader-label').forEach((x) => x.remove());
-            if (clean(c.textContent)) content.push(c);
+            if (clean(c.textContent)) more.push(c);
           });
         } else if (comp.classList.contains('link')) {
           comp.querySelectorAll('maui-button-link[href], maui-navigation-link[href], maui-link[href], a[href]').forEach((m) => {
@@ -138,14 +140,16 @@ export default function parse(element, { document }) {
             } else {
               para.append(a);
             }
-            content.push(para);
+            more.push(para);
           });
         }
       });
     }
-    if (!iconCell && !content.length) return;
-    rows.push([iconCell, content.length ? content : '']);
+    if (!iconCell && !content.length && !more.length) return;
+    rows.push([iconCell, content.length ? content : '', more.length ? more : '']);
   });
+  // the content after the teasers in a third cell, when a card has some (else two cells, as before)
+  if (!rows.some((r) => r[2])) rows.forEach((r) => r.pop());
   // the column view's own title (Brussels' gift card page: "Your Gift Card", h2.heading-small
   // above the row, brief 441) stays before the block, as the icon modules keep theirs
   const columnTitle = element.querySelector(':scope > .column-view > div:not(.row) > :is(h1, h2, h3, h4, h5, h6)');

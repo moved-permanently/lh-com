@@ -576,6 +576,14 @@ body.brand-brussels {
   }
 }
 
+/* cards-icon-text partner (www's a.teaser.partner, the gift cards): the title in capitals at
+   heading-copytext-large, 16 px on phones to 18 px at 1440, as www's teaser heading (13 px caps at
+   1440; brief 448) */
+body.brand-brussels .cards-icon-text.partner .cards-icon-text-card .cards-icon-text-body > .cards-icon-text-title {
+  font-size: var(--heading-font-size-m);
+  text-transform: uppercase;
+}
+
 /* section style sidebar (www's .airem-sidebar: .sidebar-content 75% beside an empty aside, from
    768 px): the section's content as wide as the columns-media sidebar's text (938 px at 1440),
    the running text over that whole column; the breadcrumb as wide as the page */
