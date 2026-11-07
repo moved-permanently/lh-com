@@ -1540,6 +1540,7 @@
           "instances": [
             ".sidebar:not(:is(.twocolumn, .threecolumn, .fourcolumn) > .column-view > .row > .column-view-item > * ~ .sidebar)",
             ".section-content > .twocolumn:not(:has(.column-view-item > .image + .headline))",
+            ":is(.section-content, .container-content) > :is(.threecolumn, .fourcolumn):not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .video, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe, maui-navigation-link[variant=\"anchor-down\"]))",
             ".videoViewer, .image:has(video)",
             "maui-tab-control-panel-responsive :is(.twocolumn, .threecolumn):has(> .column-view > .row > .column-view-item > .image img):not(:has(.teaser, .table, .accordion, .tabs, form, iframe, .column-view-item .column-view-item))"
           ]

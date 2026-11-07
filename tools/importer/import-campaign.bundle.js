@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-campaign.js
-  var tmp_bundle_campaign_473092_exports = {};
-  __export(tmp_bundle_campaign_473092_exports, {
-    default: () => tmp_bundle_campaign_473092_default
+  var tmp_bundle_campaign_179942_exports = {};
+  __export(tmp_bundle_campaign_179942_exports, {
+    default: () => tmp_bundle_campaign_179942_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -4703,6 +4703,7 @@ var CustomImportScript = (() => {
         "instances": [
           ".sidebar:not(:is(.twocolumn, .threecolumn, .fourcolumn) > .column-view > .row > .column-view-item > * ~ .sidebar)",
           ".section-content > .twocolumn:not(:has(.column-view-item > .image + .headline))",
+          ':is(.section-content, .container-content) > :is(.threecolumn, .fourcolumn):not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .video, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe, maui-navigation-link[variant="anchor-down"]))',
           ".videoViewer, .image:has(video)",
           "maui-tab-control-panel-responsive :is(.twocolumn, .threecolumn):has(> .column-view > .row > .column-view-item > .image img):not(:has(.teaser, .table, .accordion, .tabs, form, iframe, .column-view-item .column-view-item))"
         ]
@@ -4909,7 +4910,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_campaign_473092_default = {
+  var tmp_bundle_campaign_179942_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -4939,5 +4940,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_campaign_473092_exports);
+  return __toCommonJS(tmp_bundle_campaign_179942_exports);
 })();
