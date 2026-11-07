@@ -1076,17 +1076,24 @@ export async function market(request, env) {
   const neutral = !donor && !indexed && !LANGUAGE_ONLY.test(suffix)
     && (t.neutral || {})[t.table[root].lang];
   const neutralDoc = neutral ? await originFetch(versionRequest, env, `https://${env.ORIGIN}/${neutral}${rest}`) : null;
+  let unindexed = null;
   if (!donor && !indexed && !LANGUAGE_ONLY.test(suffix) && !(neutralDoc && neutralDoc.ok)) {
     // not a page of the language version: its redirect (redirect sheet), else the 404
     if (kind !== 'page') return own;
     const moved = await originFetch(versionRequest, env, `https://${env.ORIGIN}/${from}${rest}`);
-    const location = moved.headers.get('location');
-    if (![301, 302, 307, 308].includes(moved.status) || !location) return own;
-    const target = marketHref(location, ctx) ?? location;
-    return new Response(null, {
-      status: moved.status,
-      headers: { location: target, 'cache-control': moved.headers.get('cache-control') || 'max-age=60', 'x-lh-edge-route': 'market' },
-    });
+    // a published page the language index lacks: Edge Delivery leaves out a record over 100 KB
+    // (SWISS's Greek privacy statement, brief 445): the language version's page all the same,
+    // its markets metadata checked below; not its drafts (no index takes them)
+    if (moved.status === 200 && !/\/drafts\//.test(suffix)) unindexed = moved;
+    else {
+      const location = moved.headers.get('location');
+      if (![301, 302, 307, 308].includes(moved.status) || !location) return own;
+      const target = marketHref(location, ctx) ?? location;
+      return new Response(null, {
+        status: moved.status,
+        headers: { location: target, 'cache-control': moved.headers.get('cache-control') || 'max-age=60', 'x-lh-edge-route': 'market' },
+      });
+    }
   }
   // the source: the language version's document, or where its row leaves the country out and the
   // site has rest-of-world documents (lh-b2b), the rest-of-world root's
@@ -1115,7 +1122,7 @@ export async function market(request, env) {
     ctx.allowed = known;
   }
   if (source !== from) ctx.from = source;
-  const doc = source === neutral ? neutralDoc : await originFetch(versionRequest, env, `https://${env.ORIGIN}/${source}${rest}`);
+  const doc = unindexed || source === neutral ? unindexed || neutralDoc : await originFetch(versionRequest, env, `https://${env.ORIGIN}/${source}${rest}`);
   if (!doc.ok) return own;
   const headers = new Headers(doc.headers);
   headers.set('x-lh-edge-route', 'market');
