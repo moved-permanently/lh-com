@@ -359,6 +359,11 @@ export default function parse(element, { document }) {
             if (list.children.length) out.push(list);
           }
         });
+      } else if (cl.contains('lh-cell-spacer')) {
+        // a separator between two text components of the item, kept by the cleanup (brief 461)
+        const p = document.createElement('p');
+        p.textContent = clean(child.textContent);
+        out.push(p);
       } else if (cl.contains('headline')) {
         const h = headingFrom(child);
         if (h) out.push(h);

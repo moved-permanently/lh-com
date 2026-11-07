@@ -594,9 +594,38 @@ function missingSeparatorMarkers(run, flow, template) {
   return null;
 }
 
+// a separator between two text components of a multi-column view's item (www's legal two-column
+// text rows, terms-of-service-group's airlines: link, separator, next headline; 81 px at 1440, ours
+// 49 without it): the columns-media parser keeps it in the cell as a "{spacer-N}" paragraph
+// (columns-media.css: N + 1 px, as default content's), lufthansa.com pages only (brief 461). At
+// the start or end of the item none (www: no margin there); teaser rows are the card blocks'.
+const CELL_ITEM = ':is(.twocolumn, .threecolumn, .fourcolumn) > .column-view > .row > .column-view-item';
+const CELL_TEXT = '.text, .link, .headline';
+const CELL_SPACER = 'lh-cell-spacer';
+
+function isLufthansaPage(payload) {
+  const url = (payload && ((payload.params && payload.params.originalURL) || payload.url)) || '';
+  try {
+    return /(^|\.)lufthansa\.com$/.test(new URL(url).hostname);
+  } catch (e) {
+    return false;
+  }
+}
+
+function inTextCell(run) {
+  const first = run[0];
+  const last = run[run.length - 1];
+  const item = first.parentElement;
+  if (!item || !item.matches(CELL_ITEM)) return false;
+  const prev = first.previousElementSibling;
+  const next = last.nextElementSibling;
+  return !!prev && !!next && prev.matches(CELL_TEXT) && next.matches(CELL_TEXT);
+}
+
 function markSeparators(document, keepInFlow, payload) {
   const template = ((payload && payload.template) || {}).name;
   const fillGaps = !SEPARATOR_AS_IS_TEMPLATES.includes(template);
+  const cellSpacers = isLufthansaPage(payload);
   // runs of adjacent separators are kept or dropped together (40px + line + 30px)
   const runs = [];
   document.querySelectorAll('.separator').forEach((sep) => {
@@ -613,6 +642,15 @@ function markSeparators(document, keepInFlow, payload) {
   };
   runs.forEach((run) => {
     const infos = run.map(separatorInfo);
+    if (cellSpacers && inTextCell(run) && run.every((sep) => separatorSpace(sep) >= 10)) {
+      run.forEach((sep, i) => {
+        const div = document.createElement('div');
+        div.className = CELL_SPACER;
+        div.textContent = `{${infos[i].marker}}`;
+        sep.replaceWith(div);
+      });
+      return;
+    }
     let markers = null;
     if (infos.some((i) => i.keep) || afterGrey(run[0]) || (keepInFlow && inFlow(run))) {
       markers = infos.map((i) => i.marker);

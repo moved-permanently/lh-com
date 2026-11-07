@@ -98,9 +98,9 @@ function optimize(picture) {
   picture.replaceWith(optimized);
 }
 
-/** Removes paragraphs and wrappers left empty by moved content. */
+/** Removes paragraphs and wrappers left empty by moved content (not a separator's p.spacer). */
 function removeEmpty(root) {
-  root.querySelectorAll('p, div').forEach((el) => {
+  root.querySelectorAll('p:not(.spacer), div').forEach((el) => {
     if (!el.closest('.media-video, .media-embed, .columns-media-multi') && !el.textContent.trim()
       && !el.querySelector('picture, img, a, video, button, iframe')) el.remove();
   });

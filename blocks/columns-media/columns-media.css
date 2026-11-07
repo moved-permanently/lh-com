@@ -159,6 +159,15 @@ body.brand-lufthansa main:not(:has(.article-header)) .columns-media .columns-med
   margin-bottom: var(--spacing-default);
 }
 
+/* lufthansa.com: a separator between two text components of a column (the importer's
+   "{spacer-N}" in the cell, brief 461; www's legal two-column text rows): its space as default
+   content's spacers, N + 1px */
+body.brand-lufthansa .columns-media .columns-media-text > p.spacer {
+  box-sizing: content-box;
+  height: calc(var(--spacer-size, 25px) + 1px);
+  margin: 0;
+}
+
 /* an image in a text cell (image + headline + text column item): full cell width, 40px to the
    heading (.image-wrapper margin-bottom 4rem; accessible-travel icon rows: the 1440x180 SVG
    pictograms are 51px high at 408px) */

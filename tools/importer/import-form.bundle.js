@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-form.js
-  var tmp_bundle_form_549211_exports = {};
-  __export(tmp_bundle_form_549211_exports, {
-    default: () => tmp_bundle_form_549211_default
+  var tmp_bundle_form_236477_exports = {};
+  __export(tmp_bundle_form_236477_exports, {
+    default: () => tmp_bundle_form_236477_default
   });
 
   // tools/importer/parsers/form-core.js
@@ -1166,6 +1166,10 @@ var CustomImportScript = (() => {
               if (list.children.length) out.push(list);
             }
           });
+        } else if (cl.contains("lh-cell-spacer")) {
+          const p = document.createElement("p");
+          p.textContent = clean2(child.textContent);
+          out.push(p);
         } else if (cl.contains("headline")) {
           const h = headingFrom(child);
           if (h) out.push(h);
@@ -2079,9 +2083,30 @@ var CustomImportScript = (() => {
     }
     return null;
   }
+  var CELL_ITEM = ":is(.twocolumn, .threecolumn, .fourcolumn) > .column-view > .row > .column-view-item";
+  var CELL_TEXT = ".text, .link, .headline";
+  var CELL_SPACER = "lh-cell-spacer";
+  function isLufthansaPage(payload) {
+    const url = payload && (payload.params && payload.params.originalURL || payload.url) || "";
+    try {
+      return /(^|\.)lufthansa\.com$/.test(new URL(url).hostname);
+    } catch (e) {
+      return false;
+    }
+  }
+  function inTextCell(run) {
+    const first = run[0];
+    const last = run[run.length - 1];
+    const item = first.parentElement;
+    if (!item || !item.matches(CELL_ITEM)) return false;
+    const prev = first.previousElementSibling;
+    const next = last.nextElementSibling;
+    return !!prev && !!next && prev.matches(CELL_TEXT) && next.matches(CELL_TEXT);
+  }
   function markSeparators(document, keepInFlow, payload) {
     const template = (payload && payload.template || {}).name;
     const fillGaps = !SEPARATOR_AS_IS_TEMPLATES.includes(template);
+    const cellSpacers = isLufthansaPage(payload);
     const runs = [];
     document.querySelectorAll(".separator").forEach((sep) => {
       const last = runs[runs.length - 1];
@@ -2094,6 +2119,15 @@ var CustomImportScript = (() => {
     };
     runs.forEach((run) => {
       const infos = run.map(separatorInfo);
+      if (cellSpacers && inTextCell(run) && run.every((sep) => separatorSpace(sep) >= 10)) {
+        run.forEach((sep, i) => {
+          const div = document.createElement("div");
+          div.className = CELL_SPACER;
+          div.textContent = `{${infos[i].marker}}`;
+          sep.replaceWith(div);
+        });
+        return;
+      }
       let markers = null;
       if (infos.some((i) => i.keep) || afterGrey(run[0]) || keepInFlow && inFlow(run)) {
         markers = infos.map((i) => i.marker);
@@ -3493,7 +3527,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_form_549211_default = {
+  var tmp_bundle_form_236477_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -3523,5 +3557,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_form_549211_exports);
+  return __toCommonJS(tmp_bundle_form_236477_exports);
 })();
