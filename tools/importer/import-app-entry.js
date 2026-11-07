@@ -68,6 +68,7 @@ const PAGE_TEMPLATE = {
     {
       "name": "carousel-cards",
       "instances": [
+        ".fourcolumn:has(a.teaser.card):not(.tabs .fourcolumn)",
         ".loginform:has(.login-oneid-card)"
       ]
     }
