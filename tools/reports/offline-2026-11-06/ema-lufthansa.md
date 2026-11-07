@@ -565,3 +565,59 @@ hubs): /be/fr/articles/milan-citytrip, /be/en/articles/milan-citytrip, /be/fr/ar
 /be/en/articles, /be/fr/our-company, /be/en/travel-classes/economy,
 /be/fr/travel-classes/business, /be/fr/travel-classes/premium-economy, /fr/fr/homepage,
 /ke/en/homepage.
+
+### 2b. Facts & Figures' slide icons and PDFs (cargo-media-003)
+
+The archive (sha256 389556f6…5156d73, as its .sha256): www's five icon SVGs (its six icon slides
+use the airplane icon twice; the first slide has none on www) and the 2025 Facts & Figures PDFs
+(EN, DE), each checked against the manifest (bytes, sha256).
+
+- The icons as PNGs (sharp at density 192, as the importer's prepareImages: lh-com's documents hold
+  raster images), named as cargo-assets.mjs names images: /media-da/cargo/fact-icon-63-ab297000.png,
+  lh-icon-money-7ed4b32e.png, lh-icon-people-group-905bfd29.png, lh-icon-airplane-booking-146e1d0a.png,
+  lh-icon-earth-pin-03eed020.png; sent to DA with the pages.
+- The PDFs under cargo-assets.mjs's document names, uploaded to lh-cargo's DA and previewed as
+  cargo-assets.mjs --upload does (this machine has no asset map, so that command can't run here):
+  /documents/2025-facts-figures-en-df297c.pdf and /documents/2025-facts-figures-de-68076f.pdf; the
+  preview serves them byte for byte (gzip on the wire only).
+- The six Facts & Figures pages (en, de, es, fr, it, pt) imported again, each against DA's copy:
+  the only changes the six slide icons and the "Facts & Figures" link, now the site's own copy (the
+  German page the DE PDF, the others the EN one, as www). Uploaded and previewed. On
+  main--lh-cargo--moved-permanently.aem.page at 1440 and 390: one h1, 20 pictures, none broken, no
+  sideways scroll; at 390 the icons half the slide's width above the lines, as www's
+  (.LCAGCP-factIcon max-width 50 %). The band is 631 px high at 390 (606 before: the tallest slide,
+  icon and four lines, sets it; www's slider sits over its photo).
+
+Release order: the two PDFs (/documents/2025-facts-figures-en-df297c.pdf,
+/documents/2025-facts-figures-de-68076f.pdf), then the pages with their icons:
+/en/ci/facts-figures, /de/ci/facts-figures, /es/ci/facts-figures, /fr/ci/facts-figures,
+/it/ci/facts-figures, /pt/ci/facts-figures.
+
+### Summary
+
+| Item | Commit | What | Rollback |
+| --- | --- | --- | --- |
+| 1 | 8bbb6d94 | airdolomiti.css: carousel-cards' dots as 24 px targets (axe target-size); TAP's one finding listed as www's design (parity row 91) | revert |
+| 2a | 8d232e10 | brussels.css: every stage's title as www's inspiration teaser's; the class tabs up to any stage | revert |
+| 2a | 431fe538 | ten Brussels pages from brussels-snapshots-014 (P38, the Milan articles for P41), uploaded and previewed; parity P38/P41 | re-upload DA's previous copies (kept on this machine); the two Milan articles: delete them in DA |
+| 2b | (this push) | cargo-media-003 in lh-cargo's DA; the six Facts & Figures pages with the slide icons and the site's own PDFs, uploaded and previewed | re-upload the six pages' previous copies; the files can stay |
+
+### Preview path lists, in release order
+
+1. Code: 8bbb6d94, 8d232e10.
+2. Brussels: /be/fr/articles/milan-citytrip, /be/en/articles/milan-citytrip, /be/fr/articles,
+   /be/en/articles, /be/fr/our-company, /be/en/travel-classes/economy,
+   /be/fr/travel-classes/business, /be/fr/travel-classes/premium-economy, /fr/fr/homepage,
+   /ke/en/homepage.
+3. Cargo files: /documents/2025-facts-figures-en-df297c.pdf, /documents/2025-facts-figures-de-68076f.pdf.
+4. Cargo pages: /en, /de, /es, /fr, /it, /pt + /ci/facts-figures.
+
+### Open after brief 443
+
+- TAP's empty dates field (#b0aeb4, 2.19:1): www's design, kept as www (parity row 91).
+- For ema-cashub: the shared flight-search import writes the group-booking link and the new
+  passenger labels in English on French pages and links www's /content/bel/markets/ address (seen
+  on /fr/fr/homepage; the two Brussels homepages keep DA's flight search meanwhile).
+- The Milan article shows on the Brussels hubs once it is published and indexed (P41).
+- The www destination finder's status line ("Les offres pour Aller-retour sont affichées") is not
+  rendered by the shared destination-finder block.
