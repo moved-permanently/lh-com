@@ -18,3 +18,7 @@ test('the fields boxed as www\'s', () => {
   assert.ok(css.includes(`${B} .booking-lookup-field:has(> input:placeholder-shown:not(:focus)) label { top: 11px; font-size: 18px; line-height: 28px; }`));
   assert.ok(css.includes(`@media (width >= 1025px) { ${B} .booking-lookup-field { max-width: 250px; } }`));
 });
+
+test('the text\'s paragraphs 20 px apart as www\'s .richtext p (16 px text); classed paragraphs and pictures keep theirs', () => {
+  assert.ok(css.includes('body.brand-swiss main .default-content-wrapper > p:not([class], :has(picture)) { margin-bottom: 20px; }'));
+});

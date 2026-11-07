@@ -1119,3 +1119,11 @@ body.brand-swiss .booking-lookup .booking-lookup-field:has(> input:placeholder-s
   }
 }
 /* stylelint-enable no-descending-specificity */
+
+/* the text's paragraphs 20 px apart as www's .richtext p (the 60 parity pages' captures: 16 px
+   text, margin-bottom 20 px at 1440 and 390; brief 453), not lh-com's 24 px; paragraphs with a
+   class (copytext, buttons, links, spacers) and pictures keep theirs */
+/* stylelint-disable-next-line no-descending-specificity -- the text's paragraphs, not the cards' */
+body.brand-swiss main .default-content-wrapper > p:not([class], :has(picture)) {
+  margin-bottom: 20px;
+}
