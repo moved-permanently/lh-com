@@ -101,3 +101,19 @@ test('a date mask without D/M/Y slots (www\'s "0000-00-00") takes the order of t
   // no pattern to take: as before
   assert.equal(maskOfField('0000-00-00', ''), 'mask=0000-00-00');
 });
+
+test('a band without a headline (Austrian\'s emergency contact: the import browser drops its empty h2) is still a step row with its description; the headline\'s band as before', () => {
+  const band = (headline, description, legend) => `<div class="subcontainer"><div class="form-section row"><div class="col-12 form-section-headline-container">${headline}</div>
+    <div class="col-12 col-md-4 form-section-description-container">${description ? `<p class="form-section-description">${description}</p>` : ''}</div>
+    <div class="col-12 col-md-7 offset-md-1 form-section-content-container"><div class="container-white p-7 form-section-content"><div class="subsection"><div id="subsection-${legend}"><fieldset><legend><h3>${legend}</h3></legend>
+      <div class="cmp-form-text"><maui-input label="${legend} name*" name="${legend.toLowerCase()}Name" type="text" required=""></maui-input></div></fieldset></div></div></div></div></div></div>`;
+  const { document } = parseHTML(`<!DOCTYPE html><html><body><main><div class="form-wrapper"><form class="cmp-form" action="https://www.austrian.com/content/aua/markets/at/de/notfallkontakt.html">
+    <div class="container-full-width form-container">${band('', 'Passagierdaten', 'Ihre Daten')}${band('<h2 class="heading-medium form-section-headline">Flight</h2>', 'Flüge', 'Flug')}${band('', '', 'Bedingungen')}</div>
+  </form></div></main></body></html>`);
+  parse(document.querySelector('.form-wrapper'), { document, url: 'https://www.austrian.com/at/de/notfallkontakt' });
+  const rows = [...document.querySelectorAll('table[data-name] tr')].map((tr) => [...tr.children].map((td) => td.textContent.trim()));
+  const steps = rows.filter((r) => r[1] === 'step');
+  assert.deepEqual(steps.map((r) => [r[0], r[5]]), [['', 'Passagierdaten'], ['Flight', 'Flüge'], ['', '']]);
+  const at = (label) => rows.findIndex((r) => r[0] === label);
+  assert.ok(at('Ihre Daten') > rows.indexOf(steps[0]) && at('Flug') > rows.indexOf(steps[1]) && at('Bedingungen') > rows.indexOf(steps[2]), 'each band\'s fieldset follows its step row');
+});

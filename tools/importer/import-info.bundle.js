@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-info.js
-  var tmp_bundle_info_370421_exports = {};
-  __export(tmp_bundle_info_370421_exports, {
-    default: () => tmp_bundle_info_370421_default
+  var tmp_bundle_info_384891_exports = {};
+  __export(tmp_bundle_info_384891_exports, {
+    default: () => tmp_bundle_info_384891_default
   });
 
   // tools/importer/parsers/search-results.js
@@ -2235,7 +2235,7 @@ var CustomImportScript = (() => {
     function visit(el) {
       if (!el || el.nodeType !== 1) return;
       if (el.matches("input, template, script, style, .forms-repeat-add, .forms-repeat-remaining, .forms-repeat-hide")) return;
-      if (el.matches(".form-section") && el.querySelector(":scope .form-section-headline")) {
+      if (el.matches(".form-section") && el.querySelector(":scope .form-section-headline, :scope > .form-section-headline-container, :scope > .form-section-description-container")) {
         const description = el.querySelector(".form-section-description");
         const help = description ? document.createElement("div") : null;
         if (help) help.append(...description.cloneNode(true).childNodes);
@@ -6467,7 +6467,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_info_370421_default = {
+  var tmp_bundle_info_384891_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -6497,5 +6497,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_info_370421_exports);
+  return __toCommonJS(tmp_bundle_info_384891_exports);
 })();

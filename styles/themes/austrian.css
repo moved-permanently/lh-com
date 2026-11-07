@@ -879,3 +879,92 @@ body.brand-austrian .cards-icon.usp .cards-icon-label {
     line-height: 35px;
   }
 }
+
+/* brief 445 item 5: the core forms as www's (maui theme os; /at/de/notfallkontakt at 1440): each band's
+   description (Passagierdaten, Flüge) CoreSans 500 beside its card, the card 72 px under the band's top
+   and 108 px from the next one, 24 px padded; the subsection titles CoreSans 500 as www's
+   heading-copytext-large (16 / 17.6, 18 / 19.8 from 1025 px); the fields 300 x 50 boxes (1 px #262626
+   border, 8 px radius, #f6f6f6 fill), the label inside, 12 px from the left */
+body.brand-austrian .form.core {
+  --form-field-height: 50px;
+  --form-field-max-width: 300px;
+}
+
+body.brand-austrian .form.core .form-step {
+  padding: 72px 0 36px;
+}
+
+body.brand-austrian .form.core .form-step-description {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+body.brand-austrian .form.core .form-step-card {
+  padding: 24px;
+}
+
+body.brand-austrian .form.core .form-subsection-title {
+  color: inherit;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+body.brand-austrian .form.core :is(.form-field-text, .form-field-email, .form-field-tel, .form-field-number, .form-field-date, .form-field-select, .form-field-region, .form-field-autocomplete) > .form-control {
+  padding: 19px 12px 5px;
+  border: 1px solid #262626;
+  border-radius: 8px;
+  background-color: #f6f6f6;
+  line-height: 24px;
+}
+
+body.brand-austrian .form.core :is(.form-field-text, .form-field-email, .form-field-tel, .form-field-number, .form-field-date, .form-field-select, .form-field-region, .form-field-autocomplete) > .form-label {
+  top: 6px;
+  left: 13px;
+  right: 13px;
+}
+
+body.brand-austrian .form.core .form-field:where(:has(> .form-control[placeholder=" "]:placeholder-shown:not(:focus))) > .form-label,
+body.brand-austrian .form.core .form-field-empty > .form-label {
+  top: 13px;
+  line-height: 24px;
+}
+
+body.brand-austrian .form.core .form-optional {
+  top: 13px;
+}
+
+/* the hint under a field: 14 / 20 in the text colour (www's maui hint), 8 px under the box */
+body.brand-austrian .form.core .form-help {
+  margin-top: 8px;
+  color: var(--text-color);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+body.brand-austrian .form.core :is(.form-field-text, .form-field-email, .form-field-tel, .form-field-number)::after {
+  content: none;
+}
+
+body.brand-austrian .form.core .form-field-autocomplete > .form-control {
+  background-position: right 12px center;
+}
+
+body.brand-austrian .form.core textarea.form-control {
+  border: 1px solid #262626;
+  border-radius: 8px;
+  background-color: #f6f6f6;
+}
+
+body.brand-austrian .form.core .form-field-invalid .form-control,
+body.brand-austrian .form.core .form-control:user-invalid {
+  border-color: var(--lh-red);
+}
+
+@media (width >= 1025px) {
+  body.brand-austrian .form.core :is(.form-step-description, .form-subsection-title) {
+    font-size: 18px;
+  }
+}

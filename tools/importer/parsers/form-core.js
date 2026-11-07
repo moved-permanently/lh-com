@@ -409,7 +409,10 @@ export default function parse(element, { document, url, params }) {
   function visit(el) {
     if (!el || el.nodeType !== 1) return;
     if (el.matches('input, template, script, style, .forms-repeat-add, .forms-repeat-remaining, .forms-repeat-hide')) return;
-    if (el.matches('.form-section') && el.querySelector(':scope .form-section-headline')) {
+    // a band also when its headline is empty (Austrian's emergency contact: only the description,
+    // Passagierdaten / Flüge, beside the card): the import browser drops the empty h2 before the
+    // parsers run, its container stays
+    if (el.matches('.form-section') && el.querySelector(':scope .form-section-headline, :scope > .form-section-headline-container, :scope > .form-section-description-container')) {
       const description = el.querySelector('.form-section-description');
       const help = description ? document.createElement('div') : null;
       if (help) help.append(...description.cloneNode(true).childNodes);
