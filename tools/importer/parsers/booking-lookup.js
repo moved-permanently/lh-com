@@ -64,6 +64,31 @@ export default function parse(element, { document, params } = {}) {
   // Reference label / pattern / error (booking code maui-input), Last name label / error,
   // Tour operator label (maui-checkbox), Submit label.
   const quickActions = element.matches('.dcep-quick-actions') ? element : element.querySelector('.dcep-quick-actions');
+  // --- www's quick actions whose panel is the Check-in panel (maui-tab-control-panel
+  // data-key="checkIn": Brussels' online-check-in-options, brussels-snapshots-015, brief 448):
+  // Booking code, First name, Last name and the Check-in button, a plain booking-lookup with
+  // www's labels, pattern and error texts (the my-bookings variant has no first name)
+  const qaPanels = quickActions ? [...quickActions.querySelectorAll('maui-tab-control-panel, [role="tabpanel"]')] : [];
+  const checkInPanel = qaPanels.length === 1 && qaPanels[0].getAttribute('data-key') === 'checkIn' ? qaPanels[0] : null;
+  if (checkInPanel) {
+    const rows = [];
+    const add = (k, v) => { if (v) rows.push([k, v]); };
+    add('Tab', attr(checkInPanel, 'name'));
+    const inputs = [...checkInPanel.querySelectorAll('maui-input')];
+    const firstIn = inputs.find((i) => /given-name/.test(attr(i, 'autocomplete')));
+    const lastIn = inputs.find((i) => /family-name/.test(attr(i, 'autocomplete')));
+    const code = inputs.find((i) => i !== firstIn && i !== lastIn);
+    add('Reference label', attr(code, 'label'));
+    add('Reference pattern', attr(code, 'pattern'));
+    add('Reference error', attr(code, 'errormessage'));
+    add('First name label', attr(firstIn, 'label'));
+    add('First name error', attr(firstIn, 'errormessage'));
+    add('Last name label', attr(lastIn, 'label'));
+    add('Last name error', attr(lastIn, 'errormessage'));
+    add('Submit label', visibleText(checkInPanel.querySelector('maui-button[behavior="submit"], maui-button[type="primary"], button[type="submit"]')));
+    element.replaceWith(WebImporter.Blocks.createBlock(document, { name: 'booking-lookup', cells: rows }));
+    return;
+  }
   if (quickActions) {
     const rows = [];
     const add = (k, v) => { if (v) rows.push([k, v]); };
