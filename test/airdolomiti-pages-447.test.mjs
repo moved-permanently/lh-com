@@ -81,3 +81,20 @@ test('the destination pages\' stage as www\'s HeroSecond: the picture darkened a
   has(new RegExp(`@media \\(width >= 930px\\) \\{[^@]*${D} \\.hero-card-overlay-card h1 \\{[^}]*font-size: 64\\.8px;[^}]*line-height: 72px;`));
   has(new RegExp(`@media \\(width >= 530px\\) \\{[^@]*${D}::after \\{[^}]*height: 135px;[^}]*background-color: #fff;`));
 });
+
+test('section headings as most of www\'s (MiniCardSlider, Title, CosaFareCarroussel, CenteredBlock): 34 / 42 px, 38 / 46 px from 930 px; the text blocks\' and the destination grid\'s 38 / 46, 42 / 50 from 930 px', () => {
+  has(new RegExp(`${B} main \\.default-content-wrapper h2 \\{[^}]*font-size: 34px;[^}]*font-weight: 300;[^}]*line-height: 42px;`));
+  has(new RegExp(`@media \\(width >= 930px\\) \\{[^@]*${B} main \\.default-content-wrapper h2 \\{[^}]*font-size: 38px;[^}]*line-height: 46px;`));
+  assert.equal(/@media \(width >= 1025px\) \{[^@]*body\.brand-airdolomiti main \.default-content-wrapper h2 \{[^}]*font-size: 42px;/.test(css), false, 'no 42 px from 1025 px for every heading');
+  has(/body\.brand-airdolomiti main \.default-content-wrapper:has\(> h1 ~ p ~ p\):has\(\+ \.cards-teaser-wrapper\) > h2:last-child, body\.brand-airdolomiti main > \.section\.hero-campaign-container \+ \.section > \.default-content-wrapper:has\(> h2:first-child ~ p ~ p\) > h2:first-child \{[^}]*font-size: 38px;[^}]*line-height: 46px;/);
+});
+
+test('the destination hub\'s cards as www\'s CardNews: white, shadowed, 470 px high, the picture 60 %, the title regular 20 / 26 px, the line grey and underlined, the card one link', () => {
+  const C = `${B} \\.cards-teaser\\.three-up > ul > li:has\\(> \\.cards-teaser-image \\+ \\.cards-teaser-body > \\.cards-teaser-title:first-child \\+ p:not\\(\\.cards-teaser-cta\\) \\+ \\.cards-teaser-cta:last-child\\)`;
+  has(new RegExp(`${C} \\{[^}]*position: relative;[^}]*height: 470px;[^}]*border-radius: 10px;[^}]*background-color: #fff;[^}]*box-shadow: 0 12px 25px rgb\\(0 0 0 / 5%\\);`));
+  has(new RegExp(`${C} \\.cards-teaser-image \\{[^}]*flex: 0 0 60%;`));
+  has(new RegExp(`${C} \\.cards-teaser-title \\{[^}]*font-size: 20px;[^}]*font-weight: 400;[^}]*line-height: 26px;`));
+  has(new RegExp(`${C} \\.cards-teaser-body > p:not\\(\\.cards-teaser-cta\\) \\{[^}]*color: #757575;[^}]*font-size: 14px;[^}]*line-height: 18px;[^}]*text-decoration: underline;`));
+  has(new RegExp(`${C} \\.cards-teaser-cta-link \\{[^}]*position: absolute;[^}]*inset: 0;`));
+  has(new RegExp(`${C} \\.cards-teaser-cta \\{[^}]*display: contents;`), 'the link out of the column, over the card');
+});
