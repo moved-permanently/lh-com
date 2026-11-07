@@ -704,3 +704,38 @@ body.brand-swiss.sub-site-magazine .related-articles .related-articles-title {
     max-width: 100%;
   }
 }
+
+/* the articles' galleries as www's (brief 455: jungfrau region, inside SWISS, travel, hello
+   Boston): the slide the copy column's width (766 px at 1440) from its left edge, the picture
+   square, the next slide 24 px on, running to the window's edge; lh-com's centred 1.2 slides in
+   five sixths of the column gave 529 px 3:2 pictures */
+body.brand-swiss.sub-site-magazine main:has(.article-header) .carousel-images {
+  max-width: none;
+  margin-inline: 0;
+}
+
+body.brand-swiss.sub-site-magazine main:has(.article-header) .carousel-images .carousel-images-viewport {
+  --carousel-images-slide: 100cqw;
+}
+
+body.brand-swiss.sub-site-magazine main:has(.article-header) .carousel-images .carousel-images-track {
+  gap: 24px;
+  margin-inline-end: calc((100cqw - 100vw) / 2);
+  scroll-padding-inline-start: var(--layout-margin);
+}
+
+body.brand-swiss.sub-site-magazine main:has(.article-header) .carousel-images .carousel-images-slide {
+  scroll-snap-align: start;
+}
+
+body.brand-swiss.sub-site-magazine main:has(.article-header) .carousel-images .carousel-images-image {
+  aspect-ratio: 1;
+}
+
+body.brand-swiss.sub-site-magazine main:has(.article-header) .carousel-images .carousel-images-image :is(a, picture, img) {
+  height: 100%;
+}
+
+body.brand-swiss.sub-site-magazine main:has(.article-header) .carousel-images .carousel-images-image img {
+  object-fit: cover;
+}
