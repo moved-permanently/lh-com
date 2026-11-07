@@ -606,3 +606,76 @@ TAP's hosts by hand; upload and preview only, nothing published.
 | 3 | 4c274bf, 9d89b91 | fleet two-up in 11 languages; card titles tracked 0.3 px, grid card text 261 px | revert each; DA's earlier versions |
 | 4 | 81a813f | sidebars with a tab set (airportr en, de, fr) | `git revert 81a813f`; DA's earlier versions |
 | 5 | f91a605 | hero-campaign pinned; A350 de and SWISS Senses in 10 languages | `git revert f91a605`; DA's earlier versions |
+
+## Brief 455 (my/en flash teaser on re-import; SWISS message center, magazine galleries, stages)
+
+Same rules: tests first, brand-scoped CSS (shared code only as options or scoped to a layout,
+with every brand's smoke), lint and the full suite before the push, the smoke of every brand
+before and after, SWISS's and TAP's hosts by hand; upload and preview only, nothing published.
+
+- One code push, after a pull: `8779dde..53034eb`.
+- The smoke after it was the same as before on every brand.
+
+### 1. my/en's flash teaser survives a re-import (done, 1592e8f)
+
+- The flash-teaser parser takes the strip's own setting from www's homepage, that is from the
+  message list www writes into the page on the server. A list that holds promotions and no
+  irregularity or outage gives `Types | promo`. Any other list, or no list, gives the empty block
+  as before.
+- Tested with the my/en and my/de homepage snapshots (fixtures in test/fixtures/flash-teaser).
+  Over all 225 recorded homepage snapshots, only my/en gets the row; the others come out as today.
+  The import-homepage bundle is rebuilt.
+- Caveat: a homepage captured while no alert is live anywhere, and showing a promotion, would also
+  get `Types | promo`. None of the 225 recorded homepages is like that.
+
+### 2. The message center in the sidebar column (done, 137bbb0)
+
+- swiss-sidebar.mjs: when www's sidebar content opens with the message center, the document's
+  message-center block right before the content's start belongs to the content.
+- message-center.css: inside a section beside an aside, the block takes the content column's
+  width. Everywhere else it keeps lh-com's 74.2 % from 768 px.
+- The 11 current information documents (ch/de, el, en, es, fr, it, ja, pt, ru, zh and kr/ko) were
+  rebuilt. DA's copies were exactly as I had uploaded them; no word lost.
+- On the preview at 1440 (ch/de, ch/fr, kr/ko), the message center sits in the content column:
+  843 px wide (was 938 px), the same width as the accordion below it.
+- Other brands: of their current travel information pages, only SWISS's have both a message
+  center and a sidebar. lufthansa.com, Austrian, Brussels and ITA have a message center but no
+  sidebar. lufthansa.com's de/en page keeps its 938 px message center.
+
+### 3. SWISS magazine galleries (done, 6b596e5)
+
+- In articles, the gallery now matches www: each slide is the copy column's width (766 px at 1440)
+  from its left edge, the pictures are square, and the next slide peeks in 24 px on, up to the
+  window's edge. The arrows step one slide.
+- Preview: jungfrau region 0.85 -> 0.98 at 1440 and 0.93 -> 0.99 at 390.
+- hello Boston's galleries are the same now; the rest of its gap is www's ad slots and its larger
+  More stories cards.
+- inside-swiss and travel are landing pages without a gallery. They are 0.99 at 1440 and stay
+  0.87 at 390, for a reason not yet looked at.
+
+### 4. The next largest: onboard catering (done, 53034eb)
+
+- Between the snapshots (11-02) and the parity capture (11-06), www gave onboard catering's stage
+  the tall size and an intro paragraph, and the A350's five stages a paragraph and a button each.
+  Ours lacked those texts.
+- swiss-import.mjs has a new step, withTeaserTexts: www's teaser paragraphs and button go after the
+  heading of the block whose heading matches, when the block lacks that text.
+- Rebuilt from the capture: ch/en onboard catering, and ch/de A350 with its texts.
+- Preview, onboard catering: 0.86 -> 0.965 at 1440 and 0.92 -> 0.99 at 390. A350: 1.00 at 1440.
+- Only these two of the 60 parity pages differ between snapshot and capture. Other languages'
+  pages would need a fresh capture.
+
+### Documents
+
+- lh-swiss: 13 uploaded and previewed, 0 problems, nothing published. In release order (the code
+  is on main): [../swiss/preview-paths-455.txt](../swiss/preview-paths-455.txt).
+  - The 11 current information pages, then A350 de and onboard catering en.
+- lh-com: nothing new. my/en's homepage document already has the row from brief 450, and a
+  re-import now keeps it.
+
+| Item | Commit | What | Rollback |
+| --- | --- | --- | --- |
+| 1 | 1592e8f | flash-teaser parser: Types from www's server list (promotions only: promo) | `git revert 1592e8f` |
+| 2 | 137bbb0 | the message center in a sidebar's content column; 11 documents | revert; DA's earlier versions |
+| 3 | 6b596e5 | magazine article galleries as www's | `git revert 6b596e5` |
+| 4 | 53034eb | withTeaserTexts; onboard catering en and A350 de | revert; DA's earlier versions |

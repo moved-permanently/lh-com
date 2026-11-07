@@ -1,0 +1,13 @@
+/ch/de/fly/flight-information/current-information
+/ch/en/fly/flight-information/current-information
+/ch/el/fly/flight-information/current-information
+/ch/es/fly/flight-information/current-information
+/ch/fr/fly/flight-information/current-information
+/ch/it/fly/flight-information/current-information
+/ch/ja/fly/flight-information/current-information
+/ch/pt/fly/flight-information/current-information
+/ch/ru/fly/flight-information/current-information
+/ch/zh/fly/flight-information/current-information
+/kr/ko/fly/flight-information/current-information
+/ch/de/discover/a350
+/ch/en/fly/on-board/food-and-beverage
