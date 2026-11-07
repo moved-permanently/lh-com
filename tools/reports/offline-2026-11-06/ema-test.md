@@ -686,3 +686,77 @@ target-size): now 24 px tall with 3 px of padding taken back by the margin (`70d
 
 Documents (uploaded to DA and previewed, not published): no files; 114 Austrian pages in
 `tools/reports/offline-2026-11-06/preview-paths-after-462.txt`. None is published.
+
+## The brief after 464
+
+Left from the last one, not in git by design: `.migration/project.json` (the import's local workspace flag),
+`tools/importer/reports/**` (the bulk importer's per-page reports), `content/` and `migration-work/` (the local lh-com
+workspace), `content-sites/` (the local document trees), `logs/` and /tmp (scripts, captures, DA backups).
+
+### 1. The 311 Austrian copies
+
+- The 210 with www links (contact, flightbooking, travel-briefing): DA's current copy as the base (read again: 204
+  differed from the local ones by now, among them the 114 of last round), only those 327 links made relative, every
+  other byte as DA has it; uploaded and previewed, DA equal to local. The 23 target pages answer 200 on
+  austrian.turnsthe.page (e.g. /cn/zh/contact, /jp/ja/flightbooking, /gr/el/travel-briefing); on the preview
+  /cn/zh/awards links /cn/zh/flightbooking, /jp/ja/book/additional-services/seat-reservation /jp/ja/contact.
+- The 83 image-source ones: nothing.
+- The 18 (10 navs, 8 with DA's own edits): DA's version written into the local copies (the old local ones in
+  logs/da/pre-stale464); local equal to DA.
+
+### 2. ITA's date picker (`74074a23`)
+
+The import has dropped www's jQuery UI date picker (#ui-datepicker-div) since c41fa328; the two documents with the `lu`
+block had been imported before. The mapping is now an exported `mappedOf`, tested on both snapshots. Every lh-ita
+document in DA read (the 2,492 local ones): only those two had a `lu` block; the block and its two header paragraphs
+("<PrecSucc>", "Ottobre 2026") removed on DA's copies, nothing else changed; uploaded and previewed. On
+main--lh-ita--: both forms render, no lu block, no failed block. DA documents of lh-ita without a local copy were not
+read.
+
+### 3. One h1 (`ebfd99bf`)
+
+www's own markup has several h1 on these pages (sustainable-flying: the title and three
+h1.headline.heading-copytext-large). The Austrian post chain's `withOneH1` keeps the first h1 and writes the later ones
+as h2 at their size (their marker's heading size, else {heading-large}, inside the one trailing marker scripts.js reads),
+so the pages look as before. Not only sustainable-flying: 65 Austrian documents had more than one h1 (96 headings:
+electronic-devices-and-batteries, flight-status-and-timetable, faq-flight, ombudssystem, sustainable-flying,
+premium-economy-class in each language, and a few others); all changed on DA's copies and uploaded, plus
+se/en/sustainable-flying's own document (in DA, no local copy). at/en keeps its market sections. dk/en has no document
+of its own (it answers on austrian.turnsthe.page from at/en). The first pass put a second marker after "Lounges
+{column-start}" on the ten faq-flight pages (shown as text on the preview); repaired the same way, uploaded again.
+Checked on main--lh-austrian--: at/en and se/en sustainable-flying one h1 (48 px), the former h1 sections 24 px h2;
+es/es/faq-flight one h1, "Lounges" without a marker, 48 px.
+
+### 4. /xx/zh's picker rows
+
+www's xx/zh wording from the homepage snapshot's picker: 儿童 （2 至 11 周岁）, 没有座位的婴儿 （0-23 个月）, the group link
+10 名或以上旅客团体预订。. Four documents have the rows (flight-search, homepage, cash-and-miles, book-and-manage/stopover;
+hotel-offers has none): only those five values changed on DA's copies, each link's target as DA had it (www's
+xx/zh group page has no copy on our site); uploaded and previewed. On main--lh-com--: /xx/zh/flight-search and
+/xx/zh/homepage show 儿童（2 至 11 周岁）, 没有座位的婴儿（0-23 个月） and 10 名或以上旅客团体预订。. The homepage is
+ema-adobe's area; only these rows changed, DA rechecked right before the upload.
+
+### 5. The Austrian parity rows still open
+
+Rows 3 (the airport list from this environment) and 38 (www's offers app, a link out) only, both not ours to change;
+nothing else is open in parity.md.
+
+### Checks
+
+- Lint and the full suite before the push, in a fresh worktree: the first run failed on ita-datepicker (it read a snapshot,
+  and tools/importer/bd-snapshots is not in git); on a fixture now, 497 passed.
+- Smoke on all 12 hosts before and after the push.
+- Previews: main--lh-austrian-- (links, h1s), main--lh-ita-- (the forms), main--lh-com-- (xx/zh picker); the link
+  targets on austrian.turnsthe.page.
+
+### Summary (the brief after 464)
+
+| item | commit | what | rollback |
+| --- | --- | --- | --- |
+| 2 | `74074a23`, `394ed970` | ITA: mappedOf with the date picker dropped, tested (the test on a fixture: the snapshots are not in git, the clean worktree had none) | `git revert`; the 2 documents: DA's versions before 2026-11-07 (logs/da/orig at the time) |
+| 3 | `ebfd99bf` | Austrian: one h1 per page | `git revert`; the 66 documents: DA's versions before (logs/da/pre-h1464) |
+| 1-5 | this report's commit | report, `preview-paths-after-464.txt`, upload states | – |
+
+Documents (uploaded to DA and previewed, not published): no files; `tools/reports/offline-2026-11-06/preview-paths-after-464.txt`,
+per site in release order: lh-austrian 261 (210 links, 50 more one-h1 documents, se/en), lh-ita 2, lh-com 4. Plus 18
+Austrian local copies refreshed from DA (not uploaded).
