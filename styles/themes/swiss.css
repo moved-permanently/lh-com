@@ -1051,15 +1051,15 @@ body.brand-swiss main .default-content-wrapper:has(> .column-start):has(> :is(h2
   }
 }
 
-/* the cards' titles tracked 0.3 px as www's teaser headings (.teaser-heading, brief 450), and from
-   768 px a long word whole as on www (overflow-wrap normal): lh-com's break-word split
-   "Einreisebestimmungen" (261 px) in travel regulations' 259 px titles */
+/* the cards' titles tracked 0.3 px as www's teaser headings (.teaser-heading, brief 450), and the
+   grid cards' text as wide as www's (261 px in a 301 px card, the card's 1 px border within www's
+   20 px; 18 px for the subpixels): "Einreisebestimmungen" (261.4 px) no longer breaks in travel
+   regulations' four cards */
 body.brand-swiss .carousel-cards .carousel-cards-body :is(h1, h2, h3, h4, h5, h6) {
   letter-spacing: 0.3px;
 }
 
-@media (width >= 768px) {
-  body.brand-swiss .carousel-cards .carousel-cards-body :is(h1, h2, h3, h4, h5, h6) {
-    overflow-wrap: normal;
-  }
+/* stylelint-disable-next-line no-descending-specificity -- the text-only cards' own padding stays */
+body.brand-swiss .carousel-cards:is(.grid, .four-up) .carousel-cards-slide:not(.carousel-cards-wide) .carousel-cards-body {
+  padding-inline: 18px;
 }
