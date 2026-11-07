@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-fleet.js
-  var tmp_bundle_fleet_602102_exports = {};
-  __export(tmp_bundle_fleet_602102_exports, {
-    default: () => tmp_bundle_fleet_602102_default
+  var tmp_bundle_fleet_646924_exports = {};
+  __export(tmp_bundle_fleet_646924_exports, {
+    default: () => tmp_bundle_fleet_646924_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -982,7 +982,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/carousel-lightbox.js
-  function parse3(element, { document }) {
+  function parse3(element, { document, url, params }) {
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style';
     const clean2 = (s) => (s || "").replace(/[\u200B-\u200D\uFEFF]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -1080,7 +1080,15 @@ var CustomImportScript = (() => {
       }
       half = Number(row.getAttribute("data-lh-slideshows")) > 1;
     }
-    const block = WebImporter.Blocks.createBlock(document, { name: "carousel-lightbox", variants: half ? ["half"] : [], cells });
+    let host = "";
+    try {
+      host = new URL(params && params.originalURL || url || "").hostname;
+    } catch (e) {
+      host = "";
+    }
+    const wide = !half && !(column && layout) && /(^|\.)brusselsairlines\.com$/.test(host);
+    const variants = half ? ["half"] : wide ? ["wide"] : [];
+    const block = WebImporter.Blocks.createBlock(document, { name: "carousel-lightbox", variants, cells });
     element.replaceWith(block);
   }
 
@@ -4094,7 +4102,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_fleet_602102_default = {
+  var tmp_bundle_fleet_646924_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -4124,5 +4132,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_fleet_602102_exports);
+  return __toCommonJS(tmp_bundle_fleet_646924_exports);
 })();

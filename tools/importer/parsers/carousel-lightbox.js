@@ -18,8 +18,9 @@
  *   cell 1: image (src + alt), cell 2: caption (".lightbox-description") or empty
  * Label row "Close label" is added when the modal carries a visible close-button text.
  * Option "half": the slideshow shares its column view with another slideshow (/744 decks).
+ * Option "wide": a Brussels slideshow outside a multi-column view (its section's width on www).
  */
-export default function parse(element, { document }) {
+export default function parse(element, { document, url, params }) {
   const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style';
   const clean = (s) => (s || '').replace(/[\u200B-\u200D\uFEFF]/g, '').replace(/ /g, ' ').replace(/\s+/g, ' ').trim();
   const visibleText = (node) => {
@@ -124,6 +125,12 @@ export default function parse(element, { document }) {
     }
     half = Number(row.getAttribute('data-lh-slideshows')) > 1;
   }
-  const block = WebImporter.Blocks.createBlock(document, { name: 'carousel-lightbox', variants: half ? ['half'] : [], cells });
+  // Brussels: a slideshow in its section (not in a multi-column view) runs the content's width on
+  // www (be/fr/travel-classes/business: about 1,250 px at 1440): option wide
+  let host = '';
+  try { host = new URL((params && params.originalURL) || url || '').hostname; } catch (e) { host = ''; }
+  const wide = !half && !(column && layout) && /(^|\.)brusselsairlines\.com$/.test(host);
+  const variants = half ? ['half'] : (wide ? ['wide'] : []);
+  const block = WebImporter.Blocks.createBlock(document, { name: 'carousel-lightbox', variants, cells });
   element.replaceWith(block);
 }

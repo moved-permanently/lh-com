@@ -17,6 +17,7 @@ Zoom icon: the Lufthansa icon-photo-gallery glyph (a filled picture with a cut-o
 | Variation | Option class |
 | --- | --- |
 | Half: two slideshows side by side from 768px (two consecutive blocks with this option share one row, 20px apart; stacked below 768px) | `half` |
+| Wide: the preview the block's full width from 768px (a slideshow in its section, not in a column: Brussels' galleries) | `wide` |
 
 The importer writes `half` for two slideshows of one Lufthansa column view (/de/en/744 'Main deck' | 'Upper deck': 614px each at 1440).
 

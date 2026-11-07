@@ -807,6 +807,23 @@ body.brand-austrian main :is(.default-content-wrapper, .columns-media-text) > :i
   }
 }
 
+/* the parity sweep of the brief after 471: the fare teaser's title ("Winter deals") is www's maui-headline
+   format heading-xl, Portada 500 28 / 30.8 (36 / 39.6 from 1025 px), 20 px above the fares */
+body.brand-austrian main .section.fare-teaser-container > .default-content-wrapper > :is(h2, h3):last-child {
+  margin-bottom: 20px;
+  font-family: var(--heading-font-family);
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 30.8px;
+}
+
+@media (width >= 1025px) {
+  body.brand-austrian main .section.fare-teaser-container > .default-content-wrapper > :is(h2, h3):last-child {
+    font-size: 36px;
+    line-height: 39.6px;
+  }
+}
+
 /* stylelint-disable-next-line no-descending-specificity -- content lists, not the menu's or the panels' */
 body.brand-austrian main :is(.default-content-wrapper, .columns-media-text, .accordion-columns) li {
   margin-bottom: 5px;

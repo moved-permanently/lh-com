@@ -262,6 +262,12 @@
     width: calc((100% - var(--grid-gutter)) / 2);
   }
 
+  /* option wide: a slideshow in its section, not in a column (Brussels' galleries, the
+     content's width on www) */
+  .carousel-lightbox.wide .carousel-lightbox-inline {
+    width: 100%;
+  }
+
   .carousel-lightbox .carousel-lightbox-dialog {
     padding: 100px 88px 0;
   }
