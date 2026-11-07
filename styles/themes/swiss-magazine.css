@@ -614,6 +614,12 @@ body.brand-swiss.sub-site-magazine .related-articles .related-articles-title {
     --magazine-edge: 16px;
   }
 
+  /* the lists' and More Stories' cards one below the other 56 px apart (www at 390: 65 px from a
+     card's label to the next picture; brief 453) */
+  body.brand-swiss.sub-site-magazine :is(.blog-overview.grid .blog-overview-list, .related-articles .related-articles-list) {
+    row-gap: 56px;
+  }
+
   body.brand-swiss.sub-site-magazine header .nav-bar {
     align-items: flex-start;
     padding: 24px 16px 0;

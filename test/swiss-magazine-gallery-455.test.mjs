@@ -19,3 +19,9 @@ test('the gallery the column\'s width, one slide the column, square pictures, th
   assert.ok(css.includes(`${G} .carousel-images-image { aspect-ratio: 1; }`));
   assert.ok(css.includes(`${G} .carousel-images-image img { object-fit: cover; }`));
 });
+
+// brief 453: on phones the lists' and More Stories' cards 56 px apart (www at 390); 47 px from 768 px as before
+test('phones: the magazine lists\' cards 56 px apart', () => {
+  assert.ok(css.includes('@media (width < 768px) { body.brand-swiss.sub-site-magazine { --magazine-edge: 16px; } body.brand-swiss.sub-site-magazine :is(.blog-overview.grid .blog-overview-list, .related-articles .related-articles-list) { row-gap: 56px; }'));
+  assert.ok(css.includes('body.brand-swiss.sub-site-magazine .blog-overview.grid .blog-overview-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 47px 24px; }'));
+});
