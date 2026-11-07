@@ -28,5 +28,5 @@ test('a row that is there stays; no topic, no row', async () => {
 
 test('the import writes it', () => {
   const src = fs.readFileSync(new URL('../tools/importer/austrian-import.mjs', import.meta.url), 'utf8');
-  assert.match(src, /const next = withChatButton\(withPartnerLogoAlts\(/);
+  assert.match(src, /const next = withChatButton\(withPoiPoints\(withPartnerLogoAlts\(/);
 });

@@ -6,8 +6,8 @@
  * rest (/at/en/online-check-in: the four-column steps, the accordion, the card row, the column
  * views). Each Austrian template is lh-com's info template (blocks and sections) with the page's own
  * block in front: app-entry's booking-lookup (austrian-checkin), flight-status's flight-status
- * (austrian-flight-status). Built from the current templates, so a change to info carries over:
- * run this, then rebuild the two bundles (build-bundles.mjs austrian-checkin austrian-flight-status);
+ * (austrian-flight-status), hub's hero-banner (austrian-hero-banner). Built from the current templates, so a change to info carries over:
+ * run this, then rebuild their bundles (build-bundles.mjs austrian-checkin austrian-flight-status austrian-hero-banner);
  * test/austrian-templates.test.mjs fails while page-templates.json and this disagree.
  *
  * Usage: node tools/importer/austrian-templates.mjs
@@ -26,12 +26,14 @@ const own = (templates, name, block) => {
   };
 };
 
-/** The two Austrian templates built from lh-com's current templates (an array). */
+/** The Austrian templates built from lh-com's current templates (an array). */
 export function austrianTemplates(templates) {
   const info = templates.find((t) => t.name === 'info');
   return [
     ['austrian-checkin', 'Austrian: an info page with the check-in entry (app-entry\'s booking-lookup)', own(templates, 'app-entry', 'booking-lookup')],
     ['austrian-flight-status', 'Austrian: an info page with the flight status and timetable search (flight-status\'s block)', own(templates, 'flight-status', 'flight-status')],
+    // www's expanding panels (.herobanner .dcep-hero-banner, /at/en/fly/on-board/culinary-services; parity row 37)
+    ['austrian-hero-banner', 'Austrian: an info page with the expanding image panels (hub\'s hero-banner)', own(templates, 'hub', 'hero-banner')],
   ].map(([name, description, { block, section }]) => ({
     name,
     description,

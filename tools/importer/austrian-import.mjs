@@ -8,8 +8,8 @@
  * pages relative), after adding the batch's documents to the allowlist
  * tools/importer/sites/lh-austrian.json. Per document (one per language page, option B):
  * - widgets a service answers on www become a link to the page on www (withLinkOuts): the check-in
- *   deadline search, the FAQ search bar, the culinary-hub micro-frontend, iframes the embed block
- *   doesn't play (the in-flight entertainment carousels);
+ *   deadline search, the FAQ search bar, iframes the embed block doesn't play (the in-flight
+ *   entertainment carousels); the culinary hub a micro-frontend block (the mfe template);
  * - the core forms get a form config row with a proposed lh-forms id austrian-<page> (withForm;
  *   preview only until lh-forms knows them);
  * - the flight search hands off to shop.austrian.com from Vienna (withFlightSearch);
@@ -57,9 +57,9 @@ const h1Of = (html) => text((html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/g) || []).map
   || text((html.match(/<title>([^<]*)<\/title>/) || [])[1] || '').replace(/\s*\|\s*Austrian Airlines\s*$/, '');
 
 /**
- * A snapshot whose live widgets are a link to the page on www: the check-in deadline search and the
- * culinary-hub micro-frontend (labelled with the page's H1), the FAQ search bar (with its own
- * label), iframes the embed block doesn't play (with their title, else the H1).
+ * A snapshot whose live widgets are a link to the page on www: the check-in deadline search
+ * (labelled with the page's H1), the FAQ search bar (with its own label), iframes the embed block
+ * doesn't play (with their title, else the H1).
  */
 /**
  * www's p.copytext-large (the intro under the title, Portada 18 / 27 on www.austrian.com; 200 times on
@@ -76,9 +76,7 @@ export function withLinkOuts(html, p) {
   const linkOut = (label) => `<div class="text section"><div class="richtext"><p><a href="https://${LINK_OUT}${p}">${label}</a></p></div></div>`;
   let out = editDivs(html, '<div class="checkindeadlinesearch', () => linkOut(h1Of(html) || HOST));
   out = editDivs(out, '<div class="dcep-search-bar', (el) => linkOut((el.match(/<label[^>]*>([^<]+)<\/label>/) || [])[1] || h1Of(html) || HOST));
-  // the culinary hub's wrapper (whitespace between the wrapper and the element varies)
-  const hub = out.search(/<div class="wrapper section">\s*<culinary-hub/);
-  if (hub >= 0) out = `${out.slice(0, hub)}${linkOut(h1Of(html) || HOST)}${out.slice(divEnd(out, hub))}`;
+  // (the culinary hub stays: the mfe template's micro-frontend parser reads it, templateOf)
   return out.replace(/<div class="iframe[ "][^>]*>\s*<div class="iframe-wrapper[^>]*>\s*<iframe\b([^>]*)>[\s\S]*?<\/iframe>\s*<\/div>\s*<\/div>/g, (m, attrs) => {
     const src = (attrs.match(/\ssrc="([^"]+)"/) || [])[1] || '';
     if (EMBEDDED.test(src)) return m;
@@ -296,7 +294,7 @@ export function withFlightSearch(doc, p) {
  * maui-tab-control-responsive with column views, accordions, tables), no loads, no screen-reader
  * announcement (the help centre app's "Help page loaded." is no page text).
  */
-export const mappedOf = (html, p) => withoutLoads(withNestedOnecolumnUnwrapped(withPanelWrappersUnwrapped(withTabMarkers(withTeaserCta(withPhoneSliders(withTeaserColumns(withPartnerCarousels(withCheckinTabs(withCopytextLarge(withLinkOuts(withPlaceholder(stripScripts(html)), p)))))))))))
+export const mappedOf = (html, p) => withoutLoads(withNestedOnecolumnUnwrapped(withPanelWrappersUnwrapped(withAccordionMapsHoisted(withTabMarkers(withTeaserCta(withPhoneSliders(withTeaserColumns(withPartnerCarousels(withCheckinTabs(withCopytextLarge(withLinkOuts(withPlaceholder(stripScripts(html)), p))))))))))))
   .replace(/<output[^>]*class="screen-reader-announcer"[^>]*>[\s\S]*?<\/output>/g, '');
 
 /**
@@ -312,6 +310,48 @@ export const withAustrianTabs = (doc) => splitTabSections(doc.replace(
     return `<p>${mark}</p>${rest.length ? `<p>{${rest.join(' ')}}</p>` : ''}`;
   },
 ));
+
+/**
+ * An accordion whose items hold a points-of-interest map (.poimapping at an item's top: /book/flights/
+ * new-destinations, parity row 42): split before each such item, the item's map before its part, so the
+ * info importer makes the map a poi-map block of its own (inside the item its table nested in the
+ * accordion's cell, and both blocks were lost). The accordion's own opening (its maui-collapsible) is
+ * repeated for each part. String-based, the rest of the snapshot as it was.
+ */
+export const withAccordionMapsHoisted = (html) => editDivs(html, '<div class="accordion commonevent', (el) => {
+  if (!el.includes('class="poimapping')) return el;
+  const c = el.indexOf('<maui-collapsible');
+  if (c < 0) return el;
+  const open = el.slice(0, el.indexOf('>', c) + 1);
+  const close = '</maui-collapsible></div>';
+  const groups = [];
+  for (let i = el.indexOf('<div class="accordionitem'); i >= 0; i = el.indexOf('<div class="accordionitem', i)) {
+    const end = divEnd(el, i);
+    let it = el.slice(i, end);
+    const m = it.indexOf('<div class="poimapping');
+    if (m >= 0 || !groups.length) groups.push({ map: '', items: [] });
+    if (m >= 0) {
+      groups[groups.length - 1].map = it.slice(m, divEnd(it, m));
+      it = `${it.slice(0, m)}${it.slice(divEnd(it, m))}`;
+    }
+    groups[groups.length - 1].items.push(it);
+    i = end;
+  }
+  return groups.map((g) => `${g.map}${open}${g.items.join('\n')}${close}`).join('');
+});
+
+/**
+ * The points of Austrian's maps (tools/importer/austrian-poi-points.json: www's JCR path of each map -> its
+ * rows, as DA's documents have them from the first import): lh-com's poi-map parser writes a map it has no
+ * recording of as "Source | <path>" (the block would ask www, which answers aem.page nothing); a recorded
+ * one gets its rows (name | lat, lng; the zoom labels) instead.
+ */
+const POI_POINTS = JSON.parse(fs.readFileSync(new URL('./austrian-poi-points.json', import.meta.url), 'utf8'));
+const cellText = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;');
+export const withPoiPoints = (doc, points = POI_POINTS) => doc.replace(
+  /<div class="poi-map"><div><div>Source<\/div><div>([^<]+)<\/div><\/div><\/div>/g,
+  (m, src) => (points[src] ? `<div class="poi-map">${points[src].map(([k, v]) => `<div><div>${cellText(k)}</div><div>${cellText(v)}</div></div>`).join('')}</div>` : m),
+);
 
 /**
  * A tab panel's own bare wrapper (www: <maui-tab-control-panel-responsive><div>…) left under the section
@@ -408,58 +448,6 @@ export function withNestedOnecolumnUnwrapped(html) {
   return out + html.slice(last);
 }
 
-// the top-level sections of a document: [start, end] of each top-level <div>
-const topSections = (doc) => {
-  const spans = [];
-  let depth = 0;
-  let start = -1;
-  [...doc.matchAll(/<(\/?)div\b[^>]*>/g)].forEach((m) => {
-    if (!m[1]) {
-      if (depth === 0) start = m.index;
-      depth += 1;
-    } else {
-      depth -= 1;
-      if (depth === 0) spans.push([start, m.index + m[0].length]);
-    }
-  });
-  return spans;
-};
-const TAB_ROWS = /<div><div>Tab<\/div><div>([^<]*)<\/div><\/div><div><div>Tabs<\/div><div>([^<]*)<\/div><\/div>/;
-const META = /<div class="section-metadata">((?:<div><div>[^<]*<\/div><div>[^<]*<\/div><\/div>)*)<\/div>/;
-
-/**
- * A tab panel's sections that came out without its Tab rows (a grey band in the panel and the separator
- * after it: lh-com's sections transformer makes Tab sections itself since 515475be, besides Austrian's tab
- * markers, parity row 43): a section without Tab rows between two sections of the same tab set takes the
- * rows of the panel before it, and so does the band (full-bleed or flush) right after the last tab;
- * other sections before the first tab and after the last stay as they are.
- */
-export function withTabRuns(doc) {
-  const spans = topSections(doc);
-  const tabs = spans.map(([s, e]) => {
-    const m = doc.slice(s, e).match(TAB_ROWS);
-    return m ? { tab: m[1], set: m[2] } : null;
-  });
-  let out = '';
-  let last = 0;
-  spans.forEach(([s, e], i) => {
-    out += doc.slice(last, s);
-    let sec = doc.slice(s, e);
-    const prev = tabs.slice(0, i).reverse().find(Boolean);
-    const next = tabs.slice(i + 1).find(Boolean);
-    // (the last panel's band: the section right after the set's last tab, styled full-bleed or flush)
-    const band = !next && i > 0 && tabs[i - 1] && /<div><div>style<\/div><div>[^<]*\b(?:full-bleed|flush)\b/.test(sec);
-    if (!tabs[i] && prev && ((next && prev.set === next.set) || band)) {
-      const rows = `<div><div>Tab</div><div>${prev.tab}</div></div><div><div>Tabs</div><div>${prev.set}</div></div>`;
-      if (META.test(sec)) sec = sec.replace(META, (m, own) => `<div class="section-metadata">${own}${rows}</div>`);
-      else if (!sec.includes('class="section-metadata"')) sec = `${sec.slice(0, -'</div>'.length)}<div class="section-metadata">${rows}</div></div>`;
-    }
-    out += sec;
-    last = e;
-  });
-  return out + doc.slice(last);
-}
-
 /**
  * The chat button's page metadata row (chat-button: the webchat's start topic), from www's page
  * (webchat_init.js?...start=DYNAMIC_web-<topic>, equal to the row on all 139 documents that had both):
@@ -482,11 +470,15 @@ export function templateOf(p, html) {
   // (homepage-new: the variant homepage some Italian-language roots have, al/it, be/it, ch/it)
   if (/^\/[a-z]{2}\/[a-z]{2}\/homepage(-new)?$/.test(p)) return 'homepage';
   if (/class="topoffersdestinationfinder/.test(html)) return 'hub';
+  // the culinary hub (culinaryjourney): lh-com's mfe template, its micro-frontend block (row 42)
+  if (/<culinary-hub\b/.test(html)) return 'mfe';
   // the timetable and the check-in entry: info's components plus that block (austrian-templates.mjs;
   // lh-com's flight-status and app-entry templates keep only lufthansa.com's hub pages' few)
   if (/class="flightstatustimetable/.test(html)) return 'austrian-flight-status';
   if (/class="slideshow/.test(html)) return 'fleet';
   if (/checkinpassengerreceiptentry|class="[^"]*dcep-quick-actions/.test(html)) return 'austrian-checkin';
+  // www's expanding panels: lh-com's hero-banner block (austrian-templates.mjs; row 37)
+  if (/class="dcep-hero-banner/.test(html)) return 'austrian-hero-banner';
   return 'info';
 }
 
@@ -579,7 +571,7 @@ if (isMain) {
       const doc = fs.readFileSync(f, 'utf8');
       const src = Object.keys(out).find((k) => docName(k) === p);
       const markets = scope.documents[src]?.markets || [];
-      const next = withChatButton(withPartnerLogoAlts(withTabRuns(withAustrianTabs(withItaMetadata(withCheckinHandoff(withFlightSearch(withItaForm(doc, p, fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8')), p), p), p, fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8'), markets)))), fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8'));
+      const next = withChatButton(withPoiPoints(withPartnerLogoAlts(withAustrianTabs(withItaMetadata(withCheckinHandoff(withFlightSearch(withItaForm(doc, p, fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8')), p), p), p, fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8'), markets)))), fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8'));
       if (next !== doc) fs.writeFileSync(f, next);
     });
     const mapOnly = path.join(W, 'runs', `${name}-upload.txt`);

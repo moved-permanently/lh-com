@@ -41,5 +41,5 @@ test('every lhg-staralliance-partner document: no logo link without a name', () 
 test('the import names them', () => {
   const src = fs.readFileSync(new URL('../tools/importer/austrian-import.mjs', import.meta.url), 'utf8');
   assert.match(src, /import \{ withPartnerLogoAlts \} from '\.\/austrian-partner-logos\.mjs';/);
-  assert.match(src, /const next = [^\n]*withPartnerLogoAlts\(withTabRuns\(/);
+  assert.match(src, /const next = [^\n]*withPartnerLogoAlts\(withAustrianTabs\(/);
 });

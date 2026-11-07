@@ -786,3 +786,36 @@ body.brand-austrian main :is(.default-content-wrapper, .columns-media-text, .acc
 body.brand-austrian main :is(.default-content-wrapper, .columns-media-text, .accordion-columns) li > p {
   margin-bottom: 0;
 }
+
+/* row 37: the expanding panels (hero-banner, /at/en/fly/on-board/culinary-services) as www's .herobanner:
+   the headline 48 / 50 below 1025 px, the button 10 px under it (20 from 1025 px), the tab labels a plain
+   sans 16 / 17.6 (18 / 19.8 from 1025 px) regular, as wide as the pane less its 50 px inset */
+body.brand-austrian .hero-banner .hero-banner-content > .hero-banner-headline {
+  font-size: 48px;
+}
+
+body.brand-austrian .hero-banner .hero-banner-cta {
+  margin-top: 10px;
+}
+
+body.brand-austrian .hero-banner .hero-banner-tab {
+  max-width: calc(100% - 50px);
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+@media (width >= 1025px) {
+  body.brand-austrian .hero-banner .hero-banner-content > .hero-banner-headline {
+    font-size: 100px;
+  }
+
+  body.brand-austrian .hero-banner .hero-banner-cta {
+    margin-top: 20px;
+  }
+
+  body.brand-austrian .hero-banner .hero-banner-tab {
+    font-size: 18px;
+  }
+}

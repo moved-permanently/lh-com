@@ -106,5 +106,5 @@ test('austrian-import.mjs withPhoneSliders: a column view of teaser cards with a
 test('the mapping chain marks the cards', async () => {
   const fs = await import('node:fs');
   const src = fs.readFileSync(new URL('../tools/importer/austrian-import.mjs', import.meta.url), 'utf8');
-  assert.match(src, /export const mappedOf = \(html, p\) => withoutLoads\(withNestedOnecolumnUnwrapped\(withPanelWrappersUnwrapped\(withTabMarkers\(withTeaserCta\(withPhoneSliders\(withTeaserColumns\(/);
+  assert.match(src, /export const mappedOf = \(html, p\) => withoutLoads\(withNestedOnecolumnUnwrapped\(withPanelWrappersUnwrapped\(withAccordionMapsHoisted\(withTabMarkers\(withTeaserCta\(withPhoneSliders\(withTeaserColumns\(/);
 });

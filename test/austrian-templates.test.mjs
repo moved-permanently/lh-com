@@ -17,7 +17,7 @@ const byName = (n) => templates.find((t) => t.name === n);
 
 test('the two Austrian templates are info plus the page\'s own block, as the script builds them now (no drift from info)', () => {
   const built = austrianTemplates(templates);
-  assert.deepEqual(built.map((t) => t.name), ['austrian-checkin', 'austrian-flight-status']);
+  assert.deepEqual(built.map((t) => t.name), ['austrian-checkin', 'austrian-flight-status', 'austrian-hero-banner']);
   built.forEach((t) => assert.deepEqual(byName(t.name), t, `${t.name} in page-templates.json is the script's (run node tools/importer/austrian-templates.mjs)`));
   const info = byName('info');
   const checkin = byName('austrian-checkin');
@@ -36,4 +36,16 @@ test('templateOf: Austrian\'s check-in and flight-status pages on the Austrian t
   assert.equal(templateOf('/at/de/flugstatus-und-flugplan', '<div class="flightstatustimetable">'), 'austrian-flight-status');
   assert.equal(templateOf('/at/en/x', '<div class="text">'), 'info');
   assert.ok(byName('app-entry') && byName('flight-status'), 'lh-com\'s own templates still there');
+});
+
+test('row 37 (brief 444): culinary-services\' expanding panels (www\'s .herobanner .dcep-hero-banner, the component lh-com\'s hero-banner block is built for) on austrian-hero-banner: info plus hub\'s hero-banner', async () => {
+  const built = austrianTemplates(templates);
+  const hero = built.find((t) => t.name === 'austrian-hero-banner');
+  assert.ok(hero, 'built');
+  assert.deepEqual(byName('austrian-hero-banner'), hero, 'in page-templates.json as built');
+  assert.deepEqual(hero.blocks[0], byName('hub').blocks.find((b) => b.name === 'hero-banner'));
+  assert.deepEqual(hero.blocks.slice(1), byName('info').blocks);
+  assert.ok(fs.existsSync(new URL('../tools/importer/import-austrian-hero-banner.bundle.js', import.meta.url)), 'bundle');
+  const { templateOf } = await import('../tools/importer/austrian-import.mjs');
+  assert.equal(templateOf('/at/en/fly/on-board/culinary-services', '<div class="herobanner section"><div class="dcep-hero-banner" role="presentation">'), 'austrian-hero-banner');
 });
