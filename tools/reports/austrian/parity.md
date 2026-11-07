@@ -191,6 +191,7 @@ previewed, not published (`preview-paths-394.txt`).
 
 axe on the 60 pages of austrian-parity-002 on main--lh-austrian--moved-permanently.aem.page at 1440 and
 390: link-name on 7 pages (linked teaser pictures without alt text: fixed brand-neutrally in
-columns-media, 6 pages clean; /at/de/lhg-staralliance-partner's airline logos need alt texts, open);
-target-size of the bar's logo link at 390 on one or two pages (www's size, open). Details in
+columns-media, 6 pages clean; /at/de/lhg-staralliance-partner's airline logos: alt texts since brief 438,
+5616b6ef, 0 linked pictures without one on the preview of at/de and at/en); target-size of the bar's logo link
+at 390 (122 x 18 px, www's size): fixed in the brief after 462 (9343cbcf), a 24 px target, the logo where it was. Details in
 `tools/reports/offline-2026-11-06/ema-test.md`, item 5.

@@ -601,3 +601,84 @@ brought main's cleanup changes listed under item 1 into the lufthansa.com bundle
 Documents (uploaded to DA and previewed, not published): no files; 200 pages in `preview-paths-after-454.txt`, per site in
 release order: lh-austrian 72 (20 open items, 2 grey gap, 50 half-width), lh-brussels 36 (8 form bands, 28 padded
 pairs), lh-ita 39 (3 + 36), lh-com 53 (5 + 48). None is published.
+
+## The brief after 462 (your 462 was "the brief after 454")
+
+Left from the last one, not in git by design: `.migration/project.json` (the import's local workspace flag),
+`tools/importer/reports/**` (the bulk importer's per-page reports), `content/` and `migration-work/` (the local lh-com
+workspace), `content-sites/` (the local document trees), `logs/` and /tmp (scripts, captures, DA backups).
+
+### 1. The Austrian local copies that differ from DA (no upload; your decision)
+
+All 2,362 local Austrian documents compared with DA (read only): 311 differ, more than the ~230 the link step
+reported, in four clean groups (`tools/reports/austrian/local-vs-da-462.txt`, paths per group):
+
+| group | documents | what differs | should DA have it? |
+| --- | --- | --- | --- |
+| links to www made relative | 210 | 327 links `https://www.austrian.com/<cc>/<ll>/{contact,flightbooking,travel-briefing}` -> `/<cc>/<ll>/...` (23 pages, each in DA, previewed and live): e.g. /cn/zh/awards' flightbooking link, /cn/zh/book/additional-services/seat-reservation's two contact links | yes: the visitor stays on the site; recommended upload |
+| image sources | 83 | `https://content.da.live/moved-permanently/lh-austrian/media-da/austrian/paypal-white.png` (DA) vs `/media-da/austrian/paypal-white.png` (local): the footers' and icon pages' pictures | nothing to do: DA writes the absolute form on upload, the same image |
+| navs | 10 | DA's login link to the site's own page (`/at/de/anmeldung`, briefs 369/373) vs the local www deeplink (`/deeplink/cockpit?country=AT&language=DE`) | no: DA is newer, the local copy stale |
+| more than links | 8 | black-friday (al/en, ch/de: DA a hero-campaign), at/de and at/en contact, homepage, fly-with-austrian: DA's later edits (uploaded 2026-11-05 evening without the local copy) | no: keep DA |
+
+So only the first group would change anything on the site; uploading it (210 documents, links only) is a yes/no for
+you. The 18 of groups 3 and 4 should get DA's version locally so no later upload takes the stale copy back.
+
+### 2. The hk passenger picker (`16c0f338`)
+
+PASSENGER_LABELS has an hk entry with www's wording (hk/hk/homepage with the picker open, 2026-11-07 11:38 CET): the
+panel label 調整旅客和預訂艙等選擇。, the summary 經濟艙, 1 旅客, 旅行艙等 with 經濟艙 / 優選經濟艙 / 商務艙 / 頭等,
+成人, 兒童 (2 至 11 歲), 嬰兒不佔位 (0 - 23 個月), 儲存; picker-options.js hk the fare texts in www's words
+(其他票價選擇 ... 彈性/最高等級預訂艙等以累積更多哩程). Not in lufthansa.com's dropdown, so not used: www's tabs
+(旅行詳細資訊 / 兌換哩數), the promo code field and its hint; the group link's text is the document's own row (on the
+previews www's 10 名旅客以上的團體預訂。 already). The stepper buttons' screen-reader names are the Traditional forms of
+zh's (www shows none). Two market tests compared every table entry with an older commit; they now leave picker-options'
+hk out (changed on purpose). Test first: hk-picker-labels.
+Checked on main--lh-com--moved-permanently.aem.page at 1440: /xx/hk/flight-search, /hk/hk, /cn/hk, /tw/hk homepages:
+`<html lang="zh-HK">`, the button 經濟艙, 1 旅客, every row and choice in Traditional Chinese; /xx/zh and /de/en as before.
+Found on the way, not changed: /xx/zh's picker still says "Children (2-11 years)", "Infants without seat" and the English
+group link; those come from its documents' authored rows, not the built-in table.
+
+### 3. doctor-on-board-news at 390 (`9343cbcf`)
+
+From www's own stylesheet: `.column-view.container-gray { padding: 4.8rem 0 }`, and the items' 1.2rem (2.4rem from 768
+px) below. A grey column view nested in a column item (the contact box, the card band) had our plain grey section
+padding, 20 / 40 px. lufthansa-sections now gives such a band style `in-column` (the other brands: the token only, no
+rule, as they were); austrian.css gives it 48 px above, 60 px below (72 from 768 px). A band that is its section's own
+column view (`column-band`) keeps 32 px: www's `.section-content .column > .column-view:only-child { padding: 3.2rem }`
+outranks the grey view's padding there; injected on the 28 captured pages with column-band, 14 came closer and 14 went
+further, so not changed. Locally (against austrian-parity-002, from the h1): at 1440 the contact box, the band's heading
+and the cards within 8 px of www (were -48); at 390 the band's heading -48 px (was -144). Not changed, the rest at 390:
+about 32 px above the accordion (www's gap between the h1 and the intro differs from page to page, 36 px on /at/en/faq,
+72 here) and the item's 12 px top padding inside the contact box.
+114 Austrian documents have such a band (from the snapshots): imported fresh into a scratch workspace with the new
+bundles, then only the token moved into DA's copies (136 sections); every other byte as DA has it.
+Test first: importer-grey-in-column.
+
+### 4. The Austrian parity rows still open
+
+Rows 3 (the airport list from this environment) and 38 (www's offers app, a link out) are not ours to change; row 28's
+font point was row 29, fixed. The deeper pages' accessibility items: the Star Alliance logos' alt texts were done in
+brief 438 (5616b6ef: 0 linked pictures without one on at/de and at/en); the bar's logo link was 122 x 18 px at 390 (axe
+target-size): now 24 px tall with 3 px of padding taken back by the margin (`9343cbcf`). parity.md updated.
+
+### Checks
+
+- Lint and the full suite before each push, in a fresh worktree: 487 (item 2) and, after the pull brought 1abf9cbd
+  (campaign's columns and its bundle; the bundle conflict rebuilt from the merged sources, every bundle differing from
+  main by my one line), the suite again on the rebased commit; the last pull brought 7d9be6b4 (insights, hub), whose
+  parser and cleanup changes the rebuilt bundles now carry too (only its own bundles had them), and the suite again.
+- Smoke on all 12 hosts before and after each push: no differences from these commits; one host's /ch answered 503 in
+  a before-run (an origin error) and its redirect after.
+- Previews: main--lh-com-- (the hk pages), main--lh-austrian-- (the logo, the alt texts, the doctor page after the
+  upload); locally the lh-austrian document folder against austrian-parity-002 at 1440 and 390.
+
+### Summary (the brief after 462)
+
+| item | commit | what | rollback |
+| --- | --- | --- | --- |
+| 2 | `16c0f338` | the hk passenger picker in www's Traditional Chinese | `git revert` |
+| 3, 4 | `9343cbcf` | in-column grey bands with www's 4.8rem (Austrian); the logo link a 24 px target; bundles | `git revert`; the 114 documents: DA's versions before 2026-11-07 17:00 UTC (logs/da/pre-ic462) |
+| 1-4 | this report's commit | report, `local-vs-da-462.txt`, `preview-paths-after-462.txt`, parity.md | – |
+
+Documents (uploaded to DA and previewed, not published): no files; 114 Austrian pages in
+`tools/reports/offline-2026-11-06/preview-paths-after-462.txt`. None is published.
