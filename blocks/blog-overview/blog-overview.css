@@ -305,6 +305,16 @@
     order: -1;
   }
 
+  /* lufthansa.com's tag and author lists start with the picture (www's /de/en/articles/tags/*,
+     /articles/authors/*; brief 461) */
+  body.brand-lufthansa .blog-overview.blog-overview-image-first .blog-overview-card:nth-child(odd) .blog-overview-image {
+    order: -1;
+  }
+
+  body.brand-lufthansa .blog-overview.blog-overview-image-first .blog-overview-card:nth-child(even) .blog-overview-image {
+    order: 0;
+  }
+
   .blog-overview .blog-overview-filter {
     flex-direction: row;
   }

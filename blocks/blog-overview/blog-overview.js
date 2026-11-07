@@ -483,6 +483,9 @@ export default async function decorate(block) {
   const uid = `blog-overview-${instanceCount}`;
   const locale = getLocale();
   const options = readOptions(block);
+  // www's tag and author lists start with the picture, its category lists with the text
+  // (lufthansa.com's theme, blog-overview.css)
+  if (options.tag || options.author) block.classList.add('blog-overview-image-first');
   // a brand site with a posts index of its own (scripts/brands.js articleIndex: Air Dolomiti's
   // /articoli): its posts, its category names, the language's dates; lufthansa.com as before
   const brand = brandEntry();
