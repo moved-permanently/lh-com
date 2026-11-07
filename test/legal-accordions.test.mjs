@@ -40,7 +40,7 @@ test('info: rows in a sidebar\'s content are columns-media, as rows in a section
 // and the row's parser dropped it with the picture; the row (columns-media) takes it now. A sidebar
 // alone in its column item (100-years' "Under the symbol of the crane") stays a block.
 test('campaign: a sidebar after another component in its column item is part of the row', () => {
-  assert.ok(block('campaign', 'columns-media').instances.includes('.sidebar:not(.column-view-item > * ~ .sidebar)'));
+  assert.ok(block('campaign', 'columns-media').instances.includes('.sidebar:not(:is(.twocolumn, .threecolumn, .fourcolumn) > .column-view > .row > .column-view-item > * ~ .sidebar)'));
   assert.ok(!block('campaign', 'columns-media').instances.includes('.sidebar'));
 });
 

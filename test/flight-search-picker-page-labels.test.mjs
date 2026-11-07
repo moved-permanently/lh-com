@@ -96,7 +96,7 @@ test('Brussels\' importer hands the page\'s picker texts over on the body before
 
 test('www\'s global-content group link (/content/lh/gc/en/…, the xx roots\' flight search pages): the page\'s own root', () => {
   assert.equal(groupTravelPath('https://www.lufthansa.com/content/lh/gc/en/book-and-manage/group-travel', '/xx/pt'), '/xx/pt/group-travel');
-  assert.equal(groupTravelPath('/content/lh/gc/en', '/cn/zh'), '/cn/zh');
+  assert.equal(groupTravelPath('/content/lh/gc/en', '/cn/zh'), '/cn/zh/group-travel', 'a bare root: its group travel page (brief 455)');
   assert.equal(groupTravelPath('/content/lh/gc/en/book-and-manage/group-travel'), '');
   const rows = Object.fromEntries(pickerRows({
     lang: 'pt', groupBookingsUrl: '/content/lh/gc/en/book-and-manage/group-travel', root: '/xx/pt', groupText: 'Reservas de grupo para 10 ou mais passageiros.',
@@ -112,4 +112,44 @@ test('the parser: a global-content group link on an xx root\'s page goes to that
   const rows = Object.fromEntries(cellsOut);
   assert.equal(rows['Group booking'], 'Reservas de grupo para 10 ou mais passageiros. -> /xx/pt/group-travel');
   assert.equal(rows['Children label'], undefined);
+});
+
+// brief 455 (the harness's re-import of 448's pages): the xx cash-and-miles pages' group link is
+// www's bare market root (/content/lh/markets/xx/hk, no page, no trailing slash): our page is the
+// root's group travel page, not its homepage
+test('a group link to a bare root (/content/lh/markets/xx/hk, xx cash-and-miles): the root\'s group travel page', () => {
+  assert.equal(groupTravelPath('/content/lh/markets/xx/hk'), '/xx/hk/group-travel');
+  assert.equal(groupTravelPath('/content/lh/markets/xx/ru.html'), '/xx/ru/group-travel');
+  assert.equal(groupTravelPath('/content/lh/markets/xx/pt/'), '/xx/pt/group-travel');
+  assert.equal(groupTravelPath('/content/lh/markets/de/en/book-and-manage/group-travel'), '/de/en/group-travel', 'a page as before');
+  assert.equal(groupTravelPath('/content/lh/markets/de/en/offers'), '/de/en/offers', 'another page as before');
+});
+
+const xxPage = ({ lang, href, text }) => `<html lang="${lang}"><body><div class="flightmanager" data-dcep="{&quot;groupBookingsUrl&quot;:&quot;${href}&quot;}"><button class="travel-details-opener">Economy, 1</button><maui-navigation-link href="${href}" class="group-booking-link">${text}</maui-navigation-link></div></body></html>`;
+const parseAt = (html, url) => {
+  const { document } = parseHTML(html);
+  parse(document.querySelector('.flightmanager'), { document, url, params: { originalURL: url } });
+  return Object.fromEntries(cellsOut);
+};
+
+// xx/hk's app-entry and info pages: <html lang="en-US"> and a global-content group link (no market
+// in it), so the parser took en and wrote lufthansa.com's English picker texts
+test('the parser: the page path\'s language wins over <html lang> (xx/hk: en-US, a gc group link)', () => {
+  const rows = parseAt(xxPage({ lang: 'en-US', href: '/content/lh/gc/hk/book-and-manage/group-travel', text: '10 名旅客以上的團體預訂。' }), 'https://www.lufthansa.com/xx/hk/online-check-in');
+  assert.equal(rows['Children label'], undefined, 'no English texts');
+  assert.ok(!Object.values(rows).some((v) => /Children|Infants|Group bookings/.test(String(v))), JSON.stringify(rows));
+  assert.equal(rows['Group booking'], '10 名旅客以上的團體預訂。 -> /xx/hk/group-travel');
+  // de/en and de/de keep their recorded texts
+  const en = parseAt(xxPage({ lang: 'en', href: '/content/lh/gc/en/book-and-manage/group-travel', text: 'Group bookings for 10 or more passengers.' }), 'https://www.lufthansa.com/de/en/flight-search');
+  assert.equal(en['Children label'], 'Children');
+  const de = parseAt(xxPage({ lang: 'en-US', href: '/content/lh/gc/en/book-and-manage/group-travel', text: 'Gruppenbuchungen' }), 'https://www.lufthansa.com/de/de/flight-search');
+  assert.equal(de['Children label'], 'Kinder', 'the path\'s de, not <html lang>');
+});
+
+test('the parser: the xx cash-and-miles pages (a bare market root, the path\'s language)', () => {
+  [['hk', 'en-US', '10 名旅客以上的團體預訂。'], ['pt', 'pt', 'Reservas de grupo para 10 ou mais passageiros.'], ['ru', 'ru', 'Групповое бронирование для 10 или более пассажиров.']].forEach(([ll, lang, text]) => {
+    const rows = parseAt(xxPage({ lang, href: `/content/lh/markets/xx/${ll}`, text }), `https://www.lufthansa.com/xx/${ll}/cash-and-miles`);
+    assert.equal(rows['Group booking'], `${text} -> /xx/${ll}/group-travel`, ll);
+    assert.equal(rows['Children label'], undefined, ll);
+  });
 });

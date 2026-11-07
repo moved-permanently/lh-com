@@ -83,8 +83,6 @@ export default function parse(element, { document, url, params } = {}) {
   // the passengers and cabin picker (www's travel details panel behind the traveller line, its
   // texts and the group booking link to the root's group travel page: flight-search-picker.js)
   if (element.querySelector('.travel-details-opener')) {
-    const market = String(props.groupBookingsUrl || '').match(/\/markets\/[a-z]{2}\/([a-z]{2})\//);
-    const lang = (market && market[1]) || clean(document.documentElement.getAttribute('lang')).slice(0, 2);
     // the page's own texts (brief 448): its label state script (lufthansa.com's import keeps the
     // scripts until the parsers ran) or the body's data-lh-booking-labels (Brussels' importer hands
     // them over, its scripts stripped before the import); the rendered group link's text and target
@@ -99,6 +97,11 @@ export default function parse(element, { document, url, params } = {}) {
     const groupUrl = (groupLink && groupLink.getAttribute('href')) || props.groupBookingsUrl;
     let root = '';
     try { root = (new URL((params && params.originalURL) || url || '', 'https://www.lufthansa.com').pathname.match(/^\/[a-z]{2}\/[a-z]{2}(?=\/|$)/) || [''])[0]; } catch (e) { root = ''; }
+    // the language: the page path's (/xx/hk: hk; brief 455: xx/hk's pages say <html lang="en-US">
+    // and link a global-content group page without a market), else the group link's market, else
+    // <html lang>
+    const market = String(props.groupBookingsUrl || '').match(/\/markets\/[a-z]{2}\/([a-z]{2})(?=[/.]|$)/);
+    const lang = (root && root.slice(4)) || (market && market[1]) || clean(document.documentElement.getAttribute('lang')).slice(0, 2);
     pickerRows({
       lang, groupBookingsUrl: groupUrl, labels, groupText, root,
     }).forEach(([key, value]) => {

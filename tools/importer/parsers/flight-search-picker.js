@@ -48,7 +48,10 @@ export function groupTravelPath(url, root = '') {
     p = `${root}${gc[1] || ''}`;
   }
   // any brand's internal address (/content/lh/markets/, Brussels' /content/bel/markets/, brief 448)
-  p = p.replace(/^\/content\/[a-z0-9-]+\/markets(?=\/)/, '').replace(/\.html$/, '');
+  p = p.replace(/^\/content\/[a-z0-9-]+\/markets(?=\/)/, '').replace(/\.html$/, '').replace(/(.)\/$/, '$1');
+  // a bare root (the xx cash-and-miles pages' /content/lh/markets/xx/hk, brief 455): no group
+  // page, so the root's group travel page
+  if (/^\/[a-z]{2}\/[a-z]{2}$/.test(p)) return `${p}/group-travel`;
   return p.replace(/^(\/[a-z]{2}\/[a-z]{2})\/book-and-manage\/group-travel$/, '$1/group-travel');
 }
 

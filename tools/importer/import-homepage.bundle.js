@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-homepage.js
-  var import_homepage_exports = {};
-  __export(import_homepage_exports, {
-    default: () => import_homepage_default
+  var tmp_bundle_homepage_21119_exports = {};
+  __export(tmp_bundle_homepage_21119_exports, {
+    default: () => tmp_bundle_homepage_21119_default
   });
 
   // tools/importer/parsers/flash-teaser.js
@@ -93,7 +93,8 @@ var CustomImportScript = (() => {
       if (!/^\/[a-z]{2}\/[a-z]{2}$/.test(root)) return "";
       p = `${root}${gc[1] || ""}`;
     }
-    p = p.replace(/^\/content\/[a-z0-9-]+\/markets(?=\/)/, "").replace(/\.html$/, "");
+    p = p.replace(/^\/content\/[a-z0-9-]+\/markets(?=\/)/, "").replace(/\.html$/, "").replace(/(.)\/$/, "$1");
+    if (/^\/[a-z]{2}\/[a-z]{2}$/.test(p)) return `${p}/group-travel`;
     return p.replace(/^(\/[a-z]{2}\/[a-z]{2})\/book-and-manage\/group-travel$/, "$1/group-travel");
   }
   var YOUNG_ADULTS = { "gb/en": "GB", "gb/de": "GB", "de/de": "GB" };
@@ -175,8 +176,6 @@ var CustomImportScript = (() => {
     if (tripTypes.length > 1) addRow("Default trip type", selectedTrip);
     addRow("Traveller label", visibleText(element.querySelector(".travel-details-opener")));
     if (element.querySelector(".travel-details-opener")) {
-      const market = String(props.groupBookingsUrl || "").match(/\/markets\/[a-z]{2}\/([a-z]{2})\//);
-      const lang = market && market[1] || clean2(document.documentElement.getAttribute("lang")).slice(0, 2);
       let labels = null;
       try {
         labels = JSON.parse(document.body.getAttribute("data-lh-booking-labels") || "null");
@@ -196,6 +195,8 @@ var CustomImportScript = (() => {
       } catch (e) {
         root = "";
       }
+      const market = String(props.groupBookingsUrl || "").match(/\/markets\/[a-z]{2}\/([a-z]{2})(?=[/.]|$)/);
+      const lang = root && root.slice(4) || market && market[1] || clean2(document.documentElement.getAttribute("lang")).slice(0, 2);
       pickerRows({
         lang,
         groupBookingsUrl: groupUrl,
@@ -3293,7 +3294,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var import_homepage_default = {
+  var tmp_bundle_homepage_21119_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -3323,5 +3324,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(import_homepage_exports);
+  return __toCommonJS(tmp_bundle_homepage_21119_exports);
 })();
