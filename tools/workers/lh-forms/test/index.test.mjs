@@ -1582,6 +1582,65 @@ const MARKET_FORMS = [
   ['emergency-contact', 'fr-fr', '[lh-com] Contact en cas d’urgence (fr-fr)'],
 ];
 
+// brief 446 (lh-snapshots-065 to -080): the market roots' invoice requests (Greece's English and
+// Greek pages share one id, each its page's h1) and de/de and at/de's group check-in counter
+const MARKET_FORMS_446 = [
+  ['invoice-request-bosnia', 'ba-en', '[lh-com] Invoice Request Bosnia and Herzegovina (ba-en)'],
+  ['invoice-request-czech-republic', 'cz-en', '[lh-com] Invoice Request Czech Republic (cz-en)'],
+  ['invoice-request-croatia', 'hr-en', '[lh-com] Invoice Request Croatia (hr-en)'],
+  ['invoice-request-hungary', 'hu-en', '[lh-com] Invoice Request Hungary (hu-en)'],
+  ['invoice-request-poland', 'pl-en', '[lh-com] Invoice Request Poland (pl-en)'],
+  ['invoice-request-serbia', 'rs-en', '[lh-com] Invoice Request Serbia (rs-en)'],
+  ['invoice-request-slovenia', 'si-en', '[lh-com] Invoice Request Slovenia (si-en)'],
+  ['invoice-request-greece', 'gr-en', '[lh-com] Invoice request for tickets issued in Greece (gr-en)'],
+  ['invoice-request-greece', 'gr-el', '[lh-com] Αίτημα για τιμολόγιο για εισιτήρια που εκδόθηκαν στην Ελλάδα (gr-el)'],
+  ['group-check-in-counter', 'de-de', '[lh-com] Gruppen Check-in Schalter (de-de)'],
+  ['group-check-in-counter', 'at-de', '[lh-com] Gruppen Check-in Schalter (at-de)'],
+];
+
+test('lh-com market forms of brief 446: the invoice requests and the group check-in counter, their page\'s h1, the default recipient; NaverPay\'s expired promotion is no id', async () => {
+  const env = makeEnv({ FORM_CONFIG: JSON.stringify({ default: { to: 'only@example.com' } }) });
+  const results = await Promise.all(MARKET_FORMS_446.map(([form, locale], i) => post({
+    form, locale, origin: LH, ip: `198.18.22.${i + 1}`,
+  }, env)));
+  results.forEach(({ res, body }, i) => {
+    assert.equal(res.status, 200, MARKET_FORMS_446[i][0]);
+    assert.deepEqual(body, { ok: true });
+  });
+  assert.deepEqual(sent.map((m) => m.subject).sort(), MARKET_FORMS_446.map((c) => c[2]).sort());
+  assert.ok(sent.every((m) => JSON.stringify(m.to) === '["only@example.com"]'));
+  const unknown = await post({
+    form: 'naverpay-points', locale: 'kr-en', origin: LH, ip: '198.18.22.40',
+  }, env);
+  assert.equal(unknown.res.status, 400);
+  assert.deepEqual(unknown.body, { ok: false, error: 'unknown-form' });
+});
+
+test('the group check-in counter takes www\'s logo upload: one JPEG, 3,700,000 bytes; the invoice requests none', async () => {
+  const counter = { origin: LH, locale: 'de-de', form: 'group-check-in-counter' };
+  const jpg = (name = 'logo.jpg', size = 0) => {
+    const bytes = new Uint8Array(Math.max(size, JPG.length));
+    bytes.set(JPG);
+    return ['Attachments', file(bytes, name, 'image/jpeg')];
+  };
+  const cases = [
+    [counter, [jpg()], 200, null],
+    [counter, [jpg('a.jpg'), jpg('b.jpg')], 400, 'too-many-files'],
+    [counter, [jpg('a.jpg', 3700001)], 413, 'file-too-large'],
+    [counter, [['Attachments', file(PNG, 'logo.png', 'image/png')]], 400, 'invalid-file-type'],
+    [{ ...counter, form: 'invoice-request-poland', locale: 'pl-en' }, [jpg()], 400, 'files-not-allowed'],
+    [{ ...counter, form: 'invoice-request-greece', locale: 'gr-el' }, [jpg()], 400, 'files-not-allowed'],
+  ];
+  const results = await Promise.all(cases.map(([opts, files], i) => post({ ...opts, files, ip: `198.18.23.${i + 1}` })));
+  results.forEach(({ res, body }, i) => {
+    const [, , status, error] = cases[i];
+    assert.equal(res.status, status, `case ${i}`);
+    assert.deepEqual(body, error ? { ok: false, error } : { ok: true }, `case ${i}`);
+  });
+  assert.equal(sent.length, 1);
+  assert.deepEqual(sent[0].attachments.map((a) => [a.filename, a.type]), [['logo.jpg', 'image/jpeg']]);
+});
+
 test('lh-com market forms: bg/en, il/en, mk/de and fr/fr\'s ids accepted, their page\'s h1, the default recipient; refund is no id', async () => {
   const env = makeEnv({ FORM_CONFIG: JSON.stringify({ default: { to: 'only@example.com' } }) });
   const results = await Promise.all(MARKET_FORMS.map(([form, locale], i) => post({

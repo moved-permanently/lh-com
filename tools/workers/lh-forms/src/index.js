@@ -75,6 +75,22 @@ const FORMS = {
   'emergency-contact': {
     en: 'Contact en cas d’urgence', de: 'Contact en cas d’urgence', fr: 'Contact en cas d’urgence', es: 'Contacto en caso de emergencia',
   },
+  // brief 446 (lh-snapshots-065 to -080): the market roots' invoice requests, each its page's h1
+  // (English pages; Greece's English and Greek pages are one form: one id, both titles), and de/de
+  // and at/de's group check-in counter (German only: one title for both)
+  'invoice-request-bosnia': { en: 'Invoice Request Bosnia and Herzegovina', de: 'Invoice Request Bosnia and Herzegovina' },
+  'invoice-request-czech-republic': { en: 'Invoice Request Czech Republic', de: 'Invoice Request Czech Republic' },
+  'invoice-request-croatia': { en: 'Invoice Request Croatia', de: 'Invoice Request Croatia' },
+  'invoice-request-hungary': { en: 'Invoice Request Hungary', de: 'Invoice Request Hungary' },
+  'invoice-request-poland': { en: 'Invoice Request Poland', de: 'Invoice Request Poland' },
+  'invoice-request-serbia': { en: 'Invoice Request Serbia', de: 'Invoice Request Serbia' },
+  'invoice-request-slovenia': { en: 'Invoice Request Slovenia', de: 'Invoice Request Slovenia' },
+  'invoice-request-greece': {
+    en: 'Invoice request for tickets issued in Greece',
+    de: 'Invoice request for tickets issued in Greece',
+    el: 'Αίτημα για τιμολόγιο για εισιτήρια που εκδόθηκαν στην Ελλάδα',
+  },
+  'group-check-in-counter': { en: 'Gruppen Check-in Schalter', de: 'Gruppen Check-in Schalter' },
   // Discover Airlines (lh-discover): the h1 of www.discover-airlines.com's /de/en/ and /de/de/
   // pages (2026-10-29); the sweepstake exists in German only (us/de, xx/de)
   'discover-assistance': {
@@ -409,6 +425,15 @@ const FILE_RULES = {
     extensions: ['.pdf', '.jpg', '.jpeg', '.png'],
     maxFiles: 5,
     maxSize: 8000000,
+    ...MAIL_FILES,
+  },
+  // de/de and at/de's group check-in counter: www's logo upload (acceptedFiles "image/jpeg,
+  // image/jpg", maxFiles 1, maxFileSize 3700000; brief 446)
+  'group-check-in-counter': {
+    types: ['image/jpeg', 'image/jpg'],
+    extensions: ['.jpg', '.jpeg'],
+    maxFiles: 1,
+    maxSize: 3700000,
     ...MAIL_FILES,
   },
   'discover-compensation-baggage': DISCOVER_CONTACT_FILES,

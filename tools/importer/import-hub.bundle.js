@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-hub.js
-  var tmp_bundle_hub_184006_exports = {};
-  __export(tmp_bundle_hub_184006_exports, {
-    default: () => tmp_bundle_hub_184006_default
+  var tmp_bundle_hub_205533_exports = {};
+  __export(tmp_bundle_hub_205533_exports, {
+    default: () => tmp_bundle_hub_205533_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -859,7 +859,21 @@ var CustomImportScript = (() => {
     "cancellation-refund-webform": "cancellation-refund-webform",
     "formular-notfallkontakt": "formular-notfallkontakt",
     // fr/fr's emergency contact form (French)
-    "emergency-contact": "emergency-contact"
+    "emergency-contact": "emergency-contact",
+    // brief 446: the market roots' invoice requests (gr/en and gr/el one form), de/de and at/de's
+    // group check-in counter, and www's second ammunition form (the same form as register-ammunition,
+    // the xx/<ll> roots' sport-baggage pages)
+    "invoice-request-bosnia": "invoice-request-bosnia",
+    "invoice-request-czech-republic": "invoice-request-czech-republic",
+    "invoice-request-croatia": "invoice-request-croatia",
+    "invoice-request-hungary": "invoice-request-hungary",
+    "invoice-request-poland": "invoice-request-poland",
+    "invoice-request-serbia": "invoice-request-serbia",
+    "invoice-request-slovenia": "invoice-request-slovenia",
+    "invoice-request-greece-en": "invoice-request-greece",
+    "invoice-request-greece-el": "invoice-request-greece",
+    "group-check-in-counter": "group-check-in-counter",
+    "register-ammunition1": "register-ammunition"
   };
   var ERROR_PAGE = "/error.html";
   function parse2(element, { document, url, params }) {
@@ -4877,7 +4891,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_hub_184006_default = {
+  var tmp_bundle_hub_205533_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -4907,5 +4921,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_hub_184006_exports);
+  return __toCommonJS(tmp_bundle_hub_205533_exports);
 })();

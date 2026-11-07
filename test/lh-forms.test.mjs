@@ -71,5 +71,17 @@ test('form ids: the market roots\' own forms by page name; mk/en\'s empty refund
   assert.equal(formIdFromPath('/mk/de/formular-notfallkontakt.plain.html'), 'formular-notfallkontakt');
   assert.equal(formIdFromPath('/fr/fr/emergency-contact'), 'emergency-contact');
   assert.equal(formIdFromPath('/mk/en/support/refund'), '');
+  // brief 446: the invoice requests (Greece's two pages one id), the group check-in counter,
+  // www's second ammunition form (register-ammunition's form); NaverPay's expired promotion none
+  [['/ba/en/invoice-request-bosnia', 'invoice-request-bosnia'],
+    ['/cz/en/invoice-request-czech-republic', 'invoice-request-czech-republic'],
+    ['/hr/en/invoice-request-croatia', 'invoice-request-croatia'], ['/hu/en/invoice-request-hungary', 'invoice-request-hungary'],
+    ['/pl/en/invoice-request-poland', 'invoice-request-poland'], ['/rs/en/invoice-request-serbia', 'invoice-request-serbia'],
+    ['/si/en/invoice-request-slovenia', 'invoice-request-slovenia'], ['/gr/en/invoice-request-greece-en', 'invoice-request-greece'],
+    ['/gr/el/invoice-request-greece-el', 'invoice-request-greece'],
+    ['/de/de/prepare-for-your-trip/all-check-in/group-check-in-counter', 'group-check-in-counter'],
+    ['/at/de/prepare-for-your-trip/all-check-in/group-check-in-counter', 'group-check-in-counter'],
+    ['/xx/es/prepare-for-your-trip/baggage/sport-baggage/register-ammunition1', 'register-ammunition'],
+    ['/kr/en/local-page/naverpay-points', '']].forEach(([path, id]) => assert.equal(formIdFromPath(path), id, path));
   assert.equal(formIdFromPath('/bg/en/invoice-request'), '');
 });

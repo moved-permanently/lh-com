@@ -68,7 +68,11 @@ test('www\'s older file inputs (il/en\'s cancellation form: five numbered upload
 });
 
 test('the market roots\' form pages get their lh-forms id; www\'s empty mk/en/support/refund none', () => {
-  [['bg/en/local-page/invoice-request-bg', 'invoice-request-bg'], ['mk/de/formular-notfallkontakt', 'formular-notfallkontakt'], ['mk/en/support/refund', null]].forEach(([path, id]) => {
+  [['bg/en/local-page/invoice-request-bg', 'invoice-request-bg'], ['mk/de/formular-notfallkontakt', 'formular-notfallkontakt'], ['mk/en/support/refund', null],
+    // brief 446
+    ['pl/en/invoice-request-poland', 'invoice-request-poland'], ['gr/el/invoice-request-greece-el', 'invoice-request-greece'],
+    ['de/de/prepare-for-your-trip/all-check-in/group-check-in-counter', 'group-check-in-counter'],
+    ['xx/pt/prepare-for-your-trip/baggage/sport-baggage/register-ammunition1', 'register-ammunition'], ['kr/en/local-page/naverpay-points', null]].forEach(([path, id]) => {
     const { document } = parseHTML(`<!DOCTYPE html><html><body><main><div class="form-wrapper"><form class="cmp-form" action="https://www.lufthansa.com/content/lh/markets/${path}.html"><maui-button id="submit-btn" behavior="submit">Send</maui-button></form></div></main></body></html>`);
     parse(document.querySelector('.form-wrapper'), { document, url: `https://www.lufthansa.com/${path}` });
     const form = [...document.querySelectorAll('table[data-name] tr')].find((tr) => tr.children[2] && tr.children[2].textContent === 'form');
