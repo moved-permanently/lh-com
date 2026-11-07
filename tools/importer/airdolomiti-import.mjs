@@ -846,6 +846,12 @@ export function newsListGrid(a, page) {
   })));
 }
 
+// a title and its line (www's Title, TitleMargin, TitleNews)
+function titleLine(a, page) {
+  page.add(page.heading(a.tag, a.title));
+  if (a.subtitle) page.add(`<p>${esc(plain(a.subtitle))}</p>`);
+}
+
 // a text block (www's TitleDescriptionTextCta and TitleDescriptionCta): its title, its text and an
 // optional CTA as the given button
 function titleText(a, page, button) {
@@ -877,9 +883,14 @@ const HANDLERS = {
     placeSearch(page);
     page.section();
   },
-  'lazyblock/title': (a, page) => { page.add(page.heading(a.tag, a.title)); if (a.subtitle) page.add(`<p>${esc(plain(a.subtitle))}</p>`); },
-  'lazyblock/title-margin': (a, page) => HANDLERS['lazyblock/title'](a, page),
-  'lazyblock/title-news': (a, page) => HANDLERS['lazyblock/title'](a, page),
+  'lazyblock/title': (a, page) => {
+    // www's Title as the page's title (the Italian timetable): its smaller size, the section's
+    // style compact-title (the theme; parity row 50), not TitleMargin's
+    if (a.tag === 'h1') page.current.style = page.current.style ? `${page.current.style}, compact-title` : 'compact-title';
+    titleLine(a, page);
+  },
+  'lazyblock/title-margin': (a, page) => titleLine(a, page),
+  'lazyblock/title-news': (a, page) => titleLine(a, page),
   // title, text (subTitle) and an optional CTA, as title-description-text-cta with the primary
   // button (not in the archive)
   'lazyblock/title-description-cta': (a, page) => titleText({
@@ -1045,10 +1056,9 @@ const HANDLERS = {
       .map((x) => [x.getAttribute('href'), x.textContent.trim()])).entries()];
     const head = document.querySelector('[class*="BlogPosts_categories_wrapper"] h2, [class*="BlogPosts_categories_wrapper"] h3');
     if (head && BLOG[page.lang]) {
-      // www's page has no H1: the page's title ("Articoli"), then www's "Categorie"
-      const title = plain((document.querySelector('title') || {}).textContent || '').replace(/\s*\|\s*Air Dolomiti\s*$/, '');
-      if (title) page.add(`<h1>${esc(title)}</h1>`);
-      page.add(page.heading('h2', head.textContent));
+      // www's page has no H1: its first heading, "Categorie" (43.2px), is the page's one h1
+      // (parity row 48; the theme styles it with the categories under it)
+      page.add(page.heading('h1', head.textContent));
     }
     page.add(`<ul>${cats.map(([h, t]) => `<li>${page.link(h, t).replace(/^<p>|<\/p>$/g, '')}</li>`).join('')}</ul>`);
     if (BLOG[page.lang]) {

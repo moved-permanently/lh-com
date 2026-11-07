@@ -2971,6 +2971,98 @@ body.brand-airdolomiti main > .section > .default-content-wrapper > p.link-wrapp
   margin-bottom: 0;
 }
 
+/*
+ * the blog list (www's BlogPosts: its page's one h1 "Categorie", the categories under it, then the
+ * posts; parity row 48): the heading semibold #040f32 37.8px / 40px (43.2px / 48px from 930px),
+ * 16px above the categories as pills (#003061, white, 6px 12px, an 8px radius, 16px) in a row that
+ * wraps, 16px apart (8px from 930px), 50px above the posts
+ */
+/* stylelint-disable-next-line no-descending-specificity -- the blog list's heading, not other page types' (above) */
+body.brand-airdolomiti main .default-content-wrapper:has(> h1:first-child + ul):has(+ .blog-overview-wrapper) > h1 {
+  margin: 0 0 16px;
+  color: #040f32;
+  font-family: var(--body-font-family);
+  font-size: 37.8px;
+  font-weight: 600;
+  line-height: 40px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- the blog list's categories, not other page types' lists (above) */
+body.brand-airdolomiti main .default-content-wrapper:has(> h1:first-child + ul):has(+ .blog-overview-wrapper) > ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  max-width: none;
+  margin: 0 0 50px;
+  padding: 0;
+  list-style: none;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- the blog list's categories, not other page types' lists (above) */
+body.brand-airdolomiti main .default-content-wrapper:has(> h1:first-child + ul):has(+ .blog-overview-wrapper) > ul > li {
+  margin: 0;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- the category pills, not the text's links (above) */
+body.brand-airdolomiti main .default-content-wrapper:has(> h1:first-child + ul):has(+ .blog-overview-wrapper) > ul a:any-link {
+  display: block;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background-color: #003061;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 27.2px;
+  text-decoration: none;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- the category pills, not the text's links (above) */
+body.brand-airdolomiti main .default-content-wrapper:has(> h1:first-child + ul):has(+ .blog-overview-wrapper) > ul a:any-link:hover {
+  text-decoration: underline;
+}
+
+/* (no lh-com arrow before them) */
+/* stylelint-disable-next-line no-descending-specificity -- the category pills, not the text's links (above) */
+body.brand-airdolomiti main .default-content-wrapper:has(> h1:first-child + ul):has(+ .blog-overview-wrapper) > ul a:any-link::before {
+  content: none;
+}
+
+@media (width >= 930px) {
+  body.brand-airdolomiti main .default-content-wrapper:has(> h1:first-child + ul):has(+ .blog-overview-wrapper) > h1 {
+    font-size: 43.2px;
+    line-height: 48px;
+  }
+
+  body.brand-airdolomiti main .default-content-wrapper:has(> h1:first-child + ul):has(+ .blog-overview-wrapper) > ul {
+    gap: 8px;
+  }
+}
+
+/*
+ * a page title from www's Title (the section's style compact-title, the importer's for a
+ * lazyblock/title as the h1: the Italian timetable; parity row 50), not TitleMargin's size: light
+ * 34px / 42px, 38px / 46px from 930px, 2px apart from 530px
+ */
+/* stylelint-disable-next-line no-descending-specificity -- www's Title, not the stages' and text blocks' titles (above) */
+body.brand-airdolomiti main > .section.compact-title .default-content-wrapper > h1:first-child {
+  font-size: 34px;
+  font-weight: 300;
+  line-height: 42px;
+}
+
+@media (width >= 530px) {
+  body.brand-airdolomiti main > .section.compact-title .default-content-wrapper > h1:first-child {
+    letter-spacing: 2px;
+  }
+}
+
+@media (width >= 930px) {
+  body.brand-airdolomiti main > .section.compact-title .default-content-wrapper > h1:first-child {
+    font-size: 38px;
+    line-height: 46px;
+  }
+}
+
 /* the booking strip under the header (flight-search airdolomiti, option strip; brief 452): www's
    widget there has no trip type tabs in its row (its phone panel keeps them) */
 @media (width >= 1025px) {
