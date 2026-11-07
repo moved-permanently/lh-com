@@ -446,7 +446,7 @@ changes (for example a removed `phone-slider`), so only the new step rows were m
 −9 % / −7 %); /at/en/emergency-contact +0.3 % / +2.1 %. Left: "* Pflichtfelder" sits in the last card, where www has
 it in the left column.
 
-### 6. The pages more than 5 % off again, and the next largest of ours (`f7823e23`)
+### 6. The pages more than 5 % off again, and the next largest of ours (`8445f6a5`)
 
 The 38 pages of brief 444's list, measured on main--lh-austrian--moved-permanently.aem.page after the pushes above: 29
 of 76 page/width pairs are more than 5 % off (46 in brief 444). Of those:
@@ -474,10 +474,10 @@ online-check-in 390, economy-class 390 (+8 %), familien, check-in, rebook, fligh
 ### Checks
 
 - Lint and the full suite before each push, in a fresh worktree of the commit (logs/suite-wt.sh): 465, 466, 467,
-  468 and 470 files, all passing. The first pull brought code (ded93847), so the suite ran again on the rebased
+  468, 470, 471 and 479 files, all passing (the last pull before the fourth push brought code too, so it ran again). The first pull brought code (ded93847), so the suite ran again on the rebased
   commits. Its four conflicting bundles were rebuilt from the merged sources; the rebuilt Austrian bundles also carry
   ded93847's flight-search change, whose commit hadn't rebuilt them.
-- Smoke on all 12 lh-edge hosts before and after each of the three pushes: 0 differences, except b2b's
+- Smoke on all 12 lh-edge hosts before and after each of the four pushes: 0 differences, except b2b's
   /xx/en/search-index.json hash after the first push. That is index content (the B2B pages publishing then), and no
   commit of this round touches b2b or lh-edge.
 - Local checks on the lh-austrian document folder (aem up with --html-folder, brand set in the browser); page
@@ -494,8 +494,8 @@ online-check-in 390, economy-class 390 (+8 %), familien, check-in, rebook, fligh
 | 2 | `4d694bf6` | cards-icon-text `four-up`; four-column usp teasers as cards-icon four-up; Austrian usp tiles | `git revert`; the 22 documents: DA's versions before 2026-11-07 |
 | 4 | `518184e6` | accordion panels' picture and text rows and facts side by side (parser and block) | `git revert`; the 10 documents: DA's versions before 2026-11-07 |
 | 5 | `a8ac8ab3` | form-core: bands without a headline; Austrian core form styles | `git revert`; the 155 documents: DA's versions before 2026-11-07 |
-| 6 | `f7823e23` | Austrian accordion titles 24 / 28 500, contact topics 18 px | `git revert` |
-| 1-6 | this report's commit | report, `preview-paths-445.txt`, `form-bands-445.txt` | – |
+| 6 | `8445f6a5` | Austrian accordion titles 24 / 28 500, contact topics 18 px | `git revert` |
+| 1-6 | `46e0aeef` | report, `preview-paths-445.txt`, `form-bands-445.txt` | – |
 
 Documents (uploaded to DA and previewed, not published): no files; pages in release order,
 `tools/reports/austrian/preview-paths-445.txt` (254 pages): the 67 padded-pair documents, the 22 four-up documents,
