@@ -538,6 +538,30 @@ export function marketHref(href, {
   return v === raw ? null : v;
 }
 
+/**
+ * Brussels Airlines (brief 461): www's /extra-services/upgrades on each market root links the
+ * root's own fix-price-upgrade artifact (https://www.brusselsairlines.com/artifacts/flight-upgrades/
+ * fix-price-upgrade/<cc>-<ll>); a language version's document served on a market root names the
+ * version's. A link with that path prefix and the source's <cc>-<ll> (on www or relative) becomes
+ * the serving root's; nothing else. Sites: UPGRADE_ARTIFACT_SITES; roots without an artifact on
+ * www keep the version's link (UPGRADE_ARTIFACT_MISSING). www's upgrades pages of 2026-11-07
+ * (all 92 market roots read over Bright Data): 90 link their own artifact, each answering 200;
+ * bf/en and bf/fr link none (they have documents of their own here).
+ */
+export const UPGRADE_ARTIFACT_SITES = new Set(['brussels']);
+export const UPGRADE_ARTIFACT_MISSING = new Set(['bf/en', 'bf/fr']);
+const UPGRADE_ARTIFACT = '/artifacts/flight-upgrades/fix-price-upgrade/';
+
+export function upgradeArtifactHref(href, from, to, www) {
+  const raw = String(href || '');
+  const i = raw.indexOf(UPGRADE_ARTIFACT);
+  if (i < 0 || (i > 0 && raw.slice(0, i) !== `https://${www}`)) return null;
+  const code = from.replace('/', '-');
+  const rest = raw.slice(i + UPGRADE_ARTIFACT.length);
+  if (!rest.startsWith(code) || !/^($|[/?#])/.test(rest.slice(code.length))) return null;
+  return `${raw.slice(0, i)}${UPGRADE_ARTIFACT}${to.replace('/', '-')}${rest.slice(code.length)}`;
+}
+
 export const escapeAttr = (s) => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
 
 const KEEP = 'data-lh-market-keep';
@@ -570,6 +594,12 @@ export function marketHtml(resp, ctx) {
         return;
       }
       const value = e.getAttribute(attr);
+      // the root's own upgrade artifact (Brussels, see upgradeArtifactHref)
+      const artifact = ctx.upgradeArtifacts && attr === 'href' ? upgradeArtifactHref(value, ctx.from, ctx.to, ctx.www) : null;
+      if (artifact !== null) {
+        e.setAttribute(attr, artifact);
+        return;
+      }
       // a neutral document (www's xx/<ll>) links into its own root and into the language version
       const also = ctx.also ? marketHref(value, { ...ctx, ...ctx.also }) : null;
       const next = marketHref(value, ctx) ?? also;
@@ -1149,6 +1179,7 @@ export async function market(request, env) {
   const resp = new Response(body, { status: doc.status, headers });
   return marketHtml(resp, {
     ...ctx,
+    upgradeArtifacts: UPGRADE_ARTIFACT_SITES.has(env.SITE) && !UPGRADE_ARTIFACT_MISSING.has(root),
     marketPath: `/${root}${suffix}`,
     alternates: kind === 'page' ? alternates(model, t.table[root].lang, suffix) : [],
   });
