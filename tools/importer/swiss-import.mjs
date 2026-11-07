@@ -406,6 +406,45 @@ export function withPinnedTeasers(doc, html) {
   return { doc: out, made };
 }
 
+/**
+ * www's stages' texts and buttons (brief 455: by 2026-11-06 the A350's and onboard catering's
+ * stages had a paragraph and a button the snapshots of 11-02 lack): per hero-campaign block
+ * matched by its heading, www's teaser paragraphs (.information .richtext p) and its button
+ * (maui-button-link, secondary: a plain link paragraph) after the heading, when the block lacks
+ * that text. Blocks with it, and teasers without such text, as they are.
+ * @returns {{doc: string, made: number}}
+ */
+export function withTeaserTexts(doc, html) {
+  const norm = (s) => s.replace(/\u200B/g, '').replace(/\s+/g, ' ').trim();
+  const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  const teasers = new Map([...parseHTML(html).document.querySelectorAll('.cms-inspiration-teaser')].map((el) => {
+    const h = el.querySelector('h1, h2, h3');
+    const ps = [...el.querySelectorAll('.information .richtext p')].map((p) => norm(p.textContent)).filter(Boolean);
+    const btn = el.querySelector('.information maui-button-link[href]');
+    return [h ? norm(h.textContent) : '', { ps, button: btn && { href: btn.getAttribute('href'), text: norm(btn.textContent) } }];
+  }).filter(([title, t]) => title && (t.ps.length || t.button)));
+  if (!teasers.size) return { doc, made: 0 };
+  const isPlain = !/<main>/.test(doc);
+  const inner = isPlain ? doc : doc.match(/<main>([\s\S]*)<\/main>/)[1];
+  const { document } = parseHTML(`<!DOCTYPE html><html><body><main>${inner}</main></body></html>`);
+  const main = document.querySelector('main');
+  let made = 0;
+  main.querySelectorAll('div.hero-campaign').forEach((block) => {
+    const h = block.querySelector('h1, h2, h3');
+    const www = h && teasers.get(norm(h.textContent).replace(/\s*\{[a-z0-9 -]+\}$/, ''));
+    if (!www) return;
+    const have = norm(block.textContent);
+    const add = [];
+    www.ps.filter((t) => !have.includes(t)).forEach((t) => add.push(`<p>${esc(t)}</p>`));
+    if (www.button && !have.includes(www.button.text)) add.push(`<p><a href="${www.button.href.replace(/"/g, '&quot;')}">${esc(www.button.text)}</a></p>`);
+    if (!add.length) return;
+    h.insertAdjacentHTML('afterend', add.join(''));
+    made += 1;
+  });
+  if (!made) return { doc, made };
+  return { doc: isPlain ? main.innerHTML : doc.replace(/<main>[\s\S]*<\/main>/, () => `<main>${main.innerHTML}</main>`), made };
+}
+
 // the core forms: a proposed lh-forms id per page name (swiss-<page>; lh-forms does not know
 // them yet, so the form pages stay on preview)
 export const formIdOf = (p) => `swiss-${p.split('/').pop().replace(/[^a-z0-9-]/gi, '-').toLowerCase()}`;
@@ -1035,7 +1074,7 @@ if (isMain) {
       const snapHtml = fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8');
       // www's sidebar component (airem-sidebar) as the content beside a sidebar-aside section (swiss-sidebar.mjs)
       // (www's accordions the import wrote as text first: the sidebar's content can end with one)
-      const next = withSwissSidebar(withSwissAccordions(withPinnedTeasers(withTwoUpCards(withUspTeasers(withCardLinks(splitTabSections(withFlightSearchTeaser(withFlightSearchVideo(withHeroVideo(withItaMetadata(withCheckinFields(withCheckinHandoff(withFlightSearch(withPageLanguageMessages(withItaForm(doc, p, snapHtml), p), p), p), snapHtml), p, snapHtml, markets), snapHtml), snapHtml), snapHtml)), snapHtml).doc, snapHtml).doc, snapHtml).doc, snapHtml).doc, snapHtml).doc, snapHtml).doc;
+      const next = withSwissSidebar(withSwissAccordions(withTeaserTexts(withPinnedTeasers(withTwoUpCards(withUspTeasers(withCardLinks(splitTabSections(withFlightSearchTeaser(withFlightSearchVideo(withHeroVideo(withItaMetadata(withCheckinFields(withCheckinHandoff(withFlightSearch(withPageLanguageMessages(withItaForm(doc, p, snapHtml), p), p), p), snapHtml), p, snapHtml, markets), snapHtml), snapHtml), snapHtml)), snapHtml).doc, snapHtml).doc, snapHtml).doc, snapHtml).doc, snapHtml).doc, snapHtml).doc, snapHtml).doc;
       if (next !== doc) fs.writeFileSync(f, next);
     });
     const mapOnly = path.join(W, 'runs', `${name}-upload.txt`);

@@ -37,3 +37,17 @@ test('the block\'s CSS: pinned sticky at the top, the wrapper half the window an
   assert.ok(css.includes('.hero-campaign-wrapper:has(> .hero-campaign.pinned.regular) { --hero-campaign-stage: 640px; }'));
   assert.ok(css.includes('.hero-campaign.pinned { position: sticky; top: 0; }'));
 });
+
+// brief 455: www's stages got texts and buttons after the snapshots (ch/de's A350, ch/en's onboard
+// catering on 2026-11-06); a block without them gets them after its heading
+test('withTeaserTexts: www\'s teaser text and button after the heading where the block lacks them; once', async () => {
+  const { withTeaserTexts } = await import('../tools/importer/swiss-import.mjs');
+  const www = '<html><body><div class="cms-inspiration-teaser px-0 inspiration-teaser-animation inspiration-teaser-tall"><div class="campaign-information"><h2 class="headline">Zahlen und Fakten </h2><div class="information"><div class="richtext"><p>Seit 2025 erweitert SWISS ihre Flotte um zehn Airbus A350-900.</p></div><maui-button-link type="secondary" href="/ch/de/discover/a350/facts" theme="lx"> Zu den Zahlen und Fakten </maui-button-link></div></div></div>'
+    + '<div class="cms-inspiration-teaser px-0 inspiration-teaser-tall"><div class="campaign-information"><h2 class="headline">Hinter den Kulissen</h2><div class="information"><div class="richtext"><p>In Toulouse.</p></div></div></div></div></body></html>';
+  const d = `<body><header></header><main><div>${hero(' right', 'h2', 'Zahlen und Fakten')}</div><div><div class="hero-campaign"><div><div><picture><img src="b.jpg"></picture></div></div><div><div><h2>Hinter den Kulissen</h2><p>In Toulouse.</p></div></div></div></div></main><footer></footer></body>`;
+  const r = withTeaserTexts(d, www);
+  assert.equal(r.made, 1);
+  assert.ok(r.doc.includes('<div><div><h2>Zahlen und Fakten</h2><p>Seit 2025 erweitert SWISS ihre Flotte um zehn Airbus A350-900.</p><p><a href="/ch/de/discover/a350/facts">Zu den Zahlen und Fakten</a></p></div></div>'), r.doc);
+  assert.ok(r.doc.includes('<h2>Hinter den Kulissen</h2><p>In Toulouse.</p></div>'), 'a block with the text as it is');
+  assert.equal(withTeaserTexts(r.doc, www).made, 0);
+});
