@@ -22,6 +22,7 @@
  * - a sidebar whose content holds column views: its content as sections with style sidebar, a grey
  *   column view in it a section of its own (withSidebarContent, withSidebarSections);
  * - the flight search hands off to shop.brusselsairlines.com from Brussels (withFlightSearch);
+ * - the flight search picker's texts in the page's language from www's label state (withBookingLabels);
  * - the check-in entry becomes the booking-lookup block (withCheckinTabs), its hand-off the page
  *   on www (withCheckinHandoff); the booking login's "Enter booking code" opens the page on www;
  * - two-column teaser rows import as carousel-cards (withTeaserColumns);
@@ -41,6 +42,7 @@ import {
   ownPages, ownAliases, ownServed, withOwnLinks, onlyBatch,
 } from './own-links.mjs';
 import { relativeDamLinks } from './brussels-dam.mjs';
+import { pageBookingLabels } from './parsers/flight-search-picker.js';
 import { withLocalImages } from './brussels-nav.mjs';
 import { withShareImage } from './brussels-share-image.mjs';
 import { stripScripts } from './excat-plugin.mjs';
@@ -317,6 +319,18 @@ export function withSidebarSections(doc) {
   return out + doc.slice(from);
 }
 
+/**
+ * The flight search picker's texts in the page's language (www's label state, a script the import
+ * strips first: brief 448) on the body as data-lh-booking-labels, for lh-com's flight-search
+ * parser; a page without them as it is.
+ */
+export function withBookingLabels(html) {
+  const labels = pageBookingLabels(html);
+  if (!labels) return html;
+  const value = JSON.stringify(labels).replace(/&/g, '&amp;').replace(/"/g, '&quot;');
+  return html.replace(/<body\b/i, `<body data-lh-booking-labels="${value}"`);
+}
+
 // the booking-lookup's hand-off: www's check-in app is not reachable from the replica (and its
 // target is not in the page), so a valid search opens the same page on www, nothing in the URL
 export const withCheckinHandoff = (doc, p) => doc
@@ -472,7 +486,7 @@ if (isMain) {
     // (the help centre app's screen-reader announcement "Help page loaded." is no page text;
     // the Studio's snapshots keep www's scripts, which must not run in the import browser)
     // (the form's jQuery UI date picker, appended to the body and hidden on www, is no content)
-    const mapped = withoutLoads(withTeaserColumns(withCheckinTabs(withLinkOuts(withHotlines(withPaymentTable(withPlaceholder(withSidebarContent(withoutTestForms(editDivs(stripScripts(html), '<div id="ui-datepicker-div"', () => '')))))), p))))
+    const mapped = withoutLoads(withTeaserColumns(withCheckinTabs(withLinkOuts(withHotlines(withPaymentTable(withPlaceholder(withSidebarContent(withoutTestForms(editDivs(stripScripts(withBookingLabels(html)), '<div id="ui-datepicker-div"', () => '')))))), p))))
       .replace(/<output[^>]*class="screen-reader-announcer"[^>]*>[\s\S]*?<\/output>/g, '');
     if (mapped.includes(`https://${LINK_OUT}`)) linkOuts.push(p);
     if (/<div class="slideshow/.test(mapped)) {

@@ -30,9 +30,9 @@
  * Not authored: From/To/Date/Submit labels and the date error (the snapshot shows the built-in
  * texts, the live site and the block use labels/flightmanager and labels/common).
  */
-import { pickerRows } from './flight-search-picker.js';
+import { pickerRows, pageBookingLabels } from './flight-search-picker.js';
 
-export default function parse(element, { document }) {
+export default function parse(element, { document, url, params } = {}) {
   const SR_ONLY = '.sr-only, .visually-hidden, maui-screen-reader-label';
 
   const clean = (s) => (s || '').replace(/[​-‍﻿]/g, '').replace(/\s+/g, ' ').trim();
@@ -85,7 +85,23 @@ export default function parse(element, { document }) {
   if (element.querySelector('.travel-details-opener')) {
     const market = String(props.groupBookingsUrl || '').match(/\/markets\/[a-z]{2}\/([a-z]{2})\//);
     const lang = (market && market[1]) || clean(document.documentElement.getAttribute('lang')).slice(0, 2);
-    pickerRows({ lang, groupBookingsUrl: props.groupBookingsUrl }).forEach(([key, value]) => {
+    // the page's own texts (brief 448): its label state script (lufthansa.com's import keeps the
+    // scripts until the parsers ran) or the body's data-lh-booking-labels (Brussels' importer hands
+    // them over, its scripts stripped before the import); the rendered group link's text and target
+    let labels = null;
+    try { labels = JSON.parse(document.body.getAttribute('data-lh-booking-labels') || 'null'); } catch (e) { labels = null; }
+    if (!labels) {
+      const state = [...document.querySelectorAll('script')].map((sc) => sc.textContent).find((t) => t.includes('common.booking.children.label'));
+      labels = state ? pageBookingLabels(state) : null;
+    }
+    const groupLink = element.querySelector('.group-booking-link') || document.querySelector('.travel-details .group-booking-link, .group-booking-link');
+    const groupText = groupLink ? visibleText(groupLink) : '';
+    const groupUrl = (groupLink && groupLink.getAttribute('href')) || props.groupBookingsUrl;
+    let root = '';
+    try { root = (new URL((params && params.originalURL) || url || '', 'https://www.lufthansa.com').pathname.match(/^\/[a-z]{2}\/[a-z]{2}(?=\/|$)/) || [''])[0]; } catch (e) { root = ''; }
+    pickerRows({
+      lang, groupBookingsUrl: groupUrl, labels, groupText, root,
+    }).forEach(([key, value]) => {
       // an empty value (Adults hint): the row with an empty cell, the hint left out
       if (value === '') { cells.push([key, '']); return; }
       if (typeof value === 'string') { addRow(key, value); return; }

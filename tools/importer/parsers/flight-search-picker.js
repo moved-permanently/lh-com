@@ -36,11 +36,19 @@ const TEXTS = {
  * /<cc>/<ll>/...; www's book-and-manage/group-travel is our /<cc>/<ll>/group-travel (the
  * site's redirect target).
  */
-export function groupTravelPath(url) {
+export function groupTravelPath(url, root = '') {
   let p = String(url || '').trim();
   if (!p) return '';
   try { p = new URL(p, 'https://www.lufthansa.com').pathname; } catch (e) { return ''; }
-  p = p.replace(/^\/content\/lh\/markets(?=\/)/, '').replace(/\.html$/, '');
+  // www's global content (/content/lh/gc/<ll>/…: the xx roots' flight search pages): the page's own
+  // root, when known (else no link: www's internal address is no page of the site)
+  const gc = p.match(/^\/content\/[a-z0-9-]+\/gc\/[a-z]{2}(\/.*)?$/);
+  if (gc) {
+    if (!/^\/[a-z]{2}\/[a-z]{2}$/.test(root)) return '';
+    p = `${root}${gc[1] || ''}`;
+  }
+  // any brand's internal address (/content/lh/markets/, Brussels' /content/bel/markets/, brief 448)
+  p = p.replace(/^\/content\/[a-z0-9-]+\/markets(?=\/)/, '').replace(/\.html$/, '');
   return p.replace(/^(\/[a-z]{2}\/[a-z]{2})\/book-and-manage\/group-travel$/, '$1/group-travel');
 }
 
@@ -56,18 +64,50 @@ const YOUNG_ADULTS = { 'gb/en': 'GB', 'gb/de': 'GB', 'de/de': 'GB' };
  * adults hint (an empty Adults hint row: www shows none), Young adults where www shows them,
  * www's Alternative fare selection (Fare preference) on every root; the block's texts for them
  * are www's (blocks/flight-search/picker-options.js).
- * @param {{lang: string, groupBookingsUrl?: string}} o lang en or de (others: English); the
- *   root is groupBookingsUrl's market (/content/lh/markets/<cc>/<ll>/)
+ * @param {{lang: string, groupBookingsUrl?: string, labels?: Object, groupText?: string}} o lang
+ *   the page's language (en and de have recorded texts; without a language: English); the root
+ *   is groupBookingsUrl's market (/content/<brand>/markets/<cc>/<ll>/); labels the page's own
+ *   texts (pageBookingLabels), groupText the page's group link text, root the page's
+ *   /<cc>/<ll> (for www's global-content links)
  */
-export function pickerRows({ lang, groupBookingsUrl } = {}) {
-  const t = TEXTS[lang] || TEXTS.en;
+export function pickerRows({
+  lang, groupBookingsUrl, labels = null, groupText = '', root = '',
+} = {}) {
+  // the page's own texts first (its label state, brief 448), else the recorded en / de texts,
+  // else none: the block's texts in the page's language
+  const recorded = TEXTS[lang] || (lang ? {} : TEXTS.en);
+  const t = labels ? { ...(TEXTS[lang] || {}), ...labels } : recorded;
   const market = String(groupBookingsUrl || '').match(/\/markets\/([a-z]{2})\/([a-z]{2})\//);
   const young = market && YOUNG_ADULTS[`${market[1]}/${market[2]}`];
   const rows = [['Passenger picker', 'yes'], ['Adults hint', '']];
   if (young) rows.push(['Young adults', young]);
   Object.entries(t).forEach(([k, v]) => { if (k !== 'group') rows.push([k, v]); });
-  const href = groupTravelPath(groupBookingsUrl);
-  if (href) rows.push(['Group booking', { href, text: t.group }]);
+  const href = groupTravelPath(groupBookingsUrl, root);
+  const text = groupText || recorded.group;
+  if (href && text) rows.push(['Group booking', { href, text }]);
   rows.push(['Fare preference', 'yes']);
   return rows;
+}
+
+const LABEL_KEYS = {
+  'Children label': 'common.booking.children.label',
+  'Children hint': 'common.booking.children.hint',
+  'Infants label': 'common.booking.infants.label',
+  'Infants hint': 'common.booking.infants.hint',
+};
+
+/**
+ * The picker's texts from a page's label state (www's window.__PRELOADED_STATE__ holds the label
+ * bundles: "common.booking.children.label":"Enfants", …), non-breaking spaces as spaces; null when
+ * the page does not have all four.
+ * @param {string} html the page's HTML (or a script's text)
+ */
+export function pageBookingLabels(html) {
+  const out = {};
+  Object.entries(LABEL_KEYS).forEach(([row, key]) => {
+    const m = String(html || '').match(new RegExp(`"${key.replace(/\./g, '\\.')}"\\s*:\\s*"((?:[^"\\\\]|\\\\.)*)"`));
+    if (!m) return;
+    try { out[row] = JSON.parse(`"${m[1]}"`).replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim(); } catch (e) { /* not a JSON string */ }
+  });
+  return Object.keys(out).length === 4 ? out : null;
 }
