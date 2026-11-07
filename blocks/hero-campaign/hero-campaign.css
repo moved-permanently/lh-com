@@ -924,8 +924,14 @@ body.brand-cargo .hero-campaign.slider .hero-campaign-next {
    900 px window), then goes on with the page */
 .hero-campaign-wrapper:has(> .hero-campaign.pinned) {
   --hero-campaign-stage: 810px;
+}
 
-  padding-bottom: calc((100vh + var(--hero-campaign-stage)) / 2);
+/* the scroll room is a spacer inside the wrapper, not its padding: a sticky stage can only move
+   within its parent's content box, so padding left it no room and showed as white space */
+.hero-campaign-wrapper:has(> .hero-campaign.pinned)::after {
+  content: '';
+  display: block;
+  height: calc((100vh + var(--hero-campaign-stage)) / 2);
 }
 
 .hero-campaign-wrapper:has(> .hero-campaign.pinned.narrow) {

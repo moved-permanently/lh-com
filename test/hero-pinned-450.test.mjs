@@ -29,7 +29,10 @@ test('withPinnedTeasers: the animated teasers\' blocks pinned with www\'s height
 
 test('the block\'s CSS: pinned sticky at the top, the wrapper half the window and the stage longer', () => {
   const css = fs.readFileSync(new URL('../blocks/hero-campaign/hero-campaign.css', import.meta.url), 'utf8').replace(/\/\*[\s\S]*?\*\//g, '').replace(/\s+/g, ' ');
-  assert.ok(css.includes('.hero-campaign-wrapper:has(> .hero-campaign.pinned) { --hero-campaign-stage: 810px; padding-bottom: calc((100vh + var(--hero-campaign-stage)) / 2); }'));
+  assert.ok(css.includes('.hero-campaign-wrapper:has(> .hero-campaign.pinned) { --hero-campaign-stage: 810px; }'));
+  // the scroll room is a spacer inside the wrapper: padding is outside the content box a sticky stage moves in
+  assert.ok(css.includes(".hero-campaign-wrapper:has(> .hero-campaign.pinned)::after { content: ''; display: block; height: calc((100vh + var(--hero-campaign-stage)) / 2); }"));
+  assert.ok(!/hero-campaign\.pinned\) \{[^}]*padding-bottom/.test(css));
   assert.ok(css.includes('.hero-campaign-wrapper:has(> .hero-campaign.pinned.narrow) { --hero-campaign-stage: 350px; }'));
   assert.ok(css.includes('.hero-campaign-wrapper:has(> .hero-campaign.pinned.regular) { --hero-campaign-stage: 640px; }'));
   assert.ok(css.includes('.hero-campaign.pinned { position: sticky; top: 0; }'));
