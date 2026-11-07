@@ -1,0 +1,21 @@
+# Brief 448 (ema-cashub, 2026-11-07): Brussels pages for the harness to import again with main's
+# bundles; nothing uploaded from here.
+#   item 1, the gift cards' text and buttons full width under the title (the capitals are CSS, live):
+#     book-a-flight/flightvoucher in be/en, be/fr, be/nl, de/de, it/it, es/es
+#   item 2, the check-in form a plain booking-lookup with the first name and www's labels
+#     (brussels-snapshots-015): check-in-options-and-info/online-check-in-options in the same six
+#   item 3, the flight search's picker in the page's language: the fr/fr and ke/en homepages
+/be/en/book-a-flight/flightvoucher
+/be/fr/book-a-flight/flightvoucher
+/be/nl/book-a-flight/flightvoucher
+/de/de/book-a-flight/flightvoucher
+/it/it/book-a-flight/flightvoucher
+/es/es/book-a-flight/flightvoucher
+/be/en/check-in-options-and-info/online-check-in-options
+/be/fr/check-in-options-and-info/online-check-in-options
+/be/nl/check-in-options-and-info/online-check-in-options
+/de/de/check-in-options-and-info/online-check-in-options
+/it/it/check-in-options-and-info/online-check-in-options
+/es/es/check-in-options-and-info/online-check-in-options
+/fr/fr/homepage
+/ke/en/homepage

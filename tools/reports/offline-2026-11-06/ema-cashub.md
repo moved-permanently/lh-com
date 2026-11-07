@@ -553,3 +553,100 @@ the publishing in progress).
 | 2 | (this commit) | this report: the form ids' pages, their success pages, the two pages that are no forms | revert this commit |
 
 Nothing uploaded or published this round; no document needed a change for the ids.
+
+## Brief 448
+
+Step 0: brief 446 left nothing unpushed (main was at `f551b02c`); out of git as before: the
+importer's run output (run state), migration-work/ (scratch), the old stash@{0}, content-sites/
+(local site data). The optional plugins stay off (the web-guidance plugin the session offered: not
+enabled). The notification email's Arial stays, as you said.
+
+### 1. Brussels theme after the brief 441 re-import
+
+Measured on aem.page and with the local code against brussels-parity-002a (the harness's
+comparison screenshots are not in this workspace):
+- The gift card titles: Brussels' partner cards now in capitals at heading-copytext-large (18 px at
+  1440, 16 px on phones; www's caps 13 px at 1440: 18 px Intelo), theme rule, live on all
+  Brussels partner cards without a re-import.
+- The card text on phones: www's gift cards ("Your Gift Card") have their text and button as
+  components after the teaser, full width under the title (at 1440 too; the grey band's cards
+  above have the teaser's own description, indented beside the icon, and stay so). The partner
+  parser now writes that content to a third cell; the block (brand-neutral) shows a third cell
+  under the card, full width, its button at the foot (a row's buttons line up as www's at 1440).
+  be/en's import with the local code: 1440 text at x 88 (www 88), the three buttons on one row;
+  390 text at x 22, 27 px under the title row (www 27), the button 20 px under the text (www 21).
+  Needs the re-import (the documents have the content in the second cell).
+- travel-regulations' grey box: not reproduced. On aem.page at 1440 the box's grey runs from x 0
+  to 1025 in all six languages (be/en, be/fr, be/nl, de/de, it/it, es/es; be/en also on
+  brussels.turnsthe.page), as www's (0 to 1025), each document with flush, grey, sidebar. If the
+  harness's screenshot shows it inside the margin, it may predate the push of `170a22a6` or come
+  from another width; the screenshot's name would let me look again.
+
+Commit `8f6932ed`, tests first (cards-icon-text-partner: the third cell; cards-icon-text-buttons:
+the part under the card).
+
+### 2. Brussels booking-lookup (brussels-snapshots-015)
+
+sha256 338af9a755ad9fa8caee49cf28e63781abe597f0a597d2f6857c748186b72033 as in the brief, entries
+checked. www's quick actions there hold one panel, maui-tab-control-panel[data-key="checkIn"]:
+Booking code, First name (autocomplete given-name), Last name, the Check-in button. The parser now
+writes such a quick actions block as a plain booking-lookup with www's rows (Tab, Reference label /
+pattern / error, First name label / error, Last name label / error, Submit label); a My bookings
+panel stays the my-bookings variant. The six pages imported here: each with its language's labels
+(be/en "Booking code", "First name (as per booking)", "Last name (as per booking)", "Check-in"; be/fr
+"Code réservation", "Enregistrement"; be/nl "Boekingsreferentie"; de/de "Buchungscode"; it/it "Cod.
+prenotazione"; es/es "Código de reserva") and Brussels' hand-off URL, nothing else lost against
+DA's copies; be/en rendered with the local code: three inputs with www's labels, "Check-in", no
+tab bar. Not uploaded. Commit `2fbc93fb`, test first (booking-lookup-checkin-quickactions).
+
+### 3. The shared flight-search import
+
+The picker's texts and group link now come from the page (commit `69bc5ce7`, test first:
+flight-search-picker-page-labels):
+- the children and infants texts from www's label state (common.booking.*: Brussels' pages have it
+  in a script, which Brussels' importer strips first, so it hands the four texts over on the body;
+  lufthansa.com's import keeps the scripts until the parsers ran); without them lufthansa.com's
+  recorded en / de texts as before, and for another language no text rows: the block's own texts
+  in that language (it has en, de, it, fr, es, nl, pt, el, ja, ru, zh, pl, ko);
+- the group link's text from the rendered .group-booking-link (in the page's language: "Réservations
+  de groupe pour 10 passagers ou plus.", "Reservas de grupo para 10 ou mais passageiros."), its target
+  the site's path for any brand's /content/<brand>/markets/<cc>/<ll>/ address and, for www's
+  global content (/content/lh/gc/…, the xx roots' flight search pages), the page's own root.
+  Brussels' link step then keeps it relative where DA has the page (be/en's groups page) and makes
+  it www's public page where it doesn't (fr/fr, ke/en: DA 404).
+- Checked: Brussels fr/fr and ke/en homepages from brussels-parity-002a (fr: "Enfants", "(2 à 11
+  ans)", "Bébés sans siège"; ke/en Brussels' own English: "(2 - 11 years)", "Infants", "(Under 2
+  years, No seat)"); lufthansa.com xx/pt flight-search and homepage from their snapshots (the
+  opened picker all Portuguese with the local code: "Crianças, De 2 a 11 anos", "Bebés", the group
+  link to /xx/pt/group-travel).
+- Open: lufthansa.com's hk roots (Traditional Chinese, path language hk): the block has no hk texts
+  for children and infants, so they stay in its fallback; www's zh-HK labels are in no snapshot
+  (lufthansa.com's pages carry no label state), so I didn't invent them.
+- Brussels' 98 homepages with a flight search in DA: none has English picker texts on another
+  language or an internal link (DA's older block: the group link only, in the page's language).
+
+### The push
+
+Lint ok; the full suite 424 of 425 files (the red one test/cargo-kf-phone-442.test.mjs, the local
+Cargo asset map, ema-adobe's), lh-edge 372 of 372. Rebased on main's brief 444/445/446 commits
+(only the generated bundles overlapped: taken from main, rebuilt from the merged sources, `5c71d654`;
+the related tests green), pushed `99295754..5c71d654`. Smoke of every brand before and after: no
+difference on any host. After the push on aem.page: Brussels' gift card titles in capitals (18 px).
+
+### Summary
+
+| Item | Commit | What | Rollback |
+| --- | --- | --- | --- |
+| 1 | `8f6932ed` | Brussels partner titles in capitals; the partner parser's third cell and the block's full-width part under the card | `git revert 8f6932ed` |
+| 2 | `2fbc93fb` | quick actions with only the Check-in panel: a plain booking-lookup with the first name and www's labels | `git revert 2fbc93fb` |
+| 3 | `69bc5ce7` | flight-search picker texts and group link in the page's language, the link to the site's path; Brussels' label hand-over | `git revert 69bc5ce7` |
+| - | `5c71d654` | the bundles rebuilt after the rebase | `git revert 5c71d654`, then rebuild |
+| - | (this commit) | this report, the two re-import lists | revert this commit |
+
+Path lists (the code is on main; nothing uploaded or published here):
+- Brussels, for the harness to import again (`tools/reports/brussels/reimport-448.txt`, 14):
+  book-a-flight/flightvoucher and check-in-options-and-info/online-check-in-options in be/en, be/fr,
+  be/nl, de/de, it/it, es/es; /fr/fr/homepage, /ke/en/homepage.
+- lufthansa.com (`tools/reports/offline-2026-11-06/reimport-448-lh-com.txt`, 22): the homepages of
+  ao/pt, br/pt, by/ru, cn/hk, hk/hk, kz/ru, pt/pt, ru/ru, tw/hk, xx/hk, xx/pt, xx/ru; /br/pt/pix;
+  book-and-manage/stopover, cash-and-miles and flight-search in xx/hk, xx/pt, xx/ru.

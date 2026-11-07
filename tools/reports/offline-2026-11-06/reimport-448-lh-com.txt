@@ -1,0 +1,27 @@
+# Brief 448 item 3 (ema-cashub, 2026-11-07): lufthansa.com documents whose flight search has the
+# picker's texts in English on a pt, ru or hk root, or (the xx roots' flight-search pages) the group
+# link to www's internal global-content address; import again with main's bundles. hk: the block
+# has no hk texts for children and infants yet (www's zh-HK labels are in no snapshot); the group
+# link's text is www's.
+/ao/pt/homepage
+/br/pt/homepage
+/br/pt/pix
+/by/ru/homepage
+/cn/hk/homepage
+/hk/hk/homepage
+/kz/ru/homepage
+/pt/pt/homepage
+/ru/ru/homepage
+/tw/hk/homepage
+/xx/hk/book-and-manage/stopover
+/xx/hk/cash-and-miles
+/xx/hk/flight-search
+/xx/hk/homepage
+/xx/pt/book-and-manage/stopover
+/xx/pt/cash-and-miles
+/xx/pt/flight-search
+/xx/pt/homepage
+/xx/ru/book-and-manage/stopover
+/xx/ru/cash-and-miles
+/xx/ru/flight-search
+/xx/ru/homepage
