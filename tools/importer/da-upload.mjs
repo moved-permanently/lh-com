@@ -29,6 +29,9 @@
  * Usage: node tools/importer/da-upload.mjs (--path /de/en/homepage ... | --list paths.txt)
  *          [--no-preview] [--dry-run] [--force] [--budget 500] [--site lh-com] [--content-dir dir]
  *          [--state <name>] (a state file of its own: da-upload-state-<site>-<name>.json)
+ *          [--keep-www <path prefix,…>] (links under these paths may go back to www: the check
+ *          below leaves them out, e.g. SWISS's /digitalassistant/, which the replica does not
+ *          serve)
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -44,6 +47,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
 const argv = process.argv.slice(2);
 const has = (n) => argv.includes(`--${n}`);
 const opt = (n) => (argv.includes(`--${n}`) ? argv[argv.indexOf(`--${n}`) + 1] : null);
+const keepWww = (opt('keep-www') || '').split(',').map((x) => x.trim()).filter(Boolean);
 const loadScope = async () => (await import(path.join(root, 'tools/importer/transformers/scope-paths.js'))).default;
 const settings = await siteSettings(root, loadScope, {
   site: opt('site') || undefined, contentDir: opt('content-dir') || undefined, stateEnv: process.env.DA_UPLOAD_STATE, stateName: opt('state') || undefined,
@@ -148,7 +152,7 @@ for (const p of paths) {
     // not uploaded, the local copy is older than DA (lh-com as before, no check)
     if (SITE !== 'lh-com') {
       const current = curl([`https://admin.da.live/source/${ORG}/${SITE}${p}.html`]);
-      const back = current.status === 200 ? linksTakenBack(current.body, html) : [];
+      const back = current.status === 200 ? linksTakenBack(current.body, html, keepWww) : [];
       if (back.length) {
         problem(`${p}: would take ${back.length} link(s) DA has relative back to www (${back[0]}): local copy older than DA, not uploaded`);
         continue;

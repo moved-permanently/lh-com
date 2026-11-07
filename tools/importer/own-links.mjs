@@ -53,11 +53,12 @@ export function onlyMadeRelative(before, after) {
  * www host instead (an upload would take them back to www: links another session changed in DA,
  * e.g. ITA's footers' /<root>/profile/travel-id, Austrian's navs' /<root>/login).
  */
-export function linksTakenBack(daHtml, localHtml) {
+export function linksTakenBack(daHtml, localHtml, keepWww = []) {
   const hrefs = (h) => [...h.matchAll(/href="([^"]*)"/g)].map((m) => m[1].replace(/&amp;|&#x26;/g, '&'));
   const local = hrefs(localHtml);
   const localSet = new Set(local);
-  return [...new Set(hrefs(daHtml).filter((h) => h.startsWith('/') && !h.startsWith('//')))]
+  // keepWww: path prefixes whose links may go back to www (a wrong relative link fixed, brief 453)
+  return [...new Set(hrefs(daHtml).filter((h) => h.startsWith('/') && !h.startsWith('//') && !keepWww.some((k) => h.startsWith(k))))]
     .filter((h) => !localSet.has(h) && local.some((l) => /^https?:\/\/[^/]+\//.test(l) && l.replace(/^https?:\/\/[^/]+/, '') === h));
 }
 
