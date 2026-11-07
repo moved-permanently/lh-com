@@ -28,7 +28,8 @@
  *   accordions the import wrote as text an accordion-columns block (withSwissAccordions, brief 445);
  * - the check-in form with www's first name and field hints (withCheckinFields, brief 445);
  * - the cards' link rows with www's link texts (withCardLinks), www's icon teasers the cards'
- *   option usp (withUspTeasers, brief 445);
+ *   option usp (withUspTeasers, brief 445), www's two-column teaser views two-up
+ *   (withTwoUpCards, brief 450);
  * - metadata (withItaMetadata): the root's nav and footer, `markets` (scope.json), www's noindex;
  * - a path Edge Delivery refuses (capitals, "&", double, leading or trailing hyphens) becomes its
  *   document name (docName) and a row of content-sites/lh-swiss/runs/redirects.tsv;
@@ -343,6 +344,31 @@ export function withUspTeasers(doc, html) {
     if (!heads.length || !heads.every((h) => titles.has(h))) return m;
     made += 1;
     return `<div class="carousel-cards${opts || ''} usp">`;
+  });
+  return { doc: out, made };
+}
+
+/**
+ * www's two-column teaser views (a .twocolumn view of a.teaser.card: fleet, travel regulations;
+ * brief 450) show two cards to a row; withTeaserColumns makes them three-column views for lh-com's
+ * importer (a carousel-cards grid, three to a row). A grid whose cards are exactly one such view's
+ * gets the option two-up. Others as they are.
+ * @returns {{doc: string, made: number}}
+ */
+export function withTwoUpCards(doc, html) {
+  const t = (s) => s.replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').replace(/\s+/g, ' ').trim();
+  const views = [...parseHTML(html).document.querySelectorAll('.twocolumn .column-view')]
+    .map((v) => [...v.querySelectorAll('a.teaser.card .teaser-heading')].map((h) => t(h.innerHTML)).sort().join('\n'))
+    .filter(Boolean);
+  if (!views.length) return { doc, made: 0 };
+  let made = 0;
+  const out = doc.replace(/<div class="carousel-cards grid( [^"]*)?">/g, (m, opts, at) => {
+    if (/\b(two-up|four-up)\b/.test(opts || '')) return m;
+    const block = doc.slice(at, divEnd(doc, at));
+    const heads = [...block.matchAll(/<h[1-6][^>]*>([\s\S]*?)<\/h[1-6]>/g)].map((h) => t(h[1])).sort().join('\n');
+    if (!heads || !views.includes(heads)) return m;
+    made += 1;
+    return `<div class="carousel-cards grid${opts || ''} two-up">`;
   });
   return { doc: out, made };
 }
@@ -976,7 +1002,7 @@ if (isMain) {
       const snapHtml = fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8');
       // www's sidebar component (airem-sidebar) as the content beside a sidebar-aside section (swiss-sidebar.mjs)
       // (www's accordions the import wrote as text first: the sidebar's content can end with one)
-      const next = withSwissSidebar(withSwissAccordions(withUspTeasers(withCardLinks(splitTabSections(withFlightSearchTeaser(withFlightSearchVideo(withHeroVideo(withItaMetadata(withCheckinFields(withCheckinHandoff(withFlightSearch(withPageLanguageMessages(withItaForm(doc, p, snapHtml), p), p), p), snapHtml), p, snapHtml, markets), snapHtml), snapHtml), snapHtml)), snapHtml).doc, snapHtml).doc, snapHtml).doc, snapHtml).doc;
+      const next = withSwissSidebar(withSwissAccordions(withTwoUpCards(withUspTeasers(withCardLinks(splitTabSections(withFlightSearchTeaser(withFlightSearchVideo(withHeroVideo(withItaMetadata(withCheckinFields(withCheckinHandoff(withFlightSearch(withPageLanguageMessages(withItaForm(doc, p, snapHtml), p), p), p), snapHtml), p, snapHtml, markets), snapHtml), snapHtml), snapHtml)), snapHtml).doc, snapHtml).doc, snapHtml).doc, snapHtml).doc, snapHtml).doc;
       if (next !== doc) fs.writeFileSync(f, next);
     });
     const mapOnly = path.join(W, 'runs', `${name}-upload.txt`);

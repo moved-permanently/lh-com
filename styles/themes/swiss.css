@@ -1050,3 +1050,16 @@ body.brand-swiss main .default-content-wrapper:has(> .column-start):has(> :is(h2
     line-height: 26.4px;
   }
 }
+
+/* the cards' titles tracked 0.3 px as www's teaser headings (.teaser-heading, brief 450), and from
+   768 px a long word whole as on www (overflow-wrap normal): lh-com's break-word split
+   "Einreisebestimmungen" (261 px) in travel regulations' 259 px titles */
+body.brand-swiss .carousel-cards .carousel-cards-body :is(h1, h2, h3, h4, h5, h6) {
+  letter-spacing: 0.3px;
+}
+
+@media (width >= 768px) {
+  body.brand-swiss .carousel-cards .carousel-cards-body :is(h1, h2, h3, h4, h5, h6) {
+    overflow-wrap: normal;
+  }
+}
