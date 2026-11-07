@@ -1066,3 +1066,115 @@ Checked on:
 - a local server with main's code (port 3001);
 - the ten turnsthe.page hosts with baselines (smoke), lh-swiss's preview (swiss-smoke), and
   tap.turnsthe.page.
+
+## Brief 464 (offer-card pictures, footer icons and legal row, media.lufthansa.com, Insights stage teasers)
+
+- Noted for good: no Bright Data reads of www, for any brand. www pages come as an archive from
+  your capture; I'll give you the list.
+- One code push after a pull: `327d3fe..7992a5c` (7152e27, c5d1d42, 20120b2, 80d6b20, 7992a5c).
+  Lint and the full suite passed before it (lh-edge 64 files, site 500 and 501, 0 failing).
+- Smoke after the push: the ten hosts with a baseline as before. brussels and swiss match their
+  brief 463b recordings (97 checks each, 0 differ). SWISS's hosts were checked by hand, and
+  tap.turnsthe.page/pt-pt answers 200.
+
+### 1. Offer-card pictures (done, 7152e27)
+
+- Cause: the tracking filter ran after convertOfferCards and took the four sb.monetate.net
+  pictures out of the block.
+- Fix: the conversion marks its pictures, and the filter keeps marked ones (and drops the
+  marker). The page's other Monetate images still go.
+- The new test runs both hooks of the cleanup on www's whole de/en homepage of 2026-11-06
+  (lh-snapshots-061, gzipped fixture). Homepage bundle rebuilt.
+
+### 2. Payment and social icons keep their PNG copies (done, c5d1d42)
+
+- The 13 copies DA and live use, `/media-da/<md5 of the www URL>.png` (made 2026-10-21), are now
+  in tools/importer/png-copies/.
+- postprocess-media writes that copy for such an SVG instead of keeping the SVG or rasterizing
+  it anew. A document may hold the www URL or a snapshot import's local copy of the SVG
+  (recognised by its bytes). The Instagram logo is among the 13.
+
+### 3. media.lufthansa.com in switch-dam-media (done, 20120b2)
+
+- A video link on media.lufthansa.com/content/dam/… is treated like www's: the same dam-path.js
+  name.
+- A link text that was the address becomes the copy's path, as your switch did.
+- Viewer configs and text tracks on that host are read the same way. No documents changed here.
+
+### 4. Footer: "Change Privacy Settings" wraps at 1440 (done, 80d6b20)
+
+- 75c9418 had put the row's text where www's is (Imprint at x 127 in both captures). The last
+  item still fitted or not by about 8 px, depending on the renderer: in a headless browser it
+  wrapped (preview, live and lufthansa.turnsthe.page), in your check it did not.
+- The row now has 20 px less room on the right from 1025 px, so it wraps in any renderer.
+
+### 5. all-it-takes-is-a-yes and ema-cashub's columns-media heading fix
+
+- The fix (22f09f80, 9d25c98e) styles unmarked h3s in columns-media, outside Insights
+  (`main:not(:has(.article-header))`). This page's column headings are h2s, so it doesn't
+  change this page.
+- On the preview its numbered sections render as www's: same headings and sizes, and the same
+  picture and text sides.
+- What differed was the lone stage teaser ("Lufthansa Insights / Ready for new adventures?"),
+  now fixed under item 6. No re-import for the heading fix.
+
+### 6. Open parity rows
+
+- **tags/munich's extra teaser text (done, 7992a5c):**
+  - Cause: it is www's stage teaser, with text over the picture and a button, which the import
+    had flattened into a picture, two headings and a link.
+  - Same pattern on tags/allegris, all-it-takes-is-a-yes, winter-destinations and one be-picky
+    page: 17 documents over the snapshots.
+  - The insights template now gives such a stage to the cards-teaser parser: one overlay card
+    with the new option `wide` (across the row, www's horizontal gradient, subheadline light,
+    white outlined button). Checked on a draft of tags/munich: as www's at 1440.
+  - The three de/en documents are in DA with the block, built from DA's own copies (a rollback
+    is in logs/b464/da); uploaded and previewed, not published. DA's copies match the local
+    ones.
+
+  | Page | Before (1440 / 768 / 390) | After |
+  | --- | --- | --- |
+  | tags/munich | 30.2 / 25.8 / 22.3 % | 25.1 / 20.7 / 19.5 % |
+  | all-it-takes-is-a-yes | 26.7 / 26.0 / 22.4 % | 24.0 / 26.5 / 17.8 % |
+  | tags/allegris | 32.6 / 19.2 / 31.3 % | 37.3 / 24.0 / 36.5 % |
+
+  tags/allegris got worse: its "More Stories" tiles are an empty block in its document (the
+  nested-view bug fixed in 7d9be6b), and the page now lines up differently around them. Its
+  re-import brings the tiles. Three more meetings-and-events documents (xx/es, xx/fr, fr/fr)
+  had the same empty block and are on the list too.
+- **baggage's grids 34 px low at 390 (cause found, nothing changed; scope below):**
+  - Cause: under a heading at <768 px, our grid starts 60 px below the heading (its 28 px margin,
+    then lh-com's 32 px top padding for grids, measured at 1440). www has 40 px, because its
+    column view has no top padding on phones and its items 12 px.
+  - After a text, the same 32 px matches www at 390 (services-on-board).
+  - Scope: a heading directly before a grid (not overlay) is in **36 documents**: traveltricks,
+    online-check-in and digital-self-services (7 locales each), baggage/gepaeck (7),
+    flight-search/flugsuche (7) and longed-for-destinations-at-a-glance (1). online-check-in and
+    flight-search are ema-cashub's templates.
+  - Proposed: below 768 px, a grid right after a heading starts 12 px under it. It is one
+    lufthansa.com rule; it changes those 36 pages at 390 and nothing at 768 or 1440.
+  - Your go, and whether ema-cashub should check online-check-in and flight-search first.
+
+### Documents
+
+- 3 uploaded and previewed, nothing published, in release order:
+  [preview-paths-464.txt](preview-paths-464.txt) (the code is on main).
+- For your harness: [reimport-464-lh-com.txt](reimport-464-lh-com.txt), 20 documents (17 Insights,
+  3 hub).
+
+| Item | Commit | What |
+| --- | --- | --- |
+| 1 | 7152e27 | offer-card pictures through the whole cleanup |
+| 2 | c5d1d42 | payment and social icons: the PNG copies |
+| 3 | 20120b2 | switch-dam-media: media.lufthansa.com as www |
+| 4 | 80d6b20 | footer legal row wraps in any renderer |
+| 6 | 7992a5c | Insights lone stage teaser as one wide overlay card; 3 documents |
+
+Checked on:
+- main--lh-com--moved-permanently.aem.page: probes, the captures before and after, the three
+  documents;
+- main--lh-com--moved-permanently.aem.live and lufthansa.turnsthe.page: the legal row at 1440;
+- admin.da.live: DA's copies read, then uploaded;
+- a local server with the draft (port 3002);
+- the ten turnsthe.page hosts with baselines, plus brussels and swiss against their recordings;
+- lh-swiss's preview (swiss-smoke) and tap.turnsthe.page.

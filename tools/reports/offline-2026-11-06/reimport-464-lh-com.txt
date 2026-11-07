@@ -1,0 +1,31 @@
+# Brief 464 (ema-adobe, 2026-11-07): lufthansa.com documents for the local harness, imported again
+# with main's bundles at 7992a5c or later.
+#
+# 1. Insights pages with a stage teaser of their own (www's .stage .stage-teaser in a one-column
+#    view or straight in a section), now one Cards Teaser (overlay, wide); insights bundle. The
+#    three de/en ones are already in DA with the block (uploaded and previewed by hand from DA's
+#    copies); their re-import also brings de/en tags/allegris' "More Stories" tiles, which came out
+#    as an empty block before 7d9be6b.
+/at/de/articles/highlights/all-it-takes-is-a-yes
+/at/de/articles/tags/allegris
+/at/de/articles/tags/munich
+/de/de/articles/highlights/all-it-takes-is-a-yes
+/de/de/articles/tags/allegris
+/de/de/articles/tags/munich
+/de/en/articles/highlights/all-it-takes-is-a-yes
+/de/en/articles/tags/allegris
+/de/en/articles/tags/munich
+/fr/fr/articles/tags/allegris
+/gb/en/articles/highlights/all-it-takes-is-a-yes
+/gb/en/articles/tags/allegris
+/gb/en/articles/tags/munich
+/mk/de/articles/explore-the-world/be-picky-frankfurt-insider-tips1
+/xx/de/articles/highlights/winter-destinations
+/xx/en/articles/highlights/winter-destinations
+/xx/fr/articles/tags/allegris
+#
+# 2. meetings-and-events in the locales the 461 list missed (the steps' empty block, 7d9be6b);
+#    hub bundle.
+/xx/es/meetings-and-events
+/xx/fr/meetings-and-events
+/fr/fr/meetings-and-events
