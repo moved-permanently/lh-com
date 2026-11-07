@@ -316,7 +316,7 @@ Austrian, at first: 69 of 120 more than 5 % off. Fixed this round:
   from the captures' pixel rows; now 814 / 1067;
 - card rows www shows as a one-card slider on phones: 23 captured pages still had them stacked (+600 to +1400 px at
   390); `phone-slider` set on their one card row, uploaded and previewed. Below 1025 px the slider's cards then lost
-  Austrian's card style (the block is four-up there, not grid); the rule now covers both (commit below; +50 to +70 px
+  Austrian's card style (the block is four-up there, not grid); the rule now covers both (28ca6766; +50 to +70 px
   per page, measured on two pages with it injected);
 - new-destinations: www opens its destination items; `withOpenFirst` gives such an accordion `open-first` (df5b6b5c).
 
@@ -362,8 +362,8 @@ data.
 | 5 | `1dbddd8c` | Austrian footer's spacing as www's | `git revert` |
 | 5 | `df5b6b5c` | an accordion open first on www opens it (new-destinations) | `git revert`; the 10 documents: DA's versions before their second upload |
 | – | `9c64dae0`, `d8f4a76d` | upload state | – |
-| 5 | `cdec33ef` (local, see below) | phone slider cards keep Austrian's card style below 1025 px | `git revert` |
-| 1-5 | this commit | parity rows 37, 42, 43, `preview-paths-444.txt`, this report | – |
+| 5 | `28ca6766` | phone slider cards keep Austrian's card style below 1025 px | `git revert` |
+| 1-5 | `7bfeff8b` | parity rows 37, 42, 43, `preview-paths-444.txt`, this report | – |
 
 Documents (uploaded to DA and previewed, not published): no files; pages in release order:
 - `tools/reports/austrian/preview-paths-444.txt` (44 pages): the 10 culinaryjourney pages, the 10 new-destinations
