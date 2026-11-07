@@ -74,3 +74,19 @@ test('the import writes them after the tab steps', () => {
   const s = fs.readFileSync(new URL('../tools/importer/austrian-import.mjs', import.meta.url), 'utf8');
   assert.match(s, /withPoiPoints\(withPartnerLogoAlts\(/);
 });
+
+/* brief 444 item 5: www opens new-destinations' destination items (expanded: New in Summer 2026, New for winter
+   2025/2026, 2024/2025; -68 % at 1440 with them closed). An accordion whose first item is open on www gets
+   accordion-columns' option open-first (as SWISS's import does); the parts after a map start with such an item. */
+const accDoc = (t, cls = '') => `<div class="accordion-columns${cls}"><div><div>${t}</div><div><p>A</p></div></div><div><div>Later</div><div><p>B</p></div></div></div>`;
+const snapItems = '<maui-collapsible-item id="a" headline="New in Summer 2026" expanded="" theme="os"></maui-collapsible-item><maui-collapsible-item headline="Later" theme="os"></maui-collapsible-item>';
+
+test('withOpenFirst: an accordion whose first item is open on www gets open-first; others as they were', async () => {
+  const { withOpenFirst } = await import('../tools/importer/austrian-import.mjs');
+  assert.equal(withOpenFirst(accDoc('New in Summer 2026'), snapItems), accDoc('New in Summer 2026', ' open-first'));
+  assert.equal(withOpenFirst(accDoc('Later'), snapItems), accDoc('Later'), 'closed on www');
+  assert.equal(withOpenFirst(accDoc('New in Summer 2026', ' faq'), snapItems), accDoc('New in Summer 2026', ' faq open-first'));
+  assert.equal(withOpenFirst(accDoc('New in Summer 2026', ' open-first'), snapItems), accDoc('New in Summer 2026', ' open-first'), 'once');
+  const s = fs.readFileSync(new URL('../tools/importer/austrian-import.mjs', import.meta.url), 'utf8');
+  assert.match(s, /const next = withChatButton\(withOpenFirst\(withPoiPoints\(/);
+});

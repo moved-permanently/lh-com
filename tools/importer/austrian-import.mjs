@@ -354,6 +354,19 @@ export const withPoiPoints = (doc, points = POI_POINTS) => doc.replace(
 );
 
 /**
+ * An accordion whose first item is open on www (maui-collapsible-item expanded: new-destinations'
+ * "New in Summer 2026" and the winter items) gets accordion-columns' option open-first, as SWISS's import
+ * does; the parts withAccordionMapsHoisted makes start with such an item.
+ */
+export function withOpenFirst(doc, html = '') {
+  const clean = (s) => s.replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').replace(/\s+/g, ' ').trim();
+  const open = new Set([...html.matchAll(/<maui-collapsible-item\b[^>]*\sheadline="([^"]*)"[^>]*\sexpanded=""/g)].map((m) => clean(m[1])));
+  if (!open.size) return doc;
+  return doc.replace(/<div class="accordion-columns([^"]*)"><div><div>([\s\S]*?)<\/div>/g, (m, cls, title) => (
+    open.has(clean(title)) && !cls.split(/\s+/).includes('open-first') ? m.replace(`accordion-columns${cls}"`, `accordion-columns${cls} open-first"`) : m));
+}
+
+/**
  * A tab panel's own bare wrapper (www: <maui-tab-control-panel-responsive><div>…) left under the section
  * content once the tab markers replaced the tab control (withTabMarkers): unwrapped when it holds a column
  * view, so lh-com's info importer finds ".section-content > .onecolumn > … > .fourcolumn" (the numbered steps
@@ -571,7 +584,8 @@ if (isMain) {
       const doc = fs.readFileSync(f, 'utf8');
       const src = Object.keys(out).find((k) => docName(k) === p);
       const markets = scope.documents[src]?.markets || [];
-      const next = withChatButton(withPoiPoints(withPartnerLogoAlts(withAustrianTabs(withItaMetadata(withCheckinHandoff(withFlightSearch(withItaForm(doc, p, fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8')), p), p), p, fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8'), markets)))), fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8'));
+      const snap = fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8');
+      const next = withChatButton(withOpenFirst(withPoiPoints(withPartnerLogoAlts(withAustrianTabs(withItaMetadata(withCheckinHandoff(withFlightSearch(withItaForm(doc, p, snap), p), p), p, snap, markets)))), snap), snap);
       if (next !== doc) fs.writeFileSync(f, next);
     });
     const mapOnly = path.join(W, 'runs', `${name}-upload.txt`);
