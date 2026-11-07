@@ -1,0 +1,22 @@
+{
+  "variantName": "b2b-member",
+  "baseBlock": "b2b-member",
+  "canonicalModel": "standalone",
+  "sourceUrl": "https://business.lufthansagroup.com/de/en/home",
+  "visualCharacteristics": {
+    "purpose": "one view of the Lufthansa Group for Business member area, its data from lh-backends on the site's own host",
+    "traits": [
+      "dashboard: greeting, dark blue tiles per page the roles open, the accounts",
+      "fund, profile, reports: a definition list of facts",
+      "history, users, reports' top routes: a table that scrolls on a phone",
+      "loading, empty, forbidden and error states as one paragraph"
+    ]
+  },
+  "contentPattern": {
+    "structure": "2 columns, label | value; every row optional. The variant names the view (dashboard, fund, history, users, reports, profile, accounts). Rows override the built-in English and German texts; Fund tile / History tile / Reports tile / Users tile | link set the dashboard tiles; Type-<code> / Status-<code> | text name the history's codes; Login page | link."
+  },
+  "options": ["dashboard", "fund", "history", "users", "reports", "profile", "accounts"],
+  "memberVariantIds": [],
+  "usage": "lh-b2b /<root>/home (dashboard), fund, history, usermanagement (users), reports, profile, lhghome (accounts).",
+  "reuseGuidance": "One block per member page. The roles per view are ROLE in b2b-member.js (as lh-backends checks them); each view is a branch of render()."
+}

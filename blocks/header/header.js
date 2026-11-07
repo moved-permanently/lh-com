@@ -812,6 +812,11 @@ export default async function decorate(block) {
   // TAP's layout (scripts/brands.js tap: header.layout 'tap', ./header-tap.js): www.flytap.com's
   // top-level menu, search and account linked to www, the bar inside the homepage's stage
   const tap = headerStyle.layout === 'tap' ? await import('./header-tap.js') : null;
+  // Lufthansa Group for Business (scripts/brands.js header.session 'b2b', ./header-b2b-session.js):
+  // who is signed in on the host, asked now, applied to the menu below
+  const b2bSession = headerStyle.session === 'b2b'
+    ? import('./header-b2b-session.js').then(async (m) => ({ m, session: await m.loadSession() }))
+    : null;
   // Air Dolomiti (the page's brand airdolomiti, ./header-airdolomiti.js): www.airdolomiti.it's
   // menu in the bar with its panels from 1025px, the search button and the language list in the
   // bar, no quick actions; every other brand as before
@@ -1024,9 +1029,15 @@ export default async function decorate(block) {
     }
   }
   // the menu's items (TAP: www's top level, Check-in from the quick action while the menu lacks it)
-  const menuItems = tap
+  let menuItems = tap
     ? tap.tapMenuItems(readMenu(menu), quick ? [...quick.querySelectorAll('a[href]')] : [])
     : readMenu(menu);
+  // signed in on Lufthansa Group for Business: the Login item shows the name, the member home and
+  // Log out (the bar and the phone menu)
+  if (b2bSession) {
+    const { m, session } = await b2bSession;
+    menuItems = m.withSession(menuItems, session);
+  }
   // header.menuClose (Lufthansa Cargo, brief 422): the menu section's own paragraph (www's access
   // note) below the bar menu's panels and the phone menu
   const menuNote = headerStyle.menuClose && menu ? menu.querySelector(':scope .default-content-wrapper > p') : null;

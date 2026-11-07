@@ -1,0 +1,21 @@
+{
+  "variantName": "b2b-login",
+  "baseBlock": "b2b-login",
+  "canonicalModel": "standalone",
+  "sourceUrl": "https://business.lufthansagroup.com/de/en/login",
+  "visualCharacteristics": {
+    "purpose": "Lufthansa Group for Business sign-in for companies and staff, posted to lh-backends' j_security_check on the site's own host",
+    "traits": [
+      "user name and password fields, the password with a show/hide button",
+      "Forgotten Password link to www's forgotten-password page",
+      "primary Login button; an alert above the fields for a failed sign-in"
+    ]
+  },
+  "contentPattern": {
+    "structure": "2 columns, label | value; every row optional. Type | staff (DESMON, home lhghome); Forgotten password | link; texts: User name label, Password label, Show password, Hide password, Forgotten password, Submit label, Invalid login, No rights, Backend error (English and German built in)."
+  },
+  "options": [],
+  "memberVariantIds": [],
+  "usage": "lh-b2b /<root>/login (companies) and /<root>/login_internal (staff, Type | staff).",
+  "reuseGuidance": "One block per sign-in page; change texts with rows. The answer handling is outcome() in b2b-login.js; the session helpers are scripts/b2b-session.js."
+}

@@ -92,9 +92,10 @@ test('a click opens one drop-down at a time; again, Escape or a click outside cl
 });
 
 test('brands.js: the bar menu, the unlinked logo and the search button on Lufthansa Group for Business; TAP\'s own layout (brief 311); Cargo\'s menu and language in the bar (brief 417); no other brand', () => {
-  // (the logo in the phone menu's head: brief 421, test/b2b-parity-421.test.mjs)
+  // (the logo in the phone menu's head: brief 421, test/b2b-parity-421.test.mjs; the signed-in
+  // Login menu: test/header-b2b-session.test.mjs)
   assert.deepEqual(BRANDS.b2b.header, {
-    menu: 'bar', logoLink: false, search: 'button', locale: false, flyoutLogo: true,
+    menu: 'bar', logoLink: false, search: 'button', locale: false, flyoutLogo: true, session: 'b2b',
   });
   // TAP: the bar menu with the language list and its layout (test/tap-first-screen.test.mjs)
   assert.deepEqual(BRANDS.tap.header, { menu: 'bar', languages: 'bar', layout: 'tap' });
