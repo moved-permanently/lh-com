@@ -371,7 +371,7 @@ Documents (uploaded to DA and previewed, not published): no files; pages in rele
 - lh-b2b: /de/en/travel-solutions/lufthansa-group-airlines, /de/de/travel-solutions/lufthansa-group-airlines.
 None is published; all 46 need publishing to show the changes on live.
 
-## Brief 445 (padded pairs, four-up teasers, Austrian rows from brief 444's list)
+## Brief 445 (your 454: padded pairs, four-up teasers, Austrian rows from brief 444's list)
 
 Left from brief 444 and pushed with this round: `fd91923d`, the report's two commit hashes (now `a34d45cd` after the
 rebase). Not in git, by design: `.migration/project.json` (the import's local workspace flag), `tools/importer/reports/**`
@@ -501,3 +501,103 @@ Documents (uploaded to DA and previewed, not published): no files; pages in rele
 `tools/reports/austrian/preview-paths-445.txt` (254 pages): the 67 padded-pair documents, the 22 four-up documents,
 the 10 new-destinations documents, then the 155 form documents. None is published; all 254 need publishing to show
 the changes on live.
+
+## The brief after 454 (Austrian bundles, other sites' form bands and padded pairs, new-destinations, grey bands, half-width teaser)
+
+The brief after your 454 (the section above, "Brief 445", was your 454: I had numbered it 445). This round's
+commits say "brief 454" in their messages; they belong to this brief. Left from the last one, not in git by design:
+`.migration/project.json` (the import's local workspace flag), `tools/importer/reports/**` (the bulk importer's
+per-page reports, e.g. at/de/notfallkontakt from the emergency-contact runs), `content/` and `migration-work/` (the
+local lh-com workspace), `content-sites/` (the local document trees, among them about 230 Austrian copies the link
+step changed and that were never uploaded), `logs/` and /tmp (scripts, captures, DA backups).
+
+### 1. The Austrian bundles (`e68af307`, `41ceef62`)
+
+ded93847's flight-search change was already in the Austrian bundles: my rebuild in brief 445 (89d84423) took it, as
+that report said. Rebuilt from main again; the rebuild adds main's later cleanup changes (5b8e3e1e campaign
+separators, campaign template only; 75c9418e footer disclaimer and own links; 8510d01a offer cards, after the pull
+before the push). Checked on the 41 documents on austrian-checkin / -flight-status / -hero-banner: each imported with
+these bundles, the committed ones and these without ded93847's two parser files, and all 123 outputs were equal per
+document. None of the 41 has a flight search, so ded93847 has nothing to change there; 8510d01a's offer-card section is
+on no Austrian snapshot. No document upload. Against DA those 41 do show older, never-uploaded template changes (the
+culinary-services panels outside /at/en, the check-in template); they are not part of this item and stay as DA has
+them.
+
+### 2. Form bands and padded pairs on the other sites
+
+The same way as Austrian's: each site's pages imported fresh into a scratch workspace (the sites' mapped snapshots;
+lufthansa.com's bd-snapshots without scripts), then only the new rows / tokens moved into DA's copies, every other row
+and section checked equal to DA's; DA read before, rechecked right before upload, equal to local after.
+- Form bands (form-bands-445.txt), all 16: lh-brussels 8 (the six emergency-contact pages with their four bands:
+  Passenger Details, Contact Details, Flights; the two group-travel requests), lh-ita 3, lh-com 5 (the five
+  special-needs pages; /xx/ko had no local document and has one now, DA's plus the step rows). Checked on the previews
+  (main--lh-brussels--, main--lh-ita--, main--lh-com--): be/en four bands with their descriptions, ITA and lh-com
+  their separate cards.
+- Padded pairs (padded-pairs-445.txt), 112 of the 205 moved and uploaded: lh-com 48, lh-brussels 28, lh-ita 36. Not
+  moved (named in `next-import-after-454.txt`): lh-com 79 without a snapshot here (www.lufthansa.com's at/de, de/de, de/en
+  and gb/en markets; www refuses headless loads) and 4 (100-years/campaigns: two sections with the same text, the
+  token's place ambiguous), lh-brussels 6 (airbus-320n: the fresh import gives no padded pair), lh-ita 1
+  (pets-as-cargo), lh-swiss-mk 3 (not in DA: 404).
+Brussels' 8 local form copies differed from DA before this (another session's local state); DA's were the base, the
+local ones are kept in logs/da/fb456/local-before.
+
+### 3. new-destinations: the first three items open (`ee8ea261`)
+
+www expands its first three items; the import splits them into two accordions (the first alone, before its map), and
+withOpenFirst gave each only open-first. accordion-columns has an option `open-2` … `open-9` now (the first N items
+open; not with tabs; with exclusive only the first; README row); withOpenFirst counts each accordion's leading items
+expanded on www and decodes www's `&nbsp;` in the headlines (fr/fr and ru/ru didn't match before). 20 documents, the
+option only, moved into DA's copies: new-destinations × 10 (open-first / open-2) and voluntary-rebooking × 10 (open-3:
+www expands its first three too; they were imported before withOpenFirst existed). On the preview: new-destinations
+"O / OO-", voluntary-rebooking "OOO / -----", as www. Tests first: accordion-columns-open-first, austrian-accordion-maps.
+
+### 4. doctor-on-board-news at 390: white between the two grey bands (`486c237e`)
+
+The separator between the grey contact box and the grey card band (both in one column item on www) lay alone between
+two grey sections, so dropEmptyBreaks merged its {spacer-70} into the second band. Now only separators between two
+grey sections keep a section of their own, style `gap`; styles.css gives it its spacers' height only and takes the
+grey before it its section gap. Anything else as before. Test first: importer-grey-gap; every brand's smoke before
+and after the push. On the preview (390): grey 163, gap 71 white, grey 652 (www 70). The 2 Austrian documents
+(/at/de, /at/en) got the gap section on DA's copies and are uploaded. Still left at 390, another cause: www has about
+89 px above the band's heading, ours 20 (the band is a grey view nested in a column, so it gets the plain grey
+padding), and the accordion items above are 57 px shorter.
+Documents whose look changes at their next import (`next-import-after-454.txt`): lh-com 9 (the doctor-on-board-news pages),
+lh-b2b 6, lh-ita 3, lh-brussels 2, lh-swiss-mk 1.
+
+### 5. discover/inspiration: the lone teaser half width (`0cd4db1a`)
+
+Narrow as asked: columns-media keeps the empty cell only for a `.twocolumn` view of exactly two items with one empty
+(the lone-image, embed and nested-N cases did already); three- and four-column views and full rows as before. Test
+first: columns-media-half-alone. 50 Austrian documents have such a row (snapshots with the view, the local document
+with the one-cell row): the empty cell moved into DA's copies in the empty item's place, uploaded. On the preview
+/at/en/discover/inspiration at 1440: 622 + 622 (half), at 390 the full width; locally against www the headings
++22 px at 1440, +7 at 390 (was +20 % page height). Other sites at their next import: lh-com 11, lh-brussels 6; lh-ita,
+lh-b2b, lh-swiss, lh-swiss-mk none (`next-import-after-454.txt`).
+
+The bundles for items 4 and 5 (`e9b216d8`): every bundle carries lufthansa-sections, so all were rebuilt; that also
+brought main's cleanup changes listed under item 1 into the lufthansa.com bundles that didn't have them yet.
+
+### Checks
+
+- Lint and the full suite before each push, in a fresh worktree of the commit: 480, 485, 486 and, after the last pull
+  brought 9d25c98e (columns-media CSS), 486 again; all passing.
+- Smoke on all 12 lh-edge hosts before and after the push: no difference from these commits; austrian-cn's
+  /at/llms.txt answered 503 before (an origin error at that moment) and 404 after, as austrian.turnsthe.page does.
+- Previews checked: main--lh-austrian-- (open items, the gap at 390, the half-width teaser at 1440 and 390),
+  main--lh-brussels--, main--lh-ita--, main--lh-com-- (the form bands, one padded-pair page); locally the
+  lh-austrian document folder (aem up --html-folder) against austrian-parity-002 at 1440 and 390.
+
+### Summary (the brief after 454)
+
+| item | commit | what | rollback |
+| --- | --- | --- | --- |
+| 1 | `e68af307`, `41ceef62` | Austrian bundles rebuilt from main | `git revert` |
+| 3 | `ee8ea261` | accordion-columns open-N; withOpenFirst counts the leading open items, decodes &nbsp; | `git revert`; the 20 documents: DA's versions before 2026-11-07 15:00 UTC (logs/da/pre-open456) |
+| 4 | `486c237e` | separators between two grey bands: a white `gap` section (shared) | `git revert`; the 2 documents: DA's before |
+| 5 | `0cd4db1a` | columns-media: a two-column view of one item and an empty one keeps the empty column (shared) | `git revert`; the 50 documents: DA's before (logs/da/pre-half454) |
+| 4, 5 | `e9b216d8` | bundles rebuilt | `git revert` |
+| 2-5 | `2eb0c111` and this report's commit | upload states; report, `preview-paths-after-454.txt`, `next-import-after-454.txt` | – |
+
+Documents (uploaded to DA and previewed, not published): no files; 200 pages in `preview-paths-after-454.txt`, per site in
+release order: lh-austrian 72 (20 open items, 2 grey gap, 50 half-width), lh-brussels 36 (8 form bands, 28 padded
+pairs), lh-ita 39 (3 + 36), lh-com 53 (5 + 48). None is published.

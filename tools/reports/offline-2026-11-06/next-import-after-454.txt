@@ -1,0 +1,151 @@
+# the brief after 454 (commit messages say "brief 454"): documents of other sites whose look changes at their next import (not changed now), from the local copies
+# and snapshots; for their owners
+
+## item 4, separators between two grey bands (style gap)
+### lh-com (9)
+/at/de/doctor-on-board-news
+/de/de/doctor-on-board-news
+/de/en/doctor-on-board-news
+/gb/en/doctor-on-board-news
+/xx/el/doctor-on-board-news
+/xx/hk/doctor-on-board-news
+/xx/it/doctor-on-board-news
+/xx/ja/doctor-on-board-news
+/xx/zh/doctor-on-board-news
+### lh-b2b (6)
+/de/de/about-us/contact
+/de/de/program/experts/news/summer-2026-lufthansa-group-airlines-are-offering-even-more-fli
+/de/en/about-us/contact
+/de/en/program/experts/news/summer-2026-lufthansa-group-airlines-are-offering-even-more-fli
+/xx/de/about-us/contact
+/xx/en/about-us/contact
+### lh-ita (3)
+/al/it/homepage-new
+/be/it/homepage-new
+/ch/it/homepage-new
+### lh-brussels (2)
+/be/en/local-page/chase-the-sun-across-spain
+/be/fr/local-page/chase-the-sun-across-spain
+### lh-swiss-mk (1)
+/kr/ko/discover/swiss-senses/first
+
+## item 5, a two-column view of one item and an empty one (columns-media keeps the empty cell)
+### lh-com (11)
+/xx/el/100-years/destinations
+/xx/el/book-and-manage/flights/air-baltic
+/xx/el/with-children-at-the-airport
+/xx/it/100-years/destinations
+/xx/it/book-and-manage/flights/air-baltic
+/xx/it/mit-kindern-am-flughafen
+/xx/ja/100-years/destinations
+/xx/ja/book-and-manage/flights/air-baltic
+/xx/ja/mit-kindern-am-flughafen
+/xx/zh/book-and-manage/flights/air-baltic
+/xx/zh/with-children-at-the-airport
+### lh-brussels (6)
+/be/en/travel-classes/green-fare
+/be/fr/travel-classes/green-fare
+/be/nl/travel-classes/green-fare
+/de/de/travel-classes/green-fare
+/es/es/travel-classes/green-fare
+/it/it/travel-classes/green-fare
+
+## item 2, padded pairs not moved (left for their owners' re-import)
+### lh-com: no snapshot here (www.lufthansa.com refuses headless loads) (79)
+/at/de/100-years
+/at/de/100-years/cabin-design
+/at/de/100-years/campaigns
+/at/de/100-years/chronicle
+/at/de/100-years/fleet
+/at/de/100-years/history
+/at/de/320
+/at/de/32n
+/at/de/boeing787
+/at/de/book-and-manage/rebook/involuntary-rebooking
+/at/de/book-and-manage/rebook/voluntary-rebooking
+/at/de/discover-lufthansa/new-onboard-experience
+/at/de/economy-class
+/at/de/first-class-terminal
+/at/de/flynet
+/at/de/premium-economy-class
+/at/de/sitzplaene
+/de/de/100-years
+/de/de/100-years/cabin-design
+/de/de/100-years/campaigns
+/de/de/100-years/chronicle
+/de/de/100-years/fleet
+/de/de/100-years/history
+/de/de/320
+/de/de/32n
+/de/de/boeing787
+/de/de/book-and-manage/rebook/involuntary-rebooking
+/de/de/book-and-manage/rebook/voluntary-rebooking
+/de/de/discover-lufthansa/new-onboard-experience
+/de/de/economy-class
+/de/de/first-class-terminal
+/de/de/flynet
+/de/de/premium-economy-class
+/de/de/sitzplaene
+/de/en/100-years
+/de/en/100-years/cabin-design
+/de/en/100-years/campaigns
+/de/en/100-years/chronicle
+/de/en/100-years/fleet
+/de/en/100-years/history
+/de/en/boeing787
+/de/en/book-and-manage/rebook/involuntary-rebooking
+/de/en/book-and-manage/rebook/voluntary-rebooking
+/de/en/economy-class
+/de/en/first-class-terminal
+/de/en/flynet
+/de/en/premium-economy-class
+/de/en/seat-maps
+/gb/en/100-years
+/gb/en/100-years/cabin-design
+/gb/en/100-years/campaigns
+/gb/en/100-years/chronicle
+/gb/en/100-years/fleet
+/gb/en/100-years/history
+/gb/en/boeing787
+/gb/en/book-and-manage/rebook/involuntary-rebooking
+/gb/en/book-and-manage/rebook/voluntary-rebooking
+/gb/en/economy-class
+/gb/en/first-class-terminal
+/gb/en/flynet
+/gb/en/premium-economy-class
+/gb/en/seat-maps
+/xx/el/flynet
+/xx/hk/100-years
+/xx/hk/100-years/cabin-design
+/xx/hk/100-years/campaigns
+/xx/hk/100-years/chronicle
+/xx/hk/100-years/fleet
+/xx/hk/100-years/history
+/xx/hk/boeing787
+/xx/hk/book-and-manage/rebook/involuntary-rebooking
+/xx/hk/book-and-manage/rebook/voluntary-rebooking
+/xx/hk/economy-class
+/xx/hk/first-class-terminal
+/xx/hk/premium-economy-class
+/xx/hk/seat-maps
+/xx/it/flynet
+/xx/ja/flynet
+/xx/zh/flynet
+### lh-com: two sections with the same text, the token's section ambiguous (4)
+/xx/el/100-years/campaigns
+/xx/it/100-years/campaigns
+/xx/ja/100-years/campaigns
+/xx/zh/100-years/campaigns
+### lh-brussels: the fresh import gives no padded pair (6)
+/be/en/flying-with-us/our-fleet/airbus-320n
+/be/fr/flying-with-us/our-fleet/airbus-320n
+/be/nl/flying-with-us/our-fleet/airbus-320n
+/de/de/flying-with-us/our-fleet/airbus-320n
+/es/es/flying-with-us/our-fleet/airbus-320n
+/it/it/flying-with-us/our-fleet/airbus-320n
+### lh-ita: one token already there, the other not found (1)
+/jp/ja/book-and-prepare/other-requests/travelling-with-pets/pets-as-cargo
+### lh-swiss-mk: not in DA (404) (3)
+/kr/ko/book-and-manage/rebook/involuntary-rebooking
+/kr/ko/book-and-manage/rebook/voluntary-rebooking
+/kr/ko/prepare/travel-briefing
