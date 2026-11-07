@@ -280,6 +280,11 @@ export const BRANDS = {
     messageCenter: 'b2b',
     www: 'business.lufthansagroup.com',
     portal: 'B2BNEO',
+    // lh-backends answers its sign-ins (companies and eXperts) on test data: its paths go there,
+    // and lh-edge puts the member pages behind lh-backends' gate (tools/workers/lh-edge
+    // src/b2b-gate.js: POST j_security_check, the member pages)
+    backends: true,
+    memberGate: true,
     // www's header (blocks/header): the menu's top items in the bar with drop-downs, the logo not
     // a link, a boxed search button to the search page, no country selector (the footer's); the
     // phone menu shows the logo in its head (brief 421); the Login menu shows who is signed in

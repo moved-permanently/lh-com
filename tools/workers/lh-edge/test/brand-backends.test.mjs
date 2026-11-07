@@ -79,8 +79,9 @@ const OWN_API = [
   '/service/secured/api/core/authenticate/loginPageUrl',
 ];
 
-test('brands.js: lh-backends\' tenants (Austrian, Discover, ITA, Brussels, SWISS) and their AEM content roots', () => {
-  assert.deepEqual(Object.keys(BRANDS).filter((k) => BRANDS[k].backends).sort(), ['austrian', 'brussels', 'discover', 'ita', 'swiss']);
+test('brands.js: lh-backends\' tenants (Austrian, Discover, ITA, Brussels, SWISS, Lufthansa Group for Business) and their AEM content roots', () => {
+  // b2b: its sign-ins and member pages (src/b2b-gate.js, tests sites-b2b-members)
+  assert.deepEqual(Object.keys(BRANDS).filter((k) => BRANDS[k].backends).sort(), ['austrian', 'b2b', 'brussels', 'discover', 'ita', 'swiss']);
   assert.equal(BRANDS.austrian.aemContent, 'aua');
   assert.equal(BRANDS.discover.aemContent, 'four_y');
   assert.equal(BRANDS.ita.aemContent, 'ita');

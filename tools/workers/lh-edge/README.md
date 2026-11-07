@@ -257,7 +257,7 @@ one, and the market route answers an origin's file before building ch's from de/
 reads it for `/<version>/search-index.json` (siteEnv `INDEX_PATHS`): the market model, the market roots' search
 indexes, a visitor's request. `test/swiss-markets.test.mjs`.
 
-A brand whose tenant lh-backends has (`backends` in scripts/brands.js: Austrian, Discover, ITA, Brussels, SWISS) gets
+A brand whose tenant lh-backends has (`backends` in scripts/brands.js: Austrian, Discover, ITA, Brussels, SWISS, Lufthansa Group for Business) gets
 lh-backends' paths (`isBackendsPath`: `/deeplink/*`, `/apps/dcep/deeplink/*`, `/sso/*`, `/loginservice`, `/seatmap/*`,
 `/_lh-backends/*`, `/service/secured/api/*`) and the sign-in return (`/` or `/<cc>/<ll>/…` with `code` and `state`) on its
 host, as lufthansa.turnsthe.page: the request goes to the binding unchanged, its host too (lh-backends picks the brand
@@ -266,6 +266,16 @@ from the host or from `X-Portal`; a rewritten host would make it Lufthansa). lh-
 (their origin's 404). www's long AEM paths of the brand (`aemContent` in scripts/brands.js: `/content/aua/…`,
 `/content/four_y/…`, `/content/ita/…`, `/content/bel/…`, `/content/lx/…` + `/markets/<cc>/<ll>/<page>[.html]`) answer a 301 to the short path, as
 `/content/lh/markets/…` on lh-com's hosts ("URL forms"; until the brand's page exists the 301 lands on a 404).
+
+Lufthansa Group for Business (`memberGate` in scripts/brands.js, `src/b2b-gate.js`, test `sites-b2b-members`): its
+sign-in post (`POST /j_security_check`, `POST /<cc>/<ll>/j_security_check`: `j_username`, `j_password`, `loginType`
+`EXT` or `DESMON`, `j_validate`, `resource`) goes to lh-backends as it is (route `b2b-login`). The member pages
+(`GET`/`HEAD` of `/<cc>/<ll>/{home,profile,reports,fund,history,usermanagement,lhghome}[/…]`,
+`/<cc>/<ll>/common/{support,terms-and-conditions}`, `/<cc>/<ll>/experts-members[/…]`) ask lh-backends' gate first,
+before any cache: `GET https://<host>/_lh-backends/b2b/gate?path=<path and query>` with the request's `cookie`. 204:
+the page as the site answers it, `cache-control: private, no-store`, the gate's `Set-Cookie` passed on (route
+`b2b-member`); any other answer (302 to the sign-in page with `?redirect=`, or to the eXperts sign-in; an error): the
+gate's, as it is. Every other path and every other brand's host as before. Rollback: `git revert`, deploy.
 
 Sites without `<cc>/<ll>` roots (`PLAIN_SITES` in `src/sites.js`, brief 162) have no locale table and no market
 route: every path passes through to the site's origin as it is (the site's `/redirects` sheet answers there), only the

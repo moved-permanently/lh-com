@@ -17,6 +17,7 @@ import { graphql, isGraphqlPath, graphqlPath } from './graphql.js';
 import { dam, isDamPath } from './dam.js';
 import { siteSearch, isSearchPath } from './search.js';
 import { backends, isBackendsPath, isLoginReturn } from './backends.js';
+import { isMemberPath, isSignInPost, memberGate } from './b2b-gate.js';
 import { entry, entryPath } from './entry.js';
 import { loginUrl, LOGIN_PATH } from './login.js';
 import {
@@ -465,6 +466,11 @@ async function siteAnswer(incoming, env, site, ctx) {
   // routed here (isBackendsPath leaves them out)
   if (brand.backends && isLoginReturn(url, incoming)) return finish(await backends(incoming, env), incoming, senv, 'login-return');
   if (brand.backends && isBackendsPath(url.pathname)) return finish(await backends(incoming, env), incoming, senv, 'backends');
+  // Lufthansa Group for Business (brands.js b2b memberGate, src/b2b-gate.js): www's sign-in post
+  // (on the host or under a root) to lh-backends as it is
+  if (brand.memberGate && isSignInPost(url, incoming)) {
+    return finish(await backends(incoming, env), incoming, senv, 'b2b-login');
+  }
   // www's DAM URLs: lh-com's DAM route with the site's origin (its DA copies), then AEM
   if (isDamPath(url.pathname)) return finish(await dam(incoming, senv, ctx), incoming, senv, 'dam');
   // / to the first language version's homepage (on the site's alias host, www.austrian.cn's
@@ -480,9 +486,18 @@ async function siteAnswer(incoming, env, site, ctx) {
   // the reference roots' pages and the market roots' own documents (their homepages) list the
   // alternates the market copies list (src/live-alternates.js, as lh-com's live roots), on the
   // sites whose www carries them (src/sites.js ALTERNATES_SITES)
-  const resp = await market(incoming, senv);
   const alternates = ALTERNATES_SITES.has(site.name);
-  return finish(alternates ? await withLiveAlternates(resp, incoming, senv, undefined, { marketOwn: true }) : resp, incoming, senv, 'site');
+  const page = async () => {
+    const resp = await market(incoming, senv);
+    if (!alternates) return resp;
+    return withLiveAlternates(resp, incoming, senv, undefined, { marketOwn: true });
+  };
+  // a member page (src/b2b-gate.js): lh-backends' gate first, before any cache; 204: the page,
+  // private, no-store, with the gate's cookie; else the gate's answer as it is
+  if (brand.memberGate && read && isMemberPath(url.pathname)) {
+    return finish(await memberGate(incoming, env, page), incoming, senv, 'b2b-member');
+  }
+  return finish(await page(), incoming, senv, 'site');
 }
 
 /**
