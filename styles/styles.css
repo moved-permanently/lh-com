@@ -1201,6 +1201,13 @@ body.flow-spacing main .default-content-wrapper > p:is(:has(> picture), :has(> a
   margin-bottom: 40px;
 }
 
+/* lufthansa.com Insights (brief 460): an image right before a heading keeps www's .image-wrapper
+   margin (3.6rem, then the headline component): the heading's ink 45px under the image at 1440
+   and 390, here 29 with the paragraph's 24px */
+body.brand-lufthansa main:has(.article-header) .default-content-wrapper > p:is(:has(> picture), :has(> a > picture)):has(+ :is(h2, h3, h4, h5, h6)) {
+  margin-bottom: 40px;
+}
+
 /* a wrapper of separator paragraphs only (see "separators" below) */
 main > .section > .default-content-wrapper:not(:has(> :not(p.spacer))) {
   margin-top: 8px;
