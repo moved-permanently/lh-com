@@ -346,17 +346,18 @@ const DEFAULT_LABELS = {
 /**
  * The trip type announcement (www's text
  * fareteaserdynamicevo.fullApp.offers.selectionAnnouncementTripType, a polite live region after
- * the chips; brief 447): www's English and French (Brussels' fr/fr, brussels-parity-003), the
- * other languages ours until a capture has www's. {TRIPTYPE}: the chosen
+ * the chips; brief 447): www's English and French (Brussels' fr/fr, brussels-parity-003), German,
+ * Spanish, Italian and Dutch (Brussels' Studio captures, brief 448); pt, el, ja, ru, zh, pl and ko
+ * ours until a capture has www's. {TRIPTYPE}: the chosen
  * chip's label.
  */
 export const SELECTION_ANNOUNCEMENTS = {
   en: '{TRIPTYPE} offers are displayed',
   fr: 'Les offres pour {TRIPTYPE} sont affichées',
-  de: 'Angebote für {TRIPTYPE} werden angezeigt',
-  it: 'Vengono mostrate le offerte per {TRIPTYPE}',
-  es: 'Se muestran las ofertas para {TRIPTYPE}',
-  nl: 'Aanbiedingen voor {TRIPTYPE} worden weergegeven',
+  de: '{TRIPTYPE} Angebote angezeigt',
+  it: 'Sono visualizzate le offerte per {TRIPTYPE}',
+  es: 'Se muestran {TRIPTYPE} ofertas',
+  nl: 'Er worden {TRIPTYPE} aanbiedingen weergegeven',
   pt: 'São apresentadas as ofertas para {TRIPTYPE}',
   el: 'Εμφανίζονται προσφορές για {TRIPTYPE}',
   ja: '{TRIPTYPE}の運賃を表示しています',

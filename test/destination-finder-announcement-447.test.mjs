@@ -5,8 +5,9 @@
    fareteaserdynamicevo.fullApp.offers.selectionAnnouncementTripType with the chosen chip's label;
    English "{TRIPTYPE} offers are displayed"). The block renders it after its chips with the
    current trip type and updates it once the list for a newly chosen trip type is shown. www's
-   wording for English and French; the other languages ours until a capture has www's; a block row
-   "Selection announcement" wins.
+   wording for English, French, German, Spanish, Italian and Dutch (brief 448: Brussels' captures);
+   pt, el, ja, ru, zh, pl and ko ours until a capture has www's; a block row "Selection
+   announcement" wins.
    Run: node --max-old-space-size=256 --test test/destination-finder-announcement-447.test.mjs */
 /* global globalThis */
 import test from 'node:test';
@@ -29,6 +30,12 @@ const js = fs.readFileSync(new URL('../blocks/destination-finder/destination-fin
 test('www\'s texts in English and French, one for every language the finder has labels for', () => {
   assert.equal(SELECTION_ANNOUNCEMENTS.fr, 'Les offres pour {TRIPTYPE} sont affichées');
   assert.equal(SELECTION_ANNOUNCEMENTS.en, '{TRIPTYPE} offers are displayed');
+  // brief 448: www's wording from Brussels' Studio captures (tools/importer/bd-snapshots: de/de, es/es,
+  // it/it and nl/nl homepages' label bundles)
+  assert.equal(SELECTION_ANNOUNCEMENTS.de, '{TRIPTYPE} Angebote angezeigt');
+  assert.equal(SELECTION_ANNOUNCEMENTS.es, 'Se muestran {TRIPTYPE} ofertas');
+  assert.equal(SELECTION_ANNOUNCEMENTS.it, 'Sono visualizzate le offerte per {TRIPTYPE}');
+  assert.equal(SELECTION_ANNOUNCEMENTS.nl, 'Er worden {TRIPTYPE} aanbiedingen weergegeven');
   assert.deepEqual(Object.keys(SELECTION_ANNOUNCEMENTS).sort(), ['de', 'el', 'en', 'es', 'fr', 'it', 'ja', 'ko', 'nl', 'pl', 'pt', 'ru', 'zh']);
   Object.values(SELECTION_ANNOUNCEMENTS).forEach((t) => assert.ok(t.includes('{TRIPTYPE}'), t));
 });
