@@ -525,6 +525,8 @@ body.brand-austrian .cards-icon :is(.cards-icon-icon, .cards-icon-label) {
 }
 
 body.brand-austrian .accordion-columns .accordion-columns-title {
+  padding-top: 12px;
+  padding-bottom: 12px;
   font-family: var(--body-font-family);
   font-size: calc(24px * var(--a11y-scale, 1));
   font-weight: 500;
@@ -532,9 +534,13 @@ body.brand-austrian .accordion-columns .accordion-columns-title {
   letter-spacing: 0.19px;
 }
 
-/* the faq accordions' titles (the contact page's topics, the info pages' questions) 18/28 regular
-   #4d4d4d, as www's collapsible headers */
-body.brand-austrian .accordion-columns.faq .accordion-columns-title {
+/* the contact page's topics (the accordion after the help centre app) 18/28 regular #4d4d4d, as
+   www's help topics; the content accordions (www's .accordion-maui: the info pages' questions, the
+   conditions of carriage's articles) keep the 24/28 500 titles above (brief 445, austrian-parity-002:
+   every captured collapsible wraps as 24 px type does, 52 px a line plus 28 per further line) */
+body.brand-austrian .micro-frontend-wrapper + .accordion-columns-wrapper .accordion-columns.faq .accordion-columns-title {
+  padding-top: 13px;
+  padding-bottom: 13px;
   color: #4d4d4d;
   font-size: calc(18px * var(--a11y-scale, 1));
   font-weight: 400;
