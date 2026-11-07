@@ -6,6 +6,8 @@ import subpageNavParser from './parsers/subpage-nav.js';
 import poiMapParser from './parsers/poi-map.js';
 import flightSearchParser from './parsers/flight-search.js';
 import heroCampaignParser from './parsers/hero-campaign.js';
+import accordionColumnsParser from './parsers/accordion-columns.js';
+import tableStripedParser from './parsers/table-striped.js';
 import columnsMediaParser from './parsers/columns-media.js';
 import cardsTeaserParser from './parsers/cards-teaser.js';
 import carouselImagesParser from './parsers/carousel-images.js';
@@ -47,10 +49,22 @@ const PAGE_TEMPLATE = {
       ]
     },
     {
+      "name": "accordion-columns",
+      "instances": [
+        ".accordion"
+      ]
+    },
+    {
+      "name": "table-striped",
+      "instances": [
+        "div.table:has(.cms-table-maui-wrapper):not(.accordion div.table)"
+      ]
+    },
+    {
       "name": "columns-media",
       "instances": [
         ".sidebar:not(:is(.twocolumn, .threecolumn, .fourcolumn) > .column-view > .row > .column-view-item > * ~ .sidebar)",
-        ".section-content > .twocolumn:not(:has(.column-view-item > .image + .headline))",
+        ".section-content > .twocolumn:not(:has(.column-view-item > .image + .headline), :has(.table))",
         ":is(.section-content, .container-content) > :is(.threecolumn, .fourcolumn):not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .video, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe, maui-navigation-link[variant=\"anchor-down\"]))",
         ".videoViewer, .image:has(video)",
         "maui-tab-control-panel-responsive :is(.twocolumn, .threecolumn):has(> .column-view > .row > .column-view-item > .image img):not(:has(.teaser, .table, .accordion, .tabs, form, iframe, .column-view-item .column-view-item))"
@@ -231,6 +245,8 @@ const parsers = {
   'poi-map': poiMapParser,
   'flight-search': flightSearchParser,
   'hero-campaign': heroCampaignParser,
+  'accordion-columns': accordionColumnsParser,
+  'table-striped': tableStripedParser,
   'columns-media': columnsMediaParser,
   'cards-teaser': cardsTeaserParser,
   'carousel-images': carouselImagesParser,

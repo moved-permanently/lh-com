@@ -1536,10 +1536,22 @@
           ]
         },
         {
+          "name": "accordion-columns",
+          "instances": [
+            ".accordion"
+          ]
+        },
+        {
+          "name": "table-striped",
+          "instances": [
+            "div.table:has(.cms-table-maui-wrapper):not(.accordion div.table)"
+          ]
+        },
+        {
           "name": "columns-media",
           "instances": [
             ".sidebar:not(:is(.twocolumn, .threecolumn, .fourcolumn) > .column-view > .row > .column-view-item > * ~ .sidebar)",
-            ".section-content > .twocolumn:not(:has(.column-view-item > .image + .headline))",
+            ".section-content > .twocolumn:not(:has(.column-view-item > .image + .headline), :has(.table))",
             ":is(.section-content, .container-content) > :is(.threecolumn, .fourcolumn):not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .video, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe, maui-navigation-link[variant=\"anchor-down\"]))",
             ".videoViewer, .image:has(video)",
             "maui-tab-control-panel-responsive :is(.twocolumn, .threecolumn):has(> .column-view > .row > .column-view-item > .image img):not(:has(.teaser, .table, .accordion, .tabs, form, iframe, .column-view-item .column-view-item))"
