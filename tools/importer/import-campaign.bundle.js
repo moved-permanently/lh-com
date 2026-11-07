@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-campaign.js
-  var tmp_bundle_campaign_127252_exports = {};
-  __export(tmp_bundle_campaign_127252_exports, {
-    default: () => tmp_bundle_campaign_127252_default
+  var tmp_bundle_campaign_184006_exports = {};
+  __export(tmp_bundle_campaign_184006_exports, {
+    default: () => tmp_bundle_campaign_184006_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -2193,7 +2193,39 @@ var CustomImportScript = (() => {
         if (child.matches(SKIP_COMPONENTS)) return;
         if (child.matches(MOBILE) && child.parentElement && child.parentElement.querySelector(`:scope > :is(${DESKTOP})`)) return;
         const cl = child.classList;
-        if (cl.contains("headline")) {
+        if (cl.contains("imagelinklist")) {
+          child.querySelectorAll(".link-list").forEach((ll) => {
+            const h = ll.querySelector("h1, h2, h3, h4, h5, h6");
+            if (h) {
+              const head = document.createElement(h.tagName.toLowerCase());
+              const icon = [...h.querySelectorAll("img")].find((i) => i.getAttribute("src"));
+              if (icon) {
+                const img = document.createElement("img");
+                img.setAttribute("alt", icon.getAttribute("alt") || "");
+                img.setAttribute("src", icon.getAttribute("src"));
+                head.append(img);
+              }
+              const text = visibleText(h);
+              if (text) head.append(document.createTextNode(text));
+              if (text || icon) out.push(head);
+            }
+            const links = [...ll.querySelectorAll("ul a[href], ul maui-navigation-link[href], ul maui-link[href]")];
+            if (links.length) {
+              const list = document.createElement("ul");
+              links.forEach((l) => {
+                const label = visibleText(l);
+                if (!label) return;
+                const a = document.createElement("a");
+                a.setAttribute("href", l.getAttribute("href"));
+                a.textContent = label;
+                const li = document.createElement("li");
+                li.append(a);
+                list.append(li);
+              });
+              if (list.children.length) out.push(list);
+            }
+          });
+        } else if (cl.contains("headline")) {
           const h = headingFrom(child);
           if (h) out.push(h);
         } else if (cl.contains("text") && child.querySelector(".richtext")) {
@@ -2201,6 +2233,13 @@ var CustomImportScript = (() => {
         } else if (cl.contains("link") && child.querySelector(MAUI)) {
           const p = linkPara(child);
           if (p) out.push(p);
+        } else if (cl.contains("link") && child.querySelector("maui-button-link, maui-navigation-link, maui-link")) {
+          const text = visibleText(child.querySelector("maui-button-link, maui-navigation-link, maui-link"));
+          if (text) {
+            const p = document.createElement("p");
+            p.textContent = text;
+            out.push(p);
+          }
         } else if (cl.contains("image") && child.querySelector("img, video")) {
           out.push(...mediaNodes(child));
         } else if (child.parentElement.classList.contains("column-view") && !child.matches(".row, .carousel") && child.querySelector("h1, h2, h3, h4, h5, h6")) {
@@ -2364,6 +2403,7 @@ var CustomImportScript = (() => {
       if (sliderView) variants.push("slider");
       const stacked = (ARTICLE || !sliderView) && items.some((it) => [...it.querySelectorAll(".image")].filter((img) => img.closest(".column-view-item") === it && !img.parentElement.closest(".image") && img.querySelector("img, video")).length > 1);
       if (stacked) variants.push("stacked");
+      if (items.some((it) => it.querySelector(".imagelinklist .nav-link-list"))) variants.push("link-list");
       const textItem = (it) => !!it.querySelector(".headline, .text");
       if (!sliderView && view.querySelector(":scope > .carousel") && items.length > 1 && items.some(textItem) && items.some((it) => !textItem(it) && it.querySelector(".image img"))) {
         variants.push("cell-slider");
@@ -2560,6 +2600,8 @@ var CustomImportScript = (() => {
     if (element.classList.contains("threecolumn")) variants = ["three-up"];
     else if (element.classList.contains("fourcolumn")) variants = ["four-up"];
     if (overlay) variants.push("overlay");
+    const rowsCopy = view.querySelector(":scope > .carousel > .hidden-md-down");
+    if (rowsCopy && (rowsCopy.hasAttribute("data-lh-swiper-below-lg") || view.querySelector(":scope > .carousel > .hidden-lg-up .swiper-slide"))) variants.push("phone-slider");
     const parent = element.parentElement;
     if (parent && parent.classList.contains("container-content")) variants.push("spacious");
     const block = WebImporter.Blocks.createBlock(document, { name: "cards-teaser", variants, cells });
@@ -3328,6 +3370,20 @@ var CustomImportScript = (() => {
     });
     return found.length;
   }
+  var QUOTE_SPACERS = { before: ["spacer-0", "spacer-14 from-768"], after: ["spacer-53", "spacer-17 from-768"] };
+  function aemNeighbour(aem, dir) {
+    let n = aem[dir];
+    while (n && !(n.classList.contains("section") && (cleanText(n) || n.querySelector("img, picture, video, iframe")))) n = n[dir];
+    return n;
+  }
+  var paddedAem = (n) => !!n && !!n.querySelector(":scope > div > .section-padding-y-regular");
+  function spacerParagraphs(document, tokens) {
+    return tokens.map((t) => {
+      const sp = document.createElement("p");
+      sp.textContent = `{${t}}`;
+      return sp;
+    });
+  }
   function convertAuthorQuotes(document) {
     let converted = 0;
     document.querySelectorAll(".dcep-author-quote").forEach((quote) => {
@@ -3349,10 +3405,33 @@ var CustomImportScript = (() => {
       if (!quote.closest(".article-details-page") && quote.closest(".section-narrow")) {
         bq.firstElementChild.append(document.createTextNode(" {narrow}"));
       }
-      (quote.closest(".authorquote") || quote).replaceWith(bq);
+      const holder = quote.closest(".authorquote") || quote;
+      const aem = !quote.closest(".article-details-page") && holder.closest(".container-content > .section");
+      const content = aem && holder.closest(".section-content");
+      const alone = content && [...content.children].every((c) => c === holder || !cleanText(c));
+      const padded = (dir) => paddedAem(aemNeighbour(aem, dir));
+      holder.replaceWith(
+        ...alone && padded("previousElementSibling") ? spacerParagraphs(document, QUOTE_SPACERS.before) : [],
+        bq,
+        ...alone && padded("nextElementSibling") ? spacerParagraphs(document, QUOTE_SPACERS.after) : []
+      );
       converted += 1;
     });
     return converted;
+  }
+  function padCarouselSections(document) {
+    let padded = 0;
+    document.querySelectorAll(".container-content > .section .section-content > .carousel").forEach((carousel) => {
+      if (!carousel.querySelector(".swiper-single-slide")) return;
+      const content = carousel.parentElement;
+      const aem = content.closest(".container-content > .section");
+      if (!paddedAem(aem) || ![...content.children].every((c) => c === carousel || !cleanText(c))) return;
+      const next = aemNeighbour(aem, "nextElementSibling");
+      if (!next || paddedAem(next) || next.querySelector(".container-gray")) return;
+      carousel.after(...spacerParagraphs(document, ["spacer-43", "spacer-17 from-768"]));
+      padded += 1;
+    });
+    return padded;
   }
   function restoreMovingImages(document) {
     let restored = 0;
@@ -3526,6 +3605,7 @@ var CustomImportScript = (() => {
       for (let level = 0; scope && level < 3; level += 1, scope = scope.parentElement) {
         const twin = [...scope.querySelectorAll(DESKTOP_COPY)].find((d) => d !== mobile && !d.contains(mobile) && !mobile.contains(d) && copySignature(d) === sig);
         if (twin) {
+          if (mobile.querySelector(".swiper-slide")) twin.setAttribute("data-lh-swiper-below-lg", "");
           mobile.remove();
           removed += 1;
           return;
@@ -4100,6 +4180,7 @@ var CustomImportScript = (() => {
       rewriteAnchors(document, pagePath);
       convertJumpLinks(document);
       convertAuthorQuotes(document);
+      padCarouselSections(document);
       restoreMovingImages(document);
       markParallaxImages(document);
       const flow = columnMarksEnabled(payload);
@@ -4628,7 +4709,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_campaign_127252_default = {
+  var tmp_bundle_campaign_184006_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -4658,5 +4739,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_campaign_127252_exports);
+  return __toCommonJS(tmp_bundle_campaign_184006_exports);
 })();

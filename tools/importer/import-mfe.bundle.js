@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-mfe.js
-  var tmp_bundle_mfe_169123_exports = {};
-  __export(tmp_bundle_mfe_169123_exports, {
-    default: () => tmp_bundle_mfe_169123_default
+  var tmp_bundle_mfe_184006_exports = {};
+  __export(tmp_bundle_mfe_184006_exports, {
+    default: () => tmp_bundle_mfe_184006_default
   });
 
   // tools/importer/parsers/micro-frontend.js
@@ -1685,7 +1685,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_mfe_169123_default = {
+  var tmp_bundle_mfe_184006_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -1715,5 +1715,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_mfe_169123_exports);
+  return __toCommonJS(tmp_bundle_mfe_184006_exports);
 })();

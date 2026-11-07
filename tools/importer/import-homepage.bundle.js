@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-homepage.js
-  var tmp_bundle_homepage_127252_exports = {};
-  __export(tmp_bundle_homepage_127252_exports, {
-    default: () => tmp_bundle_homepage_127252_default
+  var tmp_bundle_homepage_184006_exports = {};
+  __export(tmp_bundle_homepage_184006_exports, {
+    default: () => tmp_bundle_homepage_184006_default
   });
 
   // tools/importer/parsers/flash-teaser.js
@@ -605,6 +605,8 @@ var CustomImportScript = (() => {
       if (!iconCell && !content.length) return;
       rows.push([iconCell, content.length ? content : ""]);
     });
+    const columnTitle = element.querySelector(":scope > .column-view > div:not(.row) > :is(h1, h2, h3, h4, h5, h6)");
+    if (columnTitle && clean2(columnTitle.textContent)) element.before(columnTitle);
     element.replaceWith(WebImporter.Blocks.createBlock(document, { name: "cards-icon-text", variants: ["partner"], cells: rows }));
   }
 
@@ -1884,6 +1886,20 @@ var CustomImportScript = (() => {
     });
     return found.length;
   }
+  var QUOTE_SPACERS = { before: ["spacer-0", "spacer-14 from-768"], after: ["spacer-53", "spacer-17 from-768"] };
+  function aemNeighbour(aem, dir) {
+    let n = aem[dir];
+    while (n && !(n.classList.contains("section") && (cleanText(n) || n.querySelector("img, picture, video, iframe")))) n = n[dir];
+    return n;
+  }
+  var paddedAem = (n) => !!n && !!n.querySelector(":scope > div > .section-padding-y-regular");
+  function spacerParagraphs(document, tokens) {
+    return tokens.map((t) => {
+      const sp = document.createElement("p");
+      sp.textContent = `{${t}}`;
+      return sp;
+    });
+  }
   function convertAuthorQuotes(document) {
     let converted = 0;
     document.querySelectorAll(".dcep-author-quote").forEach((quote) => {
@@ -1905,10 +1921,33 @@ var CustomImportScript = (() => {
       if (!quote.closest(".article-details-page") && quote.closest(".section-narrow")) {
         bq.firstElementChild.append(document.createTextNode(" {narrow}"));
       }
-      (quote.closest(".authorquote") || quote).replaceWith(bq);
+      const holder = quote.closest(".authorquote") || quote;
+      const aem = !quote.closest(".article-details-page") && holder.closest(".container-content > .section");
+      const content = aem && holder.closest(".section-content");
+      const alone = content && [...content.children].every((c) => c === holder || !cleanText(c));
+      const padded = (dir) => paddedAem(aemNeighbour(aem, dir));
+      holder.replaceWith(
+        ...alone && padded("previousElementSibling") ? spacerParagraphs(document, QUOTE_SPACERS.before) : [],
+        bq,
+        ...alone && padded("nextElementSibling") ? spacerParagraphs(document, QUOTE_SPACERS.after) : []
+      );
       converted += 1;
     });
     return converted;
+  }
+  function padCarouselSections(document) {
+    let padded = 0;
+    document.querySelectorAll(".container-content > .section .section-content > .carousel").forEach((carousel) => {
+      if (!carousel.querySelector(".swiper-single-slide")) return;
+      const content = carousel.parentElement;
+      const aem = content.closest(".container-content > .section");
+      if (!paddedAem(aem) || ![...content.children].every((c) => c === carousel || !cleanText(c))) return;
+      const next = aemNeighbour(aem, "nextElementSibling");
+      if (!next || paddedAem(next) || next.querySelector(".container-gray")) return;
+      carousel.after(...spacerParagraphs(document, ["spacer-43", "spacer-17 from-768"]));
+      padded += 1;
+    });
+    return padded;
   }
   function restoreMovingImages(document) {
     let restored = 0;
@@ -2082,6 +2121,7 @@ var CustomImportScript = (() => {
       for (let level = 0; scope && level < 3; level += 1, scope = scope.parentElement) {
         const twin = [...scope.querySelectorAll(DESKTOP_COPY)].find((d) => d !== mobile && !d.contains(mobile) && !mobile.contains(d) && copySignature(d) === sig);
         if (twin) {
+          if (mobile.querySelector(".swiper-slide")) twin.setAttribute("data-lh-swiper-below-lg", "");
           mobile.remove();
           removed += 1;
           return;
@@ -2656,6 +2696,7 @@ var CustomImportScript = (() => {
       rewriteAnchors(document, pagePath);
       convertJumpLinks(document);
       convertAuthorQuotes(document);
+      padCarouselSections(document);
       restoreMovingImages(document);
       markParallaxImages(document);
       const flow = columnMarksEnabled(payload);
@@ -3149,7 +3190,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_homepage_127252_default = {
+  var tmp_bundle_homepage_184006_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -3179,5 +3220,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_homepage_127252_exports);
+  return __toCommonJS(tmp_bundle_homepage_184006_exports);
 })();
