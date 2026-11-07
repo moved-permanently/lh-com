@@ -959,3 +959,25 @@ aem.live (the homepage at 1440); a local server with main's code and the preview
 (port 3001); one with the draft documents (port 3002, the homepage with the disclaimer, crane,
 menu-on-board); the ten turnsthe.page hosts (smoke); lh-swiss's preview (swiss-smoke) and
 tap.turnsthe.page/pt-pt (200).
+
+### Brief 460, item 1 after your answer (done, 8510d01)
+
+- www's "Exclusive Offers & Benefits" is rendered as its four cards (your answer: render www's
+  four cards).
+  - The cleanup turns the Monetate section into a grey band with the headline and a Cards Icon
+    Text block with the new option `mini`: one row per card, the round image | title, text and
+    link.
+  - The option takes the experiment's own CSS (from lh-snapshots-061):
+    - white cards, 8 px radius, a soft shadow, 20 px padding;
+    - a 56 px round image, an 18 px bold title, a 14 px text;
+    - 4 a row from 1200 px, 2 from 768 px, 1 below.
+  - The homepage bundle is rebuilt. The homepage re-import in
+    [reimport-460-lh-com.txt](reimport-460-lh-com.txt) now brings it too. Its images are on
+    sb.monetate.net, so postprocess-media has to take them in.
+- On a draft of the re-imported homepage (the disclaimer and the cards, main's code):
+  - the band is 428 / 683 px at 768 / 390 (www's 429 / 683);
+  - at 1440 it is 304 px (www's 324): this renderer wraps one card's text a line shorter;
+  - the page is 8.5 / 8.5 / 8.3 % at 1440 / 768 / 390, against 14.5 / 17.2 / 20.5 % without the
+    cards. The rest is mostly the destination finder's empty state (live data).
+- A push after a pull: `14479de..8510d01`. The smoke after was the same as before on every brand;
+  SWISS's and TAP's hosts checked by hand.

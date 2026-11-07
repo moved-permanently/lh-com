@@ -1,12 +1,14 @@
 # Brief 460 (ema-adobe, 2026-11-07): lufthansa.com documents for the local harness. Nothing was
 # uploaded from here (DA access was off: admin.da.live answered 401). Import again with main's
-# bundles at e00ed69 or later.
+# bundles at 8510d01 or later.
 #
 # 1. The de/en homepage (www's new footer disclaimer): homepage bundle, the usual post steps
 #    (head-metadata, stage-promotions, postprocess-media, the DAM switches), then
 #      node tools/importer/general-conditions-dialogs.mjs --html-dir <the folder holding
 #        www.lufthansa.com of lh-snapshots-061> --locale de/en
 #    which writes the dialog document. Upload the dialog document before the homepage.
+#    The same import makes www's "Exclusive Offers & Benefits" the four cards in a grey band
+#    (8510d01); their images are on sb.monetate.net, so postprocess-media must take them in.
 /de/en/fragments/modals/general-conditions
 /de/en/homepage
 #
