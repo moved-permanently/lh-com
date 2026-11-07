@@ -36,14 +36,28 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-homepage.js
-  var tmp_bundle_homepage_239984_exports = {};
-  __export(tmp_bundle_homepage_239984_exports, {
-    default: () => tmp_bundle_homepage_239984_default
+  var import_homepage_exports = {};
+  __export(import_homepage_exports, {
+    default: () => import_homepage_default
   });
 
   // tools/importer/parsers/flash-teaser.js
+  var ALERTS = ["irreg", "tech-outage"];
+  function wwwMessages(element) {
+    const el = element.querySelector(".dcep-flash-teaser[data-dcep]");
+    if (!el) return [];
+    try {
+      const data = JSON.parse(el.getAttribute("data-dcep"));
+      return Array.isArray(data.flashTeaserMessages) ? data.flashTeaserMessages : [];
+    } catch (e) {
+      return [];
+    }
+  }
   function parse(element, { document }) {
-    const block = WebImporter.Blocks.createBlock(document, { name: "flash-teaser", cells: [] });
+    const types = wwwMessages(element).map((m) => String(m && m.type || "").trim().toLowerCase());
+    const promotionsOnly = types.length > 0 && types.includes("promo") && !types.some((t) => ALERTS.includes(t));
+    const cells = promotionsOnly ? [["Types", "promo"]] : [];
+    const block = WebImporter.Blocks.createBlock(document, { name: "flash-teaser", cells });
     element.replaceWith(block);
   }
 
@@ -3279,7 +3293,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_homepage_239984_default = {
+  var import_homepage_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -3309,5 +3323,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_homepage_239984_exports);
+  return __toCommonJS(import_homepage_exports);
 })();
