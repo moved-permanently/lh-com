@@ -745,7 +745,9 @@ nothing else is open in parity.md.
 
 - Lint and the full suite before the push, in a fresh worktree: the first run failed on ita-datepicker (it read a snapshot,
   and tools/importer/bd-snapshots is not in git); on a fixture now, 497 passed.
-- Smoke on all 12 hosts before and after the push: 0 differences on every host.
+- Smoke on all 12 hosts before and after the push: no difference from these commits; one host's
+  /xx/en/search-index.json hash changed (index content another session published; no code of this round is served
+  there).
 - Previews: main--lh-austrian-- (links, h1s), main--lh-ita-- (the forms), main--lh-com-- (xx/zh picker); the link
   targets on austrian.turnsthe.page.
 
