@@ -150,6 +150,12 @@
   white-space: nowrap;
 }
 
+/* without its price the label lost the shared baseline and the row grew 5px (147 vs 142px): a
+   zero-width line keeps a priced row's height */
+.fare-teaser .fare-teaser-price:empty::before {
+  content: "\200B";
+}
+
 /* footer: .disclaimer row (Conditions maui-link-button, "Show more" .ml-auto below 768px) */
 .fare-teaser .fare-teaser-footer {
   display: flex;

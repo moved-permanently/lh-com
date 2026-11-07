@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-homepage.js
-  var tmp_bundle_homepage_370421_exports = {};
-  __export(tmp_bundle_homepage_370421_exports, {
-    default: () => tmp_bundle_homepage_370421_default
+  var import_homepage_exports = {};
+  __export(import_homepage_exports, {
+    default: () => import_homepage_default
   });
 
   // tools/importer/parsers/flash-teaser.js
@@ -2631,6 +2631,10 @@ var CustomImportScript = (() => {
         el.removeAttribute("data-live-link");
         return;
       }
+      if (el.hasAttribute("data-own-link")) {
+        el.removeAttribute("data-own-link");
+        return;
+      }
       const dot = (el.getAttribute("href") || "").trim().match(TAG_DOT);
       if (dot && el.tagName === "A") {
         if (SCOPE_PATHS.has(dot[1])) el.setAttribute("href", dot[1]);
@@ -2799,6 +2803,33 @@ var CustomImportScript = (() => {
     }
     document.body.append(WebImporter.Blocks.getMetadataBlock(document, meta));
   }
+  function convertFooterDisclaimer(document, pagePath) {
+    const box = document.querySelector(".footer-disclaimer");
+    if (!box) return;
+    const text = (el) => el ? el.textContent.replace(/\s+/g, " ").trim() : "";
+    const note = text(box.querySelector(".disclaimer-text"));
+    const modal = box.querySelector("maui-modal");
+    const label = (modal && modal.getAttribute("label") ? modal.getAttribute("label").replace(/\s+/g, " ").trim() : "") || text(box.querySelector("maui-link-button"));
+    const base = (String(pagePath || "").match(/^\/([a-z]{2})\/([a-z]{2})(?=\/|$)/) || [])[0];
+    const slug = label.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+    const out = [];
+    if (note) {
+      const p = document.createElement("p");
+      p.className = "copytext-small";
+      p.textContent = note;
+      out.push(p);
+    }
+    if (modal && label && base) {
+      const p = document.createElement("p");
+      const a = document.createElement("a");
+      a.setAttribute("href", `${base}/fragments/modals/${slug}`);
+      a.setAttribute("data-own-link", "");
+      a.textContent = label;
+      p.append(a);
+      out.push(p);
+    }
+    (box.closest(".footerdisclaimer") || box).replaceWith(...out);
+  }
   function removeOverlays(document) {
     document.querySelectorAll('maui-modal, .react-modal, .modal, .lightbox-modal, [role="dialog"]').forEach((m) => {
       if (m.isConnected && !m.closest(".container-content")) m.remove();
@@ -2819,6 +2850,7 @@ var CustomImportScript = (() => {
       const titleEl = document.querySelector("title");
       if (titleEl) titleEl.textContent = titleEl.textContent.replace(/(\s*\|\s*Lufthansa)+\s*$/, " | Lufthansa");
       const pagePath = currentPagePath(document, payload);
+      convertFooterDisclaimer(document, pagePath);
       detectTheme(document);
       convertBreadcrumbs(document, pagePath);
       convertFeedbackQuestionnaires(document);
@@ -3363,7 +3395,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_homepage_370421_default = {
+  var import_homepage_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -3393,5 +3425,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_homepage_370421_exports);
+  return __toCommonJS(import_homepage_exports);
 })();

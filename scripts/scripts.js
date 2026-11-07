@@ -129,9 +129,9 @@ function buildBreadcrumb(main) {
 function buildAutoBlocks(main) {
   try {
     // auto load `*/fragments/*` references (not the stage-promotions link: that block picks one
-    // section of its document)
+    // section of its document; not a link under /modals/: fragment-dialog.js opens it as a dialog)
     const fragments = [...main.querySelectorAll('a[href*="/fragments/"]')]
-      .filter((f) => !f.closest('.fragment, .stage-promotions'));
+      .filter((f) => !f.closest('.fragment, .stage-promotions') && !/\/modals\//.test(f.pathname));
     if (fragments.length > 0) {
       // eslint-disable-next-line import/no-cycle
       import('../blocks/fragment/fragment.js').then(({ loadFragment }) => {

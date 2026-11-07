@@ -426,6 +426,23 @@ main .default-content-wrapper > p > a:has(> picture) {
   mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 19 19'%3E%3Cpath d='M12 2v14M6 10.5l6 6 6-6' fill='none' stroke='%23000' stroke-width='2'/%3E%3C/svg%3E");
 }
 
+/* lufthansa.com: a link alone in its paragraph that opens a dialog (scripts/fragment-dialog.js,
+   the footer disclaimer's "General Conditions"): www's maui-link-button variant dialog, 14px bold
+   whale blue with the 12px dialog icon (de/en homepage 2026-11-06: 135px of ink with the icon) */
+body.brand-lufthansa main .default-content-wrapper p.link-wrapper a:any-link[href*="/modals/"] {
+  gap: 6px;
+  color: var(--link-color);
+  font-size: var(--body-font-size-xs);
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+body.brand-lufthansa main .default-content-wrapper p.link-wrapper a:any-link[href*="/modals/"]::before {
+  width: 12px;
+  height: 12px;
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2'%3E%3Cpath d='M9 3h12v12H9zM15 15v6H3V9h6'/%3E%3C/svg%3E");
+}
+
 /* links in running text (.richtext a > em.lh.lh-arrow-right / lh-arrow-top-right / lh-arrow-down,
    a .lh { font-size: 1.6rem }): a 9x8px arrow ink 3px into the link, 5px to the text; up-right
    for other sites, down for in-page anchors (1440 capture, imprint "Internet: lufthansa.com").
@@ -745,6 +762,33 @@ body.appear main > .section:first-of-type > .breadcrumb-wrapper:has(+ .article-h
 
 main > .section > .breadcrumb-wrapper + .article-header-wrapper {
   margin-top: 19px;
+}
+
+/* lufthansa.com homepage stage (brief 460): www's quick actions row below the stage (empty for a
+   guest) ends with a transparent .separator (margin-bottom 30px), so the next section starts 32px
+   lower than the section gap at every width (de/en 2026-11-06: "Winter deals" 87px below the stage
+   at 1440, here 55px) */
+body.brand-lufthansa main > .section.stage-promotions-container {
+  margin-bottom: calc(var(--section-gap) + 32px);
+}
+
+/* lufthansa.com footer (brief 460): the legal links 10px from their arrow (www 14px of ink, 12
+   at the default 8px), so the row wraps "Change Privacy Settings" at 1440 as www's */
+body.brand-lufthansa .footer .footer-legal .footer-link {
+  gap: 10px;
+}
+
+/* the destination finder under the news carousel (brief 460): www's carousel section ends with the
+   same 30px separator, then the finder's section-wide maui-section; the carousel dots to "Flight
+   offers from" 157px of ink at 1440 and 768, 142px at 390 (here 72, 71, 73) */
+body.brand-lufthansa main > .section.carousel-cards-container:has(+ .section.destination-finder-container) {
+  margin-bottom: calc(var(--section-gap) + 69px);
+}
+
+@media (width >= 768px) {
+  body.brand-lufthansa main > .section.carousel-cards-container:has(+ .section.destination-finder-container) {
+    margin-bottom: calc(var(--section-gap) + 85px);
+  }
 }
 
 /* homepage payment / social logos (.twocolumn, only on the homepages): "Payment options" 87px
@@ -1225,6 +1269,29 @@ main > .section.padded:first-of-type:has(> .breadcrumb-wrapper:first-child) {
 
 main > .section.padded:first-of-type > .breadcrumb-wrapper:first-child + .default-content-wrapper:has(> h1:first-child) {
   margin-top: calc(var(--spacing-default) + var(--section-padding));
+}
+
+/* lufthansa.com footer disclaimer (brief 460; www's .footerdisclaimer after the last section's
+   transparent 30px separator, the importer's note and "General Conditions" dialog link): the note
+   73px under the section's last block (53px below 768px), the link 6px under the note, the footer
+   24px under the link (de/en homepage 2026-11-06, ink 78 / 27 / 40px at 1440 and 768, 58 at 390) */
+/* stylelint-disable-next-line no-descending-specificity -- another last section than the column-mark rules above */
+body.brand-lufthansa main > .section:last-child:has(> .default-content-wrapper:last-child > p.copytext-small + p.link-wrapper:last-child a[href*="/modals/"]) {
+  margin-bottom: 24px;
+}
+
+body.brand-lufthansa main > .section:last-child > div + .default-content-wrapper:last-child:has(> p.copytext-small + p.link-wrapper:last-child a[href*="/modals/"]) {
+  margin-top: 53px;
+}
+
+body.brand-lufthansa main > .section:last-child > .default-content-wrapper:last-child > p.copytext-small:has(+ p.link-wrapper:last-child a[href*="/modals/"]) {
+  margin-bottom: 6px;
+}
+
+@media (width >= 768px) {
+  body.brand-lufthansa main > .section:last-child > div + .default-content-wrapper:last-child:has(> p.copytext-small + p.link-wrapper:last-child a[href*="/modals/"]) {
+    margin-top: 73px;
+  }
 }
 
 /* separators ("{spacer-N}" / "{divider-N}" paragraphs, scripts.js): .separator .hr is a 1px

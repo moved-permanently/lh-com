@@ -1449,6 +1449,12 @@ function rewriteLinks(document, payload) {
       el.removeAttribute('data-live-link');
       return;
     }
+    // links the cleanup wrote to a document of this site that is not a www page (the footer
+    // disclaimer's dialog) stay as written
+    if (el.hasAttribute('data-own-link')) {
+      el.removeAttribute('data-own-link');
+      return;
+    }
     const dot = (el.getAttribute('href') || '').trim().match(TAG_DOT);
     if (dot && el.tagName === 'A') {
       if (SCOPE_PATHS.has(dot[1])) el.setAttribute('href', dot[1]);
@@ -1672,6 +1678,48 @@ function addPageMetadata(document, payload) {
   document.body.append(WebImporter.Blocks.getMetadataBlock(document, meta));
 }
 
+/* -------------------------------------------------------------- footer disclaimer -------- */
+
+/**
+ * www's footer disclaimer (.footerdisclaimer > .footer-disclaimer, new at the end of the de/en
+ * homepage on 2026-11-06): the price note and a "General Conditions" button that opens a
+ * maui-modal. The note becomes small print, the button a link to the locale's dialog document
+ * /{cc}/{ll}/fragments/modals/{label} (scripts/fragment-dialog.js opens links under /modals/ as a
+ * dialog; /fragments/ keeps it out of the indexes); the modal's text leaves the page. That document
+ * comes from tools/importer/general-conditions-dialogs.mjs (tools/importer/footer-disclaimer.js,
+ * the same path rule: transformers run as plain scripts, so it is inlined here).
+ */
+function convertFooterDisclaimer(document, pagePath) {
+  const box = document.querySelector('.footer-disclaimer');
+  if (!box) return;
+  const text = (el) => (el ? el.textContent.replace(/\s+/g, ' ').trim() : '');
+  const note = text(box.querySelector('.disclaimer-text'));
+  const modal = box.querySelector('maui-modal');
+  const label = (modal && modal.getAttribute('label') ? modal.getAttribute('label').replace(/\s+/g, ' ').trim() : '')
+    || text(box.querySelector('maui-link-button'));
+  const base = (String(pagePath || '').match(/^\/([a-z]{2})\/([a-z]{2})(?=\/|$)/) || [])[0];
+  const slug = label.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+  const out = [];
+  if (note) {
+    const p = document.createElement('p');
+    p.className = 'copytext-small';
+    p.textContent = note;
+    out.push(p);
+  }
+  if (modal && label && base) {
+    const p = document.createElement('p');
+    const a = document.createElement('a');
+    a.setAttribute('href', `${base}/fragments/modals/${slug}`);
+    a.setAttribute('data-own-link', '');
+    a.textContent = label;
+    p.append(a);
+    out.push(p);
+  }
+  (box.closest('.footerdisclaimer') || box).replaceWith(...out);
+}
+
 /* -------------------------------------------------------------- overlays ----------------- */
 
 function removeOverlays(document) {
@@ -1704,6 +1752,7 @@ export default function transform(hookName, element, payload) {
     const titleEl = document.querySelector('title');
     if (titleEl) titleEl.textContent = titleEl.textContent.replace(/(\s*\|\s*Lufthansa)+\s*$/, ' | Lufthansa');
     const pagePath = currentPagePath(document, payload); // before <link rel=canonical> goes
+    convertFooterDisclaimer(document, pagePath); // before anything takes its modal
     detectTheme(document); // before the <link> elements go
     convertBreadcrumbs(document, pagePath);
     convertFeedbackQuestionnaires(document);

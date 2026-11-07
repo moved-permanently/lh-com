@@ -461,8 +461,9 @@
 }
 
 /* live: crane logo 116.7x20, "Member of Lufthansa Group" 160x8, Star Alliance 20px high
- * (147x20 horizontal graphic); a brand theme may set --footer-logo-home-height (its own logo) */
-.footer .footer-logos .footer-logo-star-alliance img {
+ * (147x20 horizontal graphic; a document may hold the horizontal token itself, the SVG has no
+ * size of its own); a brand theme may set --footer-logo-home-height (its own logo) */
+.footer .footer-logos :is(.footer-logo-star-alliance, .footer-logo-star-alliance-horizontal) img {
   width: auto;
   height: 20px;
 }
@@ -473,7 +474,7 @@
 }
 
 /* --footer-star-alliance-filter: a dark logo row (styles/themes/*.css) shows the graphic white */
-.footer .footer-logos a.footer-logo-star-alliance {
+.footer .footer-logos a:is(.footer-logo-star-alliance, .footer-logo-star-alliance-horizontal) {
   filter: var(--footer-star-alliance-filter, none);
 }
 
