@@ -25,6 +25,8 @@ test('withPinnedTeasers: the animated teasers\' blocks pinned with www\'s height
   assert.ok(r.doc.includes(hero(' regular pinned', 'h2', 'SWISS Senses')));
   assert.equal(withPinnedTeasers(r.doc, SNAP).made, 0);
   assert.equal(withPinnedTeasers(DOC, '<html><body></body></html>').doc, DOC);
+  // www's heading with &nbsp; (ch/es, ch/ru, brief 453)
+  assert.equal(withPinnedTeasers(DOC, SNAP.replace('Airbus A350-900', 'Airbus&nbsp;A350-900')).made, 3);
 });
 
 test('the block\'s CSS: pinned sticky at the top, the wrapper half the window and the stage longer', () => {

@@ -387,7 +387,8 @@ export function withPinnedTeasers(doc, html) {
   const teasers = new Map([...parseHTML(html).document.querySelectorAll('.cms-inspiration-teaser')].map((el) => {
     const h = el.querySelector('h1, h2, h3');
     const height = ['narrow', 'regular'].find((x) => el.classList.contains(`inspiration-teaser-${x}`)) || '';
-    return [h ? t(h.innerHTML) : '', { height, pinned: el.classList.contains('inspiration-teaser-animation') }];
+    // as text: www writes some headings with &nbsp; (ch/es, ch/ru: Airbus&nbsp;A350-900)
+    return [h ? t(h.textContent) : '', { height, pinned: el.classList.contains('inspiration-teaser-animation') }];
   }).filter(([title]) => title));
   if (!teasers.size) return { doc, made: 0 };
   let made = 0;
