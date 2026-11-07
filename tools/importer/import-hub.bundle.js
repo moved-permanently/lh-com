@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-hub.js
-  var tmp_bundle_hub_190013_exports = {};
-  __export(tmp_bundle_hub_190013_exports, {
-    default: () => tmp_bundle_hub_190013_default
+  var tmp_bundle_hub_239984_exports = {};
+  __export(tmp_bundle_hub_239984_exports, {
+    default: () => tmp_bundle_hub_239984_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -3112,6 +3112,7 @@ var CustomImportScript = (() => {
         p.textContent = t;
         content.push(p);
       });
+      const more = [];
       const item = card.closest(".column-view-item");
       const teaserComp = item && [...item.children].find((c) => c.contains(card));
       if (item && teaserComp) {
@@ -3126,7 +3127,7 @@ var CustomImportScript = (() => {
             comp.querySelectorAll(".richtext > p, .richtext > ul, .richtext > ol").forEach((n) => {
               const c = n.cloneNode(true);
               c.querySelectorAll(".sr-only, .visually-hidden, maui-screen-reader-label").forEach((x) => x.remove());
-              if (clean2(c.textContent)) content.push(c);
+              if (clean2(c.textContent)) more.push(c);
             });
           } else if (comp.classList.contains("link")) {
             comp.querySelectorAll("maui-button-link[href], maui-navigation-link[href], maui-link[href], a[href]").forEach((m) => {
@@ -3146,14 +3147,15 @@ var CustomImportScript = (() => {
               } else {
                 para.append(a);
               }
-              content.push(para);
+              more.push(para);
             });
           }
         });
       }
-      if (!iconCell && !content.length) return;
-      rows.push([iconCell, content.length ? content : ""]);
+      if (!iconCell && !content.length && !more.length) return;
+      rows.push([iconCell, content.length ? content : "", more.length ? more : ""]);
     });
+    if (!rows.some((r) => r[2])) rows.forEach((r) => r.pop());
     const columnTitle = element.querySelector(":scope > .column-view > div:not(.row) > :is(h1, h2, h3, h4, h5, h6)");
     if (columnTitle && clean2(columnTitle.textContent)) element.before(columnTitle);
     element.replaceWith(WebImporter.Blocks.createBlock(document, { name: "cards-icon-text", variants: ["partner"], cells: rows }));
@@ -4922,7 +4924,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_hub_190013_default = {
+  var tmp_bundle_hub_239984_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -4952,5 +4954,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_hub_190013_exports);
+  return __toCommonJS(tmp_bundle_hub_239984_exports);
 })();

@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-austrian-checkin.js
-  var tmp_bundle_austrian_checkin_190013_exports = {};
-  __export(tmp_bundle_austrian_checkin_190013_exports, {
-    default: () => tmp_bundle_austrian_checkin_190013_default
+  var tmp_bundle_austrian_checkin_239984_exports = {};
+  __export(tmp_bundle_austrian_checkin_239984_exports, {
+    default: () => tmp_bundle_austrian_checkin_239984_default
   });
 
   // tools/importer/parsers/booking-lookup.js
@@ -83,6 +83,29 @@ var CustomImportScript = (() => {
       return a;
     };
     const quickActions = element.matches(".dcep-quick-actions") ? element : element.querySelector(".dcep-quick-actions");
+    const qaPanels = quickActions ? [...quickActions.querySelectorAll('maui-tab-control-panel, [role="tabpanel"]')] : [];
+    const checkInPanel = qaPanels.length === 1 && qaPanels[0].getAttribute("data-key") === "checkIn" ? qaPanels[0] : null;
+    if (checkInPanel) {
+      const rows = [];
+      const add = (k, v) => {
+        if (v) rows.push([k, v]);
+      };
+      add("Tab", attr(checkInPanel, "name"));
+      const inputs = [...checkInPanel.querySelectorAll("maui-input")];
+      const firstIn = inputs.find((i) => /given-name/.test(attr(i, "autocomplete")));
+      const lastIn = inputs.find((i) => /family-name/.test(attr(i, "autocomplete")));
+      const code = inputs.find((i) => i !== firstIn && i !== lastIn);
+      add("Reference label", attr(code, "label"));
+      add("Reference pattern", attr(code, "pattern"));
+      add("Reference error", attr(code, "errormessage"));
+      add("First name label", attr(firstIn, "label"));
+      add("First name error", attr(firstIn, "errormessage"));
+      add("Last name label", attr(lastIn, "label"));
+      add("Last name error", attr(lastIn, "errormessage"));
+      add("Submit label", visibleText(checkInPanel.querySelector('maui-button[behavior="submit"], maui-button[type="primary"], button[type="submit"]')));
+      element.replaceWith(WebImporter.Blocks.createBlock(document, { name: "booking-lookup", cells: rows }));
+      return;
+    }
     if (quickActions) {
       const rows = [];
       const add = (k, v) => {
@@ -2618,7 +2641,7 @@ var CustomImportScript = (() => {
       group: "Gruppenbuchungen f\xFCr zehn oder mehr Passagiere."
     }
   };
-  function groupTravelPath(url) {
+  function groupTravelPath(url, root = "") {
     let p = String(url || "").trim();
     if (!p) return "";
     try {
@@ -2626,12 +2649,24 @@ var CustomImportScript = (() => {
     } catch (e) {
       return "";
     }
-    p = p.replace(/^\/content\/lh\/markets(?=\/)/, "").replace(/\.html$/, "");
+    const gc = p.match(/^\/content\/[a-z0-9-]+\/gc\/[a-z]{2}(\/.*)?$/);
+    if (gc) {
+      if (!/^\/[a-z]{2}\/[a-z]{2}$/.test(root)) return "";
+      p = `${root}${gc[1] || ""}`;
+    }
+    p = p.replace(/^\/content\/[a-z0-9-]+\/markets(?=\/)/, "").replace(/\.html$/, "");
     return p.replace(/^(\/[a-z]{2}\/[a-z]{2})\/book-and-manage\/group-travel$/, "$1/group-travel");
   }
   var YOUNG_ADULTS = { "gb/en": "GB", "gb/de": "GB", "de/de": "GB" };
-  function pickerRows({ lang, groupBookingsUrl } = {}) {
-    const t = TEXTS[lang] || TEXTS.en;
+  function pickerRows({
+    lang,
+    groupBookingsUrl,
+    labels = null,
+    groupText = "",
+    root = ""
+  } = {}) {
+    const recorded = TEXTS[lang] || (lang ? {} : TEXTS.en);
+    const t = labels ? __spreadValues(__spreadValues({}, TEXTS[lang] || {}), labels) : recorded;
     const market = String(groupBookingsUrl || "").match(/\/markets\/([a-z]{2})\/([a-z]{2})\//);
     const young = market && YOUNG_ADULTS[`${market[1]}/${market[2]}`];
     const rows = [["Passenger picker", "yes"], ["Adults hint", ""]];
@@ -2639,14 +2674,33 @@ var CustomImportScript = (() => {
     Object.entries(t).forEach(([k, v]) => {
       if (k !== "group") rows.push([k, v]);
     });
-    const href = groupTravelPath(groupBookingsUrl);
-    if (href) rows.push(["Group booking", { href, text: t.group }]);
+    const href = groupTravelPath(groupBookingsUrl, root);
+    const text = groupText || recorded.group;
+    if (href && text) rows.push(["Group booking", { href, text }]);
     rows.push(["Fare preference", "yes"]);
     return rows;
   }
+  var LABEL_KEYS = {
+    "Children label": "common.booking.children.label",
+    "Children hint": "common.booking.children.hint",
+    "Infants label": "common.booking.infants.label",
+    "Infants hint": "common.booking.infants.hint"
+  };
+  function pageBookingLabels(html) {
+    const out = {};
+    Object.entries(LABEL_KEYS).forEach(([row, key]) => {
+      const m = String(html || "").match(new RegExp(`"${key.replace(/\./g, "\\.")}"\\s*:\\s*"((?:[^"\\\\]|\\\\.)*)"`));
+      if (!m) return;
+      try {
+        out[row] = JSON.parse(`"${m[1]}"`).replace(/\u00a0/g, " ").replace(/\s+/g, " ").trim();
+      } catch (e) {
+      }
+    });
+    return Object.keys(out).length === 4 ? out : null;
+  }
 
   // tools/importer/parsers/flight-search.js
-  function parse12(element, { document }) {
+  function parse12(element, { document, url, params } = {}) {
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
     const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -2684,7 +2738,32 @@ var CustomImportScript = (() => {
     if (element.querySelector(".travel-details-opener")) {
       const market = String(props.groupBookingsUrl || "").match(/\/markets\/[a-z]{2}\/([a-z]{2})\//);
       const lang = market && market[1] || clean2(document.documentElement.getAttribute("lang")).slice(0, 2);
-      pickerRows({ lang, groupBookingsUrl: props.groupBookingsUrl }).forEach(([key, value]) => {
+      let labels = null;
+      try {
+        labels = JSON.parse(document.body.getAttribute("data-lh-booking-labels") || "null");
+      } catch (e) {
+        labels = null;
+      }
+      if (!labels) {
+        const state = [...document.querySelectorAll("script")].map((sc) => sc.textContent).find((t) => t.includes("common.booking.children.label"));
+        labels = state ? pageBookingLabels(state) : null;
+      }
+      const groupLink = element.querySelector(".group-booking-link") || document.querySelector(".travel-details .group-booking-link, .group-booking-link");
+      const groupText = groupLink ? visibleText(groupLink) : "";
+      const groupUrl = groupLink && groupLink.getAttribute("href") || props.groupBookingsUrl;
+      let root = "";
+      try {
+        root = (new URL(params && params.originalURL || url || "", "https://www.lufthansa.com").pathname.match(/^\/[a-z]{2}\/[a-z]{2}(?=\/|$)/) || [""])[0];
+      } catch (e) {
+        root = "";
+      }
+      pickerRows({
+        lang,
+        groupBookingsUrl: groupUrl,
+        labels,
+        groupText,
+        root
+      }).forEach(([key, value]) => {
         if (value === "") {
           cells.push([key, ""]);
           return;
@@ -3504,6 +3583,7 @@ var CustomImportScript = (() => {
         p.textContent = t;
         content.push(p);
       });
+      const more = [];
       const item = card.closest(".column-view-item");
       const teaserComp = item && [...item.children].find((c) => c.contains(card));
       if (item && teaserComp) {
@@ -3518,7 +3598,7 @@ var CustomImportScript = (() => {
             comp.querySelectorAll(".richtext > p, .richtext > ul, .richtext > ol").forEach((n) => {
               const c = n.cloneNode(true);
               c.querySelectorAll(".sr-only, .visually-hidden, maui-screen-reader-label").forEach((x) => x.remove());
-              if (clean2(c.textContent)) content.push(c);
+              if (clean2(c.textContent)) more.push(c);
             });
           } else if (comp.classList.contains("link")) {
             comp.querySelectorAll("maui-button-link[href], maui-navigation-link[href], maui-link[href], a[href]").forEach((m) => {
@@ -3538,14 +3618,15 @@ var CustomImportScript = (() => {
               } else {
                 para.append(a);
               }
-              content.push(para);
+              more.push(para);
             });
           }
         });
       }
-      if (!iconCell && !content.length) return;
-      rows.push([iconCell, content.length ? content : ""]);
+      if (!iconCell && !content.length && !more.length) return;
+      rows.push([iconCell, content.length ? content : "", more.length ? more : ""]);
     });
+    if (!rows.some((r) => r[2])) rows.forEach((r) => r.pop());
     const columnTitle = element.querySelector(":scope > .column-view > div:not(.row) > :is(h1, h2, h3, h4, h5, h6)");
     if (columnTitle && clean2(columnTitle.textContent)) element.before(columnTitle);
     element.replaceWith(WebImporter.Blocks.createBlock(document, { name: "cards-icon-text", variants: ["partner"], cells: rows }));
@@ -6503,7 +6584,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_austrian_checkin_190013_default = {
+  var tmp_bundle_austrian_checkin_239984_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -6533,5 +6614,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_austrian_checkin_190013_exports);
+  return __toCommonJS(tmp_bundle_austrian_checkin_239984_exports);
 })();
