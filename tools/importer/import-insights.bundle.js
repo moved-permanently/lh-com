@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-insights.js
-  var import_insights_exports = {};
-  __export(import_insights_exports, {
-    default: () => import_insights_default
+  var tmp_bundle_insights_602102_exports = {};
+  __export(tmp_bundle_insights_602102_exports, {
+    default: () => tmp_bundle_insights_602102_default
   });
 
   // tools/importer/parsers/poi-data.js
@@ -6276,6 +6276,28 @@ var CustomImportScript = (() => {
     H6: "heading-copytext-medium"
   };
   var HEADING_NOT_DEFAULT = ".twocolumn, .threecolumn, .fourcolumn, .accordion, .teaser, .sidebar, .article-details-page, form, fieldset, table";
+  function oneMainHeading(document, payload) {
+    const template = (payload && payload.template || {}).name;
+    if (!isLufthansaPage(payload) || !["info", "campaign"].includes(template)) return;
+    const headings = [...document.querySelectorAll(HEADING)].filter((h) => cleanText(h));
+    const relevel = (h, tag) => {
+      const size = HEADING_STYLES.find((c) => h.classList.contains(c)) || HEADING_DEFAULTS[h.tagName];
+      const next = document.createElement(tag);
+      [...h.attributes].forEach((a) => next.setAttribute(a.name, a.value));
+      next.append(...h.childNodes);
+      const last = [...next.childNodes].reverse().find((n) => n.nodeType === 3 && n.nodeValue.trim());
+      const marker = last && last.nodeValue.match(/\{([a-z0-9 -]+)\}\s*$/);
+      if (marker && !/(^| )(heading-|copytext-large)/.test(marker[1])) {
+        last.nodeValue = last.nodeValue.replace(/\{([a-z0-9 -]+)\}(\s*)$/, `{${size} $1}$2`);
+      } else if (!marker && !HEADING_STYLES.some((c) => next.classList.contains(c))) {
+        next.classList.add(size);
+      }
+      h.replaceWith(next);
+    };
+    const h1s = headings.filter((h) => h.tagName === "H1");
+    if (!h1s.length && headings.length) relevel(headings[0], "h1");
+    h1s.slice(1).forEach((h) => relevel(h, "h2"));
+  }
   function markHeadingStyles(document) {
     let marked = 0;
     document.querySelectorAll(HEADING).forEach((h) => {
@@ -6562,6 +6584,7 @@ var CustomImportScript = (() => {
       normalizeImages(document, false);
       rewriteLinks(document, payload);
       stripTrackingAttributes(document);
+      oneMainHeading(document, payload);
       markHeadingStyles(document);
       convertCaptions(document);
       markParagraphStyles(document);
@@ -7119,7 +7142,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var import_insights_default = {
+  var tmp_bundle_insights_602102_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -7149,5 +7172,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(import_insights_exports);
+  return __toCommonJS(tmp_bundle_insights_602102_exports);
 })();

@@ -1554,6 +1554,38 @@ const HEADING_DEFAULTS = {
 // "{limited-width}", default content only (blocks size their own columns)
 const HEADING_NOT_DEFAULT = '.twocolumn, .threecolumn, .fourcolumn, .accordion, .teaser, .sidebar, .article-details-page, form, fieldset, table';
 
+/**
+ * One h1 per page on lufthansa.com's info and campaign pages (the brief after 467): www has none on
+ * giftvoucher and five 100-years pages (the campaign stage's title is an h2) and several on
+ * 100-years/chronicle, global-network and electronic-devices-and-batteries. Where there is none,
+ * the first heading becomes the h1; every later h1 becomes an h2. Each keeps its size: its
+ * heading-* class, else its old level's (an h2's heading-medium, an h1's heading-large), which
+ * markHeadingStyles (right after) writes as a marker; a heading that already ends in a marker
+ * without a size gets the size in it. Before the markers, so the sizes are www's.
+ */
+function oneMainHeading(document, payload) {
+  const template = ((payload && payload.template) || {}).name;
+  if (!isLufthansaPage(payload) || !['info', 'campaign'].includes(template)) return;
+  const headings = [...document.querySelectorAll(HEADING)].filter((h) => cleanText(h));
+  const relevel = (h, tag) => {
+    const size = HEADING_STYLES.find((c) => h.classList.contains(c)) || HEADING_DEFAULTS[h.tagName];
+    const next = document.createElement(tag);
+    [...h.attributes].forEach((a) => next.setAttribute(a.name, a.value));
+    next.append(...h.childNodes);
+    const last = [...next.childNodes].reverse().find((n) => n.nodeType === 3 && n.nodeValue.trim());
+    const marker = last && last.nodeValue.match(/\{([a-z0-9 -]+)\}\s*$/);
+    if (marker && !/(^| )(heading-|copytext-large)/.test(marker[1])) {
+      last.nodeValue = last.nodeValue.replace(/\{([a-z0-9 -]+)\}(\s*)$/, `{${size} $1}$2`);
+    } else if (!marker && !HEADING_STYLES.some((c) => next.classList.contains(c))) {
+      next.classList.add(size);
+    }
+    h.replaceWith(next);
+  };
+  const h1s = headings.filter((h) => h.tagName === 'H1');
+  if (!h1s.length && headings.length) relevel(headings[0], 'h1');
+  h1s.slice(1).forEach((h) => relevel(h, 'h2'));
+}
+
 function markHeadingStyles(document) {
   let marked = 0;
   document.querySelectorAll(HEADING).forEach((h) => {
@@ -1933,6 +1965,7 @@ export default function transform(hookName, element, payload) {
     normalizeImages(document, false);
     rewriteLinks(document, payload);
     stripTrackingAttributes(document);
+    oneMainHeading(document, payload);
     markHeadingStyles(document);
     convertCaptions(document);
     markParagraphStyles(document);

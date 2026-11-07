@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-legal.js
-  var tmp_bundle_legal_236477_exports = {};
-  __export(tmp_bundle_legal_236477_exports, {
-    default: () => tmp_bundle_legal_236477_default
+  var tmp_bundle_legal_602102_exports = {};
+  __export(tmp_bundle_legal_602102_exports, {
+    default: () => tmp_bundle_legal_602102_default
   });
 
   // tools/importer/parsers/media-nodes.js
@@ -1112,6 +1112,7 @@ var CustomImportScript = (() => {
     const style = (el.getAttribute("style") || "").replace(/\s/g, "").toLowerCase();
     return w === "0" || w === "1" || h === "0" || h === "1" || style.includes("visibility:hidden") || style.includes("display:none") || /(^|;)width:[01]px/.test(style) || /(^|;)height:[01]px/.test(style) || style.includes("top:-50000px");
   }
+  var OFFER_IMAGE = "data-lh-offer-image";
   function removeTracking(document) {
     document.querySelectorAll("iframe").forEach((f) => {
       const src = f.getAttribute("src") || "";
@@ -1119,6 +1120,10 @@ var CustomImportScript = (() => {
     });
     document.querySelectorAll("img").forEach((img) => {
       const src = img.getAttribute("src") || "";
+      if (img.hasAttribute(OFFER_IMAGE)) {
+        img.removeAttribute(OFFER_IMAGE);
+        return;
+      }
       if (TRACKING_URL.test(src) || isHiddenFrame(img) && !img.closest(".container-content")) img.remove();
       else if (isHiddenFrame(img) && /^(https?:)?\/\//.test(src) && !/\/content\/dam\//.test(src)) img.remove();
     });
@@ -1531,7 +1536,7 @@ var CustomImportScript = (() => {
       if (el.isConnected && !el.closest("form.cmp-form") && isEmpty(el)) el.remove();
     });
   }
-  var COLUMN_MARK_TEMPLATES = ["info"];
+  var COLUMN_MARK_TEMPLATES = ["info", "fleet"];
   var COLUMN_ATTR = "data-lh-column";
   var COLUMN_KINDS = ".onecolumn, .twocolumn, .threecolumn, .fourcolumn";
   function columnMarksEnabled(payload) {
@@ -2068,6 +2073,28 @@ var CustomImportScript = (() => {
     H6: "heading-copytext-medium"
   };
   var HEADING_NOT_DEFAULT = ".twocolumn, .threecolumn, .fourcolumn, .accordion, .teaser, .sidebar, .article-details-page, form, fieldset, table";
+  function oneMainHeading(document, payload) {
+    const template = (payload && payload.template || {}).name;
+    if (!isLufthansaPage(payload) || !["info", "campaign"].includes(template)) return;
+    const headings = [...document.querySelectorAll(HEADING)].filter((h) => cleanText(h));
+    const relevel = (h, tag) => {
+      const size = HEADING_STYLES.find((c) => h.classList.contains(c)) || HEADING_DEFAULTS[h.tagName];
+      const next = document.createElement(tag);
+      [...h.attributes].forEach((a) => next.setAttribute(a.name, a.value));
+      next.append(...h.childNodes);
+      const last = [...next.childNodes].reverse().find((n) => n.nodeType === 3 && n.nodeValue.trim());
+      const marker = last && last.nodeValue.match(/\{([a-z0-9 -]+)\}\s*$/);
+      if (marker && !/(^| )(heading-|copytext-large)/.test(marker[1])) {
+        last.nodeValue = last.nodeValue.replace(/\{([a-z0-9 -]+)\}(\s*)$/, `{${size} $1}$2`);
+      } else if (!marker && !HEADING_STYLES.some((c) => next.classList.contains(c))) {
+        next.classList.add(size);
+      }
+      h.replaceWith(next);
+    };
+    const h1s = headings.filter((h) => h.tagName === "H1");
+    if (!h1s.length && headings.length) relevel(headings[0], "h1");
+    h1s.slice(1).forEach((h) => relevel(h, "h2"));
+  }
   function markHeadingStyles(document) {
     let marked = 0;
     document.querySelectorAll(HEADING).forEach((h) => {
@@ -2228,6 +2255,7 @@ var CustomImportScript = (() => {
           image = document.createElement("img");
           image.setAttribute("src", src);
           image.setAttribute("alt", "");
+          image.setAttribute(OFFER_IMAGE, "");
         }
         const body = document.createElement("div");
         const h3 = document.createElement("h3");
@@ -2353,6 +2381,7 @@ var CustomImportScript = (() => {
       normalizeImages(document, false);
       rewriteLinks(document, payload);
       stripTrackingAttributes(document);
+      oneMainHeading(document, payload);
       markHeadingStyles(document);
       convertCaptions(document);
       markParagraphStyles(document);
@@ -2791,7 +2820,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_legal_236477_default = {
+  var tmp_bundle_legal_602102_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -2821,5 +2850,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_legal_236477_exports);
+  return __toCommonJS(tmp_bundle_legal_602102_exports);
 })();

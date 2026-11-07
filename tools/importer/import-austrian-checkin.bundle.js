@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-austrian-checkin.js
-  var tmp_bundle_austrian_checkin_549211_exports = {};
-  __export(tmp_bundle_austrian_checkin_549211_exports, {
-    default: () => tmp_bundle_austrian_checkin_549211_default
+  var tmp_bundle_austrian_checkin_602102_exports = {};
+  __export(tmp_bundle_austrian_checkin_602102_exports, {
+    default: () => tmp_bundle_austrian_checkin_602102_default
   });
 
   // tools/importer/parsers/booking-lookup.js
@@ -4043,20 +4043,23 @@ var CustomImportScript = (() => {
       return out;
     };
     const overlay = !!element.querySelector(".column-view-item > .stage .stage-teaser");
+    const lone = element.matches(".stage") && !!element.querySelector(":scope > .stage-teaser");
     const view = element.querySelector(":scope > .column-view") || element;
     const titles = [];
-    [...view.children].filter((d) => !d.classList.contains("row") && !d.classList.contains("carousel")).forEach((d) => {
-      d.querySelectorAll("h1, h2, h3, h4, h5, h6").forEach((h) => {
-        const t = visibleText(h);
-        if (!t) return;
-        const out = document.createElement(h.tagName.toLowerCase());
-        out.textContent = t;
-        const style = [...h.classList].find((c) => /^heading-/.test(c));
-        if (style) out.className = style;
-        titles.push(out);
+    if (!lone) {
+      [...view.children].filter((d) => !d.classList.contains("row") && !d.classList.contains("carousel")).forEach((d) => {
+        d.querySelectorAll("h1, h2, h3, h4, h5, h6").forEach((h) => {
+          const t = visibleText(h);
+          if (!t) return;
+          const out = document.createElement(h.tagName.toLowerCase());
+          out.textContent = t;
+          const style = [...h.classList].find((c) => /^heading-/.test(c));
+          if (style) out.className = style;
+          titles.push(out);
+        });
       });
-    });
-    const items = [...element.querySelectorAll(".column-view-item")].filter((it) => {
+    }
+    const items = lone ? [{ children: [element] }] : [...element.querySelectorAll(".column-view-item")].filter((it) => {
       const outer = it.parentElement.closest(".column-view-item");
       return !outer || !element.contains(outer);
     });
@@ -4088,7 +4091,24 @@ var CustomImportScript = (() => {
           }
           const link = comp.querySelector("a.stage-teaser-link[href], a[href]");
           const sub = visibleText(comp.querySelector(".stage-teaser-subheadline"));
-          if (link && (sub || head)) {
+          const label = visibleText(comp.querySelector(".stage-teaser-overlay-bottom"));
+          if (lone) {
+            if (sub) {
+              const p = document.createElement("p");
+              p.textContent = sub;
+              body.push(p);
+            }
+            if (link && (label || sub || head)) {
+              const a = document.createElement("a");
+              a.setAttribute("href", link.getAttribute("href"));
+              a.textContent = label || sub || head;
+              const em = document.createElement("em");
+              em.append(a);
+              const p = document.createElement("p");
+              p.append(em);
+              body.push(p);
+            }
+          } else if (link && (sub || head)) {
             const a = document.createElement("a");
             a.setAttribute("href", link.getAttribute("href"));
             a.textContent = sub || head;
@@ -4109,7 +4129,8 @@ var CustomImportScript = (() => {
     let variants = [];
     if (element.classList.contains("threecolumn")) variants = ["three-up"];
     else if (element.classList.contains("fourcolumn")) variants = ["four-up"];
-    if (overlay) variants.push("overlay");
+    if (overlay || lone) variants.push("overlay");
+    if (lone) variants.push("wide");
     const rowsCopy = view.querySelector(":scope > .carousel > .hidden-md-down");
     if (rowsCopy && (rowsCopy.hasAttribute("data-lh-swiper-below-lg") || view.querySelector(":scope > .carousel > .hidden-lg-up .swiper-slide"))) variants.push("phone-slider");
     const parent = element.parentElement;
@@ -4424,6 +4445,10 @@ var CustomImportScript = (() => {
               if (list.children.length) out.push(list);
             }
           });
+        } else if (cl.contains("lh-cell-spacer")) {
+          const p = document.createElement("p");
+          p.textContent = clean2(child.textContent);
+          out.push(p);
         } else if (cl.contains("headline")) {
           const h = headingFrom(child);
           if (h) out.push(h);
@@ -4983,6 +5008,7 @@ var CustomImportScript = (() => {
     const style = (el.getAttribute("style") || "").replace(/\s/g, "").toLowerCase();
     return w === "0" || w === "1" || h === "0" || h === "1" || style.includes("visibility:hidden") || style.includes("display:none") || /(^|;)width:[01]px/.test(style) || /(^|;)height:[01]px/.test(style) || style.includes("top:-50000px");
   }
+  var OFFER_IMAGE = "data-lh-offer-image";
   function removeTracking(document) {
     document.querySelectorAll("iframe").forEach((f) => {
       const src = f.getAttribute("src") || "";
@@ -4990,6 +5016,10 @@ var CustomImportScript = (() => {
     });
     document.querySelectorAll("img").forEach((img) => {
       const src = img.getAttribute("src") || "";
+      if (img.hasAttribute(OFFER_IMAGE)) {
+        img.removeAttribute(OFFER_IMAGE);
+        return;
+      }
       if (TRACKING_URL.test(src) || isHiddenFrame(img) && !img.closest(".container-content")) img.remove();
       else if (isHiddenFrame(img) && /^(https?:)?\/\//.test(src) && !/\/content\/dam\//.test(src)) img.remove();
     });
@@ -5215,9 +5245,30 @@ var CustomImportScript = (() => {
     }
     return null;
   }
+  var CELL_ITEM = ":is(.twocolumn, .threecolumn, .fourcolumn) > .column-view > .row > .column-view-item";
+  var CELL_TEXT = ".text, .link, .headline";
+  var CELL_SPACER = "lh-cell-spacer";
+  function isLufthansaPage(payload) {
+    const url = payload && (payload.params && payload.params.originalURL || payload.url) || "";
+    try {
+      return /(^|\.)lufthansa\.com$/.test(new URL(url).hostname);
+    } catch (e) {
+      return false;
+    }
+  }
+  function inTextCell(run) {
+    const first = run[0];
+    const last = run[run.length - 1];
+    const item = first.parentElement;
+    if (!item || !item.matches(CELL_ITEM)) return false;
+    const prev = first.previousElementSibling;
+    const next = last.nextElementSibling;
+    return !!prev && !!next && prev.matches(CELL_TEXT) && next.matches(CELL_TEXT);
+  }
   function markSeparators(document, keepInFlow, payload) {
     const template = (payload && payload.template || {}).name;
     const fillGaps = !SEPARATOR_AS_IS_TEMPLATES.includes(template);
+    const cellSpacers = isLufthansaPage(payload);
     const runs = [];
     document.querySelectorAll(".separator").forEach((sep) => {
       const last = runs[runs.length - 1];
@@ -5230,6 +5281,15 @@ var CustomImportScript = (() => {
     };
     runs.forEach((run) => {
       const infos = run.map(separatorInfo);
+      if (cellSpacers && inTextCell(run) && run.every((sep) => separatorSpace(sep) >= 10)) {
+        run.forEach((sep, i) => {
+          const div = document.createElement("div");
+          div.className = CELL_SPACER;
+          div.textContent = `{${infos[i].marker}}`;
+          sep.replaceWith(div);
+        });
+        return;
+      }
       let markers = null;
       if (infos.some((i) => i.keep) || afterGrey(run[0]) || keepInFlow && inFlow(run)) {
         markers = infos.map((i) => i.marker);
@@ -5372,7 +5432,7 @@ var CustomImportScript = (() => {
       if (el.isConnected && !el.closest("form.cmp-form") && isEmpty(el)) el.remove();
     });
   }
-  var COLUMN_MARK_TEMPLATES = ["info"];
+  var COLUMN_MARK_TEMPLATES = ["info", "fleet"];
   var COLUMN_ATTR = "data-lh-column";
   var COLUMN_KINDS = ".onecolumn, .twocolumn, .threecolumn, .fourcolumn";
   function columnMarksEnabled(payload) {
@@ -5909,6 +5969,28 @@ var CustomImportScript = (() => {
     H6: "heading-copytext-medium"
   };
   var HEADING_NOT_DEFAULT = ".twocolumn, .threecolumn, .fourcolumn, .accordion, .teaser, .sidebar, .article-details-page, form, fieldset, table";
+  function oneMainHeading(document, payload) {
+    const template = (payload && payload.template || {}).name;
+    if (!isLufthansaPage(payload) || !["info", "campaign"].includes(template)) return;
+    const headings = [...document.querySelectorAll(HEADING)].filter((h) => cleanText(h));
+    const relevel = (h, tag) => {
+      const size = HEADING_STYLES.find((c) => h.classList.contains(c)) || HEADING_DEFAULTS[h.tagName];
+      const next = document.createElement(tag);
+      [...h.attributes].forEach((a) => next.setAttribute(a.name, a.value));
+      next.append(...h.childNodes);
+      const last = [...next.childNodes].reverse().find((n) => n.nodeType === 3 && n.nodeValue.trim());
+      const marker = last && last.nodeValue.match(/\{([a-z0-9 -]+)\}\s*$/);
+      if (marker && !/(^| )(heading-|copytext-large)/.test(marker[1])) {
+        last.nodeValue = last.nodeValue.replace(/\{([a-z0-9 -]+)\}(\s*)$/, `{${size} $1}$2`);
+      } else if (!marker && !HEADING_STYLES.some((c) => next.classList.contains(c))) {
+        next.classList.add(size);
+      }
+      h.replaceWith(next);
+    };
+    const h1s = headings.filter((h) => h.tagName === "H1");
+    if (!h1s.length && headings.length) relevel(headings[0], "h1");
+    h1s.slice(1).forEach((h) => relevel(h, "h2"));
+  }
   function markHeadingStyles(document) {
     let marked = 0;
     document.querySelectorAll(HEADING).forEach((h) => {
@@ -6069,6 +6151,7 @@ var CustomImportScript = (() => {
           image = document.createElement("img");
           image.setAttribute("src", src);
           image.setAttribute("alt", "");
+          image.setAttribute(OFFER_IMAGE, "");
         }
         const body = document.createElement("div");
         const h3 = document.createElement("h3");
@@ -6194,6 +6277,7 @@ var CustomImportScript = (() => {
       normalizeImages(document, false);
       rewriteLinks(document, payload);
       stripTrackingAttributes(document);
+      oneMainHeading(document, payload);
       markHeadingStyles(document);
       convertCaptions(document);
       markParagraphStyles(document);
@@ -6829,7 +6913,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_austrian_checkin_549211_default = {
+  var tmp_bundle_austrian_checkin_602102_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -6859,5 +6943,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_austrian_checkin_549211_exports);
+  return __toCommonJS(tmp_bundle_austrian_checkin_602102_exports);
 })();
