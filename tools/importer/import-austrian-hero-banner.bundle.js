@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-austrian-hero-banner.js
-  var tmp_bundle_austrian_hero_banner_384891_exports = {};
-  __export(tmp_bundle_austrian_hero_banner_384891_exports, {
-    default: () => tmp_bundle_austrian_hero_banner_384891_default
+  var tmp_bundle_austrian_hero_banner_438355_exports = {};
+  __export(tmp_bundle_austrian_hero_banner_438355_exports, {
+    default: () => tmp_bundle_austrian_hero_banner_438355_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -5014,7 +5014,7 @@ var CustomImportScript = (() => {
   function isBlockComponent(el) {
     return !!el && !el.matches(`${FLOW_COMPONENT}, .separator`);
   }
-  function missingSeparatorMarkers(run, flow) {
+  function missingSeparatorMarkers(run, flow, template) {
     const first = run[0];
     const last = run[run.length - 1];
     const parent = first.parentElement;
@@ -5038,6 +5038,10 @@ var CustomImportScript = (() => {
     }
     if (prev && next && isBlockComponent(prev) && (isBlockComponent(next) || isUntitledColumnView(next))) {
       return infos.map((i) => i.marker);
+    }
+    if (template === "campaign" && run.length === 1 && prev && next && prev.matches(".text")) {
+      if (next.matches(".image:not(:has(video, .videoViewer))")) return [infos[0].marker];
+      if (next.matches(".carousel")) return [infos[0].marker.replace(/^spacer-\d+/, `spacer-${Math.max(spaces[0] - 24, 0)}`)];
     }
     if (prev && !next && prev.matches(".headline")) {
       const aem = parent.closest(".container-content > .section");
@@ -5073,7 +5077,7 @@ var CustomImportScript = (() => {
       if (infos.some((i) => i.keep) || afterGrey(run[0]) || keepInFlow && inFlow(run)) {
         markers = infos.map((i) => i.marker);
       } else if (fillGaps) {
-        markers = missingSeparatorMarkers(run, keepInFlow);
+        markers = missingSeparatorMarkers(run, keepInFlow, template);
       }
       run.forEach((sep, i) => {
         if (!sep.isConnected) return;
@@ -5716,6 +5720,10 @@ var CustomImportScript = (() => {
         el.removeAttribute("data-live-link");
         return;
       }
+      if (el.hasAttribute("data-own-link")) {
+        el.removeAttribute("data-own-link");
+        return;
+      }
       const dot = (el.getAttribute("href") || "").trim().match(TAG_DOT);
       if (dot && el.tagName === "A") {
         if (SCOPE_PATHS.has(dot[1])) el.setAttribute("href", dot[1]);
@@ -5884,6 +5892,33 @@ var CustomImportScript = (() => {
     }
     document.body.append(WebImporter.Blocks.getMetadataBlock(document, meta));
   }
+  function convertFooterDisclaimer(document, pagePath) {
+    const box = document.querySelector(".footer-disclaimer");
+    if (!box) return;
+    const text = (el) => el ? el.textContent.replace(/\s+/g, " ").trim() : "";
+    const note = text(box.querySelector(".disclaimer-text"));
+    const modal = box.querySelector("maui-modal");
+    const label = (modal && modal.getAttribute("label") ? modal.getAttribute("label").replace(/\s+/g, " ").trim() : "") || text(box.querySelector("maui-link-button"));
+    const base = (String(pagePath || "").match(/^\/([a-z]{2})\/([a-z]{2})(?=\/|$)/) || [])[0];
+    const slug = label.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+    const out = [];
+    if (note) {
+      const p = document.createElement("p");
+      p.className = "copytext-small";
+      p.textContent = note;
+      out.push(p);
+    }
+    if (modal && label && base) {
+      const p = document.createElement("p");
+      const a = document.createElement("a");
+      a.setAttribute("href", `${base}/fragments/modals/${slug}`);
+      a.setAttribute("data-own-link", "");
+      a.textContent = label;
+      p.append(a);
+      out.push(p);
+    }
+    (box.closest(".footerdisclaimer") || box).replaceWith(...out);
+  }
   function removeOverlays(document) {
     document.querySelectorAll('maui-modal, .react-modal, .modal, .lightbox-modal, [role="dialog"]').forEach((m) => {
       if (m.isConnected && !m.closest(".container-content")) m.remove();
@@ -5904,6 +5939,7 @@ var CustomImportScript = (() => {
       const titleEl = document.querySelector("title");
       if (titleEl) titleEl.textContent = titleEl.textContent.replace(/(\s*\|\s*Lufthansa)+\s*$/, " | Lufthansa");
       const pagePath = currentPagePath(document, payload);
+      convertFooterDisclaimer(document, pagePath);
       detectTheme(document);
       convertBreadcrumbs(document, pagePath);
       convertFeedbackQuestionnaires(document);
@@ -6545,7 +6581,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_austrian_hero_banner_384891_default = {
+  var tmp_bundle_austrian_hero_banner_438355_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -6575,5 +6611,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_austrian_hero_banner_384891_exports);
+  return __toCommonJS(tmp_bundle_austrian_hero_banner_438355_exports);
 })();
