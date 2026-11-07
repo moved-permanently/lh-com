@@ -57,8 +57,9 @@ function sitePath(href) {
 
 /**
  * Breadcrumb values of a page from its head: label (Breadcrumb title, else og:title, else the
- * title), parent links (Parent; several when the parent is outside the site) and the labels of
- * the outside links (Parent title, "A > B").
+ * title), parent links (Parent; several when the parent is outside the site), the labels of
+ * the outside links (Parent title, "A > B") and the levels without a page between the page and its
+ * parent (Breadcrumb Levels, "a > b", the root's side first: Air Dolomiti's unlinked crumbs).
  * @param {Document} doc
  */
 function readPage(doc) {
@@ -66,6 +67,7 @@ function readPage(doc) {
     label: getMetadata('breadcrumb-title', doc) || getMetadata('og:title', doc) || doc.title || '',
     parent: getMetadata('parent', doc),
     parentTitle: getMetadata('parent-title', doc),
+    levels: getMetadata('breadcrumb-levels', doc),
   };
 }
 
@@ -133,6 +135,9 @@ async function trailFromMetadata() {
   const seen = new Set([sitePath(window.location.pathname)]);
   let page = readPage(document);
   for (let depth = 0; page && page.parent && depth < MAX_DEPTH; depth += 1) {
+    // the page's levels without a page of their own: crumbs without a link before it
+    (page.levels || '').split(/\s+>\s+/).map((t) => t.trim()).filter(Boolean).reverse()
+      .forEach((label) => crumbs.unshift({ label, href: '' }));
     const titles = (page.parentTitle || '').split(/\s+>\s+/).map((t) => t.trim()).filter(Boolean);
     let outside = -1;
     const links = page.parent.split(/,\s+/).filter(Boolean).map((href) => {

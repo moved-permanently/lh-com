@@ -216,6 +216,18 @@ export function placeSearch(page) {
 }
 
 /**
+ * www's booking widget (lazyblock display-booking-widget): the flight-search block. On the route
+ * pages (the route's airports prefilled) and the booking pages after the page's hero, else where
+ * the page's blocks end; on every other page (the hubs, destinations, services: www's widget under
+ * the header, its phone card "Book your flight") where the widget is (brief 448; before, a link to
+ * the booking page).
+ */
+export function bookingWidget(page) {
+  page.search = page.search || flightSearchRows(page, page.isRoute ? routeAirports(page.source) : {});
+  if (!page.isRoute && page.tool !== 'booking') placeSearch(page);
+}
+
+/**
  * The flight-status block's rows for an Air Dolomiti status page: the number search posted to its
  * engine (digital.airdolomiti.it), the route and airport searches in the format airdolomiti (the
  * day's flights from api.airdolomiti.it, a flight's card handed to the engine; www's texts are the
@@ -973,12 +985,7 @@ const HANDLERS = {
     page.block('columns-media', [[left, `${page.img(a.img)}${card}`]]);
     return true;
   },
-  'lazyblock/display-booking-widget': (a, page) => {
-    // the route pages (the route's airports prefilled) and the booking pages: the flight-search
-    // block (after the page's hero, else where the page's blocks end); elsewhere the booking link
-    if (page.isRoute || page.tool === 'booking') page.search = page.search || flightSearchRows(page, page.isRoute ? routeAirports(page.source) : {});
-    else page.add(page.booking());
-  },
+  'lazyblock/display-booking-widget': (a, page) => bookingWidget(page),
   // the timetable page's widget: flight-timetable (elsewhere the booking link)
   'lazyblock/widget-full-page': (a, page) => {
     if (page.tool !== 'timetable') { page.add(page.booking()); return; }
@@ -1214,11 +1221,16 @@ export function breadcrumbRows(rendered, sourceUrl, { exists = sitePage, home = 
   }).filter((c) => c.text);
   if (crumbs.length < 2) return [];
   const prefix = HOMES[langOf(sourceUrl)] || '/';
-  const parents = crumbs.slice(0, -1).filter((c) => c.href).map((c) => edsPath(new URL(c.href, sourceUrl).href)).filter(Boolean);
+  const pathOf = (c) => (c.href ? edsPath(new URL(c.href, sourceUrl).href) : null);
+  const parents = crumbs.slice(0, -1).map(pathOf).filter(Boolean);
   const found = [...parents].reverse().find((p) => p !== prefix && exists(p)) || prefix;
   // (the English and German homepages by their pages' address: aem.page answers the slash-less one with 404)
   const parent = HOME_PAGES[found] || found;
-  return [['Parent', `<a href="${attr(parent)}">${esc(parent)}</a>`], ['Breadcrumb Title', esc(crumbs[crumbs.length - 1].text)]];
+  // the crumbs between the Parent's and the page's that are no page of the site (www's unlinked
+  // "servizi", "travel info"): levels without a link (blocks/breadcrumb Breadcrumb Levels, brief 448)
+  const at = found === prefix ? 0 : crumbs.findIndex((c) => pathOf(c) === found);
+  const levels = crumbs.slice(at + 1, -1).map((c) => c.text);
+  return [['Parent', `<a href="${attr(parent)}">${esc(parent)}</a>`], ...(levels.length ? [['Breadcrumb Levels', esc(levels.join(' > '))]] : []), ['Breadcrumb Title', esc(crumbs[crumbs.length - 1].text)]];
 }
 const HOMES = { it: '/', en: '/en', de: '/de' };
 const HOME_PAGES = { '/en': '/en/', '/de': '/de/' };

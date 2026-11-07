@@ -33,3 +33,27 @@ test('the block as flight-search (airdolomiti), once per page in a section of it
   placeSearch(page);
   assert.deepEqual(calls, [['section'], ['block', 'flight-search (airdolomiti)', [['Open label', 'Prenota il tuo volo']]], ['section']]);
 });
+
+test('www\'s booking widget on any other page (hubs, destinations, services; brief 448): the flight search where the widget is, no booking link', async () => {
+  const { bookingWidget } = await import('../tools/importer/airdolomiti-import.mjs');
+  const calls = [];
+  const page = {
+    rendered: widget('Book your flight'),
+    lang: 'en',
+    isRoute: false,
+    tool: null,
+    section: () => calls.push(['section']),
+    block: (name, rows) => calls.push(['block', name, rows.find(([k]) => k === 'Open label')]),
+    note: () => {},
+    booking: () => { calls.push(['booking link']); return ''; },
+    add: () => calls.push(['add']),
+  };
+  bookingWidget(page);
+  assert.deepEqual(calls, [['section'], ['block', 'flight-search (airdolomiti)', ['Open label', 'Book your flight']], ['section']]);
+  // the route and booking pages as before: the rows now, the block after the page's hero
+  const route = { ...page, isRoute: false, tool: 'booking', search: null };
+  calls.length = 0;
+  bookingWidget(route);
+  assert.deepEqual(calls, [], 'placed later (after the hero)');
+  assert.ok(route.search && route.search.length, 'the rows');
+});

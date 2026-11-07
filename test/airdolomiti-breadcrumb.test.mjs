@@ -20,10 +20,11 @@ test('an inner page: Parent the language\'s homepage, its crumb the page\'s titl
     breadcrumbRows(trail([['Home', '/'], ['Orario Voli']]), 'https://www.airdolomiti.it/orario-voli', { exists }),
     [['Parent', '<a href="/">/</a>'], ['Breadcrumb Title', 'Orario Voli']],
   );
-  // an unlinked middle crumb (www: "extra services") is no page: Parent the homepage
+  // an unlinked middle crumb (www: "extra services") is no page: Parent the homepage, the crumb a
+  // level without a link (Breadcrumb Levels, brief 448)
   assert.deepEqual(
     breadcrumbRows(trail([['Home', '/'], ['extra services'], ['eSIM']], 'Breadcrumb'), 'https://www.airdolomiti.eu/extra-services/plans-esim', { exists }),
-    [['Parent', '<a href="/en/">/en/</a>'], ['Breadcrumb Title', 'eSIM']],
+    [['Parent', '<a href="/en/">/en/</a>'], ['Breadcrumb Levels', 'extra services'], ['Breadcrumb Title', 'eSIM']],
   );
 });
 
@@ -32,10 +33,10 @@ test('a linked ancestor that is a page of the site is the Parent (www\'s absolut
     breadcrumbRows(trail([['Home', '/'], ['Articoli', '/articoli'], ['Travellers', 'https://www.airdolomiti.it/articoli/travellers'], ['Bambini a bordo']]), 'https://www.airdolomiti.it/articoli/travellers/bambini-a-bordo', { exists }),
     [['Parent', '<a href="/articoli/travellers">/articoli/travellers</a>'], ['Breadcrumb Title', 'Bambini a bordo']],
   );
-  // an ancestor the site doesn't have: the next one up
+  // an ancestor the site doesn't have: the next one up, the ancestor's crumb a level without a link
   assert.deepEqual(
     breadcrumbRows(trail([['Home', '/'], ['Hub', '/de/hub'], ['Seite']]), 'https://www.airdolomiti.de/hub/seite', { exists }),
-    [['Parent', '<a href="/de/">/de/</a>'], ['Breadcrumb Title', 'Seite']],
+    [['Parent', '<a href="/de/">/de/</a>'], ['Breadcrumb Levels', 'Hub'], ['Breadcrumb Title', 'Seite']],
   );
 });
 

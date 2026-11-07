@@ -231,6 +231,7 @@ body.brand-airdolomiti .hero-campaign .hero-campaign-content h1 {
 body.brand-airdolomiti .breadcrumb ol {
   font-size: 15px;
   line-height: 26px;
+  text-transform: capitalize;
 }
 
 body.brand-airdolomiti .breadcrumb li,
@@ -255,6 +256,11 @@ body.brand-airdolomiti .breadcrumb li + li::before {
 
 body.brand-airdolomiti .breadcrumb a:any-link {
   color: var(--lh-midnight);
+  font-weight: 600;
+}
+
+/* a level without a page (Breadcrumb Levels: www's unlinked "servizi"), semibold as www's crumbs */
+body.brand-airdolomiti .breadcrumb li:not(.breadcrumb-current) > span {
   font-weight: 600;
 }
 
