@@ -883,3 +883,79 @@ included the carousel's cards.
 3. lh-airdolomiti: 354 documents.
 
 Both lists are in preview-paths-448.txt.
+
+## Brief 452: the finder's last languages, Air Dolomiti's booking strip and paging, the next parity rows
+
+Nothing was published. **No documents were uploaded:** from the start of item 2's documents, DA and
+admin.hlx.page answered 401 (the Adobe credentials opt-in is off). The 224 documents are prepared
+locally and listed in preview-paths-452.txt; they need DA access to be uploaded and previewed.
+
+At the start of this turn only .migration/project.json was uncommitted (local tool state, kept
+out of git).
+
+Before each push: a pull (fetch and rebase), lint and the full suite (2,398 tests, 0 failures).
+Every brand's smoke before and after: 0 differences. TAP's 40 pages by hand after the push:
+all 200, the same as before.
+
+### 1. The finder's announcement in the last seven languages (8688f26e)
+
+- The seven archives match the brief's sha256. The drop has no `.sha256` next to them (404).
+- Each was unpacked into its own folder; nothing in them was run.
+- They carry no label bundle: the capture removed their scripts, and the key is in none of their
+  707 files.
+- But each language's homepage has the rendered live region next to its chips. Its text, with
+  the checked chip's label as {TRIPTYPE}, is www's template:
+  - pt "{TRIPTYPE} ofertas são mostradas"
+  - ru "Показано предложений: {TRIPTYPE}"
+  - zh "{TRIPTYPE} 优惠已显示"
+  - el "Εμφανίζονται {TRIPTYPE} προσφορές"
+  - ja "{TRIPTYPE}のオファーを表示しています"
+  - ko "{TRIPTYPE} 특가 표시됨"
+  - pl "Wyświetlono oferty: {TRIPTYPE}"
+- Every language the finder has labels for now uses www's wording.
+
+### 2. Air Dolomiti's booking strip as www's (a17b2d80; documents waiting)
+
+- The flight-search option strip applies to the variant airdolomiti only:
+  - the departure starts empty, as www's (an authored or prefilled origin still fills it);
+  - from 1025 px the trip type tabs are hidden in the row; the phone panel keeps them, as www's.
+- The importer writes it where www's widget sits under the header.
+- Checked on the local dev server by giving /en/destinations the option on the way in:
+  - at 1440: no tabs, departure empty;
+  - at 390: the tabs in the panel.
+- The 224 documents carry the option locally. Their base is brief 448's uploaded copies, since DA
+  can't be read.
+
+### 3. /destinazioni (a17b2d80)
+
+The paging shows a lone "1" between the disabled arrows when there is one page, as www's. Checked
+on main--lh-airdolomiti--moved-permanently.aem.page/destinazioni. The document needed no change.
+
+### 4. The next parity rows (row 51, the largest; a17b2d80)
+
+- Assistance: its 17 FAQ accordions are www's TogleTariffe, styled until now only beside the help
+  card. The footer was 1,184 px off www's position at 1440 and is now 188; at 390, from 2,233 to
+  151. Its contact lists are now set as the text around them.
+- Flights to Europe: the line after "Flights from …" is 16/22 across the page, as www's.
+- The 38/46 section headings from 930 px were not applying. In 0f22c8b6 that rule came before the
+  34/42 default in the file, so headings stayed 34 px on desktop. This was my bug; the tests now
+  check the order.
+- New open rows in parity.md:
+  - 53: the booking pages' phone card. The importer is fixed; 3 documents wait for DA.
+  - 54: the booking form's flexible dates.
+  - 55: flights to Europe's route cards (www's CardPromo).
+  - 56: assistance's outline button.
+
+### Summary
+
+| Item | Commit | What | Rollback |
+| --- | --- | --- | --- |
+| 1 | 8688f26e | destination-finder: www's pt, ru, zh, el, ja, ko, pl announcement | revert |
+| 2 to 4 | a17b2d80 | flight-search strip (Air Dolomiti only); importer strip and booking pages; paging's lone "1"; every FAQ accordion, lists, heading order in airdolomiti.css | revert |
+| — | (this push) | parity.md rows 36, 38, 51, 53 to 56; this report; preview-paths-452.txt | revert |
+
+### Preview path lists, in release order
+
+1. Code on main: 8688f26e, a17b2d80.
+2. Waiting for DA access: 224 Air Dolomiti documents (the strip), then /prenotazioni,
+   /en/booking and /de/buchung. All are listed in preview-paths-452.txt.
