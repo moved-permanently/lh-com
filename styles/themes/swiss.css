@@ -113,6 +113,11 @@
   --heading-line-height: 1.1;
   --heading-letter-spacing: 0.7px;
 
+  /* the headings' space below as www's (the 60 parity pages' captures, brief 445): h2 20 px (40 px
+     from 1025 px, below), heading-small 20 px at every width */
+  --heading-margin-xl: 20px;
+  --heading-margin-l: 20px;
+
   /* buttons: square, 50 px, 18 px bold, 8 px 30 px; primary white on lx-red, secondary and the
      buttonsecondary fill warm grey (pine grey on hover) */
   --button-radius: 0;
@@ -209,6 +214,7 @@
 @media (width >= 1025px) {
   :root {
     --header-bar-padding: 38px 80px 39px;
+    --heading-margin-xl: 40px;
   }
 }
 
