@@ -1,0 +1,26 @@
+# Brief 467: www.lufthansa.com's help center data for lh-edge's copies (digitalhangar-copies/, as SWISS's LX, Austrian's OS and ITA's have); www answers lh-edge 403 for these. One URL per line.
+https://www.lufthansa.com/digitalhangar/cs-help-center/feature-manager/LH/features.json
+https://www.lufthansa.com/digitalhangar/cs-help-center/topics/LH/topics_en.json
+https://www.lufthansa.com/digitalhangar/cs-help-center/translations/web/LH/en.json
+https://www.lufthansa.com/digitalhangar/cs-help-center/topics/LH/topics_de.json
+https://www.lufthansa.com/digitalhangar/cs-help-center/translations/web/LH/de.json
+https://www.lufthansa.com/digitalhangar/cs-help-center/topics/LH/topics_fr.json
+https://www.lufthansa.com/digitalhangar/cs-help-center/translations/web/LH/fr.json
+https://www.lufthansa.com/digitalhangar/cs-help-center/topics/LH/topics_it.json
+https://www.lufthansa.com/digitalhangar/cs-help-center/translations/web/LH/it.json
+https://www.lufthansa.com/digitalhangar/cs-help-center/topics/LH/topics_es.json
+https://www.lufthansa.com/digitalhangar/cs-help-center/translations/web/LH/es.json
+https://www.lufthansa.com/digitalhangar/cs-help-center/topics/LH/topics_pt.json
+https://www.lufthansa.com/digitalhangar/cs-help-center/translations/web/LH/pt.json
+https://www.lufthansa.com/digitalhangar/cs-help-center/topics/LH/topics_ru.json
+https://www.lufthansa.com/digitalhangar/cs-help-center/translations/web/LH/ru.json
+https://www.lufthansa.com/digitalhangar/cs-help-center/topics/LH/topics_zh.json
+https://www.lufthansa.com/digitalhangar/cs-help-center/translations/web/LH/zh.json
+https://www.lufthansa.com/digitalhangar/cs-help-center/topics/LH/topics_ja.json
+https://www.lufthansa.com/digitalhangar/cs-help-center/translations/web/LH/ja.json
+https://www.lufthansa.com/digitalhangar/cs-help-center/topics/LH/topics_ko.json
+https://www.lufthansa.com/digitalhangar/cs-help-center/translations/web/LH/ko.json
+https://www.lufthansa.com/digitalhangar/cs-help-center/topics/LH/topics_el.json
+https://www.lufthansa.com/digitalhangar/cs-help-center/translations/web/LH/el.json
+https://www.lufthansa.com/digitalhangar/cs-help-center/topics/LH/topics_pl.json
+https://www.lufthansa.com/digitalhangar/cs-help-center/translations/web/LH/pl.json

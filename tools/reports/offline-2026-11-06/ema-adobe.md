@@ -1178,3 +1178,88 @@ Checked on:
 - a local server with the draft (port 3002);
 - the ten turnsthe.page hosts with baselines, plus brussels and swiss against their recordings;
 - lh-swiss's preview (swiss-smoke) and tap.turnsthe.page.
+
+## Brief 467 (grids under headings at 390, SWISS two-up, open parity rows)
+
+- Left from the last turn, not in git: the generated import reports under tools/importer/reports
+  (never committed) and the scratch in logs/b460, logs/b461 and logs/b464. Nothing was unpushed.
+- One code push after a pull: `2ff55ae..e5c9ba9` (73c2ea5, e5c9ba9). Lint and the full suite
+  passed before it (lh-edge 64 files, site 507, 0 failing). The deploy serves the new rule.
+- Smoke before and after: the ten hosts with a baseline match their before run, check for
+  check. brussels and swiss match their brief 464 recordings (97 checks each, 0 differ).
+  SWISS's hosts were checked by hand (swiss-smoke as before), and tap.turnsthe.page/pt-pt
+  answers 200.
+
+### 1. Grids under a heading at 390 (done, 73c2ea5)
+
+- The rule from brief 464, lufthansa.com only: below 768 px, a grid (not overlay, not
+  spacious) right after a heading starts 12 px under it, so heading to first picture is www's
+  40 px. After a text, and from 768 px, the 32 px stay. The test came first.
+- ema-cashub's two templates (online-check-in, flight-search): I checked them and changed no
+  template; their documents are untouched, only the rule applies.
+- Measured against www's captures (lh-parity-002), before (preview) and after (local, then
+  preview after the push, the same numbers):
+
+  | Page | 1440 | 768 | 390 |
+  | --- | --- | --- | --- |
+  | baggage | 11.1 → 11.1 % | 11.5 → 11.5 % | 10.3 → 9.2 % |
+  | flight-search | 13.1 → 13.1 % | 14.0 → 14.0 % | 17.7 → 11.3 % |
+  | online-check-in | 8.6 → 8.6 % | 14.5 → 14.5 % | 37.4 → 37.4 % |
+  | traveltricks | 20.0 → 20.0 % | 32.9 → 32.9 % | 30.9 → 30.9 % |
+
+  - baggage (and gepaeck): its three grids now sit 40 px under their headings, as on www.
+  - flight-search: the grid's step at 390 went from +31 to +11 px.
+  - online-check-in: its grid is 41 px under the heading now; the page's 390 difference is
+    elsewhere (www's page is 1,600 px taller there).
+  - traveltricks: its grid is spacious, so the rule leaves it alone; unchanged, as expected.
+  - 768 and 1440 are unchanged on all four.
+- No re-imports: CSS only.
+
+### 2. SWISS row 41: cards two to a row (done, e5c9ba9 and 27 documents)
+
+- The fleet and travel regulations hubs already had it: the fleet two-up since brief 450, and
+  travel regulations is four to a row on www too, as ours.
+- The documents still showing www's two-column card views three to a row were imported before
+  withTwoUpCards. Across the 456 snapshot pages with such views, 27 were still missing it:
+  airbus-longhaul in 12 languages, the new destinations pages, corporate careers and SDG, and
+  one local page.
+- Test first: withTwoUpCards on DA's copy of /ch/en/discover/fleet/airbus-longhaul and www's
+  page: three grids get two-up, nothing else changes, and running it again changes nothing.
+- The 27 were built from DA's own copies (a rollback is in logs/b467/da), uploaded and
+  previewed, not published. DA's copies match the local ones.
+
+### 3. Open parity rows
+
+- lufthansa row 12 (the Monetate offer block) now records your later answer (www's four cards,
+  8510d01, pictures kept by 7152e27).
+- lufthansa row 19 (help & contact without its stage photo): the cause is found.
+  - On lufthansa.turnsthe.page the help app's script loads, but
+    /digitalhangar/cs-help-center/feature-manager/LH/features.json answers 403 through lh-edge
+    (www refuses lh-edge's fetch), so the app shows its fallback.
+  - On aem.page the script itself is CORS-blocked.
+  - lh-edge already serves recorded copies of these files for LX, OS and ITA, but LH has none.
+  - The fix needs LH's files as an archive: [capture-467-lh-help-center.txt](capture-467-lh-help-center.txt),
+    25 www URLs (features.json, plus topics and translations for 12 languages).
+- What stays open: lufthansa row 18 (the travellers panel, ema-cashub's flight search) and SWISS
+  row 35 (offer fares, data I can't verify).
+
+### Documents
+
+- 27 SWISS documents uploaded and previewed, nothing published, in release order:
+  [../swiss/preview-paths-467.txt](../swiss/preview-paths-467.txt) (the code is on main).
+- lh-com: none (CSS only). No harness re-imports.
+
+| Item | Commit | What |
+| --- | --- | --- |
+| 1 | 73c2ea5 | lufthansa.com: a grid under a heading 40 px down on phones |
+| 2 | e5c9ba9 | SWISS withTwoUpCards test; 27 documents two-up |
+
+Checked on:
+- main--lh-com--moved-permanently.aem.page: the four pages at 1440, 768 and 390, before and
+  after the push;
+- a local server with the draft (port 3001);
+- lufthansa.turnsthe.page and aem.page: the help app's requests (row 19);
+- admin.da.live: DA's copies of the 27 SWISS documents read, then uploaded;
+  main--lh-swiss--moved-permanently.aem.page: those 27 previewed;
+- the ten turnsthe.page hosts with baselines, plus brussels and swiss against their recordings;
+- lh-swiss's preview (swiss-smoke) and tap.turnsthe.page.

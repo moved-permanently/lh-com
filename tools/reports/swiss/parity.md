@@ -83,7 +83,7 @@ Heights are ours over www's.
 | 38 | Second-level menu pages (baggage, airport, check-in, lounges, travel regulations, fleet, corporate customers, children travelling): every card ends with a link row | the title the link, no link row (0.88 to 0.93) | document | mine | fixed (brief 445, c8fbca6, withCardLinks): baggage 1.00, airport 0.98 at 1440 |
 | 39 | Icon teasers (teaser usp: the legal page, the FAQ hub): a 64 / 72 px icon centred above a 24 / 26.4 px title, no frame | framed cards with the icon at the card's width (legal 1.75), small red tiles (FAQ 0.82) | document; theme | mine | fixed (brief 445, c8fbca6): legal 1.02, FAQ 1.03 at 1440 |
 | 40 | Headings' space below: h2 40 px at 1440 (20 px on phones), heading-small and text h3 20 px | 32 px (24 px on phones) | theme | mine | fixed (brief 445, 392ff5c) |
-| 41 | Fleet, travel regulations: the cards two to a row | three-column grid, narrower cards (0.92, 0.93) | document | mine | open: the option two-up, next round |
+| 41 | Fleet, travel regulations: the cards two to a row | three-column grid, narrower cards (0.92, 0.93) | document | mine | fixed: the fleet and travel regulations hubs had it since brief 450 (fleet two-up; travel regulations is four to a row on www too, as ours); brief 467 gave two-up to the 27 documents still without it (the fleet's airbus-longhaul in 12 languages, the new destinations pages, corporate careers and SDG, one local page; withTwoUpCards against the snapshots, uploaded and previewed: preview-paths-467.txt) |
 
 ## Accessibility (WCAG 2.0-2.2 A/AA)
 
