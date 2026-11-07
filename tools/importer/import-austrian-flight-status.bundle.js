@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-austrian-flight-status.js
-  var tmp_bundle_austrian_flight_status_205533_exports = {};
-  __export(tmp_bundle_austrian_flight_status_205533_exports, {
-    default: () => tmp_bundle_austrian_flight_status_205533_default
+  var tmp_bundle_austrian_flight_status_188278_exports = {};
+  __export(tmp_bundle_austrian_flight_status_188278_exports, {
+    default: () => tmp_bundle_austrian_flight_status_188278_default
   });
 
   // tools/importer/parsers/flight-status.js
@@ -5797,12 +5797,15 @@ var CustomImportScript = (() => {
   var FIRST = "data-excat-section-first";
   var SOURCE_STYLE = "data-excat-section-source-style";
   var TAB = "data-excat-section-tab";
+  var TABS = "data-excat-section-tabs";
+  var TAB_MARK = /^@@tab@@(\d+)@@(.*?)@@/;
+  var END_MARK = /^@@tabs-end@@/;
   var FOLLOWING = 4;
   var TAB_PANEL = "maui-tab-control-panel-responsive";
   var TAB_COLUMNS = ".twocolumn, .threecolumn, .fourcolumn, .accordion";
   var SOURCE_STYLES = [[".container-gray", "grey"], [".image-wrapper.full-width-bg", "full-bleed"]];
   var STYLE_SKIP = ".sticky-price-wrapper, .dcep-sticky-price";
-  var REGION_STOP = '.section-content, .container-content, .author-details-page, .column-view-item, [class*="col-"], .contentpage, main, body';
+  var REGION_STOP = '.section-content, .container-content, .author-details-page, .column-view-item, [class*="col-"], .contentpage, maui-tab-control-panel-responsive, main, body';
   var MEDIA2 = "img, picture, video, iframe, svg, table, input, select, textarea, button";
   function nextBreak(document, marker) {
     const after = (list) => [...list].find((hr) => hr !== marker && marker.compareDocumentPosition(hr) & FOLLOWING && !hr.closest("table"));
@@ -5932,7 +5935,33 @@ var CustomImportScript = (() => {
         prev.setAttribute(attr, merged);
       });
       if (hr.hasAttribute(TAB)) prev.setAttribute(TAB, hr.getAttribute(TAB));
+      if (hr.hasAttribute(TABS)) prev.setAttribute(TABS, hr.getAttribute(TABS));
       hr.remove();
+    });
+  }
+  function markPanelBreaks(document) {
+    document.querySelectorAll(TAB_PANEL).forEach((panel) => {
+      const own = panel.previousElementSibling;
+      if (!own || !own.matches(`hr[${TAB}]`)) return;
+      panel.querySelectorAll(`hr[${BREAK}]`).forEach((hr) => {
+        if (!hr.hasAttribute(TAB)) hr.setAttribute(TAB, own.getAttribute(TAB));
+      });
+    });
+    let set = null;
+    document.querySelectorAll(`hr[${BREAK}], p`).forEach((node) => {
+      if (node.tagName === "P") {
+        const line = (node.textContent || "").trim();
+        const m = line.match(TAB_MARK);
+        if (!m && !END_MARK.test(line)) return;
+        if (set && set.broken) (node.closest(".text") || node).before(createBreak(document));
+        set = m ? { tabs: m[1], tab: m[2].trim() } : null;
+        return;
+      }
+      if (!set) return;
+      set.broken = true;
+      if (node.hasAttribute(TAB)) return;
+      node.setAttribute(TAB, set.tab);
+      node.setAttribute(TABS, set.tabs);
     });
   }
   function transform2(hookName, element, payload) {
@@ -6007,6 +6036,7 @@ var CustomImportScript = (() => {
         });
         control.after(createBreak(document));
       });
+      markPanelBreaks(document);
     }
     if (hookName === "afterTransform") {
       dropEmptyBreaks(document, element);
@@ -6025,10 +6055,11 @@ var CustomImportScript = (() => {
       marked.reverse().forEach((marker) => {
         const style = styleOf(marker);
         const tab = marker.getAttribute(TAB);
+        const tabs = marker.getAttribute(TABS);
         if (style || tab) {
           const meta = WebImporter.Blocks.createBlock(document, {
             name: "Section Metadata",
-            cells: __spreadValues(__spreadValues({}, style ? { style } : {}), tab ? { Tab: tab } : {})
+            cells: __spreadValues(__spreadValues(__spreadValues({}, style ? { style } : {}), tab ? { Tab: tab } : {}), tab && tabs ? { Tabs: tabs } : {})
           });
           const next = nextBreak(document, marker);
           if (next) next.parentNode.insertBefore(meta, next);
@@ -6040,7 +6071,7 @@ var CustomImportScript = (() => {
           hr.remove();
           return;
         }
-        [MARKER, SOURCE_STYLE, TAB, BREAK].forEach((attr) => hr.removeAttribute(attr));
+        [MARKER, SOURCE_STYLE, TAB, TABS, BREAK].forEach((attr) => hr.removeAttribute(attr));
       });
     }
   }
@@ -6354,7 +6385,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_austrian_flight_status_205533_default = {
+  var tmp_bundle_austrian_flight_status_188278_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -6384,5 +6415,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_austrian_flight_status_205533_exports);
+  return __toCommonJS(tmp_bundle_austrian_flight_status_188278_exports);
 })();
