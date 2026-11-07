@@ -176,6 +176,16 @@ body.brand-lufthansa main > .section:has(> .cards-teaser-wrapper:last-child > .c
   margin: 0;
 }
 
+/* a grid right after a heading on phones (brief 467): www's column view has no top padding below
+   768px, its items 12px, so the heading's margin and 12px put the first picture 40px under the
+   heading (/de/en/baggage at 390; ours was 60px with the 32px above); after a text, and from 768px,
+   the 32px stay */
+@media (width < 768px) {
+  body.brand-lufthansa main .default-content-wrapper:has(> :is(h2, h3, h4, h5, h6):last-child) + .cards-teaser-wrapper > .cards-teaser:not(.overlay, .spacious) > ul {
+    padding-top: 12px;
+  }
+}
+
 /* lh-com: the titles keep their own margins (h3.heading-small 3.2rem, h2.heading-medium 3.2rem at
    1440); the body rule above (.cards-teaser-body > *: 24px) outranked the :where() title rules.
    A size marker keeps the marker's margin */
