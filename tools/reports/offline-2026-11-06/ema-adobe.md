@@ -1263,3 +1263,104 @@ Checked on:
   main--lh-swiss--moved-permanently.aem.page: those 27 previewed;
 - the ten turnsthe.page hosts with baselines, plus brussels and swiss against their recordings;
 - lh-swiss's preview (swiss-smoke) and tap.turnsthe.page.
+
+## Brief 472 (visual parity sweep of lufthansa.com and SWISS)
+
+- Left from the last turn, not in git: the generated import reports under tools/importer/reports
+  (never committed) and the scratch in logs/b460, b461, b464 and b467 (with the 27 SWISS rollback
+  copies). Nothing was unpushed. This turn's scratch is in logs/b470 (captures, analysis, drafts).
+- One code push after a pull: `9a2b720..c20b77e` (240924c, c20b77e). Lint and the full suite
+  passed before it (lh-edge 64 files, site 519, 0 failing). The new rule is served on aem.page,
+  aem.live and lufthansa.turnsthe.page.
+- Smoke before and after: the ten hosts with a baseline match their before run, check for check;
+  brussels and swiss match their brief 467 recordings (97 checks each, 0 differ); SWISS's hosts
+  by hand (swiss-smoke as before) and tap.turnsthe.page/pt-pt answers 200.
+
+### 1. The sweep
+
+- Archives: lh-parity-003 checks against its record in lh-deliveries.json (`67912ec2…6a900`);
+  swiss-parity-001 against the one in swiss/parity.md (`75a70815…b976f`). The drop has no
+  `.sha256` files for either (`.tar.gz.sha256`, `.sha256`, `.sha256sum` answer 404).
+- lh-parity-003 is part e of the 2026-11-06 capture (6 pages that replace 002's), so the sweep
+  took the whole capture: 296 lufthansa.com pages (002a to -002d, already here) and SWISS's 24, at
+  1440 and 390, ours on lufthansa.turnsthe.page and swiss.turnsthe.page with capture.js's settle
+  steps. No www page was requested.
+- Measured: page height, the pixel difference with the live-widget mask (as baggage), and where
+  each of our h1/h2, block tops and pictures sits in www's screenshot (image matching; SWISS
+  headings also against www's recorded boxes).
+- One slip to report: to try the draft rules I first ran 64 Insights and 49 SWISS captures on a
+  local server. There our themes' fonts fall back to www's address (www.lufthansa.com,
+  www.swiss.com), so those captures fetched the font files from www. I stopped that run and
+  measured on the turnsthe.page hosts with the draft CSS injected instead.
+- The file: [../parity-2026-11-08/sweep-lh-swiss.md](../parity-2026-11-08/sweep-lh-swiss.md),
+  one line per page and width (640), worst first, the cause where found, and the list for you.
+
+Top 10 (page and width, difference, cause):
+
+| # | Page | Width | Diff | Cause |
+| --- | --- | --- | --- | --- |
+| 1 | /de/en/business-class-on-short-and-medium-haul (info) | 390 | 45.5 % | the columns-media rows from "Relaxation right from the start" on 188 px lower (ema-cashub, not diagnosed) |
+| 2 | /de/en/100-years/fleet (campaign) | 1440 | 38.5 % | www's 15 spec tables missing: fixed in the template, re-import |
+| 3 | /de/en/online-check-in (app-entry) | 390 | 37.4 % | www's three tab panels (ema-cashub) |
+| 4 | /de/en/overview-manage (hub) | 390 | 37.4 % | www's 2026-11-06 page shows Check-in without its picture; a fresh snapshot decides |
+| 5 | /de/en/articles/tags/allegris (insights) | 1440 | 37.3 % | re-imported during the sweep (brief 464 list); 34.3 % in the later run |
+| 6 | loungenet fra-first-class-lounge-b (lounge) | 390 | 36.7 % | not diagnosed (the same page twice on www) |
+| 7 | loungenet muc-first-class-lounge (lounge) | 390 | 36.7 % | as 6 |
+| 8 | /de/en/articles/tags/allegris (insights) | 390 | 36.5 % | as 5 (30.4 % later) |
+| 9 | /de/en/most-significant-route (campaign) | 390 | 34.4 % | the accordion flattened: fixed in the template, re-import |
+| 10 | /de/en/economy-class (info) | 390 | 34.1 % | not diagnosed (ema-cashub) |
+
+SWISS's worst are the magazine article at 390 (32.9 %, 32.2 %: www's ad slots, left out by design).
+
+### 2. Fixes (mine)
+
+- **Campaign template (240924c):** two mappings it lacked.
+  - Accordions: www's accordions on most-significant-route and stopover lost their titles and were
+    flattened (+1,420 px at 390; +2,652 px at 1440). Mapped to accordion-columns as the other
+    templates do.
+  - Tables: 100-years/fleet's 15 spec tables never reached the documents (9,685 px shorter at
+    1440). Mapped to table-striped, and a view with a table is left out of columns-media.
+  - Drafted offline from the snapshots with the rebuilt bundle: of the 21 de/en campaign
+    documents only these pages change, plus frankfurt-fair, which is older than today's importer
+    (its benefits grid and text columns flattened).
+- **Insights (c20b77e):** the text after the "This may also be of interest to you" cards ran at the
+  cards' width instead of two thirds. Barcelona 27.5 → 21.9 %, Berlin 24.5 → 18.6 % at 1440 on
+  lufthansa.turnsthe.page after the deploy; 390 unchanged; the other 30 Insights pages as before
+  (draft run).
+- **SWISS card grids (swiss row 42, open):** www has two column-view spacings (a wrapper with class
+  `section`: the first card 72 px under the H1 at 390; a plain one: about 60 px), and our documents
+  don't tell them apart. One theme rule for both fixed half the hubs and broke the other half
+  (mean 14.7 → 14.8 %), so I reverted it. Next: the SWISS importer marks each grid from www's
+  wrapper, then a rule per kind (16 documents).
+- Parity rows: lufthansa 26 to 28, swiss 42.
+
+### 3. For you
+
+- Causes in other agents' files, with www's and our counts: in the sweep file ("For you").
+  ema-cashub: 18 info, legal, app-entry and form pages (accordions and tabs not imported as such,
+  pages 500 to 8,100 px off, feedbackai rendering only its viewport). ema-test: nothing.
+- A fresh snapshot of www's /de/en/overview-manage (is the Check-in picture gone?).
+
+### Documents
+
+- None uploaded this round.
+- For your harness: [../parity-2026-11-08/reimport-472-lh-com.txt](../parity-2026-11-08/reimport-472-lh-com.txt),
+  28 documents in release order (the accordion pages' 14 versions, 100-years/fleet's 7,
+  frankfurt-fair's 7). stopover's hero becomes `narrow` (today's parser).
+
+| Item | Commit | What |
+| --- | --- | --- |
+| 2 | 240924c | campaign template: accordions and spec tables kept |
+| 2 | c20b77e | Insights: article text two thirds after the cards too |
+
+Checked on:
+- lufthansa.turnsthe.page and swiss.turnsthe.page: the sweep (640 page-widths), the draft rules
+  injected, and the two Insights pages after the deploy;
+- main--lh-com--moved-permanently.aem.page: the documents' current blocks (.plain.html), the
+  served styles; aem.live: the served styles;
+- an offline browser (every request aborted): 21 campaign drafts from the bd-snapshots;
+- the archive's own HTML and CSS, rendered locally (no requests out): SWISS's card styles and
+  column views;
+- a local server (ports 3011, 3012): the first draft run, stopped (see the slip above);
+- the ten turnsthe.page hosts with baselines, plus brussels and swiss against their recordings;
+- lh-swiss's preview (swiss-smoke) and tap.turnsthe.page.
