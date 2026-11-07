@@ -959,3 +959,114 @@ on main--lh-airdolomiti--moved-permanently.aem.page/destinazioni. The document n
 1. Code on main: 8688f26e, a17b2d80.
 2. Waiting for DA access: 224 Air Dolomiti documents (the strip), then /prenotazioni,
    /en/booking and /de/buchung. All are listed in preview-paths-452.txt.
+
+## Brief 456: the waiting documents uploaded, Air Dolomiti rows 53 to 56, then rows 43, 44, 47 and 40
+
+Nothing was published. DA answered 200 from the first read of this turn, so everything prepared
+in brief 452 went up first. **391 uploads of 255 distinct Air Dolomiti documents** were made to DA
+and previewed, in the release order of preview-paths-456.txt. All were read back from DA afterwards
+and equal the local copies.
+
+At the start of this turn the following was uncommitted:
+
+- .migration/project.json: local tool state, kept out of git;
+- the 224 prepared strip documents in content-sites/, which is ignored.
+
+Before each of the four pushes:
+
+- a pull (fetch and rebase);
+- lint and the full suite (2,423, then 2,437, 2,444 and this push's count; 0 failures);
+- every brand's smoke before and after (0 differences; austrian-cn's /ch/de/homepage answered 503
+  in one run before the second push and 200 after, which was transient on their host);
+- TAP's 40 pages by hand after each push: all 200, the same as before.
+
+### 1. The waiting documents (no code)
+
+- **The 224 strip documents:** DA's copies still equalled brief 448's bases, so the prepared
+  documents went up unchanged.
+  - On main--lh-airdolomiti--moved-permanently.aem.page/en/destinations, at 1440: no trip type
+    tabs and an empty departure.
+  - At 390: the panel's tabs.
+- **The three booking pages:** read from DA again (unchanged since the start of the turn), and the
+  Open label row left off.
+  - On preview at 390, /prenotazioni, /en/booking and /de/buchung show the form in the page, with
+    no "Book your flight" card (row 53).
+
+### 2. Rows 54 to 56 (f0540ca2)
+
+- **Row 54 (flexible dates): not done, blocked.** None of the archive, the fixtures or
+  shop-handoff.js shows how www's hand-off sends "+/- 3 days". To build it without guessing, I
+  need a capture of www's booking request with the box ticked.
+- **Row 56 (outline button):** in the archive, every TitleDescriptionTextCta button is www's
+  outline button (style_btn_outline): 9 of 9, on assistance, the fleet and the destinations'
+  airport links. www's other 121 buttons are solid.
+  - The importer now writes that CTA as the secondary button. The theme styles it as www's:
+    1 px teal ring, no fill, 16/22 500, 18px 40px, the 28 px arrow after the label, the lighter
+    teal on hover.
+  - It measures 269 × 66 px, as www's, at 1440 and 390.
+  - 33 documents changed: the archive's 9 plus the destinations' airport links, which are the same
+    block as the archived Bari and Munich pages.
+  - Other text-block buttons (for example "Book now" on destination pages) can't be told apart
+    from title-description-cta in a document. They change at the next import from the snapshots.
+- **Row 55 (route cards):** www's select-flight-list (CardPromo) is now cards-teaser
+  (three-up, routes).
+  - Phones: one sideways row of grey 250 × 400 cards.
+  - From 930 px: 140 px cards in a 20 px grid, two a row, three from 1230 px, the picture the left
+    30 %.
+  - The boxes equal www's on flights to Europe, Munich and Bari at 1440 and 390, as do the
+    20 px gap above the cards and the 60 px below them.
+  - 71 blocks on 68 documents.
+  - www's phone arrows are not built yet (new row 58).
+
+### 3. Rows 43 and 44, the destination stage (237a1b5b, 80458997)
+
+- **Row 43 was not fully fixed.** Brief 447's stage rules only matched a section that also held
+  the "What to do" tiles, so **54 of the 85 stages still showed the old navy card** (for example
+  /en/destinations/basel). I found this while working on row 44.
+  - The importer now writes hero-card-overlay (destination), and the rules follow the option.
+  - The 6 hero cards with an h1 that are not www's HeroSecond (Miles & More and the on-board
+    service pages, 3 languages each) are left as they are.
+- **Row 44:** the section links are now a list in the stage, styled as www's pills: white, 64 px
+  high, 8 px apart, 70 px under the box, centred, a sideways row on phones.
+  - This also takes the stage off the cards-icon block, which belongs to ema-test.
+  - DA keeps each pill's link and icon in their own paragraphs, which made the pills 88 px high
+    on preview. 80458997 fixed that.
+  - 83 documents, 31 of them with pills.
+  - Checked on preview for Bari, Basel and Kattowitz at 1440 and 390.
+
+### 4. Rows 47 and 40 (80458997, and this push)
+
+- **Row 47:** the in-flight entertainment lead (www's DescritionNews) is now columns-media (news).
+  - The picture spans the page at 600 px; the text sits in a 50vw column, title 28.08/36 navy,
+    text 19.44/33 grey.
+  - The boxes equal www's at both widths. Two of www's paragraphs wrap one or two lines more,
+    which is down to font rendering.
+  - 3 documents, checked on preview.
+- **Row 40:** the manage booking text under the form is 19.44/33 grey, centred, with a blank line
+  between paragraphs, 40 px under the form.
+  - The paragraphs' heights equal www's at 1440 and 390.
+  - Code only; checked on the local dev server against main's preview content.
+- New open rows:
+  - 57: the fleet's seat map links are text links on www but buttons here;
+  - 58: the route cards' phone arrows.
+
+### Summary
+
+| Item | Commit | What | Rollback |
+| --- | --- | --- | --- |
+| 1 | a24f7162 | upload state: the 224 strip documents and the 3 booking pages (uploaded and previewed) | revert; the documents stay in DA |
+| 2 | f0540ca2 | importer (TitleDescriptionTextCta CTA secondary, select-flight-list routes), airdolomiti.css (outline button, route cards), cards-teaser README | revert |
+| 3 | 237a1b5b | importer (reach-monaco: the destination option, the pills in the stage), airdolomiti.css (the stage on the option, the pills) | revert; the 83 documents then need their tiles back (DA's earlier versions) |
+| 3, 4 | 80458997 | importer (description-news news), airdolomiti.css (the pills 64 px, the lead) | revert |
+| 4 | (this push) | airdolomiti.css (row 40); parity.md rows 40, 43, 44, 47, 53 to 58; this report; preview-paths-456.txt; the upload state | revert |
+
+### Preview path lists, in release order
+
+All in preview-paths-456.txt (391 lines, 255 distinct documents, lh-airdolomiti):
+
+1. The 224 strip documents.
+2. /prenotazioni, /en/booking, /de/buchung.
+3. After f0540ca2: 78 documents (rows 55 and 56).
+4. After 237a1b5b: 83 stage documents.
+5. After 80458997: the 3 in-flight entertainment pages.
+6. This push (row 40): no documents.

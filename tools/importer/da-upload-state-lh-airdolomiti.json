@@ -11,14 +11,14 @@
    "preview": "2026-11-07T10:29:18.169Z"
   },
   "/destinazioni/monaco-di-baviera": {
-   "uploaded": "2026-11-07T10:29:23.254Z",
-   "mtime": 1794043093363,
-   "preview": "2026-11-07T10:29:25.715Z"
+   "uploaded": "2026-11-07T12:12:09.395Z",
+   "mtime": 1794052445614,
+   "preview": "2026-11-07T12:12:11.838Z"
   },
   "/destinazioni/francoforte": {
-   "uploaded": "2026-11-07T10:29:19.637Z",
-   "mtime": 1794043093323,
-   "preview": "2026-11-07T10:29:21.752Z"
+   "uploaded": "2026-11-07T12:12:05.725Z",
+   "mtime": 1794052445591,
+   "preview": "2026-11-07T12:12:07.945Z"
   },
   "/servizi/parcheggi-convenzionati": {
    "uploaded": "2026-11-07T07:32:41.459Z",
@@ -41,9 +41,9 @@
    "preview": "2026-11-07T10:34:09.129Z"
   },
   "/flotta": {
-   "uploaded": "2026-11-04T19:17:31.298Z",
-   "mtime": 1793811013943,
-   "preview": "2026-11-04T19:17:33.559Z"
+   "uploaded": "2026-11-07T11:22:47.761Z",
+   "mtime": 1794049079886,
+   "preview": "2026-11-07T11:22:49.514Z"
   },
   "/promozioni": {
    "uploaded": "2026-11-04T19:18:59.654Z",
@@ -61,9 +61,9 @@
    "preview": "2026-11-04T17:34:52.270Z"
   },
   "/assistenza": {
-   "uploaded": "2026-11-04T17:45:50.817Z",
-   "mtime": 1793811010924,
-   "preview": "2026-11-04T17:45:53.155Z"
+   "uploaded": "2026-11-07T11:18:37.095Z",
+   "mtime": 1794049077983,
+   "preview": "2026-11-07T11:18:38.890Z"
   },
   "/supporto-e-contatti": {
    "uploaded": "2026-11-04T19:20:19.246Z",
@@ -96,9 +96,9 @@
    "preview": "2026-11-05T01:34:45.153Z"
   },
   "/voli-europa": {
-   "uploaded": "2026-11-07T10:34:13.820Z",
-   "mtime": 1794043096306,
-   "preview": "2026-11-07T10:34:15.969Z"
+   "uploaded": "2026-11-07T11:22:50.806Z",
+   "mtime": 1794049079906,
+   "preview": "2026-11-07T11:22:52.800Z"
   },
   "/tariffe": {
    "uploaded": "2026-11-04T19:20:36.499Z",
@@ -146,9 +146,9 @@
    "preview": "2026-11-07T07:37:10.394Z"
   },
   "/servizi-a-bordo/sistema-di-intrattenimento-a-bordo": {
-   "uploaded": "2026-11-07T07:54:15.301Z",
-   "mtime": 1794035698730,
-   "preview": "2026-11-07T07:54:17.055Z"
+   "uploaded": "2026-11-07T12:34:34.668Z",
+   "mtime": 1794054038832,
+   "preview": "2026-11-07T12:34:36.245Z"
   },
   "/servizi-a-bordo/servizio-di-bordo": {
    "uploaded": "2026-11-07T07:54:11.928Z",
@@ -1861,9 +1861,9 @@
    "preview": "2026-11-05T01:24:01.426Z"
   },
   "/en/assistance": {
-   "uploaded": "2026-11-04T18:52:21.700Z",
-   "mtime": 1793810739442,
-   "preview": "2026-11-04T18:52:24.156Z"
+   "uploaded": "2026-11-07T11:20:50.230Z",
+   "mtime": 1794049078845,
+   "preview": "2026-11-07T11:20:52.160Z"
   },
   "/en/baggage": {
    "uploaded": "2026-11-05T01:24:03.477Z",
@@ -1921,14 +1921,14 @@
    "preview": "2026-11-05T01:26:48.570Z"
   },
   "/en/fleet": {
-   "uploaded": "2026-11-05T01:26:50.040Z",
-   "mtime": 1793840310544,
-   "preview": "2026-11-05T01:26:52.559Z"
+   "uploaded": "2026-11-07T11:22:40.885Z",
+   "mtime": 1794049079830,
+   "preview": "2026-11-07T11:22:42.573Z"
   },
   "/en/flights-europe": {
-   "uploaded": "2026-11-07T10:33:47.475Z",
-   "mtime": 1794043096051,
-   "preview": "2026-11-07T10:33:50.030Z"
+   "uploaded": "2026-11-07T11:22:43.949Z",
+   "mtime": 1794049079856,
+   "preview": "2026-11-07T11:22:46.262Z"
   },
   "/en/group-travel": {
    "uploaded": "2026-11-05T01:27:06.107Z",
@@ -2071,9 +2071,9 @@
    "preview": "2026-11-07T07:53:19.628Z"
   },
   "/en/services-on-board/in-flight-entertainment-system": {
-   "uploaded": "2026-11-07T07:53:08.821Z",
-   "mtime": 1794035698206,
-   "preview": "2026-11-07T07:53:10.352Z"
+   "uploaded": "2026-11-07T12:34:37.571Z",
+   "mtime": 1794054038852,
+   "preview": "2026-11-07T12:34:39.248Z"
   },
   "/en/services-on-board/inflight-service": {
    "uploaded": "2026-11-07T07:53:11.687Z",
@@ -2831,9 +2831,9 @@
    "preview": "2026-11-05T01:33:09.550Z"
   },
   "/en/destinations/amsterdam-eu": {
-   "uploaded": "2026-11-07T10:31:43.390Z",
-   "mtime": 1794043094680,
-   "preview": "2026-11-07T10:31:45.082Z"
+   "uploaded": "2026-11-07T12:12:13.302Z",
+   "mtime": 1794052445637,
+   "preview": "2026-11-07T12:12:14.956Z"
   },
   "/en/destinations/amsterdam-eu/amsterdam-city-break": {
    "uploaded": "2026-11-04T18:53:33.713Z",
@@ -2841,14 +2841,14 @@
    "preview": "2026-11-04T18:53:35.979Z"
   },
   "/en/destinations/ancona-eu": {
-   "uploaded": "2026-11-07T10:31:46.520Z",
-   "mtime": 1794043094708,
-   "preview": "2026-11-07T10:31:48.326Z"
+   "uploaded": "2026-11-07T12:12:16.287Z",
+   "mtime": 1794052445658,
+   "preview": "2026-11-07T12:12:18.062Z"
   },
   "/en/destinations/bari": {
-   "uploaded": "2026-11-07T10:31:49.723Z",
-   "mtime": 1794043094739,
-   "preview": "2026-11-07T10:31:51.548Z"
+   "uploaded": "2026-11-07T12:12:19.474Z",
+   "mtime": 1794052445680,
+   "preview": "2026-11-07T12:12:22.190Z"
   },
   "/en/destinations/bari/what-to-do": {
    "uploaded": "2026-11-04T18:53:46.505Z",
@@ -2911,29 +2911,29 @@
    "preview": "2026-11-04T18:54:32.664Z"
   },
   "/en/destinations/basel": {
-   "uploaded": "2026-11-07T10:31:53.104Z",
-   "mtime": 1794043094769,
-   "preview": "2026-11-07T10:31:54.511Z"
+   "uploaded": "2026-11-07T12:12:23.584Z",
+   "mtime": 1794052445701,
+   "preview": "2026-11-07T12:12:25.490Z"
   },
   "/en/destinations/biarritz": {
-   "uploaded": "2026-11-04T18:54:38.580Z",
-   "mtime": 1793810740985,
-   "preview": "2026-11-04T18:54:40.787Z"
+   "uploaded": "2026-11-07T12:12:27.173Z",
+   "mtime": 1794052445722,
+   "preview": "2026-11-07T12:12:28.839Z"
   },
   "/en/destinations/billund": {
-   "uploaded": "2026-11-07T10:31:55.851Z",
-   "mtime": 1794043094798,
-   "preview": "2026-11-07T10:31:57.485Z"
+   "uploaded": "2026-11-07T12:12:30.297Z",
+   "mtime": 1794052445744,
+   "preview": "2026-11-07T12:12:31.986Z"
   },
   "/en/destinations/birmingham": {
-   "uploaded": "2026-11-07T10:31:58.902Z",
-   "mtime": 1794043094828,
-   "preview": "2026-11-07T10:32:00.614Z"
+   "uploaded": "2026-11-07T12:12:33.426Z",
+   "mtime": 1794052445767,
+   "preview": "2026-11-07T12:12:35.154Z"
   },
   "/en/destinations/bologna": {
-   "uploaded": "2026-11-07T10:32:02.088Z",
-   "mtime": 1794043094859,
-   "preview": "2026-11-07T10:32:04.445Z"
+   "uploaded": "2026-11-07T12:12:36.506Z",
+   "mtime": 1794052445789,
+   "preview": "2026-11-07T12:12:38.412Z"
   },
   "/en/destinations/bologna/what-to-do": {
    "uploaded": "2026-11-04T18:54:54.809Z",
@@ -3001,19 +3001,19 @@
    "preview": "2026-11-04T18:55:50.123Z"
   },
   "/en/destinations/bordeaux": {
-   "uploaded": "2026-11-07T10:32:06.049Z",
-   "mtime": 1794043094891,
-   "preview": "2026-11-07T10:32:07.906Z"
+   "uploaded": "2026-11-07T12:12:39.941Z",
+   "mtime": 1794052445810,
+   "preview": "2026-11-07T12:12:41.737Z"
   },
   "/en/destinations/brindisi-eu": {
-   "uploaded": "2026-11-07T10:32:09.316Z",
-   "mtime": 1794043094920,
-   "preview": "2026-11-07T10:32:10.995Z"
+   "uploaded": "2026-11-07T12:12:43.278Z",
+   "mtime": 1794052445830,
+   "preview": "2026-11-07T12:12:45.314Z"
   },
   "/en/destinations/brindisi-eu/mesagne": {
-   "uploaded": "2026-11-04T18:56:00.136Z",
-   "mtime": 1793810741796,
-   "preview": "2026-11-04T18:56:02.175Z"
+   "uploaded": "2026-11-07T11:21:16.322Z",
+   "mtime": 1794049079024,
+   "preview": "2026-11-07T11:21:18.249Z"
   },
   "/en/destinations/brindisi-eu/the-beaches-of-salento": {
    "uploaded": "2026-11-04T18:56:03.978Z",
@@ -3021,19 +3021,19 @@
    "preview": "2026-11-04T18:56:06.239Z"
   },
   "/en/destinations/cagliari-eu": {
-   "uploaded": "2026-11-07T10:32:12.736Z",
-   "mtime": 1794043094951,
-   "preview": "2026-11-07T10:32:14.343Z"
+   "uploaded": "2026-11-07T12:12:46.784Z",
+   "mtime": 1794052445852,
+   "preview": "2026-11-07T12:12:48.479Z"
   },
   "/en/destinations/figari": {
-   "uploaded": "2026-11-05T01:25:01.496Z",
-   "mtime": 1793840307445,
-   "preview": "2026-11-05T01:25:04.540Z"
+   "uploaded": "2026-11-07T12:12:50.132Z",
+   "mtime": 1794052445873,
+   "preview": "2026-11-07T12:12:51.689Z"
   },
   "/en/destinations/florence": {
-   "uploaded": "2026-11-07T10:32:15.690Z",
-   "mtime": 1794043094982,
-   "preview": "2026-11-07T10:32:17.616Z"
+   "uploaded": "2026-11-07T12:12:53.010Z",
+   "mtime": 1794052445895,
+   "preview": "2026-11-07T12:12:54.961Z"
   },
   "/en/destinations/florence/what-to-do": {
    "uploaded": "2026-11-04T18:56:21.941Z",
@@ -3096,9 +3096,9 @@
    "preview": "2026-11-04T18:57:14.088Z"
   },
   "/en/destinations/frankfurt-eu": {
-   "uploaded": "2026-11-07T10:32:18.945Z",
-   "mtime": 1794043095228,
-   "preview": "2026-11-07T10:32:20.795Z"
+   "uploaded": "2026-11-07T12:12:56.279Z",
+   "mtime": 1794052445918,
+   "preview": "2026-11-07T12:12:57.977Z"
   },
   "/en/destinations/frankfurt-eu/frankfurt-fair": {
    "uploaded": "2026-11-04T18:57:20.152Z",
@@ -3116,14 +3116,14 @@
    "preview": "2026-11-04T18:57:30.595Z"
   },
   "/en/destinations/geneva": {
-   "uploaded": "2026-11-07T10:32:22.305Z",
-   "mtime": 1794043095258,
-   "preview": "2026-11-07T10:32:24.256Z"
+   "uploaded": "2026-11-07T12:12:59.461Z",
+   "mtime": 1794052445939,
+   "preview": "2026-11-07T12:13:01.224Z"
   },
   "/en/destinations/genoa": {
-   "uploaded": "2026-11-07T10:32:25.838Z",
-   "mtime": 1794043095288,
-   "preview": "2026-11-07T10:32:27.624Z"
+   "uploaded": "2026-11-07T12:13:02.643Z",
+   "mtime": 1794052445961,
+   "preview": "2026-11-07T12:13:04.369Z"
   },
   "/en/destinations/genoa/what-to-see": {
    "uploaded": "2026-11-04T18:57:41.970Z",
@@ -3131,19 +3131,19 @@
    "preview": "2026-11-04T18:57:44.231Z"
   },
   "/en/destinations/genoa/what-to-see/cathedral-of-san-lorenzo": {
-   "uploaded": "2026-11-04T18:57:46.003Z",
-   "mtime": 1793810742824,
-   "preview": "2026-11-04T18:57:48.194Z"
+   "uploaded": "2026-11-07T11:21:32.531Z",
+   "mtime": 1794049079136,
+   "preview": "2026-11-07T11:21:34.149Z"
   },
   "/en/destinations/genoa/what-to-see/genoa-aquarium": {
-   "uploaded": "2026-11-04T18:57:50.146Z",
-   "mtime": 1793810742856,
-   "preview": "2026-11-04T18:57:52.128Z"
+   "uploaded": "2026-11-07T11:21:35.627Z",
+   "mtime": 1794049079153,
+   "preview": "2026-11-07T11:21:37.389Z"
   },
   "/en/destinations/graz-eu": {
-   "uploaded": "2026-11-07T10:32:29.274Z",
-   "mtime": 1794043095320,
-   "preview": "2026-11-07T10:32:31.073Z"
+   "uploaded": "2026-11-07T12:13:05.899Z",
+   "mtime": 1794052445984,
+   "preview": "2026-11-07T12:13:07.994Z"
   },
   "/en/destinations/graz-eu/what-to-see": {
    "uploaded": "2026-11-04T18:57:59.073Z",
@@ -3151,14 +3151,14 @@
    "preview": "2026-11-04T18:58:01.275Z"
   },
   "/en/destinations/graz-eu/what-to-see/kunsthaus-graz-en": {
-   "uploaded": "2026-11-04T18:58:03.630Z",
-   "mtime": 1793810742970,
-   "preview": "2026-11-04T18:58:05.758Z"
+   "uploaded": "2026-11-07T11:21:42.038Z",
+   "mtime": 1794049079200,
+   "preview": "2026-11-07T11:21:43.719Z"
   },
   "/en/destinations/jersey": {
-   "uploaded": "2026-11-07T10:32:32.473Z",
-   "mtime": 1794043095351,
-   "preview": "2026-11-07T10:32:34.211Z"
+   "uploaded": "2026-11-07T12:13:09.461Z",
+   "mtime": 1794052446005,
+   "preview": "2026-11-07T12:13:11.393Z"
   },
   "/en/destinations/jersey/what-to-do": {
    "uploaded": "2026-11-04T18:58:11.913Z",
@@ -3176,9 +3176,9 @@
    "preview": "2026-11-04T18:58:23.529Z"
   },
   "/en/destinations/katowice": {
-   "uploaded": "2026-11-07T10:32:35.859Z",
-   "mtime": 1794043095381,
-   "preview": "2026-11-07T10:32:37.878Z"
+   "uploaded": "2026-11-07T12:13:13.114Z",
+   "mtime": 1794052446027,
+   "preview": "2026-11-07T12:13:14.993Z"
   },
   "/en/destinations/katowice/what-to-do": {
    "uploaded": "2026-11-04T18:58:29.485Z",
@@ -3211,24 +3211,24 @@
    "preview": "2026-11-04T18:58:52.671Z"
   },
   "/en/destinations/krakow-eu": {
-   "uploaded": "2026-11-07T10:32:39.366Z",
-   "mtime": 1794043095413,
-   "preview": "2026-11-07T10:32:41.054Z"
+   "uploaded": "2026-11-07T12:13:16.364Z",
+   "mtime": 1794052446048,
+   "preview": "2026-11-07T12:13:18.125Z"
   },
   "/en/destinations/linz": {
-   "uploaded": "2026-11-07T10:32:43.149Z",
-   "mtime": 1794043095444,
-   "preview": "2026-11-07T10:32:44.827Z"
+   "uploaded": "2026-11-07T12:13:19.672Z",
+   "mtime": 1794052446068,
+   "preview": "2026-11-07T12:13:21.319Z"
   },
   "/en/destinations/ljubljana": {
-   "uploaded": "2026-11-07T10:32:46.243Z",
-   "mtime": 1794043095476,
-   "preview": "2026-11-07T10:32:47.962Z"
+   "uploaded": "2026-11-07T12:13:22.878Z",
+   "mtime": 1794052446092,
+   "preview": "2026-11-07T12:13:24.720Z"
   },
   "/en/destinations/london-eu": {
-   "uploaded": "2026-11-07T10:32:49.268Z",
-   "mtime": 1794043095508,
-   "preview": "2026-11-07T10:32:51.279Z"
+   "uploaded": "2026-11-07T12:13:26.240Z",
+   "mtime": 1794052446114,
+   "preview": "2026-11-07T12:13:28.392Z"
   },
   "/en/destinations/london-eu/what-to-do": {
    "uploaded": "2026-11-04T18:59:11.690Z",
@@ -3271,19 +3271,19 @@
    "preview": "2026-11-04T18:59:43.247Z"
   },
   "/en/destinations/luxembourg": {
-   "uploaded": "2026-11-07T10:32:52.718Z",
-   "mtime": 1794043095537,
-   "preview": "2026-11-07T10:32:54.342Z"
+   "uploaded": "2026-11-07T12:13:29.777Z",
+   "mtime": 1794052446137,
+   "preview": "2026-11-07T12:13:31.523Z"
   },
   "/en/destinations/lyon": {
-   "uploaded": "2026-11-07T10:32:55.655Z",
-   "mtime": 1794043095567,
-   "preview": "2026-11-07T10:32:57.193Z"
+   "uploaded": "2026-11-07T12:13:32.986Z",
+   "mtime": 1794052446157,
+   "preview": "2026-11-07T12:13:34.684Z"
   },
   "/en/destinations/milan-eu": {
-   "uploaded": "2026-11-07T10:32:58.978Z",
-   "mtime": 1794043095598,
-   "preview": "2026-11-07T10:33:00.876Z"
+   "uploaded": "2026-11-07T12:13:36.092Z",
+   "mtime": 1794052446181,
+   "preview": "2026-11-07T12:13:37.840Z"
   },
   "/en/destinations/milan-eu/what-to-do": {
    "uploaded": "2026-11-04T18:59:57.699Z",
@@ -3321,9 +3321,9 @@
    "preview": "2026-11-04T19:00:26.766Z"
   },
   "/en/destinations/munich-eu": {
-   "uploaded": "2026-11-07T10:33:02.327Z",
-   "mtime": 1794043095628,
-   "preview": "2026-11-07T10:33:04.019Z"
+   "uploaded": "2026-11-07T12:13:39.446Z",
+   "mtime": 1794052446201,
+   "preview": "2026-11-07T12:13:41.419Z"
   },
   "/en/destinations/munich-eu/munich-attractions-itinerary-for-your-visit": {
    "uploaded": "2026-11-04T19:00:34.583Z",
@@ -3351,19 +3351,19 @@
    "preview": "2026-11-04T19:00:57.107Z"
   },
   "/en/destinations/olbia": {
-   "uploaded": "2026-11-07T10:33:05.406Z",
-   "mtime": 1794043095659,
-   "preview": "2026-11-07T10:33:07.016Z"
+   "uploaded": "2026-11-07T12:13:42.843Z",
+   "mtime": 1794052446223,
+   "preview": "2026-11-07T12:13:44.465Z"
   },
   "/en/destinations/palermo-eu": {
-   "uploaded": "2026-11-07T10:33:08.380Z",
-   "mtime": 1794043095689,
-   "preview": "2026-11-07T10:33:10.163Z"
+   "uploaded": "2026-11-07T12:13:45.785Z",
+   "mtime": 1794052446243,
+   "preview": "2026-11-07T12:13:47.399Z"
   },
   "/en/destinations/pisa": {
-   "uploaded": "2026-11-07T10:33:11.474Z",
-   "mtime": 1794043095720,
-   "preview": "2026-11-07T10:33:13.745Z"
+   "uploaded": "2026-11-07T12:13:48.736Z",
+   "mtime": 1794052446264,
+   "preview": "2026-11-07T12:13:50.771Z"
   },
   "/en/destinations/pisa/what-to-do": {
    "uploaded": "2026-11-04T19:01:13.352Z",
@@ -3421,24 +3421,24 @@
    "preview": "2026-11-04T19:02:01.184Z"
   },
   "/en/destinations/prague": {
-   "uploaded": "2026-11-07T10:33:15.215Z",
-   "mtime": 1794043095752,
-   "preview": "2026-11-07T10:33:17.128Z"
+   "uploaded": "2026-11-07T12:13:52.028Z",
+   "mtime": 1794052446287,
+   "preview": "2026-11-07T12:13:53.921Z"
   },
   "/en/destinations/pula-eu": {
-   "uploaded": "2026-11-07T10:33:18.545Z",
-   "mtime": 1794043095783,
-   "preview": "2026-11-07T10:33:20.610Z"
+   "uploaded": "2026-11-07T12:13:55.225Z",
+   "mtime": 1794052446307,
+   "preview": "2026-11-07T12:13:57.018Z"
   },
   "/en/destinations/rijeka": {
-   "uploaded": "2026-11-07T10:33:21.915Z",
-   "mtime": 1794043095812,
-   "preview": "2026-11-07T10:33:23.318Z"
+   "uploaded": "2026-11-07T12:13:58.316Z",
+   "mtime": 1794052446327,
+   "preview": "2026-11-07T12:14:00.032Z"
   },
   "/en/destinations/trieste": {
-   "uploaded": "2026-11-07T10:33:24.728Z",
-   "mtime": 1794043095842,
-   "preview": "2026-11-07T10:33:26.556Z"
+   "uploaded": "2026-11-07T12:14:01.591Z",
+   "mtime": 1794052446348,
+   "preview": "2026-11-07T12:14:03.631Z"
   },
   "/en/destinations/trieste/what-to-do": {
    "uploaded": "2026-11-04T19:02:21.160Z",
@@ -3446,9 +3446,9 @@
    "preview": "2026-11-04T19:02:23.469Z"
   },
   "/en/destinations/trieste/what-to-do/miramare-castle": {
-   "uploaded": "2026-11-04T19:02:25.622Z",
-   "mtime": 1793810745418,
-   "preview": "2026-11-04T19:02:27.734Z"
+   "uploaded": "2026-11-07T11:22:14.587Z",
+   "mtime": 1794049079639,
+   "preview": "2026-11-07T11:22:16.167Z"
   },
   "/en/destinations/trieste/what-to-eat": {
    "uploaded": "2026-11-04T19:02:29.699Z",
@@ -3456,9 +3456,9 @@
    "preview": "2026-11-04T19:02:31.910Z"
   },
   "/en/destinations/trieste/what-to-eat/trieste-cuisine": {
-   "uploaded": "2026-11-04T19:02:33.850Z",
-   "mtime": 1793810745485,
-   "preview": "2026-11-04T19:02:36.145Z"
+   "uploaded": "2026-11-07T11:22:17.506Z",
+   "mtime": 1794049079665,
+   "preview": "2026-11-07T11:22:19.771Z"
   },
   "/en/destinations/trieste/what-to-see": {
    "uploaded": "2026-11-04T19:02:38.336Z",
@@ -3466,14 +3466,14 @@
    "preview": "2026-11-04T19:02:40.581Z"
   },
   "/en/destinations/trieste/what-to-see/piazza-unita-italia": {
-   "uploaded": "2026-11-04T19:02:42.743Z",
-   "mtime": 1793810745549,
-   "preview": "2026-11-04T19:02:44.847Z"
+   "uploaded": "2026-11-07T11:22:21.334Z",
+   "mtime": 1794049079689,
+   "preview": "2026-11-07T11:22:23.129Z"
   },
   "/en/destinations/turin": {
-   "uploaded": "2026-11-07T10:33:27.915Z",
-   "mtime": 1794043095872,
-   "preview": "2026-11-07T10:33:29.888Z"
+   "uploaded": "2026-11-07T12:14:05.205Z",
+   "mtime": 1794052446369,
+   "preview": "2026-11-07T12:14:07.207Z"
   },
   "/en/destinations/turin/destinations-turin-what-to-do": {
    "uploaded": "2026-11-04T19:02:52.906Z",
@@ -3536,9 +3536,9 @@
    "preview": "2026-11-04T19:03:45.337Z"
   },
   "/en/destinations/venice": {
-   "uploaded": "2026-11-07T10:33:31.219Z",
-   "mtime": 1794043095904,
-   "preview": "2026-11-07T10:33:33.271Z"
+   "uploaded": "2026-11-07T12:14:08.578Z",
+   "mtime": 1794052446391,
+   "preview": "2026-11-07T12:14:10.763Z"
   },
   "/en/destinations/venice/what-to-do": {
    "uploaded": "2026-11-04T19:03:52.476Z",
@@ -3616,9 +3616,9 @@
    "preview": "2026-11-04T19:04:56.577Z"
   },
   "/en/destinations/verona": {
-   "uploaded": "2026-11-07T10:33:34.712Z",
-   "mtime": 1794043095935,
-   "preview": "2026-11-07T10:33:36.751Z"
+   "uploaded": "2026-11-07T12:14:12.174Z",
+   "mtime": 1794052446411,
+   "preview": "2026-11-07T12:14:14.115Z"
   },
   "/en/destinations/verona/what-to-do": {
    "uploaded": "2026-11-04T19:05:03.608Z",
@@ -3681,14 +3681,14 @@
    "preview": "2026-11-04T19:05:55.249Z"
   },
   "/en/destinations/wroclaw": {
-   "uploaded": "2026-11-07T10:33:38.131Z",
-   "mtime": 1794043095963,
-   "preview": "2026-11-07T10:33:39.860Z"
+   "uploaded": "2026-11-07T12:14:15.528Z",
+   "mtime": 1794052446444,
+   "preview": "2026-11-07T12:14:17.334Z"
   },
   "/en/destinations/zurich": {
-   "uploaded": "2026-11-07T10:33:41.495Z",
-   "mtime": 1794043095992,
-   "preview": "2026-11-07T10:33:43.257Z"
+   "uploaded": "2026-11-07T12:14:18.905Z",
+   "mtime": 1794052446464,
+   "preview": "2026-11-07T12:14:20.668Z"
   },
   "/en/articles/avgeek-en/a-day-with-an-air-dolomiti-captain": {
    "uploaded": "2026-11-04T18:37:26.943Z",
@@ -4791,9 +4791,9 @@
    "preview": "2026-11-05T01:19:52.921Z"
   },
   "/de/fluege-in-europa": {
-   "uploaded": "2026-11-07T10:24:32.838Z",
-   "mtime": 1794043090519,
-   "preview": "2026-11-07T10:24:35.597Z"
+   "uploaded": "2026-11-07T11:18:47.001Z",
+   "mtime": 1794049078047,
+   "preview": "2026-11-07T11:18:49.728Z"
   },
   "/de/faq-de": {
    "uploaded": "2026-11-05T01:05:02.232Z",
@@ -4801,14 +4801,14 @@
    "preview": "2026-11-05T01:05:05.338Z"
   },
   "/de/flotte": {
-   "uploaded": "2026-11-05T01:05:07.325Z",
-   "mtime": 1793840283426,
-   "preview": "2026-11-05T01:05:10.021Z"
+   "uploaded": "2026-11-07T11:18:43.651Z",
+   "mtime": 1794049078026,
+   "preview": "2026-11-07T11:18:45.408Z"
   },
   "/de/betreuung": {
-   "uploaded": "2026-11-05T01:04:24.627Z",
-   "mtime": 1793840282738,
-   "preview": "2026-11-05T01:04:27.277Z"
+   "uploaded": "2026-11-07T11:18:40.237Z",
+   "mtime": 1794049078005,
+   "preview": "2026-11-07T11:18:42.193Z"
   },
   "/de/digitale-services": {
    "uploaded": "2026-11-05T01:04:42.010Z",
@@ -4961,9 +4961,9 @@
    "preview": "2026-11-07T07:47:32.445Z"
   },
   "/de/dienstleistungen-an-bord/unterhaltung-an-bord": {
-   "uploaded": "2026-11-07T07:37:24.526Z",
-   "mtime": 1794035691412,
-   "preview": "2026-11-07T07:37:26.257Z"
+   "uploaded": "2026-11-07T12:34:40.578Z",
+   "mtime": 1794054038873,
+   "preview": "2026-11-07T12:34:42.162Z"
   },
   "/de/dienstleistungen-an-bord/bordservice": {
    "uploaded": "2026-11-07T07:37:21.277Z",
@@ -5716,14 +5716,14 @@
    "preview": "2026-11-07T07:45:31.185Z"
   },
   "/de/reiseziele/muenchen": {
-   "uploaded": "2026-11-07T10:28:23.555Z",
-   "mtime": 1794043092787,
-   "preview": "2026-11-07T10:28:25.267Z"
+   "uploaded": "2026-11-07T12:11:21.321Z",
+   "mtime": 1794052445310,
+   "preview": "2026-11-07T12:11:23.124Z"
   },
   "/de/reiseziele/frankfurt-am-main": {
-   "uploaded": "2026-11-07T10:27:40.735Z",
-   "mtime": 1794043092398,
-   "preview": "2026-11-07T10:27:42.481Z"
+   "uploaded": "2026-11-07T12:10:38.501Z",
+   "mtime": 1794052445025,
+   "preview": "2026-11-07T12:10:40.198Z"
   },
   "/de/reiseziele/frankfurt-am-main/messe-frankfurt": {
    "uploaded": "2026-11-04T18:14:46.627Z",
@@ -5761,204 +5761,204 @@
    "preview": "2026-11-05T01:12:53.422Z"
   },
   "/de/reiseziele/ljubljana-laibach": {
-   "uploaded": "2026-11-07T10:28:06.876Z",
-   "mtime": 1794043092638,
-   "preview": "2026-11-07T10:28:08.716Z"
+   "uploaded": "2026-11-07T12:11:04.478Z",
+   "mtime": 1794052445204,
+   "preview": "2026-11-07T12:11:06.349Z"
   },
   "/de/reiseziele/prag": {
-   "uploaded": "2026-11-07T10:28:40.066Z",
-   "mtime": 1794043092935,
-   "preview": "2026-11-07T10:28:42.029Z"
+   "uploaded": "2026-11-07T12:11:37.704Z",
+   "mtime": 1794052445414,
+   "preview": "2026-11-07T12:11:39.364Z"
   },
   "/de/reiseziele/birmingham-de": {
-   "uploaded": "2026-11-07T10:27:11.708Z",
-   "mtime": 1794043092135,
-   "preview": "2026-11-07T10:27:13.628Z"
+   "uploaded": "2026-11-07T12:10:04.120Z",
+   "mtime": 1794052444804,
+   "preview": "2026-11-07T12:10:06.042Z"
   },
   "/de/reiseziele/rijeka-de": {
-   "uploaded": "2026-11-07T10:28:46.542Z",
-   "mtime": 1794043093008,
-   "preview": "2026-11-07T10:28:48.363Z"
+   "uploaded": "2026-11-07T12:11:44.234Z",
+   "mtime": 1794052445457,
+   "preview": "2026-11-07T12:11:46.315Z"
   },
   "/de/reiseziele/bordeaux-de": {
-   "uploaded": "2026-11-07T10:27:18.740Z",
-   "mtime": 1794043092199,
-   "preview": "2026-11-07T10:27:20.345Z"
+   "uploaded": "2026-11-07T12:10:11.485Z",
+   "mtime": 1794052444850,
+   "preview": "2026-11-07T12:10:13.455Z"
   },
   "/de/reiseziele/biarritz-de": {
-   "uploaded": "2026-11-04T18:11:16.210Z",
-   "mtime": 1793810981502,
-   "preview": "2026-11-04T18:11:18.464Z"
+   "uploaded": "2026-11-07T12:09:57.477Z",
+   "mtime": 1794052444758,
+   "preview": "2026-11-07T12:09:59.348Z"
   },
   "/de/reiseziele/zuerich": {
-   "uploaded": "2026-11-07T10:29:03.615Z",
-   "mtime": 1794043093163,
-   "preview": "2026-11-07T10:29:05.299Z"
+   "uploaded": "2026-11-07T12:12:02.314Z",
+   "mtime": 1794052445566,
+   "preview": "2026-11-07T12:12:04.279Z"
   },
   "/de/reiseziele/figari-de": {
-   "uploaded": "2026-11-05T01:11:30.092Z",
-   "mtime": 1793840290154,
-   "preview": "2026-11-05T01:11:32.931Z"
+   "uploaded": "2026-11-07T12:10:31.351Z",
+   "mtime": 1794052444977,
+   "preview": "2026-11-07T12:10:33.177Z"
   },
   "/de/reiseziele/billund-de": {
-   "uploaded": "2026-11-07T10:27:08.546Z",
-   "mtime": 1794043092105,
-   "preview": "2026-11-07T10:27:10.381Z"
+   "uploaded": "2026-11-07T12:10:00.838Z",
+   "mtime": 1794052444780,
+   "preview": "2026-11-07T12:10:02.609Z"
   },
   "/de/reiseziele/lyon-de": {
-   "uploaded": "2026-11-07T10:28:17.256Z",
-   "mtime": 1794043092728,
-   "preview": "2026-11-07T10:28:18.743Z"
+   "uploaded": "2026-11-07T12:11:14.553Z",
+   "mtime": 1794052445267,
+   "preview": "2026-11-07T12:11:16.191Z"
   },
   "/de/reiseziele/basel-de": {
-   "uploaded": "2026-11-07T10:27:05.179Z",
-   "mtime": 1794043092075,
-   "preview": "2026-11-07T10:27:06.874Z"
+   "uploaded": "2026-11-07T12:09:53.909Z",
+   "mtime": 1794052444738,
+   "preview": "2026-11-07T12:09:55.793Z"
   },
   "/de/reiseziele/cagliari": {
-   "uploaded": "2026-11-07T10:27:27.668Z",
-   "mtime": 1794043092283,
-   "preview": "2026-11-07T10:27:29.250Z"
+   "uploaded": "2026-11-07T12:10:21.781Z",
+   "mtime": 1794052444917,
+   "preview": "2026-11-07T12:10:23.524Z"
   },
   "/de/reiseziele/palermo-de": {
-   "uploaded": "2026-11-07T10:28:29.914Z",
-   "mtime": 1794043092846,
-   "preview": "2026-11-07T10:28:31.711Z"
+   "uploaded": "2026-11-07T12:11:27.659Z",
+   "mtime": 1794052445351,
+   "preview": "2026-11-07T12:11:29.424Z"
   },
   "/de/reiseziele/krakau": {
-   "uploaded": "2026-11-07T10:28:03.564Z",
-   "mtime": 1794043092607,
-   "preview": "2026-11-07T10:28:05.490Z"
+   "uploaded": "2026-11-07T12:11:01.485Z",
+   "mtime": 1794052445183,
+   "preview": "2026-11-07T12:11:03.141Z"
   },
   "/de/reiseziele/amsterdam": {
-   "uploaded": "2026-11-07T10:26:55.383Z",
-   "mtime": 1794043091975,
-   "preview": "2026-11-07T10:26:57.145Z"
+   "uploaded": "2026-11-07T12:09:44.007Z",
+   "mtime": 1794052444674,
+   "preview": "2026-11-07T12:09:45.812Z"
   },
   "/de/reiseziele/pula": {
-   "uploaded": "2026-11-07T10:28:43.466Z",
-   "mtime": 1794043092979,
-   "preview": "2026-11-07T10:28:45.092Z"
+   "uploaded": "2026-11-07T12:11:40.693Z",
+   "mtime": 1794052445436,
+   "preview": "2026-11-07T12:11:42.828Z"
   },
   "/de/reiseziele/ancona": {
-   "uploaded": "2026-11-07T10:26:58.517Z",
-   "mtime": 1794043092007,
-   "preview": "2026-11-07T10:27:00.154Z"
+   "uploaded": "2026-11-07T12:09:47.271Z",
+   "mtime": 1794052444694,
+   "preview": "2026-11-07T12:09:49.086Z"
   },
   "/de/reiseziele/genf": {
-   "uploaded": "2026-11-07T10:27:44.131Z",
-   "mtime": 1794043092428,
-   "preview": "2026-11-07T10:27:45.966Z"
+   "uploaded": "2026-11-07T12:10:41.564Z",
+   "mtime": 1794052445057,
+   "preview": "2026-11-07T12:10:43.406Z"
   },
   "/de/reiseziele/london": {
-   "uploaded": "2026-11-07T10:28:10.107Z",
-   "mtime": 1794043092668,
-   "preview": "2026-11-07T10:28:12.374Z"
+   "uploaded": "2026-11-07T12:11:07.750Z",
+   "mtime": 1794052445226,
+   "preview": "2026-11-07T12:11:09.862Z"
   },
   "/de/reiseziele/paris": {
-   "uploaded": "2026-11-07T10:28:33.132Z",
-   "mtime": 1794043092875,
-   "preview": "2026-11-07T10:28:35.024Z"
+   "uploaded": "2026-11-07T12:11:30.863Z",
+   "mtime": 1794052445371,
+   "preview": "2026-11-07T12:11:32.723Z"
   },
   "/de/reiseziele/cluj": {
-   "uploaded": "2026-11-07T10:27:30.633Z",
-   "mtime": 1794043092313,
-   "preview": "2026-11-07T10:27:32.493Z"
+   "uploaded": "2026-11-07T12:10:24.908Z",
+   "mtime": 1794052444939,
+   "preview": "2026-11-07T12:10:26.672Z"
   },
   "/de/reiseziele/jersey-de": {
-   "uploaded": "2026-11-07T10:27:57.254Z",
-   "mtime": 1794043092546,
-   "preview": "2026-11-07T10:27:59.103Z"
+   "uploaded": "2026-11-07T12:10:54.593Z",
+   "mtime": 1794052445141,
+   "preview": "2026-11-07T12:10:56.403Z"
   },
   "/de/reiseziele/breslau": {
-   "uploaded": "2026-11-07T10:27:21.626Z",
-   "mtime": 1794043092228,
-   "preview": "2026-11-07T10:27:23.269Z"
+   "uploaded": "2026-11-07T12:10:15.106Z",
+   "mtime": 1794052444875,
+   "preview": "2026-11-07T12:10:16.879Z"
   },
   "/de/reiseziele/luxemburg": {
-   "uploaded": "2026-11-07T10:28:13.857Z",
-   "mtime": 1794043092699,
-   "preview": "2026-11-07T10:28:15.709Z"
+   "uploaded": "2026-11-07T12:11:11.325Z",
+   "mtime": 1794052445246,
+   "preview": "2026-11-07T12:11:13.164Z"
   },
   "/de/reiseziele/dresden": {
-   "uploaded": "2026-11-07T10:27:34.067Z",
-   "mtime": 1794043092338,
-   "preview": "2026-11-07T10:27:35.783Z"
+   "uploaded": "2026-11-07T12:10:28.066Z",
+   "mtime": 1794052444957,
+   "preview": "2026-11-07T12:10:29.828Z"
   },
   "/de/reiseziele/kattowitz": {
-   "uploaded": "2026-11-07T10:28:00.383Z",
-   "mtime": 1794043092577,
-   "preview": "2026-11-07T10:28:02.199Z"
+   "uploaded": "2026-11-07T12:10:57.917Z",
+   "mtime": 1794052445163,
+   "preview": "2026-11-07T12:11:00.057Z"
   },
   "/de/reiseziele/triest": {
-   "uploaded": "2026-11-07T10:28:49.739Z",
-   "mtime": 1794043093038,
-   "preview": "2026-11-07T10:28:51.545Z"
+   "uploaded": "2026-11-07T12:11:47.719Z",
+   "mtime": 1794052445480,
+   "preview": "2026-11-07T12:11:49.653Z"
   },
   "/de/reiseziele/mailand-de": {
-   "uploaded": "2026-11-07T10:28:20.200Z",
-   "mtime": 1794043092758,
-   "preview": "2026-11-07T10:28:22.223Z"
+   "uploaded": "2026-11-07T12:11:17.696Z",
+   "mtime": 1794052445288,
+   "preview": "2026-11-07T12:11:19.732Z"
   },
   "/de/reiseziele/innsbruck-de": {
-   "uploaded": "2026-11-07T10:27:54.240Z",
-   "mtime": 1794043092517,
-   "preview": "2026-11-07T10:27:55.922Z"
+   "uploaded": "2026-11-07T12:10:51.314Z",
+   "mtime": 1794052445120,
+   "preview": "2026-11-07T12:10:53.229Z"
   },
   "/de/reiseziele/brindisi-de": {
-   "uploaded": "2026-11-07T10:27:24.682Z",
-   "mtime": 1794043092256,
-   "preview": "2026-11-07T10:27:26.308Z"
+   "uploaded": "2026-11-07T12:10:18.408Z",
+   "mtime": 1794052444896,
+   "preview": "2026-11-07T12:10:20.115Z"
   },
   "/de/reiseziele/olbia-de": {
-   "uploaded": "2026-11-07T10:28:26.712Z",
-   "mtime": 1794043092816,
-   "preview": "2026-11-07T10:28:28.490Z"
+   "uploaded": "2026-11-07T12:11:24.529Z",
+   "mtime": 1794052445330,
+   "preview": "2026-11-07T12:11:26.235Z"
   },
   "/de/reiseziele/graz-de": {
-   "uploaded": "2026-11-07T10:27:50.910Z",
-   "mtime": 1794043092486,
-   "preview": "2026-11-07T10:27:52.631Z"
+   "uploaded": "2026-11-07T12:10:48.094Z",
+   "mtime": 1794052445099,
+   "preview": "2026-11-07T12:10:49.797Z"
   },
   "/de/reiseziele/genua-de": {
-   "uploaded": "2026-11-07T10:27:47.561Z",
-   "mtime": 1794043092457,
-   "preview": "2026-11-07T10:27:49.479Z"
+   "uploaded": "2026-11-07T12:10:44.772Z",
+   "mtime": 1794052445078,
+   "preview": "2026-11-07T12:10:46.739Z"
   },
   "/de/reiseziele/verona-de": {
-   "uploaded": "2026-11-07T10:28:59.948Z",
-   "mtime": 1794043093133,
-   "preview": "2026-11-07T10:29:02.065Z"
+   "uploaded": "2026-11-07T12:11:58.348Z",
+   "mtime": 1794052445545,
+   "preview": "2026-11-07T12:12:00.920Z"
   },
   "/de/reiseziele/venedig": {
-   "uploaded": "2026-11-07T10:28:56.394Z",
-   "mtime": 1794043093102,
-   "preview": "2026-11-07T10:28:58.587Z"
+   "uploaded": "2026-11-07T12:11:54.645Z",
+   "mtime": 1794052445523,
+   "preview": "2026-11-07T12:11:56.969Z"
   },
   "/de/reiseziele/turin-de": {
-   "uploaded": "2026-11-07T10:28:52.872Z",
-   "mtime": 1794043093070,
-   "preview": "2026-11-07T10:28:54.985Z"
+   "uploaded": "2026-11-07T12:11:51.009Z",
+   "mtime": 1794052445501,
+   "preview": "2026-11-07T12:11:53.197Z"
   },
   "/de/reiseziele/pisa-de": {
-   "uploaded": "2026-11-07T10:28:36.346Z",
-   "mtime": 1794043092904,
-   "preview": "2026-11-07T10:28:38.475Z"
+   "uploaded": "2026-11-07T12:11:34.252Z",
+   "mtime": 1794052445392,
+   "preview": "2026-11-07T12:11:36.338Z"
   },
   "/de/reiseziele/bari-de": {
-   "uploaded": "2026-11-07T10:27:01.568Z",
-   "mtime": 1794043092039,
-   "preview": "2026-11-07T10:27:03.748Z"
+   "uploaded": "2026-11-07T12:09:50.536Z",
+   "mtime": 1794052444716,
+   "preview": "2026-11-07T12:09:52.579Z"
   },
   "/de/reiseziele/florenz-de": {
-   "uploaded": "2026-11-07T10:27:37.163Z",
-   "mtime": 1794043092369,
-   "preview": "2026-11-07T10:27:39.200Z"
+   "uploaded": "2026-11-07T12:10:34.580Z",
+   "mtime": 1794052445002,
+   "preview": "2026-11-07T12:10:36.921Z"
   },
   "/de/reiseziele/bologna-de": {
-   "uploaded": "2026-11-07T10:27:15.119Z",
-   "mtime": 1794043092169,
-   "preview": "2026-11-07T10:27:17.323Z"
+   "uploaded": "2026-11-07T12:10:07.476Z",
+   "mtime": 1794052444827,
+   "preview": "2026-11-07T12:10:09.886Z"
   },
   "/de/reiseziele/bari-de/was-essen/tiella-barese-ein-auflauf-aus-reis-kartoffeln-und-miesmuscheln": {
    "uploaded": "2026-11-04T18:10:22.006Z",
@@ -6201,9 +6201,9 @@
    "preview": "2026-11-05T01:11:28.161Z"
   },
   "/de/reiseziele/brindisi-de/mesagne": {
-   "uploaded": "2026-11-04T18:12:50.746Z",
-   "mtime": 1793810982338,
-   "preview": "2026-11-04T18:12:52.926Z"
+   "uploaded": "2026-11-07T11:19:17.181Z",
+   "mtime": 1794049078236,
+   "preview": "2026-11-07T11:19:19.122Z"
   },
   "/de/reiseziele/florenz-de/was-essen": {
    "uploaded": "2026-11-05T01:11:39.169Z",
@@ -6276,14 +6276,14 @@
    "preview": "2026-11-04T18:14:32.837Z"
   },
   "/de/reiseziele/genua-de/was-sehen/das-aquarium-von-genua": {
-   "uploaded": "2026-11-04T18:15:07.591Z",
-   "mtime": 1793810983582,
-   "preview": "2026-11-04T18:15:09.832Z"
+   "uploaded": "2026-11-07T11:19:33.910Z",
+   "mtime": 1794049078351,
+   "preview": "2026-11-07T11:19:35.574Z"
   },
   "/de/reiseziele/genua-de/was-sehen/kathedrale-san-lorenzo": {
-   "uploaded": "2026-11-04T18:15:11.736Z",
-   "mtime": 1793810983622,
-   "preview": "2026-11-04T18:15:14.339Z"
+   "uploaded": "2026-11-07T11:19:37.074Z",
+   "mtime": 1794049078367,
+   "preview": "2026-11-07T11:19:38.935Z"
   },
   "/de/reiseziele/graz-de/was-machen": {
    "uploaded": "2026-11-04T18:15:20.861Z",
@@ -6291,9 +6291,9 @@
    "preview": "2026-11-04T18:15:22.740Z"
   },
   "/de/reiseziele/graz-de/was-sehen/kunsthaus-graz": {
-   "uploaded": "2026-11-04T18:15:28.940Z",
-   "mtime": 1793810983785,
-   "preview": "2026-11-04T18:15:31.072Z"
+   "uploaded": "2026-11-07T11:19:43.547Z",
+   "mtime": 1794049078414,
+   "preview": "2026-11-07T11:19:45.158Z"
   },
   "/de/reiseziele/innsbruck-de/was-sehen/schloss-ambras": {
    "uploaded": "2026-11-04T18:15:42.844Z",
@@ -6301,9 +6301,9 @@
    "preview": "2026-11-04T18:15:45.081Z"
   },
   "/de/reiseziele/innsbruck-de/was-sehen/swarovski-kristallwelten": {
-   "uploaded": "2026-11-04T18:15:47.162Z",
-   "mtime": 1793810983934,
-   "preview": "2026-11-04T18:15:49.519Z"
+   "uploaded": "2026-11-07T11:19:46.693Z",
+   "mtime": 1794049078440,
+   "preview": "2026-11-07T11:19:48.372Z"
   },
   "/de/reiseziele/jersey-de/was-machen/die-natur": {
    "uploaded": "2026-11-04T18:16:01.516Z",
@@ -6426,19 +6426,19 @@
    "preview": "2026-11-05T01:13:25.836Z"
   },
   "/de/reiseziele/triest/was-essen/die-triester-kueche": {
-   "uploaded": "2026-11-05T01:13:35.600Z",
-   "mtime": 1793840293259,
-   "preview": "2026-11-05T01:13:37.909Z"
+   "uploaded": "2026-11-07T11:20:19.898Z",
+   "mtime": 1794049078650,
+   "preview": "2026-11-07T11:20:21.576Z"
   },
   "/de/reiseziele/triest/was-machen/schloss-miramare": {
-   "uploaded": "2026-11-04T18:20:19.017Z",
-   "mtime": 1793810986567,
-   "preview": "2026-11-04T18:20:20.971Z"
+   "uploaded": "2026-11-07T11:20:23.011Z",
+   "mtime": 1794049078670,
+   "preview": "2026-11-07T11:20:24.904Z"
   },
   "/de/reiseziele/triest/was-sehen/piazza-unita-ditalia-de": {
-   "uploaded": "2026-11-04T18:20:27.149Z",
-   "mtime": 1793810986643,
-   "preview": "2026-11-04T18:20:29.645Z"
+   "uploaded": "2026-11-07T11:20:26.316Z",
+   "mtime": 1794049078691,
+   "preview": "2026-11-07T11:20:28.148Z"
   },
   "/de/reiseziele/turin-de/was-essen": {
    "uploaded": "2026-11-04T18:20:36.853Z",
