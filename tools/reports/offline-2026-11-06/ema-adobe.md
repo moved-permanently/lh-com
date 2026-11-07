@@ -981,3 +981,88 @@ tap.turnsthe.page/pt-pt (200).
     cards. The rest is mostly the destination finder's empty state (live data).
 - A push after a pull: `14479de..8510d01`. The smoke after was the same as before on every brand;
   SWISS's and TAP's hosts checked by hand.
+
+## Brief 461 (Brussels upgrade links per root; the de/en pages still failing)
+
+- DA access: a read-only list of `/moved-permanently/lh-com/de/en` on admin.da.live answered
+  **200**. Nothing was uploaded.
+- One push after a pull: `4590b97..de25d27` (7d9be6b, 29d9ca5, de25d27). Lint and the full suite
+  passed before it (lh-edge 64 files, site 489, 0 failing).
+
+### 1. Brussels: each market root links its own upgrade artifact (done, 29d9ca5; deployed)
+
+- lh-edge's market route, brussels only: when it serves a language version's (or a donor's)
+  document on a market root, a link starting with
+  `/artifacts/flight-upgrades/fix-price-upgrade/<version cc>-<ll>` (on www.brusselsairlines.com or
+  relative) gets the serving root's `<cc>-<ll>`. Nothing else is rewritten.
+- Which roots have an artifact: www's upgrades pages of all 92 market roots, read over Bright Data
+  (logs/b461; two sessions, the first one died after 72 pages).
+  - 90 link their own artifact, and each artifact answered 200 from the page.
+  - bf/en and bf/fr link none on www. They keep the version's link
+    (`UPGRADE_ARTIFACT_MISSING`). Here they have documents of their own, served as they are, and
+    those hold no artifact link, as www.
+  - A fetch of an artifact from another root's page got a Cloudflare challenge, so I read each
+    root from its own page.
+- Checked on brussels.turnsthe.page after the deploy:
+  - lv/en, cd/fr, ao/fr, de/en, us/en, at/de, ch/de, ch/it and nl/nl link their own
+    (lv-en … nl-nl);
+  - be/en, be/fr and de/de keep theirs;
+  - bf/en and bf/fr have none.
+- Smoke after the deploy:
+  - The ten hosts with a baseline were as before. austrian's and austrian-cn's
+    /de/en/search-index.json changed with the Austrian agent's upload (4590b97); austrian-cn's
+    two 503s were in the before run only.
+  - brussels and swiss have no committed baseline: their answers after are recorded in
+    logs/smoke/b461-after-*.json (97 checks each, statuses as the other brands').
+  - SWISS's hosts were checked by hand. tap.turnsthe.page/pt-pt answers 200 (TAP's committed
+    baseline still expects 404).
+
+### 2. lufthansa.com de/en pages still failing (my templates: hub, insights)
+
+- Fresh run on the preview: hub at 1440 and 768, insights at all widths (logs/b461).
+- Insights: 42 of 96 page-widths over 20 % (47 before e00ed69).
+- Fixed:
+  - **Hub steps (7d9be6b):** the cards-teaser parser dropped every item of a column view nested
+    in a one-column view. /de/en/meetings-and-events' "01 Send enquiry / 02 / 03" came out as an
+    empty block (37.4 % at 768, 34.4 % at 1440). 4 documents to re-import.
+  - **Insights, image before a bold-paragraph heading (7d9be6b):** www's 40 px too.
+    picture-perfect-austin: 23.7 / 29.9 / 32.8 -> 22.9 / 26.7 / 30.6 % (1440 / 768 / 390), on the
+    preview after the push. The rule is two selectors now: the version with a `:has()` inside a
+    `:has()` would have been dropped by browsers, so the test checks for that.
+    essentials-frankfurt-facts: its steps are gone, but the later offsets they had hidden show:
+    9.0 / 8.4 / 13.3 -> 10.8 / 11.1 / 11.8 %.
+  - **Insights, empty headline (7d9be6b):** www's `h3` holding `&nbsp;` before the first image
+    is now "{spacer-42}". Measured in the preview page: the image 1313 -> 1356 px at 1440 (www's
+    1356). 11 documents (both know-before-you-go pages in 4 locales, be-picky-frankfurt in 3) to
+    re-import.
+  - **Tag and author lists start with the picture, as www's (de25d27):** tags/allegris,
+    tags/munich, authors/florian-tomberg. The scores do not move: the list is a live block that
+    capture.js masks.
+- Left, not mine to change or not layout:
+  - overview-manage (25.2 % at 768) is in your harness's re-import now.
+  - a-perfect-day-barcelona and -berlin: the map's tiles (third party).
+  - all-it-takes-is-a-yes: a video frame and the live fares.
+  - tags/munich: a teaser text block below the image that www doesn't show there (to look at).
+  - baggage at 390: grids under a heading 34 px low; the pattern is in 568 documents across
+    templates, so it needs a cross-template run first.
+
+### Documents
+
+- None uploaded. For your harness:
+  [reimport-461-lh-com.txt](reimport-461-lh-com.txt), 15 documents (4 hub, 11 insights; no order
+  between them).
+
+| Item | Commit | What |
+| --- | --- | --- |
+| 1 | 29d9ca5 | lh-edge: Brussels roots' own fix-price-upgrade artifact (deployed) |
+| 2 | 7d9be6b | cards-teaser nested views; insights image before bold heading; empty headline spacer; hub, insights, homepage bundles |
+| 2 | de25d27 | blog-overview: tag and author lists picture first |
+
+Checked on:
+- brussels.turnsthe.page: 14 roots by hand, plus the smoke;
+- www.brusselsairlines.com: all 92 roots' upgrades pages over Bright Data;
+- main--lh-com--moved-permanently.aem.page: the captures, and probes of the spacer and the list
+  order;
+- a local server with main's code (port 3001);
+- the ten turnsthe.page hosts with baselines (smoke), lh-swiss's preview (swiss-smoke), and
+  tap.turnsthe.page.

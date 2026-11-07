@@ -1,0 +1,24 @@
+# Brief 461 (ema-adobe, 2026-11-07): lufthansa.com documents for the local harness, imported again
+# with main's bundles at de25d27 or later. Nothing was uploaded from here.
+#
+# 1. The hub's steps (cards-teaser parser, 7d9be6b): www's three-column view in a one-column view
+#    ("01 Send enquiry" to "03 Bring people together") came out as an empty block; hub bundle.
+/de/en/meetings-and-events
+/de/de/meetings-and-events
+/at/de/meetings-and-events
+/gb/en/meetings-and-events
+#
+# 2. Insights articles with an empty headline (www's h3 &nbsp; before the first image), now
+#    "{spacer-42}"; insights bundle. Then the article pipeline as usual (head-metadata,
+#    postprocess-media, the DAM switches).
+/at/de/articles/explore-the-world/be-picky-frankfurt-insider-tips
+/at/de/articles/explore-the-world/know-before-you-go-algiers
+/at/de/articles/explore-the-world/know-before-you-go-berlin
+/de/de/articles/explore-the-world/be-picky-frankfurt-insider-tips
+/de/de/articles/explore-the-world/know-before-you-go-algiers
+/de/de/articles/explore-the-world/know-before-you-go-berlin
+/de/en/articles/explore-the-world/know-before-you-go-algiers
+/de/en/articles/explore-the-world/know-before-you-go-berlin
+/gb/en/articles/explore-the-world/know-before-you-go-algiers
+/gb/en/articles/explore-the-world/know-before-you-go-berlin
+/mk/de/articles/explore-the-world/be-picky-frankfurt-insider-tips1
