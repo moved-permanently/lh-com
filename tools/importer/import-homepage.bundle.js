@@ -1929,7 +1929,7 @@ var CustomImportScript = (() => {
   function isBlockComponent(el) {
     return !!el && !el.matches(`${FLOW_COMPONENT}, .separator`);
   }
-  function missingSeparatorMarkers(run, flow) {
+  function missingSeparatorMarkers(run, flow, template) {
     const first = run[0];
     const last = run[run.length - 1];
     const parent = first.parentElement;
@@ -1953,6 +1953,10 @@ var CustomImportScript = (() => {
     }
     if (prev && next && isBlockComponent(prev) && (isBlockComponent(next) || isUntitledColumnView(next))) {
       return infos.map((i) => i.marker);
+    }
+    if (template === "campaign" && run.length === 1 && prev && next && prev.matches(".text")) {
+      if (next.matches(".image:not(:has(video, .videoViewer))")) return [infos[0].marker];
+      if (next.matches(".carousel")) return [infos[0].marker.replace(/^spacer-\d+/, `spacer-${Math.max(spaces[0] - 24, 0)}`)];
     }
     if (prev && !next && prev.matches(".headline")) {
       const aem = parent.closest(".container-content > .section");
@@ -1988,7 +1992,7 @@ var CustomImportScript = (() => {
       if (infos.some((i) => i.keep) || afterGrey(run[0]) || keepInFlow && inFlow(run)) {
         markers = infos.map((i) => i.marker);
       } else if (fillGaps) {
-        markers = missingSeparatorMarkers(run, keepInFlow);
+        markers = missingSeparatorMarkers(run, keepInFlow, template);
       }
       run.forEach((sep, i) => {
         if (!sep.isConnected) return;

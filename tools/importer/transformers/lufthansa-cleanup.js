@@ -512,7 +512,8 @@ function inFlow(run) {
 //   (it beats .section-content > :last-child > :last-child { margin-bottom: 0 }), the last
 //   separator has no other margin, so "{spacer-N}" with N its inline margin, else 0 (40px
 //   separator under the onboard-delights / economy-class / food-and-beverages stage: first
-//   heading 49px of ink under the image on live with .mb-default 0, 8px in the replica).
+//   heading 49px of ink under the image on live with .mb-default 0, 8px in the replica);
+// - campaign only: between a text component and an image or image carousel (see below).
 const SEPARATOR_AS_IS_TEMPLATES = ['homepage', 'flight-status'];
 
 // the separator's inline margin-bottom in px, or null (an invalid value, "margin-bottom: 100pxpx"
@@ -541,7 +542,7 @@ function isBlockComponent(el) {
 }
 
 /** The markers for a dropped run the replica has no stand-in for, or null (see above). */
-function missingSeparatorMarkers(run, flow) {
+function missingSeparatorMarkers(run, flow, template) {
   const first = run[0];
   const last = run[run.length - 1];
   const parent = first.parentElement;
@@ -566,6 +567,16 @@ function missingSeparatorMarkers(run, flow) {
   }
   if (prev && next && isBlockComponent(prev) && (isBlockComponent(next) || isUntitledColumnView(next))) {
     return infos.map((i) => i.marker);
+  }
+  // campaign: after a text component, before an image or an image carousel (brief 460: the
+  // 100-years texts, then their carousels or collages; live adds the separator's 1px + N to the
+  // text's spacing, the replica has only the paragraph's margin: the carousel 26px too high).
+  // An image stays in the text's wrapper: "{spacer-N}". Before the carousel block the spacer
+  // paragraph keeps the text's 24px margin from collapsing into the block's, so it stands for
+  // N - 24 ("{spacer-1}" for the default 2.5rem)
+  if (template === 'campaign' && run.length === 1 && prev && next && prev.matches('.text')) {
+    if (next.matches('.image:not(:has(video, .videoViewer))')) return [infos[0].marker];
+    if (next.matches('.carousel')) return [infos[0].marker.replace(/^spacer-\d+/, `spacer-${Math.max(spaces[0] - 24, 0)}`)];
   }
   if (prev && !next && prev.matches('.headline')) {
     const aem = parent.closest('.container-content > .section');
@@ -606,7 +617,7 @@ function markSeparators(document, keepInFlow, payload) {
     if (infos.some((i) => i.keep) || afterGrey(run[0]) || (keepInFlow && inFlow(run))) {
       markers = infos.map((i) => i.marker);
     } else if (fillGaps) {
-      markers = missingSeparatorMarkers(run, keepInFlow);
+      markers = missingSeparatorMarkers(run, keepInFlow, template);
     }
     run.forEach((sep, i) => {
       if (!sep.isConnected) return;
