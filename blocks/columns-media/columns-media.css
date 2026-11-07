@@ -15,6 +15,19 @@
   gap: 66px;
 }
 
+/* option separated (brusselsairlines.com, the importer: a default separator between the merged column
+   views, its 2.5rem + 1px added to every row on www; /be/fr/travel-classes/business and
+   premium-economy: 24 px more at 1440, 34 at 390) */
+.columns-media.separated {
+  gap: 100px;
+}
+
+@media (width >= 768px) {
+  .columns-media.separated {
+    gap: 90px;
+  }
+}
+
 .columns-media .columns-media-row {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -163,6 +176,14 @@ body.brand-lufthansa main:not(:has(.article-header)) .columns-media .columns-med
    "{spacer-N}" in the cell, brief 461; www's legal two-column text rows): its space as default
    content's spacers, N + 1px */
 body.brand-lufthansa .columns-media .columns-media-text > p.spacer {
+  box-sizing: content-box;
+  height: calc(var(--spacer-size, 25px) + 1px);
+  margin: 0;
+}
+
+/* Brussels: a separator that ends a text item ("{spacer-0}", the brief after 474): its 1px, the
+   paragraph above keeps its margin, as on www */
+body.brand-brussels .columns-media .columns-media-text > p.spacer {
   box-sizing: content-box;
   height: calc(var(--spacer-size, 25px) + 1px);
   margin: 0;

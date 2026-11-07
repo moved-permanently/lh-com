@@ -666,3 +666,57 @@ body.brand-brussels main .hero-campaign:not(.card) :is(h1, h2, h3) {
     background: #e5002b;
   }
 }
+
+/* lists in copy: 10 px between items as www's .richtext li (the documents' li > p kept 16) */
+body.brand-brussels main :is(.default-content-wrapper, .columns-media-text) li > p {
+  margin-bottom: 0;
+}
+
+/* a tab set below 768 px (scripts/section-tabs.js: an accordion; www's maui-tab-control-responsive
+   draws maui-collapsible-item sn, /be/fr/travel-classes/business at 390): the header 20 / 24 px,
+   bold when open, 20 px in; the open panel's content 20 px further in (.expandable-pane .section
+   padding 5px 20px 30px), 47 px below the header with the panel's column view (32 px) and its
+   item (10 px), 94 px to the next header after its last component; a column view under the
+   panel's heading 64 px below it (www's 32 px column-view padding and 10 px item padding), the
+   tab set's end without the section gap (www's tab control has none) */
+@media (width < 768px) {
+  body.brand-brussels main > .section.section-tab-panel:not(:has(+ .section-tab-panel, + .section-tab-part)),
+  body.brand-brussels main > .section.section-tab-part:not(:has(+ .section-tab-panel, + .section-tab-part)) {
+    margin-bottom: 0;
+  }
+
+  body.brand-brussels main .section.section-tab-panel > .section-tab-toggle {
+    padding: 13px 20px;
+    font-size: 20px;
+    font-weight: 400;
+  }
+
+  body.brand-brussels main .section.section-tab-panel > .section-tab-toggle[aria-expanded="true"] {
+    font-weight: 700;
+  }
+
+  body.brand-brussels main .section.section-tab-panel > div:not(.section-tab-toggle) {
+    padding-right: calc(var(--layout-margin, 22px) + 20px);
+    padding-left: calc(var(--layout-margin, 22px) + 20px);
+  }
+
+  body.brand-brussels main .section.section-tab-panel > .section-tab-toggle + div {
+    margin-top: 47px;
+  }
+
+  body.brand-brussels main .section.section-tab-panel:has(> .section-tab-toggle[aria-expanded="true"]) {
+    padding-bottom: 94px;
+  }
+
+  body.brand-brussels main .section.section-tab-panel > .default-content-wrapper + .columns-media-wrapper {
+    margin-top: 64px;
+  }
+}
+
+/* from 768 px (the tab list over the panels) the panel's column view under its heading as on www:
+   57 px (business 1440: the heading to the first row's picture) */
+@media (width >= 768px) {
+  body.brand-brussels main .section.section-tab-panel > .default-content-wrapper + .columns-media-wrapper {
+    margin-top: 57px;
+  }
+}

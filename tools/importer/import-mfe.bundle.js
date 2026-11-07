@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-mfe.js
-  var tmp_bundle_mfe_602102_exports = {};
-  __export(tmp_bundle_mfe_602102_exports, {
-    default: () => tmp_bundle_mfe_602102_default
+  var tmp_bundle_mfe_716511_exports = {};
+  __export(tmp_bundle_mfe_716511_exports, {
+    default: () => tmp_bundle_mfe_716511_default
   });
 
   // tools/importer/parsers/micro-frontend.js
@@ -500,6 +500,27 @@ var CustomImportScript = (() => {
       return false;
     }
   }
+  function isBrusselsPage(payload) {
+    const url = payload && (payload.params && payload.params.originalURL || payload.url) || "";
+    try {
+      return /(^|\.)brusselsairlines\.com$/.test(new URL(url).hostname);
+    } catch (e) {
+      return false;
+    }
+  }
+  var SEPARATED = "data-lh-separated";
+  function betweenColumnViews(run) {
+    const prev = run[0].previousElementSibling;
+    const next = run[run.length - 1].nextElementSibling;
+    return run.length === 1 && separatorInline(run[0]) === null && !separatorInfo(run[0]).keep && !!prev && !!next && prev.matches(FLOW_COLUMN) && next.matches(FLOW_COLUMN) ? next : null;
+  }
+  function endsTextCell(run) {
+    const first = run[0];
+    const item = first.parentElement;
+    if (!item || !item.matches(CELL_ITEM) || run[run.length - 1].nextElementSibling) return false;
+    const prev = first.previousElementSibling;
+    return !!prev && prev.matches(CELL_TEXT) && run.every((sep) => separatorInline(sep) === null);
+  }
   function inTextCell(run) {
     const first = run[0];
     const last = run[run.length - 1];
@@ -513,6 +534,7 @@ var CustomImportScript = (() => {
     const template = (payload && payload.template || {}).name;
     const fillGaps = !SEPARATOR_AS_IS_TEMPLATES.includes(template);
     const cellSpacers = isLufthansaPage(payload);
+    const brussels = isBrusselsPage(payload);
     const runs = [];
     document.querySelectorAll(".separator").forEach((sep) => {
       const last = runs[runs.length - 1];
@@ -534,6 +556,16 @@ var CustomImportScript = (() => {
         });
         return;
       }
+      if (brussels && endsTextCell(run)) {
+        const div = document.createElement("div");
+        div.className = CELL_SPACER;
+        div.textContent = "{spacer-0}";
+        run[0].replaceWith(div);
+        run.slice(1).forEach((sep) => sep.remove());
+        return;
+      }
+      const separated = brussels && betweenColumnViews(run);
+      if (separated) separated.setAttribute(SEPARATED, "true");
       let markers = null;
       if (infos.some((i) => i.keep) || afterGrey(run[0]) || keepInFlow && inFlow(run)) {
         markers = infos.map((i) => i.marker);
@@ -1896,7 +1928,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_mfe_602102_default = {
+  var tmp_bundle_mfe_716511_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -1926,5 +1958,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_mfe_602102_exports);
+  return __toCommonJS(tmp_bundle_mfe_716511_exports);
 })();

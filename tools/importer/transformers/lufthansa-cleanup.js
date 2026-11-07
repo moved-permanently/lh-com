@@ -620,6 +620,37 @@ function isLufthansaPage(payload) {
   }
 }
 
+function isBrusselsPage(payload) {
+  const url = (payload && ((payload.params && payload.params.originalURL) || payload.url)) || '';
+  try {
+    return /(^|\.)brusselsairlines\.com$/.test(new URL(url).hostname);
+  } catch (e) {
+    return false;
+  }
+}
+
+// brusselsairlines.com (the brief after 474: /be/fr/travel-classes/business, premium-economy): a
+// default separator (2.5rem, no line) between two column views that the columns-media parser
+// merges into one block adds its space to every row on www (24 px at 1440, 34 at 390), so the
+// next view is marked (data-lh-separated: the parser's option separated, columns-media.css); one
+// that ends a text item keeps the last paragraph's margin on www: "{spacer-0}" in the cell
+const SEPARATED = 'data-lh-separated';
+
+function betweenColumnViews(run) {
+  const prev = run[0].previousElementSibling;
+  const next = run[run.length - 1].nextElementSibling;
+  return run.length === 1 && separatorInline(run[0]) === null && !separatorInfo(run[0]).keep
+    && !!prev && !!next && prev.matches(FLOW_COLUMN) && next.matches(FLOW_COLUMN) ? next : null;
+}
+
+function endsTextCell(run) {
+  const first = run[0];
+  const item = first.parentElement;
+  if (!item || !item.matches(CELL_ITEM) || run[run.length - 1].nextElementSibling) return false;
+  const prev = first.previousElementSibling;
+  return !!prev && prev.matches(CELL_TEXT) && run.every((sep) => separatorInline(sep) === null);
+}
+
 function inTextCell(run) {
   const first = run[0];
   const last = run[run.length - 1];
@@ -634,6 +665,7 @@ function markSeparators(document, keepInFlow, payload) {
   const template = ((payload && payload.template) || {}).name;
   const fillGaps = !SEPARATOR_AS_IS_TEMPLATES.includes(template);
   const cellSpacers = isLufthansaPage(payload);
+  const brussels = isBrusselsPage(payload);
   // runs of adjacent separators are kept or dropped together (40px + line + 30px)
   const runs = [];
   document.querySelectorAll('.separator').forEach((sep) => {
@@ -659,6 +691,16 @@ function markSeparators(document, keepInFlow, payload) {
       });
       return;
     }
+    if (brussels && endsTextCell(run)) {
+      const div = document.createElement('div');
+      div.className = CELL_SPACER;
+      div.textContent = '{spacer-0}';
+      run[0].replaceWith(div);
+      run.slice(1).forEach((sep) => sep.remove());
+      return;
+    }
+    const separated = brussels && betweenColumnViews(run);
+    if (separated) separated.setAttribute(SEPARATED, 'true');
     let markers = null;
     if (infos.some((i) => i.keep) || afterGrey(run[0]) || (keepInFlow && inFlow(run))) {
       markers = infos.map((i) => i.marker);

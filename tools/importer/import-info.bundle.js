@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-info.js
-  var tmp_bundle_info_602102_exports = {};
-  __export(tmp_bundle_info_602102_exports, {
-    default: () => tmp_bundle_info_602102_default
+  var tmp_bundle_info_716511_exports = {};
+  __export(tmp_bundle_info_716511_exports, {
+    default: () => tmp_bundle_info_716511_default
   });
 
   // tools/importer/parsers/search-results.js
@@ -4416,7 +4416,19 @@ var CustomImportScript = (() => {
     }
     if (!cells.length && !titles.length) return;
     const block = WebImporter.Blocks.createBlock(document, { name: "columns-media", variants, cells });
-    const headerText = (t) => clean2((t.querySelector("tr") || t).textContent).toLowerCase();
+    const headerText = (t) => clean2((t.querySelector("tr") || t).textContent).toLowerCase().replace(/\s*\(([^)]*)\)$/, (m, list) => {
+      const rest = list.split(",").map((v) => v.trim()).filter((v) => v && v !== "separated");
+      return rest.length ? ` (${rest.join(", ")})` : "";
+    });
+    const addSeparated = (table) => {
+      const cell = table.querySelector("tr > th, tr > td");
+      if (!cell) return;
+      const m = clean2(cell.textContent).match(/^(.*?)\s*\(([^)]*)\)$/);
+      const name = m ? m[1] : clean2(cell.textContent);
+      const list = m ? m[2].split(",").map((v) => v.trim()).filter(Boolean) : [];
+      if (!list.includes("separated")) list.push("separated");
+      cell.textContent = `${name} (${list.join(", ")})`;
+    };
     const previousSameBlock = () => {
       const name = headerText(block);
       const before = [...document.querySelectorAll("table")].filter((t) => !element.contains(t) && t.compareDocumentPosition(element) & 4 && headerText(t) === name);
@@ -4436,6 +4448,7 @@ var CustomImportScript = (() => {
         const rows = [...block.querySelectorAll("tr")].slice(1);
         const lastRow = [...prev.querySelectorAll("tr")].pop();
         rows.forEach((r) => lastRow.parentNode.append(r));
+        if (element.getAttribute("data-lh-separated") === "true") addSeparated(prev);
         element.remove();
         return;
       }
@@ -5034,6 +5047,27 @@ var CustomImportScript = (() => {
       return false;
     }
   }
+  function isBrusselsPage(payload) {
+    const url = payload && (payload.params && payload.params.originalURL || payload.url) || "";
+    try {
+      return /(^|\.)brusselsairlines\.com$/.test(new URL(url).hostname);
+    } catch (e) {
+      return false;
+    }
+  }
+  var SEPARATED = "data-lh-separated";
+  function betweenColumnViews(run) {
+    const prev = run[0].previousElementSibling;
+    const next = run[run.length - 1].nextElementSibling;
+    return run.length === 1 && separatorInline(run[0]) === null && !separatorInfo(run[0]).keep && !!prev && !!next && prev.matches(FLOW_COLUMN) && next.matches(FLOW_COLUMN) ? next : null;
+  }
+  function endsTextCell(run) {
+    const first = run[0];
+    const item = first.parentElement;
+    if (!item || !item.matches(CELL_ITEM) || run[run.length - 1].nextElementSibling) return false;
+    const prev = first.previousElementSibling;
+    return !!prev && prev.matches(CELL_TEXT) && run.every((sep) => separatorInline(sep) === null);
+  }
   function inTextCell(run) {
     const first = run[0];
     const last = run[run.length - 1];
@@ -5047,6 +5081,7 @@ var CustomImportScript = (() => {
     const template = (payload && payload.template || {}).name;
     const fillGaps = !SEPARATOR_AS_IS_TEMPLATES.includes(template);
     const cellSpacers = isLufthansaPage(payload);
+    const brussels = isBrusselsPage(payload);
     const runs = [];
     document.querySelectorAll(".separator").forEach((sep) => {
       const last = runs[runs.length - 1];
@@ -5068,6 +5103,16 @@ var CustomImportScript = (() => {
         });
         return;
       }
+      if (brussels && endsTextCell(run)) {
+        const div = document.createElement("div");
+        div.className = CELL_SPACER;
+        div.textContent = "{spacer-0}";
+        run[0].replaceWith(div);
+        run.slice(1).forEach((sep) => sep.remove());
+        return;
+      }
+      const separated = brussels && betweenColumnViews(run);
+      if (separated) separated.setAttribute(SEPARATED, "true");
       let markers = null;
       if (infos.some((i) => i.keep) || afterGrey(run[0]) || keepInFlow && inFlow(run)) {
         markers = infos.map((i) => i.marker);
@@ -6669,7 +6714,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_info_602102_default = {
+  var tmp_bundle_info_716511_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -6699,5 +6744,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_info_602102_exports);
+  return __toCommonJS(tmp_bundle_info_716511_exports);
 })();

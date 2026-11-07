@@ -620,7 +620,23 @@ export default function parse(element, { document }) {
   const block = WebImporter.Blocks.createBlock(document, { name: 'columns-media', variants, cells });
 
   // --- merge into the previous Columns Media table when this is its continuation
-  const headerText = (t) => clean((t.querySelector('tr') || t).textContent).toLowerCase();
+  // (option separated, added by the merge, does not count: brusselsairlines.com, see below)
+  const headerText = (t) => clean((t.querySelector('tr') || t).textContent).toLowerCase()
+    .replace(/\s*\(([^)]*)\)$/, (m, list) => {
+      const rest = list.split(',').map((v) => v.trim()).filter((v) => v && v !== 'separated');
+      return rest.length ? ` (${rest.join(', ')})` : '';
+    });
+  // a column view after a default separator (the cleanup's data-lh-separated, brusselsairlines.com):
+  // www adds the separator's space to every row, the merged block gets option separated
+  const addSeparated = (table) => {
+    const cell = table.querySelector('tr > th, tr > td');
+    if (!cell) return;
+    const m = clean(cell.textContent).match(/^(.*?)\s*\(([^)]*)\)$/);
+    const name = m ? m[1] : clean(cell.textContent);
+    const list = m ? m[2].split(',').map((v) => v.trim()).filter(Boolean) : [];
+    if (!list.includes('separated')) list.push('separated');
+    cell.textContent = `${name} (${list.join(', ')})`;
+  };
   const previousSameBlock = () => {
     const name = headerText(block);
     const before = [...document.querySelectorAll('table')].filter((t) => !element.contains(t)
@@ -641,6 +657,7 @@ export default function parse(element, { document }) {
       const rows = [...block.querySelectorAll('tr')].slice(1);
       const lastRow = [...prev.querySelectorAll('tr')].pop();
       rows.forEach((r) => lastRow.parentNode.append(r));
+      if (element.getAttribute('data-lh-separated') === 'true') addSeparated(prev);
       element.remove();
       return;
     }
