@@ -431,6 +431,72 @@ function withOpenFirst(main, html) {
 }
 
 /**
+ * www's accordions lh-com's import wrote as text (brief 445: an accordion in a sidebar's content,
+ * the check-in pages' "So funktioniert es"): per accordion of the snapshot whose headlines no
+ * accordion-columns block of the document has, each item's elements (from the one opening with its
+ * first text to the one holding its last, in one section, after the previous item's) its row
+ * (headline | those elements), the block where the first item's were; open-first when www's first
+ * item is authored expanded. An accordion whose items the document does not have so stays as it
+ * is (listed).
+ * @param {string} doc a document or its sections (.plain.html)
+ * @param {string} html the page's snapshot
+ * @returns {{doc: string, made: number, skipped: string[]}}
+ */
+export function withSwissAccordions(doc, html) {
+  const skipped = [];
+  const accordions = [...parseHTML(html).document.querySelectorAll('maui-collapsible')].map((c) => {
+    const items = [...c.querySelectorAll('maui-collapsible-item')].filter((i) => i.closest('maui-collapsible') === c);
+    return {
+      open: Boolean(items[0] && items[0].hasAttribute('expanded')),
+      items: items.map((i) => ({ label: (i.getAttribute('headline') || '').replace(/\s+/g, ' ').trim(), texts: partTexts(i) })),
+    };
+  }).filter((a) => a.items.length && a.items.every((i) => i.label && i.texts.length));
+  if (!accordions.length) return { doc, made: 0, skipped };
+  const isPlain = !/<main>/.test(doc);
+  const inner = isPlain ? doc : doc.match(/<main>([\s\S]*)<\/main>/)[1];
+  const { document } = parseHTML(`<!DOCTYPE html><html><body><main>${inner}</main></body></html>`);
+  const main = document.querySelector('main');
+  const labels = new Set([...main.querySelectorAll('div.accordion-columns > div > div:first-child')].map(textOf));
+  let made = 0;
+  accordions.forEach((acc) => {
+    if (acc.items.some((i) => labels.has(norm(i.label)))) return;
+    const runs = [];
+    let at = { section: main.firstElementChild, index: 0 };
+    const found = acc.items.every((item) => {
+      const last = item.texts[item.texts.length - 1];
+      for (let sec = at.section; sec; sec = sec.nextElementSibling) {
+        const kids = [...sec.children];
+        const start = kids.findIndex((el, i) => (sec !== at.section || i >= at.index) && !isBlock(el) && starts(el, item.texts[0]));
+        if (start >= 0) {
+          const end = kids.findIndex((el, i) => i >= start && contains(el, last));
+          if (end < 0 || kids.slice(start, end + 1).some((el) => el.classList.contains('section-metadata'))) return false;
+          runs.push(kids.slice(start, end + 1));
+          at = { section: sec, index: end + 1 };
+          return true;
+        }
+      }
+      return false;
+    });
+    if (!found) { skipped.push(`accordion "${acc.items[0].label}": its items not found as text`); return; }
+    const block = document.createElement('div');
+    block.className = acc.open ? 'accordion-columns open-first' : 'accordion-columns';
+    runs[0][0].before(block);
+    acc.items.forEach((item, i) => {
+      const r = document.createElement('div');
+      const label = document.createElement('div');
+      label.textContent = item.label;
+      const body = document.createElement('div');
+      body.append(...runs[i]);
+      r.append(label, body);
+      block.append(r);
+    });
+    made += 1;
+  });
+  if (!made) return { doc, made, skipped };
+  return { doc: isPlain ? main.innerHTML : doc.replace(/<main>[\s\S]*<\/main>/, () => `<main>${main.innerHTML}</main>`), made, skipped };
+}
+
+/**
  * @param {string} doc a document (<body><header></header><main>…</main>…) or its sections (.plain.html)
  * @param {string} html the page's snapshot
  * @returns {{doc: string, made: number, rows: number, skipped: string[]}} made: the sidebars, rows: the views and the accordions opened

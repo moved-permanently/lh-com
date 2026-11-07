@@ -85,7 +85,7 @@ test('a sidebar the document does not show in order is left as it is, and named'
 
 test('swiss-import.mjs runs the step on every document with its snapshot', () => {
   const js = fs.readFileSync(new URL('../tools/importer/swiss-import.mjs', import.meta.url), 'utf8');
-  assert.ok(js.includes("import { withSwissSidebar } from './swiss-sidebar.mjs';"));
+  assert.match(js, /import \{ withSwissSidebar(, [\w, ]+)? \} from '\.\/swiss-sidebar\.mjs';/);
   assert.ok(/withSwissSidebar\(/.test(js));
 });
 

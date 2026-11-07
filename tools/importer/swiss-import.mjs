@@ -24,7 +24,9 @@
  *   on www (withCheckinHandoff); the booking login's "Enter booking code" opens the page on www;
  * - two-column teaser rows import as carousel-cards (withTeaserColumns);
  * - www's sidebar component (airem-sidebar) as its content beside a sidebar-aside section, its
- *   two-column views as columns-media rows (swiss-sidebar.mjs withSwissSidebar, brief 432);
+ *   two-column views as columns-media rows (swiss-sidebar.mjs withSwissSidebar, brief 432), www's
+ *   accordions the import wrote as text an accordion-columns block (withSwissAccordions, brief 445);
+ * - the check-in form with www's first name and field hints (withCheckinFields, brief 445);
  * - metadata (withItaMetadata): the root's nav and footer, `markets` (scope.json), www's noindex;
  * - a path Edge Delivery refuses (capitals, "&", double, leading or trailing hyphens) becomes its
  *   document name (docName) and a row of content-sites/lh-swiss/runs/redirects.tsv;
@@ -45,7 +47,7 @@ import { relativeDamLinks } from './swiss-dam.mjs';
 import { edsDamPath } from '../../scripts/dam-path.js';
 import { withLocalImages } from './swiss-nav.mjs';
 import { stripScripts } from './excat-plugin.mjs';
-import { withSwissSidebar } from './swiss-sidebar.mjs';
+import { withSwissSidebar, withSwissAccordions } from './swiss-sidebar.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const argv = process.argv.slice(2);
@@ -253,6 +255,34 @@ export const withTeaserColumns = (html) => editDivs(html, '<div class="twocolumn
 export const withCheckinHandoff = (doc, p) => doc
   // the login widget's "Enter booking code" (lh-com: its own dialog) opens the page on www
   .split('href="#booking-code"').join(`href="https://${HOST}${p}"`).replace(/<div class="booking-lookup(?: [^"]*)?">/g, (m) => (/Submit URL/.test(doc) ? m : `${m}<div><div>Submit URL</div><div>https://${HOST}${p}</div></div>`));
+
+/**
+ * The check-in form as www's (brief 445): www's check-in entry asks for the booking code, the first
+ * name and the last name, the names with a hint under them (maui-input hint); lh-com's import
+ * writes its manage-bookings form (booking code, last name, the tour operator checkbox). The
+ * booking-lookup gets the option checkin (blocks/booking-lookup) and rows of www's first name
+ * (label, hint, error) and its hints. A snapshot without that form, and a document with it, as they are.
+ */
+export function withCheckinFields(doc, html) {
+  const { document } = parseHTML(html);
+  const field = (name) => document.querySelector(`form maui-input[id$="-flm-checkin-fktnCheckinRequest-${name}"]`);
+  const first = field('firstName');
+  if (!first || !doc.includes('<div class="booking-lookup my-bookings">')) return doc;
+  const text = (el, a) => ((el && el.getAttribute(a)) || '').replace(/\s+/g, ' ').trim();
+  const row = (k, v) => (v ? `<div><div>${k}</div><div>${v.replace(/&/g, '&amp;').replace(/</g, '&lt;')}</div></div>` : '');
+  const last = field('lastName');
+  const ref = field('fileKey');
+  return editDivs(doc, '<div class="booking-lookup my-bookings">', (el) => {
+    let out = el.replace('<div class="booking-lookup my-bookings">', '<div class="booking-lookup my-bookings checkin">');
+    const names = row('First name label', text(first, 'label')) + row('First name hint', text(first, 'hint')) + row('First name error', text(first, 'errormessage'));
+    const at = out.indexOf('<div><div>Last name label</div>');
+    out = at < 0 ? out.replace(/<\/div>$/, `${names}</div>`) : `${out.slice(0, at)}${names}${out.slice(at)}`;
+    const lastHint = row('Last name hint', text(last, 'hint'));
+    out = out.replace(/(<div><div>Last name label<\/div><div>[^<]*<\/div><\/div>)/, (m) => `${m}${lastHint}`);
+    const refHint = row('Reference hint', text(ref, 'hint'));
+    return refHint ? out.replace(/(<div><div>Reference label<\/div><div>[^<]*<\/div><\/div>)/, (m) => `${m}${refHint}`) : out;
+  });
+}
 
 // the core forms: a proposed lh-forms id per page name (swiss-<page>; lh-forms does not know
 // them yet, so the form pages stay on preview)
@@ -882,7 +912,7 @@ if (isMain) {
       const markets = scope.documents[src]?.markets || [];
       const snapHtml = fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8');
       // www's sidebar component (airem-sidebar) as the content beside a sidebar-aside section (swiss-sidebar.mjs)
-      const next = withSwissSidebar(splitTabSections(withFlightSearchTeaser(withFlightSearchVideo(withHeroVideo(withItaMetadata(withCheckinHandoff(withFlightSearch(withPageLanguageMessages(withItaForm(doc, p, snapHtml), p), p), p), p, snapHtml, markets), snapHtml), snapHtml), snapHtml)), snapHtml).doc;
+      const next = withSwissAccordions(withSwissSidebar(splitTabSections(withFlightSearchTeaser(withFlightSearchVideo(withHeroVideo(withItaMetadata(withCheckinFields(withCheckinHandoff(withFlightSearch(withPageLanguageMessages(withItaForm(doc, p, snapHtml), p), p), p), snapHtml), p, snapHtml, markets), snapHtml), snapHtml), snapHtml)), snapHtml).doc, snapHtml).doc;
       if (next !== doc) fs.writeFileSync(f, next);
     });
     const mapOnly = path.join(W, 'runs', `${name}-upload.txt`);

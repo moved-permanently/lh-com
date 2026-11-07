@@ -356,7 +356,7 @@ export function buildTabs(id, tabs, panels, label, { collapsible = false } = {})
 }
 
 function createField(id, {
-  name, label, autocomplete, maxLength, error, numeric,
+  name, label, autocomplete, maxLength, error, numeric, hint,
 }) {
   const wrap = el('div', 'booking-lookup-field');
   const labelEl = el('label', '', label);
@@ -374,17 +374,27 @@ function createField(id, {
   message.id = `${id}-${name}-error`;
   message.hidden = true;
   wrap.append(labelEl, input, message);
+  // a hint under the field (SWISS's check-in names), its description; hidden while it is invalid
+  let hintId = null;
+  if (hint) {
+    const note = el('p', 'booking-lookup-hint', hint);
+    note.id = `${input.id}-hint`;
+    hintId = note.id;
+    wrap.append(note);
+    input.setAttribute('aria-describedby', hintId);
+  }
   // text: the check's own message (booking-code: required or pattern), else the field's
   const setError = (show, text) => {
     message.textContent = show ? text || error : '';
     message.hidden = !show;
     if (show) {
       input.setAttribute('aria-invalid', 'true');
-      input.setAttribute('aria-describedby', message.id);
+      input.setAttribute('aria-describedby', hintId ? `${message.id} ${hintId}` : message.id);
       message.setAttribute('role', 'alert');
     } else {
       input.removeAttribute('aria-invalid');
-      input.removeAttribute('aria-describedby');
+      if (hintId) input.setAttribute('aria-describedby', hintId);
+      else input.removeAttribute('aria-describedby');
       message.removeAttribute('role');
     }
   };
@@ -671,13 +681,19 @@ function decorateMyBookings(block, id, locale, config) {
   const form = el('form', 'booking-lookup-form');
   form.noValidate = true;
   form.setAttribute('aria-label', tabLabel);
-  const field = (name, label, error, { autocomplete = 'off', maxLength } = {}) => createField(id, {
-    name, label, autocomplete, maxLength, error,
+  // option checkin (SWISS's online check-in, brief 445): www's booking code or 13-digit ticket
+  // number, first name and last name with their hints (rows "<field> hint"), no tour operator
+  // search
+  const checkin = block.classList.contains('checkin');
+  const hintOf = (key) => (checkin && (pick(config, `${key}-hint`) || {}).text) || '';
+  const field = (name, label, error, { autocomplete = 'off', maxLength, hint } = {}) => createField(id, {
+    name, label, autocomplete, maxLength, error, hint,
   });
-  const reference = field('reference', labels['reference label'], labels['reference error'], { maxLength: 6 });
+  const reference = field('reference', labels['reference label'], labels['reference error'], { maxLength: checkin ? 13 : 6, hint: hintOf('reference') });
   reference.input.autocapitalize = 'characters';
   reference.input.spellcheck = false;
-  const lastName = field('lastName', labels['last name label'], labels['last name error'], { autocomplete: 'family-name', maxLength: 31 });
+  const firstName = checkin ? field('firstName', labels['first name label'], labels['first name error'], { autocomplete: 'given-name', maxLength: 26, hint: hintOf('first-name') }) : null;
+  const lastName = field('lastName', labels['last name label'], labels['last name error'], { autocomplete: 'family-name', maxLength: 31, hint: hintOf('last-name') });
   const toLastName = field('toLastName', labels['last name label'], labels['last name error'], { autocomplete: 'family-name', maxLength: 31 });
   const toFirstName = field('toFirstName', labels['first name label'], labels['first name error'], { autocomplete: 'given-name', maxLength: 26 });
   const toCode = field('tourOperatorCode', labels['tour operator code label'], labels['tour operator code error'], { maxLength: 12 });
@@ -686,7 +702,7 @@ function decorateMyBookings(block, id, locale, config) {
   toCode.input.title = labels['tour operator code info'];
 
   const bookingFields = el('div', 'booking-lookup-fields');
-  bookingFields.append(reference.wrap, lastName.wrap);
+  bookingFields.append(...[reference, firstName, lastName].filter(Boolean).map((f) => f.wrap));
   const tourFields = el('div', 'booking-lookup-fields');
   tourFields.append(toLastName.wrap, toFirstName.wrap, toCode.wrap);
   tourFields.hidden = true;
@@ -705,13 +721,15 @@ function decorateMyBookings(block, id, locale, config) {
   submit.type = 'submit';
   const actions = el('div', 'booking-lookup-actions');
   actions.append(submit);
-  form.append(bookingFields, tourFields, checkboxLabel, actions);
+  const parts = checkin ? [bookingFields] : [bookingFields, tourFields, checkboxLabel];
+  form.append(...parts, actions);
   const error = handoffError(form, actions);
   panel.append(form);
 
   const filled = (f) => () => f.input.value.trim() !== '';
   const bookingChecks = [
     [reference, () => referencePattern.test(reference.input.value.replace(/\s+/g, '').toUpperCase())],
+    ...(firstName ? [[firstName, filled(firstName)]] : []),
     [lastName, filled(lastName)],
   ];
   const tourChecks = [

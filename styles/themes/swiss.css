@@ -930,3 +930,12 @@ body.brand-swiss main > .section > .section-part.grey {
 }
 
 /* stylelint-enable no-descending-specificity */
+
+/* the online check-in's field hints (booking-lookup my-bookings checkin, brief 445): www's
+   maui-hint under its field, 12/17 px dark grey, 6 px below the field, the next field or the
+   button 24 px below it (the field's reserve) */
+body.brand-swiss .booking-lookup.checkin .booking-lookup-hint {
+  margin: 6px 0 24px;
+  color: #333;
+  line-height: 17px;
+}
