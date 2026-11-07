@@ -102,6 +102,8 @@ export function sidebarsOf(html) {
       teasers: teasersOf(aside),
       asideImagesAfter: trailingImages(aside),
       imagesBefore: leadingImages(content),
+      // the content opens with the message center (current information's live notices, brief 455)
+      messageCenterFirst: Boolean(content && content.firstElementChild && content.firstElementChild.classList.contains('messagecenterwrapper')),
       // www's grey boxes in the content (.container-gray column views): their first and last text
       greyBoxes: content ? [...content.querySelectorAll('.container-gray')].filter((g) => !g.parentElement.closest('.container-gray'))
         .map((g) => partTexts(g)).filter((t) => t.length).map((t) => ({ first: t[0], last: t[t.length - 1] })) : [],
@@ -690,6 +692,9 @@ export function withSwissSidebar(doc, html) {
     let { start } = found;
     // the pictures www shows before the content's first text open the content
     for (let k = 0; k < sb.imagesBefore && start > 0 && (section !== fromSection || start - 1 >= fromIndex) && isPicture(section.children[start - 1]); k += 1) start -= 1;
+    // www's message center opening the content: the document's message-center block before it
+    const prevEl = section.children[start - 1];
+    if (sb.messageCenterFirst && start > 0 && (section !== fromSection || start - 1 >= fromIndex) && prevEl.classList.contains('message-center')) start -= 1;
     const kids = [...section.children];
     let end;
     let asideEnd;

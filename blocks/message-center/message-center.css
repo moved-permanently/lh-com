@@ -116,3 +116,11 @@ main > .section > .message-center-wrapper:not(.message-center-empty) + div {
     width: 74.2%;
   }
 }
+
+/* in a sidebar's content (a section beside an aside, scripts/section-aside.js; www.swiss.com's
+   current information, brief 455): the content column's width, as www's */
+@media (width >= 768px) {
+  main > .section.with-aside .message-center {
+    width: auto;
+  }
+}

@@ -91,8 +91,9 @@ test('a document with only its title: the sidebar\'s accordion after it (after t
   const r = withSwissSidebar(a.doc, html);
   assert.equal(r.made, 1, r.skipped.join());
   const s = sections(r.doc);
-  assert.deepEqual(s[0], ['h1:Current informat', 'message-center']);
-  assert.deepEqual(s[1], ['accordion-columns']);
+  // the message center in the content's column, its first (brief 455: www's content opens with it)
+  assert.deepEqual(s[0], ['h1:Current informat']);
+  assert.deepEqual(s[1], ['message-center', 'accordion-columns']);
   assert.ok(r.doc.includes('<div>markets</div><div>ae/en</div>'), 'the metadata kept');
 });
 
