@@ -29,8 +29,11 @@ let setCount = 0;
 function setsOf(main) {
   const sets = [];
   let current = null;
-  [...main.querySelectorAll(':scope > .section')].forEach((section) => {
+  // a section's parts too (scripts/section-aside.js: a tab set inside a sidebar's content)
+  [...main.querySelectorAll(':scope > .section, :scope > .section > .section-part')].forEach((section) => {
     const label = section.dataset.tab;
+    // a part that is no panel (a panel's grey box, a sidebar's intro) ends no set
+    if (!label && section.classList.contains('section-part')) return;
     if (!label) { current = null; return; }
     const name = section.dataset.tabs || '';
     if (!current || current.name !== name) {
@@ -70,6 +73,11 @@ function buildSet(groups) {
   inner.append(list);
   nav.append(inner);
   panels[0].before(nav);
+  // inside a section beside an aside (its parts): the tab list one more row of its grid
+  const host = nav.parentElement;
+  if (host && host.classList.contains('with-aside')) {
+    host.style.setProperty('--section-aside-rows', String([...host.children].filter((c) => !c.classList.contains('section-aside')).length));
+  }
 
   const tabs = panels.map((panel, i) => {
     const label = String(panel.dataset.tab).trim();

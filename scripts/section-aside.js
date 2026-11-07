@@ -8,9 +8,11 @@
  * a section before it the aside stays a section of its own. After a tab panel in parts (sections
  * with the same Tab label and set, scripts/section-tabs.js: www.swiss.com's grey box inside a
  * panel, then the panel's other content) the parts join the panel's first section first, each in a
- * div.section-part with its own section styles, so the aside stands beside all of them. Outside a
- * tab, sections with the style sidebar-part are parts of the section before them (www.swiss.com's
- * grey box inside a sidebar's content) and join it the same way.
+ * div.section-part with its own section styles, so the aside stands beside all of them. Sections
+ * with the style sidebar-part are parts of the section before them (www.swiss.com's grey box inside
+ * a sidebar's content) and join it the same way; such a part that is a tab panel (a tab set inside
+ * a sidebar's content: www.swiss.com's airportr) keeps its Tab and Tabs (data-tab, data-tabs) for
+ * scripts/section-tabs.js, which then shows its panels inside the section.
  */
 
 /** A section's style classes (its metadata's Style): not its own, not its blocks' containers. */
@@ -28,18 +30,19 @@ function joinPanelParts(last) {
   const isSection = (el) => el && el.classList.contains('section') && !el.classList.contains('sidebar-aside');
   const parts = [last];
   let prev = last.previousElementSibling;
-  if (tab) {
-    while (isSection(prev) && prev.dataset.tab === tab && (prev.dataset.tabs || '') === tabs) {
-      parts.unshift(prev);
-      prev = prev.previousElementSibling;
-    }
-  } else if (last.classList.contains('sidebar-part')) {
-    // sidebar-part sections, then the section they belong to
+  const sidebarParts = last.classList.contains('sidebar-part');
+  if (sidebarParts) {
+    // sidebar-part sections (tab panels among them), then the section they belong to
     while (isSection(prev) && prev.classList.contains('sidebar-part')) {
       parts.unshift(prev);
       prev = prev.previousElementSibling;
     }
     if (isSection(prev)) parts.unshift(prev);
+  } else if (tab) {
+    while (isSection(prev) && prev.dataset.tab === tab && (prev.dataset.tabs || '') === tabs) {
+      parts.unshift(prev);
+      prev = prev.previousElementSibling;
+    }
   }
   if (parts.length < 2) return last;
   const [first] = parts;
@@ -48,6 +51,11 @@ function joinPanelParts(last) {
     const part = document.createElement('div');
     part.className = ['section-part', ...styleClasses(sec)].join(' ');
     part.append(...sec.children);
+    // a tab panel among a sidebar's parts stays one (section-tabs.js)
+    if (sidebarParts && sec.dataset.tab) {
+      part.dataset.tab = sec.dataset.tab;
+      if (sec.dataset.tabs) part.dataset.tabs = sec.dataset.tabs;
+    }
     [...sec.classList].filter((c) => c.endsWith('-container')).forEach((c) => first.classList.add(c));
     first.append(part);
     if (sec !== first) sec.remove();

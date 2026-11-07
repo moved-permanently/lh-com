@@ -434,6 +434,61 @@ function withOpenFirst(main, html) {
 }
 
 /**
+ * A sidebar whose content holds a tab set (www.swiss.com's airportr, brief 450): the content's
+ * section (from the sidebar's start), then the tab panels' sections, then a section opening with
+ * the aside. The content a section of its own, the panels parts of it (their Tab rows kept, the
+ * style sidebar-part: scripts/section-aside.js joins them, section-tabs.js shows them inside), the
+ * aside a sidebar-aside section, what follows it a section after it. A page not so: null.
+ * @returns {{next: Element|null}|null} where the search for the next sidebar goes on
+ */
+function withTabSidebar(document, section, start, sb) {
+  const isMeta = (el) => el.classList.contains('section-metadata');
+  const label = (r) => (r.firstElementChild || { textContent: '' }).textContent.trim();
+  const panels = [];
+  for (let s = section.nextElementSibling; s && metaRows(s).some((r) => /^tab$/i.test(label(r))); s = s.nextElementSibling) panels.push(s);
+  const asideSec = panels.length ? panels[panels.length - 1].nextElementSibling : null;
+  if (!asideSec) return null;
+  const ak = [...asideSec.children];
+  const at = ak.findIndex((el) => !isMeta(el) && starts(el, sb.aside[0]));
+  const lastText = sb.aside[sb.aside.length - 1];
+  let end = -1;
+  ak.forEach((el, i) => { if (at >= 0 && i >= at && contains(el, lastText)) end = i; });
+  if (at < 0 || end < at || ak.slice(0, at).some((el) => !isMeta(el) && textOf(el))) return null;
+  const wrap = (nodes, metas = []) => {
+    const d = document.createElement('div');
+    d.append(...nodes, ...metas.map((m) => m.cloneNode(true)));
+    return d;
+  };
+  const kids = [...section.children];
+  const metas = kids.filter(isMeta);
+  const before = kids.slice(0, start).filter((el) => !isMeta(el));
+  const content = kids.slice(start).filter((el) => !isMeta(el));
+  section.replaceWith(...(before.length ? [wrap(before, metas)] : []), wrap(content, metas));
+  panels.forEach((p) => {
+    const m = p.querySelector(':scope > .section-metadata');
+    const style = metaRows(p).find((r) => /^style$/i.test(label(r)));
+    if (style) {
+      const names = style.lastElementChild.textContent.split(',').map((x) => x.trim()).filter(Boolean);
+      if (!names.includes('sidebar-part')) style.lastElementChild.textContent = [...names, 'sidebar-part'].join(', ');
+    } else {
+      const row = document.createElement('div');
+      row.innerHTML = '<div>Style</div><div>sidebar-part</div>';
+      m.append(row);
+    }
+  });
+  const asideSection = wrap(ak.slice(at, end + 1));
+  withAsideTeasers(document, asideSection, sb.teasers);
+  const asideMeta = document.createElement('div');
+  asideMeta.className = 'section-metadata';
+  asideMeta.innerHTML = '<div><div>Style</div><div>sidebar-aside</div></div>';
+  asideSection.append(asideMeta);
+  const after = ak.slice(end + 1).filter((el) => !isMeta(el));
+  const afterSection = wrap(after, ak.filter(isMeta));
+  asideSec.replaceWith(asideSection, ...(after.length ? [afterSection] : []));
+  return { next: after.length ? afterSection : asideSection.nextElementSibling };
+}
+
+/**
  * An accordion item's body as document HTML: its paragraphs, lists, h3/h4 and links (www's host
  * dropped from its own links), strong and em text; www's link icons and screen-reader words out,
  * the rest unwrapped.
@@ -643,7 +698,17 @@ export function withSwissSidebar(doc, html) {
       const last = sb.aside[sb.aside.length - 1];
       let lastAt = -1;
       kids.forEach((el, i) => { if (i >= asideAt && asideAt > 0 && contains(el, last)) lastAt = i; });
-      if (asideAt < 0 || lastAt < asideAt) { skipped.push(`sidebar ${n}: its aside ("${sb.aside[0].slice(0, 30)}") not found after its content`); return; }
+      if (asideAt < 0 || lastAt < asideAt) {
+        // a tab set in the content, the aside after its panels
+        const placed = asideAt < 0 && withTabSidebar(document, section, start, sb);
+        if (placed) {
+          made += 1;
+          from = { section: placed.next, index: 0 };
+          return;
+        }
+        skipped.push(`sidebar ${n}: its aside ("${sb.aside[0].slice(0, 30)}") not found after its content`);
+        return;
+      }
       // a picture right before the aside's first text belongs to it (a teaser's image)
       let a = asideAt;
       while (a - 1 > start && isPicture(kids[a - 1])) a -= 1;
