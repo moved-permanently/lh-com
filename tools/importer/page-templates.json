@@ -1282,10 +1282,16 @@
         {
           "name": "cards-icon-text",
           "instances": [
-            ".threecolumn:has(> .column-view > .row > .column-view-item > .teaser > a.teaser.partner)",
+            ":is(.threecolumn, .fourcolumn):has(> .column-view > .row > .column-view-item > .teaser > a.teaser.partner)",
             ":is(.section-content, .container-content) > :is(.twocolumn, .onecolumn):has(> .column-view > .row > .column-view-item > .teaser > a.teaser.partner):not(:has(> .column-view > .row > .column-view-item > :not(.teaser)))",
             ".b2b-iconmodules",
             ".section-content > .teaser:has(> a.teaser.partner)"
+          ]
+        },
+        {
+          "name": "cards-icon",
+          "instances": [
+            ".fourcolumn:has(> .column-view > .row > .column-view-item > .teaser > a.teaser.usp)"
           ]
         },
         {
@@ -5571,10 +5577,16 @@
         {
           "name": "cards-icon-text",
           "instances": [
-            ".threecolumn:has(> .column-view > .row > .column-view-item > .teaser > a.teaser.partner)",
+            ":is(.threecolumn, .fourcolumn):has(> .column-view > .row > .column-view-item > .teaser > a.teaser.partner)",
             ":is(.section-content, .container-content) > :is(.twocolumn, .onecolumn):has(> .column-view > .row > .column-view-item > .teaser > a.teaser.partner):not(:has(> .column-view > .row > .column-view-item > :not(.teaser)))",
             ".b2b-iconmodules",
             ".section-content > .teaser:has(> a.teaser.partner)"
+          ]
+        },
+        {
+          "name": "cards-icon",
+          "instances": [
+            ".fourcolumn:has(> .column-view > .row > .column-view-item > .teaser > a.teaser.usp)"
           ]
         },
         {
@@ -5829,10 +5841,16 @@
         {
           "name": "cards-icon-text",
           "instances": [
-            ".threecolumn:has(> .column-view > .row > .column-view-item > .teaser > a.teaser.partner)",
+            ":is(.threecolumn, .fourcolumn):has(> .column-view > .row > .column-view-item > .teaser > a.teaser.partner)",
             ":is(.section-content, .container-content) > :is(.twocolumn, .onecolumn):has(> .column-view > .row > .column-view-item > .teaser > a.teaser.partner):not(:has(> .column-view > .row > .column-view-item > :not(.teaser)))",
             ".b2b-iconmodules",
             ".section-content > .teaser:has(> a.teaser.partner)"
+          ]
+        },
+        {
+          "name": "cards-icon",
+          "instances": [
+            ".fourcolumn:has(> .column-view > .row > .column-view-item > .teaser > a.teaser.usp)"
           ]
         },
         {
@@ -6086,10 +6104,16 @@
         {
           "name": "cards-icon-text",
           "instances": [
-            ".threecolumn:has(> .column-view > .row > .column-view-item > .teaser > a.teaser.partner)",
+            ":is(.threecolumn, .fourcolumn):has(> .column-view > .row > .column-view-item > .teaser > a.teaser.partner)",
             ":is(.section-content, .container-content) > :is(.twocolumn, .onecolumn):has(> .column-view > .row > .column-view-item > .teaser > a.teaser.partner):not(:has(> .column-view > .row > .column-view-item > :not(.teaser)))",
             ".b2b-iconmodules",
             ".section-content > .teaser:has(> a.teaser.partner)"
+          ]
+        },
+        {
+          "name": "cards-icon",
+          "instances": [
+            ".fourcolumn:has(> .column-view > .row > .column-view-item > .teaser > a.teaser.usp)"
           ]
         },
         {

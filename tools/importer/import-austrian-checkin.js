@@ -20,6 +20,7 @@ import carouselImagesParser from './parsers/carousel-images.js';
 import accordionColumnsParser from './parsers/accordion-columns.js';
 import tableStripedParser from './parsers/table-striped.js';
 import cardsIconTextParser from './parsers/cards-icon-text.js';
+import cardsIconParser from './parsers/cards-icon.js';
 import carouselCardsParser from './parsers/carousel-cards.js';
 import cardsTeaserParser from './parsers/cards-teaser.js';
 import columnsMediaParser from './parsers/columns-media.js';
@@ -149,10 +150,16 @@ const PAGE_TEMPLATE = {
     {
       "name": "cards-icon-text",
       "instances": [
-        ".threecolumn:has(> .column-view > .row > .column-view-item > .teaser > a.teaser.partner)",
+        ":is(.threecolumn, .fourcolumn):has(> .column-view > .row > .column-view-item > .teaser > a.teaser.partner)",
         ":is(.section-content, .container-content) > :is(.twocolumn, .onecolumn):has(> .column-view > .row > .column-view-item > .teaser > a.teaser.partner):not(:has(> .column-view > .row > .column-view-item > :not(.teaser)))",
         ".b2b-iconmodules",
         ".section-content > .teaser:has(> a.teaser.partner)"
+      ]
+    },
+    {
+      "name": "cards-icon",
+      "instances": [
+        ".fourcolumn:has(> .column-view > .row > .column-view-item > .teaser > a.teaser.usp)"
       ]
     },
     {
@@ -312,6 +319,7 @@ const parsers = {
   'accordion-columns': accordionColumnsParser,
   'table-striped': tableStripedParser,
   'cards-icon-text': cardsIconTextParser,
+  'cards-icon': cardsIconParser,
   'carousel-cards': carouselCardsParser,
   'cards-teaser': cardsTeaserParser,
   'columns-media': columnsMediaParser,

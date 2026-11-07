@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-info.js
-  var tmp_bundle_info_354512_exports = {};
-  __export(tmp_bundle_info_354512_exports, {
-    default: () => tmp_bundle_info_354512_default
+  var tmp_bundle_info_355888_exports = {};
+  __export(tmp_bundle_info_355888_exports, {
+    default: () => tmp_bundle_info_355888_default
   });
 
   // tools/importer/parsers/search-results.js
@@ -3408,11 +3408,62 @@ var CustomImportScript = (() => {
     if (!rows.some((r) => r[2])) rows.forEach((r) => r.pop());
     const columnTitle = element.querySelector(":scope > .column-view > div:not(.row) > :is(h1, h2, h3, h4, h5, h6)");
     if (columnTitle && clean2(columnTitle.textContent)) element.before(columnTitle);
-    element.replaceWith(WebImporter.Blocks.createBlock(document, { name: "cards-icon-text", variants: ["partner"], cells: rows }));
+    const variants = element.matches(".fourcolumn") ? ["partner", "four-up"] : ["partner"];
+    element.replaceWith(WebImporter.Blocks.createBlock(document, { name: "cards-icon-text", variants, cells: rows }));
+  }
+
+  // tools/importer/parsers/cards-icon.js
+  function parse18(element, { document }) {
+    const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
+    const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
+    const visibleText = (node) => {
+      if (!node) return "";
+      const clone = node.cloneNode(true);
+      clone.querySelectorAll(SR_ONLY2).forEach((n) => n.remove());
+      return clean2(clone.textContent);
+    };
+    const isBroken3 = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src);
+    let tiles = [...element.querySelectorAll(".icon-teaser")];
+    if (!tiles.length) tiles = [...element.querySelectorAll("a.teaser.usp")];
+    if (!tiles.length) tiles = [...element.querySelectorAll("li, .teasericon")];
+    const usp = tiles.length > 0 && tiles[0].matches("a.teaser.usp");
+    let variants = [];
+    if (usp) variants = element.matches(".fourcolumn") ? ["usp", "four-up"] : ["usp"];
+    const cells = [];
+    tiles.forEach((tile) => {
+      const link = tile.matches("a[href]") ? tile : tile.querySelector("a[href]");
+      const label = visibleText(tile.querySelector(".headline, .teaser-headline, h3, h4")) || visibleText(link);
+      let iconCell = "";
+      const mauiIcon = tile.querySelector('maui-icon[use], [class*="icon-"][use]');
+      const iconName = mauiIcon ? clean2(mauiIcon.getAttribute("use")).toLowerCase().replace(/[^a-z0-9-]/g, "-") : "";
+      if (iconName) {
+        iconCell = `:${iconName}:`;
+      } else {
+        const img = [...tile.querySelectorAll("img")].find((i) => !isBroken3(i.getAttribute("src")));
+        if (img) {
+          const image = document.createElement("img");
+          image.src = img.getAttribute("src");
+          image.alt = img.getAttribute("alt") || "";
+          iconCell = image;
+        }
+      }
+      if (!label && !iconCell) return;
+      let labelCell = label;
+      if (link && label) {
+        const a = document.createElement("a");
+        a.href = link.getAttribute("href");
+        if (link.getAttribute("title")) a.title = link.getAttribute("title");
+        a.textContent = label;
+        labelCell = a;
+      }
+      cells.push([iconCell, labelCell]);
+    });
+    const block = WebImporter.Blocks.createBlock(document, { name: "cards-icon", variants, cells });
+    element.replaceWith(block);
   }
 
   // tools/importer/parsers/carousel-cards.js
-  function parse18(element, { document }) {
+  function parse19(element, { document }) {
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
     const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -3622,7 +3673,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/cards-teaser.js
-  function parse19(element, { document }) {
+  function parse20(element, { document }) {
     const BLOCK_TAGS = /^(P|UL|OL|H[1-6]|TABLE|DIV|BLOCKQUOTE|PRE|DL)$/;
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style';
     const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
@@ -3806,7 +3857,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/columns-media.js
-  function parse20(element, { document }) {
+  function parse21(element, { document }) {
     const BLOCK_TAGS = /^(P|UL|OL|H[1-6]|TABLE|DIV|BLOCKQUOTE|PRE|DL)$/;
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style, noscript';
     const SKIP_COMPONENTS = '.separator, .sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], .swiper-pagination, .swiper-button-prev, .swiper-button-next, .swiper-notification, .swiper-slide-duplicate, script, style, noscript';
@@ -4311,7 +4362,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/embed.js
-  function parse21(element, { document }) {
+  function parse22(element, { document }) {
     if (!element.isConnected || !element.parentElement || element.parentElement.closest("table")) return;
     const href = embedUrl(element);
     if (!href) return;
@@ -4323,7 +4374,7 @@ var CustomImportScript = (() => {
 
   // tools/importer/parsers/lounge-finder.js
   var DEFAULT_IMAGE_BASE = "/content/dam/lh/images/lounges";
-  function parse22(element, { document }) {
+  function parse23(element, { document }) {
     const host = element.matches(".dcep-lounge-finder") ? element : element.querySelector(".dcep-lounge-finder");
     let config = {};
     try {
@@ -4339,31 +4390,31 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/security-waiting-time.js
-  function parse23(element, { document }) {
+  function parse24(element, { document }) {
     const block = WebImporter.Blocks.createBlock(document, { name: "security-waiting-time", cells: [] });
     element.replaceWith(block);
   }
 
   // tools/importer/parsers/checkin-deadlines.js
-  function parse24(element, { document }) {
+  function parse25(element, { document }) {
     const block = WebImporter.Blocks.createBlock(document, { name: "checkin-deadlines", cells: [] });
     element.replaceWith(block);
   }
 
   // tools/importer/parsers/ejournals.js
-  function parse25(element, { document }) {
+  function parse26(element, { document }) {
     const block = WebImporter.Blocks.createBlock(document, { name: "ejournals", cells: [] });
     element.replaceWith(block);
   }
 
   // tools/importer/parsers/passenger-receipt.js
-  function parse26(element, { document }) {
+  function parse27(element, { document }) {
     const block = WebImporter.Blocks.createBlock(document, { name: "passenger-receipt", cells: [] });
     element.replaceWith(block);
   }
 
   // tools/importer/parsers/fare-teaser.js
-  function parse27(element, { document }) {
+  function parse28(element, { document }) {
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
     const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -6169,10 +6220,16 @@ var CustomImportScript = (() => {
       {
         "name": "cards-icon-text",
         "instances": [
-          ".threecolumn:has(> .column-view > .row > .column-view-item > .teaser > a.teaser.partner)",
+          ":is(.threecolumn, .fourcolumn):has(> .column-view > .row > .column-view-item > .teaser > a.teaser.partner)",
           ":is(.section-content, .container-content) > :is(.twocolumn, .onecolumn):has(> .column-view > .row > .column-view-item > .teaser > a.teaser.partner):not(:has(> .column-view > .row > .column-view-item > :not(.teaser)))",
           ".b2b-iconmodules",
           ".section-content > .teaser:has(> a.teaser.partner)"
+        ]
+      },
+      {
+        "name": "cards-icon",
+        "instances": [
+          ".fourcolumn:has(> .column-view > .row > .column-view-item > .teaser > a.teaser.usp)"
         ]
       },
       {
@@ -6315,16 +6372,17 @@ var CustomImportScript = (() => {
     "accordion-columns": parse15,
     "table-striped": parse16,
     "cards-icon-text": parse17,
-    "carousel-cards": parse18,
-    "cards-teaser": parse19,
-    "columns-media": parse20,
-    "embed": parse21,
-    "lounge-finder": parse22,
-    "security-waiting-time": parse23,
-    "checkin-deadlines": parse24,
-    "ejournals": parse25,
-    "passenger-receipt": parse26,
-    "fare-teaser": parse27
+    "cards-icon": parse18,
+    "carousel-cards": parse19,
+    "cards-teaser": parse20,
+    "columns-media": parse21,
+    "embed": parse22,
+    "lounge-finder": parse23,
+    "security-waiting-time": parse24,
+    "checkin-deadlines": parse25,
+    "ejournals": parse26,
+    "passenger-receipt": parse27,
+    "fare-teaser": parse28
   };
   var transformers = [transform, transform2];
   function executeTransformers(hookName, element, payload) {
@@ -6348,7 +6406,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_info_354512_default = {
+  var tmp_bundle_info_355888_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -6378,5 +6436,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_info_354512_exports);
+  return __toCommonJS(tmp_bundle_info_355888_exports);
 })();

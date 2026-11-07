@@ -154,5 +154,7 @@ export default function parse(element, { document }) {
   // above the row, brief 441) stays before the block, as the icon modules keep theirs
   const columnTitle = element.querySelector(':scope > .column-view > div:not(.row) > :is(h1, h2, h3, h4, h5, h6)');
   if (columnTitle && clean(columnTitle.textContent)) element.before(columnTitle);
-  element.replaceWith(WebImporter.Blocks.createBlock(document, { name: 'cards-icon-text', variants: ['partner'], cells: rows }));
+  // a four-column view (Austrian's accessible-travel, digital-services): four a row, option four-up
+  const variants = element.matches('.fourcolumn') ? ['partner', 'four-up'] : ['partner'];
+  element.replaceWith(WebImporter.Blocks.createBlock(document, { name: 'cards-icon-text', variants, cells: rows }));
 }

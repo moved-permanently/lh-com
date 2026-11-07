@@ -858,3 +858,24 @@ body.brand-austrian .footer .footer-inner .footer-badges {
     padding-bottom: 47px;
   }
 }
+
+/* brief 445: the legal hub's icon teasers (cards-icon usp four-up) as www's a.teaser.usp: no box (row 13's
+   tiles are the homepage's), the icon over a Portada 500 label, 22 / 27.5 below 1025 px, 28 / 35 from there */
+body.brand-austrian .cards-icon.usp .cards-icon-tile {
+  border-color: transparent;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+body.brand-austrian .cards-icon.usp .cards-icon-label {
+  font-family: var(--heading-font-family);
+  font-size: 22px;
+  line-height: 27.5px;
+}
+
+@media (width >= 1025px) {
+  body.brand-austrian .cards-icon.usp .cards-icon-label {
+    font-size: 28px;
+    line-height: 35px;
+  }
+}

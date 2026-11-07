@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-form.js
-  var tmp_bundle_form_354512_exports = {};
-  __export(tmp_bundle_form_354512_exports, {
-    default: () => tmp_bundle_form_354512_default
+  var tmp_bundle_form_355888_exports = {};
+  __export(tmp_bundle_form_355888_exports, {
+    default: () => tmp_bundle_form_355888_default
   });
 
   // tools/importer/parsers/form-core.js
@@ -3317,7 +3317,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_form_354512_default = {
+  var tmp_bundle_form_355888_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -3347,5 +3347,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_form_354512_exports);
+  return __toCommonJS(tmp_bundle_form_355888_exports);
 })();

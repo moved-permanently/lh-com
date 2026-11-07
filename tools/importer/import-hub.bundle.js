@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-hub.js
-  var tmp_bundle_hub_354512_exports = {};
-  __export(tmp_bundle_hub_354512_exports, {
-    default: () => tmp_bundle_hub_354512_default
+  var tmp_bundle_hub_355888_exports = {};
+  __export(tmp_bundle_hub_355888_exports, {
+    default: () => tmp_bundle_hub_355888_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -3158,7 +3158,8 @@ var CustomImportScript = (() => {
     if (!rows.some((r) => r[2])) rows.forEach((r) => r.pop());
     const columnTitle = element.querySelector(":scope > .column-view > div:not(.row) > :is(h1, h2, h3, h4, h5, h6)");
     if (columnTitle && clean2(columnTitle.textContent)) element.before(columnTitle);
-    element.replaceWith(WebImporter.Blocks.createBlock(document, { name: "cards-icon-text", variants: ["partner"], cells: rows }));
+    const variants = element.matches(".fourcolumn") ? ["partner", "four-up"] : ["partner"];
+    element.replaceWith(WebImporter.Blocks.createBlock(document, { name: "cards-icon-text", variants, cells: rows }));
   }
 
   // tools/importer/parsers/embed.js
@@ -4931,7 +4932,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_hub_354512_default = {
+  var tmp_bundle_hub_355888_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -4961,5 +4962,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_hub_354512_exports);
+  return __toCommonJS(tmp_bundle_hub_355888_exports);
 })();
