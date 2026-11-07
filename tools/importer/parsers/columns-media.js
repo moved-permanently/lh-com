@@ -570,7 +570,10 @@ export default function parse(element, { document }) {
     const isImage = (n) => n.nodeType === 1 && !clean(n.textContent)
       && (n.matches('img, picture') || !!n.querySelector('img, picture')) && !n.querySelector('video, iframe');
     const loneImage = items.length > 1 && filled.length === 1 && filled[0].every(isImage);
-    const row = (hasEmbed || nestedView || loneImage) && filled.length ? collected.map((c) => (c.length ? c : ''))
+    // a two-column view of exactly two items, one empty, keeps the empty column (live: the other
+    // item half the width from 768px; Austrian's /at/en/discover/inspiration teaser)
+    const halfAlone = element.matches('.twocolumn') && items.length === 2 && filled.length === 1;
+    const row = (hasEmbed || nestedView || loneImage || halfAlone) && filled.length ? collected.map((c) => (c.length ? c : ''))
       : filled;
     if (row.length) cells.push(row);
     // an image column view with carousel behaviour in a column (app teaser: photo + QR code):
