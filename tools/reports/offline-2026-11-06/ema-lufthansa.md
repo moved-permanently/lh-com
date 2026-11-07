@@ -760,3 +760,126 @@ chips for every brand, and updates it once the list for a newly chosen trip type
 
 - Air Dolomiti: the open rows above (parity.md pass 2).
 - For ema-cashub: none new.
+
+## Brief 448: Brussels headings, finder texts, Air Dolomiti's booking strip, breadcrumbs, paging and footer
+
+Nothing was published. Documents were uploaded to DA and previewed only; the upload state was
+merged with origin's before each push. Before each of the four pushes: a pull (fetch and rebase),
+lint and the full suite (2,362 to 2,393 tests, 0 failures). Every brand's smoke ran before and
+after each push, with 0 differences each time. TAP's 40 pages were checked by hand after each
+push: all 200, the same as before. Paths in release order:
+tools/reports/offline-2026-11-06/preview-paths-448.txt.
+
+At the start of this turn only .migration/project.json was uncommitted. It is local tool state,
+kept out of git.
+
+### 1. Brussels: one h1 per page (accessibility)
+
+- www has no h1 on the economy page: in brussels-parity-003 and the Studio capture its stage title
+  is an h2, while business class uses an h1. So "as www does" is an h2. The page has no h1 on www
+  either, so the import now improves on www here.
+- Of the 1,476 Brussels documents on preview, 134 had no h1. www has none on any of them either.
+  The 98 market homepages have only www's visually hidden "Brussels" in its header.
+- brussels-import.mjs withPageH1 (test/brussels-h1-448.test.mjs, commit 6cfdf622):
+  - www's own h1 where it has one: the 98 homepages' hidden "Brussels", as the first section's h1
+    with the style hidden-heading (Discover's withHiddenH1);
+  - otherwise the first heading, if it is an h2, becomes the h1, keeping its id and size marker
+    (18 pages: economy and premium economy in en and fr, heritage in six languages, the ski
+    campaign, beobank, Schengen, the California privacy statement). The theme styles the stage's
+    title the same at any level: the economy title is still 48 px white;
+  - with no heading at all, the page's title becomes a hidden h1 (18 pages: the feedback forms,
+    the destination search, retain your status).
+- The step was applied to DA's current copies; each differs only by the heading (2 or 7 lines).
+  This machine has no Brussels scope.json, so a full re-import would bring back the differences
+  noted in brief 443. Uploaded and previewed in 8779dde6. On preview, all 1,476 documents now
+  have an h1.
+
+### 2. Destination finder: www's announcement texts
+
+The only captures on this machine with the fare teaser's label bundles are Brussels' (bd-snapshots,
+brussels-parity-003, brussels-snapshots-014); the lufthansa.com, SWISS and Austrian captures are
+not here. From the de/de, es/es, it/it and nl/nl homepages (commit 03295716):
+- de "{TRIPTYPE} Angebote angezeigt";
+- es "Se muestran {TRIPTYPE} ofertas";
+- it "Sono visualizzate le offerte per {TRIPTYPE}";
+- nl "Er worden {TRIPTYPE} aanbiedingen weergegeven".
+
+English and French were www's already. **Still my own wording: pt, el, ja, ru, zh, pl, ko.**
+
+### 3. Air Dolomiti: the booking strip and the breadcrumb's middle level
+
+- Booking strip:
+  - airdolomiti-import.mjs bookingWidget: www's booking widget is now the flight-search
+    (airdolomiti) block wherever www has it, in place of the link to the booking page (route and
+    booking pages as before).
+  - Applied to DA's copies: 224 documents (airports 122, destinations 82, the hubs, promotions and
+    a few more), each the booking paragraph replaced by the block in a section before the page,
+    with the language's rows as on its homepage.
+  - Checked on preview: the strip at 1440, and the "Book your flight" card at 390 as www's.
+  - Left: www's strip has no trip type tabs, and its departure is empty where ours shows the
+    market's airport.
+- Breadcrumb:
+  - blocks/breadcrumb now reads Breadcrumb Levels (every brand, a new optional row): crumbs
+    without a link between the parent and the page.
+  - The importer writes them from www's trail.
+  - The theme capitalises the crumbs and sets the unlinked levels semibold, as www.
+  - Applied to 131 documents. www's level is the address's first part with spaces ("servizi",
+    "travel info", "unsere dienste"); that rule gave www's own trail on all 45 of the archive's
+    pages that have one.
+  - On preview: "Home | Servizi | Parcheggi Convenzionati", "Home | Travel Info | Seat
+    Reservation", "Home | Unsere Dienste | Lounge Zutritt".
+- Code commit 8e48f975; the 354 documents in 2c3e2fd7. Not changed: the routes pages and four
+  articles, whose booking link is part of their text.
+
+### 4. Air Dolomiti destinations hub: paging
+
+**Correction:** www shows 9 cards a page, not 15 (3 pages in en and de). My brief 447 count
+included the carousel's cards.
+
+- The cards-teaser option paged (paged-N), brand-neutral (test/cards-teaser-paged-448.test.mjs):
+  - www's controls under the grid, 50 px on: previous, the page numbers as 30 px circles (the
+    current one filled navy), next;
+  - aria-current on the current number, the arrows disabled at the ends;
+  - www's labels in it, en and de.
+- The importer writes it for news-list-grid. The three hubs carry it.
+- On preview:
+  - /en/destinations and /de/reiseziele: 9 cards and "1 2 3";
+  - /destinazioni has 2 cards, so no controls (www shows "1" between disabled arrows).
+- axe on /en/destinations at 1440: 0 violations.
+- Commits c7ae35ec and 2c3e2fd7.
+
+### 5. Air Dolomiti footer: 768 to 1024 px and the Tab order
+
+- The phone footer now runs up to 929 px and the desktop footer starts at 930 px, both as www's
+  (before: 768 and 1025). From 768 px the footer block's open columns fold again into rows that
+  open.
+- blocks/footer/footer-airdolomiti.js (loaded on Air Dolomiti only) moves the columns into www's
+  phone order below 930 px and back from 930 px, in place of CSS order. The phone band's logo is
+  drawn by the social links' group; www's is no link, and ours used to come after the social links
+  in the Tab order.
+- On preview the columns are in www's phone order in the DOM at 390 and in the documents' order at
+  1440. The footer is 1046 px at 390, 966 at 800 and 916 at 960. axe found 0 violations at 390 and
+  800.
+- Commit c7ae35ec. Parity rows 32, 36, 38, 42 and A8 are now fixed.
+
+"Change Cookie Settings" is unchanged (with Ben).
+
+### Summary
+
+| Item | Commit | What | Rollback |
+| --- | --- | --- | --- |
+| 1 | 6cfdf622 | brussels-import.mjs withPageH1 | revert |
+| 1 | 8779dde6 | 134 Brussels documents with an h1, uploaded and previewed | re-upload DA's previous copies (kept in .scratch/offline/b448/bd/da) |
+| 2 | 03295716 | destination-finder: www's de, es, it, nl announcement | revert |
+| 3 | 8e48f975 | breadcrumb Breadcrumb Levels; airdolomiti-import bookingWidget, breadcrumbRows; theme crumbs | revert (the documents' new rows are then ignored) |
+| 3, 4 | 2c3e2fd7 | 354 Air Dolomiti documents (search 224, levels 131, the three hubs paged), uploaded and previewed | re-upload DA's previous copies (kept in .scratch/offline/b448/ad/da) |
+| 4, 5 | c7ae35ec | cards-teaser paged; airdolomiti-import newsListGrid; footer up to 929 px, footer-airdolomiti.js | revert |
+| | (this push) | parity.md rows, this report, preview-paths-448.txt | revert |
+
+### Preview path lists, in release order
+
+1. Code on main: 6cfdf622, 03295716, 8e48f975, c7ae35ec. These need no publishing.
+2. lh-brussels: 134 documents.
+3. lh-airdolomiti: 354 documents.
+
+Both lists are in preview-paths-448.txt.
