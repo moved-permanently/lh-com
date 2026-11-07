@@ -51,9 +51,9 @@
    "preview": "2026-10-31T12:12:08.707Z"
   },
   "/at/en/book/groups-and-enterprises/group-travel-and-charter": {
-   "uploaded": "2026-10-31T12:12:16.077Z",
-   "mtime": 1793447475613,
-   "preview": "2026-10-31T12:12:17.882Z"
+   "uploaded": "2026-11-07T16:52:22.578Z",
+   "mtime": 1794070155082.5806,
+   "preview": "2026-11-07T16:52:24.689Z"
   },
   "/at/en/green-fare": {
    "uploaded": "2026-11-07T14:51:15.363Z",
@@ -301,9 +301,9 @@
    "preview": "2026-11-07T03:53:23.628Z"
   },
   "/at/en/sustainable-flying": {
-   "uploaded": "2026-11-07T03:53:55.154Z",
-   "mtime": 1794023479852,
-   "preview": "2026-11-07T03:53:57.149Z"
+   "uploaded": "2026-11-07T16:52:27.856Z",
+   "mtime": 1794070155095.3962,
+   "preview": "2026-11-07T16:52:29.890Z"
   },
   "/at/en/footer-pages/company/advertise-with-austrian": {
    "uploaded": "2026-11-02T14:12:36.969Z",
@@ -441,9 +441,9 @@
    "preview": "2026-10-31T12:05:17.352Z"
   },
   "/at/de/book/groups-and-enterprises/corporate-customers": {
-   "uploaded": "2026-10-31T12:05:21.940Z",
-   "mtime": 1793447472196,
-   "preview": "2026-10-31T12:05:23.903Z"
+   "uploaded": "2026-11-07T16:52:17.154Z",
+   "mtime": 1794070155068.8955,
+   "preview": "2026-11-07T16:52:19.396Z"
   },
   "/at/de/book/groups-and-enterprises/group-travel-and-charter": {
    "uploaded": "2026-10-31T12:05:30.960Z",
@@ -11824,6 +11824,171 @@
    "uploaded": "2026-11-06T21:19:32.671Z",
    "mtime": 1793999935934.9194,
    "preview": "2026-11-06T21:19:36.701Z"
+  },
+  "/ca/en/contingency-plan-lengthy-tarmac-delays": {
+   "uploaded": "2026-11-07T16:49:44.154Z",
+   "mtime": 1794070154563.9248,
+   "preview": "2026-11-07T16:49:46.789Z"
+  },
+  "/ca/en/legal/conditions-of-carriage/conditions-of-carriage-canada": {
+   "uploaded": "2026-11-07T16:54:35.771Z",
+   "mtime": 1794070473234.2688,
+   "preview": "2026-11-07T16:54:37.875Z"
+  },
+  "/ca/en/legal/passenger-rights": {
+   "uploaded": "2026-11-07T16:49:54.205Z",
+   "mtime": 1794070154595.519,
+   "preview": "2026-11-07T16:49:56.603Z"
+  },
+  "/ca/en/reservation-priceguarantee": {
+   "uploaded": "2026-11-07T16:49:58.891Z",
+   "mtime": 1794070154609.271,
+   "preview": "2026-11-07T16:50:02.998Z"
+  },
+  "/ca/fr/contingency-plan-lengthy-tarmac-delays": {
+   "uploaded": "2026-11-07T16:50:05.129Z",
+   "mtime": 1794070154624.7517,
+   "preview": "2026-11-07T16:50:07.161Z"
+  },
+  "/ca/fr/legal/conditions-of-carriage/conditions-of-carriage-canada": {
+   "uploaded": "2026-11-07T16:54:41.381Z",
+   "mtime": 1794070473240.2444,
+   "preview": "2026-11-07T16:54:43.299Z"
+  },
+  "/ca/fr/legal/passenger-rights": {
+   "uploaded": "2026-11-07T16:50:14.658Z",
+   "mtime": 1794070154657.1484,
+   "preview": "2026-11-07T16:50:17.076Z"
+  },
+  "/ca/fr/reservation-priceguarantee": {
+   "uploaded": "2026-11-07T16:50:19.326Z",
+   "mtime": 1794070154677.2937,
+   "preview": "2026-11-07T16:50:21.729Z"
+  },
+  "/ch/de/anreise-abreise": {
+   "uploaded": "2026-11-07T16:50:23.941Z",
+   "mtime": 1794070154694.0198,
+   "preview": "2026-11-07T16:50:26.271Z"
+  },
+  "/ch/de/book/additional-services/travel-insurances": {
+   "uploaded": "2026-11-07T16:50:28.502Z",
+   "mtime": 1794070154712.21,
+   "preview": "2026-11-07T16:50:30.777Z"
+  },
+  "/ch/de/book/groups-and-enterprises/group-travel-and-charter": {
+   "uploaded": "2026-11-07T16:50:32.928Z",
+   "mtime": 1794070154726.8552,
+   "preview": "2026-11-07T16:50:35.652Z"
+  },
+  "/ch/en/book/additional-services/travel-insurances": {
+   "uploaded": "2026-11-07T16:50:37.825Z",
+   "mtime": 1794070154741.7239,
+   "preview": "2026-11-07T16:50:39.899Z"
+  },
+  "/ch/fr/book/additional-services/travel-insurances": {
+   "uploaded": "2026-11-07T16:50:42.166Z",
+   "mtime": 1794070154757.5713,
+   "preview": "2026-11-07T16:50:44.369Z"
+  },
+  "/ch/fr/book/groups-and-enterprises/group-travel-and-charter": {
+   "uploaded": "2026-11-07T16:50:46.551Z",
+   "mtime": 1794070154778.8987,
+   "preview": "2026-11-07T16:50:48.638Z"
+  },
+  "/ch/fr/plan/special-requirements/healthy-travel/medical-travel-companions": {
+   "uploaded": "2026-11-07T16:50:50.869Z",
+   "mtime": 1794070154797.6533,
+   "preview": "2026-11-07T16:50:54.322Z"
+  },
+  "/ch/it/book/additional-services/travel-insurances": {
+   "uploaded": "2026-11-07T16:50:56.567Z",
+   "mtime": 1794070154813.6475,
+   "preview": "2026-11-07T16:50:58.718Z"
+  },
+  "/ch/it/book/groups-and-enterprises/group-travel-and-charter": {
+   "uploaded": "2026-11-07T16:51:00.937Z",
+   "mtime": 1794070154827.5825,
+   "preview": "2026-11-07T16:51:03.147Z"
+  },
+  "/ch/it/plan/special-requirements/healthy-travel/medical-travel-companions": {
+   "uploaded": "2026-11-07T16:51:05.298Z",
+   "mtime": 1794070154844.6958,
+   "preview": "2026-11-07T16:51:07.540Z"
+  },
+  "/de/de/anreise-abreise": {
+   "uploaded": "2026-11-07T16:51:09.895Z",
+   "mtime": 1794070154859.2454,
+   "preview": "2026-11-07T16:51:12.137Z"
+  },
+  "/de/en/arrival-departure": {
+   "uploaded": "2026-11-07T16:51:14.354Z",
+   "mtime": 1794070154873.938,
+   "preview": "2026-11-07T16:51:16.604Z"
+  },
+  "/gb/en/book/additional-services/travel-insurances": {
+   "uploaded": "2026-11-07T16:51:18.665Z",
+   "mtime": 1794070154888.5046,
+   "preview": "2026-11-07T16:51:20.415Z"
+  },
+  "/il/en/legal/passenger-rights": {
+   "uploaded": "2026-11-07T16:51:22.721Z",
+   "mtime": 1794070154902.1438,
+   "preview": "2026-11-07T16:51:24.827Z"
+  },
+  "/it/en/contact-form-passenger-receipt": {
+   "uploaded": "2026-11-07T16:51:27.053Z",
+   "mtime": 1794070154914.881,
+   "preview": "2026-11-07T16:51:29.366Z"
+  },
+  "/it/en/offers-destinations": {
+   "uploaded": "2026-11-07T16:51:31.508Z",
+   "mtime": 1794070154927.9968,
+   "preview": "2026-11-07T16:51:33.571Z"
+  },
+  "/jp/en/offers-destinations": {
+   "uploaded": "2026-11-07T16:51:35.682Z",
+   "mtime": 1794070154941.344,
+   "preview": "2026-11-07T16:51:37.814Z"
+  },
+  "/me/en/emergency-contact": {
+   "uploaded": "2026-11-07T16:51:39.956Z",
+   "mtime": 1794070154955.3318,
+   "preview": "2026-11-07T16:51:42.003Z"
+  },
+  "/pt/en/service-charges": {
+   "uploaded": "2026-11-07T16:51:44.333Z",
+   "mtime": 1794070154969.5156,
+   "preview": "2026-11-07T16:51:47.876Z"
+  },
+  "/se/en/sustainable-flying": {
+   "uploaded": "2026-11-07T16:51:50.275Z",
+   "mtime": 1794070154984.6094,
+   "preview": "2026-11-07T16:51:52.347Z"
+  },
+  "/us/en/accessible-travel": {
+   "uploaded": "2026-11-07T16:51:54.630Z",
+   "mtime": 1794070154999.1086,
+   "preview": "2026-11-07T16:51:57.031Z"
+  },
+  "/us/en/book/additional-services/travel-insurances": {
+   "uploaded": "2026-11-07T16:51:59.147Z",
+   "mtime": 1794070155013.968,
+   "preview": "2026-11-07T16:52:01.114Z"
+  },
+  "/us/en/contingency-plan-lengthy-tarmac-delays": {
+   "uploaded": "2026-11-07T16:52:03.184Z",
+   "mtime": 1794070155026.6846,
+   "preview": "2026-11-07T16:52:05.220Z"
+  },
+  "/us/en/legal/conditions-of-carriage": {
+   "uploaded": "2026-11-07T16:52:07.531Z",
+   "mtime": 1794070155040.9827,
+   "preview": "2026-11-07T16:52:09.629Z"
+  },
+  "/us/en/reservation-priceguarantee": {
+   "uploaded": "2026-11-07T16:52:11.871Z",
+   "mtime": 1794070155054.1213,
+   "preview": "2026-11-07T16:52:14.209Z"
   }
  },
  "media": {
