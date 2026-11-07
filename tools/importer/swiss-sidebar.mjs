@@ -23,8 +23,9 @@ const isPicture = (el) => el && el.tagName === 'P' && el.querySelector('picture'
 const isHeading = (el) => el && /^H[1-6]$/.test(el.tagName);
 const isBlock = (el) => el && el.tagName === 'DIV' && el.className;
 
-// www's words for screen readers only (not in the documents)
-const SR_ONLY = '.sr-only, .visually-hidden, maui-screen-reader-label';
+// www's words for screen readers only (not in the documents), and its video player's controls and
+// menus (video.js: "Subtitles off, selected", brief 445)
+const SR_ONLY = '.sr-only, .visually-hidden, maui-screen-reader-label, .vjs-control-bar, .vjs-modal-dialog, .vjs-text-track-settings, .vjs-menu, .vjs-control-text';
 
 /** An element's text without the words for screen readers. */
 function shownText(el) {
@@ -94,6 +95,8 @@ export function sidebarsOf(html) {
     return {
       first: headFirst ? norm(firstHead.textContent) : '',
       byHeading: !!headFirst,
+      // www's first heading an h1 (else the document's h1, the page title, is not the start)
+      firstH1: Boolean(headFirst && firstHead.tagName === 'H1'),
       content: partTexts(content),
       aside: partTexts(aside),
       teasers: teasersOf(aside),
@@ -431,6 +434,30 @@ function withOpenFirst(main, html) {
 }
 
 /**
+ * An accordion item's body as document HTML: its paragraphs, lists, h3/h4 and links (www's host
+ * dropped from its own links), strong and em text; www's link icons and screen-reader words out,
+ * the rest unwrapped.
+ */
+function plainRichtext(item) {
+  const keep = new Set(['P', 'UL', 'OL', 'LI', 'H3', 'H4', 'A', 'STRONG', 'B', 'EM', 'BR']);
+  const esc = (t) => t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  const walk = (n) => {
+    if (n.nodeType === 3) return esc(n.textContent.replace(/\u200B/g, '').replace(/\u00A0/g, ' '));
+    if (n.nodeType !== 1 || n.matches(`script, style, em.lh, ${SR_ONLY}`)) return '';
+    const inner = [...n.childNodes].map(walk).join('');
+    if (!keep.has(n.tagName)) return inner;
+    if (n.tagName === 'BR') return '<br>';
+    const tag = n.tagName.toLowerCase();
+    if (tag === 'a') {
+      const href = (n.getAttribute('href') || '').replace(/^https:\/\/www\.swiss\.com(?=\/)/, '');
+      return href ? `<a href="${href.replace(/"/g, '&quot;')}">${inner.trim()}</a>` : inner;
+    }
+    return `<${tag}>${inner.replace(/\s+/g, ' ').trim()}</${tag}>`;
+  };
+  return [...item.childNodes].map(walk).join('').replace(/>\s+</g, '><').trim();
+}
+
+/**
  * www's accordions lh-com's import wrote as text (brief 445: an accordion in a sidebar's content,
  * the check-in pages' "So funktioniert es"): per accordion of the snapshot whose headlines no
  * accordion-columns block of the document has, each item's elements (from the one opening with its
@@ -448,7 +475,8 @@ export function withSwissAccordions(doc, html) {
     const items = [...c.querySelectorAll('maui-collapsible-item')].filter((i) => i.closest('maui-collapsible') === c);
     return {
       open: Boolean(items[0] && items[0].hasAttribute('expanded')),
-      items: items.map((i) => ({ label: (i.getAttribute('headline') || '').replace(/\s+/g, ' ').trim(), texts: partTexts(i) })),
+      inSidebar: Boolean(c.closest('.airem-sidebar > .sidebar-content')),
+      items: items.map((i) => ({ label: (i.getAttribute('headline') || '').replace(/\s+/g, ' ').trim(), texts: partTexts(i), el: i })),
     };
   }).filter((a) => a.items.length && a.items.every((i) => i.label && i.texts.length));
   if (!accordions.length) return { doc, made: 0, skipped };
@@ -457,16 +485,45 @@ export function withSwissAccordions(doc, html) {
   const { document } = parseHTML(`<!DOCTYPE html><html><body><main>${inner}</main></body></html>`);
   const main = document.querySelector('main');
   const labels = new Set([...main.querySelectorAll('div.accordion-columns > div > div:first-child')].map(textOf));
+  // a document with nothing but its title (the import left out www's whole sidebar content:
+  // current information's live notices and accordion): the sidebar's accordions after the title
+  const h1 = main.querySelector(':scope > div > h1');
+  const pageText = norm([...main.children].flatMap((sec) => [...sec.children])
+    .filter((el) => !el.classList.contains('metadata') && !el.classList.contains('section-metadata')).map((el) => el.textContent).join(' '));
+  const onlyTitle = Boolean(h1) && pageText === textOf(h1);
   let made = 0;
+  // after the blocks without text right after the title (the message center, www's live notices,
+  // above the accordion as on www)
+  let after = h1;
+  while (after && isBlock(after.nextElementSibling) && !after.nextElementSibling.classList.contains('section-metadata') && !textOf(after.nextElementSibling)) after = after.nextElementSibling;
   accordions.forEach((acc) => {
     if (acc.items.some((i) => labels.has(norm(i.label)))) return;
+    if (onlyTitle && acc.inSidebar) {
+      const added = document.createElement('div');
+      added.className = acc.open ? 'accordion-columns open-first' : 'accordion-columns';
+      acc.items.forEach((item) => {
+        const r = document.createElement('div');
+        const label = document.createElement('div');
+        label.textContent = item.label;
+        const body = document.createElement('div');
+        body.innerHTML = plainRichtext(item.el);
+        r.append(label, body);
+        added.append(r);
+      });
+      after.after(added);
+      after = added;
+      made += 1;
+      return;
+    }
     const runs = [];
     let at = { section: main.firstElementChild, index: 0 };
     const found = acc.items.every((item) => {
       const last = item.texts[item.texts.length - 1];
-      for (let sec = at.section; sec; sec = sec.nextElementSibling) {
+      const { section: fromSec, index: fromIndex } = at;
+      for (let sec = fromSec; sec; sec = sec.nextElementSibling) {
         const kids = [...sec.children];
-        const start = kids.findIndex((el, i) => (sec !== at.section || i >= at.index) && !isBlock(el) && starts(el, item.texts[0]));
+        const inSec = sec;
+        const start = kids.findIndex((el, i) => (inSec !== fromSec || i >= fromIndex) && !isBlock(el) && starts(el, item.texts[0]));
         if (start >= 0) {
           const end = kids.findIndex((el, i) => i >= start && contains(el, last));
           if (end < 0 || kids.slice(start, end + 1).some((el) => el.classList.contains('section-metadata'))) return false;
@@ -522,7 +579,7 @@ export function withSwissSidebar(doc, html) {
     // the content's first heading, else its first text (a sidebar whose content has no heading)
     const first = sb.first || sb.content[0];
     if (!first) { skipped.push(`sidebar ${n}: no text in its content`); return; }
-    const byHeadingStart = (el) => (sb.byHeading ? isHeading(el) && starts(el, first) : starts(el, first));
+    const byHeadingStart = (el) => (sb.byHeading ? isHeading(el) && (sb.firstH1 || el.tagName !== 'H1') && starts(el, first) : starts(el, first));
     // else any element opening with the text: a block (an FAQ accordion, icon cards) or a paragraph
     // for www's heading
     const anyStart = (el) => !isPicture(el) && starts(el, first);
@@ -541,17 +598,38 @@ export function withSwissSidebar(doc, html) {
     };
     let found = find(byHeadingStart);
     // lh-com's columns-media sidebar block (content | aside cells) opening with the content: its
-    // cells' children in its place, then the search again
-    if (!found) {
+    // cells' children in its place, then the search again (also when the search found the block
+    // itself and no aside follows it: a sidebar without a heading, its text the block's first cell)
+    const blockStart = (f) => {
+      const el = f.section.children[f.start];
+      const kids = [...f.section.children];
+      return el.classList.contains('columns-media') && el.classList.contains('sidebar') && sb.aside.length
+        && !kids.some((k, i) => i > f.start && starts(k, sb.aside[0]));
+    };
+    if (!found || blockStart(found)) {
       const block = [...main.querySelectorAll(':scope > div > div.columns-media')].find((b) => b.classList.contains('sidebar')
         && b.children.length === 1 && b.firstElementChild.children.length === 2 && starts(b.firstElementChild.firstElementChild, first)
         && (!sb.aside.length || contains(b.firstElementChild.lastElementChild, sb.aside[0])));
       if (block) {
-        block.replaceWith(...[...block.firstElementChild.children].flatMap((cell) => [...cell.children]));
+        // a cell of text alone (no element) a paragraph
+        block.replaceWith(...[...block.firstElementChild.children].flatMap((cell) => {
+          if (cell.children.length || !norm(cell.textContent)) return [...cell.children];
+          const para = document.createElement('p');
+          para.append(...cell.childNodes);
+          return [para];
+        }));
         found = find(byHeadingStart);
       }
     }
     if (!found) found = find(anyStart);
+    // else the block holding it (a sidebar whose content opens with an FAQ accordion's first answer,
+    // or with the booking login's text)
+    if (!found) found = find((el) => isBlock(el) && !el.classList.contains('section-metadata') && contains(el, first));
+    // else from its first text the document has (www's live notices before current information's
+    // accordion are no document text)
+    // (a sentence, not a short label such as the notices' "Current information", the page title)
+    const known = !found && sb.content.find((t) => t !== first && t.length >= 30 && contains(main, t));
+    if (known) found = find((el) => !isPicture(el) && !el.classList.contains('section-metadata') && (starts(el, known) || (isBlock(el) && contains(el, known))));
     if (!found) { skipped.push(`sidebar ${n}: "${first.slice(0, 40)}" not found`); return; }
     const { section } = found;
     let { start } = found;
@@ -574,10 +652,22 @@ export function withSwissSidebar(doc, html) {
       // the pictures www shows under the aside's last text stay with the aside
       for (let k = 0; k < sb.asideImagesAfter && isPicture(kids[asideEnd + 1]); k += 1) asideEnd += 1;
     } else {
-      const last = sb.content[sb.content.length - 1];
+      // up to the next sidebar's start (its content can end with the same text: Schengen's IATA link)
+      const nextSb = sidebars[n + 1];
+      const nextFirst = nextSb && (nextSb.first || nextSb.content[0]);
+      const nextAt = nextFirst ? kids.findIndex((el, i) => i > start && starts(el, nextFirst)) : -1;
+      const limit = nextAt > start ? nextAt : kids.length;
+      // the content's last text the document has (www's price teaser text is no document text)
+      const lastAt = (text) => kids.findLastIndex((el, i) => i >= start && i < limit && contains(el, text));
       end = -1;
-      kids.forEach((el, i) => { if (i >= start && contains(el, last)) end = i; });
+      let t = sb.content.length - 1;
+      for (; t >= 0 && end < 0; t -= 1) end = lastAt(sb.content[t]);
       if (end < start) { skipped.push(`sidebar ${n}: the end of its content not found`); return; }
+      // www's texts after it no document text: the blocks right after it render them (a fare
+      // teaser's prices), they belong to it
+      if (t + 1 < sb.content.length - 1) {
+        while (end + 1 < limit && isBlock(kids[end + 1]) && !kids[end + 1].classList.contains('section-metadata')) end += 1;
+      }
       asideEnd = end;
     }
     const meta = kids.filter((el) => el.classList && el.classList.contains('section-metadata'));

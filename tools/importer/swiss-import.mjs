@@ -268,18 +268,18 @@ export function withCheckinFields(doc, html) {
   const field = (name) => document.querySelector(`form maui-input[id$="-flm-checkin-fktnCheckinRequest-${name}"]`);
   const first = field('firstName');
   if (!first || !doc.includes('<div class="booking-lookup my-bookings">')) return doc;
-  const text = (el, a) => ((el && el.getAttribute(a)) || '').replace(/\s+/g, ' ').trim();
+  const attrOf = (el, a) => ((el && el.getAttribute(a)) || '').replace(/\s+/g, ' ').trim();
   const row = (k, v) => (v ? `<div><div>${k}</div><div>${v.replace(/&/g, '&amp;').replace(/</g, '&lt;')}</div></div>` : '');
   const last = field('lastName');
   const ref = field('fileKey');
   return editDivs(doc, '<div class="booking-lookup my-bookings">', (el) => {
     let out = el.replace('<div class="booking-lookup my-bookings">', '<div class="booking-lookup my-bookings checkin">');
-    const names = row('First name label', text(first, 'label')) + row('First name hint', text(first, 'hint')) + row('First name error', text(first, 'errormessage'));
+    const names = row('First name label', attrOf(first, 'label')) + row('First name hint', attrOf(first, 'hint')) + row('First name error', attrOf(first, 'errormessage'));
     const at = out.indexOf('<div><div>Last name label</div>');
     out = at < 0 ? out.replace(/<\/div>$/, `${names}</div>`) : `${out.slice(0, at)}${names}${out.slice(at)}`;
-    const lastHint = row('Last name hint', text(last, 'hint'));
+    const lastHint = row('Last name hint', attrOf(last, 'hint'));
     out = out.replace(/(<div><div>Last name label<\/div><div>[^<]*<\/div><\/div>)/, (m) => `${m}${lastHint}`);
-    const refHint = row('Reference hint', text(ref, 'hint'));
+    const refHint = row('Reference hint', attrOf(ref, 'hint'));
     return refHint ? out.replace(/(<div><div>Reference label<\/div><div>[^<]*<\/div><\/div>)/, (m) => `${m}${refHint}`) : out;
   });
 }
@@ -912,7 +912,8 @@ if (isMain) {
       const markets = scope.documents[src]?.markets || [];
       const snapHtml = fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8');
       // www's sidebar component (airem-sidebar) as the content beside a sidebar-aside section (swiss-sidebar.mjs)
-      const next = withSwissAccordions(withSwissSidebar(splitTabSections(withFlightSearchTeaser(withFlightSearchVideo(withHeroVideo(withItaMetadata(withCheckinFields(withCheckinHandoff(withFlightSearch(withPageLanguageMessages(withItaForm(doc, p, snapHtml), p), p), p), snapHtml), p, snapHtml, markets), snapHtml), snapHtml), snapHtml)), snapHtml).doc, snapHtml).doc;
+      // (www's accordions the import wrote as text first: the sidebar's content can end with one)
+      const next = withSwissSidebar(withSwissAccordions(splitTabSections(withFlightSearchTeaser(withFlightSearchVideo(withHeroVideo(withItaMetadata(withCheckinFields(withCheckinHandoff(withFlightSearch(withPageLanguageMessages(withItaForm(doc, p, snapHtml), p), p), p), snapHtml), p, snapHtml, markets), snapHtml), snapHtml), snapHtml)), snapHtml).doc, snapHtml).doc;
       if (next !== doc) fs.writeFileSync(f, next);
     });
     const mapOnly = path.join(W, 'runs', `${name}-upload.txt`);
