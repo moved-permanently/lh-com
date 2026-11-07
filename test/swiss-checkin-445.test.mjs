@@ -132,5 +132,5 @@ test('withSwissAccordions: an item whose texts the document lacks: the accordion
 test('SWISS\'s theme: the hints as www\'s maui-hint (12/17 px dark grey, 6 px under the field, 24 px before the next), scoped to SWISS\'s checkin form', async () => {
   const fs = await import('node:fs');
   const css = fs.readFileSync(new URL('../styles/themes/swiss.css', import.meta.url), 'utf8').replace(/\/\*[\s\S]*?\*\//g, '').replace(/\s+/g, ' ');
-  assert.match(css, /body\.brand-swiss \.booking-lookup\.checkin \.booking-lookup-hint \{ margin: 6px 0 24px; color: #333; line-height: 17px; \}/);
+  assert.match(css, /body\.brand-swiss \.booking-lookup\.checkin \.booking-lookup-hint \{ margin: 6px 0 24px; color: #333; line-height: 17px; letter-spacing: 0; \}/);
 });

@@ -944,6 +944,7 @@ body.brand-swiss .booking-lookup.checkin .booking-lookup-hint {
   margin: 6px 0 24px;
   color: #333;
   line-height: 17px;
+  letter-spacing: 0;
 }
 
 /* www's icon teasers (teaser usp: the legal page's links, carousel-cards usp, brief 445): no
@@ -1063,3 +1064,58 @@ body.brand-swiss .carousel-cards .carousel-cards-body :is(h1, h2, h3, h4, h5, h6
 body.brand-swiss .carousel-cards:is(.grid, .four-up) .carousel-cards-slide:not(.carousel-cards-wide) .carousel-cards-body {
   padding-inline: 18px;
 }
+
+/* the booking lookup's fields as www's maui-input (brief 453: the culinary journey's, check-in's
+   and manage bookings' forms): a 50 px box, #f2f2f2 with a 1 px warm grey border, the label inside
+   (18/28 px while empty, 12/14 px over the value), 20 px to the next field; from 1025 px 250 px
+   wide (www's col-lg-4); no underline tick */
+/* stylelint-disable no-descending-specificity -- another component than the flight search above */
+body.brand-swiss .booking-lookup {
+  --booking-lookup-field-height: 50px;
+  --booking-lookup-field-reserve: 20px;
+}
+
+body.brand-swiss .booking-lookup .booking-lookup-field:first-child {
+  margin-bottom: 0;
+}
+
+body.brand-swiss .booking-lookup .booking-lookup-field::after {
+  content: none;
+}
+
+body.brand-swiss .booking-lookup .booking-lookup-field input {
+  padding: 17px 11px 3px;
+  border: 1px solid #6f6660;
+  background-color: #f2f2f2;
+  color: #101010;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+body.brand-swiss .booking-lookup .booking-lookup-field input:focus {
+  border-color: #101010;
+  outline: 2px solid #101010;
+  outline-offset: -1px;
+}
+
+body.brand-swiss .booking-lookup .booking-lookup-field label {
+  top: 5px;
+  left: 11px;
+  right: 11px;
+  color: #6f6660;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+body.brand-swiss .booking-lookup .booking-lookup-field:has(> input:placeholder-shown:not(:focus)) label {
+  top: 11px;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+@media (width >= 1025px) {
+  body.brand-swiss .booking-lookup .booking-lookup-field {
+    max-width: 250px;
+  }
+}
+/* stylelint-enable no-descending-specificity */
