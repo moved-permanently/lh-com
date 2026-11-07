@@ -1,6 +1,8 @@
 /* eslint-disable no-console, no-await-in-loop, max-len, import/extensions */
 /**
- * The documents that play www's videos (links to https://www.lufthansa.com/content/dam/...mp4)
+ * The documents that play www's videos (links to https://www.lufthansa.com/content/dam/...mp4,
+ * and to https://media.lufthansa.com/content/dam/...mp4, the same paths on a host that is gone;
+ * dam-video-links.mjs; a link text that was the address becomes the copy's path)
  * get the site's own copies: the link becomes /content/dam/<Edge Delivery name>
  * (scripts/dam-path.js edsDamPath, the same as the copies in DA and R2), and the text tracks of
  * www's video viewer for that video on that page (data-dcep closedCaptionsSrc and
@@ -22,8 +24,9 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { edsDamPath, decodePath } from '../../scripts/dam-path.js';
+import { edsDamPath } from '../../scripts/dam-path.js';
 import { placeOf, served } from './dam-route.mjs';
+import { VIDEO_LINK, videoAsset, switchedText } from './dam-video-links.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const argv = process.argv.slice(2);
@@ -37,7 +40,6 @@ const GONE = new Set([
   '/content/dam/video/c3/headeranimation/lh_blog_hongkong_animation_16x9.mp4',
 ]);
 const LABELS = { de: ['Untertitel', 'Audiodeskription'], en: ['Subtitles', 'Audio description'] };
-const WWW_VIDEO = /<a href="https:\/\/www\.lufthansa\.com(\/content\/dam\/[^"]+\.mp4)"([^>]*)>([\s\S]*?)<\/a>/g;
 const OWN = /href="(\/content\/dam\/[^"]+\.(?:mp4|vtt))"/g;
 
 const decode = (s) => s.replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>')
@@ -59,7 +61,7 @@ function viewersOf(pagePath) {
     [...html.matchAll(/class="dcep-video-viewer"[^>]*?data-dcep=(?:'([^']*)'|"([^"]*)")/g)].forEach((m) => {
       try {
         const cfg = JSON.parse(decode(m[1] ?? m[2]));
-        if (cfg.videoSrc) out.set(decodePath(cfg.videoSrc), { cc: cfg.closedCaptionsSrc || '', ad: cfg.audioDescriptionSrc || '' });
+        if (cfg.videoSrc) out.set(videoAsset(cfg.videoSrc), { cc: cfg.closedCaptionsSrc || '', ad: cfg.audioDescriptionSrc || '' });
       } catch (e) { /* not JSON */ }
     });
   });
@@ -68,7 +70,7 @@ function viewersOf(pagePath) {
 
 const playing = walk(CONTENT).filter((f) => f.endsWith('.plain.html') && !/\/(lhg|drafts)\//.test(f)).map((file) => ({
   file, docPath: `/${path.relative(CONTENT, file).replace(/\.plain\.html$/, '')}`, html: fs.readFileSync(file, 'utf8'),
-})).filter((d) => d.html.match(WWW_VIDEO) || d.html.match(OWN));
+})).filter((d) => d.html.match(VIDEO_LINK) || d.html.match(OWN));
 
 // every file the documents would use, and where it is: lh-edge answers it from the DA copies
 // (route dam), the AEM publish tier (dam-aem: the videos over 36 MB, the subtitles) or R2
@@ -77,12 +79,12 @@ const wanted = new Set();
 playing.forEach((d) => {
   d.viewers = viewersOf(d.docPath);
   [...d.html.matchAll(OWN)].forEach((m) => wanted.add(m[1]));
-  [...d.html.matchAll(WWW_VIDEO)].forEach((m) => {
-    const asset = decodePath(decode(m[1]));
+  [...d.html.matchAll(VIDEO_LINK)].forEach((m) => {
+    const asset = videoAsset(m[1]);
     if (GONE.has(asset)) return;
     wanted.add(edsDamPath(asset));
     const v = d.viewers.get(asset);
-    if (v) [v.cc, v.ad].filter(isTrack).forEach((t) => wanted.add(edsDamPath(decodePath(t))));
+    if (v) [v.cc, v.ad].filter(isTrack).forEach((t) => wanted.add(edsDamPath(videoAsset(t))));
   });
 });
 const where = new Map();
@@ -105,8 +107,8 @@ playing.forEach(({
 }) => {
   const files = new Set([...before.matchAll(OWN)].map((m) => m[1]));
   const lang = docPath.split('/')[2] === 'de' ? 'de' : 'en';
-  const html = before.replace(WWW_VIDEO, (all, raw, attrs, text) => {
-    const asset = decodePath(decode(raw));
+  const html = before.replace(VIDEO_LINK, (all, raw, attrs, text) => {
+    const asset = videoAsset(raw);
     const own = edsDamPath(asset);
     if (GONE.has(asset) || !there(own)) {
       kept.push({ doc: docPath, file: asset, why: GONE.has(asset) ? 'gone on www (404)' : 'not recorded yet' });
@@ -114,13 +116,13 @@ playing.forEach(({
     }
     links += 1;
     files.add(own);
-    let out = `<a href="${own}"${attrs}>${text}</a>`;
+    let out = `<a href="${own}"${attrs}>${switchedText(text, raw, own)}</a>`;
     const v = viewers.get(asset);
     if (v) {
       [[v.cc, LABELS[lang][0]], [v.ad, LABELS[lang][1]]].filter(([src]) => isTrack(src)).forEach(([src, label]) => {
-        const track = edsDamPath(decodePath(src));
+        const track = edsDamPath(videoAsset(src));
         if (!there(track)) {
-          kept.push({ doc: docPath, file: decodePath(src), why: 'subtitles not recorded yet' });
+          kept.push({ doc: docPath, file: videoAsset(src), why: 'subtitles not recorded yet' });
           return;
         }
         files.add(track);
