@@ -320,3 +320,171 @@ Cargo's preview and live hosts checked by hand after the pushes; upload and prev
   /al/fr/prepare-lxmas-2024, /al/it/book-and-manage/swiss-choice/privacy-seat, /al/it/prepare-lxmas-2024).
 - Noted for its owner: test/own-links.test.mjs fails on a clean checkout of origin/main (ownPages,
   /xx/en/about-us/contact), with or without my commits; it passes in this workspace.
+
+## Brief 445 (SWISS: long pages, online check-in, /al/ pages, row 30, test fixtures, the 60 pages)
+
+Same rules: tests first, brand-scoped CSS, lint and the full suite before each push, the smoke of
+every brand before and after each push, SWISS's and TAP's hosts checked by hand after the pushes;
+upload and preview only, nothing published. Two pushes: `f551b02..ffd9d6d` (items 1, 2, 4, 5) and
+`52c9e0d..392ff5c` (item 6). The smoke after each was the same as before on every brand (after the
+first push two lufthansa-edge ch sitemap hashes changed, as they do between any two runs while
+others publish; they don't come from the market route).
+
+### 1. SWISS pages missing from their language index (done, 10fb774)
+
+- Cause confirmed: Edge Delivery leaves a page out of a query index when its record is over
+  100 KB. The admin index API's record for /ch/el/terms-conditions/privacy-statement is 100,029
+  bytes; 96,329 of them are the `content` column (every main p and li). The largest record that is
+  indexed: 90,131 bytes (ch/ru). So the page is in no language-ch-el row, and lh-edge's market
+  route answered 404 on gr/el.
+- Every site scanned (DA's documents against the live indexes with a `content` column; the record
+  size measured as the indexer takes it). Pages missing because of their size:
+  - SWISS: /ch/el/terms-conditions/privacy-statement (99 KB), /ch/el/terms-conditions/conditions-of-carriage
+    (127 KB) and /ch/ru/terms-conditions/conditions-of-carriage (121 KB), language-ch-el and -ru;
+  - ITA: /gr/el/legal/conditions-of-carriage-group/conditions-of-carriage-ita (136 KB, search-gr-el;
+    no 404: xx/el has its own document);
+  - TAP: the six miles-and-go partner pages (137 to 430 KB) are missing from the shared
+    market-pages index only, which TAP's routes don't read;
+  - lh-com, Cargo, Austrian, Brussels, Discover, Air Dolomiti, B2B: none.
+- Fix: the market route, when the language index lacks a page, already read the language
+  version's document for its redirect. A 200 there is now answered as an indexed page is: the
+  page's markets metadata is checked, and the version's drafts and .plain.html are excluded. A
+  smaller `content` selection would not keep every record under 100 KB (a 300-character cap per
+  paragraph still leaves 88 KB of Greek), so the indexes stay as they are. Test:
+  tools/workers/lh-edge/test/market-unindexed.test.mjs.
+- On swiss.turnsthe.page after the deploy: /gr/el/terms-conditions/privacy-statement and
+  /gr/el/terms-conditions/conditions-of-carriage answer 200 (x-lh-edge-route market). /cy/el/…
+  stays 404 by design: cy/el is not served on SWISS's host (its homepage is 404 too), and the
+  page's markets row lists gr/el only.
+- Still missing, by the same cause: these pages are in no search data and no market sitemap, and
+  links on other pages point at the language version's URL.
+- Rollback: `git revert 10fb774` (lh-edge redeploys on the push).
+
+### 2. SWISS online check-in (done, d39c382)
+
+- The form as www's: booking code or ticket number (13 characters), first name and last name,
+  with www's hints under the two name fields (12/17 px, 6 px under the field), and no tour
+  operator checkbox. This is booking-lookup `my-bookings` with the new option `checkin`;
+  my-bookings without the option is as before.
+- "So funktioniert es" is an accordion-columns block with open-first. swiss-import.mjs:
+  withCheckinFields and withSwissAccordions, both in the import pipeline.
+- The 11 check-in documents (ch/de, el, en, es, fr, it, ja, pt, ru, zh and kr/ko) were rebuilt from
+  DA's current copies, uploaded and previewed. No word lost.
+- On the preview: three fields with the hints, and the accordion open in the content column.
+  ch/de is 0.93 of www's height at 1440 (the rest is the Travel ID view's picture) and 0.99 at 390.
+  The field style (www's boxed grey fields; ours underlined) is unchanged: it is lh-com's
+  booking-lookup look.
+- Rollback: `git revert d39c382`. For the documents, DA's earlier versions are in logs/b445/da/.
+
+### 3. The eight /al/ pages (done, documents only)
+
+- Seven of the eight already are brief 440's step result: DA's current copy with its new markets
+  rows equals the step on brief 432's original, apart from the metadata block.
+- One page differed: /al/de/prepare/travel-regulations/immigration-regulations-worldwide1. Rebuilt
+  as the step on its original with DA's current metadata block. The diff is the step's alone: the
+  sidebar now starts at the content's first text, as brief 440's item 4 does. The markets rows
+  (4 roots) are kept. Uploaded and previewed.
+
+### 4. SWISS row 30, the last 21 pages (done, ffd9d6d)
+
+- Placed now: 19 of the 21 pages, from brief 432's originals with DA's current metadata. Of
+  these, 16 had DA as brief 440 left it; the step's new rules:
+  - www's first heading is not an h1, so the document's h1 (the page title) is not the start;
+  - a first text inside a block (an FAQ accordion's answer, the booking login's text) starts at
+    that block;
+  - in lh-com's columns-media sidebar block, a text-only cell becomes a paragraph;
+  - without an aside, the content ends before the next sidebar's start, at its last text the
+    document has, together with the blocks that render www's later texts (the fare teasers);
+  - www's video player controls ("Subtitles off, selected") are not counted as text;
+  - otherwise the sidebar starts at its first sentence the document has.
+- Current information (en, de): the import had left out www's whole sidebar. Its two-item
+  accordion is now imported after the title and the message center (withSwissAccordions). www's
+  live notices (Dubai flights, Edelweiss maintenance) stay the message center's.
+- No word lost; the other 333 ch/en and ch/de pages are as brief 440 left them.
+- Left: /ch/en/various/airportr and /ch/de/various/airportr. Their sidebar content is a two-tab
+  view (Departure and Arrival service) with the aside after the tabs; the step places sidebars
+  within one section.
+- The same rules would place the sidebars on 81 more pages in the other languages (and move 3
+  corporate pages' sidebar start from the title to www's h2). They are ready, not uploaded: say if
+  you want them.
+- Rollback: `git revert ffd9d6d` (importer only).
+
+### 5. Test fixtures (done, 80b890b)
+
+- own-links.test.mjs wrote its documents under the current directory and read them from the
+  repository's content-sites/. Its documents are now test/fixtures/own-links/content, and the CLI
+  runs by its path.
+- cargo-kf-phone-442 (ema-lufthansa's) failed wherever content-sites/lh-cargo/assets/files.json
+  exists: that asset map makes the Facts & Figures link site-relative. The test now sets its own
+  site data (no asset map; DA's files from test/fixtures/cargo-kf-phone-442/known.json). It also
+  checks the 777F slide's icon and www's link. cargo-import.mjs is unchanged.
+- Checked:
+  - both tests pass on a clean checkout of origin/main, run from the checkout and from /tmp;
+  - origin/main's cargo test fails with a simulated asset map, and the new one passes.
+- Rollback: `git revert 80b890b`.
+
+### 6. The 60 swiss-parity-002 pages on the preview (c8fbca6, 392ff5c)
+
+- First measurement (main--lh-swiss, 1440 and 390, after items 1 to 4): 59 page widths more than
+  5% off www's height. Fixed:
+  - the second-level menu pages' cards end with www's link row (withCardLinks; 8 pages in ch/en
+    and ch/de): baggage 0.91 -> 1.00, airport 0.92 -> 0.98;
+  - the legal page's icon teasers as www's (withUspTeasers, carousel-cards option usp): 1.75 ->
+    1.02 at 1440, 2.05 -> 1.01 at 390;
+  - the FAQ hub's topic teasers (www's usp teasers too): 0.82 -> 1.03, 0.69 -> 1.01;
+  - the headings' space below as www's (h2 20 px, 40 px from 1025 px; heading-small 20 px):
+    imprint 1.07 -> 1.03 at 1440.
+- After the push and the 18 documents: 41 page widths (24 pages) still more than 5% off. One line
+  each; "seen" means checked on a side-by-side screenshot:
+  - ch/en/offers 0.07 / 0.05: www's destination finder with fares (row 35, data);
+  - ch/de/discover/a350 0.31 / 0.31, swiss-senses 0.64 / 0.65: www's scroll-driven full-screen
+    stages (each section about one and a half viewports); ours static bands. Design, not quick
+    (seen);
+  - ch/de/book-and-manage/pax-receipt 0.77 / 0.74: www's receipt request form; ours links to it on
+    www (a link-out by design) (seen);
+  - magazine: inside-swiss 390 0.87, behind-the-wings 1440 0.95, jungfrau-region 0.85 / 0.93,
+    travel 390 0.87, hello-boston 0.91 / 0.90: www's article pictures run the whole column with
+    taller More Stories cards; ours sit in the text column (rows 20 and 21's magazine design; seen
+    on jungfrau);
+  - swiss-business 0.94 / 0.95, swiss-economy 1440 0.95, premium-economy 0.92 / 0.94,
+    health-and-travel 1440 0.94, upgrade-options 0.94 / 0.94, green-fare 1440 0.94,
+    entertainment 390 0.93: the sidebar's image | text rows are each about 20 px shorter than
+    www's (seen on Business and Premium Economy);
+  - food-and-beverage 0.86 / 0.92: as above, and www's stage with the title over the picture is
+    taller (seen);
+  - ch/de/fly/check-in/online-check-in 1440 0.93: the Travel ID view's picture is lower than www's
+    (seen);
+  - ch/de/prepare/travel-regulations 1440 0.93, ch/en/discover/fleet 0.92 / 0.95: www shows these
+    cards two to a row; ours sit in a three-column grid, so the cards are narrower and their
+    pictures lower. The carousel-cards option two-up would do it; quick, next round (fleet seen);
+  - ch/de/…/travel-insurances 1.06 / 1.09, imprint 390 1.05, ch/en/customer-support/feedback 1.05 /
+    1.06: our paragraph and phone footer rows are a little taller (seen on the insurances page);
+  - ch/en/…/swiss-airrail 1440 1.06: the text block's lines are longer (not verified in detail);
+  - ch/de/culinaryjourney 390 1.09: the booking form's fields are 58 px rows with a 24 px reserve
+    (www's 50 px boxed fields) (seen);
+  - de/de and us/en homepages 390 1.10 / 1.08: General Conditions shows as text, where www opens
+    a dialog (row 14, lh-com's dialog);
+  - ch/en/…/mobile-apps 390 0.95: not looked at.
+- The heading spacing moved 19 page widths away from www's height by 1 to 2 percent. All of them
+  are pages shorter than www's for the reasons above.
+- Rollback: `git revert 392ff5c` (spacing), `git revert c8fbca6` (cards, icon teasers, FAQ hub;
+  the documents: DA's earlier versions in logs/b445/da/).
+
+### Documents (SWISS)
+
+- 49 uploaded and previewed, 0 problems; nothing published. In release order (both pushes are on
+  main): [../swiss/preview-paths-445.txt](../swiss/preview-paths-445.txt). Items 2 to 4 are the
+  first 31 paths: the 11 check-in pages, the 19 row-30 pages, then the /al/ page. Item 6 is the
+  last 18: the 16 menu pages, then the two legal pages.
+- No word of DA's documents lost (49 pages compared word for word).
+
+### Summary
+
+| Item | Commit | What | Rollback |
+| --- | --- | --- | --- |
+| 1 | 10fb774 | lh-edge: a page the language index lacks (records over 100 KB) served from the language version | `git revert 10fb774` |
+| 2 | d39c382 | check-in form (first name, hints, option checkin), open accordion; 11 documents | revert; DA's earlier versions |
+| 3 | (documents) | /al/de/…/immigration-regulations-worldwide1 with the 440 step, markets kept; 7 already done | DA's earlier version |
+| 4 | ffd9d6d | row 30: 19 of 21 pages placed (airportr en/de left) | revert; DA's earlier versions |
+| 5 | 80b890b | own-links and cargo-kf-phone-442 with their own fixtures | `git revert 80b890b` |
+| 6 | c8fbca6, 392ff5c | card link rows, icon teasers (legal, FAQ hub), heading spacing; 18 documents | revert each; DA's earlier versions |
