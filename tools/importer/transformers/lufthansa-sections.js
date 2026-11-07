@@ -219,12 +219,35 @@ function contentBetween(document, root, from, to) {
   return !!frag.querySelector(MEDIA);
 }
 
-/** Removes breaks that would open an empty section; the kept break inherits their styles. */
+/** Whether separator paragraphs ("{spacer-70}") lie between two breaks. */
+function spacersBetween(document, from, to) {
+  const range = document.createRange();
+  range.setStartAfter(from);
+  range.setEndBefore(to);
+  return [...range.cloneContents().querySelectorAll('p')].some((p) => /^\{(?:spacer|divider)-\d/.test(p.textContent.trim()));
+}
+
+const isGrey = (hr) => !!hr && (hr.getAttribute(SOURCE_STYLE) || '').split(' ').includes('grey');
+
+/**
+ * Removes breaks that would open an empty section; the kept break inherits their styles. Only
+ * separators between two grey bands (www: the doctor-on-board-news contact box, a 70 px
+ * separator, the card band) stay a section of their own, style gap, so their space is white.
+ */
 function dropEmptyBreaks(document, root) {
   const breaks = [...document.querySelectorAll(`hr[${BREAK}]`)].filter((hr) => !hr.closest('table'));
   let prev = null;
+  let before = null; // the break that opened the section prev ends
   breaks.forEach((hr) => {
     if (contentBetween(document, root, prev, hr)) {
+      before = prev;
+      prev = hr;
+      return;
+    }
+    if (prev && isGrey(before) && isGrey(hr) && !prev.hasAttribute(SOURCE_STYLE) && !prev.hasAttribute(MARKER)
+      && spacersBetween(document, prev, hr)) {
+      prev.setAttribute(SOURCE_STYLE, 'gap');
+      before = prev;
       prev = hr;
       return;
     }

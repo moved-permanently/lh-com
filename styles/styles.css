@@ -1082,6 +1082,18 @@ main > .section.grey + .section.grey {
   margin-top: calc(-1 * var(--section-gap));
 }
 
+/* separators between two grey bands (importer, lufthansa-sections: style gap; Austrian's
+   doctor-on-board-news: the contact box, 70 px of white, the card band): the section is only its
+   spacers' height, white, without the section gap on either side */
+main > .section.gap {
+  margin: 0;
+  padding: 0;
+}
+
+main > .section.grey:has(+ .section.gap) {
+  margin-bottom: 0;
+}
+
 /* grey bands that are one Lufthansa column view (importer, lufthansa-sections greyStyles): its
    .section-content .column > .column-view:only-child { padding: 3.2rem 0 } (every width) lies
    inside the grey. column-view: a padded grey AEM section around it, 2rem / 4rem + 32px
@@ -1239,6 +1251,11 @@ main > .section.grey + .section > .default-content-wrapper:first-child:not(:has(
    image before a block keeps its 4rem, a separator's space ends at the block */
 main > .section > .default-content-wrapper:has(> :is(p.column-mark.column-start, p.column-mark.column-start-outer, .column-end, .column-end-outer):last-child) + div:not(.default-content-wrapper),
 main > .section > div + .default-content-wrapper:not(:first-child):has(> p.column-mark:is(.column-end, .column-end-outer):first-child) {
+  margin-top: 0;
+}
+
+/* a gap section's separators (see "separators between two grey bands"): their height only */
+main > .section.grey + .section.gap > .default-content-wrapper:first-child:not(:has(> :not(p.spacer))) {
   margin-top: 0;
 }
 
