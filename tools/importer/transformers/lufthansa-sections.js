@@ -320,11 +320,21 @@ export default function transform(hookName, element, payload) {
     const grey = (s) => !!s.querySelector(':scope > .container-gray');
     const aemSections = [...document.querySelectorAll('.container-content > .section')]
       .filter((s) => (s.textContent || '').replace(/[\s\u00a0\u200b]/g, '') || s.querySelector(MEDIA));
+    // Two of them in a row: live has only the earlier one's .mb-default (2.4rem) between their
+    // paddings, or nothing, not our section gap: the earlier one (a padded section of its own,
+    // in one piece) gets style spaced (a 24 px gap) or flush (none); first-class-terminal +48 px
+    const paddedBreaks = new Map();
     aemSections.forEach((s, i) => {
       if (!i || !padded(s) || grey(s) || !padded(aemSections[i - 1])) return;
       const hr = createBreak(document);
       hr.setAttribute(SOURCE_STYLE, 'padded');
       s.before(hr);
+      paddedBreaks.set(s, hr);
+      const prev = aemSections[i - 1];
+      const own = paddedBreaks.get(prev);
+      if (!own || prev.querySelector(`hr[${BREAK}]`)) return;
+      const gap = prev.querySelector(':scope > .mb-default') ? 'spaced' : 'flush';
+      own.setAttribute(SOURCE_STYLE, `${own.getAttribute(SOURCE_STYLE)} ${gap}`);
     });
     // the page title in a padded first AEM section (info: /book-and-manage/pax-receipt, whose
     // passenger receipt form is an app widget that is not imported): style padded there too, the

@@ -1071,6 +1071,16 @@ main > .section.padded {
   padding: var(--section-padding) 0;
 }
 
+/* a padded section that another padded one follows: live has only its .mb-default (2.4rem)
+   between the two paddings (spaced), or nothing (flush), not the section gap */
+main > .section.padded.spaced {
+  margin-bottom: var(--spacing-default);
+}
+
+main > .section.padded.flush {
+  margin-bottom: 0;
+}
+
 /* full-bleed: .section-wide, no side paddings */
 main > .section.full-bleed > div {
   max-width: none;

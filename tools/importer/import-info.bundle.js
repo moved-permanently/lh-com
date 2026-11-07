@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-info.js
-  var tmp_bundle_info_21119_exports = {};
-  __export(tmp_bundle_info_21119_exports, {
-    default: () => tmp_bundle_info_21119_default
+  var tmp_bundle_info_354512_exports = {};
+  __export(tmp_bundle_info_354512_exports, {
+    default: () => tmp_bundle_info_354512_default
   });
 
   // tools/importer/parsers/search-results.js
@@ -5969,11 +5969,18 @@ var CustomImportScript = (() => {
       const padded = (s) => !!s.querySelector(":scope > div > .section-padding-y-regular");
       const grey = (s) => !!s.querySelector(":scope > .container-gray");
       const aemSections = [...document.querySelectorAll(".container-content > .section")].filter((s) => (s.textContent || "").replace(/[\s\u00a0\u200b]/g, "") || s.querySelector(MEDIA2));
+      const paddedBreaks = /* @__PURE__ */ new Map();
       aemSections.forEach((s, i) => {
         if (!i || !padded(s) || grey(s) || !padded(aemSections[i - 1])) return;
         const hr = createBreak(document);
         hr.setAttribute(SOURCE_STYLE, "padded");
         s.before(hr);
+        paddedBreaks.set(s, hr);
+        const prev = aemSections[i - 1];
+        const own = paddedBreaks.get(prev);
+        if (!own || prev.querySelector(`hr[${BREAK}]`)) return;
+        const gap = prev.querySelector(":scope > .mb-default") ? "spaced" : "flush";
+        own.setAttribute(SOURCE_STYLE, `${own.getAttribute(SOURCE_STYLE)} ${gap}`);
       });
       const first = aemSections[0];
       if ((template.name === "info" || template.base === "info") && first && padded(first) && !grey(first) && first.querySelector("h1") && !first.querySelector(".inspirationteaser, .stage")) {
@@ -6341,7 +6348,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_info_21119_default = {
+  var tmp_bundle_info_354512_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -6371,5 +6378,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_info_21119_exports);
+  return __toCommonJS(tmp_bundle_info_354512_exports);
 })();
