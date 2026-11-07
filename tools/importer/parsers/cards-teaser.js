@@ -121,10 +121,15 @@ export default function parse(element, { document }) {
   // Lufthansa stage teasers (".stage .stage-teaser": the whole tile links, headline and
   // subheadline over the image): option "overlay", heading = headline, CTA = subheadline
   const overlay = !!element.querySelector('.column-view-item > .stage .stage-teaser');
+  // a stage teaser of its own (Insights: tags/munich's "A Perfect Day" in a grey band, brief 464):
+  // one overlay card, option wide, with the subheadline and www's button label (an italic link:
+  // the block's secondary button)
+  const lone = element.matches('.stage') && !!element.querySelector(':scope > .stage-teaser');
 
   // --- column title (default content before the block)
   const view = element.querySelector(':scope > .column-view') || element;
   const titles = [];
+  if (!lone) {
   // a column view with carousel behaviour (.carousel: desktop grid + swiper copy, hub
   // /meetings-and-events steps) holds the cards, not a title
   [...view.children].filter((d) => !d.classList.contains('row') && !d.classList.contains('carousel')).forEach((d) => {
@@ -143,10 +148,12 @@ export default function parse(element, { document }) {
     });
   });
 
+  }
+
   // --- cards: one row per column-view item
   // (nested: inside another item of this column view; the column view itself may sit in a
   // one-column view's item, hub .onecolumn > … > .threecolumn: /de/en/meetings-and-events)
-  const items = [...element.querySelectorAll('.column-view-item')]
+  const items = lone ? [{ children: [element] }] : [...element.querySelectorAll('.column-view-item')]
     .filter((it) => {
       const outer = it.parentElement.closest('.column-view-item');
       return !outer || !element.contains(outer);
@@ -171,7 +178,20 @@ export default function parse(element, { document }) {
         if (head) { const h = document.createElement('h3'); h.textContent = head; body.push(h); }
         const link = comp.querySelector('a.stage-teaser-link[href], a[href]');
         const sub = visibleText(comp.querySelector('.stage-teaser-subheadline'));
-        if (link && (sub || head)) {
+        const label = visibleText(comp.querySelector('.stage-teaser-overlay-bottom'));
+        if (lone) {
+          if (sub) { const p = document.createElement('p'); p.textContent = sub; body.push(p); }
+          if (link && (label || sub || head)) {
+            const a = document.createElement('a');
+            a.setAttribute('href', link.getAttribute('href'));
+            a.textContent = label || sub || head;
+            const em = document.createElement('em');
+            em.append(a);
+            const p = document.createElement('p');
+            p.append(em);
+            body.push(p);
+          }
+        } else if (link && (sub || head)) {
           const a = document.createElement('a');
           a.setAttribute('href', link.getAttribute('href'));
           a.textContent = sub || head;
@@ -193,7 +213,8 @@ export default function parse(element, { document }) {
   let variants = [];
   if (element.classList.contains('threecolumn')) variants = ['three-up'];
   else if (element.classList.contains('fourcolumn')) variants = ['four-up'];
-  if (overlay) variants.push('overlay');
+  if (overlay || lone) variants.push('overlay');
+  if (lone) variants.push('wide');
   // a column view with carousel behaviour whose cards are a swiper below lg (.carousel >
   // .hidden-lg-up, /de/en/traveltricks' "This might also be of interest to you", brief 441): option
   // phone-slider (the block's slider below 1025px, its rows from 1025px)

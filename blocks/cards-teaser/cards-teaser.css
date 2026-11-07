@@ -345,6 +345,53 @@ body.brand-lufthansa .cards-teaser.three-up:not(.overlay) .cards-teaser-body > .
   }
 }
 
+/* option wide (with overlay, brief 464): a stage teaser of its own (Insights' tags/munich "A
+   Perfect Day" in its grey band): the card across the row at the picture's own ratio, www's
+   horizontal gradient (.gradient-black-horizontal), the subheadline light under the headline
+   (22px to 28px), the button (maui-button-mimic secondary small, inverted) white outlined 20px
+   below; the button is the link (no whole-tile link) */
+/* stylelint-disable-next-line no-descending-specificity -- an overlay option; the rule above is for other cards */
+.cards-teaser.overlay.wide > ul {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.cards-teaser.overlay.wide .cards-teaser-image::after {
+  background-image: linear-gradient(to right, #282828cc, #28282800 70%);
+}
+
+.cards-teaser.overlay.wide .cards-teaser-body > p:not(.cards-teaser-cta) {
+  font-size: calc(22px + 6 * (100vw - 375px) / 1065);
+  font-weight: 300;
+}
+
+.cards-teaser.overlay.wide .cards-teaser-cta-button {
+  margin-top: 20px;
+}
+
+.cards-teaser.overlay.wide .cards-teaser-cta-button a.button:any-link {
+  position: relative;
+  z-index: 1;
+  min-height: 32px;
+  padding: 4px 16px;
+  border-color: #fff;
+  background-color: transparent;
+  color: #fff;
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.cards-teaser.overlay.wide .cards-teaser-cta-button a.button:any-link:hover {
+  background-color: #fff;
+  color: var(--lh-deepblue);
+}
+
+@media (width >= 1281px) {
+  .cards-teaser.overlay.wide .cards-teaser-body > p:not(.cards-teaser-cta) {
+    font-size: 28px;
+  }
+}
+
 /* tiles that end their section (Insights "Explore more" above the footer): the live column view
    leaves 21px below the tiles, 41px from 768px, instead of the 48px section gap
    (/de/en/articles/explore-flying, explore-the-world, highlights) */

@@ -61,7 +61,9 @@ const PAGE_TEMPLATE = {
     {
       "name": "cards-teaser",
       "instances": [
-        ":is(.twocolumn, .threecolumn):has(> .column-view > .row > .column-view-item > .stage .stage-teaser)"
+        ":is(.twocolumn, .threecolumn):has(> .column-view > .row > .column-view-item > .stage .stage-teaser)",
+        ".onecolumn > .column-view > .row > .column-view-item > .stage:has(> .stage-teaser)",
+        ":is(.section-content, .container-content) > .stage:has(> .stage-teaser)"
       ]
     },
     {
