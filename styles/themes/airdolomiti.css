@@ -1571,3 +1571,41 @@ body.brand-airdolomiti .carousel-cards.destinations .carousel-cards-dots {
     line-height: 32px;
   }
 }
+
+/* brief 443 (axe target-size): carousel-cards' dots (the destinations pages' plain carousel) as the
+   other brands': each a 24 px target with the 8 px dot drawn in its middle, the targets touching;
+   the promo and destinations sliders show none (above) */
+/* stylelint-disable-next-line no-descending-specificity -- every carousel's dots; the destinations slider's are hidden above */
+body.brand-airdolomiti .carousel-cards .carousel-cards-dots {
+  gap: 0;
+}
+
+body.brand-airdolomiti .carousel-cards .carousel-cards-dot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+}
+
+body.brand-airdolomiti .carousel-cards .carousel-cards-dot::before {
+  content: "";
+  box-sizing: border-box;
+  width: 8px;
+  height: 8px;
+  border: 1px solid var(--lh-grey-7);
+  border-radius: 50%;
+  background-color: var(--lh-white);
+}
+
+body.brand-airdolomiti .carousel-cards .carousel-cards-dot[aria-current="true"] {
+  background: none;
+}
+
+body.brand-airdolomiti .carousel-cards .carousel-cards-dot[aria-current="true"]::before {
+  border-color: var(--lh-deepblue);
+  background-color: var(--lh-deepblue);
+}

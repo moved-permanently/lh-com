@@ -494,3 +494,40 @@ Pages a capture would need (parity.md P38 and P41):
   2025 Facts & Figures PDFs (EN, DE) are not in lh-cargo's DA: the slides show text only and the link
   goes to www's PDF.
 - Brussels P38 and P41: the captures listed under item 5.
+
+## Brief 443: accessibility on Air Dolomiti and TAP, then the new captures
+
+Nothing published: documents uploaded to DA and previewed only. Every brand's smoke before and
+after each push; TAP by hand too (the 40 TAP pages below on tap.turnsthe.page: status, final
+address and title, before and after).
+
+### 1. Accessibility pass on Air Dolomiti and TAP
+
+axe-core 4.10.2 (npm, sha512 checked), WCAG 2.0 to 2.2 A and AA, at 1440 and 390, on the aem.page
+previews, the consent choice made and any open dialog closed first (the runner of the package's
+item 5, with its sanity check: 23 to 33 rules passed on every page, none blinded).
+
+- Air Dolomiti (main--lh-airdolomiti--moved-permanently.aem.page): 42 pages, 14 per language (it,
+  en, de): the homepage, baggage (a menu page), support and contacts, a blog article, the timetable,
+  manage booking, the destinations hub and a destination, a route, an airport, a FAQ page, a legal
+  page, the fleet, promotions.
+- TAP (main--lh-tap--moved-permanently.aem.page): 40 pages, 5 in each of the 8 language versions
+  (en-pt, pt-pt, es-es, de-de, fr-fr, pt-br, it-it, pl-pl): the homepage, a help page, the
+  destinations' inspiration page (TAP has no single-city pages), the alerts page, a legal page.
+
+Fixed (ours):
+- Air Dolomiti: carousel-cards' dots on the destinations pages (/destinazioni, /destinazioni/
+  francoforte, /en/destinations, /de/reiseziele) were 8 px targets 16 px apart (target-size,
+  serious, 58 nodes on 8 page-widths). In Air Dolomiti's theme (styles/themes/airdolomiti.css; the
+  shared carousel files keep Air Dolomiti out, test/carousel-dots-374), each dot a 24 px target with
+  the 8 px dot drawn inside, as the other brands'. Tests first: test/airdolomiti-a11y-443.test.mjs.
+  On a local dev server with the code and lh-airdolomiti's preview content: those four pages at
+  1440 and 390, 0 violations; the dots as before, 24 px apart.
+
+Not ours (www's own design):
+- TAP: the booking box's empty dates field ("Selecionar datas", "Daten auswählen", ...) #b0aeb4 on
+  white, 2.19:1 (color-contrast, serious), on all eight homepages at both widths. TAP's parity.md
+  row 91: www's field the same colour, kept as www (axe flags ours because ours is a text label
+  where www's is an input's placeholder).
+
+Everything else: 0 violations on all 84 Air Dolomiti and 80 TAP page-widths.
