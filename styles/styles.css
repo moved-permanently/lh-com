@@ -778,6 +778,16 @@ body.brand-lufthansa .footer .footer-legal .footer-link {
   gap: 10px;
 }
 
+/* brief 464: the row's text sits where www's does (Imprint's text at x 127 in both captures), but
+   the last item fits or not by a few pixels, so a renderer whose text is a little narrower kept
+   "Change Privacy Settings" on the first line (the user's check at 1440): 20px less room on the
+   right from 1025px, so the wrap no longer hangs on a few pixels of text width */
+@media (width >= 1025px) {
+  body.brand-lufthansa .footer .footer-legal {
+    padding-right: 20px;
+  }
+}
+
 /* the destination finder under the news carousel (brief 460): www's carousel section ends with the
    same 30px separator, then the finder's section-wide maui-section; the carousel dots to "Flight
    offers from" 157px of ink at 1440 and 768, 142px at 390 (here 72, 71, 73) */

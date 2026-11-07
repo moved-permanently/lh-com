@@ -23,3 +23,7 @@ test('the horizontal STAR ALLIANCE token sized and filtered as the default one',
 test('lufthansa.com: the legal links 10 px from their arrow', () => {
   assert.ok(styles.includes('body.brand-lufthansa .footer .footer-legal .footer-link { gap: 10px; }'));
 });
+
+test('lufthansa.com: the legal row 20 px narrower from 1025 px, so the last item wraps in every renderer (brief 464)', () => {
+  assert.ok(styles.includes('@media (width >= 1025px) { body.brand-lufthansa .footer .footer-legal { padding-right: 20px; } }'));
+});
