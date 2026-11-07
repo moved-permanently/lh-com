@@ -1215,8 +1215,11 @@ body.flow-spacing main .default-content-wrapper > p:is(:has(> picture), :has(> a
 
 /* lufthansa.com Insights (brief 460): an image right before a heading keeps www's .image-wrapper
    margin (3.6rem, then the headline component): the heading's ink 45px under the image at 1440
-   and 390, here 29 with the paragraph's 24px */
-body.brand-lufthansa main:has(.article-header) .default-content-wrapper > p:is(:has(> picture), :has(> a > picture)):has(+ :is(h2, h3, h4, h5, h6)) {
+   and 390, here 29 with the paragraph's 24px. Brief 461: also before a bold paragraph standing for
+   a heading (picture-perfect-austin's {parallax} images, essentials-frankfurt-facts: 16px steps;
+   two selectors: a :has() inside a :has() would drop the rule) */
+body.brand-lufthansa main:has(.article-header) .default-content-wrapper > p:is(:has(> picture), :has(> a > picture)):has(+ :is(h2, h3, h4, h5, h6)),
+body.brand-lufthansa main:has(.article-header) .default-content-wrapper > p:is(:has(> picture), :has(> a > picture)):has(+ p > strong:only-child) {
   margin-bottom: 40px;
 }
 

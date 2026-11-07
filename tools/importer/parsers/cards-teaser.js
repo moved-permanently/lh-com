@@ -144,8 +144,13 @@ export default function parse(element, { document }) {
   });
 
   // --- cards: one row per column-view item
+  // (nested: inside another item of this column view; the column view itself may sit in a
+  // one-column view's item, hub .onecolumn > … > .threecolumn: /de/en/meetings-and-events)
   const items = [...element.querySelectorAll('.column-view-item')]
-    .filter((it) => !it.parentElement.closest('.column-view-item'));
+    .filter((it) => {
+      const outer = it.parentElement.closest('.column-view-item');
+      return !outer || !element.contains(outer);
+    });
   const cells = [];
   items.forEach((item) => {
     let media = null;

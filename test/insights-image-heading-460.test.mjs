@@ -11,6 +11,28 @@ import fs from 'node:fs';
 
 const css = fs.readFileSync(new URL('../styles/styles.css', import.meta.url), 'utf8').replace(/\/\*[\s\S]*?\*\//g, '').replace(/\s+/g, ' ');
 
-test('an article image before a heading 40 px above it', () => {
-  assert.ok(css.includes('body.brand-lufthansa main:has(.article-header) .default-content-wrapper > p:is(:has(> picture), :has(> a > picture)):has(+ :is(h2, h3, h4, h5, h6)) { margin-bottom: 40px; }'));
+test('an article image before a heading (or a bold paragraph standing for one, brief 461) 40 px above it', () => {
+  assert.ok(css.includes('body.brand-lufthansa main:has(.article-header) .default-content-wrapper > p:is(:has(> picture), :has(> a > picture)):has(+ :is(h2, h3, h4, h5, h6)), body.brand-lufthansa main:has(.article-header) .default-content-wrapper > p:is(:has(> picture), :has(> a > picture)):has(+ p > strong:only-child) { margin-bottom: 40px; }'));
+});
+
+// a :has( opened while another :has( is still open (depth-counted)
+const nestedHas = (sel) => {
+  const open = [];
+  for (let i = 0; i < sel.length; i += 1) {
+    if (sel.startsWith(':has(', i)) {
+      if (open.includes('has')) return true;
+      open.push('has');
+      i += 4;
+    } else if (sel[i] === '(') open.push('(');
+    else if (sel[i] === ')') open.pop();
+  }
+  return false;
+};
+
+test('no :has() inside a :has() in the rule (browsers drop such a rule)', () => {
+  const start = css.indexOf('body.brand-lufthansa main:has(.article-header) .default-content-wrapper > p:is(:has(> picture)');
+  const rule = css.slice(start, css.indexOf('{', start));
+  assert.ok(rule.length > 0);
+  assert.ok(!nestedHas(rule));
+  assert.ok(nestedHas('p:has(+ :is(h2, p:has(> strong)))'), 'the check itself');
 });

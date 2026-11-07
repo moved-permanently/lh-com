@@ -1689,6 +1689,24 @@ function addPageMetadata(document, payload) {
   document.body.append(WebImporter.Blocks.getMetadataBlock(document, meta));
 }
 
+/* -------------------------------------------------------------- empty headlines ---------- */
+
+/**
+ * Insights: an empty headline component (brief 461; know-before-you-go-berlin and -algiers:
+ * <h3 class="heading-copytext-large">&nbsp;</h3> between the article header and the first image)
+ * is www's space, its line and margins: the first image 43px lower at 1440 than the replica, which
+ * dropped it. It becomes the separator placeholder "{spacer-42}" (42 + 1px). Other templates as
+ * before.
+ */
+function markEmptyHeadlines(document, payload) {
+  if (((payload && payload.template) || {}).name !== 'insights') return;
+  document.querySelectorAll('.headline').forEach((headline) => {
+    const h = headline.querySelector('h1, h2, h3, h4, h5, h6');
+    if (!h || headline.children.length !== 1 || h.textContent.replace(/[\s\u00A0]+/g, '') !== '') return;
+    headline.replaceWith(document.createComment(`${SEPARATOR_COMMENT} spacer-42`));
+  });
+}
+
 /* -------------------------------------------------------------- offer cards -------------- */
 
 /**
@@ -1844,6 +1862,7 @@ export default function transform(hookName, element, payload) {
     markParallaxImages(document);
     // info: column views for their padding markers, and flow spacing: the separators in running
     // text are kept (headings have no margin of their own above, styles.css)
+    markEmptyHeadlines(document, payload); // before the empty components go
     const flow = columnMarksEnabled(payload);
     if (flow) {
       markColumnViews(document, payload);
