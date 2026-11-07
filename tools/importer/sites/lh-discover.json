@@ -551,7 +551,19 @@
   "/xx/fr/homepage",
   "/xx/fr/cancun-promotion",
   "/xx/fr/culinaryjourney",
-  "/xx/fr/discover/ocean-blue"
+  "/xx/fr/discover/ocean-blue",
+  "/us/de/legal/conditions-of-carriage",
+  "/us/de/my-bookings/manage/customer-service",
+  "/us/de/my-bookings/manage/seat-reservation",
+  "/us/en/legal/conditions-of-carriage",
+  "/us/en/my-bookings/manage/customer-service",
+  "/us/en/my-bookings/manage/seat-reservation",
+  "/ca/en/legal/passenger-rights",
+  "/ca/en/my-bookings/manage/customer-service",
+  "/ca/en/my-bookings/manage/seat-reservation",
+  "/ca/fr/legal/passenger-rights",
+  "/ca/fr/my-bookings/manage/customer-service",
+  "/ca/fr/my-bookings/manage/seat-reservation"
  ],
  "patterns": [
   "^/(de/en|de/de)/fragments/[a-z0-9-]+$"

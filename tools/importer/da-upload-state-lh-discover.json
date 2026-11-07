@@ -1501,9 +1501,9 @@
    "preview": "2026-10-30T05:33:20.922Z"
   },
   "/de/de/my-bookings/services/additional-services": {
-   "uploaded": "2026-11-05T13:52:15.937Z",
-   "mtime": 1793886679075,
-   "preview": "2026-11-05T13:52:17.815Z"
+   "uploaded": "2026-11-07T15:46:37.456Z",
+   "mtime": 1794066327492.028,
+   "preview": "2026-11-07T15:46:44.351Z"
   },
   "/de/de/my-bookings/services/additional-services/express-rail": {
    "uploaded": "2026-10-30T05:10:56.077Z",
@@ -2749,6 +2749,66 @@
    "uploaded": "2026-10-31T05:57:37.021Z",
    "mtime": 1793426232502,
    "preview": "2026-10-31T05:57:38.930Z"
+  },
+  "/us/de/legal/conditions-of-carriage": {
+   "uploaded": "2026-11-07T15:45:40.679Z",
+   "mtime": 1794066153694.528,
+   "preview": "2026-11-07T15:45:43.274Z"
+  },
+  "/us/de/my-bookings/manage/customer-service": {
+   "uploaded": "2026-11-07T15:45:45.472Z",
+   "mtime": 1794066153677.2698,
+   "preview": "2026-11-07T15:45:47.816Z"
+  },
+  "/us/de/my-bookings/manage/seat-reservation": {
+   "uploaded": "2026-11-07T15:45:50.191Z",
+   "mtime": 1794066153694.8142,
+   "preview": "2026-11-07T15:45:52.763Z"
+  },
+  "/us/en/legal/conditions-of-carriage": {
+   "uploaded": "2026-11-07T15:45:54.959Z",
+   "mtime": 1794066153695.408,
+   "preview": "2026-11-07T15:45:57.041Z"
+  },
+  "/us/en/my-bookings/manage/customer-service": {
+   "uploaded": "2026-11-07T15:45:59.337Z",
+   "mtime": 1794066153679.6091,
+   "preview": "2026-11-07T15:46:01.580Z"
+  },
+  "/us/en/my-bookings/manage/seat-reservation": {
+   "uploaded": "2026-11-07T15:46:03.978Z",
+   "mtime": 1794066153695.999,
+   "preview": "2026-11-07T15:46:06.256Z"
+  },
+  "/ca/en/legal/passenger-rights": {
+   "uploaded": "2026-11-07T15:46:08.458Z",
+   "mtime": 1794066153637.8594,
+   "preview": "2026-11-07T15:46:10.906Z"
+  },
+  "/ca/en/my-bookings/manage/customer-service": {
+   "uploaded": "2026-11-07T15:46:13.361Z",
+   "mtime": 1794066153638.4229,
+   "preview": "2026-11-07T15:46:15.619Z"
+  },
+  "/ca/en/my-bookings/manage/seat-reservation": {
+   "uploaded": "2026-11-07T15:46:18.215Z",
+   "mtime": 1794066153692.2852,
+   "preview": "2026-11-07T15:46:20.563Z"
+  },
+  "/ca/fr/legal/passenger-rights": {
+   "uploaded": "2026-11-07T15:46:22.733Z",
+   "mtime": 1794066153639.971,
+   "preview": "2026-11-07T15:46:24.649Z"
+  },
+  "/ca/fr/my-bookings/manage/customer-service": {
+   "uploaded": "2026-11-07T15:46:26.784Z",
+   "mtime": 1794066153640.3025,
+   "preview": "2026-11-07T15:46:28.956Z"
+  },
+  "/ca/fr/my-bookings/manage/seat-reservation": {
+   "uploaded": "2026-11-07T15:46:31.203Z",
+   "mtime": 1794066153692.7163,
+   "preview": "2026-11-07T15:46:33.360Z"
   }
  },
  "media": {}
