@@ -51,7 +51,7 @@ import { relativeDamLinks } from './swiss-dam.mjs';
 import { edsDamPath } from '../../scripts/dam-path.js';
 import { withLocalImages } from './swiss-nav.mjs';
 import { stripScripts } from './excat-plugin.mjs';
-import { withSwissSidebar, withSwissAccordions } from './swiss-sidebar.mjs';
+import { withSwissSidebar, withSwissAccordions, wwwHref } from './swiss-sidebar.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const argv = process.argv.slice(2);
@@ -421,7 +421,7 @@ export function withTeaserTexts(doc, html) {
     const h = el.querySelector('h1, h2, h3');
     const ps = [...el.querySelectorAll('.information .richtext p')].map((p) => norm(p.textContent)).filter(Boolean);
     const btn = el.querySelector('.information maui-button-link[href]');
-    return [h ? norm(h.textContent) : '', { ps, button: btn && { href: btn.getAttribute('href'), text: norm(btn.textContent) } }];
+    return [h ? norm(h.textContent) : '', { ps, button: btn && { href: wwwHref(btn.getAttribute('href')), text: norm(btn.textContent) } }];
   }).filter(([title, t]) => title && (t.ps.length || t.button)));
   if (!teasers.size) return { doc, made: 0 };
   const isPlain = !/<main>/.test(doc);

@@ -490,9 +490,26 @@ function withTabSidebar(document, section, start, sb) {
   return { next: after.length ? afterSection : asideSection.nextElementSibling };
 }
 
+// the paths the replica serves (lh-edge's SWISS host): its <cc>/<ll> roots, the magazine, the
+// corporate and medical services sites
+const SITE_PATH = /^\/([a-z]{2}\/[a-z]{2}|magazine|corporate|medicalservices)(\/|$|[?#])/;
+
+/**
+ * A link from www's markup as the document's (brief 453): www's links to a path the replica
+ * serves relative (www's AEM path /content/lx/markets/<cc>/<ll>/… as the page's path); its
+ * others on www.swiss.com, also where www wrote them relative (the chat assistant
+ * /digitalassistant/webchat.html answers 404 on the replica); other hosts and anchors as they are.
+ */
+export function wwwHref(href) {
+  const m = String(href).match(/^(?:https?:\/\/www\.swiss\.com)?(\/[^#]*)?(#.*)?$/);
+  if (!m || !m[1]) return href;
+  const p = m[1].replace(/^\/content\/lx\/markets(?=\/[a-z]{2}\/[a-z]{2}(\/|$|[?#]))/, '');
+  return SITE_PATH.test(p) ? `${p}${m[2] || ''}` : `https://www.swiss.com${p}${m[2] || ''}`;
+}
+
 /**
  * An accordion item's body as document HTML: its paragraphs, lists, h3/h4 and links (www's host
- * dropped from its own links), strong and em text; www's link icons and screen-reader words out,
+ * dropped from links the replica serves: wwwHref), strong and em text; www's link icons and screen-reader words out,
  * the rest unwrapped.
  */
 function plainRichtext(item) {
@@ -506,7 +523,7 @@ function plainRichtext(item) {
     if (n.tagName === 'BR') return '<br>';
     const tag = n.tagName.toLowerCase();
     if (tag === 'a') {
-      const href = (n.getAttribute('href') || '').replace(/^https:\/\/www\.swiss\.com(?=\/)/, '');
+      const href = wwwHref(n.getAttribute('href') || '');
       return href ? `<a href="${href.replace(/"/g, '&quot;')}">${inner.trim()}</a>` : inner;
     }
     return `<${tag}>${inner.replace(/\s+/g, ' ').trim()}</${tag}>`;
