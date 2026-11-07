@@ -964,18 +964,21 @@ main .default-content-wrapper > p.indent {
 
 /* Lufthansa Insights articles (.article-content .article-limited-width / h3 / .text:
    margin-inline 10%, max-width 80% of the article card = two thirds of the content width,
-   centred, from 768px): the article body sections after the article header */
+   centred, from 768px): the article body sections after the article header, also the one with
+   the "This may also be of interest to you" cards, whose text after the cards stays two thirds
+   on www (brief 470: a-perfect-day-barcelona ran it at 83.333%); a section with another kind of
+   carousel-cards keeps its full width */
 @media (width >= 768px) {
-  main:has(.article-header) > .section:not(.carousel-cards-container, .related-articles-container) > .default-content-wrapper > :is(p, ul, ol, h2, h3, h4, h5, h6) {
+  main:has(.article-header) > .section:not(.related-articles-container, :has(> .carousel-cards-wrapper > .carousel-cards:not(.article))) > .default-content-wrapper > :is(p, ul, ol, h2, h3, h4, h5, h6) {
     box-sizing: border-box;
     max-width: 66.667%;
     margin-inline: auto;
   }
 
-  /* images (and their captions) and the "This may also be of interest to you" cards use the
-     article card (.article-content col-md-10 offset-1: 83.333%, the h1 column) */
-  main:has(.article-header) > .section:not(.carousel-cards-container, .related-articles-container) > .default-content-wrapper > p:is(:has(> picture), :has(> a > picture), .caption),
-  main:has(.article-header) > .section:has(> .carousel-cards-wrapper > .carousel-cards.article) > .default-content-wrapper > * {
+  /* images (and their captions) and the heading of the "This may also be of interest to you"
+     cards use the article card (.article-content col-md-10 offset-1: 83.333%, the h1 column) */
+  main:has(.article-header) > .section:not(.related-articles-container, :has(> .carousel-cards-wrapper > .carousel-cards:not(.article))) > .default-content-wrapper > p:is(:has(> picture), :has(> a > picture), .caption),
+  main:has(.article-header) > .section > .default-content-wrapper:has(+ .carousel-cards-wrapper > .carousel-cards.article) > :is(h2, h3, h4):last-child {
     box-sizing: border-box;
     max-width: 83.333%;
     margin-inline: auto;
