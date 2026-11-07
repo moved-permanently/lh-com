@@ -783,3 +783,179 @@ published.
   What's left is the ad rows and one card more on www (content).
 - A second push after a pull: `a17b2d8..8960b01`. The smoke after was the same as before on
   every brand; SWISS's and TAP's hosts checked by hand.
+
+## Brief 460 (lufthansa.com visual parity, de/en first)
+
+Same rules: tests first, brand-scoped CSS, lint and the full suite before the push, the smoke of
+every brand before and after it, SWISS's and TAP's hosts by hand. Nothing uploaded or published:
+DA access was off (admin.da.live answered 401), so the documents below are a list for your
+harness.
+
+- One code push, after a pull: `a011927..e00ed69` (75c9418, 5b8e3e1, e00ed69).
+- The smoke after was the same as before on every brand, except one 503 on austrian's `/ch/de`.
+  It answered 302 as before on three rechecks, so I read it as transient.
+- Measured with tools/parity capture.js and compare.js `--mask` against the www captures of
+  2026-11-06 (lh-parity-002a to -002d and -003, sha256 checked).
+
+### 1. Homepage de/en (done, 75c9418; the document needs a re-import)
+
+- What changed:
+  - The 50.0 / 46.1 / 45.0 % of 2026-11-06 came from the published document of before the
+    offline package's re-import.
+  - With today's document the page was already 16.5 / 13.9 / 10.2 % on the preview before this
+    brief (16.5 % on aem.live too).
+  - www itself changed in one place: a new footer disclaimer (`.footerdisclaimer`, the DESY
+    component, "MAUI -> DESY migration switch, phase 1, LHG-first").
+- Fixed (lufthansa.com only, unless noted):
+  - The section after the stage is 32 px lower. www's empty quick-actions row ends with a
+    transparent 30 px separator; this was 32 px short since 10-25.
+  - The destination finder is 85 px further under the news carousel (69 px on phones). www has
+    the same separator plus the finder's section.
+  - A fare-teaser row without a price is as tall as a priced row (147 -> 142 px; every brand).
+  - The footer's STAR ALLIANCE graphic was 0 x 0. lh-com's de/en footer document holds the
+    horizontal token, which no default rule sized; it is now sized for every brand without its
+    own rule.
+  - The legal links are 10 px from their arrow, so the row wraps "Change Privacy Settings" as
+    www does. The footer is now 676 px at 1440, as www's.
+  - www's footer disclaimer:
+    - The cleanup makes the note small print and "General Conditions" a link to
+      `/de/en/fragments/modals/general-conditions`, which fragment-dialog.js opens as a dialog,
+      as www opens its maui-modal. The conditions text leaves the page.
+    - `tools/importer/general-conditions-dialogs.mjs` writes that dialog document from the
+      snapshots after the import.
+    - The fragment auto-block now leaves `/modals/` links to the dialog (scripts.js).
+    - The link is 14 px bold with the dialog icon, spaced as www's: 73 / 6 / 24 px, and 53 px
+      above on phones.
+- Numbers (1440 / 768 / 390):
+
+  | Version | Whole page | Above the finder | 1440, aligned at the footer |
+  | --- | --- | --- | --- |
+  | preview, today's document, before | 16.5 / 13.9 / 10.2 % | | |
+  | preview, today's document, after the push | 6.6 / 5.3 / 10.1 % | | |
+  | the re-imported document (draft on a local server, main's code) | 14.5 / 17.2 / 20.5 % | 5.1 / 5.0 / 5.3 % | 2.1 % (service tiles to the end) |
+
+  The whole-page score gets worse with the correct disclaimer. The page below the finder is
+  194 px shorter than www's at 1440, and the long conditions text used to make up for that:
+  - the finder's empty state is about 86 px shorter than www's full grid. That is live data:
+    the offers API doesn't answer here;
+  - www's "Exclusive Offers & Benefits" is about 128 px taller (decision below).
+- Decision for you:
+  - www's "Exclusive Offers & Benefits" is a Monetate experiment (`section.vt-comm551-offers`,
+    images from sb.monetate.net), injected in the browser. It is not in www's AEM content.
+  - The 11-06 import took it as a plain list with title and text run together ("Lufthansa
+    SurpriseChoose…").
+  - Either render it as www's four cards in a grey band, or leave the experiment out of the
+    document.
+- Live data, left as it is: the fare prices and the destination finder's offers. The flash
+  teaser's messages come from the Message Center index, so they are content, not live data.
+
+### 2. Campaign template (one shared cause fixed, 5b8e3e1; one for you to sequence)
+
+- Today on the preview at 1440, the worst pages:
+
+  | Page | 1440 |
+  | --- | --- |
+  | 100-years/fleet | 38.5 % |
+  | menu-on-board | 34.2 % |
+  | destinations | 30.1 % |
+  | stopover | 29.7 % |
+  | new-onboard-experience | 28.8 % |
+  | frankfurt-fair | 27.8 % |
+
+  Most of the others are now below 25 % (the 11-06 run had stopover at 56.5 % and take-off at
+  51.5 %). Every width: logs/b460 (not committed).
+- Fixed in the importer: the separator between a text and an image or image carousel.
+  - www puts a transparent separator (2.5rem, 40 px on some pages) between the 100-years texts
+    and their carousels or collage images.
+  - The cleanup dropped it, so each carousel or collage was 26 px too high.
+  - The campaign template now keeps it. Checked on drafts of crane and menu-on-board: the
+    -26 px step is gone.
+  - It needs the campaign bundle rebuilt. I didn't rebuild it, because ema-cashub's campaign
+    parsers are in flight.
+  - Then 46 documents (7 pages in 7 locales) need a re-import:
+    [reimport-460-lh-com.txt](reimport-460-lh-com.txt), part 3.
+- For you to sequence (ema-cashub's area): the campaign template has no columns-media selector
+  for top-level three- and four-column views. The info, fleet and form templates have one.
+  - Those rows are flattened into one column on frankfurt-fair (ours 815 px taller), 100-years
+    fleet (three images stacked full width), chronicle and new-onboard-experience.
+  - The fix is info's selector `:is(.section-content, .container-content) > :is(.threecolumn,
+    .fourcolumn):not(:has(…))` in page-templates.json's campaign entry, then a bundle rebuild
+    and the 4 pages in every locale.
+- Not layout:
+  - The 100-years stages are videos: another frame on every capture (impossible.md).
+  - The stopover pages' maps are a different map provider's tiles: about 600 px that cannot
+    match. I suggest masking `.poi-map` in capture.js; I didn't change the scoring.
+
+### 3. Hub at 390 and insights (one fix, e00ed69; the rest is per page)
+
+- Hub at 390 today:
+
+  | Page | 390 |
+  | --- | --- |
+  | airport-information | 25.5 % |
+  | overview-special-request | 24.1 % |
+  | food-and-beverages | 23.8 % |
+  | overview-manage | 23.1 % |
+  | meetings-and-events | 22.2 % |
+  | additional-services | 18.8 % |
+
+  The other 10 are at 16.7 % or below.
+  - overview-manage lost its option spacious on the preview. DA's copy of 11-06 17:48, from
+    ema-cashub's items-45 upload, has a plain cards-teaser, so its rows sit 40 px lower. It
+    needs a re-import with the hub bundle (list, part 2).
+  - baggage: below 768 px each grid right under a heading sits 34 px lower than www's (3 times
+    on the page). The cause is lh-com's 32 px top padding for grids, measured at 1440. That
+    pattern (a heading right before a cards-teaser) is in 568 documents across templates, so I
+    didn't change it without a cross-template run.
+  - The rest differs page by page (no offset shared by more than one page).
+  - www's phone captures carry the Feedback side tab and, on baggage, the chat button.
+- Insights:
+  - Fixed: an image right before a heading now keeps www's 3.6rem image margin (40 px here,
+    was 24). Each such pair had moved the rest of the article 16 px up.
+    - know-before-you-go-berlin: 24.7 -> 18.5 % (1440), 27.1 -> 21.5 % (768), 25.8 -> 19.9 %
+      (390).
+    - know-before-you-go-algiers: 24.3 -> 17.3 %, 26.8 -> 21.9 %, 27.0 -> 20.8 %.
+    - essentials-future-of-flying and essentials-barcelona-facts: their 16 px steps are gone.
+      Their later offsets had been hidden by them, so at 390 the numbers went up (14.1 -> 15.3 %,
+      10.5 -> 13.5 %); barcelona-facts 768 went 8.6 -> 6.1 %.
+  - Found, not changed:
+    - Both know-before-you-go pages have an empty heading on www (`h3` with `&nbsp;`) between
+      the article header and the first image: 43 px the import drops.
+    - On tags/allegris, www's article list starts image | text, ours text | image (33.3 % at
+      1440). It is the only tag page with a list among the captures, so I didn't flip the
+      block's order on one sample.
+
+### 4. Fresh run of the changed pages (on the preview after the push)
+
+| Page | 1440 | 768 | 390 |
+| --- | --- | --- | --- |
+| homepage | 16.5 -> 6.6 % | 13.9 -> 5.3 % | 10.2 -> 10.1 % |
+| know-before-you-go-berlin | 24.7 -> 18.5 % | 27.1 -> 21.5 % | 25.8 -> 19.9 % |
+| know-before-you-go-algiers | 24.3 -> 17.3 % | 26.8 -> 21.9 % | 27.0 -> 20.8 % |
+| essentials-future-of-flying | 7.7 -> 7.7 % | | 14.1 -> 15.3 % |
+| essentials-barcelona-facts | 7.6 -> 7.6 % | 8.6 -> 6.1 % | 10.5 -> 13.5 % |
+
+- Campaign at 1440: the footer is now www's height on every page. Pages that were already
+  taller than www's moved 41 px further from it: the stopover subpages 13.4-16.2 -> 14.7-17.5 %,
+  munich-fair 11.7 -> 13.2 %. lufthansa-city/culinaryjourney went 10.9 -> 8.0 %.
+
+### Documents
+
+- None uploaded (DA access off). For your harness, in release order:
+  [reimport-460-lh-com.txt](reimport-460-lh-com.txt), 49 documents.
+  1. The dialog document `/de/en/fragments/modals/general-conditions` before `/de/en/homepage`.
+  2. `/de/en/overview-manage`.
+  3. The 46 campaign pages, once the campaign bundle is rebuilt.
+
+| Item | Commit | What | Rollback |
+| --- | --- | --- | --- |
+| 1 | 75c9418 | homepage spacing, fare-row height, footer disclaimer import and dialog link, footer logo and legal row | revert |
+| 2 | 5b8e3e1 | campaign: the separator before an image or carousel kept | revert |
+| 2 | — | campaign column views (page-templates.json, ema-cashub's area) | — |
+| 3 | e00ed69 | insights: an image before a heading 40 px above it | revert |
+
+Checked on: main--lh-com--moved-permanently.aem.page (all captures, before and after the push);
+aem.live (the homepage at 1440); a local server with main's code and the preview's documents
+(port 3001); one with the draft documents (port 3002, the homepage with the disclaimer, crane,
+menu-on-board); the ten turnsthe.page hosts (smoke); lh-swiss's preview (swiss-smoke) and
+tap.turnsthe.page/pt-pt (200).

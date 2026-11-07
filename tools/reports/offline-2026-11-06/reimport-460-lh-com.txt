@@ -1,0 +1,66 @@
+# Brief 460 (ema-adobe, 2026-11-07): lufthansa.com documents for the local harness. Nothing was
+# uploaded from here (DA access was off: admin.da.live answered 401). Import again with main's
+# bundles at e00ed69 or later.
+#
+# 1. The de/en homepage (www's new footer disclaimer): homepage bundle, the usual post steps
+#    (head-metadata, stage-promotions, postprocess-media, the DAM switches), then
+#      node tools/importer/general-conditions-dialogs.mjs --html-dir <the folder holding
+#        www.lufthansa.com of lh-snapshots-061> --locale de/en
+#    which writes the dialog document. Upload the dialog document before the homepage.
+/de/en/fragments/modals/general-conditions
+/de/en/homepage
+#
+# 2. The overview hub that lost its option spacious on preview (DA's copy of 2026-11-06 17:48
+#    has a plain cards-teaser; ema-cashub's items-45 upload): hub bundle.
+/de/en/overview-manage
+#
+# 3. Campaign pages whose separator between a text and an image or image carousel the cleanup now
+#    keeps (5b8e3e1). The campaign bundle is not rebuilt (ema-cashub's campaign parsers are in
+#    flight): rebuild it after their work, then import these (computed over every campaign
+#    snapshot with that separator).
+/at/de/100-years/cabin-design
+/at/de/100-years/campaigns
+/at/de/100-years/chronicle
+/at/de/100-years/crane
+/at/de/100-years/global-network
+/at/de/100-years/history/menu-on-board
+/at/de/discover-lufthansa/new-onboard-experience
+/de/de/100-years/cabin-design
+/de/de/100-years/campaigns
+/de/de/100-years/chronicle
+/de/de/100-years/crane
+/de/de/100-years/global-network
+/de/de/100-years/history/menu-on-board
+/de/de/discover-lufthansa/new-onboard-experience
+/de/en/100-years/cabin-design
+/de/en/100-years/campaigns
+/de/en/100-years/chronicle
+/de/en/100-years/crane
+/de/en/100-years/global-network
+/de/en/100-years/history/menu-on-board
+/de/en/discover-lufthansa/new-onboard-experience
+/fr/fr/100-years/cabin-design
+/fr/fr/100-years/chronicle
+/fr/fr/100-years/crane
+/fr/fr/100-years/global-network
+/fr/fr/100-years/history/menu-on-board
+/fr/fr/discover-lufthansa/new-onboard-experience
+/gb/en/100-years/cabin-design
+/gb/en/100-years/campaigns
+/gb/en/100-years/chronicle
+/gb/en/100-years/crane
+/gb/en/100-years/global-network
+/gb/en/100-years/history/menu-on-board
+/gb/en/discover-lufthansa/new-onboard-experience
+/xx/es/100-years/cabin-design
+/xx/es/100-years/chronicle
+/xx/es/100-years/crane
+/xx/es/100-years/global-network
+/xx/es/100-years/history/menu-on-board
+/xx/es/discover-lufthansa/new-onboard-experience
+/xx/fr/100-years/cabin-design
+/xx/fr/100-years/chronicle
+/xx/fr/100-years/crane
+/xx/fr/100-years/global-network
+/xx/fr/100-years/history/menu-on-board
+/xx/fr/discover-lufthansa/new-onboard-experience
