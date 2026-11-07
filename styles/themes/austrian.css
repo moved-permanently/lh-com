@@ -680,23 +680,24 @@ body.brand-austrian .header .nav-menu-button .lh-icon > * {
   display: none;
 }
 
-/* row 18: the article cards (Good reasons to take off: carousel-cards grid) as www's a.teaser:
+/* row 18: the article cards (Good reasons to take off: carousel-cards grid; a phone slider's cards too, four-up
+   below 1025 px, brief 444) as www's a.teaser:
    6 px corners, 30 px inside, titles heading-l (22 to 28 px) 21 px above the copy, the copy
    Portada 18/27 black */
-body.brand-austrian .carousel-cards.grid .carousel-cards-slide {
+body.brand-austrian .carousel-cards:is(.grid, .phone-slider) .carousel-cards-slide {
   border-radius: 6px;
 }
 
-body.brand-austrian .carousel-cards.grid .carousel-cards-body {
+body.brand-austrian .carousel-cards:is(.grid, .phone-slider) .carousel-cards-body {
   padding: 30px;
 }
 
-body.brand-austrian .carousel-cards.grid .carousel-cards-slide:not(.carousel-cards-wide) .carousel-cards-body > :is(h1, h2, h3, h4, h5, h6) {
+body.brand-austrian .carousel-cards:is(.grid, .phone-slider) .carousel-cards-slide:not(.carousel-cards-wide) .carousel-cards-body > :is(h1, h2, h3, h4, h5, h6) {
   margin-bottom: 21px;
   font-size: var(--heading-font-size-l);
 }
 
-body.brand-austrian .carousel-cards.grid .carousel-cards-slide:not(.carousel-cards-wide) .carousel-cards-body > p:not(.carousel-cards-cta, .carousel-cards-eyebrow) {
+body.brand-austrian .carousel-cards:is(.grid, .phone-slider) .carousel-cards-slide:not(.carousel-cards-wide) .carousel-cards-body > p:not(.carousel-cards-cta, .carousel-cards-eyebrow) {
   color: #000;
   font-family: var(--heading-font-family);
   font-size: 18px;

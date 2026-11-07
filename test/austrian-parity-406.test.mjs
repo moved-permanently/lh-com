@@ -24,11 +24,11 @@ test('row 5: www\'s burger lines, 24 px at every width', () => {
   has(/body\.brand-austrian \.header \.nav-menu-button \.lh-icon > \* \{ display: none; \}/);
 });
 
-test('row 18: the article cards\' copy Portada 18/27 black, titles heading-l, 6 px corners, 30 px inside', () => {
-  has(/body\.brand-austrian \.carousel-cards\.grid \.carousel-cards-slide \{ border-radius: 6px; \}/);
-  has(/body\.brand-austrian \.carousel-cards\.grid \.carousel-cards-body \{ padding: 30px; \}/);
-  has(/body\.brand-austrian \.carousel-cards\.grid \.carousel-cards-slide:not\(\.carousel-cards-wide\) \.carousel-cards-body > p:not\(\.carousel-cards-cta, \.carousel-cards-eyebrow\) \{ color: #000; font-family: var\(--heading-font-family\); font-size: 18px; line-height: 27px; \}/);
-  has(/body\.brand-austrian \.carousel-cards\.grid \.carousel-cards-slide:not\(\.carousel-cards-wide\) \.carousel-cards-body > :is\(h1, h2, h3, h4, h5, h6\) \{ margin-bottom: 21px; font-size: var\(--heading-font-size-l\); \}/);
+test('row 18: the article cards\' copy Portada 18/27 black, titles heading-l, 6 px corners, 30 px inside; also a phone slider\'s cards below 1025 px (brief 444: the block is four-up there, not grid)', () => {
+  has(/body\.brand-austrian \.carousel-cards:is\(\.grid, \.phone-slider\) \.carousel-cards-slide \{ border-radius: 6px; \}/);
+  has(/body\.brand-austrian \.carousel-cards:is\(\.grid, \.phone-slider\) \.carousel-cards-body \{ padding: 30px; \}/);
+  has(/body\.brand-austrian \.carousel-cards:is\(\.grid, \.phone-slider\) \.carousel-cards-slide:not\(\.carousel-cards-wide\) \.carousel-cards-body > p:not\(\.carousel-cards-cta, \.carousel-cards-eyebrow\) \{ color: #000; font-family: var\(--heading-font-family\); font-size: 18px; line-height: 27px; \}/);
+  has(/body\.brand-austrian \.carousel-cards:is\(\.grid, \.phone-slider\) \.carousel-cards-slide:not\(\.carousel-cards-wide\) \.carousel-cards-body > :is\(h1, h2, h3, h4, h5, h6\) \{ margin-bottom: 21px; font-size: var\(--heading-font-size-l\); \}/);
 });
 
 test('row 19: the divider www\'s 1 px #b0b0b0', () => {
