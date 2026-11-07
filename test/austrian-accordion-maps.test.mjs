@@ -88,7 +88,7 @@ test('withOpenFirst: an accordion whose first item is open on www gets open-firs
   assert.equal(withOpenFirst(accDoc('New in Summer 2026', ' faq'), snapItems), accDoc('New in Summer 2026', ' faq open-first'));
   assert.equal(withOpenFirst(accDoc('New in Summer 2026', ' open-first'), snapItems), accDoc('New in Summer 2026', ' open-first'), 'once');
   const s = fs.readFileSync(new URL('../tools/importer/austrian-import.mjs', import.meta.url), 'utf8');
-  assert.match(s, /const next = withChatButton\(withOpenFirst\(withPoiPoints\(/);
+  assert.match(s, /const next = withOneH1\(withChatButton\(withOpenFirst\(withPoiPoints\(/);
 });
 
 test('withOpenFirst: an accordion whose first N items are open on www gets open-N (new-destinations: the second accordion\'s two of three)', async () => {

@@ -354,6 +354,29 @@ export const withPoiPoints = (doc, points = POI_POINTS) => doc.replace(
 );
 
 /**
+ * One h1 per page: www writes section headings as h1 too (/at/en/sustainable-flying's
+ * h1.headline.heading-copytext-large, faq-flight, ombudssystem), so a document had several main
+ * headings. The first h1 stays; every later one is an h2 with its size marker, or {heading-large}
+ * (an h1's own size) where it has none, so the page looks as before.
+ */
+export function withOneH1(doc) {
+  let seen = false;
+  return doc.replace(/<h1(\b[^>]*)>([\s\S]*?)<\/h1>/g, (m, attrs, inner) => {
+    if (!seen) {
+      seen = true;
+      return m;
+    }
+    // its size: the marker's heading size ({heading-copytext-large}), else an h1's own, in the one
+    // trailing marker scripts.js reads ("Lounges {column-start}" -> "{heading-large column-start}")
+    const marker = inner.match(/\{([a-z0-9 -]+)\}(\s*)$/);
+    let sized = `${inner} {heading-large}`;
+    if (marker && /(^| )heading-/.test(marker[1])) sized = inner;
+    else if (marker) sized = `${inner.slice(0, marker.index)}{heading-large ${marker[1]}}${marker[2]}`;
+    return `<h2${attrs}>${sized}</h2>`;
+  });
+}
+
+/**
  * An accordion whose first items are open on www (maui-collapsible-item expanded: new-destinations'
  * "New in Summer 2026" and the two winter items) gets accordion-columns' option open-first (one) or
  * open-N (the leading N), as SWISS's import does; the parts withAccordionMapsHoisted makes start with
@@ -609,7 +632,7 @@ if (isMain) {
       const src = Object.keys(out).find((k) => docName(k) === p);
       const markets = scope.documents[src]?.markets || [];
       const snap = fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8');
-      const next = withChatButton(withOpenFirst(withPoiPoints(withPartnerLogoAlts(withAustrianTabs(withItaMetadata(withCheckinHandoff(withFlightSearch(withItaForm(doc, p, snap), p), p), p, snap, markets)))), snap), snap);
+      const next = withOneH1(withChatButton(withOpenFirst(withPoiPoints(withPartnerLogoAlts(withAustrianTabs(withItaMetadata(withCheckinHandoff(withFlightSearch(withItaForm(doc, p, snap), p), p), p, snap, markets)))), snap), snap));
       if (next !== doc) fs.writeFileSync(f, next);
     });
     const mapOnly = path.join(W, 'runs', `${name}-upload.txt`);
