@@ -704,7 +704,7 @@ workspace), `content-sites/` (the local document trees), `logs/` and /tmp (scrip
 - The 18 (10 navs, 8 with DA's own edits): DA's version written into the local copies (the old local ones in
   logs/da/pre-stale464); local equal to DA.
 
-### 2. ITA's date picker (`74074a23`)
+### 2. ITA's date picker (`1a59b2d0`)
 
 The import has dropped www's jQuery UI date picker (#ui-datepicker-div) since c41fa328; the two documents with the `lu`
 block had been imported before. The mapping is now an exported `mappedOf`, tested on both snapshots. Every lh-ita
@@ -713,7 +713,7 @@ document in DA read (the 2,492 local ones): only those two had a `lu` block; the
 main--lh-ita--: both forms render, no lu block, no failed block. DA documents of lh-ita without a local copy were not
 read.
 
-### 3. One h1 (`ebfd99bf`)
+### 3. One h1 (`f01182d8`)
 
 www's own markup has several h1 on these pages (sustainable-flying: the title and three
 h1.headline.heading-copytext-large). The Austrian post chain's `withOneH1` keeps the first h1 and writes the later ones
@@ -745,7 +745,7 @@ nothing else is open in parity.md.
 
 - Lint and the full suite before the push, in a fresh worktree: the first run failed on ita-datepicker (it read a snapshot,
   and tools/importer/bd-snapshots is not in git); on a fixture now, 497 passed.
-- Smoke on all 12 hosts before and after the push.
+- Smoke on all 12 hosts before and after the push: 0 differences on every host.
 - Previews: main--lh-austrian-- (links, h1s), main--lh-ita-- (the forms), main--lh-com-- (xx/zh picker); the link
   targets on austrian.turnsthe.page.
 
@@ -753,9 +753,9 @@ nothing else is open in parity.md.
 
 | item | commit | what | rollback |
 | --- | --- | --- | --- |
-| 2 | `74074a23`, `394ed970` | ITA: mappedOf with the date picker dropped, tested (the test on a fixture: the snapshots are not in git, the clean worktree had none) | `git revert`; the 2 documents: DA's versions before 2026-11-07 (logs/da/orig at the time) |
-| 3 | `ebfd99bf` | Austrian: one h1 per page | `git revert`; the 66 documents: DA's versions before (logs/da/pre-h1464) |
-| 1-5 | this report's commit | report, `preview-paths-after-464.txt`, upload states | – |
+| 2 | `1a59b2d0`, `9e0f5fca` | ITA: mappedOf with the date picker dropped, tested (the test on a fixture: the snapshots are not in git, the clean worktree had none) | `git revert`; the 2 documents: DA's versions before 2026-11-07 (logs/da/orig at the time) |
+| 3 | `f01182d8` | Austrian: one h1 per page | `git revert`; the 66 documents: DA's versions before (logs/da/pre-h1464) |
+| 1-5 | `e86df1dc` and this commit | report, `preview-paths-after-464.txt`, upload states | – |
 
 Documents (uploaded to DA and previewed, not published): no files; `tools/reports/offline-2026-11-06/preview-paths-after-464.txt`,
 per site in release order: lh-austrian 261 (210 links, 50 more one-h1 documents, se/en), lh-ita 2, lh-com 4. Plus 18
