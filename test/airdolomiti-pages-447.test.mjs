@@ -86,10 +86,12 @@ test('the FAQ pages: title, line and accordions as www\'s; the card beside them 
 });
 
 test('the destination pages\' stage as www\'s HeroSecond: the picture darkened across the screen, the lines centred in a light box, the price and the button on a white bar under them', () => {
-  const D = `${B} main > \\.section\\.hero-card-overlay-container\\.cards-icon-container \\.hero-card-overlay`;
+  // (brief 456: the option destination, every stage; the box on the line and the title, the card
+  // clear for the pills under it: test/airdolomiti-destination-stage-456.test.mjs)
+  const D = `${B} main > \\.section\\.hero-card-overlay-container \\.hero-card-overlay\\.destination`;
   has(new RegExp(`${D} \\{[^}]*justify-content: center;[^}]*align-items: center;[^}]*min-height: 100vh;`));
   has(new RegExp(`${D} \\.hero-card-overlay-media::after \\{[^}]*background-color: rgb\\(0 0 0 / 50%\\);`));
-  has(new RegExp(`${D} \\.hero-card-overlay-card \\{[^}]*padding: 10px;[^}]*background-color: hsl\\(26deg 26% 95% / 60%\\);[^}]*color: #002e54;[^}]*text-align: center;`));
+  has(new RegExp(`${D} \\.hero-card-overlay-card \\{[^}]*color: #002e54;[^}]*text-align: center;`));
   has(new RegExp(`${D} \\.hero-card-overlay-card h1 \\{[^}]*color: #002e54;[^}]*font-size: 37\\.8px;[^}]*font-weight: 300;[^}]*line-height: 40px;`));
   has(new RegExp(`@media \\(width >= 930px\\) \\{[^@]*${D} \\{[^}]*min-height: 90vh;`));
   has(new RegExp(`@media \\(width >= 930px\\) \\{[^@]*${D} \\.hero-card-overlay-card h1 \\{[^}]*font-size: 64\\.8px;[^}]*line-height: 72px;`));

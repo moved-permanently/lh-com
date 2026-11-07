@@ -2272,14 +2272,15 @@ body.brand-airdolomiti main > .section.accordion-columns-container.columns-media
 }
 
 /*
- * the destination pages' stage (hero-card-overlay with the what-to-do tiles), as www's HeroSecond:
- * the picture across the screen (100vh, 90vh from 930px) under a 50% dark veil; the line and the
- * title centred in a light box (www's marble at 60%, 10px in), the line 23.76px / 30px, the title
- * light 37.8px / 40px (64.8px / 72px from 930px, the box 70% wide); from 530px the price and the
- * button on a white bar (135px) at the stage's foot, the price semibold 28.08px / 32px 80px in, the
- * button 80px from the right (www's fixed bar at the screen's foot, here at the stage's)
+ * the destination pages' stage (hero-card-overlay, option destination; brief 456: every stage, with
+ * or without its section links), as www's HeroSecond: the picture across the screen (100vh, 90vh
+ * from 930px) under a 50% dark veil; the line and the title centred in a light box (www's marble
+ * at 60%, 10px in), the line 23.76px / 30px, the title light 37.8px / 40px (64.8px / 72px from
+ * 930px, the box 70% wide); the section links as www's pills 70px under it; from 530px the price
+ * and the button on a white bar (135px) at the stage's foot, the price semibold 28.08px / 32px 80px
+ * in, the button 80px from the right (www's fixed bar at the screen's foot, here at the stage's)
  */
-body.brand-airdolomiti main > .section.hero-card-overlay-container.cards-icon-container .hero-card-overlay {
+body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination {
   isolation: isolate;
   justify-content: center;
   align-items: center;
@@ -2288,32 +2289,90 @@ body.brand-airdolomiti main > .section.hero-card-overlay-container.cards-icon-co
 }
 
 /* behind the card, which from 530px leaves its price and button to the stage (position: static) */
-body.brand-airdolomiti main > .section.hero-card-overlay-container.cards-icon-container .hero-card-overlay .hero-card-overlay-media {
+body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination .hero-card-overlay-media {
   position: absolute;
   inset: 0;
   z-index: -1;
   aspect-ratio: auto;
 }
 
-body.brand-airdolomiti main > .section.hero-card-overlay-container.cards-icon-container .hero-card-overlay .hero-card-overlay-media::after {
+body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination .hero-card-overlay-media::after {
   content: "";
   position: absolute;
   inset: 0;
   background-color: rgb(0 0 0 / 50%);
 }
 
-body.brand-airdolomiti main > .section.hero-card-overlay-container.cards-icon-container .hero-card-overlay .hero-card-overlay-card {
+/* the card clear: the box is its line and title's (the pills sit under it, outside the box) */
+body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination .hero-card-overlay-card {
   width: auto;
   max-width: calc(100% - 32px);
   margin: 0 16px;
-  padding: 10px;
+  padding: 0;
   border-radius: 0;
-  background-color: hsl(26deg 26% 95% / 60%);
+  background-color: transparent;
   color: #002e54;
   text-align: center;
 }
 
-body.brand-airdolomiti main > .section.hero-card-overlay-container.cards-icon-container .hero-card-overlay .hero-card-overlay-card .hero-card-overlay-eyebrow {
+/* the section links (www's HeroSecond flex: white pills 64px high (the icon 28px), one row, 8px apart between their 4px rings,
+   centred; a row that doesn't fit scrolls sideways across the screen, 20px in) */
+body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination .hero-card-overlay-card > ul {
+  display: flex;
+  gap: 8px;
+  justify-content: safe center;
+  margin: 70px -16px 0;
+  padding: 4px 20px;
+  overflow-x: auto;
+  list-style: none;
+  scrollbar-width: none;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- the stage's pills, not the cards' items (above) */
+body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination .hero-card-overlay-card > ul > li {
+  position: relative;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 16px;
+  align-items: center;
+  margin: 0;
+  padding: 18px 40px;
+  border-radius: 10px;
+  background-color: #fff;
+  color: #00798a;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+  white-space: nowrap;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- the stage's pills, not the cards' items (above) */
+body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination .hero-card-overlay-card > ul > li:hover {
+  color: #05164d;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- the stage's pill links, not the newsletter strip's (above) */
+body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination .hero-card-overlay-card > ul > li a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* the whole pill the link */
+body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination .hero-card-overlay-card > ul > li a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+}
+
+body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination .hero-card-overlay-card > ul > li :is(picture, img) {
+  display: block;
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination .hero-card-overlay-card .hero-card-overlay-eyebrow {
   margin: 0;
   font-family: var(--body-font-family);
   font-size: 23.76px;
@@ -2321,7 +2380,7 @@ body.brand-airdolomiti main > .section.hero-card-overlay-container.cards-icon-co
   text-wrap: wrap;
 }
 
-body.brand-airdolomiti main > .section.hero-card-overlay-container.cards-icon-container .hero-card-overlay .hero-card-overlay-card h1 {
+body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination .hero-card-overlay-card h1 {
   margin: 0;
   color: #002e54;
   font-family: var(--body-font-family);
@@ -2331,17 +2390,34 @@ body.brand-airdolomiti main > .section.hero-card-overlay-container.cards-icon-co
   text-wrap: wrap;
 }
 
+/* the box: the line and the title on the marble, 10px in */
+body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination .hero-card-overlay-card > :is(.hero-card-overlay-eyebrow, h1) {
+  background-color: hsl(26deg 26% 95% / 60%);
+}
+
+body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination .hero-card-overlay-card > .hero-card-overlay-eyebrow {
+  padding: 10px 10px 0;
+}
+
+body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination .hero-card-overlay-card > h1 {
+  padding: 0 10px 10px;
+}
+
+body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination .hero-card-overlay-card > h1:first-child {
+  padding-top: 10px;
+}
+
 /* stylelint-disable-next-line no-descending-specificity -- the stage's lines, not the fleet's text (above) */
-body.brand-airdolomiti main > .section.hero-card-overlay-container.cards-icon-container .hero-card-overlay .hero-card-overlay-card > p:not(.hero-card-overlay-eyebrow) {
+body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination .hero-card-overlay-card > p:not(.hero-card-overlay-eyebrow) {
   margin: 16px 0 0;
 }
 
 @media (width >= 530px) {
-  body.brand-airdolomiti main > .section.hero-card-overlay-container.cards-icon-container .hero-card-overlay {
+  body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination {
     padding-bottom: 135px;
   }
 
-  body.brand-airdolomiti main > .section.hero-card-overlay-container.cards-icon-container .hero-card-overlay::after {
+  body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination::after {
     content: "";
     position: absolute;
     right: 0;
@@ -2352,11 +2428,11 @@ body.brand-airdolomiti main > .section.hero-card-overlay-container.cards-icon-co
     box-shadow: 0 12px 25px rgb(0 0 0 / 5%);
   }
 
-  body.brand-airdolomiti main > .section.hero-card-overlay-container.cards-icon-container .hero-card-overlay .hero-card-overlay-card {
+  body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination .hero-card-overlay-card {
     position: static;
   }
 
-  body.brand-airdolomiti main > .section.hero-card-overlay-container.cards-icon-container .hero-card-overlay .hero-card-overlay-card > p:not(.hero-card-overlay-eyebrow, .hero-card-overlay-cta) {
+  body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination .hero-card-overlay-card > p:not(.hero-card-overlay-eyebrow, .hero-card-overlay-cta) {
     position: absolute;
     bottom: 51px;
     left: 50px;
@@ -2369,7 +2445,7 @@ body.brand-airdolomiti main > .section.hero-card-overlay-container.cards-icon-co
     text-align: left;
   }
 
-  body.brand-airdolomiti main > .section.hero-card-overlay-container.cards-icon-container .hero-card-overlay .hero-card-overlay-cta {
+  body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination .hero-card-overlay-cta {
     position: absolute;
     right: 50px;
     bottom: 35px;
@@ -2379,26 +2455,26 @@ body.brand-airdolomiti main > .section.hero-card-overlay-container.cards-icon-co
 }
 
 @media (width >= 930px) {
-  body.brand-airdolomiti main > .section.hero-card-overlay-container.cards-icon-container .hero-card-overlay {
+  body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination {
     min-height: 90vh;
   }
 
-  body.brand-airdolomiti main > .section.hero-card-overlay-container.cards-icon-container .hero-card-overlay .hero-card-overlay-card {
+  body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination .hero-card-overlay-card {
     width: 70%;
     max-width: none;
     margin: 0;
   }
 
-  body.brand-airdolomiti main > .section.hero-card-overlay-container.cards-icon-container .hero-card-overlay .hero-card-overlay-card h1 {
+  body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination .hero-card-overlay-card h1 {
     font-size: 64.8px;
     line-height: 72px;
   }
 
-  body.brand-airdolomiti main > .section.hero-card-overlay-container.cards-icon-container .hero-card-overlay .hero-card-overlay-card > p:not(.hero-card-overlay-eyebrow, .hero-card-overlay-cta) {
+  body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination .hero-card-overlay-card > p:not(.hero-card-overlay-eyebrow, .hero-card-overlay-cta) {
     left: 80px;
   }
 
-  body.brand-airdolomiti main > .section.hero-card-overlay-container.cards-icon-container .hero-card-overlay .hero-card-overlay-cta {
+  body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination .hero-card-overlay-cta {
     right: 80px;
   }
 }
