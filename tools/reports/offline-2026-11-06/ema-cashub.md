@@ -908,3 +908,155 @@ Path lists:
   - then the 12 updated documents: login, login-internal, fund, history, usermanagement, reports
     in de/en, then the same in de/de.
 - **Re-import (lufthansa.com, harness):** `reimport-455-lh-com.txt`, the 10 above.
+
+## Brief 456: lufthansa.com parity de/en, info, legal, form, app-entry, fleet
+
+Step 0: brief 455 left nothing unpushed (main was at `fc06a998`). Out of git as before:
+- the importer's run output (run state);
+- migration-work/ (scratch; this brief's tools and runs are in migration-work/parity-456);
+- the old stash@{0};
+- content-sites/ (local site data, with the two old login_internal copies).
+
+The optional plugins stay off. No documents were changed or uploaded in this brief.
+
+### How it was measured
+
+- **www:** the screenshots of segment parity-full-2026-11-06 again: lh-parity-002a to -002d,
+  sha256 as in the index, every entry checked, nothing run, only the PNGs and capture.json kept.
+  The 2026-11-06 copies were in /tmp and gone with a restart.
+- **Ours:** a fresh run of all 233 de/en jobs of the five templates on
+  main--lh-com--moved-permanently.aem.page (main's code, the latest previewed documents), 1440 / 768
+  / 390, tools/parity's runner, one browser at a time. 24 page-widths have no www screenshot.
+- **Fresh run against the 2026-11-06 run** (aem.live), as report.mjs's classes:
+
+  | Template | Width | Page-widths | pass / review / fail now | 2026-11-06 | Mean now | then |
+  |---|---:|---:|---|---|---:|---:|
+  | info | 1440 | 173 | 79 / 73 / 21 | 77 / 66 / 30 | 11.4 % | 13.0 % |
+  | info | 768 | 173 | 53 / 92 / 28 | 49 / 84 / 40 | 13.0 % | 14.8 % |
+  | info | 390 | 173 | 47 / 100 / 26 | 47 / 91 / 35 | 13.2 % | 14.6 % |
+  | legal | 1440 / 768 / 390 | 29 | 17/10/2, 11/17/1, 13/14/2 | 16/11/2, 11/16/2, 12/14/3 | 9.7 / 10.5 / 10.0 % | 10.3 / 10.8 / 11.3 % |
+  | form | 1440 / 768 / 390 | 9 | 5/3/1, 3/5/1, 2/6/1 | the same | 11.8 / 12.6 / 12.9 % | the same |
+  | app-entry | 1440 / 768 / 390 | 6 | 2/3/1, 2/3/1, 2/2/2 | the same | 10.2 / 11.8 / 18.1 % | the same |
+  | fleet | 1440 / 768 / 390 | 8 | 3/4/1, 3/4/1, 2/6/0 | 3/3/2, 3/4/1, 2/5/1 | 11.8 / 11.7 / 12.2 % | 15.3 / 13.8 / 14.5 % |
+
+  The gains since 2026-11-06 are the harness's re-imports, not this brief.
+- **Finding causes:**
+  - the block where each of the 89 page-widths over 20 % starts to differ, read on our pages;
+  - www's headings, text and positions, on the 45 pages with a page-width over 20 %, at 1440 and
+    390, read in the normal browser, one page every 10 s, nothing clicked or submitted;
+  - the gap between consecutive headings on both sides, attributed to our block and section.
+- **www's bot check:** after about 93 page loads www answered with its Cloudflare check ("Just a
+  moment…"). I stopped reading www there; one page-width that had hit it was dropped. Everything
+  after that came from the screenshots and the snapshots.
+
+### What makes info fail (the largest shared causes)
+
+1. **Documents imported before the importer's later fixes.**
+   - 103 of the 181 info documents were last uploaded on 2026-10-24.
+   - For 24 old de/en documents, the same page's recent import on an xx root (2026-11-03 or later,
+     same importer as today) has other blocks, section styles or markers. A re-import with main's
+     bundles changes them.
+   - Examples:
+     - electronic-devices-and-batteries, gefaehrliche-gegenstaende, giftvoucher, entry-exit-system:
+       www's pictogram rows (a.teaser.partner) are large carousel-cards in the old documents and
+       cards-icon-text partner in the new imports. electronic-devices at 390: +384 px per card.
+     - cancellations-and-refunds and lufthansa-first-class-fleet: accordions without, and with,
+       their 40 px (option spaced).
+   - Most de/en pages have no snapshot here, so these need your harness to capture and import:
+     `tools/reports/parity-2026-11-07/reimport-stale-de-en.txt` (24).
+2. **Content changed on www since our import:** headings www has and ours lacks, or the reverse.
+   Examples: giftvoucher's 5 % promotion, cash-and-miles' North America promotion, the new attestation
+   notice on data-collection-usa, renamed sections on internet-overview and fly-more-sustainabl,
+   lufthansa-terminal-muenchen's removed transfer section, travelling-healthy's health guide, and
+   data-collection-canada / -usa, whose sections www now keeps collapsed.
+   `tools/reports/parity-2026-11-07/recapture-content-de-en.txt` (10).
+3. **Shared CSS: an h3 in a columns-media cell without a heading marker.**
+   - Ours rendered it 28 px light with 32 px below. www renders it 24 px bold with 24 px below
+     (h3.headline.heading-copytext-large).
+   - Of 41 unmarked column h3s on the 45 pages, all 41 are 24 px on www; ours had 24 of them at
+     28 px.
+   - The rule dated from before the heading markers, which the importer has written since 22 October.
+   - Fixed in `22f09f80` and `9d25c98e` (the second keeps icon headings at their 10 px).
+   - Scope: lufthansa.com only, not on Insights articles. One Insights page without an article
+     header changes too: articles/highlights/all-it-takes-is-a-yes (ema-adobe's template, for you to
+     sequence).
+
+### Legal, form, app-entry, fleet
+
+- **legal:**
+  - **Fails:** data-collection-canada and -usa (cause 2).
+  - **Worst reviews:** terms-of-service-group, seat-reservations, business-terms. www puts a
+    separator after each link in a two-column text row (about 26 px), which our import drops: the
+    cleanup transformer removes 25 px separators before the columns-media parser sees them. 30 such
+    separators in 17 snapshots. A fix spans the cleanup transformer, the parser and the CSS: an open
+    row.
+  - **Column marks, kept off for legal:** www's one-column views there get no column marks (they
+    are on for info only), but the pages built from them already pass (3 to 9 %). Switching them on
+    for legal would put those pages at risk.
+- **form:** feedback/feedbackai (all widths) is www's live feedback widget, an empty page around it.
+  feedback, report-baggage and best-price-alert are reviews 12 to 17 %, without one shared cause in
+  this pass.
+- **app-entry:**
+  - online-check-in at 390 (37 %) is a capture artifact. www's capture loaded the page at desktop
+    width and resized it (capture.json: loadedBy resize), so the first check-in tab kept its
+    desktop open state; loaded at 390, www shows both closed, as ours (brief 404).
+  - my-logbook (21 to 27 %): open.
+- **fleet:** lufthansa-first-class-fleet, 24 to 26 % at 1440 and 768. On www, picture → accordion
+  is 80 px (ours 65) and accordion → next heading 90 px (ours 69). Our wrapper gap replaces the
+  picture's 40 px margin. This is the general gap between blocks, which also governs info: an open
+  row, not tuned here.
+
+### The pushes and the fresh run of the changed pages
+
+- **Pushes:** `22f09f80` and `9d25c98e`. Lint ok, the full suite (482 and 484 files, 0 fail),
+  lh-edge's 385 tests, a pull right before. Smoke of every brand host before and after each push:
+  no difference on any of the 11 hosts.
+- **Changed pages, before and after on aem.page:** the 36 de/en pages of these templates the fix
+  changes, 102 page-widths (6 without a www screenshot).
+
+  | Template | Width | Page-widths | pass / review / fail before | after | Mean before | after |
+  |---|---:|---:|---|---|---:|---:|
+  | info | 1440 | 31 | 6 / 19 / 6 | 3 / 22 / 6 | 15.0 % | 15.0 % |
+  | info | 768 | 31 | 5 / 17 / 9 | 4 / 18 / 9 | 15.3 % | 15.3 % |
+  | info | 390 | 31 | 5 / 19 / 7 | 5 / 19 / 7 | 14.9 % | 14.8 % |
+  | fleet | 1440 / 768 / 390 | 2 | 0 / 2 / 0 each | the same | 13.6 / 12.5 / 14.0 % | 13.2 / 12.5 / 14.0 % |
+  | legal | 1440 / 768 / 390 | 1 | 0 / 1 / 0 each | the same | 10.2 / 15.0 / 8.4 % | 12.3 / 15.1 / 8.4 % |
+  | all | | 102 | | | 14.9 % | 14.8 % |
+
+- **Result:**
+  - 9 page-widths better by 1 point or more: flight-disruptions 16.2 → 12.1 % at 390,
+    14.6 → 11.7 % at 1440; air-baltic 7.9 → 5.0 %; economy-basic 5.4 → 3.4 %.
+  - 9 worse by 1 to 2 points: voluntary-rebooking 7.5 → 9.4 % at 1440;
+    advance-seat-reservations-terms-and-conditions 10.2 → 12.3 %; hearing- and visual-impairment
+    at 768.
+  - The headings now match www, but in pixels the fix is about neutral. On the worse pages the old
+    larger headings made up for spacing that is still missing elsewhere (causes 1, 2 and the open
+    rows).
+  - Three pass page-widths became reviews at 1440 (3 / 22 / 6 after, 6 / 19 / 6 before).
+
+### Open rows
+
+| Row | Pages | Kind | Owner |
+|---|---|---|---|
+| Re-import the stale de/en documents | reimport-stale-de-en.txt (24) | import | the harness |
+| Capture and re-import the pages www changed | recapture-content-de-en.txt (10) | content | the harness |
+| Separators in two-column text rows (link → next heading about 26 px) | 17 snapshots, terms-of-service-group, seat-reservations | importer (cleanup, columns-media parser) + CSS | me, next pass |
+| The gap between a picture or an accordion and the next block (our wrapper gap against www's component margins) | lufthansa-first-class-fleet, info pages | CSS (styles.css flow spacing) | me, next pass |
+| A portrait picture in a tile grid at its natural height (loungenet's eJournals, 719 px against 202) | 2 lounge pages | block (columns-media) | me |
+| www's footer wraps "Change Privacy Settings" to a second line at 1440 | every page | footer | ema-adobe (75c9418e) |
+| The column-h3 fix on Insights articles | 7 articles + highlights/all-it-takes-is-a-yes | sequencing | the user / ema-adobe |
+| online-check-in at 390: www's capture loaded at desktop width and resized | 1 | capture | the harness: load at the width |
+| feedback/feedbackai: www's live widget | 1 | live data | none |
+| www's bot check stops reads after about 90 pages | - | access | the user's capture child for further www reads |
+
+### Summary
+
+| Item | Commit | What | Rollback |
+| --- | --- | --- | --- |
+| 1 | `22f09f80` | lufthansa.com's unmarked column h3 as www's default (24 px bold, 24 px below), not on articles | `git revert 22f09f80` |
+| 1 | `9d25c98e` | the rule leaves icon headings at their 10 px | `git revert 9d25c98e` |
+| - | (this commit) | this report, the two lists | revert this commit |
+
+Documents changed: none (0). Path lists in tools/reports/parity-2026-11-07/:
+- reimport-stale-de-en.txt (24, re-import with main's bundles);
+- recapture-content-de-en.txt (10, capture and import).

@@ -1,0 +1,12 @@
+# Brief 456: de/en pages whose content changed on www since our import (headings www has and ours lacks, or the reverse;
+# www read 2026-11-07). Capture and import again.
+/de/en/book-and-manage/flights/giftvoucher
+/de/en/cash-and-miles
+/de/en/data-collection-usa
+/de/en/data-collection-canada
+/de/en/during-your-trip/internet-overview
+/de/en/fly-more-sustainabl
+/de/en/lufthansa-terminal-muenchen
+/de/en/tips-senior-travellers
+/de/en/travelling-healthy
+/de/en/prepare-for-your-trip/entry-regulations/entering-schengen/entry-exit-system

@@ -1,0 +1,26 @@
+# Brief 456: de/en documents imported before importer fixes their xx counterparts (imported 2026-11-03 or later) already have:
+# a re-import with main's bundles changes their blocks, section styles or markers (old-vs-new.py). Import again (fresh capture).
+/de/en/automatic-check-in
+/de/en/bid-upgrade
+/de/en/doctor-on-board
+/de/en/book-and-manage/flights/ana/faq
+/de/en/check-in-with-the-family
+/de/en/digital-travel-companion
+/de/en/europcar
+/de/en/gefaehrliche-gegenstaende
+/de/en/group-travel
+/de/en/lufthansa-business-class-on-long-haul-routes
+/de/en/lufthansa-corporate-customers
+/de/en/lufthansa-express
+/de/en/lufthansa-express-rail
+/de/en/meetings-and-events-delegates
+/de/en/meetings-and-events-organisers
+/de/en/online-check-in-info
+/de/en/passengers-using-wheelchairs
+/de/en/prepare-for-your-trip/baggage/electronic-devices-and-batteries
+/de/en/secure-flight
+/de/en/upgrade-premium-economy-class
+/de/en/with-children-at-the-airport
+/de/en/passenger-rights
+/de/en/sepa-terms-and-conditions-b
+/de/en/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation
