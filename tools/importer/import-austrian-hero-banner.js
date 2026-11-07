@@ -36,6 +36,7 @@ import lufthansaSectionsTransformer from './transformers/lufthansa-sections.js';
 const PAGE_TEMPLATE = {
   "name": "austrian-hero-banner",
   "description": "Austrian: an info page with the expanding image panels (hub's hero-banner)",
+  "base": "info",
   "urls": [],
   "blocks": [
     {

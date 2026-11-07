@@ -37,6 +37,8 @@ export function austrianTemplates(templates) {
   ].map(([name, description, { block, section }]) => ({
     name,
     description,
+    // info-based: lh-com's cleanup and sections transformer take it as info (column markers, flow spacing)
+    base: 'info',
     urls: [],
     blocks: [block, ...info.blocks],
     sections: [{ ...section, id: 'section-0' }, ...info.sections],

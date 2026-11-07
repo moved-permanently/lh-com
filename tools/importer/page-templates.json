@@ -5458,6 +5458,7 @@
     {
       "name": "austrian-checkin",
       "description": "Austrian: an info page with the check-in entry (app-entry's booking-lookup)",
+      "base": "info",
       "urls": [],
       "blocks": [
         {
@@ -5716,6 +5717,7 @@
     {
       "name": "austrian-flight-status",
       "description": "Austrian: an info page with the flight status and timetable search (flight-status's block)",
+      "base": "info",
       "urls": [],
       "blocks": [
         {
@@ -5972,6 +5974,7 @@
     {
       "name": "austrian-hero-banner",
       "description": "Austrian: an info page with the expanding image panels (hub's hero-banner)",
+      "base": "info",
       "urls": [],
       "blocks": [
         {

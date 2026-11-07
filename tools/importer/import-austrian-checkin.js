@@ -36,6 +36,7 @@ import lufthansaSectionsTransformer from './transformers/lufthansa-sections.js';
 const PAGE_TEMPLATE = {
   "name": "austrian-checkin",
   "description": "Austrian: an info page with the check-in entry (app-entry's booking-lookup)",
+  "base": "info",
   "urls": [],
   "blocks": [
     {

@@ -49,3 +49,15 @@ test('row 37 (brief 444): culinary-services\' expanding panels (www\'s .herobann
   const { templateOf } = await import('../tools/importer/austrian-import.mjs');
   assert.equal(templateOf('/at/en/fly/on-board/culinary-services', '<div class="herobanner section"><div class="dcep-hero-banner" role="presentation">'), 'austrian-hero-banner');
 });
+
+// brief 444: lh-com's cleanup gives column markers and flow spacing (Theme: flow-spacing, the separators in running
+// text) to the info template by name only, so Austrian's info-plus-a-block templates lost both (culinary-services:
+// its {spacer-25} and the theme row DA has). The built templates say base: info; the cleanup and the sections
+// transformer take an info-based template as info.
+test('the Austrian templates are info-based (base: info), and the transformers treat that as info', () => {
+  austrianTemplates(templates).forEach((t) => assert.equal(t.base, 'info', t.name));
+  const cleanup = fs.readFileSync(new URL('../tools/importer/transformers/lufthansa-cleanup.js', import.meta.url), 'utf8');
+  assert.match(cleanup, /return COLUMN_MARK_TEMPLATES\.includes\(template\.name\) \|\| COLUMN_MARK_TEMPLATES\.includes\(template\.base\);/);
+  const sections = fs.readFileSync(new URL('../tools/importer/transformers/lufthansa-sections.js', import.meta.url), 'utf8');
+  assert.match(sections, /\(template\.name === 'info' \|\| template\.base === 'info'\) && first && padded\(first\)/);
+});

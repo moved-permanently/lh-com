@@ -816,7 +816,8 @@ const COLUMN_KINDS = '.onecolumn, .twocolumn, .threecolumn, .fourcolumn';
 
 function columnMarksEnabled(payload) {
   const template = (payload && payload.template) || {};
-  return COLUMN_MARK_TEMPLATES.includes(template.name);
+  // (or a template built on one of them: Austrian's info-plus-a-block templates, base: info)
+  return COLUMN_MARK_TEMPLATES.includes(template.name) || COLUMN_MARK_TEMPLATES.includes(template.base);
 }
 
 function isOwnColumnView(el) {

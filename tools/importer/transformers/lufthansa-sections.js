@@ -330,7 +330,7 @@ export default function transform(hookName, element, payload) {
     // passenger receipt form is an app widget that is not imported): style padded there too, the
     // title 2rem / 4rem lower as on live (styles.css keeps the breadcrumb at the top)
     const first = aemSections[0];
-    if (template.name === 'info' && first && padded(first) && !grey(first) && first.querySelector('h1')
+    if ((template.name === 'info' || template.base === 'info') && first && padded(first) && !grey(first) && first.querySelector('h1')
       && !first.querySelector('.inspirationteaser, .stage')) {
       const hr = createBreak(document);
       hr.setAttribute(SOURCE_STYLE, 'padded');

@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-campaign.js
-  var tmp_bundle_campaign_188278_exports = {};
-  __export(tmp_bundle_campaign_188278_exports, {
-    default: () => tmp_bundle_campaign_188278_default
+  var tmp_bundle_campaign_190013_exports = {};
+  __export(tmp_bundle_campaign_190013_exports, {
+    default: () => tmp_bundle_campaign_190013_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -3480,7 +3480,7 @@ var CustomImportScript = (() => {
   var COLUMN_KINDS = ".onecolumn, .twocolumn, .threecolumn, .fourcolumn";
   function columnMarksEnabled(payload) {
     const template = payload && payload.template || {};
-    return COLUMN_MARK_TEMPLATES.includes(template.name);
+    return COLUMN_MARK_TEMPLATES.includes(template.name) || COLUMN_MARK_TEMPLATES.includes(template.base);
   }
   function isOwnColumnView(el) {
     return !!el && el.matches(`:is(${COLUMN_KINDS}).column`) && el.children.length === 1 && el.firstElementChild.classList.contains("column-view");
@@ -4421,7 +4421,7 @@ var CustomImportScript = (() => {
         s.before(hr);
       });
       const first = aemSections[0];
-      if (template.name === "info" && first && padded(first) && !grey(first) && first.querySelector("h1") && !first.querySelector(".inspirationteaser, .stage")) {
+      if ((template.name === "info" || template.base === "info") && first && padded(first) && !grey(first) && first.querySelector("h1") && !first.querySelector(".inspirationteaser, .stage")) {
         const hr = createBreak(document);
         hr.setAttribute(SOURCE_STYLE, "padded");
         first.before(hr);
@@ -4740,7 +4740,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_campaign_188278_default = {
+  var tmp_bundle_campaign_190013_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -4770,5 +4770,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_campaign_188278_exports);
+  return __toCommonJS(tmp_bundle_campaign_190013_exports);
 })();

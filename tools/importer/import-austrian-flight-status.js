@@ -36,6 +36,7 @@ import lufthansaSectionsTransformer from './transformers/lufthansa-sections.js';
 const PAGE_TEMPLATE = {
   "name": "austrian-flight-status",
   "description": "Austrian: an info page with the flight status and timetable search (flight-status's block)",
+  "base": "info",
   "urls": [],
   "blocks": [
     {
