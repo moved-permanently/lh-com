@@ -46,6 +46,7 @@ import { pageBookingLabels } from './parsers/flight-search-picker.js';
 import { withLocalImages } from './brussels-nav.mjs';
 import { withShareImage } from './brussels-share-image.mjs';
 import { stripScripts } from './excat-plugin.mjs';
+import { withHiddenH1 } from './discover-import.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const argv = process.argv.slice(2);
@@ -438,6 +439,30 @@ export function withFlightSearch(doc, p) {
 // www's destination finder titles its offers itself (maui-headline type h1). A capture with the
 // widget rendered keeps the title in the import; the others (be/en, be/fr our-destinations) left
 // the page without one (axe page-has-heading-one). The labels www's captures show, per language.
+/**
+ * One h1 per document (brief 448): www's own where it has one (the market homepages' visually
+ * hidden h1, www's header: the first section's h1 with the style hidden-heading, as Discover's);
+ * where www has none, the document's first heading if it is an h2 (the class pages' stage title:
+ * the theme styles a stage's title the same at any level), its id and text (with any size marker)
+ * kept; with no heading at all, the page's title (metadata Title, without " | Brussels Airlines")
+ * as a hidden h1. A document with an h1 stays as it is.
+ * @param {string} doc the document (.plain.html)
+ * @param {string} html www's snapshot of the page
+ */
+export function withPageH1(doc, html) {
+  if (/<h1[\s>]/i.test(doc)) return doc;
+  if (/<h1\b[^>]*class="[^"]*\bsr-only\b/i.test(html || '')) return withHiddenH1(doc, html);
+  const first = doc.match(/<h([2-6])(\s[^>]*)?>([\s\S]*?)<\/h\1>/i);
+  if (first && first[1] === '2') {
+    return `${doc.slice(0, first.index)}<h1${first[2] || ''}>${first[3]}</h1>${doc.slice(first.index + first[0].length)}`;
+  }
+  if (first) return doc;
+  const title = (doc.match(/<div><div>Title<\/div><div>([\s\S]*?)<\/div><\/div>/) || [])[1];
+  const name = title && title.replace(/<[^>]+>/g, '').replace(/\s*\|\s*Brussels Airlines\s*$/i, '').trim();
+  if (!name) return doc;
+  return withHiddenH1(doc, `<h1 class="sr-only">${name}</h1>`);
+}
+
 export const FINDER_TITLES = { en: 'Best offers', fr: 'Meilleures offres', es: 'Las mejores ofertas' };
 
 /** A finder page without an h1: www's finder title in the page's language above the finder (not
@@ -577,7 +602,9 @@ if (isMain) {
       const fleetDoc = path.join(GALLERY_W, 'content', `${p}.plain.html`);
       const galleried = galleries.some((u) => new URL(u).pathname === src)
         ? spliceGalleries(doc, fs.existsSync(fleetDoc) ? fs.readFileSync(fleetDoc, 'utf8') : '') : doc;
-      const next = withSidebarSections(withItaMetadata(withCheckinHandoff(withFlightSearch(withFinderTitle(withItaForm(galleried, p, fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8')), p), p), p), p, fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8'), markets));
+      const snap = fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8');
+      // (one h1 per document after the finder's title: withPageH1, brief 448)
+      const next = withPageH1(withSidebarSections(withItaMetadata(withCheckinHandoff(withFlightSearch(withFinderTitle(withItaForm(galleried, p, snap), p), p), p), p, snap, markets)), snap);
       if (next !== doc) fs.writeFileSync(f, next);
     });
     const mapOnly = path.join(W, 'runs', `${name}-upload.txt`);
