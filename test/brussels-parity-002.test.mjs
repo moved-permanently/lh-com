@@ -16,9 +16,8 @@ const S = 'body\\.brand-brussels main > \\.section\\.profile-nav-container \\+ \
 test('the class pages\' stage: 804 px on phones, 16:9 from 768 px, right under the class tabs; the title in capitals 36/39.6, 48/52.8 from 768 px', () => {
   has(new RegExp(`${S} \\{[^}]*min-height: 804px;`));
   has(new RegExp(`@media \\(width >= 768px\\) \\{[^@]*${S} \\{[^}]*min-height: 0;[^}]*aspect-ratio: 16 / 9;`));
-  has(/body\.brand-brussels main > \.section\.profile-nav-container:has\(\+ \.section \.hero-campaign\.narrow\) \{[^}]*margin-bottom: 0;/);
-  has(new RegExp(`${S} :is\\(h1, h2\\) \\{[^}]*font-size: 36px;[^}]*line-height: 39\\.6px;[^}]*text-transform: uppercase;`));
-  has(new RegExp(`@media \\(width >= 768px\\) \\{[^@]*${S} :is\\(h1, h2\\) \\{[^}]*font-size: 48px;[^}]*line-height: 52\\.8px;`));
+  // the title and the tabs' margin: every stage's since brief 443 (test/brussels-443.test.mjs)
+  has(/body\.brand-brussels main > \.section\.profile-nav-container:has\(\+ \.section \.hero-campaign\) \{[^}]*margin-bottom: 0;/);
 });
 
 test('page titles red only at www\'s large style: an h1 its author gave a smaller style ({heading-medium}, Beobank) as other headings', () => {

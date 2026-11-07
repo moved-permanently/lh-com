@@ -611,7 +611,7 @@ body.brand-brussels main > .section.sidebar.grey {
    16:9 from 768 px (810 px at 1440), the title in capitals 36 / 39.6 px, 48 / 52.8 px from 768 px.
    The stage of the section right after the class tabs (a narrow stage elsewhere, our-company's
    boxed teaser, as it is) */
-body.brand-brussels main > .section.profile-nav-container:has(+ .section .hero-campaign.narrow) {
+body.brand-brussels main > .section.profile-nav-container:has(+ .section .hero-campaign) {
   margin-bottom: 0;
 }
 
@@ -619,7 +619,10 @@ body.brand-brussels main > .section.profile-nav-container + .section .hero-campa
   min-height: 804px;
 }
 
-body.brand-brussels main > .section.profile-nav-container + .section .hero-campaign.narrow :is(h1, h2) {
+/* brief 443 (brussels-parity-003): every stage's title as www's inspiration teaser's (h1, h2 or
+   h3: white, in capitals, 36 / 39.6 px, 48 / 52.8 px from 768 px), but the white card's */
+body.brand-brussels main .hero-campaign:not(.card) :is(h1, h2, h3) {
+  color: #fff;
   font-size: 36px;
   line-height: 39.6px;
   text-transform: uppercase;
@@ -631,7 +634,7 @@ body.brand-brussels main > .section.profile-nav-container + .section .hero-campa
     aspect-ratio: 16 / 9;
   }
 
-  body.brand-brussels main > .section.profile-nav-container + .section .hero-campaign.narrow :is(h1, h2) {
+  body.brand-brussels main .hero-campaign:not(.card) :is(h1, h2, h3) {
     font-size: 48px;
     line-height: 52.8px;
   }
