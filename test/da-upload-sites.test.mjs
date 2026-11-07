@@ -72,8 +72,26 @@ test('refusals for every site: /lhg/ and the login/profile shells', () => {
   assert.ok(!lhComAllowed(SCOPE)('/lhg/de/en/x'), 'not even when in the scope');
   assert.ok(APP_SHELL.test('/de/en/login') && APP_SHELL.test('/de/de/profile/miles'));
   assert.ok(NEVER.test('/lhg') && !NEVER.test('/lhgx'));
-  // the upload script applies APP_SHELL before the site's rules (da-upload.mjs)
+  // the upload script applies the site's app shell refusal before the site's rules (da-upload.mjs)
   const src = fs.readFileSync(path.join(root, 'tools/importer/da-upload.mjs'), 'utf8');
-  assert.ok(src.indexOf('APP_SHELL.test(p)') < src.indexOf('!allowed(p)'));
+  assert.ok(src.indexOf('appShell(p)') > 0 && src.indexOf('appShell(p)') < src.indexOf('!allowed(p)'));
   assert.ok(os.tmpdir());
+});
+
+test('a site\'s own login and profile pages (allowlist ownPages, exact paths): lh-b2b\'s sign-in and member pages; everyone else refuses them', async () => {
+  const com = await siteSettings(root, loadScope, {});
+  assert.ok(com.appShell('/de/en/login') && com.appShell('/de/de/profile/miles'), 'lh-com: its app shells');
+  const discover = await siteSettings(root, loadScope, { site: 'lh-discover' });
+  assert.ok(discover.appShell('/de/en/login'), 'a site without ownPages: as before');
+  const b2b = await siteSettings(root, loadScope, { site: 'lh-b2b' });
+  ['/de/en/login', '/de/de/login', '/de/en/profile', '/de/de/profile'].forEach((p) => {
+    assert.ok(!b2b.appShell(p), `${p}: lh-b2b's own page`);
+    assert.ok(b2b.allowed(p), `${p}: in lh-b2b's allowlist`);
+  });
+  assert.ok(b2b.appShell('/de/en/profile/miles') && b2b.appShell('/gb/en/login'), 'exact paths only');
+  ['/de/en/login_internal', '/de/en/home', '/de/en/fund', '/de/en/history', '/de/en/usermanagement', '/de/en/reports', '/de/en/lhghome', '/de/en/experts-members']
+    .forEach((p) => assert.ok(b2b.allowed(p) && b2b.allowed(p.replace('/de/en/', '/de/de/')), p));
+  // ownPages lifts the refusal only: a path there must be an app shell path
+  const list = JSON.parse(fs.readFileSync(path.join(root, 'tools/importer/sites/lh-b2b.json'), 'utf8'));
+  list.ownPages.forEach((p) => assert.ok(APP_SHELL.test(p), p));
 });

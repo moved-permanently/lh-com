@@ -106,6 +106,9 @@ export async function siteSettings(root, loadScope, {
   if (lhCom && stateEnv) stateFile = path.resolve(stateEnv);
   let allowed;
   let authorEdits = {};
+  // the app shell refusal; a site whose own pages have those paths lists them (allowlist ownPages,
+  // exact paths: lh-b2b's sign-in and profile pages, served by its own blocks)
+  let ownPages = new Set();
   if (lhCom) {
     const scopeAllowed = lhComAllowed(await loadScope());
     // documents outside the scope that may be sent all the same (exact paths only)
@@ -117,9 +120,12 @@ export async function siteSettings(root, loadScope, {
   } else {
     const listFile = path.join(root, `tools/importer/sites/${site}.json`);
     if (!fs.existsSync(listFile)) throw new Error(`--site ${site}: no allowlist ${path.relative(root, listFile)}`);
-    allowed = allowlistAllowed(JSON.parse(fs.readFileSync(listFile, 'utf8')));
+    const list = JSON.parse(fs.readFileSync(listFile, 'utf8'));
+    allowed = allowlistAllowed(list);
+    ownPages = new Set(list.ownPages || []);
   }
+  const appShell = (p) => APP_SHELL.test(p) && !ownPages.has(p);
   return {
-    org: ORG, site, contentDir: dir, stateFile, allowed, authorEdits, lhCom,
+    org: ORG, site, contentDir: dir, stateFile, allowed, appShell, authorEdits, lhCom,
   };
 }

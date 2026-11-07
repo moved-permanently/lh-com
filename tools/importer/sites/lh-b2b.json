@@ -701,6 +701,32 @@
   "/al/de/about-us/actions",
   "/al/de/programs-and-advantages",
   "/al/de/the-sounds-of-wellbeing/continent-america-africa",
-  "/al/de/travel-management/first-class"
+  "/al/de/travel-management/first-class",
+  "/de/en/login",
+  "/de/en/login_internal",
+  "/de/en/home",
+  "/de/en/fund",
+  "/de/en/history",
+  "/de/en/usermanagement",
+  "/de/en/reports",
+  "/de/en/profile",
+  "/de/en/lhghome",
+  "/de/en/experts-members",
+  "/de/de/login",
+  "/de/de/login_internal",
+  "/de/de/home",
+  "/de/de/fund",
+  "/de/de/history",
+  "/de/de/usermanagement",
+  "/de/de/reports",
+  "/de/de/profile",
+  "/de/de/lhghome",
+  "/de/de/experts-members"
+ ],
+ "ownPages": [
+  "/de/en/login",
+  "/de/en/profile",
+  "/de/de/login",
+  "/de/de/profile"
  ]
 }

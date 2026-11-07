@@ -12,7 +12,8 @@
  * Only documents that belong to the site are sent: pages in the migration scope
  * (tools/importer/transformers/scope-paths.js) and the per-locale nav, footer and
  * fragments (never anything under /lhg/, which left the replica). The login and profile app shells
- * (/{cc}/{ll}/login, /{cc}/{ll}/profile/...) are built elsewhere and always refused.
+ * (/{cc}/{ll}/login, /{cc}/{ll}/profile/...) are built elsewhere and refused (exception: a site's
+ * own pages at exactly those paths, its allowlist's ownPages: lh-b2b's sign-in and profile).
  * A document is <path>.plain.html (sent in DA's source shape) or, without one, a full DA document
  * <path>.html (sent byte for byte: the global tree /gc/<ll> comes so). Nothing under /gc/ is ever
  * previewed, with or without --no-preview (da-upload-sites.mjs mayPreview).
@@ -34,7 +35,7 @@ import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import {
-  siteSettings, APP_SHELL, mayPreview, readDocument, uploadBody,
+  siteSettings, mayPreview, readDocument, uploadBody,
 } from './da-upload-sites.mjs';
 import { linksTakenBack } from './own-links.mjs';
 
@@ -48,7 +49,7 @@ const settings = await siteSettings(root, loadScope, {
   site: opt('site') || undefined, contentDir: opt('content-dir') || undefined, stateEnv: process.env.DA_UPLOAD_STATE, stateName: opt('state') || undefined,
 });
 const {
-  org: ORG, site: SITE, contentDir, stateFile, allowed, authorEdits: AUTHOR_EDITS,
+  org: ORG, site: SITE, contentDir, stateFile, allowed, appShell, authorEdits: AUTHOR_EDITS,
 } = settings;
 const state = fs.existsSync(stateFile) ? JSON.parse(fs.readFileSync(stateFile, 'utf8')) : { docs: {}, media: {} };
 state.docs ||= {};
@@ -106,7 +107,7 @@ for (const p of paths) {
   await new Promise((r) => { setImmediate(r); });
   if (budget && (Date.now() - started) / 1000 > budget - margin) { stop = `budget ${budget}s`; break; }
   done += 1;
-  if (APP_SHELL.test(p)) { problem(`${p}: app shell (login/profile, built elsewhere), refused`); continue; }
+  if (appShell(p)) { problem(`${p}: app shell (login/profile, built elsewhere), refused`); continue; }
   if (!allowed(p)) { problem(`${p}: not in scope, skipped`); continue; }
   const localDoc = readDocument(contentDir, p);
   if (!localDoc) { problem(`${p}: no local document`); continue; }
