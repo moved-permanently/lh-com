@@ -939,3 +939,108 @@ body.brand-swiss .booking-lookup.checkin .booking-lookup-hint {
   color: #333;
   line-height: 17px;
 }
+
+/* www's icon teasers (teaser usp: the legal page's links, carousel-cards usp, brief 445): no
+   frame, the 64 px icon centred, 20 px above the title, the title 20/22 px regular centred (24/26.4
+   from 1025 px), 20 px under it; on phones 30 px apart */
+/* stylelint-disable no-descending-specificity */
+body.brand-swiss .carousel-cards.usp .carousel-cards-track:has(> .carousel-cards-slide:not(.carousel-cards-text-only)) > .carousel-cards-slide,
+body.brand-swiss .carousel-cards.usp .carousel-cards-track:has(> .carousel-cards-slide:not(.carousel-cards-text-only)) > .carousel-cards-slide:hover {
+  border: 0;
+  box-shadow: none;
+  text-align: center;
+}
+
+body.brand-swiss .carousel-cards.usp .carousel-cards-slide .carousel-cards-image {
+  display: flex;
+  justify-content: center;
+  padding-top: 12px;
+}
+
+body.brand-swiss .carousel-cards.usp .carousel-cards-slide .carousel-cards-image picture {
+  width: auto;
+}
+
+body.brand-swiss .carousel-cards.usp .carousel-cards-slide .carousel-cards-image img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+body.brand-swiss .carousel-cards.usp:is(.grid, .four-up) .carousel-cards-body {
+  padding: 20px 0;
+}
+
+@media (width < 768px) {
+  body.brand-swiss .carousel-cards.usp.grid .carousel-cards-track:has(> .carousel-cards-slide:not(.carousel-cards-text-only)) {
+    gap: 30px;
+  }
+}
+
+body.brand-swiss .carousel-cards.usp .carousel-cards-body :is(h1, h2, h3, h4, h5, h6) {
+  margin: 0;
+  color: #101010;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 22px;
+}
+
+body.brand-swiss .carousel-cards.usp .carousel-cards-body :is(h1, h2, h3, h4, h5, h6) a:any-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (width >= 1025px) {
+  body.brand-swiss .carousel-cards.usp .carousel-cards-body :is(h1, h2, h3, h4, h5, h6) {
+    font-size: 24px;
+    line-height: 26.4px;
+  }
+}
+/* stylelint-enable no-descending-specificity */
+
+/* the FAQ hub's topic teasers as www's (teaser usp, brief 445): centred, the 72 px icon 20 px
+   above the title, the title 20/22 px black (24/26.4 from 1025 px), the tile 150 / 154 px; the
+   tiles 30 px apart in a column, 20 px in a row and 60 px between rows from 1025 px */
+body.brand-swiss main .default-content-wrapper:has(> .column-start):has(> :is(h2, h3, h4) > a > picture:first-child) {
+  gap: 30px 20px;
+}
+
+body.brand-swiss main .default-content-wrapper:has(> .column-start):has(> :is(h2, h3, h4) > a > picture:first-child) > :is(h2, h3, h4):has(> a > picture:first-child) {
+  margin: 0;
+  padding-bottom: 36px;
+  font-size: 20px;
+  line-height: 22px;
+  text-align: center;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- another component than the cards' links */
+body.brand-swiss main .default-content-wrapper:has(> .column-start):has(> :is(h2, h3, h4) > a > picture:first-child) > :is(h2, h3, h4) > a:any-link:has(> picture:first-child) {
+  color: #101010;
+}
+
+body.brand-swiss main .default-content-wrapper:has(> .column-start):has(> :is(h2, h3, h4) > a > picture:first-child) > :is(h2, h3, h4) > a > picture:first-child {
+  width: 72px;
+  margin: 0 auto 20px;
+}
+
+body.brand-swiss main .default-content-wrapper:has(> .column-start):has(> :is(h2, h3, h4) > a > picture:first-child) > :is(h2, h3, h4) > a > picture:first-child img {
+  width: 72px;
+  height: 72px;
+}
+
+@media (width >= 1025px) {
+  body.brand-swiss main .default-content-wrapper:has(> .column-start):has(> :is(h2, h3, h4) > a > picture:first-child) {
+    row-gap: 60px;
+  }
+
+  /* a group heading (Book, Prepare …): 39 px above its tiles, 93 px under the group before */
+  body.brand-swiss main .default-content-wrapper:has(> .column-start):has(> :is(h2, h3, h4) > a > picture:first-child) > h2 {
+    margin: 33px 0 -21px;
+    padding-top: 0;
+  }
+
+  body.brand-swiss main .default-content-wrapper:has(> .column-start):has(> :is(h2, h3, h4) > a > picture:first-child) > :is(h2, h3, h4):has(> a > picture:first-child) {
+    font-size: 24px;
+    line-height: 26.4px;
+  }
+}

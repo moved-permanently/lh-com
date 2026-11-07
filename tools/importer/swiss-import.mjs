@@ -27,6 +27,8 @@
  *   two-column views as columns-media rows (swiss-sidebar.mjs withSwissSidebar, brief 432), www's
  *   accordions the import wrote as text an accordion-columns block (withSwissAccordions, brief 445);
  * - the check-in form with www's first name and field hints (withCheckinFields, brief 445);
+ * - the cards' link rows with www's link texts (withCardLinks), www's icon teasers the cards'
+ *   option usp (withUspTeasers, brief 445);
  * - metadata (withItaMetadata): the root's nav and footer, `markets` (scope.json), www's noindex;
  * - a path Edge Delivery refuses (capitals, "&", double, leading or trailing hyphens) becomes its
  *   document name (docName) and a row of content-sites/lh-swiss/runs/redirects.tsv;
@@ -282,6 +284,67 @@ export function withCheckinFields(doc, html) {
     const refHint = row('Reference hint', attrOf(ref, 'hint'));
     return refHint ? out.replace(/(<div><div>Reference label<\/div><div>[^<]*<\/div><\/div>)/, (m) => `${m}${refHint}`) : out;
   });
+}
+
+/**
+ * The cards of www's menu pages end with a link row (the teaser's teaser-link-text, brief 445);
+ * lh-com's import makes the card's title its link. Per card (carousel-cards, cards-teaser) whose
+ * title is one link, with www's link text for that title: the title plain text, a paragraph with
+ * the link and www's text after the card's text (brief 380's first-level menu pages). Cards www
+ * shows without a link text, and cards with a link paragraph, as they are.
+ * @returns {{doc: string, made: number}}
+ */
+export function withCardLinks(doc, html) {
+  const t = (e) => (e ? e.textContent.replace(/\s+/g, ' ').trim() : '');
+  const links = new Map([...parseHTML(html).document.querySelectorAll('a.teaser.card, a.card.teaser')]
+    .map((a) => [t(a.querySelector('.teaser-heading, h1, h2, h3, h4')), t(a.querySelector('.teaser-link-text'))])
+    .filter(([title, link]) => title && link));
+  if (!links.size) return { doc, made: 0 };
+  const isPlain = !/<main>/.test(doc);
+  const inner = isPlain ? doc : doc.match(/<main>([\s\S]*)<\/main>/)[1];
+  const { document } = parseHTML(`<!DOCTYPE html><html><body><main>${inner}</main></body></html>`);
+  const main = document.querySelector('main');
+  let made = 0;
+  main.querySelectorAll('div.carousel-cards > div, div.cards-teaser > div').forEach((card) => {
+    const h = card.querySelector('h1, h2, h3, h4, h5, h6');
+    const a = h && h.querySelector('a');
+    const link = h && links.get(t(h));
+    if (!a || !link || t(a) !== t(h)) return;
+    if ([...card.querySelectorAll('p')].some((q) => q.querySelector('a') && t(q) === t(q.querySelector('a')))) return;
+    const para = document.createElement('p');
+    const to = document.createElement('a');
+    to.setAttribute('href', a.getAttribute('href'));
+    if (a.getAttribute('title')) to.setAttribute('title', a.getAttribute('title'));
+    to.textContent = link;
+    para.append(to);
+    h.textContent = t(a);
+    h.parentElement.append(para);
+    made += 1;
+  });
+  if (!made) return { doc, made };
+  return { doc: isPlain ? main.innerHTML : doc.replace(/<main>[\s\S]*<\/main>/, () => `<main>${main.innerHTML}</main>`), made };
+}
+
+/**
+ * www's icon teasers (a.teaser.usp: an icon above a title, no frame; the legal page's links,
+ * brief 445) come in as carousel-cards: a block whose cards' titles are all www's usp teasers
+ * gets the option usp (SWISS's theme draws it as www). Others as they are.
+ * @returns {{doc: string, made: number}}
+ */
+export function withUspTeasers(doc, html) {
+  const t = (e) => (e ? e.textContent.replace(/\s+/g, ' ').trim() : '');
+  const titles = new Set([...parseHTML(html).document.querySelectorAll('a.teaser.usp')].map((a) => t(a.querySelector('.teaser-heading'))).filter(Boolean));
+  if (!titles.size) return { doc, made: 0 };
+  let made = 0;
+  const out = doc.replace(/<div class="carousel-cards( [^"]*)?">/g, (m, opts, at) => {
+    if ((opts || '').split(' ').includes('usp')) return m;
+    const block = doc.slice(at, divEnd(doc, at));
+    const heads = [...block.matchAll(/<h[1-6][^>]*>([\s\S]*?)<\/h[1-6]>/g)].map((h) => h[1].replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').replace(/\s+/g, ' ').trim());
+    if (!heads.length || !heads.every((h) => titles.has(h))) return m;
+    made += 1;
+    return `<div class="carousel-cards${opts || ''} usp">`;
+  });
+  return { doc: out, made };
 }
 
 // the core forms: a proposed lh-forms id per page name (swiss-<page>; lh-forms does not know
@@ -913,7 +976,7 @@ if (isMain) {
       const snapHtml = fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8');
       // www's sidebar component (airem-sidebar) as the content beside a sidebar-aside section (swiss-sidebar.mjs)
       // (www's accordions the import wrote as text first: the sidebar's content can end with one)
-      const next = withSwissSidebar(withSwissAccordions(splitTabSections(withFlightSearchTeaser(withFlightSearchVideo(withHeroVideo(withItaMetadata(withCheckinFields(withCheckinHandoff(withFlightSearch(withPageLanguageMessages(withItaForm(doc, p, snapHtml), p), p), p), snapHtml), p, snapHtml, markets), snapHtml), snapHtml), snapHtml)), snapHtml).doc, snapHtml).doc;
+      const next = withSwissSidebar(withSwissAccordions(withUspTeasers(withCardLinks(splitTabSections(withFlightSearchTeaser(withFlightSearchVideo(withHeroVideo(withItaMetadata(withCheckinFields(withCheckinHandoff(withFlightSearch(withPageLanguageMessages(withItaForm(doc, p, snapHtml), p), p), p), snapHtml), p, snapHtml, markets), snapHtml), snapHtml), snapHtml)), snapHtml).doc, snapHtml).doc, snapHtml).doc, snapHtml).doc;
       if (next !== doc) fs.writeFileSync(f, next);
     });
     const mapOnly = path.join(W, 'runs', `${name}-upload.txt`);
