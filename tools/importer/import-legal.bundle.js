@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-legal.js
-  var tmp_bundle_legal_355888_exports = {};
-  __export(tmp_bundle_legal_355888_exports, {
-    default: () => tmp_bundle_legal_355888_default
+  var tmp_bundle_legal_370421_exports = {};
+  __export(tmp_bundle_legal_370421_exports, {
+    default: () => tmp_bundle_legal_370421_default
   });
 
   // tools/importer/parsers/media-nodes.js
@@ -835,6 +835,62 @@ var CustomImportScript = (() => {
       table.append(tr);
       return [table];
     };
+    const isFacts = (view) => {
+      const items2 = viewItems(view);
+      return view.matches(".threecolumn, .fourcolumn") && items2.length >= 2 && items2.every((it) => it.querySelector("h1, h2, h3, h4, h5, h6") && !it.querySelector("img, table, maui-table, ul, ol"));
+    };
+    const factsOf = (item) => [...item.querySelectorAll(VIEWS)].filter((v) => v.parentElement.closest(".column-view-item") === item && isFacts(v));
+    const isMediaRow = (view) => {
+      const items2 = viewItems(view);
+      if (!view.matches(".twocolumn") || items2.length !== 2) return false;
+      const pictured = items2.filter((it) => it.querySelector(".image img"));
+      const other = items2.find((it) => !pictured.includes(it));
+      return pictured.length === 1 && !other.querySelector("maui-table, table, .accordion") && factsOf(other).length > 0;
+    };
+    const factsTable = (view) => {
+      const table = document.createElement("table");
+      const tr = document.createElement("tr");
+      viewItems(view).forEach((item) => {
+        const td = document.createElement("td");
+        const heading = item.querySelector("h1, h2, h3, h4, h5, h6");
+        const h = document.createElement(heading.tagName.toLowerCase());
+        h.textContent = visibleText(heading);
+        td.append(h);
+        item.querySelectorAll(".richtext").forEach((rt) => td.append(...convertRichText(rt)));
+        tr.append(td);
+      });
+      table.append(tr);
+      return table;
+    };
+    const convertMediaRow = (view) => {
+      const out = [];
+      const title = view.querySelector(":scope > .column-view > div:not(.row) :is(h1, h2, h3, h4, h5, h6)");
+      if (title && visibleText(title)) {
+        const h = document.createElement(title.tagName.toLowerCase());
+        h.textContent = visibleText(title);
+        out.push(h);
+      }
+      const table = document.createElement("table");
+      const tr = document.createElement("tr");
+      viewItems(view).forEach((item) => {
+        const td = document.createElement("td");
+        const facts = factsOf(item);
+        const rest = item.cloneNode(true);
+        factsOf(rest).forEach((v) => v.remove());
+        td.append(...convertPanel(rest), ...facts.map(factsTable));
+        rest.querySelectorAll('maui-button-link[href]:is([type="primary"], [type="secondary"])').forEach((m) => {
+          const a = [...td.querySelectorAll("p > a:only-child")].find((l) => l.getAttribute("href") === m.getAttribute("href") && l.textContent === visibleText(m));
+          if (!a) return;
+          const wrap = document.createElement(m.getAttribute("type") === "primary" ? "strong" : "em");
+          a.replaceWith(wrap);
+          wrap.append(a);
+        });
+        tr.append(td);
+      });
+      table.append(tr);
+      out.push(table);
+      return out;
+    };
     const convertPanel = (panel) => {
       const content = [];
       const columns = panelColumns(panel);
@@ -845,6 +901,11 @@ var CustomImportScript = (() => {
         part.querySelectorAll(selector).forEach((node) => {
           if ([...grids].some((g) => g.contains(node))) return;
           if (!columns.length && node.matches(VIEWS)) {
+            if (!node.parentElement.closest(VIEWS) && isMediaRow(node)) {
+              grids.add(node);
+              content.push(...convertMediaRow(node));
+              return;
+            }
             if (!node.parentElement.closest(VIEWS) && isImageGrid(node)) {
               grids.add(node);
               content.push(...convertGrid(node));
@@ -2581,7 +2642,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_legal_355888_default = {
+  var tmp_bundle_legal_370421_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -2611,5 +2672,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_legal_355888_exports);
+  return __toCommonJS(tmp_bundle_legal_370421_exports);
 })();

@@ -28,9 +28,39 @@ function cleanTextNodes(root) {
  */
 export function buildGrids(root) {
   root.querySelectorAll('table').forEach((table) => {
-    const rows = [...table.querySelectorAll('tr')];
+    // its own rows (a media row's text cell holds the facts table)
+    const rows = [...table.querySelectorAll(':scope > tr, :scope > * > tr')];
     if (rows.length !== 1) return;
     const cells = [...rows[0].children];
+    const pictured = (c) => !!c.querySelector(':scope > :not(table) :is(picture, img), :scope > :is(picture, img)');
+    // a picture | text row (two cells, a picture in one only: the import's picture | text views,
+    // Austrian's new destinations, in www's order): the two side by side from 768px
+    if (cells.length === 2 && pictured(cells[0]) !== pictured(cells[1])) {
+      const row = document.createElement('div');
+      row.className = 'accordion-columns-media-row';
+      cells.forEach((cell) => {
+        const c = document.createElement('div');
+        c.className = `accordion-columns-media-row-${pictured(cell) ? 'media' : 'text'}`;
+        c.append(...cell.childNodes);
+        row.append(c);
+      });
+      table.replaceWith(row);
+      return;
+    }
+    // facts: a row of text cells that each open with a heading (travel period, flights): a grid
+    if (cells.length >= 2 && cells.every((c) => !c.querySelector('picture, img, table') && /^H[1-6]$/.test(c.firstElementChild?.tagName || ''))) {
+      const grid = document.createElement('div');
+      grid.className = 'accordion-columns-facts';
+      grid.style.setProperty('--accordion-columns-facts-count', String(Math.min(cells.length, 4)));
+      cells.forEach((cell) => {
+        const item = document.createElement('div');
+        item.className = 'accordion-columns-facts-item';
+        item.append(...cell.childNodes);
+        grid.append(item);
+      });
+      table.replaceWith(grid);
+      return;
+    }
     if (cells.length < 2 || !cells.every((c) => c.querySelector('picture, img'))) return;
     const grid = document.createElement('div');
     grid.className = 'accordion-columns-grid';

@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-campaign.js
-  var tmp_bundle_campaign_355888_exports = {};
-  __export(tmp_bundle_campaign_355888_exports, {
-    default: () => tmp_bundle_campaign_355888_default
+  var tmp_bundle_campaign_370421_exports = {};
+  __export(tmp_bundle_campaign_370421_exports, {
+    default: () => tmp_bundle_campaign_370421_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -4804,7 +4804,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_campaign_355888_default = {
+  var tmp_bundle_campaign_370421_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -4834,5 +4834,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_campaign_355888_exports);
+  return __toCommonJS(tmp_bundle_campaign_370421_exports);
 })();

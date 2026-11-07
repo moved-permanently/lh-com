@@ -42,7 +42,10 @@ test('data tables stay tables: several rows, or a row without pictures', () => {
   buildGrids(fees);
   assert.ok(fees.querySelector('table'));
   assert.ok(fees.querySelector('.accordion-columns-grid') === null, 'no .accordion-columns-grid');
+  // a picture cell beside a text cell: not an item grid; since brief 445 a picture | text row
+  // (test/accordion-media-rows.test.mjs; no document had one before)
   const oneRow = panelOf(`<table><tbody><tr>${cell('a', 'A')}<td>Text only</td></tr></tbody></table>`);
   buildGrids(oneRow);
-  assert.ok(oneRow.querySelector('table'), 'a cell without a picture: not an item grid');
+  assert.ok(oneRow.querySelector('.accordion-columns-grid') === null, 'a cell without a picture: not an item grid');
+  assert.ok(oneRow.querySelector('.accordion-columns-media-row'), 'a picture | text row');
 });

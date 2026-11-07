@@ -245,6 +245,82 @@ export default function parse(element, { document }) {
     return [table];
   };
 
+  /** Facts: a view of two or more items, each a heading and a short text (travel period, flights). */
+  const isFacts = (view) => {
+    const items = viewItems(view);
+    return view.matches('.threecolumn, .fourcolumn') && items.length >= 2
+      && items.every((it) => it.querySelector('h1, h2, h3, h4, h5, h6') && !it.querySelector('img, table, maui-table, ul, ol'));
+  };
+  /** The facts views of a column view item (its own, not those of views nested deeper). */
+  const factsOf = (item) => [...item.querySelectorAll(VIEWS)]
+    .filter((v) => v.parentElement.closest('.column-view-item') === item && isFacts(v));
+  /**
+   * A picture | text row: a two-column view, a picture in one item, the other its text and facts (Austrian's
+   * /book/flights/new-destinations: each destination's picture and button beside its text and facts, the
+   * picture left or right; www side by side from 768px). A text and a picture without facts stay running
+   * text as before. Written into the item's content cell, the block's rows stay title | content.
+   */
+  const isMediaRow = (view) => {
+    const items = viewItems(view);
+    if (!view.matches('.twocolumn') || items.length !== 2) return false;
+    const pictured = items.filter((it) => it.querySelector('.image img'));
+    const other = items.find((it) => !pictured.includes(it));
+    return pictured.length === 1 && !other.querySelector('maui-table, table, .accordion') && factsOf(other).length > 0;
+  };
+  /** Facts as a one-row table, one cell per item (its heading, its text). */
+  const factsTable = (view) => {
+    const table = document.createElement('table');
+    const tr = document.createElement('tr');
+    viewItems(view).forEach((item) => {
+      const td = document.createElement('td');
+      const heading = item.querySelector('h1, h2, h3, h4, h5, h6');
+      const h = document.createElement(heading.tagName.toLowerCase());
+      h.textContent = visibleText(heading);
+      td.append(h);
+      item.querySelectorAll('.richtext').forEach((rt) => td.append(...convertRichText(rt)));
+      tr.append(td);
+    });
+    table.append(tr);
+    return table;
+  };
+  /**
+   * A picture | text row as the view's own title and a one-row table of two cells (each item's content,
+   * in www's order); the text item's facts views as tables after its text.
+   */
+  const convertMediaRow = (view) => {
+    const out = [];
+    const title = view.querySelector(':scope > .column-view > div:not(.row) :is(h1, h2, h3, h4, h5, h6)');
+    if (title && visibleText(title)) {
+      const h = document.createElement(title.tagName.toLowerCase());
+      h.textContent = visibleText(title);
+      out.push(h);
+    }
+    const table = document.createElement('table');
+    const tr = document.createElement('tr');
+    viewItems(view).forEach((item) => {
+      const td = document.createElement('td');
+      const facts = factsOf(item);
+      const rest = item.cloneNode(true);
+      factsOf(rest).forEach((v) => v.remove());
+      // eslint-disable-next-line no-use-before-define -- convertPanel reads an item as a panel
+      td.append(...convertPanel(rest), ...facts.map(factsTable));
+      // its buttons as buttons (www's BOOK ALICANTE NOW, an outlined button): primary = bold link,
+      // secondary = italic link, as the other parsers write maui-button-link
+      rest.querySelectorAll('maui-button-link[href]:is([type="primary"], [type="secondary"])').forEach((m) => {
+        const a = [...td.querySelectorAll('p > a:only-child')]
+          .find((l) => l.getAttribute('href') === m.getAttribute('href') && l.textContent === visibleText(m));
+        if (!a) return;
+        const wrap = document.createElement(m.getAttribute('type') === 'primary' ? 'strong' : 'em');
+        a.replaceWith(wrap);
+        wrap.append(a);
+      });
+      tr.append(td);
+    });
+    table.append(tr);
+    out.push(table);
+    return out;
+  };
+
   /** Panel content: column by column (heading + links), or the rich text as a whole. */
   const convertPanel = (panel) => {
     const content = [];
@@ -258,6 +334,11 @@ export default function parse(element, { document }) {
       part.querySelectorAll(selector).forEach((node) => {
         if ([...grids].some((g) => g.contains(node))) return;
         if (!columns.length && node.matches(VIEWS)) {
+          if (!node.parentElement.closest(VIEWS) && isMediaRow(node)) {
+            grids.add(node);
+            content.push(...convertMediaRow(node));
+            return;
+          }
           if (!node.parentElement.closest(VIEWS) && isImageGrid(node)) {
             grids.add(node);
             content.push(...convertGrid(node));
