@@ -1,0 +1,41 @@
+{
+  "accountId": "U-B2B-1001",
+  "transactions": [
+    {
+      "transactionId": "T-0001",
+      "date": "2026-10-28",
+      "type": "ORDER",
+      "product": "Upgrade voucher, Business Class",
+      "amount": -450,
+      "currency": "EUR",
+      "status": "COMPLETED"
+    },
+    {
+      "transactionId": "T-0002",
+      "date": "2026-10-02",
+      "type": "ORDER",
+      "product": "Status card, Frequent Traveller",
+      "amount": -1200,
+      "currency": "EUR",
+      "status": "COMPLETED"
+    },
+    {
+      "transactionId": "T-0003",
+      "date": "2026-09-30",
+      "type": "CREDIT",
+      "product": "Quarterly credit",
+      "amount": 5000,
+      "currency": "EUR",
+      "status": "COMPLETED"
+    },
+    {
+      "transactionId": "T-0004",
+      "date": "2026-09-14",
+      "type": "ORDER",
+      "product": "Sustainable aviation fuel, 2 t CO2",
+      "amount": -360,
+      "currency": "EUR",
+      "status": "PENDING"
+    }
+  ]
+}

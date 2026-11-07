@@ -1,0 +1,15 @@
+{
+  "companyId": "C-2001",
+  "users": [
+    {
+      "userId": "U-B2B-USER-03",
+      "firstName": "Lena",
+      "lastName": "Wolf",
+      "email": "lena.wolf@sample-trading.test",
+      "roles": [
+        "ADMIN",
+        "CSF"
+      ]
+    }
+  ]
+}

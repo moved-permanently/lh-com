@@ -1,0 +1,30 @@
+{
+  "companyId": "C-1001",
+  "period": {
+    "from": "2026-01-01",
+    "to": "2026-10-31"
+  },
+  "flights": 412,
+  "segments": 688,
+  "revenue": {
+    "amount": 318400,
+    "currency": "EUR"
+  },
+  "co2": {
+    "tonnes": 211.4
+  },
+  "topRoutes": [
+    {
+      "route": "FRA-JFK",
+      "segments": 64
+    },
+    {
+      "route": "MUC-LHR",
+      "segments": 51
+    },
+    {
+      "route": "FRA-SIN",
+      "segments": 22
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "accounts": [
+    {
+      "accountId": "U-B2B-1001",
+      "accountName": "Example Industries GmbH, Germany",
+      "companyId": "C-1001",
+      "companyName": "Example Industries GmbH",
+      "programme": "CIP",
+      "roles": [
+        "BOOKER",
+        "CSF"
+      ]
+    }
+  ]
+}

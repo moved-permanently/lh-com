@@ -1,0 +1,14 @@
+{
+  "accountId": "U-B2B-2001",
+  "transactions": [
+    {
+      "transactionId": "T-0101",
+      "date": "2026-10-11",
+      "type": "ORDER",
+      "product": "Upgrade voucher, Premium Economy",
+      "amount": -220,
+      "currency": "CHF",
+      "status": "COMPLETED"
+    }
+  ]
+}

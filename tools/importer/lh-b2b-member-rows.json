@@ -1,0 +1,167 @@
+{
+  "about": "Lufthansa Group for Business member pages (lh-b2b /<root>/<page>, the b2b-member block): the rows each page's block carries, in English (de/en) and German (de/de), for every field and code value of the member answers recorded in test/fixtures/b2b-member-answers-001 (b2b.turnsthe.page, invented data). Label rows are by the field's words (blocks/b2b-member/README.md). Category names and product texts come from the backend's data and stay as they come. test/b2b-member-answers-001.test.mjs checks the rows cover the answers; the documents are written from this file.",
+  "pages": {
+    "fund": {
+      "en": [
+        ["Label account id", "Account ID"],
+        ["Label balance", "Balance"],
+        ["Label amount", "Amount"],
+        ["Label currency", "Currency"],
+        ["Label valid until", "Valid until"],
+        ["Label categories", "Categories"],
+        ["Label name", "Name"],
+        ["Label available", "Available"],
+        ["Hide", "categoryId"],
+        ["Value true", "Yes"],
+        ["Value false", "No"]
+      ],
+      "de": [
+        ["Label account id", "Konto-ID"],
+        ["Label balance", "Guthaben"],
+        ["Label amount", "Betrag"],
+        ["Label currency", "Währung"],
+        ["Label valid until", "Gültig bis"],
+        ["Label categories", "Kategorien"],
+        ["Label name", "Name"],
+        ["Label available", "Verfügbar"],
+        ["Hide", "categoryId"],
+        ["Value true", "Ja"],
+        ["Value false", "Nein"]
+      ]
+    },
+    "history": {
+      "en": [
+        ["Label account id", "Account ID"],
+        ["Label transactions", "Transactions"],
+        ["Label transaction id", "Transaction ID"],
+        ["Label date", "Date"],
+        ["Label type", "Type"],
+        ["Label product", "Product"],
+        ["Label amount", "Amount"],
+        ["Label currency", "Currency"],
+        ["Label status", "Status"],
+        ["Value ORDER", "Order"],
+        ["Value CREDIT", "Credit"],
+        ["Value COMPLETED", "Completed"],
+        ["Value PENDING", "Pending"],
+        ["Value true", "Yes"],
+        ["Value false", "No"]
+      ],
+      "de": [
+        ["Label account id", "Konto-ID"],
+        ["Label transactions", "Transaktionen"],
+        ["Label transaction id", "Transaktions-ID"],
+        ["Label date", "Datum"],
+        ["Label type", "Art"],
+        ["Label product", "Produkt"],
+        ["Label amount", "Betrag"],
+        ["Label currency", "Währung"],
+        ["Label status", "Status"],
+        ["Value ORDER", "Bestellung"],
+        ["Value CREDIT", "Gutschrift"],
+        ["Value COMPLETED", "Abgeschlossen"],
+        ["Value PENDING", "In Bearbeitung"],
+        ["Value true", "Ja"],
+        ["Value false", "Nein"]
+      ]
+    },
+    "usermanagement": {
+      "en": [
+        ["Label company id", "Company ID"],
+        ["Label users", "Users"],
+        ["Label user id", "User ID"],
+        ["Label first name", "First name"],
+        ["Label last name", "Last name"],
+        ["Label email", "E-mail"],
+        ["Label roles", "Roles"],
+        ["Role ADMIN", "User management"],
+        ["Role REPORTING", "Reports"],
+        ["Role CSF", "Corporate Service Fund"],
+        ["Role BOOKER", "Booking"],
+        ["Role KAM", "Key account management"],
+        ["Value true", "Yes"],
+        ["Value false", "No"]
+      ],
+      "de": [
+        ["Label company id", "Unternehmens-ID"],
+        ["Label users", "Benutzer"],
+        ["Label user id", "Benutzer-ID"],
+        ["Label first name", "Vorname"],
+        ["Label last name", "Nachname"],
+        ["Label email", "E-Mail"],
+        ["Label roles", "Rollen"],
+        ["Role ADMIN", "Benutzerverwaltung"],
+        ["Role REPORTING", "Berichte"],
+        ["Role CSF", "Corporate Service Fund"],
+        ["Role BOOKER", "Buchung"],
+        ["Role KAM", "Kundenbetreuung"],
+        ["Value true", "Ja"],
+        ["Value false", "Nein"]
+      ]
+    },
+    "reports": {
+      "en": [
+        ["Label company id", "Company ID"],
+        ["Label period", "Period"],
+        ["Label from", "From"],
+        ["Label to", "To"],
+        ["Label flights", "Flights"],
+        ["Label segments", "Segments"],
+        ["Label revenue", "Revenue"],
+        ["Label amount", "Amount"],
+        ["Label currency", "Currency"],
+        ["Label co2", "CO₂ emissions"],
+        ["Label tonnes", "Tonnes"],
+        ["Label top routes", "Top routes"],
+        ["Label route", "Route"],
+        ["Value true", "Yes"],
+        ["Value false", "No"]
+      ],
+      "de": [
+        ["Label company id", "Unternehmens-ID"],
+        ["Label period", "Zeitraum"],
+        ["Label from", "Von"],
+        ["Label to", "Bis"],
+        ["Label flights", "Flüge"],
+        ["Label segments", "Segmente"],
+        ["Label revenue", "Umsatz"],
+        ["Label amount", "Betrag"],
+        ["Label currency", "Währung"],
+        ["Label co2", "CO₂-Emissionen"],
+        ["Label tonnes", "Tonnen"],
+        ["Label top routes", "Meistgeflogene Strecken"],
+        ["Label route", "Strecke"],
+        ["Value true", "Ja"],
+        ["Value false", "Nein"]
+      ]
+    },
+    "profile": {
+      "en": [
+        ["Label email", "E-mail"],
+        ["Label country", "Country"],
+        ["Label language", "Language"]
+      ],
+      "de": [
+        ["Label email", "E-Mail"],
+        ["Label country", "Land"],
+        ["Label language", "Sprache"]
+      ]
+    },
+    "lhghome": {
+      "en": [
+        ["Role CSF", "Corporate Service Fund"],
+        ["Role REPORTING", "Reports"],
+        ["Role ADMIN", "User management"],
+        ["Role BOOKER", "Booking"],
+        ["Role KAM", "Key account management"]
+      ],
+      "de": [
+        ["Role CSF", "Corporate Service Fund"],
+        ["Role REPORTING", "Berichte"],
+        ["Role ADMIN", "Benutzerverwaltung"],
+        ["Role BOOKER", "Buchung"],
+        ["Role KAM", "Kundenbetreuung"]
+      ]
+    }
+  }
+}

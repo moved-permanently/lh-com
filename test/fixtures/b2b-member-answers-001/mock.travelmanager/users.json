@@ -1,0 +1,26 @@
+{
+  "companyId": "C-1001",
+  "users": [
+    {
+      "userId": "U-B2B-USER-01",
+      "firstName": "Anna",
+      "lastName": "Berger",
+      "email": "anna.berger@example-industries.test",
+      "roles": [
+        "ADMIN",
+        "REPORTING",
+        "CSF"
+      ]
+    },
+    {
+      "userId": "U-B2B-USER-02",
+      "firstName": "Jonas",
+      "lastName": "Keller",
+      "email": "jonas.keller@example-industries.test",
+      "roles": [
+        "BOOKER",
+        "CSF"
+      ]
+    }
+  ]
+}

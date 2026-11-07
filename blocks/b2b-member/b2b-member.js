@@ -44,6 +44,7 @@ const TEXTS = {
     'role reporting': 'Reports',
     'role admin': 'User management',
     'role kam': 'Key Account Management',
+    'role booker': 'Booking',
   },
   de: {
     loading: 'Wird geladen …',
@@ -66,7 +67,8 @@ const TEXTS = {
     'role csf': 'Corporate Service Fund',
     'role reporting': 'Berichte',
     'role admin': 'Benutzerverwaltung',
-    'role kam': 'Key Account Management',
+    'role kam': 'Kundenbetreuung',
+    'role booker': 'Buchung',
   },
 };
 
@@ -95,6 +97,12 @@ function el(tag, attrs = {}, ...children) {
   });
   return node;
 }
+
+/** Role codes as words (rows "Role <code>", the built-in four); codes without words left out. */
+const roleWords = (codes, t, config = {}) => [...new Set(codes.map((c) => {
+  const row = config[toConfigKey(`role ${c}`)];
+  return (row && row.text) || t[`role ${c.toLowerCase()}`];
+}).filter(Boolean))];
 
 const DATE = /^\d{4}-\d{2}-\d{2}(?:T[\d:.]+(?:Z|[+-]\d{2}:?\d{2})?)?$/;
 
@@ -131,7 +139,13 @@ function presenter(config, lang, t) {
   const isScalar = (v) => v === null || ['string', 'number', 'boolean'].includes(typeof v);
   const empty = (v) => v === null || v === undefined || v === '';
   const entries = (o) => Object.entries(o).filter(([k, v]) => !hidden.has(k) && !empty(v));
-  const inline = (v) => {
+  // a field "roles" (the users' role codes): the role words, codes without words left out
+  const roles = (key, v) => (key === 'roles' && Array.isArray(v)
+    ? roleWords(v.filter((x) => typeof x === 'string').map((x) => x.trim().toUpperCase()), t, config).join(', ')
+    : null);
+  const inline = (v, key = '') => {
+    const words = roles(key, v);
+    if (words !== null) return words;
     if (isScalar(v)) return empty(v) ? '' : scalar(v);
     if (Array.isArray(v)) return v.map(inline).filter(Boolean).join(', ');
     return entries(v).map(([, x]) => inline(x)).filter(Boolean).join(' ');
@@ -151,10 +165,10 @@ function presenter(config, lang, t) {
         'table',
         { className: 'b2b-member-table' },
         el('thead', {}, el('tr', {}, keys.map((k) => el('th', { scope: 'col' }, label(k))))),
-        el('tbody', {}, rows.map((r) => el('tr', {}, keys.map((k) => el('td', {}, empty(r[k]) ? '' : inline(r[k])))))),
+        el('tbody', {}, rows.map((r) => el('tr', {}, keys.map((k) => el('td', {}, empty(r[k]) ? '' : inline(r[k], k)))))),
       );
     }
-    const pairs = entries(v).map(([k, x]) => [k, show(x)]).filter(([, x]) => x !== null);
+    const pairs = entries(v).map(([k, x]) => [k, roles(k, x) || show(x)]).filter(([, x]) => x !== null && x !== '');
     if (!pairs.length) return null;
     return el('dl', { className: 'b2b-member-facts' }, pairs.map(([k, x]) => [el('dt', {}, label(k)), el('dd', {}, x)]));
   };
@@ -167,9 +181,6 @@ export function pickAccount(accounts, wanted = {}) {
   return list.find((a) => (wanted.account && a.accountId === wanted.account)
     || (wanted.company && a.companyId === wanted.company)) || list[0] || null;
 }
-
-/** Role codes as words (rows "Role <code>", the built-in four); codes without words left out. */
-const roleWords = (codes, t) => [...new Set(codes.map((c) => t[`role ${c.toLowerCase()}`]).filter(Boolean))];
 
 /** A row's link (text and href) or the built-in text with the default page. */
 function tileOf(config, key, text, href) {
@@ -271,7 +282,7 @@ async function render(view, ctx) {
         facts([
           [t['programme label'], c.programme || ''],
           [t['account label'], c.accounts.map((a) => a.accountName || a.accountId).join(', ')],
-          [t['roles label'], roleWords(c.accounts.flatMap((a) => rolesOf(a) || []), t).join(', ')],
+          [t['roles label'], roleWords(c.accounts.flatMap((a) => rolesOf(a) || []), t, config).join(', ')],
         ]),
       ))),
     };

@@ -1,0 +1,15 @@
+{
+  "accountId": "U-B2B-2001",
+  "balance": {
+    "amount": 3800,
+    "currency": "CHF"
+  },
+  "validUntil": "2027-06-30",
+  "categories": [
+    {
+      "categoryId": "upgrades",
+      "name": "Upgrade vouchers",
+      "available": true
+    }
+  ]
+}

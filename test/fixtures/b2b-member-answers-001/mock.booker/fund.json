@@ -1,0 +1,25 @@
+{
+  "accountId": "U-B2B-1001",
+  "balance": {
+    "amount": 12450,
+    "currency": "EUR"
+  },
+  "validUntil": "2027-03-31",
+  "categories": [
+    {
+      "categoryId": "upgrades",
+      "name": "Upgrade vouchers",
+      "available": true
+    },
+    {
+      "categoryId": "status",
+      "name": "Status cards",
+      "available": true
+    },
+    {
+      "categoryId": "saf",
+      "name": "Sustainable aviation fuel",
+      "available": true
+    }
+  ]
+}

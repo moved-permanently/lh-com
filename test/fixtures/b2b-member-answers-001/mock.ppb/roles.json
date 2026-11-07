@@ -1,0 +1,15 @@
+{
+  "accounts": [
+    {
+      "accountId": "U-B2B-2001",
+      "accountName": "Sample Trading AG, Switzerland",
+      "companyId": "C-2001",
+      "companyName": "Sample Trading AG",
+      "programme": "PPB",
+      "roles": [
+        "ADMIN",
+        "CSF"
+      ]
+    }
+  ]
+}

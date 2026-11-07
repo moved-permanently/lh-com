@@ -170,7 +170,7 @@ test('3. role codes as words; unknown codes, loginType and the name fields not s
   at('/de/de/lhghome');
   const a = await block('accounts', [['Role ADMIN', 'Benutzerverwaltung']]);
   const t = text(a);
-  assert.match(t, /Rollen Corporate Service Fund, Berichte, Benutzerverwaltung, Key Account Management/);
+  assert.match(t, /Rollen Corporate Service Fund, Berichte, Benutzerverwaltung, Kundenbetreuung/);
   assert.ok(!/X_INTERNAL|CSF|REPORTING/.test(t), t);
   at('/de/de/profile');
   const p = await block('profile', [['Label email', 'E-Mail']]);
