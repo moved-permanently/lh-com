@@ -71,6 +71,12 @@ challenge page ("Just a moment"), a `cf-mitigated` header, 429 or any 403. Exit 
 file in the run folder or a limit, 3 blocked, 4 the warm-up page is blocked, 5 the warm-up page failed without a block
 (network, timeout), 6 another stream holds the host. A stopped run resumes where it stopped (`fetch.jsonl`).
 
+## Pages for the importers
+
+`md-export-snapshots.mjs` writes fetched pages as `tools/importer/bd-snapshots/<host>/<path>.html` (gitignored), with
+Cloudflare's e-mail protection undone, so the site's importer reads them like captured pages. The HTML is the server's:
+widgets the browser renders (flight search, destination finder, feedback) are empty in it.
+
 ## What the classes mean
 
 `lib/verdict.mjs`, first match wins: `differs/content` (text or images differ: import or fix), `differs/meta` (title or
