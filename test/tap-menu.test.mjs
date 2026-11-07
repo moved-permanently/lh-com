@@ -298,6 +298,7 @@ test('header-tap.css: loaded once for TAP, every rule scoped to brand tap', () =
 test('header.js: TAP builds its own menu (header-tap.js) and keeps the menu button for it; other brands as before', () => {
   const src = fs.readFileSync(path.join(repo, 'blocks/header/header.js'), 'utf8');
   assert.ok(src.includes('tap.buildTapMenu('), 'TAP builds its own menu');
-  assert.ok(src.includes('if (!tap) flyout.bind(menuButton)'), 'the menu button opens TAP\'s menu, not the flyout');
+  // (Air Dolomiti's opens its phone menu too, brief 447: test/header-airdolomiti-phone-447.test.mjs)
+  assert.match(src, /if \(!tap(?: && !airdolomiti)?\) flyout\.bind\(menuButton\)/, 'the menu button opens TAP\'s menu, not the flyout');
   assert.ok(src.includes("import('./header-bar-menu.js')"), 'the bar menu of the other brands (b2b) as it was');
 });

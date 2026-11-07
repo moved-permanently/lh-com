@@ -9,8 +9,8 @@
  * (30 px apart), bold links semibold 19px / 30px (40 px apart), the image card 250 px wide
  * (10 px radius, its title a beige chip 12 px in, a white button at the bottom); on the right the
  * quick actions on teal #008293 (416 px, 60px 40px padding): 20 px icons, labels semibold
- * 17px in capitals, 49 px apart. Below 1025px the bar keeps lh-com's layout and the Menu
- * button's flyout.
+ * 17px in capitals, 49 px apart. Below 1025px the bar keeps lh-com's layout; its Menu button
+ * opens www's phone menu (the rules at the end, brief 447).
  */
 .header .nav-airdolomiti .nav-ad-menu {
   display: none;
@@ -30,8 +30,10 @@
     padding: 30px 36px;
   }
 
+  /* www's logo 8px above the bar's middle (its margin-top: -8px) */
   .header .nav-airdolomiti .nav-brand img {
     height: 50px;
+    translate: 0 -8px;
   }
 
   .header .nav-airdolomiti .nav-ad-menu {
@@ -137,7 +139,7 @@
   }
 
   .header .nav-airdolomiti .nav-ad-group + .nav-ad-group {
-    margin-top: 30px;
+    margin-top: 36px;
   }
 
   .header .nav-airdolomiti .nav-ad-group-title,
@@ -195,6 +197,7 @@
   .header .nav-airdolomiti .nav-ad-card {
     position: relative;
     flex: 0 0 250px;
+    min-height: 350px;
     overflow: hidden;
     border-radius: 10px;
   }
@@ -211,8 +214,8 @@
 
   .header .nav-airdolomiti .nav-ad-card-title {
     position: relative;
-    display: inline-block;
-    margin: 12px;
+    display: block;
+    margin: 16px 12px;
     padding: 10px;
     border-radius: 10px;
     background-color: rgb(246 242 239 / 80%);
@@ -222,31 +225,39 @@
     line-height: 30px;
   }
 
+  /* www's solid button (style_btn_solid): teal on white, 18px 40px, its arrow 16px after the text */
   .header .nav-airdolomiti .nav-ad-card-cta {
     position: absolute;
-    right: 12px;
-    bottom: 12px;
-    left: 12px;
+    right: 16px;
+    bottom: 20px;
+    left: 16px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 16px;
     box-sizing: border-box;
-    padding: 12px 16px;
-    border-radius: 6px;
+    padding: 18px 40px;
+    border-radius: 10px;
     background-color: #fff;
-    color: var(--lh-deepblue, #002e54);
-    font-size: 15px;
-    font-weight: 600;
-    line-height: 20px;
+    color: #00798a;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 22px;
     text-decoration: none;
+    white-space: nowrap;
+    transition: color 0.3s ease-in-out;
   }
 
   .header .nav-airdolomiti .nav-ad-card-cta::after {
     content: "";
-    width: 18px;
-    height: 18px;
-    background-color: var(--lh-whale-blue, #00798a);
-    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='m7 1.5-3 3 7.5 7.5-7.5 7.5 3 3 10.5-10.5z'/%3E%3C/svg%3E") center / contain no-repeat;
+    width: 28px;
+    height: 28px;
+    background-color: currentcolor;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Cpath d='M26.73 13.33H13.53L2 0h13.2zM2 28h13.2l11.53-13.33H13.53z'/%3E%3C/svg%3E") center / contain no-repeat;
+  }
+
+  .header .nav-airdolomiti .nav-ad-card-cta:hover {
+    color: #0093a8;
   }
 
   .header .nav-airdolomiti .nav-ad-quick {
@@ -288,5 +299,352 @@
     flex: 0 0 20px;
     width: 20px;
     height: 20px;
+  }
+}
+
+/* the column's last link to its title's page (www's "Vedi tutte" / "View all"): underlined, in
+   the bar's panels and the phone menu */
+.header .nav-airdolomiti .nav-ad-link-more:any-link {
+  text-decoration: underline;
+}
+
+/*
+ * the phone menu (below 1025px, header-airdolomiti.js buildAirDolomitiPhoneMenu), as www's
+ * (airdolomiti-parity-001 at 390, its NavBurger_* rules, brief 447): white over the screen;
+ * "Close" (15.12px, www's 1.4rem) and its circled cross (30px) 20px 15px in; the search field
+ * (50px, 30px under it, 20px in); the quick actions on teal #008293 (at least half the screen,
+ * 20px in, the title in capitals, the links semibold 19.44px / 30px 20px apart, their 20px icons
+ * 10px before them); then 30px on the items (semibold 23.76px / 30px, 40px apart, the arrow 25px
+ * 20px after them; open: teal, the arrow down) and their columns (grey titles in capitals 30px
+ * above, links 17.28px / 24px 10px apart, the bold ones 19.44px / 28px bold 20px apart); a grey
+ * line 35px above the languages (a globe, the current one, a small arrow).
+ */
+@media (width >= 1025px) {
+  .header .nav-airdolomiti .nav-ad-phone {
+    display: none;
+  }
+}
+
+.header .nav-airdolomiti .nav-ad-phone {
+  position: fixed;
+  inset: 0;
+  z-index: 1050;
+  box-sizing: border-box;
+  overflow-y: auto;
+  padding-bottom: 50px;
+  background-color: #fff;
+  color: #002e54;
+  font-family: var(--body-font-family);
+}
+
+.header .nav-airdolomiti .nav-ad-phone[hidden] {
+  display: none;
+}
+
+.header .nav-airdolomiti .nav-ad-icon {
+  display: block;
+  flex: 0 0 auto;
+}
+
+.header .nav-airdolomiti .nav-ad-icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.header .nav-airdolomiti .nav-ad-phone-top {
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px 15px;
+}
+
+.header .nav-airdolomiti .nav-ad-phone-close {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #002e54;
+  font-family: inherit;
+  font-size: 15.12px;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+.header .nav-airdolomiti .nav-ad-icon-close {
+  width: 30px;
+  height: 30px;
+}
+
+.header .nav-airdolomiti .nav-ad-phone-search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  height: 50px;
+  margin: 30px 20px 20px;
+}
+
+.header .nav-airdolomiti .nav-ad-phone-search input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0 52px 0 20px;
+  border: 1px solid #e5e7eb;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #494949;
+  font-family: inherit;
+  font-size: 17.28px;
+}
+
+.header .nav-airdolomiti .nav-ad-phone-search button {
+  position: absolute;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #002e54;
+  cursor: pointer;
+}
+
+.header .nav-airdolomiti .nav-ad-icon-search {
+  width: 20px;
+  height: 20px;
+}
+
+.header .nav-airdolomiti .nav-ad-phone .nav-ad-quick {
+  box-sizing: border-box;
+  min-height: 50vh;
+  margin-bottom: 30px;
+  padding: 20px;
+  background-color: #008293;
+  color: #fff;
+}
+
+.header .nav-airdolomiti .nav-ad-phone .nav-ad-quick-title {
+  margin: 0 0 16px;
+  color: #fff;
+  font-size: 15.12px;
+  line-height: 20px;
+  text-transform: uppercase;
+}
+
+.header .nav-airdolomiti .nav-ad-phone .nav-ad-quick-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.header .nav-airdolomiti .nav-ad-phone .nav-ad-quick-link {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: #fff;
+  font-size: 19.44px;
+  font-weight: 600;
+  line-height: 30px;
+  text-decoration: none;
+  text-transform: none;
+}
+
+.header .nav-airdolomiti .nav-ad-phone .nav-ad-quick-link:hover {
+  text-decoration: underline;
+}
+
+.header .nav-airdolomiti .nav-ad-phone .nav-ad-quick-link :is(picture, img) {
+  display: block;
+  flex: 0 0 20px;
+  width: 20px;
+  height: 20px;
+}
+
+.header .nav-airdolomiti .nav-ad-phone-language {
+  padding: 0 20px;
+}
+
+.header .nav-airdolomiti .nav-ad-phone-lang {
+  display: flex;
+  align-items: center;
+  margin: 0 0 20px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #002e54;
+  font-family: inherit;
+  font-size: 15.12px;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+.header .nav-airdolomiti .nav-ad-icon-globe {
+  width: 20px;
+  height: 20px;
+  margin-right: 20px;
+}
+
+.header .nav-airdolomiti .nav-ad-icon-chevron {
+  width: 15px;
+  height: 15px;
+  margin-left: 20px;
+  transition: transform 0.3s ease;
+}
+
+.header .nav-airdolomiti .nav-ad-phone-lang[aria-expanded="true"] .nav-ad-icon-chevron {
+  transform: rotate(180deg);
+}
+
+.header .nav-airdolomiti .nav-ad-phone-languages {
+  margin: 0 0 20px;
+  padding: 0 0 0 40px;
+  list-style: none;
+}
+
+.header .nav-airdolomiti .nav-ad-phone-languages[hidden] {
+  display: none;
+}
+
+.header .nav-airdolomiti .nav-ad-phone-languages li {
+  margin-bottom: 15px;
+}
+
+.header .nav-airdolomiti .nav-ad-phone-languages a:any-link {
+  color: #002e54;
+  font-size: 15.12px;
+  line-height: 20px;
+}
+
+.header .nav-airdolomiti .nav-ad-phone-items {
+  margin: 0 20px 35px;
+  padding: 0;
+  border-bottom: 1px solid #757575;
+  list-style: none;
+}
+
+.header .nav-airdolomiti .nav-ad-phone-items > li {
+  margin-bottom: 40px;
+}
+
+.header .nav-airdolomiti .nav-ad-phone-item {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #040f32;
+  font-family: inherit;
+  font-size: 23.76px;
+  font-weight: 600;
+  line-height: 30px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.header .nav-airdolomiti .nav-ad-icon-arrow {
+  width: 25px;
+  height: 25px;
+  color: #333;
+  transition: transform 0.3s ease;
+}
+
+.header .nav-airdolomiti .nav-ad-phone-item[aria-expanded="true"] {
+  color: #008293;
+}
+
+.header .nav-airdolomiti .nav-ad-phone-item[aria-expanded="true"] .nav-ad-icon-arrow {
+  color: #008293;
+  transform: rotate(90deg);
+}
+
+.header .nav-airdolomiti .nav-ad-phone-sub {
+  padding: 15px 0;
+}
+
+.header .nav-airdolomiti .nav-ad-phone-sub[hidden] {
+  display: none;
+}
+
+.header .nav-airdolomiti .nav-ad-phone-sub .nav-ad-group {
+  margin-top: 30px;
+}
+
+/* www's columns are one list: a title 30px under the links before it, 40px after its "View all"
+   and before the bold links; a section without bold links ends 30px lower (www's empty group) */
+.header .nav-airdolomiti .nav-ad-phone-sub .nav-ad-group + .nav-ad-group-bold {
+  margin-top: 40px;
+}
+
+.header .nav-airdolomiti .nav-ad-phone-sub:not(:has(.nav-ad-group-bold)) {
+  padding-bottom: 45px;
+}
+
+.header .nav-airdolomiti .nav-ad-phone-sub .nav-ad-group-title {
+  margin: 0 0 20px;
+  color: #757575;
+  font-size: 15.12px;
+  line-height: 20px;
+  text-transform: uppercase;
+}
+
+.header .nav-airdolomiti .nav-ad-phone-sub .nav-ad-group-title a:any-link {
+  color: inherit;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.header .nav-airdolomiti .nav-ad-phone-sub .nav-ad-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.header .nav-airdolomiti .nav-ad-phone-sub .nav-ad-list li {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.header .nav-airdolomiti .nav-ad-phone-sub .nav-ad-group-bold .nav-ad-list li {
+  margin-bottom: 20px;
+}
+
+.header .nav-airdolomiti .nav-ad-phone-sub .nav-ad-list li:has(> .nav-ad-link-more) {
+  margin-bottom: 40px;
+}
+
+.header .nav-airdolomiti .nav-ad-phone-sub .nav-ad-link:any-link {
+  color: #040f32;
+  font-size: 17.28px;
+  font-weight: 400;
+  line-height: 24px;
+  text-decoration: none;
+}
+
+.header .nav-airdolomiti .nav-ad-phone-sub .nav-ad-link-bold:any-link {
+  font-size: 19.44px;
+  font-weight: 700;
+  line-height: 28px;
+}
+
+.header .nav-airdolomiti .nav-ad-phone-sub .nav-ad-link-more:any-link,
+.header .nav-airdolomiti .nav-ad-phone-sub .nav-ad-link:any-link:hover {
+  text-decoration: underline;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header .nav-airdolomiti :is(.nav-ad-icon-arrow, .nav-ad-icon-chevron) {
+    transition: none;
   }
 }

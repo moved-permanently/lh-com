@@ -1040,8 +1040,8 @@ export default async function decorate(block) {
     logo: headerStyle.flyoutLogo && brandEl.querySelector('img') ? brandEl.querySelector('img').cloneNode(true) : null,
     note: menuNote,
   });
-  // (TAP: the menu button opens its own menu, below)
-  if (!tap) flyout.bind(menuButton);
+  // (TAP: the menu button opens its own menu, below; Air Dolomiti its phone menu)
+  if (!tap && !airdolomiti) flyout.bind(menuButton);
 
   // the footer's country/language button opens the same dialog (a brand site without roots: the
   // menu with its language switch)
@@ -1061,6 +1061,7 @@ export default async function decorate(block) {
 
   // the menu in the bar (header.menu 'bar'): the top items with their drop-downs from 1025px
   let barMenu = null;
+  let phoneMenu = null;
   if (tap) {
     // TAP's own menu (./header-tap.js): www's panels in the bar, its accordion on phones
     barMenu = tap.buildTapMenu(menu, {
@@ -1073,6 +1074,21 @@ export default async function decorate(block) {
       link: (href, label, className) => navLink(href, label, className, labels),
     });
     menuButton.addEventListener('click', () => barMenu.close());
+    // below 1025px www's phone menu (brief 447): Close, the search field, the quick actions, the
+    // items opening in place, the languages
+    phoneMenu = airdolomiti.buildAirDolomitiPhoneMenu(menu, {
+      link: (href, label, className) => navLink(href, label, className, labels),
+      menuButton,
+      lang: locale.lang,
+      labels: { ...labels, menu: menuLabel, search: searchTool ? searchTool.label : '' },
+      search: searchTool && searchTool.href ? searchTool.href : null,
+      languages: siteSwitch ? {
+        current: locale.lang,
+        links: siteSwitch.links.map((l, i) => ({
+          label: l.label, lang: l.lang, home: l.home, target: switchTargets[i],
+        })),
+      } : null,
+    });
   } else if (headerStyle.menu === 'bar') {
     const { default: buildBarMenu } = await import('./header-bar-menu.js');
     barMenu = buildBarMenu(menuItems, {
@@ -1084,7 +1100,7 @@ export default async function decorate(block) {
     menuButton.addEventListener('click', () => barMenu.close());
   }
   const bar = el('div', { className: 'nav-bar' }, brandEl, barMenu ? barMenu.root : null, quickEl, toolsEl);
-  const nav = el('nav', { id: 'nav', 'aria-label': labels.nav }, bar, bell ? bell.panel : null, flyout.flyout);
+  const nav = el('nav', { id: 'nav', 'aria-label': labels.nav }, bar, bell ? bell.panel : null, flyout.flyout, phoneMenu ? phoneMenu.root : null);
   // the menu and the notifications panel: one at a time
   if (bell) menuButton.addEventListener('click', () => bell.close());
   if (a11y) menuButton.addEventListener('click', () => a11y.close());
