@@ -646,8 +646,32 @@ function convertSeparators(document) {
  * blockquote keeps the class authorquote, so the template selectors that leave column views
  * with a quote alone (:has(.authorquote)) match as before. Outside articles a quote in a
  * .section-narrow (72rem, centred) gets " {narrow}" after its first paragraph (scripts.js
- * PARAGRAPH_STYLE; /de/en/first-class).
+ * PARAGRAPH_STYLE; /de/en/first-class). A quote alone in its AEM section next to a padded one
+ * (.section-padding-y-regular: 40px, 20px on phones; /de/en/first-class-terminal, brief 441): the
+ * replica has them in one section, so spacers stand for the padding: before the quote "{spacer-0}"
+ * (the paragraph's margin then no longer collapses into the quote's) and "{spacer-14 from-768}",
+ * after it "{spacer-53}" and "{spacer-17 from-768}" (the section's .mb-default too; measured at
+ * 1440 and 390 against www).
  */
+const QUOTE_SPACERS = { before: ['spacer-0', 'spacer-14 from-768'], after: ['spacer-53', 'spacer-17 from-768'] };
+
+/** The meaningful AEM section before or after `aem` (dir: previousElementSibling | nextElementSibling). */
+function aemNeighbour(aem, dir) {
+  let n = aem[dir];
+  while (n && !(n.classList.contains('section') && (cleanText(n) || n.querySelector('img, picture, video, iframe')))) n = n[dir];
+  return n;
+}
+
+const paddedAem = (n) => !!n && !!n.querySelector(':scope > div > .section-padding-y-regular');
+
+/** Spacer paragraphs ("{spacer-N}", "{spacer-N from-768}") for the given tokens. */
+function spacerParagraphs(document, tokens) {
+  return tokens.map((t) => {
+    const sp = document.createElement('p');
+    sp.textContent = `{${t}}`;
+    return sp;
+  });
+}
 function convertAuthorQuotes(document) {
   let converted = 0;
   document.querySelectorAll('.dcep-author-quote').forEach((quote) => {
@@ -669,10 +693,39 @@ function convertAuthorQuotes(document) {
     if (!quote.closest('.article-details-page') && quote.closest('.section-narrow')) {
       bq.firstElementChild.append(document.createTextNode(' {narrow}'));
     }
-    (quote.closest('.authorquote') || quote).replaceWith(bq);
+    const holder = quote.closest('.authorquote') || quote;
+    const aem = !quote.closest('.article-details-page') && holder.closest('.container-content > .section');
+    const content = aem && holder.closest('.section-content');
+    const alone = content && [...content.children].every((c) => c === holder || !cleanText(c));
+    const padded = (dir) => paddedAem(aemNeighbour(aem, dir));
+    holder.replaceWith(...(alone && padded('previousElementSibling') ? spacerParagraphs(document, QUOTE_SPACERS.before) : []), bq,
+      ...(alone && padded('nextElementSibling') ? spacerParagraphs(document, QUOTE_SPACERS.after) : []));
     converted += 1;
   });
   return converted;
+}
+
+/**
+ * An image carousel (.carousel with a single-slide swiper, carousel-images) alone in a padded AEM
+ * section before an unpadded, not grey one (/de/en/first-class-terminal: the carousel, then "Your
+ * affairs in the best hands", brief 441): www has the carousel section's padding (40px, 20px on
+ * phones) and its .mb-default below the dots, the replica only the gap between two blocks. Spacers
+ * after it: "{spacer-43}" and "{spacer-17 from-768}" (the heading 62px lower at 1440, 44 at 390, as
+ * www). Returns the number of carousels.
+ */
+function padCarouselSections(document) {
+  let padded = 0;
+  document.querySelectorAll('.container-content > .section .section-content > .carousel').forEach((carousel) => {
+    if (!carousel.querySelector('.swiper-single-slide')) return;
+    const content = carousel.parentElement;
+    const aem = content.closest('.container-content > .section');
+    if (!paddedAem(aem) || ![...content.children].every((c) => c === carousel || !cleanText(c))) return;
+    const next = aemNeighbour(aem, 'nextElementSibling');
+    if (!next || paddedAem(next) || next.querySelector('.container-gray')) return;
+    carousel.after(...spacerParagraphs(document, ['spacer-43', 'spacer-17 from-768']));
+    padded += 1;
+  });
+  return padded;
 }
 
 /**
@@ -1662,6 +1715,7 @@ export default function transform(hookName, element, payload) {
     rewriteAnchors(document, pagePath);
     convertJumpLinks(document);
     convertAuthorQuotes(document);
+    padCarouselSections(document);
     restoreMovingImages(document);
     markParallaxImages(document);
     // info: column views for their padding markers, and flow spacing: the separators in running
