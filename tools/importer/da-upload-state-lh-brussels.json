@@ -176,9 +176,9 @@
    "preview": "2026-11-01T00:40:12.818Z"
   },
   "/be/en/travel-classes/economy": {
-   "uploaded": "2026-11-01T00:40:14.044Z",
-   "mtime": 1793493447889,
-   "preview": "2026-11-01T00:40:15.850Z"
+   "uploaded": "2026-11-07T01:06:01.398Z",
+   "mtime": 1794013504663,
+   "preview": "2026-11-07T01:06:03.443Z"
   },
   "/be/en/travel-classes/premium-economy": {
    "uploaded": "2026-11-06T15:53:31.068Z",
@@ -241,9 +241,9 @@
    "preview": "2026-11-01T00:40:54.463Z"
   },
   "/be/en/articles": {
-   "uploaded": "2026-11-01T00:40:55.749Z",
-   "mtime": 1793493496604,
-   "preview": "2026-11-01T00:40:57.413Z"
+   "uploaded": "2026-11-07T01:05:41.988Z",
+   "mtime": 1794013504584,
+   "preview": "2026-11-07T01:05:44.015Z"
   },
   "/be/en/flying-with-us/art-design": {
    "uploaded": "2026-11-01T01:45:04.507Z",
@@ -636,9 +636,9 @@
    "preview": "2026-11-01T01:04:24.653Z"
   },
   "/be/fr/articles": {
-   "uploaded": "2026-11-01T01:04:25.739Z",
-   "mtime": 1793494937996,
-   "preview": "2026-11-01T01:04:27.720Z"
+   "uploaded": "2026-11-07T01:05:32.896Z",
+   "mtime": 1794013504530,
+   "preview": "2026-11-07T01:05:35.888Z"
   },
   "/be/fr/flying-with-us/art-design": {
    "uploaded": "2026-11-01T01:45:17.993Z",
@@ -646,9 +646,9 @@
    "preview": "2026-11-01T01:45:20.128Z"
   },
   "/be/fr/our-company": {
-   "uploaded": "2026-11-01T01:55:57.436Z",
-   "mtime": 1793497941337,
-   "preview": "2026-11-01T01:55:59.372Z"
+   "uploaded": "2026-11-07T01:05:37.784Z",
+   "mtime": 1794013504556,
+   "preview": "2026-11-07T01:05:40.254Z"
   },
   "/be/fr/lufthansa-group": {
    "uploaded": "2026-11-01T01:04:34.937Z",
@@ -786,14 +786,14 @@
    "preview": "2026-11-01T01:05:58.386Z"
   },
   "/be/fr/travel-classes/premium-economy": {
-   "uploaded": "2026-11-06T15:54:34.171Z",
-   "mtime": 1793963769056,
-   "preview": "2026-11-06T15:54:36.130Z"
+   "uploaded": "2026-11-07T01:05:45.606Z",
+   "mtime": 1794013504609,
+   "preview": "2026-11-07T01:05:48.310Z"
   },
   "/be/fr/travel-classes/business": {
-   "uploaded": "2026-11-06T15:54:26.139Z",
-   "mtime": 1793963769012,
-   "preview": "2026-11-06T15:54:28.259Z"
+   "uploaded": "2026-11-07T01:05:50.033Z",
+   "mtime": 1794013504636,
+   "preview": "2026-11-07T01:05:52.672Z"
   },
   "/be/fr/contact": {
    "uploaded": "2026-11-05T09:10:57.767Z",
@@ -6951,9 +6951,9 @@
    "preview": "2026-11-01T20:08:21.389Z"
   },
   "/fr/fr/homepage": {
-   "uploaded": "2026-11-01T20:08:23.078Z",
-   "mtime": 1793563323370,
-   "preview": "2026-11-01T20:08:25.471Z"
+   "uploaded": "2026-11-07T01:05:28.316Z",
+   "mtime": 1794013504503,
+   "preview": "2026-11-07T01:05:31.118Z"
   },
   "/gb/en/homepage": {
    "uploaded": "2026-11-01T20:08:27.196Z",
@@ -7496,9 +7496,9 @@
    "preview": "2026-11-01T20:10:00.743Z"
   },
   "/ke/en/homepage": {
-   "uploaded": "2026-11-01T20:10:02.468Z",
-   "mtime": 1793563324510,
-   "preview": "2026-11-01T20:10:04.520Z"
+   "uploaded": "2026-11-07T01:05:23.759Z",
+   "mtime": 1794013504474,
+   "preview": "2026-11-07T01:05:26.436Z"
   },
   "/lr/en/homepage": {
    "uploaded": "2026-11-01T20:10:06.239Z",
@@ -8359,6 +8359,16 @@
    "uploaded": "2026-11-06T22:52:08.089Z",
    "mtime": 1794005514574,
    "preview": "2026-11-06T22:52:10.081Z"
+  },
+  "/be/fr/articles/milan-citytrip": {
+   "uploaded": "2026-11-07T01:05:54.045Z",
+   "mtime": 1794013228301,
+   "preview": "2026-11-07T01:05:59.619Z"
+  },
+  "/be/en/articles/milan-citytrip": {
+   "uploaded": "2026-11-07T01:06:04.779Z",
+   "mtime": 1794013228342,
+   "preview": "2026-11-07T01:06:07.012Z"
   }
  },
  "media": {

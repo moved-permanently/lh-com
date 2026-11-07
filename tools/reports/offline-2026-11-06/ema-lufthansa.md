@@ -531,3 +531,37 @@ Not ours (www's own design):
   where www's is an input's placeholder).
 
 Everything else: 0 violations on all 84 Air Dolomiti and 80 TAP page-widths.
+
+### 2a. Brussels P38 and P41 (brussels-snapshots-014, brussels-parity-003)
+
+Both archives from the drop (sha256 097d19b0…f423a6 and f78cf1fc…16ecb7e, as their .sha256). The
+ten pages of snapshots-014 placed in the Brussels importer's snapshots (the eight older captures kept
+on this machine), imported with brussels-import.mjs, each against DA's current copy:
+
+- From DA, as in the package's item 3 (this machine has not the workspace's scope.json and page
+  list): the markets and chat-button metadata rows, and 22 links DA has relative that the import
+  made absolute (relink).
+- The homepages (/fr/fr, /ke/en): their teasers are www's newer ones (P38), so DA's older teasers
+  and their pictures go (each checked: not in the new capture). Their flight search kept as DA has
+  it: the shared flight-search import now writes the group-booking link and the new passenger
+  labels in English on French pages ("Group bookings for 10 or more passengers.", "Children",
+  "Infants without seat") and the link to www's /content/bel/markets/... address; for ema-cashub.
+- The class pages and our-company: www's stage is now inspiration-teaser-tall, so the import
+  (rightly) writes no narrow; the Brussels theme's title rule keyed on narrow. Now every stage's
+  title (h1, h2 or h3, but the white card's) as www's inspiration teaser's in all three Brussels
+  parity captures: white, capitals, 36 / 39.6 px, 48 / 52.8 px from 768 px; the tabs close up to
+  any stage. Tests first: test/brussels-443.test.mjs (test/brussels-parity-002 follows).
+- The two Milan articles are new documents.
+
+Uploaded and previewed (ten). Against brussels-parity-003 at 1440 and 390 (local dev server with the
+code and lh-brussels' preview content): our-company, the three class pages, ke/en: no difference;
+fr/fr at 1440 lacks only www's destination finder's status line ("Les offres pour Aller-retour sont
+affichées", the shared block's); the Milan articles: no difference. The hubs (blog-overview) list
+the site's query index, so Milan shows there once the articles are published and indexed (P41).
+parity.md P38 and P41.
+
+Preview paths (release order: the brussels.css commit, then these, the Milan articles before the
+hubs): /be/fr/articles/milan-citytrip, /be/en/articles/milan-citytrip, /be/fr/articles,
+/be/en/articles, /be/fr/our-company, /be/en/travel-classes/economy,
+/be/fr/travel-classes/business, /be/fr/travel-classes/premium-economy, /fr/fr/homepage,
+/ke/en/homepage.
