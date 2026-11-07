@@ -817,3 +817,69 @@ own.
 
 Documents (uploaded to DA and previewed, not published): no files; 74 lufthansa.com pages in
 `tools/reports/offline-2026-11-06/preview-paths-after-467b.txt`.
+
+## The brief after 471 (a visual parity sweep of Austrian and Brussels)
+
+Left uncommitted by 471, and still out of git: `.migration/project.json` (the harness's state), the import reports
+`tools/importer/reports/**` (generated per run), `content/`, `content-sites/` and `migration-work/` (local documents and
+workspaces; DA is the source), `logs/` and `/tmp` (scripts, captures, measurements, DA backups). Nothing was unpushed.
+
+### The sweep
+
+`tools/reports/parity-2026-11-08/sweep-austrian-brussels.md`: the 32 captured pages (22 Austrian from austrian-parity-001,
+10 Brussels from brussels-parity-003; no new request to www) at 1440 and 390, 64 lines worst first. Each line has the page
+height (www / ours), the h1/h2 offsets, the pictures' widths, the pixel difference and the cause where found. Ours was
+rendered on austrian.turnsthe.page and brussels.turnsthe.page with the captures' settle method (all 64 answered 200).
+brussels-parity-003's sha256 equals its .sha256. austrian-parity-001's .sha256 answers 404, so it was checked against the
+checksum recorded in tools/reports/austrian/parity.md (equal).
+
+Top 10 by the height difference:
+
+| # | page | width | height | cause |
+| --- | --- | --- | --- | --- |
+| 1-2 | Brussels /be/en/articles, /be/fr/articles | 1440 | +134 %, +130 % | three video items (a three-column view on www) imported as three stacked one-cell columns-media: insights, ema-adobe (for you) |
+| 3-4 | Austrian /at/en/homepage, /at/de/homepage | 1440 | -9.9 %, -9.8 % | www's live alert strip, another stage campaign, offers that did not load (homepage blocks, data); the fare teaser's title (fixed, Austrian 44) |
+| 5 | Austrian /at/en/homepage | 390 | -8.3 % | the same |
+| 6 | Brussels /be/fr/travel-classes/premium-economy | 1440 | -8.1 % | the gallery half width (fixed, Brussels P43: -0.2 % with the rule) |
+| 7 | Austrian /at/de/homepage | 390 | -7.8 % | as 3-4 |
+| 8 | Brussels /be/fr/travel-classes/business | 1440 | -7.7 % | the gallery half width (fixed, P43: -2.1 % with the rule) |
+| 9 | Brussels /be/fr/travel-classes/business | 390 | -7.7 % | -482 px in the columns-media rows above the gallery; not located yet (mine, next) |
+| 10 | Brussels /be/en/articles | 390 | -5.9 % | blog-overview cards 57-84 px shorter: ema-adobe (for you) |
+
+### Fixes (test first)
+
+- **Brussels P43**: the carousel-lightbox parser gives a brusselsairlines.com slideshow outside a column view option wide,
+  so the preview takes the full width from 768 px (www: about 1,250 px at 1440; ours was 622). The host is read from
+  params.originalURL, else url. lufthansa.com's slideshows keep the half width. Test: test/brussels-gallery-wide.test.mjs.
+  Bundle: import-fleet, the only bundle with carousel-lightbox; every bundle was rebuilt, the 13 others differed only in
+  generated names and were left as they were. A snapshot import of /be/fr/travel-classes/business gives
+  `carousel-lightbox wide`. Measured with the rule injected on brussels.turnsthe.page: business 6321 px (www 6458, before
+  5960), premium-economy 4609 (4620, 4248).
+- **Austrian 44**: the theme sets the fare teaser's title ("Winter deals") as www's heading-xl. Test:
+  test/austrian-fare-teaser-heading.test.mjs. CSS only.
+
+The other agents' causes are listed in the sweep file under "for you" (insights' video columns, blog-overview cards,
+Austrian homepage data, the Brussels homepages' stage, the contact app's h1). None of them was changed.
+
+### Documents
+
+None uploaded this round. The 51 Brussels documents with a gallery outside a column view need a re-import with main's
+bundles (the harness): `tools/reports/parity-2026-11-08/reimport-brussels-galleries.txt`. The 6 trident pages of the 57
+have no carousel-lightbox. Austrian: none (CSS).
+
+### Hosts checked
+
+- austrian.turnsthe.page and brussels.turnsthe.page: the 64 measurements, and the fixes' rules injected.
+- The captures rendered locally by their own serve.py (Chrome resolving no other host): www's picture widths.
+
+### Checks
+
+- Lint and the full suite before the push, in a fresh worktree of 7b27b9fe (9ebf3dbc after the pull, which brought only the harness's upload state): eslint 0, stylelint 0, 511 passed; after the pull lint and the two new tests again.
+- Smoke on all 12 hosts before and after the push (logs/p4/smoke471).
+
+### Summary (the brief after 471)
+
+| item | commit | what | rollback |
+| --- | --- | --- | --- |
+| 3 | `9ebf3dbc` | Brussels galleries option wide (parser, block, import-fleet bundle); Austrian fare teaser title | `git revert`; no documents changed |
+| 1-3 | this report's commit | the sweep file, the re-import list, Austrian 44 and Brussels P43, this report | – |
