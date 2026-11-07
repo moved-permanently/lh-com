@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-homepage.js
-  var import_homepage_exports = {};
-  __export(import_homepage_exports, {
-    default: () => import_homepage_default
+  var tmp_bundle_homepage_473092_exports = {};
+  __export(tmp_bundle_homepage_473092_exports, {
+    default: () => tmp_bundle_homepage_473092_default
   });
 
   // tools/importer/parsers/flash-teaser.js
@@ -3076,11 +3076,26 @@ var CustomImportScript = (() => {
     if ((frag.textContent || "").replace(/[\s ​]/g, "")) return true;
     return !!frag.querySelector(MEDIA2);
   }
+  function spacersBetween(document, from, to) {
+    const range = document.createRange();
+    range.setStartAfter(from);
+    range.setEndBefore(to);
+    return [...range.cloneContents().querySelectorAll("p")].some((p) => /^\{(?:spacer|divider)-\d/.test(p.textContent.trim()));
+  }
+  var isGrey = (hr) => !!hr && (hr.getAttribute(SOURCE_STYLE) || "").split(" ").includes("grey");
   function dropEmptyBreaks(document, root) {
     const breaks = [...document.querySelectorAll(`hr[${BREAK}]`)].filter((hr) => !hr.closest("table"));
     let prev = null;
+    let before = null;
     breaks.forEach((hr) => {
       if (contentBetween(document, root, prev, hr)) {
+        before = prev;
+        prev = hr;
+        return;
+      }
+      if (prev && isGrey(before) && isGrey(hr) && !prev.hasAttribute(SOURCE_STYLE) && !prev.hasAttribute(MARKER) && spacersBetween(document, prev, hr)) {
+        prev.setAttribute(SOURCE_STYLE, "gap");
+        before = prev;
         prev = hr;
         return;
       }
@@ -3452,7 +3467,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var import_homepage_default = {
+  var tmp_bundle_homepage_473092_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -3482,5 +3497,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(import_homepage_exports);
+  return __toCommonJS(tmp_bundle_homepage_473092_exports);
 })();

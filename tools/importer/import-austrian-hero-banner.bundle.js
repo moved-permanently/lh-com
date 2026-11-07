@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-austrian-hero-banner.js
-  var tmp_bundle_austrian_hero_banner_462964_exports = {};
-  __export(tmp_bundle_austrian_hero_banner_462964_exports, {
-    default: () => tmp_bundle_austrian_hero_banner_462964_default
+  var tmp_bundle_austrian_hero_banner_473092_exports = {};
+  __export(tmp_bundle_austrian_hero_banner_473092_exports, {
+    default: () => tmp_bundle_austrian_hero_banner_473092_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -4440,7 +4440,8 @@ var CustomImportScript = (() => {
       const filled = collected.filter((c) => c.length);
       const isImage = (n) => n.nodeType === 1 && !clean2(n.textContent) && (n.matches("img, picture") || !!n.querySelector("img, picture")) && !n.querySelector("video, iframe");
       const loneImage = items.length > 1 && filled.length === 1 && filled[0].every(isImage);
-      const row = (hasEmbed || nestedView || loneImage) && filled.length ? collected.map((c) => c.length ? c : "") : filled;
+      const halfAlone = element.matches(".twocolumn") && items.length === 2 && filled.length === 1;
+      const row = (hasEmbed || nestedView || loneImage || halfAlone) && filled.length ? collected.map((c) => c.length ? c : "") : filled;
       if (row.length) cells.push(row);
       const sliderView = items.some((it) => [...it.querySelectorAll(".column-view > .carousel")].some((c) => c.querySelectorAll(".hidden-md-down .image img").length > 1));
       if (sliderView) variants.push("slider");
@@ -6649,7 +6650,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_austrian_hero_banner_462964_default = {
+  var tmp_bundle_austrian_hero_banner_473092_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -6679,5 +6680,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_austrian_hero_banner_462964_exports);
+  return __toCommonJS(tmp_bundle_austrian_hero_banner_473092_exports);
 })();
