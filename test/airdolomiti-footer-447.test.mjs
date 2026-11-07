@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
-/* Air Dolomiti's footer from 1025 px (styles/themes/airdolomiti.css), brief 447: as www's at 1440 in
-   airdolomiti-parity-001 (its Footer_* rules, from 930 px; ours switches at 1025 px as the footer
+/* Air Dolomiti's footer from 930 px (styles/themes/airdolomiti.css), briefs 447 and 448: as www's at 1440 in
+   airdolomiti-parity-001 (its Footer_* rules, from 930 px; ours too since brief 448, before at 1025 px as the footer
    block does), measured on the archive rendered with its own stylesheets:
    - 85 px from the sides (Footer_footer_blue's padding);
    - the four pills across the columns' width (x 443 to 1355), 69 px high;
@@ -19,13 +19,13 @@ import fs from 'node:fs';
 const css = fs.readFileSync(new URL('../styles/themes/airdolomiti.css', import.meta.url), 'utf8').replace(/\/\*[\s\S]*?\*\//g, '').replace(/\s+/g, ' ');
 const media = (() => {
   const i = css.indexOf('body.brand-airdolomiti footer .footer { --footer-surface: #00798a;');
-  return css.slice(css.lastIndexOf('@media (width >= 1025px)', i), css.indexOf('body.brand-airdolomiti .flight-search .flight-search-trip-tabs'));
+  return css.slice(css.lastIndexOf('@media (width >= 930px)', i), css.indexOf('body.brand-airdolomiti .flight-search .flight-search-trip-tabs'));
 })();
 const has = (re, msg) => assert.ok(re.test(media), msg ? `${msg}: ${re}` : String(re));
 const F = 'body\\.brand-airdolomiti footer \\.footer';
 
 test('85 px from the sides; links 16 / 22 px with no gap, underlined', () => {
-  assert.match(css, /@media \(width >= 1025px\) \{[^@]*body\.brand-airdolomiti footer \{[^}]*--footer-side-margin: 85px;/);
+  assert.match(css, /@media \(width >= 930px\) \{[^@]*body\.brand-airdolomiti footer \{[^}]*--footer-side-margin: 85px;/);
   has(new RegExp(`${F} \\{[^}]*--footer-link-gap: 0px;[^}]*--footer-link-line-height: 22px;`));
   has(new RegExp(`${F} \\.footer-column-links a \\{[^}]*text-decoration: underline;`));
   has(new RegExp(`${F} \\.footer-column-title \\{[^}]*display: block;[^}]*margin: 0;[^}]*padding: 0;[^}]*border: 0;[^}]*line-height: 18px;`), 'the heading 18 px, 16 px above the links (the block\'s title padding, line and margin off)');

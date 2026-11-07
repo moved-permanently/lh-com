@@ -826,6 +826,18 @@ export function destinationCards(a, page) {
 // blocks that are lists of items (kept as blocks where they stand, not flattened into a column)
 const LIST_BLOCKS = /^lazyblock\/(tariffe-list|tariffe-table|news-list-grid|select-flight-list|add-baggage-cards|mini-card-slider|story-card-slider|cosa-fare-carroussel|gridtwocolumns)$/;
 
+/**
+ * www's news-list-grid (GridTreNews: the destinations hubs' cards, 9 a page with page numbers):
+ * its heading, its line and cards-teaser (three-up, paged) (brief 448: the block's option paged).
+ */
+export function newsListGrid(a, page) {
+  page.add(page.heading(a.tag === 'h3' ? 'h2' : (a.tag || 'h2'), a.titleHeder || a.title));
+  if (a.subtitle) page.add(`<p>${esc(plain(a.subtitle))}</p>`);
+  page.block('cards-teaser (three-up, paged)', (a.cardList || []).map((c) => cardRow(page, {
+    image: c.topImage || c.image, tag: a.tagCard || 'h3', title: c.title, text: c.date || c.subtitle, url: c.Url || c.url,
+  })));
+}
+
 const HANDLERS = {
   'lazyblock/herohome': (a, page) => {
     // the Message Center's flash teaser at the top (www's navbar alert: the site's notices)
@@ -926,13 +938,7 @@ const HANDLERS = {
       }),
     ]);
   },
-  'lazyblock/news-list-grid': (a, page) => {
-    page.add(page.heading(a.tag === 'h3' ? 'h2' : (a.tag || 'h2'), a.titleHeder || a.title));
-    if (a.subtitle) page.add(`<p>${esc(plain(a.subtitle))}</p>`);
-    page.block('cards-teaser (three-up)', (a.cardList || []).map((c) => cardRow(page, {
-      image: c.topImage || c.image, tag: a.tagCard || 'h3', title: c.title, text: c.date || c.subtitle, url: c.Url || c.url,
-    })));
-  },
+  'lazyblock/news-list-grid': (a, page) => newsListGrid(a, page),
   'lazyblock/select-flight-list': (a, page) => {
     page.add(page.heading(a.tag, a.title));
     if (a.description) page.add(`<p>${esc(plain(a.description))}</p>`);

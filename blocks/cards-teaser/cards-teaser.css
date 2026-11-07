@@ -552,3 +552,57 @@ body.brand-cargo .cards-teaser.overlay.fleet .cards-teaser-cta-link:any-link {
     display: none;
   }
 }
+
+/* option paged (./cards-teaser-pager.js; Air Dolomiti's www GridTreNews): under the cards, centred,
+   50px on: the arrows 30px, the page numbers 30px circles 10px apart (a grey ring; the current one
+   filled navy, white) */
+.cards-teaser .cards-teaser-pager {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.cards-teaser .cards-teaser-pager button {
+  box-sizing: border-box;
+  width: 30px;
+  height: 30px;
+  margin: 10px;
+  padding: 0;
+  border: 1px solid #a4a4a4;
+  border-radius: 50%;
+  background: none;
+  color: #05164d;
+  font-family: var(--body-font-family);
+  font-size: 15px;
+  line-height: 28px;
+  cursor: pointer;
+}
+
+.cards-teaser .cards-teaser-pager button[aria-current="page"] {
+  border-color: #05164d;
+  background-color: #05164d;
+  color: #fff;
+}
+
+.cards-teaser .cards-teaser-pager .cards-teaser-pager-arrow {
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath d='m12 8 7 7-7 7' fill='none' stroke='%23000' stroke-width='2'/%3E%3C/svg%3E") center / 30px no-repeat;
+}
+
+.cards-teaser .cards-teaser-pager .cards-teaser-pager-previous {
+  transform: scaleX(-1);
+}
+
+.cards-teaser .cards-teaser-pager .cards-teaser-pager-arrow:disabled {
+  color: #a4a4a4;
+  cursor: default;
+}
+
+.cards-teaser .cards-teaser-pager button:focus-visible {
+  outline: 2px solid var(--focus-color, #05164d);
+  outline-offset: 2px;
+}

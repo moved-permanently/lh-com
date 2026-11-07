@@ -127,6 +127,12 @@ export default async function decorate(block) {
     decorateSlider(block);
   }
 
+  // option paged (paged-N): a page of cards at a time with page numbers (./cards-teaser-pager.js)
+  if ([...block.classList].some((c) => /^paged(-\d+)?$/.test(c))) {
+    const { default: decoratePager } = await import('./cards-teaser-pager.js');
+    decoratePager(block, (document.documentElement.lang || getLocale().lang || 'en').slice(0, 2).toLowerCase());
+  }
+
   // TAP: the option slider is www's swiper, previous, next and bullets (R4-10)
   if (block.classList.contains('slider') && getMetadata('brand').trim().toLowerCase() === 'tap') {
     const { default: decorateTapNews } = await import('./cards-teaser-tap.js');

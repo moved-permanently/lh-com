@@ -497,6 +497,12 @@ export default async function decorate(block) {
     layoutTapFooter(block);
   }
 
+  // Air Dolomiti: the columns in www's phone order below 930px (footer-airdolomiti.js)
+  if (getMetadata('brand').trim().toLowerCase() === 'airdolomiti') {
+    const { default: orderFooterColumns } = await import('./footer-airdolomiti.js');
+    orderFooterColumns(block);
+  }
+
   syncAccordions(block);
   MOBILE.addEventListener('change', () => syncAccordions(block));
 }

@@ -164,7 +164,7 @@ body.brand-airdolomiti footer {
   }
 }
 
-@media (width >= 1025px) {
+@media (width >= 930px) {
   body.brand-airdolomiti footer {
     --footer-side-margin: 85px;
   }
@@ -998,18 +998,20 @@ body.brand-airdolomiti main > .section.newsletter > .newsletter-signup-wrapper {
 }
 
 /*
- * the footer below 768px, as www's phone footer (brief 447, airdolomiti-parity-001 at 390, its
- * FooterMobile_* rules; www's own switches at 930px): one column on teal #00798a, 40px in; no
+ * the footer below 930px, as www's phone footer (brief 447, airdolomiti-parity-001 at 390, its
+ * FooterMobile_* rules, up to www's 930px: brief 448): one column on teal #00798a, 40px in; no
  * search field and no pills; the company links first (19.44px / 30px, www's 1.8rem, underlined),
  * then the sections in www's order (Contacts, Passenger Assistance, Routes, Travel tips, Legal
- * info) as rows in capitals (28px high, 15px above and below, a white line, a 25px chevron); the
+ * info: blocks/footer/footer-airdolomiti.js puts them in that order, so Tab follows it) as rows in capitals (28px high, 15px above and below, a white line, a 25px chevron); the
  * address centred, 50px in; the payment logos (30px) across under their label in capitals; then
  * the dark band (#00616d): www's stacked logo with "Member of LUFTHANSA GROUP" (159 x 51) and the
  * social links as white circles (40px) 16px apart; last the company line (15.12px / 20px, grey on
- * white, 10px under the band). The footer's parts become one column (display: contents) so that
- * the logo row, the link area's sibling, takes its place in the band and keeps its home link.
+ * white, 10px under the band). The footer's parts become one column (display: contents); the logo
+ * row is hidden and its logo drawn in the band by the social links' group (www's phone logo is no
+ * link; the logo row's came after the social links in the Tab order). From 768px the footer
+ * block's open columns are folded again into rows that open.
  */
-@media (width < 768px) {
+@media (width < 930px) {
   body.brand-airdolomiti footer .footer {
     --footer-surface: #00798a;
 
@@ -1022,7 +1024,7 @@ body.brand-airdolomiti main > .section.newsletter > .newsletter-signup-wrapper {
     display: contents;
   }
 
-  body.brand-airdolomiti footer .footer :is(.footer-search, .footer-divider, .footer-badge-group:nth-child(1)) {
+  body.brand-airdolomiti footer .footer :is(.footer-search, .footer-divider, .footer-badge-group:nth-child(1), .footer-logos) {
     display: none;
   }
 
@@ -1030,18 +1032,22 @@ body.brand-airdolomiti main > .section.newsletter > .newsletter-signup-wrapper {
     display: flex;
     flex-direction: column;
     order: 1;
+    gap: 0;
     margin: 0;
     padding: 40px 40px 0;
   }
 
-  body.brand-airdolomiti footer .footer .footer-column:nth-child(2) { order: 1; }
-  body.brand-airdolomiti footer .footer .footer-column:nth-child(5) { order: 2; }
-  body.brand-airdolomiti footer .footer .footer-column:nth-child(4) { order: 3; }
-  body.brand-airdolomiti footer .footer .footer-column:nth-child(3) { order: 4; }
-  body.brand-airdolomiti footer .footer .footer-column:nth-child(6) { order: 5; }
-
   body.brand-airdolomiti footer .footer .footer-column-links {
+    display: none;
     padding: 0 0 15px;
+  }
+
+  body.brand-airdolomiti footer .footer .footer-column.is-open .footer-column-links {
+    display: block;
+  }
+
+  body.brand-airdolomiti footer .footer .footer-column-title {
+    display: none;
   }
 
   body.brand-airdolomiti footer .footer .footer-column:nth-child(1) .footer-column-heading {
@@ -1055,6 +1061,7 @@ body.brand-airdolomiti main > .section.newsletter > .newsletter-signup-wrapper {
   }
 
   body.brand-airdolomiti footer .footer .footer-column-toggle {
+    display: flex;
     margin-bottom: 15px;
     padding: 15px 0;
     border-bottom: 1px solid #fff;
@@ -1092,34 +1099,6 @@ body.brand-airdolomiti main > .section.newsletter > .newsletter-signup-wrapper {
     text-align: center;
   }
 
-  /* the band: the logo row's link with www's stacked logo (the document's logo stays in the link,
-     unseen, for its name), the social circles under it */
-  body.brand-airdolomiti footer .footer .footer-logos {
-    order: 4;
-    padding: 30px 40px 20px;
-    background-color: #00616d;
-  }
-
-  body.brand-airdolomiti footer .footer .footer-logos-inner {
-    padding: 0;
-  }
-
-  body.brand-airdolomiti footer .footer .footer-logos li {
-    margin: 0;
-  }
-
-  body.brand-airdolomiti footer .footer .footer-logos a {
-    width: 159px;
-    height: 51px;
-    background: url('/icons/airdolomiti-footer-logo-phone.svg') 0 0 / 159px 51px no-repeat;
-  }
-
-  body.brand-airdolomiti footer .footer .footer-logos img {
-    width: 159px;
-    height: 51px;
-    opacity: 0;
-  }
-
   body.brand-airdolomiti footer .footer .footer-badge-group:nth-child(3) {
     order: 3;
     margin: 0;
@@ -1152,8 +1131,18 @@ body.brand-airdolomiti main > .section.newsletter > .newsletter-signup-wrapper {
   body.brand-airdolomiti footer .footer .footer-badge-group:nth-child(2) {
     order: 5;
     margin: 0;
-    padding: 0 40px 30px;
+    padding: 30px 40px;
     background-color: #00616d;
+  }
+
+  /* the band's logo (www's stacked logo with "Member of LUFTHANSA GROUP", no link on www) */
+  body.brand-airdolomiti footer .footer .footer-badge-group:nth-child(2)::before {
+    content: "";
+    display: block;
+    width: 159px;
+    height: 51px;
+    margin: 0 auto 20px;
+    background: url('/icons/airdolomiti-footer-logo-phone.svg') 0 0 / 159px 51px no-repeat;
   }
 
   /* six circles are 320px, wider than the band's 310px: centred over its padding as www's */
@@ -1193,7 +1182,7 @@ body.brand-airdolomiti main > .section.newsletter > .newsletter-signup-wrapper {
 }
 
 /*
- * the footer from 1025px, as www's at 1440 (2026-11-04): teal #00798a; at the top on the right
+ * the footer from 930px (www's breakpoint; 1025px before brief 448), as www's at 1440 (2026-11-04): teal #00798a; at the top on the right
  * the main buttons as outlined pills (16px / 22px, 500, 20px 40px, a 10px radius); then the
  * company links on the left (318px, no title) with the address and the payment logos (36px)
  * under them, and the other columns three per row (contacts, news, routes; assistance, legal),
@@ -1207,7 +1196,7 @@ body.brand-airdolomiti main > .section.newsletter > .newsletter-signup-wrapper {
  * the payment logos three a row 20px apart; an external link's icon 20px, 10px after it; the
  * social links white circles with the glyph in the band's teal; the company line 14px / 18px.
  */
-@media (width >= 1025px) {
+@media (width >= 930px) {
   body.brand-airdolomiti footer .footer {
     --footer-surface: #00798a;
     --footer-heading-size: 14px;

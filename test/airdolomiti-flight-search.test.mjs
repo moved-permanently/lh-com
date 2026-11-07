@@ -57,3 +57,19 @@ test('www\'s booking widget on any other page (hubs, destinations, services; bri
   assert.deepEqual(calls, [], 'placed later (after the hero)');
   assert.ok(route.search && route.search.length, 'the rows');
 });
+
+test('www\'s news-list-grid (GridTreNews, the destinations hubs: 9 cards a page with page numbers) as cards-teaser (three-up, paged) (brief 448)', async () => {
+  const { newsListGrid } = await import('../tools/importer/airdolomiti-import.mjs');
+  const calls = [];
+  const page = {
+    add: (h) => calls.push(['add', h]),
+    block: (name, rows) => calls.push(['block', name, rows.length]),
+    heading: (tag, t) => `<${tag}>${t}</${tag}>`,
+    img: () => '',
+    link: (href, text) => `<p><a href="${href}">${text}</a></p>`,
+    href: (u) => u,
+    note: () => {},
+  };
+  newsListGrid({ title: 'Discover our destinations', cardList: [{ title: 'Ancona', subtitle: 'Discover the Marche region', url: 'https://www.airdolomiti.eu/destinations/ancona-eu' }] }, page);
+  assert.deepEqual(calls.find(([k]) => k === 'block'), ['block', 'cards-teaser (three-up, paged)', 1]);
+});
