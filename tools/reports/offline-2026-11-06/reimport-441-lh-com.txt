@@ -1,0 +1,14 @@
+# Brief 441, lufthansa.com pages to re-import by the harness with the rebuilt bundles (ema-cashub,
+# 2026-11-07); none uploaded from here.
+#   item 1 (info: columns-media button text and link lists, cards-icon-text partner teaser):
+#     /de/en/advance-seat-reservation, /de/en/carry-on-baggage
+#   item 5 (fleet: www's accordions): the First Class fleet pages
+/de/en/advance-seat-reservation
+/de/en/carry-on-baggage
+/de/en/lufthansa-first-class-fleet
+/gb/en/lufthansa-first-class-fleet
+/de/de/lufthansa-first-class-flotte
+/at/de/lufthansa-first-class-flotte
+/xx/pt/lufthansa-first-class-fleet
+/xx/hk/lufthansa-first-class-fleet
+/xx/ru/lufthansa-first-class-fleet

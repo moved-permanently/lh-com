@@ -301,3 +301,160 @@ Preview paths (release order, no files first): /xx/hk/common/seatreservation-con
 
 Note: one read of DA's online-check-in source (for a local render check) was stopped by the
 remote-content guard as if it were a write; nothing changed, the check used the preview's copy.
+
+## Brief 441
+
+Step 0 (what the last turn left): the importer's run output (import-progress.json, the per-page
+reports, report xlsx, urls-*.txt), migration-work/ (scratch scripts, logs, check imports) and the
+old stash@{0}: all still out of git, for the same reasons. Item 1's commit (`9cd86611`, `b81e0e42`
+after the rebase) was committed but not pushed yet; it went with this push.
+
+### 1. advance-seat-reservation and carry-on-baggage (lh-snapshots-064): importer only, done
+
+Commit `b81e0e42`, tests first (columns-media-buttonless-link, columns-media-link-list,
+legal-accordions):
+- advance-seat-reservation: "Book your Privacy Seat now" is a maui-button-link without a target on
+  www; the columns-media parser keeps its text as a paragraph.
+- carry-on-baggage: www moved the column views into a tab panel and the USA teaser out of a column
+  view; info's columns-media selector takes column views in a tab panel's one-column view, and
+  `.section-content > .teaser:has(> a.teaser.partner)` is a cards-icon-text partner card. The
+  baggage allowances per travel class (.imagelinklist) are columns-media option link-list, the
+  heading with its icon (as brief 404 built the document by hand).
+- Not uploaded; the harness re-imports `/de/en/advance-seat-reservation`, `/de/en/carry-on-baggage`
+  (in `reimport-441-lh-com.txt`). The local copies are DA's again; the imports are in my scratch.
+- switch-dam-pdfs.mjs: import-batch.mjs does not run it (nor switch-dam-media.mjs); batch-cycle.sh
+  neither. They are separate steps after the import; the re-imported carry-on-baggage keeps www's
+  video links until they run.
+
+### 2. The Brussels form pages (brussels-snapshots-013): done, uploaded and previewed
+
+Commit `58c49d05`, tests first (brussels-form-ids, lh-forms 77/77). Archive sha256
+05911132f06ef86a2af6c4c25f617630bfdb51e4d51347ac6cdb37c0b0793f4a (not in the drop's index; entries
+checked, nothing run from it).
+- brussels-import.mjs: `ask-invoice1` maps to `brussels-ask-invoice` (formIdOf).
+- lh-forms: the form id `brussels-rebooking-request-birthright`, titled as its page's h1 (18 Brussels
+  ids). Recipients are not in the repo, DA or this report; the worker's configuration needs its
+  recipient before the form sends (as for the other Brussels ids).
+- ro/en's ask-invoice1 had a second form on www, "Invoicing details Biztalk Test" (a street number
+  and a submit, posting to the same handler): a leftover test form. The importer drops a form whose
+  section title ends in "Test" (withoutTestForms); the page has one invoice form, as be/en's.
+- Imported, links to pages DA has made relative (/il/en/homepage, il/en's thank-you page,
+  /ro/en/homepage; the others stay on www: DA has no /il/en/legal-notices/data-protection-and-privacy-notice,
+  /ro/en/my-bookings/invoices or …/invoice-success), uploaded and previewed; DA equal to the local
+  copies. aem.page at 1440 and 390: one form each (14 fields, 9 fields), no overflow.
+
+### 3. Brussels: gift cards, travel regulations (importer and theme): done, re-import by the harness
+
+Commit `170a22a6`, tests first (cards-icon-text-buttons, cards-icon-text-partner, brussels-sidebar);
+checked with www's captures (brussels-parity-002a):
+- Gift cards: cards-icon-text made each card its last link and the button plain bold text. A card
+  whose link is an authored button (bold or italic) now keeps the button and is no link (brand-
+  neutral; of the local documents only Brussels' gift card block has such cards, so lufthansa.com
+  and SWISS render as before); 20 px above the button as www. Locally: 150 x 50 px outlined
+  secondary buttons at 1440 and 390, as www's 144 x 49.
+- "Your Gift Card": the parser kept a column view's own title only for B2B's icon modules; partner
+  teasers' title now stays before the block too (h2 {heading-small}, 28 px at 1440).
+- travel-regulations: www's sidebar (.airem-sidebar, content 75%) holds column views, so lh-com's
+  info template does not take it as a columns-media sidebar; its content came in as one full-width
+  section, all of it grey (the section transformer's grey region climbed to the sidebar). The
+  Brussels importer now gives the content column a col- class (where the grey region stops) and
+  two markers; after the import the sections between them get the section style sidebar (the
+  theme's 75% column), what is before and after split off (the hero, www's aside "Related topics").
+  The Brussels theme: a grey section in that column 32 px above and below, from 768 px grey from
+  the page's left edge to the column's edge. Locally at 1440: rows 938 px wide (www 937), the grey
+  box 0-1025 px (www 0-1025), 432 px high (www 430), its picture ending at 986 (www 985); at 390 671
+  px (www 683).
+- Re-import list (`tools/reports/brussels/reimport-441.txt`): flightvoucher, travel-regulations and
+  the six other captured pages with column views in a sidebar (connecting-africa en/fr and upgrades
+  en/fr, where brief 388 set the style by hand; online-check-in-options fr, new-destinations fr).
+  Each imported here from the captures and compared with DA: no passage lost (only the links this
+  partial checkout cannot make relative, and online-check-in-options' check-in widget, which renders
+  differently in the capture). Not uploaded.
+
+### 4. Cargo's delivery list: done (local file, git-ignored)
+
+`content-sites/lh-cargo/delivery/urls-all.tsv`: /de/-/der-eawb-wird-realität is in (public content;
+it was out because its title matched the eAWB portal rule), as its English twin. The two German
+articles with a capital umlaut (Änderungen im Vorstand…, …erhält Ökoglobe-Preis) are out ("404 on
+www"). 911 in, 205 out. The file is under content-sites/ (git-ignored), so nothing to commit.
+
+### 5. Open rows: done but one, see below
+
+- traveltricks at 390 (commit `e6a5dacc`): new cards-teaser option phone-slider (below 1025 px one card
+  per view, the next one peeking, a dot per card labelled with its title; from 1025 px the rows).
+  The cleanup drops www's swiper copy before the parsers, so it now marks the rows it keeps and the
+  parser sets the option. The seven traveltricks documents (de/en, de/de, at/de, gb/en, xx/hk, xx/pt,
+  xx/ru) from DA's copies with the option, uploaded and previewed. de/en at 390: 4340 px (5045 before,
+  www 4536; the block 453 px, www 451; the rest of the difference is in the rows above, as before);
+  1440 unchanged. The dots appear once this code is on main.
+- airline-apps at 1440: no change needed; since section C's icon fix the four apps are one row, the
+  tiles 210 px as www's 209, the link lines within 7 px, the content ending 4 px from www's.
+- lufthansa-first-class-fleet (commit `8c194452`): the fleet template had no accordion mapping, so www's
+  four "… in detail" accordions came in as open lists. fleet maps .accordion as info does. With
+  xx/pt's snapshot: 4970 -> 4076 px at 1440 (www de/en 4157), 6717 -> 4248 at 390 (www 4241). For
+  the harness's re-import (`reimport-441-lh-com.txt`): the seven First Class fleet pages.
+- first-class-terminal (commit `c02210b7`): the quote between two padded sections and the carousel before
+  an unpadded one get spacers from the cleanup (www's 40 / 20 px section padding the replica's one
+  section lacks); the seven documents from DA's copies with them, uploaded and previewed. de/en at
+  1440: quote 1315 (www 1314), carousel 1664 (1666), heading under it 2424 (2422); 390 within 5 px.
+- Open: two padded sections in a row get our 48 px section gap on top of their paddings, which
+  www has only when the first one has .mb-default (first-class-terminal: +48 px twice, before
+  "Cigar Lounge" and before "Daily welcome"). In the lufthansa.com snapshots 471 such pairs on 166
+  pages, 328 of them with .mb-default (www 104 px, ours 128) and 143 without (www 80, ours 128). The
+  fix belongs in lufthansa-sections.js (padded: style flush without .mb-default, the gap 24 / 0 px),
+  which is ema-test's this round; not changed here.
+
+### The push
+
+Lint and the full suite were green here before the push chain (410 of 410 files). The chain pulled
+main (20 commits, among them brief 438's carousel-cards phone-slider mark: compatible with ours,
+only the generated bundles and lh-com's upload state overlapped; bundles taken from main and
+rebuilt, `138d8542`; the upload state's two traveltricks entries kept with our later uploads), then
+stopped red on one file: `test/cargo-kf-phone-442.test.mjs` (ema-lufthansa's brief 442 test). It
+fails the same way on main's own code in this checkout and passes without the local Cargo asset map
+(`content-sites/lh-cargo/assets/files.json`, git-ignored): cargo-import makes the Facts & Figures
+link site-relative when that map is there, the test expects www's link. Not ours to change; for
+ema-lufthansa: the test could set its own asset map (or none). The suite in a clean worktree of our
+HEAD (no content-sites/): that file passes, all others too but own-links.test.mjs, which my run
+started from the wrong directory (it writes its fixture under the current directory; it passes in
+the normal run). Pushed by hand after a pull: `8bbb6d94..138d8542`. One rebase attempt stopped with
+"could not reset --hard" after creating its autostash; the autostash was pinned, the rebase aborted,
+the stash re-applied (nothing lost), the rebase redone with a named stash.
+
+Smoke of every brand before and after: no difference on airdolomiti, austrian, austrian-cn, b2b,
+brussels, cargo, discover, ita; lufthansa, lufthansa-cn and lufthansa-edge differ in the same 7
+published indexes (fleet-index.json and six sitemaps) already between two runs before anything was
+pushed (others' publishing; this round published nothing). On aem.page after the push: traveltricks
+at 390 the slider with its dots (4340 px), Brussels' current gift card page the outlined buttons
+(the "Your Gift Card" title comes with the re-import).
+
+Left out of git (as before, and why): the importer's run output (import-progress.json, the per-page
+reports, report xlsx, urls-*.txt: run state), migration-work/ (scratch scripts, logs, the check
+imports of this brief), the old stash@{0} (autostash), content-sites/ (local site data, git-ignored;
+Cargo's urls-all.tsv change of item 4 is there).
+
+### Summary
+
+| Item | Commit | What | Rollback |
+| --- | --- | --- | --- |
+| 1 | `b81e0e42` | columns-media: a button without a target as text, icon link lists (link-list); info: tab-panel column views, the partner teaser; Austrian templates | `git revert b81e0e42`; nothing uploaded |
+| 2 | `58c49d05` | Brussels ask-invoice1 -> brussels-ask-invoice, test form dropped; lh-forms brussels-rebooking-request-birthright; 2 pages uploaded and previewed | `git revert 58c49d05`; DA: the pages' previous versions (DA history), then preview |
+| 3 | `170a22a6` | cards-icon-text buttons and column title; Brussels sidebar sections; theme grey box | `git revert 170a22a6`; nothing uploaded |
+| 4 | - | Cargo urls-all.tsv: der-eawb-wird-realität in, the two capital-umlaut articles out | the file's three rows back (local, git-ignored) |
+| 5 | `e6a5dacc` | cards-teaser phone-slider; 7 traveltricks documents | `git revert e6a5dacc`; the documents work without it (the option is ignored); DA history for the old versions |
+| 5 | `8c194452` | fleet: www's accordions | `git revert 8c194452`; nothing uploaded |
+| 5 | `c02210b7` | cleanup spacers beside a quote / after a carousel in padded sections; 7 first-class-terminal documents | `git revert c02210b7`; DA history for the documents (the spacers are plain markers) |
+| - | `138d8542` | the bundles rebuilt after the rebase onto main (brief 438's carousel-cards mark with ours); the generated fleet script with accordion-columns | `git revert 138d8542`, then rebuild the bundles |
+| - | (this commit) | this report, the two re-import lists | revert this commit |
+
+Preview path lists (release order; no files first, the code first: merge main, then the pages):
+- lh-brussels (uploaded and previewed, not published): /il/en/rebooking-request-birthright,
+  /ro/en/my-bookings/invoices/ask-invoice1.
+- lh-com (uploaded and previewed, not published): /de/en/traveltricks, /de/de/traveltricks,
+  /at/de/traveltricks, /gb/en/traveltricks, /xx/hk/traveltricks, /xx/pt/traveltricks,
+  /xx/ru/traveltricks; /de/en/first-class-terminal, /de/de/first-class-terminal,
+  /at/de/first-class-terminal, /gb/en/first-class-terminal, /xx/hk/first-class-terminal,
+  /xx/pt/first-class-terminal, /xx/ru/first-class-terminal.
+- For the harness to re-import (not uploaded here): `tools/reports/brussels/reimport-441.txt` (8
+  Brussels pages), `tools/reports/offline-2026-11-06/reimport-441-lh-com.txt` (2 + 7 lufthansa.com
+  pages).

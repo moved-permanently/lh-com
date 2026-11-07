@@ -1,0 +1,20 @@
+# Brief 441 item 3, fixed in lh-com's cards-icon-text block and parser, the Brussels importer
+# (brussels-import.mjs withSidebarContent / withSidebarSections) and the Brussels theme (ema-cashub,
+# 2026-11-07). Checked with www's captures (brussels-parity-002a/002b/001). Re-import by the harness
+# with the rebuilt bundles; their other language versions very likely too (same structure).
+#   /be/en/book-a-flight/flightvoucher          gift cards' buttons, "Your Gift Card"
+#   /be/en/plan-your-trip/travel-regulations    content in the 75% column, the grey box a section
+#   /be/en/book-a-flight/connecting-africa      sidebar style written by the importer (DA: by hand)
+#   /be/fr/book-a-flight/connecting-africa      the same
+#   /be/en/extra-services/upgrades              the same (its second part)
+#   /be/fr/extra-services/upgrades              the same
+#   /be/fr/check-in-options-and-info/online-check-in-options   content in the 75% column
+#   /be/fr/flying-with-us/new-destinations      the same
+/be/en/book-a-flight/flightvoucher
+/be/en/plan-your-trip/travel-regulations
+/be/en/book-a-flight/connecting-africa
+/be/fr/book-a-flight/connecting-africa
+/be/en/extra-services/upgrades
+/be/fr/extra-services/upgrades
+/be/fr/check-in-options-and-info/online-check-in-options
+/be/fr/flying-with-us/new-destinations
