@@ -429,6 +429,18 @@ export function withEndSpacer(doc, html = '') {
   return `${doc.slice(0, last[0])}${sec.slice(0, cut)}<p>{spacer-${m[1]}}</p>${sec.slice(cut)}${doc.slice(last[1])}`;
 }
 
+/**
+ * A document without an h1 (the airlines-at-a-glance pages: the stage's logo, then "<Airline>
+ * Products & Services" as an h2; the brief after 463): its first h2 is the page's h1, its id and
+ * size marker kept, so it looks as before. A document with an h1, or without an h2, as it is.
+ */
+export function withPageHeading(doc) {
+  if (/<h1[\s>]/.test(doc)) return doc;
+  const m = doc.match(/<h2(\s[^>]*)?>([\s\S]*?)<\/h2>/);
+  if (!m) return doc;
+  return `${doc.slice(0, m.index)}<h1${m[1] || ''}>${m[2]}</h1>${doc.slice(m.index + m[0].length)}`;
+}
+
 export const templateOf = () => 'info';
 
 /** A snapshot as the import reads it. */
@@ -518,7 +530,7 @@ if (isMain) {
       const html = fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8');
       const markets = scope.documents[src]?.markets || [];
       // a tab set's panels as Tab sections (the markers withTabMarkers left, scripts/section-tabs.js)
-      const next = withEndSpacer(withB2bMetadata(withHotlineFinder(withB2bQuotes(withB2bForm(withStageColumns(withTabPanels(splitTabSections(doc))), p, html), html), labelsOf(hotlineRecord, p.split('/')[2]), imageOf(hotlineRecord)), p, html, markets), html);
+      const next = withPageHeading(withEndSpacer(withB2bMetadata(withHotlineFinder(withB2bQuotes(withB2bForm(withStageColumns(withTabPanels(splitTabSections(doc))), p, html), html), labelsOf(hotlineRecord, p.split('/')[2]), imageOf(hotlineRecord)), p, html, markets), html));
       if (next !== doc) fs.writeFileSync(f, next);
     });
     const mapOnly = path.join(W, 'runs', `${name}-upload.txt`);

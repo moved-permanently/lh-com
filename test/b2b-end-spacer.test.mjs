@@ -34,5 +34,5 @@ test('the airlines page\'s snapshot ends with a 30 px one; the import writes it'
   const f = new URL('../tools/importer/bd-snapshots/business.lufthansagroup.com/de/en/travel-solutions/lufthansa-group-airlines.html', import.meta.url);
   if (fs.existsSync(f)) assert.match(fs.readFileSync(f, 'utf8'), /margin-bottom: 30px;[^]*?<footer/);
   const src = fs.readFileSync(new URL('../tools/importer/b2b-import.mjs', import.meta.url), 'utf8');
-  assert.match(src, /const next = withEndSpacer\(withB2bMetadata\(/);
+  assert.match(src, /const next = (?:withPageHeading\()?withEndSpacer\(withB2bMetadata\(/);
 });
