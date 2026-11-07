@@ -133,6 +133,13 @@ export default async function decorate(block) {
     decoratePager(block, (document.documentElement.lang || getLocale().lang || 'en').slice(0, 2).toLowerCase());
   }
 
+  // option routes (Air Dolomiti's route cards): www's phone arrows under the row
+  // (./cards-teaser-routes.js)
+  if (block.classList.contains('routes')) {
+    const { default: decorateRoutes } = await import('./cards-teaser-routes.js');
+    decorateRoutes(block, (document.documentElement.lang || getLocale().lang || 'en').slice(0, 2).toLowerCase());
+  }
+
   // TAP: the option slider is www's swiper, previous, next and bullets (R4-10)
   if (block.classList.contains('slider') && getMetadata('brand').trim().toLowerCase() === 'tap') {
     const { default: decorateTapNews } = await import('./cards-teaser-tap.js');

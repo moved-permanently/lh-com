@@ -695,10 +695,16 @@ function inline(node, page) {
 const tidy = (h) => h.replace(/\s+/g, ' ').replace(/(<br>\s*)+$/, '').replace(/^(\s*<br>)+/, '').trim();
 const empty = (h) => !h.replace(/<br>/g, '').replace(/<[^>]+>/g, (m) => (/^<img/.test(m) ? 'x' : '')).trim();
 
+// a paragraph that is only a bold link to a file (www's RichText link: the fleet's seat maps) as the
+// plain link: Edge Delivery makes a bold link alone in its paragraph a button (the theme styles the
+// file link as www's)
+const FILE_LINK = /^(?:<strong>(<a href="[^"]*(?:\/documents\/|\.pdf)[^"]*">)([^<]*)<\/a><\/strong>|(<a href="[^"]*(?:\/documents\/|\.pdf)[^"]*">)<strong>([^<]*)<\/strong><\/a>)$/i;
+const fileLink = (h) => h.replace(FILE_LINK, (m, a1, t1, a2, t2) => `${a1 || a2}${t1 || t2}</a>`);
+
 function flow(node, page, mode) {
   const out = [];
   let run = '';
-  const flush = () => { const h = tidy(run); if (!empty(h)) out.push(`<p>${h}</p>`); run = ''; };
+  const flush = () => { const h = fileLink(tidy(run)); if (!empty(h)) out.push(`<p>${h}</p>`); run = ''; };
   node.childNodes.forEach((c) => {
     if (c.nodeType === 3) { run += esc(c.textContent.replace(/\u00a0/g, ' ').replace(/\s+/g, ' ')); return; }
     if (c.nodeType !== 1 || /^(SCRIPT|STYLE|NOSCRIPT|FORM|BUTTON|INPUT|SELECT|svg)$/i.test(c.tagName)) return;
@@ -715,7 +721,7 @@ function flow(node, page, mode) {
     }
     flush();
     if (/^H[1-6]$/.test(t)) { const h = tidy(inline(c, page)).replace(/<br>/g, ' '); if (!empty(h)) out.push(`<${t.toLowerCase()}>${h}</${t.toLowerCase()}>`); return; }
-    if (t === 'P') { const h = tidy(inline(c, page)); if (!empty(h)) out.push(`<p>${h}</p>`); return; }
+    if (t === 'P') { const h = fileLink(tidy(inline(c, page))); if (!empty(h)) out.push(`<p>${h}</p>`); return; }
     if (t === 'UL' || t === 'OL') { out.push(list(c, page)); return; }
     if (t === 'TABLE') {
       const rows = [...c.querySelectorAll('tr')].map((tr) => [...tr.children].filter((x) => /^T[DH]$/.test(x.tagName)).map((td) => tidy(inline(td, page))));
