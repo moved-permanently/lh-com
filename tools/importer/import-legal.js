@@ -5,6 +5,7 @@
 import columnsMediaParser from './parsers/columns-media.js';
 import tableStripedParser from './parsers/table-striped.js';
 import accordionColumnsParser from './parsers/accordion-columns.js';
+import cardsIconTextParser from './parsers/cards-icon-text.js';
 import lufthansaCleanupTransformer from './transformers/lufthansa-cleanup.js';
 import lufthansaSectionsTransformer from './transformers/lufthansa-sections.js';
 
@@ -19,7 +20,8 @@ const PAGE_TEMPLATE = {
       "name": "columns-media",
       "instances": [
         ".section-content > .twocolumn",
-        ".videoViewer, .image:has(video)"
+        ".videoViewer, .image:has(video)",
+        ":is(.section-content, .container-content) > :is(.threecolumn, .fourcolumn):not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .video, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe, maui-navigation-link[variant=\"anchor-down\"]))"
       ]
     },
     {
@@ -32,6 +34,12 @@ const PAGE_TEMPLATE = {
       "name": "accordion-columns",
       "instances": [
         ".accordion"
+      ]
+    },
+    {
+      "name": "cards-icon-text",
+      "instances": [
+        ".section-content > .teaser:has(> a.teaser.partner)"
       ]
     }
   ],
@@ -107,6 +115,7 @@ const parsers = {
   'columns-media': columnsMediaParser,
   'table-striped': tableStripedParser,
   'accordion-columns': accordionColumnsParser,
+  'cards-icon-text': cardsIconTextParser,
 };
 const transformers = [lufthansaCleanupTransformer, lufthansaSectionsTransformer];
 

@@ -113,7 +113,7 @@ test('a tab control a template block takes, or one without column views: unchang
 
 test('info: the rows of a tab panel (picture | text) as columns-media, in the template and its import script', async () => {
   const fs = await import('node:fs');
-  const SEL = 'maui-tab-control-panel-responsive :is(.twocolumn, .threecolumn):has(> .column-view > .row > .column-view-item > .image img)';
+  const SEL = 'maui-tab-control-panel-responsive :is(.twocolumn, .threecolumn, .fourcolumn):has(> .column-view > .row > .column-view-item > .image img)';
   const { templates } = JSON.parse(fs.readFileSync('tools/importer/page-templates.json', 'utf8'));
   const info = templates.find((t) => t.name === 'info').blocks.find((b) => b.name === 'columns-media');
   assert.ok(info.instances.some((s) => s.startsWith(SEL)));

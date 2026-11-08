@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-fleet.js
-  var tmp_bundle_fleet_716511_exports = {};
-  __export(tmp_bundle_fleet_716511_exports, {
-    default: () => tmp_bundle_fleet_716511_default
+  var tmp_bundle_fleet_179145_exports = {};
+  __export(tmp_bundle_fleet_179145_exports, {
+    default: () => tmp_bundle_fleet_179145_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -1504,14 +1504,21 @@ var CustomImportScript = (() => {
     const aloneInColumn = !!columnItem && [...columnItem.children].filter((c) => c !== element && !c.contains(element) && !c.matches(".separator") && (clean2(c.textContent) || c.querySelector("img, video, iframe"))).length === 0;
     if (aloneInColumn && columnCount > 1) options.push("column");
     else if (columnItem) options.push("spaced");
-    const blockName = options.length ? `accordion-columns (${options.join(", ")})` : "accordion-columns";
     const cells = [];
+    const expanded = [];
     items.forEach((item) => {
       const title = clean2(item.getAttribute("headline")) || visibleText(item.querySelector('[slot="headline"], .accordion-headline, summary, h2, h3'));
       const content = convertPanel(item);
       if (!title && !content.length) return;
       cells.push([title, content.length ? content : ""]);
+      if (item.hasAttribute("expanded")) expanded.push(cells.length);
     });
+    if (expanded.length && expanded.length <= 9 && expanded.every((k, i) => k === i + 1)) {
+      options.push(expanded.length === 1 ? "open-first" : `open-${expanded.length}`);
+    } else {
+      expanded.forEach((k) => options.push(`open-item-${k}`));
+    }
+    const blockName = options.length ? `accordion-columns (${options.join(", ")})` : "accordion-columns";
     const block = WebImporter.Blocks.createBlock(document, { name: blockName, cells });
     element.replaceWith(block);
   }
@@ -4147,7 +4154,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_fleet_716511_default = {
+  var tmp_bundle_fleet_179145_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -4177,5 +4184,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_fleet_716511_exports);
+  return __toCommonJS(tmp_bundle_fleet_179145_exports);
 })();

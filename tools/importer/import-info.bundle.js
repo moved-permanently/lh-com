@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-info.js
-  var tmp_bundle_info_716511_exports = {};
-  __export(tmp_bundle_info_716511_exports, {
-    default: () => tmp_bundle_info_716511_default
+  var tmp_bundle_info_179145_exports = {};
+  __export(tmp_bundle_info_179145_exports, {
+    default: () => tmp_bundle_info_179145_default
   });
 
   // tools/importer/parsers/search-results.js
@@ -3303,14 +3303,21 @@ var CustomImportScript = (() => {
     const aloneInColumn = !!columnItem && [...columnItem.children].filter((c) => c !== element && !c.contains(element) && !c.matches(".separator") && (clean2(c.textContent) || c.querySelector("img, video, iframe"))).length === 0;
     if (aloneInColumn && columnCount > 1) options.push("column");
     else if (columnItem) options.push("spaced");
-    const blockName = options.length ? `accordion-columns (${options.join(", ")})` : "accordion-columns";
     const cells = [];
+    const expanded = [];
     items.forEach((item) => {
       const title = clean2(item.getAttribute("headline")) || visibleText(item.querySelector('[slot="headline"], .accordion-headline, summary, h2, h3'));
       const content = convertPanel(item);
       if (!title && !content.length) return;
       cells.push([title, content.length ? content : ""]);
+      if (item.hasAttribute("expanded")) expanded.push(cells.length);
     });
+    if (expanded.length && expanded.length <= 9 && expanded.every((k, i) => k === i + 1)) {
+      options.push(expanded.length === 1 ? "open-first" : `open-${expanded.length}`);
+    } else {
+      expanded.forEach((k) => options.push(`open-item-${k}`));
+    }
+    const blockName = options.length ? `accordion-columns (${options.join(", ")})` : "accordion-columns";
     const block = WebImporter.Blocks.createBlock(document, { name: blockName, cells });
     element.replaceWith(block);
   }
@@ -6560,14 +6567,17 @@ var CustomImportScript = (() => {
         "name": "columns-media",
         "instances": [
           ".sidebar:not(:has(.twocolumn, .threecolumn, .fourcolumn, .onecolumn, .poimapping, .messagecenterwrapper, .videoViewer, .teaser, .imagelinklist, .authorquote, .accordion, .table))",
+          ".sidebar:has(> .airem-sidebar > .sidebar-aside img):has(> .airem-sidebar > .sidebar-content .twocolumn):not(:has(.threecolumn, .fourcolumn, .onecolumn, .poimapping, .messagecenterwrapper, .videoViewer, .teaser, .imagelinklist, .authorquote, .accordion, .table, .sidebar-aside .twocolumn))",
           ':is(.section-content, .container-content, .sidebar-content) > .twocolumn:not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe:not(.video-player > iframe), maui-navigation-link[variant="anchor-down"]))',
           ':is(.section-content, .container-content) > :is(.threecolumn, .fourcolumn):not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .video, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe, maui-navigation-link[variant="anchor-down"]))',
           ":is(.section-content, .container-content) > :is(.threecolumn, .fourcolumn):has(> .column-view > .row > .column-view-item > :is(.twocolumn, .threecolumn, .fourcolumn) .image img):not(:has(.column-view-item .column-view-item :is(.text, .headline, .link, .teaser))):not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .sidebar, .experiencefragment, .video, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe))",
           ':is(.section-content, .container-content, maui-tab-control-panel-responsive > div) > .onecolumn > .column-view > .row > .column-view-item > :is(.twocolumn, .threecolumn, .fourcolumn):not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .video, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe, maui-navigation-link[variant="anchor-down"]))',
+          ':is(.section-content, .container-content, maui-tab-control-panel-responsive > div) > .onecolumn > .column-view > .row > .column-view-item > :is(.twocolumn, .threecolumn, .fourcolumn):has(> .column-view > .row > .column-view-item > .image img):has(maui-navigation-link[variant="anchor-down"]):not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .video, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe))',
           ".videoViewer, .image:has(video)",
           ":is(.section-content, .container-content) > .twocolumn:has(> .column-view > .carousel > .hidden-md-down > .row > .column-view-item > .headline):has(> .column-view > .carousel > .hidden-md-down > .row > .column-view-item > .image img):not(:has(.teaser, .table, .accordion, .tabs, .sidebar, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, form, iframe))",
           ':is(.section-content, .container-content) > .twocolumn:has(> .column-view > .row > .column-view-item > .onecolumn):not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .video, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe, .onecolumn .onecolumn, .onecolumn .image, maui-navigation-link[variant="anchor-down"]))',
-          "maui-tab-control-panel-responsive :is(.twocolumn, .threecolumn):has(> .column-view > .row > .column-view-item > .image img):not(:has(.teaser, .table, .accordion, .tabs, form, iframe, .column-view-item .column-view-item))"
+          "maui-tab-control-panel-responsive :is(.twocolumn, .threecolumn, .fourcolumn):has(> .column-view > .row > .column-view-item > .image img):not(:has(.teaser, .table, .accordion, .tabs, form, iframe, .column-view-item .column-view-item))",
+          ":is(.section-content, .container-content) > .onecolumn > .column-view > .row > .column-view-item > .onecolumn > .column-view > .row > .column-view-item > :is(.threecolumn, .fourcolumn):has(> .column-view > .row > .column-view-item > .image img):not(:has(.headline, .text, .teaser, .table, .accordion, .tabs, .link, form, iframe, .column-view-item .column-view-item))"
         ]
       },
       {
@@ -6714,7 +6724,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_info_716511_default = {
+  var tmp_bundle_info_179145_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -6744,5 +6754,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_info_716511_exports);
+  return __toCommonJS(tmp_bundle_info_179145_exports);
 })();

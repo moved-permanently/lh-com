@@ -413,16 +413,25 @@ export default function parse(element, { document }) {
     .length === 0;
   if (aloneInColumn && columnCount > 1) options.push('column');
   else if (columnItem) options.push('spaced');
-  const blockName = options.length ? `accordion-columns (${options.join(', ')})` : 'accordion-columns';
 
   const cells = [];
+  const expanded = [];
   items.forEach((item) => {
     const title = clean(item.getAttribute('headline'))
       || visibleText(item.querySelector('[slot="headline"], .accordion-headline, summary, h2, h3'));
     const content = convertPanel(item);
     if (!title && !content.length) return;
     cells.push([title, content.length ? content : '']);
+    if (item.hasAttribute('expanded')) expanded.push(cells.length);
   });
+  // www's items expanded at load (maui-collapsible-item expanded: /gefaehrliche-gegenstaende' last
+  // item, /group-travel's first): the first N as open-first / open-N, any other as open-item-K
+  if (expanded.length && expanded.length <= 9 && expanded.every((k, i) => k === i + 1)) {
+    options.push(expanded.length === 1 ? 'open-first' : `open-${expanded.length}`);
+  } else {
+    expanded.forEach((k) => options.push(`open-item-${k}`));
+  }
+  const blockName = options.length ? `accordion-columns (${options.join(', ')})` : 'accordion-columns';
 
   const block = WebImporter.Blocks.createBlock(document, { name: blockName, cells });
   element.replaceWith(block);
