@@ -9,28 +9,30 @@ import fs from 'node:fs';
 import { parseHTML } from 'linkedom';
 import { THEMES, isThemeLive } from '../scripts/style-markers.js';
 import { collapseHtml, collapseMain } from '../tools/importer/marker-collapse.mjs';
+import { BRANDS, LIVE } from './live-brands.mjs';
 
 const read = (f) => fs.readFileSync(new URL(f, import.meta.url), 'utf8');
 const DOC = '<div><p>{spacer-60}</p><h2 id="a-heading-small">A {heading-small}</h2><p>Text {full-width}</p></div>';
 const run = (opts) => collapseHtml(DOC, { path: '/it/en/x', parse: parseHTML, ...opts });
 
-test('no brand is live yet; the switch is THEMES[brand].live', () => {
-  ['lufthansa', 'austrian', 'brussels', 'ita', 'swiss', 'tap', 'discover', 'b2b', 'cargo', 'airdolomiti'].forEach((b) => assert.equal(isThemeLive(b), false, b));
+test('a brand is live only with its switch and its own test (test/token-free-<brand>-live.test.mjs); the switch is THEMES[brand].live', () => {
+  BRANDS.forEach((b) => assert.equal(isThemeLive(b), LIVE.has(b), b));
 });
 
 test('a brand whose theme is off: the document as it came; live or forced: collapsed', () => {
-  assert.equal(run({ brand: 'ita' }).html, DOC);
-  assert.equal(run({ brand: 'ita' }).changed, false);
-  const forced = run({ brand: 'ita', force: true });
+  const [one, other] = ['ita', 'brussels', 'austrian', 'swiss', 'b2b'].filter((b) => !LIVE.has(b));
+  assert.equal(run({ brand: one }).html, DOC);
+  assert.equal(run({ brand: one }).changed, false);
+  const forced = run({ brand: one, force: true });
   assert.ok(forced.changed && !/\{/.test(forced.html), forced.html);
-  THEMES.ita.live = true;
+  THEMES[one].live = true;
   try {
-    assert.equal(run({ brand: 'ita' }).html, forced.html, 'live: the same as the forced pass');
-    assert.equal(run({ brand: 'brussels' }).html, DOC, 'another brand stays');
+    assert.equal(run({ brand: one }).html, forced.html, 'live: the same as the forced pass');
+    assert.equal(run({ brand: other }).html, DOC, 'another brand stays');
   } finally {
-    delete THEMES.ita.live;
+    delete THEMES[one].live;
   }
-  assert.equal(isThemeLive('ita'), false);
+  assert.equal(isThemeLive(one), false);
 });
 
 test('the importers\' table form and the app screens too', () => {

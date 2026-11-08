@@ -16,6 +16,7 @@ import fs from 'node:fs';
 import { parseHTML } from 'linkedom';
 import { THEMES, themeFor, pageTypeOf } from '../scripts/style-markers.js';
 import { collapseHtml } from '../tools/importer/marker-collapse.mjs';
+import { LIVE, offThemes } from './live-brands.mjs';
 
 const read = (f) => fs.readFileSync(new URL(f, import.meta.url), 'utf8');
 const page = (mainHtml) => {
@@ -54,7 +55,7 @@ test('the brands\' heading defaults per page type; the Insights tag pages\' type
   assert.equal(pageTypeOf({ path: '/de/en/articles/tags/frankfurt' }), 'insights-tag');
   assert.equal(pageTypeOf({ path: '/de/en/articles/frankfurt-tips', articleHeader: true }), 'article');
   assert.deepEqual(themeFor('lufthansa', 'insights-tag').rules, ['rule-before-info-box']);
-  ['austrian', 'brussels', 'swiss', 'discover', 'b2b', 'lufthansa'].forEach((b) => assert.equal(themeFor(b, 'flow').live, false, b));
+  ['austrian', 'brussels', 'swiss', 'discover', 'b2b', 'lufthansa'].forEach((b) => assert.equal(themeFor(b, 'flow').live, LIVE.has(b), b));
 });
 
 test('the site: a brand\'s column-view blocks on a live flow page get the column view\'s edges', () => {
@@ -80,7 +81,7 @@ test('the site: a brand\'s column-view blocks on a live flow page get the column
     assert.equal(seq(main), 'p start columns-media end', 'B2B: the edge below at the section\'s end too');
   });
   const off = page(`<div><p>Text</p>${BLOCK('columns-media')}</div>`);
-  decorateTokenFree(off, { brand: 'discover', path: '/de/en/x', read: flowRead });
+  offThemes(() => decorateTokenFree(off, { brand: 'discover', path: '/de/en/x', read: flowRead }));
   assert.ok(!off.querySelector('.column-mark'), 'a theme that is off: nothing');
 });
 
@@ -126,6 +127,6 @@ test('SWISS\'s FAQ hub: on a live theme the heading before a run of topic teaser
     assert.match(read('../styles/styles.css'), /body\.brand-swiss main \.default-content-wrapper:has\(> \.column-start\):has\(> :is\(h2, h3, h4\) > a > picture:first-child\) \{\s*display: grid;/);
   });
   const off = page(doc);
-  decorateTokenFree(off, { brand: 'swiss', path: '/ch/en/customer-support/faq', read: flowRead });
+  offThemes(() => decorateTokenFree(off, { brand: 'swiss', path: '/ch/en/customer-support/faq', read: flowRead }));
   assert.equal(off.querySelectorAll('.column-start').length, 0, 'off: the markers do it');
 });
