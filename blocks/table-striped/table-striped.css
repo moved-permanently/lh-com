@@ -286,7 +286,7 @@
 
 /* option beside / beside-end (brief 478; www's /de/en/100-years/fleet, lh-parity-002): a spec table
    in a two-column view with its picture or text. Below 768px stacked, the partner first (beside) or
-   after the table (beside-end), the table 90px under what is above it; from 768px two columns
+   after the table (beside-end, below), the table 90px under what is above it; from 768px two columns
    (622px each with 20px between at 1440), the table 39px under the column's top, the partner on the
    left (beside) or on the right (beside-end). The table scrolls in its own box */
 /* stylelint-disable-next-line no-descending-specificity -- the option's own box; the wrapper rule above sets only the margin below */
@@ -301,12 +301,21 @@
   overflow: auto;
 }
 
+/* beside-end below 768px: a flex column, so the table comes first, 96px under the text above it
+   (the block's 67 + 29); the partner 74px under the table's box (www's Focke-Wulf at 390: text to
+   4847, table 4943-5785, the picture from 5859) */
+.table-striped.beside-end {
+  display: flex;
+  flex-direction: column;
+}
+
 .table-striped.beside-end > .table-striped-aside {
   order: 1;
+  margin-top: 74px;
 }
 
 .table-striped.beside-end > .table-striped-main > .table-striped-table:first-child {
-  margin-top: 0;
+  margin-top: 29px;
 }
 
 /* the pictures cropped 16:9 as www's (622 x 350px at 1440, 346 x 193px at 390) */
@@ -332,6 +341,7 @@
 
   .table-striped.beside-end > .table-striped-aside {
     order: 1;
+    margin-top: 0;
   }
 
   .table-striped:is(.beside, .beside-end) .table-striped-table {

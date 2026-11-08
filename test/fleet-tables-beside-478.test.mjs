@@ -120,7 +120,7 @@ test('the block CSS: stacked below 768 px (90 px to the table), two columns from
   assert.ok(css.includes('.table-striped:is(.beside, .beside-end) { max-height: none; overflow: visible; }'));
   assert.ok(css.includes('.table-striped:is(.beside, .beside-end) .table-striped-table { max-height: 840px; margin-top: 90px; overflow: auto; }'));
   assert.match(css, /@media \(width >= 768px\) \{[^@]*\.table-striped:is\(\.beside, \.beside-end\) \{ display: grid; grid-template-columns: repeat\(2, minmax\(0, 1fr\)\); column-gap: 20px; align-items: start; \}/);
-  assert.match(css, /@media \(width >= 768px\) \{[^@]*\.table-striped\.beside-end > \.table-striped-aside \{ order: 1; \}/);
+  assert.match(css, /@media \(width >= 768px\) \{[^@]*\.table-striped\.beside-end > \.table-striped-aside \{ order: 1; margin-top: 0; \}/);
   assert.match(css, /@media \(width >= 768px\) \{[^@]*\.table-striped:is\(\.beside, \.beside-end\) \.table-striped-table \{ margin-top: 39px; \}/);
   // www crops the pictures 16:9 (622 x 350 at 1440, 346 x 193 at 390)
   assert.ok(css.includes('.table-striped:is(.beside, .beside-end) :is(.table-striped-aside, .table-striped-above) img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }'));
