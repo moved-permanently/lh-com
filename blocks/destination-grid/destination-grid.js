@@ -104,9 +104,42 @@ function card(d) {
 }
 
 /**
- * @param {Element} block
+ * The page's map in the grid (brief 478): www's widget is one piece, the bar over the list and the
+ * map. The poi-map block of the section next to the grid's (after it or before it) moves between
+ * the bar and the list, with the list, the status and "load more" beside it; its old section goes.
+ * A map not loaded yet is loaded here (its own section would no longer find it), one loaded is
+ * redrawn for its new size. The layout: destination-grid.css (.destination-grid-with-map).
+ * @param {Element} block the decorated grid
+ * @param {(map: Element) => Promise<void>} load loads a block (aem.js loadBlock)
+ * @returns {Element|null} the map block, or null without one
  */
-export default async function decorate(block) {
+export function placeMap(block, load) {
+  const section = block.closest('.section');
+  const near = section && [section.nextElementSibling, section.previousElementSibling]
+    .find((s) => s && s.matches('.section') && s.querySelector(':scope > .poi-map-wrapper > .poi-map'));
+  if (!near) return null;
+  const wrapper = near.querySelector(':scope > .poi-map-wrapper');
+  const map = wrapper.querySelector(':scope > .poi-map');
+  const results = node('div', { className: 'destination-grid-results' }, ...block.querySelectorAll(':scope > .destination-grid-status, :scope > .destination-grid-list, :scope > .destination-grid-more'));
+  block.append(node('div', { className: 'destination-grid-explore' }, wrapper, results));
+  block.classList.add('destination-grid-with-map');
+  if (!near.querySelector('.block')) near.remove();
+  const redraw = () => window.dispatchEvent(new window.Event('resize'));
+  if (map.dataset.blockStatus === 'loaded') redraw();
+  else Promise.resolve(load(map)).then(redraw).catch(() => {});
+  return map;
+}
+
+const loadWithAem = async (b) => {
+  const { loadBlock } = await import('../../scripts/aem.js');
+  await loadBlock(b);
+};
+
+/**
+ * @param {Element} block
+ * @param {{load?: (map: Element) => Promise<void>}} [options] how the page's map is loaded (tests)
+ */
+export default async function decorate(block, { load = loadWithAem } = {}) {
   instances += 1;
   const uid = `destination-grid-${instances}`;
   const link = block.querySelector('a[href]');
@@ -231,4 +264,5 @@ export default async function decorate(block) {
 
   block.replaceChildren(bar, panel, status, list, more);
   render();
+  placeMap(block, load);
 }

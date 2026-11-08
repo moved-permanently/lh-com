@@ -2749,6 +2749,38 @@ body.brand-tap main .default-content-wrapper > p:has(+ h1) > picture img {
   }
 }
 
+/* a card list www swipes on phones (the importer's phone-slider: mobileType slider; brief 478,
+   row 113): its dots as TAP's carousels' (a green ring, the current one a 20 px green pill) */
+body.brand-tap .cards-teaser.phone-slider {
+  --carousel-dot-color: var(--lh-yellow);
+  --carousel-dot-fill: transparent;
+  --carousel-dot-radius: 9999px;
+  --carousel-dot-current-width: 20px;
+  --carousel-dot-current-color: var(--lh-yellow);
+}
+
+/* the picture above an inner page's title right under the trail (brief 478, row 114: bagagem,
+   info-legal, their versions): where a first title would start, 24 px under the trail on phones and
+   64 from 1025 px (www's picture at 226 and 266 px, ours was 40 px higher at 1440); the title 32 px
+   under it on phones, 64 from 1025 px (www's; ours 48 at both) */
+body.brand-tap main > .section > .breadcrumb-wrapper + .default-content-wrapper > p:first-child:has(> picture:only-child):has(+ h1) {
+  margin-top: 24px;
+}
+
+body.brand-tap main > .section:not(.hidden-heading) .default-content-wrapper > p:has(> picture:only-child) + h1 {
+  margin-top: 32px;
+}
+
+@media (width >= 1025px) {
+  body.brand-tap main > .section > .breadcrumb-wrapper + .default-content-wrapper > p:first-child:has(> picture:only-child):has(+ h1) {
+    margin-top: 64px;
+  }
+
+  body.brand-tap main > .section:not(.hidden-heading) .default-content-wrapper > p:has(> picture:only-child) + h1 {
+    margin-top: 64px;
+  }
+}
+
 /* the text cards with a picture (row 31: cards-teaser cards with text, miles-and-go's
    advantages, stopover's advantages and reasons): a card 16 px inside its column, 16 px corners,
    www's shadow, the picture on top (326 x 183), the title GT Flexa 24 / 28.8 500, the link an

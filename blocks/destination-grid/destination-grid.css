@@ -368,3 +368,77 @@
     font-size: 20px;
   }
 }
+
+/* with the page's map (brief 478, parity row 112; destination-grid.js placeMap): www's widget is
+   one piece. On phones the map between the bar and the list (24 px under the bar, the list 16 px
+   under the map); from 1024 px the list a column of 365 px at the left, one card a row (the
+   picture 150 x 150, 16 px apart), scrolling in a box as high as the map, the map (790 px) 16 px
+   beside it, the search 302 px, 16 px in. The map's own region pills are left out: www's map has
+   none (the Filters panel's areas do that) */
+.destination-grid.destination-grid-with-map .poi-map-tap .poi-map-regions {
+  display: none;
+}
+
+.destination-grid.destination-grid-with-map .destination-grid-explore {
+  margin-top: 24px;
+}
+
+.destination-grid.destination-grid-with-map .poi-map-wrapper {
+  margin: 0;
+}
+
+.destination-grid.destination-grid-with-map .destination-grid-list {
+  margin-top: 16px;
+}
+
+@media (width >= 1024px) {
+  .destination-grid.destination-grid-with-map .destination-grid-search {
+    flex: 0 0 302px;
+    margin-left: 16px;
+  }
+
+  .destination-grid.destination-grid-with-map .destination-grid-filters {
+    margin-left: 63px;
+  }
+
+  .destination-grid.destination-grid-with-map .destination-grid-explore {
+    display: grid;
+    grid-template-columns: 365px minmax(0, 1fr);
+    gap: 16px;
+    align-items: start;
+  }
+
+  .destination-grid.destination-grid-with-map .poi-map-wrapper {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .destination-grid.destination-grid-with-map .destination-grid-results {
+    grid-column: 1;
+    grid-row: 1;
+    height: 790px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+  }
+
+  .destination-grid.destination-grid-with-map .poi-map-tap .poi-map-view {
+    height: 790px;
+  }
+
+  .destination-grid.destination-grid-with-map .destination-grid-list {
+    grid-template-columns: minmax(0, 1fr);
+    margin-top: 0;
+  }
+
+  .destination-grid.destination-grid-with-map .destination-grid-card:not(.destination-grid-card-text) {
+    height: 150px;
+  }
+
+  .destination-grid.destination-grid-with-map .destination-grid-media img {
+    height: 150px;
+  }
+
+  .destination-grid.destination-grid-with-map .destination-grid-more {
+    margin: 16px auto;
+  }
+}

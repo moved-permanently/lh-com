@@ -597,8 +597,10 @@ function cards(items, P, s) {
   });
   const carousel = s.desktopType === 'carousel';
   // www's desktop slider (the entertainment's news, a grid on phones): the option slider, one row
-  // the theme scrolls from 1024 px (brief 394)
-  const opts = [{ 1: 'one-up', 3: 'three-up', 4: 'four-up' }[s.itemsPerRow], s.desktopType === 'slider' && 'slider'].filter(Boolean);
+  // the theme scrolls from 1024 px (brief 394); www's phone swiper (mobileType slider: the promos'
+  // News & Highlights, the Miles Store's lists): the option phone-slider, one card a view and a dot
+  // each below 1025 px (cards-teaser-slider.js; brief 478)
+  const opts = [{ 1: 'one-up', 3: 'three-up', 4: 'four-up' }[s.itemsPerRow], s.desktopType === 'slider' && 'slider', s.mobileType === 'slider' && 'phone-slider'].filter(Boolean);
   P.block(carousel ? 'carousel-cards' : `cards-teaser${opts.length ? ` (${opts.join(', ')})` : ''}`, rows);
 }
 

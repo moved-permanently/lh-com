@@ -52,6 +52,10 @@ column empty; a card without a picture shows its text only.
   cut to www's 200 characters and three lines, a chevron. 16 at a time; "Load more destinations"
   adds 16. No match: www's "No destinations found" (a search) or "There are no results within
   selected area".
-- Not as www: the map beside the list (the page's poi-map shows the destinations), the panel a
-  card opens on www (the city's places, events and travel tips; the link goes to www's page
-  instead), the chips' icons, the pictures (above).
+- The map (brief 478, parity row 112): the page's poi-map block, in the section before or after
+  the grid's, moves into the grid between the bar and the list (`placeMap`), as www's widget is one
+  piece: on phones the map between the bar and the list; from 1024 px the list a 365 px column
+  scrolling in a 790 px box beside the 790 px map. The map's own region pills are left out there
+  (the Filters panel has the areas). Without a poi-map next to it the grid is as before.
+- Not as www: the panel a card opens on www (the city's places, events and travel tips; the link
+  goes to www's page instead), the chips' icons, the pictures (above), Smartvel's map style.
