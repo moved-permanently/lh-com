@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-hub.js
-  var tmp_bundle_hub_1320329_exports = {};
-  __export(tmp_bundle_hub_1320329_exports, {
-    default: () => tmp_bundle_hub_1320329_default
+  var import_hub_exports = {};
+  __export(import_hub_exports, {
+    default: () => import_hub_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -1124,8 +1124,8 @@ var CustomImportScript = (() => {
         image: ["image/jpeg", "image/jpg", "image/png"]
       };
       const types = [...new Set(attr(first, "accept").split(",").flatMap((t) => TYPES[t.trim().toLowerCase()] || []))];
-      const order = ["application/pdf", "image/jpeg", "image/jpg", "image/png"];
-      types.sort((a, b) => order.indexOf(a) - order.indexOf(b));
+      const order2 = ["application/pdf", "image/jpeg", "image/jpg", "image/png"];
+      types.sort((a, b) => order2.indexOf(a) - order2.indexOf(b));
       const rules = [];
       if (types.length) rules.push(`accept=${types.join(", ")}`);
       rules.push(`max-files=${inputs.length}`);
@@ -1727,8 +1727,8 @@ var CustomImportScript = (() => {
     const headerText = (t) => clean3((t.querySelector("tr") || t).textContent).toLowerCase();
     const previousSameBlock = () => {
       const name = headerText(block);
-      const before = [...document.querySelectorAll("table")].filter((t) => !element.contains(t) && t.compareDocumentPosition(element) & 4 && headerText(t) === name);
-      const prev = before[before.length - 1];
+      const before2 = [...document.querySelectorAll("table")].filter((t) => !element.contains(t) && t.compareDocumentPosition(element) & 4 && headerText(t) === name);
+      const prev = before2[before2.length - 1];
       if (!prev) return null;
       const range = document.createRange();
       range.setStartAfter(prev);
@@ -2825,8 +2825,8 @@ var CustomImportScript = (() => {
     };
     const previousSameBlock = () => {
       const name = headerText(block);
-      const before = [...document.querySelectorAll("table")].filter((t) => !element.contains(t) && t.compareDocumentPosition(element) & 4 && headerText(t) === name);
-      const prev = before[before.length - 1];
+      const before2 = [...document.querySelectorAll("table")].filter((t) => !element.contains(t) && t.compareDocumentPosition(element) & 4 && headerText(t) === name);
+      const prev = before2[before2.length - 1];
       if (!prev) return null;
       const range = document.createRange();
       range.setStartAfter(prev);
@@ -5403,16 +5403,16 @@ var CustomImportScript = (() => {
   function dropEmptyBreaks(document, root) {
     const breaks = [...document.querySelectorAll(`hr[${BREAK}]`)].filter((hr) => !hr.closest("table"));
     let prev = null;
-    let before = null;
+    let before2 = null;
     breaks.forEach((hr) => {
       if (contentBetween(document, root, prev, hr)) {
-        before = prev;
+        before2 = prev;
         prev = hr;
         return;
       }
-      if (prev && isGrey(before) && isGrey(hr) && !prev.hasAttribute(SOURCE_STYLE) && !prev.hasAttribute(MARKER) && spacersBetween(document, prev, hr)) {
+      if (prev && isGrey(before2) && isGrey(hr) && !prev.hasAttribute(SOURCE_STYLE) && !prev.hasAttribute(MARKER) && spacersBetween(document, prev, hr)) {
         prev.setAttribute(SOURCE_STYLE, "gap");
-        before = prev;
+        before2 = prev;
         prev = hr;
         return;
       }
@@ -5498,8 +5498,8 @@ var CustomImportScript = (() => {
       };
       aemSections.forEach((s, i) => {
         if (!i || !padded2(s) || grey2(s)) return;
-        const before = aemSections[i - 1];
-        if (!padded2(before) && (!lufthansa || isStage(s) || isStage(before) || grey2(before) || loneQuote(before))) return;
+        const before2 = aemSections[i - 1];
+        if (!padded2(before2) && (!lufthansa || isStage(s) || isStage(before2) || grey2(before2) || loneQuote(before2))) return;
         const hr = createBreak(document);
         hr.setAttribute(SOURCE_STYLE, "padded");
         s.before(hr);
@@ -5692,9 +5692,9 @@ var CustomImportScript = (() => {
       hr.setAttribute(SOURCE_STYLE2, styles.join(" "));
       s.before(hr);
     });
-    STAND_INS.forEach(([sel, before, after]) => {
+    STAND_INS.forEach(([sel, before2, after]) => {
       document.querySelectorAll(`.container-content > .section ${sel}`).forEach((el) => {
-        [...standIns(el, before, "previousElementSibling"), ...standIns(el, after, "nextElementSibling")].forEach((p) => p.remove());
+        [...standIns(el, before2, "previousElementSibling"), ...standIns(el, after, "nextElementSibling")].forEach((p) => p.remove());
       });
     });
   }
@@ -5754,12 +5754,109 @@ var CustomImportScript = (() => {
       });
     });
   }
+  var MARK_HOLDERS = "p, h1, h2, h3, h4, h5, h6, li";
+  var LEAVES = "p, h1, h2, h3, h4, h5, h6, ul, ol, table, picture, img, video, iframe, blockquote";
+  var META = "section metadata";
+  var SEPARATOR_P = /^\{(spacer|divider)-[^}]*\}$/;
+  var order = /* @__PURE__ */ new Map();
+  var before = (a, b) => order.get(a) < order.get(b);
+  var inTable = (el) => !!(el.parentElement && el.parentElement.closest("table"));
+  var tableName = (table) => {
+    const row = table.querySelector("tr");
+    return row ? cleanText2(row).toLowerCase() : "";
+  };
+  var styleRow = (table) => [...table.querySelectorAll("tr")].slice(1).find((tr) => tr.firstElementChild && cleanText2(tr.firstElementChild).toLowerCase() === "style");
+  function columnMarks(main) {
+    return [...main.querySelectorAll(MARK_HOLDERS)].filter((el) => !el.closest("table")).map((el) => {
+      const m = cleanText2(el).match(/\{([a-z0-9 -]+)\}$/);
+      const tokens = m ? m[1].split(" ") : [];
+      const at = el.tagName === "LI" ? el.closest("ul, ol") : el;
+      return {
+        el: at,
+        start: tokens.includes("column-start"),
+        end: tokens.includes("column-end"),
+        startOuter: tokens.includes("column-start-outer"),
+        endOuter: tokens.includes("column-end-outer")
+      };
+    }).filter((k) => k.start || k.end || k.startOuter || k.endOuter);
+  }
+  function pairs(marks, start, end, kind) {
+    const out = [];
+    let depth = 0;
+    let open = null;
+    marks.forEach((k) => {
+      if (k[start]) {
+        if (!depth) open = k.el;
+        depth += 1;
+      }
+      if (k[end] && depth) {
+        depth -= 1;
+        if (!depth && open) out.push({ from: open, to: k.el, kind });
+      }
+    });
+    return out;
+  }
+  function viewBox(from, to, main, breaks) {
+    for (let el = from.parentElement; el && el !== main; el = el.parentElement) {
+      if (el.matches(`:is(${COLUMN_KINDS2}).column`) && el.contains(to)) {
+        return el.closest("table") || breaks.some((hr) => el.contains(hr)) ? null : el;
+      }
+    }
+    return null;
+  }
+  function splitColumnViews(main, document) {
+    const marks = columnMarks(main);
+    const outer = pairs(marks, "startOuter", "endOuter", "cc");
+    order = new Map([...main.querySelectorAll("*")].map((el, i) => [el, i]));
+    const inside = (p, q) => (p.from === q.from || before(q.from, p.from)) && (p.to === q.to || before(p.to, q.to));
+    const inner = pairs(marks, "start", "end", "sc").filter((p) => !outer.some((q) => inside(p, q)));
+    [...outer, ...inner].sort((p, q) => before(p.from, q.from) ? -1 : 1).forEach(({ from, to, kind }) => {
+      order = new Map([...main.querySelectorAll("*")].map((el, i) => [el, i]));
+      const breaks = [...main.querySelectorAll("hr")].filter((hr) => !inTable(hr));
+      if (breaks.some((hr) => before(from, hr) && before(hr, to))) return;
+      const box = viewBox(from, to, main, breaks);
+      const first = box || from;
+      const last = box || to;
+      const prev = breaks.filter((hr) => before(hr, first)).pop();
+      const next = breaks.find((hr) => before(last, hr) && !last.contains(hr));
+      const within = (el) => (!prev || before(prev, el)) && (!next || before(el, next));
+      const leaves = [...main.querySelectorAll(LEAVES)].filter((el) => !inTable(el) && within(el));
+      const meta = leaves.find((el) => el.tagName === "TABLE" && tableName(el) === META);
+      const row = meta && styleRow(meta);
+      const styles = row ? cleanText2(row.lastElementChild) : "";
+      const content = (el) => el !== meta && !el.contains(first) && !el.contains(last) && (el.tagName === "TABLE" || !isEmpty2(el) && !SEPARATOR_P.test(cleanText2(el)));
+      const contentBefore = leaves.some((el) => before(el, first) && content(el));
+      const contentAfter = leaves.some((el) => before(last, el) && !last.contains(el) && content(el));
+      const view = kind === "cc" ? ["column-view", "padded"] : ["column-view"];
+      const own = [styles, ...view].filter(Boolean).join(", ");
+      const metaBlock = (style) => WebImporter.Blocks.createBlock(document, { name: "Section Metadata", cells: { style } });
+      const endWith = (meta2) => box ? box.append(meta2) : last.after(meta2);
+      if (contentAfter) {
+        const list = styles.split(",").map((x) => x.trim()).filter((x) => x && x !== "spaced");
+        if (!list.includes("flush")) list.push("flush");
+        const hr = document.createElement("hr");
+        last.after(hr);
+        endWith(metaBlock([...list, ...view].join(", ")));
+      } else {
+        if (row) row.lastElementChild.textContent = own;
+        else endWith(metaBlock(own));
+      }
+      if (contentBefore) {
+        const lastContent = leaves.filter((el) => before(el, first) && content(el)).pop();
+        const lead = leaves.find((el) => el.tagName === "P" && SEPARATOR_P.test(cleanText2(el)) && before(lastContent, el) && !el.contains(lastContent) && before(el, first));
+        const hr = document.createElement("hr");
+        (lead || first).before(hr);
+        if (styles) hr.before(metaBlock(styles));
+      }
+    });
+  }
   function transform4(hookName, element, payload) {
-    if (hookName !== "beforeTransform") return;
+    if (hookName !== "beforeTransform" && hookName !== "afterTransform") return;
     const template = payload && payload.template || {};
     if (CLEANUP_TEMPLATES.includes(template.name) || CLEANUP_TEMPLATES.includes(template.base)) return;
     const document = payload && payload.document || element.ownerDocument || element;
-    markColumnViews2(document, template);
+    if (hookName === "beforeTransform") markColumnViews2(document, template);
+    else splitColumnViews(element, document);
   }
 
   // tools/importer/transformers/theme-separators.js
@@ -6604,9 +6701,9 @@ var CustomImportScript = (() => {
         if (!divider && px <= 31) size = "none";
         else if (!divider) size = px < 90 ? "m" : "l";
         const content = (el) => el && !(isBlock(el) && BLOCK_SKIP.has(blockName(el))) && !isSep(el);
-        const before = run.els[0].previousElementSibling;
+        const before2 = run.els[0].previousElementSibling;
         const after = run.els[run.els.length - 1].nextElementSibling;
-        const atStart = !content(before) && kids.slice(0, run.start).every((el) => !content(el));
+        const atStart = !content(before2) && kids.slice(0, run.start).every((el) => !content(el));
         const atEnd = kids.slice(run.end + 1).every((el) => !content(el));
         const remove = () => run.els.forEach((el) => el.remove());
         if (size === "none") {
@@ -6620,7 +6717,7 @@ var CustomImportScript = (() => {
           return;
         }
         if (divider) {
-          if (rules.includes("rule-before-info-box") && blockName(after) === "columns-media" && before && !atStart && !/^H[1-6]$/.test(before.tagName)) {
+          if (rules.includes("rule-before-info-box") && blockName(after) === "columns-media" && before2 && !atStart && !/^H[1-6]$/.test(before2.tagName)) {
             remove();
             count(stats, "theme", "separator", run.els.length);
             return;
@@ -7011,7 +7108,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_hub_1320329_default = {
+  var import_hub_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -7050,5 +7147,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_hub_1320329_exports);
+  return __toCommonJS(import_hub_exports);
 })();
