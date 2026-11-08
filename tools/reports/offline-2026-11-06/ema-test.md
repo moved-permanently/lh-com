@@ -1173,3 +1173,88 @@ row 19.
 | 3 | `467626cb`, `b0a16d04` | lufthansa-sections: padded after unpadded (lufthansa.com); bundles | `git revert` |
 | 4 | `c47bdb67` | ITA theme: the h1's space in a joined section with the aside | `git revert` |
 | 1-4 | this report's commit | rows Austrian 49 and ITA 19; reimport-lh-com-tab-sections.txt (32), reimport-lh-com-padded-sections.txt (359), ita-online-check-in-sidebar-part.md | – |
+
+## The brief after 484 (style-marker leaks: lh-edge's app JSON, list items, TAP {blank}, meta descriptions)
+
+Left uncommitted by 484, and still out of git:
+- `.migration/project.json` and `tools/importer/reports/**`: generated.
+- `content/`, `content-sites/` and `migration-work/`: local documents; DA is the source.
+- `logs/`: scripts, dry runs and comparisons in logs/p4/s487, DA reads.
+- `/tmp`: captures, snapshots and worktrees.
+
+Nothing was unpushed.
+
+### One shared marker list
+
+`scripts/style-markers.js` holds every marker the site reads:
+- decorateTextStyles' heading, paragraph, list and separator markers;
+- media.js's video settings;
+- `{mobile}` and TAP's `{blank}`;
+- the app screens' `{spacer: medium}`, `{divider}` and `{small}` (library-page.js).
+
+It also gives `stripStyleMarkers` / `stripStyleMarkersHtml`. scripts.js, media.js, library-page.js, the loc marker check
+(tools/loc/marker-check.mjs, which held a copy of scripts.js's lines) and lh-edge's sdui-web.js all read it. No copies are
+left. A marker is a known token at the end of its element, so data placeholders (`{origin}`, `{COUNT}`, `{lang}`) and regex
+quantifiers (`{1,3}`) stay. No marker was added and none respelled.
+
+### A. lh-edge's app JSON for web pages (`003e833a`)
+
+sdui-web.js leaves every marker out of headlines, texts, lists, teasers and accordion titles. A paragraph of markers only is
+no text item; with a picture it is an image item, so the parallax articles' images come back.
+
+Tests: tools/workers/lh-edge/test/sdui-web-markers.test.mjs on the documents of /de/en/traveltricks and
+/de/en/articles/explore-the-world/picture-perfect-austin:
+- no marker text in either;
+- austin's 5 parallax pictures are images;
+- `{origin}` and `{price}` survive.
+
+compare-sdui.mjs --local (75 URLs × v1 and v2) and compare-sdui-web.mjs --local (8 recorded answers) give the same report
+with HEAD's code as with the new code: no new differences. lh-edge's suite passes: 394 tests. deploy-lh-edge.yaml now also
+deploys on scripts/style-markers.js.
+
+### B. List items (`003e833a`)
+
+LIST_STYLE takes the text sizes (copytext-small, medium, large) as paragraphs do, and styles.css sizes `ul`/`ol` with them
+as `p`. Test: test/style-markers-lists.test.mjs, with the four marked lists of SWISS's /ch/en/prepare/baggage/sports-equipment.
+
+### C. TAP `{blank}` in Accordion Columns (`003e833a`)
+
+Accordion panels also hold real subscript paragraphs, such as an agency's note (`<p><sub>Si votre réservation…</sub></p>`).
+The cards' CSS (`p:has(> sub:only-child)`) would hide those too. Instead:
+- scripts.js marks a paragraph of only `<sub>{blank}</sub>` as p.blank-line, with its word removed and aria-hidden;
+- tap.css draws it 24 px high in Accordion Columns panels, TAP only;
+- the cards' rule still matches.
+
+Test: test/tap-blank-accordion.test.mjs. On tap.turnsthe.page/fr-fr/destinations/inspirez-vous with all 293 panels open and
+the local files served: 36 visible `{blank}` on the host now, 0 with the change, 36 lines of 24 px, no subscript hidden.
+
+### D. Meta descriptions (`f3158850`)
+
+`tools/importer/description-fix.mjs` takes HTML in and gives HTML out. Only the Metadata block changes. It adds a
+Description row after Title, its cells written as the block's own:
+1. www's meta description from the page's capture (`--capture`): name=description, else og: or twitter:description;
+2. else the first real text paragraph, its markers removed. It skips a paragraph that is only a link, a video path, a date
+   line ("(10. März 2026)", B2B news) or a picture.
+
+A Description already there is kept, with its markers removed.
+
+The importer (lufthansa-cleanup beforeTransform) writes www's description into the head before the metadata is read. When
+name=description is missing or empty, it uses og:/twitter:, else the first text paragraph, so new imports cannot bring the
+leak back. Bundles rebuilt: all, with only this change in them. Test: test/description-fix.test.mjs.
+
+Dry run over the local documents of every site, written nowhere: no description it would add contains a brace, a path or a
+video. The first version picked app-screen spacers on /content/mobile documents, which led to the shared list's app
+markers. Not run on DA: the harness runs it on the 415 pages.
+
+### Checks (the brief after 484)
+
+- Full suite in a fresh worktree of f3158850: eslint 0, stylelint 0, 554 passed and 1 failed. The failure was
+  test/deploy-lh-edge-paths.test.mjs: the workflow did not list scripts/style-markers.js. The follow-up commit adds it, and
+  the test then passes. Again on the rebased heads after the pulls (other agents' themes, importers and TAP's accordion fragments): 556, 558, then 560 passed (6916dd16; the bundle conflict with the campaign importer resolved by rebuilding all bundles).
+- lh-edge: 394 tests passed.
+- Smoke on all 12 hosts before and after the push (logs/p4/smoke487).
+
+| item | commit | what | rollback |
+| --- | --- | --- | --- |
+| A-C | `003e833a`, `1e843a26`, 00cfb540 | the shared marker list; lh-edge's app JSON; list text sizes; TAP {blank} in panels; deploy path | `git revert` |
+| D | `f3158850` | description-fix.mjs; the cleanup writes www's description; bundles | `git revert`; the harness's 415 documents: DA versions |
