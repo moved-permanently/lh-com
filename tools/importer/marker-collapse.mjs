@@ -866,6 +866,12 @@ function collapseSeparators(main, doc, stats, ctx) {
       } else runs.push({ els: [el], start: i, end: i });
     });
     runs.forEach((run) => {
+      // the run's section now: an earlier run's chapter split may have moved it into a section of its own
+      // (everything after the split goes with it, in order)
+      const sec = run.els[0].parentElement;
+      const now = [...sec.children];
+      const first = now.indexOf(run.els[0]);
+      const lastAt = now.indexOf(run.els[run.els.length - 1]);
       const seps = run.els.map(parse);
       const divider = seps.some((m) => m[1] === 'divider');
       const px = seps.reduce((a, m) => a + Number(m[2]), 0);
@@ -876,8 +882,8 @@ function collapseSeparators(main, doc, stats, ctx) {
       const content = (el) => el && !(isBlock(el) && BLOCK_SKIP.has(blockName(el))) && !isSep(el);
       const before = run.els[0].previousElementSibling;
       const after = run.els[run.els.length - 1].nextElementSibling;
-      const atStart = !content(before) && kids.slice(0, run.start).every((el) => !content(el));
-      const atEnd = kids.slice(run.end + 1).every((el) => !content(el));
+      const atStart = !content(before) && now.slice(0, first).every((el) => !content(el));
+      const atEnd = now.slice(lastAt + 1).every((el) => !content(el));
       const remove = () => run.els.forEach((el) => el.remove());
       if (size === 'none') { remove(); count(stats, 'theme', 'separator', run.els.length); return; }
       // page-type gaps: the theme's
@@ -894,18 +900,18 @@ function collapseSeparators(main, doc, stats, ctx) {
         // "About", "Tip"): the chapter a section of its own, the theme rules it
         if (rules.includes('ruled-chapters') && after && (/^H[23]$/.test(after.tagName) || isBoldHeading(after)) && !atStart) {
           const last = run.els[run.els.length - 1];
-          splitAfter(section, last, doc);
+          splitAfter(sec, last, doc);
           remove();
           count(stats, 'theme', 'separator', run.els.length);
           return;
         }
       }
       const style = divider ? 'divider' : `space-${size}`;
-      if (atStart && !atEnd && !sectionStyles(section).some((s) => /^(space-[ml]|divider)$/.test(s))) {
-        addSectionStyle(section, style, doc); remove(); count(stats, 'carrier', 'separator', run.els.length); return;
+      if (atStart && !atEnd && !sectionStyles(sec).some((s) => /^(space-[ml]|divider)$/.test(s))) {
+        addSectionStyle(sec, style, doc); remove(); count(stats, 'carrier', 'separator', run.els.length); return;
       }
-      if (atEnd && !atStart && !sectionStyles(section).some((s) => /^(space-below-[ml]|divider-below)$/.test(s))) {
-        addSectionStyle(section, divider ? 'divider-below' : `space-below-${size}`, doc); remove(); count(stats, 'carrier', 'separator', run.els.length); return;
+      if (atEnd && !atStart && !sectionStyles(sec).some((s) => /^(space-below-[ml]|divider-below)$/.test(s))) {
+        addSectionStyle(sec, divider ? 'divider-below' : `space-below-${size}`, doc); remove(); count(stats, 'carrier', 'separator', run.els.length); return;
       }
       if (isBlock(after) && !BLOCK_SKIP.has(blockName(after)) && !['space-m', 'space-l', 'divider-above'].some((o) => after.classList.contains(o))) {
         addBlockOption(after, divider ? 'divider-above' : `space-${size}`); remove(); count(stats, 'carrier', 'separator', run.els.length); return;

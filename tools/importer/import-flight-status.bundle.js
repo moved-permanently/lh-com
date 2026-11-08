@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-flight-status.js
-  var tmp_bundle_flight_status_1320329_exports = {};
-  __export(tmp_bundle_flight_status_1320329_exports, {
-    default: () => tmp_bundle_flight_status_1320329_default
+  var tmp_bundle_flight_status_1387788_exports = {};
+  __export(tmp_bundle_flight_status_1387788_exports, {
+    default: () => tmp_bundle_flight_status_1387788_default
   });
 
   // tools/importer/parsers/flight-status.js
@@ -4163,6 +4163,10 @@ var CustomImportScript = (() => {
         } else runs.push({ els: [el], start: i, end: i });
       });
       runs.forEach((run) => {
+        const sec = run.els[0].parentElement;
+        const now = [...sec.children];
+        const first = now.indexOf(run.els[0]);
+        const lastAt = now.indexOf(run.els[run.els.length - 1]);
         const seps = run.els.map(parse4);
         const divider = seps.some((m) => m[1] === "divider");
         const px = seps.reduce((a, m) => a + Number(m[2]), 0);
@@ -4173,8 +4177,8 @@ var CustomImportScript = (() => {
         const content = (el) => el && !(isBlock(el) && BLOCK_SKIP.has(blockName(el))) && !isSep(el);
         const before = run.els[0].previousElementSibling;
         const after = run.els[run.els.length - 1].nextElementSibling;
-        const atStart = !content(before) && kids.slice(0, run.start).every((el) => !content(el));
-        const atEnd = kids.slice(run.end + 1).every((el) => !content(el));
+        const atStart = !content(before) && now.slice(0, first).every((el) => !content(el));
+        const atEnd = now.slice(lastAt + 1).every((el) => !content(el));
         const remove = () => run.els.forEach((el) => el.remove());
         if (size === "none") {
           remove();
@@ -4194,21 +4198,21 @@ var CustomImportScript = (() => {
           }
           if (rules.includes("ruled-chapters") && after && (/^H[23]$/.test(after.tagName) || isBoldHeading(after)) && !atStart) {
             const last = run.els[run.els.length - 1];
-            splitAfter(section, last, doc);
+            splitAfter(sec, last, doc);
             remove();
             count(stats, "theme", "separator", run.els.length);
             return;
           }
         }
         const style = divider ? "divider" : `space-${size}`;
-        if (atStart && !atEnd && !sectionStyles(section).some((s) => /^(space-[ml]|divider)$/.test(s))) {
-          addSectionStyle(section, style, doc);
+        if (atStart && !atEnd && !sectionStyles(sec).some((s) => /^(space-[ml]|divider)$/.test(s))) {
+          addSectionStyle(sec, style, doc);
           remove();
           count(stats, "carrier", "separator", run.els.length);
           return;
         }
-        if (atEnd && !atStart && !sectionStyles(section).some((s) => /^(space-below-[ml]|divider-below)$/.test(s))) {
-          addSectionStyle(section, divider ? "divider-below" : `space-below-${size}`, doc);
+        if (atEnd && !atStart && !sectionStyles(sec).some((s) => /^(space-below-[ml]|divider-below)$/.test(s))) {
+          addSectionStyle(sec, divider ? "divider-below" : `space-below-${size}`, doc);
           remove();
           count(stats, "carrier", "separator", run.els.length);
           return;
@@ -4476,7 +4480,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_flight_status_1320329_default = {
+  var tmp_bundle_flight_status_1387788_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -4515,5 +4519,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_flight_status_1320329_exports);
+  return __toCommonJS(tmp_bundle_flight_status_1387788_exports);
 })();

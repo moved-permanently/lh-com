@@ -17,6 +17,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { parseHTML } from 'linkedom';
 import { collapseHtml, totals } from './marker-collapse.mjs';
+import { LEFT_MARKER } from './marker-families.mjs';
 
 const argv = process.argv.slice(2);
 const opt = (n, d) => (argv.includes(`--${n}`) ? argv[argv.indexOf(`--${n}`) + 1] : d);
@@ -34,7 +35,7 @@ if (!content) {
   process.exit(2);
 }
 // what is left after the collapse and must not be: a known marker at the end of a text
-const LEFT = /\{(?:heading-|copytext-|full-width|limited-width|column-|caption|parallax|narrow|indent-\d|spacer|divider|autoplay|muted|loop|controls|round-play-button|size-\d|mobile|selected|small|blank|cart|login|locale|help|search|accessibility|notifications)[^}]*\}/;
+const LEFT = LEFT_MARKER;
 
 const walk = (d, out = []) => {
   fs.readdirSync(d, { withFileTypes: true }).forEach((e) => {

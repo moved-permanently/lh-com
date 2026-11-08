@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-hub.js
-  var import_hub_exports = {};
-  __export(import_hub_exports, {
-    default: () => import_hub_default
+  var tmp_bundle_hub_1387788_exports = {};
+  __export(tmp_bundle_hub_1387788_exports, {
+    default: () => tmp_bundle_hub_1387788_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -5588,6 +5588,104 @@ var CustomImportScript = (() => {
     }
   }
 
+  // tools/importer/transformers/hub-dcep-render.js
+  var RENDITIONS = [2560, 1440, 720, 360];
+  function buildPanes(document, host) {
+    let props = {};
+    try {
+      props = JSON.parse(host.getAttribute("data-dcep") || "{}") || {};
+    } catch (e) {
+      return;
+    }
+    const panes = Array.isArray(props.panes) ? props.panes : [];
+    if (!panes.length) return;
+    const clean3 = (s) => typeof s === "string" ? s.replace(/\s+/g, " ").trim() : "";
+    const overlay = clean3(props.transparentOverlay);
+    const container = document.createElement("div");
+    container.className = "hero-container";
+    panes.forEach((pane) => {
+      const item = document.createElement("div");
+      item.className = "hero-item";
+      const label = clean3(pane.overlaySubHeadline);
+      if (label) {
+        const h2 = document.createElement("h2");
+        h2.className = "hero-subheading";
+        const button = document.createElement("button");
+        button.className = "hero-accordion-header-button";
+        button.textContent = label;
+        h2.append(button);
+        item.append(h2);
+      }
+      const media = pane.movingImage || {};
+      if (clean3(media.imageUrl)) {
+        const wrap = document.createElement("div");
+        wrap.className = "moving-image";
+        const box = document.createElement("div");
+        box.className = "w-100 h-100 object-cover";
+        const figure = document.createElement("figure");
+        const img = document.createElement("img");
+        img.setAttribute("src", clean3(media.imageUrl));
+        const ext = (clean3(media.imageUrl).match(/\.([a-z0-9]+)$/i) || [null, "jpg"])[1].toLowerCase();
+        img.setAttribute("srcset", RENDITIONS.map((w) => `${clean3(media.imageUrl)}.transform/lh-dcep-transform-width-${w}/img.${ext} ${w}w`).join(","));
+        img.setAttribute("alt", clean3(media.alt));
+        figure.append(img);
+        box.append(figure);
+        wrap.append(box);
+        item.append(wrap);
+      }
+      if (/^#[0-9a-f]{3,8}$/i.test(overlay)) {
+        const ov = document.createElement("div");
+        ov.className = "transparent-overlay";
+        ov.setAttribute("style", `--transparent-overlay-color: ${overlay}`);
+        item.append(ov);
+      }
+      const contents = document.createElement("div");
+      contents.className = "hero-items-contents";
+      if (clean3(pane.overlayTitle)) {
+        const h3 = document.createElement("h3");
+        h3.className = "hero-header";
+        h3.textContent = clean3(pane.overlayTitle);
+        contents.append(h3);
+      }
+      const p = document.createElement("p");
+      p.className = "hero-paragraph";
+      p.textContent = clean3(pane.overlayDescription);
+      contents.append(p);
+      if (clean3(pane.overlayButtonText) && clean3(pane.overlayButtonLinkTarget)) {
+        const btn = document.createElement("maui-button-link");
+        btn.className = "hero-button";
+        btn.setAttribute("href", clean3(pane.overlayButtonLinkTarget));
+        btn.setAttribute("label", clean3(pane.overlayButtonText));
+        btn.setAttribute("type", "secondary");
+        btn.textContent = clean3(pane.overlayButtonText);
+        contents.append(btn);
+      }
+      const label2 = item.querySelector(".hero-subheading");
+      if (label2) label2.after(contents);
+      else item.prepend(contents);
+      container.append(item);
+    });
+    const outer = document.createElement("div");
+    outer.className = "px-0 full-width-bg";
+    const intro = document.createElement("div");
+    intro.className = "hero-banner-intro-animation";
+    const h1 = document.createElement("h1");
+    h1.className = "animated-text";
+    intro.append(h1);
+    const banner = document.createElement("div");
+    banner.className = "hero-banner";
+    banner.append(container);
+    outer.append(intro, banner);
+    host.append(outer);
+  }
+  function transform3(hookName, element, payload) {
+    if (hookName !== "onLoad") return;
+    const document = payload && payload.document || element.ownerDocument || element;
+    document.querySelectorAll(".dcep-hero-banner[data-dcep]").forEach((host) => {
+      if (!host.querySelector(".hero-item")) buildPanes(document, host);
+    });
+  }
+
   // tools/importer/transformers/campaign-sections.js
   var BREAK2 = "data-excat-section-break";
   var SOURCE_STYLE2 = "data-excat-section-source-style";
@@ -5652,7 +5750,7 @@ var CustomImportScript = (() => {
     });
     return fixed;
   }
-  function transform3(hookName, element, payload) {
+  function transform4(hookName, element, payload) {
     const document = payload && payload.document || element.ownerDocument || element;
     if (hookName === "onLoad") {
       campaignSections(document).forEach((s) => {
@@ -5852,7 +5950,7 @@ var CustomImportScript = (() => {
       }
     });
   }
-  function transform4(hookName, element, payload) {
+  function transform5(hookName, element, payload) {
     if (hookName !== "beforeTransform" && hookName !== "afterTransform") return;
     const template = payload && payload.template || {};
     if (CLEANUP_TEMPLATES.includes(template.name) || CLEANUP_TEMPLATES.includes(template.base)) return;
@@ -5865,7 +5963,7 @@ var CustomImportScript = (() => {
   var SEPARATOR2 = /^\{(spacer|divider)-(\d{1,3})( from-768)?\}$/;
   var SPACER2 = { 60: "Spacer", 120: "Spacer (l)" };
   var DIVIDER = { 25: "Divider" };
-  function transform5(hookName, element, payload) {
+  function transform6(hookName, element, payload) {
     if (hookName !== "afterTransform") return;
     const document = payload && payload.document || element.ownerDocument || element;
     [...element.querySelectorAll("p")].forEach((p) => {
@@ -5875,104 +5973,6 @@ var CustomImportScript = (() => {
       const name = (m[1] === "divider" ? DIVIDER : SPACER2)[Number(m[2])];
       if (!name) return;
       p.replaceWith(WebImporter.Blocks.createBlock(document, { name, cells: [[""]] }));
-    });
-  }
-
-  // tools/importer/transformers/hub-dcep-render.js
-  var RENDITIONS = [2560, 1440, 720, 360];
-  function buildPanes(document, host) {
-    let props = {};
-    try {
-      props = JSON.parse(host.getAttribute("data-dcep") || "{}") || {};
-    } catch (e) {
-      return;
-    }
-    const panes = Array.isArray(props.panes) ? props.panes : [];
-    if (!panes.length) return;
-    const clean3 = (s) => typeof s === "string" ? s.replace(/\s+/g, " ").trim() : "";
-    const overlay = clean3(props.transparentOverlay);
-    const container = document.createElement("div");
-    container.className = "hero-container";
-    panes.forEach((pane) => {
-      const item = document.createElement("div");
-      item.className = "hero-item";
-      const label = clean3(pane.overlaySubHeadline);
-      if (label) {
-        const h2 = document.createElement("h2");
-        h2.className = "hero-subheading";
-        const button = document.createElement("button");
-        button.className = "hero-accordion-header-button";
-        button.textContent = label;
-        h2.append(button);
-        item.append(h2);
-      }
-      const media = pane.movingImage || {};
-      if (clean3(media.imageUrl)) {
-        const wrap = document.createElement("div");
-        wrap.className = "moving-image";
-        const box = document.createElement("div");
-        box.className = "w-100 h-100 object-cover";
-        const figure = document.createElement("figure");
-        const img = document.createElement("img");
-        img.setAttribute("src", clean3(media.imageUrl));
-        const ext = (clean3(media.imageUrl).match(/\.([a-z0-9]+)$/i) || [null, "jpg"])[1].toLowerCase();
-        img.setAttribute("srcset", RENDITIONS.map((w) => `${clean3(media.imageUrl)}.transform/lh-dcep-transform-width-${w}/img.${ext} ${w}w`).join(","));
-        img.setAttribute("alt", clean3(media.alt));
-        figure.append(img);
-        box.append(figure);
-        wrap.append(box);
-        item.append(wrap);
-      }
-      if (/^#[0-9a-f]{3,8}$/i.test(overlay)) {
-        const ov = document.createElement("div");
-        ov.className = "transparent-overlay";
-        ov.setAttribute("style", `--transparent-overlay-color: ${overlay}`);
-        item.append(ov);
-      }
-      const contents = document.createElement("div");
-      contents.className = "hero-items-contents";
-      if (clean3(pane.overlayTitle)) {
-        const h3 = document.createElement("h3");
-        h3.className = "hero-header";
-        h3.textContent = clean3(pane.overlayTitle);
-        contents.append(h3);
-      }
-      const p = document.createElement("p");
-      p.className = "hero-paragraph";
-      p.textContent = clean3(pane.overlayDescription);
-      contents.append(p);
-      if (clean3(pane.overlayButtonText) && clean3(pane.overlayButtonLinkTarget)) {
-        const btn = document.createElement("maui-button-link");
-        btn.className = "hero-button";
-        btn.setAttribute("href", clean3(pane.overlayButtonLinkTarget));
-        btn.setAttribute("label", clean3(pane.overlayButtonText));
-        btn.setAttribute("type", "secondary");
-        btn.textContent = clean3(pane.overlayButtonText);
-        contents.append(btn);
-      }
-      const label2 = item.querySelector(".hero-subheading");
-      if (label2) label2.after(contents);
-      else item.prepend(contents);
-      container.append(item);
-    });
-    const outer = document.createElement("div");
-    outer.className = "px-0 full-width-bg";
-    const intro = document.createElement("div");
-    intro.className = "hero-banner-intro-animation";
-    const h1 = document.createElement("h1");
-    h1.className = "animated-text";
-    intro.append(h1);
-    const banner = document.createElement("div");
-    banner.className = "hero-banner";
-    banner.append(container);
-    outer.append(intro, banner);
-    host.append(outer);
-  }
-  function transform6(hookName, element, payload) {
-    if (hookName !== "onLoad") return;
-    const document = payload && payload.document || element.ownerDocument || element;
-    document.querySelectorAll(".dcep-hero-banner[data-dcep]").forEach((host) => {
-      if (!host.querySelector(".hero-item")) buildPanes(document, host);
     });
   }
 
@@ -6793,6 +6793,10 @@ var CustomImportScript = (() => {
         } else runs.push({ els: [el], start: i, end: i });
       });
       runs.forEach((run) => {
+        const sec = run.els[0].parentElement;
+        const now = [...sec.children];
+        const first = now.indexOf(run.els[0]);
+        const lastAt = now.indexOf(run.els[run.els.length - 1]);
         const seps = run.els.map(parse14);
         const divider = seps.some((m) => m[1] === "divider");
         const px = seps.reduce((a, m) => a + Number(m[2]), 0);
@@ -6803,8 +6807,8 @@ var CustomImportScript = (() => {
         const content = (el) => el && !(isBlock(el) && BLOCK_SKIP.has(blockName(el))) && !isSep(el);
         const before2 = run.els[0].previousElementSibling;
         const after = run.els[run.els.length - 1].nextElementSibling;
-        const atStart = !content(before2) && kids.slice(0, run.start).every((el) => !content(el));
-        const atEnd = kids.slice(run.end + 1).every((el) => !content(el));
+        const atStart = !content(before2) && now.slice(0, first).every((el) => !content(el));
+        const atEnd = now.slice(lastAt + 1).every((el) => !content(el));
         const remove = () => run.els.forEach((el) => el.remove());
         if (size === "none") {
           remove();
@@ -6824,21 +6828,21 @@ var CustomImportScript = (() => {
           }
           if (rules.includes("ruled-chapters") && after && (/^H[23]$/.test(after.tagName) || isBoldHeading(after)) && !atStart) {
             const last = run.els[run.els.length - 1];
-            splitAfter(section, last, doc);
+            splitAfter(sec, last, doc);
             remove();
             count(stats, "theme", "separator", run.els.length);
             return;
           }
         }
         const style = divider ? "divider" : `space-${size}`;
-        if (atStart && !atEnd && !sectionStyles(section).some((s) => /^(space-[ml]|divider)$/.test(s))) {
-          addSectionStyle(section, style, doc);
+        if (atStart && !atEnd && !sectionStyles(sec).some((s) => /^(space-[ml]|divider)$/.test(s))) {
+          addSectionStyle(sec, style, doc);
           remove();
           count(stats, "carrier", "separator", run.els.length);
           return;
         }
-        if (atEnd && !atStart && !sectionStyles(section).some((s) => /^(space-below-[ml]|divider-below)$/.test(s))) {
-          addSectionStyle(section, divider ? "divider-below" : `space-below-${size}`, doc);
+        if (atEnd && !atStart && !sectionStyles(sec).some((s) => /^(space-below-[ml]|divider-below)$/.test(s))) {
+          addSectionStyle(sec, divider ? "divider-below" : `space-below-${size}`, doc);
           remove();
           count(stats, "carrier", "separator", run.els.length);
           return;
@@ -7187,7 +7191,7 @@ var CustomImportScript = (() => {
     "cards-icon-text": parse12,
     "embed": parse13
   };
-  var transformers = [transform, transform2, transform6, transform3, transform4, transform5];
+  var transformers = [transform, transform2, transform3, transform4, transform5, transform6];
   function executeTransformers(hookName, element, payload) {
     const enhancedPayload = __spreadProps(__spreadValues({}, payload), { template: PAGE_TEMPLATE });
     transformers.forEach((fn) => {
@@ -7209,7 +7213,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var import_hub_default = {
+  var tmp_bundle_hub_1387788_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -7248,5 +7252,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(import_hub_exports);
+  return __toCommonJS(tmp_bundle_hub_1387788_exports);
 })();
