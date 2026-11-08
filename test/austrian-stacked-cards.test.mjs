@@ -13,3 +13,7 @@ const css = fs.readFileSync(new URL('../styles/themes/austrian.css', import.meta
 test('below 768 px stacked grid cards 68 px apart, the next grid 77 px below', () => {
   assert.match(css, /@media \(width < 768px\) \{ body\.brand-austrian \.carousel-cards\.grid:not\(\.phone-slider\) \.carousel-cards-track \{ gap: 68px; \} body\.brand-austrian \.carousel-cards-wrapper \+ \.carousel-cards-wrapper > \.carousel-cards\.grid:not\(\.phone-slider\) \{ margin-top: 77px; \} \}/);
 });
+
+test('a grid that ends the page\'s last section: the column view\'s 32 px below it (fly-with-austrian 1440: 72 px to the footer with the section\'s 40)', () => {
+  assert.match(css, /body\.brand-austrian main > \.section:not\(\.grey\):last-child > \.carousel-cards-wrapper:last-child:has\(> \.carousel-cards\.grid\) \{ padding-bottom: 32px; \}/);
+});

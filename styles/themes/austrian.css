@@ -849,6 +849,22 @@ body.brand-austrian main > .section:not(.grey) > .carousel-cards-wrapper:has(> .
   padding-bottom: 32px;
 }
 
+/* the brief after 475: also at the end of the page's last section (fly-with-austrian 1440: 72 px from the
+   last cards to the footer on www, the column view's 32 px and the section's 40) */
+body.brand-austrian main > .section:not(.grey):last-child > .carousel-cards-wrapper:last-child:has(> .carousel-cards.grid) {
+  padding-bottom: 32px;
+}
+
+/* the brief after 475: flight-search.css drops the bottom margin of any section with a standalone
+   search from 768 px (the homepage stage); an Austrian section whose blocks go on after the search
+   (fly-with-austrian's cards, the fare pages' accordions) keeps its 40 px, a lone separator after it
+   still none (lufthansa.com, ITA, Brussels, SWISS and TAP as they are) */
+@media (width >= 768px) {
+  body.brand-austrian.appear main > .section.flight-search-container:has(> .flight-search-wrapper > .flight-search.standalone):has(> .flight-search-wrapper + *):not(:has(> .flight-search-wrapper + .default-content-wrapper:last-child > p.spacer:only-child)) {
+    margin-bottom: 40px;
+  }
+}
+
 body.brand-austrian main > .section:not(.grey) > .default-content-wrapper:not(:has(> :is(h1, h2, h3, h4, h5, h6):last-child)) + .carousel-cards-wrapper:has(> .carousel-cards.grid) {
   padding-top: 32px;
 }
