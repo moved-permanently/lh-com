@@ -250,6 +250,20 @@ body.brand-brussels main > .section > .columns-media-wrapper:has(> .columns-medi
   }
 }
 
+/* and below the last one (brief 510): a page of one section with a sidebar intro ending with its card
+   grid (202 documents, 25 of them recorded). On www the last card is 61 to 130 px from the footer at
+   1440 and 82 to 248 at 390; ours 32 to 52 and 20 to 48, more on every recorded page. The median of
+   the differences: 64 px more from 768 px, 130 on phones */
+body.brand-brussels main > .section:only-child:has(> .columns-media-wrapper > .columns-media.sidebar):has(> .carousel-cards-wrapper:last-child, > .carousel-cards-wrapper + .default-content-wrapper:last-child > p.column-mark:only-child) {
+  padding-bottom: 130px;
+}
+
+@media (width >= 768px) {
+  body.brand-brussels main > .section:only-child:has(> .columns-media-wrapper > .columns-media.sidebar):has(> .carousel-cards-wrapper:last-child, > .carousel-cards-wrapper + .default-content-wrapper:last-child > p.column-mark:only-child) {
+    padding-bottom: 64px;
+  }
+}
+
 /* the wide teasers' eyebrow (.teaser-title): regular, uppercase */
 body.brand-brussels .carousel-cards .carousel-cards-body > .carousel-cards-eyebrow,
 body.brand-brussels .carousel-cards .carousel-cards-slide:not(.carousel-cards-wide) .carousel-cards-body > .carousel-cards-eyebrow {
