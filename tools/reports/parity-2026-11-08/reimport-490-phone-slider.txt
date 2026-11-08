@@ -1,0 +1,18 @@
+# The brief after 488, item 3: www's three-card views held twice (a grid from lg, an initialized swiper copy below it) in lh-snapshots-085 (and 064/067). The cleanup's removeMobileDuplicates drops the swiper copy as the grid's duplicate and flags the grid (data-lh-swiper-below-lg); the carousel-cards parser looked only for the copy, so these imports lost option phone-slider. It reads the flag now (scratch imports from 085: de/en, de/de, gb/en miles-and-more, gb/en medical-travel-companions, gb/en stopover's last grid all "carousel-cards grid phone-slider"). DA today (read 2026-11-08): only de/en and de/de miles-and-more have phone-slider (held by the harness); the others lost it in the 085 re-imports. Release order: the two held miles-and-more documents first. Column marks and og:title of miles-and-more: see the report (not this importer step).
+/de/en/miles-and-more
+/de/de/miles-and-more
+/at/de/book-and-manage/stopover
+/at/de/miles-and-more
+/at/de/prepare-for-your-trip/special-travel-needs/medical-travel-companions
+/de/de/book-and-manage/stopover
+/de/en/book-and-manage/stopover
+/fr/fr/book-and-manage/stopover
+/gb/en/book-and-manage/stopover
+/gb/en/miles-and-more
+/gb/en/prepare-for-your-trip/special-travel-needs/medical-travel-companions
+/xx/es/book-and-manage/stopover
+/xx/es/miles-and-more
+/xx/es/prepare-for-your-trip/special-travel-needs/medical-travel-companions
+/xx/fr/book-and-manage/stopover
+/xx/fr/miles-and-more
+/xx/fr/prepare-for-your-trip/special-travel-needs/medical-travel-companions

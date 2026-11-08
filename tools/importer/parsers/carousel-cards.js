@@ -233,8 +233,11 @@ export default function parse(element, { document }) {
     // below it (.hidden-lg-up); the swiper only on phones and tablets: option phone-slider
     // (/de/en/doctor-on-board-news, medical-travel-companions, miles-and-more)
     // (or a view marked data-import-phone-slider: its swiper copy the same as the grid, which the
-    // cleanup's removeMobileDuplicates drops before this parser; Austrian marks it)
-    if (variants[0] === 'grid' && variants.length === 1 && ((hasDesktopTwin && element.querySelector('.hidden-lg-up a.teaser')) || element.hasAttribute('data-import-phone-slider'))) variants.push('phone-slider');
+    // cleanup's removeMobileDuplicates drops before this parser; Austrian marks it), or the grid
+    // that drop flagged (data-lh-swiper-below-lg: an initialized swiper copy, lh-snapshots-085's
+    // miles-and-more, brief after 488)
+    const swiperDropped = element.matches('[data-lh-swiper-below-lg]') || !!element.querySelector('[data-lh-swiper-below-lg]');
+    if (variants[0] === 'grid' && variants.length === 1 && ((hasDesktopTwin && element.querySelector('.hidden-lg-up a.teaser')) || swiperDropped || element.hasAttribute('data-import-phone-slider'))) variants.push('phone-slider');
     const block = WebImporter.Blocks.createBlock(document, { name: 'carousel-cards', variants, cells: rows });
     element.replaceWith(...titles, block);
     return;
