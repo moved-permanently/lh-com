@@ -78,5 +78,5 @@ test('the importer: lufthansa-cleanup writes www\'s description into the head be
   assert.equal(run('<meta name="description" content="www says">', '<p>Text</p>'), 'www says');
   assert.equal(run('<meta property="og:description" content="og says">', '<p>Text</p>'), 'og says');
   assert.equal(run('', '<p><a href="/x">Link only</a></p><p>The first text paragraph</p>'), 'The first text paragraph');
-  assert.equal(run('<meta name="description" content="">', '<p>Fallback</p>'), 'Fallback');
+  assert.equal(run('<meta name="description" content="">', '<p>Fallback text from the page</p>'), 'Fallback text from the page');
 });

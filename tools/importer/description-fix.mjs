@@ -9,8 +9,10 @@
  *      name=description, else og:description, else twitter:description);
  *   2. else the first real text paragraph, its style markers removed (scripts/style-markers.js),
  *      not a paragraph that is only a link, a video path, a date or a picture, nor a weak one
- *      (isWeak: a footnote, a word or two, a phone or price line, a date line or byline, a lead-in
- *      ending with a colon or comma, a text cut off, a numbered step); none left: no row.
+ *      (isWeak: a footnote, a word or two, a phone or price line, a date line, dateline or byline,
+ *      a salutation, a breadcrumb, a lead-in ending with a colon or comma, a text cut off, a
+ *      numbered step); every paragraph weak: the first heading that is not; none: no row. The
+ *      rules are description-rules.js's, the importer's cleanup takes them too.
  * A Description already there stays, its style markers removed. Placeholders ({origin}) stay.
  * HTML in, HTML out: the rest of the document is left byte for byte as it is.
  *
@@ -22,37 +24,12 @@ import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { parseHTML } from 'linkedom';
 import { stripStyleMarkers } from '../../scripts/style-markers.js';
+import {
+  clean, isWeak, paragraphText, firstTextParagraph as firstUnder,
+} from './description-rules.js';
 
-const clean = (s) => String(s || '')
-  .replace(/[\u200B-\u200D\uFEFF]/g, '')
-  .replace(/\u00A0/g, ' ')
-  .replace(/\s+/g, ' ')
-  .trim();
+export { isWeak, paragraphText };
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-// a date line alone (B2B news: "(10. März 2026)", "(1 September 2026)")
-const DATE_ONLY = /^\(?(?:\d{1,2}\.?\s+\p{L}+\.?|\p{L}+\.?\s+\d{1,2},?)\s+\d{4}\)?$/u;
-const VIDEO_PATH = /^(?:https?:\/\/\S+|\/\S+)\.(?:mp4|webm|mov|m4v)(?:\?\S*)?$|^(?:https?:\/\/[^\s/]+)?\/content\/dam\/\S+$/i;
-// weak as a description (brief 490: "* Minimum two adults need to be booked", "Niemcy", "Buchungszeitraum: 30.09.2019 -
-// 04.11.2019", "19. June 2025 | 5 min read | …", "… the redemption of vouchers:", "1. Turn on your notebook …")
-const CJK = /[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}\p{Script=Hangul}]/u;
-const FOOTNOTE = /^(?:[*†‡¹²³⁴⁵⁶⁷⁸⁹]|\(\d{1,2}\)\s)/u;
-const DATE = /\d{1,2}\.\d{1,2}\.\d{2,4}|\d{4}-\d{2}-\d{2}|\d{1,2}\.?\s+\p{L}+\.?,?\s+\d{4}|\p{L}+\.?\s+\d{1,2},?\s+\d{4}/gu;
-const PRICE = /(?:[€$£¥₩]|\b(?:EUR|USD|CHF|GBP|CNY|HKD|KRW|MYR|THB|INR|JPY)\b)\s?\d[\d.,]*|\d[\d.,]*\s?(?:[€$£¥₩]|\b(?:EUR|USD|CHF|GBP|CNY|HKD|KRW|MYR|THB|INR|JPY)\b)/gu;
-const LEAD_IN = /(?:[:：,，;；–—-]|…|\.\.\.)$/u;
-const STEP = /^\d{1,2}[.)]\s*(?!\p{L}+\.?,?\s+\d{4})\p{L}/u;
-const words = (s) => s.split(' ').filter((t) => /\p{L}/u.test(t)).length;
-
-/** A footnote, a word or two, a number line (a phone, hours), a date or price line, a lead-in, a text cut off, a step. */
-export function isWeak(text) {
-  if (FOOTNOTE.test(text) || LEAD_IN.test(text) || STEP.test(text)) return true;
-  const chars = text.replace(/\s/g, '');
-  if ((chars.match(/\p{L}/gu) || []).length < chars.length * 0.4) return true;
-  if (CJK.test(text)) return [...chars].length < 6;
-  if (words(text) < 4) return true;
-  const dated = text.replace(DATE, ' ').replace(PRICE, ' ');
-  if (dated === text) return false;
-  return / \| /.test(text) || words(clean(dated)) < 3;
-}
 
 const parse = (html) => {
   const s = String(html);
@@ -70,38 +47,13 @@ export function wwwDescription(captureHtml) {
     || read('meta[name="twitter:description"]') || read('meta[property="twitter:description"]');
 }
 
-/** An element's lines (split at its line breaks), style markers removed. */
-const textLines = (el) => {
-  const c = el.cloneNode(true);
-  c.querySelectorAll('br').forEach((br) => br.replaceWith(c.ownerDocument.createTextNode('\n')));
-  return c.textContent.split('\n').map((l) => clean(stripStyleMarkers(clean(l)))).filter(Boolean);
-};
-
-/** The text of a paragraph that can describe the page, or '' (link only, video path, picture, weak). */
-export function paragraphText(p) {
-  const lines = textLines(p);
-  const text = clean(stripStyleMarkers(lines.join(' ')));
-  if (!text) return '';
-  if (VIDEO_PATH.test(text) || DATE_ONLY.test(text) || isWeak(text)) return '';
-  // short lines one per line (conditions, phone numbers): a list, not a description
-  if (lines.length > 1 && lines.every(isWeak)) return '';
-  const links = [...p.querySelectorAll('a')];
-  if (links.length && clean(links.map((a) => a.textContent).join(' ')) === text) return '';
-  return text;
-}
-
 /**
  * The first real text paragraph of a document (outside its metadata blocks), markers removed;
- * every paragraph weak: the first heading that is not (h1, else h2).
+ * every paragraph weak: the first heading that is not (h1, else h2). description-rules.js.
  */
 export function firstTextParagraph(html) {
   const document = typeof html === 'string' ? parse(html) : html;
-  const root = document.querySelector('main') || document.body;
-  const first = (sel) => [...root.querySelectorAll(sel)]
-    .filter((x) => !x.closest('div.metadata, div.section-metadata'))
-    .find((x) => paragraphText(x));
-  const p = first('p') || first('h1') || first('h2');
-  return p ? paragraphText(p) : '';
+  return firstUnder(document.querySelector('main') || document.body);
 }
 
 /** The [start, end) of the element that opens at `at` (div nesting counted). */

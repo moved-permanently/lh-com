@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-campaign.js
-  var tmp_bundle_campaign_325465_exports = {};
-  __export(tmp_bundle_campaign_325465_exports, {
-    default: () => tmp_bundle_campaign_325465_default
+  var tmp_bundle_campaign_552379_exports = {};
+  __export(tmp_bundle_campaign_552379_exports, {
+    default: () => tmp_bundle_campaign_552379_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -806,12 +806,12 @@ var CustomImportScript = (() => {
 
   // tools/importer/parsers/subpage-nav.js
   function parse(element, { document }) {
-    const clean3 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
+    const clean4 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
     const text = (el) => {
       if (!el) return "";
       const c = el.cloneNode(true);
       c.querySelectorAll("maui-icon, i, .sr-only, .visually-hidden, maui-screen-reader-label").forEach((n) => n.remove());
-      return clean3(c.textContent);
+      return clean4(c.textContent);
     };
     const nav = element.matches("nav.subpage") ? element : element.querySelector("nav.subpage");
     if (!nav) return;
@@ -1678,14 +1678,14 @@ var CustomImportScript = (() => {
   // tools/importer/parsers/flight-search.js
   function parse3(element, { document, url, params } = {}) {
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
-    const clean3 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
+    const clean4 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
       if (!node) return "";
       const clone = node.cloneNode(true);
       clone.querySelectorAll(SR_ONLY2).forEach((n) => n.remove());
-      return clean3(clone.textContent);
+      return clean4(clone.textContent);
     };
-    const attr = (node, name2) => clean3(node ? node.getAttribute(name2) : "");
+    const attr = (node, name2) => clean4(node ? node.getAttribute(name2) : "");
     let props = {};
     const propsHost = element.querySelector("[data-dcep]") || (element.hasAttribute("data-dcep") ? element : null);
     if (propsHost) {
@@ -1732,7 +1732,7 @@ var CustomImportScript = (() => {
         root = "";
       }
       const market = String(props.groupBookingsUrl || "").match(/\/markets\/[a-z]{2}\/([a-z]{2})(?=[/.]|$)/);
-      const lang = root && root.slice(4) || market && market[1] || clean3(document.documentElement.getAttribute("lang")).slice(0, 2);
+      const lang = root && root.slice(4) || market && market[1] || clean4(document.documentElement.getAttribute("lang")).slice(0, 2);
       pickerRows({
         lang,
         groupBookingsUrl: groupUrl,
@@ -1760,20 +1760,20 @@ var CustomImportScript = (() => {
     const destinationField = airportFields.find((f) => f !== originField);
     const fieldValue = (field) => attr(field && field.querySelector('input:not([type="hidden"])'), "value");
     const withCode = (value) => /\([A-Za-z]{3}\)/.test(value) || /^[A-Za-z]{3}$/.test(value) ? value : "";
-    addRow("Default origin", withCode(clean3(props.prefilledOrigin)) || withCode(fieldValue(originField)));
-    addRow("Default destination", withCode(clean3(props.prefilledDestination)) || withCode(fieldValue(destinationField)));
+    addRow("Default origin", withCode(clean4(props.prefilledOrigin)) || withCode(fieldValue(originField)));
+    addRow("Default destination", withCode(clean4(props.prefilledDestination)) || withCode(fieldValue(destinationField)));
     const picture = (src) => {
-      if (!/^\/content\/dam\//.test(clean3(src))) return null;
+      if (!/^\/content\/dam\//.test(clean4(src))) return null;
       const pic = document.createElement("picture");
       const img = document.createElement("img");
-      img.src = `https://www.lufthansa.com${encodeURI(decodeURI(clean3(src)))}`;
+      img.src = `https://www.lufthansa.com${encodeURI(decodeURI(clean4(src)))}`;
       img.alt = "";
       pic.append(img);
       return pic;
     };
     addRow("Background image", picture(props.backgroundImageL));
     addRow("Background image mobile", picture(props.backgroundImageS));
-    if (/^[A-Za-z]$/.test(clean3(props.prefilledCabinClass))) addRow("Cabin", clean3(props.prefilledCabinClass).toUpperCase());
+    if (/^[A-Za-z]$/.test(clean4(props.prefilledCabinClass))) addRow("Cabin", clean4(props.prefilledCabinClass).toUpperCase());
     const wwf = element.querySelector(".flma-where-we-fly-wrapper [href]");
     if (wwf && visibleText(wwf)) {
       const a = document.createElement("a");
@@ -1807,16 +1807,16 @@ var CustomImportScript = (() => {
   // tools/importer/parsers/hero-campaign.js
   function parse4(element, { document }) {
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style';
-    const clean3 = (s) => (s || "").replace(/[\u200B-\u200D\uFEFF]/g, "").replace(/\u00A0/g, " ").replace(/\s+/g, " ").trim();
+    const clean4 = (s) => (s || "").replace(/[\u200B-\u200D\uFEFF]/g, "").replace(/\u00A0/g, " ").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
       if (!node) return "";
       const c = node.cloneNode(true);
       c.querySelectorAll(SKIP).forEach((n) => n.remove());
-      return clean3(c.textContent);
+      return clean4(c.textContent);
     };
     const isBroken3 = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src) || /^(data|blob):/i.test(src);
     const isBr2 = (n) => n && n.nodeType === 1 && n.tagName === "BR";
-    const isBlank = (n) => n && n.nodeType === 3 && !clean3(n.nodeValue);
+    const isBlank = (n) => n && n.nodeType === 3 && !clean4(n.nodeValue);
     const trimBreaks = (el) => {
       while (el.lastChild && (isBr2(el.lastChild) || isBlank(el.lastChild))) el.lastChild.remove();
       while (el.firstChild && (isBr2(el.firstChild) || isBlank(el.firstChild))) el.firstChild.remove();
@@ -1904,13 +1904,13 @@ var CustomImportScript = (() => {
         c.querySelectorAll(SKIP).forEach((s) => s.remove());
         c.removeAttribute("class");
         if (c.tagName === "P") trimBreaks(c);
-        if (!clean3(c.textContent) && !c.querySelector("img")) return;
+        if (!clean4(c.textContent) && !c.querySelector("img")) return;
         text.push(c);
       });
     });
     info.querySelectorAll("maui-button-link[href], maui-navigation-link[href], maui-link[href]").forEach((m) => {
       if (m.closest(".richtext")) return;
-      const label = visibleText(m) || clean3(m.getAttribute("label"));
+      const label = visibleText(m) || clean4(m.getAttribute("label"));
       if (!label) return;
       const a = document.createElement("a");
       a.setAttribute("href", m.getAttribute("href"));
@@ -2225,12 +2225,12 @@ var CustomImportScript = (() => {
   function parse5(element, { document }) {
     const SR_ONLY2 = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"]';
     const ZW2 = /[​-‍﻿]/g;
-    const clean3 = (s) => (s || "").replace(ZW2, "").replace(/\s+/g, " ").trim();
+    const clean4 = (s) => (s || "").replace(ZW2, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
       if (!node) return "";
       const clone = node.cloneNode(true);
       clone.querySelectorAll(SR_ONLY2).forEach((n) => n.remove());
-      return clean3(clone.textContent);
+      return clean4(clone.textContent);
     };
     const makeLink = (source) => {
       const label = visibleText(source);
@@ -2242,7 +2242,7 @@ var CustomImportScript = (() => {
       return a;
     };
     const dropIcons = (root) => root.querySelectorAll("em.lh, i.lh").forEach((n) => {
-      if (clean3(n.textContent)) n.replaceWith(...n.childNodes);
+      if (clean4(n.textContent)) n.replaceWith(...n.childNodes);
       else n.remove();
     });
     const convertRichText = (root) => {
@@ -2281,7 +2281,7 @@ var CustomImportScript = (() => {
             const LINKS = "a[href], maui-navigation-link[href], maui-link[href], maui-button-link[href]";
             const rest = li.cloneNode(true);
             rest.querySelectorAll(`${LINKS}, ${SR_ONLY2}, ul, ol`).forEach((n) => n.remove());
-            if (link && clean3(rest.textContent)) {
+            if (link && clean4(rest.textContent)) {
               const c = li.cloneNode(true);
               c.querySelectorAll(`${SR_ONLY2}, ul, ol, br`).forEach((n) => n.remove());
               dropIcons(c);
@@ -2304,7 +2304,7 @@ var CustomImportScript = (() => {
           const clone = child.cloneNode(true);
           clone.querySelectorAll("a, br").forEach((n) => n.remove());
           clone.querySelectorAll(SR_ONLY2).forEach((n) => n.remove());
-          const onlyLinks = links.length && !clean3(clone.textContent);
+          const onlyLinks = links.length && !clean4(clone.textContent);
           if (onlyLinks) {
             const list = document.createElement("ul");
             links.forEach((l) => {
@@ -2375,7 +2375,7 @@ var CustomImportScript = (() => {
       const picture = document.createElement("picture");
       const out = document.createElement("img");
       out.setAttribute("src", src);
-      out.setAttribute("alt", clean3(img.getAttribute("alt")));
+      out.setAttribute("alt", clean4(img.getAttribute("alt")));
       picture.append(out);
       const p = document.createElement("p");
       p.append(picture);
@@ -2502,7 +2502,7 @@ var CustomImportScript = (() => {
             if (src && !/^(data|blob):/i.test(src) && !/(^|\/)undefined(\.transform|$|\/)/.test(src)) {
               const img = document.createElement("img");
               img.setAttribute("src", src);
-              img.setAttribute("alt", clean3(icon.getAttribute("alt")));
+              img.setAttribute("alt", clean4(icon.getAttribute("alt")));
               h.append(img);
             }
             h.append(text);
@@ -2526,13 +2526,13 @@ var CustomImportScript = (() => {
     const columnItem = element.parentElement && element.parentElement.closest(".column-view-item");
     const columnView = columnItem && columnItem.closest(".column-view");
     const columnCount = columnView ? [...columnView.querySelectorAll(".column-view-item")].filter((it) => it.closest(".column-view") === columnView).length : 0;
-    const aloneInColumn = !!columnItem && [...columnItem.children].filter((c) => c !== element && !c.contains(element) && !c.matches(".separator") && (clean3(c.textContent) || c.querySelector("img, video, iframe"))).length === 0;
+    const aloneInColumn = !!columnItem && [...columnItem.children].filter((c) => c !== element && !c.contains(element) && !c.matches(".separator") && (clean4(c.textContent) || c.querySelector("img, video, iframe"))).length === 0;
     if (aloneInColumn && columnCount > 1) options.push("column");
     else if (columnItem) options.push("spaced");
     const cells = [];
     const expanded = [];
     items.forEach((item) => {
-      const title = clean3(item.getAttribute("headline")) || visibleText(item.querySelector('[slot="headline"], .accordion-headline, summary, h2, h3'));
+      const title = clean4(item.getAttribute("headline")) || visibleText(item.querySelector('[slot="headline"], .accordion-headline, summary, h2, h3'));
       const content = convertPanel(item);
       if (!title && !content.length) return;
       cells.push([title, content.length ? content : ""]);
@@ -2555,17 +2555,17 @@ var CustomImportScript = (() => {
     const SKIP_COMPONENTS = '.separator, .sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], .swiper-pagination, .swiper-button-prev, .swiper-button-next, .swiper-notification, .swiper-slide-duplicate, script, style, noscript';
     const MOBILE = ".hidden-lg-up, .hidden-md-up, .d-md-none, .d-lg-none";
     const DESKTOP = ".hidden-md-down, .hidden-sm-down, .d-none.d-md-block, .d-none.d-lg-block";
-    const clean3 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
+    const clean4 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
       if (!node) return "";
       const c = node.cloneNode(true);
       c.querySelectorAll(SKIP).forEach((n) => n.remove());
-      return clean3(c.textContent);
+      return clean4(c.textContent);
     };
     const ARTICLE = !!element.closest(".article-details-page");
     const isBroken3 = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src) || /^(data|blob):/i.test(src);
     const isBr2 = (n) => n && n.nodeType === 1 && n.tagName === "BR";
-    const isBlank = (n) => n && n.nodeType === 3 && !clean3(n.nodeValue);
+    const isBlank = (n) => n && n.nodeType === 3 && !clean4(n.nodeValue);
     const trimBreaks = (el) => {
       while (el.lastChild && (isBr2(el.lastChild) || isBlank(el.lastChild))) el.lastChild.remove();
       while (el.firstChild && (isBr2(el.firstChild) || isBlank(el.firstChild))) el.firstChild.remove();
@@ -2573,7 +2573,7 @@ var CustomImportScript = (() => {
     const tidy = (el) => {
       el.querySelectorAll(SKIP).forEach((s) => s.remove());
       el.querySelectorAll("em, i, span").forEach((s) => {
-        if ([...s.classList].some((c) => /^lh(-|$)/.test(c)) && !clean3(s.textContent) && !s.querySelector("img")) s.remove();
+        if ([...s.classList].some((c) => /^lh(-|$)/.test(c)) && !clean4(s.textContent) && !s.querySelector("img")) s.remove();
       });
       const keep = [...el.classList].filter((c) => /^(copytext-(small|medium|large)|footnote|limited-width)$/.test(c));
       el.removeAttribute("class");
@@ -2602,7 +2602,7 @@ var CustomImportScript = (() => {
         g.forEach((n) => np.append(n));
         trimBreaks(np);
         return np;
-      }).filter((np) => clean3(np.textContent) || np.querySelector("img"));
+      }).filter((np) => clean4(np.textContent) || np.querySelector("img"));
     };
     const richNodes = (scope) => {
       const rt = scope.querySelector(".richtext") || scope;
@@ -2627,7 +2627,7 @@ var CustomImportScript = (() => {
             return;
           }
           tidy(c);
-          if (clean3(c.textContent) || c.querySelector("img")) out.push(c);
+          if (clean4(c.textContent) || c.querySelector("img")) out.push(c);
           return;
         }
         if (isBlank(n) && !run) return;
@@ -2646,7 +2646,7 @@ var CustomImportScript = (() => {
     const linkPara = (scope) => {
       const m = scope.querySelector(MAUI);
       if (!m) return null;
-      const label = visibleText(m) || clean3(m.getAttribute("label") || m.getAttribute("aria-label"));
+      const label = visibleText(m) || clean4(m.getAttribute("label") || m.getAttribute("aria-label"));
       const href = m.getAttribute("href");
       if (!label || !href) return null;
       const a = document.createElement("a");
@@ -2696,15 +2696,15 @@ var CustomImportScript = (() => {
         cfg = {};
       }
       const video = comp.querySelector("video[src], video source[src]");
-      const src = clean3(cfg.videoSrc || video && video.getAttribute("src"));
+      const src = clean4(cfg.videoSrc || video && video.getAttribute("src"));
       if (!src) return [];
       const out = [];
       const posterImg = comp.querySelector(".vjs-poster img[src]");
-      const poster = clean3(cfg.thumbnailSrc || posterImg && posterImg.getAttribute("src"));
+      const poster = clean4(cfg.thumbnailSrc || posterImg && posterImg.getAttribute("src"));
       if (poster && !isBroken3(poster)) {
         const img = document.createElement("img");
         img.setAttribute("src", poster);
-        img.setAttribute("alt", clean3(cfg.alternativeText));
+        img.setAttribute("alt", clean4(cfg.alternativeText));
         out.push(img);
       }
       const settings = [];
@@ -2712,7 +2712,7 @@ var CustomImportScript = (() => {
       settings.push("controls", "round-play-button");
       const size = videoSizeToken(src);
       if (size) settings.push(size);
-      out.push(videoPara2(src, clean3(cfg.alternativeText), settings));
+      out.push(videoPara2(src, clean4(cfg.alternativeText), settings));
       return out;
     };
     const captionPara = (comp) => {
@@ -2748,7 +2748,7 @@ var CustomImportScript = (() => {
         const settings = button ? [] : ["autoplay", "muted"];
         if (!button && (moving || video.hasAttribute("loop"))) settings.push("loop");
         if (video.hasAttribute("controls")) settings.push("controls");
-        out.push(videoPara2(src, clean3(button && button.getAttribute("aria-label")), settings));
+        out.push(videoPara2(src, clean4(button && button.getAttribute("aria-label")), settings));
         return out;
       }
       if (!image) return out;
@@ -2795,7 +2795,7 @@ var CustomImportScript = (() => {
       }
       return out;
     };
-    const hasContent = (el) => !!clean3(el.textContent) || !!el.querySelector("img, picture, video, iframe");
+    const hasContent = (el) => !!clean4(el.textContent) || !!el.querySelector("img, picture, video, iframe");
     const picturesOnly = (el) => !!el && !!el.querySelector(".image img") && !el.querySelector(".text, .headline, .link, .teaser, video");
     const marked = (nodes, token) => nodes.map((n) => {
       if (n.tagName !== "IMG") return n;
@@ -2862,7 +2862,7 @@ var CustomImportScript = (() => {
           });
         } else if (cl.contains("lh-cell-spacer")) {
           const p = document.createElement("p");
-          p.textContent = clean3(child.textContent);
+          p.textContent = clean4(child.textContent);
           out.push(p);
         } else if (narrowPictures(child)) {
           out.push(...narrowPictures(child));
@@ -2949,7 +2949,7 @@ var CustomImportScript = (() => {
           } else media.push(image);
         }
         const text = [];
-        const tags = [...art.querySelectorAll("maui-chip[label]")].map((c) => clean3(c.getAttribute("label"))).filter(Boolean);
+        const tags = [...art.querySelectorAll("maui-chip[label]")].map((c) => clean4(c.getAttribute("label"))).filter(Boolean);
         if (tags.length) {
           const ul = document.createElement("ul");
           tags.forEach((t) => {
@@ -3012,7 +3012,7 @@ var CustomImportScript = (() => {
       const ownSidebar = !!oneColumn && oneColumn.matches(".onecolumn.column") && oneColumn.children.length === 1 && !!oneColumn.parentElement && oneColumn.parentElement.classList.contains("section-content") && !oneColumn.hasAttribute("data-lh-column") && !ARTICLE && !element.closest(".container-gray");
       if (ownSidebar) {
         variants.push("padded");
-        const meaningful2 = (el) => !!clean3(el.textContent) || !!el.querySelector("img, picture, video, iframe");
+        const meaningful2 = (el) => !!clean4(el.textContent) || !!el.querySelector("img, picture, video, iframe");
         const isLast = [...oneColumn.parentElement.children].filter(meaningful2).pop() === oneColumn;
         const aem = oneColumn.closest(".container-content > .section");
         let next = aem && aem.nextElementSibling;
@@ -3038,7 +3038,7 @@ var CustomImportScript = (() => {
       const nestedView = element.matches(".threecolumn, .fourcolumn") && items.map((it) => [...it.children].find((c) => NESTED.some((k) => c.classList.contains(k)) && c.querySelector(".image img") && !c.querySelector(".text, .headline, .link, .teaser"))).find(Boolean);
       if (nestedView) variants.push(`nested-${NESTED.findIndex((k) => nestedView.classList.contains(k)) + 2}`);
       const filled = collected.filter((c) => c.length);
-      const isImage = (n) => n.nodeType === 1 && !clean3(n.textContent) && (n.matches("img, picture") || !!n.querySelector("img, picture")) && !n.querySelector("video, iframe");
+      const isImage = (n) => n.nodeType === 1 && !clean4(n.textContent) && (n.matches("img, picture") || !!n.querySelector("img, picture")) && !n.querySelector("video, iframe");
       const loneImage = items.length > 1 && filled.length === 1 && filled[0].every(isImage);
       const halfAlone = element.matches(".twocolumn") && items.length === 2 && filled.length === 1;
       const pageUrl = params && params.originalURL || url || "";
@@ -3060,15 +3060,15 @@ var CustomImportScript = (() => {
     }
     if (!cells.length && !titles.length) return;
     const block = WebImporter.Blocks.createBlock(document, { name: "columns-media", variants, cells });
-    const headerText = (t) => clean3((t.querySelector("tr") || t).textContent).toLowerCase().replace(/\s*\(([^)]*)\)$/, (m, list) => {
+    const headerText = (t) => clean4((t.querySelector("tr") || t).textContent).toLowerCase().replace(/\s*\(([^)]*)\)$/, (m, list) => {
       const rest = list.split(",").map((v) => v.trim()).filter((v) => v && v !== "separated");
       return rest.length ? ` (${rest.join(", ")})` : "";
     });
     const addSeparated = (table) => {
       const cell = table.querySelector("tr > th, tr > td");
       if (!cell) return;
-      const m = clean3(cell.textContent).match(/^(.*?)\s*\(([^)]*)\)$/);
-      const name = m ? m[1] : clean3(cell.textContent);
+      const m = clean4(cell.textContent).match(/^(.*?)\s*\(([^)]*)\)$/);
+      const name = m ? m[1] : clean4(cell.textContent);
       const list = m ? m[2].split(",").map((v) => v.trim()).filter(Boolean) : [];
       if (!list.includes("separated")) list.push("separated");
       cell.textContent = `${name} (${list.join(", ")})`;
@@ -3082,7 +3082,7 @@ var CustomImportScript = (() => {
       range.setStartAfter(prev);
       range.setEndBefore(element);
       const between = range.cloneContents();
-      if (clean3(between.textContent)) return null;
+      if (clean4(between.textContent)) return null;
       if (between.querySelector("img, picture, video, iframe, hr, table, h1, h2, h3, h4, h5, h6, form, input")) return null;
       return prev;
     };
@@ -3111,13 +3111,13 @@ var CustomImportScript = (() => {
   // tools/importer/parsers/table-striped.js
   function parse7(element, { document }) {
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style';
-    const clean3 = (s) => (s || "").replace(/[\u200B-\u200D\uFEFF]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
+    const clean4 = (s) => (s || "").replace(/[\u200B-\u200D\uFEFF]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
     const cellContent = (cell) => {
       const c = cell.cloneNode(true);
       c.querySelectorAll(SKIP).forEach((n) => n.remove());
       const nodes = [...c.childNodes].filter((n) => n.nodeType !== 8);
-      if (!clean3(c.textContent) && !c.querySelector("img")) return "";
-      if (nodes.every((n) => n.nodeType === 3)) return clean3(c.textContent);
+      if (!clean4(c.textContent) && !c.querySelector("img")) return "";
+      if (nodes.every((n) => n.nodeType === 3)) return clean4(c.textContent);
       return nodes;
     };
     const rowEls = [...element.querySelectorAll("maui-table-row, tr")].filter((r) => !r.parentElement.closest("maui-table-row, tr"));
@@ -3127,9 +3127,9 @@ var CustomImportScript = (() => {
     const cells = rows.map((r) => r.length < width ? [...r, ...Array(width - r.length).fill("")] : r);
     const before = [];
     const caption = element.querySelector("maui-table-caption, caption");
-    if (caption && clean3(caption.textContent)) {
+    if (caption && clean4(caption.textContent)) {
       const p = document.createElement("p");
-      p.textContent = clean3(caption.textContent);
+      p.textContent = clean4(caption.textContent);
       before.push(p);
     }
     const head = element.querySelector("maui-table-head, thead");
@@ -3185,12 +3185,12 @@ var CustomImportScript = (() => {
   function parse9(element, { document }) {
     const BLOCK_TAGS = /^(P|UL|OL|H[1-6]|TABLE|DIV|BLOCKQUOTE|PRE|DL)$/;
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style';
-    const clean3 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
+    const clean4 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
       if (!node) return "";
       const c = node.cloneNode(true);
       c.querySelectorAll(SKIP).forEach((n) => n.remove());
-      return clean3(c.textContent);
+      return clean4(c.textContent);
     };
     const isBroken3 = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src) || /^(data|blob):/i.test(src);
     const imageFrom = (scope) => {
@@ -3203,7 +3203,7 @@ var CustomImportScript = (() => {
     };
     const trimTrailingBreaks = (el) => {
       let last = el.lastChild;
-      while (last && (last.nodeType === 3 && !clean3(last.nodeValue) || last.nodeType === 1 && last.tagName === "BR")) {
+      while (last && (last.nodeType === 3 && !clean4(last.nodeValue) || last.nodeType === 1 && last.tagName === "BR")) {
         const prev = last.previousSibling;
         last.remove();
         last = prev;
@@ -3216,7 +3216,7 @@ var CustomImportScript = (() => {
       const flush = () => {
         if (run) {
           trimTrailingBreaks(run);
-          if (clean3(run.textContent) || run.querySelector("img")) out.push(run);
+          if (clean4(run.textContent) || run.querySelector("img")) out.push(run);
         }
         run = null;
       };
@@ -3227,10 +3227,10 @@ var CustomImportScript = (() => {
           const c = n.cloneNode(true);
           c.querySelectorAll(SKIP).forEach((s) => s.remove());
           if (c.tagName === "P") trimTrailingBreaks(c);
-          if (clean3(c.textContent) || c.querySelector("img")) out.push(c);
+          if (clean4(c.textContent) || c.querySelector("img")) out.push(c);
           return;
         }
-        if (n.nodeType === 3 && !clean3(n.nodeValue) && !run) return;
+        if (n.nodeType === 3 && !clean4(n.nodeValue) && !run) return;
         if (!run) run = document.createElement("p");
         run.append(n.cloneNode(true));
       });
@@ -3241,7 +3241,7 @@ var CustomImportScript = (() => {
     const linkPara = (scope) => {
       const m = scope.querySelector(MAUI);
       if (!m) return null;
-      const label = visibleText(m) || clean3(m.getAttribute("label") || m.getAttribute("aria-label"));
+      const label = visibleText(m) || clean4(m.getAttribute("label") || m.getAttribute("aria-label"));
       const href = m.getAttribute("href");
       if (!label || !href) return null;
       const a = document.createElement("a");
@@ -3362,7 +3362,7 @@ var CustomImportScript = (() => {
     const parent = element.parentElement;
     if (parent && parent.classList.contains("container-content")) variants.push("spacious");
     const block = WebImporter.Blocks.createBlock(document, { name: "cards-teaser", variants, cells });
-    const headerText = (t) => clean3((t.querySelector("tr") || t).textContent).toLowerCase();
+    const headerText = (t) => clean4((t.querySelector("tr") || t).textContent).toLowerCase();
     const previousSameBlock = () => {
       const name = headerText(block);
       const before = [...document.querySelectorAll("table")].filter((t) => !element.contains(t) && t.compareDocumentPosition(element) & 4 && headerText(t) === name);
@@ -3372,7 +3372,7 @@ var CustomImportScript = (() => {
       range.setStartAfter(prev);
       range.setEndBefore(element);
       const between = range.cloneContents();
-      if (clean3(between.textContent)) return null;
+      if (clean4(between.textContent)) return null;
       if (between.querySelector("img, picture, video, iframe, hr, table, h1, h2, h3, h4, h5, h6, form, input")) return null;
       return prev;
     };
@@ -3391,7 +3391,7 @@ var CustomImportScript = (() => {
 
   // tools/importer/parsers/carousel-images.js
   function parse10(element, { document }) {
-    const clean3 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
+    const clean4 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
     const isBroken3 = (src) => !src || /^(data|blob):/i.test(src) || /(^|\/)undefined(\.transform|$|\/)/.test(src);
     const slides = [...element.querySelectorAll(".swiper-slide")].filter((s) => !s.classList.contains("swiper-slide-duplicate"));
     const cells = [];
@@ -3400,16 +3400,16 @@ var CustomImportScript = (() => {
       if (!source) return;
       const img = document.createElement("img");
       img.src = source.getAttribute("src");
-      img.alt = clean3(source.getAttribute("alt"));
+      img.alt = clean4(source.getAttribute("alt"));
       let captionCell = "";
       const figcaption = slide.querySelector("figcaption, .caption");
-      if (figcaption && clean3(figcaption.textContent)) {
+      if (figcaption && clean4(figcaption.textContent)) {
         const inner = figcaption.querySelector("maui-caption") || figcaption;
         const p = document.createElement("p");
         [...inner.childNodes].forEach((n) => p.append(n.cloneNode(true)));
         captionCell = p;
       } else {
-        const parts = [...slide.querySelectorAll(".richtext")].flatMap((rt) => [...rt.children]).filter((n) => /^(P|H[1-6]|UL|OL)$/.test(n.tagName) && clean3(n.textContent)).map((n) => {
+        const parts = [...slide.querySelectorAll(".richtext")].flatMap((rt) => [...rt.children]).filter((n) => /^(P|H[1-6]|UL|OL)$/.test(n.tagName) && clean4(n.textContent)).map((n) => {
           const copy = n.cloneNode(true);
           copy.querySelectorAll(".sr-only, .visually-hidden, maui-screen-reader-label").forEach((x) => x.remove());
           return copy;
@@ -3429,12 +3429,12 @@ var CustomImportScript = (() => {
   // tools/importer/parsers/carousel-cards.js
   function parse11(element, { document }) {
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
-    const clean3 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
+    const clean4 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
       if (!node) return "";
       const clone = node.cloneNode(true);
       clone.querySelectorAll(SR_ONLY2).forEach((n) => n.remove());
-      return clean3(clone.textContent);
+      return clean4(clone.textContent);
     };
     const isBroken3 = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src);
     const para = (text) => {
@@ -3470,7 +3470,7 @@ var CustomImportScript = (() => {
         });
         const BUTTONS = "maui-button-link, maui-button, a[href]";
         [...card.querySelectorAll(BUTTONS)].filter((b) => !b.parentElement.closest(BUTTONS)).forEach((btn) => {
-          const label = visibleText(btn) || clean3(btn.getAttribute("label"));
+          const label = visibleText(btn) || clean4(btn.getAttribute("label"));
           if (!label) return;
           const a = document.createElement("a");
           a.href = btn.getAttribute("href") || "#booking-code";
@@ -3709,6 +3709,116 @@ var CustomImportScript = (() => {
     if (fallback) cells.push(["Fallback", fallback]);
     const block = WebImporter.Blocks.createBlock(document, { name: "micro-frontend", cells });
     element.replaceWith(block);
+  }
+
+  // scripts/style-markers.js
+  var COLUMN_MARK = "column-(?:(?:start|end)(?:-outer)?|spaced)";
+  var styleMarker = (tokens) => new RegExp(`\\s*\\{((?:${tokens})(?: (?:${tokens}))*)\\}\\s*$`);
+  var HEADING_TOKENS = `heading-(?:large|medium|small|copytext-large|copytext-medium)|copytext-large|limited-width|${COLUMN_MARK}`;
+  var PARAGRAPH_TOKENS = `copytext-(?:small|medium|large)|full-width|limited-width|caption|parallax|narrow|indent-\\d{1,3}|${COLUMN_MARK}`;
+  var LIST_TOKENS = `copytext-(?:small|medium|large)|full-width|limited-width|${COLUMN_MARK}`;
+  var HEADING_STYLE = styleMarker(HEADING_TOKENS);
+  var PARAGRAPH_STYLE = styleMarker(PARAGRAPH_TOKENS);
+  var LIST_STYLE = styleMarker(LIST_TOKENS);
+  var VIDEO_SETTINGS = ["autoplay", "muted", "loop", "controls", "round-play-button"];
+  var VIDEO_SIZE = "size-\\d{2,5}x\\d{2,5}";
+  var VIDEO_MARKER = styleMarker(`${VIDEO_SETTINGS.join("|")}|${VIDEO_SIZE}`);
+  var APP_SPACER = /^\{spacer:\s*(x-small|small|medium|m-large|large)\s*(,\s*v2)?\s*\}$/i;
+  var OTHER_TOKENS = "mobile|blank|small|divider|cell-(?:half-start|half-end|three-quarters)";
+  var ANY_TOKENS = [HEADING_TOKENS, PARAGRAPH_TOKENS, LIST_TOKENS, VIDEO_SETTINGS.join("|"), VIDEO_SIZE, OTHER_TOKENS].join("|");
+  var ANY_MARKER = `\\{\\s*(?:${ANY_TOKENS})(?: (?:${ANY_TOKENS}))*\\s*\\}`;
+  var SEPARATOR_TEXT = /^\s*\{(?:spacer|divider)-\d{1,3}(?: from-768)?\}\s*$/;
+  var isSeparatorText = (s) => SEPARATOR_TEXT.test(s) || APP_SPACER.test(s.trim());
+  var TRAILING_TEXT = new RegExp(`\\s*${ANY_MARKER}\\s*$`);
+  var TRAILING_HTML = new RegExp(`\\s*${ANY_MARKER}((?:\\s*</[a-z][a-z0-9]*>)*)\\s*$`, "i");
+  function stripStyleMarkers(text) {
+    let s = String(text != null ? text : "");
+    if (isSeparatorText(s)) return "";
+    for (let prev = null; prev !== s; ) {
+      prev = s;
+      s = s.replace(TRAILING_TEXT, "");
+    }
+    return s;
+  }
+  var SPACE = { m: 60, l: 120 };
+  var DIVIDER_SPACE = 25;
+  var BASE_THEME = {
+    headings: {
+      h1: "heading-large",
+      h2: "heading-medium",
+      h3: "heading-copytext-large",
+      h4: "heading-copytext-large",
+      h5: "heading-copytext-medium",
+      h6: "heading-copytext-medium"
+    },
+    headingChoices: {
+      h2: { large: "heading-large", compact: "heading-copytext-large" },
+      h3: { large: "heading-medium" }
+    },
+    // running text: two thirds of the content width from 1025px ('full': the whole width); body
+    // text 18px (copytext-large), small print 14px
+    text: { width: "limited", size: "copytext-large", small: "copytext-small" },
+    separators: { m: SPACE.m, l: SPACE.l, divider: DIVIDER_SPACE },
+    // a Lufthansa column view's padding (32px; outside a page section 20px, 40px from 768px) and
+    // the space a heading adds above itself on flow pages (none: the paddings make it)
+    columnViews: { padding: 32, outerPadding: [20, 40], headingGap: 0 },
+    rules: [],
+    live: false
+  };
+
+  // tools/importer/description-rules.js
+  var clean3 = (s) => String(s || "").replace(/[\u200B-\u200D\uFEFF]/g, "").replace(/\u00A0/g, " ").replace(/\s+/g, " ").trim();
+  var DATE_ONLY = new RegExp("^\\(?(?:\\d{1,2}\\.?\\s+\\p{L}+\\.?|\\p{L}+\\.?\\s+\\d{1,2},?)\\s+\\d{4}\\)?$", "u");
+  var VIDEO_PATH = /^(?:https?:\/\/\S+|\/\S+)\.(?:mp4|webm|mov|m4v)(?:\?\S*)?$|^(?:https?:\/\/[^\s/]+)?\/content\/dam\/\S+$/i;
+  var HAN_KANA = /[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}]/u;
+  var HANGUL = new RegExp("\\p{Script=Hangul}", "u");
+  var FOOTNOTE = /^(?:[*†‡¹²³⁴⁵⁶⁷⁸⁹]|\(\d{1,2}\)\s)/u;
+  var DATES = "\\d{1,2}\\.\\d{1,2}\\.\\d{2,4}|\\d{4}-\\d{2}-\\d{2}|\\d{1,2}\\.?\\s+\\p{L}+\\.?,?\\s+\\d{4}|\\p{L}+\\.?\\s+\\d{1,2},?\\s+\\d{4}|\\d{4}\\s?\u5E74\\s?\\d{1,2}\\s?\u6708\\s?\\d{1,2}\\s?\u65E5";
+  var DATE = new RegExp(DATES, "gu");
+  var DATE_AT_END = new RegExp(`(?:${DATES})[)\uFF09]?$`, "u");
+  var PRICE = /(?:[€$£¥₩]|\b(?:EUR|USD|CHF|GBP|CNY|HKD|KRW|MYR|THB|INR|JPY)\b)\s?\d[\d.,]*|\d[\d.,]*\s?(?:[€$£¥₩]|\b(?:EUR|USD|CHF|GBP|CNY|HKD|KRW|MYR|THB|INR|JPY)\b)/gu;
+  var LEAD_IN = /(?:[:：,，;；–—-]|…|\.\.\.)$/u;
+  var STEP = new RegExp("^\\d{1,2}[.)]\\s*(?!\\p{L}+\\.?,?\\s+\\d{4})\\p{L}", "u");
+  var SALUTATION = new RegExp("^(?:dear|sehr geehrte[rs]?|liebe[rs]?|geachte|ch\xE8re?s?|cher|madame|monsieur|gentile|egregi[oa]|estimad[oa]|prezad[oa]|car[oa]|\u03B1\u03B3\u03B1\u03C0\u03B7\u03C4\\p{L}*|\u0443\u0432\u0430\u0436\u0430\u0435\u043C\\p{L}*|\u0434\u043E\u0440\u043E\u0433\\p{L}*)(?!\\p{L})|^(?:\u304A\u5BA2\u69D8\u3078|\u62DD\u5553|\u4EB2\u7231\u7684|\u89AA\u611B\u7684|\uCE5C\uC560\uD558\uB294)", "iu");
+  var CRUMB = /\s[›»>]\s/u;
+  var words = (s) => s.split(" ").filter((t) => new RegExp("\\p{L}", "u").test(t)).length;
+  function isWeak(text) {
+    if (FOOTNOTE.test(text) || LEAD_IN.test(text) || STEP.test(text)) return true;
+    const chars = text.replace(/\s/g, "");
+    if ((chars.match(new RegExp("\\p{L}", "gu")) || []).length < chars.length * 0.4) return true;
+    const end = text.match(DATE_AT_END);
+    if (end) {
+      const rest = text.slice(0, end.index).trim();
+      if (!rest || /[,:，：、|–-]$/u.test(rest)) return true;
+    }
+    const cjk = HAN_KANA.test(text);
+    if (SALUTATION.test(text) && (cjk ? [...chars].length <= 12 : words(text) <= 6)) return true;
+    if (CRUMB.test(text) && words(text) <= 8) return true;
+    if (cjk) return [...chars].length < 6;
+    if (words(text) < (HANGUL.test(text) ? 3 : 4)) return true;
+    const dated = text.replace(DATE, " ").replace(PRICE, " ");
+    if (dated === text) return false;
+    return / \| /.test(text) || words(clean3(dated)) < 3;
+  }
+  var textLines = (el) => {
+    const c = el.cloneNode(true);
+    c.querySelectorAll("br").forEach((br) => br.replaceWith(c.ownerDocument.createTextNode("\n")));
+    return c.textContent.split("\n").map((l) => clean3(stripStyleMarkers(clean3(l)))).filter(Boolean);
+  };
+  function paragraphText(p) {
+    const lines = textLines(p);
+    const text = clean3(stripStyleMarkers(lines.join(" ")));
+    if (!text) return "";
+    if (VIDEO_PATH.test(text) || DATE_ONLY.test(text) || isWeak(text)) return "";
+    if (lines.length > 1 && lines.every(isWeak)) return "";
+    const links = [...p.querySelectorAll("a")];
+    if (links.length && clean3(links.map((a) => a.textContent).join(" ")) === text) return "";
+    return text;
+  }
+  function firstTextParagraph(root, skip = "div.metadata, div.section-metadata") {
+    const first = (sel) => [...root.querySelectorAll(sel)].filter((x) => !x.closest(skip)).find((x) => paragraphText(x));
+    const p = first("p") || first("h1") || first("h2");
+    return p ? paragraphText(p) : "";
   }
 
   // tools/importer/transformers/lufthansa-cleanup.js
@@ -4486,8 +4596,6 @@ var CustomImportScript = (() => {
   function cleanText(el) {
     return el.textContent.replace(/[\u200B\uFEFF]/g, "").replace(/\s+/g, " ").trim();
   }
-  var DATE_ONLY = new RegExp("^\\(?(?:\\d{1,2}\\.?\\s+\\p{L}+\\.?|\\p{L}+\\.?\\s+\\d{1,2},?)\\s+\\d{4}\\)?$", "u");
-  var VIDEO_PATH = /^(?:https?:\/\/\S+|\/\S+)\.(?:mp4|webm|mov|m4v)(?:\?\S*)?$|^(?:https?:\/\/[^\s/]+)?\/content\/dam\/\S+$/i;
   function ensureDescription(document) {
     const { head } = document;
     if (!head) return;
@@ -4500,14 +4608,7 @@ var CustomImportScript = (() => {
     let description = content('meta[property="og:description"]') || content('meta[name="og:description"]') || content('meta[name="twitter:description"]') || content('meta[property="twitter:description"]');
     if (!description) {
       const root = document.querySelector(".container-content") || document.querySelector("main") || document.body;
-      const p = [...root.querySelectorAll("p")].find((x) => {
-        if (x.closest("header, footer, nav, .header, .footer, .lightbox-modal")) return false;
-        const text = cleanText(x);
-        if (!text || VIDEO_PATH.test(text) || DATE_ONLY.test(text)) return false;
-        const links = [...x.querySelectorAll("a")];
-        return !(links.length && links.map((a) => cleanText(a)).join(" ").trim() === text);
-      });
-      description = p ? cleanText(p) : "";
+      description = firstTextParagraph(root, "header, footer, nav, .header, .footer, .lightbox-modal");
     }
     if (!description) return;
     const meta = own || document.createElement("meta");
@@ -5930,7 +6031,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_campaign_325465_default = {
+  var tmp_bundle_campaign_552379_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -5964,5 +6065,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_campaign_325465_exports);
+  return __toCommonJS(tmp_bundle_campaign_552379_exports);
 })();

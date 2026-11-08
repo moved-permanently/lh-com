@@ -1,5 +1,6 @@
 /* eslint-disable */
 /* global WebImporter */
+import { firstTextParagraph } from '../description-rules.js';
 
 /**
  * Cleanup for www.lufthansa.com AEM (DCEP) pages. (The AirCore pages under /lhg/ and their
@@ -1156,12 +1157,12 @@ function cleanText(el) {
 /**
  * The page's description for its Metadata block (the brief after 484, item D): www's meta
  * description; when it is missing or empty, its og: / twitter:description, else the first text
- * paragraph of the content (not a link alone, a video path, a date or a picture), written into the head
- * as meta name=description before the metadata is read (getMetadata). Without it Edge Delivery
- * takes the page's first paragraph, the importer's style markers included.
+ * paragraph of the content by description-fix.mjs's rules (description-rules.js, brief 494: not a
+ * link alone, a video path, a picture or a weak one; every paragraph weak: the first heading that
+ * is not), written into the head as meta name=description before the metadata is read
+ * (getMetadata). Without it Edge Delivery takes the page's first paragraph, the importer's style
+ * markers included.
  */
-const DATE_ONLY = /^\(?(?:\d{1,2}\.?\s+\p{L}+\.?|\p{L}+\.?\s+\d{1,2},?)\s+\d{4}\)?$/u;
-const VIDEO_PATH = /^(?:https?:\/\/\S+|\/\S+)\.(?:mp4|webm|mov|m4v)(?:\?\S*)?$|^(?:https?:\/\/[^\s/]+)?\/content\/dam\/\S+$/i;
 
 function ensureDescription(document) {
   const { head } = document;
@@ -1176,14 +1177,7 @@ function ensureDescription(document) {
     || content('meta[name="twitter:description"]') || content('meta[property="twitter:description"]');
   if (!description) {
     const root = document.querySelector('.container-content') || document.querySelector('main') || document.body;
-    const p = [...root.querySelectorAll('p')].find((x) => {
-      if (x.closest('header, footer, nav, .header, .footer, .lightbox-modal')) return false;
-      const text = cleanText(x);
-      if (!text || VIDEO_PATH.test(text) || DATE_ONLY.test(text)) return false;
-      const links = [...x.querySelectorAll('a')];
-      return !(links.length && links.map((a) => cleanText(a)).join(' ').trim() === text);
-    });
-    description = p ? cleanText(p) : '';
+    description = firstTextParagraph(root, 'header, footer, nav, .header, .footer, .lightbox-modal');
   }
   if (!description) return;
   const meta = own || document.createElement('meta');

@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-homepage.js
-  var tmp_bundle_homepage_989949_exports = {};
-  __export(tmp_bundle_homepage_989949_exports, {
-    default: () => tmp_bundle_homepage_989949_default
+  var tmp_bundle_homepage_551601_exports = {};
+  __export(tmp_bundle_homepage_551601_exports, {
+    default: () => tmp_bundle_homepage_551601_default
   });
 
   // tools/importer/parsers/flash-teaser.js
@@ -142,14 +142,14 @@ var CustomImportScript = (() => {
   // tools/importer/parsers/flight-search.js
   function parse2(element, { document, url, params } = {}) {
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
-    const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
+    const clean3 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
       if (!node) return "";
       const clone = node.cloneNode(true);
       clone.querySelectorAll(SR_ONLY2).forEach((n) => n.remove());
-      return clean2(clone.textContent);
+      return clean3(clone.textContent);
     };
-    const attr = (node, name2) => clean2(node ? node.getAttribute(name2) : "");
+    const attr = (node, name2) => clean3(node ? node.getAttribute(name2) : "");
     let props = {};
     const propsHost = element.querySelector("[data-dcep]") || (element.hasAttribute("data-dcep") ? element : null);
     if (propsHost) {
@@ -196,7 +196,7 @@ var CustomImportScript = (() => {
         root = "";
       }
       const market = String(props.groupBookingsUrl || "").match(/\/markets\/[a-z]{2}\/([a-z]{2})(?=[/.]|$)/);
-      const lang = root && root.slice(4) || market && market[1] || clean2(document.documentElement.getAttribute("lang")).slice(0, 2);
+      const lang = root && root.slice(4) || market && market[1] || clean3(document.documentElement.getAttribute("lang")).slice(0, 2);
       pickerRows({
         lang,
         groupBookingsUrl: groupUrl,
@@ -224,20 +224,20 @@ var CustomImportScript = (() => {
     const destinationField = airportFields.find((f) => f !== originField);
     const fieldValue = (field) => attr(field && field.querySelector('input:not([type="hidden"])'), "value");
     const withCode = (value) => /\([A-Za-z]{3}\)/.test(value) || /^[A-Za-z]{3}$/.test(value) ? value : "";
-    addRow("Default origin", withCode(clean2(props.prefilledOrigin)) || withCode(fieldValue(originField)));
-    addRow("Default destination", withCode(clean2(props.prefilledDestination)) || withCode(fieldValue(destinationField)));
+    addRow("Default origin", withCode(clean3(props.prefilledOrigin)) || withCode(fieldValue(originField)));
+    addRow("Default destination", withCode(clean3(props.prefilledDestination)) || withCode(fieldValue(destinationField)));
     const picture = (src) => {
-      if (!/^\/content\/dam\//.test(clean2(src))) return null;
+      if (!/^\/content\/dam\//.test(clean3(src))) return null;
       const pic = document.createElement("picture");
       const img = document.createElement("img");
-      img.src = `https://www.lufthansa.com${encodeURI(decodeURI(clean2(src)))}`;
+      img.src = `https://www.lufthansa.com${encodeURI(decodeURI(clean3(src)))}`;
       img.alt = "";
       pic.append(img);
       return pic;
     };
     addRow("Background image", picture(props.backgroundImageL));
     addRow("Background image mobile", picture(props.backgroundImageS));
-    if (/^[A-Za-z]$/.test(clean2(props.prefilledCabinClass))) addRow("Cabin", clean2(props.prefilledCabinClass).toUpperCase());
+    if (/^[A-Za-z]$/.test(clean3(props.prefilledCabinClass))) addRow("Cabin", clean3(props.prefilledCabinClass).toUpperCase());
     const wwf = element.querySelector(".flma-where-we-fly-wrapper [href]");
     if (wwf && visibleText(wwf)) {
       const a = document.createElement("a");
@@ -271,12 +271,12 @@ var CustomImportScript = (() => {
   // tools/importer/parsers/hero-card-overlay.js
   function parse3(element, { document }) {
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
-    const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
+    const clean3 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
       if (!node) return "";
       const clone = node.cloneNode(true);
       clone.querySelectorAll(SR_ONLY2).forEach((n) => n.remove());
-      return clean2(clone.textContent);
+      return clean3(clone.textContent);
     };
     const isBroken3 = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src);
     const cells = [];
@@ -385,10 +385,10 @@ var CustomImportScript = (() => {
       strong.textContent = triggerLabel;
       title.append(strong);
       conditions.push(title);
-      if (clean2(terms.headline)) {
+      if (clean3(terms.headline)) {
         const headline = document.createElement("p");
         const b = document.createElement("strong");
-        b.textContent = clean2(terms.headline);
+        b.textContent = clean3(terms.headline);
         headline.append(b);
         conditions.push(headline);
       }
@@ -403,7 +403,7 @@ var CustomImportScript = (() => {
       cells.push(["Conditions", conditions]);
     }
     const variants = [];
-    if (card.classList.contains("align-self-end") || clean2(teaser.alignment).toLowerCase() === "right") variants.push("right");
+    if (card.classList.contains("align-self-end") || clean3(teaser.alignment).toLowerCase() === "right") variants.push("right");
     if (teaser.displayImageOnMobile === false) variants.push("no mobile image");
     if (card.classList.contains("non-inverted") || teaser.isInverted === false) variants.push("light");
     const name = variants.length ? `Hero Card Overlay (${variants.join(", ")})` : "hero-card-overlay";
@@ -414,15 +414,15 @@ var CustomImportScript = (() => {
   // tools/importer/parsers/fare-teaser.js
   function parse4(element, { document }) {
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
-    const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
+    const clean3 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
       if (!node) return "";
       const clone = node.cloneNode(true);
       clone.querySelectorAll(SR_ONLY2).forEach((n) => n.remove());
-      return clean2(clone.textContent);
+      return clean3(clone.textContent);
     };
-    const attr = (node, name) => clean2(node ? node.getAttribute(name) : "");
-    const code = (v) => /^[A-Za-z]{3}$/.test(clean2(v)) ? clean2(v).toUpperCase() : "";
+    const attr = (node, name) => clean3(node ? node.getAttribute(name) : "");
+    const code = (v) => /^[A-Za-z]{3}$/.test(clean3(v)) ? clean3(v).toUpperCase() : "";
     let props = {};
     const propsHost = element.querySelector("[data-dcep]") || (element.hasAttribute("data-dcep") ? element : null);
     if (propsHost) {
@@ -449,8 +449,8 @@ var CustomImportScript = (() => {
         originName: visibleText(card.querySelector(".fareteaser-recommendation-origin")),
         destination: code(params.get("DestinationCode")),
         destinationName: visibleText(card.querySelector(".fareteaser-recommendation-destination")),
-        tripDuration: clean2(params.get("TripDuration")),
-        cabin: clean2(params.get("Cabin"))
+        tripDuration: clean3(params.get("TripDuration")),
+        cabin: clean3(params.get("Cabin"))
       };
     });
     const manual = Array.isArray(props.fareTeaserManualTravels) ? props.fareTeaserManualTravels : [];
@@ -484,11 +484,11 @@ var CustomImportScript = (() => {
     }
     addRow("Destinations", destinations.join(", "));
     const firstRoute = routes.find((r) => r.url) || {};
-    addRow("Trip duration", clean2(String(props.tripDuration || "")) || firstRoute.tripDuration || "");
-    addRow("Cabin", clean2(props.cabin) || firstRoute.cabin || "");
-    const tripType = clean2(props.tripType).toUpperCase();
+    addRow("Trip duration", clean3(String(props.tripDuration || "")) || firstRoute.tripDuration || "");
+    addRow("Cabin", clean3(props.cabin) || firstRoute.cabin || "");
+    const tripType = clean3(props.tripType).toUpperCase();
     if (tripType === "O") addRow("Trip type", "One way");
-    const months = clean2(String(props.travelMonths || "")).split(/\s*,\s*/).filter((m) => /^(?:[1-9]|1[0-2])$/.test(m));
+    const months = clean3(String(props.travelMonths || "")).split(/\s*,\s*/).filter((m) => /^(?:[1-9]|1[0-2])$/.test(m));
     addRow("Travel months", months.join(","));
     addRow("Price label", attr(element.querySelector("maui-price-display[label]"), "label"));
     if (firstRoute.url && !/^\/[a-z]{2}\/[a-z]{2}\/book-and-manage\/destination$/.test(firstRoute.url.pathname.replace(/\.html$/, ""))) {
@@ -503,7 +503,7 @@ var CustomImportScript = (() => {
       if (pattern.includes("{origin}") || pattern.includes("{destination}")) addRow("Link", pattern);
     }
     const conditions = [];
-    const footerText = clean2(props.footerText);
+    const footerText = clean3(props.footerText);
     if (footerText) {
       const p = document.createElement("p");
       p.textContent = footerText;
@@ -544,7 +544,7 @@ var CustomImportScript = (() => {
     }
     addRow("Conditions", conditions);
     const headline = element.querySelector("maui-headline, h2, h3");
-    const headingText = visibleText(headline) || clean2(props.headline);
+    const headingText = visibleText(headline) || clean3(props.headline);
     const block = WebImporter.Blocks.createBlock(document, { name: "fare-teaser", cells });
     if (headingText) {
       const type = attr(headline, "type").toLowerCase();
@@ -559,7 +559,7 @@ var CustomImportScript = (() => {
 
   // tools/importer/parsers/cards-icon-text.js
   function parse5(element, { document }) {
-    const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
+    const clean3 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
     const modules = [...element.querySelectorAll(".icon-module")];
     if (modules.length) {
       const cards = [];
@@ -568,15 +568,15 @@ var CustomImportScript = (() => {
         if (!img || !img.getAttribute("src")) return;
         const icon = document.createElement("img");
         icon.src = img.getAttribute("src");
-        icon.alt = clean2(img.getAttribute("alt"));
+        icon.alt = clean3(img.getAttribute("alt"));
         const text = [];
-        const title = clean2((m.querySelector(".icon-module__heading") || {}).textContent);
+        const title = clean3((m.querySelector(".icon-module__heading") || {}).textContent);
         if (title) {
           const h3 = document.createElement("h3");
           h3.textContent = title;
           text.push(h3);
         }
-        const description = clean2((m.querySelector(".icon-module__description") || {}).textContent);
+        const description = clean3((m.querySelector(".icon-module__description") || {}).textContent);
         if (description) {
           const p = document.createElement("p");
           p.textContent = description;
@@ -587,7 +587,7 @@ var CustomImportScript = (() => {
           const p = document.createElement("p");
           const a = document.createElement("a");
           a.href = cta.getAttribute("href");
-          a.textContent = clean2(cta.textContent) || title;
+          a.textContent = clean3(cta.textContent) || title;
           p.append(a);
           text.push(p);
         }
@@ -595,7 +595,7 @@ var CustomImportScript = (() => {
       });
       if (cards.length) {
         const title = element.querySelector(":scope > .column-view > div:not(.row) > :is(h1, h2, h3, h4, h5, h6)");
-        if (title && clean2(title.textContent)) element.before(title);
+        if (title && clean3(title.textContent)) element.before(title);
         element.replaceWith(WebImporter.Blocks.createBlock(document, { name: "cards-icon-text", variants: ["stacked"], cells: cards }));
       }
       return;
@@ -610,10 +610,10 @@ var CustomImportScript = (() => {
       if (src && !/^(data|blob):/i.test(src)) {
         iconCell = document.createElement("img");
         iconCell.src = src;
-        iconCell.alt = clean2(img.getAttribute("alt"));
+        iconCell.alt = clean3(img.getAttribute("alt"));
       }
       const content = [];
-      const title = clean2((card.querySelector(".teaser-heading-text") || card.querySelector(".teaser-heading, h1, h2, h3, h4, h5, h6") || {}).textContent);
+      const title = clean3((card.querySelector(".teaser-heading-text") || card.querySelector(".teaser-heading, h1, h2, h3, h4, h5, h6") || {}).textContent);
       const href = card.getAttribute("href");
       if (title) {
         const h3 = document.createElement("h3");
@@ -628,7 +628,7 @@ var CustomImportScript = (() => {
         content.push(h3);
       }
       card.querySelectorAll(".teaser-description p").forEach((d) => {
-        const t = clean2(d.textContent);
+        const t = clean3(d.textContent);
         if (!t || content.some((c) => c.textContent === t)) return;
         const p = document.createElement("p");
         p.textContent = t;
@@ -649,13 +649,13 @@ var CustomImportScript = (() => {
             comp.querySelectorAll(".richtext > p, .richtext > ul, .richtext > ol").forEach((n) => {
               const c = n.cloneNode(true);
               c.querySelectorAll(".sr-only, .visually-hidden, maui-screen-reader-label").forEach((x) => x.remove());
-              if (clean2(c.textContent)) more.push(c);
+              if (clean3(c.textContent)) more.push(c);
             });
           } else if (comp.classList.contains("link")) {
             comp.querySelectorAll("maui-button-link[href], maui-navigation-link[href], maui-link[href], a[href]").forEach((m) => {
               const c = m.cloneNode(true);
               c.querySelectorAll(".sr-only, .visually-hidden, maui-screen-reader-label").forEach((x) => x.remove());
-              const label = clean2(c.textContent) || clean2(m.getAttribute("label"));
+              const label = clean3(c.textContent) || clean3(m.getAttribute("label"));
               if (!label) return;
               const a = document.createElement("a");
               a.href = m.getAttribute("href");
@@ -679,7 +679,7 @@ var CustomImportScript = (() => {
     });
     if (!rows.some((r) => r[2])) rows.forEach((r) => r.pop());
     const columnTitle = element.querySelector(":scope > .column-view > div:not(.row) > :is(h1, h2, h3, h4, h5, h6)");
-    if (columnTitle && clean2(columnTitle.textContent)) element.before(columnTitle);
+    if (columnTitle && clean3(columnTitle.textContent)) element.before(columnTitle);
     const variants = element.matches(".fourcolumn") ? ["partner", "four-up"] : ["partner"];
     element.replaceWith(WebImporter.Blocks.createBlock(document, { name: "cards-icon-text", variants, cells: rows }));
   }
@@ -969,12 +969,12 @@ var CustomImportScript = (() => {
   // tools/importer/parsers/carousel-cards.js
   function parse6(element, { document }) {
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
-    const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
+    const clean3 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
       if (!node) return "";
       const clone = node.cloneNode(true);
       clone.querySelectorAll(SR_ONLY2).forEach((n) => n.remove());
-      return clean2(clone.textContent);
+      return clean3(clone.textContent);
     };
     const isBroken3 = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src);
     const para = (text) => {
@@ -1010,7 +1010,7 @@ var CustomImportScript = (() => {
         });
         const BUTTONS = "maui-button-link, maui-button, a[href]";
         [...card.querySelectorAll(BUTTONS)].filter((b) => !b.parentElement.closest(BUTTONS)).forEach((btn) => {
-          const label = visibleText(btn) || clean2(btn.getAttribute("label"));
+          const label = visibleText(btn) || clean3(btn.getAttribute("label"));
           if (!label) return;
           const a = document.createElement("a");
           a.href = btn.getAttribute("href") || "#booking-code";
@@ -1180,12 +1180,12 @@ var CustomImportScript = (() => {
   // tools/importer/parsers/destination-finder.js
   function parseGrid(element, finder, document) {
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
-    const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
+    const clean3 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
       if (!node) return "";
       const clone = node.cloneNode(true);
       clone.querySelectorAll(SR_ONLY2).forEach((n) => n.remove());
-      return clean2(clone.textContent);
+      return clean3(clone.textContent);
     };
     const para = (text) => {
       const p = document.createElement("p");
@@ -1206,7 +1206,7 @@ var CustomImportScript = (() => {
     } catch (e) {
       props = {};
     }
-    const value = (v) => v === null || v === void 0 ? "" : clean2(String(v));
+    const value = (v) => v === null || v === void 0 ? "" : clean3(String(v));
     const cells = [];
     const addRow = (key, v) => {
       if (v === null || v === void 0) return;
@@ -1219,14 +1219,14 @@ var CustomImportScript = (() => {
     addRow("Highlight priority", value(props.priorityOfHighlightingOffers).split(",").map((s) => s.trim()).filter(Boolean).join(", "));
     const sds = finder.querySelector('.df-sds-link-button[href], maui-button-link[icon="ai"][href]');
     const sdsHref = value(props.aiSearchUrl) || sds && sds.getAttribute("href");
-    const sdsLabel = visibleText(sds) || sds && clean2(sds.getAttribute("label"));
+    const sdsLabel = visibleText(sds) || sds && clean3(sds.getAttribute("label"));
     if (sdsHref && sdsLabel) addRow("Smart search", [linkPara(sdsHref, sdsLabel)]);
     const redirect = value(props.baseRedirectUrl);
     if (redirect) addRow("Destination page", [linkPara(redirect, redirect.replace(/^.*\//, "") || redirect)]);
     if (/^[A-Za-z]{3}$/.test(value(props.preselectedOrigin))) addRow("Default origin", value(props.preselectedOrigin).toUpperCase());
     const copies = [...finder.querySelectorAll("maui-copy")].filter((c) => !c.closest("maui-card, .df-filters, maui-modal"));
     const disclaimerNode = copies.find((c) => /^\*/.test(visibleText(c)));
-    const disclaimer = visibleText(disclaimerNode) || clean2((finder.querySelector("maui-price-display[conditions]") || { getAttribute: () => "" }).getAttribute("conditions"));
+    const disclaimer = visibleText(disclaimerNode) || clean3((finder.querySelector("maui-price-display[conditions]") || { getAttribute: () => "" }).getAttribute("conditions"));
     if (disclaimer) addRow("Disclaimer", [para(disclaimer)]);
     const trigger = finder.querySelector(".disclaimerandconditions maui-link-button, .disclaimerandconditions button, .disclaimerandconditions a");
     const triggerLabel = visibleText(trigger);
@@ -1255,15 +1255,15 @@ var CustomImportScript = (() => {
       return;
     }
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
-    const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
+    const clean3 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
       if (!node) return "";
       const clone = node.cloneNode(true);
       clone.querySelectorAll(SR_ONLY2).forEach((n) => n.remove());
-      return clean2(clone.textContent);
+      return clean3(clone.textContent);
     };
-    const attr = (node, name) => clean2(node ? node.getAttribute(name) : "");
-    const code = (v) => /^[A-Za-z]{3}$/.test(clean2(v)) ? clean2(v).toUpperCase() : "";
+    const attr = (node, name) => clean3(node ? node.getAttribute(name) : "");
+    const code = (v) => /^[A-Za-z]{3}$/.test(clean3(v)) ? clean3(v).toUpperCase() : "";
     const isBroken3 = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src);
     const para = (text) => {
       const p = document.createElement("p");
@@ -1306,7 +1306,7 @@ var CustomImportScript = (() => {
     if (headline) {
       const clone = headline.cloneNode(true);
       clone.querySelectorAll(`.inlinetextautocomplete, .selectable, input, label, button, ${SR_ONLY2}`).forEach((n) => n.remove());
-      headingText = clean2(clone.textContent);
+      headingText = clean3(clone.textContent);
     }
     addRow("Heading", headingText);
     const originInput = element.querySelector('.inlinetextautocomplete input:not([type="hidden"]), .autocomplete-airport input:not([type="hidden"])');
@@ -1322,7 +1322,7 @@ var CustomImportScript = (() => {
     const tripTypes = [...new Set(chips)];
     addRow("Trip types", tripTypes.join(", "));
     if (props.isOneWayDefault === true && tripTypes[1]) addRow("Default trip type", tripTypes[1]);
-    addRow("Trip duration", clean2(firstQuery.get("TripDuration")));
+    addRow("Trip duration", clean3(firstQuery.get("TripDuration")));
     if (props.airlineWhitelistingEnabled === true) addRow("Airline whitelist", "yes");
     addRow("Price label", attr(element.querySelector("maui-price-display[label]"), "label"));
     const finder = cards.find((a) => a.getAttribute("data-testid") === "destination-finder-card") || cards.find((a) => !a.querySelector("maui-price-display, .ftde-card-price"));
@@ -1386,12 +1386,12 @@ var CustomImportScript = (() => {
   // tools/importer/parsers/cards-icon.js
   function parse8(element, { document }) {
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
-    const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
+    const clean3 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
       if (!node) return "";
       const clone = node.cloneNode(true);
       clone.querySelectorAll(SR_ONLY2).forEach((n) => n.remove());
-      return clean2(clone.textContent);
+      return clean3(clone.textContent);
     };
     const isBroken3 = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src);
     let tiles = [...element.querySelectorAll(".icon-teaser")];
@@ -1410,7 +1410,7 @@ var CustomImportScript = (() => {
       const label = visibleText(tile.querySelector(".headline, .teaser-headline, h3, h4")) || visibleText(link);
       let iconCell = "";
       const mauiIcon = tile.querySelector('maui-icon[use], [class*="icon-"][use]');
-      const iconName = mauiIcon ? clean2(mauiIcon.getAttribute("use")).toLowerCase().replace(/[^a-z0-9-]/g, "-") : "";
+      const iconName = mauiIcon ? clean3(mauiIcon.getAttribute("use")).toLowerCase().replace(/[^a-z0-9-]/g, "-") : "";
       if (iconName) {
         iconCell = `:${iconName}:`;
       } else {
@@ -1440,12 +1440,12 @@ var CustomImportScript = (() => {
   // tools/importer/parsers/columns-logos.js
   function parse9(element, { document }) {
     const SR_ONLY2 = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"]';
-    const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
+    const clean3 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
       if (!node) return "";
       const clone = node.cloneNode(true);
       clone.querySelectorAll(SR_ONLY2).forEach((n) => n.remove());
-      return clean2(clone.textContent);
+      return clean3(clone.textContent);
     };
     const isBroken3 = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src);
     let columns = [...element.querySelectorAll(".column-view-item")];
@@ -1474,14 +1474,14 @@ var CustomImportScript = (() => {
         if (img) {
           item = document.createElement("img");
           item.src = img.getAttribute("src");
-          item.alt = clean2(img.getAttribute("alt")) || clean2(img.getAttribute("title")) || label;
+          item.alt = clean3(img.getAttribute("alt")) || clean3(img.getAttribute("title")) || label;
         } else {
           item = document.createTextNode(label);
         }
         if (href) {
           const a = document.createElement("a");
           a.href = href;
-          const title = img && (clean2(img.getAttribute("title")) || clean2(img.getAttribute("alt")));
+          const title = img && (clean3(img.getAttribute("title")) || clean3(img.getAttribute("alt")));
           if (title) a.title = title;
           a.append(item);
           li.append(a);
@@ -1502,12 +1502,12 @@ var CustomImportScript = (() => {
   function parse10(element, { document }) {
     const SR_ONLY2 = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"]';
     const ZW2 = /[​-‍﻿]/g;
-    const clean2 = (s) => (s || "").replace(ZW2, "").replace(/\s+/g, " ").trim();
+    const clean3 = (s) => (s || "").replace(ZW2, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
       if (!node) return "";
       const clone = node.cloneNode(true);
       clone.querySelectorAll(SR_ONLY2).forEach((n) => n.remove());
-      return clean2(clone.textContent);
+      return clean3(clone.textContent);
     };
     const makeLink = (source) => {
       const label = visibleText(source);
@@ -1519,7 +1519,7 @@ var CustomImportScript = (() => {
       return a;
     };
     const dropIcons = (root) => root.querySelectorAll("em.lh, i.lh").forEach((n) => {
-      if (clean2(n.textContent)) n.replaceWith(...n.childNodes);
+      if (clean3(n.textContent)) n.replaceWith(...n.childNodes);
       else n.remove();
     });
     const convertRichText = (root) => {
@@ -1558,7 +1558,7 @@ var CustomImportScript = (() => {
             const LINKS = "a[href], maui-navigation-link[href], maui-link[href], maui-button-link[href]";
             const rest = li.cloneNode(true);
             rest.querySelectorAll(`${LINKS}, ${SR_ONLY2}, ul, ol`).forEach((n) => n.remove());
-            if (link && clean2(rest.textContent)) {
+            if (link && clean3(rest.textContent)) {
               const c = li.cloneNode(true);
               c.querySelectorAll(`${SR_ONLY2}, ul, ol, br`).forEach((n) => n.remove());
               dropIcons(c);
@@ -1581,7 +1581,7 @@ var CustomImportScript = (() => {
           const clone = child.cloneNode(true);
           clone.querySelectorAll("a, br").forEach((n) => n.remove());
           clone.querySelectorAll(SR_ONLY2).forEach((n) => n.remove());
-          const onlyLinks = links.length && !clean2(clone.textContent);
+          const onlyLinks = links.length && !clean3(clone.textContent);
           if (onlyLinks) {
             const list = document.createElement("ul");
             links.forEach((l) => {
@@ -1652,7 +1652,7 @@ var CustomImportScript = (() => {
       const picture = document.createElement("picture");
       const out = document.createElement("img");
       out.setAttribute("src", src);
-      out.setAttribute("alt", clean2(img.getAttribute("alt")));
+      out.setAttribute("alt", clean3(img.getAttribute("alt")));
       picture.append(out);
       const p = document.createElement("p");
       p.append(picture);
@@ -1779,7 +1779,7 @@ var CustomImportScript = (() => {
             if (src && !/^(data|blob):/i.test(src) && !/(^|\/)undefined(\.transform|$|\/)/.test(src)) {
               const img = document.createElement("img");
               img.setAttribute("src", src);
-              img.setAttribute("alt", clean2(icon.getAttribute("alt")));
+              img.setAttribute("alt", clean3(icon.getAttribute("alt")));
               h.append(img);
             }
             h.append(text);
@@ -1803,13 +1803,13 @@ var CustomImportScript = (() => {
     const columnItem = element.parentElement && element.parentElement.closest(".column-view-item");
     const columnView = columnItem && columnItem.closest(".column-view");
     const columnCount = columnView ? [...columnView.querySelectorAll(".column-view-item")].filter((it) => it.closest(".column-view") === columnView).length : 0;
-    const aloneInColumn = !!columnItem && [...columnItem.children].filter((c) => c !== element && !c.contains(element) && !c.matches(".separator") && (clean2(c.textContent) || c.querySelector("img, video, iframe"))).length === 0;
+    const aloneInColumn = !!columnItem && [...columnItem.children].filter((c) => c !== element && !c.contains(element) && !c.matches(".separator") && (clean3(c.textContent) || c.querySelector("img, video, iframe"))).length === 0;
     if (aloneInColumn && columnCount > 1) options.push("column");
     else if (columnItem) options.push("spaced");
     const cells = [];
     const expanded = [];
     items.forEach((item) => {
-      const title = clean2(item.getAttribute("headline")) || visibleText(item.querySelector('[slot="headline"], .accordion-headline, summary, h2, h3'));
+      const title = clean3(item.getAttribute("headline")) || visibleText(item.querySelector('[slot="headline"], .accordion-headline, summary, h2, h3'));
       const content = convertPanel(item);
       if (!title && !content.length) return;
       cells.push([title, content.length ? content : ""]);
@@ -1823,6 +1823,116 @@ var CustomImportScript = (() => {
     const blockName = options.length ? `accordion-columns (${options.join(", ")})` : "accordion-columns";
     const block = WebImporter.Blocks.createBlock(document, { name: blockName, cells });
     element.replaceWith(block);
+  }
+
+  // scripts/style-markers.js
+  var COLUMN_MARK = "column-(?:(?:start|end)(?:-outer)?|spaced)";
+  var styleMarker = (tokens) => new RegExp(`\\s*\\{((?:${tokens})(?: (?:${tokens}))*)\\}\\s*$`);
+  var HEADING_TOKENS = `heading-(?:large|medium|small|copytext-large|copytext-medium)|copytext-large|limited-width|${COLUMN_MARK}`;
+  var PARAGRAPH_TOKENS = `copytext-(?:small|medium|large)|full-width|limited-width|caption|parallax|narrow|indent-\\d{1,3}|${COLUMN_MARK}`;
+  var LIST_TOKENS = `copytext-(?:small|medium|large)|full-width|limited-width|${COLUMN_MARK}`;
+  var HEADING_STYLE = styleMarker(HEADING_TOKENS);
+  var PARAGRAPH_STYLE = styleMarker(PARAGRAPH_TOKENS);
+  var LIST_STYLE = styleMarker(LIST_TOKENS);
+  var VIDEO_SETTINGS = ["autoplay", "muted", "loop", "controls", "round-play-button"];
+  var VIDEO_SIZE = "size-\\d{2,5}x\\d{2,5}";
+  var VIDEO_MARKER = styleMarker(`${VIDEO_SETTINGS.join("|")}|${VIDEO_SIZE}`);
+  var APP_SPACER = /^\{spacer:\s*(x-small|small|medium|m-large|large)\s*(,\s*v2)?\s*\}$/i;
+  var OTHER_TOKENS = "mobile|blank|small|divider|cell-(?:half-start|half-end|three-quarters)";
+  var ANY_TOKENS = [HEADING_TOKENS, PARAGRAPH_TOKENS, LIST_TOKENS, VIDEO_SETTINGS.join("|"), VIDEO_SIZE, OTHER_TOKENS].join("|");
+  var ANY_MARKER = `\\{\\s*(?:${ANY_TOKENS})(?: (?:${ANY_TOKENS}))*\\s*\\}`;
+  var SEPARATOR_TEXT = /^\s*\{(?:spacer|divider)-\d{1,3}(?: from-768)?\}\s*$/;
+  var isSeparatorText = (s) => SEPARATOR_TEXT.test(s) || APP_SPACER.test(s.trim());
+  var TRAILING_TEXT = new RegExp(`\\s*${ANY_MARKER}\\s*$`);
+  var TRAILING_HTML = new RegExp(`\\s*${ANY_MARKER}((?:\\s*</[a-z][a-z0-9]*>)*)\\s*$`, "i");
+  function stripStyleMarkers(text) {
+    let s = String(text != null ? text : "");
+    if (isSeparatorText(s)) return "";
+    for (let prev = null; prev !== s; ) {
+      prev = s;
+      s = s.replace(TRAILING_TEXT, "");
+    }
+    return s;
+  }
+  var SPACE = { m: 60, l: 120 };
+  var DIVIDER_SPACE = 25;
+  var BASE_THEME = {
+    headings: {
+      h1: "heading-large",
+      h2: "heading-medium",
+      h3: "heading-copytext-large",
+      h4: "heading-copytext-large",
+      h5: "heading-copytext-medium",
+      h6: "heading-copytext-medium"
+    },
+    headingChoices: {
+      h2: { large: "heading-large", compact: "heading-copytext-large" },
+      h3: { large: "heading-medium" }
+    },
+    // running text: two thirds of the content width from 1025px ('full': the whole width); body
+    // text 18px (copytext-large), small print 14px
+    text: { width: "limited", size: "copytext-large", small: "copytext-small" },
+    separators: { m: SPACE.m, l: SPACE.l, divider: DIVIDER_SPACE },
+    // a Lufthansa column view's padding (32px; outside a page section 20px, 40px from 768px) and
+    // the space a heading adds above itself on flow pages (none: the paddings make it)
+    columnViews: { padding: 32, outerPadding: [20, 40], headingGap: 0 },
+    rules: [],
+    live: false
+  };
+
+  // tools/importer/description-rules.js
+  var clean2 = (s) => String(s || "").replace(/[\u200B-\u200D\uFEFF]/g, "").replace(/\u00A0/g, " ").replace(/\s+/g, " ").trim();
+  var DATE_ONLY = new RegExp("^\\(?(?:\\d{1,2}\\.?\\s+\\p{L}+\\.?|\\p{L}+\\.?\\s+\\d{1,2},?)\\s+\\d{4}\\)?$", "u");
+  var VIDEO_PATH = /^(?:https?:\/\/\S+|\/\S+)\.(?:mp4|webm|mov|m4v)(?:\?\S*)?$|^(?:https?:\/\/[^\s/]+)?\/content\/dam\/\S+$/i;
+  var HAN_KANA = /[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}]/u;
+  var HANGUL = new RegExp("\\p{Script=Hangul}", "u");
+  var FOOTNOTE = /^(?:[*†‡¹²³⁴⁵⁶⁷⁸⁹]|\(\d{1,2}\)\s)/u;
+  var DATES = "\\d{1,2}\\.\\d{1,2}\\.\\d{2,4}|\\d{4}-\\d{2}-\\d{2}|\\d{1,2}\\.?\\s+\\p{L}+\\.?,?\\s+\\d{4}|\\p{L}+\\.?\\s+\\d{1,2},?\\s+\\d{4}|\\d{4}\\s?\u5E74\\s?\\d{1,2}\\s?\u6708\\s?\\d{1,2}\\s?\u65E5";
+  var DATE = new RegExp(DATES, "gu");
+  var DATE_AT_END = new RegExp(`(?:${DATES})[)\uFF09]?$`, "u");
+  var PRICE = /(?:[€$£¥₩]|\b(?:EUR|USD|CHF|GBP|CNY|HKD|KRW|MYR|THB|INR|JPY)\b)\s?\d[\d.,]*|\d[\d.,]*\s?(?:[€$£¥₩]|\b(?:EUR|USD|CHF|GBP|CNY|HKD|KRW|MYR|THB|INR|JPY)\b)/gu;
+  var LEAD_IN = /(?:[:：,，;；–—-]|…|\.\.\.)$/u;
+  var STEP = new RegExp("^\\d{1,2}[.)]\\s*(?!\\p{L}+\\.?,?\\s+\\d{4})\\p{L}", "u");
+  var SALUTATION = new RegExp("^(?:dear|sehr geehrte[rs]?|liebe[rs]?|geachte|ch\xE8re?s?|cher|madame|monsieur|gentile|egregi[oa]|estimad[oa]|prezad[oa]|car[oa]|\u03B1\u03B3\u03B1\u03C0\u03B7\u03C4\\p{L}*|\u0443\u0432\u0430\u0436\u0430\u0435\u043C\\p{L}*|\u0434\u043E\u0440\u043E\u0433\\p{L}*)(?!\\p{L})|^(?:\u304A\u5BA2\u69D8\u3078|\u62DD\u5553|\u4EB2\u7231\u7684|\u89AA\u611B\u7684|\uCE5C\uC560\uD558\uB294)", "iu");
+  var CRUMB = /\s[›»>]\s/u;
+  var words = (s) => s.split(" ").filter((t) => new RegExp("\\p{L}", "u").test(t)).length;
+  function isWeak(text) {
+    if (FOOTNOTE.test(text) || LEAD_IN.test(text) || STEP.test(text)) return true;
+    const chars = text.replace(/\s/g, "");
+    if ((chars.match(new RegExp("\\p{L}", "gu")) || []).length < chars.length * 0.4) return true;
+    const end = text.match(DATE_AT_END);
+    if (end) {
+      const rest = text.slice(0, end.index).trim();
+      if (!rest || /[,:，：、|–-]$/u.test(rest)) return true;
+    }
+    const cjk = HAN_KANA.test(text);
+    if (SALUTATION.test(text) && (cjk ? [...chars].length <= 12 : words(text) <= 6)) return true;
+    if (CRUMB.test(text) && words(text) <= 8) return true;
+    if (cjk) return [...chars].length < 6;
+    if (words(text) < (HANGUL.test(text) ? 3 : 4)) return true;
+    const dated = text.replace(DATE, " ").replace(PRICE, " ");
+    if (dated === text) return false;
+    return / \| /.test(text) || words(clean2(dated)) < 3;
+  }
+  var textLines = (el) => {
+    const c = el.cloneNode(true);
+    c.querySelectorAll("br").forEach((br) => br.replaceWith(c.ownerDocument.createTextNode("\n")));
+    return c.textContent.split("\n").map((l) => clean2(stripStyleMarkers(clean2(l)))).filter(Boolean);
+  };
+  function paragraphText(p) {
+    const lines = textLines(p);
+    const text = clean2(stripStyleMarkers(lines.join(" ")));
+    if (!text) return "";
+    if (VIDEO_PATH.test(text) || DATE_ONLY.test(text) || isWeak(text)) return "";
+    if (lines.length > 1 && lines.every(isWeak)) return "";
+    const links = [...p.querySelectorAll("a")];
+    if (links.length && clean2(links.map((a) => a.textContent).join(" ")) === text) return "";
+    return text;
+  }
+  function firstTextParagraph(root, skip = "div.metadata, div.section-metadata") {
+    const first = (sel) => [...root.querySelectorAll(sel)].filter((x) => !x.closest(skip)).find((x) => paragraphText(x));
+    const p = first("p") || first("h1") || first("h2");
+    return p ? paragraphText(p) : "";
   }
 
   // tools/importer/transformers/lufthansa-cleanup.js
@@ -2600,8 +2710,6 @@ var CustomImportScript = (() => {
   function cleanText(el) {
     return el.textContent.replace(/[\u200B\uFEFF]/g, "").replace(/\s+/g, " ").trim();
   }
-  var DATE_ONLY = new RegExp("^\\(?(?:\\d{1,2}\\.?\\s+\\p{L}+\\.?|\\p{L}+\\.?\\s+\\d{1,2},?)\\s+\\d{4}\\)?$", "u");
-  var VIDEO_PATH = /^(?:https?:\/\/\S+|\/\S+)\.(?:mp4|webm|mov|m4v)(?:\?\S*)?$|^(?:https?:\/\/[^\s/]+)?\/content\/dam\/\S+$/i;
   function ensureDescription(document) {
     const { head } = document;
     if (!head) return;
@@ -2614,14 +2722,7 @@ var CustomImportScript = (() => {
     let description = content('meta[property="og:description"]') || content('meta[name="og:description"]') || content('meta[name="twitter:description"]') || content('meta[property="twitter:description"]');
     if (!description) {
       const root = document.querySelector(".container-content") || document.querySelector("main") || document.body;
-      const p = [...root.querySelectorAll("p")].find((x) => {
-        if (x.closest("header, footer, nav, .header, .footer, .lightbox-modal")) return false;
-        const text = cleanText(x);
-        if (!text || VIDEO_PATH.test(text) || DATE_ONLY.test(text)) return false;
-        const links = [...x.querySelectorAll("a")];
-        return !(links.length && links.map((a) => cleanText(a)).join(" ").trim() === text);
-      });
-      description = p ? cleanText(p) : "";
+      description = firstTextParagraph(root, "header, footer, nav, .header, .footer, .lightbox-modal");
     }
     if (!description) return;
     const meta = own || document.createElement("meta");
@@ -3871,7 +3972,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_homepage_989949_default = {
+  var tmp_bundle_homepage_551601_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -3905,5 +4006,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_homepage_989949_exports);
+  return __toCommonJS(tmp_bundle_homepage_551601_exports);
 })();

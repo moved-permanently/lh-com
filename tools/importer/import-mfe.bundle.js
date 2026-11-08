@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-mfe.js
-  var tmp_bundle_mfe_989949_exports = {};
-  __export(tmp_bundle_mfe_989949_exports, {
-    default: () => tmp_bundle_mfe_989949_default
+  var tmp_bundle_mfe_551601_exports = {};
+  __export(tmp_bundle_mfe_551601_exports, {
+    default: () => tmp_bundle_mfe_551601_default
   });
 
   // tools/importer/parsers/micro-frontend.js
@@ -113,6 +113,116 @@ var CustomImportScript = (() => {
     if (fallback) cells.push(["Fallback", fallback]);
     const block = WebImporter.Blocks.createBlock(document, { name: "micro-frontend", cells });
     element.replaceWith(block);
+  }
+
+  // scripts/style-markers.js
+  var COLUMN_MARK = "column-(?:(?:start|end)(?:-outer)?|spaced)";
+  var styleMarker = (tokens) => new RegExp(`\\s*\\{((?:${tokens})(?: (?:${tokens}))*)\\}\\s*$`);
+  var HEADING_TOKENS = `heading-(?:large|medium|small|copytext-large|copytext-medium)|copytext-large|limited-width|${COLUMN_MARK}`;
+  var PARAGRAPH_TOKENS = `copytext-(?:small|medium|large)|full-width|limited-width|caption|parallax|narrow|indent-\\d{1,3}|${COLUMN_MARK}`;
+  var LIST_TOKENS = `copytext-(?:small|medium|large)|full-width|limited-width|${COLUMN_MARK}`;
+  var HEADING_STYLE = styleMarker(HEADING_TOKENS);
+  var PARAGRAPH_STYLE = styleMarker(PARAGRAPH_TOKENS);
+  var LIST_STYLE = styleMarker(LIST_TOKENS);
+  var VIDEO_SETTINGS = ["autoplay", "muted", "loop", "controls", "round-play-button"];
+  var VIDEO_SIZE = "size-\\d{2,5}x\\d{2,5}";
+  var VIDEO_MARKER = styleMarker(`${VIDEO_SETTINGS.join("|")}|${VIDEO_SIZE}`);
+  var APP_SPACER = /^\{spacer:\s*(x-small|small|medium|m-large|large)\s*(,\s*v2)?\s*\}$/i;
+  var OTHER_TOKENS = "mobile|blank|small|divider|cell-(?:half-start|half-end|three-quarters)";
+  var ANY_TOKENS = [HEADING_TOKENS, PARAGRAPH_TOKENS, LIST_TOKENS, VIDEO_SETTINGS.join("|"), VIDEO_SIZE, OTHER_TOKENS].join("|");
+  var ANY_MARKER = `\\{\\s*(?:${ANY_TOKENS})(?: (?:${ANY_TOKENS}))*\\s*\\}`;
+  var SEPARATOR_TEXT = /^\s*\{(?:spacer|divider)-\d{1,3}(?: from-768)?\}\s*$/;
+  var isSeparatorText = (s) => SEPARATOR_TEXT.test(s) || APP_SPACER.test(s.trim());
+  var TRAILING_TEXT = new RegExp(`\\s*${ANY_MARKER}\\s*$`);
+  var TRAILING_HTML = new RegExp(`\\s*${ANY_MARKER}((?:\\s*</[a-z][a-z0-9]*>)*)\\s*$`, "i");
+  function stripStyleMarkers(text) {
+    let s = String(text != null ? text : "");
+    if (isSeparatorText(s)) return "";
+    for (let prev = null; prev !== s; ) {
+      prev = s;
+      s = s.replace(TRAILING_TEXT, "");
+    }
+    return s;
+  }
+  var SPACE = { m: 60, l: 120 };
+  var DIVIDER_SPACE = 25;
+  var BASE_THEME = {
+    headings: {
+      h1: "heading-large",
+      h2: "heading-medium",
+      h3: "heading-copytext-large",
+      h4: "heading-copytext-large",
+      h5: "heading-copytext-medium",
+      h6: "heading-copytext-medium"
+    },
+    headingChoices: {
+      h2: { large: "heading-large", compact: "heading-copytext-large" },
+      h3: { large: "heading-medium" }
+    },
+    // running text: two thirds of the content width from 1025px ('full': the whole width); body
+    // text 18px (copytext-large), small print 14px
+    text: { width: "limited", size: "copytext-large", small: "copytext-small" },
+    separators: { m: SPACE.m, l: SPACE.l, divider: DIVIDER_SPACE },
+    // a Lufthansa column view's padding (32px; outside a page section 20px, 40px from 768px) and
+    // the space a heading adds above itself on flow pages (none: the paddings make it)
+    columnViews: { padding: 32, outerPadding: [20, 40], headingGap: 0 },
+    rules: [],
+    live: false
+  };
+
+  // tools/importer/description-rules.js
+  var clean2 = (s) => String(s || "").replace(/[\u200B-\u200D\uFEFF]/g, "").replace(/\u00A0/g, " ").replace(/\s+/g, " ").trim();
+  var DATE_ONLY = new RegExp("^\\(?(?:\\d{1,2}\\.?\\s+\\p{L}+\\.?|\\p{L}+\\.?\\s+\\d{1,2},?)\\s+\\d{4}\\)?$", "u");
+  var VIDEO_PATH = /^(?:https?:\/\/\S+|\/\S+)\.(?:mp4|webm|mov|m4v)(?:\?\S*)?$|^(?:https?:\/\/[^\s/]+)?\/content\/dam\/\S+$/i;
+  var HAN_KANA = /[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}]/u;
+  var HANGUL = new RegExp("\\p{Script=Hangul}", "u");
+  var FOOTNOTE = /^(?:[*†‡¹²³⁴⁵⁶⁷⁸⁹]|\(\d{1,2}\)\s)/u;
+  var DATES = "\\d{1,2}\\.\\d{1,2}\\.\\d{2,4}|\\d{4}-\\d{2}-\\d{2}|\\d{1,2}\\.?\\s+\\p{L}+\\.?,?\\s+\\d{4}|\\p{L}+\\.?\\s+\\d{1,2},?\\s+\\d{4}|\\d{4}\\s?\u5E74\\s?\\d{1,2}\\s?\u6708\\s?\\d{1,2}\\s?\u65E5";
+  var DATE = new RegExp(DATES, "gu");
+  var DATE_AT_END = new RegExp(`(?:${DATES})[)\uFF09]?$`, "u");
+  var PRICE = /(?:[€$£¥₩]|\b(?:EUR|USD|CHF|GBP|CNY|HKD|KRW|MYR|THB|INR|JPY)\b)\s?\d[\d.,]*|\d[\d.,]*\s?(?:[€$£¥₩]|\b(?:EUR|USD|CHF|GBP|CNY|HKD|KRW|MYR|THB|INR|JPY)\b)/gu;
+  var LEAD_IN = /(?:[:：,，;；–—-]|…|\.\.\.)$/u;
+  var STEP = new RegExp("^\\d{1,2}[.)]\\s*(?!\\p{L}+\\.?,?\\s+\\d{4})\\p{L}", "u");
+  var SALUTATION = new RegExp("^(?:dear|sehr geehrte[rs]?|liebe[rs]?|geachte|ch\xE8re?s?|cher|madame|monsieur|gentile|egregi[oa]|estimad[oa]|prezad[oa]|car[oa]|\u03B1\u03B3\u03B1\u03C0\u03B7\u03C4\\p{L}*|\u0443\u0432\u0430\u0436\u0430\u0435\u043C\\p{L}*|\u0434\u043E\u0440\u043E\u0433\\p{L}*)(?!\\p{L})|^(?:\u304A\u5BA2\u69D8\u3078|\u62DD\u5553|\u4EB2\u7231\u7684|\u89AA\u611B\u7684|\uCE5C\uC560\uD558\uB294)", "iu");
+  var CRUMB = /\s[›»>]\s/u;
+  var words = (s) => s.split(" ").filter((t) => new RegExp("\\p{L}", "u").test(t)).length;
+  function isWeak(text) {
+    if (FOOTNOTE.test(text) || LEAD_IN.test(text) || STEP.test(text)) return true;
+    const chars = text.replace(/\s/g, "");
+    if ((chars.match(new RegExp("\\p{L}", "gu")) || []).length < chars.length * 0.4) return true;
+    const end = text.match(DATE_AT_END);
+    if (end) {
+      const rest = text.slice(0, end.index).trim();
+      if (!rest || /[,:，：、|–-]$/u.test(rest)) return true;
+    }
+    const cjk = HAN_KANA.test(text);
+    if (SALUTATION.test(text) && (cjk ? [...chars].length <= 12 : words(text) <= 6)) return true;
+    if (CRUMB.test(text) && words(text) <= 8) return true;
+    if (cjk) return [...chars].length < 6;
+    if (words(text) < (HANGUL.test(text) ? 3 : 4)) return true;
+    const dated = text.replace(DATE, " ").replace(PRICE, " ");
+    if (dated === text) return false;
+    return / \| /.test(text) || words(clean2(dated)) < 3;
+  }
+  var textLines = (el) => {
+    const c = el.cloneNode(true);
+    c.querySelectorAll("br").forEach((br) => br.replaceWith(c.ownerDocument.createTextNode("\n")));
+    return c.textContent.split("\n").map((l) => clean2(stripStyleMarkers(clean2(l)))).filter(Boolean);
+  };
+  function paragraphText(p) {
+    const lines = textLines(p);
+    const text = clean2(stripStyleMarkers(lines.join(" ")));
+    if (!text) return "";
+    if (VIDEO_PATH.test(text) || DATE_ONLY.test(text) || isWeak(text)) return "";
+    if (lines.length > 1 && lines.every(isWeak)) return "";
+    const links = [...p.querySelectorAll("a")];
+    if (links.length && clean2(links.map((a) => a.textContent).join(" ")) === text) return "";
+    return text;
+  }
+  function firstTextParagraph(root, skip = "div.metadata, div.section-metadata") {
+    const first = (sel) => [...root.querySelectorAll(sel)].filter((x) => !x.closest(skip)).find((x) => paragraphText(x));
+    const p = first("p") || first("h1") || first("h2");
+    return p ? paragraphText(p) : "";
   }
 
   // tools/importer/transformers/lufthansa-cleanup.js
@@ -890,8 +1000,6 @@ var CustomImportScript = (() => {
   function cleanText(el) {
     return el.textContent.replace(/[\u200B\uFEFF]/g, "").replace(/\s+/g, " ").trim();
   }
-  var DATE_ONLY = new RegExp("^\\(?(?:\\d{1,2}\\.?\\s+\\p{L}+\\.?|\\p{L}+\\.?\\s+\\d{1,2},?)\\s+\\d{4}\\)?$", "u");
-  var VIDEO_PATH = /^(?:https?:\/\/\S+|\/\S+)\.(?:mp4|webm|mov|m4v)(?:\?\S*)?$|^(?:https?:\/\/[^\s/]+)?\/content\/dam\/\S+$/i;
   function ensureDescription(document) {
     const { head } = document;
     if (!head) return;
@@ -904,14 +1012,7 @@ var CustomImportScript = (() => {
     let description = content('meta[property="og:description"]') || content('meta[name="og:description"]') || content('meta[name="twitter:description"]') || content('meta[property="twitter:description"]');
     if (!description) {
       const root = document.querySelector(".container-content") || document.querySelector("main") || document.body;
-      const p = [...root.querySelectorAll("p")].find((x) => {
-        if (x.closest("header, footer, nav, .header, .footer, .lightbox-modal")) return false;
-        const text = cleanText(x);
-        if (!text || VIDEO_PATH.test(text) || DATE_ONLY.test(text)) return false;
-        const links = [...x.querySelectorAll("a")];
-        return !(links.length && links.map((a) => cleanText(a)).join(" ").trim() === text);
-      });
-      description = p ? cleanText(p) : "";
+      description = firstTextParagraph(root, "header, footer, nav, .header, .footer, .lightbox-modal");
     }
     if (!description) return;
     const meta = own || document.createElement("meta");
@@ -2010,7 +2111,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_mfe_989949_default = {
+  var tmp_bundle_mfe_551601_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -2044,5 +2145,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_mfe_989949_exports);
+  return __toCommonJS(tmp_bundle_mfe_551601_exports);
 })();
