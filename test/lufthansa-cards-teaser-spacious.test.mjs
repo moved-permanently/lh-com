@@ -6,7 +6,9 @@
    travel-information (lh-parity-003 html/, 1440 and 390): the first image 40 px (20 px) under the
    row's top, 80 px (40 px) from a row's last link to the next row's image, 40 px (20 px) from the
    last link to the footer; ours had 32, 66 and 48 everywhere. Our link line is 2 px shorter
-   (24 vs 26), so ours are 42 / 82 and 22 / 42.
+   (24 vs 26), so ours are 42 / 82 and 22 / 42. Brief 500: against lh-parity-002's captures at 390 the
+   rows are 79 px apart (take-off; overview-travel-information's row steps -26 / -29 px), so below 768 px
+   a row's first card has 66 px above it (test/cards-teaser-spacious-rows-500).
    The importer marks such rows (".container-content > .twocolumn" and its kin) with the option
    "spacious"; the block's rule is scoped to body.brand-lufthansa. WebImporter's createBlock is a
    stand-in here.
@@ -49,7 +51,7 @@ test('a row in a section keeps the plain block', () => {
 
 test('spacious: www\'s page-column padding and row gaps (lh-com only)', () => {
   has(/body\.brand-lufthansa \.cards-teaser\.spacious:not\(\.overlay\) > ul \{ padding-top: 20px; \}/);
-  has(/@media \(width < 768px\) \{ body\.brand-lufthansa \.cards-teaser\.spacious:not\(\.overlay, \.three-up, \.four-up\) > ul > li:nth-child\(2n \+ 3\) \{ margin-top: 42px; \} \}/, 'phones only: the grid resets the stacked margins from 768px');
+  has(/@media \(width < 768px\) \{ body\.brand-lufthansa \.cards-teaser\.spacious:not\(\.overlay, \.three-up, \.four-up\) > ul > li:nth-child\(2n \+ 3\) \{ margin-top: 66px; \} \}/, 'phones only: the grid resets the stacked margins from 768px');
   has(/body\.brand-lufthansa \.cards-teaser-wrapper \+ \.cards-teaser-wrapper > \.cards-teaser\.spacious \{ margin-top: 42px; \}/, 'a grid after a grid: www\'s 40 px, not the sections\' 91');
   has(/@media \(width >= 768px\) \{[^@]*body\.brand-lufthansa \.cards-teaser-wrapper \+ \.cards-teaser-wrapper > \.cards-teaser\.spacious \{ margin-top: 82px; \}/);
   // the grid's section when nothing but empty sections follow (DA's trailing <div></div>), whose
